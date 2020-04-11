@@ -71,6 +71,14 @@
 	worn_state = "combat"
 	armor = list(melee = 10, bullet = 0, laser = 10,energy = 0, bomb = 0, bio = 0, rad = 0)
 
+/obj/item/clothing/under/urist/nerva/seniornt
+	name = "senior researcher's uniform"
+	desc = "A smart looking uniform often worn by the ICS Nerva Senior Research staff."
+	icon_state = "directornt"
+	item_state = "directornt"
+	worn_state = "directornt"
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 5, rad = 0)
+
 //jackets
 
 /obj/item/clothing/suit/storage/toggle/urist/hosjacket

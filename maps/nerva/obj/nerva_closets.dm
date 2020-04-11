@@ -220,3 +220,24 @@
 		/obj/item/weapon/storage/box/ammo/shotgunammo,
 		/obj/item/weapon/storage/box/ammo/shotgunshells
 		)
+
+/obj/structure/closet/secure_closet/seniornt
+	name = "senior researcher's locker"
+	req_access = list(access_rd)
+	closet_appearance = /decl/closet_appearance/secure_closet/rd
+
+/obj/structure/closet/secure_closet/seniornt/WillContain()
+	return list(
+		/obj/item/clothing/under/urist/nerva/seniornt,
+		/obj/item/clothing/under/rank/scientist/executive,
+		/obj/item/clothing/suit/storage/toggle/labcoat,
+		/obj/item/clothing/shoes/white,
+		/obj/item/clothing/shoes/leather,
+		/obj/item/clothing/gloves/latex,
+		/obj/item/device/radio/headset/heads/nerva_senior,
+		/obj/item/clothing/mask/gas,
+		/obj/item/device/flash,
+		/obj/item/weapon/material/clipboard,
+		/obj/item/clothing/suit/storage/toggle/labcoat/science,
+		/obj/item/weapon/storage/backpack/satchel/leather
+	)

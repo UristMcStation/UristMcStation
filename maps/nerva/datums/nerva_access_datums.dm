@@ -34,3 +34,8 @@
 /datum/access/hos
 	desc = "Chief of Security"
 
+/var/const/access_seniornt = "ACCESS_SENIOR_NT_OFFICE" //76
+/datum/access/seniornt
+	id = access_seniornt
+	desc = "Senior Researcher"
+	region = ACCESS_REGION_COMMAND

@@ -1964,6 +1964,7 @@
 	c_tag = "Morgue";
 	dir = 4
 	},
+/obj/item/weapon/hand_labeler,
 /turf/simulated/floor/tiled/dark,
 /area/medical/morgue)
 "aes" = (
@@ -6237,11 +6238,7 @@
 /area/medical/lobby)
 "alA" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
-/obj/item/weapon/reagent_containers/spray/cleaner{
-	pixel_x = -5
-	},
+/obj/item/toy/desk/dippingbird,
 /turf/simulated/floor/tiled/white,
 /area/medical/lobby)
 "alB" = (
@@ -6972,10 +6969,11 @@
 	name = "Medical Reception";
 	req_access = list("ACCESS_MEDICAL")
 	},
-/obj/item/weapon/folder/white,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/item/weapon/pen,
+/obj/item/weapon/paper_bin,
 /turf/simulated/floor/tiled/white,
 /area/medical/lobby)
 "amK" = (
@@ -8444,6 +8442,9 @@
 	pixel_x = 0;
 	pixel_y = -24
 	},
+/obj/item/weapon/reagent_containers/spray/cleaner{
+	pixel_x = -5
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/lobby)
 "apu" = (
@@ -8802,7 +8803,8 @@
 	id = "seccheckpointshutters";
 	name = "Security Checkpoint Shutter";
 	pixel_x = -24;
-	pixel_y = -6
+	pixel_y = -6;
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 4
@@ -18398,8 +18400,8 @@
 /obj/structure/disposalpipe/sortjunction{
 	dir = 8;
 	icon_state = "pipe-j2s";
-	name = "Cargo Bay";
-	sortType = "Cargo Bay"
+	name = "Deck 3 Hallway";
+	sortType = "Deck 3 Hallway"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/central/third_deck)
@@ -21820,7 +21822,8 @@
 	id = "roboticisttint";
 	pixel_x = 22;
 	pixel_y = 6;
-	range = 4
+	range = 7;
+	req_access = list("ACCESS_ROBOTICS")
 	},
 /obj/machinery/light_switch{
 	pixel_x = 22;
@@ -23329,10 +23332,9 @@
 	tag = "icon-shutter1 (EAST)"
 	},
 /obj/machinery/door/firedoor,
-/obj/structure/window/reinforced/polarized/full{
+/obj/effect/wallframe_spawn/reinforced/polarized/full{
 	id = "roboticisttint"
 	},
-/obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/logistics/mechbay)
 "aNv" = (
@@ -27108,11 +27110,11 @@
 /area/medical/cmo)
 "aTB" = (
 /obj/structure/table/glass,
-/obj/item/weapon/folder/white,
 /obj/machinery/camera/network/command{
 	c_tag = "Chief Medical Officer's Office";
 	dir = 8
 	},
+/obj/item/toy/desk/newtoncradle,
 /turf/simulated/floor/tiled/white,
 /area/medical/cmo)
 "aTC" = (
@@ -29220,22 +29222,6 @@
 /obj/item/clothing/head/hardhat/red,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fp)
-"jpP" = (
-/obj/machinery/door/blast/shutters/open{
-	dir = 2;
-	icon_state = "shutter1";
-	id = "roboprivacy";
-	name = "Robotics Privacy Shutter";
-	tag = "icon-shutter1 (EAST)"
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced/polarized/full{
-	id = "roboticisttint";
-	tag = "roboticisttintbutton"
-	},
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/logistics/mechbay)
 "jxa" = (
 /obj/machinery/door/window/brigdoor/northleft{
 	name = "Security Office";
@@ -29483,6 +29469,7 @@
 	},
 /obj/item/clothing/accessory/armband/bluegoldcom,
 /obj/item/clothing/accessory/armband/medblue,
+/obj/item/weapon/folder/white,
 /turf/simulated/floor/tiled/white,
 /area/medical/cmo)
 "lvk" = (
@@ -30291,6 +30278,11 @@
 /obj/effect/paint_stripe/blue,
 /turf/simulated/wall/r_wall/prepainted,
 /area/medical/cmo)
+"vWH" = (
+/obj/structure/table/woodentable/walnut,
+/obj/item/toy/desk/fan,
+/turf/simulated/floor/carpet/green,
+/area/command/meeting)
 "waA" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -50986,7 +50978,7 @@ aIN
 aJU
 aKY
 aMg
-jpP
+aNu
 aOG
 aVc
 aPU
@@ -59861,7 +59853,7 @@ auU
 awo
 axy
 ayH
-azz
+vWH
 azz
 aBz
 aCI

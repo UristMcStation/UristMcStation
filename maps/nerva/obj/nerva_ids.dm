@@ -41,5 +41,11 @@
 	icon_state = "corporate"
 	job_access_type = /datum/job/scientist
 
+/obj/item/weapon/card/id/nerva_senior_scientist
+	name = "identification card"
+	desc = "A card issued to senior Nanotrasen scientists."
+	icon_state = "sciGold"
+	job_access_type = /datum/job/seniorscientist
+
 /obj/item/weapon/card/id/medical/psychiatrist/nerva
 	job_access_type = /datum/job/chaplain

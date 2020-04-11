@@ -174,3 +174,16 @@
 /decl/hierarchy/outfit/job/medical/psychiatrist/psychologist/nerva
 	name = OUTFIT_JOB_NAME("Nerva Psychologist")
 	id_type = /obj/item/weapon/card/id/medical/psychiatrist/nerva
+
+// Senior Scientist
+
+/decl/hierarchy/outfit/job/nerva/seniorscientist //Reworked old RD stuff from Torch
+	name = OUTFIT_JOB_NAME("Nerva Senior Scientist")
+	l_ear = /obj/item/device/radio/headset/heads/nerva_senior
+	uniform = /obj/item/clothing/under/urist/nerva/seniornt
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
+	back = /obj/item/weapon/storage/backpack/satchel/leather
+	shoes = /obj/item/clothing/shoes/brown
+	l_hand = /obj/item/weapon/clipboard
+	id_type = /obj/item/weapon/card/id/nerva_senior_scientist
+	pda_type = /obj/item/modular_computer/pda/science
