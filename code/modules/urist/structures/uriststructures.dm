@@ -348,11 +348,11 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "wooden grille"
 	desc = "A flimsy lattice of wooden rods, with screws to secure it to the floor."
 	init_material = MATERIAL_WOOD
-	icon = 'icons/urist/structures&machinery/structures.dmi'
-	icon_state = "woodgrille"
+//	icon = 'icons/urist/structures&machinery/structures.dmi'
+//	icon_state = "woodgrille"
 	rodpath = /obj/item/stack/woodrods
 
-/obj/structure/grille/wood/update_icon()
+/*/obj/structure/grille/wood/update_icon()
 	update_onframe()
 
 	overlays.Cut()
@@ -360,7 +360,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		if(on_frame)
 			icon_state = "broken"
 		else
-			icon_state = "woodgrille-b"
+			icon_state = "woodgrille-b"*/
 
 /obj/structure/raft //just a fucking raft
 	name = "raft frame"

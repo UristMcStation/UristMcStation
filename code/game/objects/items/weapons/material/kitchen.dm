@@ -151,7 +151,7 @@
 	applies_material_colour = 0
 
 /obj/item/weapon/material/kitchen/chopsticks/attack(mob/living/M as mob, mob/living/user as mob)
-	if ((CLUMSY in user.mutations) && prob(50) && user.unEquip(src))
+	if ((MUTATION_CLUMSY in user.mutations) && prob(50) && user.unEquip(src))
 		to_chat(user, "<span class='warning'>You somehow manage to lodge the chopsticks firmly into your nose.</span>")
 		user.Paralyse(3)
 		return

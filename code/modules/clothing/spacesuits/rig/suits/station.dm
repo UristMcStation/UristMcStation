@@ -203,28 +203,24 @@
 	camera = /obj/machinery/camera/network/research
 	species_restricted = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI,SPECIES_RESOMI)
 	sprite_sheets = list(
-		SPECIES_UNATHI = 'icons/mob/onmob/Unathi/head.dmi',
 		SPECIES_RESOMI = 'icons/mob/species/resomi/helmet.dmi'
 		)
 
 /obj/item/clothing/suit/space/rig/hazmat
 	species_restricted = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI,SPECIES_RESOMI)
 	sprite_sheets = list(
-		SPECIES_UNATHI = 'icons/mob/onmob/Unathi/suit.dmi',
 		SPECIES_RESOMI = 'icons/mob/species/resomi/suit.dmi'
 		)
 
 /obj/item/clothing/shoes/magboots/rig/hazmat
 	species_restricted = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI,SPECIES_RESOMI)
 	sprite_sheets = list(
-		SPECIES_UNATHI = 'icons/mob/onmob/Unathi/feet.dmi',
 		SPECIES_RESOMI = 'icons/mob/species/resomi/shoes.dmi'
 		)
 
 /obj/item/clothing/gloves/rig/hazmat
 	species_restricted = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI,SPECIES_RESOMI)
 	sprite_sheets = list(
-		SPECIES_UNATHI = 'icons/mob/onmob/Unathi/hands.dmi',
 		SPECIES_RESOMI = 'icons/mob/species/resomi/gloves.dmi'
 		)
 
@@ -269,21 +265,21 @@
 /obj/item/clothing/suit/space/rig/medical
 	species_restricted = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI,SPECIES_RESOMI)
 	sprite_sheets = list(
-		SPECIES_UNATHI = 'icons/mob/species/unathi/generated/onmob_suit_unathi.dmi'
+		SPECIES_UNATHI = 'icons/mob/species/unathi/generated/onmob_suit_unathi.dmi',
 		SPECIES_RESOMI = 'icons/mob/species/resomi/suit.dmi'
 		)
 
 /obj/item/clothing/shoes/magboots/rig/medical
 	species_restricted = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI,SPECIES_RESOMI)
 	sprite_sheets = list(
-		SPECIES_UNATHI = 'icons/mob/species/unathi/generated/onmob_feet_unathi.dmi'
+		SPECIES_UNATHI = 'icons/mob/species/unathi/generated/onmob_feet_unathi.dmi',
 		SPECIES_RESOMI = 'icons/mob/species/resomi/shoes.dmi'
 		)
 
 /obj/item/clothing/gloves/rig/medical
 	species_restricted = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI,SPECIES_RESOMI)
 	sprite_sheets = list(
-		SPECIES_UNATHI = 'icons/mob/species/unathi/generated/onmob_hands_unathi.dmi'
+		SPECIES_UNATHI = 'icons/mob/species/unathi/generated/onmob_hands_unathi.dmi',
 		SPECIES_RESOMI = 'icons/mob/species/resomi/gloves.dmi'
 		)
 
