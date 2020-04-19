@@ -77,7 +77,7 @@
 		return
 
 	// Calculate our pay and apply all relevant modifiers.
-	var/money_amount = rand(75, 110) * rand(3,5.25) * economic_power
+	var/money_amount = rand(70, 110) * rand(2,4) * economic_power
 
 	// Get an average economic power for our cultures.
 	var/culture_mod =   0
