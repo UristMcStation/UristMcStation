@@ -172,6 +172,22 @@ var/datum/robolimb/basic_robolimb
 	species_cannot_use = list()
 	applies_to_part = list(BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT, BP_L_HAND, BP_R_HAND)
 
+
+/datum/robolimb/cenilimisybernetics
+	company = "Cenilimi Cybernetics"
+	desc = "This prosthetic is created by a Teshari-owned company, for Teshari."
+	icon = 'icons/uristmob/species/teshari/cenilimicybernetics/cenilimicybernetics.dmi'
+	restricted_to = list(SPECIES_RESOMI)
+	species_cannot_use = list()
+
+/datum/robolimb/unbrandedteshari
+	company = "Unbranded - Teshari"
+	desc = "This prosthetic is small and fit for nonhuman proportions."
+	icon = 'icons/uristmob/species/teshari/unbranded/unbranded.dmi'
+	restricted_to = list(SPECIES_RESOMI)
+	species_cannot_use = list()
+
+
 /datum/robolimb/grayson
 	company = "Grayson"
 	desc = "This limb has a sturdy and heavy build to it."

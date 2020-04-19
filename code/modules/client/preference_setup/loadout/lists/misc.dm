@@ -171,3 +171,15 @@
 	display_name = "bible"
 	path = /obj/item/weapon/storage/bible
 	cost = 2
+
+/datum/gear/crutch
+	display_name = "crutch"
+	path = /obj/item/weapon/cane/crutch
+
+/datum/gear/whitecane
+	display_name = "white cane"
+	path = /obj/item/weapon/cane/white
+
+/datum/gear/whitecane/telescopic
+	display_name = "telescopic white cane"
+	path = 	/obj/item/weapon/cane/white/collapsible
