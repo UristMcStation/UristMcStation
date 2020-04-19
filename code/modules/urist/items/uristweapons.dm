@@ -197,3 +197,90 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	throwforce = 20
 	w_class = 4.0
 	slot_flags = SLOT_BELT|SLOT_BACK
+
+//a simple crutch, with a more medical look then the gentleman's cane
+
+/obj/item/weapon/cane/crutch
+	name ="crutch"
+	desc = "A long stick with a crosspiece at the top, used to help with walking."
+	icon = 'icons/urist/items/uristweapons.dmi'
+	item_icons = list(
+			slot_l_hand_str = 'icons/uristmob/items_lefthand.dmi',
+			slot_r_hand_str = 'icons/uristmob/items_righthand.dmi',
+		)
+	icon_state = "crutch"
+	item_state = "crutch"
+
+//a white cane for the blind or visually impared
+
+/obj/item/weapon/cane/white
+	name = "white cane"
+	desc = "A white cane. They are commonly used by the blind or visually impaired as a mobility tool or as a courtesy to others."
+	icon = 'icons/urist/items/uristweapons.dmi'
+	item_icons = list(
+			slot_l_hand_str = 'icons/uristmob/items_lefthand.dmi',
+			slot_r_hand_str = 'icons/uristmob/items_righthand.dmi',
+		)
+	icon_state = "whitecane"
+	item_state = "whitecane"
+
+//the code for tapping someone with the cane
+
+/obj/item/weapon/cane/white/attack(mob/M as mob, mob/user as mob)
+	if(user.a_intent == I_HELP)
+		user.visible_message("<span class='notice'>\The [user] has lightly tapped [M] on the ankle with their white cane!</span>")
+		return TRUE
+	else
+		. = ..()
+
+
+//a telescopic white cane, click on it in hand to extend and retract it
+//Code for Telescopic White Cane writen by Gozulio
+
+/obj/item/weapon/cane/white/collapsible
+	name = "telescopic white cane"
+	desc = "A telescopic white cane. They are commonly used by the blind or visually impaired as a mobility tool or as a courtesy to others."
+	icon = 'icons/urist/items/uristweapons.dmi'
+	icon_state = "whitecane1in"
+	item_state = "whitecanein"
+	item_icons = list(
+			slot_l_hand_str = 'icons/uristmob/items_lefthand.dmi',
+			slot_r_hand_str = 'icons/uristmob/items_righthand.dmi',
+		)
+	slot_flags = SLOT_BELT
+	w_class = ITEM_SIZE_SMALL
+	force = 3
+	var/on = 0
+
+//the code to make the cane extend and retract
+
+/obj/item/weapon/cane/white/collapsible/attack_self(mob/user as mob)
+	on = !on
+	if(on)
+		user.visible_message("<span class='notice'>\The [user] extends the white cane.</span>",\
+				"<span class='warning'>You extend the white cane.</span>",\
+				"You hear an ominous click.")
+		icon = 'icons/urist/items/uristweapons.dmi'
+		icon_state = "whitecane1out"
+		item_state_slots = list(slot_r_hand_str = "whitecane", slot_l_hand_str = "whitecane")
+		w_class = ITEM_SIZE_NORMAL
+		force = 5
+		attack_verb = list("smacked", "struck", "cracked", "beaten")
+	else
+		user.visible_message("<span class='notice'>\The [user] collapses the white cane.</span>",\
+		"<span class='notice'>You collapse the white cane.</span>",\
+		"You hear a click.")
+		icon_state = "whitecane1in"
+		item_state_slots = list(slot_r_hand_str = "whitecanein", slot_l_hand_str = "whitecanein")
+		w_class = ITEM_SIZE_SMALL
+		force = 3
+		attack_verb = list("hit", "poked", "prodded")
+
+	if(istype(user,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = user
+		H.update_inv_l_hand()
+		H.update_inv_r_hand()
+
+	playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
+	add_fingerprint(user)
+	return TRUE

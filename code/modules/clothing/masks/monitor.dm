@@ -41,7 +41,18 @@
 		"console" =  "ipc_console",
 		"rgb" =      "ipc_rgb",
 		"tetris" =   "ipc_tetris",
-		"doom" =     "ipc_doom"
+		"doom" =     "ipc_doom",
+		"visor" =		 "ipc_visor",
+		"NT" =			 "ipc_nt",
+		"nerva" = 	 "ipc_nerva",
+		"pirate" =   "ipc_pirate",
+		"pirate2" =  "ipc_pirate2",
+		"medbay" =	 "ipc_medical",
+		"lifesign" = "ipc_lifeline",
+		"yellowalert" = "ipc_yellow2",
+		"smug" =		 "ipc_smug",
+		"confused" = "ipc_confused",
+		"err" =			 "ipc_err"
 		)
 
 /obj/item/clothing/mask/monitor/set_dir()

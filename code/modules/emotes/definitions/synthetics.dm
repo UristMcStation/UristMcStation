@@ -41,3 +41,8 @@
 	key = "halt"
 	emote_message_3p = "USER's speakers skreech, \"Halt! Security!\"."
 	emote_sound = 'sound/voice/halt.ogg'
+
+/decl/emote/audible/synth/chirp
+	key = "chirp"
+	emote_message_3p = "USER emits a cheerful chirping sound."
+	emote_sound = 'sound/urist/chirp.ogg'

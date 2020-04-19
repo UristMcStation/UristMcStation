@@ -313,3 +313,58 @@
 		/obj/item/rig_module/device/flash,
 		/obj/item/rig_module/cooling_unit
 		)
+
+
+//nerva captain
+/*
+/obj/item/weapon/rig/command/nervacap
+	name = "Captain's command HCM"
+	suit_type = "captain's command hardsuit"
+	desc = "A high-tech powered suit adorned with ceremonial frills of crimson and gold. Cost more to produce and manufacture than the ship you're on right now."
+//	icon = 'maps/torch/icons/obj/uniques.dmi'
+	icon_state = "command_exp_rig"
+	armor = list(melee = 65, bullet = 50, laser = 50, energy = 25, bomb = 50, bio = 100, rad = 100) //same as cappy's regular armour
+
+	online_slowdown = 0.25
+	offline_slowdown = 2
+	offline_vision_restriction = TINT_HEAVY
+
+	chest_type = /obj/item/clothing/suit/space/rig/command/nervacap
+	helm_type = /obj/item/clothing/head/helmet/space/rig/command/nervacap
+	boot_type = /obj/item/clothing/shoes/magboots/rig/command/nervacap
+	glove_type = /obj/item/clothing/gloves/rig/command/nervacap
+
+	allowed = list(/obj/item/weapon/gun, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/weapon/tank, /obj/item/device/suit_cooling_unit)
+	req_access = list(access_captain)
+
+/obj/item/clothing/head/helmet/space/rig/command/nervacap
+	light_overlay = "helmet_light_dual"
+	icon = 'icons/urist/items/clothes/head'
+	item_icons = list(slot_head_str = 'icons/uristmob/head.dmi')
+	camera = /obj/machinery/camera/network/command
+	species_restricted = list(SPECIES_HUMAN) //no available icons for aliens
+
+/obj/item/clothing/suit/space/rig/command/nervacap
+	icon = 'icons/urist/items/clothes/clothes.dmi'
+	item_icons = list(slot_wear_suit_str = 'icons/uristmob/clothes.dmi')
+	species_restricted = list(SPECIES_HUMAN)
+
+/obj/item/clothing/shoes/magboots/rig/command/nervacap
+	icon = 'icons/urist/items/clothes/shoes.dmi'
+	item_icons = list(slot_shoes_str = 'icons/uristmob/shoes.dmi')
+	species_restricted = list(SPECIES_HUMAN)
+
+/obj/item/clothing/gloves/rig/command/nervacap
+	icon = 'icons/urist/items/clothes/gloves.dmi'
+	item_icons = list(slot_gloves_str = 'icons/uristmob/gloves.dmi')
+	species_restricted = list(SPECIES_HUMAN)
+
+/obj/item/weapon/rig/command/nervacap/equipped
+
+	initial_modules = list(
+		/obj/item/rig_module/mounted/egun,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/device/flash,
+		/obj/item/rig_module/cooling_unit
+		)
+*/

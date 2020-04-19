@@ -51,3 +51,7 @@
 /datum/sprite_accessory/hair/resomi/mushroom
 	name = "Teshari Mushroom"
 	icon_state = "resomi_mushroom"
+
+/datum/sprite_accessory/hair/resomi/bald
+	name = "Bald (use with FBP)"
+	icon_state = "resomi_bald"

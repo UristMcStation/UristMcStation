@@ -5,7 +5,7 @@
 		return 0
 	return 1
 
-/var/global/respawntime = 12000 //default 20 mins, adding the var so we can change it for different roundtypes. gotta keep the action rollin'
+/var/global/respawntime = 6000 //default 10 mins, adding the var so we can change it for different roundtypes. gotta keep the action rollin'
 
 /obj/effect/landmark/costume/monkeysuit/Initialize()
 	. = ..()
