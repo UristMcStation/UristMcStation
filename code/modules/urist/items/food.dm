@@ -265,7 +265,7 @@
 /obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/open(mob/user)
 	playsound(loc,'sound/effects/bonebreak1.ogg', rand(10,50), 1)
 	to_chat(user, "<span class='notice'>You take the straw out of \the [src], piercing the film!</span>")
-	overlays += image('icons/urist/items/uristfood.dmi', "straw_overlay", overlay_layer)
+	overlays += image('icons/urist/items/uristfood.dmi', "straw_overlay")
 	atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 
 // Juicebox of Mingus Dew.
