@@ -179,7 +179,7 @@
 	description = "And I say to myself, I need exact change."
 	taste_description = "sweet citris"
 	reagent_state = LIQUID
-	color = "#15EA6F"
+	color = "#15ea6f"
 	nutrition = 1
 
 	glass_name = "Mingus Dew"
@@ -191,7 +191,7 @@
 	description = "Ah, Mango Reinhardt the thinking man's pop."
 	taste_description = "mango"
 	reagent_state = LIQUID
-	color = "#FFC445"
+	color = "#ffc445"
 	nutrition = 1
 
 	glass_name = "Mango Reinhardt"
@@ -227,7 +227,7 @@
 	description = "A tropical coconut-y mix, reminds you of a nice beach."
 	taste_description = "coconut"
 	reagent_state = LIQUID
-	color = "#F7F4F4"
+	color = "#f7f4f4"
 
 	glass_name = "Aloha Coe"
 	glass_desc = "You wish you were on shoreleave."
@@ -238,7 +238,7 @@
 	description = "A tasty lime and banana mix."
 	taste_description = "lime"
 	reagent_state = LIQUID
-	color = "#A5CFCF"
+	color = "#a5cfcf"
 
 	glass_name = "Happy Brain"
 	glass_desc = "I feel great, don't you?"
@@ -249,7 +249,7 @@
 	description = "This looks pretty fancy."
 	taste_description = "cranberries"
 	reagent_state = LIQUID
-	color = "#D34646"
+	color = "#d34646"
 
 	glass_name = "Royal Mix"
 	glass_desc = "Royalty at an affordable price!"
@@ -262,7 +262,7 @@
 	icon_state = "juicebox-test"
 
 // Add the noise and the straw overlay to show it's open.
-/obj/item/weapon/reagent_containers/food/drinks/cans/juicebox
+/obj/item/weapon/reagent_containers/food/drinks/cans/juicebox/open(mob/user)
 	playsound(loc,'sound/effects/bonebreak1.ogg', rand(10,50), 1)
 	to_chat(user, "<span class='notice'>You take the straw out of \the [src], piercing the film!</span>")
 	overlays += image('icons/urist/items/uristfood.dmi', "straw_overlay", overlay_layer)
