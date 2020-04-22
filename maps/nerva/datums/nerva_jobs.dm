@@ -135,10 +135,10 @@
 	outfit_type = /decl/hierarchy/outfit/job/nerva/seniorscientist
 	access = list(access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch, access_expedition, access_network, access_seniornt,
 			 					access_maint_tunnels, access_heads, access_medical, access_ai_upload, access_eva, access_bridge, access_morgue, access_hydroponics,
-								access_library, access_research, access_heads_vault, access_RC_announce, access_keycard_auth, access_gateway, access_expedition_shuttle_helm, access_expedition)
+								access_library, access_research, access_heads_vault, access_RC_announce, access_gateway, access_expedition_shuttle_helm, access_expedition)
 	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch, access_expedition, access_network, access_seniornt,
 			 					access_maint_tunnels, access_heads, access_medical, access_ai_upload, access_eva, access_bridge, access_morgue, access_hydroponics,
-								access_library, access_research, access_heads_vault, access_RC_announce, access_keycard_auth, access_gateway, access_expedition_shuttle_helm, access_expedition)
+								access_library, access_research, access_heads_vault, access_RC_announce, access_gateway, access_expedition_shuttle_helm, access_expedition)
 
 /datum/job/seniorscientist/get_description_blurb()
 	return "You are a well-respected Senior Scientist working for Nanotrasen's interests. It is your job to manage your science team to ensure that Nanotrasen's research advances. You answer directly to the Captain and Nanotrasen Central Command, which you can fax directly."
