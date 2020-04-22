@@ -9627,27 +9627,24 @@
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
 "sE" = (
-/obj/structure/table/woodentable/walnut,
-/obj/item/weapon/folder/blue,
-/obj/item/modular_computer/telescreen/preset/generic{
-	pixel_y = 26
+/obj/machinery/disposal{
+	dir = 8
 	},
-/obj/item/weapon/stamp/seniornt,
+/obj/machinery/alarm{
+	frequency = 1439;
+	pixel_y = 24
+	},
 /turf/simulated/floor/carpet/green,
 /area/command/seniorntbedroom)
 "sF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	icon_state = "intact-supply";
-	tag = "icon-intact (SOUTHWEST)"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/wood/walnut,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/carpet/green,
 /area/command/seniorntbedroom)
 "sG" = (
 /obj/structure/catwalk,
@@ -10536,8 +10533,15 @@
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
 "ui" = (
-/obj/machinery/light{
-	dir = 8
+/obj/structure/bed/nice,
+/obj/item/weapon/bedsheet/rd,
+/obj/item/device/radio/intercom{
+	dir = 4;
+	frequency = 1343;
+	icon_state = "intercom";
+	name = "AI intercom";
+	pixel_x = -22;
+	tag = "icon-intercom (EAST)"
 	},
 /turf/simulated/floor/carpet/green,
 /area/command/seniorntbedroom)
@@ -13591,6 +13595,17 @@
 /obj/item/weapon/material/shard,
 /turf/simulated/floor/plating,
 /area/civilian/observatory)
+"Bn" = (
+/obj/structure/catwalk,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8";
+	pixel_x = 0;
+	tag = ""
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/fs)
 "Bt" = (
 /turf/simulated/wall/false{
 	density = 1;
@@ -13788,14 +13803,13 @@
 /turf/simulated/floor/plating,
 /area/logistics/auxtool)
 "Dq" = (
-/obj/structure/filingcabinet,
-/obj/item/device/radio/intercom{
-	dir = 4;
-	frequency = 1343;
-	icon_state = "intercom";
-	name = "AI intercom";
-	pixel_x = -22;
-	tag = "icon-intercom (EAST)"
+/obj/structure/closet/secure_closet/personal/cabinet,
+/obj/machinery/camera/network/command{
+	c_tag = "Senior Researchers Quarters";
+	dir = 4
+	},
+/obj/item/modular_computer/telescreen/preset/generic{
+	pixel_y = 26
 	},
 /turf/simulated/floor/carpet/green,
 /area/command/seniorntbedroom)
@@ -13816,18 +13830,6 @@
 /obj/random/toolbox,
 /turf/simulated/floor/wood/walnut,
 /area/logistics/auxtool)
-"DL" = (
-/obj/structure/flora/pottedplant{
-	tag = "icon-plant-18";
-	icon_state = "plant-18"
-	},
-/obj/machinery/newscaster{
-	hitstaken = 1;
-	pixel_x = 28;
-	pixel_y = 0
-	},
-/turf/simulated/floor/wood/walnut,
-/area/command/seniorntbedroom)
 "DP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	tag = "icon-intact-scrubbers (EAST)";
@@ -13884,16 +13886,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/atmos)
-"DX" = (
-/obj/machinery/keycard_auth{
-	pixel_x = 0;
-	pixel_y = -24
-	},
-/obj/effect/floor_decal/corner/brown{
-	dir = 5
-	},
-/turf/simulated/floor/wood/walnut,
-/area/command/seniorntbedroom)
 "DY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -14020,18 +14012,6 @@
 /obj/structure/ladder/updown,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fp)
-"EH" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 9
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8";
-	tag = ""
-	},
-/turf/simulated/floor/wood/walnut,
-/area/command/seniorntbedroom)
 "EJ" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -14245,6 +14225,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
+"FY" = (
+/obj/structure/flora/pottedplant{
+	tag = "icon-plant-18";
+	icon_state = "plant-18"
+	},
+/turf/simulated/floor/carpet/green,
+/area/command/seniorntbedroom)
 "Gb" = (
 /obj/machinery/door/airlock/glass{
 	name = "Auxiliary Storage"
@@ -14713,14 +14700,14 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "Js" = (
-/obj/machinery/light{
-	dir = 4
+/obj/structure/table/woodentable/walnut,
+/obj/item/modular_computer/tablet/preset/custom_loadout/advanced,
+/obj/machinery/light_switch{
+	dir = 4;
+	pixel_x = 25;
+	pixel_y = 0
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8;
-	icon_state = "map_vent_out"
-	},
-/turf/simulated/floor/wood/walnut,
+/turf/simulated/floor/carpet/green,
 /area/command/seniorntbedroom)
 "Jv" = (
 /obj/structure/fitness/weightlifter,
@@ -15196,20 +15183,21 @@
 /turf/simulated/floor/tiled/old_tile,
 /area/civilian/exercise)
 "Mm" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	tag = "icon-intact-scrubbers (NORTHEAST)";
+	icon_state = "intact-scrubbers";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4";
-	tag = ""
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
 	},
-/turf/simulated/floor/wood/walnut,
+/turf/simulated/floor/carpet/green,
 /area/command/seniorntbedroom)
 "Mn" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -15614,12 +15602,9 @@
 /turf/simulated/floor/tiled/freezer,
 /area/security/prison)
 "Oq" = (
-/obj/structure/bed/chair/comfy/brown{
-	dir = 4
-	},
-/obj/machinery/alarm{
-	frequency = 1439;
-	pixel_y = 24
+/obj/structure/undies_wardrobe,
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor/carpet/green,
 /area/command/seniorntbedroom)
@@ -15691,13 +15676,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
-"Pc" = (
-/obj/machinery/camera/network/command{
-	c_tag = "Senior Researchers Quarters";
-	dir = 4
-	},
-/turf/simulated/floor/carpet/green,
-/area/command/seniorntbedroom)
 "Pe" = (
 /obj/machinery/washing_machine,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -16131,8 +16109,12 @@
 /turf/simulated/floor/reinforced,
 /area/security/boardarmoury)
 "RE" = (
-/obj/structure/table/woodentable/walnut,
-/obj/item/modular_computer/tablet/preset/custom_loadout/advanced,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/effect/landmark/start{
+	name = "Senior Researcher"
+	},
 /turf/simulated/floor/carpet/green,
 /area/command/seniorntbedroom)
 "RF" = (
@@ -16247,15 +16229,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/security/prison)
-"SA" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_y = 0
-	},
-/turf/simulated/floor/carpet/green,
-/area/command/seniorntbedroom)
 "SD" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -16266,25 +16239,22 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
+"SE" = (
+/obj/machinery/door/airlock/maintenance{
+	req_access = list("ACCESS_MAINT")
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/fs)
 "SF" = (
 /obj/machinery/washing_machine,
 /turf/simulated/floor/reinforced,
 /area/maintenance/second_deck/fp)
 "SM" = (
-/obj/structure/bed/chair/comfy/brown{
-	dir = 8
-	},
 /obj/structure/sign/urist/nt{
 	pixel_y = 32
 	},
-/obj/effect/floor_decal/corner/brown{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 6
-	},
-/turf/simulated/floor/wood/walnut,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/carpet/green,
 /area/command/seniorntbedroom)
 "SS" = (
 /obj/structure/bed/chair/wood/walnut{
@@ -16356,14 +16326,14 @@
 /turf/simulated/floor/tiled,
 /area/hallway/fore/second_deck)
 "Tk" = (
-/obj/structure/table/woodentable/walnut,
-/obj/item/weapon/paper_bin{
-	pixel_x = -3;
-	pixel_y = 7
-	},
-/obj/item/weapon/pen,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
 	},
 /turf/simulated/floor/carpet/green,
 /area/command/seniorntbedroom)
@@ -16396,21 +16366,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
-"TH" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 5
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/wood/walnut,
-/area/command/seniorntbedroom)
 "TM" = (
 /obj/machinery/door/blast/regular{
 	dir = 4;
@@ -16703,17 +16658,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/civilian/entertainer)
+"VW" = (
+/obj/machinery/light/small/red{
+	tag = "icon-firelight1 (EAST)";
+	icon_state = "firelight1";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/fs)
 "VX" = (
 /obj/machinery/vending/urist/autodrobe,
 /turf/simulated/floor/plating,
 /area/civilian/entertainer)
 "VZ" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 5
-	},
-/obj/structure/closet/secure_closet/personal/cabinet,
-/turf/simulated/floor/wood/walnut,
-/area/command/seniorntbedroom)
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/fs)
 "Wc" = (
 /obj/machinery/door/morgue{
 	name = "Confessional Booth"
@@ -16877,30 +16837,36 @@
 /turf/simulated/floor/plating,
 /area/engineering/substation/atmos)
 "WZ" = (
-/obj/structure/undies_wardrobe,
-/obj/effect/floor_decal/corner/brown{
-	dir = 5
+/obj/structure/table/rack{
+	dir = 1
 	},
-/turf/simulated/floor/wood/walnut,
-/area/command/seniorntbedroom)
+/obj/item/clothing/suit/fire/firefighter,
+/obj/item/weapon/tank/oxygen,
+/obj/item/clothing/mask/gas,
+/obj/item/weapon/extinguisher,
+/obj/item/clothing/head/hardhat/red,
+/obj/item/clothing/glasses/meson,
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/fs)
+"Xc" = (
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4";
+	tag = ""
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/fs)
 "Xd" = (
 /obj/structure/table/woodentable/walnut,
 /turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "Xe" = (
-/obj/structure/bed/nice,
-/obj/item/weapon/bedsheet/rd,
-/obj/machinery/light_switch{
-	dir = 4;
-	pixel_x = 25;
-	pixel_y = 0
-	},
-/obj/effect/floor_decal/corner/brown{
-	icon_state = "corner_white";
-	dir = 1
-	},
-/turf/simulated/floor/wood/walnut,
-/area/command/seniorntbedroom)
+/obj/structure/closet/crate,
+/obj/effect/decal/cleanable/cobweb,
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/fs)
 "Xg" = (
 /obj/structure/ladder/up,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -17264,12 +17230,15 @@
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
 "Zv" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	icon_state = "map_scrubber_on";
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6
 	},
-/obj/effect/landmark/start{
-	name = "Senior Researcher"
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
 	},
 /turf/simulated/floor/carpet/green,
 /area/command/seniorntbedroom)
@@ -17309,7 +17278,16 @@
 	icon_state = "1-8";
 	tag = ""
 	},
-/turf/simulated/floor/wood/walnut,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	icon_state = "intact-supply";
+	tag = "icon-intact (SOUTHWEST)"
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/carpet/green,
 /area/command/seniorntbedroom)
 "ZP" = (
 /obj/structure/cable{
@@ -46333,11 +46311,11 @@ tB
 tB
 XV
 WS
+WS
 IR
 Ot
 sI
-sI
-ah
+ck
 ah
 ah
 ah
@@ -46533,13 +46511,13 @@ Dj
 Dj
 Dj
 Dj
-Dj
-Dj
+ru
+ru
+ru
 SD
 XO
 sI
-sI
-ah
+ck
 ah
 ah
 ah
@@ -46732,16 +46710,16 @@ pV
 Ui
 Dj
 Dq
-Pc
-ui
 va
-WZ
+ui
 Dj
+WZ
+tB
+SE
 SD
 sI
 sI
-sI
-ah
+ck
 ah
 ah
 ah
@@ -46936,11 +46914,11 @@ Dj
 Oq
 Zv
 RE
-SA
-VZ
 Dj
+VZ
+VW
+ru
 SD
-sI
 sI
 sI
 sI
@@ -47137,12 +47115,12 @@ qW
 Dj
 sE
 Tk
-Tx
-SA
-DX
+FY
 Dj
+ru
+ru
+ru
 SD
-sI
 sI
 sI
 sI
@@ -47339,12 +47317,12 @@ oW
 Dj
 SM
 Mm
-TH
-EH
-Xe
+Tx
 Dj
-SD
+Xe
 tB
+Xc
+Bn
 Am
 sI
 sI
@@ -47542,9 +47520,9 @@ SZ
 sF
 ZL
 Js
-DL
 Dj
-Dj
+sI
+ru
 SD
 pG
 sI
@@ -47745,7 +47723,7 @@ An
 Dj
 Dj
 Dj
-Dj
+sI
 Aa
 SD
 tB
