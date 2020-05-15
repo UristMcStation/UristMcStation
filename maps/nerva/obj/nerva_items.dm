@@ -100,7 +100,7 @@
 /obj/item/device/encryptionkey/nerva/senior
 	name = "senior nanotrasen encryption key"
 	icon_state = "rd_cypherkey"
-	channels = list("Command" = 1, "Science" = 1, "Medical" = 0)
+	channels = list("Command" = 1, "Science" = 1)
 
 /obj/item/weapon/stamp/nt
 	name = "\improper NanoTrasen rubber stamp"
