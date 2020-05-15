@@ -14042,7 +14042,7 @@
 	pixel_y = 9
 	},
 /obj/item/weapon/pen,
-/obj/item/weapon/clipboard,
+/obj/item/weapon/material/clipboard,
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "Fu" = (
@@ -15747,7 +15747,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/item/weapon/clipboard,
+/obj/item/weapon/material/clipboard,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant/home)
 "Jb" = (

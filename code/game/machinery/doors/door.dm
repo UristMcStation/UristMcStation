@@ -33,7 +33,7 @@
 	var/list/connections = list("0", "0", "0", "0")
 	var/list/blend_objects = list(/obj/structure/wall_frame, /obj/structure/window, /obj/structure/grille) // Objects which to blend with
 
-	var/autoset_access = TRUE // Determines whether the door will automatically set its access from the areas surrounding it. Can be used for mapping.
+	var/autoset_access = FALSE // Determines whether the door will automatically set its access from the areas surrounding it. Can be used for mapping. //fuck bay
 
 	//Multi-tile doors
 	dir = SOUTH
@@ -83,11 +83,15 @@
 	set_extension(src, /datum/extension/penetration, /datum/extension/penetration/proc_call, .proc/CheckPenetration)
 	. = ..()
 	if(autoset_access)
+		if(!length(req_access))
+
+/*
 #ifdef UNIT_TEST
 		if(length(req_access))
 			crash_with("A door with mapped access restrictions was set to autoinitialize access.")
 #endif
-		return INITIALIZE_HINT_LATELOAD
+*/
+			return INITIALIZE_HINT_LATELOAD
 
 
 /obj/machinery/door/LateInitialize()

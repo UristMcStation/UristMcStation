@@ -24437,7 +24437,7 @@
 /area/civilian/abandonedoffice)
 "aOW" = (
 /obj/structure/table/rack,
-/obj/item/weapon/clipboard,
+/obj/item/weapon/material/clipboard,
 /obj/item/weapon/folder/yellow,
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/plating,
@@ -29389,7 +29389,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/weapon/clipboard,
+/obj/item/weapon/material/clipboard,
 /obj/item/clothing/accessory/armband/bluegoldcom,
 /obj/item/clothing/accessory/armband/cargo,
 /turf/simulated/floor/tiled/dark,

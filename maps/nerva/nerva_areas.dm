@@ -465,6 +465,7 @@
 /area/medical/hallway
 	name = "\improper Medical Hallway"
 	icon_state = "medbay2"
+	req_access = list()
 
 /area/medical/morgue
 	name = "\improper Morgue"
