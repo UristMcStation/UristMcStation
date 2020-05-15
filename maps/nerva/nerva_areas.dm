@@ -43,6 +43,16 @@
 	name = "\improper First Officer's Bedroom"
 	req_access = list(access_fo)
 
+/area/command/seniorntbedroom
+	name = "\improper Senior Researcher's Quarters"
+	req_access = list(access_seniornt)
+	icon_state = "bridge"
+
+/area/command/seniorntoffice
+	name = "\improper Senior Researcher's Office."
+	req_access = list(access_seniornt)
+	icon_state = "bridge"
+
 /area/command/ce
 	name = "\improper Chief Engineer's Office"
 	req_access = list(access_ce)
@@ -968,4 +978,3 @@
 
 /area/ship/combat
 	name = "\improper Ship"
-
