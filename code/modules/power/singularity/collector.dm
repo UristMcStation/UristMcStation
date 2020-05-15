@@ -12,7 +12,7 @@ var/global/list/rad_collectors = list()
 	var/obj/item/weapon/tank/phoron/P = null
 
 	var/health = 100
-	var/max_safe_temp = 1000 + T0C
+	var/max_safe_temp = 10000 + T0C
 	var/melted
 
 	var/last_power = 0

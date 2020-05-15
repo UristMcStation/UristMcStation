@@ -10,11 +10,11 @@
 	path = /obj/item/weapon/scissors
 	category = "General"
 
-/obj/item/weapon/clipboard/matter = list("wood" = 30)
+///obj/item/weapon/material/clipboard/matter = list("wood" = 30)
 
 /datum/autolathe/recipe/clipboard
 	name = "clipboard"
-	path = /obj/item/weapon/clipboard
+	path = /obj/item/weapon/material/clipboard
 	category = "General"
 
 /datum/autolathe/recipe/rollingpin
