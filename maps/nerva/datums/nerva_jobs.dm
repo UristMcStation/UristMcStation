@@ -1,5 +1,5 @@
 /datum/map/nerva
-	allowed_jobs = list(/datum/job/captain, /datum/job/firstofficer, /datum/job/hop, /datum/job/blueshield,
+	allowed_jobs = list(/datum/job/captain, /datum/job/firstofficer, /datum/job/hop, /datum/job/seniorscientist, /datum/job/blueshield,
 						/datum/job/chef, /datum/job/janitor, /datum/job/assistant,
 						/datum/job/qm, /datum/job/cargo_tech,
 						/datum/job/chief_engineer, /datum/job/engineer,
@@ -120,6 +120,28 @@
 /datum/job/firstofficer/get_description_blurb()
 	return "You are the Second Officer, third in command, after the First Officer and the Captain. As the Second Officer, it is your job to oversee personnel issues, which includes managing access, delegating crew grievances, and ensuring the proper upkeep and operation of the ship's recreational and mess facilities. Thus, you are the direct supervisor for the janitorial staff, as well as the culinary and hydroponics staff. As Second Officer, it is also your job to organize and lead awaymissions, and in cases where there is no First Officer present, to pilot the ICS Nerva."
 
+/datum/job/seniorscientist
+	minimal_player_age = 2
+	department = "Science"
+	total_positions = 1
+	spawn_positions = 1
+	department_flag = COM|SCI
+	selection_color = "#ad6bad"
+	req_admin_notify = 1
+	economic_power = 15
+	title = "Senior Scientist"
+	supervisors = "the captain and nanotrasen central command."
+	hud_icon = "hudresearchdirector"
+	outfit_type = /decl/hierarchy/outfit/job/nerva/seniorscientist
+	access = list(access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch, access_expedition, access_network, access_seniornt,
+			 					access_maint_tunnels, access_heads, access_medical, access_ai_upload, access_eva, access_bridge, access_morgue, access_hydroponics,
+								access_library, access_research, access_heads_vault, access_RC_announce, access_gateway, access_expedition_shuttle_helm, access_expedition)
+	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch, access_expedition, access_network, access_seniornt,
+			 					access_maint_tunnels, access_heads, access_medical, access_ai_upload, access_eva, access_bridge, access_morgue, access_hydroponics,
+								access_library, access_research, access_heads_vault, access_RC_announce, access_gateway, access_expedition_shuttle_helm, access_expedition)
+
+/datum/job/seniorscientist/get_description_blurb()
+	return "You are a well-respected Senior Scientist working for Nanotrasen's interests. It is your job to manage your science team to ensure that Nanotrasen's research advances. You answer directly to the Captain and Nanotrasen Central Command, which you can fax directly."
 
 //eng
 
