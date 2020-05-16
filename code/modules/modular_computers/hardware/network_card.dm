@@ -14,6 +14,7 @@ var/global/ntnet_card_uid = 1
 	var/ethernet = 0 // Hard-wired, therefore always on, ignores NTNet wireless checks.
 	var/proxy_id     // If set, uses the value to funnel connections through another network card.
 	malfunction_probability = 1
+	var/magic = FALSE //for the computers on the station
 
 /obj/item/weapon/computer_hardware/network_card/diagnostics(var/mob/user)
 	..()
@@ -49,6 +50,9 @@ var/global/ntnet_card_uid = 1
 	icon_state = "netcard_ethernet"
 	hardware_size = 3
 
+/obj/item/weapon/computer_hardware/network_card/wired/magic
+	magic = TRUE
+
 /obj/item/weapon/computer_hardware/network_card/Destroy()
 	if(holder2 && (holder2.network_card == src))
 		holder2.network_card = null
@@ -78,6 +82,9 @@ var/global/ntnet_card_uid = 1
 
 	if(!check_functionality() || !ntnet_global || is_banned())
 		return
+
+	if(magic) //for the computers on the station
+		. = 3
 
 	if(!ntnet_global.check_function(specific_action)) // NTNet is down, we're isolated from the rest of the network.
 		return 0

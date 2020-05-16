@@ -97,7 +97,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/engine
 	name = "Engine Core Vent"
 	power_channel = ENVIRON
-	power_rating = 30000	//15 kW ~ 20 HP
+	power_rating = 15000	//15 kW ~ 20 HP
 
 /obj/machinery/atmospherics/unary/vent_pump/engine/New()
 	..()
