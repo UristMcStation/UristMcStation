@@ -20985,7 +20985,7 @@
 "NG" = (
 /obj/machinery/shipsensors,
 /turf/simulated/floor/tiled/techfloor/grid,
-/area/space)
+/area/hadrian/main)
 "NJ" = (
 /obj/machinery/ai_status_display,
 /turf/simulated/wall/r_wall/prepainted,
