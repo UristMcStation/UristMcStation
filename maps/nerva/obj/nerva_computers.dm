@@ -40,3 +40,7 @@
 	hard_drive.store_file(new/datum/computer_file/program/contract_database())
 	hard_drive.store_file(new/datum/computer_file/program/supply())
 	set_autorun("supply")
+
+/obj/item/modular_computer/console/preset/supply/magic/install_default_hardware()
+	..()
+	network_card = new/obj/item/weapon/computer_hardware/network_card/wired/magic(src)

@@ -2628,6 +2628,11 @@
 	pixel_x = -26;
 	pixel_y = 2
 	},
+/obj/structure/cable/cyan{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled,
 /area/exploration_shuttle/cockpit)
 "eU" = (
@@ -2636,10 +2641,20 @@
 	icon_state = "intact-scrubbers";
 	dir = 9
 	},
+/obj/structure/cable/cyan{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/exploration_shuttle/cockpit)
 "eV" = (
 /obj/structure/bed/chair/shuttle/blue,
+/obj/structure/cable/cyan{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/exploration_shuttle/cockpit)
 "eW" = (
@@ -2903,6 +2918,11 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/structure/cable/cyan{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled,
 /area/exploration_shuttle/cockpit)
@@ -18835,16 +18855,14 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "GM" = (
-/obj/structure/table/rack{
-	dir = 1
+/obj/machinery/door/airlock/glass/research{
+	name = "Research Wing";
+	req_access = list("ACCESS_XENOBIO")
 	},
-/obj/item/clothing/suit/fire/firefighter,
-/obj/item/weapon/tank/oxygen,
-/obj/item/clothing/mask/gas,
-/obj/item/weapon/extinguisher,
-/obj/item/clothing/head/hardhat/red,
-/obj/item/clothing/glasses/meson,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "GN" = (
 /obj/structure/closet/emcloset,
@@ -20553,6 +20571,36 @@
 /obj/effect/paint_stripe/mauve,
 /turf/simulated/wall/r_wall/prepainted,
 /area/rnd/storage)
+"KR" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/structure/catwalk,
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/fourth_deck/fs)
+"KZ" = (
+/obj/effect/paint/hull,
+/obj/structure/cable/cyan{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/wall/titanium,
+/area/exploration_shuttle/cockpit)
 "La" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/hatch/maintenance,
@@ -20886,33 +20934,6 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
-"Ng" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	tag = "icon-intact-scrubbers (EAST)";
-	icon_state = "intact-scrubbers";
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8";
-	tag = ""
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/fourth_deck/fs)
 "Nh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/effect/floor_decal/techfloor{
@@ -21230,6 +21251,11 @@
 	},
 /obj/random/firstaid,
 /obj/item/bodybag/cryobag,
+/obj/structure/cable/cyan{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/exploration_shuttle/cockpit)
 "Pg" = (
@@ -21344,7 +21370,20 @@
 /obj/machinery/light/spot{
 	pixel_y = 32
 	},
+/obj/structure/cable/cyan{
+	d2 = 8;
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/tiled/techfloor/grid,
+/area/exploration_shuttle/cockpit)
+"PE" = (
+/obj/effect/paint/hull,
+/obj/structure/cable/cyan{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/wall/titanium,
 /area/exploration_shuttle/cockpit)
 "PJ" = (
 /turf/simulated/floor/tiled/steel_grid,
@@ -21432,6 +21471,11 @@
 /obj/item/device/analyzer,
 /obj/item/weapon/cell/super,
 /obj/item/device/spaceflare,
+/obj/structure/cable/cyan{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled,
 /area/exploration_shuttle/cockpit)
 "Qq" = (
@@ -21644,6 +21688,33 @@
 /obj/machinery/atmospherics/pipe/manifold4w/visible/fuel,
 /turf/simulated/floor/plating/airless,
 /area/hadrian/storage)
+"QU" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	tag = "icon-intact-scrubbers (EAST)";
+	icon_state = "intact-scrubbers";
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8";
+	tag = ""
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/fourth_deck/fs)
 "QX" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -21752,27 +21823,6 @@
 	},
 /turf/simulated/wall/r_wall/prepainted,
 /area/medical/virology)
-"Rr" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 4
-	},
-/obj/structure/catwalk,
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/fourth_deck/fs)
 "Rs" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -46112,8 +46162,8 @@ bh
 bn
 bE
 ca
-ce
-ce
+PE
+KZ
 Pf
 Qp
 Rk
@@ -49365,7 +49415,7 @@ oA
 pu
 nE
 rI
-Rr
+KR
 tN
 MO
 uM
@@ -50791,7 +50841,7 @@ zo
 Ah
 tM
 SK
-Ng
+QU
 Ak
 oI
 BB
