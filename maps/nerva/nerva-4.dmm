@@ -697,7 +697,7 @@
 /area/maintenance/first_deck/afp)
 "bC" = (
 /turf/simulated/wall/r_wall/false{
-	icon_state = "rfalse"
+	icon_state = "rdebug"
 	},
 /area/maintenance/first_deck/afp)
 "bD" = (
@@ -1979,7 +1979,7 @@
 /area/civilian/abandonedwarehouse)
 "ei" = (
 /turf/simulated/wall/r_wall/false{
-	icon_state = "rfalse"
+	icon_state = "rdebug"
 	},
 /area/maintenance/first_deck/central)
 "ej" = (
@@ -7663,7 +7663,7 @@
 /area/security/abandonedcheckpoint)
 "nY" = (
 /turf/simulated/wall/r_wall/false{
-	icon_state = "rfalse"
+	icon_state = "rdebug"
 	},
 /area/security/abandonedcheckpoint)
 "nZ" = (
@@ -8752,7 +8752,7 @@
 /area/maintenance/first_deck/afs)
 "pZ" = (
 /turf/simulated/wall/r_wall/false{
-	icon_state = "rfalse"
+	icon_state = "rdebug"
 	},
 /area/maintenance/first_deck/afs)
 "qa" = (
