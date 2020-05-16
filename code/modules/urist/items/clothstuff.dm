@@ -1,4 +1,4 @@
-/material/cloth/generate_recipes()
+/material/cloth/generate_recipes(var/reinforce_material)
 	..()
 
 	recipes += new/datum/stack_recipe/makeshiftbandage(src)

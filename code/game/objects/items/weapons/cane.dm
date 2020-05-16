@@ -55,3 +55,4 @@
 		SetName("cane shaft")
 		icon_state = "nullrod"
 		item_state = "foldcane"
+

@@ -69,7 +69,7 @@
 	var/has_power = 1
 	var/spawn_module = null
 
-	var/spawn_sound = 'sound/voice/liveagain.ogg'
+	var/spawn_sound = list('sound/voice/liveagain.ogg','sound/voice/systembooted.ogg')
 	var/pitch_toggle = 1
 	var/list/req_access = list(access_robotics)
 	var/ident = 0

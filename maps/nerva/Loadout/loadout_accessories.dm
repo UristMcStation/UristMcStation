@@ -44,4 +44,9 @@
 /datum/gear/tactical/tacticool
 	allowed_roles = null
 
+/datum/gear/survivalkit
+	display_name = "survival kit"
+	path = /obj/item/weapon/storage/box/survivalkit
+	allowed_roles = list(/datum/job/qm, /datum/job/cargo_tech)
+
 #undef ARMED_ROLES

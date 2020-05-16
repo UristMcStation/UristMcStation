@@ -442,3 +442,23 @@
 
 		user.put_in_hands(T)
 
+// Survival Box + Other Gear.
+
+/obj/item/weapon/storage/box/survivalkit/
+	name = "expedition survival kit"
+	desc = "A medium sized water-proofed holding case, which contains multiple tools used for survival on an expedition."
+	icon = 'icons/urist/items/misc.dmi'
+	icon_state = "survivalkit"
+	startswith = list(/obj/item/weapon/material/knife/survivalknife = 1,
+					/obj/item/weapon/reagent_containers/food/drinks/survivalcanteen = 1,
+					/obj/item/device/radio = 1,
+					/obj/item/stack/medical/bruise_pack = 1,
+					/obj/item/stack/medical/ointment = 1,
+					/obj/item/device/flashlight/flare/glowstick = 1,
+					/obj/item/weapon/reagent_containers/food/snacks/candy/proteinbar = 1)
+
+/obj/item/weapon/reagent_containers/food/drinks/survivalcanteen
+	name = "survival canteen"
+	desc = "A stainless steel screw-topped green survival canteen with a brown cover, which can hold a fair amount of liquid for travel."
+	icon = 'icons/urist/items/misc.dmi'
+	icon_state = "canteen"

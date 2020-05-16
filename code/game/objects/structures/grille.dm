@@ -12,6 +12,7 @@
 	health = 10
 	var/init_material = MATERIAL_STEEL
 	var/destroyed = 0
+	var/rodpath = /obj/item/stack/material/rods
 
 	blend_objects = list(/obj/machinery/door, /turf/simulated/wall) // Objects which to blend with
 	noblend_objects = list(/obj/machinery/door/window)
@@ -139,7 +140,7 @@
 	if(isWirecutter(W))
 		if(!shock(user, 100))
 			playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
-			new /obj/item/stack/material/rods(get_turf(src), destroyed ? 1 : 2)
+			new rodpath(get_turf(src), destroyed ? 1 : 2)
 			qdel(src)
 	else if((isScrewdriver(W)) && (istype(loc, /turf/simulated) || anchored))
 		if(!shock(user, 90))

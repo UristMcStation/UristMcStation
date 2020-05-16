@@ -176,3 +176,31 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	products = list(/obj/item/weapon/storage/belt/vanity/leather = 5,/obj/item/weapon/storage/belt/vanity/cowboy = 5,/obj/item/weapon/storage/belt/vanity/black = 10,/obj/item/weapon/storage/belt/vanity/red = 10,/obj/item/weapon/storage/belt/vanity/green = 10,/obj/item/weapon/storage/belt/vanity/purple = 10,/obj/item/weapon/storage/belt/vanity/blue = 10,/obj/item/weapon/storage/belt/vanity/orange = 10)
 	prices = list(/obj/item/weapon/storage/belt/vanity/leather = 250,/obj/item/weapon/storage/belt/vanity/cowboy = 250,/obj/item/weapon/storage/belt/vanity/black = 100,/obj/item/weapon/storage/belt/vanity/red = 100,/obj/item/weapon/storage/belt/vanity/green = 100,/obj/item/weapon/storage/belt/vanity/purple = 100,/obj/item/weapon/storage/belt/vanity/blue = 100,/obj/item/weapon/storage/belt/vanity/orange = 100)
 	contraband = list(/obj/item/weapon/storage/belt/utility = 1)
+
+
+/obj/machinery/vending/whitedragon
+	name = "White Dragon"
+	desc = "A vendor shining with bright lamps, it appears to be selling asian food."
+	vend_delay = 30
+	icon = 'icons/urist/structures&machinery/uristvendors.dmi'
+	icon_state = "whitedragon"
+	product_slogans = list("Award-winning sushi!",
+		"Go off-world!", "MSG negotiable!", "500 years of traditional food!")
+	product_ads = list ("Mmm, so tasty!",
+		"Try our new sauces!", "Rich in sesame oil!", "Why not try a surprise pack?", "Yayakuza recommends!")
+	products = list(/obj/item/weapon/reagent_containers/food/snacks/urist/onigiri = 3,
+					/obj/item/weapon/reagent_containers/food/snacks/urist/onigiri2 = 3,
+					/obj/item/weapon/reagent_containers/food/snacks/urist/onigiri4 = 3,
+					/obj/item/weapon/reagent_containers/food/snacks/urist/yakidango = 5,
+					/obj/item/weapon/reagent_containers/food/snacks/urist/ramenmiso = 4,
+					/obj/item/weapon/material/kitchen/utensil/chopsticks = 10,
+					)
+
+	prices = list(/obj/item/weapon/reagent_containers/food/snacks/urist/onigiri = 40,
+					/obj/item/weapon/reagent_containers/food/snacks/urist/onigiri2 = 40,
+					/obj/item/weapon/reagent_containers/food/snacks/urist/onigiri4 = 50,
+					/obj/item/weapon/reagent_containers/food/snacks/urist/yakidango = 60,
+					/obj/item/weapon/reagent_containers/food/snacks/urist/ramenmiso = 45,
+					/obj/item/weapon/material/kitchen/utensil/chopsticks = 10,
+					)
+	contraband = list(/obj/item/clothing/head/urist/headbanddragon)

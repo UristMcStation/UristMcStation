@@ -79,7 +79,7 @@
 
 	if(!M.vampire.torpor)
 		M.vampire.torpor = 1
-		H << "<span class='notice'>You are now entering torpor. For all intents and purposes, you will appear dead. You can wake up at any time, but you will be slightly drowsy briefly afterwards.</span>"
+		H << "<span class='notice'>You are now entering torpor. You are able to heal damage while in coffins and morgue trays. For all intents and purposes, you will appear dead. You can wake up at any time, but you will be slightly drowsy briefly afterwards.</span>"
 		H.status_flags |= FAKEDEATH		//play dead
 	else
 		M.vampire.torpor = 0

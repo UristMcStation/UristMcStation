@@ -345,7 +345,7 @@
 	. = ..()
 
 //copy paste from asteroid mineral turfs
-/turf/simulated/floor/planet/jungle/rock //why is this a floor, what the fuck 2014 graham
+/turf/simulated/floor/planet/jungle/rock //why is this a floor, what the fuck 2014 glloyd
 	bushspawnchance = 0
 	small_trees_chance = 0
 	plants_spawn_chance = 0
@@ -355,7 +355,7 @@
 	opacity = 1
 	name = "cliffside wall"
 	desc = "A massive wall of natural rock. No point in trying to mine it, try underground."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/urist/jungle/turfs.dmi'
 	icon_state = "rock"
 //	icon_spawn_state = "rock"
 	icon_spawn_state = null

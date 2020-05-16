@@ -147,7 +147,7 @@ area/space/atmosalert()
 	sound_env = TUNNEL_ENCLOSED
 	turf_initializer = /decl/turf_initializer/maintenance
 	forced_ambience = list('sound/ambience/maintambience.ogg')
-	req_access = list(access_maint_tunnels)
+//	req_access = list(access_maint_tunnels)
 
 /area/rnd
 	req_access = list(access_research)

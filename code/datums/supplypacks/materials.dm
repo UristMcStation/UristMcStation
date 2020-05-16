@@ -105,6 +105,7 @@
 	contains = list(/obj/item/stack/material/diamond/ten)
 	cost = 20
 	containername = "diamond sheets crate"
+	newcargocost = 100
 
 //wood zone
 /decl/hierarchy/supply_pack/materials/wood50

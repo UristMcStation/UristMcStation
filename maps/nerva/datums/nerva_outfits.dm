@@ -184,6 +184,6 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
 	back = /obj/item/weapon/storage/backpack/satchel/leather
 	shoes = /obj/item/clothing/shoes/brown
-	l_hand = /obj/item/weapon/clipboard
+	l_hand = /obj/item/weapon/material/clipboard
 	id_type = /obj/item/weapon/card/id/nerva_senior_scientist
 	pda_type = /obj/item/modular_computer/pda/science

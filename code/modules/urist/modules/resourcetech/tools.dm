@@ -125,3 +125,17 @@
 	w_class = 2
 	name = "hunting knife"
 	desc = "It's a hunting knife. Use it for hunting."
+
+// Survival Box Equipment
+
+/obj/item/weapon/material/knife/survivalknife
+	name = "survival knife"
+	desc = "A serrated survival knife, used for hunting, gutting, prying, skewering and just about everything else a traditional knife does."
+	icon = 'icons/urist/items/uristweapons.dmi'
+	icon_state = "survivalknife"
+	force_divisor = 0.2
+	thrown_force_divisor = 0.10
+	sharp = 1
+	edge = 1
+	w_class = 2
+	attack_verb = list("stabbed", "shanked", "cut", "sliced", "gutted", "carved")
