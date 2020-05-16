@@ -19629,6 +19629,11 @@
 	dir = 9
 	},
 /obj/machinery/hologram/holopad/longrange,
+/obj/structure/cable/cyan{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/white,
 /area/hadrian/main)
 "Id" = (
@@ -19738,6 +19743,11 @@
 /obj/item/weapon/reagent_containers/spray/cleaner,
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/structure/cable/cyan{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/white,
 /area/hadrian/main)
@@ -20684,6 +20694,11 @@
 	pixel_y = 24
 	},
 /obj/effect/overmap/ship/landable/hadrian,
+/obj/structure/cable/cyan{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled/white,
 /area/hadrian/main)
 "Lt" = (
@@ -20984,8 +20999,9 @@
 /area/logistics/hangar)
 "NG" = (
 /obj/machinery/shipsensors,
+/obj/structure/cable/cyan,
 /turf/simulated/floor/tiled/techfloor/grid,
-/area/space)
+/area/hadrian/main)
 "NJ" = (
 /obj/machinery/ai_status_display,
 /turf/simulated/wall/r_wall/prepainted,
@@ -21431,6 +21447,23 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
+"PU" = (
+/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/machinery/door/blast/regular/open{
+	density = 0;
+	dir = 1;
+	icon_state = "pdoor0";
+	id = "hadrian_shutters";
+	name = "Protective Shutters";
+	opacity = 0
+	},
+/obj/structure/cable/cyan{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/hadrian/main)
 "PW" = (
 /obj/structure/table/standard,
 /obj/item/weapon/lipstick/black,
@@ -23220,6 +23253,11 @@
 	},
 /obj/machinery/camera/network/hadrian{
 	c_tag = "Hadrian Main Compartment"
+	},
+/obj/structure/cable/cyan{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white,
 /area/hadrian/main)
@@ -47635,7 +47673,7 @@ HS
 Lr
 Ic
 Im
-JT
+PU
 NG
 aa
 aa
