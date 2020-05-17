@@ -55,6 +55,8 @@
 			return global.MUTEBLOCK;
 		if("Master")
 			return global.Master;
+		if("NOIRBLOCK")
+			return global.NOIRBLOCK;
 		if("OOClog")
 			return global.OOClog;
 		if("PSYRESISTBLOCK")
@@ -129,6 +131,8 @@
 			return global.SSobj;
 		if("SSopen_space")
 			return global.SSopen_space;
+		if("SSpayment_controller")
+			return global.SSpayment_controller;
 		if("SSpersistence")
 			return global.SSpersistence;
 		if("SSplants")
@@ -159,12 +163,16 @@
 			return global.SStimer;
 		if("SStrade")
 			return global.SStrade;
+		if("SStrade_controller")
+			return global.SStrade_controller;
 		if("SSturf")
 			return global.SSturf;
 		if("SSvines")
 			return global.SSvines;
 		if("SSvote")
 			return global.SSvote;
+		if("SSweather")
+			return global.SSweather;
 		if("SSwireless")
 			return global.SSwireless;
 		if("SSxenoarch")
@@ -341,6 +349,8 @@
 			return global.can_call_ert;
 		if("captain_announcement")
 			return global.captain_announcement;
+		if("centcomm_store")
+			return global.centcomm_store;
 		if("changelog_hash")
 			return global.changelog_hash;
 		if("channel_color_presets")
@@ -495,6 +505,8 @@
 			return global.freemesons;
 		if("fruit_icon_cache")
 			return global.fruit_icon_cache;
+		if("fruit_icon_states")
+			return global.fruit_icon_states;
 		if("fusion_reactions")
 			return global.fusion_reactions;
 		if("game_id")
@@ -619,6 +631,20 @@
 			return global.maploader;
 		if("mark")
 			return global.mark;
+		if("markup_bold")
+			return global.markup_bold;
+		if("markup_italics")
+			return global.markup_italics;
+		if("markup_regex")
+			return global.markup_regex;
+		if("markup_strike")
+			return global.markup_strike;
+		if("markup_tags")
+			return global.markup_tags;
+		if("markup_underline")
+			return global.markup_underline;
+		if("masterdatumPool")
+			return global.masterdatumPool;
 		if("matchmaker")
 			return global.matchmaker;
 		if("maze_cell_count")
@@ -733,6 +759,8 @@
 			return global.photo_count;
 		if("pipe_colors")
 			return global.pipe_colors;
+		if("planet_templates")
+			return global.planet_templates;
 		if("plant_seed_sprites")
 			return global.plant_seed_sprites;
 		if("playable_species")
@@ -849,6 +877,8 @@
 			return global.severity_to_string;
 		if("ship_engines")
 			return global.ship_engines;
+		if("ship_templates")
+			return global.ship_templates;
 		if("side_effects")
 			return global.side_effects;
 		if("skin_styles_female_list")
@@ -1025,8 +1055,6 @@
 			return global.vsc;
 		if("wax_recipes")
 			return global.wax_recipes;
-		if("SSweather")
-			return global.SSweather;
 		if("weighted_mundaneevent_locations")
 			return global.weighted_mundaneevent_locations;
 		if("weighted_randomevent_locations")
@@ -1049,7 +1077,7 @@
 			return global.z_levels;
 		if("zone_blocked")
 			return global.zone_blocked;
-
+		
 /proc/writeglobal(which, newval)
 	switch(which)
 		if("ALL_ANTIGENS")
@@ -1106,6 +1134,8 @@
 			global.MUTEBLOCK=newval;
 		if("Master")
 			global.Master=newval;
+		if("NOIRBLOCK")
+			global.NOIRBLOCK=newval;
 		if("OOClog")
 			global.OOClog=newval;
 		if("PSYRESISTBLOCK")
@@ -1180,6 +1210,8 @@
 			global.SSobj=newval;
 		if("SSopen_space")
 			global.SSopen_space=newval;
+		if("SSpayment_controller")
+			global.SSpayment_controller=newval;
 		if("SSpersistence")
 			global.SSpersistence=newval;
 		if("SSplants")
@@ -1210,12 +1242,16 @@
 			global.SStimer=newval;
 		if("SStrade")
 			global.SStrade=newval;
+		if("SStrade_controller")
+			global.SStrade_controller=newval;
 		if("SSturf")
 			global.SSturf=newval;
 		if("SSvines")
 			global.SSvines=newval;
 		if("SSvote")
 			global.SSvote=newval;
+		if("SSweather")
+			global.SSweather=newval;
 		if("SSwireless")
 			global.SSwireless=newval;
 		if("SSxenoarch")
@@ -1392,6 +1428,8 @@
 			global.can_call_ert=newval;
 		if("captain_announcement")
 			global.captain_announcement=newval;
+		if("centcomm_store")
+			global.centcomm_store=newval;
 		if("changelog_hash")
 			global.changelog_hash=newval;
 		if("channel_color_presets")
@@ -1546,6 +1584,8 @@
 			global.freemesons=newval;
 		if("fruit_icon_cache")
 			global.fruit_icon_cache=newval;
+		if("fruit_icon_states")
+			global.fruit_icon_states=newval;
 		if("fusion_reactions")
 			global.fusion_reactions=newval;
 		if("game_id")
@@ -1670,6 +1710,20 @@
 			global.maploader=newval;
 		if("mark")
 			global.mark=newval;
+		if("markup_bold")
+			global.markup_bold=newval;
+		if("markup_italics")
+			global.markup_italics=newval;
+		if("markup_regex")
+			global.markup_regex=newval;
+		if("markup_strike")
+			global.markup_strike=newval;
+		if("markup_tags")
+			global.markup_tags=newval;
+		if("markup_underline")
+			global.markup_underline=newval;
+		if("masterdatumPool")
+			global.masterdatumPool=newval;
 		if("matchmaker")
 			global.matchmaker=newval;
 		if("maze_cell_count")
@@ -1784,6 +1838,8 @@
 			global.photo_count=newval;
 		if("pipe_colors")
 			global.pipe_colors=newval;
+		if("planet_templates")
+			global.planet_templates=newval;
 		if("plant_seed_sprites")
 			global.plant_seed_sprites=newval;
 		if("playable_species")
@@ -1900,6 +1956,8 @@
 			global.severity_to_string=newval;
 		if("ship_engines")
 			global.ship_engines=newval;
+		if("ship_templates")
+			global.ship_templates=newval;
 		if("side_effects")
 			global.side_effects=newval;
 		if("skin_styles_female_list")
@@ -2076,8 +2134,6 @@
 			global.vsc=newval;
 		if("wax_recipes")
 			global.wax_recipes=newval;
-		if("SSweather")
-			global.SSweather=newval;
 		if("weighted_mundaneevent_locations")
 			global.weighted_mundaneevent_locations=newval;
 		if("weighted_randomevent_locations")
@@ -2100,7 +2156,7 @@
 			global.z_levels=newval;
 		if("zone_blocked")
 			global.zone_blocked=newval;
-
+		
 /var/list/_all_globals=list(
 	"ALL_ANTIGENS",
 	"ANTAG_FREQS",
@@ -2129,6 +2185,7 @@
 	"MIGs",
 	"MUTEBLOCK",
 	"Master",
+	"NOIRBLOCK",
 	"OOClog",
 	"PSYRESISTBLOCK",
 	"RADBLOCK",
@@ -2166,6 +2223,7 @@
 	"SSnano",
 	"SSobj",
 	"SSopen_space",
+	"SSpayment_controller",
 	"SSpersistence",
 	"SSplants",
 	"SSprocessing",
@@ -2181,9 +2239,11 @@
 	"SSticker",
 	"SStimer",
 	"SStrade",
+	"SStrade_controller",
 	"SSturf",
 	"SSvines",
 	"SSvote",
+	"SSweather",
 	"SSwireless",
 	"SSxenoarch",
 	"SWEDEBLOCK",
@@ -2272,6 +2332,7 @@
 	"cameranet",
 	"can_call_ert",
 	"captain_announcement",
+	"centcomm_store",
 	"changelog_hash",
 	"channel_color_presets",
 	"channel_to_radio_key",
@@ -2349,6 +2410,7 @@
 	"forced_ambiance_list",
 	"freemesons",
 	"fruit_icon_cache",
+	"fruit_icon_states",
 	"fusion_reactions",
 	"game_id",
 	"game_version",
@@ -2411,6 +2473,13 @@
 	"map_templates",
 	"maploader",
 	"mark",
+	"markup_bold",
+	"markup_italics",
+	"markup_regex",
+	"markup_strike",
+	"markup_tags",
+	"markup_underline",
+	"masterdatumPool",
 	"matchmaker",
 	"maze_cell_count",
 	"mechas_list",
@@ -2468,9 +2537,9 @@
 	"pending_weathers",
 	"photo_count",
 	"pipe_colors",
+	"planet_templates",
 	"plant_seed_sprites",
 	"playable_species",
-	"point_source_descriptions",
 	"pooledvariables",
 	"possible_changeling_IDs",
 	"power_alarm",
@@ -2527,6 +2596,7 @@
 	"server_name",
 	"severity_to_string",
 	"ship_engines",
+	"ship_templates",
 	"side_effects",
 	"skin_styles_female_list",
 	"skipped_unit_tests",
@@ -2615,7 +2685,6 @@
 	"visual_nets",
 	"vsc",
 	"wax_recipes",
-	"SSweather",
 	"weighted_mundaneevent_locations",
 	"weighted_randomevent_locations",
 	"whitelist",
