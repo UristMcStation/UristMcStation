@@ -8077,9 +8077,8 @@
 	icon_state = "2-8";
 	tag = ""
 	},
-/obj/structure/disposalpipe/junction{
-	dir = 8;
-	icon_state = "pipe-j2"
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
@@ -8583,14 +8582,6 @@
 /area/hallway/fore/second_deck)
 "qX" = (
 /obj/effect/floor_decal/corner/fadeblue/full,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
 "qY" = (
@@ -9608,50 +9599,30 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
-"sD" = (
-/obj/structure/undies_wardrobe,
-/obj/machinery/light{
+"sE" = (
+/obj/structure/largecrate,
+/obj/random/soap,
+/obj/random/junk,
+/obj/random/maintenance,
+/obj/random/smokes,
+/obj/random/smokes,
+/obj/random/medical/lite,
+/obj/random/medical/lite,
+/obj/random/toolbox,
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/fs)
+"sF" = (
+/obj/machinery/light/small/red{
+	tag = "icon-firelight1 (NORTH)";
+	icon_state = "firelight1";
 	dir = 1
 	},
-/turf/simulated/floor/carpet/green,
-/area/command/seniorntbedroom)
-"sE" = (
-/obj/machinery/disposal{
-	dir = 8
-	},
-/obj/machinery/alarm{
-	frequency = 1439;
-	pixel_y = 24
-	},
-/obj/structure/disposalpipe/trunk,
-/turf/simulated/floor/carpet/green,
-/area/command/seniorntbedroom)
-"sF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/carpet/green,
-/area/command/seniorntbedroom)
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/fs)
 "sG" = (
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
-"sH" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular/open{
-	dir = 1;
-	id = "seniorresearchblast";
-	name = "Senior Researcher's Blast Door";
-	tag = "icon-pdoor1"
-	},
-/turf/simulated/floor/plating,
-/area/command/seniorntbedroom)
 "sI" = (
 /turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/second_deck/fs)
@@ -10517,19 +10488,6 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
-"ui" = (
-/obj/structure/bed/nice,
-/obj/item/weapon/bedsheet/rd,
-/obj/item/device/radio/intercom{
-	dir = 4;
-	frequency = 1343;
-	icon_state = "intercom";
-	name = "AI intercom";
-	pixel_x = -22;
-	tag = "icon-intercom (EAST)"
-	},
-/turf/simulated/floor/carpet/green,
-/area/command/seniorntbedroom)
 "uj" = (
 /obj/structure/ladder/updown,
 /turf/simulated/floor/plating,
@@ -10675,6 +10633,10 @@
 	sensors = list("co2_sensor" = "Tank");
 	input_tag = "co2_in";
 	output_tag = "co2_out"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	icon_state = "intact";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
@@ -13433,26 +13395,6 @@
 /obj/item/weapon/papercrafts/oragami/swan,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
-"Ar" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	tag = "icon-intact-scrubbers (NORTHEAST)";
-	icon_state = "intact-scrubbers";
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/carpet/green,
-/area/command/seniorntbedroom)
 "Ax" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Atmospherics Substation"
@@ -13567,13 +13509,14 @@
 	},
 /area/logistics/auxtool)
 "BC" = (
-/obj/machinery/light_switch{
-	dir = 4;
-	pixel_x = 25;
-	pixel_y = 0
+/obj/structure/table/rack{
+	dir = 8;
+	layer = 2.9
 	},
-/turf/simulated/floor/carpet/green,
-/area/command/seniorntbedroom)
+/obj/random/toolbox,
+/obj/random/tool,
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/fs)
 "BE" = (
 /obj/item/weapon/caution/cone,
 /turf/simulated/floor/plating,
@@ -13674,32 +13617,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
-"Cr" = (
-/obj/machinery/hologram/holopad,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8";
-	tag = ""
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	icon_state = "intact-supply";
-	tag = "icon-intact (SOUTHWEST)"
-	},
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/carpet/green,
-/area/command/seniorntbedroom)
 "Cu" = (
 /obj/machinery/light_switch{
 	dir = 4;
@@ -14269,12 +14186,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/logistics/auxtool)
-"Gi" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_SENIOR_NT_OFFICE")
-	},
-/turf/simulated/floor/plating,
-/area/command/seniorntbedroom)
 "Gj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -14982,12 +14893,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/logistics/auxtool)
-"KZ" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/fs)
 "Lc" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
@@ -15380,23 +15285,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/second_deck)
-"Na" = (
-/obj/machinery/door/airlock/command{
-	name = "Senior Researcher's Quarters";
-	req_access = list("ACCESS_SENIOR_NT_OFFICE")
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/corner/fadeblue/full,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled/dark,
-/area/command/seniorntbedroom)
 "Ne" = (
 /obj/machinery/power/breakerbox/activated{
 	RCon_tag = "Second Deck Bypass"
@@ -15446,16 +15334,6 @@
 	},
 /turf/simulated/open,
 /area/security/prison)
-"Nx" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/obj/structure/flora/pottedplant{
-	tag = "icon-plant-18";
-	icon_state = "plant-18"
-	},
-/turf/simulated/floor/carpet/green,
-/area/command/seniorntbedroom)
 "Ny" = (
 /obj/machinery/alarm{
 	dir = 4;
@@ -15969,8 +15847,12 @@
 /turf/simulated/floor/tiled/old_tile,
 /area/civilian/exercise)
 "QE" = (
-/turf/simulated/wall/r_wall/prepainted,
-/area/command/seniorntbedroom)
+/obj/machinery/door/airlock/maintenance{
+	req_access = list("ACCESS_MAINT")
+	},
+/obj/structure/barricade/wooden/crude,
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/fs)
 "QF" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
@@ -16135,22 +16017,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/security/boardarmoury)
-"RD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/carpet/green,
-/area/command/seniorntbedroom)
 "RF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/plating,
@@ -16419,17 +16285,6 @@
 "Uc" = (
 /turf/simulated/wall/r_wall/prepainted,
 /area/chapel)
-"Ud" = (
-/obj/structure/closet/secure_closet/personal/cabinet,
-/obj/machinery/camera/network/command{
-	c_tag = "Senior Researchers Quarters";
-	dir = 4
-	},
-/obj/item/modular_computer/telescreen/preset/generic{
-	pixel_y = 26
-	},
-/turf/simulated/floor/carpet/green,
-/area/command/seniorntbedroom)
 "Ul" = (
 /obj/item/ammo_magazine/c44,
 /obj/structure/closet/secure_closet/nervacap,
@@ -16462,19 +16317,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/hallway/aft/second_deck)
-"Ur" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 6
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor/carpet/green,
-/area/command/seniorntbedroom)
 "Us" = (
 /obj/item/weapon/pen,
 /obj/item/weapon/paper_bin{
@@ -16585,18 +16427,6 @@
 /obj/machinery/light/small/red,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
-"UV" = (
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/turf/simulated/floor/carpet/green,
-/area/command/seniorntbedroom)
 "UW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -17137,27 +16967,21 @@
 /turf/simulated/floor/plating,
 /area/logistics/auxtool)
 "YC" = (
-/obj/structure/table/woodentable/walnut,
-/obj/item/device/flashlight/lamp/green,
-/obj/machinery/button/remote/blast_door{
-	id = "seniorresearchblast";
-	name = "Bedroom Blast Door Control";
-	pixel_x = -2;
-	pixel_y = -28;
-	req_access = list("ACCESS_BRIDGE")
+/obj/structure/table/rack{
+	dir = 8;
+	layer = 2.9
 	},
-/obj/effect/floor_decal/corner/brown/borderfull,
-/turf/simulated/floor/wood/walnut,
-/area/command/seniorntbedroom)
+/obj/effect/decal/cleanable/cobweb{
+	tag = "icon-cobweb1 (WEST)";
+	icon_state = "cobweb1";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/fs)
 "YF" = (
 /obj/random/toolbox,
 /turf/simulated/floor/airless,
 /area/space)
-"YK" = (
-/obj/structure/table/woodentable/walnut,
-/obj/machinery/photocopier/faxmachine,
-/turf/simulated/floor/carpet/green,
-/area/command/seniorntbedroom)
 "YN" = (
 /obj/item/weapon/caution/cone,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -17189,10 +17013,14 @@
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
 "YW" = (
-/obj/structure/table/woodentable/walnut,
-/obj/item/modular_computer/tablet/preset/custom_loadout/advanced,
-/turf/simulated/floor/carpet/green,
-/area/command/seniorntbedroom)
+/obj/structure/closet/firecloset,
+/obj/effect/decal/cleanable/cobweb{
+	tag = "icon-cobweb1 (EAST)";
+	icon_state = "cobweb1";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/fs)
 "YY" = (
 /obj/structure/bed/chair/comfy/brown{
 	dir = 8
@@ -17273,12 +17101,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/chapel)
 "ZG" = (
-/obj/structure/sign/urist/nt{
-	pixel_y = 32
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/carpet/green,
-/area/command/seniorntbedroom)
+/obj/structure/table/standard,
+/obj/random/drinkbottle,
+/obj/item/weapon/paper_bin,
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/fs)
 "ZI" = (
 /obj/item/device/radio/intercom{
 	dir = 8;
@@ -46310,8 +46137,8 @@ pU
 XU
 rD
 tA
-tB
-tB
+ru
+Ez
 tB
 Ow
 We
@@ -46510,14 +46337,14 @@ hS
 hS
 pW
 qQ
-QE
-QE
-QE
-QE
-QE
 ru
 ru
 ru
+ru
+QE
+ru
+ru
+tB
 DN
 WT
 sI
@@ -46712,14 +46539,14 @@ ok
 hS
 pV
 Kb
-QE
-Ud
-UV
-ui
-QE
-LW
+ru
 tB
-KZ
+tB
+Iw
+tB
+tB
+ru
+sF
 DN
 sI
 sI
@@ -46914,14 +46741,14 @@ ol
 oV
 pX
 qV
-QE
-sD
-Ur
-Nx
-QE
-RW
-Ez
 ru
+JQ
+we
+ru
+RW
+LW
+ru
+tB
 DN
 sI
 sI
@@ -47116,11 +46943,11 @@ om
 hS
 pY
 qW
-QE
+ru
 sE
-RD
-YK
-QE
+tB
+ru
+ru
 ru
 ru
 ru
@@ -47318,11 +47145,11 @@ fr
 oW
 pZ
 oW
-QE
+oW
 ZG
-Ar
+tB
 YW
-QE
+ru
 Zz
 tB
 GB
@@ -47520,11 +47347,11 @@ IF
 oX
 qa
 qX
-Na
+oW
 sF
-Cr
+tB
 BC
-Gi
+ru
 tB
 tB
 DN
@@ -47722,13 +47549,13 @@ fr
 oY
 qb
 qY
-QE
+oW
 YC
-QE
-QE
-QE
 sI
-sG
+ru
+ru
+ru
+ru
 DN
 tB
 sI
@@ -47924,9 +47751,9 @@ fr
 oZ
 qc
 qZ
-QE
-sH
-QE
+oW
+sI
+sI
 GE
 sG
 Kg
@@ -48127,7 +47954,7 @@ ny
 qd
 ny
 ny
-ah
+ck
 sI
 sI
 sI
@@ -48334,8 +48161,8 @@ ah
 sI
 NT
 sI
-Ri
 vH
+Ri
 sI
 sI
 ah

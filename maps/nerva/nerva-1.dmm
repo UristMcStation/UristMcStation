@@ -21231,7 +21231,6 @@
 /obj/item/stack/flag/yellow,
 /obj/item/weapon/storage/box/samplebags,
 /obj/item/weapon/wrench,
-/obj/machinery/light,
 /obj/effect/floor_decal/industrial/shutoff{
 	dir = 4
 	},
