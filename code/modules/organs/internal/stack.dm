@@ -22,15 +22,12 @@
 /obj/item/organ/internal/stack/examine(var/mob/user)
 	. = ..(user)
 	if(istype(backup)) // Do we have a backup?
-		if(user.skill_check(SKILL_DEVICES, SKILL_EXPERT)) // Can we even tell what the blinking means?
-			if(find_dead_player(ownerckey, 1)) // Is the player still around and dead?
-				to_chat(user, "<span class='notice'>The light on [src] is blinking rapidly. Someone might have a second chance.</span>")
-			else
-				to_chat(user, "The light on [src] is blinking slowly. Maybe wait a while...")
+		if(find_dead_player(ownerckey, 1)) // Is the player still around and dead?
+			to_chat(user, "<span class='notice'>The light on [src] is blinking rapidly. Someone might have a second chance.</span>")
 		else
-			to_chat(user, "The light on [src] is blinking, but you don't know what it means.")
+			to_chat(user, "The light on [src] is blinking slowly. Maybe wait a while...")
 	else
-		to_chat(user, "The light on [src] is off. " + (user.skill_check(SKILL_DEVICES, SKILL_EXPERT) ? "It doesn't have a backup." : "Wonder what that means."))
+		to_chat(user, "The light on [src] is off, it doesn't have a backup.")
 
 /obj/item/organ/internal/stack/emp_act()
 	return
