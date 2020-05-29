@@ -203,8 +203,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_access = list(850);
-	req_one_access = newlist()
+	req_access = list(850)
 	},
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/plating,
@@ -258,8 +257,7 @@
 	dir = 8
 	},
 /obj/machinery/alarm{
-	req_access = list(850);
-	req_one_access = newlist()
+	req_access = list(850)
 	},
 /obj/item/weapon/grenade/chem_grenade/metalfoam,
 /obj/item/weapon/grenade/chem_grenade/metalfoam,
@@ -677,8 +675,7 @@
 	dir = 4;
 	icon_state = "alarm0";
 	pixel_x = -24;
-	req_access = list(850);
-	req_one_access = newlist()
+	req_access = list(850)
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/red{
 	icon_state = "map";
@@ -1169,8 +1166,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_access = list(850);
-	req_one_access = newlist()
+	req_access = list(850)
 	},
 /obj/machinery/pipedispenser,
 /turf/simulated/floor/tiled/techmaint,
@@ -1997,8 +1993,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_access = list(850);
-	req_one_access = newlist()
+	req_access = list(850)
 	},
 /turf/simulated/open,
 /area/noctis/reactorov)
@@ -2847,8 +2842,7 @@
 	dir = 1;
 	icon_state = "alarm0";
 	pixel_y = -22;
-	req_access = list(850);
-	req_one_access = newlist()
+	req_access = list(850)
 	},
 /turf/simulated/floor/plating,
 /area/noctis/combint)
@@ -2940,8 +2934,7 @@
 	dir = 4;
 	icon_state = "alarm0";
 	pixel_x = -24;
-	req_access = list(850);
-	req_one_access = newlist()
+	req_access = list(850)
 	},
 /obj/effect/floor_decal/rust,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3435,8 +3428,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_access = list(850);
-	req_one_access = newlist()
+	req_access = list(850)
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/noctis/prismngt)
@@ -3728,8 +3720,7 @@
 	dir = 1;
 	icon_state = "alarm0";
 	pixel_y = -22;
-	req_access = list(850);
-	req_one_access = newlist()
+	req_access = list(850)
 	},
 /obj/effect/floor_decal/rust,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -3906,8 +3897,7 @@
 	dir = 1;
 	icon_state = "alarm0";
 	pixel_y = -22;
-	req_access = list(850);
-	req_one_access = newlist()
+	req_access = list(850)
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/noctis/asm)

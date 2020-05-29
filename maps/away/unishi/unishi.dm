@@ -12,6 +12,7 @@
 		/datum/job/submap/unishi_crew,
 		/datum/job/submap/unishi_researcher
 	)
+	whitelisted_species = list(SPECIES_HUMAN)
 
 /obj/effect/overmap/ship/unishi
 	name = "SRV Verne"

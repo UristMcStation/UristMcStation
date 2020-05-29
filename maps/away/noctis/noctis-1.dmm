@@ -855,8 +855,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_access = list(850);
-	!INVALID_VAR! = newlist()
+	req_access = list(850)
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/hards)
@@ -905,8 +904,7 @@
 	dir = 1;
 	icon_state = "alarm0";
 	pixel_y = -22;
-	req_access = list(850);
-	!INVALID_VAR! = newlist()
+	req_access = list(850)
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/battery)
@@ -992,8 +990,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_access = list(850);
-	!INVALID_VAR! = newlist()
+	req_access = list(850)
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/afth)
@@ -1011,8 +1008,7 @@
 	dir = 4;
 	icon_state = "alarm0";
 	pixel_x = -24;
-	req_access = list(850);
-	!INVALID_VAR! = newlist()
+	req_access = list(850)
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/hangar)
@@ -1057,8 +1053,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_access = list(850);
-	!INVALID_VAR! = newlist()
+	req_access = list(850)
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/cable/blue{
@@ -2303,8 +2298,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_access = list(850);
-	!INVALID_VAR! = newlist()
+	req_access = list(850)
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	icon_state = "map_scrubber_on";
@@ -3918,8 +3912,7 @@
 	dir = 1;
 	icon_state = "alarm0";
 	pixel_y = -22;
-	req_access = list(850);
-	!INVALID_VAR! = newlist()
+	req_access = list(850)
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/fairlock)
@@ -4105,8 +4098,7 @@
 	dir = 1;
 	icon_state = "alarm0";
 	pixel_y = -22;
-	req_access = list(850);
-	!INVALID_VAR! = newlist()
+	req_access = list(850)
 	},
 /obj/effect/floor_decal/borderfloor,
 /obj/structure/table/standard,
@@ -4241,8 +4233,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_access = list(850);
-	!INVALID_VAR! = newlist()
+	req_access = list(850)
 	},
 /turf/simulated/floor/tiled/white,
 /area/noctis/medbay)
@@ -4251,8 +4242,7 @@
 	dir = 4;
 	icon_state = "alarm0";
 	pixel_x = -24;
-	req_access = list(850);
-	!INVALID_VAR! = newlist()
+	req_access = list(850)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/closet/crate/secure{
@@ -5235,8 +5225,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_access = list(850);
-	!INVALID_VAR! = newlist()
+	req_access = list(850)
 	},
 /obj/effect/submap_landmark/spawnpoint/crewmember,
 /turf/simulated/floor/tiled/white,
@@ -5394,8 +5383,7 @@
 	dir = 8;
 	pixel_x = 24;
 	pixel_y = 0;
-	req_access = list(850);
-	!INVALID_VAR! = newlist()
+	req_access = list(850)
 	},
 /turf/simulated/floor/plating,
 /area/noctis/combust)
