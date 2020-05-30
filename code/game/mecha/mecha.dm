@@ -1154,9 +1154,6 @@
 				occupant.forceMove(mmi)
 			mmi.mecha = null
 			src.verbs += /obj/mecha/verb/eject
-		if(occupant == user && !occupant.skill_check(SKILL_MECH, HAS_PERK) && prob(25))
-			mob_container.throw_at_random(FALSE, 3, 1)
-			user.visible_message("<span class ='notice'>\The [mob_container] is forcibly ejected by \the [src]!</span>", "<span class ='notice'>\The [src] forcibly ejects you! Are you sure that was the right button?</span>")
 		src.occupant = null
 		src.icon_state = src.reset_icon()+"-open"
 		src.set_dir(dir_in)
