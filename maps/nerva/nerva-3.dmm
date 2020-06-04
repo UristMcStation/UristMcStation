@@ -14843,6 +14843,7 @@
 	},
 /obj/structure/table/standard,
 /obj/item/weapon/storage/firstaid/regular,
+/obj/item/weapon/book/manual/security_space_law/nervaspacelaw,
 /turf/simulated/floor/tiled/techmaint,
 /area/security/prison)
 "KL" = (
