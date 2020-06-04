@@ -183,10 +183,10 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	desc = "A grey bench. No matter how hard you try, you can't seem to get comfortable on it."
 
 /obj/structure/bed/chair/urist/bench/bench1/left
-	icon_state = "benchleft"
+	icon_state = "benchright" //i fucked this up years ago and it didn't make a difference until you could rotate your view. oops. changing this is easier than changing the paths.
 
 /obj/structure/bed/chair/urist/bench/bench1/right
-	icon_state = "benchright"
+	icon_state = "benchleft"
 
 /obj/structure/bed/chair/urist/bench/bench1/mid
 	icon_state = "benchmid"

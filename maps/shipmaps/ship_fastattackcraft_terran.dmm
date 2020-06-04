@@ -84,7 +84,7 @@
 "bF" = (/obj/structure/closet/crate/secure/phoron,/obj/item/weapon/tank/phoron,/obj/item/weapon/tank/phoron,/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
 "bG" = (/obj/structure/hygiene/shower{dir = 4; icon_state = "shower"; pixel_x = 5},/obj/structure/curtain/open/shower,/turf/simulated/floor/tiled/freezer,/area/boarding_ship)
 "bH" = (/obj/machinery/sleeper{dir = 8},/obj/machinery/light{dir = 4},/turf/simulated/floor/tiled/white,/area/boarding_ship)
-"bI" = (/obj/structure/table/standard,/obj/item/weapon/clipboard,/obj/item/weapon/pen,/turf/simulated/floor/tiled/dark/monotile,/area/boarding_ship)
+"bI" = (/obj/structure/table/standard,/obj/item/weapon/material/clipboard,/obj/item/weapon/pen,/turf/simulated/floor/tiled/dark/monotile,/area/boarding_ship)
 "bJ" = (/obj/structure/artilleryplaceholder/decorative{tag = "icon-27"; icon_state = "27"},/turf/simulated/floor/tiled/techfloor/grid,/area/boarding_ship)
 "bK" = (/obj/structure/artilleryplaceholder/decorative{tag = "icon-26"; icon_state = "26"},/turf/simulated/floor/tiled/techfloor/grid,/area/boarding_ship)
 "bL" = (/turf/simulated/floor/tiled/techfloor/grid,/area/boarding_ship)
