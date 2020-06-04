@@ -10,6 +10,7 @@ I IS TYPIN'!'
 	follow_proc = /atom/movable/proc/move_to_turf_or_null
 	icon = 'icons/mob/talk.dmi'
 	icon_state = "typing"
+	mouse_opacity = 0 // This should stop people from being able to break the cooldown system, as it will no longer be clickable.
 
 /atom/movable/overlay/typing_indicator/Initialize()
 	. = ..()
