@@ -8837,7 +8837,6 @@
 /area/security/checkpoint)
 "apT" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/folder/red,
 /obj/item/weapon/handcuffs,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
@@ -8851,6 +8850,7 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 10
 	},
+/obj/item/weapon/book/manual/security_space_law/nervaspacelaw,
 /turf/simulated/floor/tiled/techmaint,
 /area/security/checkpoint)
 "apU" = (
@@ -8904,7 +8904,6 @@
 "apZ" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/blue,
-/obj/item/weapon/folder/red,
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/red/mono,
 /obj/machinery/camera/network/security{
@@ -8912,6 +8911,8 @@
 	dir = 1;
 	icon_state = "camera"
 	},
+/obj/item/weapon/book/manual/security_space_law/nervaspacelaw,
+/obj/item/weapon/book/manual/security_space_law/nervaspacelaw,
 /turf/simulated/floor/tiled/techmaint,
 /area/security/office)
 "aqa" = (
@@ -8923,6 +8924,7 @@
 	name = "Station Intercom (General)";
 	pixel_y = -28
 	},
+/obj/item/weapon/folder/red,
 /turf/simulated/floor/tiled/techmaint,
 /area/security/office)
 "aqb" = (
@@ -12065,6 +12067,7 @@
 	icon_state = "corner_white";
 	tag = "icon-corner_white (NORTHEAST)"
 	},
+/obj/item/weapon/book/manual/security_space_law/nervaspacelaw,
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
 "auc" = (
@@ -13046,6 +13049,7 @@
 	tag = "icon-corner_white_diagonal (EAST)"
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/vending/whitedragon,
 /turf/simulated/floor/tiled,
 /area/civilian/messhall)
 "avQ" = (
@@ -20725,6 +20729,7 @@
 /obj/structure/table/woodentable/walnut,
 /obj/item/weapon/folder/red,
 /obj/item/weapon/pen,
+/obj/item/weapon/book/manual/security_space_law/nervaspacelaw,
 /turf/simulated/floor/carpet,
 /area/security/cosoffice)
 "aJh" = (
@@ -26172,7 +26177,7 @@
 /area/maintenance/third_deck/afs)
 "aRR" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "First Deck Substation";
+	name = "Third Deck Substation";
 	req_access = list("ACCESS_ENGINEERING")
 	},
 /obj/machinery/door/firedoor/border_only{
@@ -29433,6 +29438,7 @@
 /obj/item/weapon/material/clipboard,
 /obj/item/clothing/accessory/armband/bluegoldcom,
 /obj/item/clothing/accessory/armband/cargo,
+/obj/item/weapon/storage/box/survivalkit,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/qm)
 "kBU" = (

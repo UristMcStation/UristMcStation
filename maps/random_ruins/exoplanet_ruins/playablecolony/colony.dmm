@@ -183,10 +183,7 @@
 /turf/simulated/floor/carpet,
 /area/map_template/colony/command)
 "aD" = (
-/obj/structure/flora/pottedplant/unusual{
-	desc = "Steve's distant cousin.";
-	name = "Randy"
-	},
+/obj/machinery/papershredder,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/map_template/colony/command)
 "aE" = (
@@ -395,6 +392,10 @@
 /obj/effect/floor_decal/techfloor/hole/right{
 	icon_state = "techfloor_hole_right";
 	dir = 1
+	},
+/obj/structure/flora/pottedplant/unusual{
+	desc = "Steve's distant cousin.";
+	name = "Randy"
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/colony/command)
@@ -655,6 +656,7 @@
 	dir = 4;
 	pixel_x = -21
 	},
+/obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/colony)
 "by" = (
@@ -2945,6 +2947,7 @@
 	icon_state = "techfloor_edges";
 	dir = 5
 	},
+/obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/colony)
 "fD" = (
@@ -3565,6 +3568,7 @@
 /obj/item/weapon/storage/box/snack/noraisin,
 /obj/item/weapon/storage/box/snack/jerky,
 /obj/item/weapon/storage/box/snack/candy,
+/obj/item/weapon/reagent_containers/food/condiment/enzyme,
 /turf/simulated/floor/tiled/freezer,
 /area/map_template/colony/messhall)
 "gs" = (
@@ -4211,10 +4215,6 @@
 /obj/item/ammo_magazine/mc9mm/flash,
 /obj/item/ammo_magazine/c45m/rubber,
 /obj/item/ammo_magazine/c45m/flash,
-/obj/item/weapon/storage/box/shotgunshells,
-/obj/item/weapon/storage/box/shotgunshells,
-/obj/item/weapon/storage/box/shotgunammo,
-/obj/item/weapon/storage/box/shotgunammo,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
@@ -4225,6 +4225,8 @@
 /obj/item/device/radio,
 /obj/item/device/radio,
 /obj/item/device/radio,
+/obj/item/weapon/storage/box/ammo/beanbags,
+/obj/item/weapon/storage/box/ammo/shotgunshells,
 /turf/simulated/floor/tiled/steel_ridged,
 /area/map_template/colony/armory)
 "hC" = (
@@ -4745,6 +4747,7 @@
 	pixel_y = -32;
 	req_access = list()
 	},
+/obj/item/weapon/reagent_containers/food/condiment/enzyme,
 /turf/simulated/floor/lino,
 /area/map_template/colony/messhall)
 "ix" = (
@@ -6082,8 +6085,7 @@
 	icon_state = "techfloor_edges";
 	dir = 5
 	},
-/obj/structure/closet/secure_closet/hydroponics_torch,
-/obj/item/weapon/reagent_containers/glass/bucket,
+/obj/machinery/biogenerator,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/map_template/colony/hydroponics)
 "ky" = (
@@ -8765,6 +8767,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/colony/hydroponics)
 "yE" = (
@@ -8800,7 +8803,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/reagent_dispensers/watertank,
+/obj/structure/closet/secure_closet/hydroponics,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/map_template/colony/hydroponics)
 "Dj" = (
@@ -8967,6 +8970,7 @@
 	icon_state = "techfloor_edges";
 	dir = 5
 	},
+/obj/item/weapon/reagent_containers/glass/bucket,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/colony/hydroponics)
 "Vk" = (

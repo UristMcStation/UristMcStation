@@ -306,6 +306,9 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/sign/osha/biohazardous{
+	pixel_x = -32
+	},
 /turf/simulated/floor/plating,
 /area/medical/extstorage)
 "aK" = (
@@ -2195,6 +2198,7 @@
 /obj/item/device/radio,
 /obj/item/weapon/storage/box/glowsticks,
 /obj/structure/table/standard,
+/obj/item/weapon/storage/box/survivalkit,
 /turf/simulated/floor/tiled,
 /area/exploration_shuttle/cockpit)
 "ek" = (
@@ -3840,6 +3844,7 @@
 /obj/item/device/radio,
 /obj/item/device/spaceflare,
 /obj/random/toolbox,
+/obj/item/weapon/storage/box/survivalkit,
 /turf/simulated/floor/tiled,
 /area/antonine_hangar/start)
 "hd" = (
@@ -19190,9 +19195,6 @@
 /turf/simulated/floor/tiled/white/monotile,
 /area/hadrian/main)
 "Hz" = (
-/obj/structure/reagent_dispensers/virusfood{
-	pixel_x = -32
-	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -23468,6 +23470,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4;
 	icon_state = "intact-scrubbers"
+	},
+/obj/item/weapon/storage/fancy/vials,
+/obj/structure/reagent_dispensers/virusfood{
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
