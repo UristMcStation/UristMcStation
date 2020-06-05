@@ -11,7 +11,8 @@
 		for(var/obj/I in S.contents)
 			if(!check_tradeable(I))
 				return 0
-		return 1
+			. = 1
+		return .
 
 	var/datum/trade_item/T = SStrade_controller.trade_items_by_type[O.type]
 	if(T)

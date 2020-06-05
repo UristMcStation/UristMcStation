@@ -417,7 +417,7 @@
 /obj/effect/decal/cleanable/cobweb,
 /obj/item/remains/human,
 /turf/simulated/floor/plating,
-/area/medical/virology)
+/area/maintenance/fourth_deck/afp)
 "ba" = (
 /obj/effect/catwalk_plated/white,
 /obj/structure/cable{
@@ -1651,7 +1651,7 @@
 	icon_state = "alarm0";
 	pixel_y = -22
 	},
-/obj/item/weapon/storage/fancy/vials,
+/obj/item/weapon/storage/lockbox/vials,
 /turf/simulated/floor/tiled/white/monotile,
 /area/medical/extstorage)
 "dp" = (
@@ -22427,7 +22427,6 @@
 /obj/item/weapon/storage/box/monkeycubes,
 /obj/item/weapon/storage/box/monkeycubes,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/item/weapon/storage/fancy/vials,
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
 "UJ" = (
@@ -39587,7 +39586,7 @@ aa
 aa
 aa
 aa
-aa
+ap
 ap
 aU
 bz
@@ -39788,8 +39787,8 @@ aa
 aa
 aa
 aa
-ae
-ae
+ap
+ap
 ap
 HB
 aB
@@ -39990,7 +39989,7 @@ aa
 aa
 aa
 aa
-ae
+ap
 aW
 ap
 aV

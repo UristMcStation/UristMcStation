@@ -207,6 +207,9 @@ transit/east is the same thing now AFAIK
 	can_open = 1
 	paint_color = COLOR_GUNMETAL
 
+/turf/simulated/wall/r_wall/hull/false
+	can_open = 1
+
 /turf/simulated/wall/wood
 	icon = 'icons/urist/turf/walls.dmi'
 	icon_state = "wood0"
