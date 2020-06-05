@@ -13,6 +13,10 @@
 //	speak = list(
 	speech_triggers = list(/datum/npc_speech_trigger/teshari/teshari, /datum/npc_speech_trigger/teshari/skrell, /datum/npc_speech_trigger/teshari/qerrbalak)
 
+/mob/living/simple_animal/hostile/npc/teshari/New()
+	desc = "This is [src]. [initial(desc)]."
+	..()
+
 /datum/npc_speech_trigger/teshari
 	response_phrase = 1
 
