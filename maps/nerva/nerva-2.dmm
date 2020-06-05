@@ -29587,6 +29587,17 @@
 /obj/effect/paint_stripe/red,
 /turf/simulated/wall/r_wall/prepainted,
 /area/security/boardarmoury)
+"moR" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/beige/diagonal{
+	dir = 4;
+	icon_state = "corner_white_diagonal";
+	tag = "icon-corner_white_diagonal (EAST)"
+	},
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/vending/cola,
+/turf/simulated/floor/tiled,
+/area/civilian/messhall)
 "mqS" = (
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/black/three_quarters{
@@ -47678,7 +47689,7 @@ aaa
 aaa
 aaa
 aaa
-aAD
+aaj
 aaj
 aaj
 aaj
@@ -47880,7 +47891,7 @@ aaa
 aaa
 aaa
 aaa
-aAD
+aaj
 aaj
 aaD
 aao
@@ -48082,7 +48093,7 @@ aaa
 aaa
 aaa
 aaa
-aAD
+aaj
 aaj
 aaE
 aao
@@ -53768,7 +53779,7 @@ ayo
 ayo
 ayo
 avQ
-aCs
+moR
 auH
 atC
 aFp
@@ -53995,7 +54006,7 @@ aVw
 aTq
 aTq
 aVY
-aAD
+aTq
 acc
 acc
 acc
@@ -54196,8 +54207,8 @@ aTq
 aVv
 aTq
 aTq
-aAD
-aAD
+aTq
+aTq
 acc
 acc
 acc
@@ -54398,7 +54409,7 @@ aTq
 aVv
 aTq
 aTq
-aAD
+aTq
 acc
 acc
 acc
@@ -54599,7 +54610,7 @@ aVv
 aTq
 aTq
 aTq
-aAD
+aTq
 acc
 acc
 acc
@@ -54800,8 +54811,8 @@ aUO
 kaQ
 aTq
 aTq
-aAD
-aAD
+aTq
+aTq
 acc
 acc
 acc
@@ -56213,7 +56224,7 @@ aSz
 aVh
 aPs
 aPs
-aAD
+aPs
 acc
 acc
 aaa
@@ -56415,7 +56426,7 @@ aQo
 aSz
 aPs
 aPs
-aAD
+aPs
 aaa
 aaa
 aaa

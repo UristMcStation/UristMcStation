@@ -111,3 +111,64 @@
 	randomize_quantity = 0
 	no_resell = 1
 	interact_screen = 2
+
+//organ smuggler
+
+/mob/living/simple_animal/hostile/npc/colonist/trader/organsmuggler
+	name = "organ smuggler"
+	npc_job_title = "organ smuggler"
+	desc = "A human from one of Earth's diverse cultures. They buy and sell organs for cash."
+	trade_categories_by_name =  list("organs")
+	interact_screen = 2
+	starting_trade_items = 10
+
+	jumpsuits = list(\
+		/obj/item/clothing/under/sterile,\
+		/obj/item/clothing/under/rank/medical,\
+		/obj/item/clothing/under/rank/medical/scrubs/black,\
+		/obj/item/clothing/under/rank/medical/scrubs/blue,\
+		/obj/item/clothing/under/rank/medical/scrubs/green,\
+		/obj/item/clothing/under/rank/medical/scrubs/navyblue,\
+		/obj/item/clothing/under/rank/medical/scrubs/purple)
+	shoes = list(\
+		/obj/item/clothing/shoes/dress,\
+		/obj/item/clothing/shoes/dress/white,\
+		/obj/item/clothing/shoes/workboots,\
+		/obj/item/clothing/shoes/sandal,\
+		/obj/item/clothing/shoes/slippers)
+	glasses = list(\
+		/obj/item/clothing/glasses/hud/health,\
+		/obj/item/clothing/glasses/threedglasses,\
+		/obj/item/clothing/glasses/science,\
+		/obj/item/clothing/glasses/eyepatch,\
+		/obj/item/clothing/glasses/monocle,\
+		/obj/item/clothing/glasses/regular/hipster)
+	glasses_chance = 50
+	suits = list(\
+		/obj/item/clothing/suit/storage/det_trench,\
+		/obj/item/clothing/suit/storage/det_trench/grey,\
+		/obj/item/clothing/suit/storage/hazardvest/white,\
+		/obj/item/clothing/suit/storage/hooded/hoodie,\
+		/obj/item/clothing/suit/storage/toggle/labcoat,\
+		/obj/item/clothing/suit/storage/toggle/labcoat/blue,\
+		/obj/item/clothing/suit/storage/toggle/labcoat/mad,\
+		/obj/item/clothing/suit/apron,\
+		/obj/item/clothing/suit/surgicalapron,\
+		/obj/item/clothing/suit/apron/overalls)
+	suit_chance = 90
+	gloves = list(/obj/item/clothing/gloves/latex, /obj/item/clothing/gloves/rainbow)
+	glove_chance = 75
+	hats = list(\
+		/obj/item/clothing/head/boaterhat,\
+		/obj/item/clothing/head/feathertrilby,\
+		/obj/item/clothing/head/fedora,\
+		/obj/item/clothing/head/bandana)
+	hat_chance = 33
+	masks = list(\
+		/obj/item/clothing/mask/gas,\
+		/obj/item/clothing/mask/fakemoustache,\
+		/obj/item/clothing/mask/breath/medical,\
+		/obj/item/clothing/mask/surgical)
+	mask_chance = 50
+
+	wander = 0

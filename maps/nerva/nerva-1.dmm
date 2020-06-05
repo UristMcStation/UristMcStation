@@ -417,7 +417,7 @@
 /obj/effect/decal/cleanable/cobweb,
 /obj/item/remains/human,
 /turf/simulated/floor/plating,
-/area/medical/virology)
+/area/maintenance/fourth_deck/afp)
 "ba" = (
 /obj/effect/catwalk_plated/white,
 /obj/structure/cable{
@@ -1651,6 +1651,7 @@
 	icon_state = "alarm0";
 	pixel_y = -22
 	},
+/obj/item/weapon/storage/lockbox/vials,
 /turf/simulated/floor/tiled/white/monotile,
 /area/medical/extstorage)
 "dp" = (
@@ -21929,6 +21930,11 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/nuke_storage)
+"RS" = (
+/turf/simulated/wall/r_wall/false{
+	icon_state = "rdebug"
+	},
+/area/maintenance/fourth_deck/fs)
 "RT" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/item/modular_computer/console/preset/research{
@@ -22419,7 +22425,6 @@
 	tag = "icon-corner_white (WEST)"
 	},
 /obj/item/weapon/storage/box/monkeycubes,
-/obj/item/weapon/storage/box/beakers,
 /obj/item/weapon/storage/box/monkeycubes,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
@@ -39581,7 +39586,7 @@ aa
 aa
 aa
 aa
-aa
+ap
 ap
 aU
 bz
@@ -39782,8 +39787,8 @@ aa
 aa
 aa
 aa
-ae
-ae
+ap
+ap
 ap
 HB
 aB
@@ -39984,7 +39989,7 @@ aa
 aa
 aa
 aa
-ae
+ap
 aW
 ap
 aV
@@ -51337,7 +51342,7 @@ tM
 Ra
 Ag
 Am
-sj
+RS
 BD
 rJ
 UY

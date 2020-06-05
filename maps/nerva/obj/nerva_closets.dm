@@ -181,15 +181,15 @@
 	)
 
 /obj/structure/closet/secure_closet/science_nerva
-	name = "Nanotrasen scientist's locker"
+	name = "NanoTrasen scientist's locker"
 	req_access = list(access_xenoarch)
 	closet_appearance = /decl/closet_appearance/secure_closet/expedition/science
 
 /obj/structure/closet/secure_closet/science_nerva/WillContain()
 	return list(
-		/obj/item/clothing/under/rank/scientist,
-		/obj/item/clothing/suit/storage/toggle/labcoat/science,
-		/obj/item/clothing/suit/storage/toggle/labcoat,
+		/obj/item/clothing/under/rank/scientist/nanotrasen,
+		/obj/item/clothing/suit/storage/toggle/labcoat/science/nanotrasen,
+		/obj/item/clothing/suit/storage/toggle/labcoat/science/nanotrasen,
 		/obj/item/clothing/shoes/white,
 		/obj/item/device/radio/headset/nervananotrasen,
 		/obj/item/clothing/mask/gas,
@@ -222,7 +222,7 @@
 		)
 
 /obj/structure/closet/secure_closet/seniornt
-	name = "senior researcher's locker"
+	name = "senior NanoTrasen researcher's locker"
 	req_access = list(access_rd)
 	closet_appearance = /decl/closet_appearance/secure_closet/rd
 
@@ -238,6 +238,6 @@
 		/obj/item/clothing/mask/gas,
 		/obj/item/device/flash,
 		/obj/item/weapon/material/clipboard,
-		/obj/item/clothing/suit/storage/toggle/labcoat/science,
+		/obj/item/clothing/suit/storage/toggle/labcoat/science/nanotrasen,
 		/obj/item/weapon/storage/backpack/satchel/leather
 	)

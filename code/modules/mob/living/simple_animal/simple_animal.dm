@@ -76,6 +76,10 @@
 
 	var/simplify_dead_icon = FALSE
 
+	var/can_ignite = 0
+	var/ignite_overlay = "Generic_mob_burning"
+	var/image/fire_overlay_image
+
 /mob/living/simple_animal/Life()
 	. = ..()
 	if(!.)
@@ -427,14 +431,24 @@
 			gib()
 
 /mob/living/simple_animal/handle_fire()
-	return
+	if(can_ignite)
+		. = ..()
 
 /mob/living/simple_animal/update_fire()
-	return
+	overlays -= fire_overlay_image
+	fire_overlay_image = null
+	if(on_fire)
+		var/image/standing = overlay_image('icons/mob/OnFire.dmi', ignite_overlay, RESET_COLOR)
+		fire_overlay_image = standing
+		overlays += fire_overlay_image
+
 /mob/living/simple_animal/IgniteMob()
-	return
+	if(can_ignite)
+		. = ..()
+
 /mob/living/simple_animal/ExtinguishMob()
-	return
+	if(can_ignite)
+		. = ..()
 
 /mob/living/simple_animal/is_burnable()
 	return heat_damage_per_tick

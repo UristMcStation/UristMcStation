@@ -13,6 +13,8 @@ mob/living/simple_animal/hostile/var/hiddenfaction = null
 	response_disarm = "shoves"
 	response_harm = "hits"
 	speed = 4
+	can_ignite = 1
+	ignite_overlay = "Standing"
 	stop_automated_movement_when_pulled = 0
 	maxHealth = 100
 	health = 100
@@ -78,9 +80,15 @@ mob/living/simple_animal/hostile/var/hiddenfaction = null
 		"No idea.",\
 		"Can't help.",\
 		"Never heard of it.")
+	var/list/afraid_responses = list(\
+		"Ahhh!",\
+		"Oh no!",\
+		"Save me!",\
+		"Help!")
 	var/say_time = 0
 	var/say_next = 0
-
+	var/last_afraid = 0
+	var/duration_afraid = 30 SECONDS
 	var/datum/controller/process/trade_controller/trade_controller_debug
 
 	var/sell_modifier = 0.90 //how much less than the sell price will the merchants buy items from you
@@ -107,7 +115,29 @@ mob/living/simple_animal/hostile/var/hiddenfaction = null
 	. = ..()
 
 	if(stat == CONSCIOUS)
-		if(say_time && world.time >= say_time)
+		if(last_afraid)
+			say_time = 0
+			speak_chance = 0
+
+			var/turf/target_turf = pick(view(7, src))
+			for(var/i=0,i<5,i++)
+				dir = get_dir(src,target_turf)
+				Move(get_step_towards(src,target_turf))
+				sleep(1)
+
+			if(prob(25))
+				if(prob(33))
+					say(afraid_responses)
+				else if(prob(50))
+					audible_emote("screams in [pick("pain","fear")]!")
+				else
+					visible_emote("cowers to the ground.")
+
+			if(world.time > last_afraid + duration_afraid)
+				last_afraid = 0
+				speak_chance = initial(speak_chance)
+
+		else if(say_time && world.time >= say_time)
 			say_time = 0
 			say(say_next)
 

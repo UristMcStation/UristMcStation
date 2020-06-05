@@ -135,11 +135,11 @@
 
 /decl/hierarchy/outfit/job/nerva/scientist
 	name = OUTFIT_JOB_NAME("Scientist - Nerva")
-	uniform = /obj/item/clothing/under/rank/scientist
+	uniform = /obj/item/clothing/under/rank/scientist/nanotrasen
 	shoes = /obj/item/clothing/shoes/white
 	pda_type = /obj/item/modular_computer/pda/science
 	id_type = /obj/item/weapon/card/id/nerva_scientist
-	l_ear = /obj/item/device/radio/headset/headset_sci
+	l_ear = /obj/item/device/radio/headset/nervananotrasen
 
 /decl/hierarchy/outfit/job/nerva/scientist/New()
 	..()
@@ -181,7 +181,7 @@
 	name = OUTFIT_JOB_NAME("Nerva Senior Scientist")
 	l_ear = /obj/item/device/radio/headset/heads/nerva_senior
 	uniform = /obj/item/clothing/under/urist/nerva/seniornt
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science/nanotrasen
 	back = /obj/item/weapon/storage/backpack/satchel/leather
 	shoes = /obj/item/clothing/shoes/brown
 	l_hand = /obj/item/weapon/material/clipboard

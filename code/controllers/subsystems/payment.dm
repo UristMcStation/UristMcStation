@@ -3,7 +3,7 @@ SUBSYSTEM_DEF(payment_controller)
 	wait = 15 SECONDS
 	var/timerbuffer = 60 MINUTES //buffer for time check
 	var/list/brand = list("Cheesie Honkers", "Men At Arms Tobacco", "Lucky Stars Cigarettes", "Carcinoma Angels Cigarettes", "Robust Coffee", "Getmore Chocolate Corp products", "4no Raisins", "SweatMax products", "Space Cola", "Space Mountain Wind", "Dr.Gibb", "ClothingLord 9000 Clothes", "NanoTrasen Personal Computers", "Rougelady Chewing Tobacco", "Robust Softdrinks products") //this is just for the jokes
-	var/payment_modifier = 4 //economic_power * this number = pay. tweak this number!
+	var/payment_modifier = 5 //economic_power * this number = pay. tweak this number!
 	var/moneybuffer = 0 //how much money are we removing from the nerva's account?
 
 /datum/controller/subsystem/payment_controller/fire()
