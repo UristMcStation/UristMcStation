@@ -24,7 +24,7 @@ var/datum/robolimb/basic_robolimb
 	var/list/species_cannot_use = list(SPECIES_RESOMI)
 	var/list/restricted_to = list()
 	var/list/applies_to_part = list() //TODO.
-	var/list/allowed_bodytypes = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_SKRELL, SPECIES_UNATHI)
+	var/list/allowed_bodytypes = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_SKRELL, SPECIES_UNATHI, SPECIES_RESOMI, "Grav-Adapted Human", "Space-Adapted Human", "Vat-Grown Human") //Yes, Resomi has to be in here even though most prostheses are blocked for them, otherwise they can't get them in Chargen at all. Why? Iunno. - Vak
 
 /datum/robolimb/bishop
 	company = "Bishop"
@@ -164,7 +164,7 @@ var/datum/robolimb/basic_robolimb
 	can_eat = 1
 	skintone = 1
 	unavailable_at_fab = 1
-	species_cannot_use = list(SPECIES_IPC)
+	allowed_bodytypes = list(SPECIES_HUMAN, SPECIES_IPC, "Grav-Adapted Human", "Space-Adapted Human", "Vat-Grown Human")
 
 /datum/robolimb/resomi
 	company = "Small prosthetic"
@@ -174,21 +174,17 @@ var/datum/robolimb/basic_robolimb
 	species_cannot_use = list()
 	applies_to_part = list(BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT, BP_L_HAND, BP_R_HAND)
 
-
-/datum/robolimb/cenilimisybernetics
+/datum/robolimb/resomi/cenilimisybernetics
 	company = "Cenilimi Cybernetics"
 	desc = "This prosthetic is created by a Teshari-owned company, for Teshari."
 	icon = 'icons/uristmob/species/teshari/cenilimicybernetics/cenilimicybernetics.dmi'
-	restricted_to = list(SPECIES_RESOMI)
-	species_cannot_use = list()
+	applies_to_part = list()
 
-/datum/robolimb/unbrandedteshari
+/datum/robolimb/resomi/unbrandedteshari
 	company = "Unbranded - Teshari"
 	desc = "This prosthetic is small and fit for nonhuman proportions."
 	icon = 'icons/uristmob/species/teshari/unbranded/unbranded.dmi'
-	restricted_to = list(SPECIES_RESOMI)
-	species_cannot_use = list()
-
+	applies_to_part = list()
 
 /datum/robolimb/grayson
 	company = "Grayson"
