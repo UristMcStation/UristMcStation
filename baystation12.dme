@@ -3056,6 +3056,7 @@
 #include "code\modules\urist\modules\newtrading\NPC\NPC_types\complex_traders.dm"
 #include "code\modules\urist\modules\newtrading\NPC\NPC_types\contract_givers.dm"
 #include "code\modules\urist\modules\newtrading\NPC\NPC_types\simple_traders.dm"
+#include "code\modules\urist\modules\newtrading\NPC\NPC_types\teshari.dm"
 #include "code\modules\urist\modules\newtrading\trade\_trade_controller.dm"
 #include "code\modules\urist\modules\newtrading\trade\trade_category.dm"
 #include "code\modules\urist\modules\newtrading\trade\trade_item.dm"
