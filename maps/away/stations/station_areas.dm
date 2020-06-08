@@ -2,7 +2,7 @@
 	icon_state = "blueold"
 
 /area/spacestations/nanotrasenspace
-	name = "Nanotrasen Space Station"
+	name = "NanoTrasen Space Station"
 
 //access
 

@@ -1,8 +1,8 @@
 #include "station_areas.dm"
 
 /obj/effect/overmap/sector/station/nanotrasentrading
-	name = "Nanotrasen trading station"
-	desc = "A Nanotrasen trading station, dock here to trade with its many merchants."
+	name = "NanoTrasen trading station"
+	desc = "A NanoTrasen trading station, dock here to trade with its many merchants."
 	faction = "nanotrasen"
 	spawn_ships = FALSE
 	start_x = 6
@@ -34,9 +34,9 @@
 	base_turf = /turf/simulated/floor/plating
 
 /datum/map_template/ruin/away_site/nanotrasentrading
-	name = "Nanotrasen trading station"
+	name = "NanoTrasen trading station"
 	id = "awaysite_nanotrasentrading"
-	description = "A Nanotrasen trading station, dock here to trade with its many merchants."
+	description = "A NanoTrasen trading station, dock here to trade with its many merchants."
 	suffixes = list("stations/nanotrasentrading.dmm")
 	cost = 0
 	accessibility_weight = 10
@@ -45,8 +45,8 @@
 //nt mining outpost
 /*
 /obj/effect/overmap/sector/station/nanotrasenmining
-	name = "Nanotrasen mining outpost"
-	desc = "A Nanotrasen mining outpost on a largely uninhabited planet, dock here to engage in trading."
+	name = "NanoTrasen mining outpost"
+	desc = "A NanoTrasen mining outpost on a largely uninhabited planet, dock here to engage in trading."
 	faction = "nanotrasen"
 	spawn_ships = FALSE
 	spawn_type = list(
@@ -67,9 +67,9 @@
 	landmark_tag = "nav_nanomining_2"
 
 /datum/map_template/ruin/away_site/nanotrasenmining
-	name = "Nanotrasen mining outpost"
+	name = "NanoTrasen mining outpost"
 	id = "awaysite_nanotrasenmining"
-	description = "A Nanotrasen mining outpost on a mineral rich asteroid, dock here to engage in trading."
+	description = "A NanoTrasen mining outpost on a mineral rich asteroid, dock here to engage in trading."
 	suffixes = list("stations/nanotrasenmining.dmm")
 	cost = 0
 //	accessibility_weight = 10
@@ -100,9 +100,9 @@
 	landmark_tag = "nav_tccolony_2"
 
 /datum/map_template/ruin/away_site/nanotrasenmining
-	name = "Nanotrasen mining outpost"
+	name = "NanoTrasen mining outpost"
 	id = "awaysite_nanotrasenmining"
-	description = "A Nanotrasen mining outpost on a largely uninhabited planet, dock here to engage in trading."
+	description = "A NanoTrasen mining outpost on a largely uninhabited planet, dock here to engage in trading."
 	suffixes = list("stations/terrancolony.dmm")
 	cost = 0
 //	accessibility_weight = 10

@@ -15780,7 +15780,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/start{
-	name = "Nanotrasen Scientist"
+	name = "NanoTrasen Scientist"
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemlab)
