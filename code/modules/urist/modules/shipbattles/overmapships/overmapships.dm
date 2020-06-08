@@ -103,6 +103,7 @@
 		dying = 1
 
 		if(GLOB.using_map.using_new_cargo)
+			GLOB.using_map.destroyed_ships += 1
 
 			for(var/datum/contract/shiphunt/A in GLOB.using_map.contracts)
 				if(A.hunt_faction == src.hiddenfaction)
