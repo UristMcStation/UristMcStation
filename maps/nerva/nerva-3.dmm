@@ -8582,13 +8582,6 @@
 /area/hallway/fore/second_deck)
 "qX" = (
 /obj/effect/floor_decal/corner/fadeblue/full,
-/obj/machinery/power/apc{
-	cell_type = /obj/item/weapon/cell/high;
-	dir = 2;
-	name = "south bump";
-	pixel_y = -24
-	},
-/obj/structure/cable,
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
 "qY" = (
