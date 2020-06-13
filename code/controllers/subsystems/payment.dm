@@ -5,6 +5,7 @@ SUBSYSTEM_DEF(payment_controller)
 	var/list/brand = list("Cheesie Honkers", "Men At Arms Tobacco", "Lucky Stars Cigarettes", "Carcinoma Angels Cigarettes", "Robust Coffee", "Getmore Chocolate Corp products", "4no Raisins", "SweatMax products", "Space Cola", "Space Mountain Wind", "Dr.Gibb", "ClothingLord 9000 Clothes", "NanoTrasen Personal Computers", "Rougelady Chewing Tobacco", "Robust Softdrinks products") //this is just for the jokes
 	var/payment_modifier = 5 //economic_power * this number = pay. tweak this number!
 	var/moneybuffer = 0 //how much money are we removing from the nerva's account?
+	var/total_paid = 0 //how much money have we paid out in total
 
 /datum/controller/subsystem/payment_controller/fire()
 	if (TimeUntilPayday() <= 0)
@@ -18,6 +19,7 @@ SUBSYSTEM_DEF(payment_controller)
 			PayPeople()
 			var/newbrand = pick(brand) //this is a dumb meme
 			GLOB.global_announcer.autosay("<b>Hourly salary payments have been processed and deposited into your accounts. Thank you for your service to the [GLOB.using_map.station_name]. This message is brought to you by [newbrand]: make sure to buy [newbrand] at your nearest vending machine.</b>", "[GLOB.using_map.station_name] Automated Payroll System", "Common")
+			total_paid += moneybuffer
 			station_account.money -= moneybuffer
 			GLOB.global_announcer.autosay("<b>[moneybuffer]Th has been removed from the [GLOB.using_map.station_name]'s main account due to automated payroll services.</b>", "[GLOB.using_map.station_name] Automated Payroll System", "Command")
 			moneybuffer = 0
@@ -42,7 +44,7 @@ SUBSYSTEM_DEF(payment_controller)
 
 	//				H.mind.initial_account.money += economic_modifier
 
-					if(H.mind.assigned_role == "Nanotrasen Scientist" && GLOB.using_map.name == "Nerva") //NanoTrasen pays the scientists
+					if(H.mind.assigned_role == "NanoTrasen Scientist" && GLOB.using_map.name == "Nerva") //NanoTrasen pays the scientists on Nerva
 						continue
 
 					else

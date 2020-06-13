@@ -280,9 +280,9 @@
 
 /datum/job/scientist
 	minimal_player_age = 0
-	title = "Nanotrasen Scientist"
-	alt_titles = list("Nanotrasen Xenobiologist", "Nanotrasen Anomalist", "Nanotrasen Xenobotanist")
-	supervisors = "Nanotrasen Central Command and the captain."
+	title = "NanoTrasen Scientist"
+	alt_titles = list("NanoTrasen Xenobiologist", "NanoTrasen Anomalist", "NanoTrasen Xenobotanist")
+	supervisors = "NanoTrasen Central Command and the captain."
 	total_positions = 3
 	spawn_positions = 3
 	hud_icon = "hudblueshield"

@@ -19964,7 +19964,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/start{
-	name = "Nanotrasen Scientist"
+	name = "NanoTrasen Scientist"
 	},
 /turf/simulated/floor/wood/walnut,
 /area/rnd/office)
@@ -20667,7 +20667,7 @@
 	dir = 8
 	},
 /obj/effect/landmark/start{
-	name = "Nanotrasen Scientist"
+	name = "NanoTrasen Scientist"
 	},
 /turf/simulated/floor/wood/walnut,
 /area/rnd/office)
@@ -29587,17 +29587,6 @@
 /obj/effect/paint_stripe/red,
 /turf/simulated/wall/r_wall/prepainted,
 /area/security/boardarmoury)
-"moR" = (
-/obj/machinery/light,
-/obj/effect/floor_decal/corner/beige/diagonal{
-	dir = 4;
-	icon_state = "corner_white_diagonal";
-	tag = "icon-corner_white_diagonal (EAST)"
-	},
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/vending/cola,
-/turf/simulated/floor/tiled,
-/area/civilian/messhall)
 "mqS" = (
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/black/three_quarters{
@@ -30643,6 +30632,17 @@
 /obj/effect/paint_stripe/blue,
 /turf/simulated/wall/r_wall/prepainted,
 /area/security/portgun)
+"ylk" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/beige/diagonal{
+	dir = 4;
+	icon_state = "corner_white_diagonal";
+	tag = "icon-corner_white_diagonal (EAST)"
+	},
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/vending/cola,
+/turf/simulated/floor/tiled,
+/area/civilian/messhall)
 
 (1,1,1) = {"
 aaa
@@ -53779,7 +53779,7 @@ ayo
 ayo
 ayo
 avQ
-moR
+ylk
 auH
 atC
 aFp
