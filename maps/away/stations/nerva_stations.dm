@@ -3,7 +3,7 @@
 /obj/effect/overmap/sector/station/nanotrasentrading
 	name = "NanoTrasen trading station"
 	desc = "A NanoTrasen trading station, dock here to trade with its many merchants."
-	faction = "nanotrasen"
+	faction = /datum/factions/nanotrasen
 	spawn_ships = FALSE
 	start_x = 6
 	start_y = 7

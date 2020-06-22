@@ -1,5 +1,5 @@
 /obj/effect/overmap/sector/station
-	var/faction = null
+	var/datum/factions/faction = null
 	var/spawn_type = null
 	var/mob/living/spawned_ship
 	var/spawn_time_high = 10 MINUTES
@@ -18,14 +18,20 @@
 		return
 	else
 		..() */
-/*
+
 /obj/effect/overmap/sector/station/New()
 	..()
-	if(spawn_ships && spawn_type)
+//	if(spawn_ships && spawn_type)
 
-		START_PROCESSING(SSobj, src)
-		spawned_ship = new spawn_type(get_turf(src))
+//		START_PROCESSING(SSobj, src)
+//		spawned_ship = new spawn_type(get_turf(src))
 
+	if(faction)
+		for(var/datum/factions/F in SSfactions.factions)
+			if(F.type == faction)
+				faction = F
+
+/*
 /obj/effect/overmap/sector/station/Process()
 	//if any of our ships are killed, spawn new ones
 	if(!spawned_ship || spawned_ship.stat == DEAD)
@@ -38,6 +44,7 @@
 			cooldown = 3000
 			spawn(cooldown)
 				cooldown = 0
+	..()
 
 /obj/effect/overmap/sector/station/Destroy()
 	STOP_PROCESSING(SSobj, src)

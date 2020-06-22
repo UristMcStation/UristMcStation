@@ -64,8 +64,8 @@
 	invisibility = 101
 	var/defender_outfit = null
 
-/mob/observer/ghost/proc/shipdefender_spawn(var/hiddenfaction)
-	var/want = input("The [GLOB.using_map.name] is now able to board a [hiddenfaction] hostile ship. Join as a defender on the hostile ship?") in list ("No", "Yes")
+/mob/observer/ghost/proc/shipdefender_spawn(var/datum/factions/hiddenfaction)
+	var/want = input("The [GLOB.using_map.name] is now able to board a hostile [hiddenfaction.factionid] ship. Join as a defender on the hostile ship?") in list ("No", "Yes")
 	switch(want)
 		if("No")
 			return
@@ -79,7 +79,7 @@
 					A.sanitize_preferences()
 					A.randomize_appearance_and_body_for(M)
 					M.real_name = random_name(gender)
-					M.faction = hiddenfaction
+					M.faction = hiddenfaction.factionid
 
 					var/decl/hierarchy/outfit/defender_outfit = outfit_by_type(D.defender_outfit)
 					defender_outfit.equip(M)
@@ -99,3 +99,10 @@
 
 /obj/effect/urist/triggers/defender_landmark/lactera
 	defender_outfit = /decl/hierarchy/outfit/lactera
+
+//weapons
+
+/obj/effect/urist/triggers/shipweapons
+	icon_state = "x3"
+	icon = 'icons/mob/screen1.dmi'
+	invisibility = 101

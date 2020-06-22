@@ -97,6 +97,8 @@
 			return global.SSevac;
 		if("SSevent")
 			return global.SSevent;
+		if("SSfactions")
+			return global.SSfactions;
 		if("SSfastprocess")
 			return global.SSfastprocess;
 		if("SSfluids")
@@ -1176,6 +1178,8 @@
 			global.SSevac=newval;
 		if("SSevent")
 			global.SSevent=newval;
+		if("SSfactions")
+			global.SSfactions=newval;
 		if("SSfastprocess")
 			global.SSfastprocess=newval;
 		if("SSfluids")
@@ -2206,6 +2210,7 @@
 	"SSculture",
 	"SSevac",
 	"SSevent",
+	"SSfactions",
 	"SSfastprocess",
 	"SSfluids",
 	"SSgarbage",

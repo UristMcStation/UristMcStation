@@ -104,7 +104,7 @@
 	)
 
 /mob/living/simple_animal/hostile/npc/colonist/nanotrasen
-	hiddenfaction = "nanotrasen"
+	hiddenfaction = /datum/factions/nanotrasen
 	speech_triggers = list(/datum/npc_speech_trigger/colonist/colonist_nt, /datum/npc_speech_trigger/colonist/colonist_pirate, /datum/npc_speech_trigger/colonist/colonist_galacticcrisis, /datum/npc_speech_trigger/colonist/colonist_lactera)
 
 /mob/living/simple_animal/hostile/npc/colonist/New()
@@ -147,7 +147,7 @@
 	suit_chance = 5
 
 /mob/living/simple_animal/hostile/npc/colonist/labourer/nanotrasen
-	hiddenfaction = "nanotrasen"
+	hiddenfaction = /datum/factions/nanotrasen
 	speech_triggers = list(/datum/npc_speech_trigger/colonist/colonist_nt, /datum/npc_speech_trigger/colonist/colonist_pirate, /datum/npc_speech_trigger/colonist/colonist_galacticcrisis, /datum/npc_speech_trigger/colonist/colonist_lizards, /datum/npc_speech_trigger/colonist/colonist_lactera)
 
 /mob/living/simple_animal/hostile/npc/colonist/highclass
@@ -192,5 +192,5 @@
 
 
 /mob/living/simple_animal/hostile/npc/colonist/highclass/nanotrasen
-	hiddenfaction = "nanotrasen"
+	hiddenfaction = /datum/factions/nanotrasen
 	speech_triggers = list(/datum/npc_speech_trigger/colonist/colonist_nt, /datum/npc_speech_trigger/colonist/colonist_pirate, /datum/npc_speech_trigger/colonist/colonist_lactera)

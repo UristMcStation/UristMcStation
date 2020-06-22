@@ -24,7 +24,7 @@
 /mob/living/simple_animal/hostile/overmapship/pirate
 	wander = 1 //temporary
 	color = "#660000"
-	hiddenfaction = "pirate"
+	hiddenfaction = /datum/factions/pirate
 	aggressive = 1
 
 /mob/living/simple_animal/hostile/overmapship/pirate/small
@@ -75,7 +75,7 @@
 /mob/living/simple_animal/hostile/overmapship/nanotrasen
 	color = "#4286f4"
 	wander = 1 //temporary
-	hiddenfaction = "nanotrasen"
+	hiddenfaction = /datum/factions/nanotrasen
 
 /mob/living/simple_animal/hostile/overmapship/nanotrasen/ntmerchant
 //	shipdatum = /datum/ships/nanotrasen/ntmerchant
@@ -126,7 +126,7 @@
 /mob/living/simple_animal/hostile/overmapship/alien
 	wander = 1
 	color = "#660000"
-	hiddenfaction = "alien"
+	hiddenfaction = /datum/factions/alien
 	aggressive = 1
 	name = "Unknown"
 	designation = ""
@@ -182,7 +182,7 @@
 /mob/living/simple_animal/hostile/overmapship/terran
 	color = "#9932cc"
 //	wander = 1 //temporary
-	hiddenfaction = "terran"
+	hiddenfaction = /datum/factions/terran
 
 /mob/living/simple_animal/hostile/overmapship/terran/tcmerchant
 //	shipdatum = /datum/ships/nanotrasen/ntmerchant
@@ -235,7 +235,7 @@
 
 /mob/living/simple_animal/hostile/overmapship/rebel
 	color = "#cd0000" //Boston University Red, also known as the red on the flag of the USSR
-	hiddenfaction = "rebel"
+	hiddenfaction = /datum/factions/rebel
 
 /mob/living/simple_animal/hostile/overmapship/rebel/fast_attack
 	name = "rebel fast attack craft"

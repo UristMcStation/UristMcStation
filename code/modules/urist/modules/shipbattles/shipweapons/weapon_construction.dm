@@ -13,6 +13,9 @@
 /obj/structure/shipweapons/hardpoint/nerva
 	shipid = "nerva"
 
+/obj/structure/shipweapons/hardpoint/attached
+	attached = TRUE
+
 /obj/structure/shipweapons/incomplete_weapon
 	name = "incomplete weapon"
 	desc = "It's a ship-to-ship weapon assembly. Wrench it into a hardpoint to make it functional, or just chuck it out an airlock at an enemy vessel and see how far that gets you."
@@ -122,7 +125,7 @@
 
 			else if(isWirecutter(W))
 
-				new/obj/item/stack/cable_coil(get_turf(src), 2)
+				new /obj/item/stack/cable_coil(get_turf(src), 2)
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You cut the wires from the weapon assembly.</span>")
 				desc = "It's a ship-to-ship weapon assembly with secured external plating. It is missing wiring."

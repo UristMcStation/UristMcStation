@@ -102,7 +102,7 @@
 
 	src.set_targets(L)
 
-	if(L.aggressive) //|| L.hiddenfaction in src.hostile_factions)
+	if(L.aggressive || L.hiddenfaction.hostile)
 		enter_combat()
 		return //here we set up the combat stuff if they're aggressive
 

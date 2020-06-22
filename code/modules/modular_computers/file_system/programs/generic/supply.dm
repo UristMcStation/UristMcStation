@@ -224,8 +224,9 @@
 				SSsupply.shoppinglist += SO
 				SSsupply.points -= SO.object.cost
 
-			if(GLOB.using_map.using_new_cargo)
-				station_account.money -= SO.object.cost
+				if(GLOB.using_map.using_new_cargo)
+					var/datum/transaction/T = new("[GLOB.using_map.station_name]", "[SO.object.name] Purchase", -SO.object.cost, "[GLOB.using_map.trading_faction.name] Automated Trading System")
+					station_account.do_transaction(T)
 
 		else
 			to_chat(user, "<span class='warning'>Could not find order number [id] to approve.</span>")
@@ -247,6 +248,11 @@
 		if(SO)
 			SSsupply.shoppinglist -= SO
 			SSsupply.points += SO.object.cost
+
+			if(GLOB.using_map.using_new_cargo)
+				var/datum/transaction/T = new("[GLOB.using_map.station_name]", "[SO.object.name] Refund", SO.object.cost, "[GLOB.using_map.trading_faction.name] Automated Trading System")
+				station_account.do_transaction(T)
+
 		else
 			to_chat(user, "<span class='warning'>Could not find order number [id] to cancel.</span>")
 

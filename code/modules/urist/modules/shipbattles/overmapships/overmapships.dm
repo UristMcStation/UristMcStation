@@ -15,6 +15,7 @@
 	icon_dead = "ship"
 	var/boardingmap = "maps/shipmaps/ship_blank.dmm"
 	var/list/components = list()
+	var/list/weapons = list()
 	var/incombat = 0
 	var/aggressive = 0 //will always attack
 	var/obj/effect/overmap/ship/combat/target_ship
@@ -32,6 +33,9 @@
 
 	for(var/datum/shipcomponents/C in src.components)
 		C.mastership = src
+
+	for(var/datum/shipcomponents/weapons/W in src.components)
+		weapons += W
 
 	for(var/datum/shipcomponents/shield/S in src.components)
 		shields = S.strength
@@ -66,18 +70,11 @@
 
 /mob/living/simple_animal/hostile/overmapship/Life() //here we do the attacking stuff. i hate that this is life, but fuck.
 	if(incombat)
-		shipfire()
-
-	for(var/datum/shipcomponents/shield/S in src.components)
-		if(!S.broken && !S.recharging)
-			if(shields <= S.strength)
-				shields += S.recharge_rate
-				if(shields >= S.strength)
-					shields = S.strength
-
-				S.recharging = 1
-				spawn(S.recharge_delay)
-					S.recharging = 0
+		for(var/datum/shipcomponents/M in src.components)
+			if(M.broken)
+				return
+			else
+				M.DoActivate()
 
 	..()
 
@@ -106,7 +103,7 @@
 			GLOB.using_map.destroyed_ships += 1
 
 			for(var/datum/contract/shiphunt/A in GLOB.using_map.contracts)
-				if(A.hunt_faction == src.hiddenfaction)
+				if(A.neg_faction == src.hiddenfaction)
 					A.Complete(1)
 
 		for(var/datum/shipcomponents/S in src.components)
@@ -123,17 +120,17 @@
 			adjustBruteLoss(maxHealth)
 			qdel(src)
 
-/mob/living/simple_animal/hostile/overmapship/proc/shipfire()
-	for(var/datum/shipcomponents/weapons/W in src.components)
-		if(W.ready && !W.broken)
-			W.Fire()
-
 /mob/living/simple_animal/hostile/overmapship/proc/boarded()
 
 	GLOB.global_announcer.autosay("<b>The attacking [src.ship_category] is now able to be boarded via teleporter. Please await further instructions from Command.</b>", "ICS Nerva Automated Defence Computer", "Common") //add name+designation if I get lists for that stuff
 
 	for(var/obj/effect/urist/triggers/boarding_landmark/L in GLOB.trigger_landmarks)
 		new /obj/item/device/radio/beacon(L.loc)
+
+	for(var/obj/effect/urist/triggers/shipweapons/S in GLOB.trigger_landmarks)
+		var/datum/shipcomponents/weapons/W = pick(weapons)
+		new W.weapon_type(S.loc)
+		qdel(S)
 
 	for(var/mob/observer/ghost/G in GLOB.player_list)
 		if(G.client)

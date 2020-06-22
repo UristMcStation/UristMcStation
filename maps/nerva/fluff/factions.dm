@@ -81,12 +81,12 @@
 /decl/cultural_info/faction/remote/nanotrasen
 	name = FACTION_NANOTRASEN
 	description = "The NanoTrasen Corporation, commonly referred to as NT, is the largest of the great megacorporations of the modern day. A nation unto itself, \
-	Nanotrasen is currently headquartered in New Amsterdam on Procyon and headed by CEO Jackson Trasen and the Nanotrasen Board of Directors. \
+	NanoTrasen is currently headquartered in New Amsterdam on Procyon and headed by CEO Jackson Trasen and the NanoTrasen Board of Directors. \
 	It deals in research of the most advanced sciences,	such as genetics, blue space, and - recently - the uses of phoron, \
 	as well as mass consumer manufacturing on a truly galactic scale. \
 	They also have a sizeable asset protection and security branch with which they secure both investments and occasionally new acquisitions \
 	- a distressing rival to some minor star systems. Indeed, with the damage sustained by the Terran Confederacy during the Galactic Crisis and the Terran Civil War, \
-	Nanotrasen's naval power rivals that of any other human faction. In charge of everything is Nanotrasen's powerful administrative branch, who directs their company's actions. \
+	NanoTrasen's naval power rivals that of any other human faction. In charge of everything is NanoTrasen's powerful administrative branch, which directs their company's actions. \
 	NanoTrasen is characterized by its aggression and questionable ethics, which, combined with the high emphasis they put on new, untested and dangerous \
 	technology, means their installations are often considered unsafe and hazardous. However, in some systems, they are the only human presence, and as such, \
 	they also have a virtual monopoly on trade in the outer systems."
