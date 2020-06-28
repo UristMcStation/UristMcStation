@@ -78,6 +78,12 @@
 
 	..()
 
+/mob/living/simple_animal/hostile/overmapship/handle_automated_movement()
+	turns_since_move++
+	if(turns_since_move >= turns_per_move)
+		if(!(stop_automated_movement_when_pulled && pulledby)) //Some animals don't move when pulled
+			SelfMove(pick(GLOB.cardinal))
+			turns_since_move = 0
 
 /mob/living/simple_animal/hostile/overmapship/proc/spawnmap()
 	for(var/obj/effect/template_loader/ships/S in GLOB.trigger_landmarks) //there can only ever be one of these atm
@@ -109,12 +115,12 @@
 		for(var/datum/shipcomponents/S in src.components)
 			S.broken = TRUE
 
-	//	GLOB.global_announcer.autosay("<b>The attacking [src.ship_category] is going to explode in 45 seconds! Evacuate any boarding parties immediately.</b>", "ICS Nerva Automated Defence Computer", "Common")
+	//	GLOB.global_announcer.autosay("<b>The attacking [src.ship_category] is going to explode in 45 seconds! Evacuate any boarding parties immediately.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Common")
 
 	//	spawn(45 SECONDS) //give people on board some time to get out
 		target_ship.leave_combat()
 		despawnmap()
-		GLOB.global_announcer.autosay("<b>The attacking [src.ship_category] has been destroyed.</b>", "ICS Nerva Automated Defence Computer", "Common") //add name+designation if I get lists for that stuff
+		GLOB.global_announcer.autosay("<b>The attacking [src.ship_category] has been destroyed.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Common") //add name+designation if I get lists for that stuff
 
 		spawn(30)
 			adjustBruteLoss(maxHealth)
@@ -122,7 +128,7 @@
 
 /mob/living/simple_animal/hostile/overmapship/proc/boarded()
 
-	GLOB.global_announcer.autosay("<b>The attacking [src.ship_category] is now able to be boarded via teleporter. Please await further instructions from Command.</b>", "ICS Nerva Automated Defence Computer", "Common") //add name+designation if I get lists for that stuff
+	GLOB.global_announcer.autosay("<b>The attacking [src.ship_category] is now able to be boarded via teleporter. Please await further instructions from Command.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Common") //add name+designation if I get lists for that stuff
 
 	for(var/obj/effect/urist/triggers/boarding_landmark/L in GLOB.trigger_landmarks)
 		new /obj/item/device/radio/beacon(L.loc)

@@ -16,35 +16,35 @@
 	fire_anim = 5
 	fire_sound = 'sound/weapons/marauder.ogg'
 
-/obj/machinery/shipweapons/beam/duallightlaser
-	name = "dual light laser cannon"
-	shielddamage = 400
+/obj/machinery/shipweapons/beam/rapidlightlaser
+	name = "rapid-fire light laser cannon"
+	shielddamage = 500
 	hulldamage = 200
-	icon_state = "lasercannon-dual"
+	icon_state = "biglasercannon"
 	idle_power_usage = 10
 	active_power_usage = 6500
-	component_hit = 25
+	component_hit = 30
 	rechargerate = 23 SECONDS
 	projectile_type = /obj/item/projectile/beam/ship/lightlaser
 	fire_sound = 'sound/weapons/marauder.ogg'
 
 /obj/machinery/shipweapons/beam/heavylaser
 	name = "heavy laser cannon"
-	shielddamage = 400 //comparable damage to the dual lasercannon, faster firing
-	hulldamage = 200
-	icon_state = "lasercannon" //needs a sprite
+	shielddamage = 500 //comparable damage to the dual lasercannon, faster firing
+	hulldamage = 250
+	icon_state = "biglasercannon" //needs a sprite
 	idle_power_usage = 10
-	active_power_usage = 7000
+	active_power_usage = 8000
 	component_hit = 20
 	rechargerate = 19 SECONDS
 	projectile_type = /obj/item/projectile/beam/ship/heavylaser
 	fire_sound = 'sound/weapons/marauder.ogg'
 
-/obj/machinery/shipweapons/beam/lightpulse
+/obj/machinery/shipweapons/beam/lightpulse //pulse is good against hull, weak against shields
 	name = "light pulse cannon"
-	shielddamage = 400
+	shielddamage = 100
 	hulldamage = 200
-	icon_state = "lasercannon" //sprie
+	icon_state = "pulsecannon" //sprie
 	idle_power_usage = 10
 	active_power_usage = 7000
 	component_hit = 20
@@ -54,9 +54,9 @@
 
 /obj/machinery/shipweapons/beam/heavypulse
 	name = "heavy pulse cannon"
-	shielddamage = 800
-	hulldamage = 400
-	icon_state = "lasercannon" //sprite
+	shielddamage = 250
+	hulldamage = 500
+	icon_state = "bigpulsecannon" //sprite
 	idle_power_usage = 10
 	active_power_usage = 14000
 	component_hit = 20
@@ -69,7 +69,7 @@
 	icon_state = "ioncannon"
 	shielddamage = 400
 	hulldamage = 0
-	active_power_usage = 6000
+	active_power_usage = 8000
 	component_hit = 35
 	rechargerate = 13 SECONDS
 	fire_sound = 'sound/weapons/marauder.ogg'

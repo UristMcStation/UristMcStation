@@ -1,185 +1,3 @@
-//components, weapons, shields and stuff
-
-/datum/shipcomponents
-	var/name = "component"
-	var/health = 100
-	var/mob/living/simple_animal/hostile/overmapship/mastership = null
-	var/broken = FALSE
-	var/targeted = TRUE
-	var/last_activation = null
-
-/datum/shipcomponents/proc/BlowUp()
-//	qdel(src)
-	mastership.health -= 100
-	broken = TRUE
-	name = "destroyed [initial(name)]"
-	if(mastership.health <= 0)
-		mastership.shipdeath()
-	return
-
-/datum/shipcomponents/proc/DoActivate()
-	return
-
-/datum/shipcomponents/proc/GetInitial(var/initial_thing)
-	return initial(initial_thing)
-
-//shields
-
-/datum/shipcomponents/shield
-	var/strength = 0
-	var/recharge_rate = 0 //how much do we recharge each recharge_delay
-	var/recharging = 0 //are we waiting for the next recharge delay?
-	var/recharge_delay = 5 SECONDS //how long do we wait between recharges
-
-/datum/shipcomponents/shield/DoActivate()
-	if(!broken && !recharging)
-		if(mastership.shields <= strength)
-			mastership.shields += recharge_rate
-			if(mastership.shields >= strength)
-				mastership.shields = strength
-
-			recharging = 1
-			spawn(recharge_delay)
-				recharging = 0
-
-/datum/shipcomponents/shield/BlowUp()
-	strength = 0
-	recharge_rate = 0
-	mastership.shields = src.strength
-	..()
-
-/datum/shipcomponents/shield/debug
-	strength = 800
-	recharge_rate = 400 //super high for testing
-
-/datum/shipcomponents/shield/light
-	name = "light shield"
-	strength = 800
-	health = 200
-	recharge_rate = 80
-	recharge_delay = 10 SECONDS
-
-/datum/shipcomponents/shield/medium
-	name = "medium shield"
-	strength = 1200
-	health = 400
-	recharge_rate = 70
-	recharge_delay = 10 SECONDS
-
-/datum/shipcomponents/shield/freighter
-	name = "freighter shield"
-	strength = 1000
-	health = 300
-	recharge_rate = 50
-	recharge_delay = 10 SECONDS
-
-/datum/shipcomponents/shield/fighter
-	name = "high performance ultralight shield"
-	strength = 400
-	health = 100
-	recharge_rate = 50
-	recharge_delay = 5 SECONDS
-
-/datum/shipcomponents/shield/alien_light
-	name = "light alien shield"
-	strength = 200
-	health = 200
-	recharge_rate = 60
-	recharge_delay = 5 SECONDS
-
-/datum/shipcomponents/shield/alien_heavy
-	name = "heavy alien shield"
-	strength = 500
-	health = 200
-	recharge_rate = 60
-	recharge_delay = 8 SECONDS
-
-//evasion
-
-/datum/shipcomponents/bridge
-
-/datum/shipcomponents/engines
-	var/evasion_chance = 0
-
-/datum/shipcomponents/engines/BlowUp()
-	evasion_chance = 0
-	..()
-
-/datum/shipcomponents/engines/freighter
-	name = "freighter engines"
-	evasion_chance = 5
-	health = 200
-
-/datum/shipcomponents/engines/standard
-	name = "standard engines"
-	evasion_chance = 10
-	health = 100
-
-/datum/shipcomponents/engines/standardlarge
-	name = "large standard engines"
-	evasion_chance = 8
-	health = 125
-
-/datum/shipcomponents/engines/combat
-	name = "high performance combat engines"
-	evasion_chance = 20
-	health = 250
-
-/datum/shipcomponents/engines/fighter //for really small ships
-	name = "small high performance combat engines"
-	evasion_chance = 40
-	health = 50
-
-/datum/shipcomponents/engines/alien_light
-	name = "alien engines"
-	evasion_chance = 25
-	health = 150
-
-/datum/shipcomponents/engines/alien_heavy
-	name = "heavy alien engines"
-	evasion_chance = 15
-	health = 250
-
-//point defence
-
-/datum/shipcomponents/point_defence
-	var/intercept_chance = 0
-
-/datum/shipcomponents/point_defence/basic
-	name = "rudimentary point defence"
-	intercept_chance = 5
-	health = 50
-
-/datum/shipcomponents/point_defence/light
-	name = "light point defence"
-	intercept_chance = 8
-	health = 75
-
-/datum/shipcomponents/point_defence/med
-	name = "standard point defence"
-	intercept_chance = 10
-	health = 100
-
-/datum/shipcomponents/point_defence/advanced
-	name = "advanced point defence"
-	intercept_chance = 15
-	health = 150
-
-/datum/shipcomponents/point_defence/alienlight
-	name = "light alien point defence systems"
-	intercept_chance = 17
-	health = 150
-
-/datum/shipcomponents/point_defence/alienstandard
-	name = "standard alien point defence systems"
-	intercept_chance = 20
-	health = 200
-
-/datum/shipcomponents/point_defence/alienheavy
-	name = "advanced alien point defence systems"
-	intercept_chance = 25
-	health = 250
-
 //boarding
 /datum/shipcomponents/teleporter
 	name = "teleporter module"
@@ -189,13 +7,18 @@
 	var/last_boarding = 0 //How long since we boarded last?
 	var/boarding_turf = null//Where do we spawn our mobs?
 	var/boarding_failure_chance = 0 //more shields = more chance of preventing teleportation.
+	var/boarded_max = 3 //how many times do we board?
+	var/boarded_amount = 0 //how many times have we boarded
 
 /datum/shipcomponents/teleporter/DoActivate()
+	if(mastership.boarding)
+		return //they have better things to do than board the Nerva right now.
+
 	if(last_boarding > world.time) //Are we too early?
 		return
 
-	if(mastership.boarding)
-		return //they have better things to do than board the Nerva right now.
+	if(boarded_amount >= boarded_max)
+		return
 
 	boarding_failure_chance = 0 //Zero this var out.
 
@@ -207,19 +30,19 @@
 	if(!boarding_turf) //Locate where we're boarding, give them a warning.
 		var/obj/item/device/radio/beacon/active_beacon //what beacon are we locking onto?
 		var/list/beacon_list = list()
-		for(var/obj/item/device/radio/beacon/B in world)
+		for(var/obj/item/device/radio/beacon/B in GLOB.listening_objects)
 			if(B.z in GLOB.using_map.station_levels)
 				beacon_list += B
 		active_beacon = pick(beacon_list)
 		boarding_turf = get_turf(active_beacon)
 		var/area/boarding_area = get_area(active_beacon)
-		GLOB.global_announcer.autosay("<b>Alert! Enemy teleporter locked on! Boarding imminient! Expected breach point: [boarding_area.name].</b>", "ICS Nerva Automated Defence Computer", "Common")
+		GLOB.global_announcer.autosay("<b>Alert! Enemy teleporter locked on! Boarding imminient! Expected breach point: [boarding_area.name].</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Common")
 
 	if(prob(boarding_failure_chance))
 		for(var/obj/machinery/power/shield_generator/S in SSmachines.machinery) //Calculate our failure chance.
 			if(S.z in GLOB.using_map.station_levels)
 				S.current_energy -= S.max_energy * 0.15 //knock a little power off the shields, we're knocking at the damn door.
-		GLOB.global_announcer.autosay("<b>Alert! Tachyon flux detected against shield membrane - shield instability likely.</b>", "ICS Nerva Automated Defence Computer", "Engineering")
+		GLOB.global_announcer.autosay("<b>Alert! Tachyon flux detected against shield membrane - shield instability likely.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Engineering")
 		return //Stop here, the boarding failed.
 
 	//Let's handle boarding.
@@ -238,6 +61,7 @@
 	if(prob(15))
 		boarding_turf = null //pick somewhere new to board.
 
+	boarded_amount++
 	last_boarding = world.time + boarding_delay
 
 //boarding modules
@@ -245,15 +69,17 @@
 	name = "robotic boarding module"
 	boarding_mobs = list(/mob/living/simple_animal/hostile/hivebot, /mob/living/simple_animal/hostile/hivebot/range, /mob/living/simple_animal/hostile/hivebot/strong, /mob/living/simple_animal/hostile/hivebot/tele)
 	boarding_number = 8
+	boarded_amount = 5
 
 /datum/shipcomponents/teleporter/alien
 	name = "alien matter deconstructor/reconstructor"
 	boarding_mobs = list(/mob/living/simple_animal/hostile/scom/lactera/light, /mob/living/simple_animal/hostile/scom/lactera/medium, /mob/living/simple_animal/hostile/scom/lactera/heavy)
 	boarding_number= 5
 	boarding_delay = 2.5 MINUTES
+	boarded_amount = 5
 
 /datum/shipcomponents/teleporter/pirate
-	name = "pirate teleporter"
+	name = "pirate boarding teleporter"
 	boarding_mobs = list(/mob/living/simple_animal/hostile/pirate, /mob/living/simple_animal/hostile/pirate/ranged)
 	boarding_number = 6
 	boarding_delay = 1.5 MINUTES
@@ -272,7 +98,7 @@
 		if(S.z in GLOB.using_map.station_levels)
 			if(S.running == SHIELD_RUNNING)
 				S.current_energy -= S.max_energy * rand(disruption_amount[1], disruption_amount[2])
-	GLOB.global_announcer.autosay("<b>Tachyonic energy surge detected, shields may fluxuate.</b>", "ICS Nerva Automated Defence Computer", "Engineering")
+	GLOB.global_announcer.autosay("<b>Tachyonic energy surge detected, shields may fluxuate.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Engineering")
 	last_activation = world.time + disruption_delay
 
 /datum/shipcomponents/shield_disruptor/overcharge //For when someone's shields are SERIOUSLY persistent.
@@ -285,12 +111,12 @@
 		return
 
 	if(!first_activate) //they have five minutes to win, or suffer terribly.
-		GLOB.global_announcer.autosay("<b>Massive electromagnetic energy buildup detected in hostile ship! T - Five minutes until buildup is complete.</b>", "ICS Nerva Automated Defence Computer", "Common")
+		GLOB.global_announcer.autosay("<b>Massive electromagnetic energy buildup detected in hostile ship! T - Five minutes until buildup is complete.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Common")
 		first_activate = 1
 		last_activation = world.time + disruption_delay
 		return
 	//Warn them.
-	GLOB.global_announcer.autosay("<b>Massive electromagnetic power surge detected! Brace for electromagnetic disruption, T-30 seconds.</b>", "ICS Nerva Automated Defence Computer", "Common")
+	GLOB.global_announcer.autosay("<b>Massive electromagnetic power surge detected! Brace for electromagnetic disruption, T-30 seconds.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Common")
 
 	spawn(30 SECONDS)
 		for(var/obj/machinery/power/shield_generator/S in SSmachines.machinery)

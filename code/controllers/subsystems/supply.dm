@@ -84,6 +84,10 @@ SUBSYSTEM_DEF(supply)
 		if(amount)
 			var/datum/transaction/T = new("[GLOB.using_map.station_name]", "Trading Revenue", amount, "[GLOB.using_map.trading_faction.name] Automated Trading System")
 			station_account.do_transaction(T)
+			var/repamount = GLOB.using_map.new_cargo_inflation * GLOB.using_map.new_cargo_inflation
+			if(amount >= repamount)
+				SSfactions.update_reputation(GLOB.using_map.trading_faction, 2)
+
 		points = station_account.money
 
 	//To stop things being sent to centcomm which should not be sent to centcomm. Recursively checks for these types.
@@ -147,7 +151,15 @@ SUBSYSTEM_DEF(supply)
 						else
 
 							var/obj/O = A
-							var/addvalue = (find_item_value(O) * 0.75) //we get even less for selling in bulk
+							var/addvalue
+
+							if(GLOB.using_map.trading_faction)
+								if(GLOB.using_map.trading_faction.reputation > 50)
+									var/newvalue = (GLOB.using_map.trading_faction.reputation - 50) / 100
+									addvalue = newvalue / 2
+							else
+								addvalue = (find_item_value(O) * 0.75) //we get even less for selling in bulk
+
 							add_points_from_source(addvalue, "trade")
 
 					if(find_slip && istype(A,/obj/item/weapon/paper/manifest))

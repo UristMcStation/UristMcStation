@@ -114,6 +114,7 @@
 	handle_supernatural()
 	handle_impaired_vision()
 
+
 	if(can_bleed && bleed_ticks > 0)
 		handle_bleeding()
 
@@ -128,12 +129,7 @@
 
 	//Movement
 	if(!client && !stop_automated_movement && wander && !anchored)
-		if(isturf(src.loc) && !resting)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
-			turns_since_move++
-			if(turns_since_move >= turns_per_move)
-				if(!(stop_automated_movement_when_pulled && pulledby)) //Some animals don't move when pulled
-					SelfMove(pick(GLOB.cardinal))
-					turns_since_move = 0
+		handle_automated_movement()
 
 	//Speaking
 	if(!client && speak_chance)
@@ -477,3 +473,11 @@
 
 /mob/living/simple_animal/get_digestion_product()
 	return /datum/reagent/nutriment
+
+/mob/living/simple_animal/proc/handle_automated_movement()
+	if(isturf(src.loc) && !resting)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
+		turns_since_move++
+		if(turns_since_move >= turns_per_move)
+			if(!(stop_automated_movement_when_pulled && pulledby)) //Some animals don't move when pulled
+				SelfMove(pick(GLOB.cardinal))
+				turns_since_move = 0

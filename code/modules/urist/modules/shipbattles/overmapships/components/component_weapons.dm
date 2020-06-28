@@ -49,13 +49,14 @@
 //		src.announce_fire
 
 ///datum/shipcomponents/weapons/proc/announce_fire()
-//	GLOB.global_announcer.autosay("<b>The attacking [mastership.ship_category] has fired a [src.name] at the ICS Nerva. Brace for impact.</b>", "ICS Nerva Automated Defence Computer", "Common")
+//	GLOB.global_announcer.autosay("<b>The attacking [mastership.ship_category] has fired a [src.name] at the ICS Nerva. Brace for impact.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Common")
 
 /datum/shipcomponents/weapons/ioncannon
 //	shielddamage = 300 //needs testing
 	name = "ion cannon"
 	firedelay = 12 SECONDS
 	projectile_type = /obj/item/projectile/ion/ship
+	weapon_type = /obj/machinery/shipweapons/beam/ion
 
 /datum/shipcomponents/weapons/ioncannon/dual
 	name = "dual ion cannon"
@@ -141,12 +142,14 @@
 /datum/shipcomponents/weapons/lightlaser/auto
 	name = "light laser autocannon"
 	firedelay = 18 SECONDS
-	burst = 3
+	burst = 4
+	weapon_type = /obj/machinery/shipweapons/beam/rapidlightlaser
 
 /datum/shipcomponents/weapons/heavylaser
 	name = "heavy laser cannon"
 	firedelay = 18 SECONDS
 	projectile_type = /obj/item/projectile/beam/ship/heavylaser
+	weapon_type = /obj/machinery/shipweapons/beam/heavylaser
 
 /datum/shipcomponents/weapons/heavylaser/dual
 	name = "dual heavy laser cannon"

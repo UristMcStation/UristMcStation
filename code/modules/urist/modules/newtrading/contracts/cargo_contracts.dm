@@ -1,4 +1,4 @@
-//this type of contract has to do with shipping stuff. it's handled in the supply controller along with the other newtrading stuff
+//this type of contract has to do with shipping stuff. it's handled in the supply subsystem along with the other newtrading stuff
 //this will need a balance pass
 
 /datum/contract/cargo
