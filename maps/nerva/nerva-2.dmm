@@ -9959,6 +9959,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/item/device/radio/beacon,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/tool)
 "arF" = (
@@ -29374,6 +29375,10 @@
 /obj/effect/shuttle_landmark/nerva/deck3/hadrian,
 /turf/space,
 /area/space)
+"kdu" = (
+/obj/item/device/radio/beacon,
+/turf/simulated/floor/tiled/freezer,
+/area/civilian/cryo1)
 "kil" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -30051,6 +30056,10 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/robotics)
+"rUD" = (
+/obj/item/device/radio/beacon,
+/turf/simulated/floor/tiled,
+/area/logistics/uppercargo)
 "seh" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -48120,7 +48129,7 @@ aux
 avA
 awO
 axW
-aze
+kdu
 azZ
 aze
 aBY
@@ -52178,7 +52187,7 @@ aGw
 aOL
 aPZ
 aRi
-aRi
+rUD
 aTj
 aUd
 aUd
