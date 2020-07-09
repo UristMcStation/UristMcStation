@@ -16,6 +16,8 @@
 	#include "obj/nerva_closets.dm"
 	#include "obj/nerva_machinery.dm"
 	#include "obj/nerva_computers.dm"
+	#include "obj/nerva_clothes.dm"
+	#include "obj/nerva_items.dm"
 	#include "fluff/_fluff.dm"
 	#include "fluff/culture.dm"
 	#include "fluff/factions.dm"
