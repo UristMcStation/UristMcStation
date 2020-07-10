@@ -7,7 +7,7 @@
 	spawn_ships = FALSE
 	start_x = 6
 	start_y = 7
-	spawn_type = /mob/living/simple_animal/hostile/overmapship/nanotrasen/ntmerchant
+	spawn_types = list(/mob/living/simple_animal/hostile/overmapship/nanotrasen/ntmerchant)
 
 	initial_generic_waypoints = list(
 		"nav_nanotrading_1",

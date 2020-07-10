@@ -19,6 +19,7 @@
 	var/incombat = 0
 	var/aggressive = 0 //will always attack
 	var/obj/effect/overmap/ship/combat/target_ship
+	var/obj/effect/overmap/sector/station/home_station
 	min_gas = null
 	max_gas = null
 	minbodytemp = 0
@@ -111,6 +112,10 @@
 			for(var/datum/contract/shiphunt/A in GLOB.using_map.contracts)
 				if(A.neg_faction == src.hiddenfaction)
 					A.Complete(1)
+
+		if(home_station)
+			home_station.spawned_ships -= src
+			home_station.ship_amount -= 1
 
 		for(var/datum/shipcomponents/S in src.components)
 			S.broken = TRUE
