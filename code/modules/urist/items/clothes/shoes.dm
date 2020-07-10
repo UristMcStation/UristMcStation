@@ -69,3 +69,12 @@ icon_override sprites go to 'icons/uristmob/shoes.dmi' Items should go to clothi
 	name = "black kneesocks"
 	icon_state = "blackkneesock"
 	item_state = "blackkneesock"
+
+/obj/item/clothing/shoes/urist/footwraps
+	name = "cloth footwraps"
+	desc = "A roll of treated canvas used for wrapping claws or paws"
+	icon_state = "clothwrap"
+	item_state = "clothwrap"
+	force = 0
+	w_class = ITEM_SIZE_SMALL
+	species_restricted = null

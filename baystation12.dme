@@ -3035,6 +3035,7 @@
 #include "code\modules\urist\modules\jungle\planet_turfs.dm"
 #include "code\modules\urist\modules\jungle\scrap.dm"
 #include "code\modules\urist\modules\jungle\temple.dm"
+#include "code\modules\urist\modules\materials\recipes_cloth.dm"
 #include "code\modules\urist\modules\materials\recipes_iron.dm"
 #include "code\modules\urist\modules\materials\recipes_leather.dm"
 #include "code\modules\urist\modules\materials\recipes_steel-plasteel.dm"

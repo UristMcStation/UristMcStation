@@ -1,27 +1,5 @@
-/material/cloth/generate_recipes(var/reinforce_material)
-	..()
-
-	recipes += new/datum/stack_recipe/makeshiftbandage(src)
-	recipes += new/datum/stack_recipe/makeshiftmask(src)
-	recipes += new/datum/stack_recipe/rag(src)
-
-/datum/stack_recipe/makeshiftbandage
-	title = "makeshift bandage"
-	result_type = /obj/item/stack/medical/bruise_pack/makeshift_bandage
-	req_amount = 1
-	time = 10
-
-/datum/stack_recipe/makeshiftmask
-	title = "makeshift mask"
-	result_type = /obj/item/clothing/mask/surgical/makeshift_mask
-	req_amount = 1
-	time = 10
-
-/datum/stack_recipe/rag
-	title = "rag"
-	result_type = /obj/item/weapon/reagent_containers/glass/rag
-	req_amount = 1
-	time = 10
+//clothstuff
+//recipes moved to urist/modules/materials/recipes_cloth.dm
 
 /obj/item/clothing/under/verb/cut()
 	set name = "Cut up clothing"
@@ -76,7 +54,7 @@
 	origin_tech = list(TECH_BIO = 1)
 	animal_heal = 3
 
-/obj/item/stack/medical/bruise_pack/makeshift_banage/attack(mob/living/carbon/M as mob, mob/user as mob)
+/obj/item/stack/medical/bruise_pack/makeshift_bandage/attack(mob/living/carbon/M as mob, mob/user as mob)
 	if(..())
 		return 1
 	if (istype(M, /mob/living/carbon/human))
