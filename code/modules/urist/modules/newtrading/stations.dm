@@ -6,7 +6,7 @@
 	var/total_ships = 0
 	var/spawn_time_high = 10 MINUTES
 	var/spawn_time_low = 5 MINUTES
-	var/cooldown = 0 //if we get crossed by a ship of the same faction, it gets eaten. this is so merchant ships can ferry between stations. Cooldown is so it can get away
+//	var/cooldown = 0 //if we get crossed by a ship of the same faction, it gets eaten. this is so merchant ships can ferry between stations. Cooldown is so it can get away
 	var/busy = 0
 	var/spawn_ships = FALSE
 	var/mob/living/simple_animal/hostile/overmapship/patrolship = null //if you piss us off, we start spawning the big boys

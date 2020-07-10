@@ -53,32 +53,32 @@
 /datum/stack_recipe/taqiyah
 	title = "taqiyah"
 	result_type = /obj/item/clothing/head/taqiyah
-	req_amount = 3
+	req_amount = 2
 	time = 6
 
 /datum/stack_recipe/turban
 	title = "turban"
 	result_type = /obj/item/clothing/head/turban
-	req_amount = 3
+	req_amount = 2
 	time = 6
 
 /datum/stack_recipe/hijab
 	title = "hijab"
 	result_type = /obj/item/clothing/head/hijab
-	req_amount = 3
+	req_amount = 2
 	time = 6
 
 /datum/stack_recipe/kippa
 	title = "kippa"
 	result_type = /obj/item/clothing/head/kippa
-	req_amount = 3
+	req_amount = 2
 	time = 6
 
 /datum/stack_recipe/scarf
 	title = "scarf"
 	result_type = /obj/item/clothing/accessory/scarf
 	req_amount = 3
-	time = 6
+	time = 8
 
 /datum/stack_recipe/uniform
 	title = "uniform"

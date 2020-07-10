@@ -69,20 +69,30 @@
 	name = "robotic boarding module"
 	boarding_mobs = list(/mob/living/simple_animal/hostile/hivebot, /mob/living/simple_animal/hostile/hivebot/range, /mob/living/simple_animal/hostile/hivebot/strong, /mob/living/simple_animal/hostile/hivebot/tele)
 	boarding_number = 8
-	boarded_amount = 5
+	boarded_max = 5
 
 /datum/shipcomponents/teleporter/alien
 	name = "alien matter deconstructor/reconstructor"
 	boarding_mobs = list(/mob/living/simple_animal/hostile/scom/lactera/light, /mob/living/simple_animal/hostile/scom/lactera/medium, /mob/living/simple_animal/hostile/scom/lactera/heavy)
 	boarding_number= 5
 	boarding_delay = 2.5 MINUTES
-	boarded_amount = 5
+	boarded_max = 5
+
+/datum/shipcomponents/teleporter/alien/small
+	boarded_max = 3
 
 /datum/shipcomponents/teleporter/pirate
 	name = "pirate boarding teleporter"
 	boarding_mobs = list(/mob/living/simple_animal/hostile/pirate, /mob/living/simple_animal/hostile/pirate/ranged)
 	boarding_number = 6
-	boarding_delay = 1.5 MINUTES
+	boarding_delay = 2 MINUTES
+
+/datum/shipcomponents/teleporter/pirate/small
+	name = "pirate boarding teleporter"
+	boarding_mobs = list(/mob/living/simple_animal/hostile/pirate, /mob/living/simple_animal/hostile/pirate/ranged)
+	boarding_number = 3
+	boarding_delay = 2 MINUTES
+
 
 //Shield Disruptors
 /datum/shipcomponents/shield_disruptor

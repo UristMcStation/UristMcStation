@@ -19,7 +19,8 @@
 		new /datum/shipcomponents/shield/light,
 		new /datum/shipcomponents/engines/standard,
 		new /datum/shipcomponents/weapons/smallmissile,
-		new /datum/shipcomponents/weapons/lightlaser
+		new /datum/shipcomponents/weapons/lightlaser,
+		new /datum/shipcomponents/teleporter/pirate/small
 	)
 
 	if(prob(50))
@@ -48,7 +49,8 @@
 		new /datum/shipcomponents/weapons/heavylaser,
 		new /datum/shipcomponents/weapons/heavylaser,
 		new /datum/shipcomponents/weapons/autocannon,
-		new /datum/shipcomponents/point_defence/basic
+		new /datum/shipcomponents/point_defence/basic,
+		new /datum/shipcomponents/teleporter/pirate
 	)
 
 	..()
@@ -78,7 +80,8 @@
 		new /datum/shipcomponents/weapons/alien/heavy,
 		new /datum/shipcomponents/weapons/smallalienmissile,
 		new /datum/shipcomponents/weapons/smallalienmissile,
-		new /datum/shipcomponents/point_defence/alienlight
+		new /datum/shipcomponents/point_defence/alienlight,
+		new /datum/shipcomponents/teleporter/alien/small
 	)
 
 	..()
@@ -102,7 +105,8 @@
 		new /datum/shipcomponents/weapons/bigalienmissile,
 		new /datum/shipcomponents/weapons/smallalienmissile/battery,
 		new /datum/shipcomponents/weapons/alientorpedo,
-		new /datum/shipcomponents/point_defence/alienstandard
+		new /datum/shipcomponents/point_defence/alienstandard,
+		new /datum/shipcomponents/teleporter/alien
 	)
 
 	..()
