@@ -8803,7 +8803,10 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/closet/secure_closet/hydroponics,
+/obj/structure/closet/secure_closet/hydroponics{
+	locked = 0;
+	req_access = newlist()
+	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/map_template/colony/hydroponics)
 "Dj" = (

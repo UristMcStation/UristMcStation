@@ -7542,6 +7542,10 @@
 	id = "portsolar";
 	name = "Aft Auxiliary Solar Array"
 	},
+/obj/structure/cable/orange{
+	d2 = 4;
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/solar/auxaft)
 "nN" = (
@@ -8296,8 +8300,8 @@
 /obj/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1379;
-	layer = 3.3;
-	master_tag = "robotics_solar_airlock";
+	layer = 4;
+	master_tag = "aft_solar_airlock";
 	name = "exterior access button";
 	pixel_x = 25;
 	pixel_y = 25;
@@ -8315,7 +8319,7 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
 	icon_state = "door_locked";
-	id_tag = "robotics_solar_outer";
+	id_tag = "aft_solar_outer";
 	locked = 1;
 	name = "Engineering External Access";
 	req_access = list("ACCESS_ENGINEERING","ACCESS_EXTERNAL")
@@ -8331,24 +8335,24 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
 	frequency = 1379;
-	id_tag = "robotics_solar_pump"
+	id_tag = "aft_solar_pump"
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	tag_airpump = "robotics_solar_pump";
-	tag_exterior_door = "robotics_solar_outer";
 	frequency = 1379;
-	id_tag = "robotics_solar_airlock";
-	tag_interior_door = "robotics_solar_inner";
-	layer = 3.3;
+	id_tag = "aft_solar_airlock";
+	layer = 4;
 	pixel_x = 0;
 	pixel_y = -25;
 	req_access = list("ACCESS_EXTERNAL");
-	tag_chamber_sensor = "robotics_solar_sensor"
+	tag_airpump = "aft_solar_pump";
+	tag_chamber_sensor = "aft_solar_sensor";
+	tag_exterior_door = "aft_solar_outer";
+	tag_interior_door = "aft_solar_inner"
 	},
 /obj/machinery/airlock_sensor{
 	frequency = 1379;
-	id_tag = "robotics_solar_sensor";
-	layer = 3.3;
+	id_tag = "aft_solar_sensor";
+	layer = 4;
 	pixel_x = 12;
 	pixel_y = -25
 	},
@@ -8388,7 +8392,7 @@
 	command = "cycle_interior";
 	frequency = 1379;
 	layer = 3.3;
-	master_tag = "robotics_solar_airlock";
+	master_tag = "aft_solar_airlock";
 	name = "interior access button";
 	pixel_x = -25;
 	pixel_y = -25;
@@ -8989,6 +8993,32 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
+"Rn" = (
+/obj/effect/floor_decal/solarpanel,
+/obj/machinery/power/solar{
+	id = "portsolar";
+	name = "Aft Auxiliary Solar Array"
+	},
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/solar/auxaft)
+"Tu" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/cable/orange{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/cable/orange{
+	icon_state = "2-4";
+	d1 = 1;
+	d2 = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/solar/auxaft)
 "Xf" = (
 /obj/structure/shipweapons/hardpoint,
 /turf/simulated/floor/reinforced,
@@ -22442,7 +22472,7 @@ ar
 ar
 ar
 ar
-nN
+Tu
 nN
 nN
 nN
@@ -22644,12 +22674,12 @@ ar
 ar
 ar
 ar
-nM
-nM
-nM
-nM
-nM
-nM
+Rn
+Rn
+Rn
+Rn
+Rn
+Rn
 pm
 pI
 pI
@@ -24064,7 +24094,7 @@ ar
 oG
 ar
 ar
-pm
+po
 pH
 pH
 pH
