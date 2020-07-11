@@ -7,7 +7,7 @@
 /datum/uplink_item/item/services/fake_ion_storm
 	name = "Ion Storm Announcement"
 	desc = "Interferes with ion sensors."
-	item_cost = 8
+	item_cost = 6
 	path = /obj/item/device/uplink_service/fake_ion_storm
 
 /datum/uplink_item/item/services/suit_sensor_garble
@@ -31,7 +31,7 @@
 /datum/uplink_item/item/services/suit_sensor_shutdown
 	name = "Complete Suit Sensor Shutdown"
 	desc = "Completely disables all suit sensors for 10 minutes."
-	item_cost = 40
+	item_cost = 32
 	path = /obj/item/device/uplink_service/jamming
 
 /datum/uplink_item/item/services/fake_update_annoncement
