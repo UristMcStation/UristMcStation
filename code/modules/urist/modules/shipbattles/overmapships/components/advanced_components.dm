@@ -121,7 +121,7 @@
 		return
 
 	if(!first_activate) //they have five minutes to win, or suffer terribly.
-		GLOB.global_announcer.autosay("<b>Massive electromagnetic energy buildup detected in hostile ship! T - Five minutes until buildup is complete.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Common")
+		GLOB.global_announcer.autosay("<b>Massive electromagnetic energy buildup detected in hostile [mastership.ship_category]! T - Five minutes until buildup is complete.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Common")
 		first_activate = 1
 		last_activation = world.time + disruption_delay
 		return

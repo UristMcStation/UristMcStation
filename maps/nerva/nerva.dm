@@ -55,6 +55,7 @@
 	#include "../away/errant_pisces/errant_pisces.dm"
 	#include "../away/lar_maria/lar_maria.dm"
 	#include "../away/stations/nerva_stations.dm"
+//	#include "../away/stations/pirate/pirate_station.dm"
 	#include "../away/unishi/unishi.dm"
 	#include "../away/voxship/voxship.dm"
 	#include "../away/glloyd_jungle/glloyd_jungle.dm"

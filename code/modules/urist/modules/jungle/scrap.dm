@@ -186,7 +186,8 @@
 	return INITIALIZE_HINT_QDEL
 
 /obj/item/weapon/storage/internal/updating/update_icon()
-	master_item.update_icon()
+	if(master_item)
+		master_item.update_icon()
 
 /obj/item/stack/rods/scrap/New(var/newloc)
 	..(newloc, rand(1,8))

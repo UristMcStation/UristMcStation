@@ -23,11 +23,13 @@
 	min_gas = null
 	max_gas = null
 	minbodytemp = 0
-	var/dying = 0 //are we dying?
+	var/dying = FALSE //are we dying?
 	var/event = 0 //are we part of an event
 	var/boarding = 0 //are we being boarded
 	var/can_board = FALSE //can we be boarded
 	var/map_spawned = FALSE //have we spawned our boardingmap
+	turns_per_move = 10 //make this influenced by the engine on a ship
+	autonomous = TRUE
 
 /mob/living/simple_animal/hostile/overmapship/New()
 	..()
@@ -82,15 +84,36 @@
 /mob/living/simple_animal/hostile/overmapship/handle_automated_movement()
 	turns_since_move++
 	if(turns_since_move >= turns_per_move)
-		if(!(stop_automated_movement_when_pulled && pulledby)) //Some animals don't move when pulled
-			SelfMove(pick(GLOB.cardinal))
-			turns_since_move = 0
+		DoMove(pick(GLOB.cardinal), src)
+		turns_since_move = 0
 
+/*
+	if(turns_since_move >= turns_per_move)
+		var/turf/T = get_step(src, pick(GLOB.cardinal))
+		turns_since_move = 0
+		if(!src.MayEnterTurf(T))
+			return
+
+		if(!src.forceMove(T))
+			return
+
+		mob.set_dir(direction)
+*/
+/*
+	if(turns_since_move >= turns_per_move)
+		var/move_dir = pick(GLOB.cardinal)
+		get_step(src, move_dir) //temp
+		turns_since_move = 0
+*/
 /mob/living/simple_animal/hostile/overmapship/proc/spawnmap()
 	for(var/obj/effect/template_loader/ships/S in GLOB.trigger_landmarks) //there can only ever be one of these atm
 		S.mapfile = src.boardingmap
 		S.Load()
 		map_spawned = TRUE
+		if(home_station && !home_station.known)
+			for(var/obj/effect/urist/triggers/station_disk/D in GLOB.trigger_landmarks)
+				if(D.faction_id == hiddenfaction.factionid)
+					D.spawn_disk(home_station)
 	return
 
 /mob/living/simple_animal/hostile/overmapship/proc/despawnmap()
@@ -99,12 +122,15 @@
 		S.Load()
 	return
 
+/mob/living/simple_animal/hostile/overmapship/death() //move shipdeath to this proc
+	return
+
 /mob/living/simple_animal/hostile/overmapship/proc/shipdeath()
 	if(dying)
 		return
 
 	else
-		dying = 1
+		dying = TRUE
 
 		if(GLOB.using_map.using_new_cargo)
 			GLOB.using_map.destroyed_ships += 1

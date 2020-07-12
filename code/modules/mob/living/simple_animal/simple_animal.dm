@@ -79,13 +79,15 @@
 	var/can_ignite = 0
 	var/ignite_overlay = "Generic_mob_burning"
 	var/image/fire_overlay_image
+	var/autonomous = FALSE //we don't need anyone
 
 /mob/living/simple_animal/Life()
 	. = ..()
 	if(!.)
 		return FALSE
-	if(!living_observers_present(GetConnectedZlevels(z)))
-		return
+	if(!autonomous)
+		if(!living_observers_present(GetConnectedZlevels(z)))
+			return
 	//Health
 	if(stat == DEAD)
 		if(health > 0)

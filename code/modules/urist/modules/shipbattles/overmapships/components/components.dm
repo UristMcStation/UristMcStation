@@ -30,6 +30,7 @@
 	var/recharge_rate = 0 //how much do we recharge each recharge_delay
 	var/recharging = 0 //are we waiting for the next recharge delay?
 	var/recharge_delay = 5 SECONDS //how long do we wait between recharges
+	var/overcharged = FALSE //only for stations, we stop torpedos from doing hull damage. they can still hurt components though
 
 /datum/shipcomponents/shield/DoActivate()
 	if(!broken && !recharging)
@@ -93,6 +94,14 @@
 	health = 200
 	recharge_rate = 60
 	recharge_delay = 8 SECONDS
+
+/datum/shipcomponents/shield/pirate_station
+	name = "overcharged station shield"
+	strength = 1500
+	health = 500
+	recharge_rate = 100
+	recharge_delay = 35 SECONDS
+	overcharged = TRUE
 
 //evasion
 
