@@ -14370,11 +14370,14 @@
 /turf/simulated/floor/tiled/old_tile,
 /area/civilian/exercise)
 "Hy" = (
-/obj/structure/bed/chair/urist/bench/bench1/right,
 /obj/effect/floor_decal/chapel{
 	tag = "icon-chapel (EAST)";
 	icon_state = "chapel";
 	dir = 4
+	},
+/obj/structure/bed/chair/urist/bench/bench1/right{
+	icon_state = "benchright";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/chapel)
@@ -14564,9 +14567,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/aft/second_deck)
 "IW" = (
-/obj/structure/bed/chair/urist/bench/bench1/left,
 /obj/effect/floor_decal/chapel{
 	icon_state = "chapel";
+	dir = 1
+	},
+/obj/structure/bed/chair/urist/bench/bench1/left{
+	icon_state = "benchleft";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,

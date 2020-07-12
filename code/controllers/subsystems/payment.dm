@@ -20,7 +20,8 @@ SUBSYSTEM_DEF(payment_controller)
 			var/newbrand = pick(brand) //this is a dumb meme
 			GLOB.global_announcer.autosay("<b>Hourly salary payments have been processed and deposited into your accounts. Thank you for your service to the [GLOB.using_map.station_name]. This message is brought to you by [newbrand]: make sure to buy [newbrand] at your nearest vending machine.</b>", "[GLOB.using_map.station_name] Automated Payroll System", "Common")
 			total_paid += moneybuffer
-			station_account.money -= moneybuffer
+			var/datum/transaction/T = new("[GLOB.using_map.station_name] Payroll", "Automated Payroll Deposits", -moneybuffer, "[GLOB.using_map.station_name] Automated Payroll System")
+			station_account.do_transaction(T)
 			GLOB.global_announcer.autosay("<b>[moneybuffer]Th has been removed from the [GLOB.using_map.station_name]'s main account due to automated payroll services.</b>", "[GLOB.using_map.station_name] Automated Payroll System", "Command")
 			moneybuffer = 0
 

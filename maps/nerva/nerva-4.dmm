@@ -3081,6 +3081,11 @@
 	name = "Engineering External Access";
 	req_access = list("ACCESS_ENGINE_EQUIP","ACCESS_EXTERNAL")
 	},
+/obj/effect/floor_decal/techfloor,
+/obj/effect/floor_decal/techfloor{
+	icon_state = "techfloor_edges";
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/mainsolar)
 "gi" = (
@@ -3133,6 +3138,11 @@
 	locked = 1;
 	name = "Engineering External Access";
 	req_access = list("ACCESS_ENGINE_EQUIP","ACCESS_EXTERNAL")
+	},
+/obj/effect/floor_decal/techfloor,
+/obj/effect/floor_decal/techfloor{
+	icon_state = "techfloor_edges";
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/mainsolar)
@@ -8329,6 +8339,11 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/techfloor{
+	icon_state = "techfloor_edges";
+	dir = 1
+	},
+/obj/effect/floor_decal/techfloor,
 /turf/simulated/floor/plating,
 /area/maintenance/aftsolar)
 "ps" = (
@@ -8385,6 +8400,11 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/techfloor{
+	icon_state = "techfloor_edges";
+	dir = 1
+	},
+/obj/effect/floor_decal/techfloor,
 /turf/simulated/floor/plating,
 /area/maintenance/aftsolar)
 "pu" = (

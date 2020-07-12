@@ -1,9 +1,10 @@
-//this type of contract has to do with shipping stuff. it's handled in the supply controller along with the other newtrading stuff
+//this type of contract has to do with shipping stuff. it's handled in the supply subsystem along with the other newtrading stuff
 //this will need a balance pass
 
 /datum/contract/cargo
 	var/list/wanted_types //types of items accepted for the contract
-	faction = "NanoTrasen"
+	faction = /datum/factions/nanotrasen
+	rep_points = 1
 
 /datum/contract/cargo/New()
 	..()
@@ -65,6 +66,7 @@
 	name = "Durand Parts Delivery Contract"
 	wanted_types = list(/obj/item/mecha_parts/part/durand_torso, /obj/item/mecha_parts/part/durand_left_arm, /obj/item/mecha_parts/part/durand_left_leg, /obj/item/mecha_parts/part/durand_right_arm, /obj/item/mecha_parts/part/durand_right_leg, /obj/item/mecha_parts/part/durand_head)
 	money = 600
+	rep_points = 2
 
 /datum/contract/cargo/robotics/durandparts/New()
 	amount = rand(3,6)
@@ -129,6 +131,7 @@
 	name = "Energy Sword Delivery Contract"
 	wanted_types = list(/obj/item/weapon/melee/energy/sword, /obj/item/weapon/melee/energy/sword/pirate)
 	money = 750
+	rep_points = 2
 
 /datum/contract/cargo/eswords/New()
 	amount = rand(2,4)
@@ -139,6 +142,7 @@
 	name = "Lactera Weapon Delivery Contract"
 	wanted_types = list(/obj/item/scom/aliengun)
 	money = 850
+	rep_points = 3
 
 /datum/contract/cargo/alienguns/New()
 	amount = rand(2,4)

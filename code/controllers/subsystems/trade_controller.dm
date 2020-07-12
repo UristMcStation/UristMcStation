@@ -23,6 +23,10 @@ SUBSYSTEM_DEF(trade_controller)
 			C.trade_items.Add(I)
 			C.trade_items_by_type[I.item_type] = I
 			C.total_weighting += I.trader_weight
+
+	for(var/mob/living/simple_animal/hostile/npc/N in GLOB.living_mob_list_)
+		N.generate_trade_items()
+
 	. = ..()
 
 /datum/controller/subsystem/trade_controller/proc/get_trade_category(var/category)

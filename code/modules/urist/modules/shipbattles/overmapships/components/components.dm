@@ -6,6 +6,7 @@
 	var/mob/living/simple_animal/hostile/overmapship/mastership = null
 	var/broken = FALSE
 	var/targeted = TRUE
+	var/last_activation = null
 
 /datum/shipcomponents/proc/BlowUp()
 //	qdel(src)
@@ -16,6 +17,12 @@
 		mastership.shipdeath()
 	return
 
+/datum/shipcomponents/proc/DoActivate()
+	return
+
+/datum/shipcomponents/proc/GetInitial(var/initial_thing)
+	return initial(initial_thing)
+
 //shields
 
 /datum/shipcomponents/shield
@@ -23,6 +30,18 @@
 	var/recharge_rate = 0 //how much do we recharge each recharge_delay
 	var/recharging = 0 //are we waiting for the next recharge delay?
 	var/recharge_delay = 5 SECONDS //how long do we wait between recharges
+	var/overcharged = FALSE //only for stations, we stop torpedos from doing hull damage. they can still hurt components though
+
+/datum/shipcomponents/shield/DoActivate()
+	if(!broken && !recharging)
+		if(mastership.shields <= strength)
+			mastership.shields += recharge_rate
+			if(mastership.shields >= strength)
+				mastership.shields = strength
+
+			recharging = 1
+			spawn(recharge_delay)
+				recharging = 0
 
 /datum/shipcomponents/shield/BlowUp()
 	strength = 0
@@ -75,6 +94,14 @@
 	health = 200
 	recharge_rate = 60
 	recharge_delay = 8 SECONDS
+
+/datum/shipcomponents/shield/pirate_station
+	name = "overcharged station shield"
+	strength = 1500
+	health = 500
+	recharge_rate = 100
+	recharge_delay = 35 SECONDS
+	overcharged = TRUE
 
 //evasion
 
@@ -161,3 +188,4 @@
 	name = "advanced alien point defence systems"
 	intercept_chance = 25
 	health = 250
+

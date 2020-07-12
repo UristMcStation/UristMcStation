@@ -32,7 +32,7 @@
 
 		else
 			if(H.hiddenfaction == src.hiddenfaction)
-				H.faction = H.hiddenfaction
+				H.faction = H.hiddenfaction.factionid
 		return
 
 	for(var/i=0,i<5,i++)

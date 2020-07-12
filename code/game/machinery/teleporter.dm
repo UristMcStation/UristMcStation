@@ -105,7 +105,7 @@
 	var/list/L = list()
 	var/list/areaindex = list()
 
-	for(var/obj/item/device/radio/beacon/R in world)
+	for(var/obj/item/device/radio/beacon/R in GLOB.listening_objects)
 		var/turf/T = get_turf(R)
 		if (!T)
 			continue

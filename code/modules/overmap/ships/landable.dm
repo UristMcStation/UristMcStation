@@ -92,6 +92,8 @@
 		return
 	forceMove(target)
 	halt()
+	if(into.special)
+		into.on_landing()
 
 /obj/effect/overmap/ship/landable/proc/on_takeoff(obj/effect/shuttle_landmark/from, obj/effect/shuttle_landmark/into)
 	if(!isturf(loc))

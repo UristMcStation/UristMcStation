@@ -41,6 +41,7 @@
 
 	using_new_cargo = TRUE //this var inits the stuff related to the contract system, the new trading system, and other misc things including the endround station profit report.
 	new_cargo_inflation = 45 //used to calculate how much points are now. this needs balancing //i didn't make this clear, it's the original point value times this number
+	trading_faction = /datum/factions/nanotrasen //this is used to determine rep points/bonuses from trading and certain contracts
 
 	evac_controller_type = /datum/evacuation_controller/starship
 
@@ -90,8 +91,11 @@
 		var/obj/effect/overmap/O = map_sectors[zlevel]
 		if(O.name == nerva.name)
 			continue
+		if(istype(O, /obj/effect/overmap/ship/landable)) //Don't show shuttles
+			continue
 		space_things |= O
 
+	var/list/distress_calls
 	for(var/obj/effect/overmap/O in space_things)
 		var/location_desc = " at present co-ordinates."
 		if (O.loc != nerva.loc)
@@ -99,8 +103,16 @@
 			if(bearing < 0)
 				bearing += 360
 			location_desc = ", bearing [bearing]."
+		if(O.has_distress_beacon)
+			LAZYADD(distress_calls, "[O.has_distress_beacon][location_desc]")
 		welcome_text += "<li>\A <b>[O.name]</b>[location_desc]</li>"
 	welcome_text += "<br>No distress calls logged.<br />"
+
+	if(LAZYLEN(distress_calls))
+		welcome_text += "<br><b>Distress calls logged:</b><br>[jointext(distress_calls, "<br>")]<br>"
+	else
+		welcome_text += "<br>No distress calls logged.<br />"
+	welcome_text += "<hr>"
 
 	post_comm_message("ICS Nerva Sensor Readings", welcome_text)
 	minor_announcement.Announce(message = "New [GLOB.using_map.company_name] Update available at all communication consoles.")

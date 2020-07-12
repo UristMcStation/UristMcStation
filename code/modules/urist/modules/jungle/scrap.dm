@@ -50,6 +50,7 @@
 		var/loot_path = pick(loot_list)
 		new loot_path(src)
 	loot = new(src)
+	loot.master_item = src
 	loot.max_w_class = 5
 	loot.max_storage_space = loot_min*4
 	shuffle_loot()
@@ -185,7 +186,8 @@
 	return INITIALIZE_HINT_QDEL
 
 /obj/item/weapon/storage/internal/updating/update_icon()
-	master_item.update_icon()
+	if(master_item)
+		master_item.update_icon()
 
 /obj/item/stack/rods/scrap/New(var/newloc)
 	..(newloc, rand(1,8))

@@ -84,7 +84,7 @@
 "bF" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,/obj/machinery/atmospherics/pipe/simple/visible/supply{icon_state = "intact-supply"; dir = 1},/turf/simulated/floor/plating,/area/boarding_ship)
 "bG" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 1},/obj/machinery/atmospherics/pipe/simple/visible/supply{icon_state = "intact-supply"; dir = 6},/obj/structure/closet/walllocker/emerglocker/west,/turf/simulated/floor/plating,/area/boarding_ship)
 "bH" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 8},/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
-"bI" = (/obj/machinery/shipweapons/beam/lightlaser,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"bI" = (/obj/effect/urist/triggers/shipweapons,/obj/structure/shipweapons/hardpoint/attached,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
 "bJ" = (/obj/machinery/atmospherics/trinary/mixer/m_mixer,/turf/simulated/floor/plating,/area/boarding_ship)
 "bK" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/green{icon_state = "intact"; dir = 9},/turf/simulated/floor/plating,/area/boarding_ship)
 "bL" = (/obj/structure/catwalk,/obj/machinery/door/firedoor/border_only{icon_state = "open"; dir = 4},/obj/machinery/door/airlock/engineering,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 1},/obj/machinery/atmospherics/pipe/simple/visible/supply,/turf/simulated/floor/plating,/area/boarding_ship)

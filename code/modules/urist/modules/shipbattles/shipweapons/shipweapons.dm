@@ -92,7 +92,7 @@
 		user << "<span class='warning'>There is nothing to shoot at...</span>"
 
 
-/obj/machinery/shipweapons/proc/Fire() //this proc is a mess
+/obj/machinery/shipweapons/proc/Fire() //this proc is a mess //next task is refactor this proc
 	if(!target) //maybe make it fire and recharge if people are dumb?
 		return
 
@@ -160,6 +160,7 @@
 
 				else if(passshield) //do we pass through the shield? let's do our damage
 					//not so fast, we've got point defence now
+
 					for(var/datum/shipcomponents/point_defence/PD in OM.components)
 						if(!PD.broken && prob(PD.intercept_chance))
 							continue
@@ -167,10 +168,11 @@
 						else
 							if(OM.shields)
 								var/muted_damage = (hulldamage * 0.5) //genuinely forgot this was in, might make this a specific feature of shields
-								if(targeted_component)
-									TargetedHit(OM, muted_damage)
-								else
-									OM.health -= muted_damage
+								for(var/datum/shipcomponents/shield/S in OM.components)
+									if(targeted_component)
+										TargetedHit(OM, muted_damage)
+									else if(!targeted_component && !S.overcharged)
+										OM.health -= muted_damage
 
 							else if(!OM.shields)
 								if(targeted_component)

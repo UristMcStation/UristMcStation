@@ -145,7 +145,7 @@ var/list/_client_preferences_by_type
 
 /datum/client_preference/show_typing_indicator/changed(var/mob/preference_mob, var/new_value)
 	if(new_value == GLOB.PREF_HIDE)
-		QDEL_NULL(preference_mob.typing_indicator)
+		preference_mob.remove_typing_indicator()
 
 /datum/client_preference/show_ooc
 	description ="OOC chat"
@@ -228,6 +228,11 @@ var/list/_client_preferences_by_type
 	description ="Examining messages"
 	key = "EXAMINE_MESSAGES"
 	options = list(GLOB.PREF_SHOW, GLOB.PREF_HIDE)
+
+/datum/client_preference/floating_messages
+	description ="Floating chat messages"
+	key = "FLOATING_CHAT"
+	options = list(GLOB.PREF_HIDE, GLOB.PREF_SHOW)
 
 /********************
 * General Staff Preferences *

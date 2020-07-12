@@ -2,6 +2,7 @@
 	interact_screen = 2
 	angryprob = 0
 	speech_triggers = list(/datum/npc_speech_trigger/colonist/colonist_pirate, /datum/npc_speech_trigger/colonist/colonist_lactera)
+	hiddenfaction = /datum/factions/nanotrasen
 
 //tool trader
 

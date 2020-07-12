@@ -38,7 +38,7 @@
 //	security_state.set_security_level(security_state.high_security_level)
 
 
-	GLOB.global_announcer.autosay("<b>A hostile [target.ship_category] has engaged the ICS Nerva</b>", "ICS Nerva Automated Defence Computer", "Common") //add name+designation if I get lists for that stuff
+	GLOB.global_announcer.autosay("<b>A hostile [target.ship_category] has engaged the [GLOB.using_map.full_name]</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Common") //add name+designation if I get lists for that stuff
 
 /obj/effect/overmap/ship/combat/proc/set_targets(var/mob/living/simple_animal/hostile/overmapship/new_target = null)
 	if(!target)
@@ -102,7 +102,7 @@
 
 	src.set_targets(L)
 
-	if(L.aggressive) //|| L.hiddenfaction in src.hostile_factions)
+	if(L.aggressive || L.hiddenfaction.hostile)
 		enter_combat()
 		return //here we set up the combat stuff if they're aggressive
 

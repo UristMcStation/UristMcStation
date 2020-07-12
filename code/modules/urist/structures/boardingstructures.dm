@@ -71,7 +71,7 @@
 
 				else
 					triggered = TRUE
-					GLOB.global_announcer.autosay("<b>The self-destruct sequence on the attacking ship has been initiated. Evacuate all boarding parties immediately.</b>", "ICS Nerva Automated Defence Computer", "Common")
+					GLOB.global_announcer.autosay("<b>The self-destruct sequence on the attacking ship has been initiated. Evacuate all boarding parties immediately.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Common")
 					for(var/obj/effect/landmark/scom/bomb/B in landmarks_list)
 						if(B.shipid == src.shipid)
 							B.incomprehensibleprocname() //i fucking hate myself. what was i trying to prove with this shit.
