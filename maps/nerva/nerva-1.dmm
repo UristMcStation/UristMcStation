@@ -1663,6 +1663,7 @@
 	name = "south bump";
 	pixel_y = -24
 	},
+/obj/structure/cable,
 /turf/simulated/floor/tiled/white/monotile,
 /area/medical/extstorage)
 "dq" = (
