@@ -1,16 +1,16 @@
 //dammit Bay
-/var/const/access_court = 51
+/var/const/access_court = "ACCESS_COURT" //51
 /datum/access/court
 	id = access_court
 	desc = "Courtroom"
 	region = ACCESS_REGION_SECURITY
 
-/var/const/access_clown = 43
+/var/const/access_clown = "ACCESS_CLOWN" //43
 /datum/access/clown
 	id = access_clown
 	desc = "HONK! Access"
 
-/var/const/access_mime = 44
+/var/const/access_mime = "ACCESS_MIME" //44
 /datum/access/mime
 	id = access_mime
 	desc = "Silent Access"
