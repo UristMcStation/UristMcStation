@@ -8,6 +8,7 @@
 	name = "destroyed colony"
 	desc = "A former Terran Confederation colony, any settlements on this world were destroyed during the Galactic Crisis. Little remains, but sensors are detecting a faint signal from a destroyed settlement."
 	icon_state = "globe"
+	color = "#c2b280"
 	known = 0
 	in_space = 0
 	initial_generic_waypoints = list(

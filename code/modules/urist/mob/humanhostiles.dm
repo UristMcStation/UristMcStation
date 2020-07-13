@@ -261,3 +261,71 @@
 
 /mob/living/simple_animal/hostile/urist/rebel/event
 	faction = "neutral"
+
+//new pirates
+
+/mob/living/simple_animal/hostile/urist/newpirate
+	name = "Pirate"
+	desc = "Does what they want 'cause a pirate is free."
+	icon_state = "newpirate_melee"
+	icon_living = "newpirate_melee"
+	icon_dead = "newpirate_melee_dead"
+	speak_chance = 0
+	turns_per_move = 5
+	response_help = "pushes"
+	response_disarm = "shoves"
+	response_harm = "hits"
+	speed = 4
+	stop_automated_movement_when_pulled = 0
+	maxHealth = 100
+	health = 100
+	can_escape = 1
+
+	harm_intent_damage = 5
+	melee_damage_lower = 30
+	melee_damage_upper = 30
+	attacktext = "slashed"
+	attack_sound = 'sound/weapons/bladeslice.ogg'
+
+	unsuitable_atmos_damage = 5
+	var/corpse = /obj/effect/landmark/corpse/pirate
+	var/weapon1 = /obj/item/weapon/melee/energy/sword/pirate
+	hiddenfaction = /datum/factions/pirate
+	faction = "pirate"
+
+/mob/living/simple_animal/hostile/urist/newpirate/laser
+	name = "Pirate Gunner"
+	icon_state = "newpirate_laser"
+	icon_living = "newpirate_laser"
+	icon_dead = "newpirate_laser_dead"
+	projectilesound = 'sound/weapons/laser.ogg'
+	ranged = 1
+	rapid = 0
+	projectiletype = /obj/item/projectile/beam
+	corpse = /obj/effect/landmark/corpse/pirate/ranged
+	weapon1 = /obj/item/weapon/gun/energy/laser
+	minimum_distance = 4
+	retreat_distance = 2
+
+/mob/living/simple_animal/hostile/urist/newpirate/ballistic
+	name = "Pirate Gunner"
+	icon_state = "newpirate_ballistic"
+	icon_living = "newpirate_ballistic"
+	icon_dead = "newpirate_ballistic_dead"
+	projectilesound = 'sound/weapons/gunshot/gunshot3.ogg'
+	ranged = 1
+	rapid = 2
+	projectiletype = /obj/item/projectile/bullet/rifle/a762
+	corpse = /obj/effect/landmark/corpse/pirate/ranged
+	weapon1 = /obj/item/weapon/gun/energy/laser
+	minimum_distance = 4
+	retreat_distance = 2
+
+/mob/living/simple_animal/hostile/urist/newpirate/death(gibbed, deathmessage, show_dead_message)
+	..(gibbed, deathmessage, show_dead_message)
+	if(corpse)
+		new corpse (src.loc)
+	if(weapon1)
+		new weapon1 (src.loc)
+	qdel(src)
+	return

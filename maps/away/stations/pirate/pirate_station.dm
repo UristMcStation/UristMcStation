@@ -24,8 +24,9 @@
 	desc = "Sensor array detects a large asteroid."
 	icon = 'icons/obj/overmap.dmi'
 	icon_state = "meteor4"
-	known = 0
 	faction = /datum/factions/pirate
+	color = "#cc5474"
+	station_holder = /mob/living/simple_animal/hostile/overmapship/station_holder/pirate
 	total_ships = 2
 	remaining_ships = 5
 	spawn_ships = TRUE
@@ -73,3 +74,10 @@
 	landmark_tag = "nav_piratestation_3"
 	base_area = /area/spacestations/pirate/exterior
 	base_turf = /turf/simulated/open
+
+/obj/effect/overmap/sector/station/hostile/pirate/update_visible()
+	if(!known)
+		known = 1
+		icon = 'icons/urist/misc/overmap.dmi'
+		icon_state = "station_asteroid_0"
+		color = "#660000"

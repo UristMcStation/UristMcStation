@@ -6,20 +6,20 @@
 "af" = (/turf/simulated/open,/area/spacestations/pirate/exterior)
 "ag" = (/obj/effect/shuttle_landmark/nav_piratestation/nav3,/turf/simulated/open,/area/spacestations/pirate/exterior)
 "ah" = (/obj/structure/catwalk,/turf/simulated/floor/plating/airless,/area/spacestations/pirate/station)
-"ai" = (/obj/machinery/access_button{command = "cycle_exterior"; frequency = 1379; master_tag = "pirate_station_3_airlock3"; name = "exterior access button"; pixel_x = 25; pixel_y = -25; req_access = list("ACCESS_EXTERNAL")},/obj/structure/catwalk,/turf/simulated/floor/plating/airless,/area/spacestations/pirate/station)
-"aj" = (/obj/structure/catwalk,/obj/machinery/light/small,/turf/simulated/floor/plating/airless,/area/spacestations/pirate/station)
+"ai" = (/obj/machinery/door/airlock/external{frequency = 1379; icon_state = "door_locked"; id_tag = "pirate_station_3_outer3"; locked = 1; name = "Engineering External Access"; req_access = list("ACCESS_ENGINEERING","ACCESS_EXTERNAL")},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
+"aj" = (/obj/structure/catwalk,/obj/machinery/light/small{dir = 8; luminosity = 3},/turf/simulated/floor/plating/airless,/area/spacestations/pirate/station)
 "ak" = (/turf/simulated/wall,/area/spacestations/pirate/station)
-"al" = (/obj/machinery/door/airlock/external{frequency = 1379; icon_state = "door_locked"; id_tag = "pirate_station_3_outer3"; locked = 1; name = "Engineering External Access"; req_access = list("ACCESS_ENGINEERING","ACCESS_EXTERNAL")},/turf/simulated/floor,/area/spacestations/pirate/station)
+"al" = (/obj/machinery/access_button{command = "cycle_exterior"; frequency = 1379; master_tag = "pirate_station_3_airlock3"; name = "exterior access button"; pixel_x = -25; pixel_y = 25; req_access = list("ACCESS_EXTERNAL")},/obj/structure/catwalk,/turf/simulated/floor/plating/airless,/area/spacestations/pirate/station)
 "am" = (/turf/simulated/floor/reinforced/airless,/area/spacestations/pirate/exterior)
 "an" = (/obj/effect/wallframe_spawn/reinforced/hull,/turf/simulated/floor,/area/spacestations/pirate/station)
 "ao" = (/obj/machinery/atmospherics/unary/vent_pump/high_volume{dir = 2; frequency = 1379; id_tag = "pirate_station_3_pump3"},/turf/simulated/floor,/area/spacestations/pirate/station)
-"ap" = (/obj/machinery/atmospherics/pipe/manifold/visible{dir = 8},/turf/simulated/floor,/area/spacestations/pirate/station)
-"aq" = (/obj/machinery/atmospherics/pipe/simple/visible{icon_state = "intact"; dir = 9},/obj/machinery/embedded_controller/radio/airlock/airlock_controller{frequency = 1379; id_tag = "pirate_station_3_airlock3"; pixel_x = 25; req_access = list("ACCESS_EXTERNAL"); tag_airpump = "pirate_station_3_pump3"; tag_chamber_sensor = "pirate_station_3_sensor3"; tag_exterior_door = "pirate_station_3_outer3"; tag_interior_door = "pirate_station_3_inner3"},/obj/machinery/airlock_sensor{frequency = 1379; id_tag = "pirate_station_3_sensor3"; pixel_x = 25; pixel_y = 12},/turf/simulated/floor,/area/spacestations/pirate/station)
-"ar" = (/obj/machinery/atmospherics/pipe/simple/visible,/obj/machinery/door/airlock/external{frequency = 1379; icon_state = "door_locked"; id_tag = "pirate_station_3_inner3"; locked = 1; name = "Engineering External Access"; req_access = list("ACCESS_EXTERNAL")},/turf/simulated/floor,/area/spacestations/pirate/station)
-"as" = (/obj/machinery/door/airlock/external{frequency = 1379; icon_state = "door_locked"; id_tag = "pirate_station_3_inner3"; locked = 1; name = "Engineering External Access"; req_access = list("ACCESS_EXTERNAL")},/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
-"at" = (/obj/random/trash,/obj/machinery/atmospherics/pipe/simple/visible,/turf/simulated/floor,/area/spacestations/pirate/station)
-"au" = (/obj/machinery/access_button{command = "cycle_interior"; frequency = 1379; master_tag = "pirate_station_3_airlock3"; name = "interior access button"; pixel_x = 25; pixel_y = 25; req_access = list("ACCESS_EXTERNAL")},/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
-"av" = (/obj/machinery/atmospherics/pipe/simple/visible,/turf/simulated/floor,/area/spacestations/pirate/station)
+"ap" = (/obj/machinery/atmospherics/pipe/manifold/visible{dir = 8},/obj/machinery/embedded_controller/radio/airlock/airlock_controller{frequency = 1379; id_tag = "pirate_station_3_airlock3"; pixel_x = -25; req_access = list("ACCESS_EXTERNAL"); tag_airpump = "pirate_station_3_pump3"; tag_chamber_sensor = "pirate_station_3_sensor3"; tag_exterior_door = "pirate_station_3_outer3"; tag_interior_door = "pirate_station_3_inner3"},/obj/machinery/airlock_sensor{frequency = 1379; id_tag = "pirate_station_3_sensor3"; pixel_x = -25; pixel_y = 12},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
+"aq" = (/obj/machinery/atmospherics/pipe/simple/visible{icon_state = "intact"; dir = 9},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
+"ar" = (/obj/machinery/atmospherics/pipe/simple/visible,/obj/machinery/door/airlock/external{frequency = 1379; icon_state = "door_locked"; id_tag = "pirate_station_3_inner3"; locked = 1; name = "Engineering External Access"; req_access = list("ACCESS_EXTERNAL")},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
+"as" = (/obj/machinery/door/airlock/external{frequency = 1379; icon_state = "door_locked"; id_tag = "pirate_station_3_inner3"; locked = 1; name = "Engineering External Access"; req_access = list("ACCESS_EXTERNAL")},/obj/random/trash,/turf/simulated/floor,/area/spacestations/pirate/station)
+"at" = (/obj/random/trash,/obj/machinery/atmospherics/pipe/simple/visible,/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
+"au" = (/obj/machinery/access_button{command = "cycle_interior"; frequency = 1379; master_tag = "pirate_station_3_airlock3"; name = "interior access button"; pixel_x = 25; pixel_y = 25; req_access = list("ACCESS_EXTERNAL")},/turf/simulated/floor,/area/spacestations/pirate/station)
+"av" = (/obj/machinery/atmospherics/pipe/simple/visible,/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
 "aw" = (/obj/random/junk,/turf/simulated/floor,/area/spacestations/pirate/station)
 "ax" = (/obj/structure/closet/crate,/obj/random/smokes,/turf/simulated/floor,/area/spacestations/pirate/station)
 "ay" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet,/turf/simulated/floor,/area/spacestations/pirate/station)
@@ -35,7 +35,7 @@
 "aI" = (/obj/machinery/atmospherics/pipe/simple/visible{dir = 5},/turf/simulated/floor,/area/spacestations/pirate/station)
 "aJ" = (/obj/item/weapon/table_parts,/obj/machinery/atmospherics/pipe/manifold/visible,/turf/simulated/floor,/area/spacestations/pirate/station)
 "aK" = (/obj/machinery/door/airlock/engineering{icon_state = "closed"; dir = 1},/obj/machinery/atmospherics/pipe/simple/visible{dir = 4},/turf/simulated/floor,/area/spacestations/pirate/station)
-"aL" = (/obj/machinery/atmospherics/pipe/simple/visible{icon_state = "intact"; dir = 9},/turf/simulated/floor,/area/spacestations/pirate/station)
+"aL" = (/obj/item/stack/tile/floor,/turf/simulated/floor,/area/spacestations/pirate/station)
 "aM" = (/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "aN" = (/obj/machinery/door/airlock/engineering{icon_state = "closed"; dir = 1},/turf/simulated/floor,/area/spacestations/pirate/station)
 "aO" = (/obj/effect/urist/triggers/away_ai_landmark/pirate,/turf/simulated/floor,/area/spacestations/pirate/station)
@@ -44,7 +44,7 @@
 "aR" = (/obj/structure/hygiene/shower{icon_state = "shower"; dir = 8},/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
 "aS" = (/obj/random/smokes,/turf/simulated/floor,/area/spacestations/pirate/station)
 "aT" = (/obj/structure/bed/nice,/obj/machinery/light/small/red{icon_state = "firelight1"; dir = 4},/obj/item/weapon/bedsheet,/obj/structure/curtain/open/bed,/turf/simulated/floor,/area/spacestations/pirate/station)
-"aU" = (/obj/machinery/light/small{dir = 4; pixel_y = 0},/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
+"aU" = (/obj/machinery/atmospherics/pipe/simple/visible,/obj/item/stack/tile/floor,/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
 "aV" = (/obj/structure/hygiene/shower{dir = 4; icon_state = "shower"; pixel_x = 0},/obj/random/trash,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
 "aW" = (/obj/machinery/cryopod{icon_state = "body_scanner_0"; dir = 2},/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
 "aX" = (/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
@@ -70,7 +70,7 @@
 "br" = (/obj/machinery/cryopod,/obj/item/device/radio/intercom{dir = 8; pixel_x = 22},/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
 "bs" = (/obj/machinery/light/small{dir = 4; pixel_y = 0},/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "bt" = (/obj/structure/catwalk,/obj/machinery/power/apc{cell_type = /obj/item/weapon/cell/infinite; dir = 8; icon_state = "apc0"; pixel_x = -9},/obj/structure/cable{d2 = 2; icon_state = "0-2"},/turf/simulated/floor/plating,/area/spacestations/pirate/station)
-"bu" = (/obj/structure/catwalk,/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"; pixel_y = 0},/turf/simulated/floor/plating,/area/spacestations/pirate/station)
+"bu" = (/obj/structure/closet/emcloset,/turf/simulated/floor/tiled/steel_ridged,/area/spacestations/pirate/station)
 "bv" = (/obj/machinery/door/airlock/engineering{icon_state = "closed"; dir = 1},/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "bw" = (/obj/random/junk,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "bx" = (/obj/structure/extinguisher_cabinet{icon_state = "extinguisher_closed"; dir = 8; pixel_x = 31; pixel_x = 30},/turf/simulated/floor,/area/spacestations/pirate/station)
@@ -86,7 +86,7 @@
 "bH" = (/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "bI" = (/obj/structure/closet/crate,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "bJ" = (/obj/effect/urist/triggers/away_ai_landmark/pirate,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
-"bK" = (/obj/machinery/door/airlock/multi_tile,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
+"bK" = (/obj/item/weapon/material/shard,/turf/simulated/floor/tiled/steel_ridged,/area/spacestations/pirate/station)
 "bL" = (/obj/random/trash,/obj/structure/closet/crate,/obj/machinery/atmospherics/unary/vent_pump/on,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "bM" = (/obj/machinery/cryopod{dir = 4},/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
 "bN" = (/obj/machinery/light/small{dir = 1},/obj/machinery/computer/cryopod{density = 0; pixel_y = 32},/obj/item/roller,/obj/machinery/atmospherics/unary/vent_scrubber/on,/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
@@ -128,7 +128,7 @@
 "cx" = (/obj/random/junk,/obj/machinery/door/airlock/glass/civilian,/turf/simulated/floor,/area/spacestations/pirate/station)
 "cy" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet,/obj/structure/curtain/open/bed,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "cz" = (/obj/item/weapon/broken_bottle,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
-"cA" = (/obj/machinery/computer,/obj/effect/floor_decal/corner/blue{dir = 9},/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
+"cA" = (/obj/effect/landmark/scom/bomb/pirate_station,/turf/simulated/wall,/area/spacestations/pirate/station)
 "cB" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/random/junk,/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
 "cC" = (/obj/machinery/light{icon_state = "tube1"; dir = 4},/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "cD" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/door/airlock,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
@@ -199,6 +199,22 @@
 "dQ" = (/obj/structure/extinguisher_cabinet{icon_state = "extinguisher_closed"; dir = 8; pixel_x = 31; pixel_x = 30},/obj/structure/ladder,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "dR" = (/turf/simulated/open,/area/spacestations/pirate/station)
 "dS" = (/obj/effect/landmark/map_data{height = 2},/turf/space,/area/space)
+"dT" = (/obj/structure/shipweapons/hardpoint/attached,/obj/machinery/shipweapons/beam/heavylaser,/turf/simulated/floor/tiled/steel_ridged,/area/spacestations/pirate/station)
+"dU" = (/obj/machinery/atmospherics/pipe/simple/visible,/obj/structure/catwalk,/obj/random/junk,/turf/simulated/floor,/area/spacestations/pirate/station)
+"dV" = (/obj/structure/table/rack,/obj/random/tool,/obj/random/material,/obj/random/toolbox,/turf/simulated/floor/tiled/steel_ridged,/area/spacestations/pirate/station)
+"dW" = (/obj/structure/reagent_dispensers/fueltank,/turf/simulated/floor,/area/spacestations/pirate/station)
+"dX" = (/obj/structure/closet/secure_closet/engineering_electrical,/turf/simulated/floor/tiled/steel_ridged,/area/spacestations/pirate/station)
+"dY" = (/obj/random/trash,/turf/simulated/floor/tiled/steel_ridged,/area/spacestations/pirate/station)
+"dZ" = (/obj/effect/urist/triggers/away_ai_landmark/pirate,/turf/simulated/floor/tiled/steel_ridged,/area/spacestations/pirate/station)
+"ea" = (/obj/structure/shipweapons/hardpoint/attached,/obj/machinery/shipweapons/beam/ion,/turf/simulated/floor/tiled/steel_ridged,/area/spacestations/pirate/station)
+"eb" = (/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
+"ec" = (/obj/machinery/light/small{dir = 4; pixel_y = 0},/obj/random/junk,/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
+"ed" = (/obj/structure/catwalk,/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"; pixel_y = 0},/obj/random/junk,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
+"ee" = (/obj/machinery/door/airlock/multi_tile,/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
+"ef" = (/obj/random/trash,/turf/simulated/floor/tiled/steel_grid,/area/spacestations/pirate/station)
+"eg" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/catwalk,/obj/effect/landmark/scom/bomb/pirate_station,/turf/simulated/floor,/area/spacestations/pirate/station)
+"eh" = (/obj/effect/landmark/scom/bomb/pirate_station,/turf/simulated/floor,/area/spacestations/pirate/station)
+"ei" = (/obj/effect/floor_decal/corner/blue{dir = 9},/obj/structure/boarding/self_destruct/station/pirate,/obj/effect/landmark/scom/bomb/pirate_station,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -242,42 +258,42 @@ aaababacadadadadadadadadadadadadadadadadadadadadadadafafafafafafafafafafafafafaf
 aaababacadadadadadadadadadadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadaeababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaababacadadadadadadadadadadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadaeababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaababacadadadadadadadadadadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadaeababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaababacadadadadadadadadadadadadadadadadadadadadafafafafafafafafafafafafafafafagafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadaeababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaababacadadadadadadadadadadadadadadadadadadadadafafafafafafafafafafafafafafafafagafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadaeababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaababacadadadadadadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadaeababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaababacadadadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadaeababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaababacadadadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadaeababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaababacadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadaeababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaababacadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadaeababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadafafafafafafafafafafafafafafafafafahahaiajafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadafafafafafafafafafafafafafafafafafakalalakafafamamamamamamamamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadafafafafafafafafafafafafafafafafafanaoaoanafafamamamamamamamamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadafafafafafafafafafafafafafafafafafakapaqakafafamamamamamamamamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadafafafafafafafafafamamamamamamamamakarasakafafamamamamamamamamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadadafafafafafafafafamamamamamamamamakatauakafafamamamamamamamamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadadafafafafafafafamakakakakakakakakakavawakakakakakakamamamamamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadadafafafafafafafakakaxayazaAakaBaBakavaCakaDaEaFaGakakakakakakakakakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadadafafafafafafafakaCaCaCaHaCaCaIaJaKaLaMaNaCaHaOaCaCaCaCakaPakaQaRakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadadafafafafafakakakaNakakakakaNakakakaCaMakaCawaSaTakaNakakaUakaVaRakamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadadafafafafamakaMaMaMaMakaWaWaXaYaWakaCaCakaCakakakakaMaMaZbaaZbabbakamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadadafafafafamakaMaCbJbcakaXaXbdaXbeakaCbfakbgakbhbiakaCaCakbjakbkblakamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadadafafafafamakaMbfaMdQakbnbobpbqbrakaMbsakaCakbtbubvbwbxakakakakakakamamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadadamamamamamakaMaCaMbyakbnaXbzbAbBakaMbCakaCakbDbEakaMbFakbGbHbGbIakamamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadadadamakakakakakdRdRaMaMakakakbzakakakbKaMakaNakakakakbJaMakbLaMaMaGakamamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadamamamakbMbNbOakdRdRaMaCbPaMaMbzbQbRbSaMaCaMaMbJaMaMbTaCbUbVbWaMaMbXakamamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaababacadadadadadadadadadadadafafafafafafafafafafafafafafakananakahafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadaeababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaababacadadadadadadadadadadadafafafafafafafafafafafafafafanaoaoaialafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadaeababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabacadadadadadadadadadadadafafafafafafafafafafafafafafakapaqaiahafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabacadadadadadadadadadadafafafafafafafafafafafafafafafakarasakajafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabacadadadadadadadadafafafafafafafafafafafafafafafafafakatauakafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabacadadadadadadadadafafafafafafafafafafafafafafafafafakavaLakafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabacadadadadadadadadafafafafafafafafafafafafafafafafafakavaMakafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabacadadadadadadadadafafafafafafafafafafafafafafafafafakavaMakafafakakakanananakamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabacadadadadadadadadafafafafafafafafafafafafafafafafafakaUaMakafafakbuddbKddddanamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabacadadadadadadadadafafafafafafafafafafafafafafafafafakavaCakakakakddawaCdTddanamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabacadadadadadadadadafafafafafafafafafamamamamamamamamakdUaLcAdVdWdXdYdZddddddanamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabacadadadadadadadadadafafafafafafafafamamamamamamamamakavaMbvdZaCddddaLddeaddanamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabacadadadadadadadadadafafafafafafafamakakakakakakakakakavbwakakakakakakakakakakakamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabacadadadadadadadadadafafafafafafafakakaxayazaAakaBaBakaUbJakaDaEaFaGakakaCcAakakakakakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabacadadadadadadadadadafafafafafafafakaCaCaCaHaCaCaIaJaKaqaMaNaCaHaOaCaCaCawakaPakaQaRakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabacadadadadadadadadadafafafafafakakakaNakakakakaNakakakebaMakaCawaSaTakaNakakecakaVaRakamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabacadadadadadadadadadafafafafamakaMaMaMaMakaWaWaXaYaWcAebaLakaCakakakakaMaMaZbaaZbabbakamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabacadadadadadadadadadafafafafamakaMaCbJbcakaXaXbdaXbeakebbfakbgakbhbiakaCaCakbjakbkblakamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabacadadadadadadadadadafafafafamakaMbfaMdQakbnbobpbqbrakebbsakaCakbtedbvbwbxakakakakakakamamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabacadadadadadadadadadamamamamamakaMaCbwbyakbnaXegbAbBakebbCakaCakbDbEakaMbFakbGbHbGbIakamamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabacadadadadadadadadadamakakakakakdRdRaMaMakakakbzakakakeeaMakaNakakakakbJaMakbLaMbwaGakamamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabacadadadadadadadamamamakbMbNbOakdRdRaMaCbPaMbfbzbQbRbSebaCaMaMbJaMaMbTaCbUbVbWaMaMbXakamamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaabacadadadadadadadamamakakbMbYbZakcacbcbcbcccbcbcdcbcbcbcedPcfcgcbcbchcicbcjakckbJbfaxakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadamamanclcmcncoakbzaMaMaMbTcpaCcqcrbJaCaMcsctcucvaMcwcxbfbmakcyaMczbGakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabacadadadadadadadamamancAaMcBcCakcDakakaNakakakcEakakakakakakcFakakakakaMaMakbIaCaMcGakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabacadadadadadadadamamanclcmcncoakbzaMaMaMbTcpaCcqcrbJehaMcsctcucvaMcwcxbfbmakcyaMczbGakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabacadadadadadadadamamaneiaMcBcCakcDakakaNakakakcEakakakakakakcFakakakakaMaMakbIaCaMcGakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaabcHadadadadadadadamamancIbfcqcJaMbzcKakaCakcLcMcNcOcPakcQcRcSbzcTcUcVakaMctakcyaMcrbGakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaabcHadadadadadadadamamancIcWcXcYcZcjaMaNaCakdaaCdbaCdcdcddaCdedfdgdhdiakaNakakakaNakakakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabcHadadadadadadadamamandjdkdldmdndodpakaCakdqdcaOdrdcdcdddddddsdtdudvakaCaCdwaCaCdxdyakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabcHadadadadadadadamamakananananakakakakaHakdzaCdcdAdBakdCdCdDdEdFdGdHakaCakakakakakakakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabcHadadadadadadadamamandjdkdldmdndodpakaCakdqdcaOdrdcefdddddddsdtdudvakaCaCdwaCaCdxdyakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabcHadadadadadadadamamakananananakcAakakaHakdzaCdcdAdBakdCdCdDdEdFdGdHakaCakakakakakakakamamafafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaabcHadadadadadadadamamamamamamamamamamakaCakakakaNakakakakakakdIakakakakdJakamamamamamamamamafafafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaabcHadadadadadadadamamamamamamamamamamakaCaCdKdwaCaCaCawaHaCaCdLaCaOawaHaCakamadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabcHadadadadadadadamamamamamamamamamamakakakakakakakakakakakakdMakakakakakakamadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabcHadadadadadadadamamamamamamamamamamakakakakakakakcAakakakakdMakakakakakakamadadadadadadadafafafafafafafafafafafafafafafafafafafafafafafafafadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaabcHadadadadadadadamamamamamamamamamamamamamamamamamamamamamamdNamamamamamamamadadadadadadadadadadadadadadadadafafafafafafafafafafadadadadadadadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaabcHadadadadadadadamamamamamamamamamamadadadadadamamamamamamamamadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaabcHadadadadadadadamamamamamamamamamamadadadadadamamamamamamamamadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

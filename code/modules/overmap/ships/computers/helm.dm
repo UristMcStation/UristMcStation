@@ -280,3 +280,20 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 		if(viewing && !isAI(user))
 			user.reset_view(linked)
 		return TOPIC_REFRESH
+
+
+/obj/machinery/computer/ship/attackby(var/obj/item/I, var/mob/user)
+
+	if(istype(I, /obj/item/weapon/disk/station_disk))
+		if(inoperable(MAINT))
+			return
+		if(user.lying || user.stat)
+			return
+
+		else
+			playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
+			to_chat(user, "<span class='notice'>You slide the data disk into the computer with a satisfying click, downloading its contents into the navigation system.</span>")
+			var/obj/item/weapon/disk/station_disk/D = I
+			D.master_station.update_visible()
+			user.remove_from_mob(D)
+			qdel(D)

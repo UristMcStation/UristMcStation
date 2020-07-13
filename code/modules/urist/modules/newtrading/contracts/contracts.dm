@@ -94,3 +94,13 @@
 	rep_points = 7
 	amount = 1
 	money = 7500
+
+//station destroy
+
+/datum/contract/station_destroy/pirate
+	name = "Pirate Hideout Destruction Contract"
+	desc = "This sector is plagued by pirates. We need you to hunt down their hideout and destroy it for good."
+	neg_faction = /datum/factions/pirate
+	rep_points = 8
+	amount = 1
+	money = 10000

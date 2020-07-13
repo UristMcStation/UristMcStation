@@ -34,7 +34,7 @@
 "aH" = (/obj/machinery/alarm{dir = 8; pixel_x = 25; pixel_y = 0},/turf/simulated/floor/plating,/area/spacestations/pirate/station)
 "aI" = (/obj/machinery/door/airlock/engineering{icon_state = "closed"; dir = 1},/turf/simulated/floor,/area/spacestations/pirate/station)
 "aJ" = (/obj/structure/door_assembly/door_assembly_ext,/turf/simulated/floor,/area/spacestations/pirate/station)
-"aK" = (/obj/machinery/door/airlock/engineering{icon_state = "closed"; dir = 1},/turf/simulated/floor/plating,/area/spacestations/pirate/station)
+"aK" = (/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
 "aL" = (/obj/structure/table/rack,/obj/random/tool,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
 "aM" = (/obj/random/junk,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/liquid_fuel,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
 "aN" = (/obj/structure/table/reinforced,/obj/random/material,/obj/effect/decal/cleanable/liquid_fuel,/obj/machinery/light/small{dir = 4; pixel_y = 0},/turf/simulated/floor/plating,/area/spacestations/pirate/station)
@@ -48,13 +48,13 @@
 "aV" = (/obj/effect/shuttle_landmark/nav_piratestation/nav1,/turf/simulated/floor/asteroid,/area/spacestations/pirate/asteroid)
 "aW" = (/obj/machinery/cooker/fryer,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "aX" = (/obj/machinery/light{dir = 4},/turf/simulated/floor,/area/spacestations/pirate/station)
-"aY" = (/obj/structure/extinguisher_cabinet{icon_state = "extinguisher_closed"; dir = 8; pixel_x = 31; pixel_x = 30},/turf/simulated/floor/plating,/area/spacestations/pirate/station)
+"aY" = (/obj/machinery/door/airlock/engineering{icon_state = "closed"; dir = 1},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
 "aZ" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 6},/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "ba" = (/obj/machinery/atmospherics/portables_connector{dir = 8},/obj/machinery/portable_atmospherics/canister/air/airlock,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "bb" = (/obj/machinery/microwave,/obj/structure/table/marble,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "bc" = (/obj/structure/table/marble,/obj/item/weapon/reagent_containers/food/condiment/flour,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "bd" = (/obj/random/junk,/turf/simulated/floor,/area/spacestations/pirate/station)
-"be" = (/obj/item/weapon/stool/padded,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
+"be" = (/obj/effect/decal/cleanable/liquid_fuel,/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
 "bf" = (/obj/structure/closet/l3closet/janitor,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
 "bg" = (/obj/structure/reagent_dispensers/watertank,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
 "bh" = (/obj/structure/janitorialcart,/obj/item/weapon/mop,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
@@ -73,9 +73,9 @@
 "bu" = (/obj/machinery/light/small{dir = 4; pixel_y = 0},/obj/random/trash,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
 "bv" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 6},/turf/simulated/floor,/area/spacestations/pirate/station)
 "bw" = (/obj/machinery/atmospherics/portables_connector{dir = 8},/obj/machinery/portable_atmospherics/canister/air/airlock,/turf/simulated/floor,/area/spacestations/pirate/station)
-"bx" = (/obj/machinery/access_button{command = "cycle_exterior"; frequency = 1379; layer = 3.3; master_tag = "pirate_station_1_airlock"; name = "exterior access button"; pixel_x = 25; pixel_y = 25; req_access = list("ACCESS_EXTERNAL")},/turf/simulated/floor/airless,/area/spacestations/pirate/station)
+"bx" = (/obj/structure/extinguisher_cabinet{icon_state = "extinguisher_closed"; dir = 8; pixel_x = 31; pixel_x = 30},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
 "by" = (/obj/machinery/door/airlock/external{frequency = 1379; icon_state = "door_locked"; id_tag = "pirate_station_1_outer"; locked = 1; name = "Engineering External Access"; req_access = list("ACCESS_ENGINEERING","ACCESS_EXTERNAL")},/turf/simulated/floor,/area/spacestations/pirate/station)
-"bz" = (/obj/machinery/atmospherics/unary/vent_pump/high_volume{dir = 1; frequency = 1379; id_tag = "pirate_station_1_pump"},/turf/simulated/floor,/area/spacestations/pirate/station)
+"bz" = (/obj/effect/landmark/scom/bomb/pirate_station,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "bA" = (/obj/machinery/door/airlock/external{frequency = 1379; icon_state = "door_locked"; id_tag = "pirate_station_1_inner"; locked = 1; name = "Engineering External Access"; req_access = list("ACCESS_EXTERNAL")},/obj/machinery/atmospherics/pipe/simple/hidden,/turf/simulated/floor,/area/spacestations/pirate/station)
 "bB" = (/obj/machinery/cooker/grill,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "bC" = (/obj/structure/table/marble,/obj/item/trash/plate,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
@@ -85,13 +85,13 @@
 "bG" = (/obj/structure/bed/chair{dir = 4},/obj/random/junk,/turf/simulated/floor,/area/spacestations/pirate/station)
 "bH" = (/obj/structure/table/standard,/obj/item/weapon/material/kitchen/utensil/knife,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "bI" = (/obj/structure/extinguisher_cabinet{icon_state = "extinguisher_closed"; dir = 8; pixel_x = 31; pixel_x = 30},/turf/simulated/floor,/area/spacestations/pirate/station)
-"bJ" = (/obj/machinery/light{dir = 4},/turf/simulated/floor/plating,/area/spacestations/pirate/station)
+"bJ" = (/obj/item/weapon/stool/padded,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
 "bK" = (/obj/machinery/recharge_station,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
 "bL" = (/obj/machinery/atmospherics/pipe/manifold/hidden{icon_state = "map"; dir = 8},/turf/simulated/floor,/area/spacestations/pirate/station)
 "bM" = (/turf/simulated/floor/asteroid,/area/spacestations/pirate/station)
 "bN" = (/obj/machinery/embedded_controller/radio/airlock/airlock_controller{frequency = 1379; id_tag = "pirate_station_1_airlock"; layer = 3.3; pixel_x = 0; pixel_y = -25; req_access = list("ACCESS_EXTERNAL"); tag_airpump = "pirate_station_1_pump"; tag_chamber_sensor = "pirate_station_1_sensor"; tag_exterior_door = "pirate_station_1_outer"; tag_interior_door = "pirate_station_1_inner"},/obj/machinery/airlock_sensor{frequency = 1379; id_tag = "pirate_station_1_sensor"; layer = 3.3; pixel_x = 12; pixel_y = -25},/obj/machinery/atmospherics/unary/vent_pump/high_volume{dir = 2; frequency = 1379; id_tag = "pirate_station_1_pump"},/turf/simulated/floor,/area/spacestations/pirate/station)
 "bO" = (/obj/machinery/atmospherics/unary/vent_pump/high_volume{dir = 2; frequency = 1379; id_tag = "pirate_station_1_pump"},/turf/simulated/floor,/area/spacestations/pirate/station)
-"bP" = (/obj/machinery/access_button{command = "cycle_interior"; frequency = 1379; layer = 3.3; master_tag = "pirate_station_1_airlock"; name = "interior access button"; pixel_x = -25; pixel_y = -25; req_access = list("ACCESS_EXTERNAL")},/turf/simulated/floor/plating,/area/spacestations/pirate/station)
+"bP" = (/obj/item/stack/material/rods/ten,/turf/simulated/floor/asteroid,/area/spacestations/pirate/asteroid)
 "bQ" = (/obj/structure/hygiene/sink{dir = 8; icon_state = "sink"; pixel_x = -12; pixel_y = 2},/obj/machinery/light{dir = 8},/turf/simulated/floor,/area/spacestations/pirate/station)
 "bR" = (/obj/structure/table/marble,/obj/item/trash/plate,/obj/item/weapon/material/kitchen/utensil/fork,/turf/simulated/floor,/area/spacestations/pirate/station)
 "bS" = (/obj/structure/table/standard,/obj/item/trash/plate,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
@@ -122,9 +122,9 @@
 "cr" = (/obj/structure/stairs/north,/turf/simulated/floor,/area/spacestations/pirate/station)
 "cs" = (/obj/structure/stairs/north,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "ct" = (/obj/machinery/door/airlock/glass/civilian,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
-"cu" = (/obj/machinery/door/airlock/glass/civilian,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
-"cv" = (/obj/effect/urist/triggers/away_ai_landmark/pirate,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
-"cw" = (/obj/machinery/light/small,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
+"cu" = (/obj/effect/landmark/scom/bomb/pirate_station,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
+"cv" = (/obj/machinery/access_button{command = "cycle_exterior"; frequency = 1379; layer = 3.3; master_tag = "pirate_station_1_airlock"; name = "exterior access button"; pixel_x = 25; pixel_y = 25; req_access = list("ACCESS_EXTERNAL")},/obj/structure/catwalk,/turf/simulated/floor/airless,/area/spacestations/pirate/station)
+"cw" = (/obj/machinery/door/airlock/external{frequency = 1379; icon_state = "door_locked"; id_tag = "pirate_station_1_outer"; locked = 1; name = "Engineering External Access"; req_access = list("ACCESS_ENGINEERING","ACCESS_EXTERNAL")},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
 "cx" = (/obj/machinery/atmospherics/pipe/simple/hidden{icon_state = "intact"; dir = 5},/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "cy" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 4; icon_state = "intact"; tag = "icon-intact (EAST)"},/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "cz" = (/obj/effect/floor_decal/industrial/warning{tag = "icon-warning (EAST)"; icon_state = "warning"; dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden{dir = 4; icon_state = "intact"},/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
@@ -145,8 +145,8 @@
 "cO" = (/obj/effect/wallframe_spawn/reinforced,/obj/machinery/atmospherics/pipe/simple/hidden{dir = 9; icon_state = "intact"},/obj/machinery/door/firedoor,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
 "cP" = (/obj/machinery/light/small{dir = 8},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
 "cQ" = (/obj/random/trash,/turf/simulated/floor/tiled/steel_ridged,/area/spacestations/pirate/station)
-"cR" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/effect/wallframe_spawn/reinforced/hull,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 4},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
-"cS" = (/obj/effect/decal/cleanable/generic,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
+"cR" = (/obj/machinery/atmospherics/unary/vent_pump/high_volume{dir = 1; frequency = 1379; id_tag = "pirate_station_1_pump"},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
+"cS" = (/obj/machinery/door/airlock/external{frequency = 1379; icon_state = "door_locked"; id_tag = "pirate_station_1_inner"; locked = 1; name = "Engineering External Access"; req_access = list("ACCESS_EXTERNAL")},/obj/machinery/atmospherics/pipe/simple/hidden,/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
 "cT" = (/obj/machinery/light/small{dir = 1},/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark,/area/spacestations/pirate/station)
 "cU" = (/obj/random/trash,/turf/simulated/floor/tiled/dark,/area/spacestations/pirate/station)
 "cV" = (/obj/random/loot,/turf/simulated/floor/tiled/dark,/area/spacestations/pirate/station)
@@ -242,6 +242,19 @@
 "eH" = (/obj/structure/table/standard,/obj/item/weapon/reagent_containers/chem_disp_cartridge/hydrazine,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "eI" = (/obj/structure/hygiene/toilet{dir = 4},/turf/simulated/floor,/area/spacestations/pirate/station)
 "eJ" = (/obj/effect/landmark/random_gen/asteroid,/turf/unsimulated/wall/urist/other/border,/area/space)
+"eK" = (/obj/machinery/light{dir = 4},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
+"eL" = (/obj/machinery/access_button{command = "cycle_interior"; frequency = 1379; layer = 3.3; master_tag = "pirate_station_1_airlock"; name = "interior access button"; pixel_x = -25; pixel_y = -25; req_access = list("ACCESS_EXTERNAL")},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
+"eM" = (/obj/machinery/door/airlock/glass/civilian,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
+"eN" = (/obj/effect/urist/triggers/away_ai_landmark/pirate,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
+"eO" = (/obj/machinery/light/small,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
+"eP" = (/obj/machinery/door/airlock,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
+"eQ" = (/obj/effect/landmark/scom/bomb/pirate_station,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
+"eR" = (/obj/random/trash,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
+"eS" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/effect/wallframe_spawn/reinforced/hull,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 4},/obj/structure/catwalk,/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
+"eT" = (/obj/effect/decal/cleanable/generic,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
+"eU" = (/obj/effect/decal/cleanable/dirt,/obj/effect/landmark/scom/bomb/pirate_station,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
+"eV" = (/obj/structure/catwalk,/obj/effect/landmark/scom/bomb/pirate_station,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
+"eW" = (/obj/effect/landmark/scom/bomb/pirate_station,/turf/simulated/wall,/area/spacestations/pirate/station)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -300,31 +313,31 @@ aaaaabadeeaeaeaoapaoaeaoapaoaeaoapaoaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeauauauavav
 aaaaabadeeaeaeaoapaoaeaoapaoaeaoapaoaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeauavauavavauavavavavawaxauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaabadeeaeaeaoapaoaeaoapaoaeaoapaoaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeauavauavavauauauauauauaxauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaabadeeaeaeaoapaoaeaoapaoaeaoapaoaeaeaeauauauauauauauauauauauaeaeaeauavauayayauazaAaBaCauaxauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabadeeaeaeaoapaoaeaoapaoaeaoapaoaeaeaeauaxaxaDaxaxaxaEaxaxauaeaeaeauavauawawauaFaGaFaHauaxauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabadeeaeaeaoapaoaeaoapaoaeaoapaoaeaeauauaxauauaIauauauauaxauauauauauawauaJaxaKaLaMaBaNauaxauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabadeeaeaeaoapaoaeaoapaoaeaoapaoaeaeauaxaxauaOaPaQaPaxauaxaxaDaxaRaxaxaIaPaRauaSaAaTaUauaxauaeaeaeaeaeaeaeaeaeaeaeaeaeaVaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabadeeaeaeaoapaoaeaoapaoaeaoapaoaeaeauaIauauaWaxaQaxaXauauaIauauauauauauaPaYauauauauauauaRauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabadeeaeaeaoapaoaeaoapaoaeaoapaoaeaeauaZbaaubbaPbcaxbdaxaEaPaPaPaPbdaPauaxbeaubfbgaFbhauaxauauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabadeeaeaeaeapaeaeaeapaebiaebjaubkblbmbnboaubpaPbqaPbrbsbtaPbrbsbsbtaxauaPaFaKaFaFaFbuaubvbwauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabadeeaeaeaeapapapapapapapapbxbybzbzbAaxaPaubBaPbCaPbrbDbEbFbGbHbDbEbIauaPbJauaFaGaFbKaubLbwauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabadeeaeaeaeaeaeaeaeaeaeaeaebMbybNbObAbPacaubQaPbRaPbrbSbEaPbTbUbSbEaPauaPaFauauauauauaubVaubWbXbYbZbWcaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabadeeeeaeaeaeaeaeaiaeauauauauaucbcccdaFceauaxaxaxcfaPcgaPaFaPaPaPcgcfauaPaFaPaPaxaPaPbFchaPcicjckclcmcnaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabadeeeeeeaeaeaeaeaeaeaucocpcqcoaucrcsaFaxauauauauctauauaucuauauauauauauaPcvaFcwaFaFaPaPcxcyczcAcBcCcmcDaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabadeeeeeeaeaeaeaeauauaucocEcpcFauaPaPaFcfctcGcHaPcIaxaPaPaFaRcJcGcKaPctaxaYauaucLaucLauauaubWcMcNcObWcPaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabadeeeeeeaeaeaeaeauaxaIcpcQaFaFcLaGaFaFaFcRaFaFaFcvaFaFaFaFaFaFaFaFcScRaFaFaucTaFcUcVcWcXauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabadeeeeeeaeaeaeaeauaxaucocYcpcZaudaaFcfaPdbaPaxaxaPcfaFdccfaPaPcSaPaPdbaxaPdddedfdgdhdidjauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabadeeeeeeaeaeaeaeauaxaudkdldmdnauaPaFauauauauauauauaucLauauauaucLauauauauaIaudoaFdpdqaAdrauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabdseeeeeeaeaeaeaeauaEauauauauauauaxaFaudtdudvaudwdxaudydzaudAdBcndCdDdEauaxaudFaFdGdHaFdIauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabdseeeeeeeeaeaeaeauaxaudJdKaPdLauaPcvaudMdNdOauaxaxdPdydQauaFdRcndSdRdTauaxaudUaAdhaFaAdVauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabdseeeeeeeeaeaeaeaubdauaPaPaFaFcLaFaFcLdWdNdXauauauaudYdZaudRdReadRaFebauaxaIecedefegeheiauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabdseeeeeeeeeeaeaeauaxaIaPcJaPejaudYaPauekelemaudwdxaudyenaueoepdReqeresauaxauauauauauauauauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabadeeaeaeaoapaoaeaoapaoaeaoapaoaeaeaeauaxaxaDaxaxaxaEaxaxauaeaeaeauavauawawauaLaGaFaHauaxauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabadeeaeaeaoapaoaeaoapaoaeaoapaoaeaeauauaxauauaIauauauauaxauauauauauawauaJaKaYaFaMaBaNauaxauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabadeeaeaeaoapaoaeaoapaoaeaoapaoaeaeauaxaxauaOaPaQaPaxauaxaxaDaxaRaxaxaIaPbeauaSaAaTaUauaxauaeaeaeaeaeaeaeaeaeaeaeaeaeaVaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabadeeaeaeaoapaoaeaoapaoaeaoapaoaeaeauaIauauaWaxaQaxaXauauaIauauauauauauaPbxauauauauauauaRauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabadeeaeaeaoapaoaeaoapaoaeaoapaoaeaeauaZbaaubbaPbcaxbdaxaEaPaPbzaPbdaPauaxbJaubfbgaFbhauaxauauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabadeeaeaeaeapbPaeaeapaebiaebjaubkblbmbnboaubpaPbqaPbrbsbtaPbrbsbsbtaxauaPcnaYcnaFcubuaubvbwauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabadeeaeaeaeapapapapapapapapcvcwcRcRcSaKaPaubBaPbCaPbrbDbEbFbGbHbDbEbIauaPeKauaFaGaFbKaubLbwauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabadeeaeaeaeaeaeaeaeaeaebPaebMbybNbObAeLacaubQaPbRaPbrbSbEaPbTbUbSbEaPauaPcnauauauauauaubVaubWbXbYbZbWcaaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabadeeeeaeaeaeaeaeaiaeauauauauaucbcccdcnceauaxaxaxcfaPcgaPcnaPaPaPcgcfauaPcnaPaPaxaPaPbFchaPcicjckclcmcnaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabadeeeeeeaeaeaeaeaeaeaucocpcqcoaucrcscnaxauauauauctauauaueMauauauauauauaPeNcneOcnaFaPaPcxcyczcAcBcCcmcDaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabadeeeeeeaeaeaeaeauauaucocEcpcFauaPaPcncfctcGcHaPcIaxaPaPcnaRcJcGcKaPctaxbxauauePaucLauauaubWcMcNcObWcPaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabadeeeeeeaeaeaeaeauaxaIcpcQeQcnePeRcncncneScncncneNcncncncncncncncneTeScncnaucTcncUcVcWcXauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabadeeeeeeaeaeaeaeauaxaucocYcpcZaudacncfaPdbaPaxaxaPcfcndccfaPaPeTaPaPdbaxaPdddedfdgdhdidjauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabadeeeeeeaeaeaeaeauaxaudkdldmdnauaPcnauauauauauauauauePauauauauePauauauauaIaudoaFdpdqeUdrauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabdseeeeeeaeaeaeaeauaEauauauauauauaxcnaudtdudvaudwdxaudydzaudAdBcndCdDdEauaxaudFaFdGdHaFdIauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabdseeeeeeeeaeaeaeauaxaudJdKaPdLauaPeNaudMdNdOauaxaxdPdydQauaFdReVdSdRdTauaxaudUaAdhaFaAdVauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabdseeeeeeeeaeaeaeaubdauaPaPcncnePcncnePdWdNdXauauauaudYdZaudRdReadRaFebauaxaIecedefegeheiauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabdseeeeeeeeeeaeaeauaxaIaPcJaPejaudYbzauekelemaudwdxaudyenaueoepdReqeresauaxauauauauauauauauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaabdseeeeeeeeeeaeaeauaxaueteucfaPddaPaxauauauauauaxaxdPevenauauauaIauauauaubdauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaabdseeeeeeeeeeaeaeauaxaubrewaxaPauaIauauexeyezauauauaudPauauaDaxaxaxaEaxcJaxauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaabdseeeeeeeeeeeeaeauaDaueAeBaPeCauaxaxaxaxaEaxaxbdaxauaxeDauaxaEaxeEeEexeFeGauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaabdseeeeeeeeeeeeaeauaxauaxaPaxeHauaxauauauauauauauaxaueIaxauaxauauauauauauauauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaabdseeeeeeeeeeeeaeauaxauauauauauauaEauaeaeaeaeaeauaRauauauauaxauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaabdseeeeeeeeeeeeaeauaxaxaxaxaxbdaxaxauaeaeaeaeaeauaxaxaxbdaxaxauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeeeeeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaabdseeeeeeeeeeeeaeauauauauauauauauauauaeaeaeaeaeauauauauauauauauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabdseeeeeeeeeeeeaeauauauauauauauauaueWaeaeaeaeaeauauauauauauauauaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaabdseeeeeeeeeeeeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaabdseeeeeeeeeeeeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaeaeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaabdseeeeeeeeeeeeeeeeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeadabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

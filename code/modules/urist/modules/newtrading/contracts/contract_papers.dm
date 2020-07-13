@@ -38,3 +38,5 @@
 /obj/item/weapon/paper/contract/nanotrasen/alienhunt
 	contract_type = /datum/contract/shiphunt/alien
 
+/obj/item/weapon/paper/contract/nanotrasen/piratestation
+	contract_type = /datum/contract/station_destroy/pirate
