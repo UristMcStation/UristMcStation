@@ -46,8 +46,8 @@
 				S.faction = faction //just in case
 
 			spawned_ships += S
-			ship_amount ++
-			remaining_ships --
+			ship_amount++
+			remaining_ships--
 			busy = TRUE
 
 			spawn(rand(spawn_time_low,spawn_time_high))
@@ -63,8 +63,8 @@
 			S.faction = faction //just in case
 
 		spawned_ships += S
-		ship_amount ++
-		remaining_ships --
+		ship_amount++
+		remaining_ships--
 		busy = TRUE
 
 /*
