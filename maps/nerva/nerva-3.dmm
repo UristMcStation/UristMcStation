@@ -6145,7 +6145,6 @@
 /obj/machinery/photocopier/faxmachine{
 	department = "Captain's Office"
 	},
-/obj/item/weapon/paper/contract/nanotrasen/anomaly,
 /turf/simulated/floor/wood/walnut,
 /area/command/captain)
 "my" = (
