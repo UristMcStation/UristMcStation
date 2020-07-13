@@ -11,6 +11,8 @@
 	if(!dying)
 		home_station.station_holder = null //defences are destroyed
 
+	..()
+
 /mob/living/simple_animal/hostile/overmapship/station_holder/pirate
 	hiddenfaction = /datum/factions/pirate
 	aggressive = 1
