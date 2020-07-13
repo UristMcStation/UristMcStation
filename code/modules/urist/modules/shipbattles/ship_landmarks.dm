@@ -137,6 +137,8 @@
 	var/obj/effect/overmap/sector/station/master_station
 
 /obj/effect/urist/triggers/station_disk
+	icon_state = "x3"
+	icon = 'icons/mob/screen1.dmi'
 	var/faction_id
 
 /obj/effect/urist/triggers/station_disk/proc/spawn_disk(var/obj/effect/overmap/sector/station/stored_station)

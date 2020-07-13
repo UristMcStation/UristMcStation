@@ -23,10 +23,12 @@
 	else
 		..() */
 
-/obj/effect/overmap/sector/station/Initialize()
-	.=..()
-	if(spawn_ships)
+/obj/effect/overmap/sector/station/Initialize() //I'm not really sure what i was doing here
+	SStrade_controller.overmap_stations += src
+	. = ..()
 
+/obj/effect/overmap/sector/station/proc/setup_spawning()
+	if(spawn_ships)
 		START_PROCESSING(SSobj, src)
 
 	if(faction)
@@ -36,7 +38,7 @@
 
 /obj/effect/overmap/sector/station/Process()
 	if(remaining_ships && !busy)
-		if(!ship_amount >= total_ships)
+		if(ship_amount <= total_ships)
 			var/newship = pick(spawn_types)
 			var/mob/living/simple_animal/hostile/overmapship/S = new newship
 			S.home_station = src
@@ -51,7 +53,19 @@
 			spawn(rand(spawn_time_low,spawn_time_high))
 				busy = FALSE
 
-	..()
+
+/obj/effect/overmap/sector/station/proc/fallback_spawning()
+	if(remaining_ships)
+		var/newship = pick(spawn_types)
+		var/mob/living/simple_animal/hostile/overmapship/S = new newship
+		S.home_station = src
+		if(S.faction != faction)
+			S.faction = faction //just in case
+
+		spawned_ships += S
+		ship_amount ++
+		remaining_ships --
+		busy = TRUE
 
 /*
 /obj/effect/overmap/sector/station/Process()
@@ -96,6 +110,11 @@
 				C.Contact(S)
 
 	..()
+
+
+/obj/effect/overmap/sector/station/proc/update_visible()
+	return
+
 
 /obj/effect/overmap/sector/station/hostile
 	known = 0
