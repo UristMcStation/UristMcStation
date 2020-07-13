@@ -140,7 +140,7 @@
 					A.Complete(1)
 
 		if(home_station)
-			home_station.spawned_ships -= src
+//			home_station.spawned_ships -= src
 			home_station.ship_amount -= 1
 
 		for(var/datum/shipcomponents/S in src.components)
