@@ -9040,7 +9040,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/solar/auxaft)
 "Xf" = (
-/obj/structure/shipweapons/hardpoint,
+/obj/structure/shipweapons/hardpoint/nerva,
 /turf/simulated/floor/reinforced,
 /area/security/topgun)
 
