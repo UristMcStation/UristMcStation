@@ -40,7 +40,7 @@
 	if(remaining_ships && !busy)
 		if(ship_amount <= total_ships)
 			var/newship = pick(spawn_types)
-			var/mob/living/simple_animal/hostile/overmapship/S = new newship
+			var/mob/living/simple_animal/hostile/overmapship/S = new newship(get_turf(src))
 			S.home_station = src
 			if(S.faction != faction)
 				S.faction = faction //just in case
