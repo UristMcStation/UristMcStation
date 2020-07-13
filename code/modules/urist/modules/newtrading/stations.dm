@@ -53,7 +53,19 @@
 			spawn(rand(spawn_time_low,spawn_time_high))
 				busy = FALSE
 
-	..()
+
+/obj/effect/overmap/sector/station/proc/fallback_spawning()
+	if(remaining_ships)
+		var/newship = pick(spawn_types)
+		var/mob/living/simple_animal/hostile/overmapship/S = new newship
+		S.home_station = src
+		if(S.faction != faction)
+			S.faction = faction //just in case
+
+		spawned_ships += S
+		ship_amount ++
+		remaining_ships --
+		busy = TRUE
 
 /*
 /obj/effect/overmap/sector/station/Process()
