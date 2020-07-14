@@ -45,7 +45,7 @@
 			if(S.faction != faction)
 				S.faction = faction //just in case
 
-			spawned_ships += S
+//			spawned_ships += S
 			ship_amount++
 			remaining_ships--
 			busy = TRUE
@@ -62,7 +62,7 @@
 		if(S.faction != faction)
 			S.faction = faction //just in case
 
-		spawned_ships += S
+//		spawned_ships += S
 		ship_amount++
 		remaining_ships--
 		busy = TRUE
