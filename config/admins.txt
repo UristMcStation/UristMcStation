@@ -5,7 +5,6 @@
 # Ranks can be anything defined in admin_ranks.txt           ~Carn   #
 ######################################################################
 
-Nyxodile - Host
 glloyd - Head Admin
 Stefender - Game Master
 Lady_Blanc - Game Master
