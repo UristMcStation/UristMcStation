@@ -24,22 +24,24 @@
 		var/obj/effect/urist/projectile_landmark/ship/P = pick(GLOB.ship_projectile_landmarks)
 
 		if(burst)
-			ready = FALSE
-			if(shot_number < burst)
-				shot_number ++
-				P.Fire(projectile_type)
-				spawn(burst_delay)
-					Fire()
+			if(P)
+				ready = FALSE
+				if(shot_number < burst)
+					shot_number ++
+					P.Fire(projectile_type)
+					spawn(burst_delay)
+						Fire()
 
-			else if(shot_number >= burst)
-				spawn(firedelay)
-					shot_number = 0
-					ready = TRUE
+				else if(shot_number >= burst)
+					spawn(firedelay)
+						shot_number = 0
+						ready = TRUE
 		else
-			P.Fire(projectile_type)
-			ready = FALSE
-			spawn(firedelay)
-				ready = TRUE
+			if(P)
+				P.Fire(projectile_type)
+				ready = FALSE
+				spawn(firedelay)
+					ready = TRUE
 
 
 

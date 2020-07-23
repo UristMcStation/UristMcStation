@@ -10,6 +10,7 @@
 /mob/living/simple_animal/hostile/overmapship/station_holder/shipdeath() //todo: damage the station
 	if(!dying)
 		home_station.station_holder = null //defences are destroyed
+		home_station.remaining_ships = 0
 
 	..()
 

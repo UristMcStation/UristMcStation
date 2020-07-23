@@ -300,3 +300,11 @@
 
 	else
 		..()
+
+//the below is a temporary fix for emp bugs
+
+/obj/machinery/shipweapons/ex_act()
+	return
+
+/obj/machinery/shipweapons/emp_act()
+	return

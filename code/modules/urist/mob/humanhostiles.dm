@@ -288,8 +288,7 @@
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 
 	unsuitable_atmos_damage = 5
-	var/corpse = /obj/effect/landmark/corpse/pirate
-	var/weapon1 = /obj/item/weapon/melee/energy/sword/pirate
+	var/corpse = /obj/effect/landmark/corpse/newpirate/melee
 	hiddenfaction = /datum/factions/pirate
 	faction = "pirate"
 
@@ -302,8 +301,7 @@
 	ranged = 1
 	rapid = 0
 	projectiletype = /obj/item/projectile/beam
-	corpse = /obj/effect/landmark/corpse/pirate/ranged
-	weapon1 = /obj/item/weapon/gun/energy/laser
+	corpse = /obj/effect/landmark/corpse/newpirate/laser
 	minimum_distance = 4
 	retreat_distance = 2
 
@@ -316,8 +314,7 @@
 	ranged = 1
 	rapid = 2
 	projectiletype = /obj/item/projectile/bullet/rifle/a762
-	corpse = /obj/effect/landmark/corpse/pirate/ranged
-	weapon1 = /obj/item/weapon/gun/energy/laser
+	corpse = /decl/hierarchy/outfit/newpirate/ballistic
 	minimum_distance = 4
 	retreat_distance = 2
 
@@ -325,7 +322,5 @@
 	..(gibbed, deathmessage, show_dead_message)
 	if(corpse)
 		new corpse (src.loc)
-	if(weapon1)
-		new weapon1 (src.loc)
 	qdel(src)
 	return

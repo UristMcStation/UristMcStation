@@ -5623,10 +5623,6 @@
 /obj/structure/bed/chair/office/dark,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
-"kF" = (
-/mob/living/simple_animal/hostile/mimic/sleeping,
-/turf/simulated/floor/plating,
-/area/maintenance/first_deck/central)
 "kG" = (
 /obj/item/weapon/material/shard,
 /obj/item/weapon/hammer/smithing,
@@ -31170,7 +31166,7 @@ dI
 dI
 jU
 bE
-kF
+dI
 lj
 bE
 bE

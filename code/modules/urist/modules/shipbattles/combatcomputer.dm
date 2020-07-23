@@ -145,6 +145,7 @@
 				if(S.charged && !S.firing)
 					S.Fire()
 					to_chat(usr, "<span class='warning'>You fire the [S.name].</span>")
+					updateUsrDialog()
 
 				else
 					to_chat(usr, "<span class='warning'>The [S.name] cannot be fired right now.</span>")

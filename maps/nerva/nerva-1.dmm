@@ -1725,6 +1725,7 @@
 /obj/item/device/radio,
 /obj/item/weapon/storage/belt/utility/full,
 /obj/item/weapon/material/hatchet,
+/obj/item/stack/material/phoron/ten,
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/power)
 "dv" = (
@@ -2182,7 +2183,8 @@
 /area/exploration_shuttle/power)
 "ei" = (
 /obj/machinery/power/port_gen/pacman{
-	anchored = 1
+	anchored = 1;
+	sheets = 50
 	},
 /obj/structure/cable/yellow{
 	d2 = 8;
@@ -19933,7 +19935,8 @@
 /area/hadrian/main)
 "IF" = (
 /obj/machinery/power/port_gen/pacman{
-	anchored = 1
+	anchored = 1;
+	sheets = 50
 	},
 /obj/structure/cable/yellow{
 	d2 = 8;
@@ -23002,9 +23005,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/hatch/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
 "XG" = (
@@ -42628,7 +42629,7 @@ cB
 af
 ap
 eK
-LP
+fR
 gk
 gN
 aB
@@ -42830,7 +42831,7 @@ cC
 af
 cw
 aB
-fR
+LP
 eM
 gO
 hq

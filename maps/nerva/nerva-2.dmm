@@ -7334,6 +7334,9 @@
 "ans" = (
 /obj/structure/ladder/up,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/boardarmoury)
 "ant" = (
@@ -8977,6 +8980,7 @@
 /turf/simulated/floor/plating,
 /area/security/boardarmoury)
 "aqe" = (
+/obj/item/stack/tile/techmaint,
 /turf/simulated/floor/plating,
 /area/security/boardarmoury)
 "aqg" = (

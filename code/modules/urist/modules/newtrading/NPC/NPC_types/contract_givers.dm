@@ -14,10 +14,10 @@
 	desc = "A human from one of Earth's diverse cultures. They are a Chief Scientist."
 	trade_categories_by_name =  list("ntsciencecontract")
 	jumpsuits = list(\
-		/obj/item/clothing/under/rank/scientist\
+		/obj/item/clothing/under/rank/scientist/nanotrasen\
 		)
 	suits = list(\
-		/obj/item/clothing/suit/storage/toggle/labcoat/science \
+		/obj/item/clothing/suit/storage/toggle/labcoat/science/nanotrasen \
 	)
 	suit_chance = 100
 	hat_chance = 0
@@ -56,7 +56,7 @@
 	wander = 0
 
 	angryprob = 0
-	npc_item_amount = 4
+	npc_item_amount = 6
 	randomize_value = 0
 	randomize_quantity = 0
 	no_resell = 1
