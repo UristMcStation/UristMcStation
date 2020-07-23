@@ -71,9 +71,9 @@ What is the naming convention for planes or layers?
 
 //Reserve planes for openspace
 #define OPENSPACE_PLANE_START -462
-#define OPENSPACE_PLANE_END -22
+#define OPENSPACE_PLANE_END -24
 #define OPENSPACE_PLANE -463
-#define OVER_OPENSPACE_PLANE -18
+#define OVER_OPENSPACE_PLANE -23
 
 #define OPENSPACE_LAYER_OBJS 2
 #define OPENSPACE_LAYER_MOBS 3
