@@ -15,3 +15,11 @@
 	containertype = /obj/structure/largecrate
 	containername = "Ion Cannon - Ship-to-Ship"
 	access = access_bridge
+
+
+/decl/hierarchy/supply_pack/security/shiplightpulse
+	contains = list(/obj/structure/shipweapons/incomplete_weapon/lightpulse)
+	cost = 290
+	containertype = /obj/structure/largecrate
+	containername = "Light Pulse Cannon - Ship-to-Ship"
+	access = access_bridge

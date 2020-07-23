@@ -10,6 +10,9 @@
 	density = 0
 	var/attached = FALSE
 
+/obj/structure/shipweapons/hardpoint/ex_act()
+	return
+
 /obj/structure/shipweapons/hardpoint/nerva
 	shipid = "nerva"
 
@@ -120,7 +123,9 @@
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 				to_chat(user, "<span class='warning'>You secure the wires and screw down the external hatches: the weapon is ready to fire.</span>")
 				var/obj/machinery/shipweapons/S = new weapon_type(get_turf(src))
-				S.shipid = src.shipid
+				if(shipid)
+					S.shipid = shipid
+					S.ConnectWeapons()
 				qdel(src)
 
 			else if(isWirecutter(W))
@@ -144,3 +149,7 @@
 /obj/structure/shipweapons/incomplete_weapon/lightlaser
 	name = "light laser cannon assembly"
 	weapon_type = /obj/machinery/shipweapons/beam/lightlaser
+
+/obj/structure/shipweapons/incomplete_weapon/lightpulse
+	name = "light pulse cannon assembly"
+	weapon_type = /obj/machinery/shipweapons/beam/lightpulse

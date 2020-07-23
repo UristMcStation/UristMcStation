@@ -1372,3 +1372,10 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
 	item_flags = ITEM_FLAG_THICKMATERIAL
 	siemens_coefficient = 0.3
+
+//moving this here from noctis_jobs.dm for pirate use
+/obj/item/clothing/suit/armor/pcarrier/light/hijacker
+	color = "#ff0000"
+
+/obj/item/clothing/under/syndicate/pirate
+	starting_accessories = list(/obj/item/clothing/accessory/armband, /obj/item/clothing/accessory/kneepads, /obj/item/clothing/accessory/storage/bandolier)

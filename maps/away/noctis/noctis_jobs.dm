@@ -38,9 +38,6 @@
 	belt = /obj/item/weapon/storage/belt/utility/full
 	id_type = /obj/item/weapon/card/id/noctis
 
-/obj/item/clothing/suit/armor/pcarrier/light/hijacker
-	color = "#ff0000"
-
 /var/const/access_noctis = "ACCESS_NOCTIS" //850
 /datum/access/noctis
 	id = access_noctis

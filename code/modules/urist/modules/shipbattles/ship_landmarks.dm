@@ -31,7 +31,10 @@
 	qdel(src)
 
 /obj/effect/urist/triggers/ai_defender_landmark/pirate
-	spawn_type = list(/mob/living/simple_animal/hostile/pirate) //temp
+	spawn_type = list(/mob/living/simple_animal/hostile/urist/newpirate, /mob/living/simple_animal/hostile/urist/newpirate/laser)
+
+/obj/effect/urist/triggers/ai_defender_landmark/pirate/ballistic
+	spawn_type = list(/mob/living/simple_animal/hostile/urist/newpirate/ballistic)
 
 /obj/effect/urist/triggers/ai_defender_landmark/terran/space_marine
 	spawn_type = list(/mob/living/simple_animal/hostile/urist/terran/marine_space)
@@ -45,11 +48,8 @@
 /obj/effect/urist/triggers/ai_defender_landmark/rebel
 	spawn_type = list(/mob/living/simple_animal/hostile/urist/rebel)
 
-/obj/effect/urist/triggers/ai_defender_landmark/lactera/medium
-	spawn_type = list(/mob/living/simple_animal/hostile/scom/lactera/medium)
-
-/obj/effect/urist/triggers/ai_defender_landmark/lactera/light
-	spawn_type = list(/mob/living/simple_animal/hostile/scom/lactera/light)
+/obj/effect/urist/triggers/ai_defender_landmark/lactera
+	spawn_type = list(,/mob/living/simple_animal/hostile/scom/lactera/medium, /mob/living/simple_animal/hostile/scom/lactera/light)
 
 /obj/effect/urist/triggers/ai_defender_landmark/lactera/heavy
 	spawn_type = list(/mob/living/simple_animal/hostile/scom/lactera/heavy)
@@ -90,7 +90,7 @@
 
 
 /obj/effect/urist/triggers/defender_landmark/pirate
-	defender_outfit = /decl/hierarchy/outfit/pirate/space //temp
+	defender_outfit = /decl/hierarchy/outfit/newpirate
 
 /obj/effect/urist/triggers/defender_landmark/terran
 	defender_outfit = /decl/hierarchy/outfit/terranmarinespace
@@ -124,7 +124,10 @@
 
 /obj/effect/urist/triggers/away_ai_landmark/pirate
 	spawn_id = "pirate_station"
-	spawn_type = list(/mob/living/simple_animal/hostile/pirate, /mob/living/simple_animal/hostile/pirate/ranged)
+	spawn_type = list(/mob/living/simple_animal/hostile/urist/newpirate, /mob/living/simple_animal/hostile/urist/newpirate/laser)
+
+/obj/effect/urist/triggers/away_ai_landmark/pirate/ballistic
+	spawn_type = list(/mob/living/simple_animal/hostile/urist/newpirate/ballistic)
 
 //disk spawner
 
@@ -148,3 +151,20 @@
 
 /obj/effect/urist/triggers/station_disk/pirate
 	faction_id = "pirate"
+
+//pirate corpses
+
+/obj/effect/landmark/corpse/newpirate/laser
+	name = "New Pirate - Laser"
+	corpse_outfits = list(/decl/hierarchy/outfit/newpirate)
+	spawn_flags = CORPSE_SPAWNER_NO_RANDOMIZATION
+
+/obj/effect/landmark/corpse/newpirate/melee
+	name = "New Pirate - Melee"
+	corpse_outfits = list(/decl/hierarchy/outfit/newpirate/melee)
+	spawn_flags = CORPSE_SPAWNER_NO_RANDOMIZATION
+
+/obj/effect/landmark/corpse/newpirate/ballistic
+	name = "New Pirate - Ballistic"
+	corpse_outfits = list(/decl/hierarchy/outfit/newpirate/ballistic)
+	spawn_flags = CORPSE_SPAWNER_NO_RANDOMIZATION
