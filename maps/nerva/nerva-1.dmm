@@ -21379,7 +21379,8 @@
 /turf/simulated/wall/prepainted,
 /area/hallway/centralfourth)
 "PP" = (
-/obj/machinery/artifact_scanpad,
+/obj/structure/anomaly_container,
+/obj/machinery/artifact,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "PQ" = (
@@ -22321,9 +22322,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/afs)
 "TN" = (
-/obj/structure/anomaly_container,
-/obj/machinery/artifact,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/artifact_scanpad,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "TR" = (
