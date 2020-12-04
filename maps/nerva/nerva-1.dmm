@@ -13916,7 +13916,8 @@
 /area/logistics/advwork)
 "xZ" = (
 /obj/machinery/door/airlock/research{
-	name = "Advanced Fabrication Workshop"
+	name = "Advanced Fabrication Workshop";
+	req_access = list("ACCESS_CARGO")
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -22260,7 +22261,8 @@
 /area/command/bottom_hallway)
 "TA" = (
 /obj/machinery/door/airlock/glass/mining{
-	name = "Cargo Workshop"
+	name = "Cargo Workshop";
+	req_access = list("ACCESS_CARGO")
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
