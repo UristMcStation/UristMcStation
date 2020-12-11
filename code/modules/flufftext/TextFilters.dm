@@ -2,8 +2,8 @@
 
 proc/Intoxicated(phrase)
 	phrase = html_decode(phrase)
-	var/leng=length(phrase)
-	var/counter=length(phrase)
+	var/leng=lentext(phrase)
+	var/counter=lentext(phrase)
 	var/newphrase=""
 	var/newletter=""
 	while(counter>=1)
@@ -97,19 +97,19 @@ proc/RadioChat(mob/living/user, message, distortion_chance = 60, distortion_spee
 	message = html_decode(message)
 	var/new_message = ""
 	var/input_size = length(message)
-	var/length = 0
+	var/lentext = 0
 	if(input_size < 20) // Short messages get distorted too. Bit hacksy.
 		distortion += (20-input_size)/2
-	while(length <= input_size)
-		var/newletter=copytext(message, length, length+1)
+	while(lentext <= input_size)
+		var/newletter=copytext(message, lentext, lentext+1)
 		if(!prob(distortion_chance))
 			new_message += newletter
-			length += 1
+			lentext += 1
 			continue
 		if(newletter != " ")
 			if(prob(0.08 * distortion)) // Major cutout
 				newletter = "*zzzt*"
-				length += rand(1, (length(message) - length)) // Skip some characters
+				lentext += rand(1, (length(message) - lentext)) // Skip some characters
 				distortion += 1 * distortion_speed
 			else if(prob(0.8 * distortion)) // Minor cut out
 				if(prob(25))
@@ -135,14 +135,14 @@ proc/RadioChat(mob/living/user, message, distortion_chance = 60, distortion_spee
 					if(english_only)
 						newletter += "*"
 					else
-						newletter = pick("Ã¸", "Ã", "%", "Ã¦", "Âµ")
+						newletter = pick("ø", "Ð", "%", "æ", "µ")
 				distortion += 0.5 * distortion_speed
 			else if(prob(0.75 * distortion)) // Incomprehensible
 				newletter = pick("<", ">", "!", "$", "%", "^", "&", "*", "~", "#")
 				distortion += 0.75 * distortion_speed
 			else if(prob(0.05 * distortion)) // Total cut out
 				if(!english_only)
-					newletter = "Â¦wÂ¡Â¼bÂ»%> -BZZT-"
+					newletter = "¦w¡¼b»%> -BZZT-"
 				else
 					newletter = "srgt%$hjc< -BZZT-"
 				new_message += newletter
@@ -152,15 +152,15 @@ proc/RadioChat(mob/living/user, message, distortion_chance = 60, distortion_spee
 					if("s")
 						newletter = "$"
 					if("e")
-						newletter = "â‚¬"
+						newletter = "€"
 					if("w")
-						newletter = "Ã¸"
+						newletter = "ø"
 					if("y")
-						newletter = "%"
+						newletter = "¡"
 					if("x")
-						newletter = "Ã¦"
+						newletter = "æ"
 					if("u")
-						newletter = "Âµ"
+						newletter = "µ"
 		else
 			if(prob(0.2 * distortion))
 				newletter = " *crackle* "
@@ -168,6 +168,6 @@ proc/RadioChat(mob/living/user, message, distortion_chance = 60, distortion_spee
 		if(prob(20))
 			capitalize(newletter)
 		new_message += newletter
-		length += 1
+		lentext += 1
 	return new_message
 
