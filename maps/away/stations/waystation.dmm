@@ -1,0 +1,4353 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/turf/space,
+/area/space)
+"ab" = (
+/turf/unsimulated/wall{
+	desc = "That looks like it doesn't open easily.";
+	icon = 'icons/obj/machines/shielding.dmi';
+	icon_state = "shield_normal";
+	name = "Heavy Shielding"
+	},
+/area/spacestations/nanotrasenspace)
+"ac" = (
+/turf/simulated/wall/r_wall/hull,
+/area/spacestations/nanotrasenspace)
+"ad" = (
+/turf/unsimulated/wall{
+	desc = "That looks like it doesn't open easily.";
+	icon = 'icons/obj/doors/rapid_pdoor.dmi';
+	icon_state = "pdoor1";
+	name = "Secure Access"
+	},
+/area/spacestations/nanotrasenspace)
+"ae" = (
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"af" = (
+/obj/effect/wallframe_spawn/reinforced,
+/turf/simulated/floor/plating,
+/area/spacestations/nanotrasenspace)
+"ag" = (
+/obj/structure/filingcabinet,
+/obj/effect/floor_decal/corner/red/three_quarters{
+	tag = "icon-corner_white_three_quarters (WEST)";
+	icon_state = "corner_white_three_quarters";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"ah" = (
+/obj/effect/floor_decal/corner/red{
+	tag = "icon-corner_white (NORTHEAST)";
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"ai" = (
+/obj/structure/table/reinforced,
+/obj/effect/floor_decal/corner/red/three_quarters{
+	tag = "icon-corner_white_three_quarters (NORTH)";
+	icon_state = "corner_white_three_quarters";
+	dir = 1
+	},
+/obj/structure/filingcabinet,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"aj" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"ak" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"al" = (
+/obj/structure/bed/chair/office/dark,
+/mob/living/simple_animal/hostile/scom/civ/combat/police,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"am" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/red{
+	tag = "icon-corner_white (SOUTHEAST)";
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"an" = (
+/obj/structure/sign/urist/ad/sign1,
+/turf/simulated/wall/r_wall/hull,
+/area/spacestations/nanotrasenspace)
+"ao" = (
+/obj/machinery/newscaster,
+/turf/simulated/wall/r_wall/hull,
+/area/spacestations/nanotrasenspace)
+"ap" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/paper_bin{
+	pixel_x = 1;
+	pixel_y = 9
+	},
+/obj/item/weapon/pen,
+/obj/structure/window/reinforced,
+/obj/effect/floor_decal/corner/red/three_quarters,
+/obj/item/weapon/stamp/ward,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"aq" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/folder,
+/obj/machinery/door/window/southleft{
+	name = "Transit Checkpoint";
+	req_access = list("ACCESS_CENT_GENERAL")
+	},
+/obj/effect/floor_decal/corner/red{
+	tag = "icon-corner_white (SOUTHWEST)";
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"ar" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced,
+/obj/item/modular_computer/laptop/preset/records,
+/obj/effect/floor_decal/corner/red/three_quarters{
+	tag = "icon-corner_white_three_quarters (EAST)";
+	icon_state = "corner_white_three_quarters";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"as" = (
+/obj/structure/sign/urist/ad/sign2,
+/turf/simulated/wall/r_wall/hull,
+/area/spacestations/nanotrasenspace)
+"at" = (
+/obj/effect/floor_decal/corner/blue/three_quarters,
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 1
+	},
+/obj/item/device/radio/intercom{
+	dir = 4;
+	icon_state = "intercom";
+	pixel_x = -23;
+	tag = "icon-intercom (EAST)"
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"au" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"av" = (
+/obj/effect/floor_decal/corner/blue/three_quarters{
+	tag = "icon-corner_white_three_quarters (EAST)";
+	icon_state = "corner_white_three_quarters";
+	dir = 4
+	},
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"aw" = (
+/obj/structure/closet/crate,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"ax" = (
+/mob/living/simple_animal/hostile/npc/colonist/trader/tool_trader,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"ay" = (
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"az" = (
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/simulated/floor/grass{
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass3"
+	},
+/area/spacestations/nanotrasenspace)
+"aA" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/flora/ausbushes/brflowers,
+/mob/living/simple_animal/cow,
+/turf/simulated/floor/grass{
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass3"
+	},
+/area/spacestations/nanotrasenspace)
+"aB" = (
+/mob/living/simple_animal/hostile/npc/colonist/trader/crop_trader,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"aC" = (
+/obj/structure/table/reinforced,
+/obj/structure/plushie/carp,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"aD" = (
+/obj/structure/bed/chair/urist/bench/bench1/left,
+/obj/effect/floor_decal/corner/blue/full,
+/mob/living/simple_animal/hostile/npc/colonist/nanotrasen{
+	buckled = 1
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"aE" = (
+/obj/structure/bed/chair/urist/bench/bench1/right,
+/obj/effect/floor_decal/corner/blue/full,
+/obj/item/weapon/newspaper,
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"aF" = (
+/obj/structure/bed/chair/urist/bench/bench1/left,
+/obj/effect/floor_decal/corner/blue/full,
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"aG" = (
+/obj/structure/bed/chair/urist/bench/bench1/right,
+/obj/effect/floor_decal/corner/blue/full,
+/obj/random/trash,
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"aH" = (
+/obj/structure/sign/urist/ad/sign5,
+/turf/simulated/wall/r_wall/hull,
+/area/spacestations/nanotrasenspace)
+"aI" = (
+/obj/machinery/atm,
+/turf/simulated/wall/r_wall/hull,
+/area/spacestations/nanotrasenspace)
+"aJ" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/cooker/fryer,
+/turf/simulated/floor/tiled/white,
+/area/spacestations/nanotrasenspace)
+"aK" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/cooker/grill,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/spacestations/nanotrasenspace)
+"aL" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/cooker/oven,
+/turf/simulated/floor/tiled/white,
+/area/spacestations/nanotrasenspace)
+"aM" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/cooker/candy,
+/turf/simulated/floor/tiled/white,
+/area/spacestations/nanotrasenspace)
+"aN" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"aO" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/flora/ausbushes/brflowers,
+/obj/structure/flora/ausbushes/ywflowers,
+/mob/living/simple_animal/crow,
+/turf/simulated/floor/grass{
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass3"
+	},
+/area/spacestations/nanotrasenspace)
+"aP" = (
+/obj/effect/floor_decal/corner/blue/full,
+/obj/random/trash,
+/obj/machinery/newscaster{
+	hitstaken = 1;
+	pixel_x = -28;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"aQ" = (
+/obj/effect/floor_decal/corner/blue/three_quarters{
+	tag = "icon-corner_white_three_quarters (WEST)";
+	icon_state = "corner_white_three_quarters";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"aR" = (
+/obj/structure/bed/chair/urist/bench/bench1/left{
+	tag = "icon-benchleft (NORTH)";
+	icon_state = "benchleft";
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"aS" = (
+/obj/structure/bed/chair/urist/bench/bench1/mid{
+	tag = "icon-benchmid (NORTH)";
+	icon_state = "benchmid";
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"aT" = (
+/obj/structure/bed/chair/urist/bench/bench1/right{
+	tag = "icon-benchright (NORTH)";
+	icon_state = "benchright";
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"aU" = (
+/obj/effect/floor_decal/corner/blue/three_quarters{
+	tag = "icon-corner_white_three_quarters (NORTH)";
+	icon_state = "corner_white_three_quarters";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"aV" = (
+/obj/effect/floor_decal/corner/blue/full,
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"aW" = (
+/obj/structure/bed/chair/couch/left/black{
+	tag = "icon-couch_left (SOUTHWEST)";
+	icon_state = "couch_left";
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/obj/machinery/newscaster{
+	hitstaken = 1;
+	pixel_x = -28;
+	pixel_y = 0
+	},
+/turf/simulated/floor/wood/walnut,
+/area/spacestations/nanotrasenspace)
+"aX" = (
+/obj/structure/bed/chair/couch/middle/black,
+/turf/simulated/floor/wood/walnut,
+/area/spacestations/nanotrasenspace)
+"aY" = (
+/obj/structure/bed/chair/couch/right/black,
+/turf/simulated/floor/wood/walnut,
+/area/spacestations/nanotrasenspace)
+"aZ" = (
+/obj/structure/flora/pottedplant{
+	tag = "icon-plant-18";
+	icon_state = "plant-18"
+	},
+/turf/simulated/floor/wood/walnut,
+/area/spacestations/nanotrasenspace)
+"ba" = (
+/obj/item/weapon/stool/bar/padded,
+/turf/simulated/floor/wood/walnut,
+/area/spacestations/nanotrasenspace)
+"bb" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/structure/table/reinforced,
+/obj/item/weapon/reagent_containers/food/snacks/cookie,
+/turf/simulated/floor/tiled/white,
+/area/spacestations/nanotrasenspace)
+"bc" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/spacestations/nanotrasenspace)
+"bd" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/spacestations/nanotrasenspace)
+"be" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/mob/living/simple_animal/hostile/npc/colonist/contract/ntchef,
+/turf/simulated/floor/tiled/white,
+/area/spacestations/nanotrasenspace)
+"bf" = (
+/obj/structure/closet/crate,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"bg" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/flora/ausbushes/brflowers,
+/turf/simulated/floor/grass{
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass3"
+	},
+/area/spacestations/nanotrasenspace)
+"bh" = (
+/obj/structure/closet/crate,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"bi" = (
+/obj/machinery/vending/cigarette,
+/obj/effect/floor_decal/corner/blue/full,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"bj" = (
+/obj/machinery/vending/cola,
+/obj/effect/floor_decal/corner/blue/full,
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"bk" = (
+/obj/structure/bed/chair/couch/middle/black{
+	tag = "icon-couch_middle (NORTHEAST)";
+	icon_state = "couch_middle";
+	dir = 5
+	},
+/obj/item/device/radio/intercom{
+	dir = 4;
+	icon_state = "intercom";
+	pixel_x = -23;
+	tag = "icon-intercom (EAST)"
+	},
+/turf/simulated/floor/wood/walnut,
+/area/spacestations/nanotrasenspace)
+"bl" = (
+/obj/structure/table/standard,
+/obj/item/weapon/reagent_containers/food/condiment/small/saltshaker{
+	pixel_x = -3;
+	pixel_y = 0
+	},
+/turf/simulated/floor/wood/walnut,
+/area/spacestations/nanotrasenspace)
+"bm" = (
+/obj/structure/table/standard,
+/obj/item/weapon/reagent_containers/food/condiment/small/peppermill{
+	pixel_x = 3
+	},
+/turf/simulated/floor/wood/walnut,
+/area/spacestations/nanotrasenspace)
+"bn" = (
+/turf/simulated/floor/wood/walnut,
+/area/spacestations/nanotrasenspace)
+"bo" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/structure/table/reinforced,
+/obj/item/weapon/material/ashtray/plastic,
+/turf/simulated/floor/tiled/white,
+/area/spacestations/nanotrasenspace)
+"bp" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	icon_state = "soda_dispenser";
+	dir = 4
+	},
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/white,
+/area/spacestations/nanotrasenspace)
+"bq" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/structure/table/standard,
+/obj/machinery/reagent_temperature,
+/turf/simulated/floor/tiled/white,
+/area/spacestations/nanotrasenspace)
+"br" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/structure/table/standard,
+/obj/item/weapon/reagent_containers/food/drinks/shaker,
+/turf/simulated/floor/tiled/white,
+/area/spacestations/nanotrasenspace)
+"bs" = (
+/obj/structure/table/reinforced,
+/obj/random/drinkbottle,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"bt" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/mob/living/simple_animal/hostile/npc/colonist/trader/bartender_trader,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"bu" = (
+/obj/machinery/door/airlock/glass,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"bv" = (
+/turf/space,
+/area/spacestations/nanotrasenspace)
+"bw" = (
+/obj/effect/floor_decal/corner/blue/full,
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"bx" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/structure/table/reinforced,
+/obj/item/weapon/reagent_containers/food/drinks/coffeecup,
+/turf/simulated/floor/tiled/white,
+/area/spacestations/nanotrasenspace)
+"by" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/structure/hygiene/sink{
+	icon_state = "sink";
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 2
+	},
+/turf/simulated/floor/tiled/white,
+/area/spacestations/nanotrasenspace)
+"bz" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/structure/table/standard,
+/obj/machinery/reagent_temperature/cooler,
+/turf/simulated/floor/tiled/white,
+/area/spacestations/nanotrasenspace)
+"bA" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/structure/table/standard,
+/obj/machinery/reagentgrinder,
+/turf/simulated/floor/tiled/white,
+/area/spacestations/nanotrasenspace)
+"bB" = (
+/obj/structure/bed/chair/urist/bench/bench1/left{
+	tag = "icon-benchleft (WEST)";
+	icon_state = "benchleft";
+	dir = 8
+	},
+/mob/living/simple_animal/hostile/npc/colonist/nanotrasen{
+	tag = "icon-body_m_s (WEST)";
+	icon_state = "body_m_s";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"bC" = (
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"bD" = (
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"bE" = (
+/obj/machinery/door/airlock/glass,
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"bF" = (
+/obj/structure/bed/chair/urist/bench/bench1/left{
+	tag = "icon-benchleft (WEST)";
+	icon_state = "benchleft";
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue{
+	tag = "icon-corner_white (NORTHWEST)";
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"bH" = (
+/obj/structure/bed/chair/urist/bench/bench1/left{
+	tag = "icon-benchleft (EAST)";
+	icon_state = "benchleft";
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/mob/living/simple_animal/hostile/npc/colonist/labourer,
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"bI" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/white,
+/area/spacestations/nanotrasenspace)
+"bJ" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/structure/table/reinforced,
+/obj/item/weapon/reagent_containers/food/snacks/amanitajelly,
+/turf/simulated/floor/tiled/white,
+/area/spacestations/nanotrasenspace)
+"bK" = (
+/obj/structure/bed/chair/urist/bench/bench1/mid{
+	tag = "icon-benchmid (WEST)";
+	icon_state = "benchmid";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"bL" = (
+/obj/structure/bed/chair/urist/bench/bench1/right{
+	tag = "icon-benchright (WEST)";
+	icon_state = "benchright";
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue{
+	tag = "icon-corner_white (NORTHWEST)";
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"bM" = (
+/obj/effect/overmap/sector/station/waystation,
+/turf/space,
+/area/spacestations/nanotrasenspace)
+"bN" = (
+/obj/structure/bed/chair/urist/bench/bench1/right{
+	tag = "icon-benchright (EAST)";
+	icon_state = "benchright";
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"bO" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/structure/table/standard,
+/obj/item/weapon/book/manual/chef_recipes,
+/turf/simulated/floor/tiled/white,
+/area/spacestations/nanotrasenspace)
+"bP" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/structure/table/standard,
+/obj/item/weapon/material/kitchen/rollingpin,
+/turf/simulated/floor/tiled/white,
+/area/spacestations/nanotrasenspace)
+"bQ" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/structure/table/standard,
+/obj/item/weapon/reagent_containers/glass/beaker{
+	pixel_x = 5
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled/white,
+/area/spacestations/nanotrasenspace)
+"bR" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/structure/table/standard,
+/obj/machinery/microwave,
+/turf/simulated/floor/tiled/white,
+/area/spacestations/nanotrasenspace)
+"bS" = (
+/obj/structure/bed/chair/urist/bench/bench1/right{
+	tag = "icon-benchright (WEST)";
+	icon_state = "benchright";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"bT" = (
+/obj/machinery/light,
+/obj/item/device/radio/intercom{
+	dir = 1;
+	pixel_y = -28
+	},
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"bU" = (
+/obj/effect/floor_decal/corner/blue/three_quarters,
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"bV" = (
+/obj/effect/floor_decal/corner/blue/three_quarters{
+	tag = "icon-corner_white_three_quarters (EAST)";
+	icon_state = "corner_white_three_quarters";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"bW" = (
+/obj/structure/bed/chair,
+/turf/simulated/floor/wood/walnut,
+/area/spacestations/nanotrasenspace)
+"bX" = (
+/obj/structure/table/reinforced,
+/obj/random/smokes,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"bY" = (
+/obj/structure/table/reinforced,
+/obj/random/contraband,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"bZ" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/item/device/radio/intercom{
+	dir = 8;
+	pixel_x = 25
+	},
+/obj/random/action_figure,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"ca" = (
+/obj/structure/sign/urist/transitmap,
+/turf/simulated/wall/r_wall/hull,
+/area/spacestations/nanotrasenspace)
+"cb" = (
+/obj/machinery/vending/coffee,
+/obj/effect/floor_decal/corner/blue/full,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"cc" = (
+/obj/machinery/vending/snack,
+/obj/effect/floor_decal/corner/blue/full,
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"cd" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/mob/living/simple_animal/hostile/npc/colonist{
+	buckled = 1
+	},
+/turf/simulated/floor/wood/walnut,
+/area/spacestations/nanotrasenspace)
+"ce" = (
+/obj/structure/table/standard,
+/obj/item/weapon/reagent_containers/food/condiment/small/saltshaker{
+	pixel_x = -3;
+	pixel_y = 0
+	},
+/obj/item/weapon/reagent_containers/food/condiment/small/peppermill{
+	pixel_x = 3
+	},
+/turf/simulated/floor/wood/walnut,
+/area/spacestations/nanotrasenspace)
+"cf" = (
+/obj/structure/table/standard,
+/obj/item/weapon/material/ashtray/plastic,
+/obj/machinery/newscaster{
+	layer = 3.3;
+	pixel_x = 0;
+	pixel_y = -27
+	},
+/turf/simulated/floor/wood/walnut,
+/area/spacestations/nanotrasenspace)
+"cg" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/floor/wood/walnut,
+/area/spacestations/nanotrasenspace)
+"ch" = (
+/obj/structure/flora/pottedplant{
+	tag = "icon-plant-22";
+	icon_state = "plant-22"
+	},
+/obj/machinery/light,
+/turf/simulated/floor/wood/walnut,
+/area/spacestations/nanotrasenspace)
+"ci" = (
+/obj/structure/sign/urist/ad/sign4,
+/turf/simulated/wall/r_wall/hull,
+/area/spacestations/nanotrasenspace)
+"cj" = (
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/machinery/portable_atmospherics/canister/empty,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1;
+	health = 1e+006
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"ck" = (
+/obj/effect/floor_decal/industrial/outline/orange,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/computer,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"cl" = (
+/obj/structure/bed/chair/urist/bench/bench1/left,
+/obj/effect/floor_decal/corner/blue{
+	tag = "icon-corner_white (SOUTHWEST)";
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"cm" = (
+/obj/structure/bed/chair/urist/bench/bench1/mid,
+/obj/effect/floor_decal/corner/blue{
+	tag = "icon-corner_white (SOUTHWEST)";
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"cn" = (
+/obj/structure/bed/chair/urist/bench/bench1/right,
+/obj/effect/floor_decal/corner/blue{
+	tag = "icon-corner_white (SOUTHWEST)";
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"co" = (
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/machinery/portable_atmospherics/canister/empty,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"cp" = (
+/obj/effect/floor_decal/industrial/outline/orange,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/constructable_frame/machine_frame,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"cq" = (
+/obj/structure/bed/chair/urist/bench/bench1/left{
+	tag = "icon-benchleft (NORTH)";
+	icon_state = "benchleft";
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/blue/full,
+/obj/random/trash,
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"cr" = (
+/obj/structure/bed/chair/urist/bench/bench1/right{
+	tag = "icon-benchright (NORTH)";
+	icon_state = "benchright";
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/blue/full,
+/mob/living/simple_animal/hostile/npc/colonist/labourer{
+	buckled = 1
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"cs" = (
+/mob/living/simple_animal/hostile/scom/civ/combat/police,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"ct" = (
+/obj/structure/bed/chair/urist/bench/bench1/left{
+	tag = "icon-benchleft (NORTH)";
+	icon_state = "benchleft";
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/blue/full,
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"cu" = (
+/obj/structure/bed/chair/urist/bench/bench1/right{
+	tag = "icon-benchright (NORTH)";
+	icon_state = "benchright";
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/blue/full,
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"cv" = (
+/mob/living/simple_animal/hostile/npc/colonist/trader/atmos_trader,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"cw" = (
+/mob/living/simple_animal/hostile/npc/colonist/trader/bulky_trader,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"cx" = (
+/obj/structure/flora/pottedplant{
+	tag = "icon-plant-22";
+	icon_state = "plant-22"
+	},
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/blue/full,
+/obj/item/device/radio/intercom{
+	dir = 4;
+	icon_state = "intercom";
+	pixel_x = -23;
+	tag = "icon-intercom (EAST)"
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"cy" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/newscaster{
+	layer = 3.3;
+	pixel_x = 0;
+	pixel_y = -27
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"cz" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"cA" = (
+/obj/structure/flora/pottedplant{
+	tag = "icon-plant-22";
+	icon_state = "plant-22"
+	},
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/blue/full,
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"cB" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"cC" = (
+/obj/effect/floor_decal/corner/blue{
+	tag = "icon-corner_white (NORTHWEST)";
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"cD" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"cE" = (
+/obj/effect/floor_decal/corner/blue/full,
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"cF" = (
+/obj/effect/floor_decal/industrial/warning{
+	tag = "icon-warning (NORTHWEST)";
+	icon_state = "warning";
+	dir = 9
+	},
+/turf/simulated/floor/plating{
+	color = "#bbbbbb"
+	},
+/area/spacestations/nanotrasenspace)
+"cG" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/plating{
+	color = "#bbbbbb"
+	},
+/area/spacestations/nanotrasenspace)
+"cH" = (
+/obj/effect/floor_decal/industrial/warning{
+	tag = "icon-warning (NORTHEAST)";
+	icon_state = "warning";
+	dir = 5
+	},
+/turf/simulated/floor/plating{
+	color = "#bbbbbb"
+	},
+/area/spacestations/nanotrasenspace)
+"cI" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"cJ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/plating{
+	color = "#bbbbbb"
+	},
+/area/spacestations/nanotrasenspace)
+"cK" = (
+/turf/simulated/floor/plating{
+	color = "#bbbbbb"
+	},
+/area/spacestations/nanotrasenspace)
+"cL" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	color = "#bbbbbb"
+	},
+/area/spacestations/nanotrasenspace)
+"cM" = (
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"cN" = (
+/obj/effect/floor_decal/corner/red/three_quarters{
+	tag = "icon-corner_white_three_quarters (WEST)";
+	icon_state = "corner_white_three_quarters";
+	dir = 8
+	},
+/obj/item/device/radio/intercom{
+	dir = 4;
+	icon_state = "intercom";
+	pixel_x = -23;
+	tag = "icon-intercom (EAST)"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"cO" = (
+/obj/effect/floor_decal/corner/red/three_quarters{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"cP" = (
+/obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/newscaster{
+	hitstaken = 1;
+	pixel_x = -28;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"cQ" = (
+/obj/effect/floor_decal/corner/red{
+	tag = "icon-corner_white (SOUTHEAST)";
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"cR" = (
+/obj/structure/table/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/item/modular_computer/laptop/preset/records,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"cS" = (
+/obj/item/modular_computer/laptop/preset/records,
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"cT" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/paper_bin{
+	pixel_x = 1;
+	pixel_y = 9
+	},
+/obj/item/weapon/pen,
+/obj/machinery/door/window/westleft{
+	name = "Transit Desk"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"cU" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"cV" = (
+/obj/item/modular_computer/console/preset/command{
+	dir = 8
+	},
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"cW" = (
+/obj/effect/floor_decal/corner/red/three_quarters,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"cX" = (
+/obj/effect/floor_decal/corner/red/three_quarters{
+	tag = "icon-corner_white_three_quarters (EAST)";
+	icon_state = "corner_white_three_quarters";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"cY" = (
+/obj/machinery/door/window/northleft{
+	base_state = "right";
+	dir = 8;
+	icon_state = "right";
+	name = "Transit Processing";
+	req_access = list("ACCESS_CENT_GENERAL")
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"cZ" = (
+/obj/structure/filingcabinet,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"da" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Transit Checkpoint";
+	opacity = 1;
+	req_access = list("ACCESS_CENT_CAPTAIN")
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"db" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 9
+	},
+/turf/simulated/floor/plating{
+	color = "#bbbbbb"
+	},
+/area/spacestations/nanotrasenspace)
+"dc" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 5
+	},
+/turf/simulated/floor/plating{
+	color = "#bbbbbb"
+	},
+/area/spacestations/nanotrasenspace)
+"dd" = (
+/obj/effect/floor_decal/corner/blue/three_quarters{
+	tag = "icon-corner_white_three_quarters (WEST)";
+	icon_state = "corner_white_three_quarters";
+	dir = 8
+	},
+/obj/structure/table/reinforced,
+/obj/item/weapon/paper_bin{
+	pixel_x = 1;
+	pixel_y = 9
+	},
+/obj/item/weapon/pen,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"de" = (
+/obj/effect/floor_decal/corner/blue{
+	tag = "icon-corner_white (NORTHEAST)";
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"df" = (
+/obj/effect/floor_decal/corner/blue/three_quarters{
+	tag = "icon-corner_white_three_quarters (NORTH)";
+	icon_state = "corner_white_three_quarters";
+	dir = 1
+	},
+/obj/machinery/vending/coffee,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"dg" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"dh" = (
+/obj/effect/floor_decal/industrial/warning{
+	tag = "icon-warning (EAST)";
+	icon_state = "warning";
+	dir = 4
+	},
+/turf/simulated/floor/plating{
+	color = "#bbbbbb"
+	},
+/area/spacestations/nanotrasenspace)
+"di" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"dj" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"dk" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/vending/snack,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"dl" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"dm" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1;
+	health = 1e+006
+	},
+/obj/structure/flora/ausbushes/fernybush,
+/obj/structure/flora/ausbushes/brflowers,
+/turf/simulated/floor/grass{
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass3"
+	},
+/area/spacestations/nanotrasenspace)
+"dn" = (
+/obj/structure/window/reinforced{
+	dir = 1;
+	health = 1e+006
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/flora/ausbushes/brflowers,
+/turf/simulated/floor/grass{
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass3"
+	},
+/area/spacestations/nanotrasenspace)
+"do" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/vending/cola,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"dp" = (
+/obj/effect/shuttle_landmark/way_trading/nav2,
+/turf/simulated/floor/plating{
+	color = "#bbbbbb"
+	},
+/area/spacestations/nanotrasenspace)
+"dq" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/structure/bed/chair/urist/bench/bench1/left{
+	tag = "icon-benchleft (EAST)";
+	icon_state = "benchleft";
+	dir = 4
+	},
+/mob/living/simple_animal/hostile/npc/colonist/labourer{
+	buckled = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"dr" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/simulated/floor/grass{
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass3"
+	},
+/area/spacestations/nanotrasenspace)
+"ds" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/flora/tree/planet/arid/small,
+/turf/simulated/floor/grass{
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass3"
+	},
+/area/spacestations/nanotrasenspace)
+"dt" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/structure/bed/chair/urist/bench/bench1/left{
+	tag = "icon-benchleft (WEST)";
+	icon_state = "benchleft";
+	dir = 8
+	},
+/obj/random/trash,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"du" = (
+/obj/structure/sign/urist/ad/sign3,
+/turf/simulated/wall/r_wall/hull,
+/area/spacestations/nanotrasenspace)
+"dv" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/structure/bed/chair/urist/bench/bench1/mid{
+	tag = "icon-benchmid (EAST)";
+	icon_state = "benchmid";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"dw" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/flora/ausbushes/brflowers,
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/simulated/floor/grass{
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass3"
+	},
+/area/spacestations/nanotrasenspace)
+"dx" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/simulated/floor/grass{
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass3"
+	},
+/area/spacestations/nanotrasenspace)
+"dy" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/structure/bed/chair/urist/bench/bench1/mid{
+	tag = "icon-benchmid (WEST)";
+	icon_state = "benchmid";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"dz" = (
+/obj/effect/shuttle_landmark/way_trading/nav1,
+/turf/simulated/floor/plating{
+	color = "#bbbbbb"
+	},
+/area/spacestations/nanotrasenspace)
+"dA" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/structure/bed/chair/urist/bench/bench1/right{
+	tag = "icon-benchright (EAST)";
+	icon_state = "benchright";
+	dir = 4
+	},
+/obj/machinery/newscaster{
+	hitstaken = 1;
+	pixel_x = -28;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"dB" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/structure/bed/chair/urist/bench/bench1/right{
+	tag = "icon-benchright (WEST)";
+	icon_state = "benchright";
+	dir = 8
+	},
+/mob/living/simple_animal/hostile/npc/colonist/labourer{
+	buckled = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"dC" = (
+/obj/effect/floor_decal/corner/blue/three_quarters,
+/obj/structure/flora/pottedplant{
+	tag = "icon-plant-22";
+	icon_state = "plant-22"
+	},
+/obj/item/device/radio/intercom{
+	dir = 4;
+	icon_state = "intercom";
+	pixel_x = -23;
+	tag = "icon-intercom (EAST)"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"dD" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/random/trash,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"dE" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"dF" = (
+/obj/effect/floor_decal/corner/blue,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"dG" = (
+/obj/effect/floor_decal/corner/blue/three_quarters{
+	tag = "icon-corner_white_three_quarters (EAST)";
+	icon_state = "corner_white_three_quarters";
+	dir = 4
+	},
+/obj/structure/flora/pottedplant{
+	tag = "icon-plant-22";
+	icon_state = "plant-22"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"dH" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"dI" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"dJ" = (
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"dK" = (
+/obj/machinery/light{
+	tag = "icon-tube1 (NORTH)";
+	icon_state = "tube1";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"dL" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"dM" = (
+/obj/effect/floor_decal/corner/blue/three_quarters,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"dN" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"dO" = (
+/obj/effect/floor_decal/corner/blue/three_quarters{
+	tag = "icon-corner_white_three_quarters (EAST)";
+	icon_state = "corner_white_three_quarters";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"dP" = (
+/obj/effect/floor_decal/industrial/warning{
+	tag = "icon-warning (SOUTHWEST)";
+	icon_state = "warning";
+	dir = 10
+	},
+/turf/simulated/floor/plating{
+	color = "#bbbbbb"
+	},
+/area/spacestations/nanotrasenspace)
+"dQ" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/plating{
+	color = "#bbbbbb"
+	},
+/area/spacestations/nanotrasenspace)
+"dR" = (
+/obj/effect/floor_decal/industrial/warning{
+	tag = "icon-warning (SOUTHEAST)";
+	icon_state = "warning";
+	dir = 6
+	},
+/turf/simulated/floor/plating{
+	color = "#bbbbbb"
+	},
+/area/spacestations/nanotrasenspace)
+"dS" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/item/device/radio/intercom{
+	dir = 8;
+	icon_state = "intercom";
+	pixel_x = 28;
+	tag = "icon-intercom (WEST)"
+	},
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"dT" = (
+/obj/item/device/radio/intercom{
+	dir = 4;
+	icon_state = "intercom";
+	pixel_x = -23;
+	tag = "icon-intercom (EAST)"
+	},
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"dU" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 10
+	},
+/turf/simulated/floor/plating{
+	color = "#bbbbbb"
+	},
+/area/spacestations/nanotrasenspace)
+"dV" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 6
+	},
+/turf/simulated/floor/plating{
+	color = "#bbbbbb"
+	},
+/area/spacestations/nanotrasenspace)
+"dW" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark{
+	color = "#cccccc"
+	},
+/area/spacestations/nanotrasenspace)
+"eH" = (
+/obj/structure/hygiene/urinal{
+	pixel_y = 32
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/spiderling_remains,
+/turf/simulated/floor/plating,
+/area/spacestations/nanotrasenspace)
+"eQ" = (
+/obj/structure/hygiene/urinal{
+	pixel_y = 32
+	},
+/obj/machinery/light/small{
+	icon_state = "bulb_map";
+	dir = 8
+	},
+/obj/effect/decal/cleanable/cobweb,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/plating,
+/area/spacestations/nanotrasenspace)
+"oJ" = (
+/obj/machinery/light/small{
+	icon_state = "bulb_map";
+	dir = 1
+	},
+/obj/machinery/recharge_station,
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"qB" = (
+/obj/structure/hygiene/toilet{
+	icon_state = "toilet00";
+	dir = 8
+	},
+/obj/machinery/light/small{
+	icon_state = "bulb_map";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"ud" = (
+/obj/machinery/door/airlock/civilian,
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"vv" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"vy" = (
+/obj/item/weapon/storage/mirror{
+	pixel_x = -32
+	},
+/obj/structure/hygiene/sink{
+	icon_state = "sink";
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 2
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"xb" = (
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"BE" = (
+/obj/item/weapon/storage/mirror{
+	pixel_x = -32
+	},
+/obj/structure/hygiene/sink{
+	icon_state = "sink";
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 2
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/spacestations/nanotrasenspace)
+"Cn" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"ZD" = (
+/obj/structure/hygiene/sink{
+	icon_state = "sink";
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 2
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+
+(1,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(2,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(3,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+af
+af
+af
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(4,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+af
+bB
+bK
+bS
+af
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(5,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+af
+bs
+bC
+bC
+bC
+bX
+af
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(6,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+af
+ay
+bC
+bC
+bC
+bY
+af
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(7,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+af
+bt
+bC
+bC
+bC
+bZ
+af
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(8,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ac
+ac
+ac
+ac
+an
+af
+bu
+af
+ac
+ac
+ac
+ac
+ac
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(9,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ac
+aw
+aw
+bf
+af
+bC
+bC
+bC
+af
+cj
+co
+co
+ac
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(10,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+af
+ae
+ae
+ae
+bu
+bC
+bC
+bC
+bu
+ae
+ae
+ae
+af
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(11,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+af
+ax
+ae
+ae
+bu
+bC
+bC
+bC
+bu
+ae
+ae
+cv
+af
+ab
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+"}
+(12,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ac
+ay
+aN
+ay
+af
+bC
+bC
+bC
+af
+ay
+aN
+ay
+ac
+ab
+aa
+aa
+ab
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ab
+aa
+aa
+aa
+aa
+aa
+"}
+(13,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ac
+ac
+ac
+ac
+aI
+bD
+bC
+bT
+ac
+ac
+ac
+ac
+ac
+ab
+aa
+aa
+ab
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ab
+aa
+aa
+aa
+aa
+aa
+"}
+(14,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ac
+az
+aO
+bg
+af
+bC
+bC
+bC
+af
+ck
+cp
+cp
+ac
+ab
+aa
+aa
+ab
+ac
+ac
+bC
+bC
+dg
+bC
+bC
+bC
+bC
+bC
+bC
+bC
+bC
+dg
+bC
+ac
+ac
+ab
+aa
+aa
+aa
+aa
+aa
+"}
+(15,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+af
+aA
+ae
+ae
+bu
+bC
+bC
+bC
+bu
+ae
+ae
+ae
+af
+ab
+aa
+aa
+ab
+ac
+ac
+bC
+db
+cJ
+cJ
+cJ
+cJ
+cJ
+cJ
+cJ
+cJ
+cJ
+dP
+bC
+ac
+ac
+ab
+aa
+aa
+aa
+aa
+aa
+"}
+(16,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+af
+aB
+ae
+ae
+bu
+bC
+bC
+bC
+bu
+ae
+ae
+cw
+af
+ab
+aa
+aa
+ab
+ac
+ac
+bC
+cG
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+dQ
+bC
+ac
+ac
+ab
+aa
+aa
+aa
+aa
+aa
+"}
+(17,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ac
+aC
+aN
+bh
+af
+bC
+bC
+bC
+af
+ay
+aN
+ay
+ac
+ab
+aa
+aa
+ab
+ac
+ac
+bC
+cG
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+dQ
+bC
+ac
+ac
+ab
+aa
+aa
+aa
+aa
+aa
+"}
+(18,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ac
+ac
+ac
+ac
+af
+bE
+bE
+af
+ac
+ac
+ac
+ac
+ac
+ab
+aa
+aa
+ab
+ac
+ac
+bC
+cG
+cK
+cK
+cK
+cK
+dz
+cK
+cK
+cK
+cK
+dQ
+bC
+ac
+ac
+ab
+aa
+aa
+aa
+aa
+aa
+"}
+(19,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ac
+ac
+ac
+ac
+aV
+ae
+ae
+aV
+ca
+ac
+ac
+ac
+ac
+ab
+aa
+aa
+ab
+ac
+ac
+bC
+cG
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+dQ
+bC
+ac
+ac
+ab
+aa
+aa
+aa
+aa
+aa
+"}
+(20,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ac
+ac
+ac
+ac
+bi
+aV
+ae
+ae
+aV
+cb
+aI
+ac
+ac
+ac
+ab
+ab
+ab
+ab
+ac
+ac
+bC
+cG
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+dQ
+bC
+ac
+ac
+ab
+aa
+aa
+aa
+aa
+aa
+"}
+(21,1,1) = {"
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ac
+ac
+as
+aD
+aP
+ae
+ae
+ae
+ae
+ae
+ae
+aV
+cq
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+bC
+dc
+dh
+dh
+dh
+dh
+dh
+dh
+dh
+dh
+dh
+dR
+bC
+ac
+ac
+ab
+aa
+aa
+aa
+aa
+aa
+"}
+(22,1,1) = {"
+aa
+aa
+aa
+ab
+ab
+ac
+ac
+ac
+ac
+ac
+ac
+aE
+ae
+ae
+aQ
+bF
+bL
+bU
+ae
+ae
+cr
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+bC
+bC
+di
+bC
+bC
+bC
+bC
+bC
+bC
+bC
+bC
+dS
+bC
+ac
+ac
+ab
+aa
+aa
+aa
+aa
+aa
+"}
+(23,1,1) = {"
+aa
+aa
+aa
+ab
+ac
+ac
+ac
+ac
+ac
+an
+at
+ae
+ae
+aQ
+af
+af
+af
+af
+bU
+ae
+ae
+cx
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+as
+ac
+ac
+ac
+ac
+dJ
+dJ
+ac
+ac
+ac
+ac
+ab
+ab
+ab
+aa
+aa
+aa
+"}
+(24,1,1) = {"
+aa
+aa
+aa
+ab
+ac
+ac
+ad
+ae
+aj
+ad
+au
+ae
+aQ
+af
+af
+bv
+bv
+af
+af
+bU
+ae
+cy
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+dd
+dj
+dl
+dq
+dv
+dA
+dC
+ac
+dK
+bC
+ac
+ac
+ac
+ac
+ac
+ac
+ab
+aa
+aa
+aa
+"}
+(25,1,1) = {"
+aa
+aa
+aa
+ab
+ac
+ac
+ad
+ae
+ae
+ad
+au
+ae
+aR
+af
+bv
+bv
+bv
+bv
+af
+cl
+ae
+aU
+cB
+aV
+af
+cN
+cP
+ak
+cW
+af
+de
+ae
+ae
+ae
+ae
+ae
+dD
+ac
+dJ
+dJ
+ac
+ac
+ac
+ac
+ac
+ac
+ab
+aa
+aa
+aa
+"}
+(26,1,1) = {"
+aa
+aa
+aa
+ab
+ac
+ac
+ac
+af
+af
+ao
+au
+ae
+aS
+af
+bv
+bv
+bM
+bv
+af
+cm
+cs
+ae
+ae
+ae
+bE
+ae
+ae
+ae
+ae
+da
+de
+ae
+dm
+dr
+dw
+ae
+dE
+dH
+dH
+dM
+ac
+ac
+ac
+ac
+ac
+ac
+ab
+aa
+aa
+aa
+"}
+(27,1,1) = {"
+aa
+aa
+aa
+ab
+ac
+ac
+ac
+ag
+ak
+ap
+au
+ae
+aT
+af
+bv
+bv
+bv
+bv
+af
+cn
+ae
+aQ
+cC
+cE
+af
+cO
+cQ
+cQ
+cX
+af
+de
+ae
+dn
+ds
+dx
+ae
+ae
+ae
+ae
+dN
+ac
+ac
+ac
+ac
+ac
+ac
+ab
+aa
+aa
+aa
+"}
+(28,1,1) = {"
+aa
+aa
+aa
+ab
+ac
+ac
+ad
+ah
+al
+aq
+au
+ae
+aU
+af
+af
+bv
+bv
+af
+af
+bV
+ae
+cz
+ac
+ac
+ac
+ac
+cR
+cT
+cY
+aI
+de
+ae
+ae
+ae
+ae
+ae
+dF
+dI
+dL
+dO
+ac
+ac
+ac
+ac
+ac
+ac
+ab
+aa
+aa
+aa
+"}
+(29,1,1) = {"
+aa
+aa
+aa
+ab
+ac
+ac
+ac
+ai
+am
+ar
+av
+ae
+ae
+aU
+af
+af
+af
+af
+bV
+ae
+ae
+cA
+ac
+ac
+ac
+ac
+cs
+cU
+ae
+ac
+df
+dk
+do
+dt
+dy
+dB
+dG
+ac
+dJ
+dJ
+ac
+ac
+ac
+ac
+ac
+ac
+ab
+aa
+aa
+aa
+"}
+(30,1,1) = {"
+aa
+aa
+aa
+ab
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+aF
+ae
+ae
+aU
+bH
+bN
+bV
+ae
+ae
+ct
+ac
+ac
+ac
+ac
+ac
+cS
+cV
+cZ
+ac
+ac
+ac
+ac
+du
+ac
+ac
+ac
+ac
+dK
+bC
+ac
+ac
+ac
+ac
+ac
+ac
+ab
+aa
+aa
+aa
+"}
+(31,1,1) = {"
+aa
+aa
+aa
+ab
+ab
+ac
+ac
+ac
+ac
+ac
+ac
+aG
+aV
+ae
+ae
+ae
+ae
+ae
+ae
+aV
+cu
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+dJ
+dJ
+ac
+ac
+ac
+ac
+ac
+ac
+ab
+aa
+aa
+aa
+"}
+(32,1,1) = {"
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ac
+ac
+ac
+ac
+ac
+bj
+bw
+ae
+ae
+bw
+cc
+ac
+ac
+ac
+bC
+bC
+cI
+bC
+bC
+bC
+bC
+bC
+bC
+cI
+bC
+bC
+bC
+bC
+bC
+bC
+bC
+bC
+dT
+bC
+cI
+bC
+ac
+ac
+ab
+aa
+aa
+aa
+"}
+(33,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ac
+ac
+ac
+ac
+ac
+ac
+af
+bE
+bE
+af
+ac
+ac
+ac
+ac
+bC
+cF
+cJ
+cJ
+cJ
+cJ
+cJ
+cJ
+cJ
+cJ
+cJ
+cJ
+cJ
+cJ
+cJ
+cJ
+cJ
+cJ
+cJ
+cJ
+dU
+bC
+ac
+ac
+ab
+aa
+aa
+aa
+"}
+(34,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ac
+ac
+ac
+ac
+aW
+bk
+aZ
+bn
+bn
+bn
+cd
+ac
+ac
+ac
+bC
+cG
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+dQ
+dW
+ac
+ac
+ab
+aa
+aa
+aa
+"}
+(35,1,1) = {"
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ac
+ac
+ac
+ac
+ac
+aX
+bl
+bn
+bn
+bn
+bW
+ce
+ac
+ac
+ac
+bC
+cG
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+dQ
+bC
+ac
+ac
+ab
+aa
+aa
+aa
+"}
+(36,1,1) = {"
+aa
+aa
+aa
+aa
+ab
+ac
+ac
+ac
+ac
+ac
+ac
+aH
+aY
+bm
+bn
+bn
+bn
+bW
+cf
+ac
+ac
+ac
+bC
+cG
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+dQ
+bC
+ac
+ac
+ab
+aa
+aa
+aa
+"}
+(37,1,1) = {"
+aa
+aa
+aa
+aa
+ab
+ac
+eQ
+BE
+ZD
+vy
+vv
+ud
+bn
+bn
+bn
+bn
+bn
+bn
+cg
+ac
+ac
+ac
+cD
+cG
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+dQ
+bC
+ac
+ac
+ab
+aa
+aa
+aa
+"}
+(38,1,1) = {"
+aa
+aa
+aa
+aa
+ab
+ac
+eH
+xb
+xb
+xb
+Cn
+aI
+ba
+ba
+ba
+ba
+bn
+ba
+ch
+ac
+ac
+ac
+bC
+cG
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+dQ
+bC
+ac
+ac
+ab
+aa
+aa
+aa
+"}
+(39,1,1) = {"
+aa
+aa
+aa
+aa
+ab
+ac
+ud
+ac
+ud
+ac
+ud
+ac
+bb
+bo
+bx
+bI
+be
+bo
+ci
+ac
+ac
+ac
+bC
+cG
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+dp
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+dQ
+bC
+ac
+ac
+ab
+aa
+aa
+aa
+"}
+(40,1,1) = {"
+aa
+aa
+aa
+aa
+ab
+ac
+qB
+ac
+qB
+ac
+oJ
+ac
+bc
+bd
+bd
+bd
+bd
+bd
+ac
+ac
+ac
+ac
+bC
+cG
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+dQ
+bC
+ac
+ac
+ab
+aa
+aa
+aa
+"}
+(41,1,1) = {"
+aa
+aa
+aa
+aa
+ab
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+af
+af
+af
+bJ
+af
+ac
+ac
+ac
+ac
+ac
+cD
+cG
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+dQ
+bC
+ac
+ac
+ab
+aa
+aa
+aa
+"}
+(42,1,1) = {"
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ac
+ac
+aJ
+bd
+bp
+by
+bd
+bO
+ac
+ac
+ac
+ac
+ac
+bC
+cG
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+dQ
+dW
+ac
+ac
+ab
+aa
+aa
+aa
+"}
+(43,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ac
+ac
+aK
+be
+bd
+bd
+bd
+bP
+ac
+ac
+ac
+ac
+ac
+bC
+cG
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+dQ
+bC
+ac
+ac
+ab
+aa
+aa
+aa
+"}
+(44,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ac
+ac
+aL
+bd
+bq
+bz
+bd
+bQ
+ac
+ac
+ac
+ac
+ac
+bC
+cH
+cL
+cL
+cL
+cL
+cL
+cL
+cL
+cL
+cL
+cL
+cL
+cL
+cL
+cL
+cL
+cL
+cL
+cL
+dV
+bC
+ac
+ac
+ab
+aa
+aa
+aa
+"}
+(45,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ac
+ac
+aM
+bd
+br
+bA
+bd
+bR
+ac
+ac
+ac
+ac
+ac
+bC
+bC
+cM
+bC
+bC
+bC
+bC
+bC
+bC
+cM
+bC
+bC
+bC
+bC
+bC
+bC
+bC
+bC
+bC
+bC
+cM
+bC
+ac
+ac
+ab
+aa
+aa
+aa
+"}
+(46,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ac
+ac
+ac
+ad
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ab
+aa
+aa
+aa
+"}
+(47,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ab
+aa
+aa
+aa
+"}
+(48,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+"}
+(49,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(50,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
