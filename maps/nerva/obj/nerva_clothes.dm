@@ -289,7 +289,7 @@
 	boot_type = /obj/item/clothing/shoes/magboots/rig/command/exploration
 	glove_type = /obj/item/clothing/gloves/rig/command/exploration
 
-	allowed = list(/obj/item/weapon/gun, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/weapon/tank, /obj/item/device/suit_cooling_unit)
+	allowed = list(/obj/item/weapon/storage/backpack,/obj/item/weapon/gun, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/weapon/tank, /obj/item/device/suit_cooling_unit, /obj/item/weapon/storage/backpack)
 	req_access = list(access_qm)
 
 /obj/item/clothing/head/helmet/space/rig/command/exploration
