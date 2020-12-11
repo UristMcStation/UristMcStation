@@ -258,7 +258,9 @@
 	else
 		icon_state = "pistol"
 	if(!(ammo_magazine && ammo_magazine.stored_ammo.len))
-		icon_state = "[icon_state]-e"
+		icon_state = "pistol"
+	else
+		icon_state = "pistol-e"
 
 /obj/item/weapon/silencer
 	name = "silencer"
