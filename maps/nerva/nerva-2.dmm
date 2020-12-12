@@ -13092,18 +13092,8 @@
 /turf/simulated/floor/tiled,
 /area/civilian/messhall)
 "avT" = (
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
-/obj/effect/floor_decal/corner/beige/diagonal{
-	dir = 4;
-	icon_state = "corner_white_diagonal";
-	tag = "icon-corner_white_diagonal (EAST)"
-	},
-/obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/snow,
 /area/civilian/messhall)
 "avU" = (
 /obj/structure/disposalpipe/segment{
@@ -13736,52 +13726,31 @@
 /turf/simulated/floor/tiled,
 /area/hallway/central/third_deck)
 "axe" = (
-/obj/effect/floor_decal/corner/beige/diagonal{
-	dir = 4;
-	icon_state = "corner_white_diagonal";
-	tag = "icon-corner_white_diagonal (EAST)"
-	},
-/obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4;
 	icon_state = "map_scrubber_on"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/snow,
 /area/civilian/messhall)
 "axf" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4;
 	icon_state = "map-scrubbers"
 	},
-/obj/effect/floor_decal/corner/beige/diagonal{
-	dir = 4;
-	icon_state = "corner_white_diagonal";
-	tag = "icon-corner_white_diagonal (EAST)"
-	},
-/obj/effect/floor_decal/corner/red/diagonal,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/snow,
 /area/civilian/messhall)
 "axg" = (
 /obj/machinery/hologram/holopad,
-/obj/effect/floor_decal/corner/beige/diagonal{
-	dir = 4;
-	icon_state = "corner_white_diagonal";
-	tag = "icon-corner_white_diagonal (EAST)"
+/obj/effect/landmark{
+	name = "lightsout"
 	},
-/obj/effect/floor_decal/corner/red/diagonal,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/snow,
 /area/civilian/messhall)
 "axh" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/beige/diagonal{
-	dir = 4;
-	icon_state = "corner_white_diagonal";
-	tag = "icon-corner_white_diagonal (EAST)"
-	},
-/obj/effect/floor_decal/corner/red/diagonal,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/snow,
 /area/civilian/messhall)
 "axi" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -14421,6 +14390,7 @@
 	tag = "icon-corner_white_diagonal (EAST)"
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
+/obj/item/weapon/toy/xmas_cracker,
 /turf/simulated/floor/tiled,
 /area/civilian/messhall)
 "ayq" = (
@@ -14436,30 +14406,13 @@
 /turf/simulated/floor/tiled,
 /area/civilian/messhall)
 "ayr" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/corner/beige/diagonal{
-	dir = 4;
-	icon_state = "corner_white_diagonal";
-	tag = "icon-corner_white_diagonal (EAST)"
-	},
-/obj/effect/floor_decal/corner/red/diagonal,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/snow,
 /area/civilian/messhall)
 "ays" = (
-/obj/structure/bed/chair{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/corner/beige/diagonal{
-	dir = 4;
-	icon_state = "corner_white_diagonal";
-	tag = "icon-corner_white_diagonal (EAST)"
-	},
-/obj/effect/floor_decal/corner/red/diagonal,
-/turf/simulated/floor/tiled,
+/obj/item/weapon/gift,
+/turf/simulated/floor/snow,
 /area/civilian/messhall)
 "ayt" = (
 /obj/machinery/firealarm{
@@ -15002,24 +14955,8 @@
 /turf/simulated/floor/tiled,
 /area/civilian/messhall)
 "azs" = (
-/obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/food/condiment/small/peppermill{
-	pixel_x = 3
-	},
-/obj/item/weapon/reagent_containers/food/condiment/small/saltshaker{
-	pixel_x = -3;
-	pixel_y = 0
-	},
-/obj/effect/floor_decal/corner/beige/diagonal{
-	dir = 4;
-	icon_state = "corner_white_diagonal";
-	tag = "icon-corner_white_diagonal (EAST)"
-	},
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/landmark{
-	name = "lightsout"
-	},
-/turf/simulated/floor/tiled,
+/obj/structure/flora/tree/pine/xmas,
+/turf/simulated/floor/snow,
 /area/civilian/messhall)
 "azv" = (
 /obj/machinery/light_switch{
@@ -28409,6 +28346,11 @@
 /obj/effect/paint_stripe/blue,
 /turf/simulated/wall/r_wall/prepainted,
 /area/hallway/commandstarboard)
+"bpw" = (
+/obj/structure/table/standard,
+/obj/item/weapon/toy/xmas_cracker,
+/turf/simulated/floor/snow,
+/area/civilian/messhall)
 "bpF" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/security/brig)
@@ -29097,6 +29039,11 @@
 "gxQ" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/security/lockers)
+"gEI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/item/weapon/gift,
+/turf/simulated/floor/snow,
+/area/civilian/messhall)
 "gMk" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/table/standard,
@@ -29766,6 +29713,12 @@
 	},
 /turf/simulated/floor/carpet/green,
 /area/command/meeting)
+"nVc" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/floor/snow,
+/area/civilian/messhall)
 "oax" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -29876,6 +29829,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/eva)
+"oWd" = (
+/turf/simulated/floor/snow,
+/area/civilian/messhall)
 "ptN" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/firealarm{
@@ -29964,6 +29920,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/techmaint,
 /area/security/checkpoint)
+"qmH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/item/weapon/gift,
+/obj/item/weapon/gift,
+/turf/simulated/floor/snow,
+/area/civilian/messhall)
 "qsA" = (
 /obj/machinery/door/airlock/glass/security{
 	name = "Security";
@@ -30046,6 +30008,12 @@
 /obj/item/clothing/accessory/armband/cargo,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/lockers)
+"rwK" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/floor/snow,
+/area/civilian/messhall)
 "rOs" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 1
@@ -30215,6 +30183,17 @@
 /obj/effect/floor_decal/corner/fadeblue/full,
 /turf/simulated/floor/tiled/techmaint,
 /area/security/portgun)
+"tio" = (
+/obj/structure/table/standard,
+/obj/item/weapon/reagent_containers/food/condiment/small/peppermill{
+	pixel_x = 3
+	},
+/obj/item/weapon/reagent_containers/food/condiment/small/saltshaker{
+	pixel_x = -3;
+	pixel_y = 0
+	},
+/turf/simulated/floor/snow,
+/area/civilian/messhall)
 "twv" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/techmaint,
@@ -30307,6 +30286,12 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/lockers)
+"ugD" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/snow,
+/area/civilian/messhall)
 "usp" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
@@ -30480,6 +30465,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
+"wfJ" = (
+/obj/machinery/hologram/holopad,
+/obj/item/weapon/gift,
+/turf/simulated/floor/snow,
+/area/civilian/messhall)
 "wqY" = (
 /turf/simulated/wall/prepainted,
 /area/maintenance/third_deck/afs)
@@ -30645,6 +30635,12 @@
 /obj/effect/paint_stripe/blue,
 /turf/simulated/wall/r_wall/prepainted,
 /area/security/portgun)
+"ygT" = (
+/obj/item/clothing/head/helmet/space/santahat,
+/obj/item/clothing/suit/space/santa,
+/obj/item/weapon/storage/backpack/santabag,
+/turf/simulated/floor/snow,
+/area/civilian/messhall)
 "ylk" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/beige/diagonal{
@@ -53992,7 +53988,7 @@ avQ
 avQ
 ayp
 azr
-ayp
+bpw
 avQ
 avQ
 auH
@@ -54192,9 +54188,9 @@ atC
 auI
 avQ
 axe
-ayq
-ayq
-ayq
+rwK
+rwK
+rwK
 axe
 avQ
 auI
@@ -54395,10 +54391,10 @@ auJ
 avR
 axf
 ayr
-ayr
-ayr
+gEI
+qmH
 axf
-avR
+ayr
 auJ
 atE
 aFr
@@ -54596,10 +54592,10 @@ atC
 auH
 avS
 axg
-ayp
+oWd
 azs
-ayp
-axg
+ygT
+wfJ
 aCt
 auH
 atC
@@ -54798,7 +54794,7 @@ atF
 auK
 avT
 axh
-ays
+avT
 ays
 ays
 axh
@@ -55000,10 +54996,10 @@ atC
 auL
 avU
 axi
-ayo
-ayo
-ayo
-axi
+nVc
+nVc
+nVc
+ugD
 avQ
 auL
 atC
@@ -55203,9 +55199,9 @@ auH
 avV
 avQ
 ayp
-azr
+tio
 ayp
-avQ
+axj
 avQ
 auH
 atC
