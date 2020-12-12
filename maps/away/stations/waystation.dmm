@@ -657,10 +657,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
-"bM" = (
-/obj/effect/overmap/sector/station/waystation,
-/turf/space,
-/area/spacestations/nanotrasenspace)
 "bN" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
 	tag = "icon-benchright (EAST)";
@@ -1337,12 +1333,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
-"dp" = (
-/obj/effect/shuttle_landmark/way_trading/nav2,
-/turf/simulated/floor/plating{
-	color = "#bbbbbb"
-	},
-/area/spacestations/nanotrasenspace)
 "dq" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -1442,12 +1432,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/spacestations/nanotrasenspace)
-"dz" = (
-/obj/effect/shuttle_landmark/way_trading/nav1,
-/turf/simulated/floor/plating{
-	color = "#bbbbbb"
-	},
 /area/spacestations/nanotrasenspace)
 "dA" = (
 /obj/effect/floor_decal/corner/blue{
@@ -2671,7 +2655,7 @@ cK
 cK
 cK
 cK
-dz
+cK
 cK
 cK
 cK
@@ -3068,7 +3052,7 @@ aS
 af
 bv
 bv
-bM
+bv
 bv
 af
 cm
@@ -3760,7 +3744,7 @@ cK
 cK
 cK
 cK
-dp
+cK
 cK
 cK
 cK
