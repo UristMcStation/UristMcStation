@@ -1,6 +1,6 @@
 /decl/cultural_info/location/human
 	name = HOME_SYSTEM_MARS
-	description = "Terraformed during the 22nd century, Mars is the capital of the Terran Confederacy, the largest and most populous human faction\
+	description = "Terraformed during the 22nd century, Mars is the capital of the Terran Confederacy, the largest and most populous human faction. \
 	The day to day business of conducting the Confederacy is orchestrated from here, and in addition to its obvious political value, \
 	Mars is also an economic powerhouse. Featuring largescale industry, both planet based and orbital, and extensive agricultural networks, \
 	Mars is the trading hub of the Sol system. Due to the high level of economic activity on Mars, there is also a large corporate presence. \
