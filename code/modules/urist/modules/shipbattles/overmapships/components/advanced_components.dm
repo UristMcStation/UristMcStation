@@ -58,7 +58,7 @@
 		spawn(0.5 SECONDS)
 			new boarding_type(spawnturf)
 			playsound(spawnturf, 'sound/effects/teleport.ogg', 90, 1)
-	if(prob(15))
+	if(prob(75))
 		boarding_turf = null //pick somewhere new to board.
 
 	boarded_amount++
@@ -84,14 +84,15 @@
 /datum/shipcomponents/teleporter/pirate
 	name = "pirate boarding teleporter"
 	boarding_mobs = list(/mob/living/simple_animal/hostile/pirate, /mob/living/simple_animal/hostile/pirate/ranged)
-	boarding_number = 6
-	boarding_delay = 2 MINUTES
+	boarding_number = 5
+	boarding_delay = 5 MINUTES
+	boarded_max = 2
 
 /datum/shipcomponents/teleporter/pirate/small
 	name = "pirate boarding teleporter"
 	boarding_mobs = list(/mob/living/simple_animal/hostile/pirate, /mob/living/simple_animal/hostile/pirate/ranged)
 	boarding_number = 3
-	boarding_delay = 2 MINUTES
+	boarding_delay = 4 MINUTES
 
 
 //Shield Disruptors

@@ -14,9 +14,9 @@
 /obj/item/weapon/gun/projectile/colt/on_update_icon()
 	..()
 	if(ammo_magazine && ammo_magazine.stored_ammo.len)
-		icon_state = "colt"
+		icon_state = "[initial(icon_state)]"
 	else
-		icon_state = "colt-e"
+		icon_state = "[initial(icon_state)]-e"
 
 /obj/item/weapon/gun/projectile/military
 	name = "military .45 pistol"
