@@ -6887,7 +6887,9 @@
 /turf/simulated/floor/plating,
 /area/outpost/security/hallway)
 "nz" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	req_access = list("ACCESS_XENOARCH")
+	},
 /turf/simulated/floor/tiled,
 /area/outpost/research/dock)
 "nA" = (
@@ -7092,6 +7094,10 @@
 	icon_state = "open";
 	dir = 8
 	},
+/obj/machinery/door/airlock/glass/mining{
+	name = "Mining Outpost Bridge";
+	req_access = list("ACCESS_MINING")
+	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/hallway)
 "nP" = (
@@ -7143,6 +7149,10 @@
 /obj/machinery/door/firedoor{
 	icon_state = "open";
 	dir = 8
+	},
+/obj/machinery/door/airlock/glass/mining{
+	name = "Mining Outpost Bridge";
+	req_access = list("ACCESS_MINING")
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
@@ -7253,6 +7263,7 @@
 /area/planet/jungle)
 "oj" = (
 /obj/structure/disposalpipe/segment,
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/planet/jungle)
 "ok" = (
@@ -7507,6 +7518,7 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/planet/jungle)
 "oT" = (
@@ -7514,6 +7526,7 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/planet/jungle)
 "oU" = (
@@ -7553,11 +7566,13 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/planet/jungle)
 "oZ" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/industrial/warning,
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/planet/jungle)
 "pa" = (
@@ -7576,6 +7591,7 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/planet/jungle)
 "pd" = (
@@ -7583,6 +7599,7 @@
 	dir = 8;
 	icon_state = "pipe-c"
 	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/planet/jungle)
 "pe" = (
@@ -12846,6 +12863,17 @@
 	bridge = 1;
 	density = 1
 	},
+/area/planet/jungle)
+"El" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/planet/jungle)
+"KH" = (
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
 /area/planet/jungle)
 
 (1,1,1) = {"
@@ -21409,7 +21437,7 @@ av
 av
 av
 hf
-cT
+kR
 ii
 iQ
 mB
@@ -23370,8 +23398,8 @@ xM
 yp
 yV
 xH
-ny
-ny
+xH
+xH
 xH
 fl
 av
@@ -23883,7 +23911,7 @@ xl
 xO
 yr
 yX
-xH
+ny
 cl
 cl
 cl
@@ -24253,7 +24281,7 @@ cl
 cl
 cl
 cl
-gM
+El
 co
 co
 co
@@ -24510,7 +24538,7 @@ cl
 cl
 cl
 cl
-gM
+El
 co
 co
 co
@@ -24767,7 +24795,7 @@ cl
 cl
 cl
 cl
-gM
+El
 cl
 co
 co
@@ -25024,7 +25052,7 @@ cl
 cl
 cl
 cl
-gM
+El
 cl
 co
 co
@@ -25409,8 +25437,8 @@ av
 av
 av
 qL
-jV
-jV
+qL
+qL
 qL
 rC
 sL
@@ -25550,7 +25578,7 @@ fm
 hg
 co
 co
-gM
+El
 co
 co
 bn
@@ -25683,8 +25711,8 @@ xT
 yw
 zb
 uL
-kI
-kI
+uL
+uL
 Ar
 fl
 av
@@ -25807,7 +25835,7 @@ co
 co
 co
 co
-gM
+El
 co
 co
 co
@@ -26337,7 +26365,7 @@ co
 co
 co
 co
-gM
+El
 co
 co
 co
@@ -26436,7 +26464,7 @@ co
 co
 cl
 cl
-av
+KH
 jV
 jV
 jV
@@ -26605,7 +26633,7 @@ fk
 he
 co
 co
-gM
+El
 co
 co
 co
@@ -26635,7 +26663,7 @@ fm
 hg
 co
 co
-gM
+El
 co
 co
 co
@@ -26693,7 +26721,7 @@ co
 co
 cl
 cl
-av
+KH
 re
 rC
 rY
@@ -26950,7 +26978,7 @@ bn
 co
 co
 cl
-av
+KH
 re
 rD
 rZ
@@ -27207,7 +27235,7 @@ bn
 bn
 co
 cl
-av
+KH
 jV
 jV
 jV
@@ -27697,7 +27725,7 @@ co
 co
 co
 co
-gM
+El
 co
 co
 co
@@ -28227,7 +28255,7 @@ co
 co
 co
 co
-gM
+El
 co
 co
 bn
@@ -28484,7 +28512,7 @@ co
 co
 co
 co
-gM
+El
 co
 co
 bn
@@ -28741,7 +28769,7 @@ bn
 co
 co
 co
-gM
+El
 co
 co
 bn
@@ -28998,7 +29026,7 @@ bn
 co
 co
 co
-gM
+El
 co
 co
 bn
@@ -29255,7 +29283,7 @@ bn
 co
 co
 co
-gM
+El
 co
 co
 bn
@@ -29512,7 +29540,7 @@ bn
 co
 co
 co
-gM
+El
 co
 co
 bn
@@ -29769,7 +29797,7 @@ bn
 co
 co
 co
-gM
+El
 co
 co
 bn
@@ -30026,7 +30054,7 @@ bn
 co
 co
 co
-gM
+El
 co
 co
 bn
@@ -30283,7 +30311,7 @@ bn
 bn
 co
 co
-gM
+El
 co
 co
 bn
@@ -30540,7 +30568,7 @@ bn
 bn
 co
 co
-gM
+El
 co
 co
 bn
@@ -30797,7 +30825,7 @@ bn
 bn
 co
 co
-gM
+El
 co
 co
 bn
@@ -31054,7 +31082,7 @@ bn
 bn
 co
 co
-gM
+El
 co
 co
 bn
@@ -31311,7 +31339,7 @@ bn
 bn
 co
 co
-gM
+El
 co
 co
 bn
@@ -31568,7 +31596,7 @@ bn
 bn
 co
 co
-gM
+El
 co
 co
 bn
@@ -31825,7 +31853,7 @@ bn
 bn
 co
 co
-gM
+El
 co
 co
 bn
@@ -31848,7 +31876,7 @@ cl
 cl
 jG
 yd
-jG
+qs
 zg
 fl
 av
@@ -32082,7 +32110,7 @@ bn
 co
 co
 co
-gM
+El
 co
 co
 bn
@@ -32103,9 +32131,9 @@ cl
 cl
 cl
 cl
-jG
+qs
 ye
-jG
+qs
 zg
 fm
 zB
@@ -32339,7 +32367,7 @@ bn
 co
 pr
 co
-gM
+El
 co
 co
 co
@@ -32362,8 +32390,8 @@ cl
 jG
 kS
 yf
-jG
-jG
+qs
+qs
 cl
 fm
 zB
@@ -32596,7 +32624,7 @@ bn
 bn
 co
 co
-gM
+El
 co
 co
 co
@@ -32620,7 +32648,7 @@ jG
 xy
 yg
 yF
-jG
+qs
 qs
 zg
 fm
@@ -32853,7 +32881,7 @@ bn
 bn
 co
 co
-gM
+El
 co
 co
 co
@@ -33110,7 +33138,7 @@ bn
 bn
 co
 co
-gM
+El
 co
 cl
 cl
@@ -33367,7 +33395,7 @@ bn
 bn
 co
 co
-gM
+El
 cl
 cl
 cl

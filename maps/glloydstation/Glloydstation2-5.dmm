@@ -1182,7 +1182,7 @@
 "cK" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Mining Station Maintenance";
-	req_access = list("ACCESS_MINING_EVA")
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -13794,7 +13794,7 @@ cm
 ct
 cy
 cy
-cc
+bL
 cQ
 cY
 ck
@@ -14311,7 +14311,7 @@ cH
 cc
 cS
 da
-ck
+bL
 bK
 bK
 bK
@@ -16776,7 +16776,7 @@ bK
 dF
 dF
 dF
-cL
+dF
 ez
 cL
 dF
@@ -17549,7 +17549,7 @@ bK
 dF
 cL
 eC
-cL
+dF
 dF
 fc
 bK
