@@ -487,3 +487,9 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "woodenbarricade-snow-old"
 	health = 75
 	maxhealth = 75
+
+/obj/structure/silicon_decoy
+	icon = 'icons/mob/AI.dmi'
+	icon_state = "ai"
+	anchored = 1
+	density = 1

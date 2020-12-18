@@ -134,17 +134,6 @@
 
 //armor
 
-/obj/item/clothing/suit/urist/armor/nerva/sec
-	name = "armour vest"
-	desc = "A bulky armoured vest assigned to the ICS Nerva's security officers. Has space to attach additional pouches for storage."
-	icon_state = "nervasecarmour"
-	item_state = "nervasecarmour"
-	blood_overlay_type = "armorblood"
-	armor = list(melee = 50, bullet = 45, laser = 40, energy = 25, bomb = 30, bio = 0, rad = 0)
-	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_L, ACCESSORY_SLOT_ARMOR_S)
-	restricted_accessory_slots = list(ACCESSORY_SLOT_ARMOR_L, ACCESSORY_SLOT_ARMOR_S)
-	starting_accessories = list(/obj/item/clothing/accessory/storage/pouches/large)
-
 /obj/item/clothing/suit/urist/armor/nerva/sec_cos
 	name = "chief of security's armour vest"
 	desc = "A bulky armoured vest assigned to the ICS Nerva's Chief of Security."
