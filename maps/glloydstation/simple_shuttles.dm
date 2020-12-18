@@ -26,19 +26,19 @@
 /obj/machinery/computer/shuttle_control/elevator/mining
 	name = "mining elevator console"
 	shuttle_tag = "Mining Elevator"
-	req_one_access = list(48)
+	req_access = list("ACCESS_MINING")
 	//circuit = /obj/item/weapon/circuitboard/
 
 /obj/machinery/computer/shuttle_control/elevator/research
 	name = "research elevator console"
 	shuttle_tag = "Xenoarch Elevator"
-	req_one_access = list(65)
+	req_access = list("ACCESS_XENOARCH")
 	//circuit = /obj/item/weapon/circuitboard/
 
 /obj/machinery/computer/shuttle_control/securityoutpost
 	name = "security outpost shuttle console"
 	shuttle_tag = "Security"
-	req_one_access = list(1)
+	req_access = list("ACCESS_SECURITY")
 
 /datum/shuttle/autodock/ferry/elevator
 	category = /datum/shuttle/autodock/ferry/elevator

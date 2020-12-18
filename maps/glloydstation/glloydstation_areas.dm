@@ -632,7 +632,7 @@
 /area/security/main
 	name = "\improper Security Office"
 	icon_state = "security"
-
+/*
 /area/security/brig/prison_break()
 	for(var/obj/structure/closet/secure_closet/brig/temp_closet in src)
 		temp_closet.locked = 0
@@ -648,7 +648,7 @@
 	for(var/obj/machinery/door_timer/temp_timer in src)
 		temp_timer.releasetime = 1
 	..()
-
+*/
 /area/security/warden
 	name = "\improper Security - Warden's Office"
 	icon_state = "Warden"

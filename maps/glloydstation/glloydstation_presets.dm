@@ -6,6 +6,7 @@ var/const/NETWORK_URIST               = "Urist"
 var/const/NETWORK_COMMAND             = "Command"
 var/const/NETWORK_ENGINE              = "Engine"
 var/const/NETWORK_ENGINEERING_OUTPOST = "Engineering Outpost"
+var/const/NETWORK_EXPLO  	          = "Exploration"
 
 /datum/map/proc/get_shared_network_access(var/network)
 	switch(network)
@@ -83,6 +84,10 @@ var/const/NETWORK_ENGINEERING_OUTPOST = "Engineering Outpost"
 
 /obj/machinery/camera/network/engineering_outpost
 	network = list(NETWORK_ENGINEERING_OUTPOST)
+
+/obj/machinery/camera/network/exploration
+	network = list(NETWORK_EXPLO)
+
 
 // Motion
 /obj/machinery/camera/motion/engineering_outpost
