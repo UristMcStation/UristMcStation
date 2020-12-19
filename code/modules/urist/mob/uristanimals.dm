@@ -72,11 +72,11 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	faction = "spiders"
 	harm_intent_damage = 3
 	health = 200
-	icon = 'icons/mob/animal.dmi'
-	icon_dead = "guard_dead"
-	icon_gib = "guard_dead"
-	icon_living = "guard"
-	icon_state = "guard"
+	icon = 'icons/mob/spider.dmi'
+	icon_dead = "brown_dead"
+	icon_gib = "brown_dead"
+	icon_living = "brown"
+	icon_state = "brown"
 	l_move_time = 1
 	maxHealth = 250
 	melee_damage_lower = 15

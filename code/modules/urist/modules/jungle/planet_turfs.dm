@@ -202,7 +202,7 @@
 	small_trees_chance = 9
 	trap_spawn_chance = 1
 	light_max_bright = 0.25
-	animal_spawn_chance = 1
+	animal_spawn_chance = 0.7
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/simple_animal/hostile/huntable/deer,
@@ -218,7 +218,7 @@
 	small_trees_chance = 10
 	trap_spawn_chance = 2
 	light_max_bright = 0.125
-	animal_spawn_chance = 1.2
+	animal_spawn_chance = 0.9
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/simple_animal/hostile/huntable/deer,
@@ -273,7 +273,7 @@
 	icon_state = "grass_path" //path
 	icon_spawn_state = "grass2"
 	light_max_bright = 0.3
-	animal_spawn_chance = 0.2
+	animal_spawn_chance = 0.15
 	animal_spawn_list = list(
 		/mob/living/simple_animal/parrot/jungle,
 		/mob/living/simple_animal/huntable/monkey
@@ -307,7 +307,7 @@
 	light_inner_range = 0.1
 	light_outer_range = 1.5
 	light_falloff_curve = 0.5
-	animal_spawn_chance = 1.8 //hostile wasteland riddled with scrap heaps.
+	animal_spawn_chance = 1.5 //hostile wasteland riddled with scrap heaps.
 	spawn_scrap = 1
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/bear,

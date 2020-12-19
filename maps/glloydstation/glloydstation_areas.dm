@@ -356,6 +356,10 @@
 	icon_state = "maint_security_starboard"
 
 // Dank Maintenance
+
+/area/maintenance
+	forced_ambience = list('sound/urist/ambience/ambimaint1.ogg','sound/urist/ambience/ambimaint2.ogg','sound/urist/ambience/ambimaint3.ogg','sound/urist/ambience/ambimaint4.ogg','sound/urist/ambience/ambimaint5.ogg',)
+
 /*
 /area/maintenance/sub
 	turf_initializer = /decl/turf_initializer/maintenance/heavy
@@ -435,7 +439,7 @@
 	icon_state = "toilet"
 	sound_env = SMALL_ENCLOSED
 
-/area/crew_quarters/sleep
+/area/crew_quarters/sleeping
 	name = "\improper Dormitories"
 	icon_state = "Sleep"
 
@@ -980,19 +984,19 @@ area/rnd/test_area
  	name = "\improper Party Room"
  	icon_state = "yellow"
 
-/area/crew_quarters/sleep/sci
+/area/crew_quarters/sleeping/sci
 	name = "\improper Research Dormitories"
 	icon_state = "Sleep"
 
-/area/crew_quarters/sleep/med
+/area/crew_quarters/sleeping/med
 	name = "\improper Medbay Dormitories"
 	icon_state = "Sleep"
 
-/area/crew_quarters/sleep/engi
+/area/crew_quarters/sleeping/engi
 	name = "\improper Engineering Dormitories"
 	icon_state = "Sleep"
 
-/area/crew_quarters/sleep/sec
+/area/crew_quarters/sleeping/sec
 	name = "\improper Security Dormitories"
 	icon_state = "Sleep"
 
@@ -1412,7 +1416,7 @@ area/rnd/test_area
 
 // Crew
 
-/area/crew_quarters/sleep/cryo
+/area/crew_quarters/sleeping/cryo
 	name = "\improper Cryogenic Storage"
 	icon_state = "Sleep"
 
