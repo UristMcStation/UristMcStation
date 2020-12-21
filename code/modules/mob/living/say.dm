@@ -206,7 +206,7 @@ proc/get_radio_key_from_channel(var/channel)
 	message = trim_left(message)
 	message = handle_autohiss(message, speaking)
 	message = format_say_message(message)
-
+	message = process_chat_markup(message, list("~", "_"))
 
 	if(!(speaking && (speaking.flags & NO_STUTTER)))
 		var/list/message_data = list(message, verb, 0)
@@ -290,8 +290,6 @@ proc/get_radio_key_from_channel(var/channel)
 		above = above.shadow
 
 	// VOREStation Port End
-
-	message = process_chat_markup(message, list("~", "_"))
 
 	var/list/speech_bubble_recipients = list()
 	for(var/mob/M in listening)

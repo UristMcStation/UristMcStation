@@ -21,13 +21,13 @@
 				to_chat(src, "<span class='warning'>You use your remaining air to say something!</span>")
 				L.last_successful_breath = world.time - 2 MINUTES
 				return ..(message, speaking = speaking)
-
-			visible_message("<span class='warning'>[src] gasps in an attempt to speak!</span>", "<span class='warning'>You don't have enough air in [L] to make a sound!</span>")
-			return
-		else if(L.breath_fail_ratio > 0.7)
-			..(message, speaking, whispering = TRUE, verb = "splutters")
-		else if(L.breath_fail_ratio > 0.4)
-			..(message, speaking, verb = "splutters")
+			else
+				visible_message("<span class='warning'>[src] gasps in an attempt to speak!</span>", "<span class='warning'>You don't have enough air in [L] to make a sound!</span>")
+				return 0
+		else if(L.breath_fail_ratio > 0.5)
+			return ..(message, speaking, whispering = TRUE, verb = "splutters")
+		else
+			return ..(message, speaking, verb = "splutters")
 	else
 		return ..(message, speaking = speaking, whispering = whispering)
 
@@ -131,6 +131,7 @@
 
 /mob/living/carbon/human/handle_speech_problems(var/list/message_data)
 	if(silent || (sdisabilities & MUTE))
+		to_chat(src,"<span class='danger'>You are unable to speak!</span>")
 		message_data[1] = ""
 		. = 1
 
@@ -145,6 +146,7 @@
 		. = ..(message_data)
 
 /mob/living/carbon/human/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
+	message = process_chat_markup(message, list("~", "_"))
 	switch(message_mode)
 		if("intercom")
 			if(!src.restrained())
