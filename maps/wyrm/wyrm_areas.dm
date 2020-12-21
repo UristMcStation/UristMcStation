@@ -22,6 +22,7 @@
 
 /area/command
 	icon_state = "blueold"
+	req_access = list(access_bridge)
 
 /area/command/bridge
 	name = "\improper Bridge"
@@ -31,30 +32,38 @@
 
 /area/command/captain
 	name = "\improper Captain's Office"
+	req_access = list(access_captain)
 
 /area/command/meeting
 	name = "\improper Meeting Room"
 
 /area/command/ce
 	name = "\improper Chief Engineer's Office"
+	req_access = list(access_ce)
 
 /area/command/aiupload
 	name = "\improper AI Upload"
+	req_access = list(access_ai_upload)
 
 /area/command/aicore
 	name = "\improper AI Core"
+	req_access = list(access_captain)
 
 /area/command/aiuploadfoyer
 	name = "\improper AI Upload Foyer"
+	req_access = list(access_ai_upload)
 
 /area/command/aiatmos
 	name = "\improper AI Atmospherics"
+	req_access = list(access_engine)
 
 /area/command/aicomputer
 	name = "\improper AI Data Room" //???
+	req_access = list(access_ai_upload)
 
 /area/command/eva
 	name = "\improper EVA"
+	req_access = list(access_eva)
 
 //////////////////////////////////////
 //			CIVILIAN				//
@@ -102,6 +111,7 @@
 
 /area/security
 	icon_state = "security"
+	req_access = list(access_security)
 
 /area/security/entrance
 	name = "\improper Brig Entrance"
@@ -111,6 +121,7 @@
 
 /area/security/armory
 	name = "\improper Armory"
+	req_access = list(access_armory)
 
 /area/security/locker
 	name = "\improper Security Locker Room"
@@ -127,18 +138,18 @@
 
 /area/science
 	icon_state = "research"
-
-/area/science/entrance
-	name = "\improper Science Wing Entrance"
+	req_access = list(access_research)
 
 /area/science/robotics
 	name = "\improper Robotics Lab"
+	req_access = list(access_robotics)
 
 /area/science/rnd
 	name = "\improper Research and Development Lab"
 
 /area/science/hallway
 	name = "\improper Science Wing Hallway"
+	req_access = list()
 
 /area/science/xenobio
 	name = "\improper Xenobiology Wing"
@@ -148,9 +159,11 @@
 
 /area/science/prep
 	name = "\improper Research Locker Room"
+	req_access = list()
 
 /area/science/shuttleprep
 	name = "\improper Hatchling Preperation Room"
+	req_access = list()
 
 //////////////////////////////////////
 //			ENGINEERING				//
@@ -158,24 +171,29 @@
 
 /area/engineering
 	icon_state = "yellow"
+	req_access = list(access_engine)
 
 /area/engineering/tool
 	name = "\improper Public Workshop"
+	req_access = list()
 
 /area/engineering/lobby
 	name = "\improper Engineering"
 
 /area/engineering/locker
 	name = "\improper Engineering Storage"
+	req_access = list()
 
 /area/engineering/rustmon
 	name = "\improper Fusion Core Monitoring Room"
 
 /area/engineering/atmos
 	name = "\improper Atmospherics"
+	req_access = list(access_atmospherics)
 
 /area/engineering/atmosmon
 	name = "\improper Atmospherics Monitoring"
+	req_access = list(access_atmospherics)
 
 /area/engineering/engine
 	name = "\improper Engine Core"
@@ -218,6 +236,7 @@
 
 /area/medical
 	icon_state = "bluenew"
+	req_access = list(access_medical)
 
 /area/medical/lobby
 	name = "\improper Medical Lobby"
@@ -236,9 +255,11 @@
 
 /area/medical/surgery
 	name = "\improper Operating Theatre"
+	req_access = list(access_surgery)
 
 /area/medical/virology
 	name = "\improper Virology Lab"
+	req_access = list(access_virology)
 
 //////////////////////////////////////
 //			LOGISTICS				//
@@ -246,6 +267,7 @@
 
 /area/logistics
 	icon_state = "yellow"
+	req_access = list(access_mining_office)
 
 /area/logistics/desk
 	name = "\improper Logistics Office"
@@ -260,6 +282,12 @@
 	name = "Supply Shuttle"
 	icon_state = "shuttle3"
 	requires_power = 0
+
+/area/supply/external
+	name = "\improper External Docking"
+
+/area/supply/bsa
+	name = "\improper BSA Control"
 
 //////////////////////////////////////
 //			MAINTENANCE				//
@@ -307,6 +335,8 @@
 
 /area/maintenance/construction
 	name = "\improper Construction Room"
+
+/area/maintenance/exterior
 
 //////////////////////////////////////
 //			Z-LEVEL 3 / ADMIN		//
