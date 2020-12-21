@@ -99,7 +99,7 @@
 			if(active_breathing)
 				owner.visible_message(
 					"<B>\The [owner]</B> gasps for air!",
-					"<span class='danger'>You try to take a breath and fail!</span>",
+					"<span class='danger'>It becomes harder to breathe!</span>",
 					"You hear someone gasp for air!",
 				)
 			else
@@ -162,8 +162,6 @@
 
 	// Not enough to breathe
 	if(inhale_efficiency < 1)
-		if(prob(5) && active_breathing && breath_fail_ratio > 0.4)
-			owner.emote("gasp")
 		failed_inhale = 1
 		breath_fail_ratio = Clamp(0,(1 - inhale_efficiency + breath_fail_ratio)/2,1)
 	else
@@ -237,14 +235,25 @@
 /obj/item/organ/internal/lungs/proc/handle_failed_breath(var/complete_failure)
 	if(complete_failure) //If we never got any air to try and process we'll need to update our failure rate here.
 		breath_fail_ratio = Clamp(0,(breath_fail_ratio + 1)/2,1)
-	if(prob(15) && !owner.nervous_system_failure())
+	if(prob(10) && !owner.nervous_system_failure())
 		if(!owner.is_asystole())
 			if(active_breathing)
-				owner.emote("gasp")
+				if(breath_fail_ratio > 0.5)
+					owner.visible_message(
+					"<B>\The [owner]</B> gasps for air!",
+					"<span class='danger'>You try to take a breath and fail!</span>",
+					"You hear someone gasp for air!",
+					)
+				else
+					owner.visible_message(
+						"<B>\The [owner]</B> struggles to breathe!",
+						"<span class='warning'>You struggle to breathe!</span>",
+						"You hear someone gasping!",
+					)
 		else
 			owner.emote(pick("shiver","twitch"))
 
-	if(((damage / max_damage * species.total_health) > get_oxygen_deprivation()) || owner.chem_effects[CE_BREATHLOSS])
+	if(((damage / max_damage * 100) > get_oxygen_deprivation()) || owner.chem_effects[CE_BREATHLOSS])
 		owner.adjustOxyLoss(HUMAN_MAX_OXYLOSS*breath_fail_ratio)
 
 	owner.oxygen_alert = max(owner.oxygen_alert, 2)
