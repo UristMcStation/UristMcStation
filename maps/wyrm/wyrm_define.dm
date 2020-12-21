@@ -26,6 +26,8 @@
 	company_name  = "Automated Announcement Systems"
 	company_short = "AAS"
 
+	date_offset = 560
+
 	map_admin_faxes = list("Automated Announcement System")
 
 	shuttle_docked_message = "Attention all hands: Jump preparation complete. The bluespace drive is now spooling up, secure all stations for departure. Time to jump: approximately %ETD%."
@@ -115,6 +117,12 @@
 	..()
 	system_name = generate_system_name()
 	minor_announcement = new(new_sound = sound('sound/AI/torch/commandreport.ogg', volume = 45))
+
+/datum/map/nerva/map_info(victim)
+	to_chat(victim, "<h2>Current map information</h2>")
+	to_chat(victim, "You're an unfortunate victim of the <i>ISC Wyrm</i>, previously serving as a privately contracted exploration vessel before the Galactic Conflict, the ship now sails aimlessly as a shell of its old self.")
+	to_chat(victim, "Having lost its enigmatic benefactor during the years of the conflict, funding and luck have been in short supply for the vessel. Yet, with the slow return of galactic normalcy, some hope has returned to the eclectic group that remains.")
+	to_chat(victim, "What the future holds for the ship and her crew is known only by those who move it forward.")
 
 /datum/map/wyrm/send_welcome()
 	var/welcome_text = "<center><br /><font size = 3><b>ISC Wyrm</b> Sensor Readings:</font><hr />"
