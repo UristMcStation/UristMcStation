@@ -69,6 +69,9 @@
 /area/civilian/cryo2
 	name = "\improper Secondary Cryogenic Storage"
 
+/area/civilian/storage
+	name = "\improper Auxiliary Storage"
+
 /area/civilian/bar
 	name = "\improper Bar"
 

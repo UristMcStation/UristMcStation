@@ -61,3 +61,7 @@ var/const/NETWORK_HATCHLING		= "Hatchling"
 // X-ray
 /obj/machinery/camera/xray/security
 	network = list(NETWORK_SECURITY)
+
+//Special explorer camera
+/obj/machinery/camera/network/exploration
+	network = list(NETWORK_HATCHLING)

@@ -20,3 +20,27 @@
 	name = "floor"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "plating"
+
+/decl/flooring/tiling/new_tile/hallway
+	color = "#8b9497"
+
+/decl/flooring/tiling/new_tile/cargo_one/hallway
+	color = "#8b9497"
+
+/decl/flooring/tiling/new_tile/dblue
+	color = "#565D61"
+
+/decl/flooring/tiling/new_tile/cargo_one/dblue
+	color = "#565D61"
+
+/decl/flooring/tiling/new_tile/med
+	color = "#CCCCCC"
+
+/decl/flooring/tiling/new_tile/cargo_one/med
+	color = "#CCCCCC"
+
+/decl/flooring/tiling/new_tile/dgrey
+	color = "#666666"
+
+/decl/flooring/tiling/new_tile/cargo_one/dgrey
+	color = "#666666"

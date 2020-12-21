@@ -73,7 +73,6 @@
 		/area/lar_maria,
 		/area/map_template,
 		/area/exoplanet,
-		/area/lanius,
 		/area/planet/jungle,
 		/area/scom,
 		/area/shuttle/naval1,

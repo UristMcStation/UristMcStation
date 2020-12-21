@@ -397,6 +397,12 @@ update_flag
 	src.update_icon()
 	return 1
 
+/obj/machinery/portable_atmospherics/canister/boron/New()
+	..()
+	air_contents.adjust_gas("boron", MolesForPressure())
+	src.update_icon()
+	return 1
+
 /obj/machinery/portable_atmospherics/canister/oxygen/prechilled/New()
 	..()
 	src.air_contents.temperature = 80
