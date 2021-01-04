@@ -19873,6 +19873,7 @@
 	pixel_y = 26;
 	req_access = list("ACCESS_ROBOTICS")
 	},
+/obj/item/weapon/FixOVein,
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/robotics)
 "aHB" = (
