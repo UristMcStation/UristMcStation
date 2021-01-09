@@ -157,11 +157,11 @@ proc/get_fusion_reaction(var/p_react, var/s_react, var/m_energy)
 
 
 // High end reactions.
-/decl/fusion_reaction/hydrogen_hydrogen
-	p_react = "hydrogen"
+/decl/fusion_reaction/boron_hydrogen
+	p_react = "boron"
 	s_react = "hydrogen"
-	minimum_energy_level = 5000
+	minimum_energy_level = 15000
 	energy_consumption = 3
 	energy_production = 15
-	radiation = 0.5
-	instability = 0.5
+	radiation = 3
+	instability = 2.5
