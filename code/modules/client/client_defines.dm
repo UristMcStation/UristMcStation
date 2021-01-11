@@ -19,6 +19,9 @@
 
 	var/staffwarn = null
 
+	///datum that controls the displaying and hiding of tooltips
+	var/datum/tooltip/tooltips
+
 		///////////////
 		//SOUND STUFF//
 		///////////////
