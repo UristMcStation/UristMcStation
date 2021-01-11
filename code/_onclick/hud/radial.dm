@@ -192,6 +192,7 @@ GLOBAL_LIST_EMPTY(radial_menus)
 		E.name = "Next Page"
 		E.next_page = TRUE
 		E.overlays.Add("radial_next")
+
 	else
 		if(istext(choices_values[choice_id]))
 			E.name = choices_values[choice_id]
@@ -201,6 +202,7 @@ GLOBAL_LIST_EMPTY(radial_menus)
 		E.choice = choice_id
 		E.maptext = null
 		E.next_page = FALSE
+
 		if(choices_icons[choice_id])
 			E.overlays.Add(choices_icons[choice_id])
 
@@ -220,7 +222,7 @@ GLOBAL_LIST_EMPTY(radial_menus)
 /datum/radial_menu/proc/get_next_id()
 	return "c_[choices.len]"
 
-/datum/radial_menu/proc/set_choices(list/new_choices, use_tooltips)
+/datum/radial_menu/proc/set_choices(list/new_choices, use_tooltips, use_labels)
 	if(choices.len)
 		Reset()
 	for(var/E in new_choices)
@@ -228,17 +230,25 @@ GLOBAL_LIST_EMPTY(radial_menus)
 		choices += id
 		choices_values[id] = E
 		if(new_choices[E])
-			var/I = extract_image(new_choices[E])
+			var/I = extract_image(new_choices[E], use_labels)
 			if(I)
 				choices_icons[id] = I
 	setup_menu(use_tooltips)
 
 
-/datum/radial_menu/proc/extract_image(E)
+/datum/radial_menu/proc/extract_image(image/E, var/use_labels)
 	var/mutable_appearance/MA = new /mutable_appearance(E)
 	if(MA)
-		MA.layer = HUD_ABOVE_ITEM_LAYER
+		MA.layer = HUD_ABOVE_HUD_LAYER
 		MA.appearance_flags |= RESET_TRANSFORM
+		if(use_labels)
+			MA.maptext_width = 64
+			MA.maptext_height = 64
+			MA.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
+			MA.maptext_x = -round(MA.maptext_width/2) + 16
+			MA.maptext_x = -round(MA.maptext_height/2) + 16
+			MA.maptext = "<center><span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px\">[E.name]</span></center>"
+
 	return MA
 
 
@@ -263,15 +273,21 @@ GLOBAL_LIST_EMPTY(radial_menus)
 	if(current_user)
 		current_user.images -= menu_holder
 
-/datum/radial_menu/proc/wait(atom/user, atom/anchor, require_near = FALSE)
+/datum/radial_menu/proc/wait(atom/user, atom/anchor, require_near = FALSE, list/check_locs)
 	while (current_user && !finished && !selected_choice)
 		if(require_near && !in_range(anchor, user))
 			return
+
+		for(var/atom/movable/thing in check_locs)
+			if(QDELETED(thing) || thing.loc != check_locs[thing])
+				return
+
 		if(custom_check_callback && next_check < world.time)
 			if(!custom_check_callback.Invoke())
 				return
 			else
 				next_check = world.time + check_delay
+
 		stoplag(1)
 
 /datum/radial_menu/Destroy()
@@ -286,11 +302,15 @@ GLOBAL_LIST_EMPTY(radial_menus)
 	and list values are movables/icons/images used for element icons
 */
 
-/proc/show_radial_menu(mob/user, atom/anchor, list/choices, uniqueid, radius, datum/callback/custom_check, require_near = FALSE, tooltips = FALSE, no_repeat_close = FALSE)
+/proc/show_radial_menu(mob/user, atom/anchor, list/choices, uniqueid, radius, datum/callback/custom_check, require_near = FALSE, tooltips = FALSE, no_repeat_close = FALSE, list/check_locs, use_labels = FALSE)
 	if(!user || !anchor || !length(choices))
 		return
 	if(!uniqueid)
 		uniqueid = "defmenu_[any2ref(user)]_[any2ref(anchor)]"
+
+	if(check_locs)
+		for(var/atom/thing in check_locs)
+			check_locs[thing] = thing.loc
 
 	if(GLOB.radial_menus[uniqueid])
 		if(!no_repeat_close)
@@ -300,15 +320,19 @@ GLOBAL_LIST_EMPTY(radial_menus)
 
 	var/datum/radial_menu/menu = new
 	GLOB.radial_menus[uniqueid] = menu
+
 	if(radius)
 		menu.radius = radius
+
 	if(istype(custom_check))
 		menu.custom_check_callback = custom_check
+
 	menu.anchor = anchor
 	menu.check_screen_border(user) //Do what's needed to make it look good near borders or on hud
-	menu.set_choices(choices, tooltips)
+	menu.set_choices(choices, tooltips, use_labels)
 	menu.show_to(user)
-	menu.wait(user, anchor, require_near)
+	menu.wait(user, anchor, require_near, check_locs)
+
 	var/answer = menu.selected_choice
 	qdel(menu)
 	GLOB.radial_menus -= uniqueid
