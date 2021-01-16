@@ -18,6 +18,11 @@
 	var/const/climb_time = 2 SECONDS
 	var/static/list/climbsounds = list('sound/effects/ladder.ogg','sound/effects/ladder2.ogg','sound/effects/ladder3.ogg','sound/effects/ladder4.ogg')
 
+	var/static/radial_ladder_down = image(icon = 'icons/screen/radial.dmi', icon_state = "radial_ladder_down")
+	var/static/radial_ladder_up = image(icon = 'icons/screen/radial.dmi', icon_state = "radial_ladder_up")
+
+	var/static/list/radial_options = list("up" = radial_ladder_up, "down" = radial_ladder_down)
+
 /obj/structure/ladder/Initialize()
 	. = ..()
 	// the upper will connect to the lower
@@ -94,25 +99,26 @@
 	instant_climb(M)
 
 /obj/structure/ladder/proc/getTargetLadder(var/mob/M)
-	if((!target_up && !target_down) || (target_up && !istype(target_up.loc, /turf/simulated/open) || (target_down && !istype(target_down.loc, /turf))))
-		to_chat(M, "<span class='notice'>\The [src] is incomplete and can't be climbed.</span>")
+	if(!anchored)
+		to_chat(M, SPAN_WARNING("\The [src] is not anchored in place and cannot be climbed."))
 		return
-	if(target_down && target_up)
-		var/direction = alert(M,"Do you want to go up or down?", "Ladder", "Up", "Down", "Cancel")
 
-		if(direction == "Cancel")
+	if(!target_up && !target_down)
+		to_chat(M, SPAN_WARNING("\The [src] does not seem to lead anywhere."))
+
+	else if(target_down && target_up)
+		var/direction = show_radial_menu(M, src,  radial_options, require_near = !(isEye(M) || isobserver(M)))
+
+		if(!direction)
 			return
 
 		if(!M.may_climb_ladders(src))
 			return
 
-		switch(direction)
-			if("Up")
-				return target_up
-			if("Down")
-				return target_down
+		. = (direction == "up") ? target_up : target_down
+
 	else
-		return target_down || target_up
+		. = target_down || target_up
 
 /mob/proc/may_climb_ladders(var/ladder)
 	if(!Adjacent(ladder))

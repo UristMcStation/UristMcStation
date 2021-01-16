@@ -29,6 +29,7 @@
 	station_holder = /mob/living/simple_animal/hostile/overmapship/station_holder/pirate
 	total_ships = 2
 	remaining_ships = 5
+	hidden = TRUE
 	spawn_ships = TRUE
 	spawn_types = list(/mob/living/simple_animal/hostile/overmapship/pirate/small, /mob/living/simple_animal/hostile/overmapship/pirate/med)
 	initial_generic_waypoints = list(
@@ -81,3 +82,4 @@
 		icon = 'icons/urist/misc/overmap.dmi'
 		icon_state = "station_asteroid_0"
 		color = "#660000"
+		hidden = TRUE

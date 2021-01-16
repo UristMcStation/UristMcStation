@@ -23,6 +23,8 @@
 
 	var/has_distress_beacon
 
+	var/hidden = FALSE //hidden for the purposes of tooltips. currently only used for the pirate station to avoid cheese
+
 /obj/effect/overmap/Initialize()
 	. = ..()
 	if(!GLOB.using_map.use_overmap)
@@ -105,6 +107,20 @@
 
 /obj/effect/overmap/sector/get_areas()
 	return get_filtered_areas(list(/proc/area_belongs_to_zlevels = map_z))
+
+
+/obj/effect/overmap/sector/MouseEntered(location, control, params)
+	if(!hidden)
+		openToolTip(user = usr, tip_src = src, params = params, title = name)
+	..()
+
+/obj/effect/overmap/sector/MouseDown()
+	closeToolTip(usr) //No reason not to, really
+	..()
+
+/obj/effect/overmap/sector/MouseExited()
+	closeToolTip(usr) //No reason not to, really
+	..()
 
 /proc/build_overmap()
 	if(!GLOB.using_map.use_overmap)
