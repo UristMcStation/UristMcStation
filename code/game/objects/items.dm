@@ -84,12 +84,15 @@
 	var/list/sprite_sheets_obj = list()
 	var/urist_only = null //If the item is unique to Urist McStation //Now only used for in_hands and betls
 
-	//scom shit
+	//scom shit //lmao why did i do this
 	var/scomtechlvl = null
 
 	/* Species-specific sprite sheets for inventory sprites
 	Works similarly to worn sprite_sheets, except the alternate sprites are used when the clothing/refit_for_species() proc is called.
 	*/
+
+	//tooltip shit
+	var/tip_timer // reference to timer id for a tooltip we might open soon
 
 /obj/item/New()
 	..()
@@ -801,3 +804,22 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/proc/has_embedded()
 	return
+
+/obj/item/MouseEntered(location,control,params)
+	. = ..()
+	if(usr.get_preference_value(/datum/client_preference/floating_messages) == GLOB.PREF_SHOW && ((src in usr) || isstorage(loc))) // If in inventory or in storage we're looking at
+		var/user = usr
+		tip_timer = addtimer(CALLBACK(src, .proc/openTip, location, control, params, user), 5, TIMER_STOPPABLE)
+
+/obj/item/MouseDown()
+	. = ..()
+	deltimer(tip_timer)
+	closeToolTip(usr)
+
+/obj/item/MouseExited()
+	. = ..()
+	deltimer(tip_timer)
+	closeToolTip(usr)
+
+/obj/item/proc/openTip(location, control, params, user)
+	openToolTip(user, src, params, title = name, content = desc)
