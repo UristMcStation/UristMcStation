@@ -304,7 +304,14 @@
 	if(!LAZYLEN(attachable_organs))
 		return FALSE
 
-	var/obj/item/organ/organ_to_replace = show_radial_menu(user, tool, attachable_organs, radius = 42, require_near = TRUE, use_labels = TRUE, check_locs = list(tool))
+	var/obj/item/organ/organ_to_replace
+
+	if(length(attachable_organs) == 1)
+		organ_to_replace = attachable_organs[1]
+
+	else if(length(attachable_organs) > 1)
+		organ_to_replace = show_radial_menu(user, tool, attachable_organs, radius = 42, require_near = TRUE, use_labels = TRUE, check_locs = list(tool))
+
 	if(!organ_to_replace)
 		return FALSE
 
