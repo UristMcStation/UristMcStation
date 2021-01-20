@@ -30,6 +30,7 @@
 
 	var/datum/action/item_action/action = null
 	var/action_button_name //It is also the text which gets displayed on the action button. If not set it defaults to 'Use [name]'. If it's not set, there'll be no button.
+	var/action_button_desc //A description for action button which will be displayed as tooltip.
 	var/default_action_type = /datum/action/item_action // Specify the default type and behavior of the action button for this atom.
 
 	//This flag is used to determine when items in someone's inventory cover others. IE helmets making it so you can't see glasses, etc.
@@ -83,12 +84,15 @@
 	var/list/sprite_sheets_obj = list()
 	var/urist_only = null //If the item is unique to Urist McStation //Now only used for in_hands and betls
 
-	//scom shit
+	//scom shit //lmao why did i do this
 	var/scomtechlvl = null
 
 	/* Species-specific sprite sheets for inventory sprites
 	Works similarly to worn sprite_sheets, except the alternate sprites are used when the clothing/refit_for_species() proc is called.
 	*/
+
+	//tooltip shit
+	var/tip_timer // reference to timer id for a tooltip we might open soon
 
 /obj/item/New()
 	..()
@@ -481,7 +485,7 @@ var/list/global/slot_flags_enumeration = list(
 //Otherwise should return 0 to indicate that the attack is not affected in any way.
 /obj/item/proc/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	var/parry_chance = get_parry_chance(user)
-	if(attacker)	
+	if(attacker)
 		parry_chance = max(0, parry_chance - 10 * attacker.get_skill_difference(SKILL_COMBAT, user))
 	if(parry_chance)
 		if(default_parry_check(user, attacker, damage_source) && prob(parry_chance))
@@ -800,3 +804,22 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/proc/has_embedded()
 	return
+
+/obj/item/MouseEntered(location,control,params)
+	. = ..()
+	if(usr.get_preference_value(/datum/client_preference/floating_messages) == GLOB.PREF_SHOW && ((src in usr) || isstorage(loc))) // If in inventory or in storage we're looking at
+		var/user = usr
+		tip_timer = addtimer(CALLBACK(src, .proc/openTip, location, control, params, user), 5, TIMER_STOPPABLE)
+
+/obj/item/MouseDown()
+	. = ..()
+	deltimer(tip_timer)
+	closeToolTip(usr)
+
+/obj/item/MouseExited()
+	. = ..()
+	deltimer(tip_timer)
+	closeToolTip(usr)
+
+/obj/item/proc/openTip(location, control, params, user)
+	openToolTip(user, src, params, title = name, content = desc)

@@ -8,6 +8,13 @@ var/list/floating_chat_colors = list()
 /atom/movable/proc/animate_chat(message, datum/language/language, small, list/show_to, duration)
 	set waitfor = FALSE
 
+	// Get rid of any URL schemes that might cause BYOND to automatically wrap something in an anchor tag
+	var/static/regex/url_scheme = new(@"[A-Za-z][A-Za-z0-9+-\.]*:\/\/", "g")
+	message = replacetext(message, url_scheme, "")
+
+	var/static/regex/html_metachars = new(@"&[A-Za-z]{1,7};", "g")
+	message = replacetext(message, html_metachars, "")
+
 	var/style	//additional style params for the message
 	var/fontsize = 6
 	if(small)
@@ -38,7 +45,8 @@ var/list/floating_chat_colors = list()
 
 /proc/generate_floating_text(atom/movable/holder, message, style, size, duration, show_to)
 	var/image/I = image(null, holder)
-	I.layer=FLY_LAYER
+	I.plane = HUD_PLANE
+	I.layer = HUD_ABOVE_ITEM_LAYER
 	I.alpha = 0
 	I.maptext_width = 80
 	I.maptext_height = 64

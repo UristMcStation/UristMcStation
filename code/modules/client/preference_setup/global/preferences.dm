@@ -232,7 +232,12 @@ var/list/_client_preferences_by_type
 /datum/client_preference/floating_messages
 	description ="Floating chat messages"
 	key = "FLOATING_CHAT"
-	options = list(GLOB.PREF_HIDE, GLOB.PREF_SHOW)
+	options = list(GLOB.PREF_SHOW, GLOB.PREF_HIDE)
+
+/datum/client_preference/inv_tooltips
+	description ="Inventory tooltips"
+	key = "INV_TOOLTIPS"
+	options = list(GLOB.PREF_SHOW, GLOB.PREF_HIDE)
 
 /********************
 * General Staff Preferences *

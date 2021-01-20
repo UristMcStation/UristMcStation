@@ -64,7 +64,7 @@ var/global/list/robot_modules = list(
 		R.silicon_radio.recalculateChannels()
 
 	R.set_module_sprites(sprites)
-	R.choose_icon(R.module_sprites.len + 1, R.module_sprites)
+	R.choose_icon(R.module_sprites)
 
 	for(var/obj/item/I in modules)
 		I.canremove = 0
@@ -77,7 +77,7 @@ var/global/list/robot_modules = list(
 
 	if(R.silicon_radio)
 		R.silicon_radio.recalculateChannels()
-	R.choose_icon(0, R.set_module_sprites(list("Default" = "robot")))
+	R.choose_icon(R.set_module_sprites(list("Default" = initial(R.icon_state))))
 
 /obj/item/weapon/robot_module/Destroy()
 	for(var/module in modules)
