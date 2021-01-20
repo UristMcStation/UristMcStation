@@ -73,7 +73,7 @@
 
 /datum/shipcomponents/weapons/smallmissile
 	name = "small missile launcher"
-	projectile_type = /obj/item/projectile/bullet/ship/smallmissile
+	projectile_type = /obj/item/projectile/bullet/ship/missile/smallmissile
 	firedelay = 20 SECONDS
 
 /datum/shipcomponents/weapons/smallmissile/battery
@@ -83,7 +83,7 @@
 
 /datum/shipcomponents/weapons/smallalienmissile
 	name = "small alien missile launcher"
-	projectile_type = /obj/item/projectile/bullet/ship/smallalienmissile
+	projectile_type = /obj/item/projectile/bullet/ship/missile/smallalienmissile
 	firedelay = 26 SECONDS
 
 /datum/shipcomponents/weapons/smallalienmissile/dual
@@ -98,7 +98,7 @@
 
 /datum/shipcomponents/weapons/bigmissile
 	name = "large missile launcher"
-	projectile_type = /obj/item/projectile/bullet/ship/bigmissile
+	projectile_type = /obj/item/projectile/bullet/ship/missile/bigmissile
 	firedelay = 30 SECONDS
 
 /datum/shipcomponents/weapons/bigmissile/battery
@@ -108,7 +108,7 @@
 
 /datum/shipcomponents/weapons/bigalienmissile
 	name = "large alien missile launcher"
-	projectile_type = /obj/item/projectile/bullet/ship/bigalienmissile
+	projectile_type = /obj/item/projectile/bullet/ship/missile/bigalienmissile
 	firedelay = 36 SECONDS
 
 /datum/shipcomponents/weapons/bigalienmissile/dual
@@ -118,17 +118,17 @@
 
 /datum/shipcomponents/weapons/smalltorpedo
 	name = "small torpedo launcher"
-	projectile_type = /obj/item/projectile/bullet/ship/smalltorpedo
+	projectile_type = /obj/item/projectile/bullet/ship/missile/smalltorpedo
 	firedelay = 26 SECONDS
 
 /datum/shipcomponents/weapons/bigtorpedo
 	name = "large torpedo launcher"
-	projectile_type = /obj/item/projectile/bullet/ship/bigtorpedo
+	projectile_type = /obj/item/projectile/bullet/ship/missile/bigtorpedo
 	firedelay = 42 SECONDS
 
 /datum/shipcomponents/weapons/alientorpedo
 	name = "alien torpedo launcher"
-	projectile_type = /obj/item/projectile/bullet/ship/alientorpedo
+	projectile_type = /obj/item/projectile/bullet/ship/missile/alientorpedo
 	firedelay = 34 SECONDS
 
 /datum/shipcomponents/weapons/lightlaser

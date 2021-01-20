@@ -77,7 +77,7 @@
 	active_power_usage = 2500
 	component_hit = 25
 	rechargerate = 16 SECONDS
-	projectile_type = /obj/item/projectile/bullet/ship/bigtorpedo
+	projectile_type = /obj/item/projectile/bullet/ship/missile/bigtorpedo
 	fire_sound = 'sound/weapons/railgun.ogg'
 
 /obj/machinery/shipweapons/missile/torpedo/Bumped(atom/movable/M as mob|obj)
