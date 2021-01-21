@@ -5,6 +5,7 @@
 	desc = "Small, portable, and far, far heavier than it looks, this gun-shaped device has a port into which one may insert compressed matter cartridges."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "rcd"
+	item_state = "rcd"
 	opacity = 0
 	density = 0
 	anchored = 0.0
@@ -104,12 +105,26 @@
 	..()
 
 /obj/item/weapon/rcd/attack_self(mob/user)
+	..()
 	//Change the mode
-	work_id++
-	work_mode = next_in_list(work_mode, work_modes)
-	to_chat(user, "<span class='notice'>Changed mode to '[work_mode]'</span>")
-	playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
-	if(prob(20)) src.spark_system.start()
+	work_mode = null
+
+	var/list/choices = list()
+
+	if(LAZYLEN(work_modes))
+		for(var/decl/hierarchy/rcd_mode/D in work_modes)
+			var/image/radial_button = image(icon = D.radial_icon, icon_state = D.radial_icon_state)
+			radial_button.name = "[D.name]"
+			choices[D] = radial_button
+
+ 		work_mode = show_radial_menu(user, src, choices, radius = 42, require_near = TRUE, tooltips = TRUE)
+
+	if(work_mode)
+		work_id++
+		to_chat(user, "<span class='notice'>Changed mode to '[work_mode]'</span>")
+		playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
+		if(prob(20))
+			src.spark_system.start()
 
 /obj/item/weapon/rcd/afterattack(atom/A, mob/user, proximity)
 	if(!proximity) return
@@ -132,7 +147,7 @@
 	var/ratio = 0
 	ratio = stored_matter / max_stored_matter
 	ratio = max(round(ratio, 0.10) * 100, 10)
-	overlays += "rcd-[ratio]"
+	overlays += "[icon_state]-[ratio]"
 
 /obj/item/weapon/rcd/proc/lowAmmo(var/mob/user)	//Kludge to make it animate when out of ammo, but I guess you can make it blow up when it's out of ammo or something
 	to_chat(user, "<span class='warning'>The \'Low Ammo\' light on the device blinks yellow.</span>")
@@ -198,6 +213,14 @@
 /obj/item/weapon/rcd/mounted/can_use(var/mob/user,var/turf/T)
 	return (user.Adjacent(T) && !user.incapacitated())
 
+/obj/item/weapon/rcd/shipwright
+	name = "shipwright RCD"
+	desc = "Small, portable, and far, far heavier than it looks, this gun-shaped device has a port into which one may insert compressed matter cartridges. This is an advanced variant that can deconstruct reinforced walls."
+	item_icons = DEF_URIST_INHANDS
+	icon = 'icons/urist/items/tools.dmi'
+	icon_state = "ircd"
+	item_state = "rcd"
+	canRwall = TRUE
 
 /decl/hierarchy/rcd_mode
 	hierarchy_type = /decl/hierarchy/rcd_mode
@@ -205,6 +228,8 @@
 	var/delay
 	var/handles_type
 	var/work_type
+	var/radial_icon = 'icons/screen/radial.dmi'
+	var/radial_icon_state
 
 /decl/hierarchy/rcd_mode/proc/do_work(var/obj/item/weapon/rcd/rcd, var/atom/target, var/user)
 	for(var/child in children)
@@ -259,7 +284,7 @@
 */
 /decl/hierarchy/rcd_mode/airlock
 	name = "Airlock"
-
+	radial_icon_state = "airlock"
 /decl/hierarchy/rcd_mode/airlock/basic
 	cost = 10
 	delay = 5 SECONDS
@@ -274,6 +299,7 @@
 */
 /decl/hierarchy/rcd_mode/floor_and_walls
 	name = "Floor & Walls"
+	radial_icon_state = "wallfloor"
 
 /decl/hierarchy/rcd_mode/floor_and_walls/base_turf
 	cost = 1
@@ -294,6 +320,7 @@
 */
 /decl/hierarchy/rcd_mode/deconstruction
 	name = "Deconstruction"
+	radial_icon_state = "delete"
 
 /decl/hierarchy/rcd_mode/deconstruction/work_message(var/atom/target, var/mob/user, var/rcd)
 	user.visible_message("<span class='warning'>\The [user] is using \a [rcd] to deconstruct \the [target]!</span>", "<span class='warning'>You are deconstructing \the [target]!</span>")

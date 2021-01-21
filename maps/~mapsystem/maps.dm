@@ -227,9 +227,6 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	if(!planet_size)
 		planet_size = list(world.maxx, world.maxy)
 
-	if(!date_offset)
-		game_year = 2556
-
 /datum/map/proc/setup_map()
 	var/lobby_track_type
 	if(lobby_tracks.len)
@@ -238,6 +235,10 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 		lobby_track_type = pick(subtypesof(/music_track))
 
 	lobby_track = decls_repository.get_decl(lobby_track_type)
+
+	if(!date_offset)
+		game_year = 2556
+
 	world.update_status()
 
 /datum/map/proc/send_welcome()

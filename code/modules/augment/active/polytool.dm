@@ -50,9 +50,21 @@
 		else
 			to_chat(owner, SPAN_WARNING("You must drop [I] before tool can be extend."))
 	else
-		var/obj/item = input(owner, "Select item for deploy") as null|anything in src
-		if(!item || !src.loc in owner.organs)
+		if(!src.loc in owner.organs)
 			return
+
+		var/list/options = list()
+		var/obj/item
+
+		for(item in src)
+			var/image/radial_button = image(icon = I.icon, icon_state = I.icon_state)
+			options[I] = radial_button
+
+		item = show_radial_menu(src, src, options, radius = 42, tooltips = TRUE)
+
+		if(!item)
+			return
+
 		if(owner.equip_to_slot_if_possible(item, slot))
 			items -= item
 			//Keep track of it, make sure it returns

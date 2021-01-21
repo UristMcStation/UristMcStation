@@ -6,13 +6,14 @@
 //	var/obj/item/projectile/projectile_type
 	var/fire_type = 0
 
-/obj/effect/urist/projectile_landmark/Initialize()
-	.=..()
+/obj/effect/urist/projectile_landmark/New()
 	if(fire_type == 1)
 		GLOB.ship_projectile_landmarks += src
 
 	if(fire_type == 2)
 		GLOB.target_projectile_landmarks += src
+
+	..()
 
 /obj/effect/urist/projectile_landmark/proc/Fire()
 	return
