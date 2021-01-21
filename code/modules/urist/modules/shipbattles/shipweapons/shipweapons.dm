@@ -44,8 +44,10 @@
 		return
 	else
 		UpdateStatus()
-		update_use_power(2)
 		recharging = 1
+		update_use_power(2)
+//		for(var/obj/machinery/light/L in range(4, target))
+//			L.flicker(rand(1,3))
 		update_icon()
 		spawn(rechargerate)
 			charged = 1
