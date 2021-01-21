@@ -41,9 +41,10 @@
 	penetration_modifier = 1.5
 	shake_range = 6
 
-/obj/item/projectile/bullet/ship/cannon/on_hit(var/atom/target, var/blocked = 0)
-	if(isturf(target))
-		target.ex_act(2)
+/obj/item/projectile/bullet/ship/cannon/on_impact(var/atom/A)
+	if(isturf(A))
+		A.ex_act(2)
+
 	..()
 
 ///obj/item/projectile/bullet/ship/cannon/on_impact(var/atom/A)
@@ -192,7 +193,7 @@
 	for(var/obj/machinery/light/L in range(15, target))
 		L.flicker(rand(5,15))
 
-	explosion(location, -1, 0, 1)
+	explosion(location, -1, 0, 1, 1, 0)
 
 	..()
 
@@ -268,7 +269,7 @@
 	for(var/obj/machinery/light/L in range(15, target))
 		L.flicker(rand(5,15))
 
-	explosion(location, ex_size, ex_size, ex_size)
+	explosion(location, ex_size, ex_size, ex_size, ex_size, 0)
 
 
 	..()

@@ -2,6 +2,7 @@
 
 /obj/machinery/shipweapons/beam
 	icon = 'icons/urist/structures&machinery/64x64machinery.dmi'
+	fire_sound = 'sound/weapons/marauder.ogg'
 
 /obj/machinery/shipweapons/beam/lightlaser
 	name = "light laser cannon"
@@ -14,7 +15,7 @@
 	rechargerate = 15 SECONDS
 	projectile_type = /obj/item/projectile/beam/ship/lightlaser
 	fire_anim = 5
-	fire_sound = 'sound/weapons/marauder.ogg'
+
 
 /obj/machinery/shipweapons/beam/rapidlightlaser
 	name = "rapid-fire light laser cannon"
@@ -26,43 +27,39 @@
 	component_hit = 30
 	rechargerate = 23 SECONDS
 	projectile_type = /obj/item/projectile/beam/ship/lightlaser
-	fire_sound = 'sound/weapons/marauder.ogg'
 
 /obj/machinery/shipweapons/beam/heavylaser
 	name = "heavy laser cannon"
 	shielddamage = 500 //comparable damage to the dual lasercannon, faster firing
 	hulldamage = 250
-	icon_state = "biglasercannon" //needs a sprite
+	icon_state = "biglasercannon" //needs a better sprite
 	idle_power_usage = 10
 	active_power_usage = 8000
 	component_hit = 20
 	rechargerate = 19 SECONDS
 	projectile_type = /obj/item/projectile/beam/ship/heavylaser
-	fire_sound = 'sound/weapons/marauder.ogg'
 
 /obj/machinery/shipweapons/beam/lightpulse //pulse is good against hull, weak against shields
 	name = "light pulse cannon"
 	shielddamage = 100
-	hulldamage = 200
-	icon_state = "pulsecannon" //sprie
+	hulldamage = 300
+	icon_state = "pulsecannon"
 	idle_power_usage = 10
 	active_power_usage = 7000
 	component_hit = 20
 	rechargerate = 16 SECONDS
-	projectile_type = /obj/item/projectile/beam/ship/lightlaser
-	fire_sound = 'sound/weapons/marauder.ogg'
+	projectile_type = /obj/item/projectile/beam/ship/pulse/light
 
 /obj/machinery/shipweapons/beam/heavypulse
 	name = "heavy pulse cannon"
-	shielddamage = 250
-	hulldamage = 500
-	icon_state = "bigpulsecannon" //sprite
+	shielddamage = 150
+	hulldamage = 600
+	icon_state = "bigpulsecannon"
 	idle_power_usage = 10
 	active_power_usage = 14000
 	component_hit = 20
 	rechargerate = 22 SECONDS
-	projectile_type = /obj/item/projectile/beam/ship/lightlaser
-	fire_sound = 'sound/weapons/marauder.ogg'
+	projectile_type = /obj/item/projectile/beam/ship/pulse/heavy
 
 /obj/machinery/shipweapons/beam/ion
 	name = "ion cannon"
@@ -72,7 +69,6 @@
 	active_power_usage = 8000
 	component_hit = 35
 	rechargerate = 13 SECONDS
-	fire_sound = 'sound/weapons/marauder.ogg'
 	projectile_type = /obj/item/projectile/ion/ship
 
 /obj/machinery/shipweapons/beam/ion/HitComponents(var/targetship)
