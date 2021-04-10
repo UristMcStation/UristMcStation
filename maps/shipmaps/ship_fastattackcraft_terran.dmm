@@ -40,7 +40,7 @@
 "aN" = (/obj/structure/bed/chair,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
 "aO" = (/obj/structure/table/rack/dark,/obj/random/firstaid,/obj/random/firstaid,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
 "aP" = (/obj/structure/table/rack/dark,/obj/random/projectile,/obj/random/projectile,/obj/random/handgun,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
-"aQ" = (/obj/structure/table/rack/dark,/obj/random/ammo_magazine_smug,/obj/random/ammo,/obj/random/ammo,/obj/random/ammo_magazine_smug,/obj/random/ammo,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"aQ" = (/obj/structure/table/rack/dark,/obj/random/ammo,/obj/random/ammo,/obj/random/ammo,/obj/random/ammo,/obj/random/ammo,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
 "aR" = (/obj/structure/closet/secure_closet/engineering_welding,/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
 "aS" = (/obj/structure/table/standard,/obj/item/weapon/reagent_containers/ivbag/blood/OPlus{pixel_x = 4; pixel_y = 2},/obj/item/weapon/reagent_containers/ivbag/blood/OPlus{pixel_x = 4; pixel_y = 2},/obj/item/weapon/reagent_containers/ivbag/blood/OMinus{pixel_x = -5; pixel_y = -1},/obj/item/weapon/reagent_containers/ivbag/blood/OMinus{pixel_x = -5; pixel_y = -1},/obj/machinery/light{dir = 4},/turf/simulated/floor/tiled/white,/area/boarding_ship)
 "aT" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet/purple,/obj/structure/curtain/open/bed,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
