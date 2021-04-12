@@ -12,10 +12,10 @@
 
 	if(isghostmind(player))
 		create_default(player.current)
-	else
-		create_antagonist(player, move_to_spawn, do_not_announce, preserve_appearance, do_not_greet)
-		if(!do_not_equip)
-			equip(player.current)
+
+	create_antagonist(player, move_to_spawn, do_not_announce, preserve_appearance, do_not_greet)
+	if(!do_not_equip)
+		equip(player.current)
 
 	if(player.current)
 		player.current.faction = faction
