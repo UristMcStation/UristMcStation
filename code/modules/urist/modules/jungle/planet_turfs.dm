@@ -27,6 +27,8 @@
 
 	var/spawn_scrap = 0
 
+	var/planet_light = TRUE //do we use the fancy planet lighting
+
 /turf/simulated/floor/planet/update_air_properties() //No, you can't flood the jungle with phoron silly.
 	return
 
@@ -96,7 +98,8 @@
 
 //	weather_enable() //Fog does some odd things with duplicating the turf, need to invesi //he died shortly thereafter
 
-	light_color = SSskybox.BGcolor
+	if(planet_light)
+		light_color = SSskybox.BGcolor
 
 	. = ..()
 
@@ -694,6 +697,10 @@
 
 /turf/simulated/floor/planet/dirt/clear
 	misc_plant_spawn_chance = 0
+
+/turf/simulated/floor/planet/dirt/city
+	misc_plant_type = /obj/structure/flora/ausbushes/sparsegrass
+	planet_light = FALSE
 
 //arid dirt
 
