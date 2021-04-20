@@ -73,16 +73,17 @@
 		if(9) to_chat(user, "It has both tires, a transmission and a firmly attached battery.")
 
 /obj/structure/vehicle_frame/motorcycle/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/stack/rods))
+	if(istype(W,/obj/item/stack/material/rods))
 		if(buildstate == 0)
-			var/obj/item/stack/rods/R = W
-			if(R.use(3))
-				to_chat(user, "<span class='notice'>You assemble a backbone of rods, constructing a crude wheel well.</span>")
-				buildstate++
-				update_icon()
-			else
-				to_chat(user, "<span class='notice'>You need at least three rods to complete this task.</span>")
-			return
+			var/obj/item/stack/material/rods/R = W
+			if(R.material && R.material.name == "steel")
+				if(R.use(3))
+					to_chat(user, "<span class='notice'>You assemble a backbone of rods, constructing a crude wheel well.</span>")
+					buildstate++
+					update_icon()
+				else
+					to_chat(user, "<span class='notice'>You need at least three rods to complete this task.</span>")
+				return
 
 	else if(istype(W,/obj/item/weapon/weldingtool))
 		if(buildstate == 1)
