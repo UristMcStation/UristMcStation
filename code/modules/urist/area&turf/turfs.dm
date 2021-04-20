@@ -272,3 +272,27 @@ transit/east is the same thing now AFAIK
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "reinforced_light"
 	initial_gas = null
+
+//moved from the destroyed colony awaymap files
+
+/turf/simulated/floor/fixed/destroyedroad
+	name = "road"
+	desc = "It's a road. It's seen better days."
+	icon = 'icons/urist/turf/floorsplus.dmi'
+	icon_state = ""
+
+/turf/simulated/floor/fixed/destroyedroad/attackby(var/obj/item/C, var/mob/user)
+	if(isCrowbar(C))
+		to_chat(user, "<span class='notice'>There aren't any openings big enough to pry it away...</span>")
+		return
+	return ..()
+
+/turf/simulated/floor/fixed/destroyedroad/ex_act(severity)
+	return
+//	if(severity == 1)
+//		ChangeTurf(get_base_turf_by_area(src))
+
+/turf/simulated/floor/fixed/destroyedroad/planet/Initialize()
+	light_color = SSskybox.BGcolor
+
+	. = ..()

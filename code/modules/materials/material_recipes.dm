@@ -134,6 +134,7 @@
 	. += new/datum/stack_recipe/noticeboard(src)
 
 	. += new/datum/stack_recipe/imprifleframe(src)
+	. += new/datum/stack_recipe/flintlockstock
 	. += new/datum/stack_recipe/furniture/undies_wardrobe(src)
 	. += new/datum/stack_recipe/furniture/cabinet(src)
 	. += new/datum/stack_recipe/furniture/coatrack(src)
