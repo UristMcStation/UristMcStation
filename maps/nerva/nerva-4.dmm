@@ -8383,7 +8383,7 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
 	icon_state = "door_locked";
-	id_tag = "robotics_solar_inner";
+	id_tag = "aft_solar_inner";
 	locked = 1;
 	name = "Engineering External Access";
 	req_access = list("ACCESS_EXTERNAL")
