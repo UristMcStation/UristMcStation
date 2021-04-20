@@ -1,5 +1,3 @@
-#include "destroyed_colony_items.dm"
-
 /area/planet/destroyed_colony
 	name = "\improper Destroyed Colony"
 	base_turf = /turf/simulated/floor/planet/ariddirt/clear
@@ -39,33 +37,3 @@
 	suffixes = list("destroyed_colony/destroyed_colony.dmm")
 	accessibility_weight = 10
 //	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
-
-/obj/effect/urist/spawn_bomb
-	icon = 'icons/mob/screen1.dmi'
-	icon_state = "grabbed1"
-	invisibility = 101
-	var/dmg_dev = 1
-	var/dmg_hvy = 2
-	var/dmg_lgt = 5
-
-/obj/effect/urist/spawn_bomb/Initialize()
-	.=..()
-	explosion(src.loc, dmg_dev, dmg_hvy, dmg_lgt, 1)
-	qdel(src)
-
-/turf/simulated/floor/fixed/destroyedroad
-	name = "road"
-	desc = "It's a road. It's seen better days."
-	icon = 'icons/urist/turf/floorsplus.dmi'
-	icon_state = ""
-
-/turf/simulated/floor/fixed/destroyedroad/attackby(var/obj/item/C, var/mob/user)
-	if(isCrowbar(C))
-		to_chat(user, "<span class='notice'>There aren't any openings big enough to pry it away...</span>")
-		return
-	return ..()
-
-/turf/simulated/floor/fixed/destroyedroad/ex_act(severity)
-	return
-//	if(severity == 1)
-//		ChangeTurf(get_base_turf_by_area(src))
