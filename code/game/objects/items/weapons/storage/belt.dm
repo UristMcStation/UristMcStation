@@ -127,7 +127,11 @@
 		/obj/item/weapon/extinguisher/mini,
 		/obj/item/weapon/marshalling_wand,
 		/obj/item/weapon/hand_labeler,
-		/obj/item/clothing/gloves
+		/obj/item/clothing/gloves,
+		/obj/item/device/geiger,
+		/obj/item/device/multitool/hacktool, // Tator Multitool.
+		/obj/item/device/floor_painter,
+		/obj/item/weapon/circuitboard
 		)
 
 
@@ -313,7 +317,9 @@
 		/obj/item/clothing/gloves,
 		/obj/item/device/assembly/mousetrap,
 		/obj/item/weapon/crowbar/prybar,
-		/obj/item/clothing/mask/plunger
+		/obj/item/weapon/crowbar,
+		/obj/item/clothing/mask/plunger,
+		/obj/item/taperoll
 		)
 
 /obj/item/weapon/storage/belt/holster/general
@@ -406,7 +412,9 @@
 		/obj/item/weapon/pinpointer/radio,
 		/obj/item/device/taperecorder,
 		/obj/item/device/tape,
-		/obj/item/device/analyzer
+		/obj/item/device/analyzer,
+		/obj/item/taperoll,
+		/obj/item/clothing/gloves
 		)
 	can_holster = list(/obj/item/weapon/material/hatchet/machete)
 	sound_in = 'sound/effects/holster/sheathin.ogg'
