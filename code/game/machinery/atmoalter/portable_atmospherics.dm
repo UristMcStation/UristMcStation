@@ -115,7 +115,7 @@
 		if(connected_port)
 			disconnect()
 			to_chat(user, "<span class='notice'>You disconnect \the [src] from the port.</span>")
-			log_and_message_admins("[key_name(user)] has disconnected [src.name] at [get_area(src)] | X[src.x] Y[src.y] Z[src.z].")
+			log_and_message_admins("has disconnected [src.name] at [get_area(src)] | X[src.x] Y[src.y] Z[src.z].")
 			update_icon()
 			return
 		else
@@ -123,7 +123,7 @@
 			if(possible_port)
 				if(connect(possible_port))
 					to_chat(user, "<span class='notice'>You connect \the [src] to the port.</span>")
-					log_and_message_admins("[key_name(user)] has connected [src.name] at [get_area(src)] | X[src.x] Y[src.y] Z[src.z].")
+					log_and_message_admins("has connected [src.name] at [get_area(src)] | X[src.x] Y[src.y] Z[src.z].")
 					update_icon()
 					return
 				else
