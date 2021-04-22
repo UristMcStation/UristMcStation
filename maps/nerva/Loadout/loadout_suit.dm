@@ -32,7 +32,7 @@
 /datum/gear/suit/wintercoat/science
 	display_name = "winter coat, science"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/science
-	allowed_roles = list(/datum/job/rd,/datum/job/scientist, /datum/job/roboticist, datum/job/seniorscientist)
+	allowed_roles = list(/datum/job/rd,/datum/job/scientist, /datum/job/roboticist, /datum/job/seniorscientist)
 
 /datum/gear/suit/wintercoat/engineering
 	display_name = "winter coat, engineering"
