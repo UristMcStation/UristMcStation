@@ -172,7 +172,7 @@
 	icon_state = "allophylus"
 	name = "Allophylus"
 	ranged = 1
-	projectiletype = /obj/item/projectile/beam/scom/alien4
+	projectiletype = /obj/item/projectile/energy/scom/allophylus
 	maxHealth = 600
 	health = 600
 	icon_living = "allophylus"
