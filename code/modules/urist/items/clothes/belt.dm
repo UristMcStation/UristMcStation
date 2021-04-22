@@ -21,7 +21,6 @@
  	/obj/item/device/analyzer,
  	/obj/item/device/mmi,
 	/obj/item/device/integrated_electronics,
-	/obj/item/device/multitool/hacktool, // Tator Multitool.
 	/obj/item/clothing/gloves,
 	/obj/item/weapon/hand_labeler,
 	/obj/item/taperoll

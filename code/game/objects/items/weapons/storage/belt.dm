@@ -129,7 +129,6 @@
 		/obj/item/weapon/hand_labeler,
 		/obj/item/clothing/gloves,
 		/obj/item/device/geiger,
-		/obj/item/device/multitool/hacktool, // Tator Multitool.
 		/obj/item/device/floor_painter,
 		/obj/item/weapon/circuitboard
 		)
