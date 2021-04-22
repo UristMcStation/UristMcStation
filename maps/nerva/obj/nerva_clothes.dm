@@ -73,7 +73,7 @@
 
 /obj/item/clothing/under/urist/nerva/sci
 	name = "scientist's uniform"
-	desc = "A white uniform worn by the Science Department of the ICS Nerva."
+	desc = "A white uniform worn by NanoTrasen scientists."
 	icon_state = "sci_nerva"
 	item_state = "sci_nerva"
 	worn_state = "sci_nerva"
@@ -81,7 +81,7 @@
 
 /obj/item/clothing/under/urist/nerva/seniornt
 	name = "senior researcher's uniform"
-	desc = "A smart looking uniform often worn by the ICS Nerva Senior Research staff. It offers minor protection to chemicals."
+	desc = "A smart looking uniform often worn by NanoTrasen Senior Research staff. It offers minor protection to chemicals."
 	icon_state = "directornt"
 	item_state = "directornt"
 	worn_state = "directornt"
