@@ -9,7 +9,7 @@
 	allowed_roles = list(/datum/job/chief_engineer, /datum/job/engineer)
 
 /datum/gear/suit/science_poncho
-	allowed_roles = list(/datum/job/scientist)
+	allowed_roles = list(/datum/job/scientist,/datum/job/seniorscientist)
 
 /datum/gear/suit/cargo_poncho
 	allowed_roles = list(/datum/job/qm,/datum/job/cargo_tech)
@@ -32,7 +32,7 @@
 /datum/gear/suit/wintercoat/science
 	display_name = "winter coat, science"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/science
-	allowed_roles = list(/datum/job/rd,/datum/job/scientist, /datum/job/roboticist)
+	allowed_roles = list(/datum/job/rd,/datum/job/scientist, /datum/job/roboticist, datum/job/seniorscientist)
 
 /datum/gear/suit/wintercoat/engineering
 	display_name = "winter coat, engineering"

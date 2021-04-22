@@ -38,7 +38,7 @@
 /obj/item/weapon/card/id/nerva_scientist
 	name = "identification card"
 	desc = "A card issued to Nanotrasen contract scientists."
-	icon_state = "corporate"
+	detail_color = COLOR_PURPLE
 	job_access_type = /datum/job/scientist
 
 /obj/item/weapon/card/id/nerva_senior_scientist

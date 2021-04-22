@@ -71,13 +71,21 @@
 	worn_state = "combat"
 	armor = list(melee = 10, bullet = 0, laser = 10,energy = 0, bomb = 0, bio = 0, rad = 0)
 
+/obj/item/clothing/under/urist/nerva/sci
+	name = "scientist's uniform"
+	desc = "A white uniform worn by the Science Department of the ICS Nerva."
+	icon_state = "sci_nerva"
+	item_state = "sci_nerva"
+	worn_state = "sci_nerva"
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 5, rad = 0)
+
 /obj/item/clothing/under/urist/nerva/seniornt
 	name = "senior researcher's uniform"
-	desc = "A smart looking uniform often worn by the ICS Nerva Senior Research staff."
+	desc = "A smart looking uniform often worn by the ICS Nerva Senior Research staff. It offers minor protection to chemicals."
 	icon_state = "directornt"
 	item_state = "directornt"
 	worn_state = "directornt"
-	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 5, rad = 0)
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 10, rad = 0)
 
 //jackets
 
@@ -130,6 +138,16 @@
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
 	min_cold_protection_temperature = 253.15
 	armor = list(melee = 30, bullet = 10, laser = 15, energy = 10, bomb = 10, bio = 0, rad = 0)
+
+/obj/item/clothing/suit/storage/toggle/labcoat/science/nerva
+	name = "science labcoat"
+	desc = "A coat that protects against minor chemical spills. It has the insignia of the ICS Nerva on it."
+	icon = 'icons/urist/items/clothes/clothes.dmi'
+	item_state = "n_lab"
+	icon_state = "n_lab"
+	icon_open = "n_lab_open"
+	icon_closed = "n_lab"
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 15, rad = 0)
 
 
 //armor
