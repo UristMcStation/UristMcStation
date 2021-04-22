@@ -1239,7 +1239,8 @@
 		return 1
 	if(!access_list.len) //no requirements
 		return 1
-	I = I.GetIdCard()
+	if(I)
+		I = I.GetIdCard()
 	if(!istype(I) || !I.access) //not ID or no access
 		return 0
 	if(access_list==src.operation_req_access)
@@ -1626,12 +1627,12 @@
 		return
 	if(href_list["add_req_access"] && add_req_access && F.getObj("id_card"))
 		if(!in_range(src, usr))	return
-		operation_req_access += F.getNum("add_req_access")
+		operation_req_access += F.get("add_req_access")
 		output_access_dialog(F.getObj("id_card"),F.getMob("user"))
 		return
 	if(href_list["del_req_access"] && add_req_access && F.getObj("id_card"))
 		if(!in_range(src, usr))	return
-		operation_req_access -= F.getNum("del_req_access")
+		operation_req_access -= F.get("del_req_access")
 		output_access_dialog(F.getObj("id_card"),F.getMob("user"))
 		return
 	if(href_list["finish_req_access"])
