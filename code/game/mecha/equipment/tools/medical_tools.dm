@@ -179,7 +179,7 @@
 	if(to_inject && occupant.reagents.get_reagent_amount(R.type) + to_inject <= inject_amount*2)
 		occupant_message("Injecting [occupant] with [to_inject] units of [R.name].")
 		log_message("Injecting [occupant] with [to_inject] units of [R.name].")
-		SG.reagents.trans_type_to(occupant,R.type,to_inject)
+		SG.reagents.trans_type_to(occupant,R.type,to_inject,CHEM_BLOOD)
 		update_equip_info()
 	return
 

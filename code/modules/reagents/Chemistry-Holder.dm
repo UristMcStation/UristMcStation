@@ -343,7 +343,7 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 
 	trans_to(target, amount, multiplier, copy)
 
-/datum/reagents/proc/trans_type_to(var/atom/target, var/type, var/amount = 1)
+/datum/reagents/proc/trans_type_to(var/atom/target, var/type, var/amount = 1, var/mob_method)
 	if (!target || !target.reagents || !target.simulated)
 		return
 
@@ -357,7 +357,10 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 	F.add_reagent(type, amount, tmpdata)
 	remove_reagent(type, amount)
 
-	. = F.trans_to(target, amount) // Let this proc check the atom's type
+	if(ismob(target) && mob_method)
+		. = F.trans_to_mob(target,amount,mob_method)
+	else
+		. = F.trans_to(target, amount) // Let this proc check the atom's type
 
 	qdel(F)
 
