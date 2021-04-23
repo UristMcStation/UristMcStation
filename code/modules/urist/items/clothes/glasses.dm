@@ -18,6 +18,7 @@
 	item_state = "sandsuit"
 	name = "improvised goggles"
 	desc = "A pair of goggles made out of some glass and a leather mask."
+	flags_inv = HIDEEYES
 
 /obj/item/clothing/glasses/goggles/attack_self(mob/user as mob)
 	var/obj/item/clothing/mask/urist/bandana/leather/S = new /obj/item/clothing/mask/urist/bandana/leather(src.loc)
