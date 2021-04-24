@@ -279,7 +279,7 @@ transit/east is the same thing now AFAIK
 	name = "road"
 	desc = "It's a road. It's seen better days."
 	icon = 'icons/urist/turf/floorsplus.dmi'
-	icon_state = ""
+	icon_state = "innermiddle"
 
 /turf/simulated/floor/fixed/destroyedroad/attackby(var/obj/item/C, var/mob/user)
 	if(isCrowbar(C))
@@ -291,6 +291,12 @@ transit/east is the same thing now AFAIK
 	return
 //	if(severity == 1)
 //		ChangeTurf(get_base_turf_by_area(src))
+
+/turf/simulated/floor/fixed/destroyedroad/planet
+	light_max_bright = 0.4
+	light_inner_range = 0.1
+	light_outer_range = 1.5
+	light_falloff_curve = 0.5
 
 /turf/simulated/floor/fixed/destroyedroad/planet/Initialize()
 	light_color = SSskybox.BGcolor

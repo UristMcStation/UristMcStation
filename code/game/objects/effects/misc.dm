@@ -98,3 +98,6 @@
 
 /obj/effect/paint_stripe/beige
 	color = COLOR_BEIGE
+
+/obj/effect/paint_stripe/sun
+	color = COLOR_SUN

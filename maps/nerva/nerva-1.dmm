@@ -3272,10 +3272,6 @@
 /obj/random/medical,
 /obj/random/medical,
 /obj/structure/table/steel_reinforced,
-/obj/effect/floor_decal/corner/green{
-	dir = 10;
-	icon_state = "corner_white"
-	},
 /obj/item/bodybag/cryobag,
 /turf/simulated/floor/tiled,
 /area/exploration_shuttle/main)
@@ -20484,6 +20480,12 @@
 	icon_state = "camera";
 	tag = "icon-camera (WEST)"
 	},
+/obj/machinery/access_button/airlock_exterior{
+	frequency = 1331;
+	master_tag = "hadrian_shuttle";
+	pixel_x = 22;
+	pixel_y = 0
+	},
 /turf/simulated/floor/plating/airless,
 /area/hadrian/main)
 "KF" = (
@@ -20980,7 +20982,7 @@
 "NG" = (
 /obj/machinery/shipsensors,
 /obj/structure/cable/cyan,
-/turf/simulated/floor/tiled/techfloor/grid,
+/turf/simulated/floor/tiled/techfloor/airless,
 /area/hadrian/main)
 "NJ" = (
 /obj/machinery/ai_status_display,
@@ -23039,15 +23041,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
-"XM" = (
-/obj/machinery/access_button/airlock_exterior{
-	frequency = 1331;
-	master_tag = "hadrian_shuttle";
-	pixel_x = 22;
-	pixel_y = -22
-	},
-/turf/space,
-/area/space)
 "XN" = (
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/plating,
@@ -46716,7 +46709,7 @@ Hi
 TV
 nT
 aa
-XM
+aa
 KE
 RV
 HD

@@ -99,6 +99,7 @@
 	cold_protection = FACE
 	body_parts_covered = HEAD
 	slot_flags = SLOT_MASK
+	flags_inv = HIDEFACE
 
 /obj/item/clothing/mask/urist/bandana/leather/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/stack/material/glass))
