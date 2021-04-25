@@ -144,10 +144,9 @@
 	name = "debris pile"
 	parts_icon = 'icons/urist/structures&machinery/scrap/vehicle.dmi'
 	loot_list = list(
-		/obj/item/vehicle_part/random,
-		/obj/item/vehicle_part/random,
-		/obj/item/vehicle_part/random,
-		/obj/item/vehicle_part/random,
+		/obj/item/vehicle_part/battery,
+		/obj/item/vehicle_part/tire,
+		/obj/item/vehicle_part/transmission,
 		/obj/item/stack/rods/scrap,
 		/obj/item/stack/material/plastic/scrap,
 		/obj/item/stack/material/steel/scrap,

@@ -36,7 +36,7 @@
 			var/mob/living/simple_animal/hostile/overmapship/S = new newship(get_turf(src))
 			S.home_station = src
 			if(S.faction != faction)
-				S.faction = faction //just in case
+				S.hiddenfaction = faction //just in case
 
 //			spawned_ships += S
 			ship_amount++
