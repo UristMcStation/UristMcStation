@@ -2,6 +2,7 @@
 	name = "alien technology"
 	icon = 'icons/obj/stock_parts.dmi'
 	w_class = 2
+	origin_tech = "magnets=7;materials=6;engineering=3;powerstorage=7;"
 
 /obj/item/scom/science/New()
 	icon_state = pick("capacitor", "micro_laser", "micro_mani", "matter_bin", "scan_module")
