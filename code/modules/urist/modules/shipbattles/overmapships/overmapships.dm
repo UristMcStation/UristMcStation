@@ -31,8 +31,8 @@
 	turns_per_move = 10 //make this influenced by the engine on a ship
 	autonomous = TRUE
 
-/mob/living/simple_animal/hostile/overmapship/New()
-	..()
+/mob/living/simple_animal/hostile/overmapship/Initialize()
+	.=..()
 
 	for(var/datum/shipcomponents/C in src.components)
 		C.mastership = src
@@ -42,16 +42,10 @@
 
 	for(var/datum/shipcomponents/shield/S in src.components)
 		shields = S.strength
-		return
 
 	name = ship_category //once i get names, flesh this out
+	faction = "neutral" //come back to this
 
-//	var/datum/ships/SD = shipdatum
-
-//	src.shields = SD.shields
-//	src.health = SD.health
-//	src.faction = SD.faction
-//	src.name = SD.name
 
 /mob/living/simple_animal/hostile/overmapship/Allow_Spacemove(var/check_drift = 0)
 	return 1	//No drifting in space for space carp!	//original comments do not steal

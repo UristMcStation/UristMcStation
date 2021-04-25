@@ -1119,7 +1119,7 @@
 	density = 1
 
 /obj/machinery/atmospherics/pipe/tank/Initialize()
-	icon_state = "air"
+//	icon_state = "air"
 	initialize_directions = dir
 	. = ..()
 

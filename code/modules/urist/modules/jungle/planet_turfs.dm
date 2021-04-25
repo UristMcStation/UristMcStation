@@ -701,6 +701,13 @@
 /turf/simulated/floor/planet/dirt/city
 	misc_plant_type = /obj/structure/flora/ausbushes/sparsegrass
 	planet_light = FALSE
+	light_falloff_curve = 2
+	light_inner_range = 1
+	light_max_bright = 1
+	light_outer_range = 0
+
+/turf/simulated/floor/planet/dirt/city/clear
+	misc_plant_spawn_chance = 0
 
 //arid dirt
 

@@ -55,7 +55,7 @@
 	scomtechlvl = 6
 	scommoney = 1000
 	icon_state = "xeno-hmg"
-	origin_tech = "combat=7;magnets=5;materials=5;engineering=3;powerstorage=5;"
+	origin_tech = "combat=8;magnets=5;materials=5;engineering=3;powerstorage=5;"
 
 /obj/item/scom/borgmodkit
 	name = "cyborg mod kit - Combat"

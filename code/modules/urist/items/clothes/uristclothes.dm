@@ -1191,6 +1191,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "leather protective suit"
 	desc = "A full-body suit meant to protect against the elements."
 	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristSuit.dmi')
+	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency,/obj/item/weapon/melee/energy/sword)
 
 /obj/item/clothing/under/urist/cowboy
 	name = "cowboy's outfit"

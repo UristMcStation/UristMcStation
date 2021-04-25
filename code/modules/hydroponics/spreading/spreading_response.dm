@@ -7,6 +7,9 @@
 	if(!istype(M))
 		return
 
+	if(!M.client)
+		return
+
 	if(!buckled_mob && !M.buckled && !M.anchored && (issmall(M) || prob(round(seed.get_trait(TRAIT_POTENCY)/6))))
 		//wait a tick for the Entered() proc that called HasProximity() to finish (and thus the moving animation),
 		//so we don't appear to teleport from two tiles away when moving into a turf adjacent to vines.
@@ -27,6 +30,8 @@
 
 /obj/effect/vine/proc/trodden_on(var/mob/living/victim)
 	wake_neighbors()
+	if(!victim.client)
+		return
 	if(!is_mature())
 		return
 	if(prob(seed.get_trait(((TRAIT_POTENCY)/2)*3)))
