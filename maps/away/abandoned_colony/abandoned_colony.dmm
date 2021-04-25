@@ -4,15 +4,15 @@
 "ad" = (/obj/structure/curtain/black,/obj/effect/wallframe_spawn/reinforced,/turf/simulated/floor/plating,/area/planet/abandoned_colony)
 "ae" = (/obj/structure/hygiene/shower{dir = 4; icon_state = "shower"; pixel_x = 0},/turf/simulated/floor/tiled/freezer,/area/planet/abandoned_colony)
 "af" = (/obj/structure/hygiene/sink{dir = 4; icon_state = "sink"; pixel_x = 11; pixel_y = 0},/turf/simulated/floor/tiled/freezer,/area/planet/abandoned_colony)
-"ag" = (/obj/structure/bed,/obj/item/weapon/bedsheet/blue,/obj/machinery/light/colored/green{tag = "icon-green1 (EAST)"; icon_state = "green1"; dir = 4},/obj/random/plushie,/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
+"ag" = (/obj/structure/bed,/obj/item/weapon/bedsheet/blue,/obj/random/handgun,/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
 "ah" = (/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
-"ai" = (/obj/structure/bed,/obj/item/weapon/bedsheet/blue,/obj/machinery/light/colored/green{tag = "icon-green1 (WEST)"; icon_state = "green1"; dir = 8},/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
+"ai" = (/obj/structure/bed,/obj/item/weapon/bedsheet/blue,/obj/random/toy,/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
 "aj" = (/obj/structure/hygiene/sink{icon_state = "sink"; dir = 8; pixel_x = -12; pixel_y = 2},/turf/simulated/floor/tiled/freezer,/area/planet/abandoned_colony)
 "ak" = (/obj/structure/hygiene/shower{tag = "icon-shower (WEST)"; icon_state = "shower"; dir = 8; pixel_x = 5},/turf/simulated/floor/tiled/freezer,/area/planet/abandoned_colony)
 "al" = (/turf/simulated/floor/pavement/empty,/area/planet/abandoned_colony)
 "am" = (/turf/simulated/floor/fixed/uristturf/geminus{color = "#cccccc"; icon_state = "square_grey"; tag = "icon-tiled1"},/area/planet/abandoned_colony)
 "an" = (/obj/structure/hygiene/sink{dir = 4; icon_state = "sink"; pixel_x = 11; pixel_y = 0},/obj/random/toolbox,/turf/simulated/floor/tiled/freezer,/area/planet/abandoned_colony)
-"ao" = (/obj/structure/bed,/obj/item/weapon/bedsheet/blue,/obj/machinery/light/colored/green{tag = "icon-green1 (WEST)"; icon_state = "green1"; dir = 8},/obj/random/toy,/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
+"ao" = (/obj/structure/hygiene/toilet{dir = 4},/obj/machinery/light/colored/green,/turf/simulated/floor/tiled/freezer,/area/planet/abandoned_colony)
 "ap" = (/obj/machinery/light/street,/turf/simulated/floor/pavement/empty,/area/planet/abandoned_colony)
 "aq" = (/turf/simulated/floor/planet/dirt/city,/area/planet/abandoned_colony)
 "ar" = (/obj/machinery/light/small{dir = 1},/turf/simulated/floor/tiled/freezer,/area/planet/abandoned_colony)
@@ -27,10 +27,10 @@
 "aA" = (/obj/effect/floor_decal/industrial/warning{icon_state = "warning"; dir = 1},/obj/structure/grille,/turf/simulated/floor/pavement/empty,/area/planet/abandoned_colony)
 "aB" = (/obj/structure/table/steel,/obj/item/weapon/folder/yellow,/obj/item/device/eftpos{eftpos_name = "Cargo Bay EFTPOS scanner"},/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-redyellowfull"; icon_state = "redyellowfull"},/area/planet/abandoned_colony)
 "aC" = (/obj/structure/hygiene/toilet{dir = 4},/turf/simulated/floor/tiled/freezer,/area/planet/abandoned_colony)
-"aD" = (/obj/machinery/light/colored/green{tag = "icon-green1 (WEST)"; icon_state = "green1"; dir = 8},/turf/simulated/floor/tiled/freezer,/area/planet/abandoned_colony)
+"aD" = (/obj/structure/closet/secure_closet,/obj/random/handgun,/obj/machinery/light/colored/green,/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
 "aE" = (/obj/structure/closet/secure_closet,/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
 "aF" = (/obj/random/shoes,/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
-"aG" = (/obj/machinery/light/colored/green{tag = "icon-green1 (EAST)"; icon_state = "green1"; dir = 4},/turf/simulated/floor/tiled/freezer,/area/planet/abandoned_colony)
+"aG" = (/obj/structure/closet/secure_closet,/obj/machinery/light/colored/green,/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
 "aH" = (/obj/structure/hygiene/toilet{dir = 8},/turf/simulated/floor/tiled/freezer,/area/planet/abandoned_colony)
 "aI" = (/obj/random/trash,/turf/simulated/floor/fixed/uristturf/geminus{color = "#cccccc"; icon_state = "square_grey"; tag = "icon-tiled1"},/area/planet/abandoned_colony)
 "aJ" = (/obj/structure/hygiene/toilet{dir = 4},/obj/machinery/light/small,/turf/simulated/floor/tiled/freezer,/area/planet/abandoned_colony)
@@ -49,7 +49,7 @@
 "aW" = (/obj/effect/floor_decal/industrial/warning{tag = "icon-warning (NORTHWEST)"; icon_state = "warning"; dir = 9},/turf/simulated/floor/tiled,/area/planet/abandoned_colony)
 "aX" = (/obj/effect/floor_decal/industrial/warning{tag = "icon-warning (NORTH)"; icon_state = "warning"; dir = 1},/turf/simulated/floor/tiled,/area/planet/abandoned_colony)
 "aY" = (/obj/effect/floor_decal/industrial/warning{tag = "icon-warning (NORTHEAST)"; icon_state = "warning"; dir = 5},/turf/simulated/floor/tiled,/area/planet/abandoned_colony)
-"aZ" = (/obj/machinery/light/colored{tag = "icon-yellow1 (WEST)"; icon_state = "yellow1"; dir = 8},/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-redyellowfull"; icon_state = "redyellowfull"},/area/planet/abandoned_colony)
+"aZ" = (/obj/structure/hygiene/toilet{dir = 8},/obj/machinery/light/colored/green,/turf/simulated/floor/tiled/freezer,/area/planet/abandoned_colony)
 "ba" = (/obj/structure/table/standard,/obj/item/weapon/spacecash/bundle/c100,/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
 "bb" = (/obj/machinery/light/colored/green{tag = "icon-green1 (NORTH)"; icon_state = "green1"; dir = 1},/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
 "bc" = (/obj/structure/table/standard,/obj/random/coin,/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
@@ -57,7 +57,7 @@
 "be" = (/obj/random/junk,/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
 "bf" = (/obj/structure/table/standard,/obj/random/coin,/obj/random/junk,/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
 "bg" = (/obj/effect/floor_decal/industrial/hatch/yellow,/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-old_tile_black_dirt"; icon_state = "old_tile_black_dirt"},/area/planet/abandoned_colony)
-"bh" = (/obj/machinery/navbeacon{location = "QM #1"},/obj/machinery/light/colored{tag = "icon-yellow1 (WEST)"; icon_state = "yellow1"; dir = 8},/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-old_tile_black_dirt"; icon_state = "old_tile_black_dirt"},/area/planet/abandoned_colony)
+"bh" = (/obj/structure/closet/secure_closet,/obj/random/ammo_magazine_smug,/obj/machinery/light/colored/green,/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
 "bi" = (/obj/machinery/requests_console{department = "Cargo Bay"; departmentType = 2; pixel_x = -30; pixel_y = 0},/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-redyellowfull"; icon_state = "redyellowfull"},/area/planet/abandoned_colony)
 "bj" = (/obj/machinery/conveyor_switch{id = "cargoserve"; name = "cargo service switch"},/obj/effect/floor_decal/industrial/warning{tag = "icon-warning (WEST)"; icon_state = "warning"; dir = 8},/turf/simulated/floor/tiled,/area/planet/abandoned_colony)
 "bk" = (/obj/machinery/conveyor{id = "cargoserve"; name = "cargo service belt"},/turf/simulated/floor/tiled,/area/planet/abandoned_colony)
@@ -84,9 +84,9 @@
 "bF" = (/obj/structure/table/rack,/obj/random/loot,/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
 "bG" = (/obj/structure/table/standard,/obj/random/technology_scanner,/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
 "bH" = (/obj/structure/closet/secure_closet/courtroom,/turf/simulated/floor/carpet,/area/planet/abandoned_colony)
-"bI" = (/obj/machinery/light/colored{tag = "icon-yellow1 (EAST)"; icon_state = "yellow1"; dir = 4},/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-old_tile_black_dirt"; icon_state = "old_tile_black_dirt"},/area/planet/abandoned_colony)
+"bI" = (/obj/machinery/light/colored{tag = "icon-yellow1 (EAST)"; icon_state = "yellow1"; dir = 4},/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-redyellowfull"; icon_state = "redyellowfull"},/area/planet/abandoned_colony)
 "bJ" = (/obj/machinery/door/airlock,/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-old_tile_black_dirt"; icon_state = "old_tile_black_dirt"},/area/planet/abandoned_colony)
-"bK" = (/obj/machinery/navbeacon{location = "QM #3"},/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-old_tile_black_dirt"; icon_state = "old_tile_black_dirt"},/area/planet/abandoned_colony)
+"bK" = (/obj/machinery/navbeacon{location = "QM #1"},/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-old_tile_black_dirt"; icon_state = "old_tile_black_dirt"},/area/planet/abandoned_colony)
 "bL" = (/obj/effect/floor_decal/corner/beige{tag = "icon-corner_white (NORTHWEST)"; icon_state = "corner_white"; dir = 9},/obj/effect/floor_decal/corner/pink{tag = "icon-corner_white (NORTHEAST)"; icon_state = "corner_white"; dir = 5},/turf/simulated/floor/tiled,/area/planet/abandoned_colony)
 "bM" = (/obj/effect/floor_decal/corner/pink{tag = "icon-corner_white (NORTHEAST)"; icon_state = "corner_white"; dir = 5},/turf/simulated/floor/tiled,/area/planet/abandoned_colony)
 "bN" = (/obj/effect/floor_decal/industrial/loading,/obj/effect/floor_decal/corner/pink{tag = "icon-corner_white (NORTHEAST)"; icon_state = "corner_white"; dir = 5},/turf/simulated/floor/tiled,/area/planet/abandoned_colony)
@@ -98,9 +98,9 @@
 "bT" = (/obj/structure/table/steel,/obj/item/weapon/storage/bag/plasticbag,/obj/item/weapon/storage/bag/plasticbag,/obj/item/weapon/storage/bag/plasticbag,/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-old_tile_black_dirt"; icon_state = "old_tile_black_dirt"},/area/planet/abandoned_colony)
 "bU" = (/obj/effect/floor_decal/industrial/outline/yellow,/obj/structure/closet/crate,/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-old_tile_black_dirt"; icon_state = "old_tile_black_dirt"},/area/planet/abandoned_colony)
 "bV" = (/obj/machinery/navbeacon{location = "QM #4"},/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-old_tile_black_dirt"; icon_state = "old_tile_black_dirt"},/area/planet/abandoned_colony)
-"bW" = (/obj/machinery/light/colored{tag = "icon-yellow1 (EAST)"; icon_state = "yellow1"; dir = 4},/obj/effect/floor_decal/corner/beige{tag = "icon-corner_white (NORTHWEST)"; icon_state = "corner_white"; dir = 9},/turf/simulated/floor/tiled,/area/planet/abandoned_colony)
+"bW" = (/obj/machinery/light/colored{tag = "icon-yellow1 (WEST)"; icon_state = "yellow1"; dir = 8},/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-old_tile_black_dirt"; icon_state = "old_tile_black_dirt"},/area/planet/abandoned_colony)
 "bX" = (/turf/simulated/floor/tiled,/area/planet/abandoned_colony)
-"bY" = (/obj/machinery/light/colored{tag = "icon-yellow1 (WEST)"; icon_state = "yellow1"; dir = 8},/obj/effect/floor_decal/corner/beige{tag = "icon-corner_white (SOUTHEAST)"; icon_state = "corner_white"; dir = 6},/turf/simulated/floor/tiled,/area/planet/abandoned_colony)
+"bY" = (/obj/machinery/navbeacon{location = "QM #3"},/obj/effect/floor_decal/industrial/outline/yellow,/obj/machinery/light/colored{tag = "icon-yellow1 (EAST)"; icon_state = "yellow1"; dir = 4},/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-old_tile_black_dirt"; icon_state = "old_tile_black_dirt"},/area/planet/abandoned_colony)
 "bZ" = (/obj/random/trash,/turf/simulated/floor/pavement/empty,/area/planet/abandoned_colony)
 "ca" = (/obj/item/weapon/reagent_containers/syringe{desc = "Probably has at least five incurable STDs."; name = "dirty syringe"},/turf/simulated/floor/pavement/empty,/area/planet/abandoned_colony)
 "cb" = (/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-techfloor_white"; icon_state = "techfloor_white"},/area/planet/abandoned_colony)
@@ -119,8 +119,8 @@
 "co" = (/obj/effect/floor_decal/industrial/warning{icon_state = "warning"; dir = 1},/obj/effect/decal/cleanable/blood/drip,/turf/simulated/floor/fixed/uristturf/geminus{color = "#cccccc"; icon_state = "square_grey"; tag = "icon-tiled1"},/area/planet/abandoned_colony)
 "cp" = (/obj/machinery/light/street,/turf/simulated/floor/pavement{tag = "icon-pavement (WEST)"; icon_state = "pavement"; dir = 8},/area/planet/abandoned_colony)
 "cq" = (/turf/simulated/floor/tiled/techfloor/grid,/area/planet/abandoned_colony)
-"cr" = (/obj/structure/closet/secure_closet,/obj/random/handgun,/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
-"cs" = (/obj/structure/closet/secure_closet,/obj/random/ammo_magazine_smug,/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
+"cr" = (/obj/effect/floor_decal/corner/beige{tag = "icon-corner_white (NORTHWEST)"; icon_state = "corner_white"; dir = 9},/obj/machinery/light/colored{tag = "icon-yellow1 (WEST)"; icon_state = "yellow1"; dir = 8},/turf/simulated/floor/tiled,/area/planet/abandoned_colony)
+"cs" = (/obj/effect/floor_decal/corner/beige{tag = "icon-corner_white (SOUTHEAST)"; icon_state = "corner_white"; dir = 6},/obj/machinery/light/colored{tag = "icon-yellow1 (EAST)"; icon_state = "yellow1"; dir = 4},/turf/simulated/floor/tiled,/area/planet/abandoned_colony)
 "ct" = (/mob/living/simple_animal/hostile/scom/husk,/turf/simulated/floor/wood/walnut,/area/planet/abandoned_colony)
 "cu" = (/obj/structure/closet/crate/trashcart,/turf/simulated/floor/pavement/empty,/area/planet/abandoned_colony)
 "cv" = (/obj/effect/decal/cleanable/blood/drip,/turf/simulated/floor/fixed/uristturf/geminus{color = "#cccccc"; icon_state = "square_grey"; tag = "icon-tiled1"},/area/planet/abandoned_colony)
@@ -136,7 +136,7 @@
 "cF" = (/obj/machinery/door/airlock{name = "Bar Backroom"},/turf/simulated/floor/tiled/techfloor/grid,/area/planet/abandoned_colony)
 "cG" = (/obj/effect/decal/cleanable/blood,/turf/simulated/floor/pavement/empty,/area/planet/abandoned_colony)
 "cH" = (/obj/machinery/light/small,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/fixed/uristturf/geminus{color = "#cccccc"; icon_state = "square_grey"; tag = "icon-tiled1"},/area/planet/abandoned_colony)
-"cI" = (/turf/simulated/mineral/random,/area/planet/abandoned_colony)
+"cI" = (/obj/machinery/power/smes/buildable,/obj/machinery/light/coldtint{icon_state = "tube_map"; dir = 1},/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-old_tile_black_dirt"; icon_state = "old_tile_black_dirt"},/area/planet/abandoned_colony)
 "cJ" = (/obj/machinery/vending/boozeomat,/obj/machinery/light/colored/green{tag = "icon-green1 (NORTH)"; icon_state = "green1"; dir = 1},/turf/simulated/floor/tiled/techfloor/grid,/area/planet/abandoned_colony)
 "cK" = (/turf/simulated/floor/tiled/uristturf/geminus{icon_state = "tiles1"; tag = "icon-freezerfloor"},/area/planet/abandoned_colony)
 "cL" = (/obj/machinery/light/colored/green{tag = "icon-green1 (NORTH)"; icon_state = "green1"; dir = 1},/turf/simulated/floor/tiled/uristturf/geminus{icon_state = "tiles1"; tag = "icon-freezerfloor"},/area/planet/abandoned_colony)
@@ -155,14 +155,14 @@
 "cY" = (/obj/machinery/door/airlock,/turf/simulated/floor/tiled/steel_grid,/area/planet/abandoned_colony)
 "cZ" = (/turf/simulated/floor/tiled/steel_grid,/area/planet/abandoned_colony)
 "da" = (/obj/structure/sign/neon/disco{pixel_x = 32; pixel_y = 0},/turf/simulated/floor/pavement/empty,/area/planet/abandoned_colony)
-"db" = (/obj/machinery/light/colored/green{tag = "icon-green1 (WEST)"; icon_state = "green1"; dir = 8},/turf/simulated/floor/tiled/uristturf/geminus{icon_state = "tiles1"; tag = "icon-freezerfloor"},/area/planet/abandoned_colony)
+"db" = (/obj/structure/table/rack,/obj/item/weapon/pickaxe/old,/obj/random/handgun,/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
 "dc" = (/obj/machinery/door/airlock,/turf/simulated/floor/tiled/uristturf/geminus{icon_state = "tiled"},/area/planet/abandoned_colony)
 "dd" = (/obj/structure/closet/cabinet,/obj/item/clothing/under/casual_pants/camo,/obj/item/clothing/under/blazer,/turf/simulated/floor/tiled/uristturf/geminus{icon_state = "tiled"},/area/planet/abandoned_colony)
 "de" = (/obj/structure/table/rack,/obj/machinery/light/small{dir = 8},/turf/simulated/floor/tiled/steel_grid,/area/planet/abandoned_colony)
 "df" = (/obj/structure/table/rack,/turf/simulated/floor/tiled/steel_grid,/area/planet/abandoned_colony)
 "dg" = (/obj/structure/table/rack{icon = 'icons/obj/coatrack.dmi'; icon_state = "coatrack0"; name = "wooden coat rack"},/obj/item/clothing/under/cheongsam,/obj/machinery/light/small{dir = 8},/turf/simulated/floor/tiled/steel_grid,/area/planet/abandoned_colony)
 "dh" = (/obj/structure/table/rack{icon = 'icons/obj/coatrack.dmi'; icon_state = "coatrack0"; name = "wooden coat rack"},/obj/item/clothing/under/assistantformal,/turf/simulated/floor/tiled/steel_grid,/area/planet/abandoned_colony)
-"di" = (/obj/machinery/light/colored/green{tag = "icon-green1 (EAST)"; icon_state = "green1"; dir = 4},/turf/simulated/floor/tiled/uristturf/geminus{icon_state = "tiles1"; tag = "icon-freezerfloor"},/area/planet/abandoned_colony)
+"di" = (/obj/machinery/light/colored{tag = "icon-yellow1 (EAST)"; icon_state = "yellow1"; dir = 4},/turf/simulated/floor/tiled/uristturf/geminus{icon_state = "tiles1"; tag = "icon-freezerfloor"},/area/planet/abandoned_colony)
 "dj" = (/obj/structure/table/standard,/turf/simulated/floor/tiled/uristturf/geminus{icon_state = "tiled"},/area/planet/abandoned_colony)
 "dk" = (/obj/effect/wallframe_spawn/reinforced,/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-dark"; icon_state = "dark"},/area/planet/abandoned_colony)
 "dl" = (/obj/machinery/vending/snack,/turf/simulated/floor/tiled/uristturf/geminus{icon_state = "tiled"},/area/planet/abandoned_colony)
@@ -189,7 +189,7 @@
 "dG" = (/obj/machinery/light/small{dir = 4; pixel_y = 8},/obj/structure/reagent_dispensers/beerkeg,/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-old_tile_black_dirt"; icon_state = "old_tile_black_dirt"},/area/planet/abandoned_colony)
 "dH" = (/obj/structure/table/standard,/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-old_tile_black_dirt"; icon_state = "old_tile_black_dirt"},/area/planet/abandoned_colony)
 "dI" = (/obj/random/trash,/obj/structure/grille,/turf/simulated/floor/pavement/empty,/area/planet/abandoned_colony)
-"dJ" = (/obj/item/weapon/stool/bar,/obj/machinery/light/colored{tag = "icon-yellow1 (EAST)"; icon_state = "yellow1"; dir = 4},/turf/simulated/floor/pavement/empty,/area/planet/abandoned_colony)
+"dJ" = (/obj/machinery/light/colored{tag = "icon-yellow1 (WEST)"; icon_state = "yellow1"; dir = 8},/turf/simulated/floor/tiled/uristturf/geminus{icon_state = "tiles1"; tag = "icon-freezerfloor"},/area/planet/abandoned_colony)
 "dK" = (/obj/item/weapon/stool/bar,/turf/simulated/floor/pavement/empty,/area/planet/abandoned_colony)
 "dL" = (/obj/machinery/door/airlock,/turf/simulated/floor/fixed/uristturf/geminus{color = "#cccccc"; icon_state = "square_grey"; tag = "icon-tiled1"},/area/planet/abandoned_colony)
 "dM" = (/obj/machinery/door/airlock{name = "Bar Backroom"},/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-old_tile_black_dirt"; icon_state = "old_tile_black_dirt"},/area/planet/abandoned_colony)
@@ -411,7 +411,7 @@
 "hU" = (/obj/structure/table/woodentable/walnut,/obj/machinery/door/blast/shutters,/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-old_tile_black_dirt"; icon_state = "old_tile_black_dirt"},/area/planet/abandoned_colony)
 "hV" = (/obj/structure/table/woodentable/walnut,/obj/machinery/light/small{dir = 1},/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
 "hW" = (/obj/effect/decal/cleanable/cobweb2,/obj/structure/table/woodentable/walnut,/obj/item/seeds/poppyseed,/obj/item/seeds/poppyseed,/obj/item/seeds/poppyseed,/obj/item/seeds/poppyseed,/obj/item/seeds/poppyseed,/obj/item/seeds/poppyseed,/obj/item/seeds/poppyseed,/obj/item/seeds/poppyseed,/obj/item/seeds/poppyseed,/obj/item/seeds/poppyseed,/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-old_tile_black_dirt"; icon_state = "old_tile_black_dirt"},/area/planet/abandoned_colony)
-"hX" = (/obj/machinery/light_switch{dir = 2; name = "light switch "; pixel_x = 0; pixel_y = 22},/turf/simulated/floor/wood/walnut,/area/planet/abandoned_colony)
+"hX" = (/obj/structure/hygiene/shower{tag = "icon-shower (WEST)"; icon_state = "shower"; dir = 8; pixel_x = 5},/obj/machinery/light/coldtint{icon_state = "tube_map"; dir = 1},/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-old_tile_black_dirt"; icon_state = "old_tile_black_dirt"},/area/planet/abandoned_colony)
 "hY" = (/obj/structure/sign/neon/beer{pixel_x = -32},/turf/simulated/floor/pavement/empty,/area/planet/abandoned_colony)
 "hZ" = (/obj/structure/bed/padded,/obj/item/weapon/bedsheet/brown,/obj/machinery/light/small{dir = 8},/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
 "ia" = (/obj/effect/decal/cleanable/vomit,/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
@@ -474,7 +474,7 @@
 "jf" = (/obj/effect/decal/cleanable/vomit,/turf/simulated/floor/plating,/area/planet/abandoned_colony)
 "jg" = (/obj/structure/table/woodentable/walnut,/obj/machinery/reagentgrinder,/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-old_tile_black_dirt"; icon_state = "old_tile_black_dirt"},/area/planet/abandoned_colony)
 "jh" = (/obj/effect/wallframe_spawn/reinforced,/obj/structure/barricade,/turf/simulated/floor/plating,/area/planet/abandoned_colony)
-"ji" = (/obj/machinery/power/port_gen/pacman/super/potato,/obj/machinery/light/small{dir = 8},/turf/simulated/floor,/area/planet/abandoned_colony)
+"ji" = (/obj/machinery/power/port_gen/pacman/super/potato,/obj/machinery/light/coldtint{icon_state = "tube_map"; dir = 8},/turf/simulated/floor,/area/planet/abandoned_colony)
 "jj" = (/turf/simulated/floor/plating,/area/planet/abandoned_colony)
 "jk" = (/obj/structure/table/rack,/obj/random/contraband,/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
 "jl" = (/obj/machinery/light_construct/small{tag = "icon-bulb-construct-stage1 (EAST)"; icon_state = "bulb-construct-stage1"; dir = 4},/turf/simulated/floor/tiled/uristturf/geminus{icon_state = "tiled"},/area/planet/abandoned_colony)
@@ -625,7 +625,7 @@
 "ma" = (/obj/machinery/light/colored/green{tag = "icon-green1 (WEST)"; icon_state = "green1"; dir = 8},/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
 "mb" = (/obj/item/remains/human,/obj/machinery/light/colored/green{tag = "icon-green1 (NORTH)"; icon_state = "green1"; dir = 1},/turf/simulated/floor/tiled,/area/planet/abandoned_colony)
 "mc" = (/obj/item/remains/human,/turf/simulated/floor/tiled,/area/planet/abandoned_colony)
-"md" = (/obj/structure/sign/poster,/turf/unsimulated/wall/urist/other/border,/area/planet/abandoned_colony)
+"md" = (/obj/effect/floor_decal/rust,/obj/machinery/light/coldtint,/mob/living/simple_animal/hostile/scom/forgotten,/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-old_tile_black_dirt"; icon_state = "old_tile_black_dirt"},/area/planet/abandoned_colony)
 "me" = (/obj/structure/table/standard,/turf/simulated/floor/tiled,/area/planet/abandoned_colony)
 "mf" = (/obj/structure/table/standard,/obj/machinery/microwave,/turf/simulated/floor/tiled,/area/planet/abandoned_colony)
 "mg" = (/obj/structure/table/rack,/obj/random/tool,/obj/random/toolbox,/turf/simulated/floor/tiled,/area/planet/abandoned_colony)
@@ -801,10 +801,10 @@
 "pu" = (/mob/living/simple_animal/hostile/scom/husk,/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
 "pv" = (/obj/machinery/light{dir = 4},/turf/simulated/floor/tiled/freezer,/area/planet/abandoned_colony)
 "pw" = (/obj/item/weapon/stool/padded,/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
-"px" = (/obj/effect/floor_decal/chapel{tag = "icon-chapel (NORTH)"; icon_state = "chapel"; dir = 1},/obj/item/weapon/stool/padded,/obj/machinery/light/colored{tag = "icon-yellow1 (EAST)"; icon_state = "yellow1"; dir = 4},/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
+"px" = (/obj/structure/closet/secure_closet/engineering_welding{req_access = newlist()},/obj/machinery/light/coldtint,/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-old_tile_black_dirt"; icon_state = "old_tile_black_dirt"},/area/planet/abandoned_colony)
 "py" = (/obj/effect/floor_decal/chapel{tag = "icon-chapel (EAST)"; icon_state = "chapel"; dir = 4},/obj/item/weapon/stool/padded,/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
 "pz" = (/obj/effect/floor_decal/chapel{tag = "icon-chapel (NORTH)"; icon_state = "chapel"; dir = 1},/obj/item/weapon/stool/padded,/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
-"pA" = (/obj/effect/floor_decal/chapel{tag = "icon-chapel (EAST)"; icon_state = "chapel"; dir = 4},/obj/item/weapon/stool/padded,/obj/machinery/light/colored{tag = "icon-yellow1 (WEST)"; icon_state = "yellow1"; dir = 8},/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
+"pA" = (/obj/item/weapon/stool/bar,/obj/machinery/light/colored{tag = "icon-yellow1 (WEST)"; icon_state = "yellow1"; dir = 8},/turf/simulated/floor/pavement/empty,/area/planet/abandoned_colony)
 "pB" = (/obj/machinery/recharge_station,/turf/simulated/floor/plating,/area/planet/abandoned_colony)
 "pC" = (/obj/machinery/telecomms/receiver,/turf/simulated/floor/plating,/area/planet/abandoned_colony)
 "pD" = (/obj/machinery/telecomms/bus,/turf/simulated/floor/plating,/area/planet/abandoned_colony)
@@ -864,7 +864,7 @@
 "qF" = (/obj/machinery/power/terminal{icon_state = "term"; dir = 1},/mob/living/simple_animal/hostile/scom/forgotten,/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-old_tile_black_dirt"; icon_state = "old_tile_black_dirt"},/area/planet/abandoned_colony)
 "qG" = (/obj/machinery/atmospherics/unary/vent_pump/on,/obj/structure/table/rack,/obj/random/tank,/obj/random/tank,/obj/item/weapon/tank/phoron,/obj/item/weapon/tank/oxygen,/obj/random/toolbox,/turf/simulated/floor/plating,/area/morninglight/atmos)
 "qH" = (/mob/living/simple_animal/hostile/scom/lactera/light,/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-0,15.1"; icon_state = "0,15.1"},/area/planet/abandoned_colony)
-"qI" = (/obj/machinery/light/colored/red{icon_state = "red1"; dir = 4},/turf/simulated/floor/pavement/empty,/area/planet/abandoned_colony)
+"qI" = (/turf/simulated/floor/fixed/destroyedroad{icon_state = "innermiddle"},/obj/effect/decal/mecha_wreckage/smallfighter,/turf/simulated/floor/fixed/destroyedroad{tag = "icon-dottedvertical"; icon_state = "dottedvertical"},/area/planet/abandoned_colony)
 "qJ" = (/obj/machinery/light{dir = 1},/turf/simulated/floor/plating,/area/planet/abandoned_colony)
 "qK" = (/obj/machinery/light{dir = 8},/turf/simulated/floor/plating,/area/planet/abandoned_colony)
 "qL" = (/obj/machinery/light{dir = 4},/turf/simulated/floor/plating,/area/planet/abandoned_colony)
@@ -874,7 +874,7 @@
 "qP" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 6; icon_state = "intact-supply"},/turf/simulated/floor/tiled/freezer,/area/morninglight/main)
 "qQ" = (/obj/effect/floor_decal/rust,/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-old_tile_black_dirt"; icon_state = "old_tile_black_dirt"},/area/planet/abandoned_colony)
 "qR" = (/obj/effect/paint/red,/turf/simulated/wall/titanium,/area/morninglight/cargo)
-"qS" = (/turf/simulated/floor/fixed/destroyedroad{icon_state = "innermiddle"},/obj/effect/decal/mecha_wreckage/smallfighter,/turf/simulated/floor/fixed/destroyedroad{tag = "icon-dottedvertical"; icon_state = "dottedvertical"},/area/planet/abandoned_colony)
+"qS" = (/obj/machinery/light/colored/red{icon_state = "red1"; dir = 8},/turf/simulated/floor/pavement/empty,/area/planet/abandoned_colony)
 "qT" = (/obj/machinery/atmospherics/pipe/simple/hidden/universal{dir = 4},/obj/machinery/alarm{dir = 1; icon_state = "alarm0"; pixel_y = -22},/turf/simulated/floor/plating,/area/morninglight/atmos)
 "qU" = (/obj/machinery/atmospherics/pipe/manifold/hidden/supply{dir = 1; icon_state = "map-supply"},/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{dir = 8; icon_state = "map-scrubbers"},/obj/structure/cable/cyan{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/plating,/area/morninglight/atmos)
 "qV" = (/obj/machinery/pipedispenser/orderable,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 9},/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8},/turf/simulated/floor/plating,/area/morninglight/atmos)
@@ -936,7 +936,7 @@
 "rZ" = (/obj/structure/table/rack,/obj/random/hat,/turf/simulated/floor/tiled/uristturf/geminus{icon_state = "tiled"},/area/planet/abandoned_colony)
 "sa" = (/obj/structure/table/steel,/obj/item/weapon/storage/toolbox/emergency,/obj/item/weapon/storage/toolbox/electrical,/obj/item/weapon/storage/toolbox/mechanical,/obj/effect/floor_decal/corner/yellow{tag = "icon-corner_white (SOUTHWEST)"; icon_state = "corner_white"; dir = 10},/turf/simulated/floor/tiled,/area/planet/abandoned_colony)
 "sb" = (/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"},/obj/structure/closet/emcloset,/obj/item/weapon/tank/oxygen,/obj/random/firstaid,/turf/simulated/floor/tiled/techmaint,/area/morninglight/entrance)
-"sc" = (/turf/simulated/floor/fixed/destroyedroad{icon_state = "innermiddle"},/obj/effect/decal/mecha_wreckage/smallfighter,/turf/simulated/floor/fixed/destroyedroad{tag = "icon-doublehorizontal"; icon_state = "doublehorizontal"},/area/planet/abandoned_colony)
+"sc" = (/obj/effect/floor_decal/chapel{tag = "icon-chapel (NORTH)"; icon_state = "chapel"; dir = 1},/obj/item/weapon/stool/padded,/obj/machinery/light/colored{tag = "icon-yellow1 (WEST)"; icon_state = "yellow1"; dir = 8},/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
 "sd" = (/obj/effect/urist/spawn_bomb/abandoned,/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-bar"; icon_state = "bar"},/area/planet/abandoned_colony)
 "se" = (/obj/effect/floor_decal/rust,/turf/simulated/floor/plating,/area/planet/abandoned_colony)
 "sf" = (/obj/effect/floor_decal/rust,/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
@@ -969,7 +969,7 @@
 "sG" = (/obj/structure/cable/cyan{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/light{dir = 8},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled/techmaint,/area/morninglight/main)
 "sH" = (/obj/structure/window/basic{dir = 8},/obj/structure/window/basic,/obj/structure/table/standard,/obj/item/weapon/defibrillator/loaded,/obj/item/auto_cpr,/obj/item/weapon/reagent_containers/glass/beaker/cryoxadone{pixel_x = 7; pixel_y = 1},/obj/item/weapon/reagent_containers/glass/beaker/cryoxadone{pixel_x = 7; pixel_y = 1},/obj/item/roller,/obj/item/device/healthanalyzer,/obj/effect/floor_decal/corner/paleblue/three_quarters,/turf/simulated/floor/tiled/white,/area/morninglight/main)
 "sI" = (/obj/structure/table/standard,/obj/item/weapon/reagent_containers/food/drinks/coffeecup/metal,/obj/item/weapon/dice,/obj/machinery/alarm{dir = 1; icon_state = "alarm0"; pixel_y = -24; tag = "icon-alarm0 (NORTH)"},/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 1},/obj/structure/cable/cyan{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/tiled/techfloor,/area/morninglight/main)
-"sJ" = (/obj/structure/hygiene/shower{tag = "icon-shower (WEST)"; icon_state = "shower"; dir = 8; pixel_x = 5},/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-old_tile_black_dirt"; icon_state = "old_tile_black_dirt"},/area/planet/abandoned_colony)
+"sJ" = (/turf/simulated/floor/fixed/destroyedroad{icon_state = "innermiddle"},/obj/effect/decal/mecha_wreckage/smallfighter,/turf/simulated/floor/fixed/destroyedroad{tag = "icon-doublehorizontal"; icon_state = "doublehorizontal"},/area/planet/abandoned_colony)
 "sK" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 1},/obj/structure/cable/cyan{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/tiled/techfloor,/area/morninglight/main)
 "sL" = (/obj/structure/table/standard,/obj/machinery/microwave,/obj/structure/cable/cyan{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/tiled/techfloor,/area/morninglight/main)
 "sM" = (/obj/effect/wallframe_spawn/reinforced/titanium,/obj/machinery/door/blast/regular/open{density = 0; dir = 4; icon_state = "pdoor0"; id = "morninglight_shutters"; name = "Protective Shutters"; opacity = 0},/obj/structure/cable/cyan{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating,/area/morninglight/main)
@@ -996,6 +996,8 @@
 "th" = (/obj/effect/floor_decal/corner/yellow{dir = 6},/obj/structure/cable/cyan{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{icon_state = "intact-supply"; dir = 4},/turf/simulated/floor/tiled/dark,/area/morninglight/cargo)
 "ti" = (/obj/machinery/door/airlock/hatch{name = "Shuttle Cargo"},/obj/structure/cable/cyan{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{icon_state = "intact-supply"; dir = 4},/turf/simulated/floor/tiled/techmaint,/area/morninglight/cargo)
 "tj" = (/obj/structure/cable/cyan{d1 = 2; d2 = 8; icon_state = "2-8"},/obj/structure/cable/cyan{d1 = 2; d2 = 4; icon_state = "2-4"},/obj/machinery/atmospherics/pipe/manifold/hidden/supply{icon_state = "map-supply"; dir = 1},/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{dir = 1; icon_state = "map-scrubbers"},/turf/simulated/floor/tiled/techmaint,/area/morninglight/entrance)
+"tk" = (/obj/effect/floor_decal/chapel{tag = "icon-chapel (EAST)"; icon_state = "chapel"; dir = 4},/obj/item/weapon/stool/padded,/obj/machinery/light/colored{tag = "icon-yellow1 (EAST)"; icon_state = "yellow1"; dir = 4},/turf/simulated/floor/tiled/dark,/area/planet/abandoned_colony)
+"tl" = (/obj/item/weapon/stool/bar,/obj/machinery/light/colored/purple{icon_state = "purple1"; dir = 4},/turf/simulated/floor/pavement/empty,/area/planet/abandoned_colony)
 "tr" = (/obj/machinery/recharge_station,/turf/simulated/floor/plating,/area/morninglight/engineering)
 "tt" = (/obj/effect/shuttle_landmark/nav_abandoned_colony/morninglight,/obj/structure/cable/cyan{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/atmospherics/pipe/manifold/hidden/supply{icon_state = "map-supply"; dir = 1},/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,/turf/simulated/floor/tiled/techmaint,/area/morninglight/entrance)
 "tu" = (/obj/structure/cable/cyan{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{icon_state = "intact-supply"; dir = 4},/turf/simulated/floor/tiled/techmaint,/area/morninglight/entrance)
@@ -1016,10 +1018,8 @@
 "un" = (/obj/machinery/door/airlock/engineering,/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-old_tile_black_dirt"; icon_state = "old_tile_black_dirt"},/area/planet/abandoned_colony)
 "uq" = (/obj/effect/floor_decal/rust,/obj/structure/closet/crate/uranium,/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka,/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka,/obj/item/stack/material/tritium/ten,/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-old_tile_black_dirt"; icon_state = "old_tile_black_dirt"},/area/planet/abandoned_colony)
 "ur" = (/obj/structure/closet/radiation,/obj/effect/floor_decal/industrial/hatch/yellow,/turf/simulated/floor,/area/planet/abandoned_colony)
-"us" = (/obj/effect/floor_decal/rust,/mob/living/simple_animal/hostile/scom/forgotten,/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-old_tile_black_dirt"; icon_state = "old_tile_black_dirt"},/area/planet/abandoned_colony)
 "ut" = (/obj/structure/closet/toolcloset,/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-old_tile_black_dirt"; icon_state = "old_tile_black_dirt"},/area/planet/abandoned_colony)
 "uu" = (/obj/structure/closet/secure_closet/engineering_electrical{req_access = newlist()},/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-old_tile_black_dirt"; icon_state = "old_tile_black_dirt"},/area/planet/abandoned_colony)
-"uv" = (/obj/structure/closet/secure_closet/engineering_welding{req_access = newlist()},/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-old_tile_black_dirt"; icon_state = "old_tile_black_dirt"},/area/planet/abandoned_colony)
 "uw" = (/obj/structure/closet/firecloset,/turf/simulated/floor/tiled/uristturf/geminus{tag = "icon-old_tile_black_dirt"; icon_state = "old_tile_black_dirt"},/area/planet/abandoned_colony)
 "ux" = (/obj/machinery/light/overhead_blue,/turf/simulated/wall,/area/planet/abandoned_colony)
 "uy" = (/obj/structure/table/standard,/obj/random/drinkbottle,/turf/simulated/floor/tiled/uristturf/geminus{icon_state = "tiles1"; tag = "icon-freezerfloor"},/area/planet/abandoned_colony)
@@ -1154,69 +1154,69 @@
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
 aaacacacacadadacadadacacacacaaaaaaacacacacadadacadadacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacamalalalalalalalalalalalalalalacacacacacacjFjFjFacacalalamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
-aaacaeafacagahacahaiacajakacalamalacaeanacagahacahaoacajakacaqaqaqaqaqaqaRaqaqaqaRaqacacacarafacasasasasatauauauacavawaxayazazazazaBacamalacacjFjFacacacjFjFacacacacacahahahacaSbrahaSbracalalamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
-aaacaCaDaccrahacaFaEacaGaHacalaIalacaCaDacaEaFacahcsacaGaHacaqaqaRaqaqaqaqaqaqaqaqaqacaJaKaLafacauauauauePauauauaMazazfsazaNazazazazacamalacbHbRbRctacbHbRcUehaceOahiLahahahacahahahahahacalalamalljlBaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
-aaacacaOacacaPacaPacacaOacacaQamalacacaOacacaPacaPacacaOacacaqeQaqaqeRaqaqacacacacacacacacaLafacaTaUaUaUauaVauauacazazazazaWaXaYazaZacamalaccAfbcAehaccAfbcAehacfcahacahahahacaSbrahaSbracalalamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
-aaadbaahbbahahacahahbbahbcadalamaladbdahbbahahacbeahbbahbfadaqaqaqaqaqaqaqacauauauauatacacaKacacauauauauauaubgbhacbiazazazbjbkblazbmacamalaccAcAcAehaccBcAcAehacfcahacdyfVfWahahahahahahacalalamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
+aaacaeafaclSahacahagacajakacalamalacaeanaclSahacahaiacajakacaqaqaqaqaqaqaRaqaqaqaRaqacacacarafacasasasasatauauauacavawaxayazazazazaBacamalacacjFjFacacacjFjFacacacacacahahahacaSbrahaSbracalalamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
+aaacaoaLacaDahacaFaGacaLaZacalaIalacaoaLacaGaFacahbhacaLaZacaqaqaRaqaqaqaqaqaqaqaqaqacaJaKaLafacauauauauePauauauaMazazfsazaNazazazazacamalacbHbRbRctacbHbRcUehaceOahiLahahahacahahahahahacalalamalljlBaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
+aaacacaOacacaPacaPacacaOacacaQamalacacaOacacaPacaPacacaOacacaqeQaqaqeRaqaqacacacacacacacacaLafacaTaUaUaUauaVauauacazazazazaWaXaYazbIacamalaccAfbcAehaccAfbcAehacfcahacahahahacaSbrahaSbracalalamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
+aaadbaahbbahahacahahbbahbcadalamaladbdahbbahahacbeahbbahbfadaqaqaqaqaqaqaqacauauauauatacacaKacacauauauauauaubgbKacbiazazazbjbkblazbmacamalaccAcAcAehaccBcAcAehacfcahacdyfVfWahahahahahahacalalamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
 aaadbnahahboahacahpuahahbpadalbqaladbnahahahahacahahpuahbpadaqaqgcaqaqaqaqacbsbsbsbsbsacauauatacasasasasauaubgbtacbubuacbvacbwacbxacacamalacehdYehehacehdYehehaceOahacebdyecahahahahaSbracalalamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
-aaadbyahahbzbAacbzbBahahbdadalamaladcwahahbzbDacbEbFbeahbGadaqaRaqaqiweQaqacbIauauauaubJauqiaubJauauauauqiaubgbKacbLbMbMbMbMbNbMbMbOacamalacacacedacacacaciLacacaciLaciMiMiMahahpuahahahacalalamaplAlBaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
-aaacacacbPacadacadacbQacacacabamabacacacbPacadacadacbQacacacaqaqaqaqaqaqaqacbTasasasasacauauauacbUbUbUbUauaubgbVacbWbXbXbXqlbXbXqmbYacamamamgbahahahahahahahahahahahahahahahahahahahahahgbamamamallMlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
+aaadbyahahbzbAacbzbBahahbdadalamaladcwahahbzbDacbEbFbeahbGadaqaRaqaqiweQaqacbWauauauaubJauqiaubJauauauauqiaubgbYacbLbMbMbMbMbNbMbMbOacamalacacacedacacacaciLacacaciLaciMiMiMahahpuahahahacalalamaplAlBaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
+aaacacacbPacadacadacbQacacacabamabacacacbPacadacadacbQacacacaqaqaqaqaqaqaqacbTasasasasacauauauacbUbUbUbUauaubgbVaccrbXbXbXqlbXbXqmcsacamamamgbahahahahahahahahahahahahahahahahahahahahahgbamamamallMlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
 aaacalalalalaQalalalalalbZcaalamalalalalalalalalalalalalalalalalalalalcaalacaccbcbcbacacacacacacacccccccccccccacaccdcececfcgchcececiacamamamgbahahahahahahahahahahahahahahahahahahahahahgbamamamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
 aaacalamamamamamamamamamamamamamamamamamamamamamcNamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamamaccjcjacckacckaccjcjacamamacacaciLacacacaciLacacacaciLacacacaciLacacaKacacacalamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
 aaacclamaQalalalalalalalalamalalalalalaQalalalloalalalalbZalalalalalalalalalamamlflglglglhlflglglglglglglglglhamamcVamamamamamamamamamamamaceheeehehaceheeehehaceheeehehaceheeehehacaLkKkKacalamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
 aaacalcmlEacacacacacacacaAcoaAacacacacacacacacacacacacacacacacacacacacacacalamamliljljljllliljljljljlmlmlmlmllalalczcEcEcEcEcEcEcEkNalalamaccAcBcAehaccAefcAehaccAegcAehaccAcAcAehacaLaLaLacalamalljlBaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
 aaacalcmclacaccqejeEeKaccucvcuacwiwiwiwiwiwiwiwiwiacacacacacacacacacacacacalamamliljlnljpNlpljljljljljljljljcplflgkOkPkQkRkSkTkUkVkWlgqvamaccAmMcAehaccAmMcAehacefmMcAehaceimMcAehacaKacaKacalamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
-aaacbZamalacilqscqcqcxaccycvcuacwiimimimimimimimwiwiwiininininiVauacacacacalamamliljlkljljljljljljljlqlqlqlqllliljkOkXkYkRqHkTkZlakWljmOamacbHbRbRehacbHbRbRctacbHbRbRehacbHbRbRehacmPacmPacalamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
-aaacclcmalacjzcqacpnqqacalamcCacwiimjiaupdrKrKimszsJwiqEqFqEqEauauacauauaclsamamliljlkljljljljljljljljljljljllliljkOlblckRkSkTldlekWljmOamacacacacacacacacacacacacacacacacacacacacacacacacacalamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
-aaacalamalactYcqcDcqcqcDalcvalacwiimpdauauauauunauauunauauqQauauauunauauunamamamlilAlBljlClDljljljljlqlqlqlqllliljkOkXkYkRqHkTkZlakWljmOamacaeafacagahacahaiacajakacaeafacagahacahaiacajakacalamallAlBaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
-aaacalcmclacacacacaccFaccCcNalacwiimpdaupduqrKimururwiauauauvLauauacauusaclsamamlilAlFljllliljljljljqCljljljllliljkOlblckRkSkTldlekWljmOamacaCaDacaEahacaFaEacaGaHacaCaDacaEahacaFaEacaGaHacalamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
-aaacalamclacacacacaccqaccGcHcGacwiimimimimimimimwiwiwiutuuuvuwauauacacacacalamamlilAlFlAllliljljljljlqlqlqlqllliljkOkXkYkRkSkTkZlakWljmOamacacaOacacaPacaPacacaOacacacaOacacaPacaPacacaOacacalamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
-aaaccaamalacacacacaccFacacacacacwiwiwiwiwiwiwiwiwicIacacacacacacacaccIcIacalamamlilAlGlAllliljljljljljljljljllliljkOlblckRrokTldlekWljmOamadbaahbbahahacahahbbahbcacbaahbbahahacahahbbahbcadalamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
+aaacbZamalacilqscqcqcxaccycvcuacwiimimimimimimimwiwiwiinincIiniVauacacacacalamamliljlkljljljljljljljlqlqlqlqllliljkOkXkYkRqHkTkZlakWljmOamacbHbRbRehacbHbRbRctacbHbRbRehacbHbRbRehacmPacmPacalamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
+aaacclcmalacjzcqacpnqqacalamcCacwiimpdaupdrKrKimszhXwiqEqFqEqEauauacauauaclsamamliljlkljljljljljljljljljljljllliljkOlblckRkSkTldlekWljmOamacacacacacacacacacacacacacacacacacacacacacacacacacalamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
+aaacalamalactYcqcDcqcqcDalcvalacwiimjiauauauauunauauunauauqQauauauunauauunamamamlilAlBljlClDljljljljlqlqlqlqllliljkOkXkYkRqHkTkZlakWljmOamacaeafaclSahacahlTacajakacaeafaclSahacahlTacajakacalamallAlBaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
+aaacalcmclacacacacaccFaccCcNalacwiimpdaupduqrKimururwiauauauvLauauacaumdaclsamamlilAlFljllliljljljljqCljljljllliljkOlblckRkSkTldlekWljmOamacaoaLacaGahacaFaGacaLaZacaoaLacaGahacaFaGacaLaZacalamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
+aaacalamclacacacacaccqaccGcHcGacwiimimimimimimimwiwiwiutuupxuwauauacacacacalamamlilAlFlAllliljljljljlqlqlqlqllliljkOkXkYkRkSkTkZlakWljmOamacacaOacacaPacaPacacaOacacacaOacacaPacaPacacaOacacalamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
+aaaccaamalacacacacaccFacacacacacwiwiwiwiwiwiwiwiwiacacacacacacacacacacacacalamamlilAlGlAllliljljljljljljljljllliljkOlblckRrokTldlekWljmOamadbaahbbahahacahahbbahbcacbaahbbahahacahahbbahbcadalamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
 aaacclcmlPacacaccJcqcqcKcLcKcMuxacacacacacacacacacacacacacacacacacacacacacalamamlHlAlGlIcpliljljljljlqlqlqlqcpliljkOkXkYkRkSkTkZlakWljqDamadbnahahpuahacahahahahbpacbnahahahahacahpuahahbpadalamallMlBaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
-aacOclamamcPcQaccRcqcquycKcKuzcMaccTgirZuIaccWcXcXcYcZcZcZcZcZuAcZcZcZcZacalamamlilAlGlAllliljljljljljljljljllliljkOlblckRkSkTldlekWljmOamadbCahahbzbAacbzfcahahbGacbCahahbzbAacbzfcahahbGadalamalljmUaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
-aaacalamdaaccKaccScSuycScKcKcKdbaccXcXcXcXdccXcXddacdedfacacdgcZacacdedhacalamamlilAlGlAllliljljljljlmlmlmlmllliljkOlbkQkRkSkTkUlrkWljmOamacacacbPacadacadacbQacacacacacbPacadacadacbQacacacalamapljlGaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
-aaacalamclaccQacdicKcKcKuzcKcKcKacacdjdjcXacacacacacdkdkacacdkdkacacdkdkacalamamlilAlFlAlllJlKlKlKlKlKlKlKlKlLliljltlulvlwlxlylvlulzljmOamamamamamamamamamamamamamamamamamamamamamamamamamamamamalljlBaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
+aacOclamamcPcQaccRcqcquycKcKuzcMaccTgirZuIaccWcXcXcYcZcZcZcZcZuAcZcZcZcZacalamamlilAlGlAllliljljljljljljljljllliljkOlblckRkSkTldlekWljmOamadbCahahbzdbacbzfcahahbGacbCahahbzbAacbzfcahahbGadalamalljmUaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
+aaacalamdaaccKaccScSuycScKcKcKdiaccXcXcXcXdccXcXddacdedfacacdgcZacacdedhacalamamlilAlGlAllliljljljljlmlmlmlmllliljkOlbkQkRkSkTkUlrkWljmOamacacacbPacadacadacbQacacacacacbPacadacadacbQacacacalamapljlGaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
+aaacalamclaccQacdJcKcKcKuzcKcKcKacacdjdjcXacacacacacdkdkacacdkdkacacdkdkacalamamlilAlFlAlllJlKlKlKlKlKlKlKlKlLliljltlulvlwlxlylvlulzljmOamamamamamamamamamamamamamamamamamamamamamamamamamamamamalljlBaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
 aaacalamclaccKcPcMcKcKcKcKcKcKcMacdlcXcXcXdmbZalalalamamamamamamamamamamamamamamliljlBlAllalalalalalalalalalallJmQmQmQkOlwlxlykWmQmQlKlLalalalalalalalalalalamalalalalalalalalalalalalalalalalamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
 aaacaQamalacacacuBcMcKdncKcKcMdoacdpuCdqcXdcamamamamameValcldramamdsdtclabalamamlilMlklAllalalaclNlNacacacacaclNlNacalkOlwlxlykWalaclOlOacacacacaclOlOacalalamalalaclNlNacacacacaclNlNacaqaqalamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
 aaacaQamalacacacacacacacacacacacacacacacacacabamabaccOacacdududvaududuacacalamamliljlkljllalaqlNbXbXaclRlUaHaclSahlNallilAlGlAllallOahlTacaClUlVacbXbXlOalapamalallNbXbXaclRlUaHaclTahlNaqaqalamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
-aaacalamaldwclalalalaldxalalbZalclclalalalalalamclacacacacauauuDauauauacacalamamliljlkljllalaqlNlWbXacaclXacaclYahlNallilAlGlAllallOahmaacaclXacacbXlZlOalalamalallNuEuFacaclXacacahahlNaqaqalamalljlBaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
+aaacalamaldwclalalalaldxalalbZalclclalalalalalamclacacacacauauuDauauauacacalamamliljlkljllalaqlNlWbXacaclXacacmaahlNallilAlGlAllallOahlYacaclXacacbXlZlOalalamalallNuEuFacaclXacacmaahlNaqaqalamalljlBaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
 aaacclcmamamcmamamamamamamamamamcmamamamcNamamamamcPaueHacdzdAdAdAdAdBaccnalamamlilAlkljllalaqacbXbXbXlQuGbXaPahaEacallilAlFlAllalacuHahaPbXbXmbbXbXbXacalalamalalacbXbXbXlQbXbXaPahaEacaqaqalamalljlnaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
-aaacaldCdDalalalalamclclalalaldEcldwcldtcldFcuamaQacaudGacaudHdHdHdHdHacacalamamliljqSljllalaqacmemfbXbXmgbXacahacacalliljlBlAllalacacahacbXmhbXbXmfmeacalalamalalacmemfbXuJuTbXacahacacaqaqalamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
-aaacacacacacacacabambSacdJdKdKacdJdKdKacaccOacdLacacauaudMauauauauauauacacalamamlHljlklAcpalacacacacacacacmiacacacaqallilMlklAllalaqacacacmiacacacacacacacalamalacacacacacacacmiacacacaqaqaqalamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
+aaacaldCdDalalalalamclclalalaldEcldwcldtcldFcuamaQacaudGacaudHdHdHdHdHacacalamamliljqIljllalaqacmemfbXbXmgbXacahacacalliljlBlAllalacacahacbXmhbXbXmfmeacalalamalalacmemfbXuJuTbXacahacacaqaqalamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
+aaacacacacacacacabambSacpAdKdKacpAdKdKacaccOacdLacacauaudMauauauauauauacacalamamlHljlklAcpalacacacacacacacmiacacacaqallilMlklAllalaqacacacmiacacacacacacacalamalacacacacacacacmiacacacaqaqaqalamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
 aaacdNdOdPdQdRacalamalacdSdSdSacdTdTdTacdUacdVaudWacdXeSacdZeaeYfdfgfhacacalamamliljlkljllalacahahacahahahahahcjaqaqalliljlkljllalaqaqjFahahahahahacahahacalamalacahahacahahahahahcjaqaqgcaqalamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
 aaacfifjehfkfoacekamcaacelelelacelelelelelcPauauemacacacacacacacacacacacacalamamlilMlkljllalacahahacahahahahahcjgcaqalliljlkljllalaqaqjFahahahahahacahahacalamalacahahacahahahahahcjaqaqaqaqalamallAlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
-aaacehehfpeneoacclamepaceleleqaceleluUelelacacacacacacacacacacacacacacacacalamamliljlkljllaladbXbXmebXbXbXbXmkacaqaqallHlAlkljcpalaqaqacbXbXbXbXbXmebXbXadalamaladbXbXmebXbXbXbXmkacaqaqaqaqalamapljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
-aaacerehehehesacalamalacelelevacewelelaccPacacexeyezezeAeBexeCezezeDeBacacalamamliljlkljllaladahahbCahuVahahahahamamamamnyscnyamamamamahahahahpuahbCahahadalamaladahahbCahahahahahahamamamamamamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
+aaacehehfpeneoacclamepaceleleqaceleluUelelacacacacacacacacacacacacacacacacalamamliljlkljllaladbXbXmebXbXbXbXmuacaqaqallHlAlkljcpalaqaqacmkbXbXbXbXmebXbXadalamaladbXbXmebXbXbXbXmuacaqaqaqaqalamapljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
+aaacerehehehesacalamalacelelevacewelelaccPacacexeyezezeAeBexeCezezeDeBacacalamamliljlkljllaladahahbCahuVahahahahamamamamnysJnyamamamamahahahahpuahbCahahadalamaladahahbCahahahahahahamamamamamamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
 aaacetfAehehetacalamclaceFacacacacacacacalalacexeCvGezeAeBexeCezezeAeBacmmalamamliljlkljllaladahahbCahahahahahmnamamamamnynymoamamamammRahahahahahbCahahadalamaladahahbCahahahahahmnamamamamamamallMlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
-aaaceuehvJfBeuaceIcmmLaccZeJacaQalalalalvKaQacexeCezezeAeBexeCezezeAeBacacalamamliljlBljllaladbXbXmpbXbXbXbXmkacaqaqalliljlkljllalaqaqacbXbXsYbXsYmpbXbXadalamaladbXbXmpbXbXbXbXmkacaqaqaqaqalamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
+aaaceuehvJfBeuaceIcmmLaccZeJacaQalalalalvKaQacexeCezezeAeBexeCezezeAeBacacalamamliljlBljllaladbXbXmpbXbXbXbXmuacaqaqalliljlkljllalaqaqacmkbXsYbXsYmpbXbXadalamaladbXbXmpbXbXbXbXmuacaqaqaqaqalamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
 aaaceheueueueheMalcmalcYcZeNacaleQaqmSaRmTalacezezezezezezezezezezezezacacalamamliljlklAllalacahahacahahahahahcjaqaqallilMlkljllalaqaqjFahahahahahacahahacalamalacahahacahahahwfahcjaqaqaqaqalamalljlGaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
 aaacfCfofofoeGacalamalaceTeUaccualaleValaleVacezezezezeWezvGeWezezezezacacalamamliljlkljllalacahahacahahahahahcjaqaqalliljlkljllalaqaqjFahahahahahacahahacalamalacahahacahahahahahcjaqgcaqaqalamalljlBaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
 aaacehfGehehfRacalamaQaceXacacacalacacehehacacaceZeZeZacfaezaceZeZeZacacacalamamlHljlkljcpalacacacacacacacmqacacacaqalliljlkljllalaqacacacmqacacacacacacacalamalacacacacacacacmqacacacaqaqaqalamalljlkaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
 aaacfofofTgeeLacdtamfeaccZcZffacalacghgpgydPacgAflfmfngGezezgGflfmfngLfqfralamamlilAlBljllalaqacmrmfbXlQmsbXacahacacalliljlkljllalacacahacbXmhlQbXmfmtacalalamalalacvbmfbXlQmsbXacahacacaqaqalamallMlFaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
 aaacacacacacacacalamalacaccZcZeXalacehehehgNacftezezezezezezezezezezezftfralamamliljlkljllalaqacbXbXbXbXbXbXaPahaEacalliljlBljllalacaEahaPbXbXbXbXbXbXacalalamalalacbXbXbXbXbXbXaPahaEacaqaqalamallAlGaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
-aaacahfufvfwacacalcmclfxfycZfzaclEacgOfRgWhsacftezezezezezezezezezezezftfralamamliljlkljllalaqlNbXmkacaclXacaclYahlNalliljlklAllallOahmaacaclXacacmumclOalalamalallNbXmkacaclXacaclYahlNaqaqalamallAlFaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
+aaacahfufvfwacacalcmclfxfycZfzaclEacgOfRgWhsacftezezezezezezezezezezezftfralamamliljlkljllalaqlNbXmuacaclXacacmaahlNalliljlklAllallOahlYacaclXacacmkmclOalalamalallNbXmuacaclXacacmaahlNaqaqalamallAlFaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
 aaacfDahahahfEacdwcmaldKfycZfFacaQacachuacacacftezezezftfHftezftfHftezsdfralamamliljlklMllalaqlNmvbXaclRmwaHaclTahlNalliljlkljllallOahlTacaCmwmxacbXmylOalapamaQallNmvbXaclRvcaHacvdahlNaqaqalamallAlGaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
 aaacfIahahahfJacalamalalcZcZfKacalacgGftftfqftftezezezftacacfLacacacfLacacalamamlilMlBljllalalaclNlNacacacacaclNlNacallHljlkljcpalaclOlOacacacacaclOlOacalalamalalaclNlNacacacacaclNlNacaqaqalamallAlGaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
 aaacfMfNahahfOacabamabacacacacacalacftezezezezezezezezftacfPfQhBacfSfQhMacalamamliljmUljllalalalalalalalalalalalalalalliljlkljllalalalalalalalalalalalalalalamalalalalalalalalalalalalalalalalamaplAmAaanHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnHnH
 aaacfUahahahahacalcmalmVmWaRaqaqalacftezezezezezezezezftacfXfQfYacfZfQgaacalamamliljlGljllalacacacacacacacacacacalaqaqliljlkljllalamamamamamamamamamamamamamamamoRamamamamamamamamamamamamamamamallIlGaarhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrh
 aaacacacgbacacacalamalaqaqmYaqaRalacgdezezftfthQgfgghRfHacgjgkglacgmgkgnacalamamliljlBljllalacmZnanbncndndnenfacalaqaqliljlkljllalamacacaldKdKhPacacacacacabamabacacacacaccoaAacacacacacacacalamallImBaariririririririririririririririririririririririririririririrh
-aamdclalamalgoclalamalgcaqaqngeQalacacfaezgqfrfrfrfrfracacacacacacacaccOacalamamliljlBljllalnhninjnknknknknlniacalaqaqlilMlkljllalamacaccchUhUhUacacpLffaccuamalacoTigdyaccvcuachVhTachVhTacalamallImDaariririririririririririririririririririririririririririririrh
+aaaaclalamalgoclalamalgcaqaqngeQalacacfaezgqfrfrfrfrfracacacacacacacaccOacalamamliljlBljllalnhninjnknknknknlniacalaqaqlilMlkljllalamacaccchUhUhUacacpLffaccuamalacoTigdyaccvcuachVhTachVhTacalamallImDaariririririririririririririririririririririririririririririrh
 aaaacmcmamamamcmcmamalalalalalalalabgramamgsalgtalalalalalalgtalgualalalalalamamliljlGmzllalnhnmnnnonpnqnqnrnmacalgcaqliljlkljllalamacoUieieieieoVaccZivaccuamalachTahahacoWcuacoXahacoYahacalamallIlGaariririririririririririririririririririririririririririririrh
 aaaacugvaldtloalalamamamambqamamcmamamamgwamamamamamamamamamamamamamamgwamamamamlHljlGlIcpalnhnmnnnsntnunsnrnmacalaqaqliljlkljllalamacihauiiijauaubJcZcZcYalamalacacacgbacgbacacacgbacacgbacalamallIlFaariririririririririririririririririririririririririririririrh
 aaacacacacacacacalamalbZalalalaQalabalamamamamamamamamamamamamamamamamamamamamamliljlGljllalaccZnncZcZcZcZnrnvacalaqaqliljlkljllalamacacacacacacacacacacacacamalacoZacahahahahigahahahahahacalamallIlFaariririririririririririririririririririririririririririririrh
-aaacgxgxgxgxhWacalamalacacacacacacacclalamalalalgzalalalalalalalalalalalgzalamamliljlGljllalacnhnhacmXcZacnhnxacalalallHljlBljcpalamacfohXipehacsQbXpepfpgacamalacaLaKahpuahahahahahahahahgbamamallIlFaariririririririririririririririririririririririririririririrh
+aaacgxgxgxgxhWacalamalacacacacacacacclalamalalalgzalalalalalalalalalalalgzalamamliljlGljllalacnhnhacmXcZacnhnxacalalallHljlBljcpalamacfoehipehacsQbXpepfpgacamalacaLaKahpuahahahahahahahahgbamamallIlFaariririririririririririririririririririririririririririririrh
 aaacdzauauauaudLamamphacacacacacacacacabamabacacacacacacacacacacacacacacacalamamamnynynyamamamamamamamamamamamamamamamamnwnwnyamamamaciBehehehhubXbXjOvepgacamalacacacgbacacacacgbacacfDahacalamaplAlFaariririririririririririririririririririririririririririririrh
 aaaciHauauaugBacalcmclacacacacacacacacalamalacgCgDgEgFacdUiUgHgIacacacacacalamamamnynynyamamamamamamamamcVamamamamamamamnInJnwamamamacacachuacacacacacacacacamalacpjarpQachTisacfDitiuahpuacalamallAlGaariririririririririririririririririririririririririririririrh
 aaacgJauvLgKjgacgMcmalacjojsjoacgPjoacalcmclacgQelvfelgRelelelelgSgIeHacacalamamliljlkljllalnKalamalacnLnMnLacnNnOacaclilAlFlAllalamacahpkahahahpkahplpmrcacbqalacpjmwpQacjGahgbahiCiDahahacalamallAlGaariririririririririririririririririririririririririririririrh
 aaacgTgUgVaukJacalamalacauauaubJvLgXacbZcmlEacgYgZhahbacelelhcelacelhdacnPalamamliljlkljllalacjFnQjFacnRnSnTnUnOnSnOaclilAlGlAllalamacahahahahahahahacacplacamalacacacacacacacacacacacacacacalamallAlGaariririririririririririririririririririririririririririririrh
-aaachehfgVauhgacqIgwalacjoauauacachhacalamaQacacacacacacelhihjhkacgSacacacalamamliljlkljllalacnVaLnWacnXnOnYnOnSnOnZaclilAlGlIllalamacahahcAcAcAahahplporcacamalalalalalalalalalalalalalalppalamallAlFaariririririririririririririririririririririririririririririrh
+aaachehfgVauhgacqSgwalacjoauauacachhacalamaQacacacacacacelhihjhkacgSacacacalamamliljlkljllalacnVaLnWacnXnOnYnOnSnOnZaclilAlGlIllalamacahahcAcAcAahahplporcacamalalalalalalalalalalalalalalppalamallAlFaariririririririririririririririririririririririririririririrh
 aaachlhmhnauhoacalamhpacjoauauhqhrauacalamcuacmlelelhtgIelhchchcgIelmIacacalamamliljlBljllalacaLaLoaacnOnSobnSnOnSocaclilIlGlAllalamacpqprbRbRbRpqpracacacacamamamamamamamamamaIamamamamamamamamalljlBaariririririririririririririririririririririririririririririrh
 aaacacacacacacacalcmclachvauauhwauhxacdtamcuachyelelelelelelelelelsVhyacacalamamliljlnljllalacnVaLodcOnSnOnSnOnSnOoeaclilIlFlAllalamacpsptbRbRbRpsptacpRpSacacacabababababamamalalalalalbZabalamalljlBaariririririririririririririririririririririririririririririrh
 aaacdtcuhzalaQacalamalacachhacachAhAacabcmabacacaccPacachChChChChCacacacacalamamliljlkljllalacaLvgpvacnOnSnOvhnOnSofaclHlIlFlIcpalamacpwpwbRbRbRpwpwacpTbXbXpUacalalalalabbqamalacacacacacacacamalljlkaariririririririririririririririririririririririririririririrh
-aaaccmcmcmamamamamamalhDhEcmalalclhFalclcmalalalalamclbZalhGalalalaQalclabalamamliljlkljllalacnVaLafacognOohnOoinOojaclilAlFlIllalamacpxpybRbRbRpzpAacpVpWbXpXacalalalalabamamalacpBpBpYpCpDacamalljlBaaririririririririririririririrjririririririririririririririrh
+aaaccmcmcmamamamamamalhDhEcmalalclhFalclcmalalalalamclbZalhGalalalaQalclabalamamliljlkljllalacnVaLafacognOohnOoinOojaclilAlFlIllalamacscpybRbRbRpztkacpVpWbXpXacalalalalabamamalacpBpBpYpCpDacamalljlBaaririririririririririririririrjririririririririririririririrh
 aaacaldFalamalacdEcmamamamamamamamamamamamamamamamcmcmamamamamcmamamamcmamamamamlHljlklAcpalacacacacacoknSolnSomnSonaclilAlGlIllalamacpsptbRbRbRpsptacpZbXbXpZacalalalalabamamamjKjjjjjjjjjjacamalljlnaariririririririririririririririririririririririririririririrh
 aaacacacacgRacacacacacalamalaldwclalalaQalalhHbZalamalalhIalclclalalhJalabalamamlilAlkljllalacooopopacoqnOornOosnOotaclilAlGlMllalamacahahbRbRbRahahacqawHbXmeacalpEalalabamaIalacjjjjjjjjjjacamalljlkaariririririririririririririririririririririririririririririrh
-aaachKhLmJahachNahwMacabambSacacacacacacacacacacabamabacacaldKdKhPacacacacalamamliljlkljllalacauauaubJnOvhnOnSnOvhnOaclilAlGlIllalamacachSacpFachSacacqbbXbXqbacalalalalalamamalacpGkApHpIpJacamalljlkaariririririririririririririririririririririririririririririrh
+aaachKhLmJahachNahwMacabambSacacacacacacacacacacabamabacacaldKdKtlacacacacalamamliljlkljllalacauauaubJnOvhnOnSnOvhnOaclilAlGlIllalamacachSacpFachSacacqbbXbXqbacalalalalalamamalacpGkApHpIpJacamalljlkaariririririririririririririririririririririririririririririrh
 aaacahahpuahacmKahdyhSalamekachTmNachToSachTdyacalamclacacaujojojoacacacacalamamliljlkljllalacauauikacouovowoxoyozoAaclilAlFlAllalamalalalalamalalalacpKqcpKacacabababababamamabacacacacacacacamalljlkaariririririririririririririririririririririririririririririrh
 aaacpadypbahachNahhNhShYcmclachZiaacibahacicahacalamclacidieieieieifacacacalamamlilMlkljllalacccccccacacacacacacacacacliljlBlAllalamamamamamamamamamamamamamqdamamamamamamamamamamamamamamamamamaplAlkaariririririririririririririririririririririririririririririrh
 aaacahahahahigahahahoBamcmphacacgbacacgbacacgbacaQamclacihauiiijauikacacacalamamlHljlkljpNlglglglglglglglglglglglglglgpMljljljpNlglglglglglglgqelglglglglglgqelglglglglgqeamamlglglglglglglglglglgljlkaariririririririririririririririririririririririririririririrh

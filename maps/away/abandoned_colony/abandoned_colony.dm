@@ -16,6 +16,7 @@
 	name = "\improper Abandoned Colony"
 	base_turf = /turf/simulated/floor/planet/dirt/city/clear
 	luminosity = 0
+	lightswitch = 1
 
 /obj/effect/overmap/sector/abandoned_colony
 	name = "abandoned colony"
