@@ -33,6 +33,13 @@
 	target.incombat = 1
 	if(!target.map_spawned)
 		target.spawnmap()
+
+		for(var/datum/shipcomponents/M in target.components)
+			if(M.broken)
+				return
+			else
+				M.DoActivate()
+
 //	var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
 //	security_state.stored_security_level = security_state.current_security_level
 //	security_state.set_security_level(security_state.high_security_level)
