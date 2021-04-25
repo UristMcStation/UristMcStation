@@ -68,7 +68,7 @@
 		if(istype(M, /obj/effect/overmap/ship/combat))
 			if(faction.hostile && known) //if we've discovered the station //come back to this
 				var/mob/living/simple_animal/hostile/overmapship/S =  new station_holder(get_turf(src))
-				S.faction = src.faction
+				S.hiddenfaction = src.faction
 				S.home_station = src
 
 				var/obj/effect/overmap/ship/combat/C = M

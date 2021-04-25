@@ -31,3 +31,8 @@
 	.=..()
 	explosion(src.loc, dmg_dev, dmg_hvy, dmg_lgt, 1)
 	qdel(src)
+
+/obj/effect/urist/spawn_bomb/abandoned //we're only doing light damage here, most just to break windows and make things look weathered.
+	dmg_dev = 0
+	dmg_hvy = 0
+	dmg_lgt = 8
