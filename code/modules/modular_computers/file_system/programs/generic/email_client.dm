@@ -1,7 +1,7 @@
 /datum/computer_file/program/email_client
-	filename = "emailc"
-	filedesc = "Email Client"
-	extended_desc = "This program may be used to log in into your email account."
+	filename = "messengerc"
+	filedesc = "Messenger Client"
+	extended_desc = "This program may be used to log in into your messenger account."
 	program_icon_state = "generic"
 	program_key_state = "generic_key"
 	program_menu_icon = "mail-closed"
@@ -58,12 +58,12 @@
 		ui_header = "ntnrc_idle.gif"
 
 /datum/nano_module/email_client/
-	name = "Email Client"
+	name = "Messenger Client"
 	var/stored_login = ""
 	var/stored_password = ""
 	var/error = ""
 
-	var/msg_title = ""
+	//var/msg_title = ""
 	var/msg_body = ""
 	var/msg_recipient = ""
 	var/datum/computer_file/msg_attachment = null
@@ -86,8 +86,8 @@
 	if(L)
 		var/list/msg = list()
 		msg += "*--*\n"
-		msg += "<span class='notice'>New mail received from [received_message.source]:</span>\n"
-		msg += "<b>Subject:</b> [received_message.title]\n<b>Message:</b>\n[pencode2html(received_message.stored_data)]\n"
+		msg += "<span class='notice'><b>New message received from [received_message.source]:</b></span>\n"
+		msg += "<b>Message:</b>\n[pencode2html(received_message.stored_data)]\n"
 		if(received_message.attachment)
 			msg += "<b>Attachment:</b> [received_message.attachment.filename].[received_message.attachment.filetype] ([received_message.attachment.size]GQ)\n"
 		msg += "<a href='?src=\ref[src];open;reply=[received_message.uid]'>Reply</a>\n"
@@ -209,7 +209,7 @@
 			data["accounts"] = all_accounts
 		else if(new_message)
 			data["new_message"] = 1
-			data["msg_title"] = msg_title
+			//data["msg_title"] = msg_title
 			data["msg_body"] = pencode2html(msg_body)
 			data["msg_recipient"] = msg_recipient
 			if(msg_attachment)
@@ -217,7 +217,7 @@
 				data["msg_attachment_filename"] = "[msg_attachment.filename].[msg_attachment.filetype]"
 				data["msg_attachment_size"] = msg_attachment.size
 		else if (current_message)
-			data["cur_title"] = current_message.title
+			data["cur_title"] = 1
 			data["cur_body"] = pencode2html(current_message.stored_data)
 			data["cur_timestamp"] = current_message.timestamp
 			data["cur_source"] = current_message.source
@@ -248,7 +248,7 @@
 				var/list/all_messages = list()
 				for(var/datum/computer_file/data/email_message/message in message_source)
 					all_messages.Add(list(list(
-						"title" = message.title,
+						//"title" = message.title,
 						"body" = pencode2html(message.stored_data),
 						"source" = message.source,
 						"timestamp" = message.timestamp,
@@ -262,7 +262,7 @@
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
-		ui = new(user, src, ui_key, "email_client.tmpl", "Email Client", 600, 450, state = state)
+		ui = new(user, src, ui_key, "email_client.tmpl", "Messenger Client", 600, 450, state = state)
 		if(host.update_layout())
 			ui.auto_update_layout = 1
 		ui.set_auto_update(1)
@@ -283,7 +283,7 @@
 
 /datum/nano_module/email_client/proc/clear_message()
 	new_message = FALSE
-	msg_title = ""
+	//msg_title = ""
 	msg_body = ""
 	msg_recipient = ""
 	msg_attachment = null
@@ -352,11 +352,11 @@
 		addressbook = FALSE
 		return 1
 
-	if(href_list["edit_title"])
-		var/newtitle = sanitize(input(user,"Enter title for your message:", "Message title", msg_title), 100)
-		if(newtitle)
-			msg_title = newtitle
-		return 1
+	// if(href_list["edit_title"])
+	// 	var/newtitle = sanitize(input(user,"Enter title for your message:", "Message title", msg_title), 100)
+	// 	if(newtitle)
+	// 		msg_title = newtitle
+	// 	return 1
 
 	// This uses similar editing mechanism as the FileManager program, therefore it supports various paper tags and remembers formatting.
 	if(href_list["edit_body"])
@@ -409,24 +409,32 @@
 		return 1
 
 	if(href_list["send"])
+		msg_recipient = sanitize(href_list["send"])
+		addressbook = FALSE
+		var/oldtext = html_decode(msg_body)
+		oldtext = replacetext(oldtext, "\[br\]", "\n")
+
+		var/newtext = sanitize(replacetext(input(usr, "Enter your message. You may use most tags from paper formatting", "Message Editor", oldtext) as message|null, "\n", "\[br\]"), 20000)
+		if(newtext)
+			msg_body = newtext
 		if(!current_account)
 			return 1
 		if((msg_body == "") || (msg_recipient == ""))
 			error = "Error sending mail: Message body is empty!"
 			return 1
-		if(!length(msg_title))
-			msg_title = "No subject"
+		// if(!length(msg_title))
+		// 	msg_title = "No subject"
 
 		var/datum/computer_file/data/email_message/message = new()
-		message.title = msg_title
+		//message.title = msg_title
 		message.stored_data = msg_body
 		message.source = current_account.login
 		message.attachment = msg_attachment
 		if(!current_account.send_mail(msg_recipient, message))
-			error = "Error sending email: this address doesn't exist."
+			error = "Error sending message: this address doesn't exist."
 			return 1
 		else
-			error = "Email successfully sent."
+			error = "Message successfully sent."
 			clear_message()
 			return 1
 
@@ -441,11 +449,37 @@
 		error = null
 		new_message = TRUE
 		msg_recipient = M.source
-		msg_title = "Re: [M.title]"
+		//msg_title = "Re: [M.title]"
 		var/atom/movable/AM = host
 		if(istype(AM))
 			if(ismob(AM.loc))
 				ui_interact(AM.loc)
+		var/oldtext = html_decode(msg_body)
+		oldtext = replacetext(oldtext, "\[br\]", "\n")
+
+		var/newtext = sanitize(replacetext(input(usr, "Enter your message. You may use most tags from paper formatting", "Message Editor", oldtext) as message|null, "\n", "\[br\]"), 20000)
+		if(newtext)
+			msg_body = newtext
+		if(!current_account)
+			return 1
+		if((msg_body == "") || (msg_recipient == ""))
+			error = "Error sending mail: Message body is empty!"
+			return 1
+		// if(!length(msg_title))
+		// 	msg_title = "No subject"
+
+		var/datum/computer_file/data/email_message/message = new()
+		//message.title = msg_title
+		message.stored_data = msg_body
+		message.source = current_account.login
+		message.attachment = msg_attachment
+		if(!current_account.send_mail(msg_recipient, message))
+			error = "Error sending message: this address doesn't exist."
+			return 1
+		else
+			error = "Message successfully sent."
+			clear_message()
+			return 1
 		return 1
 
 	if(href_list["view"])
@@ -504,7 +538,7 @@
 		if(!MC.hard_drive || !MC.hard_drive.store_file(mail))
 			error = "Internal I/O error when writing file, the hard drive may be full."
 		else
-			error = "Email exported successfully"
+			error = "Message exported successfully"
 		return 1
 
 	if(href_list["addattachment"])
