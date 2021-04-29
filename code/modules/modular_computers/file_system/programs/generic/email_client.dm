@@ -1,23 +1,23 @@
 /datum/computer_file/program/email_client
-	filename = "emailc"
-	filedesc = "Email Client"
-	extended_desc = "This program may be used to log in into your email account."
+	filename = "messengerc"
+	filedesc = "Messenger Client"
+	extended_desc = "This program may be used to log in into your messenger account."
 	program_icon_state = "generic"
 	program_key_state = "generic_key"
 	program_menu_icon = "mail-closed"
 	size = 7
-	requires_ntnet = 1
-	available_on_ntnet = 1
+	available_on_network = 1
 	var/stored_login = ""
 	var/stored_password = ""
 	usage_flags = PROGRAM_ALL
+	category = PROG_OFFICE
 
-	nanomodule_path = /datum/nano_module/email_client
+	nanomodule_path = /datum/nano_module/program/email_client
 
 // Persistency. Unless you log out, or unless your password changes, this will pre-fill the login data when restarting the program
-/datum/computer_file/program/email_client/kill_program()
+/datum/computer_file/program/email_client/on_shutdown()
 	if(NM)
-		var/datum/nano_module/email_client/NME = NM
+		var/datum/nano_module/program/email_client/NME = NM
 		if(NME.current_account)
 			stored_login = NME.stored_login
 			stored_password = NME.stored_password
@@ -27,43 +27,43 @@
 			stored_password = ""
 	. = ..()
 
-/datum/computer_file/program/email_client/run_program()
+/datum/computer_file/program/email_client/on_startup()
 	. = ..()
 
 	if(NM)
-		var/datum/nano_module/email_client/NME = NM
+		var/datum/nano_module/program/email_client/NME = NM
 		NME.stored_login = stored_login
 		NME.stored_password = stored_password
 		NME.log_in()
 		NME.error = ""
 		NME.check_for_new_messages(1)
 
-/datum/computer_file/program/email_client/proc/new_mail_notify()
-	computer.visible_message("\The [computer] beeps softly, indicating a new email has been received.", 1)
-	playsound(computer, 'sound/machines/twobeep.ogg', 50, 1)
+/datum/computer_file/program/email_client/proc/new_mail_notify(notification_sound)
+	computer.visible_notification(notification_sound)
+	computer.audible_notification("sound/machines/ping.ogg")
 
 /datum/computer_file/program/email_client/process_tick()
 	..()
-	var/datum/nano_module/email_client/NME = NM
+	var/datum/nano_module/program/email_client/NME = NM
 	if(!istype(NME))
 		return
-	NME.relayed_process(ntnet_speed)
+	NME.relayed_process(computer.get_network_status())
 
 	var/check_count = NME.check_for_new_messages()
 	if(check_count)
-		if(check_count == 2)
-			new_mail_notify()
+		if(check_count == 2 && !NME.current_account.notification_mute)
+			new_mail_notify(NME.current_account.notification_sound)
 		ui_header = "ntnrc_new.gif"
 	else
 		ui_header = "ntnrc_idle.gif"
 
-/datum/nano_module/email_client/
-	name = "Email Client"
+/datum/nano_module/program/email_client/
+	name = "Messenger Client"
 	var/stored_login = ""
 	var/stored_password = ""
 	var/error = ""
 
-	var/msg_title = ""
+	//var/msg_title = ""
 	var/msg_body = ""
 	var/msg_recipient = ""
 	var/datum/computer_file/msg_attachment = null
@@ -81,37 +81,46 @@
 	var/datum/computer_file/data/email_account/current_account = null
 	var/datum/computer_file/data/email_message/current_message = null
 
-/datum/nano_module/email_client/proc/mail_received(var/datum/computer_file/data/email_message/received_message)
+/datum/nano_module/program/email_client/proc/get_functional_drive()
+	return program.computer.get_component(/obj/item/stock_parts/computer/hard_drive)
+
+/datum/nano_module/program/email_client/proc/get_email_addresses()
+	var/datum/computer_network/net = get_network()
+	if(net)
+		return net.get_email_addresses()
+
+/datum/nano_module/program/email_client/proc/mail_received(var/datum/computer_file/data/email_message/received_message)
 	var/mob/living/L = get_holder_of_type(host, /mob/living)
 	if(L)
 		var/list/msg = list()
 		msg += "*--*\n"
-		msg += "<span class='notice'>New mail received from [received_message.source]:</span>\n"
-		msg += "<b>Subject:</b> [received_message.title]\n<b>Message:</b>\n[pencode2html(received_message.stored_data)]\n"
+		msg += "<span class='notice'><b>New mail received from [received_message.source]:</b></span>\n"
+		msg += "<b>Message:</b>\n[digitalPencode2html(received_message.stored_data)]\n"
 		if(received_message.attachment)
 			msg += "<b>Attachment:</b> [received_message.attachment.filename].[received_message.attachment.filetype] ([received_message.attachment.size]GQ)\n"
 		msg += "<a href='?src=\ref[src];open;reply=[received_message.uid]'>Reply</a>\n"
 		msg += "*--*"
 		to_chat(L, jointext(msg, null))
 
-/datum/nano_module/email_client/Destroy()
+/datum/nano_module/program/email_client/Destroy()
 	log_out()
 	. = ..()
 
-/datum/nano_module/email_client/proc/log_in()
+/datum/nano_module/program/email_client/proc/log_in()
 	var/list/id_login
+	var/atom/movable/A = nano_host()
+	var/obj/item/card/id/id = A.GetIdCard()
+	if(!id && ismob(A.loc))
+		var/mob/M = A.loc
+		id = M.GetIdCard()
+	if(id)
+		id_login = id.associated_email_login.Copy()
 
-	if(istype(host, /obj/item/modular_computer))
-		var/obj/item/modular_computer/computer = host
-		var/obj/item/weapon/card/id/id = computer.GetIdCard()
-		if(!id && ismob(computer.loc))
-			var/mob/M = computer.loc
-			id = M.GetIdCard()
-		if(id)
-			id_login = id.associated_email_login.Copy()
-
+	if(!get_network())
+		error = "Network error"
+		return 0
 	var/datum/computer_file/data/email_account/target
-	for(var/datum/computer_file/data/email_account/account in ntnet_global.email_accounts)
+	for(var/datum/computer_file/data/email_account/account in get_email_addresses())
 		if(!account || !account.can_login)
 			continue
 		if(id_login && id_login["login"] == account.login)
@@ -145,11 +154,12 @@
 
 // Returns 0 if no new messages were received, 1 if there is an unread message but notification has already been sent.
 // and 2 if there is a new message that appeared in this tick (and therefore notification should be sent by the program).
-/datum/nano_module/email_client/proc/check_for_new_messages(var/messages_read = FALSE)
+/datum/nano_module/program/email_client/proc/check_for_new_messages(var/messages_read = FALSE)
 	if(!current_account)
 		return 0
-
-	var/list/allmails = current_account.inbox
+	if(!get_network())
+		return 0
+	var/list/allmails = current_account.all_emails()
 
 	if(allmails.len > last_message_count)
 		. = 2
@@ -163,7 +173,7 @@
 		read_message_count = allmails.len
 
 
-/datum/nano_module/email_client/proc/log_out()
+/datum/nano_module/program/email_client/proc/log_out()
 	if(current_account)
 		current_account.connected_clients -= src
 	current_account = null
@@ -172,7 +182,7 @@
 	last_message_count = 0
 	read_message_count = 0
 
-/datum/nano_module/email_client/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
+/datum/nano_module/program/email_client/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
 	var/list/data = host.initial_data()
 
 	// Password has been changed by other client connected to this email account
@@ -197,28 +207,31 @@
 
 	else if(istype(current_account))
 		data["current_account"] = current_account.login
+		data["notification_mute"] = current_account.notification_mute
 		if(addressbook)
 			var/list/all_accounts = list()
-			for(var/datum/computer_file/data/email_account/account in ntnet_global.email_accounts)
+			for(var/datum/computer_file/data/email_account/account in get_email_addresses())
 				if(!account.can_login)
 					continue
 				all_accounts.Add(list(list(
+					"name" = account.fullname,
+					"job" = account.assignment,
 					"login" = account.login
 				)))
 			data["addressbook"] = 1
 			data["accounts"] = all_accounts
 		else if(new_message)
 			data["new_message"] = 1
-			data["msg_title"] = msg_title
-			data["msg_body"] = pencode2html(msg_body)
+			//data["msg_title"] = msg_title
+			data["msg_body"] = digitalPencode2html(msg_body)
 			data["msg_recipient"] = msg_recipient
 			if(msg_attachment)
 				data["msg_hasattachment"] = 1
 				data["msg_attachment_filename"] = "[msg_attachment.filename].[msg_attachment.filetype]"
 				data["msg_attachment_size"] = msg_attachment.size
 		else if (current_message)
-			data["cur_title"] = current_message.title
-			data["cur_body"] = pencode2html(current_message.stored_data)
+			data["cur_title"] = 1
+			data["cur_body"] = digitalPencode2html(current_message.stored_data)
 			data["cur_timestamp"] = current_message.timestamp
 			data["cur_source"] = current_message.source
 			data["cur_uid"] = current_message.uid
@@ -231,13 +244,11 @@
 			data["label_outbox"] = "Sent ([current_account.outbox.len])"
 			data["label_spam"] = "Spam ([current_account.spam.len])"
 			data["label_deleted"] = "Deleted ([current_account.deleted.len])"
-			data["at_prefix"] = "Received at"
 			var/list/message_source
 			if(folder == "Inbox")
 				message_source = current_account.inbox
 			else if(folder == "Sent")
 				message_source = current_account.outbox
-				data["at_prefix"] = "Sent at"
 			else if(folder == "Spam")
 				message_source = current_account.spam
 			else if(folder == "Deleted")
@@ -248,8 +259,8 @@
 				var/list/all_messages = list()
 				for(var/datum/computer_file/data/email_message/message in message_source)
 					all_messages.Add(list(list(
-						"title" = message.title,
-						"body" = pencode2html(message.stored_data),
+						//"title" = message.title,
+						"body" = digitalPencode2html(message.stored_data),
 						"source" = message.source,
 						"timestamp" = message.timestamp,
 						"uid" = message.uid
@@ -262,14 +273,14 @@
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
-		ui = new(user, src, ui_key, "email_client.tmpl", "Email Client", 600, 450, state = state)
+		ui = new(user, src, ui_key, "email_client.tmpl", "Messenger Client", 600, 450, state = state)
 		if(host.update_layout())
 			ui.auto_update_layout = 1
 		ui.set_auto_update(1)
 		ui.set_initial_data(data)
 		ui.open()
 
-/datum/nano_module/email_client/proc/find_message_by_fuid(var/fuid)
+/datum/nano_module/program/email_client/proc/find_message_by_fuid(var/fuid)
 	if(!istype(current_account))
 		return
 
@@ -281,28 +292,27 @@
 		if(message.uid == fuid)
 			return message
 
-/datum/nano_module/email_client/proc/clear_message()
+/datum/nano_module/program/email_client/proc/clear_message()
 	new_message = FALSE
-	msg_title = ""
+	//msg_title = ""
 	msg_body = ""
 	msg_recipient = ""
 	msg_attachment = null
 	current_message = null
 
-/datum/nano_module/email_client/proc/relayed_process(var/netspeed)
+/datum/nano_module/program/email_client/proc/relayed_process(var/netspeed)
 	download_speed = netspeed
 	if(!downloading)
 		return
 	download_progress = min(download_progress + netspeed, downloading.size)
 	if(download_progress >= downloading.size)
-		var/obj/item/modular_computer/MC = nano_host()
-		if(!istype(MC) || !MC.hard_drive || !MC.hard_drive.check_functionality())
-			error = "Error uploading file. Are you using a functional and NTOSv2-compliant device?"
+		var/obj/item/stock_parts/computer/hard_drive/drive = get_functional_drive()
+		if(!drive)
 			downloading = null
 			download_progress = 0
 			return 1
 
-		if(MC.hard_drive.store_file(downloading))
+		if(drive.store_file(downloading))
 			error = "File successfully downloaded to local device."
 		else
 			error = "Error saving file: I/O Error: The hard drive may be full or nonfunctional."
@@ -311,7 +321,7 @@
 	return 1
 
 
-/datum/nano_module/email_client/Topic(href, href_list)
+/datum/nano_module/program/email_client/Topic(href, href_list)
 	if(..())
 		return 1
 	var/mob/living/user = usr
@@ -352,11 +362,11 @@
 		addressbook = FALSE
 		return 1
 
-	if(href_list["edit_title"])
-		var/newtitle = sanitize(input(user,"Enter title for your message:", "Message title", msg_title), 100)
-		if(newtitle)
-			msg_title = newtitle
-		return 1
+	// if(href_list["edit_title"])
+	// 	var/newtitle = sanitize(input(user,"Enter title for your message:", "Message title", msg_title), 100)
+	// 	if(newtitle)
+	// 		msg_title = newtitle
+	// 	return 1
 
 	// This uses similar editing mechanism as the FileManager program, therefore it supports various paper tags and remembers formatting.
 	if(href_list["edit_body"])
@@ -409,24 +419,32 @@
 		return 1
 
 	if(href_list["send"])
+		msg_recipient = sanitize(href_list["send"])
+		addressbook = FALSE
+		var/oldtext = html_decode(msg_body)
+		oldtext = replacetext(oldtext, "\[br\]", "\n")
+
+		var/newtext = sanitize(replacetext(input(usr, "Enter your message. You may use most tags from paper formatting", "Message Editor", oldtext) as message|null, "\n", "\[br\]"), 20000)
+		if(newtext)
+			msg_body = newtext
 		if(!current_account)
 			return 1
 		if((msg_body == "") || (msg_recipient == ""))
 			error = "Error sending mail: Message body is empty!"
 			return 1
-		if(!length(msg_title))
-			msg_title = "No subject"
+		// if(!length(msg_title))
+		// 	msg_title = "No subject"
 
 		var/datum/computer_file/data/email_message/message = new()
-		message.title = msg_title
+		//message.title = msg_title
 		message.stored_data = msg_body
 		message.source = current_account.login
 		message.attachment = msg_attachment
-		if(!current_account.send_mail(msg_recipient, message))
-			error = "Error sending email: this address doesn't exist."
+		if(!current_account.send_mail(msg_recipient, message, get_network()))
+			error = "Error sending message: this address doesn't exist."
 			return 1
 		else
-			error = "Email successfully sent."
+			error = "Message successfully sent."
 			clear_message()
 			return 1
 
@@ -441,11 +459,37 @@
 		error = null
 		new_message = TRUE
 		msg_recipient = M.source
-		msg_title = "Re: [M.title]"
+		//msg_title = "Re: [M.title]"
 		var/atom/movable/AM = host
 		if(istype(AM))
 			if(ismob(AM.loc))
 				ui_interact(AM.loc)
+		var/oldtext = html_decode(msg_body)
+		oldtext = replacetext(oldtext, "\[br\]", "\n")
+
+		var/newtext = sanitize(replacetext(input(usr, "Enter your message. You may use most tags from paper formatting", "Message Editor", oldtext) as message|null, "\n", "\[br\]"), 20000)
+		if(newtext)
+			msg_body = newtext
+		if(!current_account)
+			return 1
+		if((msg_body == "") || (msg_recipient == ""))
+			error = "Error sending mail: Message body is empty!"
+			return 1
+		// if(!length(msg_title))
+		// 	msg_title = "No subject"
+
+		var/datum/computer_file/data/email_message/message = new()
+		//message.title = msg_title
+		message.stored_data = msg_body
+		message.source = current_account.login
+		message.attachment = msg_attachment
+		if(!current_account.send_mail(msg_recipient, message, get_network()))
+			error = "Error sending message: this address doesn't exist."
+			return 1
+		else
+			error = "Message successfully sent."
+			clear_message()
+			return 1
 		return 1
 
 	if(href_list["view"])
@@ -482,14 +526,22 @@
 		error = "Your password has been successfully changed!"
 		return 1
 
+	if(href_list["set_notification"])
+		var/new_notification = sanitize(input(user, "Enter your desired notification sound:", "Set Notification", current_account.notification_sound) as text|null)
+		if(new_notification && current_account)
+			current_account.notification_sound = new_notification
+		return 1
+
+	if(href_list["mute"])
+		current_account.notification_mute = !current_account.notification_mute
+		return 1
+
 	// The following entries are Modular Computer framework only, and therefore won't do anything in other cases (like AI View)
 
 	if(href_list["save"])
 		// Fully dependant on modular computers here.
-		var/obj/item/modular_computer/MC = nano_host()
-
-		if(!istype(MC) || !MC.hard_drive || !MC.hard_drive.check_functionality())
-			error = "Error exporting file. Are you using a functional and NTOS-compliant device?"
+		var/obj/item/stock_parts/computer/hard_drive/drive = get_functional_drive()
+		if(!drive)
 			return 1
 
 		var/filename = sanitize(input(user,"Please specify file name:", "Message export"), 100)
@@ -501,22 +553,22 @@
 		if(!istype(mail))
 			return 1
 		mail.filename = filename
-		if(!MC.hard_drive || !MC.hard_drive.store_file(mail))
+
+		drive = get_functional_drive()
+		if(!drive || !drive.store_file(mail))
 			error = "Internal I/O error when writing file, the hard drive may be full."
 		else
-			error = "Email exported successfully"
+			error = "Message exported successfully"
 		return 1
 
 	if(href_list["addattachment"])
-		var/obj/item/modular_computer/MC = nano_host()
+		var/obj/item/stock_parts/computer/hard_drive/drive = get_functional_drive()
 		msg_attachment = null
-
-		if(!istype(MC) || !MC.hard_drive || !MC.hard_drive.check_functionality())
-			error = "Error uploading file. Are you using a functional and NTOSv2-compliant device?"
+		if(!drive)
 			return 1
 
 		var/list/filenames = list()
-		for(var/datum/computer_file/CF in MC.hard_drive.stored_files)
+		for(var/datum/computer_file/CF in drive.stored_files)
 			if(CF.unsendable)
 				continue
 			filenames.Add(CF.filename)
@@ -525,11 +577,11 @@
 		if(!picked_file)
 			return 1
 
-		if(!istype(MC) || !MC.hard_drive || !MC.hard_drive.check_functionality())
-			error = "Error uploading file. Are you using a functional and NTOSv2-compliant device?"
+		drive = get_functional_drive()
+		if(!drive)
 			return 1
 
-		for(var/datum/computer_file/CF in MC.hard_drive.stored_files)
+		for(var/datum/computer_file/CF in drive.stored_files)
 			if(CF.unsendable)
 				continue
 			if(CF.filename == picked_file)
@@ -550,9 +602,8 @@
 	if(href_list["downloadattachment"])
 		if(!current_account || !current_message || !current_message.attachment)
 			return 1
-		var/obj/item/modular_computer/MC = nano_host()
-		if(!istype(MC) || !MC.hard_drive || !MC.hard_drive.check_functionality())
-			error = "Error downloading file. Are you using a functional and NTOSv2-compliant device?"
+		var/obj/item/stock_parts/computer/hard_drive/drive = get_functional_drive()
+		if(!drive)
 			return 1
 
 		downloading = current_message.attachment.clone()
