@@ -11,7 +11,7 @@
 	var/loot_max = 6
 	var/list/loot_list = list(
 		/obj/item/stack/rods/scrap,
-		/obj/item/vehicle_part/random,
+		/obj/item/vehicle_part/tire,
 		/obj/item/stack/material/plastic/scrap,
 		/obj/item/stack/material/steel/scrap,
 		/obj/item/stack/material/glass/scrap,

@@ -45,8 +45,8 @@
 	ks1type = /obj/item/device/encryptionkey/nerva/cos
 
 /obj/item/device/radio/headset/heads/nerva_qm
-	name = "quatermaster's headset"
-	desc = "The headset of the ICS Nerva's quatermaster."
+	name = "quartermaster's headset"
+	desc = "The headset of the ICS Nerva's quartermaster."
 	icon_state = "com_headset"
 	item_state = "headset"
 	ks1type = /obj/item/device/encryptionkey/nerva/qm
@@ -78,7 +78,7 @@
 	channels = list("Command" = 1, "Service" = 1, "Supply" = 1, "Security" = 0, "Combat" = 0)
 
 /obj/item/device/encryptionkey/nerva/qm
-	name = "quatermaster's encryption key"
+	name = "quartermaster's encryption key"
 	icon_state = "hop_cypherkey"
 	channels = list("Supply" = 1, "Service" = 1, "Command" = 1)
 
