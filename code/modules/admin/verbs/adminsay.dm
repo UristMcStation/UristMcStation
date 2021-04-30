@@ -21,7 +21,7 @@
 	set name = "Msay"
 	set hidden = 1
 
-	if(!check_rights(R_ADMIN|R_MOD))
+	if(!check_rights(R_ADMIN|R_MOD|R_MENTOR))
 		return
 
 	msg = sanitize(msg)
