@@ -1719,7 +1719,7 @@
 	name = "Irish Cream"
 	description = "Whiskey-imbued cream, what else would you expect from the Irish."
 	taste_description = "creamy alcohol"
-	color = "#dddd9a3"
+	color = "#ddd9a3"
 	strength = 25
 
 	glass_name = "Irish cream"
