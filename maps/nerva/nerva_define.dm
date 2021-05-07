@@ -69,6 +69,7 @@
 	..()
 	system_name = generate_system_name()
 	minor_announcement = new(new_sound = sound('sound/AI/torch/commandreport.ogg', volume = 45))
+	SSsupply.movetime = 600 //cutting it in half to reduce waiting at the trading station
 
 /datum/map/nerva/map_info(victim)
 	to_chat(victim, "<h2>Current map information</h2>")

@@ -42,14 +42,16 @@
 			            access_all_personal_lockers, access_maint_tunnels, access_construction, access_morgue,
 			            access_cargo, access_mailsorting, access_qm, access_lawyer,
 			            access_theatre, access_research, access_mining, access_mining_station,
-			            access_clown, access_mime, access_RC_announce, access_keycard_auth, access_blueshield,
+			            access_clown, access_mime, access_RC_announce, access_keycard_auth, access_blueshield, access_teleporter
 			            )
 	minimal_access = list(access_security, access_sec_doors, access_court, access_forensics_lockers,
 			            access_medical, access_engine, access_eva, access_heads, access_bridge,
 			            access_all_personal_lockers, access_maint_tunnels, access_construction, access_morgue,
 			            access_cargo, access_mailsorting, access_qm, access_lawyer,
 			            access_theatre, access_research, access_mining, access_mining_station,
-			            access_clown, access_mime, access_RC_announce, access_keycard_auth, access_blueshield)
+			            access_clown, access_mime, access_RC_announce, access_keycard_auth, access_blueshield, access_teleporter
+			            )
+
 // Bodyguard's Job Verb is basically already stated in his supervisor setup.
 
 /datum/job/firstofficer
@@ -142,10 +144,10 @@
 	outfit_type = /decl/hierarchy/outfit/job/nerva/seniorscientist
 	access = list(access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch, access_expedition, access_network, access_seniornt,
 			 					access_maint_tunnels, access_heads, access_medical, access_ai_upload, access_eva, access_bridge, access_morgue, access_hydroponics,
-								access_library, access_research, access_heads_vault, access_RC_announce, access_gateway, access_expedition_shuttle_helm, access_expedition)
+								access_library, access_research, access_heads_vault, access_RC_announce, access_gateway, access_expedition_shuttle_helm, access_expedition, access_teleporter)
 	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch, access_expedition, access_network, access_seniornt,
 			 					access_maint_tunnels, access_heads, access_medical, access_ai_upload, access_eva, access_bridge, access_morgue, access_hydroponics,
-								access_library, access_research, access_heads_vault, access_RC_announce, access_gateway, access_expedition_shuttle_helm, access_expedition)
+								access_library, access_research, access_heads_vault, access_RC_announce, access_gateway, access_expedition_shuttle_helm, access_expedition, access_teleporter)
 
 /datum/job/seniorscientist/get_description_blurb()
 	return "You are a well-respected Senior Scientist working for Nanotrasen's interests. It is your job to manage your science team to ensure that Nanotrasen's research advances. You answer directly to the Captain and Nanotrasen Central Command, which you can fax directly."
@@ -189,10 +191,10 @@
 	supervisors = "the captain and the first officer."
 	outfit_type = /decl/hierarchy/outfit/job/nerva/qm
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station,
-	access_expedition_shuttle_helm, access_expedition, access_robotics, access_research,
+	access_expedition_shuttle_helm, access_expedition, access_robotics, access_research, access_teleporter,
 	access_RC_announce, access_keycard_auth, access_heads, access_eva, access_bridge, access_hydroponics, access_chapel_office, access_library, access_bar, access_kitchen, access_janitor)
 	minimal_access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station,
-	access_expedition_shuttle_helm, access_expedition, access_robotics, access_research,
+	access_expedition_shuttle_helm, access_expedition, access_robotics, access_research, access_teleporter,
 	access_RC_announce, access_keycard_auth, access_heads, access_eva, access_bridge, access_hydroponics, access_chapel_office, access_library, access_bar, access_janitor)
 
 /datum/job/qm/get_description_blurb()
