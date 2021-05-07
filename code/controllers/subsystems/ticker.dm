@@ -55,6 +55,9 @@ SUBSYSTEM_DEF(ticker)
 
 	if(!bypass_gamemode_vote && (pregame_timeleft <= config.vote_autogamemode_timeleft SECONDS) && !gamemode_vote_results)
 		if(!SSvote.active_vote)
+			if(SSticker.round_progressing)
+				SSticker.round_progressing = 0
+
 			SSvote.initiate_vote(/datum/vote/gamemode, automatic = 1)
 
 /datum/controller/subsystem/ticker/proc/setup_tick()
