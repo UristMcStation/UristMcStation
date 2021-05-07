@@ -2,7 +2,7 @@
 "ab" = (/turf/space,/area/boarding_ship)
 "ac" = (/turf/unsimulated/wall/urist/other{tag = "icon-1,0 (NORTH)"; icon_state = "1,0"; dir = 1},/area/boarding_ship)
 "ad" = (/turf/unsimulated/wall/urist/other{tag = "icon-1,0 (SOUTHEAST)"; icon_state = "1,0"; dir = 6},/area/boarding_ship)
-"ae" = (/obj/effect/landmark/scom/bomb/biglactship,/turf/unsimulated/wall/urist/other{tag = "icon-1,0 (SOUTHEAST)"; icon_state = "1,0"; dir = 6},/area/boarding_ship)
+"ae" = (/obj/effect/landmark/scom/bomb/boarding/biglactship,/turf/unsimulated/wall/urist/other{tag = "icon-1,0 (SOUTHEAST)"; icon_state = "1,0"; dir = 6},/area/boarding_ship)
 "af" = (/turf/unsimulated/wall/urist/other{tag = "icon-1,0 (EAST)"; icon_state = "1,0"; dir = 4},/area/boarding_ship)
 "ag" = (/turf/unsimulated/wall/urist/other{tag = "icon-1,0 (NORTHWEST)"; icon_state = "1,0"; dir = 9},/area/boarding_ship)
 "ah" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-3,11"; icon_state = "3,11"},/area/boarding_ship)
@@ -23,8 +23,8 @@
 "aw" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-6,8"; icon_state = "6,8"},/area/boarding_ship)
 "ax" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-7,8"; icon_state = "7,8"},/area/boarding_ship)
 "ay" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-8,8"; icon_state = "8,8"},/area/boarding_ship)
-"az" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-9,8"; icon_state = "9,8"},/obj/structure/boarding/self_destruct{shipid = "biglactship"},/obj/effect/landmark/scom/bomb/biglactship{bombdelay = 300},/turf/unsimulated/wall/urist/other/see{tag = "icon-10,15"; icon_state = "10,15"},/area/boarding_ship)
-"aA" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-9,8 (NORTH)"; icon_state = "9,8"; dir = 1},/turf/unsimulated/wall/urist/other/see{tag = "icon-11,15"; icon_state = "11,15"},/area/boarding_ship)
+"az" = (/obj/structure/boarding/self_destruct/lactera,/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-9,7"; icon_state = "9,7"},/area/boarding_ship)
+"aA" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-9,8 (NORTH)"; icon_state = "9,8"; dir = 1},/obj/effect/landmark/scom/bomb/boarding/biglactship{bombdelay = 300},/turf/unsimulated/wall/urist/other/see{tag = "icon-11,15"; icon_state = "11,15"},/area/boarding_ship)
 "aB" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-10,8"; icon_state = "10,8"},/area/boarding_ship)
 "aC" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-11,8"; icon_state = "11,8"},/area/boarding_ship)
 "aD" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-12,8"; icon_state = "12,8"},/area/boarding_ship)
@@ -36,7 +36,7 @@
 "aJ" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-10,7"; icon_state = "10,7"},/area/boarding_ship)
 "aK" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-11,7"; icon_state = "11,7"},/area/boarding_ship)
 "aL" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-12,7"; icon_state = "12,7"},/area/boarding_ship)
-"aM" = (/obj/effect/landmark/scom/bomb/biglactship,/turf/unsimulated/wall/urist/other{tag = "icon-1,0 (NORTHWEST)"; icon_state = "1,0"; dir = 9},/area/boarding_ship)
+"aM" = (/obj/effect/landmark/scom/bomb/boarding/biglactship,/turf/unsimulated/wall/urist/other{tag = "icon-1,0 (NORTHWEST)"; icon_state = "1,0"; dir = 9},/area/boarding_ship)
 "aN" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-2,0"; icon_state = "2,0"},/area/boarding_ship)
 "aO" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-5,11"; icon_state = "5,11"},/turf/unsimulated/wall/urist/other/see{tag = "icon-10,15"; icon_state = "10,15"},/turf/unsimulated/wall/urist/other/see{tag = "icon-6,14 (WEST)"; icon_state = "6,14"; dir = 8},/area/boarding_ship)
 "aP" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-6,6"; icon_state = "6,6"},/turf/unsimulated/wall/urist/other/see{tag = "icon-6,14 (WEST)"; icon_state = "6,14"; dir = 8},/area/boarding_ship)
@@ -44,21 +44,21 @@
 "aR" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-11,6"; icon_state = "11,6"},/area/boarding_ship)
 "aS" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-12,6"; icon_state = "12,6"},/turf/unsimulated/wall/urist/other/see{tag = "icon-6,14 (WEST)"; icon_state = "6,14"; dir = 8},/area/boarding_ship)
 "aT" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-3,12"; icon_state = "3,12"},/turf/unsimulated/wall/urist/other/see{tag = "icon-11,15"; icon_state = "11,15"},/turf/unsimulated/wall/urist/other/see{tag = "icon-6,14 (WEST)"; icon_state = "6,14"; dir = 8},/area/boarding_ship)
-"aU" = (/obj/effect/landmark/scom/bomb/biglactship{bombdelay = 36},/turf/unsimulated/wall/urist/other{tag = "icon-1,0 (SOUTHWEST)"; icon_state = "1,0"; dir = 10},/area/boarding_ship)
+"aU" = (/obj/effect/landmark/scom/bomb/boarding/biglactship{bombdelay = 36},/turf/unsimulated/wall/urist/other{tag = "icon-1,0 (SOUTHWEST)"; icon_state = "1,0"; dir = 10},/area/boarding_ship)
 "aV" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-5,1"; icon_state = "5,1"},/area/boarding_ship)
 "aW" = (/obj/effect/urist/triggers/ai_defender_landmark/lactera/leader,/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-9,7"; icon_state = "9,7"},/area/boarding_ship)
 "aX" = (/obj/effect/urist/triggers/ai_defender_landmark/lactera/heavy,/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-5,1"; icon_state = "5,1"},/area/boarding_ship)
-"aY" = (/obj/effect/landmark/scom/bomb/biglactship{bombdelay = 60},/turf/unsimulated/wall/urist/other{tag = "icon-1,0 (SOUTHWEST)"; icon_state = "1,0"; dir = 10},/area/boarding_ship)
+"aY" = (/obj/effect/landmark/scom/bomb/boarding/biglactship{bombdelay = 60},/turf/unsimulated/wall/urist/other{tag = "icon-1,0 (SOUTHWEST)"; icon_state = "1,0"; dir = 10},/area/boarding_ship)
 "aZ" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-5,1"; icon_state = "5,1"},/turf/unsimulated/wall/urist/other/see{tag = "icon-8,15"; icon_state = "8,15"},/area/boarding_ship)
 "ba" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-5,1"; icon_state = "5,1"},/turf/unsimulated/wall/urist/other/see{tag = "icon-8,15 (NORTH)"; icon_state = "8,15"; dir = 1},/area/boarding_ship)
 "bb" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-5,1"; icon_state = "5,1"},/turf/unsimulated/wall/urist/other/see{tag = "icon-8,14"; icon_state = "8,14"},/area/boarding_ship)
-"bc" = (/obj/effect/urist/triggers/ai_defender_landmark/lactera,/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-9,7"; icon_state = "9,7"},/area/boarding_ship)
+"bc" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-1,1"; icon_state = "1,1"},/obj/effect/urist/triggers/ai_defender_landmark/lactera,/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-8,13"; icon_state = "8,13"},/area/boarding_ship)
 "bd" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-5,1"; icon_state = "5,1"},/turf/unsimulated/wall/urist/other/see{tag = "icon-8,14 (NORTH)"; icon_state = "8,14"; dir = 1},/area/boarding_ship)
 "be" = (/turf/unsimulated/wall/urist/other{tag = "icon-1,0"; icon_state = "1,0"; dir = 2},/area/boarding_ship)
 "bf" = (/turf/unsimulated/wall/urist/other{tag = "icon-1,0 (NORTHEAST)"; icon_state = "1,0"; dir = 5},/area/boarding_ship)
-"bg" = (/obj/effect/landmark/scom/bomb/biglactship{bombdelay = 203},/turf/unsimulated/wall/urist/other{tag = "icon-1,0 (NORTHEAST)"; icon_state = "1,0"; dir = 5},/area/boarding_ship)
+"bg" = (/obj/effect/landmark/scom/bomb/boarding/biglactship{bombdelay = 203},/turf/unsimulated/wall/urist/other{tag = "icon-1,0 (NORTHEAST)"; icon_state = "1,0"; dir = 5},/area/boarding_ship)
 "bh" = (/turf/unsimulated/wall/urist/other{tag = "icon-1,0.1.1.1.1.1.1.1.1 (NORTH)"; icon_state = "1,0.1.1.1.1.1.1.1.1"; dir = 1},/area/boarding_ship)
-"bi" = (/obj/effect/landmark/scom/bomb/biglactship{bombdelay = 15},/turf/unsimulated/wall/urist/other{tag = "icon-1,0 (NORTHEAST)"; icon_state = "1,0"; dir = 5},/area/boarding_ship)
+"bi" = (/obj/effect/landmark/scom/bomb/boarding/biglactship{bombdelay = 15},/turf/unsimulated/wall/urist/other{tag = "icon-1,0 (NORTHEAST)"; icon_state = "1,0"; dir = 5},/area/boarding_ship)
 "bj" = (/turf/unsimulated/wall/urist/other{tag = "icon-1,0 (WEST)"; icon_state = "1,0"; dir = 8},/area/boarding_ship)
 "bk" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-3,1"; icon_state = "3,1"},/area/boarding_ship)
 "bl" = (/turf/unsimulated/wall/urist/other{tag = "icon-3,15 (EAST)"; icon_state = "3,15"; dir = 4},/area/boarding_ship)
@@ -78,7 +78,7 @@
 "bz" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-0,14"; icon_state = "0,14"},/area/boarding_ship)
 "bA" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-1,14"; icon_state = "1,14"},/area/boarding_ship)
 "bB" = (/turf/unsimulated/wall/urist/other{tag = "icon-5,14"; icon_state = "5,14"},/area/boarding_ship)
-"bC" = (/obj/effect/landmark/scom/bomb/biglactship{bombdelay = 200},/turf/unsimulated/wall/urist/other{tag = "icon-3,15 (EAST)"; icon_state = "3,15"; dir = 4},/area/boarding_ship)
+"bC" = (/obj/effect/landmark/scom/bomb/boarding/biglactship{bombdelay = 200},/turf/unsimulated/wall/urist/other{tag = "icon-3,15 (EAST)"; icon_state = "3,15"; dir = 4},/area/boarding_ship)
 "bD" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-2,11"; icon_state = "2,11"},/area/boarding_ship)
 "bE" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-0,13"; icon_state = "0,13"},/area/boarding_ship)
 "bF" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-1,13"; icon_state = "1,13"},/area/boarding_ship)
@@ -88,8 +88,8 @@
 "bJ" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-3,13"; icon_state = "3,13"},/area/boarding_ship)
 "bK" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-1,10"; icon_state = "1,10"},/area/boarding_ship)
 "bL" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-2,12"; icon_state = "2,12"},/area/boarding_ship)
-"bM" = (/obj/effect/landmark/scom/bomb/biglactship{bombdelay = 36},/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-0,15.1"; icon_state = "0,15.1"},/area/boarding_ship)
-"bN" = (/obj/effect/landmark/scom/bomb/biglactship{bombdelay = 60},/turf/unsimulated/wall/urist/other{tag = "icon-3,15 (WEST)"; icon_state = "3,15"; dir = 8},/area/boarding_ship)
+"bM" = (/obj/effect/landmark/scom/bomb/boarding/biglactship{bombdelay = 36},/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-0,15.1"; icon_state = "0,15.1"},/area/boarding_ship)
+"bN" = (/obj/effect/landmark/scom/bomb/boarding/biglactship{bombdelay = 60},/turf/unsimulated/wall/urist/other{tag = "icon-3,15 (WEST)"; icon_state = "3,15"; dir = 8},/area/boarding_ship)
 "bO" = (/turf/unsimulated/wall/urist/other{tag = "icon-3,15 (NORTHEAST)"; icon_state = "3,15"; dir = 5},/area/boarding_ship)
 "bP" = (/turf/unsimulated/wall/urist/other{tag = "icon-3,15 (NORTH)"; icon_state = "3,15"; dir = 1},/area/boarding_ship)
 "bQ" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-2,14"; icon_state = "2,14"},/area/boarding_ship)
@@ -98,13 +98,12 @@
 "bT" = (/turf/unsimulated/wall/urist/other{tag = "icon-3,15 (SOUTHWEST)"; icon_state = "3,15"; dir = 10},/area/boarding_ship)
 "bU" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-2,1"; icon_state = "2,1"},/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-7,13"; icon_state = "7,13"},/area/boarding_ship)
 "bV" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-2,1"; icon_state = "2,1"},/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-6,12"; icon_state = "6,12"},/area/boarding_ship)
-"bW" = (/obj/effect/urist/triggers/ai_defender_landmark/lactera,/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-2,1"; icon_state = "2,1"},/area/boarding_ship)
 "bX" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-1,1"; icon_state = "1,1"},/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-6,12"; icon_state = "6,12"},/area/boarding_ship)
 "bY" = (/turf/unsimulated/wall/urist/other{tag = "icon-3,15"; icon_state = "3,15"; dir = 2},/turf/unsimulated/wall/urist/other{tag = "icon-6,15 (EAST)"; icon_state = "6,15"; dir = 4},/area/boarding_ship)
-"bZ" = (/obj/effect/landmark/scom/bomb/biglactship{bombdelay = 36},/turf/unsimulated/wall/urist/other{tag = "icon-3,15"; icon_state = "3,15"; dir = 2},/area/boarding_ship)
+"bZ" = (/obj/effect/landmark/scom/bomb/boarding/biglactship{bombdelay = 36},/turf/unsimulated/wall/urist/other{tag = "icon-3,15"; icon_state = "3,15"; dir = 2},/area/boarding_ship)
 "ca" = (/turf/unsimulated/wall/urist/other{tag = "icon-3,15"; icon_state = "3,15"; dir = 2},/turf/unsimulated/wall/urist/other{tag = "icon-9,15 (EAST)"; icon_state = "9,15"; dir = 4},/area/boarding_ship)
-"cb" = (/obj/effect/landmark/scom/bomb/biglactship{bombdelay = 380},/turf/unsimulated/wall/urist/other{tag = "icon-3,15 (WEST)"; icon_state = "3,15"; dir = 8},/area/boarding_ship)
-"cc" = (/obj/effect/landmark/scom/bomb/biglactship{bombdelay = 190},/turf/unsimulated/wall/urist/other{tag = "icon-3,15 (NORTHEAST)"; icon_state = "3,15"; dir = 5},/area/boarding_ship)
+"cb" = (/obj/effect/landmark/scom/bomb/boarding/biglactship{bombdelay = 380},/turf/unsimulated/wall/urist/other{tag = "icon-3,15 (WEST)"; icon_state = "3,15"; dir = 8},/area/boarding_ship)
+"cc" = (/obj/effect/landmark/scom/bomb/boarding/biglactship{bombdelay = 190},/turf/unsimulated/wall/urist/other{tag = "icon-3,15 (NORTHEAST)"; icon_state = "3,15"; dir = 5},/area/boarding_ship)
 "cd" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-1,1"; icon_state = "1,1"},/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-7,13"; icon_state = "7,13"},/area/boarding_ship)
 "ce" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-2,1"; icon_state = "2,1"},/turf/unsimulated/wall/urist/other/see{tag = "icon-8,15 (NORTH)"; icon_state = "8,15"; dir = 1},/area/boarding_ship)
 "cf" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-1,1"; icon_state = "1,1"},/area/boarding_ship)
@@ -112,9 +111,8 @@
 "ch" = (/obj/effect/urist/triggers/ai_defender_landmark/lactera,/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-2,1"; icon_state = "2,1"},/area/boarding_ship)
 "ci" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-2,1"; icon_state = "2,1"},/turf/unsimulated/wall/urist/other/see{tag = "icon-8,14 (NORTH)"; icon_state = "8,14"; dir = 1},/area/boarding_ship)
 "cj" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-1,1"; icon_state = "1,1"},/turf/unsimulated/wall/urist/other/see{tag = "icon-8,14"; icon_state = "8,14"},/area/boarding_ship)
-"ck" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-1,1"; icon_state = "1,1"},/obj/effect/urist/triggers/ai_defender_landmark/lactera,/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-8,13"; icon_state = "8,13"},/area/boarding_ship)
 "cl" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-1,1"; icon_state = "1,1"},/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-8,13"; icon_state = "8,13"},/area/boarding_ship)
-"cm" = (/obj/effect/landmark/scom/bomb/biglactship{bombdelay = 368},/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-2,1"; icon_state = "2,1"},/area/boarding_ship)
+"cm" = (/obj/effect/landmark/scom/bomb/boarding/biglactship{bombdelay = 368},/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-2,1"; icon_state = "2,1"},/area/boarding_ship)
 "cn" = (/turf/unsimulated/floor/uristturf/other/scom/destructable{tag = "icon-3,1"; icon_state = "3,1"},/area/boarding_ship)
 "co" = (/turf/unsimulated/wall/urist/other{tag = "icon-3,15"; icon_state = "3,15"; dir = 2},/turf/unsimulated/wall/urist/other{tag = "icon-9,15 (SOUTHEAST)"; icon_state = "9,15"; dir = 6},/area/boarding_ship)
 "cp" = (/obj/effect/template_loader/ships,/turf/unsimulated/wall/urist/other{tag = "icon-3,15"; icon_state = "3,15"; dir = 2},/area/boarding_ship)
@@ -126,7 +124,7 @@
 "cv" = (/obj/effect/urist/triggers/ai_defender_landmark/lactera,/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-5,1"; icon_state = "5,1"},/area/boarding_ship)
 "cw" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-0,10"; icon_state = "0,10"},/area/boarding_ship)
 "cx" = (/obj/effect/urist/triggers/ai_defender_landmark/lactera,/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-9,7"; icon_state = "9,7"},/area/boarding_ship)
-"cy" = (/obj/effect/landmark/scom/bomb/biglactship{bombdelay = 203},/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-0,15"; icon_state = "0,15"},/area/boarding_ship)
+"cy" = (/obj/effect/landmark/scom/bomb/boarding/biglactship{bombdelay = 203},/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-0,15"; icon_state = "0,15"},/area/boarding_ship)
 "cz" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-1,14"; icon_state = "1,14"},/turf/unsimulated/wall/urist/other/see{tag = "icon-6,14 (EAST)"; icon_state = "6,14"; dir = 4},/area/boarding_ship)
 "cA" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-2,12"; icon_state = "2,12"},/turf/unsimulated/wall/urist/other/see{tag = "icon-6,14 (EAST)"; icon_state = "6,14"; dir = 4},/area/boarding_ship)
 "cB" = (/turf/unsimulated/wall/urist/other{tag = "icon-3,0"; icon_state = "3,0"},/turf/unsimulated/wall/urist/other/see{tag = "icon-6,14 (EAST)"; icon_state = "6,14"; dir = 4},/area/boarding_ship)
@@ -134,7 +132,7 @@
 "cD" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-0,14"; icon_state = "0,14"},/turf/unsimulated/wall/urist/other/see{tag = "icon-6,14 (EAST)"; icon_state = "6,14"; dir = 4},/area/boarding_ship)
 "cE" = (/turf/unsimulated/wall/urist/other{tag = "icon-3,0"; icon_state = "3,0"},/area/boarding_ship)
 "cF" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-3,0"; icon_state = "3,0"},/area/boarding_ship)
-"cG" = (/obj/effect/landmark/scom/bomb/biglactship{bombdelay = 368},/turf/unsimulated/wall/urist/other{tag = "icon-3,15 (NORTH)"; icon_state = "3,15"; dir = 1},/area/boarding_ship)
+"cG" = (/obj/effect/landmark/scom/bomb/boarding/biglactship{bombdelay = 368},/turf/unsimulated/wall/urist/other{tag = "icon-3,15 (NORTH)"; icon_state = "3,15"; dir = 1},/area/boarding_ship)
 "cH" = (/obj/structure/scom/science{icon_state = "2,11"; scommoney = 300; tag = "icon-2,11"},/turf/unsimulated/wall/urist/other/see{tag = "icon-2,11"; icon_state = "2,11"},/area/boarding_ship)
 "cI" = (/obj/structure/scom/science{icon_state = "0,12"; scommoney = 300; tag = "icon-0,12"},/turf/unsimulated/wall/urist/other/see{tag = "icon-0,12"; icon_state = "0,12"},/area/boarding_ship)
 "cJ" = (/obj/effect/urist/triggers/ai_defender_landmark/lactera,/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-1,15"; icon_state = "1,15"},/area/boarding_ship)
@@ -156,7 +154,7 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaagaVaVaVaVaVaIaIaVaVaVaVaValaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaagaVaVaXaVaVaIaIaVaVaVaXaVaYaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaagaZaVaVaVaVaIaIaVaVaVaVbaalaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaagbbaVaVaVaVbcbcaVaVaVaVbdalaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaagbbaVaVaVaVcxcxaVaVaVaVbdalaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabebfbgbfaEaVaIaIaVbhbfbfbibjaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaagaVaIaIaValaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaagbkbkbkbkalaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -180,19 +178,19 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaablbobobobobnaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabqbrbrbrbrbsbobobobobsbrbrbrbrbxaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaablbobUbobobobobobobobobobobVbobnaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaablbobobWbobobobobobobXbobobobobnaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaablbobochbobobobobobobXbobobobobnaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaablbobobobobVbobobobobobobobobobnaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaablbobobobsbPbPbPbPbPbPbsbobobobnaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaablbobUbobnaaaaaaaaaaaablbXbobobnaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaablbobobobsbrbYbZcabrbrbsbobobobnaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaablbobobobobobobobobobobobobobobnaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaablbXbobobVbobobobobobUbobobWbobnaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaablbXbobobVbobobobobobUbobochbobnaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaablbobobobobobUbobobobobobobobUcbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaccbPbPbPbPbsbobobobVbsbPbPbPbPbTaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabqbrbrbrbrbrbxblbobWbocdbnbqbrbrbrbrbrbxaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabqbrbrbrbrbrbxblbochbocdbnbqbrbrbrbrbrbxaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaablbzbobobocebnblcfbobobobnblcgbochbobzbnaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaablbzbobobUcibnblbobobVbobnblcjbUbobobzbnaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaablbzbockboboboboboboboboboboboboclbobzbnaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaablbzbobcboboboboboboboboboboboboclbobzbnaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaablbzbobobocebnblbobobobobnblcgbobobobzbnaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaablbzcfcmbVcibnbObobobobobTblcjcfcmbVbzbnaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabObPbPbPbPbPbTaccncncncnafbObPbPbPbPbPbTaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

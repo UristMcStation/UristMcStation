@@ -195,10 +195,13 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 	invisibility = 101
 	var/bombdelay = 0
 	var/shipid = null //touching scom code again was a mistake. everything here is vomit inducing.
+	var/dmg_dev = 1
+	var/dmg_hvy = 2
+	var/dmg_lgt = 3
 
 /obj/effect/landmark/scom/bomb/proc/incomprehensibleprocname()
 	spawn(bombdelay)
-		explosion(src.loc, 1, 2, 3, 4)
+		explosion(src.loc, dmg_dev, dmg_hvy, dmg_lgt, 1)
 
 /client/proc/delaymissions()
 

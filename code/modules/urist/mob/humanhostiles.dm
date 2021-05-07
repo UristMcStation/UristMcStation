@@ -314,7 +314,7 @@
 	ranged = 1
 	rapid = 2
 	projectiletype = /obj/item/projectile/bullet/rifle/a762
-	corpse = /decl/hierarchy/outfit/newpirate/ballistic
+	corpse = /obj/effect/landmark/corpse/newpirate/ballistic
 	minimum_distance = 4
 	retreat_distance = 2
 

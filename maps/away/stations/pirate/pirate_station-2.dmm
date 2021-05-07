@@ -128,7 +128,7 @@
 "cx" = (/obj/random/junk,/obj/machinery/door/airlock/glass/civilian,/turf/simulated/floor,/area/spacestations/pirate/station)
 "cy" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet,/obj/structure/curtain/open/bed,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "cz" = (/obj/item/weapon/broken_bottle,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
-"cA" = (/obj/effect/landmark/scom/bomb/pirate_station,/turf/simulated/wall,/area/spacestations/pirate/station)
+"cA" = (/obj/effect/landmark/scom/bomb/boarding/pirate_station,/turf/simulated/wall,/area/spacestations/pirate/station)
 "cB" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/random/junk,/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
 "cC" = (/obj/machinery/light{icon_state = "tube1"; dir = 4},/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "cD" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/door/airlock,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
@@ -212,9 +212,9 @@
 "ed" = (/obj/structure/catwalk,/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"; pixel_y = 0},/obj/random/junk,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
 "ee" = (/obj/machinery/door/airlock/multi_tile,/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
 "ef" = (/obj/random/trash,/turf/simulated/floor/tiled/steel_grid,/area/spacestations/pirate/station)
-"eg" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/catwalk,/obj/effect/landmark/scom/bomb/pirate_station,/turf/simulated/floor,/area/spacestations/pirate/station)
-"eh" = (/obj/effect/landmark/scom/bomb/pirate_station,/turf/simulated/floor,/area/spacestations/pirate/station)
-"ei" = (/obj/effect/floor_decal/corner/blue{dir = 9},/obj/structure/boarding/self_destruct/station/pirate,/obj/effect/landmark/scom/bomb/pirate_station,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
+"eg" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/catwalk,/obj/effect/landmark/scom/bomb/boarding/pirate_station,/turf/simulated/floor,/area/spacestations/pirate/station)
+"eh" = (/obj/effect/landmark/scom/bomb/boarding/pirate_station,/turf/simulated/floor,/area/spacestations/pirate/station)
+"ei" = (/obj/effect/floor_decal/corner/blue{dir = 9},/obj/structure/boarding/self_destruct/station/pirate,/obj/effect/landmark/scom/bomb/boarding/pirate_station,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
