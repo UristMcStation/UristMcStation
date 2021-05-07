@@ -53,14 +53,18 @@
 //	accuracy = -1
 //	jam_chance = 5
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
+
 	var/scoped = 0
 
-/obj/item/weapon/gun/projectile/manualcycle/hunterrifle/attackby(obj/item/I, mob/user) //i really need to make a partent class for guns that can be modified, but right now it's only the one so fuck it. //GlloydTODO
+/obj/item/weapon/gun/projectile/manualcycle/hunterrifle/attackby(obj/item/I, mob/user) //i really need to make a parent class for guns that can be modified, but right now it's only the one so fuck it. //GlloydTODO
 	..()
 
 	if(istype(I, /obj/item/weapon/gunattachment/scope/huntrifle) && !scoped)
 		to_chat(user, "<span class='notice'>You attach the scope to the rifle.</span>")
 		scoped = 1
+		scoped_accuracy = 6
+		scope_zoom = 2
+		verbs += /obj/item/weapon/gun/proc/scope
 		icon_state = "scopedhuntrifle"
 		item_state = "scopedhuntrifle"
 		wielded_item_state = "scopedhuntrifle2"
@@ -71,6 +75,9 @@
 	else if(istype(I, /obj/item/weapon/wrench) && scoped)
 		to_chat(user, "<span class='notice'>You remove the scope from the rifle.</span>")
 		scoped = 0
+		scoped_accuracy = 0
+		scope_zoom = 0
+		verbs -= /obj/item/weapon/gun/proc/scope
 		wielded_item_state = "huntrifle2"
 		icon_state = "huntrifle"
 		item_state = "huntrifle"
@@ -96,17 +103,8 @@
 	wielded_item_state = "scopedhuntrifle2"
 	icon_state = "scopedhuntrifle"
 	item_state = "scopedhuntrifle"
-
-/obj/item/weapon/gun/projectile/manualcycle/hunterrifle/scope()
-	set category = "Object"
-	set name = "Use Scope"
-	set popup_menu = 1
-
-	if(scoped)
-		toggle_scope(usr, 2.0)
-
-	else
-		return
+	scoped_accuracy = 6
+	scope_zoom = 2
 
 /obj/item/weapon/gunattachment/scope/huntrifle
 	icon_state = "huntriflescope"
