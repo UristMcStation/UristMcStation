@@ -9003,6 +9003,10 @@
 	},
 /turf/space,
 /area/space)
+"uv" = (
+/obj/effect/urist/projectile_landmark/ship,
+/turf/space,
+/area/space)
 "Fd" = (
 /obj/item/weapon/material/shard{
 	icon_state = "small"
@@ -47516,19 +47520,19 @@ aa
 aa
 aa
 aa
+uv
+uv
+uv
+uv
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+uv
+uv
+uv
+uv
 aa
 aa
 aa
