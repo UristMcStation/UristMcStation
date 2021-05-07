@@ -30,6 +30,7 @@
 Admin Observer
 Retired Admin		+MOD +ADMIN +VAREDIT
 Moderator		+MOD +ADMIN
+Retired Moderator	+MENTOR
 Admin Candidate		+ADMIN
 Trial Admin		+@ +SPAWN +REJUV +VAREDIT +BAN
 Badmin			+@ +POSSESS +BUILDMODE +SERVER +FUN

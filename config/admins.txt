@@ -6,32 +6,33 @@
 ######################################################################
 
 glloyd - Head Admin
-Stefender - Game Master
+
 Lady_Blanc - Game Master
 MisterPaper - Game Master
 Gale212 - Game Master
 
-Scrdest - Coder
+hanspanda - Trial Admin
 
-Vakothu - Dev Mod
-Licton15 - Moderator
-laniakeaa - Moderator
+Scrdest - Coder
 
 AseaHeru - Mentor
 Mapleguy555 - Mentor
 Lance77am - Mentor
 Mentor_Knight - Mentor
 
-Irrationalist - Retired Admin
+laniakeaa - Retired Moderator
+Licton15 - Retired Moderator
 CoraiUnki - Inactive Admin
 Acemuto10 - Inactive Admin
 Wommy - Inactive Admin
-hanspanda - Inactive Admin
 Kydrasz - Inactive Admin
 MisterTeeth - Inactive Admin
 Zty8212000 - Inactive Admin
 Capesh - Inactive Admin
+Vakothu - Retired Admin
 Nienhaus2 - Retired Admin
 MrBarman - Retired Admin
 Lyeos - Retired Admin
+Stefender - Retired Admin
+Irrationalist - Retired Admin
 #Electronics
