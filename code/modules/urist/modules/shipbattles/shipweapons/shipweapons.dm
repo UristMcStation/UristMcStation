@@ -211,6 +211,7 @@
 				icon_state = "[initial(icon_state)]-firing"
 				spawn(fire_anim)
 					charged = 0
+					update_icon()
 					Charging() //time to recharge
 
 			else
