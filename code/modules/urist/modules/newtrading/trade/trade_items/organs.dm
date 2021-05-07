@@ -11,7 +11,7 @@
 	item_type = /obj/item/organ/internal/lungs
 	category = "organs"
 	quantity = 1
-	value = 400
+	value = 300
 	trader_weight = 1
 
 /datum/trade_item/organs/eyes
@@ -27,7 +27,7 @@
 	item_type = /obj/item/organ/internal/heart
 	category = "organs"
 	quantity = 1
-	value = 400
+	value = 300
 	trader_weight = 1
 
 /datum/trade_item/organs/kidneys
@@ -51,32 +51,39 @@
 	item_type = /obj/item/organ/internal/xeno/acidgland
 	category = "organs"
 	quantity = 0
-	value = 800
+	value = 900
 
 /datum/trade_item/organs/eggsac
 	name = "egg sac"
 	item_type = /obj/item/organ/internal/xeno/eggsac
 	category = "organs"
 	quantity = 0
-	value = 800
+	value = 900
 
 /datum/trade_item/organs/hivenode
 	name = "hive node"
 	item_type = /obj/item/organ/internal/xeno/hivenode
 	category = "organs"
 	quantity = 0
-	value = 800
+	value = 900
 
 /datum/trade_item/organs/plasmavessel
 	name = "plasma vessel"
 	item_type = /obj/item/organ/internal/xeno/plasmavessel
 	category = "organs"
 	quantity = 0
-	value = 800
+	value = 900
 
 /datum/trade_item/organs/resinspinner
 	name = "resin spinner"
 	item_type = /obj/item/organ/internal/xeno/resinspinner
 	category = "organs"
 	quantity = 0
-	value = 800
+	value = 900
+
+/datum/trade_item/organs/stack
+	name = "neural lace"
+	item_type = /obj/item/organ/internal/stack
+	category = "organs"
+	quantity = 1
+	value = 600
