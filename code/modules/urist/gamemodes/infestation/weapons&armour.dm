@@ -225,6 +225,8 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 //	var/use_launcher = 0
 	wielded_item_state = "ANFOR-battlerifle-wielded"
+	scoped_accuracy = 2
+	scope_zoom = 1
 	firemodes = list(
 		list(mode_name="semiauto", burst=1, fire_delay=0, use_launcher = null, move_delay=null, burst_accuracy=null, dispersion=null)
 		)

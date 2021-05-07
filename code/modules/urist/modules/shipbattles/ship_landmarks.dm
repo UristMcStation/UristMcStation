@@ -153,18 +153,17 @@
 	faction_id = "pirate"
 
 //pirate corpses
+/obj/effect/landmark/corpse/newpirate
+	spawn_flags = CORPSE_SPAWNER_RANDOM_NAME | CORPSE_SPAWNER_CUT_ID_PDA | CORPSE_SPAWNER_CUT_SURVIVAL
 
 /obj/effect/landmark/corpse/newpirate/laser
 	name = "New Pirate - Laser"
 	corpse_outfits = list(/decl/hierarchy/outfit/newpirate)
-	spawn_flags = CORPSE_SPAWNER_NO_RANDOMIZATION
 
 /obj/effect/landmark/corpse/newpirate/melee
 	name = "New Pirate - Melee"
 	corpse_outfits = list(/decl/hierarchy/outfit/newpirate/melee)
-	spawn_flags = CORPSE_SPAWNER_NO_RANDOMIZATION
 
 /obj/effect/landmark/corpse/newpirate/ballistic
 	name = "New Pirate - Ballistic"
 	corpse_outfits = list(/decl/hierarchy/outfit/newpirate/ballistic)
-	spawn_flags = CORPSE_SPAWNER_NO_RANDOMIZATION

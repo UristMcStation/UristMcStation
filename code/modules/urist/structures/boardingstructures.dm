@@ -48,9 +48,10 @@
 /obj/structure/boarding/self_destruct
 	var/triggered = FALSE
 	name = "self destruct mechanism"
+	icon = 'icons/obj/stationobjs.dmi'
+	icon_state = "bus"
 	anchored = 1
-	icon = 'icons/urist/turf/scomturfs.dmi' //this only makes sense for lactera right now, i'm going to make others for the other ships
-	icon_state = "9,8"
+	density = 1
 	var/shipid = null
 
 /obj/structure/boarding/self_destruct/ex_act()
@@ -82,12 +83,32 @@
 								GLOB.using_map.overmap_ship.target.shipdeath()
 
 
-/obj/effect/landmark/scom/bomb/biglactship
+/obj/structure/boarding/self_destruct/lactera
+	icon = 'icons/urist/turf/scomturfs.dmi'
+	icon_state = "9,8"
+	shipid = "biglactship"
+
+/obj/structure/boarding/self_destruct/pirateship
+	shipid = "pirateship"
+
+/obj/effect/landmark/scom/bomb/boarding
+	var/delay_lower = 100
+	var/delay_upper = 600
+
+/obj/effect/landmark/scom/bomb/boarding/New()
+	if(!bombdelay)
+		bombdelay = rand(delay_lower,delay_upper)
+
+	..()
+
+/obj/effect/landmark/scom/bomb/boarding/pirateship
+	shipid = "pirateship"
+
+/obj/effect/landmark/scom/bomb/boarding/biglactship
 	shipid = "biglactship"
 
 /obj/structure/boarding/self_destruct/station
-	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "bus"
+	name = "station self destruct mechanism"
 
 /obj/structure/boarding/self_destruct/station/attack_hand(mob/user as mob)
 	if(triggered)
@@ -120,5 +141,9 @@
 /obj/structure/boarding/self_destruct/station/pirate
 	shipid = "pirate_station"
 
-/obj/effect/landmark/scom/bomb/pirate_station
+/obj/effect/landmark/scom/bomb/boarding/pirate_station
 	shipid = "pirate_station"
+	delay_lower = 0
+	delay_upper = 100
+	dmg_hvy = 3
+	dmg_lgt = 6

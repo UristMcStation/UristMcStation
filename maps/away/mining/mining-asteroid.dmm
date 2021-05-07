@@ -59,6 +59,7 @@
 "aw" = (
 /obj/random/closet,
 /obj/random/loot,
+/obj/item/weapon/circuitboard/teleporter,
 /turf/simulated/floor/tiled/airless,
 /area/djstation)
 "ax" = (
@@ -173,6 +174,15 @@
 /area/djstation)
 "aY" = (
 /obj/random/closet,
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/derelict{
+	dir = 1;
+	icon_state = "apc0";
+	pixel_y = 24
+	},
 /turf/simulated/floor/airless,
 /area/djstation)
 "aZ" = (
@@ -210,6 +220,9 @@
 /obj/effect/overmap/sector/cluster,
 /turf/simulated/floor/asteroid,
 /area/mine/explored)
+"bI" = (
+/turf/simulated/floor/asteroid,
+/area/mine/unexplored)
 "cb" = (
 /obj/effect/shuttle_landmark/cluster/nav5,
 /turf/simulated/floor/asteroid,
@@ -230,14 +243,37 @@
 /obj/effect/shuttle_landmark/cluster/nav3,
 /turf/space,
 /area/space)
+"gO" = (
+/obj/machinery/power/smes/buildable,
+/turf/simulated/floor/airless,
+/area/djstation)
 "hb" = (
 /obj/effect/shuttle_landmark/cluster/nav1,
 /turf/space,
 /area/space)
+"hi" = (
+/obj/machinery/power/port_gen/pacman/mrs{
+	sheets = 0
+	},
+/obj/structure/cable/yellow{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/airless,
+/area/djstation)
 "ib" = (
 /obj/effect/shuttle_landmark/cluster/nav7,
 /turf/simulated/floor/asteroid,
 /area/mine/explored)
+"iy" = (
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4";
+	tag = ""
+	},
+/turf/simulated/floor/tiled/airless,
+/area/djstation)
 "jb" = (
 /obj/machinery/access_button/airlock_exterior{
 	master_tag = "lp_north_airlock";
@@ -300,6 +336,15 @@
 	},
 /turf/simulated/floor/airless,
 /area/djstation)
+"pU" = (
+/obj/random/junk,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
+/area/djstation)
 "qb" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -330,6 +375,29 @@
 	},
 /turf/simulated/floor/airless,
 /area/djstation)
+"th" = (
+/obj/structure/table/rack,
+/obj/structure/cable/cyan{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/item/device/spaceflare,
+/obj/item/device/radio,
+/obj/item/weapon/storage/belt/utility/full,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/random/tool,
+/obj/random/tech_supply,
+/obj/item/stack/material/tritium/ten,
+/obj/item/stack/material/tritium/ten,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4;
+	icon_state = "map_scrubber_on"
+	},
+/obj/random/maintenance,
+/turf/simulated/floor/plating,
+/area/djstation)
 "ub" = (
 /obj/machinery/access_button{
 	command = "cycle_interior";
@@ -354,6 +422,14 @@
 	},
 /turf/simulated/floor/asteroid,
 /area/mine/explored)
+"vN" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
+/area/djstation)
 "wb" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
@@ -440,6 +516,30 @@
 	},
 /turf/space,
 /area/space)
+"Gy" = (
+/obj/machinery/power/terminal,
+/obj/structure/cable,
+/turf/simulated/floor/airless,
+/area/djstation)
+"Rn" = (
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/obj/structure/cable/yellow,
+/turf/simulated/floor/airless,
+/area/djstation)
+"SF" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/airless,
+/area/djstation)
+"TD" = (
+/obj/effect/wallframe_spawn/reinforced,
+/turf/simulated/floor/airless,
+/area/djstation)
 
 (1,1,1) = {"
 aa
@@ -23205,11 +23305,11 @@ af
 af
 ab
 ab
-ab
-ab
-ab
-ab
-ab
+bI
+bI
+bI
+bI
+bI
 ab
 aj
 qb
@@ -23229,7 +23329,7 @@ aX
 aZ
 ba
 bb
-aX
+th
 aj
 ab
 ab
@@ -23405,15 +23505,15 @@ af
 af
 af
 af
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-aj
+bI
+bI
+bI
+bI
+bI
+bI
+bI
+bI
+TD
 rb
 al
 ar
@@ -23433,9 +23533,9 @@ ar
 as
 ar
 aj
-ab
-ab
-ab
+aj
+aj
+aj
 ab
 ab
 ab
@@ -23607,15 +23707,15 @@ af
 af
 af
 af
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-aj
+bI
+bI
+bI
+bI
+bI
+bI
+bI
+bI
+TD
 rb
 ar
 at
@@ -23634,9 +23734,9 @@ ar
 aO
 ar
 ar
-aj
-aj
-aj
+at
+hi
+Rn
 aj
 ab
 ab
@@ -23831,14 +23931,14 @@ ar
 ar
 ar
 aK
-ar
-ar
-at
-ar
-at
-ar
-ar
-aI
+iy
+SF
+pU
+SF
+vN
+SF
+Gy
+gO
 aj
 ab
 ab
@@ -24235,7 +24335,7 @@ ar
 aT
 aV
 aL
-as
+aI
 at
 ub
 ar
@@ -24437,8 +24537,8 @@ ar
 at
 aj
 aj
-aj
-aj
+TD
+TD
 aj
 ar
 Ab
@@ -24638,9 +24738,9 @@ at
 aG
 ar
 aj
-ab
-ab
-ab
+bI
+bI
+bI
 aj
 wb
 Bb
@@ -24840,9 +24940,9 @@ al
 ar
 ar
 aj
-ab
-ab
-ab
+bI
+bI
+bI
 aj
 xb
 Cb
@@ -25042,9 +25142,9 @@ ar
 aR
 aU
 aj
-ab
-ab
-ab
+bI
+bI
+bI
 aj
 yb
 at
@@ -25244,9 +25344,9 @@ aj
 aj
 aj
 aj
-ab
-ab
-ab
+bI
+bI
+bI
 aj
 zb
 zb
@@ -25447,8 +25547,8 @@ ab
 ab
 ab
 ab
-ab
-ab
+bI
+bI
 vb
 af
 af
@@ -25649,8 +25749,8 @@ ab
 ab
 ab
 ab
-ab
-ab
+bI
+bI
 af
 af
 af
@@ -25852,7 +25952,7 @@ ab
 ab
 ab
 ab
-ab
+bI
 af
 af
 af

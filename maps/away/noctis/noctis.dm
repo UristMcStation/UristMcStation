@@ -24,7 +24,7 @@
 /obj/effect/overmap/ship/noctis
 	name = "exploration corvette"
 	color = "#640000"
-	vessel_mass = 40
+	vessel_mass = 4000
 	burn_delay = 2 SECONDS
 	initial_restricted_waypoints = list(
 		"Raptor" = list("nav_noctis_raptor")

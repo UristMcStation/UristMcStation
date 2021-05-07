@@ -56,6 +56,6 @@
 	description = "A former Terran Confederation colony, evacuated during the Galactic Crisis. It is now an empty Graveworld, a broken monument to the billions displaced across the galaxy. However, sensors are detecting unknown signs of life from a city on the surface."
 	suffixes = list("abandoned_colony/abandoned_colony.dmm")
 	accessibility_weight = 10
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED //temporary
+//	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED //temporary
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/morninglight)
 	cost = 1

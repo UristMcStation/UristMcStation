@@ -93,18 +93,12 @@
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 	accuracy = -3 //shooting at the hip
-	scoped_accuracy = 0
 	handle_casings = EJECT_CASINGS
 	one_hand_penalty = 8
 	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 	wielded_item_state = "woodarifle-wielded"
-
-/obj/item/weapon/gun/projectile/sniper/scope()
-	set category = "Object"
-	set name = "Use Scope"
-	set popup_menu = 1
-
-	toggle_scope(usr, 2.0)
+	scoped_accuracy = 4 //increased accuracy over the LWAP because only one shot
+	scope_zoom = 2
 
 /obj/item/weapon/gun/projectile/sniper/update_icon()
 	..()

@@ -106,120 +106,121 @@
 		if(!firing)
 			firing = TRUE
 
-		UpdateStatus()
-		var/mob/living/simple_animal/hostile/overmapship/OM = target
-		//do the firing stuff
+			UpdateStatus()
+			var/mob/living/simple_animal/hostile/overmapship/OM = target
+			//do the firing stuff
 
-		for(var/datum/shipcomponents/engines/E in OM.components)
-			if(!E.broken && prob(E.evasion_chance))
-				GLOB.global_announcer.autosay("<b>The [src.name] has missed the [OM.ship_category].</b>", "[OM.target_ship.name] Automated Defence Computer", "Command")
+			for(var/datum/shipcomponents/engines/E in OM.components)
+				if(!E.broken && prob(E.evasion_chance))
+					GLOB.global_announcer.autosay("<b>The [src.name] has missed the [OM.ship_category].</b>", "[OM.target_ship.name] Automated Defence Computer", "Command")
 
-			else
-				if(!passshield)
-					if(OM.shields)
-						var/shieldbuffer = OM.shields
-						OM.shields -= shielddamage //take the hit
-						if(OM.shields <= 0) //if we're left with less than 0 shields
-							OM.shields = 0 //we reset the shields to zero to avoid any weirdness
-							//we also apply damage to the actual shield component //come back to this
+				else
+					if(!passshield)
+						if(OM.shields)
+							var/shieldbuffer = OM.shields
+							OM.shields -= shielddamage //take the hit
+							if(OM.shields <= 0) //if we're left with less than 0 shields
+								OM.shields = 0 //we reset the shields to zero to avoid any weirdness
+								//we also apply damage to the actual shield component //come back to this
+								if(!OM.boarding && OM.can_board)
+									if(homeship.can_board)
+										OM.boarding = 1
+										OM.boarded()
+
+								if(hulldamage)
+
+									shieldbuffer = (hulldamage-shieldbuffer) //hulldamage is slightly mitigated by the existing shield
+									if(shieldbuffer <=0) //but if the shield was really strong, we don't do anything
+										continue
+
+									else
+										OM.health -= shieldbuffer
+										for(var/datum/shipcomponents/shield/S in OM.components)
+											if(!S.broken)
+												var/component_damage = hulldamage * 0.1
+												S.health -= component_damage
+
+												if(S.health <= 0)
+													S.BlowUp()
+
+						else if(!OM.shields) //no shields? easy
+
 							if(!OM.boarding && OM.can_board)
 								if(homeship.can_board)
 									OM.boarding = 1
 									OM.boarded()
 
-							if(hulldamage)
+							if(targeted_component)
+								TargetedHit(OM, hulldamage)
 
-								shieldbuffer = (hulldamage-shieldbuffer) //hulldamage is slightly mitigated by the existing shield
-								if(shieldbuffer <=0) //but if the shield was really strong, we don't do anything
-									continue
+							else
+								OM.health -= hulldamage
 
-								else
-									OM.health -= shieldbuffer
+								if(prob(component_hit))
+									HitComponents(OM)
+									MapFire()
+
+					else if(passshield) //do we pass through the shield? let's do our damage
+						//not so fast, we've got point defence now
+
+						for(var/datum/shipcomponents/point_defence/PD in OM.components)
+							if(!PD.broken && prob(PD.intercept_chance))
+								continue
+
+							else
+								if(OM.shields)
+									var/muted_damage = (hulldamage * 0.5) //genuinely forgot this was in, might make this a specific feature of shields
 									for(var/datum/shipcomponents/shield/S in OM.components)
-										if(!S.broken)
-											var/component_damage = hulldamage * 0.1
-											S.health -= component_damage
+										if(targeted_component)
+											TargetedHit(OM, muted_damage)
+										else if(!targeted_component && !S.overcharged)
+											OM.health -= muted_damage
 
-											if(S.health <= 0)
-												S.BlowUp()
-
-					else if(!OM.shields) //no shields? easy
-
-						if(!OM.boarding && OM.can_board)
-							if(homeship.can_board)
-								OM.boarding = 1
-								OM.boarded()
-
-						if(targeted_component)
-							TargetedHit(OM, hulldamage)
-
-						else
-							OM.health -= hulldamage
-
-							if(prob(component_hit))
-								HitComponents(OM)
-								MapFire()
-
-				else if(passshield) //do we pass through the shield? let's do our damage
-					//not so fast, we've got point defence now
-
-					for(var/datum/shipcomponents/point_defence/PD in OM.components)
-						if(!PD.broken && prob(PD.intercept_chance))
-							continue
-
-						else
-							if(OM.shields)
-								var/muted_damage = (hulldamage * 0.5) //genuinely forgot this was in, might make this a specific feature of shields
-								for(var/datum/shipcomponents/shield/S in OM.components)
+								else if(!OM.shields)
 									if(targeted_component)
-										TargetedHit(OM, muted_damage)
-									else if(!targeted_component && !S.overcharged)
-										OM.health -= muted_damage
+										TargetedHit(OM, hulldamage)
 
-							else if(!OM.shields)
-								if(targeted_component)
-									TargetedHit(OM, hulldamage)
+									else
+										OM.health -= hulldamage
 
-								else
-									OM.health -= hulldamage
+								if(!targeted_component && prob(component_hit))
+									HitComponents(OM)
+									MapFire()
 
-							if(!targeted_component && prob(component_hit))
-								HitComponents(OM)
-								MapFire()
+					if(OM.health <= (OM.maxHealth * 0.5))
 
-				if(OM.health <= (OM.maxHealth * 0.5))
+						if(OM.health <= (OM.maxHealth * 0.25) && dam_announced == 1)
+							GLOB.global_announcer.autosay("<b>The attacking [OM.ship_category]'s hull integrity is below 25%.</b>", "[OM.target_ship.name] Automated Defence Computer", "Command")
+							dam_announced = 2
 
-					if(OM.health <= (OM.maxHealth * 0.25) && dam_announced == 1)
-						GLOB.global_announcer.autosay("<b>The attacking [OM.ship_category]'s hull integrity is below 25%.</b>", "[OM.target_ship.name] Automated Defence Computer", "Command")
-						dam_announced = 2
+						if(OM.health <= 0)
+							OM.shipdeath()
+							dam_announced = 0
 
-					if(OM.health <= 0)
-						OM.shipdeath()
-						dam_announced = 0
+						if(!dam_announced)
+							GLOB.global_announcer.autosay("<b>The attacking [OM.ship_category]'s hull integrity is below 50%.</b>", "[OM.target_ship.name] Automated Defence Computer", "Command")
+							dam_announced = 1
 
-					if(!dam_announced)
-						GLOB.global_announcer.autosay("<b>The attacking [OM.ship_category]'s hull integrity is below 50%.</b>", "[OM.target_ship.name] Automated Defence Computer", "Command")
-						dam_announced = 1
+					GLOB.global_announcer.autosay("<b>The [src.name] has hit the [OM.ship_category].</b>", "[OM.target_ship.name] Automated Defence Computer", "Command")
 
-				GLOB.global_announcer.autosay("<b>The [src.name] has hit the [OM.ship_category].</b>", "[OM.target_ship.name] Automated Defence Computer", "Command")
-
-		//insert firing animations here
-		playsound(src, fire_sound, 40, 1)
+			//insert firing animations here
+			playsound(src, fire_sound, 40, 1)
 
 
-		if(fire_anim)
-			icon_state = "[initial(icon_state)]-firing"
-			spawn(fire_anim)
+			if(fire_anim)
+				icon_state = "[initial(icon_state)]-firing"
+				spawn(fire_anim)
+					charged = 0
+					update_icon()
+					Charging() //time to recharge
+
+			else
 				charged = 0
+				update_icon()
 				Charging() //time to recharge
 
-		else
-			charged = 0
-			update_icon()
-			Charging() //time to recharge
-
-		firing = FALSE
-		UpdateStatus()
+			firing = FALSE
+			UpdateStatus()
 
 /obj/machinery/shipweapons/proc/HitComponents(var/targetship)
 	var/mob/living/simple_animal/hostile/overmapship/OM = targetship
