@@ -23,16 +23,27 @@
 	icon = 'icons/mob/screen1.dmi'
 	icon_state = "grabbed1"
 	invisibility = 101
+	var/empulse = FALSE
 	var/dmg_dev = 1
 	var/dmg_hvy = 2
 	var/dmg_lgt = 5
 
 /obj/effect/urist/spawn_bomb/Initialize()
 	.=..()
-	explosion(src.loc, dmg_dev, dmg_hvy, dmg_lgt, 1)
+	if(empulse)
+		empulse(src.loc, dmg_hvy, dmg_lgt, 0)
+
+	else
+		explosion(src.loc, dmg_dev, dmg_hvy, dmg_lgt, 1)
+
 	qdel(src)
 
-/obj/effect/urist/spawn_bomb/abandoned //we're only doing light damage here, most just to break windows and make things look weathered.
+/obj/effect/urist/spawn_bomb/abandoned //we're only doing light damage here, mostly just to break windows and make things look weathered.
 	dmg_dev = 0
 	dmg_hvy = 0
 	dmg_lgt = 8
+
+/obj/effect/urist/spawn_bomb/bluespace_artillery
+	dmg_dev = 3
+	dmg_hvy = 7
+	dmg_lgt = 14

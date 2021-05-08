@@ -16,29 +16,30 @@
 	if(ready && !broken)
 		Fire()
 
-/datum/shipcomponents/weapons/proc/Fire() //now infinitely less hacky and broken
+/datum/shipcomponents/weapons/proc/Fire(var/obj/effect/urist/projectile_landmark/ship/map_landmark) //now infinitely less hacky and broken
 	if(broken) //check one more time, just in case. doing it this way can stop burst fire mid burst
 		return
 
 	else
-		var/obj/effect/urist/projectile_landmark/ship/P = pick(GLOB.ship_projectile_landmarks)
+		if(!map_landmark)
+			map_landmark = pick(GLOB.ship_projectile_landmarks)
 
 		if(burst)
-			if(P)
+			if(map_landmark)
 				ready = FALSE
 				if(shot_number < burst)
 					shot_number ++
-					P.Fire(projectile_type)
+					map_landmark.Fire(projectile_type)
 					spawn(burst_delay)
-						Fire()
+						Fire(map_landmark) //doing this so we fire from the same landmark. this gets us sustained fire on parts of the ship instead of the random scatter we have now.
 
 				else if(shot_number >= burst)
 					spawn(firedelay)
 						shot_number = 0
 						ready = TRUE
 		else
-			if(P)
-				P.Fire(projectile_type)
+			if(map_landmark)
+				map_landmark.Fire(projectile_type)
 				ready = FALSE
 				spawn(firedelay)
 					ready = TRUE
@@ -55,60 +56,55 @@
 
 /datum/shipcomponents/weapons/ioncannon
 	name = "ion cannon"
-	firedelay = 12 SECONDS
+	firedelay = 14 SECONDS
 	projectile_type = /obj/item/projectile/ion/ship
 	weapon_type = /obj/machinery/shipweapons/beam/ion
-
-/datum/shipcomponents/weapons/ioncannon/dual
-	name = "dual ion cannon"
-	firedelay = 20 SECONDS
 	burst = 2
 
 /datum/shipcomponents/weapons/ioncannon/heavy
 	name = "heavy ion cannon"
 	firedelay = 22 SECONDS
 	projectile_type = /obj/item/projectile/ion/ship/heavy
+	burst = 2
 
 /datum/shipcomponents/weapons/autocannon
 	name = "autocannon"
 	firedelay = 16 SECONDS
 	projectile_type = /obj/item/projectile/bullet/ship/cannon
-	burst = 5
+	burst = 7
 
 /datum/shipcomponents/weapons/smallmissile
 	name = "small missile launcher"
 	projectile_type = /obj/item/projectile/bullet/ship/missile/smallmissile
 	firedelay = 20 SECONDS
+	burst = 2
 
 /datum/shipcomponents/weapons/smallmissile/battery
 	name = "small missile battery"
-	burst = 3
+	burst = 4
 	firedelay = 40 SECONDS
 
 /datum/shipcomponents/weapons/smallalienmissile
 	name = "small alien missile launcher"
 	projectile_type = /obj/item/projectile/bullet/ship/missile/smallalienmissile
 	firedelay = 26 SECONDS
-
-/datum/shipcomponents/weapons/smallalienmissile/dual
-	name = "small alien dual missile launcher"
-	firedelay = 32 SECONDS
 	burst = 2
 
 /datum/shipcomponents/weapons/smallalienmissile/battery
 	name = "small alien missile battery"
 	firedelay = 38 SECONDS
-	burst = 3
+	burst = 4
 
 /datum/shipcomponents/weapons/bigmissile
 	name = "large missile launcher"
 	projectile_type = /obj/item/projectile/bullet/ship/missile/bigmissile
 	firedelay = 30 SECONDS
+	burst = 2
 
 /datum/shipcomponents/weapons/bigmissile/battery
 	name = "large missile battery"
 	firedelay = 50 SECONDS
-	burst = 3
+	burst = 4
 
 /datum/shipcomponents/weapons/bigalienmissile
 	name = "large alien missile launcher"
@@ -148,7 +144,7 @@
 /datum/shipcomponents/weapons/lightlaser/auto
 	name = "light laser autocannon"
 	firedelay = 18 SECONDS
-	burst = 4
+	burst = 5
 	weapon_type = /obj/machinery/shipweapons/beam/rapidlightlaser
 
 /datum/shipcomponents/weapons/heavylaser
@@ -165,7 +161,7 @@
 /datum/shipcomponents/weapons/heavylaser/auto
 	name = "heavy laser autocannon"
 	firedelay = 30 SECONDS
-	burst = 3
+	burst = 4
 
 /datum/shipcomponents/weapons/pulse
 	name = "pulse cannon"
@@ -174,18 +170,26 @@
 	weapon_type = /obj/machinery/shipweapons/beam/lightpulse
 	burst = 3
 
+/datum/shipcomponents/weapons/pulse/rapid
+	name = "multi-phasic pulse cannon"
+	firedelay = 26 SECONDS
+	projectile_type = /obj/item/projectile/beam/ship/pulse/light
+	weapon_type = /obj/machinery/shipweapons/beam/lightpulse
+	burst = 5
+
 /datum/shipcomponents/weapons/pulse/heavy
 	name = "heavy pulse cannon"
-	firedelay = 30 SECONDS
+	firedelay = 32 SECONDS
 	projectile_type = /obj/item/projectile/beam/ship/pulse/heavy
 	weapon_type = /obj/machinery/shipweapons/beam/heavypulse
+	burst = 3
 
 //alien
 
 /datum/shipcomponents/weapons/alien/light
 	name = "alien rapid-fire beam cannon"
 	firedelay = 22 SECONDS
-	burst = 5
+	burst = 6
 	projectile_type = /obj/item/projectile/beam/ship/alien/light
 
 /datum/shipcomponents/weapons/alien/heavy
@@ -197,5 +201,5 @@
 /datum/shipcomponents/weapons/alien/heavy/burst
 	name = "alien rapid-fire heavy beam cannon"
 	firedelay = 36 SECONDS
-	burst = 3
+	burst = 5
 	projectile_type = /obj/item/projectile/beam/ship/alien/heavy

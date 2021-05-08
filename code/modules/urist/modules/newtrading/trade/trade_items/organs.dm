@@ -86,4 +86,4 @@
 	item_type = /obj/item/organ/internal/stack
 	category = "organs"
 	quantity = 1
-	value = 600
+	value = 800

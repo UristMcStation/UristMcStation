@@ -30,6 +30,7 @@
 	var/map_spawned = FALSE //have we spawned our boardingmap
 	turns_per_move = 10 //make this influenced by the engine on a ship
 	autonomous = TRUE
+	var/potential_weapons = list()
 
 /mob/living/simple_animal/hostile/overmapship/Initialize()
 	.=..()
@@ -169,3 +170,7 @@
 
 	for(var/obj/effect/urist/triggers/ai_defender_landmark/A in GLOB.trigger_landmarks)
 		A.spawn_mobs()
+
+/mob/living/simple_animal/hostile/overmapship/proc/add_weapons()
+	var/datum/shipcomponents/weapons/W = pick(potential_weapons)
+	components += new W

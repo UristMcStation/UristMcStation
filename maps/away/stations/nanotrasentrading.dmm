@@ -1611,6 +1611,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
+"kA" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
 "kE" = (
 /obj/machinery/light{
 	dir = 4
@@ -4379,7 +4385,7 @@ ad
 ad
 qy
 nX
-aL
+kA
 aL
 aL
 ad

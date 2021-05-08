@@ -77,6 +77,10 @@
 						if(B.shipid == src.shipid)
 							B.incomprehensibleprocname() //i fucking hate myself. what was i trying to prove with this shit.
 
+						if(GLOB.using_map.overmap_ship)
+							for(var/datum/shipcomponents/C in GLOB.using_map.overmap_ship)
+								C.broken = TRUE
+
 					spawn(1 MINUTE)
 						if(GLOB.using_map.overmap_ship)
 							if(!GLOB.using_map.overmap_ship.target.dying)

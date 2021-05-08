@@ -55,14 +55,14 @@
 
 /datum/shipcomponents/shield/light
 	name = "light shield"
-	strength = 800
+	strength = 850
 	health = 200
 	recharge_rate = 80
 	recharge_delay = 10 SECONDS
 
 /datum/shipcomponents/shield/medium
 	name = "medium shield"
-	strength = 1200
+	strength = 1300
 	health = 400
 	recharge_rate = 70
 	recharge_delay = 10 SECONDS
@@ -83,14 +83,14 @@
 
 /datum/shipcomponents/shield/alien_light
 	name = "light alien shield"
-	strength = 200
+	strength = 300
 	health = 200
 	recharge_rate = 60
 	recharge_delay = 5 SECONDS
 
 /datum/shipcomponents/shield/alien_heavy
 	name = "heavy alien shield"
-	strength = 500
+	strength = 600
 	health = 200
 	recharge_rate = 60
 	recharge_delay = 8 SECONDS
