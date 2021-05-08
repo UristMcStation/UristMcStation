@@ -9,10 +9,19 @@
 	var/boarding_failure_chance = 0 //more shields = more chance of preventing teleportation.
 	var/boarded_max = 3 //how many times do we board?
 	var/boarded_amount = 0 //how many times have we boarded
+	var/boarding_message = "Enemy teleporter locked on! Boarding imminient! Expected breach point:"
+	var/initial_delay = FALSE
+	var/bypass_shields = FALSE
+	var/counterboarding = FALSE
 
 /datum/shipcomponents/teleporter/DoActivate()
-	if(mastership.boarding)
+	if(mastership.boarding && !counterboarding)
 		return //they have better things to do than board the Nerva right now.
+
+	if(initial_delay)
+		GLOB.global_announcer.autosay("<b>Hostile [name] detected powering up. Expected time until ready: [(boarding_delay/600)] minutes.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Common")
+		last_boarding = world.time + boarding_delay
+		return
 
 	if(last_boarding > world.time) //Are we too early?
 		return
@@ -22,10 +31,11 @@
 
 	boarding_failure_chance = 0 //Zero this var out.
 
-	for(var/obj/machinery/power/shield_generator/S in SSmachines.machinery) //Calculate our failure chance.
-		if(S.z in GLOB.using_map.station_levels)
-			if(S.running == SHIELD_RUNNING)
-				boarding_failure_chance += 25 // four shield generators to TOTALLY block boarding.
+	if(!bypass_shields)
+		for(var/obj/machinery/power/shield_generator/S in SSmachines.machinery) //Calculate our failure chance.
+			if(S.z in GLOB.using_map.station_levels)
+				if(S.running == SHIELD_RUNNING)
+					boarding_failure_chance += 25 // four shield generators to TOTALLY block boarding.
 
 	if(!boarding_turf) //Locate where we're boarding, give them a warning.
 		var/obj/item/device/radio/beacon/active_beacon //what beacon are we locking onto?
@@ -36,30 +46,37 @@
 		active_beacon = pick(beacon_list)
 		boarding_turf = get_turf(active_beacon)
 		var/area/boarding_area = get_area(active_beacon)
-		GLOB.global_announcer.autosay("<b>Alert! Enemy teleporter locked on! Boarding imminient! Expected breach point: [boarding_area.name].</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Common")
+		GLOB.global_announcer.autosay("<b>[boarding_message] [boarding_area.name].</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Common")
 
 	if(prob(boarding_failure_chance))
 		for(var/obj/machinery/power/shield_generator/S in SSmachines.machinery) //Calculate our failure chance.
 			if(S.z in GLOB.using_map.station_levels)
 				S.current_energy -= S.max_energy * 0.15 //knock a little power off the shields, we're knocking at the damn door.
+				if(S.hacked) //if it's hacked, the engineers get a small surprise
+					var/EMP_turf = get_turf(S)
+					empulse(EMP_turf, 0, 2, 0)
 		GLOB.global_announcer.autosay("<b>Alert! Tachyon flux detected against shield membrane - shield instability likely.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Engineering")
 		return //Stop here, the boarding failed.
 
 	//Let's handle boarding.
 	var/list/things_in_range = orange(3, boarding_turf)
 	var/list/turfs_in_range = list()
-	for (var/turf/T in things_in_range)
-		if(!istype(T, /turf/simulated/floor))
-			continue
-		turfs_in_range.Add(T)
-	for(var/S = 1 to boarding_number)
-		var/boarding_type = pick(boarding_mobs)
-		var/spawnturf = pick(turfs_in_range)
-		spawn(0.5 SECONDS)
-			new boarding_type(spawnturf)
-			playsound(spawnturf, 'sound/effects/teleport.ogg', 90, 1)
-	if(prob(75))
-		boarding_turf = null //pick somewhere new to board.
+
+	spawn(5 SECONDS)
+		for (var/turf/T in things_in_range)
+			if(!istype(T, /turf/simulated/floor))
+				continue
+			turfs_in_range.Add(T)
+
+		for(var/S = 1 to boarding_number)
+			var/boarding_type = pick(boarding_mobs)
+			var/spawnturf = pick(turfs_in_range)
+			spawn(0.5 SECONDS)
+				new boarding_type(spawnturf)
+				playsound(spawnturf, 'sound/effects/teleport.ogg', 90, 1)
+
+		if(prob(80))
+			boarding_turf = null //pick somewhere new to board.
 
 	boarded_amount++
 	last_boarding = world.time + boarding_delay
@@ -77,29 +94,41 @@
 	boarding_number= 5
 	boarding_delay = 2.5 MINUTES
 	boarded_max = 5
+	boarding_message = "Severe bluepsace fluctuations detected! Incoming Lactera boarding party likely. Expected breach point:"
+	bypass_shields = TRUE
+	counterboarding = TRUE
 
 /datum/shipcomponents/teleporter/alien/small
 	boarded_max = 3
+	bypass_shields = FALSE
 
 /datum/shipcomponents/teleporter/pirate
 	name = "pirate boarding teleporter"
-	boarding_mobs = list(/mob/living/simple_animal/hostile/pirate, /mob/living/simple_animal/hostile/pirate/ranged)
-	boarding_number = 5
+	boarding_mobs = list(/mob/living/simple_animal/hostile/urist/newpirate,/mob/living/simple_animal/hostile/urist/newpirate/laser, /mob/living/simple_animal/hostile/urist/newpirate/ballistic)
+	boarding_number = 6
 	boarding_delay = 5 MINUTES
 	boarded_max = 2
 
 /datum/shipcomponents/teleporter/pirate/small
 	name = "pirate boarding teleporter"
-	boarding_mobs = list(/mob/living/simple_animal/hostile/pirate, /mob/living/simple_animal/hostile/pirate/ranged)
-	boarding_number = 3
+	boarding_number = 4
 	boarding_delay = 4 MINUTES
 
+/datum/shipcomponents/teleporter/bluespace_artillery
+	name = "bluespace artillery"
+	boarding_number = 1
+	boarding_delay = 5 MINUTES
+	boarding_mobs = list(/obj/effect/urist/spawn_bomb/bluespace_artillery)
+	boarding_message = "Severe bluespace fluctuations detected, hostile Bluespace Artillery inbound! Immediately evacuate the affected area. Expected impact point:"
+	boarded_max = 5 //if it manages to fire this many times, we have bigger issues
+	counterboarding = TRUE
 
 //Shield Disruptors
 /datum/shipcomponents/shield_disruptor
 	name = "shield disruptor"
-	var/disruption_amount = list(0.05, 0.35) // anywhere from 5% to 35%.
+	var/disruption_amount = list(0.15, 0.50) // anywhere from 15% to 50%.
 	var/disruption_delay = 2 MINUTES
+	var/empulse_range = 3
 
 /datum/shipcomponents/shield_disruptor/DoActivate()
 	if(last_activation > world.time)
@@ -109,39 +138,63 @@
 		if(S.z in GLOB.using_map.station_levels)
 			if(S.running == SHIELD_RUNNING)
 				S.current_energy -= S.max_energy * rand(disruption_amount[1], disruption_amount[2])
-	GLOB.global_announcer.autosay("<b>Tachyonic energy surge detected, shields may fluxuate.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Engineering")
+				if(S.hacked) //if it's hacked, the engineers get a nasty surprise
+					var/EMP_turf = get_turf(S)
+					empulse(EMP_turf, 1, empulse_range, 0)
+
+	GLOB.global_announcer.autosay("<b>Tachyonic energy surge detected, shields may fluctuate.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Engineering")
 	last_activation = world.time + disruption_delay
 
 /datum/shipcomponents/shield_disruptor/overcharge //For when someone's shields are SERIOUSLY persistent.
 	name = "overcharge disruptor"
 	disruption_delay = 5 MINUTES
 	var/first_activate //we don't want this to activate immediately when it's in combat.
+	empulse_range = 8
 
 /datum/shipcomponents/shield_disruptor/overcharge/DoActivate()
 	if(last_activation > world.time)
 		return
 
-	if(!first_activate) //they have five minutes to win, or suffer terribly.
-		GLOB.global_announcer.autosay("<b>Massive electromagnetic energy buildup detected in hostile [mastership.ship_category]! T - Five minutes until buildup is complete.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Common")
+	if(!first_activate) //they have a few minutes to win, or suffer terribly.
+
+		GLOB.global_announcer.autosay("<b>Massive electromagnetic energy buildup detected in hostile [mastership.ship_category]! T-[(disruption_delay/600)] minutes until buildup is complete.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Common")
 		first_activate = 1
 		last_activation = world.time + disruption_delay
 		return
 	//Warn them.
-	GLOB.global_announcer.autosay("<b>Massive electromagnetic power surge detected! Brace for electromagnetic disruption, T-30 seconds.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Common")
 
-	spawn(30 SECONDS)
-		for(var/obj/machinery/power/shield_generator/S in SSmachines.machinery)
-			if(S.z in GLOB.using_map.station_levels)
-				for(var/obj/effect/shield/SE in S.field_segments)
-					var/EMP_turf = get_turf(SE)
-					empulse(EMP_turf, 3.5, 7, 0)
+	else
+		if(!broken)
+			GLOB.global_announcer.autosay("<b>Massive electromagnetic power surge detected! Brace for electromagnetic disruption, T-15 seconds.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Common")
 
-	last_activation = world.time + disruption_delay
+			spawn(15 SECONDS)
+				for(var/obj/machinery/power/shield_generator/S in SSmachines.machinery)
+					if(S.z in GLOB.using_map.station_levels)
+						if(S.running == SHIELD_RUNNING)
+							var/EMP_turf = get_turf(S)
+							empulse(EMP_turf, 3.5, empulse_range, 0)
+
+							if(S.hacked) //this is what you get for hacking sensitive equipment
+								explosion(EMP_turf, 0, 1, 6, 0)
+
+				for(var/obj/machinery/power/apc/A in SSmachines.machinery)
+					if(A.z in GLOB.using_map.station_levels)
+						if(!A.is_critical || !A.emp_hardened)
+							var/EMP_turf = get_turf(A)
+							empulse(EMP_turf, 1, 2, 0)
+
+		/*				for(var/obj/effect/shield/SE in S.field_segments) //this is old behaviour, and honestly might crash the server if it ever happened inround
+							var/EMP_turf = get_turf(SE)
+							empulse(EMP_turf, 3.5, 7, 0)
+*/
+
+		last_activation = world.time + disruption_delay
 
 /datum/shipcomponents/shield_disruptor/heavy
 	name = "heavy shield disruptor"
-	disruption_amount= list(0.25, 0.55)
+	disruption_amount= list(0.35, 0.75)
 	disruption_delay = 1.5 MINUTES
+	empulse_range = 5
 
 //Repair Modules
 
