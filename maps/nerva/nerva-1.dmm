@@ -8520,6 +8520,8 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
+/obj/item/weapon/reagent_containers/food/condiment/flour,
+/obj/item/weapon/reagent_containers/food/condiment/flour,
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/freezer)
 "oE" = (
