@@ -94,7 +94,7 @@
 	boarding_number= 5
 	boarding_delay = 2.5 MINUTES
 	boarded_max = 5
-	boarding_message = "Severe bluepsace fluctuations detected! Incoming Lactera boarding party likely. Expected breach point:"
+	boarding_message = "Severe bluespace fluctuations detected! Incoming Lactera boarding party likely. Expected breach point:"
 	bypass_shields = TRUE
 	counterboarding = TRUE
 

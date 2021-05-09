@@ -261,14 +261,16 @@
 	P.Fire(projectile_type)
 
 /obj/machinery/shipweapons/proc/ConnectWeapons()
-	for(var/obj/machinery/computer/combatcomputer/CC in SSmachines.machinery)
-		if(src.shipid == CC.shipid)
-			CC.linkedweapons += src
-			linkedcomputer = CC
-
-	for(var/obj/effect/overmap/ship/combat/C in GLOB.overmap_ships)
-		if(C.shipid == src.shipid)
-			homeship = C
+	if(!linkedcomputer)
+		for(var/obj/machinery/computer/combatcomputer/CC in SSmachines.machinery)
+			if(src.shipid == CC.shipid)
+				CC.linkedweapons += src
+				linkedcomputer = CC
+				target = CC.target
+	if(!homeship)
+		for(var/obj/effect/overmap/ship/combat/C in GLOB.overmap_ships)
+			if(C.shipid == src.shipid)
+				homeship = C
 
 /obj/machinery/shipweapons/proc/UpdateStatus()
 	if(recharging)

@@ -16872,6 +16872,7 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/light,
 /obj/structure/table/standard,
+/obj/item/weapon/reagent_containers/food/condiment/flour,
 /turf/simulated/floor/tiled/white,
 /area/civilian/kitchen)
 "aCz" = (
