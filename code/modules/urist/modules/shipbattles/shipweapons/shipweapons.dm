@@ -267,6 +267,10 @@
 				CC.linkedweapons += src
 				linkedcomputer = CC
 				target = CC.target
+
+	if(linkedcomputer && !target)
+		target = linkedcomputer.target
+
 	if(!homeship)
 		for(var/obj/effect/overmap/ship/combat/C in GLOB.overmap_ships)
 			if(C.shipid == src.shipid)

@@ -100,7 +100,6 @@
 
 /datum/shipcomponents/teleporter/alien/small
 	boarded_max = 3
-	bypass_shields = FALSE
 
 /datum/shipcomponents/teleporter/pirate
 	name = "pirate boarding teleporter"
