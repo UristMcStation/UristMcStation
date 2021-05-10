@@ -56,6 +56,7 @@
 					var/EMP_turf = get_turf(S)
 					empulse(EMP_turf, 0, 2, 0)
 		GLOB.global_announcer.autosay("<b>Alert! Tachyon flux detected against shield membrane - shield instability likely.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Engineering")
+		last_boarding = world.time + boarding_delay
 		return //Stop here, the boarding failed.
 
 	//Let's handle boarding.
@@ -133,16 +134,18 @@
 	if(last_activation > world.time)
 		return
 
-	for(var/obj/machinery/power/shield_generator/S in SSmachines.machinery)
-		if(S.z in GLOB.using_map.station_levels)
-			if(S.running == SHIELD_RUNNING)
-				S.current_energy -= S.max_energy * rand(disruption_amount[1], disruption_amount[2])
-				if(S.hacked) //if it's hacked, the engineers get a nasty surprise
-					var/EMP_turf = get_turf(S)
-					empulse(EMP_turf, 1, empulse_range, 0)
+	else
 
-	GLOB.global_announcer.autosay("<b>Tachyonic energy surge detected, shields may fluctuate.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Engineering")
-	last_activation = world.time + disruption_delay
+		for(var/obj/machinery/power/shield_generator/S in SSmachines.machinery)
+			if(S.z in GLOB.using_map.station_levels)
+				if(S.running == SHIELD_RUNNING)
+					S.current_energy -= S.max_energy * rand(disruption_amount[1], disruption_amount[2])
+					if(S.hacked) //if it's hacked, the engineers get a nasty surprise
+						var/EMP_turf = get_turf(S)
+						empulse(EMP_turf, 1, empulse_range, 0)
+
+		GLOB.global_announcer.autosay("<b>Tachyonic energy surge detected, shields may fluctuate.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Engineering")
+		last_activation = world.time + disruption_delay
 
 /datum/shipcomponents/shield_disruptor/overcharge //For when someone's shields are SERIOUSLY persistent.
 	name = "overcharge disruptor"
@@ -171,7 +174,7 @@
 					if(S.z in GLOB.using_map.station_levels)
 						if(S.running == SHIELD_RUNNING)
 							var/EMP_turf = get_turf(S)
-							empulse(EMP_turf, 3.5, empulse_range, 0)
+							empulse(EMP_turf, 4, empulse_range, 0)
 
 							if(S.hacked) //this is what you get for hacking sensitive equipment
 								explosion(EMP_turf, 0, 1, 6, 0)
