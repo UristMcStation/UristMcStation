@@ -361,7 +361,7 @@
 		return
 
 	var/datum/gas_mixture/environment = T.return_air()
-	var/min_temperature = 0 // Room temperature + some variance. An actual diminishing return would be better, but this is *like* that. In a way. . This has the potential for weird behavior, but I says fuck it. Water grenades for everyone.
+	var/min_temperature = 283.15 // 10C. Because coolant cooling gasses to 0 kelvin makes zero sense.
 
 	var/hotspot = (locate(/obj/fire) in T)
 	if(hotspot && !istype(T, /turf/space))
