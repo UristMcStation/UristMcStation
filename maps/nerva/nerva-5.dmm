@@ -14865,19 +14865,6 @@
 	icon_state = "dark"
 	},
 /area/syndicate_mothership)
-"HD" = (
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 4;
-	icon_state = "shutter0";
-	id = "merchantshuttle";
-	name = "Merchant Window Shutters";
-	opacity = 0
-	},
-/obj/effect/wallframe_spawn/reinforced_phoron,
-/obj/effect/wallframe_spawn/reinforced_phoron,
-/turf/simulated/floor/plating,
-/area/shuttle/merchant/home)
 "HE" = (
 /obj/machinery/computer/shuttle_control/merchant,
 /turf/simulated/floor/carpet/blue,
@@ -17773,14 +17760,14 @@
 	dir = 10
 	},
 /area/syndicate_mothership)
-"Xe" = (
+"WU" = (
 /obj/effect/wallframe_spawn/reinforced/bare,
 /turf/simulated/floor/plating,
 /area/merchant_station)
 "Yz" = (
 /turf/space/transit/east,
 /area/space)
-"YW" = (
+"YH" = (
 /obj/effect/wallframe_spawn/reinforced/bare,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -50900,7 +50887,7 @@ ab
 Fj
 Gm
 GS
-HD
+GS
 GS
 Gm
 JA
@@ -52104,7 +52091,7 @@ yK
 yK
 yK
 yK
-Xe
+WU
 DI
 yK
 yK
@@ -53921,9 +53908,9 @@ zD
 Ax
 yK
 BO
-Xe
-Xe
-Xe
+WU
+WU
+WU
 yK
 EG
 nt
@@ -54945,7 +54932,7 @@ IB
 Jh
 JB
 JS
-YW
+YH
 Er
 yK
 yK
@@ -55147,7 +55134,7 @@ IC
 Ji
 JB
 JT
-YW
+YH
 Er
 yK
 yp
@@ -55349,7 +55336,7 @@ Hg
 FB
 Cs
 JU
-YW
+YH
 Fr
 yK
 yp

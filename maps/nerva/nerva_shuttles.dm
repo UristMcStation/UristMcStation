@@ -256,7 +256,7 @@
 	warmup_time = 10
 	shuttle_area = /area/shuttle/merchant/home
 	waypoint_station = "nav_merchant_start"
-	waypoint_offsite = "nav_merchant_out"
+	waypoint_offsite = "nerva_north_dock"
 	dock_target = "merchant_ship_dock"
 
 /obj/effect/shuttle_landmark/merchant
