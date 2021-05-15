@@ -259,15 +259,10 @@
 	waypoint_offsite = "nav_merchant_out"
 	dock_target = "merchant_ship_dock"
 
-/obj/effect/shuttle_landmark/merchant/start
+/obj/effect/shuttle_landmark/merchant
 	name = "Merchant Base"
 	landmark_tag = "nav_merchant_start"
 	docking_controller = "merchant_station_dock"
-
-/obj/effect/shuttle_landmark/merchant/out
-	name = "Docking Bay"
-	landmark_tag = "nav_merchant_out"
-	docking_controller = "merchant_shuttle_station_dock"
 
 //////////////
 //escape pod//
@@ -422,6 +417,15 @@
 
 //NT rescue shuttle
 
+/datum/shuttle/autodock/ferry/rescue_base
+	name = "Rescue"
+	location = 1
+	warmup_time = 10
+	shuttle_area = /area/rescue_base/start
+	dock_target = "rescue_shuttle"
+	waypoint_offsite = "nav_ert_start"
+	waypoint_station = "nerva_south_dock"
+
 /area/rescue_base
 	name = "\improper Response Team Base"
 	icon_state = "yellow"
@@ -437,7 +441,17 @@
 /area/rescue_base/start
 	name = "\improper Response Team Base"
 	icon_state = "shuttlered"
-	base_turf = /turf/unsimulated/floor/rescue_base
+
+/obj/effect/shuttle_landmark/ERT/start
+	name = "Response Team Base"
+	landmark_tag = "nav_ert_start"
+	docking_controller = "rescue_base"
+	base_turf = /turf/unsimulated/floor
+	base_area = /area/rescue_base/base
+
+/obj/machinery/computer/shuttle_control/ERT
+	name = "rescue shuttle console"
+	shuttle_tag = "Rescue"
 
 
 //ANTAGS
@@ -604,7 +618,7 @@
 		"nav_away_7",
 		"nav_derelict_7",
 		"nav_cluster_7",
-		"nav_skipjack_dock",
+		"nerva_south_dock",
 		"nav_skipjack_start",
 		"nav_lost_supply_base_antag",
 		"nav_marooned_antag",
@@ -631,11 +645,6 @@
 /obj/effect/shuttle_landmark/skipjack/internim
 	name = "In transit"
 	landmark_tag = "nav_skipjack_transition"
-
-/obj/effect/shuttle_landmark/skipjack/dock //likewise
-	name = "Docking Port"
-	landmark_tag = "nav_skipjack_dock"
-	docking_controller = "skipjack_shuttle_dock_airlock"
 
 /obj/effect/shuttle_landmark/skipjack/deck1
 	name = "Northwest of the Fourth First Deck"
@@ -714,3 +723,31 @@
 /obj/effect/shuttle_landmark/nerva/third/aft
 	name = "Second Deck - Aft"
 	landmark_tag = "wyrm_sub_aft"*/
+
+/////////////////////
+//docking waypoints//
+/////////////////////
+/obj/effect/shuttle_landmark/nerva/docking
+	name = "You shouldn't see this."
+	base_turf = /turf/space
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/nerva/docking/south
+	name = "Starboard Docking Airlock"
+	landmark_tag = "nerva_south_dock"
+	docking_controller = "skipjack_shuttle_dock_airlock"
+
+/obj/effect/shuttle_landmark/nerva/docking/north
+	name = "Port Docking Airlock"
+	landmark_tag = "nerva_north_dock"
+	docking_controller = "merchant_shuttle_station_dock"
+
+/obj/effect/shuttle_landmark/nerva/docking/east //currently unused
+	name = "Fore Docking Airlock"
+	landmark_tag = "nerva_east_dock"
+	docking_controller = "nerva_docking_east"
+
+/obj/effect/shuttle_landmark/nerva/docking/west //same here
+	name = "Aft Docking Airlock"
+	landmark_tag = "nerva_west_dock"
+	docking_controller = "nerva_docking_west"

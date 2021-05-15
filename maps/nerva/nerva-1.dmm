@@ -18886,7 +18886,7 @@
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	display_name = "Hadrian Dock";
-	frequency = 1331;
+	frequency = 1380;
 	id_tag = "hadrian_shuttle_dock_airlock";
 	pixel_x = 24;
 	pixel_y = -24;
@@ -18906,7 +18906,7 @@
 	dir = 9
 	},
 /obj/machinery/door/airlock/external{
-	frequency = 1331;
+	frequency = 1380;
 	icon_state = "closed";
 	id_tag = "hadrian_shuttle_dock_inner";
 	locked = 1;
@@ -18926,7 +18926,7 @@
 	pixel_y = 0
 	},
 /obj/machinery/door/airlock/external{
-	frequency = 1331;
+	frequency = 1380;
 	icon_state = "closed";
 	id_tag = "hadrian_shuttle_dock_inner";
 	locked = 1;
@@ -18950,7 +18950,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1331;
+	frequency = 1380;
 	id_tag = "hadrian_shuttle_dock_pump"
 	},
 /turf/simulated/floor/tiled/white,
@@ -18966,14 +18966,14 @@
 	pixel_y = 0
 	},
 /obj/machinery/airlock_sensor{
-	frequency = 1331;
+	frequency = 1380;
 	id_tag = "aquila_shuttle_dock_sensor";
 	pixel_x = 24;
 	pixel_y = 0
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1331;
+	frequency = 1380;
 	id_tag = "hadrian_shuttle_dock_pump"
 	},
 /turf/simulated/floor/tiled/white,
@@ -19062,7 +19062,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/shield_diffuser,
 /obj/machinery/door/airlock/external{
-	frequency = 1331;
+	frequency = 1380;
 	icon_state = "closed";
 	id_tag = "hadrian_shuttle_dock_outer";
 	locked = 1;
@@ -19083,7 +19083,7 @@
 	pixel_y = 0
 	},
 /obj/machinery/door/airlock/external{
-	frequency = 1331;
+	frequency = 1380;
 	icon_state = "closed";
 	id_tag = "hadrian_shuttle_dock_outer";
 	locked = 1;
@@ -19099,7 +19099,7 @@
 "Ho" = (
 /obj/machinery/door/airlock/external{
 	density = 1;
-	frequency = 1331;
+	frequency = 1380;
 	id_tag = "hadrian_shuttle_outer";
 	name = "Hadrian External Access"
 	},
@@ -19108,6 +19108,7 @@
 	icon_state = "map"
 	},
 /obj/machinery/shield_diffuser,
+/obj/effect/shuttle_landmark/nerva/hangar/hadrian,
 /turf/simulated/floor/tiled/white/monotile,
 /area/hadrian/main)
 "Hp" = (
@@ -19119,7 +19120,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	density = 1;
-	frequency = 1331;
+	frequency = 1380;
 	id_tag = "hadrian_shuttle_outer";
 	name = "Hadrian External Access"
 	},
@@ -19171,7 +19172,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	frequency = 1331;
+	frequency = 1380;
 	id_tag = "hadrian_shuttle_pump_out_internal"
 	},
 /obj/machinery/oxygen_pump{
@@ -19192,7 +19193,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	frequency = 1331;
+	frequency = 1380;
 	id_tag = "hadrian_shuttle_pump_out_internal"
 	},
 /turf/simulated/floor/tiled/white/monotile,
@@ -19260,7 +19261,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1331;
+	frequency = 1380;
 	id_tag = "hadrian_shuttle_pump"
 	},
 /turf/simulated/floor/tiled/white/monotile,
@@ -19309,14 +19310,14 @@
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	cycle_to_external_air = 1;
-	frequency = 1331;
+	frequency = 1380;
 	id_tag = "hadrian_shuttle";
 	pixel_x = -24;
 	pixel_y = 0;
 	tag_exterior_sensor = "hadrian_shuttle_sensor_external"
 	},
 /obj/machinery/airlock_sensor{
-	frequency = 1331;
+	frequency = 1380;
 	id_tag = "hadrian_shuttle_sensor";
 	pixel_x = -24;
 	pixel_y = 10
@@ -19346,7 +19347,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1331;
+	frequency = 1380;
 	id_tag = "hadrian_shuttle_pump"
 	},
 /turf/simulated/floor/tiled/white/monotile,
@@ -19426,7 +19427,7 @@
 "HQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/external{
-	frequency = 1331;
+	frequency = 1380;
 	id_tag = "hadrian_shuttle_inner";
 	name = "Hadrian External Access"
 	},
@@ -19440,7 +19441,7 @@
 	pixel_y = 0
 	},
 /obj/machinery/door/airlock/external{
-	frequency = 1331;
+	frequency = 1380;
 	id_tag = "hadrian_shuttle_inner";
 	name = "Hadrian External Access"
 	},
@@ -20109,7 +20110,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/access_button/airlock_interior{
-	frequency = 1331;
+	frequency = 1380;
 	master_tag = "hadrian_shuttle";
 	pixel_x = 22;
 	pixel_y = 22
@@ -20458,7 +20459,7 @@
 "KE" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1331;
+	frequency = 1380;
 	id_tag = "hadrian_shuttle_pump_out_external"
 	},
 /obj/machinery/air_sensor{
@@ -20471,7 +20472,7 @@
 	},
 /obj/machinery/airlock_sensor{
 	dir = 4;
-	frequency = 1331;
+	frequency = 1380;
 	id_tag = "hadrian_shuttle_sensor_external";
 	pixel_x = 24;
 	pixel_y = -6
@@ -20483,7 +20484,7 @@
 	tag = "icon-camera (WEST)"
 	},
 /obj/machinery/access_button/airlock_exterior{
-	frequency = 1331;
+	frequency = 1380;
 	master_tag = "hadrian_shuttle";
 	pixel_x = 22;
 	pixel_y = 0
@@ -21273,7 +21274,7 @@
 "Pn" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
-	frequency = 1379;
+	frequency = 1380;
 	master_tag = "research_airlock3";
 	name = "exterior access button";
 	pixel_x = -25;
@@ -21760,7 +21761,6 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/effect/shuttle_landmark/nerva/hangar/hadrian,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
@@ -21960,7 +21960,7 @@
 "RV" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1331;
+	frequency = 1380;
 	id_tag = "hadrian_shuttle_pump_out_external"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -21979,7 +21979,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1331;
+	frequency = 1380;
 	id_tag = "hadrian_shuttle_dock_pump"
 	},
 /turf/simulated/floor/tiled/white,
@@ -22297,7 +22297,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1331;
+	frequency = 1380;
 	id_tag = "hadrian_shuttle_dock_pump"
 	},
 /turf/simulated/floor/tiled/white,
