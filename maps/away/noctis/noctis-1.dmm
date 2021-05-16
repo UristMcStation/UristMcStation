@@ -696,10 +696,9 @@
 	icon_state = "techfloor_edges";
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
 	frequency = 1379;
-	icon_state = "map_vent";
 	id_tag = "pirate_fp_vent"
 	},
 /turf/simulated/floor/plating,
@@ -1142,15 +1141,19 @@
 	icon_state = "techfloor_edges";
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump{
-	dir = 8;
-	frequency = 1379;
-	icon_state = "map_vent";
-	id_tag = "pirate_fp_vent"
-	},
 /obj/machinery/light/small/d_green{
 	icon_state = "bulb_map";
 	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1379;
+	id_tag = "pirate_fp_vent"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1379;
+	id_tag = "pirate_fp_vent"
 	},
 /turf/simulated/floor/plating,
 /area/noctis/fairlock)
@@ -1346,16 +1349,15 @@
 /turf/simulated/floor/plating,
 /area/noctis/fm)
 "cO" = (
-/obj/machinery/atmospherics/unary/vent_pump{
-	dir = 4;
-	frequency = 1379;
-	icon_state = "map_vent";
-	id_tag = "pirate_fp_vent"
-	},
 /obj/effect/floor_decal/techfloor,
 /obj/machinery/light/small/d_green{
 	icon_state = "bulb_map";
 	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4;
+	frequency = 1379;
+	id_tag = "pirate_fp_vent"
 	},
 /turf/simulated/floor/plating,
 /area/noctis/fairlock)
@@ -1602,16 +1604,15 @@
 	tag_exterior_door = "pirate_fp_ext";
 	tag_interior_door = "pirate_fp_int"
 	},
-/obj/machinery/atmospherics/unary/vent_pump{
-	dir = 8;
-	frequency = 1379;
-	icon_state = "map_vent";
-	id_tag = "pirate_fp_vent"
-	},
 /obj/machinery/airlock_sensor{
-	id_tag = "pirate_con_sensor";
+	id_tag = "pirate_fp_sensor";
 	pixel_x = 24;
 	pixel_y = -6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1379;
+	id_tag = "pirate_fp_vent"
 	},
 /turf/simulated/floor/plating,
 /area/noctis/fairlock)
@@ -1940,20 +1941,23 @@
 	dir = 1
 	},
 /obj/machinery/access_button/airlock_interior{
+	frequency = 1380;
+	master_tag = "noctis";
 	pixel_x = 24;
 	pixel_y = 10
 	},
 /turf/simulated/floor/carpet/purple,
 /area/noctis/raptor)
 "dQ" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	frequency = 1379;
-	icon_state = "map_vent"
-	},
 /obj/structure/handrai{
 	icon_state = "handrail";
 	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4;
+	frequency = 1380;
+	icon_state = "map_vent";
+	id_tag = "noctis_pump"
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/raptor)
@@ -2336,7 +2340,6 @@
 	icon_state = "map-supply";
 	dir = 1
 	},
-/obj/effect/shuttle_landmark/nav_noctis/raptor,
 /turf/simulated/floor/tiled,
 /area/noctis/raptor)
 "eB" = (
@@ -2361,10 +2364,13 @@
 "eC" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1379;
-	icon_state = "map_vent"
+	frequency = 1380;
+	icon_state = "map_vent";
+	id_tag = "noctis_pump"
 	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	frequency = 1380;
+	id_tag = "noctis";
 	pixel_x = -24
 	},
 /turf/simulated/floor/tiled,
@@ -3701,6 +3707,8 @@
 /obj/effect/paint/silver,
 /obj/machinery/atmospherics/valve/digital,
 /obj/machinery/access_button/airlock_exterior{
+	frequency = 1380;
+	master_tag = "noctis";
 	pixel_x = 8;
 	pixel_y = -10
 	},
@@ -3935,13 +3943,14 @@
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/stack/material/steel/fifty,
-/obj/item/stack/material/titanium{
-	amount = 47
-	},
 /obj/machinery/light/small/red,
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 4
+	},
+/obj/item/stack/material/titanium{
+	amount = 50;
+	icon_state = "sheet-shiny-mult"
 	},
 /turf/simulated/floor/tiled/steel_ridged,
 /area/noctis/combust)
@@ -4561,17 +4570,25 @@
 /obj/item/weapon/reagent_containers/pill/hyronalin,
 /obj/item/weapon/reagent_containers/pill/hyronalin,
 /obj/item/weapon/storage/pill_bottle/antitox,
+/obj/machinery/access_button/airlock_exterior{
+	frequency = 1380;
+	master_tag = "noctis";
+	pixel_x = 8;
+	pixel_y = -10
+	},
 /turf/simulated/wall/titanium,
 /area/noctis/medbay)
 "im" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1379
+	frequency = 1380;
+	id_tag = "noctis_outer"
 	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/shuttle_landmark/nav_noctis/raptor,
 /turf/simulated/floor/reinforced,
 /area/noctis/raptor)
 "in" = (
@@ -15003,10 +15020,10 @@ ED
 aa
 aa
 aa
+aa
+aa
+aa
 ce
-aa
-aa
-aa
 ED
 Wj
 Wj
