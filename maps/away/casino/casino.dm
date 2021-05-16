@@ -14,7 +14,7 @@
 		"nav_casino_3",
 		"nav_casino_4",
 		"nav_casino_antag",
-		"nav_casino_hangar",
+		"nav_casino_dock"
 	)
 	initial_restricted_waypoints = list(
 		"Casino Cutter" = list("nav_casino_hangar"),
@@ -52,11 +52,17 @@
 	name = "Casino Ship Navpoint #5"
 	landmark_tag = "nav_casino_antag"
 
+/obj/effect/shuttle_landmark/nav_casino/dock
+	name = "Casino Ship Fore Dock"
+	landmark_tag = "nav_casino_dock"
+	docking_controller = "casino_dock_airlock"
+
 /datum/shuttle/autodock/overmap/casino_cutter
 	name = "Casino Cutter"
 	warmup_time = 15
 	move_time = 60
 	shuttle_area = /area/casino/casino_cutter
+	dock_target = "casino_cutter"
 	current_location = "nav_casino_hangar"
 	landmark_transition = "nav_casino_transit"
 	fuel_consumption = 0.5//it's small
