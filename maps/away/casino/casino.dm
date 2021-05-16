@@ -55,7 +55,7 @@
 /obj/effect/shuttle_landmark/nav_casino/dock
 	name = "Casino Ship Fore Dock"
 	landmark_tag = "nav_casino_dock"
-	docking_controller = "casino_dock_airlock"
+	docking_controller = "casino_dock"
 
 /datum/shuttle/autodock/overmap/casino_cutter
 	name = "Casino Cutter"
