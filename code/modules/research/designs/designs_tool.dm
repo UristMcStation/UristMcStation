@@ -90,3 +90,12 @@
 	chemicals = list(/datum/reagent/sodiumchloride = 20, /datum/reagent/acetone = 20)
 	build_path = /obj/item/device/oxycandle
 	sort_string = "VAGAI"
+
+/datum/design/item/tool/arc_welder
+	name = "arc welder"
+	desc = "A man-portable arc welding tool."
+	id = "arc_welder"
+	req_tech = list(TECH_ENGINEERING = 6, TECH_POWER = 8)
+	materials = list(MATERIAL_STEEL = 120, MATERIAL_GLASS = 50)
+	build_path = /obj/item/weapon/weldingtool/electric
+	sort_string = "VAGAJ"
