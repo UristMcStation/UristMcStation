@@ -13510,6 +13510,7 @@
 /area/merchant_station)
 "EG" = (
 /obj/structure/sign/warning/docking_area,
+/obj/effect/paint/hull,
 /turf/simulated/wall,
 /area/merchant_station)
 "EH" = (
@@ -16692,6 +16693,7 @@
 	amount = 10
 	},
 /obj/item/device/floor_painter,
+/obj/item/stack/material/aluminium/fifty,
 /turf/simulated/floor/plating,
 /area/merchant_station)
 "LA" = (
@@ -16780,18 +16782,8 @@
 /area/merchant_station)
 "LJ" = (
 /obj/structure/table/rack,
-/obj/item/stack/rods{
-	amount = 50
-	},
-/obj/item/stack/rods{
-	amount = 50
-	},
-/obj/item/stack/rods{
-	amount = 50
-	},
-/obj/item/stack/rods{
-	amount = 50
-	},
+/obj/item/stack/material/aluminium/fifty,
+/obj/item/stack/material/aluminium/fifty,
 /turf/simulated/floor/plating,
 /area/merchant_station)
 "LK" = (
@@ -16970,7 +16962,10 @@
 /turf/simulated/floor/plating,
 /area/merchant_station)
 "Md" = (
-/obj/structure/closet/crate,
+/obj/structure/table/rack,
+/obj/item/stack/material/rods/fifty,
+/obj/item/stack/material/rods/fifty,
+/obj/item/stack/material/rods/fifty,
 /turf/simulated/floor/plating,
 /area/merchant_station)
 "Me" = (
@@ -17117,6 +17112,19 @@
 	pixel_y = 8
 	},
 /turf/simulated/floor/airless,
+/area/merchant_station)
+"Mu" = (
+/obj/effect/wallframe_spawn/reinforced_phoron/hull,
+/obj/machinery/door/firedoor,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/merchant_station)
 "Mv" = (
 /obj/machinery/power/terminal{
@@ -17760,18 +17768,22 @@
 	dir = 10
 	},
 /area/syndicate_mothership)
-"WU" = (
+"To" = (
 /obj/effect/wallframe_spawn/reinforced/bare,
 /turf/simulated/floor/plating,
 /area/merchant_station)
-"Yz" = (
-/turf/space/transit/east,
-/area/space)
-"YH" = (
+"UB" = (
 /obj/effect/wallframe_spawn/reinforced/bare,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/merchant_station)
+"Xa" = (
+/obj/effect/paint/hull,
+/turf/simulated/wall,
+/area/merchant_station)
+"Yz" = (
+/turf/space/transit/east,
+/area/space)
 "Zf" = (
 /obj/effect/shuttle_landmark/nerva/transit/hadrian,
 /turf/space/transit/east,
@@ -51084,7 +51096,7 @@ Cs
 Cs
 Cs
 Cs
-yK
+Xa
 ab
 FB
 FF
@@ -52091,10 +52103,10 @@ yK
 yK
 yK
 yK
-WU
+To
 DI
-yK
-yK
+Xa
+Xa
 EF
 FC
 Gp
@@ -52295,7 +52307,7 @@ BI
 Cx
 Dc
 DJ
-yK
+Xa
 nt
 ab
 FD
@@ -52914,11 +52926,11 @@ FF
 ab
 ab
 nt
-yK
+Xa
 Cs
+Mu
 Cs
-Cs
-yK
+Xa
 yp
 ab
 ab
@@ -53115,8 +53127,8 @@ Jd
 FF
 ab
 Kw
-yK
-yK
+Xa
+Xa
 LV
 Mv
 MT
@@ -53709,7 +53721,7 @@ BN
 CA
 Dg
 DP
-yK
+Xa
 nt
 nt
 FE
@@ -53908,10 +53920,10 @@ zD
 Ax
 yK
 BO
-WU
-WU
-WU
-yK
+To
+To
+To
+Xa
 EG
 nt
 FC
@@ -53921,7 +53933,7 @@ HL
 IA
 Gs
 FD
-yK
+Xa
 Kx
 KV
 LC
@@ -54123,7 +54135,7 @@ HL
 Iz
 Jc
 FC
-yK
+Xa
 Ky
 KW
 LD
@@ -54325,7 +54337,7 @@ HN
 Iz
 Jg
 FC
-yK
+Xa
 Kz
 KX
 LE
@@ -54527,7 +54539,7 @@ HO
 Gs
 Gm
 FB
-yK
+Xa
 KA
 KY
 LF
@@ -54728,8 +54740,8 @@ He
 HP
 IB
 FC
-yK
-yK
+Xa
+Xa
 yK
 KZ
 yK
@@ -54932,7 +54944,7 @@ IB
 Jh
 JB
 JS
-YH
+UB
 Er
 yK
 yK
@@ -55134,7 +55146,7 @@ IC
 Ji
 JB
 JT
-YH
+UB
 Er
 yK
 yp
@@ -55336,7 +55348,7 @@ Hg
 FB
 Cs
 JU
-YH
+UB
 Fr
 yK
 yp
@@ -55536,7 +55548,7 @@ Cs
 Cs
 Cs
 EG
-yK
+Xa
 JV
 yK
 Er
