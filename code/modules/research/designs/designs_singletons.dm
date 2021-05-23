@@ -32,7 +32,7 @@
 	materials = list(MATERIAL_ALUMINIUM = 2500, MATERIAL_STEEL = 500, MATERIAL_PLASTIC = 200)
 	build_path = /obj/item/weapon/mop/advanced
 
-/datum/design/blutrash
+/datum/design/item/blutrash
 	name = "Trashbag of Holding"
 	desc = "An advanced trash bag with bluespace properties; capable of holding a plethora of garbage."
 	id = "blutrash"

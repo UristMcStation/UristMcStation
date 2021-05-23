@@ -58,3 +58,11 @@ datum/design/plasmapistol
 	materials = list(DEFAULT_WALL_MATERIAL = 15000, "glass" = 5000, "silver" = 2500)
 	build_path = /obj/item/weapon/storage/part_replacer/bluespace
 	sort_string = "CBAAB"
+
+/datum/design/item/powercell/bluespace
+	name = "bluespace"
+	id = "bluespace_cell"
+	req_tech = list(TECH_POWER = 7, TECH_MATERIAL = 6, TECH_BLUESPACE = 4) //The power tech a Hyper Cell will give, Material and Bluespace Tech requirements of the BoH
+	materials = list(DEFAULT_WALL_MATERIAL = 700, "gold" = 250, "silver" = 250, "glass" = 100)
+	build_path = /obj/item/weapon/cell/bluespace
+	sort_string = "URSTG"
