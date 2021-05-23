@@ -18,7 +18,7 @@
 /obj/effect/overmap/ship/bearcat
 	name = "light freighter"
 	color = "#00ffff"
-	vessel_mass = 60
+	vessel_mass = 5000
 	max_speed = 1/(10 SECONDS)
 	burn_delay = 2 SECONDS
 	initial_restricted_waypoints = list(

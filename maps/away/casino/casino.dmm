@@ -161,11 +161,6 @@
 /obj/random/handgun,
 /turf/simulated/floor/tiled,
 /area/casino/casino_bridge)
-"aw" = (
-/obj/item/weapon/wirecutters,
-/obj/item/stack/material/rods,
-/turf/space,
-/area/space)
 "ax" = (
 /obj/item/modular_computer/console{
 	dir = 4
@@ -188,7 +183,7 @@
 /area/casino/casino_maintenance)
 "aC" = (
 /obj/machinery/door/firedoor/border_only,
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/casino/casino_maintenance)
 "aD" = (
@@ -222,7 +217,7 @@
 	dir = 9
 	},
 /obj/machinery/airlock_sensor{
-	frequency = 1381;
+	frequency = 1380;
 	id_tag = "casino_dock_sensor";
 	pixel_x = -30;
 	pixel_y = -8
@@ -238,7 +233,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 2;
 	frequency = 1380;
-	id_tag = "admin_shuttle_dock_pump"
+	id_tag = "casino_dock_pump"
 	},
 /obj/item/device/radio/intercom{
 	dir = 8;
@@ -266,8 +261,8 @@
 "aN" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1381;
-	id_tag = "admin_shuttle_dock_pump"
+	frequency = 1380;
+	id_tag = "casino_dock_pump"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -288,13 +283,13 @@
 /turf/simulated/floor/plating,
 /area/casino/casino_maintenance)
 "aT" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/casino/casino_maintenance)
 "aU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/external{
-	frequency = 1381;
+	frequency = 1380;
 	icon_state = "door_closed";
 	id_tag = "casino_dock_inner";
 	locked = 0;
@@ -356,25 +351,20 @@
 /turf/space,
 /area/space)
 "bc" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 1381;
-	id_tag = "casino_dock_airlock";
-	pixel_x = -24;
-	pixel_y = 6;
-	req_access = newlist();
-	tag_airpump = "casino_dock_pump";
-	tag_chamber_sensor = "casino_dock_sensor";
-	tag_exterior_door = "casino_dock_outer";
-	tag_interior_door = "casino_dock_inner"
-	},
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	frequency = 1380;
+	id_tag = "casino_dock";
+	pixel_x = -24;
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/casino/casino_maintenance)
 "bd" = (
@@ -1231,20 +1221,13 @@
 /turf/simulated/floor/tiled,
 /area/casino/casino_hangar)
 "do" = (
-/turf/simulated/shuttle/wall,
-/area/casino/casino_cutter)
-"dp" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_straight";
-	dir = 4
-	},
+/obj/effect/paint/green_grey,
+/turf/simulated/wall/titanium,
 /area/casino/casino_cutter)
 "dq" = (
 /obj/structure/fuel_port,
-/turf/simulated/shuttle/wall{
-	dir = 8;
-	icon_state = "swall"
-	},
+/obj/effect/paint/green_grey,
+/turf/simulated/wall/titanium,
 /area/casino/casino_cutter)
 "dr" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1327,28 +1310,23 @@
 /turf/simulated/floor/tiled,
 /area/casino/casino_hangar)
 "dF" = (
-/obj/effect/wallframe_spawn/reinforced,
-/turf/simulated/floor/tiled,
+/obj/effect/wallframe_spawn/reinforced/titanium,
+/turf/simulated/floor/plating,
 /area/casino/casino_cutter)
 "dG" = (
 /obj/structure/bed/chair{
 	icon_state = "chair_preview";
 	dir = 8
 	},
-/obj/machinery/door/window,
 /obj/item/key,
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "casino_cutter";
 	pixel_y = 25
 	},
-/turf/simulated/floor/shuttle/yellow,
+/turf/simulated/floor/shuttle/blue,
 /area/casino/casino_cutter)
 "dH" = (
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "north bump";
@@ -1356,22 +1334,40 @@
 	pixel_y = 24;
 	req_access = newlist()
 	},
-/turf/simulated/floor/shuttle/yellow,
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/shuttle/blue,
 /area/casino/casino_cutter)
 "dI" = (
-/turf/simulated/floor/shuttle/yellow,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 2;
+	frequency = 1380;
+	id_tag = "casino_cutter_pump"
+	},
+/turf/simulated/floor/shuttle/blue,
 /area/casino/casino_cutter)
 "dJ" = (
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/floor/shuttle/yellow,
+/obj/machinery/power/smes/buildable,
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/shuttle/blue,
 /area/casino/casino_cutter)
 "dK" = (
 /obj/structure/shuttle/engine/propulsion{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/casino/casino_cutter)
 "dL" = (
 /obj/structure/cable/yellow{
@@ -1441,46 +1437,82 @@
 /turf/simulated/floor/tiled,
 /area/casino/casino_security)
 "dW" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
 	},
-/turf/simulated/floor/shuttle/yellow,
+/obj/machinery/airlock_sensor{
+	frequency = 1380;
+	id_tag = "casino_cutter_sensor";
+	pixel_x = 20;
+	pixel_y = -20
+	},
+/turf/simulated/floor/shuttle/blue,
 /area/casino/casino_cutter)
 "dX" = (
-/obj/item/weapon/storage/backpack/dufflebag,
-/obj/random/cash,
-/obj/random/cash,
-/obj/random/cash,
-/obj/random/cash,
-/obj/random/cash,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
 /obj/structure/bed/chair/comfy/captain{
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	icon_state = "intact";
+	dir = 5
+	},
+/turf/simulated/floor/shuttle/blue,
 /area/casino/casino_cutter)
 "dY" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
 /obj/structure/bed/chair/comfy/captain{
 	dir = 1
 	},
-/obj/item/weapon/storage/bag/cash,
-/turf/simulated/floor/shuttle/yellow,
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/floor/shuttle/blue,
 /area/casino/casino_cutter)
 "dZ" = (
 /obj/structure/bed/chair/comfy/captain{
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/yellow,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
+/obj/item/weapon/storage/backpack/dufflebag,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	icon_state = "intact";
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/blue,
 /area/casino/casino_cutter)
 "ea" = (
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/bed/chair/comfy/captain{
+/obj/machinery/power/terminal{
+	icon_state = "term";
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/yellow,
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor/shuttle/blue,
 /area/casino/casino_cutter)
 "eb" = (
 /obj/effect/overmap/ship/casino,
@@ -1573,22 +1605,17 @@
 /area/casino/casino_security)
 "eo" = (
 /obj/effect/shuttle_landmark/nav_casino/cutter_hangar,
-/obj/machinery/door/unpowered/shuttle{
-	desc = "Cutter door. It opens and closes. It has no safety devices so be careful";
-	name = "cutter door"
-	},
-/obj/structure/cable/green{
+/obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/shuttle/blue,
-/area/casino/casino_cutter)
-"ep" = (
-/turf/simulated/shuttle/wall{
-	dir = 8;
-	icon_state = "swall"
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	id_tag = "casino_cutter_outer";
+	name = "Cutter Airlock"
 	},
+/turf/simulated/floor/shuttle/blue,
 /area/casino/casino_cutter)
 "eq" = (
 /obj/structure/cable/yellow{
@@ -1741,11 +1768,7 @@
 /turf/simulated/floor/tiled,
 /area/casino/casino_hangar)
 "eH" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 1
-	},
-/obj/structure/cable/green{
+/obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
@@ -1883,7 +1906,7 @@
 	icon_state = "4-8";
 	pixel_x = 0
 	},
-/obj/structure/cable/green{
+/obj/structure/cable{
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
@@ -4989,7 +5012,7 @@
 	icon_state = "pdoor0";
 	id = "Starboard wide window BD"
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/casino/casino_bow)
 "na" = (
 /obj/machinery/door/airlock/external{
@@ -5119,18 +5142,7 @@
 /turf/simulated/shuttle/wall/corner/dark,
 /area/casino/casino_bow)
 "nq" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/effect/wallframe_spawn/reinforced_phoron,
 /turf/simulated/floor/plating,
 /area/casino/casino_bow)
 "nr" = (
@@ -5266,6 +5278,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/casino/casino_crew_cantina)
+"tH" = (
+/obj/effect/shuttle_landmark/nav_casino/dock,
+/turf/space,
+/area/space)
 "ub" = (
 /obj/structure/cable{
 	d1 = 2;
@@ -5870,7 +5886,17 @@
 	icon_state = "tube1";
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/yellow,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 2;
+	frequency = 1380;
+	id_tag = "casino_cutter_pump"
+	},
+/turf/simulated/floor/shuttle/blue,
 /area/casino/casino_cutter)
 "Tc" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
@@ -5881,15 +5907,29 @@
 	},
 /turf/simulated/floor/airless,
 /area/casino/casino_bow)
-"Ub" = (
-/obj/structure/window/basic{
-	icon_state = "window";
-	dir = 4
+"Tm" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
+/obj/item/weapon/storage/bag/cash,
+/obj/random/cash,
+/obj/random/cash,
+/obj/random/cash,
+/obj/random/cash,
+/obj/random/cash,
+/turf/simulated/floor/shuttle/blue,
+/area/casino/casino_cutter)
+"Ub" = (
 /obj/machinery/computer/shuttle_control/explore/casino_cutter{
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/yellow,
+/obj/structure/window/phoronreinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/blue,
 /area/casino/casino_cutter)
 "Uc" = (
 /obj/structure/hygiene/sink{
@@ -10966,7 +11006,7 @@ aa
 aa
 aa
 aa
-aw
+aa
 aB
 aB
 aB
@@ -11170,7 +11210,7 @@ aa
 aa
 aa
 aa
-aa
+tH
 aD
 aI
 aO
@@ -12406,10 +12446,10 @@ bP
 ci
 cD
 cV
-dp
+do
 dG
 Ub
-dp
+do
 eG
 eX
 bq
@@ -12508,7 +12548,7 @@ bQ
 cj
 cD
 cV
-dp
+do
 dH
 dW
 eo
@@ -12610,10 +12650,10 @@ bR
 ck
 cD
 cV
-dp
+do
 dI
 dX
-dp
+do
 eG
 eZ
 br
@@ -12712,10 +12752,10 @@ bS
 cl
 cE
 cW
-dp
+do
 Tb
 dY
-dp
+do
 eG
 cF
 br
@@ -12814,10 +12854,10 @@ bq
 bq
 bq
 cU
-dp
-dI
+do
+Tm
 dZ
-dp
+do
 eG
 cF
 br
@@ -12916,10 +12956,10 @@ bT
 cm
 cF
 cV
-dp
+do
 dJ
 ea
-dp
+do
 eG
 fa
 br
@@ -13021,7 +13061,7 @@ cV
 dq
 dK
 dK
-ep
+do
 eG
 fa
 br

@@ -907,7 +907,9 @@
 /turf/simulated/wall/iron,
 /area/voxship/base)
 "cB" = (
-/obj/machinery/shipsensors,
+/obj/machinery/shipsensors{
+	use_power = 0
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/voxship/ship)
 "cC" = (

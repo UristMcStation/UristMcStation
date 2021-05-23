@@ -12,6 +12,8 @@
 	evac_z = 3
 
 	initial_generic_waypoints = list(
+		"nerva_north_dock",
+		"nerva_south_dock",
 		"nav_deck1_antonine",
 		"nav_deck2_antonine",
 		"nav_deck3_antonine",
@@ -30,7 +32,8 @@
 		"Trajan" = list("nav_hangar_trajan"),
 		"Antonine" = list("nav_hangar_antonine"),
 		"Transport" = list("nav_ferry_out"),
-		"Hadrian" = list("nav_hangar_hadrian")
+		"Hadrian" = list("nav_hangar_hadrian"),
+		"Mercenary" = list("nav_merc_dock")
 	)
 
 	hostile_factions = list(

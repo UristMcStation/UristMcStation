@@ -475,7 +475,7 @@
 /area/noctis/atmos)
 "bg" = (
 /obj/machinery/atmospherics/omni/filter{
-	tag_east = 4;
+	tag_east = 3;
 	tag_north = 2;
 	tag_west = 1
 	},
@@ -484,11 +484,10 @@
 /area/noctis/atmos)
 "bh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
-/obj/machinery/atmospherics/pipe/cap/hidden{
-	icon_state = "cap";
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/noctis/atmos)
 "bi" = (
@@ -951,6 +950,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	icon_state = "intact-supply";
 	dir = 4
+	},
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/noctis/atmosc)
@@ -2438,6 +2442,7 @@
 /area/noctis/bridge)
 "fr" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/overmap/ship/noctis,
 /turf/simulated/floor/tiled/dark,
 /area/noctis/bridge)
 "fs" = (
@@ -4301,11 +4306,6 @@
 	},
 /turf/simulated/open,
 /area/noctis/extconn)
-"ks" = (
-/obj/effect/paint/silver,
-/obj/effect/overmap/ship/noctis,
-/turf/simulated/wall/titanium,
-/area/noctis/bridge)
 "nb" = (
 /obj/effect/floor_decal/industrial/danger,
 /turf/simulated/floor/reinforced,
@@ -4458,6 +4458,15 @@
 /obj/structure/grille,
 /turf/simulated/open,
 /area/space)
+"MM" = (
+/obj/effect/paint/silver,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/wall/titanium,
+/area/noctis/ocabin)
 "NI" = (
 /obj/effect/floor_decal/industrial/danger{
 	icon_state = "danger";
@@ -10017,7 +10026,7 @@ iC
 iC
 iC
 dK
-gA
+MM
 iH
 gA
 hZ
@@ -10727,7 +10736,7 @@ cZ
 dN
 el
 eO
-ks
+cZ
 fV
 go
 gD
