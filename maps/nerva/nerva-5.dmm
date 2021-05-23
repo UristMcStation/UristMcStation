@@ -13478,11 +13478,11 @@
 /area/syndicate_station/start)
 "EC" = (
 /obj/machinery/door/airlock/external{
+	frequency = 1331;
+	id_tag = "merc_home_inner";
 	req_access = list("ACCESS_SYNDICATE")
 	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/syndicate_mothership)
 "ED" = (
 /obj/structure/table/rack,
@@ -13707,19 +13707,11 @@
 /area/syndicate_mothership)
 "Fd" = (
 /obj/machinery/door/airlock/external{
+	frequency = 1331;
+	id_tag = "merc_home_outer";
 	req_access = list("ACCESS_SYNDICATE")
 	},
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1331;
-	master_tag = "synd_airlock";
-	name = "exterior access button";
-	pixel_x = -25;
-	pixel_y = -25
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/syndicate_mothership)
 "Fe" = (
 /turf/unsimulated/wall/fakeglass{
@@ -14167,20 +14159,16 @@
 	frequency = 1331;
 	id_tag = "synd_pump"
 	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	frequency = 1331;
-	id_tag = "merc_shuttle";
-	pixel_x = 25;
-	tag_airpump = "synd_pump";
-	tag_chamber_sensor = "synd_sensor";
-	tag_exterior_door = "synd_outer";
-	tag_interior_door = "synd_inner"
-	},
 /obj/machinery/airlock_sensor{
 	frequency = 1331;
 	id_tag = "synd_sensor";
 	pixel_x = 25;
 	pixel_y = 12
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	frequency = 1331;
+	id_tag = "synd";
+	pixel_x = 25
 	},
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
@@ -17768,19 +17756,39 @@
 	dir = 10
 	},
 /area/syndicate_mothership)
-"To" = (
-/obj/effect/wallframe_spawn/reinforced/bare,
-/turf/simulated/floor/plating,
+"OE" = (
+/obj/machinery/airlock_sensor{
+	frequency = 1331;
+	id_tag = "merc_home_sensor";
+	pixel_y = 24
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1331;
+	id_tag = "merc_home_pump"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/syndicate_mothership)
+"RG" = (
+/obj/effect/paint/hull,
+/turf/simulated/wall,
 /area/merchant_station)
-"UB" = (
+"Th" = (
 /obj/effect/wallframe_spawn/reinforced/bare,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/merchant_station)
-"Xa" = (
-/obj/effect/paint/hull,
-/turf/simulated/wall,
-/area/merchant_station)
+"TP" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4;
+	frequency = 1331;
+	id_tag = "merc_home_pump"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/syndicate_mothership)
+"Ux" = (
+/turf/simulated/floor/tiled/dark,
+/area/syndicate_mothership)
 "Yz" = (
 /turf/space/transit/east,
 /area/space)
@@ -17788,6 +17796,22 @@
 /obj/effect/shuttle_landmark/nerva/transit/hadrian,
 /turf/space/transit/east,
 /area/space)
+"Zh" = (
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	frequency = 1331;
+	id_tag = "merc_home";
+	pixel_y = 24
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	icon_state = "intact";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/syndicate_mothership)
+"Zn" = (
+/obj/effect/wallframe_spawn/reinforced/bare,
+/turf/simulated/floor/plating,
+/area/merchant_station)
 
 (1,1,1) = {"
 aa
@@ -43217,8 +43241,8 @@ wm
 wm
 wm
 xT
-Bz
-Dx
+yn
+TP
 Fd
 Fw
 Ga
@@ -43419,8 +43443,8 @@ wb
 wb
 wb
 xT
-Bz
-Dx
+vY
+Zh
 Fe
 zu
 Ag
@@ -43621,8 +43645,8 @@ wM
 wb
 wb
 xT
-Bz
-Dx
+vY
+OE
 Bz
 Co
 zu
@@ -43823,8 +43847,8 @@ By
 Co
 wb
 wH
-Bz
-Dx
+Fe
+Ux
 Bz
 we
 wM
@@ -51096,7 +51120,7 @@ Cs
 Cs
 Cs
 Cs
-Xa
+RG
 ab
 FB
 FF
@@ -52103,10 +52127,10 @@ yK
 yK
 yK
 yK
-To
+Zn
 DI
-Xa
-Xa
+RG
+RG
 EF
 FC
 Gp
@@ -52307,7 +52331,7 @@ BI
 Cx
 Dc
 DJ
-Xa
+RG
 nt
 ab
 FD
@@ -52926,11 +52950,11 @@ FF
 ab
 ab
 nt
-Xa
+RG
 Cs
 Mu
 Cs
-Xa
+RG
 yp
 ab
 ab
@@ -53127,8 +53151,8 @@ Jd
 FF
 ab
 Kw
-Xa
-Xa
+RG
+RG
 LV
 Mv
 MT
@@ -53721,7 +53745,7 @@ BN
 CA
 Dg
 DP
-Xa
+RG
 nt
 nt
 FE
@@ -53920,10 +53944,10 @@ zD
 Ax
 yK
 BO
-To
-To
-To
-Xa
+Zn
+Zn
+Zn
+RG
 EG
 nt
 FC
@@ -53933,7 +53957,7 @@ HL
 IA
 Gs
 FD
-Xa
+RG
 Kx
 KV
 LC
@@ -54135,7 +54159,7 @@ HL
 Iz
 Jc
 FC
-Xa
+RG
 Ky
 KW
 LD
@@ -54337,7 +54361,7 @@ HN
 Iz
 Jg
 FC
-Xa
+RG
 Kz
 KX
 LE
@@ -54539,7 +54563,7 @@ HO
 Gs
 Gm
 FB
-Xa
+RG
 KA
 KY
 LF
@@ -54740,8 +54764,8 @@ He
 HP
 IB
 FC
-Xa
-Xa
+RG
+RG
 yK
 KZ
 yK
@@ -54944,7 +54968,7 @@ IB
 Jh
 JB
 JS
-UB
+Th
 Er
 yK
 yK
@@ -55146,7 +55170,7 @@ IC
 Ji
 JB
 JT
-UB
+Th
 Er
 yK
 yp
@@ -55348,7 +55372,7 @@ Hg
 FB
 Cs
 JU
-UB
+Th
 Fr
 yK
 yp
@@ -55548,7 +55572,7 @@ Cs
 Cs
 Cs
 EG
-Xa
+RG
 JV
 yK
 Er

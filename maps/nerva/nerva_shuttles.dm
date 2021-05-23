@@ -551,7 +551,7 @@
 		"nav_slavers_base_antag",
 		)
 	shuttle_area = /area/syndicate_station/start
-	dock_target = "merc_shuttle"
+	dock_target = "synd"
 	current_location = "nav_merc_start"
 	landmark_transition = "nav_merc_transition"
 	announcer = "ICS Nerva Sensor Array"
@@ -562,7 +562,7 @@
 /obj/effect/shuttle_landmark/merc/start
 	name = "Mercenary Base"
 	landmark_tag = "nav_merc_start"
-	docking_controller = "merc_shuttle"
+	docking_controller = "merc_home"
 	base_turf = /turf/unsimulated/floor/snow
 	base_area = /area/syndicate_mothership
 
@@ -575,7 +575,7 @@
 	landmark_tag = "nav_merc_dock"
 	docking_controller = "nuke_shuttle_dock_airlock"
 	base_turf = /turf/simulated/floor/reinforced/airless
-	base_area = /area/maintenance/exterior
+	base_area = /area/space/
 
 /obj/effect/shuttle_landmark/merc/deck1
 	name = "Northeast of the First Deck"
