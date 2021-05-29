@@ -5,6 +5,7 @@
 //	var/fire_dir = 0
 //	var/obj/item/projectile/projectile_type
 	var/fire_type = 0
+	anchored = 1
 
 /obj/effect/urist/projectile_landmark/New()
 	if(fire_type == 1)
