@@ -2,6 +2,7 @@
 	icon_state = "x3"
 	icon = 'icons/mob/screen1.dmi'
 	invisibility = 101
+	anchored = 1
 //	var/fire_dir = 0
 //	var/obj/item/projectile/projectile_type
 	var/fire_type = 0
