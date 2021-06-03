@@ -138,7 +138,7 @@
 	if(occupant.getCloneLoss() == 0) // Rare case, but theoretically possible
 		return 100
 
-	return between(0, 100 * (occupant.getCloneLoss() - occupant.maxHealth / 100) / (occupant.maxHealth * heal_level / 100), 100)
+	return between(0, 100 * ((occupant.maxHealth/2 - occupant.getCloneLoss()) / (heal_level / (occupant.maxHealth/2 / 100))), 100)
 
 //Grow clones to maturity then kick them out.  FREELOADERS
 /obj/machinery/clonepod/Process()
