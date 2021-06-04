@@ -669,3 +669,10 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 30000, "glass" = 5000, "silver" = 1000)
 	id = "null _suit"
 	time = 120
+
+/datum/design/item/mechfab/gyroscooter
+	name = "gyroscooter"
+	id = "gyroscooter"
+	materials = list(MATERIAL_STEEL = 20000, MATERIAL_GLASS = 10000, MATERIAL_ALUMINIUM = 10000)
+	req_tech = list(TECH_MATERIAL = 6, TECH_ENGINEERING = 7, TECH_POWER = 5)
+	build_path = /obj/vehicle/bike/gyroscooter

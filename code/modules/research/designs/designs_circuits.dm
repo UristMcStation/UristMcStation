@@ -105,6 +105,34 @@
 	build_path = /obj/item/weapon/circuitboard/bioprinter
 	sort_string = "FAGAK"
 
+/datum/design/circuit/clonepod
+	name = "clone pod"
+	id = "clonepod"
+	req_tech = list(TECH_DATA = 3, TECH_BIO = 3, TECH_ILLEGAL = 4)
+	build_path = /obj/item/weapon/circuitboard/clonepod
+	sort_string = "FAGAE"
+
+/datum/design/circuit/clonescanner
+	name = "cloning scanner"
+	id = "clonescanner"
+	req_tech = list(TECH_DATA = 3, TECH_BIO = 3, TECH_ILLEGAL = 4)
+	build_path = /obj/item/weapon/circuitboard/clonescanner
+	sort_string = "FAGAG"
+
+/datum/design/circuit/clonecontrol
+	name = "cloning control console"
+	id = "clonecontrol"
+	req_tech = list(TECH_DATA = 3, TECH_BIO = 3, TECH_ILLEGAL = 4)
+	build_path = /obj/item/weapon/circuitboard/cloning
+	sort_string = "FAGAC"
+
+/datum/design/circuit/dnamodifierconsole
+	name = "genetic manipulation console"
+	id = "geneticscontrol"
+	req_tech = list(TECH_DATA = 3, TECH_BIO = 3, TECH_ILLEGAL = 4)
+	build_path = /obj/item/weapon/circuitboard/scan_consolenew
+	sort_string = "FAGAD"
+
 /datum/design/circuit/roboprinter
 	name = "prosthetic organ fabricator"
 	id = "roboprinter"
@@ -353,6 +381,20 @@
 	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/weapon/circuitboard/unary_atmos/cooler
 	sort_string = "JCAAB"
+
+/datum/design/circuit/dronefab
+	name = "drone fabricator"
+	id = "dronefab"
+	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 3)
+	build_path = /obj/item/weapon/circuitboard/drone_fab
+	sort_string = "JAAAG"
+
+/datum/design/circuit/advdronefab
+	name = "advanced drone fabricator"
+	id = "advdronefab"
+	req_tech = list(TECH_DATA = 7, TECH_ENGINEERING = 6)
+	build_path = /obj/item/weapon/circuitboard/adv_drone_fab
+	sort_string = "JAAAH"
 
 /datum/design/circuit/oxyregenerator
 	name = "oxygen regenerator"

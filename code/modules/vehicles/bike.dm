@@ -229,7 +229,7 @@
 	desc = "A fancy space scooter."
 	icon_state = "gyroscooter_off"
 
-	land_speed = 1.5
+	land_speed = 0.7
 	space_speed = 0
 	bike_icon = "gyroscooter"
 
