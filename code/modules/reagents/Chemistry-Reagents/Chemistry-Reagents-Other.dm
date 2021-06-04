@@ -361,7 +361,7 @@
 		return
 
 	var/datum/gas_mixture/environment = T.return_air()
-	var/min_temperature = 283.15 // 10C. Because coolant cooling gasses to 0 kelvin makes zero sense.
+	var/min_temperature = 263.15 // -10C.
 
 	var/hotspot = (locate(/obj/fire) in T)
 	if(hotspot && !istype(T, /turf/space))
