@@ -509,6 +509,10 @@ default behaviour is:
 	if (buckled)
 		return
 
+	if(is_shifted)
+		is_shifted = FALSE
+		animate(src, pixel_x = default_pixel_x, pixel_y = default_pixel_y, 5, 1, LINEAR_EASING)
+
 	if (restrained())
 		stop_pulling()
 
