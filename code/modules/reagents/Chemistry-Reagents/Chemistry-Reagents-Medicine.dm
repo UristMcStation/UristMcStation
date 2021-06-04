@@ -409,7 +409,6 @@
 	overdose = REAGENTS_OVERDOSE
 
 /datum/reagent/ryetalyn/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.mutations = list()
 	M.disabilities = 0
 	M.sdisabilities = 0
 
