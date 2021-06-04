@@ -337,13 +337,6 @@
 					temp = "Error: Clonepod malfunction."
 				else if(!config.revival_cloning)
 					temp = "Error: Unable to initiate cloning cycle."
-
-				else if(pod.growclone(C))
-					temp = "Initiating cloning cycle..."
-					if(!config.use_cortical_stacks)
-						records.Remove(C)
-					qdel(C)
-					menu = 1
 				else
 					var/cloning
 					if(config.use_cortical_stacks)
