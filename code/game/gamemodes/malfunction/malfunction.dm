@@ -14,6 +14,7 @@
 		"summary_malf",
 		null
 	)
+	votable = 0
 
 /datum/game_mode/malfunction/post_setup()
 	. = ..()
