@@ -481,8 +481,7 @@ default behaviour is:
 
 	if(is_shifted)
 		is_shifted = FALSE
-		pixel_x = default_pixel_x
-		pixel_y = default_pixel_y
+		animate(src, pixel_x = default_pixel_x, pixel_y = default_pixel_y, 5, 1, LINEAR_EASING)
 
 	if (restrained())
 		stop_pulling()
