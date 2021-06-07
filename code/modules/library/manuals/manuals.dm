@@ -34,7 +34,7 @@
 				Put 3 processed eggs, 5 flour and 5 milk into a beaker. Then wait.
 
 				<h3>Cakebatter:</h3>
-				Add a pinch of sugar to 2 parts of regular batter.area
+				Add a pinch of sugar to 2 parts of regular batter.
 
 				<h3>Waffles:</h3>
 				Add 20 units of cakebatter to the microwave and then wait.
