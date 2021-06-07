@@ -22,7 +22,7 @@
 				Here is a guide on basic food recipes and also how to not poison your customers accidentally.
 
 				<h3>Basics:</h3>
-				Knead 3 processed eggs, 10 flour along with 10 water to make dough. Bake that to make a bun or flatten and cut it.
+				Knead 3 units of egg yolk (crack an egg into a bowl or beaker), 10 flour along with 10 water to make dough. Bake that to make a bun or flatten and cut it.
 
 				<h3>Burger:</h3>
 				Put a bun and some meat into the microwave and turn it on. Then wait.
@@ -31,7 +31,7 @@
 				Put a couple of bits of dough and an egg into the microwave and then wait.
 
 				<h3>Batter:</h3>
-				Put 3 processed eggs, 5 flour and 5 milk into a beaker. Then wait.
+				Put 3 units of egg yolk, 5 flour and 5 milk into a beaker. Then wait.
 
 				<h3>Cakebatter:</h3>
 				Add a pinch of sugar to 2 parts of regular batter.
@@ -48,14 +48,17 @@
 				<h3>Meat Pie:</h3>
 				Put a flattened piece of dough and some meat into the microwave and wait.
 
+				<h3>Spaghetti:</h3>
+				Roll flat some dough and cut it with a knife into dough slices. Cut these again into raw spaghetti.
+
 				<h3>Boiled Spaghetti:</h3>
-				Put the spaghetti (processed flour) and 10 units of water into the microwave and wait.
+				Put raw spaghetti and 10 units of water into the microwave and wait.
 
 				<h3>Donuts:</h3>
 				Add some dough and 5 units of sugar to the microwave and wait.
 
 				<h3>Fries:</h3>
-				Add one potato to the processor, then bake them in the microwave.
+				Cut one potato into sticks, then bake them in the microwave.
 
 
 				</body>
