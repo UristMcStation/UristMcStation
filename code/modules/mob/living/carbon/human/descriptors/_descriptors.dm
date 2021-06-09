@@ -55,6 +55,11 @@
 	if(ishuman(me) && !skip_species_mention)
 		var/mob/living/carbon/human/H = me
 		var/use_name = "\improper [H.species.name]"
+		if(H.wear_suit && (H.wear_suit.type == /obj/item/clothing/suit/urist/fleshsuit))
+			for(var/obj/item/clothing/C in list(H.wear_mask, H.head))
+				if(C && (C.body_parts_covered & FACE))
+					use_name = "\improper Human"
+					break
 		species_text = " for \a [use_name]"
 	. = "[get_third_person_message_start(my_gender)] [get_standalone_value_descriptor(my_value)][species_text]"
 
