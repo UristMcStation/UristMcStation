@@ -304,7 +304,8 @@
 		S.name = "[src.name] assembly"
 		S.shipid = src.shipid
 		S.anchored = 1
-		linkedcomputer.linkedweapons -= src
+		if(linkedcomputer)
+			linkedcomputer.linkedweapons -= src
 		qdel(src)
 
 	else
