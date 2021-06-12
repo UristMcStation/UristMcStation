@@ -301,6 +301,8 @@
 	alt_titles = list(
 	"Technical Assistant","Medical Intern","Cargo Assistant",
 	"Botanist" = /decl/hierarchy/outfit/job/service/gardener,
+	"Librarian" = /decl/hierarchy/outfit/job/librarian,
+	"Journalist" = /decl/hierarchy/outfit/job/librarian
 	)
 
 /datum/job/assistant/get_description_blurb()
