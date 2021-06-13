@@ -7,7 +7,7 @@
 		return
 
 	if(istype(O, /obj/item/weapon/storage))
-		var/obj/item/weapon/storage/S = 0
+		var/obj/item/weapon/storage/S = O
 		for(var/obj/I in S.contents)
 			S.remove_from_storage(I, src)
 			if(resell)
