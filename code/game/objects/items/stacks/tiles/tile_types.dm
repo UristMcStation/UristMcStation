@@ -32,6 +32,25 @@
 			return
 	..()
 
+/obj/item/stack/tile/verb/place_above()
+	set name = "Place Tile Above"
+	set category = "Object"
+
+	if (usr.stat || usr.restrained() || usr.incapacitated()) return
+
+	var/turf/target = get_turf(locate(src.loc.x,src.loc.y,src.loc.z+1))
+	
+	if(!target || !AreConnectedZLevels(src.loc.z,target.z))
+		to_chat(usr, "<span class='warning'>There's nothing above you.</span>")
+		return
+	
+	if(locate(/obj/structure/lattice, target))
+		target.attackby(src, src.loc)
+		to_chat(usr, "<span class='notice'>You slide \the [src] into the lattice above.</span>")
+		playsound(usr, 'sound/weapons/Genhit.ogg', 50, 1)
+	else
+		to_chat(usr, "<span class='warning'>There's no exposed lattice above you.</span>")
+
 /*
  * Grass
  */
