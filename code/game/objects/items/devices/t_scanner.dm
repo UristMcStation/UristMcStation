@@ -10,7 +10,8 @@
 	matter = list(MATERIAL_ALUMINIUM = 150)
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
 	action_button_name = "Toggle T-Ray scanner"
-
+	
+	var/standard_mode = TRUE
 	var/scan_range = 3
 
 	var/on = 0
@@ -64,15 +65,15 @@
 	var/list/update_remove = active_scanned - scanned
 
 	//Add new overlays
-	for(var/obj/O in update_add)
-		var/image/overlay = get_overlay(O)
-		active_scanned[O] = overlay
+	for(var/atom/A in update_add)
+		var/image/overlay = get_overlay(A)
+		active_scanned[A] = overlay
 		user_client.images += overlay
 
 	//Remove stale overlays
-	for(var/obj/O in update_remove)
-		user_client.images -= active_scanned[O]
-		active_scanned -= O
+	for(var/atom/A in update_remove)
+		user_client.images -= active_scanned[A]
+		active_scanned -= A
 
 //creates a new overlay for a scanned object
 /obj/item/device/t_scanner/proc/get_overlay(var/atom/movable/scanned)
@@ -81,10 +82,16 @@
 	if(scanned in overlay_cache)
 		. = overlay_cache[scanned]
 	else
-		var/image/I = image(loc = scanned, icon = scanned.icon, icon_state = scanned.icon_state)
+		var/image/I
+		if(isturf(scanned))
+			I = image(loc = locate(scanned.x, scanned.y, scanned.z-1), icon = 'icons/turf/areas.dmi', icon_state = "unknown")	//Placeholder icon for now
+		else
+			I = image(loc = scanned, icon = scanned.icon, icon_state = scanned.icon_state)
 		I.plane = HUD_PLANE
 		I.layer = UNDER_HUD_LAYER
 		I.appearance_flags = RESET_ALPHA
+		if(!standard_mode)
+			I.appearance_flags |= RESET_COLOR	//Because the placeholder icon can be hard to see at times.
 
 		//Pipes are special
 		if(istype(scanned, /obj/machinery/atmospherics/pipe))
@@ -116,31 +123,37 @@
 
 /obj/item/device/t_scanner/proc/get_scanned_objects(var/scan_dist)
 	. = list()
-
-	var/turf/center = get_turf(src.loc)
+	
+	var/turf/center
+	if(standard_mode)
+		center = get_turf(src.loc)
+	else
+		center = get_turf(locate(src.loc.x,src.loc.y,src.loc.z+1))
+		if(!AreConnectedZLevels(center.z, src.loc.z)) return
 	if(!center) return
 
 	for(var/turf/T in range(scan_range, center))
-		for(var/mob/M in T.contents)
-			if(ishuman(M))
-				var/mob/living/carbon/human/H = M
-				if(H.is_cloaked())
+		if(standard_mode)
+			for(var/mob/M in T.contents)
+				if(ishuman(M))
+					var/mob/living/carbon/human/H = M
+					if(H.is_cloaked())
+						. += M
+				else if(round_is_spooky() && isobserver(M))
 					. += M
-			else if(M.alpha < 255)
-				. += M
-			else if(round_is_spooky() && isobserver(M))
-				. += M
 
-		if(!!T.is_plating())
-			continue
-
-		for(var/obj/O in T.contents)
-			if(O.level != 1)
+			if(!!T.is_plating())
 				continue
-			if(!O.invisibility)
-				continue //if it's already visible don't need an overlay for it
-			. += O
 
+			for(var/obj/O in T.contents)
+				if(O.level != 1)
+					continue
+				if(!O.invisibility)
+					continue //if it's already visible don't need an overlay for it
+				. += O
+		else
+			if(isopenspace(T))
+				. += T
 
 
 /obj/item/device/t_scanner/proc/set_user_client(var/client/new_client)
@@ -160,5 +173,18 @@
 /obj/item/device/t_scanner/dropped(mob/user)
 	set_user_client(null)
 	..()
+
+/obj/item/device/t_scanner/verb/switch_mode()
+	set name = "Toggle Scanning Mode"
+	set category = "Object"
+
+	if (usr.stat || usr.restrained() || usr.incapacitated()) return
+
+	if(on)
+		for(var/scanned in active_scanned)
+			user_client.images -= active_scanned[scanned]
+	active_scanned = list()
+	standard_mode = !standard_mode
+	to_chat(usr, "<span class='notice'>You set the t-scanner to scan [standard_mode ? "through tiles below you" : "for missing tiles above you"]</span>")
 
 #undef OVERLAY_CACHE_LEN
