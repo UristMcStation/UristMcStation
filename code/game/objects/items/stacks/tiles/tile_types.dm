@@ -68,6 +68,7 @@
 	desc = "An easy to fit mahogany wood floor tile."
 	icon_state = "tile-mahogany"
 	matter = list(MATERIAL_WOOD = 450)
+	build_type = /decl/flooring/wood/mahogany
 
 /obj/item/stack/tile/maple
 	name = "maple floor tile"
@@ -75,6 +76,7 @@
 	desc = "An easy to fit maple wood floor tile."
 	icon_state = "tile-maple"
 	matter = list(MATERIAL_WOOD = 450)
+	build_type = /decl/flooring/wood/maple
 
 /obj/item/stack/tile/ebony
 	name = "ebony floor tile"
@@ -82,6 +84,7 @@
 	desc = "An easy to fit ebony floor tile."
 	icon_state = "tile-ebony"
 	matter = list(MATERIAL_WOOD = 450)
+	build_type = /decl/flooring/wood/ebony
 
 /obj/item/stack/tile/walnut
 	name = "walnut floor tile"
@@ -89,6 +92,7 @@
 	desc = "An easy to fit walnut wood floor tile."
 	icon_state = "tile-walnut"
 	matter = list(MATERIAL_WOOD = 450)
+	build_type = /decl/flooring/wood/walnut
 
 /obj/item/stack/tile/floor
 	name = "steel floor tile"
@@ -107,6 +111,7 @@
 	icon_state = "tile"
 	matter = list(MATERIAL_STEEL = 450)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
+	build_type = /decl/flooring/tiling/mono
 
 /obj/item/stack/tile/mono/dark
 	name = "dark mono tile"
@@ -114,6 +119,7 @@
 	icon_state = "tile"
 	matter = list(MATERIAL_STEEL = 450)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
+	build_type = /decl/flooring/tiling/dark/mono
 
 /obj/item/stack/tile/mono/white
 	name = "white mono tile"
@@ -121,7 +127,7 @@
 	icon_state = "tile"
 	matter = list(MATERIAL_STEEL = 450)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
-	build_type = /decl/flooring/tiling/mono
+	build_type = /decl/flooring/tiling/mono/white
 
 /obj/item/stack/tile/grid
 	name = "grey grid tile"
@@ -218,6 +224,7 @@
 	singular name = "stone slab"
 	desc = "A smooth, flat slab of some kind of stone."
 	icon_state = "tile_stone"
+	build_type = /decl/flooring/tiling/stone
 
 /*
  * Carpets
