@@ -38,6 +38,11 @@
 		overlays -= wet_overlay
 		wet_overlay = null
 
+/turf/simulated/examine()
+	. = ..()
+	if(wet && (get_lumcount() >= 0.25))
+		to_chat(usr, "<span class='warning'>It has a slight shimmer to it.</span>")
+
 /turf/simulated/clean_blood()
 	for(var/obj/effect/decal/cleanable/blood/B in contents)
 		B.clean_blood()
