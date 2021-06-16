@@ -38,7 +38,7 @@
 
 	blacklisted_programs = list(/datum/computer_file/program/deck_management,/datum/computer_file/program/docking)
 
-	date_offset = 536
+	date_offset = 535 //i need to fix the function for this
 
 /datum/map/glloydstation/perform_map_generation()
 	new /datum/random_map/automata/cave_system(null, 1, 1, 5, 255, 255) // Create the mining Z-level.

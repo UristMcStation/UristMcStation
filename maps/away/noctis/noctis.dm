@@ -23,7 +23,7 @@
 
 /obj/effect/overmap/ship/noctis
 	name = "exploration corvette"
-	color = "#640000"
+	color = "#666666"
 	vessel_mass = 4000
 	burn_delay = 2 SECONDS
 	initial_restricted_waypoints = list(
@@ -103,5 +103,5 @@
 
 /obj/item/stack/material/titanium
 	name = "titanium"
-	icon_state = "sheet-silver"
+	icon_state = "sheet-shiny"
 	default_type = "titanium"

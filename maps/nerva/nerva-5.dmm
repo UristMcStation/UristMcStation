@@ -2047,7 +2047,7 @@
 /area/rescue_base/base)
 "dO" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1331;
+	frequency = 1380;
 	id_tag = "rescue_base";
 	pixel_x = 5;
 	pixel_y = -25
@@ -2096,7 +2096,7 @@
 /area/rescue_base/base)
 "dT" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1331;
+	frequency = 1380;
 	id_tag = "rescue_base_hatch";
 	name = "Landing Pad";
 	req_access = list("ACCESS_CENT_SPECOPS")
@@ -2224,7 +2224,7 @@
 "eh" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/door/airlock/external{
-	frequency = 1331;
+	frequency = 1380;
 	id_tag = "rescue_base_hatch";
 	req_access = list("ACCESS_CENT_SPECOPS")
 	},
@@ -2989,11 +2989,12 @@
 "fx" = (
 /obj/machinery/door/airlock/external{
 	density = 1;
-	frequency = 1331;
+	frequency = 1380;
 	id_tag = "rescue_shuttle_outer";
 	name = "Ship External Access";
 	req_access = list("ACCESS_CENT_SPECOPS")
 	},
+/obj/effect/shuttle_landmark/ERT/start,
 /turf/simulated/floor/plating,
 /area/rescue_base/start)
 "fy" = (
@@ -3012,7 +3013,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/rescue_base/start)
 "fA" = (
-/obj/machinery/computer/shuttle_control/multi/rescue,
+/obj/machinery/computer/shuttle_control/ERT,
 /turf/simulated/floor/tiled/dark,
 /area/rescue_base/start)
 "fB" = (
@@ -3032,7 +3033,7 @@
 	id_tag = "rescue_shuttle_pump"
 	},
 /obj/machinery/airlock_sensor{
-	frequency = 1331;
+	frequency = 1380;
 	id_tag = "rescue_shuttle_sensor";
 	pixel_x = 8;
 	pixel_y = 25
@@ -3052,11 +3053,11 @@
 "fE" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1331;
+	frequency = 1380;
 	id_tag = "rescue_shuttle_pump"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 1331;
+	frequency = 1380;
 	id_tag = "rescue_shuttle";
 	pixel_x = -8;
 	pixel_y = 25;
@@ -3078,7 +3079,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/rescue_base/start)
 "fH" = (
-/obj/structure/bed/chair/shuttle,
+/obj/structure/bed/chair/shuttle{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/rescue_base/start)
 "fI" = (
@@ -3165,7 +3168,7 @@
 "fS" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1331;
+	frequency = 1380;
 	id_tag = "rescue_shuttle_pump"
 	},
 /obj/machinery/light{
@@ -3185,7 +3188,7 @@
 "fV" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1331;
+	frequency = 1380;
 	id_tag = "rescue_shuttle_pump"
 	},
 /obj/machinery/light{
@@ -3213,7 +3216,7 @@
 "fZ" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/machinery/door/airlock/external{
-	frequency = 1331;
+	frequency = 1380;
 	id_tag = "rescue_shuttle_inner";
 	name = "Ship External Access";
 	req_access = list("ACCESS_CENT_SPECOPS")
@@ -3800,7 +3803,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 1
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/reinforced/airless,
 /area/rescue_base/start)
 "hB" = (
 /obj/structure/table/glass,
@@ -3849,7 +3852,7 @@
 /area/rescue_base/start)
 "hH" = (
 /obj/structure/shuttle/engine/propulsion,
-/turf/space,
+/turf/simulated/floor/reinforced/airless,
 /area/rescue_base/start)
 "hI" = (
 /obj/structure/table/glass,
@@ -7172,50 +7175,7 @@
 	name = "Blast Doors";
 	opacity = 0
 	},
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/skipjack_station/start)
-"pn" = (
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "SkipjackShuttersNorth";
-	name = "Blast Doors";
-	opacity = 0
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/skipjack_station/start)
-"po" = (
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "SkipjackShuttersNorth";
-	name = "Blast Doors";
-	opacity = 0
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/effect/wallframe_spawn/reinforced_phoron,
 /turf/simulated/floor/plating,
 /area/skipjack_station/start)
 "pp" = (
@@ -7227,6 +7187,7 @@
 	req_access = list("ACCESS_SYNDICATE")
 	},
 /obj/machinery/shield_diffuser,
+/obj/effect/shuttle_landmark/skipjack/start,
 /turf/simulated/floor/plating,
 /area/skipjack_station/start)
 "pq" = (
@@ -7380,7 +7341,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 2;
 	frequency = 1380;
-	id_tag = "merc_shuttle_pump"
+	id_tag = "skipjack_shuttle_pump"
 	},
 /turf/simulated/floor/plating,
 /area/skipjack_station/start)
@@ -8117,7 +8078,7 @@
 /turf/simulated/floor/plating,
 /area/skipjack_station/start)
 "rv" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced/bare,
 /turf/simulated/floor/shuttle/red,
 /area/skipjack_station/start)
 "rw" = (
@@ -8189,17 +8150,7 @@
 	name = "Skipjack Shutters";
 	opacity = 0
 	},
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/effect/wallframe_spawn/reinforced_phoron,
 /turf/simulated/floor/plating,
 /area/skipjack_station/start)
 "rF" = (
@@ -8227,17 +8178,7 @@
 	name = "Skipjack Shutters";
 	opacity = 0
 	},
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/effect/wallframe_spawn/reinforced_phoron,
 /turf/simulated/floor/plating,
 /area/skipjack_station/start)
 "rK" = (
@@ -8467,25 +8408,6 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_basketball)
-"sl" = (
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 4;
-	icon_state = "shutter0";
-	id = "SkipjackShuttersWest";
-	name = "Skipjack Shutters";
-	opacity = 0
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/skipjack_station/start)
 "sm" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/machinery/portable_atmospherics/hydroponics,
@@ -8547,25 +8469,6 @@
 "su" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/random/maintenance,
-/turf/simulated/floor/plating,
-/area/skipjack_station/start)
-"sv" = (
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 8;
-	icon_state = "shutter0";
-	id = "SkipjackShuttersEast";
-	name = "Skipjack Shutters";
-	opacity = 0
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /turf/simulated/floor/plating,
 /area/skipjack_station/start)
 "sw" = (
@@ -8670,26 +8573,6 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_basketball)
-"sM" = (
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 4;
-	icon_state = "shutter0";
-	id = "SkipjackShuttersWest";
-	name = "Skipjack Shutters";
-	opacity = 0
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/skipjack_station/start)
 "sN" = (
 /obj/random/loot,
 /obj/vehicle/bike/thermal,
@@ -8727,7 +8610,6 @@
 "sR" = (
 /obj/structure/table/steel,
 /obj/random/maintenance,
-/obj/effect/shuttle_landmark/skipjack/start,
 /turf/simulated/floor/shuttle/red,
 /area/skipjack_station/start)
 "sS" = (
@@ -8756,26 +8638,6 @@
 "sV" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/item/weapon/crowbar,
-/turf/simulated/floor/plating,
-/area/skipjack_station/start)
-"sW" = (
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 8;
-	icon_state = "shutter0";
-	id = "SkipjackShuttersEast";
-	name = "Skipjack Shutters";
-	opacity = 0
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /turf/simulated/floor/plating,
 /area/skipjack_station/start)
 "sX" = (
@@ -8907,7 +8769,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/skipjack_station/start)
 "tq" = (
-/obj/effect/wingrille_spawn/reinforced,
+/obj/effect/wallframe_spawn/reinforced/bare,
 /turf/simulated/floor/plating,
 /area/skipjack_station/start)
 "tr" = (
@@ -9151,9 +9013,6 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_basketball)
-"tT" = (
-/turf/unsimulated/floor/plating,
-/area/shuttle/transport1/centcom)
 "tU" = (
 /obj/structure/shuttle/engine/propulsion/burst/right{
 	tag = "icon-burst_r (NORTH)";
@@ -9174,7 +9033,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/transport1/centcom)
+/area/centcom)
 "tW" = (
 /obj/structure/shuttle/engine/propulsion/burst/left{
 	tag = "icon-burst_l (NORTH)";
@@ -9193,7 +9052,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 1
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/reinforced/airless,
 /area/skipjack_station/start)
 "tY" = (
 /obj/random/trash,
@@ -12639,7 +12498,7 @@
 	},
 /area/syndicate_mothership)
 "Cs" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/wallframe_spawn/reinforced_phoron/hull,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/merchant_station)
@@ -12938,11 +12797,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
-/area/merchant_station)
-"Db" = (
-/obj/effect/wingrille_spawn/reinforced,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
 /area/merchant_station)
 "Dc" = (
 /obj/machinery/light/small{
@@ -13264,17 +13118,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/wood,
-/area/merchant_station)
-"DQ" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
 /area/merchant_station)
 "DR" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -13635,11 +13478,11 @@
 /area/syndicate_station/start)
 "EC" = (
 /obj/machinery/door/airlock/external{
+	frequency = 1331;
+	id_tag = "merc_home_inner";
 	req_access = list("ACCESS_SYNDICATE")
 	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/syndicate_mothership)
 "ED" = (
 /obj/structure/table/rack,
@@ -13667,6 +13510,7 @@
 /area/merchant_station)
 "EG" = (
 /obj/structure/sign/warning/docking_area,
+/obj/effect/paint/hull,
 /turf/simulated/wall,
 /area/merchant_station)
 "EH" = (
@@ -13863,19 +13707,11 @@
 /area/syndicate_mothership)
 "Fd" = (
 /obj/machinery/door/airlock/external{
+	frequency = 1331;
+	id_tag = "merc_home_outer";
 	req_access = list("ACCESS_SYNDICATE")
 	},
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1331;
-	master_tag = "synd_airlock";
-	name = "exterior access button";
-	pixel_x = -25;
-	pixel_y = -25
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/syndicate_mothership)
 "Fe" = (
 /turf/unsimulated/wall/fakeglass{
@@ -14154,10 +13990,6 @@
 	},
 /area/shuttle/merchant/home)
 "FF" = (
-/obj/structure/grille,
-/obj/structure/window/shuttle{
-	icon_state = "window4"
-	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 2;
@@ -14166,21 +13998,7 @@
 	name = "Merchant Window Shutters";
 	opacity = 0
 	},
-/turf/simulated/floor/plating,
-/area/shuttle/merchant/home)
-"FG" = (
-/obj/structure/grille,
-/obj/structure/window/shuttle{
-	icon_state = "window8"
-	},
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 2;
-	icon_state = "shutter0";
-	id = "merchantshuttle";
-	name = "Merchant Window Shutters";
-	opacity = 0
-	},
+/obj/effect/wallframe_spawn/reinforced_phoron,
 /turf/simulated/floor/plating,
 /area/shuttle/merchant/home)
 "FH" = (
@@ -14341,20 +14159,16 @@
 	frequency = 1331;
 	id_tag = "synd_pump"
 	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	frequency = 1331;
-	id_tag = "merc_shuttle";
-	pixel_x = 25;
-	tag_airpump = "synd_pump";
-	tag_chamber_sensor = "synd_sensor";
-	tag_exterior_door = "synd_outer";
-	tag_interior_door = "synd_inner"
-	},
 /obj/machinery/airlock_sensor{
 	frequency = 1331;
 	id_tag = "synd_sensor";
 	pixel_x = 25;
 	pixel_y = 12
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	frequency = 1331;
+	id_tag = "synd";
+	pixel_x = 25
 	},
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
@@ -14480,21 +14294,6 @@
 	dir = 8
 	},
 /area/shuttle/merchant/home)
-"Gn" = (
-/obj/structure/grille,
-/obj/structure/window/shuttle{
-	icon_state = "window12"
-	},
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 2;
-	icon_state = "shutter0";
-	id = "merchantshuttle";
-	name = "Merchant Window Shutters";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/merchant/home)
 "Go" = (
 /turf/simulated/shuttle/wall{
 	icon_state = "swall_t";
@@ -14522,8 +14321,7 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/merchant/home)
 "Gs" = (
-/obj/structure/grille,
-/obj/structure/window/shuttle,
+/obj/effect/wallframe_spawn/reinforced_phoron/titanium,
 /turf/simulated/floor/plating,
 /area/shuttle/merchant/home)
 "Gt" = (
@@ -14545,9 +14343,9 @@
 /obj/machinery/door/window/brigdoor/southright{
 	req_access = list("ACCESS_MERCHANT")
 	},
-/obj/structure/window/reinforced{
-	dir = 8;
-	health = 1e+006
+/obj/structure/window/phoronreinforced{
+	icon_state = "rwindow";
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/merchant/home)
@@ -14732,10 +14530,6 @@
 	},
 /area/syndicate_mothership)
 "GS" = (
-/obj/structure/grille,
-/obj/structure/window/shuttle{
-	icon_state = "window2"
-	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 4;
@@ -14744,6 +14538,7 @@
 	name = "Merchant Window Shutters";
 	opacity = 0
 	},
+/obj/effect/wallframe_spawn/reinforced_phoron,
 /turf/simulated/floor/plating,
 /area/shuttle/merchant/home)
 "GT" = (
@@ -14871,10 +14666,6 @@
 	dir = 1
 	},
 /area/shuttle/merchant/home)
-"Hh" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/simulated/floor/plating,
-/area/merchant_station)
 "Hi" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -15063,21 +14854,6 @@
 	icon_state = "dark"
 	},
 /area/syndicate_mothership)
-"HD" = (
-/obj/structure/grille,
-/obj/structure/window/shuttle{
-	icon_state = "window3"
-	},
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 4;
-	icon_state = "shutter0";
-	id = "merchantshuttle";
-	name = "Merchant Window Shutters";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/merchant/home)
 "HE" = (
 /obj/machinery/computer/shuttle_control/merchant,
 /turf/simulated/floor/carpet/blue,
@@ -15107,25 +14883,26 @@
 /area/shuttle/merchant/home)
 "HI" = (
 /obj/structure/table/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1;
-	health = 1e+006
-	},
 /obj/item/weapon/paper_bin{
 	pixel_x = 1;
 	pixel_y = 9
 	},
 /obj/item/weapon/pen,
+/obj/structure/window/phoronreinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant/home)
 "HJ" = (
-/obj/structure/window/reinforced{
+/obj/structure/table/reinforced,
+/obj/structure/window/phoronreinforced{
+	icon_state = "rwindow";
 	dir = 4
 	},
-/obj/structure/table/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1;
-	health = 1e+006
+/obj/structure/window/phoronreinforced{
+	icon_state = "rwindow";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant/home)
@@ -15136,7 +14913,6 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 8
 	},
-/obj/effect/shuttle_landmark/merchant/start,
 /turf/simulated/floor/tiled,
 /area/shuttle/merchant/home)
 "HL" = (
@@ -15397,21 +15173,6 @@
 	icon_state = "dark"
 	},
 /area/syndicate_mothership)
-"Ip" = (
-/obj/structure/grille,
-/obj/structure/window/shuttle{
-	icon_state = "window1"
-	},
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 4;
-	icon_state = "shutter0";
-	id = "merchantshuttle";
-	name = "Merchant Window Shutters";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/merchant/home)
 "Iq" = (
 /obj/structure/table/reinforced,
 /obj/item/weapon/paper_bin{
@@ -15683,10 +15444,6 @@
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "IV" = (
-/obj/structure/grille,
-/obj/structure/window/shuttle{
-	icon_state = "window4"
-	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 1;
@@ -15695,36 +15452,7 @@
 	name = "Merchant Window Shutters";
 	opacity = 0
 	},
-/turf/simulated/floor/plating,
-/area/shuttle/merchant/home)
-"IW" = (
-/obj/structure/grille,
-/obj/structure/window/shuttle{
-	icon_state = "window12"
-	},
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 1;
-	icon_state = "shutter0";
-	id = "merchantshuttle";
-	name = "Merchant Window Shutters";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/merchant/home)
-"IX" = (
-/obj/structure/grille,
-/obj/structure/window/shuttle{
-	icon_state = "window8"
-	},
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 1;
-	icon_state = "shutter0";
-	id = "merchantshuttle";
-	name = "Merchant Window Shutters";
-	opacity = 0
-	},
+/obj/effect/wallframe_spawn/reinforced_phoron,
 /turf/simulated/floor/plating,
 /area/shuttle/merchant/home)
 "IY" = (
@@ -15811,6 +15539,7 @@
 	name = "Ship Exterior";
 	req_access = list("ACCESS_MERCHANT")
 	},
+/obj/effect/shuttle_landmark/merchant,
 /turf/simulated/floor/plating,
 /area/shuttle/merchant/home)
 "Ji" = (
@@ -16855,10 +16584,7 @@
 	icon_state = "tube1";
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	dir = 2;
-	icon_state = "dark"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/ninja_dojo/start)
 "Lq" = (
 /obj/machinery/door/airlock/external{
@@ -16875,7 +16601,7 @@
 	name = "Blast Door";
 	opacity = 0
 	},
-/turf/simulated/floor/shuttle/red,
+/turf/simulated/floor/tiled/dark,
 /area/ninja_dojo/start)
 "Lr" = (
 /obj/machinery/bodyscanner{
@@ -16955,6 +16681,7 @@
 	amount = 10
 	},
 /obj/item/device/floor_painter,
+/obj/item/stack/material/aluminium/fifty,
 /turf/simulated/floor/plating,
 /area/merchant_station)
 "LA" = (
@@ -17043,18 +16770,8 @@
 /area/merchant_station)
 "LJ" = (
 /obj/structure/table/rack,
-/obj/item/stack/rods{
-	amount = 50
-	},
-/obj/item/stack/rods{
-	amount = 50
-	},
-/obj/item/stack/rods{
-	amount = 50
-	},
-/obj/item/stack/rods{
-	amount = 50
-	},
+/obj/item/stack/material/aluminium/fifty,
+/obj/item/stack/material/aluminium/fifty,
 /turf/simulated/floor/plating,
 /area/merchant_station)
 "LK" = (
@@ -17117,10 +16834,7 @@
 	name = "Ship External Access";
 	req_access = list("ACCESS_SYNDICATE")
 	},
-/turf/unsimulated/floor{
-	dir = 2;
-	icon_state = "dark"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/ninja_dojo/start)
 "LQ" = (
 /obj/machinery/airlock_sensor{
@@ -17139,10 +16853,7 @@
 	name = "remote shutter control";
 	pixel_x = 25
 	},
-/turf/unsimulated/floor{
-	dir = 2;
-	icon_state = "dark"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/ninja_dojo/start)
 "LR" = (
 /obj/machinery/door/window{
@@ -17239,7 +16950,10 @@
 /turf/simulated/floor/plating,
 /area/merchant_station)
 "Md" = (
-/obj/structure/closet/crate,
+/obj/structure/table/rack,
+/obj/item/stack/material/rods/fifty,
+/obj/item/stack/material/rods/fifty,
+/obj/item/stack/material/rods/fifty,
 /turf/simulated/floor/plating,
 /area/merchant_station)
 "Me" = (
@@ -17388,7 +17102,8 @@
 /turf/simulated/floor/airless,
 /area/merchant_station)
 "Mu" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/effect/wallframe_spawn/reinforced_phoron/hull,
+/obj/machinery/door/firedoor,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -17397,7 +17112,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/merchant_station)
 "Mv" = (
@@ -18042,6 +17756,39 @@
 	dir = 10
 	},
 /area/syndicate_mothership)
+"OE" = (
+/obj/machinery/airlock_sensor{
+	frequency = 1331;
+	id_tag = "merc_home_sensor";
+	pixel_y = 24
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1331;
+	id_tag = "merc_home_pump"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/syndicate_mothership)
+"RG" = (
+/obj/effect/paint/hull,
+/turf/simulated/wall,
+/area/merchant_station)
+"Th" = (
+/obj/effect/wallframe_spawn/reinforced/bare,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/merchant_station)
+"TP" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4;
+	frequency = 1331;
+	id_tag = "merc_home_pump"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/syndicate_mothership)
+"Ux" = (
+/turf/simulated/floor/tiled/dark,
+/area/syndicate_mothership)
 "Yz" = (
 /turf/space/transit/east,
 /area/space)
@@ -18049,6 +17796,22 @@
 /obj/effect/shuttle_landmark/nerva/transit/hadrian,
 /turf/space/transit/east,
 /area/space)
+"Zh" = (
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	frequency = 1331;
+	id_tag = "merc_home";
+	pixel_y = 24
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	icon_state = "intact";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/syndicate_mothership)
+"Zn" = (
+/obj/effect/wallframe_spawn/reinforced/bare,
+/turf/simulated/floor/plating,
+/area/merchant_station)
 
 (1,1,1) = {"
 aa
@@ -28585,12 +28348,12 @@ as
 Yz
 Yz
 Yz
-Yz
-Yz
-Yz
-Yz
-Yz
 Zf
+Yz
+Yz
+Yz
+Yz
+Yz
 Yz
 Yz
 Yz
@@ -43478,8 +43241,8 @@ wm
 wm
 wm
 xT
-Bz
-Dx
+yn
+TP
 Fd
 Fw
 Ga
@@ -43680,8 +43443,8 @@ wb
 wb
 wb
 xT
-Bz
-Dx
+vY
+Zh
 Fe
 zu
 Ag
@@ -43882,8 +43645,8 @@ wM
 wb
 wb
 xT
-Bz
-Dx
+vY
+OE
 Bz
 Co
 zu
@@ -44084,8 +43847,8 @@ By
 Co
 wb
 wH
-Bz
-Dx
+Fe
+Ux
 Bz
 we
 wM
@@ -46883,7 +46646,7 @@ ab
 ab
 qK
 rq
-tT
+rq
 uu
 uV
 vn
@@ -48095,7 +47858,7 @@ ab
 ab
 qK
 rq
-tT
+rq
 uy
 uV
 vn
@@ -51160,8 +50923,8 @@ ab
 Fj
 Gm
 GS
-HD
-Ip
+GS
+GS
 Gm
 JA
 ab
@@ -51357,7 +51120,7 @@ Cs
 Cs
 Cs
 Cs
-yK
+RG
 ab
 FB
 FF
@@ -51562,11 +51325,11 @@ Em
 Cs
 ab
 ab
-Gn
+FF
 GU
 HF
 Ir
-IW
+IV
 ab
 ab
 ab
@@ -51764,11 +51527,11 @@ En
 Cs
 ab
 ab
-FG
+FF
 GV
 GU
 Is
-IX
+IV
 ab
 ab
 ab
@@ -52364,10 +52127,10 @@ yK
 yK
 yK
 yK
-Db
+Zn
 DI
-yK
-yK
+RG
+RG
 EF
 FC
 Gp
@@ -52568,7 +52331,7 @@ BI
 Cx
 Dc
 DJ
-yK
+RG
 nt
 ab
 FD
@@ -53187,11 +52950,11 @@ FF
 ab
 ab
 nt
-yK
+RG
 Cs
 Mu
 Cs
-yK
+RG
 yp
 ab
 ab
@@ -53379,17 +53142,17 @@ DM
 Cs
 ab
 ab
-FG
+FF
 Gr
 Hb
 HL
 Iz
 Jd
-FG
+FF
 ab
 Kw
-yK
-yK
+RG
+RG
 LV
 Mv
 MT
@@ -53546,8 +53309,8 @@ pl
 pl
 pl
 rE
-sl
-sM
+rE
+rE
 pl
 pl
 uA
@@ -53982,7 +53745,7 @@ BN
 CA
 Dg
 DP
-yK
+RG
 nt
 nt
 FE
@@ -54181,10 +53944,10 @@ zD
 Ax
 yK
 BO
-Cs
-Cs
-DQ
-yK
+Zn
+Zn
+Zn
+RG
 EG
 nt
 FC
@@ -54194,7 +53957,7 @@ HL
 IA
 Gs
 FD
-yK
+RG
 Kx
 KV
 LC
@@ -54396,7 +54159,7 @@ HL
 Iz
 Jc
 FC
-yK
+RG
 Ky
 KW
 LD
@@ -54598,7 +54361,7 @@ HN
 Iz
 Jg
 FC
-yK
+RG
 Kz
 KX
 LE
@@ -54800,7 +54563,7 @@ HO
 Gs
 Gm
 FB
-yK
+RG
 KA
 KY
 LF
@@ -55001,8 +54764,8 @@ He
 HP
 IB
 FC
-yK
-yK
+RG
+RG
 yK
 KZ
 yK
@@ -55205,7 +54968,7 @@ IB
 Jh
 JB
 JS
-Cs
+Th
 Er
 yK
 yK
@@ -55407,7 +55170,7 @@ IC
 Ji
 JB
 JT
-Cs
+Th
 Er
 yK
 yp
@@ -55559,7 +55322,7 @@ ka
 ab
 ab
 ab
-pn
+pm
 pG
 qa
 qz
@@ -55607,9 +55370,9 @@ Hg
 Hg
 Hg
 FB
-Hh
-JU
 Cs
+JU
+Th
 Fr
 yK
 yp
@@ -55761,7 +55524,7 @@ ka
 ab
 ab
 ab
-po
+pm
 pE
 qb
 qy
@@ -55805,11 +55568,11 @@ EI
 Cs
 Cs
 EG
-Hh
-Hh
-Hh
+Cs
+Cs
+Cs
 EG
-yK
+RG
 JV
 yK
 Er
@@ -57586,8 +57349,8 @@ pl
 pl
 pl
 rJ
-sv
-sW
+rJ
+rJ
 pl
 pl
 uC

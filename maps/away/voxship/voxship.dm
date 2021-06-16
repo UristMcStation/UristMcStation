@@ -12,6 +12,7 @@
 /obj/effect/overmap/sector/vox_base
 	name = "large asteroid"
 	desc = "Sensor array detects a large asteroid."
+	color = "#cc5474"
 	in_space = 1
 	icon_state = "meteor4"
 	initial_generic_waypoints = list(

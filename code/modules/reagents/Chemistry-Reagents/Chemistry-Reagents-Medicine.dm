@@ -430,16 +430,22 @@
 	overdose = REAGENTS_OVERDOSE
 
 /datum/reagent/ryetalyn/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	var/needs_update = M.mutations.len > 0
-
-	M.mutations = list()
 	M.disabilities = 0
 	M.sdisabilities = 0
 
-	// Might need to update appearance for hulk etc.
-	if(needs_update && ishuman(M))
-		var/mob/living/carbon/human/H = M
-		H.update_mutations()
+	// URIST EDIT 19-08-14 by Irra - Fix how Rye cleans muts from mobs
+	if (M.active_genes.len > 0 || M.mutations.len > 0)
+		for(var/gene in M.active_genes)
+			var/datum/dna/gene/G = locate(gene) in global.dna_genes
+			M.dna.SetSEState(G.block, 0)
+		M.mutations = list()
+		domutcheck(M, null, MUTCHK_FORCED)
+
+		// Might need to update appearance for hulk etc.
+		if(ishuman(M))
+			var/mob/living/carbon/human/H = M
+			H.update_mutations()
+	// END URIST EDIT
 
 /datum/reagent/hyperzine
 	name = "Hyperzine"

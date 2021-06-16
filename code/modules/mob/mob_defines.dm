@@ -83,6 +83,7 @@
 	var/confused = 0		//Carbon
 	var/sleeping = 0		//Carbon
 	var/resting = 0			//Carbon
+	var/is_shifted = FALSE
 	var/lying = 0
 	var/lying_prev = 0
 

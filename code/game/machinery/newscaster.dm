@@ -506,8 +506,14 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				var/image = photo_data ? photo_data.photo : null
 				SSstatistics.add_field("newscaster_stories",1)
 				news_network.SubmitArticle(src.msg, src.scanned_user, src.channel_name, image, 0)
-				if(photo_data)
-					photo_data.photo.dropInto(loc)
+				if(photo_data)	//Let's actually remove the photo data and place the photo back into the user's hands if possible
+					if(!photo_data.is_synth)
+						if(!issilicon(usr))
+							usr.put_in_hands(photo_data.photo)
+						else
+							photo_data.photo.dropInto(loc)
+					qdel(photo_data)
+					photo_data = null					
 				src.screen=4
 
 			src.updateUsrDialog()
@@ -737,17 +743,18 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 /obj/machinery/newscaster/proc/AttachPhoto(mob/user as mob)
 	if(photo_data)
 		if(!photo_data.is_synth)
-			photo_data.photo.dropInto(loc)
 			if(!issilicon(user))
 				user.put_in_hands(photo_data.photo)
+			else
+				photo_data.photo.dropInto(loc)
 		qdel(photo_data)
 		photo_data = null
 		return
 
 	if(istype(user.get_active_hand(), /obj/item/weapon/photo))
+		var/obj/item/photo = user.get_active_hand()
 		if(!user.unequip_item(src))
 			return
-		var/obj/item/photo = user.get_active_hand()
 		photo_data = new(photo, 0)
 	else if(istype(user,/mob/living/silicon))
 		var/mob/living/silicon/tempAI = user

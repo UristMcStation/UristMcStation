@@ -24,10 +24,6 @@
 /obj/effect/shuttle_landmark/merc/deck1,
 /turf/space,
 /area/space)
-"ag" = (
-/obj/effect/shuttle_landmark/merchant/out,
-/turf/space,
-/area/space)
 "ai" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -8993,10 +8989,6 @@
 /obj/effect/shuttle_landmark/ninja/deck1,
 /turf/space,
 /area/space)
-"qw" = (
-/obj/effect/shuttle_landmark/skipjack/dock,
-/turf/space,
-/area/space)
 "qx" = (
 /obj/effect/landmark/map_data{
 	height = 4
@@ -9032,6 +9024,10 @@
 /obj/machinery/door/airlock/hatch/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fore)
+"wD" = (
+/obj/effect/shuttle_landmark/nerva/docking/north,
+/turf/space,
+/area/space)
 "Fd" = (
 /obj/item/weapon/material/shard{
 	icon_state = "small"
@@ -9050,6 +9046,10 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/solar/auxaft)
+"Ss" = (
+/obj/effect/shuttle_landmark/nerva/docking/south,
+/turf/space,
+/area/space)
 "Tu" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/cable/orange{
@@ -26517,7 +26517,7 @@ aa
 aa
 aa
 aa
-ag
+aa
 aa
 aa
 aa
@@ -26781,7 +26781,7 @@ aa
 aa
 aa
 aa
-qw
+aa
 aa
 aa
 aa
@@ -28539,7 +28539,7 @@ aa
 aa
 aa
 aa
-aa
+wD
 ai
 al
 ao
@@ -28591,7 +28591,7 @@ qi
 qn
 qr
 qt
-aa
+Ss
 aa
 aa
 aa
