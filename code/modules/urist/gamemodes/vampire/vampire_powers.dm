@@ -311,11 +311,11 @@
 			C.make_jittery(150)
 		//sonic grenade code copypasta, more elegant than my method
 		for(var/obj/structure/window/W in view(4, M.current.loc)) //Shatters windows
-			W.hit(20,1)
+			W.take_damage(200,1)
 			if(get_dist(W, M.current.loc) <= 3) //Reinf windows
-				W.hit(60,0)
+				W.take_damage(250,0)
 			if(get_dist(W, M.current.loc) <= 1)
-				W.hit(40,0)
+				W.take_damage(250,0)
 		for(var/obj/machinery/door/window/D in view(4, M.current.loc)) //Busting windoors
 			D.take_damage(150)
 			if(get_dist(D, M.current.loc) <= 2)
@@ -328,7 +328,7 @@
 
 /client/proc/vampire_turn()
 	set category = "Vampire"
-	set name = "Turn (500)"
+	set name = "Turn (400)"
 	set desc = "Use a massive portion of your power to infect your victim with vampirism."
 	var/datum/mind/M = usr.mind
 	if(!M) return
@@ -348,7 +348,7 @@
 		if(M.current.can_vampirize(C))
 			if(M.current.vampire_power(500, 0)) // recheck
 				if(M.current.handle_vampirize(C.mind))
-					M.current.remove_vampire_blood(500)
+					M.current.remove_vampire_blood(400)
 					M.current.verbs -= /client/proc/vampire_turn
 					spawn(1800) M.current.verbs += /client/proc/vampire_turn
 				else

@@ -8999,6 +8999,31 @@
 /obj/effect/urist/projectile_landmark/ship,
 /turf/space,
 /area/space)
+"AM" = (
+/obj/structure/catwalk,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock/hatch/maintenance,
+/turf/simulated/floor/plating,
+/area/maintenance/first_deck/fore)
+"BM" = (
+/obj/structure/catwalk,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock/hatch/maintenance,
+/turf/simulated/floor/plating,
+/area/maintenance/first_deck/fore)
 "wD" = (
 /obj/effect/shuttle_landmark/nerva/docking/north,
 /turf/space,
@@ -40047,7 +40072,7 @@ dx
 dx
 en
 eF
-eW
+AM
 fD
 gq
 gX
@@ -40061,7 +40086,7 @@ kx
 kT
 lr
 lN
-jr
+BM
 jr
 mV
 en
