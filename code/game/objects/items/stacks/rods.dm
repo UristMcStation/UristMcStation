@@ -85,3 +85,26 @@
 /obj/item/stack/material/rods/add()
 	. = ..()
 	update_icon()
+
+/obj/item/stack/material/rods/verb/place_above()
+	set name = "Construct Lattice Above"
+	set category = "Object"
+
+	if (usr.stat || usr.restrained() || usr.incapacitated()) return
+
+	var/turf/target = get_turf(locate(src.loc.x,src.loc.y,src.loc.z+1))
+	
+	if(!target || !AreConnectedZLevels(src.loc.z,target.z))
+		to_chat(usr, "<span class='warning'>There's nothing above you.</span>")
+		return
+	
+	if(isopenspace(target))
+		if(locate(/obj/structure/lattice, target))
+			to_chat(usr, "<span class='warning'>There's already a lattice in that location.</span>")
+			return
+		target.attackby(src, src.loc)
+		playsound(usr, 'sound/weapons/Genhit.ogg', 50, 1)
+	else
+		to_chat(usr, "<span class='warning'>There's no empty space above you.</span>")
+		return
+	
