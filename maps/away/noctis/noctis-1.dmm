@@ -2359,6 +2359,12 @@
 	icon_state = "intact-supply";
 	dir = 10
 	},
+/obj/machinery/airlock_sensor{
+	frequency = 1380;
+	id_tag = "noctis_sensor";
+	pixel_x = 24;
+	pixel_y = -6
+	},
 /turf/simulated/floor/tiled,
 /area/noctis/raptor)
 "eC" = (
@@ -4705,14 +4711,14 @@
 	icon_state = "map-scrubbers";
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 4
-	},
 /obj/structure/cable/blue{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	icon_state = "map-supply";
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
