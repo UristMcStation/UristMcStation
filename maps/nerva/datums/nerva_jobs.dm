@@ -134,7 +134,7 @@
 	department = "Science"
 	total_positions = 1
 	spawn_positions = 1
-	department_flag = COM|SCI
+	department_flag = SCI
 	selection_color = "#ad6bad"
 	req_admin_notify = 1
 	economic_power = 15
@@ -188,6 +188,7 @@
 	economic_power = 9
 	total_positions = 1
 	spawn_positions = 1
+	department_flag = COM|SUP
 	supervisors = "the captain and the first officer."
 	outfit_type = /decl/hierarchy/outfit/job/nerva/qm
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station,
