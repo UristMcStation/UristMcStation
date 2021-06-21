@@ -2092,10 +2092,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/logistics/auxtool)
-"eI" = (
-/obj/item/weapon/stool,
-/turf/simulated/floor/wood,
-/area/civilian/lounge)
 "eQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/catwalk,
@@ -3531,6 +3527,15 @@
 "gZ" = (
 /turf/simulated/floor/plating,
 /area/hallway/fore/second_deck)
+"ha" = (
+/obj/item/device/radio/intercom{
+	dir = 4;
+	name = "Station Intercom (General)";
+	pixel_x = -28
+	},
+/obj/structure/bookcase,
+/turf/simulated/floor/wood,
+/area/civilian/lounge)
 "hb" = (
 /obj/machinery/camera/network/second_deck{
 	c_tag = "Second Deck Port Hallway - Library";
@@ -3554,10 +3559,6 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/hallway/fore/second_deck)
-"he" = (
-/obj/structure/bookcase/manuals/xenoarchaeology,
-/turf/simulated/floor/wood,
-/area/civilian/lounge)
 "hf" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -4121,12 +4122,34 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/wood,
 /area/civilian/lounge)
+"ix" = (
+/turf/simulated/floor/plating,
+/area/civilian/lounge)
 "iy" = (
 /obj/structure/bed/chair/wood,
 /turf/simulated/floor/wood,
 /area/civilian/lounge)
 "iz" = (
 /turf/simulated/floor/wood,
+/area/civilian/lounge)
+"iA" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/civilian/lounge)
+"iB" = (
+/obj/machinery/vending/games,
+/turf/simulated/floor/plating,
+/area/civilian/lounge)
+"iC" = (
+/obj/structure/table/woodentable,
+/obj/item/weapon/pen,
+/obj/item/weapon/paper_bin{
+	pixel_x = -3;
+	pixel_y = 7
+	},
+/turf/simulated/floor/plating,
 /area/civilian/lounge)
 "iE" = (
 /obj/structure/table/woodentable,
@@ -4515,6 +4538,13 @@
 	tag = "icon-wooden_chair (WEST)"
 	},
 /turf/simulated/floor/wood,
+/area/civilian/lounge)
+"jt" = (
+/obj/machinery/papershredder,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/civilian/lounge)
 "ju" = (
 /obj/structure/bed/chair/office/dark{
@@ -4915,6 +4945,19 @@
 "kh" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/wood,
+/area/civilian/lounge)
+"ki" = (
+/obj/item/weapon/stool,
+/turf/simulated/floor/plating,
+/area/civilian/lounge)
+"kj" = (
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24
+	},
+/obj/machinery/computer/arcade/orion_trail,
+/turf/simulated/floor/plating,
 /area/civilian/lounge)
 "kk" = (
 /obj/structure/undies_wardrobe,
@@ -5541,6 +5584,25 @@
 	icon_state = "intact-scrubbers"
 	},
 /turf/simulated/floor/wood,
+/area/civilian/lounge)
+"lo" = (
+/obj/item/stack/material/wood/ten,
+/turf/simulated/floor/plating,
+/area/civilian/lounge)
+"lp" = (
+/obj/item/modular_computer/console/preset/civilian{
+	dir = 8
+	},
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = 24
+	},
+/obj/machinery/camera/network/second_deck{
+	c_tag = "Rec Room - Fore";
+	dir = 8;
+	icon_state = "camera"
+	},
+/turf/simulated/floor/plating,
 /area/civilian/lounge)
 "lq" = (
 /obj/structure/extinguisher_cabinet{
@@ -13369,6 +13431,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/second_deck)
+"Al" = (
+/obj/effect/floor_decal/corner/red/three_quarters,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	tag = ""
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/reinforced,
+/area/security/prison)
 "Aq" = (
 /obj/structure/bed/chair/couch/right/black,
 /obj/item/weapon/papercrafts/oragami/swan,
@@ -13432,43 +13509,6 @@
 /area/security/prison)
 "AE" = (
 /turf/simulated/wall/r_wall,
-/area/security/prison)
-"AF" = (
-/obj/item/modular_computer/console/preset/civilian{
-	dir = 8
-	},
-/obj/machinery/firealarm{
-	dir = 4;
-	pixel_x = 24
-	},
-/obj/machinery/camera/network/second_deck{
-	c_tag = "Rec Room - Fore";
-	dir = 8;
-	icon_state = "camera"
-	},
-/turf/simulated/floor/wood,
-/area/civilian/lounge)
-"AL" = (
-/obj/machinery/papershredder,
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
-/area/civilian/lounge)
-"AM" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/item/seeds/cornseed,
-/obj/item/seeds/cornseed,
-/obj/item/seeds/tobaccoseed,
-/obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (NORTHEAST)"
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
 /area/security/prison)
 "AP" = (
 /obj/structure/cable{
@@ -13578,6 +13618,13 @@
 /obj/structure/firedoor_assembly,
 /turf/simulated/floor/wood,
 /area/logistics/auxtool)
+"BT" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/bookcase/manuals/research_and_development,
+/turf/simulated/floor/wood,
+/area/civilian/lounge)
 "BU" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(12)
@@ -13608,19 +13655,6 @@
 "BZ" = (
 /turf/simulated/wall,
 /area/civilian/counselor)
-"Ca" = (
-/obj/item/device/radio/intercom{
-	dir = 4;
-	name = "Station Intercom (General)";
-	pixel_x = -28
-	},
-/obj/structure/bookcase,
-/turf/simulated/floor/wood,
-/area/civilian/lounge)
-"Cc" = (
-/obj/structure/bookcase/manuals/engineering,
-/turf/simulated/floor/wood,
-/area/civilian/lounge)
 "Ch" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
@@ -13634,9 +13668,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
-"Cm" = (
-/turf/simulated/floor/tiled/dark/monotile,
-/area/security/prison)
 "Cu" = (
 /obj/machinery/light_switch{
 	dir = 4;
@@ -13662,24 +13693,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/civilian/counselor)
-"CC" = (
-/obj/structure/hygiene/sink{
-	dir = 4;
-	icon_state = "sink";
-	pixel_x = 11;
-	pixel_y = 0
-	},
-/obj/item/weapon/reagent_containers/glass/bucket,
-/obj/effect/floor_decal/corner/red/three_quarters{
-	dir = 1
-	},
-/obj/machinery/alarm{
-	dir = 8;
-	icon_state = "alarm0";
-	pixel_x = 24
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/prison)
 "CG" = (
 /turf/simulated/floor/reinforced/airless,
 /area/security/prison)
@@ -13708,20 +13721,6 @@
 	tag = ""
 	},
 /turf/simulated/floor/reinforced,
-/area/security/prison)
-"CW" = (
-/obj/effect/floor_decal/corner/red/three_quarters{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	icon_state = "intact-supply"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
-	},
-/turf/simulated/floor/tiled/dark,
 /area/security/prison)
 "Da" = (
 /obj/structure/cable{
@@ -13897,15 +13896,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
-"El" = (
-/obj/machinery/alarm{
-	dir = 8;
-	icon_state = "alarm0";
-	pixel_x = 24
-	},
-/obj/machinery/computer/arcade/orion_trail,
-/turf/simulated/floor/wood,
-/area/civilian/lounge)
 "En" = (
 /obj/machinery/light/small{
 	dir = 4;
@@ -13964,6 +13954,13 @@
 /obj/structure/ladder/updown,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fp)
+"EJ" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/reinforced,
+/area/security/prison)
 "EK" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/old_tile,
@@ -14061,6 +14058,13 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/old_tile,
 /area/civilian/exercise)
+"Fg" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/reinforced,
+/area/security/prison)
 "Fl" = (
 /obj/structure/table/standard,
 /obj/machinery/microwave,
@@ -14205,6 +14209,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/chapel)
+"Gx" = (
+/obj/structure/bookcase/manuals/xenoarchaeology,
+/turf/simulated/floor/wood,
+/area/civilian/lounge)
 "Gy" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -14248,10 +14256,6 @@
 	},
 /turf/simulated/floor/tiled/old_tile,
 /area/civilian/exercise)
-"GJ" = (
-/obj/machinery/vending/games,
-/turf/simulated/floor/wood,
-/area/civilian/lounge)
 "GO" = (
 /obj/effect/shuttle_landmark/nerva/deck2/hadrian,
 /turf/space,
@@ -14275,6 +14279,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/civilian/entertainer)
+"GS" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/item/seeds/potatoseed,
+/obj/item/seeds/wheatseed,
+/obj/effect/floor_decal/corner/red/three_quarters{
+	dir = 8
+	},
+/obj/machinery/camera/network/prison{
+	c_tag = "Prison Hydroponics";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/security/prison)
 "GX" = (
 /obj/effect/floor_decal/chapel{
 	dir = 4;
@@ -14284,12 +14301,6 @@
 /obj/item/weapon/stool,
 /turf/simulated/floor/tiled/dark,
 /area/chapel)
-"He" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/wood,
-/area/civilian/lounge)
 "Hh" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -14369,25 +14380,6 @@
 "HJ" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/dark,
-/area/security/prison)
-"HK" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	tag = ""
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4;
-	icon_state = "intact-scrubbers"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/security/prison)
 "HP" = (
@@ -14632,6 +14624,10 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/chapel)
+"JB" = (
+/obj/structure/bookcase/manuals/engineering,
+/turf/simulated/floor/wood,
+/area/civilian/lounge)
 "JE" = (
 /obj/item/weapon/table_parts/wood,
 /obj/structure/cable{
@@ -14943,6 +14939,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/second_deck)
+"LB" = (
+/obj/machinery/seed_extractor,
+/obj/effect/floor_decal/corner/red/full,
+/turf/simulated/floor/reinforced,
+/area/security/prison)
 "LC" = (
 /obj/structure/bed/chair/wood{
 	dir = 8;
@@ -15125,6 +15126,24 @@
 /obj/structure/girder,
 /turf/simulated/floor/airless,
 /area/maintenance/second_deck/afp)
+"MB" = (
+/obj/structure/hygiene/sink{
+	dir = 4;
+	icon_state = "sink";
+	pixel_x = 11;
+	pixel_y = 0
+	},
+/obj/item/weapon/reagent_containers/glass/bucket,
+/obj/effect/floor_decal/corner/red/three_quarters{
+	dir = 1
+	},
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24
+	},
+/turf/simulated/floor/reinforced,
+/area/security/prison)
 "MD" = (
 /obj/machinery/alarm{
 	dir = 4;
@@ -15307,6 +15326,13 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/hallway/aft/second_deck)
+"NN" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/synthesized_instrument/synthesizer/piano,
+/turf/simulated/floor/plating,
+/area/civilian/lounge)
 "NO" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Second Deck Substation";
@@ -15428,6 +15454,10 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/security/prison)
+"Of" = (
+/obj/structure/bed/chair/wood,
+/turf/simulated/floor/plating,
+/area/civilian/lounge)
 "Ok" = (
 /obj/random/junk,
 /obj/structure/disposalpipe/segment,
@@ -15491,16 +15521,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fp)
-"OB" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0;
-	tag = ""
-	},
-/turf/simulated/floor/tiled/dark/monotile,
-/area/security/prison)
 "OC" = (
 /obj/machinery/alarm{
 	dir = 4;
@@ -15515,11 +15535,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/security/prison)
-"OL" = (
-/obj/machinery/seed_extractor,
-/obj/effect/floor_decal/corner/red/full,
-/turf/simulated/floor/tiled/dark,
 /area/security/prison)
 "Pe" = (
 /obj/machinery/washing_machine,
@@ -15737,13 +15752,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/aft/second_deck)
-"Qm" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/structure/bookcase/manuals/research_and_development,
-/turf/simulated/floor/wood,
-/area/civilian/lounge)
 "Qo" = (
 /obj/machinery/power/smes/buildable{
 	RCon_tag = "Substation - Second Deck"
@@ -15821,6 +15829,20 @@
 	pixel_x = -22
 	},
 /turf/simulated/floor/tiled/dark,
+/area/security/prison)
+"QK" = (
+/obj/effect/floor_decal/corner/red/three_quarters{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4;
+	icon_state = "map-scrubbers"
+	},
+/turf/simulated/floor/reinforced,
 /area/security/prison)
 "QM" = (
 /obj/structure/ladder,
@@ -15915,24 +15937,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/second_deck)
-"Rl" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4;
-	icon_state = "intact-scrubbers"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/prison)
 "RB" = (
 /obj/structure/lattice,
 /turf/simulated/open,
@@ -16061,21 +16065,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
-"St" = (
-/obj/effect/floor_decal/corner/red/three_quarters,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	tag = ""
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4;
-	icon_state = "intact-scrubbers"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/prison)
 "Sy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
@@ -16162,13 +16151,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
-"TH" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/structure/synthesized_instrument/synthesizer/piano,
-/turf/simulated/floor/wood,
-/area/civilian/lounge)
 "TM" = (
 /obj/machinery/door/blast/regular{
 	dir = 4;
@@ -16216,23 +16198,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/aft/second_deck)
-"TV" = (
-/obj/item/stack/material/wood/ten,
-/turf/simulated/floor/wood,
-/area/civilian/lounge)
-"TW" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/item/seeds/potatoseed,
-/obj/item/seeds/wheatseed,
-/obj/effect/floor_decal/corner/red/three_quarters{
-	dir = 8
-	},
-/obj/machinery/camera/network/prison{
-	c_tag = "Prison Hydroponics";
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/prison)
 "Ub" = (
 /obj/machinery/vending/tool,
 /turf/simulated/floor/tiled,
@@ -16285,6 +16250,21 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
+/area/security/prison)
+"Uy" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/item/seeds/cornseed,
+/obj/item/seeds/cornseed,
+/obj/item/seeds/tobaccoseed,
+/obj/effect/floor_decal/corner/red{
+	dir = 5;
+	icon_state = "corner_white";
+	tag = "icon-corner_white (NORTHEAST)"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
 /area/security/prison)
 "UA" = (
 /obj/structure/disposalpipe/segment{
@@ -16537,11 +16517,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/prison)
-"Ww" = (
-/obj/machinery/biogenerator,
-/obj/effect/floor_decal/corner/red/full,
-/turf/simulated/floor/tiled/dark,
-/area/security/prison)
 "Wz" = (
 /obj/structure/closet/firecloset,
 /obj/structure/catwalk,
@@ -16599,15 +16574,6 @@
 /obj/item/stack/tile/floor,
 /turf/simulated/floor/plating,
 /area/hallway/aft/second_deck)
-"WX" = (
-/obj/structure/table/woodentable,
-/obj/item/weapon/pen,
-/obj/item/weapon/paper_bin{
-	pixel_x = -3;
-	pixel_y = 7
-	},
-/turf/simulated/floor/wood,
-/area/civilian/lounge)
 "WY" = (
 /obj/machinery/power/sensor{
 	name_tag = "Atmospherics Power"
@@ -16629,6 +16595,10 @@
 /area/engineering/substation/atmos)
 "Xd" = (
 /obj/structure/table/woodentable,
+/turf/simulated/floor/wood,
+/area/civilian/lounge)
+"Xe" = (
+/obj/item/stack/material/wood/ten,
 /turf/simulated/floor/wood,
 /area/civilian/lounge)
 "Xg" = (
@@ -16710,6 +16680,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/logistics/auxtool)
+"Xy" = (
+/obj/machinery/biogenerator,
+/obj/effect/floor_decal/corner/red/full,
+/turf/simulated/floor/reinforced,
+/area/security/prison)
 "XF" = (
 /obj/machinery/light,
 /obj/item/weapon/caution/cone,
@@ -16804,6 +16779,24 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/aft/second_deck)
+"Yf" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/reinforced,
+/area/security/prison)
 "Yj" = (
 /obj/structure/table/rack{
 	dir = 8;
@@ -16856,13 +16849,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/logistics/auxtool)
-"YB" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled/dark,
-/area/security/prison)
 "YF" = (
 /obj/random/toolbox,
 /turf/simulated/floor/airless,
@@ -16921,6 +16907,25 @@
 /obj/structure/bookcase/manuals/medical,
 /turf/simulated/floor/plating,
 /area/civilian/lounge)
+"Zi" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	tag = ""
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/reinforced,
+/area/security/prison)
 "Zm" = (
 /obj/structure/bed/nice,
 /obj/item/weapon/bedsheet/white,
@@ -16966,12 +16971,18 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/security/prison)
-"ZM" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 6
+"ZP" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0;
+	tag = ""
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/reinforced,
+/area/security/prison)
+"ZQ" = (
+/turf/simulated/floor/reinforced,
 /area/security/prison)
 "ZW" = (
 /obj/random/tool,
@@ -40919,9 +40930,9 @@ iw
 jp
 ke
 lj
-Ca
-Qm
-he
+ha
+BT
+Gx
 hJ
 iK
 iK
@@ -41324,7 +41335,7 @@ kg
 iz
 iz
 iz
-TV
+Xe
 iz
 hK
 iK
@@ -41527,7 +41538,7 @@ iz
 lk
 RU
 Zh
-Cc
+JB
 hK
 pI
 qK
@@ -41925,7 +41936,7 @@ fj
 ge
 gX
 hK
-TH
+NN
 iz
 iz
 jq
@@ -42127,7 +42138,7 @@ fk
 ge
 gZ
 hK
-eI
+ki
 iz
 iy
 mg
@@ -42329,8 +42340,8 @@ fj
 ge
 gX
 hK
-He
-iz
+iA
+ix
 iy
 Xd
 kg
@@ -42531,9 +42542,9 @@ fi
 ge
 gW
 hM
-iz
-iz
-iy
+ix
+ix
+Of
 ln
 SS
 UW
@@ -42733,9 +42744,9 @@ fi
 gf
 gY
 hK
-GJ
-iz
-iz
+iB
+ix
+ix
 LC
 iz
 ng
@@ -42935,10 +42946,10 @@ Ov
 gj
 gZ
 hK
-WX
-iz
-iz
-TV
+iC
+ix
+ix
+lo
 iz
 JE
 Sh
@@ -43139,8 +43150,8 @@ hb
 hK
 MI
 iz
-eI
-eI
+ki
+ki
 iz
 ni
 od
@@ -43340,9 +43351,9 @@ ge
 gZ
 hJ
 iE
-AL
-El
-AF
+jt
+kj
+lp
 mi
 nj
 oe
@@ -44536,9 +44547,9 @@ ah
 ah
 ah
 AE
-TW
-YB
-St
+GS
+EJ
+Al
 EQ
 Pe
 XL
@@ -44738,9 +44749,9 @@ ah
 ah
 ah
 AE
-AM
-Cm
-HK
+Uy
+ZQ
+Zi
 HJ
 ZK
 Kz
@@ -44941,8 +44952,8 @@ ah
 ah
 KL
 CO
-OB
-Rl
+ZP
+Yf
 EQ
 EQ
 Up
@@ -45142,9 +45153,9 @@ ah
 ah
 ah
 AE
-CC
-ZM
-CW
+MB
+Fg
+QK
 Eg
 PC
 Hh
@@ -45345,8 +45356,8 @@ ah
 ah
 AE
 AE
-OL
-Ww
+LB
+Xy
 AE
 Zm
 KV
