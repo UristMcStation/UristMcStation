@@ -492,7 +492,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			src.updateUsrDialog()
 
 		else if(href_list["set_new_message"])
-			src.msg = sanitize(input(usr, "Write your Feed story", "Network Channel Handler", ""))
+			src.msg = pencode2html(sanitize(input(usr, "Write your Feed story", "Network Channel Handler", "") as message|null))
 			src.updateUsrDialog()
 
 		else if(href_list["set_attachment"])
@@ -513,7 +513,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 						else
 							photo_data.photo.dropInto(loc)
 					qdel(photo_data)
-					photo_data = null					
+					photo_data = null
 				src.screen=4
 
 			src.updateUsrDialog()
