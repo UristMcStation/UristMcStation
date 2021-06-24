@@ -22,7 +22,6 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 /datum/map
 	var/name = "Unnamed Map"
 	var/full_name = "Unnamed Map"
-	var/vessel_type_name = "Undefined Vessel"
 	var/path
 
 	var/list/station_levels = list() // Z-levels the station exists on

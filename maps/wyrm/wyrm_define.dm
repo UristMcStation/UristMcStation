@@ -2,7 +2,6 @@
 	name = "Wyrm"
 	full_name = "ISC Wyrm"
 	path = "wyrm"
-	vessel_type_name = "ship"
 
 	lobby_icon = 'maps/torch/icons/lobby.dmi'
 
