@@ -2,6 +2,7 @@
 	name = "Urist"
 	full_name = "NSS Urist"
 	path = "glloydstation"
+	vessel_type_name = "station"
 
 	station_name  = "NSS Urist"
 	station_short = "Urist"

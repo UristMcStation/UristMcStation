@@ -2,6 +2,7 @@
 	name = "Nerva"
 	full_name = "ICS Nerva"
 	path = "nerva"
+	vessel_type_name = "ship"
 
 	lobby_icon = 'maps/nerva/nerva_lobby.dmi'
 

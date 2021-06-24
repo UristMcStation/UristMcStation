@@ -70,6 +70,12 @@
 		high_security_level = severe_security_level
 
 /decl/security_state/Initialize()
+	var/regex/reg = new/regex("(VESSEL_TYPE)")
+	for(var/decl/security_level/default/SL in all_security_levels)
+		if(SL.down_description)
+			SL.down_description = replacetext(SL.down_description, reg, GLOB.using_map.vessel_type_name)
+		if(SL.up_description)
+			SL.up_description = replacetext(SL.up_description, reg, GLOB.using_map.vessel_type_name)
 	// Finally switch up to the default starting security level.
 	current_security_level.switching_up_to()
 	. = ..()
@@ -210,7 +216,7 @@
 	overlay_alarm = "alarm_green"
 	overlay_status_display = "status_display_green"
 
-	down_description = "All threats to the ship have passed. Security may not have weapons visible, privacy laws are once again fully enforced."
+	down_description = "All threats to the VESSEL_TYPE have passed. Security may not have weapons visible, privacy laws are once again fully enforced."
 
 /decl/security_level/default/code_blue
 	name = "code blue"
@@ -226,7 +232,7 @@
 	overlay_alarm = "alarm_blue"
 	overlay_status_display = "status_display_blue"
 
-	up_description = "The bridge has received reliable information about possible hostile activity on the ship. Security staff may have weapons visible, random searches are permitted."
+	up_description = "Reliable information has been received about possible hostile activity on the VESSEL_TYPE. Security staff may have weapons visible, random searches are permitted."
 	down_description = "The immediate threat has passed. Security may no longer have weapons drawn at all times, but may continue to have them visible. Random searches are still allowed."
 
 /decl/security_level/default/code_red
@@ -243,8 +249,8 @@
 
 	psionic_control_level = PSI_IMPLANT_DISABLED
 
-	up_description = "There is an immediate serious threat to the ship. Security may have weapons unholstered at all times. Random searches are allowed and advised."
-	down_description = "The self-destruct mechanism has been deactivated, there is still however an immediate serious threat to the ship. Security may have weapons unholstered at all times, random searches are allowed and advised."
+	up_description = "There is an immediate serious threat to the VESSEL_TYPE. Security may have weapons unholstered at all times. Random searches are allowed and advised."
+	down_description = "The self-destruct mechanism has been deactivated, there is still however an immediate serious threat to the VESSEL_TYPE. Security may have weapons unholstered at all times, random searches are allowed and advised."
 
 /decl/security_level/default/code_delta
 	name = "code delta"
