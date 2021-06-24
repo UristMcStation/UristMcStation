@@ -15,7 +15,7 @@
 	var/counterboarding = FALSE
 
 /datum/shipcomponents/teleporter/DoActivate()
-	if(mastership.boarding && !counterboarding)
+	if((mastership.boarding && !counterboarding) || mastership.target_ship.shipid != "nerva")
 		return //they have better things to do than board the Nerva right now.
 
 	if(initial_delay)
