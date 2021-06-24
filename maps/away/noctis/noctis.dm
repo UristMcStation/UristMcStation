@@ -22,7 +22,7 @@
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/raptor)
 
 /obj/effect/overmap/ship/noctis
-	name = "exploration corvette"
+	classification = "Exploration Corvette"
 	color = "#666666"
 	vessel_mass = 4000
 	burn_delay = 2 SECONDS
@@ -35,7 +35,8 @@
 	for(var/area/noctis/A)
 		A.name = "\improper [name] - [A.name]"
 		GLOB.using_map.area_purity_test_exempt_areas += A.type
-	name = "[name], \an [initial(name)]"
+	ship_name = name
+	name = "[name], \an [classification]"
 	..()
 
 /obj/effect/floor_decal/borderfloorgrey

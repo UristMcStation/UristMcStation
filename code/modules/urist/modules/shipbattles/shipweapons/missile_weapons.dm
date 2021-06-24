@@ -8,8 +8,14 @@
 	var/maxload = 1 //in case we have missile arrays
 
 /obj/machinery/shipweapons/missile/Fire()
-	loaded -= 1
-	..()
+	if(loaded)	//Console calls this proc directly so let's check for ammo
+		loaded -= 1
+		if(!loaded)
+			UpdateStatus() //Update the status to show out of ammo
+		..()
+	else
+		to_chat(usr, "<span class='warning'>The [src.name] isn't loaded!</span>")
+		return
 
 /obj/machinery/shipweapons/missile/attack_hand(mob/user as mob)
 	if(loaded)
@@ -87,6 +93,7 @@
 		if(L.loaded && !src.loaded) //no need for maxload here, because fuck it
 			qdel(L)
 			src.loaded += 1
+			src.UpdateStatus()
 
 /obj/machinery/shipweapons/missile/torpedo/Crossed(O as obj)
 	..()
@@ -95,6 +102,7 @@
 		if(L.loaded && !src.loaded) //no need for maxload here, because fuck it
 			qdel(L)
 			src.loaded += 1
+			src.UpdateStatus()
 
 /obj/machinery/shipweapons/missile/torpedo/update_icon()
 	..()

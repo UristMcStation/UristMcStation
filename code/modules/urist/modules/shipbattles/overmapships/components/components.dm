@@ -5,15 +5,17 @@
 	var/health = 100
 	var/mob/living/simple_animal/hostile/overmapship/mastership = null
 	var/broken = FALSE
-	var/targeted = TRUE
+	var/targeted = FALSE
 	var/last_activation = null
 
 /datum/shipcomponents/proc/BlowUp()
 //	qdel(src)
 	mastership.health -= 100
 	broken = TRUE
+	targeted = FALSE
 	name = "destroyed [initial(name)]"
 	if(mastership.health <= 0)
+		mastership.health = 0
 		mastership.shipdeath()
 	return
 
