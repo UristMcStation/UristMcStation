@@ -15,7 +15,6 @@
 	targeted = FALSE
 	name = "destroyed [initial(name)]"
 	if(mastership.health <= 0)
-		mastership.health = 0
 		mastership.shipdeath()
 	return
 
