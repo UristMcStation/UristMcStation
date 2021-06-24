@@ -224,7 +224,7 @@
 	else
 		autoannounce("<b>Engines destabilized - [OM.ship_name] weapon systems online</b>", "public")
 	
-	if(shipid == "nerva")	//If the Nerva is involved, let's put it on Red Alert.
+	if(shipid == lowertext(GLOB.using_map.name))	//If the Nerva is involved, let's put it on Red Alert.
 		var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
 		security_state.stored_security_level = security_state.current_security_level
 		security_state.set_security_level(security_state.high_security_level)
@@ -246,7 +246,7 @@
 	else
 		autoannounce("<b>[T.ship_name] has exceeded weapons range - Exiting combat.</b>", "public")
 
-	if(shipid == "nerva")	//If the Nerva is involved, but the alert level back where it was
+	if(shipid == lowertext(GLOB.using_map.name))	//If the Nerva is involved, put the alert level back where it was
 		var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
 		security_state.set_security_level(security_state.stored_security_level)
 

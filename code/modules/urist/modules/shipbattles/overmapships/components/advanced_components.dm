@@ -15,7 +15,7 @@
 	var/counterboarding = FALSE
 
 /datum/shipcomponents/teleporter/DoActivate()
-	if((mastership.boarding && !counterboarding) || mastership.target_ship.shipid != "nerva")
+	if((mastership.boarding && !counterboarding) || mastership.target_ship.shipid != lowertext(GLOB.using_map.name))
 		return //they have better things to do than board the Nerva right now.
 
 	if(initial_delay)
@@ -134,7 +134,7 @@
 	if(last_activation > world.time)
 		return
 
-	else if(mastership.target_ship.shipid == "nerva")	//TODO: Bind shield gens per combat ship. Check is temp to stop weirdness
+	else if(mastership.target_ship.shipid == lowertext(GLOB.using_map.name))	//TODO: Bind shield gens per combat ship. Check is temp to stop weirdness
 
 		for(var/obj/machinery/power/shield_generator/S in SSmachines.machinery)
 			if(S.z in GLOB.using_map.station_levels)
@@ -154,7 +154,7 @@
 	empulse_range = 8
 
 /datum/shipcomponents/shield_disruptor/overcharge/DoActivate()
-	if(last_activation > world.time || mastership.target_ship.shipid != "nerva") //TODO: Bind shield gens per combat ship. Check is temp to stop weirdness
+	if(last_activation > world.time || mastership.target_ship.shipid != lowertext(GLOB.using_map.name)) //TODO: Bind shield gens per combat ship. Check is temp to stop weirdness
 		return
 
 	if(!first_activate) //they have a few minutes to win, or suffer terribly.
