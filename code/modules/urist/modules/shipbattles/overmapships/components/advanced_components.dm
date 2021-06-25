@@ -15,7 +15,7 @@
 	var/counterboarding = FALSE
 
 /datum/shipcomponents/teleporter/DoActivate()
-	if((mastership.boarding && !counterboarding) || mastership.target_ship.shipid != lowertext(GLOB.using_map.name))
+	if(mastership.boarding && !counterboarding)
 		return //they have better things to do than board the Nerva right now.
 
 	if(initial_delay)
@@ -32,16 +32,16 @@
 	boarding_failure_chance = 0 //Zero this var out.
 
 	if(!bypass_shields)
-		for(var/obj/machinery/power/shield_generator/S in SSmachines.machinery) //Calculate our failure chance. //TODO: Bind shield gens per combat ship
-			if(S.z in GLOB.using_map.station_levels)
+		for(var/obj/machinery/power/shield_generator/S in SSmachines.machinery) //Calculate our failure chance.
+			if(S.z in mastership.target_ship.map_z)
 				if(S.running == SHIELD_RUNNING)
 					boarding_failure_chance += 25 // four shield generators to TOTALLY block boarding.
 
 	if(!boarding_turf) //Locate where we're boarding, give them a warning.
 		var/obj/item/device/radio/beacon/active_beacon //what beacon are we locking onto?
 		var/list/beacon_list = list()
-		for(var/obj/item/device/radio/beacon/B in GLOB.listening_objects)	//TODO: Bind beacons per combat ship
-			if(B.z in GLOB.using_map.station_levels)
+		for(var/obj/item/device/radio/beacon/B in GLOB.listening_objects)
+			if(B.z in mastership.target_ship.map_z)
 				beacon_list += B
 		active_beacon = pick(beacon_list)
 		boarding_turf = get_turf(active_beacon)
@@ -49,8 +49,8 @@
 		mastership.target_ship.autoannounce("<b>[boarding_message] [boarding_area.name].</b>", "public")
 
 	if(prob(boarding_failure_chance))
-		for(var/obj/machinery/power/shield_generator/S in SSmachines.machinery) //Calculate our failure chance.	//TODO: Bind shield gens per combat ship
-			if(S.z in GLOB.using_map.station_levels)
+		for(var/obj/machinery/power/shield_generator/S in SSmachines.machinery) //Calculate our failure chance.
+			if(S.z in mastership.target_ship.map_z)
 				S.current_energy -= S.max_energy * 0.15 //knock a little power off the shields, we're knocking at the damn door.
 				if(S.hacked) //if it's hacked, the engineers get a small surprise
 					var/EMP_turf = get_turf(S)
@@ -134,18 +134,16 @@
 	if(last_activation > world.time)
 		return
 
-	else if(mastership.target_ship.shipid == lowertext(GLOB.using_map.name))	//TODO: Bind shield gens per combat ship. Check is temp to stop weirdness
+	for(var/obj/machinery/power/shield_generator/S in SSmachines.machinery)
+		if(S.z in mastership.target_ship.map_z)
+			if(S.running == SHIELD_RUNNING)
+				S.current_energy -= S.max_energy * rand(disruption_amount[1], disruption_amount[2])
+				if(S.hacked) //if it's hacked, the engineers get a nasty surprise
+					var/EMP_turf = get_turf(S)
+					empulse(EMP_turf, 1, empulse_range, 0)
 
-		for(var/obj/machinery/power/shield_generator/S in SSmachines.machinery)
-			if(S.z in GLOB.using_map.station_levels)
-				if(S.running == SHIELD_RUNNING)
-					S.current_energy -= S.max_energy * rand(disruption_amount[1], disruption_amount[2])
-					if(S.hacked) //if it's hacked, the engineers get a nasty surprise
-						var/EMP_turf = get_turf(S)
-						empulse(EMP_turf, 1, empulse_range, 0)
-
-		mastership.target_ship.autoannounce("<b>Tachyonic energy surge detected, shields may fluctuate.</b>", "technical")
-		last_activation = world.time + disruption_delay
+	mastership.target_ship.autoannounce("<b>Tachyonic energy surge detected, shields may fluctuate.</b>", "technical")
+	last_activation = world.time + disruption_delay
 
 /datum/shipcomponents/shield_disruptor/overcharge //For when someone's shields are SERIOUSLY persistent.
 	name = "overcharge disruptor"
@@ -154,7 +152,7 @@
 	empulse_range = 8
 
 /datum/shipcomponents/shield_disruptor/overcharge/DoActivate()
-	if(last_activation > world.time || mastership.target_ship.shipid != lowertext(GLOB.using_map.name)) //TODO: Bind shield gens per combat ship. Check is temp to stop weirdness
+	if(last_activation > world.time)
 		return
 
 	if(!first_activate) //they have a few minutes to win, or suffer terribly.
@@ -165,32 +163,31 @@
 		return
 	//Warn them.
 
-	else
-		if(!broken)
-			mastership.target_ship.autoannounce("<b>Massive electromagnetic power surge detected! Brace for electromagnetic disruption, T-15 seconds.</b>", "public")
+	if(!broken)
+		mastership.target_ship.autoannounce("<b>Massive electromagnetic power surge detected! Brace for electromagnetic disruption, T-15 seconds.</b>", "public")
 
-			spawn(15 SECONDS)
-				for(var/obj/machinery/power/shield_generator/S in SSmachines.machinery)	//TODO: Bind shield gens per combat ship
-					if(S.z in GLOB.using_map.station_levels)
-						if(S.running == SHIELD_RUNNING)
-							var/EMP_turf = get_turf(S)
-							empulse(EMP_turf, 4, empulse_range, 0)
+		spawn(15 SECONDS)
+			for(var/obj/machinery/power/shield_generator/S in SSmachines.machinery)
+				if(S.z in mastership.target_ship.map_z)
+					if(S.running == SHIELD_RUNNING)
+						var/EMP_turf = get_turf(S)
+						empulse(EMP_turf, 4, empulse_range, 0)
 
-							if(S.hacked) //this is what you get for hacking sensitive equipment
-								explosion(EMP_turf, 0, 1, 6, 0)
+						if(S.hacked) //this is what you get for hacking sensitive equipment
+							explosion(EMP_turf, 0, 1, 6, 0)
 
-				for(var/obj/machinery/power/apc/A in SSmachines.machinery)	//TODO: Area/z-level check per combat ship
-					if(A.z in GLOB.using_map.station_levels)
-						if(!A.is_critical || !A.emp_hardened)
-							var/EMP_turf = get_turf(A)
-							empulse(EMP_turf, 1, 2, 0)
+			for(var/obj/machinery/power/apc/A in SSmachines.machinery)
+				if(A.z in mastership.target_ship.map_z)
+					if(!A.is_critical || !A.emp_hardened)
+						var/EMP_turf = get_turf(A)
+						empulse(EMP_turf, 1, 2, 0)
 
-		/*				for(var/obj/effect/shield/SE in S.field_segments) //this is old behaviour, and honestly might crash the server if it ever happened inround
-							var/EMP_turf = get_turf(SE)
-							empulse(EMP_turf, 3.5, 7, 0)
+	/*				for(var/obj/effect/shield/SE in S.field_segments) //this is old behaviour, and honestly might crash the server if it ever happened inround
+						var/EMP_turf = get_turf(SE)
+						empulse(EMP_turf, 3.5, 7, 0)
 */
 
-		last_activation = world.time + disruption_delay
+	last_activation = world.time + disruption_delay
 
 /datum/shipcomponents/shield_disruptor/heavy
 	name = "heavy shield disruptor"
