@@ -22,7 +22,7 @@
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/raptor)
 
 /obj/effect/overmap/ship/noctis
-	classification = "Exploration Corvette"
+	classification = "exploration corvette"
 	color = "#666666"
 	vessel_mass = 4000
 	burn_delay = 2 SECONDS

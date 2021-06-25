@@ -103,8 +103,9 @@
 			if(C.broken)
 				status = "Broken"
 			else if(istype(C, /datum/shipcomponents/shield))
-				maxshields = C:strength
-				if(C:overcharged)	//If shields are overcharged, let's display that.
+				var/datum/shipcomponents/shield/S = C
+				maxshields = S.strength
+				if(S.overcharged)	//If shields are overcharged, let's display that.
 					status = "Overcharged"
 				else
 					status = "Operational"
@@ -140,7 +141,7 @@
 		data["self_flee_timer"] = homeship.flee_timer
 		data["self_can_escape"] = homeship.can_escape
 
-	else if(homeship.contacts:len)
+	else if(length(homeship.contacts))
 		var/list/nearby_contacts[0]
 		data["status"] = 3
 		

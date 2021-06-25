@@ -16,7 +16,7 @@
 	)
 
 /obj/effect/overmap/ship/bearcat
-	classification = "Light Freighter"
+	classification = "light freighter"
 	color = "#00ffff"
 	vessel_mass = 5000
 	max_speed = 1/(10 SECONDS)

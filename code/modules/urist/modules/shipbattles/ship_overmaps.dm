@@ -108,10 +108,11 @@
 /obj/effect/overmap/ship/combat/Crossed(O as mob)
 	..()
 	if(istype(O, /obj/effect/overmap/ship/combat))	//canfight checks are done later. Means we could add things in the future to ship-to-ship
-		contacts += O
-		O:contacts += src
-		autoannounce("<b>The [O:ship_name], \a [O:classification], has entered the [ship_name]'s defensive proximity</b>", "public")
-		O:autoannounce("<b>The [ship_name], \a [classification], has entered the [O:ship_name]'s defensive proximity</b>", "public")
+		var/obj/effect/overmap/ship/combat/OM = O
+		contacts += OM
+		OM.contacts += src
+		autoannounce("<b>The [OM.ship_name], \a [OM.classification], has entered the [ship_name]'s defensive proximity</b>", "public")
+		OM.autoannounce("<b>The [ship_name], \a [classification], has entered the [OM.ship_name]'s defensive proximity</b>", "public")
 
 	else if(src.canfight)	//AI ships are still handled the same as before
 		if(!src.incombat && !crossed)
@@ -125,12 +126,13 @@
 /obj/effect/overmap/ship/combat/Uncrossed(O as mob)
 	..()
 	if(istype(O, /obj/effect/overmap/ship/combat))
-		contacts -= O
-		O:contacts -= src
-		if(target == O)	//This shouldn't be possible, but just in case
+		var/obj/effect/overmap/ship/combat/OM = O
+		contacts -= OM
+		OM.contacts -= src
+		if(target == OM)	//This shouldn't be possible, but just in case
 			set_targets()
-		if(O:target == src)
-			O:set_targets()
+		if(OM.target == src)
+			OM.set_targets()
 
 /obj/effect/overmap/ship/combat/proc/Contact(var/mob/living/simple_animal/hostile/overmapship/L)
 	src.halt() //cancel our momentum
@@ -224,7 +226,7 @@
 	else
 		autoannounce("<b>Engines destabilized - [OM.ship_name] weapon systems online</b>", "public")
 	
-	if(shipid == lowertext(GLOB.using_map.name))	//If the Nerva is involved, let's put it on Red Alert.
+	if(src == GLOB.using_map.overmap_ship)	//If the Nerva is involved, let's put it on Red Alert.
 		var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
 		security_state.stored_security_level = security_state.current_security_level
 		security_state.set_security_level(security_state.high_security_level)
@@ -246,13 +248,14 @@
 	else
 		autoannounce("<b>[T.ship_name] has exceeded weapons range - Exiting combat.</b>", "public")
 
-	if(shipid == lowertext(GLOB.using_map.name))	//If the Nerva is involved, put the alert level back where it was
+	if(src == GLOB.using_map.overmap_ship)	//If the Nerva is involved, put the alert level back where it was
 		var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
 		security_state.set_security_level(security_state.stored_security_level)
 
 	T.leave_pvp_combat(!fled)	//Calls the other ship to leave. Won't loop back as target was cleared.
 
 /obj/effect/overmap/ship/combat/proc/autoannounce(var/message, var/channel)	//Moved all combat announcements to call this proc instead. In future, other player ships might have their own frequencies
-	if(!message || !channel)	return										//Stops any player ships without their own freq using the Nerva's, which would be wierd.
-	if(announcement_channel[channel])										//Current presets are "public" - Common on Nerva, "private" - Command on Nerva, and "technical" - Engineering on Nerva. Defined on overmap ship.
-		GLOB.global_announcer.autosay(message, "[ship_name] Automated Defence Computer", announcement_channel[channel])
+	if(!message || !channel)
+		return
+	if(announcement_channel[channel])	//Stops any player ships without their own freq using the Nerva's, which would be wierd.
+		GLOB.global_announcer.autosay(message, "[ship_name] Automated Defence Computer", announcement_channel[channel]) //Current presets are "public" - Common on Nerva, "private" - Command on Nerva, and "technical" - Engineering on Nerva. Defined on overmap ship.

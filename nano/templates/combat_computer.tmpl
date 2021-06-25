@@ -17,7 +17,7 @@
 			{{if value.status == "Ready to Fire"}}
 				<td style="padding-left: 3.2%"><b>{{:helper.link('Fire', null, {'fire' : value.ref}, data.status != 0 && data.status != 3 ? null : 'disabled', null)}}</b></td>
 			{{else}}
-				<td style="padding-left: 3.2%"><b>{{:helper.link('Fire', null, {'fire' : value.ref}, 'disabled', null)}}</b></td>		
+				<td style="padding-left: 3.2%"><b>{{:helper.link('Fire', null, {'fire' : value.ref}, 'disabled', null)}}</b></td>
 			{{/if}}
 			<td><center>{{:value.name}}</center></td>
 			{{if value.status == "Ready to Fire"}}
@@ -66,7 +66,7 @@
 		</div>
 		<div class='block'>
 		<h3>Target Components</h3>
-		{{for data.target_components}}		
+		{{for data.target_components}}
 			<div class = "item" style="width: 100%;">
 				<div class="itemContent" style="width: 15%">
 					{{if value.componenttargeted == 1}}
@@ -85,8 +85,8 @@
 						Status: {{:value.componentstatus}}
 					{{/if}}
 				</div>
-				<div class="itemContent" style="width: 25%;">Integrity: {{:value.componenthealth}}%</div>						
-			</div>		
+				<div class="itemContent" style="width: 25%;">Integrity: {{:value.componenthealth}}%</div>
+			</div>
 		{{/for}}
 		</div>
 	</div>
@@ -108,7 +108,7 @@
 				Classification:
 			</div>
 			<div class="itemContent">
-				{{:data.classification}}
+				{{:helper.capitalizeFirstLetter(data.classification)}}
 			</div>
 		</div>
 		<div class = "item">

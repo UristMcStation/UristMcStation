@@ -1,7 +1,7 @@
 /obj/effect/overmap/ship/combat/nerva
 	name = "ICS Nerva"
 	ship_name = "ICS Nerva"
-	classification = "Large Class Vessel"	//???
+	classification = "large class vessel"	//???
 	shipid = "nerva"
 	vessel_mass = 20000 //bigger than wyrm, smaller than torch //:fuckbay:
 	fore_dir = EAST

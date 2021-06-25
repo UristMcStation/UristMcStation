@@ -306,7 +306,8 @@
 		status = "Destroyed"
 
 	else if(istype(src, /obj/machinery/shipweapons/missile))	//Let the crew know when we're running dry so we can yell at cargo
-		if(!src:loaded)
+		var/obj/machinery/shipweapons/missile/W = src
+		if(W.loaded)
 			status = "Out of Ammo"
 		else
 			status = "Ready to Fire"
