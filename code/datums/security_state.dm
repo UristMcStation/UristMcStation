@@ -70,12 +70,11 @@
 		high_security_level = severe_security_level
 
 /decl/security_state/Initialize()
-	var/regex/reg = new/regex("(VESSEL_NAME)")
 	for(var/decl/security_level/default/SL in all_security_levels)
 		if(SL.down_description)
-			SL.down_description = replacetext(SL.down_description, reg, GLOB.using_map.full_name)
+			SL.down_description = replacetext(SL.down_description, "VESSEL_NAME", GLOB.using_map.full_name)
 		if(SL.up_description)
-			SL.up_description = replacetext(SL.up_description, reg, GLOB.using_map.full_name)
+			SL.up_description = replacetext(SL.up_description, "VESSEL_NAME", GLOB.using_map.full_name)
 	// Finally switch up to the default starting security level.
 	current_security_level.switching_up_to()
 	. = ..()
