@@ -21,7 +21,7 @@ for root, subdirs, files in walk(args.dir):
 	for filename in files:
 		if filename.endswith('.dm'):
 			file_path = path.join(root, filename)
-			with open(file_path, 'r') as file:
+			with open(file_path, 'r', encoding="latin-1") as file:
 				print_lines = False
 				for line_number, line in enumerate(file, 1):
 					if line.startswith('/obj/'):
