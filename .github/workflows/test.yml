@@ -23,7 +23,9 @@ jobs:
           path: $HOME/spaceman_dmm/$SPACEMAN_DMM_VERSION
           key: ${{ runner.os }}-spacemandmm-${{ env.SPACEMAN_DMM_VERSION }}
       - name: Install Dreamchecker
-        run:  scripts/install-spaceman-dmm.sh dreamchecker
+        run:  |
+          chmod +x ./scripts/install-spaceman-dmm.sh
+          ./scripts/install-spaceman-dmm.sh dreamchecker
       - name: Run Dreamchecker
         run: ~/dreamchecker
       - name: Run Failure Webhook
