@@ -54,13 +54,13 @@ def get_tag_matches(line):
 
 # Support def that simply checks if a given dictionary in the format tag/list of unmatched lines has mismatch entries.
 def has_mismatch(match_list):
-	for tag, list_of_mismatched_lines in match_list.iteritems():
+	for tag, list_of_mismatched_lines in match_list.items():
 		if(len(list_of_mismatched_lines) > 0):
 			return 1
 	return 0
 
 def arrange_mismatches(mismatches_by_tag, mismatch_line, mismatch_counts):
-	for tag, mismatch_count in mismatch_counts.iteritems():
+	for tag, mismatch_count in mismatch_counts.items():
 		stack_of_existing_mismatches = mismatches_by_tag[tag]
 		for i in range(0, abs(mismatch_count)):
 			if len(stack_of_existing_mismatches) == 0:
