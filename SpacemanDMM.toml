@@ -1,0 +1,21 @@
+# Configuration file for SpacemanDMM suite
+#   https://github.com/SpaceManiac/SpacemanDMM
+#
+# Built according to the specification and documentation of SpacemanDMM, more at:
+#   https://github.com/SpaceManiac/SpacemanDMM/blob/master/CONFIGURING.md
+#
+# Last accessed and edited in 2020-08-12
+
+[display]
+# Set to "warning"/"warnings" by default
+# The given severity level and above will be shown as errors and cause dreamchecker
+# to return with 1. The settings can affect how the Travis CI treats the codebase.
+error_level = "off"
+
+[langserver]
+dreamchecker = true
+
+[code_standards]
+# When set to true, they will show as warning-severity errors.
+disallow_relative_proc_definitions = true
+disallow_relative_type_definitions = true
