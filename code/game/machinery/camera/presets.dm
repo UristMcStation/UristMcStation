@@ -24,7 +24,7 @@
 // necessary? yes
 // who to blame? Bay
 /obj/machinery/camera/network/exploration
-	network = list(NETWORK_EXPLO)
+	network = list(NETWORK_EXPLORATION)
 
 /obj/machinery/camera/network/thunder
 	network = list(NETWORK_THUNDER)
