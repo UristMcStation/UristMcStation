@@ -97,10 +97,10 @@ for root, subdirs, files in walk(args.dir):
 # Loops over all matches and checks if there is a mismatch of tags.
 # If so, then and only then is the corresponding file path printed along with the number of unmatched open/close tags.
 total_mismatches = 0
-for file, mismatches_by_tag in mismatches_by_file.iteritems():
+for file, mismatches_by_tag in mismatches_by_file.items():
 	if has_mismatch(mismatches_by_tag):
 		print(file)
-		for tag, mismatch_list in mismatches_by_tag.iteritems():
+		for tag, mismatch_list in mismatches_by_tag.items():
 			# A positive number means an excess of opening tag, a negative number means an excess of closing tags.
 			total_mismatches += len(mismatch_list)
 			if len(mismatch_list) > 0:

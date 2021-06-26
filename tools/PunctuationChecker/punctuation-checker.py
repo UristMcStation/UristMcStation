@@ -52,7 +52,7 @@ for root, subdirs, files in walk(args.dir):
 								break
 						if not print_line:
 							continue
-						print file_path, ' ', line, ' ', line_number
+						print(file_path, ' ', line, ' ', line_number)
 						found_bad_descriptions = True
 
 if found_bad_descriptions:
