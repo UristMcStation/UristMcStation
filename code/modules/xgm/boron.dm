@@ -13,6 +13,6 @@
 	description = "A chemical that is highly valued in fusion energy."
 	taste_description = "metal"
 	reagent_state = SOLID
-	color = "#837E79"
+	color = "#837e79"
 	value = 4
 	strength = 7
