@@ -19,6 +19,13 @@
 /obj/machinery/camera/network/security
 	network = list(NETWORK_SECURITY)
 
+// pasted from torch/nerva/glloyd
+// stupid? yes
+// necessary? yes
+// who to blame? Bay
+/obj/machinery/camera/network/exploration
+	network = list(NETWORK_EXPLO)
+
 /obj/machinery/camera/network/thunder
 	network = list(NETWORK_THUNDER)
 

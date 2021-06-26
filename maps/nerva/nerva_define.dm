@@ -55,7 +55,7 @@
 	date_offset = 560
 
 	base_floor_type = /turf/simulated/floor/reinforced/airless
-	base_floor_area = /area/maintenance/exterior
+	// for base_floor_area, look in nerva_define.dm
 
 	species_to_job_blacklist = list(
 		/datum/species/unathi  = list(/datum/job/captain),
