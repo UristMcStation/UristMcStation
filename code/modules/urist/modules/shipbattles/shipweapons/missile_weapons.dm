@@ -6,16 +6,14 @@
 	passshield = 1
 	var/loaded = 0
 	var/maxload = 1 //in case we have missile arrays
+	status = NO_AMMO|CHARGED
 
 /obj/machinery/shipweapons/missile/Fire()
-	if(loaded)	//Console calls this proc directly so let's check for ammo
+	if(..())	//Fire proc now returns TRUE or FALSE depending on if it actually fired. This way we don't lose ammo if the weapon actually can't fire (powerloss, etc)
 		loaded -= 1
 		if(!loaded)
-			UpdateStatus() //Update the status to show out of ammo
-		..()
-	else
-		to_chat(usr, "<span class='warning'>The [src.name] isn't loaded!</span>")
-		return
+			status |= NO_AMMO
+			update_icon()
 
 /obj/machinery/shipweapons/missile/attack_hand(mob/user as mob)
 	if(loaded)
@@ -93,7 +91,8 @@
 		if(L.loaded && !src.loaded) //no need for maxload here, because fuck it
 			qdel(L)
 			src.loaded += 1
-			src.UpdateStatus()
+			src.status &= ~NO_AMMO
+			src.update_icon()
 
 /obj/machinery/shipweapons/missile/torpedo/Crossed(O as obj)
 	..()
@@ -102,10 +101,11 @@
 		if(L.loaded && !src.loaded) //no need for maxload here, because fuck it
 			qdel(L)
 			src.loaded += 1
-			src.UpdateStatus()
+			src.status &= ~NO_AMMO
+			src.update_icon()
 
 /obj/machinery/shipweapons/missile/torpedo/update_icon()
 	..()
 
-	if(charged && loaded)
+	if(status == CHARGED)
 		icon_state = "[initial(icon_state)]-loaded"

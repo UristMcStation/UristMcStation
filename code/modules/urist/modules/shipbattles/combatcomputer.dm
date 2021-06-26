@@ -1,3 +1,8 @@
+#define RECHARGING	0x1
+#define CHARGED		0x2
+#define FIRING		0x4
+#define NO_AMMO		0x8
+
 /obj/machinery/computer/combatcomputer
 	name = "weapons control computer"
 	desc = "the control centre for the ship's weapons systems."
@@ -83,7 +88,7 @@
 
 			weapons.Add(list(list(
 			"name" = S.name,
-			"status" = S.status,
+			"status" = S.getStatusString(),
 			"strengthhull" = S.hulldamage,
 			"strengthshield" = S.shielddamage,
 			"shieldpass" = S.passshield,
@@ -175,18 +180,16 @@
 		if(homeship?.incombat)
 			var/obj/machinery/shipweapons/S = locate(href_list["fire"]) in linkedweapons
 
-			if(S?.canfire)
+			if(!istype(S))
+				return
 
-				if(!istype(S))
-					return
+			if(S.status == CHARGED)
+				to_chat(usr, "<span class='warning'>You fire the [S.name].</span>")
+				S.Fire()
+				updateUsrDialog()
 
-				if(S.charged && !S.firing)
-					S.Fire()
-					to_chat(usr, "<span class='warning'>You fire the [S.name].</span>")
-					updateUsrDialog()
-
-				else
-					to_chat(usr, "<span class='warning'>The [S.name] cannot be fired right now.</span>")
+			else
+				to_chat(usr, "<span class='warning'>The [S.name] cannot be fired right now.</span>")
 
 		else
 			to_chat(usr, "<span class='warning'>You cannot fire right now.</span>")	//this shouldn't happen

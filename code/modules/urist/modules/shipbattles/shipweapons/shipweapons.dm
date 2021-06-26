@@ -10,9 +10,6 @@
 	var/shielddamage = 0
 	var/hulldamage = 0
 	var/shipid = null
-	var/canfire = 0
-	var/recharging = 0
-	var/charged = 0
 	var/rechargerate = 100
 	var/chargingicon = null
 	var/chargedicon = null
@@ -22,64 +19,59 @@
 	var/fire_anim = 0
 	var/fire_sound = null
 	var/obj/effect/overmap/ship/combat/homeship = null
-	var/firing = FALSE
 	var/obj/machinery/computer/combatcomputer/linkedcomputer = null
-	var/status = "Ready to Fire"
+	var/status = CHARGED
 	var/datum/shipcomponents/targeted_component
 
 /obj/machinery/shipweapons/Initialize()
 	.=..()
 
 	ConnectWeapons()
+	update_icon()
 
 /obj/machinery/shipweapons/Process()
-	if(!charged && !recharging)
+	if(!status & (CHARGED|RECHARGING))
 		Charging()
 
 	..()
 
 /obj/machinery/shipweapons/proc/Charging() //maybe do this with powercells
 	if(stat & (BROKEN|NOPOWER))
-		if(status != "Unable to Fire")
-			UpdateStatus()
 		return
-	else if (!firing)	//If we're firing, we shouldn't recharge until it's done.
-		recharging = 1
-		UpdateStatus()
-		update_use_power(2)
-//		for(var/obj/machinery/light/L in range(4, target))
-//			L.flicker(rand(1,3))
+	if(status & FIRING)	//If we're firing, we shouldn't recharge until it's done.
+		return
+	
+	status |= RECHARGING
+	update_use_power(2)
+//	for(var/obj/machinery/light/L in range(4, target))
+//		L.flicker(rand(1,3))
+	update_icon()
+	spawn(rechargerate)
+		status |= CHARGED
+		update_use_power(1)
+		status &= ~RECHARGING
 		update_icon()
-		spawn(rechargerate)
-			charged = 1
-			canfire = 1
-			update_use_power(1)
-			recharging = 0
-			update_icon()
-			UpdateStatus()
 
 /obj/machinery/shipweapons/power_change()
 	..() //Let's put the parent call here so the weapon can actually recharge once power changes.
 
-	firing = FALSE	//If power was lost mid-fire, let's reset the flag so status updates correctly
-	UpdateStatus()
+	status &= ~FIRING	//If power was lost mid-fire, let's reset the flag so status updates correctly
 
-	if(!charged && !recharging) //if we're not charged, we'll try charging when the power changes. that way, if the power is off, and we didn't charge, we'll try again when it comes on
+	if(!status & (CHARGED|RECHARGING)) //if we're not charged, we'll try charging when the power changes. that way, if the power is off, and we didn't charge, we'll try again when it comes on
 		Charging()
 
 /obj/machinery/shipweapons/attack_hand(mob/user as mob) //we can fire it by hand in a pinch
 	..()
 
-	if(charged && target) //even if we don't have power, as long as we have a charge, we can do this
+	if((status == CHARGED) && target) //even if we don't have power, as long as we have a charge, we can do this
 		if(homeship.incombat)
 			var/want = input("Fire the [src]?") in list ("Yes", "Cancel")
 			switch(want)
 				if("Yes")
-					if(charged) //just in case, we check again
-						if(!firing)
-							user << "<span class='warning'>You fire the [src.name].</span>"
-							Fire()
-					else
+					if(status == CHARGED) //just in case, we check again
+						user << "<span class='warning'>You fire the [src.name].</span>"
+						Fire()
+					else if(!status & CHARGED)
 						user << "<span class='warning'>The [src.name] needs to charge!</span>"
 
 
@@ -90,7 +82,7 @@
 		else
 			user << "<span class='warning'>There is nothing to shoot at...</span>"
 
-	else if(!charged)
+	else if(!status & CHARGED)
 		user << "<span class='warning'>The [src.name] needs to charge!</span>"
 
 	else if(!target)
@@ -99,35 +91,33 @@
 
 /obj/machinery/shipweapons/proc/Fire() //this proc is a mess //next task is refactor this proc
 	if(!target) //maybe make it fire and recharge if people are dumb?
-		return
+		return FALSE
 
 	if(shipid && !linkedcomputer)
 		ConnectWeapons()
-		return
+		return FALSE
 
-	if(!firing)		//Quickly gone over this proc. Removed nested for loops, moved status updates to better locations etc.
-		firing = TRUE
+	if(status == CHARGED && !stat & BROKEN)		//If any flags other than CHARGED is set, we shouldn't be able to fire.
+		status |= FIRING
 
-		UpdateStatus()
-			
 		playsound(src, fire_sound, 40, 1)
-		charged = 0	//Set it here, else there's a slim moment the status is "ready" due to spawn() behaviour
+		status &= ~CHARGED	//Set it here, else there's a slim moment the status is "ready" due to spawn() behaviour
 
 		if(fire_anim)
 			icon_state = "[initial(icon_state)]-firing"
 			spawn(fire_anim)
-				firing = FALSE
+				status &= ~FIRING
 				update_icon()
 				Charging() //time to recharge
 
 		else
-			firing = FALSE
+			status &= ~FIRING
 			update_icon()
 			Charging() //time to recharge
 		
 		if(istype(target, /obj/effect/overmap/ship/combat))
 			MapFire()	//PVP combat just lobs projectiles at the other ship, no need for further calculations.
-			return
+			return TRUE
 
 		var/mob/living/simple_animal/hostile/overmapship/OM = target
 
@@ -227,7 +217,9 @@
 				if(homeship.can_board)
 					OM.boarding = 1
 					OM.boarded()
-			
+		return TRUE
+	else
+		return FALSE
 
 /obj/machinery/shipweapons/proc/HitComponents(var/targetship)
 	var/mob/living/simple_animal/hostile/overmapship/OM = targetship
@@ -255,13 +247,13 @@
 
 /obj/machinery/shipweapons/update_icon()
 	..()
-	if(charged)
+	if(status & CHARGED)
 		icon_state = "[initial(icon_state)]-charged"
 
-	if(recharging)
+	if(status & RECHARGING)
 		icon_state = "[initial(icon_state)]-charging"
 
-	if(!charged && !recharging)
+	if(!status & (CHARGED|RECHARGING))
 		icon_state = "[initial(icon_state)]-empty"
 
 /obj/machinery/shipweapons/proc/MapFire()
@@ -289,31 +281,19 @@
 			if(C.shipid == src.shipid)
 				homeship = C
 
-/obj/machinery/shipweapons/proc/UpdateStatus()
-	if(recharging)
-		status = "Recharging"
+/obj/machinery/shipweapons/proc/getStatusString()
+	if(status & FIRING)
+		return "Firing"
+	if(stat & BROKEN)
+		return "Destroyed"
+	if(status & RECHARGING)
+		return "Recharging"
+	if(!status & (CHARGED|RECHARGING))
+		return "Unable to Fire"
+	if(status & NO_AMMO)	//Let the crew know when we're running dry so we can yell at cargo
+		return "Out of Ammo"
 
-	else if(firing)
-		status = "Firing"
-
-	else if(!canfire)
-		status = "Unable to Fire"
-
-	else if(!charged && !recharging)
-		status = "Unable to Fire"
-
-	else if(stat & BROKEN)
-		status = "Destroyed"
-
-	else if(istype(src, /obj/machinery/shipweapons/missile))	//Let the crew know when we're running dry so we can yell at cargo
-		var/obj/machinery/shipweapons/missile/W = src
-		if(W.loaded)
-			status = "Out of Ammo"
-		else
-			status = "Ready to Fire"
-	
-	else
-		status = "Ready to Fire"
+	return "Ready to Fire"
 
 /obj/machinery/shipweapons/attackby(obj/item/W as obj, mob/living/user as mob)
 	var/turf/T = get_turf(src)
@@ -341,3 +321,8 @@
 
 /obj/machinery/shipweapons/emp_act()
 	return
+
+#undef RECHARGING
+#undef CHARGED
+#undef FIRING
+#undef NO_AMMO
