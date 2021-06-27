@@ -14003,7 +14003,7 @@
 /obj/machinery/button/remote/blast_door{
 	id = "bridgeoutlock";
 	name = "Bridge Outer Lockdown";
-	pixel_x = 0;
+	pixel_x = -5;
 	pixel_y = 5;
 	req_access = list("ACCESS_BRIDGE")
 	},

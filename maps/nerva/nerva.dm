@@ -1,4 +1,4 @@
-#if !defined(USING_MAP_DATUM)
+.#if !defined(USING_MAP_DATUM)
 
 	#include "nerva_announcements.dm"
 	#include "nerva_areas.dm"

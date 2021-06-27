@@ -12730,6 +12730,9 @@
 	pixel_x = 0;
 	tag = ""
 	},
+/obj/item/weapon/gun/projectile/shotgun/pump/combat{
+	ammo_type = "/obj/item/ammo_casing/shotgun/beanbag"
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/command/safe_room)
 "vZ" = (
@@ -14783,6 +14786,25 @@
 /obj/machinery/door/airlock/hatch/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
+"zu" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1;
+	icon_state = "rwindow"
+	},
+/obj/structure/table/rack,
+/obj/item/weapon/storage/box/ammo/beanbags,
+/obj/item/weapon/storage/box/ammo/beanbags,
+/obj/item/weapon/gun/projectile/shotgun/pump/combat{
+	ammo_type = "/obj/item/ammo_casing/shotgun/beanbag"
+	},
+/obj/item/weapon/gun/projectile/shotgun/pump/combat{
+	ammo_type = "/obj/item/ammo_casing/shotgun/beanbag"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/space)
 "zv" = (
 /obj/structure/catwalk,
 /obj/structure/disposalpipe/segment{
@@ -15205,13 +15227,6 @@
 "Am" = (
 /obj/structure/closet,
 /obj/random/maintenance/clean,
-/turf/simulated/floor/plating,
-/area/maintenance/fourth_deck/fs)
-"An" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Firefighting equipment";
-	req_access = list("ACCESS_MAINT")
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
 "Ao" = (
@@ -19160,6 +19175,13 @@
 /obj/effect/shuttle_landmark/skipjack/deck4,
 /turf/space,
 /area/space)
+"Hu" = (
+/obj/effect/floor_decal/techfloor{
+	dir = 6;
+	icon_state = "techfloor_edges"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/command/safe_room)
 "Hw" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9;
@@ -19230,16 +19252,7 @@
 /turf/simulated/wall/titanium,
 /area/hadrian/storage)
 "HE" = (
-/obj/structure/closet/medical_wall/filled{
-	pixel_x = 0;
-	pixel_y = -32
-	},
-/obj/random/firstaid,
-/obj/random/firstaid,
-/obj/item/bodybag/cryobag,
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
-/obj/machinery/light,
-/obj/effect/floor_decal/techfloor,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -20312,9 +20325,13 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/command/safe_room)
 "Kh" = (
-/obj/structure/curtain/open/bed,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/table/steel,
+/obj/item/bodybag/cryobag,
 /obj/effect/floor_decal/techfloor{
-	dir = 1;
+	dir = 8;
 	icon_state = "techfloor_edges"
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -22391,6 +22408,9 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/rnd/xenobiology/xenoflora)
+"Uv" = (
+/turf/simulated/floor/tiled/techmaint,
+/area/command/safe_room)
 "Ux" = (
 /obj/machinery/door/blast/regular{
 	dir = 4;
@@ -22682,6 +22702,20 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
+"VV" = (
+/obj/effect/floor_decal/corner_techfloor_grid{
+	dir = 1;
+	icon_state = "corner_techfloor_grid"
+	},
+/turf/space,
+/area/space)
+"VW" = (
+/obj/effect/floor_decal/techfloor{
+	dir = 4;
+	icon_state = "techfloor_edges"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/command/safe_room)
 "VX" = (
 /obj/structure/table/rack{
 	dir = 1
@@ -22735,6 +22769,10 @@
 /obj/structure/bed/nice,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/afs)
+"Wd" = (
+/obj/effect/floor_decal/techfloor,
+/turf/simulated/floor/tiled/techmaint,
+/area/command/safe_room)
 "Wj" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -22817,21 +22855,16 @@
 	dir = 4;
 	icon_state = "intact"
 	},
-/obj/effect/floor_decal/techfloor,
-/obj/effect/floor_decal/corner_techfloor_grid{
-	dir = 1;
-	icon_state = "corner_techfloor_grid"
-	},
-/obj/effect/floor_decal/techfloor/corner{
-	dir = 1;
-	icon_state = "techfloor_corners"
-	},
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
 	pixel_x = 0;
 	tag = ""
+	},
+/obj/effect/floor_decal/techfloor{
+	dir = 8;
+	icon_state = "techfloor_edges"
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/command/safe_room)
@@ -22954,7 +22987,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/effect/floor_decal/techfloor,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -22962,6 +22994,7 @@
 	pixel_x = 0;
 	tag = ""
 	},
+/obj/effect/floor_decal/corner_techfloor_grid,
 /turf/simulated/floor/tiled/techmaint,
 /area/command/safe_room)
 "Xv" = (
@@ -22979,14 +23012,6 @@
 /obj/effect/floor_decal/techfloor{
 	dir = 1;
 	icon_state = "techfloor_edges"
-	},
-/obj/machinery/button/remote/airlock{
-	id = "bridgesafedoor";
-	name = "safe room door-control";
-	pixel_x = 0;
-	pixel_y = 32;
-	req_access = newlist();
-	specialfunctions = 4
 	},
 /obj/structure/bed/chair/padded/blue,
 /turf/simulated/floor/tiled/techmaint,
@@ -23046,6 +23071,9 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
+"XK" = (
+/turf/space,
+/area/maintenance/fourth_deck/fs)
 "XN" = (
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/plating,
@@ -23432,7 +23460,17 @@
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
 "Zy" = (
-/obj/structure/bed/nice,
+/obj/structure/closet/medical_wall/filled{
+	pixel_x = 0;
+	pixel_y = -32
+	},
+/obj/structure/table/steel,
+/obj/random/firstaid,
+/obj/random/firstaid,
+/obj/effect/floor_decal/techfloor{
+	dir = 10;
+	icon_state = "techfloor_edges"
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/command/safe_room)
 "ZA" = (
@@ -51748,7 +51786,7 @@ yC
 tM
 TR
 Ag
-rI
+BH
 sj
 BF
 Ch
@@ -52554,7 +52592,7 @@ oI
 zv
 sj
 sj
-An
+sj
 sj
 td
 sj
@@ -52755,9 +52793,9 @@ rO
 oI
 zt
 sj
-BH
+AX
+AY
 rI
-sj
 rI
 tO
 uQ
@@ -52957,9 +52995,9 @@ rO
 oI
 zv
 sj
-AX
-AY
-td
+AZ
+BI
+sj
 ZM
 tP
 Zw
@@ -53158,10 +53196,10 @@ wN
 rO
 oI
 zv
-sj
-AZ
-BI
-sj
+oI
+oI
+oI
+oI
 tR
 tQ
 uT
@@ -53359,9 +53397,9 @@ vX
 rO
 rO
 oI
-zv
-oI
-oI
+zw
+uX
+Ao
 oI
 oI
 oI
@@ -53561,11 +53599,11 @@ Wv
 Kh
 Zy
 oI
+oI
+oI
 zv
 oI
 BK
-oI
-oI
 oI
 oI
 Sh
@@ -53760,12 +53798,12 @@ oJ
 Kf
 dL
 HE
-rO
-rO
+Uv
+Wd
+oI
+oI
 oI
 zv
-oI
-oI
 oI
 oI
 oI
@@ -53962,13 +54000,13 @@ KC
 Oa
 TS
 Xt
-Kh
-Zy
+VW
+Hu
+oI
+oI
 oI
 zw
 Ao
-oI
-oI
 oI
 oI
 aa
@@ -54168,9 +54206,9 @@ ZD
 rO
 oI
 zx
+XK
+XK
 Ap
-oI
-oI
 oI
 aa
 aa
@@ -55979,11 +56017,11 @@ aa
 aa
 aa
 aa
+VV
 aa
 aa
 aa
-aa
-aa
+zu
 aa
 aa
 aa
