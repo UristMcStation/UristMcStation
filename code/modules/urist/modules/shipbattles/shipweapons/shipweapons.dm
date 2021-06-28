@@ -11,6 +11,7 @@
 	var/hulldamage = 0
 	var/shipid = null
 	var/rechargerate = 100
+	var/recharge_init_time = 0
 	var/chargingicon = null
 	var/chargedicon = null
 	var/target = null
@@ -42,6 +43,7 @@
 		return
 	
 	status |= RECHARGING
+	recharge_init_time = world.time
 	update_use_power(2)
 //	for(var/obj/machinery/light/L in range(4, target))
 //		L.flicker(rand(1,3))
@@ -50,6 +52,7 @@
 		status |= CHARGED
 		update_use_power(1)
 		status &= ~RECHARGING
+		recharge_init_time = 0
 		update_icon()
 
 /obj/machinery/shipweapons/power_change()
@@ -97,7 +100,7 @@
 		ConnectWeapons()
 		return FALSE
 
-	if(status == CHARGED && !stat & BROKEN)		//If any flags other than CHARGED is set, we shouldn't be able to fire.
+	if(status == CHARGED && !(stat & BROKEN))		//If any flags other than CHARGED is set, we shouldn't be able to fire.
 		status |= FIRING
 
 		playsound(src, fire_sound, 40, 1)

@@ -4,9 +4,9 @@
 <div class='block'>
 	<table style="width:100%">
 	<tr>
-		<th style="width:10%">Action</th>
+		<th style="width:5%">Action</th>
 		<th style="width:20%">Weapon</th>
-		<th style="width:20%">Status</th>
+		<th style="width:25%">Status</th>
 		<th style="width:10%">Strength (Anti-Armour)</th>
 		<th style="width:10%">Strength (Anti-Shield)</th>
 		<th style="width:10%">Ignores Shields</th>
@@ -15,14 +15,16 @@
 	{{for data.existing_weapons}}
 		<tr>
 			{{if value.status == "Ready to Fire"}}
-				<td style="padding-left: 3.2%"><b>{{:helper.link('Fire', null, {'fire' : value.ref}, data.status != 0 && data.status != 3 ? null : 'disabled', null)}}</b></td>
+				<td style="padding-left: 0.6%"><b>{{:helper.link('Fire', null, {'fire' : value.ref}, data.status != 0 && data.status != 3 ? null : 'disabled', null)}}</b></td>
 			{{else}}
-				<td style="padding-left: 3.2%"><b>{{:helper.link('Fire', null, {'fire' : value.ref}, 'disabled', null)}}</b></td>
+				<td style="padding-left: 0.6%"><b>{{:helper.link('Fire', null, {'fire' : value.ref}, 'disabled', null)}}</b></td>
 			{{/if}}
 			<td><center>{{:value.name}}</center></td>
 			{{if value.status == "Ready to Fire"}}
 				<td><center><span class='good'>{{:value.status}}</span></center></td>
-			{{else value.status == "Recharging" || value.status == "Firing"}}
+			{{else value.status == "Recharging"}}
+				<td>{{:helper.displayBar(value.recharge_current, 0, value.recharge_end, null, "<span class='average'><center>Recharging</center></span>")}}</td>
+			{{else value.status == "Firing"}}
 				<td><center><span class='average'>{{:value.status}}</span></center></td>
 			{{else}}
 				<td><center><span class='bad'>{{:value.status}}</span></center></td>
@@ -53,7 +55,7 @@
 				Shield Strength:
 			</div>
 			<div class="itemContent">
-				{{:helper.displayBar(data.targetshield, 0, data.targetmaxshield, null, data.targetshield + " / " + data.targetmaxshield)}}
+				{{:helper.displayBar(data.targetshield, 0, data.targetmaxshield, null, "<center>" + data.targetshield + " / " + data.targetmaxshield + "</center>")}}
 			</div>
 		</div>
 		<div class = "item">
@@ -61,7 +63,7 @@
 				Hull Integrity:
 			</div>
 			<div class="itemContent">
-				{{:helper.displayBar(data.targethealthnum, 0, data.targetmaxhealth, (data.targethealthnum >= (data.targetmaxhealth * 0.5)) ? 'good' : (data.targethealthnum >= (data.targetmaxhealth * 0.25)) ? 'average' : 'bad', data.targethealth + "%")}}
+				{{:helper.displayBar(data.targethealthnum, 0, data.targetmaxhealth, (data.targethealthnum >= (data.targetmaxhealth * 0.5)) ? 'good' : (data.targethealthnum >= (data.targetmaxhealth * 0.25)) ? 'average' : 'bad', "<center>" + data.targethealth + "%" + "</center>")}}
 			</div>
 		</div>
 		<div class='block'>
@@ -143,7 +145,7 @@
 				{{/if}}
 			</div>
 			{{if data.self_can_escape != 1}}
-				{{:helper.link(data.self_flee_timer ? "Cancel Restableisation" : "Start Restableisation", null, data.self_flee_timer ? {'cancelflee' : null} : {'startflee' : null})}}
+				{{:helper.link(data.self_flee_timer ? "Cancel Restabilization" : "Start Restabilization", null, data.self_flee_timer ? {'cancelflee' : null} : {'startflee' : null})}}
 			{{else}}
 				{{:helper.link('Engines Online', null, {'flee' : null}, 'disabled')}}
 			{{/if}}

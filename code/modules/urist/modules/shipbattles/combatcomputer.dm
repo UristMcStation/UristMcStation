@@ -93,6 +93,8 @@
 			"strengthshield" = S.shielddamage,
 			"shieldpass" = S.passshield,
 			"location" = S.loc.loc.name,
+			"recharge_end" = S.rechargerate,
+			"recharge_current" = world.time - S.recharge_init_time,
 			"ref" = "\ref[S]"
 			)))
 			//maybe change passshield data to ammo?
