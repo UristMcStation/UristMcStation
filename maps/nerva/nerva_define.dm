@@ -66,6 +66,9 @@
 	)
 
 /datum/map/nerva/setup_map()
+	var/month = text2num(time2text(world.timeofday, "MM"))
+	if(month == 6) //stolen from rainbow background code
+		lobby_icon = 'maps/nerva/nerva_rainbow_lobby.dmi'
 	..()
 	system_name = generate_system_name()
 	minor_announcement = new(new_sound = sound('sound/AI/torch/commandreport.ogg', volume = 45))
