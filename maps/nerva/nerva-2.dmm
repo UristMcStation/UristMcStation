@@ -14517,7 +14517,7 @@
 /area/civilian/kitchen)
 "ayy" = (
 /obj/machinery/camera/network/third_deck{
-	c_tag = "Bar";
+	c_tag = "Bar Counter";
 	dir = 4
 	},
 /obj/structure/hygiene/sink{
@@ -29942,7 +29942,7 @@
 /area/security/portgun)
 "qiD" = (
 /obj/machinery/camera/network/third_deck{
-	c_tag = "Chapel Mourge";
+	c_tag = "Bar";
 	dir = 8;
 	icon_state = "camera"
 	},
