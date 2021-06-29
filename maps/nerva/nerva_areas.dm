@@ -195,6 +195,15 @@
 	name = "\improper Exercise Room"
 	sound_env = SMALL_ENCLOSED
 
+/area/civilian/chaplainarea
+	name = "\improper Chapel Office"
+	icon_state = "blueold"
+	req_access = list(access_chaplainarea)
+
+/area/civillian/chaplainmourge
+	name = "\improper Chapel Mourge"
+	icon_state = "blue_new"
+
 //////////////////////////////////////
 //			SECURITY				//
 //////////////////////////////////////

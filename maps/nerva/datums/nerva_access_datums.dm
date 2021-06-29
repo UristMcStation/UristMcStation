@@ -39,3 +39,9 @@
 	id = access_seniornt
 	desc = "Senior Researcher"
 	region = ACCESS_REGION_COMMAND
+
+/var/const/access_chaplainarea = "ACCESS_CHAPELAREA" //77
+/datum/access/chaplainarea
+	id = access_chaplainarea
+	desc = "Chaplain"
+	region = ACCESS_REGION_GENERAL

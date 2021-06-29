@@ -344,8 +344,8 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the second officer and the chief medical officer"
-	access = list(access_medical, access_morgue, access_chapel_office, access_crematorium, access_maint_tunnels, access_psychiatrist)
-	minimal_access = list(access_medical, access_morgue, access_chapel_office, access_crematorium, access_maint_tunnels, access_psychiatrist)
+	access = list(access_medical, access_morgue, access_chapel_office, access_crematorium, access_maint_tunnels, access_psychiatrist, access_chaplainarea)
+	minimal_access = list(access_medical, access_morgue, access_chapel_office, access_crematorium, access_maint_tunnels, access_psychiatrist, access_chaplainarea)
 	alt_titles = list(
 	"Counselor" = /decl/hierarchy/outfit/job/medical/psychiatrist/nerva,
 	"Morale Officer" = /decl/hierarchy/outfit/job/chaplain,

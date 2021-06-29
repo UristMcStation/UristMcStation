@@ -1369,6 +1369,7 @@
 /area/medical/morgue)
 "adi" = (
 /obj/machinery/button/crematorium{
+	id = 2;
 	pixel_x = 21;
 	pixel_y = 0
 	},
@@ -9769,6 +9770,15 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/fadeblue/full,
+/obj/machinery/button/remote/airlock{
+	desiredstate = 1;
+	id = "bridgesafedoor";
+	name = "safe room door-control";
+	pixel_x = -6;
+	pixel_y = 22;
+	req_access = list("ACCESS_BRIDGE");
+	specialfunctions = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
 "aro" = (
@@ -28599,10 +28609,12 @@
 /area/security/portgun)
 "dvF" = (
 /obj/machinery/door/window/brigdoor/southright{
-	id = "Cell 3"
+	id = "Cell 3";
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/machinery/door/window/brigdoor/northleft{
-	id = "Cell 3"
+	id = "Cell 3";
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -29072,10 +29084,12 @@
 /area/rnd/office)
 "grS" = (
 /obj/machinery/door/window/brigdoor/southright{
-	id = "Cell 2"
+	id = "Cell 2";
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/machinery/door/window/brigdoor/northleft{
-	id = "Cell 2"
+	id = "Cell 2";
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -29928,7 +29942,7 @@
 /area/security/portgun)
 "qiD" = (
 /obj/machinery/camera/network/third_deck{
-	c_tag = "Bar Main";
+	c_tag = "Chapel Mourge";
 	dir = 8;
 	icon_state = "camera"
 	},
@@ -30093,6 +30107,28 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/brig)
+"sfT" = (
+/obj/structure/table/woodentable/walnut,
+/obj/item/weapon/folder/blue,
+/obj/item/weapon/stamp/captain,
+/obj/machinery/button/remote/blast_door{
+	id = "capofficeview";
+	name = "Office Blast Door Control";
+	pixel_x = 6;
+	pixel_y = 22;
+	req_access = list("ACCESS_CAPTAIN")
+	},
+/obj/machinery/button/remote/airlock{
+	desiredstate = 1;
+	id = "bridgesafedoor";
+	name = "safe room door-control";
+	pixel_x = -6;
+	pixel_y = 22;
+	req_access = list("ACCESS_BRIDGE");
+	specialfunctions = 4
+	},
+/turf/simulated/floor/wood/walnut,
+/area/space)
 "smN" = (
 /obj/effect/floor_decal/corner/black/bordercorner{
 	dir = 4;
@@ -30138,10 +30174,12 @@
 /area/maintenance/third_deck/cents)
 "sCk" = (
 /obj/machinery/door/window/brigdoor/southright{
-	id = "Cell 1"
+	id = "Cell 1";
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/machinery/door/window/brigdoor/northleft{
-	id = "Cell 1"
+	id = "Cell 1";
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -63304,7 +63342,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+sfT
 aaa
 aaa
 aaa
