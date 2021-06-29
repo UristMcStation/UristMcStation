@@ -72,6 +72,8 @@ REAGENT SCANNER
 	to_chat(user, "<hr>")
 	to_chat(user, medical_scan_results(scan_subject, verbose))
 	to_chat(user, "<hr>")
+	to_chat(user, .)
+	to_chat(user, "<hr>")
 
 proc/medical_scan_results(var/mob/living/carbon/human/H, var/verbose)
 	. = list()

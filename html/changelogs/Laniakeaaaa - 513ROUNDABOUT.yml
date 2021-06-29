@@ -1,0 +1,5 @@
+author: Laniakeaaa
+delete-after: True
+changes: 
+  - rscadd: "Added support for 513.1539 for Urist."
+  - bugfix: "Fixed a bug involving text centering issues with Health Scanners using Byond 513 Build."

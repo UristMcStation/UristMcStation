@@ -1,3 +1,17 @@
+#if DM_VERSION < 513
+
+#define any2ref(x) "\ref[x]"
+
+#define islist(A) istype(A, /list)
+
+#define ismovable(A) istype(A, /atom/movable)
+
+#else
+
+#define any2ref(x) ref(x)
+
+#endif
+
 #define PUBLIC_GAME_MODE SSticker.master_mode
 
 #define Clamp(value, low, high) 	(value <= low ? low : (value >= high ? high : value))
