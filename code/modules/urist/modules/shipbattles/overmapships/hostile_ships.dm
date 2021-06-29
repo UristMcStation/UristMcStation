@@ -3,6 +3,7 @@
 	color = "#660000"
 	hiddenfaction = /datum/factions/pirate
 	aggressive = 1
+	boarders_amount = 3
 
 /mob/living/simple_animal/hostile/overmapship/pirate/small
 //	shipdatum = /datum/ships/piratesmall

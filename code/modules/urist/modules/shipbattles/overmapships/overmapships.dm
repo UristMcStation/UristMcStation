@@ -31,6 +31,7 @@
 	turns_per_move = 10 //make this influenced by the engine on a ship
 	autonomous = TRUE
 	var/potential_weapons = list()
+	var/boarders_amount = 0 //how many human boarders can we have?
 
 /mob/living/simple_animal/hostile/overmapship/Initialize()
 	.=..()
@@ -153,23 +154,31 @@
 			qdel(src)
 
 /mob/living/simple_animal/hostile/overmapship/proc/boarded()
+	if(!boarding)
+		boarding = TRUE
 
-	GLOB.global_announcer.autosay("<b>The attacking [src.ship_category] is now able to be boarded via teleporter. Please await further instructions from Command.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Common") //add name+designation if I get lists for that stuff
+		if(src == GLOB.using_map.overmap_ship.target) //currently only the main ship can board, pending a rewrite of boarding code
+			GLOB.global_announcer.autosay("<b>The attacking [src.ship_category] is now able to be boarded via teleporter. Please await further instructions from Command.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Common") //add name+designation if I get lists for that stuff
 
-	for(var/obj/effect/urist/triggers/boarding_landmark/L in GLOB.trigger_landmarks)
-		new /obj/item/device/radio/beacon(L.loc)
+			for(var/obj/effect/urist/triggers/boarding_landmark/L in GLOB.trigger_landmarks)
+				new /obj/item/device/radio/beacon(L.loc)
 
-	for(var/obj/effect/urist/triggers/shipweapons/S in GLOB.trigger_landmarks)
-		var/datum/shipcomponents/weapons/W = pick(weapons)
-		new W.weapon_type(S.loc)
-		qdel(S)
+			for(var/obj/effect/urist/triggers/shipweapons/S in GLOB.trigger_landmarks)
+				var/datum/shipcomponents/weapons/W = pick(weapons)
+				new W.weapon_type(S.loc)
+				qdel(S)
 
-	for(var/mob/observer/ghost/G in GLOB.player_list)
-		if(G.client)
-			G.shipdefender_spawn(src.hiddenfaction)
+			for(var/obj/effect/urist/triggers/ai_defender_landmark/A in GLOB.trigger_landmarks)
+				A.spawn_mobs()
 
-	for(var/obj/effect/urist/triggers/ai_defender_landmark/A in GLOB.trigger_landmarks)
-		A.spawn_mobs()
+			communicate(/decl/communication_channel/dsay, GLOB.global_announcer, "Ghosts can now join as a hostile boarder using the verb under the IC tab.", /decl/dsay_communication/direct)
+
+			spawn(1 MINUTE)
+				boarders_amount = 0 //after a minute we null out the amount of boarders so noone joins mid boarding action.
+
+//	for(var/mob/observer/ghost/G in GLOB.player_list)
+//		if(G.client)
+//			G.shipdefender_spawn(src.hiddenfaction)
 
 /mob/living/simple_animal/hostile/overmapship/proc/add_weapons()
 	var/datum/shipcomponents/weapons/W = pick(potential_weapons)

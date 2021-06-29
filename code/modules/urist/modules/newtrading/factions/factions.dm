@@ -5,6 +5,7 @@
 	var/reputation = 0 //how much do they like/hate us
 	var/hostile = FALSE //are they hostile?
 	var/allow_spawn = TRUE //can they spawn? for initializaing on a per-map basis, if we don't want UHA in Glloydstation or whatever, idk.
+	var/faction_species = /mob/living/carbon/human //mob type of the dominant species in the faction, currently only used for boarding
 	//transport ships?
 	//guard ships?
 
@@ -34,6 +35,7 @@
 	name = "alien"
 	reputation = -100
 	hostile = TRUE
+	faction_species = /mob/living/carbon/human/lactera
 
 /datum/factions/rebel
 	factionid = "rebel"
