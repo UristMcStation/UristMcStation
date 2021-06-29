@@ -201,7 +201,7 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 
 /obj/effect/landmark/scom/bomb/proc/incomprehensibleprocname()
 	spawn(bombdelay)
-		explosion(src.loc, dmg_dev, dmg_hvy, dmg_lgt, 1)
+		explosion(src.loc, dmg_dev, dmg_hvy, dmg_lgt, 0, 0)
 
 /client/proc/delaymissions()
 

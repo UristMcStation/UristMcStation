@@ -31,7 +31,7 @@
 /obj/effect/urist/spawn_bomb/Initialize()
 	.=..()
 	if(empulse)
-		empulse(src.loc, dmg_hvy, dmg_lgt, 0)
+		empulse(src.loc, dmg_hvy, dmg_lgt, 0, 0)
 
 	else
 		explosion(src.loc, dmg_dev, dmg_hvy, dmg_lgt, 1)
