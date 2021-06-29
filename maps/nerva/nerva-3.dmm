@@ -2245,20 +2245,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fp)
-"fo" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal{
-	dir = 4;
-	icon_state = "corner_white_diagonal";
-	tag = "icon-corner_white_diagonal (EAST)"
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_y = 0
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
 "fp" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
@@ -5089,29 +5075,6 @@
 /obj/machinery/vending/cigarette,
 /turf/simulated/floor/wood/walnut,
 /area/command/captain)
-"ky" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal{
-	dir = 4;
-	icon_state = "corner_white_diagonal";
-	tag = "icon-corner_white_diagonal (EAST)"
-	},
-/obj/machinery/button/windowtint{
-	dir = 4;
-	icon_state = "light0";
-	pixel_x = 24;
-	range = 5;
-	tag = "icon-light0 (EAST)"
-	},
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -24
-	},
-/obj/structure/flora/pottedplant{
-	icon_state = "plant-18";
-	tag = "icon-plant-18"
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
 "kz" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/weapon/pinpointer,
@@ -13640,48 +13603,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/fore/second_deck)
-"Bl" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal{
-	dir = 4;
-	icon_state = "corner_white_diagonal";
-	tag = "icon-corner_white_diagonal (EAST)"
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
-	},
-/mob/living/simple_animal/cat/fluff/Runtime,
-/turf/simulated/floor/tiled/white,
-/area/space)
 "Bm" = (
 /obj/item/weapon/material/shard,
 /turf/simulated/floor/plating,
 /area/civilian/observatory)
-"Bp" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal{
-	dir = 4;
-	icon_state = "corner_white_diagonal";
-	tag = "icon-corner_white_diagonal (EAST)"
-	},
-/obj/structure/closet/secure_closet/CMO,
-/obj/item/device/megaphone,
-/obj/item/clothing/glasses/hud/health,
-/obj/item/clothing/suit/storage/hooded/wintercoat/medical,
-/obj/item/device/radio/medical,
-/obj/item/clothing/suit/storage/toggle/labcoat/cmo/alt,
-/obj/item/clothing/accessory/storage/white_vest,
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
-/obj/item/clothing/accessory/armband/bluegoldcom,
-/obj/item/clothing/accessory/armband/medblue,
-/obj/item/weapon/folder/white,
-/turf/simulated/floor/tiled/white,
-/area/space)
 "Bt" = (
 /turf/simulated/wall/false{
 	density = 1;
@@ -13689,10 +13614,6 @@
 	opacity = 1
 	},
 /area/logistics/auxtool)
-"Bz" = (
-/obj/effect/paint_stripe/blue,
-/turf/simulated/wall/r_wall/prepainted,
-/area/space)
 "BC" = (
 /obj/structure/table/rack{
 	dir = 8;
@@ -13743,24 +13664,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/prison)
-"BL" = (
-/obj/structure/window/reinforced{
-	dir = 1;
-	health = 1e+006
-	},
-/obj/structure/table/standard,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/folder/white{
-	pixel_y = 0
-	},
-/obj/item/weapon/pen,
-/obj/machinery/camera/network/medbay{
-	c_tag = "Morgue";
-	dir = 4
-	},
-/obj/item/weapon/hand_labeler,
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "BM" = (
 /obj/effect/floor_decal/chapel{
 	tag = "icon-chapel (EAST)";
@@ -13875,20 +13778,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
-"Cp" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal{
-	dir = 4;
-	icon_state = "corner_white_diagonal";
-	tag = "icon-corner_white_diagonal (EAST)"
-	},
-/obj/item/device/radio/intercom{
-	dir = 4;
-	icon_state = "intercom";
-	pixel_x = -28;
-	tag = "icon-intercom (EAST)"
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
 "Cu" = (
 /obj/machinery/light_switch{
 	dir = 4;
@@ -14068,17 +13957,6 @@
 /obj/random/toolbox,
 /turf/simulated/floor/wood/walnut,
 /area/logistics/auxtool)
-"DI" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal{
-	dir = 4;
-	icon_state = "corner_white_diagonal";
-	tag = "icon-corner_white_diagonal (EAST)"
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
 "DN" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -14279,18 +14157,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
-"EI" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal{
-	dir = 4;
-	icon_state = "corner_white_diagonal";
-	tag = "icon-corner_white_diagonal (EAST)"
-	},
-/obj/machinery/firealarm{
-	dir = 8;
-	pixel_x = -24
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
 "EJ" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -14333,20 +14199,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/security/prison)
-"ES" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal{
-	dir = 4;
-	icon_state = "corner_white_diagonal";
-	tag = "icon-corner_white_diagonal (EAST)"
-	},
-/obj/machinery/requests_console{
-	announcementConsole = 1;
-	department = "Chief Medical Officer";
-	name = "Chief Medical Officer RC";
-	pixel_y = -30
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
 "EW" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -14437,23 +14289,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
-"Fr" = (
-/obj/machinery/door/airlock/medical{
-	name = "Chief Medical Officer";
-	req_access = list("ACCESS_CHIEF_MEDICAL_OFFICER")
-	},
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	tag = ""
-	},
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled,
-/area/space)
 "Fu" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/weapon/flame/candle,
@@ -14508,13 +14343,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/aft/second_deck)
-"FK" = (
-/obj/structure/morgue,
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "FN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -14539,15 +14367,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
-"FV" = (
-/obj/structure/table/glass,
-/obj/machinery/camera/network/command{
-	c_tag = "Chief Medical Officer's Office";
-	dir = 8
-	},
-/obj/item/toy/desk/newtoncradle,
-/turf/simulated/floor/tiled/white,
-/area/space)
 "FX" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -15241,12 +15060,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/chapel)
-"JM" = (
-/obj/structure/table/glass,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
-/turf/simulated/floor/tiled/white,
-/area/space)
 "JQ" = (
 /obj/structure/closet/firecloset,
 /turf/simulated/floor/plating,
@@ -15518,9 +15331,7 @@
 /turf/simulated/floor/carpet,
 /area/chapel)
 "Lq" = (
-/obj/structure/closet,
-/obj/random/maintenance,
-/turf/simulated/floor/plating,
+/turf/space,
 /area/maintenance/third_deck/fp)
 "Ls" = (
 /obj/item/device/flashlight/lamp/lava/pink{
@@ -15903,17 +15714,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/second_deck)
-"Nf" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal{
-	dir = 4;
-	icon_state = "corner_white_diagonal";
-	tag = "icon-corner_white_diagonal (EAST)"
-	},
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
 "Ng" = (
 /obj/structure/table/rack{
 	desc = "A simple wooden altar covered in cloth.";
@@ -16249,17 +16049,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
-"OK" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal{
-	dir = 4;
-	icon_state = "corner_white_diagonal";
-	tag = "icon-corner_white_diagonal (EAST)"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
 "Pb" = (
 /obj/structure/closet/coffin,
 /obj/structure/window/reinforced,
@@ -16312,25 +16101,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/aft/second_deck)
-"Pp" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal{
-	dir = 4;
-	icon_state = "corner_white_diagonal";
-	tag = "icon-corner_white_diagonal (EAST)"
-	},
-/obj/machinery/disposal,
-/obj/machinery/light_switch{
-	dir = 4;
-	on = 1;
-	pixel_x = 25
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/disposalpipe/trunk{
-	dir = 1;
-	icon_state = "pipe-t"
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
 "Ps" = (
 /obj/effect/floor_decal/corner/lightgrey{
 	tag = "icon-corner_white (WEST)";
@@ -16441,13 +16211,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fp)
-"PX" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Bridge Maintenance";
-	req_access = list("ACCESS_BRIDGE")
-	},
-/turf/simulated/floor/plating,
-/area/space)
 "Qa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -16779,28 +16542,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/aft/second_deck)
-"RP" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal{
-	dir = 4;
-	icon_state = "corner_white_diagonal";
-	tag = "icon-corner_white_diagonal (EAST)"
-	},
-/obj/item/weapon/rig/medical/equipped,
-/obj/structure/table/rack,
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
-/obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/obj/item/weapon/storage/belt/medical,
-/obj/item/weapon/storage/fancy/vials,
-/obj/item/weapon/storage/fancy/vials,
-/turf/simulated/floor/tiled/white,
-/area/space)
 "RR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -16831,10 +16572,6 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
-"Sb" = (
-/obj/item/modular_computer/console/preset/medical,
-/turf/simulated/floor/tiled/white,
-/area/space)
 "Sg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	tag = "icon-intact-scrubbers (EAST)";
@@ -17819,23 +17556,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/logistics/auxtool)
-"Yv" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal{
-	dir = 4;
-	icon_state = "corner_white_diagonal";
-	tag = "icon-corner_white_diagonal (EAST)"
-	},
-/obj/machinery/keycard_auth{
-	pixel_y = -26
-	},
-/obj/effect/landmark/start{
-	name = "Chief Medical Officer"
-	},
-/obj/structure/bed/chair/office/dark{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
 "YC" = (
 /obj/structure/table/rack{
 	dir = 8;
@@ -17851,43 +17571,6 @@
 "YF" = (
 /obj/random/toolbox,
 /turf/simulated/floor/airless,
-/area/space)
-"YG" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal{
-	dir = 4;
-	icon_state = "corner_white_diagonal";
-	tag = "icon-corner_white_diagonal (EAST)"
-	},
-/obj/structure/bed/chair,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9;
-	icon_state = "intact-scrubbers";
-	tag = "icon-intact-scrubbers (NORTHWEST)"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
-"YM" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal{
-	dir = 4;
-	icon_state = "corner_white_diagonal";
-	tag = "icon-corner_white_diagonal (EAST)"
-	},
-/obj/machinery/hologram/holopad,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/tiled/white,
 /area/space)
 "YN" = (
 /obj/item/weapon/caution/cone,
@@ -18053,11 +17736,6 @@
 "ZQ" = (
 /turf/simulated/floor/reinforced,
 /area/security/prison)
-"ZT" = (
-/obj/effect/wallframe_spawn/reinforced/polarized/full,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/space)
 "ZW" = (
 /obj/random/tool,
 /turf/simulated/floor/plating,
@@ -38803,8 +38481,8 @@ ah
 aa
 aa
 aa
-FK
-BL
+aa
+aa
 aa
 aa
 aa
@@ -39807,12 +39485,12 @@ Sl
 Sl
 ah
 ah
-Bz
-ck
-ck
-ck
-ck
-ck
+ah
+ah
+ah
+ah
+aa
+aa
 aa
 aa
 aa
@@ -40009,12 +39687,12 @@ Sl
 ah
 ah
 ah
-ZT
-RP
-EI
-Cp
-Nf
-PX
+ah
+ah
+ah
+ah
+aa
+aa
 aa
 aa
 aa
@@ -40211,12 +39889,12 @@ Sl
 ah
 ah
 ah
-ZT
-fo
-Bl
-Sb
-ES
-ck
+ah
+ah
+ah
+ah
+aa
+aa
 aa
 aa
 aa
@@ -40413,12 +40091,12 @@ Sl
 ah
 ah
 ah
-Fr
-YM
-YG
-JM
-Yv
-ck
+ah
+ah
+ah
+ah
+aa
+aa
 aa
 aa
 aa
@@ -40615,12 +40293,12 @@ ah
 ah
 ah
 ah
-ZT
-OK
-DI
-FV
-ky
-ck
+ah
+ah
+ah
+ah
+aa
+aa
 aa
 aa
 aa
@@ -40817,12 +40495,12 @@ vv
 vv
 ah
 ah
-ZT
-Bp
-Pp
-ck
-ck
-ck
+ah
+ah
+ah
+ah
+aa
+aa
 aa
 aa
 aa
@@ -41019,12 +40697,12 @@ Id
 vv
 ah
 ah
-Bz
-ck
-ck
-ck
-cG
-cG
+ah
+ah
+ah
+ah
+aa
+aa
 aa
 aa
 aa

@@ -30107,28 +30107,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/brig)
-"sfT" = (
-/obj/structure/table/woodentable/walnut,
-/obj/item/weapon/folder/blue,
-/obj/item/weapon/stamp/captain,
-/obj/machinery/button/remote/blast_door{
-	id = "capofficeview";
-	name = "Office Blast Door Control";
-	pixel_x = 6;
-	pixel_y = 22;
-	req_access = list("ACCESS_CAPTAIN")
-	},
-/obj/machinery/button/remote/airlock{
-	desiredstate = 1;
-	id = "bridgesafedoor";
-	name = "safe room door-control";
-	pixel_x = -6;
-	pixel_y = 22;
-	req_access = list("ACCESS_BRIDGE");
-	specialfunctions = 4
-	},
-/turf/simulated/floor/wood/walnut,
-/area/space)
 "smN" = (
 /obj/effect/floor_decal/corner/black/bordercorner{
 	dir = 4;
@@ -63342,7 +63320,7 @@ aaa
 aaa
 aaa
 aaa
-sfT
+aaa
 aaa
 aaa
 aaa
