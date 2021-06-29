@@ -13,6 +13,8 @@
 	name = "generic ship"
 	desc = "Space faring vessel."
 	icon_state = "ship"
+	var/classification = "Ship"			//Let's allow for more detail on comms/consoles
+	var/ship_name = "generic ship"		//So we don't have the descriptor in the ship name
 	var/moving_state = "ship_moving"
 
 	var/vessel_mass = 10000             //tonnes, arbitrary number, affects acceleration provided by engines

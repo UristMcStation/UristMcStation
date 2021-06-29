@@ -4485,7 +4485,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fp)
 "ih" = (
-/obj/effect/urist/projectile_landmark/ship,
+/obj/effect/urist/projectile_landmark/ship{
+	shipid = "nerva"
+	},
 /turf/space,
 /area/space)
 "ii" = (

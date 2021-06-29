@@ -2,7 +2,7 @@
 #include "../mining/mining_areas.dm"
 
 /obj/effect/overmap/ship/casino
-	name = "passenger liner"
+	classification = "passenger liner"
 	desc = "Sensors detect an undamaged vessel without any signs of activity."
 	color = "#bd6100"
 	vessel_mass = 5000
@@ -21,7 +21,9 @@
 	)
 
 /obj/effect/overmap/ship/casino/New(nloc, max_x, max_y)
-	name = "IPV [pick("Fortuna","Gold Rush","Ebisu","Lucky Paw","Four Leaves")], \a [name]"
+	name = "IPV [pick("Fortuna","Gold Rush","Ebisu","Lucky Paw","Four Leaves")]"
+	ship_name = name
+	name = "[name], \a [classification]"
 	..()
 
 /datum/map_template/ruin/away_site/casino

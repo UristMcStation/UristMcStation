@@ -16,7 +16,7 @@
 	)
 
 /obj/effect/overmap/ship/bearcat
-	name = "light freighter"
+	classification = "light freighter"
 	color = "#00ffff"
 	vessel_mass = 5000
 	max_speed = 1/(10 SECONDS)
@@ -29,7 +29,8 @@
 	for(var/area/ship/scrap/A)
 		A.name = "\improper [name] - [A.name]"
 		GLOB.using_map.area_purity_test_exempt_areas += A.type
-	name = "[name], \a [initial(name)]"
+	ship_name = name
+	name = "[name], \a [classification]"
 	..()
 
 /datum/map_template/ruin/away_site/bearcat_wreck

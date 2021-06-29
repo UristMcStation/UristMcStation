@@ -1,3 +1,8 @@
+#define RECHARGING	0x1
+#define CHARGED		0x2
+#define FIRING		0x4
+#define NO_AMMO		0x8
+
 /obj/machinery/computer/combatcomputer
 	name = "weapons control computer"
 	desc = "the control centre for the ship's weapons systems."
@@ -83,42 +88,82 @@
 
 			weapons.Add(list(list(
 			"name" = S.name,
-			"status" = S.status,
+			"status" = S.getStatusString(),
 			"strengthhull" = S.hulldamage,
 			"strengthshield" = S.shielddamage,
 			"shieldpass" = S.passshield,
 			"location" = S.loc.loc.name,
+			"recharge_end" = S.rechargerate,
+			"recharge_current" = world.time - S.recharge_init_time,
 			"ref" = "\ref[S]"
 			)))
 			//maybe change passshield data to ammo?
 			data["existing_weapons"] = weapons
 
-	if(target) //come back to this when making pvp
+	if(target && istype(target, /mob/living/simple_animal/hostile/overmapship)) //We need a different UI for player ships
 		var/mob/living/simple_animal/hostile/overmapship/OM = target
-		var/integrity = (OM.health / OM.maxHealth) * 100
-		data["target"] = 1
-		data["targetname"] = OM.name
-		data["targethealth"] = integrity
-		data["targetshield"] = OM.shields
+		var/integrity = round(max((OM.health / OM.maxHealth) * 100, 0), 0.01)
+		var/maxshields = 0
 
 		for(var/datum/shipcomponents/C in OM.components)
 			var/status
 			if(C.broken)
 				status = "Broken"
-			else if(!C.broken)
+			else if(istype(C, /datum/shipcomponents/shield))
+				var/datum/shipcomponents/shield/S = C
+				maxshields = S.strength
+				if(S.overcharged)	//If shields are overcharged, let's display that.
+					status = "Overcharged"
+				else
+					status = "Operational"
+			else
 				status = "Operational"
-
+			
 			targetcomponents.Add(list(list(
 			"componentname" = C.name,
 			"componentstatus" = status,
+			"componenthealth" = round(max((C.health / initial(C.health) * 100), 0), 0.01),
 			"componenttargeted" = C.targeted,
 			"ref" = "\ref[C]"
 			)))
 
 			data["target_components"] = targetcomponents
+		
+		data["status"] = 1
+		data["targetname"] = OM.name
+		data["targethealth"] = integrity
+		data["targetshield"] = OM.shields
+		data["targethealthnum"] = OM.health
+		data["targetmaxhealth"] = OM.maxHealth
+		data["targetmaxshield"] = maxshields
+
+	else if(target && istype(target, /obj/effect/overmap/ship/combat))
+		var/obj/effect/overmap/ship/combat/OM = target
+		data["status"] = 2
+		data["targetname"] = OM.ship_name
+		data["classification"] = OM.classification
+		data["target_flee_timer"] = OM.flee_timer
+		data["target_can_escape"] = OM.can_escape
+		data["self_flee_type"] = homeship.fleeing
+		data["self_flee_timer"] = homeship.flee_timer
+		data["self_can_escape"] = homeship.can_escape
+
+	else if(length(homeship.contacts))
+		var/list/nearby_contacts[0]
+		data["status"] = 3
+		
+		for(var/obj/effect/overmap/ship/combat/OM in homeship.contacts)
+			nearby_contacts.Add(list(list(
+			"name" = OM.ship_name,
+			"classification" = OM.classification,
+			"cannotEngage" = OM.incombat || OM.crossed || !OM.canfight || !homeship.canfight || homeship.pvp_cooldown > 0 || OM.pvp_cooldown > 0,
+			"ref" = "\ref[OM]"
+			)))
+
+			data["nearby_contacts"] = nearby_contacts
 
 	else if(!target)
-		data["target"] = 0
+		data["status"] = 0
 
 //make all the components visible, then kill myself
 
@@ -137,18 +182,16 @@
 		if(homeship?.incombat)
 			var/obj/machinery/shipweapons/S = locate(href_list["fire"]) in linkedweapons
 
-			if(S?.canfire)
+			if(!istype(S))
+				return
 
-				if(!istype(S))
-					return
+			if(S.status == CHARGED)
+				to_chat(usr, "<span class='warning'>You fire the [S.name].</span>")
+				S.Fire()
+				updateUsrDialog()
 
-				if(S.charged && !S.firing)
-					S.Fire()
-					to_chat(usr, "<span class='warning'>You fire the [S.name].</span>")
-					updateUsrDialog()
-
-				else
-					to_chat(usr, "<span class='warning'>The [S.name] cannot be fired right now.</span>")
+			else
+				to_chat(usr, "<span class='warning'>The [S.name] cannot be fired right now.</span>")
 
 		else
 			to_chat(usr, "<span class='warning'>You cannot fire right now.</span>")	//this shouldn't happen
@@ -173,6 +216,25 @@
 			for(var/datum/shipcomponents/C in OM.components)
 				C.targeted = FALSE
 
+	if(href_list["intercept"])
+		var/obj/effect/overmap/ship/combat/OM = locate(href_list["intercept"])
+		if(!OM.crossed && !OM.incombat && OM.canfight)
+			homeship.intercept(OM)
+		else
+			to_chat(usr, "<span class='warning'>You cannot intercept the [OM.ship_name] right now.</span>")
+	
+	if(href_list["startflee"])
+		if(!homeship.incombat) return
+		homeship.restabilize_engines()
+
+	if(href_list["cancelflee"])
+		if(!homeship.incombat || homeship.fleeing != 1)	return
+		homeship.cancel_restabilize_engines(TRUE)
+	
+	if(href_list["flee"])
+		if(!homeship.incombat || !homeship.can_escape && homeship.fleeing != 2) return
+		homeship.flee()
+	
 	updateUsrDialog()
 
 /obj/machinery/computer/combatcomputer/nerva //different def just in case we have multiple ships that do combat. although, i think i might keep the cargo ship noncombat, fluff it as it being too small, slips right by the enemies. i dunno
