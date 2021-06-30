@@ -25,10 +25,10 @@
 	minbodytemp = 0
 	var/dying = FALSE //are we dying?
 	var/event = 0 //are we part of an event
-	var/boarding = 0 //are we being boarded
+	var/boarding = FALSE //are we being boarded
 	var/can_board = FALSE //can we be boarded
 	var/map_spawned = FALSE //have we spawned our boardingmap
-	turns_per_move = 10 //make this influenced by the engine on a ship
+	turns_per_move = 10 //this is now determined by the engine component
 	autonomous = TRUE
 	var/potential_weapons = list()
 	var/boarders_amount = 0 //how many human boarders can we have?
@@ -39,11 +39,25 @@
 	for(var/datum/shipcomponents/C in src.components)
 		C.mastership = src
 
-	for(var/datum/shipcomponents/weapons/W in src.components)
+		if(istype(C, /datum/shipcomponents/weapons))
+			weapons += C
+
+		if(istype(C, /datum/shipcomponents/shield))
+			var/datum/shipcomponents/shield/S = C
+			shields = S.strength
+
+		if(istype(C, /datum/shipcomponents/engines))
+			var/datum/shipcomponents/engines/E = C
+			turns_per_move = E.turns_per_move
+
+/*	for(var/datum/shipcomponents/weapons/W in src.components)
 		weapons += W
 
 	for(var/datum/shipcomponents/shield/S in src.components)
 		shields = S.strength
+
+	for(var/datum/shipcomponents/engine/E in src.components)
+		turns_per_move = E.turns_per_move*/
 
 	name = ship_category //once i get names, flesh this out
 	faction = "neutral" //come back to this
@@ -102,21 +116,23 @@
 		turns_since_move = 0
 */
 /mob/living/simple_animal/hostile/overmapship/proc/spawnmap()
-	for(var/obj/effect/template_loader/ships/S in GLOB.trigger_landmarks) //there can only ever be one of these atm
-		S.mapfile = src.boardingmap
-		S.Load()
-		map_spawned = TRUE
-		if(home_station && !home_station.known)
-			for(var/obj/effect/urist/triggers/station_disk/D in GLOB.trigger_landmarks)
-				if(D.faction_id == hiddenfaction.factionid)
-					D.spawn_disk(home_station)
-	return
+	if(target_ship == GLOB.using_map.overmap_ship)
+		for(var/obj/effect/template_loader/ships/S in GLOB.trigger_landmarks) //there can only ever be one of these atm
+			S.mapfile = src.boardingmap
+			S.Load()
+			map_spawned = TRUE
+			if(home_station && !home_station.known)
+				for(var/obj/effect/urist/triggers/station_disk/D in GLOB.trigger_landmarks)
+					if(D.faction_id == hiddenfaction.factionid)
+						D.spawn_disk(home_station)
+		return
 
 /mob/living/simple_animal/hostile/overmapship/proc/despawnmap()
-	for(var/obj/effect/template_loader/ships/S in GLOB.trigger_landmarks) //there can only ever be one of these atm
-		S.mapfile = "maps/shipmaps/ship_blank.dmm"
-		S.Load()
-	return
+	if(target_ship == GLOB.using_map.overmap_ship)
+		for(var/obj/effect/template_loader/ships/S in GLOB.trigger_landmarks) //there can only ever be one of these atm
+			S.mapfile = "maps/shipmaps/ship_blank.dmm"
+			S.Load()
+		return
 
 /mob/living/simple_animal/hostile/overmapship/death() //move shipdeath to this proc
 	return
@@ -157,7 +173,7 @@
 	if(!boarding)
 		boarding = TRUE
 
-		if(src == GLOB.using_map.overmap_ship.target) //currently only the main ship can board, pending a rewrite of boarding code
+		if(target_ship == GLOB.using_map.overmap_ship) //currently only the main ship can board, pending a rewrite of boarding code
 			target_ship.autoannounce("<b>The attacking [src.ship_category] is now able to be boarded via teleporter. Please await further instructions from Command.</b>", "public") //add name+designation if I get lists for that stuff
 
 			for(var/obj/effect/urist/triggers/boarding_landmark/L in GLOB.trigger_landmarks)
@@ -171,7 +187,7 @@
 			for(var/obj/effect/urist/triggers/ai_defender_landmark/A in GLOB.trigger_landmarks)
 				A.spawn_mobs()
 
-			communicate(/decl/communication_channel/dsay, GLOB.global_announcer, "Ghosts can now join as a hostile boarder using the verb under the IC tab.", /decl/dsay_communication/direct)
+			communicate(/decl/communication_channel/dsay, GLOB.global_announcer, "Ghosts can now join as a hostile boarder using the verb under the IC tab. You have one minute to join.", /decl/dsay_communication/direct)
 
 			spawn(1 MINUTE)
 				boarders_amount = 0 //after a minute we null out the amount of boarders so noone joins mid boarding action.

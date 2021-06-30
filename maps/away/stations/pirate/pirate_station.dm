@@ -28,7 +28,7 @@
 	color = "#cc5474"
 	station_holder = /mob/living/simple_animal/hostile/overmapship/station_holder/pirate
 	total_ships = 2
-	remaining_ships = 5
+	remaining_ships = 4
 	hidden = TRUE
 	spawn_ships = TRUE
 	spawn_types = list(/mob/living/simple_animal/hostile/overmapship/pirate/small, /mob/living/simple_animal/hostile/overmapship/pirate/med)

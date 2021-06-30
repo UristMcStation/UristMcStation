@@ -20,8 +20,8 @@
 	shields = 1500
 	health = 100
 	maxHealth = 100
-	name = "pirate station"
-	ship_category = "pirate station"
+	name = "pirate station external defences"
+	ship_category = "pirate station external defences"
 
 /mob/living/simple_animal/hostile/overmapship/station_holder/pirate/New()
 	components = list(
