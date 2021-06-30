@@ -137,8 +137,7 @@
 				if(OM.shields)
 					var/shieldbuffer = OM.shields
 					OM.shields = max(OM.shields - shielddamage, 0) //take the hit
-					if(OM.shields <= 0 && hulldamage) //if we're left with less than 0 shields
-						OM.shields = 0
+					if(!OM.shields && hulldamage) //if we're left with less than 0 shields
 						shieldbuffer = hulldamage-shieldbuffer //hulldamage is slightly mitigated by the existing shield
 						if(shieldbuffer > 0) //but if the shield was really strong, we don't do anything
 							OM.health = max(OM.health - shieldbuffer, 0)
