@@ -3,7 +3,9 @@
 /turf/space,
 /area/space)
 "aab" = (
-/obj/effect/urist/projectile_landmark/ship,
+/obj/effect/urist/projectile_landmark/ship{
+	shipid = "nerva"
+	},
 /turf/space,
 /area/space)
 "aac" = (

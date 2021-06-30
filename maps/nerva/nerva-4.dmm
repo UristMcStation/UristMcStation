@@ -8996,7 +8996,13 @@
 /turf/space,
 /area/space)
 "uv" = (
-/obj/effect/urist/projectile_landmark/ship,
+/obj/effect/urist/projectile_landmark/ship{
+	shipid = "nerva"
+	},
+/turf/space,
+/area/space)
+"wD" = (
+/obj/effect/shuttle_landmark/nerva/docking/north,
 /turf/space,
 /area/space)
 "AM" = (
@@ -9024,10 +9030,6 @@
 /obj/machinery/door/airlock/hatch/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fore)
-"wD" = (
-/obj/effect/shuttle_landmark/nerva/docking/north,
-/turf/space,
-/area/space)
 "Fd" = (
 /obj/item/weapon/material/shard{
 	icon_state = "small"

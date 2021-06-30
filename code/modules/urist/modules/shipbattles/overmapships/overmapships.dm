@@ -145,9 +145,9 @@
 	//	GLOB.global_announcer.autosay("<b>The attacking [src.ship_category] is going to explode in 45 seconds! Evacuate any boarding parties immediately.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Common")
 
 	//	spawn(45 SECONDS) //give people on board some time to get out
+		target_ship.autoannounce("<b>The attacking [src.ship_category] has been destroyed.</b>", "public")
 		target_ship.leave_combat()
 		despawnmap()
-		GLOB.global_announcer.autosay("<b>The attacking [src.ship_category] has been destroyed.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Common") //add name+designation if I get lists for that stuff
 
 		spawn(30)
 			adjustBruteLoss(maxHealth)
@@ -158,7 +158,7 @@
 		boarding = TRUE
 
 		if(src == GLOB.using_map.overmap_ship.target) //currently only the main ship can board, pending a rewrite of boarding code
-			GLOB.global_announcer.autosay("<b>The attacking [src.ship_category] is now able to be boarded via teleporter. Please await further instructions from Command.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Common") //add name+designation if I get lists for that stuff
+			target_ship.autoannounce("<b>The attacking [src.ship_category] is now able to be boarded via teleporter. Please await further instructions from Command.</b>", "public") //add name+designation if I get lists for that stuff
 
 			for(var/obj/effect/urist/triggers/boarding_landmark/L in GLOB.trigger_landmarks)
 				new /obj/item/device/radio/beacon(L.loc)
