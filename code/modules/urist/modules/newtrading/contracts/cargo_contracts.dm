@@ -24,32 +24,32 @@
 /datum/contract/cargo/slime/adamantine
 	slime_type = "adamantine"
 	wanted_types = list(/obj/item/slime_extract/adamantine)
-	money = 400
+	money = 750
 
 /datum/contract/cargo/slime/rainbow
 	slime_type = "rainbow"
 	wanted_types = list(/obj/item/slime_extract/rainbow)
-	money = 400
+	money = 750
 
 /datum/contract/cargo/slime/oil
 	slime_type = "oil"
 	wanted_types = list(/obj/item/slime_extract/oil)
-	money = 350
+	money = 500
 
 /datum/contract/cargo/slime/pyrite
 	slime_type = "pyrite"
 	wanted_types = list(/obj/item/slime_extract/pyrite)
-	money = 350
+	money = 500
 
 /datum/contract/cargo/slime/cerulean
 	slime_type = "cerulean"
 	wanted_types = list(/obj/item/slime_extract/cerulean)
-	money = 350
+	money = 500
 
 /datum/contract/cargo/slime/mixed
 	slime_type = "yellow, orange, blue, or purple"
 	wanted_types = list(/obj/item/slime_extract/yellow, /obj/item/slime_extract/orange, /obj/item/slime_extract/blue, /obj/item/slime_extract/purple)
-	money = 300
+	money = 400
 
 /*
 /datum/contract/cargo/slime/random/New()
@@ -65,7 +65,7 @@
 /datum/contract/cargo/robotics/durandparts
 	name = "Durand Parts Delivery Contract"
 	wanted_types = list(/obj/item/mecha_parts/part/durand_torso, /obj/item/mecha_parts/part/durand_left_arm, /obj/item/mecha_parts/part/durand_left_leg, /obj/item/mecha_parts/part/durand_right_arm, /obj/item/mecha_parts/part/durand_right_leg, /obj/item/mecha_parts/part/durand_head)
-	money = 600
+	money = 850
 	rep_points = 2
 
 /datum/contract/cargo/robotics/durandparts/New()
@@ -76,7 +76,8 @@
 /datum/contract/cargo/robotics/lasercannon
 	name = "Mecha Laser Cannon Delivery Contract"
 	wanted_types = list(/obj/item/mecha_parts/mecha_equipment/weapon/energy/laser/heavy)
-	money = 500
+	money = 750
+	rep_points = 2
 
 /datum/contract/cargo/robotics/lasercannon/New()
 	amount = rand(2,4)
@@ -130,7 +131,7 @@
 /datum/contract/cargo/eswords
 	name = "Energy Sword Delivery Contract"
 	wanted_types = list(/obj/item/weapon/melee/energy/sword, /obj/item/weapon/melee/energy/sword/pirate)
-	money = 750
+	money = 950
 	rep_points = 2
 
 /datum/contract/cargo/eswords/New()
@@ -141,7 +142,7 @@
 /datum/contract/cargo/alienguns
 	name = "Lactera Weapon Delivery Contract"
 	wanted_types = list(/obj/item/scom/aliengun)
-	money = 850
+	money = 900
 	rep_points = 3
 
 /datum/contract/cargo/alienguns/New()
