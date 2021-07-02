@@ -41,7 +41,7 @@
 		return
 	if(status & FIRING)	//If we're firing, we shouldn't recharge until it's done.
 		return
-	
+
 	status |= RECHARGING
 	recharge_init_time = world.time
 	update_use_power(2)
@@ -117,7 +117,7 @@
 			status &= ~FIRING
 			update_icon()
 			Charging() //time to recharge
-		
+
 		if(istype(target, /obj/effect/overmap/ship/combat))
 			MapFire()	//PVP combat just lobs projectiles at the other ship, no need for further calculations.
 			return TRUE
@@ -131,7 +131,7 @@
 				homeship.autoannounce("<b>The [src.name] has missed the [OM.ship_category].</b>", "private")
 				evaded = TRUE
 				break
-				
+
 		if(!evaded)
 			if(!passshield)
 				if(OM.shields)
@@ -141,7 +141,7 @@
 						shieldbuffer = hulldamage-shieldbuffer //hulldamage is slightly mitigated by the existing shield
 						if(shieldbuffer > 0) //but if the shield was really strong, we don't do anything
 							OM.health = max(OM.health - shieldbuffer, 0)
-									
+
 							for(var/datum/shipcomponents/shield/S in OM.components)
 								if(!S.broken)
 									var/component_damage = hulldamage * 0.1
@@ -184,7 +184,7 @@
 
 						if(targeted_component)
 							TargetedHit(OM, muted_damage, oc)
-							
+
 						else if(!targeted_component && !oc)
 							OM.health = max(OM.health - muted_damage, 0)
 
@@ -198,7 +198,7 @@
 					if(!targeted_component && prob(component_hit))
 						HitComponents(OM)
 						MapFire()
-						
+
 					homeship.autoannounce("<b>The [src.name] has hit the [OM.ship_category].</b>", "private")
 
 			if(OM.health <= (OM.maxHealth * 0.5))
@@ -217,8 +217,8 @@
 
 			if(!OM.boarding && OM.can_board && !OM.shields)
 				if(homeship.can_board)
-					OM.boarding = 1
 					OM.boarded()
+
 		return TRUE
 	else
 		return FALSE

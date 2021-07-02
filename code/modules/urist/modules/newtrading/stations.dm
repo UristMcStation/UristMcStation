@@ -31,7 +31,8 @@
 
 /obj/effect/overmap/sector/station/Process()
 	if(remaining_ships && !busy)
-		if(ship_amount <= total_ships)
+		if(ship_amount < total_ships)
+			busy = TRUE
 			var/newship = pick(spawn_types)
 			var/mob/living/simple_animal/hostile/overmapship/S = new newship(get_turf(src))
 			S.home_station = src
@@ -41,23 +42,23 @@
 //			spawned_ships += S
 			ship_amount++
 			remaining_ships--
-			busy = TRUE
 
 			spawn(rand(spawn_time_low,spawn_time_high))
 				busy = FALSE
 
 /obj/effect/overmap/sector/station/proc/fallback_spawning()
 	if(remaining_ships)
-		var/newship = pick(spawn_types)
-		var/mob/living/simple_animal/hostile/overmapship/S = new newship
-		S.home_station = src
-		if(S.faction != faction)
-			S.faction = faction //just in case
+		if(ship_amount < total_ships)
+			var/newship = pick(spawn_types)
+			var/mob/living/simple_animal/hostile/overmapship/S = new newship
+			S.home_station = src
+			if(S.faction != faction)
+				S.hiddenfaction = faction //just in case
 
-//		spawned_ships += S
-		ship_amount++
-		remaining_ships--
-		busy = TRUE
+	//		spawned_ships += S
+			ship_amount++
+			remaining_ships--
+			busy = TRUE
 
 /obj/effect/overmap/sector/station/Destroy()
 	STOP_PROCESSING(SSobj, src)

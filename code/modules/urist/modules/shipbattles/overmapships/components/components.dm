@@ -56,14 +56,14 @@
 
 /datum/shipcomponents/shield/light
 	name = "light shield"
-	strength = 850
+	strength = 750
 	health = 200
 	recharge_rate = 80
 	recharge_delay = 10 SECONDS
 
 /datum/shipcomponents/shield/medium
 	name = "medium shield"
-	strength = 1300
+	strength = 1200
 	health = 400
 	recharge_rate = 70
 	recharge_delay = 10 SECONDS
@@ -77,7 +77,7 @@
 
 /datum/shipcomponents/shield/fighter
 	name = "high performance ultralight shield"
-	strength = 400
+	strength = 460
 	health = 100
 	recharge_rate = 50
 	recharge_delay = 5 SECONDS
@@ -110,6 +110,7 @@
 
 /datum/shipcomponents/engines
 	var/evasion_chance = 0
+	var/turns_per_move = 15 //influences how fast they move on the overmap
 
 /datum/shipcomponents/engines/BlowUp()
 	evasion_chance = 0
@@ -119,6 +120,7 @@
 	name = "freighter engines"
 	evasion_chance = 5
 	health = 200
+	turns_per_move = 20
 
 /datum/shipcomponents/engines/standard
 	name = "standard engines"
@@ -134,21 +136,25 @@
 	name = "high performance combat engines"
 	evasion_chance = 20
 	health = 250
+	turns_per_move = 10
 
 /datum/shipcomponents/engines/fighter //for really small ships
 	name = "small high performance combat engines"
 	evasion_chance = 40
 	health = 50
+	turns_per_move = 10
 
 /datum/shipcomponents/engines/alien_light
 	name = "alien engines"
 	evasion_chance = 25
 	health = 150
+	turns_per_move = 8
 
 /datum/shipcomponents/engines/alien_heavy
 	name = "heavy alien engines"
 	evasion_chance = 15
 	health = 250
+	turns_per_move = 8
 
 //point defence
 
