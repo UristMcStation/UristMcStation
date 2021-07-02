@@ -51,7 +51,7 @@
 
 /datum/contract/nanotrasen/anomaly/New()
 	amount = rand(1,3)
-	money = (amount * rand(850,1400))
+	money = (amount * rand(900,1750))
 	rep_points = amount
 	desc = "The Galactic Crisis has nearly eliminated NanoTrasen's presence in this sector. That's why NanoTrasen has contracted the [GLOB.using_map.station_name] to analyze [amount] of the anomalies in this sector for us. Good luck."
 
@@ -86,14 +86,14 @@
 	name = "Pirate Ship Hunt Contract"
 	neg_faction = /datum/factions/pirate
 	points_per_unit = 3
-	money = 3500
+	money = 4000
 
 /datum/contract/shiphunt/alien
 	name = "Lactera Ship Hunt Contract"
 	neg_faction = /datum/factions/alien
 	rep_points = 7
 	amount = 1
-	money = 7500
+	money = 8500
 
 //station destroy
 
@@ -101,6 +101,6 @@
 	name = "Pirate Hideout Destruction Contract"
 	desc = "This sector is plagued by pirates. We need you to hunt down their hideout and destroy it for good."
 	neg_faction = /datum/factions/pirate
-	rep_points = 8
+	rep_points = 10
 	amount = 1
-	money = 10000
+	money = 20000

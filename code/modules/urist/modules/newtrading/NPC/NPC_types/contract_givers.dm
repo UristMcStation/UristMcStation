@@ -56,7 +56,7 @@
 	wander = 0
 
 	angryprob = 0
-	npc_item_amount = 6
+	npc_item_amount = 7
 	randomize_value = 0
 	randomize_quantity = 0
 	no_resell = 1
