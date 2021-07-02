@@ -70,14 +70,14 @@
 	set category = "IC"
 
 	if(!MayRespawn(1))
-		to_chat(usr, "<span class='warning'>You cannot join as a hostile boarder at this time.</span>")
+		to_chat(usr, "<span class='warning'>You are not allowed to respawn yet, and thus cannot join as a hostile boarder at this time.</span>")
 		return
 
 	if(isghost(usr) || isnewplayer(usr))
 		var/mob/living/simple_animal/hostile/overmapship/homeship = GLOB.using_map.overmap_ship.target
 
 		if(!homeship)
-			to_chat(usr, "<span class='warning'>You cannot join as a hostile boarder at this time.</span>")
+			to_chat(usr, "<span class='warning'>You cannot join as a hostile boarder at this time as the [GLOB.using_map.full_name] is not currently in combat.</span>")
 			return
 
 		if(!homeship.boarding)
@@ -92,7 +92,7 @@
 			to_chat(usr, "The maximum amount of hostile boarders have already been spawned!")
 			return
 
-		var/want = input(src,"The [GLOB.using_map.name] is now able to board a hostile [homeship.hiddenfaction.factionid] ship. Join as a defender on the hostile ship?") in list ("No", "Yes")
+		var/want = input(src,"The [GLOB.using_map.full_name] is now able to board a hostile [homeship.hiddenfaction.factionid] ship. Join as a defender on the hostile ship?") in list ("No", "Yes")
 		switch(want)
 			if("No")
 				return

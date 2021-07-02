@@ -50,15 +50,6 @@
 			var/datum/shipcomponents/engines/E = C
 			turns_per_move = E.turns_per_move
 
-/*	for(var/datum/shipcomponents/weapons/W in src.components)
-		weapons += W
-
-	for(var/datum/shipcomponents/shield/S in src.components)
-		shields = S.strength
-
-	for(var/datum/shipcomponents/engine/E in src.components)
-		turns_per_move = E.turns_per_move*/
-
 	name = ship_category //once i get names, flesh this out
 	faction = "neutral" //come back to this
 
@@ -116,11 +107,11 @@
 		turns_since_move = 0
 */
 /mob/living/simple_animal/hostile/overmapship/proc/spawnmap()
-	if(target_ship == GLOB.using_map.overmap_ship)
+	if(target_ship == GLOB.using_map.overmap_ship && boardingmap)
 		for(var/obj/effect/template_loader/ships/S in GLOB.trigger_landmarks) //there can only ever be one of these atm
 			S.mapfile = src.boardingmap
 			S.Load()
-			map_spawned = TRUE
+			src.map_spawned = TRUE
 			if(home_station && !home_station.known)
 				for(var/obj/effect/urist/triggers/station_disk/D in GLOB.trigger_landmarks)
 					if(D.faction_id == hiddenfaction.factionid)

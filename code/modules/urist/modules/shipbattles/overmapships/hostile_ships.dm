@@ -10,8 +10,8 @@
 	shields = 800
 	health = 800
 	maxHealth = 800
-	name = "small pirate ship"
-	ship_category = "small pirate ship"
+	name = "small pirate vessel"
+	ship_category = "small pirate vessel"
 	boardingmap = "maps/shipmaps/ship_pirate_small1.dmm"
 	can_board = TRUE
 	potential_weapons = list(/datum/shipcomponents/weapons/autocannon, /datum/shipcomponents/weapons/lightlaser/auto, /datum/shipcomponents/weapons/heavylaser, /datum/shipcomponents/weapons/pulse)
@@ -39,7 +39,7 @@
 	ship_category = "medium pirate vessel"
 	boardingmap = "maps/shipmaps/ship_pirate_small1.dmm"
 	can_board = TRUE
-	potential_weapons = list(/datum/shipcomponents/weapons/pulse/rapid, /datum/shipcomponents/weapons/smalltorpedo, /datum/shipcomponents/weapons/heavylaser/auto, /datum/shipcomponents/weapons/bigmissile, /datum/shipcomponents/weapons/heavylaser/dual)
+	potential_weapons = list(/datum/shipcomponents/weapons/heavylaser, /datum/shipcomponents/weapons/autocannon, /datum/shipcomponents/weapons/pulse, /datum/shipcomponents/weapons/smalltorpedo, /datum/shipcomponents/weapons/heavylaser/auto, /datum/shipcomponents/weapons/bigmissile, /datum/shipcomponents/weapons/heavylaser/dual)
 
 /mob/living/simple_animal/hostile/overmapship/pirate/med/Initialize()
 	components = list(
