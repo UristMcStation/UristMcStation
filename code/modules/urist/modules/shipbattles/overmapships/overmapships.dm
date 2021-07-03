@@ -149,12 +149,10 @@
 		for(var/datum/shipcomponents/S in src.components)
 			S.broken = TRUE
 
-	//	GLOB.global_announcer.autosay("<b>The attacking [src.ship_category] is going to explode in 45 seconds! Evacuate any boarding parties immediately.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Common")
+		despawnmap()
 
-	//	spawn(45 SECONDS) //give people on board some time to get out
 		target_ship.autoannounce("<b>The attacking [src.ship_category] has been destroyed.</b>", "public")
 		target_ship.leave_combat()
-		despawnmap()
 
 		spawn(30)
 			adjustBruteLoss(maxHealth)
@@ -178,7 +176,7 @@
 			for(var/obj/effect/urist/triggers/ai_defender_landmark/A in GLOB.trigger_landmarks)
 				A.spawn_mobs()
 
-			communicate(/decl/communication_channel/dsay, GLOB.global_announcer, "Ghosts can now join as a hostile boarder using the verb under the IC tab. You have one minute to join.", /decl/dsay_communication/direct)
+			communicate(/decl/communication_channel/dsay, GLOB.global_announcer, "<b>Ghosts can now join as a hostile boarder using the verb under the IC tab. You have one minute to join.</b>", /decl/dsay_communication/direct)
 
 			spawn(1 MINUTE)
 				boarders_amount = 0 //after a minute we null out the amount of boarders so noone joins mid boarding action.
