@@ -2529,7 +2529,7 @@
 /area/security/brig)
 "afp" = (
 /obj/machinery/flasher{
-	id = "brigflasher";
+	id = "Cell 1";
 	pixel_x = 26
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2550,7 +2550,7 @@
 	icon_state = "intact-scrubbers"
 	},
 /obj/machinery/flasher{
-	id = "brigflasher";
+	id = "Cell 3";
 	pixel_x = -26
 	},
 /obj/machinery/hologram/holopad,
@@ -28601,10 +28601,12 @@
 /area/security/portgun)
 "dvF" = (
 /obj/machinery/door/window/brigdoor/southright{
-	id = "Cell 3"
+	id = "Cell 3";
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/machinery/door/window/brigdoor/northleft{
-	id = "Cell 3"
+	id = "Cell 3";
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -29074,10 +29076,12 @@
 /area/rnd/office)
 "grS" = (
 /obj/machinery/door/window/brigdoor/southright{
-	id = "Cell 2"
+	id = "Cell 2";
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/machinery/door/window/brigdoor/northleft{
-	id = "Cell 2"
+	id = "Cell 2";
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -29161,6 +29165,13 @@
 	},
 /turf/simulated/wall/r_wall/prepainted,
 /area/command/bridge)
+"hFc" = (
+/obj/machinery/flasher{
+	id = "Cell 2";
+	pixel_x = 26
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/brig)
 "hNR" = (
 /obj/effect/paint_stripe/blue,
 /turf/simulated/wall/r_wall/prepainted,
@@ -30140,10 +30151,12 @@
 /area/maintenance/third_deck/cents)
 "sCk" = (
 /obj/machinery/door/window/brigdoor/southright{
-	id = "Cell 1"
+	id = "Cell 1";
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/machinery/door/window/brigdoor/northleft{
-	id = "Cell 1"
+	id = "Cell 1";
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -56630,7 +56643,7 @@ acJ
 aaU
 adO
 aeC
-afp
+hFc
 agg
 agR
 ahZ

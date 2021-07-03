@@ -3423,7 +3423,7 @@
 	name = "AI Core Access";
 	req_access = list("ACCESS_AI_UPLOAD")
 	},
-/turf/simulated/floor/tiled/dark/airless,
+/turf/simulated/floor/tiled/dark,
 /area/command/aicore)
 "gT" = (
 /obj/effect/floor_decal/industrial/outline/grey,
