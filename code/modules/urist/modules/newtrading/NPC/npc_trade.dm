@@ -25,24 +25,26 @@
 	if(O.type in trade_items_by_type)
 		return 1
 
-/mob/living/simple_animal/hostile/npc/proc/get_trade_value(var/obj/O)
+/mob/living/simple_animal/hostile/npc/proc/get_trade_value(var/obj/O, var/count = 1)
 	if(!O)
 		return 0
 
 	//this uses the default SS13 item_worth procs so its a good fallback
-	. = get_value(O)
+	var/worth = get_trade_info(O, count)
 
-	get_trade_info(O)
+	return isnull(worth) ? get_value(O)*count : worth
 
-/mob/living/simple_animal/hostile/npc/proc/get_trade_info(var/obj/tradingobject)
+/mob/living/simple_animal/hostile/npc/proc/get_trade_info(var/obj/tradingobject, var/count)
 	//see if we are already selling the item
 	var/datum/trade_item/T = trade_items_inventory_by_type[tradingobject.type]
 	if(T)
 		if(!T.sellable)
 			return 0
 
-		else
-			return T.value
+		if(count > 1)
+			return calculate_multiple_sales(T, count)	//As price changes are % based, this compounds. Let's calculate that
+
+		return round(T.value * sell_modifier)
 
 	//check if its an accepted item
 	T = trade_items_by_type[tradingobject.type]
@@ -52,17 +54,25 @@
 			return 0
 		//this is in the accepted trade categories initialise the trade item but keep it hidden for now
 		//note: spawn_trade_item() will slightly randomise the sale value to make it different per NPC
-		else
-			spawn_trade_item(T, 1)
-			return T.value
+
+		spawn_trade_item(T, 1)
+		if(count > 1)
+			return calculate_multiple_sales(T, count)
+
+		return round(T.value * sell_modifier)
 
 	if(istype(tradingobject, /obj/item/weapon/storage))
 		var/obj/item/weapon/storage/S = tradingobject
 		var/total_value = 0
-
+		var/list/tempItems = list()
 		for(var/obj/I in S.contents)
-
-			total_value += get_trade_value(I)
+			if(tempItems[I.type])
+				tempItems[I.type]["count"]++
+			else
+				tempItems[I.type] = list("obj" = I, "count" = 1)
+		for(var/k in tempItems)
+			var/list/v = tempItems[k]
+			total_value += get_trade_value(v["obj"], v["count"])
 
 		return total_value
 
@@ -72,7 +82,19 @@
 		if(!T.sellable)
 			return 0
 
-		else
+		if(count > 1)
+			return calculate_multiple_sales(T, count)
 
-			return T.value
+		return round(T.value * sell_modifier)
 
+/mob/living/simple_animal/hostile/npc/proc/calculate_multiple_sales(var/datum/trade_item/T , var/count)
+	if(!T || !count)
+		return
+	var/newPrice = round(T.value * sell_modifier)	//Price changes AFTER an obj is sold. Let's skip the first trade then.
+	var/total_value = newPrice
+	count--
+	while(count)
+		newPrice = round((newPrice * (1-src.price_modifier)) * sell_modifier)	//Calculate what the new price would be with the devalue of selling individually, then apply the selling modifier
+		total_value += newPrice
+		count--
+	return total_value
