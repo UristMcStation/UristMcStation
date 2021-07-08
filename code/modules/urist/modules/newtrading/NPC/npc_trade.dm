@@ -90,8 +90,8 @@
 /mob/living/simple_animal/hostile/npc/proc/calculate_multiple_sales(var/datum/trade_item/T , var/count)
 	if(!T || !count)
 		return
-	var/newPrice = round(T.value * sell_modifier)	//Price changes AFTER an obj is sold. Let's skip the first trade then.
-	var/total_value = newPrice
+	var/newPrice = T.value
+	var/total_value = round(T.value * sell_modifier)	//Price changes AFTER an obj is sold. Let's skip the first trade then.
 	count--
 	while(count)
 		newPrice = round((newPrice * (1-src.price_modifier)) * sell_modifier)	//Calculate what the new price would be with the devalue of selling individually, then apply the selling modifier
