@@ -4,6 +4,7 @@
 	icon = 'icons/urist/items/heavysniper.dmi'
 	icon_state = "heavysniper"
 	item_state = "heavysniper" //sort of placeholder
+	item_icons = URIST_ALL_ONMOBS
 	w_class = ITEM_SIZE_HUGE
 	force = 10
 	slot_flags = SLOT_BACK

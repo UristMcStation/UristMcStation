@@ -117,11 +117,12 @@ the sprite and make my own projectile -Glloyd*/
 //Knight .45 - suppressed PDW
 
 /obj/item/weapon/gun/projectile/silenced/knight
-	item_icons = DEF_URIST_INHANDS
 	name = "Knight .45"
 	desc = "A lightweight, suppressed weapon. Uses .45 rounds and is intended for operations where subtlety is preferred, if only for a little while."
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "knight45"
+	item_icons = URIST_ALL_ONMOBS
+	wielded_item_state = "knight"
 	fire_sound = 'sound/urist/suppshot.ogg'
 	w_class = 2
 	max_shells = 7
@@ -878,12 +879,13 @@ the sprite and make my own projectile -Glloyd*/
 	ammo_type = /obj/item/ammo_casing/c44/rubber
 
 /obj/item/weapon/gun/projectile/hi2521pistol
-	item_icons = DEF_URIST_INHANDS
+	item_icons = URIST_ALL_ONMOBS
 	name = "\improper HI-2521-P pistol"
 	desc = "A light, compact pistol chambered in 9mm with a sleek design. Manufactured by Hephaestus Industries as part of the 2521 series, this model is a relatively recent design, popular among wealthier spacers."
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "crewpistol"
 	item_state = "crewpistol"
+	wielded_item_state = "crewpistol"
 	w_class = 2
 	caliber = "9mm"
 	origin_tech = "combat=2;materials=2;syndicate=1"
