@@ -123,8 +123,16 @@
 					to_chat(user, "<span class='warning'>\The [A] won't fit into [src].</span>")
 					return
 				if(ammo_magazine)
-					to_chat(user, "<span class='warning'>[src] already has a magazine loaded.</span>")//already a magazine here
-
+					//tacticool reloading
+					ammo_magazine.dropInto(loc)
+					user.visible_message(
+						"[user] ejects the [ammo_magazine], it falls out and clatters on the floor!",
+						"<span class='notice'>You eject the [ammo_magazine], it falls out and clatters on the floor!</span>"
+						)
+					playsound(loc, mag_remove_sound, 50, 1)
+					ammo_magazine.update_icon()
+					ammo_magazine = null
+					update_icon()
 					return
 				if(!user.unEquip(AM, src))
 					return
