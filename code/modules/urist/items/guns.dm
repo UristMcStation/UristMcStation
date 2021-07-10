@@ -117,11 +117,12 @@ the sprite and make my own projectile -Glloyd*/
 //Knight .45 - suppressed PDW
 
 /obj/item/weapon/gun/projectile/silenced/knight
-	item_icons = DEF_URIST_INHANDS
 	name = "Knight .45"
 	desc = "A lightweight, suppressed weapon. Uses .45 rounds and is intended for operations where subtlety is preferred, if only for a little while."
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "knight45"
+	item_icons = URIST_ALL_ONMOBS
+	wielded_item_state = "knight"
 	fire_sound = 'sound/urist/suppshot.ogg'
 	w_class = 2
 	max_shells = 7

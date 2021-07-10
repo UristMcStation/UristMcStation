@@ -148,8 +148,9 @@
 	name = "flechette gun"
 	desc = "The MI-12 Skadi is a burst fire capable railgun that fires flechette rounds at high velocity. Deadly against armour, but much less effective against soft targets."
 	icon = 'icons/urist/items/flechette.dmi'
+	item_icons = URIST_ALL_ONMOBS
 	icon_state = "flechette_gun"
-	item_state = "z8carbine"
+	item_state = "flechetterifle"
 	one_hand_penalty = 2
 	fire_delay = 8
 	removable_components = FALSE
@@ -160,7 +161,7 @@
 	load_type = /obj/item/weapon/magnetic_ammo
 	projectile_type = /obj/item/projectile/bullet/magnetic/flechette
 	loaded = /obj/item/weapon/magnetic_ammo
-	wielded_item_state = "z8carbine-wielded"
+	wielded_item_state = "flechetterifle-wielded"
 
 	firemodes = list(
 		list(mode_name="semiauto",    burst=1, fire_delay=0,    move_delay=null, one_hand_penalty=1, burst_accuracy=null, dispersion=null),
@@ -169,6 +170,9 @@
 
 /obj/item/weapon/gun/magnetic/railgun/flechette/out_of_ammo()
 	visible_message("<span class='warning'>\The [src] beeps to indicate the magazine is empty.</span>")
+	icon_state = "flechette_gun_red"
+	item_state = "flechetterifle-0"
+	wielded_item_state = "flechetterifle-0-wielded"
 	
 
 /obj/item/weapon/gun/magnetic/railgun/flechette/skrell

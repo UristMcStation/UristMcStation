@@ -1,10 +1,13 @@
 /obj/item/weapon/gun/projectile/colt
 	name = "vintage .45 pistol"
 	desc = "A cheap Martian knock-off of a Colt M1911. Uses .45 rounds."
+	item_icons = URIST_ALL_ONMOBS
 	magazine_type = /obj/item/ammo_magazine/c45m
 	allowed_magazines = /obj/item/ammo_magazine/c45m
 	icon = 'icons/urist/items/pistols.dmi'
+	item_state = "colt"
 	icon_state = "colt"
+	wielded_item_state = "colt"
 	caliber = ".45"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	load_method = MAGAZINE
@@ -46,8 +49,11 @@
 /obj/item/weapon/gun/projectile/sec
 	name = ".45 pistol"
 	desc = "The NT Mk58 is a cheap, ubiquitous sidearm, produced by a NanoTrasen subsidiary. Found pretty much everywhere humans are. Uses .45 rounds."
+	item_icons = URIST_ALL_ONMOBS
 	icon = 'icons/urist/items/pistols.dmi'
 	icon_state = "secguncomp"
+	item_state = "secguncomp"
+	wielded_item_state = "secguncomp"
 	magazine_type = /obj/item/ammo_magazine/c45m/flash
 	allowed_magazines = /obj/item/ammo_magazine/c45m
 	caliber = ".45"
@@ -71,6 +77,8 @@
 	name = "custom .45 Pistol"
 	icon = 'icons/urist/items/pistols.dmi'
 	icon_state = "secgundark"
+	item_state = "secgundark"
+	wielded_item_state = "secgundark"
 	accuracy = 0
 
 /obj/item/weapon/gun/projectile/sec/wood/on_update_icon()
@@ -88,6 +96,9 @@
 	desc = "A handgun with an integral silencer. Uses .45 rounds."
 	icon = 'icons/urist/items/pistols.dmi'
 	icon_state = "silenced_pistol"
+	item_icons = URIST_ALL_ONMOBS
+	item_state = "pistol-silencer"
+	wielded_item_state = "pistol-silencer"
 	w_class = ITEM_SIZE_NORMAL
 	caliber = ".45"
 	silenced = 1
@@ -120,7 +131,9 @@
 	desc = "The HelTek Magnus, a robust Terran handgun that uses .50 AE ammo."
 	icon = 'icons/urist/items/pistols.dmi'
 	icon_state = "magnum"
-	item_state = "revolver"
+	item_state = "magnum"
+	item_icons = URIST_ALL_ONMOBS
+	wielded_item_state = "magnum"
 	force = 9
 	caliber = ".50"
 	fire_delay = 12
@@ -146,6 +159,8 @@
 	desc = "A bulky pistol designed to fire self propelled rounds."
 	icon = 'icons/urist/items/gyropistol.dmi'
 	icon_state = "gyropistol"
+	item_icons = URIST_ALL_ONMOBS
+	wielded_item_state = "gyropistol"
 	max_shells = 8
 	caliber = "75"
 	origin_tech = list(TECH_COMBAT = 3)
@@ -171,6 +186,9 @@
 	magazine_type = /obj/item/ammo_magazine/mc9mmds
 	allowed_magazines = /obj/item/ammo_magazine/mc9mmds
 	icon_state = "92fs"
+	item_icons = URIST_ALL_ONMOBS
+	item_state = "92fs"
+	wielded_item_state = "92fs"
 	caliber = "9mm"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
 	load_method = MAGAZINE
@@ -187,8 +205,10 @@
 	name = "holdout pistol"
 	desc = "The Lumoco Arms P3 Whisper. A small, easily concealable gun. Uses 9mm rounds."
 	icon = 'icons/urist/items/pistols.dmi'
+	item_icons = URIST_ALL_ONMOBS
 	icon_state = "pistol"
-	item_state = null
+	item_state = "pistol"
+	wielded_item_state = "pistol"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "9mm"
 	silenced = 0
@@ -234,6 +254,7 @@
 	..()
 	if(silenced)
 		icon_state = "silenced_pistol"
+		wielded_item_state = "pistol-silencer"
 	else
 		icon_state = "pistol"
 	if(!(ammo_magazine && ammo_magazine.stored_ammo.len))
