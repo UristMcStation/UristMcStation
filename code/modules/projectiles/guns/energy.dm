@@ -24,6 +24,12 @@ GLOBAL_LIST_INIT(registered_cyborg_weapons, list())
 	var/recharge_time = 4
 	var/charge_tick = 0
 
+	var/current_user
+
+	var/hatch_open = 0 //determines if you can insert a cell in/detach a cell
+
+	var/reload_time = 5 SECONDS
+
 	var/mag_insert_sound = 'sound/weapons/guns/interaction/pistol_magin.ogg'
 	var/mag_remove_sound = 'sound/weapons/guns/interaction/pistol_magout.ogg'
 
@@ -92,6 +98,16 @@ GLOBAL_LIST_INIT(registered_cyborg_weapons, list())
 					return suit.cell
 	return null
 
+/obj/item/weapon/gun/energy/special_check(var/mob/user)
+
+	if(!..())
+		return
+	
+	if(hatch_open)
+		to_chat(user, "<span class='warning'>[src] has the cell cover still open!</span>")
+		return 0
+	return 1
+
 //Attempts to load A into src, depending on the type of thing being loaded and the load_method
 //reloading in a new energy cell
 /obj/item/weapon/gun/energy/proc/load_ammo(var/obj/item/A, mob/user)
@@ -100,41 +116,63 @@ GLOBAL_LIST_INIT(registered_cyborg_weapons, list())
 		. = TRUE
 		var/obj/item/weapon/cell/AM = A
 
-		if(power_supply)
-			//tacticool reloading
-			power_supply.dropInto(loc)
-			user.visible_message(
-				"[user] ejects the [power_supply], it falls out and clatters on the floor!",
-				"<span class='notice'>You eject the [power_supply], it falls out and clatters on the floor!</span>"
-				)
-			playsound(loc, mag_remove_sound, 50, 1)
-			power_supply.update_icon()
-			power_supply = null
-			update_icon()
+		if(hatch_open)
+			if(power_supply)
+				to_chat(user, "<span class='warning'>[src] already has a power cell loaded.</span>") //already a magazine here
+				return
+			if(AM.maxcharge <= (max_shots*charge_cost))
+				current_user = user
+				user.visible_message("[user] begins to reconfigure the wires and insert the cell into [src].","<span class='notice'>You begin to reconfigure the wires and insert the cell into [src].</span>")
+				
+				if(!do_after(user, reload_time, src))
+					user.visible_message("[usr] stops reconfiguring the wires in [src].","<span class='warning'>You stop reconfiguring the wires in [src].</span>")
+					return
+				if(!user.unEquip(AM, src))
+					return
+				power_supply = AM
+				user.visible_message("[user] inserts [AM] into [src].", "<span class='notice'>You insert [AM] into [src].</span>")
+				playsound(loc, mag_insert_sound, 50, 1)
+				AM.update_icon()
+			else
+				user.visible_message("<span class='warning'>The cell size is too big for the [src]. It must be [max_shots*charge_cost] Wh or smaller.</span>")
+				return
+		else
+			user.visible_message("<span class='warning'>The cell cover is closed. Use a screwdriver to open it.</span>")
 			return
-		if(!user.unEquip(AM, src))
-			return
-		power_supply = AM
-		user.visible_message("[user] inserts [AM] into [src].", "<span class='notice'>You insert [AM] into [src].</span>")
-		playsound(loc, mag_insert_sound, 50, 1)
-		AM.update_icon()
 	update_icon()
 
 //attempts to unload src. If allow_dump is set to 0, the speedloader unloading method will be disabled
 //unloading the existing energy cell
 /obj/item/weapon/gun/energy/proc/unload_ammo(mob/user)
-	if(power_supply)
-		user.put_in_hands(power_supply)
-		user.visible_message("[user] removes [power_supply] from [src].", "<span class='notice'>You remove [power_supply] from [src].</span>")
-		playsound(loc, mag_remove_sound, 50, 1)
-		power_supply.update_icon()
-		power_supply = null
+	if(hatch_open)
+		if(power_supply)
+			user.put_in_hands(power_supply)
+			user.visible_message("[user] removes [power_supply] from [src].", "<span class='notice'>You remove [power_supply] from [src].</span>")
+			playsound(loc, mag_remove_sound, 50, 1)
+			power_supply.update_icon()
+			power_supply = null
+			if(modifystate)
+				icon_state = "[modifystate][0]"
+			else
+				icon_state = "[initial(icon_state)][0]"
+		else
+			to_chat(user, "<span class='warning'>[src] is empty.</span>")
 	else
-		to_chat(user, "<span class='warning'>[src] is empty.</span>")
+		user.visible_message("<span class='warning'>The cell cover is closed. Use a screwdriver to open it.</span>")
+		return
 	update_icon()
 
 //to trigger loading cell
 /obj/item/weapon/gun/energy/attackby(var/obj/item/A as obj, mob/user as mob)
+	if(isScrewdriver(A))
+		if(!hatch_open)
+			hatch_open = 1
+			user.visible_message("[user] opens the cell cover of [src].", "<span class='notice'>You open the cell cover of [src].</span>")
+			return
+		else
+			hatch_open = 0 
+			user.visible_message("[user] closes the cell cover of [src].", "<span class='notice'>You close the cell cover of [src].</span>")
+			return
 	if(!load_ammo(A, user))
 		return ..()
 
@@ -154,10 +192,14 @@ GLOBAL_LIST_INIT(registered_cyborg_weapons, list())
 /obj/item/weapon/gun/energy/examine(mob/user)
 	. = ..(user)
 	if(!power_supply)
-		to_chat(user, "Seems like it's dead.")
-		return
-	var/shots_remaining = round(power_supply.charge / charge_cost)
-	to_chat(user, "Has [shots_remaining] shot\s remaining.")
+		to_chat(user, "There is no power cell loaded.")
+	else
+		var/shots_remaining = round(power_supply.charge / charge_cost)
+		to_chat(user, "Has [shots_remaining] shot\s remaining.")
+	if(!hatch_open)
+		to_chat(user, "The cell cover is closed.")
+	if(hatch_open)
+		to_chat(user, "The cell cover is open.")
 	return
 
 /obj/item/weapon/gun/energy/on_update_icon()
