@@ -173,8 +173,18 @@
 
 //terran
 
+/mob/living/simple_animal/hostile/urist/terran
+	var/corpse = null //i really need to make this a generic var, but that's going to require going through all the old Bay simple mobs too so it'll have to wait for another day
+	hiddenfaction = /datum/factions/terran
+
+/mob/living/simple_animal/hostile/urist/terran/death(gibbed, deathmessage, show_dead_message)
+	..(gibbed, deathmessage, show_dead_message)
+	if(corpse)
+		new corpse (src.loc)
+	qdel(src)
+	return
+
 /mob/living/simple_animal/hostile/urist/terran/marine
-	faction = "terran"
 	name = "\improper Terran Confederacy Marine"
 	desc = "A Terran Confederacy Marine."
 	ranged = 1
@@ -191,12 +201,12 @@
 	health = 150
 	minimum_distance = 4
 	retreat_distance = 2
+	corpse = /obj/effect/landmark/corpse/terran/marine
 
 /mob/living/simple_animal/hostile/urist/terran/marine/event
-	faction = "neutral"
+	faction = "terran"
 
 /mob/living/simple_animal/hostile/urist/terran/marine_officer
-	faction = "terran"
 	name = "\improper Terran Confederacy Marine Officer"
 	desc = "A Terran Confederacy Marine Officer."
 	ranged = 1
@@ -213,9 +223,10 @@
 	health = 120
 	minimum_distance = 4
 	retreat_distance = 2
+	corpse = /obj/effect/landmark/corpse/terran/officer
 
 /mob/living/simple_animal/hostile/urist/terran/marine_officer/event
-	faction = "neutral"
+	faction = "terran"
 
 /mob/living/simple_animal/hostile/urist/terran/marine_space
 	faction = "terran"
@@ -231,17 +242,19 @@
 	casingtype = /obj/item/ammo_casing/a556
 	projectilesound = 'sound/weapons/gunshot/gunshot2.ogg'
 	projectiletype = /obj/item/projectile/bullet/rifle/a556
-	maxHealth = 200
+	maxHealth = 220
 	health = 200
 	min_gas = null
 	max_gas = null
 	minbodytemp = 0
 	minimum_distance = 4
 	retreat_distance = 2
+	corpse = /obj/effect/landmark/corpse/terran/marinespace
 
 /mob/living/simple_animal/hostile/urist/terran/marine_space/event
-	faction = "neutral"
+	faction = "terran"
 
+//rebels
 
 /mob/living/simple_animal/hostile/urist/rebel
 	icon_state = "ANTAG"
@@ -249,7 +262,7 @@
 	name = "\improper Rebel"
 	desc = "A member of a growing resistance movement to both NanoTrasen and the Terran Confederacy."
 	casingtype = /obj/item/ammo_casing/a762
-	faction = "rebels"
+	hiddenfaction = /datum/factions/rebel
 	rapid = 0
 	maxHealth = 130
 	health = 130
@@ -260,7 +273,7 @@
 	projectiletype = /obj/item/projectile/bullet/rifle/a762
 
 /mob/living/simple_animal/hostile/urist/rebel/event
-	faction = "neutral"
+	faction = "rebels"
 
 //new pirates
 

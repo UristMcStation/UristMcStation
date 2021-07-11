@@ -184,6 +184,7 @@
 	faction_id = "pirate"
 
 //pirate corpses
+
 /obj/effect/landmark/corpse/newpirate
 	spawn_flags = CORPSE_SPAWNER_RANDOM_NAME | CORPSE_SPAWNER_CUT_ID_PDA | CORPSE_SPAWNER_CUT_SURVIVAL
 
@@ -198,3 +199,20 @@
 /obj/effect/landmark/corpse/newpirate/ballistic
 	name = "New Pirate - Ballistic"
 	corpse_outfits = list(/decl/hierarchy/outfit/newpirate/ballistic)
+
+//terran corpses
+
+/obj/effect/landmark/corpse/terran
+	spawn_flags = CORPSE_SPAWNER_RANDOM_NAME | CORPSE_SPAWNER_CUT_ID_PDA | CORPSE_SPAWNER_CUT_SURVIVAL
+
+/obj/effect/landmark/corpse/terran/marine
+	name = "Terran Marine"
+	corpse_outfits = list(/decl/hierarchy/outfit/terranmarine)
+
+/obj/effect/landmark/corpse/terran/marinespace
+	name = "Terran Marine - Space"
+	corpse_outfits = list(/decl/hierarchy/outfit/terranmarinespace)
+
+/obj/effect/landmark/corpse/terran/officer
+	name = "Terran Officer"
+	corpse_outfits = list(/decl/hierarchy/outfit/terranofficer)
