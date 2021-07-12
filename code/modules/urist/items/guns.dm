@@ -815,7 +815,7 @@ the sprite and make my own projectile -Glloyd*/
 	origin_tech = "combat=2"
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
 	ammo_type = /obj/item/ammo_casing/c9mm
-	max_ammo = 30
+	max_ammo = 15
 	multiple_sprites = 1
 
 /obj/item/ammo_magazine/hi2521smg9mm/empty
