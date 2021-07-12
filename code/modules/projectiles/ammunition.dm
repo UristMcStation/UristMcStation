@@ -147,6 +147,28 @@
 			return
 		stored_ammo.Add(C)
 		update_icon()
+	if(istype(W, /obj/item/ammo_magazine))
+		var/obj/item/ammo_magazine/AM = W
+		if(AM.caliber != caliber)
+			to_chat(user, "<span class='warning'>[AM] does not fit into [src].</span>")
+			return
+		if(stored_ammo.len >= max_ammo)
+			to_chat(user, "<span class='warning'>[src] is full!</span>")
+			return
+		var/count = 0
+		for(var/obj/item/ammo_casing/C in AM.stored_ammo)
+			if(stored_ammo.len >= max_ammo)
+				break
+			if(C.caliber == caliber)
+				C.forceMove(src)
+				stored_ammo.Add(C)
+				AM.stored_ammo -= C //should probably go inside an ammo_magazine proc, but I guess less proc calls this way...
+				count++
+		if(count)
+			user.visible_message("[user] reloads [src].", "<span class='notice'>You load [count] round\s into [src].</span>")
+			playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
+		update_icon()
+		AM.update_icon()
 	else ..()
 
 /obj/item/ammo_magazine/attack_self(mob/user)
