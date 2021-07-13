@@ -127,7 +127,7 @@
 			            access_expedition_shuttle_helm, access_expedition)
 
 /datum/job/hop/get_description_blurb()
-	return "You are the Second Officer, third in command, after the First Officer and the Captain. As the Second Officer, it is your job to oversee personnel issues, which includes managing access, delegating crew grievances, and ensuring the proper upkeep and operation of the ship's recreational and mess facilities. Thus, you are the direct supervisor for the janitorial staff, as well as the culinary and hydroponics staff. As Second Officer, it is also your job to organize and lead awaymissions, and in cases where there is no First Officer present, to pilot the ICS Nerva."
+	return "You are the Second Officer, third in command, after the First Officer and the Captain. As the Second Officer, it is your job to oversee personnel issues, which includes managing access, delegating crew grievances, and ensuring the proper upkeep and operation of the ship's recreational and mess facilities. Thus, you are the direct supervisor for the janitorial staff, as well as the culinary and hydroponics staff. As Second Officer, it is also your job to organize and lead away missions, and in cases where there is no First Officer present, to pilot the ICS Nerva."
 
 /datum/job/seniorscientist
 	minimal_player_age = 2
@@ -199,7 +199,7 @@
 	access_RC_announce, access_keycard_auth, access_heads, access_eva, access_bridge)
 
 /datum/job/qm/get_description_blurb()
-	return	"You are the Quartermaster. As the Quartermaster, it is your job to oversee and delegate your Supply Staff, which may include managing research & development, exporting and importing goods, sending teams to away-missions, salvaging and mining and arming the ICS Nerva if attacks occur. As Quartermaster, it is your job to discuss with the Second Officer organizing awaymissions and to prevent supply crew from manufactoring dangerous arms without direct permission."
+	return	"You are the Quartermaster. As the Quartermaster, it is your job to oversee and delegate your Supply Staff, which may include managing research & development, exporting and importing goods, sending teams to away missions, salvaging and mining, and arming the ICS Nerva if attacks occur. As Quartermaster, it is your job to organize away missions with the Second Officer and prevent the supply crew from manufacturing dangerous arms without direct permission."
 
 /datum/job/cargo_tech
 	minimal_player_age = 0
