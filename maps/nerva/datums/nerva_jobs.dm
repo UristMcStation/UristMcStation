@@ -114,20 +114,20 @@
 	access = list(access_security, access_sec_doors, access_brig, access_forensics_lockers, access_heads,
 			            access_medical, access_engine, access_change_ids, access_ai_upload, access_eva, access_bridge,
 			            access_all_personal_lockers, access_maint_tunnels, access_janitor, access_construction, access_morgue,
-			            access_crematorium, access_cargo, access_hydroponics, access_lawyer,
+			            access_crematorium, access_cargo, access_hydroponics, access_lawyer, access_bar, access_kitchen,
 			            access_chapel_office, access_library, access_research, access_heads_vault,
-			            access_hop, access_RC_announce, access_keycard_auth, access_gateway,
+			            access_hop, access_RC_announce, access_keycard_auth, access_gateway, access_teleporter,
 			            access_expedition_shuttle_helm, access_expedition)
 	minimal_access = list(access_security, access_sec_doors, access_brig, access_forensics_lockers, access_heads,
 			            access_medical, access_engine, access_change_ids, access_ai_upload, access_eva, access_bridge,
 			            access_all_personal_lockers, access_maint_tunnels, access_janitor, access_construction, access_morgue,
-			            access_crematorium, access_cargo, access_hydroponics, access_lawyer,
+			            access_crematorium, access_cargo, access_hydroponics, access_lawyer, access_bar, access_kitchen,
 			            access_chapel_office, access_library, access_research, access_heads_vault,
-			            access_hop, access_RC_announce, access_keycard_auth, access_gateway,
+			            access_hop, access_RC_announce, access_keycard_auth, access_gateway, access_teleporter,
 			            access_expedition_shuttle_helm, access_expedition)
 
-/datum/job/firstofficer/get_description_blurb()
-	return "You are the Second Officer, third in command, after the First Officer and the Captain. As the Second Officer, it is your job to oversee personnel issues, which includes managing access, delegating crew grievances, and ensuring the proper upkeep and operation of the ship's recreational and mess facilities. Thus, you are the direct supervisor for the janitorial staff, as well as the culinary and hydroponics staff. As Second Officer, it is also your job to organize and lead awaymissions, and in cases where there is no First Officer present, to pilot the ICS Nerva."
+/datum/job/hop/get_description_blurb()
+	return "You are the Second Officer, third in command, after the First Officer and the Captain. As the Second Officer, it is your job to oversee personnel issues, which includes managing access, delegating crew grievances, and ensuring the proper upkeep and operation of the ship's recreational and mess facilities. Thus, you are the direct supervisor for the janitorial staff, as well as the culinary and hydroponics staff. As Second Officer, it is also your job to organize and lead away missions, and in cases where there is no First Officer present, to pilot the ICS Nerva."
 
 /datum/job/seniorscientist
 	minimal_player_age = 2
@@ -193,13 +193,13 @@
 	outfit_type = /decl/hierarchy/outfit/job/nerva/qm
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station,
 	access_expedition_shuttle_helm, access_expedition, access_robotics, access_research, access_teleporter,
-	access_RC_announce, access_keycard_auth, access_heads, access_eva, access_bridge, access_hydroponics, access_chapel_office, access_library, access_bar, access_kitchen, access_janitor)
+	access_RC_announce, access_keycard_auth, access_heads, access_eva, access_bridge, access_hydroponics)
 	minimal_access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station,
 	access_expedition_shuttle_helm, access_expedition, access_robotics, access_research, access_teleporter,
-	access_RC_announce, access_keycard_auth, access_heads, access_eva, access_bridge, access_hydroponics, access_chapel_office, access_library, access_bar, access_janitor)
+	access_RC_announce, access_keycard_auth, access_heads, access_eva, access_bridge, access_hydroponics)
 
 /datum/job/qm/get_description_blurb()
-	return	"You are the Quartermaster. As the Quartermaster, it is your job to oversee and delegate your Supply Staff, which may include managing research & development, exporting and importing goods, sending teams to away-missions, salvaging and mining and arming the ICS Nerva if attacks occur. Thus, you are a Directive Supervisor for the supply and culinary staff. As Quartermaster, it is your job to discuss with the Second Officer organizing awaymissions and to prevent supply crew from manufactoring dangerous arms without direct permission."
+	return	"You are the Quartermaster. As the Quartermaster, it is your job to oversee and delegate your Supply Staff, which may include managing research & development, exporting and importing goods, sending teams to away missions, salvaging and mining, and arming the ICS Nerva if attacks occur. As Quartermaster, it is your job to organize away missions with the Second Officer and prevent the supply crew from manufacturing dangerous arms without direct permission."
 
 /datum/job/cargo_tech
 	minimal_player_age = 0
@@ -314,11 +314,11 @@
 	access = list(access_hydroponics, access_bar, access_kitchen)
 	minimal_access = list(access_hydroponics, access_bar, access_kitchen)
 	alt_titles = list("Bartender" = /decl/hierarchy/outfit/job/service/nervabartender)
-	supervisors = "the quartermaster and the second officer."
+	supervisors = "the second officer."
 	minimal_player_age = 0
 
 /datum/job/chef/get_description_blurb()
-	return	"You are part of the culinary staff aboard the ICS Nerva. It is your job to provide the crew with food, serve alcoholic and non-alcoholic beverages, cooking both exotic and non-exotic meals and ensuring that no fighting occurs in the bar. You answer directly to the Quartermaster and the Second Officer. Remember to only use your shotgun if a serious fight occurs and avoid serving spiked food or drinks to your customers, or you may face reprecussions."
+	return	"You are part of the culinary staff aboard the ICS Nerva. It is your job to provide the crew with food, serve alcoholic and non-alcoholic beverages, cooking both exotic and non-exotic meals and ensuring that no fighting occurs in the bar. You answer directly to the Second Officer. Remember to only use your shotgun if a serious fight occurs and avoid serving spiked food or drinks to your customers, or you may face reprecussions."
 
 
 /datum/job/janitor
@@ -436,4 +436,4 @@
 
 
 /datum/job/clown/get_description_blurb()
-	return	"You are the Clown aboard the ICS Nerva, try your best to entertainment the crew. You could answer to the Second Officer, but who would do that?"
+	return	"You are the Clown aboard the ICS Nerva, try your best to entertain the crew. You could answer to the Second Officer, but who would do that?"
