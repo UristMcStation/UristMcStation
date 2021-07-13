@@ -104,13 +104,15 @@ GLOBAL_LIST_INIT(registered_cyborg_weapons, list())
 		return
 	
 	if(hatch_open)
-		to_chat(user, "<span class='warning'>[src] has the cell cover still open!</span>")
+		to_chat(user, "<span class='warning'>[src] has its cell cover still open!</span>")
 		return 0
 	return 1
 
 //Attempts to load A into src, depending on the type of thing being loaded and the load_method
 //reloading in a new energy cell
 /obj/item/weapon/gun/energy/proc/load_ammo(var/obj/item/A, mob/user)
+	if(self_recharge)
+		return
 	//only let's you load in power cells
 	if(istype(A, /obj/item/weapon/cell))
 		. = TRUE
@@ -130,7 +132,7 @@ GLOBAL_LIST_INIT(registered_cyborg_weapons, list())
 				if(!user.unEquip(AM, src))
 					return
 				power_supply = AM
-				user.visible_message("[user] inserts [AM] into [src].", "<span class='notice'>You insert [AM] into [src].</span>")
+				user.visible_message("[user] inserts [AM] into [src].", "<span class='notice'>You insert [AM] and hot wire it into [src].</span>")
 				playsound(loc, mag_insert_sound, 50, 1)
 				AM.update_icon()
 			else
@@ -144,10 +146,12 @@ GLOBAL_LIST_INIT(registered_cyborg_weapons, list())
 //attempts to unload src. If allow_dump is set to 0, the speedloader unloading method will be disabled
 //unloading the existing energy cell
 /obj/item/weapon/gun/energy/proc/unload_ammo(mob/user)
+	if(self_recharge)
+		return
 	if(hatch_open)
 		if(power_supply)
 			user.put_in_hands(power_supply)
-			user.visible_message("[user] removes [power_supply] from [src].", "<span class='notice'>You remove [power_supply] from [src].</span>")
+			user.visible_message("[user] removes [power_supply] from [src].", "<span class='notice'>You disconnect the wires and remove [power_supply] from [src].</span>")
 			playsound(loc, mag_remove_sound, 50, 1)
 			power_supply.update_icon()
 			power_supply = null
@@ -164,6 +168,8 @@ GLOBAL_LIST_INIT(registered_cyborg_weapons, list())
 
 //to trigger loading cell
 /obj/item/weapon/gun/energy/attackby(var/obj/item/A as obj, mob/user as mob)
+	if(self_recharge)
+		return
 	if(isScrewdriver(A))
 		if(!hatch_open)
 			hatch_open = 1
