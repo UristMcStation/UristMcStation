@@ -45,8 +45,8 @@
 /mob/living/simple_animal/hostile/npc/colonist/trader/crop_trader/get_trade_value(var/obj/O)
 	. = get_value(O) * 25
 
-/mob/living/simple_animal/hostile/npc/colonist/trader/crop_trader/player_sell(var/obj/O, var/mob/M, var/worth, var/resell = 1)
-	return ..(O, M, worth, 0)
+/mob/living/simple_animal/hostile/npc/colonist/trader/crop_trader/player_sell(var/obj/O, var/mob/M, var/resell = 1)
+	return ..(O, M, 0)
 
 
 //mineral trader
@@ -85,7 +85,7 @@
 
 	npc_item_amount = 26
 	randomize_value = 0
-	price_increase = 1 //no price increase
+	price_modifier = 0 //no price increase
 	interact_screen = 2
 
 //TC guy

@@ -1,7 +1,7 @@
-/mob/living/simple_animal/hostile/npc/proc/player_sell(var/obj/O, var/mob/M, var/worth, var/resell = 1)
+/mob/living/simple_animal/hostile/npc/proc/player_sell(var/obj/O, var/mob/M, var/resell = 1)
 	if(no_resell)
 		resell = 0
-
+	var/worth = get_trade_value(O)	//Update the price here aswell as nanoUI updates are slow and can allow for multiple sales at the same rate
 	if(!worth)
 		to_chat(M,"<span class = 'warning'>It's not worth your time to do that.</span>")
 		return
@@ -52,7 +52,7 @@
 	var/datum/trade_item/T = trade_items_inventory_by_type[O.type]
 	if(T)
 		T.quantity += 1
-		T.value = round(T.value * src.sell_modifier)		//price goes down a little
+		T.value = round(T.value * (1-src.price_modifier))		//price goes down a little
 		update_trade_item_ui(T)
 		return 1
 	return 0
@@ -131,7 +131,7 @@
 
 	//update the inventory
 	D.quantity -= 1
-	D.value = round(D.value * src.price_increase)		//price goes up a little
+	D.value = round(D.value * (1+src.price_modifier))		//price goes up a little
 	update_trade_item_ui(D)
 
 /mob/living/simple_animal/hostile/npc/proc/GiveFreeItem(var/datum/trade_item/D, var/mob/M)

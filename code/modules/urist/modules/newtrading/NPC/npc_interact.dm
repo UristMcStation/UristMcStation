@@ -58,7 +58,7 @@
 		if(M.l_hand)
 			data["l_hand"] = M.l_hand
 			data["l_hand_icon"] = getFlatIcon(M.l_hand)
-			data["l_hand_worth"] = round(get_trade_value(M.l_hand) * 0.9)	//always rebuy for less due to depreciation
+			data["l_hand_worth"] = get_trade_value(M.l_hand)
 			if(check_tradeable(M.l_hand))
 				data["l_sellable"] = 1
 			else
@@ -74,12 +74,13 @@
 		if(M.r_hand)
 			data["r_hand"] = M.r_hand
 			data["r_hand_icon"] = getFlatIcon(M.r_hand)
-			data["r_hand_worth"] = round(get_trade_value(M.r_hand) * 0.9)	//always rebuy for less due to depreciation
+			data["r_hand_worth"] = get_trade_value(M.r_hand)
 			if(check_tradeable(M.r_hand))
 				data["r_sellable"] = 1
 			else
 				data["r_sellable"] = -1
 
+		else
 			data["r_hand"] = "empty"
 			data["r_hand_icon"] = ""
 			data["r_hand_worth"] = "0"
@@ -113,8 +114,7 @@
 		var/mob/living/carbon/M = locate(href_list["user"])
 		if(M && istype(M))
 			var/obj/O = M.l_hand
-			var/worth = text2num(href_list["worth"])
-			player_sell(O, M, worth)
+			player_sell(O, M)
 
 	if(href_list["ask_question"])
 		var/mob/living/carbon/M = locate(href_list["user"])
@@ -128,8 +128,7 @@
 		var/mob/living/carbon/M = locate(href_list["user"])
 		if(M && istype(M))
 			var/obj/O = M.r_hand
-			var/worth = text2num(href_list["worth"])
-			player_sell(O, M, worth)
+			player_sell(O, M)
 
 	if(href_list["buy_item"])
 		var/mob/living/carbon/M = locate(href_list["user"])
