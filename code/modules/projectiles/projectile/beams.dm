@@ -198,7 +198,7 @@
 	armor_penetration = 10
 	sharp = 1
 	edge = 1
-	damage_type = BRUTE || BURN //It's basically a particle accelerator anyways.
+	damage_type = BURN
 	kill_count = 5
 	pass_flags = PASS_FLAG_TABLE
 
