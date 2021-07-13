@@ -193,10 +193,10 @@
 	outfit_type = /decl/hierarchy/outfit/job/nerva/qm
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station,
 	access_expedition_shuttle_helm, access_expedition, access_robotics, access_research, access_teleporter,
-	access_RC_announce, access_keycard_auth, access_heads, access_eva, access_bridge)
+	access_RC_announce, access_keycard_auth, access_heads, access_eva, access_bridge, access_hydroponics)
 	minimal_access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station,
 	access_expedition_shuttle_helm, access_expedition, access_robotics, access_research, access_teleporter,
-	access_RC_announce, access_keycard_auth, access_heads, access_eva, access_bridge)
+	access_RC_announce, access_keycard_auth, access_heads, access_eva, access_bridge, access_hydroponics)
 
 /datum/job/qm/get_description_blurb()
 	return	"You are the Quartermaster. As the Quartermaster, it is your job to oversee and delegate your Supply Staff, which may include managing research & development, exporting and importing goods, sending teams to away missions, salvaging and mining, and arming the ICS Nerva if attacks occur. As Quartermaster, it is your job to organize away missions with the Second Officer and prevent the supply crew from manufacturing dangerous arms without direct permission."
