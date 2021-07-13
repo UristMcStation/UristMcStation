@@ -139,7 +139,7 @@ GLOBAL_LIST_INIT(registered_cyborg_weapons, list())
 				to_chat(user,"<span class='warning'>The cell size is too big for the [src]. It must be [max_shots*charge_cost] Wh or smaller.</span>")
 				return
 		else
-			user.visible_message("<span class='warning'>The cell cover is closed. Use a screwdriver to open it.</span>")
+			to_chat(user,"<span class='warning'>The cell cover is closed. Use a screwdriver to open it.</span>")
 			return
 	update_icon()
 
