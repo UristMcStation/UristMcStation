@@ -86,6 +86,7 @@
 	color = "#00a000"
 	scannable = 1
 	flags = IGNORE_MOB_SIZE
+	var/remove_generic = 1
 	var/list/remove_toxins = list(
 		/datum/reagent/toxin/zombiepowder,
 		/datum/reagent/soporific,
