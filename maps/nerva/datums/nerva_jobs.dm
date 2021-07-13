@@ -314,11 +314,11 @@
 	access = list(access_hydroponics, access_bar, access_kitchen)
 	minimal_access = list(access_hydroponics, access_bar, access_kitchen)
 	alt_titles = list("Bartender" = /decl/hierarchy/outfit/job/service/nervabartender)
-	supervisors = "the quartermaster and the second officer."
+	supervisors = "the second officer."
 	minimal_player_age = 0
 
 /datum/job/chef/get_description_blurb()
-	return	"You are part of the culinary staff aboard the ICS Nerva. It is your job to provide the crew with food, serve alcoholic and non-alcoholic beverages, cooking both exotic and non-exotic meals and ensuring that no fighting occurs in the bar. You answer directly to the Quartermaster and the Second Officer. Remember to only use your shotgun if a serious fight occurs and avoid serving spiked food or drinks to your customers, or you may face reprecussions."
+	return	"You are part of the culinary staff aboard the ICS Nerva. It is your job to provide the crew with food, serve alcoholic and non-alcoholic beverages, cooking both exotic and non-exotic meals and ensuring that no fighting occurs in the bar. You answer directly to the Second Officer. Remember to only use your shotgun if a serious fight occurs and avoid serving spiked food or drinks to your customers, or you may face reprecussions."
 
 
 /datum/job/janitor
