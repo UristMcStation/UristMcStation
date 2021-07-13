@@ -2,6 +2,31 @@
 /obj/item/weapon/gun/projectile/shotgun
 	icon = 'icons/urist/items/shotguns.dmi'
 
+/obj/item/weapon/gun/projectile/shotgun/load_ammo(var/obj/item/A, mob/user)
+    if(istype(A, /obj/item/ammo_magazine))
+        . = TRUE
+        var/obj/item/ammo_magazine/AM = A
+        if(caliber != AM.caliber || !(AM.mag_type & SPEEDLOADER))
+            return
+
+        if(loaded.len >= max_shells)
+            to_chat(user, "<span class='warning'>[src] is full!</span>")
+            return
+
+        var/obj/item/ammo_casing/C = AM.stored_ammo[AM.stored_ammo.len]
+        AM.stored_ammo -= C
+        loaded.Insert(1, C)
+        user.visible_message("[user] inserts \a [C] into [src].", "<span class='notice'>You insert \a [C] into [src].</span>")
+        playsound(loc, load_sound, 50, 1)
+        if(istype(AM, /obj/item/ammo_magazine/shotbundle))
+            var/obj/item/ammo_magazine/shotbundle/SB = A
+            SB.check_ammo_count(user)
+        AM.update_icon()
+        return
+    
+    return ..()
+
+	
 /obj/item/weapon/gun/projectile/shotgun/on_update_icon()
 	..()
 	if(loaded.len)

@@ -143,6 +143,9 @@
 		if(stored_ammo.len >= max_ammo)
 			to_chat(user, "<span class='warning'>[src] is full!</span>")
 			return
+		if(!C.BB)
+			to_chat(user, "<span class='warning'>[C] is spent.</span>")
+			return
 		if(!user.unEquip(C, src))
 			return
 		stored_ammo.Add(C)
