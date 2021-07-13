@@ -114,14 +114,14 @@
 	access = list(access_security, access_sec_doors, access_brig, access_forensics_lockers, access_heads,
 			            access_medical, access_engine, access_change_ids, access_ai_upload, access_eva, access_bridge,
 			            access_all_personal_lockers, access_maint_tunnels, access_janitor, access_construction, access_morgue,
-			            access_crematorium, access_cargo, access_hydroponics, access_lawyer,
+			            access_crematorium, access_cargo, access_hydroponics, access_lawyer, access_bar, access_kitchen,
 			            access_chapel_office, access_library, access_research, access_heads_vault,
 			            access_hop, access_RC_announce, access_keycard_auth, access_gateway,
 			            access_expedition_shuttle_helm, access_expedition)
 	minimal_access = list(access_security, access_sec_doors, access_brig, access_forensics_lockers, access_heads,
 			            access_medical, access_engine, access_change_ids, access_ai_upload, access_eva, access_bridge,
 			            access_all_personal_lockers, access_maint_tunnels, access_janitor, access_construction, access_morgue,
-			            access_crematorium, access_cargo, access_hydroponics, access_lawyer,
+			            access_crematorium, access_cargo, access_hydroponics, access_lawyer, access_bar, access_kitchen,
 			            access_chapel_office, access_library, access_research, access_heads_vault,
 			            access_hop, access_RC_announce, access_keycard_auth, access_gateway,
 			            access_expedition_shuttle_helm, access_expedition)
@@ -193,13 +193,13 @@
 	outfit_type = /decl/hierarchy/outfit/job/nerva/qm
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station,
 	access_expedition_shuttle_helm, access_expedition, access_robotics, access_research, access_teleporter,
-	access_RC_announce, access_keycard_auth, access_heads, access_eva, access_bridge, access_hydroponics, access_chapel_office, access_library, access_bar, access_kitchen, access_janitor)
+	access_RC_announce, access_keycard_auth, access_heads, access_eva, access_bridge)
 	minimal_access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station,
 	access_expedition_shuttle_helm, access_expedition, access_robotics, access_research, access_teleporter,
-	access_RC_announce, access_keycard_auth, access_heads, access_eva, access_bridge, access_hydroponics, access_chapel_office, access_library, access_bar, access_janitor)
+	access_RC_announce, access_keycard_auth, access_heads, access_eva, access_bridge)
 
 /datum/job/qm/get_description_blurb()
-	return	"You are the Quartermaster. As the Quartermaster, it is your job to oversee and delegate your Supply Staff, which may include managing research & development, exporting and importing goods, sending teams to away-missions, salvaging and mining and arming the ICS Nerva if attacks occur. Thus, you are a Directive Supervisor for the supply and culinary staff. As Quartermaster, it is your job to discuss with the Second Officer organizing awaymissions and to prevent supply crew from manufactoring dangerous arms without direct permission."
+	return	"You are the Quartermaster. As the Quartermaster, it is your job to oversee and delegate your Supply Staff, which may include managing research & development, exporting and importing goods, sending teams to away-missions, salvaging and mining and arming the ICS Nerva if attacks occur. As Quartermaster, it is your job to discuss with the Second Officer organizing awaymissions and to prevent supply crew from manufactoring dangerous arms without direct permission."
 
 /datum/job/cargo_tech
 	minimal_player_age = 0
