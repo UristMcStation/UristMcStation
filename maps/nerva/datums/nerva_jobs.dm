@@ -126,7 +126,7 @@
 			            access_hop, access_RC_announce, access_keycard_auth, access_gateway,
 			            access_expedition_shuttle_helm, access_expedition)
 
-/datum/job/firstofficer/get_description_blurb()
+/datum/job/hop/get_description_blurb()
 	return "You are the Second Officer, third in command, after the First Officer and the Captain. As the Second Officer, it is your job to oversee personnel issues, which includes managing access, delegating crew grievances, and ensuring the proper upkeep and operation of the ship's recreational and mess facilities. Thus, you are the direct supervisor for the janitorial staff, as well as the culinary and hydroponics staff. As Second Officer, it is also your job to organize and lead awaymissions, and in cases where there is no First Officer present, to pilot the ICS Nerva."
 
 /datum/job/seniorscientist
