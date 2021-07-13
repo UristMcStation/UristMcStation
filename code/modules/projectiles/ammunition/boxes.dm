@@ -71,7 +71,7 @@
 /obj/item/ammo_magazine/shotbundle
 	name = "fistful of shotgun shells"
 	desc = "A fistful of shotgun shells."
-	icon = "icons/urist/items/shotbundle.dmi"
+	icon = 'icons/urist/items/shotbundle.dmi'
 	icon_state = "slshell-1"
 	caliber = "shotgun"
 	ammo_type = /obj/item/ammo_casing/shotgun
