@@ -165,7 +165,7 @@
 				AM.stored_ammo -= C //should probably go inside an ammo_magazine proc, but I guess less proc calls this way...
 				count++
 		if(count)
-			user.visible_message("[user] reloads [src].", "<span class='notice'>You load [count] round\s into [src].</span>")
+			to_chat(user,"<span class='notice'>You transfer [count] round\s into [src].</span>")
 			playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
 		update_icon()
 		AM.update_icon()
@@ -236,4 +236,3 @@
 
 	magazine_icondata_keys["[M.type]"] = icon_keys
 	magazine_icondata_states["[M.type]"] = ammo_states
-
