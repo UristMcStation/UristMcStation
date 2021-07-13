@@ -12,7 +12,7 @@
 	throw_speed = 2
 	throw_range = 10
 	amount_per_transfer_from_this = 10
-	unacidable = 1 //plastic
+	unacidable = 0 //plastic
 	possible_transfer_amounts = "5;10" //Set to null instead of list, if there is only one.
 	var/spray_size = 3
 	var/list/spray_sizes = list(1,3)
@@ -21,7 +21,7 @@
 
 /obj/item/weapon/reagent_containers/spray/New()
 	..()
-	src.verbs -= /obj/item/weapon/reagent_containers/verb/set_APTFT
+	src.verbs -= /obj/item/weapon/reagent_containers/verb/set_amount_per_transfer_from_this
 
 /obj/item/weapon/reagent_containers/spray/afterattack(atom/A as mob|obj, mob/user as mob, proximity)
 	if(istype(A, /obj/item/weapon/storage) || istype(A, /obj/structure/table) || istype(A, /obj/structure/closet) || istype(A, /obj/item/weapon/reagent_containers) || istype(A, /obj/structure/hygiene/sink) || istype(A, /obj/structure/janitorialcart))
@@ -169,7 +169,7 @@
 /obj/item/weapon/reagent_containers/spray/chemsprayer
 	name = "chem sprayer"
 	desc = "A utility used to spray large amounts of reagent in a given area."
-	icon = 'icons/obj/gun.dmi'
+	icon = 'icons/obj/weapons.dmi'
 	icon_state = "chemsprayer"
 	item_state = "chemsprayer"
 	throwforce = 3
@@ -177,6 +177,7 @@
 	possible_transfer_amounts = null
 	volume = 600
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3, TECH_ENGINEERING = 3)
+	unacidable = 1
 	step_delay = 8
 
 /obj/item/weapon/reagent_containers/spray/chemsprayer/Spray_at(atom/A as mob|obj)

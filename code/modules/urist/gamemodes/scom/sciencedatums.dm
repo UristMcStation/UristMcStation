@@ -45,7 +45,7 @@
 
 /datum/scomscience/recipe/shotgunammo
 	name = "shotgun ammo"
-	path = /obj/item/weapon/storage/box/shotgunammo
+	path = /obj/item/weapon/storage/box/ammo/shotgunammo
 	category = "Assault"
 	resources = 100
 

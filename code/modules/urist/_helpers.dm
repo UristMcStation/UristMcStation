@@ -384,3 +384,9 @@ B --><-- A
 		if(light_amt < max_light)
 			return 1
 	return 0
+
+/datum/controller/subsystem/ticker/proc/new_cargo_roundend(var/stationmoney) //TODO: Expand the amount of stuff that gets tracked, and add it to the roundend report. i.e newfaction stuff.
+	to_world("The <b>[GLOB.using_map.station_name]</b> itself made <b>T[stationmoney]</b> in revenue today, with <b>T[station_account.money]</b> in its account.")
+	to_world("<b>T<font color='red'>[SSpayment_controller.total_paid]</font></b> was paid to the crew of the <b>[GLOB.using_map.station_name]</b> in hourly salary payments today.")
+	to_world("The crew of the <b>[GLOB.using_map.station_name]</b> completed <b>[GLOB.using_map.completed_contracts]</b> contracts today.")
+	to_world("In addition <b>[GLOB.using_map.destroyed_ships]</b> hostile ships were destroyed by the crew of the <b>[GLOB.using_map.station_name]</b> today.")

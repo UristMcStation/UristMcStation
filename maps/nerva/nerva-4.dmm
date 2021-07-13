@@ -24,13 +24,6 @@
 /obj/effect/shuttle_landmark/merc/deck1,
 /turf/space,
 /area/space)
-"ag" = (
-/obj/effect/shuttle_landmark/merchant/out,
-/turf/space,
-/area/space)
-"ah" = (
-/turf/simulated/wall/r_wall,
-/area/hallway/centralfirst)
 "ai" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -38,7 +31,7 @@
 	id_tag = "merchant_shuttle_station_exterior";
 	locked = 1;
 	name = "Docking Port Airlock";
-	req_access = list(13)
+	req_access = list("ACCESS_EXTERNAL")
 	},
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
@@ -49,7 +42,7 @@
 	id_tag = "merchant_shuttle_station_exterior";
 	locked = 1;
 	name = "Docking Port Airlock";
-	req_access = list(13)
+	req_access = list("ACCESS_EXTERNAL")
 	},
 /obj/machinery/shield_diffuser,
 /turf/simulated/floor/plating,
@@ -59,7 +52,7 @@
 	icon_state = "securearea";
 	dir = 1
 	},
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/hallway/centralfirst)
 "al" = (
 /obj/machinery/airlock_sensor{
@@ -92,10 +85,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
-"an" = (
-/obj/structure/sign/warning/docking_area,
-/turf/simulated/wall/r_wall,
-/area/hallway/centralfirst)
 "ao" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -103,7 +92,7 @@
 	id_tag = "merchant_shuttle_station_interior";
 	locked = 1;
 	name = "Docking Port Airlock";
-	req_access = list(13)
+	req_access = list("ACCESS_EXTERNAL")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	icon_state = "intact";
@@ -118,7 +107,7 @@
 	id_tag = "merchant_shuttle_station_interior";
 	locked = 1;
 	name = "Docking Port Airlock";
-	req_access = list(13)
+	req_access = list("ACCESS_EXTERNAL")
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4;
@@ -152,7 +141,6 @@
 	id_tag = "merchant_shuttle_station_dock";
 	pixel_x = 24;
 	pixel_y = 24;
-	req_one_access = list(13,80);
 	tag_airpump = "merchant_shuttle_station_pump";
 	tag_chamber_sensor = "merchant_shuttle_station_sensor";
 	tag_exterior_door = "merchant_shuttle_station_exterior";
@@ -173,14 +161,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/hallway/centralfirst)
 "ax" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	icon_state = "map";
 	dir = 1
 	},
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/hallway/centralfirst)
 "ay" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -249,7 +237,7 @@
 	name = "interior access button";
 	pixel_x = 23;
 	pixel_y = 23;
-	req_access = list(13)
+	req_access = list("ACCESS_EXTERNAL")
 	},
 /obj/effect/floor_decal/industrial/warning{
 	tag = "icon-warning (EAST)";
@@ -265,7 +253,7 @@
 	id_tag = "security_inner3";
 	locked = 1;
 	name = "External Access";
-	req_access = list(13)
+	req_access = list("ACCESS_EXTERNAL")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
@@ -276,7 +264,7 @@
 	id_tag = "security_airlock3";
 	pixel_x = 0;
 	pixel_y = 25;
-	req_access = list(13);
+	req_access = list("ACCESS_EXTERNAL");
 	tag_airpump = "security_pump3";
 	tag_chamber_sensor = "security_sensor3";
 	tag_exterior_door = "security_outer3";
@@ -314,7 +302,7 @@
 	id_tag = "security_outer3";
 	locked = 1;
 	name = "External Access";
-	req_access = list(10,13)
+	req_access = list("ACCESS_ENGINEERING","ACCESS_EXTERNAL")
 	},
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
@@ -323,7 +311,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
 "aN" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/first_deck/afp)
 "aO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -472,7 +460,7 @@
 	id_tag = "security_inner3";
 	locked = 1;
 	name = "External Access";
-	req_access = list(13)
+	req_access = list("ACCESS_EXTERNAL")
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	icon_state = "map";
@@ -520,7 +508,7 @@
 	name = "exterior access button";
 	pixel_x = -23;
 	pixel_y = -23;
-	req_access = list(13)
+	req_access = list("ACCESS_EXTERNAL")
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
@@ -558,11 +546,11 @@
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
 "bi" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/hallway/centralfirst)
 "bj" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_access = list("ACCESS_MAINT")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
@@ -572,11 +560,11 @@
 	icon_state = "intact";
 	dir = 5
 	},
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/hallway/centralfirst)
 "bl" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/hallway/centralfirst)
 "bm" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -623,7 +611,7 @@
 /area/hallway/centralfirst)
 "bt" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_access = list("ACCESS_MAINT")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4;
@@ -667,7 +655,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "by" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/first_deck/central)
 "bz" = (
 /obj/structure/ladder,
@@ -705,7 +693,7 @@
 /area/maintenance/first_deck/afp)
 "bC" = (
 /turf/simulated/wall/r_wall/false{
-	icon_state = "rfalse"
+	icon_state = "rdebug"
 	},
 /area/maintenance/first_deck/afp)
 "bD" = (
@@ -716,7 +704,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
 "bE" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/maintenance/first_deck/central)
 "bF" = (
 /obj/machinery/space_heater,
@@ -810,7 +798,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
 "bU" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/civilian/abandonedwarehouse)
 "bV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -929,6 +917,12 @@
 	dir = 4;
 	icon_state = "intact"
 	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4";
+	tag = ""
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afp)
 "ce" = (
@@ -948,7 +942,7 @@
 /area/maintenance/first_deck/afp)
 "cf" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_access = list("ACCESS_MAINT")
 	},
 /obj/structure/catwalk,
 /obj/structure/cable{
@@ -1021,6 +1015,7 @@
 /obj/random/storage,
 /obj/random/medical,
 /obj/random/ammo_magazine_smug,
+/obj/item/ammo_casing/musket/flintlock,
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
 "cm" = (
@@ -1045,24 +1040,29 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afp)
 "cp" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/maintenance/first_deck/afp)
 "cq" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Firefighting equipment";
-	req_access = list(12)
+	req_access = list("ACCESS_MAINT")
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afp)
 "cr" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/security/dockingcheckpoint)
 "cs" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Security Maintenance";
-	req_access = list(1)
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/structure/disposalpipe/segment,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/security/dockingcheckpoint)
 "ct" = (
@@ -1139,7 +1139,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "cC" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/first_deck/fp)
 "cD" = (
 /obj/item/weapon/stool/padded,
@@ -1179,6 +1179,12 @@
 	icon_state = "pipe-c";
 	dir = 8
 	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4";
+	tag = ""
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/dockingcheckpoint)
 "cH" = (
@@ -1191,6 +1197,11 @@
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24
+	},
+/obj/structure/cable{
+	d1 = 0;
+	d2 = 8;
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/dockingcheckpoint)
@@ -1284,7 +1295,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fp)
 "cU" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/first_deck/fore)
 "cV" = (
 /obj/structure/disposalpipe/segment,
@@ -1344,7 +1355,7 @@
 "dc" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/techmaint,
 /area/security/dockingcheckpoint)
 "dd" = (
 /obj/structure/cable{
@@ -1441,7 +1452,7 @@
 /area/civilian/abandonedwarehouse)
 "dk" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_access = list("ACCESS_MAINT")
 	},
 /obj/item/taperoll/engineering/applied,
 /turf/simulated/floor/plating,
@@ -1520,7 +1531,7 @@
 	name = "exterior access button";
 	pixel_x = 23;
 	pixel_y = 23;
-	req_access = list(13)
+	req_access = list("ACCESS_EXTERNAL")
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/maintenance/first_deck/fp)
@@ -1531,7 +1542,7 @@
 	id_tag = "security_outer";
 	locked = 1;
 	name = "External Access";
-	req_access = list(10,13)
+	req_access = list("ACCESS_ENGINEERING","ACCESS_EXTERNAL")
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fp)
@@ -1544,7 +1555,7 @@
 	tag_interior_door = "security_inner";
 	pixel_x = 0;
 	pixel_y = 25;
-	req_access = list(13);
+	req_access = list("ACCESS_EXTERNAL");
 	tag_chamber_sensor = "security_sensor"
 	},
 /obj/machinery/light/small,
@@ -1583,7 +1594,7 @@
 	id_tag = "security_inner";
 	locked = 1;
 	name = "External Access";
-	req_access = list(13)
+	req_access = list("ACCESS_EXTERNAL")
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fp)
@@ -1595,7 +1606,7 @@
 	name = "interior access button";
 	pixel_x = -23;
 	pixel_y = -23;
-	req_access = list(13)
+	req_access = list("ACCESS_EXTERNAL")
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4;
@@ -1653,7 +1664,6 @@
 	display_name = "Main Dock";
 	frequency = 1331;
 	id_tag = "nuke_shuttle_dock_airlock";
-	req_one_access = list(13,80);
 	tag_airpump = "nuke_shuttle_dock_pump";
 	tag_chamber_sensor = "nuke_shuttle_dock_sensor";
 	tag_exterior_door = "nuke_shuttle_dock_outer";
@@ -1801,7 +1811,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/maintenance/first_deck/afp)
 "dT" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/civilian/first_emergency_storage)
 "dU" = (
 /obj/structure/closet/walllocker/emerglocker/west,
@@ -1893,7 +1903,7 @@
 "ea" = (
 /obj/machinery/door/airlock/glass/security{
 	name = "Docking Checkpoint";
-	req_access = list(1)
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";
@@ -1965,7 +1975,7 @@
 /area/civilian/abandonedwarehouse)
 "ei" = (
 /turf/simulated/wall/r_wall/false{
-	icon_state = "rfalse"
+	icon_state = "rdebug"
 	},
 /area/maintenance/first_deck/central)
 "ej" = (
@@ -2166,7 +2176,7 @@
 	},
 /obj/machinery/door/airlock/maintenance{
 	name = "Bridge Maintenance";
-	req_access = list(19)
+	req_access = list("ACCESS_BRIDGE")
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -2207,11 +2217,11 @@
 	dir = 4;
 	icon_state = "intact"
 	},
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/hallway/centralfirst)
 "eI" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_access = list("ACCESS_MAINT")
 	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/catwalk,
@@ -2272,9 +2282,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
-"eO" = (
-/turf/simulated/wall/r_wall,
-/area/maintenance/mainsolar)
 "eP" = (
 /turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/mainsolar)
@@ -2378,7 +2385,7 @@
 	id_tag = "nuke_shuttle_dock_inner";
 	locked = 1;
 	name = "Docking Port Airlock";
-	req_access = list(13)
+	req_access = list("ACCESS_EXTERNAL")
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
@@ -2495,7 +2502,7 @@
 /area/hallway/centralfirst)
 "fj" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_access = list("ACCESS_MAINT")
 	},
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2573,7 +2580,7 @@
 	icon_state = "doors";
 	dir = 8
 	},
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/mainsolar)
 "fs" = (
 /obj/structure/cable{
@@ -2717,9 +2724,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fore)
-"fE" = (
-/turf/simulated/wall/r_wall,
-/area/space)
 "fF" = (
 /obj/effect/floor_decal/industrial/warning{
 	tag = "icon-warning (SOUTHWEST)";
@@ -2751,7 +2755,7 @@
 	id_tag = "nuke_shuttle_dock_inner";
 	locked = 1;
 	name = "Docking Port Airlock";
-	req_access = list(13)
+	req_access = list("ACCESS_EXTERNAL")
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
@@ -2766,8 +2770,7 @@
 	master_tag = "nuke_shuttle_dock_airlock";
 	name = "interior access button";
 	pixel_x = -23;
-	pixel_y = -22;
-	req_one_access = list(13,80)
+	pixel_y = -22
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
@@ -2990,7 +2993,7 @@
 	icon_state = "closed";
 	locked = 0;
 	name = "Main Solar Access";
-	req_access = list(11)
+	req_access = list("ACCESS_ENGINE_EQUIP")
 	},
 /obj/structure/catwalk,
 /obj/structure/cable/yellow{
@@ -3052,7 +3055,7 @@
 	name = "interior access button";
 	pixel_x = 24;
 	pixel_y = 24;
-	req_access = list(11,13)
+	req_access = list("ACCESS_ENGINE_EQUIP","ACCESS_EXTERNAL")
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
@@ -3072,7 +3075,12 @@
 	id_tag = "solar_bridge_inner";
 	locked = 1;
 	name = "Engineering External Access";
-	req_access = list(11,13)
+	req_access = list("ACCESS_ENGINE_EQUIP","ACCESS_EXTERNAL")
+	},
+/obj/effect/floor_decal/techfloor,
+/obj/effect/floor_decal/techfloor{
+	icon_state = "techfloor_edges";
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/mainsolar)
@@ -3093,7 +3101,7 @@
 	id_tag = "solar_bridge_airlock";
 	pixel_x = 2;
 	pixel_y = 24;
-	req_access = list(13);
+	req_access = list("ACCESS_EXTERNAL");
 	tag_airpump = "solar_bridge_pump";
 	tag_chamber_sensor = "solar_bridge_sensor";
 	tag_exterior_door = "solar_bridge_outer";
@@ -3125,7 +3133,12 @@
 	id_tag = "solar_bridge_outer";
 	locked = 1;
 	name = "Engineering External Access";
-	req_access = list(11,13)
+	req_access = list("ACCESS_ENGINE_EQUIP","ACCESS_EXTERNAL")
+	},
+/obj/effect/floor_decal/techfloor,
+/obj/effect/floor_decal/techfloor{
+	icon_state = "techfloor_edges";
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/mainsolar)
@@ -3137,7 +3150,7 @@
 	name = "exterior access button";
 	pixel_x = -24;
 	pixel_y = 24;
-	req_access = list(11,13)
+	req_access = list("ACCESS_ENGINE_EQUIP","ACCESS_EXTERNAL")
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/cable/orange{
@@ -3184,7 +3197,7 @@
 "gq" = (
 /obj/machinery/door/airlock/command{
 	name = "First Deck Gun Bay";
-	req_access = list(19)
+	req_access = list("ACCESS_BRIDGE")
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/reinforced,
@@ -3222,7 +3235,7 @@
 	id_tag = "nuke_shuttle_dock_outer";
 	locked = 1;
 	name = "Docking Port Airlock";
-	req_access = list(13)
+	req_access = list("ACCESS_EXTERNAL")
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -3230,9 +3243,9 @@
 	master_tag = "nuke_shuttle_dock_airlock";
 	name = "exterior access button";
 	pixel_x = -24;
-	pixel_y = -6;
-	req_one_access = list(13,80)
+	pixel_y = -6
 	},
+/obj/machinery/shield_diffuser,
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
 "gw" = (
@@ -3253,7 +3266,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
 "gy" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/civilian/first_deck_lobby)
 "gz" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -3278,11 +3291,11 @@
 /turf/simulated/floor/tiled,
 /area/civilian/first_deck_lobby)
 "gB" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/civilian/first_deck_lobby)
 "gC" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_access = list("ACCESS_MAINT")
 	},
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
@@ -3343,7 +3356,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "gL" = (
-/obj/machinery/portable_atmospherics/canister/empty/air,
+/obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "gM" = (
@@ -3366,7 +3379,7 @@
 	icon_state = "shock";
 	dir = 8
 	},
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/mainsolar)
 "gP" = (
 /obj/machinery/power/apc{
@@ -3408,9 +3421,9 @@
 	icon_state = "closed";
 	locked = 1;
 	name = "AI Core Access";
-	req_access = list(16)
+	req_access = list("ACCESS_AI_UPLOAD")
 	},
-/turf/simulated/floor/tiled/dark/airless,
+/turf/simulated/floor/tiled/dark,
 /area/command/aicore)
 "gT" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -3495,7 +3508,7 @@
 /area/civilian/first_deck_lobby)
 "hd" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_access = list("ACCESS_MAINT")
 	},
 /turf/simulated/floor/plating,
 /area/civilian/first_deck_lobby)
@@ -3551,14 +3564,14 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "hk" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/engineering/first_deck_atmos)
 "hl" = (
 /obj/machinery/door/airlock/engineering{
 	icon_state = "closed";
 	locked = 0;
 	name = "First Deck Atmospherics Closet";
-	req_access = list(11)
+	req_access = list("ACCESS_ENGINE_EQUIP")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/catwalk,
@@ -3842,7 +3855,7 @@
 	name = "interior access button";
 	pixel_x = 23;
 	pixel_y = 23;
-	req_access = list(13)
+	req_access = list("ACCESS_EXTERNAL")
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
@@ -3856,7 +3869,7 @@
 	id_tag = "security_inner2";
 	locked = 1;
 	name = "External Access";
-	req_access = list(13)
+	req_access = list("ACCESS_EXTERNAL")
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
@@ -3901,7 +3914,7 @@
 	id_tag = "security_airlock2";
 	pixel_x = 0;
 	pixel_y = 25;
-	req_access = list(13);
+	req_access = list("ACCESS_EXTERNAL");
 	tag_airpump = "security_pump2";
 	tag_chamber_sensor = "security_sensor2";
 	tag_exterior_door = "security_outer2";
@@ -3922,7 +3935,7 @@
 	id_tag = "security_outer2";
 	locked = 1;
 	name = "External Access";
-	req_access = list(10,13)
+	req_access = list("ACCESS_ENGINEERING","ACCESS_EXTERNAL")
 	},
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -3939,7 +3952,7 @@
 	name = "exterior access button";
 	pixel_x = -23;
 	pixel_y = -23;
-	req_access = list(13)
+	req_access = list("ACCESS_EXTERNAL")
 	},
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -4080,7 +4093,7 @@
 /turf/simulated/floor/reinforced,
 /area/security/topgun)
 "ib" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/security/topgun)
 "ic" = (
 /obj/structure/bed/chair/comfy/brown{
@@ -4208,7 +4221,7 @@
 	icon_state = "closed";
 	locked = 0;
 	name = "First Deck Atmospherics Closet";
-	req_access = list(11)
+	req_access = list("ACCESS_ENGINE_EQUIP")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
@@ -4279,7 +4292,7 @@
 	icon_state = "doors";
 	dir = 8
 	},
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/maintenance/first_deck/central)
 "iv" = (
 /obj/structure/cable/yellow{
@@ -4493,7 +4506,7 @@
 "iK" = (
 /obj/machinery/door/airlock/vault/bolted{
 	name = "AI Core Backup Access";
-	req_access = list(16)
+	req_access = list("ACCESS_AI_UPLOAD")
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4534,7 +4547,7 @@
 	icon_state = "closed";
 	locked = 0;
 	name = "AI Core Access";
-	req_access = list(16)
+	req_access = list("ACCESS_AI_UPLOAD")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4621,7 +4634,7 @@
 /area/hallway/centralfirst)
 "iX" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_access = list("ACCESS_MAINT")
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
@@ -4828,7 +4841,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/command{
 	name = "First Deck Gun Bay";
-	req_access = list(19)
+	req_access = list("ACCESS_BRIDGE")
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/reinforced,
@@ -4894,7 +4907,7 @@
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_access = list("ACCESS_MAINT")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -5006,7 +5019,7 @@
 /area/security/topgun)
 "jJ" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_access = list("ACCESS_MAINT")
 	},
 /obj/structure/catwalk,
 /obj/structure/cable{
@@ -5022,7 +5035,7 @@
 /turf/simulated/floor/plating,
 /area/civilian/first_deck_lobby)
 "jK" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/maintenance/first_deck/afs)
 "jL" = (
 /obj/effect/floor_decal/urist/nervalogo{
@@ -5347,7 +5360,7 @@
 /turf/simulated/floor/reinforced,
 /area/security/topgun)
 "kh" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/first_deck/afs)
 "ki" = (
 /obj/structure/closet/emcloset,
@@ -5379,7 +5392,7 @@
 /area/maintenance/first_deck/afs)
 "kl" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_access = list("ACCESS_MAINT")
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -5549,7 +5562,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
 "kA" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/engineering/first_deck_storage)
 "kB" = (
 /obj/machinery/light{
@@ -5590,7 +5603,7 @@
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_access = list("ACCESS_MAINT")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -5606,20 +5619,13 @@
 /obj/structure/bed/chair/office/dark,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
-"kF" = (
-/obj/structure/bed/chair/office/comfy/blue,
-/obj/effect/decal/cleanable/blood,
-/turf/simulated/floor/plating,
-/area/maintenance/first_deck/central)
 "kG" = (
-/obj/structure/bed/chair/office/comfy/green,
+/obj/item/weapon/material/shard,
+/obj/item/weapon/hammer/smithing,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "kH" = (
 /obj/effect/decal/cleanable/blood,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/structure/bed/chair/office/comfy/red,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
@@ -5903,7 +5909,7 @@
 /area/hallway/centralfirst)
 "lc" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_access = list("ACCESS_MAINT")
 	},
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -6048,18 +6054,12 @@
 /obj/structure/bed/chair/office/comfy/lime,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/gibspawner/human,
-/obj/item/weapon/paper/crumpled/bloody{
-	info = "I fucking warned you."
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "ll" = (
 /obj/effect/decal/cleanable/blood,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/effect/mine/frag,
-/obj/structure/bed/chair/office/comfy/teal,
+/obj/item/weapon/material/shard,
+/mob/living/simple_animal/hostile/rogue_drone,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "lm" = (
@@ -6069,7 +6069,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "ln" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/first_deck/fs)
 "lo" = (
 /obj/machinery/light,
@@ -6106,7 +6106,7 @@
 	},
 /obj/machinery/door/airlock/command{
 	name = "First Deck Gun Bay";
-	req_access = list(19)
+	req_access = list("ACCESS_BRIDGE")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -6209,25 +6209,21 @@
 "lA" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Firefighting equipment";
-	req_access = list(12)
+	req_access = list("ACCESS_MAINT")
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "lB" = (
 /obj/effect/decal/cleanable/blood,
-/mob/living/simple_animal/hostile/mimic/sleeping{
-	health = 150;
-	maxHealth = 150
-	},
+/obj/item/weapon/gunsmith/barrel/flintlock,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "lC" = (
 /obj/effect/decal/cleanable/blood,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/effect/mine/frag,
 /obj/structure/bed/chair/office/comfy/purple,
+/obj/item/weapon/material/shard{
+	icon_state = "small"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "lD" = (
@@ -6478,7 +6474,7 @@
 	},
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering Maintenance";
-	req_access = list(23);
+	req_access = list("ACCESS_TECH_STORAGE");
 	secured_wires = 1
 	},
 /turf/simulated/floor/plating,
@@ -6593,7 +6589,7 @@
 	},
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering Access";
-	req_access = list(10)
+	req_access = list("ACCESS_ENGINEERING")
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -6675,7 +6671,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "me" = (
-/turf/simulated/wall,
+/turf/simulated/wall/prepainted,
 /area/maintenance/first_deck/fs)
 "mf" = (
 /obj/random/powercell,
@@ -6851,12 +6847,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
 "mE" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/engineering/substation/first_deck)
 "mF" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Fourth Deck Substation";
-	req_access = list(10)
+	req_access = list("ACCESS_ENGINEERING")
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -7026,7 +7022,7 @@
 	},
 /obj/machinery/door/airlock/maintenance{
 	name = "Bridge Maintenance";
-	req_access = list(19)
+	req_access = list("ACCESS_BRIDGE")
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -7145,7 +7141,7 @@
 /area/maintenance/first_deck/afs)
 "nb" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_access = list("ACCESS_MAINT")
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
@@ -7178,7 +7174,7 @@
 /area/hallway/centralfirst)
 "ne" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_access = list("ACCESS_MAINT")
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -7488,12 +7484,12 @@
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
 "nG" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/security/abandonedcheckpoint)
 "nH" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Security Maintenance";
-	req_access = list(1)
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable{
@@ -7525,7 +7521,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /obj/machinery/meter,
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_access = list("ACCESS_MAINT")
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fs)
@@ -7547,6 +7543,10 @@
 /obj/machinery/power/solar{
 	id = "portsolar";
 	name = "Aft Auxiliary Solar Array"
+	},
+/obj/structure/cable/orange{
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/solar/auxaft)
@@ -7601,7 +7601,7 @@
 "nQ" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Fourth Deck Substation";
-	req_access = list(10)
+	req_access = list("ACCESS_ENGINEERING")
 	},
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -7669,7 +7669,7 @@
 /area/security/abandonedcheckpoint)
 "nY" = (
 /turf/simulated/wall/r_wall/false{
-	icon_state = "rfalse"
+	icon_state = "rdebug"
 	},
 /area/security/abandonedcheckpoint)
 "nZ" = (
@@ -8027,7 +8027,7 @@
 "oL" = (
 /obj/machinery/door/airlock/glass/security{
 	name = "Docking Checkpoint";
-	req_access = list(1)
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -8113,7 +8113,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/aftsolar)
 "oU" = (
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/aftsolar)
 "oV" = (
 /obj/structure/reagent_dispensers/fueltank,
@@ -8183,7 +8183,7 @@
 	name = "HIGH VOLTAGE";
 	pixel_y = 0
 	},
-/turf/simulated/wall/r_wall,
+/turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/aftsolar)
 "pd" = (
 /obj/random/toolbox,
@@ -8302,12 +8302,12 @@
 /obj/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1379;
-	layer = 3.3;
-	master_tag = "robotics_solar_airlock";
+	layer = 4;
+	master_tag = "aft_solar_airlock";
 	name = "exterior access button";
 	pixel_x = 25;
 	pixel_y = 25;
-	req_access = list(13)
+	req_access = list("ACCESS_EXTERNAL")
 	},
 /obj/structure/cable/orange{
 	d1 = 4;
@@ -8321,40 +8321,45 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
 	icon_state = "door_locked";
-	id_tag = "robotics_solar_outer";
+	id_tag = "aft_solar_outer";
 	locked = 1;
 	name = "Engineering External Access";
-	req_access = list(10,13)
+	req_access = list("ACCESS_ENGINEERING","ACCESS_EXTERNAL")
 	},
 /obj/structure/cable/orange{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/techfloor{
+	icon_state = "techfloor_edges";
+	dir = 1
+	},
+/obj/effect/floor_decal/techfloor,
 /turf/simulated/floor/plating,
 /area/maintenance/aftsolar)
 "ps" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
 	frequency = 1379;
-	id_tag = "robotics_solar_pump"
+	id_tag = "aft_solar_pump"
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	tag_airpump = "robotics_solar_pump";
-	tag_exterior_door = "robotics_solar_outer";
 	frequency = 1379;
-	id_tag = "robotics_solar_airlock";
-	tag_interior_door = "robotics_solar_inner";
-	layer = 3.3;
+	id_tag = "aft_solar_airlock";
+	layer = 4;
 	pixel_x = 0;
 	pixel_y = -25;
-	req_access = list(13);
-	tag_chamber_sensor = "robotics_solar_sensor"
+	req_access = list("ACCESS_EXTERNAL");
+	tag_airpump = "aft_solar_pump";
+	tag_chamber_sensor = "aft_solar_sensor";
+	tag_exterior_door = "aft_solar_outer";
+	tag_interior_door = "aft_solar_inner"
 	},
 /obj/machinery/airlock_sensor{
 	frequency = 1379;
-	id_tag = "robotics_solar_sensor";
-	layer = 3.3;
+	id_tag = "aft_solar_sensor";
+	layer = 4;
 	pixel_x = 12;
 	pixel_y = -25
 	},
@@ -8374,10 +8379,10 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
 	icon_state = "door_locked";
-	id_tag = "robotics_solar_inner";
+	id_tag = "aft_solar_inner";
 	locked = 1;
 	name = "Engineering External Access";
-	req_access = list(13)
+	req_access = list("ACCESS_EXTERNAL")
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
@@ -8387,6 +8392,11 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/techfloor{
+	icon_state = "techfloor_edges";
+	dir = 1
+	},
+/obj/effect/floor_decal/techfloor,
 /turf/simulated/floor/plating,
 /area/maintenance/aftsolar)
 "pu" = (
@@ -8394,11 +8404,11 @@
 	command = "cycle_interior";
 	frequency = 1379;
 	layer = 3.3;
-	master_tag = "robotics_solar_airlock";
+	master_tag = "aft_solar_airlock";
 	name = "interior access button";
 	pixel_x = -25;
 	pixel_y = -25;
-	req_access = list(13)
+	req_access = list("ACCESS_EXTERNAL")
 	},
 /obj/structure/cable/orange{
 	d1 = 4;
@@ -8447,7 +8457,7 @@
 "px" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Aft Auxiliary Solar Access";
-	req_access = list(10)
+	req_access = list("ACCESS_ENGINEERING")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -8758,7 +8768,7 @@
 /area/maintenance/first_deck/afs)
 "pZ" = (
 /turf/simulated/wall/r_wall/false{
-	icon_state = "rfalse"
+	icon_state = "rdebug"
 	},
 /area/maintenance/first_deck/afs)
 "qa" = (
@@ -8772,7 +8782,7 @@
 /area/maintenance/first_deck/afs)
 "qb" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_access = list("ACCESS_MAINT")
 	},
 /obj/structure/cable/yellow{
 	icon_state = "4-8";
@@ -8807,7 +8817,7 @@
 /area/hallway/centralfirst)
 "qe" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_access = list("ACCESS_MAINT")
 	},
 /obj/structure/cable/yellow{
 	icon_state = "4-8";
@@ -8848,7 +8858,6 @@
 	id_tag = "skipjack_shuttle_dock_airlock";
 	pixel_x = 24;
 	pixel_y = -24;
-	req_one_access = list(13,80);
 	tag_airpump = "skipjack_shuttle_dock_pump";
 	tag_chamber_sensor = "skipjack_shuttle_dock_sensor";
 	tag_exterior_door = "skipjack_shuttle_dock_outer";
@@ -8883,7 +8892,7 @@
 	id_tag = "skipjack_shuttle_dock_inner";
 	locked = 1;
 	name = "Docking Port Airlock";
-	req_access = list(13)
+	req_access = list("ACCESS_EXTERNAL")
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8;
@@ -8898,7 +8907,7 @@
 	id_tag = "skipjack_shuttle_dock_inner";
 	locked = 1;
 	name = "Docking Port Airlock";
-	req_access = list(13)
+	req_access = list("ACCESS_EXTERNAL")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	icon_state = "intact";
@@ -8967,7 +8976,7 @@
 	id_tag = "skipjack_shuttle_dock_outer";
 	locked = 1;
 	name = "Docking Port Airlock";
-	req_access = list(13)
+	req_access = list("ACCESS_EXTERNAL")
 	},
 /obj/machinery/shield_diffuser,
 /turf/simulated/floor/plating,
@@ -8980,16 +8989,87 @@
 /obj/effect/shuttle_landmark/ninja/deck1,
 /turf/space,
 /area/space)
-"qw" = (
-/obj/effect/shuttle_landmark/skipjack/dock,
-/turf/space,
-/area/space)
 "qx" = (
 /obj/effect/landmark/map_data{
 	height = 4
 	},
 /turf/space,
 /area/space)
+"uv" = (
+/obj/effect/urist/projectile_landmark/ship{
+	shipid = "nerva"
+	},
+/turf/space,
+/area/space)
+"wD" = (
+/obj/effect/shuttle_landmark/nerva/docking/north,
+/turf/space,
+/area/space)
+"AM" = (
+/obj/structure/catwalk,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock/hatch/maintenance,
+/turf/simulated/floor/plating,
+/area/maintenance/first_deck/fore)
+"BM" = (
+/obj/structure/catwalk,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock/hatch/maintenance,
+/turf/simulated/floor/plating,
+/area/maintenance/first_deck/fore)
+"Fd" = (
+/obj/item/weapon/material/shard{
+	icon_state = "small"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/first_deck/central)
+"Rn" = (
+/obj/effect/floor_decal/solarpanel,
+/obj/machinery/power/solar{
+	id = "portsolar";
+	name = "Aft Auxiliary Solar Array"
+	},
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/solar/auxaft)
+"Ss" = (
+/obj/effect/shuttle_landmark/nerva/docking/south,
+/turf/space,
+/area/space)
+"Tu" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/cable/orange{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/cable/orange{
+	icon_state = "2-4";
+	d1 = 1;
+	d2 = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/solar/auxaft)
+"Xf" = (
+/obj/structure/shipweapons/hardpoint/nerva,
+/turf/simulated/floor/reinforced,
+/area/security/topgun)
 
 (1,1,1) = {"
 aa
@@ -22439,7 +22519,7 @@ ar
 ar
 ar
 ar
-nN
+Tu
 nN
 nN
 nN
@@ -22641,12 +22721,12 @@ ar
 ar
 ar
 ar
-nM
-nM
-nM
-nM
-nM
-nM
+Rn
+Rn
+Rn
+Rn
+Rn
+Rn
 pm
 pI
 pI
@@ -24061,7 +24141,7 @@ ar
 oG
 ar
 ar
-pm
+po
 pH
 pH
 pH
@@ -25652,10 +25732,10 @@ ar
 ar
 ar
 ar
-ah
+qk
 as
 as
-ah
+qk
 ar
 ar
 ar
@@ -26243,7 +26323,7 @@ aa
 aa
 aa
 aa
-aa
+ar
 ar
 ar
 aN
@@ -26440,12 +26520,12 @@ aa
 aa
 aa
 aa
-ag
 aa
 aa
 aa
 aa
 aa
+ar
 ar
 ar
 aN
@@ -26647,7 +26727,7 @@ aa
 aa
 aa
 aa
-aa
+ar
 ar
 ar
 aN
@@ -26703,7 +26783,7 @@ aa
 aa
 aa
 aa
-qw
+aa
 aa
 aa
 aa
@@ -26850,7 +26930,7 @@ aa
 aa
 aa
 aa
-aa
+ar
 ar
 aN
 bc
@@ -27052,7 +27132,7 @@ aa
 aa
 aa
 aa
-aa
+ar
 ar
 aN
 bc
@@ -28260,17 +28340,17 @@ aa
 aa
 aa
 aa
-aa
-ah
-ah
-an
+qk
+qk
+qu
 as
 as
-ah
-ah
-ah
-ah
-ah
+as
+qk
+qk
+qk
+qk
+qk
 cf
 cr
 cI
@@ -28307,10 +28387,10 @@ bi
 bi
 bi
 qb
-ah
-ah
-ah
-ah
+qk
+qk
+qk
+qk
 aa
 aa
 aa
@@ -28461,12 +28541,12 @@ aa
 aa
 aa
 aa
-aa
-aa
+wD
 ai
 al
 ao
 at
+aB
 aB
 aO
 bg
@@ -28513,7 +28593,7 @@ qi
 qn
 qr
 qt
-aa
+Ss
 aa
 aa
 aa
@@ -28664,11 +28744,11 @@ aa
 aa
 aa
 aa
-aa
 aj
 am
 ap
 au
+aC
 aC
 aP
 bh
@@ -28866,11 +28946,11 @@ aa
 aa
 aa
 aa
-aa
 ak
-ah
-ah
-ah
+qk
+qk
+qk
+qk
 aB
 aQ
 bi
@@ -29476,7 +29556,7 @@ aa
 aa
 aa
 aa
-ah
+qk
 aE
 aT
 bi
@@ -29519,7 +29599,7 @@ nj
 by
 dI
 by
-aa
+ar
 aa
 aa
 aa
@@ -29678,7 +29758,7 @@ aa
 aa
 aa
 aa
-ah
+qk
 aF
 aU
 bi
@@ -29721,7 +29801,7 @@ nj
 by
 dI
 by
-aa
+ar
 aa
 aa
 aa
@@ -29880,7 +29960,7 @@ aa
 aa
 aa
 aa
-ah
+qk
 aB
 aV
 bi
@@ -29923,7 +30003,7 @@ pE
 by
 dl
 by
-aa
+ar
 aa
 aa
 aa
@@ -30082,7 +30162,7 @@ aa
 aa
 aa
 aa
-ah
+qk
 aG
 aW
 bj
@@ -30125,7 +30205,7 @@ ms
 by
 dI
 by
-aa
+ar
 aa
 aa
 aa
@@ -30284,10 +30364,10 @@ aa
 aa
 aa
 aa
-ah
+qk
 aH
 aX
-ah
+qk
 by
 by
 by
@@ -30932,7 +31012,7 @@ by
 by
 by
 by
-aa
+ar
 aa
 aa
 aa
@@ -31092,10 +31172,10 @@ aa
 aa
 aa
 aa
-ah
+qk
 aL
 aL
-ah
+qk
 ar
 ar
 ar
@@ -31117,7 +31197,7 @@ dI
 dI
 jU
 bE
-kF
+dI
 lj
 bE
 bE
@@ -31126,14 +31206,14 @@ bE
 nj
 by
 by
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ar
+ar
+ar
+ar
+ar
+ar
+ar
+ar
 aa
 aa
 aa
@@ -31298,12 +31378,12 @@ az
 aM
 bb
 bn
-aa
-aa
-aa
-aa
-aa
-aa
+ar
+ar
+ar
+ar
+ar
+ar
 by
 dK
 dl
@@ -31327,12 +31407,12 @@ mw
 bE
 nl
 by
-aa
-aa
-aa
-aa
-aa
-aa
+ar
+ar
+ar
+ar
+ar
+ar
 aa
 aa
 aa
@@ -31500,12 +31580,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+ar
+ar
+ar
+ar
+ar
+ar
 by
 dL
 dI
@@ -31529,12 +31609,12 @@ dI
 bE
 nj
 by
-aa
-aa
-aa
-aa
-aa
-aa
+ar
+ar
+ar
+ar
+ar
+ar
 aa
 aa
 aa
@@ -31703,27 +31783,27 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+ar
+ar
+ar
+ar
+ar
 by
 by
 by
 by
-eO
+eP
 fr
 gd
 gO
-eO
+eP
 hK
 dI
 jg
 bE
 jX
 kv
-dI
+Fd
 lm
 lD
 kv
@@ -31740,9 +31820,9 @@ ar
 ar
 ar
 ar
-aa
-aa
-aa
+ar
+ar
+ar
 aa
 aa
 aa
@@ -31905,10 +31985,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+ar
+ar
+ar
+ar
 ar
 ar
 ar
@@ -31918,7 +31998,7 @@ eP
 fs
 ge
 gP
-eO
+eP
 hL
 iu
 jg
@@ -31942,9 +32022,9 @@ ar
 ar
 ar
 ar
-aa
-aa
-aa
+ar
+ar
+ar
 aa
 aa
 aa
@@ -32107,10 +32187,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+ar
+ar
+ar
+ar
 ar
 ar
 ar
@@ -32120,7 +32200,7 @@ eP
 ft
 gf
 gQ
-eO
+eP
 hM
 bE
 jh
@@ -32144,9 +32224,9 @@ ar
 ar
 ar
 ar
-aa
-aa
-aa
+ar
+ar
+ar
 aa
 aa
 aa
@@ -32309,20 +32389,20 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
 ar
 ar
 ar
 ar
 ar
 ar
-eO
+ar
+ar
+ar
+eP
 fu
 gg
 gR
-eO
+eP
 hN
 bE
 jg
@@ -32346,9 +32426,9 @@ ar
 ar
 ar
 ar
-aa
-aa
-aa
+ar
+ar
+ar
 aa
 aa
 aa
@@ -32511,9 +32591,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ar
+ar
+ar
 ar
 ar
 ar
@@ -32524,7 +32604,7 @@ eQ
 eQ
 gh
 eQ
-eO
+eP
 hO
 bE
 ji
@@ -32548,9 +32628,9 @@ ar
 ar
 ar
 ar
-aa
-aa
-aa
+ar
+ar
+ar
 aa
 aa
 aa
@@ -32713,10 +32793,10 @@ aa
 aa
 ac
 aa
-aa
-aa
-aa
-aa
+ar
+ar
+ar
+ar
 ar
 ar
 ar
@@ -32750,9 +32830,9 @@ ar
 ar
 ar
 ar
-aa
-aa
-aa
+ar
+ar
+ar
 aa
 aa
 aa
@@ -32915,10 +32995,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+ar
+ar
+ar
+ar
 ar
 ar
 ar
@@ -32952,9 +33032,9 @@ ar
 ar
 ar
 ar
-aa
-aa
-aa
+ar
+ar
+ar
 aa
 aa
 aa
@@ -33117,11 +33197,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+ar
+ar
+ar
+ar
+ar
 ar
 ar
 ar
@@ -33154,9 +33234,9 @@ ar
 ar
 ar
 ar
-aa
-aa
-aa
+ar
+ar
+ar
 aa
 aa
 aa
@@ -33318,12 +33398,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+ar
+ar
+ar
+ar
+ar
+ar
 ar
 dm
 ek
@@ -33347,11 +33427,11 @@ by
 by
 by
 by
-aa
-aa
-aa
-aa
-aa
+ar
+ar
+ar
+ar
+ar
 aa
 aa
 aa
@@ -33520,12 +33600,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+ar
+ar
+ar
+ar
+ar
+ar
 ar
 dM
 ar
@@ -34733,13 +34813,13 @@ aa
 aa
 aa
 aa
-aa
-aa
 ar
 ar
 ar
-dm
-dN
+ar
+ar
+ar
+dM
 ar
 cR
 do
@@ -34935,13 +35015,13 @@ aa
 aa
 aa
 aa
-aa
 ar
-ar
-ar
-cR
-dn
-dO
+dm
+ek
+ek
+ek
+eR
+dN
 ar
 cR
 do
@@ -35137,8 +35217,8 @@ aa
 aa
 aa
 aa
-aa
 ar
+dM
 ar
 ar
 cR
@@ -35154,7 +35234,7 @@ do
 dO
 ar
 cR
-dp
+do
 dO
 ar
 kK
@@ -35338,10 +35418,14 @@ aa
 aa
 aa
 aa
-aa
-aa
 ar
 ar
+dM
+ar
+ar
+cR
+dn
+dO
 ar
 cR
 do
@@ -35354,10 +35438,6 @@ ar
 cR
 dp
 dO
-ar
-ar
-jB
-ar
 ar
 kK
 ln
@@ -35539,11 +35619,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
 ar
 ar
+cR
+dn
+dO
+ar
+cR
+do
+dO
 ar
 cR
 do
@@ -35554,14 +35638,10 @@ dp
 dO
 ar
 ar
+jB
 ar
 ar
-iw
-jj
-jC
-jC
-jC
-kL
+kK
 ar
 ar
 ar
@@ -35571,7 +35651,7 @@ lH
 me
 mj
 me
-oE
+mj
 mj
 ln
 aa
@@ -35741,29 +35821,29 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
 ar
+ar
+cR
+dn
+dO
 ar
 cR
 do
 dO
 ar
+cR
+dp
+dO
 ar
 ar
 ar
 ar
-eB
-eB
-eB
-ix
-eB
-eB
-eB
-ar
-ar
+iw
+jj
+jC
+jC
+jC
+kL
 ar
 ar
 ar
@@ -35773,7 +35853,7 @@ lH
 me
 mj
 me
-mC
+oE
 mj
 ln
 ar
@@ -35943,30 +36023,30 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+ar
+ar
+cR
+do
+dO
 ar
 cR
 do
 dO
 ar
 ar
+ar
+ar
+ar
 eB
 eB
 eB
-eB
-hp
-gn
-iy
-gn
-hp
+ix
 eB
 eB
 eB
-eB
+ar
+ar
+ar
 ar
 ar
 ar
@@ -35975,8 +36055,8 @@ lH
 me
 mj
 me
-me
-oR
+mC
+mj
 ln
 ar
 ar
@@ -36145,40 +36225,40 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+ar
 ar
 cR
 do
 dO
 ar
+cR
+do
+dO
+ar
+ar
 eB
 eB
-fv
-gm
-gp
-gp
-gp
-iz
-jk
-jk
-jk
-kd
-kM
 eB
 eB
+hp
+gn
+iy
+gn
+hp
+eB
+eB
+eB
+eB
+ar
 ar
 ar
 ln
-nr
+lH
 me
 mj
-on
 me
-mj
+me
+oR
 ln
 ar
 ar
@@ -36346,44 +36426,44 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+ar
 ar
 ar
 cR
 do
 dO
 ar
-eB
-eS
-fw
-gn
-eB
-eB
-eB
-iA
+cR
+do
+dO
+ar
 eB
 eB
+fv
+gm
+gp
+gp
+gp
+iz
+jk
+jk
+jk
+kd
+kM
 eB
-gn
-kN
-eS
 eB
 ar
 ar
 ln
-lH
+nr
 me
 mj
-oo
+on
 me
-oS
+mj
 ln
-aa
-aa
+ar
+ar
 aa
 aa
 aa
@@ -36548,41 +36628,41 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+ar
 ar
 ar
 cR
 do
 dO
 ar
+cR
+do
+dO
+ar
 eB
-eT
-fx
+eS
+fw
 gn
-gS
-hq
-hR
-iB
-jl
-hq
-gS
+eB
+eB
+eB
+iA
+eB
+eB
+eB
 gn
-kO
-lo
+kN
+eS
 eB
 ar
-ln
+ar
 ln
 lH
 me
 mj
-op
+oo
 me
-mj
+oS
 ln
 aa
 aa
@@ -36750,10 +36830,6 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
 ar
 ar
 ar
@@ -36761,28 +36837,32 @@ cR
 do
 dO
 ar
+cR
+do
+dO
+ar
 eB
-eU
-fy
-go
-eB
-eS
-eB
-eB
-eB
-eS
-eB
-go
-kP
+eT
+fx
+gn
+gS
+hq
+hR
+iB
 jl
+hq
+gS
+gn
+kO
+lo
 eB
 ar
 ln
-mh
-ns
-nJ
+ln
+lH
+me
 mj
-oq
+op
 me
 mj
 ln
@@ -36952,10 +37032,6 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
 ar
 ar
 ar
@@ -36963,28 +37039,32 @@ cR
 do
 dO
 ar
+cR
+do
+dO
+ar
+eB
+eU
+fy
+go
 eB
 eS
-fw
 eB
-gT
-hr
 eB
-iC
 eB
-jD
-ka
-eB
-kN
 eS
+eB
+go
+kP
+jl
 eB
 ar
 ln
-mJ
-lH
-me
-me
-me
+mh
+ns
+nJ
+mj
+oq
 me
 mj
 ln
@@ -37154,10 +37234,6 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
 ar
 ar
 ar
@@ -37165,29 +37241,33 @@ cR
 do
 dO
 ar
+cR
+do
+dO
+ar
 eB
-eV
-fz
+eS
+fw
 eB
-gU
-gn
+gT
+hr
 eB
-iD
+iC
 eB
-gn
-kb
+jD
+ka
 eB
-kQ
-lp
+kN
+eS
 eB
 ar
 ln
-mK
-lJ
-mk
-ob
-mj
-om
+mJ
+lH
+me
+me
+me
+me
 mj
 ln
 aa
@@ -37356,10 +37436,6 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
 ar
 ar
 ar
@@ -37367,30 +37443,34 @@ cR
 do
 dO
 ar
+cR
+do
+dO
+ar
 eB
-eS
-fw
+eV
+fz
 eB
-gV
-eS
+gU
+gn
 eB
-iE
+iD
 eB
-eS
-kc
+gn
+kb
 eB
-kN
-eS
+kQ
+lp
 eB
 ar
 ln
-ln
-ln
-ln
-oc
+mK
+lJ
+mk
+ob
 mj
-ln
-ln
+om
+mj
 ln
 aa
 aa
@@ -37559,41 +37639,41 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
 ar
 ar
 cR
 do
 dO
 ar
+cR
+do
+dO
+ar
 eB
-eU
-fy
-go
+eS
+fw
 eB
-hs
-hS
-iF
-jm
-jE
+gV
+eS
 eB
-go
-kP
-jl
+iE
+eB
+eS
+kc
+eB
+kN
+eS
 eB
 ar
 ln
-mL
-nt
-ln
-od
 ln
 ln
-ar
-ar
+ln
+oc
+mj
+ln
+ln
+ln
 aa
 aa
 aa
@@ -37762,9 +37842,211 @@ aa
 aa
 aa
 aa
+ar
+cR
+do
+dO
+ar
+cR
+do
+dO
+ar
+eB
+eU
+fy
+go
+eB
+hs
+hS
+iF
+jm
+jE
+eB
+go
+kP
+jl
+eB
+ar
+ln
+mL
+nt
+ln
+od
+ln
+ln
+ar
+ar
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(144,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ar
+ar
 ar
 ar
 cR
@@ -37877,7 +38159,7 @@ aa
 aa
 aa
 "}
-(144,1,1) = {"
+(145,1,1) = {"
 aa
 aa
 aa
@@ -38079,7 +38361,7 @@ aa
 aa
 aa
 "}
-(145,1,1) = {"
+(146,1,1) = {"
 aa
 aa
 aa
@@ -38281,7 +38563,7 @@ aa
 aa
 aa
 "}
-(146,1,1) = {"
+(147,1,1) = {"
 aa
 aa
 aa
@@ -38483,7 +38765,7 @@ aa
 aa
 aa
 "}
-(147,1,1) = {"
+(148,1,1) = {"
 aa
 aa
 aa
@@ -38685,7 +38967,7 @@ aa
 aa
 aa
 "}
-(148,1,1) = {"
+(149,1,1) = {"
 aa
 aa
 aa
@@ -38887,7 +39169,7 @@ aa
 aa
 aa
 "}
-(149,1,1) = {"
+(150,1,1) = {"
 aa
 aa
 aa
@@ -39089,7 +39371,7 @@ aa
 aa
 aa
 "}
-(150,1,1) = {"
+(151,1,1) = {"
 aa
 aa
 aa
@@ -39291,7 +39573,7 @@ aa
 aa
 aa
 "}
-(151,1,1) = {"
+(152,1,1) = {"
 aa
 aa
 aa
@@ -39493,7 +39775,7 @@ aa
 aa
 aa
 "}
-(152,1,1) = {"
+(153,1,1) = {"
 aa
 aa
 aa
@@ -39695,7 +39977,7 @@ aa
 aa
 aa
 "}
-(153,1,1) = {"
+(154,1,1) = {"
 aa
 aa
 aa
@@ -39792,7 +40074,7 @@ dx
 dx
 en
 eF
-eW
+AM
 fD
 gq
 gX
@@ -39806,7 +40088,7 @@ kx
 kT
 lr
 lN
-jr
+BM
 jr
 mV
 en
@@ -39897,7 +40179,7 @@ aa
 aa
 aa
 "}
-(154,1,1) = {"
+(155,1,1) = {"
 aa
 aa
 aa
@@ -40099,208 +40381,6 @@ aa
 aa
 aa
 "}
-(155,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-cU
-cU
-cU
-aa
-aa
-ar
-fE
-gr
-gs
-gs
-gs
-iR
-ib
-jI
-gs
-gs
-gs
-gs
-fE
-ar
-aa
-aa
-cU
-cU
-cU
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-"}
 (156,1,1) = {"
 aa
 aa
@@ -40393,31 +40473,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+cU
+cU
+cU
 aa
 aa
 ar
-fE
+ib
+gr
+gs
+Xf
+gs
+iR
+ib
+jI
 gs
 gs
+Xf
 gs
 ib
-ib
-ib
-ib
-ib
-gs
-gs
-gs
-fE
 ar
 aa
 aa
-aa
-aa
-aa
+cU
+cU
+cU
 aa
 aa
 aa
@@ -40600,21 +40680,21 @@ aa
 aa
 aa
 aa
-aa
-fE
-gt
-gt
-gt
+ar
 ib
-aa
-aa
-aa
+gs
+gs
+gs
 ib
-gt
-gt
-gt
-fE
-aa
+ib
+ib
+ib
+ib
+gs
+gs
+gs
+ib
+ar
 aa
 aa
 aa
@@ -40803,19 +40883,19 @@ aa
 aa
 aa
 aa
+ib
+gt
+gt
+gt
+ib
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ib
+gt
+gt
+gt
+ib
 aa
 aa
 aa
@@ -41595,14 +41675,14 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 ac
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -42187,7 +42267,7 @@ aa
 aa
 aa
 aa
-aa
+af
 aa
 aa
 aa
@@ -43808,7 +43888,7 @@ aa
 aa
 aa
 aa
-af
+aa
 aa
 aa
 aa
@@ -47467,19 +47547,19 @@ aa
 aa
 aa
 aa
+uv
+uv
+uv
+uv
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+uv
+uv
+uv
+uv
 aa
 aa
 aa

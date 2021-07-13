@@ -36,7 +36,7 @@
 	if(.)
 		audible_emote("growls at [.]")
 
-/mob/living/simple_animal/hostile/tree/AttackingTarget()
+/mob/living/simple_animal/hostile/tree/UnarmedAttack(var/atom/A, var/proximity)
 	. =..()
 	var/mob/living/L = .
 	if(istype(L))

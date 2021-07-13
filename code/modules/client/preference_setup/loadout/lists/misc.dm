@@ -2,6 +2,16 @@
 	display_name = "cane"
 	path = /obj/item/weapon/cane
 
+/datum/gear/union_card
+	display_name = "union membership"
+	path = /obj/item/weapon/card/union
+
+/datum/gear/union_card/spawn_on_mob(var/mob/living/carbon/human/H, var/metadata)
+	. = ..()
+	if(.)
+		var/obj/item/weapon/card/union/card = .
+		card.signed_by = H.real_name
+
 /datum/gear/dice
 	display_name = "dice pack"
 	path = /obj/item/weapon/storage/pill_bottle/dice
@@ -134,9 +144,31 @@
 	display_name = "cheap lighter"
 	path = /obj/item/weapon/flame/lighter
 
+/datum/gear/lighter/New()
+	..()
+	var/colours = list()
+	colours["random"] = /obj/item/weapon/flame/lighter/random
+	colours["red"] = /obj/item/weapon/flame/lighter/red
+	colours["yellow"] = /obj/item/weapon/flame/lighter/yellow
+	colours["cyan"] = /obj/item/weapon/flame/lighter/cyan
+	colours["green"] = /obj/item/weapon/flame/lighter/green
+	colours["pink"] = /obj/item/weapon/flame/lighter/pink
+	gear_tweaks += new/datum/gear_tweak/path(colours)
+
 /datum/gear/zippo
 	display_name = "zippo"
 	path = /obj/item/weapon/flame/lighter/zippo
+
+/datum/gear/zippo/New()
+	..()
+	var/colours = list()
+	colours["random"] = /obj/item/weapon/flame/lighter/zippo/random
+	colours["silver"] = /obj/item/weapon/flame/lighter/zippo
+	colours["blackened"] = /obj/item/weapon/flame/lighter/zippo/black
+	colours["gunmetal"] = /obj/item/weapon/flame/lighter/zippo/gunmetal
+	colours["bronze"] = /obj/item/weapon/flame/lighter/zippo/bronze
+	colours["pink"] = /obj/item/weapon/flame/lighter/zippo/pink
+	gear_tweaks += new/datum/gear_tweak/path(colours)
 
 /datum/gear/ashtray
 	display_name = "ashtray, plastic"
@@ -171,3 +203,15 @@
 	display_name = "bible"
 	path = /obj/item/weapon/storage/bible
 	cost = 2
+
+/datum/gear/crutch
+	display_name = "crutch"
+	path = /obj/item/weapon/cane/crutch
+
+/datum/gear/whitecane
+	display_name = "white cane"
+	path = /obj/item/weapon/cane/white
+
+/datum/gear/whitecane/telescopic
+	display_name = "telescopic white cane"
+	path = 	/obj/item/weapon/cane/white/collapsible

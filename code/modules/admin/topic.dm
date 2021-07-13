@@ -6,7 +6,7 @@
 		message_admins("[usr.key] has attempted to override the admin panel!")
 		return
 
-	if(ticker.mode && ticker.mode.check_antagonists_topic(href, href_list))
+	if(SSticker.mode && SSticker.mode.check_antagonists_topic(href, href_list))
 		check_antagonists()
 		return
 
@@ -190,10 +190,10 @@
 
 		if(!check_rights(R_ADMIN))	return
 
-		if (!ticker || !evacuation_controller)
+		if(!SSticker.mode || !evacuation_controller)
 			return
 
-		if( ticker.mode.name == "blob" )
+		if(SSticker.mode.name == "blob")
 			alert("You can't call the shuttle during blob!")
 			return
 
@@ -210,8 +210,8 @@
 	else if(href_list["delay_round_end"])
 		if(!check_rights(R_SERVER))	return
 
-		ticker.delay_end = !ticker.delay_end
-		log_and_message_admins("[ticker.delay_end ? "delayed the round end" : "has made the round end normally"].")
+		SSticker.delay_end = !SSticker.delay_end
+		log_and_message_admins("[SSticker.delay_end ? "delayed the round end" : "has made the round end normally"].")
 		href_list["secretsadmin"] = "check_antagonist"
 
 	else if(href_list["simplemake"])
@@ -314,7 +314,7 @@
 		Banlist["minutes"] << minutes
 		Banlist["bannedby"] << usr.ckey
 		Banlist.cd = "/base"
-		feedback_inc("ban_edit",1)
+		SSstatistics.add_field("ban_edit",1)
 		unbanpanel()
 
 	/////////////////////////////////////new ban stuff
@@ -329,9 +329,6 @@
 
 		if(!M.ckey)	//sanity
 			to_chat(usr, "This mob has no ckey")
-			return
-		if(!job_master)
-			to_chat(usr, "Job Master has not been setup!")
 			return
 
 		var/dat = ""
@@ -348,10 +345,10 @@
 //Regular jobs
 	//Command (Blue)
 		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr align='center' bgcolor='ccccff'><th colspan='[length(GLOB.command_positions)]'><a href='?src=\ref[src];jobban3=commanddept;jobban4=\ref[M]'>Command Positions</a></th></tr><tr align='center'>"
-		for(var/jobPos in GLOB.command_positions)
+		jobs += "<tr align='center' bgcolor='ccccff'><th colspan='[length(SSjobs.titles_by_department(COM))]'><a href='?src=\ref[src];jobban3=commanddept;jobban4=\ref[M]'>Command Positions</a></th></tr><tr align='center'>"
+		for(var/jobPos in SSjobs.titles_by_department(COM))
 			if(!jobPos)	continue
-			var/datum/job/job = job_master.GetJob(jobPos)
+			var/datum/job/job = SSjobs.get_by_title(jobPos)
 			if(!job) continue
 
 			if(jobban_isbanned(M, job.title))
@@ -368,10 +365,10 @@
 
 	//Command Support (Sky Blue)
 		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr bgcolor='87ceeb'><th colspan='[length(GLOB.support_positions)]'><a href='?src=\ref[src];jobban3=supportdept;jobban4=\ref[M]'>Command Support Positions</a></th></tr><tr align='center'>"
-		for(var/jobPos in GLOB.support_positions)
+		jobs += "<tr bgcolor='87ceeb'><th colspan='[length(SSjobs.titles_by_department(SPT))]'><a href='?src=\ref[src];jobban3=supportdept;jobban4=\ref[M]'>Command Support Positions</a></th></tr><tr align='center'>"
+		for(var/jobPos in SSjobs.titles_by_department(SPT))
 			if(!jobPos)	continue
-			var/datum/job/job = job_master.GetJob(jobPos)
+			var/datum/job/job = SSjobs.get_by_title(jobPos)
 			if(!job) continue
 
 			if(jobban_isbanned(M, job.title))
@@ -389,10 +386,10 @@
 	//Security (Red)
 		counter = 0
 		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr bgcolor='ffddf0'><th colspan='[length(GLOB.security_positions)]'><a href='?src=\ref[src];jobban3=securitydept;jobban4=\ref[M]'>Security Positions</a></th></tr><tr align='center'>"
-		for(var/jobPos in GLOB.security_positions)
+		jobs += "<tr bgcolor='ffddf0'><th colspan='[length(SSjobs.titles_by_department(SEC))]'><a href='?src=\ref[src];jobban3=securitydept;jobban4=\ref[M]'>Security Positions</a></th></tr><tr align='center'>"
+		for(var/jobPos in SSjobs.titles_by_department(SEC))
 			if(!jobPos)	continue
-			var/datum/job/job = job_master.GetJob(jobPos)
+			var/datum/job/job = SSjobs.get_by_title(jobPos)
 			if(!job) continue
 
 			if(jobban_isbanned(M, job.title))
@@ -410,10 +407,10 @@
 	//Engineering (Yellow)
 		counter = 0
 		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr bgcolor='fff5cc'><th colspan='[length(GLOB.engineering_positions)]'><a href='?src=\ref[src];jobban3=engineeringdept;jobban4=\ref[M]'>Engineering Positions</a></th></tr><tr align='center'>"
-		for(var/jobPos in GLOB.engineering_positions)
+		jobs += "<tr bgcolor='fff5cc'><th colspan='[length(SSjobs.titles_by_department(ENG))]'><a href='?src=\ref[src];jobban3=engineeringdept;jobban4=\ref[M]'>Engineering Positions</a></th></tr><tr align='center'>"
+		for(var/jobPos in SSjobs.titles_by_department(ENG))
 			if(!jobPos)	continue
-			var/datum/job/job = job_master.GetJob(jobPos)
+			var/datum/job/job = SSjobs.get_by_title(jobPos)
 			if(!job) continue
 
 			if(jobban_isbanned(M, job.title))
@@ -431,10 +428,10 @@
 	//Medical (White)
 		counter = 0
 		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr bgcolor='ffeef0'><th colspan='[length(GLOB.medical_positions)]'><a href='?src=\ref[src];jobban3=medicaldept;jobban4=\ref[M]'>Medical Positions</a></th></tr><tr align='center'>"
-		for(var/jobPos in GLOB.medical_positions)
+		jobs += "<tr bgcolor='ffeef0'><th colspan='[length(SSjobs.titles_by_department(MED))]'><a href='?src=\ref[src];jobban3=medicaldept;jobban4=\ref[M]'>Medical Positions</a></th></tr><tr align='center'>"
+		for(var/jobPos in SSjobs.titles_by_department(MED))
 			if(!jobPos)	continue
-			var/datum/job/job = job_master.GetJob(jobPos)
+			var/datum/job/job = SSjobs.get_by_title(jobPos)
 			if(!job) continue
 
 			if(jobban_isbanned(M, job.title))
@@ -452,10 +449,10 @@
 	//Science (Purple)
 		counter = 0
 		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr bgcolor='e79fff'><th colspan='[length(GLOB.science_positions)]'><a href='?src=\ref[src];jobban3=sciencedept;jobban4=\ref[M]'>Science Positions</a></th></tr><tr align='center'>"
-		for(var/jobPos in GLOB.science_positions)
+		jobs += "<tr bgcolor='e79fff'><th colspan='[length(SSjobs.titles_by_department(SCI))]'><a href='?src=\ref[src];jobban3=sciencedept;jobban4=\ref[M]'>Science Positions</a></th></tr><tr align='center'>"
+		for(var/jobPos in SSjobs.titles_by_department(SCI))
 			if(!jobPos)	continue
-			var/datum/job/job = job_master.GetJob(jobPos)
+			var/datum/job/job = SSjobs.get_by_title(jobPos)
 			if(!job) continue
 
 			if(jobban_isbanned(M, job.title))
@@ -472,10 +469,10 @@
 
 	//Exploration (Pale Purple)
 		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr bgcolor='b784a7'><th colspan='[length(GLOB.exploration_positions)]'><a href='?src=\ref[src];jobban3=explorationdept;jobban4=\ref[M]'>Exploration Positions</a></th></tr><tr align='center'>"
-		for(var/jobPos in GLOB.exploration_positions)
+		jobs += "<tr bgcolor='b784a7'><th colspan='[length(SSjobs.titles_by_department(EXP))]'><a href='?src=\ref[src];jobban3=explorationdept;jobban4=\ref[M]'>Exploration Positions</a></th></tr><tr align='center'>"
+		for(var/jobPos in SSjobs.titles_by_department(EXP))
 			if(!jobPos)	continue
-			var/datum/job/job = job_master.GetJob(jobPos)
+			var/datum/job/job = SSjobs.get_by_title(jobPos)
 			if(!job) continue
 
 			if(jobban_isbanned(M, job.title))
@@ -492,10 +489,10 @@
 
 	//Service (Tea Green)
 		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr bgcolor='d0f0c0'><th colspan='[length(GLOB.service_positions)]'><a href='?src=\ref[src];jobban3=servicedept;jobban4=\ref[M]'>Service Positions</a></th></tr><tr align='center'>"
-		for(var/jobPos in GLOB.service_positions)
+		jobs += "<tr bgcolor='d0f0c0'><th colspan='[length(SSjobs.titles_by_department(SRV))]'><a href='?src=\ref[src];jobban3=servicedept;jobban4=\ref[M]'>Service Positions</a></th></tr><tr align='center'>"
+		for(var/jobPos in SSjobs.titles_by_department(SRV))
 			if(!jobPos)	continue
-			var/datum/job/job = job_master.GetJob(jobPos)
+			var/datum/job/job = SSjobs.get_by_title(jobPos)
 			if(!job) continue
 
 			if(jobban_isbanned(M, job.title))
@@ -513,10 +510,10 @@
 
 	//Supply (Khaki)
 		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr bgcolor='f0e68c'><th colspan='[length(GLOB.supply_positions)]'><a href='?src=\ref[src];jobban3=supplydept;jobban4=\ref[M]'>Supply Positions</a></th></tr><tr align='center'>"
-		for(var/jobPos in GLOB.supply_positions)
+		jobs += "<tr bgcolor='f0e68c'><th colspan='[length(SSjobs.titles_by_department(SUP))]'><a href='?src=\ref[src];jobban3=supplydept;jobban4=\ref[M]'>Supply Positions</a></th></tr><tr align='center'>"
+		for(var/jobPos in SSjobs.titles_by_department(SUP))
 			if(!jobPos)	continue
-			var/datum/job/job = job_master.GetJob(jobPos)
+			var/datum/job/job = SSjobs.get_by_title(jobPos)
 			if(!job) continue
 
 			if(jobban_isbanned(M, job.title))
@@ -534,10 +531,10 @@
 	//Civilian (Grey)
 		counter = 0
 		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr bgcolor='dddddd'><th colspan='[length(GLOB.civilian_positions)]'><a href='?src=\ref[src];jobban3=civiliandept;jobban4=\ref[M]'>Civilian Positions</a></th></tr><tr align='center'>"
-		for(var/jobPos in GLOB.civilian_positions)
+		jobs += "<tr bgcolor='dddddd'><th colspan='[length(SSjobs.titles_by_department(CIV))]'><a href='?src=\ref[src];jobban3=civiliandept;jobban4=\ref[M]'>Civilian Positions</a></th></tr><tr align='center'>"
+		for(var/jobPos in SSjobs.titles_by_department(CIV))
 			if(!jobPos)	continue
-			var/datum/job/job = job_master.GetJob(jobPos)
+			var/datum/job/job = SSjobs.get_by_title(jobPos)
 			if(!job) continue
 
 			if(jobban_isbanned(M, job.title))
@@ -561,10 +558,10 @@
 	//Non-Human (Green)
 		counter = 0
 		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr bgcolor='ccffcc'><th colspan='[length(GLOB.nonhuman_positions)+1]'><a href='?src=\ref[src];jobban3=nonhumandept;jobban4=\ref[M]'>Non-human Positions</a></th></tr><tr align='center'>"
-		for(var/jobPos in GLOB.nonhuman_positions)
+		jobs += "<tr bgcolor='ccffcc'><th colspan='[length(SSjobs.titles_by_department(MSC))+1]'><a href='?src=\ref[src];jobban3=nonhumandept;jobban4=\ref[M]'>Non-human Positions</a></th></tr><tr align='center'>"
+		for(var/jobPos in SSjobs.titles_by_department(MSC))
 			if(!jobPos)	continue
-			var/datum/job/job = job_master.GetJob(jobPos)
+			var/datum/job/job = SSjobs.get_by_title(jobPos)
 			if(!job) continue
 
 			if(jobban_isbanned(M, job.title))
@@ -607,14 +604,15 @@
 
 		jobs += "</tr></table>"
 
-		//Other races  (BLUE, because I have no idea what other color to make this)
+		var/list/misc_roles = list("Dionaea", "Graffiti")
+		//Other roles  (BLUE, because I have no idea what other color to make this)
 		jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-		jobs += "<tr bgcolor='ccccff'><th colspan='1'>Other Races</th></tr><tr align='center'>"
-
-		if(jobban_isbanned(M, "Dionaea"))
-			jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=Dionaea;jobban4=\ref[M]'><font color=red>Dionaea</font></a></td>"
-		else
-			jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=Dionaea;jobban4=\ref[M]'>Dionaea</a></td>"
+		jobs += "<tr bgcolor='ccccff'><th colspan='[LAZYLEN(misc_roles)]'>Other Roles</th></tr><tr align='center'>"
+		for(var/entry in misc_roles)
+			if(jobban_isbanned(M, entry))
+				jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=[entry];jobban4=\ref[M]'><font color=red>[entry]</font></a></td>"
+			else
+				jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=[entry];jobban4=\ref[M]'>[entry]</a></td>"
 		jobs += "</tr></table>"
 
 	// Channels
@@ -655,102 +653,98 @@
 				alert("You cannot perform this action. You must be of a higher administrative rank!")
 				return
 
-		if(!job_master)
-			to_chat(usr, "Job Master has not been setup!")
-			return
-
 		//get jobs for department if specified, otherwise just returnt he one job in a list.
-		var/list/joblist = list()
+		var/list/job_list = list()
 		switch(href_list["jobban3"])
 			if("commanddept")
-				for(var/jobPos in GLOB.command_positions)
+				for(var/jobPos in SSjobs.titles_by_department(COM))
 					if(!jobPos)	continue
-					var/datum/job/temp = job_master.GetJob(jobPos)
+					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue
-					joblist += temp.title
+					job_list += temp.title
 			if("supportdept")
-				for(var/jobPos in GLOB.support_positions)
+				for(var/jobPos in SSjobs.titles_by_department(SPT))
 					if(!jobPos)	continue
-					var/datum/job/temp = job_master.GetJob(jobPos)
+					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue
-					joblist += temp.title
+					job_list += temp.title
 			if("securitydept")
-				for(var/jobPos in GLOB.security_positions)
+				for(var/jobPos in SSjobs.titles_by_department(SEC))
 					if(!jobPos)	continue
-					var/datum/job/temp = job_master.GetJob(jobPos)
+					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue
-					joblist += temp.title
+					job_list += temp.title
 			if("engineeringdept")
-				for(var/jobPos in GLOB.engineering_positions)
+				for(var/jobPos in SSjobs.titles_by_department(ENG))
 					if(!jobPos)	continue
-					var/datum/job/temp = job_master.GetJob(jobPos)
+					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue
-					joblist += temp.title
+					job_list += temp.title
 			if("medicaldept")
-				for(var/jobPos in GLOB.medical_positions)
+				for(var/jobPos in SSjobs.titles_by_department(MED))
 					if(!jobPos)	continue
-					var/datum/job/temp = job_master.GetJob(jobPos)
+					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue
-					joblist += temp.title
+					job_list += temp.title
 			if("sciencedept")
-				for(var/jobPos in GLOB.science_positions)
+				for(var/jobPos in SSjobs.titles_by_department(SCI))
 					if(!jobPos)	continue
-					var/datum/job/temp = job_master.GetJob(jobPos)
+					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue
-					joblist += temp.title
+					job_list += temp.title
 			if("explorationdept")
-				for(var/jobPos in GLOB.exploration_positions)
+				for(var/jobPos in SSjobs.titles_by_department(EXP))
 					if(!jobPos)	continue
-					var/datum/job/temp = job_master.GetJob(jobPos)
+					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue
-					joblist += temp.title
+					job_list += temp.title
 			if("servicedept")
-				for(var/jobPos in GLOB.service_positions)
+				for(var/jobPos in SSjobs.titles_by_department(SRV))
 					if(!jobPos)	continue
-					var/datum/job/temp = job_master.GetJob(jobPos)
+					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue
-					joblist += temp.title
+					job_list += temp.title
 			if("supplydept")
-				for(var/jobPos in GLOB.supply_positions)
+				for(var/jobPos in SSjobs.titles_by_department(SUP))
 					if(!jobPos)	continue
-					var/datum/job/temp = job_master.GetJob(jobPos)
+					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue
-					joblist += temp.title
+					job_list += temp.title
 			if("civiliandept")
-				for(var/jobPos in GLOB.civilian_positions)
+				for(var/jobPos in SSjobs.titles_by_department(CIV))
 					if(!jobPos)	continue
-					var/datum/job/temp = job_master.GetJob(jobPos)
+					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue
-					joblist += temp.title
+					job_list += temp.title
 			if("nonhumandept")
-				joblist += "pAI"
-				for(var/jobPos in GLOB.nonhuman_positions)
+				job_list += "pAI"
+				for(var/jobPos in SSjobs.titles_by_department(MSC))
 					if(!jobPos)	continue
-					var/datum/job/temp = job_master.GetJob(jobPos)
+					var/datum/job/temp = SSjobs.get_by_title(jobPos)
 					if(!temp) continue
-					joblist += temp.title
+					job_list += temp.title
 			if("Syndicate")
 				var/list/all_antag_types = GLOB.all_antag_types_
 				for(var/antagPos in all_antag_types)
 					if(!antagPos) continue
 					var/datum/antagonist/temp = all_antag_types[antagPos]
 					if(!temp) continue
-					joblist += temp.id
+					job_list += temp.id
 			else
-				joblist += href_list["jobban3"]
+				job_list += href_list["jobban3"]
 
-		//Create a list of unbanned jobs within joblist
+		//Create a list of unbanned jobs within job_list
 		var/list/notbannedlist = list()
-		for(var/job in joblist)
+		for(var/job in job_list)
 			if(!jobban_isbanned(M, job))
 				notbannedlist += job
 
 		//Banning comes first
-		if(notbannedlist.len) //at least 1 unbanned job exists in joblist so we have stuff to ban.
+		if(notbannedlist.len) //at least 1 unbanned job exists in job_list so we have stuff to ban.
 			switch(alert("Temporary Ban?",,"Yes","No", "Cancel"))
 				if("Yes")
 					if(!check_rights(R_MOD,0) && !check_rights(R_BAN, 0))
-						to_chat(usr, "<span class='warning'> You Cannot issue temporary job-bans!</span>")
+						to_chat(usr, "<span class='warning'> You cannot issue temporary job-bans!</span>")
 						return
 					if(config.ban_legacy_system)
 						to_chat(usr, "<span class='warning'>Your server is using the legacy banning system, which does not support temporary job bans. Consider upgrading. Aborting ban.</span>")
@@ -769,9 +763,9 @@
 					for(var/job in notbannedlist)
 						ban_unban_log_save("[key_name(usr)] temp-jobbanned [key_name(M)] from [job] for [mins] minutes. reason: [reason]")
 						log_admin("[key_name(usr)] temp-jobbanned [key_name(M)] from [job] for [mins] minutes")
-						feedback_inc("ban_job_tmp",1)
+						SSstatistics.add_field("ban_job_tmp",1)
 						DB_ban_record(BANTYPE_JOB_TEMP, M, mins, reason, job)
-						feedback_add_details("ban_job_tmp","- [job]")
+						SSstatistics.add_field_details("ban_job_tmp","- [job]")
 						jobban_fullban(M, job, "[reason]; By [usr.ckey] on [time2text(world.realtime)]") //Legacy banning does not support temporary jobbans.
 						if(!msg)
 							msg = job
@@ -792,9 +786,9 @@
 						for(var/job in notbannedlist)
 							ban_unban_log_save("[key_name(usr)] perma-jobbanned [key_name(M)] from [job]. reason: [reason]")
 							log_admin("[key_name(usr)] perma-banned [key_name(M)] from [job]")
-							feedback_inc("ban_job",1)
+							SSstatistics.add_field("ban_job",1)
 							DB_ban_record(BANTYPE_JOB_PERMA, M, -1, reason, job)
-							feedback_add_details("ban_job","- [job]")
+							SSstatistics.add_field_details("ban_job","- [job]")
 							jobban_fullban(M, job, "[reason]; By [usr.ckey] on [time2text(world.realtime)]")
 							if(!msg)	msg = job
 							else		msg += ", [job]"
@@ -808,15 +802,15 @@
 				if("Cancel")
 					return
 
-		//Unbanning joblist
-		//all jobs in joblist are banned already OR we didn't give a reason (implying they shouldn't be banned)
-		if(joblist.len) //at least 1 banned job exists in joblist so we have stuff to unban.
+		//Unbanning job list
+		//all jobs in job list are banned already OR we didn't give a reason (implying they shouldn't be banned)
+		if(LAZYLEN(SSjobs.titles_to_datums)) //at least 1 banned job exists in job list so we have stuff to unban.
 			if(!config.ban_legacy_system)
 				to_chat(usr, "Unfortunately, database based unbanning cannot be done through this panel")
 				DB_ban_panel(M.ckey)
 				return
 			var/msg
-			for(var/job in joblist)
+			for(var/job in SSjobs.titles_to_datums)
 				var/reason = jobban_isbanned(M, job)
 				if(!reason) continue //skip if it isn't jobbanned anyway
 				switch(alert("Job: '[job]' Reason: '[reason]' Un-jobban?","Please Confirm","Yes","No"))
@@ -824,8 +818,8 @@
 						ban_unban_log_save("[key_name(usr)] unjobbanned [key_name(M)] from [job]")
 						log_admin("[key_name(usr)] unbanned [key_name(M)] from [job]")
 						DB_ban_unban(M.ckey, BANTYPE_JOB_PERMA, job)
-						feedback_inc("ban_job_unban",1)
-						feedback_add_details("ban_job_unban","- [job]")
+						SSstatistics.add_field("ban_job_unban",1)
+						SSstatistics.add_field_details("ban_job_unban","- [job]")
 						jobban_unban(M, job)
 						if(!msg)	msg = job
 						else		msg += ", [job]"
@@ -897,9 +891,9 @@
 				notes_add(M.ckey,"[usr.client.ckey] has banned [M.ckey]. - Reason: [reason] - This will be removed in [mins] minutes.",usr)
 				to_chat(M, "<span class='danger'>You have been banned by [usr.client.ckey].\nReason: [reason].</span>")
 				to_chat(M, "<span class='warning'>This is a temporary ban, it will be removed in [mins] minutes.</span>")
-				feedback_inc("ban_tmp",1)
+				SSstatistics.add_field("ban_tmp",1)
 				DB_ban_record(BANTYPE_TEMP, M, mins, reason)
-				feedback_inc("ban_tmp_mins",mins)
+				SSstatistics.add_field("ban_tmp_mins",mins)
 				if(config.banappeals)
 					to_chat(M, "<span class='warning'>To try to resolve this matter head to [config.banappeals]</span>")
 				else
@@ -928,7 +922,7 @@
 				ban_unban_log_save("[usr.client.ckey] has permabanned [M.ckey]. - Reason: [reason] - This is a ban until appeal.")
 				notes_add(M.ckey,"[usr.client.ckey] has permabanned [M.ckey]. - Reason: [reason] - This is a ban until appeal.",usr)
 				log_and_message_admins("has banned [M.ckey].\nReason: [reason]\nThis is a ban until appeal.")
-				feedback_inc("ban_perma",1)
+				SSstatistics.add_field("ban_perma",1)
 				DB_ban_record(BANTYPE_PERMA, M, -1, reason)
 
 				qdel(M.client)
@@ -952,22 +946,22 @@
 	else if(href_list["c_mode"])
 		if(!check_rights(R_ADMIN))	return
 
-		if(ticker && ticker.mode)
+		if(SSticker.mode)
 			return alert(usr, "The game has already started.", null, null, null, null)
 		var/dat = {"<B>What mode do you wish to play?</B><HR>"}
 		for(var/mode in config.modes)
 			dat += {"<A href='?src=\ref[src];c_mode2=[mode]'>[config.mode_names[mode]]</A><br>"}
 		dat += {"<A href='?src=\ref[src];c_mode2=secret'>Secret</A><br>"}
 		dat += {"<A href='?src=\ref[src];c_mode2=random'>Random</A><br>"}
-		dat += {"Now: [master_mode]"}
+		dat += {"Now: [SSticker.master_mode]"}
 		usr << browse(dat, "window=c_mode")
 
 	else if(href_list["f_secret"])
 		if(!check_rights(R_ADMIN))	return
 
-		if(ticker && ticker.mode)
+		if(SSticker.mode)
 			return alert(usr, "The game has already started.", null, null, null, null)
-		if(master_mode != "secret")
+		if(SSticker.master_mode != "secret")
 			return alert(usr, "The game mode has to be secret!", null, null, null, null)
 		var/dat = {"<B>What game mode do you want to force secret to be? Use this if you want to change the game mode, but want the players to believe it's secret. This will only work if the current game mode is secret.</B><HR>"}
 		for(var/mode in config.modes)
@@ -979,21 +973,22 @@
 	else if(href_list["c_mode2"])
 		if(!check_rights(R_ADMIN|R_SERVER))	return
 
-		if (ticker && ticker.mode)
+		if (SSticker.mode)
 			return alert(usr, "The game has already started.", null, null, null, null)
-		master_mode = href_list["c_mode2"]
-		log_and_message_admins("set the mode as [master_mode].")
-		to_world("<span class='notice'><b>The mode is now: [master_mode]</b></span>")
+		SSticker.master_mode = href_list["c_mode2"]
+		SSticker.bypass_gamemode_vote = 1
+		log_and_message_admins("set the mode as [SSticker.master_mode].")
+		to_world("<span class='notice'><b>The mode is now: [SSticker.master_mode]</b></span>")
 		Game() // updates the main game menu
-		world.save_mode(master_mode)
+		world.save_mode(SSticker.master_mode)
 		.(href, list("c_mode"=1))
 
 	else if(href_list["f_secret2"])
 		if(!check_rights(R_ADMIN|R_SERVER))	return
 
-		if(ticker && ticker.mode)
+		if(SSticker.mode)
 			return alert(usr, "The game has already started.", null, null, null, null)
-		if(master_mode != "secret")
+		if(SSticker.master_mode != "secret")
 			return alert(usr, "The game mode has to be secret!", null, null, null, null)
 		secret_force_mode = href_list["f_secret2"]
 		log_and_message_admins("set the forced secret mode as [secret_force_mode].")
@@ -1249,7 +1244,7 @@
 		show_player_panel(M)
 
 	else if(href_list["adminplayerobservejump"])
-		if(!check_rights(R_MENTOR|R_MOD|R_ADMIN))	return
+		if(!check_rights(R_MOD|R_ADMIN|R_MENTOR))	return
 
 		var/mob/M = locate(href_list["adminplayerobservejump"])
 		var/client/C = usr.client
@@ -1262,7 +1257,7 @@
 		C.jumptomob(M)
 
 	else if(href_list["adminplayerobservefollow"])
-		if(!check_rights(R_MENTOR|R_MOD|R_ADMIN))
+		if(!check_rights(R_MOD|R_ADMIN|R_MENTOR))
 			return
 
 		var/mob/M = locate(href_list["adminplayerobservefollow"])
@@ -1387,7 +1382,7 @@
 			H.update_inv_l_hand()
 		log_admin("[key_name(H)] got their cookie, spawned by [key_name(src.owner)]")
 		message_admins("[key_name(H)] got their cookie, spawned by [key_name(src.owner)]")
-		feedback_inc("admin_cookies_spawned",1)
+		SSstatistics.add_field("admin_cookies_spawned",1)
 		to_chat(H, "<span class='notice'>Your prayers have been answered!! You received the <b>best cookie</b>!</span>")
 
 	else if(href_list["BlueSpaceArtillery"])
@@ -1548,7 +1543,7 @@
 		usr.client.cmd_admin_direct_narrate(M)
 
 	else if(href_list["subtlemessage"])
-		if(!check_rights(R_MOD,0) && !check_rights(R_ADMIN))  return
+		if(!check_rights(R_MOD|R_MENTOR,0) && !check_rights(R_ADMIN))  return
 
 		var/mob/M = locate(href_list["subtlemessage"])
 		usr.client.cmd_admin_subtle_message(M)
@@ -1556,7 +1551,7 @@
 	else if(href_list["traitor"])
 		if(!check_rights(R_ADMIN|R_MOD))	return
 
-		if(!ticker || !ticker.mode)
+		if(GAME_STATE < RUNLEVEL_GAME)
 			alert("The game hasn't started yet!")
 			return
 
@@ -1732,7 +1727,7 @@
 			var/choice = alert("Please confirm Feed channel creation","Network Channel Handler","Confirm","Cancel")
 			if(choice=="Confirm")
 				news_network.CreateFeedChannel(admincaster_feed_channel.channel_name, admincaster_signature, admincaster_feed_channel.locked, 1)
-				feedback_inc("newscaster_channels",1)                  //Adding channel to the global network
+				SSstatistics.add_field("newscaster_channels",1)                  //Adding channel to the global network
 				log_admin("[key_name_admin(usr)] created command feed channel: [src.admincaster_feed_channel.channel_name]!")
 				src.admincaster_screen=5
 		src.access_news_network()
@@ -1752,7 +1747,7 @@
 		if(src.admincaster_feed_message.body =="" || src.admincaster_feed_message.body =="\[REDACTED\]" || src.admincaster_feed_channel.channel_name == "" )
 			src.admincaster_screen = 6
 		else
-			feedback_inc("newscaster_stories",1)
+			SSstatistics.add_field("newscaster_stories",1)
 			news_network.SubmitArticle(src.admincaster_feed_message.body, src.admincaster_signature, src.admincaster_feed_channel.channel_name, null, 1)
 			src.admincaster_screen=4
 
@@ -2061,7 +2056,7 @@
 				DB_staffwarn_record(M.ckey, reason)
 				if(M.client)
 					M.client.staffwarn = reason
-				feedback_inc("staff_warn",1)
+				SSstatistics.add_field("staff_warn",1)
 				log_and_message_admins("has enabled staffwarn on [M.ckey].\nMessage: [reason]\n")
 				show_player_panel(M)
 			if("No")

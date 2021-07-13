@@ -17,16 +17,12 @@ datum/track/proc/GetTrack()
 /obj/machinery/media/jukebox
 	name = "mediatronic jukebox"
 	desc = "An immense, standalone touchscreen on a swiveling base, equipped with phased array speakers. Embossed on one corner of the ultrathin bezel is the brand name, 'Leitmotif Enterprise Edition'."
-	description_info = "Click the jukebox and then select a track on the interface. You can choose to play or stop the track, or set the volume. Use a wrench to attach or detach the jukebox to the floor. The room it is installed in must have power for it to operate!"
-	description_fluff = "The Leitmotif is Auraliving's most popular brand of retro jukebox, putting a modern spin on the ancient curved plasmascreen design. The Enterprise Edition allows an indefinite number of users to sync music from their devices simultaneously... of course the Expeditionary Corps made sure to lock down the selection before they installed this one."
-	description_antag = "Slide a cryptographic sequencer into the jukebox to overload its speakers. Instead of music, it'll produce a hellish blast of noise and explode!"
 	icon = 'icons/obj/jukebox_new.dmi'
 	icon_state = "jukebox3-nopower"
 	var/state_base = "jukebox3"
 	anchored = 1
 	density = 1
 	power_channel = EQUIP
-	use_power = 1
 	idle_power_usage = 10
 	active_power_usage = 100
 	clicksound = 'sound/machines/buttonbeep.ogg'
@@ -45,7 +41,6 @@ datum/track/proc/GetTrack()
 /obj/machinery/media/jukebox/old
 	name = "space jukebox"
 	desc = "A battered and hard-loved jukebox in some forgotten style, carefully restored to some semblance of working condition."
-	description_fluff = "No one these days knows what civilization is responsible for this machine's design - various alien species have been credited on more than one occasion."
 	icon = 'icons/obj/jukebox.dmi'
 	icon_state = "jukebox2-nopower"
 	state_base = "jukebox2"
@@ -74,7 +69,7 @@ datum/track/proc/GetTrack()
 	if(stat & (NOPOWER|BROKEN) && playing)
 		StopPlaying()
 
-/obj/machinery/media/jukebox/update_icon()
+/obj/machinery/media/jukebox/on_update_icon()
 	overlays.Cut()
 	if(stat & (NOPOWER|BROKEN) || !anchored)
 		if(stat & BROKEN)
@@ -207,7 +202,7 @@ datum/track/proc/GetTrack()
 
 /obj/machinery/media/jukebox/proc/StopPlaying()
 	playing = 0
-	update_use_power(1)
+	update_use_power(POWER_USE_IDLE)
 	update_icon()
 	QDEL_NULL(sound_token)
 
@@ -221,7 +216,7 @@ datum/track/proc/GetTrack()
 	sound_token = GLOB.sound_player.PlayLoopingSound(src, sound_id, current_track.GetTrack(), volume = volume, range = 7, falloff = 3, prefer_mute = TRUE)
 
 	playing = 1
-	update_use_power(2)
+	update_use_power(POWER_USE_ACTIVE)
 	update_icon()
 
 /obj/machinery/media/jukebox/proc/AdjustVolume(var/new_volume)

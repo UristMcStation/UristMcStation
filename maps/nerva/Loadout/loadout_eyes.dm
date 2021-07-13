@@ -4,3 +4,6 @@
 
 /datum/gear/eyes/medical
 	allowed_roles = list(/datum/job/doctor,/datum/job/cmo,/datum/job/chemist)
+
+/datum/gear/eyes/meson
+	allowed_roles = list(/datum/job/chief_engineer, /datum/job/engineer, /datum/job/mining, /datum/job/scientist, /datum/job/rd, /datum/job/seniorscientist)

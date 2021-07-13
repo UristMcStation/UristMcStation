@@ -7,7 +7,7 @@
 		return
 	if( !ismob(M) || !M.client )	return
 	cmd_admin_pm(M.client,null)
-	feedback_add_details("admin_verb","APMM") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	SSstatistics.add_field_details("admin_verb","APMM") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 //shows a list of clients we could send PMs to, then forwards our choice to cmd_admin_pm
 /client/proc/cmd_admin_pm_panel()
@@ -30,7 +30,7 @@
 	var/list/sorted = sortList(targets)
 	var/target = input(src,"To whom shall we send a message?","Admin PM",null) in sorted|null
 	cmd_admin_pm(targets[target],null)
-	feedback_add_details("admin_verb","APM") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	SSstatistics.add_field_details("admin_verb","APM") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 
 //takes input from cmd_admin_pm_context, cmd_admin_pm_panel or /client/Topic and sends them a PM.
@@ -183,5 +183,5 @@
 	for(var/client/X in GLOB.admins)
 		if(X == src)
 			continue
-		if(X.holder.rights & R_ADMIN|R_MOD)
+		if(X.holder.rights & R_ADMIN|R_MOD|R_MENTOR)
 			to_chat(X, "<span class='pm'><span class='other'>" + create_text_tag("pm_other", "PM:", X) + " <span class='name'>[key_name(src, X, 0)]</span> to <span class='name'>[sender]</span>: <span class='message'>[msg]</span></span></span>")

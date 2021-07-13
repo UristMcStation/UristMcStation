@@ -5,7 +5,6 @@
 	icon_state = "table2-idle"
 	density = 1
 	anchored = 1.0
-	use_power = 1
 	idle_power_usage = 1
 	active_power_usage = 5
 	obj_flags = OBJ_FLAG_SURGICAL
@@ -71,7 +70,7 @@
 
 /obj/machinery/optable/attack_hand(var/mob/user)
 
-	if(HULK in user.mutations)
+	if(MUTATION_HULK in user.mutations)
 		visible_message("<span class='danger'>\The [usr] destroys \the [src]!</span>")
 		src.set_density(0)
 		qdel(src)
@@ -79,6 +78,10 @@
 
 	if(!victim)
 		to_chat(user, "<span class='warning'>There is nobody on \the [src]. It would be pointless to turn the suppressor on.</span>")
+		return
+
+	if(stat & (NOPOWER|BROKEN))
+		to_chat(user, "<span class='warning'>You try to switch on the suppressor, yet nothing happens.</span>")
 		return
 
 	if(user != victim && !suppressing) // Skip checks if you're doing it to yourself or turning it off, this is an anti-griefing mechanic more than anything.
@@ -171,3 +174,8 @@
 		to_chat(usr, "<span class='notice'>Unbuckle \the [patient] first!</span>")
 		return 0
 	return 1
+
+/obj/machinery/optable/power_change()
+	. = ..()
+	if(stat & (NOPOWER|BROKEN))
+		suppressing = FALSE

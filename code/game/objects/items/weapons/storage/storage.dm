@@ -26,6 +26,8 @@
 	//the assoc value can either be the quantity, or a list whose first value is the quantity and the rest are args.
 	var/list/startswith
 	var/datum/storage_ui/storage_ui = /datum/storage_ui/default
+	var/opened = null
+	var/open_sound = null
 
 /obj/item/weapon/storage/Destroy()
 	QDEL_NULL(storage_ui)
@@ -79,6 +81,10 @@
 		storage_ui.hide_from(user)
 
 /obj/item/weapon/storage/proc/open(mob/user as mob)
+	if(!opened)
+		playsound(src.loc, src.open_sound, 50, 0, -5)
+		opened = 1
+		queue_icon_update()
 	if (src.use_sound)
 		playsound(src.loc, src.use_sound, 50, 0, -5)
 	if (isrobot(user) && user.hud_used)
@@ -188,9 +194,9 @@
 				if (M == usr)
 					to_chat(usr, "<span class='notice'>You put \the [W] into [src].</span>")
 				else if (M in range(1, src)) //If someone is standing close enough, they can tell what it is... TODO replace with distance check
-					M.show_message("<span class='notice'>\The [usr] puts [W] into [src].</span>")
+					M.show_message("<span class='notice'>\The [usr] puts [W] into [src].</span>", VISIBLE_MESSAGE)
 				else if (W && W.w_class >= ITEM_SIZE_NORMAL) //Otherwise they can only see large or normal items from a distance...
-					M.show_message("<span class='notice'>\The [usr] puts [W] into [src].</span>")
+					M.show_message("<span class='notice'>\The [usr] puts [W] into [src].</span>", VISIBLE_MESSAGE)
 
 		if(!NoUpdate)
 			update_ui_after_item_insertion()
@@ -231,6 +237,13 @@
 	if(!NoUpdate)
 		update_icon()
 	return 1
+
+// Only do ui functions for now; the obj is responsible for anything else.
+/obj/item/weapon/storage/proc/on_item_deletion(obj/item/W)
+	if(storage_ui)
+		storage_ui.on_pre_remove(null, W) // Supposed to be able to handle null user.
+		update_ui_after_item_removal()
+	queue_icon_update()
 
 //Run once after using remove_from_storage with NoUpdate = 1
 /obj/item/weapon/storage/proc/finish_bulk_removal()

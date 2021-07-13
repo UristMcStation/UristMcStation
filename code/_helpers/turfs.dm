@@ -64,6 +64,12 @@
 	Predicate helpers
 */
 
+/proc/is_space_turf(var/turf/T)
+	return istype(T, /turf/space)
+
+/proc/is_not_space_turf(var/turf/T)
+	return !is_space_turf(T)
+
 /proc/is_holy_turf(var/turf/T)
 	return T && T.holy
 
@@ -146,6 +152,10 @@
 	for(var/obj/O in source)
 		if(O.simulated)
 			O.forceMove(new_turf)
+		else if(istype(O,/obj/effect/shuttle_landmark))
+			var/obj/effect/shuttle_landmark/L = O
+			if(L.flags & SLANDMARK_FLAG_MOBILE)
+				L.forceMove(new_turf)
 
 	for(var/mob/M in source)
 		if(isEye(M)) continue // If we need to check for more mobs, I'll add a variable

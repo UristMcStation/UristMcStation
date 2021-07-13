@@ -12,7 +12,9 @@ var/global/ntnet_card_uid = 1
 	var/identification_string = "" 	// Identification string, technically nickname seen in the network. Can be set by user.
 	var/long_range = 0
 	var/ethernet = 0 // Hard-wired, therefore always on, ignores NTNet wireless checks.
+	var/proxy_id     // If set, uses the value to funnel connections through another network card.
 	malfunction_probability = 1
+	var/magic = FALSE //for the computers on the station
 
 /obj/item/weapon/computer_hardware/network_card/diagnostics(var/mob/user)
 	..()
@@ -48,6 +50,9 @@ var/global/ntnet_card_uid = 1
 	icon_state = "netcard_ethernet"
 	hardware_size = 3
 
+/obj/item/weapon/computer_hardware/network_card/wired/magic
+	magic = TRUE
+
 /obj/item/weapon/computer_hardware/network_card/Destroy()
 	if(holder2 && (holder2.network_card == src))
 		holder2.network_card = null
@@ -55,41 +60,55 @@ var/global/ntnet_card_uid = 1
 	return ..()
 
 // Returns a string identifier of this network card
-/obj/item/weapon/computer_hardware/network_card/proc/get_network_tag()
+/obj/item/weapon/computer_hardware/network_card/proc/get_network_tag(list/routed_through) // Argument is a safety parameter for internal calls. Don't use manually.
+	if(proxy_id && !(src in routed_through))
+		var/obj/item/modular_computer/comp = ntnet_global.get_computer_by_nid(proxy_id)
+		if(comp) // If not we default to exposing ourselves, but it means there was likely a logic error elsewhere.
+			LAZYADD(routed_through, src)
+			return comp.network_card.get_network_tag(routed_through)
 	return "[identification_string] (NID [identification_id])"
 
 /obj/item/weapon/computer_hardware/network_card/proc/is_banned()
 	return ntnet_global.check_banned(identification_id)
 
 // 0 - No signal, 1 - Low signal, 2 - High signal. 3 - Wired Connection
-/obj/item/weapon/computer_hardware/network_card/proc/get_signal(var/specific_action = 0)
+/obj/item/weapon/computer_hardware/network_card/proc/get_signal(var/specific_action = 0, list/routed_through)
+	. = 0
 	if(!holder2) // Hardware is not installed in anything. No signal. How did this even get called?
-		return 0
+		return
 
 	if(!enabled)
-		return 0
+		return
 
 	if(!check_functionality() || !ntnet_global || is_banned())
-		return 0
+		return
+
+	if(magic) //for the computers on the station
+		. = 3
 
 	if(!ntnet_global.check_function(specific_action)) // NTNet is down, we're isolated from the rest of the network.
 		return 0
 
-	if(ethernet) // Computer is connected via wired connection.
-		return 3
+	var/strength = 1
+	if(ethernet)
+		strength = 3
+	else if(long_range)
+		strength = 2
 
-	if(holder2)
-		var/turf/T = get_turf(holder2)
-		if(!istype(T)) //no reception in nullspace
+	var/turf/T = get_turf(holder2)
+	if(!istype(T)) //no reception in nullspace
+		return
+	if(T.z in GLOB.using_map.station_levels)
+		// Computer is on station. Low/High signal depending on what type of network card you have
+		. = strength
+	else if(T.z in GLOB.using_map.contact_levels) //not on station, but close enough for radio signal to travel
+		. = strength - 1
+
+	if(proxy_id)
+		var/obj/item/modular_computer/comp = ntnet_global.get_computer_by_nid(proxy_id)
+		if(!comp || !comp.enabled)
 			return 0
-		if(T.z in GLOB.using_map.station_levels)
-			// Computer is on station. Low/High signal depending on what type of network card you have
-			if(long_range)
-				return 2
-			else
-				return 1
-		if(T.z in GLOB.using_map.contact_levels) //not on station, but close enough for radio signal to travel
-			if(long_range) // Computer is not on station, but it has upgraded network card. Low signal.
-				return 1
-
-	return 0 // Computer is not on station and does not have upgraded network card. No signal.
+		if(src in routed_through) // circular proxy chain
+			return 0
+		LAZYADD(routed_through, src)
+		. = min(., comp.network_card.get_signal(specific_action, routed_through))

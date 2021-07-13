@@ -25,10 +25,13 @@ SUBSYSTEM_DEF(supply)
 		"time" = "Base station supply",
 		"manifest" = "From exported manifests",
 		"crate" = "From exported crates",
-		"virology" = "From uploaded antibody data",
+		"virology_antibodies" = "From uploaded antibody data",
+		"virology_dishes" = "From exported virus dishes",
 		"gep" = "From uploaded good explorer points",
 		"total" = "Total" // If you're adding additional point sources, add it here in a new line. Don't forget to put a comma after the old last line.
 	)
+	//virus dishes uniqueness
+	var/list/sold_virus_strains = list()
 
 /datum/controller/subsystem/supply/Initialize()
 	. = ..()
@@ -49,9 +52,11 @@ SUBSYSTEM_DEF(supply)
 		)
 
 	//Build master supply list
-	for(var/decl/hierarchy/supply_pack/sp in cargo_supply_pack_root.children)
+	var/decl/hierarchy/supply_pack/root = decls_repository.get_decl(/decl/hierarchy/supply_pack)
+	for(var/decl/hierarchy/supply_pack/sp in root.children)
 		if(sp.is_category())
-			for(var/decl/hierarchy/supply_pack/spc in sp.children)
+			for(var/decl/hierarchy/supply_pack/spc in sp.get_descendents())
+				spc.setup()
 				master_supply_list += spc
 
 	for(var/material/mat in SSmaterials.materials)
@@ -76,9 +81,14 @@ SUBSYSTEM_DEF(supply)
 	point_sources["total"] += amount
 
 	if(GLOB.using_map.using_new_cargo)
-	//	var/newamount = (amount * GLOB.using_map.new_cargo_inflation)
-		station_account.money += amount
-		points = station_account.money
+		if(amount)
+			var/datum/transaction/T = new("[GLOB.using_map.station_name]", "Trading Revenue", amount, "[GLOB.using_map.trading_faction.name] Automated Trading System")
+			station_account.do_transaction(T)
+			var/repamount = GLOB.using_map.new_cargo_inflation * GLOB.using_map.new_cargo_inflation
+			if(amount >= repamount)
+				SSfactions.update_reputation(GLOB.using_map.trading_faction, 2)
+		if(station_account) //this is to avoid a roundstart runtime
+			points = station_account.money
 
 	//To stop things being sent to centcomm which should not be sent to centcomm. Recursively checks for these types.
 /datum/controller/subsystem/supply/proc/forbidden_atoms_check(atom/A)
@@ -89,6 +99,8 @@ SUBSYSTEM_DEF(supply)
 	if(istype(A,/obj/machinery/nuclearbomb))
 		return 1
 	if(istype(A,/obj/item/device/radio/beacon))
+		return 1
+	if(istype(A,/obj/machinery/power/supermatter))
 		return 1
 
 	for(var/i=1, i<=A.contents.len, i++)
@@ -103,6 +115,14 @@ SUBSYSTEM_DEF(supply)
 		for(var/atom/movable/AM in subarea)
 			if(AM.anchored)
 				continue
+
+			if(GLOB.using_map.using_new_cargo) //this allows for contracts that call for obj/structures
+				for(var/datum/contract/cargo/CC in GLOB.using_map.contracts)
+					if(AM.type in CC.wanted_types)
+						CC.Complete(1)
+						qdel(AM)
+						continue
+
 			if(istype(AM, /obj/structure/closet/crate/))
 				var/obj/structure/closet/crate/CR = AM
 				callHook("sell_crate", list(CR, subarea))
@@ -113,6 +133,12 @@ SUBSYSTEM_DEF(supply)
 					var/atom/A = atom
 
 					if(GLOB.using_map.using_new_cargo)
+						for(var/datum/contract/cargo/CC in GLOB.using_map.contracts) //just in case someone shoved it in a crate
+							if(A.type in CC.wanted_types)
+								CC.Complete(1)
+								//qdel(AM)
+								continue
+
 						if(istype(A, /obj/item/stack/material))
 							var/obj/item/stack/material/P = A
 							var/material/material = P.get_material()
@@ -121,16 +147,20 @@ SUBSYSTEM_DEF(supply)
 								materialmoney *= GLOB.using_map.new_cargo_inflation
 								materialmoney *= 0.25 //test and balance
 								material_count[material.display_name] += materialmoney
-//								station_account.money += materialmoney
-//								points = station_account.money
 
 						else
 
 							var/obj/O = A
-							var/addvalue = (find_item_value(O) * 0.8) //we get even less for selling in bulk
+							var/addvalue
+
+							if(GLOB.using_map.trading_faction)
+								if(GLOB.using_map.trading_faction.reputation > 50)
+									var/newvalue = (GLOB.using_map.trading_faction.reputation - 50) / 100
+									addvalue = newvalue / 2
+							else
+								addvalue = (find_item_value(O) * 0.75) //we get even less for selling in bulk
+
 							add_points_from_source(addvalue, "trade")
-//							station_account.money += addvalue
-//							points = station_account.money
 
 					if(find_slip && istype(A,/obj/item/weapon/paper/manifest))
 						var/obj/item/weapon/paper/manifest/slip = A
@@ -140,18 +170,28 @@ SUBSYSTEM_DEF(supply)
 						continue
 
 					// Sell materials
-					if(istype(A, /obj/item/stack))
-						if(!GLOB.using_map.using_new_cargo) //Bay sucks cock, so now we're just doing it through our price system
-							var/obj/item/stack/P = A
-							var/material/material = P.get_material()
-							if(material.sale_price > 0)
-								material_count[material.display_name] += P.get_amount() * material.sale_price
-							continue
+					if(istype(A, /obj/item/stack/material))
+						var/obj/item/stack/material/P = A
+						if(P.material && P.material.sale_price > 0)
+							material_count[P.material.display_name] += P.get_amount() * P.material.sale_price * P.matter_multiplier
+						if(P.reinf_material && P.reinf_material.sale_price > 0)
+							material_count[P.reinf_material.display_name] += P.get_amount() * P.reinf_material.sale_price * P.matter_multiplier * 0.5
+						continue
 
 					// Must sell ore detector disks in crates
 					if(istype(A, /obj/item/weapon/disk/survey))
 						var/obj/item/weapon/disk/survey/D = A
 						add_points_from_source(round(D.Value() * 0.005), "gep")
+
+					// Sell virus dishes.
+					if(istype(A, /obj/item/weapon/virusdish))
+						//Obviously the dish must be unique and never sold before.
+						var/obj/item/weapon/virusdish/dish = A
+						if(dish.analysed && istype(dish.virus2) && dish.virus2.uniqueID)
+							if(!(dish.virus2.uniqueID in sold_virus_strains))
+								add_points_from_source(5, "virology_dishes")
+								sold_virus_strains += dish.virus2.uniqueID
+
 			qdel(AM)
 
 	if(material_count.len)
@@ -234,6 +274,6 @@ SUBSYSTEM_DEF(supply)
 	var/datum/trade_item/T
 
 	//try and find it via the global controller
-	T = trade_controller.trade_items_by_type[object.type]
+	T = SStrade_controller.trade_items_by_type[object.type]
 	if(T)
 		return T.value

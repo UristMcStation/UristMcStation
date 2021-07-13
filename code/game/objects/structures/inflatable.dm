@@ -39,7 +39,7 @@
 	icon_state = "wall"
 
 	var/undeploy_path = null
-	var/health = 50.0
+	health = 50.0
 
 /obj/structure/inflatable/wall
 	name = "inflatable wall"
@@ -214,7 +214,7 @@
 	update_icon()
 	isSwitchingStates = 0
 
-/obj/structure/inflatable/door/update_icon()
+/obj/structure/inflatable/door/on_update_icon()
 	if(state)
 		icon_state = "door_open"
 	else

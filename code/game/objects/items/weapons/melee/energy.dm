@@ -5,8 +5,11 @@
 	sharp = 0
 	edge = 0
 	armor_penetration = 50
-	atom_flags = ATOM_FLAG_NO_BLOOD
+	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_NO_BLOOD
 	obj_flags = OBJ_FLAG_NO_EMBED
+
+/obj/item/weapon/melee/energy/can_embed()
+	return FALSE
 
 /obj/item/weapon/melee/energy/proc/activate(mob/living/user)
 	if(active)
@@ -32,7 +35,7 @@
 
 /obj/item/weapon/melee/energy/attack_self(mob/living/user as mob)
 	if (active)
-		if ((CLUMSY in user.mutations) && prob(50))
+		if ((MUTATION_CLUMSY in user.mutations) && prob(50))
 			user.visible_message("<span class='danger'>\The [user] accidentally cuts \himself with \the [src].</span>",\
 			"<span class='danger'>You accidentally cut yourself with \the [src].</span>")
 			user.take_organ_damage(5,5)
@@ -70,7 +73,7 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = ITEM_SIZE_NORMAL
-	atom_flags = ATOM_FLAG_NO_BLOOD
+	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_NO_BLOOD
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	origin_tech = list(TECH_MAGNET = 3, TECH_COMBAT = 4)
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
@@ -103,7 +106,7 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = ITEM_SIZE_SMALL
-	atom_flags = ATOM_FLAG_NO_BLOOD
+	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_NO_BLOOD
 	origin_tech = list(TECH_MAGNET = 3, TECH_ILLEGAL = 4)
 	sharp = 1
 	edge = 1
@@ -181,7 +184,7 @@
 	throw_speed = 1
 	throw_range = 1
 	w_class = ITEM_SIZE_TINY //technically it's just energy or something, I dunno
-	atom_flags = ATOM_FLAG_NO_BLOOD
+	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_NO_BLOOD
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	var/mob/living/creator
 	var/datum/effect/effect/system/spark_spread/spark_system

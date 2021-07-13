@@ -218,7 +218,7 @@
 	if(.)
 		emote("nashes at [.]")
 
-/mob/living/simple_animal/hostile/huntable/panther/AttackingTarget()
+/mob/living/simple_animal/hostile/huntable/panther/UnarmedAttack(var/atom/A, var/proximity)
 	. =..()
 	var/mob/living/L = .
 	if(istype(L))
@@ -276,10 +276,10 @@
 	if(.)
 		emote("hisses wickedly")
 
-/mob/living/simple_animal/hostile/snake/AttackingTarget()
+/mob/living/simple_animal/hostile/snake/UnarmedAttack(var/atom/A, var/proximity)
 	. =..()
-	if(istype(target, /mob/living/carbon))
-		var/mob/living/carbon/L = target
+	if(istype(A, /mob/living/carbon))
+		var/mob/living/carbon/L = A
 		bite(L)
 
 /mob/living/simple_animal/hostile/snake/proc/bite(var/mob/living/L)

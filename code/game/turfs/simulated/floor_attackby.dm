@@ -3,7 +3,7 @@
 	if(!C || !user)
 		return 0
 
-	if(isCoil(C) || (flooring && istype(C, /obj/item/stack/rods)))
+	if(isCoil(C) || (flooring && istype(C, /obj/item/stack/material/rods)))
 		return ..(C, user)
 
 	if(flooring)
@@ -50,8 +50,8 @@
 			//first check, catwalk? Else let flooring do its thing
 			if(locate(/obj/structure/catwalk, src))
 				return
-			if (istype(C, /obj/item/stack/rods))
-				var/obj/item/stack/rods/R = C
+			if (istype(C, /obj/item/stack/material/rods))
+				var/obj/item/stack/material/rods/R = C
 				if (R.use(2))
 					playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 					new /obj/structure/catwalk(src)

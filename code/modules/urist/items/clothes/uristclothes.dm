@@ -323,10 +323,10 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 //trolololo
 
 /obj/item/clothing/under/sakura_hokkaido_kimono
+	item_icons = URIST_ALL_ONMOBS
 	name = "Kimono"
 	desc = "A pale-pink, nearly white, kimono with a red and gold obi. There is a embroidered design of cherry blossom flowers covering the kimono."
 	icon = 'icons/urist/items/old_bay_custom_items.dmi'
-	icon_override = 'icons/uristmob/clothes.dmi'
 	icon_state = "sakura_hokkaido_kimono"
 	item_state = "sakura_hokkaido_kimono"
 	//item_color = "sakura_hokkaido_kimono"
@@ -411,22 +411,9 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristUniform.dmi')
 
-//'legacy' labcoat for non-togglable labcoats
-
-/obj/item/clothing/suit/storage/labcoat
-	name = "labcoat"
-	desc = "A suit that protects against minor chemical spills."
-	icon_state = "labcoat_open"
-	item_state = "labcoat" //Is this even used for anything?
-	blood_overlay_type = "coatblood"
-	body_parts_covered = UPPER_TORSO|ARMS
-	allowed = list(/obj/item/device/analyzer,/obj/item/stack/medical,/obj/item/weapon/reagent_containers/dropper,/obj/item/weapon/reagent_containers/syringe,/obj/item/weapon/reagent_containers/hypospray,/obj/item/device/healthanalyzer,/obj/item/device/flashlight/pen,/obj/item/weapon/reagent_containers/glass/bottle,/obj/item/weapon/reagent_containers/glass/beaker,/obj/item/weapon/reagent_containers/pill,/obj/item/weapon/storage/pill_bottle,/obj/item/weapon/paper)
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 50, rad = 0)
-	sprite_sheets = list("Vox" = 'icons/mob/species/vox/suit.dmi')
-
 //hooonk bs12
 
-/obj/item/clothing/suit/storage/toggle/labcoat/robotics //I believe this one is non-buttonable by design
+/obj/item/clothing/suit/storage/toggle/labcoat/robotics
 	item_icons = URIST_ALL_ONMOBS
 	name = "Robotics labcoat"
 	desc = "A labcoat with a few markings denoting it as the labcoat of a roboticist."
@@ -1195,7 +1182,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS|HEAD
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS|HEAD
 	min_cold_protection_temperature = 243.15
-	armor = list(melee = 18, bullet = 5, laser = 10, energy = 5, bomb = 0, bio = 0, rad = 0)
+	armor = list(melee = 20, bullet = 5, laser = 10, energy = 5, bomb = 0, bio = 0, rad = 0)
 	hoodtype = /obj/item/clothing/head/winterhood/sandsuit
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	item_icons = URIST_ALL_ONMOBS
@@ -1204,6 +1191,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "leather protective suit"
 	desc = "A full-body suit meant to protect against the elements."
 	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristSuit.dmi')
+	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency,/obj/item/weapon/melee/energy/sword,/obj/item/device/flashlight,/obj/item/device/radio)
 
 /obj/item/clothing/under/urist/cowboy
 	name = "cowboy's outfit"
@@ -1280,3 +1268,128 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A grey uniform worn by the Terran Confederacy Marines."
 	icon_state = "terran_uniform"
 	item_state = "terran_uniform"
+
+// Biohazard Stuff, and Big Bulky Dumb Suits.
+
+// Grey Version of the biosuit.
+/obj/item/clothing/head/biohazardhoodgrey
+	name = "custodial bio hood"
+	icon = 'icons/urist/items/clothes/head.dmi'
+	icon_override = 'icons/uristmob/head.dmi'
+	icon_state = "bulky_grey_hood"
+	item_state = "bulky_grey_hood"
+	desc = "A bulky grey hood that protects the user from biohazardous materials."
+	w_class = 3.0
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|BLOCKHAIR
+	body_parts_covered = HEAD|FACE|EYES
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 100, rad = 20)
+
+/obj/item/clothing/suit/biohazardgrey
+	name = "custodial bio suit"
+	desc = "A bulky grey suit that protects against biological contamination."
+	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon_override = 'icons/uristmob/clothes.dmi'
+	icon_state = "bulky_grey"
+	item_state = "bulky_grey"
+	item_state_slots = list(
+		slot_l_hand_str = "bio_suit",
+		slot_r_hand_str = "bio_suit",
+	)
+	w_class = ITEM_SIZE_HUGE//bulky item
+	gas_transfer_coefficient = 0
+	permeability_coefficient = 0
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
+	allowed = list(/obj/item/weapon/tank/emergency,/obj/item/weapon/pen,/obj/item/device/flashlight/pen,/obj/item/device/healthanalyzer,/obj/item/device/ano_scanner,/obj/item/clothing/head/bio_hood,/obj/item/clothing/mask/gas)
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 100, rad = 20)
+	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
+	item_flags = ITEM_FLAG_THICKMATERIAL
+	siemens_coefficient = 0.3
+
+// Radiation Suit.
+/obj/item/clothing/head/biohazardradiationhood
+	name = "bulky radiation hood"
+	desc = "A bulky yellow hood designed to protect the user from radiation."
+	icon = 'icons/urist/items/clothes/head.dmi'
+	icon_override = 'icons/uristmob/head.dmi'
+	icon_state = "bulky_yellow_hood"
+	item_state = "bulky_yellow_hood"
+	flags_inv = BLOCKHAIR
+	body_parts_covered = HEAD|FACE|EYES
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 100)
+
+/obj/item/clothing/suit/biohazardradiation
+	name = "bulky radiation suit"
+	desc = "A bulky yellow radiation suit, designed to protect the user from radiation exposure."
+	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon_override = 'icons/uristmob/clothes.dmi'
+	icon_state = "bulky_yellow"
+	item_state = "bulky_yellow"
+	item_state_slots = list(
+		slot_l_hand_str = "rad_suit",
+		slot_r_hand_str = "rad_suit",
+	)
+	w_class = ITEM_SIZE_HUGE//bulky item
+	gas_transfer_coefficient = 0.90
+	permeability_coefficient = 0.50
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|HANDS|FEET
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank/emergency,/obj/item/clothing/head/radiation,/obj/item/clothing/mask/gas)
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 100)
+	flags_inv = HIDEJUMPSUIT|HIDETAIL|HIDEGLOVES|HIDESHOES
+	siemens_coefficient = 0.3
+
+/obj/item/clothing/suit/biohazardradiation/New()
+	..()
+	slowdown_per_slot[slot_shoes] = 1.5
+
+// Blue Biohazard Suit.
+/obj/item/clothing/head/biohazardbluehood
+	name = "blue medical hood"
+	desc = "A bulky grey hood that protects the user from biohazardous materials."
+	icon = 'icons/urist/items/clothes/head.dmi'
+	icon_override = 'icons/uristmob/head.dmi'
+	icon_state = "bulky_blue_hood"
+	item_state = "bulky_blue_hood"
+	flags_inv = BLOCKHAIR
+	body_parts_covered = HEAD|FACE|EYES
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 100, rad = 20)
+
+/obj/item/clothing/suit/biohazardblue
+	name = "blue medical biosuit"
+	desc = "A bulky blue suit that protects against biological contamination. This suit appears to have a medical cross on it."
+	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon_override = 'icons/uristmob/clothes.dmi'
+	icon_state = "bulky_blue"
+	item_state = "bulky_blue"
+	item_state_slots = list(
+		slot_l_hand_str = "bio_suit",
+		slot_r_hand_str = "bio_suit",
+	)
+	w_class = ITEM_SIZE_HUGE//bulky item
+	gas_transfer_coefficient = 0
+	permeability_coefficient = 0
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
+	allowed = list(/obj/item/weapon/tank/emergency,/obj/item/weapon/pen,/obj/item/device/flashlight/pen,/obj/item/device/healthanalyzer,/obj/item/device/ano_scanner,/obj/item/clothing/head/bio_hood,/obj/item/clothing/mask/gas)
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 100, rad = 20)
+	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
+	item_flags = ITEM_FLAG_THICKMATERIAL
+	siemens_coefficient = 0.3
+
+//moving this here from noctis_jobs.dm for pirate use
+/obj/item/clothing/suit/armor/pcarrier/light/hijacker
+	color = "#ff0000"
+
+/obj/item/clothing/under/syndicate/pirate
+	starting_accessories = list(/obj/item/clothing/accessory/armband, /obj/item/clothing/accessory/kneepads, /obj/item/clothing/accessory/storage/bandolier)
+
+//moving this here from nerva_clothes.dm to not break other maps
+
+/obj/item/clothing/suit/urist/armor/nerva/sec
+	name = "armour vest"
+	desc = "A bulky armoured vest assigned to the ICS Nerva's security officers. Has space to attach additional pouches for storage."
+	icon_state = "nervasecarmour"
+	item_state = "nervasecarmour"
+	blood_overlay_type = "armorblood"
+	armor = list(melee = 50, bullet = 45, laser = 40, energy = 25, bomb = 30, bio = 0, rad = 0)
+	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_L, ACCESSORY_SLOT_ARMOR_S)
+	restricted_accessory_slots = list(ACCESSORY_SLOT_ARMOR_L, ACCESSORY_SLOT_ARMOR_S)
+	starting_accessories = list(/obj/item/clothing/accessory/storage/pouches/large)

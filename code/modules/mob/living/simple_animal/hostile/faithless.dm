@@ -35,9 +35,9 @@
 	if(.)
 		audible_emote("wails at [.]")
 
-/mob/living/simple_animal/hostile/faithless/AttackingTarget()
+/mob/living/simple_animal/hostile/faithless/UnarmedAttack(var/atom/A, var/proximity)
 	. =..()
-	var/mob/living/L = .
+	var/mob/living/L = A
 	if(istype(L))
 		if(prob(12))
 			L.Weaken(3)

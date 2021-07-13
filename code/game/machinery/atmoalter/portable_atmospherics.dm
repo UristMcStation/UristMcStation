@@ -1,6 +1,6 @@
 /obj/machinery/portable_atmospherics
 	name = "atmoalter"
-	use_power = 0
+	use_power = POWER_USE_OFF
 	var/datum/gas_mixture/air_contents = new
 
 	var/obj/machinery/atmospherics/portables_connector/connected_port
@@ -11,7 +11,7 @@
 
 	var/start_pressure = ONE_ATMOSPHERE
 	var/maximum_pressure = 90 * ONE_ATMOSPHERE
-	atom_flags = ATOM_FLAG_CLIMBABLE
+	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_CLIMBABLE
 
 /obj/machinery/portable_atmospherics/New()
 	..()
@@ -27,12 +27,14 @@
 	. = ..()
 
 /obj/machinery/portable_atmospherics/Initialize()
-	. = ..()
-	spawn()
-		var/obj/machinery/atmospherics/portables_connector/port = locate() in loc
-		if(port)
-			connect(port)
-			update_icon()
+	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/portable_atmospherics/LateInitialize()
+	var/obj/machinery/atmospherics/portables_connector/port = locate() in loc
+	if(port)
+		connect(port)
+		update_icon()
 
 /obj/machinery/portable_atmospherics/Process()
 	if(!connected_port) //only react when pipe_network will ont it do it for you
@@ -49,7 +51,7 @@
 /obj/machinery/portable_atmospherics/proc/MolesForPressure(var/target_pressure = start_pressure)
 	return (target_pressure * air_contents.volume) / (R_IDEAL_GAS_EQUATION * air_contents.temperature)
 
-/obj/machinery/portable_atmospherics/update_icon()
+/obj/machinery/portable_atmospherics/on_update_icon()
 	return null
 
 /obj/machinery/portable_atmospherics/proc/connect(obj/machinery/atmospherics/portables_connector/new_port)
@@ -113,6 +115,7 @@
 		if(connected_port)
 			disconnect()
 			to_chat(user, "<span class='notice'>You disconnect \the [src] from the port.</span>")
+			log_and_message_admins("has disconnected [src.name] at [get_area(src)] | X[src.x] Y[src.y] Z[src.z].")
 			update_icon()
 			return
 		else
@@ -120,6 +123,7 @@
 			if(possible_port)
 				if(connect(possible_port))
 					to_chat(user, "<span class='notice'>You connect \the [src] to the port.</span>")
+					log_and_message_admins("has connected [src.name] at [get_area(src)] | X[src.x] Y[src.y] Z[src.z].")
 					update_icon()
 					return
 				else

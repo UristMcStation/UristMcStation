@@ -9,11 +9,11 @@
 	name = "syringe"
 	desc = "A syringe."
 	icon = 'icons/obj/syringe.dmi'
-	item_state = "syringe_0"
-	icon_state = "0"
-	matter = list("glass" = 150)
+	item_state = "rg0"
+	icon_state = "rg"
+	matter = list(MATERIAL_GLASS = 150)
 	amount_per_transfer_from_this = 5
-	possible_transfer_amounts = null
+	possible_transfer_amounts = "1;2;5"
 	volume = 15
 	w_class = ITEM_SIZE_TINY
 	slot_flags = SLOT_EARS
@@ -23,6 +23,10 @@
 	var/image/filling //holds a reference to the current filling overlay
 	var/visible_name = "a syringe"
 	var/time = 30
+
+/obj/item/weapon/reagent_containers/syringe/Initialize(var/mapload)
+	. = ..()
+	update_icon()
 
 /obj/item/weapon/reagent_containers/syringe/on_reagent_change()
 	update_icon()
@@ -52,14 +56,6 @@
 /obj/item/weapon/reagent_containers/syringe/attackby(obj/item/I as obj, mob/user as mob)
 	return
 
-/obj/item/weapon/reagent_containers/syringe/do_surgery(mob/living/carbon/M, mob/living/user)
-	if(user.a_intent == I_HURT)
-		return 0
-	if(user.a_intent != I_HELP) //in case it is ever used as a surgery tool
-		return ..()
-	afterattack(M, user, 1)
-	return 1
-
 /obj/item/weapon/reagent_containers/syringe/afterattack(obj/target, mob/user, proximity)
 	if(!proximity)
 		return
@@ -81,14 +77,16 @@
 
 	handleTarget(target, user)
 
-/obj/item/weapon/reagent_containers/syringe/update_icon()
+/obj/item/weapon/reagent_containers/syringe/on_update_icon()
 	overlays.Cut()
 
 	if(mode == SYRINGE_BROKEN)
 		icon_state = "broken"
 		return
 
-	var/rounded_vol = round(reagents.total_volume, round(reagents.maximum_volume / 3))
+	var/rounded_vol = Clamp(round((reagents.total_volume / volume * 15),5), 5, 15)
+	if (reagents.total_volume == 0)
+		rounded_vol = 0
 	if(ismob(loc))
 		var/injoverlay
 		switch(mode)
@@ -97,7 +95,7 @@
 			if (SYRINGE_INJECT)
 				injoverlay = "inject"
 		overlays += injoverlay
-	icon_state = "[rounded_vol]"
+	icon_state = "[initial(icon_state)][rounded_vol]"
 	item_state = "syringe_[rounded_vol]"
 
 	if(reagents.total_volume)
@@ -136,9 +134,6 @@
 				to_chat(user, "<span class='warning'>You are unable to locate any blood.</span>")
 				if(istype(target, /mob/living/carbon/human))
 					CRASH("[T] \[[T.type]\] was missing their dna datum!")
-				return
-			if(NOCLONE in T.mutations) //target done been et, no more blood in him
-				to_chat(user, "<span class='warning'>You are unable to locate any blood.</span>")
 				return
 
 			var/injtime = time //Taking a blood sample through a hardsuit takes longer due to needing to find a port.
@@ -209,7 +204,8 @@
 		return
 
 	var/mob/living/L = locate() in bag
-	injectMob(L, user, bag)
+	if(L)
+		injectMob(L, user, bag)
 
 /obj/item/weapon/reagent_containers/syringe/proc/injectMob(var/mob/living/carbon/target, var/mob/living/carbon/user, var/atom/trackTarget)
 	if(!trackTarget)
@@ -370,9 +366,26 @@
 /obj/item/weapon/reagent_containers/syringe/steroid
 	name = "Syringe (anabolic steroids)"
 	desc = "Contains drugs for muscle growth."
-	
+
 /obj/item/weapon/reagent_containers/syringe/steroid/New()
 	..()
 	reagents.add_reagent(/datum/reagent/adrenaline, 5)
 	reagents.add_reagent(/datum/reagent/hyperzine, 10)
+
+
+// TG ports
+
+/obj/item/weapon/reagent_containers/syringe/bluespace
+	name = "bluespace syringe"
+	desc = "An advanced syringe that can hold 60 units of chemicals."
+	amount_per_transfer_from_this = 20
+	volume = 60
+	icon_state = "bs"
+
+/obj/item/weapon/reagent_containers/syringe/noreact
+	name = "cryostasis syringe"
+	desc = "An advanced syringe that stops reagents inside from reacting. It can hold up to 20 units."
+	volume = 20
+	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_NO_REACT
+	icon_state = "cs"
 

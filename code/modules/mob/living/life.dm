@@ -55,9 +55,6 @@
 /mob/living/proc/handle_environment(var/datum/gas_mixture/environment)
 	return
 
-/mob/living/proc/handle_stomach()
-	return
-
 /mob/living/proc/update_pulling()
 	if(pulling)
 		if(incapacitated())
@@ -176,8 +173,6 @@
 		set_fullscreen(disabilities & NEARSIGHTED, "impaired", /obj/screen/fullscreen/impaired, 1)
 		set_fullscreen(eye_blurry, "blurry", /obj/screen/fullscreen/blurry)
 		set_fullscreen(druggy, "high", /obj/screen/fullscreen/high)
-
-	set_fullscreen(stat == UNCONSCIOUS, "blackout", /obj/screen/fullscreen/blackout)
 
 	if(machine)
 		var/viewflags = machine.check_eye(src)

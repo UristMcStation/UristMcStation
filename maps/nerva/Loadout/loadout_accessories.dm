@@ -1,4 +1,4 @@
-#define ARMED_ROLES list(/datum/job/captain, /datum/job/hop, /datum/job/blueshield, /datum/job/hos, /datum/job/officer, /datum/job/merchant)
+#define ARMED_ROLES list(/datum/job/captain, /datum/job/firstofficer, /datum/job/hop, /datum/job/blueshield, /datum/job/hos, /datum/job/officer, /datum/job/merchant)
 
 /datum/gear/accessory/armband
 	display_name = "armband selection"
@@ -43,5 +43,10 @@
 
 /datum/gear/tactical/tacticool
 	allowed_roles = null
+
+/datum/gear/survivalkit
+	display_name = "survival kit"
+	path = /obj/item/weapon/storage/box/survivalkit
+	allowed_roles = list(/datum/job/qm, /datum/job/cargo_tech)
 
 #undef ARMED_ROLES

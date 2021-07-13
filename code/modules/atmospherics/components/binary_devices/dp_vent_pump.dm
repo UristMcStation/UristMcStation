@@ -20,9 +20,9 @@
 
 	level = 1
 
-	use_power = 0
+	use_power = POWER_USE_OFF
 	idle_power_usage = 150		//internal circuitry, friction losses and stuff
-	power_rating = 7500			//7500 W ~ 10 HP
+	power_rating = 30000			// 30000 W ~ 40 HP
 
 	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_SUPPLY|CONNECT_TYPE_SCRUBBER //connects to regular, supply and scrubbers pipes
 
@@ -55,7 +55,7 @@
 	air1.volume = ATMOS_DEFAULT_VOLUME_PUMP + 800
 	air2.volume = ATMOS_DEFAULT_VOLUME_PUMP + 800
 
-/obj/machinery/atmospherics/binary/dp_vent_pump/update_icon(var/safety = 0)
+/obj/machinery/atmospherics/binary/dp_vent_pump/on_update_icon(var/safety = 0)
 	if(!check_icon_cache())
 		return
 
@@ -136,7 +136,7 @@
 
 	if (power_draw >= 0)
 		last_power_draw = power_draw
-		use_power(power_draw)
+		use_power_oneoff(power_draw)
 
 	return 1
 
@@ -164,7 +164,7 @@
 	radio_controller.remove_object(src, frequency)
 	frequency = new_frequency
 	if(frequency)
-		radio_connection = radio_controller.add_object(src, frequency, filter = RADIO_ATMOSIA)
+		radio_connection = radio_controller.add_object(src, frequency, object_filter = RADIO_ATMOSIA)
 
 /obj/machinery/atmospherics/binary/dp_vent_pump/proc/broadcast_status()
 	if(!radio_connection)
@@ -185,7 +185,7 @@
 		"external" = external_pressure_bound,
 		"sigtype" = "status"
 	)
-	radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA)
+	radio_connection.post_signal(src, signal, radio_filter = RADIO_ATMOSIA)
 
 	return 1
 
@@ -202,10 +202,10 @@
 	if(!signal.data["tag"] || (signal.data["tag"] != id) || (signal.data["sigtype"]!="command"))
 		return 0
 	if(signal.data["power"])
-		use_power = text2num(signal.data["power"])
+		update_use_power(sanitize_integer(text2num(signal.data["power"]), POWER_USE_OFF, POWER_USE_ACTIVE, use_power))
 
 	if(signal.data["power_toggle"])
-		use_power = !use_power
+		update_use_power(!use_power)
 
 	if(signal.data["direction"])
 		pump_direction = text2num(signal.data["direction"])

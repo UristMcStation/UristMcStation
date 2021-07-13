@@ -2,6 +2,12 @@
 "aa" = (
 /turf/space,
 /area/space)
+"ab" = (
+/turf/simulated/wall/titanium,
+/area/space)
+"ac" = (
+/turf/simulated/wall,
+/area/space)
 "ad" = (
 /obj/machinery/power/port_gen/pacman/super/potato,
 /obj/structure/cable/yellow{
@@ -28,7 +34,7 @@
 	name = "north bump";
 	pixel_x = 0;
 	pixel_y = 24;
-	req_access = list(201)
+	req_access = newlist()
 	},
 /obj/structure/closet/crate/uranium,
 /obj/structure/cable{
@@ -128,7 +134,6 @@
 	icon_state = "intact";
 	dir = 8
 	},
-/obj/structure/lattice,
 /turf/space,
 /area/unishi/engineering)
 "at" = (
@@ -289,7 +294,7 @@
 	name = "north bump";
 	pixel_x = 0;
 	pixel_y = 24;
-	req_access = list(201)
+	req_access = newlist()
 	},
 /obj/structure/cable/yellow{
 	d2 = 2;
@@ -430,7 +435,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor,
 /area/unishi/engineering)
@@ -470,7 +475,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/vending/engivend{
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor,
 /area/unishi/engineroom)
@@ -502,7 +507,7 @@
 	dir = 4
 	},
 /obj/machinery/vending/engineering{
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor,
 /area/unishi/engineroom)
@@ -543,7 +548,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor,
 /area/unishi/engineroom)
@@ -821,6 +826,10 @@
 	},
 /turf/simulated/floor/airless,
 /area/unishi/engineroom)
+"ch" = (
+/obj/structure/sign/warning/vent_port,
+/turf/simulated/wall/titanium,
+/area/space)
 "ci" = (
 /obj/structure/lattice,
 /turf/space,
@@ -5138,19 +5147,19 @@ aa
 aa
 aa
 aa
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ci
 ci
 ci
@@ -5238,8 +5247,8 @@ aa
 aa
 aa
 aa
-ay
-ay
+ab
+ab
 aG
 aG
 aG
@@ -5335,12 +5344,12 @@ aa
 aa
 aa
 aa
-ay
-ay
-ay
-ay
-ay
-ay
+ab
+ab
+ab
+ab
+ab
+ab
 at
 aG
 aO
@@ -5436,13 +5445,13 @@ aa
 aa
 aa
 aa
-ay
-ay
-ai
-ai
-ai
-ai
-ai
+ab
+ab
+ac
+ac
+ac
+ac
+ac
 at
 aG
 aP
@@ -5538,9 +5547,9 @@ aa
 aa
 aa
 aa
-ay
-ay
-ay
+ab
+ab
+ab
 ad
 aj
 aj
@@ -5640,9 +5649,9 @@ aa
 aa
 aa
 aa
-ay
-ay
-ay
+ab
+ab
+ab
 ae
 ak
 ak
@@ -5742,9 +5751,9 @@ aa
 aa
 aa
 aa
-ay
-ay
-ay
+ab
+ab
+ab
 af
 al
 an
@@ -5844,9 +5853,9 @@ aa
 aa
 aa
 aa
-ay
-ay
-ay
+ab
+ab
+ab
 ag
 ag
 ag
@@ -5946,9 +5955,9 @@ aa
 aa
 aa
 aa
-ay
-ay
-ay
+ab
+ab
+ab
 ah
 ah
 ao
@@ -6048,9 +6057,9 @@ aa
 aa
 aa
 aa
-ay
-ay
-ay
+ab
+ab
+ab
 ah
 ah
 ao
@@ -6150,9 +6159,9 @@ aa
 aa
 aa
 aa
-ay
-ay
-ay
+ab
+ab
+ab
 ah
 am
 ap
@@ -6252,9 +6261,9 @@ aa
 aa
 aa
 aa
-ay
-ay
-ai
+ab
+ab
+ac
 ai
 ai
 aq
@@ -6355,10 +6364,10 @@ aa
 aa
 aa
 aa
-ay
-ay
-ay
-ay
+ab
+ab
+ab
+ab
 ar
 ay
 aC
@@ -6466,17 +6475,17 @@ ay
 aD
 aL
 aY
-ay
-ay
-ay
-ay
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-cf
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ch
 aa
 aa
 aa
@@ -6568,17 +6577,17 @@ ay
 aE
 aM
 ay
-ay
-ay
-ay
-ay
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
-bZ
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ci
 ci
 ci

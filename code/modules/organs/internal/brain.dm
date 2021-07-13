@@ -122,6 +122,22 @@
 /obj/item/organ/internal/brain/proc/past_damage_threshold(var/threshold)
 	return (get_current_damage_threshold() > threshold)
 
+/obj/item/organ/internal/brain/proc/handle_severe_brain_damage()
+	set waitfor = FALSE
+	healed_threshold = 0
+	to_chat(owner, "<span class = 'notice' font size='10'><B>Where am I...?</B></span>")
+	sleep(5 SECONDS)
+	if(!owner)
+		return
+	to_chat(owner, "<span class = 'notice' font size='10'><B>What's going on...?</B></span>")
+	sleep(10 SECONDS)
+	if(!owner)
+		return
+	to_chat(owner, "<span class = 'notice' font size='10'><B>What happened...?</B></span>")
+	alert(owner, "You have taken massive brain damage! You will not be able to remember the events leading up to your injury.", "Brain Damaged")
+	if(owner.psi)
+		owner.psi.check_latency_trigger(20, "physical trauma")
+
 /obj/item/organ/internal/brain/Process()
 	if(owner)
 
@@ -200,10 +216,7 @@
 	if(owner.stat)
 		return
 	if((owner.disabilities & EPILEPSY) && prob(1))
-		to_chat(owner, "<span class='warning'>You have a seizure!</span>")
-		owner.visible_message("<span class='danger'>\The [owner] starts having a seizure!</span>")
-		owner.Paralyse(10)
-		owner.make_jittery(1000)
+		owner.seizure()
 	else if((owner.disabilities & TOURETTES) && prob(10))
 		owner.Stun(10)
 		switch(rand(1, 3))

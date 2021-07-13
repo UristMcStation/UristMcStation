@@ -26,15 +26,29 @@
 	smugglers and taking potshots at the ocassional Vox. Currently undergoing major \
 	overhauls to improve efficiency and capabilities, publicly to counter encroachment by the Terran Colonial Confederation."
 
-/decl/cultural_info/faction/tcc
-	name = FACTION_TERRAN_CONFED
-	description = "The Terran Colonial Confederation, commonly referred to as the TCC, is a regional power in human space,\
+/decl/cultural_info/faction/torchco
+	name = FACTION_CORPORATE
+	description = "The Expeditionary Corps Organisation is a government-owned, publically traded limited liability company assembled from the corporate \
+	backers who asssisted in funding the Torch project when it opened five years ago. Major players include NanoTrasen, Xynergy and \
+	Hephaestus Industries, as well as dozens of others. The Expeditionary Corps Organisation reports its earnings and operation plans directly to a board of \
+	directors, made up of corporate representatives and members of Expeditionary Corps command and the Committee for the Economy. \
+	While on the surface the Expeditionary Corps Organisation appears to have noble goals, it is in reality a compromise between the noble ideals of pioneering \
+	science, and the corporate desire to make a quick buck off whatever is found. Rumours also abound about shady practices, hidden \
+	protocols, and xenoartifacts being 'lost' in transit, but nothing has been conclusively proven as of yet, and SCG doubtless is \
+	reluctant to harpoon their own project."
+	economic_power = 1.2
+	subversive_potential = 35
+	language = LANGUAGE_SOL_COMMON
+
+/decl/cultural_info/faction/gcc
+	name = FACTION_INDIE_CONFED
+	description = "The Independent Colonial Confederation of Gilgamesh, commonly referred to as the Gilgamesh Colonial Confederation (GCC), is a regional power in human space,\
 	bordered by the Sol Central Government towards the galactic centre. The capital of the Confederation is the city of Ameranth on the planet of Terra \
-	in the Gilgamesh system. Externally heavily militant and isolationist, the TCC, internally, is heavily libertarian, with \
-	a strong focus on independent planetary government with the TCC itself only handling defence, foreign relations and some intergalactic trade. \
-	Increasingly anti non-human, the TCC is in a cold war with the Sol Central Government following  the Gaia Conflict, a large \
-	scale conflict between the SCG and TCC that saw a great deal of death and destruction. In Sol space \"Terrans\" as they are known are \
-	heavily mistrusted and in some instances, met with downright hostility. Today the TCC continues to be an economic powerhouse following \
+	in the Gilgamesh system. Externally heavily militant and isolationist, the GCC, internally, is heavily libertarian, with \
+	a strong focus on independent planetary government with the GCC itself only handling defence, foreign relations and some intergalactic trade. \
+	Increasingly anti non-human, the GCC is in a cold war with the Sol Central Government following  the Gaia Conflict, a large \
+	scale conflict between the SCG and GCC that saw a great deal of death and destruction. In Sol space \"Indies\" as they are known are \
+	heavily mistrusted and in some instances, met with downright hostility. Today the GCC continues to be an economic powerhouse following \
 	a period of steady economic recovery, with most of its exports being manufactured goods, primarily armaments."
 	economic_power = 0.9
 	subversive_potential = 50
@@ -109,6 +123,18 @@
 	subversive_potential = 15
 	language = LANGUAGE_SPACER
 	secondary_langs = list(LANGUAGE_GALCOM, LANGUAGE_SOL_COMMON)
+
+/decl/cultural_info/faction/dais
+	name = FACTION_DAIS
+	description = "Deimos Advanced Information Systems (DAIS) is a large corporation specializing in information technology such as computer hardware \
+	and software, telecommunications equipment, and networking equipment based on Mars. It is the number one supplier of computer technology in The Sol Central \
+	 Government, its systems used by most consumers and businesses within SolGov. DAIS is actually older than the Sol Central Government and is one of the very \
+	few corporate members of the Solar Assembly. DAIS is also a major investor in the Torch project, and is on the Expeditionary Corps Organization board of directors. \
+	Currently DAIS is invested in bluespace computing research and artificial intelligence research. Despite recent intrusions by NanoTrasen into their sector with NTNet \
+	and related products, they still remain the market leader in computer technologies."
+	economic_power = 1.1
+	subversive_potential = 15
+	language = LANGUAGE_SOL_COMMON
 
 /decl/cultural_info/faction/other
 	name = FACTION_OTHER

@@ -33,7 +33,6 @@
 	move_to_delay = 4
 	attack_sound = 'sound/weapons/punch3.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol
-	simplify_dead_icon = 1 //set to 0 if you want a custom dead icon
 
 /mob/living/simple_animal/hostile/urist/gunman //mostly redundant, for ease of spawning
 	minimum_distance = 4
@@ -53,7 +52,7 @@
 	icon_gib = "syndicate_gib"
 	casingtype = /obj/item/ammo_casing/a10mm
 	projectilesound = 'sound/weapons/gunshot/gunshot_smg.ogg'
-	projectiletype = /obj/item/projectile/bullet/pistol/medium/smg
+	projectiletype = /obj/item/projectile/bullet/pistol
 	maxHealth = 100
 	health = 100
 
@@ -144,7 +143,9 @@
 
 /mob/living/simple_animal/hostile/urist/cultist/death()
 	..()
-	new /obj/effect/effect/smoke/bad(loc)
+	var/datum/effect/effect/system/smoke_spread/bad/deathsmoke = new
+	deathsmoke.set_up(5,0,src.loc,null)
+	deathsmoke.start()
 	qdel(src)
 
 //Spess Jason Bourne
@@ -166,9 +167,9 @@
 	attack_sound = 'sound/weapons/punch3.ogg' //overridden in AttackTarget!
 	attack_same = 0
 
-/mob/living/simple_animal/hostile/urist/stalker/ntis/AttackingTarget()
+/mob/living/simple_animal/hostile/urist/stalker/ntis/UnarmedAttack(var/atom/A, var/proximity)
 	attack_sound = pick('sound/weapons/bladeslice.ogg','sound/weapons/genhit1.ogg','sound/weapons/genhit2.ogg','sound/weapons/punch2.ogg','sound/weapons/punch3.ogg','sound/weapons/smash.ogg')
-	..()
+	. = ..()
 
 //terran
 
@@ -260,3 +261,66 @@
 
 /mob/living/simple_animal/hostile/urist/rebel/event
 	faction = "neutral"
+
+//new pirates
+
+/mob/living/simple_animal/hostile/urist/newpirate
+	name = "Pirate"
+	desc = "Does what they want 'cause a pirate is free."
+	icon_state = "newpirate_melee"
+	icon_living = "newpirate_melee"
+	icon_dead = "newpirate_melee_dead"
+	speak_chance = 0
+	turns_per_move = 5
+	response_help = "pushes"
+	response_disarm = "shoves"
+	response_harm = "hits"
+	speed = 4
+	stop_automated_movement_when_pulled = 0
+	maxHealth = 100
+	health = 100
+	can_escape = 1
+
+	harm_intent_damage = 5
+	melee_damage_lower = 30
+	melee_damage_upper = 30
+	attacktext = "slashed"
+	attack_sound = 'sound/weapons/bladeslice.ogg'
+
+	unsuitable_atmos_damage = 5
+	var/corpse = /obj/effect/landmark/corpse/newpirate/melee
+	hiddenfaction = /datum/factions/pirate
+	faction = "pirate"
+
+/mob/living/simple_animal/hostile/urist/newpirate/laser
+	name = "Pirate Gunner"
+	icon_state = "newpirate_laser"
+	icon_living = "newpirate_laser"
+	icon_dead = "newpirate_laser_dead"
+	projectilesound = 'sound/weapons/laser.ogg'
+	ranged = 1
+	rapid = 0
+	projectiletype = /obj/item/projectile/beam
+	corpse = /obj/effect/landmark/corpse/newpirate/laser
+	minimum_distance = 4
+	retreat_distance = 2
+
+/mob/living/simple_animal/hostile/urist/newpirate/ballistic
+	name = "Pirate Gunner"
+	icon_state = "newpirate_ballistic"
+	icon_living = "newpirate_ballistic"
+	icon_dead = "newpirate_ballistic_dead"
+	projectilesound = 'sound/weapons/gunshot/gunshot3.ogg'
+	ranged = 1
+	rapid = 2
+	projectiletype = /obj/item/projectile/bullet/rifle/a762
+	corpse = /obj/effect/landmark/corpse/newpirate/ballistic
+	minimum_distance = 4
+	retreat_distance = 2
+
+/mob/living/simple_animal/hostile/urist/newpirate/death(gibbed, deathmessage, show_dead_message)
+	..(gibbed, deathmessage, show_dead_message)
+	if(corpse)
+		new corpse (src.loc)
+	qdel(src)
+	return

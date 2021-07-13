@@ -101,7 +101,7 @@
 			M.show_message(self_message, VISIBLE_MESSAGE, blind_message, AUDIBLE_MESSAGE)
 			continue
 
-		if(!is_invisible_to(M) || narrate)
+		if(!M.is_blind() || narrate)
 			M.show_message(mob_message, VISIBLE_MESSAGE, blind_message, AUDIBLE_MESSAGE)
 			continue
 
@@ -283,6 +283,16 @@
 		return 1
 
 	face_atom(A)
+
+	if(A.loc != src || A == l_hand || A == r_hand)
+		for(var/mob/M in viewers(4, src))
+			if(M == src)
+				continue
+			if(M.client && M.client.get_preference_value(/datum/client_preference/examine_messages) == GLOB.PREF_SHOW)
+				if(M.is_blind() || is_invisible_to(M))
+					continue
+				to_chat(M, "<span class='subtle'><b>\The [src]</b> looks at \the [A].</span>")
+
 	A.examine(src)
 
 /mob/verb/pointed(atom/A as mob|obj|turf in view())
@@ -334,23 +344,15 @@
 		if (W)
 			W.attack_self(src)
 			update_inv_l_hand()
+		else
+			attack_empty_hand(BP_L_HAND)
 	else
 		var/obj/item/W = r_hand
 		if (W)
 			W.attack_self(src)
 			update_inv_r_hand()
-	return
-
-/*
-/mob/verb/dump_source()
-
-	var/master = "<PRE>"
-	for(var/t in typesof(/area))
-		master += text("[]\n", t)
-		//Foreach goto(26)
-	src << browse(master)
-	return
-*/
+		else
+			attack_empty_hand(BP_R_HAND)
 
 /mob/verb/memory()
 	set name = "Notes"
@@ -440,80 +442,6 @@
 		prefs.lastchangelog = changelog_hash
 		prefs.save_preferences()
 		winset(src, "rpane.changelog", "background-color=none;font-style=;")
-
-/mob/new_player/verb/observe()
-	set name = "Observe"
-	set category = "OOC"
-
-	if(!(initialization_stage&INITIALIZATION_COMPLETE))
-		to_chat(src, "<span class='warning'>Please wait for server initialization to complete...</span>")
-		return
-
-	var/is_admin = 0
-
-	if(client.holder && (client.holder.rights & R_ADMIN))
-		is_admin = 1
-
-	if(is_admin && stat == DEAD)
-		is_admin = 0
-
-	var/list/names = list()
-	var/list/namecounts = list()
-	var/list/creatures = list()
-
-	for(var/obj/O in world)				//EWWWWWWWWWWWWWWWWWWWWWWWW ~needs to be optimised
-		if(!O.loc)
-			continue
-		if(istype(O, /obj/item/weapon/disk/nuclear))
-			var/name = "Nuclear Disk"
-			if (names.Find(name))
-				namecounts[name]++
-				name = "[name] ([namecounts[name]])"
-			else
-				names.Add(name)
-				namecounts[name] = 1
-			creatures[name] = O
-
-		if(istype(O, /obj/singularity))
-			var/name = "Singularity"
-			if (names.Find(name))
-				namecounts[name]++
-				name = "[name] ([namecounts[name]])"
-			else
-				names.Add(name)
-				namecounts[name] = 1
-			creatures[name] = O
-
-	for(var/mob/M in sortAtom(SSmobs.mob_list))
-		var/name = M.name
-		if (names.Find(name))
-			namecounts[name]++
-			name = "[name] ([namecounts[name]])"
-		else
-			names.Add(name)
-			namecounts[name] = 1
-
-		creatures[name] = M
-
-
-	client.perspective = EYE_PERSPECTIVE
-
-	var/eye_name = null
-
-	var/ok = "[is_admin ? "Admin Observe" : "Observe"]"
-	eye_name = input("Please, select a player!", ok, null, null) as null|anything in creatures
-
-	if (!eye_name)
-		return
-
-	var/mob/mob_eye = creatures[eye_name]
-
-	if(client && mob_eye)
-		client.eye = mob_eye
-		if (is_admin)
-			client.adminobs = 1
-			if(mob_eye == client.mob || client.eye == client.mob)
-				client.adminobs = 0
 
 /mob/verb/cancel_camera()
 	set name = "Cancel Camera View"
@@ -628,8 +556,8 @@
 		var/mob/living/carbon/human/H = AM
 		if(H.pull_damage())
 			to_chat(src, "<span class='danger'>Pulling \the [H] in their current condition would probably be a bad idea.</span>")
-			
-		var/obj/item/clothing/C = H.get_covering_equipped_item(BP_CHEST)
+
+		var/obj/item/clothing/C = H.get_covering_equipped_item_by_zone(BP_CHEST)
 		if(istype(C))
 			C.leave_evidence(src)
 
@@ -675,7 +603,7 @@
 		return
 
 	if(statpanel("Status"))
-		if(ticker && ticker.current_state != GAME_STATE_PREGAME)
+		if(GAME_STATE >= RUNLEVEL_LOBBY)
 			stat("Local Time", stationtime2text())
 			stat("Local Date", stationdate2text())
 			stat("Round Duration", roundduration2text())
@@ -683,8 +611,6 @@
 			stat("Location:", "([x], [y], [z]) [loc]")
 
 	if(client.holder)
-		if(statpanel("Processes") && processScheduler)
-			processScheduler.statProcesses()
 		if(statpanel("MC"))
 			stat("CPU:","[world.cpu]")
 			stat("Instances:","[world.contents.len]")
@@ -771,7 +697,7 @@
 		reset_plane_and_layer()
 
 /mob/proc/facedir(var/ndir)
-	if(!canface() || moving)
+	if(!canface() || moving || (buckled && !buckled.buckle_movable))
 		return 0
 	set_dir(ndir)
 	if(buckled && buckled.buckle_movable)
@@ -897,6 +823,46 @@
 /mob/proc/embedded_needs_process()
 	return (embedded.len > 0)
 
+/mob/proc/remove_implant(var/obj/item/implant, var/surgical_removal = FALSE)
+	if(!LAZYLEN(get_visible_implants(0))) //Yanking out last object - removing verb.
+		verbs -= /mob/proc/yank_out_object
+	for(var/obj/item/weapon/O in pinned)
+		if(O == implant)
+			pinned -= O
+		if(!pinned.len)
+			anchored = 0
+	implant.dropInto(loc)
+	implant.add_blood(src)
+	implant.update_icon()
+	if(istype(implant,/obj/item/weapon/implant))
+		var/obj/item/weapon/implant/imp = implant
+		imp.removed()
+	. = TRUE
+
+/mob/living/silicon/robot/remove_implant(var/obj/item/implant, var/surgical_removal = FALSE)
+	embedded -= implant
+	adjustBruteLoss(5)
+	adjustFireLoss(10)
+	. = ..()
+
+/mob/living/carbon/human/remove_implant(var/obj/item/implant, var/surgical_removal = FALSE, var/obj/item/organ/external/affected)
+	if(!affected) //Grab the organ holding the implant.
+		for(var/obj/item/organ/external/organ in organs) 
+			for(var/obj/item/O in organ.implants)
+				if(O == implant)
+					affected = organ
+					break
+	if(affected)
+		affected.implants -= implant
+		for(var/datum/wound/wound in affected.wounds)
+			wound.embedded_objects -= implant
+		if(!surgical_removal)
+			shock_stage+=20
+			affected.take_external_damage((implant.w_class * 3), 0, DAM_EDGE, "Embedded object extraction")
+			if(!BP_IS_ROBOTIC(affected) && prob(implant.w_class * 5) && affected.sever_artery()) //I'M SO ANEMIC I COULD JUST -DIE-.
+				custom_pain("Something tears wetly in your [affected.name] as [implant] is pulled free!", 50, affecting = affected)
+	. = ..()
+
 /mob/proc/yank_out_object()
 	set category = "Object"
 	set name = "Yank out object"
@@ -930,9 +896,7 @@
 		else
 			to_chat(U, "[src] has nothing stuck in their wounds that is large enough to remove.")
 		return
-
 	var/obj/item/weapon/selection = input("What do you want to yank out?", "Embedded objects") in valid_objects
-
 	if(self)
 		to_chat(src, "<span class='warning'>You attempt to get a good grip on [selection] in your body.</span>")
 	else
@@ -946,48 +910,13 @@
 		visible_message("<span class='warning'><b>[src] rips [selection] out of their body.</b></span>","<span class='warning'><b>You rip [selection] out of your body.</b></span>")
 	else
 		visible_message("<span class='warning'><b>[usr] rips [selection] out of [src]'s body.</b></span>","<span class='warning'><b>[usr] rips [selection] out of your body.</b></span>")
-	valid_objects = get_visible_implants(0)
-	if(valid_objects.len == 1) //Yanking out last object - removing verb.
-		src.verbs -= /mob/proc/yank_out_object
-
-	if(ishuman(src))
-		var/mob/living/carbon/human/H = src
-		var/obj/item/organ/external/affected
-
-		for(var/obj/item/organ/external/organ in H.organs) //Grab the organ holding the implant.
-			for(var/obj/item/O in organ.implants)
-				if(O == selection)
-					affected = organ
-
-		affected.implants -= selection
-		for(var/datum/wound/wound in affected.wounds)
-			wound.embedded_objects -= selection
-
-		H.shock_stage+=20
-		affected.take_external_damage((selection.w_class * 3), 0, DAM_EDGE, "Embedded object extraction")
-
-		if(prob(selection.w_class * 5) && affected.sever_artery()) //I'M SO ANEMIC I COULD JUST -DIE-.
-			H.custom_pain("Something tears wetly in your [affected] as [selection] is pulled free!", 50, affecting = affected)
-
-		if (ishuman(U))
-			var/mob/living/carbon/human/human_user = U
-			human_user.bloody_hands(H)
-
-	else if(issilicon(src))
-		var/mob/living/silicon/robot/R = src
-		R.embedded -= selection
-		R.adjustBruteLoss(5)
-		R.adjustFireLoss(10)
-
+	remove_implant(selection)
 	selection.forceMove(get_turf(src))
 	if(!(U.l_hand && U.r_hand))
 		U.put_in_hands(selection)
-
-	for(var/obj/item/weapon/O in pinned)
-		if(O == selection)
-			pinned -= O
-		if(!pinned.len)
-			anchored = 0
+	if(ishuman(U))
+		var/mob/living/carbon/human/human_user = U
+		human_user.bloody_hands(src)
 	return 1
 
 //Check for brain worms in head.
@@ -1001,7 +930,7 @@
 
 // A mob should either use update_icon(), overriding this definition, or use update_icons(), not touching update_icon().
 // It should not use both.
-/mob/update_icon()
+/mob/on_update_icon()
 	return update_icons()
 
 /mob/verb/face_direction()
@@ -1058,6 +987,42 @@
 	set hidden = 1
 	set_face_dir(client.client_dir(WEST))
 
+/mob/proc/can_shift()
+	return !(incapacitated() || buckled || grabbed_by.len)
+
+/mob/verb/shiftnorth()
+	set hidden = TRUE
+	if(!canface() || !can_shift())
+		return FALSE
+	if(pixel_y <= 16)
+		pixel_y++
+		is_shifted = TRUE
+
+/mob/verb/shiftsouth()
+	set hidden = TRUE
+	if(!canface() || !can_shift())
+		return FALSE
+	if(pixel_y >= -16)
+		pixel_y--
+		is_shifted = TRUE
+
+/mob/verb/shiftwest()
+	set hidden = TRUE
+	if(!canface() || !can_shift())
+		return FALSE
+	if(pixel_x >= -16)
+		pixel_x--
+		is_shifted = TRUE
+
+/mob/verb/shifteast()
+	set hidden = TRUE
+	if(!canface() || !can_shift())
+		return FALSE
+	if(pixel_x <= 16)
+		pixel_x++
+		is_shifted = TRUE
+
+
 /mob/proc/adjustEarDamage()
 	return
 
@@ -1087,12 +1052,12 @@
 	set desc = "Toggles whether or not you will be considered a candidate by an add-antag vote."
 	set category = "OOC"
 	if(isghostmind(src.mind) || isnewplayer(src))
-		if(ticker && ticker.looking_for_antags)
-			if(src.mind in ticker.antag_pool)
-				ticker.antag_pool -= src.mind
+		if(SSticker.looking_for_antags)
+			if(src.mind in SSticker.antag_pool)
+				SSticker.antag_pool -= src.mind
 				to_chat(usr, "You have left the antag pool.")
 			else
-				ticker.antag_pool += src.mind
+				SSticker.antag_pool += src.mind
 				to_chat(usr, "You have joined the antag pool. Make sure you have the needed role set to high!")
 		else
 			to_chat(usr, "The game is not currently looking for antags.")
@@ -1156,6 +1121,9 @@
 
 /mob/proc/can_drown()
 	return 0
+
+/mob/proc/get_sex()
+	return gender
 
 /mob/is_fluid_pushable(var/amt)
 	if(..() && !buckled && (lying || !Check_Shoegrip()) && (amt >= mob_size * (lying ? 5 : 10)))

@@ -8,8 +8,8 @@
 	simplify_dead_icon = 1
 	health = 40
 	maxHealth = 40
-	melee_damage_lower = 10
-	melee_damage_upper = 15
+	melee_damage_lower = 5
+	melee_damage_upper = 10
 	attacktext = "bit"
 	attack_sound = 'sound/weapons/bite.ogg'
 	faction = "undead"
@@ -21,13 +21,140 @@
 	move_to_delay = 7
 	stat_attack = 1
 	ranged = 0
-	universal_speak = 1
+	environment_smash = 1
 	var/plague = 0 //whether biting dead people spawns new zombies
 	var/regen = 0 //if true, they won't stay down, but revive after a delay
-	var/regen_delay = 900 //delay for regen revive
+	var/regen_delay = 90 //delay for regen revive
+
+/datum/reagent/xenomicrobes/uristzombie
+	metabolism = REM
+	var/target_organ = BP_BRAIN
+
+	var/symptom_msgs = list(
+		"Your teeth feel loose.",
+		"Your eyes are rheumy.",
+		"Your blood feels scratchy.",
+		"You joints feel stiff.",
+		"Bumps stand out on your skin.",
+		"Your intestines roil.",
+		"You feel light-headed.",
+		"Your throat hurts.",
+		"You feel fluid sloshing inside you.",
+		"Your chest feels tight.",
+		"You hear a crackling noise from inside of you.",
+		"Pus seeps from your eyes.",
+		"Your skin comes out in lesions.",
+		"The flesh at the back of your throat sloughs off.",
+		"Your joints ache.",
+		"Your fingernail falls off, the skin underneath blistered.",
+		"You taste iron."
+	)
+	var/transformation_msgs = list(
+		"Steel wool is scrubbing against your brain.",
+		"Greasy sand seems to fill your blood vessels.",
+		"Grey oil oozes out of your ears.",
+		"You smell spoiling meat. You drool at the thought.",
+		"Your tongue swells up and turns black."
+	)
+
+/datum/reagent/xenomicrobes/uristzombie/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
+	affect_blood(M, alien, removed * 0.5)
+
+/datum/reagent/xenomicrobes/uristzombie/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if (istype(M, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = M
+		var/true_dose = H.chem_doses[type] + volume
+		var/idlemsg_proba = 10
+
+		if(true_dose > 10 && prob(Clamp(50*(true_dose-10)/(true_dose+15), 0, 100)))
+			if(prob(1))
+				// psych!
+				to_chat(H, "<span class='warning'>[pick(transformation_msgs)]</span>")
+
+			else if(prob(Clamp(true_dose+0.1*H.getBrainLoss(), 0, 25)))
+				idlemsg_proba = 5 // symptom spam avoidance
+				var/organs = list(BP_R_ARM,BP_L_LEG,BP_L_ARM,BP_R_LEG,BP_GROIN,BP_CHEST)
+				var/undecayed_ctr = length(organs) // make your own immature joke here
+
+				for(var/organ_tag in organs)
+					var/obj/item/organ/external/E = H.organs_by_name[organ_tag]
+					if (E && !(E.status & ORGAN_DEAD) && !(BP_IS_ROBOTIC(E) || BP_IS_CRYSTAL(E)))
+						if(prob(10))
+							continue
+
+						var/decay_msg = pick(
+							"Your [E.name] feels stiff.",
+							"You smell something foul.",
+							"Flesh on your [E.name] turns black.",
+							"You can't feel the skin on your [E.name].",
+							"You can feel blood clotting in your [E.name].")
+						E.status |= ORGAN_DEAD
+						to_chat(H, "<span class='warning'>[decay_msg]</span>")
+
+						for (var/obj/item/organ/external/C in E.children)
+							if (C && !(C.status & ORGAN_DEAD) && !(BP_IS_ROBOTIC(C) || BP_IS_CRYSTAL(C)))
+								C.status |= ORGAN_DEAD
+						break
+					else
+						undecayed_ctr--
+
+				H.update_body(1)
+
+				if(prob(Clamp(100-100*(undecayed_ctr/length(organs)), 0, 100)))
+					// NOTE: this *deliberately* does not care if the mob lost the limb.
+					// So, reverse necromorph - less limbs => less tissue to infect.
+					var/obj/item/organ/external/Head = H.organs_by_name[BP_HEAD]
+					if (Head)
+						if(!(Head.status & ORGAN_DEAD))
+							Head.status |= ORGAN_DEAD
+							for (var/obj/item/organ/external/C in Head.children)
+								C.status |= ORGAN_DEAD
+						else
+							H.uZombify(1, 1, transformation_msgs)
+		else
+			// almost straight copy of plain reagent/toxin/affect_blood()
+			if(alien != IS_DIONA)
+				M.add_chemical_effect(CE_TOXIN, 5)
+				var/dam = 0.05 * rand(1, 20)
+				if(target_organ)
+					var/obj/item/organ/internal/I = H.internal_organs_by_name[target_organ]
+					if(I)
+						var/can_damage = I.max_damage - I.damage
+						if(can_damage > 0)
+							if(dam > can_damage)
+								I.take_internal_damage(can_damage, silent=TRUE)
+								dam -= can_damage
+							else
+								I.take_internal_damage(dam, silent=TRUE)
+								dam = 0
+				if(dam)
+					// nerfed damage w/ target_organ here -scr
+					M.adjustToxLoss(target_organ ? (dam * 0.25) : dam)
+			// endcopy
+
+		// custom sadism
+		if(prob(Clamp(idlemsg_proba, 0, 100)))
+			to_chat(H, "<span class='warning'>[pick(symptom_msgs)]</span>")
+
+		if(prob(Clamp(true_dose, 0, 100)))
+			H.reagents.add_reagent(src.type, rand(removed, 0.1*true_dose))
+
+		H.add_chemical_effect(CE_PAINKILLER, 40)
+
+		// transforming sanics the victim's metabolism:
+		H.add_chemical_effect(CE_PULSE, 4)
+		H.nutrition -= min(H.nutrition, true_dose)
+		H.bodytemperature = max(H.bodytemperature, H.species.heat_discomfort_level + rand(5, 15))
+		if(prob(Clamp(5+true_dose, 0, 20)))
+			H.make_jittery(5)
+
+/mob/living/simple_animal/hostile/urist/zombie/Aggro()
+	if(prob(35))
+		playsound(src.loc, pick('sound/hallucinations/wail.ogg', 'sound/hallucinations/screech.ogg', 'sound/hallucinations/growl1.ogg', 'sound/hallucinations/growl2.ogg', 'sound/hallucinations/growl3.ogg'))
+	..()
 
 /mob/living/simple_animal/hostile/urist/zombie/say()
-	var/acount = rand(2,6)
+	var/acount = rand(2,8)
 	var/astring = "a"
 	for(var/i, i<acount, i++)
 		astring += "a"
@@ -36,24 +163,17 @@
 
 /mob/living/simple_animal/hostile/urist/zombie/death()
 	. = ..()
+
+	src.transform = null
+	var/matrix/N = matrix()
+	N.Turn(90)
+	src.transform = N
+
 	if(regen)
-		var/tempnameholder = src.name
-		var/tempdescholder = src.desc
-		src.name = "corpse"
-		src.desc = "It's a corpse. Very dead."
+		to_chat(src, "You begin to regenerate. This will take about [regen_delay/60] minutes.")
+		to_chat(src, "If you ghost, you can re-enter the mob assuming it still exists.")
+		addtimer(CALLBACK(src, /mob/living/simple_animal/hostile/urist/zombie/proc/deathregen), regen_delay SECONDS, TIMER_STOPPABLE)
 
-		var/matrix/M = matrix() //shamelessly stolen from human update_icons
-		M.Turn(90)
-		M.Translate(1,-6)
-		src.transform = M
-
-		src << "You begin to regenerate. This will take about [regen_delay/600] minutes."
-		spawn(regen_delay)
-			var/matrix/N = matrix()
-			src.transform = N
-			health = maxHealth
-			src.name = tempnameholder
-			src.desc = tempdescholder
 	if(src.contents)
 		var/inv_size = contents.len
 		for(var/obj/O in src.contents)
@@ -62,6 +182,14 @@
 		if(inv_size == 0)
 			src.desc += "\n \n It seems to have dropped everything it had." //shitty hack for now
 		update_icons()
+
+/mob/living/simple_animal/hostile/urist/zombie/ghostize(var/can_reenter_corpse=1)
+	return ..(max(1, can_reenter_corpse)) // always re-enterable
+
+/mob/living/simple_animal/hostile/urist/zombie/proc/deathregen()
+	src.transform = null
+	rejuvenate()
+	return
 
 /mob/living/simple_animal/hostile/urist/zombie/Destroy()
 	if(src.contents)
@@ -81,91 +209,107 @@
 	regen = 1
 	icon_dead = "zombie_s" //ugly, but effective, workaround to use sprite rotation instead of having a custom death icon
 
-/mob/living/simple_animal/hostile/urist/zombie/regen/plague //Because non-infectious unkillable zombies weren't bad enough. Round-ender.
+/mob/living/simple_animal/hostile/urist/zombie/plague //Because non-infectious unkillable zombies weren't bad enough. Round-ender.
 	desc = "A bloodthirsty and brain-hungry corpse revived by an unknown infectious pathogen with extreme regenerative abilities."
 	stat_attack = 2
 	regen = 1
 	plague = 1
 
-/mob/living/simple_animal/hostile/urist/zombie/AttackingTarget()
+/mob/living/simple_animal/hostile/urist/zombie/UnarmedAttack(var/atom/A, var/proximity)
+	. = ..()
+
 	if(plague)
-		var/infectious = src.plague
-		var/regenerative = src.regen
-		var/resilience = src.maxHealth
-		if(istype(src.target, /mob/living/carbon/human))
-			var/mob/living/carbon/human/victim = target
-			if(victim.stat == DEAD)
-				src.visible_message("<span class = 'warning'> <b>[src]</b> chomps at [victim]'s brain!</span>", "<span class = 'warning'>You munch on [victim]'s brain!</span>")
-				victim.zombify()
-				return
-		else if(istype(src.target, /mob/living/simple_animal/hostile/scom/civ))
-			var/mob/living/simple_animal/hostile/scom/civ/victim = target
-			if(victim.stat == DEAD)
-				src.visible_message("<span class = 'warning'> <b>[src]</b> chomps at [victim]'s brain!</span>", "<span class = 'warning'>You munch on [victim]'s brain!</span>")
-				victim.Zombify(regenerative, infectious, resilience)
-				return
-	return ..()
+		if(ishuman(A))
+			var/mob/living/carbon/human/victim = A
 
-/mob/living/simple_animal/hostile/urist/zombie/verb/EatBrain()
+			if(victim.reagents)
+				var/biosafety = victim.getarmor(null, "bio")
+				if(!prob(Clamp(biosafety, 0, 100)))
+					victim.reagents.add_reagent(/datum/reagent/xenomicrobes/uristzombie, rand(5, 10))
 
-	set name = "Eat Brain"
-	set desc = "Eat a target corpse's brain to zombify him."
+			uZombieInfect(victim)
 
-	if(stat || !(plague))
-		src << "You cannot eat brains in your current state."
-		return
+		else if(istype(A, /mob/living/simple_animal/hostile/scom/civ))
+			var/mob/living/simple_animal/hostile/scom/civ/victim = A
+			uZombieInfect(victim)
 
-	var/list/choices = list()
-	for(var/mob/living/carbon/human/target in view(1,src))
-		if((target.stat == DEAD) && Adjacent(target))
-			choices += target
-	for(var/mob/living/simple_animal/hostile/scom/civ/C in view(1,src))
-		if((C.stat == DEAD) && Adjacent(C))
-			choices += C
-	var/mob/living/T = input(src,"Whose brain tissue do you wish to sample?") as null|anything in choices
-
-	if(!T || !src || src.stat) return
-
-	if(istype(T, /mob/living/carbon/human))
-		var/mob/living/carbon/human/victim = T
-		src.visible_message("<span class = 'warning'><b>[src]</b> chomps at [victim]'s brain!</span>", "<span class = 'warning'>You munch on [victim]'s brain!</span>")
-		victim.zombify()
-	else if(istype(T, /mob/living/simple_animal/hostile/scom/civ))
-		var/mob/living/simple_animal/hostile/scom/civ/victim = T
-		src.visible_message("<span class = 'warning'> <b>[src]</b> chomps at [victim]'s brain!</span>", "<span class = 'warning'>You munch on [victim]'s brain!</span>")
-		victim.Zombify(src.regen, src.plague, src.maxHealth)
 	return
 
-/*
-/mob/living/carbon/human/proc/Zombify(var/regens = 0, var/infects = 0, var/hitpoints = 40) //I swear officer, that Animalize() proc fell out the back of a truck.
-
-	var/mobpath = /mob/living/simple_animal/hostile/urist/zombie
-	if(transforming)
+// do excuse the weird naming convention, but Bay *already* broke this proc once so I'm not taking chances.
+/mob/living/simple_animal/hostile/urist/zombie/proc/uZombieInfect(var/mob/living/infectee)
+	if(!src || src.stat)
 		return
 
-	src.mutations.Add(HUSK)
-	regenerate_icons()
-	transforming = 1
-	canmove = 0 //considering they're dead shouldn't be much of a problem, but w/e
+	if(!infectee || infectee.stat != DEAD)
+		return
+
+	var/munch_msg_ext = "<span class = 'warning'> <b>[src]</b> chomps at [infectee]'s brain!</span>",
+	var/munch_msg_self = "<span class = 'warning'>You chomps at [infectee]'s brain!</span>"
+
+	if(ishuman(infectee))
+		var/mob/living/carbon/human/victim = infectee
+		if(victim)
+			src.visible_message(munch_msg_ext, munch_msg_self)
+			victim.uZombifyInstant(src.regen, src.plague, src.maxHealth)
+
+	else if(istype(infectee, /mob/living/simple_animal/hostile/scom/civ))
+		var/mob/living/simple_animal/hostile/scom/civ/victim = infectee
+		if(victim)
+			src.visible_message(munch_msg_ext, munch_msg_self)
+			victim.uZombify(src.regen, src.plague, src.maxHealth)
+
+
+/mob/living/carbon/human/proc/uZombify(var/regens=0, var/infects=0, var/transformation_msgs, var/time=60, var/hitpoints=40)
+	if(!src)
+		return
+
+	if(HAS_TRANSFORMATION_MOVEMENT_HANDLER(src))
+		return
+
+	// unless the odds are messing with you, as soon as you get the message your only hope is a *good* death
+	to_chat(src, "<span class='warning'>[pick(transformation_msgs)]</span>")
+	addtimer(CALLBACK(src, /mob/living/carbon/human/proc/uZombifyInstant, regens, infects, hitpoints), time SECONDS, TIMER_STOPPABLE)
+
+
+/mob/living/carbon/human/proc/uZombifyInstant(var/regens = 0, var/infects = 0, var/hitpoints = 40) //I swear officer, that Animalize() proc fell out the back of a truck.
+	if(!src)
+		return
+
+	if(HAS_TRANSFORMATION_MOVEMENT_HANDLER(src))
+		// we have it handled by someone else already
+		return
+	else
+		ADD_TRANSFORMATION_MOVEMENT_HANDLER(src)
+
+	var/obj/item/organ/internal/brain/thinkmeats = src.internal_organs_by_name[BP_BRAIN]
+	if(!thinkmeats)
+		// remove the head or destroy the brain!
+		return
+
+	var/mobpath = /mob/living/simple_animal/hostile/urist/zombie
+
+	src.mutations.Add(MUTATION_HUSK)
+	for(var/organ in list(BP_R_ARM,BP_L_ARM,BP_R_LEG,BP_L_LEG,BP_GROIN,BP_CHEST,BP_HEAD))
+		var/obj/item/organ/external/E = src.organs_by_name[organ]
+		if(E)
+			E.status |= ORGAN_DEAD
+			for (var/obj/item/organ/external/C in E.children)
+				C.status |= ORGAN_DEAD
+	src.update_body(1)
+	src.update_icons()
 
 	var/old_icon = src.icon
 	var/old_icon_state = src.icon_state
 	var/old_overlays = src.overlays
-	var/old_name = src.name
+	var/old_name = src.real_name
 
 	icon = null
 	invisibility = 101
 
-	for(var/t in organs)
-		qdel(t)
-
 	var/mob/living/simple_animal/hostile/urist/zombie/new_mob = new mobpath(src.loc)
 
-	new_mob.key = key
-	new_mob.a_intent = "hurt"
+	new_mob.a_intent = I_HURT
 
-
-	new_mob << "<span class='notice'>You are now a zombie. Eat braaaaains.</span>"
 	if(old_icon)
 		new_mob.icon = old_icon
 	if(old_icon_state)
@@ -181,6 +325,15 @@
 			new_mob.maxHealth = hitpoints
 			new_mob.health = hitpoints
 
+	if(src.mind)
+		src.mind.transfer_to(new_mob)
+
+	death()
+	for(var/t in organs)
+		qdel(t)
+
+	to_chat(new_mob, "<span class='notice'>You are now a zombie. Eat braaaaains.</span>")
+
 	for(var/obj/item/W in src)
 		if(new_mob)
 			W.forceMove(new_mob)
@@ -188,14 +341,21 @@
 			drop_from_inventory(W)
 	new_mob.update_icons()
 
+	playsound(src.loc, pick(
+		'sound/hallucinations/wail.ogg',
+		'sound/hallucinations/screech.ogg',
+		'sound/hallucinations/growl1.ogg',
+		'sound/hallucinations/growl2.ogg',
+		'sound/hallucinations/growl3.ogg')
+	)
+
 	spawn()
 		qdel(src)
 	return
-*/
 
-/mob/living/simple_animal/hostile/scom/civ/proc/Zombify(var/regens = 0, var/infects = 0, var/hitpoints = 40)//contrary to the name, does not involve undead Goons
-	var/mobpath = /mob/living/simple_animal/hostile/urist/zombie/regen/plague
 
+/mob/living/simple_animal/hostile/scom/civ/proc/uZombify(var/regens = 0, var/infects = 0, var/hitpoints = 40)
+	var/mobpath = /mob/living/simple_animal/hostile/urist/zombie/plague
 	var/mob/living/simple_animal/hostile/urist/zombie/new_mob = new mobpath(src.loc)
 
 	icon = null
@@ -450,7 +610,7 @@
 	var/caution = 1 //hit and run if low on health
 	var/mob/stalkee //who he stalks
 	var/flickerlights = 0 //for more fun - can fuck with lights around the victim to get a TP zone.
-	var/atom/tele_effect = null //something to spawn when teleporting/disappearing, presumably effects
+	var/datum/effect/effect/system/tele_effect = null //something to spawn when teleporting/disappearing, presumably effects
 
 /mob/living/simple_animal/hostile/urist/stalker/New()
 	..()
@@ -483,7 +643,7 @@
 			if(stalkee.stat == DEAD)
 				GetNewStalkee()
 			else if(stance == HOSTILE_STANCE_IDLE)
-				if(prob(25))
+				if(!client && prob(25))
 					HuntingTeleport()
 		else
 			GetNewStalkee()
@@ -496,25 +656,32 @@
 
 /mob/living/simple_animal/hostile/urist/stalker/LostTarget()
 	..()
-	if(prob(25))
-		HuntingTeleport()
+	if(!client)
+		if(prob(25))
+			HuntingTeleport()
 
 /mob/living/simple_animal/hostile/urist/stalker/proc/HuntingTeleport()
 	var/list/destinations = new/list()
+
 	for(var/turf/T in range(5, stalkee))
 		if(istype(T,/turf/space)) continue
 		if(T.density) continue
 		if(T in range(src, 9)) continue //so they don't teleport pointlessly while in range
 		if(shadow_check(T, 1))
 			destinations += T
+
 	if(destinations.len)
 		var/turf/picked = pick(destinations)
+
 		if(!picked || !isturf(picked))
 			return
+
 		if(tele_effect)
 			HandleTeleFX(src.loc)
 			HandleTeleFX(picked)
+
 		src.forceMove(picked)
+
 	if(flickerlights)
 		if(stalkee)
 			if(isturf(stalkee.loc))
@@ -527,10 +694,12 @@
 	return
 
 /mob/living/simple_animal/hostile/urist/stalker/proc/HandleTeleFX(var/atom/fxloc)
-	if(ispath(tele_effect))
-		new tele_effect(fxloc)
+	if(tele_effect)
+		var/datum/effect/effect/system/fx_instance = new tele_effect()
+		fx_instance.set_up(3, 0, fxloc)
+		fx_instance.start()
 
-/mob/living/simple_animal/hostile/urist/stalker/AttackingTarget()
+/mob/living/simple_animal/hostile/urist/stalker/UnarmedAttack(var/atom/A, var/proximity)
 	..()
-	if(caution) //run awaaaay!
+	if(!client && caution) //run awaaaay!
 		HuntingTeleport()

@@ -13,7 +13,6 @@
 	*/
 
 	anchored = 1.0
-	use_power = 1
 	idle_power_usage = 2
 	active_power_usage = 4
 
@@ -27,9 +26,8 @@
 	return src.attack_hand(user)
 
 /obj/machinery/button/remote/emag_act(var/remaining_charges, var/mob/user)
-	if(req_access.len || req_one_access.len)
-		req_access = list()
-		req_one_access = list()
+	if(req_access.len)
+		req_access.Cut()
 		playsound(src.loc, "sparks", 100, 1)
 		return 1
 
@@ -45,7 +43,7 @@
 		flick("[initial(icon_state)]-denied",src)
 		return
 
-	use_power(5)
+	use_power_oneoff(5)
 	icon_state = "[initial(icon_state)]1"
 	desiredstate = !desiredstate
 	trigger(user)
@@ -55,7 +53,7 @@
 /obj/machinery/button/remote/proc/trigger()
 	return
 
-/obj/machinery/button/remote/update_icon()
+/obj/machinery/button/remote/on_update_icon()
 	if(stat & NOPOWER)
 		icon_state = "[initial(icon_state)]-p"
 	else
@@ -195,7 +193,7 @@
 
 	return
 
-/obj/machinery/button/remote/driver/update_icon()
+/obj/machinery/button/remote/driver/on_update_icon()
 	if(!active || (stat & NOPOWER))
 		icon_state = "launcherbtt"
 	else

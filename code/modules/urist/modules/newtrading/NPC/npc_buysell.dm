@@ -7,7 +7,7 @@
 		return
 
 	if(istype(O, /obj/item/weapon/storage))
-		var/obj/item/weapon/storage/S = 0
+		var/obj/item/weapon/storage/S = O
 		for(var/obj/I in S.contents)
 			S.remove_from_storage(I, src)
 			if(resell)
@@ -62,19 +62,42 @@
 	var/value = D.value
 	var/obj/item/weapon/spacecash/B = M.l_hand
 
-	if(!B || !istype(B))
-		B = M.r_hand
-
-	if(!B || !istype(B) || B.worth < value)
-		var/money_phrases = list("Show me the Th-[value].","Where is the cash? Th-[value]","That's not enough, you'd be out of pocket Th-[value]","I don't do credit. That's Th-[value]")
-		var/user_msg = "<span class='game say'><span class='name'>[src.name]</span> whispers to you, <span class='message emote'><span class='body'>\"[pick(money_phrases)]\"</span></span></span>"
-		M.visible_message("<span class='info'>[src] whispers something to [M].</span>", user_msg)
-	else
-
+	if(!value) //for contracts and the like
 		if(D.req_access)
 			if(!CanPurchase(M, D.req_access))
-				var/user_msg = "<span class='game say'><span class='name'>[src.name]</span> whispers to you, <span class='message emote'><span class='body'>\"Sorry, you're not authorized to buy that.\"</span></span></span>"
+				var/user_msg = "<span class='game say'><span class='name'>[src.name]</span> whispers to you, <span class='message emote'><span class='body'>\"Sorry, you're not authorized to take that.\"</span></span></span>"
 				M.visible_message("<span class='info'>[src] whispers something to [M].</span>", user_msg)
+
+			else
+				GiveFreeItem(D, M)
+
+		else
+			GiveFreeItem(D, M)
+
+	else
+
+		if(!B || !istype(B))
+			B = M.r_hand
+
+		if(!B || !istype(B) || B.worth < value)
+			var/money_phrases = list("Show me the Th-[value].","Where is the cash? Th-[value]","That's not enough, you'd be out of pocket Th-[value]","I don't do credit. That's Th-[value]")
+			var/user_msg = "<span class='game say'><span class='name'>[src.name]</span> whispers to you, <span class='message emote'><span class='body'>\"[pick(money_phrases)]\"</span></span></span>"
+			M.visible_message("<span class='info'>[src] whispers something to [M].</span>", user_msg)
+		else
+
+			if(D.req_access)
+				if(!CanPurchase(M, D.req_access))
+					var/user_msg = "<span class='game say'><span class='name'>[src.name]</span> whispers to you, <span class='message emote'><span class='body'>\"Sorry, you're not authorized to buy that.\"</span></span></span>"
+					M.visible_message("<span class='info'>[src] whispers something to [M].</span>", user_msg)
+				else
+					if(istype (B, /obj/item/weapon/spacecash/bundle))
+						//take the cash
+						var/obj/item/weapon/spacecash/bundle/P = B
+						var/obj/item/weapon/spacecash/bundle/payment = P.split_off(value, M)
+						payment.loc = src
+						qdel(payment)
+
+					GiveItem(D, M)
 			else
 				if(istype (B, /obj/item/weapon/spacecash/bundle))
 					//take the cash
@@ -84,15 +107,6 @@
 					qdel(payment)
 
 				GiveItem(D, M)
-		else
-			if(istype (B, /obj/item/weapon/spacecash/bundle))
-				//take the cash
-				var/obj/item/weapon/spacecash/bundle/P = B
-				var/obj/item/weapon/spacecash/bundle/payment = P.split_off(value, M)
-				payment.loc = src
-				qdel(payment)
-
-			GiveItem(D, M)
 
 /mob/living/simple_animal/hostile/npc/proc/GiveItem(var/datum/trade_item/D, var/mob/M)
 	//create the object and pass it over
@@ -119,6 +133,15 @@
 	D.quantity -= 1
 	D.value = round(D.value * src.price_increase)		//price goes up a little
 	update_trade_item_ui(D)
+
+/mob/living/simple_animal/hostile/npc/proc/GiveFreeItem(var/datum/trade_item/D, var/mob/M)
+	var/obj/O = new D.item_type(M.loc)
+	M.put_in_hands(O)
+	M.visible_message("<span class='info'>[src] hands [M] an item.</span>",\
+	"<span class='info'>[src] pulls out [O] and places it in front of you.</span>")
+	var/user_msg = "<span class='game say'><span class='name'>[src.name]</span> whispers to you, <span class='message emote'><span class='body'>\"Thanks for your help.\"</span></span></span>"
+	M.visible_message("<span class='info'>[src] whispers something to [M].</span>", user_msg)
+
 
 /mob/living/simple_animal/hostile/npc/proc/CanPurchase(var/mob/M, var/access)
 	var/obj/item/weapon/card/id/id_card = M.GetIdCard()

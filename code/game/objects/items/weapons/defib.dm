@@ -37,7 +37,7 @@
 /obj/item/weapon/defibrillator/loaded //starts with regular power cell for R&D to replace later in the round.
 	bcell = /obj/item/weapon/cell/apc
 
-/obj/item/weapon/defibrillator/update_icon()
+/obj/item/weapon/defibrillator/on_update_icon()
 	var/list/new_overlays = list()
 
 	if(paddles) //in case paddles got destroyed somehow.
@@ -56,6 +56,14 @@
 		new_overlays += "[initial(icon_state)]-nocell"
 
 	overlays = new_overlays
+
+/obj/item/weapon/defibrillator/examine(mob/user)
+	. = ..()
+	if(.)
+		if(bcell)
+			to_chat(user, "The charge meter is showing [bcell.percent()]% charge left.")
+		else
+			to_chat(user, "There is no cell inside.")
 
 /obj/item/weapon/defibrillator/ui_action_click()
 	toggle_paddles()
@@ -94,7 +102,7 @@
 	else if(isScrewdriver(W))
 		if(bcell)
 			bcell.update_icon()
-			bcell.forceMove(get_turf(src.loc))
+			bcell.dropInto(loc)
 			bcell = null
 			to_chat(user, "<span class='notice'>You remove the cell from \the [src].</span>")
 			update_icon()
@@ -235,7 +243,7 @@
 	update_icon()
 	..()
 
-/obj/item/weapon/shockpaddles/update_icon()
+/obj/item/weapon/shockpaddles/on_update_icon()
 	icon_state = "defibpaddles[wielded]"
 	item_state = "defibpaddles[wielded]"
 	if(cooldown)
@@ -338,7 +346,12 @@
 		return
 
 	if(check_blood_level(H))
-		make_announcement("buzzes, \"Warning - Patient is in hypovolemic shock and may require a blood transfusion.\"", "warning") //also includes heart damage
+		make_announcement("buzzes, \"Warning - Patient is in hypovolemic shock and may require a blood transfusion.\"", "warning")
+
+	if(H.internal_organs_by_name[BP_HEART]) //People may need more direct instruction
+		var/obj/item/organ/internal/heart/heart = H.internal_organs_by_name[BP_HEART]
+		if(heart.is_bruised())
+			make_announcement("buzzes, \"Danger! The patient has sustained a cardiac contusion and will require surgical treatment for full recovery!\"", "danger")
 
 	//placed on chest and short delay to shock for dramatic effect, revive time is 5sec total
 	if(!do_after(user, chargetime, H))
@@ -371,6 +384,7 @@
 	if(istype(potato) && potato.cell)
 		var/obj/item/weapon/cell/C = potato.cell
 		C.give(chargecost)
+	H.AdjustSleeping(-60)
 	log_and_message_admins("used \a [src] to revive [key_name(H)].")
 
 
@@ -409,6 +423,10 @@
 	var/burn_damage = H.electrocute_act(burn_damage_amt*2, src, def_zone = target_zone)
 	if(burn_damage > 15 && H.can_feel_pain())
 		H.emote("scream")
+	var/obj/item/organ/internal/heart/doki = LAZYACCESS(affecting.internal_organs, BP_HEART)
+	if(istype(doki) && doki.pulse && !doki.open && prob(10))
+		to_chat(doki, "<span class='danger'>Your [doki] has stopped!</span>")
+		doki.pulse = PULSE_NONE
 
 	admin_attack_log(user, H, "Electrocuted using \a [src]", "Was electrocuted with \a [src]", "used \a [src] to electrocute")
 
@@ -439,7 +457,7 @@
 	H.setBrainLoss(brain_damage)
 
 /obj/item/weapon/shockpaddles/proc/make_announcement(var/message, var/msg_class)
-	audible_message("<b>\The [src]</b> [message]", "\The [src] vibrates slightly.")
+	audible_message("<b>\The [src]</b> <span class='[msg_class]'>[message]</span>", "\The [src] vibrates slightly.")
 
 /obj/item/weapon/shockpaddles/emag_act(var/uses, var/mob/user, var/obj/item/weapon/defibrillator/base)
 	if(istype(src, /obj/item/weapon/shockpaddles/linked))
@@ -524,7 +542,7 @@
 	return (base_unit.bcell && base_unit.bcell.checked_use(charge_amt))
 
 /obj/item/weapon/shockpaddles/linked/make_announcement(var/message, var/msg_class)
-	base_unit.audible_message("<b>\The [base_unit]</b> [message]", "\The [base_unit] vibrates slightly.")
+	base_unit.audible_message("<b>\The [base_unit]</b> <span class='[msg_class]'>[message]</span>", "\The [base_unit] vibrates slightly.")
 
 /*
 	Standalone Shockpaddles

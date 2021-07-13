@@ -2,6 +2,8 @@
 	name = "desert exoplanet"
 	desc = "An arid exoplanet with sparse biological resources but rich mineral deposits underground."
 	color = "#d6cca4"
+	planetary_area = /area/exoplanet/desert
+	rock_colors = list(COLOR_BEIGE, COLOR_PALE_YELLOW, COLOR_GRAY80, COLOR_BROWN)
 	possible_features = list(/datum/map_template/ruin/exoplanet/monolith,
 							 /datum/map_template/ruin/exoplanet/oasis,
 							 /datum/map_template/ruin/exoplanet/oasis/oasis2,
@@ -9,15 +11,21 @@
 							 /datum/map_template/ruin/exoplanet/fountain,
 							 /datum/map_template/ruin/exoplanet/marooned,
 							 /datum/map_template/ruin/exoplanet/hydrobase,
-							 /datum/map_template/ruin/exoplanet/lodge)
+							 /datum/map_template/ruin/exoplanet/lodge,
+							 /datum/map_template/ruin/exoplanet/crashed_pod,
+							 /datum/map_template/ruin/exoplanet/drill_site,
+							 /datum/map_template/ruin/exoplanet/radshrine,
+							 /datum/map_template/ruin/exoplanet/playablecolony,
+							 /datum/map_template/ruin/exoplanet/datacapsule)
 
 /obj/effect/overmap/sector/exoplanet/desert/generate_map()
+	..()
 	if(prob(70))
 		lightlevel = rand(5,10)/20	//deserts are usually :lit:
 	for(var/zlevel in map_z)
-		var/datum/random_map/noise/exoplanet/M = new /datum/random_map/noise/exoplanet/desert(md5(world.time + rand(-100,1000)),1,1,zlevel,maxx,maxy,0,1,1)
+		var/datum/random_map/noise/exoplanet/M = new /datum/random_map/noise/exoplanet/desert(null,1,1,zlevel,maxx,maxy,0,1,1,planetary_area)
 		get_biostuff(M)
-		new /datum/random_map/noise/ore/rich(md5(world.time + rand(-100,1000)),1,1,zlevel,maxx,maxy,0,1,1)
+		new /datum/random_map/noise/ore/rich(null,1,1,zlevel,maxx,maxy,0,1,1)
 
 /obj/effect/overmap/sector/exoplanet/desert/generate_atmosphere()
 	..()
@@ -39,8 +47,7 @@
 	descriptor = "desert exoplanet"
 	smoothing_iterations = 4
 	land_type = /turf/simulated/floor/exoplanet/desert
-	planetary_area = /area/exoplanet/desert
-	plantcolors = list("#efdd6f","#7b4a12","#e49135","#ba6222","#5c755e","#120309")
+	plantcolors = list("#efdd6f","#7b4a12","#e49135","#ba6222","#5c755e","#420d22")
 
 	flora_prob = 10
 	large_flora_prob = 0
@@ -70,7 +77,7 @@
 	icon_state = "desert[rand(0,5)]"
 	..()
 
-/turf/simulated/floor/exoplanet/desert/fire_act(datum/gas_mixture/air, temperature, volume)
+/turf/simulated/floor/exoplanet/desert/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if((temperature > T0C + 1700 && prob(5)) || temperature > T0C + 3000)
 		SetName("molten silica")
 		icon_state = "sandglass"
@@ -134,7 +141,7 @@
 	..()
 	update_icon()
 
-/obj/structure/quicksand/update_icon()
+/obj/structure/quicksand/on_update_icon()
 	if(!exposed)
 		return
 	icon_state = "open"

@@ -8,13 +8,17 @@
 	var/name
 	var/name_plural                                      // Pluralized name (since "[name]s" is not always valid)
 	var/description
+	var/codex_description
+	var/ooc_codex_information
 	var/cyborg_noun = "Cyborg"
+	var/hidden_from_codex = TRUE
 
 	// Icon/appearance vars.
 	var/icobase =      'icons/mob/human_races/species/human/body.dmi'          // Normal icon set.
 	var/deform =       'icons/mob/human_races/species/human/deformed_body.dmi' // Mutated icon set.
 	var/preview_icon = 'icons/mob/human_races/species/human/preview.dmi'
 	var/husk_icon =    'icons/mob/human_races/species/default_husk.dmi'
+	var/bandages_icon
 
 	// Damage overlay and masks.
 	var/damage_overlays = 'icons/mob/human_races/species/human/damage_overlay.dmi'
@@ -132,6 +136,8 @@
 		"Your chilly flesh stands out in goosebumps."
 		)
 
+	var/water_soothe_amount
+
 	// HUD data vars.
 	var/datum/hud_data/hud
 	var/hud_type
@@ -152,12 +158,13 @@
 	var/primitive_form            // Lesser form, if any (ie. monkey for humans)
 	var/greater_form              // Greater form, if any, ie. human for monkeys.
 	var/holder_type
-	var/gluttonous                // Can eat some mobs. Values can be GLUT_TINY, GLUT_SMALLER, GLUT_ANYTHING, GLUT_ITEM_TINY, GLUT_ITEM_NORMAL, GLUT_ITEM_ANYTHING, GLUT_PROJECTILE_VOMIT
+	var/gluttonous = 0            // Can eat some mobs. Values can be GLUT_TINY, GLUT_SMALLER, GLUT_ANYTHING, GLUT_ITEM_TINY, GLUT_ITEM_NORMAL, GLUT_ITEM_ANYTHING, GLUT_PROJECTILE_VOMIT
 	var/stomach_capacity = 5      // How much stuff they can stick in their stomach
 	var/rarity_value = 1          // Relative rarity/collector value for this species.
 	                              // Determines the organs that the species spawns with and
 	var/list/has_organ = list(    // which required-organ checks are conducted.
 		BP_HEART =    /obj/item/organ/internal/heart,
+		BP_STOMACH =  /obj/item/organ/internal/stomach,
 		BP_LUNGS =    /obj/item/organ/internal/lungs,
 		BP_LIVER =    /obj/item/organ/internal/liver,
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys,
@@ -209,7 +216,7 @@
 	// The basic skin colours this species uses
 	var/list/base_skin_colours
 
-	var/list/genders = list(MALE, FEMALE)
+	var/list/genders = list(MALE, FEMALE, PLURAL)
 
 	// Bump vars
 	var/bump_flag = HUMAN	// What are we considered to be when bumped?
@@ -264,6 +271,10 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 */
 
 /datum/species/New()
+
+	if(!codex_description)
+		codex_description = description
+
 	for(var/token in ALL_CULTURAL_TAGS)
 
 		var/force_val = force_cultural_info[token]
@@ -276,7 +287,7 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 				available_cultural_info[token] = list()
 			available_cultural_info[token] |= additional_available_cultural_info[token]
 
-		else if(!LAZYLEN(available_cultural_info[token]))
+		else if(!available_cultural_info || !LAZYLEN(available_cultural_info[token]))
 			var/list/map_systems = GLOB.using_map.available_cultural_info[token]
 			available_cultural_info[token] = map_systems.Copy()
 
@@ -384,6 +395,10 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 	H.visible_message("<span class='notice'>[H] hugs [target] to make [t_him] feel better!</span>", \
 					"<span class='notice'>You hug [target] to make [t_him] feel better!</span>")
 
+	if(H != target)
+		H.update_personal_goal(/datum/goal/achievement/givehug, TRUE)
+		target.update_personal_goal(/datum/goal/achievement/gethug, TRUE)
+
 /datum/species/proc/add_base_auras(var/mob/living/carbon/human/H)
 	if(base_auras)
 		for(var/type in base_auras)
@@ -428,6 +443,13 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 
 /datum/species/proc/handle_new_grab(var/mob/living/carbon/human/H, var/obj/item/grab/G)
 	return
+
+/datum/species/proc/handle_sleeping(var/mob/living/carbon/human/H)
+	if(prob(2) && !H.failed_last_breath && !H.isSynthetic())
+		if(!H.paralysis)
+			H.emote("snore")
+		else
+			H.emote("groan")
 
 // Only used for alien plasma weeds atm, but could be used for Dionaea later.
 /datum/species/proc/handle_environment_special(var/mob/living/carbon/human/H)
@@ -504,7 +526,6 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 		return 1
 
 	H.set_fullscreen(H.eye_blind && !H.equipment_prescription, "blind", /obj/screen/fullscreen/blind)
-	H.set_fullscreen(H.stat == UNCONSCIOUS, "blackout", /obj/screen/fullscreen/blackout)
 
 	if(config.welder_vision)
 		H.set_fullscreen(H.equipment_tint_total, "welder", /obj/screen/fullscreen/impaired, H.equipment_tint_total)
@@ -560,7 +581,9 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 
 // Impliments different trails for species depending on if they're wearing shoes.
 /datum/species/proc/get_move_trail(var/mob/living/carbon/human/H)
-	if( H.shoes || ( H.wear_suit && (H.wear_suit.body_parts_covered & FEET) ) )
+	if(H.lying)
+		return /obj/effect/decal/cleanable/blood/tracks/body
+	if(H.shoes || (H.wear_suit && (H.wear_suit.body_parts_covered & FEET)))
 		var/obj/item/clothing/shoes = (H.wear_suit && (H.wear_suit.body_parts_covered & FEET)) ? H.wear_suit : H.shoes // suits take priority over shoes
 		return shoes.move_trail
 	else
@@ -576,23 +599,19 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 		target.w_uniform.add_fingerprint(attacker)
 	var/obj/item/organ/external/affecting = target.get_organ(ran_zone(attacker.zone_sel.selecting))
 
-	var/list/holding = list(target.get_active_hand() = 40, target.get_inactive_hand() = 20)
-
-	//See if they have any guns that might go off
-	for(var/obj/item/weapon/gun/W in holding)
-		if(W && prob(holding[W]))
-			var/list/turfs = list()
-			for(var/turf/T in view())
-				turfs += T
-			if(turfs.len)
-				var/turf/shoot_to = pick(turfs)
-				target.visible_message("<span class='danger'>[target]'s [W] goes off during the struggle!</span>")
-				return W.afterattack(shoot_to,target)
+	var/list/holding = list(target.get_active_hand() = 60, target.get_inactive_hand() = 30)
 
 	var/state_mod = attacker.melee_accuracy_mods() - target.melee_accuracy_mods()
+	if(target.a_intent == I_HELP)
+		state_mod -= 30
+	//Handle unintended consequences
+	for(var/obj/item/I in holding)
+		var/hurt_prob = max(holding[I] + state_mod, 0)
+		if(prob(hurt_prob) && I.on_disarm_attempt(target, attacker))
+			return
 
 	var/randn = rand(1, 100) + state_mod
-	if(!(species_flags & SPECIES_FLAG_NO_SLIP) && randn <= 25)
+	if(!(check_no_slip(target)) && randn <= 25)
 		var/armor_check = target.run_armor_check(affecting, "melee")
 		target.apply_effect(3, WEAKEN, armor_check)
 		playsound(target.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
@@ -731,7 +750,8 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 					dat += "</br><b>Resistant to [kind].</b>"
 			dat += "</br><b>They breathe [gas_data.name[breath_type]].</b>"
 			dat += "</br><b>They exhale [gas_data.name[exhale_type]].</b>"
-			dat += "</br><b>[capitalize(english_list(poison_types))] [LAZYLEN(poison_types) == 1 ? "is" : "are"] poisonous to them.</b>"
+			if(LAZYLEN(poison_types))
+				dat += "</br><b>[capitalize(english_list(poison_types))] [LAZYLEN(poison_types) == 1 ? "is" : "are"] poisonous to them.</b>"
 			dat += "</small>"
 		dat += "</td>"
 	dat += "</tr>"
@@ -755,14 +775,7 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 /datum/species/proc/post_organ_rejuvenate(var/obj/item/organ/org, var/mob/living/carbon/human/H)
 	return
 
-/datum/species/proc/is_available_for_join()
-	if(!(spawn_flags & SPECIES_CAN_JOIN))
-		return FALSE
-	else if(!isnull(max_players))
-		var/player_count = 0
-		for(var/mob/living/carbon/human/H in GLOB.living_mob_list_)
-			if(H.client && H.key && H.species == src)
-				player_count++
-				if(player_count >= max_players)
-					return FALSE
-	return TRUE
+/datum/species/proc/check_no_slip(var/mob/living/carbon/human/H)
+	if(can_overcome_gravity(H))
+		return TRUE
+	return (species_flags & SPECIES_FLAG_NO_SLIP)

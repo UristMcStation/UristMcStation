@@ -42,11 +42,11 @@
 	desc = "The headset of the man who protects your worthless lives."
 	icon_state = "com_headset"
 	item_state = "headset"
-	ks1type = /obj/item/device/encryptionkey/nerva/so
+	ks1type = /obj/item/device/encryptionkey/nerva/cos
 
 /obj/item/device/radio/headset/heads/nerva_qm
-	name = "quatermaster's headset"
-	desc = "The headset of the ICS Nerva's quatermaster."
+	name = "quartermaster's headset"
+	desc = "The headset of the ICS Nerva's quartermaster."
 	icon_state = "com_headset"
 	item_state = "headset"
 	ks1type = /obj/item/device/encryptionkey/nerva/qm
@@ -58,6 +58,13 @@
 	item_state = "headset"
 	ks1type = /obj/item/device/encryptionkey/nerva/sec
 
+/obj/item/device/radio/headset/heads/nerva_senior
+	name = "senior scientist headset"
+	desc = "The headset of the Nerva's Senior Scientist."
+	icon_state = "nt_headset"
+	item_state = "headset"
+	ks1type = /obj/item/device/encryptionkey/nerva/senior
+
 //encryption keys
 
 /obj/item/device/encryptionkey/nerva/nt
@@ -68,10 +75,10 @@
 /obj/item/device/encryptionkey/nerva/so
 	name = "second officer's encryption key"
 	icon_state = "hop_cypherkey"
-	channels = list("Service" = 1, "Command" = 1, "Security" = 1, "Combat" = 0)
+	channels = list("Command" = 1, "Service" = 1, "Supply" = 1, "Security" = 0, "Combat" = 0)
 
 /obj/item/device/encryptionkey/nerva/qm
-	name = "quatermaster's encryption key"
+	name = "quartermaster's encryption key"
 	icon_state = "hop_cypherkey"
 	channels = list("Supply" = 1, "Service" = 1, "Command" = 1)
 
@@ -90,8 +97,17 @@
 	icon_state = "sec_cypherkey"
 	channels = list("Security" = 1, "Combat" = 0)
 
+/obj/item/device/encryptionkey/nerva/senior
+	name = "senior nanotrasen encryption key"
+	icon_state = "rd_cypherkey"
+	channels = list("Command" = 1, "Science" = 1)
+
 /obj/item/weapon/stamp/nt
 	name = "\improper NanoTrasen rubber stamp"
+	icon_state = "stamp-intaff"
+
+/obj/item/weapon/stamp/seniornt
+	name = "\improper Senior Researcher rubber stamp"
 	icon_state = "stamp-intaff"
 
 //paint
@@ -104,10 +120,11 @@
 
 //station account card
 
-/obj/item/weapon/card/station_account
+/obj/item/weapon/card/id/station_account
 	name = "ICS Nerva account card"
 	desc = "A banking card with access to the ICS Nerva's main account."
-	icon_state = "data"
+	item_state = "silver_id"
+	detail_color = COLOR_COMMAND_BLUE
 
 /*
 /obj/item/weapon/card/station_account/New()
@@ -128,12 +145,12 @@
 	icon_locked = "medalbox+l"
 	icon_closed = "medalbox"
 	icon_broken = "medalbox+b"
-	startswith = list(/obj/item/weapon/card/station_account)
+	startswith = list(/obj/item/weapon/card/id/station_account)
 	var/linked = FALSE //fucking card setup doesn't work with New() or Initialize(), so we're getting hacky up in here.
 
 /obj/item/weapon/storage/lockbox/station_account/attack_hand(mob/living/user as mob)
 	if(!linked)
-		for(var/obj/item/weapon/card/station_account/C in src.contents)
+		for(var/obj/item/weapon/card/id/station_account/C in src.contents)
 			C.associated_account_number = station_account.account_number
 			linked = TRUE
 
@@ -141,7 +158,7 @@
 
 /obj/item/weapon/storage/lockbox/station_account/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(!linked)
-		for(var/obj/item/weapon/card/station_account/C in src.contents)
+		for(var/obj/item/weapon/card/id/station_account/C in src.contents)
 			C.associated_account_number = station_account.account_number
 			linked = TRUE
 
@@ -149,7 +166,7 @@
 
 /obj/item/weapon/storage/lockbox/station_account/emag_act()
 	if(!linked)
-		for(var/obj/item/weapon/card/station_account/C in src.contents)
+		for(var/obj/item/weapon/card/id/station_account/C in src.contents)
 			C.associated_account_number = station_account.account_number
 			linked = TRUE
 

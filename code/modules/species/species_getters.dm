@@ -81,3 +81,9 @@
 
 /datum/species/proc/get_husk_icon(var/mob/living/carbon/human/H)
 	return husk_icon
+
+/datum/species/proc/get_sex(var/mob/living/carbon/H)
+	return H.gender
+
+/datum/species/proc/get_surgery_overlay_icon(var/mob/living/carbon/human/H)
+	return 'icons/mob/surgery.dmi'

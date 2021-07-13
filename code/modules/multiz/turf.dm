@@ -89,7 +89,7 @@
 /**
 * Update icon and overlays of open space to be that of the turf below, plus any visible objects on that turf.
 */
-/turf/simulated/open/update_icon()
+/turf/simulated/open/on_update_icon()
 	overlays.Cut()
 	underlays.Cut()
 	var/turf/below = GetBelow(src)
@@ -126,7 +126,7 @@
 		var/overlays_post = overlays.len
 		if(overlays_post != (overlays_pre + o_img.len)) //Here we go!
 			//log_world("Corrupted openspace turf at [x],[y],[z] being replaced. Pre: [overlays_pre], Post: [overlays_post]")
-			new /turf/simulated/open(src)
+			ChangeTurf(/turf/simulated/open)
 			return //Let's get out of here.
 
 		//TODO : Add overlays if people fall down holes
@@ -138,16 +138,16 @@
 	return PROCESS_KILL
 
 
-/turf/simulated/open/attackby(obj/item/C as obj, mob/user as mob)
-	if (istype(C, /obj/item/stack/rods))
+/turf/simulated/open/attackby(obj/item/C, mob/user)
+	if (istype(C, /obj/item/stack/material/rods))
 		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
 		if(L)
 			return L.attackby(C, user)
-		var/obj/item/stack/rods/R = C
+		var/obj/item/stack/material/rods/R = C
 		if (R.use(1))
 			to_chat(user, "<span class='notice'>You lay down the support lattice.</span>")
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
-			new /obj/structure/lattice(locate(src.x, src.y, src.z))
+			new /obj/structure/lattice(locate(src.x, src.y, src.z), R.material.name)
 			//Update turfs
 			SSopen_space.add_turf(src, 1)
 		return
@@ -171,7 +171,15 @@
 		var/obj/item/stack/cable_coil/coil = C
 		coil.turf_place(src, user)
 		return
-	return
+
+	for(var/atom/movable/M in below)
+		if(M.movable_flags & MOVABLE_FLAG_Z_INTERACT)
+			return M.attackby(C, user)
+
+/turf/simulated/open/attack_hand(mob/user)
+	for(var/atom/movable/M in below)
+		if(M.movable_flags & MOVABLE_FLAG_Z_INTERACT)
+			return M.attack_hand(user)
 
 //Most things use is_plating to test if there is a cover tile on top (like regular floors)
 /turf/simulated/open/is_plating()
@@ -179,7 +187,7 @@
 
 /turf/simulated/open/proc/handle_move(var/atom/current_loc, var/atom/movable/am, var/atom/changed_loc)
 	//First handle objs and such
-	if(GLOB.open_space_initialised && !am.invisibility && isobj(am))
+	if(!am.invisibility && isobj(am))
 	//Update icons
 		SSopen_space.add_turf(src, 1)
 	//Check for mobs and create/destroy their shadows
@@ -198,9 +206,8 @@
 
 //When turf changes, a bunch of things can take place
 /turf/simulated/open/proc/turf_change(var/turf/affected)
-	if(GLOB.open_space_initialised)
-		if(!isopenspace(affected))//If affected is openspace it will add itself
-			SSopen_space.add_turf(src, 1)
+	if(!isopenspace(affected))//If affected is openspace it will add itself
+		SSopen_space.add_turf(src, 1)
 
 
 //The two situations which require unregistering

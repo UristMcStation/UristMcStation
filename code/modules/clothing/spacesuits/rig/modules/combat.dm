@@ -155,12 +155,12 @@
 
 /obj/item/rig_module/mounted/Initialize()
 	. = ..()
-	if(gun)
+	if(ispath(gun))
 		gun = new gun(src)
 
 /obj/item/rig_module/mounted/engage(atom/target)
 
-	if(!..())
+	if(!..() || !gun)
 		return 0
 
 	if(!target)
@@ -292,7 +292,7 @@
 
 	if(target)
 		var/obj/item/firing = new fabrication_type()
-		firing.forceMove(get_turf(src))
+		firing.dropInto(loc)
 		H.visible_message("<span class='danger'>[H] launches \a [firing]!</span>")
 		firing.throw_at(target,fire_force,fire_distance)
 	else

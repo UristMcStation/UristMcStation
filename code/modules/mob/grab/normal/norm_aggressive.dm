@@ -11,7 +11,8 @@
 	reverse_facing = 0
 	can_absorb = 0
 	shield_assailant = 0
-	point_blank_mult = 1
+	point_blank_mult = 1.5
+	damage_stage = 1
 	same_tile = 0
 	can_throw = 1
 	force_danger = 1
@@ -19,7 +20,7 @@
 
 	icon_state = "reinforce1"
 
-	break_chance_table = list(5, 20, 40, 80, 100)
+	break_chance_table = list(20, 35, 65, 90, 100)
 /datum/grab/normal/aggressive/process_effect(var/obj/item/grab/G)
 	var/mob/living/carbon/human/affecting = G.affecting
 

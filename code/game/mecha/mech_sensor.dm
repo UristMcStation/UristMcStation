@@ -6,7 +6,6 @@
 	anchored = 1
 	density = 1
 	throwpass = 1
-	use_power = 1
 	layer = ABOVE_WINDOW_LAYER
 	power_channel = EQUIP
 	var/on = 0
@@ -57,7 +56,7 @@
 /obj/machinery/mech_sensor/proc/enabled()
 	return on && !(stat & NOPOWER)
 
-/obj/machinery/mech_sensor/update_icon(var/safety = 0)
+/obj/machinery/mech_sensor/on_update_icon(var/safety = 0)
 	if (enabled())
 		icon_state = "airlock_sensor_standby"
 	else

@@ -16,7 +16,7 @@
 	icon_state = "filingcabinet"
 	density = 1
 	anchored = 1
-	atom_flags = ATOM_FLAG_CLIMBABLE
+	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_CLIMBABLE
 	obj_flags = OBJ_FLAG_ANCHORABLE
 	var/list/can_hold = list(
 		/obj/item/weapon/paper,
@@ -93,7 +93,7 @@
 	if(contents.len)
 		if(prob(40 + contents.len * 5))
 			var/obj/item/I = pick(contents)
-			I.loc = loc
+			I.dropInto(loc)
 			if(prob(25))
 				step_rand(I)
 			to_chat(user, "<span class='notice'>You pull \a [I] out of [src] at random.</span>")

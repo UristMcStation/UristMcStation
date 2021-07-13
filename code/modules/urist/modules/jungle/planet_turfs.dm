@@ -27,6 +27,8 @@
 
 	var/spawn_scrap = 0
 
+	var/planet_light = TRUE //do we use the fancy planet lighting
+
 /turf/simulated/floor/planet/update_air_properties() //No, you can't flood the jungle with phoron silly.
 	return
 
@@ -96,7 +98,8 @@
 
 //	weather_enable() //Fog does some odd things with duplicating the turf, need to invesi //he died shortly thereafter
 
-	light_color = SSskybox.BGcolor
+	if(planet_light)
+		light_color = SSskybox.BGcolor
 
 	. = ..()
 
@@ -202,7 +205,7 @@
 	small_trees_chance = 9
 	trap_spawn_chance = 1
 	light_max_bright = 0.25
-	animal_spawn_chance = 1
+	animal_spawn_chance = 0.7
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/simple_animal/hostile/huntable/deer,
@@ -218,7 +221,7 @@
 	small_trees_chance = 10
 	trap_spawn_chance = 2
 	light_max_bright = 0.125
-	animal_spawn_chance = 1.2
+	animal_spawn_chance = 0.9
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/simple_animal/hostile/huntable/deer,
@@ -273,7 +276,7 @@
 	icon_state = "grass_path" //path
 	icon_spawn_state = "grass2"
 	light_max_bright = 0.3
-	animal_spawn_chance = 0.2
+	animal_spawn_chance = 0.15
 	animal_spawn_list = list(
 		/mob/living/simple_animal/parrot/jungle,
 		/mob/living/simple_animal/huntable/monkey
@@ -307,7 +310,7 @@
 	light_inner_range = 0.1
 	light_outer_range = 1.5
 	light_falloff_curve = 0.5
-	animal_spawn_chance = 1.8 //hostile wasteland riddled with scrap heaps.
+	animal_spawn_chance = 1.5 //hostile wasteland riddled with scrap heaps.
 	spawn_scrap = 1
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/bear,
@@ -345,7 +348,7 @@
 	. = ..()
 
 //copy paste from asteroid mineral turfs
-/turf/simulated/floor/planet/jungle/rock //why is this a floor, what the fuck 2014 graham
+/turf/simulated/floor/planet/jungle/rock //why is this a floor, what the fuck 2014 glloyd
 	bushspawnchance = 0
 	small_trees_chance = 0
 	plants_spawn_chance = 0
@@ -355,7 +358,7 @@
 	opacity = 1
 	name = "cliffside wall"
 	desc = "A massive wall of natural rock. No point in trying to mine it, try underground."
-	icon = 'icons/turf/walls.dmi'
+	icon = 'icons/urist/jungle/turfs.dmi'
 	icon_state = "rock"
 //	icon_spawn_state = "rock"
 	icon_spawn_state = null
@@ -693,6 +696,17 @@
 	misc_plant_type = /obj/structure/flora/ausbushes/fullgrass
 
 /turf/simulated/floor/planet/dirt/clear
+	misc_plant_spawn_chance = 0
+
+/turf/simulated/floor/planet/dirt/city
+	misc_plant_type = /obj/structure/flora/ausbushes/sparsegrass
+	planet_light = FALSE
+	light_falloff_curve = 2
+	light_inner_range = 1
+	light_max_bright = 1
+	light_outer_range = 0
+
+/turf/simulated/floor/planet/dirt/city/clear
 	misc_plant_spawn_chance = 0
 
 //arid dirt

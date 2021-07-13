@@ -17,7 +17,8 @@
 
 /datum/uplink_item/item/tools/clerical
 	name = "Morphic Clerical Kit"
-	item_cost = 16
+	desc = "Comes with all you need to fake paperwork. Assumes you have passed basic writing lessons."
+	item_cost = 6
 	path = /obj/item/weapon/storage/backpack/satchel/syndie_kit/clerical
 
 /datum/uplink_item/item/tools/plastique
@@ -43,7 +44,7 @@
 /datum/uplink_item/item/tools/suit_sensor_mobile
 	name = "Suit Sensor Jamming Device"
 	desc = "This device will affect suit sensor data using method and radius defined by the user."
-	item_cost = 20
+	item_cost = 18
 	path = /obj/item/device/suit_sensor_jammer
 
 /datum/uplink_item/item/tools/encryptionkey_binary
@@ -53,7 +54,7 @@
 
 /datum/uplink_item/item/tools/emag
 	name = "Cryptographic Sequencer"
-	item_cost = 24
+	item_cost = 30
 	path = /obj/item/weapon/card/emag
 
 /datum/uplink_item/item/tools/hacking_tool
@@ -71,7 +72,7 @@
 
 /datum/uplink_item/item/tools/thermal
 	name = "Thermal Imaging Glasses"
-	item_cost = 24
+	item_cost = 32
 	path = /obj/item/clothing/glasses/thermal/syndi
 
 /datum/uplink_item/item/tools/flashdark
@@ -111,6 +112,13 @@
 
 /datum/uplink_item/item/tools/interceptor
 	name = "Radio Interceptor"
-	item_cost = 30
+	item_cost = 20
 	path = /obj/item/device/radio/intercept
 	desc = "A radio that can intercept secure radio channels. Doesn't fit in pockets."
+
+/datum/uplink_item/item/tools/ttv
+	name = "Binary Gas Bomb"
+	item_cost = 40
+	path = /obj/effect/spawner/newbomb/traitor
+	desc = "A remote-activated phoron-oxygen bomb assembly with built-in signaler. \
+			A flashing disclaimer begins with the warning 'SOME DISASSEMBLY/REASSEMBLY REQUIRED.'"

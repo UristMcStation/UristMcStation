@@ -37,7 +37,7 @@
 			L.update_icon() //so siding get updated properly
 
 
-/obj/structure/catwalk/update_icon()
+/obj/structure/catwalk/on_update_icon()
 	update_connections()
 	overlays.Cut()
 	icon_state = ""
@@ -56,10 +56,10 @@
 /obj/structure/catwalk/ex_act(severity)
 	switch(severity)
 		if(1)
-			new /obj/item/stack/rods(src.loc)
+			new /obj/item/stack/material/rods(src.loc)
 			qdel(src)
 		if(2)
-			new /obj/item/stack/rods(src.loc)
+			new /obj/item/stack/material/rods(src.loc)
 			qdel(src)
 
 /obj/structure/catwalk/attack_hand(mob/user)
@@ -73,8 +73,8 @@
 		if(WT.remove_fuel(0, user))
 			playsound(src, 'sound/items/Welder.ogg', 100, 1)
 			to_chat(user, "<span class='notice'>Slicing \the [src] joints ...</span>")
-			new /obj/item/stack/rods(src.loc)
-			new /obj/item/stack/rods(src.loc)
+			new /obj/item/stack/material/rods(src.loc)
+			new /obj/item/stack/material/rods(src.loc)
 			//Lattice would delete itself, but let's save ourselves a new obj
 			if(istype(src.loc, /turf/space) || istype(src.loc, /turf/simulated/open))
 				new /obj/structure/lattice/(src.loc)
@@ -126,7 +126,7 @@
 
 /obj/effect/catwalk_plated/Initialize(mapload)
 	. = ..()
-	var/auto_activate = mapload || (ticker && ticker.current_state < GAME_STATE_PLAYING)
+	var/auto_activate = mapload || (GAME_STATE < RUNLEVEL_GAME)
 	if(auto_activate)
 		activate()
 		return INITIALIZE_HINT_QDEL

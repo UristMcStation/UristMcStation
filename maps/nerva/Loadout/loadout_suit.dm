@@ -9,7 +9,7 @@
 	allowed_roles = list(/datum/job/chief_engineer, /datum/job/engineer)
 
 /datum/gear/suit/science_poncho
-	allowed_roles = list(/datum/job/scientist)
+	allowed_roles = list(/datum/job/scientist,/datum/job/seniorscientist)
 
 /datum/gear/suit/cargo_poncho
 	allowed_roles = list(/datum/job/qm,/datum/job/cargo_tech)
@@ -20,6 +20,8 @@
 	allowed_roles = list(/datum/job/captain)
 
 /datum/gear/suit/wintercoat/security
+	display_name = "winter coat, security"
+	path = /obj/item/clothing/suit/storage/hooded/wintercoat/security
 	allowed_roles = list(/datum/job/officer, /datum/job/hos, /datum/job/warden, /datum/job/detective)
 
 /datum/gear/suit/wintercoat/medical
@@ -30,7 +32,7 @@
 /datum/gear/suit/wintercoat/science
 	display_name = "winter coat, science"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/science
-	allowed_roles = list(/datum/job/rd,/datum/job/scientist, /datum/job/roboticist)
+	allowed_roles = list(/datum/job/rd,/datum/job/scientist, /datum/job/roboticist, /datum/job/seniorscientist)
 
 /datum/gear/suit/wintercoat/engineering
 	display_name = "winter coat, engineering"
@@ -55,3 +57,14 @@
 	display_name = "winter coat, mining"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/miner
 	allowed_roles = list(/datum/job/mining)
+
+/*
+ * Loadout definitions unique to NERVA
+ */
+
+/datum/gear/suit/cloak_security
+	display_name = "cloak, security"
+	path = /obj/item/clothing/suit/storage/hooded/seccloak
+	allowed_roles = list(/datum/job/officer, /datum/job/hos, /datum/job/warden, /datum/job/detective)
+
+

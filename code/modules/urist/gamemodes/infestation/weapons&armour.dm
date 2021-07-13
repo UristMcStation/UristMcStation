@@ -225,6 +225,8 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 //	var/use_launcher = 0
 	wielded_item_state = "ANFOR-battlerifle-wielded"
+	scoped_accuracy = 2
+	scope_zoom = 1
 	firemodes = list(
 		list(mode_name="semiauto", burst=1, fire_delay=0, use_launcher = null, move_delay=null, burst_accuracy=null, dispersion=null)
 		)
@@ -239,13 +241,14 @@
 	scoped = 1
 	icon_state = "FALrifle-scope"
 */
+/*
 /obj/item/weapon/gun/projectile/a18/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"
 	set popup_menu = 1
 
 	toggle_scope(usr, 2.0)
-
+*/
 /obj/item/weapon/gun/projectile/a18/update_icon()
 	..()
 /*
@@ -482,6 +485,7 @@
 /obj/item/ammo_casing/a132x108mm
 	name = "shell casing"
 	desc = "A 13.2x108mm shell."
+	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "lcasing"
 	spent_icon = "lcasing-spent"
 	caliber = "13.2x108mm"

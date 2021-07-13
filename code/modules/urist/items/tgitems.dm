@@ -59,6 +59,24 @@ Please only put items here that don't have a huge definition - Glloyd											
 
 	dat = seclaw
 
+// ICS Nerva version of Space Law.
+
+/obj/item/weapon/book/manual/security_space_law/nervaspacelaw
+	name = "ICS Nerva - Security Law & Regulation Guidelines."
+	desc = "A book describing the multiple sentencings for different crimes aboard the ICS Nerva."
+	icon = 'icons/urist/items/library.dmi'
+	icon_state = "icsnervalaw"
+	author = "ICS Nerva Security Team"
+	title = "Security Law & Regulation Guidelines"
+
+/obj/item/weapon/book/manual/security_space_law/nervaspacelaw/New()
+	..()
+
+	var/nervalaw = file2text('ingame_manuals/icsnervalaw.html')
+	if(!nervalaw)
+		nervalaw = "Error loading help (file /ingame_manuals/icsnervalaw.html is probably missing). Please report this to server administration staff."
+
+	dat = nervalaw
 
 /obj/effect/decal/warning_stripes/urist
 	name = "warning decal"
@@ -189,56 +207,6 @@ Please only put items here that don't have a huge definition - Glloyd											
 	new /obj/item/clothing/accessory/medal/iron/nanotrasen(src)
 	new /obj/item/clothing/accessory/medal/gold/nanotrasen(src)
 
-//holojanisign
-
-/obj/item/weapon/holosign_creator
-	name = "holographic sign projector"
-	desc = "A handy-dandy projector that displays a janitorial sign."
-	icon = 'icons/urist/items/tgitems.dmi'
-	icon_state = "signmaker"
-	item_state = "electronic"
-	force = 5
-	w_class = 2
-	throwforce = 0
-	throw_speed = 3
-	throw_range = 7
-	origin_tech = "programming=3"
-	var/list/signs = list()
-	var/max_signs = 10
-
-/obj/item/weapon/holosign_creator/afterattack(atom/target, mob/user, flag)
-	if(flag)
-		var/turf/T = get_turf(target)
-		var/obj/effect/overlay/holograph/H = locate() in T
-		if(H)
-			user << "<span class='notice'>You use [src] to destroy [H].</span>"
-			qdel(H)
-		else
-			if(signs.len < max_signs)
-				H = new(get_turf(target))
-				signs += H
-				user << "<span class='notice'>You create \a [H] with [src].</span>"
-			else
-				user << "<span class='notice'>[src] is projecting at max capacity!</span>"
-
-/obj/item/weapon/holosign_creator/attack(mob/living/carbon/human/M, mob/user)
-	return
-
-/obj/item/weapon/holosign_creator/attack_self(mob/user)
-	if(signs.len)
-		var/list/L = signs.Copy()
-		for(var/sign in L)
-			qdel(sign)
-			signs -= sign
-		user << "<span class='notice'>You clear all active holograms.</span>"
-
-
-/obj/effect/overlay/holograph
-	name = "wet floor sign"
-	desc = "The words flicker as if they mean nothing."
-	icon = 'icons/urist/items/tgitems.dmi'
-	icon_state = "holosign"
-	anchored = 1
 
 /obj/item/weapon/grenade/chem_grenade/teargas
 	name = "teargas grenade"
@@ -330,7 +298,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 
 // Smuggler's satchel from /tg/.
 
-/obj/item/weapon/storage/backpack/satchel_flat
+/obj/item/weapon/storage/backpack/satchel/flat
 	name = "smuggler's satchel"
 	desc = "A very slim satchel that can easily fit into tight spaces."
 	icon = 'icons/urist/items/tgitems.dmi'
@@ -340,9 +308,9 @@ Please only put items here that don't have a huge definition - Glloyd											
 	storage_slots = 5
 	max_storage_space = 15 //check values!
 	level = 1
-	cant_hold = list(/obj/item/weapon/storage/backpack/satchel_flat) //muh recursive backpacks
+	cant_hold = list(/obj/item/weapon/storage/backpack/satchel/flat) //muh recursive backpacks
 
-/obj/item/weapon/storage/backpack/satchel_flat/hide(var/intact)
+/obj/item/weapon/storage/backpack/satchel/flat/hide(var/intact)
 	if(intact)
 		invisibility = 101
 		anchored = 1 //otherwise you can start pulling, cover it, and drag around an invisible backpack.
@@ -352,7 +320,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 		anchored = 0
 		icon_state = initial(icon_state)
 
-/obj/item/weapon/storage/backpack/satchel_flat/New()
+/obj/item/weapon/storage/backpack/satchel/flat/New()
 	..()
 	new /obj/item/weapon/crowbar(src)
 

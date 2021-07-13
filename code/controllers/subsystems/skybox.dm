@@ -17,13 +17,23 @@ SUBSYSTEM_DEF(skybox)
 
 /datum/controller/subsystem/skybox/Initialize(timeofday)
 	..(timeofday)
-	if(prob(5))
-		BGstate = "rainbow"
-		BGcolor = null
-		BGrot = RANDOM_RIGHT_ANGLE
+	var/month = text2num(time2text(world.timeofday, "MM"))
+	if(month == 6) //There's probably a better way to do this, but this works -Vak
+		if(prob(50))
+			BGstate = "rainbow"
+			BGcolor = null
+			BGrot = RANDOM_RIGHT_ANGLE
+		else
+			BGcolor = RANDOM_RGB
+			BGrot = RANDOM_RIGHT_ANGLE
 	else
-		BGcolor = RANDOM_RGB
-		BGrot = RANDOM_RIGHT_ANGLE
+		if(prob(5))
+			BGstate = "rainbow"
+			BGcolor = null
+			BGrot = RANDOM_RIGHT_ANGLE
+		else
+			BGcolor = RANDOM_RGB
+			BGrot = RANDOM_RIGHT_ANGLE
 
 /datum/controller/subsystem/skybox/Recover()
 	BGrot = SSskybox.BGrot

@@ -1,6 +1,11 @@
 datum/admins/proc/DB_staffwarn_record(var/ckey, var/reason)
 	if(!check_rights((R_ADMIN|R_MOD), 0)) return
 	if(!istext(reason)) return
+	_DB_staffwarn_record(ckey, reason)
+
+/proc/_DB_staffwarn_record(var/ckey, var/reason)
+	if(usr && !check_rights((R_ADMIN|R_MOD), 0))
+		return
 	var/dbreason = sql_sanitize_text(reason)
 	var/dbckey = sql_sanitize_text(ckey)
 
@@ -330,7 +335,7 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 	output += "<option value=''>--</option>"
 	for(var/j in get_all_jobs())
 		output += "<option value='[j]'>[j]</option>"
-	for(var/j in GLOB.nonhuman_positions)
+	for(var/j in SSjobs.titles_by_department(MSC))
 		output += "<option value='[j]'>[j]</option>"
 	var/list/bantypes = list("traitor","changeling","operative","revolutionary","cultist","wizard") //For legacy bans.
 	var/list/all_antag_types = GLOB.all_antag_types_

@@ -118,7 +118,7 @@ var/global/list/protected_objects = list(/obj/machinery,
 					M.forceMove(src.loc)
 
 		for(var/atom/movable/M in src)
-			M.forceMove(get_turf(src))
+			M.dropInto(loc)
 		qdel(src)
 
 
@@ -126,10 +126,10 @@ var/global/list/protected_objects = list(/obj/machinery,
 	if(destroy_objects)
 		..()
 
-/mob/living/simple_animal/hostile/mimic/AttackingTarget()
+/mob/living/simple_animal/hostile/mimic/UnarmedAttack(var/atom/A, var/proximity)
 	. =..()
 	if(knockdown_people)
-		var/mob/living/L = .
+		var/mob/living/L = A
 		if(istype(L))
 			if(prob(15))
 				L.Weaken(1)

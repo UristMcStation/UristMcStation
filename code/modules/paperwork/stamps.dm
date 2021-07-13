@@ -8,7 +8,7 @@
 	w_class = ITEM_SIZE_TINY
 	throw_speed = 7
 	throw_range = 15
-	matter = list(DEFAULT_WALL_MATERIAL = 60)
+	matter = list(MATERIAL_STEEL = 60)
 	attack_verb = list("stamped")
 
 /obj/item/weapon/stamp/captain
@@ -32,7 +32,7 @@
 	icon_state = "stamp-ce"
 
 /obj/item/weapon/stamp/rd
-	name = "research director's rubber stamp"
+	name = "chief science officer's rubber stamp"
 	icon_state = "stamp-rd"
 
 /obj/item/weapon/stamp/cmo

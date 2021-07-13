@@ -44,7 +44,7 @@
 
 	//log_attack("<font color='red'>[user.name] ([user.ckey]) attacked [M.name] ([M.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)])</font>")
 
-	if (!(istype(user, /mob/living/carbon/human) || ticker) && ticker.mode.name != "monkey")
+	if (!(istype(user, /mob/living/carbon/human)) && SSticker.mode.name != "monkey")
 		user << "<span class='warning'> You don't have the dexterity to do this!</span>"
 		return
 	if(!chaplain)
@@ -52,7 +52,7 @@
 		user.take_organ_damage(0,10)
 		return
 
-	if ((CLUMSY in user.mutations) && prob(50))
+	if ((MUTATION_CLUMSY in user.mutations) && prob(50))
 		user << "<span class='warning'> The [src] slips out of your hand and hits your head.</span>"
 		user.take_organ_damage(10)
 		user.Paralyse(20)
@@ -87,7 +87,7 @@
 
 /obj/item/weapon/storage/bible/afterattack(atom/A, mob/user as mob, proximity)
 	if(!proximity) return
-	if(user.mind && (user.mind.assigned_role == "Chaplain"))
+	if(user.mind && (user.mind.assigned_role == "Counselor"))
 		if(A.reagents && A.reagents.has_reagent(/datum/reagent/water)) //blesses all the water in the holder
 			to_chat(user, "<span class='notice'>You bless \the [A].</span>") // I wish it was this easy in nethack
 			var/water2holy = A.reagents.get_reagent_amount(/datum/reagent/water)

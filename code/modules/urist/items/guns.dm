@@ -117,11 +117,12 @@ the sprite and make my own projectile -Glloyd*/
 //Knight .45 - suppressed PDW
 
 /obj/item/weapon/gun/projectile/silenced/knight
-	item_icons = DEF_URIST_INHANDS
 	name = "Knight .45"
 	desc = "A lightweight, suppressed weapon. Uses .45 rounds and is intended for operations where subtlety is preferred, if only for a little while."
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "knight45"
+	item_icons = URIST_ALL_ONMOBS
+	wielded_item_state = "knight"
 	fire_sound = 'sound/urist/suppshot.ogg'
 	w_class = 2
 	max_shells = 7
@@ -401,7 +402,7 @@ the sprite and make my own projectile -Glloyd*/
 
 /obj/item/ammo_magazine/mc9mm/bhp
 	icon = 'icons/urist/items/guns.dmi'
-	name = "Browning HP magazine (9mm)"
+	name = "Browning HP magazine (10mm)"
 	icon_state = "BROWNHPMAG"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/c9mm
@@ -558,115 +559,113 @@ the sprite and make my own projectile -Glloyd*/
 		if(9) user << "It has a finished secured bolt in place."
 
 /obj/item/weapon/imprifleframe/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/weapon/gunsmith/barrel/long))
-		if(buildstate == 0)
-			var/obj/item/weapon/gunsmith/gun2/long/I = new()
-			I.forceMove(get_turf(src))
-			to_chat(user, "You put the barrel onto the stock.")
-			qdel(W)
-			qdel(src)
-
-	if(istype(W,/obj/item/weapon/gunsmith/barrel/short))
-		if(buildstate == 0)
-			var/obj/item/weapon/gunsmith/gun2/short/I = new()
-			I.forceMove(get_turf(src))
-			to_chat(user, "You put the barrel onto the stock.")
-			qdel(W)
-			qdel(src)
-
-	if(istype(W,/obj/item/pipe))
-		if(buildstate == 0)
-			user.drop_from_inventory(W)
-			qdel(W)
-			user << "<span class='notice'>You place the piping on the stock.</span>"
-			buildstate++
-			update_icon()
-			return
-		if(buildstate == 7)
-			user.drop_from_inventory(W)
-			qdel(W)
-			user << "<span class='notice'>You install a bolt on the frame.</span>"
-			buildstate++
-			playsound(src.loc, 'sound/items/syringeproj.ogg', 100, 1)
-			update_icon()
-			return
-	else if(istype(W,/obj/item/stack/cable_coil))
-		var/obj/item/stack/cable_coil/C = W
-		if(buildstate == 1)
-			if(C.use(10))
-				user << "<span class='notice'>You secure the barrel to the wooden furniture with wire.</span>"
+	switch(buildstate)
+		if(0)
+			if(istype(W,/obj/item/weapon/gunsmith/barrel/long))
+				var/obj/item/weapon/gunsmith/gun2/long/I = new()
+				I.forceMove(get_turf(src))
+				to_chat(user, "You put the barrel onto the stock.")
+				qdel(W)
+				qdel(src)
+			if(istype(W,/obj/item/weapon/gunsmith/barrel/short))
+				var/obj/item/weapon/gunsmith/gun2/short/I = new()
+				I.forceMove(get_turf(src))
+				to_chat(user, "You put the barrel onto the stock.")
+				qdel(W)
+				qdel(src)
+			if(istype(W,/obj/item/pipe))
+				user.drop_from_inventory(W)
+				qdel(W)
+				user << "<span class='notice'>You place the piping on the stock.</span>"
 				buildstate++
 				update_icon()
-			else
-				user << "<span class='notice'>You need at least ten segments of cable coil to complete this task.</span>"
 			return
-	else if(istype(W,/obj/item/weapon/screwdriver))
-		if(buildstate == 2)
-			user << "<span class='notice'>You further secure the barrel to the wooden furniture.</span>"
-			buildstate++
-			playsound(src.loc, 'sound/items/Screwdriver2.ogg', 100, 1)
+		if(1)
+			if(istype(W,/obj/item/stack/cable_coil))
+				var/obj/item/stack/cable_coil/C = W
+				if(C.use(10))
+					user << "<span class='notice'>You secure the barrel to the wooden furniture with wire.</span>"
+					buildstate++
+					update_icon()
+				else
+					user << "<span class='notice'>You need at least ten segments of cable coil to complete this task.</span>"
 			return
-		if(buildstate == 6)
-			user << "<span class='notice'>You secure the metal reciever.</span>"
-			buildstate++
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
-			return
-	else if(istype(W,/obj/item/stack/material) && W.get_material_name() == "plasteel")
-		if(buildstate == 3)
-			var/obj/item/stack/material/P = W
-			if(P.use(5))
-				user << "<span class='notice'>You reinforce the barrel with plasteel.</span>"
+		if(2)
+			if(istype(W,/obj/item/weapon/screwdriver))
+				user << "<span class='notice'>You further secure the barrel to the wooden furniture.</span>"
 				buildstate++
-				playsound(src.loc, 'sound/items/Deconstruct.ogg', 100, 1)
-			else
-				user << "<span class='notice'>You need at least five plasteel sheets to complete this task.</span>"
+				playsound(src.loc, 'sound/items/Screwdriver2.ogg', 100, 1)
 			return
-	else if(istype(W,/obj/item/weapon/wrench))
-		if(buildstate == 4)
-			user << "<span class='notice'>You secure the reinforced barrel.</span>"
-			buildstate++
-			playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
+		if(3)
+			if(istype(W,/obj/item/stack/material) && W.get_material_name() == "plasteel")
+				var/obj/item/stack/material/P = W
+				if(P.use(5))
+					user << "<span class='notice'>You reinforce the barrel with plasteel.</span>"
+					buildstate++
+					playsound(src.loc, 'sound/items/Deconstruct.ogg', 100, 1)
+				else
+					user << "<span class='notice'>You need at least five plasteel sheets to complete this task.</span>"
 			return
-	else if(istype(W,/obj/item/stack/material) && W.get_material_name() == DEFAULT_WALL_MATERIAL)
-		if(buildstate == 5)
-			var/obj/item/stack/material/P = W
-			if(P.use(10))
-				user << "<span class='notice'>You assemble and install a metal reciever onto the frame</span>"
+		if(4)
+			if(istype(W,/obj/item/weapon/wrench))
+				user << "<span class='notice'>You secure the reinforced barrel.</span>"
 				buildstate++
-				update_icon()
-				playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+				playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
+			return
+		if(5)
+			if(istype(W,/obj/item/stack/material) && W.get_material_name() == DEFAULT_WALL_MATERIAL)
+				var/obj/item/stack/material/P = W
+				if(P.use(10))
+					user << "<span class='notice'>You assemble and install a metal reciever onto the frame</span>"
+					buildstate++
+					update_icon()
+					playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
 			else
 				user << "<span class='notice'>You need at least ten steel sheets to complete this task.</span>"
 			return
-	else if(istype(W,/obj/item/stack/rods))
-		if(buildstate == 8)
-			var/obj/item/stack/rods/R = W
-			if(R.use(3))
-				user << "<span class='notice'>You attach the rods to the bolt.</span>"
+		if(6)
+			if(istype(W,/obj/item/weapon/screwdriver))
+				user << "<span class='notice'>You secure the metal reciever.</span>"
 				buildstate++
-				playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
-			else
-				user << "<span class='notice'>You need at least 3 rods to complete this task.</span>"
+				playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 			return
-	else if(istype(W,/obj/item/weapon/weldingtool))
-		if(buildstate == 9)
-			var/obj/item/weapon/weldingtool/T = W
-			if(T.remove_fuel(5,user))
-				if(!src || !T.isOn()) return
-				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
-			user << "<span class='notice'>You secure the improvised rifle's various parts.</span>"
-			var/obj/item/weapon/gun/projectile/manualcycle/imprifle/emptymag = new /obj/item/weapon/gun/projectile/manualcycle/imprifle(get_turf(src))
-			emptymag.loaded = list()
-			qdel(src)
-		return
-	else if(istype(W,/obj/item/weapon/circular_saw))
-		if(buildstate == 9)
-			user << "<span class='notice'>You saw the barrel on the unfinished improvised rifle down.</span>"
-			new /obj/item/weapon/imprifleframe/imprifleframesawn(get_turf(src))
-			playsound(src.loc, 'sound/weapons/circsawhit.ogg', 100, 1)
-			qdel(src)
-		return
-	else
+		if(7)
+			if(istype(W,/obj/item/pipe))
+				user.drop_from_inventory(W)
+				qdel(W)
+				user << "<span class='notice'>You install a bolt on the frame.</span>"
+				buildstate++
+				playsound(src.loc, 'sound/items/syringeproj.ogg', 100, 1)
+				update_icon()
+			return
+		if(8)
+			if(istype(W,/obj/item/stack/material/rods))
+				var/obj/item/stack/material/rods/R = W
+				if(R.use(3))
+					user << "<span class='notice'>You attach the rods to the bolt.</span>"
+					buildstate++
+					playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
+				else
+					user << "<span class='notice'>You need at least 3 rods to complete this task.</span>"
+			return
+		if(9)
+			if(istype(W,/obj/item/weapon/weldingtool))
+				var/obj/item/weapon/weldingtool/T = W
+				if(T.remove_fuel(5,user))
+					if(!src || !T.isOn()) return
+					playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
+				user << "<span class='notice'>You secure the improvised rifle's various parts.</span>"
+				var/obj/item/weapon/gun/projectile/manualcycle/imprifle/emptymag = new /obj/item/weapon/gun/projectile/manualcycle/imprifle(get_turf(src))
+				emptymag.loaded = list()
+				qdel(src)
+				return
+			if(istype(W,/obj/item/weapon/circular_saw))
+				user << "<span class='notice'>You saw the barrel on the unfinished improvised rifle down.</span>"
+				new /obj/item/weapon/imprifleframe/imprifleframesawn(get_turf(src))
+				playsound(src.loc, 'sound/weapons/circsawhit.ogg', 100, 1)
+				qdel(src)
+			return
+		else
 /obj/item/weapon/imprifleframe/imprifleframesawn/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/weapon/weldingtool))
 		if(buildstate == 0)
@@ -790,8 +789,9 @@ the sprite and make my own projectile -Glloyd*/
 	origin_tech = "combat=4;materials=1;syndicate=1"
 	slot_flags = SLOT_BELT
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/hi2521smg9mm
-	one_hand_penalty = 1
+	magazine_type = /obj/item/ammo_magazine/hi2521smg9mm/rubber
+	allowed_magazines = /obj/item/ammo_magazine/hi2521smg9mm
+	one_hand_penalty = 3
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 
 	firemodes = list(
@@ -879,12 +879,13 @@ the sprite and make my own projectile -Glloyd*/
 	ammo_type = /obj/item/ammo_casing/c44/rubber
 
 /obj/item/weapon/gun/projectile/hi2521pistol
-	item_icons = DEF_URIST_INHANDS
+	item_icons = URIST_ALL_ONMOBS
 	name = "\improper HI-2521-P pistol"
 	desc = "A light, compact pistol chambered in 9mm with a sleek design. Manufactured by Hephaestus Industries as part of the 2521 series, this model is a relatively recent design, popular among wealthier spacers."
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "crewpistol"
 	item_state = "crewpistol"
+	wielded_item_state = "crewpistol"
 	w_class = 2
 	caliber = "9mm"
 	origin_tech = "combat=2;materials=2;syndicate=1"

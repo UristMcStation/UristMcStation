@@ -157,35 +157,38 @@
 	..()
 
 	if(anchored && !busy)
-		if( href_list["on1"] )
-			var/obj/item/stack/material/cardboard/W = new /obj/item/stack/material/cardboard(src.loc)
-			if(sheets >= 50)
-				sheets -= 50
-				W.amount = 50
-			else
-				W.amount = sheets
-				sheets -= W.amount
+		if(sheets)
+			if( href_list["on1"] )
+				var/obj/item/stack/material/cardboard/W = new /obj/item/stack/material/cardboard(src.loc)
+				if(sheets >= 50)
+					sheets -= 50
+					W.amount = 50
+				else
+					W.amount = sheets
+					sheets -= W.amount
+					return
+
+			if( href_list["on2"] )
+				var/obj/item/stack/package_wrap/W = new(get_turf(src))
+				if(sheets >= 25)
+					sheets -= 25
+					W.amount = 25
+				else
+					W.amount = sheets
+					sheets -= W.amount
+					return
+
+			if( href_list["on3"] )
+				new /obj/item/weapon/paper(get_turf(src))
+				sheets -= 1
 				return
 
-		if( href_list["on2"] )
-			var/obj/item/stack/package_wrap/W = new(get_turf(src))
-			if(sheets >= 25)
-				sheets -= 25
-				W.amount = 25
-			else
-				W.amount = sheets
-				sheets -= W.amount
+			if( href_list["on4"] )
+				new /obj/item/weapon/storage/fancy/rollingpapers(get_turf(src))
+				sheets -= 1
 				return
-
-		if( href_list["on3"] )
-			new /obj/item/weapon/paper(get_turf(src))
-			sheets -= 1
-			return
-
-		if( href_list["on4"] )
-			new /obj/item/weapon/storage/fancy/rollingpapers(get_turf(src))
-			sheets -= 1
-			return
+		else
+			to_chat(usr, "<span class='notice'>There's no wood stored in the [src]!.</span>")
 
 	else if(busy)
 		to_chat(usr, "<span class='notice'>The pulp and paper processor is busy right now.</span>")

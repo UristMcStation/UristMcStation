@@ -3,9 +3,6 @@
 /obj/machinery/power/emitter
 	name = "emitter"
 	desc = "A massive heavy industrial laser. This design is a fixed installation, capable of shooting in only one direction."
-	description_info = "You must secure this in place with a wrench and weld it to the floor before using it. The emitter will only fire if it is installed above a cable endpoint. Clicking will toggle it on and off, at which point, so long as it remains powered, it will fire in a single direction in bursts of four."
-	description_fluff = "Lasers like this one have been in use for ages, in applications such as mining, cutting, and in the startup sequence of many advanced space station and starship engines."
-	description_antag = "This baby is capable of slicing through walls, sealed lockers, and people."
 	icon = 'icons/obj/singularity.dmi'
 	icon_state = "emitter"
 	anchored = 0
@@ -13,7 +10,6 @@
 	req_access = list(access_engine_equip)
 	var/id = null
 
-	use_power = 0	//uses powernet power, not APC power
 	active_power_usage = 100 KILOWATTS
 
 	var/efficiency = 0.3	// Energy efficiency. 30% at this time, so 100kW load means 30kW laser pulses.
@@ -64,7 +60,7 @@
 	wifi_receiver = null
 	return ..()
 
-/obj/machinery/power/emitter/update_icon()
+/obj/machinery/power/emitter/on_update_icon()
 	if (active && powernet && avail(active_power_usage))
 		icon_state = "emitter_+a"
 	else

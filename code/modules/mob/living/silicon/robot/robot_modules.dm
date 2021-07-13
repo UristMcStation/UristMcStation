@@ -64,7 +64,7 @@ var/global/list/robot_modules = list(
 		R.silicon_radio.recalculateChannels()
 
 	R.set_module_sprites(sprites)
-	R.choose_icon(R.module_sprites.len + 1, R.module_sprites)
+	R.choose_icon(R.module_sprites)
 
 	for(var/obj/item/I in modules)
 		I.canremove = 0
@@ -77,7 +77,7 @@ var/global/list/robot_modules = list(
 
 	if(R.silicon_radio)
 		R.silicon_radio.recalculateChannels()
-	R.choose_icon(0, R.set_module_sprites(list("Default" = "robot")))
+	R.choose_icon(R.set_module_sprites(list("Default" = initial(R.icon_state))))
 
 /obj/item/weapon/robot_module/Destroy()
 	for(var/module in modules)
@@ -187,6 +187,7 @@ var/global/list/robot_modules = list(
 				  )
 
 /obj/item/weapon/robot_module/standard/New()
+	src.modules	+= new /obj/item/weapon/crowbar(src)
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/weapon/melee/baton/loaded(src)
 	src.modules += new /obj/item/weapon/extinguisher(src)
@@ -220,7 +221,9 @@ var/global/list/robot_modules = list(
 					)
 
 /obj/item/weapon/robot_module/medical/surgeon/New()
+	src.modules	+= new /obj/item/weapon/crowbar(src)
 	src.modules += new /obj/item/device/flash(src)
+	src.modules += new /obj/item/borg/sight/hud/med(src)
 	src.modules += new /obj/item/device/healthanalyzer(src)
 	src.modules += new /obj/item/weapon/reagent_containers/borghypo/surgeon(src)
 	src.modules += new /obj/item/weapon/scalpel/manager(src)
@@ -235,6 +238,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/gripper/organ(src)
 	src.modules += new /obj/item/robot_rack/roller(src, 1)
 	src.modules += new /obj/item/weapon/shockpaddles/robot(src)
+	src.modules += new /obj/item/weapon/crowbar(src)
 	src.emag = new /obj/item/weapon/reagent_containers/spray(src)
 	src.emag.reagents.add_reagent(/datum/reagent/acid/polyacid, 250)
 	src.emag.SetName("Polyacid spray")
@@ -294,6 +298,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/extinguisher/mini(src)
 	src.modules += new /obj/item/taperoll/medical(src)
 	src.modules += new /obj/item/weapon/inflatable_dispenser/robot(src) // Allows usage of inflatables. Since they are basically robotic alternative to EMTs, they should probably have them.
+	src.modules += new /obj/item/weapon/crowbar(src)
 	src.emag = new /obj/item/weapon/reagent_containers/spray(src)
 	src.emag.reagents.add_reagent(/datum/reagent/acid/polyacid, 250)
 	src.emag.SetName("Polyacid spray")
@@ -371,11 +376,13 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/taperoll/engineering(src)
 	src.modules += new /obj/item/taperoll/atmos(src)
 	src.modules += new /obj/item/weapon/gripper(src)
+	src.modules += new /obj/item/weapon/gripper/no_use/loader(src)
 	src.modules += new /obj/item/device/lightreplacer(src)
 	src.modules += new /obj/item/device/pipe_painter(src)
 	src.modules += new /obj/item/device/floor_painter(src)
 	src.modules += new /obj/item/weapon/inflatable_dispenser/robot(src)
 	src.modules += new /obj/item/inducer/borg(src)
+	src.modules += new /obj/item/device/plunger/robot(src)
 	src.emag = new /obj/item/weapon/melee/baton/robot/electrified_arm(src)
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(60000)
@@ -396,11 +403,15 @@ var/global/list/robot_modules = list(
 	M.synths = list(metal)
 	src.modules += M
 
+	var/obj/item/stack/material/cyborg/aluminium/AL = new (src)
+	M.synths = list(metal)
+	src.modules += AL
+
 	var/obj/item/stack/material/cyborg/glass/G = new (src)
 	G.synths = list(glass)
 	src.modules += G
 
-	var/obj/item/stack/rods/cyborg/R = new /obj/item/stack/rods/cyborg(src)
+	var/obj/item/stack/material/rods/cyborg/R = new /obj/item/stack/material/rods/cyborg(src)
 	R.synths = list(metal)
 	src.modules += R
 
@@ -452,6 +463,7 @@ var/global/list/robot_modules = list(
 				)
 
 /obj/item/weapon/robot_module/security/general/New()
+	src.modules	+= new /obj/item/weapon/crowbar(src)
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/hud/sec(src)
 	src.modules += new /obj/item/weapon/handcuffs/cyborg(src)
@@ -460,6 +472,8 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/taperoll/police(src)
 	src.modules += new /obj/item/device/megaphone(src)
 	src.modules += new /obj/item/device/holowarrant(src)
+	src.modules += new /obj/item/weapon/crowbar(src)
+	src.modules += new /obj/item/device/hailer(src)
 	src.emag = new /obj/item/weapon/gun/energy/laser/mounted(src)
 	..()
 
@@ -494,11 +508,16 @@ var/global/list/robot_modules = list(
 					)
 
 /obj/item/weapon/robot_module/janitor/New()
+	src.modules	+= new /obj/item/weapon/crowbar(src)
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/weapon/soap/nanotrasen(src)
 	src.modules += new /obj/item/weapon/storage/bag/trash(src)
-	src.modules += new /obj/item/weapon/mop(src)
+	src.modules += new /obj/item/weapon/mop/advanced(src)
+	src.modules += new /obj/item/holosign_creator(src)
 	src.modules += new /obj/item/device/lightreplacer(src)
+	src.modules += new /obj/item/borg/sight/hud/jani(src)
+	src.modules += new /obj/item/device/plunger/robot(src)
+	src.modules += new /obj/item/weapon/crowbar(src)
 	src.emag = new /obj/item/weapon/reagent_containers/spray(src)
 	src.emag.reagents.add_reagent(/datum/reagent/lube, 250)
 	src.emag.SetName("Lube spray")
@@ -543,6 +562,7 @@ var/global/list/robot_modules = list(
 				  	)
 
 /obj/item/weapon/robot_module/clerical/butler/New()
+	src.modules	+= new /obj/item/weapon/crowbar(src)
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/weapon/gripper/service(src)
 	src.modules += new /obj/item/weapon/reagent_containers/glass/bucket(src)
@@ -553,6 +573,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/robot_harvester(src)
 	src.modules += new /obj/item/weapon/material/kitchen/rollingpin(src)
 	src.modules += new /obj/item/weapon/material/knife(src)
+	src.modules += new /obj/item/weapon/crowbar(src)
 
 	var/obj/item/weapon/rsf/M = new /obj/item/weapon/rsf(src)
 	M.stored_matter = 30
@@ -593,6 +614,7 @@ var/global/list/robot_modules = list(
 					)
 
 /obj/item/weapon/robot_module/clerical/general/New()
+	src.modules	+= new /obj/item/weapon/crowbar(src)
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/weapon/pen/robopen(src)
 	src.modules += new /obj/item/weapon/form_printer(src)
@@ -601,6 +623,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/stamp(src)
 	src.modules += new /obj/item/weapon/stamp/denied(src)
 	src.modules += new /obj/item/device/destTagger(src)
+	src.modules += new /obj/item/weapon/crowbar(src)
 	src.emag = new /obj/item/weapon/stamp/chameleon(src)
 
 	var/datum/matter_synth/package_wrap = new /datum/matter_synth/package_wrap()
@@ -640,6 +663,7 @@ var/global/list/robot_modules = list(
 	supported_upgrades = list(/obj/item/borg/upgrade/jetpack)
 
 /obj/item/weapon/robot_module/miner/New()
+	src.modules	+= new /obj/item/weapon/crowbar(src)
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/meson(src)
 	src.modules += new /obj/item/weapon/wrench(src)
@@ -709,6 +733,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/weapon/melee/energy/sword(src)
 	src.modules += new /obj/item/weapon/gun/energy/pulse_rifle/destroyer(src)
+	src.modules += new /obj/item/weapon/crowbar(src)
 	src.modules += new /obj/item/weapon/card/emag(src)
 	var/jetpack = new/obj/item/weapon/tank/jetpack/carbondioxide(src)
 	src.modules += jetpack
@@ -738,6 +763,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/gun/energy/plasmacutter(src)
 	src.modules += new /obj/item/borg/combat/shield(src)
 	src.modules += new /obj/item/borg/combat/mobility(src)
+	src.modules += new /obj/item/weapon/crowbar(src)
 	src.emag = new /obj/item/weapon/gun/energy/lasercannon/mounted(src)
 	..()
 
@@ -762,7 +788,11 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/pipe_painter(src)
 	src.modules += new /obj/item/device/floor_painter(src)
 	src.modules += new /obj/item/inducer/borg(src)
+	src.modules += new /obj/item/device/plunger/robot(src)
+	src.modules += new /obj/item/weapon/inflatable_dispenser/robot(src)
 	src.modules += new /obj/item/weapon/reagent_containers/spray/cleaner/drone(src)
+	src.modules += new /obj/item/borg/sight/hud/jani(src)
+	src.modules += new /obj/item/device/plunger/robot(src)
 
 	robot.internals = new/obj/item/weapon/tank/jetpack/carbondioxide(src)
 	src.modules += robot.internals
@@ -796,7 +826,7 @@ var/global/list/robot_modules = list(
 	G.synths = list(glass)
 	src.modules += G
 
-	var/obj/item/stack/rods/cyborg/R = new /obj/item/stack/rods/cyborg(src)
+	var/obj/item/stack/material/rods/cyborg/R = new /obj/item/stack/material/rods/cyborg(src)
 	R.synths = list(metal)
 	src.modules += R
 

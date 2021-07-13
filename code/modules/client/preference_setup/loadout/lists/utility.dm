@@ -9,7 +9,7 @@
 
 /datum/gear/utility/clipboard
 	display_name = "clipboard"
-	path = /obj/item/weapon/clipboard
+	path = /obj/item/weapon/material/clipboard
 
 /datum/gear/utility/folder
 	display_name = "folders"
@@ -64,12 +64,31 @@
 modular computers
 ****************/
 
+/datum/gear/utility/cheaptablet
+	display_name = "tablet computer, cheap"
+	path = /obj/item/modular_computer/tablet/preset/custom_loadout/cheap
+	cost = 3
+
+/datum/gear/utility/normaltablet
+	display_name = "tablet computer, advanced"
+	path = /obj/item/modular_computer/tablet/preset/custom_loadout/advanced
+	cost = 4
+
+/datum/gear/utility/customtablet
+	display_name = "tablet computer, custom"
+	path = /obj/item/modular_computer/tablet
+	cost = 4
+
+/datum/gear/utility/customtablet/New()
+	..()
+	gear_tweaks += new /datum/gear_tweak/tablet()
+
 /datum/gear/utility/cheaplaptop
 	display_name = "laptop computer, cheap"
 	path = /obj/item/modular_computer/laptop/preset/custom_loadout/cheap
-	cost = 5
+	cost = 4
 
 /datum/gear/utility/normallaptop
 	display_name = "laptop computer, advanced"
 	path = /obj/item/modular_computer/laptop/preset/custom_loadout/advanced
-	cost = 6
+	cost = 5

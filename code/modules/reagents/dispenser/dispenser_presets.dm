@@ -71,7 +71,7 @@
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/hot_coco,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/cream,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/tea,
-			/obj/item/weapon/reagent_containers/chem_disp_cartridge/icetea,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/green_tea,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/cola,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/smw,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/dr_gibb,
@@ -98,6 +98,7 @@
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/sugar,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/orange,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/lime,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/lemon,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/sodawater,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/tonic,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/beer,
@@ -130,5 +131,6 @@
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/milk,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/cream,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/tea,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/green_tea,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/ice
 		)

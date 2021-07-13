@@ -11,7 +11,7 @@
 	name = "Hyper Capacity Silicon Depolarization Quantum Relay"
 	desc = "You're not sure what this does, but it does something, probably."
 	icon_state = "relay"
-	var/health = 100
+	health = 100
 	var/obj/machinery/button/alternate/biohazard/reset_button
 
 /obj/structure/showcase/blob_hazard/Initialize()
@@ -19,7 +19,7 @@
 	var/area/A = loc
 	reset_button = locate(/obj/machinery/button/alternate/biohazard) in A
 
-/obj/structure/showcase/blob_hazard/proc/take_damage(var/damage)
+/obj/structure/showcase/blob_hazard/take_damage(var/damage)
 	health -= damage
 	if(health < 0)
 		reset_button.activate(null, TRUE)

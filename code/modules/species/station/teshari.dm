@@ -26,20 +26,20 @@
 
 	darksight_range = 6
 	darksight_tint = DARKTINT_GOOD
-	slowdown = -0.1
+	slowdown = -0.08
 	total_health = 150
-	brute_mod = 1.35
-	burn_mod =  1.35
+	brute_mod = 1.25
+	burn_mod =  1.25
 	metabolism_mod = 2.0
 	mob_size = MOB_SMALL
 	strength = STR_HIGH
 	holder_type = /obj/item/weapon/holder/human
 	light_sensitive = 6
 	gluttonous = GLUT_TINY
-	blood_volume = 280
+	blood_volume = 400
 	hunger_factor = 0.2
 
-	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED | SPECIES_NO_FBP_CONSTRUCTION | SPECIES_NO_FBP_CHARGEN
+	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 	bump_flag = MONKEY
 	swap_flags = MONKEY|SLIME|SIMPLE_ANIMAL
@@ -93,6 +93,7 @@
 
 	has_organ = list(
 		BP_HEART =    /obj/item/organ/internal/heart,
+		BP_STOMACH =  /obj/item/organ/internal/stomach,
 		BP_LUNGS =    /obj/item/organ/internal/lungs,
 		BP_LIVER =    /obj/item/organ/internal/liver/teshari,
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/teshari,

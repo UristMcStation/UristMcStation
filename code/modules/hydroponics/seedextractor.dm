@@ -5,7 +5,7 @@
 	icon_state = "sextractor"
 	density = 1
 	anchored = 1
-	use_power = 2
+	use_power = POWER_USE_ACTIVE
 	idle_power_usage = 10
 	active_power_usage = 2000
 
@@ -19,10 +19,10 @@ obj/machinery/seed_extractor/attackby(var/obj/item/O as obj, var/mob/user as mob
 		var/datum/seed/new_seed_type
 		if(istype(O, /obj/item/weapon/grown))
 			var/obj/item/weapon/grown/F = O
-			new_seed_type = plant_controller.seeds[F.plantname]
+			new_seed_type = SSplants.seeds[F.plantname]
 		else
 			var/obj/item/weapon/reagent_containers/food/snacks/grown/F = O
-			new_seed_type = plant_controller.seeds[F.plantname]
+			new_seed_type = SSplants.seeds[F.plantname]
 
 		if(new_seed_type)
 			to_chat(user, "<span class='notice'>You extract some seeds from [O].</span>")

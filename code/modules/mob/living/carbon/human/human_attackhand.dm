@@ -2,6 +2,13 @@
 	if(!hit_zone)
 		hit_zone = zone_sel.selecting
 
+	if(default_attack && default_attack.is_usable(src, target, hit_zone))
+		if(pulling_punches)
+			var/datum/unarmed_attack/soft_type = default_attack.get_sparring_variant()
+			if(soft_type)
+				return soft_type
+		return default_attack
+
 	for(var/datum/unarmed_attack/u_attack in species.unarmed_attacks)
 		if(u_attack.is_usable(src, target, hit_zone))
 			if(pulling_punches)
@@ -40,10 +47,13 @@
 			var/obj/item/organ/external/affecting = get_organ(ran_zone(H.zone_sel.selecting))
 			var/armor_block = run_armor_check(affecting, "melee")
 
-			if(HULK in H.mutations)
+			if(MUTATION_HULK in H.mutations)
 				damage += 5
 
 			playsound(loc, "punch", 25, 1, -1)
+
+			update_personal_goal(/datum/goal/achievement/fistfight, TRUE)
+			H.update_personal_goal(/datum/goal/achievement/fistfight, TRUE)
 
 			visible_message("<span class='danger'>[H] has punched \the [src]!</span>")
 
@@ -66,51 +76,55 @@
 
 	switch(M.a_intent)
 		if(I_HELP)
-			if(istype(H) && (is_asystole() || (status_flags & FAKEDEATH)))
+			if(H != src && istype(H) && (is_asystole() || (status_flags & FAKEDEATH) || failed_last_breath))
 				if (!cpr_time)
 					return 0
 
 				cpr_time = 0
-				spawn(30)
-					cpr_time = 1
 
 				H.visible_message("<span class='notice'>\The [H] is trying to perform CPR on \the [src].</span>")
 
-				if(!do_after(H, 30, src))
+				if(!do_after(H, 1.5 SECONDS, src))
+					cpr_time = 1
 					return
+				cpr_time = 1
 
 				H.visible_message("<span class='notice'>\The [H] performs CPR on \the [src]!</span>")
-				if(prob(5))
+				if(is_asystole() && prob(5))
 					var/obj/item/organ/external/chest = get_organ(BP_CHEST)
 					if(chest)
 						chest.fracture()
-				if(stat != DEAD)
-					if(prob(15))
+
+					var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
+					if(heart)
+						heart.external_pump = list(world.time, 0.5 + rand(-0.1,0.1))
+
+					if(stat != DEAD && prob(15))
 						resuscitate()
 
-					if(!H.check_has_mouth())
-						to_chat(H, "<span class='warning'>You don't have a mouth, you cannot do mouth-to-mouth resustication!</span>")
-						return
-					if(!check_has_mouth())
-						to_chat(H, "<span class='warning'>They don't have a mouth, you cannot do mouth-to-mouth resustication!</span>")
-						return
-					if((H.head && (H.head.body_parts_covered & FACE)) || (H.wear_mask && (H.wear_mask.body_parts_covered & FACE)))
-						to_chat(H, "<span class='warning'>You need to remove your mouth covering for mouth-to-mouth resustication!</span>")
-						return 0
-					if((head && (head.body_parts_covered & FACE)) || (wear_mask && (wear_mask.body_parts_covered & FACE)))
-						to_chat(H, "<span class='warning'>You need to remove \the [src]'s mouth covering for mouth-to-mouth resustication!</span>")
-						return 0
-					if (!H.internal_organs_by_name[H.species.breathing_organ])
-						to_chat(H, "<span class='danger'>You need lungs for mouth-to-mouth resustication!</span>")
-						return
-					if(!need_breathe())
-						return
-					var/obj/item/organ/internal/lungs/L = internal_organs_by_name[species.breathing_organ]
-					if(L)
-						var/datum/gas_mixture/breath = H.get_breath_from_environment()
-						var/fail = L.handle_breath(breath, 1)
-						if(!fail)
-							to_chat(src, "<span class='notice'>You feel a breath of fresh air enter your lungs. It feels good.</span>")
+				if(!H.check_has_mouth())
+					to_chat(H, "<span class='warning'>You don't have a mouth, you cannot do mouth-to-mouth resuscitation!</span>")
+					return
+				if(!check_has_mouth())
+					to_chat(H, "<span class='warning'>They don't have a mouth, you cannot do mouth-to-mouth resuscitation!</span>")
+					return
+				if((H.head && (H.head.body_parts_covered & FACE)) || (H.wear_mask && (H.wear_mask.body_parts_covered & FACE)))
+					to_chat(H, "<span class='warning'>You need to remove your mouth covering for mouth-to-mouth resuscitation!</span>")
+					return 0
+				if((head && (head.body_parts_covered & FACE)) || (wear_mask && (wear_mask.body_parts_covered & FACE)))
+					to_chat(H, "<span class='warning'>You need to remove \the [src]'s mouth covering for mouth-to-mouth resuscitation!</span>")
+					return 0
+				if (!H.internal_organs_by_name[H.species.breathing_organ])
+					to_chat(H, "<span class='danger'>You need lungs for mouth-to-mouth resuscitation!</span>")
+					return
+				if(!need_breathe())
+					return
+				var/obj/item/organ/internal/lungs/L = internal_organs_by_name[species.breathing_organ]
+				if(L)
+					var/datum/gas_mixture/breath = H.get_breath_from_environment()
+					var/fail = L.handle_breath(breath, 1)
+					if(!fail)
+						to_chat(src, "<span class='notice'>You feel a breath of fresh air enter your lungs. It feels good.</span>")
 
 			else if(!(M == src && apply_pressure(M, M.zone_sel.selecting)))
 				help_shake_act(M)
@@ -238,7 +252,7 @@
 			real_damage += attack.get_unarmed_damage(H)
 			real_damage *= damage_multiplier
 			rand_damage *= damage_multiplier
-			if(HULK in H.mutations)
+			if(MUTATION_HULK in H.mutations)
 				real_damage *= 2 // Hulks do twice the damage
 				rand_damage *= 2
 			real_damage = max(1, real_damage)
@@ -308,7 +322,7 @@
 */
 /mob/living/carbon/human/proc/apply_pressure(mob/living/user, var/target_zone)
 	var/obj/item/organ/external/organ = get_organ(target_zone)
-	if(!organ || !(organ.status & ORGAN_BLEEDING) || BP_IS_ROBOTIC(organ))
+	if(!organ || !(organ.status & ORGAN_BLEEDING || organ.status & ORGAN_ARTERY_CUT) || BP_IS_ROBOTIC(organ))
 		return 0
 
 	if(organ.applied_pressure)
@@ -337,26 +351,28 @@
 	if(!O || !user || !O.owner)
 		qdel(src)
 	O.applied_pressure = user
-	O.arterial_bleed_severity -= 0.5
 	applied = O
 	H = O.owner
 	name = "\proper[H == loc ? "[H.gender == "male" ? "his" : "her"]" : "[O.owner.name]'s"] [O.name]" //this will end as expected
 	START_PROCESSING(SSobj, src)
 
 /obj/item/pressure/Process()
-	if(!Adjacent(H))
+	if(loc != H)
 		if(!QDELETED(src))
 			qdel(src)
 
 /obj/item/pressure/Destroy()
 	STOP_PROCESSING(SSobj, src)
-	H.visible_message("<span class = 'notice'>\The [H] stops applying pressure to \his [applied.name]!", "You stop applying pressure to your [applied.name]!</span>")
+	H.visible_message("<span class = 'notice'>\The [H] stops applying pressure to \his [applied.name]!</span>", "<span class = 'notice'>You stop applying pressure to your [applied.name]!</span>")
 	applied.applied_pressure = null
+	applied = null
+	H = null
 	. = ..()
 
 /obj/item/pressure/dropped()
-	spawn(1)
-		H.drop_item(get_turf(loc))
-	applied.applied_pressure = null //just in case
-	applied.arterial_bleed_severity = initial(applied.arterial_bleed_severity)
-	qdel(src)
+	if(!QDELETED(src))
+		qdel(src)
+	. = ..()
+
+/obj/item/pressure/add_blood()
+	return

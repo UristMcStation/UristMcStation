@@ -12,7 +12,6 @@
 
 	density = 1
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 20
 	active_power_usage = 5000
 
@@ -51,13 +50,13 @@
 	build_default_parts(/obj/item/weapon/circuitboard/adv_drone_fab)
 
 /obj/machinery/drone_fabricator/power_change()
-	..()
+	. = ..()
 	if (stat & NOPOWER)
 		icon_state = "drone_fab_nopower"
 
 /obj/machinery/drone_fabricator/Process()
 
-	if(ticker.current_state < GAME_STATE_PLAYING)
+	if(GAME_STATE < RUNLEVEL_GAME)
 		return
 
 	if(stat & NOPOWER || !produce_drones)
@@ -119,7 +118,7 @@
 
 /proc/try_drone_spawn(var/mob/user, var/obj/machinery/drone_fabricator/fabricator)
 
-	if(ticker.current_state < GAME_STATE_PLAYING)
+	if(GAME_STATE < RUNLEVEL_GAME)
 		to_chat(user, "<span class='danger'>The game hasn't started yet!</span>")
 		return
 
@@ -132,7 +131,7 @@
 		return
 
 	if(config.use_age_restriction_for_jobs && isnum(user.client.player_age))
-		if(user.client.player_age <= 3)
+		if(user.client.player_age <= 0)
 			to_chat(user, "<span class='danger'> Your account is not old enough to play as a maintenance drone.</span>")
 			return
 

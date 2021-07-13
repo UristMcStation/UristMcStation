@@ -3,8 +3,8 @@
 	desc = "A little medical robot. He looks somewhat underwhelmed."
 	icon = 'icons/mob/bot/medibot.dmi'
 	icon_state = "medibot0"
-	req_one_access = list(access_medical, access_robotics)
-	botcard_access = list(access_medical, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics)
+	req_access = list(list(access_medical, access_robotics))
+	botcard_access = list(access_medical, access_morgue, access_surgery, access_chemistry, access_virology)
 	var/skin = null //Set to "tox", "ointment" or "o2" for the other two firstaid kits.
 
 	//AI vars
@@ -212,7 +212,7 @@
 		new /obj/item/robot_parts/l_arm(Tsec)
 
 	if(reagent_glass)
-		reagent_glass.loc = Tsec
+		reagent_glass.forceMove(Tsec)
 		reagent_glass = null
 
 	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread

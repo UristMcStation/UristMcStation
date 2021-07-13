@@ -46,7 +46,7 @@ var/list/flooring_types
 /decl/flooring/grass
 	name = "grass"
 	desc = "Do they smoke grass out in space, Bowie? Or do they smoke AstroTurf?"
-	icon = 'icons/turf/flooring/grass.dmi'
+	icon = 'icons/urist/turf/uristturf.dmi'
 	icon_base = "grass"
 	has_base_range = 3
 	damage_temperature = T0C+80
@@ -182,6 +182,10 @@ var/list/flooring_types
 /decl/flooring/tiling/new_tile/kafel
 	icon_base = "kafel_full"
 
+/decl/flooring/tiling/stone
+	icon_base = "stone"
+	build_type = /obj/item/stack/tile/stone
+
 /decl/flooring/tiling/new_tile/techmaint
 	icon_base = "techmaint"
 	build_type = /obj/item/stack/tile/techmaint
@@ -207,7 +211,7 @@ var/list/flooring_types
 
 /decl/flooring/wood
 	name = "wooden floor"
-	desc = "Polished redwood planks."
+	desc = "Polished wood planks."
 	icon = 'icons/turf/flooring/wood.dmi'
 	icon_base = "wood"
 	has_damage_range = 6
@@ -215,6 +219,22 @@ var/list/flooring_types
 	descriptor = "planks"
 	build_type = /obj/item/stack/tile/wood
 	flags = TURF_CAN_BREAK | TURF_IS_FRAGILE | TURF_REMOVE_SCREWDRIVER
+
+/decl/flooring/wood/mahogany
+	icon_base = "mahogany"
+	build_type = /obj/item/stack/tile/mahogany
+
+/decl/flooring/wood/maple
+	icon_base = "maple"
+	build_type = /obj/item/stack/tile/maple
+
+/decl/flooring/wood/ebony
+	icon_base = "ebony"
+	build_type = /obj/item/stack/tile/ebony
+
+/decl/flooring/wood/walnut
+	icon_base = "walnut"
+	build_type = /obj/item/stack/tile/walnut
 
 /decl/flooring/reinforced
 	name = "reinforced floor"

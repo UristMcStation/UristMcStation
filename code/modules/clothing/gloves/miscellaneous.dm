@@ -124,15 +124,14 @@
 	siemens_coefficient = 0.50 //thick work gloves
 	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
 
-/obj/item/clothing/gloves/duty
+/obj/item/clothing/gloves/thick/duty
 	desc = "These brown duty gloves are made from a durable synthetic."
 	name = "work gloves"
 	icon_state = "work"
 	item_state = "wgloves"
-	siemens_coefficient = 0.50
 	armor = list(melee = 10, bullet = 10, laser = 10, energy = 5, bomb = 0, bio = 0, rad = 0)
 
-/obj/item/clothing/gloves/duty/modified
+/obj/item/clothing/gloves/thick/duty/modified
 	item_flags = ITEM_FLAG_PREMODIFIED
 
 /obj/item/clothing/gloves/tactical
@@ -155,4 +154,4 @@
 	siemens_coefficient = 0.7
 	permeability_coefficient = 0.03
 	armor = list(melee = 40, bullet = 40, laser = 40, energy = 25, bomb = 30, bio = 0, rad = 0)
-
+	

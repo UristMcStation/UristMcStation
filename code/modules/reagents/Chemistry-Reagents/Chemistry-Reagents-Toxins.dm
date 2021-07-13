@@ -8,6 +8,9 @@
 	reagent_state = LIQUID
 	color = "#cf3600"
 	metabolism = REM * 0.25 // 0.05 by default. They last a while and slowly kill you.
+	heating_products = list(/datum/reagent/toxin/denatured)
+	heating_point = 100 CELCIUS
+	heating_message = "goes clear."
 
 	var/target_organ
 	var/strength = 4 // How much damage it deals per unit
@@ -31,6 +34,19 @@
 		if(dam)
 			M.adjustToxLoss(target_organ ? (dam * 0.75) : dam)
 
+/datum/reagent/toxin/denatured
+	name = "denatured toxin"
+	description = "Once toxic, now harmless."
+	taste_description = null
+	taste_mult = null
+	color = "#808080"
+	metabolism = REM
+	heating_products = null
+	heating_point = null
+
+	target_organ = null
+	strength = 0
+
 /datum/reagent/toxin/plasticide
 	name = "Plasticide"
 	description = "Liquid plastic, do not eat."
@@ -38,6 +54,8 @@
 	reagent_state = LIQUID
 	color = "#cf3600"
 	strength = 5
+	heating_point = null
+	heating_products = null
 
 /datum/reagent/toxin/amatoxin
 	name = "Amatoxin"
@@ -56,6 +74,14 @@
 	target_organ = BP_BRAIN
 	strength = 10
 
+/datum/reagent/toxin/venom
+	name = "Spider Venom"
+	description = "A deadly necrotic toxin produced by giant spiders to disable their prey."
+	taste_description = "absolutely vile"
+	color = "#91d895"
+	target_organ = BP_LIVER
+	strength = 7
+
 /datum/reagent/toxin/chlorine
 	name = "Chlorine"
 	description = "A highly poisonous liquid. Smells strongly of bleach."
@@ -64,6 +90,8 @@
 	color = "#707c13"
 	strength = 15
 	metabolism = REM
+	heating_point = null
+	heating_products = null
 
 /datum/reagent/toxin/phoron
 	name = "Phoron"
@@ -74,6 +102,8 @@
 	strength = 30
 	touch_met = 5
 	var/fire_mult = 5
+	heating_point = null
+	heating_products = null
 
 /datum/reagent/toxin/phoron/touch_mob(var/mob/living/L, var/amount)
 	if(istype(L))
@@ -118,6 +148,8 @@
 	strength = 20
 	metabolism = REM * 2
 	target_organ = BP_HEART
+	heating_point = null
+	heating_products = null
 
 /datum/reagent/toxin/cyanide/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
@@ -131,6 +163,8 @@
 	color = "#ffffff"
 	strength = 0
 	overdose = REAGENTS_OVERDOSE
+	heating_point = null
+	heating_products = null
 
 /datum/reagent/toxin/potassium_chloride/overdose(var/mob/living/carbon/M, var/alien)
 	..()
@@ -152,6 +186,8 @@
 	color = "#ffffff"
 	strength = 10
 	overdose = 20
+	heating_point = null
+	heating_products = null
 
 /datum/reagent/toxin/potassium_chlorophoride/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
@@ -173,6 +209,8 @@
 	metabolism = REM
 	strength = 3
 	target_organ = BP_BRAIN
+	heating_message = "melts into a liquid slurry."
+	heating_products = list(/datum/reagent/toxin/carpotoxin, /datum/reagent/soporific, /datum/reagent/copper)
 
 /datum/reagent/toxin/zombiepowder/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
@@ -193,13 +231,15 @@
 	. = ..()
 
 /datum/reagent/toxin/fertilizer //Reagents used for plant fertilizers.
-	name = /datum/reagent/toxin/fertilizer
+	name = "Fertilizer"
 	description = "A chemical mix good for growing plants with."
 	taste_description = "plant food"
 	taste_mult = 0.5
 	reagent_state = LIQUID
 	strength = 0.5 // It's not THAT poisonous.
 	color = "#664330"
+	heating_point = null
+	heating_products = null
 
 /datum/reagent/toxin/fertilizer/eznutrient
 	name = "EZ Nutrient"
@@ -217,6 +257,7 @@
 	reagent_state = LIQUID
 	color = "#49002e"
 	strength = 4
+	heating_products = list(/datum/reagent/toxin, /datum/reagent/water)
 
 /datum/reagent/toxin/plantbgone/touch_turf(var/turf/T)
 	if(istype(T, /turf/simulated/wall))
@@ -248,6 +289,12 @@
 	color = "#8e18a9"
 	power = 10
 	meltdose = 4
+
+/datum/reagent/acid/stomach
+	name = "stomach acid"
+	taste_description = "coppery foulness"
+	power = 1
+	color = "#d8ff00"
 
 /datum/reagent/lexorin
 	name = "Lexorin"
@@ -347,10 +394,12 @@
 	else if(M.chem_doses[type] < 5 * threshold)
 		if(prob(50))
 			M.Weaken(2)
+			M.add_chemical_effect(CE_SEDATE, 1)
 		M.drowsyness = max(M.drowsyness, 20)
 	else
 		M.sleeping = max(M.sleeping, 20)
 		M.drowsyness = max(M.drowsyness, 60)
+		M.add_chemical_effect(CE_SEDATE, 1)
 	M.add_chemical_effect(CE_PULSE, -1)
 
 /datum/reagent/chloralhydrate
@@ -376,8 +425,10 @@
 	else if(M.chem_doses[type] < 2 * threshold)
 		M.Weaken(30)
 		M.eye_blurry = max(M.eye_blurry, 10)
+		M.add_chemical_effect(CE_SEDATE, 1)
 	else
 		M.sleeping = max(M.sleeping, 30)
+		M.add_chemical_effect(CE_SEDATE, 1)
 
 	if(M.chem_doses[type] > 1 * threshold)
 		M.adjustToxLoss(removed)
@@ -442,6 +493,9 @@
 	color = "#000055"
 	metabolism = REM * 0.5
 	overdose = REAGENTS_OVERDOSE
+	heating_point = 61 CELCIUS
+	heating_products = list(/datum/reagent/potassium, /datum/reagent/acetone, /datum/reagent/sugar)
+
 
 /datum/reagent/cryptobiolin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
@@ -528,8 +582,83 @@
 		if(prob(15))
 			M.emote(pick("twitch", "giggle"))
 
-/* Transformations */
 
+/datum/reagent/three_eye
+	name = "Three Eye"
+	taste_description = "liquid starlight"
+	description = "Out on the edge of human space, at the limits of scientific understanding and \
+	cultural taboo, people develop and dose themselves with substances that would curl the hair on \
+	a brinker's vatgrown second head. Three Eye is one of the most notorious narcotics to ever come \
+	out of the independant habitats, and has about as much in common with recreational drugs as a \
+	Stok does with an Unathi strike trooper. It is equally effective on humans, Skrell, dionaea and \
+	probably the Captain's cat, and distributing it will get you guaranteed jail time in every \
+	human territory."
+	reagent_state = LIQUID
+	color = "#ccccff"
+	metabolism = REM
+	overdose = 25
+
+	// M A X I M U M C H E E S E
+	var/global/list/dose_messages = list(
+		"Your name is called. It is your time.",
+		"You are dissolving. Your hands are wax...",
+		"It all runs together. It all mixes.",
+		"It is done. It is over. You are done. You are over.",
+		"You won't forget. Don't forget. Don't forget.",
+		"Light seeps across the edges of your vision...",
+		"Something slides and twitches within your sinus cavity...",
+		"Your bowels roil. It waits within.",
+		"Your gut churns. You are heavy with potential.",
+		"Your heart flutters. It is winged and caged in your chest.",
+		"There is a precious thing, behind your eyes.",
+		"Everything is ending. Everything is beginning.",
+		"Nothing ends. Nothing begins.",
+		"Wake up. Please wake up.",
+		"Stop it! You're hurting them!",
+		"It's too soon for this. Please go back.",
+		"We miss you. Where are you?",
+		"Come back from there. Please."
+	)
+
+	var/global/list/overdose_messages = list(
+		"THE SIGNAL THE SIGNAL THE SIGNAL THE SIGNAL",
+		"IT CRIES IT CRIES IT WAITS IT CRIES",
+		"NOT YOURS NOT YOURS NOT YOURS NOT YOURS",
+		"THAT IS NOT FOR YOU",
+		"IT RUNS IT RUNS IT RUNS IT RUNS",
+		"THE BLOOD THE BLOOD THE BLOOD THE BLOOD",
+		"THE LIGHT THE DARK A STAR IN CHAINS"
+	)
+
+/datum/reagent/three_eye/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.add_client_color(/datum/client_color/thirdeye)
+	M.add_chemical_effect(CE_THIRDEYE, 1)
+	M.add_chemical_effect(CE_MIND, -2)
+	M.hallucination(50, 50)
+	M.make_jittery(3)
+	M.make_dizzy(3)
+	if(prob(0.1) && ishuman(M))
+		var/mob/living/carbon/human/H = M
+		H.seizure()
+		H.adjustBrainLoss(rand(8, 12))
+	if(prob(5))
+		to_chat(M, SPAN_WARNING("<font size = [rand(1,3)]>[pick(dose_messages)]</font>"))
+
+/datum/reagent/three_eye/on_leaving_metabolism(var/mob/parent, var/metabolism_class)
+	parent.remove_client_color(/datum/client_color/thirdeye)
+
+/datum/reagent/three_eye/overdose(var/mob/living/carbon/M, var/alien)
+	..()
+	M.adjustBrainLoss(rand(1, 5))
+	if(ishuman(M) && prob(10))
+		var/mob/living/carbon/human/H = M
+		H.seizure()
+	if(prob(10))
+		to_chat(M, SPAN_DANGER("<font size = [rand(2,4)]>[pick(overdose_messages)]</font>"))
+	if(M.psi)
+		M.psi.check_latency_trigger(30, "a Three Eye overdose")
+
+/* Transformations */
 /datum/reagent/slimetoxin
 	name = "Mutation Toxin"
 	description = "A corruptive toxin produced by slimes."
@@ -550,7 +679,7 @@
 	var/list/meatchunks = list()
 	for(var/limb_tag in list(BP_R_ARM, BP_L_ARM, BP_R_LEG,BP_L_LEG))
 		var/obj/item/organ/external/E = H.get_organ(limb_tag)
-		if(!E.is_stump() && !BP_IS_ROBOTIC(E) && E.species.name != SPECIES_PROMETHEAN)
+		if(E && !E.is_stump() && !BP_IS_ROBOTIC(E) && E.species.name != SPECIES_PROMETHEAN)
 			meatchunks += E
 	if(!meatchunks.len)
 		if(prob(10))
@@ -615,6 +744,7 @@
 	taste_description = "slimey metal"
 	reagent_state = LIQUID
 	color = "#535e66"
+	hidden_from_codex = TRUE
 
 /datum/reagent/xenomicrobes
 	name = "Xenomicrobes"
@@ -622,6 +752,8 @@
 	taste_description = "sludge"
 	reagent_state = LIQUID
 	color = "#535e66"
+	hidden_from_codex = TRUE
+	heating_point = 100 CELCIUS
 
 /datum/reagent/toxin/hair_remover
 	name = "Hair Remover"
@@ -631,6 +763,8 @@
 	color = "#d9ffb3"
 	strength = 1
 	overdose = REAGENTS_OVERDOSE
+	heating_products = null
+	heating_point = null
 
 /datum/reagent/toxin/hair_remover/affect_touch(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(alien == IS_SKRELL)	//skrell can't have hair unless you hack it in, also to prevent tentacles from falling off
@@ -648,6 +782,10 @@
 	strength = 10
 	metabolism = REM * 5
 	overdose = 30
+	hidden_from_codex = TRUE
+	heating_products = null
+	heating_point = null
+	var/amount_to_zombify = 5
 
 /datum/reagent/toxin/zombie/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	affect_blood(M, alien, removed * 0.5)
@@ -657,7 +795,7 @@
 	if (istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
 		var/true_dose = H.chem_doses[type] + volume
-		if (true_dose >= 5)
+		if (true_dose >= amount_to_zombify)
 			H.zombify()
 		else if (true_dose > 1 && prob(20))
 			H.zombify()
@@ -671,6 +809,8 @@
 	reagent_state = LIQUID
 	color = "#4c3b34"
 	strength = 3
+	heating_products = null
+	heating_point = null
 
 /datum/reagent/toxin/methyl_bromide
 	name = "Methyl Bromide"
@@ -679,6 +819,8 @@
 	reagent_state = LIQUID
 	color = "#4c3b34"
 	strength = 5
+	heating_products = null
+	heating_point = null
 
 /datum/reagent/toxin/methyl_bromide/touch_turf(var/turf/simulated/T)
 	if(istype(T))
@@ -696,3 +838,13 @@
 						M.visible_message("<span class='notice'>The dying form of \a [spider] emerges from inside \the [M]'s [E.name].</span>")
 						qdel(spider)
 						break
+
+/datum/reagent/toxin/tar
+	name = "Tar"
+	description = "A dark, viscous liquid."
+	taste_description = "petroleum"
+	color = "#140b30"
+	strength = 4
+	heating_products = list(/datum/reagent/acetone, /datum/reagent/carbon, /datum/reagent/ethanol)
+	heating_point = 145 CELCIUS
+	heating_message = "separates."

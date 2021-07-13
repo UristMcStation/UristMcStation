@@ -1,17 +1,31 @@
 /obj/item/weapon/gun/projectile/revolver
 	name = "revolver"
-	desc = "The Lumoco Arms HE Colt is a choice revolver for when you absolutely, positively need to put a hole in the other guy. Uses .357 ammo."
+	desc = "The Lumoco Arms HE Colt is a choice revolver for when you absolutely, positively need to put a hole in the other guy. Uses .44 Magnum ammo."
+	icon = 'icons/urist/items/revolvers.dmi'
 	icon_state = "revolver"
 	item_state = "revolver"
-	caliber = "357"
+	item_icons = URIST_ALL_ONMOBS
+	wielded_item_state = "revolver"
+	caliber = ".357"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	handle_casings = CYCLE_CASINGS
 	max_shells = 6
 	fire_delay = 6.75 //Revolvers are naturally slower-firing
-	ammo_type = /obj/item/ammo_casing/a357
+	ammo_type = /obj/item/ammo_casing/c357
 	var/chamber_offset = 0 //how many empty chambers in the cylinder until you hit a round
 	mag_insert_sound = 'sound/weapons/guns/interaction/rev_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/rev_magout.ogg'
+	accuracy = 2
+	accuracy_power = 8
+	one_hand_penalty = 2
+	bulk = 3
+
+/obj/item/weapon/gun/projectile/revolver/on_update_icon()
+	..()
+	if(loaded.len)
+		icon_state = "[initial(icon_state)]-loaded"
+	else
+		icon_state = "[initial(icon_state)]-empty"
 
 /obj/item/weapon/gun/projectile/revolver/AltClick()
 	if(CanPhysicallyInteract(usr))
@@ -43,18 +57,26 @@
 /obj/item/weapon/gun/projectile/revolver/mateba
 	name = "mateba"
 	icon_state = "mateba"
+	item_icons = URIST_ALL_ONMOBS
+	item_state = "mateba"
+	wielded_item_state = "mateba"
 	caliber = ".50"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	ammo_type = /obj/item/ammo_casing/a50
 
 /obj/item/weapon/gun/projectile/revolver/detective
 	name = "revolver"
-	desc = "A cheap Martian knock-off of a Smith & Wesson Model 10. Uses .38-Special rounds."
+	desc = "The Lumoco Arms' Solid is a rugged revolver for people who don't keep their guns well-maintained."
 	icon_state = "detective"
+	item_icons = URIST_ALL_ONMOBS
+	item_state = "detective"
+	wielded_item_state = "detective"
 	max_shells = 6
-	caliber = "38"
+	caliber = ".38"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	ammo_type = /obj/item/ammo_casing/c38
+	accuracy = 1
+	bulk = 0
 
 /obj/item/weapon/gun/projectile/revolver/detective/verb/rename_gun()
 	set name = "Name Gun"
@@ -76,19 +98,16 @@
 
 // Blade Runner pistol.
 /obj/item/weapon/gun/projectile/revolver/deckard
-	name = "Deckard .44"
+	name = "Deckard .38"
 	desc = "A custom-built revolver, based off the semi-popular Detective Special model."
-	icon_state = "deckard-empty"
+	icon_state = "deckard"
+	item_icons = URIST_ALL_ONMOBS
+	item_state = "deckard"
+	wielded_item_state = "deckard"
+	ammo_type = /obj/item/ammo_magazine/c38/rubber
 
 /obj/item/weapon/gun/projectile/revolver/deckard/emp
 	ammo_type = /obj/item/ammo_casing/c38/emp
-
-/obj/item/weapon/gun/projectile/revolver/deckard/update_icon()
-	..()
-	if(loaded.len)
-		icon_state = "deckard-loaded"
-	else
-		icon_state = "deckard-empty"
 
 /obj/item/weapon/gun/projectile/revolver/deckard/load_ammo(var/obj/item/A, mob/user)
 	if(istype(A, /obj/item/ammo_magazine))
@@ -100,6 +119,8 @@
 	desc = "Looks almost like the real thing! Ages 8 and up."
 	icon_state = "revolver-toy"
 	item_state = "revolver"
+	item_icons = URIST_ALL_ONMOBS
+	wielded_item_state = "toyrevolver"
 	caliber = "caps"
 	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 1)
 	handle_casings = CYCLE_CASINGS
@@ -117,10 +138,13 @@
 
 /obj/item/weapon/gun/projectile/revolver/webley
 	name = "service revolver"
-	desc = "The A&M W4. A rugged top break revolver produced by al-Maliki & Mosley. Based on the Webley model, with modern improvements. Uses .44 magnum rounds."
+	desc = "The A&M W4. A rugged top break revolver produced by al-Maliki & Mosley. Based on the Webley model, with modern improvements. Uses .357 Magnum rounds."
 	icon_state = "webley"
 	item_state = "webley"
+	item_icons = URIST_ALL_ONMOBS
+	item_state = "webley"
+	wielded_item_state = "webley"
 	max_shells = 6
-	caliber = ".44"
+	caliber = ".357"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	ammo_type = /obj/item/ammo_casing/c44
+	ammo_type = /obj/item/ammo_casing/c357

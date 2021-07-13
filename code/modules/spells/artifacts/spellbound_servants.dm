@@ -43,7 +43,7 @@
 					/obj/item/clothing/under/color/lightpurple = slot_w_uniform,
 					/obj/item/clothing/shoes/sandal = slot_shoes,
 					/obj/item/weapon/staff = slot_r_hand,
-					/obj/item/weapon/spellbook/student = slot_l_hand,
+					/obj/item/weapon/spellbook/apprentice = slot_l_hand,
 					/obj/item/clothing/suit/wizrobe = slot_wear_suit)
 	spells = list(/spell/noclothes)
 
@@ -91,7 +91,7 @@
 	switch(input(H,"Choose your desired animal form:", "Form") as anything in list("Space Pike", "Mouse", "Cat", "Bear"))
 		if("Space Pike")
 			H.mutations |= mNobreath
-			H.mutations |= SPACERES
+			H.mutations |= MUTATION_SPACERES
 			familiar_type = /mob/living/simple_animal/hostile/carp/pike
 		if("Mouse")
 			H.verbs |= /mob/living/proc/ventcrawl

@@ -2,8 +2,6 @@
 	//SECURITY//
 	////////////
 #define UPLOAD_LIMIT		10485760	//Restricts client uploads to the server to 10MB //Boosted this thing. What's the worst that can happen?
-#define MIN_CLIENT_VERSION	0		//Just an ambiguously low version for now, I don't want to suddenly stop people playing.
-									//I would just like the code ready should it ever need to be used.
 
 //#define TOPIC_DEBUGGING 1
 
@@ -115,8 +113,21 @@
 
 	if(!(connection in list("seeker", "web")))					//Invalid connection type.
 		return null
-	if(byond_version < MIN_CLIENT_VERSION)		//Out of date client.
-		return null
+	#if DM_VERSION >= 512
+	var/bad_version = config.minimum_byond_version && byond_version < config.minimum_byond_version
+	var/bad_build = config.minimum_byond_build && byond_build < config.minimum_byond_build
+	if (bad_build || bad_version)
+		to_chat(src, "You are attempting to connect with a out of date version of BYOND. Please update to the latest version at http://www.byond.com/ before trying again.")
+		qdel(src)
+		return
+
+	if("[byond_version].[byond_build]" in config.forbidden_versions)
+		_DB_staffwarn_record(ckey, "Tried to connect with broken and possibly exploitable BYOND build.")
+		to_chat(src, "You are attempting to connect with a broken and possibly exploitable BYOND build. Please update to the latest version at http://www.byond.com/ before trying again.")
+		qdel(src)
+		return
+
+	#endif
 
 	if(!config.guests_allowed && IsGuestKey(key))
 		alert(src,"This server doesn't allow guest accounts to play. Please go to http://www.byond.com/ and register for a key.","Guest","OK")
@@ -149,16 +160,14 @@
 		holder.owner = src
 
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
-	prefs = preferences_datums[ckey]
+	prefs = SScharacter_setup.preferences_datums[ckey]
 	if(!prefs)
 		prefs = new /datum/preferences(src)
-		preferences_datums[ckey] = prefs
 	prefs.last_ip = address				//these are gonna be used for banning
 	prefs.last_id = computer_id			//these are gonna be used for banning
 	apply_fps(prefs.clientfps)
 
 	. = ..()	//calls mob.Login()
-	prefs.sanitize_preferences()
 
 	GLOB.using_map.map_info(src)
 
@@ -197,6 +206,9 @@
 
 	if(!winexists(src, "asset_cache_browser")) // The client is using a custom skin, tell them.
 		to_chat(src, "<span class='warning'>Unable to access asset cache browser, if you are using a custom skin file, please allow DS to download the updated version, if you are not, then make a bug report. This is not a critical issue but can cause issues with resource downloading, as it is impossible to know when extra resources arrived to you.</span>")
+
+	if(!tooltips)
+		tooltips = new /datum/tooltip(src)
 
 	if(holder)
 		src.control_freak = 0 //Devs need 0 for profiler access
@@ -311,9 +323,7 @@
 	query_accesslog.Execute()
 
 
-#undef TOPIC_SPAM_DELAY
 #undef UPLOAD_LIMIT
-#undef MIN_CLIENT_VERSION
 
 //checks if a client is afk
 //3000 frames = 5 minutes
@@ -350,9 +360,15 @@
 		'html/images/bluentlogo.png',
 		'html/images/sollogo.png',
 		'html/images/terralogo.png',
-		'html/images/talisman.png'
+		'html/images/talisman.png',
+		'html/images/exologo.png',
+		'html/images/xynlogo.png',
+		'html/images/daislogo.png',
+		'html/images/eclogo.png',
+		'html/images/fleetlogo.png'
 		)
 
+	var/decl/asset_cache/asset_cache = decls_repository.get_decl(/decl/asset_cache)
 	spawn (10) //removing this spawn causes all clients to not get verbs.
 		//Precache the client with all other assets slowly, so as to not block other browse() calls
 		getFilesSlow(src, asset_cache.cache, register_asset = FALSE)

@@ -34,7 +34,7 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	var/list/map_levels              // Z-levels available to various consoles, such as the crew monitor. Defaults to station_levels if unset.
 
 	var/list/base_turf_by_z = list() // Custom base turf by Z-level. Defaults to world.turf for unlisted Z-levels
-	var/list/usable_email_tlds = list("freemail.nt")
+	var/list/usable_email_tlds = list("freemail.net")
 	var/base_floor_type = /turf/simulated/floor/airless // The turf type used when generating floors between Z-levels at startup.
 	var/base_floor_area                                 // Replacement area, if a base_floor_type is generated. Leave blank to skip.
 
@@ -115,9 +115,9 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 
 	var/list/available_cultural_info = list(
 		TAG_HOMEWORLD = list(
-			HOME_SYSTEM_EARTH,
-			HOME_SYSTEM_LUNA,
 			HOME_SYSTEM_MARS,
+			HOME_SYSTEM_LUNA,
+			HOME_SYSTEM_EARTH,
 			HOME_SYSTEM_VENUS,
 			HOME_SYSTEM_CERES,
 			HOME_SYSTEM_PLUTO,
@@ -131,22 +131,24 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 			HOME_SYSTEM_LORDANIA,
 			HOME_SYSTEM_KINGSTON,
 			HOME_SYSTEM_GAIA,
+			HOME_SYSTEM_MAGNITKA,
 			HOME_SYSTEM_OTHER
 		),
 		TAG_FACTION = list(
 			FACTION_SOL_CENTRAL,
-			FACTION_TERRAN_CONFED,
+			FACTION_INDIE_CONFED,
+			FACTION_CORPORATE,
 			FACTION_NANOTRASEN,
 			FACTION_FREETRADE,
 			FACTION_XYNERGY,
 			FACTION_HEPHAESTUS,
+			FACTION_DAIS,
 			FACTION_EXPEDITIONARY,
 			FACTION_FLEET,
 			FACTION_PCRC,
 			FACTION_OTHER
 		),
 		TAG_CULTURE = list(
-			CULTURE_HUMAN,
 			CULTURE_HUMAN_MARTIAN,
 			CULTURE_HUMAN_MARSTUN,
 			CULTURE_HUMAN_LUNAPOOR,
@@ -185,24 +187,43 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 		TAG_RELIGION =  RELIGION_AGNOSTICISM
 	)
 
-	var/obj/machinery/emergency_beacon/active_beacon
+	var/access_modify_region = list(
+		ACCESS_REGION_SECURITY = list(access_hos, access_change_ids),
+		ACCESS_REGION_MEDBAY = list(access_cmo, access_change_ids),
+		ACCESS_REGION_RESEARCH = list(access_rd, access_change_ids),
+		ACCESS_REGION_ENGINEERING = list(access_ce, access_change_ids),
+		ACCESS_REGION_COMMAND = list(access_change_ids),
+		ACCESS_REGION_GENERAL = list(access_change_ids),
+		ACCESS_REGION_SUPPLY = list(access_change_ids)
+	)
+
 	var/list/blacklisted_programs = list()
 
-//below this is all Nerva stuff
+//below this is all Urist stuff for Nerva
 
-	var/date_offset = 544 //default date offset
-	var/using_new_cargo = 0 //for nerva
-	var/new_cargo_inflation = 1 //used to calculate how much points are now. this needs balancing
-	var/nanotrasen_relations = 100 //used to determine if nt hates you
-	var/terran_confederacy_relations = 50 //used to determine if the tc hates you
-	var/list/contracts = list()
-	var/obj/effect/overmap/ship/combat/overmap_ship = null
+	var/date_offset = 0 //date offset from the present. if you don't change this, the game year will default to 2556
+	var/using_new_cargo = FALSE //for nerva //this var inits the stuff related to the contract system, the new trading system, and other misc things including the endround station profit report.
+	var/new_cargo_inflation = 1 //used to calculate how much points are now (original point value multiplied by this number). this needs balancing
+	var/list/contracts = list() //the current active contracts
+	var/obj/effect/overmap/ship/combat/overmap_ship = null //this is for space combat, it is the overmap object used by the main map
+	var/completed_contracts = 0 //this and destroyed_ships are used for endround stats
+	var/destroyed_ships = 0
+	var/datum/factions/trading_faction = null //this is used to determine rep points/bonuses from trading and certain contracts
+
+	// List of /datum/department types to instantiate at roundstart.
+	var/list/departments = list(
+		/datum/department/medbay
+	)
 
 /datum/map/New()
 	if(!map_levels)
 		map_levels = station_levels.Copy()
 	if(!allowed_jobs)
-		allowed_jobs = subtypesof(/datum/job)
+		allowed_jobs = list()
+		for(var/jtype in subtypesof(/datum/job))
+			var/datum/job/job = jtype
+			if(initial(job.available_by_default))
+				allowed_jobs += jtype
 	if(!planet_size)
 		planet_size = list(world.maxx, world.maxy)
 
@@ -214,6 +235,10 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 		lobby_track_type = pick(subtypesof(/music_track))
 
 	lobby_track = decls_repository.get_decl(lobby_track_type)
+
+	if(!date_offset)
+		game_year = 2556
+
 	world.update_status()
 
 /datum/map/proc/send_welcome()
@@ -245,8 +270,9 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 		sites_by_spawn_weight -= selected_site
 		if(selected_site.cost > away_site_budget)
 			continue
+		var/starttime = REALTIMEOFDAY
 		if (selected_site.load_new_z())
-			report_progress("Loaded away site [selected_site]!")
+			report_progress("Loaded away site [selected_site] in [(REALTIMEOFDAY - starttime)/10] seconds!")
 			away_site_budget -= selected_site.cost
 	report_progress("Finished loading away sites, remaining budget [away_site_budget], remaining sites [sites_by_spawn_weight.len]")
 #endif

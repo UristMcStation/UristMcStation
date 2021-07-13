@@ -7,6 +7,7 @@
 	those who have not met them before and are rarely trusted by the \
 	average person. Even so, they do their jobs well and are thriving in this \
 	new environment."
+	hidden_from_codex = FALSE
 
 	antaghud_offset_y = 8
 
@@ -76,6 +77,7 @@
 		BP_TRACH =    /obj/item/organ/internal/lungs/nabber,
 		BP_HEART =    /obj/item/organ/internal/heart/open,
 		BP_LIVER =    /obj/item/organ/internal/liver/nabber,
+		BP_STOMACH =  /obj/item/organ/internal/stomach,
 		BP_PHORON =   /obj/item/organ/internal/phoron,
 		BP_ACETONE =  /obj/item/organ/internal/acetone,
 		BP_VOICE =    /obj/item/organ/internal/voicebox/nabber
@@ -120,11 +122,6 @@
 
 	unarmed_types = list(/datum/unarmed_attack/nabber)
 
-	equip_adjust = list(
-		slot_back_str = list(NORTH = list("x" = 0, "y" = 7), EAST = list("x" = 0, "y" = 8), SOUTH = list("x" = 0, "y" = 8), WEST = list("x" = 0, "y" = 8)),
-		slot_belt_str = list(NORTH = list("x" = 0, "y" = 0), EAST = list("x" = 8, "y" = 0), SOUTH = list("x" = 0, "y" = 0), WEST = list("x" = -8, "y" = 0)),
-	)
-
 	descriptors = list(
 		/datum/mob_descriptor/height = 3,
 		/datum/mob_descriptor/body_length = 0
@@ -132,7 +129,15 @@
 /*
 	available_cultural_info = list(
 		TAG_CULTURE = list(
-			CULTURE_SERPENTID
+			CULTURE_NABBER_CMINUS,
+			CULTURE_NABBER_C,
+			CULTURE_NABBER_CPLUS,
+			CULTURE_NABBER_BMINUS,
+			CULTURE_NABBER_B,
+			CULTURE_NABBER_BPLUS,
+			CULTURE_NABBER_AMINUS,
+			CULTURE_NABBER_A,
+			CULTURE_NABBER_APLUS
 		),
 		TAG_HOMEWORLD = list(
 			HOME_SYSTEM_SERPENTIDS
@@ -146,6 +151,22 @@
 
 	)
 */
+
+/datum/species/nabber/New()
+	equip_adjust = list(
+		slot_back_str =    list("[NORTH]" = list("x" = 0, "y" = 7), "[EAST]" = list("x" = 0, "y" = 8), "[SOUTH]" = list("x" = 0, "y" = 8), "[WEST]" = list("x" = 0, "y" = 8)),
+		slot_belt_str =    list("[NORTH]" = list("x" = 0, "y" = 0), "[EAST]" = list("x" = 8, "y" = 0), "[SOUTH]" = list("x" = 0, "y" = 0), "[WEST]" = list("x" = -8, "y" = 0)),
+		slot_glasses_str = list("[NORTH]" = list("x" = 0, "y" = 10), "[EAST]" = list("x" = 0, "y" = 11), "[SOUTH]" = list("x" = 0, "y" = 11), "[WEST]" = list("x" = 0, "y" = 11)),
+	)
+	..()
+
+/datum/species/nabber/New()
+	equip_adjust = list(
+		slot_back_str =    list("[NORTH]" = list("x" = 0, "y" = 7), "[EAST]" = list("x" = 0, "y" = 8), "[SOUTH]" = list("x" = 0, "y" = 8), "[WEST]" = list("x" = 0, "y" = 8)),
+		slot_belt_str =    list("[NORTH]" = list("x" = 0, "y" = 0), "[EAST]" = list("x" = 8, "y" = 0), "[SOUTH]" = list("x" = 0, "y" = 0), "[WEST]" = list("x" = -8, "y" = 0)),
+		slot_glasses_str = list("[NORTH]" = list("x" = 0, "y" = 10), "[EAST]" = list("x" = 0, "y" = 11), "[SOUTH]" = list("x" = 0, "y" = 11), "[WEST]" = list("x" = 0, "y" = 11)),
+	)
+	..()
 
 /datum/species/nabber/get_blood_name()
 	return "haemolymph"
@@ -232,8 +253,8 @@
 	start_grab_name = NAB_AGGRESSIVE
 
 /obj/item/grab/nab/special/init()
-	..()
-
+	if(!(. = ..()))
+		return
 	var/armor = affecting.run_armor_check(BP_CHEST, "melee")
 	affecting.apply_damage(15, BRUTE, BP_CHEST, armor, DAM_SHARP, "organic punctures")
 	affecting.visible_message("<span class='danger'>[assailant]'s spikes dig in painfully!</span>")
@@ -375,3 +396,7 @@
 		if(!hidden)
 			H.visible_message("<span class='warning'>[H] tenses as \he brings \his smaller arms in close to \his body. \His two massive spiked arms reach \
 			out. \He looks ready to attack.</span>")
+
+/datum/species/nabber/check_background(var/datum/job/job, var/datum/preferences/prefs)
+	var/decl/cultural_info/culture/nabber/grade = SSculture.get_culture(prefs.cultural_info[TAG_CULTURE])
+	. = istype(grade) ? (job.type in grade.valid_jobs) : ..()

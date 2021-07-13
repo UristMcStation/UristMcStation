@@ -267,10 +267,10 @@
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/vir_main)
 "aG" = (
-/obj/machinery/disease2/centrifuge,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/disease2/centrifuge,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/vir_main)
 "aH" = (
@@ -579,7 +579,7 @@
 /turf/simulated/floor/plating,
 /area/lar_maria/cells)
 "bC" = (
-/obj/structure/slavers_base/mattress,
+/obj/structure/mattress/dirty,
 /turf/simulated/floor/plating,
 /area/lar_maria/cells)
 "bD" = (
@@ -592,7 +592,7 @@
 /turf/simulated/floor/plating,
 /area/lar_maria/cells)
 "bE" = (
-/obj/structure/slavers_base/mattress,
+/obj/structure/mattress/dirty,
 /obj/effect/landmark/corpse/lar_maria/test_subject,
 /turf/simulated/floor/plating,
 /area/lar_maria/cells)
@@ -921,7 +921,7 @@
 /turf/simulated/floor/plating,
 /area/lar_maria/cells)
 "cx" = (
-/obj/structure/slavers_base/mattress,
+/obj/structure/mattress/dirty,
 /mob/living/simple_animal/hostile/lar_maria/test_subject,
 /turf/simulated/floor/plating,
 /area/lar_maria/cells)
@@ -1821,7 +1821,7 @@
 "eJ" = (
 /obj/structure/table/steel_reinforced,
 /obj/random/smokes,
-/obj/item/weapon/gun/energy/gun/taser,
+/obj/item/weapon/gun/energy/taser,
 /turf/simulated/floor/tiled,
 /area/lar_maria/sec_wing)
 "eK" = (
@@ -2011,7 +2011,7 @@
 "fi" = (
 /obj/structure/closet,
 /obj/item/weapon/shield/riot,
-/obj/item/weapon/storage/box/shotgunammo,
+/obj/item/weapon/storage/box/ammo/shotgunammo,
 /obj/machinery/light{
 	icon_state = "tube1";
 	dir = 4
@@ -3176,7 +3176,7 @@
 /area/lar_maria/sec_wing)
 "hD" = (
 /obj/structure/table/rack,
-/obj/item/weapon/gun/energy/gun/taser,
+/obj/item/weapon/gun/energy/taser,
 /turf/simulated/floor/tiled,
 /area/lar_maria/sec_wing)
 "hE" = (
@@ -3707,7 +3707,7 @@
 	dir = 4
 	},
 /obj/structure/table/steel_reinforced,
-/obj/item/weapon/gun/energy/gun/taser,
+/obj/item/weapon/gun/energy/taser,
 /turf/simulated/floor/tiled,
 /area/lar_maria/sec_wing)
 "iE" = (
@@ -3760,7 +3760,7 @@
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/obj/item/weapon/gun/energy/gun/taser,
+/obj/item/weapon/gun/energy/taser,
 /turf/simulated/floor/tiled,
 /area/lar_maria/sec_wing)
 "iL" = (

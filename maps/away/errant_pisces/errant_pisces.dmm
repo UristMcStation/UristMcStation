@@ -487,7 +487,7 @@
 /turf/simulated/floor/plating,
 /area/errant_pisces/enginering)
 "bq" = (
-/obj/machinery/computer/engines,
+/obj/machinery/computer/ship/engines,
 /turf/simulated/floor/plating,
 /area/errant_pisces/enginering)
 "br" = (
@@ -842,7 +842,7 @@
 /obj/structure/table/rack,
 /obj/random/tool,
 /obj/random/tech_supply,
-/obj/item/clothing/gloves/duty,
+/obj/item/clothing/gloves/thick/duty,
 /turf/simulated/floor/plating,
 /area/errant_pisces/enginering)
 "cq" = (
@@ -3314,7 +3314,7 @@
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -25;
-	req_one_access = list(24,11)
+	req_access = newlist()
 	},
 /obj/structure/bed/chair/comfy/brown{
 	dir = 4
@@ -3722,7 +3722,7 @@
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -25;
-	req_one_access = list(24,11)
+	req_access = newlist()
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4030,7 +4030,7 @@
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -25;
-	req_one_access = list(24,11)
+	req_access = newlist()
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -4736,7 +4736,7 @@
 /area/errant_pisces/science_wing)
 "lL" = (
 /obj/structure/closet/secure_closet/scientist{
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled,
 /area/errant_pisces/science_wing)
@@ -4926,7 +4926,7 @@
 /area/errant_pisces/science_wing)
 "mi" = (
 /obj/structure/closet/secure_closet/scientist{
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /obj/machinery/light/small{
 	icon_state = "bulb1";
@@ -5074,7 +5074,7 @@
 	icon_state = "0-8"
 	},
 /obj/structure/closet/secure_closet/scientist{
-	req_one_access = newlist()
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled,
 /area/errant_pisces/science_wing)
@@ -6328,7 +6328,7 @@
 /turf/simulated/floor/tiled,
 /area/errant_pisces/bridge)
 "pi" = (
-/obj/machinery/computer/navigation{
+/obj/machinery/computer/ship/navigation{
 	icon_state = "computer";
 	dir = 1
 	},
@@ -6617,7 +6617,7 @@
 /turf/space,
 /area/space)
 "qa" = (
-/obj/machinery/computer/sensors{
+/obj/machinery/computer/ship/sensors{
 	icon_state = "computer";
 	dir = 4
 	},
@@ -6652,14 +6652,14 @@
 /turf/simulated/floor/tiled,
 /area/errant_pisces/bridge)
 "qg" = (
-/obj/machinery/computer/helm{
+/obj/machinery/computer/ship/helm{
 	icon_state = "computer";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/errant_pisces/bridge)
 "qh" = (
-/obj/machinery/computer/engines{
+/obj/machinery/computer/ship/engines{
 	icon_state = "computer";
 	dir = 1
 	},
@@ -6949,7 +6949,7 @@
 "qV" = (
 /obj/structure/table/steel,
 /obj/random/smokes,
-/obj/item/weapon/flame/lighter,
+/obj/item/weapon/flame/lighter/random,
 /turf/simulated/floor/plating,
 /area/errant_pisces/fishing_wing)
 "qW" = (

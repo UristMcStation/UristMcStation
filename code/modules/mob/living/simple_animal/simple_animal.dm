@@ -60,11 +60,13 @@
 	var/resistance		  = 0	// Damage reduction
 	var/damtype = BRUTE
 	var/defense = "melee" //what armor protects against its attacks
+	var/list/natural_armor //what armor animal has
+	var/flash_vulnerability = 1 // whether or not the mob can be flashed; 0 = no, 1 = yes, 2 = very yes
 
 	//Null rod stuff
 	var/supernatural = 0
 	var/purge = 0
-	
+
 	var/bleed_ticks = 0
 	var/bleed_colour = COLOR_BLOOD_HUMAN
 	var/can_bleed = TRUE
@@ -72,12 +74,20 @@
 	// contained in a cage
 	var/in_stasis = 0
 
-	var/simplify_dead_icon
+	var/simplify_dead_icon = FALSE
+
+	var/can_ignite = 0
+	var/ignite_overlay = "Generic_mob_burning"
+	var/image/fire_overlay_image
+	var/autonomous = FALSE //we don't need anyone
 
 /mob/living/simple_animal/Life()
-	..()
-	if(!living_observers_present(GetConnectedZlevels(z)))
-		return
+	. = ..()
+	if(!.)
+		return FALSE
+	if(!autonomous)
+		if(!living_observers_present(GetConnectedZlevels(z)))
+			return
 	//Health
 	if(stat == DEAD)
 		if(health > 0)
@@ -105,7 +115,8 @@
 	handle_confused()
 	handle_supernatural()
 	handle_impaired_vision()
-	
+
+
 	if(can_bleed && bleed_ticks > 0)
 		handle_bleeding()
 
@@ -120,12 +131,7 @@
 
 	//Movement
 	if(!client && !stop_automated_movement && wander && !anchored)
-		if(isturf(src.loc) && !resting)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
-			turns_since_move++
-			if(turns_since_move >= turns_per_move)
-				if(!(stop_automated_movement_when_pulled && pulledby)) //Some animals don't move when pulled
-					SelfMove(pick(GLOB.cardinal))
-					turns_since_move = 0
+		handle_automated_movement()
 
 	//Speaking
 	if(!client && speak_chance)
@@ -152,7 +158,7 @@
 		return
 
 	var/datum/gas_mixture/environment = loc.return_air()
-	if(!(SPACERES in mutations) && environment)
+	if(!(MUTATION_SPACERES in mutations) && environment)
 
 		if(abs(environment.temperature - bodytemperature) > 40 )
 			bodytemperature += ((environment.temperature - bodytemperature) / 5)
@@ -206,7 +212,12 @@
 
 	var/damage = Proj.damage
 	if(Proj.damtype == STUN)
-		damage = (Proj.damage / 8)
+		damage = Proj.damage / 6
+	if(Proj.agony)
+		damage += Proj.agony / 6
+		if(health < Proj.agony * 3)
+			Paralyse(Proj.agony / 20)
+			visible_message("<span class='warning'>[src] is stunned momentarily!</span>")
 
 	adjustBruteLoss(damage)
 	Proj.on_hit(src)
@@ -220,6 +231,7 @@
 		if(I_HELP)
 			if (health > 0)
 				M.visible_message("<span class='notice'>[M] [response_help] \the [src].</span>")
+				M.update_personal_goal(/datum/goal/achievement/specific_object/pet, type)
 
 		if(I_DISARM)
 			M.visible_message("<span class='notice'>[M] [response_disarm] \the [src].</span>")
@@ -257,6 +269,12 @@
 		else
 			to_chat(user, "<span class='notice'>\The [src] is dead, medical items won't bring \him back to life.</span>")
 		return
+
+	if(istype(O, /obj/item/device/flash))
+		if(stat != DEAD)
+			O.attack(src, user, user.zone_sel.selecting)
+			return
+
 	if(meat_type && (stat == DEAD))	//if the animal has a meat, and if it is dead.
 		if(O.edge)
 			harvest(user)
@@ -383,13 +401,13 @@
 
 	message = sanitize(message)
 
-	..(message, null, verb)
+	..(message, species_language, verb)
 
 /mob/living/simple_animal/get_speech_ending(verb, var/ending)
 	return verb
 
 /mob/living/simple_animal/put_in_hands(var/obj/item/W) // No hands.
-	W.loc = get_turf(src)
+	W.forceMove(get_turf(src))
 	return 1
 
 // Harvest an animal's delicious byproducts
@@ -411,14 +429,24 @@
 			gib()
 
 /mob/living/simple_animal/handle_fire()
-	return
+	if(can_ignite)
+		. = ..()
 
 /mob/living/simple_animal/update_fire()
-	return
+	overlays -= fire_overlay_image
+	fire_overlay_image = null
+	if(on_fire)
+		var/image/standing = overlay_image('icons/mob/OnFire.dmi', ignite_overlay, RESET_COLOR)
+		fire_overlay_image = standing
+		overlays += fire_overlay_image
+
 /mob/living/simple_animal/IgniteMob()
-	return
+	if(can_ignite)
+		. = ..()
+
 /mob/living/simple_animal/ExtinguishMob()
-	return
+	if(can_ignite)
+		. = ..()
 
 /mob/living/simple_animal/is_burnable()
 	return heat_damage_per_tick
@@ -431,13 +459,27 @@
 		bleed_ticks = max(bleed_ticks, amount)
 	else
 		bleed_ticks = max(bleed_ticks + amount, 0)
-		
+
 	bleed_ticks = round(bleed_ticks)
-	
+
 /mob/living/simple_animal/proc/handle_bleeding()
 	bleed_ticks--
 	adjustBruteLoss(1)
-	
+
 	var/obj/effect/decal/cleanable/blood/drip/drip = new(get_turf(src))
 	drip.basecolor = bleed_colour
 	drip.update_icon()
+
+/mob/living/simple_animal/getarmor(var/def_zone, var/type)
+	return LAZYACCESS(natural_armor, type)
+
+/mob/living/simple_animal/get_digestion_product()
+	return /datum/reagent/nutriment
+
+/mob/living/simple_animal/proc/handle_automated_movement()
+	if(isturf(src.loc) && !resting)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
+		turns_since_move++
+		if(turns_since_move >= turns_per_move)
+			if(!(stop_automated_movement_when_pulled && pulledby)) //Some animals don't move when pulled
+				SelfMove(pick(GLOB.cardinal))
+				turns_since_move = 0

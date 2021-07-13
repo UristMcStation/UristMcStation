@@ -99,6 +99,7 @@
 	cold_protection = FACE
 	body_parts_covered = HEAD
 	slot_flags = SLOT_MASK
+	flags_inv = HIDEFACE
 
 /obj/item/clothing/mask/urist/bandana/leather/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/stack/material/glass))
@@ -122,3 +123,14 @@
 	w_class = ITEM_SIZE_SMALL
 	armor = list(melee = 15, bullet = 10, laser = 10, energy = 0, bomb = 0, bio = 60, rad = 0)
 
+
+/obj/item/clothing/mask/gas/biohazardrespirator
+	name = "biohazard respirator"
+	desc = "A fully enclosed respirator that can be connected to an air supply to filter out toxins. Filters harmful gases from the air while protecting the users face."
+	icon = 'icons/urist/items/clothes/masks.dmi'
+	icon_override = 'icons/uristmob/mask.dmi'
+	icon_state = "biomask"
+	item_state = "biomask"
+	flags_inv = HIDEEARS
+	body_parts_covered = FACE|EYES
+	armor = list(melee = 5, bullet = 5, laser = 0, energy = 0, bomb = 0, bio = 75, rad = 0)

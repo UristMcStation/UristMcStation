@@ -5,6 +5,7 @@
 	icon_state = "analyzer"
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	w_class = ITEM_SIZE_SMALL
+	matter = list(MATERIAL_STEEL = 1000)
 
 /obj/item/device/integrated_electronics/analyzer/afterattack(var/atom/A, var/mob/living/user)
 	. = ..()

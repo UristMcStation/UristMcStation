@@ -24,6 +24,7 @@
 	slot_flags = SLOT_BACK
 	max_w_class = ITEM_SIZE_LARGE
 	max_storage_space = DEFAULT_BACKPACK_STORAGE
+	open_sound = 'sound/effects/storage/unzip.ogg'
 
 /obj/item/weapon/storage/backpack/equipped()
 	if(!has_extension(src, /datum/extension/appearance))
@@ -49,25 +50,24 @@
 	desc = "A backpack that opens into a localized pocket of Blue Space."
 	origin_tech = list(TECH_BLUESPACE = 4)
 	icon_state = "holdingpack"
-	max_w_class = ITEM_SIZE_NORMAL
 	max_storage_space = 56
 
-	New()
-		..()
-		return
+/obj/item/weapon/storage/backpack/holding/New()
+	..()
+	return
 
-	attackby(obj/item/weapon/W as obj, mob/user as mob)
-		if(istype(W, /obj/item/weapon/storage/backpack/holding))
-			to_chat(user, "<span class='warning'>The Bluespace interfaces of the two devices conflict and malfunction.</span>")
-			qdel(W)
-			return 1
-		return ..()
+/obj/item/weapon/storage/backpack/holding/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/weapon/storage/backpack/holding) || istype(W, /obj/item/weapon/storage/bag/trash/bluespace))
+		to_chat(user, "<span class='warning'>The Bluespace interfaces of the two devices conflict and malfunction.</span>")
+		qdel(W)
+		return 1
+	return ..()
 
 	//Please don't clutter the parent storage item with stupid hacks.
-	can_be_inserted(obj/item/W as obj, stop_messages = 0)
-		if(istype(W, /obj/item/weapon/storage/backpack/holding))
-			return 1
-		return ..()
+/obj/item/weapon/storage/backpack/holding/can_be_inserted(obj/item/W as obj, stop_messages = 0)
+	if(istype(W, /obj/item/weapon/storage/backpack/holding))
+		return 1
+	return ..()
 
 /obj/item/weapon/storage/backpack/santabag
 	name = "\improper Santa's gift bag"
@@ -102,6 +102,10 @@
 	icon_state = "securitypack"
 	item_state_slots = null
 
+/obj/item/weapon/storage/backpack/security/exo
+	name = "corporate security backpack"
+	icon_state = "securitypack_exo"
+
 /obj/item/weapon/storage/backpack/captain
 	name = "captain's backpack"
 	desc = "It's a special backpack made exclusively for officers."
@@ -120,8 +124,8 @@
 	icon_state = "toxpack"
 
 /obj/item/weapon/storage/backpack/nt
-	name = "\improper NanoTrasen backpack"
-	desc = "It's a light backpack modeled for use in laboratories and other scientific institutions."
+	name = "science backpack"
+	desc = "It's a stain-resistant light backpack modeled for use in laboratories and other scientific institutions."
 	icon_state = "ntpack"
 
 /obj/item/weapon/storage/backpack/hydroponics
@@ -178,7 +182,10 @@
 	name = "dufflebag"
 	desc = "A large dufflebag for holding extra things."
 	icon_state = "duffle"
-	item_state_slots = null
+	item_state_slots = list(
+		slot_l_hand_str = "duffle",
+		slot_r_hand_str = "duffle",
+		)
 
 /obj/item/weapon/storage/backpack/dufflebag/New()
 	..()
@@ -190,36 +197,64 @@
 	name = "black dufflebag"
 	desc = "A large dufflebag for holding extra tactical supplies."
 	icon_state = "duffle_syndie"
+	item_state_slots = list(
+		slot_l_hand_str = "duffle_syndie",
+		slot_r_hand_str = "duffle_syndie",
+		)
 
 /obj/item/weapon/storage/backpack/dufflebag/syndie/med
 	name = "medical dufflebag"
 	desc = "A large dufflebag for holding extra tactical medical supplies."
 	icon_state = "duffle_syndiemed"
+	item_state_slots = list(
+		slot_l_hand_str = "duffle_syndiemed",
+		slot_r_hand_str = "duffle_syndiemed",
+		)
 
 /obj/item/weapon/storage/backpack/dufflebag/syndie/ammo
 	name = "ammunition dufflebag"
 	desc = "A large dufflebag for holding extra weapons ammunition and supplies."
 	icon_state = "duffle_syndieammo"
+	item_state_slots = list(
+		slot_l_hand_str = "duffle_syndieammo",
+		slot_r_hand_str = "duffle_syndieammo",
+		)
 
 /obj/item/weapon/storage/backpack/dufflebag/captain
 	name = "captain's dufflebag"
 	desc = "A large dufflebag for holding extra captainly goods."
 	icon_state = "duffle_captain"
+	item_state_slots = list(
+		slot_l_hand_str = "duffle_captain",
+		slot_r_hand_str = "duffle_captain",
+		)
 
 /obj/item/weapon/storage/backpack/dufflebag/med
 	name = "medical dufflebag"
 	desc = "A large dufflebag for holding extra medical supplies."
 	icon_state = "duffle_med"
+	item_state_slots = list(
+		slot_l_hand_str = "duffle_med",
+		slot_r_hand_str = "duffle_med",
+		)
 
 /obj/item/weapon/storage/backpack/dufflebag/sec
 	name = "security dufflebag"
 	desc = "A large dufflebag for holding extra security supplies and ammunition."
 	icon_state = "duffle_sec"
+	item_state_slots = list(
+		slot_l_hand_str = "duffle_sec",
+		slot_r_hand_str = "duffle_sec",
+		)
 
 /obj/item/weapon/storage/backpack/dufflebag/eng
 	name = "industrial dufflebag"
 	desc = "A large dufflebag for holding extra tools and supplies."
 	icon_state = "duffle_eng"
+	item_state_slots = list(
+		slot_l_hand_str = "duffle_eng",
+		slot_r_hand_str = "duffle_eng",
+		)
 
 /*
  * Satchel Types
@@ -280,7 +315,7 @@
 	name = "auburn pocketbook"
 	color = "#512828"
 
-/obj/item/weapon/storage/backpack/satchel_eng
+/obj/item/weapon/storage/backpack/satchel/eng
 	name = "industrial satchel"
 	desc = "A tough satchel with extra pockets."
 	icon_state = "satchel-eng"
@@ -289,7 +324,7 @@
 		slot_r_hand_str = "engiepack",
 		)
 
-/obj/item/weapon/storage/backpack/satchel_med
+/obj/item/weapon/storage/backpack/satchel/med
 	name = "medical satchel"
 	desc = "A sterile satchel used in medical departments."
 	icon_state = "satchel-med"
@@ -298,32 +333,32 @@
 		slot_r_hand_str = "medicalpack",
 		)
 
-/obj/item/weapon/storage/backpack/satchel_vir
+/obj/item/weapon/storage/backpack/satchel/vir
 	name = "virologist satchel"
 	desc = "A sterile satchel with virologist colours."
 	icon_state = "satchel-vir"
 
-/obj/item/weapon/storage/backpack/satchel_chem
+/obj/item/weapon/storage/backpack/satchel/chem
 	name = "chemist satchel"
 	desc = "A sterile satchel with chemist colours."
 	icon_state = "satchel-chem"
 
-/obj/item/weapon/storage/backpack/satchel_gen
+/obj/item/weapon/storage/backpack/satchel/gen
 	name = "geneticist satchel"
 	desc = "A sterile satchel with geneticist colours."
 	icon_state = "satchel-gen"
 
-/obj/item/weapon/storage/backpack/satchel_tox
+/obj/item/weapon/storage/backpack/satchel/tox
 	name = "scientist satchel"
 	desc = "Useful for holding research materials."
 	icon_state = "satchel-tox"
 
-/obj/item/weapon/storage/backpack/satchel_nt
-	name = "\improper NanoTrasen satchel"
-	desc = "Useful for holding research materials."
+/obj/item/weapon/storage/backpack/satchel/nt
+	name = "corporate satchel"
+	desc = "Useful for holding research materials. The colors on it denote it as a corporate bag."
 	icon_state = "satchel-nt"
 
-/obj/item/weapon/storage/backpack/satchel_sec
+/obj/item/weapon/storage/backpack/satchel/sec
 	name = "security satchel"
 	desc = "A robust satchel for security related needs."
 	icon_state = "satchel-sec"
@@ -332,12 +367,16 @@
 		slot_r_hand_str = "securitypack",
 		)
 
-/obj/item/weapon/storage/backpack/satchel_hyd
+/obj/item/weapon/storage/backpack/satchel/sec/exo
+	name = "corporate security satchel"
+	icon_state = "satchel-sec_exo"
+
+/obj/item/weapon/storage/backpack/satchel/hyd
 	name = "hydroponics satchel"
 	desc = "A green satchel for plant related work."
 	icon_state = "satchel_hyd"
 
-/obj/item/weapon/storage/backpack/satchel_cap
+/obj/item/weapon/storage/backpack/satchel/cap
 	name = "captain's satchel"
 	desc = "An exclusive satchel for officers."
 	icon_state = "satchel-cap"
@@ -345,6 +384,41 @@
 		slot_l_hand_str = "satchel-cap",
 		slot_r_hand_str = "satchel-cap",
 		)
+
+//Smuggler's satchel
+/obj/item/weapon/storage/backpack/satchel/flat
+	name = "\improper Smuggler's satchel"
+	desc = "A very slim satchel that can easily fit into tight spaces."
+	icon_state = "satchel-flat"
+	item_state = "satchel-norm"
+	level = 1
+	w_class = ITEM_SIZE_NORMAL //Can fit in backpacks itself.
+	storage_slots = 5
+	max_w_class = ITEM_SIZE_NORMAL
+	max_storage_space = 15
+	cant_hold = list(/obj/item/weapon/storage/backpack/satchel/flat) //muh recursive backpacks
+	startswith = list(
+		/obj/item/stack/tile/floor,
+		/obj/item/weapon/crowbar
+		)
+
+/obj/item/weapon/storage/backpack/satchel/flat/MouseDrop(var/obj/over_object)
+	var/turf/T = get_turf(src)
+	if(hides_under_flooring() && isturf(T) && !T.is_plating())
+		return
+	..()
+
+/obj/item/weapon/storage/backpack/satchel/flat/hide(var/i)
+	set_invisibility(i ? 101 : 0)
+	anchored = i ? TRUE : FALSE
+	alpha = i ? 128 : initial(alpha)
+
+/obj/item/weapon/storage/backpack/satchel/flat/attackby(obj/item/W, mob/user)
+	var/turf/T = get_turf(src)
+	if(hides_under_flooring() && isturf(T) && !T.is_plating())
+		to_chat(user, "<span class='warning'>You must remove the plating first.</span>")
+		return 1
+	return ..()
 
 //ERT backpacks.
 /obj/item/weapon/storage/backpack/ert
@@ -409,8 +483,8 @@
 	icon_state = "courierbagtox"
 
 /obj/item/weapon/storage/backpack/messenger/nt
-	name = "\improper NanoTrasen messenger bag"
-	desc = "A backpack worn over one shoulder.  Useful for holding science materials."
+	name = "corporate messenger bag"
+	desc = "A backpack worn over one shoulder.  Useful for holding science materials. The colors on it denote it as a corporate bag."
 	icon_state = "courierbagnt"
 
 /obj/item/weapon/storage/backpack/messenger/com
@@ -432,3 +506,9 @@
 	name = "security messenger bag"
 	desc = "A tactical backpack worn over one shoulder. This one is in Security colors."
 	icon_state = "courierbagsec"
+
+/obj/item/weapon/storage/backpack/messenger/sec/exo
+	name = "corporate security messenger bag"
+	desc = "A tactical backpack worn over one shoulder. This is black and bottle green."
+	icon_state = "courierbagsec_exo"
+

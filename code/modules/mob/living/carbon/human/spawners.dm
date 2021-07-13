@@ -90,13 +90,15 @@
 
 		if(damage["impale"])
 			var/turf/T = H.near_wall(dir,2)
-
-			if(T)
+			var/obj/item/organ/external/E = H.organs_by_name[damage["impale"]]
+			if(T && E && E.wounds.len)
 				var/obj/item/weapon/arrow/rod/R = new(H)
 				H.set_dir(GLOB.reverse_dir[dir])
 				H.loc = T
 				H.anchored = 1
 				H.pinned += R
+				var/datum/wound/W = E.wounds[1]
+				W.embedded_objects += R
 
 	var/turf/T = get_turf(src)
 	var/obj/structure/bed/B = locate() in T.contents
@@ -234,7 +236,7 @@
 /decl/hierarchy/outfit/nanotrasensci
 	name = "Nanotrasen scientist"
 	uniform = /obj/item/clothing/under/rank/scientist
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science/nanotrasen
 	shoes = /obj/item/clothing/shoes/white
 	back = /obj/item/weapon/storage/backpack/nt
 	l_ear = /obj/item/device/radio/headset/headset_sci

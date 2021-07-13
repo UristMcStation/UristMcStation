@@ -179,7 +179,7 @@
 	if(to_inject && occupant.reagents.get_reagent_amount(R.type) + to_inject <= inject_amount*2)
 		occupant_message("Injecting [occupant] with [to_inject] units of [R.name].")
 		log_message("Injecting [occupant] with [to_inject] units of [R.name].")
-		SG.reagents.trans_type_to(occupant,R.type,to_inject)
+		SG.reagents.trans_type_to(occupant,R.type,to_inject,CHEM_BLOOD)
 		update_equip_info()
 	return
 
@@ -220,7 +220,7 @@
 /obj/item/mecha_parts/mecha_equipment/tool/syringe_gun
 	name = "syringe gun"
 	desc = "Exosuit-mounted chem synthesizer with syringe gun. Reagents inside are held in stasis, so no reactions will occur. (Can be attached to: Medical Exosuits)"
-	icon = 'icons/obj/gun.dmi'
+	icon = 'icons/obj/guns/syringegun.dmi'
 	icon_state = "syringegun"
 	var/list/syringes
 	var/list/known_reagents

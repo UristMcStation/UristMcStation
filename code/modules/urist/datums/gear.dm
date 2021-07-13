@@ -130,3 +130,17 @@
 	path =  /obj/item/clothing/suit/storage/toggle/urist/coat/black
 	slot = slot_wear_suit
 	cost = 1
+	
+/datum/gear/eyes/welding
+	display_name = "welding goggles"
+	path = /obj/item/clothing/glasses/welding
+	allowed_roles = list(/datum/job/chief_engineer, /datum/job/engineer, /datum/job/qm,/datum/job/cargo_tech)
+
+/datum/gear/eyes/welding/superior
+	display_name = "welding goggles, superior"
+	path = /obj/item/clothing/glasses/welding/superior
+	allowed_roles = list(/datum/job/chief_engineer)
+
+/datum/gear/eyes/security/goggles
+	display_name = "Security HUD Goggles"
+	path = /obj/item/clothing/glasses/sunglasses/sechud/goggles

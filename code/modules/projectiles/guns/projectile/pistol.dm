@@ -1,26 +1,45 @@
 /obj/item/weapon/gun/projectile/colt
 	name = "vintage .45 pistol"
 	desc = "A cheap Martian knock-off of a Colt M1911. Uses .45 rounds."
+	item_icons = URIST_ALL_ONMOBS
 	magazine_type = /obj/item/ammo_magazine/c45m
 	allowed_magazines = /obj/item/ammo_magazine/c45m
+	icon = 'icons/urist/items/pistols.dmi'
+	item_state = "colt"
 	icon_state = "colt"
+	wielded_item_state = "colt"
 	caliber = ".45"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	load_method = MAGAZINE
+	accuracy_power = 7
+	var/empty_icon = TRUE  //If it should change icon when empty
+
+/obj/item/weapon/gun/projectile/colt/on_update_icon()
+	..()
+	if(ammo_magazine && ammo_magazine.stored_ammo.len)
+		icon_state = "[initial(icon_state)]"
+	else
+		icon_state = "[initial(icon_state)]-e"
 
 /obj/item/weapon/gun/projectile/military
 	name = "military .45 pistol"
 	desc = "The WT45 - a mass produced kinetic sidearm in widespread service with the SCGDF. Uses .45 rounds."
 	magazine_type = /obj/item/ammo_magazine/c45mds/flash
 	allowed_magazines = /obj/item/ammo_magazine/c45mds
-	icon_state = "usp"
-	caliber = ".45"
+	icon = 'icons/obj/guns/military_pistol.dmi'
+	icon_state = "military"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
 	load_method = MAGAZINE
 	accuracy = 0.35
 	fire_delay = 6.5
 
-/obj/item/weapon/gun/projectile/military/update_icon()
+/obj/item/weapon/gun/projectile/pistol/military/alt
+	desc = "The HelTek Optimus, best known as the standard-issue sidearm for the ICCG Navy."
+	icon = 'icons/obj/guns/military_pistol2.dmi'
+	icon_state = "military-alt"
+	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
+	fire_delay = 8
+/obj/item/weapon/gun/projectile/military/on_update_icon()
 	..()
 	if(ammo_magazine && ammo_magazine.stored_ammo.len)
 		icon_state = "usp"
@@ -30,16 +49,20 @@
 /obj/item/weapon/gun/projectile/sec
 	name = ".45 pistol"
 	desc = "The NT Mk58 is a cheap, ubiquitous sidearm, produced by a NanoTrasen subsidiary. Found pretty much everywhere humans are. Uses .45 rounds."
+	item_icons = URIST_ALL_ONMOBS
+	icon = 'icons/urist/items/pistols.dmi'
 	icon_state = "secguncomp"
+	item_state = "secguncomp"
+	wielded_item_state = "secguncomp"
 	magazine_type = /obj/item/ammo_magazine/c45m/flash
 	allowed_magazines = /obj/item/ammo_magazine/c45m
 	caliber = ".45"
-	accuracy = -0.35
-	fire_delay = 5.5
+	accuracy = -1
+	fire_delay = 5
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	load_method = MAGAZINE
 
-/obj/item/weapon/gun/projectile/sec/update_icon()
+/obj/item/weapon/gun/projectile/sec/on_update_icon()
 	..()
 	if(ammo_magazine && ammo_magazine.stored_ammo.len)
 		icon_state = "secguncomp"
@@ -52,10 +75,13 @@
 /obj/item/weapon/gun/projectile/sec/wood
 	desc = "The NT Mk58 is a cheap, ubiquitous sidearm, produced by a NanoTrasen subsidiary. This one has a sweet wooden grip, among other modifications. Uses .45 rounds."
 	name = "custom .45 Pistol"
+	icon = 'icons/urist/items/pistols.dmi'
 	icon_state = "secgundark"
+	item_state = "secgundark"
+	wielded_item_state = "secgundark"
 	accuracy = 0
 
-/obj/item/weapon/gun/projectile/sec/wood/update_icon()
+/obj/item/weapon/gun/projectile/sec/wood/on_update_icon()
 	..()
 	if(ammo_magazine && ammo_magazine.stored_ammo.len)
 		icon_state = "secgundark"
@@ -68,7 +94,11 @@
 /obj/item/weapon/gun/projectile/silenced
 	name = "silenced pistol"
 	desc = "A handgun with an integral silencer. Uses .45 rounds."
+	icon = 'icons/urist/items/pistols.dmi'
 	icon_state = "silenced_pistol"
+	item_icons = URIST_ALL_ONMOBS
+	item_state = "pistol-silencer"
+	wielded_item_state = "pistol-silencer"
 	w_class = ITEM_SIZE_NORMAL
 	caliber = ".45"
 	silenced = 1
@@ -77,11 +107,33 @@
 	magazine_type = /obj/item/ammo_magazine/c45m
 	allowed_magazines = /obj/item/ammo_magazine/c45m
 
+/obj/item/weapon/gun/projectile/sigsauer
+	name = "10mm pistol"
+	desc = "The HelTek Optimus, best known as the standard-issue sidearm for the ICCG Navy. Uses 10mm rounds."
+	magazine_type = /obj/item/ammo_magazine/p10mm
+	allowed_magazines = /obj/item/ammo_magazine/p10mm
+	icon_state = "p220"
+	caliber = "10mm"
+	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
+	load_method = MAGAZINE
+	accuracy = 0.40
+	fire_delay = 7.5
+
+/obj/item/weapon/gun/projectile/sigsauer/on_update_icon()
+	..()
+	if(ammo_magazine && ammo_magazine.stored_ammo.len)
+		icon_state = "p220"
+	else
+		icon_state = "p220-e"
+
 /obj/item/weapon/gun/projectile/magnum_pistol
 	name = ".50 magnum pistol"
 	desc = "The HelTek Magnus, a robust Terran handgun that uses .50 AE ammo."
+	icon = 'icons/urist/items/pistols.dmi'
 	icon_state = "magnum"
-	item_state = "revolver"
+	item_state = "magnum"
+	item_icons = URIST_ALL_ONMOBS
+	wielded_item_state = "magnum"
 	force = 9
 	caliber = ".50"
 	fire_delay = 12
@@ -91,8 +143,11 @@
 	allowed_magazines = /obj/item/ammo_magazine/a50
 	mag_insert_sound = 'sound/weapons/guns/interaction/hpistol_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/hpistol_magout.ogg'
+	accuracy = 2
+	one_hand_penalty = 2
+	bulk = 3
 
-/obj/item/weapon/gun/projectile/magnum_pistol/update_icon()
+/obj/item/weapon/gun/projectile/magnum_pistol/on_update_icon()
 	..()
 	if(ammo_magazine && ammo_magazine.stored_ammo.len)
 		icon_state = "magnum"
@@ -102,7 +157,10 @@
 /obj/item/weapon/gun/projectile/gyropistol
 	name = "gyrojet pistol"
 	desc = "A bulky pistol designed to fire self propelled rounds."
+	icon = 'icons/urist/items/gyropistol.dmi'
 	icon_state = "gyropistol"
+	item_icons = URIST_ALL_ONMOBS
+	wielded_item_state = "gyropistol"
 	max_shells = 8
 	caliber = "75"
 	origin_tech = list(TECH_COMBAT = 3)
@@ -115,7 +173,7 @@
 	mag_insert_sound = 'sound/weapons/guns/interaction/hpistol_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/hpistol_magout.ogg'
 
-/obj/item/weapon/gun/projectile/gyropistol/update_icon()
+/obj/item/weapon/gun/projectile/gyropistol/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "gyropistolloaded"
@@ -128,12 +186,15 @@
 	magazine_type = /obj/item/ammo_magazine/mc9mmds
 	allowed_magazines = /obj/item/ammo_magazine/mc9mmds
 	icon_state = "92fs"
+	item_icons = URIST_ALL_ONMOBS
+	item_state = "92fs"
+	wielded_item_state = "92fs"
 	caliber = "9mm"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
 	load_method = MAGAZINE
 	accuracy = 0.35
 
-/obj/item/weapon/gun/projectile/beretta/update_icon()
+/obj/item/weapon/gun/projectile/beretta/on_update_icon()
 	..()
 	if(ammo_magazine && ammo_magazine.stored_ammo.len)
 		icon_state = "92fs"
@@ -143,8 +204,11 @@
 /obj/item/weapon/gun/projectile/pistol
 	name = "holdout pistol"
 	desc = "The Lumoco Arms P3 Whisper. A small, easily concealable gun. Uses 9mm rounds."
+	icon = 'icons/urist/items/pistols.dmi'
+	item_icons = URIST_ALL_ONMOBS
 	icon_state = "pistol"
-	item_state = null
+	item_state = "pistol"
+	wielded_item_state = "pistol"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "9mm"
 	silenced = 0
@@ -186,10 +250,11 @@
 		return
 	..()
 
-/obj/item/weapon/gun/projectile/pistol/update_icon()
+/obj/item/weapon/gun/projectile/pistol/on_update_icon()
 	..()
 	if(silenced)
-		icon_state = "pistol-silencer"
+		icon_state = "silenced_pistol"
+		wielded_item_state = "pistol-silencer"
 	else
 		icon_state = "pistol"
 	if(!(ammo_magazine && ammo_magazine.stored_ammo.len))
@@ -198,93 +263,6 @@
 /obj/item/weapon/silencer
 	name = "silencer"
 	desc = "A silencer."
-	icon = 'icons/obj/gun.dmi'
+	icon = 'icons/obj/guns/holdout_pistol.dmi'
 	icon_state = "silencer"
 	w_class = ITEM_SIZE_SMALL
-
-/obj/item/weapon/gun/projectile/pirate
-	name = "zip gun"
-	desc = "Little more than a barrel, handle, and firing mechanism, cheap makeshift firearms like this one are not uncommon in frontier systems."
-	icon_state = "zipgun"
-	item_state = "sawnshotgun"
-	handle_casings = CYCLE_CASINGS //player has to take the old casing out manually before reloading
-	load_method = SINGLE_CASING
-	max_shells = 1 //literally just a barrel
-	w_class = ITEM_SIZE_NORMAL
-
-	var/global/list/ammo_types = list(
-		/obj/item/ammo_casing/a357              = ".357",
-		/obj/item/ammo_casing/shotgun           = "12 gauge",
-		/obj/item/ammo_casing/shotgun           = "12 gauge",
-		/obj/item/ammo_casing/shotgun/pellet    = "12 gauge",
-		/obj/item/ammo_casing/shotgun/pellet    = "12 gauge",
-		/obj/item/ammo_casing/shotgun/pellet    = "12 gauge",
-		/obj/item/ammo_casing/shotgun/beanbag   = "12 gauge",
-		/obj/item/ammo_casing/shotgun/stunshell = "12 gauge",
-		/obj/item/ammo_casing/shotgun/flash     = "12 gauge",
-		/obj/item/ammo_casing/a762              = "7.62mm",
-		/obj/item/ammo_casing/a556              = "5.56mm"
-		)
-
-/obj/item/weapon/gun/projectile/pirate/New()
-	ammo_type = pick(ammo_types)
-	desc += " Uses [ammo_types[ammo_type]] rounds."
-
-	var/obj/item/ammo_casing/ammo = ammo_type
-	caliber = initial(ammo.caliber)
-	..()
-
-// Zip gun construction.
-/obj/item/weapon/zipgunframe
-	name = "zip gun frame"
-	desc = "A half-finished zip gun."
-	icon_state = "zipgun0"
-	item_state = "zipgun-solid"
-	var/buildstate = 0
-
-/obj/item/weapon/zipgunframe/update_icon()
-	icon_state = "zipgun[buildstate]"
-
-/obj/item/weapon/zipgunframe/examine(mob/user)
-	. = ..()
-	..(user)
-	switch(buildstate)
-		if(1) to_chat(user, "It has a barrel loosely fitted to the stock.")
-		if(2) to_chat(user, "It has a barrel that has been secured to the stock with tape.")
-		if(3) to_chat(user, "It has a trigger and firing pin assembly loosely fitted into place.")
-
-/obj/item/weapon/zipgunframe/attackby(var/obj/item/thing, var/mob/user)
-	if(istype(thing,/obj/item/pipe) && buildstate == 0)
-		qdel(thing)
-		user.visible_message("<span class='notice'>\The [user] fits \the [thing] to \the [src] as a crude barrel.</span>")
-		add_fingerprint(user)
-		buildstate++
-		update_icon()
-		return
-	else if(istype(thing,/obj/item/weapon/tape_roll) && buildstate == 1)
-		user.visible_message("<span class='notice'>\The [user] secures the assembly with \the [thing].</span>")
-		add_fingerprint(user)
-		buildstate++
-		update_icon()
-		return
-	else if(istype(thing,/obj/item/device/assembly/mousetrap) && buildstate == 2)
-		qdel(thing)
-		user.visible_message("<span class='notice'>\The [user] takes apart \the [thing] and uses the parts to construct a crude trigger and firing mechanism inside the assembly.</span>")
-		add_fingerprint(user)
-		buildstate++
-		update_icon()
-		return
-	else if(isScrewdriver(thing) && buildstate == 3)
-		user.visible_message("<span class='notice'>\The [user] secures the trigger assembly with \the [thing].</span>")
-		playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
-		var/obj/item/weapon/gun/projectile/pirate/zipgun
-		zipgun = new/obj/item/weapon/gun/projectile/pirate { starts_loaded = 0 } (loc)
-		if(ismob(loc))
-			var/mob/M = loc
-			M.drop_from_inventory(src)
-			M.put_in_hands(zipgun)
-		transfer_fingerprints_to(zipgun)
-		qdel(src)
-		return
-	else
-		..()

@@ -158,6 +158,9 @@
 /datum/gear/uniform/corporate/New()
 	..()
 	var/corps = list()
+	corps += /obj/item/clothing/under/rank/scientist/nanotrasen
+	corps += /obj/item/clothing/under/rank/scientist/heph
+	corps += /obj/item/clothing/under/rank/scientist/zeng
 	corps += /obj/item/clothing/under/mbill
 	corps += /obj/item/clothing/under/saare
 	corps += /obj/item/clothing/under/aether
@@ -170,7 +173,28 @@
 	corps += /obj/item/clothing/under/rank/ntwork
 	corps += /obj/item/clothing/under/morpheus
 	corps += /obj/item/clothing/under/skinner
+	corps += /obj/item/clothing/under/dais
 	gear_tweaks += new/datum/gear_tweak/path/specified_types_list(corps)
+
+/datum/gear/uniform/corp_exec
+	display_name = "corporate colours, senior researcher"
+	path = /obj/item/clothing/under/rank/scientist/executive
+	flags = GEAR_HAS_TYPE_SELECTION
+
+/datum/gear/uniform/corp_overalls
+	display_name = "corporate colours, coveralls"
+	path = /obj/item/clothing/under/rank/ntwork
+	flags = GEAR_HAS_TYPE_SELECTION
+
+/datum/gear/uniform/corp_flight
+	display_name = "corporate colours, flight suit"
+	path = /obj/item/clothing/under/rank/ntpilot
+	flags = GEAR_HAS_TYPE_SELECTION
+
+/datum/gear/uniform/corp_exec_jacket
+	display_name = "corporate colours, liason suit"
+	path = /obj/item/clothing/under/suit_jacket/corp
+	flags = GEAR_HAS_TYPE_SELECTION
 
 /datum/gear/uniform/sterile
 	display_name = "sterile jumpsuit"
@@ -183,4 +207,3 @@
 /datum/gear/uniform/frontier
 	display_name = "frontier clothes"
 	path = /obj/item/clothing/under/frontier
-

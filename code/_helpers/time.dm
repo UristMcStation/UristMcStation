@@ -1,17 +1,3 @@
-#define SECOND *10
-#define SECONDS *10
-
-#define MINUTE *600
-#define MINUTES *600
-
-#define HOUR *36000
-#define HOURS *36000
-
-#define DAY *864000
-#define DAYS *864000
-
-#define TimeOfGame (get_game_time())
-#define TimeOfTick (world.tick_usage*0.01*world.tick_lag)
 /proc/get_game_time()
 	var/global/time_offset = 0
 	var/global/last_time = 0
@@ -32,11 +18,6 @@ var/roundstart_hour
 var/station_date = ""
 var/next_station_date_change = 1 DAY
 
-#define duration2stationtime(time) time2text(station_time_in_ticks + time, "hh:mm")
-#define worldtime2stationtime(time) time2text(roundstart_hour HOURS + time, "hh:mm")
-#define round_duration_in_ticks (round_start_time ? world.time - round_start_time : 0)
-#define station_time_in_ticks (roundstart_hour HOURS + round_duration_in_ticks)
-
 /proc/stationtime2text()
 	return time2text(station_time_in_ticks, "hh:mm")
 
@@ -48,7 +29,7 @@ var/next_station_date_change = 1 DAY
 	if(!station_date || update_time)
 		var/extra_days = round(station_time_in_ticks / (1 DAY)) DAYS
 		var/timeofday = world.timeofday + extra_days
-		station_date = num2text((text2num(time2text(timeofday, "YYYY"))+GLOB.using_map.date_offset)) + "-" + time2text(timeofday, "MM-DD")
+		station_date = num2text(game_year) + "-" + time2text(timeofday, "MM-DD")
 	return station_date
 
 /proc/time_stamp()
@@ -108,7 +89,7 @@ GLOBAL_VAR_INIT(rollovercheck_last_timeofday, 0)
 #define DELTA_CALC max(((max(world.tick_usage, world.cpu) / 100) * max(Master.sleep_delta,1)), 1)
 
 /proc/stoplag()
-	if (!Master || !(Master.current_runlevel & RUNLEVELS_DEFAULT))
+	if (!Master || !(GAME_STATE & RUNLEVELS_DEFAULT))
 		sleep(world.tick_lag)
 		return 1
 	. = 0

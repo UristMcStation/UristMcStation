@@ -27,7 +27,7 @@
 	var/SA_para_min = 1
 	var/SA_sleep_min = 5
 	var/breathing = 0
-	var/last_failed_breath
+	var/last_successful_breath
 	var/breath_fail_ratio // How badly they failed a breath. Higher is worse.
 
 /obj/item/organ/internal/lungs/proc/can_drown()
@@ -99,7 +99,7 @@
 			if(active_breathing)
 				owner.visible_message(
 					"<B>\The [owner]</B> gasps for air!",
-					"<span class='danger'>You try to take a breath and fail!</span>",
+					"<span class='danger'>It becomes harder to breathe!</span>",
 					"You hear someone gasp for air!",
 				)
 			else
@@ -119,10 +119,9 @@
 		last_int_pressure = breath_pressure
 		return
 	var/datum/gas_mixture/environment = loc.return_air_for_internal_lifeform()
-	if(!environment)
-		return
+	var/ext_pressure = environment && environment.return_pressure() // May be null if, say, our owner is in nullspace
 	var/int_pressure_diff = abs(last_int_pressure - breath_pressure)
-	var/ext_pressure_diff = abs(last_ext_pressure - environment.return_pressure()) * owner.get_pressure_weakness()
+	var/ext_pressure_diff = abs(last_ext_pressure - ext_pressure) * owner.get_pressure_weakness()
 	if(int_pressure_diff > max_pressure_diff && ext_pressure_diff > max_pressure_diff)
 		var/lung_rupture_prob = BP_IS_ROBOTIC(src) ? prob(30) : prob(60) //Robotic lungs are less likely to rupture.
 		if(!is_bruised() && lung_rupture_prob) //only rupture if NOT already ruptured
@@ -133,7 +132,7 @@
 	if(!owner)
 		return 1
 
-	if(!breath)
+	if(!breath || (max_damage <= 0))
 		handle_failed_breath(TRUE)
 		return 1
 
@@ -163,8 +162,6 @@
 
 	// Not enough to breathe
 	if(inhale_efficiency < 1)
-		if(prob(5) && active_breathing && breath_fail_ratio > 0.4)
-			owner.emote("gasp")
 		failed_inhale = 1
 		breath_fail_ratio = Clamp(0,(1 - inhale_efficiency + breath_fail_ratio)/2,1)
 	else
@@ -216,11 +213,8 @@
 
 	// Were we able to breathe?
 	var/failed_breath = failed_inhale || failed_exhale
-	if(failed_breath)
-		if(isnull(last_failed_breath))
-			last_failed_breath = world.time
-	else
-		last_failed_breath = null
+	if(!failed_breath)
+		last_successful_breath = world.time
 		owner.adjustOxyLoss(-5 * inhale_efficiency)
 		if(!BP_IS_ROBOTIC(src) && species.breathing_sound && is_below_sound_pressure(get_turf(owner)))
 			if(breathing || owner.shock_stage >= 10)
@@ -241,14 +235,25 @@
 /obj/item/organ/internal/lungs/proc/handle_failed_breath(var/complete_failure)
 	if(complete_failure) //If we never got any air to try and process we'll need to update our failure rate here.
 		breath_fail_ratio = Clamp(0,(breath_fail_ratio + 1)/2,1)
-	if(prob(15) && !owner.nervous_system_failure())
+	if(prob(10) && !owner.nervous_system_failure())
 		if(!owner.is_asystole())
 			if(active_breathing)
-				owner.emote("gasp")
+				if(breath_fail_ratio > 0.5)
+					owner.visible_message(
+					"<B>\The [owner]</B> gasps for air!",
+					"<span class='danger'>You try to take a breath and fail!</span>",
+					"You hear someone gasp for air!",
+					)
+				else
+					owner.visible_message(
+						"<B>\The [owner]</B> struggles to breathe!",
+						"<span class='warning'>You struggle to breathe!</span>",
+						"You hear someone gasping!",
+					)
 		else
 			owner.emote(pick("shiver","twitch"))
 
-	if(((damage / max_damage * species.total_health) > get_oxygen_deprivation()) || owner.chem_effects[CE_BREATHLOSS] || world.time > last_failed_breath + 8 MINUTES)
+	if(((damage / max_damage * 100) > get_oxygen_deprivation()) || owner.chem_effects[CE_BREATHLOSS])
 		owner.adjustOxyLoss(HUMAN_MAX_OXYLOSS*breath_fail_ratio)
 
 	owner.oxygen_alert = max(owner.oxygen_alert, 2)
@@ -256,7 +261,7 @@
 
 /obj/item/organ/internal/lungs/proc/handle_temperature_effects(datum/gas_mixture/breath)
 	// Hot air hurts :(
-	if((breath.temperature < species.cold_level_1 || breath.temperature > species.heat_level_1) && !(COLD_RESISTANCE in owner.mutations))
+	if((breath.temperature < species.cold_level_1 || breath.temperature > species.heat_level_1) && !(MUTATION_COLD_RESISTANCE in owner.mutations))
 		var/damage = 0
 		if(breath.temperature <= species.cold_level_1)
 			if(prob(20))

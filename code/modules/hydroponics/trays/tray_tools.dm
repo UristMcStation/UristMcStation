@@ -40,9 +40,8 @@
 	user.visible_message("\The [src] spits out a piece of paper.")
 	return
 
-/obj/item/device/analyzer/plant_analyzer/attack_self(mob/user as mob)
+/obj/item/device/analyzer/plant_analyzer/attack_self(mob/user)
 	print_report(user)
-	return 0
 
 /obj/item/device/analyzer/plant_analyzer/afterattack(obj/target, mob/user, flag)
 	if(!flag) return
@@ -54,13 +53,13 @@
 	else if(istype(target,/obj/item/weapon/reagent_containers/food/snacks/grown))
 
 		var/obj/item/weapon/reagent_containers/food/snacks/grown/G = target
-		grown_seed = plant_controller.seeds[G.plantname]
+		grown_seed = SSplants.seeds[G.plantname]
 		grown_reagents = G.reagents
 
 	else if(istype(target,/obj/item/weapon/grown))
 
 		var/obj/item/weapon/grown/G = target
-		grown_seed = plant_controller.seeds[G.plantname]
+		grown_seed = SSplants.seeds[G.plantname]
 		grown_reagents = G.reagents
 
 	else if(istype(target,/obj/item/seeds))

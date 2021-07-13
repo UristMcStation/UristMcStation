@@ -63,6 +63,11 @@ var/global/datum/ntnet/ntnet_global = new()
 			else
 				break
 
+/datum/ntnet/proc/get_computer_by_nid(var/NID)
+	for(var/obj/item/modular_computer/comp in SSobj.processing)
+		if(comp && comp.network_card && comp.network_card.identification_id == NID)
+			return comp
+
 /datum/ntnet/proc/check_banned(var/NID)
 	if(!relays || !relays.len)
 		return FALSE
@@ -237,7 +242,6 @@ var/global/datum/ntnet/ntnet_global = new()
 		var/datum/computer_file/data/email_account/EA = new/datum/computer_file/data/email_account()
 		EA.password = GenerateKey()
 		EA.login = login
-		to_chat(user, "Your email account address is <b>[EA.login]</b> and the password is <b>[EA.password]</b>. This information has also been placed into your notes.")
 		if(user.mind)
 			user.mind.initial_email_login["login"] = EA.login
 			user.mind.initial_email_login["password"] = EA.password

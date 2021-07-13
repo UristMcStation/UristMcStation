@@ -5,8 +5,8 @@ GLOBAL_DATUM_INIT(godcult, /datum/antagonist/godcultist, new)
 	role_text = "God Cultist"
 	role_text_plural = "God Cultists"
 	restricted_jobs = list(/datum/job/lawyer, /datum/job/captain, /datum/job/hos)
-	protected_jobs = list(/datum/job/officer, /datum/job/warden, /datum/job/detective, /datum/job/blueshield)
-	blacklisted_jobs = list(/datum/job/ai, /datum/job/cyborg, /datum/job/chaplain)
+	protected_jobs = list(/datum/job/officer, /datum/job/warden, /datum/job/detective)
+	blacklisted_jobs = list(/datum/job/ai, /datum/job/cyborg, /datum/job/chaplain, /datum/job/submap)
 	feedback_tag = "godcult_objective"
 	antag_indicator = "hudcultist"
 	faction_verb = /mob/living/proc/dpray
@@ -49,9 +49,10 @@ GLOBAL_DATUM_INIT(godcult, /datum/antagonist/godcultist, new)
 
 
 /datum/antagonist/godcultist/remove_antagonist(var/datum/mind/player, var/show_message, var/implanted)
+	var/mob/living/deity/god = get_deity(player)
 	if(!..())
 		return 0
-	remove_cultist(player)
+	remove_cultist(player, god)
 	return 1
 
 /datum/antagonist/godcultist/get_extra_panel_options(var/datum/mind/player)
@@ -84,10 +85,8 @@ GLOBAL_DATUM_INIT(godcult, /datum/antagonist/godcultist, new)
 	deity.add_follower(player.current)
 	player.current.add_language(LANGUAGE_CULT)
 
-/datum/antagonist/godcultist/proc/remove_cultist(var/datum/mind/player)
-	var/mob/living/deity/god = get_deity(player)
-	if(god)
-		god.remove_follower(player.current)
+/datum/antagonist/godcultist/proc/remove_cultist(var/datum/mind/player, var/mob/living/deity/god)
+	god.remove_follower(player.current)
 	player.current.remove_language(LANGUAGE_CULT)
 
 /datum/antagonist/godcultist/proc/get_deity(var/datum/mind/player)

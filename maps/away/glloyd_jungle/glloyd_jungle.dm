@@ -46,3 +46,4 @@
 	description = "Geneseeded world detected, possible intelligent life detected."
 	suffixes = list("glloyd_jungle/glloyd_jungle.dmm")
 	accessibility_weight = 11
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED

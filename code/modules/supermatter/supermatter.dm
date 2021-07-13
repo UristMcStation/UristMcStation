@@ -83,6 +83,8 @@
 
 	var/power = 0
 	var/oxygen = 0
+	var/methyl_bromide = 0
+	var/phoron = 0
 
 	//Temporary values so that we can optimize this
 	//How much the bullets damage should be multiplied by when it is added to the internal variables
@@ -236,7 +238,7 @@
 		if(!(S.z in affected_z))
 			continue
 		if(prob(DETONATION_SOLAR_BREAK_CHANCE))
-			S.broken()
+			S.set_broken(TRUE)
 
 
 
@@ -375,10 +377,20 @@
 
 		var/device_energy = power * reaction_power_modifier
 
+		//Allow us to adjust the phoron release modifier.
+		//100% methyl bromide allows us to breed the most phoron. Add nitrogen to slow this process down a bit. Dunno why you would, but it keeps the math good.
+		methyl_bromide = Clamp((removed.get_gas("methyl_bromide") - (removed.gas["nitrogen"] * nitrogen_retardation_factor)) / removed.total_moles, 0, 1)
+		phoron_release_modifier =  max( (phoron_release_modifier - methyl_bromide * 100), 100) //Let's not go below 100.
+
+		//Allows us to adjust the radiation modifier.
+		phoron = Clamp((removed.get_gas("phoron") - (removed.gas["nitrogen"] * nitrogen_retardation_factor)) / removed.total_moles, 0, 1)
+		radiation_release_modifier =  max( (radiation_release_modifier + phoron), 5) //Let's not go above 5. It could get laggy..
+
 		//Release reaction gasses
 		var/heat_capacity = removed.heat_capacity()
 		removed.adjust_multi("phoron", max(device_energy / phoron_release_modifier, 0), \
 		                     "oxygen", max((device_energy + removed.temperature - T0C) / oxygen_release_modifier, 0))
+
 
 		var/thermal_power = thermal_release_modifier * device_energy
 		if (debug)
@@ -397,8 +409,9 @@
 			var/effect = max(0, min(200, power * config_hallucination_power * sqrt( 1 / max(1,get_dist(l, src)))) )
 			l.adjust_hallucination(effect, 0.25*effect)
 
-
 	SSradiation.radiate(src, power * radiation_release_modifier) //Better close those shutters!
+	phoron_release_modifier = min( initial(phoron_release_modifier), (phoron_release_modifier + decay_factor * 0.1) ) //Kicks it back up, but never higher than the original value.
+	radiation_release_modifier = max( initial(radiation_release_modifier), (radiation_release_modifier - 0.1 * radiation_release_modifier) ) //The reduction will eventually eclipse the gain, I'd think.a	a
 	power -= (power/decay_factor)**3		//energy losses due to radiation
 	handle_admin_warnings()
 
@@ -500,14 +513,14 @@
 	Consume(AM)
 
 
-/obj/machinery/power/supermatter/proc/Consume(var/mob/living/user)
+/obj/machinery/power/supermatter/proc/Consume(var/mob/living/user, var/amount = 200)
 	if(istype(user))
 		user.dust()
-		power += 200
+		power += amount
 	else
 		qdel(user)
 
-	power += 200
+	power += amount
 
 	//Some poor sod got eaten, go ahead and irradiate people nearby.
 	for(var/mob/living/l in range(10))
@@ -530,6 +543,17 @@
 /obj/machinery/power/supermatter/RepelAirflowDest(n)
 	return
 
+/obj/machinery/power/supermatter/ex_act(var/severity)
+	..()
+	switch(severity)
+		if(1.0)
+			power *= 4
+		if(2.0)
+			power *= 3
+		if(3.0)
+			power *= 2
+	log_and_message_admins("WARN: Explosion near the Supermatter! New EER: [power].")
+
 /obj/machinery/power/supermatter/shard //Small subtype, less efficient and more sensitive, but less boom.
 	name = "Supermatter Shard"
 	desc = "A strangely translucent and iridescent crystal that looks like it used to be part of a larger structure. <span class='danger'>You get headaches just from looking at it.</span>"
@@ -548,10 +572,6 @@
 /obj/machinery/power/supermatter/shard/announce_warning() //Shards don't get announcements
 	return
 
-
-
-#undef DETONATION_RADS_RANGE
-#undef DETONATION_RADS_BASE
 #undef DETONATION_MOB_CONCUSSION
 #undef DETONATION_APC_OVERLOAD_PROB
 #undef DETONATION_SHUTDOWN_APC

@@ -25,10 +25,9 @@
 //Icon stuff
 
 	var/static/list/eye_overlays
-	var/icontype 				//Persistent icontype tracking allows for cleaner icon updates
-	var/module_sprites[0] 		//Used to store the associations between sprite names and sprite index.
-	var/icon_selected = 1		//If icon selection has been completed yet
-	var/icon_selection_tries = 0//Remaining attempts to select icon before a selection is forced
+	var/icontype         			//Persistent icontype tracking allows for cleaner icon updates
+	var/module_sprites[0]			//Used to store the associations between sprite names and sprite index.
+	var/icon_selected = 1			//If icon selection has been completed yet
 
 //Hud stuff
 
@@ -69,7 +68,7 @@
 	var/has_power = 1
 	var/spawn_module = null
 
-	var/spawn_sound = 'sound/voice/liveagain.ogg'
+	var/spawn_sound = list('sound/voice/liveagain.ogg','sound/voice/systembooted.ogg')
 	var/pitch_toggle = 1
 	var/list/req_access = list(access_robotics)
 	var/ident = 0
@@ -169,7 +168,7 @@
 	if(ispath(module))
 		new module(src)
 	if(lawupdate)
-		var/new_ai = select_active_ai_with_fewest_borgs()
+		var/new_ai = select_active_ai_with_fewest_borgs((get_turf(src))?.z)
 		if(new_ai)
 			lawupdate = 1
 			connect_to_ai(new_ai)
@@ -291,7 +290,7 @@
 //		module_sprites["Ravensdale"] = "ravensdale-Standard"
 
 	hands.icon_state = lowertext(modtype)
-	feedback_inc("cyborg_[lowertext(modtype)]",1)
+	SSstatistics.add_field("cyborg_[lowertext(modtype)]",1)
 	updatename()
 	recalculate_synth_capacities()
 	if(module)
@@ -497,7 +496,7 @@
 				C.installed = 1
 				C.wrapped = W
 				C.install()
-				W.loc = null
+				W.forceMove(null)
 
 				var/obj/item/robot_parts/robot_component/WC = W
 				if(istype(WC))
@@ -585,7 +584,7 @@
 					I.brute = C.brute_damage
 					I.burn = C.electronics_damage
 
-				I.loc = src.loc
+				I.forceMove(loc)
 
 				if(C.installed == 1)
 					C.uninstall()
@@ -607,7 +606,7 @@
 			return
 		if(storage)
 			to_chat(user, "You replace \the [storage] with \the [W]")
-			storage.forceMove(get_turf(src))
+			storage.dropInto(loc)
 			storage = null
 		else
 			to_chat(user, "You install \the [W]")
@@ -748,20 +747,9 @@
 	return 0
 
 /mob/living/silicon/robot/proc/check_access(obj/item/weapon/card/id/I)
-	if(!istype(req_access, /list)) //something's very wrong
-		return 1
+	return has_access(req_access, I.access)
 
-	var/list/L = req_access
-	if(!L.len) //no requirements
-		return 1
-	if(!I || !istype(I, /obj/item/weapon/card/id) || !I.access) //not ID or no access
-		return 0
-	for(var/req in req_access)
-		if(req in I.access) //have one of the required accesses
-			return 1
-	return 0
-
-/mob/living/silicon/robot/update_icon()
+/mob/living/silicon/robot/on_update_icon()
 	overlays.Cut()
 	if(stat == CONSCIOUS)
 		var/eye_icon_state = "eyes-[module_sprites[icontype]]"
@@ -997,31 +985,32 @@
 
 	return
 
-/mob/living/silicon/robot/proc/choose_icon(var/triesleft, var/list/module_sprites)
-	if(!module_sprites.len)
+/mob/living/silicon/robot/proc/choose_icon(list/module_sprites)
+	if(!LAZYLEN(module_sprites))
 		to_chat(src, "Something is badly wrong with the sprite selection. Harass a coder.")
 		return
 
-	icon_selected = 0
-	src.icon_selection_tries = triesleft
+	icon_selected = FALSE
 	if(module_sprites.len == 1 || !client)
 		if(!(icontype in module_sprites))
 			icontype = module_sprites[1]
 	else
-		icontype = input("Select an icon! [triesleft ? "You have [triesleft] more chance\s." : "This is your last try."]", "Robot Icon", icontype, null) in module_sprites
+		var/list/options = list()
+		for(var/i in module_sprites)
+			var/image/radial_button = image(icon = src.icon, icon_state = module_sprites[i])
+			radial_button.overlays.Add(image(icon = src.icon, icon_state = "eyes-[module_sprites[i]]"))
+			options[i] = radial_button
+		icontype = show_radial_menu(src, src, options, radius = 42, tooltips = TRUE)
+
+	if(!icontype)
+		return
+
 	icon_state = module_sprites[icontype]
 	update_icon()
 
-	if (module_sprites.len > 1 && triesleft >= 1 && client)
-		icon_selection_tries--
-		var/choice = input("Look at your icon - is this what you want?") in list("Yes","No")
-		if(choice=="No")
-			choose_icon(icon_selection_tries, module_sprites)
-			return
-
-	icon_selected = 1
-	icon_selection_tries = 0
+	icon_selected = TRUE
 	to_chat(src, "Your icon has been set. You now require a module reset to change it.")
+
 /mob/living/silicon/robot/proc/sensor_mode() //Medical/Security HUD controller for borgs
 	set name = "Set Sensor Augmentation"
 	set category = "Silicon Commands"

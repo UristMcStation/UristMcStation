@@ -8,20 +8,20 @@
 	size = 12
 	requires_ntnet = 1
 	available_on_ntnet = 1
-	nanomodule_path = /datum/nano_module/email_administration
+	nanomodule_path = /datum/nano_module/program/email_administration
 	required_access = access_network
 
-
-
-
-/datum/nano_module/email_administration/
+/datum/nano_module/program/email_administration
 	name = "Email Administration"
+	available_to_ai = TRUE
 	var/datum/computer_file/data/email_account/current_account = null
 	var/datum/computer_file/data/email_message/current_message = null
 	var/error = ""
 
-/datum/nano_module/email_administration/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
+/datum/nano_module/program/email_administration/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
 	var/list/data = host.initial_data()
+
+	data["terminal"] = !!program
 
 	if(error)
 		data["error"] = error
@@ -65,7 +65,7 @@
 		ui.open()
 
 
-/datum/nano_module/email_administration/Topic(href, href_list)
+/datum/nano_module/program/email_administration/Topic(href, href_list)
 	if(..())
 		return 1
 

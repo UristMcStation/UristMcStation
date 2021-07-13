@@ -6,14 +6,15 @@
 	icon_state = "portgen0"
 	density = 1
 	anchored = 0
-	use_power = 0
 
 	var/active = 0
 	var/power_gen = 5000
-	var/open = 0
 	var/recent_fault = 0
 	var/power_output = 1
 	atom_flags = ATOM_FLAG_CLIMBABLE
+	var/datum/sound_token/sound_token
+	var/sound_id
+	var/working_sound
 
 /obj/machinery/power/port_gen/proc/IsBroken()
 	return (stat & (BROKEN|EMPED))
@@ -30,6 +31,20 @@
 /obj/machinery/power/port_gen/proc/handleInactive()
 	return
 
+/obj/machinery/power/port_gen/proc/update_sound()
+	if(!working_sound)
+		return
+	if(!sound_id)
+		sound_id = "[type]_[sequential_id(/obj/machinery/power/port_gen)]"
+	if(active && HasFuel() && !IsBroken())
+		var/volume = 10 + 15*power_output
+		if(!sound_token)
+			sound_token = GLOB.sound_player.PlayLoopingSound(src, sound_id, working_sound, volume = volume)
+		sound_token.SetVolume(volume)
+	else if(sound_token)
+		QDEL_NULL(sound_token)
+
+
 /obj/machinery/power/port_gen/Process()
 	if(active && HasFuel() && !IsBroken() && anchored && powernet)
 		add_avail(power_gen * power_output)
@@ -39,8 +54,9 @@
 		active = 0
 		handleInactive()
 	update_icon()
+	update_sound()
 
-/obj/machinery/power/port_gen/update_icon()
+/obj/machinery/power/port_gen/on_update_icon()
 	if(!active)
 		icon_state = initial(icon_state)
 		return 1
@@ -104,6 +120,7 @@
 		Setting to 5 or higher can only be done temporarily before the generator overheats.
 	*/
 	power_gen = 20000			//Watts output per power_output level
+	working_sound = 'sound/machines/engine.ogg'
 	var/max_power_output = 5	//The maximum power setting without emagging.
 	var/max_safe_output = 4		// For UI use, maximal output that won't cause overheat.
 	var/time_per_sheet = 96		//fuel efficiency - how long 1 sheet lasts at power level 1
@@ -113,7 +130,7 @@
 
 	var/sheets = 0			//How many sheets of material are loaded in the generator
 	var/sheet_left = 0		//How much is left of the current sheet
-	var/temperature = 0		//The current temperature
+	var/operating_temperature = 0		//The current temperature
 	var/overheating = 0		//if this gets high enough the generator explodes
 	var/max_overheat = 150
 
@@ -198,7 +215,7 @@
 	*/
 	var/datum/gas_mixture/environment = loc.return_air()
 	if (environment)
-		var/outer_temp = 0.1 * temperature + T0C
+		var/outer_temp = 0.1 * operating_temperature + T0C
 		if(outer_temp > environment.temperature) //sharing the heat
 			var/heat_transfer = environment.get_thermal_energy_change(outer_temp)
 			if(heat_transfer > 1)
@@ -214,10 +231,10 @@
 	var/average = (upper_limit + lower_limit)/2
 
 	//calculate the temperature increase
-	var/bias = Clamp(round((average - temperature)/TEMPERATURE_DIVISOR, 1),  -TEMPERATURE_CHANGE_MAX, TEMPERATURE_CHANGE_MAX)
-	temperature += bias + rand(-7, 7)
+	var/bias = Clamp(round((average - operating_temperature)/TEMPERATURE_DIVISOR, 1),  -TEMPERATURE_CHANGE_MAX, TEMPERATURE_CHANGE_MAX)
+	operating_temperature += bias + rand(-7, 7)
 
-	if (temperature > max_temperature)
+	if (operating_temperature > max_temperature)
 		overheat()
 	else if (overheating > 0)
 		overheating--
@@ -231,10 +248,10 @@
 		var/ambient = environment.temperature - T20C
 		cooling_temperature += ambient*ratio
 
-	if (temperature > cooling_temperature)
-		var/temp_loss = (temperature - cooling_temperature)/TEMPERATURE_DIVISOR
+	if (operating_temperature > cooling_temperature)
+		var/temp_loss = (operating_temperature - cooling_temperature)/TEMPERATURE_DIVISOR
 		temp_loss = between(2, round(temp_loss, 1), TEMPERATURE_CHANGE_MAX)
-		temperature = max(temperature - temp_loss, cooling_temperature)
+		operating_temperature = max(operating_temperature - temp_loss, cooling_temperature)
 		src.updateDialog()
 
 	if(overheating)
@@ -252,7 +269,7 @@
 	var/phoron = (sheets+sheet_left)*20
 	var/datum/gas_mixture/environment = loc.return_air()
 	if (environment)
-		environment.adjust_gas_temp("phoron", phoron/10, temperature + T0C)
+		environment.adjust_gas_temp("phoron", phoron/10, operating_temperature + T0C)
 
 	sheets = 0
 	sheet_left = 0
@@ -291,23 +308,17 @@
 			playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 			anchored = !anchored
 
-		else if(isScrewdriver(O))
-			open = !open
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-			if(open)
-				to_chat(user, "<span class='notice'>You open the access panel.</span>")
-			else
-				to_chat(user, "<span class='notice'>You close the access panel.</span>")
-		else if(isCrowbar(O) && open)
-			var/obj/machinery/constructable_frame/machine_frame/new_frame = new /obj/machinery/constructable_frame/machine_frame(src.loc)
-			for(var/obj/item/I in component_parts)
-				I.loc = src.loc
-			while ( sheets > 0 )
-				DropFuel()
+		if(default_deconstruction_screwdriver(user, O))
+			return
+		if(default_deconstruction_crowbar(user, O))
+			return
+		if(default_part_replacement(user, O))
+			return
 
-			new_frame.state = 2
-			new_frame.icon_state = "box_1"
-			qdel(src)
+/obj/machinery/power/port_gen/pacman/dismantle()
+	while ( sheets > 0 )
+		DropFuel()
+	return ..()
 
 /obj/machinery/power/port_gen/pacman/attack_hand(mob/user as mob)
 	..()
@@ -334,7 +345,7 @@
 	data["output_max"] = max_power_output
 	data["output_safe"] = max_safe_output
 	data["output_watts"] = power_output * power_gen
-	data["temperature_current"] = src.temperature
+	data["temperature_current"] = src.operating_temperature
 	data["temperature_max"] = src.max_temperature
 	if(overheating)
 		data["temperature_overheat"] = ((overheating / max_overheat) * 100)		// Overheat percentage. Generator explodes at 100%
@@ -428,7 +439,7 @@
 		SSradiation.radiate(src, 2*rad_power)
 	..()
 
-/obj/machinery/power/port_gen/pacman/super/update_icon()
+/obj/machinery/power/port_gen/pacman/super/on_update_icon()
 	if(..())
 		set_light(0)
 		return 1
@@ -486,7 +497,7 @@
 		temperature_gain = initial(temperature_gain)
 	..()
 
-/obj/machinery/power/port_gen/pacman/super/potato/update_icon()
+/obj/machinery/power/port_gen/pacman/super/potato/on_update_icon()
 	if(..())
 		return 1
 	if(power_output > max_safe_output)

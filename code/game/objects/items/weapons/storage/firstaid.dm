@@ -115,7 +115,7 @@
 
 /obj/item/weapon/storage/firstaid/stab
 	name = "stabilisation first aid"
-	desc = "Stocked with medical pouches and a stasis bag."
+	desc = "Stocked with medical pouches."
 	icon_state = "stabfirstaid"
 	item_state = "firstaid-advanced"
 
@@ -124,7 +124,6 @@
 		/obj/item/weapon/storage/med_pouch/burn,
 		/obj/item/weapon/storage/med_pouch/oxyloss,
 		/obj/item/weapon/storage/med_pouch/toxin,
-		/obj/item/bodybag/cryobag
 		)
 
 /obj/item/weapon/storage/firstaid/surgery
@@ -205,7 +204,7 @@
 	. = ..()
 	update_icon()
 
-/obj/item/weapon/storage/pill_bottle/update_icon()
+/obj/item/weapon/storage/pill_bottle/on_update_icon()
 	overlays.Cut()
 	if(wrapper_color)
 		var/image/I = image(icon, "pillbottle_wrap")

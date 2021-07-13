@@ -23,10 +23,13 @@
 	var/fullblock = (effective_armor*effective_armor) * ARMOR_BLOCK_CHANCE_MULT
 
 	if(fullblock >= 1 || prob(fullblock*100))
-		if(absorb_text)
-			show_message("<span class='warning'>[absorb_text]</span>")
+		if(psi && psi.use_psi_armour && psi.last_armor_check == world.time)
+			show_message(SPAN_WARNING("You block the blow with your mind!"))
+			psi.spend_power(10)
+		else if(absorb_text)
+			show_message(SPAN_WARNING("[absorb_text]"))
 		else
-			show_message("<span class='warning'>Your armor absorbs the blow!</span>")
+			show_message(SPAN_WARNING("Your armor absorbs the blow!"))
 		return 100
 
 	//this makes it so that X armour blocks X% damage, when including the chance of hard block.
@@ -38,11 +41,15 @@
 
 	if(blocked > 20)
 		//Should we show this every single time?
-		if(soften_text)
-			show_message("<span class='warning'>[soften_text]</span>")
+		if(psi && psi.use_psi_armour && psi.last_armor_check == world.time)
+			show_message(SPAN_WARNING("You soften the blow with your mind!"))
+		else if(soften_text)
+			show_message(SPAN_WARNING("[soften_text]"))
 		else
-			show_message("<span class='warning'>Your armor softens the blow!</span>")
+			show_message(SPAN_WARNING("Your armor softens the blow!"))
 
+	if(psi && psi.use_psi_armour && psi.last_armor_check == world.time)
+		psi.spend_power(round(blocked/10))
 	return round(blocked, 1)
 
 //Adds two armor values together.
@@ -57,7 +64,7 @@
 
 //if null is passed for def_zone, then this should return something appropriate for all zones (e.g. area effect damage)
 /mob/living/proc/getarmor(var/def_zone, var/type)
-	return 0
+	return (psi ? psi.get_armour(type) : 0)
 
 
 /mob/living/bullet_act(var/obj/item/projectile/P, var/def_zone)
@@ -155,7 +162,7 @@
 		return 0
 
 	//Hulk modifier
-	if(HULK in user.mutations)
+	if(MUTATION_HULK in user.mutations)
 		effective_force *= 2
 
 	//Apply weapon damage
@@ -216,20 +223,20 @@
 
 			if(!O || !src) return
 
-			if(O.sharp) //Projectile is suitable for pinning.
+			if(O.can_embed()) //Projectile is suitable for pinning.
 				//Handles embedding for non-humans and simple_animals.
 				embed(O)
 
 				var/turf/T = near_wall(dir,2)
 
 				if(T)
-					src.loc = T
+					forceMove(T)
 					visible_message("<span class='warning'>[src] is pinned to the wall by [O]!</span>","<span class='warning'>You are pinned to the wall by [O]!</span>")
 					src.anchored = 1
 					src.pinned += O
 
 /mob/living/proc/embed(var/obj/O, var/def_zone=null, var/datum/wound/supplied_wound)
-	O.loc = src
+	O.forceMove(src)
 	src.embedded += O
 	src.verbs += /mob/proc/yank_out_object
 
@@ -307,10 +314,10 @@
 	var/turf/location = get_turf(src)
 	location.hotspot_expose(fire_burn_temperature(), 50, 1)
 
-/mob/living/fire_act(datum/gas_mixture/air, temperature, volume)
+/mob/living/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	//once our fire_burn_temperature has reached the temperature of the fire that's giving fire_stacks, stop adding them.
 	//allow fire_stacks to go up to 4 for fires cooler than 700 K, since are being immersed in flame after all.
-	if(fire_stacks <= 4 || fire_burn_temperature() < temperature)
+	if(fire_stacks <= 4 || fire_burn_temperature() < exposed_temperature)
 		adjust_fire_stacks(2)
 	IgniteMob()
 
@@ -342,6 +349,7 @@
 			if(!I.action)
 				I.action = new I.default_action_type
 			I.action.name = I.action_button_name
+			I.action.desc = I.action_button_desc
 			I.action.SetTarget(I)
 			I.action.Grant(src)
 	return
@@ -383,6 +391,7 @@
 		B.UpdateIcon()
 
 		B.SetName(A.UpdateName())
+		B.desc = A.UpdateDesc()
 
 		client.screen += B
 

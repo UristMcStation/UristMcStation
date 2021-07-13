@@ -8,7 +8,7 @@
 	archetype = /decl/submap_archetype/derelict/bearcat
 
 /decl/submap_archetype/derelict/bearcat
-	descriptor = "derelict"
+	descriptor = "derelict cargo vessel"
 	map = "Bearcat Wreck"
 	crew_jobs = list(
 		/datum/job/submap/bearcat_captain,
@@ -16,11 +16,10 @@
 	)
 
 /obj/effect/overmap/ship/bearcat
-	name = "light freighter"
+	classification = "light freighter"
 	color = "#00ffff"
-	vessel_mass = 60
-	default_delay = 20 SECONDS
-	speed_mod = 0.1 MINUTE
+	vessel_mass = 5000
+	max_speed = 1/(10 SECONDS)
 	burn_delay = 2 SECONDS
 	initial_restricted_waypoints = list(
 		"Damselfly" = list("nav_bearcat_dock")
@@ -30,7 +29,8 @@
 	for(var/area/ship/scrap/A)
 		A.name = "\improper [name] - [A.name]"
 		GLOB.using_map.area_purity_test_exempt_areas += A.type
-	name = "[name], \a [initial(name)]"
+	ship_name = name
+	name = "[name], \a [classification]"
 	..()
 
 /datum/map_template/ruin/away_site/bearcat_wreck
@@ -65,7 +65,7 @@
 /obj/effect/shuttle_landmark/lift/top
 	name = "Top Deck"
 	landmark_tag = "nav_bearcat_lift_top"
-	autoset = 1
+	flags = SLANDMARK_FLAG_AUTOSET
 
 /obj/effect/shuttle_landmark/lift/bottom
 	name = "Lower Deck"
@@ -73,21 +73,11 @@
 	base_area = /area/ship/scrap/cargo/lower
 	base_turf = /turf/simulated/floor
 
-/obj/machinery/power/apc/derelict
-	cell_type = /obj/item/weapon/cell/crap/empty
-	lighting = 0
-	equipment = 0
-	environ = 0
-	locked = 0
-	coverlocked = 0
-
 /obj/machinery/door/airlock/autoname/command
 	door_color = COLOR_COMMAND_BLUE
-	req_access = list(access_heads)
 
 /obj/machinery/door/airlock/autoname/engineering
 	door_color = COLOR_AMBER
-	req_access = list(access_engine)
 
 /turf/simulated/floor/usedup
 	initial_gas = list("carbon_dioxide" = MOLES_O2STANDARD, "nitrogen" = MOLES_N2STANDARD)

@@ -3,7 +3,6 @@
 /obj/item/weapon/gripper
 	name = "magnetic gripper"
 	desc = "A simple grasping tool specialized in construction and engineering work."
-	description_info = "Click an item to pick it up with your gripper. Use it as you would normally use anything in your hand. The Drop Item verb will allow you to release the item."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "gripper"
 
@@ -26,7 +25,8 @@
 		/obj/item/weapon/computer_hardware,
 		/obj/item/weapon/fuel_assembly,
 		/obj/item/stack/material/deuterium,
-		/obj/item/stack/material/tritium
+		/obj/item/stack/material/tritium,
+		/obj/item/stack/tile
 		)
 
 	var/obj/item/wrapped = null // Item currently being held.
@@ -49,7 +49,7 @@
 	desc = "A simple grasping tool for clerical work."
 
 	can_hold = list(
-		/obj/item/weapon/clipboard,
+		/obj/item/weapon/material/clipboard,
 		/obj/item/weapon/paper,
 		/obj/item/weapon/paper_bundle,
 		/obj/item/weapon/card/id,
@@ -146,16 +146,15 @@
 		return wrapped.attack_self(user)
 	return ..()
 
-/obj/item/weapon/gripper/verb/drop_item()
+/obj/item/weapon/gripper/verb/drop_gripped_item()
 
-	set name = "Drop Item"
+	set name = "Drop Gripped Item"
 	set desc = "Release an item from your magnetic gripper."
 	set category = "Silicon Commands"
-
 	if(!wrapped)
 		//There's some weirdness with items being lost inside the arm. Trying to fix all cases. ~Z
 		for(var/obj/item/thing in src.contents)
-			thing.loc = get_turf(src)
+			thing.dropInto(loc)
 		return
 
 	if(wrapped.loc != src)
@@ -163,9 +162,9 @@
 		return
 
 	to_chat(src.loc, "<span class='warning'>You drop \the [wrapped].</span>")
-	wrapped.loc = get_turf(src)
+	wrapped.dropInto(loc)
 	wrapped = null
-	//update_icon()
+	//on_update_icon()
 
 /obj/item/weapon/gripper/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
 	// Don't fall through and smack people with gripper, instead just no-op
@@ -229,7 +228,7 @@
 
 				A.cell.add_fingerprint(user)
 				A.cell.update_icon()
-				A.cell.loc = src
+				A.cell.forceMove(src)
 				A.cell = null
 
 				A.charging = 0
@@ -241,21 +240,19 @@
 		var/mob/living/silicon/robot/A = target
 		if(A.opened)
 			if(A.cell)
-
 				wrapped = A.cell
-
 				A.cell.add_fingerprint(user)
 				A.cell.update_icon()
 				A.update_icon()
-				A.cell.loc = src
+				A.cell.forceMove(src)
 				A.cell = null
-
 				user.visible_message("<span class='danger'>[user] removes the power cell from [A]!</span>", "You remove the power cell.")
+				A.power_down()
 
 /obj/item/weapon/gripper/proc/finish_using(var/atom/target, var/mob/living/user, params, force_holder, resolved)
 
 	if(QDELETED(wrapped))
-		wrapped.loc = null
+		wrapped.forceMove(null)
 		wrapped = null
 		return
 

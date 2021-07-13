@@ -2,7 +2,7 @@
 	name = "soil"
 	icon_state = "soil"
 	density = 0
-	use_power = 0
+	use_power = POWER_USE_OFF
 	mechanical = 0
 	tray_light = 0
 
@@ -40,8 +40,8 @@
 	age = start_mature ? seed.get_trait(TRAIT_MATURATION) : 1
 	health = seed.get_trait(TRAIT_ENDURANCE)
 	lastcycle = world.time
-	pixel_y = rand(-5,5)
-	pixel_x = rand(-5,5)
+	pixel_y = rand(-12,12)
+	pixel_x = rand(-12,12)
 	if(seed)
 		name = seed.display_name
 	check_health()

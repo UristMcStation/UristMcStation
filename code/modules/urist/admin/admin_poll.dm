@@ -379,7 +379,7 @@
 
 	//usr << "INSERT INTO erro_poll_question VALUES (NULL,'[polltype]','[timestart]','[timeend]','[question]',[adminonly],[multilimit])"
 
-	var/DBQuery/poll_query = dbcon.NewQuery("INSERT INTO erro_poll_question VALUES (NULL,'[polltype]','[timestart]','[timeend]','[question]',[adminonly],[multilimit])")
+	var/DBQuery/poll_query = dbcon.NewQuery("INSERT INTO erro_poll_question VALUES (NULL,'[polltype]','[timestart]','[timeend]','[question]',[adminonly])")
 	if(!poll_query.Execute())
 		usr << "Adding poll failed: [poll_query.ErrorMsg()]"
 		return
@@ -417,5 +417,5 @@
 	set desc="Create and manage polls in the database"
 	if(holder)
 		holder.poll_panel()
-	feedback_add_details("admin_verb","SPL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	SSstatistics.add_field_details("admin_verb","SPL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return

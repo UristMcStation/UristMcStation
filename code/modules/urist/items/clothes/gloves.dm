@@ -48,3 +48,14 @@ icon_override sprites go to 'icons/uristmob/gloves.dmi' Items should go to cloth
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
 	armor = list(melee = 15, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
+
+// Biohazard Gloves.
+
+/obj/item/clothing/gloves/biohazard
+	desc = "These rubber gloves are made to assist in protecting the user from biological hazards."
+	name = "biohazard rubber gloves"
+	icon = 'icons/urist/items/clothes/gloves.dmi'
+	icon_override = 'icons/uristmob/gloves.dmi'
+	icon_state = "rubbergloves"
+	item_state = "rubbergloves"
+	body_parts_covered = HANDS|ARMS

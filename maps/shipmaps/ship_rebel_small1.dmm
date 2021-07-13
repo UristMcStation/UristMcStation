@@ -228,7 +228,7 @@
 "et" = (/obj/machinery/recharger/wallcharger,/obj/structure/table/woodentable_reinforced,/turf/simulated/floor/carpet/red,/area/boarding_ship)
 "eu" = (/obj/structure/table/woodentable_reinforced,/obj/item/device/flashlight/lamp/lava/purple,/turf/simulated/floor/carpet/red,/area/boarding_ship)
 "ev" = (/obj/structure/table/woodentable_reinforced,/obj/random/handgun,/turf/simulated/floor/carpet/red,/area/boarding_ship)
-"ew" = (/obj/structure/bed/padded,/obj/structure/curtain/open/bed,/obj/random/toy,/obj/item/weapon/bedsheet/centcom,/turf/simulated/floor/carpet/red,/area/boarding_ship)
+"ew" = (/obj/structure/bed/padded,/obj/structure/curtain/open/bed,/obj/random/toy,/obj/item/weapon/bedsheet/urist/centcom,/turf/simulated/floor/carpet/red,/area/boarding_ship)
 "ex" = (/obj/structure/catwalk,/obj/machinery/door/airlock/external{icon_state = "closed"; dir = 1},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,/obj/machinery/atmospherics/pipe/simple/visible/supply{icon_state = "intact-supply"; dir = 1},/turf/simulated/floor/plating,/area/boarding_ship)
 "ey" = (/obj/structure/catwalk,/obj/structure/cable,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 5},/turf/simulated/floor/plating,/area/boarding_ship)
 "ez" = (/obj/structure/catwalk,/obj/machinery/power/smes/buildable/preset/nerva/shuttle,/turf/simulated/floor/plating,/area/boarding_ship)
@@ -271,7 +271,7 @@
 "fk" = (/obj/machinery/airlock_sensor/airlock_interior{pixel_y = 19},/turf/space,/area/space)
 "fl" = (/obj/machinery/door/airlock/hatch{icon_state = "closed"; dir = 1},/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
 "fm" = (/obj/machinery/door/firedoor/border_only{icon_state = "open"; dir = 4},/obj/machinery/door/airlock/hatch{icon_state = "closed"; dir = 1},/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 1},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
-"fn" = (/obj/machinery/computer/navigation,/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
+"fn" = (/obj/machinery/computer/ship/navigation,/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
 "fo" = (/obj/structure/cable{icon_state = "0-1"; dir = 8},/obj/machinery/atmospherics/unary/vent_scrubber/on,/obj/structure/closet/walllocker/emerglocker/north,/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
 "fp" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"; pixel_x = 0},/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
 "fq" = (/obj/structure/cable{d1 = 1; d2 = 8; icon_state = "1-8"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 1},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
@@ -283,9 +283,9 @@
 "fw" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 9},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 9},/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
 "fx" = (/obj/structure/bed/chair/shuttle/black{icon_state = "shuttle_chair_preview"; dir = 4},/obj/random/handgun,/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
 "fy" = (/obj/machinery/computer/combatcomputer{icon_state = "computer"; dir = 1},/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
-"fz" = (/obj/machinery/computer/sensors{icon_state = "computer"; dir = 1},/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
-"fA" = (/obj/machinery/computer/engines{icon_state = "computer"; dir = 1},/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
-"fB" = (/obj/machinery/computer/helm{icon_state = "computer"; dir = 1},/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
+"fz" = (/obj/machinery/computer/ship/sensors{icon_state = "computer"; dir = 1},/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
+"fA" = (/obj/machinery/computer/ship/engines{icon_state = "computer"; dir = 1},/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
+"fB" = (/obj/machinery/computer/ship/helm{icon_state = "computer"; dir = 1},/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

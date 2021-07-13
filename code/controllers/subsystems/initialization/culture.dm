@@ -3,15 +3,16 @@ SUBSYSTEM_DEF(culture)
 	init_order = SS_INIT_CULTURE
 	flags = SS_NO_FIRE
 
-	var/list/cultural_info_by_name = list()
-	var/list/cultural_info_by_path = list()
-	var/list/tagged_info = list()
+	var/list/cultural_info_by_name =      list()
+	var/list/cultural_info_by_path =      list()
+	var/list/tagged_info =                list()
 
 /datum/controller/subsystem/culture/proc/get_all_entries_tagged_with(var/token)
 	return tagged_info[token]
 
 /datum/controller/subsystem/culture/Initialize()
-	for(var/ftype in typesof(/decl/cultural_info)-/decl/cultural_info)
+
+	for(var/ftype in subtypesof(/decl/cultural_info))
 		var/decl/cultural_info/culture = ftype
 		if(!initial(culture.name))
 			continue

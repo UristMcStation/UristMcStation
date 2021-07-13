@@ -9,6 +9,7 @@
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	amount_per_transfer_from_this = 5
 	volume = 50
+	var/static/drinksounds = list('sound/urist/drink1.ogg', 'sound/urist/drink2.ogg', 'sound/urist/drink3.ogg', 'sound/urist/drink4.ogg')
 	var/filling_states   // List of percentages full that have icons
 	var/base_name = null // Name to put in front of drinks, i.e. "[base_name] of [contents]"
 	var/base_icon = null // Base icon name for fill states
@@ -69,9 +70,18 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/self_feed_message(var/mob/user)
 	to_chat(user, "<span class='notice'>You swallow a gulp from \the [src].</span>")
+	if(user.has_personal_goal(/datum/goal/achievement/specific_object/drink))
+		for(var/datum/reagent/R in reagents.reagent_list)
+			user.update_personal_goal(/datum/goal/achievement/specific_object/drink, R.type)
 
 /obj/item/weapon/reagent_containers/food/drinks/feed_sound(var/mob/user)
-	playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
+	playsound(user.loc, pick(drinksounds), rand(10, 50), 1)
+
+//	playsound(src, pick(climbsounds), 50)
+//	playsound(target_ladder, pick(climbsounds), 50)
+//	return M.Move(T)
+//	/obj/item/weapon/reagent_containers/food/drinks/feed_sound(var/mob/user)
+//		playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
 
 /obj/item/weapon/reagent_containers/food/drinks/examine(mob/user)
 	if(!..(user, 1))
@@ -93,7 +103,7 @@
 		if(percent <= k)
 			return k
 
-/obj/item/weapon/reagent_containers/food/drinks/update_icon()
+/obj/item/weapon/reagent_containers/food/drinks/on_update_icon()
 	overlays.Cut()
 	if(reagents.reagent_list.len > 0)
 		if(base_name)
@@ -178,34 +188,23 @@
 	. = ..()
 	reagents.add_reagent(/datum/reagent/drink/coffee, 30)
 
-/obj/item/weapon/reagent_containers/food/drinks/tea
-	name = "cup of Duke Purple Tea"
-	desc = "An insult to Duke Purple is an insult to the Space Queen! Any proper gentleman will fight you, if you sully this tea."
-	icon_state = "teacup"
-	item_state = "coffee"
-	center_of_mass = "x=16;y=14"
-	filling_states = "100"
-	base_name = "cup"
-	base_icon = "teacup"
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/drink/tea, 30)
-
 /obj/item/weapon/reagent_containers/food/drinks/ice
 	name = "cup of ice"
 	desc = "Careful, cold ice, do not chew."
 	icon_state = "coffee"
 	center_of_mass = "x=15;y=10"
+
 /obj/item/weapon/reagent_containers/food/drinks/ice/New()
 	. = ..()
 	reagents.add_reagent(/datum/reagent/drink/ice, 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/h_chocolate
-	name = "cup of Dutch hot coco"
-	desc = "Made in Space South America."
+	name = "cup of hot cocoa"
+	desc = "A tall plastic cup of creamy hot chocolate."
 	icon_state = "hot_coco"
 	item_state = "coffee"
 	center_of_mass = "x=15;y=13"
+
 /obj/item/weapon/reagent_containers/food/drinks/h_chocolate/New()
 	. = ..()
 	reagents.add_reagent(/datum/reagent/drink/hot_coco, 30)
@@ -329,16 +328,22 @@
 	base_name = "heart cup"
 
 /obj/item/weapon/reagent_containers/food/drinks/coffeecup/SCG
-	name = "SCG coffee cup"
+	name = "\improper SCG coffee cup"
 	desc = "A blue coffee cup emblazoned with the crest of the Sol Central Government."
 	icon_state = "coffeecup_SCG"
-	base_name = "SCG cup"
+	base_name = "\improper SCG cup"
 
 /obj/item/weapon/reagent_containers/food/drinks/coffeecup/NT
-	name = "NT coffee cup"
-	desc = "A red NanoTrasen coffee cup. 90% Guaranteed to not be laced with mind-control drugs."
+	name = "\improper NT coffee cup"
+	desc = "A red NanoTrasen coffee cup."
 	icon_state = "coffeecup_NT"
 	base_name = "NT cup"
+
+/obj/item/weapon/reagent_containers/food/drinks/coffeecup/corp
+	name = "\improper EXO coffee cup"
+	desc = "A tasteful coffee cup in Expeditionary Corps Organisation corporate colours."
+	icon_state = "coffeecup_corp"
+	base_name = "EXO cup"
 
 /obj/item/weapon/reagent_containers/food/drinks/coffeecup/one
 	name = "#1 coffee cup"
@@ -372,10 +377,10 @@
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 
 /obj/item/weapon/reagent_containers/food/drinks/coffeecup/STC
-	name = "TCC coffee cup"
-	desc = "A coffee cup adorned with the flag of the Terran Colonial Confederation, for when you need some espionage charges to go with your morning coffee."
+	name = "ICCG coffee cup"
+	desc = "A coffee cup adorned with the flag of the Gilgamesh Colonial Confederation, for when you need some espionage charges to go with your morning coffee."
 	icon_state = "coffeecup_STC"
-	base_name = "TCC cup"
+	base_name = "ICCG cup"
 
 /obj/item/weapon/reagent_containers/food/drinks/coffeecup/pawn
 	name = "pawn coffee cup"
@@ -404,3 +409,47 @@
 	filling_states = "50;70;90;100"
 	base_name = "tall cup"
 	base_icon = "coffeecup_tall"
+
+/obj/item/weapon/reagent_containers/food/drinks/coffeecup/dais
+	name = "\improper DAIS coffee cup"
+	desc = "A coffee cup imprinted with the stylish logo of Deimos Advanced Information Systems."
+	icon_state = "coffeecup_dais"
+	base_name = "DAIS cup"
+
+/obj/item/weapon/reagent_containers/food/drinks/coffeecup/teacup
+	name = "teacup"
+	desc = "A plain white porcelain teacup."
+	icon_state = "teacup"
+	item_state = "coffee"
+	volume = 20
+	center_of_mass = "x=15;y=13"
+	filling_states = "100"
+	base_name = "teacup"
+	base_icon = "teacup"
+
+//tea and tea accessories
+/obj/item/weapon/reagent_containers/food/drinks/tea
+	name = "cup of tea master item"
+	desc = "A tall plastic cup full of the concept and ideal of tea."
+	icon_state = "coffee"
+	item_state = "coffee"
+	center_of_mass = "x=16;y=14"
+	filling_states = "100"
+	base_name = "cup"
+	base_icon = "cup"
+
+/obj/item/weapon/reagent_containers/food/drinks/tea/black
+	name = "cup of black tea"
+	desc = "A tall plastic cup of hot black tea."
+
+/obj/item/weapon/reagent_containers/food/drinks/tea/black/New()
+	. = ..()
+	reagents.add_reagent(/datum/reagent/drink/tea, 30)
+
+/obj/item/weapon/reagent_containers/food/drinks/tea/green
+	name = "cup of green tea"
+	desc = "A tall plastic cup of hot green tea."
+
+/obj/item/weapon/reagent_containers/food/drinks/tea/green/New()
+	. = ..()
+	reagents.add_reagent(/datum/reagent/drink/tea/green, 30)

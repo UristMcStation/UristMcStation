@@ -367,3 +367,42 @@
 	suit_store = /obj/item/weapon/gun/projectile/colt/a7
 	id_slot = slot_wear_id
 	id_type = /obj/item/weapon/card/id/centcom
+
+//new pirates
+
+/decl/hierarchy/outfit/newpirate
+	name = "New Pirate - Laser"
+	uniform = /obj/item/clothing/under/syndicate
+	suit = /obj/item/clothing/suit/armor/pcarrier/light/hijacker
+	shoes = /obj/item/clothing/shoes/jackboots
+	head = /obj/item/clothing/mask/bandana/red
+	l_hand = /obj/item/weapon/gun/energy/laser
+	flags = OUTFIT_HAS_BACKPACK
+
+/decl/hierarchy/outfit/newpirate/melee
+	name = "New Pirate - Melee"
+	glasses = /obj/item/clothing/glasses/eyepatch
+	head = /obj/item/clothing/head/helmet/tactical
+	suit = /obj/item/clothing/suit/pirate
+	l_hand = /obj/item/weapon/melee/energy/sword/pirate
+	gloves = /obj/item/clothing/gloves/guards
+
+/decl/hierarchy/outfit/newpirate/melee/post_equip(var/mob/living/carbon/human/H)
+	..()
+	var/obj/item/clothing/uniform = H.w_uniform
+	if(uniform)
+		var/obj/item/clothing/accessory/kneepads/gear = new()
+		if(uniform.can_attach_accessory(gear))
+			uniform.attach_accessory(null, gear)
+		else
+			qdel(gear)
+
+/decl/hierarchy/outfit/newpirate/ballistic
+	name = "New Pirate - Ballistic"
+	gloves = /obj/item/clothing/gloves/thick
+	glasses = /obj/item/clothing/glasses/tacgoggles
+	l_hand = /obj/item/weapon/gun/projectile/automatic/spaceak
+	r_pocket = /obj/item/ammo_magazine/a762mm/spaceak
+	l_pocket = /obj/item/ammo_magazine/a762mm/spaceak
+	uniform = /obj/item/clothing/under/syndicate/pirate
+	suit = null

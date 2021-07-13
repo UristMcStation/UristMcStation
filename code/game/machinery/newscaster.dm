@@ -168,7 +168,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	allCasters -= src
 	..()
 
-/obj/machinery/newscaster/update_icon()
+/obj/machinery/newscaster/on_update_icon()
 	if(inoperable())
 		icon_state = "newscaster_off"
 		if(stat & BROKEN) //If the thing is smashed, add crack overlay on top of the unpowered sprite.
@@ -212,7 +212,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		switch(screen)
 			if(0)
 				dat += "Welcome to Newscasting Unit #[src.unit_no].<BR> Interface & News networks Operational."
-				dat += "<BR><FONT SIZE=1>Property of Nanotransen Inc</FONT>"
+				dat += "<BR><FONT SIZE=1>Property of Ward-Takahashi GMB</FONT>"
 				if(news_network.wanted_issue)
 					dat+= "<HR><A href='?src=\ref[src];view_wanted=1'>Read Wanted Issue</A>"
 				dat+= "<HR><BR><A href='?src=\ref[src];create_channel=1'>Create Feed Channel</A>"
@@ -492,7 +492,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			src.updateUsrDialog()
 
 		else if(href_list["set_new_message"])
-			src.msg = sanitize(input(usr, "Write your Feed story", "Network Channel Handler", ""))
+			src.msg = pencode2html(sanitize(input(usr, "Write your Feed story", "Network Channel Handler", "") as message|null))
 			src.updateUsrDialog()
 
 		else if(href_list["set_attachment"])
@@ -504,10 +504,16 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				src.screen=6
 			else
 				var/image = photo_data ? photo_data.photo : null
-				feedback_inc("newscaster_stories",1)
+				SSstatistics.add_field("newscaster_stories",1)
 				news_network.SubmitArticle(src.msg, src.scanned_user, src.channel_name, image, 0)
-				if(photo_data)
-					photo_data.photo.forceMove(get_turf(src))
+				if(photo_data)	//Let's actually remove the photo data and place the photo back into the user's hands if possible
+					if(!photo_data.is_synth)
+						if(!issilicon(usr))
+							usr.put_in_hands(photo_data.photo)
+						else
+							photo_data.photo.dropInto(loc)
+					qdel(photo_data)
+					photo_data = null
 				src.screen=4
 
 			src.updateUsrDialog()
@@ -713,7 +719,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				if(hitstaken==3)
 					for (var/mob/O in hearers(5, src.loc))
 						O.show_message("[user.name] smashes the [src.name]!" )
-					stat |= BROKEN
+					set_broken(TRUE)
 					playsound(src.loc, 'sound/effects/Glassbr3.ogg', 100, 1)
 				else
 					for (var/mob/O in hearers(5, src.loc))
@@ -721,7 +727,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 					playsound(src.loc, 'sound/effects/Glasshit.ogg', 100, 1)
 		else
 			to_chat(user, "<span class='notice'>This does nothing.</span>")
-	update_icon()
+	queue_icon_update()
 
 /obj/machinery/newscaster/attack_ai(mob/user as mob)
 	return src.attack_hand(user) //or maybe it'll have some special functions? No idea.
@@ -737,17 +743,18 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 /obj/machinery/newscaster/proc/AttachPhoto(mob/user as mob)
 	if(photo_data)
 		if(!photo_data.is_synth)
-			photo_data.photo.forceMove(get_turf(src))
 			if(!issilicon(user))
 				user.put_in_hands(photo_data.photo)
+			else
+				photo_data.photo.dropInto(loc)
 		qdel(photo_data)
 		photo_data = null
 		return
 
 	if(istype(user.get_active_hand(), /obj/item/weapon/photo))
+		var/obj/item/photo = user.get_active_hand()
 		if(!user.unequip_item(src))
 			return
-		var/obj/item/photo = user.get_active_hand()
 		photo_data = new(photo, 0)
 	else if(istype(user,/mob/living/silicon))
 		var/mob/living/silicon/tempAI = user
@@ -777,7 +784,8 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	var/scribble=""
 	var/scribble_page = null
 
-obj/item/weapon/newspaper/attack_self(mob/user as mob)
+obj/item/weapon/newspaper/attack_self(mob/user)
+	user.update_personal_goal(/datum/goal/achievement/newshound, TRUE)
 	if(ishuman(user))
 		var/mob/living/carbon/human/human_user = user
 		var/dat
@@ -934,13 +942,13 @@ obj/item/weapon/newspaper/attackby(obj/item/weapon/W as obj, mob/user as mob)
 
 
 /obj/machinery/newscaster/proc/print_paper()
-	feedback_inc("newscaster_newspapers_printed",1)
+	SSstatistics.add_field("newscaster_newspapers_printed",1)
 	var/obj/item/weapon/newspaper/NEWSPAPER = new /obj/item/weapon/newspaper
 	for(var/datum/feed_channel/FC in news_network.network_channels)
 		NEWSPAPER.news_content += FC
 	if(news_network.wanted_issue)
 		NEWSPAPER.important_message = news_network.wanted_issue
-	NEWSPAPER.loc = get_turf(src)
+	NEWSPAPER.dropInto(loc)
 	src.paper_remaining--
 	return
 

@@ -4,7 +4,6 @@
 	icon_state = "doorbell"
 	desc = "A button used to request the presence of anyone in the department."
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 2
 	var/acknowledged = 0
 	var/last_paged
@@ -66,3 +65,12 @@
 
 /obj/machinery/pager/cargo //supply
 	department = SUP
+
+/obj/machinery/pager/security //torch security
+	department = SEC
+
+/obj/machinery/pager/science
+	department = SCI
+
+/obj/machinery/pager/engineering
+	department = ENG

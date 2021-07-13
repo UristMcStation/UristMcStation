@@ -9,7 +9,7 @@
 #define FOOTSTEP_CATWALK	"catwalk"
 #define FOOTSTEP_LAVA		"lava"
 
-/turf/simulated/floor/var/global/list/footstep_sounds = list(
+/turf/simulated/var/global/list/footstep_sounds = list(
 	FOOTSTEP_WOOD = list(
 		'sound/effects/footstep/wood1.ogg',
 		'sound/effects/footstep/wood2.ogg',
@@ -66,15 +66,19 @@
 /decl/flooring/wood/footstep_type = FOOTSTEP_WOOD
 /decl/flooring/reinforced/footstep_type = FOOTSTEP_PLATING
 
-/turf/simulated/floor/proc/get_footstep_sound()
+/turf/simulated/proc/get_footstep_sound()
 	if(check_fluid_depth(10) && !is_flooded(TRUE))
 		return safepick(footstep_sounds[FOOTSTEP_WATER])
 	else if(is_plating())
 		return safepick(footstep_sounds[FOOTSTEP_PLATING])
-	else if(!flooring || !flooring.footstep_type)
-		return safepick(footstep_sounds[FOOTSTEP_BLANK])
-	else
-		return safepick(footstep_sounds[flooring.footstep_type])
+
+/turf/simulated/floor/get_footstep_sound()
+	. = ..()
+	if(!.)
+		if(!flooring || !flooring.footstep_type)
+			return safepick(footstep_sounds[FOOTSTEP_BLANK])
+		else
+			return safepick(footstep_sounds[flooring.footstep_type])
 
 /turf/simulated/floor/asteroid/get_footstep_sound()
 	return safepick(footstep_sounds[FOOTSTEP_ASTEROID])
@@ -91,7 +95,7 @@
 /turf/simulated/floor/fixed/get_footstep_sound()
 	return safepick(footstep_sounds[FOOTSTEP_PLATING])
 
-/turf/simulated/floor/Entered(var/mob/living/carbon/human/H)
+/turf/simulated/Entered(var/mob/living/carbon/human/H)
 	..()
 	if(istype(H))
 		H.handle_footsteps()
@@ -102,30 +106,35 @@
 
 /mob/living/carbon/human/var/step_count
 
-/mob/living/carbon/human/proc/handle_footsteps()
-	var/turf/simulated/floor/T = get_turf(src)
-	if(!istype(T))
-		return
-
+/mob/living/carbon/human/proc/has_footsteps()
 	if(buckled || lying || throwing)
 		return //people flying, lying down or sitting do not step
-
-	if(MOVING_QUICKLY(src))
-		if(step_count % 2) //every other turf makes a sound
-			return
-
+	
 	if(species.silent_steps)
 		return //species is silent
 
 	if(shoes && (shoes.item_flags & ITEM_FLAG_SILENT))
 		return // quiet shoes
 
+	if(!has_organ(BP_L_FOOT) && !has_organ(BP_R_FOOT))
+		return //no feet no footsteps
+	
+	return TRUE
+
+/mob/living/carbon/human/proc/handle_footsteps()
+	var/turf/simulated/T = get_turf(src)
+	if(!istype(T))
+		return
+	if(!has_footsteps())
+		return
+
+	if(MOVING_QUICKLY(src))
+		if(step_count % 2) //every other turf makes a sound
+			return
+	
 	if(!has_gravity(src))
 		if(step_count % 3) // don't need to step as often when you hop around
 			return
-
-	if(!has_organ(BP_L_FOOT) && !has_organ(BP_R_FOOT))
-		return //no feet no footsteps
 
 	var/footsound
 	for(var/obj/structure/S in T)

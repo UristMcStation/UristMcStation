@@ -33,19 +33,27 @@
 	reinf_material = newrmaterial
 	update_material()
 
-/turf/simulated/wall/update_icon()
+/turf/simulated/wall/on_update_icon()
 
 	..()
 
 	if(!material)
 		return
 
-	if(!damage_overlays[1]) //list hasn't been populated
+	if(!damage_overlays[1]) //list hasn't been populated; note that it is always of fixed length, so we must check for membership.
 		generate_overlays()
 
-	overlays.Cut()
-	var/image/I
+	// This line apparently causes runtimes during initialization.
+	// As we don't know why, or how to resolve this, I'm blocking runtime recording until after init.
+	try
+		overlays.Cut()
+	catch(var/exception/e)
+		if(e && GAME_STATE < RUNLEVEL_GAME)
+			queue_icon_update()
+			return
+		throw e
 
+	var/image/I
 	var/base_color = paint_color ? paint_color : material.icon_colour
 	if(!density)
 		I = image('icons/turf/wall_masks.dmi', "[material.icon_base]fwall_open")
@@ -69,7 +77,7 @@
 			I.color = reinf_color
 			overlays += I
 		else
-			if("[reinf_material.icon_reinf]0" in icon_states('icons/urist/turf/wall_masks.dmi'))
+			if("[reinf_material.icon_reinf]0" in icon_states('icons/turf/wall_masks.dmi'))
 				// Directional icon
 				for(var/i = 1 to 4)
 					I = image('icons/turf/wall_masks.dmi', "[reinf_material.icon_reinf][wall_connections[i]]", dir = 1<<(i-1))
@@ -154,7 +162,9 @@
 
 /turf/simulated/wall/proc/can_join_with(var/turf/simulated/wall/W)
 	if(material && W.material && material.icon_base == W.material.icon_base)
-		return 1
+		if((reinf_material && W.reinf_material) || (!reinf_material && !W.reinf_material))
+			return 1
+		return 2
 	for(var/wb_type in blend_turfs)
 		if(istype(W, wb_type))
 			return 2

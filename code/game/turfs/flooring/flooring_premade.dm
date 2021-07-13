@@ -11,7 +11,7 @@
 	icon_state = "bcircuit"
 	initial_flooring = /decl/flooring/reinforced/circuit
 	light_outer_range = 2
-	light_max_bright = 3
+	light_max_bright = 1
 	light_color = COLOR_BLUE
 
 /turf/simulated/floor/bluegrid/airless
@@ -48,6 +48,22 @@
 	icon_state = "wood"
 	initial_flooring = /decl/flooring/wood
 
+/turf/simulated/floor/wood/mahogany
+	icon_state = "mahogany"
+	initial_flooring = /decl/flooring/wood/mahogany
+
+/turf/simulated/floor/wood/maple
+	icon_state = "maple"
+	initial_flooring = /decl/flooring/wood/maple
+
+/turf/simulated/floor/wood/ebony
+	icon_state = "ebony"
+	initial_flooring = /decl/flooring/wood/ebony
+
+/turf/simulated/floor/wood/walnut
+	icon_state = "walnut"
+	initial_flooring = /decl/flooring/wood/walnut
+
 /turf/simulated/floor/wood/broken/Initialize()
 	. = ..()
 	if(prob(75))
@@ -55,7 +71,7 @@
 
 /turf/simulated/floor/grass
 	name = "grass patch"
-	icon = 'icons/turf/flooring/grass.dmi'
+	icon = 'icons/urist/turf/uristturf.dmi'
 	icon_state = "grass0"
 	initial_flooring = /decl/flooring/grass
 
@@ -252,6 +268,11 @@
 	name = "floor"
 	icon_state = "kafel_full"
 	initial_flooring = /decl/flooring/tiling/new_tile/kafel
+
+/turf/simulated/floor/tiled/stone
+	name = "stone slab floor"
+	icon_state = "stone_full"
+	initial_flooring = /decl/flooring/tiling/stone
 
 /turf/simulated/floor/tiled/techfloor/grid
 	name = "floor"

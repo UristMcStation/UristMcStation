@@ -81,6 +81,12 @@
 	var/max_equip = 3
 	var/datum/events/events
 
+
+	var/static/image/radial_image_eject = image(icon = 'icons/screen/radial.dmi', icon_state = "radial_eject"),
+	var/static/image/radial_image_airtoggle = image(icon= 'icons/screen/radial.dmi', icon_state = "radial_airtank"),
+	var/static/image/radial_image_lighttoggle = image(icon = 'icons/screen/radial.dmi', icon_state = "radial_light"),
+	var/static/image/radial_image_statpanel = image(icon = 'icons/screen/radial.dmi', icon_state = "radial_examine2")
+
 /obj/mecha/drain_power(var/drain_check)
 
 	if(drain_check)
@@ -250,6 +256,50 @@
 		radio.talk_into(M, text)
 	return
 
+/obj/mecha/proc/check_occupant_radial(var/mob/user)
+	if(!user)
+		return FALSE
+	if(user.stat)
+		return FALSE
+	if(user != occupant)
+		return FALSE
+	if(user.incapacitated())
+		return FALSE
+
+	return TRUE
+
+/obj/mecha/proc/show_radial_occupant(var/mob/user)
+	var/list/choices = list(
+		"Eject" = radial_image_eject,
+		"Toggle Airtank" = radial_image_airtoggle,
+		"Toggle Light" = radial_image_lighttoggle,
+		"View Stats" = radial_image_statpanel
+	)
+	var/choice = show_radial_menu(user, src, choices, custom_check = CALLBACK(src, .proc/check_occupant_radial, user), require_near = TRUE, tooltips = TRUE)
+	if(!check_occupant_radial(user))
+		return
+	if(!choice)
+		return
+	switch(choice)
+		if("Eject")
+			go_out()
+			add_fingerprint(usr)
+		if("Toggle Airtank")
+			use_internal_tank = !use_internal_tank
+			occupant_message("Now taking air from [use_internal_tank?"internal airtank":"environment"].")
+			log_message("Now taking air from [use_internal_tank?"internal airtank":"environment"].")
+		if("Toggle Light")
+			lights = !lights
+			if(lights)
+				set_light(0.6, 1, 6)
+			else
+				set_light(0)
+			occupant_message("Toggled lights [lights?"on":"off"].")
+			log_message("Toggled lights [lights?"on":"off"].")
+			playsound(src, 'sound/mecha/heavylightswitch.ogg', 50, 1)
+		if("View Stats")
+			occupant << browse(src.get_stats_html(), "window=exosuit")
+
 ////////////////////////////
 ///// Action processing ////
 ////////////////////////////
@@ -279,6 +329,9 @@
 /obj/mecha/proc/click_action(atom/target,mob/user)
 	if(!src.occupant || src.occupant != user ) return
 	if(user.stat) return
+	if(target == src && user == occupant)
+		show_radial_occupant(user)
+		return
 	if(state)
 		occupant_message("<font color='red'>Maintenance protocols in effect.</font>")
 		return
@@ -349,7 +402,7 @@
 
 /obj/mecha/relaymove(mob/user,direction)
 	if(user != src.occupant) //While not "realistic", this piece is player friendly.
-		user.forceMove(get_turf(src))
+		user.dropInto(loc)
 		to_chat(user, "You climb out from [src]")
 		return 0
 	if(connected_port)
@@ -360,9 +413,16 @@
 	if(state)
 		occupant_message("<font color='red'>Maintenance protocols in effect.</font>")
 		return
+/*	if(!user.skill_check(SKILL_MECH, HAS_PERK))     We don't want to use yer damn skills - Shippy
+		if(prob(5))
+			if((. = do_move(turn(direction, pick(90, 270)), 2)))
+				user.visible_message("<span class='warning'>\The [src] swerves wildly!</span>", "<span class='warning'>You hit the wrong control: [src] swerves wildly!</span>")
+			return
+		if(prob(5))
+			return do_move(direction, rand(5,12)) */
 	return do_move(direction)
 
-/obj/mecha/proc/do_move(direction)
+/obj/mecha/proc/do_move(direction, number = 1)
 	if(!can_move)
 		return 0
 	if(src.pr_inertial_movement.active())
@@ -385,6 +445,8 @@
 				src.log_message("Movement control lost. Inertial movement started.")
 		if(do_after(step_in))
 			can_move = 1
+		if(--number)
+			return .()
 		return 1
 	return 0
 
@@ -557,6 +619,10 @@
 	return
 
 /obj/mecha/attack_hand(mob/user as mob)
+	if(user == occupant)
+		show_radial_occupant(user)
+		return
+
 	src.log_message("Attack by hand/paw. Attacker - [user].",1)
 
 	if(istype(user,/mob/living/carbon/human))
@@ -578,7 +644,7 @@
 			user.visible_message("<span class='danger'>\The [user] hits \the [src]. Nothing happens.</span>","<span class='danger'>You hit \the [src] with no visible effect.</span>")
 			src.log_append_to_last("Armor saved.")
 		return
-	else if ((HULK in user.mutations) && !deflect_hit(is_melee=1))
+	else if ((MUTATION_HULK in user.mutations) && !deflect_hit(is_melee=1))
 		src.hit_damage(damage=15, is_melee=1)
 		src.check_for_internal_damage(list(MECHA_INT_TEMP_CONTROL,MECHA_INT_TANK_BREACH,MECHA_INT_CONTROL_LOST))
 		user.visible_message("<font color='red'><b>[user] hits [src.name], doing some damage.</b></font>", "<font color='red'><b>You hit [src.name] with all your might. The metal creaks and bends.</b></font>")
@@ -780,7 +846,7 @@
 		if(state>=3 && src.occupant)
 			to_chat(user, "You attempt to eject the pilot using the maintenance controls.")
 			if(src.occupant.stat)
-				src.go_out()
+				src.go_out(user)
 				src.log_message("[src.occupant] was ejected using the maintenance controls.")
 			else
 				to_chat(user, "<span class='warning'>Your attempt is rejected.</span>")
@@ -978,6 +1044,7 @@
 	lights = !lights
 	if(lights)	set_light(0.6, 1, 6)
 	else		set_light(0)
+	playsound(src, 'sound/mecha/heavylightswitch.ogg', 50, 1)
 	src.occupant_message("Toggled lights [lights?"on":"off"].")
 	log_message("Toggled lights [lights?"on":"off"].")
 	return
@@ -1083,28 +1150,19 @@
 	src.occupant << browse(src.get_stats_html(), "window=exosuit")
 	return
 
-/*
-/obj/mecha/verb/force_eject()
-	set category = "Object"
-	set name = "Force Eject"
-	set src in view(5)
-	src.go_out()
-	return
-*/
-
 /obj/mecha/verb/eject()
 	set name = "Eject"
 	set category = "Exosuit Interface"
 	set src = usr.loc
 	set popup_menu = 0
-	if(usr!=src.occupant)
+	if(usr != occupant)
 		return
-	src.go_out()
+	go_out(usr)
 	add_fingerprint(usr)
 	return
 
-
-/obj/mecha/proc/go_out()
+// user argument optional, for skill checking
+/obj/mecha/proc/go_out(mob/user)
 	if(!src.occupant) return
 	var/atom/movable/mob_container
 	if(ishuman(occupant))
@@ -1151,13 +1209,12 @@
 		if(istype(mob_container, /obj/item/device/mmi))
 			var/obj/item/device/mmi/mmi = mob_container
 			if(mmi.brainmob)
-				occupant.loc = mmi
+				occupant.forceMove(mmi)
 			mmi.mecha = null
 			src.verbs += /obj/mecha/verb/eject
 		src.occupant = null
 		src.icon_state = src.reset_icon()+"-open"
 		src.set_dir(dir_in)
-	return
 
 /////////////////////////
 ////// Access stuff /////
@@ -1182,7 +1239,8 @@
 		return 1
 	if(!access_list.len) //no requirements
 		return 1
-	I = I.GetIdCard()
+	if(I)
+		I = I.GetIdCard()
 	if(!istype(I) || !I.access) //not ID or no access
 		return 0
 	if(access_list==src.operation_req_access)
@@ -1569,12 +1627,12 @@
 		return
 	if(href_list["add_req_access"] && add_req_access && F.getObj("id_card"))
 		if(!in_range(src, usr))	return
-		operation_req_access += F.getNum("add_req_access")
+		operation_req_access += F.get("add_req_access")
 		output_access_dialog(F.getObj("id_card"),F.getMob("user"))
 		return
 	if(href_list["del_req_access"] && add_req_access && F.getObj("id_card"))
 		if(!in_range(src, usr))	return
-		operation_req_access -= F.getNum("del_req_access")
+		operation_req_access -= F.get("del_req_access")
 		output_access_dialog(F.getObj("id_card"),F.getMob("user"))
 		return
 	if(href_list["finish_req_access"])

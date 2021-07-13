@@ -4,7 +4,7 @@
 	var/radio_desc = ""
 	icon_state = "headset"
 	item_state = "headset"
-	matter = list(DEFAULT_WALL_MATERIAL = 75)
+	matter = list(MATERIAL_ALUMINIUM = 75)
 	subspace_transmission = 1
 	canhear_range = 0 // can't hear headsets from very far away
 
@@ -20,7 +20,7 @@
 	var/ks1type = /obj/item/device/encryptionkey
 	var/ks2type = null
 
-	sprite_sheets = list(SPECIES_UNATHI = 'icons/mob/onmob/Unathi/ears.dmi', SPECIES_RESOMI = 'icons/mob/species/resomi/ears.dmi')
+	sprite_sheets = list(SPECIES_UNATHI = 'icons/mob/species/unathi/generated/onmob_ears_unathi.dmi', SPECIES_RESOMI = 'icons/mob/species/resomi/ears.dmi')
 
 /obj/item/device/radio/headset/Initialize()
 	. = ..()
@@ -200,7 +200,7 @@
 	return ..(freq, level, 1)
 
 /obj/item/device/radio/headset/heads/rd
-	name = "research director's headset"
+	name = "chief science officer's headset"
 	desc = "Headset of the researching God."
 	icon_state = "com_headset"
 	item_state = "headset"
@@ -254,6 +254,13 @@
 /obj/item/device/radio/headset/ert
 	name = "emergency response team radio headset"
 	desc = "The headset of the boss's boss."
+	icon_state = "com_headset"
+	item_state = "headset"
+	ks1type = /obj/item/device/encryptionkey/ert
+
+/obj/item/device/radio/headset/foundation
+	name = "\improper Foundation radio headset"
+	desc = "The headeset of the occult cavalry."
 	icon_state = "com_headset"
 	item_state = "headset"
 	ks1type = /obj/item/device/encryptionkey/ert

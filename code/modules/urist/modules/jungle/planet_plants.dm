@@ -118,7 +118,7 @@ var/jungle_plants_init = 0
 //	potency = 1
 
 /obj/item/weapon/reagent_containers/food/snacks/grown/jungle_fruit/New()
-	seed = plant_controller.create_random_seed() //it could be anything!
+	seed = SSplants.create_random_seed() //it could be anything!
 	plantname = seed.name
 	..()
 

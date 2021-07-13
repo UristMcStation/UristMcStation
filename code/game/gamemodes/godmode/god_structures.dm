@@ -18,7 +18,7 @@
 /obj/structure/deity
 	icon = 'icons/obj/cult.dmi'
 	var/mob/living/deity/linked_god
-	var/health = 10
+	health = 10
 	var/power_adjustment = 1 //How much power we get/lose
 	var/build_cost = 0 //How much it costs to build this item.
 	var/deity_flags = DEITY_STRUCTURE_NEAR_IMPORTANT
@@ -50,7 +50,7 @@
 		)
 	take_damage(W.force)
 
-/obj/structure/deity/proc/take_damage(var/amount)
+/obj/structure/deity/take_damage(var/amount)
 	health -= amount
 	if(health < 0)
 		src.visible_message("\The [src] crumbles!")

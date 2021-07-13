@@ -15,94 +15,125 @@
 	name = "50 steel sheets"
 	contains = list(/obj/item/stack/material/steel/fifty)
 	cost = 10
-	containername = "\improper Steel sheets crate"
+	containername = "steel sheets crate"
+
+/decl/hierarchy/supply_pack/materials/alum50
+	name = "50 aluminium sheets"
+	contains = list(/obj/item/stack/material/aluminium/fifty)
+	cost = 10
+	containername = "aluminium sheets crate"
 
 /decl/hierarchy/supply_pack/materials/glass50
 	name = "50 glass sheets"
 	contains = list(/obj/item/stack/material/glass/fifty)
 	cost = 10
-	containername = "\improper Glass sheets crate"
-
-/decl/hierarchy/supply_pack/materials/wood50
-	name = "50 wooden planks"
-	contains = list(/obj/item/stack/material/wood/fifty)
-	cost = 10
-	containername = "\improper Wooden planks crate"
+	containername = "glass sheets crate"
 
 /decl/hierarchy/supply_pack/materials/plastic50
 	name = "50 plastic sheets"
 	contains = list(/obj/item/stack/material/plastic/fifty)
 	cost = 10
-	containername = "\improper Plastic sheets crate"
+	containername = "plastic sheets crate"
 
 /decl/hierarchy/supply_pack/materials/marble50
 	name = "50 slabs of marble"
 	contains = list(/obj/item/stack/material/marble/fifty)
 	cost = 20
-	containername = "\improper Marble slabs crate"
+	containername = "marble slabs crate"
 
 /decl/hierarchy/supply_pack/materials/plasteel50
 	name = "50 plasteel sheets"
 	contains = list(/obj/item/stack/material/plasteel/fifty)
 	cost = 20
-	containername = "\improper Plasteel sheets crate"
+	containername = "plasteel sheets crate"
 
 /decl/hierarchy/supply_pack/materials/ocp50
 	name = "50 osmium carbide plasteel sheets"
 	contains = list(/obj/item/stack/material/ocp/fifty)
 	cost = 20
-	containername = "\improper Osmium carbide plasteel sheets crate"
+	containername = "osmium carbide plasteel sheets crate"
 
 // Material sheets (10 - Smaller amounts, less cost efficient)
 /decl/hierarchy/supply_pack/materials/marble10
 	name = "10 slabs of marble"
 	contains = list(/obj/item/stack/material/marble/ten)
 	cost = 20
-	containername = "\improper Marble slabs crate"
+	containername = "marble slabs crate"
 
 /decl/hierarchy/supply_pack/materials/plasteel10
 	name = "10 plasteel sheets"
 	contains = list(/obj/item/stack/material/plasteel/ten)
 	cost = 10
-	containername = "\improper Plasteel sheets crate"
+	containername = "plasteel sheets crate"
 
 /decl/hierarchy/supply_pack/materials/ocp10
 	name = "10 osmium carbide plasteel sheets"
 	contains = list(/obj/item/stack/material/ocp/ten)
 	cost = 20
-	containername = "\improper Osmium carbide plasteel sheets crate"
-.
+	containername = "osmium carbide plasteel sheets crate"
+
 /decl/hierarchy/supply_pack/materials/phoron10
 	name = "10 phoron sheets"
 	contains = list(/obj/item/stack/material/phoron/ten)
 	cost = 20 // When sold yields 67 points.
-	containername = "\improper Phoron sheets crate"
+	containername = "phoron sheets crate"
 	newcargocost = 80
 
 /decl/hierarchy/supply_pack/materials/gold10
 	name = "10 gold sheets"
 	contains = list(/obj/item/stack/material/gold/ten)
 	cost = 20
-	containername = "\improper Gold sheets crate"
+	containername = "gold sheets crate"
 	newcargocost = 50
 
 /decl/hierarchy/supply_pack/materials/silver10
 	name = "10 silver sheets"
 	contains = list(/obj/item/stack/material/silver/ten)
 	cost = 20
-	containername = "\improper Silver sheets crate"
+	containername = "silver sheets crate"
 	newcargocost = 45
 
 /decl/hierarchy/supply_pack/materials/uranium10
 	name = "10 uranium sheets"
 	contains = list(/obj/item/stack/material/uranium/ten)
 	cost = 20
-	containername = "\improper Uranium sheets crate"
+	containername = "uranium sheets crate"
 	newcargocost = 80
 
 /decl/hierarchy/supply_pack/materials/diamond10
 	name = "10 diamond sheets"
 	contains = list(/obj/item/stack/material/diamond/ten)
 	cost = 20
-	containername = "\improper Diamond sheets crate"
+	containername = "diamond sheets crate"
 	newcargocost = 100
+
+//wood zone
+/decl/hierarchy/supply_pack/materials/wood50
+	name = "50 wooden planks"
+	contains = list(/obj/item/stack/material/wood/fifty)
+	cost = 10
+	containername = "wooden planks crate"
+
+/decl/hierarchy/supply_pack/materials/mahogany25
+	name = "25 mahogany planks"
+	contains = list(/obj/item/stack/material/wood/mahogany/twentyfive)
+	cost = 10
+	containername = "wooden planks crate"
+
+/decl/hierarchy/supply_pack/materials/maple25
+	name = "25 maple planks"
+	contains = list(/obj/item/stack/material/wood/maple/twentyfive = 2)
+	cost = 10
+	containername = "wooden planks crate"
+
+/decl/hierarchy/supply_pack/materials/walnut25
+	name = "25 walnut planks"
+	contains = list(/obj/item/stack/material/wood/walnut/twentyfive)
+	cost = 10
+	containername = "walnut planks crate"
+
+/decl/hierarchy/supply_pack/materials/ebony25
+	name = "25 ebony planks"
+	contains = list(/obj/item/stack/material/wood/ebony/twentyfive)
+	cost = 15 //luxury tax
+	containername = "ebony planks crate"

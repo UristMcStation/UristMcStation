@@ -8,9 +8,10 @@
 	desc = "A coruscating, barely visible field of energy. It is shaped like a slightly flattened torus."
 	icon = 'icons/obj/machines/power/fusion.dmi'
 	icon_state = "emfield_s1"
-	alpha = 50
+	alpha = 30
 	layer = 4
-	light_color = COLOR_BLUE
+	light_color = COLOR_RED
+	color = COLOR_RED
 
 	var/size = 1
 	var/energy = 0
@@ -35,7 +36,7 @@
 
 	var/light_min_range = 2
 	var/light_min_power = 0.2
-	var/light_max_range = 12
+	var/light_max_range = 18
 	var/light_max_power = 1
 
 	var/last_range
@@ -127,18 +128,40 @@
 
 	var/use_range
 	var/use_power
-	if(plasma_temperature <= 6000)
-		use_range = light_min_range
-		use_power = light_min_power
-	else if(plasma_temperature >= 25000)
-		use_range = light_max_range
-		use_power = light_max_power
-	else
-		var/temp_mod = ((plasma_temperature-5000)/20000)
-		use_range = light_min_range + ceil((light_max_range-light_min_range)*temp_mod)
-		use_power = light_min_power + ceil((light_max_power-light_min_power)*temp_mod)
+	switch(plasma_temperature)
+		if(-INFINITY to 1000)
+			light_color = COLOR_RED
+			use_range = light_min_range
+			use_power = light_min_power
+			alpha = 30
+		if(100000 to INFINITY)
+			light_color = COLOR_VIOLET
+			use_range = light_max_range
+			use_power = light_max_power
+			alpha = 230
+		else
+			var/temp_mod = ((plasma_temperature-5000)/20000)
+			use_range = light_min_range + ceil((light_max_range-light_min_range)*temp_mod)
+			use_power = light_min_power + ceil((light_max_power-light_min_power)*temp_mod)
+			switch(plasma_temperature)
+				if(1000 to 6000)
+					light_color = COLOR_ORANGE
+					alpha = 50
+				if(6000 to 12000)
+					light_color = COLOR_YELLOW
+					alpha = 80
+				if(30000 to 50000)
+					light_color = COLOR_GREEN
+					alpha = 120
+				if(50000 to 70000)
+					light_color = COLOR_CYAN
+					alpha = 160
+				if(70000 to 100000)
+					light_color = COLOR_BLUE
+					alpha = 200
 
 	if(last_range != use_range || last_power != use_power)
+		color = light_color
 		set_light(min(use_power, 1), use_range / 6, use_range) //cap first arg at 1 to avoid breaking lighting stuff.
 		last_range = use_range
 		last_power = use_power
@@ -204,6 +227,9 @@
 								reactants.Remove(particle)
 					Radiate()
 	return
+
+/obj/effect/fusion_em_field/proc/is_shutdown_safe()
+	return plasma_temperature < 1000
 
 /obj/effect/fusion_em_field/proc/Rupture()
 	visible_message("<span class='danger'>\The [src] shudders like a dying animal before flaring to eye-searing brightness and rupturing!</span>")
@@ -363,21 +389,24 @@
 				possible_s_reacts.Remove(cur_p_react)
 
 			//loop through and work out all the possible reactions
-			var/list/possible_reactions = new/list
+			var/list/possible_reactions
 			for(var/cur_s_react in possible_s_reacts)
 				if(possible_s_reacts[cur_s_react] < 1)
 					continue
 				var/decl/fusion_reaction/cur_reaction = get_fusion_reaction(cur_p_react, cur_s_react)
 				if(cur_reaction && plasma_temperature >= cur_reaction.minimum_energy_level)
-					possible_reactions.Add(cur_reaction)
+					LAZYDISTINCTADD(possible_reactions, cur_reaction)
 
 			//if there are no possible reactions here, abandon this primary reactant and move on
-			if(!possible_reactions.len)
+			if(!LAZYLEN(possible_reactions))
 				continue
+
+			/// Sort based on reaction priority to avoid deut-deut eating all the deut before deut-trit can run etc.
+			sortTim(possible_reactions, /proc/cmp_fusion_reaction_des)
 
 			//split up the reacting atoms between the possible reactions
 			while(possible_reactions.len)
-				var/decl/fusion_reaction/cur_reaction = pick(possible_reactions)
+				var/decl/fusion_reaction/cur_reaction = possible_reactions[1]
 				possible_reactions.Remove(cur_reaction)
 
 				//set the randmax to be the lower of the two involved reactants

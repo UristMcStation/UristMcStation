@@ -53,8 +53,15 @@
 		turns_per_move = 2
 		MoveToTarget()
 
+/mob/living/simple_animal/hostile/vagrant/death(gibbed)
+	. = ..()
+	if(. && !gibbed)
+		gib()
+
 /mob/living/simple_animal/hostile/vagrant/Life()
 	. = ..()
+	if(!.)
+		return FALSE
 	if(gripping)
 		if(!(get_turf(src) == get_turf(gripping)))
 			gripping = null
@@ -80,11 +87,8 @@
 		new/mob/living/simple_animal/hostile/vagrant(src.loc)
 		gib()
 		return
-	if(health < 1)
-		gib() //Leave no identifiable evidence.
-		return
 
-/mob/living/simple_animal/hostile/vagrant/update_icon()
+/mob/living/simple_animal/hostile/vagrant/on_update_icon()
 	if(cloaked) //It's fun time
 		alpha = 45
 		set_light(0)
@@ -96,10 +100,10 @@
 		set_light(0.2, 0.1, 3)
 		move_to_delay = 2
 
-/mob/living/simple_animal/hostile/vagrant/AttackingTarget()
+/mob/living/simple_animal/hostile/vagrant/UnarmedAttack(var/atom/A, var/proximity)
 	. = ..()
-	if(ishuman(.))
-		var/mob/living/carbon/human/H = .
+	if(ishuman(A))
+		var/mob/living/carbon/human/H = A
 		if(gripping == H)
 			H.Weaken(3)
 			H.Stun(3)
@@ -115,8 +119,7 @@
 			H.visible_message("<span class='danger'>\the [src] latches onto \the [H], pulsating!</span>")
 			if(carried && length(gripping.virus2) == 0)
 				infect_virus2(gripping, carried, 1)
-			src.loc = gripping.loc
-			return
+			src.forceMove(gripping.loc)
 
 /mob/living/simple_animal/hostile/vagrant/swarm/Initialize()
 	. = ..()

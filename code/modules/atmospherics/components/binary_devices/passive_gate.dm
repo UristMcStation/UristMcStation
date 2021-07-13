@@ -10,7 +10,7 @@
 	name = "pressure regulator"
 	desc = "A one-way air valve that can be used to regulate input or output pressure, and flow rate. Does not require power."
 
-	use_power = 0
+	use_power = POWER_USE_OFF
 	interact_offline = 1
 	var/unlocked = 0	//If 0, then the valve is locked closed, otherwise it is open(-able, it's a one-way valve so it closes if gas would flow backwards).
 	var/target_pressure = ONE_ATMOSPHERE
@@ -33,7 +33,7 @@
 	air1.volume = ATMOS_DEFAULT_VOLUME_PUMP * 2.5
 	air2.volume = ATMOS_DEFAULT_VOLUME_PUMP * 2.5
 
-/obj/machinery/atmospherics/binary/passive_gate/update_icon()
+/obj/machinery/atmospherics/binary/passive_gate/on_update_icon()
 	icon_state = (unlocked && flowing)? "on" : "off"
 
 /obj/machinery/atmospherics/binary/passive_gate/update_underlays()
@@ -103,7 +103,7 @@
 	radio_controller.remove_object(src, frequency)
 	frequency = new_frequency
 	if(frequency)
-		radio_connection = radio_controller.add_object(src, frequency, filter = RADIO_ATMOSIA)
+		radio_connection = radio_controller.add_object(src, frequency, radio_filter = RADIO_ATMOSIA)
 
 /obj/machinery/atmospherics/binary/passive_gate/proc/broadcast_status()
 	if(!radio_connection)
@@ -123,7 +123,7 @@
 		"sigtype" = "status"
 	)
 
-	radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA)
+	radio_connection.post_signal(src, signal, radio_filter = RADIO_ATMOSIA)
 
 	return 1
 

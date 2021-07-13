@@ -31,6 +31,7 @@
 /datum/gear/eyes/sciencegoggles/prescription
 	display_name = "Science Goggles, prescription"
 	path = /obj/item/clothing/glasses/science/prescription
+
 /datum/gear/eyes/security
 	display_name = "Security HUD"
 	path = /obj/item/clothing/glasses/hud/security
@@ -112,3 +113,13 @@
 	display_name = "blindfold"
 	path = /obj/item/clothing/glasses/sunglasses/blindfold
 	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/eyes/janitor
+	display_name = "JaniHUD"
+	path = /obj/item/clothing/glasses/hud/janitor
+	cost = 2
+	allowed_roles = list(/datum/job/janitor)
+
+/datum/gear/eyes/janitor/prescription
+	display_name = "JaniHUD, prescription"
+	path = /obj/item/clothing/glasses/hud/janitor/prescription

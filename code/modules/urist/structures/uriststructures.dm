@@ -65,8 +65,8 @@ Please keep it tidy, by which I mean put comments describing the item before the
 //nt4lyfe
 
 /obj/structure/sign/urist/nt
-	name = "Nanotrasen Sign"
-	desc = "A large sign proudly displaying the logo of Nanotrasen."
+	name = "NanoTrasen Sign"
+	desc = "A large sign proudly displaying the logo of NanoTrasen."
 	icon_state = "ntsign"
 
 //ads
@@ -74,16 +74,16 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/structure/sign/urist/ad/sign1
 	icon_state = "sign1"
 	name = "Cosmetic Surgery advertisement"
-	desc = "An advertisment for Nanotrasen Cosmetic Surgery. Their catchy jingle is still stuck in your head: 'Hate yourself? So do we! Don't choose a bullet, choose Nanotrasen surgery!'"
+	desc = "An advertisment for NanoTrasen Cosmetic Surgery. Their catchy jingle is still stuck in your head: 'Hate yourself? So do we! Don't choose a bullet, choose NanoTrasen surgery!'"
 /obj/structure/sign/urist/ad/sign2
 	icon_state = "sign2"
 	name = "Luna advertisement"
-	desc = "An advertisement for Nanotrasen's offices on Luna. The picture shows an image of Luna before it was terraformed."
+	desc = "An advertisement for NanoTrasen's offices on Luna. The picture shows an image of Luna before it was terraformed."
 
 /obj/structure/sign/urist/ad/sign3
 	icon_state = "sign3"
 	name = "5555 Lotto advertisement"
-	desc = "An advertisement for the Nanotrasen run 5555 Lotto. You suddenly feel an impulse to buy a ticket next time you're back here."
+	desc = "An advertisement for the NanoTrasen run 5555 Lotto. You suddenly feel an impulse to buy a ticket next time you're back here."
 
 /obj/structure/sign/urist/ad/sign4
 	name = "Space Beer advertisement"
@@ -347,8 +347,20 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/structure/grille/wood
 	name = "wooden grille"
 	desc = "A flimsy lattice of wooden rods, with screws to secure it to the floor."
-	icon = 'icons/urist/structures&machinery/structures.dmi'
+	init_material = MATERIAL_WOOD
+//	icon = 'icons/urist/structures&machinery/structures.dmi'
+//	icon_state = "woodgrille"
 	rodpath = /obj/item/stack/woodrods
+
+/*/obj/structure/grille/wood/update_icon()
+	update_onframe()
+
+	overlays.Cut()
+	if(destroyed)
+		if(on_frame)
+			icon_state = "broken"
+		else
+			icon_state = "woodgrille-b"*/
 
 /obj/structure/raft //just a fucking raft
 	name = "raft frame"
@@ -469,10 +481,15 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "woodenbarricade-old"
 	health = 50
 	maxhealth = 50
-	use_material_colour = 0
 
 /obj/structure/barricade/wooden/crude/snow
 	desc = "This space is blocked off by a crude assortment of planks. It seems to be covered in a layer of snow."
 	icon_state = "woodenbarricade-snow-old"
 	health = 75
 	maxhealth = 75
+
+/obj/structure/silicon_decoy
+	icon = 'icons/mob/AI.dmi'
+	icon_state = "ai"
+	anchored = 1
+	density = 1

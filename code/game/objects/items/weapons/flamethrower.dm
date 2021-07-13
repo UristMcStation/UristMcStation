@@ -11,7 +11,7 @@
 	throw_range = 5
 	w_class = ITEM_SIZE_LARGE
 	origin_tech = list(TECH_COMBAT = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 500)
+	matter = list(MATERIAL_STEEL = 500)
 	var/status = 0
 	var/throw_amount = 100
 	var/lit = 0	//on or off
@@ -42,7 +42,7 @@
 	return
 
 
-/obj/item/weapon/flamethrower/update_icon()
+/obj/item/weapon/flamethrower/on_update_icon()
 	overlays.Cut()
 	if(igniter)
 		overlays += "+igniter[status]"
@@ -69,17 +69,16 @@
 /obj/item/weapon/flamethrower/attackby(obj/item/W as obj, mob/user as mob)
 	if(user.stat || user.restrained() || user.lying)	return
 	if(isWrench(W) && !status)//Taking this apart
-		var/turf/T = get_turf(src)
 		if(weldtool)
-			weldtool.loc = T
+			weldtool.dropInto(loc)
 			weldtool = null
 		if(igniter)
-			igniter.loc = T
+			igniter.dropInto(loc)
 			igniter = null
 		if(ptank)
-			ptank.loc = T
+			ptank.dropInto(loc)
 			ptank = null
-		new /obj/item/stack/rods(T)
+		new /obj/item/stack/material/rods(get_turf(src))
 		qdel(src)
 		return
 
@@ -179,8 +178,6 @@
 	for(var/mob/M in viewers(1, loc))
 		if((M.client && M.machine == src))
 			attack_self(M)
-	return
-
 
 /obj/item/weapon/flamethrower/proc/ignite_turf(turf/target)
 	//TODO: DEFERRED Consider checking to make sure tank pressure is high enough before doing this...
@@ -195,7 +192,6 @@
 	//target.hotspot_expose(part4.air_contents.temperature*2,300)
 	target.hotspot_expose((ptank.air_contents.temperature*2) + 380,500) // -- More of my "how do I shot fire?" dickery. -- TLE
 	//location.hotspot_expose(1000,500,1)
-	return
 
 /obj/item/weapon/flamethrower/full/New(var/loc)
 	..()
@@ -205,4 +201,3 @@
 	igniter.secured = 0
 	status = 1
 	update_icon()
-	return

@@ -30,6 +30,7 @@
 
 	var/datum/action/item_action/action = null
 	var/action_button_name //It is also the text which gets displayed on the action button. If not set it defaults to 'Use [name]'. If it's not set, there'll be no button.
+	var/action_button_desc //A description for action button which will be displayed as tooltip.
 	var/default_action_type = /datum/action/item_action // Specify the default type and behavior of the action button for this atom.
 
 	//This flag is used to determine when items in someone's inventory cover others. IE helmets making it so you can't see glasses, etc.
@@ -83,12 +84,15 @@
 	var/list/sprite_sheets_obj = list()
 	var/urist_only = null //If the item is unique to Urist McStation //Now only used for in_hands and betls
 
-	//scom shit
+	//scom shit //lmao why did i do this
 	var/scomtechlvl = null
 
 	/* Species-specific sprite sheets for inventory sprites
 	Works similarly to worn sprite_sheets, except the alternate sprites are used when the clothing/refit_for_species() proc is called.
 	*/
+
+	//tooltip shit
+	var/tip_timer // reference to timer id for a tooltip we might open soon
 
 /obj/item/New()
 	..()
@@ -97,14 +101,13 @@
 		pixel_y = rand(-randpixel, randpixel)
 
 /obj/item/Destroy()
-	qdel(hidden_uplink)
-	hidden_uplink = null
+	QDEL_NULL(hidden_uplink)
 	if(ismob(loc))
 		var/mob/m = loc
 		m.drop_from_inventory(src)
-		m.update_inv_r_hand()
-		m.update_inv_l_hand()
-		src.loc = null
+	var/obj/item/weapon/storage/storage = loc
+	if(istype(storage))
+		storage.on_item_deletion()
 	return ..()
 
 /obj/item/device
@@ -150,20 +153,6 @@
 		if(3)
 			if (prob(5))
 				qdel(src)
-
-/obj/item/verb/move_to_top()
-	set name = "Move To Top"
-	set category = "Object"
-	set src in oview(1)
-
-	if(!istype(src.loc, /turf) || usr.stat || usr.restrained() )
-		return
-
-	var/turf/T = src.loc
-
-	src.loc = null
-
-	src.loc = T
 
 /obj/item/examine(mob/user, var/distance = -1)
 	var/size
@@ -495,8 +484,11 @@ var/list/global/slot_flags_enumeration = list(
 //For non-projectile attacks this usually means the attack is blocked.
 //Otherwise should return 0 to indicate that the attack is not affected in any way.
 /obj/item/proc/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
-	if(get_parry_chance(user))
-		if(default_parry_check(user, attacker, damage_source) && prob(get_parry_chance()))
+	var/parry_chance = get_parry_chance(user)
+	if(attacker)
+		parry_chance = max(0, parry_chance - 10 * attacker.get_skill_difference(SKILL_COMBAT, user))
+	if(parry_chance)
+		if(default_parry_check(user, attacker, damage_source) && prob(parry_chance))
 			user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
 			playsound(user.loc, 'sound/weapons/punchmiss.ogg', 50, 1)
 			on_parry()
@@ -508,6 +500,17 @@ var/list/global/slot_flags_enumeration = list(
 
 /obj/item/proc/get_parry_chance(mob/user)
 	. = base_parry_chance
+
+/obj/item/proc/on_disarm_attempt(mob/target, mob/living/attacker)
+	if(force < 1)
+		return 0
+	if(!istype(attacker))
+		return 0
+	attacker.apply_damage(force, damtype, attacker.hand ? BP_L_HAND : BP_R_HAND, used_weapon = src)
+	attacker.visible_message("<span class='danger'>[attacker] hurts \his hand on [src]!</span>")
+	playsound(target, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+	playsound(target, hitsound, 50, 1, -1)
+	return 1
 
 /obj/item/proc/get_loc_turf()
 	var/atom/L = loc
@@ -535,14 +538,6 @@ var/list/global/slot_flags_enumeration = list(
 	user.do_attack_animation(M)
 
 	src.add_fingerprint(user)
-	//if((CLUMSY in user.mutations) && prob(50))
-	//	M = user
-		/*
-		to_chat(M, "<span class='warning'>You stab yourself in the eye.</span>")
-		M.sdisabilities |= BLIND
-		M.weakened += 4
-		M.adjustBruteLoss(10)
-		*/
 
 	if(istype(H))
 
@@ -621,18 +616,20 @@ var/list/global/slot_flags_enumeration = list(
 		blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
 	return 1 //we applied blood to the item
 
-/obj/item/proc/generate_blood_overlay()
-	if(blood_overlay)
-		return
+GLOBAL_LIST_EMPTY(blood_overlay_cache)
 
+/obj/item/proc/generate_blood_overlay(force = FALSE)
+	if(blood_overlay && !force)
+		return
+	if(GLOB.blood_overlay_cache["[icon]" + icon_state])
+		blood_overlay = GLOB.blood_overlay_cache["[icon]" + icon_state]
+		return
 	var/icon/I = new /icon(icon, icon_state)
 	I.Blend(new /icon('icons/effects/blood.dmi', rgb(255,255,255)),ICON_ADD) //fills the icon_state with white (except where it's transparent)
 	I.Blend(new /icon('icons/effects/blood.dmi', "itemblood"),ICON_MULTIPLY) //adds blood and the remaining white areas become transparant
-
-	//not sure if this is worth it. It attaches the blood_overlay to every item of the same type if they don't have one already made.
-	for(var/obj/item/A in world)
-		if(A.type == type && !A.blood_overlay)
-			A.blood_overlay = image(I)
+	blood_overlay = image(I)
+	blood_overlay.appearance_flags |= NO_CLIENT_COLOR
+	GLOB.blood_overlay_cache["[icon]" + icon_state] = blood_overlay
 
 /obj/item/proc/showoff(mob/user)
 	for (var/mob/M in view(user))
@@ -789,16 +786,40 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	return overlay_image(mob_icon, mob_state, color, RESET_COLOR)
 
 /obj/item/proc/get_examine_line()
-	if(blood_DNA)
-		. = "<span class='warning'>\icon[src] [gender==PLURAL?"some":"a"] [(blood_color != SYNTH_BLOOD_COLOUR) ? "blood" : "oil"]-stained [src]</span>"
+	if(blood_color)
+		. = SPAN_WARNING("\icon[src] [gender==PLURAL?"some":"a"] <font color='[blood_color]'>stained</font> [src]")
 	else
 		. = "\icon[src] \a [src]"
 	var/ID = GetIdCard()
 	if(ID)
 		. += "  <a href='?src=\ref[ID];look_at_id=1'>\[Look at ID\]</a>"
 
+/obj/item/proc/on_active_hand()
+
 /obj/item/is_burnable()
 	return simulated
 
 /obj/item/lava_act()
 	. = (!throwing) ? ..() : FALSE
+
+/obj/item/proc/has_embedded()
+	return
+
+/obj/item/MouseEntered(location,control,params)
+	. = ..()
+	if(usr.get_preference_value(/datum/client_preference/floating_messages) == GLOB.PREF_SHOW && ((src in usr) || isstorage(loc))) // If in inventory or in storage we're looking at
+		var/user = usr
+		tip_timer = addtimer(CALLBACK(src, .proc/openTip, location, control, params, user), 5, TIMER_STOPPABLE)
+
+/obj/item/MouseDown()
+	. = ..()
+	deltimer(tip_timer)
+	closeToolTip(usr)
+
+/obj/item/MouseExited()
+	. = ..()
+	deltimer(tip_timer)
+	closeToolTip(usr)
+
+/obj/item/proc/openTip(location, control, params, user)
+	openToolTip(user, src, params, title = name, content = desc)

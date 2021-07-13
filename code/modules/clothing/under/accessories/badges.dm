@@ -77,11 +77,11 @@
 	var/emagged //emag_act removes access requirements
 
 /obj/item/clothing/accessory/badge/holo/NT
-	name = "\improper NT holobadge"
-	desc = "This glowing red badge marks the holder as a member of NanoTrasen corporate security."
+	name = "corporate holobadge"
+	desc = "This glowing green badge marks the holder as a member of corporate security."
 	icon_state = "ntholobadge"
-	color = COLOR_WHITE
-	badge_string = "NanoTrasen Security"
+	color = null
+	badge_string = "Corporate Security"
 	badge_access = access_research
 
 /obj/item/clothing/accessory/badge/holo/cord
@@ -141,8 +141,8 @@
 					  /obj/item/clothing/accessory/badge/holo/cord = 2)
 
 /obj/item/weapon/storage/box/holobadgeNT
-	name = "\improper NT holobadge box"
-	desc = "A box containing NanoTrasen security holobadges."
+	name = "corporate holobadge box"
+	desc = "A box containing corporate security holobadges."
 	startswith = list(/obj/item/clothing/accessory/badge/holo/NT = 4,
 					  /obj/item/clothing/accessory/badge/holo/NT/cord = 2)
 
@@ -165,10 +165,10 @@
 	badge_string = "Office of Interstellar Intelligence"
 
 /obj/item/clothing/accessory/badge/nanotrasen
-	name = "\improper NanoTrasen badge"
-	desc = "A leather-backed plastic badge with a variety of information printed on it. Belongs to a NanoTrasen corporate executive."
+	name = "corporate badge"
+	desc = "A leather-backed plastic badge with a variety of information printed on it. Belongs to a corporate executive."
 	icon_state = "ntbadge"
-	badge_string = "NanoTrasen Corporate"
+	badge_string = "Corporate Executive Body"
 
 /obj/item/clothing/accessory/badge/ocieagent
 	name = "\improper OCIE Agent's badge"
@@ -191,3 +191,43 @@
 	desc = "A leather-backed plastic badge displaying that the owner is certified press personnel."
 	icon_state = "pressbadge"
 	badge_string = "Journalist"
+	
+/obj/item/clothing/accessory/badge/tags/skrell
+	name = "\improper Skrellian holobadge"
+	desc = "A high tech Skrellian holobadge, designed to project information about the owner."
+	icon_state = "skrell_badge"
+	badge_string = null	//Will be the name of the SDTF.
+
+/obj/item/clothing/accessory/badge/tags/skrell/set_desc(var/mob/living/carbon/human/H)
+	if(!istype(H))
+		return
+	desc = "Blood type: [H.b_type]"
+	
+/obj/item/clothing/accessory/badge/tags/skrell/verb/set_sdtf()
+	set name = "Set SDTF Name"
+	set category = "Object"
+	set src in usr
+	
+	if(usr.incapacitated())
+		to_chat(usr, "<span class='warning'>You're unable to do that.</span>")
+		return
+	
+	var/obj/item/in_hand = usr.get_active_hand()
+	if(in_hand != src)
+		to_chat(usr, "<span class='warning'>You have to be holding [src] to modify it.</span>")
+		return
+	
+	badge_string = sanitize(input(usr, "Input your SDTF.", "SDTF Holobadge") as null|text, MAX_NAME_LEN)
+	
+	if(usr.incapacitated())	//Because things can happen while you're typing
+		to_chat(usr, "<span class='warning'>You're unable to do that.</span>")
+		return
+	in_hand = usr.get_active_hand()
+	if(in_hand != src)
+		to_chat(usr, "<span class='warning'>You have to be holding [src] to modify it.</span>")
+		return
+		
+	if(badge_string)
+		set_name(usr.real_name)
+		set_desc(usr)
+		verbs -= /obj/item/clothing/accessory/badge/tags/skrell/verb/set_sdtf

@@ -32,9 +32,9 @@ var/list/hit_appends = list("-OOF", "-ACK", "-UGH", "-HRNK", "-HURGH", "-GLORF")
 
 var/diary               = null
 var/href_logfile        = null
-var/game_version        = "Baystation12"
+var/game_version        = "Urist McStation"
 var/changelog_hash      = ""
-var/game_year           = (text2num(time2text(world.realtime, "YYYY")) + 544)
+var/game_year           = (text2num(time2text(world.realtime, "YYYY")) + GLOB.using_map.date_offset)
 
 var/round_progressing = 1
 

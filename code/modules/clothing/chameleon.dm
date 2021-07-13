@@ -274,6 +274,7 @@
 /obj/item/weapon/gun/energy/chameleon
 	name = "revolver"
 	desc = "A hologram projector in the shape of a gun. There is a dial on the side to change the gun's disguise."
+	icon = 'icons/obj/guns/revolvers.dmi'
 	icon_state = "revolver"
 	w_class = ITEM_SIZE_SMALL
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
@@ -288,15 +289,13 @@
 	var/obj/item/projectile/copy_projectile
 	var/global/list/gun_choices
 
-/obj/item/weapon/gun/energy/chameleon/New()
-	..()
-
+/obj/item/weapon/gun/energy/chameleon/Initialize()
+	. = ..()
 	if(!gun_choices)
 		gun_choices = list()
 		for(var/gun_type in typesof(/obj/item/weapon/gun/) - src.type)
 			var/obj/item/weapon/gun/G = gun_type
 			src.gun_choices[initial(G.name)] = gun_type
-	return
 
 /obj/item/weapon/gun/energy/chameleon/consume_next_projectile()
 	var/obj/item/projectile/P = ..()
@@ -320,6 +319,7 @@
 	flags_inv = copy.flags_inv
 	fire_sound = copy.fire_sound
 	fire_sound_text = copy.fire_sound_text
+	icon = copy.icon
 
 	var/obj/item/weapon/gun/energy/E = copy
 	if(istype(E))

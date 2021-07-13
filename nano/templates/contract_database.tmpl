@@ -1,15 +1,17 @@
 <hr>
 <span>Current balance: {{:data.credits}} {{:data.currency}}</span>
 <hr>
+<div class='block'>
 <table style="width:100%">
-	<tr><th style="width:20%">Contract<th style="width:30%">Description<th style="width:20%">Issuer<th style="width:10%">Value<th style="width:10%">Required Amount<th style="width:10%">Amount Completed
-	{{for data.existing_contracts}}
-		<tr>
-		<td>{{:value.name}}
-		<td>{{:value.desc}}
-		<td>{{:value.issuer}}
-		<td>{{:value.money}} {{:data.currency}}
-		<td>{{:value.amount}}
-		<td>{{:value.progress}}
-	{{/for}}
+<tr><th style="width:15%">Contract<th style="width:50%">Description<th style="width:15%">Issuer<th style="width:10%">Value<th style="width:5%">Required Amount<th style="width:5%">Amount Completed
+{{for data.existing_contracts}}
+	<tr>
+	<td>{{:value.name}}
+	<td>{{:value.desc}}
+	<td><center>{{:value.issuer}}</center>
+	<td><center>{{:value.money}} {{:data.currency}}</center>
+	<td><center>{{:value.amount}}</center>
+	<td><center>{{:value.progress}}</center>
+{{/for}}
 </table>
+</div>

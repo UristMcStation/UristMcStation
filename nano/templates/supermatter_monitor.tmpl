@@ -56,7 +56,33 @@
 				{{else}}
 					<span class='good'>{{:data.SM_EPR}}</span>
 				{{/if}}
-			</div>		
+			</div>
+			<div class="itemLabel">
+				Crystal Ph Suppression
+			</div>
+			<div class="itemContent">
+				{{if data.SM_PHO = 100}}
+					<span class='bad'>{{:data.SM_PHO}}</span>
+				{{else data.SM_PHO > 50}}
+					<span class='average'>{{:data.SM_PHO}}</span>
+				{{else data.SM_PHO < 30}}
+					<span class='average'>{{:data.SM_PHO}}</span>
+				{{else}}
+					<span class='good'>{{:data.SM_PHO}}</span>
+				{{/if}}
+			</div>
+			<div class="itemLabel">
+				Crystal Resonance Factor
+			</div>
+			<div class="itemContent">
+				{{if data.SM_RAD >2}}
+					<span class='bad'>{{:data.SM_RAD}}</span>
+				{{else data.SM_RAD > 1}}
+					<span class='average'>{{:data.SM_RAD}}</span>
+				{{else}}
+					<span class='good'>{{:data.SM_RAD}}</span>
+				{{/if}}
+			</div>
 		</div>
 		<hr><br
 		<div class="item">
@@ -101,6 +127,13 @@
 					<div class="itemContent">
 						{{:data.SM_gas_N2O}} %
 					</div>
+					<div class="itemLabel">
+						CH3Br:
+					</div>
+					<div class="itemContent">
+						{{:data.SM_gas_CH3BR}} %
+					</div>
+
 				</div>
 			</div>			
 		</div>

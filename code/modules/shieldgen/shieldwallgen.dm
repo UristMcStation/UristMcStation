@@ -6,7 +6,7 @@
 	icon_state = "Shield_Gen"
 	anchored = 0
 	density = 1
-	req_one_access = list(access_engine_equip,access_research)
+	req_access = list(list(access_engine_equip,access_research))
 	var/active = 0
 	var/power = 0
 	var/locked = 1
@@ -16,7 +16,7 @@
 	//There have to be at least two posts, so these are effectively doubled
 	var/power_draw = 30 KILOWATTS //30 kW. How much power is drawn from powernet. Increase this to allow the generator to sustain longer shields, at the cost of more power draw.
 	var/max_stored_power = 50 KILOWATTS //50 kW
-	use_power = 0	//Draws directly from power net. Does not use APC power.
+	use_power = POWER_USE_OFF	//Draws directly from power net. Does not use APC power.
 	active_power_usage = 1200
 
 /obj/machinery/shieldwallgen/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
@@ -34,7 +34,7 @@
 		ui.open()
 		ui.set_auto_update(1)
 
-/obj/machinery/shieldwallgen/update_icon()
+/obj/machinery/shieldwallgen/on_update_icon()
 //	if(stat & BROKEN) -TODO: Broken icon
 	if(!active)
 		icon_state = "Shield_Gen"
@@ -190,8 +190,7 @@
 		var/field_dir = get_dir(T2,get_step(T2, NSEW))
 		T = get_step(T2, NSEW)
 		T2 = T
-		var/obj/machinery/shieldwall/CF = new/obj/machinery/shieldwall/(src, G) //(ref to this gen, ref to connected gen)
-		CF.loc = T
+		var/obj/machinery/shieldwall/CF = new(T, G) //(ref to this gen, ref to connected gen)
 		CF.set_dir(field_dir)
 
 

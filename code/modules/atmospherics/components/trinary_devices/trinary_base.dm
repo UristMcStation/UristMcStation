@@ -1,7 +1,7 @@
 obj/machinery/atmospherics/trinary
 	dir = SOUTH
 	initialize_directions = SOUTH|NORTH|WEST
-	use_power = 0
+	use_power = POWER_USE_OFF
 
 	var/datum/gas_mixture/air1
 	var/datum/gas_mixture/air2
@@ -51,8 +51,6 @@ obj/machinery/atmospherics/trinary
 		return null
 
 	Destroy()
-		loc = null
-
 		if(node1)
 			node1.disconnect(src)
 			qdel(network1)
@@ -67,7 +65,7 @@ obj/machinery/atmospherics/trinary
 		node2 = null
 		node3 = null
 
-		..()
+		return ..()
 
 	atmos_init()
 		..()

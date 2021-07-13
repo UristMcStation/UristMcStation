@@ -4,9 +4,11 @@ GLOBAL_LIST_INIT(registered_cyborg_weapons, list())
 /obj/item/weapon/gun/energy
 	name = "energy gun"
 	desc = "A basic energy-based gun."
+	icon = 'icons/obj/guns/basic_energy.dmi'
 	icon_state = "energy"
 	fire_sound = 'sound/weapons/Taser.ogg'
 	fire_sound_text = "laser blast"
+	accuracy = 1
 
 	var/obj/item/weapon/cell/power_supply //What type of power cell this uses
 	var/charge_cost = 20 //How much energy is needed to fire.
@@ -31,8 +33,8 @@ GLOBAL_LIST_INIT(registered_cyborg_weapons, list())
 	..()
 	update_icon()
 
-/obj/item/weapon/gun/energy/New()
-	..()
+/obj/item/weapon/gun/energy/Initialize()
+	. = ..()
 	if(cell_type)
 		power_supply = new cell_type(src)
 	else
@@ -96,7 +98,7 @@ GLOBAL_LIST_INIT(registered_cyborg_weapons, list())
 	to_chat(user, "Has [shots_remaining] shot\s remaining.")
 	return
 
-/obj/item/weapon/gun/energy/update_icon()
+/obj/item/weapon/gun/energy/on_update_icon()
 	..()
 	if(charge_meter && power_supply)
 		var/ratio = power_supply.percent()

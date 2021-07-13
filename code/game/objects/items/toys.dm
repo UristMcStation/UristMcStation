@@ -74,7 +74,7 @@
 	return
 
 /obj/item/toy/water_balloon/throw_impact(atom/hit_atom)
-	if(src.reagents.total_volume >= 1)
+	if(reagents && reagents.total_volume >= 1)
 		src.visible_message("<span class='warning'>\The [src] bursts!</span>","You hear a pop and a splash.")
 		src.reagents.touch_turf(get_turf(hit_atom))
 		for(var/atom/A in get_turf(hit_atom))
@@ -85,7 +85,7 @@
 				qdel(src)
 	return
 
-/obj/item/toy/water_balloon/update_icon()
+/obj/item/toy/water_balloon/on_update_icon()
 	if(src.reagents.total_volume >= 1)
 		icon_state = "waterballoon"
 		item_state = "balloon"
@@ -94,8 +94,8 @@
 		item_state = "balloon-empty"
 
 /obj/item/toy/balloon
-	name = "syndicate balloon"
-	desc = "FUK NT!11!"
+	name = "\improper 'criminal' balloon"
+	desc = "FUK CAPITALISM!11!"
 	throwforce = 0
 	throw_speed = 4
 	throw_range = 20
@@ -111,7 +111,7 @@
 
 /obj/item/toy/balloon/nanotrasen
 	name = "\improper 'motivational' balloon"
-	desc = "Man, I love NanoTrasen soooo much. I use only NT products. You have NO idea."
+	desc = "Man, I love Profit soooo much. I use only Brand Name products. You have NO idea."
 	icon_state = "ntballoon"
 	item_state = "ntballoon"
 
@@ -141,7 +141,7 @@
 /obj/item/toy/crossbow
 	name = "foam dart crossbow"
 	desc = "A weapon favored by many overactive children. Ages 8 and up."
-	icon = 'icons/obj/gun.dmi'
+	icon = 'icons/obj/guns/energy_crossbow.dmi'
 	icon_state = "crossbow"
 	item_state = "crossbow"
 	item_icons = list(
@@ -788,7 +788,7 @@
 	desc = "No bother to sink or swim when you can just float!"
 	icon_state = "inflatable"
 	item_state = "inflatable"
-	icon = 'icons/obj/clothing/belts.dmi'
+	icon = 'icons/obj/clothing/obj_belt.dmi'
 	slot_flags = SLOT_BELT
 
 /obj/item/weapon/marshalling_wand
@@ -862,7 +862,7 @@
 	var/on = 0
 	var/activation_sound = 'sound/effects/flashlight.ogg'
 
-/obj/item/toy/desk/update_icon()
+/obj/item/toy/desk/on_update_icon()
 	if(on)
 		icon_state = "[initial(icon_state)]-on"
 	else

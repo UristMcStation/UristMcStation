@@ -49,3 +49,20 @@ datum/design/plasmapistol
 	req_tech = list(TECH_ENGINEERING = 1)
 	build_path = /obj/item/weapon/circuitboard/washing_machine
 	sort_string = "URSTF"
+
+/datum/design/item/stock_part/BRPED
+	name = "Bluespace Rapid Part Exchange Device"
+	desc = "A version of the RPED that allows for replacement of parts and scanning from a distance, along with higher capacity for parts."
+	id = "bs_rped"
+	req_tech = list(TECH_ENGINEERING = 3, TECH_MATERIAL = 3, TECH_BLUESPACE = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 15000, "glass" = 5000, "silver" = 2500)
+	build_path = /obj/item/weapon/storage/part_replacer/bluespace
+	sort_string = "CBAAB"
+
+/datum/design/item/powercell/bluespace
+	name = "bluespace"
+	id = "bluespace_cell"
+	req_tech = list(TECH_POWER = 7, TECH_MATERIAL = 6, TECH_BLUESPACE = 4) //The power tech a Hyper Cell will give, Material and Bluespace Tech requirements of the BoH
+	materials = list(DEFAULT_WALL_MATERIAL = 700, "gold" = 250, "silver" = 250, "glass" = 100)
+	build_path = /obj/item/weapon/cell/bluespace
+	sort_string = "URSTG"

@@ -1,7 +1,7 @@
 /datum/species/starlight/shadow
 	name = "Shadow"
 	name_plural = "shadows"
-
+	description = "A being of pure darkness, hates the light and all that comes with it."
 	icobase = 'icons/mob/human_races/species/shadow/body.dmi'
 	deform = 'icons/mob/human_races/species/shadow/body.dmi'
 
@@ -10,7 +10,7 @@
 	darksight_tint = DARKTINT_GOOD
 	siemens_coefficient = 0
 
-	blood_color = "#cccccc"
+	blood_color = COLOR_GRAY80
 	flesh_color = "#aaaaaa"
 
 	remains_type = /obj/effect/decal/cleanable/ash

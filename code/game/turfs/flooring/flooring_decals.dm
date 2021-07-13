@@ -60,7 +60,7 @@ var/list/floor_decals = list()
 	icon_state = "blue2_edges"
 
 /obj/effect/floor_decal/carpet/purple
-	name = "orange carpet"
+	name = "purple carpet"
 	icon_state = "purple_edges"
 
 /obj/effect/floor_decal/carpet/orange
@@ -395,6 +395,40 @@ var/list/floor_decals = list()
 	icon_state = "bordercolorfull"
 
 /obj/effect/floor_decal/corner/yellow/bordercee
+	icon_state = "bordercolorcee"
+
+/obj/effect/floor_decal/corner/gold
+	name = "gold corner"
+	color = "#b99b00"
+
+/obj/effect/floor_decal/corner/gold/diagonal
+	icon_state = "corner_white_diagonal"
+
+/obj/effect/floor_decal/corner/gold/three_quarters
+	icon_state = "corner_white_three_quarters"
+
+/obj/effect/floor_decal/corner/gold/full
+	icon_state = "corner_white_full"
+
+/obj/effect/floor_decal/corner/gold/border
+	icon_state = "bordercolor"
+
+/obj/effect/floor_decal/corner/gold/half
+	icon_state = "bordercolorhalf"
+
+/obj/effect/floor_decal/corner/gold/mono
+	icon_state = "bordercolormonofull"
+
+/obj/effect/floor_decal/corner/gold/bordercorner
+	icon_state = "bordercolorcorner"
+
+/obj/effect/floor_decal/corner/gold/bordercorner2
+	icon_state = "bordercolorcorner2"
+
+/obj/effect/floor_decal/corner/gold/borderfull
+	icon_state = "bordercolorfull"
+
+/obj/effect/floor_decal/corner/gold/bordercee
 	icon_state = "bordercolorcee"
 
 /obj/effect/floor_decal/corner/beige
@@ -766,6 +800,74 @@ var/list/floor_decals = list()
 /obj/effect/floor_decal/corner/darkgrey/three_quarters
 	icon_state = "corner_white_three_quarters"
 
+/obj/effect/floor_decal/corner/b_green
+	name = "bottle green corner"
+	color = COLOR_PALE_BTL_GREEN
+
+/obj/effect/floor_decal/corner/b_green/diagonal
+	icon_state = "corner_white_diagonal"
+
+/obj/effect/floor_decal/corner/b_green/three_quarters
+	icon_state = "corner_white_three_quarters"
+
+/obj/effect/floor_decal/corner/b_green/full
+	icon_state = "corner_white_full"
+
+/obj/effect/floor_decal/corner/b_green/border
+	icon_state = "bordercolor"
+
+/obj/effect/floor_decal/corner/b_green/half
+	icon_state = "bordercolorhalf"
+
+/obj/effect/floor_decal/corner/b_green/mono
+	icon_state = "bordercolormonofull"
+
+/obj/effect/floor_decal/corner/b_green/bordercorner
+	icon_state = "bordercolorcorner"
+
+/obj/effect/floor_decal/corner/b_green/bordercorner2
+	icon_state = "bordercolorcorner2"
+
+/obj/effect/floor_decal/corner/b_green/borderfull
+	icon_state = "bordercolorfull"
+
+/obj/effect/floor_decal/corner/b_green/bordercee
+	icon_state = "bordercolorcee"
+
+/obj/effect/floor_decal/corner/research
+	name = "research corner"
+	color = COLOR_RESEARCH
+
+/obj/effect/floor_decal/corner/research/diagonal
+	icon_state = "corner_white_diagonal"
+
+/obj/effect/floor_decal/corner/research/three_quarters
+	icon_state = "corner_white_three_quarters"
+
+/obj/effect/floor_decal/corner/research/full
+	icon_state = "corner_white_full"
+
+/obj/effect/floor_decal/corner/research/border
+	icon_state = "bordercolor"
+
+/obj/effect/floor_decal/corner/research/half
+	icon_state = "bordercolorhalf"
+
+/obj/effect/floor_decal/corner/research/mono
+	icon_state = "bordercolormonofull"
+
+/obj/effect/floor_decal/corner/research/bordercorner
+	icon_state = "bordercolorcorner"
+
+/obj/effect/floor_decal/corner/research/bordercorner2
+	icon_state = "bordercolorcorner2"
+
+/obj/effect/floor_decal/corner/research/borderfull
+	icon_state = "bordercolorfull"
+
+/obj/effect/floor_decal/corner/research/bordercee
+	icon_state = "bordercolorcee"
+
 /obj/effect/floor_decal/spline/plain
 	name = "spline - plain"
 	icon_state = "spline_plain"
@@ -1117,6 +1219,11 @@ var/list/floor_decals = list()
 /obj/effect/floor_decal/ntlogo
 	icon_state = "ntlogo"
 
+/obj/effect/floor_decal/torchltdlogo
+	alpha = 230
+	icon = 'icons/turf/flooring/corp_floor.dmi'
+	icon_state = "bottomleft"
+
 //Techfloor
 
 /obj/effect/floor_decal/corner_techfloor_gray
@@ -1258,7 +1365,6 @@ var/list/floor_decals = list()
 /obj/effect/floor_decal/steeldecal/steel_decals_central7
 	icon_state = "steel_decals_central7"
 
-
 /obj/effect/floor_decal/techfloor
 	name = "techfloor edges"
 	icon_state = "techfloor_edges"
@@ -1283,3 +1389,9 @@ var/list/floor_decals = list()
 	name = "hole right"
 	icon_state = "techfloor_hole_right"
 
+/obj/effect/floor_decal/stoneborder
+	name = "stone border"
+	icon_state = "stoneborder"
+
+/obj/effect/floor_decal/stoneborder/corner
+	icon_state = "stoneborder_c"

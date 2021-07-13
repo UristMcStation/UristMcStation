@@ -32,12 +32,15 @@
 
 	if(!(language && (language.flags & INNATE))) // skip understanding checks for INNATE languages
 		if(!say_understands(speaker,language))
-			if(istype(speaker,/mob/living/simple_animal))
+			/*if(istype(speaker,/mob/living/simple_animal))
 				var/mob/living/simple_animal/S = speaker
 				message = pick(S.speak)
+			else */
+			if(language)
+				message = language.scramble(message)
 			else
 				if(language)
-					message = language.scramble(message)
+					message = language.scramble(message, languages)
 				else
 					message = stars(message)
 
@@ -79,7 +82,7 @@
 						nverb = "[verb] ([language.shorthand])"
 					if(GLOB.PREF_OFF)//Regular output
 						nverb = verb
-				on_hear_say("<span class='game say'><span class='name'>[speaker_name]</span>[alt_name] [track][language.format_message(message, nverb)]</span>")
+				on_hear_say("<span class='game say'>[track]<span class='name'>[speaker_name]</span>[alt_name] [language.format_message(message, nverb)]</span>")
 
 		else
 			on_hear_say("<span class='game say'>[track]<span class='name'>[speaker_name]</span>[alt_name] [verb], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
@@ -98,7 +101,7 @@
 
 	if(!client)
 		return
-	
+
 	if(last_radio_sound + 0.5 SECOND > world.time)
 		playsound(loc, 'sound/effects/radio_chatter.ogg', 10, 0, -1, falloff = -3)
 		last_radio_sound = world.time
@@ -124,7 +127,7 @@
 					return
 			else
 				if(language)
-					message = language.scramble(message)
+					message = language.scramble(message, languages)
 				else
 					message = stars(message)
 
@@ -197,7 +200,7 @@
 	if(isghost(src))
 		if(speaker_name != speaker.real_name && !isAI(speaker)) //Announce computer and various stuff that broadcasts doesn't use it's real name but AI's can't pretend to be other mobs.
 			speaker_name = "[speaker.real_name] ([speaker_name])"
-		track = "[speaker_name] ([ghost_follow_link(speaker, src)])"
+		track = "([ghost_follow_link(speaker, src)]) [speaker_name]"
 
 	var/formatted
 	if(language)

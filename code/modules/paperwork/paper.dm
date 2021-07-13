@@ -30,15 +30,21 @@
 	var/list/offset_y[0] //usage by the photocopier
 	var/rigged = 0
 	var/spam_flag = 0
+	var/last_modified_ckey
+	var/age = 0
+	var/list/metadata
 
 	var/const/deffont = "Verdana"
 	var/const/signfont = "Times New Roman"
 	var/const/crayonfont = "Comic Sans MS"
 	var/const/fancyfont = "Segoe Script"
 
-/obj/item/weapon/paper/New(loc, text,title)
+	var/scan_file_type = /datum/computer_file/data/text
+
+/obj/item/weapon/paper/New(loc, text, title, list/md = null)
 	..(loc)
 	set_content(text ? text : info, title)
+	metadata = md
 
 /obj/item/weapon/paper/proc/set_content(text,title)
 	if(title)
@@ -49,7 +55,7 @@
 	update_space(info)
 	updateinfolinks()
 
-/obj/item/weapon/paper/update_icon()
+/obj/item/weapon/paper/on_update_icon()
 	if(icon_state == "paper_talisman")
 		return
 	else if(info)
@@ -83,7 +89,7 @@
 	set category = "Object"
 	set src in usr
 
-	if((CLUMSY in usr.mutations) && prob(50))
+	if((MUTATION_CLUMSY in usr.mutations) && prob(50))
 		to_chat(usr, "<span class='warning'>You cut yourself on the paper.</span>")
 		return
 	var/n_name = sanitizeSafe(input(usr, "What would you like to label the paper?", "Paper Labelling", null)  as text, MAX_NAME_LEN)
@@ -297,7 +303,7 @@
 
 
 		// if paper is not in usr, then it must be near them, or in a clipboard or folder, which must be in or near usr
-		if(src.loc != usr && !src.Adjacent(usr) && !((istype(src.loc, /obj/item/weapon/clipboard) || istype(src.loc, /obj/item/weapon/folder)) && (src.loc.loc == usr || src.loc.Adjacent(usr)) ) )
+		if(src.loc != usr && !src.Adjacent(usr) && !((istype(src.loc, /obj/item/weapon/material/clipboard) || istype(src.loc, /obj/item/weapon/folder)) && (src.loc.loc == usr || src.loc.Adjacent(usr)) ) )
 			return
 
 		var/last_fields_value = fields
@@ -315,6 +321,8 @@
 		else
 			info += t // Oh, he wants to edit to the end of the file, let him.
 			updateinfolinks()
+
+		last_modified_ckey = usr.ckey
 
 		update_space(t)
 
@@ -336,6 +344,11 @@
 		return
 
 	if(istype(P, /obj/item/weapon/paper) || istype(P, /obj/item/weapon/photo))
+		if(!can_bundle())
+			return
+		var/obj/item/weapon/paper/other = P
+		if(istype(other) && !other.can_bundle())
+			return
 		if (istype(P, /obj/item/weapon/paper/carbon))
 			var/obj/item/weapon/paper/carbon/C = P
 			if (!C.iscopy && !C.copied)
@@ -371,7 +384,7 @@
 		return
 
 	else if(istype(P, /obj/item/weapon/stamp) || istype(P, /obj/item/clothing/ring/seal))
-		if((!in_range(src, usr) && loc != user && !( istype(loc, /obj/item/weapon/clipboard) ) && loc.loc != user && user.get_active_hand() != P))
+		if((!in_range(src, usr) && loc != user && !( istype(loc, /obj/item/weapon/material/clipboard) ) && loc.loc != user && user.get_active_hand() != P))
 			return
 
 		stamps += (stamps=="" ? "<HR>" : "<BR>") + "<i>This paper has been stamped with the [P.name].</i>"
@@ -411,12 +424,19 @@
 		burnpaper(P, user)
 
 	else if(istype(P, /obj/item/weapon/paper_bundle))
+		if(!can_bundle())
+			return
 		var/obj/item/weapon/paper_bundle/attacking_bundle = P
 		attacking_bundle.insert_sheet_at(user, (attacking_bundle.pages.len)+1, src)
 		attacking_bundle.update_icon()
 
 	add_fingerprint(user)
-	return
+
+/obj/item/weapon/paper/proc/can_bundle()
+	return TRUE
+
+/obj/item/weapon/paper/proc/show_info(var/mob/user)
+	return info
 
 //For supply.
 /obj/item/weapon/paper/manifest
@@ -433,7 +453,7 @@
 	name = "paper scrap"
 	icon_state = "scrap"
 
-/obj/item/weapon/paper/crumpled/update_icon()
+/obj/item/weapon/paper/crumpled/on_update_icon()
 	return
 
 /obj/item/weapon/paper/crumpled/bloody

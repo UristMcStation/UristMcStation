@@ -360,19 +360,19 @@
 
 /mob/living/silicon/proc/clear_client()
 	//Handle job slot/tater cleanup.
-	var/job = mind.assigned_role
-
-	job_master.FreeRole(job)
-
-	if(mind.objectives.len)
-		qdel(mind.objectives)
-		mind.special_role = null
-
-	clear_antag_roles(mind)
-
+	if(mind)
+		if(mind.assigned_job)
+			mind.assigned_job.clear_slot()
+		if(mind.objectives.len)
+			qdel(mind.objectives)
+			mind.special_role = null
+		clear_antag_roles(mind)
 	ghostize(0)
 	qdel(src)
 
 /mob/living/silicon/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
 	if(affect_silicon)
 		return ..()
+
+/mob/living/silicon/seizure()
+	flash_eyes(affect_silicon = TRUE)

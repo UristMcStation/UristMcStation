@@ -71,6 +71,22 @@
 	worn_state = "combat"
 	armor = list(melee = 10, bullet = 0, laser = 10,energy = 0, bomb = 0, bio = 0, rad = 0)
 
+/obj/item/clothing/under/urist/nerva/sci
+	name = "scientist's uniform"
+	desc = "A white uniform worn by NanoTrasen scientists."
+	icon_state = "sci_nerva"
+	item_state = "sci_nerva"
+	worn_state = "sci_nerva"
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 5, rad = 0)
+
+/obj/item/clothing/under/urist/nerva/seniornt
+	name = "senior researcher's uniform"
+	desc = "A smart looking uniform often worn by NanoTrasen Senior Research staff. It offers minor protection to chemicals."
+	icon_state = "directornt"
+	item_state = "directornt"
+	worn_state = "directornt"
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 10, rad = 0)
+
 //jackets
 
 /obj/item/clothing/suit/storage/toggle/urist/hosjacket
@@ -123,19 +139,18 @@
 	min_cold_protection_temperature = 253.15
 	armor = list(melee = 30, bullet = 10, laser = 15, energy = 10, bomb = 10, bio = 0, rad = 0)
 
+/obj/item/clothing/suit/storage/toggle/labcoat/science/nerva
+	name = "science labcoat"
+	desc = "A coat that protects against minor chemical spills. It has the insignia of the ICS Nerva on it."
+	icon = 'icons/urist/items/clothes/clothes.dmi'
+	item_state = "n_lab"
+	icon_state = "n_lab"
+	icon_open = "n_lab_open"
+	icon_closed = "n_lab"
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 15, rad = 0)
+
 
 //armor
-
-/obj/item/clothing/suit/urist/armor/nerva/sec
-	name = "armour vest"
-	desc = "A bulky armoured vest assigned to the ICS Nerva's security officers. Has space to attach additional pouches for storage."
-	icon_state = "nervasecarmour"
-	item_state = "nervasecarmour"
-	blood_overlay_type = "armorblood"
-	armor = list(melee = 50, bullet = 45, laser = 40, energy = 25, bomb = 30, bio = 0, rad = 0)
-	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_L, ACCESSORY_SLOT_ARMOR_S)
-	restricted_accessory_slots = list(ACCESSORY_SLOT_ARMOR_L, ACCESSORY_SLOT_ARMOR_S)
-	starting_accessories = list(/obj/item/clothing/accessory/storage/pouches/large)
 
 /obj/item/clothing/suit/urist/armor/nerva/sec_cos
 	name = "chief of security's armour vest"
@@ -151,6 +166,8 @@
 /obj/item/clothing/suit/armor/pcarrier/medium/nerva
 	starting_accessories = list(/obj/item/clothing/accessory/armorplate/medium, /obj/item/clothing/accessory/storage/pouches, /obj/item/clothing/accessory/armor/tag/nerva)
 
+/obj/item/clothing/suit/armor/pcarrier/merc/cos
+	starting_accessories = list(/obj/item/clothing/accessory/armorplate/merc, /obj/item/clothing/accessory/armguards/merc, /obj/item/clothing/accessory/legguards/merc, /obj/item/clothing/accessory/storage/pouches/large, /obj/item/clothing/accessory/armor/tag/nerva)
 
 //tag
 
@@ -266,7 +283,7 @@
 	name = "exploration command HCM"
 	suit_type = "exploration command hardsuit"
 	desc = "A specialized hardsuit rig control module issued to the quartermaster of the ICS Nerva."
-//	icon = 'maps/torch/icons/obj/uniques.dmi'
+	icon = 'maps/torch/icons/obj/uniques.dmi'
 	icon_state = "command_exp_rig"
 	armor = list(melee = 35, bullet = 25, laser = 20, energy = 35, bomb = 40, bio = 100, rad = 100)
 
@@ -279,28 +296,29 @@
 	boot_type = /obj/item/clothing/shoes/magboots/rig/command/exploration
 	glove_type = /obj/item/clothing/gloves/rig/command/exploration
 
-	allowed = list(/obj/item/weapon/gun, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/weapon/tank, /obj/item/device/suit_cooling_unit)
+	allowed = list(/obj/item/weapon/storage/backpack,/obj/item/weapon/gun, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/weapon/tank, /obj/item/device/suit_cooling_unit, /obj/item/weapon/storage/backpack)
 	req_access = list(access_qm)
 
 /obj/item/clothing/head/helmet/space/rig/command/exploration
 	light_overlay = "helmet_light_dual"
-	icon = 'maps/torch/icons/obj/solgov-head.dmi'
-	item_icons = list(slot_head_str = 'maps/torch/icons/mob/solgov-head.dmi')
+	icon = 'maps/torch/icons/obj/obj_head_solgov.dmi'
+	item_icons = list(slot_head_str = 'maps/torch/icons/mob/onmob_head_solgov.dmi')
+	camera = /obj/machinery/camera/network/command
 	species_restricted = list(SPECIES_HUMAN) //no available icons for aliens
 
 /obj/item/clothing/suit/space/rig/command/exploration
-	icon = 'maps/torch/icons/obj/solgov-suit.dmi'
-	item_icons = list(slot_wear_suit_str = 'maps/torch/icons/mob/solgov-suit.dmi')
+	icon = 'maps/torch/icons/obj/obj_suit_solgov.dmi'
+	item_icons = list(slot_wear_suit_str = 'maps/torch/icons/mob/onmob_suit_solgov.dmi')
 	species_restricted = list(SPECIES_HUMAN)
 
 /obj/item/clothing/shoes/magboots/rig/command/exploration
-	icon = 'maps/torch/icons/obj/solgov-feet.dmi'
-	item_icons = list(slot_shoes_str = 'maps/torch/icons/mob/solgov-feet.dmi')
+	icon = 'maps/torch/icons/obj/obj_feet_solgov.dmi'
+	item_icons = list(slot_shoes_str = 'maps/torch/icons/mob/onmob_feet_solgov.dmi')
 	species_restricted = list(SPECIES_HUMAN)
 
 /obj/item/clothing/gloves/rig/command/exploration
-	icon = 'maps/torch/icons/obj/solgov-hands.dmi'
-	item_icons = list(slot_gloves_str = 'maps/torch/icons/mob/solgov-hands.dmi')
+	icon = 'maps/torch/icons/obj/obj_hands_solgov.dmi'
+	item_icons = list(slot_gloves_str = 'maps/torch/icons/mob/onmob_hands_solgov.dmi')
 	species_restricted = list(SPECIES_HUMAN)
 
 /obj/item/weapon/rig/command/exploration/equipped

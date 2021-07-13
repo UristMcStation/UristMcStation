@@ -21,6 +21,7 @@
 #define SLOT_HOLSTER	0x8000 //16th bit - higher than this will overflow
 
 #define ACCESSORY_SLOT_UTILITY  "Utility"
+#define ACCESSORY_SLOT_HOLSTER	"Holster"
 #define ACCESSORY_SLOT_ARMBAND  "Armband"
 #define ACCESSORY_SLOT_RANK     "Rank"
 #define ACCESSORY_SLOT_DEPT		"Department"
@@ -90,11 +91,9 @@
 #define slot_r_ear_str      "slot_r_ear"
 #define slot_belt_str       "slot_belt"
 #define slot_shoes_str      "slot_shoes"
-#define slot_head_str      	"slot_head"
 #define slot_wear_mask_str 	"slot_wear_mask"
 #define slot_handcuffed_str "slot_handcuffed"
 #define slot_legcuffed_str "slot_legcuffed"
-#define slot_wear_mask_str 	"slot_wear_mask"
 #define slot_wear_id_str  	"slot_wear_id"
 #define slot_gloves_str  	"slot_gloves"
 #define slot_glasses_str  	"slot_glasses"
@@ -195,6 +194,7 @@
 #define HUD_SCIENCE 0x1
 #define HUD_SECURITY 0x2
 #define HUD_MEDICAL 0x4
+#define HUD_JANITOR 0x8
 
 // Storage
 
@@ -215,20 +215,20 @@
 var/list/default_onmob_icons = list(
 		slot_l_hand_str = 'icons/mob/onmob/items/lefthand.dmi',
 		slot_r_hand_str = 'icons/mob/onmob/items/righthand.dmi',
-		slot_belt_str = 'icons/mob/onmob/belt.dmi',
-		slot_back_str = 'icons/mob/onmob/back.dmi',
-		slot_l_ear_str = 'icons/mob/onmob/ears.dmi',
-		slot_r_ear_str = 'icons/mob/onmob/ears.dmi',
-		slot_glasses_str = 'icons/mob/onmob/eyes.dmi',
-		slot_wear_id_str = 'icons/mob/onmob/id.dmi',
-		slot_w_uniform_str = 'icons/mob/onmob/uniform.dmi',
-		slot_wear_suit_str = 'icons/mob/onmob/suit.dmi',
-		slot_head_str = 'icons/mob/onmob/head.dmi',
-		slot_shoes_str = 'icons/mob/onmob/feet.dmi',
-		slot_wear_mask_str = 'icons/mob/onmob/mask.dmi',
-		slot_handcuffed_str = 'icons/mob/onmob/misc.dmi',
-		slot_legcuffed_str = 'icons/mob/onmob/misc.dmi',
-		slot_gloves_str = 'icons/mob/onmob/hands.dmi',
-		slot_s_store_str = 'icons/mob/onmob/belt_mirror.dmi',
-		slot_tie_str = 'icons/mob/onmob/ties.dmi'
+		slot_belt_str = 'icons/mob/onmob/onmob_belt.dmi',
+		slot_back_str = 'icons/mob/onmob/onmob_back.dmi',
+		slot_l_ear_str = 'icons/mob/onmob/onmob_ears.dmi',
+		slot_r_ear_str = 'icons/mob/onmob/onmob_ears.dmi',
+		slot_glasses_str = 'icons/mob/onmob/onmob_eyes.dmi',
+		slot_wear_id_str = 'icons/mob/onmob/onmob_id.dmi',
+		slot_w_uniform_str = 'icons/mob/onmob/onmob_under.dmi',
+		slot_wear_suit_str = 'icons/mob/onmob/onmob_suit.dmi',
+		slot_head_str = 'icons/mob/onmob/onmob_head.dmi',
+		slot_shoes_str = 'icons/mob/onmob/onmob_feet.dmi',
+		slot_wear_mask_str = 'icons/mob/onmob/onmob_mask.dmi',
+		slot_handcuffed_str = 'icons/mob/onmob/onmob_cuff.dmi',
+		slot_legcuffed_str = 'icons/mob/onmob/onmob_cuff.dmi',
+		slot_gloves_str = 'icons/mob/onmob/onmob_hands.dmi',
+		slot_s_store_str = 'icons/mob/onmob/onmob_belt_mirror.dmi',
+		slot_tie_str = 'icons/mob/onmob/onmob_accessories.dmi'
 		)

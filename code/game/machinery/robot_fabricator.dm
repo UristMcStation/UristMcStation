@@ -7,12 +7,11 @@
 	var/metal_amount = 0
 	var/operating = 0
 	var/obj/item/robot_parts/being_built = null
-	use_power = 1
 	idle_power_usage = 40
 	active_power_usage = 10000
 
 /obj/machinery/robotic_fabricator/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if (istype(O, /obj/item/stack/material) && O.get_material_name() == DEFAULT_WALL_MATERIAL)
+	if (istype(O, /obj/item/stack/material) && O.get_material_name() == MATERIAL_STEEL)
 		var/obj/item/stack/M = O
 		if (src.metal_amount < 150000.0)
 			var/count = 0
@@ -22,7 +21,7 @@
 					if(!M.get_amount())
 						return
 					while(metal_amount < 150000 && M.amount)
-						src.metal_amount += O.matter[DEFAULT_WALL_MATERIAL] /*O:height * O:width * O:length * 100000.0*/
+						src.metal_amount += O.matter[MATERIAL_STEEL] /*O:height * O:width * O:length * 100000.0*/
 						M.use(1)
 						count++
 
@@ -114,7 +113,7 @@ Please wait until completion...</TT><BR>
 			if (!isnull(building))
 				if (src.metal_amount >= build_cost)
 					src.operating = 1
-					src.update_use_power(2)
+					src.update_use_power(POWER_USE_ACTIVE)
 
 					src.metal_amount = max(0, src.metal_amount - build_cost)
 
@@ -125,9 +124,9 @@ Please wait until completion...</TT><BR>
 
 					spawn (build_time)
 						if (!isnull(src.being_built))
-							src.being_built.loc = get_turf(src)
+							src.being_built.dropInto(loc)
 							src.being_built = null
-						src.update_use_power(1)
+						src.update_use_power(POWER_USE_IDLE)
 						src.operating = 0
 						src.overlays -= "fab-active"
 		return

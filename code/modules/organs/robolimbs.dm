@@ -10,6 +10,7 @@ var/datum/robolimb/basic_robolimb
 		if(!R.unavailable_at_chargen)
 			chargen_robolimbs[R.company] = R
 
+
 /datum/robolimb
 	var/company = "Unbranded"                                 // Shown when selecting the limb.
 	var/desc = "A generic unbranded robotic prosthesis."      // Seen when examining a limb.
@@ -23,6 +24,7 @@ var/datum/robolimb/basic_robolimb
 	var/list/species_cannot_use = list(SPECIES_RESOMI)
 	var/list/restricted_to = list()
 	var/list/applies_to_part = list() //TODO.
+	var/list/allowed_bodytypes = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_SKRELL, SPECIES_UNATHI, SPECIES_RESOMI, "Grav-Adapted Human", "Space-Adapted Human", "Vat-Grown Human") //Yes, Resomi has to be in here even though most prostheses are blocked for them, otherwise they can't get them in Chargen at all. Why? Iunno. - Vak
 
 /datum/robolimb/bishop
 	company = "Bishop"
@@ -44,7 +46,7 @@ var/datum/robolimb/basic_robolimb
 /datum/robolimb/bishop/alt/monitor
 	company = "Bishop Monitor."
 	icon = 'icons/mob/human_races/cyberlimbs/bishop/bishop_monitor.dmi'
-	restricted_to = list(SPECIES_IPC)
+	allowed_bodytypes = list(SPECIES_IPC)
 	unavailable_at_fab = 1
 
 /datum/robolimb/hephaestus
@@ -63,10 +65,10 @@ var/datum/robolimb/basic_robolimb
 	applies_to_part = list(BP_HEAD)
 	unavailable_at_fab = 1
 
-/datum/robolimb/hesphiastos/alt/monitor
+/datum/robolimb/hephaestus/alt/monitor
 	company = "Hephaestus Monitor."
 	icon = 'icons/mob/human_races/cyberlimbs/hephaestus/hephaestus_monitor.dmi'
-	restricted_to = list(SPECIES_IPC)
+	allowed_bodytypes = list(SPECIES_IPC)
 	can_eat = null
 	unavailable_at_fab = 1
 
@@ -76,7 +78,7 @@ var/datum/robolimb/basic_robolimb
 	icon = 'icons/mob/human_races/cyberlimbs/zenghu/zenghu_main.dmi'
 	can_eat = 1
 	unavailable_at_fab = 1
-	restricted_to = list(SPECIES_HUMAN, SPECIES_IPC, "Grav-Adapted Human", "Space-Adapted Human", "Vat-Grown Human")
+	allowed_bodytypes = list(SPECIES_HUMAN, SPECIES_IPC, "Grav-Adapted Human", "Space-Adapted Human", "Vat-Grown Human")
 
 /datum/robolimb/zenghu/industrial
 	company = "Zeng-Hu Research Frame"
@@ -100,7 +102,7 @@ var/datum/robolimb/basic_robolimb
 /datum/robolimb/xion/alt/monitor
 	company = "Xion Monitor."
 	icon = 'icons/mob/human_races/cyberlimbs/xion/xion_monitor.dmi'
-	restricted_to = list(SPECIES_IPC)
+	allowed_bodytypes = list(SPECIES_IPC)
 	can_eat = null
 	unavailable_at_fab = 1
 
@@ -130,7 +132,7 @@ var/datum/robolimb/basic_robolimb
 /datum/robolimb/wardtakahashi/alt/monitor
 	company = "Ward-Takahashi Monitor."
 	icon = 'icons/mob/human_races/cyberlimbs/wardtakahashi/wardtakahashi_monitor.dmi'
-	restricted_to = list(SPECIES_IPC)
+	allowed_bodytypes = list(SPECIES_IPC)
 	can_eat = null
 	unavailable_at_fab = 1
 
@@ -153,7 +155,7 @@ var/datum/robolimb/basic_robolimb
 	applies_to_part = list(BP_HEAD)
 	unavailable_at_fab = 1
 	has_eyes = FALSE
-	restricted_to = list(SPECIES_IPC)
+	allowed_bodytypes = list(SPECIES_IPC)
 
 /datum/robolimb/veymed
 	company = "Vey-Med"
@@ -162,7 +164,7 @@ var/datum/robolimb/basic_robolimb
 	can_eat = 1
 	skintone = 1
 	unavailable_at_fab = 1
-	restricted_to = list(SPECIES_HUMAN, "Grav-Adapted Human", "Space-Adapted Human", "Vat-Grown Human")
+	allowed_bodytypes = list(SPECIES_HUMAN, SPECIES_IPC, "Grav-Adapted Human", "Space-Adapted Human", "Vat-Grown Human")
 
 /datum/robolimb/resomi
 	company = "Small prosthetic"
@@ -171,6 +173,18 @@ var/datum/robolimb/basic_robolimb
 	restricted_to = list(SPECIES_RESOMI)
 	species_cannot_use = list()
 	applies_to_part = list(BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT, BP_L_HAND, BP_R_HAND)
+
+/datum/robolimb/resomi/cenilimisybernetics
+	company = "Cenilimi Cybernetics"
+	desc = "This prosthetic is created by a Teshari-owned company, for Teshari."
+	icon = 'icons/uristmob/species/teshari/cenilimicybernetics/cenilimicybernetics.dmi'
+	applies_to_part = list()
+
+/datum/robolimb/resomi/unbrandedteshari
+	company = "Unbranded - Teshari"
+	desc = "This prosthetic is small and fit for nonhuman proportions."
+	icon = 'icons/uristmob/species/teshari/unbranded/unbranded.dmi'
+	applies_to_part = list()
 
 /datum/robolimb/grayson
 	company = "Grayson"
@@ -188,4 +202,4 @@ var/datum/robolimb/basic_robolimb
 	icon = 'icons/mob/human_races/cyberlimbs/grayson/grayson_monitor.dmi'
 	applies_to_part = list(BP_HEAD)
 	unavailable_at_fab = 1
-	restricted_to = list(SPECIES_IPC)
+	allowed_bodytypes = list(SPECIES_IPC)

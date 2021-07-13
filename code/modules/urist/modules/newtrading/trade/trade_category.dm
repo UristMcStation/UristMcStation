@@ -43,6 +43,11 @@
 /datum/trade_category/groceries
 	name = "groceries"
 
+/datum/trade_category/organs
+	name = "organs"
+
+//contracts
+
 /datum/trade_category/ntsciencecontract
 	name = "ntsciencecontract"
 
@@ -51,3 +56,10 @@
 
 /datum/trade_category/ntshiphuntcontract
 	name = "ntshiphuntcontract"
+
+/datum/trade_category/ntseccontract
+	name = "ntseccontract"
+
+/datum/trade_category/ntkitchencontract
+	name = "ntkitchencontract"
+

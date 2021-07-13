@@ -83,6 +83,7 @@
 	var/confused = 0		//Carbon
 	var/sleeping = 0		//Carbon
 	var/resting = 0			//Carbon
+	var/is_shifted = FALSE
 	var/lying = 0
 	var/lying_prev = 0
 
@@ -117,7 +118,7 @@
 	var/obj/item/weapon/storage/s_active = null//Carbon
 	var/obj/item/clothing/mask/wear_mask = null//Carbon
 
-	var/list/grabbed_by = list(  )
+	var/list/grabbed_by = list()
 
 	var/in_throw_mode = 0
 
@@ -137,7 +138,7 @@
 
 	var/voice_name = "unidentifiable voice"
 
-	var/faction = "neutral" //Used for checking whether hostile simple animals will attack you, possibly more stuff later
+	var/faction = MOB_FACTION_NEUTRAL //Used for checking whether hostile simple animals will attack you, possibly more stuff later
 	var/blinded = null
 	var/ear_deaf = null		//Carbon
 

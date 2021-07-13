@@ -12,14 +12,14 @@
 	//Species-specific stuff.
 	species_restricted = list(SPECIES_HUMAN, SPECIES_IPC)
 	sprite_sheets = list(
-		SPECIES_UNATHI = 'icons/mob/species/unathi/helmet.dmi',
-		SPECIES_SKRELL = 'icons/mob/species/skrell/helmet.dmi',
+		SPECIES_UNATHI = 'icons/mob/species/unathi/onmob_head_helmet_unathi.dmi',
+		SPECIES_SKRELL = 'icons/mob/species/skrell/onmob_head_skrell.dmi',
 		SPECIES_RESOMI = 'icons/mob/species/resomi/helmet.dmi',
 		)
 	sprite_sheets_obj = list(
-		SPECIES_UNATHI = 'icons/obj/clothing/species/unathi/hats.dmi',
-		SPECIES_SKRELL = 'icons/obj/clothing/species/skrell/hats.dmi',
-		SPECIES_RESOMI = 'icons/obj/clothing/species/resomi/hats.dmi',
+		SPECIES_UNATHI = 'icons/obj/clothing/species/unathi/obj_head_unathi.dmi',
+		SPECIES_SKRELL = 'icons/obj/clothing/species/skrell/obj_head_skrell.dmi',
+		SPECIES_RESOMI = 'icons/obj/clothing/species/resomi/obj_head_resomi.dmi',
 		)
 
 	light_overlay = "helmet_light"
@@ -38,14 +38,14 @@
 
 	species_restricted = list(SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_IPC)
 	sprite_sheets = list(
-		SPECIES_UNATHI = 'icons/mob/species/unathi/suit.dmi',
-		SPECIES_SKRELL = 'icons/mob/species/skrell/suit.dmi',
+		SPECIES_UNATHI = 'icons/mob/species/unathi/onmob_suit_unathi.dmi',
+		SPECIES_SKRELL = 'icons/mob/species/skrell/onmob_suit_skrell.dmi',
 		SPECIES_RESOMI = 'icons/mob/species/resomi/suit.dmi',
 		)
 	sprite_sheets_obj = list(
-		SPECIES_UNATHI = 'icons/obj/clothing/species/unathi/suits.dmi',
-		SPECIES_SKRELL = 'icons/obj/clothing/species/skrell/suits.dmi',
-		SPECIES_RESOMI = 'icons/obj/clothing/species/resomi/suits.dmi',
+		SPECIES_UNATHI = 'icons/obj/clothing/species/unathi/obj_suit_unathi.dmi',
+		SPECIES_SKRELL = 'icons/obj/clothing/species/skrell/obj_suit_skrell.dmi',
+		SPECIES_RESOMI = 'icons/obj/clothing/species/resomi/obj_suit_resomi.dmi',
 		)
 
 	//Breach thresholds, should ideally be inherited by most (if not all) voidsuits.
@@ -59,6 +59,8 @@
 	var/obj/item/weapon/tank/tank = null              // Deployable tank, if any.
 
 	action_button_name = "Toggle Helmet"
+	var/helmet_deploy_sound = 'sound/items/helmet_close.ogg'
+	var/helmet_retract_sound = 'sound/items/helmet_open.ogg'
 
 #define VOIDSUIT_INIT_EQUIPMENT(equipment_var, expected_path) \
 if(ispath(##equipment_var, ##expected_path )){\
@@ -117,6 +119,7 @@ else if(##equipment_var) {\
 			to_chat(M, "You are unable to deploy your suit's helmet as \the [H.head] is in the way.")
 		else if (H.equip_to_slot_if_possible(helmet, slot_head))
 			to_chat(M, "Your suit's helmet deploys with a hiss.")
+			playsound(loc, helmet_deploy_sound, 30)
 			helmet.canremove = 0
 
 	if(tank)
@@ -171,6 +174,7 @@ else if(##equipment_var) {\
 	if(H.head == helmet)
 		to_chat(H, "<span class='notice'>You retract your suit helmet.</span>")
 		helmet.canremove = 1
+		playsound(loc, helmet_retract_sound, 30)
 		H.drop_from_inventory(helmet, src)
 	else
 		if(H.head)
@@ -179,6 +183,7 @@ else if(##equipment_var) {\
 		if(H.equip_to_slot_if_possible(helmet, slot_head))
 			helmet.pickup(H)
 			helmet.canremove = 0
+			playsound(loc, helmet_deploy_sound, 30)
 			to_chat(H, "<span class='info'>You deploy your suit helmet, sealing you off from the world.</span>")
 	helmet.update_light(H)
 
@@ -223,15 +228,15 @@ else if(##equipment_var) {\
 
 			if(choice == tank)	//No, a switch doesn't work here. Sorry. ~Techhead
 				to_chat(user, "You pop \the [tank] out of \the [src]'s storage compartment.")
-				tank.forceMove(get_turf(src))
+				tank.dropInto(loc)
 				src.tank = null
 			else if(choice == helmet)
 				to_chat(user, "You detatch \the [helmet] from \the [src]'s helmet mount.")
-				helmet.forceMove(get_turf(src))
+				helmet.dropInto(loc)
 				src.helmet = null
 			else if(choice == boots)
 				to_chat(user, "You detatch \the [boots] from \the [src]'s boot mounts.")
-				boots.forceMove(get_turf(src))
+				boots.dropInto(loc)
 				src.boots = null
 		else
 			to_chat(user, "\The [src] does not have anything installed.")

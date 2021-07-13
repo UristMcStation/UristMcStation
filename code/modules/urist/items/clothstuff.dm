@@ -1,38 +1,32 @@
-/material/cloth/generate_recipes()
-	..()
+//clothstuff
+//recipes moved to urist/modules/materials/recipes_cloth.dm
 
-	recipes += new/datum/stack_recipe/makeshiftbandage(src)
-	recipes += new/datum/stack_recipe/makeshiftmask(src)
-	recipes += new/datum/stack_recipe/rag(src)
+/obj/item/clothing/under/verb/cut()
+	set name = "Cut up clothing"
+	set desc = "Cut some clothes into cloth."
+	set category = "Object"
+	set src in oview(1)
 
-/datum/stack_recipe/makeshiftbandage
-	title = "makeshift bandage"
-	result_type = /obj/item/stack/medical/bruise_pack/makeshift_bandage
-	req_amount = 1
-	time = 10
+	if (!can_touch(usr))
+		return
 
-/datum/stack_recipe/makeshiftmask
-	title = "makeshift mask"
-	result_type = /obj/item/clothing/mask/surgical/makeshift_mask
-	req_amount = 1
-	time = 10
+	var/obj/item/I = usr.get_active_hand()
+	if(!I)
+		to_chat(usr, "<span class='notice'>You aren't holding anything to cut with.</span>")
+		return
 
-/datum/stack_recipe/rag
-	title = "rag"
-	result_type = /obj/item/weapon/reagent_containers/glass/rag
-	req_amount = 1
-	time = 10
-
-/obj/item/clothing/under/attackby(obj/item/I, mob/user)
 	if(is_sharp(I))
-		user.visible_message("<span class='notice'>\The [user] begins cutting up \the [src] with \a [I].</span>", "<span class='notice'>You begin cutting up \the [src] with \the [I].</span>")
-		if(do_after(user, 50, src))
-			to_chat(user, "<span class='notice'>You cut \the [src] into pieces!</span>")
+		usr.visible_message("<span class='notice'>\The [usr] begins cutting up \the [src] with \a [I].</span>", "<span class='notice'>You begin cutting up \the [src] with \the [I].</span>")
+		if(do_after(usr, 50, src))
+			to_chat(usr, "<span class='notice'>You cut \the [src] into pieces!</span>")
 			for(var/i in 2 to rand(3,5))
 				new /obj/item/stack/material/cloth(get_turf(src))
+			for(var/obj/O in src.contents)
+				O.dropInto(loc)
 			qdel(src)
-		return
-	..()
+	else
+		to_chat(usr, "<span class='notice'>You need something sharper to cut with!</span>")
+	return
 
 /obj/item/clothing/mask/surgical/makeshift_mask
 	name = "makeshift mask"
@@ -60,7 +54,7 @@
 	origin_tech = list(TECH_BIO = 1)
 	animal_heal = 3
 
-/obj/item/stack/medical/bruise_pack/makeshift_banage/attack(mob/living/carbon/M as mob, mob/user as mob)
+/obj/item/stack/medical/bruise_pack/makeshift_bandage/attack(mob/living/carbon/M as mob, mob/user as mob)
 	if(..())
 		return 1
 	if (istype(M, /mob/living/carbon/human))

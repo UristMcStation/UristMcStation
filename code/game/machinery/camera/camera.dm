@@ -3,7 +3,7 @@
 	desc = "It's used to monitor rooms."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "camera"
-	use_power = 2
+	use_power = POWER_USE_ACTIVE
 	idle_power_usage = 5
 	active_power_usage = 10
 	plane = ABOVE_HUMAN_PLANE
@@ -270,11 +270,11 @@
 
 //Used when someone breaks a camera
 /obj/machinery/camera/proc/destroy()
-	stat |= BROKEN
+	set_broken(TRUE)
 	wires.RandomCutAll()
 
 	triggerCameraAlarm()
-	update_icon()
+	queue_icon_update()
 	update_coverage()
 
 	//sparks
@@ -293,7 +293,7 @@
 	if(isXRay()) return SEE_TURFS|SEE_MOBS|SEE_OBJS
 	return 0
 
-/obj/machinery/camera/update_icon()
+/obj/machinery/camera/on_update_icon()
 	pixel_x = 0
 	pixel_y = 0
 
@@ -461,18 +461,16 @@
 	cam["name"] = sanitize(c_tag)
 	cam["deact"] = !can_use()
 	cam["camera"] = "\ref[src]"
-	cam["x"] = x
-	cam["y"] = y
-	cam["z"] = z
+	cam["x"] = get_x(src)
+	cam["y"] = get_y(src)
+	cam["z"] = get_z(src)
 	return cam
 
 // Resets the camera's wires to fully operational state. Used by one of Malfunction abilities.
 /obj/machinery/camera/proc/reset_wires()
 	if(!wires)
 		return
-	if (stat & BROKEN) // Fix the camera
-		stat &= ~BROKEN
+	set_broken(FALSE) // Fixes the camera and updates the icon.
 	wires.CutAll()
 	wires.MendAll()
-	update_icon()
 	update_coverage()

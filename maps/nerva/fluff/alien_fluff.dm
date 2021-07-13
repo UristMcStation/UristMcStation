@@ -12,6 +12,7 @@
 	with ruthless efficiency they became known for during the Galactic Crisis."
 	default_language = LANGUAGE_XENOPHAGE
 	additional_langs = list(LANGUAGE_XENOPHAGE_HIVE)
+	caste_name = "soldier"
 
 /decl/cultural_info/faction/galactic_crisis
 	name = FACTION_GALACTIC_CRISIS

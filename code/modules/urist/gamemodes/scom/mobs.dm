@@ -172,7 +172,7 @@
 	icon_state = "allophylus"
 	name = "Allophylus"
 	ranged = 1
-	projectiletype = /obj/item/projectile/beam/scom/alien4
+	projectiletype = /obj/item/projectile/energy/scom/allophylus
 	maxHealth = 600
 	health = 600
 	icon_living = "allophylus"
@@ -200,7 +200,7 @@
 
 /mob/living/simple_animal/hostile/scom/forgotten
 	name = "Forgotten"
-	desc = "The souls of those who have been left to die by the alien menace, corrupted and twisted into a form that serves their masters."
+	desc = "The souls of those who have been left to die to the alien menace, corrupted and twisted into a form that serves their masters."
 	response_help = "tries to poke"
 	response_disarm = "tries to shove"
 	response_harm = "tries to hit"
@@ -214,7 +214,7 @@
 	harm_intent_damage = 0
 	melee_damage_lower = 25
 	melee_damage_upper = 25
-	projectiletype = /obj/item/projectile/beam/scom/alien1
+	projectiletype = /obj/item/projectile/energy/scom/forgotten
 
 /mob/living/simple_animal/hostile/scom/forgotten/death()
 	..()
@@ -258,21 +258,24 @@
 	icon_state = "alienprojectile"
 	damage = 25
 
-/obj/item/projectile/beam/scom/alien4 //only ever encounter 1, so it's op
+/obj/item/projectile/energy/scom/allophylus //only ever encounter 1, so it's op
 	name = "mind blast"
 	icon_state = "" //INVISIBUL
 	damage = 30
 	stun = 5
 	weaken = 5
 	stutter = 5
+	irradiate = 10
+	damage_type = BURN
 
-/obj/item/projectile/beam/scom/alien5
+/obj/item/projectile/energy/scom/forgotten
 	name = "dark energy"
 	icon_state = "dblast"
 	damage = 15
 	stun = 5
 	weaken = 5
 	stutter = 5
+	damage_type = BURN
 
 /obj/item/projectile/beam/scom/alien6//for the fighters
 	name = "alien beam"

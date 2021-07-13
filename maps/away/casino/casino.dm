@@ -2,27 +2,28 @@
 #include "../mining/mining_areas.dm"
 
 /obj/effect/overmap/ship/casino
-	name = "passenger liner"
+	classification = "passenger liner"
 	desc = "Sensors detect an undamaged vessel without any signs of activity."
 	color = "#bd6100"
-	vessel_mass = 100
-	default_delay = 30 SECONDS
-	speed_mod = 5 SECONDS
-	burn_delay = 20 SECONDS
+	vessel_mass = 5000
+	max_speed = 1/(2 SECONDS)
+	burn_delay = 1 SECOND
 	initial_generic_waypoints = list(
 		"nav_casino_1",
 		"nav_casino_2",
 		"nav_casino_3",
 		"nav_casino_4",
 		"nav_casino_antag",
-		"nav_casino_hangar",
+		"nav_casino_dock"
 	)
 	initial_restricted_waypoints = list(
 		"Casino Cutter" = list("nav_casino_hangar"),
 	)
 
 /obj/effect/overmap/ship/casino/New(nloc, max_x, max_y)
-	name = "IPV [pick("Fortuna","Gold Rush","Ebisu","Lucky Paw","Four Leaves")], \a [name]"
+	name = "IPV [pick("Fortuna","Gold Rush","Ebisu","Lucky Paw","Four Leaves")]"
+	ship_name = name
+	name = "[name], \a [classification]"
 	..()
 
 /datum/map_template/ruin/away_site/casino
@@ -53,11 +54,17 @@
 	name = "Casino Ship Navpoint #5"
 	landmark_tag = "nav_casino_antag"
 
+/obj/effect/shuttle_landmark/nav_casino/dock
+	name = "Casino Ship Fore Dock"
+	landmark_tag = "nav_casino_dock"
+	docking_controller = "casino_dock"
+
 /datum/shuttle/autodock/overmap/casino_cutter
 	name = "Casino Cutter"
 	warmup_time = 15
 	move_time = 60
 	shuttle_area = /area/casino/casino_cutter
+	dock_target = "casino_cutter"
 	current_location = "nav_casino_hangar"
 	landmark_transition = "nav_casino_transit"
 	fuel_consumption = 0.5//it's small

@@ -3,7 +3,7 @@
 	desc = "A little floor repairing robot, he looks so excited!"
 	icon = 'icons/mob/bot/floorbot.dmi'
 	icon_state = "floorbot0"
-	req_one_access = list(access_construction, access_robotics)
+	req_access = list(list(access_construction, access_robotics))
 	wait_if_pulled = 1
 	min_target_dist = 0
 
@@ -196,7 +196,7 @@
 		update_icons()
 	else if(istype(A, /obj/item/stack/material) && amount + 4 <= maxAmount)
 		var/obj/item/stack/material/M = A
-		if(M.get_material_name() == DEFAULT_WALL_MATERIAL)
+		if(M.get_material_name() == MATERIAL_STEEL)
 			visible_message("<span class='notice'>\The [src] begins to make tiles.</span>")
 			busy = 1
 			anchored = TRUE
@@ -220,7 +220,7 @@
 	var/list/shrapnel = list()
 
 	for(var/I = 3, I<3 , I++) //Toolbox shatters.
-		shrapnel += new /obj/item/weapon/material/shrapnel(Tsec)
+		shrapnel += new /obj/item/weapon/material/shard/shrapnel(Tsec)
 
 	for(var/Amt = amount, Amt>0, Amt--) //Why not just spit them out in a disorganized jumble?
 		shrapnel += new /obj/item/stack/tile/floor(Tsec)

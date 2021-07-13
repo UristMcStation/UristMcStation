@@ -248,9 +248,9 @@
 					new /obj/item/ammo_magazine/c45m(src.loc)
 					new /obj/item/weapon/gun/projectile/shotgun/pump/combat(src.loc)
 					new /obj/item/weapon/reagent_containers/hypospray/autoinjector(src.loc)
-					new /obj/item/weapon/storage/box/shotgunammo(src.loc)
-					new /obj/item/weapon/storage/box/shotgunammo(src.loc)
-					new /obj/item/weapon/storage/box/shotgunammo(src.loc)
+					new /obj/item/weapon/storage/box/ammo/shotgunammo(src.loc)
+					new /obj/item/weapon/storage/box/ammo/shotgunammo(src.loc)
+					new /obj/item/weapon/storage/box/ammo/shotgunammo(src.loc)
 
 					for (var/obj/item/weapon/card/id/W in user)
 						if(W.assignment == "S-COM Operative")

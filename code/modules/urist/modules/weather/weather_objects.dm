@@ -10,7 +10,7 @@
 
 	layer = 5
 	anchored = 1 //prevents weather from being /draggable/
-	mouse_opacity = 2 //doesn't need to be clickable and is less of an annoyance for players
+	mouse_opacity = 0 //doesn't need to be clickable and is less of an annoyance for players
 	var/weather_safe = 0 //1 makes it aesthetic-only
 	var/list/active_weathers = list()
 	var/weather_dynamic = 1 //if 1, changes periodically
@@ -41,8 +41,8 @@
 
 //Handles initializing weather processing for a new object
 /obj/effect/weather/proc/weather_report()
-	if(weatherProcess)
-		weatherProcess.weather_cache += src
+	if(SSweather)
+		SSweather.weather_cache += src
 	else
 		pending_weathers += src //no controller? add it on the bucket list.
 
@@ -54,8 +54,8 @@
 
 //Something entered the weather zone so the weather has to do work
 /obj/effect/weather/proc/weather_activate()
-	if(!(weather_safe) || !(weatherProcess)) //does not process effects, so don't bother
-		weatherProcess.active_cache += src
+	if(!(weather_safe) || !(SSweather)) //does not process effects, so don't bother
+		SSweather.active_cache += src
 
 //If there's still processable objects, return 1
 /obj/effect/weather/proc/WActive()

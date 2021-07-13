@@ -2,6 +2,7 @@
 	name = "alien technology"
 	icon = 'icons/obj/stock_parts.dmi'
 	w_class = 2
+	origin_tech = list(TECH_MAGNET = 7, TECH_MATERIAL = 6, TECH_ENGINEERING = 4, TECH_POWER=7)
 
 /obj/item/scom/science/New()
 	icon_state = pick("capacitor", "micro_laser", "micro_mani", "matter_bin", "scan_module")
@@ -37,25 +38,25 @@
 	icon_state = "xeno-pistol"
 	scomtechlvl = 1
 	scommoney = 100
-	origin_tech = "combat=6;magnets=4;materials=3;engineering=1;powerstorage=3;"
+	origin_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 4, TECH_MATERIAL = 3, TECH_ENGINEERING = 1, TECH_POWER=3)
 
 /obj/item/scom/aliengun/a2
 	icon_state = "xeno-carbine"
 	scomtechlvl = 2
 	scommoney = 250
-	origin_tech = "combat=7;magnets=5;materials=4;engineering=2;powerstorage=4;"
+	origin_tech = list(TECH_COMBAT = 7, TECH_MAGNET = 5, TECH_MATERIAL = 4, TECH_ENGINEERING = 2, TECH_POWER=4)
 
 /obj/item/scom/aliengun/a3
 	scomtechlvl = 4
 	scommoney = 600
 	icon_state = "xeno-rifle"
-	origin_tech = "combat=7;magnets=5;materials=5;engineering=3;powerstorage=5;"
+	origin_tech = list(TECH_COMBAT = 7, TECH_MAGNET = 5, TECH_MATERIAL = 4, TECH_ENGINEERING = 2, TECH_POWER=5)
 
 /obj/item/scom/aliengun/a4
 	scomtechlvl = 6
 	scommoney = 1000
 	icon_state = "xeno-hmg"
-	origin_tech = "combat=7;magnets=5;materials=5;engineering=3;powerstorage=5;"
+	origin_tech = list(TECH_COMBAT = 8, TECH_MAGNET = 5, TECH_MATERIAL = 4, TECH_ENGINEERING = 3, TECH_POWER=5)
 
 /obj/item/scom/borgmodkit
 	name = "cyborg mod kit - Combat"
