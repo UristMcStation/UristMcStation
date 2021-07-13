@@ -436,4 +436,4 @@
 
 
 /datum/job/clown/get_description_blurb()
-	return	"You are the Clown aboard the ICS Nerva, try your best to entertainment the crew. You could answer to the Second Officer, but who would do that?"
+	return	"You are the Clown aboard the ICS Nerva, try your best to entertain the crew. You could answer to the Second Officer, but who would do that?"
