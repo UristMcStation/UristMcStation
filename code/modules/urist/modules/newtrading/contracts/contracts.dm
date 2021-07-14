@@ -72,13 +72,13 @@
 	var/oldmoney = money
 	money = (amount * oldmoney)
 
+	if(!desc)
+		desc = "This sector is plagued by [neg_faction.factionid]s, [faction.name] needs the [GLOB.using_map.station_name] to hunt down and destroy [amount] [neg_faction.name] ships in this sector."
+
 	..()
 
 	if(!neg_rep_points)
 		neg_rep_points -= rep_points
-
-	if(!desc)
-		desc = "This sector is plagued by [neg_faction.factionid]s, [faction.name] needs the [GLOB.using_map.station_name] to hunt down and destroy [amount] [neg_faction.name] ships in this sector."
 
 //money values are very much in flux
 
