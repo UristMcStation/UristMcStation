@@ -149,16 +149,12 @@ GLOBAL_LIST_INIT(registered_cyborg_weapons, list())
 			playsound(loc, mag_remove_sound, 50, 1)
 			power_supply.update_icon()
 			power_supply = null
-			if(modifystate)
-				icon_state = "[modifystate][0]"
-			else
-				icon_state = "[initial(icon_state)][0]"
+			update_icon()
 		else
 			to_chat(user, "<span class='warning'>[src] is empty.</span>")
 	else
 		user.visible_message("<span class='warning'>The cell cover is closed. Use a screwdriver to open it.</span>")
 		return
-	update_icon()
 
 //to trigger loading cell
 /obj/item/weapon/gun/energy/attackby(var/obj/item/A as obj, mob/user as mob)
