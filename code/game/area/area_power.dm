@@ -27,6 +27,8 @@
 		update_icon()
 
 /area/proc/usage(var/chan)
+	if(!powered(chan) && chan != TOTAL)
+		return 0
 	switch(chan)
 		if(LIGHT)
 			return used_light + oneoff_light
