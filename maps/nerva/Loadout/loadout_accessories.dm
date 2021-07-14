@@ -50,13 +50,13 @@
 	path = /obj/item/weapon/storage/box/survivalkit
 	allowed_roles = list(/datum/job/qm, /datum/job/cargo_tech)
 
-/datum/gear/accessory/storage/drop_pouches
+/datum/gear/accessory/drop_pouches
 	display_name = "drop pouches selection"
 	path = /obj/item/clothing/accessory/storage/drop_pouches
 	allowed_roles = COMMAND_ROLES
 	cost = 3
 
-/datum/gear/accessory/storage/drop_pouches/New()
+/datum/gear/accessory/drop_pouches/New()
 	..()
 	var/drop_pouches = list()
 	drop_pouches["black drop pouches"] = /obj/item/clothing/accessory/storage/drop_pouches/black
