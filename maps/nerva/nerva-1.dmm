@@ -9749,7 +9749,7 @@
 	dir = 4;
 	id = "torpedo"
 	},
-/obj/structure/shipammo/torpedo/loaded,
+/obj/structure/shipammo/torpedo/bluespace,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
@@ -9772,7 +9772,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/bottomgun)
 "qQ" = (
-/obj/machinery/shipweapons/missile/torpedo{
+/obj/machinery/shipweapons/ammo/torpedo{
 	density = 1;
 	dir = 4;
 	icon_state = "torpedo";

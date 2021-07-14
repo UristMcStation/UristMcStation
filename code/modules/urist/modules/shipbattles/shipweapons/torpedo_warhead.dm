@@ -14,6 +14,10 @@
 	var/riggedstate = 0 //What stage of rigging are we in?
 	var/obj/item/device/attached_device //Whatever is attached that'll detonate us.
 	var/datum/wires/torpedowarhead/wires = null
+	var/shield_damage = 0
+	var/hull_damage = 0
+	var/pass_shield = FALSE
+	var/component_hit = 0
 
 /obj/item/shipweapons/torpedo_warhead/New()
 	..()
@@ -129,8 +133,11 @@
 				visible_message("<span class='danger'>[src] beeps stubbornly, refusing to detonate!</span>")
 				playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 25, 0, 10)
 				return
-			explosion(get_turf(src), 0, 2, 4)
+			do_explosion()
 			qdel(src)
+
+/obj/item/shipweapons/torpedo_warhead/proc/do_explosion()
+	explosion(get_turf(src), 0, 2, 4)
 
 /datum/wires/torpedowarhead
 	holder_type = /obj/item/shipweapons/torpedo_warhead
@@ -179,6 +186,18 @@ var/const/TWARHEAD_DETONATE = 4
 				N.visible_message( "<span class='notice'>[N]'s safety interlocks whirr and clunk loudly.</span>")
 		if(TWARHEAD_DETONATE)
 			N.detonate(1)
+
+//warhead types
+
+/obj/item/shipweapons/torpedo_warhead/bluespace //this is the previous warhead, we pass through the shield, and do some damage.
+	name = "bluespace torpedo warhead"
+	desc = "It's a big bluespace-capable warhead for a big torpedo. Shove it in a torpedo casing and you've got yourself a torpedo." //torpedo
+	icon_state = "bstorpedowarhead"
+	hull_damage = 350 //maybe
+	pass_shield = TRUE
+
+
+
 
 //TORPEDO WARHEAD END//
 //Torpedo IEDs begin

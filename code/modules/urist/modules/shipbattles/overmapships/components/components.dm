@@ -120,7 +120,7 @@
 	name = "freighter engines"
 	evasion_chance = 5
 	health = 200
-	turns_per_move = 20
+	turns_per_move = 24
 
 /datum/shipcomponents/engines/standard
 	name = "standard engines"

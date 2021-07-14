@@ -4,7 +4,7 @@
 
 /obj/item/projectile/ion/ship
 	heavy_effect_range = 4
-	light_effect_range = 8
+	light_effect_range = 7
 	ship = 1
 	kill_count = 300
 
@@ -17,9 +17,7 @@
 
 /obj/item/projectile/ion/ship/heavy
 	heavy_effect_range = 8
-	light_effect_range = 16
-	ship = 1
-	kill_count = 300
+	light_effect_range = 15
 
 /obj/item/projectile/bullet/ship
 	ship = 1
@@ -30,13 +28,13 @@
 	name ="autocannon shell"
 	icon = 'icons/urist/items/ship_projectiles.dmi'
 	icon_state= "cannon"
-	damage = 600
+	damage = 100
 	check_armour = "bullet"
 	sharp = 1
 	edge = 1
 	stun = 1
 	weaken = 1
-//	penetrating = 2 //let's try this out
+	penetrating = 2 //let's try this out
 	armor_penetration = 100
 	penetration_modifier = 1.5
 	shake_range = 6
@@ -83,7 +81,7 @@
 	name = "small missile"
 	icon = 'icons/urist/items/ship_projectiles.dmi'
 	icon_state= "smallmissile"
-	damage = 100
+	damage = 0
 	shake_range = 15
 	ex_devestation = 0
 	ex_heavy = 2
@@ -94,7 +92,7 @@
 	icon = 'icons/urist/items/ship_projectiles.dmi'
 	icon_state= "smallalienmissile"
 	wall_decon = TRUE
-	damage = 150
+	damage = 100
 	shake_range = 20
 	ex_devestation = 0
 	ex_heavy = 3
@@ -104,7 +102,7 @@
 	name = "big missile"
 	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
 	icon_state= "bigmissile"
-	damage = 200
+	damage = 0
 	shake_range = 25
 	wall_decon = TRUE
 	ex_devestation = 1
@@ -115,7 +113,7 @@
 	name = "big alien missile"
 	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
 	icon_state= "bigalienmissile"
-	damage = 250
+	damage = 150
 	shake_range = 30
 	wall_decon = TRUE
 	ex_devestation = 1
@@ -126,7 +124,7 @@
 	name = "small torpedo"
 	icon = 'icons/urist/items/ship_projectiles.dmi'
 	icon_state= "smalltorpedo"
-	damage = 100
+	damage = 0
 	shake_range = 20
 	wall_decon = TRUE
 	ex_devestation = 6
@@ -137,7 +135,7 @@
 	name = "big torpedo"
 	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
 	icon_state= "bigtorpedo"
-	damage = 200
+	damage = 0
 	shake_range = 30
 	wall_decon = TRUE
 	ex_devestation = 7
@@ -201,7 +199,8 @@
 
 	var/location = (get_turf(target))
 
-	if (istype(target, /turf/simulated/wall) && wall_decon)
+
+	if(istype(target, /turf/simulated/wall) && wall_decon)
 		var/turf/simulated/wall/W = target
 
 		W.dismantle_wall(1)
@@ -217,7 +216,7 @@
 	name = "light laser"
 	icon_state = "heavylaser"
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'
-	damage = 400
+	damage = 300
 	armor_penetration = 100
 
 	muzzle_type = /obj/effect/projectile/laser/heavy/muzzle
@@ -228,7 +227,7 @@
 	name = "heavy laser"
 	icon_state = "heavylaser"
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'
-	damage = 800
+	damage = 600
 	armor_penetration = 200
 //	life = 30
 	wall_decon = TRUE
@@ -248,7 +247,7 @@
 	name = "light laser"
 	icon_state = "alienprojectile"
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'
-	damage = 1200
+	damage = 1000
 	armor_penetration = 200
 
 /obj/item/projectile/beam/ship/alien/heavy

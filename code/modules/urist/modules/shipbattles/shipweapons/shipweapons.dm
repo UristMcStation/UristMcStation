@@ -6,9 +6,9 @@
 	use_power = 1
 	anchored = 1
 	density = 1
-	var/passshield = 0
-	var/shielddamage = 0
-	var/hulldamage = 0
+	var/pass_shield = TRUE
+	var/shield_damage = 0
+	var/hull_damage = 0
 	var/shipid = null
 	var/rechargerate = 100
 	var/recharge_init_time = 0
@@ -133,19 +133,19 @@
 				break
 
 		if(!evaded)
-			if(!passshield)
+			if(!pass_shield)
 				if(OM.shields)
 					var/shieldbuffer = OM.shields
-					OM.shields -= shielddamage //take the hit
-					if(OM.shields <= 0 && hulldamage) //if we're left with less than 0 shields
+					OM.shields -= shield_damage //take the hit
+					if(OM.shields <= 0 && hull_damage) //if we're left with less than 0 shields
 						OM.shields = 0
-						shieldbuffer = hulldamage-shieldbuffer //hulldamage is slightly mitigated by the existing shield
+						shieldbuffer = hull_damage-shieldbuffer //hull_damage is slightly mitigated by the existing shield
 						if(shieldbuffer > 0) //but if the shield was really strong, we don't do anything
 							OM.health = max(OM.health - shieldbuffer, 0)
 
 							for(var/datum/shipcomponents/shield/S in OM.components)
 								if(!S.broken)
-									var/component_damage = hulldamage * 0.1
+									var/component_damage = hull_damage * 0.1
 									S.health -= component_damage
 
 									if(S.health <= 0)
@@ -153,10 +153,10 @@
 
 				else	//no shields? easy
 					if(targeted_component)
-						TargetedHit(OM, hulldamage)
+						TargetedHit(OM, hull_damage)
 
 					else
-						OM.health = max(OM.health - hulldamage, 0)
+						OM.health = max(OM.health - hull_damage, 0)
 
 						if(prob(component_hit))
 							HitComponents(OM)
@@ -176,7 +176,7 @@
 
 				if(!intercepted)	//Let's take the damage outside the for loop to stop dupe damages if multiple PD's failed
 					if(OM.shields)
-						var/muted_damage = (hulldamage * 0.5) //genuinely forgot this was in, might make this a specific feature of shields
+						var/muted_damage = (hull_damage * 0.5) //genuinely forgot this was in, might make this a specific feature of shields
 						var/oc = FALSE
 						for(var/datum/shipcomponents/shield/S in OM.components)
 							if(S.overcharged)
@@ -191,10 +191,10 @@
 
 					else
 						if(targeted_component)
-							TargetedHit(OM, hulldamage)
+							TargetedHit(OM, hull_damage)
 
 						else
-							OM.health = max(OM.health - hulldamage, 0)
+							OM.health = max(OM.health - hull_damage, 0)
 
 					if(!targeted_component && prob(component_hit))
 						HitComponents(OM)
@@ -232,21 +232,21 @@
 
 	var/datum/shipcomponents/targetcomponent = pick(OM.components)
 	if(!targetcomponent.broken)
-		targetcomponent.health -= (hulldamage * 0.2)
+		targetcomponent.health -= (hull_damage * 0.2)
 
 		if(targetcomponent.health <= 0)
 			targetcomponent.BlowUp()
 
-/obj/machinery/shipweapons/proc/TargetedHit(var/targetship, var/hulldamage, var/oc = FALSE)
+/obj/machinery/shipweapons/proc/TargetedHit(var/targetship, var/hull_damage, var/oc = FALSE)
 	var/mob/living/simple_animal/hostile/overmapship/OM = targetship
 	if(!targeted_component.broken)
-		targeted_component.health -= (hulldamage * 0.5) //we do more damage for aimed shots
+		targeted_component.health -= (hull_damage * 0.5) //we do more damage for aimed shots
 
 		if(targeted_component.health <= 0)
 			targeted_component.BlowUp()
 
 	if(!oc)	//Overcharged shields allow no hull damage
-		OM.health = max(OM.health - (hulldamage * 0.5), 0) //but we also do less damage to the hull in general if we're aiming at systems
+		OM.health = max(OM.health - (hull_damage * 0.5), 0) //but we also do less damage to the hull in general if we're aiming at systems
 
 /obj/machinery/shipweapons/update_icon()
 	..()
