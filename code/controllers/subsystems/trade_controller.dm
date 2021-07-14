@@ -25,7 +25,7 @@ SUBSYSTEM_DEF(trade_controller)
 			C.trade_items_by_type[I.item_type] = I
 			C.total_weighting += I.trader_weight
 
-	for(var/mob/living/simple_animal/hostile/npc/N in GLOB.living_mob_list_)
+	for(var/mob/living/simple_animal/hostile/npc/N in GLOB.simple_mob_list)
 		N.generate_trade_items()
 
 	for(var/obj/effect/overmap/sector/station/S in overmap_stations)
