@@ -4,6 +4,8 @@
 	icon = 'icons/urist/items/revolvers.dmi'
 	icon_state = "revolver"
 	item_state = "revolver"
+	item_icons = URIST_ALL_ONMOBS
+	wielded_item_state = "revolver"
 	caliber = ".357"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	handle_casings = CYCLE_CASINGS
@@ -55,6 +57,9 @@
 /obj/item/weapon/gun/projectile/revolver/mateba
 	name = "mateba"
 	icon_state = "mateba"
+	item_icons = URIST_ALL_ONMOBS
+	item_state = "mateba"
+	wielded_item_state = "mateba"
 	caliber = ".50"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	ammo_type = /obj/item/ammo_casing/a50
@@ -63,6 +68,9 @@
 	name = "revolver"
 	desc = "The Lumoco Arms' Solid is a rugged revolver for people who don't keep their guns well-maintained."
 	icon_state = "detective"
+	item_icons = URIST_ALL_ONMOBS
+	item_state = "detective"
+	wielded_item_state = "detective"
 	max_shells = 6
 	caliber = ".38"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
@@ -93,6 +101,9 @@
 	name = "Deckard .38"
 	desc = "A custom-built revolver, based off the semi-popular Detective Special model."
 	icon_state = "deckard"
+	item_icons = URIST_ALL_ONMOBS
+	item_state = "deckard"
+	wielded_item_state = "deckard"
 	ammo_type = /obj/item/ammo_magazine/c38/rubber
 
 /obj/item/weapon/gun/projectile/revolver/deckard/emp
@@ -108,6 +119,8 @@
 	desc = "Looks almost like the real thing! Ages 8 and up."
 	icon_state = "revolver-toy"
 	item_state = "revolver"
+	item_icons = URIST_ALL_ONMOBS
+	wielded_item_state = "toyrevolver"
 	caliber = "caps"
 	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 1)
 	handle_casings = CYCLE_CASINGS
@@ -128,6 +141,9 @@
 	desc = "The A&M W4. A rugged top break revolver produced by al-Maliki & Mosley. Based on the Webley model, with modern improvements. Uses .357 Magnum rounds."
 	icon_state = "webley"
 	item_state = "webley"
+	item_icons = URIST_ALL_ONMOBS
+	item_state = "webley"
+	wielded_item_state = "webley"
 	max_shells = 6
 	caliber = ".357"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)

@@ -68,6 +68,44 @@
 	icon_state = "44_r"
 	ammo_type = /obj/item/ammo_casing/c44/rubber
 
+/obj/item/ammo_magazine/shotbundle
+	name = "fistful of shotgun shells"
+	desc = "A fistful of shotgun shells."
+	icon = 'icons/urist/items/shotbundle.dmi'
+	icon_state = "slshell-1"
+	caliber = "shotgun"
+	ammo_type = /obj/item/ammo_casing/shotgun
+	matter = list(MATERIAL_STEEL = 0)
+	initial_ammo = 0
+	max_ammo = 4
+	multiple_sprites = 1
+	w_class = ITEM_SIZE_NORMAL
+
+/obj/item/ammo_magazine/shotbundle/attack_hand(mob/user)
+    ..()
+    check_ammo_count(user)
+
+/obj/item/ammo_magazine/shotbundle/proc/check_ammo_count(mob/user)
+    if(stored_ammo.len <= 1)
+        user.drop_from_inventory(src, null)
+        if(stored_ammo.len)
+            user.put_in_hands(stored_ammo[1])
+            stored_ammo.Cut()
+        qdel(src)
+
+
+/obj/item/ammo_magazine/shotbundle/attack_self(mob/user)
+	..()
+	qdel(src)
+
+/obj/item/ammo_magazine/shotbundle/on_update_icon()
+	overlays.Cut()
+	var/count = 1
+	for(var/obj/item/ammo_casing/C in stored_ammo)
+		overlays += image("icons/urist/items/shotbundle.dmi", "[C.icon_state]-[count]")
+		count++
+
+	
 /obj/item/ammo_magazine/shotholder
 	name = "shotgun slug holder"
 	desc = "A convenient pouch that holds 12 gauge shells."

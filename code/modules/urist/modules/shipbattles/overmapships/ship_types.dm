@@ -46,13 +46,14 @@
 
 	..()
 
+/*
 /mob/living/simple_animal/hostile/overmapship/nanotrasen/patrol
 	name = "NanoTrasen patrol ship"
 	shields = 3000
 	health = 1600
 	maxHealth = 1600
 	ship_category = "NanoTrasen patrol ship"
-
+*/
 
 /mob/living/simple_animal/hostile/overmapship/nanotrasen/fast_attack
 	name = "NanoTrasen fast attack craft"
@@ -100,12 +101,14 @@
 
 	..()
 
+/*
 /mob/living/simple_animal/hostile/overmapship/terran/patrol
 	name = "Terran Confederacy patrol ship"
 	shields = 3000
 	health = 1600
 	maxHealth = 1600
 	ship_category = "Terran Confederacy patrol ship"
+*/
 
 /mob/living/simple_animal/hostile/overmapship/terran/fast_attack
 	name = "Terran Confederacy fast attack craft"
@@ -121,6 +124,29 @@
 		new /datum/shipcomponents/shield/fighter,
 		new /datum/shipcomponents/weapons/lightlaser/dual,
 		new /datum/shipcomponents/weapons/lightlaser/dual,
+		new /datum/shipcomponents/weapons/heavylaser,
+		new /datum/shipcomponents/engines/fighter,
+		new /datum/shipcomponents/weapons/smallmissile/battery,
+		new /datum/shipcomponents/point_defence/light
+	)
+
+	..()
+
+/mob/living/simple_animal/hostile/overmapship/terran/frigate
+	name = "Terran Confederacy frigate"
+	shields = 3000
+	health = 500
+	maxHealth = 1000
+	ship_category = "Terran Confederacy frigate"
+	boardingmap = "maps/shipmaps/ship_frigate_terran.dmm"
+	can_board = TRUE
+
+/mob/living/simple_animal/hostile/overmapship/terran/frigate/New()
+	components = list(
+		new /datum/shipcomponents/shield/fighter,
+		new /datum/shipcomponents/weapons/lightlaser/dual,
+		new /datum/shipcomponents/weapons/lightlaser/dual,
+		new /datum/shipcomponents/weapons/heavylaser,
 		new /datum/shipcomponents/engines/fighter,
 		new /datum/shipcomponents/weapons/smallmissile/battery,
 		new /datum/shipcomponents/point_defence/light

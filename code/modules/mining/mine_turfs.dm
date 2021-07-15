@@ -336,6 +336,15 @@ var/list/mining_floors = list()
 	if(istype(N))
 		N.overlay_detail = "asteroid[rand(0,9)]"
 		N.updateMineralOverlays(1)
+		if(!N.has_resources || length(resources))
+			return
+		for(var/i in random_maps)
+			var/datum/random_map/noise/ore/orenoise = random_maps[i]
+			if(!istype(orenoise))
+				continue
+			if(orenoise.origin_z == N.z)
+				orenoise.generate_tile(N)
+				break
 
 /turf/simulated/mineral/proc/excavate_find(var/prob_clean = 0, var/datum/find/F)
 

@@ -6,7 +6,7 @@
 
 /datum/uplink_item/item/visible_weapons/dartgun
 	name = "Dart Gun"
-	item_cost = 20
+	item_cost = 12
 	path = /obj/item/weapon/gun/projectile/dartgun
 
 /datum/uplink_item/item/visible_weapons/crossbow
@@ -23,7 +23,7 @@
 /datum/uplink_item/item/visible_weapons/g9mm
 	name = "Silenced Holdout Pistol"
 	desc = "9mm with silencer kit and ammunition."
-	item_cost = 32
+	item_cost = 20
 	path = /obj/item/weapon/storage/box/syndie_kit/g9mm
 
 /datum/uplink_item/item/badassery/money_cannon
@@ -40,7 +40,7 @@
 
 /datum/uplink_item/item/visible_weapons/energy_gun
 	name = "Energy Gun"
-	item_cost = 32
+	item_cost = 24
 	path = /obj/item/weapon/gun/energy/gun
 
 /datum/uplink_item/item/visible_weapons/revolver
@@ -102,7 +102,7 @@
 
 /datum/uplink_item/item/visible_weapons/sawnoff
 	name = "Sawnoff Shotgun"
-	item_cost = 45
+	item_cost = 40
 	path = /obj/item/weapon/gun/projectile/shotgun/doublebarrel/sawn
 
 /datum/uplink_item/item/visible_weapons/deagle
@@ -112,7 +112,7 @@
 
 /datum/uplink_item/item/visible_weapons/beretta
 	name = "9mm Pistol"
-	item_cost = 40
+	item_cost = 32
 	path = /obj/item/weapon/gun/projectile/beretta
 
 /datum/uplink_item/item/visible_weapons/sigsauer

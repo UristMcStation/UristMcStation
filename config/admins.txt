@@ -11,8 +11,12 @@ Lady_Blanc - Game Master
 MisterPaper - Game Master
 Gale212 - Game Master
 
+Capesh - Trial Admin
 hanspanda - Trial Admin
 
+Meunahlux - Eventmin
+
+Nyxodile - Coder
 Scrdest - Coder
 
 AseaHeru - Mentor
@@ -28,7 +32,6 @@ Wommy - Inactive Admin
 Kydrasz - Inactive Admin
 MisterTeeth - Inactive Admin
 Zty8212000 - Inactive Admin
-Capesh - Inactive Admin
 Vakothu - Retired Admin
 Nienhaus2 - Retired Admin
 MrBarman - Retired Admin

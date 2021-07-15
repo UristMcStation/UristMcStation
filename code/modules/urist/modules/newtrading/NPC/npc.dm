@@ -90,7 +90,7 @@
 	var/datum/controller/process/trade_controller/trade_controller_debug
 
 	var/sell_modifier = 0.90 //how much less than the sell price will the merchants buy items from you
-	var/price_increase = 1.02 //how much does the price go up after they sell an item. a value of 1 means no increase.
+	var/price_modifier = 0.08 //how much the price changes on trades in % of base price. 0 is no change -- 8% increase/decrease per trade
 	var/no_resell = 0
 
 	var/npc_item_amount = 8
