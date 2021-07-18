@@ -62,6 +62,7 @@
 	var/silenced = 0
 	var/accuracy = 0   //accuracy is measured in tiles. +1 accuracy means that everything is effectively one tile closer for the purpose of miss chance, -1 means the opposite. launchers are not supported, at the moment.
 	var/accuracy_power = 5  //increase of to-hit chance per 1 point of accuracy
+	var/dual_wield_penalty = 4 // by default dual wielding reduces accuracy by 25%
 	var/bulk = 0			//how unwieldy this weapon for its size, affects accuracy when fired without aiming
 	var/last_handled		//time when hand gun's in became active, for purposes of aiming bonuses
 	var/scoped_accuracy = null  //accuracy used when zoomed in a scope
@@ -157,9 +158,18 @@
 	if(user && user.client && user.aiming && user.aiming.active && user.aiming.aiming_at != A)
 		PreFire(A,user,params) //They're using the new gun system, locate what they're aiming at.
 		return
+	
+	var/obj/item/I = user.get_inactive_hand()
 
 	if(user && user.a_intent == I_HELP) //regardless of what happens, refuse to shoot if help intent is on
 		to_chat(user, "<span class='warning'>You refrain from firing \the [src] as your intent is set to help.</span>")
+	else if(istype(I, /obj/item/weapon/gun)) //DUAL (or more!) WIELDING
+		var/obj/item/weapon/gun/G = user.get_inactive_hand()
+		if(w_class == ITEM_SIZE_NORMAL && G.w_class == ITEM_SIZE_NORMAL)
+			Fire(A,user,params, dual_wield=1)
+			user.swap_hand()
+		else
+			Fire(A,user,params) //Otherwise, fire normally.
 	else
 		Fire(A,user,params) //Otherwise, fire normally.
 
@@ -175,7 +185,7 @@
 	update_icon()
 	return ..()
 
-/obj/item/weapon/gun/proc/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
+/obj/item/weapon/gun/proc/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0, dual_wield=0)
 	if(!user || !target) return
 	if(target.z != user.z) return
 
@@ -204,13 +214,13 @@
 			handle_click_empty(user)
 			break
 
-		process_accuracy(projectile, user, target, i, held_twohanded)
+		process_accuracy(projectile, user, target, i, held_twohanded, dual_wield)
 
 		if(pointblank)
 			process_point_blank(projectile, user, target)
 
 		if(process_projectile(projectile, user, target, user.zone_sel.selecting, clickparams))
-			handle_post_fire(user, target, pointblank, reflex)
+			handle_post_fire(user, target, pointblank, reflex, dual_wield)
 			update_icon()
 
 		if(i < burst)
@@ -313,7 +323,7 @@
 			max_mult = max(max_mult, G.point_blank_mult())
 	P.damage *= max_mult
 
-/obj/item/weapon/gun/proc/process_accuracy(obj/projectile, mob/user, atom/target, var/burst, var/held_twohanded)
+/obj/item/weapon/gun/proc/process_accuracy(obj/projectile, mob/user, atom/target, var/burst, var/held_twohanded, var/dual_wield)
 	var/obj/item/projectile/P = projectile
 	if(!istype(P))
 		return //default behaviour only applies to true projectiles
@@ -334,6 +344,9 @@
 	if(one_hand_penalty >= 4 && !held_twohanded)
 		acc_mod -= one_hand_penalty/2
 		disp_mod += one_hand_penalty*0.5 //dispersion per point of two-handedness
+	
+	if(dual_wield)
+		acc_mod -= dual_wield_penalty/2
 
 	if(burst > 1)
 		acc_mod -= 1
