@@ -138,7 +138,7 @@
 			qdel(src)
 
 /obj/item/shipweapons/torpedo_warhead/proc/do_explosion()
-	explosion(get_turf(src), 0, 2, 4)
+	explosion(get_turf(src), 0, 2, 5)
 
 /datum/wires/torpedowarhead
 	holder_type = /obj/item/shipweapons/torpedo_warhead
@@ -207,6 +207,9 @@ var/const/TWARHEAD_DETONATE = 4
 	component_hit = 10
 	ammo_name = "armour-piercing"
 
+/obj/item/shipweapons/torpedo_warhead/ap/do_explosion()
+	explosion(get_turf(src), 0, 1, 3)
+
 /obj/item/shipweapons/torpedo_warhead/emp
 	name = "EMP torpedo warhead"
 	desc = "It's a big armour-piercing warhead for a big torpedo. Shove it in a torpedo casing and you've got yourself a torpedo." //torpedo
@@ -214,6 +217,9 @@ var/const/TWARHEAD_DETONATE = 4
 	shield_damage = 500 //maybe
 	component_hit = 50
 	ammo_name = "EMP"
+
+/obj/item/shipweapons/torpedo_warhead/emp/do_explosion()
+	empulse(get_turf(src), 1, 5)
 
 //TORPEDO WARHEAD END//
 //Torpedo IEDs begin
