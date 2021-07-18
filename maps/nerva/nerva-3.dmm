@@ -591,17 +591,6 @@
 /obj/item/weapon/circuitboard/helm,
 /turf/simulated/floor/plating,
 /area/engineering/stech)
-"by" = (
-/obj/structure/bed/nice,
-/obj/structure/curtain/open/bed,
-/obj/item/weapon/bedsheet/clown,
-/obj/item/weapon/storage/backpack/duffel/duffel_clown,
-/obj/machinery/light/small/red,
-/obj/effect/landmark/start{
-	name = "Clown"
-	},
-/turf/simulated/floor/plating,
-/area/civilian/entertainer)
 "bz" = (
 /obj/structure/bed/psych,
 /obj/machinery/alarm{
@@ -1175,10 +1164,6 @@
 /area/civilian/cryo2)
 "cG" = (
 /turf/simulated/floor/plating,
-/area/space)
-"cH" = (
-/obj/item/weapon/material/shard,
-/turf/simulated/floor/reinforced/airless,
 /area/space)
 "cI" = (
 /obj/effect/floor_decal/corner/red{
@@ -10491,6 +10476,16 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
+"ui" = (
+/obj/structure/bed/nice,
+/obj/item/weapon/bedsheet/clown,
+/obj/item/weapon/storage/backpack/duffel/duffel_clown,
+/obj/machinery/light/small/red,
+/obj/effect/landmark/start{
+	name = "Clown"
+	},
+/turf/simulated/floor/plating,
+/area/civilian/entertainer)
 "uj" = (
 /obj/structure/ladder/updown,
 /turf/simulated/floor/plating,
@@ -14301,6 +14296,7 @@
 /obj/machinery/alarm{
 	pixel_y = 25
 	},
+/obj/random/action_figure,
 /turf/simulated/floor/plating,
 /area/civilian/entertainer)
 "GS" = (
@@ -14946,15 +14942,16 @@
 /turf/simulated/floor/carpet,
 /area/chapel)
 "Ls" = (
-/obj/item/device/flashlight/lamp/lava/pink{
-	on = 1
-	},
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
 	pixel_y = 0;
 	tag = ""
+	},
+/obj/item/stack/tile/floor,
+/obj/machinery/light/small{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/civilian/entertainer)
@@ -15030,6 +15027,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/logistics/auxtool)
+"LM" = (
+/obj/item/device/radio/intercom{
+	dir = 8;
+	name = "Station Intercom (General)";
+	pixel_x = 22
+	},
+/obj/structure/closet/crate,
+/turf/simulated/floor/plating,
+/area/civilian/entertainer)
 "LO" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Security Maintenance";
@@ -15160,6 +15166,14 @@
 /obj/item/weapon/stool,
 /turf/simulated/floor/tiled/dark,
 /area/chapel)
+"Mv" = (
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = 24
+	},
+/obj/structure/closet/crate,
+/turf/simulated/floor/plating,
+/area/civilian/entertainer)
 "Mw" = (
 /obj/structure/bed/chair/office/dark,
 /turf/simulated/floor/plating,
@@ -15765,6 +15779,17 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/aft/second_deck)
+"Qb" = (
+/obj/machinery/light_construct{
+	tag = "icon-tube-construct-stage1 (EAST)";
+	icon_state = "tube-construct-stage1";
+	dir = 4
+	},
+/obj/item/device/flashlight/lamp/lava/pink{
+	on = 1
+	},
+/turf/simulated/floor/plating,
+/area/civilian/entertainer)
 "Qd" = (
 /turf/simulated/wall/r_wall/prepainted,
 /area/civilian/exercise)
@@ -16376,13 +16401,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fp)
-"UC" = (
-/obj/machinery/firealarm{
-	dir = 4;
-	pixel_x = 24
-	},
-/turf/simulated/floor/plating,
-/area/civilian/entertainer)
 "UI" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -16410,11 +16428,7 @@
 	},
 /area/maintenance/second_deck/fp)
 "UQ" = (
-/obj/machinery/light_construct{
-	tag = "icon-tube-construct-stage1 (EAST)";
-	icon_state = "tube-construct-stage1";
-	dir = 4
-	},
+/obj/item/stack/tile/floor,
 /turf/simulated/floor/plating,
 /area/civilian/entertainer)
 "UR" = (
@@ -16460,7 +16474,6 @@
 /area/maintenance/second_deck/afs)
 "UZ" = (
 /obj/structure/bed/nice,
-/obj/structure/curtain/open/bed,
 /obj/item/weapon/bedsheet/mime,
 /obj/effect/landmark/start{
 	name = "Mime"
@@ -17116,14 +17129,6 @@
 /obj/item/weapon/paper_bin,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
-"ZI" = (
-/obj/item/device/radio/intercom{
-	dir = 8;
-	name = "Station Intercom (General)";
-	pixel_x = 22
-	},
-/turf/simulated/floor/plating,
-/area/civilian/entertainer)
 "ZK" = (
 /obj/structure/table/standard,
 /obj/structure/bedsheetbin,
@@ -41279,9 +41284,9 @@ GR
 XI
 VO
 QW
-by
-IE
-dV
+Rh
+PS
+cR
 cR
 eD
 ga
@@ -41478,12 +41483,12 @@ aq
 IE
 IE
 VX
-ZI
-UQ
-UC
 Rh
-PS
-cR
+UQ
+Rh
+ui
+IE
+dV
 eE
 fi
 gb
@@ -41680,9 +41685,9 @@ ap
 IE
 IE
 IE
-IE
-IE
-IE
+LM
+Qb
+Mv
 IE
 IE
 bs
@@ -41881,11 +41886,11 @@ ah
 ah
 ah
 ah
-ah
-ah
-ah
-ah
-cH
+ck
+ck
+ck
+ck
+ck
 ah
 bs
 eD
