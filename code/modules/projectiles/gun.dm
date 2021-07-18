@@ -62,6 +62,7 @@
 	var/silenced = 0
 	var/accuracy = 0   //accuracy is measured in tiles. +1 accuracy means that everything is effectively one tile closer for the purpose of miss chance, -1 means the opposite. launchers are not supported, at the moment.
 	var/accuracy_power = 5  //increase of to-hit chance per 1 point of accuracy
+	var/can_dual_wield = 0
 	var/dual_wield_penalty = 4 // by default dual wielding reduces accuracy by 25%
 	var/bulk = 0			//how unwieldy this weapon for its size, affects accuracy when fired without aiming
 	var/last_handled		//time when hand gun's in became active, for purposes of aiming bonuses
@@ -149,6 +150,17 @@
 	for(var/obj/O in contents)
 		O.emp_act(severity)
 
+/obj/item/weapon/gun/proc/check_dual_wield(atom/A, mob/living/user, params)
+	var/obj/item/weapon/gun/G = user.get_inactive_hand()
+	if(can_dual_wield && G.can_dual_wield)
+		if(w_class <= ITEM_SIZE_NORMAL && G.w_class <= ITEM_SIZE_NORMAL)
+			Fire(A,user,params, dual_wield=1)
+			user.swap_hand()
+		else
+			Fire(A,user,params) //Otherwise, fire normally.
+	else
+		Fire(A,user,params)
+
 /obj/item/weapon/gun/afterattack(atom/A, mob/living/user, adjacent, params)
 	if(adjacent) return //A is adjacent, is the user, or is on the user's person
 
@@ -163,13 +175,8 @@
 
 	if(user && user.a_intent == I_HELP) //regardless of what happens, refuse to shoot if help intent is on
 		to_chat(user, "<span class='warning'>You refrain from firing \the [src] as your intent is set to help.</span>")
-	else if(istype(I, /obj/item/weapon/gun)) //DUAL (or more!) WIELDING
-		var/obj/item/weapon/gun/G = user.get_inactive_hand()
-		if(w_class == ITEM_SIZE_NORMAL && G.w_class == ITEM_SIZE_NORMAL)
-			Fire(A,user,params, dual_wield=1)
-			user.swap_hand()
-		else
-			Fire(A,user,params) //Otherwise, fire normally.
+	else if(istype(I, /obj/item/weapon/gun)) //DUAL WIELDING
+		check_dual_wield(A, user, params)
 	else
 		Fire(A,user,params) //Otherwise, fire normally.
 
@@ -347,6 +354,7 @@
 	
 	if(dual_wield)
 		acc_mod -= dual_wield_penalty/2
+		to_chat(user, "<span class='warning'>Works!</span>")
 
 	if(burst > 1)
 		acc_mod -= 1
