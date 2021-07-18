@@ -15351,7 +15351,7 @@
 /obj/item/stack/material/steel{
 	amount = 50
 	},
-/obj/item/shipweapons/torpedo_warhead,
+/obj/item/shipweapons/torpedo_warhead/bluespace,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
 	icon_state = "corner_white";
