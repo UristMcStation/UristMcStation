@@ -55,7 +55,7 @@ datum/design/plasmapistol
 	desc = "A version of the RPED that allows for replacement of parts and scanning from a distance, along with higher capacity for parts."
 	id = "bs_rped"
 	req_tech = list(TECH_ENGINEERING = 3, TECH_MATERIAL = 3, TECH_BLUESPACE = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 15000, "glass" = 5000, "silver" = 2500)
+	materials = list(MATERIAL_STEEL = 15000, MATERIAL_GLASS = 5000, MATERIAL_SILVER = 2500)
 	build_path = /obj/item/weapon/storage/part_replacer/bluespace
 	sort_string = "CBAAB"
 
@@ -63,6 +63,33 @@ datum/design/plasmapistol
 	name = "bluespace"
 	id = "bluespace_cell"
 	req_tech = list(TECH_POWER = 7, TECH_MATERIAL = 6, TECH_BLUESPACE = 4) //The power tech a Hyper Cell will give, Material and Bluespace Tech requirements of the BoH
-	materials = list(DEFAULT_WALL_MATERIAL = 700, "gold" = 250, "silver" = 250, "glass" = 100)
+	materials = list(MATERIAL_STEEL = 700, MATERIAL_GOLD = 250, MATERIAL_SILVER = 250, MATERIAL_GLASS = 100, MATERIAL_PHORON = 100)
 	build_path = /obj/item/weapon/cell/bluespace
 	sort_string = "URSTG"
+
+/datum/design/item/shipweapons/bluespace_torpedo
+	name = "bluespace torpedo warhead"
+	desc = "A bluespace warhead for a torpedo. Shove it in a torpedo casing and you're good to go."
+	id = "ship_torpedo_warhead_bluespace"
+	req_tech = list(TECH_MATERIAL = 2, TECH_PHORON = 1, TECH_ENGINEERING = 1, TECH_COMBAT = 2, TECH_BLUESPACE = 2)
+	materials = list(MATERIAL_STEEL = 1000, MATERIAL_PLASTIC = 500, MATERIAL_PHORON = 500, MATERIAL_URANIUM = 500)
+	build_path = /obj/item/shipweapons/torpedo_warhead/bluespace
+	sort_string = "SHPWA"
+
+/datum/design/item/shipweapons/ap_torpedo
+	name = "AP torpedo warhead"
+	desc = "An armour-piercing warhead for a torpedo. Shove it in a torpedo casing and you're good to go."
+	id = "ship_torpedo_warhead_ap"
+	req_tech = list(TECH_MATERIAL = 1, TECH_PHORON = 1, TECH_ENGINEERING = 1, TECH_COMBAT = 3)
+	materials = list(MATERIAL_STEEL = 1200, MATERIAL_PLASTIC = 250, MATERIAL_PHORON = 400, MATERIAL_DIAMOND = 200)
+	build_path = /obj/item/shipweapons/torpedo_warhead/ap
+	sort_string = "SHPWB"
+
+/datum/design/item/shipweapons/emp_torpedo
+	name = "EMP torpedo warhead"
+	desc = "An EMP warhead for a torpedo. Shove it in a torpedo casing and you're good to go."
+	id = "ship_torpedo_warhead_emp"
+	req_tech = list(TECH_MATERIAL = 2, TECH_PHORON = 2, TECH_ENGINEERING = 2, TECH_COMBAT = 2)
+	materials = list(MATERIAL_STEEL = 1000, MATERIAL_PLASTIC = 300, MATERIAL_PHORON = 600, MATERIAL_URANIUM = 750)
+	build_path = /obj/item/shipweapons/torpedo_warhead/emp
+	sort_string = "SHPWC"

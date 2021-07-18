@@ -112,8 +112,7 @@
 
 /mob/living/simple_animal/hostile/overmapship/terran/fast_attack
 	name = "Terran Confederacy fast attack craft"
-	shields = 3000
-	health = 500
+	health = 1000
 	maxHealth = 1000
 	ship_category = "Terran Confederacy fast attack craft"
 	boardingmap = "maps/shipmaps/ship_fastattackcraft_terran.dmm"
@@ -127,29 +126,34 @@
 		new /datum/shipcomponents/weapons/heavylaser,
 		new /datum/shipcomponents/engines/fighter,
 		new /datum/shipcomponents/weapons/smallmissile/battery,
-		new /datum/shipcomponents/point_defence/light
+		new /datum/shipcomponents/point_defence/light,
+		new /datum/shipcomponents/shield_disruptor,
+		new /datum/shipcomponents/teleporter/terran
 	)
 
 	..()
 
 /mob/living/simple_animal/hostile/overmapship/terran/frigate
 	name = "Terran Confederacy frigate"
-	shields = 3000
-	health = 500
-	maxHealth = 1000
+	health = 1400
+	maxHealth = 1400
 	ship_category = "Terran Confederacy frigate"
-	boardingmap = "maps/shipmaps/ship_frigate_terran.dmm"
-	can_board = TRUE
+//	boardingmap = "maps/shipmaps/ship_frigate_terran.dmm"
+	can_board = FALSE
 
 /mob/living/simple_animal/hostile/overmapship/terran/frigate/New()
 	components = list(
-		new /datum/shipcomponents/shield/fighter,
-		new /datum/shipcomponents/weapons/lightlaser/dual,
-		new /datum/shipcomponents/weapons/lightlaser/dual,
-		new /datum/shipcomponents/weapons/heavylaser,
-		new /datum/shipcomponents/engines/fighter,
+		new /datum/shipcomponents/shield/combat,
+		new /datum/shipcomponents/weapons/heavylaser/dual,
+		new /datum/shipcomponents/weapons/heavylaser/dual,
+		new /datum/shipcomponents/weapons/pulse/heavy,
+		new /datum/shipcomponents/engines/combat,
 		new /datum/shipcomponents/weapons/smallmissile/battery,
-		new /datum/shipcomponents/point_defence/light
+		new /datum/shipcomponents/weapons/smallmissile/battery,
+		new /datum/shipcomponents/point_defence/med,
+		new /datum/shipcomponents/weapons/bigtorpedo,
+		new /datum/shipcomponents/shield_disruptor/heavy,
+		new /datum/shipcomponents/teleporter/terran/large
 	)
 
 	..()

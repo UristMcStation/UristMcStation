@@ -23,6 +23,7 @@
 	var/obj/machinery/computer/combatcomputer/linkedcomputer = null
 	var/status = CHARGED
 	var/datum/shipcomponents/targeted_component
+	var/can_intercept = FALSE //can we be intercepted??? added to account for future weapons that may pass through the shields and not be intercepted, and vice versa.
 
 /obj/machinery/shipweapons/Initialize()
 	.=..()
@@ -134,44 +135,54 @@
 
 		if(!evaded)
 			if(!pass_shield)
-				if(OM.shields)
-					var/shieldbuffer = OM.shields
-					OM.shields = max(OM.shields - shield_damage, 0) //take the hit
-					if(!OM.shields && hull_damage) //if we're left with less than 0 shields
-						shieldbuffer = hull_damage-shieldbuffer //hull_damage is slightly mitigated by the existing shield
-						if(shieldbuffer > 0) //but if the shield was really strong, we don't do anything
-							OM.health = max(OM.health - shieldbuffer, 0)
+				var/intercepted = FALSE
+				if(can_intercept)
+					for(var/datum/shipcomponents/point_defence/PD in OM.components)	//Roll through each PD unit. Only one needs to hit to stop the projectile.
+						if(!PD.broken && prob(PD.intercept_chance))
+							intercepted = TRUE
+							homeship.autoannounce("<b>The [src.name] was intercepted by the [OM.ship_category]'s [PD.name].</b>", "private")	//Let the firing ship know PD is annoying.
+							break
 
-							for(var/datum/shipcomponents/shield/S in OM.components)
-								if(!S.broken)
-									var/component_damage = hull_damage * 0.1
-									S.health -= component_damage
+				if(!intercepted)
+					if(OM.shields)
+						var/shieldbuffer = OM.shields
+						OM.shields = max(OM.shields - shield_damage, 0) //take the hit
+						if(!OM.shields && hull_damage) //if we're left with less than 0 shields
+							shieldbuffer = hull_damage-shieldbuffer //hull_damage is slightly mitigated by the existing shield
+							if(shieldbuffer > 0) //but if the shield was really strong, we don't do anything
+								OM.health = max(OM.health - shieldbuffer, 0)
 
-									if(S.health <= 0)
-										S.BlowUp()
+								for(var/datum/shipcomponents/shield/S in OM.components)
+									if(!S.broken)
+										var/component_damage = hull_damage * 0.1
+										S.health -= component_damage
 
-				else	//no shields? easy
-					if(targeted_component)
-						TargetedHit(OM, hull_damage)
+										if(S.health <= 0)
+											S.BlowUp()
 
-					else
-						OM.health = max(OM.health - hull_damage, 0)
+					else	//no shields? easy
+						if(targeted_component)
+							TargetedHit(OM, hull_damage)
 
-						if(prob(component_hit))
-							HitComponents(OM)
-							MapFire()
+						else
+							OM.health = max(OM.health - hull_damage, 0)
 
-				homeship.autoannounce("<b>The [src.name] has hit the [OM.ship_category].</b>", "private")
+							if(prob(component_hit))
+								HitComponents(OM)
+								MapFire()
+
+					homeship.autoannounce("<b>The [src.name] has hit the [OM.ship_category].</b>", "private")
 
 			else //do we pass through the shield? let's do our damage
 						//not so fast, we've got point defence now
-
+						//hold on there buster. now only weapons that can be intercepted are affected by PD, not just ones that pass through the shield
 				var/intercepted = FALSE
-				for(var/datum/shipcomponents/point_defence/PD in OM.components)	//Roll through each PD unit. Only one needs to hit to stop the projectile.
-					if(!PD.broken && prob(PD.intercept_chance))
-						intercepted = TRUE
-						homeship.autoannounce("<b>The [src.name] was intercepted by the [OM.ship_category]'s [PD.name].</b>", "private")	//Let the firing ship know PD is annoying.
-						break
+				if(can_intercept) //can we be intercepted?
+					for(var/datum/shipcomponents/point_defence/PD in OM.components)	//Roll through each PD unit. Only one needs to hit to stop the projectile.
+						if(!PD.broken && prob(PD.intercept_chance))
+							intercepted = TRUE
+							homeship.autoannounce("<b>The [src.name] was intercepted by the [OM.ship_category]'s [PD.name].</b>", "private")	//Let the firing ship know PD is annoying.
+							break
 
 				if(!intercepted)	//Let's take the damage outside the for loop to stop dupe damages if multiple PD's failed
 					if(OM.shields)

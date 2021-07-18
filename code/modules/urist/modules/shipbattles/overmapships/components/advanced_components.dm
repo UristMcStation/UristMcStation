@@ -124,12 +124,12 @@
 /datum/shipcomponents/teleporter/terran/large
 	name = "large high-flux Terran Naval teleporter"
 	boarding_number = 5
-	boarded_max = 4
+	boarded_max = 3
 
 /datum/shipcomponents/teleporter/bluespace_artillery
 	name = "bluespace artillery"
 	boarding_number = 1
-	boarding_delay = 5 MINUTES
+	boarding_delay = 6 MINUTES
 	boarding_mobs = list(/obj/effect/urist/spawn_bomb/bluespace_artillery)
 	boarding_message = "Severe bluespace fluctuations detected, hostile Bluespace Artillery inbound! Immediately evacuate the affected area. Expected impact point:"
 	boarded_max = 5 //if it manages to fire this many times, we have bigger issues

@@ -18,6 +18,7 @@
 	var/hull_damage = 0
 	var/pass_shield = FALSE
 	var/component_hit = 0
+	var/ammo_name //for naming the torpedo
 
 /obj/item/shipweapons/torpedo_warhead/New()
 	..()
@@ -46,7 +47,7 @@
 			to_chat(user, "<span class='notice'>You carefully close the warhead's circuitry panel.</span>")
 			riggedstate = 0
 			playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
-			icon_state = "torpedowarhead"
+			icon_state = initial(icon_state)
 		else if(!riggedstate)
 			to_chat(user, "<span class='notice'>You carefully lever open the warhead's circuitry panel.</span>")
 			riggedstate = CIRCUITRY_EXPOSED
@@ -195,9 +196,24 @@ var/const/TWARHEAD_DETONATE = 4
 	icon_state = "bstorpedowarhead"
 	hull_damage = 350 //maybe
 	pass_shield = TRUE
+	component_hit = 30
+	ammo_name = "bluespace"
 
+/obj/item/shipweapons/torpedo_warhead/ap
+	name = "armour-piercing torpedo warhead"
+	desc = "It's a big armour-piercing warhead for a big torpedo. Shove it in a torpedo casing and you've got yourself a torpedo." //torpedo
+	icon_state = "aptorpedowarhead"
+	hull_damage = 600 //maybe
+	component_hit = 10
+	ammo_name = "armour-piercing"
 
-
+/obj/item/shipweapons/torpedo_warhead/emp
+	name = "EMP torpedo warhead"
+	desc = "It's a big armour-piercing warhead for a big torpedo. Shove it in a torpedo casing and you've got yourself a torpedo." //torpedo
+	icon_state = "emptorpedowarhead"
+	shield_damage = 500 //maybe
+	component_hit = 50
+	ammo_name = "EMP"
 
 //TORPEDO WARHEAD END//
 //Torpedo IEDs begin

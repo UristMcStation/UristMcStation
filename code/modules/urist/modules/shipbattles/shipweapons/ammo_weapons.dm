@@ -16,7 +16,7 @@
 		if(!loaded)
 			status |= NO_AMMO
 			update_icon()
-			qdel(loaded_ammo) //bye bye ammo
+			QDEL_NULL(loaded_ammo) //bye bye ammo
 			UpdateStats(FALSE)
 
 /obj/machinery/shipweapons/ammo/attack_hand(mob/user as mob)
@@ -29,17 +29,18 @@
 
 /obj/machinery/shipweapons/ammo/proc/DoLoading(var/obj/structure/shipammo/ammo)
 	if(istype(ammo, ammo_type)) //checking this again, just to be sure
-		if(ammo.load_amount && !src.loaded && !src.loaded_ammo) //come back to this with maxload if it becomes necessary for missiles. i guess it could work for half-loading some of the new stuff, but it's not really necessary atm.
-			src.loaded += ammo.load_amount
+		if(ammo.load_amount && !src.loaded && !src.loaded_ammo) //are we out of ammo, and does the ammo have ammo?
+			src.loaded += ammo.load_amount //load the gun
 			src.status &= ~NO_AMMO
 			src.update_icon()
 			ammo.forceMove(src)
-			loaded_ammo = ammo
-			UpdateStats(TRUE)
+			src.loaded_ammo = ammo //set our loaded ammo type
+			UpdateStats(TRUE) //and get the damage stats from it
 			playsound(src, load_sound, 40, 1)
 
 /obj/machinery/shipweapons/ammo/proc/UpdateStats(var/loading)
-	if(loading)
+	if(loading && loaded_ammo)
+		name = "[initial(name)] ([loaded_ammo.name])"
 		shield_damage = loaded_ammo.shield_damage //here we pass the damage values along
 		hull_damage = loaded_ammo.hull_damage
 		pass_shield = loaded_ammo.pass_shield
@@ -47,6 +48,7 @@
 			component_hit = loaded_ammo.component_hit
 
 	else
+		name = initial(name)
 		shield_damage = initial(shield_damage) //here we reset the damage values
 		hull_damage = initial(hull_damage)
 		pass_shield = initial(pass_shield)
@@ -73,6 +75,7 @@
 /obj/machinery/shipweapons/ammo/attackby(obj/item/W as obj, mob/living/user as mob)
 	if(isCrowbar(W) && loaded_ammo)
 		to_chat(user, "<span class='warning'>You pry the [loaded_ammo] out of the [src]. It will need to be reloaded before firing again.</span>")
+		playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
 		loaded_ammo.dropInto(user.loc) //drop the ammo
 		loaded_ammo = null //null it out
 		loaded = 0 //then update all the relevant stats
@@ -96,4 +99,4 @@
 	projectile_type = /obj/item/projectile/bullet/ship/missile/bigtorpedo
 	fire_sound = 'sound/weapons/railgun.ogg'
 	fire_amount = 1
-	pass_shield = TRUE
+	can_intercept = TRUE

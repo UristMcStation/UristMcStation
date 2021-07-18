@@ -92,9 +92,8 @@
 	..()
 
 /mob/living/simple_animal/hostile/overmapship/alien/heavy //you have to board this motherfucker
-	shields = 500 //really weak, but fast charging shields
-	health = 2200 //and beefy hulls
-	maxHealth = 2200
+	health = 2400 //really weak, but fast charging shields
+	maxHealth = 2400 //and beefy hulls
 	ship_category = "Lactera frigate"
 	boardingmap = "maps/shipmaps/ship_lactera_large.dmm"
 	can_board = TRUE

@@ -81,7 +81,7 @@
 	name = "small missile"
 	icon = 'icons/urist/items/ship_projectiles.dmi'
 	icon_state= "smallmissile"
-	damage = 0
+	damage = 10
 	shake_range = 15
 	ex_devestation = 0
 	ex_heavy = 2
@@ -102,7 +102,7 @@
 	name = "big missile"
 	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
 	icon_state= "bigmissile"
-	damage = 0
+	damage = 10
 	shake_range = 25
 	wall_decon = TRUE
 	ex_devestation = 1
@@ -124,7 +124,7 @@
 	name = "small torpedo"
 	icon = 'icons/urist/items/ship_projectiles.dmi'
 	icon_state= "smalltorpedo"
-	damage = 0
+	damage = 10
 	shake_range = 20
 	wall_decon = TRUE
 	ex_devestation = 6
@@ -135,7 +135,7 @@
 	name = "big torpedo"
 	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
 	icon_state= "bigtorpedo"
-	damage = 0
+	damage = 10
 	shake_range = 30
 	wall_decon = TRUE
 	ex_devestation = 7
@@ -210,7 +210,7 @@
 
 	explosion(location, ex_devestation, ex_heavy, ex_light, 1, 0)
 
-	..()
+	return 1
 
 /obj/item/projectile/beam/ship/lightlaser
 	name = "light laser"
@@ -256,6 +256,8 @@
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'
 	damage = 2000
 	armor_penetration = 200
+	ex_heavy = 1
+	ex_light = 3
 
 /obj/item/projectile/beam/ship/pulse
 	icon_state = "pulse"
