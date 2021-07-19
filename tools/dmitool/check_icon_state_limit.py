@@ -1,7 +1,6 @@
 import argparse, re, sys
 from os import path, walk
-from multiprocessing import Pool
-import tqdm
+from tqdm import tqdm
 import dmitool # This import is why this script is here. If someone can import this file cleanly from [repo root]/test/ instead, feel free
 
 opt = argparse.ArgumentParser()
@@ -21,7 +20,11 @@ for root, subdirs, files in walk(args.dir):
         if filename.endswith('.dmi'):
             icons_to_process.append(path.join(root, filename))
 
-for i in tqdm.tqdm(range(len(icons_to_process))):
+enum = range(len(icons_to_process))
+if __name__ == "__main__":
+    enum = tqdm(enum)
+
+for i in enum:
     file_path = icons_to_process[i]
     try:
         dmi_info = dmitool.info(file_path)
