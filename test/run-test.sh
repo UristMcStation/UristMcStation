@@ -186,6 +186,7 @@ function setup_python3 {
     pip3 install --upgrade pip -q
     pip3 install pyyaml==5.3 -q
     pip3 install beautifulsoup4==4.8.2 -q
+    pip3 install tqdm==4.61.2 -q
 }
 
 function run_code_tests {
