@@ -10,6 +10,7 @@
 	selection_color = "#ad6bad"
 	req_admin_notify = 1
 	economic_power = 15
+	hud_icon = "hudresearchdirector"
 	access = list(access_rd, access_bridge, access_tox, access_morgue,
 			            access_tox_storage, access_teleporter, access_sec_doors, access_heads,
 			            access_research, access_robotics, access_xenobiology, access_ai_upload, access_tech_storage,
