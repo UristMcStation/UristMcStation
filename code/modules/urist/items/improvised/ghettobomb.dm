@@ -2,16 +2,16 @@
 
 //iedcasing assembly crafting//
 /obj/item/weapon/reagent_containers/food/drinks/cans/attackby(var/obj/item/I, mob/user as mob)
-        if(istype(I, /obj/item/device/assembly/igniter))
-                var/obj/item/device/assembly/igniter/G = I
-                var/obj/item/weapon/grenade/iedcasing/W = new /obj/item/weapon/grenade/iedcasing
-                user.remove_from_mob(G)
-                user.remove_from_mob(src)
-                user.put_in_hands(W)
-                user << "<span  class='notice'>You stuff the [I] in the [src], emptying the contents beforehand.</span>"
-                W.underlays += image(src.icon, icon_state = src.icon_state)
-                qdel(I)
-                qdel(src)
+	if(istype(I, /obj/item/device/assembly/igniter))
+		var/obj/item/device/assembly/igniter/G = I
+		var/obj/item/weapon/grenade/iedcasing/W = new /obj/item/weapon/grenade/iedcasing
+		user.remove_from_mob(G)
+		user.remove_from_mob(src)
+		user.put_in_hands(W)
+		user << "<span  class='notice'>You stuff the [I] in the [src], emptying the contents beforehand.</span>"
+		W.underlays += image(src.icon, icon_state = src.icon_state)
+		qdel(I)
+		qdel(src)
 
 
 /obj/item/weapon/grenade/iedcasing
