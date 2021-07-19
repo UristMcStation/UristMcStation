@@ -1211,64 +1211,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "An armband, worn by the crew to display which department they're assigned to. This one is purple."
 	icon_state = "rnd"
 
-//terran stuff
-
-/obj/item/clothing/suit/space/void/terran_marine
-	item_icons = URIST_ALL_ONMOBS
-	name = "Terran Confederacy Marine voidsuit"
-	desc = "A heavily armored suit that protects against moderate damage. Worn by the Terran Marines. It reeks of oppression, and also corruption somehow."
-	icon = 'icons/urist/items/clothes/clothes.dmi'
-	icon_state = "terran_void_marine"
-	gas_transfer_coefficient = 0.01
-	permeability_coefficient = 0.01
-	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency,/obj/item/weapon/melee/energy/sword)
-	armor = list(melee = 65, bullet = 60, laser = 40,energy = 20, bomb = 40, bio = 100, rad = 30)
-	can_breach = 0
-
-/obj/item/clothing/suit/space/void/commando/New()
-	..()
-	slowdown_per_slot[slot_wear_suit] = 1
-
-/obj/item/clothing/suit/storage/urist/terran_marine
-	name = "Terran Confederacy Marine armour"
-	desc = "A heavy armour vest worn by Terran Confederacy Marines."
-	icon_state = "terran_armour"
-	item_state = "terran_armour"
-	armor = list(melee = 60, bullet = 50, laser = 40, energy = 10, bomb = 25, bio = 0, rad = 0)
-
-	allowed = list(/obj/item/weapon/gun/energy,/obj/item/device/radio,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/gun/magnetic,/obj/item/weapon/tank)
-
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
-	item_flags = ITEM_FLAG_THICKMATERIAL
-	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
-	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECTION_TEMPERATURE
-	heat_protection = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
-	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
-	siemens_coefficient = 0.6
-
-/obj/item/clothing/suit/storage/urist/terran_officer
-	name = "Terran Confederacy Marine Officer armour"
-	desc = "A light armour vest worn by officers in the Terran Confederacy Marine Corps."
-	icon_state = "terran_armour_officer"
-	item_state = "terran_armour_officer"
-	armor = list(melee = 55, bullet = 40, laser = 35, energy = 10, bomb = 15, bio = 0, rad = 0)
-
-	allowed = list(/obj/item/weapon/gun/energy,/obj/item/device/radio,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/gun/magnetic,/obj/item/weapon/tank)
-
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	item_flags = ITEM_FLAG_THICKMATERIAL
-	cold_protection = UPPER_TORSO|LOWER_TORSO
-	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECTION_TEMPERATURE
-	heat_protection = UPPER_TORSO|LOWER_TORSO
-	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
-	siemens_coefficient = 0.6
-
-/obj/item/clothing/under/urist/terran/marine
-	name = "Terran Confederacy Marine uniform"
-	desc = "A grey uniform worn by the Terran Confederacy Marines."
-	icon_state = "terran_uniform"
-	item_state = "terran_uniform"
-
 // Biohazard Stuff, and Big Bulky Dumb Suits.
 
 // Grey Version of the biosuit.

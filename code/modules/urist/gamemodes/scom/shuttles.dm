@@ -39,7 +39,7 @@
 
 			else if(C.location == 1)
 
-				for(var/mob/living/simple_animal/hostile/M in SSmobs.mob_list)
+				for(var/mob/living/simple_animal/hostile/M in GLOB.simple_mob_list)
 					if(!M.stat && M.faction != "neutral")
 						user << "<span class='notice'>There are still aliens left alive!</span>"
 						return

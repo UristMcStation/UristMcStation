@@ -114,10 +114,22 @@
 	boarding_number = 4
 	boarding_delay = 4 MINUTES
 
+/datum/shipcomponents/teleporter/terran
+	name = "high-flux Terran Naval teleporter"
+	boarding_mobs = list(/mob/living/simple_animal/hostile/urist/terran/marine_space)
+	boarding_delay = 1 MINUTE
+	boarding_number = 4
+	boarded_max = 2
+
+/datum/shipcomponents/teleporter/terran/large
+	name = "large high-flux Terran Naval teleporter"
+	boarding_number = 5
+	boarded_max = 3
+
 /datum/shipcomponents/teleporter/bluespace_artillery
 	name = "bluespace artillery"
 	boarding_number = 1
-	boarding_delay = 5 MINUTES
+	boarding_delay = 6 MINUTES
 	boarding_mobs = list(/obj/effect/urist/spawn_bomb/bluespace_artillery)
 	boarding_message = "Severe bluespace fluctuations detected, hostile Bluespace Artillery inbound! Immediately evacuate the affected area. Expected impact point:"
 	boarded_max = 5 //if it manages to fire this many times, we have bigger issues
@@ -281,6 +293,15 @@
 	module_repair_prob = 0
 	module_restore_prob = 0
 	repair_delay = 30 SECONDS
+
+/datum/shipcomponents/repair_module/hivebot
+	name = "hivebot repair matrix"
+	repair_amount = 100
+	repair_delay = 30 SECONDS
+	hull_repair_prob = 80
+	module_repair_prob = 50
+	module_restore_prob = 25
+	can_fix_broken = TRUE
 
 //Cloaking Modules
 

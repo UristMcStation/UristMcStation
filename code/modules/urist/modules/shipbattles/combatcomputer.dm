@@ -89,15 +89,15 @@
 			weapons.Add(list(list(
 			"name" = S.name,
 			"status" = S.getStatusString(),
-			"strengthhull" = S.hulldamage,
-			"strengthshield" = S.shielddamage,
-			"shieldpass" = S.passshield,
+			"strengthhull" = S.hull_damage,
+			"strengthshield" = S.shield_damage,
+			"shieldpass" = S.pass_shield,
 			"location" = S.loc.loc.name,
 			"recharge_end" = S.rechargerate,
 			"recharge_current" = world.time - S.recharge_init_time,
 			"ref" = "\ref[S]"
 			)))
-			//maybe change passshield data to ammo?
+			//maybe change pass_shield data to ammo?
 			data["existing_weapons"] = weapons
 
 	if(target && istype(target, /mob/living/simple_animal/hostile/overmapship)) //We need a different UI for player ships
@@ -118,7 +118,7 @@
 					status = "Operational"
 			else
 				status = "Operational"
-			
+
 			targetcomponents.Add(list(list(
 			"componentname" = C.name,
 			"componentstatus" = status,
@@ -128,7 +128,7 @@
 			)))
 
 			data["target_components"] = targetcomponents
-		
+
 		data["status"] = 1
 		data["targetname"] = OM.name
 		data["targethealth"] = integrity
@@ -151,7 +151,7 @@
 	else if(length(homeship.contacts))
 		var/list/nearby_contacts[0]
 		data["status"] = 3
-		
+
 		for(var/obj/effect/overmap/ship/combat/OM in homeship.contacts)
 			nearby_contacts.Add(list(list(
 			"name" = OM.ship_name,
@@ -222,7 +222,7 @@
 			homeship.intercept(OM)
 		else
 			to_chat(usr, "<span class='warning'>You cannot intercept the [OM.ship_name] right now.</span>")
-	
+
 	if(href_list["startflee"])
 		if(!homeship.incombat) return
 		homeship.restabilize_engines()
@@ -230,11 +230,11 @@
 	if(href_list["cancelflee"])
 		if(!homeship.incombat || homeship.fleeing != 1)	return
 		homeship.cancel_restabilize_engines(TRUE)
-	
+
 	if(href_list["flee"])
 		if(!homeship.incombat || !homeship.can_escape && homeship.fleeing != 2) return
 		homeship.flee()
-	
+
 	updateUsrDialog()
 
 /obj/machinery/computer/combatcomputer/nerva //different def just in case we have multiple ships that do combat. although, i think i might keep the cargo ship noncombat, fluff it as it being too small, slips right by the enemies. i dunno

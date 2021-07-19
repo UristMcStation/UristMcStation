@@ -1,9 +1,9 @@
 //weapons
 
 /datum/shipcomponents/weapons
-//	var/shielddamage = 0 //how much damage do we do to shields
-//	var/passshield = 0 //do we go through shields to hit the hull?
-//	var/hulldamage = 1 //these three vars don't do anything anymore
+//	var/shield_damage = 0 //how much damage do we do to shields
+//	var/pass_shield = 0 //do we go through shields to hit the hull?
+//	var/hull_damage = 1 //these three vars don't do anything anymore
 	var/firedelay = 0 //how long do we take to fire again
 	var/burst = 0 //do we fire a burst, and if so, how much?
 	var/shot_number = 0 //how much have we fired in this burst?
@@ -145,7 +145,7 @@
 /datum/shipcomponents/weapons/lightlaser/auto
 	name = "light laser autocannon"
 	firedelay = 18 SECONDS
-	burst = 5
+	burst = 4
 	weapon_type = /obj/machinery/shipweapons/beam/rapidlightlaser
 
 /datum/shipcomponents/weapons/heavylaser
@@ -166,14 +166,14 @@
 
 /datum/shipcomponents/weapons/pulse
 	name = "pulse cannon"
-	firedelay = 22 SECONDS
+	firedelay = 24 SECONDS
 	projectile_type = /obj/item/projectile/beam/ship/pulse/light
 	weapon_type = /obj/machinery/shipweapons/beam/lightpulse
 	burst = 3
 
 /datum/shipcomponents/weapons/pulse/rapid
 	name = "multi-phasic pulse cannon"
-	firedelay = 26 SECONDS
+	firedelay = 28 SECONDS
 	projectile_type = /obj/item/projectile/beam/ship/pulse/light
 	weapon_type = /obj/machinery/shipweapons/beam/lightpulse
 	burst = 5

@@ -82,6 +82,13 @@
 	recharge_rate = 50
 	recharge_delay = 5 SECONDS
 
+/datum/shipcomponents/shield/combat
+	name = "high performance combat shield"
+	strength = 1000
+	health = 300
+	recharge_rate = 75
+	recharge_delay = 8 SECONDS
+
 /datum/shipcomponents/shield/alien_light
 	name = "light alien shield"
 	strength = 300
@@ -120,7 +127,7 @@
 	name = "freighter engines"
 	evasion_chance = 5
 	health = 200
-	turns_per_move = 20
+	turns_per_move = 24
 
 /datum/shipcomponents/engines/standard
 	name = "standard engines"
