@@ -5,6 +5,7 @@ import dmitool # This import is why this script is here. If someone can import t
 
 opt = argparse.ArgumentParser()
 opt.add_argument('dir', help='The directory to scan for *.dmi files with an excess number of icon states.')
+opt.add_argument('-q', '--quiet', default=False, dest="quiet", action='store_true', help="Suppress the progress bar, useful is the tqdm is bloating the logging")
 args = opt.parse_args()
 
 if(not path.isdir(args.dir)):
@@ -21,7 +22,7 @@ for root, subdirs, files in walk(args.dir):
             icons_to_process.append(path.join(root, filename))
 
 enum = range(len(icons_to_process))
-if __name__ == "__main__":
+if __name__ == "__main__" and not args.quiet:
     enum = tqdm(enum)
 
 for i in enum:
