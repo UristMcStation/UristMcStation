@@ -38,22 +38,6 @@
 	minimal_player_age = 7
 	outfit_type = /decl/hierarchy/outfit/job/science/scientist
 
-/datum/job/xenobiologist
-	title = "Xenobiologist"
-	department = "Science"
-	department_flag = SCI
-
-	total_positions = 3
-	spawn_positions = 2
-	supervisors = "the Chief Science Officer"
-	selection_color = "#633d63"
-	economic_power = 7
-	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_hydroponics)
-	minimal_access = list(access_research, access_xenobiology, access_hydroponics)
-	alt_titles = list("Xenobotanist")
-	minimal_player_age = 7
-	outfit_type = /decl/hierarchy/outfit/job/science/xenobiologist
-
 /datum/job/roboticist
 	title = "Roboticist"
 	department = "Science"

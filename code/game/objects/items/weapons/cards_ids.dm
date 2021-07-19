@@ -487,9 +487,6 @@ var/const/NO_EMAG_ACT = -50
 	job_access_type = /datum/job/scientist
 	detail_color = COLOR_PALE_PURPLE_GRAY
 
-/obj/item/weapon/card/id/science/xenobiologist
-	job_access_type = /datum/job/xenobiologist
-
 /obj/item/weapon/card/id/science/roboticist
 	job_access_type = /datum/job/roboticist
 
