@@ -137,5 +137,8 @@
 		/area/exoplanet/grass,
 		/area/exoplanet/snow,
 		/area/exoplanet/garbage,
-		/area/noctis/exteriorl
+		/area/noctis/exteriorl,
+		/area/jungleoutpost,
+		/area/voxship,
+		/area/morninglight,
 	)
