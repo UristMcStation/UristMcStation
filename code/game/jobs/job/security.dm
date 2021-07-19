@@ -82,6 +82,7 @@
 	selection_color = "#ddddff"
 	req_admin_notify = 1
 	minimal_player_age = 8
+	hud_icon = "hudbodyguard"
 	outfit_type = /decl/hierarchy/outfit/job/blueshield
 	access = list(access_security, access_sec_doors, access_court, access_forensics_lockers,
 			            access_medical, access_engine, access_ai_upload, access_eva, access_heads,
