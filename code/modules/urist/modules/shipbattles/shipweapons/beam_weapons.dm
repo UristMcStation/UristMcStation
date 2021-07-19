@@ -4,13 +4,13 @@
 	icon = 'icons/urist/structures&machinery/64x64machinery.dmi'
 	fire_sound = 'sound/weapons/marauder.ogg'
 
-/obj/machinery/shipweapons/beam/lightlaser
+/obj/machinery/shipweapons/beam/lightlaser //lasers are pretty good against shields, relatively weak against hulls
 	name = "light laser cannon"
-	shielddamage = 200
-	hulldamage = 100
+	shield_damage = 200
+	hull_damage = 100
 	icon_state = "lasercannon"
 	idle_power_usage = 10
-	active_power_usage = 4000
+	active_power_usage = 5000
 	component_hit = 20
 	rechargerate = 15 SECONDS
 	projectile_type = /obj/item/projectile/beam/ship/lightlaser
@@ -19,8 +19,8 @@
 
 /obj/machinery/shipweapons/beam/rapidlightlaser
 	name = "rapid-fire light laser cannon"
-	shielddamage = 500
-	hulldamage = 200
+	shield_damage = 500
+	hull_damage = 200
 	icon_state = "biglasercannon"
 	idle_power_usage = 10
 	active_power_usage = 6500
@@ -30,19 +30,19 @@
 
 /obj/machinery/shipweapons/beam/heavylaser
 	name = "heavy laser cannon"
-	shielddamage = 500 //comparable damage to the dual lasercannon, faster firing
-	hulldamage = 250
+	shield_damage = 500 //comparable damage to the rapid lasercannon, faster firing
+	hull_damage = 250
 	icon_state = "biglasercannon" //needs a better sprite
 	idle_power_usage = 10
-	active_power_usage = 8000
+	active_power_usage = 10000
 	component_hit = 20
 	rechargerate = 19 SECONDS
 	projectile_type = /obj/item/projectile/beam/ship/heavylaser
 
 /obj/machinery/shipweapons/beam/lightpulse //pulse is good against hull, weak against shields
 	name = "light pulse cannon"
-	shielddamage = 100
-	hulldamage = 300
+	shield_damage = 100
+	hull_damage = 300
 	icon_state = "pulsecannon"
 	idle_power_usage = 10
 	active_power_usage = 7000
@@ -52,24 +52,25 @@
 
 /obj/machinery/shipweapons/beam/heavypulse
 	name = "heavy pulse cannon"
-	shielddamage = 150
-	hulldamage = 600
+	shield_damage = 150
+	hull_damage = 600
 	icon_state = "bigpulsecannon"
 	idle_power_usage = 10
-	active_power_usage = 14000
+	active_power_usage = 16000
 	component_hit = 20
 	rechargerate = 22 SECONDS
 	projectile_type = /obj/item/projectile/beam/ship/pulse/heavy
 
-/obj/machinery/shipweapons/beam/ion
+/obj/machinery/shipweapons/beam/ion //no hull damage, big shield damage
 	name = "ion cannon"
 	icon_state = "ioncannon"
-	shielddamage = 400
-	hulldamage = 0
+	shield_damage = 400
+	hull_damage = 0
 	active_power_usage = 8000
 	component_hit = 35
 	rechargerate = 13 SECONDS
 	projectile_type = /obj/item/projectile/ion/ship
+	var/offline_delay = 30 SECONDS
 
 /obj/machinery/shipweapons/beam/ion/HitComponents(var/targetship)
 	var/mob/living/simple_animal/hostile/overmapship/OM = targetship
@@ -80,5 +81,16 @@
 	var/datum/shipcomponents/targetcomponent = pick(OM.components)
 	if(!targetcomponent.broken)
 		targetcomponent.broken = TRUE
-		spawn(45 SECONDS)
+		spawn(offline_delay)
 			targetcomponent.broken = FALSE
+
+/obj/machinery/shipweapons/beam/ion/heavy
+	name = "heavy ion cannon"
+	icon_state = "bigioncannon"
+	idle_power_usage = 10
+	active_power_usage = 16000
+	shield_damage = 700
+	component_hit = 50
+	rechargerate = 22 SECONDS
+	projectile_type = /obj/item/projectile/ion/ship/heavy
+	offline_delay = 50 SECONDS

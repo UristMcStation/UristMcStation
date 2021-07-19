@@ -41,7 +41,7 @@
 	trade_categories_by_name = list("atmospherics","tools","bulky","medical")
 
 	sell_modifier = 0.8
-	price_increase = 1.1
+	price_modifier = 0.1
 	wander = 0
 	npc_item_amount = 30
 	interact_screen = 2

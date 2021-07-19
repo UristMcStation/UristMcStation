@@ -14,6 +14,11 @@
 	var/riggedstate = 0 //What stage of rigging are we in?
 	var/obj/item/device/attached_device //Whatever is attached that'll detonate us.
 	var/datum/wires/torpedowarhead/wires = null
+	var/shield_damage = 0
+	var/hull_damage = 0
+	var/pass_shield = FALSE
+	var/component_hit = 0
+	var/ammo_name //for naming the torpedo
 
 /obj/item/shipweapons/torpedo_warhead/New()
 	..()
@@ -42,7 +47,7 @@
 			to_chat(user, "<span class='notice'>You carefully close the warhead's circuitry panel.</span>")
 			riggedstate = 0
 			playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
-			icon_state = "torpedowarhead"
+			icon_state = initial(icon_state)
 		else if(!riggedstate)
 			to_chat(user, "<span class='notice'>You carefully lever open the warhead's circuitry panel.</span>")
 			riggedstate = CIRCUITRY_EXPOSED
@@ -129,8 +134,11 @@
 				visible_message("<span class='danger'>[src] beeps stubbornly, refusing to detonate!</span>")
 				playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 25, 0, 10)
 				return
-			explosion(get_turf(src), 0, 2, 4)
+			do_explosion()
 			qdel(src)
+
+/obj/item/shipweapons/torpedo_warhead/proc/do_explosion()
+	explosion(get_turf(src), 0, 2, 5)
 
 /datum/wires/torpedowarhead
 	holder_type = /obj/item/shipweapons/torpedo_warhead
@@ -179,6 +187,39 @@ var/const/TWARHEAD_DETONATE = 4
 				N.visible_message( "<span class='notice'>[N]'s safety interlocks whirr and clunk loudly.</span>")
 		if(TWARHEAD_DETONATE)
 			N.detonate(1)
+
+//warhead types
+
+/obj/item/shipweapons/torpedo_warhead/bluespace //this is the previous warhead, we pass through the shield, and do some damage.
+	name = "bluespace torpedo warhead"
+	desc = "It's a big bluespace-capable warhead for a big torpedo. Shove it in a torpedo casing and you've got yourself a torpedo." //torpedo
+	icon_state = "bstorpedowarhead"
+	hull_damage = 350 //maybe
+	pass_shield = TRUE
+	component_hit = 30
+	ammo_name = "bluespace"
+
+/obj/item/shipweapons/torpedo_warhead/ap
+	name = "armour-piercing torpedo warhead"
+	desc = "It's a big armour-piercing warhead for a big torpedo. Shove it in a torpedo casing and you've got yourself a torpedo." //torpedo
+	icon_state = "aptorpedowarhead"
+	hull_damage = 600 //maybe
+	component_hit = 10
+	ammo_name = "armour-piercing"
+
+/obj/item/shipweapons/torpedo_warhead/ap/do_explosion()
+	explosion(get_turf(src), 0, 1, 3)
+
+/obj/item/shipweapons/torpedo_warhead/emp
+	name = "EMP torpedo warhead"
+	desc = "It's a big armour-piercing warhead for a big torpedo. Shove it in a torpedo casing and you've got yourself a torpedo." //torpedo
+	icon_state = "emptorpedowarhead"
+	shield_damage = 500 //maybe
+	component_hit = 50
+	ammo_name = "EMP"
+
+/obj/item/shipweapons/torpedo_warhead/emp/do_explosion()
+	empulse(get_turf(src), 1, 5)
 
 //TORPEDO WARHEAD END//
 //Torpedo IEDs begin

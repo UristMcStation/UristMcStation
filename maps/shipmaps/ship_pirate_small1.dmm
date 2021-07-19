@@ -2,7 +2,7 @@
 "ab" = (/turf/simulated/wall/r_wall/hull,/area/boarding_ship)
 "ac" = (/obj/effect/wallframe_spawn/reinforced/hull,/turf/simulated/wall/r_wall/rglass_wall,/area/boarding_ship)
 "ad" = (/obj/machinery/airlock_sensor/airlock_exterior{pixel_y = -19},/turf/space,/area/space)
-"ae" = (/obj/machinery/shipweapons/missile/torpedo{icon_state = "torpedo"; dir = 1},/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
+"ae" = (/obj/machinery/shipweapons/ammo/torpedo{icon_state = "torpedo"; dir = 1},/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
 "af" = (/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
 "ag" = (/turf/simulated/wall/r_wall/rglass_wall,/area/boarding_ship)
 "ah" = (/obj/machinery/door/airlock/external/glass/bolted,/obj/machinery/shield_diffuser,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)

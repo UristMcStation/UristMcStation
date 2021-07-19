@@ -276,6 +276,8 @@
 		else
 			qdel(gear)
 
+//lactera outfits
+
 /decl/hierarchy/outfit/lactera
 	name = "Lactera Soldier"
 	uniform = /obj/item/clothing/under/lactera
@@ -312,6 +314,8 @@
 	l_pocket = /obj/item/weapon/plastique/alienexplosive
 	head = /obj/item/clothing/head/lactera/cmd
 
+//terran outfits
+
 /decl/hierarchy/outfit/terranmarine
 	name = "Terran Marine"
 	uniform = /obj/item/clothing/under/urist/terran/marine
@@ -329,7 +333,7 @@
 	l_pocket = /obj/item/ammo_magazine/a556/a22
 	suit_store = /obj/item/weapon/gun/projectile/colt/a7
 	id_slot = slot_wear_id
-	id_type = /obj/item/weapon/card/id/centcom
+	id_type = /obj/item/weapon/card/id/terran/marine
 
 /decl/hierarchy/outfit/terranmarinespace
 	name = "Terran Marine - Space"
@@ -348,7 +352,7 @@
 	l_pocket = /obj/item/ammo_magazine/a556/a22
 	suit_store = /obj/item/weapon/tank/oxygen
 	id_slot = slot_wear_id
-	id_type = /obj/item/weapon/card/id/centcom
+	id_type = /obj/item/weapon/card/id/terran/marine
 
 /decl/hierarchy/outfit/terranofficer
 	name = "Terran Officer"
@@ -366,7 +370,7 @@
 	l_pocket = /obj/item/ammo_magazine/a9mm
 	suit_store = /obj/item/weapon/gun/projectile/colt/a7
 	id_slot = slot_wear_id
-	id_type = /obj/item/weapon/card/id/centcom
+	id_type = /obj/item/weapon/card/id/terran/marine
 
 //new pirates
 

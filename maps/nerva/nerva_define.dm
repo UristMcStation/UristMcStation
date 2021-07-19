@@ -25,7 +25,7 @@
 	company_name  = "Automated Announcement Systems"
 	company_short = "AAS"
 
-	map_admin_faxes = list("NanoTrasen Central Office")
+	map_admin_faxes = list("NanoTrasen Central Office", "Terran Confederacy Sector Headquarters", "United Human Alliance Outpost")
 
 	shuttle_docked_message = "Attention all hands: Jump preparation complete. The bluespace drive is now spooling up, secure all stations for departure. Time to jump: approximately %ETD%."
 	shuttle_leaving_dock = "Attention all hands: Jump initiated, exiting bluespace in %ETA%."
@@ -66,6 +66,9 @@
 	)
 
 /datum/map/nerva/setup_map()
+	var/month = text2num(time2text(world.timeofday, "MM"))
+	if(month == 6) //stolen from rainbow background code
+		lobby_icon = 'maps/nerva/nerva_rainbow_lobby.dmi'
 	..()
 	system_name = generate_system_name()
 	minor_announcement = new(new_sound = sound('sound/AI/torch/commandreport.ogg', volume = 45))

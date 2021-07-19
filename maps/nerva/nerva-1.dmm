@@ -4485,7 +4485,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fp)
 "ih" = (
-/obj/effect/urist/projectile_landmark/ship,
+/obj/effect/urist/projectile_landmark/ship{
+	shipid = "nerva"
+	},
 /turf/space,
 /area/space)
 "ii" = (
@@ -9747,7 +9749,7 @@
 	dir = 4;
 	id = "torpedo"
 	},
-/obj/structure/shipammo/torpedo/loaded,
+/obj/structure/shipammo/torpedo/bluespace,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
@@ -9770,7 +9772,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/bottomgun)
 "qQ" = (
-/obj/machinery/shipweapons/missile/torpedo{
+/obj/machinery/shipweapons/ammo/torpedo{
 	density = 1;
 	dir = 4;
 	icon_state = "torpedo";
@@ -15349,7 +15351,7 @@
 /obj/item/stack/material/steel{
 	amount = 50
 	},
-/obj/item/shipweapons/torpedo_warhead,
+/obj/item/shipweapons/torpedo_warhead/bluespace,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
 	icon_state = "corner_white";

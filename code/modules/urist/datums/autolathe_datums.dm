@@ -113,11 +113,13 @@
 	path = /obj/structure/shipammo/torpedo
 	category = "Arms and Ammunition"
 
-/datum/design/item/torpedo_guts
-	name = "torpedo warhead"
-	desc = "A warhead for a torpedo. Shove it in a torpedo casing and you're good to go."
-	id = "ship_torpedo_warhead"
-	req_tech = list(TECH_MATERIAL = 2, TECH_PHORON = 1, TECH_ENGINEERING = 1, TECH_COMBAT = 2)
-	materials = list(DEFAULT_WALL_MATERIAL = 1000, "plastic" = 500, "phoron" = 500) //maybe add uranium
-	build_path = /obj/item/shipweapons/torpedo_warhead
-	sort_string = "SHPWA"
+/datum/autolathe/recipe/magazine_hi2521smg9mm
+	name = "HI-2521 SMG ammo (9mm)"
+	path = /obj/item/ammo_magazine/hi2521smg9mm
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_hi2521smg9mm_rubber
+	name = "HI-2121 SMG ammo (9mm, rubber)"
+	path = /obj/item/ammo_magazine/hi2521smg9mm/rubber
+	category = "Arms and Ammunition"

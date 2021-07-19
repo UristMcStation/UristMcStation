@@ -426,6 +426,7 @@ to avoid worrying about the sprites -Glloyd*/
 	flags_inv = HIDEEARS|BLOCKHEADHAIR
 
 //cowboy hat
+
 /obj/item/clothing/head/urist/cowboy
 	name = "cowboy hat"
 	desc = "Giddy up pardner, yee haw cowpoke. Et cetera."
@@ -452,28 +453,6 @@ to avoid worrying about the sprites -Glloyd*/
 	min_cold_protection_temperature = 243.15
 	armor = list(melee = 15, bullet = 5, laser = 10, energy = 5, bomb = 0, bio = 0, rad = 0)
 	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristHead.dmi')
-
-//terran stuff
-
-/obj/item/clothing/head/urist/terran/officercap
-	name = "Terran Confederacy Marine officer cap"
-	desc = "A grey cap bearing the crest of the Terran Confederacy Marines."
-	icon_state = "greyutility"
-
-/obj/item/clothing/head/helmet/space/void/terran_marine
-	item_icons = URIST_ALL_ONMOBS
-	name = "Terran Confederacy Marine voidsuit"
-	desc = "A reinforced helmet worn by Terran Confederacy Marines."
-	icon = 'icons/urist/items/clothes/head.dmi'
-	icon_state = "terran_void_helm"
-	armor = list(melee = 65, bullet = 60, laser = 35,energy = 20, bomb = 35, bio = 100, rad = 30)
-
-/obj/item/clothing/head/helmet/urist/terran_marine
-	name = "Terram Confederacy Marine helmet"
-	desc = "A grey protective helmet, standard issue for all Terran Confederacy Marines."
-	icon_state = "terran_helm"
-	armor = list(melee = 50, bullet = 55, laser = 30, energy = 25, bomb = 30, bio = 0, rad = 0)
-	var/obj/item/weapon/storage/fancy/cigarettes/cigs
 
 // Headbands
 

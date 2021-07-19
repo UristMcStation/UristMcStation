@@ -65,29 +65,60 @@
 	invisibility = 101
 	var/defender_outfit = null
 
-/mob/observer/ghost/proc/shipdefender_spawn(var/datum/factions/hiddenfaction)
-	var/want = input(src,"The [GLOB.using_map.name] is now able to board a hostile [hiddenfaction.factionid] ship. Join as a defender on the hostile ship?") in list ("No", "Yes")
-	switch(want)
-		if("No")
+/client/verb/shipdefender_spawn()
+	set name = "Join as Boarder"
+	set category = "IC"
+
+	if(!MayRespawn(1))
+		to_chat(usr, "<span class='warning'>You are not allowed to respawn yet, and thus cannot join as a hostile boarder at this time.</span>")
+		return
+
+	if(isghost(usr) || isnewplayer(usr))
+		var/mob/living/simple_animal/hostile/overmapship/homeship = GLOB.using_map.overmap_ship.target
+
+		if(!homeship)
+			to_chat(usr, "<span class='warning'>You cannot join as a hostile boarder at this time as the [GLOB.using_map.full_name] is not currently in combat.</span>")
 			return
-		if("Yes")
-			for(var/obj/effect/urist/triggers/defender_landmark/D in GLOB.trigger_landmarks)
-				if(D.loc)
-					var/mob/living/carbon/human/M = new /mob/living/carbon/human(D.loc)
-					M.ckey = src.ckey
-					M.gender = pick(MALE,FEMALE)
-					var/datum/preferences/A = new()
-					A.sanitize_preferences()
-					A.randomize_appearance_and_body_for(M)
-					M.real_name = random_name(gender)
-					M.faction = hiddenfaction.factionid
 
-					var/decl/hierarchy/outfit/defender_outfit = outfit_by_type(D.defender_outfit)
-					defender_outfit.equip(M)
+		if(!homeship.boarding)
+			to_chat(usr, "<span class='warning'>You cannot join as a hostile boarder at this time, but you might be able to join soon.</span>")
+			return
 
-					M.update_icon()
-					qdel(src)
+		if(jobban_isbanned(usr, "Security Officer")) //idk, I should probably add more to this list. antagbans maybe?
+			to_chat(usr, "<span class='danger'>Your job bans prevent you from joining as a hostile boarder!</span>")
+			return
 
+		if(!homeship.boarders_amount)
+			to_chat(usr, "The maximum amount of hostile boarders have already been spawned!")
+			return
+
+		var/want = input(src,"The [GLOB.using_map.full_name] is now able to board a hostile [homeship.hiddenfaction.factionid] ship. Join as a defender on the hostile ship?") in list ("No", "Yes")
+		switch(want)
+			if("No")
+				return
+
+			if("Yes")
+				for(var/obj/effect/urist/triggers/defender_landmark/D in GLOB.trigger_landmarks)
+					if(D.loc)
+						homeship.boarders_amount--
+						var/mob/living/carbon/human/M = new homeship.hiddenfaction.faction_species(D.loc)
+						M.ckey = usr.ckey
+						M.gender = pick(M.species.genders)
+						M.faction = homeship.hiddenfaction.factionid
+						var/datum/preferences/A = new()
+						A.sanitize_preferences()
+						A.randomize_appearance_and_body_for(M)
+						var/decl/cultural_info/culture/C = SSculture.get_culture(M.species.default_cultural_info[TAG_CULTURE])
+						if(istype(C))
+							M.real_name = C.get_random_name(gender)
+
+						else
+							M.real_name = random_name(gender)
+
+						var/decl/hierarchy/outfit/defender_outfit = outfit_by_type(D.defender_outfit)
+						defender_outfit.equip(M)
+
+						M.update_icon()
 
 /obj/effect/urist/triggers/defender_landmark/pirate
 	defender_outfit = /decl/hierarchy/outfit/newpirate
@@ -153,6 +184,7 @@
 	faction_id = "pirate"
 
 //pirate corpses
+
 /obj/effect/landmark/corpse/newpirate
 	spawn_flags = CORPSE_SPAWNER_RANDOM_NAME | CORPSE_SPAWNER_CUT_ID_PDA | CORPSE_SPAWNER_CUT_SURVIVAL
 
@@ -167,3 +199,20 @@
 /obj/effect/landmark/corpse/newpirate/ballistic
 	name = "New Pirate - Ballistic"
 	corpse_outfits = list(/decl/hierarchy/outfit/newpirate/ballistic)
+
+//terran corpses
+
+/obj/effect/landmark/corpse/terran
+	spawn_flags = CORPSE_SPAWNER_RANDOM_NAME | CORPSE_SPAWNER_CUT_ID_PDA | CORPSE_SPAWNER_CUT_SURVIVAL
+
+/obj/effect/landmark/corpse/terran/marine
+	name = "Terran Marine"
+	corpse_outfits = list(/decl/hierarchy/outfit/terranmarine)
+
+/obj/effect/landmark/corpse/terran/marinespace
+	name = "Terran Marine - Space"
+	corpse_outfits = list(/decl/hierarchy/outfit/terranmarinespace)
+
+/obj/effect/landmark/corpse/terran/officer
+	name = "Terran Officer"
+	corpse_outfits = list(/decl/hierarchy/outfit/terranofficer)

@@ -1,7 +1,7 @@
 #include "yacht_areas.dm"
 
 /obj/effect/overmap/ship/yacht
-	name = "private yacht"
+	classification = "private yacht"
 	desc = "Sensor array is detecting a small vessel with unknown lifeforms on board"
 	color = "#ffc966"
 	vessel_mass = 3000
@@ -14,7 +14,9 @@
 	)
 
 /obj/effect/overmap/ship/yacht/New(nloc, max_x, max_y)
-	name = "IPV [pick("Razorshark", "Aurora", "Lighting", "Pequod", "Anansi")], \a [name]"
+	name = "IPV [pick("Razorshark", "Aurora", "Lighting", "Pequod", "Anansi")]"
+	ship_name = name
+	name = "[name], \a [classification]"
 	..()
 
 /datum/map_template/ruin/away_site/yacht

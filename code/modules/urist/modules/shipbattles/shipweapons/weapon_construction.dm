@@ -1,5 +1,6 @@
 /obj/structure/shipweapons
 	var/shipid = null
+	var/external = FALSE
 
 /obj/structure/shipweapons/hardpoint
 	name = "weapon hardpoint"
@@ -19,6 +20,14 @@
 /obj/structure/shipweapons/hardpoint/attached
 	attached = TRUE
 
+/obj/structure/shipweapons/hardpoint/external
+	external = TRUE
+//	icon = ''
+	icon_state = ""
+
+/obj/structure/shipweapons/hardpoint/external/nerva
+	shipid = "nerva"
+
 /obj/structure/shipweapons/incomplete_weapon
 	name = "incomplete weapon"
 	desc = "It's a ship-to-ship weapon assembly. Wrench it into a hardpoint to make it functional, or just chuck it out an airlock at an enemy vessel and see how far that gets you."
@@ -28,6 +37,7 @@
 	density = 1
 	var/state = 0
 	var/weapon_type = null
+	pixel_y = -18
 
 /obj/structure/shipweapons/incomplete_weapon/attackby(obj/item/W as obj, mob/living/user as mob)
 	switch(state)
@@ -38,6 +48,7 @@
 				var/obj/structure/shipweapons/hardpoint/H = (locate(/obj/structure/shipweapons/hardpoint) in T)
 				//qdel(H)
 				if(!H.attached)
+					animate(src, pixel_x = src.pixel_x, pixel_y = src.pixel_y, 3, 1, LINEAR_EASING)
 					H.attached = TRUE
 					src.shipid = H.shipid
 					playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
@@ -66,8 +77,10 @@
 				to_chat(user, "You unattach the assembly from its place.")
 				anchored = 0
 				state = 0
+				animate(src, pixel_x = initial(pixel_x), pixel_y = initial(pixel_y), 3, 1, LINEAR_EASING)
+				desc = initial(desc)
 				update_icon()
-				desc = "It's a ship-to-ship weapon assembly. Wrench it into a hardpoint to make it functional, or just chuck it out an airlock at an enemy vessel and see how far that gets you."
+
 				return
 
 		if(2)

@@ -30,7 +30,7 @@
 /obj/item/weapon/gun/energy/gun/secure
 	name = "smartgun"
 	desc = "A more secure LAEP90, the LAEP90-S is designed to please paranoid constituents. Body cam not included."
-	icon = 'icons/obj/guns/energy_gun_secure.dmi'
+	icon = 'icons/urist/items/guns.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/onmob/items/lefthand_guns_secure.dmi',
 		slot_r_hand_str = 'icons/mob/onmob/items/righthand_guns_secure.dmi',

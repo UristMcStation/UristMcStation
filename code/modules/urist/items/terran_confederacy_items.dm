@@ -1,4 +1,8 @@
-//items for the destroyed colony map, possibly will find use elsewhere. Terran defence forces shit mostly.
+//formerly terran_defence_force_items.dm. Now it is home to all the Terran Confederacy gear, for convenience. Terran marine gear has been moved here from the urist clothes folder.
+//non-TDF Terran weapons are still in the ANFOR weapons file
+
+
+//terran defence forces gear
 
 //suits and under
 
@@ -51,7 +55,7 @@
 
 /obj/item/clothing/suit/urist/terran/tdfrangerpatrol
 	name = "ranger patrol armor"
-	desc = "A set of standard issue Terran Defence Force Ranger patrol armor that provides a decent amount of defence.."
+	desc = "A set of standard issue Terran Defence Force Ranger patrol armor that provides a decent amount of defence. Capable enough to handle most day-to-day threats in the outer colonies of the Terran Confederacy."
 	icon_state = "ncr_patrol"
 	item_state = "ncr_patrol"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
@@ -170,3 +174,98 @@
 		icon_state = "smg10mm-fo"
 	else
 		icon_state = "smg10mm-fo-empty"
+
+/obj/item/weapon/card/id/terran
+	color = COLOR_GRAY40
+	detail_color = COLOR_VIOLET
+
+/obj/item/weapon/card/id/terran/tdf
+	name = "\improper Terran Defence Force ID"
+	desc = "An ID worn by someone in the Terran Defence Force"
+	registered_name = "Terran Defence Force"
+	assignment = "Ranger"
+	extra_details = list("goldstripe")
+
+//terran marine stuff
+
+/obj/item/clothing/suit/space/void/terran_marine
+	item_icons = URIST_ALL_ONMOBS
+	name = "Terran Confederacy Marine voidsuit"
+	desc = "A heavily armored suit that protects against moderate damage and the rigours of space. Worn by Terran Marines during boarding operations. It reeks of oppression and corruption."
+	icon = 'icons/urist/items/clothes/clothes.dmi'
+	icon_state = "terran_void_marine"
+	gas_transfer_coefficient = 0.01
+	permeability_coefficient = 0.01
+	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency,/obj/item/weapon/melee/energy/sword)
+	armor = list(melee = 65, bullet = 60, laser = 40,energy = 20, bomb = 40, bio = 100, rad = 30)
+	can_breach = 0
+
+/obj/item/clothing/suit/space/void/commando/New()
+	..()
+	slowdown_per_slot[slot_wear_suit] = 1
+
+/obj/item/clothing/suit/storage/urist/terran_marine
+	name = "Terran Confederacy Marine armour"
+	desc = "A heavy armour vest worn by Terran Confederacy Marines."
+	icon_state = "terran_armour"
+	item_state = "terran_armour"
+	armor = list(melee = 60, bullet = 50, laser = 40, energy = 10, bomb = 25, bio = 0, rad = 0)
+
+	allowed = list(/obj/item/weapon/gun/energy,/obj/item/device/radio,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/gun/magnetic,/obj/item/weapon/tank)
+
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+	item_flags = ITEM_FLAG_THICKMATERIAL
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECTION_TEMPERATURE
+	heat_protection = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
+	siemens_coefficient = 0.6
+
+/obj/item/clothing/suit/storage/urist/terran_officer
+	name = "Terran Confederacy Marine Officer armour"
+	desc = "A light armour vest worn by officers in the Terran Confederacy Marine Corps."
+	icon_state = "terran_armour_officer"
+	item_state = "terran_armour_officer"
+	armor = list(melee = 55, bullet = 40, laser = 35, energy = 10, bomb = 15, bio = 0, rad = 0)
+
+	allowed = list(/obj/item/weapon/gun/energy,/obj/item/device/radio,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/gun/magnetic,/obj/item/weapon/tank)
+
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	item_flags = ITEM_FLAG_THICKMATERIAL
+	cold_protection = UPPER_TORSO|LOWER_TORSO
+	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECTION_TEMPERATURE
+	heat_protection = UPPER_TORSO|LOWER_TORSO
+	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
+	siemens_coefficient = 0.6
+
+/obj/item/clothing/under/urist/terran/marine
+	name = "Terran Confederacy Marine uniform"
+	desc = "A grey uniform worn by the Terran Confederacy Marines, the land service branch of the powerful Terran Navy, and the primary land service branch of the Terran Confederacy Armed Forces."
+	icon_state = "terran_uniform"
+	item_state = "terran_uniform"
+
+/obj/item/clothing/head/urist/terran/officercap
+	name = "Terran Confederacy Marine officer cap"
+	desc = "A grey cap bearing the crest of the Terran Confederacy Marines, the land service branch of the powerful Terran Navy, and the primary land service branch of the Terran Confederacy Armed Forces."
+	icon_state = "greyutility"
+
+/obj/item/clothing/head/helmet/space/void/terran_marine
+	item_icons = URIST_ALL_ONMOBS
+	name = "Terran Confederacy Marine voidsuit"
+	desc = "A reinforced helmet worn by Terran Confederacy Marines, the land service branch of the powerful Terran Navy, and the primary land service branch of the Terran Confederacy Armed Forces."
+	icon = 'icons/urist/items/clothes/head.dmi'
+	icon_state = "terran_void_helm"
+	armor = list(melee = 65, bullet = 60, laser = 35,energy = 20, bomb = 35, bio = 100, rad = 30)
+
+/obj/item/clothing/head/helmet/urist/terran_marine
+	name = "Terram Confederacy Marine helmet"
+	desc = "A grey protective helmet, standard issue for all Terran Confederacy Marines."
+	icon_state = "terran_helm"
+	armor = list(melee = 50, bullet = 55, laser = 30, energy = 25, bomb = 30, bio = 0, rad = 0)
+	var/obj/item/weapon/storage/fancy/cigarettes/cigs
+
+/obj/item/weapon/card/id/terran/marine
+	name = "\improper Terran Marine ID"
+	desc = "An ID worn by someone in the Terran Confederacy Marines, the land service branch of the powerful Terran Navy, and the primary land service branch of the Terran Confederacy Armed Forces."
+	registered_name = "Terran Confederacy Marine Corps."
+	assignment = "Marine"

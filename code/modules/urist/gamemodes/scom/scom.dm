@@ -117,7 +117,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 	if(onmission == 1)
 //		world << "<span class='warning'> onmission</span>"
 		aliencount = 0
-		for(var/mob/living/simple_animal/hostile/M in SSmobs.mob_list)
+		for(var/mob/living/simple_animal/hostile/M in GLOB.simple_mob_list)
 			if(M.health > 0 && M.faction != "neutral")
 				aliencount += 1
 //				world << "<span class='warning'> aliens: [aliencount]</span>"
@@ -201,7 +201,7 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 
 /obj/effect/landmark/scom/bomb/proc/incomprehensibleprocname()
 	spawn(bombdelay)
-		explosion(src.loc, dmg_dev, dmg_hvy, dmg_lgt, 1)
+		explosion(src.loc, dmg_dev, dmg_hvy, dmg_lgt, 0, 0)
 
 /client/proc/delaymissions()
 

@@ -3,6 +3,8 @@
 	desc = "A protoype lightweight, fast firing submachine gun. Uses 4mm rounds."
 	icon = 'icons/urist/items/machine_pistol.dmi'
 	icon_state = "prototype"
+	item_icons = URIST_ALL_ONMOBS
+	wielded_item_state = "saber"
 	w_class = ITEM_SIZE_NORMAL
 	bulk = -1
 	load_method = MAGAZINE
@@ -34,7 +36,9 @@
 	desc = "The Lumoco Arms MP6 Vesper, A fairly common machine pistol. Sometimes refered to as an 'uzi' by the backwater spacers it is often associated with. Uses .45 rounds."
 	icon = 'icons/urist/items/machine_pistol.dmi'
 	icon_state = "mpistolen"
-	item_state = "wt550"
+	item_state = "mpistolen"
+	item_icons = URIST_ALL_ONMOBS
+	wielded_item_state = "mpistolen"
 	w_class = ITEM_SIZE_NORMAL
 	load_method = MAGAZINE
 	caliber = ".45"
@@ -64,6 +68,8 @@
 	icon = 'icons/urist/items/c20r.dmi'
 	icon_state = "c20r"
 	item_state = "c20r"
+	item_icons = URIST_ALL_ONMOBS
+	wielded_item_state = "c20r"
 	w_class = ITEM_SIZE_LARGE
 	force = 10
 	caliber = "10mm"
@@ -97,7 +103,9 @@
 	desc = "The rugged STS-35 is a durable automatic weapon of a make popular on the frontier worlds. The serial number has been scratched off. Uses 5.56mm rounds."
 	icon = 'icons/urist/items/assault_rifle.dmi'
 	icon_state = "arifle"
-	item_state = null
+	item_state = "arifle"
+	wielded_item_state = "arifle-wielded"
+	item_icons = URIST_ALL_ONMOBS
 	w_class = ITEM_SIZE_HUGE
 	force = 10
 	caliber = "a556"
@@ -110,7 +118,6 @@
 	accuracy_power = 4
 	accuracy = 2
 	bulk = GUN_BULK_RIFLE + 1
-	wielded_item_state = "arifle-wielded"
 	mag_insert_sound = 'sound/weapons/guns/interaction/ltrifle_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/ltrifle_magout.ogg'
 
@@ -128,7 +135,7 @@
 		wielded_item_state = "arifle-wielded"
 	else
 		icon_state = "arifle-empty"
-		wielded_item_state = "arifle-wielded-empty"
+		wielded_item_state = "arifle-0-wielded"
 
 /obj/item/weapon/gun/projectile/automatic/wt550
 	name = "9mm submachine gun"
@@ -136,6 +143,8 @@
 	icon = 'icons/urist/items/wt550.dmi'
 	icon_state = "wt550"
 	item_state = "wt550"
+	item_icons = URIST_ALL_ONMOBS
+	wielded_item_state = "wt550"
 	w_class = ITEM_SIZE_NORMAL
 	caliber = "9mm"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
@@ -167,6 +176,8 @@
 	icon = 'icons/urist/items/z8carbine.dmi'
 	icon_state = "carbine"
 	item_state = "z8carbine"
+	item_icons = URIST_ALL_ONMOBS
+	wielded_item_state = "z8carbine-wielded"
 	w_class = ITEM_SIZE_HUGE
 	force = 10
 	caliber = "a762"
@@ -183,7 +194,6 @@
 	one_hand_penalty = 8
 	bulk = GUN_BULK_RIFLE
 	burst_delay = 4
-	wielded_item_state = "z8carbine-wielded"
 	mag_insert_sound = 'sound/weapons/guns/interaction/batrifle_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/batrifle_magout.ogg'
 	firemodes = list(

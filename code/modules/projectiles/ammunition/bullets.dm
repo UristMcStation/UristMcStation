@@ -128,6 +128,22 @@
 		else
 			icon_state = spent_icon
 
+/obj/item/ammo_casing/shotgun/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/ammo_casing/shotgun))
+		var/obj/item/ammo_casing/shotgun/empty_check = I
+		if(!empty_check.BB)
+			return
+		var/obj/item/ammo_magazine/shotbundle/C = new /obj/item/ammo_magazine/shotbundle()
+		C.attackby(I, user)
+		C.attackby(src, user)
+		user.put_in_hands(C)
+		return
+	if(istype(I, /obj/item/ammo_magazine/shotbundle))
+		if(!BB)
+			return
+		I.attackby(src, user)
+		return
+	..()
 /obj/item/ammo_casing/shotgun/pellet
 	name = "shotgun shell"
 	desc = "A 12 gauge shell."
