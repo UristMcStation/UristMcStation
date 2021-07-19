@@ -83,7 +83,7 @@
 		/area/shuttle/event2,
 		/area/shuttle/train,
 		/area/shuttle/naval1,
-		/area/scom
+		/area/scom,
 		/area/awaymission,
 	)
 
