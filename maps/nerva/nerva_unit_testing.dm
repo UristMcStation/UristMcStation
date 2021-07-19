@@ -67,7 +67,6 @@
 		/area/djstation,
 		/area/outpost,
 		/area/outpost/abandoned,
-		/area/jungleoutpost,
 		/area/centcom/holding,
 		/area/centcom/specops,
 		/area/centcom/holding,
@@ -111,7 +110,6 @@
 		/area/map_template,
 		/area/exoplanet,
 //		/area/lanius,
-		/area/planet/jungle,
 		/area/scom,
 		/area/shuttle/naval1,
 		/area/shuttle/scom,
@@ -125,7 +123,6 @@
 		/area/away,
 		/area/spacestations,
 		/area/unishi,
-		/area/jungleoutpost,
 		/area/planet,
 		/area/noctis
 	)

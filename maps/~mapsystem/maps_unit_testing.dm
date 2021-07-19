@@ -29,11 +29,13 @@
 	// These areas are used specifically by code and need to be broken out somehow
 	var/list/area_usage_test_exempted_areas = list(
 		/area/beach,
+		/area/boarding_ship,
 		/area/centcom,
 		/area/centcom/holding,
 		/area/centcom/specops,
 		/area/chapel,
 		/area/hallway,
+		/area/jungleoutpost,
 		/area/maintenance,
 		/area/medical,
 		/area/medical/virology,
@@ -56,8 +58,10 @@
 		/area/shuttle/syndicate_elite,
 		/area/shuttle/syndicate_elite/mothership,
 		/area/shuttle/syndicate_elite/station,
+		/area/shuttle/infestation/i1,
 		/area/shuttle/infestation/i1/station,
 		/area/shuttle/infestation/i1/ship,
+		/area/shuttle/infestation/i2,
 		/area/shuttle/infestation/i2/station,
 		/area/shuttle/infestation/i2/ship,
 		/area/turbolift,
@@ -70,7 +74,17 @@
 
 	var/list/area_usage_test_exempted_root_areas = list(
 		/area/map_template,
-		/area/exoplanet
+		/area/exoplanet,
+		/area/jungleoutpost,
+		/area/planet/jungle,
+		/area/shuttle/scom,
+		/area/shuttle/assault,
+		/area/shuttle/event1,
+		/area/shuttle/event2,
+		/area/shuttle/train,
+		/area/shuttle/naval1,
+		/area/scom
+		/area/awaymission,
 	)
 
 	var/list/area_purity_test_exempt_areas = list()
