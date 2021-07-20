@@ -141,14 +141,17 @@
 /obj/item/organ/internal/lungs/nabber/rupture()
 	to_chat(owner, "<span class='danger'>You feel air rushing through your trachea!</span>")
 
-/obj/item/organ/internal/lungs/nabber/handle_failed_breath()
+/obj/item/organ/internal/lungs/nabber/handle_failed_breath(var/complete_failure)
+	if(complete_failure)
+		breath_fail_ratio = Clamp(0,(breath_fail_ratio + 1)/2,1)
+
 	var/mob/living/carbon/human/H = owner
 
-	H.adjustOxyLoss(-(HUMAN_MAX_OXYLOSS * owner.chem_effects[CE_OXYGENATED]))
+	H.adjustOxyLoss(-(HUMAN_MAX_OXYLOSS / 4 * owner.chem_effects[CE_OXYGENATED]))
 
 	if(breath_fail_ratio < 0.25 && owner.chem_effects[CE_OXYGENATED])
 		H.oxygen_alert = 0
-	if(breath_fail_ratio >= 0.25 && (damage || world.time > last_successful_breath + 2 MINUTES))
+	if(breath_fail_ratio >= 0.25 || damage)
 		H.adjustOxyLoss(HUMAN_MAX_OXYLOSS * breath_fail_ratio)
 		if(owner.chem_effects[CE_OXYGENATED])
 			H.oxygen_alert = 1
