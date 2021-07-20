@@ -28,7 +28,7 @@ GLOBAL_LIST_INIT(registered_cyborg_weapons, list())
 
 	var/reload_time = 5 SECONDS
 
-	var/mag_insert_sound = 'sound/weapons/guns/interaction/pistol_magin.ogg'
+	var/mag_insert_sound = 'sound/weapons/guns/interaction/energy_magin.ogg'
 	var/mag_remove_sound = 'sound/weapons/guns/interaction/pistol_magout.ogg'
 
 /obj/item/weapon/gun/energy/switch_firemodes()
@@ -107,14 +107,12 @@ GLOBAL_LIST_INIT(registered_cyborg_weapons, list())
 	return 1
 
 //To load a new power cell into the energy gun, if item A is a cell type and the gun is not self-recharging
-/obj/item/weapon/gun/energy/proc/load_ammo(var/obj/item/A, mob/user)
+/obj/item/weapon/gun/energy/proc/load_ammo(var/obj/item/weapon/cell/AM, mob/user)
 	if(self_recharge)
 		return
 	//only let's you load in power cells
-	if(istype(A, /obj/item/weapon/cell))
+	if(istype(AM))
 		. = TRUE
-		var/obj/item/weapon/cell/AM = A
-
 		if(hatch_open)
 			if(power_supply)
 				to_chat(user, "<span class='warning'>[src] already has a power cell loaded.</span>") //already a power cell here
@@ -149,6 +147,7 @@ GLOBAL_LIST_INIT(registered_cyborg_weapons, list())
 			playsound(loc, mag_remove_sound, 50, 1)
 			power_supply.update_icon()
 			power_supply = null
+			icon_state = "[initial(icon_state)][0]"
 			update_icon()
 		else
 			to_chat(user, "<span class='warning'>[src] is empty.</span>")
@@ -161,10 +160,12 @@ GLOBAL_LIST_INIT(registered_cyborg_weapons, list())
 	if(isScrewdriver(A) && (!self_recharge))
 		if(!hatch_open)
 			hatch_open = 1
+			playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
 			user.visible_message("[user] opens the cell cover of [src].", "<span class='notice'>You open the cell cover of [src].</span>")
 			return
 		else
-			hatch_open = 0 
+			hatch_open = 0
+			playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
 			user.visible_message("[user] closes the cell cover of [src].", "<span class='notice'>You close the cell cover of [src].</span>")
 			return
 	if(!load_ammo(A, user))
