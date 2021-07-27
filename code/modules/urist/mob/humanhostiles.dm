@@ -194,16 +194,31 @@
 	icon_living = "terran_marine"
 	icon_dead = "terran_marine_dead"
 	icon_gib = "syndicate_gib"
-	casingtype = /obj/item/ammo_casing/a556
+	casingtype = /obj/item/ammo_casing/a556/used
 	projectilesound = 'sound/weapons/gunshot/gunshot2.ogg'
 	projectiletype = /obj/item/projectile/bullet/rifle/a556
 	maxHealth = 150
 	health = 150
-	minimum_distance = 4
-	retreat_distance = 2
+	minimum_distance = 5
+	retreat_distance = 3
 	corpse = /obj/effect/landmark/corpse/terran/marine
 
 /mob/living/simple_animal/hostile/urist/terran/marine/event
+	faction = "terran"
+
+/mob/living/simple_animal/hostile/urist/terran/marine/ground
+	icon_state = "terran_g_marine"
+	icon_living = "terran_g_marine"
+	icon_dead = "terran_g_marine_dead"
+	corpse = /obj/effect/landmark/corpse/terran/marine_ground
+	casingtype = /obj/item/ammo_casing/a762/used
+	projectilesound = 'sound/weapons/gunshot/gunshot2.ogg'
+	projectiletype = /obj/item/projectile/bullet/rifle/a762
+	rapid = 0
+	desc = "A Terran Confederacy Marine. This one is wearing gear worn by ground assault forces."
+	ranged_cooldown_cap = 4
+
+/mob/living/simple_animal/hostile/urist/terran/marine/ground/event
 	faction = "terran"
 
 /mob/living/simple_animal/hostile/urist/terran/marine_officer
@@ -216,16 +231,26 @@
 	icon_living = "terran_officer"
 	icon_dead = "terran_officer_dead"
 	icon_gib = "syndicate_gib"
-	casingtype = /obj/item/ammo_casing/c9mm
+	casingtype = /obj/item/ammo_casing/c9mm/used
 	projectilesound = 'sound/weapons/gunshot/gunshot_smg.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol
-	maxHealth = 120
-	health = 120
+	maxHealth = 125
+	health = 125
 	minimum_distance = 4
 	retreat_distance = 2
 	corpse = /obj/effect/landmark/corpse/terran/officer
 
 /mob/living/simple_animal/hostile/urist/terran/marine_officer/event
+	faction = "terran"
+
+/mob/living/simple_animal/hostile/urist/terran/marine_officer/ground
+	icon_state = "terran_g_officer"
+	icon_living = "terran_g_officer"
+	icon_dead = "terran_g_officer_dead"
+	desc = "A Terran Confederacy Marine Officer. This one is wearing gear worn by ground assault forces."
+	corpse = /obj/effect/landmark/corpse/terran/marine_ground_officer
+
+/mob/living/simple_animal/hostile/urist/terran/marine_officer/ground/event
 	faction = "terran"
 
 /mob/living/simple_animal/hostile/urist/terran/marine_space
@@ -239,11 +264,11 @@
 	icon_living = "terran_heavy"
 	icon_dead = "terran_heavy_dead"
 	icon_gib = "syndicate_gib"
-	casingtype = /obj/item/ammo_casing/a556
+	casingtype = /obj/item/ammo_casing/a556/used
 	projectilesound = 'sound/weapons/gunshot/gunshot2.ogg'
 	projectiletype = /obj/item/projectile/bullet/rifle/a556
-	maxHealth = 220
-	health = 200
+	maxHealth = 225
+	health = 225
 	min_gas = null
 	max_gas = null
 	minbodytemp = 0
@@ -254,6 +279,16 @@
 /mob/living/simple_animal/hostile/urist/terran/marine_space/event
 	faction = "terran"
 
+/mob/living/simple_animal/hostile/urist/terran/marine_space/ground
+	desc = "A Terran Confederacy Marine. This one is wearing a voidsuit worn by ground assault forces."
+	icon_state = "terran_g_heavy"
+	icon_living = "terran_g_heavy"
+	icon_dead = "terran_g_heavy_dead"
+	corpse = /obj/effect/landmark/corpse/terran/marine_ground_space
+
+/mob/living/simple_animal/hostile/urist/terran/marine_space/ground/event
+	faction = "terran"
+
 //rebels
 
 /mob/living/simple_animal/hostile/urist/rebel
@@ -261,7 +296,7 @@
 	icon_living = "ANTAG"
 	name = "\improper Rebel"
 	desc = "A member of a growing resistance movement to both NanoTrasen and the Terran Confederacy."
-	casingtype = /obj/item/ammo_casing/a762
+	casingtype = /obj/item/ammo_casing/a762/used
 	hiddenfaction = /datum/factions/rebel
 	rapid = 0
 	maxHealth = 130
@@ -290,8 +325,8 @@
 	response_harm = "hits"
 	speed = 4
 	stop_automated_movement_when_pulled = 0
-	maxHealth = 100
-	health = 100
+	maxHealth = 120
+	health = 120
 	can_escape = 1
 
 	harm_intent_damage = 5
@@ -315,8 +350,8 @@
 	rapid = 0
 	projectiletype = /obj/item/projectile/beam
 	corpse = /obj/effect/landmark/corpse/newpirate/laser
-	minimum_distance = 4
-	retreat_distance = 2
+	minimum_distance = 5
+	retreat_distance = 3
 
 /mob/living/simple_animal/hostile/urist/newpirate/ballistic
 	name = "Pirate Gunner"
@@ -328,8 +363,8 @@
 	rapid = 2
 	projectiletype = /obj/item/projectile/bullet/rifle/a762
 	corpse = /obj/effect/landmark/corpse/newpirate/ballistic
-	minimum_distance = 4
-	retreat_distance = 2
+	minimum_distance = 5
+	retreat_distance = 3
 
 /mob/living/simple_animal/hostile/urist/newpirate/death(gibbed, deathmessage, show_dead_message)
 	..(gibbed, deathmessage, show_dead_message)
