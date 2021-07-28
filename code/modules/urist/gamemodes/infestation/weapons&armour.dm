@@ -1,26 +1,26 @@
-/obj/item/clothing/suit/urist/armor/anfor
+/obj/item/clothing/suit/storage/urist/armor/anfor
 	name = "anfor armour"
 	desc = "dammit admins, stop spawning the parent classes"
 	icon_state = "ANFOR-suit"
 	armor = list(melee = 50, bullet = 75, laser = 40, energy = 25, bomb = 30, bio = 0, rad = 0)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 
-/obj/item/clothing/suit/urist/armor/anfor/nco
+/obj/item/clothing/suit/storage/urist/armor/anfor/nco
 	name = "ANFOR NCO armour"
 	desc = "The M3 PPA, standard issue armour for ANFOR marines. This one has the markings of a Non-Commissioned Officer."
 	icon_state = "ANFOR-cmdsuit"
 
-/obj/item/clothing/suit/urist/armor/anfor/marine
+/obj/item/clothing/suit/storage/urist/armor/anfor/marine
 	name = "ANFOR Marine armour"
 	desc = "The M3 PPA, standard issue armour for ANFOR marines. This one has the markings of a standard marine."
 	icon_state = "ANFOR-suit"
 
-/obj/item/clothing/suit/urist/armor/anfor/engi
+/obj/item/clothing/suit/storage/urist/armor/anfor/engi
 	name = "ANFOR Engineering armour"
 	desc = "The M3 PPA, standard issue armour for ANFOR marines. This one has the markings of a marine in the Engineering division."
 	icon_state = "ANFOR-engsuit"
 
-/obj/item/clothing/suit/urist/armor/anfor/medic
+/obj/item/clothing/suit/storage/urist/armor/anfor/medic
 	name = "ANFOR Medic armour"
 	desc = "The M3 PPA, standard issue armour for ANFOR marines. This one has the markings of a field medic."
 	icon_state = "ANFOR-medsuit"
@@ -47,23 +47,23 @@
 
 /obj/item/clothing/head/helmet/urist/anfor
 	name = "ANFOR Marine helmet"
-	desc = "An olive drab M10 protective helmet, standard issue for all Anfor marines. This one has the markings of a standard marine."
+	desc = "An olive drab M10 protective helmet, standard issue for all ANFOR marines. This one has the markings of a standard marine."
 	icon_state = "ANFOR-helm"
 	armor = list(melee = 40, bullet = 75, laser = 30, energy = 25, bomb = 30, bio = 0, rad = 0)
 
 /obj/item/clothing/head/helmet/urist/anfor/med
 	name = "ANFOR Medic helmet"
-	desc = "An olive drab M10 protective helmet, standard issue for all Anfor marines. This one has the markings of a field medic."
+	desc = "An olive drab M10 protective helmet, standard issue for all ANFOR marines. This one has the markings of a field medic."
 	icon_state = "ANFOR-medhelm"
 
 /obj/item/clothing/head/helmet/urist/anfor/eng
 	name = "ANFOR Engineering helmet"
-	desc = "An olive drab M10 protective helmet, standard issue for all Anfor marines. This one has the markings of a marine in the Engineering division."
+	desc = "An olive drab M10 protective helmet, standard issue for all ANFOR marines. This one has the markings of a marine in the Engineering division."
 	icon_state = "ANFOR-enghelm"
 
 /obj/item/clothing/head/helmet/urist/anfor/nco
 	name = "ANFOR NCO helmet"
-	desc = "An olive drab M10 protective helmet, standard issue for all Anfor marines. This one has the markings of a Non-Commissioned Officer."
+	desc = "An olive drab M10 protective helmet, standard issue for all ANFOR marines. This one has the markings of a Non-Commissioned Officer."
 	icon_state = "ANFOR-cmdhelm"
 //	var/obj/item/weapon/storage/fancy/cigarettes/cigs
 
@@ -123,12 +123,10 @@
 		src.icon_state = "jackboots-knife"
 		M.regenerate_icons()
 
-/obj/item/clothing/head/soft/anfor
-	item_icons = URIST_ALL_ONMOBS
+/obj/item/clothing/head/urist/anfor
 	name = "ANFOR NCO cap"
-	desc = "A cap worn by ANFOR NCOs. Doesn't offer all that much protection, but DAMN does it look good. Hey, you can flip it around too. Your corpse will look good for sure."
-	icon = 'icons/urist/items/clothes/head.dmi'
-	icon_state = "anforsoft"
+	desc = "A cap worn by ANFOR NCOs. Doesn't offer all that much protection, but DAMN does it look good. Your corpse will look good for sure."
+	icon_state = "anforsoft2"
 
 //voidsuit - might change this to an actual rig
 
@@ -163,7 +161,7 @@
 /obj/item/weapon/gun/projectile/automatic/a22
 	item_icons = URIST_ALL_ONMOBS
 	name = "\improper A22 Combat Rifle"
-	desc = "20 high-powered rounds of 5.56mm. Staple rifle for the ANFOR Marine, perfect for punching 5.56 millimetre holes in alien scum. Can fire semi automatic or in 3 or 5 round bursts."
+	desc = "20 high-powered rounds of 5.56mm. Staple rifle for the ANFOR Marine Corps and the Terran Confederacy Marine Corps, perfect for punching 5.56 millimetre holes in alien scum. Can fire semi automatic or in 3 or 5 round bursts."
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "ANFOR-rifle"
 	item_state = "ANFOR-rifle"
@@ -210,7 +208,7 @@
 /obj/item/weapon/gun/projectile/a18
 	item_icons = URIST_ALL_ONMOBS
 	name = "\improper A18 Marksman's Rifle"
-	desc = "30 high-powered rounds of 7.62mm. The standard-issue marksman's rifle for the ANFOR Marine Corps. Can mount either a scope or a grenade launcher, making it a versatile, accurate semi-automatic rifle perfect for those serving in support roles."
+	desc = "30 high-powered rounds of 7.62mm. The standard-issue marksman's rifle for the ANFOR Marine Corps and the Terran Confederacy Marine Corps. Can mount either a scope or a grenade launcher, making it a versatile, accurate semi-automatic rifle perfect for those serving in support roles."
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "ANFOR-battlerifle"
 	item_state = "ANFOR-battlerifle"
@@ -380,7 +378,7 @@
 /obj/item/weapon/gun/projectile/automatic/asmg
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper A37 SMG"
-	desc = "The standard submachine gun of the ANFOR Marine Corps. Has 40 rounds of 9mm ammo, and can fire semi automatic or in 3 or 5 round bursts.."
+	desc = "The standard submachine gun of the ANFOR Marine Corps and the Terran Confederacy Marine Corps. Has 40 rounds of 9mm ammo, and can fire semi automatic or in 3 or 5 round bursts.."
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "ANFOR-SMG"
 	item_state = "ANFOR-SMG"
@@ -438,7 +436,7 @@
 /obj/item/weapon/gun/projectile/colt/a7
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper A7 pistol"
-	desc = "A slightly modified version of the classic Colt M1911, the standard sidearm for ANFOR Marines. It holds 8 .45 rounds."
+	desc = "A slightly modified version of the classic Colt M1911, the standard sidearm for ANFOR and Terran Marines. It holds 8 .45 rounds."
 	magazine_type = /obj/item/ammo_magazine/c45m/a7
 	icon_state = "ANFOR-pistol"
 	icon = 'icons/urist/items/guns.dmi'

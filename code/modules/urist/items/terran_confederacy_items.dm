@@ -186,7 +186,7 @@
 	assignment = "Ranger"
 	extra_details = list("goldstripe")
 
-//terran marine stuff
+//terran marine stuff, now delineated into space vs ground.
 
 /obj/item/clothing/suit/space/void/terran_marine
 	item_icons = URIST_ALL_ONMOBS
@@ -197,7 +197,7 @@
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
 	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency,/obj/item/weapon/melee/energy/sword)
-	armor = list(melee = 65, bullet = 60, laser = 40,energy = 20, bomb = 40, bio = 100, rad = 30)
+	armor = list(melee = 65, bullet = 65, laser = 40,energy = 20, bomb = 40, bio = 100, rad = 30)
 	can_breach = 0
 
 /obj/item/clothing/suit/space/void/commando/New()
@@ -206,10 +206,10 @@
 
 /obj/item/clothing/suit/storage/urist/terran_marine
 	name = "Terran Confederacy Marine armour"
-	desc = "A heavy armour vest worn by Terran Confederacy Marines."
+	desc = "A heavy armour vest worn by Terran Confederacy Marines serving aboard Terran Naval vessels."
 	icon_state = "terran_armour"
 	item_state = "terran_armour"
-	armor = list(melee = 60, bullet = 50, laser = 40, energy = 10, bomb = 25, bio = 0, rad = 0)
+	armor = list(melee = 60, bullet = 55, laser = 40, energy = 10, bomb = 25, bio = 0, rad = 0)
 
 	allowed = list(/obj/item/weapon/gun/energy,/obj/item/device/radio,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/gun/magnetic,/obj/item/weapon/tank)
 
@@ -223,7 +223,7 @@
 
 /obj/item/clothing/suit/storage/urist/terran_officer
 	name = "Terran Confederacy Marine Officer armour"
-	desc = "A light armour vest worn by officers in the Terran Confederacy Marine Corps."
+	desc = "A light armour vest worn by officers in the Terran Confederacy Marine Corps serving aboard Terran Naval vessels.."
 	icon_state = "terran_armour_officer"
 	item_state = "terran_armour_officer"
 	armor = list(melee = 55, bullet = 40, laser = 35, energy = 10, bomb = 15, bio = 0, rad = 0)
@@ -240,7 +240,7 @@
 
 /obj/item/clothing/under/urist/terran/marine
 	name = "Terran Confederacy Marine uniform"
-	desc = "A grey uniform worn by the Terran Confederacy Marines, the land service branch of the powerful Terran Navy, and the primary land service branch of the Terran Confederacy Armed Forces."
+	desc = "A grey uniform worn by the Terran Confederacy Marines serving aboard Naval vessels."
 	icon_state = "terran_uniform"
 	item_state = "terran_uniform"
 
@@ -252,14 +252,14 @@
 /obj/item/clothing/head/helmet/space/void/terran_marine
 	item_icons = URIST_ALL_ONMOBS
 	name = "Terran Confederacy Marine voidsuit"
-	desc = "A reinforced helmet worn by Terran Confederacy Marines, the land service branch of the powerful Terran Navy, and the primary land service branch of the Terran Confederacy Armed Forces."
+	desc = "A grey reinforced helmet worn by Terran Confederacy Marines, serving aboard Naval vessels."
 	icon = 'icons/urist/items/clothes/head.dmi'
 	icon_state = "terran_void_helm"
-	armor = list(melee = 65, bullet = 60, laser = 35,energy = 20, bomb = 35, bio = 100, rad = 30)
+	armor = list(melee = 65, bullet = 65, laser = 35,energy = 20, bomb = 40, bio = 100, rad = 30)
 
 /obj/item/clothing/head/helmet/urist/terran_marine
 	name = "Terram Confederacy Marine helmet"
-	desc = "A grey protective helmet, standard issue for all Terran Confederacy Marines."
+	desc = "A grey protective helmet, standard issue for all Terran Confederacy Marines serving aboard Naval vessels."
 	icon_state = "terran_helm"
 	armor = list(melee = 50, bullet = 55, laser = 30, energy = 25, bomb = 30, bio = 0, rad = 0)
 	var/obj/item/weapon/storage/fancy/cigarettes/cigs
@@ -269,3 +269,37 @@
 	desc = "An ID worn by someone in the Terran Confederacy Marines, the land service branch of the powerful Terran Navy, and the primary land service branch of the Terran Confederacy Armed Forces."
 	registered_name = "Terran Confederacy Marine Corps."
 	assignment = "Marine"
+
+//slight resprites, renames, and tweaks of anfor stuff
+
+/obj/item/clothing/suit/storage/urist/armor/anfor/terran/nco
+	name = "Terran Marine NCO armour"
+	desc = "The M3 PPA, standard issue armour for Terran Marines serving in ground assault forces, and ANFOR marines during the Galactic Crisis. This one has the markings of a Non-Commissioned Officer."
+	icon_state = "ANFOR-cmdsuit-terran"
+
+/obj/item/clothing/suit/storage/urist/armor/anfor/terran
+	name = "Terran Marine armour"
+	desc = "The M3 PPA, standard issue armour for Terran Marines serving in ground assault forces, and ANFOR marines during the Galactic Crisis. This one has the markings of a standard marine."
+	icon_state = "ANFOR-suit"
+
+/obj/item/clothing/under/urist/anfor/terran
+	name = "Terran Marine BDU"
+	desc = "An olive drab Battle Dress Uniform, standard issue for Terran Marines serving in ground assault forces."
+
+/obj/item/clothing/head/helmet/urist/anfor/terran
+	name = "Terran Marine helmet"
+	desc = "An olive drab M10 protective helmet, standard issue for all Terran Marines serving in ground assault forces. This one has the markings of a standard marine."
+
+/obj/item/clothing/head/urist/anfor/terran
+	item_icons = URIST_ALL_ONMOBS
+	name = "Terran Marine NCO cap"
+	desc = "A cap worn by Terran Marine NCOs in ground assault forces. Doesn't offer much protection, but it bears the crest of the Terran Confederacy Marines, the land service branch of the powerful Terran Navy, and the primary land service branch of the Terran Confederacy Armed Forces."
+
+/obj/item/clothing/suit/space/void/anfor/terran
+	name = "\improper Terran Marine voidsuit"
+	desc = "A heavily armored suit that protects against moderate damage. Used by Terran Marines serving in ground assault forces when exposure to the cold dark void of space is likely."
+	icon_state = "ANFOR-evasuit-terran"
+
+/obj/item/clothing/head/helmet/space/void/anfor/terran
+	name = "Terran Marine voidsuit helmet"
+	desc = "A comfortable voidsuit helmet used by Terran Marines serving in ground assault forces. Features cranial armor and eight-channel surround sound."
