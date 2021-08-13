@@ -47,6 +47,10 @@
 
 	var/datum/job/assigned_job
 
+	var/manual_pay_rate
+	var/manual_department
+	var/pay_suspended = FALSE
+
 	var/list/datum/objective/objectives = list()
 	var/list/datum/objective/special_verbs = list()
 

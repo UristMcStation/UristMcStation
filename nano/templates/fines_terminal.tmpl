@@ -1,0 +1,133 @@
+{{if data.auth < 2}}
+	<div class='notice'>
+		<h1><span class='bad'>ACCESS DENIED</span></h1>
+		{{if data.auth}}
+			Correct authorisation credentials missing:<br>Please contact your system administrator for support
+		{{else}}
+			No ID card detected:<br>Please check your ID card, and try again
+		{{/if}}
+	</div>
+{{else}}
+	{{:helper.link('New Fine','plus',{'state':data.has_target ? 1 : 0},data.state < 2 ? 'selected' : data.auth < 2 ? 'disabled' : null)}}
+	{{:helper.link('System Logs','clipboard',{'state' : 2},data.state == 2 ? 'selected' : data.auth < 2 ? 'disabled' : null)}}
+	{{if data.state == 1}}
+		<span class='floatRight'>{{:helper.link('Cancel', 'circle-close', {'action' : 'cancel'})}}</span><br><hr>
+		<div class='block'>
+			<h2><center>New Fine: {{:data.name}}</center></h2><hr><br>
+			<div class='item'>
+				<div class='itemLabel'>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name:
+				</div>
+				<div class='itemContent'>
+					{{:data.name}}
+				</div>
+			</div>
+			<div class='item'>
+				<div class='itemLabel'>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Current Funds:
+				</div>
+				<div class='itemContent'>
+					{{:data.funds}} Th
+				</div>
+			</div>
+			<div class='item'>
+				<div class='itemLabel'>
+					{{:helper.link('','pencil',{'action':'amount'}, data.auth < 2 ? 'disabled' : null)}} Fine Amount:
+				</div>
+				<div class='itemContent'>
+					{{if data.amount}}
+						{{:data.amount}} Th
+					{{/if}}
+				</div>
+			</div>
+			<div class='item'>
+				<div class='itemLabel'>
+					{{:helper.link('','pencil',{'action':'author'}, data.auth < 2 ? 'disabled' : null)}} Issued by:
+				</div>
+				<div class='itemContent'>
+					{{if data.author}}
+						{{:data.author}}
+					{{/if}}
+				</div>
+			</div>
+			<div class='item'>
+				<div class='itemLabel'>
+					{{:helper.link('','pencil',{'action':'reason'}, data.auth < 2 ? 'disabled' : null)}} Reason:
+				</div>
+				<div class='itemContent'>
+					{{if data.reason}}
+						{{:data.reason}}
+					{{/if}}
+				</div>
+			</div>
+			<br>
+			{{:helper.link('Issue Fine','notice',{'action':'complete'}, data.auth < 2 ? 'disabled' : null)}}
+			<br>
+		</div>
+	{{else data.state == 2}}
+		<br><hr>
+		<div class='block'>
+			<h2><u>System Logs</u></h3><br>
+			{{for data.logs}}
+				<div class='block'>
+					<h3>#{{:value.number}} - {{:value.name}}<span class='floatRight'>{{:helper.link('', value.more_details ? 'carat-1-s' : 'carat-1-e',{'more' : index}, data.auth < 2 ? 'disabled' : null)}}</span></h3>
+					{{if value.more_details}}
+						<div class='item'>
+							<div class='itemLabel'>
+								Issued by:
+							</div>
+							<div class='itemContent'>
+								{{:value.author}}
+							</div>
+						</div>
+						<div class='item'>
+							<div class='itemLabel'>
+								Processed by:
+							</div>
+							<div class='itemContent'>
+								{{:value.filed_by}}
+							</div>
+						</div>
+						<div class='item'>
+							<div class='itemLabel'>
+								Amount:
+							</div>
+							<div class='itemContent'>
+								{{:value.amount}} Th
+							</div>
+						</div>
+						<div class='item'>
+							<div class='itemLabel'>
+								Reason:
+							</div>
+							<div class='itemContent'>
+								{{:value.reason}}
+							</div>
+						</div>
+						<div class='item'>
+							<div class='itemLabel'>
+								Time of Issue:
+							</div>
+							<div class='itemContent'>
+								{{:value.time}}
+							</div>
+						</div>
+						<div class='item'>
+							<div class='itemLabel'>
+								Date of Issue:
+							</div>
+							<div class='itemContent'>
+								{{:value.date}}
+							</div>
+						</div>
+					{{/if}}
+				</div>
+			{{/for}}
+		</div>
+	{{else}}
+		<br><hr>
+		<div class='notice'>
+			Scan target ID to start
+		</div>
+	{{/if}}
+{{/if}}

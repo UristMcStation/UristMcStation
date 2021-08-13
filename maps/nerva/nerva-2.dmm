@@ -4100,6 +4100,9 @@
 /obj/machinery/camera/network/security{
 	c_tag = "Brig Hall Aft"
 	},
+/obj/machinery/computer/fines{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/brig)
 "ahY" = (
@@ -21418,12 +21421,12 @@
 /turf/simulated/wall/r_wall/prepainted,
 /area/hallway/commandoffices)
 "aKr" = (
-/obj/item/modular_computer/console/preset/command{
-	dir = 1
-	},
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1"
+	},
+/obj/machinery/computer/accounts{
+	dir = 1
 	},
 /turf/simulated/floor/carpet,
 /area/command/hop)
