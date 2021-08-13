@@ -58,9 +58,10 @@
 			else
 				M.DoActivate()
 
-//	var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
-//	security_state.stored_security_level = security_state.current_security_level
-//	security_state.set_security_level(security_state.high_security_level)
+	if(src == GLOB.using_map.overmap_ship)
+		var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
+		security_state.stored_security_level = security_state.current_security_level
+		security_state.set_security_level(security_state.high_security_level)
 
 /obj/effect/overmap/ship/combat/proc/set_targets(var/new_target = null)
 	if(!target)
@@ -104,6 +105,10 @@
 	incombat = 0
 	crossed = 0
 	src.unhalt()
+
+	if(src == GLOB.using_map.overmap_ship)
+		var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
+		security_state.set_security_level(security_state.stored_security_level)
 
 /obj/effect/overmap/ship/combat/Crossed(O as mob)
 	..()
