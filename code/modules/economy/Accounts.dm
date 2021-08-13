@@ -68,8 +68,8 @@
 	T.amount = starting_funds
 	if(!source_db)
 		//set a random date, time and location some time over the past few decades
-		T.date = "[num2text(rand(1,31))] [pick("January","February","March","April","May","June","July","August","September","October","November","December")], [game_year-rand(8,18)]"
-		T.time = "[rand(0,24)]:[rand(11,59)]"
+		T.date = "[game_year-rand(8,18)]-[add_zero(num2text(rand(1,12)),2)]-[add_zero(num2text(rand(1,29)),2)]"
+		T.time = "[add_zero(num2text(rand(0,24)),2)]:[rand(11,59)]"
 		T.source_terminal = "NTGalaxyNet Terminal #[rand(111,1111)]"
 
 		M.account_number = random_id("station_account_number", 111111, 999999)
