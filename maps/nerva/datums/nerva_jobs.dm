@@ -28,6 +28,7 @@
 /datum/job/blueshield
 	title = "Bodyguard"
 	department_flag = SEC|COM
+	department = "Command"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the captain, who hired you to protect them. If the captain is not present, follow the chain of command as to who you will be protecting."
@@ -58,6 +59,7 @@
 	title = "First Officer"
 	supervisors = "the captain"
 	department_flag = COM
+	department = "Command"
 	total_positions = 1
 	spawn_positions = 1
 	selection_color = "#004a7f"
@@ -109,6 +111,7 @@
 	minimal_player_age = 3
 	title = "Second Officer"
 	supervisors = "the captain and the first officer."
+	department = "Civilian"
 	outfit_type = /decl/hierarchy/outfit/job/nerva/secondofficer
 	hud_icon = "hudheadofpersonnel"
 	access = list(access_security, access_sec_doors, access_brig, access_forensics_lockers, access_heads,
@@ -188,6 +191,7 @@
 	economic_power = 9
 	total_positions = 1
 	spawn_positions = 1
+	head_position = 1
 	department_flag = COM|SUP
 	supervisors = "the captain and the first officer."
 	outfit_type = /decl/hierarchy/outfit/job/nerva/qm
