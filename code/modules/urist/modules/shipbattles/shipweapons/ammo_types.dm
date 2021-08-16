@@ -9,13 +9,13 @@
 	density = 0
 	anchored = 0
 
-.//torpedo ammo
+//torpedo ammo
 
 /obj/structure/shipammo/torpedo //torpedos are slightly different for now because of the building process. so the damage stats are stored in the warhead and transferred to the ammo once it's put together.
 	name = "torpedo casing" //future ammo types will be more simple, thankfully
 	icon = 'icons/urist/items/ship_projectiles48x48.dmi' //but for now torpedos are special little guys
 	icon_state = "bigtorpedo-unloaded"
-	load_amount = 1
+	load_amount = 0
 	var/obj/item/shipweapons/torpedo_warhead/warhead = null
 	matter = list(DEFAULT_WALL_MATERIAL = 2500)
 	dir = 4
@@ -32,6 +32,7 @@
 		desc = "A large torpedo used in ship-to-ship weaponry. It is loaded with a [warhead.name]."
 		icon_state = "bigtorpedo-[warhead.icon_state]"
 		name = "[warhead.ammo_name] torpedo"
+		load_amount = 1
 
 /obj/structure/shipammo/torpedo/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/shipweapons/torpedo_warhead))
