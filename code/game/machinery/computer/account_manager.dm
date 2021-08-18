@@ -112,19 +112,18 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 
 		if("crew_accounts")
 			var/list/accounts[0]
-			for(var/mob/living/carbon/human/H in SSmobs.mob_list)
-				if(H.mind)
-					if(H.mind.initial_account && H.mind.assigned_role)
-						var/datum/money_account/currentAccount = H.mind.initial_account
-						accounts.Add(list(list(
-						"name" = currentAccount.owner_name,
-						"account_number" = currentAccount.account_number,
-						"funds" = currentAccount.money,
-						"suspended" = currentAccount.suspended,
-						"account_type" = "personal",
-						"owner_ref" = "\ref[H.mind]",
-						"account_ref" = "\ref[currentAccount]"
-						)))
+			for(var/datum/mind/M in SSticker.minds)
+				if(M.initial_account && M.assigned_role)
+					var/datum/money_account/currentAccount = M.initial_account
+					accounts.Add(list(list(
+					"name" = currentAccount.owner_name,
+					"account_number" = currentAccount.account_number,
+					"funds" = currentAccount.money,
+					"suspended" = currentAccount.suspended,
+					"account_type" = "personal",
+					"owner_ref" = "\ref[M]",
+					"account_ref" = "\ref[currentAccount]"
+					)))
 			data["accounts"] = accounts
 
 		if("payroll")
@@ -136,12 +135,10 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 						if(H.mind.assigned_role == "Captain" && GLOB.using_map.name == "Nerva")
 							continue	//We don't pay the captain
 						var/datum/job/job = SSjobs.titles_to_datums[H.mind.assigned_role]
-						if(!job)
-							job = SSjobs.titles_to_datums["Assistant"]
-						var/pay = H.mind.manual_pay_rate || (job.economic_power * SSpayment_controller.payment_modifier)
-						var/dept = H.mind.manual_department || (flag2text(job.department_flag) || "Misc")	//We use flags so command staff show under command payroll, rather than their department
+						var/dept = H.mind.manual_department || (job ? flag2text(job.department_flag) : "Misc")	//We use flags so command staff show under command payroll, rather than their department
 						if(dept == "Science" && GLOB.using_map.name == "Nerva")
 							continue	//We don't pay NT scientists
+						var/pay = H.mind.get_pay()
 						var/list/member = list()
 						member.Add(list(list(
 							"name" = H.real_name,
@@ -275,8 +272,7 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 
 				var/datum/transaction/fine = new()
 				var/datum/transaction/deposit = new()
-				var/datum/money_account/stationAcc = station_account
-				fine.target_name = "[stationAcc.owner_name] (via [auth_card.registered_name])"
+				fine.target_name = "[station_account.owner_name] (via [auth_card.registered_name])"
 				fine.purpose = "Fine Issued (Ref. #[fineNum])"
 				fine.amount = -amount
 				fine.date = stationdate2text()
@@ -289,7 +285,7 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 				deposit.time = stationtime2text()
 				deposit.source_terminal = machine_id
 				focused_account.do_transaction(fine)
-				stationAcc.do_transaction(deposit)
+				station_account.do_transaction(deposit)
 
 				//For those pencil-pushers. Forms to sign and file!
 				var/text = "<font size = \"2\">[GLOB.using_map.station_name] Disciplinary Committee</font></center><br><hr><br>"
@@ -356,7 +352,7 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 					return TOPIC_NOACTION
 				if(focused_account.owner_name == user.name)	//We COULD use their equiped ID here, but that'd be too easy to fake
 					alert("You cannot pay yourself a bonus!", "Conflict detected")
-					addLog("CONFLICT DETECTED", "Attempted to pay themselves a bonus")	//Log the attempt. Shame them.
+					addLog("CONFLICT DETECTED", "Attempted to pay themselves a bonus", auth_card)	//Log the attempt. Shame them.
 					return TOPIC_NOACTION
 				var/amount = input("Pay them how much? (Enter 0 to cancel)", "Pay Bonus") as num
 				if(!amount)
@@ -415,7 +411,7 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 					return TOPIC_NOACTION
 				if(M == user.mind)	//Once again, we COULD check their ID against account owner here instead.
 					alert("You cannot edit your own pay!", "Conflict detected")
-					addLog("CONFLICT DETECTED", "Attempted to edit their own pay")
+					addLog("CONFLICT DETECTED", "Attempted to edit their own pay", auth_card)
 					return TOPIC_NOACTION
 				var/currentpay	= text2num(href_list["current_pay"])
 				var/newpay = input(user, "Enter new payrate (Enter 0 for job default)", "Edit Payrate", currentpay) as num
@@ -428,10 +424,7 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 					M.manual_pay_rate = newpay
 				else
 					M.manual_pay_rate = null	//If we want to use the job default payout, we need to remove this override
-					var/datum/job/job = SSjobs.titles_to_datums[M.assigned_role]
-					if(!job)
-						job = SSjobs.titles_to_datums["Assistant"]	//Fallback when weird things happen. At least they'll get assistant wages
-					newpay = job.economic_power * SSpayment_controller.payment_modifier
+					newpay = M.get_pay()
 
 				if(M.initial_email_login["login"])
 					var/message = "[M.name],\n\n[newpay > currentpay ? "Congratulations" : "Unfortunately"], your pay has been [newpay > currentpay ? "raised" : "cut"] from <b>[currentpay] Th</b> to <b>[newpay] Th</b>. This will be effective immediately and reflected in your next paycheck."
@@ -521,69 +514,69 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 					if(!temp_account_items[i] && i != "pay")	//Excluding pay. This can be 0 to use job default pay
 						alert("Missing field: [i]","Account Creation Error")
 						return TOPIC_NOACTION
-					var/datum/mind/M = locate(temp_account_items["owner_ref"])
-					if(!M || !istype(M))
-						return TOPIC_NOACTION
+				var/datum/mind/M = locate(temp_account_items["owner_ref"])
+				if(!M || !istype(M))
+					return TOPIC_NOACTION
 
-					var/datum/job/job = SSjobs.titles_to_datums[temp_account_items["jobtitle"]]
-					if(!job)	//If an incorrect/custom jobtitle was used, use the department fallback
-						job = SSjobs.titles_to_datums["Assistant"]	//We assign them the assistant job datum, so they at least register as crew
-						M.manual_department = temp_account_items["dept"]
+				var/datum/job/job = SSjobs.titles_to_datums[temp_account_items["jobtitle"]]
+				if(!job)	//If an incorrect/custom jobtitle was used, use the department fallback
+					job = SSjobs.titles_to_datums["Assistant"]	//We assign them the assistant job datum, so they at least register as crew
+					M.manual_department = temp_account_items["dept"]
 
-					M.assigned_job = job
-					M.assigned_role = temp_account_items["jobtitle"]
-					M.manual_pay_rate = temp_account_items["pay"]
-					ntnet_global.create_email(M.current, temp_account_items["email"], "freemail.net")
-					var/datum/money_account/acc = create_account(M.current.real_name, 0)
-					var/datum/transaction/T = new()
-					T.target_name = M.current.real_name
-					T.purpose = "Account creation"
-					T.amount = 0
-					T.date = stationdate2text()
-					T.time = stationtime2text()
-					T.source_terminal = machine_id
-					acc.transaction_log[1] = T
-					M.initial_account = acc
+				M.assigned_job = job
+				M.assigned_role = temp_account_items["jobtitle"]
+				M.manual_pay_rate = temp_account_items["pay"]
+				ntnet_global.create_email(M.current, temp_account_items["email"], "freemail.net")
+				var/datum/money_account/acc = create_account(M.current.real_name, 0)
+				var/datum/transaction/T = new()
+				T.target_name = M.current.real_name
+				T.purpose = "Account creation"
+				T.amount = 0
+				T.date = stationdate2text()
+				T.time = stationtime2text()
+				T.source_terminal = machine_id
+				acc.transaction_log[1] = T
+				M.initial_account = acc
 
-					//More paperwork! This time for pins and account info. Only the crewmember should know this, so we'll put it in an envelope with a seal
-					var/obj/item/weapon/folder/envelope/P = new /obj/item/weapon/folder/envelope(src.loc)
-					var/obj/item/weapon/paper/R = new /obj/item/weapon/paper(P)
+				//More paperwork! This time for pins and account info. Only the crewmember should know this, so we'll put it in an envelope with a seal
+				var/obj/item/weapon/folder/envelope/P = new /obj/item/weapon/folder/envelope(src.loc)
+				var/obj/item/weapon/paper/R = new /obj/item/weapon/paper(P)
 
-					R.SetName("Account information: [acc.owner_name]")
-					R.info = "<center><img src = nervalogo.png><br>"
-					R.info += "<b>New Account Details</b><br>"
-					R.info += "<font size = \"2\">Strictly Confidential</font></center><br><hr><br>"
-					R.info += "Welcome, [acc.owner_name], to the [GLOB.using_map.station_name]. Please find bellow all relevant account details that have been assigned to you.<br>"
-					R.info += "Be sure to keep these safe and shred this paper once memorised.<br><br><br>"
-					R.info += "<h4><b><u>Bank Account Details:</u></b></h4><br>"
-					R.info += "<b>Account holder:</b> [acc.owner_name]<br>"
-					R.info += "<b>Account number:</b> [acc.account_number]<br>"
-					R.info += "<b>Account pin:</b> [acc.remote_access_pin]<br>"
-					R.info += "<b>Starting balance:</b> [acc.money] Th<br><br><br>"
-					R.info += "<h4><b><u>Email Account Details:</u></b></h4><br>"
-					R.info += "<b>Address:</b> [M.initial_email_login["login"]]<br>"
-					R.info += "<b>Password:</b> [M.initial_email_login["password"]]<br><br>"
-					R.info += "<b>Time:</b> [stationtime2text()]<br>"
-					R.info += "<b>Date:</b> [stationdate2text()]<br><br><br>"
-					R.info += "<b>Creation terminal ID:</b> [machine_id]<br>"
-					R.info += "<b>Authorised officer overseeing creation:</b> [auth_card.registered_name], [auth_card.assignment]<br>"
+				R.SetName("Account information: [acc.owner_name]")
+				R.info = "<center><img src = nervalogo.png><br>"
+				R.info += "<b>New Account Details</b><br>"
+				R.info += "<font size = \"2\">Strictly Confidential</font></center><br><hr><br>"
+				R.info += "Welcome, [acc.owner_name], to the [GLOB.using_map.station_name]. Please find bellow all relevant account details that have been assigned to you.<br>"
+				R.info += "Be sure to keep these safe and shred this paper once memorised.<br><br><br>"
+				R.info += "<h4><b><u>Bank Account Details:</u></b></h4><br>"
+				R.info += "<b>Account holder:</b> [acc.owner_name]<br>"
+				R.info += "<b>Account number:</b> [acc.account_number]<br>"
+				R.info += "<b>Account pin:</b> [acc.remote_access_pin]<br>"
+				R.info += "<b>Starting balance:</b> [acc.money] Th<br><br><br>"
+				R.info += "<h4><b><u>Email Account Details:</u></b></h4><br>"
+				R.info += "<b>Address:</b> [M.initial_email_login["login"]]<br>"
+				R.info += "<b>Password:</b> [M.initial_email_login["password"]]<br><br>"
+				R.info += "<b>Time:</b> [stationtime2text()]<br>"
+				R.info += "<b>Date:</b> [stationdate2text()]<br><br><br>"
+				R.info += "<b>Creation terminal ID:</b> [machine_id]<br>"
+				R.info += "<b>Authorised officer overseeing creation:</b> [auth_card.registered_name], [auth_card.assignment]<br>"
 
-					var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
-					stampoverlay.icon_state = "paper_stamp-hop"
-					if(!R.stamped)
-						R.stamped = new
-					R.stamped += /obj/item/weapon/stamp
-					R.overlays += stampoverlay
-					R.stamps += "<HR><i>This paper has been stamped by the Second Officer's Desk.</i>"
-					R.update_icon()
+				var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
+				stampoverlay.icon_state = "paper_stamp-hop"
+				if(!R.stamped)
+					R.stamped = new
+				R.stamped += /obj/item/weapon/stamp
+				R.overlays += stampoverlay
+				R.stamps += "<HR><i>This paper has been stamped by the Second Officer's Desk.</i>"
+				R.update_icon()
 
-					playsound(loc, "sound/machines/dotprinter.ogg", 50, 1)
+				playsound(loc, "sound/machines/dotprinter.ogg", 50, 1)
 
-					temp_account_items = list("new_email" = M.initial_email_login.Copy(), "account" = acc.account_number, "name" = M.current.real_name)
-					display_state = "copy"
-					copy_mode = TRUE
-					addLog("ACCOUNT CREATION", acc.owner_name, auth_card)
-					return TOPIC_REFRESH
+				temp_account_items = list("new_email" = M.initial_email_login.Copy(), "account" = acc.account_number, "name" = M.current.real_name)
+				display_state = "copy"
+				copy_mode = TRUE
+				addLog("ACCOUNT CREATION", acc.owner_name, auth_card)
+				return TOPIC_REFRESH
 		return TOPIC_NOACTION
 
 	return TOPIC_NOACTION
@@ -632,4 +625,4 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 		return "Service"
 	if(bitflag & EXP)
 		return "Exploration"
-	return null
+	return "Misc"

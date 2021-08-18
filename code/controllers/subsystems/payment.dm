@@ -44,16 +44,8 @@ SUBSYSTEM_DEF(payment_controller)
 					if(H.mind.pay_suspended)
 						economic_modifier = 0
 					else
-						if(H.mind.manual_pay_rate)
-							economic_modifier = H.mind.manual_pay_rate
-						else
-							var/datum/job/job = SSjobs.titles_to_datums[H.mind.assigned_role]
-							if(!job)
-								job = SSjobs.titles_to_datums["Assistant"]	//Fallback when weird things happen. At least they'll get assistant wages and not break the payment controller
-							economic_modifier = job.economic_power * payment_modifier
-
+						economic_modifier = H.mind.get_pay()
 						var/datum/transaction/T = new("[station_account.owner_name]", "Automated Payroll Deposit", economic_modifier, "[GLOB.using_map.station_name] Automated Payroll System")
-
 						H.mind.initial_account.do_transaction(T)
 
 					if(H.mind.initial_email_login["login"])

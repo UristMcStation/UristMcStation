@@ -522,6 +522,15 @@
 	if(H)
 		qdel(H)
 
+/datum/mind/proc/get_pay()
+	if(!assigned_role || !initial_account)
+		return
+	if(manual_pay_rate)
+		return manual_pay_rate
+	var/datum/job/job = SSjobs.titles_to_datums[assigned_role]
+	if(!job)
+		job = SSjobs.titles_to_datums["Assistant"]	//Fallback if weird stuff happens. Will at least return assistant wages rather than break things
+	return job.economic_power * SSpayment_controller.payment_modifier
 
 // check whether this mind's mob has been brigged for the given duration
 // have to call this periodically for the duration to work properly
