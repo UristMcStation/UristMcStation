@@ -121,7 +121,7 @@
 				if(!input)
 					return TOPIC_NOACTION
 				if(get_auth(user) == 2)
-					input = Clamp(input,1,max_fine)
+					input = Clamp(round(input),1,max_fine)
 				else
 					input = max(round(input), 1)
 				if(target.money - input < 0)
@@ -160,9 +160,8 @@
 
 				var/datum/transaction/fine = new()
 				var/datum/transaction/deposit = new()
-				var/datum/money_account/stationAcc = station_account
 
-				fine.target_name = "[stationAcc.owner_name] (via [auth_card.registered_name])"
+				fine.target_name = "[station_account.owner_name] (via [auth_card.registered_name])"
 				fine.purpose = "Fine Issued (Ref. #[fineNum])"
 				fine.amount = -amount
 				fine.date = stationdate2text()
@@ -175,7 +174,7 @@
 				deposit.time = stationtime2text()
 				deposit.source_terminal = machine_id
 				target.do_transaction(fine)
-				stationAcc.do_transaction(deposit)
+				station_account.do_transaction(deposit)
 
 				var/text = "<font size = \"2\">[GLOB.using_map.station_name] Disciplinary Committee</font></center><br><hr><br>"
 				text += "<b>Issued to:</b> [target.owner_name]<br>"
