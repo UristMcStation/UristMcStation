@@ -201,9 +201,15 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	var/name_used = M.GetVoice()
 	var/message = get_hear_message(name_used, text, verb, speaking)
 	if(targetpad) //If this is the pad you're making the call from
+		if(!targetpad.sourcepad || targetpad.sourcepad != src)	//Fallback for wonky behaviour
+			end_call()
+			targetpad = null
+			return
+		if(targetpad.incoming_connection)	//Don't broadcast if they've not answered!
+			return
 		targetpad.audible_message(message)
 		targetpad.last_message = message
-	if(sourcepad) //If this is a pad receiving a call
+	if(sourcepad && !incoming_connection) //If this is a pad receiving a call and is connected
 		if(name_used==caller_id||text==last_message||findtext(text, "Holopad received")) //prevent echoes
 			return
 		sourcepad.audible_message(message)
@@ -226,6 +232,12 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 			//The lack of name_used is needed, because message already contains a name.  This is needed for simple mobs to emote properly.
 			master.show_message(rendered, 2)
 		if(targetpad)
+			if(!targetpad.sourcepad || targetpad.sourcepad != src)	//Fallback for wonky behaviour
+				end_call()
+				targetpad = null
+				return
+			if(targetpad.incoming_connection)	//Don't broadcast if they've not answered!
+				return
 			targetpad.visible_message("<i><span class='message'>[text]</span></i>")
 
 /obj/machinery/hologram/holopad/show_message(msg, type, alt, alt_type)
@@ -245,9 +257,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 /obj/machinery/hologram/holopad/proc/create_holo(mob/living/silicon/ai/A, mob/living/carbon/caller_id, turf/T = loc)
 	var/obj/effect/overlay/hologram = new(T)//Spawn a blank effect at the location.
 	if(caller_id)
-		var/datum/computer_file/report/crew_record/R = get_crewmember_record(caller_id.name)
-		if(R)
-			hologram.overlays += getHologramIcon(icon(R.photo_front), hologram_color = holopadType) // Add the callers image as an overlay to keep coloration!
+		hologram.overlays += getHologramIcon(getFlatIcon(caller_id,SOUTH, always_use_defdir = 1), hologram_color = holopadType) // Add the callers image as an overlay to keep coloration!
 	else if(A)
 		if(holopadType == HOLOPAD_LONG_RANGE)
 			hologram.overlays += A.holo_icon_longrange
