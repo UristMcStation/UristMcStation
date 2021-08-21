@@ -415,8 +415,6 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 					return TOPIC_NOACTION
 				var/currentpay	= text2num(href_list["current_pay"])
 				var/newpay = input(user, "Enter new payrate (Enter 0 for job default)", "Edit Payrate", currentpay) as num
-				if(!newpay)
-					return TOPIC_NOACTION
 				newpay = max(round(newpay), 0)
 				if(newpay == currentpay)
 					return TOPIC_NOACTION
