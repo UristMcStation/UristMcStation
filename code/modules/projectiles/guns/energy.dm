@@ -147,7 +147,10 @@ GLOBAL_LIST_INIT(registered_cyborg_weapons, list())
 			playsound(loc, mag_remove_sound, 50, 1)
 			power_supply.update_icon()
 			power_supply = null
-			icon_state = "[initial(icon_state)][0]"
+			if(modifystate)
+				icon_state = "[modifystate][0]"
+			else
+				icon_state = "[initial(icon_state)][0]"
 			update_icon()
 		else
 			to_chat(user, "<span class='warning'>[src] is empty.</span>")
