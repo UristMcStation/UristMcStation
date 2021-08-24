@@ -29,7 +29,7 @@
 		/obj/item/clothing/head/urist/beret/nervacap,
 		/obj/item/clothing/under/urist/nerva/capformal,
 		/obj/item/clothing/glasses/sunglasses,
-		/obj/item/weapon/gun/energy/gun/secure,
+		/obj/item/weapon/gun/energy/gun/small/secure,
 		/obj/item/clothing/accessory/storage/holster/thigh,
 		/obj/item/weapon/melee/telebaton,
 		/obj/item/device/flash,
