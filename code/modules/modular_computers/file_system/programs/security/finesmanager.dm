@@ -44,13 +44,13 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 		playsound(program.computer, 'sound/machines/buzz-two.ogg', 30)
 		return FALSE
 	if(!id.associated_account_number)
-		to_chat(user, "<span class='warning'>\The [src] flashes a warning: Could not retrieve account from ID.</span>")
+		to_chat(user, "<span class='warning'>\The [program.computer] flashes a warning: Could not retrieve account from ID.</span>")
 		playsound(program.computer, 'sound/machines/buzz-two.ogg', 30)
 		return FALSE
 	else
 		target = get_account(id.associated_account_number)
 		if(!target)
-			to_chat(user, "<span class='warning'>\The [src] flashes a warning: Unable to find associated account.</span>")
+			to_chat(user, "<span class='warning'>\The [program.computer] flashes a warning: Unable to find associated account.</span>")
 			playsound(program.computer, 'sound/machines/buzz-two.ogg', 30)
 			return FALSE
 		else
