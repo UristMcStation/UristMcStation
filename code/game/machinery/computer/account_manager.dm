@@ -5,7 +5,8 @@
 	anchored = 1.0
 	icon_keyboard = "id_key"
 	icon_screen = "comm_logs"
-	req_access = list(access_hop, access_captain)
+	req_access = list(list(access_hop, access_captain))
+	circuit = /obj/item/weapon/circuitboard/account_manager
 
 	var/fineNum
 	var/display_state = "payroll"
