@@ -10,6 +10,9 @@
 {{else}}
 	{{:helper.link('New Fine','plus',{'state':data.has_target ? 1 : 0},data.state < 2 ? 'selected' : data.auth < 2 ? 'disabled' : null)}}
 	{{:helper.link('System Logs','clipboard',{'state' : 2},data.state == 2 ? 'selected' : data.auth < 2 ? 'disabled' : null)}}
+	{{if data.has_cardslot}}
+		{{:helper.link(data.id_text,'eject',{'eject' : null}, data.id ? null : 'disabled')}}
+	{{/if}}
 	{{if data.state == 1}}
 		<span class='floatRight'>{{:helper.link('Cancel', 'circle-close', {'action' : 'cancel'})}}</span><br><hr>
 		<div class='block'>
@@ -120,6 +123,8 @@
 								{{:value.date}}
 							</div>
 						</div>
+						<span class='floatRight'>{{:helper.link('Re-print','print',{'print' : index}, data.auth < 2 ? 'disabled' : null)}}</span>
+						<br>
 					{{/if}}
 				</div>
 			{{/for}}
@@ -128,6 +133,8 @@
 		<br><hr>
 		<div class='notice'>
 			Scan target ID to start
+			<br>&nbsp;
+			{{:helper.link(data.has_cardslot ? 'Scan Target ID' : 'No card reader detected', 'search',{'scan' : null}, data.auth < 2 || !data.has_cardslot ? 'disabled' : null)}}
 		</div>
 	{{/if}}
 {{/if}}

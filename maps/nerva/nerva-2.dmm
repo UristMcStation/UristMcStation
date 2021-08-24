@@ -4100,9 +4100,6 @@
 /obj/machinery/camera/network/security{
 	c_tag = "Brig Hall Aft"
 	},
-/obj/machinery/computer/fines{
-	pixel_y = 32
-	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/brig)
 "ahY" = (
