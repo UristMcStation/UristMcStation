@@ -67,12 +67,14 @@ datum/design/plasmapistol
 	build_path = /obj/item/weapon/cell/bluespace
 	sort_string = "URSTG"
 
+//torpedo warheads
+
 /datum/design/item/shipweapons/bluespace_torpedo
 	name = "bluespace torpedo warhead"
 	desc = "A bluespace warhead for a torpedo. Shove it in a torpedo casing and you're good to go."
 	id = "ship_torpedo_warhead_bluespace"
 	req_tech = list(TECH_MATERIAL = 2, TECH_PHORON = 1, TECH_ENGINEERING = 1, TECH_COMBAT = 2, TECH_BLUESPACE = 2)
-	materials = list(MATERIAL_STEEL = 1000, MATERIAL_PLASTIC = 500, MATERIAL_PHORON = 500, MATERIAL_URANIUM = 500)
+	materials = list(MATERIAL_STEEL = 1200, MATERIAL_PLASTIC = 500, MATERIAL_PHORON = 800)
 	build_path = /obj/item/shipweapons/torpedo_warhead/bluespace
 	sort_string = "SHPWA"
 
@@ -81,7 +83,7 @@ datum/design/plasmapistol
 	desc = "An armour-piercing warhead for a torpedo. Shove it in a torpedo casing and you're good to go."
 	id = "ship_torpedo_warhead_ap"
 	req_tech = list(TECH_MATERIAL = 1, TECH_PHORON = 1, TECH_ENGINEERING = 1, TECH_COMBAT = 3)
-	materials = list(MATERIAL_STEEL = 1200, MATERIAL_PLASTIC = 250, MATERIAL_PHORON = 400, MATERIAL_DIAMOND = 200)
+	materials = list(MATERIAL_STEEL = 1200, MATERIAL_PLASTIC = 250, MATERIAL_DIAMOND = 300)
 	build_path = /obj/item/shipweapons/torpedo_warhead/ap
 	sort_string = "SHPWB"
 
@@ -90,6 +92,26 @@ datum/design/plasmapistol
 	desc = "An EMP warhead for a torpedo. Shove it in a torpedo casing and you're good to go."
 	id = "ship_torpedo_warhead_emp"
 	req_tech = list(TECH_MATERIAL = 2, TECH_PHORON = 2, TECH_ENGINEERING = 2, TECH_COMBAT = 2)
-	materials = list(MATERIAL_STEEL = 1000, MATERIAL_PLASTIC = 300, MATERIAL_PHORON = 600, MATERIAL_URANIUM = 750)
+	materials = list(MATERIAL_STEEL = 1200, MATERIAL_PLASTIC = 300, MATERIAL_URANIUM = 800)
 	build_path = /obj/item/shipweapons/torpedo_warhead/emp
 	sort_string = "SHPWC"
+
+//shipweapons
+
+/datum/design/item/shipweapons/light_autocannon
+	name = "light autocannon"
+	desc = "A light autocannon for ship-to-ship combat."
+	id = "ship_light_autocannon"
+	req_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1, TECH_COMBAT = 2)
+	materials = list(MATERIAL_STEEL = 12000)
+	build_path = /obj/machinery/shipweapons/ammo/autocannon/light
+	sort_string = "SHPWD"
+
+/datum/design/item/shipweapons/light_autocannon/rapid
+	name = "rapid light autocannon"
+	desc = "A light autocannon for ship-to-ship combat. Equipped with two barrels for a faster fire rate."
+	id = "ship_light_autocannon_rapid"
+	req_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2, TECH_COMBAT = 3)
+	materials = list(MATERIAL_STEEL = 20000)
+	build_path = /obj/machinery/shipweapons/ammo/autocannon/light/rapid
+	sort_string = "SHPWE"
