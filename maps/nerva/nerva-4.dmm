@@ -2176,7 +2176,7 @@
 	},
 /obj/machinery/door/airlock/maintenance{
 	name = "Bridge Maintenance";
-	req_access = list("ACCESS_BRIDGE")
+	req_access = list(list("ACCESS_BRIDGE","ACCESS_GUNNERY"))
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -3197,7 +3197,7 @@
 "gq" = (
 /obj/machinery/door/airlock/command{
 	name = "First Deck Gun Bay";
-	req_access = list("ACCESS_BRIDGE")
+	req_access = list("ACCESS_GUNNERY")
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/reinforced,
@@ -4841,7 +4841,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/command{
 	name = "First Deck Gun Bay";
-	req_access = list("ACCESS_BRIDGE")
+	req_access = list("ACCESS_GUNNERY")
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/reinforced,
@@ -6106,7 +6106,7 @@
 	},
 /obj/machinery/door/airlock/command{
 	name = "First Deck Gun Bay";
-	req_access = list("ACCESS_BRIDGE")
+	req_access = list("ACCESS_GUNNERY")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -7022,7 +7022,7 @@
 	},
 /obj/machinery/door/airlock/maintenance{
 	name = "Bridge Maintenance";
-	req_access = list("ACCESS_BRIDGE")
+	req_access = list(list("ACCESS_BRIDGE","ACCESS_GUNNERY"))
 	},
 /obj/structure/cable{
 	d1 = 4;

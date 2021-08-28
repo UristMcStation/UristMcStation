@@ -39,3 +39,9 @@
 	id = access_seniornt
 	desc = "Senior Researcher"
 	region = ACCESS_REGION_COMMAND
+
+/var/const/access_gunnery = "ACCESS_GUNNERY"
+/datum/access/gunnery
+	id = access_gunnery
+	desc = "Gunnery"
+	region = ACCESS_REGION_COMMAND

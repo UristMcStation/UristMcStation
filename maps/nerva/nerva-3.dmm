@@ -7866,6 +7866,12 @@
 /area/hallway/fore/second_deck)
 "pP" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/status_display{
+	density = 0;
+	layer = 4;
+	pixel_x = 0;
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/second_deck)
 "pQ" = (
@@ -8238,7 +8244,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/hatch/maintenance{
-	icon_state = "door_closed";
+	icon_state = "closed";
 	id_tag = null;
 	locked = 0;
 	name = "Pipe Access"
@@ -8725,7 +8731,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/hatch/maintenance{
-	icon_state = "door_closed";
+	icon_state = "closed";
 	id_tag = null;
 	locked = 0;
 	name = "Pipe Access"
@@ -9734,7 +9740,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/hatch/maintenance{
-	icon_state = "door_closed";
+	icon_state = "closed";
 	id_tag = null;
 	locked = 0;
 	name = "Pipe Access"
@@ -13478,6 +13484,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
+"AV" = (
+/obj/effect/floor_decal/corner/yellow{
+	tag = "icon-corner_white (SOUTHWEST)";
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/status_display{
+	density = 0;
+	pixel_y = -30
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/aft/second_deck)
 "AX" = (
 /obj/structure/grille,
 /turf/simulated/floor/airless,
@@ -14202,6 +14220,20 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/command/teleporter)
+"Gk" = (
+/obj/effect/floor_decal/corner/yellow{
+	tag = "icon-corner_white (NORTHEAST)";
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/status_display{
+	density = 0;
+	layer = 4;
+	pixel_x = 0;
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/aft/second_deck)
 "Gn" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/weapon/storage/pill_bottle/dice,
@@ -15654,6 +15686,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/second_deck)
+"Pv" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	icon_state = "map_vent_out"
+	},
+/obj/machinery/status_display{
+	density = 0;
+	pixel_y = -30
+	},
+/turf/simulated/floor/plating,
+/area/hallway/fore/second_deck)
 "PA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	icon_state = "intact-supply";
@@ -36235,7 +36278,7 @@ dI
 es
 RO
 TT
-gG
+AV
 hC
 eC
 hC
@@ -36245,7 +36288,7 @@ jZ
 hC
 eC
 hC
-pu
+Gk
 qA
 rn
 rn
@@ -43709,7 +43752,7 @@ AE
 cR
 fi
 gh
-gV
+Pv
 hN
 hN
 hN
