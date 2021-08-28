@@ -8,8 +8,9 @@
 	var/component_hit = 0
 	density = 0
 	anchored = 0
+	var/short_name //for the display
 
-.//torpedo ammo
+//torpedo ammo
 
 /obj/structure/shipammo/torpedo //torpedos are slightly different for now because of the building process. so the damage stats are stored in the warhead and transferred to the ammo once it's put together.
 	name = "torpedo casing" //future ammo types will be more simple, thankfully
@@ -71,11 +72,53 @@
 /obj/structure/shipammo/torpedo/bluespace //names are set in New()
 	load_amount = 1
 	warhead = /obj/item/shipweapons/torpedo_warhead/bluespace
+	short_name = "bluespace"
 
 /obj/structure/shipammo/torpedo/emp
 	load_amount = 1
 	warhead = /obj/item/shipweapons/torpedo_warhead/emp
+	short_name = "EMP"
 
 /obj/structure/shipammo/torpedo/ap
 	load_amount = 1
 	warhead = /obj/item/shipweapons/torpedo_warhead/ap
+	short_name = "armour-piercing"
+
+//non torpedo ammo
+
+//autocannons
+
+/obj/structure/shipammo/light_autocannon
+	icon = 'icons/urist/items/ship_projectiles.dmi'
+	icon_state = "ammo_box"
+	load_amount = 24 //6 shots for the regular autocannon, 4 for the rapid one.
+
+/obj/structure/shipammo/light_autocannon/ap
+	name = "armour-piercing light autocannon ammunition"
+	short_name = "armour-piercing"
+	hull_damage = 20//20 * 4 = 80 per shot for the regular autocannon. 80 * 6 shots = 480 damage and reloaded in 36 seconds (13.3 dps). rapid = 480 damage and reloaded in 28 seconds (17.14 dps) not great,
+					//but that's the point, because this is something that RnD can build. this will likely need to be adjusted though.
+	matter = list(MATERIAL_STEEL = 2000, MATERIAL_ALUMINIUM = 200)
+
+/obj/structure/shipammo/light_autocannon/he
+	name = "high-explosive light autocannon ammunition"
+	short_name = "high-explosive"
+	hull_damage = 15//15 * 4 = 60 per shot for the regular autocannon. 60 * 6 shots = 360 damage and reloaded in 36 seconds (10 dps). rapid = 360 damage and reloaded in 28 seconds (12.86 dps)
+	shield_damage = 8//8 * 4 = 32 per shot for the regular autocannon. 32 * 6 shots = 192 damage and reloaded in 36 seconds (5.33 dps). rapid = 192 damage and reloaded in 28 seconds (6.86)
+	matter = list(MATERIAL_STEEL = 1500, MATERIAL_PLASTIC = 250, MATERIAL_ALUMINIUM = 400)
+
+/obj/structure/shipammo/heavy_autocannon //maybe increase the load amount, and change values to compensate
+	icon = 'icons/urist/items/ship_projectiles.dmi'
+	icon_state = "ammo_box"
+	load_amount = 12
+
+/obj/structure/shipammo/heavy_autocannon/ap
+	name = "armour-piercing heavy autocannon ammunition"
+	short_name = "armour-piercing"
+	hull_damage = 90	// 90 * 2 = 180 per shot. 180 * 6 shots = 1080 damage and reloaded in 46 seconds (23.48 dps)
+
+/obj/structure/shipammo/heavy_autocannon/he
+	name = "high-explosive heavy autocannon ammunition"
+	short_name = "high-explosive"
+	hull_damage = 70	// 70 * 2 = 140 per shot. 140 * 6 shots = 840 damage and reloaded in 46 seconds (18.26 dps)
+	shield_damage = 30  // 30 * 2 = 60 per shot. 60 * 6 shots = 360 damage and reloaded in 46 seconds (7.83 dps)

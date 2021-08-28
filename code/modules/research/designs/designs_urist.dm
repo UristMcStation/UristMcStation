@@ -67,6 +67,11 @@ datum/design/plasmapistol
 	build_path = /obj/item/weapon/cell/bluespace
 	sort_string = "URSTG"
 
+//shipweapon stuff
+
+/datum/design/item/shipweapons
+	category = WEAPON_DESIGNS
+
 //torpedo warheads
 
 /datum/design/item/shipweapons/bluespace_torpedo
@@ -104,7 +109,7 @@ datum/design/plasmapistol
 	id = "ship_light_autocannon"
 	req_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1, TECH_COMBAT = 2)
 	materials = list(MATERIAL_STEEL = 12000)
-	build_path = /obj/machinery/shipweapons/ammo/autocannon/light
+	build_path = /obj/structure/shipweapons/incomplete_weapon/external/light_autocannon
 	sort_string = "SHPWD"
 
 /datum/design/item/shipweapons/light_autocannon/rapid
@@ -113,5 +118,5 @@ datum/design/plasmapistol
 	id = "ship_light_autocannon_rapid"
 	req_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2, TECH_COMBAT = 3)
 	materials = list(MATERIAL_STEEL = 20000)
-	build_path = /obj/machinery/shipweapons/ammo/autocannon/light/rapid
+	build_path = /obj/structure/shipweapons/incomplete_weapon/external/light_autocannon/rapid
 	sort_string = "SHPWE"

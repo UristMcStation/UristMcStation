@@ -2,6 +2,7 @@
 #define CHARGED		0x2
 #define FIRING		0x4
 #define NO_AMMO		0x8
+#define LOADING		0x10
 
 /obj/machinery/computer/combatcomputer
 	name = "weapons control computer"

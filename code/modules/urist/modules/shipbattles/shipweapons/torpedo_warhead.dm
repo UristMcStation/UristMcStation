@@ -138,7 +138,7 @@
 			qdel(src)
 
 /obj/item/shipweapons/torpedo_warhead/proc/do_explosion()
-	explosion(get_turf(src), 0, 2, 5)
+	explosion(get_turf(src), 0, 3, 6)
 
 /datum/wires/torpedowarhead
 	holder_type = /obj/item/shipweapons/torpedo_warhead
@@ -188,13 +188,13 @@ var/const/TWARHEAD_DETONATE = 4
 		if(TWARHEAD_DETONATE)
 			N.detonate(1)
 
-//warhead types
+//warhead types //damage values are in flux
 
 /obj/item/shipweapons/torpedo_warhead/bluespace //this is the previous warhead, we pass through the shield, and do some damage.
 	name = "bluespace torpedo warhead"
 	desc = "It's a big bluespace-capable warhead for a big torpedo. Shove it in a torpedo casing and you've got yourself a torpedo." //torpedo
 	icon_state = "bstorpedowarhead"
-	hull_damage = 350 //maybe
+	hull_damage = 350 //21.875 dps
 	pass_shield = TRUE
 	component_hit = 30
 	ammo_name = "bluespace"
@@ -203,7 +203,7 @@ var/const/TWARHEAD_DETONATE = 4
 	name = "armour-piercing torpedo warhead"
 	desc = "It's a big armour-piercing warhead for a big torpedo. Shove it in a torpedo casing and you've got yourself a torpedo." //torpedo
 	icon_state = "aptorpedowarhead"
-	hull_damage = 600 //maybe
+	hull_damage = 600 //37.5 dps, currently the highest if the shields are down and you can score a hit
 	component_hit = 10
 	ammo_name = "armour-piercing"
 
@@ -214,12 +214,12 @@ var/const/TWARHEAD_DETONATE = 4
 	name = "EMP torpedo warhead"
 	desc = "It's a big armour-piercing warhead for a big torpedo. Shove it in a torpedo casing and you've got yourself a torpedo." //torpedo
 	icon_state = "emptorpedowarhead"
-	shield_damage = 500 //maybe
+	shield_damage = 500 //31.25 dps, slightly below a heavy ion cannon, this might need tweaking
 	component_hit = 50
 	ammo_name = "EMP"
 
 /obj/item/shipweapons/torpedo_warhead/emp/do_explosion()
-	empulse(get_turf(src), 1, 5)
+	empulse(get_turf(src), 1, 6)
 
 //TORPEDO WARHEAD END//
 //Torpedo IEDs begin
