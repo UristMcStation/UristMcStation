@@ -28,6 +28,7 @@
 "aB" = (/turf/simulated/floor/wood{tag = "icon-wood_broken1"; icon_state = "wood_broken1"},/area/planet/jungle/away)
 "aC" = (/turf/simulated/floor/wood{tag = "icon-wood_broken5"; icon_state = "wood_broken5"},/area/planet/jungle/away)
 "aD" = (/obj/structure/anvil,/turf/simulated/floor/wood{tag = "icon-wood_broken6"; icon_state = "wood_broken6"},/area/planet/jungle/away)
+"aE" = (/obj/structure/door_assembly,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/turf/simulated/floor/plating,/area/jungleoutpost/medbay)
 "aF" = (/obj/structure/girder,/turf/simulated/floor/plating,/area/planet/jungle/away)
 "aG" = (/obj/structure/window/basic{dir = 5},/obj/item/weapon/material/shard,/turf/simulated/floor/plating,/area/planet/jungle/away)
 "aH" = (/obj/effect/floor_decal/water_edge,/turf/unsimulated/wall/urist/other/border,/area/space)
@@ -265,7 +266,7 @@
 "ff" = (/obj/structure/hygiene/toilet{dir = 4},/obj/machinery/light/small{dir = 4},/turf/simulated/floor/tiled/freezer,/area/jungleoutpost/main)
 "fg" = (/obj/effect/wallframe_spawn/reinforced,/turf/simulated/floor/plating,/area/jungleoutpost/medbay)
 "fh" = (/turf/simulated/floor/plating,/area/jungleoutpost/medbay)
-"fi" = (/obj/structure/door_assembly,/turf/simulated/floor/plating,/area/jungleoutpost/medbay)
+"fi" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/turf/simulated/floor/plating,/area/jungleoutpost/medbay)
 "fj" = (/obj/machinery/door/airlock/glass/medical{name = "Infirmary"},/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled,/area/jungleoutpost/medbay)
 "fk" = (/turf/simulated/wall/r_wall,/area/jungleoutpost/medbay)
 "fl" = (/obj/machinery/door/airlock/security{name = "Security Outpost"},/obj/machinery/door/firedoor/border_only{dir = 4; name = "Firelock"},/turf/simulated/floor/tiled,/area/jungleoutpost/engi)
@@ -310,7 +311,7 @@
 "fY" = (/obj/effect/floor_decal/corner/paleblue/full,/obj/machinery/clonepod,/turf/simulated/floor/tiled/white,/area/jungleoutpost/medbay)
 "fZ" = (/obj/machinery/light{dir = 1},/obj/effect/floor_decal/corner/paleblue{tag = "icon-corner_white (NORTHEAST)"; icon_state = "corner_white"; dir = 5},/turf/simulated/floor/tiled/white,/area/jungleoutpost/medbay)
 "ga" = (/obj/item/weapon/material/shard{icon_state = "small"},/turf/simulated/floor/plating,/area/jungleoutpost/medbay)
-"gb" = (/obj/item/weapon/material/shard{tag = "icon-medium"; icon_state = "medium"},/turf/simulated/floor/plating,/area/jungleoutpost/medbay)
+"gb" = (/obj/item/weapon/material/shard{tag = "icon-medium"; icon_state = "medium"},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/turf/simulated/floor/plating,/area/jungleoutpost/medbay)
 "gc" = (/obj/effect/floor_decal/corner/paleblue/diagonal,/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled/white,/area/jungleoutpost/medbay)
 "gd" = (/obj/machinery/sleeper{dir = 8},/obj/effect/floor_decal/corner/blue/three_quarters{tag = "icon-corner_white_three_quarters (WEST)"; icon_state = "corner_white_three_quarters"; dir = 8},/obj/effect/floor_decal/corner/paleblue,/turf/simulated/floor/tiled/white,/area/jungleoutpost/medbay)
 "ge" = (/obj/item/weapon/material/shard,/turf/simulated/floor/tiled,/area/jungleoutpost/engi)
@@ -326,9 +327,9 @@
 "go" = (/obj/effect/floor_decal/corner/paleblue{dir = 6},/turf/simulated/floor/tiled/white,/area/jungleoutpost/medbay)
 "gp" = (/obj/machinery/light{dir = 8},/obj/effect/floor_decal/corner/paleblue{dir = 9},/turf/simulated/floor/tiled/white,/area/jungleoutpost/medbay)
 "gq" = (/obj/effect/floor_decal/corner/paleblue{dir = 9},/turf/simulated/floor/tiled/white,/area/jungleoutpost/medbay)
-"gr" = (/obj/item/ammo_casing/a556/used,/turf/simulated/floor/plating,/area/jungleoutpost/medbay)
+"gr" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 4},/turf/simulated/floor/tiled/white,/area/jungleoutpost/medbay)
 "gs" = (/obj/item/remains/human,/obj/item/ammo_casing/a556/used,/obj/item/ammo_casing/a556/used,/turf/simulated/floor/tiled/white,/area/jungleoutpost/medbay)
-"gt" = (/obj/effect/floor_decal/corner/paleblue/diagonal,/turf/simulated/floor/tiled/white,/area/jungleoutpost/medbay)
+"gt" = (/obj/effect/floor_decal/corner/paleblue{dir = 9},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/turf/simulated/floor/tiled/white,/area/jungleoutpost/medbay)
 "gu" = (/obj/machinery/sleeper{dir = 8},/obj/machinery/light{dir = 4},/obj/effect/floor_decal/corner/blue/three_quarters,/obj/effect/floor_decal/corner/paleblue{tag = "icon-corner_white (EAST)"; icon_state = "corner_white"; dir = 4},/turf/simulated/floor/tiled/white,/area/jungleoutpost/medbay)
 "gv" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/turf/simulated/floor/tiled/dark,/area/jungleoutpost/engi)
 "gw" = (/obj/structure/table/standard,/obj/item/stack/rods{amount = 50},/obj/item/weapon/storage/toolbox/mechanical,/turf/simulated/floor/tiled,/area/jungleoutpost/engi)
@@ -450,6 +451,10 @@
 "iI" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 1},/turf/simulated/floor/plating,/area/jungleoutpost/engi)
 "iJ" = (/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/plating,/area/jungleoutpost/engi)
 "iK" = (/turf/simulated/floor/planet/jungle/water{bridge = 1; density = 1},/area/planet/jungle/away)
+"iL" = (/obj/item/ammo_casing/a556/used,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/turf/simulated/floor/plating,/area/jungleoutpost/medbay)
+"iM" = (/obj/item/remains/human,/obj/item/ammo_casing/a556/used,/obj/item/ammo_casing/a556/used,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 5},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 9; icon_state = "intact-supply"; tag = "icon-intact-supply (NORTHWEST)"},/turf/simulated/floor/tiled/white,/area/jungleoutpost/medbay)
+"iN" = (/obj/effect/floor_decal/corner/paleblue/diagonal,/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/turf/simulated/floor/tiled/white,/area/jungleoutpost/medbay)
+"iO" = (/obj/effect/floor_decal/corner/paleblue/diagonal,/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8},/turf/simulated/floor/tiled/white,/area/jungleoutpost/medbay)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -613,10 +618,10 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaabacbybybybybybybybycjcjcjdycqchchchdIdIdIdIdJdKchchch
 aaaaaaaaaaaaaaaaaaaaaaaaaaabacbybybybybybybycecjdPcOdQdRdSdTchdUdVdWdXdYcxdZeaebecededeeefcacjegcacacjcjehcxdWcjaxaIaIaIaIaIaIaIaIaIaIeiaIaIaIaIaIaIaIaIaxaxaxaxaxaxaxaxafafafafafafafafafafakaIaIaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaLaMaNaOaOaOaOaOaOaOaIaIaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaJaJaJaJaJaJaJaJaJaJaJaJaJaKaaabaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaabacbybybybybybybycecjejcOekelemeneoepeqereseteuevewexeyezeAeBeCeDeEeFeGeHeHeIeIeJcjcnaxaxaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIdfaIaxaxaxdseKaxafafafafafafafafafahapaIaIaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaLaMaNaOaOaOaOaOaOaOaOaOaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaJaJaJaJaJaJaJaJaJaJaJaJaJaKaaabaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaabacacbybybybybybybycjeLcOcheMcheMchcxeNeOePeQcGeRcxeSeTeUeVeWeXcxcGeYeZcjcxfafbfcfdfeaxaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaxaxaxaxafafafafafafafafafahapaIaIaIaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaLaMaNaOaOaOaOaOaOaOaOaOaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaJaJaJaJaJaJaJaJaJaJaJaJaJaKaaabaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaabacacbybybybybybybycxcxcOchffchffchfgfhfifjfgfgfkflfmfnfnfnfnfnfnfnfofofofofofpfqfofoaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaxaeafaxafafafafafafafafafakaIaIaIaIaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaLaMaNaOaOaOaOaOaOaOaOaOaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaJaJaJaJaJaJaJaJaJaJaJaJaJaKaaabaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaabacbybyfkfkfkfkfkfkfrfrfkfsfsfsfsfsftfufhfvfwfxfkfyfzfnfAfBfCfDfEfnfFfGfHfIfJfGfKfLfoaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIfMaIaIaIanatataqafafafafafafafafahaiaiapaIaIaIaIaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaLaMaNaOaOaOaOaOaOaOaOaOaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaJaJaJaJaJaJaJaJaJaJaJaJaJaKaaabaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaabacacbybybybybybybycxcxcOchffchffchfgfhaEfjfgfgfkflfmfnfnfnfnfnfnfnfofofofofofpfqfofoaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaxaeafaxafafafafafafafafafakaIaIaIaIaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaLaMaNaOaOaOaOaOaOaOaOaOaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaJaJaJaJaJaJaJaJaJaJaJaJaJaKaaabaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaabacbybyfkfkfkfkfkfkfrfrfkfsfsfsfsfsftfufifvfwfxfkfyfzfnfAfBfCfDfEfnfFfGfHfIfJfGfKfLfoaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIfMaIaIaIanatataqafafafafafafafafahaiaiapaIaIaIaIaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaLaMaNaOaOaOaOaOaOaOaOaOaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaJaJaJaJaJaJaJaJaJaJaJaJaJaKaaabaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaabacbybyfNfOfPfQfRfsfSfTfUfVfWfXfYfZgafhgbgcfTgdfkgegffnggggghgiggfngjfGfGgkfJglgmfnfnfnfnfnfnfngnaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaeafafafafafafafafafahaiapaIaIaIaIaIaIaIaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaLaMaNaOaOaOaOaOaOaOaOaOaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaJaJaJaJaJaJaJaJaJaJaJaJaJaKaaabaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaabacbybyfhfhfTfTgofsgpfTfTfTfTfTfTfTgqgrgsgcgtgufkfGfzfngggggvggggfngwfGfGgxfJfGgyfngzgAgBgCgDgEgFaIaIaIgGaIaIaIgHaIaIaIaIaIaIaIaeafafafafafafafafafakaIaIaIaIaIaIaIaIaIaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaLaMaNaOaOaOaOaOaOaOaOaOaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaJaJaJaJaJaJaJaJaJaJaJaJaJaKaaabaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaabacbybyfhfhfTfTgofsgpfTfTfTfTfTfTgrgtiLiMiNiOgufkfGfzfngggggvggggfngwfGfGgxfJfGgyfngzgAgBgCgDgEgFaIaIaIgGaIaIaIgHaIaIaIaIaIaIaIaeafafafafafafafafafakaIaIaIaIaIaIaIaIaIaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaLaMaNaOaOaOaOaOaOaOaOaOaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaJaJaJaJaJaJaJaJaJaJaJaJaJaKaaabaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaabacbybybyfhfTgIfTgJfTfTgsgKgKgLgKgKgMgNfTgOgPgQfkfGfzfngRgggSgTgUfngVfGfGgWfJgXgYgZhahbhchdhefnaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaIaeafafafafafafafafafarataYaYaYaYaYaYaYaXaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaLaMaNaOaOaOaOaOaOaOaOaOaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaJaJaJaJaJaJaJaJaJaJaJaJaJaKaaabaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaabacbybybybyfTfTgofsgqfTfTfhfhfhfhfhfhhffkfkhgfkfkglhhfnfnhihjfnfnfnhkhlhmhnfofGhofnhphqhchrhsfnaIaIaIaIaIaIaIaIaIaIaIaIaIaIaxaxaxafafafafafafafafafafahaZaZaZaZaZaZaVaWaYaXaOaOaOaOaOaOaOaOaOaOaOaOaOaOaOaLaMaNaOaOaOaOaOaOaOaOaOaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaPaJaJaJaJaJaJaJaJaJaJaJaJaJaKaaabaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaabacbybybybyhthuhvfshwfTfThxfhbyhyhyfhhzfkhAhAhBfnhAhChDhEhEhFhAhAhAhAhGhHhIhJhKhLfnhMhNhOhPhQfnaIaIaIaIaIaIaIaIaIaIaIaIaIaIhRhSaxafafafafafafafafafafakaIaIaIaIaIaIaUaZaVaWaXaOaOaOaOacacacacacacacacacacaLaMaNaOaOaOaOaOaOaOaOaOaOaOaOaOaIaIaIaIaIaIaIaIaIaIacacacacaPaPaPaPaPaPaPaPaPaJaJaJaJaJaJaJaJaJaJaJaJaJaJaKaaabaa
