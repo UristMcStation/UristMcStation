@@ -13,7 +13,7 @@
 
 /datum/factions/nanotrasen
 	factionid = "nanotrasen"
-	name = FACTION_NANOTRASEN
+	name = "NanoTrasen"
 	reputation = 35
 	desc = "The NanoTrasen Corporation, commonly referred to as NT, is the largest of the great megacorporations of the modern day. A nation unto itself, \
 	NanoTrasen is currently headquartered in New Amsterdam on Procyon and headed by CEO Jackson Trasen and the NanoTrasen Board of Directors. \
@@ -23,7 +23,7 @@
 
 /datum/factions/terran
 	factionid = "terran"
-	name = FACTION_SOL_CENTRAL
+	name = "Terran Confederacy"
 	desc = "The Terran Confederacy, commonly referred to as the Confederacy or the TC, is an oligarchic federal republic composed of numerous human planets spanning many systems. \
 	Based in the Sol System with its capital on Mars, the Terran Confederacy governs the majority of human space. However, between the ongoing Terran Civil War with the United Human Alliance, \
 	growing rebellions for liberation in the outer colonies, and the lasting impact of the Galactic Crisis, the Terran Confederacy has been rapidly declining in recent years, and some fear its imminent collapse."
