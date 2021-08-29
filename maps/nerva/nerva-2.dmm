@@ -3696,7 +3696,8 @@
 /area/maintenance/third_deck/afp)
 "aht" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Medbay Maintenance Access"
+	name = "Medbay Maintenance Access";
+	req_access = list("ACCESS_MEDICAL")
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -28626,25 +28627,6 @@
 /obj/effect/paint_stripe/mauve,
 /turf/simulated/wall/prepainted,
 /area/rnd/dorms)
-"brr" = (
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/afs)
-"btJ" = (
-/obj/structure/closet/emcloset,
-/obj/effect/decal/cleanable/cobweb{
-	tag = "icon-cobweb1 (EAST)";
-	icon_state = "cobweb1";
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/fs)
 "btX" = (
 /obj/structure/lattice,
 /turf/simulated/open{
@@ -28688,67 +28670,11 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/checkpoint)
-"bAd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4;
-	icon_state = "intact-scrubbers";
-	tag = "icon-intact-scrubbers (EAST)"
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_y = 0
-	},
-/obj/effect/catwalk_plated/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/hallway/commandport)
 "bFA" = (
 /obj/effect/paint_stripe/red,
 /turf/simulated/wall/r_wall/prepainted,
 /area/security/evidence)
-"bQy" = (
-/obj/effect/wallframe_spawn/reinforced_phoron,
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	id = "starboardgunview";
-	name = "Starboard Gun Bay Viewport Door";
-	tag = "icon-pdoor1"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/security/starboardexternalgun)
-"bQO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4;
-	icon_state = "intact-scrubbers";
-	tag = "icon-intact-scrubbers (EAST)"
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_y = 0
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	icon_state = "intact-supply";
-	tag = "icon-intact-supply (SOUTHEAST)"
-	},
-/turf/simulated/floor/tiled/dark/monotile,
-/area/hallway/commandstarboard)
-"bYv" = (
+"bXZ" = (
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -28769,10 +28695,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fs)
-"cai" = (
-/obj/structure/catwalk,
-/turf/simulated/floor/plating/airless,
-/area/maintenance/third_deck/fp)
 "csj" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4;
@@ -28837,6 +28759,9 @@
 /obj/item/clothing/accessory/armband,
 /turf/simulated/floor/tiled/techmaint,
 /area/security/lockers)
+"cDt" = (
+/turf/simulated/wall/r_wall/prepainted,
+/area/security/starboardexternalgun)
 "cFl" = (
 /obj/effect/floor_decal/corner/red/half{
 	dir = 8;
@@ -28858,13 +28783,29 @@
 /obj/item/weapon/pen,
 /turf/simulated/floor/tiled/techmaint,
 /area/security/checkpoint)
-"cLv" = (
-/obj/machinery/portable_atmospherics/canister/air,
-/obj/machinery/atmospherics/portables_connector{
+"cKs" = (
+/obj/structure/catwalk,
+/obj/structure/handrai,
+/turf/simulated/floor/plating/airless,
+/area/maintenance/third_deck/fs)
+"cOu" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/random/junk,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/catwalk,
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/third_deck/fs)
+/area/maintenance/third_deck/fp)
 "cTb" = (
 /obj/effect/paint_stripe/beige,
 /turf/simulated/wall/prepainted,
@@ -28873,33 +28814,6 @@
 /obj/effect/paint_stripe/green,
 /turf/simulated/wall/prepainted,
 /area/hallway/aft/third_deck)
-"cZk" = (
-/obj/machinery/button/remote/blast_door{
-	id = "starboardgunview";
-	name = "Gunbay Viewport";
-	pixel_x = 24;
-	pixel_y = -24
-	},
-/obj/machinery/conveyor_switch{
-	id = "starboardgunbelt"
-	},
-/obj/structure/catwalk,
-/obj/structure/cable{
-	d1 = 0;
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/plating,
-/area/security/starboardexternalgun)
 "cZy" = (
 /obj/effect/floor_decal/corner/red/full,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -28945,6 +28859,29 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/portgun)
+"dmy" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	icon_state = "intact";
+	dir = 4
+	},
+/turf/simulated/wall/r_wall/prepainted,
+/area/maintenance/third_deck/fp)
+"dpd" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1379;
+	icon_state = "door_locked";
+	id_tag = "starboardgun_inner";
+	locked = 1;
+	name = "External Access";
+	req_access = list("ACCESS_EXTERNAL")
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4;
+	icon_state = "map"
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/fs)
 "dvF" = (
 /obj/machinery/door/window/brigdoor/southright{
 	id = "Cell 3";
@@ -28967,6 +28904,29 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/brig)
+"dAL" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/machinery/door/airlock/maintenance{
+	name = "Port Gun Bay";
+	req_access = list(list("ACCESS_BRIDGE","ACCESS_GUNNERY"))
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/catwalk,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/security/starboardexternalgun)
 "dFj" = (
 /obj/structure/closet/secure_closet/cargotech,
 /obj/item/clothing/suit/storage/hazardvest,
@@ -28976,12 +28936,6 @@
 /obj/item/clothing/accessory/armband/cargo,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/lockers)
-"dJn" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/afs)
 "dOK" = (
 /obj/machinery/light,
 /obj/structure/table/reinforced,
@@ -29117,19 +29071,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/commandoffices)
-"eps" = (
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "starboardgunbelt"
-	},
-/obj/item/device/radio/intercom{
-	dir = 1;
-	name = "Station Intercom (Command)";
-	pixel_x = 0;
-	pixel_y = -28
-	},
-/turf/simulated/floor/plating,
-/area/security/starboardexternalgun)
 "epz" = (
 /obj/machinery/light_switch{
 	on = 1;
@@ -29189,13 +29130,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/cents)
-"evO" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	icon_state = "intact";
-	dir = 4
-	},
-/turf/simulated/wall/r_wall/prepainted,
-/area/maintenance/third_deck/fp)
 "eyp" = (
 /obj/machinery/door/airlock/security{
 	name = "Security Office";
@@ -29282,11 +29216,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/rnd/dorms)
-"eUq" = (
-/obj/structure/catwalk,
-/obj/machinery/light/small,
-/turf/simulated/floor/plating/airless,
-/area/maintenance/third_deck/fp)
 "fng" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1;
@@ -29344,18 +29273,21 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/boardarmoury)
-"fsy" = (
-/obj/structure/catwalk,
-/obj/structure/handrai{
-	dir = 1;
-	icon_state = "handrail"
+"fwf" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1379;
+	icon_state = "door_locked";
+	id_tag = "port_gun_inner";
+	locked = 1;
+	name = "Engineering External Access";
+	req_access = list("ACCESS_EXTERNAL")
 	},
-/turf/simulated/floor/plating/airless,
-/area/maintenance/third_deck/fp)
-"fDi" = (
-/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 4
+	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
-/area/maintenance/third_deck/afs)
+/area/maintenance/third_deck/fp)
 "fFD" = (
 /obj/item/device/radio/intercom{
 	dir = 1;
@@ -29385,6 +29317,33 @@
 	},
 /turf/simulated/floor/plating,
 /area/security/checkpoint)
+"fIt" = (
+/obj/machinery/button/remote/blast_door{
+	id = "starboardgunview";
+	name = "Gunbay Viewport";
+	pixel_x = 24;
+	pixel_y = -24
+	},
+/obj/machinery/conveyor_switch{
+	id = "starboardgunbelt"
+	},
+/obj/structure/catwalk,
+/obj/structure/cable{
+	d1 = 0;
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/plating,
+/area/security/starboardexternalgun)
 "fJb" = (
 /obj/machinery/status_display{
 	density = 0;
@@ -29396,6 +29355,22 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fp)
+"fMW" = (
+/turf/simulated/wall/r_wall/prepainted,
+/area/security/portexternalgun)
+"fNl" = (
+/obj/item/device/radio/intercom{
+	dir = 2;
+	name = "Station Intercom (Command)";
+	pixel_x = 0;
+	pixel_y = 28
+	},
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "portgunbelt"
+	},
+/turf/simulated/floor/plating,
+/area/security/portexternalgun)
 "fRl" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/table/standard,
@@ -29451,13 +29426,6 @@
 /obj/item/device/radio/beacon,
 /turf/simulated/floor/tiled/dark,
 /area/command/eva)
-"fZT" = (
-/obj/machinery/portable_atmospherics/canister/air,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/fp)
 "gfg" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/structure/cable{
@@ -29466,16 +29434,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/security/checkpoint)
-"gjY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/turf/simulated/wall/r_wall/prepainted,
-/area/maintenance/third_deck/fs)
-"glR" = (
-/obj/structure/catwalk,
-/turf/simulated/floor/plating/airless,
-/area/maintenance/third_deck/fs)
 "grv" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -29506,6 +29464,11 @@
 "gxQ" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/security/lockers)
+"gKK" = (
+/obj/structure/catwalk,
+/obj/machinery/light/small,
+/turf/simulated/floor/plating/airless,
+/area/maintenance/third_deck/fp)
 "gMk" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/table/standard,
@@ -29564,17 +29527,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/commandport)
-"huj" = (
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1379;
-	master_tag = "starboardgun_airlock";
-	name = "exterior access button";
-	pixel_x = 27;
-	pixel_y = 26
+"hzc" = (
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
 	},
-/obj/structure/catwalk,
-/turf/simulated/floor/plating/airless,
+/turf/simulated/floor/plating,
 /area/maintenance/third_deck/fs)
 "hCj" = (
 /obj/effect/paint_stripe/blue,
@@ -29593,10 +29551,53 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/brig)
+"hHR" = (
+/obj/machinery/alarm{
+	dir = 1;
+	icon_state = "alarm0";
+	pixel_y = -22
+	},
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "starboardgunbelt"
+	},
+/turf/simulated/floor/plating,
+/area/security/starboardexternalgun)
 "hNR" = (
 /obj/effect/paint_stripe/blue,
 /turf/simulated/wall/r_wall/prepainted,
 /area/command/eva)
+"hVy" = (
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1379;
+	master_tag = "port_gun_airlock";
+	name = "exterior access button";
+	pixel_x = 25;
+	pixel_y = -25;
+	req_access = list("ACCESS_EXTERNAL")
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating/airless,
+/area/maintenance/third_deck/fp)
+"icd" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers";
+	tag = "icon-intact-scrubbers (EAST)"
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/effect/catwalk_plated/dark,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/hallway/commandport)
 "ihB" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -29703,30 +29704,16 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/security/evidence)
-"iZe" = (
-/turf/simulated/wall/r_wall/prepainted,
-/area/security/starboardexternalgun)
 "jaS" = (
 /obj/item/clothing/head/hardhat/red,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fp)
-"joa" = (
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1379;
-	master_tag = "port_gun_airlock";
-	name = "interior access button";
-	pixel_x = 25;
-	pixel_y = 25;
-	req_access = list("ACCESS_EXTERNAL")
+"joO" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/visible{
-	icon_state = "intact";
-	dir = 9
-	},
-/obj/structure/catwalk,
 /turf/simulated/floor/plating,
-/area/maintenance/third_deck/fp)
+/area/maintenance/third_deck/afs)
 "jxa" = (
 /obj/machinery/door/window/brigdoor/northleft{
 	name = "Security Office";
@@ -29770,6 +29757,27 @@
 /obj/structure/table/rack,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/cents)
+"jEV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers";
+	tag = "icon-intact-scrubbers (EAST)"
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/effect/catwalk_plated/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/hallway/commandport)
 "jIp" = (
 /obj/structure/closet/secure_closet/cargotech,
 /obj/item/clothing/suit/storage/hazardvest,
@@ -29799,6 +29807,16 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/robotics)
+"jPi" = (
+/obj/machinery/alarm{
+	pixel_y = 25
+	},
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "portgunbelt"
+	},
+/turf/simulated/floor/plating,
+/area/security/portexternalgun)
 "jQP" = (
 /obj/machinery/door/airlock/security{
 	name = "Boarding Armoury";
@@ -29820,6 +29838,39 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/techmaint,
 /area/security/boardarmoury)
+"jVX" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/structure/catwalk,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/light/small,
+/turf/simulated/floor/plating,
+/area/security/portexternalgun)
+"kaf" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/catwalk,
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/plating,
+/area/security/portexternalgun)
 "kaQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/space_heater,
@@ -29833,15 +29884,6 @@
 /obj/item/device/radio/beacon,
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/cryo1)
-"kfW" = (
-/obj/machinery/disposal/deliveryChute{
-	dir = 8;
-	icon_state = "intake";
-	name = "cargo chute"
-	},
-/obj/structure/disposalpipe/trunk,
-/turf/simulated/floor/plating,
-/area/security/portexternalgun)
 "kil" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -29867,20 +29909,23 @@
 /obj/effect/paint_stripe/blue,
 /turf/simulated/wall/r_wall/prepainted,
 /area/security/lockers)
-"kor" = (
-/obj/structure/sign/warning/vacuum{
-	pixel_y = -32
+"krd" = (
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1379;
+	master_tag = "port_gun_airlock";
+	name = "interior access button";
+	pixel_x = 25;
+	pixel_y = 25;
+	req_access = list("ACCESS_EXTERNAL")
 	},
-/obj/machinery/atmospherics/binary/pump/on{
-	dir = 4;
-	target_pressure = 200
+/obj/machinery/atmospherics/pipe/simple/visible{
+	icon_state = "intact";
+	dir = 9
 	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
-/area/maintenance/third_deck/fs)
-"kqs" = (
-/obj/structure/shipweapons/hardpoint/external/nerva,
-/turf/space,
-/area/security/portexternalgun)
+/area/maintenance/third_deck/fp)
 "ksl" = (
 /obj/effect/paint_stripe/mauve,
 /turf/simulated/wall/prepainted,
@@ -29994,20 +30039,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/cents)
-"kOJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
-	dir = 4
+"kUI" = (
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1379;
+	master_tag = "starboardgun_airlock";
+	name = "interior access button";
+	pixel_x = 25;
+	pixel_y = -25
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	icon_state = "intact";
+	dir = 10
+	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fs)
-"kZi" = (
-/obj/structure/closet/emcloset,
-/obj/effect/decal/cleanable/cobweb,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/fp)
 "lai" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/table/standard,
@@ -30017,6 +30064,14 @@
 /obj/machinery/reagent_temperature/cooler,
 /turf/simulated/floor/tiled/white,
 /area/civilian/kitchen)
+"lfC" = (
+/obj/structure/catwalk,
+/obj/machinery/light/small{
+	icon_state = "bulb1";
+	dir = 1
+	},
+/turf/simulated/floor/plating/airless,
+/area/maintenance/third_deck/fs)
 "lkt" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/fadeblue{
@@ -30025,27 +30080,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/eva)
-"lkQ" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_y = 0
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/structure/catwalk,
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/fs)
 "lmx" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal{
 	dir = 4;
@@ -30071,62 +30105,12 @@
 /obj/item/weapon/folder/white,
 /turf/simulated/floor/tiled/white,
 /area/medical/cmo)
-"lmJ" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_y = 0
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/catwalk,
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/plating,
-/area/security/starboardexternalgun)
-"lqA" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_y = 0
-	},
-/obj/random/junk,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/catwalk,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/fp)
 "lvk" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afp)
-"lxa" = (
-/obj/machinery/disposal/deliveryChute{
-	dir = 8;
-	icon_state = "intake";
-	name = "cargo chute"
-	},
-/obj/structure/disposalpipe/trunk{
-	icon_state = "pipe-t";
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/security/starboardexternalgun)
 "lAn" = (
 /obj/structure/railing/mapped{
 	dir = 4;
@@ -30139,6 +30123,10 @@
 	},
 /turf/simulated/open,
 /area/security/office)
+"lIm" = (
+/obj/structure/catwalk,
+/turf/simulated/floor/plating/airless,
+/area/maintenance/third_deck/fp)
 "mcq" = (
 /obj/effect/floor_decal/corner/fadeblue{
 	dir = 6;
@@ -30153,19 +30141,6 @@
 /obj/effect/paint_stripe/red,
 /turf/simulated/wall/r_wall/prepainted,
 /area/security/boardarmoury)
-"meD" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1379;
-	icon_state = "door_locked";
-	id_tag = "starboardgun_outer";
-	locked = 1;
-	name = "External Access";
-	req_access = list("ACCESS_ENGINEERING","ACCESS_EXTERNAL")
-	},
-/obj/machinery/shield_diffuser,
-/obj/structure/catwalk,
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/fs)
 "mqS" = (
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/black/three_quarters{
@@ -30204,6 +30179,22 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/eva)
+"mwd" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/structure/catwalk,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/light/small{
+	icon_state = "bulb1";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/security/starboardexternalgun)
 "mAz" = (
 /obj/effect/paint_stripe/blue,
 /turf/simulated/wall/r_wall/prepainted,
@@ -30219,6 +30210,13 @@
 /obj/effect/paint_stripe/blue,
 /turf/simulated/wall/r_wall/prepainted,
 /area/security/starboardgun)
+"mNE" = (
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/fp)
 "mOC" = (
 /turf/simulated/wall/prepainted,
 /area/rnd/dorms)
@@ -30249,6 +30247,12 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/lockers)
+"mUv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/wall/r_wall/prepainted,
+/area/maintenance/third_deck/fs)
 "mWR" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -30307,37 +30311,95 @@
 /obj/effect/paint_stripe/brown,
 /turf/simulated/wall/r_wall/prepainted,
 /area/engineering/locker)
+"niC" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1379;
+	icon_state = "door_locked";
+	id_tag = "starboardgun_outer";
+	locked = 1;
+	name = "External Access";
+	req_access = list("ACCESS_ENGINEERING","ACCESS_EXTERNAL")
+	},
+/obj/machinery/shield_diffuser,
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/fs)
 "njx" = (
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/cents)
+"nlT" = (
+/obj/structure/sign/warning/vacuum{
+	pixel_y = -32
+	},
+/obj/machinery/atmospherics/binary/pump/on{
+	dir = 4;
+	target_pressure = 200
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/fs)
+"nnc" = (
+/obj/machinery/airlock_sensor{
+	frequency = 1379;
+	id_tag = "port_gun_sensor";
+	pixel_x = 25;
+	pixel_y = 12
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	frequency = 1379;
+	id_tag = "port_gun_airlock";
+	pixel_x = 25;
+	req_access = list("ACCESS_EXTERNAL");
+	tag_airpump = "port_gun_pump";
+	tag_chamber_sensor = "port_gun_sensor";
+	tag_exterior_door = "port_gun_outer";
+	tag_interior_door = "port_gun_inner"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 2;
+	frequency = 1379;
+	id_tag = "port_gun_pump"
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/fp)
 "nzd" = (
 /obj/effect/paint_stripe/brown,
 /turf/simulated/wall/prepainted,
 /area/engineering/locker)
+"nDh" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
+	frequency = 1379;
+	id_tag = "starboardgun_pump"
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	frequency = 1379;
+	id_tag = "starboardgun_airlock";
+	pixel_x = 29;
+	tag_airpump = "starboardgun_pump";
+	tag_chamber_sensor = "starboardgun_sensor";
+	tag_exterior_door = "starboardgun_outer";
+	tag_interior_door = "starboardgun_inner"
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1379;
+	id_tag = "starboardgun_sensor";
+	pixel_x = 29;
+	pixel_y = 12
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/fs)
 "nJC" = (
 /obj/machinery/space_heater,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fp)
-"nPw" = (
-/obj/structure/disposaloutlet/unwrap{
-	icon_state = "outlet";
-	dir = 4
-	},
-/obj/structure/disposalpipe/trunk{
-	icon_state = "pipe-t";
-	dir = 1
-	},
-/obj/machinery/camera/network/command{
-	c_tag = "Starboard External Gun Bay";
-	dir = 1;
-	icon_state = "camera"
-	},
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "starboardgunbelt"
-	},
-/turf/simulated/floor/plating,
-/area/security/starboardexternalgun)
 "nUv" = (
 /obj/structure/bed/chair/comfy/black{
 	dir = 8
@@ -30356,6 +30418,16 @@
 	},
 /turf/simulated/floor/carpet/green,
 /area/command/meeting)
+"nVL" = (
+/obj/machinery/atmospherics/binary/pump/on{
+	dir = 4;
+	target_pressure = 200
+	},
+/obj/structure/sign/warning/vacuum{
+	pixel_y = 32
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/fp)
 "oax" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -30395,22 +30467,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/armoury)
-"ohA" = (
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1379;
-	master_tag = "starboardgun_airlock";
-	name = "interior access button";
-	pixel_x = 25;
-	pixel_y = -25
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
-	dir = 10
-	},
-/obj/structure/catwalk,
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/fs)
 "oos" = (
 /obj/machinery/light{
 	dir = 8
@@ -30425,22 +30481,6 @@
 /obj/item/device/analyzer,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fp)
-"oAj" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/obj/structure/catwalk,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/light/small{
-	icon_state = "bulb1";
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/security/starboardexternalgun)
 "oDe" = (
 /obj/structure/closet/secure_closet/miner,
 /obj/item/weapon/storage/backpack/duffel/duffel_eng,
@@ -30456,32 +30496,26 @@
 /obj/item/clothing/accessory/armband/cargo,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/lockers)
-"oIb" = (
-/obj/machinery/button/remote/blast_door{
-	id = "portgunview";
-	name = "Gunbay Viewport";
-	pixel_x = 24;
-	pixel_y = 24
+"oGG" = (
+/obj/structure/disposaloutlet/unwrap{
+	icon_state = "outlet";
+	dir = 4
 	},
-/obj/machinery/conveyor_switch{
-	id = "portgunbelt"
+/obj/structure/disposalpipe/trunk{
+	icon_state = "pipe-t";
+	dir = 1
 	},
-/obj/structure/catwalk,
-/obj/machinery/power/apc{
-	name = "south bump";
-	pixel_y = -24
-	},
-/obj/structure/cable{
-	d1 = 0;
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/structure/disposalpipe/segment{
+/obj/machinery/camera/network/command{
+	c_tag = "Starboard External Gun Bay";
 	dir = 1;
-	icon_state = "pipe-c"
+	icon_state = "camera"
+	},
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "starboardgunbelt"
 	},
 /turf/simulated/floor/plating,
-/area/security/portexternalgun)
+/area/security/starboardexternalgun)
 "oMn" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -30524,11 +30558,80 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/eva)
+"oUy" = (
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "portgunbelt"
+	},
+/obj/structure/disposaloutlet/unwrap{
+	icon_state = "outlet";
+	dir = 4
+	},
+/obj/structure/disposalpipe/trunk,
+/obj/machinery/camera/network/command{
+	c_tag = "Port External Gun Bay";
+	dir = 2;
+	icon_state = "camera"
+	},
+/turf/simulated/floor/plating,
+/area/security/portexternalgun)
+"oUY" = (
+/obj/machinery/disposal/deliveryChute{
+	dir = 8;
+	icon_state = "intake";
+	name = "cargo chute"
+	},
+/obj/structure/disposalpipe/trunk,
+/turf/simulated/floor/plating,
+/area/security/portexternalgun)
 "oWv" = (
 /turf/simulated/wall/r_wall/false{
 	icon_state = "rdebug"
 	},
 /area/maintenance/third_deck/cents)
+"pdI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers";
+	tag = "icon-intact-scrubbers (EAST)"
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	icon_state = "intact-supply";
+	tag = "icon-intact-supply (SOUTHEAST)"
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/hallway/commandstarboard)
+"psT" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/structure/catwalk,
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/fs)
 "ptN" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/firealarm{
@@ -30547,14 +30650,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/armoury)
-"pEZ" = (
-/obj/machinery/light/small/red,
-/obj/structure/disposalpipe/segment{
-	icon_state = "pipe-c";
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/afs)
 "pLg" = (
 /obj/effect/decal/cleanable/cobweb{
 	dir = 4;
@@ -30565,26 +30660,6 @@
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/wood/walnut,
 /area/civilian/abandonedoffice)
-"pMh" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_y = 0
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/catwalk,
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/plating,
-/area/security/portexternalgun)
 "pSC" = (
 /obj/machinery/light,
 /obj/structure/cable{
@@ -30607,24 +30682,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/portgun)
-"qaR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4;
-	icon_state = "intact-scrubbers";
-	tag = "icon-intact-scrubbers (EAST)"
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_y = 0
-	},
-/obj/effect/catwalk_plated/dark,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/hallway/commandport)
 "qiD" = (
 /obj/machinery/camera/network/third_deck{
 	c_tag = "Bar Main";
@@ -30663,41 +30720,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/techmaint,
 /area/security/checkpoint)
-"qlI" = (
-/obj/machinery/alarm{
-	dir = 1;
-	icon_state = "alarm0";
-	pixel_y = -22
-	},
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "starboardgunbelt"
-	},
-/turf/simulated/floor/plating,
-/area/security/starboardexternalgun)
-"qor" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_y = 0
-	},
-/obj/machinery/door/airlock/maintenance{
-	name = "Port Gun Bay";
-	req_access = list(list("ACCESS_BRIDGE","ACCESS_GUNNERY"))
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/catwalk,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/security/starboardexternalgun)
 "qsA" = (
 /obj/machinery/door/airlock/glass/security{
 	name = "Security";
@@ -30741,19 +30763,29 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/eva)
-"qHA" = (
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1379;
-	master_tag = "port_gun_airlock";
-	name = "exterior access button";
-	pixel_x = 25;
-	pixel_y = -25;
-	req_access = list("ACCESS_EXTERNAL")
+"qFZ" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/machinery/door/airlock/maintenance{
+	name = "Port Gun Bay";
+	req_access = list(list("ACCESS_BRIDGE","ACCESS_GUNNERY"))
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /obj/structure/catwalk,
-/turf/simulated/floor/plating/airless,
-/area/maintenance/third_deck/fp)
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/security/portexternalgun)
 "qLH" = (
 /turf/simulated/wall/false{
 	density = 1;
@@ -30761,6 +30793,19 @@
 	opacity = 1
 	},
 /area/civilian/abandonedoffice)
+"qRR" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1379;
+	icon_state = "door_locked";
+	id_tag = "port_gun_outer";
+	locked = 1;
+	name = "Engineering External Access";
+	req_access = list("ACCESS_ENGINEERING","ACCESS_EXTERNAL")
+	},
+/obj/machinery/shield_diffuser,
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/fp)
 "qSJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -30773,6 +30818,10 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/techmaint,
 /area/security/boardarmoury)
+"rcQ" = (
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/afs)
 "rge" = (
 /obj/structure/closet/secure_closet/cargotech,
 /obj/item/clothing/suit/storage/hazardvest,
@@ -30794,6 +30843,10 @@
 /obj/item/clothing/accessory/armband/cargo,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/lockers)
+"rxg" = (
+/obj/structure/catwalk,
+/turf/simulated/floor/plating/airless,
+/area/maintenance/third_deck/fs)
 "rOs" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 1
@@ -30812,11 +30865,38 @@
 /obj/item/device/radio/beacon,
 /turf/simulated/floor/tiled,
 /area/logistics/uppercargo)
+"rVz" = (
+/obj/effect/wallframe_spawn/reinforced_phoron,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "starboardgunview";
+	name = "Starboard Gun Bay Viewport Door";
+	tag = "icon-pdoor1"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/security/starboardexternalgun)
 "rYt" = (
 /obj/effect/floor_decal/corner/red/full,
 /obj/item/device/radio/beacon,
 /turf/simulated/floor/tiled/techmaint,
 /area/security/office)
+"sbY" = (
+/obj/structure/disposaloutlet{
+	dir = 4
+	},
+/obj/structure/disposalpipe/trunk{
+	icon_state = "pipe-t";
+	dir = 8
+	},
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "portgunbelt"
+	},
+/turf/simulated/floor/plating,
+/area/security/portexternalgun)
 "seh" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -30872,34 +30952,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/robotics)
-"ssM" = (
-/obj/machinery/airlock_sensor{
-	frequency = 1379;
-	id_tag = "port_gun_sensor";
-	pixel_x = 25;
-	pixel_y = 12
-	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	frequency = 1379;
-	id_tag = "port_gun_airlock";
-	pixel_x = 25;
-	req_access = list("ACCESS_EXTERNAL");
-	tag_airpump = "port_gun_pump";
-	tag_chamber_sensor = "port_gun_sensor";
-	tag_exterior_door = "port_gun_outer";
-	tag_interior_door = "port_gun_inner"
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2;
-	frequency = 1379;
-	id_tag = "port_gun_pump"
-	},
-/obj/machinery/light/small{
-	dir = 8
-	},
-/obj/structure/catwalk,
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/fp)
 "suK" = (
 /obj/effect/paint_stripe/red,
 /turf/simulated/wall/r_wall/prepainted,
@@ -30937,6 +30989,11 @@
 /obj/effect/paint_stripe/paleblue,
 /turf/simulated/wall/r_wall/prepainted,
 /area/medical/chemistry)
+"sMx" = (
+/obj/structure/lattice,
+/obj/structure/lattice,
+/turf/space,
+/area/space)
 "sPc" = (
 /obj/machinery/light/small{
 	dir = 8;
@@ -30978,19 +31035,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/eva)
-"sXa" = (
-/obj/structure/disposaloutlet{
-	dir = 4
-	},
-/obj/structure/disposalpipe/trunk{
-	icon_state = "pipe-t";
-	dir = 8
-	},
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "starboardgunbelt"
-	},
-/turf/simulated/floor/plating,
+"sZY" = (
+/obj/structure/shipweapons/hardpoint/external/nerva,
+/turf/space,
 /area/security/starboardexternalgun)
 "tcQ" = (
 /obj/effect/floor_decal/corner/red{
@@ -31004,6 +31051,20 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/lockers)
+"teR" = (
+/obj/structure/disposaloutlet{
+	dir = 4
+	},
+/obj/structure/disposalpipe/trunk{
+	icon_state = "pipe-t";
+	dir = 8
+	},
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "starboardgunbelt"
+	},
+/turf/simulated/floor/plating,
+/area/security/starboardexternalgun)
 "tfp" = (
 /obj/effect/paint_stripe/red,
 /turf/simulated/wall/r_wall/prepainted,
@@ -31012,10 +31073,6 @@
 /obj/effect/floor_decal/corner/fadeblue/full,
 /turf/simulated/floor/tiled/techmaint,
 /area/security/portgun)
-"tmU" = (
-/obj/structure/shipweapons/hardpoint/external/nerva,
-/turf/space,
-/area/security/starboardexternalgun)
 "toz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	req_access = 1
@@ -31034,12 +31091,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/cents)
-"tuk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/fp)
 "twv" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/techmaint,
@@ -31101,33 +31152,6 @@
 /obj/machinery/door/airlock/hatch/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/cents)
-"tTW" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	frequency = 1379;
-	id_tag = "starboardgun_pump"
-	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	frequency = 1379;
-	id_tag = "starboardgun_airlock";
-	pixel_x = 29;
-	tag_airpump = "starboardgun_pump";
-	tag_chamber_sensor = "starboardgun_sensor";
-	tag_exterior_door = "starboardgun_outer";
-	tag_interior_door = "starboardgun_inner"
-	},
-/obj/machinery/airlock_sensor{
-	frequency = 1379;
-	id_tag = "starboardgun_sensor";
-	pixel_x = 29;
-	pixel_y = 12
-	},
-/obj/machinery/light/small{
-	dir = 8
-	},
-/obj/structure/catwalk,
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/fs)
 "tWi" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -31136,27 +31160,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian/kitchen)
-"tWB" = (
-/obj/structure/disposaloutlet{
-	dir = 4
-	},
-/obj/structure/disposalpipe/trunk{
-	icon_state = "pipe-t";
-	dir = 8
-	},
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "portgunbelt"
-	},
-/turf/simulated/floor/plating,
-/area/security/portexternalgun)
-"tYE" = (
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/afs)
 "tYN" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/wall/prepainted,
@@ -31181,24 +31184,31 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/lockers)
-"ueY" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/space,
-/area/space)
-"uoC" = (
-/obj/item/device/radio/intercom{
-	dir = 2;
-	name = "Station Intercom (Command)";
-	pixel_x = 0;
-	pixel_y = 28
-	},
+"uip" = (
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "portgunbelt"
+	id = "starboardgunbelt"
+	},
+/obj/item/device/radio/intercom{
+	dir = 1;
+	name = "Station Intercom (Command)";
+	pixel_x = 0;
+	pixel_y = -28
 	},
 /turf/simulated/floor/plating,
-/area/security/portexternalgun)
+/area/security/starboardexternalgun)
+"urB" = (
+/obj/structure/closet/emcloset,
+/obj/effect/decal/cleanable/cobweb{
+	tag = "icon-cobweb1 (EAST)";
+	icon_state = "cobweb1";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/fs)
 "usp" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
@@ -31208,6 +31218,18 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/tool)
+"usW" = (
+/obj/machinery/disposal/deliveryChute{
+	dir = 8;
+	icon_state = "intake";
+	name = "cargo chute"
+	},
+/obj/structure/disposalpipe/trunk{
+	icon_state = "pipe-t";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/security/starboardexternalgun)
 "uyU" = (
 /obj/effect/paint_stripe/beige,
 /turf/simulated/wall/prepainted,
@@ -31217,6 +31239,32 @@
 /obj/machinery/light/small/red,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afp)
+"uBC" = (
+/obj/machinery/button/remote/blast_door{
+	id = "portgunview";
+	name = "Gunbay Viewport";
+	pixel_x = 24;
+	pixel_y = 24
+	},
+/obj/machinery/conveyor_switch{
+	id = "portgunbelt"
+	},
+/obj/structure/catwalk,
+/obj/machinery/power/apc{
+	name = "south bump";
+	pixel_y = -24
+	},
+/obj/structure/cable{
+	d1 = 0;
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/plating,
+/area/security/portexternalgun)
 "uIr" = (
 /obj/effect/floor_decal/corner/red/half{
 	dir = 1;
@@ -31233,16 +31281,19 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/checkpoint)
-"uLp" = (
-/obj/machinery/atmospherics/binary/pump/on{
+"uII" = (
+/obj/effect/wallframe_spawn/reinforced_phoron,
+/obj/machinery/door/blast/regular/open{
 	dir = 4;
-	target_pressure = 200
+	id = "portgunview";
+	name = "Port Gun Bay Viewport Door";
+	tag = "icon-pdoor1"
 	},
-/obj/structure/sign/warning/vacuum{
-	pixel_y = 32
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/third_deck/fp)
+/area/security/portexternalgun)
 "uME" = (
 /obj/structure/table/standard,
 /obj/item/weapon/book/manual/chef_recipes,
@@ -31260,11 +31311,6 @@
 /obj/effect/paint_stripe/paleblue,
 /turf/simulated/wall/prepainted,
 /area/medical/examroom)
-"uYI" = (
-/obj/structure/catwalk,
-/obj/structure/handrai,
-/turf/simulated/floor/plating/airless,
-/area/maintenance/third_deck/fs)
 "vey" = (
 /obj/machinery/door/airlock/research{
 	name = "Robotics";
@@ -31286,6 +31332,12 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/robotics)
+"vkW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/fs)
 "vnZ" = (
 /obj/machinery/vending/cigarette,
 /obj/effect/floor_decal/corner/black/full,
@@ -31345,6 +31397,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/third_deck)
+"vIm" = (
+/obj/structure/shipweapons/hardpoint/external/nerva,
+/turf/space,
+/area/security/portexternalgun)
 "vLb" = (
 /obj/structure/sign/neon/bar_alt{
 	pixel_y = 32
@@ -31356,60 +31412,16 @@
 /obj/effect/paint_stripe/blue,
 /turf/simulated/wall/r_wall/prepainted,
 /area/medical/cmo)
-"vVw" = (
-/obj/structure/catwalk,
-/obj/machinery/light/small{
-	icon_state = "bulb1";
-	dir = 1
-	},
-/turf/simulated/floor/plating/airless,
-/area/maintenance/third_deck/fs)
-"vXJ" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_y = 0
-	},
-/obj/machinery/door/airlock/maintenance{
-	name = "Port Gun Bay";
-	req_access = list(list("ACCESS_BRIDGE","ACCESS_GUNNERY"))
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/catwalk,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/security/portexternalgun)
-"vYy" = (
-/obj/effect/wallframe_spawn/reinforced_phoron,
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	id = "portgunview";
-	name = "Port Gun Bay Viewport Door";
-	tag = "icon-pdoor1"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/security/portexternalgun)
+"vUy" = (
+/obj/effect/paint_stripe/red,
+/turf/simulated/wall/r_wall/prepainted,
+/area/security/brig)
 "waA" = (
 /obj/structure/bed/chair{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fp)
-"wbh" = (
-/obj/effect/paint_stripe/red,
-/turf/simulated/wall/r_wall/prepainted,
-/area/security/brig)
 "wcR" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -31435,42 +31447,31 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
-"wed" = (
-/obj/machinery/door/airlock/external{
+"wnc" = (
+/obj/machinery/access_button{
+	command = "cycle_exterior";
 	frequency = 1379;
-	icon_state = "door_locked";
-	id_tag = "starboardgun_inner";
-	locked = 1;
-	name = "External Access";
-	req_access = list("ACCESS_EXTERNAL")
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4;
-	icon_state = "map"
+	master_tag = "starboardgun_airlock";
+	name = "exterior access button";
+	pixel_x = 27;
+	pixel_y = 26
 	},
 /obj/structure/catwalk,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating/airless,
 /area/maintenance/third_deck/fs)
-"wkl" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1379;
-	icon_state = "door_locked";
-	id_tag = "port_gun_inner";
-	locked = 1;
-	name = "Engineering External Access";
-	req_access = list("ACCESS_EXTERNAL")
-	},
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 4
-	},
-/obj/structure/catwalk,
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/fp)
 "wqY" = (
 /turf/simulated/wall/prepainted,
 /area/maintenance/third_deck/afs)
 "wrh" = (
 /obj/random/maintenance/clean,
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/fp)
+"wuz" = (
+/obj/structure/closet/emcloset,
+/obj/effect/decal/cleanable/cobweb,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fp)
 "wvQ" = (
@@ -31510,33 +31511,12 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/logistics/robotics)
-"wKP" = (
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "portgunbelt"
-	},
-/obj/structure/disposaloutlet/unwrap{
-	icon_state = "outlet";
+"wKA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
-/obj/structure/disposalpipe/trunk,
-/obj/machinery/camera/network/command{
-	c_tag = "Port External Gun Bay";
-	dir = 2;
-	icon_state = "camera"
-	},
 /turf/simulated/floor/plating,
-/area/security/portexternalgun)
-"wOa" = (
-/obj/machinery/alarm{
-	pixel_y = 25
-	},
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "portgunbelt"
-	},
-/turf/simulated/floor/plating,
-/area/security/portexternalgun)
+/area/maintenance/third_deck/fp)
 "wPx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
@@ -31566,6 +31546,34 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/checkpoint)
+"wSn" = (
+/obj/machinery/light/small/red,
+/obj/structure/disposalpipe/segment{
+	icon_state = "pipe-c";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/afs)
+"wTq" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/catwalk,
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/plating,
+/area/security/starboardexternalgun)
 "wVB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -31612,23 +31620,24 @@
 	},
 /turf/simulated/wall/prepainted,
 /area/maintenance/third_deck/afs)
-"xfP" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1379;
-	icon_state = "door_locked";
-	id_tag = "port_gun_outer";
-	locked = 1;
-	name = "Engineering External Access";
-	req_access = list("ACCESS_ENGINEERING","ACCESS_EXTERNAL")
+"xie" = (
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
 	},
-/obj/machinery/shield_diffuser,
-/obj/structure/catwalk,
 /turf/simulated/floor/plating,
-/area/maintenance/third_deck/fp)
+/area/maintenance/third_deck/afs)
 "xjg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/robotics)
+"xqI" = (
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/afs)
 "xyC" = (
 /obj/effect/floor_decal/corner/fadeblue{
 	dir = 10;
@@ -31642,23 +31651,18 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandoffices)
-"xIB" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/obj/structure/catwalk,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/light/small,
-/turf/simulated/floor/plating,
-/area/security/portexternalgun)
 "xNL" = (
 /obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/tiled/techmaint,
 /area/security/checkpoint)
+"xOz" = (
+/obj/structure/catwalk,
+/obj/structure/handrai{
+	dir = 1;
+	icon_state = "handrail"
+	},
+/turf/simulated/floor/plating/airless,
+/area/maintenance/third_deck/fp)
 "xUw" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -31685,9 +31689,6 @@
 /obj/machinery/smartfridge,
 /turf/simulated/floor/tiled/white,
 /area/civilian/kitchen)
-"yat" = (
-/turf/simulated/wall/r_wall/prepainted,
-/area/security/portexternalgun)
 "ycr" = (
 /obj/effect/paint_stripe/blue,
 /turf/simulated/wall/r_wall/prepainted,
@@ -46572,8 +46573,8 @@ aOr
 aPC
 aQL
 aRR
-fDi
-brr
+rcQ
+xie
 aUx
 aSQ
 aRQ
@@ -46977,7 +46978,7 @@ aKI
 aKI
 aKI
 aSU
-dJn
+joO
 aRQ
 aSQ
 aRQ
@@ -47179,7 +47180,7 @@ aLV
 aLV
 aLV
 aLV
-dJn
+joO
 aRQ
 aSQ
 aRQ
@@ -47583,7 +47584,7 @@ aPF
 aQO
 aRT
 aLV
-dJn
+joO
 aRQ
 aSQ
 aSQ
@@ -47785,7 +47786,7 @@ aPG
 aQP
 aRU
 aLV
-dJn
+joO
 aRQ
 aRQ
 aRQ
@@ -47987,9 +47988,9 @@ aPH
 aQQ
 aRV
 aLV
-tYE
-fDi
-brr
+xqI
+rcQ
+xie
 aRQ
 aSQ
 aRQ
@@ -48191,7 +48192,7 @@ aRW
 aLV
 aLV
 aSS
-dJn
+joO
 aRQ
 aSQ
 aRQ
@@ -48393,7 +48394,7 @@ aRX
 aSV
 aLW
 aLW
-dJn
+joO
 aRQ
 aVB
 aRQ
@@ -48797,7 +48798,7 @@ aOw
 aOw
 aTM
 aLW
-dJn
+joO
 aRQ
 aSQ
 aVN
@@ -48999,7 +49000,7 @@ aOw
 aOw
 aTN
 aLW
-dJn
+joO
 aRQ
 aSQ
 aVO
@@ -49403,7 +49404,7 @@ aRY
 aLW
 aLW
 aSS
-dJn
+joO
 aRQ
 aTP
 aSQ
@@ -49605,7 +49606,7 @@ aLW
 aLW
 aTP
 aUy
-pEZ
+wSn
 aRQ
 aSQ
 aSQ
@@ -55833,7 +55834,7 @@ adk
 adk
 adO
 ajs
-wbh
+vUy
 suK
 suK
 suK
@@ -56035,7 +56036,7 @@ afZ
 adk
 ahU
 ajt
-wbh
+vUy
 alU
 and
 and
@@ -61894,7 +61895,7 @@ agp
 ahb
 air
 ajT
-qaR
+icd
 air
 amp
 air
@@ -62096,7 +62097,7 @@ agq
 ahc
 air
 ajU
-bAd
+jEV
 amp
 anz
 aoV
@@ -62120,7 +62121,7 @@ bbM
 aJx
 aKz
 aKy
-bQO
+pdI
 aOd
 bbM
 aQF
@@ -62528,7 +62529,7 @@ aMN
 aOf
 aPn
 aQG
-lkQ
+psT
 aPs
 aPs
 aPs
@@ -62693,12 +62694,12 @@ aaa
 aaa
 aaa
 aaa
-cai
+lIm
 aam
 aam
 aam
-kZi
-lqA
+wuz
+cOu
 ahd
 ait
 ajX
@@ -62731,11 +62732,11 @@ aOg
 aPo
 aLD
 aRO
-btJ
+urB
 aPs
 aPs
 aPs
-glR
+rxg
 aaa
 aaa
 aaa
@@ -62895,11 +62896,11 @@ aaa
 aaa
 aaa
 aaa
-cai
+lIm
 aam
 aam
-fZT
-tuk
+mNE
+wKA
 agt
 ahd
 aiu
@@ -62932,12 +62933,12 @@ aMP
 aOh
 aPp
 aLD
-bYv
-kOJ
-cLv
+bXZ
+vkW
+hzc
 aPs
 aPs
-glR
+rxg
 aaa
 aaa
 aaa
@@ -63097,11 +63098,11 @@ aaa
 aaa
 aaa
 aaa
-fsy
+xOz
 aam
 aam
-evO
-uLp
+dmy
+nVL
 agt
 ahd
 aiv
@@ -63134,12 +63135,12 @@ aMQ
 aOi
 aPq
 aLD
-bYv
-kor
-gjY
+bXZ
+nlT
+mUv
 aPs
 aPs
-uYI
+cKs
 aaa
 aaa
 aaa
@@ -63299,11 +63300,11 @@ aaa
 aaa
 aaa
 aaa
-qHA
-xfP
-ssM
-wkl
-joa
+hVy
+qRR
+nnc
+fwf
+krd
 agt
 ahd
 aiw
@@ -63336,12 +63337,12 @@ aMR
 aOj
 aPr
 aLD
-bYv
-ohA
-wed
-tTW
-meD
-huj
+bXZ
+kUI
+dpd
+nDh
+niC
+wnc
 aaa
 aaa
 aaa
@@ -63501,12 +63502,12 @@ aaa
 aaa
 aaa
 aaa
-eUq
+gKK
 aam
 aam
 aam
-yat
-vXJ
+fMW
+qFZ
 ahd
 ahd
 aka
@@ -63538,12 +63539,12 @@ aMS
 aMS
 aLD
 aLD
-qor
-iZe
+dAL
+cDt
 aPs
 aPs
 aPs
-vVw
+lfC
 aaa
 aaa
 aaa
@@ -63705,12 +63706,12 @@ aaa
 aaa
 akb
 akb
-yat
-yat
-wKP
-pMh
-yat
-yat
+fMW
+fMW
+oUy
+kaf
+fMW
+fMW
 akb
 akb
 akb
@@ -63738,12 +63739,12 @@ akb
 akb
 akb
 akb
-iZe
-iZe
-lmJ
-nPw
-iZe
-iZe
+cDt
+cDt
+wTq
+oGG
+cDt
+cDt
 akb
 akb
 aaa
@@ -63907,9 +63908,9 @@ aaa
 aaa
 aaa
 akb
-yat
-yat
-wOa
+fMW
+fMW
+jPi
 agu
 ahf
 aix
@@ -63943,9 +63944,9 @@ akb
 aPt
 aQH
 aRP
-qlI
-iZe
-iZe
+hHR
+cDt
+cDt
 akb
 aaa
 aaa
@@ -64110,11 +64111,11 @@ aaa
 aaa
 akb
 akb
-yat
-uoC
-xIB
-yat
-yat
+fMW
+fNl
+jVX
+fMW
+fMW
 akb
 aaa
 aaa
@@ -64142,11 +64143,11 @@ aaa
 aaa
 aaa
 akb
-iZe
-iZe
-oAj
-eps
-iZe
+cDt
+cDt
+mwd
+uip
+cDt
 akb
 akb
 aaa
@@ -64312,11 +64313,11 @@ aaa
 aaa
 aaa
 akb
-yat
-kfW
-oIb
-yat
-yat
+fMW
+oUY
+uBC
+fMW
+fMW
 akb
 aaa
 aaa
@@ -64344,11 +64345,11 @@ aaa
 aaa
 aaa
 akb
-iZe
-iZe
-cZk
-lxa
-iZe
+cDt
+cDt
+fIt
+usW
+cDt
 akb
 aaa
 aaa
@@ -64514,11 +64515,11 @@ aaa
 aaa
 aaa
 akb
-yat
-yat
-vYy
-yat
-yat
+fMW
+fMW
+uII
+fMW
+fMW
 akb
 aaa
 aaa
@@ -64547,10 +64548,10 @@ aaa
 aaa
 akb
 akb
-iZe
-bQy
-iZe
-iZe
+cDt
+rVz
+cDt
+cDt
 akb
 aaa
 aaa
@@ -64717,9 +64718,9 @@ aaa
 aaa
 akb
 akb
-yat
-tWB
-yat
+fMW
+sbY
+fMW
 akb
 akb
 aaa
@@ -64749,9 +64750,9 @@ aaa
 aaa
 aaa
 akb
-iZe
-sXa
-iZe
+cDt
+teR
+cDt
 akb
 akb
 aaa
@@ -64920,7 +64921,7 @@ aaa
 aaa
 akb
 akb
-kqs
+vIm
 akb
 akb
 aaa
@@ -64950,9 +64951,9 @@ aaa
 aaa
 aaa
 aaa
-ueY
+sMx
 akb
-tmU
+sZY
 akb
 akb
 aaa
