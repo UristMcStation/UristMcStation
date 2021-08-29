@@ -6,7 +6,7 @@
 	use_power = 1
 	anchored = 1
 	density = 1
-	var/pass_shield = TRUE
+	var/pass_shield = FALSE
 	var/shield_damage = 0
 	var/hull_damage = 0
 	var/shipid = null

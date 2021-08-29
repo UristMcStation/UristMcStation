@@ -5,7 +5,7 @@ var/list/floating_chat_colors = list()
 /atom/movable
 	var/list/stored_chat_text
 
-/atom/movable/proc/animate_chat(message, datum/language/language, small, list/show_to, duration)
+/atom/movable/proc/animate_chat(message, datum/language/language, small, list/show_to, list/whisper_to, duration)
 	set waitfor = FALSE
 
 /*	// Get rid of any URL schemes that might cause BYOND to automatically wrap something in an anchor tag
@@ -32,13 +32,20 @@ var/list/floating_chat_colors = list()
 		floating_chat_colors[name] = get_random_colour(0,160,230)
 	style += "color: [floating_chat_colors[name]];"
 
+	if(length(whisper_to))
+		show_to -= whisper_to
+		var/image/whisper = generate_floating_text(src, stars(message), style, fontsize, duration, whisper_to)
+		for(var/client/C in whisper_to)
+			if(!C.mob.is_deaf() && C.get_preference_value(/datum/client_preference/floating_messages) == GLOB.PREF_SHOW)
+				C.images += whisper
+
 	// create 2 messages, one that appears if you know the language, and one that appears when you don't know the language
 	var/image/understood = generate_floating_text(src, capitalize(message), style, fontsize, duration, show_to)
-	var/image/gibberish = language ? generate_floating_text(src, language.scramble(message), style, fontsize, duration, show_to) : understood
+	var/image/gibberish = generate_floating_text(src, language ? language.scramble(message) : stars(message), style, fontsize, duration, show_to)
 
 	for(var/client/C in show_to)
 		if(!C.mob.is_deaf() && C.get_preference_value(/datum/client_preference/floating_messages) == GLOB.PREF_SHOW)
-			if(C.mob.say_understands(null, language))
+			if(C.mob.say_understands(src, language))
 				C.images += understood
 			else
 				C.images += gibberish
