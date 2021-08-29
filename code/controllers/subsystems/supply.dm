@@ -156,7 +156,7 @@ SUBSYSTEM_DEF(supply)
 							if(GLOB.using_map.trading_faction)
 								if(GLOB.using_map.trading_faction.reputation > 50)
 									var/newvalue = (GLOB.using_map.trading_faction.reputation - 50) / 100
-									addvalue = newvalue / 2
+									addvalue = (find_item_value(O) * ((newvalue / 2) + 0.75))
 							else
 								addvalue = (find_item_value(O) * 0.75) //we get even less for selling in bulk
 
