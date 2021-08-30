@@ -191,6 +191,6 @@
 	weapon_type = /obj/machinery/shipweapons/ammo/autocannon/light/rapid
 
 /obj/structure/shipweapons/incomplete_weapon/external/heavy_autocannon
-	icon_state = "artillery_con"
+	icon_state = "artillery-con"
 	name = "heavy ship-to-ship autocannon assembly"
 	weapon_type = /obj/machinery/shipweapons/ammo/autocannon/heavy

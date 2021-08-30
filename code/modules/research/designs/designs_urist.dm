@@ -120,3 +120,21 @@ datum/design/plasmapistol
 	materials = list(MATERIAL_STEEL = 20000)
 	build_path = /obj/structure/shipweapons/incomplete_weapon/external/light_autocannon/rapid
 	sort_string = "SHPWE"
+
+/datum/design/item/shipweapons/ap_heavy_autocannon
+	name = "heavy autocannon ammunition (AP)"
+	desc = "Armour-piercing shells for a heavy autocannon. Will not work in a light autocannon."
+	id = "ship_torpedo_warhead_ap"
+	req_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1, TECH_COMBAT = 2)
+	materials = list(MATERIAL_STEEL = 3000, MATERIAL_PLASTIC = 250)
+	build_path = /obj/structure/shipammo/heavy_autocannon/ap
+	sort_string = "SHPWF"
+
+/datum/design/item/shipweapons/ap_heavy_autocannon
+	name = "heavy autocannon ammunition (HE)"
+	desc = "High-explosive shells for a heavy autocannon. Will not work in a light autocannon."
+	id = "ship_torpedo_warhead_ap"
+	req_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1, TECH_COMBAT = 2)
+	materials = list(MATERIAL_STEEL = 2000, MATERIAL_PLASTIC = 500, MATERIAL_URANIUM = 200)
+	build_path = /obj/structure/shipammo/heavy_autocannon/he
+	sort_string = "SHPWG"
