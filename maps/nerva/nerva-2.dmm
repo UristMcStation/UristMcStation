@@ -20109,6 +20109,8 @@
 /obj/machinery/alarm{
 	pixel_y = 24
 	},
+/obj/item/weapon/stamp/denied,
+/obj/item/weapon/stamp/fo,
 /turf/simulated/floor/carpet,
 /area/command/fo)
 "aIb" = (
@@ -20170,12 +20172,15 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/table/woodentable/walnut,
+/obj/item/weapon/paper_bin,
+/obj/item/weapon/folder/blue,
+/obj/item/weapon/pen,
+/obj/item/weapon/stamp/denied,
+/obj/item/weapon/stamp/so,
 /turf/simulated/floor/carpet,
 /area/command/hop)
 "aIh" = (
-/obj/item/weapon/storage/box/PDAs,
-/obj/item/weapon/storage/box/ids,
-/obj/structure/table/woodentable/walnut,
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 4;
@@ -20188,6 +20193,7 @@
 /obj/machinery/alarm{
 	pixel_y = 24
 	},
+/obj/machinery/papershredder,
 /turf/simulated/floor/carpet,
 /area/command/hop)
 "aIi" = (
@@ -20200,14 +20206,11 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/structure/table/woodentable/walnut,
-/obj/item/weapon/folder/blue,
-/obj/item/weapon/pen,
-/obj/item/weapon/paper_bin,
 /obj/machinery/firealarm{
 	dir = 4;
 	pixel_x = 24
 	},
+/obj/structure/filingcabinet/chestdrawer,
 /turf/simulated/floor/carpet,
 /area/command/hop)
 "aIj" = (
@@ -20739,6 +20742,7 @@
 /obj/item/weapon/folder/red,
 /obj/item/weapon/pen,
 /obj/item/weapon/book/manual/security_space_law/nervaspacelaw,
+/obj/item/weapon/stamp/hos,
 /turf/simulated/floor/carpet,
 /area/security/cosoffice)
 "aJh" = (
@@ -21431,6 +21435,7 @@
 /obj/machinery/keycard_auth{
 	pixel_y = -26
 	},
+/obj/machinery/photocopier,
 /turf/simulated/floor/carpet,
 /area/command/hop)
 "aKu" = (
@@ -27111,6 +27116,7 @@
 /obj/structure/table/glass,
 /obj/item/weapon/paper_bin,
 /obj/item/weapon/pen,
+/obj/item/weapon/stamp/cmo,
 /turf/simulated/floor/tiled/white,
 /area/medical/cmo)
 "aTB" = (
@@ -27120,6 +27126,9 @@
 	dir = 8
 	},
 /obj/item/toy/desk/newtoncradle,
+/obj/item/weapon/storage/secure/alert_safe{
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/cmo)
 "aTC" = (
@@ -27446,15 +27455,8 @@
 /area/command/storage)
 "aUm" = (
 /obj/effect/floor_decal/corner/fadeblue/full,
-/obj/structure/closet/secure_closet/guncabinet/sidearm/small,
-/obj/item/ammo_magazine/c44,
-/obj/item/ammo_magazine/c44,
-/obj/item/ammo_magazine/c44,
-/obj/item/ammo_magazine/c44,
-/obj/item/ammo_magazine/c44,
-/obj/item/ammo_magazine/c44,
-/obj/item/weapon/gun/projectile/revolver/hi2521r,
-/obj/item/weapon/gun/projectile/revolver/hi2521r,
+/obj/machinery/recharge_station,
+/obj/effect/floor_decal/industrial/outline/orange,
 /turf/simulated/floor/tiled/dark,
 /area/command/storage)
 "aUn" = (
@@ -27865,6 +27867,8 @@
 	pixel_y = 4
 	},
 /obj/item/weapon/pen/red,
+/obj/item/weapon/stamp/denied,
+/obj/item/weapon/stamp/qm,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/qm)
 "aUZ" = (
@@ -28006,6 +28010,9 @@
 	dir = 10
 	},
 /obj/machinery/light,
+/obj/item/weapon/storage/secure/alert_safe{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/qm)
 "aVo" = (
@@ -28777,6 +28784,9 @@
 	},
 /obj/structure/closet/secure_closet/nervaso,
 /obj/item/clothing/accessory/armband/bluegoldcom,
+/obj/item/weapon/storage/secure/alert_safe/so{
+	pixel_y = -32
+	},
 /turf/simulated/floor/carpet,
 /area/command/hop)
 "epE" = (
@@ -29112,6 +29122,8 @@
 	tag = "icon-corner_white (SOUTHEAST)"
 	},
 /obj/structure/table/reinforced,
+/obj/item/weapon/stamp/cargo,
+/obj/item/weapon/stamp/denied,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/mailing)
 "gZW" = (

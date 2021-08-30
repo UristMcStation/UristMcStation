@@ -3306,6 +3306,9 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
+/obj/item/weapon/storage/secure/alert_safe{
+	pixel_x = -26
+	},
 /turf/simulated/floor/tiled/dark,
 /area/command/ce)
 "gA" = (
@@ -3734,6 +3737,7 @@
 	dir = 6
 	},
 /obj/item/weapon/pen,
+/obj/item/weapon/stamp/ce,
 /turf/simulated/floor/tiled/dark,
 /area/command/ce)
 "hA" = (

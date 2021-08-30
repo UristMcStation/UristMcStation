@@ -105,10 +105,12 @@
 		/obj/item/device/flash,
 		/obj/item/weapon/storage/box/large/ids,
 		/obj/item/weapon/storage/box/PDAs,
+		/obj/item/weapon/storage/box/headset,
 		/obj/item/weapon/material/clipboard,
 		/obj/item/clothing/under/urist/nerva/soregular,
 		/obj/item/clothing/head/urist/beret/nervaso,
 		/obj/item/weapon/gun/energy/gun/small/secure,
+		/obj/item/clothing/accessory/storage/holster/thigh
 	)
 
 /obj/structure/closet/secure_closet/nervasec

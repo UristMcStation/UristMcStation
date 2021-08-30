@@ -102,13 +102,27 @@
 	icon_state = "rd_cypherkey"
 	channels = list("Command" = 1, "Science" = 1)
 
+//stamps
+
 /obj/item/weapon/stamp/nt
 	name = "\improper NanoTrasen rubber stamp"
 	icon_state = "stamp-intaff"
 
 /obj/item/weapon/stamp/seniornt
-	name = "\improper Senior Researcher rubber stamp"
+	name = "\improper Senior Researcher's rubber stamp"
 	icon_state = "stamp-intaff"
+
+/obj/item/weapon/stamp/fo
+	name = "\improper First Officer's rubber stamp"
+	icon_state = "stamp-hop"
+
+/obj/item/weapon/stamp/so
+	name = "\improper Second Officer's rubber stamp"
+	icon_state = "stamp-hop"
+
+/obj/item/weapon/stamp/cos
+	name = "\improper Chief of Security's rubber stamp"
+	icon_state = "stamp-hos"
 
 //paint
 

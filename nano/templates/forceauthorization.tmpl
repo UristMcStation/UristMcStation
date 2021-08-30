@@ -31,3 +31,18 @@
 		<br><br>
 	{{/for}}
 {{/if}}
+<h1>Arms Safes</h1>
+{{for data.safes}}
+	{{:helper.capitalizeFirstLetter(value.name)}} at {{:value.loc}}<br>
+	Status: 
+	{{if value.state == "Secure"}}
+		<span class='good'>
+	{{else value.state == "Unlocked"|| value.state == "Open"}}
+		<span class='average'>
+	{{else}}
+		<span class='bad'>
+	{{/if}}
+	{{:value.state}}</span><br><br>
+{{empty}}
+	No safes registered
+{{/for}}
