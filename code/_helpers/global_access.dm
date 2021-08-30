@@ -223,6 +223,8 @@
 			return global.admin_verbs_fun;
 		if("admin_verbs_hideable")
 			return global.admin_verbs_hideable;
+		if("admin_verbs_mentor")
+			return global.admin_verbs_mentor;
 		if("admin_verbs_mod")
 			return global.admin_verbs_mod;
 		if("admin_verbs_paranoid_debug")
@@ -281,6 +283,8 @@
 			return global.all_robolimbs;
 		if("all_species")
 			return global.all_species;
+		if("all_tooltip_styles")
+			return global.all_tooltip_styles;
 		if("all_ui_styles")
 			return global.all_ui_styles;
 		if("all_unit_tests_passed")
@@ -487,6 +491,8 @@
 			return global.fire_alarm;
 		if("flesh_hud_colours")
 			return global.flesh_hud_colours;
+		if("floating_chat_colors")
+			return global.floating_chat_colors;
 		if("floorIsLava")
 			return global.floorIsLava;
 		if("floor_decals")
@@ -1304,6 +1310,8 @@
 			global.admin_verbs_fun=newval;
 		if("admin_verbs_hideable")
 			global.admin_verbs_hideable=newval;
+		if("admin_verbs_mentor")
+			global.admin_verbs_mentor=newval;
 		if("admin_verbs_mod")
 			global.admin_verbs_mod=newval;
 		if("admin_verbs_paranoid_debug")
@@ -1362,6 +1370,8 @@
 			global.all_robolimbs=newval;
 		if("all_species")
 			global.all_species=newval;
+		if("all_tooltip_styles")
+			global.all_tooltip_styles=newval;
 		if("all_ui_styles")
 			global.all_ui_styles=newval;
 		if("all_unit_tests_passed")
@@ -1568,6 +1578,8 @@
 			global.fire_alarm=newval;
 		if("flesh_hud_colours")
 			global.flesh_hud_colours=newval;
+		if("floating_chat_colors")
+			global.floating_chat_colors=newval;
 		if("floorIsLava")
 			global.floorIsLava=newval;
 		if("floor_decals")
@@ -2273,6 +2285,7 @@
 	"admin_verbs_default",
 	"admin_verbs_fun",
 	"admin_verbs_hideable",
+	"admin_verbs_mentor",
 	"admin_verbs_mod",
 	"admin_verbs_paranoid_debug",
 	"admin_verbs_permissions",
@@ -2302,6 +2315,7 @@
 	"all_objectives",
 	"all_robolimbs",
 	"all_species",
+	"all_tooltip_styles",
 	"all_ui_styles",
 	"all_unit_tests_passed",
 	"all_virtual_listeners",
@@ -2405,6 +2419,7 @@
 	"finds_as_strings",
 	"fire_alarm",
 	"flesh_hud_colours",
+	"floating_chat_colors",
 	"floorIsLava",
 	"floor_decals",
 	"floor_light_cache",
