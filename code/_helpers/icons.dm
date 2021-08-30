@@ -107,7 +107,7 @@ AngleToHue(hue)
 	Converts an angle to a hue in the valid range.
 RotateHue(hsv, angle)
 	Takes an HSV or HSVA value and rotates the hue forward through red, green, and blue by an angle from 0 to 360.
-	(Rotating red by 60° produces yellow.) The result is another HSV or HSVA color with the same saturation and value
+	(Rotating red by 60Â° produces yellow.) The result is another HSV or HSVA color with the same saturation and value
 	as the original, but a different hue.
 GrayScale(rgb)
 	Takes an RGB or RGBA color and converts it to grayscale. Returns an RGB or RGBA string.
@@ -803,6 +803,16 @@ proc // Creates a single icon from a given /atom or /image.  Only the first argu
 			//Also, icons cannot directly set icon_state. Slower than changing variables but whatever.
 			alpha_mask.Blend(image_overlay,ICON_OR)//OR so they are lumped together in a nice overlay.
 		return alpha_mask//And now return the mask.
+
+/proc/getFullIcon(atom/A)	//Returns a complete flat icon for all dirs
+	if(!A)
+		return
+	var/icon/complete = icon('icons/effects/effects.dmi', "icon_state"="nothing")
+	for(var/currdir in list(NORTH, SOUTH, EAST, WEST))
+		var/icon/icon_dir = getFlatIcon(A,currdir,always_use_defdir=1)
+		complete.Insert(icon_dir,dir=currdir)
+		qdel(icon_dir)
+	return complete
 
 /mob/proc/AddCamoOverlay(atom/A)//A is the atom which we are using as the overlay.
 	var/icon/opacity_icon = new(A.icon, A.icon_state)//Don't really care for overlays/underlays.
