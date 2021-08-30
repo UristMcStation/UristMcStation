@@ -323,6 +323,16 @@
 			"You hear someone taping paper around a large object.")
 		else if(src.get_amount() < 3)
 			to_chat(user, "<span class='warning'>You need more paper.</span>")
+	else if (istype(target, /obj/structure/shipammo))
+		if (src.get_amount() >= 3)
+			var/obj/structure/bigDelivery/P = new /obj/structure/bigDelivery(get_turf(target.loc))
+			P.icon_state = "deliverycrate"
+			P.wrapped = target
+			target.forceMove(P)
+			src.use(3)
+			user.visible_message("\The [user] wraps \a [target] with \a [src].",\
+			"<span class='notice'>You wrap \the [target], leaving [src.get_amount()] units of paper on \the [src].</span>",\
+			"You hear someone taping paper around a large object.")
 	else
 		to_chat(user, "<span class='notice'>The object you are trying to wrap is unsuitable for the sorting machinery!</span>")
 

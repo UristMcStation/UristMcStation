@@ -13,17 +13,17 @@
 
 /datum/factions/nanotrasen
 	factionid = "nanotrasen"
-	name = FACTION_NANOTRASEN
+	name = "NanoTrasen"
 	reputation = 35
 	desc = "The NanoTrasen Corporation, commonly referred to as NT, is the largest of the great megacorporations of the modern day. A nation unto itself, \
 	NanoTrasen is currently headquartered in New Amsterdam on Procyon and headed by CEO Jackson Trasen and the NanoTrasen Board of Directors. \
 	It deals in research of the most advanced sciences,	such as genetics, blue space, and - recently - the uses of phoron, \
 	as well as mass consumer manufacturing on a truly galactic scale. Since the Galactic Crisis, they have increasingly turned to contracting independent vessels \
-	to conduct their work in the outer systems. As such, as such, NanoTrasen is frequently the only human presence remaining in outer systems, lending them a virtual monopoly on trade in these areas."
+	to conduct their work in the outer systems. As such, NanoTrasen is frequently the only human presence remaining in outer systems, lending them a virtual monopoly on trade in these areas."
 
 /datum/factions/terran
 	factionid = "terran"
-	name = FACTION_SOL_CENTRAL
+	name = "Terran Confederacy"
 	desc = "The Terran Confederacy, commonly referred to as the Confederacy or the TC, is an oligarchic federal republic composed of numerous human planets spanning many systems. \
 	Based in the Sol System with its capital on Mars, the Terran Confederacy governs the majority of human space. However, between the ongoing Terran Civil War with the United Human Alliance, \
 	growing rebellions for liberation in the outer colonies, and the lasting impact of the Galactic Crisis, the Terran Confederacy has been rapidly declining in recent years, and some fear its imminent collapse."
@@ -42,8 +42,8 @@
 
 /datum/factions/pirate
 	factionid = "pirate"
-	name = "pirate"
-	desc = "Piracy has been a hallmark of the outer systems since mankind started expanding beyond Sol. However, since the Galactic Crisis, piracy has grown exponentially, and pirates are become bolder, \
+	name = "Pirates"
+	desc = "Piracy has been a hallmark of the outer systems since mankind started expanding beyond Sol. However, since the Galactic Crisis, piracy has grown exponentially, and pirates have become bolder, \
 	better armed, and more numerous. A large number of this growth comes from those displaced by the Galactic Crisis, who have turned to piracy as a means of survival when the state has failed them. \
 	They generally take no prisoners, and won't treat independent vessels kindly. Watch out for them."
 	reputation = -100
@@ -51,15 +51,16 @@
 
 /datum/factions/alien
 	factionid = "alien"
-	name = "alien"
+	name = "Galactic Crisis Aliens"
 	desc = "The aliens of the Galactic Crisis are a force from an unknown galaxy that invaded the Milky Way beginning in 2556. Comprising a wide range of species held together \
 	by the psionic control of the Allophylus, the only goal of the alien forces appeared to be to wipe out humanity and to mind-slave them to the Allophylus, as had been done \
-	with the other constituent species of the invading force. With the alien forces broken after the Battle of Qerrbalak in 2565, the Galactic Crisis has ended. However, although the  \
+	with the other constituent species of the invading force such as the Lactera. With the alien forces broken after the Battle of Qerrbalak in 2565, the Galactic Crisis has ended. However, although the  \
 	psionic control of the Allophylus has been broken, alien forces remain in the Milky Way, directionless and scattered, but still dangerous."
 	reputation = -100
 	hostile = TRUE
 	faction_species = /mob/living/carbon/human/lactera
 
 /datum/factions/rebel
+	allow_spawn = FALSE //pending lore
 	factionid = "rebel"
 	name = "rebel"

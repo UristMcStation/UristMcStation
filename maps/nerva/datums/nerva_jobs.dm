@@ -42,14 +42,14 @@
 			            access_all_personal_lockers, access_maint_tunnels, access_construction, access_morgue,
 			            access_cargo, access_mailsorting, access_qm, access_lawyer,
 			            access_theatre, access_research, access_mining, access_mining_station,
-			            access_clown, access_mime, access_RC_announce, access_keycard_auth, access_blueshield, access_teleporter
+			            access_clown, access_mime, access_RC_announce, access_keycard_auth, access_blueshield, access_teleporter, access_gunnery
 			            )
 	minimal_access = list(access_security, access_sec_doors, access_court, access_forensics_lockers,
 			            access_medical, access_engine, access_eva, access_heads, access_bridge,
 			            access_all_personal_lockers, access_maint_tunnels, access_construction, access_morgue,
 			            access_cargo, access_mailsorting, access_qm, access_lawyer,
 			            access_theatre, access_research, access_mining, access_mining_station,
-			            access_clown, access_mime, access_RC_announce, access_keycard_auth, access_blueshield, access_teleporter
+			            access_clown, access_mime, access_RC_announce, access_keycard_auth, access_blueshield, access_teleporter, access_gunnery
 			            )
 
 // Bodyguard's Job Verb is basically already stated in his supervisor setup.
@@ -77,7 +77,7 @@
 			            access_medical, access_medical_equip, access_morgue, access_genetics,
 						access_chemistry, access_virology, access_cmo, access_surgery,
 						access_robotics, access_research, access_armory, access_hos,
-						access_tox, access_tox_storage, access_xenobiology, access_xenoarch, access_psychiatrist, access_seniornt
+						access_tox, access_tox_storage, access_xenobiology, access_xenoarch, access_psychiatrist, access_seniornt, access_gunnery
 						)
 	minimal_access = list(access_security, access_sec_doors, access_brig, access_forensics_lockers, access_heads,
 			            access_engine, access_change_ids, access_ai_upload, access_eva, access_bridge,
@@ -90,7 +90,7 @@
 			            access_medical, access_medical_equip, access_morgue, access_genetics,
 						access_chemistry, access_virology, access_cmo, access_surgery,
 						access_robotics, access_research, access_armory, access_hos,
-						access_tox, access_tox_storage, access_xenobiology, access_xenoarch, access_psychiatrist, access_seniornt
+						access_tox, access_tox_storage, access_xenobiology, access_xenoarch, access_psychiatrist, access_seniornt, access_gunnery
 						)
 
 /datum/job/firstofficer/get_description_blurb()
@@ -117,14 +117,14 @@
 			            access_crematorium, access_cargo, access_hydroponics, access_lawyer, access_bar, access_kitchen,
 			            access_chapel_office, access_library, access_research, access_heads_vault,
 			            access_hop, access_RC_announce, access_keycard_auth, access_gateway, access_teleporter,
-			            access_expedition_shuttle_helm, access_expedition)
+			            access_expedition_shuttle_helm, access_expedition, access_gunnery)
 	minimal_access = list(access_security, access_sec_doors, access_brig, access_forensics_lockers, access_heads,
 			            access_medical, access_engine, access_change_ids, access_ai_upload, access_eva, access_bridge,
 			            access_all_personal_lockers, access_maint_tunnels, access_janitor, access_construction, access_morgue,
 			            access_crematorium, access_cargo, access_hydroponics, access_lawyer, access_bar, access_kitchen,
 			            access_chapel_office, access_library, access_research, access_heads_vault,
 			            access_hop, access_RC_announce, access_keycard_auth, access_gateway, access_teleporter,
-			            access_expedition_shuttle_helm, access_expedition)
+			            access_expedition_shuttle_helm, access_expedition, access_gunnery)
 
 /datum/job/hop/get_description_blurb()
 	return "You are the Second Officer, third in command, after the First Officer and the Captain. As the Second Officer, it is your job to oversee personnel issues, which includes managing access, delegating crew grievances, and ensuring the proper upkeep and operation of the ship's recreational and mess facilities. Thus, you are the direct supervisor for the janitorial staff, as well as the culinary and hydroponics staff. As Second Officer, it is also your job to organize and lead away missions, and in cases where there is no First Officer present, to pilot the ICS Nerva."
@@ -161,12 +161,12 @@
 			            access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva,
 			            access_bridge, access_construction, access_sec_doors,
 			            access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload,
-			            access_expedition_shuttle_helm, access_expedition)
+			            access_expedition_shuttle_helm, access_expedition, access_gunnery)
 	minimal_access = list(access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_heads,
 			            access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva,
 			            access_bridge, access_construction, access_sec_doors,
 			            access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload,
-			            access_expedition_shuttle_helm, access_expedition)
+			            access_expedition_shuttle_helm, access_expedition, access_gunnery)
 
 /datum/job/chief_engineer/get_description_blurb()
 	return	"You are the Chief Engineer, as the Chief Engineer, it is your job to oversee the Engineering Staff to ensure that all elements of engineering are being performed safely. This includes overseeing the supermatter's power generation, ensuring all atmospheric flown through the air are not contaminated, stopping possible fires from occuring and forwarding engineer supply requests to the Cargo Team. Thus, you are a direct supervivor for the Engineering Staff, ensure that all of your staff are well-organized and know what tasks to work on, as you may be held responsible for catastrophic damage from engine-failure and gas leaks. You answer directly to the Captain and the First Officer, remember that in the event of a Supermatter explosion, you can eject the crystal to space and that your suit is completley fire proof to assist in stopping fires."
@@ -176,6 +176,19 @@
 	minimal_player_age = 0
 	total_positions = 5
 	spawn_positions = 3
+	access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_construction, access_atmospherics, access_emergency_storage, access_gunnery)
+	minimal_access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_construction, access_atmospherics, access_emergency_storage, access_gunnery)
+	alt_titles = list("Maintenance Technician","Engine Technician","EVA Technician","Damage Control Technician",
+		"Electrician" = /decl/hierarchy/outfit/job/engineering/electrician,
+		"Atmospheric Technician" = /decl/hierarchy/outfit/job/engineering/atmos)
+
+	software_on_spawn = list(/datum/computer_file/program/power_monitor,
+							 /datum/computer_file/program/supermatter_monitor,
+							 /datum/computer_file/program/alarm_monitor,
+							 /datum/computer_file/program/atmos_control,
+							 /datum/computer_file/program/rcon_console,
+							 /datum/computer_file/program/camera_monitor,
+							 /datum/computer_file/program/shields_monitor)
 
 /datum/job/engineer/get_description_blurb()
 	return	"You are part of the Engineering Team aboard the ICS Nerva. As an Engineer, it is your job to ensure the ICS Nerva has fully operational power, thrust for flight and air to breathe. Ensure that the Supermatter Crystal is fully operational to generate power and that sufficent gas is used for thrust. You are directly responsible for the Ship's well-being, this includes fixing interior and exterior breaches caused by damage, firefighting from gas leaks and optimizing machines to function to their fullest. You answer directly to the Chief Engineer. Remember to always help your engineers."
@@ -193,10 +206,10 @@
 	outfit_type = /decl/hierarchy/outfit/job/nerva/qm
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station,
 	access_expedition_shuttle_helm, access_expedition, access_robotics, access_research, access_teleporter,
-	access_RC_announce, access_keycard_auth, access_heads, access_eva, access_bridge, access_hydroponics)
+	access_RC_announce, access_keycard_auth, access_heads, access_eva, access_bridge, access_hydroponics, access_gunnery)
 	minimal_access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station,
 	access_expedition_shuttle_helm, access_expedition, access_robotics, access_research, access_teleporter,
-	access_RC_announce, access_keycard_auth, access_heads, access_eva, access_bridge, access_hydroponics)
+	access_RC_announce, access_keycard_auth, access_heads, access_eva, access_bridge, access_hydroponics, access_gunnery)
 
 /datum/job/qm/get_description_blurb()
 	return	"You are the Quartermaster. As the Quartermaster, it is your job to oversee and delegate your Supply Staff, which may include managing research & development, exporting and importing goods, sending teams to away missions, salvaging and mining, and arming the ICS Nerva if attacks occur. As Quartermaster, it is your job to organize away missions with the Second Officer and prevent the supply crew from manufacturing dangerous arms without direct permission."
@@ -228,11 +241,11 @@
 	access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_bridge, access_heads,
 			access_chemistry, access_virology, access_cmo, access_surgery, access_RC_announce,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_maint_tunnels, access_external_airlocks,
-			access_expedition_shuttle_helm, access_expedition)
+			access_expedition_shuttle_helm, access_expedition, access_gunnery)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_bridge, access_heads,
 			access_chemistry, access_virology, access_cmo, access_surgery, access_RC_announce,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_maint_tunnels, access_external_airlocks,
-			access_expedition_shuttle_helm, access_expedition)
+			access_expedition_shuttle_helm, access_expedition, access_gunnery)
 
 /datum/job/cmo/get_description_blurb()
 	return	"You are the Chief Medical Officer onboard the ICS Nerva. As Chief Medical Officer, it is your job to oversee your medical staff to ensuring they successfully treat all injured crew, provide surgery for injured crew, produce and mandate chemicals used for medicine and ensure all deceased crew are relaced. Thus, you are the direct supervisor for medical staff, and may be held responsible for their malpractice. As Chief Medical Officer, it is also your job to delegate the medical team to respond to injured crew in specific areas, send medical doctors to away missions to provide medical care and to cure any biological contaminant that may come onboard. You answer directly to the Captain and the First Officer."
@@ -259,12 +272,12 @@
 			            access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
 			            access_research, access_engine, access_mining, access_medical, access_construction, access_mailsorting,
 			            access_bridge, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks,
-			            access_expedition_shuttle_helm, access_expedition)
+			            access_expedition_shuttle_helm, access_expedition, access_gunnery)
 	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_heads,
 			            access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
 			            access_research, access_engine, access_mining, access_medical, access_construction, access_mailsorting,
 			            access_bridge, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks,
-			            access_expedition_shuttle_helm, access_expedition)
+			            access_expedition_shuttle_helm, access_expedition, access_gunnery)
 
 /datum/job/hos/get_description_blurb()
 	return	"You are the Chief of Security, as the Chief of Security, it is your job to oversee your Security team to ensure they follow the correct procedures when responding to arrests and threats, managing and overseeing brigging, ensuring all crew present are held on the manifest. Thus, you are held accountable of the Security Team's actions. As the Chief of Security, it is also your job to arrest criminals, assist officers in distress, organize and speak with Command Staff about away-teams and out-bound communications and in cases in which there are no command staff present, act as Acting Captain. You answer directly to the Captain and the First Officer, remember to follow the specified law guidelines and avoid putting yourself in danger when you are on your own."
@@ -274,8 +287,8 @@
 	supervisors = "the chief of security."
 	alt_titles = list("Detective")
 	outfit_type = /decl/hierarchy/outfit/job/security/nervasecofficer
-	access = list(access_security, access_forensics_lockers, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks, access_expedition, access_expedition_shuttle_helm, access_medical, access_hydroponics)
-	minimal_access = list(access_security, access_forensics_lockers, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_external_airlocks, access_expedition, access_expedition_shuttle_helm)
+	access = list(access_security, access_forensics_lockers, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks, access_expedition, access_expedition_shuttle_helm, access_medical, access_hydroponics, access_gunnery)
+	minimal_access = list(access_security, access_forensics_lockers, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_external_airlocks, access_expedition, access_expedition_shuttle_helm, access_gunnery)
 
 /datum/job/officer/get_description_blurb()
 	return	"You are part of the Security Department, ensuring the protection of the crew from danger during the voyage of the ICS Nerva. It is your job to oversee and protect your crew, which includes reporting threats, making arrests while following set law guidelines, collecting evidence to aid arrests and cataloging evidence. Ensure that you only use lethal weaponry when there is a credible threat to your life, or you may suffer repercussions and dismissal. You answer directly to the Chief of Security."

@@ -543,7 +543,7 @@
 		active = 0
 	if(!active)
 		return PROCESS_KILL
-	
+
 	var/obj/structure/disposalpipe/last
 
 	if(hasmob && prob(3))
@@ -1576,77 +1576,89 @@
 	var/active = 0
 	var/turf/target	// this will be where the output objects are 'thrown' to.
 	var/mode = 0
+	var/unwrap = FALSE
 	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_CLIMBABLE
 
-	New()
-		..()
+/obj/structure/disposaloutlet/New()
+	..()
 
-		spawn(1)
-			target = get_ranged_target_turf(src, dir, 10)
+	spawn(1)
+		target = get_ranged_target_turf(src, dir, 10)
 
 
-			var/obj/structure/disposalpipe/trunk/trunk = locate() in src.loc
-			if(trunk)
-				trunk.linked = src	// link the pipe trunk to self
+		var/obj/structure/disposalpipe/trunk/trunk = locate() in src.loc
+		if(trunk)
+			trunk.linked = src	// link the pipe trunk to self
 
-	// expel the contents of the holder object, then delete it
-	// called when the holder exits the outlet
-	proc/expel(var/obj/structure/disposalholder/H)
+// expel the contents of the holder object, then delete it
+// called when the holder exits the outlet
+/obj/structure/disposaloutlet/proc/expel(var/obj/structure/disposalholder/H)
 
-		flick("outlet-open", src)
-		playsound(src, 'sound/machines/warning-buzzer.ogg', 50, 0, 0)
-		sleep(20)	//wait until correct animation frame
-		playsound(src, 'sound/machines/hiss.ogg', 50, 0, 0)
+	flick("outlet-open", src)
+	playsound(src, 'sound/machines/warning-buzzer.ogg', 50, 0, 0)
+	sleep(20)	//wait until correct animation frame
+	playsound(src, 'sound/machines/hiss.ogg', 50, 0, 0)
 
-		if(H)
-			for(var/atom/movable/AM in H)
-				AM.forceMove(src.loc)
-				AM.pipe_eject(dir)
+	if(H)
+		for(var/atom/movable/AM in H)
+			AM.forceMove(src.loc)
+			AM.pipe_eject(dir)
+			if(unwrap && istype(AM, /obj/structure/bigDelivery))
+				qdel(AM)
+
+			else
 				if(!istype(AM,/mob/living/silicon/robot/drone)) //Drones keep smashing windows from being fired out of chutes. Bad for the station. ~Z
 					spawn(5)
 						AM.throw_at(target, 3, 1)
-			H.vent_gas(src.loc)
-			qdel(H)
 
+		H.vent_gas(src.loc)
+
+		qdel(H)
+
+	return
+
+/obj/structure/disposaloutlet/attackby(var/obj/item/I, var/mob/user)
+	if(!I || !user)
 		return
-
-	attackby(var/obj/item/I, var/mob/user)
-		if(!I || !user)
+	src.add_fingerprint(user, 0, I)
+	if(isScrewdriver(I))
+		if(mode==0)
+			mode=1
+			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+			to_chat(user, "You remove the screws around the power connection.")
 			return
-		src.add_fingerprint(user, 0, I)
-		if(isScrewdriver(I))
-			if(mode==0)
-				mode=1
-				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-				to_chat(user, "You remove the screws around the power connection.")
-				return
-			else if(mode==1)
-				mode=0
-				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-				to_chat(user, "You attach the screws around the power connection.")
-				return
-		else if(istype(I,/obj/item/weapon/weldingtool) && mode==1)
-			var/obj/item/weapon/weldingtool/W = I
-			if(W.remove_fuel(0,user))
-				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
-				to_chat(user, "You start slicing the floorweld off the disposal outlet.")
-				if(do_after(user,20, src))
-					if(!src || !W.isOn()) return
-					to_chat(user, "You sliced the floorweld off the disposal outlet.")
-					var/obj/structure/disposalconstruct/C = new (src.loc)
-					src.transfer_fingerprints_to(C)
-					C.ptype = 7 // 7 =  outlet
-					C.update()
-					C.anchored = 1
-					C.set_density(1)
-					qdel(src)
-				return
-			else
-				to_chat(user, "You need more welding fuel to complete this task.")
-				return
+		else if(mode==1)
+			mode=0
+			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+			to_chat(user, "You attach the screws around the power connection.")
+			return
+	else if(istype(I,/obj/item/weapon/weldingtool) && mode==1)
+		var/obj/item/weapon/weldingtool/W = I
+		if(W.remove_fuel(0,user))
+			playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
+			to_chat(user, "You start slicing the floorweld off the disposal outlet.")
+			if(do_after(user,20, src))
+				if(!src || !W.isOn()) return
+				to_chat(user, "You sliced the floorweld off the disposal outlet.")
+				var/obj/structure/disposalconstruct/C = new (src.loc)
+				src.transfer_fingerprints_to(C)
+				C.ptype = 7 // 7 =  outlet
+				C.update()
+				C.anchored = 1
+				C.set_density(1)
+				qdel(src)
+			return
+		else
+			to_chat(user, "You need more welding fuel to complete this task.")
+			return
 
 // called when movable is expelled from a disposal pipe or outlet
 // by default does nothing, override for special behaviour
+
+/obj/structure/disposaloutlet/unwrap
+	name = "unwrapping disposal outlet"
+	desc = "An outlet for the pneumatic disposal system that automatically unwraps large packages."
+	unwrap = TRUE
 
 /atom/movable/proc/pipe_eject(var/direction)
 	return

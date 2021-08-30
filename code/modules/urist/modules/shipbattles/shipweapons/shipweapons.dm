@@ -24,6 +24,9 @@
 	var/status = CHARGED
 	var/datum/shipcomponents/targeted_component
 	var/can_intercept = FALSE //can we be intercepted??? added to account for future weapons that may pass through the shields and not be intercepted, and vice versa.
+	var/external = FALSE //only used for deconstructing weapons atm, but might be used for firing actual projectiles in the future, idk.
+	var/construction_type //again, only used for deconstructing weapons so we can force incomplete weapons to have non-generic icons
+	atom_flags = ATOM_FLAG_CLIMBABLE
 
 /obj/machinery/shipweapons/Initialize()
 	.=..()
@@ -303,9 +306,10 @@
 		return "Recharging"
 	if(!status & (CHARGED|RECHARGING))
 		return "Unable to Fire"
+	if(status & LOADING) //no need to yell at cargo yet, we're reloading
+		return "Reloading"
 	if(status & NO_AMMO)	//Let the crew know when we're running dry so we can yell at cargo
 		return "Out of Ammo"
-
 	return "Ready to Fire"
 
 /obj/machinery/shipweapons/attackby(obj/item/W as obj, mob/living/user as mob)
@@ -313,19 +317,36 @@
 	if(isScrewdriver(W) && locate(/obj/structure/shipweapons/hardpoint) in T)
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		to_chat(user, "<span class='warning'>You unsecure the wires and unscrew the external hatches: the weapon is no longer ready to fire.</span>")
-		var/obj/structure/shipweapons/incomplete_weapon/S = new /obj/structure/shipweapons/incomplete_weapon(get_turf(src))
-		S.state = 4
-		S.update_icon()
-		S.weapon_type = src.type
-		S.name = "[src.name] assembly"
-		S.shipid = src.shipid
-		S.anchored = 1
-		if(linkedcomputer)
-			linkedcomputer.linkedweapons -= src
-		qdel(src)
+		DeconstructWeapon() //moving this to a proc lets us change how things deconstruct for certain weapons. this is done to allow something like the torpedo launcher to just be sawn out of it's place or w/e
 
 	else
 		..()
+
+/obj/machinery/shipweapons/proc/DeconstructWeapon()
+	if(linkedcomputer)
+		linkedcomputer.linkedweapons -= src
+
+	var/obj/structure/shipweapons/incomplete_weapon/S
+
+	if(construction_type) //if we have a special deconstructed piece, we'll place that
+		S = new construction_type(get_turf(src)) //we're special, so we don't need to set the name or the weapon_type. that should already be handled in the construction_type object.
+
+	else //otherwise we just use the generic one
+		S = new /obj/structure/shipweapons/incomplete_weapon(get_turf(src))
+		S.weapon_type = src.type
+		S.name = "[src.name] assembly"
+
+	if(S)
+		S.update_icon()
+		S.state = 4
+		S.shipid = src.shipid
+		S.anchored = 1
+		S.external = src.external
+		S.pixel_x = src.pixel_x
+		S.pixel_y = src.pixel_y
+
+
+	qdel(src)
 
 //the below is a temporary fix for emp bugs
 
@@ -339,3 +360,4 @@
 #undef CHARGED
 #undef FIRING
 #undef NO_AMMO
+#undef LOADING
