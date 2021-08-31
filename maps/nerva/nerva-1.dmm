@@ -21675,6 +21675,9 @@
 	dir = 1;
 	icon_state = "warning"
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/fabwork)
 "QP" = (
