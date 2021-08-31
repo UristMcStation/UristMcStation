@@ -18988,19 +18988,19 @@
 	tag = "icon-intact-scrubbers (EAST)"
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/multi_tile/glass/command{
-	dir = 8;
-	icon_state = "closed";
-	name = "Bridge";
-	req_access = list("ACCESS_BRIDGE");
-	tag = "icon-closed (WEST)"
-	},
 /obj/effect/floor_decal/corner/fadeblue/full,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "bridgeoutlock";
 	name = "Bridge Outer Lockdown";
 	tag = "icon-pdoor1"
+	},
+/obj/machinery/door/airlock/multi_tile/glass/command{
+	dir = 8;
+	icon_state = "closed";
+	name = "Bridge";
+	req_access = list(list("ACCESS_BRIDGE","ACCESS_GUNNERY"));
+	tag = "icon-closed (WEST)"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandstarboard)
