@@ -30,13 +30,15 @@
 /obj/structure/boarding/shipportal/proc/teleport(atom/movable/M as mob|obj)
 	if(istype(M, /obj/effect)) //sparks don't teleport
 		return
-	else
-		var/tele_x = GLOB.using_map.overmap_ship.evac_x
-		var/tele_y = GLOB.using_map.overmap_ship.evac_y
-		var/tele_z = GLOB.using_map.overmap_ship.evac_z
+	if(istype(M, /mob/living))
+		var/mob/living/H = M
+		if(H.faction == "neutral")
+			var/tele_x = GLOB.using_map.overmap_ship.evac_x
+			var/tele_y = GLOB.using_map.overmap_ship.evac_y
+			var/tele_z = GLOB.using_map.overmap_ship.evac_z
 
-		do_teleport(M, locate(tele_x,tele_y,tele_z), 0)
-		M << "<span class='warning'>You teleport back to the ship!</span>"
+			do_teleport(H, locate(tele_x,tele_y,tele_z), 0)
+			H << "<span class='warning'>You teleport back to the ship!</span>"
 
 /obj/effect/step_trigger/teleporter/urist/nerva
 	teleport_x = 89
