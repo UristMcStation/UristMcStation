@@ -1218,17 +1218,10 @@
 /obj/structure/table/steel_reinforced,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/cell_charger,
-/obj/machinery/power/terminal{
-	dir = 4
-	},
 /obj/structure/cable/cyan{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
-	},
-/obj/structure/cable/yellow{
-	d2 = 2;
-	icon_state = "0-2"
 	},
 /obj/structure/handrai,
 /obj/random_multi/single_item/boombox,
@@ -1477,8 +1470,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/engineering{
-	name = "Engine Access";
-	req_access = newlist()
+	name = "Thrusters Access";
+	req_access = list("ACCESS_ENGINEERING")
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/bdportengine)
@@ -1701,11 +1694,6 @@
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/power)
 "dw" = (
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/power)
 "dx" = (
@@ -1720,6 +1708,10 @@
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
+	},
+/obj/structure/cable/yellow{
+	d2 = 2;
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/power)
@@ -1778,11 +1770,6 @@
 /turf/simulated/floor/plating,
 /area/logistics/hangar)
 "dE" = (
-/obj/structure/cable/cyan{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
 	frequency = 1431;
@@ -1807,6 +1794,11 @@
 	dir = 8;
 	pixel_y = 8
 	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/antonine_hangar/start)
 "dF" = (
@@ -1818,13 +1810,13 @@
 	req_access = list("ACCESS_TRAJAN_HELM")
 	},
 /obj/machinery/shield_diffuser,
-/obj/structure/cable/cyan{
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
+/obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/antonine_hangar/start)
@@ -1832,15 +1824,15 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/obj/structure/cable/cyan{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
 	frequency = 1431;
 	id_tag = "antonine_shuttle_pump_out_internal"
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/antonine_hangar/start)
@@ -1848,7 +1840,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/structure/cable/cyan{
+/obj/structure/cable{
 	d1 = 2;
 	d2 = 8;
 	icon_state = "2-8"
@@ -1994,8 +1986,8 @@
 "dV" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
-	name = "Engine Access";
-	req_access = newlist()
+	name = "Thrusters Access";
+	req_access = list("ACCESS_ENGINEERING")
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/bdportengine)
@@ -2124,11 +2116,6 @@
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/power)
 "eh" = (
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
 /obj/machinery/recharge_station,
 /obj/machinery/camera/network/trajan{
 	c_tag = "Trajan Power Room";
@@ -2142,10 +2129,7 @@
 	anchored = 1;
 	sheets = 50
 	},
-/obj/structure/cable/yellow{
-	d2 = 8;
-	icon_state = "0-8"
-	},
+/obj/structure/cable/yellow,
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/power)
 "ej" = (
@@ -2213,13 +2197,13 @@
 /area/antonine_hangar/start)
 "ep" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/structure/cable/cyan{
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 1
+	},
+/obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/antonine_hangar/start)
@@ -2538,7 +2522,7 @@
 	name = "Antonine External Access";
 	req_access = list("ACCESS_TRAJAN_HELM")
 	},
-/obj/structure/cable/cyan{
+/obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
@@ -2843,23 +2827,18 @@
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
 	},
-/obj/structure/cable/cyan{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
 /obj/effect/shuttle_landmark/nerva/hangar/antonine,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/antonine_hangar/start)
 "fv" = (
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/cable/cyan{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/machinery/power/terminal,
 /obj/machinery/alarm{
 	dir = 2;
 	pixel_x = 0;
@@ -3219,6 +3198,7 @@
 /obj/machinery/power/terminal{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/simulated/floor/tiled,
 /area/antonine_hangar/start)
 "gd" = (
@@ -4281,7 +4261,7 @@
 /area/security/breakroom)
 "hZ" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_FORENSICS")
+	req_access = list("ACCESS_SECURITY")
 	},
 /turf/simulated/floor/plating,
 /area/security/breakroom)
@@ -4779,16 +4759,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/structure/cable/cyan{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable/cyan{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4;
 	icon_state = "intact-scrubbers";
@@ -4796,6 +4766,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable/cyan{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled,
 /area/exploration_shuttle/main)
@@ -5095,17 +5070,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/breakroom)
 "jw" = (
-/obj/machinery/recharge_station,
-/obj/effect/floor_decal/industrial/outline/orange,
-/turf/simulated/floor/tiled/white/monotile,
+/obj/machinery/computer/upload/ai{
+	dir = 2
+	},
+/turf/simulated/floor/greengrid,
 /area/command/aiupload)
 "jx" = (
-/obj/machinery/turretid/stun{
-	dir = 4;
-	icon_state = "control_stun";
-	pixel_x = -26;
-	tag = "icon-control_stun (EAST)"
-	},
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -5306,11 +5276,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/structure/cable/cyan{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled,
 /area/exploration_shuttle/main)
 "jO" = (
@@ -5555,7 +5520,7 @@
 	},
 /obj/machinery/door/airlock/security{
 	name = "Forensics Lab";
-	req_access = list("ACCESS_SECURITY")
+	req_access = list("ACCESS_FORENSICS")
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -5694,19 +5659,11 @@
 	dir = 9;
 	icon_state = "warning"
 	},
-/obj/machinery/alarm{
-	dir = 4;
-	icon_state = "alarm0";
-	pixel_x = -24;
-	tag = "icon-alarm0 (EAST)"
-	},
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/computer/upload/robot{
-	dir = 4;
-	icon_state = "computer"
-	},
+/obj/effect/floor_decal/industrial/outline/orange,
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/white/monotile,
 /area/command/aiupload)
 "kq" = (
@@ -5733,6 +5690,10 @@
 	icon_state = "warning";
 	tag = "icon-warning (NORTH)"
 	},
+/obj/machinery/flasher{
+	pixel_x = 32;
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/old_tile,
 /area/command/aiupload)
 "ks" = (
@@ -5741,25 +5702,9 @@
 	icon_state = "warning";
 	tag = "icon-warning (NORTHEAST)"
 	},
+/obj/effect/floor_decal/industrial/outline/orange,
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/white/monotile,
-/area/command/aiupload)
-"kt" = (
-/obj/machinery/door/airlock/highsecurity{
-	name = "AI Upload";
-	req_access = list("ACCESS_AI_UPLOAD")
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4;
-	icon_state = "intact-scrubbers";
-	tag = "icon-intact-scrubbers (EAST)"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4;
-	icon_state = "intact-supply";
-	tag = "icon-intact-supply (EAST)"
-	},
-/obj/machinery/door/firedoor/border_only,
-/turf/simulated/floor/tiled/white,
 /area/command/aiupload)
 "ku" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -5979,11 +5924,6 @@
 	id_tag = "trajan_shuttle_inner";
 	name = "Trajan External Access"
 	},
-/obj/structure/cable/cyan{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/exploration_shuttle/main)
@@ -6089,7 +6029,7 @@
 /area/security/forensics)
 "kX" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_FORENSICS")
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/structure/catwalk,
 /obj/structure/disposalpipe/segment,
@@ -6129,23 +6069,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/breakroom)
 "lc" = (
-/obj/structure/table/rack,
-/obj/item/weapon/aiModule/paladin,
-/obj/item/weapon/aiModule/tyrant,
-/obj/item/weapon/aiModule/reset,
-/obj/item/weapon/aiModule/purge,
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/item/device/radio/intercom{
+/obj/machinery/alarm{
 	dir = 4;
-	frequency = 1343;
-	icon_state = "intercom";
-	name = "AI intercom";
-	pixel_x = -22;
-	tag = "icon-intercom (EAST)"
+	icon_state = "alarm0";
+	pixel_x = -24;
+	tag = "icon-alarm0 (EAST)"
 	},
+/obj/machinery/porta_turret,
 /turf/simulated/floor/tiled/white/monotile,
 /area/command/aiupload)
 "ld" = (
@@ -6302,34 +6236,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/hallway/centralfourth)
-"lt" = (
-/obj/effect/catwalk_plated/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/plating,
-/area/logistics/hangar)
-"lu" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/dark/monotile,
-/area/logistics/hangar)
 "lv" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 8
@@ -6341,11 +6247,6 @@
 	dir = 8;
 	icon_state = "warning"
 	},
-/obj/structure/cable/cyan{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/exploration_shuttle/main)
 "lw" = (
@@ -6356,11 +6257,6 @@
 	name = "Trajan External Access"
 	},
 /obj/machinery/shield_diffuser,
-/obj/structure/cable/cyan{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1;
 	icon_state = "map"
@@ -6380,11 +6276,6 @@
 	dir = 9;
 	icon_state = "warning"
 	},
-/obj/structure/cable/cyan{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
 	frequency = 1331;
@@ -6397,11 +6288,6 @@
 	dir = 1;
 	icon_state = "warning"
 	},
-/obj/structure/cable/cyan{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
@@ -6410,11 +6296,6 @@
 "lz" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
-	},
-/obj/structure/cable/cyan{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
 	},
 /obj/machinery/camera/network/trajan{
 	c_tag = "Trajan Airlock - Interior";
@@ -6518,11 +6399,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fp)
 "lK" = (
-/obj/structure/table/rack,
-/obj/item/weapon/aiModule/protectStation,
-/obj/item/weapon/aiModule/corp,
-/obj/item/weapon/aiModule/asimov,
-/obj/effect/floor_decal/industrial/outline/blue,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
@@ -6540,7 +6416,6 @@
 	dir = 4;
 	icon_state = "camera"
 	},
-/obj/item/weapon/aiModule/manifest,
 /turf/simulated/floor/tiled/white/monotile,
 /area/command/aiupload)
 "lL" = (
@@ -6573,11 +6448,6 @@
 	icon_state = "warning";
 	tag = "icon-warning (EAST)"
 	},
-/obj/machinery/computer/robotics{
-	dir = 8;
-	icon_state = "computer";
-	tag = "icon-computer (WEST)"
-	},
 /obj/machinery/firealarm{
 	dir = 4;
 	pixel_x = 24
@@ -6586,6 +6456,13 @@
 /area/command/aiupload)
 "lO" = (
 /obj/effect/floor_decal/corner/fadeblue/full,
+/obj/machinery/turretid/stun{
+	control_area = /area/command/aiupload;
+	dir = 4;
+	icon_state = "control_stun";
+	pixel_x = -26;
+	tag = "icon-control_stun (EAST)"
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/command/bottom_hallway)
 "lQ" = (
@@ -7277,9 +7154,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fp)
 "mQ" = (
-/obj/machinery/computer/upload/ai{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
@@ -7288,6 +7162,11 @@
 	d2 = 4;
 	icon_state = "1-4";
 	tag = ""
+	},
+/obj/machinery/computer/robotics{
+	dir = 4;
+	icon_state = "computer";
+	tag = "icon-computer (WEST)"
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/command/aiupload)
@@ -8996,7 +8875,9 @@
 /turf/simulated/floor/reinforced,
 /area/engineering/bdstarengine)
 "pN" = (
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	req_access = list("ACCESS_ENGINEERING")
+	},
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "pO" = (
@@ -12797,8 +12678,8 @@
 "wj" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
-	name = "Engine Access";
-	req_access = newlist()
+	name = "Thrusters Access";
+	req_access = list("ACCESS_ENGINEERING")
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/bdstarengine)
@@ -13219,8 +13100,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/engineering{
-	name = "Engine Access";
-	req_access = newlist()
+	name = "Thrusters Access";
+	req_access = list("ACCESS_ENGINEERING")
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/bdstarengine)
@@ -13819,7 +13700,7 @@
 "xU" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Cargo Bay Maintenance";
-	req_access = list("ACCESS_ROBOTICS")
+	req_access = list(list("ACCESS_CARGO","ACCESS_XENOBIO"))
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -13900,7 +13781,7 @@
 "xZ" = (
 /obj/machinery/door/airlock/research{
 	name = "Advanced Fabrication Workshop";
-	req_access = list("ACCESS_CARGO")
+	req_access = list(list("ACCESS_CARGO","ACCESS_XENOBIO"))
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -14848,6 +14729,10 @@
 /obj/structure/cable/yellow{
 	d2 = 2;
 	icon_state = "0-2"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1;
+	icon_state = "warning"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/fourth_deck)
@@ -19761,26 +19646,19 @@
 /turf/simulated/floor/tiled/white,
 /area/hadrian/storage)
 "It" = (
-/obj/machinery/power/terminal{
-	dir = 4
-	},
-/obj/structure/cable/yellow{
-	d2 = 2;
-	icon_state = "0-2"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/structure/cable/cyan{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/obj/structure/cable/cyan,
 /obj/machinery/light{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/cyan{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/plating,
 /area/hadrian/main)
 "Iu" = (
@@ -19848,11 +19726,6 @@
 /turf/simulated/floor/plating,
 /area/hadrian/storage)
 "IA" = (
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
@@ -19883,6 +19756,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/structure/cable/yellow{
+	d2 = 2;
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/plating,
 /area/hadrian/main)
 "IC" = (
@@ -19909,11 +19786,6 @@
 /turf/space,
 /area/space)
 "IE" = (
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
 /obj/machinery/recharge_station,
 /obj/machinery/alarm{
 	dir = 1;
@@ -19935,10 +19807,6 @@
 	anchored = 1;
 	sheets = 50
 	},
-/obj/structure/cable/yellow{
-	d2 = 8;
-	icon_state = "0-8"
-	},
 /obj/item/device/radio/intercom{
 	dir = 1;
 	name = "Station Intercom (General)";
@@ -19952,6 +19820,7 @@
 	dir = 1;
 	icon_state = "map_scrubber_on"
 	},
+/obj/structure/cable/yellow,
 /turf/simulated/floor/plating,
 /area/hadrian/main)
 "IG" = (
@@ -21581,6 +21450,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/fourth_deck/afs)
+"Qx" = (
+/obj/machinery/computer/upload/robot{
+	dir = 2;
+	icon_state = "computer"
+	},
+/turf/simulated/floor/greengrid,
+/area/command/aiupload)
 "Qy" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -22182,6 +22058,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/fabwork)
+"Ta" = (
+/obj/structure/table/rack,
+/obj/item/weapon/aiModule/paladin,
+/obj/item/weapon/aiModule/tyrant,
+/obj/item/weapon/aiModule/reset,
+/obj/item/weapon/aiModule/purge,
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/machinery/door/window/brigdoor/northleft{
+	req_access = list("ACCESS_AI_UPLOAD")
+	},
+/turf/simulated/floor/tiled/white/monotile,
+/area/command/aiupload)
 "Tb" = (
 /obj/structure/reagent_dispensers/beerkeg,
 /turf/simulated/floor/tiled/freezer,
@@ -22189,6 +22077,18 @@
 "Td" = (
 /turf/simulated/wall/prepainted,
 /area/rnd/storage)
+"Te" = (
+/obj/structure/table/rack,
+/obj/item/weapon/aiModule/protectStation,
+/obj/item/weapon/aiModule/corp,
+/obj/item/weapon/aiModule/asimov,
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/item/weapon/aiModule/manifest,
+/obj/machinery/door/window/brigdoor/northright{
+	req_access = list("ACCESS_AI_UPLOAD")
+	},
+/turf/simulated/floor/tiled/white/monotile,
+/area/command/aiupload)
 "Ti" = (
 /obj/effect/paint/silver,
 /obj/machinery/light/spot{
@@ -22289,7 +22189,7 @@
 "TA" = (
 /obj/machinery/door/airlock/glass/mining{
 	name = "Cargo Workshop";
-	req_access = list("ACCESS_CARGO")
+	req_access = list(list("ACCESS_CARGO","ACCESS_XENOBIO"))
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -43930,7 +43830,7 @@ io
 iU
 fj
 kH
-lt
+nx
 mp
 nx
 nx
@@ -44132,7 +44032,7 @@ ee
 dt
 bZ
 bZ
-lu
+bZ
 bZ
 bZ
 bZ
@@ -53022,7 +52922,7 @@ kq
 ld
 lL
 mR
-iM
+Ta
 Xk
 Pp
 qJ
@@ -53039,7 +52939,7 @@ zv
 sj
 AX
 AY
-td
+sj
 ZM
 tP
 Zw
@@ -53219,12 +53119,12 @@ hh
 aO
 ic
 iM
-jw
+Qx
 kr
 le
 lM
 mS
-iM
+Te
 Xk
 Pp
 qK
@@ -53624,7 +53524,7 @@ aq
 ib
 iM
 iM
-kt
+iM
 iM
 iM
 mU

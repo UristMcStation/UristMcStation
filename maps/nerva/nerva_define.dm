@@ -121,3 +121,13 @@
 
 	post_comm_message("ICS Nerva Sensor Readings", welcome_text)
 	minor_announcement.Announce(message = "New [GLOB.using_map.company_name] Update available at all communication consoles.")
+
+/datum/map/nerva/bolt_saferooms()
+	for(var/obj/machinery/door/airlock/vault/door in SSmachines.machinery)
+		if(door.id_tag == "bridgesafedoor")
+			door.lock()
+
+/datum/map/nerva/unbolt_saferooms()
+	for(var/obj/machinery/door/airlock/vault/door in SSmachines.machinery)
+		if(door.id_tag == "bridgesafedoor")
+			door.unlock()
