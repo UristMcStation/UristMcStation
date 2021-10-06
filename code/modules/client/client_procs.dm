@@ -365,7 +365,8 @@
 		'html/images/xynlogo.png',
 		'html/images/daislogo.png',
 		'html/images/eclogo.png',
-		'html/images/fleetlogo.png'
+		'html/images/fleetlogo.png',
+		'html/images/nervalogo.png'
 		)
 
 	var/decl/asset_cache/asset_cache = decls_repository.get_decl(/decl/asset_cache)

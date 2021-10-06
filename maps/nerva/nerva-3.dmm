@@ -589,6 +589,7 @@
 	dir = 8
 	},
 /obj/item/weapon/circuitboard/helm,
+/obj/item/weapon/circuitboard/account_manager,
 /turf/simulated/floor/plating,
 /area/engineering/stech)
 "by" = (
