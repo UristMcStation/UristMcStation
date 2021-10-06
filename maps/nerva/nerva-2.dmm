@@ -499,7 +499,8 @@
 /area/medical/locker)
 "abp" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Infirmary Maintenance Access"
+	name = "Infirmary Maintenance Access";
+	req_access = list("ACCESS_CHEMISTRY")
 	},
 /obj/machinery/door/firedoor/border_only,
 /turf/simulated/floor/plating,
@@ -784,7 +785,7 @@
 "abX" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Air Supply Maintenance";
-	req_access = list("ACCESS_MAINT")
+	req_access = list("ACCESS_ATMOS")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/plating,
@@ -856,7 +857,8 @@
 /area/maintenance/third_deck/afp)
 "acj" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Infirmary Maintenance Access"
+	name = "Infirmary Maintenance Access";
+	req_access = list("ACCESS_MEDICAL")
 	},
 /turf/simulated/floor/plating,
 /area/medical/treatment)
@@ -2421,7 +2423,7 @@
 "aff" = (
 /obj/machinery/door/airlock/medical{
 	name = "Locker Room";
-	req_access = list("ACCESS_MEDICAL")
+	req_access = list("ACCESS_CHEMISTRY")
 	},
 /obj/machinery/door/firedoor/border_only,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3393,7 +3395,7 @@
 "agL" = (
 /obj/machinery/door/airlock/medical{
 	name = "Autopsy";
-	req_access = list("ACCESS_MEDICAL")
+	req_access = list("ACCESS_MORGUE")
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -4823,6 +4825,7 @@
 	dir = 8;
 	icon_state = "closed";
 	name = "\improper Medbay Hallway";
+	req_access = list("ACCESS_MEDICAL");
 	tag = "icon-closed (WEST)"
 	},
 /turf/simulated/floor/tiled/white,
@@ -4990,7 +4993,8 @@
 /area/medical/hallway)
 "ajq" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Medbay Maintenance Access"
+	name = "Medbay Maintenance Access";
+	req_access = list("ACCESS_MEDICAL")
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -5659,8 +5663,8 @@
 /area/engineering/locker)
 "akm" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Third Deck Substation";
-	req_access = list("ACCESS_ENGINEERING")
+	name = "Engineering Storage Maintenance";
+	req_access = list("ACCESS_CONSTRUCTION")
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -5701,7 +5705,8 @@
 	pixel_x = -32
 	},
 /obj/machinery/door/airlock/glass/medical{
-	name = "Medical Lobby"
+	name = "Medical Lobby";
+	req_access = list("ACCESS_MEDICAL")
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/lobby)
@@ -6202,7 +6207,7 @@
 /area/engineering/substation/third_deck)
 "alm" = (
 /obj/machinery/power/breakerbox/activated{
-	RCon_tag = "First Deck Bypass"
+	RCon_tag = "Third Deck Bypass"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/third_deck)
@@ -6935,7 +6940,7 @@
 /area/engineering/securestorage)
 "amy" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "First Deck Substation";
+	name = "Workshop Maintenance";
 	req_access = list("ACCESS_ENGINEERING")
 	},
 /obj/structure/catwalk,
@@ -7952,7 +7957,7 @@
 "aop" = (
 /obj/machinery/door/airlock/medical{
 	name = "Examination Room";
-	req_access = list("ACCESS_MEDICAL")
+	req_access = list("ACCESS_CHEMISTRY")
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white/monotile,
@@ -8063,7 +8068,8 @@
 "aoC" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/brigdoor/eastleft{
-	name = "Brig Entrance"
+	name = "Brig Entrance";
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/machinery/door/window/brigdoor/westright{
 	name = "Brig Entrance";
@@ -8287,8 +8293,8 @@
 /area/engineering/engine_waste)
 "aoZ" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "First Deck Substation";
-	req_access = list("ACCESS_ENGINEERING")
+	name = "Waste Loop Maintenance";
+	req_access = list("ACCESS_ENGINE_EQUIP")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -8315,8 +8321,8 @@
 "apc" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /obj/machinery/door/airlock/maintenance{
-	name = "First Deck Substation";
-	req_access = list("ACCESS_ENGINEERING")
+	name = "Engine Maintenance";
+	req_access = list("ACCESS_ENGINE_EQUIP")
 	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 2
@@ -8329,8 +8335,8 @@
 /area/engineering/smes)
 "ape" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "First Deck Substation";
-	req_access = list("ACCESS_ENGINEERING")
+	name = "SMES Maintenance";
+	req_access = list("ACCESS_ENGINE_EQUIP")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -9722,7 +9728,8 @@
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/brigdoor/eastleft{
 	dir = 1;
-	name = "Brig Entrance"
+	name = "Brig Entrance";
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/machinery/door/window/brigdoor/westright{
 	dir = 2;
@@ -13537,7 +13544,7 @@
 	},
 /obj/machinery/door/airlock/engineering{
 	name = "Waste Loop Access";
-	req_access = list("ACCESS_ENGINEERING")
+	req_access = list("ACCESS_ENGINE_EQUIP")
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
@@ -14169,7 +14176,7 @@
 	id_tag = "engine_electrical_maintenance";
 	locked = 1;
 	name = "Engine Electrical Maintenance";
-	req_access = list("ACCESS_ENGINEERING")
+	req_access = list("ACCESS_ENGINE_EQUIP")
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/catwalk_plated/dark,
@@ -15352,8 +15359,8 @@
 	icon_state = "door_closed";
 	id_tag = "engine_airlock_exterior";
 	locked = 0;
-	name = "Engine Airlock Exterior";
-	req_access = list("ACCESS_ENGINEERING")
+	name = "Engine Access Interior";
+	req_access = list("ACCESS_ENGINE_EQUIP")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -15407,7 +15414,8 @@
 	icon_state = "door_closed";
 	id_tag = null;
 	locked = 0;
-	name = "Engine Access"
+	name = "Engine Access Exterior";
+	req_access = list("ACCESS_ENGINEERING")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -15897,7 +15905,7 @@
 	icon_state = "door_locked";
 	id_tag = "null";
 	locked = 1;
-	name = "Observatory";
+	name = "Core Access";
 	req_access = list("ACCESS_ENGINE_EQUIP")
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
@@ -15962,8 +15970,8 @@
 	icon_state = "door_closed";
 	id_tag = "engine_airlock_exterior";
 	locked = 0;
-	name = "Engine Airlock Exterior";
-	req_access = list("ACCESS_ENGINEERING")
+	name = "Engine Airlock Interior";
+	req_access = list("ACCESS_ENGINE_EQUIP")
 	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 2
@@ -15991,7 +15999,8 @@
 	icon_state = "door_closed";
 	id_tag = null;
 	locked = 0;
-	name = "Engine Access"
+	name = "Engine Access Exterior";
+	req_access = list("ACCESS_ENGINEERING")
 	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 2
@@ -17137,7 +17146,7 @@
 	icon_state = "door_locked";
 	id_tag = "null";
 	locked = 1;
-	name = "Observatory";
+	name = "Core Access";
 	req_access = list("ACCESS_ENGINE_EQUIP")
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
@@ -17581,7 +17590,7 @@
 "aDB" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering Access";
-	req_access = list("ACCESS_ENGINEERING")
+	req_access = list("ACCESS_CONSTRUCTION")
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
@@ -18346,7 +18355,7 @@
 "aEQ" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering Access";
-	req_access = list("ACCESS_ENGINEERING")
+	req_access = list("ACCESS_CONSTRUCTION")
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
@@ -19391,7 +19400,7 @@
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/window/brigdoor/southleft{
-	req_access = list("ACCESS_HEAD_OF_PERSONNEL")
+	req_access = list("ACCESS_XENOBIO")
 	},
 /obj/machinery/door/window/northleft{
 	req_access = list()
@@ -19614,7 +19623,7 @@
 	dir = 2
 	},
 /obj/machinery/door/airlock/engineering{
-	name = "Atmospherics Tank Storage";
+	name = "Engine Tank Storage";
 	req_access = list("ACCESS_ENGINEERING")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -19648,7 +19657,9 @@
 /turf/simulated/floor,
 /area/engineering/engine)
 "aHd" = (
-/obj/machinery/vending/tool,
+/obj/machinery/vending/tool{
+	req_access = list(list("ACCESS_ATMOS","ACCESS_ENGINE_EQUIP"))
+	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
@@ -19693,12 +19704,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/genstorage)
 "aHg" = (
-/obj/machinery/door/airlock/hatch/maintenance{
-	icon_state = "closed";
-	id_tag = null;
-	locked = 0;
-	name = "Pipe Access"
-	},
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 4;
@@ -19706,6 +19711,10 @@
 	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 2
+	},
+/obj/machinery/door/airlock/maintenance{
+	name = "Engineering Maintenance";
+	req_access = list("ACCESS_CONSTRUCTION")
 	},
 /turf/simulated/floor/plating,
 /area/engineering/genstorage)
@@ -20744,7 +20753,7 @@
 "aIW" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/brigdoor/eastleft{
-	req_access = list("ACCESS_HEAD_OF_PERSONNEL")
+	req_access = list("ACCESS_XENOBIO")
 	},
 /obj/machinery/door/window/westright,
 /obj/machinery/door/blast/shutters/open{
@@ -21741,8 +21750,8 @@
 	},
 /obj/structure/catwalk,
 /obj/machinery/door/airlock/maintenance{
-	name = "First Deck Substation";
-	req_access = list("ACCESS_ENGINEERING")
+	name = "Engineering Maintenance";
+	req_access = list("ACCESS_CONSTRUCTION")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -22829,7 +22838,8 @@
 	id = "xenoshitonlock";
 	name = "Xenobiology Lockdown";
 	pixel_x = 0;
-	pixel_y = -24
+	pixel_y = -24;
+	req_access = list("ACCESS_RESEARCH")
 	},
 /turf/simulated/open,
 /area/rnd/office)
@@ -23583,8 +23593,8 @@
 /area/maintenance/third_deck/cents)
 "aNC" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Bridge Maintenance";
-	req_access = list(list("ACCESS_BRIDGE","ACCESS_GUNNERY"))
+	name = "EVA Maintenance";
+	req_access = list("ACCESS_EVA")
 	},
 /obj/structure/catwalk,
 /obj/machinery/door/firedoor,
@@ -24770,7 +24780,7 @@
 "aPj" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Bridge Maintenance";
-	req_access = list(list("ACCESS_BRIDGE","ACCESS_GUNNERY"))
+	req_access = list("ACCESS_BRIDGE")
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
@@ -26396,8 +26406,8 @@
 /area/maintenance/third_deck/afs)
 "aRR" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Third Deck Substation";
-	req_access = list("ACCESS_ENGINEERING")
+	name = "Engine Monitoring Maintenance";
+	req_access = list("ACCESS_ENGINE_EQUIP")
 	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 2
@@ -27333,7 +27343,7 @@
 /area/medical/cmo)
 "aTC" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Bridge Maintenance";
+	name = "Bodyguard Maintenance";
 	req_access = list("ACCESS_BLUESHIELD")
 	},
 /obj/structure/disposalpipe/segment,
@@ -28010,15 +28020,15 @@
 /area/command/eva)
 "aUR" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Bridge Maintenance";
-	req_access = list(list("ACCESS_BRIDGE","ACCESS_GUNNERY"))
+	name = "Bridge Storage Maintenance";
+	req_access = list("ACCESS_BRIDGE")
 	},
 /turf/simulated/floor/plating,
 /area/command/storage)
 "aUS" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Bridge Maintenance";
-	req_access = list(list("ACCESS_BRIDGE","ACCESS_GUNNERY"))
+	name = "Chief Medical Officer Maintenance";
+	req_access = list("ACCESS_CHIEF_MEDICAL_OFFICER")
 	},
 /turf/simulated/floor/plating,
 /area/medical/cmo)
