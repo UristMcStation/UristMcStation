@@ -5,6 +5,7 @@
 	desc = "Looks unstable. Best to test it with the clown."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "portal"
+	var/block_pirate_teleport = TRUE
 	density = 1
 	anchored = 1
 	layer = 3.1
@@ -30,13 +31,17 @@
 /obj/structure/boarding/shipportal/proc/teleport(atom/movable/M as mob|obj)
 	if(istype(M, /obj/effect)) //sparks don't teleport
 		return
-	else
-		var/tele_x = GLOB.using_map.overmap_ship.evac_x
-		var/tele_y = GLOB.using_map.overmap_ship.evac_y
-		var/tele_z = GLOB.using_map.overmap_ship.evac_z
+	if(block_pirate_teleport && istype(M, /mob/living))
+		var/mob/living/H = M
+		if(H.faction != "neutral")
+			return
 
-		do_teleport(M, locate(tele_x,tele_y,tele_z), 0)
-		M << "<span class='warning'>You teleport back to the ship!</span>"
+	var/tele_x = GLOB.using_map.overmap_ship.evac_x
+	var/tele_y = GLOB.using_map.overmap_ship.evac_y
+	var/tele_z = GLOB.using_map.overmap_ship.evac_z
+
+	do_teleport(M, locate(tele_x,tele_y,tele_z), 0)
+	M << "<span class='warning'>You teleport back to the ship!</span>"
 
 /obj/effect/step_trigger/teleporter/urist/nerva
 	teleport_x = 89

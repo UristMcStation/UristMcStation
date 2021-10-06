@@ -139,7 +139,7 @@
 /datum/shipcomponents/shield_disruptor
 	name = "shield disruptor"
 	var/disruption_amount = list(0.15, 0.50) // anywhere from 15% to 50%.
-	var/disruption_delay = 2 MINUTES
+	var/disruption_delay = 5 MINUTES
 	var/empulse_range = 3
 
 /datum/shipcomponents/shield_disruptor/DoActivate()

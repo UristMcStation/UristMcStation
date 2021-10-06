@@ -123,6 +123,10 @@
 	name = T_BOARD("engine control console")
 	build_path = /obj/machinery/computer/ship/engines
 
+/obj/item/weapon/circuitboard/combat_computer
+	name = T_BOARD("combat computer")
+	build_path = /obj/machinery/computer/combatcomputer
+
 /obj/item/weapon/circuitboard/nav
 	name = T_BOARD("navigation console")
 	build_path = /obj/machinery/computer/ship/navigation
