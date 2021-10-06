@@ -5,6 +5,7 @@
 	desc = "Looks unstable. Best to test it with the clown."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "portal"
+	var/block_pirate_teleport = TRUE
 	density = 1
 	anchored = 1
 	layer = 3.1
@@ -30,7 +31,7 @@
 /obj/structure/boarding/shipportal/proc/teleport(atom/movable/M as mob|obj)
 	if(istype(M, /obj/effect)) //sparks don't teleport
 		return
-	if(istype(M, /mob/living))
+	if(block_pirate_teleport && istype(M, /mob/living))
 		var/mob/living/H = M
 		if(H.faction != "neutral")
 			return
