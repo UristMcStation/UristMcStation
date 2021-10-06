@@ -121,3 +121,28 @@
 
 	post_comm_message("ICS Nerva Sensor Readings", welcome_text)
 	minor_announcement.Announce(message = "New [GLOB.using_map.company_name] Update available at all communication consoles.")
+
+/datum/map/nerva/RoundEndInfo()
+	to_world("<hr><br><h3>Economic Summary</h3>")
+	if(all_money_accounts.len)
+		var/datum/money_account/max_profit = all_money_accounts[1]
+		var/datum/money_account/max_loss = all_money_accounts[1]
+		var/stationmoney
+		for(var/datum/money_account/D in all_money_accounts)
+			if(D == vendor_account) //yes we know you get lots of money
+				continue
+			var/saldo = D.get_balance()
+			if(saldo >= max_profit.get_balance())
+				max_profit = D
+			if(saldo <= max_loss.get_balance())
+				max_loss = D
+			if(D == station_account)
+				stationmoney = station_account.money
+				stationmoney -= starting_money //how much money did we make from the start of the round
+
+		to_world("<b>[max_profit.owner_name]</b> received most <font color='green'><B>PROFIT</B></font> today, with net profit of <b>T[max_profit.get_balance()]</b>.")
+		to_world("On the other hand, <b>[max_loss.owner_name]</b> had most <font color='red'><B>LOSS</B></font>, with total loss of <b>T[max_loss.get_balance()]</b>.")
+		to_world("The <b>[station_name]</b> itself made <b>T[stationmoney]</b> in revenue today, with <b>T[station_account.money]</b> in its account.")
+		to_world("<b>T<font color='red'>[SSpayment_controller.total_paid]</font></b> was paid to the crew of the <b>[station_name]</b> in hourly salary payments today.")
+		to_world("The crew of the <b>[station_name]</b> completed <b>[completed_contracts]</b> contracts today, earning <b>T[contract_money]</b>.")
+		to_world("In addition <b>[destroyed_ships]</b> hostile ships were destroyed by the crew of the <b>[station_name]</b> today.")
