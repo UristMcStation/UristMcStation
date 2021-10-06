@@ -239,6 +239,8 @@
 #define EMAIL_DOCUMENTS "document.server@internal-services.net"
 #define EMAIL_SYSADMIN  "admin@internal-services.net"
 #define EMAIL_BROADCAST "broadcast@internal-services.net"
+#define EMAIL_PAYROLL	"payroll@internal-services.net"
+#define EMAIL_FINANCE	"account-services@internal-services.net"
 
 //Number of slots a modular computer has which can be tweaked via gear tweaks.
 #define TWEAKABLE_COMPUTER_PART_SLOTS 7
