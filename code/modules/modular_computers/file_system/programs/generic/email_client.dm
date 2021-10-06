@@ -114,10 +114,13 @@
 	for(var/datum/computer_file/data/email_account/account in ntnet_global.email_accounts)
 		if(!account || !account.can_login)
 			continue
+		if(stored_login)
+			if(stored_login == account.login)
+				target = account
+				break
+			else
+				continue
 		if(id_login && id_login["login"] == account.login)
-			target = account
-			break
-		if(stored_login && stored_login == account.login)
 			target = account
 			break
 

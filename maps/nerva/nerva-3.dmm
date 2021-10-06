@@ -590,6 +590,7 @@
 	},
 /obj/item/weapon/circuitboard/helm,
 /obj/item/weapon/circuitboard/combat_computer,
+/obj/item/weapon/circuitboard/account_manager,
 /turf/simulated/floor/plating,
 /area/engineering/stech)
 "by" = (
@@ -666,7 +667,7 @@
 "bJ" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Secure Storage";
-	req_access = list("ACCESS_ENGINE_EQUIP");
+	req_access = list("ACCESS_CHIEF_ENGINEER");
 	secured_wires = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -758,7 +759,7 @@
 "bV" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Fuel Bay";
-	req_access = list("ACCESS_TECH_STORAGE");
+	req_access = list("ACCESS_CONSTRUCTION");
 	secured_wires = 1
 	},
 /obj/machinery/door/firedoor,
@@ -1024,7 +1025,7 @@
 "ct" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Fuel Bay";
-	req_access = list("ACCESS_TECH_STORAGE");
+	req_access = list("ACCESS_CONSTRUCTION");
 	secured_wires = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
@@ -1834,7 +1835,8 @@
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /obj/machinery/meter,
 /obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
+	name = "Air Supply Maintenance";
+	req_access = list("ACCESS_ATMOS")
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fp)
@@ -2153,7 +2155,7 @@
 "eY" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering Maintenance";
-	req_access = list("ACCESS_TECH_STORAGE");
+	req_access = list("ACCESS_ENGINEERING");
 	secured_wires = 1
 	},
 /obj/structure/cable{
@@ -5832,8 +5834,8 @@
 "lO" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
-	name = "Engine Access";
-	req_access = newlist()
+	name = "Thrusters Access";
+	req_access = list("ACCESS_ENGINEERING")
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/fdengine)
@@ -6289,16 +6291,16 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/engineering{
-	name = "Engine Access";
-	req_access = newlist()
-	},
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
 	pixel_x = 0;
 	tag = ""
+	},
+/obj/machinery/door/airlock/engineering{
+	name = "Thrusters Access";
+	req_access = list("ACCESS_ENGINEERING")
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/fdengine)
@@ -7163,7 +7165,7 @@
 	},
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering Maintenance";
-	req_access = list("ACCESS_TECH_STORAGE");
+	req_access = list("ACCESS_ENGINEERING");
 	secured_wires = 1
 	},
 /obj/structure/catwalk,
@@ -8735,16 +8737,15 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch/maintenance{
-	icon_state = "closed";
-	id_tag = null;
-	locked = 0;
-	name = "Pipe Access"
-	},
 /obj/structure/cable/yellow{
 	icon_state = "4-8";
 	d1 = 1;
 	d2 = 4
+	},
+/obj/machinery/door/airlock/engineering{
+	name = "Engineering Maintenance";
+	req_access = list("ACCESS_ENGINEERING");
+	secured_wires = 1
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmospherics)
@@ -9050,7 +9051,8 @@
 	d2 = 4
 	},
 /obj/machinery/camera/network/engineering{
-	c_tag = "Second Deck Telecommunications Relay"
+	c_tag = "Second Deck Telecommunications Relay";
+	pixel_x = 16
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
@@ -13411,7 +13413,8 @@
 /area/maintenance/second_deck/afp)
 "Ax" = (
 /obj/machinery/door/airlock/engineering{
-	name = "Atmospherics Substation"
+	name = "Atmospherics Substation";
+	req_access = list("ACCESS_ENGINEERING")
 	},
 /obj/structure/cable/yellow{
 	icon_state = "4-8";
@@ -13848,7 +13851,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/engineering{
-	name = "Atmospherics Substation"
+	name = "Atmospherics Substation";
+	req_access = list("ACCESS_ENGINEERING")
 	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/atmos)
@@ -15082,7 +15086,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/airless,
+/turf/simulated/floor/plating,
 /area/security/prison)
 "LQ" = (
 /obj/structure/table/woodentable/walnut,
