@@ -2913,6 +2913,7 @@
 #include "code\modules\urist\datums\gear.dm"
 #include "code\modules\urist\datums\supplycrates.dm"
 #include "code\modules\urist\datums\uristaccess.dm"
+#include "code\modules\urist\datums\uristchem.dm"
 #include "code\modules\urist\datums\uristlanguages.dm"
 #include "code\modules\urist\datums\uristoutfits.dm"
 #include "code\modules\urist\datums\uristundies.dm"
