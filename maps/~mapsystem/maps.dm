@@ -207,6 +207,7 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	var/list/contracts = list() //the current active contracts
 	var/obj/effect/overmap/ship/combat/overmap_ship = null //this is for space combat, it is the overmap object used by the main map
 	var/completed_contracts = 0 //this and destroyed_ships are used for endround stats
+	var/contract_money = 0 //likewise
 	var/destroyed_ships = 0
 	var/datum/factions/trading_faction = null //this is used to determine rep points/bonuses from trading and certain contracts
 
@@ -320,7 +321,7 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 
 
 /datum/map/proc/setup_economy()
-	news_network.CreateFeedChannel("Nyx Daily", "SolGov Minister of Information", 1, 1)
+	news_network.CreateFeedChannel("Nyx Daily", "[FACTION_SOL_CENTRAL] Minister of Information", 1, 1)
 	news_network.CreateFeedChannel("The Gibson Gazette", "Editor Mike Hammers", 1, 1)
 
 	for(var/loc_type in typesof(/datum/trade_destination) - /datum/trade_destination)
@@ -376,3 +377,22 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 		num2text(SUP_FREQ)   = list(access_cargo),
 		num2text(SRV_FREQ)   = list(access_janitor, access_hydroponics),
 	)
+
+/datum/map/proc/RoundEndInfo()
+	if(all_money_accounts.len)
+		var/datum/money_account/max_profit = all_money_accounts[1]
+		var/datum/money_account/max_loss = all_money_accounts[1]
+		for(var/datum/money_account/D in all_money_accounts)
+			if(D == vendor_account) //yes we know you get lots of money
+				continue
+			var/saldo = D.get_balance()
+			if(saldo >= max_profit.get_balance())
+				max_profit = D
+			if(saldo <= max_loss.get_balance())
+				max_loss = D
+
+		to_world("<b>[max_profit.owner_name]</b> received most <font color='green'><B>PROFIT</B></font> today, with net profit of <b>T[max_profit.get_balance()]</b>.")
+		to_world("On the other hand, <b>[max_loss.owner_name]</b> had most <font color='red'><B>LOSS</B></font>, with total loss of <b>T[max_loss.get_balance()]</b>.")
+
+/datum/map/proc/RoundEndBusiness()
+	return 1
