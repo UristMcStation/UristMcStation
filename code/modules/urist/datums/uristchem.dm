@@ -20,4 +20,4 @@
 
 /datum/reagent/drink/pilk/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	M.adjustBrainLoss(1)
+	M.adjustBrainLoss(0.1)
