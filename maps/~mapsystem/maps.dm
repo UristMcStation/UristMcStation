@@ -382,7 +382,6 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	if(all_money_accounts.len)
 		var/datum/money_account/max_profit = all_money_accounts[1]
 		var/datum/money_account/max_loss = all_money_accounts[1]
-		var/stationmoney
 		for(var/datum/money_account/D in all_money_accounts)
 			if(D == vendor_account) //yes we know you get lots of money
 				continue
@@ -391,9 +390,6 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 				max_profit = D
 			if(saldo <= max_loss.get_balance())
 				max_loss = D
-			if(D == station_account)
-				stationmoney = station_account.money
-				stationmoney -= starting_money //how much money did we make from the start of the round
 
 		to_world("<b>[max_profit.owner_name]</b> received most <font color='green'><B>PROFIT</B></font> today, with net profit of <b>T[max_profit.get_balance()]</b>.")
 		to_world("On the other hand, <b>[max_loss.owner_name]</b> had most <font color='red'><B>LOSS</B></font>, with total loss of <b>T[max_loss.get_balance()]</b>.")
