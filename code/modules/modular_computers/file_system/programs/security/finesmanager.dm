@@ -286,8 +286,8 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 					message.source = server.login
 					server.send_mail(target_email, message)
 
-				var/list/log = list()
-				log.Add(list(list(
+				var/list/logs = list()
+				logs.Add(list(list(
 					"time" = stationtime2text(),
 					"date" = stationdate2text(),
 					"name" = target.owner_name,
@@ -297,7 +297,7 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 					"amount" = amount,
 					"reason" = reason
 				)))
-				GLOB.all_fines["records"].Add(log)
+				GLOB.all_fines["records"].Add(logs)
 				GLOB.all_fines["fineNum"]++
 				target = null
 				target_email = null

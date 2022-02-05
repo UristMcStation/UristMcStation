@@ -13,6 +13,8 @@
 	var/target = null
 	var/obj/effect/overmap/ship/combat/homeship
 	var/fallback_connect = FALSE
+	circuit = /obj/item/weapon/circuitboard/combat_computer
+
 /*
 /obj/machinery/computer/combatcomputer/attack_hand(user as mob)
 	if(..(user))
@@ -44,6 +46,25 @@
 
 	else
 		to_chat(user, "<span class='warning'>The ship is not in combat.</span>")*/
+
+/obj/machinery/computer/combatcomputer/New()
+	. = ..()
+	if(!shipid)	//New computers being built won't have an ID
+		for(var/obj/effect/overmap/ship/combat/C in GLOB.overmap_ships)
+			if(src.z in C.map_z)	//See if our loc is within an overmap z level
+				var/found = FALSE
+				for(var/obj/machinery/computer/combatcomputer/CC in SSmachines.machinery)
+					if(CC.homeship == C)	//Already got a combat computer linked? We don't copy the shipid, so this board will not connect. Only 1 allowed!
+						found = TRUE
+						break
+				if(!found)
+					src.shipid = C.shipid
+					break
+
+/obj/machinery/computer/combatcomputer/Destroy()
+	for(var/obj/machinery/shipweapons/S in linkedweapons)
+		S.linkedcomputer = null
+	. = ..()
 
 /obj/machinery/computer/combatcomputer/attack_hand(var/mob/user as mob)
 	if(..())
