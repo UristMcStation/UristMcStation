@@ -118,7 +118,7 @@ datum/announcement/proc/NewsCast(message as text, message_title as text)
 	GLOB.global_announcer.autosay("[name], [rank], [join_message].", "Arrivals Announcement Computer", frequency)
 
 /proc/get_announcement_frequency(var/datum/job/job)
-	// During red alert all jobs are announced on main frequency.
+	/*// During red alert all jobs are announced on main frequency.
 	var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
 	if (security_state.current_security_level_is_same_or_higher_than(security_state.high_security_level))
 		return "Common"
@@ -140,5 +140,5 @@ datum/announcement/proc/NewsCast(message as text, message_title as text)
 	if(job.department_flag & SRV)
 		return "Service"
 	if(job.department_flag & EXP)
-		return "Exploration"
+		return "Exploration"*/
 	return "Common"
