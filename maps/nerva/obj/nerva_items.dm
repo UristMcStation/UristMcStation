@@ -162,28 +162,11 @@
 	startswith = list(/obj/item/weapon/card/id/station_account)
 	var/linked = FALSE //fucking card setup doesn't work with New() or Initialize(), so we're getting hacky up in here.
 
-/obj/item/weapon/storage/lockbox/station_account/attack_hand(mob/living/user as mob)
+/obj/item/weapon/storage/lockbox/station_account/open(mob/user)
 	if(!linked)
-		for(var/obj/item/weapon/card/id/station_account/C in src.contents)
+		linked = TRUE
+		for(var/obj/item/weapon/card/id/station_account/C)
 			C.associated_account_number = station_account.account_number
-			linked = TRUE
-
-	..()
-
-/obj/item/weapon/storage/lockbox/station_account/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(!linked)
-		for(var/obj/item/weapon/card/id/station_account/C in src.contents)
-			C.associated_account_number = station_account.account_number
-			linked = TRUE
-
-	..()
-
-/obj/item/weapon/storage/lockbox/station_account/emag_act()
-	if(!linked)
-		for(var/obj/item/weapon/card/id/station_account/C in src.contents)
-			C.associated_account_number = station_account.account_number
-			linked = TRUE
-
 	..()
 
 //ammo boxes
