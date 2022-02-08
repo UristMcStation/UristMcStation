@@ -23,7 +23,7 @@
 	minimal_player_age = 0
 
 /datum/job/ai/get_description_blurb()
-	return "You are a Cyborg, purposed for use on the ICS Nerva. Ensure that you follow all directives specified to you by your lawset, You answer directly to all crew and the AI, unless you are not slaved to them. Failure to follow your lawset may result in your removal."
+	return "You are a Cyborg, purposed for use on the ICS Nerva. Ensure that you follow all directives specified to you by your lawset. You answer directly to all crew and the AI, unless you are not slaved to them. Failure to follow your lawset may result in your removal."
 
 /datum/job/blueshield
 	title = "Bodyguard"
@@ -96,7 +96,7 @@
 						)
 
 /datum/job/firstofficer/get_description_blurb()
-	return "You are the First Officer, and second in command of the ICS Nerva. As the clear second in command of the ship, your job is to work with the captain to run the ship, and take charge of navigation according to the captain's orders. Moreover, if there is no second officer, your job is also to oversee personnel issues and organize away missions. In the event of combat, your job is to work with the Chief of Security to coordinate the ship's defence."
+	return "You are the First Officer, and second in command of the ICS Nerva. As the clear second in command of the ship, your job is to work with the captain to run the ship, and take charge of navigation according to the captain's orders. If there is no second officer, your job is also to oversee personnel issues and organize away missions. In the event of combat, your job is to work with the Chief of Security to coordinate the ship's defence."
 
 /datum/job/captain
 	supervisors = "yourself, as you are the owner of this ship and the sole arbiter of its destiny. However, be careful not to anger NanoTrasen and the other factions that have set up outposts in this sector, or your own staff for that matter. It could lead to your undoing"
@@ -172,7 +172,7 @@
 			            access_expedition_shuttle_helm, access_expedition, access_gunnery)
 
 /datum/job/chief_engineer/get_description_blurb()
-	return	"You are the Chief Engineer, as the Chief Engineer, it is your job to oversee the Engineering Staff to ensure that all elements of engineering are being performed safely. This includes overseeing the supermatter's power generation, ensuring all atmospheric flown through the air are not contaminated, stopping possible fires from occuring and forwarding engineer supply requests to the Cargo Team. Thus, you are a direct supervivor for the Engineering Staff, ensure that all of your staff are well-organized and know what tasks to work on, as you may be held responsible for catastrophic damage from engine-failure and gas leaks. You answer directly to the Captain and the First Officer, remember that in the event of a Supermatter explosion, you can eject the crystal to space and that your suit is completley fire proof to assist in stopping fires."
+	return	"You are the Chief Engineer, as the Chief Engineer, it is your job to oversee the Engineering Staff to ensure that all elements of engineering are being performed safely. This includes overseeing the supermatter's power generation, ensuring all atmospheric flow through the air is not contaminated, stopping and preventing fires and forwarding engineer supply requests to the Cargo Team. Thus, you are a direct supervivor for the Engineering Staff, ensure that all of your staff are well-organized and know what tasks to work on, as you may be held responsible for catastrophic damage from engine-failure and gas leaks. You answer directly to the Captain and the First Officer, remember that in the event of a Supermatter explosion, you can eject the crystal to space and that your suit is completely fire proof to assist in stopping fires."
 
 
 /datum/job/engineer
@@ -252,7 +252,7 @@
 			access_expedition_shuttle_helm, access_expedition, access_gunnery)
 
 /datum/job/cmo/get_description_blurb()
-	return	"You are the Chief Medical Officer onboard the ICS Nerva. As Chief Medical Officer, it is your job to oversee your medical staff to ensuring they successfully treat all injured crew, provide surgery for injured crew, produce and mandate chemicals used for medicine and ensure all deceased crew are relaced. Thus, you are the direct supervisor for medical staff, and may be held responsible for their malpractice. As Chief Medical Officer, it is also your job to delegate the medical team to respond to injured crew in specific areas, send medical doctors to away missions to provide medical care and to cure any biological contaminant that may come onboard. You answer directly to the Captain and the First Officer."
+	return	"You are the Chief Medical Officer onboard the ICS Nerva. As Chief Medical Officer, it is your job to oversee your medical staff and ensure they successfully treat all injured crew, provide surgery for injured crew, produce and mandate chemicals used for medicine and ensure all deceased crew are relaced. Thus, you are the direct supervisor for medical staff, and may be held responsible for their malpractice. As Chief Medical Officer, it is also your job to delegate the medical team to respond to injured crew in specific areas, send medical doctors to away missions to provide medical care and to cure any biological contaminant that may come onboard. You answer directly to the Captain and the First Officer."
 
 /datum/job/doctor
 	minimal_player_age = 0
@@ -263,7 +263,7 @@
 		"Emergency Physician" = /decl/hierarchy/outfit/job/medical/doctor/emergency_physician,
 		)
 /datum/job/doctor/get_description_blurb()
-	return	"You are a doctor on board the ICS Nerva, as a Doctor, it is within job to ensure all crew remain healthy, this may involve scanning paitents in the bodyscanners to find internal injuries, perform medical surgery to fix ailemtns, produce beneficial medicine to assist the crew and provide and seek out critically injured crew. As a Medical Doctor, ensure that you follow surgical procedures correctly to avoid malpractice, and to remind crew to set their lifesign sensors to maximum. You may be requested to accompany Away Missions, or other expeditions to ensure away-team safety. You answer directly to the Chief Medical Officer. If any paitent dies, remember to always remove the neural lace of the deceased crewmember and replace their body using the cloner and attach the new lace to revive them."
+	return	"You are a doctor on board the ICS Nerva, as a Doctor, it is your job to ensure all crew remain healthy, this may involve scanning patients in the bodyscanners to find internal injuries, perform medical surgery to fix ailments, produce beneficial medicine to assist the crew and provide for and seek out critically injured crew. As a Medical Doctor, ensure that you follow surgical procedures correctly to avoid malpractice, and to remind crew to set their suit sensors to maximum. You may be requested to accompany Away Missions, or other expeditions to ensure away-team safety. You answer directly to the Chief Medical Officer. If any paitent dies, remember to always remove the neural lace of the deceased crewmember and replace their body using the cloner and attach the new lace to revive them."
 //sec
 
 /datum/job/hos
@@ -284,7 +284,7 @@
 			            access_expedition_shuttle_helm, access_expedition, access_gunnery)
 
 /datum/job/hos/get_description_blurb()
-	return	"You are the Chief of Security, as the Chief of Security, it is your job to oversee your Security team to ensure they follow the correct procedures when responding to arrests and threats, managing and overseeing brigging, ensuring all crew present are held on the manifest. Thus, you are held accountable of the Security Team's actions. As the Chief of Security, it is also your job to arrest criminals, assist officers in distress, organize and speak with Command Staff about away-teams and out-bound communications and in cases in which there are no command staff present, act as Acting Captain. You answer directly to the Captain and the First Officer, remember to follow the specified law guidelines and avoid putting yourself in danger when you are on your own."
+	return	"You are the Chief of Security, as the Chief of Security, it is your job to oversee your Security team to ensure they follow the correct procedures when responding to arrests and threats, managing and overseeing brigging, ensuring all crew present are on the manifest. You are held accountable for the Security Team's actions. As the Chief of Security, it is also your job to arrest criminals, assist officers in distress, organize and speak with Command Staff about away-teams and out-bound communications and in cases in which there are no command staff present, act as Acting Captain. You answer directly to the Captain and the First Officer, remember to follow the specified law guidelines and avoid putting yourself in danger when you are on your own."
 
 /datum/job/officer
 	minimal_player_age = 0
@@ -335,7 +335,7 @@
 	minimal_player_age = 0
 
 /datum/job/chef/get_description_blurb()
-	return	"You are part of the culinary staff aboard the ICS Nerva. It is your job to provide the crew with food, serve alcoholic and non-alcoholic beverages, cooking both exotic and non-exotic meals and ensuring that no fighting occurs in the bar. You answer directly to the Second Officer. Remember to only use your shotgun if a serious fight occurs and avoid serving spiked food or drinks to your customers, or you may face reprecussions."
+	return	"You are part of the culinary staff aboard the ICS Nerva. It is your job to provide the crew with food, serve alcoholic and non-alcoholic beverages, cook both exotic and non-exotic meals and ensure that no fighting occurs in the bar. You answer directly to the Second Officer. Remember to only use your shotgun if a serious fight occurs and avoid serving spiked food or drinks to your customers, or you may face repercussions."
 
 
 /datum/job/janitor

@@ -155,7 +155,7 @@ GLOBAL_LIST_INIT(registered_cyborg_weapons, list())
 		else
 			to_chat(user, "<span class='warning'>[src] is empty.</span>")
 	else
-		user.visible_message("<span class='warning'>The cell cover is closed. Use a screwdriver to open it.</span>")
+		to_chat(user, "<span class='warning'>The cell cover is closed. Use a screwdriver to open it.</span>")
 		return
 
 //to trigger loading cell
