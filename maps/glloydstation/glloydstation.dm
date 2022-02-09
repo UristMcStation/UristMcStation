@@ -8,8 +8,6 @@
 	#include "glloydstation_presets.dm"
 	#include "arrivals.dm"
 	#include "simple_shuttles.dm"
-	
-	#include "datums/glloydstation_objectives.dm"
 
 	#include "fluff/_fluff.dm"
 	#include "fluff/culture.dm"
