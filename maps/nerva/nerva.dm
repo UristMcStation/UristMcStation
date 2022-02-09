@@ -12,6 +12,7 @@
 	#include "datums/nerva_access_datums.dm"
 	#include "datums/nerva_outfits.dm"
 	#include "datums/nerva_supplypacks.dm"
+	#include "datums/nerva_objectives.dm"
 	#include "obj/nerva_ids.dm"
 	#include "obj/nerva_closets.dm"
 	#include "obj/nerva_machinery.dm"
