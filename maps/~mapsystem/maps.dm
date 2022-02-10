@@ -210,7 +210,7 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	var/contract_money = 0 //likewise
 	var/destroyed_ships = 0
 	var/datum/factions/trading_faction = null //this is used to determine rep points/bonuses from trading and certain contracts
-
+	var/list/objective_items
 	// List of /datum/department types to instantiate at roundstart.
 	var/list/departments = list(
 		/datum/department/medbay

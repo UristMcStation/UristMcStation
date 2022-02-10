@@ -139,7 +139,7 @@
 	min_cold_protection_temperature = 253.15
 	armor = list(melee = 30, bullet = 10, laser = 15, energy = 10, bomb = 10, bio = 0, rad = 0)
 
-/obj/item/clothing/suit/storage/toggle/labcoat/science/nerva
+/obj/item/clothing/suit/storage/toggle/urist/science
 	name = "science labcoat"
 	desc = "A coat that protects against minor chemical spills. It has the insignia of the ICS Nerva on it."
 	icon = 'icons/urist/items/clothes/clothes.dmi'

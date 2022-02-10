@@ -27,6 +27,7 @@
 		/obj/item/clothing/mask/gas,
 		/obj/item/device/radio/headset/heads/nerva_cap,
 		/obj/item/clothing/head/urist/beret/nervacap,
+		/obj/item/clothing/under/urist/nerva/capregular,
 		/obj/item/clothing/under/urist/nerva/capformal,
 		/obj/item/clothing/glasses/sunglasses,
 		/obj/item/weapon/gun/energy/gun/small/secure,
