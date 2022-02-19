@@ -252,7 +252,7 @@
 	. = ..()
 
 /obj/item/weapon/storage/secure/alert_safe/MouseDrop(over_object, src_location, over_location)
-	if(locked || secure)
+	if(secure)
 		src.add_fingerprint(usr)
 		return
 	..()
@@ -324,6 +324,11 @@
 		GLOB.alert_locked -= src	//Remove it from the GLOB list so further alert changes have no effect
 		secure = 0
 		return 1
+
+/obj/item/weapon/storage/secure/alert_safe/can_be_inserted(obj/item/W, mob/user, stop_messages)
+	if(secure)
+		return 0
+	. = ..()
 
 /obj/item/weapon/storage/secure/alert_safe/handle_item_insertion(var/obj/item/W, var/prevent_warning = 0, var/NoUpdate = 0)
 	. = ..()
