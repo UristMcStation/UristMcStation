@@ -58,7 +58,7 @@
 	name = "light shield"
 	strength = 750
 	health = 200
-	recharge_rate = 80
+	recharge_rate = 75
 	recharge_delay = 10 SECONDS
 
 /datum/shipcomponents/shield/medium
