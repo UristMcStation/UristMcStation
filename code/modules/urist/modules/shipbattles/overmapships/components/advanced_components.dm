@@ -113,6 +113,7 @@
 	name = "pirate boarding teleporter"
 	boarding_number = 4
 	boarding_delay = 4 MINUTES
+	boarding_mobs = list(/mob/living/simple_animal/hostile/urist/newpirate,/mob/living/simple_animal/hostile/urist/newpirate/laser)
 
 /datum/shipcomponents/teleporter/terran
 	name = "high-flux Terran Naval teleporter"
