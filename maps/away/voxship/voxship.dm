@@ -15,6 +15,7 @@
 	color = "#cc5474"
 	in_space = 1
 	icon_state = "meteor4"
+	known = 0
 	initial_generic_waypoints = list(
 		"nav_voxbase_1",
 	)

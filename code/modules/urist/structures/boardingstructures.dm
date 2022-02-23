@@ -48,7 +48,7 @@
 	teleport_y = 90
 	teleport_z = 1
 
-//self destruct for boarding //currently commented out until I work out the kinks
+//self destruct for boarding
 
 /obj/structure/boarding/self_destruct
 	var/triggered = FALSE
@@ -64,6 +64,7 @@
 
 /obj/structure/boarding/self_destruct/attack_hand(mob/user as mob)
 	if(triggered)
+		to_chat(user, "<span class='warning'>The self destruct sequence is already engaged, there's nothing you can do to stop it.</span>")
 		return
 
 	else
@@ -76,6 +77,7 @@
 					return
 
 				else
+					to_chat(user, "<span class='warning'>You engage the self-desturct sequence. Better get the hell out of there.</span>")
 					triggered = TRUE
 					GLOB.global_announcer.autosay("<b>The self-destruct sequence on the attacking ship has been initiated. Evacuate all boarding parties immediately.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Common")
 					for(var/obj/effect/landmark/scom/bomb/B in landmarks_list)
