@@ -1,6 +1,7 @@
 
 //landmarks
-
+/obj/effect/urist/triggers
+	invisibility = 101
 
 /obj/effect/urist/triggers/New()
 	..()
@@ -15,14 +16,12 @@
 /obj/effect/urist/triggers/boarding_landmark
 	icon_state = "x3"
 	icon = 'icons/mob/screen1.dmi'
-	invisibility = 101
 
 //ai spawns
 
 /obj/effect/urist/triggers/ai_defender_landmark
 	icon_state = "x3"
 	icon = 'icons/mob/screen1.dmi'
-	invisibility = 101
 	var/list/spawn_type //what's the path of the thing we're spawning
 
 /obj/effect/urist/triggers/ai_defender_landmark/proc/spawn_mobs()
@@ -62,7 +61,6 @@
 /obj/effect/urist/triggers/defender_landmark
 	icon_state = "x3"
 	icon = 'icons/mob/screen1.dmi'
-	invisibility = 101
 	var/defender_outfit = null
 
 /client/verb/shipdefender_spawn()
@@ -137,14 +135,12 @@
 /obj/effect/urist/triggers/shipweapons
 	icon_state = "x3"
 	icon = 'icons/mob/screen1.dmi'
-	invisibility = 101
 
 //awaymaps
 
 /obj/effect/urist/triggers/away_ai_landmark
 	icon_state = "x3"
 	icon = 'icons/mob/screen1.dmi'
-	invisibility = 101
 	var/list/spawn_type //what's the path of the thing we're spawning
 	var/spawn_id = null
 

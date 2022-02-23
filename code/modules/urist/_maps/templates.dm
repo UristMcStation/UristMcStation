@@ -114,6 +114,7 @@ var/list/datum/map_template/ship/ship_templates = list()
 
 /obj/effect/template_loader/ships
 	var/mapfile = null
+	var/mob/living/simple_animal/hostile/overmapship/home_ship = null //what ship are we connected to
 	gamemode = "ships" //this is dumb, but i don't want to rewrite it
 
 /obj/effect/template_loader/ships/Load(list/potentialRuins = ship_templates, datum/map_template/ship/template = null)
@@ -125,11 +126,10 @@ var/list/datum/map_template/ship/ship_templates = list()
 			template = T
 //	world << "<span class='boldannounce'>Template = [template] Mapfile = [mapfile]</span>"
 
-	template.load(get_turf(src), centered = TRUE)
+	if(template.load(get_turf(src), centered = TRUE))
 //	template.loaded++
-
-	QDEL_IN(src,0)
-
+		home_ship.map_spawned = TRUE
+		QDEL_IN(src,0)
 
 /* MATRIXCOMMENT
 /obj/effect/template_loader/matrix/Initialize()
