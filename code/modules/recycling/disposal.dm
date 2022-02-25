@@ -1604,8 +1604,11 @@
 			AM.forceMove(src.loc)
 			AM.pipe_eject(dir)
 			if(unwrap && istype(AM, /obj/structure/bigDelivery))
-				qdel(AM)
-
+				var/obj/structure/bigDelivery/O = AM
+				var/atom/movable/C = O.wrapped
+				qdel(O)
+				spawn(5)
+					C.throw_at(target, 1, 1)
 			else
 				if(!istype(AM,/mob/living/silicon/robot/drone)) //Drones keep smashing windows from being fired out of chutes. Bad for the station. ~Z
 					spawn(5)
