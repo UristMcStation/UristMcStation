@@ -57,14 +57,14 @@
 
 /datum/shipcomponents/weapons/ioncannon
 	name = "ion cannon"
-	firedelay = 14 SECONDS
+	firedelay = 18 SECONDS
 	projectile_type = /obj/item/projectile/ion/ship
 	weapon_type = /obj/machinery/shipweapons/beam/ion
 	burst = 2
 
 /datum/shipcomponents/weapons/ioncannon/heavy
 	name = "heavy ion cannon"
-	firedelay = 22 SECONDS
+	firedelay = 26 SECONDS
 	projectile_type = /obj/item/projectile/ion/ship/heavy
 	burst = 2
 

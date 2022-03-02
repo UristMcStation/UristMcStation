@@ -150,18 +150,20 @@
 					if(OM.shields)
 						var/shieldbuffer = OM.shields
 						OM.shields = max(OM.shields - shield_damage, 0) //take the hit
-						if(!OM.shields && hull_damage) //if we're left with less than 0 shields
-							shieldbuffer = hull_damage-shieldbuffer //hull_damage is slightly mitigated by the existing shield
-							if(shieldbuffer > 0) //but if the shield was really strong, we don't do anything
-								OM.health = max(OM.health - shieldbuffer, 0)
+						if(!OM.shields)
+							for(var/datum/shipcomponents/shield/S in OM.components)
+								S.recovery_debt = S.recovery_threashold
+							if(hull_damage) //if we're left with less than 0 shields
+								shieldbuffer = hull_damage-shieldbuffer //hull_damage is slightly mitigated by the existing shield
+								if(shieldbuffer > 0) //but if the shield was really strong, we don't do anything
+									OM.health = max(OM.health - shieldbuffer, 0)
+									for(var/datum/shipcomponents/shield/S in OM.components)
+										if(!S.broken)
+											var/component_damage = hull_damage * 0.1
+											S.health -= component_damage
 
-								for(var/datum/shipcomponents/shield/S in OM.components)
-									if(!S.broken)
-										var/component_damage = hull_damage * 0.1
-										S.health -= component_damage
-
-										if(S.health <= 0)
-											S.BlowUp()
+											if(S.health <= 0)
+												S.BlowUp()
 
 					else	//no shields? easy
 						if(targeted_component)

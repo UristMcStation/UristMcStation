@@ -6,7 +6,7 @@
 
 /obj/machinery/shipweapons/beam/lightlaser //lasers are pretty good against shields, relatively weak against hulls
 	name = "light laser cannon"
-	shield_damage = 200 //13.33 dps
+	shield_damage = 220 //14.66 dps
 	hull_damage = 100 //6.67 dps
 	icon_state = "lasercannon"
 	idle_power_usage = 10
