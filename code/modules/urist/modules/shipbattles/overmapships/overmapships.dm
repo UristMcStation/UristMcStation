@@ -76,7 +76,7 @@
 	if(incombat)
 		for(var/datum/shipcomponents/M in src.components)
 			if(M.broken)
-				return
+				continue
 			else
 				M.DoActivate()
 
