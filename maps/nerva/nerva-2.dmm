@@ -3544,6 +3544,7 @@
 /obj/machinery/shieldwallgen{
 	anchored = 1;
 	max_range = 30;
+	power_draw = 60000;
 	req_access = list("ACCESS_BRIDGE")
 	},
 /obj/structure/cable,
@@ -25750,6 +25751,7 @@
 /obj/machinery/shieldwallgen{
 	anchored = 1;
 	max_range = 30;
+	power_draw = 60000;
 	req_access = list("ACCESS_BRIDGE")
 	},
 /obj/structure/cable{
