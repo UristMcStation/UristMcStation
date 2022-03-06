@@ -29,6 +29,9 @@
 	if(istype(S))
 		S.amount = amount
 		S.add_to_stacks(user, 1)
+		if(S.amount <= 0)
+			qdel(S)
+			return
 	return S
 
 /datum/stack_recipe/tile/metal/floor

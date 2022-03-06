@@ -121,9 +121,10 @@
 
 	if (use(required))
 		var/atom/O = recipe.spawn_result(user, user.loc, produced)
-		O.add_fingerprint(user)
+		if(O)
+			O.add_fingerprint(user)
 
-		user.put_in_hands(O)
+			user.put_in_hands(O)
 
 /obj/item/stack/Topic(href, href_list)
 	..()
@@ -167,6 +168,9 @@
 	if(!uses_charge)
 		amount -= used
 		if (amount <= 0)
+			var/obj/item/weapon/storage/ST = src.loc	//Let's check if it's in storage and remove any references to the object so it can be qdel'd
+			if(istype(ST))
+				ST.remove_from_storage(src,ST.get_loc_turf())
 			qdel(src) //should be safe to qdel immediately since if someone is still using this stack it will persist for a little while longer
 		return 1
 	else
