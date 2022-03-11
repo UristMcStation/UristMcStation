@@ -6073,6 +6073,10 @@
 	pixel_x = -32;
 	pixel_y = 0
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/hallway/commandport)
 "alf" = (
@@ -6093,8 +6097,7 @@
 	pixel_y = 0
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/hallway/commandport)
@@ -6833,6 +6836,7 @@
 	icon_state = "1-2";
 	tag = ""
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/hallway/commandport)
 "amo" = (
@@ -6843,7 +6847,6 @@
 	dir = 6;
 	icon_state = "corner_white"
 	},
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandport)
 "amp" = (
@@ -7464,10 +7467,7 @@
 	tag = ""
 	},
 /obj/effect/catwalk_plated/dark,
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
-	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/hallway/commandport)
 "any" = (
@@ -7475,23 +7475,10 @@
 	dir = 6;
 	icon_state = "corner_white"
 	},
-/obj/structure/disposalpipe/sortjunction{
-	dir = 8;
-	name = "Port Gun Bay";
-	sortType = "Port Gun Bay"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandport)
 "anz" = (
-/obj/structure/disposalpipe/down{
-	dir = 8;
-	icon_state = "pipe-d";
-	tag = "icon-pipe-d (WEST)"
-	},
-/obj/structure/lattice,
-/turf/simulated/open{
-	initial_gas = null
-	},
+/turf/simulated/floor/plating,
 /area/hallway/commandport)
 "anA" = (
 /obj/machinery/light/small{
@@ -8223,6 +8210,9 @@
 	icon_state = "4-8";
 	pixel_y = 0
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/boardarmoury)
 "aoS" = (
@@ -8235,6 +8225,9 @@
 /obj/machinery/door/airlock/command{
 	name = "Boarding Armoury";
 	req_access = list("ACCESS_FIRST_OFFICER")
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/boardarmoury)
@@ -8256,7 +8249,10 @@
 	tag = ""
 	},
 /obj/effect/catwalk_plated/dark,
-/obj/structure/disposalpipe/segment,
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/plating,
 /area/hallway/commandport)
 "aoU" = (
@@ -9138,11 +9134,6 @@
 	tag = ""
 	},
 /obj/effect/catwalk_plated/dark,
-/obj/structure/disposalpipe/sortjunction/flipped{
-	dir = 2;
-	name = "Starboard Gun Bay";
-	sortType = "Starboard Gun Bay"
-	},
 /turf/simulated/floor/plating,
 /area/hallway/commandport)
 "aqj" = (
@@ -9153,10 +9144,6 @@
 /obj/machinery/firealarm{
 	dir = 4;
 	pixel_x = 24
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandport)
@@ -9822,7 +9809,6 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/hallway/commandport)
 "ark" = (
@@ -9841,7 +9827,6 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandport)
 "arl" = (
@@ -11307,6 +11292,10 @@
 	dir = 4;
 	icon_state = "map-scrubbers"
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 8;
@@ -11318,9 +11307,6 @@
 	icon_state = "2-8"
 	},
 /obj/effect/catwalk_plated/dark,
-/obj/structure/disposalpipe/junction/yjunction{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/hallway/commandport)
 "asF" = (
@@ -11334,7 +11320,6 @@
 	pixel_x = 28;
 	tag = "icon-intercom (WEST)"
 	},
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandport)
 "asG" = (
@@ -12077,7 +12062,6 @@
 	dir = 4;
 	icon_state = "corner_white"
 	},
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandport)
 "atW" = (
@@ -12680,7 +12664,6 @@
 	req_access = list("ACCESS_BRIDGE")
 	},
 /obj/machinery/door/firedoor,
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood/walnut,
 /area/command/meeting)
 "auX" = (
@@ -13469,7 +13452,6 @@
 	icon_state = "4-8";
 	pixel_y = 0
 	},
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood/walnut,
 /area/command/meeting)
 "aws" = (
@@ -14048,7 +14030,6 @@
 /turf/simulated/floor/carpet/green,
 /area/command/meeting)
 "axA" = (
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood/walnut,
 /area/command/meeting)
 "axB" = (
@@ -15183,7 +15164,6 @@
 /area/command/meeting)
 "azB" = (
 /obj/machinery/hologram/holopad,
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood/walnut,
 /area/command/meeting)
 "azC" = (
@@ -18072,7 +18052,6 @@
 	tag = ""
 	},
 /obj/effect/floor_decal/corner/fadeblue,
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandstarboard)
 "aEr" = (
@@ -19095,7 +19074,6 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandstarboard)
 "aFP" = (
@@ -19574,7 +19552,6 @@
 	dir = 6;
 	icon_state = "corner_white"
 	},
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandstarboard)
 "aGS" = (
@@ -20353,7 +20330,6 @@
 	dir = 6;
 	icon_state = "corner_white"
 	},
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandstarboard)
 "aIm" = (
@@ -21047,7 +21023,6 @@
 	icon_state = "alarm0";
 	pixel_x = 24
 	},
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandstarboard)
 "aJx" = (
@@ -21605,7 +21580,6 @@
 	dir = 6;
 	icon_state = "corner_white"
 	},
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandstarboard)
 "aKy" = (
@@ -22304,7 +22278,6 @@
 	dir = 6;
 	icon_state = "corner_white"
 	},
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandstarboard)
 "aLD" = (
@@ -23056,7 +23029,13 @@
 	icon_state = "2-4"
 	},
 /obj/effect/catwalk_plated/dark,
-/obj/structure/disposalpipe/segment,
+/obj/structure/disposalpipe/sortjunction{
+	dir = 1;
+	icon_state = "pipe-j1s";
+	name = "Starboard Gun Bay";
+	sortType = "Starboard Gun Bay";
+	tag = "icon-pipe-j1s (NORTH)"
+	},
 /turf/simulated/floor/plating,
 /area/hallway/commandstarboard)
 "aMK" = (
@@ -23072,14 +23051,13 @@
 	pixel_y = 0
 	},
 /obj/effect/catwalk_plated/dark,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10;
 	icon_state = "intact-supply";
 	tag = "icon-intact-supply (SOUTHWEST)"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/plating,
 /area/hallway/commandstarboard)
@@ -23090,13 +23068,13 @@
 	icon_state = "4-8";
 	pixel_y = 0
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4;
 	icon_state = "intact-scrubbers";
 	tag = "icon-intact-scrubbers (EAST)"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/hallway/commandstarboard)
@@ -29308,9 +29286,10 @@
 	icon_state = "1-4"
 	},
 /obj/machinery/hologram/holopad,
-/obj/structure/disposalpipe/segment{
+/obj/structure/disposalpipe/junction{
 	dir = 8;
-	icon_state = "pipe-c"
+	icon_state = "pipe-j1";
+	tag = "icon-pipe-j1 (WEST)"
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/boardarmoury)
@@ -29563,8 +29542,10 @@
 	icon_state = "4-8";
 	pixel_y = 0
 	},
-/obj/structure/disposalpipe/junction{
-	dir = 8
+/obj/structure/disposalpipe/sortjunction{
+	dir = 8;
+	name = "Port Gun Bay";
+	sortType = "Port Gun Bay"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/commandport)
@@ -30642,13 +30623,13 @@
 	icon_state = "4-8";
 	pixel_y = 0
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6;
 	icon_state = "intact-supply";
 	tag = "icon-intact-supply (SOUTHEAST)"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/hallway/commandstarboard)
@@ -31030,16 +31011,6 @@
 /obj/effect/paint_stripe/paleblue,
 /turf/simulated/wall/r_wall/prepainted,
 /area/medical/chemistry)
-"sMx" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Bridge Maintenance";
-	req_access = list(list("ACCESS_BRIDGE","ACCESS_GUNNERY"))
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/hallway/commandport)
 "sPc" = (
 /obj/machinery/light/small{
 	dir = 8;
@@ -31106,7 +31077,7 @@
 	icon_state = "pipe-t"
 	},
 /obj/machinery/conveyor{
-	dir = 8;
+	dir = 4;
 	id = "starboardgunbelt"
 	},
 /turf/simulated/floor/plating,
@@ -61943,7 +61914,7 @@ air
 ajT
 icd
 air
-sMx
+amp
 air
 air
 emJ
