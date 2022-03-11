@@ -1596,7 +1596,9 @@
 
 	flick("outlet-open", src)
 	playsound(src, 'sound/machines/warning-buzzer.ogg', 50, 0, 0)
-	sleep(20)	//wait until correct animation frame
+	if(H)
+		H.active = FALSE	//Stop processing the holder
+	sleep(27)	//wait until correct animation frame
 	playsound(src, 'sound/machines/hiss.ogg', 50, 0, 0)
 
 	if(H)
