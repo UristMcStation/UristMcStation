@@ -3001,8 +3001,8 @@
 	icon_state = "4-8"
 	},
 /obj/structure/disposalpipe/segment{
-	icon_state = "pipe-c";
-	dir = 8
+	dir = 8;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/afp)
@@ -10908,8 +10908,8 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/disposalpipe/segment{
-	icon_state = "pipe-c";
-	dir = 8
+	dir = 8;
+	icon_state = "pipe-c"
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
@@ -11070,8 +11070,8 @@
 	},
 /obj/structure/catwalk,
 /obj/structure/disposalpipe/segment{
-	icon_state = "pipe-c";
-	dir = 8
+	dir = 8;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
@@ -11169,8 +11169,8 @@
 	tag = "icon-warning (NORTH)"
 	},
 /obj/structure/disposaloutlet/unwrap{
-	icon_state = "outlet";
-	dir = 8
+	dir = 8;
+	icon_state = "outlet"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/bottomgun)
@@ -11321,8 +11321,8 @@
 	tag = "icon-intact-scrubbers (EAST)"
 	},
 /obj/structure/disposalpipe/segment{
-	icon_state = "pipe-c";
-	dir = 8
+	dir = 8;
+	icon_state = "pipe-c"
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
@@ -13850,7 +13850,7 @@
 /obj/machinery/autolathe,
 /obj/machinery/conveyor{
 	dir = 4;
-	id = "torpedo"
+	id = "cargo_belt"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/monotile,
@@ -13858,7 +13858,7 @@
 "yd" = (
 /obj/machinery/conveyor{
 	dir = 4;
-	id = "torpedo"
+	id = "cargo_belt"
 	},
 /obj/structure/shipammo/torpedo,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -13867,7 +13867,7 @@
 "ye" = (
 /obj/machinery/conveyor{
 	dir = 4;
-	id = "torpedo"
+	id = "cargo_belt"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/monotile,
@@ -13876,17 +13876,15 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 4
 	},
-/obj/machinery/disposal/deliveryChute{
-	dir = 8;
-	icon_state = "intake";
-	name = "cargo chute"
-	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 1;
 	icon_state = "railing0";
 	tag = "icon-railing0 (NORTH)"
+	},
+/obj/machinery/disposal/deliveryChute/wrap{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/logistics/fabwork)
@@ -15282,8 +15280,8 @@
 /area/logistics/fabwork)
 "AD" = (
 /obj/structure/disposalpipe/segment{
-	icon_state = "pipe-c";
-	dir = 8
+	dir = 8;
+	icon_state = "pipe-c"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
@@ -20288,8 +20286,8 @@
 /obj/effect/floor_decal/floordetail/edgedrain,
 /obj/machinery/light/chromatic,
 /obj/structure/disposalpipe/trunk{
-	icon_state = "pipe-t";
-	dir = 1
+	dir = 1;
+	icon_state = "pipe-t"
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/rnd/xenobiology/xenoflora)
@@ -23133,7 +23131,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/conveyor_switch/oneway{
-	id = "torpedo"
+	id = "cargo_belt"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1;
@@ -23173,7 +23171,7 @@
 "YC" = (
 /obj/machinery/conveyor{
 	dir = 4;
-	id = "torpedo"
+	id = "cargo_belt"
 	},
 /obj/structure/railing/mapped{
 	dir = 1;

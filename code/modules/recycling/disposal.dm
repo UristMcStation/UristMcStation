@@ -1596,7 +1596,9 @@
 
 	flick("outlet-open", src)
 	playsound(src, 'sound/machines/warning-buzzer.ogg', 50, 0, 0)
-	sleep(20)	//wait until correct animation frame
+	if(H)
+		H.active = FALSE	//Stop processing the holder
+	sleep(27)	//wait until correct animation frame
 	playsound(src, 'sound/machines/hiss.ogg', 50, 0, 0)
 
 	if(H)
@@ -1604,8 +1606,11 @@
 			AM.forceMove(src.loc)
 			AM.pipe_eject(dir)
 			if(unwrap && istype(AM, /obj/structure/bigDelivery))
-				qdel(AM)
-
+				var/obj/structure/bigDelivery/O = AM
+				var/atom/movable/C = O.wrapped
+				qdel(O)
+				spawn(5)
+					C.throw_at(target, 1, 1)
 			else
 				if(!istype(AM,/mob/living/silicon/robot/drone)) //Drones keep smashing windows from being fired out of chutes. Bad for the station. ~Z
 					spawn(5)

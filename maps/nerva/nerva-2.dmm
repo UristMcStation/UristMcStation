@@ -4372,8 +4372,8 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
-	dir = 8
+	dir = 8;
+	icon_state = "map-scrubbers"
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
@@ -23378,8 +23378,8 @@
 	},
 /obj/effect/catwalk_plated/dark,
 /obj/structure/disposalpipe/segment{
-	icon_state = "pipe-c";
-	dir = 8
+	dir = 8;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/genstorage)
@@ -24344,8 +24344,8 @@
 	},
 /obj/effect/catwalk_plated/dark,
 /obj/structure/disposalpipe/segment{
-	icon_state = "pipe-c";
-	dir = 8
+	dir = 8;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/smmon)
@@ -28878,8 +28878,8 @@
 /area/security/portgun)
 "dmy" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
-	icon_state = "intact";
-	dir = 4
+	dir = 4;
+	icon_state = "intact"
 	},
 /turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/third_deck/fp)
@@ -29344,7 +29344,7 @@
 	pixel_x = 24;
 	pixel_y = -24
 	},
-/obj/machinery/conveyor_switch{
+/obj/machinery/conveyor_switch/oneway{
 	id = "starboardgunbelt"
 	},
 /obj/structure/catwalk,
@@ -29386,7 +29386,7 @@
 	pixel_y = 28
 	},
 /obj/machinery/conveyor{
-	dir = 8;
+	dir = 4;
 	id = "portgunbelt"
 	},
 /turf/simulated/floor/plating,
@@ -29580,7 +29580,7 @@
 	pixel_y = -22
 	},
 /obj/machinery/conveyor{
-	dir = 8;
+	dir = 4;
 	id = "starboardgunbelt"
 	},
 /turf/simulated/floor/plating,
@@ -29834,7 +29834,7 @@
 	pixel_y = 25
 	},
 /obj/machinery/conveyor{
-	dir = 8;
+	dir = 4;
 	id = "portgunbelt"
 	},
 /turf/simulated/floor/plating,
@@ -29942,8 +29942,8 @@
 	req_access = list("ACCESS_EXTERNAL")
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
-	icon_state = "intact";
-	dir = 9
+	dir = 9;
+	icon_state = "intact"
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
@@ -30056,8 +30056,8 @@
 	},
 /obj/structure/catwalk,
 /obj/structure/disposalpipe/junction{
-	icon_state = "pipe-j2";
-	dir = 4
+	dir = 4;
+	icon_state = "pipe-j2"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/cents)
@@ -30071,8 +30071,8 @@
 	pixel_y = -25
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
-	dir = 10
+	dir = 10;
+	icon_state = "intact"
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
@@ -30089,8 +30089,8 @@
 "lfC" = (
 /obj/structure/catwalk,
 /obj/machinery/light/small{
-	icon_state = "bulb1";
-	dir = 1
+	dir = 1;
+	icon_state = "bulb1"
 	},
 /turf/simulated/floor/plating/airless,
 /area/maintenance/third_deck/fs)
@@ -30212,8 +30212,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/light/small{
-	icon_state = "bulb1";
-	dir = 1
+	dir = 1;
+	icon_state = "bulb1"
 	},
 /turf/simulated/floor/plating,
 /area/security/starboardexternalgun)
@@ -30520,12 +30520,12 @@
 /area/logistics/lockers)
 "oGG" = (
 /obj/structure/disposaloutlet/unwrap{
-	icon_state = "outlet";
-	dir = 4
+	dir = 4;
+	icon_state = "outlet"
 	},
 /obj/structure/disposalpipe/trunk{
-	icon_state = "pipe-t";
-	dir = 1
+	dir = 1;
+	icon_state = "pipe-t"
 	},
 /obj/machinery/camera/network/command{
 	c_tag = "Starboard External Gun Bay";
@@ -30533,7 +30533,7 @@
 	icon_state = "camera"
 	},
 /obj/machinery/conveyor{
-	dir = 8;
+	dir = 4;
 	id = "starboardgunbelt"
 	},
 /turf/simulated/floor/plating,
@@ -30582,12 +30582,12 @@
 /area/command/eva)
 "oUy" = (
 /obj/machinery/conveyor{
-	dir = 8;
+	dir = 4;
 	id = "portgunbelt"
 	},
 /obj/structure/disposaloutlet/unwrap{
-	icon_state = "outlet";
-	dir = 4
+	dir = 4;
+	icon_state = "outlet"
 	},
 /obj/structure/disposalpipe/trunk,
 /obj/machinery/camera/network/command{
@@ -30641,8 +30641,8 @@
 	pixel_y = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 5
+	dir = 5;
+	icon_state = "intact-scrubbers"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -30910,11 +30910,11 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/trunk{
-	icon_state = "pipe-t";
-	dir = 8
+	dir = 8;
+	icon_state = "pipe-t"
 	},
 /obj/machinery/conveyor{
-	dir = 8;
+	dir = 4;
 	id = "portgunbelt"
 	},
 /turf/simulated/floor/plating,
@@ -31011,11 +31011,6 @@
 /obj/effect/paint_stripe/paleblue,
 /turf/simulated/wall/r_wall/prepainted,
 /area/medical/chemistry)
-"sMx" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/space,
-/area/space)
 "sPc" = (
 /obj/machinery/light/small{
 	dir = 8;
@@ -31078,11 +31073,11 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/trunk{
-	icon_state = "pipe-t";
-	dir = 8
+	dir = 8;
+	icon_state = "pipe-t"
 	},
 /obj/machinery/conveyor{
-	dir = 8;
+	dir = 4;
 	id = "starboardgunbelt"
 	},
 /turf/simulated/floor/plating,
@@ -31208,7 +31203,7 @@
 /area/security/lockers)
 "uip" = (
 /obj/machinery/conveyor{
-	dir = 8;
+	dir = 4;
 	id = "starboardgunbelt"
 	},
 /obj/item/device/radio/intercom{
@@ -31222,9 +31217,9 @@
 "urB" = (
 /obj/structure/closet/emcloset,
 /obj/effect/decal/cleanable/cobweb{
-	tag = "icon-cobweb1 (EAST)";
+	dir = 4;
 	icon_state = "cobweb1";
-	dir = 4
+	tag = "icon-cobweb1 (EAST)"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -31247,8 +31242,8 @@
 	name = "cargo chute"
 	},
 /obj/structure/disposalpipe/trunk{
-	icon_state = "pipe-t";
-	dir = 1
+	dir = 1;
+	icon_state = "pipe-t"
 	},
 /turf/simulated/floor/plating,
 /area/security/starboardexternalgun)
@@ -31268,7 +31263,7 @@
 	pixel_x = 24;
 	pixel_y = 24
 	},
-/obj/machinery/conveyor_switch{
+/obj/machinery/conveyor_switch/oneway{
 	id = "portgunbelt"
 	},
 /obj/structure/catwalk,
@@ -31571,8 +31566,8 @@
 "wSn" = (
 /obj/machinery/light/small/red,
 /obj/structure/disposalpipe/segment{
-	icon_state = "pipe-c";
-	dir = 8
+	dir = 8;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afs)
@@ -31603,8 +31598,8 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk{
-	icon_state = "pipe-t";
-	dir = 1
+	dir = 1;
+	icon_state = "pipe-t"
 	},
 /turf/simulated/floor/plating,
 /area/civilian/abandonedoffice)
@@ -64973,7 +64968,7 @@ aaa
 aaa
 aaa
 aaa
-sMx
+akb
 akb
 sZY
 akb
