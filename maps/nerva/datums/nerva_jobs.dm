@@ -67,7 +67,7 @@
 	minimal_player_age = 5
 	economic_power = 15
 	outfit_type = /decl/hierarchy/outfit/job/nerva/firstofficer
-	hud_icon = "hudheadofpersonnel"
+	hud_icon = "hudfirstofficer"
 	access = list(access_security, access_sec_doors, access_brig, access_forensics_lockers, access_heads,
 			            access_engine, access_change_ids, access_ai_upload, access_eva, access_bridge,
 			            access_all_personal_lockers, access_maint_tunnels, access_bar, access_janitor, access_construction, access_morgue,
@@ -143,7 +143,7 @@
 	economic_power = 15
 	title = "Senior Scientist"
 	supervisors = "the captain and nanotrasen central command."
-	hud_icon = "hudresearchdirector"
+	hud_icon = "hudseniorscientist"
 	outfit_type = /decl/hierarchy/outfit/job/nerva/seniorscientist
 	access = list(access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch, access_expedition, access_network, access_seniornt,
 			 					access_maint_tunnels, access_heads, access_medical, access_ai_upload, access_eva, access_bridge, access_morgue, access_hydroponics,
@@ -305,7 +305,7 @@
 	supervisors = "NanoTrasen Central Command and the captain."
 	total_positions = 3
 	spawn_positions = 3
-	hud_icon = "hudblueshield"
+	hud_icon = "hudscientist"
 	outfit_type = /decl/hierarchy/outfit/job/nerva/scientist
 	access = list(access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch, access_expedition, access_network, access_maint_tunnels)
 	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenoarch, access_xenobiology, access_expedition, access_network, access_maint_tunnels)
