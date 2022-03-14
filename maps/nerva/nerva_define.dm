@@ -14,6 +14,8 @@
 	overmap_size = 36
 	overmap_event_areas = 32
 
+	id_hud_icons = 'maps/nerva/icons/assignment_hud.dmi'
+
 	allowed_spawns = list("Cryogenic Storage", "Secondary Cryogenic Storage", "Cyborg Storage")
 	default_spawn = "Cryogenic Storage"
 
