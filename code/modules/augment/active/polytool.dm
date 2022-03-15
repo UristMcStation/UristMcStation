@@ -56,11 +56,11 @@
 		var/list/options = list()
 		var/obj/item
 
-		for(item in src)
-			var/image/radial_button = image(icon = I.icon, icon_state = I.icon_state)
-			options[I] = radial_button
+		for(var/obj/tool in items)
+			var/image/radial_button = image(icon = tool.icon, icon_state = tool.icon_state)
+			options[tool] = radial_button
 
-		item = show_radial_menu(src, src, options, radius = 42, tooltips = TRUE)
+		item = show_radial_menu(owner, owner, options, radius = 42, tooltips = TRUE)
 
 		if(!item)
 			return

@@ -30,6 +30,9 @@
 
 /obj/effect/urist/spawn_bomb/Initialize()
 	.=..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/effect/urist/spawn_bomb/LateInitialize()
 	if(empulse)
 		empulse(src.loc, dmg_hvy, dmg_lgt, 0, 0)
 
