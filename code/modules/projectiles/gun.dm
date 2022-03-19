@@ -153,7 +153,7 @@
 /obj/item/weapon/gun/proc/check_dual_wield(atom/A, mob/living/user, params)
 	var/obj/item/weapon/gun/G = user.get_inactive_hand()
 	if(can_dual_wield && G.can_dual_wield)
-		if(w_class <= ITEM_SIZE_NORMAL && G.w_class <= ITEM_SIZE_NORMAL)
+		if(w_class <= ITEM_SIZE_SMALL && G.w_class <= ITEM_SIZE_SMALL)
 			Fire(A,user,params, dual_wield=1)
 			user.swap_hand()
 		else
