@@ -253,14 +253,12 @@
 /obj/item/weapon/gun/projectile/pistol/on_update_icon()
 	..()
 	if(silenced)
-		icon_state = "silenced_pistol"
+		icon_state = "pistol-silencer"
 		wielded_item_state = "pistol-silencer"
 	else
 		icon_state = "pistol"
 	if(!(ammo_magazine && ammo_magazine.stored_ammo.len))
-		icon_state = "pistol"
-	else
-		icon_state = "pistol-e"
+		icon_state = "[icon_state]-e"
 
 /obj/item/weapon/silencer
 	name = "silencer"
