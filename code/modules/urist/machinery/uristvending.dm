@@ -181,6 +181,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/machinery/vending/whitedragon
 	name = "White Dragon"
 	desc = "A vendor shining with bright lamps, it appears to be selling asian food."
+	icon = 'icons/urist/structures&machinery/machinery.dmi'
 	icon_state = "whitedragon"
 	vend_reply = "Thank you for choosing White Dragon!"
 	product_slogans = list("Award-winning sushi!",
