@@ -1,17 +1,57 @@
-<hr>
-<span>Current balance: {{:data.credits}} {{:data.currency}}</span>
-<hr>
-<div class='block'>
-<table style="width:100%">
-<tr><th style="width:15%">Contract<th style="width:50%">Description<th style="width:15%">Issuer<th style="width:10%">Value<th style="width:5%">Required Amount<th style="width:5%">Amount Completed
-{{for data.existing_contracts}}
-	<tr>
-	<td>{{:value.name}}
-	<td>{{:value.desc}}
-	<td><center>{{:value.issuer}}</center>
-	<td><center>{{:value.money}} {{:data.currency}}</center>
-	<td><center>{{:value.amount}}</center>
-	<td><center>{{:value.progress}}</center>
-{{/for}}
-</table>
-</div>
+{{if data.display_state != 3}}
+	<hr>
+	{{:helper.link('Contracts','script',{'display_state':1}, data.display_state == 1 ? 'selected' : null)}}
+	{{:helper.link('Factions','flag',{'display_state':2}, data.display_state == 2 ? 'selected' : null)}}
+{{/if}}
+{{if data.display_state == 1}}
+	<br>
+	<hr>
+	<span>Current balance: {{:data.credits}} {{:data.currency}}</span>
+	<div class='block'>
+	<table style="width:100%">
+	<tr><th style="width:15%">Contract<th style="width:50%">Description<th style="width:15%">Issuer<th style="width:10%">Value<th style="width:5%">Required Amount<th style="width:5%">Amount Completed
+	{{for data.existing_contracts}}
+		<tr>
+		<td>{{:value.name}}
+		<td>{{:value.desc}}
+		<td><center>{{:value.issuer}}</center>
+		<td><center>{{:value.money}} {{:data.currency}}</center>
+		<td><center>{{:value.amount}}</center>
+		<td><center>{{:value.progress}}</center>
+	{{/for}}
+	</table>
+	</div>
+{{else data.display_state == 2}}
+	<br>
+	<hr>
+	<div class ='block'>
+		<h1><center>Factions</center></h1>
+		<br>
+		{{for data.factions}}
+			<h3>
+			{{if value.col == 1}}
+				<span class='bad'>
+			{{else value.col == 2}}
+				<span class='average'>
+			{{else}}
+				<span class='good'>
+			{{/if}}
+			{{:helper.capitalizeFirstLetter(value.name)}} {{:helper.link('','extlink',{'more' : value.ref})}}</span></h3>
+			<br>
+		{{/for}}
+	</div>
+{{else}}
+	<div class='block'>
+		<span class='floatRight'>{{:helper.link('Return', 'arrowreturnthick-1-w',{'return' : null})}}</span>
+		<h1><center>{{:helper.capitalizeFirstLetter(data.name)}}</center></h1>
+		<br>
+		{{:helper.displayBar(data.rep,-100,100,data.col == 1 ? 'bad' : data.col == 2 ? 'average' : 'good','<center><b>Reputation: ' + data.rep) + '</b></center>'}}
+		<span class='floatRight'>
+			<h3><b>Standing:</b> {{:data.standing}}</h3>
+		</span>
+		<br>
+		<hr>
+		<br>
+		{{:data.desc}}
+	</div>
+{{/if}}

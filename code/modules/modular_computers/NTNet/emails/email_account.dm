@@ -94,3 +94,9 @@
 
 /datum/computer_file/data/email_account/service/sysadmin
 	login = EMAIL_SYSADMIN
+
+/datum/computer_file/data/email_account/service/payroll
+	login = EMAIL_PAYROLL
+
+/datum/computer_file/data/email_account/service/finance
+	login = EMAIL_FINANCE

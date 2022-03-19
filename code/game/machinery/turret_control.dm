@@ -53,6 +53,8 @@
 			if(A.name && A.name==control_area)
 				control_area = A
 				break
+	else
+		control_area = locate(control_area)
 
 	if(control_area)
 		var/area/A = control_area

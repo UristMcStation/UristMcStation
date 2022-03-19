@@ -27,9 +27,10 @@
 		/obj/item/clothing/mask/gas,
 		/obj/item/device/radio/headset/heads/nerva_cap,
 		/obj/item/clothing/head/urist/beret/nervacap,
+		/obj/item/clothing/under/urist/nerva/capregular,
 		/obj/item/clothing/under/urist/nerva/capformal,
 		/obj/item/clothing/glasses/sunglasses,
-		/obj/item/weapon/gun/energy/gun/secure,
+		/obj/item/weapon/gun/energy/gun/small/secure,
 		/obj/item/clothing/accessory/storage/holster/thigh,
 		/obj/item/weapon/melee/telebaton,
 		/obj/item/device/flash,
@@ -105,10 +106,12 @@
 		/obj/item/device/flash,
 		/obj/item/weapon/storage/box/large/ids,
 		/obj/item/weapon/storage/box/PDAs,
+		/obj/item/weapon/storage/box/headset,
 		/obj/item/weapon/material/clipboard,
 		/obj/item/clothing/under/urist/nerva/soregular,
 		/obj/item/clothing/head/urist/beret/nervaso,
 		/obj/item/weapon/gun/energy/gun/small/secure,
+		/obj/item/clothing/accessory/storage/holster/thigh
 	)
 
 /obj/structure/closet/secure_closet/nervasec
@@ -125,6 +128,7 @@
 		/obj/item/clothing/under/urist/nerva/secfield,
 		/obj/item/clothing/suit/storage/hooded/seccloak,
 		/obj/item/weapon/storage/belt/holster/security,
+		/obj/item/weapon/storage/belt/security,
 		/obj/item/device/flash,
 		/obj/item/weapon/reagent_containers/spray/pepper,
 		/obj/item/weapon/grenade/chem_grenade/teargas,
@@ -160,6 +164,7 @@
 		/obj/item/taperoll/police,
 		/obj/item/weapon/handcuffs,
 		/obj/item/weapon/storage/belt/holster/security,
+		/obj/item/weapon/storage/belt/security,
 		/obj/item/device/flash,
 		/obj/item/device/megaphone,
 		/obj/item/weapon/melee/baton/loaded,

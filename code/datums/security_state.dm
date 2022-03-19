@@ -251,6 +251,16 @@
 	up_description = "There is an immediate serious threat to the VESSEL_NAME. Security may have weapons unholstered at all times. Random searches are allowed and advised."
 	down_description = "The self-destruct mechanism has been deactivated, there is still however an immediate serious threat to the VESSEL_NAME. Security may have weapons unholstered at all times, random searches are allowed and advised."
 
+/decl/security_level/default/code_red/switching_up_to()
+	. = ..()
+	for(var/obj/item/weapon/storage/secure/alert_safe/safe in GLOB.alert_locked)
+		safe.alert_unlock(TRUE)
+
+/decl/security_level/default/code_red/switching_down_from()
+	. = ..()
+	for(var/obj/item/weapon/storage/secure/alert_safe/safe in GLOB.alert_locked)
+		safe.alert_unlock(FALSE)
+
 /decl/security_level/default/code_delta
 	name = "code delta"
 

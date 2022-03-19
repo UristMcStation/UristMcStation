@@ -483,3 +483,11 @@
 			if(!(stop_automated_movement_when_pulled && pulledby)) //Some animals don't move when pulled
 				SelfMove(pick(GLOB.cardinal))
 				turns_since_move = 0
+
+/mob/living/simple_animal/New()
+	GLOB.simple_mob_list.Add(src)
+	..()
+
+/mob/living/simple_animal/Destroy()
+	GLOB.simple_mob_list.Remove(src)
+	..()

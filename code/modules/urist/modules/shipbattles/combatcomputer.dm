@@ -2,6 +2,7 @@
 #define CHARGED		0x2
 #define FIRING		0x4
 #define NO_AMMO		0x8
+#define LOADING		0x10
 
 /obj/machinery/computer/combatcomputer
 	name = "weapons control computer"
@@ -12,6 +13,8 @@
 	var/target = null
 	var/obj/effect/overmap/ship/combat/homeship
 	var/fallback_connect = FALSE
+	circuit = /obj/item/weapon/circuitboard/combat_computer
+
 /*
 /obj/machinery/computer/combatcomputer/attack_hand(user as mob)
 	if(..(user))
@@ -43,6 +46,25 @@
 
 	else
 		to_chat(user, "<span class='warning'>The ship is not in combat.</span>")*/
+
+/obj/machinery/computer/combatcomputer/New()
+	. = ..()
+	if(!shipid)	//New computers being built won't have an ID
+		for(var/obj/effect/overmap/ship/combat/C in GLOB.overmap_ships)
+			if(src.z in C.map_z)	//See if our loc is within an overmap z level
+				var/found = FALSE
+				for(var/obj/machinery/computer/combatcomputer/CC in SSmachines.machinery)
+					if(CC.homeship == C)	//Already got a combat computer linked? We don't copy the shipid, so this board will not connect. Only 1 allowed!
+						found = TRUE
+						break
+				if(!found)
+					src.shipid = C.shipid
+					break
+
+/obj/machinery/computer/combatcomputer/Destroy()
+	for(var/obj/machinery/shipweapons/S in linkedweapons)
+		S.linkedcomputer = null
+	. = ..()
 
 /obj/machinery/computer/combatcomputer/attack_hand(var/mob/user as mob)
 	if(..())
@@ -89,15 +111,15 @@
 			weapons.Add(list(list(
 			"name" = S.name,
 			"status" = S.getStatusString(),
-			"strengthhull" = S.hulldamage,
-			"strengthshield" = S.shielddamage,
-			"shieldpass" = S.passshield,
+			"strengthhull" = S.hull_damage,
+			"strengthshield" = S.shield_damage,
+			"shieldpass" = S.pass_shield,
 			"location" = S.loc.loc.name,
 			"recharge_end" = S.rechargerate,
 			"recharge_current" = world.time - S.recharge_init_time,
 			"ref" = "\ref[S]"
 			)))
-			//maybe change passshield data to ammo?
+			//maybe change pass_shield data to ammo?
 			data["existing_weapons"] = weapons
 
 	if(target && istype(target, /mob/living/simple_animal/hostile/overmapship)) //We need a different UI for player ships
@@ -118,7 +140,7 @@
 					status = "Operational"
 			else
 				status = "Operational"
-			
+
 			targetcomponents.Add(list(list(
 			"componentname" = C.name,
 			"componentstatus" = status,
@@ -128,7 +150,7 @@
 			)))
 
 			data["target_components"] = targetcomponents
-		
+
 		data["status"] = 1
 		data["targetname"] = OM.name
 		data["targethealth"] = integrity
@@ -151,7 +173,7 @@
 	else if(length(homeship.contacts))
 		var/list/nearby_contacts[0]
 		data["status"] = 3
-		
+
 		for(var/obj/effect/overmap/ship/combat/OM in homeship.contacts)
 			nearby_contacts.Add(list(list(
 			"name" = OM.ship_name,
@@ -222,7 +244,7 @@
 			homeship.intercept(OM)
 		else
 			to_chat(usr, "<span class='warning'>You cannot intercept the [OM.ship_name] right now.</span>")
-	
+
 	if(href_list["startflee"])
 		if(!homeship.incombat) return
 		homeship.restabilize_engines()
@@ -230,11 +252,11 @@
 	if(href_list["cancelflee"])
 		if(!homeship.incombat || homeship.fleeing != 1)	return
 		homeship.cancel_restabilize_engines(TRUE)
-	
+
 	if(href_list["flee"])
 		if(!homeship.incombat || !homeship.can_escape && homeship.fleeing != 2) return
 		homeship.flee()
-	
+
 	updateUsrDialog()
 
 /obj/machinery/computer/combatcomputer/nerva //different def just in case we have multiple ships that do combat. although, i think i might keep the cargo ship noncombat, fluff it as it being too small, slips right by the enemies. i dunno

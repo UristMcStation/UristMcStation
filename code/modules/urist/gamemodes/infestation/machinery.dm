@@ -71,7 +71,7 @@
 	vend_reply = "Suit up!"
 	icon_state = "clothing2"
 	products = list(
-		/obj/item/clothing/suit/urist/armor/anfor/marine = 20,
+		/obj/item/clothing/suit/storage/urist/armor/anfor/marine = 20,
 		/obj/item/clothing/under/urist/anfor = 20,
 		/obj/item/clothing/head/helmet/urist/anfor = 20,
 		/obj/item/clothing/shoes/urist/anforjackboots = 20,

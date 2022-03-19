@@ -82,6 +82,7 @@
 /obj/item/modular_computer/console/preset/security/install_default_hardware()
 	..()
 	nano_printer = new/obj/item/weapon/computer_hardware/nano_printer(src)
+	card_slot = new/obj/item/weapon/computer_hardware/card_slot(src)
 
 /obj/item/modular_computer/console/preset/security/install_default_programs()
 	..()
@@ -90,6 +91,7 @@
 	hard_drive.store_file(new/datum/computer_file/program/forceauthorization())
 	hard_drive.store_file(new/datum/computer_file/program/records())
 	hard_drive.store_file(new/datum/computer_file/program/wordprocessor())
+	hard_drive.store_file(new/datum/computer_file/program/finesmanager())
 
 // Civilian
 /obj/item/modular_computer/console/preset/civilian/install_default_programs()

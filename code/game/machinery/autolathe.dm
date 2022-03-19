@@ -222,7 +222,7 @@
 		show_category = choice
 		. = TOPIC_REFRESH
 
-	else if(!busy && href_list["make"] && machine_recipes)
+	else if(href_list["make"] && machine_recipes)
 		. = TOPIC_REFRESH
 		var/index = text2num(href_list["make"])
 		var/datum/autolathe/recipe/making
@@ -314,6 +314,7 @@
 			if(stored_material[material] < round(making.resources[material] * mat_efficiency))
 				visible_message("<span class='warning'>[src] buzzes, 'Not enough materials for [making.name], flushing queue.'</span>")
 				queue.Cut(1)
+				busy = 0
 				return TOPIC_REFRESH
 
 	//Consume materials.

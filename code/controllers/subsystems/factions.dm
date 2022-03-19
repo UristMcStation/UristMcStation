@@ -24,10 +24,21 @@ SUBSYSTEM_DEF(factions)
 	faction.reputation += rep
 	faction.reputation = Clamp(faction.reputation, -100, 100)
 
-	if(faction.reputation <= 0 && !faction.hostile) //maybe cap things at 100? idk
+	if(faction.reputation < 0 && !faction.hostile) //maybe cap things at 100? idk
 		faction.hostile = TRUE
 		hostile_factions.Add(faction)
+		update_mob_faction(faction, TRUE)
 
 	else if(faction.reputation >= 0 && faction.hostile)
 		faction.hostile = FALSE
 		hostile_factions.Remove(faction)
+		update_mob_faction(faction, FALSE)
+
+/datum/controller/subsystem/factions/proc/update_mob_faction(var/datum/factions/faction, var/is_hostile)
+	for(var/mob/living/simple_animal/hostile/M in GLOB.simple_mob_list)
+		if(M.hiddenfaction == faction)
+			if(is_hostile)
+				M.faction = M.hiddenfaction.factionid
+
+			else
+				M.faction = "neutral"

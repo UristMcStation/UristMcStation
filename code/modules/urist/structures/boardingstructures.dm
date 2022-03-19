@@ -5,6 +5,7 @@
 	desc = "Looks unstable. Best to test it with the clown."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "portal"
+	var/block_pirate_teleport = TRUE
 	density = 1
 	anchored = 1
 	layer = 3.1
@@ -30,20 +31,24 @@
 /obj/structure/boarding/shipportal/proc/teleport(atom/movable/M as mob|obj)
 	if(istype(M, /obj/effect)) //sparks don't teleport
 		return
-	else
-		var/tele_x = GLOB.using_map.overmap_ship.evac_x
-		var/tele_y = GLOB.using_map.overmap_ship.evac_y
-		var/tele_z = GLOB.using_map.overmap_ship.evac_z
+	if(block_pirate_teleport && istype(M, /mob/living))
+		var/mob/living/H = M
+		if(H.faction != "neutral")
+			return
 
-		do_teleport(M, locate(tele_x,tele_y,tele_z), 0)
-		M << "<span class='warning'>You teleport back to the ship!</span>"
+	var/tele_x = GLOB.using_map.overmap_ship.evac_x
+	var/tele_y = GLOB.using_map.overmap_ship.evac_y
+	var/tele_z = GLOB.using_map.overmap_ship.evac_z
+
+	do_teleport(M, locate(tele_x,tele_y,tele_z), 0)
+	M << "<span class='warning'>You teleport back to the ship!</span>"
 
 /obj/effect/step_trigger/teleporter/urist/nerva
 	teleport_x = 89
 	teleport_y = 90
 	teleport_z = 1
 
-//self destruct for boarding //currently commented out until I work out the kinks
+//self destruct for boarding
 
 /obj/structure/boarding/self_destruct
 	var/triggered = FALSE
@@ -59,6 +64,7 @@
 
 /obj/structure/boarding/self_destruct/attack_hand(mob/user as mob)
 	if(triggered)
+		to_chat(user, "<span class='warning'>The self destruct sequence is already engaged, there's nothing you can do to stop it.</span>")
 		return
 
 	else
@@ -71,6 +77,7 @@
 					return
 
 				else
+					to_chat(user, "<span class='warning'>You engage the self-desturct sequence. Better get the hell out of there.</span>")
 					triggered = TRUE
 					GLOB.global_announcer.autosay("<b>The self-destruct sequence on the attacking ship has been initiated. Evacuate all boarding parties immediately.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Common")
 					for(var/obj/effect/landmark/scom/bomb/B in landmarks_list)

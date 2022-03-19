@@ -1,5 +1,6 @@
 /obj/structure/shipweapons
 	var/shipid = null
+	var/external = FALSE
 
 /obj/structure/shipweapons/hardpoint
 	name = "weapon hardpoint"
@@ -19,6 +20,14 @@
 /obj/structure/shipweapons/hardpoint/attached
 	attached = TRUE
 
+/obj/structure/shipweapons/hardpoint/external
+	external = TRUE
+	icon = 'icons/urist/structures&machinery/64x32machinery.dmi'
+	icon_state = "emptymount"
+
+/obj/structure/shipweapons/hardpoint/external/nerva
+	shipid = "nerva"
+
 /obj/structure/shipweapons/incomplete_weapon
 	name = "incomplete weapon"
 	desc = "It's a ship-to-ship weapon assembly. Wrench it into a hardpoint to make it functional, or just chuck it out an airlock at an enemy vessel and see how far that gets you."
@@ -28,6 +37,7 @@
 	density = 1
 	var/state = 0
 	var/weapon_type = null
+	pixel_y = -18
 
 /obj/structure/shipweapons/incomplete_weapon/attackby(obj/item/W as obj, mob/living/user as mob)
 	switch(state)
@@ -37,7 +47,8 @@
 			if(isWrench(W) && locate(/obj/structure/shipweapons/hardpoint) in T)
 				var/obj/structure/shipweapons/hardpoint/H = (locate(/obj/structure/shipweapons/hardpoint) in T)
 				//qdel(H)
-				if(!H.attached)
+				if(!H.attached && H.external == src.external)
+					animate(src, pixel_x = H.pixel_x, pixel_y = H.pixel_y, 3, 1, LINEAR_EASING)
 					H.attached = TRUE
 					src.shipid = H.shipid
 					playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
@@ -66,8 +77,10 @@
 				to_chat(user, "You unattach the assembly from its place.")
 				anchored = 0
 				state = 0
+				animate(src, pixel_x = initial(pixel_x), pixel_y = initial(pixel_y), 3, 1, LINEAR_EASING)
+				desc = initial(desc)
 				update_icon()
-				desc = "It's a ship-to-ship weapon assembly. Wrench it into a hardpoint to make it functional, or just chuck it out an airlock at an enemy vessel and see how far that gets you."
+
 				return
 
 		if(2)
@@ -153,3 +166,31 @@
 /obj/structure/shipweapons/incomplete_weapon/lightpulse
 	name = "light pulse cannon assembly"
 	weapon_type = /obj/machinery/shipweapons/beam/lightpulse
+
+/obj/structure/shipweapons/incomplete_weapon/external
+	external = TRUE
+	icon = 'icons/urist/structures&machinery/64x32machinery.dmi'
+	pixel_y = 0
+
+/obj/structure/shipweapons/incomplete_weapon/external/light_autocannon
+	icon_state = "cannon-con"
+	name = "light ship-to-ship autocannon assembly"
+	weapon_type = /obj/machinery/shipweapons/ammo/autocannon/light
+	pixel_x = -12
+
+/obj/structure/shipweapons/incomplete_weapon/external/light_autocannon/update_icon()
+	if(!state)
+		icon_state = "[initial(icon_state)]"
+
+	else
+		icon_state = "[initial(icon_state)]-full"
+
+/obj/structure/shipweapons/incomplete_weapon/external/light_autocannon/rapid
+	name = "rapid light autocannon assembly"
+	icon_state = "dualcannon-con"
+	weapon_type = /obj/machinery/shipweapons/ammo/autocannon/light/rapid
+
+/obj/structure/shipweapons/incomplete_weapon/external/heavy_autocannon
+	icon_state = "artillery-con"
+	name = "heavy ship-to-ship autocannon assembly"
+	weapon_type = /obj/machinery/shipweapons/ammo/autocannon/heavy

@@ -896,8 +896,8 @@ the sprite and make my own projectile -Glloyd*/
 
 /obj/item/weapon/gun/projectile/hi2521pistol/update_icon()
 	if(ammo_magazine)
-		icon_state = "crewpistol[round(ammo_magazine.stored_ammo.len, 25)]"
-		item_state = "crewpistol[round(ammo_magazine.stored_ammo.len, 25)]"
+		icon_state = "crewpistol[round(ammo_magazine.stored_ammo.len, 2)]"
+		item_state = "crewpistol[round(ammo_magazine.stored_ammo.len, 2)]"
 	else
 		icon_state = "crewpistol-empty"
 		item_state = "crewpistol-0"

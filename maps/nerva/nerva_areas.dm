@@ -266,8 +266,16 @@
 	name = "\improper Port Gunnery Room"
 	icon_state = "LP"
 
+/area/security/portexternalgun
+	name = "\improper Port External Gun Bay"
+	icon_state = "LP"
+
 /area/security/starboardgun
 	name = "\improper Starboard Gunnery Room"
+	icon_state = "LP"
+
+/area/security/starboardexternalgun
+	name = "\improper Starboard External Gun Bay"
 	icon_state = "LP"
 
 /area/security/bottomgun

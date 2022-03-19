@@ -6,9 +6,9 @@
 	use_power = 1
 	anchored = 1
 	density = 1
-	var/passshield = 0
-	var/shielddamage = 0
-	var/hulldamage = 0
+	var/pass_shield = FALSE
+	var/shield_damage = 0
+	var/hull_damage = 0
 	var/shipid = null
 	var/rechargerate = 100
 	var/recharge_init_time = 0
@@ -23,6 +23,10 @@
 	var/obj/machinery/computer/combatcomputer/linkedcomputer = null
 	var/status = CHARGED
 	var/datum/shipcomponents/targeted_component
+	var/can_intercept = FALSE //can we be intercepted??? added to account for future weapons that may pass through the shields and not be intercepted, and vice versa.
+	var/external = FALSE //only used for deconstructing weapons atm, but might be used for firing actual projectiles in the future, idk.
+	var/construction_type //again, only used for deconstructing weapons so we can force incomplete weapons to have non-generic icons
+	atom_flags = ATOM_FLAG_CLIMBABLE
 
 /obj/machinery/shipweapons/Initialize()
 	.=..()
@@ -133,49 +137,61 @@
 				break
 
 		if(!evaded)
-			if(!passshield)
-				if(OM.shields)
-					var/shieldbuffer = OM.shields
-					OM.shields = max(OM.shields - shielddamage, 0) //take the hit
-					if(!OM.shields && hulldamage) //if we're left with less than 0 shields
-						shieldbuffer = hulldamage-shieldbuffer //hulldamage is slightly mitigated by the existing shield
-						if(shieldbuffer > 0) //but if the shield was really strong, we don't do anything
-							OM.health = max(OM.health - shieldbuffer, 0)
+			if(!pass_shield)
+				var/intercepted = FALSE
+				if(can_intercept)
+					for(var/datum/shipcomponents/point_defence/PD in OM.components)	//Roll through each PD unit. Only one needs to hit to stop the projectile.
+						if(!PD.broken && prob(PD.intercept_chance))
+							intercepted = TRUE
+							homeship.autoannounce("<b>The [src.name] was intercepted by the [OM.ship_category]'s [PD.name].</b>", "private")	//Let the firing ship know PD is annoying.
+							break
 
+				if(!intercepted)
+					if(OM.shields)
+						var/shieldbuffer = OM.shields
+						OM.shields = max(OM.shields - shield_damage, 0) //take the hit
+						if(!OM.shields)
 							for(var/datum/shipcomponents/shield/S in OM.components)
-								if(!S.broken)
-									var/component_damage = hulldamage * 0.1
-									S.health -= component_damage
+								S.recovery_debt = S.recovery_threashold
+							if(hull_damage) //if we're left with less than 0 shields
+								shieldbuffer = hull_damage-shieldbuffer //hull_damage is slightly mitigated by the existing shield
+								if(shieldbuffer > 0) //but if the shield was really strong, we don't do anything
+									OM.health = max(OM.health - shieldbuffer, 0)
+									for(var/datum/shipcomponents/shield/S in OM.components)
+										if(!S.broken)
+											var/component_damage = hull_damage * 0.1
+											S.health -= component_damage
 
-									if(S.health <= 0)
-										S.BlowUp()
+											if(S.health <= 0)
+												S.BlowUp()
 
-				else	//no shields? easy
-					if(targeted_component)
-						TargetedHit(OM, hulldamage)
+					else	//no shields? easy
+						if(targeted_component)
+							TargetedHit(OM, hull_damage)
 
-					else
-						OM.health = max(OM.health - hulldamage, 0)
+						else
+							OM.health = max(OM.health - hull_damage, 0)
 
-						if(prob(component_hit))
-							HitComponents(OM)
-							MapFire()
+							if(prob(component_hit))
+								HitComponents(OM)
+								MapFire()
 
-				homeship.autoannounce("<b>The [src.name] has hit the [OM.ship_category].</b>", "private")
+					homeship.autoannounce("<b>The [src.name] has hit the [OM.ship_category].</b>", "private")
 
 			else //do we pass through the shield? let's do our damage
 						//not so fast, we've got point defence now
-
+						//hold on there buster. now only weapons that can be intercepted are affected by PD, not just ones that pass through the shield
 				var/intercepted = FALSE
-				for(var/datum/shipcomponents/point_defence/PD in OM.components)	//Roll through each PD unit. Only one needs to hit to stop the projectile.
-					if(!PD.broken && prob(PD.intercept_chance))
-						intercepted = TRUE
-						homeship.autoannounce("<b>The [src.name] was intercepted by the [OM.ship_category]'s [PD.name].</b>", "private")	//Let the firing ship know PD is annoying.
-						break
+				if(can_intercept) //can we be intercepted?
+					for(var/datum/shipcomponents/point_defence/PD in OM.components)	//Roll through each PD unit. Only one needs to hit to stop the projectile.
+						if(!PD.broken && prob(PD.intercept_chance))
+							intercepted = TRUE
+							homeship.autoannounce("<b>The [src.name] was intercepted by the [OM.ship_category]'s [PD.name].</b>", "private")	//Let the firing ship know PD is annoying.
+							break
 
 				if(!intercepted)	//Let's take the damage outside the for loop to stop dupe damages if multiple PD's failed
 					if(OM.shields)
-						var/muted_damage = (hulldamage * 0.5) //genuinely forgot this was in, might make this a specific feature of shields
+						var/muted_damage = (hull_damage * 0.5) //genuinely forgot this was in, might make this a specific feature of shields
 						var/oc = FALSE
 						for(var/datum/shipcomponents/shield/S in OM.components)
 							if(S.overcharged)
@@ -190,10 +206,10 @@
 
 					else
 						if(targeted_component)
-							TargetedHit(OM, hulldamage)
+							TargetedHit(OM, hull_damage)
 
 						else
-							OM.health = max(OM.health - hulldamage, 0)
+							OM.health = max(OM.health - hull_damage, 0)
 
 					if(!targeted_component && prob(component_hit))
 						HitComponents(OM)
@@ -231,21 +247,21 @@
 
 	var/datum/shipcomponents/targetcomponent = pick(OM.components)
 	if(!targetcomponent.broken)
-		targetcomponent.health -= (hulldamage * 0.2)
+		targetcomponent.health -= (hull_damage * 0.2)
 
 		if(targetcomponent.health <= 0)
 			targetcomponent.BlowUp()
 
-/obj/machinery/shipweapons/proc/TargetedHit(var/targetship, var/hulldamage, var/oc = FALSE)
+/obj/machinery/shipweapons/proc/TargetedHit(var/targetship, var/hull_damage, var/oc = FALSE)
 	var/mob/living/simple_animal/hostile/overmapship/OM = targetship
 	if(!targeted_component.broken)
-		targeted_component.health -= (hulldamage * 0.5) //we do more damage for aimed shots
+		targeted_component.health -= (hull_damage * 0.5) //we do more damage for aimed shots
 
 		if(targeted_component.health <= 0)
 			targeted_component.BlowUp()
 
 	if(!oc)	//Overcharged shields allow no hull damage
-		OM.health = max(OM.health - (hulldamage * 0.5), 0) //but we also do less damage to the hull in general if we're aiming at systems
+		OM.health = max(OM.health - (hull_damage * 0.5), 0) //but we also do less damage to the hull in general if we're aiming at systems
 
 /obj/machinery/shipweapons/update_icon()
 	..()
@@ -292,9 +308,10 @@
 		return "Recharging"
 	if(!status & (CHARGED|RECHARGING))
 		return "Unable to Fire"
+	if(status & LOADING) //no need to yell at cargo yet, we're reloading
+		return "Reloading"
 	if(status & NO_AMMO)	//Let the crew know when we're running dry so we can yell at cargo
 		return "Out of Ammo"
-
 	return "Ready to Fire"
 
 /obj/machinery/shipweapons/attackby(obj/item/W as obj, mob/living/user as mob)
@@ -302,19 +319,36 @@
 	if(isScrewdriver(W) && locate(/obj/structure/shipweapons/hardpoint) in T)
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		to_chat(user, "<span class='warning'>You unsecure the wires and unscrew the external hatches: the weapon is no longer ready to fire.</span>")
-		var/obj/structure/shipweapons/incomplete_weapon/S = new /obj/structure/shipweapons/incomplete_weapon(get_turf(src))
-		S.state = 4
-		S.update_icon()
-		S.weapon_type = src.type
-		S.name = "[src.name] assembly"
-		S.shipid = src.shipid
-		S.anchored = 1
-		if(linkedcomputer)
-			linkedcomputer.linkedweapons -= src
-		qdel(src)
+		DeconstructWeapon() //moving this to a proc lets us change how things deconstruct for certain weapons. this is done to allow something like the torpedo launcher to just be sawn out of it's place or w/e
 
 	else
 		..()
+
+/obj/machinery/shipweapons/proc/DeconstructWeapon()
+	if(linkedcomputer)
+		linkedcomputer.linkedweapons -= src
+
+	var/obj/structure/shipweapons/incomplete_weapon/S
+
+	if(construction_type) //if we have a special deconstructed piece, we'll place that
+		S = new construction_type(get_turf(src)) //we're special, so we don't need to set the name or the weapon_type. that should already be handled in the construction_type object.
+
+	else //otherwise we just use the generic one
+		S = new /obj/structure/shipweapons/incomplete_weapon(get_turf(src))
+		S.weapon_type = src.type
+		S.name = "[src.name] assembly"
+
+	if(S)
+		S.update_icon()
+		S.state = 4
+		S.shipid = src.shipid
+		S.anchored = 1
+		S.external = src.external
+		S.pixel_x = src.pixel_x
+		S.pixel_y = src.pixel_y
+
+
+	qdel(src)
 
 //the below is a temporary fix for emp bugs
 
@@ -328,3 +362,4 @@
 #undef CHARGED
 #undef FIRING
 #undef NO_AMMO
+#undef LOADING

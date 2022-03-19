@@ -25,3 +25,12 @@
 	user.put_in_hands(S)
 	to_chat(user, "<span class='notice'>You pop the glass out of the strip of leather.</span>")
 	qdel(src)
+
+//aviator sunglasses without a security component, and its own sprites
+
+/obj/item/clothing/glasses/sunglasses/aviators
+	icon = 'icons/urist/items/clothes/glasses.dmi'
+	item_icons = URIST_ALL_ONMOBS
+	icon_state = "aviators"
+	item_state = "aviators"
+	name = "aviator sunglasses"

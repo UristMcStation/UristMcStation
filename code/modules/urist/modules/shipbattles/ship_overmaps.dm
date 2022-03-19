@@ -54,13 +54,14 @@
 
 		for(var/datum/shipcomponents/M in target.components)
 			if(M.broken)
-				return
+				continue
 			else
 				M.DoActivate()
 
-//	var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
-//	security_state.stored_security_level = security_state.current_security_level
-//	security_state.set_security_level(security_state.high_security_level)
+	if(src == GLOB.using_map.overmap_ship)
+		var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
+		security_state.stored_security_level = security_state.current_security_level
+		security_state.set_security_level(security_state.high_security_level)
 
 /obj/effect/overmap/ship/combat/proc/set_targets(var/new_target = null)
 	if(!target)
@@ -104,6 +105,10 @@
 	incombat = 0
 	crossed = 0
 	src.unhalt()
+
+	if(src == GLOB.using_map.overmap_ship)
+		var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
+		security_state.set_security_level(security_state.stored_security_level)
 
 /obj/effect/overmap/ship/combat/Crossed(O as mob)
 	..()
@@ -212,7 +217,7 @@
 			can_escape = TRUE
 			autoannounce("<b>Engines restabilized - Escape is now possible</b>", "private")
 			OM.autoannounce("<b>[ship_name] engines restabilized - Escape is now possible</b>", "private")
-	
+
 	if(pvp_cooldown)
 		pvp_cooldown = max(pvp_cooldown - (wait / 10), 0)
 
@@ -220,12 +225,12 @@
 	if(!target)	return
 	var/obj/effect/overmap/ship/combat/OM = target
 	incombat = 1
-	
+
 	if(attacker)
 		autoannounce("<b>[OM.ship_name] intercepted - Entering combat</b>", "public")
 	else
 		autoannounce("<b>Engines destabilized - [OM.ship_name] weapon systems online</b>", "public")
-	
+
 	if(src == GLOB.using_map.overmap_ship)	//If the Nerva is involved, let's put it on Red Alert.
 		var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
 		security_state.stored_security_level = security_state.current_security_level
@@ -244,7 +249,7 @@
 	pvp_cooldown = 600	//10 minute cooldown after pvp combat to prevent spam to each ship
 
 	if(fled)
-		autoannounce("<b>[T.ship_name] weapons range exceeded - Escape successful", "public")
+		autoannounce("<b>[T.ship_name] weapons range exceeded - Escape successful.</b>", "public")
 	else
 		autoannounce("<b>[T.ship_name] has exceeded weapons range - Exiting combat.</b>", "public")
 

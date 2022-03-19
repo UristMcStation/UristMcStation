@@ -91,7 +91,7 @@
 	var/list/processed_evac_options = list()
 	if(!isnull(evacuation_controller))
 		for (var/datum/evacuation_option/EO in evacuation_controller.available_evac_options())
-			if(EO.abandon_ship)
+			if(EO.abandon_ship && security_state.current_security_level_is_lower_than(security_state.high_security_level))
 				continue
 			var/list/option = list()
 			option["option_text"] = EO.option_text

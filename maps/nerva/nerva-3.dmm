@@ -589,6 +589,8 @@
 	dir = 8
 	},
 /obj/item/weapon/circuitboard/helm,
+/obj/item/weapon/circuitboard/combat_computer,
+/obj/item/weapon/circuitboard/account_manager,
 /turf/simulated/floor/plating,
 /area/engineering/stech)
 "bz" = (
@@ -654,7 +656,7 @@
 "bJ" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Secure Storage";
-	req_access = list("ACCESS_ENGINE_EQUIP");
+	req_access = list("ACCESS_CHIEF_ENGINEER");
 	secured_wires = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -746,7 +748,7 @@
 "bV" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Fuel Bay";
-	req_access = list("ACCESS_TECH_STORAGE");
+	req_access = list("ACCESS_CONSTRUCTION");
 	secured_wires = 1
 	},
 /obj/machinery/door/firedoor,
@@ -1012,7 +1014,7 @@
 "ct" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Fuel Bay";
-	req_access = list("ACCESS_TECH_STORAGE");
+	req_access = list("ACCESS_CONSTRUCTION");
 	secured_wires = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
@@ -1818,7 +1820,8 @@
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /obj/machinery/meter,
 /obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
+	name = "Air Supply Maintenance";
+	req_access = list("ACCESS_ATMOS")
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fp)
@@ -2137,7 +2140,7 @@
 "eY" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering Maintenance";
-	req_access = list("ACCESS_TECH_STORAGE");
+	req_access = list("ACCESS_ENGINEERING");
 	secured_wires = 1
 	},
 /obj/structure/cable{
@@ -3291,6 +3294,9 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
+/obj/item/weapon/storage/secure/alert_safe{
+	pixel_x = -26
+	},
 /turf/simulated/floor/tiled/dark,
 /area/command/ce)
 "gA" = (
@@ -3719,6 +3725,7 @@
 	dir = 6
 	},
 /obj/item/weapon/pen,
+/obj/item/weapon/stamp/ce,
 /turf/simulated/floor/tiled/dark,
 /area/command/ce)
 "hA" = (
@@ -5812,8 +5819,8 @@
 "lO" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
-	name = "Engine Access";
-	req_access = newlist()
+	name = "Thrusters Access";
+	req_access = list("ACCESS_ENGINEERING")
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/fdengine)
@@ -6269,16 +6276,16 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/engineering{
-	name = "Engine Access";
-	req_access = newlist()
-	},
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
 	pixel_x = 0;
 	tag = ""
+	},
+/obj/machinery/door/airlock/engineering{
+	name = "Thrusters Access";
+	req_access = list("ACCESS_ENGINEERING")
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/fdengine)
@@ -7143,7 +7150,7 @@
 	},
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering Maintenance";
-	req_access = list("ACCESS_TECH_STORAGE");
+	req_access = list("ACCESS_ENGINEERING");
 	secured_wires = 1
 	},
 /obj/structure/catwalk,
@@ -7851,6 +7858,12 @@
 /area/hallway/fore/second_deck)
 "pP" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/status_display{
+	density = 0;
+	layer = 4;
+	pixel_x = 0;
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/second_deck)
 "pQ" = (
@@ -8223,7 +8236,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/hatch/maintenance{
-	icon_state = "door_closed";
+	icon_state = "closed";
 	id_tag = null;
 	locked = 0;
 	name = "Pipe Access"
@@ -8709,16 +8722,15 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch/maintenance{
-	icon_state = "door_closed";
-	id_tag = null;
-	locked = 0;
-	name = "Pipe Access"
-	},
 /obj/structure/cable/yellow{
 	icon_state = "4-8";
 	d1 = 1;
 	d2 = 4
+	},
+/obj/machinery/door/airlock/engineering{
+	name = "Engineering Maintenance";
+	req_access = list("ACCESS_ENGINEERING");
+	secured_wires = 1
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmospherics)
@@ -9024,7 +9036,8 @@
 	d2 = 4
 	},
 /obj/machinery/camera/network/engineering{
-	c_tag = "Second Deck Telecommunications Relay"
+	c_tag = "Second Deck Telecommunications Relay";
+	pixel_x = 16
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
@@ -9719,7 +9732,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/hatch/maintenance{
-	icon_state = "door_closed";
+	icon_state = "closed";
 	id_tag = null;
 	locked = 0;
 	name = "Pipe Access"
@@ -13395,7 +13408,8 @@
 /area/maintenance/second_deck/afp)
 "Ax" = (
 /obj/machinery/door/airlock/engineering{
-	name = "Atmospherics Substation"
+	name = "Atmospherics Substation";
+	req_access = list("ACCESS_ENGINEERING")
 	},
 /obj/structure/cable/yellow{
 	icon_state = "4-8";
@@ -13473,6 +13487,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
+"AV" = (
+/obj/effect/floor_decal/corner/yellow{
+	tag = "icon-corner_white (SOUTHWEST)";
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/status_display{
+	density = 0;
+	pixel_y = -30
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/aft/second_deck)
 "AX" = (
 /obj/structure/grille,
 /turf/simulated/floor/airless,
@@ -13820,7 +13846,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/engineering{
-	name = "Atmospherics Substation"
+	name = "Atmospherics Substation";
+	req_access = list("ACCESS_ENGINEERING")
 	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/atmos)
@@ -14197,6 +14224,20 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/command/teleporter)
+"Gk" = (
+/obj/effect/floor_decal/corner/yellow{
+	tag = "icon-corner_white (NORTHEAST)";
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/status_display{
+	density = 0;
+	layer = 4;
+	pixel_x = 0;
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/aft/second_deck)
 "Gn" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/weapon/storage/pill_bottle/dice,
@@ -15051,7 +15092,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/airless,
+/turf/simulated/floor/plating,
 /area/security/prison)
 "LQ" = (
 /obj/structure/table/woodentable/walnut,
@@ -15668,6 +15709,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/second_deck)
+"Pv" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	icon_state = "map_vent_out"
+	},
+/obj/machinery/status_display{
+	density = 0;
+	pixel_y = -30
+	},
+/turf/simulated/floor/plating,
+/area/hallway/fore/second_deck)
 "PA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	icon_state = "intact-supply";
@@ -36240,7 +36292,7 @@ dI
 es
 RO
 TT
-gG
+AV
 hC
 eC
 hC
@@ -36250,7 +36302,7 @@ jZ
 hC
 eC
 hC
-pu
+Gk
 qA
 rn
 rn
@@ -43714,7 +43766,7 @@ AE
 cR
 fi
 gh
-gV
+Pv
 hN
 hN
 hN

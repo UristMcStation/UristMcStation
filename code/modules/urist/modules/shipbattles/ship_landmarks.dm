@@ -1,6 +1,7 @@
 
 //landmarks
-
+/obj/effect/urist/triggers
+	invisibility = 101
 
 /obj/effect/urist/triggers/New()
 	..()
@@ -15,14 +16,12 @@
 /obj/effect/urist/triggers/boarding_landmark
 	icon_state = "x3"
 	icon = 'icons/mob/screen1.dmi'
-	invisibility = 101
 
 //ai spawns
 
 /obj/effect/urist/triggers/ai_defender_landmark
 	icon_state = "x3"
 	icon = 'icons/mob/screen1.dmi'
-	invisibility = 101
 	var/list/spawn_type //what's the path of the thing we're spawning
 
 /obj/effect/urist/triggers/ai_defender_landmark/proc/spawn_mobs()
@@ -62,7 +61,6 @@
 /obj/effect/urist/triggers/defender_landmark
 	icon_state = "x3"
 	icon = 'icons/mob/screen1.dmi'
-	invisibility = 101
 	var/defender_outfit = null
 
 /client/verb/shipdefender_spawn()
@@ -124,7 +122,7 @@
 	defender_outfit = /decl/hierarchy/outfit/newpirate
 
 /obj/effect/urist/triggers/defender_landmark/terran
-	defender_outfit = /decl/hierarchy/outfit/terranmarinespace
+	defender_outfit = /decl/hierarchy/outfit/terranmarine/space
 
 /obj/effect/urist/triggers/defender_landmark/rebel/miner
 	defender_outfit = /decl/hierarchy/outfit/grayson/miner
@@ -137,14 +135,12 @@
 /obj/effect/urist/triggers/shipweapons
 	icon_state = "x3"
 	icon = 'icons/mob/screen1.dmi'
-	invisibility = 101
 
 //awaymaps
 
 /obj/effect/urist/triggers/away_ai_landmark
 	icon_state = "x3"
 	icon = 'icons/mob/screen1.dmi'
-	invisibility = 101
 	var/list/spawn_type //what's the path of the thing we're spawning
 	var/spawn_id = null
 
@@ -182,19 +178,3 @@
 
 /obj/effect/urist/triggers/station_disk/pirate
 	faction_id = "pirate"
-
-//pirate corpses
-/obj/effect/landmark/corpse/newpirate
-	spawn_flags = CORPSE_SPAWNER_RANDOM_NAME | CORPSE_SPAWNER_CUT_ID_PDA | CORPSE_SPAWNER_CUT_SURVIVAL
-
-/obj/effect/landmark/corpse/newpirate/laser
-	name = "New Pirate - Laser"
-	corpse_outfits = list(/decl/hierarchy/outfit/newpirate)
-
-/obj/effect/landmark/corpse/newpirate/melee
-	name = "New Pirate - Melee"
-	corpse_outfits = list(/decl/hierarchy/outfit/newpirate/melee)
-
-/obj/effect/landmark/corpse/newpirate/ballistic
-	name = "New Pirate - Ballistic"
-	corpse_outfits = list(/decl/hierarchy/outfit/newpirate/ballistic)

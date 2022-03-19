@@ -171,7 +171,7 @@
 	closet_appearance = /decl/closet_appearance/crate/radiation
 
 /obj/structure/closet/crate/radiation_gear/WillContain()
-	return list(/obj/item/clothing/suit/radiation = 8)
+	return list(/obj/item/clothing/suit/radiation = 8, /obj/item/clothing/head/radiation = 8)
 
 /obj/structure/closet/crate/secure/weapon
 	name = "weapons crate"

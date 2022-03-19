@@ -31,15 +31,12 @@
 	desc = "A box of spare PDA microcomputers."
 	icon = 'icons/obj/pda.dmi'
 	icon_state = "pdabox"
+	startswith = list(/obj/item/modular_computer/pda = 5)
 
 /obj/item/weapon/storage/box/PDAs/Initialize()
 	. = ..()
-
-	new /obj/item/modular_computer/pda(src)
-	new /obj/item/modular_computer/pda(src)
-	new /obj/item/modular_computer/pda(src)
-	new /obj/item/modular_computer/pda(src)
-	new /obj/item/modular_computer/pda(src)
+	for(var/obj/item/modular_computer/pda/pda in contents)
+		pda.shutdown_computer(0) //Because 5 PDAs all on in a box use SO much power
 
 // PDA types
 /obj/item/modular_computer/pda/medical

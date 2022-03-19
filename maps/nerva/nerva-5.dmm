@@ -5261,8 +5261,10 @@
 /obj/machinery/atmospherics/omni/mixer{
 	tag_east = 1;
 	tag_east_con = 0.5;
-	tag_south = 1;
-	tag_south_con = 0.5;
+	tag_north = 1;
+	tag_north_con = 0.5;
+	tag_south = 0;
+	tag_south_con = null;
 	tag_west = 2;
 	use_power = 0
 	},
@@ -17789,6 +17791,16 @@
 "Ux" = (
 /turf/simulated/floor/tiled/dark,
 /area/syndicate_mothership)
+"XF" = (
+/obj/effect/wallframe_spawn/reinforced/bare,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/merchant_station)
 "Yz" = (
 /turf/space/transit/east,
 /area/space)
@@ -53946,7 +53958,7 @@ yK
 BO
 Zn
 Zn
-Zn
+XF
 RG
 EG
 nt

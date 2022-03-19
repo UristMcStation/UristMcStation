@@ -745,3 +745,8 @@
 	small_trees_chance = 2
 	large_trees_chance = 1
 	misc_plant_spawn_chance = 20
+
+/turf/simulated/floor/planet/ariddirt/marsdirt //for future things
+	color = "#b75d0e"
+	desc = "Arid, sandy Martian dirt."
+	temperature = 288.15 //15C

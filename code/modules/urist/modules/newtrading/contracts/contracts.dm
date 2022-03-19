@@ -40,6 +40,7 @@
 		var/datum/transaction/T = new("[GLOB.using_map.station_name]", "Contract Completion", money, "[faction.name]")
 		station_account.do_transaction(T)
 		GLOB.using_map.completed_contracts += 1
+		GLOB.using_map.contract_money += src.money
 		GLOB.using_map.contracts -= src
 		qdel(src)
 
@@ -72,13 +73,13 @@
 	var/oldmoney = money
 	money = (amount * oldmoney)
 
+	if(!desc)
+		desc = "This sector is plagued by [neg_faction.factionid]s, [faction.name] needs the [GLOB.using_map.station_name] to hunt down and destroy [amount] [neg_faction.name] ships in this sector."
+
 	..()
 
 	if(!neg_rep_points)
 		neg_rep_points -= rep_points
-
-	if(!desc)
-		desc = "This sector is plagued by [neg_faction.factionid]s, [faction.name] needs the [GLOB.using_map.station_name] to hunt down and destroy [amount] [neg_faction.name] ships in this sector."
 
 //money values are very much in flux
 

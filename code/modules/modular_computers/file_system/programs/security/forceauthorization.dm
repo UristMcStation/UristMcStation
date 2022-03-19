@@ -54,6 +54,29 @@
 
 			data["cyborg_guns"] += list(list("name" = "[G]", "ref" = "\ref[G]", "owner" = G.registered_owner, "modes" = modes))
 
+	var/list/safes = list()
+	for(var/obj/item/weapon/storage/secure/alert_safe/S in GLOB.alert_locked)
+		var/status
+		if(S.secure)
+			status = "Secure"
+		else if (!S.locked && S.alert_unlocked)
+			status = "Open"
+		else if(S.alert_unlocked)
+			status = "Unlocked"
+		else
+			if(S.check_arms())
+				status = "Pending Lock"
+			else
+				status = "Missing Arms"
+
+		var/list/safe = list(list(
+			"name" = S.name,
+			"loc" = S.loc.loc.name,
+			"state" = status
+			))
+		safes.Add(safe)
+	data["safes"] = safes
+
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "forceauthorization.tmpl", name, 700, 450, state = state)

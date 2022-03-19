@@ -76,7 +76,7 @@
 	if(incombat)
 		for(var/datum/shipcomponents/M in src.components)
 			if(M.broken)
-				return
+				continue
 			else
 				M.DoActivate()
 
@@ -110,8 +110,8 @@
 	if(target_ship == GLOB.using_map.overmap_ship && boardingmap)
 		for(var/obj/effect/template_loader/ships/S in GLOB.trigger_landmarks) //there can only ever be one of these atm
 			S.mapfile = src.boardingmap
+			S.home_ship = src //checking whether the map has been loaded is now handled by the template loader, so it properly checks for completion
 			S.Load()
-			src.map_spawned = TRUE
 			if(home_station && !home_station.known)
 				for(var/obj/effect/urist/triggers/station_disk/D in GLOB.trigger_landmarks)
 					if(D.faction_id == hiddenfaction.factionid)
@@ -159,7 +159,7 @@
 			qdel(src)
 
 /mob/living/simple_animal/hostile/overmapship/proc/boarded()
-	if(!boarding)
+	if(!boarding && map_spawned)
 		boarding = TRUE
 
 		if(target_ship == GLOB.using_map.overmap_ship) //currently only the main ship can board, pending a rewrite of boarding code
@@ -181,9 +181,8 @@
 			spawn(1 MINUTE)
 				boarders_amount = 0 //after a minute we null out the amount of boarders so noone joins mid boarding action.
 
-//	for(var/mob/observer/ghost/G in GLOB.player_list)
-//		if(G.client)
-//			G.shipdefender_spawn(src.hiddenfaction)
+	else
+		return
 
 /mob/living/simple_animal/hostile/overmapship/proc/add_weapons()
 	var/datum/shipcomponents/weapons/W = pick(potential_weapons)

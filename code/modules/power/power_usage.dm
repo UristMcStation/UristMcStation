@@ -104,7 +104,7 @@ This is /obj/machinery level code to properly manage power usage from the area.
 		power_channel = new_channel
 		return
 	var/old_channel = power_channel
-	if(old_channel == old_channel)
+	if(old_channel == new_channel)
 		return
 	var/power = get_power_usage()
 	REPORT_POWER_CONSUMPTION_CHANGE(power, 0)

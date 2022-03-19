@@ -117,7 +117,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 	if(onmission == 1)
 //		world << "<span class='warning'> onmission</span>"
 		aliencount = 0
-		for(var/mob/living/simple_animal/hostile/M in SSmobs.mob_list)
+		for(var/mob/living/simple_animal/hostile/M in GLOB.simple_mob_list)
 			if(M.health > 0 && M.faction != "neutral")
 				aliencount += 1
 //				world << "<span class='warning'> aliens: [aliencount]</span>"
