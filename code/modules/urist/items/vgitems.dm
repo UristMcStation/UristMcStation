@@ -68,7 +68,7 @@
     if(M == user)
         pick_sound()
     else if(spam_flag + 2 SECONDS < world.timeofday)
-        M.playsound_local(get_turf(src), selected_sound, volume, shiftpitch)
+        playsound(get_turf(M), selected_sound, volume, shiftpitch)
         spam_flag = world.timeofday
         //to_chat(M, selected_sound) //this doesn't actually go to their chat very much at all.
 

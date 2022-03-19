@@ -467,7 +467,7 @@
 
 /obj/item/weapon/stamp/nt
 	name = "\improper NanoTrasen rubber stamp"
-	icon_state = "stamp-nt"
+	icon_state = "stamp-intaff"
 
 // Clown Stuff
 
@@ -478,7 +478,7 @@
 	color = "#d4c780"
 	extra_details = list("goldstripe")
 
-	//Fake Replica Nuclear Authentication Disk, can't arm the nuke.
+//Fake Replica Nuclear Authentication Disk, can't arm the nuke.
 /obj/item/weapon/disk/fakenucleardisk
   name = "nuclear authentication disk"
   desc = "A nuclear authentication disk, used for arming the self-destruct system. On closer inspection, this appears to be some sort of dummy replica meant for training exercises, how did it end up here?"
@@ -488,54 +488,58 @@
   w_class = ITEM_SIZE_TINY
 
 // Fake Plastic Cap Gun of the Colt Single Action
-/obj/item/weapon/gun/projectile/revolver/fakecoltsaa
-	name = "Colt Single Action Army"
-	item_icons = DEF_URIST_INHANDS
+/obj/item/weapon/gun/projectile/revolver/coltsaa/fake
 	desc = "A poorly made plastic replica of the Colt Single Action Army revolver dating from the late 19th century. It appears to shoot pop caps, with tactical plastic painted engravings that offer no tactical advantage."
-	icon = 'icons/urist/items/guns.dmi'
-	icon_state = "antiquerevolver"
-	item_state = "antiquerevolver"
 	caliber = "caps"
-	handle_casings = CYCLE_CASINGS
-	max_shells = 6
 	ammo_type = /obj/item/ammo_casing/cap
 
 //Coptain
 /obj/item/weapon/stamp/captain/fake
 	name = "\improper coptain's rubber stamp"
-	icon_state = "stamp-cap"
 
 //Chief Engineer
-/obj/item/weapon/stamp/hos/fake
+/obj/item/weapon/stamp/ce/fake
 	name = "\improper chief enginoor rubber stamp"
-	icon_state = "stamp-hos"
 
 //Senior Scientist
 /obj/item/weapon/stamp/rd/fake
 	name = "\improper senior citizenist rubber stamp"
-	icon_state = "stamp-rd"
 
 //Chief Medical Officier
 /obj/item/weapon/stamp/cmo/fake
 	name = "\improper chef of medicine rubber stamp"
-	icon_state = "stamp-cmo"
 
 //Chief of Securrrrity
 /obj/item/weapon/stamp/hos/fake
 	name = "\improper chief of securrrity's rubber stamp"
-	icon_state = "stamp-hos"
 
 //Centconk
 /obj/item/weapon/stamp/centcomm/fake
 	name = "\improper centconk rubber stamp"
-	icon_state = "stamp-cent"
 
 //Nonotrasen
 /obj/item/weapon/stamp/nt/fake
 	name = "\improper NonoTrasen rubber stamp"
-	icon_state = "stamp-nt"
 
 //Quarterbackmaster
 /obj/item/weapon/stamp/qm/fake
 	name = "quarterbackmaster's rubber stamp"
-	icon_state = "stamp-qm"
+
+/obj/random/clown
+	name = "Random Clown Item"
+	desc = "This is a random clown item."
+	icon = 'icons/obj/items.dmi'
+	icon_state = "gift3"
+
+/obj/random/clown/spawn_choices()
+	return list(/obj/item/weapon/card/id/fakecappy,
+				/obj/item/weapon/disk/fakenucleardisk,
+				/obj/item/weapon/gun/projectile/revolver/coltsaa/fake,
+				/obj/item/weapon/stamp/captain/fake,
+				/obj/item/weapon/stamp/ce/fake,
+				/obj/item/weapon/stamp/rd/fake,
+				/obj/item/weapon/stamp/cmo/fake,
+				/obj/item/weapon/stamp/hos/fake,
+				/obj/item/weapon/stamp/centcomm/fake,
+				/obj/item/weapon/stamp/nt/fake,
+				/obj/item/weapon/stamp/qm/fake)
