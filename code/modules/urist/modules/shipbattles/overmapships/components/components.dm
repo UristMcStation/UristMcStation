@@ -68,7 +68,7 @@
 	strength = 750
 	health = 200
 	recharge_rate = 75
-	recharge_delay = 12 SECONDS
+	recharge_delay = 10 SECONDS
 	recovery_threashold = 100
 
 /datum/shipcomponents/shield/medium
@@ -76,7 +76,7 @@
 	strength = 1200
 	health = 400
 	recharge_rate = 70
-	recharge_delay = 12 SECONDS
+	recharge_delay = 10 SECONDS
 	recovery_threashold = 100
 
 /datum/shipcomponents/shield/freighter
@@ -84,7 +84,7 @@
 	strength = 1000
 	health = 300
 	recharge_rate = 50
-	recharge_delay = 12 SECONDS
+	recharge_delay = 10 SECONDS
 	recovery_threashold = 120
 
 /datum/shipcomponents/shield/fighter
@@ -92,7 +92,7 @@
 	strength = 460
 	health = 100
 	recharge_rate = 50
-	recharge_delay = 7 SECONDS
+	recharge_delay = 5 SECONDS
 	recovery_threashold = 60
 
 /datum/shipcomponents/shield/combat
@@ -100,7 +100,7 @@
 	strength = 1000
 	health = 300
 	recharge_rate = 75
-	recharge_delay = 10 SECONDS
+	recharge_delay = 8 SECONDS
 	recovery_threashold = 100
 
 /datum/shipcomponents/shield/alien_light
@@ -108,7 +108,7 @@
 	strength = 300
 	health = 200
 	recharge_rate = 60
-	recharge_delay = 7 SECONDS
+	recharge_delay = 5 SECONDS
 	recovery_threashold = 80
 
 /datum/shipcomponents/shield/alien_heavy
@@ -116,7 +116,7 @@
 	strength = 600
 	health = 200
 	recharge_rate = 60
-	recharge_delay = 10 SECONDS
+	recharge_delay = 8 SECONDS
 	recovery_threashold = 80
 
 /datum/shipcomponents/shield/pirate_station
@@ -124,7 +124,7 @@
 	strength = 1500
 	health = 500
 	recharge_rate = 100
-	recharge_delay = 37 SECONDS
+	recharge_delay = 35 SECONDS
 	recovery_threashold = 150
 	overcharged = TRUE
 
