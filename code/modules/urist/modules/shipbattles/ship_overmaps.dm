@@ -54,7 +54,7 @@
 
 		for(var/datum/shipcomponents/M in target.components)
 			if(M.broken)
-				return
+				continue
 			else
 				M.DoActivate()
 

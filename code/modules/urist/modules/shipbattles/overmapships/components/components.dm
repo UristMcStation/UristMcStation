@@ -32,21 +32,30 @@
 	var/recharging = 0 //are we waiting for the next recharge delay?
 	var/recharge_delay = 5 SECONDS //how long do we wait between recharges
 	var/overcharged = FALSE //only for stations, we stop torpedos from doing hull damage. they can still hurt components though
+	var/recovery_threashold = 0	//The amount of total recharge needed to recover the shields once offline. Ie a value of 100 requires 100 shield strength to be recharged before the shields recover and block attacks
+	var/recovery_debt = 0 //Amount of recharge remaining before shields are online
 
 /datum/shipcomponents/shield/DoActivate()
 	if(!broken && !recharging)
-		if(mastership.shields <= strength)
-			mastership.shields += recharge_rate
-			if(mastership.shields >= strength)
-				mastership.shields = strength
+		if(recovery_debt)
+			if(recovery_debt >= recharge_rate)
+				recovery_debt -= recharge_rate
+			else
+				mastership.shields = min(recovery_threashold + (recharge_rate - recovery_debt),strength)	//Amount required to recharge + anything left over
+				recovery_debt = 0
+		else if(mastership.shields < strength)
+			mastership.shields = min(mastership.shields + recharge_rate, strength)
 
-			recharging = 1
-			spawn(recharge_delay)
-				recharging = 0
+		else
+			return
+		recharging = 1
+		spawn(recharge_delay)
+			recharging = 0
 
 /datum/shipcomponents/shield/BlowUp()
 	strength = 0
 	recharge_rate = 0
+	recovery_debt = 0
 	mastership.shields = src.strength
 	..()
 
@@ -60,6 +69,7 @@
 	health = 200
 	recharge_rate = 75
 	recharge_delay = 10 SECONDS
+	recovery_threashold = 100
 
 /datum/shipcomponents/shield/medium
 	name = "medium shield"
@@ -67,6 +77,7 @@
 	health = 400
 	recharge_rate = 70
 	recharge_delay = 10 SECONDS
+	recovery_threashold = 100
 
 /datum/shipcomponents/shield/freighter
 	name = "freighter shield"
@@ -74,6 +85,7 @@
 	health = 300
 	recharge_rate = 50
 	recharge_delay = 10 SECONDS
+	recovery_threashold = 120
 
 /datum/shipcomponents/shield/fighter
 	name = "high performance ultralight shield"
@@ -81,6 +93,7 @@
 	health = 100
 	recharge_rate = 50
 	recharge_delay = 5 SECONDS
+	recovery_threashold = 60
 
 /datum/shipcomponents/shield/combat
 	name = "high performance combat shield"
@@ -88,6 +101,7 @@
 	health = 300
 	recharge_rate = 75
 	recharge_delay = 8 SECONDS
+	recovery_threashold = 100
 
 /datum/shipcomponents/shield/alien_light
 	name = "light alien shield"
@@ -95,6 +109,7 @@
 	health = 200
 	recharge_rate = 60
 	recharge_delay = 5 SECONDS
+	recovery_threashold = 80
 
 /datum/shipcomponents/shield/alien_heavy
 	name = "heavy alien shield"
@@ -102,6 +117,7 @@
 	health = 200
 	recharge_rate = 60
 	recharge_delay = 8 SECONDS
+	recovery_threashold = 80
 
 /datum/shipcomponents/shield/pirate_station
 	name = "overcharged station shield"
@@ -109,6 +125,7 @@
 	health = 500
 	recharge_rate = 100
 	recharge_delay = 35 SECONDS
+	recovery_threashold = 150
 	overcharged = TRUE
 
 //evasion
