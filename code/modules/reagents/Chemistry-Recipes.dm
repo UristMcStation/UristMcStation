@@ -568,7 +568,6 @@
 	result = null
 	required_reagents = list(/datum/reagent/iron = 5, /datum/reagent/aluminum = 20)
 	result_amount = 1
-	minimum_temperature = (-80 CELCIUS) - 100
 	maximum_temperature = -80 CELCIUS
 	mix_message = "The solution hardens."
 
