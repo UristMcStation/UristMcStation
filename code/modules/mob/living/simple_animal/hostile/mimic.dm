@@ -19,9 +19,9 @@ var/global/list/protected_objects = list(/obj/machinery,
 /mob/living/simple_animal/hostile/mimic
 	name = "crate"
 	desc = "A rectangular steel crate."
-	icon = 'icons/obj/storage.dmi'
-	icon_state = "crate"
-	icon_living = "crate"
+	icon = 'icons/uristmob/simpleanimals.dmi'
+	icon_state = "mimic"
+	icon_living = "mimic"
 
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/fish
 	response_help = "touches"
