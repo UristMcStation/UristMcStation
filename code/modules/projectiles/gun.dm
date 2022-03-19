@@ -354,7 +354,7 @@
 	
 	if(dual_wield)
 		acc_mod -= dual_wield_penalty/2
-		to_chat(user, "<span class='warning'>Works!</span>")
+		disp_mod += dual_wield_penalty*0.5
 
 	if(burst > 1)
 		acc_mod -= 1
