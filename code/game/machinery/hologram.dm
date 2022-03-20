@@ -75,7 +75,8 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 	if(stat & NOPOWER)
 		for(var/mob/M in masters)
 			remove_holo(M)
-		end_call()
+		if(connected)
+			end_call()
 		update_use_power(POWER_USE_OFF)
 	else
 		update_use_power(POWER_USE_IDLE)
