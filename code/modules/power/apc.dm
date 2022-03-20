@@ -219,6 +219,9 @@
 	if(emp_hardened)
 		return
 	failure_timer = max(failure_timer, round(duration))
+	update()
+	queue_icon_update()
+	force_update = 1
 	playsound(src, 'sound/machines/apc_nopower.ogg', 75, 0)
 
 /obj/machinery/power/apc/proc/make_terminal()
@@ -1004,10 +1007,7 @@
 	if(!area.requires_power)
 		return
 	if(failure_timer)
-		update()
-		queue_icon_update()
 		failure_timer--
-		force_update = 1
 		return
 
 	lastused_light = area.usage(LIGHT)
