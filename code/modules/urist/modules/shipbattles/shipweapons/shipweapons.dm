@@ -132,7 +132,7 @@
 		var/evaded = FALSE
 		for(var/datum/shipcomponents/engines/E in OM.components)
 			if(!E.broken && prob(E.evasion_chance))
-				homeship.autoannounce("<b>The [src.name] has missed the [OM.ship_category].</b>", "private")
+				homeship.autoannounce("<b>The [src.name] has missed the [OM.ship_category].</b>", "combat")
 				evaded = TRUE
 				break
 
@@ -143,7 +143,7 @@
 					for(var/datum/shipcomponents/point_defence/PD in OM.components)	//Roll through each PD unit. Only one needs to hit to stop the projectile.
 						if(!PD.broken && prob(PD.intercept_chance))
 							intercepted = TRUE
-							homeship.autoannounce("<b>The [src.name] was intercepted by the [OM.ship_category]'s [PD.name].</b>", "private")	//Let the firing ship know PD is annoying.
+							homeship.autoannounce("<b>The [src.name] was intercepted by the [OM.ship_category]'s [PD.name].</b>", "combat")	//Let the firing ship know PD is annoying.
 							break
 
 				if(!intercepted)
@@ -176,7 +176,7 @@
 								HitComponents(OM)
 								MapFire()
 
-					homeship.autoannounce("<b>The [src.name] has hit the [OM.ship_category].</b>", "private")
+					homeship.autoannounce("<b>The [src.name] has hit the [OM.ship_category].</b>", "combat")
 
 			else //do we pass through the shield? let's do our damage
 						//not so fast, we've got point defence now
@@ -186,7 +186,7 @@
 					for(var/datum/shipcomponents/point_defence/PD in OM.components)	//Roll through each PD unit. Only one needs to hit to stop the projectile.
 						if(!PD.broken && prob(PD.intercept_chance))
 							intercepted = TRUE
-							homeship.autoannounce("<b>The [src.name] was intercepted by the [OM.ship_category]'s [PD.name].</b>", "private")	//Let the firing ship know PD is annoying.
+							homeship.autoannounce("<b>The [src.name] was intercepted by the [OM.ship_category]'s [PD.name].</b>", "combat")	//Let the firing ship know PD is annoying.
 							break
 
 				if(!intercepted)	//Let's take the damage outside the for loop to stop dupe damages if multiple PD's failed
