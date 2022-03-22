@@ -302,7 +302,9 @@
 /mob/living/bot/proc/startPatrol()
 	var/turf/T = getPatrolTurf()
 	if(T)
-		patrol_path = AStar(get_turf(loc), T, /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, max_patrol_dist, id = botcard, exclude = obstacle)
+		busy = 1	// Multi-z can take a bit. This'll make sure it isn't called twice while it runs
+		patrol_path = AStarWithZ(get_turf(loc), T, /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, max_patrol_dist, id = botcard, exclude = obstacle)
+		busy = 0
 		if(!patrol_path)
 			patrol_path = list()
 		obstacle = null
@@ -334,7 +336,7 @@
 	return
 
 /mob/living/bot/proc/calcTargetPath()
-	target_path = AStar(get_turf(loc), get_turf(target), /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, max_target_dist, id = botcard, exclude = obstacle)
+	target_path = AStarWithZ(get_turf(loc), get_turf(target), /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, max_target_dist, id = botcard, exclude = obstacle)
 	if(!target_path)
 		if(target && target.loc)
 			ignore_list |= target
@@ -346,7 +348,7 @@
 	if(!path.len)
 		return 0
 	var/turf/T = path[1]
-	if(get_turf(src) == T)
+	if(get_turf(src) == T || (istype(path[1], /turf/simulated/open) && get_turf(src) == path[2]))
 		path -= T
 		return makeStep(path)
 
@@ -430,16 +432,23 @@
 // Checks doors against access with given ID
 /proc/DirBlockedWithAccess(turf/loc,var/dir,var/obj/item/weapon/card/id/ID)
 	for(var/obj/structure/window/D in loc)
-		if(!D.density)			continue
-		if(D.dir == SOUTHWEST)	return 1
-		if(D.dir == dir)		return 1
+		if(!D.density)					continue
+		if(D.dir == SOUTHWEST)			return 1
+		if(D.dir == dir)				return 1
 
 	for(var/obj/machinery/door/D in loc)
-		if(!D.density)			continue
+		if(!D.density)					continue
 		if(istype(D, /obj/machinery/door/window))
-			if( dir & D.dir )	return !D.check_access(ID)
+			if( dir & D.dir )			return !D.check_access(ID)
 
 			//if((dir & SOUTH) && (D.dir & (EAST|WEST)))		return !D.check_access(ID)
 			//if((dir & EAST ) && (D.dir & (NORTH|SOUTH)))	return !D.check_access(ID)
-		else return !D.check_access(ID)	// it's a real, air blocking door
+		else 
+			var/obj/machinery/door/airlock/A = D
+			if(istype(A) && A.locked)	return 1
+			return (!D.check_access(ID))	// it's a real, air blocking door
+	
+	for(var/obj/structure/railing/D in loc)
+		if(!D.density)					continue
+		if(dir & D.dir)					return 1
 	return 0

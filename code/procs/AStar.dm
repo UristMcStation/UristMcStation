@@ -116,3 +116,66 @@ proc/AStar(var/start, var/end, var/proc/adjacent, var/proc/dist, var/max_nodes, 
 				open.Remove(open.Length())
 
 	return path
+
+/proc/findPathToConnectedZ(var/turf/T, var/targetZ, var/proc/adjacent, var/proc/dist, var/max_nodes, var/max_node_depth = 30, var/min_target_dist = 0, var/min_node_dist, var/id, var/datum/exclude)
+	if(!AreConnectedZLevels(T.z, targetZ))
+		return
+	var/list/path = list()
+	for(var/obj/structure/stairs/stair in GLOB.zlevel_transitions["[T.z]"])
+		if(GetAbove(stair).z != targetZ)
+			continue
+		var/list/option_path = AStar(T, get_turf(stair), adjacent, dist, max_nodes, max_node_depth, min_target_dist, min_node_dist, id, exclude)
+		if(!length(option_path))
+			continue
+		option_path += get_step(GetAbove(stair), stair.dir)
+		if(length(path))
+			if(length(path) > length(option_path))
+				path = option_path
+		else
+			path = option_path
+	if(length(path))
+		return path
+	for(var/turf/simulated/open/down in GLOB.zlevel_transitions["[T.z]"])
+		if(GetBelow(down).z != targetZ)
+			continue
+		var/list/option_path = AStar(T, get_turf(down), adjacent, dist, max_nodes, max_node_depth, min_target_dist, min_node_dist, id, exclude)
+		if(!length(option_path))
+			continue
+		option_path += GetBelow(down)
+		if(length(path))
+			if(length(path) > length(option_path))
+				path = option_path
+		else
+			path = option_path
+	return path
+
+/proc/AStarWithZ(var/start, var/end, var/proc/adjacent, var/proc/dist, var/max_nodes, var/max_node_depth = 30, var/min_target_dist = 0, var/min_node_dist, var/id, var/datum/exclude)
+	var/turf/startTurf = get_turf(start)
+	var/turf/endTurf = get_turf(end)
+	if(startTurf.z == endTurf.z)
+		return AStar(start, end, adjacent, dist, max_nodes, max_node_depth, min_target_dist, min_node_dist, id, exclude)
+	else if(!AreConnectedZLevels(startTurf.z, endTurf.z))
+		return
+	var/list/zpath = list()
+	var/turf/current = startTurf
+	while(current.z != endTurf.z)
+		if(HasAbove(current.z))
+			current = GetAbove(current)
+			zpath += current.z
+		else
+			break
+	if(current.z != endTurf.z)
+		zpath = list()
+		current = startTurf
+		while(current.z != endTurf.z)
+			if(HasBelow(current.z))
+				current = GetBelow(current)
+				zpath += current.z
+			else
+				break
+	var/list/path = findPathToConnectedZ(startTurf, zpath[1], adjacent, dist, max_nodes, max_node_depth, min_target_dist, min_node_dist, id, exclude)
+	zpath -= zpath[1]
+	for(var/z in zpath)
+		path += findPathToConnectedZ(path[length(path)], z, adjacent, dist, max_nodes, max_node_depth, min_target_dist, min_node_dist, id, exclude)
+	path += AStar(path[length(path)], end, adjacent, dist, max_nodes, max_node_depth, min_target_dist, min_node_dist, id, exclude)
+	return path

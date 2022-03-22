@@ -2,6 +2,8 @@
 //Contents: Ladders, Stairs.//
 //////////////////////////////
 
+GLOBAL_LIST_EMPTY(zlevel_transitions)
+
 /obj/structure/ladder
 	name = "ladder"
 	desc = "A ladder. You can climb it up and down."
@@ -196,7 +198,20 @@
 			return INITIALIZE_HINT_QDEL
 		if(!istype(above))
 			above.ChangeTurf(/turf/simulated/open)
+	if(GLOB.zlevel_transitions["[src.z]"])
+		GLOB.zlevel_transitions["[src.z]"] |= src
+	else
+		GLOB.zlevel_transitions["[src.z]"] = list(src)
+	if(GLOB.zlevel_transitions["[GetAbove(src).z]"])
+		GLOB.zlevel_transitions["[GetAbove(src).z]"] |= GetAbove(src)
+	else
+		GLOB.zlevel_transitions["[GetAbove(src).z]"] = list(GetAbove(src))
 	. = ..()
+
+/obj/structure/stairs/Destroy()
+	GLOB.zlevel_transitions["[src.z]"] -= src
+	GLOB.zlevel_transitions["[GetAbove(src).z]"] -= GetAbove(src)
+	return ..()
 
 /obj/structure/stairs/CheckExit(atom/movable/mover as mob|obj, turf/target as turf)
 	if(get_dir(loc, target) == dir && upperStep(mover.loc))
