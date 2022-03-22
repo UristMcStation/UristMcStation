@@ -106,6 +106,11 @@
 	name = "\improper Safe Room"
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
 
+/area/command/weapons_command
+	name = "\improper Weapons Command"
+	sound_env = SMALL_ENCLOSED
+	area_flags = AREA_FLAG_ION_SHIELDED
+
 //////////////////////////////////////
 //			CIVILIAN				//
 //////////////////////////////////////
@@ -193,6 +198,10 @@
 
 /area/civilian/exercise
 	name = "\improper Exercise Room"
+	sound_env = SMALL_ENCLOSED
+
+/area/civilian/journalist
+	name = "\improper Journalist's Office"
 	sound_env = SMALL_ENCLOSED
 
 //////////////////////////////////////
@@ -436,6 +445,9 @@
 
 /area/engineering/substation/atmos
 	name = "\improper Atmospherics Substation"
+
+/area/engineering/substation/command
+	name ="\improper Command Substation"
 
 //solars
 
@@ -784,6 +796,7 @@
 	name = "\improper Holodeck"
 	icon_state = "Holodeck"
 	dynamic_lighting = 0
+	requires_power = 0
 	sound_env = LARGE_ENCLOSED
 
 /area/holodeck/source_battle_arena
