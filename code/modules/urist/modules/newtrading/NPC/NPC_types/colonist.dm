@@ -115,6 +115,12 @@
 		speak += "I saw a mudcrab the other day. Vile creatures they are." //the chances of this being heard are so small, but I had to put it in.
 	..()
 
+/mob/living/simple_animal/hostile/npc/colonist/Initialize()
+	. = ..()
+	var/area/A = get_area(src)
+	if(A?.type == /area/spacestations/nanotrasenspace)
+		stance = HOSTILE_STANCE_TIRED //Prevents any targetting/agression for NPC's on the NT station
+
 /mob/living/simple_animal/hostile/npc/colonist/labourer
 	angryprob = 25
 	jumpsuits = list(\
