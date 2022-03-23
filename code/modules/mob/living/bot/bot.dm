@@ -296,13 +296,16 @@
 	return 1
 
 /mob/living/bot/proc/handlePatrol()
-	makeStep(patrol_path)
+	if(makeStep(patrol_path) && frustration)
+		frustration = 0
+	else if(max_frustration)
+		++frustration
 	return
 
 /mob/living/bot/proc/startPatrol()
 	var/turf/T = getPatrolTurf()
 	if(T)
-		patrol_path = AStar(get_turf(loc), T, /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, max_patrol_dist, id = botcard, exclude = obstacle)
+		patrol_path = AStar(get_turf(loc), T, /turf/proc/CardinalTurfsWithAccessWithZ, /turf/proc/Euclidean3dDistance, 0, max_patrol_dist, id = botcard, exclude = obstacle)
 		if(!patrol_path)
 			patrol_path = list()
 		obstacle = null
@@ -334,7 +337,7 @@
 	return
 
 /mob/living/bot/proc/calcTargetPath()
-	target_path = AStar(get_turf(loc), get_turf(target), /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, max_target_dist, id = botcard, exclude = obstacle)
+	target_path = AStar(get_turf(loc), get_turf(target), /turf/proc/CardinalTurfsWithAccessWithZ, /turf/proc/Euclidean3dDistance, 0, max_target_dist, id = botcard, exclude = obstacle)
 	if(!target_path)
 		if(target && target.loc)
 			ignore_list |= target
@@ -355,7 +358,7 @@
 /mob/living/bot/proc/resetTarget()
 	target = null
 	target_path = list()
-	frustration = 0
+	//frustration = 0
 	obstacle = null
 
 /mob/living/bot/proc/turn_on()
@@ -435,11 +438,63 @@
 		if(D.dir == dir)		return 1
 
 	for(var/obj/machinery/door/D in loc)
+		if(loc.pathweight == 1)
+			loc.pathweight = 2	//Slight bias in pathfinding away from airlocks
 		if(!D.density)			continue
 		if(istype(D, /obj/machinery/door/window))
 			if( dir & D.dir )	return !D.check_access(ID)
 
 			//if((dir & SOUTH) && (D.dir & (EAST|WEST)))		return !D.check_access(ID)
 			//if((dir & EAST ) && (D.dir & (NORTH|SOUTH)))	return !D.check_access(ID)
-		else return !D.check_access(ID)	// it's a real, air blocking door
+		else 
+			if(istype(D, /obj/machinery/door/airlock/lift))	//Stop bots committing suicide down the lift shaft, as amusing as it is
+				return !D.check_access(ID) || D.density
+			var/obj/machinery/door/airlock/A = D
+			if(istype(A) && (A.locked || A.isAllPowerLoss() || A.welded))	//Avoid airlocks that are bolted, welded, or have no power
+				return 1
+			return (!D.check_access(ID))	// it's a real, air blocking door
+
+	for(var/obj/structure/railing/D in loc)
+		if(!D.density)			continue
+		if(dir == D.dir)		return 1
+	return 0
+
+
+//Multi-Z AStar Procs
+
+/turf/proc/Euclidean3dDistance(turf/t)
+	var/euclid_dist = sqrt(Square(src.x - t.x)+Square(src.y - t.y)+Square(src.z - t.z))
+	euclid_dist *= (pathweight+t.pathweight)/2
+	return euclid_dist
+
+/turf/proc/CardinalTurfsWithAccessWithZ(var/obj/item/weapon/card/id/ID)
+	var/L[] = new()
+
+	for(var/d in GLOB.cardinal)
+		var/turf/simulated/T = get_step(src, d)
+		if(istype(T) && !T.density)
+			var/turf/simulated/open/OP = T
+			if(istype(OP) && (!locate(/obj/structure/lattice) in OP) && !LinkBlockedWithAccess(src, OP, ID))
+				if(!OP.below.density)
+					L.Add(OP.below)
+			else if(!LinkBlockedWithAccess(src, T, ID))
+				L.Add(T)
+		else
+			var/obj/structure/stairs/S = locate(/obj/structure/stairs) in src
+			if(S?.dir == d && !LinkBlockedAbove(src,GetAbove(S),d))
+				L.Add(get_step(GetAbove(S), d))
+
+	return L
+
+/proc/LinkBlockedAbove(var/turf/lower, var/turf/simulated/open/upper, var/dir)
+	if(!istype(upper))		return 1
+	for(var/obj/A in lower)
+		if(!A.density)		continue
+		if(istype(A,/obj/structure/window) || istype(A,/obj/structure/railing))
+			return (A.dir == dir)
+		else				return 1
+	var/turf/exit = get_step(upper, dir)
+	if(exit.density)		return 1
+	for(var/obj/B in exit)
+		if(B.density)		return 1
 	return 0
