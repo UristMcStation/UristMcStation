@@ -85,7 +85,7 @@ obj/item/weapon/gun/energy/retro
 	one_hand_penalty = 6 //large and heavy
 	w_class = ITEM_SIZE_HUGE
 	projectile_type = /obj/item/projectile/beam/heavylaser
-	charge_cost = 40
+	charge_cost = 25
 	max_shots = 6
 	accuracy = 2
 	fire_delay = 20
@@ -137,7 +137,7 @@ obj/item/weapon/gun/energy/retro
 	projectile_type = /obj/item/projectile/beam/sniper
 	one_hand_penalty = 5 // The weapon itself is heavy, and the long barrel makes it hard to hold steady with just one hand.
 	slot_flags = SLOT_BACK
-	charge_cost = 40
+	charge_cost = 50
 	max_shots = 4
 	fire_delay = 35
 	force = 10
