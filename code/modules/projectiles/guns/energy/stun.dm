@@ -23,7 +23,7 @@
 	one_hand_penalty = 3
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3, TECH_POWER = 3)
 	force = 8
-	charge_cost = 25
+	charge_cost = 12.5
 	max_shots = 12
 	accuracy = 1
 	projectile_type = /obj/item/projectile/beam/stun/heavy
