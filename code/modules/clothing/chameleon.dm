@@ -283,7 +283,7 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	projectile_type = /obj/item/projectile/chameleon
 	charge_meter = 0
-	charge_cost = 20 //uses next to no power, since it's just holograms
+	charge_cost = 2 //uses next to no power, since it's just holograms - ACTUALLY uses next to no power now!
 	max_shots = 50
 
 	var/obj/item/projectile/copy_projectile
