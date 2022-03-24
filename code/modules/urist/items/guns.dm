@@ -9,10 +9,11 @@
 	item_state = "gun"
 	fire_sound = 'sound/weapons/Taser.ogg'
 	w_class = 1
-	charge_cost = 150 //How much energy is needed to fire.
+	charge_cost = 10 //How much energy is needed to fire.
 	projectile_type = /obj/item/projectile/energy/electrode
 	origin_tech = "combat=2;magnets=2"
 	modifystate = "senergystun"
+	cell_type = /obj/item/weapon/cell/device/standard
 
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="senergystun", fire_sound='sound/weapons/Taser.ogg', fire_delay=null, charge_cost=null),
@@ -96,11 +97,11 @@ the sprite and make my own projectile -Glloyd*/
 	item_state = "gun"
 	fire_sound = 'sound/weapons/Genhit.ogg'
 	w_class = 1
-	charge_cost = 150 //How much energy is needed to fire.
+	charge_cost = 20 //How much energy is needed to fire.
 	projectile_type = /obj/item/projectile/energy/plasma2
 	origin_tech = "combat=3;magnets=2"
 	modifystate = "plasmapistol"
-	cell_type = /obj/item/weapon/cell/crap
+	cell_type = /obj/item/weapon/cell/device/premium
 
 /*	suicide_act(mob/user)
 		viewers(user) << "<span class='danger'>[user] is unloading the [src.name] into their head! Their skin turns purple and starts to melt!</span>"
