@@ -792,6 +792,8 @@
 /area/centcom
 	name = "Admin Area"
 
+//holodeck
+
 /area/holodeck
 	name = "\improper Holodeck"
 	icon_state = "Holodeck"
@@ -803,10 +805,6 @@
 	name = "\improper Holodeck - Battle Arena"
 	sound_env = ARENA
 
-/area/holodeck/source_surgery
-	name = "\improper Holodeck - Surgery Simulation"
-	requires_power = 0
-
 /area/holodeck/source_beach
 	name = "\improper Holodeck - Beach Simulation"
 	sound_env = PLAIN
@@ -817,6 +815,7 @@
 
 /area/holodeck/source_chapel
 	name = "\improper Holodeck - Chapel"
+	sound_env = AUDITORIUM
 
 /area/holodeck/source_plating
 	name = "\improper Holodeck - Off"
@@ -859,6 +858,27 @@
 /area/holodeck/source_volleyball
 	name = "\improper Holodeck - Volleyball"
 	sound_env = PLAIN
+
+/area/holodeck/source_desert
+	name = "\improper Holodeck - Desert"
+	sound_env = PLAIN
+
+/area/holodeck/source_space
+	name = "\improper Holodeck - Space"
+	has_gravity = 0
+	sound_env = SPACE
+
+/area/holodeck/source_cafe
+	name = "\improper Holodeck - Cafe"
+	sound_env = PLAIN
+
+/area/holodeck/source_plaza
+	name = "\improper Holodeck - Plaza"
+	sound_env = SMALL_ENCLOSED
+
+/area/holodeck/source_gym
+	name = "\improper Holodeck - Gym"
+	sound_env = SMALL_ENCLOSED
 
 /area/drone_test
 	name = "\improper Biohazard Simulation Arena"

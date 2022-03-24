@@ -249,7 +249,7 @@
 "aI" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "security_inner3";
 	locked = 1;
 	name = "External Access";
@@ -298,7 +298,7 @@
 "aL" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "security_outer3";
 	locked = 1;
 	name = "External Access";
@@ -460,7 +460,7 @@
 "aY" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "security_inner3";
 	locked = 1;
 	name = "External Access";
@@ -1542,7 +1542,7 @@
 "dr" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "security_outer";
 	locked = 1;
 	name = "External Access";
@@ -1594,7 +1594,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "security_inner";
 	locked = 1;
 	name = "External Access";
@@ -3870,7 +3870,7 @@
 "hL" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "security_inner2";
 	locked = 1;
 	name = "External Access";
@@ -3936,7 +3936,7 @@
 "hO" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "security_outer2";
 	locked = 1;
 	name = "External Access";
@@ -8325,7 +8325,7 @@
 "pr" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "aft_solar_outer";
 	locked = 1;
 	name = "Engineering External Access";
@@ -8383,7 +8383,7 @@
 "pt" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "aft_solar_inner";
 	locked = 1;
 	name = "Engineering External Access";

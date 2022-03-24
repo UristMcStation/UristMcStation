@@ -66,7 +66,7 @@
 "am" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "solar_tool_outer";
 	locked = 1;
 	name = "Engineering External Access";
@@ -104,7 +104,7 @@
 "ao" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "solar_tool_inner";
 	locked = 1;
 	name = "Engineering External Access";
@@ -1521,7 +1521,7 @@
 /obj/machinery/door/firedoor,
 /obj/item/taperoll/engineering/applied,
 /obj/machinery/door/airlock/hatch{
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = null;
 	locked = 1;
 	name = "Observatory";
@@ -1531,7 +1531,7 @@
 /area/hallway/aft/second_deck)
 "dn" = (
 /obj/machinery/door/airlock/hatch{
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = null;
 	locked = 1;
 	name = "Observatory";
@@ -4136,7 +4136,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/aft/second_deck)
 "iw" = (
-/obj/structure/reagent_dispensers/watertank,
+/obj/machinery/vending/cola,
 /turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "ix" = (
@@ -4547,10 +4547,8 @@
 /turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "js" = (
-/obj/structure/bed/chair/wood/walnut{
-	dir = 8;
-	icon_state = "wooden_chair_preview"
-	},
+/obj/structure/table/woodentable/walnut,
+/obj/item/weapon/storage/pill_bottle/dice,
 /turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "jt" = (
@@ -12046,7 +12044,7 @@
 "xo" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "exti2_inner";
 	locked = 1;
 	name = "External Access";
@@ -12541,7 +12539,7 @@
 "yh" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "exti2_outer";
 	locked = 1;
 	name = "External Access";
@@ -14308,11 +14306,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/second_deck)
-"Gn" = (
-/obj/structure/table/woodentable/walnut,
-/obj/item/weapon/storage/pill_bottle/dice,
-/turf/simulated/floor/plating,
-/area/civilian/lounge)
 "Gv" = (
 /obj/effect/floor_decal/chapel{
 	dir = 1;
@@ -15654,6 +15647,10 @@
 /obj/structure/bed/chair/wood/walnut,
 /turf/simulated/floor/plating,
 /area/civilian/lounge)
+"Oi" = (
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/afp)
 "Ok" = (
 /obj/random/junk,
 /obj/structure/disposalpipe/segment,
@@ -39219,7 +39216,7 @@ Um
 eG
 Um
 Um
-aX
+Oi
 aX
 fg
 fS
@@ -41447,7 +41444,7 @@ eD
 ga
 gT
 hK
-jq
+iz
 iz
 iz
 ix
@@ -41649,8 +41646,8 @@ fi
 gb
 gU
 hK
-Gn
-kg
+jq
+iz
 iz
 iz
 ix
@@ -41852,7 +41849,7 @@ gc
 gV
 hK
 js
-iz
+kg
 iz
 lk
 RU
