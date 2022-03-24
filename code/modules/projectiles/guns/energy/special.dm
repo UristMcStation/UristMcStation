@@ -10,7 +10,7 @@
 	obj_flags =  OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BACK
 	one_hand_penalty = 4
-	charge_cost = 25
+	charge_cost = 20
 	max_shots = 10
 	projectile_type = /obj/item/projectile/ion
 	wielded_item_state = "ionrifle-wielded"
