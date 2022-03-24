@@ -68,6 +68,7 @@
 	one_hand_penalty = 6
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3, TECH_POWER = 3)
 	force = 10
+	charge_cost = 20
 	max_shots = 10
 	accuracy = 1
 	projectile_type = /obj/item/projectile/energy/electrode/stunshot
