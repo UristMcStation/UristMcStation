@@ -62,7 +62,7 @@
 	switch(firing_temperature)
 		if(0 to 100) charge_cost = 20
 		if(100 to 250) charge_cost = 10
-		if(251 to 300) charge_cost = 2
+		if(251 to 300) charge_cost = 4
 		if(301 to 400) charge_cost = 10
 		if(401 to 500) charge_cost = 20
 
