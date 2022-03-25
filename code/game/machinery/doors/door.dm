@@ -103,8 +103,6 @@
 	set_density(0)
 	update_nearby_tiles()
 	QDEL_NULL(dummy)
-	var/turf/T = get_turf(src)
-	T.pathweight = initial(T.pathweight)
 	. = ..()
 
 /obj/machinery/door/Process()
