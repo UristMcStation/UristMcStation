@@ -14272,7 +14272,7 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/cooker/oven,
 /obj/machinery/button/remote/blast_door{
-	id = "kitchen";
+	id = "kitchenholodeck";
 	name = "Kitchen Holodeck Shutters Control";
 	pixel_x = -5;
 	pixel_y = -26;
@@ -19588,6 +19588,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/vending/whitedragon,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/mailing)
 "aHw" = (
@@ -20307,6 +20308,10 @@
 	name = "Station Intercom (General)";
 	pixel_x = 22
 	},
+/obj/machinery/computer/merch{
+	icon_state = "computer";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/mailing)
 "aIL" = (
@@ -20871,7 +20876,8 @@
 	dir = 4
 	},
 /obj/item/modular_computer/console/preset/nervasupply{
-	dir = 1;
+	dir = 8;
+	icon_state = "console";
 	tag = "icon-console (WEST)"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -28283,6 +28289,19 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/checkpoint)
+"bEf" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/obj/structure/table/reinforced,
+/obj/item/weapon/paper_bin{
+	pixel_x = -3;
+	pixel_y = 7
+	},
+/obj/item/weapon/stamp/denied,
+/obj/item/weapon/stamp/cargo,
+/turf/simulated/floor/tiled/dark,
+/area/logistics/mailing)
 "bFA" = (
 /obj/effect/paint_stripe/red,
 /turf/simulated/wall/r_wall/prepainted,
@@ -28672,15 +28691,6 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/rnd/office)
-"eiF" = (
-/obj/structure/lattice,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "32-8"
-	},
-/turf/simulated/open,
-/area/space)
 "elg" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/light,
@@ -28805,18 +28815,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/cents)
-"euM" = (
-/obj/machinery/conveyor_switch{
-	id = "packageSort1"
+"etf" = (
+/obj/structure/lattice,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "32-8"
 	},
-/obj/effect/floor_decal/corner/beige/three_quarters,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/light,
-/turf/simulated/floor/tiled/dark,
-/area/logistics/mailing)
+/turf/simulated/open,
+/area/space)
 "eyp" = (
 /obj/machinery/door/airlock/security{
 	name = "Security Office";
@@ -29141,15 +29148,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/security/checkpoint)
-"gkJ" = (
-/obj/effect/floor_decal/corner/fadeblue/full,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/starboardgun)
 "grv" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -29373,6 +29371,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/security/starboardexternalgun)
+"hKg" = (
+/obj/structure/disposaloutlet,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/fulltile,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/logistics/mailing)
 "hNR" = (
 /obj/effect/paint_stripe/blue,
 /turf/simulated/wall/r_wall/prepainted,
@@ -29824,6 +29834,28 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/civilian/holodeck)
+"kpv" = (
+/obj/machinery/door/airlock/command{
+	name = "Bridge";
+	req_access = list("ACCESS_BRIDGE")
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "bridgelock";
+	name = "Bridge Lockdown";
+	tag = "icon-pdoor1"
+	},
+/obj/effect/floor_decal/corner/fadeblue/full,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0;
+	tag = ""
+	},
+/turf/simulated/floor/tiled/dark,
+/area/command/bridge)
 "krd" = (
 /obj/machinery/access_button{
 	command = "cycle_interior";
@@ -29988,17 +30020,6 @@
 	},
 /turf/simulated/floor/plating/airless,
 /area/maintenance/third_deck/fs)
-"lhD" = (
-/obj/effect/floor_decal/corner/fadeblue/full,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0;
-	tag = ""
-	},
-/turf/simulated/floor/tiled/dark,
-/area/command/bridge)
 "lkt" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/fadeblue{
@@ -30059,6 +30080,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afp)
+"lxu" = (
+/obj/machinery/conveyor_switch{
+	id = "packageSort1"
+	},
+/obj/effect/floor_decal/corner/beige/three_quarters,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
+/area/logistics/mailing)
 "lxw" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 8;
@@ -30151,6 +30184,24 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/checkpoint)
+"mus" = (
+/obj/effect/floor_decal/corner/fadeblue{
+	dir = 10;
+	icon_state = "corner_white"
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4";
+	tag = ""
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/portgun)
 "mvm" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/red{
@@ -30194,19 +30245,6 @@
 /obj/effect/paint_stripe/blue,
 /turf/simulated/wall/r_wall/prepainted,
 /area/security/starboardgun)
-"mBY" = (
-/obj/effect/floor_decal/corner/beige{
-	dir = 5
-	},
-/obj/structure/table/reinforced,
-/obj/item/weapon/paper_bin{
-	pixel_x = -3;
-	pixel_y = 7
-	},
-/obj/item/weapon/stamp/denied,
-/obj/item/weapon/stamp/cargo,
-/turf/simulated/floor/tiled/dark,
-/area/logistics/mailing)
 "mKx" = (
 /obj/effect/floor_decal/corner/beige/three_quarters{
 	dir = 8
@@ -30553,18 +30591,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/office)
-"oPh" = (
-/obj/structure/disposaloutlet,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning/fulltile,
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/disposalpipe/trunk{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/logistics/mailing)
 "oPu" = (
 /obj/effect/floor_decal/corner/black/border{
 	dir = 1;
@@ -30696,24 +30722,6 @@
 "pTs" = (
 /turf/simulated/wall/r_wall/prepainted,
 /area/security/boardarmoury)
-"pUe" = (
-/obj/effect/floor_decal/corner/fadeblue{
-	dir = 10;
-	icon_state = "corner_white"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4";
-	tag = ""
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/portgun)
 "pVb" = (
 /obj/effect/floor_decal/corner/fadeblue/three_quarters{
 	dir = 4;
@@ -30831,13 +30839,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fp)
-"qJF" = (
-/obj/machinery/door/airlock{
-	name = "Kitchen";
-	req_access = list("ACCESS_KITCHEN")
-	},
-/turf/simulated/floor/tiled/white,
-/area/civilian/kitchen)
 "qLH" = (
 /turf/simulated/wall/false{
 	density = 1;
@@ -30845,13 +30846,6 @@
 	opacity = 1
 	},
 /area/civilian/abandonedoffice)
-"qQk" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass{
-	name = "Holodeck"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/fore/third_deck)
 "qRR" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
@@ -31142,28 +31136,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/lockers)
-"tdk" = (
-/obj/machinery/door/airlock/command{
-	name = "Bridge";
-	req_access = list("ACCESS_BRIDGE")
-	},
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular/open{
-	dir = 2;
-	id = "bridgelock";
-	name = "Bridge Lockdown";
-	tag = "icon-pdoor1"
-	},
-/obj/effect/floor_decal/corner/fadeblue/full,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0;
-	tag = ""
-	},
-/turf/simulated/floor/tiled/dark,
-/area/command/bridge)
 "teR" = (
 /obj/structure/disposaloutlet{
 	dir = 4
@@ -31193,6 +31165,15 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/portgun)
+"tkx" = (
+/obj/effect/floor_decal/corner/fadeblue/full,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/starboardgun)
 "toz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	req_access = 1
@@ -31475,15 +31456,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/security/portexternalgun)
-"uLG" = (
-/obj/structure/table/reinforced,
-/obj/machinery/door/blast/shutters{
-	dir = 4;
-	id = "kitchenholodeck";
-	name = "kitchen shutters"
-	},
-/turf/simulated/floor/tiled/white,
-/area/civilian/kitchen)
 "uME" = (
 /obj/structure/table/standard,
 /obj/item/weapon/book/manual/chef_recipes,
@@ -31501,6 +31473,17 @@
 /obj/effect/paint_stripe/paleblue,
 /turf/simulated/wall/prepainted,
 /area/medical/examroom)
+"uZS" = (
+/obj/effect/floor_decal/corner/fadeblue/full,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0;
+	tag = ""
+	},
+/turf/simulated/floor/tiled/dark,
+/area/command/bridge)
 "vey" = (
 /obj/machinery/door/airlock/research{
 	name = "Robotics";
@@ -31873,6 +31856,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afs)
+"xvz" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass{
+	name = "Holodeck"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/fore/third_deck)
 "xyC" = (
 /obj/effect/floor_decal/corner/fadeblue{
 	dir = 10;
@@ -31910,6 +31900,22 @@
 	},
 /turf/simulated/floor/plating/airless,
 /area/maintenance/third_deck/fp)
+"xOM" = (
+/obj/machinery/door/airlock{
+	name = "Kitchen";
+	req_access = list("ACCESS_KITCHEN")
+	},
+/turf/simulated/floor/tiled/white,
+/area/civilian/kitchen)
+"xQE" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/blast/shutters{
+	dir = 4;
+	id = "kitchenholodeck";
+	name = "kitchen shutters"
+	},
+/turf/simulated/floor/tiled/white,
+/area/civilian/kitchen)
 "xQT" = (
 /obj/machinery/firealarm{
 	dir = 2;
@@ -50644,7 +50650,7 @@ aHr
 hdh
 aJM
 bOq
-oPh
+hKg
 aKT
 aIG
 aIG
@@ -50849,7 +50855,7 @@ aJO
 mKx
 aLZ
 aLZ
-euM
+lxu
 aGq
 aGq
 wqY
@@ -51250,7 +51256,7 @@ aHt
 eEJ
 aJN
 aJO
-mBY
+bEf
 aIJ
 aMb
 aIJ
@@ -56082,7 +56088,7 @@ suK
 suK
 ask
 atC
-qQk
+xvz
 avO
 avO
 avO
@@ -56090,7 +56096,7 @@ avO
 avO
 avO
 avO
-qQk
+xvz
 atC
 aFs
 ksl
@@ -56488,7 +56494,7 @@ asm
 atC
 auM
 auM
-uLG
+xQE
 auM
 auM
 ayp
@@ -57097,7 +57103,7 @@ dKO
 axo
 elg
 auM
-qJF
+xOM
 auM
 auM
 auM
@@ -62942,12 +62948,12 @@ cOu
 ahd
 ait
 ajX
-pUe
+mus
 tfy
 anB
 aoX
-tdk
-lhD
+kpv
+uZS
 asI
 atZ
 auZ
@@ -62964,7 +62970,7 @@ aFS
 iBE
 iIz
 sPc
-gkJ
+tkx
 aLE
 aMO
 aOg
@@ -63146,7 +63152,7 @@ aiu
 ajY
 ali
 amq
-eiF
+etf
 ycr
 emJ
 emJ
