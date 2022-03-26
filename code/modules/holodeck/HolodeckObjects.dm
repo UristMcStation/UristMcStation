@@ -46,6 +46,11 @@
 	icon_state = "dark"
 	initial_flooring = /decl/flooring/tiling/dark
 
+/turf/simulated/floor/holofloor/tiled/old_tile
+	name = "floor"
+	icon_state = "tile_full"
+	initial_flooring = /decl/flooring/tiling/new_tile
+
 /turf/simulated/floor/holofloor/tiled/stone
 	name = "stone floor"
 	icon_state = "stone"
@@ -122,6 +127,17 @@
 /turf/simulated/floor/holofloor/desert
 	name = "desert sand"
 	base_name = "desert sand"
+	desc = "Uncomfortably gritty for a hologram."
+	base_desc = "Uncomfortably gritty for a hologram."
+	icon_state = "desert6"
+	base_icon_state = "desert6"
+	initial_flooring = null
+	icon = 'icons/turf/desert.dmi'
+	base_icon = 'icons/turf/desert.dmi'
+
+/turf/simulated/floor/holofloor/path
+	name = "sand path"
+	base_name = "sand path"
 	desc = "Uncomfortably gritty for a hologram."
 	base_desc = "Uncomfortably gritty for a hologram."
 	icon_state = "asteroid"
@@ -231,6 +247,13 @@
 	if(istype(W, /obj/item/weapon/wrench))
 		to_chat(user, ("<span class='notice'>It's a holochair, you can't dismantle it!</span>"))
 	return
+
+/obj/structure/bed/chair/holochair/wood
+	name = "classic chair"
+	desc = "Old is never too old to not be in fashion."
+	base_icon = "wooden_chair"
+	icon_state = "wooden_chair_preview"
+	color = WOOD_COLOR_CHOCOLATE
 
 /obj/item/weapon/holo
 	damtype = PAIN
@@ -477,3 +500,8 @@
 /mob/living/simple_animal/hostile/carp/holodeck/death()
 	..(null, "fades away!", "You have been destroyed.")
 	qdel(src)
+
+//fitness
+
+/obj/structure/fitness/weightlifter/holo/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	return

@@ -151,26 +151,26 @@
 /area/rescue_base/base)
 "av" = (
 /obj/machinery/computer/teleporter{
-	icon_state = "computer";
-	dir = 2
+	dir = 2;
+	icon_state = "computer"
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "aw" = (
 /obj/machinery/teleport/station,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "ax" = (
 /obj/machinery/teleport/hub,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "ay" = (
@@ -226,8 +226,8 @@
 /area/space)
 "aF" = (
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "aG" = (
@@ -237,8 +237,8 @@
 	req_access = list("ACCESS_CENT_SPECOPS")
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "aH" = (
@@ -283,18 +283,18 @@
 	pixel_y = 16
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/rescue_base/base)
 "aN" = (
 /obj/structure/hygiene/shower{
-	icon_state = "shower";
-	dir = 4
+	dir = 4;
+	icon_state = "shower"
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/rescue_base/base)
 "aO" = (
@@ -303,8 +303,8 @@
 	pixel_y = 32
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/rescue_base/base)
 "aP" = (
@@ -322,7 +322,6 @@
 /area/rescue_base/base)
 "aR" = (
 /obj/structure/table/steel_reinforced,
-/obj/item/weapon/material/twohanded/baseballbat/metal,
 /obj/item/weapon/material/hatchet,
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -330,8 +329,8 @@
 /area/rescue_base/base)
 "aS" = (
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/rescue_base/base)
 "aT" = (
@@ -346,8 +345,8 @@
 /obj/item/weapon/aiModule/solgov,
 /obj/item/weapon/aiModule/solgov_aggressive,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "aU" = (
@@ -362,8 +361,8 @@
 /obj/item/weapon/plastique,
 /obj/item/weapon/plastique,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "aV" = (
@@ -375,8 +374,8 @@
 	pixel_y = 22
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "aW" = (
@@ -390,8 +389,8 @@
 /obj/item/weapon/storage/box/ammo/shotgunshells,
 /obj/item/weapon/storage/box/ammo/shotgunshells,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "aX" = (
@@ -401,8 +400,8 @@
 /obj/item/weapon/gun/energy/gun/nuclear,
 /obj/item/weapon/gun/energy/gun/nuclear,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "aY" = (
@@ -497,8 +496,8 @@
 	req_access = list("ACCESS_CENT_SPECOPS")
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/rescue_base/base)
 "bh" = (
@@ -512,8 +511,8 @@
 	req_access = list("ACCESS_CENT_SPECOPS")
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/rescue_base/base)
 "bj" = (
@@ -523,8 +522,8 @@
 /obj/item/ammo_magazine/box/a556,
 /obj/item/ammo_magazine/box/a556,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "bk" = (
@@ -533,8 +532,8 @@
 	pixel_y = 22
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "bl" = (
@@ -545,8 +544,8 @@
 	pixel_y = -3
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "bm" = (
@@ -555,8 +554,8 @@
 /obj/item/weapon/gun/projectile/automatic/wt550,
 /obj/item/weapon/gun/projectile/automatic/wt550,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "bn" = (
@@ -593,8 +592,8 @@
 	req_access = list("ACCESS_CENT_SPECOPS")
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/rescue_base/base)
 "br" = (
@@ -603,16 +602,16 @@
 	pixel_y = 16
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/rescue_base/base)
 "bs" = (
 /obj/structure/table/rack,
 /obj/item/weapon/gun/projectile/automatic/l6_saw,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "bt" = (
@@ -630,8 +629,8 @@
 /obj/item/clothing/suit/armor/laserproof,
 /obj/item/clothing/suit/armor/laserproof,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "bu" = (
@@ -646,8 +645,8 @@
 /obj/item/ammo_magazine/mc9mmt/rubber,
 /obj/item/ammo_magazine/mc9mmt/rubber,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "bv" = (
@@ -708,8 +707,8 @@
 /obj/item/weapon/rig/ert/assetprotection,
 /obj/item/weapon/rig/ert/assetprotection,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "bC" = (
@@ -727,8 +726,8 @@
 /obj/item/clothing/suit/armor/bulletproof,
 /obj/item/clothing/suit/armor/bulletproof,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "bD" = (
@@ -744,8 +743,8 @@
 /obj/item/ammo_magazine/mc9mmt,
 /obj/item/ammo_magazine/mc9mmt,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "bE" = (
@@ -765,8 +764,8 @@
 /area/rescue_base/base)
 "bG" = (
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 9
+	dir = 9;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "bH" = (
@@ -873,8 +872,8 @@
 /obj/item/weapon/gun/projectile/automatic/z8,
 /obj/item/weapon/gun/projectile/automatic/z8,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "bS" = (
@@ -890,8 +889,8 @@
 	p_open = 0
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "bT" = (
@@ -900,8 +899,8 @@
 /obj/item/weapon/storage/box/smokes,
 /obj/item/weapon/storage/box/flashbangs,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "bU" = (
@@ -950,16 +949,16 @@
 /obj/item/ammo_magazine/a762,
 /obj/item/ammo_magazine/a762,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "ca" = (
 /obj/structure/table/rack,
 /obj/item/weapon/gun/launcher/grenade,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cb" = (
@@ -970,8 +969,8 @@
 /obj/item/weapon/storage/box/emps,
 /obj/item/weapon/storage/box/frags,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cc" = (
@@ -983,16 +982,16 @@
 /obj/item/clothing/head/solgov/utility/fleet,
 /obj/item/clothing/accessory/badge/solgov/tags,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cd" = (
 /obj/structure/bed/nice,
 /obj/item/weapon/bedsheet/captain,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "ce" = (
@@ -1003,8 +1002,8 @@
 	pixel_y = 22
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cf" = (
@@ -1012,8 +1011,8 @@
 	prices = list()
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cg" = (
@@ -1029,8 +1028,8 @@
 	p_open = 0
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "ch" = (
@@ -1058,8 +1057,8 @@
 "cl" = (
 /obj/machinery/acting/changer,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cm" = (
@@ -1067,8 +1066,8 @@
 	name = "Response Team"
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cn" = (
@@ -1094,8 +1093,8 @@
 "cp" = (
 /obj/structure/undies_wardrobe,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cq" = (
@@ -1114,8 +1113,8 @@
 	pixel_y = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cs" = (
@@ -1125,8 +1124,8 @@
 	req_access = list("ACCESS_CENT_SPECOPS")
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "ct" = (
@@ -1152,8 +1151,8 @@
 /obj/item/taperoll/police,
 /obj/item/taperoll/police,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cu" = (
@@ -1165,8 +1164,8 @@
 /obj/item/clothing/glasses/tacgoggles,
 /obj/item/clothing/glasses/tacgoggles,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cv" = (
@@ -1176,8 +1175,8 @@
 /obj/item/weapon/storage/belt/holster/security/tactical,
 /obj/item/weapon/storage/belt/holster/security/tactical,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cw" = (
@@ -1185,8 +1184,8 @@
 /obj/item/weapon/gun/energy/gun/nuclear,
 /obj/item/weapon/gun/energy/gun/nuclear,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cx" = (
@@ -1200,8 +1199,8 @@
 /obj/item/clothing/head/helmet,
 /obj/item/clothing/head/helmet,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cy" = (
@@ -1211,8 +1210,8 @@
 /obj/item/clothing/head/helmet,
 /obj/item/clothing/head/helmet,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cz" = (
@@ -1220,8 +1219,8 @@
 /obj/item/weapon/gun/energy/gun,
 /obj/item/weapon/gun/energy/gun,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cA" = (
@@ -1233,8 +1232,8 @@
 /obj/item/weapon/storage/belt/medical/emt,
 /obj/item/weapon/storage/belt/medical/emt,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cB" = (
@@ -1247,8 +1246,8 @@
 /obj/item/weapon/storage/box/gloves,
 /obj/item/weapon/storage/box/masks,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cC" = (
@@ -1274,8 +1273,8 @@
 /obj/item/weapon/gun/launcher/syringe/rapid,
 /obj/item/weapon/gun/launcher/syringe/rapid,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cD" = (
@@ -1291,8 +1290,8 @@
 /obj/item/weapon/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/weapon/reagent_containers/glass/bottle/inaprovaline,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cE" = (
@@ -1305,8 +1304,8 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cF" = (
@@ -1316,8 +1315,8 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cG" = (
@@ -1339,8 +1338,8 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cH" = (
@@ -1356,15 +1355,15 @@
 	pixel_y = 22
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cI" = (
 /obj/structure/table/rack,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cJ" = (
@@ -1390,8 +1389,8 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cK" = (
@@ -1401,8 +1400,8 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cL" = (
@@ -1415,8 +1414,8 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cM" = (
@@ -1454,8 +1453,8 @@
 	pixel_y = 2
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cN" = (
@@ -1465,16 +1464,16 @@
 /obj/item/weapon/gun/energy/laser,
 /obj/item/weapon/gun/energy/laser,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cO" = (
 /obj/machinery/chemical_dispenser/ert,
 /obj/item/weapon/reagent_containers/glass/beaker/large,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cP" = (
@@ -1487,8 +1486,8 @@
 /obj/structure/table/rack,
 /obj/item/weapon/rig/ert/janitor,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cQ" = (
@@ -1519,8 +1518,8 @@
 	name = "Unlocked Autolathe"
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cU" = (
@@ -1528,8 +1527,8 @@
 /obj/item/weapon/gun/energy/ionrifle,
 /obj/item/weapon/gun/energy/ionrifle,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cV" = (
@@ -1547,8 +1546,8 @@
 /obj/item/weapon/shield/riot,
 /obj/item/weapon/shield/riot,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cW" = (
@@ -1570,8 +1569,8 @@
 /obj/item/bodybag/cryobag,
 /obj/item/weapon/defibrillator/compact/loaded,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cX" = (
@@ -1583,8 +1582,8 @@
 /obj/item/roller,
 /obj/item/roller,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "cY" = (
@@ -1607,8 +1606,8 @@
 "cZ" = (
 /obj/machinery/chem_master,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "da" = (
@@ -1619,8 +1618,8 @@
 /obj/structure/table/rack,
 /obj/item/weapon/rig/ert/janitor,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "db" = (
@@ -1632,8 +1631,8 @@
 /obj/item/device/paicard,
 /obj/item/device/paicard,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dc" = (
@@ -1643,8 +1642,8 @@
 /obj/item/weapon/gun/energy/gun,
 /obj/item/weapon/gun/energy/gun,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dd" = (
@@ -1654,16 +1653,16 @@
 /obj/item/weapon/shield/riot/metal,
 /obj/item/weapon/shield/riot/metal,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "de" = (
 /obj/machinery/chemical_dispenser/full,
 /obj/item/weapon/reagent_containers/glass/beaker/large,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "df" = (
@@ -1690,8 +1689,8 @@
 	pixel_x = 32
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "di" = (
@@ -1708,15 +1707,15 @@
 /obj/item/clothing/head/beret/solgov/fleet/security,
 /obj/item/clothing/head/beret/solgov/fleet/security,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dj" = (
 /obj/structure/iv_drip,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dk" = (
@@ -1731,8 +1730,8 @@
 /obj/item/device/flashlight/pen,
 /obj/item/device/flashlight/pen,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dl" = (
@@ -1747,8 +1746,8 @@
 /obj/item/weapon/storage/firstaid/o2,
 /obj/item/weapon/storage/firstaid/o2,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dm" = (
@@ -1763,15 +1762,15 @@
 /obj/item/weapon/storage/firstaid/combat,
 /obj/item/weapon/storage/firstaid/combat,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dn" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "do" = (
@@ -1782,8 +1781,8 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dp" = (
@@ -1796,8 +1795,8 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dq" = (
@@ -1819,8 +1818,8 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dr" = (
@@ -1828,8 +1827,8 @@
 /obj/structure/table/rack,
 /obj/item/weapon/rig/ert/engineer,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "ds" = (
@@ -1840,8 +1839,8 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dt" = (
@@ -1861,8 +1860,8 @@
 "dv" = (
 /obj/structure/table/reinforced,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dw" = (
@@ -1876,8 +1875,8 @@
 	req_access = list("ACCESS_CENT_SPECOPS")
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dy" = (
@@ -1887,8 +1886,8 @@
 	req_access = list("ACCESS_CENT_SPECOPS")
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dz" = (
@@ -1912,8 +1911,8 @@
 	p_open = 0
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dC" = (
@@ -1923,8 +1922,8 @@
 	req_access = list("ACCESS_CENT_SPECOPS")
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dD" = (
@@ -1933,8 +1932,8 @@
 	pixel_y = 32
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dE" = (
@@ -1944,17 +1943,17 @@
 	req_access = list("ACCESS_CENT_SPECOPS")
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dF" = (
 /turf/unsimulated/wall{
 	desc = "A secure airlock. Doesn't look like you can get through easily.";
+	dir = 4;
 	icon = 'icons/obj/doors/centcomm/door.dmi';
 	icon_state = "closed";
-	name = "Delta Barracks";
-	dir = 4
+	name = "Delta Barracks"
 	},
 /area/rescue_base/base)
 "dG" = (
@@ -1972,15 +1971,15 @@
 /obj/item/modular_computer/tablet/lease/preset/command,
 /obj/item/modular_computer/tablet/lease/preset/command,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dI" = (
 /obj/machinery/recharge_station,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dJ" = (
@@ -1992,8 +1991,8 @@
 /obj/item/clothing/accessory/storage/white_vest,
 /obj/item/clothing/accessory/storage/white_vest,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dK" = (
@@ -2005,8 +2004,8 @@
 /obj/item/clothing/accessory/storage/black_vest,
 /obj/item/clothing/accessory/storage/black_vest,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dL" = (
@@ -2018,8 +2017,8 @@
 /obj/item/clothing/accessory/storage/brown_vest,
 /obj/item/clothing/accessory/storage/brown_vest,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dM" = (
@@ -2031,8 +2030,8 @@
 /obj/item/clothing/accessory/storage/holster/thigh,
 /obj/item/clothing/accessory/storage/holster/thigh,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dN" = (
@@ -2041,8 +2040,8 @@
 	pixel_y = -22
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dO" = (
@@ -2053,8 +2052,8 @@
 	pixel_y = -25
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dP" = (
@@ -2064,8 +2063,8 @@
 	req_access = list("ACCESS_CENT_SPECOPS")
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dQ" = (
@@ -2075,8 +2074,8 @@
 	req_access = list("ACCESS_CENT_SPECOPS")
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dR" = (
@@ -2086,8 +2085,8 @@
 	req_access = list("ACCESS_CENT_SPECOPS")
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dS" = (
@@ -2102,8 +2101,8 @@
 	req_access = list("ACCESS_CENT_SPECOPS")
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dU" = (
@@ -2111,16 +2110,16 @@
 /obj/item/weapon/storage/box/trackimp,
 /obj/item/weapon/storage/box/cdeathalarm_kit,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dV" = (
 /obj/structure/table/reinforced,
 /obj/prefab/hand_teleporter,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dW" = (
@@ -2132,8 +2131,8 @@
 	pixel_y = 22
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dX" = (
@@ -2141,29 +2140,29 @@
 /obj/machinery/cell_charger,
 /obj/item/weapon/cell/hyper,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dY" = (
 /obj/machinery/vending/engivend,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "dZ" = (
 /obj/machinery/vending/tool,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "ea" = (
 /obj/machinery/vending/assist,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "eb" = (
@@ -2173,15 +2172,15 @@
 	pixel_y = 22
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "ec" = (
 /obj/machinery/pipedispenser/disposal/orderable,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "ed" = (
@@ -2198,8 +2197,8 @@
 /obj/item/clothing/head/beret/solgov/fleet/engineering,
 /obj/item/clothing/head/beret/solgov/fleet/engineering,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "ee" = (
@@ -2211,14 +2210,14 @@
 "ef" = (
 /obj/structure/bed/chair/office/dark,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "eg" = (
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "eh" = (
@@ -2245,8 +2244,8 @@
 	p_open = 0
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "ej" = (
@@ -2284,22 +2283,22 @@
 "en" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "eo" = (
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "ep" = (
 /obj/machinery/shieldgen,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "eq" = (
@@ -2324,8 +2323,8 @@
 	req_access = list("ACCESS_CENT_SPECOPS")
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "et" = (
@@ -2334,8 +2333,8 @@
 /obj/item/mecha_parts/mecha_equipment/tool/sleeper,
 /obj/item/mecha_parts/mecha_equipment/tool/syringe_gun,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "eu" = (
@@ -2350,16 +2349,16 @@
 	pixel_y = 22
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "ev" = (
 /obj/structure/table/reinforced,
 /obj/machinery/cell_charger,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "ew" = (
@@ -2367,8 +2366,8 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "ex" = (
@@ -2378,8 +2377,8 @@
 /obj/item/weapon/storage/box/handcuffs,
 /obj/item/weapon/melee/baton/loaded,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "ey" = (
@@ -2387,8 +2386,8 @@
 /obj/item/clothing/mask/gas,
 /obj/item/clothing/glasses/tacgoggles,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "ez" = (
@@ -2396,16 +2395,16 @@
 /obj/item/weapon/storage/backpack/ert/commander,
 /obj/item/weapon/storage/belt/holster/security/tactical,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "eA" = (
 /obj/structure/table/rack,
 /obj/item/weapon/gun/energy/gun,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "eB" = (
@@ -2413,22 +2412,22 @@
 /obj/item/clothing/suit/armor/pcarrier/medium/command,
 /obj/item/clothing/head/helmet/solgov/command,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "eC" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "eD" = (
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "eE" = (
@@ -2448,8 +2447,8 @@
 	p_open = 0
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "eG" = (
@@ -2459,8 +2458,8 @@
 /area/rescue_base/base)
 "eH" = (
 /obj/item/modular_computer/console/preset/command{
-	icon_state = "console";
-	dir = 4
+	dir = 4;
+	icon_state = "console"
 	},
 /obj/item/weapon/card/id/centcom,
 /turf/unsimulated/floor{
@@ -2470,8 +2469,8 @@
 "eI" = (
 /obj/structure/closet/secure_closet/nervacos,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "eJ" = (
@@ -2479,15 +2478,15 @@
 /obj/item/weapon/storage/secure/briefcase,
 /obj/item/clothing/head/beret/centcom/captain,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "eK" = (
 /obj/machinery/power/emitter,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "eL" = (
@@ -2507,8 +2506,8 @@
 	req_access = newlist()
 	},
 /turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "cult"
+	icon_state = "cult";
+	name = "plating"
 	},
 /area/rescue_base/base)
 "eN" = (
@@ -2520,8 +2519,8 @@
 	frequency = 1345
 	},
 /turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "cult"
+	icon_state = "cult";
+	name = "plating"
 	},
 /area/rescue_base/base)
 "eO" = (
@@ -2535,8 +2534,8 @@
 	pixel_y = 4
 	},
 /turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "cult"
+	icon_state = "cult";
+	name = "plating"
 	},
 /area/rescue_base/base)
 "eP" = (
@@ -2550,8 +2549,8 @@
 /obj/item/clothing/gloves/insulated,
 /obj/item/clothing/gloves/insulated,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "eQ" = (
@@ -2563,8 +2562,8 @@
 /obj/item/clothing/glasses/welding/superior,
 /obj/item/clothing/glasses/welding/superior,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "eR" = (
@@ -2602,8 +2601,8 @@
 	pixel_y = 3
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "eS" = (
@@ -2623,8 +2622,8 @@
 /obj/item/weapon/cell/high,
 /obj/item/weapon/cell/high,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "eT" = (
@@ -2646,8 +2645,8 @@
 /obj/item/weapon/rcd,
 /obj/item/weapon/rcd,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "eU" = (
@@ -2733,8 +2732,8 @@
 	amount = 20
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "eV" = (
@@ -2748,15 +2747,15 @@
 /obj/item/weapon/smes_coil/super_io,
 /obj/item/weapon/smes_coil/super_io,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "eW" = (
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "eX" = (
@@ -2778,8 +2777,8 @@
 /obj/item/mecha_parts/mecha_equipment/armor_booster/anticcw_armor_booster,
 /obj/item/mecha_parts/mecha_equipment/armor_booster/antiproj_armor_booster,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "fa" = (
@@ -2789,8 +2788,8 @@
 /obj/item/weapon/material/ashtray/bronze,
 /obj/item/trash/cigbutt/cigarbutt,
 /turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "cult"
+	icon_state = "cult";
+	name = "plating"
 	},
 /area/rescue_base/base)
 "fb" = (
@@ -2798,8 +2797,8 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "cult"
+	icon_state = "cult";
+	name = "plating"
 	},
 /area/rescue_base/base)
 "fc" = (
@@ -2808,8 +2807,8 @@
 	},
 /obj/item/clothing/head/beret/solgov/marcom,
 /turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "cult"
+	icon_state = "cult";
+	name = "plating"
 	},
 /area/rescue_base/base)
 "fd" = (
@@ -2825,8 +2824,8 @@
 	p_open = 0
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "fe" = (
@@ -2848,8 +2847,8 @@
 /obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp,
 /obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "fh" = (
@@ -2863,8 +2862,8 @@
 /obj/item/mecha_parts/mecha_equipment/repair_droid,
 /obj/item/mecha_parts/mecha_equipment/repair_droid,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "fi" = (
@@ -2872,8 +2871,8 @@
 /obj/item/mecha_parts/mecha_equipment/tool/drill/diamonddrill,
 /obj/item/mecha_parts/mecha_equipment/tool/cable_layer,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "fj" = (
@@ -2881,8 +2880,8 @@
 /obj/item/mecha_parts/mecha_equipment/tool/extinguisher,
 /obj/item/mecha_parts/mecha_equipment/tool/rcd,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "fk" = (
@@ -2890,8 +2889,8 @@
 /obj/item/mecha_parts/mecha_equipment/tool/passenger,
 /obj/item/mecha_parts/mecha_equipment/tool/passenger,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "fl" = (
@@ -2899,8 +2898,8 @@
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/ion,
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/taser,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
+	dir = 1;
+	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "fm" = (
@@ -3095,8 +3094,8 @@
 /area/rescue_base/start)
 "fJ" = (
 /obj/structure/handrai{
-	icon_state = "handrail";
-	dir = 4
+	dir = 4;
+	icon_state = "handrail"
 	},
 /turf/simulated/floor/plating,
 /area/rescue_base/start)
@@ -3114,15 +3113,15 @@
 	req_access = list("ACCESS_CENT_CREED")
 	},
 /obj/structure/handrai{
-	icon_state = "handrail";
-	dir = 8
+	dir = 8;
+	icon_state = "handrail"
 	},
 /turf/simulated/floor/plating,
 /area/rescue_base/start)
 "fM" = (
 /obj/item/modular_computer/console/preset/medical{
-	icon_state = "console";
-	dir = 4
+	dir = 4;
+	icon_state = "console"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rescue_base/start)
@@ -3131,8 +3130,8 @@
 /area/rescue_base/start)
 "fO" = (
 /obj/item/modular_computer/console/preset/engineering{
-	icon_state = "console";
-	dir = 8
+	dir = 8;
+	icon_state = "console"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rescue_base/start)
@@ -3143,8 +3142,8 @@
 	pixel_y = 0
 	},
 /obj/structure/handrai{
-	icon_state = "handrail";
-	dir = 8
+	dir = 8;
+	icon_state = "handrail"
 	},
 /turf/simulated/floor/plating,
 /area/rescue_base/start)
@@ -3160,8 +3159,8 @@
 /area/rescue_base/start)
 "fR" = (
 /obj/item/modular_computer/console/preset/security{
-	icon_state = "console";
-	dir = 8
+	dir = 8;
+	icon_state = "console"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rescue_base/start)
@@ -3364,8 +3363,8 @@
 /area/drone_test)
 "gr" = (
 /obj/structure/handrai{
-	icon_state = "handrail";
-	dir = 1
+	dir = 1;
+	icon_state = "handrail"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rescue_base/start)
@@ -3695,8 +3694,8 @@
 /area/rescue_base/start)
 "hq" = (
 /turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "lava"
+	icon_state = "lava";
+	name = "plating"
 	},
 /area/deity_spawn)
 "hr" = (
@@ -3731,8 +3730,8 @@
 	dir = 1
 	},
 /obj/structure/hygiene/sink{
-	icon_state = "sink";
 	dir = 8;
+	icon_state = "sink";
 	pixel_x = -12;
 	pixel_y = 2
 	},
@@ -3880,8 +3879,8 @@
 	name = "DeitySpawn"
 	},
 /turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "lava"
+	icon_state = "lava";
+	name = "plating"
 	},
 /area/deity_spawn)
 "hM" = (
@@ -4122,9 +4121,9 @@
 /area/fightclub)
 "iy" = (
 /obj/machinery/light/small/red{
-	tag = "icon-firelight1 (NORTH)";
+	dir = 1;
 	icon_state = "firelight1";
-	dir = 1
+	tag = "icon-firelight1 (NORTH)"
 	},
 /obj/structure/window/reinforced{
 	dir = 8
@@ -4142,9 +4141,9 @@
 /area/fightclub)
 "iB" = (
 /obj/machinery/light/small/red{
-	tag = "icon-firelight1 (NORTH)";
+	dir = 1;
 	icon_state = "firelight1";
-	dir = 1
+	tag = "icon-firelight1 (NORTH)"
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -4176,8 +4175,8 @@
 "iF" = (
 /obj/random/junk,
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 8
+	dir = 8;
+	icon_state = "warning"
 	},
 /turf/simulated/floor/plating,
 /area/fightclub)
@@ -4237,9 +4236,9 @@
 /area/syndicate_mothership/raider_base)
 "iP" = (
 /obj/machinery/light/small/red{
-	tag = "icon-firelight1 (WEST)";
+	dir = 8;
 	icon_state = "firelight1";
-	dir = 8
+	tag = "icon-firelight1 (WEST)"
 	},
 /obj/random/junk,
 /turf/simulated/floor/tiled/dark,
@@ -4277,22 +4276,22 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 1
+	dir = 1;
+	icon_state = "warning"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/fightclub)
 "iX" = (
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 1
+	dir = 1;
+	icon_state = "warning"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/fightclub)
 "iY" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 1
+	dir = 1;
+	icon_state = "warningcorner"
 	},
 /turf/simulated/floor/plating,
 /area/fightclub)
@@ -4306,8 +4305,8 @@
 	},
 /obj/item/weapon/soap/syndie,
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/syndicate_mothership/raider_base)
 "jb" = (
@@ -4315,8 +4314,8 @@
 	pixel_y = 32
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/syndicate_mothership/raider_base)
 "jc" = (
@@ -4325,8 +4324,8 @@
 	},
 /obj/random/trash,
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/syndicate_mothership/raider_base)
 "jd" = (
@@ -4451,15 +4450,15 @@
 /area/syndicate_mothership/raider_base)
 "jq" = (
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/syndicate_mothership/raider_base)
 "jr" = (
 /obj/effect/decal/cleanable/blood,
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/syndicate_mothership/raider_base)
 "js" = (
@@ -4534,8 +4533,8 @@
 /obj/effect/floor_decal/corner/red,
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /obj/structure/cable{
 	d2 = 2;
@@ -4553,9 +4552,9 @@
 	name = "fence"
 	},
 /obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (SOUTHWEST)";
+	dir = 10;
 	icon_state = "corner_white";
-	dir = 10
+	tag = "icon-corner_white (SOUTHWEST)"
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/cable{
@@ -4563,8 +4562,8 @@
 	icon_state = "0-8"
 	},
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/fightclub)
@@ -4580,8 +4579,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 8
+	dir = 8;
+	icon_state = "warningcorner"
 	},
 /obj/structure/cable,
 /obj/structure/cable{
@@ -4601,14 +4600,14 @@
 /area/fightclub)
 "jD" = (
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/space)
 "jE" = (
 /obj/structure/hygiene/sink{
-	icon_state = "sink";
 	dir = 8;
+	icon_state = "sink";
 	pixel_x = -12;
 	pixel_y = 2
 	},
@@ -4617,8 +4616,8 @@
 	pixel_y = 0
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/syndicate_mothership/raider_base)
 "jF" = (
@@ -4733,9 +4732,9 @@
 	name = "fence"
 	},
 /obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (SOUTHEAST)";
+	dir = 6;
 	icon_state = "corner_white";
-	dir = 6
+	tag = "icon-corner_white (SOUTHEAST)"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -4750,9 +4749,9 @@
 /area/fightclub)
 "jP" = (
 /obj/effect/decal/cleanable/blood{
-	tag = "icon-bloodsquare (NORTHEAST)";
+	dir = 5;
 	icon_state = "bloodsquare";
-	dir = 5
+	tag = "icon-bloodsquare (NORTHEAST)"
 	},
 /turf/simulated/floor/plating,
 /area/fightclub)
@@ -4768,8 +4767,8 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 8
+	dir = 8;
+	icon_state = "warning"
 	},
 /obj/structure/cable,
 /obj/structure/cable{
@@ -4808,8 +4807,8 @@
 /area/syndicate_mothership/raider_base)
 "jV" = (
 /obj/structure/hygiene/sink{
-	icon_state = "sink";
 	dir = 8;
+	icon_state = "sink";
 	pixel_x = -12;
 	pixel_y = 2
 	},
@@ -4819,8 +4818,8 @@
 	pixel_y = 0
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/syndicate_mothership/raider_base)
 "jW" = (
@@ -4837,8 +4836,8 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/syndicate_mothership/raider_base)
 "jY" = (
@@ -4891,8 +4890,8 @@
 /area/syndicate_mothership/raider_base)
 "kd" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
-	icon_state = "intact";
-	dir = 6
+	dir = 6;
+	icon_state = "intact"
 	},
 /turf/unsimulated/floor{
 	icon_state = "plating";
@@ -4947,17 +4946,17 @@
 /area/fightclub)
 "kj" = (
 /obj/machinery/light/small/red{
-	tag = "icon-firelight1 (WEST)";
+	dir = 8;
 	icon_state = "firelight1";
-	dir = 8
+	tag = "icon-firelight1 (WEST)"
 	},
 /turf/simulated/floor/plating,
 /area/fightclub)
 "kk" = (
 /obj/machinery/light/small/red{
-	tag = "icon-firelight1 (EAST)";
+	dir = 4;
 	icon_state = "firelight1";
-	dir = 4
+	tag = "icon-firelight1 (EAST)"
 	},
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/plating,
@@ -4971,29 +4970,28 @@
 /turf/simulated/floor/tiled/dark,
 /area/fightclub)
 "kn" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (EAST)";
-	icon_state = "spline_fancy";
-	dir = 4
-	},
+/obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
 "ko" = (
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_chapel)
 "kp" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (WEST)";
-	icon_state = "spline_fancy";
-	dir = 8
+/obj/structure/window/reinforced/holowindow{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 10;
+	icon_state = "corner_white";
+	tag = "icon-corner_white (SOUTHWEST)"
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_chapel)
+/area/holodeck/source_thunderdomecourt)
 "kq" = (
 /turf/simulated/floor/holofloor/ice,
-/area/holodeck/source_winter)
-"kr" = (
-/turf/simulated/floor/ice,
 /area/holodeck/source_winter)
 "ks" = (
 /turf/simulated/floor/holofloor/snow,
@@ -5028,45 +5026,6 @@
 /area/holodeck/source_meetinghall)
 "kA" = (
 /turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_meetinghall)
-"kB" = (
-/obj/effect/floor_decal/carpet{
-	dir = 8
-	},
-/obj/effect/floor_decal/carpet,
-/obj/effect/floor_decal/carpet{
-	dir = 1
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 9
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 10
-	},
-/turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_meetinghall)
-"kC" = (
-/obj/effect/floor_decal/carpet,
-/obj/effect/floor_decal/carpet{
-	dir = 1
-	},
-/turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_meetinghall)
-"kD" = (
-/obj/effect/floor_decal/carpet{
-	dir = 4
-	},
-/obj/effect/floor_decal/carpet,
-/obj/effect/floor_decal/carpet{
-	dir = 1
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 5
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 6
-	},
-/turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_meetinghall)
 "kE" = (
 /obj/effect/floor_decal/corner/red/three_quarters{
@@ -5297,9 +5256,9 @@
 /area/syndicate_mothership/raider_base)
 "lc" = (
 /obj/machinery/light/small/red{
-	tag = "icon-firelight1 (WEST)";
+	dir = 8;
 	icon_state = "firelight1";
-	dir = 8
+	tag = "icon-firelight1 (WEST)"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/fightclub)
@@ -5336,14 +5295,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/fightclub)
 "lj" = (
-/obj/structure/table/holo_woodentable,
-/obj/item/weapon/flame/candle{
-	pixel_x = -7
+/obj/structure/bed/chair/holochair{
+	dir = 4;
+	icon_state = "chair_preview";
+	tag = "icon-chair_preview (EAST)"
 	},
-/obj/item/weapon/flame/candle{
-	pixel_x = 7
+/obj/effect/floor_decal/chapel{
+	dir = 1;
+	icon_state = "chapel";
+	tag = "icon-chapel (NORTH)"
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
 "lk" = (
 /obj/structure/flora/tree/dead,
@@ -5413,9 +5375,9 @@
 /area/syndicate_mothership/raider_base)
 "lw" = (
 /obj/machinery/light/small/red{
-	tag = "icon-firelight1 (EAST)";
+	dir = 4;
 	icon_state = "firelight1";
-	dir = 4
+	tag = "icon-firelight1 (EAST)"
 	},
 /turf/simulated/floor/plating,
 /area/fightclub)
@@ -5429,58 +5391,46 @@
 /obj/machinery/vending/boozeomat,
 /turf/simulated/wall/voxshuttle,
 /area/fightclub)
-"lz" = (
-/obj/effect/floor_decal/spline/fancy/wood/corner{
-	tag = "icon-spline_fancy_corner (NORTH)";
-	icon_state = "spline_fancy_corner";
-	dir = 1
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_chapel)
 "lA" = (
+/obj/structure/bed/chair/holochair{
+	dir = 4;
+	icon_state = "chair_preview";
+	tag = "icon-chair_preview (EAST)"
+	},
+/obj/effect/floor_decal/chapel{
+	dir = 8;
+	icon_state = "chapel";
+	tag = "icon-chapel (WEST)"
+	},
 /obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (NORTH)";
+	dir = 10;
 	icon_state = "spline_fancy";
-	dir = 1
+	tag = "icon-spline_fancy (SOUTHWEST)"
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
 "lB" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (NORTHEAST)";
-	icon_state = "spline_fancy";
-	dir = 5
+/obj/structure/bed/chair/holochair{
+	dir = 4;
+	icon_state = "chair_preview";
+	tag = "icon-chair_preview (EAST)"
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_chapel)
-"lC" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (NORTHWEST)";
-	icon_state = "spline_fancy";
-	dir = 9
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_chapel)
-"lD" = (
-/obj/effect/floor_decal/spline/fancy/wood/corner{
-	tag = "icon-spline_fancy_corner (EAST)";
-	icon_state = "spline_fancy_corner";
-	dir = 4
-	},
+/obj/effect/floor_decal/chapel,
+/obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
 "lE" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
+/obj/effect/floor_decal/carpet{
+	dir = 8
 	},
-/turf/simulated/floor/holofloor/tiled,
+/turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_theatre)
 "lF" = (
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_theatre)
 "lG" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/desert,
+/turf/simulated/floor/holofloor/path,
 /area/holodeck/source_picnicarea)
 "lH" = (
 /turf/simulated/floor/holofloor/lino,
@@ -5569,8 +5519,8 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 8
+	dir = 8;
+	icon_state = "warningcorner"
 	},
 /obj/structure/grille{
 	desc = "A flimsy fence of metal rods, with screws to secure it to the floor.";
@@ -5622,9 +5572,9 @@
 	name = "fence"
 	},
 /obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (SOUTHEAST)";
+	dir = 6;
 	icon_state = "corner_white";
-	dir = 6
+	tag = "icon-corner_white (SOUTHEAST)"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -5667,73 +5617,11 @@
 	req_access = list("ACCESS_CENT_GENERAL")
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/space)
 "lY" = (
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_chapel)
-"lZ" = (
-/obj/structure/bed/chair/holochair{
-	tag = "icon-chair_preview (NORTH)";
-	icon_state = "chair_preview";
-	dir = 1
-	},
-/obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (NORTH)";
-	icon_state = "chapel";
-	dir = 1
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_chapel)
-"ma" = (
-/obj/structure/bed/chair/holochair{
-	tag = "icon-chair_preview (NORTH)";
-	icon_state = "chair_preview";
-	dir = 1
-	},
-/obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (EAST)";
-	icon_state = "chapel";
-	dir = 4
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (EAST)";
-	icon_state = "spline_fancy";
-	dir = 4
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_chapel)
-"mb" = (
-/obj/structure/bed/chair/holochair{
-	tag = "icon-chair_preview (NORTH)";
-	icon_state = "chair_preview";
-	dir = 1
-	},
-/obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (NORTH)";
-	icon_state = "chapel";
-	dir = 1
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (WEST)";
-	icon_state = "spline_fancy";
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_chapel)
-"mc" = (
-/obj/structure/bed/chair/holochair{
-	tag = "icon-chair_preview (NORTH)";
-	icon_state = "chair_preview";
-	dir = 1
-	},
-/obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (EAST)";
-	icon_state = "chapel";
-	dir = 4
-	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
 "md" = (
@@ -5745,34 +5633,16 @@
 /turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_winter)
 "mf" = (
-/obj/effect/floor_decal/carpet{
-	dir = 8
+/obj/machinery/door/airlock/hatch{
+	name = "Cockpit";
+	req_access = list("ACCESS_CENT_GENERAL")
 	},
-/obj/effect/floor_decal/carpet{
-	dir = 1
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 9
-	},
-/obj/structure/holostool,
-/turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_theatre)
+/turf/space,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/transport1/centcom)
 "mg" = (
 /obj/effect/floor_decal/carpet{
 	dir = 1
-	},
-/obj/structure/holostool,
-/turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_theatre)
-"mh" = (
-/obj/effect/floor_decal/carpet{
-	dir = 4
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 1
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 5
 	},
 /obj/structure/holostool,
 /turf/simulated/floor/holofloor/carpet,
@@ -5781,58 +5651,12 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
-"mj" = (
-/obj/structure/holostool,
-/obj/effect/floor_decal/carpet{
-	dir = 8
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 1
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 9
-	},
-/turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_meetinghall)
-"mk" = (
-/obj/structure/holostool,
-/obj/effect/floor_decal/carpet{
-	dir = 1
-	},
-/turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_meetinghall)
-"ml" = (
-/obj/structure/holostool,
-/obj/effect/floor_decal/carpet{
-	dir = 4
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 1
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 5
-	},
-/turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_meetinghall)
 "mm" = (
-/obj/effect/floor_decal/corner/green{
-	tag = "icon-corner_white (WEST)";
-	icon_state = "corner_white";
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 1
-	},
-/turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_emptycourt)
-"mn" = (
-/obj/effect/floor_decal/corner/green,
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_emptycourt)
+/turf/simulated/floor/holofloor/concrete,
+/area/holodeck/source_plaza)
 "mo" = (
 /obj/item/weapon/tank/nitrogen,
 /turf/unsimulated/floor{
@@ -5882,8 +5706,8 @@
 /obj/item/clothing/accessory/storage/bandolier,
 /obj/item/clothing/under/assistantformal,
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 8
+	dir = 8;
+	icon_state = "warning"
 	},
 /obj/random/junk,
 /obj/item/weapon/soap/syndie,
@@ -5912,8 +5736,8 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /obj/structure/cable,
 /turf/simulated/floor/tiled/dark,
@@ -5927,21 +5751,21 @@
 	name = "fence"
 	},
 /obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (NORTHEAST)";
+	dir = 5;
 	icon_state = "corner_white";
-	dir = 5
+	tag = "icon-corner_white (NORTHEAST)"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 1
+	dir = 1;
+	icon_state = "warning"
 	},
 /obj/structure/cable{
 	d2 = 8;
 	icon_state = "0-8"
 	},
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/fightclub)
@@ -5957,9 +5781,9 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (NORTH)";
+	dir = 1;
 	icon_state = "warningcorner";
-	dir = 1
+	tag = "icon-warningcorner (NORTH)"
 	},
 /obj/structure/cable,
 /obj/structure/cable{
@@ -5973,8 +5797,8 @@
 /area/tdome)
 "mA" = (
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/tdome)
 "mB" = (
@@ -5984,84 +5808,60 @@
 	req_access = list("ACCESS_CENT_GENERAL")
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/tdome)
 "mC" = (
 /obj/structure/bed/chair/holochair{
-	tag = "icon-chair_preview (NORTH)";
+	dir = 4;
 	icon_state = "chair_preview";
-	dir = 1
+	tag = "icon-chair_preview (EAST)"
 	},
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (WEST)";
+	dir = 1;
 	icon_state = "chapel";
-	dir = 8
+	tag = "icon-chapel (NORTH)"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9;
+	icon_state = "spline_fancy";
+	tag = "icon-spline_fancy (NORTHWEST)"
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
 "mD" = (
 /obj/structure/bed/chair/holochair{
-	tag = "icon-chair_preview (NORTH)";
+	dir = 4;
 	icon_state = "chair_preview";
-	dir = 1
-	},
-/obj/effect/floor_decal/chapel,
-/obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (EAST)";
-	icon_state = "spline_fancy";
-	dir = 4
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_chapel)
-"mE" = (
-/obj/structure/bed/chair/holochair{
-	tag = "icon-chair_preview (NORTH)";
-	icon_state = "chair_preview";
-	dir = 1
+	tag = "icon-chair_preview (EAST)"
 	},
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (WEST)";
+	dir = 4;
 	icon_state = "chapel";
-	dir = 8
+	tag = "icon-chapel (EAST)"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (WEST)";
+	dir = 1;
 	icon_state = "spline_fancy";
-	dir = 8
+	tag = "icon-spline_fancy (NORTH)"
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
 "mF" = (
-/obj/structure/bed/chair/holochair{
-	tag = "icon-chair_preview (NORTH)";
-	icon_state = "chair_preview";
-	dir = 1
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5;
+	icon_state = "spline_fancy";
+	tag = "icon-spline_fancy (NORTHEAST)"
 	},
-/obj/effect/floor_decal/chapel,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
 "mG" = (
 /obj/structure/flora/tree/pine,
 /turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_winter)
-"mH" = (
-/obj/structure/holostool,
-/obj/effect/floor_decal/carpet{
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_theatre)
 "mI" = (
 /obj/structure/holostool,
-/turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_theatre)
-"mJ" = (
-/obj/structure/holostool,
-/obj/effect/floor_decal/carpet{
-	dir = 4
-	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_theatre)
 "mK" = (
@@ -6072,22 +5872,8 @@
 /obj/structure/flora/ausbushes/reedbush,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
-"mM" = (
-/obj/structure/holostool,
-/obj/effect/floor_decal/carpet{
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_meetinghall)
 "mN" = (
 /obj/structure/holostool,
-/turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_meetinghall)
-"mO" = (
-/obj/structure/holostool,
-/obj/effect/floor_decal/carpet{
-	dir = 4
-	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_meetinghall)
 "mP" = (
@@ -6162,50 +5948,50 @@
 /area/syndicate_mothership/raider_base)
 "mX" = (
 /obj/machinery/light/small/red{
-	tag = "icon-firelight1 (WEST)";
+	dir = 8;
 	icon_state = "firelight1";
-	dir = 8
+	tag = "icon-firelight1 (WEST)"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 1
+	dir = 1;
+	icon_state = "warning"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/fightclub)
 "mY" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 1
+	dir = 1;
+	icon_state = "warningcorner"
 	},
 /obj/effect/decal/cleanable/blood{
-	tag = "icon-bloodsquare (NORTHWEST)";
+	dir = 9;
 	icon_state = "bloodsquare";
-	dir = 9
+	tag = "icon-bloodsquare (NORTHWEST)"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/fightclub)
 "mZ" = (
 /obj/effect/floor_decal/corner/fadeblue/three_quarters{
-	tag = "icon-corner_white_three_quarters (WEST)";
+	dir = 8;
 	icon_state = "corner_white_three_quarters";
-	dir = 8
+	tag = "icon-corner_white_three_quarters (WEST)"
 	},
 /turf/simulated/floor/tiled/white,
 /area/fightclub)
 "na" = (
 /obj/effect/floor_decal/corner/fadeblue{
-	tag = "icon-corner_white (NORTHEAST)";
+	dir = 5;
 	icon_state = "corner_white";
-	dir = 5
+	tag = "icon-corner_white (NORTHEAST)"
 	},
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/tiled/white,
 /area/fightclub)
 "nb" = (
 /obj/effect/floor_decal/corner/fadeblue{
-	tag = "icon-corner_white (NORTHEAST)";
+	dir = 5;
 	icon_state = "corner_white";
-	dir = 5
+	tag = "icon-corner_white (NORTHEAST)"
 	},
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/blood/drip,
@@ -6250,99 +6036,46 @@
 /area/holodeck/source_chapel)
 "ni" = (
 /obj/structure/bed/chair/holochair{
-	tag = "icon-chair_preview (NORTH)";
+	dir = 4;
 	icon_state = "chair_preview";
-	dir = 1
+	tag = "icon-chair_preview (EAST)"
 	},
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (NORTH)";
+	dir = 8;
 	icon_state = "chapel";
-	dir = 1
+	tag = "icon-chapel (WEST)"
 	},
-/obj/effect/floor_decal/spline/fancy/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
 "nj" = (
 /obj/structure/bed/chair/holochair{
-	tag = "icon-chair_preview (NORTH)";
+	dir = 4;
 	icon_state = "chair_preview";
-	dir = 1
-	},
-/obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (EAST)";
-	icon_state = "chapel";
-	dir = 4
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 6
+	tag = "icon-chair_preview (EAST)"
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
 "nk" = (
 /obj/structure/bed/chair/holochair{
-	tag = "icon-chair_preview (NORTH)";
+	dir = 4;
 	icon_state = "chair_preview";
-	dir = 1
+	tag = "icon-chair_preview (EAST)"
 	},
-/obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (NORTH)";
-	icon_state = "chapel";
-	dir = 1
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	tag = "icon-spline_fancy (SOUTHWEST)";
-	icon_state = "spline_fancy";
-	dir = 10
-	},
+/obj/effect/floor_decal/chapel,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
-"nl" = (
-/obj/structure/bed/chair/holochair{
-	tag = "icon-chair_preview (NORTH)";
-	icon_state = "chair_preview";
-	dir = 1
-	},
-/obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (EAST)";
-	icon_state = "chapel";
-	dir = 4
-	},
-/obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_chapel)
-"nm" = (
-/obj/effect/floor_decal/spline/fancy/wood/corner{
-	tag = "icon-spline_fancy_corner (WEST)";
-	icon_state = "spline_fancy_corner";
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_chapel)
-"nn" = (
-/obj/structure/holostool,
-/obj/effect/floor_decal/carpet{
-	dir = 8
-	},
-/obj/effect/floor_decal/carpet,
-/obj/effect/floor_decal/carpet{
-	dir = 10
-	},
-/turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_meetinghall)
-"no" = (
-/obj/structure/holostool,
-/obj/effect/floor_decal/carpet,
-/turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_meetinghall)
 "np" = (
-/obj/structure/holostool,
 /obj/effect/floor_decal/carpet,
 /obj/effect/floor_decal/carpet{
-	dir = 4
+	dir = 8
 	},
 /obj/effect/floor_decal/carpet{
-	dir = 6
+	dir = 10
 	},
+/obj/structure/holostool,
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_meetinghall)
 "nq" = (
@@ -6399,18 +6132,18 @@
 /area/syndicate_mothership/raider_base)
 "nw" = (
 /obj/machinery/light/small/red{
-	tag = "icon-firelight1 (EAST)";
+	dir = 4;
 	icon_state = "firelight1";
-	dir = 4
+	tag = "icon-firelight1 (EAST)"
 	},
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled/dark,
 /area/fightclub)
 "nx" = (
 /obj/effect/decal/cleanable/blood{
-	tag = "icon-bloodsquare (NORTHWEST)";
+	dir = 9;
 	icon_state = "bloodsquare";
-	dir = 9
+	tag = "icon-bloodsquare (NORTHWEST)"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/fightclub)
@@ -6429,9 +6162,9 @@
 /area/fightclub)
 "nB" = (
 /obj/effect/floor_decal/corner/fadeblue{
-	tag = "icon-corner_white (NORTHWEST)";
+	dir = 9;
 	icon_state = "corner_white";
-	dir = 9
+	tag = "icon-corner_white (NORTHWEST)"
 	},
 /obj/random/junk,
 /turf/simulated/floor/tiled/white,
@@ -6489,12 +6222,6 @@
 	icon_state = "lino"
 	},
 /area/tdome/tdomeobserve)
-"nK" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_chapel)
 "nL" = (
 /obj/effect/floor_decal/carpet{
 	dir = 8
@@ -6507,16 +6234,7 @@
 /area/holodeck/source_theatre)
 "nM" = (
 /obj/effect/floor_decal/carpet,
-/turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_theatre)
-"nN" = (
-/obj/effect/floor_decal/carpet{
-	dir = 4
-	},
-/obj/effect/floor_decal/carpet,
-/obj/effect/floor_decal/carpet{
-	dir = 6
-	},
+/obj/structure/holostool,
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_theatre)
 "nO" = (
@@ -6650,86 +6368,40 @@
 	icon_state = "desert3"
 	},
 /area/holodeck/source_beach)
-"oi" = (
-/turf/simulated/floor/holofloor/beach/sand{
-	icon_state = "beach";
-	dir = 4
-	},
-/area/holodeck/source_beach)
 "oj" = (
 /turf/simulated/floor/holofloor/beach/water,
 /area/holodeck/source_beach)
 "ok" = (
 /turf/simulated/floor/holofloor/beach/water{
-	tag = "icon-beach (WEST)";
+	dir = 4;
 	icon_state = "beach";
-	dir = 8
+	tag = "icon-beach (NORTH)"
 	},
 /area/holodeck/source_beach)
 "ol" = (
 /turf/simulated/floor/holofloor/beach/sand,
 /area/holodeck/source_beach)
-"om" = (
-/turf/simulated/floor/holofloor/beach/water{
-	tag = "icon-desert1";
-	icon_state = "desert1"
-	},
-/area/holodeck/source_beach)
-"on" = (
-/obj/effect/floor_decal/beach{
-	icon_state = "beachborder";
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/concrete,
-/area/holodeck/source_volleyball)
-"oo" = (
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 9
-	},
-/turf/simulated/floor/holofloor/beach/sand{
-	icon_state = "desert2"
-	},
-/area/holodeck/source_volleyball)
 "op" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/beach/sand,
 /area/holodeck/source_volleyball)
-"oq" = (
+"or" = (
+/obj/structure/holonet,
+/turf/simulated/floor/holofloor/beach/sand{
+	icon_state = "desert4"
+	},
+/area/holodeck/source_volleyball)
+"os" = (
 /obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 5
+	dir = 5;
+	icon_state = "spline_plain"
 	},
 /turf/simulated/floor/holofloor/beach/sand{
 	icon_state = "desert4"
 	},
 /area/holodeck/source_volleyball)
-"or" = (
-/obj/effect/floor_decal/beach{
-	icon_state = "beachborder";
-	dir = 4
-	},
-/turf/simulated/floor/holofloor/concrete,
-/area/holodeck/source_volleyball)
-"os" = (
-/obj/structure/bed/chair/holochair{
-	tag = "icon-chair_preview (EAST)";
-	icon_state = "chair_preview";
-	dir = 4
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 8
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 1
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 9
-	},
-/turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_courtroom)
 "ot" = (
 /obj/effect/floor_decal/carpet{
 	dir = 1
@@ -6751,12 +6423,6 @@
 "ov" = (
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_courtroom)
-"ow" = (
-/obj/effect/landmark{
-	name = "Holocarp Spawn"
-	},
-/turf/simulated/floor/holofloor/reinforced,
-/area/holodeck/source_wildlife)
 "ox" = (
 /turf/simulated/floor/holofloor/reinforced,
 /area/holodeck/source_wildlife)
@@ -7059,57 +6725,29 @@
 	},
 /area/holodeck/source_beach)
 "oX" = (
-/turf/simulated/floor/holofloor/beach/sand{
-	icon_state = "beach";
-	dir = 6
+/obj/structure/bed/chair/holochair/wood{
+	icon_state = "wooden_chair_preview";
+	dir = 4
 	},
-/area/holodeck/source_beach)
-"oY" = (
-/obj/item/weapon/beach_ball,
-/turf/simulated/floor/holofloor/beach/water{
-	tag = "icon-desert1";
-	icon_state = "desert1"
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 1
 	},
-/area/holodeck/source_beach)
-"oZ" = (
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/beach/sand,
-/area/holodeck/source_volleyball)
+/turf/simulated/floor/holofloor/concrete,
+/area/holodeck/source_plaza)
 "pa" = (
 /turf/simulated/floor/holofloor/beach/sand,
 /area/holodeck/source_volleyball)
-"pb" = (
+"pc" = (
 /obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 4
+	dir = 4;
+	icon_state = "spline_plain"
 	},
 /turf/simulated/floor/holofloor/beach/sand{
 	icon_state = "desert2"
 	},
 /area/holodeck/source_volleyball)
-"pc" = (
-/obj/structure/bed/chair/holochair{
-	tag = "icon-chair_preview (EAST)";
-	icon_state = "chair_preview";
-	dir = 4
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_courtroom)
 "pd" = (
-/turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_courtroom)
-"pe" = (
-/obj/structure/bed/chair/holochair{
-	tag = "icon-chair_preview (EAST)";
-	icon_state = "chair_preview";
-	dir = 4
-	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
 "pf" = (
@@ -7216,8 +6854,8 @@
 	dir = 9
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/tdome)
 "pt" = (
@@ -7226,8 +6864,8 @@
 /obj/item/clothing/shoes/brown,
 /obj/item/weapon/melee/energy/axe,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/tdome)
 "pu" = (
@@ -7259,8 +6897,8 @@
 /obj/item/clothing/shoes/brown,
 /obj/item/weapon/melee/energy/axe,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/tdome)
 "px" = (
@@ -7268,27 +6906,14 @@
 	dir = 6
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/tdome)
-"py" = (
-/turf/simulated/floor/holofloor/beach/water{
-	tag = "icon-desert3";
-	icon_state = "desert3"
-	},
-/area/holodeck/source_beach)
 "pz" = (
 /turf/simulated/floor/holofloor/beach/sand{
 	icon_state = "desert3"
 	},
-/area/holodeck/source_volleyball)
-"pA" = (
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 4
-	},
-/turf/simulated/floor/holofloor/beach/sand,
 /area/holodeck/source_volleyball)
 "pB" = (
 /obj/structure/table/holo_woodentable,
@@ -7373,8 +6998,8 @@
 	name = "Axe Supply"
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/tdome)
 "pN" = (
@@ -7394,27 +7019,8 @@
 	icon_state = "dark"
 	},
 /area/tdome)
-"pQ" = (
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 8
-	},
-/obj/structure/holonet/end,
-/turf/simulated/floor/holofloor/beach/sand,
-/area/holodeck/source_volleyball)
 "pR" = (
 /obj/structure/holonet,
-/turf/simulated/floor/holofloor/beach/sand,
-/area/holodeck/source_volleyball)
-"pS" = (
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 4
-	},
-/obj/structure/holonet/end{
-	icon_state = "volleynet_end";
-	dir = 8
-	},
 /turf/simulated/floor/holofloor/beach/sand,
 /area/holodeck/source_volleyball)
 "pT" = (
@@ -7445,14 +7051,14 @@
 /area/skipjack_station/start)
 "pX" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	tag_airpump = "vox_west_vent";
-	tag_exterior_door = "vox_northwest_lock";
 	frequency = 1331;
 	id_tag = "vox_west_control";
-	tag_interior_door = "vox_southwest_lock";
 	pixel_x = 24;
 	req_access = list("ACCESS_SYNDICATE");
-	tag_chamber_sensor = "vox_west_sensor"
+	tag_airpump = "vox_west_vent";
+	tag_chamber_sensor = "vox_west_sensor";
+	tag_exterior_door = "vox_northwest_lock";
+	tag_interior_door = "vox_southwest_lock"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
@@ -7467,16 +7073,16 @@
 	dir = 8
 	},
 /obj/machinery/computer/station_alert/all{
-	icon_state = "computer";
-	dir = 4
+	dir = 4;
+	icon_state = "computer"
 	},
 /turf/simulated/floor/shuttle/red,
 /area/skipjack_station/start)
 "pZ" = (
 /obj/structure/bed/chair/shuttle{
-	tag = "icon-shuttle_chair_preview (WEST)";
+	dir = 8;
 	icon_state = "shuttle_chair_preview";
-	dir = 8
+	tag = "icon-shuttle_chair_preview (WEST)"
 	},
 /turf/simulated/floor/shuttle/red,
 /area/skipjack_station/start)
@@ -7512,8 +7118,8 @@
 "qc" = (
 /obj/structure/computerframe,
 /obj/machinery/light/small{
-	icon_state = "bulb1";
-	dir = 4
+	dir = 4;
+	icon_state = "bulb1"
 	},
 /turf/simulated/floor/shuttle/red,
 /area/skipjack_station/start)
@@ -7552,9 +7158,9 @@
 /area/acting/stage)
 "qh" = (
 /obj/machinery/light{
-	tag = "icon-tube1 (NORTH)";
+	dir = 1;
 	icon_state = "tube1";
-	dir = 1
+	tag = "icon-tube1 (NORTH)"
 	},
 /turf/simulated/floor/tiled,
 /area/acting/stage)
@@ -7574,8 +7180,8 @@
 /obj/item/weapon/melee/baton/loaded,
 /obj/item/weapon/melee/energy/sword/red,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/tdome)
 "qk" = (
@@ -7584,8 +7190,8 @@
 	name = "General Supply"
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/tdome)
 "ql" = (
@@ -7593,8 +7199,8 @@
 	name = "tdome2"
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/tdome/tdome2)
 "qm" = (
@@ -7603,8 +7209,8 @@
 	name = "Thunderdome Blast Door"
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/tdome)
 "qn" = (
@@ -7628,8 +7234,8 @@
 	name = "tdome1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/tdome/tdome1)
 "qq" = (
@@ -7641,22 +7247,15 @@
 /obj/item/weapon/melee/baton/loaded,
 /obj/item/weapon/melee/energy/sword/green,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/tdome)
-"qr" = (
-/turf/simulated/floor/holofloor/beach/water{
-	tag = "icon-beach (NORTH)";
-	icon_state = "beach";
-	dir = 1
-	},
-/area/holodeck/source_beach)
 "qs" = (
 /turf/simulated/floor/holofloor/beach/water{
-	tag = "icon-beachcorner (EAST)";
+	dir = 8;
 	icon_state = "beachcorner";
-	dir = 4
+	tag = "icon-beachcorner (EAST)"
 	},
 /area/holodeck/source_beach)
 "qt" = (
@@ -7736,8 +7335,8 @@
 	name = "tdome2"
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/tdome/tdome2)
 "qF" = (
@@ -7748,24 +7347,24 @@
 	name = "tdome1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/tdome/tdome1)
 "qG" = (
-/obj/item/clothing/glasses/sunglasses,
-/turf/simulated/floor/holofloor/beach/water{
-	tag = "icon-desert4";
-	icon_state = "desert4"
+/obj/structure/window/reinforced/holowindow{
+	dir = 8
 	},
-/area/holodeck/source_beach)
-"qH" = (
-/obj/item/weapon/inflatable_duck,
-/turf/simulated/floor/holofloor/beach/water{
-	tag = "icon-desert3";
-	icon_state = "desert3"
+/obj/effect/floor_decal/corner/red{
+	dir = 5
 	},
-/area/holodeck/source_beach)
+/obj/effect/floor_decal/corner/green{
+	dir = 10;
+	icon_state = "corner_white";
+	tag = "icon-corner_white (SOUTHWEST)"
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_thunderdomecourt)
 "qI" = (
 /turf/simulated/floor/holofloor/beach/sand{
 	icon_state = "desert_dug"
@@ -7847,8 +7446,8 @@
 /obj/random/voidhelmet,
 /obj/random/maintenance,
 /obj/machinery/light/small{
-	icon_state = "bulb1";
-	dir = 4
+	dir = 4;
+	icon_state = "bulb1"
 	},
 /turf/simulated/floor/shuttle/red,
 /area/skipjack_station/start)
@@ -7943,14 +7542,14 @@
 	invisibility = 101
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/tdome/tdome2)
 "rc" = (
 /turf/unsimulated/floor{
-	tag = "icon-bcircuit";
-	icon_state = "bcircuit"
+	icon_state = "bcircuit";
+	tag = "icon-bcircuit"
 	},
 /area/tdome)
 "rd" = (
@@ -7959,8 +7558,8 @@
 	name = "Thunderdome Flash"
 	},
 /turf/unsimulated/floor{
-	tag = "icon-bcircuit";
-	icon_state = "bcircuit"
+	icon_state = "bcircuit";
+	tag = "icon-bcircuit"
 	},
 /area/tdome)
 "re" = (
@@ -7972,33 +7571,14 @@
 	invisibility = 101
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/tdome/tdome1)
 "rf" = (
 /obj/effect/overlay/palmtree_l,
 /turf/simulated/floor/holofloor/beach/sand,
 /area/holodeck/source_beach)
-"rg" = (
-/turf/simulated/floor/holofloor/beach/water{
-	tag = "icon-desert2";
-	icon_state = "desert2"
-	},
-/area/holodeck/source_beach)
-"rh" = (
-/turf/simulated/floor/holofloor/beach/water{
-	tag = "icon-desert5";
-	icon_state = "desert5"
-	},
-/area/holodeck/source_beach)
-"ri" = (
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 10
-	},
-/turf/simulated/floor/holofloor/beach/sand,
-/area/holodeck/source_volleyball)
 "rj" = (
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/holofloor/beach/sand{
@@ -8009,28 +7589,13 @@
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/holofloor/beach/sand,
 /area/holodeck/source_volleyball)
-"rl" = (
+"rm" = (
 /obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 6
+	dir = 6;
+	icon_state = "spline_plain"
 	},
 /turf/simulated/floor/holofloor/beach/sand,
 /area/holodeck/source_volleyball)
-"rm" = (
-/obj/effect/floor_decal/carpet{
-	dir = 8
-	},
-/obj/effect/floor_decal/carpet,
-/obj/effect/floor_decal/carpet{
-	dir = 10
-	},
-/obj/structure/bed/chair/holochair{
-	tag = "icon-chair_preview (EAST)";
-	icon_state = "chair_preview";
-	dir = 4
-	},
-/turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_courtroom)
 "rn" = (
 /obj/effect/floor_decal/carpet,
 /turf/simulated/floor/holofloor/carpet,
@@ -8129,8 +7694,8 @@
 "rC" = (
 /obj/machinery/atmospherics/pipe/vent,
 /turf/unsimulated/floor{
-	tag = "icon-bcircuit";
-	icon_state = "bcircuit"
+	icon_state = "bcircuit";
+	tag = "icon-bcircuit"
 	},
 /area/tdome)
 "rD" = (
@@ -8139,8 +7704,8 @@
 	invisibility = 101
 	},
 /turf/unsimulated/floor{
-	tag = "icon-bcircuit";
-	icon_state = "bcircuit"
+	icon_state = "bcircuit";
+	tag = "icon-bcircuit"
 	},
 /area/tdome)
 "rE" = (
@@ -8207,9 +7772,9 @@
 /area/acting/backstage)
 "rN" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
-	tag = "icon-intact (NORTHEAST)";
+	dir = 5;
 	icon_state = "intact";
-	dir = 5
+	tag = "icon-intact (NORTHEAST)"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -8225,9 +7790,9 @@
 /area/tdome)
 "rP" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
-	tag = "icon-intact (NORTHWEST)";
+	dir = 9;
 	icon_state = "intact";
-	dir = 9
+	tag = "icon-intact (NORTHWEST)"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -8236,89 +7801,30 @@
 "rQ" = (
 /turf/simulated/floor/holofloor/reinforced,
 /area/holodeck/source_battle_arena)
-"rR" = (
-/obj/structure/bed/chair/holochair{
-	tag = "icon-chair_preview (EAST)";
-	icon_state = "chair_preview";
-	dir = 4
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_surgery)
 "rS" = (
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 6
+/obj/structure/holostool,
+/obj/effect/floor_decal/corner/black/border{
+	dir = 1;
+	icon_state = "bordercolor";
+	tag = "icon-bordercolor (NORTH)"
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_surgery)
-"rT" = (
-/obj/effect/floor_decal/corner/paleblue/three_quarters{
-	dir = 8
+/obj/effect/floor_decal/corner/black/border{
+	dir = 8;
+	icon_state = "bordercolor";
+	tag = "icon-bordercolor (WEST)"
 	},
-/obj/structure/window/reinforced/holowindow{
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/tiled/white,
-/area/holodeck/source_surgery)
+/turf/simulated/floor/holofloor/tiled/old_tile,
+/area/holodeck/source_gym)
 "rU" = (
-/obj/item/clothing/head/surgery/blue,
-/obj/item/clothing/head/surgery/black,
-/obj/item/clothing/head/surgery/green,
-/obj/item/clothing/head/surgery/navyblue,
-/obj/item/clothing/head/surgery/purple,
-/obj/structure/table/rack/holorack,
-/obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (NORTH)";
-	icon_state = "corner_white";
-	dir = 1
-	},
-/turf/simulated/floor/holofloor/tiled/white,
-/area/holodeck/source_surgery)
-"rV" = (
-/obj/item/clothing/mask/surgical,
-/obj/item/clothing/mask/surgical,
-/obj/item/clothing/gloves/latex,
-/obj/item/clothing/gloves/latex,
-/obj/structure/table/holotable,
-/turf/simulated/floor/holofloor/tiled/white,
-/area/holodeck/source_surgery)
-"rW" = (
-/obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (EAST)";
-	icon_state = "corner_white";
-	dir = 4
-	},
-/obj/structure/table/rack/holorack,
-/turf/simulated/floor/holofloor/tiled/white,
-/area/holodeck/source_surgery)
-"rX" = (
-/obj/effect/floor_decal/corner/paleblue/three_quarters{
-	tag = "icon-corner_white_three_quarters (NORTH)";
-	icon_state = "corner_white_three_quarters";
-	dir = 1
-	},
-/turf/simulated/floor/holofloor/tiled/white,
-/area/holodeck/source_surgery)
+/obj/structure/fitness/punchingbag,
+/turf/simulated/floor/holofloor/tiled/old_tile,
+/area/holodeck/source_gym)
 "rY" = (
 /obj/structure/holostool,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_boxingcourt)
 "rZ" = (
 /turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_boxingcourt)
-"sa" = (
-/obj/effect/floor_decal/corner/red/three_quarters{
-	dir = 8
-	},
-/obj/machinery/door/window/holowindoor{
-	tag = "icon-left (WEST)";
-	icon_state = "left";
-	dir = 8
-	},
-/obj/structure/window/reinforced/holowindow{
-	dir = 1
-	},
-/turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_boxingcourt)
 "sb" = (
 /obj/effect/floor_decal/corner/red{
@@ -8329,32 +7835,6 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_boxingcourt)
-"sc" = (
-/obj/structure/window/reinforced/holowindow{
-	dir = 4
-	},
-/obj/structure/window/reinforced/holowindow{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/green,
-/obj/effect/floor_decal/corner/red{
-	dir = 1
-	},
-/turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_boxingcourt)
-"sd" = (
-/obj/structure/table/holotable,
-/obj/machinery/readybutton{
-	pixel_y = 0
-	},
-/obj/effect/floor_decal/corner/red/three_quarters{
-	dir = 8
-	},
-/obj/structure/window/reinforced/holowindow{
-	dir = 1
-	},
-/turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_thunderdomecourt)
 "se" = (
 /obj/structure/table/holotable,
 /obj/item/clothing/head/helmet/thunderdome,
@@ -8397,19 +7877,16 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_basketball)
-"sj" = (
-/obj/structure/holohoop,
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_basketball)
 "sk" = (
 /obj/effect/floor_decal/corner/red/three_quarters{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_basketball)
+"sl" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/holofloor/desert,
+/area/holodeck/source_desert)
 "sm" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/machinery/portable_atmospherics/hydroponics,
@@ -8486,28 +7963,6 @@
 	icon_state = "dark"
 	},
 /area/tdome)
-"sy" = (
-/obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (NORTH)";
-	icon_state = "corner_white";
-	dir = 1
-	},
-/obj/structure/window/reinforced/holowindow{
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/tiled/white,
-/area/holodeck/source_surgery)
-"sz" = (
-/turf/simulated/floor/holofloor/tiled/white,
-/area/holodeck/source_surgery)
-"sA" = (
-/obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (EAST)";
-	icon_state = "corner_white";
-	dir = 4
-	},
-/turf/simulated/floor/holofloor/tiled/white,
-/area/holodeck/source_surgery)
 "sB" = (
 /obj/structure/table/holotable,
 /obj/item/clothing/gloves/boxing/hologlove,
@@ -8543,29 +7998,9 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_boxingcourt)
-"sG" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_thunderdomecourt)
 "sH" = (
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_thunderdomecourt)
-"sI" = (
-/obj/machinery/door/window/holowindoor{
-	tag = "icon-left (EAST)";
-	icon_state = "left";
-	dir = 4
-	},
-/turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_thunderdomecourt)
-"sJ" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_basketball)
 "sK" = (
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_basketball)
@@ -8575,6 +8010,18 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_basketball)
+"sM" = (
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/obj/structure/bed/chair/holochair{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_meetinghall)
 "sN" = (
 /obj/random/loot,
 /obj/vehicle/bike/thermal,
@@ -8625,8 +8072,8 @@
 /area/skipjack_station/start)
 "sT" = (
 /obj/structure/hygiene/sink{
-	icon_state = "sink";
 	dir = 8;
+	icon_state = "sink";
 	pixel_x = -12;
 	pixel_y = 2
 	},
@@ -8658,8 +8105,8 @@
 	req_access = list("ACCESS_CENT_THUNDERDOME")
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/tdome)
 "sZ" = (
@@ -8668,31 +8115,19 @@
 	name = "Heavy Supply"
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/tdome)
-"ta" = (
-/obj/structure/window/reinforced/holowindow{
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/tiled/white,
-/area/holodeck/source_surgery)
-"tb" = (
-/obj/machinery/optable,
-/turf/simulated/floor/holofloor/tiled/white,
-/area/holodeck/source_surgery)
 "tc" = (
-/obj/item/weapon/scalpel,
-/obj/item/weapon/hemostat,
-/obj/structure/table/holotable,
-/turf/simulated/floor/holofloor/tiled/white,
-/area/holodeck/source_surgery)
-"td" = (
 /obj/structure/holostool,
-/obj/structure/holostool,
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_boxingcourt)
+/obj/effect/floor_decal/corner/black/border{
+	dir = 4;
+	icon_state = "bordercolor";
+	tag = "icon-bordercolor (EAST)"
+	},
+/turf/simulated/floor/holofloor/tiled/old_tile,
+/area/holodeck/source_gym)
 "te" = (
 /obj/effect/floor_decal/corner/blue/three_quarters,
 /turf/simulated/floor/holofloor/tiled,
@@ -8703,11 +8138,6 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_boxingcourt)
-"tg" = (
-/obj/structure/window/reinforced/holowindow/disappearing,
-/obj/effect/floor_decal/corner/red/three_quarters,
-/turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_thunderdomecourt)
 "th" = (
 /obj/structure/window/reinforced/holowindow/disappearing,
 /obj/effect/floor_decal/corner/red{
@@ -8725,28 +8155,12 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_thunderdomecourt)
-"tj" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_basketball)
 "tk" = (
-/obj/item/weapon/beach_ball/holoball,
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_basketball)
-"tl" = (
-/obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (SOUTHEAST)";
-	icon_state = "corner_white";
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_basketball)
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_cafe)
 "tm" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -8852,8 +8266,8 @@
 "tC" = (
 /obj/effect/floor_decal/corner/red/three_quarters,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/tdome)
 "tD" = (
@@ -8861,8 +8275,8 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/tdome)
 "tE" = (
@@ -8873,8 +8287,8 @@
 /obj/item/clothing/head/helmet/swat,
 /obj/item/weapon/gun/energy/laser,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/tdome)
 "tF" = (
@@ -8906,15 +8320,15 @@
 /obj/item/clothing/head/helmet/swat,
 /obj/item/weapon/gun/energy/laser,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/tdome)
 "tI" = (
 /obj/effect/floor_decal/corner/green,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/tdome)
 "tJ" = (
@@ -8922,39 +8336,18 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/tdome)
-"tK" = (
-/obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (WEST)";
-	icon_state = "corner_white";
-	dir = 8
-	},
-/obj/structure/window/reinforced/holowindow{
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/tiled/white,
-/area/holodeck/source_surgery)
-"tL" = (
-/obj/effect/floor_decal/corner/paleblue,
-/obj/item/weapon/retractor,
-/obj/item/weapon/FixOVein,
-/obj/item/weapon/bonegel,
-/obj/item/weapon/bonesetter,
-/obj/structure/table/holotable,
-/turf/simulated/floor/holofloor/tiled/white,
-/area/holodeck/source_surgery)
 "tM" = (
+/obj/effect/floor_decal/corner/green/three_quarters{
+	dir = 4
+	},
 /obj/structure/window/reinforced/holowindow{
-	dir = 8
+	dir = 4
 	},
 /obj/structure/window/reinforced/holowindow,
-/obj/effect/floor_decal/corner/red{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/green,
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_boxingcourt)
 "tN" = (
@@ -8964,27 +8357,6 @@
 /obj/structure/window/reinforced/holowindow,
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_boxingcourt)
-"tO" = (
-/obj/effect/floor_decal/corner/green/three_quarters{
-	dir = 4
-	},
-/obj/structure/window/reinforced/holowindow{
-	dir = 4
-	},
-/obj/machinery/door/window/holowindoor{
-	name = "Green Corner"
-	},
-/turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_boxingcourt)
-"tP" = (
-/obj/structure/window/reinforced/holowindow/disappearing{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/green/three_quarters{
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_thunderdomecourt)
 "tQ" = (
 /obj/structure/window/reinforced/holowindow/disappearing{
 	dir = 1
@@ -9007,41 +8379,20 @@
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_thunderdomecourt)
 "tS" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
 /obj/effect/floor_decal/corner/green{
-	dir = 10
+	dir = 9
+	},
+/obj/structure/holohoop{
+	dir = 4
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_basketball)
-"tU" = (
-/obj/structure/shuttle/engine/propulsion/burst/right{
-	tag = "icon-burst_r (NORTH)";
-	name = "propulsion";
-	icon_state = "burst_r";
-	dir = 1
-	},
-/turf/simulated/shuttle/wall{
-	dir = 2;
-	icon_state = "swall";
-	tag = "icon-swall2"
-	},
-/area/shuttle/transport1/centcom)
-"tV" = (
-/obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (NORTH)";
-	icon_state = "warning";
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/centcom)
 "tW" = (
-/obj/structure/shuttle/engine/propulsion/burst/left{
-	tag = "icon-burst_l (NORTH)";
+/obj/structure/shuttle/engine/propulsion/burst/right{
+	dir = 1;
+	icon_state = "burst_r";
 	name = "propulsion";
-	icon_state = "burst_l";
-	dir = 1
+	tag = "icon-burst_r (NORTH)"
 	},
 /turf/simulated/shuttle/wall{
 	dir = 2;
@@ -9136,45 +8487,6 @@
 	icon_state = "lino"
 	},
 /area/tdome/tdomeadmin)
-"uk" = (
-/obj/effect/floor_decal/corner/paleblue/three_quarters,
-/obj/structure/window/reinforced/holowindow{
-	dir = 8
-	},
-/obj/structure/window/reinforced/holowindow,
-/turf/simulated/floor/holofloor/tiled/white,
-/area/holodeck/source_surgery)
-"ul" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 8
-	},
-/obj/structure/window/reinforced/holowindow,
-/turf/simulated/floor/holofloor/tiled/white,
-/area/holodeck/source_surgery)
-"um" = (
-/obj/machinery/door/window/holowindoor{
-	base_state = "right";
-	icon_state = "right"
-	},
-/turf/simulated/floor/holofloor/tiled/white,
-/area/holodeck/source_surgery)
-"un" = (
-/obj/effect/floor_decal/corner/paleblue,
-/obj/structure/window/reinforced/holowindow,
-/turf/simulated/floor/holofloor/tiled/white,
-/area/holodeck/source_surgery)
-"uo" = (
-/obj/effect/floor_decal/corner/paleblue/three_quarters{
-	tag = "icon-corner_white_three_quarters (EAST)";
-	icon_state = "corner_white_three_quarters";
-	dir = 4
-	},
-/obj/item/weapon/circular_saw,
-/obj/item/weapon/cautery,
-/obj/structure/table/holotable,
-/obj/structure/window/reinforced/holowindow,
-/turf/simulated/floor/holofloor/tiled/white,
-/area/holodeck/source_surgery)
 "up" = (
 /obj/structure/table/holotable,
 /obj/item/clothing/gloves/boxing/hologlove{
@@ -9183,42 +8495,20 @@
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_boxingcourt)
-"uq" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 9
-	},
-/turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_thunderdomecourt)
 "ur" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_basketball)
-"us" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 10
-	},
-/turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_basketball)
-"ut" = (
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_basketball)
 "uu" = (
-/turf/unsimulated/floor/plating,
-/turf/simulated/shuttle/wall{
-	dir = 4;
-	icon_state = "swall_c"
-	},
-/area/shuttle/transport1/centcom)
+/turf/space,
+/turf/unsimulated/wall,
+/area/space)
 "uv" = (
 /turf/simulated/shuttle/wall{
-	icon_state = "swall_t";
-	dir = 2
+	dir = 2;
+	icon_state = "swall_t"
 	},
 /area/shuttle/transport1/centcom)
 "uw" = (
@@ -9228,18 +8518,6 @@
 	req_access = list("ACCESS_CENT_SPECOPS")
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/transport1/centcom)
-"ux" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_straight";
-	dir = 4
-	},
-/area/shuttle/transport1/centcom)
-"uy" = (
-/turf/unsimulated/floor/plating,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_c"
-	},
 /area/shuttle/transport1/centcom)
 "uz" = (
 /turf/simulated/mineral,
@@ -9337,26 +8615,6 @@
 "uO" = (
 /turf/simulated/floor/tiled/dark,
 /area/tdome)
-"uP" = (
-/obj/effect/floor_decal/corner/paleblue{
-	tag = "icon-corner_white (EAST)";
-	icon_state = "corner_white";
-	dir = 4
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_surgery)
-"uQ" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 5
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_surgery)
-"uR" = (
-/obj/structure/table/holotable,
-/obj/effect/floor_decal/corner/green/three_quarters,
-/obj/structure/window/reinforced/holowindow,
-/turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_thunderdomecourt)
 "uS" = (
 /obj/structure/table/holotable,
 /obj/item/clothing/head/helmet/thunderdome,
@@ -9383,12 +8641,6 @@
 /obj/structure/window/reinforced/holowindow,
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_thunderdomecourt)
-"uU" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 6
-	},
-/turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_basketball)
 "uV" = (
 /obj/structure/window/shuttle{
 	icon_state = "window2"
@@ -9471,14 +8723,23 @@
 /turf/simulated/floor/holofloor/reinforced,
 /area/holodeck/source_battle_arena)
 "vh" = (
-/obj/structure/flora/pottedplant{
-	icon_state = "plant-06"
+/obj/structure/holostool,
+/obj/effect/floor_decal/corner/black/border,
+/obj/effect/floor_decal/corner/black/border{
+	dir = 8;
+	icon_state = "bordercolor";
+	tag = "icon-bordercolor (WEST)"
 	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_surgery)
+/turf/simulated/floor/holofloor/tiled/old_tile,
+/area/holodeck/source_gym)
 "vi" = (
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/holodeck/source_surgery)
+/obj/effect/floor_decal/corner/black/border{
+	dir = 1;
+	icon_state = "bordercolor";
+	tag = "icon-bordercolor (NORTH)"
+	},
+/turf/simulated/floor/holofloor/tiled/old_tile,
+/area/holodeck/source_gym)
 "vj" = (
 /obj/structure/table/holotable,
 /obj/item/toy/ringbell,
@@ -9487,15 +8748,6 @@
 /area/holodeck/source_boxingcourt)
 "vk" = (
 /obj/effect/floor_decal/corner/green/three_quarters,
-/turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_basketball)
-"vl" = (
-/obj/structure/holohoop{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/green{
-	dir = 10
-	},
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_basketball)
 "vm" = (
@@ -9511,19 +8763,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/transport1/centcom)
-"vo" = (
-/obj/structure/bed/chair/shuttle{
-	tag = "icon-shuttle_chair_preview (EAST)";
-	icon_state = "shuttle_chair_preview";
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/shuttle/transport1/centcom)
 "vp" = (
 /obj/structure/bed/chair/shuttle{
-	tag = "icon-shuttle_chair_preview (WEST)";
+	dir = 4;
 	icon_state = "shuttle_chair_preview";
-	dir = 8
+	tag = "icon-shuttle_chair_preview (EAST)"
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/transport1/centcom)
@@ -9814,9 +9058,9 @@
 "wa" = (
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
-	tag = "icon-gravsnow_corner (NORTHWEST)";
+	dir = 9;
 	icon_state = "gravsnow_corner";
-	dir = 9
+	tag = "icon-gravsnow_corner (NORTHWEST)"
 	},
 /area/syndicate_mothership)
 "wb" = (
@@ -9838,22 +9082,15 @@
 "we" = (
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
-	tag = "icon-gravsnow_corner (NORTHEAST)";
+	dir = 5;
 	icon_state = "gravsnow_corner";
-	dir = 5
+	tag = "icon-gravsnow_corner (NORTHEAST)"
 	},
 /area/syndicate_mothership)
-"wf" = (
-/turf/unsimulated/floor/plating,
-/turf/simulated/shuttle/wall{
-	dir = 1;
-	icon_state = "swall_c"
-	},
-/area/shuttle/transport1/centcom)
 "wg" = (
 /turf/simulated/shuttle/wall{
-	icon_state = "swall_t";
-	dir = 1
+	dir = 1;
+	icon_state = "swall_t"
 	},
 /area/shuttle/transport1/centcom)
 "wh" = (
@@ -9862,20 +9099,6 @@
 	req_access = list("ACCESS_CENT_GENERAL")
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/transport1/centcom)
-"wi" = (
-/obj/effect/shuttle_landmark/ferry/start,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_straight";
-	dir = 4
-	},
-/area/shuttle/transport1/centcom)
-"wj" = (
-/turf/unsimulated/floor/plating,
-/turf/simulated/shuttle/wall{
-	dir = 8;
-	icon_state = "swall_c"
-	},
 /area/shuttle/transport1/centcom)
 "wk" = (
 /turf/unsimulated/floor{
@@ -9891,9 +9114,9 @@
 "wm" = (
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
-	tag = "icon-gravsnow_corner (WEST)";
+	dir = 8;
 	icon_state = "gravsnow_corner";
-	dir = 8
+	tag = "icon-gravsnow_corner (WEST)"
 	},
 /area/syndicate_mothership)
 "wn" = (
@@ -9924,14 +9147,6 @@
 	icon_state = "snow"
 	},
 /area/ninja_dojo/dojo)
-"ws" = (
-/obj/machinery/computer/shuttle_control/transport_shuttle{
-	tag = "icon-computer (NORTH)";
-	icon_state = "computer";
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/transport1/centcom)
 "wt" = (
 /turf/unsimulated/floor{
 	icon_state = "reinforced"
@@ -9954,9 +9169,9 @@
 /obj/structure/flora/grass/both,
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
-	tag = "icon-gravsnow_corner (SOUTHEAST)";
+	dir = 6;
 	icon_state = "gravsnow_corner";
-	dir = 6
+	tag = "icon-gravsnow_corner (SOUTHEAST)"
 	},
 /area/syndicate_mothership)
 "wx" = (
@@ -9998,9 +9213,9 @@
 /area/space)
 "wC" = (
 /obj/machinery/door/blast/shutters/open{
-	tag = "icon-shutter1";
+	dir = 2;
 	icon_state = "shutter1";
-	dir = 2
+	tag = "icon-shutter1"
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -10033,9 +9248,9 @@
 "wH" = (
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
-	tag = "icon-gravsnow_corner (SOUTHEAST)";
+	dir = 6;
 	icon_state = "gravsnow_corner";
-	dir = 6
+	tag = "icon-gravsnow_corner (SOUTHEAST)"
 	},
 /area/syndicate_mothership)
 "wI" = (
@@ -10050,9 +9265,9 @@
 /area/space)
 "wJ" = (
 /obj/machinery/light{
-	tag = "icon-tube1 (NORTH)";
+	dir = 1;
 	icon_state = "tube1";
-	dir = 1
+	tag = "icon-tube1 (NORTH)"
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -10061,9 +9276,9 @@
 /area/space)
 "wL" = (
 /obj/structure/shuttle/engine/propulsion{
-	tag = "icon-propulsion (EAST)";
+	dir = 4;
 	icon_state = "propulsion";
-	dir = 4
+	tag = "icon-propulsion (EAST)"
 	},
 /obj/structure/window/reinforced{
 	dir = 8
@@ -10073,9 +9288,9 @@
 "wM" = (
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
-	tag = "icon-gravsnow_corner (EAST)";
+	dir = 4;
 	icon_state = "gravsnow_corner";
-	dir = 4
+	tag = "icon-gravsnow_corner (EAST)"
 	},
 /area/syndicate_mothership)
 "wN" = (
@@ -10182,8 +9397,8 @@
 /area/wizard_station)
 "xb" = (
 /turf/unsimulated/wall/fakeglass{
-	icon_state = "fakewindows";
-	dir = 8
+	dir = 8;
+	icon_state = "fakewindows"
 	},
 /area/wizard_station)
 "xc" = (
@@ -10207,8 +9422,8 @@
 /area/syndicate_mothership)
 "xg" = (
 /turf/unsimulated/wall/fakeglass{
-	icon_state = "fakewindows2";
-	dir = 1
+	dir = 1;
+	icon_state = "fakewindows2"
 	},
 /area/syndicate_mothership)
 "xh" = (
@@ -10531,31 +9746,31 @@
 /obj/structure/flora/tree/pine,
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
-	tag = "icon-gravsnow_corner";
-	icon_state = "gravsnow_corner"
+	icon_state = "gravsnow_corner";
+	tag = "icon-gravsnow_corner"
 	},
 /area/syndicate_mothership)
 "xT" = (
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
-	tag = "icon-gravsnow_corner";
-	icon_state = "gravsnow_corner"
+	icon_state = "gravsnow_corner";
+	tag = "icon-gravsnow_corner"
 	},
 /area/syndicate_mothership)
 "xU" = (
 /obj/structure/flora/grass/both,
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
-	tag = "icon-gravsnow_corner";
-	icon_state = "gravsnow_corner"
+	icon_state = "gravsnow_corner";
+	tag = "icon-gravsnow_corner"
 	},
 /area/syndicate_mothership)
 "xV" = (
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
-	tag = "icon-gravsnow_surround (EAST)";
+	dir = 4;
 	icon_state = "gravsnow_surround";
-	dir = 4
+	tag = "icon-gravsnow_surround (EAST)"
 	},
 /area/syndicate_mothership)
 "xW" = (
@@ -10707,14 +9922,14 @@
 /area/syndicate_mothership)
 "ym" = (
 /turf/unsimulated/wall/fakeglass{
-	icon_state = "fakewindows";
-	dir = 9
+	dir = 9;
+	icon_state = "fakewindows"
 	},
 /area/syndicate_mothership)
 "yn" = (
 /turf/unsimulated/wall/fakeglass{
-	icon_state = "fakewindows";
-	dir = 4
+	dir = 4;
+	icon_state = "fakewindows"
 	},
 /area/syndicate_mothership)
 "yo" = (
@@ -10793,8 +10008,8 @@
 /area/ninja_dojo/dojo)
 "yz" = (
 /obj/effect/floor_decal/chapel{
-	icon_state = "chapel";
-	dir = 1
+	dir = 1;
+	icon_state = "chapel"
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -10803,8 +10018,8 @@
 /area/ninja_dojo/dojo)
 "yA" = (
 /obj/effect/floor_decal/chapel{
-	icon_state = "chapel";
-	dir = 4
+	dir = 4;
+	icon_state = "chapel"
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -10822,9 +10037,9 @@
 /area/ninja_dojo/dojo)
 "yC" = (
 /turf/unsimulated/floor{
-	tag = "icon-cult";
+	icon_state = "cult";
 	name = "plating";
-	icon_state = "cult"
+	tag = "icon-cult"
 	},
 /area/syndicate_mothership)
 "yD" = (
@@ -10832,9 +10047,9 @@
 	pixel_y = 32
 	},
 /turf/unsimulated/floor{
-	tag = "icon-cult";
+	icon_state = "cult";
 	name = "plating";
-	icon_state = "cult"
+	tag = "icon-cult"
 	},
 /area/syndicate_mothership)
 "yE" = (
@@ -10842,17 +10057,17 @@
 	pixel_y = 32
 	},
 /turf/unsimulated/floor{
-	tag = "icon-cult";
+	icon_state = "cult";
 	name = "plating";
-	icon_state = "cult"
+	tag = "icon-cult"
 	},
 /area/syndicate_mothership)
 "yF" = (
 /obj/machinery/vending/snack,
 /turf/unsimulated/floor{
-	tag = "icon-cult";
+	icon_state = "cult";
 	name = "plating";
-	icon_state = "cult"
+	tag = "icon-cult"
 	},
 /area/syndicate_mothership)
 "yG" = (
@@ -10901,8 +10116,8 @@
 /area/merchant_station)
 "yN" = (
 /obj/effect/floor_decal/corner/paleblue/three_quarters{
-	icon_state = "corner_white_three_quarters";
-	dir = 8
+	dir = 8;
+	icon_state = "corner_white_three_quarters"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/supply/dock)
@@ -10992,8 +10207,8 @@
 /area/ninja_dojo/dojo)
 "yY" = (
 /obj/effect/floor_decal/chapel{
-	icon_state = "chapel";
-	dir = 8
+	dir = 8;
+	icon_state = "chapel"
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -11010,9 +10225,9 @@
 "za" = (
 /obj/structure/bed/chair/comfy/black,
 /turf/unsimulated/floor{
-	tag = "icon-cult";
+	icon_state = "cult";
 	name = "plating";
-	icon_state = "cult"
+	tag = "icon-cult"
 	},
 /area/syndicate_mothership)
 "zb" = (
@@ -11060,9 +10275,9 @@
 	pixel_y = 23
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	tag = "icon-intact-scrubbers (SOUTHEAST)";
+	dir = 6;
 	icon_state = "intact-scrubbers";
-	dir = 6
+	tag = "icon-intact-scrubbers (SOUTHEAST)"
 	},
 /turf/simulated/floor/carpet,
 /area/merchant_station)
@@ -11088,8 +10303,8 @@
 /area/supply/dock)
 "zi" = (
 /obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 6
+	dir = 6;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/supply/dock)
@@ -11219,9 +10434,9 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	tag = "icon-cult";
+	icon_state = "cult";
 	name = "plating";
-	icon_state = "cult"
+	tag = "icon-cult"
 	},
 /area/syndicate_mothership)
 "zw" = (
@@ -11230,9 +10445,9 @@
 	pixel_y = 2
 	},
 /turf/unsimulated/floor{
-	tag = "icon-cult";
+	icon_state = "cult";
 	name = "plating";
-	icon_state = "cult"
+	tag = "icon-cult"
 	},
 /area/syndicate_mothership)
 "zx" = (
@@ -11245,9 +10460,9 @@
 	pixel_y = 4
 	},
 /turf/unsimulated/floor{
-	tag = "icon-cult";
+	icon_state = "cult";
 	name = "plating";
-	icon_state = "cult"
+	tag = "icon-cult"
 	},
 /area/syndicate_mothership)
 "zy" = (
@@ -11255,9 +10470,9 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	tag = "icon-cult";
+	icon_state = "cult";
 	name = "plating";
-	icon_state = "cult"
+	tag = "icon-cult"
 	},
 /area/syndicate_mothership)
 "zz" = (
@@ -11265,9 +10480,9 @@
 	prices = list()
 	},
 /turf/unsimulated/floor{
-	tag = "icon-cult";
+	icon_state = "cult";
 	name = "plating";
-	icon_state = "cult"
+	tag = "icon-cult"
 	},
 /area/syndicate_mothership)
 "zA" = (
@@ -11286,17 +10501,17 @@
 	},
 /obj/structure/undies_wardrobe,
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	tag = "icon-map_vent_out (EAST)";
+	dir = 4;
 	icon_state = "map_vent_out";
-	dir = 4
+	tag = "icon-map_vent_out (EAST)"
 	},
 /turf/simulated/floor/carpet,
 /area/merchant_station)
 "zC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	tag = "icon-intact-supply (SOUTHWEST)";
+	dir = 10;
 	icon_state = "intact-supply";
-	dir = 10
+	tag = "icon-intact-supply (SOUTHWEST)"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/carpet,
@@ -11322,9 +10537,9 @@
 	pixel_y = 23
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	tag = "icon-intact-scrubbers (SOUTHEAST)";
+	dir = 6;
 	icon_state = "intact-scrubbers";
-	dir = 6
+	tag = "icon-intact-scrubbers (SOUTHEAST)"
 	},
 /turf/simulated/floor/carpet/blue,
 /area/merchant_station)
@@ -11403,8 +10618,8 @@
 	pixel_y = 32
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/wizard_station)
 "zR" = (
@@ -11412,8 +10627,8 @@
 	pixel_y = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/wizard_station)
 "zS" = (
@@ -11430,8 +10645,8 @@
 /area/wizard_station)
 "zT" = (
 /obj/structure/bed/chair/wood/wings{
-	icon_state = "wooden_chair_wings";
-	dir = 4
+	dir = 4;
+	icon_state = "wooden_chair_wings"
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -11448,8 +10663,8 @@
 /area/wizard_station)
 "zV" = (
 /obj/structure/bed/chair/wood/wings{
-	icon_state = "wooden_chair_wings";
-	dir = 8
+	dir = 8;
+	icon_state = "wooden_chair_wings"
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -11590,17 +10805,17 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	tag = "icon-cult";
+	icon_state = "cult";
 	name = "plating";
-	icon_state = "cult"
+	tag = "icon-cult"
 	},
 /area/syndicate_mothership)
 "An" = (
 /obj/machinery/vending/cola,
 /turf/unsimulated/floor{
-	tag = "icon-cult";
+	icon_state = "cult";
 	name = "plating";
-	icon_state = "cult"
+	tag = "icon-cult"
 	},
 /area/syndicate_mothership)
 "Ao" = (
@@ -11699,8 +10914,8 @@
 /area/merchant_station)
 "AC" = (
 /turf/unsimulated/wall/fakeglass{
-	icon_state = "fakewindows2";
-	dir = 1
+	dir = 1;
+	icon_state = "fakewindows2"
 	},
 /area/wizard_station)
 "AD" = (
@@ -11708,21 +10923,21 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/wizard_station)
 "AE" = (
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/wizard_station)
 "AF" = (
 /obj/machinery/door/unpowered/simple/iron,
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/wizard_station)
 "AG" = (
@@ -11806,9 +11021,9 @@
 "AR" = (
 /obj/machinery/vending/cigarette,
 /turf/unsimulated/floor{
-	tag = "icon-cult";
+	icon_state = "cult";
 	name = "plating";
-	icon_state = "cult"
+	tag = "icon-cult"
 	},
 /area/syndicate_mothership)
 "AS" = (
@@ -11886,9 +11101,9 @@
 	pixel_x = -25
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	tag = "icon-intact-supply (SOUTHEAST)";
+	dir = 6;
 	icon_state = "intact-supply";
-	dir = 6
+	tag = "icon-intact-supply (SOUTHEAST)"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/carpet/blue,
@@ -11902,8 +11117,8 @@
 /area/merchant_station)
 "Ba" = (
 /obj/structure/hygiene/shower{
-	icon_state = "shower";
-	dir = 4
+	dir = 4;
+	icon_state = "shower"
 	},
 /obj/structure/curtain/open/shower,
 /obj/structure/window/reinforced,
@@ -11961,9 +11176,9 @@
 /area/supply/dock)
 "Bi" = (
 /obj/effect/floor_decal/corner/paleblue/three_quarters{
-	tag = "icon-corner_white_three_quarters (EAST)";
+	dir = 4;
 	icon_state = "corner_white_three_quarters";
-	dir = 4
+	tag = "icon-corner_white_three_quarters (EAST)"
 	},
 /obj/machinery/light{
 	dir = 4
@@ -11991,8 +11206,8 @@
 	pixel_y = -22
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/wizard_station)
 "Bm" = (
@@ -12006,8 +11221,8 @@
 	pixel_x = 32
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/wizard_station)
 "Bn" = (
@@ -12123,15 +11338,15 @@
 /area/syndicate_station/start)
 "By" = (
 /turf/unsimulated/wall/fakeglass{
-	tag = "icon-fakewindows (SOUTHWEST)";
+	dir = 10;
 	icon_state = "fakewindows";
-	dir = 10
+	tag = "icon-fakewindows (SOUTHWEST)"
 	},
 /area/syndicate_mothership)
 "Bz" = (
 /turf/unsimulated/wall/fakeglass{
-	icon_state = "fakewindows2";
-	dir = 8
+	dir = 8;
+	icon_state = "fakewindows2"
 	},
 /area/syndicate_mothership)
 "BA" = (
@@ -12145,8 +11360,8 @@
 	pixel_y = 32
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/syndicate_mothership)
 "BC" = (
@@ -12157,8 +11372,8 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/syndicate_mothership)
 "BD" = (
@@ -12167,8 +11382,8 @@
 	},
 /obj/item/weapon/soap/syndie,
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/syndicate_mothership)
 "BE" = (
@@ -12237,14 +11452,14 @@
 /area/merchant_station)
 "BN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	tag = "icon-intact-scrubbers (NORTHEAST)";
+	dir = 5;
 	icon_state = "intact-scrubbers";
-	dir = 5
+	tag = "icon-intact-scrubbers (NORTHEAST)"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	tag = "icon-intact-supply (NORTHEAST)";
+	dir = 5;
 	icon_state = "intact-supply";
-	dir = 5
+	tag = "icon-intact-supply (NORTHEAST)"
 	},
 /turf/simulated/floor/wood,
 /area/merchant_station)
@@ -12273,9 +11488,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	tag = "icon-intact-scrubbers (EAST)";
+	dir = 4;
 	icon_state = "intact-scrubbers";
-	dir = 4
+	tag = "icon-intact-scrubbers (EAST)"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -12287,9 +11502,9 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	tag = "icon-intact-supply (NORTHWEST)";
+	dir = 9;
 	icon_state = "intact-supply";
-	dir = 9
+	tag = "icon-intact-supply (NORTHWEST)"
 	},
 /turf/simulated/floor/carpet/blue,
 /area/merchant_station)
@@ -12312,9 +11527,9 @@
 /area/merchant_station)
 "BU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	tag = "icon-intact-scrubbers (SOUTHEAST)";
+	dir = 6;
 	icon_state = "intact-scrubbers";
-	dir = 6
+	tag = "icon-intact-scrubbers (SOUTHEAST)"
 	},
 /mob/living/simple_animal/tindalos{
 	name = "Eddy"
@@ -12469,9 +11684,9 @@
 "Co" = (
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
-	tag = "icon-gravsnow_corner (NORTH)";
+	dir = 1;
 	icon_state = "gravsnow_corner";
-	dir = 1
+	tag = "icon-gravsnow_corner (NORTH)"
 	},
 /area/syndicate_mothership)
 "Cp" = (
@@ -12480,14 +11695,14 @@
 	opacity = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/syndicate_mothership)
 "Cq" = (
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/syndicate_mothership)
 "Cr" = (
@@ -12495,8 +11710,8 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/syndicate_mothership)
 "Cs" = (
@@ -12711,15 +11926,15 @@
 /area/ninja_dojo/dojo)
 "CQ" = (
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/ninja_dojo/dojo)
 "CR" = (
 /obj/effect/floor_decal/snow,
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/ninja_dojo/dojo)
 "CS" = (
@@ -12763,14 +11978,14 @@
 	pixel_y = 0
 	},
 /obj/structure/hygiene/sink{
-	icon_state = "sink";
 	dir = 8;
+	icon_state = "sink";
 	pixel_x = -12;
 	pixel_y = 2
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/syndicate_mothership)
 "CX" = (
@@ -12791,8 +12006,8 @@
 "Da" = (
 /obj/machinery/papershredder,
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 4
+	dir = 4;
+	icon_state = "tube1"
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 4
@@ -12822,8 +12037,8 @@
 /obj/structure/table/woodentable,
 /obj/structure/reagent_dispensers/beerkeg,
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 4
+	dir = 4;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/wood,
 /area/merchant_station)
@@ -12879,10 +12094,10 @@
 "Dp" = (
 /turf/unsimulated/wall{
 	desc = "A secure airlock. Doesn't look like you can get through easily.";
+	dir = 4;
 	icon = 'icons/obj/doors/centcomm/door.dmi';
 	icon_state = "closed";
-	name = "Outer Gate";
-	dir = 4
+	name = "Outer Gate"
 	},
 /area/ninja_dojo/dojo)
 "Dq" = (
@@ -12980,8 +12195,8 @@
 /obj/item/weapon/storage/belt/medical,
 /obj/item/weapon/storage/belt/medical,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/syndicate_mothership)
 "DB" = (
@@ -12993,8 +12208,8 @@
 /obj/item/weapon/storage/belt/holster/security/tactical,
 /obj/item/weapon/storage/belt/holster/security/tactical,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/syndicate_mothership)
 "DC" = (
@@ -13123,14 +12338,14 @@
 /area/merchant_station)
 "DR" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	tag = "icon-map-scrubbers (EAST)";
+	dir = 4;
 	icon_state = "map-scrubbers";
-	dir = 4
+	tag = "icon-map-scrubbers (EAST)"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	tag = "icon-map-supply (EAST)";
+	dir = 4;
 	icon_state = "map-supply";
-	dir = 4
+	tag = "icon-map-supply (EAST)"
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)
@@ -13221,9 +12436,9 @@
 	},
 /obj/machinery/light/small,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	tag = "icon-map_scrubber_on (EAST)";
+	dir = 4;
 	icon_state = "map_scrubber_on";
-	dir = 4
+	tag = "icon-map_scrubber_on (EAST)"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/merchant_station)
@@ -13271,14 +12486,14 @@
 "Eg" = (
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
-	tag = "icon-gravsnow_corner (EAST)";
+	dir = 4;
 	icon_state = "gravsnow_corner";
-	dir = 4
+	tag = "icon-gravsnow_corner (EAST)"
 	},
 /turf/unsimulated/floor/snow{
-	tag = "icon-gravsnow_corner (WEST)";
+	dir = 8;
 	icon_state = "gravsnow_corner";
-	dir = 8
+	tag = "icon-gravsnow_corner (WEST)"
 	},
 /area/syndicate_mothership)
 "Eh" = (
@@ -13546,8 +12761,8 @@
 	pixel_x = 24
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 4
+	dir = 4;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)
@@ -13609,9 +12824,9 @@
 /area/supply/dock)
 "ET" = (
 /obj/effect/floor_decal/corner/paleblue/three_quarters{
-	tag = "icon-corner_white_three_quarters (EAST)";
+	dir = 4;
 	icon_state = "corner_white_three_quarters";
-	dir = 4
+	tag = "icon-corner_white_three_quarters (EAST)"
 	},
 /obj/structure/window/reinforced{
 	dir = 1;
@@ -13703,8 +12918,8 @@
 "Fc" = (
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
-	tag = "icon-gravsnow_surround";
-	icon_state = "gravsnow_surround"
+	icon_state = "gravsnow_surround";
+	tag = "icon-gravsnow_surround"
 	},
 /area/syndicate_mothership)
 "Fd" = (
@@ -13717,8 +12932,8 @@
 /area/syndicate_mothership)
 "Fe" = (
 /turf/unsimulated/wall/fakeglass{
-	icon_state = "fakewindows";
-	dir = 8
+	dir = 8;
+	icon_state = "fakewindows"
 	},
 /area/syndicate_mothership)
 "Ff" = (
@@ -13770,14 +12985,14 @@
 /area/syndicate_mothership)
 "Fj" = (
 /turf/simulated/shuttle/wall{
-	icon_state = "swall_s";
-	dir = 4
+	dir = 4;
+	icon_state = "swall_s"
 	},
 /area/shuttle/merchant/home)
 "Fk" = (
 /obj/structure/shuttle/engine/heater{
-	icon_state = "heater";
-	dir = 4
+	dir = 4;
+	icon_state = "heater"
 	},
 /turf/simulated/shuttle/wall,
 /area/shuttle/merchant/home)
@@ -13859,9 +13074,9 @@
 /area/merchant_station)
 "Fs" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	tag = "icon-intact-supply (NORTHWEST)";
+	dir = 9;
 	icon_state = "intact-supply";
-	dir = 9
+	tag = "icon-intact-supply (NORTHWEST)"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -13889,8 +13104,8 @@
 	name = "Bath"
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/ninja_dojo/dojo)
 "Fv" = (
@@ -13969,26 +13184,26 @@
 /area/syndicate_mothership)
 "FB" = (
 /turf/simulated/shuttle/wall{
-	icon_state = "swall_s";
-	dir = 8
+	dir = 8;
+	icon_state = "swall_s"
 	},
 /area/shuttle/merchant/home)
 "FC" = (
 /turf/simulated/shuttle/wall{
-	icon_state = "swall_straight";
-	dir = 4
+	dir = 4;
+	icon_state = "swall_straight"
 	},
 /area/shuttle/merchant/home)
 "FD" = (
 /turf/simulated/shuttle/wall{
-	icon_state = "swall_t";
-	dir = 2
+	dir = 2;
+	icon_state = "swall_t"
 	},
 /area/shuttle/merchant/home)
 "FE" = (
 /turf/simulated/shuttle/wall{
-	icon_state = "swall_t";
-	dir = 1
+	dir = 1;
+	icon_state = "swall_t"
 	},
 /area/shuttle/merchant/home)
 "FF" = (
@@ -14005,8 +13220,8 @@
 /area/shuttle/merchant/home)
 "FH" = (
 /turf/simulated/shuttle/wall{
-	icon_state = "swall_s";
-	dir = 2
+	dir = 2;
+	icon_state = "swall_s"
 	},
 /area/shuttle/merchant/home)
 "FI" = (
@@ -14024,9 +13239,9 @@
 /area/merchant_station)
 "FK" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	tag = "icon-map_vent_out (NORTH)";
+	dir = 1;
 	icon_state = "map_vent_out";
-	dir = 1
+	tag = "icon-map_vent_out (NORTH)"
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)
@@ -14039,14 +13254,14 @@
 "FM" = (
 /obj/structure/closet/coffin,
 /turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "cult"
+	icon_state = "cult";
+	name = "plating"
 	},
 /area/wizard_station)
 "FN" = (
 /turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "cult"
+	icon_state = "cult";
+	name = "plating"
 	},
 /area/wizard_station)
 "FO" = (
@@ -14054,8 +13269,8 @@
 	pixel_y = 22
 	},
 /turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "cult"
+	icon_state = "cult";
+	name = "plating"
 	},
 /area/wizard_station)
 "FP" = (
@@ -14073,15 +13288,15 @@
 	pixel_x = -22
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/ninja_dojo/dojo)
 "FR" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/ninja_dojo/dojo)
 "FS" = (
@@ -14090,8 +13305,8 @@
 	pixel_y = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/ninja_dojo/dojo)
 "FT" = (
@@ -14286,20 +13501,20 @@
 /obj/item/clothing/head/helmet/merc,
 /obj/item/clothing/head/helmet/merc,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/syndicate_mothership)
 "Gm" = (
 /turf/simulated/shuttle/wall{
-	icon_state = "swall_t";
-	dir = 8
+	dir = 8;
+	icon_state = "swall_t"
 	},
 /area/shuttle/merchant/home)
 "Go" = (
 /turf/simulated/shuttle/wall{
-	icon_state = "swall_t";
-	dir = 4
+	dir = 4;
+	icon_state = "swall_t"
 	},
 /area/shuttle/merchant/home)
 "Gp" = (
@@ -14314,8 +13529,8 @@
 /area/shuttle/merchant/home)
 "Gq" = (
 /turf/simulated/shuttle/wall{
-	icon_state = "swall";
-	dir = 1
+	dir = 1;
+	icon_state = "swall"
 	},
 /area/shuttle/merchant/home)
 "Gr" = (
@@ -14339,15 +13554,15 @@
 /obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 4
+	dir = 4;
+	icon_state = "tube1"
 	},
 /obj/machinery/door/window/brigdoor/southright{
 	req_access = list("ACCESS_MERCHANT")
 	},
 /obj/structure/window/phoronreinforced{
-	icon_state = "rwindow";
-	dir = 8
+	dir = 8;
+	icon_state = "rwindow"
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/merchant/home)
@@ -14384,15 +13599,15 @@
 "GA" = (
 /obj/structure/cult/pylon,
 /turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "cult"
+	icon_state = "cult";
+	name = "plating"
 	},
 /area/wizard_station)
 "GB" = (
 /obj/structure/kitchenspike,
 /turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "cult"
+	icon_state = "cult";
+	name = "plating"
 	},
 /area/wizard_station)
 "GC" = (
@@ -14444,8 +13659,8 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/ninja_dojo/dojo)
 "GG" = (
@@ -14664,8 +13879,8 @@
 /area/shuttle/merchant/home)
 "Hg" = (
 /turf/simulated/shuttle/wall{
-	icon_state = "swall_straight";
-	dir = 1
+	dir = 1;
+	icon_state = "swall_straight"
 	},
 /area/shuttle/merchant/home)
 "Hi" = (
@@ -14721,14 +13936,14 @@
 "Hp" = (
 /obj/item/remains/human,
 /turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "lava"
+	icon_state = "lava";
+	name = "plating"
 	},
 /area/wizard_station)
 "Hq" = (
 /turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "lava"
+	icon_state = "lava";
+	name = "plating"
 	},
 /area/wizard_station)
 "Hr" = (
@@ -14749,8 +13964,8 @@
 	dir = 4
 	},
 /obj/structure/hygiene/sink{
-	icon_state = "sink";
 	dir = 8;
+	icon_state = "sink";
 	pixel_x = -12;
 	pixel_y = 2
 	},
@@ -14758,8 +13973,8 @@
 	pixel_x = -32
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor";
-	dir = 2
+	dir = 2;
+	icon_state = "freezerfloor"
 	},
 /area/ninja_dojo/dojo)
 "Hu" = (
@@ -14891,20 +14106,20 @@
 	},
 /obj/item/weapon/pen,
 /obj/structure/window/phoronreinforced{
-	icon_state = "rwindow";
-	dir = 1
+	dir = 1;
+	icon_state = "rwindow"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant/home)
 "HJ" = (
 /obj/structure/table/reinforced,
 /obj/structure/window/phoronreinforced{
-	icon_state = "rwindow";
-	dir = 4
+	dir = 4;
+	icon_state = "rwindow"
 	},
 /obj/structure/window/phoronreinforced{
-	icon_state = "rwindow";
-	dir = 1
+	dir = 1;
+	icon_state = "rwindow"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant/home)
@@ -14932,9 +14147,9 @@
 /area/shuttle/merchant/home)
 "HN" = (
 /obj/effect/floor_decal/industrial/loading{
-	tag = "icon-loadingarea (WEST)";
+	dir = 8;
 	icon_state = "loadingarea";
-	dir = 8
+	tag = "icon-loadingarea (WEST)"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5;
@@ -15014,31 +14229,31 @@
 	name = "Experiment 35b"
 	},
 /turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "lava"
+	icon_state = "lava";
+	name = "plating"
 	},
 /area/wizard_station)
 "HW" = (
 /obj/structure/cult/talisman,
 /obj/item/weapon/material/knife/ritual,
 /turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "cult"
+	icon_state = "cult";
+	name = "plating"
 	},
 /area/wizard_station)
 "HX" = (
 /obj/effect/gateway/active/cult,
 /turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "cult"
+	icon_state = "cult";
+	name = "plating"
 	},
 /area/wizard_station)
 "HY" = (
 /obj/structure/table/marble,
 /obj/item/device/flashlight/slime,
 /turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "cult"
+	icon_state = "cult";
+	name = "plating"
 	},
 /area/wizard_station)
 "HZ" = (
@@ -15116,9 +14331,9 @@
 	pixel_y = 25
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
-	tag = "icon-intact (NORTHEAST)";
+	dir = 5;
 	icon_state = "intact";
-	dir = 5
+	tag = "icon-intact (NORTHEAST)"
 	},
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
@@ -15480,13 +14695,6 @@
 /obj/item/weapon/material/clipboard,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant/home)
-"Jb" = (
-/turf/simulated/shuttle/wall{
-	tag = "icon-swall2";
-	icon_state = "swall";
-	dir = 2
-	},
-/area/shuttle/merchant/home)
 "Jc" = (
 /obj/machinery/door/window/brigdoor/northleft{
 	req_access = list("ACCESS_MERCHANT")
@@ -15591,8 +14799,8 @@
 /area/merchant_station)
 "Jp" = (
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 4
+	dir = 4;
+	icon_state = "warning"
 	},
 /obj/machinery/vending/urist/shoedispenser,
 /turf/simulated/floor/tiled,
@@ -15683,8 +14891,8 @@
 /area/syndicate_mothership)
 "JA" = (
 /turf/simulated/shuttle/wall{
-	icon_state = "swall_s";
-	dir = 1
+	dir = 1;
+	icon_state = "swall_s"
 	},
 /area/shuttle/merchant/home)
 "JB" = (
@@ -15711,8 +14919,8 @@
 /area/merchant_station)
 "JE" = (
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 4
+	dir = 4;
+	icon_state = "warning"
 	},
 /obj/machinery/conveyor_switch{
 	id = "merchantbelt1"
@@ -15729,16 +14937,16 @@
 "JG" = (
 /obj/structure/flora/pottedplant/unusual,
 /turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "cult"
+	icon_state = "cult";
+	name = "plating"
 	},
 /area/wizard_station)
 "JH" = (
 /obj/structure/table/woodentable,
 /obj/item/xenos_claw,
 /turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "cult"
+	icon_state = "cult";
+	name = "plating"
 	},
 /area/wizard_station)
 "JI" = (
@@ -15800,8 +15008,8 @@
 	amount = 50
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/syndicate_mothership)
 "JO" = (
@@ -15811,8 +15019,8 @@
 	name = "Unlocked Autolathe"
 	},
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/syndicate_mothership)
 "JP" = (
@@ -15824,8 +15032,8 @@
 /obj/item/weapon/storage/belt/utility/full,
 /obj/item/weapon/storage/belt/utility/full,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/syndicate_mothership)
 "JQ" = (
@@ -15980,8 +15188,8 @@
 /area/merchant_station)
 "Kd" = (
 /obj/structure/shuttle/engine/propulsion{
-	icon_state = "propulsion";
-	dir = 1
+	dir = 1;
+	icon_state = "propulsion"
 	},
 /turf/simulated/shuttle/wall{
 	icon_state = "wall3"
@@ -16290,8 +15498,8 @@
 /area/wizard_station)
 "KJ" = (
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 4
+	dir = 4;
+	icon_state = "warning"
 	},
 /obj/machinery/light{
 	dir = 1
@@ -16304,8 +15512,8 @@
 /area/ninja_dojo/start)
 "KK" = (
 /obj/machinery/computer/teleporter{
-	icon_state = "computer";
-	dir = 2
+	dir = 2;
+	icon_state = "computer"
 	},
 /turf/simulated/floor/plating,
 /area/ninja_dojo/start)
@@ -16326,8 +15534,8 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 8
+	dir = 8;
+	icon_state = "warning"
 	},
 /turf/unsimulated/floor{
 	dir = 2;
@@ -16530,8 +15738,8 @@
 	dir = 4
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
+	dir = 8;
+	icon_state = "tube1"
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/unsimulated/floor{
@@ -16547,8 +15755,8 @@
 /area/ninja_dojo/start)
 "Lm" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 4
+	dir = 4;
+	icon_state = "warningcorner"
 	},
 /turf/unsimulated/floor{
 	dir = 2;
@@ -16583,8 +15791,8 @@
 	req_access = list("ACCESS_SYNDICATE")
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
+	dir = 8;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ninja_dojo/start)
@@ -16643,8 +15851,8 @@
 /area/syndicate_station/start)
 "Lx" = (
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /obj/machinery/power/solar,
 /obj/effect/floor_decal/solarpanel,
@@ -16899,13 +16107,13 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/smes/buildable{
+	RCon_tag = null;
 	charge = 2.5e+006;
 	input_attempt = 1;
 	input_level = 250000;
 	inputting = 0;
 	output_attempt = 1;
-	output_level = 250000;
-	RCon_tag = null
+	output_level = 250000
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
@@ -16977,8 +16185,8 @@
 "Mh" = (
 /obj/structure/closet,
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
+	dir = 8;
+	icon_state = "tube1"
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/unsimulated/floor{
@@ -17043,8 +16251,8 @@
 /area/syndicate_station/start)
 "Mp" = (
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /obj/machinery/power/tracker,
 /turf/simulated/floor/airless,
@@ -17082,9 +16290,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
-	tag = "icon-intact (NORTHEAST)";
+	dir = 5;
 	icon_state = "intact";
-	dir = 5
+	tag = "icon-intact (NORTHEAST)"
 	},
 /turf/simulated/floor/airless,
 /area/merchant_station)
@@ -17118,8 +16326,8 @@
 /area/merchant_station)
 "Mv" = (
 /obj/machinery/power/terminal{
-	icon_state = "term";
-	dir = 1
+	dir = 1;
+	icon_state = "term"
 	},
 /obj/structure/cable{
 	d2 = 8;
@@ -17179,9 +16387,9 @@
 "MB" = (
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/simple/visible/red{
-	tag = "icon-intact (NORTHWEST)";
+	dir = 9;
 	icon_state = "intact";
-	dir = 9
+	tag = "icon-intact (NORTHWEST)"
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station)
@@ -17203,8 +16411,8 @@
 "ME" = (
 /obj/structure/table/steel_reinforced,
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
+	dir = 8;
+	icon_state = "tube1"
 	},
 /obj/item/device/radio/intercom/syndicate{
 	dir = 4;
@@ -17246,8 +16454,8 @@
 /obj/machinery/recharger,
 /obj/item/weapon/wrench,
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 4
+	dir = 4;
+	icon_state = "tube1"
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/unsimulated/floor{
@@ -17338,8 +16546,8 @@
 /obj/item/weapon/rig/merc/empty,
 /obj/item/weapon/rig/merc/heavy/empty,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/syndicate_mothership)
 "MS" = (
@@ -17373,9 +16581,9 @@
 /area/merchant_station)
 "MW" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
-	tag = "icon-intact (NORTHEAST)";
+	dir = 5;
 	icon_state = "intact";
-	dir = 5
+	tag = "icon-intact (NORTHEAST)"
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station)
@@ -17392,9 +16600,9 @@
 /area/merchant_station)
 "MY" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
-	tag = "icon-intact (NORTHWEST)";
+	dir = 9;
 	icon_state = "intact";
-	dir = 9
+	tag = "icon-intact (NORTHWEST)"
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station)
@@ -17418,8 +16626,8 @@
 "Nc" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/computer/station_alert/all{
-	icon_state = "computer";
-	dir = 1
+	dir = 1;
+	icon_state = "computer"
 	},
 /turf/unsimulated/floor{
 	dir = 2;
@@ -17429,8 +16637,8 @@
 "Nd" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/computer/shuttle_control/multi/ninja{
-	icon_state = "computer";
-	dir = 1
+	dir = 1;
+	icon_state = "computer"
 	},
 /turf/unsimulated/floor{
 	dir = 2;
@@ -17440,8 +16648,8 @@
 "Ne" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/modular_computer/console/preset/security{
-	icon_state = "console";
-	dir = 1
+	dir = 1;
+	icon_state = "console"
 	},
 /turf/unsimulated/floor{
 	dir = 2;
@@ -17488,8 +16696,8 @@
 /obj/structure/table/rack,
 /obj/item/device/suit_cooling_unit,
 /turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
+	dir = 8;
+	icon_state = "vault"
 	},
 /area/syndicate_mothership)
 "Nk" = (
@@ -17518,17 +16726,17 @@
 /area/merchant_station)
 "No" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
-	tag = "icon-map (NORTH)";
+	dir = 1;
 	icon_state = "map";
-	dir = 1
+	tag = "icon-map (NORTH)"
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "Np" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
-	tag = "icon-map (NORTH)";
+	dir = 1;
 	icon_state = "map";
-	dir = 1
+	tag = "icon-map (NORTH)"
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station)
@@ -17618,9 +16826,9 @@
 "Nx" = (
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
-	tag = "icon-gravsnow_surround (NORTH)";
+	dir = 1;
 	icon_state = "gravsnow_surround";
-	dir = 1
+	tag = "icon-gravsnow_surround (NORTH)"
 	},
 /area/syndicate_mothership)
 "Ny" = (
@@ -17655,9 +16863,9 @@
 /area/merchant_station)
 "ND" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	tag = "icon-intact (NORTHWEST)";
+	dir = 9;
 	icon_state = "intact";
-	dir = 9
+	tag = "icon-intact (NORTHWEST)"
 	},
 /obj/machinery/portable_atmospherics/canister/nitrogen,
 /obj/item/weapon/tank/nitrogen,
@@ -17666,20 +16874,20 @@
 /area/merchant_station)
 "NE" = (
 /obj/machinery/atmospherics/pipe/tank/air{
-	tag = "icon-air_map (NORTH)";
-	icon_state = "air_map";
 	dir = 1;
-	start_pressure = 740.5
+	icon_state = "air_map";
+	start_pressure = 740.5;
+	tag = "icon-air_map (NORTH)"
 	},
 /obj/machinery/light/small,
 /turf/simulated/floor/plating,
 /area/merchant_station)
 "NF" = (
 /obj/machinery/atmospherics/pipe/tank/air{
-	tag = "icon-air_map (NORTH)";
-	icon_state = "air_map";
 	dir = 1;
-	start_pressure = 740.5
+	icon_state = "air_map";
+	start_pressure = 740.5;
+	tag = "icon-air_map (NORTH)"
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station)
@@ -17718,30 +16926,30 @@
 /area/space)
 "NM" = (
 /turf/unsimulated/floor/snow{
-	tag = "icon-permafrost";
-	icon_state = "permafrost"
+	icon_state = "permafrost";
+	tag = "icon-permafrost"
 	},
 /turf/unsimulated/floor/snow{
-	tag = "icon-gravsnow_corner (WEST)";
+	dir = 8;
 	icon_state = "gravsnow_corner";
-	dir = 8
+	tag = "icon-gravsnow_corner (WEST)"
 	},
 /area/syndicate_mothership)
 "NN" = (
 /turf/unsimulated/floor/snow{
-	tag = "icon-permafrost";
-	icon_state = "permafrost"
+	icon_state = "permafrost";
+	tag = "icon-permafrost"
 	},
 /area/syndicate_mothership)
 "NO" = (
 /turf/unsimulated/floor/snow{
-	tag = "icon-permafrost";
-	icon_state = "permafrost"
+	icon_state = "permafrost";
+	tag = "icon-permafrost"
 	},
 /turf/unsimulated/floor/snow{
-	tag = "icon-gravsnow_corner (EAST)";
+	dir = 4;
 	icon_state = "gravsnow_corner";
-	dir = 4
+	tag = "icon-gravsnow_corner (EAST)"
 	},
 /area/syndicate_mothership)
 "NP" = (
@@ -17753,11 +16961,80 @@
 "NQ" = (
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
-	tag = "icon-gravsnow_corner (SOUTHWEST)";
+	dir = 10;
 	icon_state = "gravsnow_corner";
-	dir = 10
+	tag = "icon-gravsnow_corner (SOUTHWEST)"
 	},
 /area/syndicate_mothership)
+"NR" = (
+/obj/structure/flora/ausbushes/lavendergrass,
+/obj/structure/flora/ausbushes/ywflowers,
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/flora/ausbushes/brflowers,
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/holofloor/grass,
+/area/holodeck/source_plaza)
+"NT" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 8;
+	icon_state = "corner_white";
+	tag = "icon-corner_white (WEST)"
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/holodeck/source_emptycourt)
+"NZ" = (
+/obj/structure/table/holotable,
+/obj/machinery/readybutton{
+	pixel_y = 0
+	},
+/obj/effect/floor_decal/corner/red/three_quarters{
+	dir = 8
+	},
+/obj/structure/window/reinforced/holowindow{
+	dir = 1
+	},
+/obj/structure/window/reinforced/holowindow{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/holodeck/source_thunderdomecourt)
+"Of" = (
+/turf/simulated/floor/holofloor/beach/sand{
+	icon_state = "desert2"
+	},
+/area/holodeck/source_volleyball)
+"Op" = (
+/turf/simulated/floor/holofloor/beach/water{
+	icon_state = "desert3";
+	tag = "icon-desert3"
+	},
+/area/holodeck/source_beach)
+"Os" = (
+/turf/simulated/floor/holofloor/beach/water{
+	icon_state = "desert2";
+	tag = "icon-desert2"
+	},
+/area/holodeck/source_beach)
+"Ow" = (
+/obj/effect/floor_decal/carpet,
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_meetinghall)
+"Ox" = (
+/obj/machinery/door/window/holowindoor{
+	dir = 4;
+	icon_state = "left";
+	tag = "icon-left (EAST)"
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/holodeck/source_thunderdomecourt)
 "OE" = (
 /obj/machinery/airlock_sensor{
 	frequency = 1331;
@@ -17771,15 +17048,513 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/syndicate_mothership)
+"OF" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_chapel)
+"OG" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1;
+	icon_state = "spline_fancy";
+	tag = "icon-spline_fancy (NORTH)"
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_chapel)
+"OH" = (
+/obj/structure/bed/chair/holochair/wood{
+	icon_state = "wooden_chair_preview";
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood/cee,
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_cafe)
+"OI" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 8;
+	icon_state = "spline_plain"
+	},
+/obj/structure/holonet/end,
+/turf/simulated/floor/holofloor/beach/sand,
+/area/holodeck/source_volleyball)
+"OJ" = (
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	dir = 10
+	},
+/obj/structure/bed/chair/holochair{
+	dir = 4;
+	icon_state = "chair_preview";
+	tag = "icon-chair_preview (EAST)"
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_courtroom)
+"OM" = (
+/turf/simulated/floor/holofloor/space,
+/area/holodeck/source_space)
+"OQ" = (
+/obj/structure/flora/pottedplant{
+	icon_state = "plant-10"
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_cafe)
+"OR" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9;
+	icon_state = "corner_white"
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/holodeck/source_basketball)
+"OU" = (
+/turf/simulated/floor/holofloor/desert,
+/area/holodeck/source_desert)
+"OV" = (
+/turf/simulated/floor/holofloor/beach/water{
+	icon_state = "desert5";
+	tag = "icon-desert5"
+	},
+/area/holodeck/source_beach)
+"Pb" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/holodeck/source_basketball)
+"Pd" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 4;
+	icon_state = "spline_plain"
+	},
+/obj/structure/holonet/end{
+	dir = 8;
+	icon_state = "volleynet_end"
+	},
+/turf/simulated/floor/holofloor/beach/sand,
+/area/holodeck/source_volleyball)
+"Pe" = (
+/turf/simulated/shuttle/wall{
+	dir = 8;
+	icon_state = "swall_c"
+	},
+/area/shuttle/transport1/centcom)
+"Ph" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1331;
+	id_tag = "rescue_base_hatch";
+	req_access = list("ACCESS_CENT_SPECOPS")
+	},
+/turf/space,
+/turf/simulated/floor/tiled,
+/area/shuttle/transport1/centcom)
+"Pk" = (
+/turf/simulated/shuttle/wall{
+	dir = 1;
+	icon_state = "swall_c"
+	},
+/area/shuttle/transport1/centcom)
+"Pl" = (
+/obj/effect/floor_decal/corner/green/three_quarters{
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/holodeck/source_basketball)
+"Pn" = (
+/obj/effect/floor_decal/corner/black/border{
+	dir = 8;
+	icon_state = "bordercolor";
+	tag = "icon-bordercolor (WEST)"
+	},
+/turf/simulated/floor/holofloor/tiled/old_tile,
+/area/holodeck/source_gym)
+"Pu" = (
+/obj/structure/flora/ausbushes/lavendergrass,
+/obj/structure/flora/ausbushes/ywflowers,
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/flora/ausbushes/brflowers,
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	icon_state = "spline_fancy_cee";
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/grass,
+/area/holodeck/source_plaza)
+"Pz" = (
+/obj/structure/bed/chair/holochair/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1;
+	icon_state = "spline_fancy";
+	tag = "icon-spline_fancy (NORTH)"
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_cafe)
+"PJ" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/door/window/holowindoor{
+	dir = 8;
+	icon_state = "left";
+	tag = "icon-left (WEST)"
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/holodeck/source_thunderdomecourt)
+"PM" = (
+/turf/simulated/floor/holofloor/beach/water{
+	dir = 1;
+	icon_state = "beach";
+	tag = "icon-beach (NORTH)"
+	},
+/area/holodeck/source_beach)
+"PQ" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/structure/bed/chair/holochair/wood{
+	icon_state = "wooden_chair_preview";
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/concrete,
+/area/holodeck/source_plaza)
+"PR" = (
+/obj/effect/floor_decal/corner/red/three_quarters{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/holodeck/source_basketball)
+"PV" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9;
+	icon_state = "corner_white"
+	},
+/obj/item/weapon/beach_ball/holoball,
+/turf/simulated/floor/holofloor/tiled,
+/area/holodeck/source_basketball)
+"PW" = (
+/obj/effect/floor_decal/corner/red/three_quarters,
+/turf/simulated/floor/holofloor/tiled,
+/area/holodeck/source_basketball)
+"PY" = (
+/obj/effect/floor_decal/carpet{
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 9
+	},
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_meetinghall)
+"Qd" = (
+/turf/simulated/floor/holofloor/beach/sand{
+	dir = 10;
+	icon_state = "beach"
+	},
+/area/holodeck/source_beach)
+"Qh" = (
+/obj/effect/shuttle_landmark/ferry/start,
+/turf/simulated/shuttle/wall{
+	dir = 4;
+	icon_state = "swall_straight"
+	},
+/area/shuttle/transport1/centcom)
+"Qi" = (
+/obj/structure/bed/chair/holochair{
+	dir = 4;
+	icon_state = "chair_preview";
+	tag = "icon-chair_preview (EAST)"
+	},
+/obj/effect/floor_decal/chapel{
+	dir = 1;
+	icon_state = "chapel";
+	tag = "icon-chapel (NORTH)"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1;
+	icon_state = "spline_fancy";
+	tag = "icon-spline_fancy (NORTH)"
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_chapel)
+"Ql" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 8;
+	icon_state = "spline_plain"
+	},
+/turf/simulated/floor/holofloor/beach/sand,
+/area/holodeck/source_volleyball)
+"Qo" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/holofloor/concrete,
+/area/holodeck/source_plaza)
+"Qu" = (
+/obj/structure/bed/chair/holochair{
+	dir = 4;
+	icon_state = "chair_preview";
+	tag = "icon-chair_preview (EAST)"
+	},
+/obj/effect/floor_decal/chapel{
+	dir = 1;
+	icon_state = "chapel";
+	tag = "icon-chapel (NORTH)"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_chapel)
+"Qw" = (
+/obj/item/weapon/inflatable_duck,
+/turf/simulated/floor/holofloor/beach/water{
+	icon_state = "desert3";
+	tag = "icon-desert3"
+	},
+/area/holodeck/source_beach)
+"Qy" = (
+/obj/structure/window/reinforced/holowindow{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/green,
+/obj/effect/floor_decal/corner/red{
+	dir = 1
+	},
+/obj/machinery/door/window/holowindoor{
+	dir = 4;
+	icon_state = "left";
+	tag = "icon-left (EAST)"
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/holodeck/source_boxingcourt)
+"Qz" = (
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_meetinghall)
+"QB" = (
+/obj/structure/fitness/weightlifter/holo,
+/turf/simulated/floor/holofloor/tiled/old_tile,
+/area/holodeck/source_gym)
+"QH" = (
+/turf/simulated/shuttle/wall{
+	dir = 4;
+	icon_state = "swall_straight"
+	},
+/area/shuttle/transport1/centcom)
+"Ra" = (
+/obj/structure/bed/chair/holochair/wood{
+	icon_state = "wooden_chair_preview";
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/concrete,
+/area/holodeck/source_plaza)
+"Rs" = (
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 10
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 6
+	},
+/obj/structure/bed/chair/holochair{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_meetinghall)
+"Rw" = (
+/obj/structure/bed/chair/holochair/wood{
+	icon_state = "wooden_chair_preview";
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_cafe)
+"Ry" = (
+/obj/structure/table/holo_woodentable,
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/holofloor/concrete,
+/area/holodeck/source_plaza)
+"RA" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9;
+	icon_state = "spline_fancy";
+	tag = "icon-spline_fancy (NORTHWEST)"
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_cafe)
 "RG" = (
 /obj/effect/paint/hull,
 /turf/simulated/wall,
 /area/merchant_station)
+"RL" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 4;
+	icon_state = "spline_plain"
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/holodeck/source_theatre)
+"RN" = (
+/obj/structure/table/holo_woodentable,
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/concrete,
+/area/holodeck/source_plaza)
+"RO" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/holofloor/desert,
+/area/holodeck/source_desert)
+"RQ" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/concrete,
+/area/holodeck/source_plaza)
+"Sk" = (
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_thunderdomecourt)
+"Sn" = (
+/obj/structure/bed/chair/holochair{
+	dir = 4;
+	icon_state = "chair_preview";
+	tag = "icon-chair_preview (EAST)"
+	},
+/obj/effect/floor_decal/chapel{
+	dir = 4;
+	icon_state = "chapel";
+	tag = "icon-chapel (EAST)"
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_chapel)
+"Su" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 4;
+	icon_state = "spline_fancy_corner";
+	tag = "icon-spline_fancy_corner (EAST)"
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_chapel)
+"Sv" = (
+/obj/structure/window/reinforced/holowindow/disappearing,
+/obj/effect/floor_decal/corner/red/three_quarters,
+/obj/structure/window/reinforced/holowindow{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/holodeck/source_thunderdomecourt)
+"SB" = (
+/obj/structure/table/holo_woodentable,
+/obj/item/weapon/flame/candle,
+/obj/item/weapon/flame/candle{
+	pixel_y = 11
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_chapel)
+"SG" = (
+/obj/structure/bed/chair/holochair/wood{
+	icon_state = "wooden_chair_preview";
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_cafe)
+"SH" = (
+/obj/effect/floor_decal/corner/green,
+/obj/effect/floor_decal/corner/red{
+	dir = 4;
+	icon_state = "corner_white"
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/holodeck/source_emptycourt)
+"SQ" = (
+/obj/effect/floor_decal/beach{
+	dir = 8;
+	icon_state = "beachborder"
+	},
+/turf/simulated/floor/holofloor/concrete,
+/area/holodeck/source_volleyball)
+"SS" = (
+/obj/effect/floor_decal/corner/red/three_quarters{
+	dir = 8
+	},
+/obj/structure/window/reinforced/holowindow{
+	dir = 1
+	},
+/obj/structure/window/reinforced/holowindow{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/holodeck/source_boxingcourt)
+"SV" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/structure/table/holo_woodentable,
+/turf/simulated/floor/holofloor/concrete,
+/area/holodeck/source_plaza)
+"SY" = (
+/obj/structure/window/reinforced/holowindow{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/green,
+/obj/machinery/door/window/holowindoor{
+	name = "Green Corner"
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/holodeck/source_boxingcourt)
 "Th" = (
 /obj/effect/wallframe_spawn/reinforced/bare,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/merchant_station)
+"Tr" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 1
+	},
+/obj/structure/bed/chair/holochair/wood{
+	icon_state = "wooden_chair_preview";
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/concrete,
+/area/holodeck/source_plaza)
+"Tv" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/structure/bed/chair/holochair/wood,
+/turf/simulated/floor/holofloor/concrete,
+/area/holodeck/source_plaza)
+"Ty" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 10;
+	icon_state = "spline_plain"
+	},
+/turf/simulated/floor/holofloor/beach/sand,
+/area/holodeck/source_volleyball)
+"TL" = (
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_cafe)
 "TP" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
@@ -17788,9 +17563,352 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/syndicate_mothership)
+"TW" = (
+/obj/effect/floor_decal/beach{
+	dir = 4;
+	icon_state = "beachborder"
+	},
+/turf/simulated/floor/holofloor/concrete,
+/area/holodeck/source_volleyball)
+"TY" = (
+/obj/structure/bed/chair/holochair/wood,
+/turf/simulated/floor/holofloor/concrete,
+/area/holodeck/source_plaza)
+"TZ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1;
+	icon_state = "warning";
+	tag = "icon-warning (NORTH)"
+	},
+/turf/simulated/floor/plating,
+/area/centcom)
+"Ub" = (
+/obj/item/weapon/beach_ball,
+/turf/simulated/floor/holofloor/beach/water{
+	icon_state = "desert1";
+	tag = "icon-desert1"
+	},
+/area/holodeck/source_beach)
+"Ue" = (
+/obj/effect/floor_decal/carpet{
+	dir = 1
+	},
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_meetinghall)
+"Ug" = (
+/obj/effect/landmark{
+	can_copy = 1;
+	name = "Holocarp Spawn Random"
+	},
+/turf/simulated/floor/holofloor/space,
+/area/holodeck/source_space)
+"Uk" = (
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_theatre)
+"Ul" = (
+/obj/structure/window/reinforced/holowindow/disappearing{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/green/three_quarters{
+	dir = 8
+	},
+/obj/structure/window/reinforced/holowindow{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/holodeck/source_thunderdomecourt)
 "Ux" = (
 /turf/simulated/floor/tiled/dark,
 /area/syndicate_mothership)
+"Uy" = (
+/obj/structure/bed/chair/holochair/wood{
+	icon_state = "wooden_chair_preview";
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/holofloor/concrete,
+/area/holodeck/source_plaza)
+"UA" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 9;
+	icon_state = "spline_plain"
+	},
+/turf/simulated/floor/holofloor/beach/sand{
+	icon_state = "desert2"
+	},
+/area/holodeck/source_volleyball)
+"UF" = (
+/obj/machinery/computer/shuttle_control/transport_shuttle{
+	dir = 1;
+	icon_state = "computer";
+	tag = "icon-computer (NORTH)"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/transport1/centcom)
+"UG" = (
+/obj/structure/bed/chair/holochair{
+	dir = 4;
+	icon_state = "chair_preview";
+	tag = "icon-chair_preview (EAST)"
+	},
+/obj/effect/floor_decal/chapel{
+	dir = 8;
+	icon_state = "chapel";
+	tag = "icon-chapel (WEST)"
+	},
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_chapel)
+"UJ" = (
+/obj/structure/table/holotable,
+/obj/effect/floor_decal/corner/green/three_quarters,
+/obj/structure/window/reinforced/holowindow,
+/obj/structure/window/reinforced/holowindow{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/holodeck/source_thunderdomecourt)
+"UK" = (
+/obj/structure/bed/chair/shuttle{
+	dir = 8;
+	icon_state = "shuttle_chair_preview";
+	tag = "icon-shuttle_chair_preview (WEST)"
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/transport1/centcom)
+"Va" = (
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 5
+	},
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_meetinghall)
+"Vg" = (
+/obj/effect/floor_decal/corner/green/three_quarters{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/holodeck/source_basketball)
+"Vi" = (
+/turf/simulated/floor/holofloor/tiled/old_tile,
+/area/holodeck/source_gym)
+"Vj" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5;
+	icon_state = "spline_fancy";
+	tag = "icon-spline_fancy (NORTHEAST)"
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_cafe)
+"Vr" = (
+/obj/structure/bed/chair/holochair{
+	dir = 4;
+	icon_state = "chair_preview";
+	tag = "icon-chair_preview (EAST)"
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_courtroom)
+"VE" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 10;
+	icon_state = "corner_white";
+	tag = "icon-corner_white (SOUTHWEST)"
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_thunderdomecourt)
+"VJ" = (
+/obj/structure/table/holo_woodentable,
+/obj/item/weapon/flame/candle{
+	holographic = 1
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_cafe)
+"VP" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/structure/holohoop{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/holodeck/source_basketball)
+"VS" = (
+/obj/structure/holostool,
+/obj/effect/floor_decal/corner/black/border{
+	dir = 4;
+	icon_state = "bordercolor";
+	tag = "icon-bordercolor (EAST)"
+	},
+/obj/effect/floor_decal/corner/black/border{
+	dir = 1;
+	icon_state = "bordercolor";
+	tag = "icon-bordercolor (NORTH)"
+	},
+/turf/simulated/floor/holofloor/tiled/old_tile,
+/area/holodeck/source_gym)
+"VW" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 10
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_cafe)
+"Wt" = (
+/turf/simulated/shuttle/wall{
+	dir = 4;
+	icon_state = "swall_c"
+	},
+/area/shuttle/transport1/centcom)
+"Wz" = (
+/obj/structure/bed/chair/holochair{
+	dir = 4;
+	icon_state = "chair_preview";
+	tag = "icon-chair_preview (EAST)"
+	},
+/obj/effect/floor_decal/chapel{
+	dir = 8;
+	icon_state = "chapel";
+	tag = "icon-chapel (WEST)"
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_chapel)
+"WB" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/structure/table/holo_woodentable,
+/turf/simulated/floor/holofloor/concrete,
+/area/holodeck/source_plaza)
+"WC" = (
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_meetinghall)
+"WF" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4;
+	icon_state = "spline_fancy";
+	tag = "icon-spline_fancy (EAST)"
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_chapel)
+"WI" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 6;
+	icon_state = "corner_white"
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/holodeck/source_basketball)
+"WM" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 8;
+	icon_state = "spline_fancy_corner";
+	tag = "icon-spline_fancy_corner (WEST)"
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_chapel)
+"WQ" = (
+/obj/structure/flora/ausbushes/lavendergrass,
+/obj/structure/flora/ausbushes/ywflowers,
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/flora/ausbushes/brflowers,
+/obj/effect/floor_decal/spline/fancy/wood/three_quarters,
+/turf/simulated/floor/holofloor/grass,
+/area/holodeck/source_plaza)
+"WT" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/holofloor/concrete,
+/area/holodeck/source_plaza)
+"WV" = (
+/obj/item/clothing/glasses/sunglasses,
+/turf/simulated/floor/holofloor/beach/water{
+	icon_state = "desert4";
+	tag = "icon-desert4"
+	},
+/area/holodeck/source_beach)
+"Xc" = (
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 5
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_theatre)
+"Xe" = (
+/turf/space,
+/turf/simulated/shuttle/wall{
+	dir = 1;
+	icon_state = "swall_c"
+	},
+/area/shuttle/transport1/centcom)
+"Xh" = (
+/obj/structure/holostool,
+/obj/effect/floor_decal/corner/black/border,
+/obj/effect/floor_decal/corner/black/border{
+	dir = 4;
+	icon_state = "bordercolor";
+	tag = "icon-bordercolor (EAST)"
+	},
+/turf/simulated/floor/holofloor/tiled/old_tile,
+/area/holodeck/source_gym)
+"Xj" = (
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 9
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 5
+	},
+/obj/structure/bed/chair/holochair{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_meetinghall)
+"Xk" = (
+/turf/simulated/floor/holofloor/concrete,
+/area/holodeck/source_plaza)
+"Xm" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/concrete,
+/area/holodeck/source_plaza)
+"Xw" = (
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 6
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_theatre)
 "XF" = (
 /obj/effect/wallframe_spawn/reinforced/bare,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -17801,9 +17919,118 @@
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station)
+"XI" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/holodeck/source_basketball)
+"XN" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10;
+	icon_state = "corner_white";
+	tag = "icon-corner_white (SOUTHWEST)"
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/holodeck/source_basketball)
+"XP" = (
+/obj/effect/floor_decal/carpet{
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 9
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_theatre)
+"XW" = (
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	dir = 6
+	},
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_meetinghall)
+"Yr" = (
+/obj/structure/shuttle/engine/propulsion/burst/left{
+	dir = 1;
+	icon_state = "burst_l";
+	name = "propulsion";
+	tag = "icon-burst_l (NORTH)"
+	},
+/turf/simulated/shuttle/wall{
+	dir = 2;
+	icon_state = "swall";
+	tag = "icon-swall2"
+	},
+/area/shuttle/transport1/centcom)
 "Yz" = (
 /turf/space/transit/east,
 /area/space)
+"YA" = (
+/obj/effect/landmark{
+	can_copy = 1;
+	name = "Holocarp Spawn"
+	},
+/turf/simulated/floor/holofloor/reinforced,
+/area/holodeck/source_wildlife)
+"YD" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/machinery/door/window/holowindoor{
+	dir = 8;
+	icon_state = "left";
+	tag = "icon-left (WEST)"
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/holodeck/source_thunderdomecourt)
+"YL" = (
+/obj/effect/floor_decal/corner/black/border,
+/turf/simulated/floor/holofloor/tiled/old_tile,
+/area/holodeck/source_gym)
+"YN" = (
+/turf/simulated/floor/holofloor/beach/sand{
+	dir = 8;
+	icon_state = "beach"
+	},
+/area/holodeck/source_beach)
+"YS" = (
+/obj/structure/table/holo_woodentable,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_cafe)
+"YW" = (
+/obj/effect/floor_decal/corner/black/border{
+	dir = 4;
+	icon_state = "bordercolor";
+	tag = "icon-bordercolor (EAST)"
+	},
+/turf/simulated/floor/holofloor/tiled/old_tile,
+/area/holodeck/source_gym)
+"YY" = (
+/turf/simulated/shuttle/wall{
+	icon_state = "swall_c"
+	},
+/area/shuttle/transport1/centcom)
+"YZ" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 1;
+	icon_state = "spline_fancy_corner";
+	tag = "icon-spline_fancy_corner (NORTH)"
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_chapel)
 "Zf" = (
 /obj/effect/shuttle_landmark/nerva/transit/hadrian,
 /turf/space/transit/east,
@@ -17815,15 +18042,95 @@
 	pixel_y = 24
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
-	dir = 4
+	dir = 4;
+	icon_state = "intact"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/syndicate_mothership)
+"Zi" = (
+/obj/structure/bed/chair/holochair{
+	dir = 4;
+	icon_state = "chair_preview";
+	tag = "icon-chair_preview (EAST)"
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_courtroom)
 "Zn" = (
 /obj/effect/wallframe_spawn/reinforced/bare,
 /turf/simulated/floor/plating,
 /area/merchant_station)
+"Zt" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 4;
+	icon_state = "spline_plain"
+	},
+/turf/simulated/floor/holofloor/beach/sand,
+/area/holodeck/source_volleyball)
+"Zy" = (
+/obj/structure/table/holo_woodentable,
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_cafe)
+"Zz" = (
+/obj/structure/holostool,
+/obj/effect/floor_decal/corner/black/border{
+	dir = 8;
+	icon_state = "bordercolor";
+	tag = "icon-bordercolor (WEST)"
+	},
+/turf/simulated/floor/holofloor/tiled/old_tile,
+/area/holodeck/source_gym)
+"ZB" = (
+/obj/structure/bed/chair/holochair{
+	dir = 4;
+	icon_state = "chair_preview";
+	tag = "icon-chair_preview (EAST)"
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 9
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_courtroom)
+"ZD" = (
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	icon_state = "spline_fancy_cee";
+	dir = 8
+	},
+/obj/structure/flora/ausbushes/lavendergrass,
+/obj/structure/flora/ausbushes/ywflowers,
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/flora/ausbushes/brflowers,
+/turf/simulated/floor/holofloor/grass,
+/area/holodeck/source_plaza)
+"ZF" = (
+/turf/simulated/floor/holofloor/beach/water{
+	icon_state = "desert1";
+	tag = "icon-desert1"
+	},
+/area/holodeck/source_beach)
+"ZP" = (
+/obj/structure/bed/chair/holochair/wood,
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	icon_state = "spline_fancy_cee";
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_cafe)
+"ZW" = (
+/obj/structure/bed/chair/holochair/wood{
+	icon_state = "wooden_chair_preview";
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_cafe)
 
 (1,1,1) = {"
 aa
@@ -35934,12 +36241,12 @@ ab
 ab
 ig
 kn
-kn
-lz
-lY
-lY
-nh
-kn
+ko
+ko
+ko
+ko
+ko
+OG
 ig
 og
 og
@@ -35949,7 +36256,7 @@ og
 og
 og
 ig
-rQ
+vg
 rQ
 rQ
 rQ
@@ -36135,13 +36442,13 @@ ab
 ab
 ab
 ig
-ko
-ko
+WM
+Qu
 lA
-lZ
+ko
 mC
 ni
-ko
+Su
 ig
 og
 og
@@ -36337,13 +36644,13 @@ ab
 ab
 ab
 ig
-ko
-ko
+lY
+Sn
 lB
-ma
+ko
 mD
 nj
-ko
+lY
 ig
 og
 og
@@ -36539,13 +36846,13 @@ ab
 ab
 ab
 ig
-ko
+lY
 lj
+UG
 ko
-ko
-ko
-ko
-ko
+Qi
+Wz
+lY
 ig
 og
 og
@@ -36741,13 +37048,13 @@ ab
 ab
 ab
 ig
+lY
+Sn
+lB
 ko
-ko
-lC
-mb
-mE
+mD
 nk
-ko
+lY
 ig
 og
 og
@@ -36943,13 +37250,13 @@ ab
 ab
 ab
 ig
+nh
+WF
+OF
 ko
-ko
-lA
-mc
 mF
-nl
-ko
+WF
+YZ
 ig
 og
 og
@@ -37145,13 +37452,13 @@ ab
 ab
 ab
 ig
-kp
-kp
-lD
-lY
-lY
-nm
-nK
+kn
+ko
+ko
+SB
+ko
+ko
+OG
 ig
 og
 og
@@ -37167,7 +37474,7 @@ rQ
 rQ
 rQ
 rQ
-vg
+rQ
 ig
 ab
 ab
@@ -37347,29 +37654,29 @@ ab
 ab
 ab
 ig
+kn
+ko
+ko
+ko
+ko
+ko
+OG
 ig
+og
+og
+og
+og
+og
+og
+og
 ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
+rQ
+rQ
+rQ
+rQ
+rQ
+rQ
+rQ
 ig
 ab
 ab
@@ -37549,29 +37856,29 @@ ab
 ab
 ab
 ig
-kq
-kq
-kq
-md
-ks
-ks
-ks
 ig
-oh
-oW
-oj
-oj
-qr
-om
-rf
 ig
-rR
-rR
-rR
-rR
-rR
-rR
-vh
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
 ig
 ab
 ab
@@ -37751,29 +38058,29 @@ ab
 ab
 ab
 ig
-kq
-kq
-kq
 ks
 ks
-me
+ks
+ll
+ks
+ks
 ks
 ig
-oi
-oX
-oj
-oj
-qr
-qG
+rf
 ol
+Os
+ol
+ol
+ol
+OV
 ig
 rS
-rS
-rS
-rS
-rS
-uP
-vi
+Pn
+Pn
+Zz
+Pn
+Pn
+vh
 ig
 ab
 ab
@@ -37953,29 +38260,29 @@ ab
 ab
 ab
 ig
-kq
-kq
-ll
-ks
-lk
 ks
 ks
+ks
+ks
+ks
+ks
+me
 ig
-oj
-oj
-oj
-oj
-qr
+ZF
+WV
 ol
-rg
+Qw
+qI
+ol
+ol
 ig
-rT
-sy
-ta
-tK
-uk
-uQ
 vi
+Vi
+Vi
+Vi
+Vi
+Vi
+YL
 ig
 ab
 ab
@@ -38155,29 +38462,29 @@ ab
 ab
 ab
 ig
-kr
-lk
+ks
+me
 ks
 ks
-ks
+md
 ks
 ks
 ig
-oj
-oj
-oj
-oj
-qr
-qH
+ol
+Os
+ol
+ol
+ol
+Os
 ol
 ig
-rU
-sz
-sz
-sz
-ul
-uQ
 vi
+rU
+Vi
+QB
+Vi
+rU
+YL
 ig
 ab
 ab
@@ -38359,10 +38666,10 @@ ab
 ig
 ks
 ks
+lk
 ks
-me
 ks
-md
+mG
 ks
 ig
 ok
@@ -38370,16 +38677,16 @@ ok
 ok
 ok
 qs
-qI
+qt
 ol
 ig
-rV
-sz
-tb
-sz
-um
-uQ
 vi
+Vi
+Vi
+Vi
+Vi
+Vi
+YL
 ig
 ab
 ab
@@ -38559,29 +38866,29 @@ ab
 ab
 ab
 ig
+md
 ks
-ll
 ks
 ks
-mG
+me
 ks
 ks
 ig
-ol
-oY
-py
-ol
-qt
+oj
+oj
+oj
+oj
+PM
 ol
 ol
 ig
-rW
-sz
-sz
-sz
-un
-uQ
 vi
+Vi
+Vi
+Vi
+Vi
+Vi
+YL
 ig
 ab
 ab
@@ -38761,29 +39068,29 @@ ab
 ab
 ab
 ig
-ks
-ks
-ks
+kq
+kq
+ll
 ks
 ks
 ks
 ks
 ig
-om
+oj
+oj
+oj
+oj
+PM
+Op
 ol
-ol
-ol
-ol
-ol
-rh
 ig
-rX
-sA
-tc
-tL
-uo
-uQ
-vh
+vi
+rU
+Vi
+QB
+Vi
+rU
+YL
 ig
 ab
 ab
@@ -38963,29 +39270,29 @@ ab
 ab
 ab
 ig
+kq
+kq
+kq
+lk
+ks
+ll
+ks
 ig
+YN
+Qd
+oj
+oj
+PM
+Ub
+ol
 ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
+vi
+Vi
+Vi
+Vi
+Vi
+Vi
+YL
 ig
 ab
 ab
@@ -39165,29 +39472,29 @@ ab
 ab
 ab
 ig
-kt
-kt
-lE
-lF
-lF
-lF
-lF
+kq
+kq
+kq
+kq
+ks
+ks
+ks
 ig
-on
-on
-on
-on
-on
-on
-on
+oh
+oW
+oj
+oj
+PM
+ol
+ZF
 ig
-rY
-rY
-td
-rY
-rY
-rZ
-rY
+VS
+YW
+tc
+tc
+tc
+YW
+Xh
 ig
 ab
 ab
@@ -39367,29 +39674,29 @@ ab
 ab
 ab
 ig
-ku
-ku
-lE
-mf
-mH
-mH
-nL
 ig
-oo
-oZ
-oZ
-pQ
-oZ
-oZ
-ri
 ig
-rZ
-rZ
-rZ
-rZ
-rZ
-rZ
-vj
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
 ig
 ab
 ab
@@ -39569,29 +39876,29 @@ ab
 ab
 ab
 ig
-ku
-ku
+lF
+XP
 lE
-mg
-mI
-mI
-nM
+lE
+lE
+nL
+lF
 ig
-op
-pa
-pz
-pR
-pa
-qJ
-rj
+SQ
+SQ
+SQ
+SQ
+SQ
+SQ
+SQ
 ig
 rZ
-sB
-sB
 rZ
 rZ
 rZ
 rZ
+rZ
+rY
 ig
 ab
 ab
@@ -39771,29 +40078,29 @@ ab
 ab
 ab
 ig
-ku
-ku
-lE
+lF
 mg
 mI
 mI
+mI
 nM
+lF
 ig
-op
-pa
-pa
-pR
-pa
-pa
-rk
+UA
+Ql
+Ql
+OI
+Ql
+Ql
+Ty
 ig
-sa
+SS
 sC
 sC
-tM
+SY
 rZ
 rZ
-rZ
+rY
 ig
 ab
 ab
@@ -39973,21 +40280,21 @@ ab
 ab
 ab
 ig
-ku
-ku
-lE
+lF
 mg
 mI
 mI
+mI
 nM
+lF
 ig
 op
 pa
-pa
-pR
-qu
 pz
-rk
+pR
+pa
+qJ
+rj
 ig
 sb
 sD
@@ -39995,7 +40302,7 @@ te
 tN
 up
 rZ
-rZ
+rY
 ig
 ab
 ab
@@ -40175,21 +40482,21 @@ ab
 ab
 ab
 ig
-ku
-ku
-lE
-mh
-mJ
-mJ
-nN
+lF
+mg
+mI
+mI
+mI
+nM
+lF
 ig
-oq
-pb
-pA
-pS
-pA
-pA
-rl
+op
+pa
+pa
+pR
+pa
+pa
+rk
 ig
 sb
 sE
@@ -40377,26 +40684,26 @@ ab
 ab
 ab
 ig
-ku
-ku
 lF
-lF
-lF
-lF
+Xc
+Uk
+Uk
+Uk
+Xw
 lF
 ig
+op
+pa
+pa
 or
-or
-or
-or
-or
-or
-or
+Of
+pa
+rk
 ig
-sc
+Qy
 sF
 sF
-tO
+tM
 rZ
 rZ
 rY
@@ -40579,29 +40886,29 @@ ab
 ab
 ab
 ig
+RL
+RL
+RL
+RL
+RL
+RL
+lF
 ig
+op
+pa
+pa
+pR
+qu
+pz
+rk
 ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
+rZ
+sB
+sB
+rZ
+rZ
+rZ
+rZ
 ig
 ab
 ab
@@ -40781,29 +41088,29 @@ ab
 ab
 ab
 ig
-kv
-lm
-lm
-ky
-mi
-mi
-mi
+ku
+ku
+ku
+ku
+ku
+ku
+ku
 ig
 os
 pc
-pc
-pc
-pc
-pc
+Zt
+Pd
+Zt
+Zt
 rm
 ig
-sd
-sG
-tg
-tP
-uq
-uR
-sg
+rZ
+rZ
+rZ
+rZ
+rZ
+rZ
+rZ
 ig
 ab
 ab
@@ -40983,29 +41290,29 @@ ab
 ab
 ab
 ig
-kw
-lm
-kx
-mi
-mK
-mi
-mi
+kt
+ku
+ku
+ku
+ku
+ku
+kt
 ig
-ot
-pd
-pd
-pd
-pd
-pd
-rn
+TW
+TW
+TW
+TW
+TW
+TW
+TW
 ig
-se
-sH
-th
-tQ
-sH
-uS
-sg
+rY
+rZ
+rY
+rY
+rY
+rZ
+vj
 ig
 ab
 ab
@@ -41185,29 +41492,29 @@ ab
 ab
 ab
 ig
-kv
-kx
-kv
-kw
-kv
-lG
-lG
 ig
-ot
-pe
-pe
-pd
-pe
-pe
-rn
 ig
-se
-sH
-th
-tQ
-sH
-uS
-sg
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
 ig
 ab
 ab
@@ -41387,29 +41694,29 @@ ab
 ab
 ab
 ig
-kx
-ky
-ky
-lG
-lG
 kv
-kx
+lm
+lm
+ky
+mi
+mi
+mi
 ig
-ou
-pf
-pf
-pT
-pf
-pf
-ro
+ZB
+Vr
+Vr
+Vr
+Vr
+Vr
+OJ
 ig
-se
-sH
-th
-tQ
-sH
-uS
-sg
+NZ
+PJ
+Sv
+qG
+Ul
+YD
+UJ
 ig
 ab
 ab
@@ -41589,29 +41896,29 @@ ab
 ab
 ab
 ig
-ky
+kw
+lm
 kx
-lG
-lG
-kx
-kv
-ky
+mi
+mK
+mi
+mi
 ig
-ov
-ov
-ov
-ov
-ov
-ov
-ov
+ot
+pd
+pd
+pd
+pd
+pd
+rn
 ig
 se
 sH
 th
+VE
 tQ
 sH
 uS
-sg
 ig
 ab
 ab
@@ -41792,28 +42099,28 @@ ab
 ab
 ig
 kv
-ln
+kx
+kv
+kw
+kv
 lG
 lG
-kv
-ky
-kv
 ig
-ov
-pg
-pB
-pU
-qv
-ov
-ov
+ot
+Zi
+Zi
+pd
+Zi
+Zi
+rn
 ig
-sf
-sI
-ti
-tR
-sI
-uT
-sg
+se
+sH
+th
+VE
+tQ
+sH
+uS
 ig
 ab
 ab
@@ -41993,29 +42300,29 @@ ab
 ab
 ab
 ig
-kw
-kv
-ky
 kx
-mL
+ky
+ky
 lG
-nO
+lG
+kv
+kx
 ig
-ov
-ov
-ov
-pV
-ov
-ov
-rp
+ou
+pf
+pf
+pT
+pf
+pf
+ro
 ig
-sg
-sg
-sg
-sg
-sg
-sg
-sg
+se
+sH
+th
+VE
+tQ
+sH
+uS
 ig
 ab
 ab
@@ -42195,29 +42502,29 @@ ab
 ab
 ab
 ig
+ky
+kx
+lG
+lG
+kx
+kv
+ky
 ig
+ov
+ov
+ov
+ov
+ov
+ov
+ov
 ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
+se
+sH
+th
+VE
+tQ
+sH
+uS
 ig
 ab
 ab
@@ -42397,29 +42704,29 @@ ab
 ab
 ab
 ig
-kz
-kA
-lH
-lH
-lH
-lH
-lH
+kv
+ln
+lG
+lG
+kv
+ky
+kv
 ig
-ow
-ox
-ox
-ox
-ox
-ox
-ow
+ov
+ov
+ov
+ov
+ov
+ov
+ov
 ig
-sh
-sJ
-tj
-tS
-ur
-ur
-vk
+sf
+Ox
+ti
+kp
+tR
+Ox
+uT
 ig
 ab
 ab
@@ -42599,29 +42906,29 @@ ab
 ab
 ab
 ig
-kA
-kA
-lH
-mj
-mM
-nn
-lH
+kw
+kv
+ky
+kx
+mL
+lG
+nO
 ig
-ox
-ox
-ox
-ox
-ox
-ox
-ox
+ov
+pg
+pB
+pU
+qv
+ov
+ov
 ig
-si
-sK
-sK
-tS
-sK
-sK
-us
+sg
+sg
+sg
+sg
+sg
+sg
+sg
 ig
 ab
 ab
@@ -42801,29 +43108,29 @@ ab
 ab
 ab
 ig
-kB
-lo
-lH
-mk
-mN
-no
-lH
+mi
+lG
+lG
+mi
+kw
+kv
+mL
 ig
-ox
-ox
-ow
-ox
-ow
-ox
-ox
+ov
+ov
+ov
+pV
+ov
+ov
+rp
 ig
-sh
-sJ
-si
-tS
-us
-ur
-vk
+Sk
+sg
+Sk
+Sk
+Sk
+sg
+Sk
 ig
 ab
 ab
@@ -43003,29 +43310,29 @@ ab
 ab
 ab
 ig
-kC
-lo
-lH
-mk
-mN
-no
-lH
 ig
-ox
-ox
-ox
-ox
-ox
-ox
-ox
 ig
-sj
-sK
-tk
-tS
-us
-sK
-vl
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
 ig
 ab
 ab
@@ -43205,29 +43512,29 @@ ab
 ab
 ab
 ig
-kD
-lo
 lH
-mk
-mN
-no
+lH
+lH
+lH
+lH
+lH
 lH
 ig
+YA
 ox
 ox
-ow
-ox
-ow
 ox
 ox
+ox
+YA
 ig
-sk
-sL
-si
+Vg
+ur
+Vg
 tS
-us
-uU
-vm
+vk
+ur
+vk
 ig
 ab
 ab
@@ -43407,11 +43714,11 @@ ab
 ab
 ab
 ig
-kA
-kA
 lH
-ml
-mO
+PY
+Qz
+Qz
+Qz
 np
 lH
 ig
@@ -43423,13 +43730,13 @@ ox
 ox
 ox
 ig
-si
+Pb
 sK
+Pb
 sK
-tS
+XN
 sK
-sK
-us
+XN
 ig
 ab
 ab
@@ -43609,29 +43916,29 @@ ab
 ab
 ab
 ig
-kz
-kA
 lH
-lH
-lH
-lH
+Ue
+mN
+mN
+mN
+Ow
 lH
 ig
-ow
 ox
 ox
+YA
+ox
+YA
 ox
 ox
-ox
-ow
 ig
-sk
-sL
-tl
-tS
-ut
-uU
-vm
+Pb
+sK
+ur
+ur
+ur
+sK
+XN
 ig
 ab
 ab
@@ -43811,29 +44118,29 @@ ab
 ab
 ab
 ig
+lH
+Ue
+mN
+mN
+mN
+Ow
+lH
 ig
+ox
+ox
+ox
+ox
+ox
+ox
+ox
 ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
+Pl
+WI
+WI
+WI
+WI
+WI
+vm
 ig
 ab
 ab
@@ -44013,29 +44320,29 @@ ab
 ab
 ab
 ig
-kE
-lp
-lp
-mm
-mP
-mP
-nP
+lH
+Va
+WC
+WC
+WC
+XW
+lH
 ig
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ox
+ox
+ox
+ox
+ox
+ox
+ox
 ig
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+sh
+OR
+OR
+PV
+OR
+OR
+PW
 ig
 ab
 ab
@@ -44215,29 +44522,29 @@ ab
 ab
 ab
 ig
-kF
-lq
-lq
-lq
-lq
-lq
-nQ
+lH
+lH
+lH
+lH
+lH
+lH
+lH
 ig
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ox
+ox
+YA
+ox
+YA
+ox
+ox
 ig
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+si
+sK
+sL
+sL
+sL
+sK
+XI
 ig
 ab
 ab
@@ -44417,29 +44724,29 @@ ab
 ab
 ab
 ig
-kF
-lq
-lq
-lq
-lq
-lq
-nQ
+kA
+kA
+lo
+lo
+lo
+kA
+kA
 ig
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ox
+ox
+ox
+ox
+ox
+ox
+ox
 ig
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+si
+sK
+si
+sK
+XI
+sK
+XI
 ig
 ab
 ab
@@ -44619,29 +44926,29 @@ ab
 ab
 ab
 ig
-kF
-lq
-lq
-lq
-lq
-lq
-nQ
+kz
+kA
+Xj
+sM
+Rs
+kA
+kz
 ig
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+YA
+ox
+ox
+ox
+ox
+ox
+YA
 ig
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+sk
+sL
+sk
+VP
+PR
+sL
+PR
 ig
 ab
 ab
@@ -44821,29 +45128,29 @@ ab
 ab
 ab
 ig
-kF
-lq
-lq
-lq
-lq
-lq
-nQ
 ig
-ab
-ab
-ab
-ab
-ab
-ab
-ab
 ig
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
 ig
 ab
 ab
@@ -45023,29 +45330,29 @@ ab
 ab
 ab
 ig
-kF
-lq
-lq
-lq
-lq
-lq
-nQ
+kE
+lp
+lp
+NT
+mP
+mP
+nP
 ig
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+WQ
+RQ
+RQ
+RQ
+RQ
+RQ
+WQ
 ig
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+TL
+TL
+TL
+TL
+TL
+TL
+TL
 ig
 ab
 ab
@@ -45225,29 +45532,29 @@ ab
 ab
 ab
 ig
-kG
-lr
-lr
-mn
-mQ
-mQ
-nR
+kF
+lq
+lq
+lq
+lq
+lq
+nQ
 ig
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+Tr
+Xk
+Xk
+Xk
+Xk
+Xk
+Uy
 ig
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+TL
+RA
+ZW
+ZW
+ZW
+VW
+TL
 ig
 ab
 ab
@@ -45427,29 +45734,29 @@ ab
 ab
 ab
 ig
+kF
+lq
+lq
+lq
+lq
+lq
+nQ
 ig
+RN
+Ra
+Xk
+ZD
+Xk
+TY
+WB
 ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
-ig
+TL
+Pz
+Zy
+Zy
+Zy
+SG
+TL
 ig
 ab
 ab
@@ -45628,31 +45935,31 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+kF
+lq
+lq
+lq
+lq
+lq
+nQ
+ig
+Xm
+Xk
+Xk
+NR
+Xk
+Xk
+Qo
+ig
+TL
+Pz
+Zy
+VJ
+VJ
+SG
+TL
+ig
 ab
 ab
 ab
@@ -45830,31 +46137,31 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+kF
+lq
+lq
+lq
+lq
+lq
+nQ
+ig
+oX
+Xk
+Xk
+NR
+Xk
+Xk
+Uy
+ig
+TL
+Vj
+Rw
+Rw
+Rw
+tk
+TL
+ig
 ab
 ab
 ab
@@ -46032,31 +46339,31 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+kF
+lq
+lq
+lq
+lq
+lq
+nQ
+ig
+RN
+Ra
+Xk
+Pu
+Xk
+TY
+Ry
+ig
+TL
+TL
+TL
+TL
+TL
+TL
+TL
+ig
 ab
 ab
 ab
@@ -46234,31 +46541,31 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+kF
+lq
+lq
+lq
+lq
+lq
+nQ
+ig
+Xm
+Xk
+Xk
+Xk
+Xk
+Xk
+WT
+ig
+TL
+TL
+TL
+TL
+TL
+TL
+TL
+ig
 ab
 ab
 ab
@@ -46436,6 +46743,31 @@ ab
 ab
 ab
 ab
+ig
+kG
+lr
+lr
+SH
+mQ
+mQ
+nR
+ig
+WQ
+mm
+Tv
+SV
+PQ
+mm
+WQ
+ig
+OQ
+TL
+ZP
+YS
+OH
+TL
+OQ
+ig
 ab
 ab
 ab
@@ -46444,31 +46776,6 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-qK
-qK
-qK
-qK
-qK
-qK
-qK
-qK
-qK
-qK
-qK
-qK
-qK
-qK
-qK
 ab
 ab
 ab
@@ -46638,6 +46945,31 @@ ab
 ab
 ab
 ab
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
 ab
 ab
 ab
@@ -46646,31 +46978,6 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-qK
-rq
-rq
-uu
-uV
-vn
-vN
-vN
-uV
-vn
-wf
-rq
-rq
-rq
-qK
 ab
 ab
 ab
@@ -46824,55 +47131,55 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
 qK
 qK
 qK
 qK
 qK
-rq
-tU
-uv
-uW
-vo
-vo
-vo
-vo
-vo
-wg
-vN
-vN
-wf
 qK
+qK
+qK
+qK
+qK
+qK
+qK
+qK
+qK
+qK
+ab
+ig
+OU
+RO
+OU
+OU
+OU
+OU
+OU
+ig
+OM
+OM
+OM
+OM
+OM
+OM
+OM
+ig
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ig
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -47026,55 +47333,55 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
 qK
+rq
+rq
+Wt
+uV
+vn
+vN
+vN
+uV
+vn
+Pk
 rq
 rq
 rq
 qK
-rq
-tV
-uw
-uX
-uX
-uX
-uX
-uX
-uX
-wh
-wp
-wp
-wx
-qK
+ab
+ig
+OU
+OU
+OU
+sl
+OU
+OU
+RO
+ig
+OM
+OM
+OM
+Ug
+OM
+OM
+OM
+ig
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ig
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -47224,59 +47531,59 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
 qK
-rr
-rq
-rq
+qK
+qK
+qK
 qK
 rq
-tV
-ux
-uX
-uX
-vO
-vO
-uX
-uX
-wi
-wq
-ws
-wy
+tW
+uv
+uW
+vp
+vp
+vp
+vp
+vp
+wg
+vN
+vN
+Xe
 qK
+ab
+ig
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+ig
+OM
+OM
+OM
+OM
+OM
+OM
+OM
+ig
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ig
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -47426,59 +47733,59 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
 qK
 rq
 rq
 rq
 qK
 rq
-tV
-uw
+TZ
+Ph
 uX
 uX
 uX
 uX
 uX
 uX
-wh
+mf
 wp
 wp
-wz
+wx
 qK
+ab
+ig
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+ig
+OM
+Ug
+OM
+OM
+OM
+OM
+OM
+ig
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ig
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -47628,59 +47935,59 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
 qK
-qK
-qK
-qK
+rr
+rq
+rq
 qK
 rq
-tW
-uv
-uW
-vp
-vp
-vp
-vp
-vp
-wg
-vN
-vN
-wj
+TZ
+QH
+uX
+uX
+vO
+vO
+uX
+uX
+Qh
+wq
+UF
+wy
 qK
+ab
+ig
+OU
+OU
+sl
+OU
+OU
+RO
+OU
+ig
+OM
+OM
+OM
+OM
+OM
+Ug
+OM
+ig
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ig
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -47830,59 +48137,59 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
 qK
-rq
-rq
-uy
-uV
-vn
-vN
-vN
-uV
-vn
-wj
 rq
 rq
 rq
 qK
+rq
+TZ
+uw
+uX
+uX
+uX
+uX
+uX
+uX
+wh
+wp
+wp
+wz
+qK
+ab
+ig
+OU
+OU
+OU
+sl
+OU
+OU
+OU
+ig
+OM
+OM
+OM
+OM
+OM
+OM
+OM
+ig
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ig
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -48032,59 +48339,59 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
 qK
 qK
 qK
 qK
 qK
+rq
+Yr
+uv
+uW
+UK
+UK
+UK
+UK
+UK
+wg
+vN
+vN
+Pe
 qK
-qK
-qK
-qK
-qK
-qK
-qK
-qK
-qK
-qK
+ab
+ig
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+ig
+OM
+OM
+OM
+Ug
+OM
+OM
+OM
+ig
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ig
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -48238,6 +48545,39 @@ ab
 ab
 ab
 ab
+qK
+rq
+rq
+YY
+uV
+vn
+vN
+vN
+uV
+vn
+Pe
+rq
+rq
+rq
+qK
+ab
+ig
+RO
+OU
+OU
+OU
+OU
+OU
+sl
+ig
+OM
+OM
+OM
+OM
+OM
+OM
+OM
+ig
 ab
 ab
 ab
@@ -48245,40 +48585,7 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
 ab
 ab
 ab
@@ -48440,47 +48747,47 @@ ab
 ab
 ab
 ab
+qK
+qK
+qK
+qK
+qK
+qK
+qK
+qK
+qK
+qK
+qK
+qK
+qK
+qK
+qK
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+uu
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+uu
+ig
+ig
+ig
 ab
 ab
 ab
@@ -52755,7 +53062,7 @@ Gq
 GZ
 HJ
 Ix
-Jb
+Iu
 FD
 JR
 ab
