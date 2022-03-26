@@ -20309,8 +20309,8 @@
 	pixel_x = 22
 	},
 /obj/machinery/computer/merch{
-	icon_state = "computer";
-	dir = 8
+	dir = 8;
+	icon_state = "computer"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/mailing)
@@ -28464,7 +28464,6 @@
 	name = "Holodeck"
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/techmaint,
 /area/civilian/holodeck)
 "cZy" = (
@@ -28591,8 +28590,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/logistics/mailing)
 "dKO" = (
+/obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/vending/dinnerware,
+/obj/machinery/smartfridge/foods,
 /turf/simulated/floor/tiled/white,
 /area/civilian/kitchen)
 "dOK" = (
@@ -28694,6 +28694,7 @@
 "elg" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/light,
+/obj/machinery/vending/dinnerware,
 /turf/simulated/floor/tiled/white,
 /area/civilian/kitchen)
 "emJ" = (
@@ -31905,6 +31906,7 @@
 	name = "Kitchen";
 	req_access = list("ACCESS_KITCHEN")
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/civilian/kitchen)
 "xQE" = (
@@ -31914,6 +31916,7 @@
 	id = "kitchenholodeck";
 	name = "kitchen shutters"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/civilian/kitchen)
 "xQT" = (
@@ -57097,9 +57100,9 @@ aoD
 apR
 are
 asl
-atH
-auM
+atC
 dKO
+axo
 axo
 elg
 auM
@@ -57299,7 +57302,7 @@ aoE
 apS
 arf
 oax
-atC
+atH
 auM
 avY
 axl

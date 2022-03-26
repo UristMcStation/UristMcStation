@@ -13528,6 +13528,7 @@
 	dir = 1;
 	icon_state = "edge"
 	},
+/obj/item/device/geiger,
 /turf/simulated/floor/tiled/techmaint,
 /area/rnd/xenobiology/xenoflora)
 "xF" = (
@@ -21521,11 +21522,22 @@
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
 "Py" = (
+/obj/structure/table/rack,
+/obj/item/weapon/aiModule/protectStation,
+/obj/item/weapon/aiModule/corp,
+/obj/item/weapon/aiModule/asimov,
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/item/weapon/aiModule/manifest,
+/obj/machinery/door/window/brigdoor/northleft{
+	dir = 2;
+	req_access = list("ACCESS_AI_UPLOAD")
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/orange,
-/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/white/monotile,
 /area/command/aiupload)
 "PB" = (
@@ -22059,11 +22071,22 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/rnd/xenobiology/xenoflora)
 "Ri" = (
+/obj/structure/table/rack,
+/obj/item/weapon/aiModule/paladin,
+/obj/item/weapon/aiModule/tyrant,
+/obj/item/weapon/aiModule/reset,
+/obj/item/weapon/aiModule/purge,
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/machinery/door/window/brigdoor/northleft{
+	dir = 2;
+	req_access = list("ACCESS_AI_UPLOAD")
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/orange,
-/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/white/monotile,
 /area/command/aiupload)
 "Rk" = (
@@ -22468,34 +22491,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/fabwork)
-"Ta" = (
-/obj/structure/table/rack,
-/obj/item/weapon/aiModule/paladin,
-/obj/item/weapon/aiModule/tyrant,
-/obj/item/weapon/aiModule/reset,
-/obj/item/weapon/aiModule/purge,
-/obj/effect/floor_decal/industrial/outline/blue,
-/obj/machinery/door/window/brigdoor/northleft{
-	req_access = list("ACCESS_AI_UPLOAD")
-	},
-/turf/simulated/floor/tiled/white/monotile,
-/area/command/aiupload)
 "Tb" = (
 /obj/structure/reagent_dispensers/beerkeg,
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/freezer)
-"Te" = (
-/obj/structure/table/rack,
-/obj/item/weapon/aiModule/protectStation,
-/obj/item/weapon/aiModule/corp,
-/obj/item/weapon/aiModule/asimov,
-/obj/effect/floor_decal/industrial/outline/blue,
-/obj/item/weapon/aiModule/manifest,
-/obj/machinery/door/window/brigdoor/northright{
-	req_access = list("ACCESS_AI_UPLOAD")
-	},
-/turf/simulated/floor/tiled/white/monotile,
-/area/command/aiupload)
 "Ti" = (
 /obj/effect/paint/silver,
 /obj/machinery/light/spot{
@@ -42059,7 +42058,7 @@ Wi
 XS
 Yf
 Zm
-Ta
+iM
 iM
 me
 no
@@ -42261,7 +42260,7 @@ Wi
 Mo
 Yf
 Zm
-Te
+iM
 iM
 me
 np
