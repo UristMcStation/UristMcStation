@@ -45,11 +45,6 @@
 	icon_living = "gunman"
 	icon_dead = "gunman_dead"
 
-/mob/living/simple_animal/hostile/scom/civ/combat/police/Initialize()
-	. = ..()
-	var/area/A = get_area(src)
-	if(A?.type == /area/spacestations/nanotrasenspace)
-		stance = HOSTILE_STANCE_TIRED //Prevents any targetting/agression for NPC's on the NT station
 
 /mob/living/simple_animal/hostile/scom/civ/combat/mil
 	name = "soldier"
