@@ -14279,6 +14279,9 @@
 	req_access = list("ACCESS_KITCHEN");
 	tag = "icon-blastctrl (EAST)"
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/civilian/kitchen)
 "ayt" = (
@@ -14298,6 +14301,9 @@
 	icon_state = "sink";
 	pixel_x = -12;
 	pixel_y = 2
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian/kitchen)
@@ -24698,7 +24704,7 @@
 	icon_state = "intact-supply"
 	},
 /obj/machinery/door/airlock/mining{
-	name = "Cargo Lockers";
+	name = "Delivery Office";
 	req_access = list("ACCESS_CARGO")
 	},
 /obj/structure/cable{
@@ -28693,7 +28699,6 @@
 /area/rnd/office)
 "elg" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/light,
 /obj/machinery/vending/dinnerware,
 /turf/simulated/floor/tiled/white,
 /area/civilian/kitchen)
@@ -28824,7 +28829,7 @@
 	icon_state = "32-8"
 	},
 /turf/simulated/open,
-/area/space)
+/area/security/portgun)
 "eyp" = (
 /obj/machinery/door/airlock/security{
 	name = "Security Office";
