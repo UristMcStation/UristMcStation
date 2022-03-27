@@ -95,7 +95,7 @@
 	name = "silenced pistol"
 	desc = "A handgun with an integral silencer. Uses .45 rounds."
 	icon = 'icons/urist/items/pistols.dmi'
-	icon_state = "silenced_pistol"
+	icon_state = "pistol-silencer"
 	item_icons = URIST_ALL_ONMOBS
 	item_state = "pistol-silencer"
 	wielded_item_state = "pistol-silencer"
