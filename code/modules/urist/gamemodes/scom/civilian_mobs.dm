@@ -45,6 +45,7 @@
 	icon_living = "gunman"
 	icon_dead = "gunman_dead"
 
+
 /mob/living/simple_animal/hostile/scom/civ/combat/mil
 	name = "soldier"
 	desc = "A soldier from a local military force."

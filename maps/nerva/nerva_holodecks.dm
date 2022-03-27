@@ -56,7 +56,6 @@
 			"Winter Simulation"  = "winter sim",
 			"Holographic Chapel" = "chapel",
 			"Basketball Court"   = "basketball",
-			"Beach"              = "beach",
 			"Boxing Ring"        = "boxingcourt",
 			"Courtroom"          = "courtroom",
 			"Empty Court"        = "emptycourt",

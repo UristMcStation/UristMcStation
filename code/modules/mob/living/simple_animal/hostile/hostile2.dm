@@ -138,7 +138,7 @@ mob/living/simple_animal/hostile/Initialize()
 		if(L.faction == src.faction && !attack_same || L.faction != src.faction && attack_same == 2 || L.faction != attack_faction && attack_faction)
 			return 0
 
-		if(L in friends)
+		if(weakref(L) in friends)
 			return 0
 
 		return 1
