@@ -305,7 +305,7 @@
 /mob/living/bot/proc/startPatrol()
 	var/turf/T = getPatrolTurf()
 	if(T)
-		patrol_path = AStar(get_turf(loc), T, /turf/proc/CardinalTurfsWithAccessWithZ, /turf/proc/Manhatten3dDistance, 0, max_patrol_dist, id = botcard, exclude = obstacle)
+		patrol_path = AStar(get_turf(loc), T, /turf/proc/CardinalTurfsWithAccessWithZ, /turf/proc/Manhattan3dDistance, 0, max_patrol_dist, id = botcard, exclude = obstacle)
 		if(!patrol_path)
 			patrol_path = list()
 		obstacle = null
@@ -493,15 +493,23 @@
 
 /turf/proc/Euclidean3dDistance(turf/t)
 	var/euclid_dist = sqrt(Square(src.x - t.x) + Square(src.y - t.y) + Square(src.z - t.z))
-	var/currentPathweight = ((locate(/obj/machinery/door) in src) && pathweight == 1) ? 2 : pathweight
-	var/targetPathweight = ((locate(/obj/machinery/door) in t) && t.pathweight == 1) ? 2 : t.pathweight
+	var/currentPathweight = src.pathweight
+	var/targetPathweight = t.pathweight
+	if(locate(/obj/machinery/door) in src)
+		currentPathweight += 1
+	if(locate(/obj/machinery/door) in t)
+		targetPathweight += 1
 	return euclid_dist * ((currentPathweight+targetPathweight)/2)
 
-/turf/proc/Manhatten3dDistance(turf/t)
-	var/manhatten_dist = abs(src.x - t.x) + abs(src.y - t.y) + abs(src.z - t.z)
-	var/currentPathweight = ((locate(/obj/machinery/door) in src) && src.pathweight == 1) ? 2 : src.pathweight
-	var/targetPathweight = ((locate(/obj/machinery/door) in t) && t.pathweight == 1) ? 2 : t.pathweight
-	return manhatten_dist * ((currentPathweight+targetPathweight)/2)
+/turf/proc/Manhattan3dDistance(turf/t)
+	var/manhattan_dist = abs(src.x - t.x) + abs(src.y - t.y) + abs(src.z - t.z)
+	var/currentPathweight = src.pathweight
+	var/targetPathweight = t.pathweight
+	if(locate(/obj/machinery/door) in src)
+		currentPathweight += 1
+	if(locate(/obj/machinery/door) in t)
+		targetPathweight += 1
+	return manhattan_dist * ((currentPathweight+targetPathweight)/2)
 
 //NORTH, SOUTH, EAST, WEST, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST + Traversal up and down stairs
 /turf/proc/AllDirTurfsWithAccessWithZ(var/obj/item/weapon/card/id/ID)
