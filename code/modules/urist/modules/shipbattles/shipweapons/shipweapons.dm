@@ -76,10 +76,10 @@
 			switch(want)
 				if("Yes")
 					if(status == CHARGED) //just in case, we check again
-						user << "<span class='warning'>You fire the [src.name].</span>"
+						to_chat(user, "<span class='warning'>You fire the [src.name].</span>")
 						Fire()
 					else if(!status & CHARGED)
-						user << "<span class='warning'>The [src.name] needs to charge!</span>"
+						to_chat(user, "<span class='warning'>The [src.name] needs to charge!</span>")
 
 
 				if("Cancel")
@@ -87,13 +87,13 @@
 			return
 
 		else
-			user << "<span class='warning'>There is nothing to shoot at...</span>"
+			to_chat(user, "<span class='warning'>There is nothing to shoot at...</span>")
 
 	else if(!status & CHARGED)
-		user << "<span class='warning'>The [src.name] needs to charge!</span>"
+		to_chat(user, "<span class='warning'>The [src.name] needs to charge!</span>")
 
 	else if(!target)
-		user << "<span class='warning'>There is nothing to shoot at...</span>"
+		to_chat(user, "<span class='warning'>There is nothing to shoot at...</span>")
 
 
 /obj/machinery/shipweapons/proc/Fire() //this proc is a mess //next task is refactor this proc
