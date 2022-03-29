@@ -11,7 +11,7 @@
 	var/landmarks = list()
 	var/target_x_bounds = list()
 	var/target_y_bounds = list()
-	var/list/announcement_channel = list("public" = null, "private" = null, "technical" = null)
+	var/list/announcement_channel = list("public" = null, "private" = null, "technical" = null, "combat" = null)
 	var/fleeing = FALSE
 	var/flee_timer = 0
 	var/can_escape = TRUE

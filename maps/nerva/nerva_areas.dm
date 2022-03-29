@@ -106,6 +106,11 @@
 	name = "\improper Safe Room"
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
 
+/area/command/weapons_command
+	name = "\improper Weapons Command"
+	sound_env = SMALL_ENCLOSED
+	area_flags = AREA_FLAG_ION_SHIELDED
+
 //////////////////////////////////////
 //			CIVILIAN				//
 //////////////////////////////////////
@@ -193,6 +198,10 @@
 
 /area/civilian/exercise
 	name = "\improper Exercise Room"
+	sound_env = SMALL_ENCLOSED
+
+/area/civilian/journalist
+	name = "\improper Journalist's Office"
 	sound_env = SMALL_ENCLOSED
 
 //////////////////////////////////////
@@ -436,6 +445,9 @@
 
 /area/engineering/substation/atmos
 	name = "\improper Atmospherics Substation"
+
+/area/engineering/substation/command
+	name ="\improper Command Substation"
 
 //solars
 
@@ -780,19 +792,18 @@
 /area/centcom
 	name = "Admin Area"
 
+//holodeck
+
 /area/holodeck
 	name = "\improper Holodeck"
 	icon_state = "Holodeck"
 	dynamic_lighting = 0
+	requires_power = 0
 	sound_env = LARGE_ENCLOSED
 
 /area/holodeck/source_battle_arena
 	name = "\improper Holodeck - Battle Arena"
 	sound_env = ARENA
-
-/area/holodeck/source_surgery
-	name = "\improper Holodeck - Surgery Simulation"
-	requires_power = 0
 
 /area/holodeck/source_beach
 	name = "\improper Holodeck - Beach Simulation"
@@ -804,6 +815,7 @@
 
 /area/holodeck/source_chapel
 	name = "\improper Holodeck - Chapel"
+	sound_env = AUDITORIUM
 
 /area/holodeck/source_plating
 	name = "\improper Holodeck - Off"
@@ -846,6 +858,27 @@
 /area/holodeck/source_volleyball
 	name = "\improper Holodeck - Volleyball"
 	sound_env = PLAIN
+
+/area/holodeck/source_desert
+	name = "\improper Holodeck - Desert"
+	sound_env = PLAIN
+
+/area/holodeck/source_space
+	name = "\improper Holodeck - Space"
+	has_gravity = 0
+	sound_env = SPACE
+
+/area/holodeck/source_cafe
+	name = "\improper Holodeck - Cafe"
+	sound_env = PLAIN
+
+/area/holodeck/source_plaza
+	name = "\improper Holodeck - Plaza"
+	sound_env = SMALL_ENCLOSED
+
+/area/holodeck/source_gym
+	name = "\improper Holodeck - Gym"
+	sound_env = SMALL_ENCLOSED
 
 /area/drone_test
 	name = "\improper Biohazard Simulation Arena"

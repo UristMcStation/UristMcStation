@@ -121,9 +121,10 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "purple comb"
 	desc = "A pristine purple comb made from flexible plastic."
 	w_class = 2.0
-	icon = 'icons/urist/items/old_bay_custom_items.dmi'
-	icon_state = "purplecomb"
-	item_state = "purplecomb"
+	icon = 'icons/obj/items.dmi'
+	icon_state = "comb"
+	item_state = "comb"
+	color = "#9932cc"
 
 	attack_self(mob/user)
 		if(user.r_hand == src || user.l_hand == src)

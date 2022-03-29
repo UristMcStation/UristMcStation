@@ -765,7 +765,11 @@ proc/DuplicateObject(obj/original, var/perfectcopy = 0 , var/sameloc = 0)
 					for(var/obj/O in T)
 
 						if(!istype(O,/obj) || !O.simulated)
-							continue
+							var/obj/effect/landmark/LM = O	//Check for hologram landmarks
+							if(!istype(LM))
+								continue
+							if(!LM.can_copy)
+								continue
 
 						objs += O
 

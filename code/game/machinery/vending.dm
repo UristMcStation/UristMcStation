@@ -1230,6 +1230,7 @@
 	products = list(/obj/item/weapon/soap = 4,
 					/obj/item/weapon/soap/nanotrasen = 4,
 					/obj/item/weapon/soap/deluxe = 4,
+					/obj/item/weapon/storage/box/detergent = 3,
 					/obj/item/weapon/mirror = 8,
 					/obj/item/weapon/haircomb/random = 8,
 					/obj/item/weapon/haircomb/brush = 4,
@@ -1237,15 +1238,16 @@
 					)
 	premium = list(/obj/item/weapon/soap/gold = 1)
 	contraband = list(/obj/item/weapon/soap/syndie = 4,
-					  /obj/item/weapon/inflatable_duck = 1)
+					/obj/item/weapon/inflatable_duck = 1)
 	prices = list(/obj/item/weapon/soap = 20,
-				  /obj/item/weapon/soap/nanotrasen = 30,
-				  /obj/item/weapon/soap/deluxe = 60,
-				  /obj/item/weapon/soap/syndie = 10,
-				  /obj/item/weapon/mirror = 40,
-				  /obj/item/weapon/haircomb/random = 40,
-				  /obj/item/weapon/haircomb/brush = 80,
-				  /obj/item/weapon/towel/random = 50
+					/obj/item/weapon/soap/nanotrasen = 30,
+					/obj/item/weapon/soap/deluxe = 60,
+					/obj/item/weapon/storage/box/detergent = 60,
+					/obj/item/weapon/soap/syndie = 10,
+					/obj/item/weapon/mirror = 40,
+					/obj/item/weapon/haircomb/random = 40,
+					/obj/item/weapon/haircomb/brush = 80,
+					/obj/item/weapon/towel/random = 50
 					)
 
 //a food variant of the boda machine, only has one item currently.

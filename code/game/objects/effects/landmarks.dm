@@ -6,6 +6,7 @@
 	unacidable = 1
 	simulated = 0
 	invisibility = 101
+	var/can_copy = FALSE //If set, will allow the landmark to be copied via the area.copy_contents_to() proc. (For holodeck mob spawns)
 	var/delete_me = 0
 
 /obj/effect/landmark/New()
