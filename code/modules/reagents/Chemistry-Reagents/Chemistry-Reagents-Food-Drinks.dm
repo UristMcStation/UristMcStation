@@ -1789,7 +1789,7 @@
 /datum/reagent/ethanol/magellan
 	name = "Magellan"
 	description = "One of the Official Cocktails of the Expeditionary Corps, celebrating Ferdinand Magellan."
-	taste_description = "an aristrocatic experience"
+	taste_description = "an aristocratic experience"
 	color = "#6b3535"
 	strength = 13
 
