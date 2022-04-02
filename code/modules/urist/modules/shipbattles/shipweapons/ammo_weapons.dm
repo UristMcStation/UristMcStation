@@ -24,7 +24,7 @@
 		..()
 
 	else
-		to_chat(user, "<span class='warning'>The [src.name] isn't loaded!</span>")
+		user << "<span class='warning'>The [src.name] isn't loaded!</span>"
 		return
 
 /obj/machinery/shipweapons/ammo/Charging()
