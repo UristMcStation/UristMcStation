@@ -20,7 +20,6 @@ var/list/gamemode_cache = list()
 	var/log_hrefs = 0					// logs all links clicked in-game. Could be used for debugging and tracking down exploits
 	var/log_runtime = 0					// logs world.log to a file
 	var/log_world_output = 0			// log world.log << messages
-	var/log_timers_on_bucket_reset = 0  // logs all timers in buckets on automatic bucket reset (Useful for timer debugging)
 	var/sql_enabled = 1					// for sql switching
 	var/allow_admin_ooccolor = 0		// Allows admins with relevant permissions to have their own ooc colour
 	var/allow_vote_restart = 0 			// allow votes to restart
@@ -343,9 +342,6 @@ var/list/gamemode_cache = list()
 				if ("log_world_output")
 					config.log_world_output = 1
 
-				if("log_timers_on_bucket_reset")
-					config.log_timers_on_bucket_reset = 1
-
 				if ("log_hrefs")
 					config.log_hrefs = 1
 
@@ -616,7 +612,7 @@ var/list/gamemode_cache = list()
 
 				if("forbidden_versions")
 					config.forbidden_versions = splittext(value, ";")
-
+				
 				if("minimum_byond_version")
 					config.minimum_byond_version = text2num(value)
 
