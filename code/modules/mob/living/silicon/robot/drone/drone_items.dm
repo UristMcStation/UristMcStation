@@ -26,7 +26,8 @@
 		/obj/item/weapon/fuel_assembly,
 		/obj/item/stack/material/deuterium,
 		/obj/item/stack/material/tritium,
-		/obj/item/stack/tile
+		/obj/item/stack/tile,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/oiljug
 		)
 
 	var/obj/item/wrapped = null // Item currently being held.
