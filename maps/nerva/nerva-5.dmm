@@ -9147,6 +9147,17 @@
 	icon_state = "snow"
 	},
 /area/ninja_dojo/dojo)
+"ws" = (
+/obj/structure/bed/chair/shuttle{
+	dir = 4;
+	icon_state = "shuttle_chair_preview";
+	tag = "icon-shuttle_chair_preview (EAST)"
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/transport1/centcom)
 "wt" = (
 /turf/unsimulated/floor{
 	icon_state = "reinforced"
@@ -17925,6 +17936,12 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_basketball)
+"XJ" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/transport1/centcom)
 "XN" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 10;
@@ -17945,6 +17962,12 @@
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_theatre)
+"XQ" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/transport1/centcom)
 "XW" = (
 /obj/effect/floor_decal/carpet{
 	dir = 4
@@ -18031,6 +18054,17 @@
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
+"Zc" = (
+/obj/structure/bed/chair/shuttle{
+	dir = 8;
+	icon_state = "shuttle_chair_preview";
+	tag = "icon-shuttle_chair_preview (WEST)"
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/transport1/centcom)
 "Zf" = (
 /obj/effect/shuttle_landmark/nerva/transit/hadrian,
 /turf/space/transit/east,
@@ -47542,7 +47576,7 @@ uv
 uW
 vp
 vp
-vp
+ws
 vp
 vp
 wg
@@ -47943,7 +47977,7 @@ qK
 rq
 TZ
 QH
-uX
+XJ
 uX
 vO
 vO
@@ -48152,7 +48186,7 @@ uX
 uX
 uX
 wh
-wp
+XQ
 wp
 wz
 qK
@@ -48350,7 +48384,7 @@ uv
 uW
 UK
 UK
-UK
+Zc
 UK
 UK
 wg
