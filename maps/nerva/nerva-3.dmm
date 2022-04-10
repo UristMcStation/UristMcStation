@@ -15005,8 +15005,6 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "KV" = (
-/obj/structure/bed/nice,
-/obj/item/weapon/bedsheet,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
@@ -15015,6 +15013,7 @@
 	icon_state = "alarm0";
 	pixel_x = 24
 	},
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/dark,
 /area/security/prison)
 "KX" = (
