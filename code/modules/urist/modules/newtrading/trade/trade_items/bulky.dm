@@ -99,3 +99,27 @@
 	quantity = 5
 	value = 1125
 	req_access = access_atmospherics
+
+/datum/trade_item/bulky/methyl_bromidecanister
+	name = "CH3Br gas canister"
+	item_type = /obj/machinery/portable_atmospherics/canister/methyl_bromide
+	category = "atmospherics"
+	quantity = 5
+	value = 2000
+	req_access = access_atmospherics
+
+/datum/trade_item/bulky/heliumcanister
+	name = "Helium gas canister"
+	item_type = /obj/machinery/portable_atmospherics/canister/helium
+	category = "atmospherics"
+	quantity = 5
+	value = 1800
+	req_access = access_atmospherics
+
+/datum/trade_item/bulky/chlorinecanister
+	name = "Chlorine gas canister"
+	item_type = /obj/machinery/portable_atmospherics/canister/chlorine
+	category = "atmospherics"
+	quantity = 5
+	value = 2000
+	req_access = access_atmospherics
