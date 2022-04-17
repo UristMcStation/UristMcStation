@@ -29904,6 +29904,7 @@
 /obj/structure/closet/secure_closet/quartermaster,
 /obj/item/weapon/storage/backpack/duffel/duffel_norm,
 /obj/item/clothing/suit/storage/hooded/wintercoat/cargo,
+/obj/item/device/radio/headset/heads/nerva_qm,
 /obj/effect/floor_decal/corner/yellow/three_quarters{
 	dir = 8;
 	icon_state = "corner_white_three_quarters";
