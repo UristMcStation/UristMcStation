@@ -17,11 +17,8 @@
 	var/list/reagent_volumes = list()
 	var/list/reagent_names = list()
 
-/obj/item/weapon/reagent_containers/borghypo/surgeon
-	reagent_ids = list(/datum/reagent/bicaridine, /datum/reagent/dexalin, /datum/reagent/tramadol)
-
-/obj/item/weapon/reagent_containers/borghypo/crisis
-	reagent_ids = list(/datum/reagent/tricordrazine, /datum/reagent/inaprovaline, /datum/reagent/tramadol)
+/obj/item/weapon/reagent_containers/borghypo/medical
+	reagent_ids = list(/datum/reagent/inaprovaline, /datum/reagent/bicaridine, /datum/reagent/tricordrazine, /datum/reagent/dexalin, /datum/reagent/tramadol)
 
 /obj/item/weapon/reagent_containers/borghypo/Initialize()
 	. = ..()

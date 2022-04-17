@@ -168,8 +168,8 @@
 				  <li>Destination Tagger</li>
 				</ul>
 
-				<h3>Crisis Cyborg</h3>
-				The crisis cyborg module is prepared to handle a variety of non-surgical medical emergencies.<br>A medical cyborg comes with:
+				<h3>Medical Cyborg</h3>
+				The medical cyborg module is prepared to handle a variety of medical and surgical emergencies.<br>A medical cyborg comes with:
 				<ul>
 				  <li>Crowbar</li>
 				  <li>Health Analyzer</li>
@@ -184,23 +184,7 @@
 				  <li>Fire Extinguisher</li>
 				  <li>Inflatables Dispenser</li>
 				  <li>Roll of Tape</li>
-				</ul>
-
-				<h3>Surgeon Cyborg</h3>
-				The surgeon cyborg modules is prepared to handle a variety of surgical medical emergencies.<br>A medical cyborg comes with:
-				<ul>
 				  <li>Set of Surgery Tools</li>
-				  <li>Health Analyzer</li>
-				  <li>Roller Bed Rack</li>
-				  <li>Body Bag Rack</li>
-				  <li>Hypospray</li>
-				  <li>Automatic Defibrillator</li>
-				  <li>Industrial Dropper</li>
-				  <li>Syringe</li>
-				  <li>Chemistry Gripper</li>
-				  <li>Fire Extinguisher</li>
-				  <li>Inflatables Dispenser</li>
-				  <li>Roll of Tape</li>
 				</ul>
 
 				<h2><a name="Construction">Cyborg Construction</h2>
