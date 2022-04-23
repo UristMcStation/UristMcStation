@@ -403,11 +403,13 @@
 // Returns true if a link between A and B is blocked
 // Movement through doors allowed if ID has access
 /proc/LinkBlockedWithAccess(turf/A, turf/B, obj/item/weapon/card/id/ID)
+	if(A == null || B == null)
+		return 1
 
-	if(A == null || B == null) return 1
 	var/adir = get_dir(A,B)
 	var/rdir = get_dir(B,A)
-	if((adir & (NORTH|SOUTH)) && (adir & (EAST|WEST)))	//	diagonal
+
+	if((adir & (NORTH|SOUTH)) && (adir & (EAST|WEST)))	//diagonal
 		if(DirBlockedWithAccess(A,adir, ID) || DirBlockedWithAccess(B,rdir, ID))	//Boarder blockers use bit values to check dirs, so it's safe to pass diagonal dirs here.
 			return 1
 
@@ -416,33 +418,35 @@
 				return 1
 
 		//This mess is mainly to combat getting stuck in glass windows due to weird diagonal step_towards behaviour. If you're going northeast for example: if there's a window facing east on the tile above, there MUST be another one facing south or the east facing window will block the move, regardless if the tile to the right of the starting point is completely clear.
-		var/turf/iStep = get_step(A,adir&(NORTH|SOUTH))
-		var/turf/pStep = get_step(A,adir&(EAST|WEST))
 
-		if(DirBlockedWithAccess(iStep,rdir&(NORTH|SOUTH),ID))	//One 'path' is blocked. The other path MUST be completely free
-			if(DirBlockedWithAccess(pStep,rdir&(EAST|WEST),ID) || DirBlockedWithAccess(pStep,adir&(NORTH|SOUTH),ID) || pStep.density)
+		var/turf/yStep = get_step(A,adir&(NORTH|SOUTH))	//Vertical tile next to our start tile and end tile
+		var/turf/xStep = get_step(A,adir&(EAST|WEST))	//Horizontal tile next to our start tile and end tile
+
+		if(DirBlockedWithAccess(yStep,rdir&(NORTH|SOUTH),ID))	//One 'path' is blocked. The other path MUST be completely free
+			if(DirBlockedWithAccess(xStep,rdir&(EAST|WEST),ID) || DirBlockedWithAccess(xStep,adir&(NORTH|SOUTH),ID) || xStep.density)
 				return 1
 			else
-				for(var/obj/O in pStep)	//Check for dense objects in the other path
+				for(var/obj/O in xStep)	//Check for dense objects in the other path
 					if(O.density && !istype(O, /obj/machinery/door) && !(O.atom_flags & ATOM_FLAG_CHECKS_BORDER))
 						return 1
 				return 0
-		else if(DirBlockedWithAccess(iStep,adir&(EAST|WEST),ID))	//Adjacent tile exiting dir is blocked but entering isn't. Mobs will get stuck here, even if the other path is free!
+		else if(DirBlockedWithAccess(yStep,adir&(EAST|WEST),ID))	//Adjacent tile exiting dir is blocked but entering isn't. Mobs will get stuck here, even if the other path is free!
 			return 1
-		if(DirBlockedWithAccess(pStep,rdir&(EAST|WEST),ID))	//Same checks, but for the other path
-			if(DirBlockedWithAccess(iStep,rdir&(NORTH|SOUTH),ID) || DirBlockedWithAccess(iStep,adir&(EAST|WEST),ID) || iStep.density)
+
+		if(DirBlockedWithAccess(xStep,rdir&(EAST|WEST),ID))	//Same checks, but for the other path
+			if(yStep.density)	//We've already confirmed there's no boarder blockers in the other path, we just need a simple density check this time.
 				return 1
 			else
-				for(var/obj/O in iStep)
+				for(var/obj/O in yStep)
 					if(O.density && !istype(O, /obj/machinery/door) && !(O.atom_flags & ATOM_FLAG_CHECKS_BORDER))
 						return 1
 				return 0
-		else if(DirBlockedWithAccess(pStep,adir&(NORTH|SOUTH),ID))
+		else if(DirBlockedWithAccess(xStep,adir&(NORTH|SOUTH),ID))
 			return 1
 
-		for(var/obj/O in iStep)	//Both paths free? Check them for objects. So long as one isn't blocked, we can move
+		for(var/obj/O in yStep)	//Both paths free? Check them for objects. So long as one isn't blocked, we can move
 			if(O.density && !istype(O, /obj/machinery/door) && !(O.atom_flags & ATOM_FLAG_CHECKS_BORDER))
-				for(var/obj/OB in pStep)
+				for(var/obj/OB in xStep)
 					if(OB.density && !istype(OB, /obj/machinery/door) && !(OB.atom_flags & ATOM_FLAG_CHECKS_BORDER))
 						return 1
 				return 0
@@ -464,28 +468,34 @@
 // Checks doors against access with given ID
 /proc/DirBlockedWithAccess(turf/loc,var/dir,var/obj/item/weapon/card/id/ID)
 	for(var/obj/structure/window/D in loc)
-		if(!D.density)			continue
-		if(D.is_fulltile())		return 1
-		if(D.dir & dir)			return 1
+		if(!D.density)
+			continue
+		if(D.is_fulltile() || D.dir & dir)
+			return 1
 
 	for(var/obj/machinery/door/D in loc)
-		if(!D.density)			continue
+		if(!D.density)
+			continue
 		if(istype(D, /obj/machinery/door/window))
-			if( dir & D.dir )	return !D.check_access(ID)
-
+			if(dir & D.dir)
+				return !D.check_access(ID)
 			//if((dir & SOUTH) && (D.dir & (EAST|WEST)))		return !D.check_access(ID)
 			//if((dir & EAST ) && (D.dir & (NORTH|SOUTH)))	return !D.check_access(ID)
 		else 
 			if(istype(D, /obj/machinery/door/airlock/lift))	//Stop bots committing suicide down the lift shaft, as amusing as it is
 				return !D.check_access(ID) || D.density
+			
 			var/obj/machinery/door/airlock/A = D
 			if(istype(A) && (A.locked || A.isAllPowerLoss() || A.welded))	//Avoid airlocks that are bolted, welded, or have no power
 				return 1
+
 			return (!D.check_access(ID))	// it's a real, air blocking door
 
 	for(var/obj/structure/railing/D in loc)
-		if(!D.density)			continue
-		if(dir & D.dir)			return 1
+		if(!D.density)
+			continue
+		if(dir & D.dir)
+			return 1
 	return 0
 
 
@@ -495,20 +505,26 @@
 	var/euclid_dist = sqrt(Square(src.x - t.x) + Square(src.y - t.y) + Square(src.z - t.z))
 	var/currentPathweight = src.pathweight
 	var/targetPathweight = t.pathweight
+
 	if(locate(/obj/machinery/door) in src)
-		currentPathweight += 1
+		currentPathweight += 1	//Slight adversion to using tiles with airlocks on
+
 	if(locate(/obj/machinery/door) in t)
 		targetPathweight += 1
+
 	return euclid_dist * ((currentPathweight+targetPathweight)/2)
 
 /turf/proc/Manhattan3dDistance(turf/t)
 	var/manhattan_dist = abs(src.x - t.x) + abs(src.y - t.y) + abs(src.z - t.z)
 	var/currentPathweight = src.pathweight
 	var/targetPathweight = t.pathweight
+
 	if(locate(/obj/machinery/door) in src)
 		currentPathweight += 1
+
 	if(locate(/obj/machinery/door) in t)
 		targetPathweight += 1
+
 	return manhattan_dist * ((currentPathweight+targetPathweight)/2)
 
 //NORTH, SOUTH, EAST, WEST, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST + Traversal up and down stairs
@@ -553,14 +569,29 @@
 
 //Checks for directional blockages at the base of the stairs leading up, open space above, and that nothing is blocking the exit point. Returns 1 on fail
 /proc/LinkBlockedAbove(var/turf/lower, var/turf/simulated/open/upper, var/dir)
-	if(!istype(upper))		return 1
+	if(!istype(upper))
+		return 1
+
 	for(var/obj/A in lower)
-		if(!A.density)		continue
+		if(!A.density)
+			continue
 		if(istype(A,/obj/structure/window) || istype(A,/obj/structure/railing))
-			return (A.dir == dir)
-		else				return 1
+			if(A.dir == dir)
+				return 1
+		else
+			return 1
+
 	var/turf/exit = get_step(upper, dir)
-	if(exit.density)		return 1
+
+	if(exit.density)
+		return 1
+
 	for(var/obj/B in exit)
-		if(B.density)		return 1
+		if(!B.density)
+			continue
+		if(istype(B,/obj/structure/window) || istype(B,/obj/structure/railing))
+			if(B.dir == GLOB.reverse_dir[dir])
+				return 1
+		else
+			return 1
 	return 0
