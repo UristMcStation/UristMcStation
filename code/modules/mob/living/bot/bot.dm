@@ -444,12 +444,15 @@
 		else if(DirBlockedWithAccess(xStep,adir&(NORTH|SOUTH),ID))
 			return 1
 
+		var/blocked = FALSE
 		for(var/obj/O in yStep)	//Both paths free? Check them for objects. So long as one isn't blocked, we can move
 			if(O.density && !istype(O, /obj/machinery/door) && !(O.atom_flags & ATOM_FLAG_CHECKS_BORDER))
-				for(var/obj/OB in xStep)
-					if(OB.density && !istype(OB, /obj/machinery/door) && !(OB.atom_flags & ATOM_FLAG_CHECKS_BORDER))
-						return 1
-				return 0
+				blocked = TRUE
+				break
+		if(blocked)
+			for(var/obj/O in xStep)
+				if(O.density && !istype(O, /obj/machinery/door) && !(O.atom_flags & ATOM_FLAG_CHECKS_BORDER))
+					return 1
 		return 0
 
 	if(DirBlockedWithAccess(A,adir, ID))
