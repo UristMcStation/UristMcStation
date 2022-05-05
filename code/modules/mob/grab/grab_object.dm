@@ -285,6 +285,9 @@
 	return current_grab.grab_slowdown
 
 /obj/item/grab/proc/ladder_carry()
+	if(ismob(affecting))
+		var/mob/M = affecting
+		return current_grab.ladder_carry || M.incapacitated() || M.a_intent == I_HELP
 	return current_grab.ladder_carry
 
 /obj/item/grab/proc/assailant_moved()
