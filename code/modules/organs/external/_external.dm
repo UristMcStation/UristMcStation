@@ -738,13 +738,15 @@ Note that amputating the affected organ does in fact remove the infection from t
 	for(var/datum/wound/W in wounds)
 
 		if(W.damage <= 0)
+			wounds -= W
 			qdel(W)
 			continue
 
-		if(W.damage_type == BURN)
-			burn_dam += W.damage
-		else
-			brute_dam += W.damage
+		if(!W.is_surgical())
+			if(W.damage_type == BURN)
+				burn_dam += W.damage
+			else
+				brute_dam += W.damage
 
 		if(bleeds && W.bleeding() && (H && H.should_have_organ(BP_HEART)))
 			W.bleed_timer--
@@ -1406,7 +1408,7 @@ obj/item/organ/external/proc/remove_clamps()
 		var/bone = encased ? encased : "bone"
 		if(status & ORGAN_BROKEN)
 			bone = "broken [bone]"
-		wound_descriptors["a [bone] exposed"] = 1
+		wound_descriptors["[bone] exposed"] = 1
 
 		if(!encased || how_open() >= SURGERY_ENCASED)
 			var/list/bits = list()
