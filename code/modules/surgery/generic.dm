@@ -42,8 +42,9 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<span class='notice'>[user] has made a bloodless incision on [target]'s [affected.name] with \the [tool].</span>", \
 	"<span class='notice'>You have made a bloodless incision on [target]'s [affected.name] with \the [tool].</span>",)
-	affected.createwound(CUT, affected.min_broken_damage/2, 1)
+	var/datum/wound/W = affected.createwound(CUT, affected.min_broken_damage/2, 1)
 	affected.clamp()
+	W.desc = "clean surgical incision"
 	spread_germs_to_organ(affected, user)
 
 /decl/surgery_step/generic/cut_with_laser/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -75,9 +76,10 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<span class='notice'>[user] has constructed a prepared incision on and within [target]'s [affected.name] with \the [tool].</span>", \
 	"<span class='notice'>You have constructed a prepared incision on and within [target]'s [affected.name] with \the [tool].</span>",)
-	affected.createwound(CUT, affected.min_broken_damage/2, 1) // incision
+	var/datum/wound/W = affected.createwound(CUT, affected.min_broken_damage/2, 1) // incision
 	affected.clamp() // clamp
 	affected.open_incision() // retract
+	W.desc = "clean surgical incision"
 
 /decl/surgery_step/generic/managed/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -122,7 +124,9 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<span class='notice'>[user] has made [access_string] on [target]'s [affected.name] with \the [tool].</span>", \
 	"<span class='notice'>You have made [access_string] on [target]'s [affected.name] with \the [tool].</span>",)
-	affected.createwound(CUT, affected.min_broken_damage/2, 1)
+	var/datum/wound/W = affected.createwound(CUT, affected.min_broken_damage/2, 1)
+	if(istype(tool, /obj/item/weapon/scalpel))
+		W.desc = "clean surgical incision"
 	playsound(target.loc, 'sound/weapons/bladeslice.ogg', 15, 1)
 
 /decl/surgery_step/generic/cut_open/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -259,8 +263,8 @@
 /decl/surgery_step/generic/cauterize/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	var/datum/wound/W = affected.get_incision()
-	user.visible_message("[user] is beginning to [cauterize_term][W ? " \a [W.desc] on" : ""] \the [target]'s [affected.name] with \the [tool]." , \
-	"You are beginning to [cauterize_term][W ? " \a [W.desc] on" : ""] \the [target]'s [affected.name] with \the [tool].")
+	user.visible_message("[user] starts to [cauterize_term][W ? " \a [W.desc] on" : ""] \the [target]'s [affected.name] with \the [tool]." , \
+	"You start to [cauterize_term][W ? " \a [W.desc] on" : ""] \the [target]'s [affected.name] with \the [tool].")
 	target.custom_pain("Your [affected.name] is being burned!",40,affecting = affected)
 	..()
 
@@ -312,8 +316,8 @@
 
 /decl/surgery_step/generic/amputate/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("[user] is beginning to amputate [target]'s [affected.name] with \the [tool]." , \
-	"<FONT size=3>You are beginning to cut through [target]'s [affected.amputation_point] with \the [tool].</FONT>")
+	user.visible_message("[user] starts to amputate [target]'s [affected.name] with \the [tool]." , \
+	"<FONT size=3>You start to cut through [target]'s [affected.amputation_point] with \the [tool].</FONT>")
 	target.custom_pain("Your [affected.amputation_point] is being ripped apart!",100,affecting = affected)
 	..()
 

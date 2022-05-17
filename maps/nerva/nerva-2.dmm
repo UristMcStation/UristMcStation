@@ -29901,7 +29901,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/centp)
 "kBi" = (
-/obj/structure/closet/secure_closet/quartermaster,
+/obj/structure/closet/secure_closet/nervaquartermaster,
 /obj/item/weapon/storage/backpack/duffel/duffel_norm,
 /obj/item/clothing/suit/storage/hooded/wintercoat/cargo,
 /obj/effect/floor_decal/corner/yellow/three_quarters{

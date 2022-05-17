@@ -246,3 +246,23 @@
 		/obj/item/clothing/suit/storage/toggle/labcoat/science/nanotrasen,
 		/obj/item/weapon/storage/backpack/satchel/leather
 	)
+
+/obj/structure/closet/secure_closet/nervaquartermaster
+	name = "quartermaster's locker"
+	req_access = list(access_qm)
+	closet_appearance = /decl/closet_appearance/secure_closet/cargo/qm
+
+/obj/structure/closet/secure_closet/nervaquartermaster/WillContain()
+	return list(
+		new/datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack = 75,  /obj/item/weapon/storage/backpack/satchel/grey = 25)),
+		new/datum/atom_creator/simple(/obj/item/weapon/storage/backpack/dufflebag, 25),
+		/obj/item/clothing/under/rank/cargotech,
+		/obj/item/clothing/shoes/brown,
+		/obj/item/device/radio/headset/heads/nerva_qm,
+		/obj/item/clothing/gloves/thick,
+		/obj/item/clothing/suit/fire/firefighter,
+		/obj/item/weapon/tank/emergency/oxygen,
+		/obj/item/clothing/mask/gas,
+		/obj/item/clothing/glasses/meson,
+		/obj/item/clothing/head/soft,
+	)
