@@ -253,7 +253,9 @@
 	desc = "Old is never too old to not be in fashion."
 	base_icon = "wooden_chair"
 	icon_state = "wooden_chair_preview"
-	color = WOOD_COLOR_CHOCOLATE
+
+/obj/structure/bed/chair/holochair/wood/New(var/newloc)
+	..(newloc, MATERIAL_WOOD)
 
 /obj/item/weapon/holo
 	damtype = PAIN
