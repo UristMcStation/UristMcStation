@@ -575,7 +575,7 @@
 	..()
 
 /obj/item/device/radio/proc/recalculateChannels()
-    return
+	return
 
 
 ///////////////////////////////

@@ -778,10 +778,10 @@
 	icon_state = "brucehachert"
 
 /obj/item/clothing/head/fluff/kaine_kalim_1
-    name = "Formal Medical Cap"
-    desc = "An unusually sterile and folded cap. It seems to bare the Nanotrasen logo."
-    icon = 'icons/obj/custom_items.dmi'
-    icon_state = "kainecap"
+	name = "Formal Medical Cap"
+	desc = "An unusually sterile and folded cap. It seems to bare the Nanotrasen logo."
+	icon = 'icons/obj/custom_items.dmi'
+	icon_state = "kainecap"
 
 
 /obj/item/clothing/head/beret/fluff/marine_beret	//Von2531: Jack Washington
@@ -954,12 +954,12 @@
 
 
 /obj/item/clothing/under/fluff/kaine_kalim_2
-    name = "Formal Medical Uniform"
-    desc = "An unusually sterile and pressed uniform. It seems to have a string of vials crossing the chest."
-    icon = 'icons/obj/custom_items.dmi'
-    icon_state = "kaineuniform"
-    item_state = "kaineuniform"
-    item_color = "kaineuniform"
+	name = "Formal Medical Uniform"
+	desc = "An unusually sterile and pressed uniform. It seems to have a string of vials crossing the chest."
+	icon = 'icons/obj/custom_items.dmi'
+	icon_state = "kaineuniform"
+	item_state = "kaineuniform"
+	item_color = "kaineuniform"
 
 /obj/item/clothing/under/fluff/jumpsuitdown //searif: Yuki Matsuda
 	name = "rolled down jumpsuit"
