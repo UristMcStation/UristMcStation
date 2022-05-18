@@ -36,6 +36,9 @@ LOG_SAY
 ## log admin actions
 LOG_ADMIN
 
+## Log adminchat messages
+#LOG_ADMINCHAT
+
 ## log client access (logon/logoff)
 LOG_ACCESS
 
@@ -60,6 +63,9 @@ LOG_PDA
 ## log world.log messages
 # LOG_WORLD_OUTPUT
 
+## log debug output
+LOG_DEBUG
+
 ## log all Topic() calls (for use by coders in tracking down Topic issues)
 # LOG_HREFS
 
@@ -68,6 +74,18 @@ LOG_PDA
 
 ## log admin warning messages
 ##LOG_ADMINWARN  ## Also duplicates a bunch of other messages.
+
+## The "cooldown" time for each occurrence of a unique error
+ERROR_COOLDOWN 600
+
+## How many occurrences before the next will silence them
+ERROR_LIMIT 50
+
+## How long a unique error will be silenced for
+ERROR_SILENCE_TIME 6000
+
+## How long to wait between messaging admins about occurrences of a unique error
+ERROR_MSG_DELAY 50
 
 ## sql switching
 # SQL_ENABLED
@@ -123,8 +141,8 @@ ALLOW_RANDOM_EVENTS
 ## if amount of traitors scales or not
 TRAITOR_SCALING
 
-## if objectives are disabled
-#OBJECTIVES_DISABLED
+## What objectives are enabled. Set to 'none' for no objectives, 'verb' to allow antags to get objectives using the Get Objectives verb, 'all' to assign global objectives
+OBJECTIVES_ENABLED verb
 
 ## make ERT's be only called by admins
 
@@ -141,6 +159,15 @@ USE_CORTICAL_STACKS
 
 ## Comment this out to stop admins being able to choose their personal ooccolor
 ALLOW_ADMIN_OOCCOLOR
+
+## Uncomment to allow admin jumping
+ALLOW_ADMIN_JUMP
+
+## Uncomment to allow admin revives
+ALLOW_ADMIN_REV
+
+## Uncomment to allow admin item spawning
+ALLOW_ADMIN_SPAWNING
 
 ## If metadata is supported
 # ALLOW_METADATA
@@ -194,15 +221,14 @@ ALLOW_AI
 ## set a hosted by name for unix platforms
 HOSTEDBY UristMcStation
 
-## Set to jobban "Guest-" accounts from Captain, HoS, HoP, CE, RD, CMO, Warden, Security, Detective, and AI positions.
-## Set to 1 to jobban them from those positions, set to 0 to allow them.
+## Uncomment to jobban "Guest-" accounts from Captain, HoS, HoP, CE, RD, CMO, Warden, Security, Detective, and AI positions.
 GUEST_JOBBAN
 
 ## Uncomment this to stop people connecting to your server without a registered ckey. (i.e. guest-* are all blocked from connecting)
 GUEST_BAN
 
 ## Set to jobban everyone who's key is not listed in data/whitelist.txt from Captain, HoS, HoP, CE, RD, CMO, Warden, Security, Detective, and AI positions.
-## Uncomment to 1 to jobban, leave commented out to allow these positions for everyone (but see GUEST_JOBBAN above and regular jobbans)
+## Uncomment to jobban, leave commented out to allow these positions for everyone (but see GUEST_JOBBAN above and regular jobbans)
 # USEWHITELIST
 
 ## set a server location for world reboot. Don't include the byond://, just give the address and port.
@@ -212,17 +238,38 @@ GUEST_BAN
 ## Unlike SERVER, this one shouldn't break auto-reconnect
 #SERVERURL server.net:port
 
+## Uncomment to generate a numeric suffix based on server port
+#SERVERSUFFIX
+
+## Clients require this minimum byond version to join
+#MINIMUM_BYOND_VERSION
+
+## Clients require this minimum byond build to join
+#MINIMUM_BYOND_BUILD
+
+## Clients with these byond versions will be forbidden from joining. Format: byond_version.byond_build . Separate with ; , e.g. 512.1234;512.1235
+#FORBIDDEN_VERSIONS
+
+## Uncomment to delist the server from the hub when no admins are present
+#DELIST_WHEN_NO_ADMINS
+
 ## forum address
-FORUMURL "https://discord.gg/0oRsdvoS1DDd5Rv0"
+FORUMURL https://discord.gg/0oRsdvoS1DDd5Rv0
 
 ## Wiki address
-WIKIURL "https://bay.ss13.me/en/Guides"
+WIKIURL https://bay.ss13.me/en/Guides
 
 ## GitHub address
 GITHUBURL https://github.com/UristMcStation/UristMcStation
 
+## GitHub new issue link
+ISSUEREPORTURL https://github.com/UristMcStation/UristMcStation/issues/new
+
 ## Ban appeals URL - usually for a forum or wherever people should go to contact your admins.
 #BANAPPEALS http://uristmcstation.com/forum/viewforum.php?f=10
+
+## Max number of players allowed. 0 for unlimited
+#PLAYER_LIMIT 0
 
 ## In-game features
 ## spawns a spellbook which gives object-type spells instead of verb-type spells for the wizard
@@ -246,6 +293,9 @@ ALLOW_BNEWS
 
 ##Defines the ticklag for the world.  0.9 is the normal one, 0.5 is smoother.
 TICKLAG 0.7
+
+## Set SSinitialization tick limit (default: 98)
+#TICK_LIMIT_MC_INIT 98
 
 ##Defines world FPS. Defaults to 20.
 # FPS 20
@@ -279,6 +329,9 @@ GATEWAY_DELAY 18000
 
 ##Remove the # to let ghosts spin chairs
 #GHOST_INTERACTION
+
+## Allow ghosts to possess certain animals
+#GHOSTS_CAN_POSSESS_ANIMALS
 
 ## Password used for authorizing ircbot and other external tools.
 #COMMS_PASSWORD
@@ -352,11 +405,14 @@ ALIENS_ALLOWED
 ## Uncomment to allow alien xenomorph queens to lay eggs.
 ALIEN_EGGS_ALLOWED
 
-## Uncomment to allow xenos to spawn.
+## Uncomment to allow ninjas to random antag spawn.
 #NINJAS_ALLOWED
 
 ## Uncomment to disable the restrictive weldervision overlay.
 #DISABLE_WELDER_VISION
+
+## Uncomment to disable IC printing from scripts
+#DISABLE_CIRCUIT_PRINTING
 
 ## Uncomment to prevent anyone from joining the round by default.
 #DISABLE_ENTRY
@@ -401,9 +457,6 @@ GENERATE_ASTEROID
 ## Uncomment to have the changelog file automatically open when a user connects and hasn't seen the latest changelog
 #AGGRESSIVE_CHANGELOG
 
-## Uncomment to enable organ decay outside of a body or storage item.
-ORGANS_CAN_DECAY
-
 ## Uncomment to have the changelog file automatically open when a user connects and hasn't seen the latest changelog
 #AGGRESSIVE_CHANGELOG
 
@@ -446,3 +499,24 @@ RADIATION_MATERIAL_RESISTANCE_DIVISOR 2
 
 ## Below this point, radiation is ignored
 RADIATION_LOWER_LIMIT 0.35
+
+## Uncomment to remove cooldowns between clicks
+#NO_CLICK_COOLDOWN
+
+## Uncomment to force human mobs to have a surname: A space must be present in their name
+#HUMANS_NEED_SURNAMES
+
+## Uncomment to disable ghosts from becoming mice
+#DISABLE_PLAYER_MICE
+
+## Uncomment to prevent newly-spawned mice from understanding human speech
+#UNEDUCATED_MICE
+
+## Uncomment to allow players to control drones
+ALLOW_DRONE_SPAWN
+
+## How many ticks until a new drone is available. Default is 2 minutes
+#DRONE_BUILD_TIME 1200
+
+## Max amount of maintenance drones that can spawn. Default is 5
+#MAX_MAINT_DRONES 5
