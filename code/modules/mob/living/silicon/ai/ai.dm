@@ -183,6 +183,12 @@ var/list/ai_verbs_default = list(
 
 	ai_list += src
 	..()
+	if(GLOB.using_map.name == "Nerva")	//A little hacky, but avoids any hard references
+		var/obj/item/device/radio/headset/R = silicon_radio
+		for(var/obj/item/device/encryptionkey/heads/ai_integrated/key in R.encryption_keys)
+			key.channels["Combat"] = 1
+			break
+		R.recalculateChannels()
 	ai_radio = silicon_radio
 	ai_radio.myAi = src
 
