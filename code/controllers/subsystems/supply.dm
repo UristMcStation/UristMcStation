@@ -186,11 +186,12 @@ SUBSYSTEM_DEF(supply)
 						continue
 
 					//Sell anything else that isn't unique or needs special handling
-					if(A.type in to_sell)
-						to_sell[A.type]["count"]++
-						qdel(A)	//We already have an object reference to use for values, duplicate items are safe to qdel
-					else
-						to_sell[A.type] = list("obj" = A, "count" = 1)
+					if(GLOB.using_map.using_new_cargo)
+						if(A.type in to_sell)
+							to_sell[A.type]["count"]++
+							qdel(A)	//We already have an object reference to use for values, duplicate items are safe to qdel
+						else
+							to_sell[A.type] = list("obj" = A, "count" = 1)
 
 			else
 				qdel(AM)
@@ -297,24 +298,15 @@ SUBSYSTEM_DEF(supply)
 
 	var/sell_modifier = 1
 
-	if(GLOB.using_map.using_new_cargo)
-		if(istype(object, /obj/item/stack/material))	//Materials aren't effected by reduced value/compounded prices. Apply any needed modifiers and sell as-is
-			var/obj/item/stack/material/M = object
-			sell_modifier = GLOB.using_map.new_cargo_inflation * 0.25
-			if(use_reinf_material)
-				return round(round(count * 0.5) * M.reinf_material.sale_price * sell_modifier)
-			return round(count * M.material.sale_price * sell_modifier)
-		
-		else if(GLOB.using_map.trading_faction?.reputation > 50)
-			sell_modifier = (((GLOB.using_map.trading_faction.reputation - 50) / 100) / 2) + 1	//0.5% ~ 25% bonus
+	if(istype(object, /obj/item/stack/material))	//Materials aren't effected by reduced value/compounded prices. Apply any needed modifiers and sell as-is
+		var/obj/item/stack/material/M = object
+		sell_modifier = GLOB.using_map.using_new_cargo ? (GLOB.using_map.new_cargo_inflation * 0.25) : M.matter_multiplier
+		if(use_reinf_material)
+			return round(round(count * 0.5) * M.reinf_material.sale_price * sell_modifier)
+		return round(count * M.material.sale_price * sell_modifier)
 
-	else
-		if(istype(object, /obj/item/stack/material))
-			var/obj/item/stack/material/M = object
-			sell_modifier = M.matter_multiplier
-			if(use_reinf_material)
-				return round(round(count * 0.5) * M.reinf_material.sale_price * sell_modifier)
-			return round(count * M.material.sale_price * sell_modifier)
+	if(GLOB.using_map.trading_faction?.reputation > 50)
+		sell_modifier = (((GLOB.using_map.trading_faction.reputation - 50) / 100) / 2) + 1	//0.5% ~ 25% bonus
 
 	//try and find it via the global controller
 	var/datum/trade_item/T = SStrade_controller.trade_items_by_type[object.type]
@@ -339,7 +331,7 @@ SUBSYSTEM_DEF(supply)
 	var/total_value = newPrice	//Price changes AFTER an obj is sold. Let's skip the first trade then.
 	count--
 	while(count)
-		newPrice = (newPrice * (1-src.price_modifier))	//Calculate what the new price would be with the devalue of selling individually
+		newPrice = newPrice * (1-src.price_modifier)	//Calculate what the new price would be with the devalue of selling individually
 		total_value += newPrice
 		count--
 	return round(total_value)
