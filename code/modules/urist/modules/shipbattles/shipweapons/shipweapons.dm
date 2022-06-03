@@ -215,7 +215,7 @@
 						HitComponents(OM)
 						MapFire()
 
-					homeship.autoannounce("<b>The [src.name] has hit the [OM.ship_category].</b>", "private")
+					homeship.autoannounce("<b>The [src.name] has hit the [OM.ship_category].</b>", "combat")
 
 			if(OM.health <= (OM.maxHealth * 0.5))
 

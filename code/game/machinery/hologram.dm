@@ -119,6 +119,7 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 				to_chat(user, "<span class='info'>Please step onto the holopad.</span>")
 				return
 			if(last_request + 200 < world.time) //don't spam other people with requests either, you jerk!
+				last_request = world.time
 				var/list/holopadlist = list()
 				var/zlevels = GetConnectedZlevels(z)
 				if(GLOB.using_map.use_overmap && map_range >= 0)
@@ -147,7 +148,6 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 				if(targetpad.connected)
 					to_chat(user, "<span class='info'>The pad flashes a busy sign. Maybe you should try again later..</span>")
 					return
-				last_request = world.time
 				make_call(targetpad, conference ? null : user)
 			else
 				to_chat(user, "<span class='notice'>A request for holographic communication was already sent recently.</span>")

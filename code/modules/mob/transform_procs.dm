@@ -41,7 +41,16 @@
 
 /mob/new_player/AIize()
 	spawning = 1
-	return ..()
+	if(length(empty_playable_ai_cores))
+		var/obj/structure/AIcore/deactivated/C = empty_playable_ai_cores[1]
+		empty_playable_ai_cores -= C
+		var/mob/living/silicon/ai/A = ..(0)
+		A.forceMove(C.loc)
+		A.on_mob_init()
+		qdel(C)
+		return A
+	else
+		return ..()	//Fallback AIize, spawning a new AI at any AI landmark. This is only used by gamemode antag AI's which don't spawn & check for inactive cores (ie, malf)
 
 /mob/living/carbon/human/AIize(move=1) // 'move' argument needs defining here too because BYOND is dumb
 	if (HAS_TRANSFORMATION_MOVEMENT_HANDLER(src))

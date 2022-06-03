@@ -25,6 +25,12 @@ ORGAN_HEALTH_MULTIPLIER 100
 ## 100 means normal, 50 means half
 ORGAN_REGENERATION_MULTIPLIER 75
 
+## multiplier which effects how much organ damage spillover is added to mob shock_stage (default 0.5)
+#ORGAN_DAMAGE_SPILLOVER_MULTIPLIER 0.5
+
+## Uncomment to make organs decay if they're not inside a freezer
+ORGANS_CAN_DECAY
+
 ### REVIVAL ###
 
 ## whether pod plants work or not
@@ -57,3 +63,13 @@ MONKEY_DELAY 0
 ALIEN_DELAY 0
 METROID_DELAY 0
 ANIMAL_DELAY 0
+SLIME_DELAY 0
+
+
+### MISC ###
+
+## Max amount of mushrooms where spores will no longer spread (Default 15)
+#MAXIMUM_MUSHROOMS 15
+
+## Uncomment to allow loyalty implants
+#USE_LOYALTY_IMPLANTS

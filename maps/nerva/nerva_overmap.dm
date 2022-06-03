@@ -10,7 +10,7 @@
 	can_board = TRUE
 	target_x_bounds = list(78,165)
 	target_y_bounds = list(63,130)
-	announcement_channel = list("public" = "Common", "private" = "Command", "technical" = "Engineering")
+	announcement_channel = list("public" = "Common", "private" = "Command", "technical" = "Engineering", "combat" = "Combat")
 	evac_x = 143
 	evac_y = 97
 	evac_z = 3

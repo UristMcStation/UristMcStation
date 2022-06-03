@@ -144,7 +144,7 @@ GLOBAL_DATUM_INIT(raiders, /datum/antagonist/raider, new)
 	var/win_msg = ""
 
 	//No objectives, go straight to the feedback.
-	if(config.objectives_disabled == CONFIG_OBJECTIVE_NONE || !global_objectives.len)
+	if(config.objectives_enabled == CONFIG_OBJECTIVE_NONE || !global_objectives.len)
 		return
 
 	var/success = global_objectives.len

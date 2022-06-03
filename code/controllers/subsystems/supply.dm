@@ -33,6 +33,10 @@ SUBSYSTEM_DEF(supply)
 	//virus dishes uniqueness
 	var/list/sold_virus_strains = list()
 
+	//Price changes
+	var/price_modifier = 0.04	//% price goes down from each sale of a material to the supply station: 4% decrease in value for each item sold
+	var/sold_items = list()	//Items sold to the supply station	//TODO: Generate an inventory of trade_item datums for the station and simulate supply/demand proper
+
 /datum/controller/subsystem/supply/Initialize()
 	. = ..()
 	ordernum = rand(1,9000)
@@ -110,6 +114,8 @@ SUBSYSTEM_DEF(supply)
 
 /datum/controller/subsystem/supply/proc/sell()
 	var/list/material_count = list()
+	var/list/to_sell = list()
+	var/list/crates = list()
 
 	for(var/area/subarea in shuttle.shuttle_area)
 		for(var/atom/movable/AM in subarea)
@@ -121,47 +127,39 @@ SUBSYSTEM_DEF(supply)
 					if(AM.type in CC.wanted_types)
 						CC.Complete(1)
 						qdel(AM)
-						continue
+						break
+
+				if(QDELETED(AM))	//Our atom was qdel'd/used in a contract-- move onto the next atom to free up the reference for GC
+					continue
 
 			if(istype(AM, /obj/structure/closet/crate/))
 				var/obj/structure/closet/crate/CR = AM
-				callHook("sell_crate", list(CR, subarea))
-				add_points_from_source(CR.points_per_crate, "crate")
+				crates[CR] = subarea	//Store the crate to be handled later, as we'll have object refrences we'll need for the contents inside it
 				var/find_slip = 1
-				for(var/atom in CR)
-					// Sell manifests
-					var/atom/A = atom
 
+				for(var/atom/A in CR)
 					if(GLOB.using_map.using_new_cargo)
 						for(var/datum/contract/cargo/CC in GLOB.using_map.contracts) //just in case someone shoved it in a crate
 							if(A.type in CC.wanted_types)
 								CC.Complete(1)
-								//qdel(AM)
-								continue
+								qdel(A)
+								break
 
-						if(istype(A, /obj/item/stack/material))
-							var/obj/item/stack/material/P = A
-							var/material/material = P.get_material()
-							if(material.sale_price > 0)
-								var/materialmoney = P.get_amount() * material.sale_price
-								materialmoney *= GLOB.using_map.new_cargo_inflation
-								materialmoney *= 0.25 //test and balance
-								material_count[material.display_name] += materialmoney
+						if(QDELETED(A))
+							continue
 
-						else
+					//Calculate sales for each material
+					if(istype(A, /obj/item/stack/material))
+						var/obj/item/stack/material/S = A
+						var/amount = S.get_amount()
+						if(S.material.sale_price > 0)
+							material_count[S.material.display_name] += find_item_value(S, amount)
+						if(S.reinf_material?.sale_price > 0)
+							material_count[S.reinf_material.display_name] += find_item_value(S, amount, TRUE)
+						qdel(S)
+						continue
 
-							var/obj/O = A
-							var/addvalue
-
-							if(GLOB.using_map.trading_faction)
-								if(GLOB.using_map.trading_faction.reputation > 50)
-									var/newvalue = (GLOB.using_map.trading_faction.reputation - 50) / 100
-									addvalue = (find_item_value(O) * ((newvalue / 2) + 0.75))
-							else
-								addvalue = (find_item_value(O) * 0.75) //we get even less for selling in bulk
-
-							add_points_from_source(addvalue, "trade")
-
+					// Sell manifests
 					if(find_slip && istype(A,/obj/item/weapon/paper/manifest))
 						var/obj/item/weapon/paper/manifest/slip = A
 						if(!slip.is_copy && slip.stamped && slip.stamped.len) //Any stamp works.
@@ -169,19 +167,12 @@ SUBSYSTEM_DEF(supply)
 							find_slip = 0
 						continue
 
-					// Sell materials
-					if(istype(A, /obj/item/stack/material))
-						var/obj/item/stack/material/P = A
-						if(P.material && P.material.sale_price > 0)
-							material_count[P.material.display_name] += P.get_amount() * P.material.sale_price * P.matter_multiplier
-						if(P.reinf_material && P.reinf_material.sale_price > 0)
-							material_count[P.reinf_material.display_name] += P.get_amount() * P.reinf_material.sale_price * P.matter_multiplier * 0.5
-						continue
-
 					// Must sell ore detector disks in crates
 					if(istype(A, /obj/item/weapon/disk/survey))
 						var/obj/item/weapon/disk/survey/D = A
 						add_points_from_source(round(D.Value() * 0.005), "gep")
+						qdel(D)
+						continue
 
 					// Sell virus dishes.
 					if(istype(A, /obj/item/weapon/virusdish))
@@ -191,12 +182,43 @@ SUBSYSTEM_DEF(supply)
 							if(!(dish.virus2.uniqueID in sold_virus_strains))
 								add_points_from_source(5, "virology_dishes")
 								sold_virus_strains += dish.virus2.uniqueID
+						qdel(dish)
+						continue
 
-			qdel(AM)
+					//Sell anything else that isn't unique or needs special handling
+					if(GLOB.using_map.using_new_cargo)
+						if(A.type in to_sell)
+							to_sell[A.type]["count"]++
+							qdel(A)	//We already have an object reference to use for values, duplicate items are safe to qdel
+						else
+							to_sell[A.type] = list("obj" = A, "count" = 1)
 
-	if(material_count.len)
-		for(var/material_type in material_count)
-			add_points_from_source(material_count[material_type], material_type)
+			else
+				qdel(AM)
+
+	var/payout = 0
+
+	//Sell all items in bulk and qdel them
+	for(var/atom_type in to_sell)
+		var/obj/O = to_sell[atom_type]["obj"]
+		var/amount = to_sell[atom_type]["count"]
+		payout += make_trade(O, amount)
+		to_sell[atom_type]["obj"] = null
+		qdel(O)
+
+	//Sell all materials in bulk
+	for(var/material in material_count)
+		add_points_from_source(material_count[material], material)
+
+	//Finally sell all crates in bulk and qdel them, calling the sell_crate hook
+	for(var/obj/structure/closet/crate/CR in crates)
+		callHook("sell_crate", list(CR, crates[CR]))
+		add_points_from_source(CR.points_per_crate, "crate")
+		crates -= CR
+		qdel(CR)
+
+	//Pay our lovely people what they earned
+	add_points_from_source(payout, "trade")
 
 //Buyin
 /datum/controller/subsystem/supply/proc/buy()
@@ -264,16 +286,52 @@ SUBSYSTEM_DEF(supply)
 	var/reason = null
 	var/orderedrank = null //used for supply console printing
 
-/datum/controller/subsystem/supply/proc/find_item_value(var/obj/object) //here we get the value of the items being traded
+/datum/controller/subsystem/supply/proc/make_trade(var/obj/object, var/count = 1)
+	. = find_item_value(object, count)
+	if(.)
+		sold_items[object.type] += count
+	return .
+
+/datum/controller/subsystem/supply/proc/find_item_value(var/obj/object, var/count = 1, var/use_reinf_material = FALSE) //here we get the value of the items being traded
 	if(!object)
 		return 0
 
-	//this uses the default SS13 item_worth procs so its a good fallback
-	. = get_value(object)
+	var/sell_modifier = 1
 
-	var/datum/trade_item/T
+	if(istype(object, /obj/item/stack/material))	//Materials aren't effected by reduced value/compounded prices. Apply any needed modifiers and sell as-is
+		var/obj/item/stack/material/M = object
+		sell_modifier = GLOB.using_map.using_new_cargo ? (GLOB.using_map.new_cargo_inflation * 0.25) : M.matter_multiplier
+		if(use_reinf_material)
+			return round(round(count * 0.5) * M.reinf_material.sale_price * sell_modifier)
+		return round(count * M.material.sale_price * sell_modifier)
+
+	if(GLOB.using_map.trading_faction?.reputation > 50)
+		sell_modifier = (((GLOB.using_map.trading_faction.reputation - 50) / 100) / 2) + 1	//0.5% ~ 25% bonus
 
 	//try and find it via the global controller
-	T = SStrade_controller.trade_items_by_type[object.type]
+	var/datum/trade_item/T = SStrade_controller.trade_items_by_type[object.type]
+	var/amount_sold = sold_items[object.type]
+	var/sell_value
+
 	if(T)
-		return T.value
+		if(!T.sellable)
+			return 0
+		sell_value = T.value
+	else
+		sell_value = get_value(object)	//Legacy fallback
+
+	if(amount_sold)
+		sell_value = sell_value*(1 - src.price_modifier)**amount_sold	//A = P(1 + r/n)^nt		--Current price, factoring multiple previous compounded sales
+	return calculate_multiple_sales(sell_value, count, sell_modifier)
+
+/datum/controller/subsystem/supply/proc/calculate_multiple_sales(var/value, var/count, var/sell_modifier = 1)
+	if(!value || !count)
+		return 0
+	var/newPrice = value * sell_modifier
+	var/total_value = newPrice	//Price changes AFTER an obj is sold. Let's skip the first trade then.
+	count--
+	while(count)
+		newPrice = newPrice * (1-src.price_modifier)	//Calculate what the new price would be with the devalue of selling individually
+		total_value += newPrice
+		count--
+	return round(total_value)

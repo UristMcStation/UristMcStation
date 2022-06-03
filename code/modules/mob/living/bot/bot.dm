@@ -479,6 +479,8 @@
 	for(var/obj/machinery/door/D in loc)
 		if(!D.density)
 			continue
+		if(istype(D, /obj/machinery/door/blast) && D.density)	//Bots cannot open blast doors but will attempt to anyway.
+			return 1
 		if(istype(D, /obj/machinery/door/window))
 			if(dir & D.dir)
 				return !D.check_access(ID)
@@ -487,7 +489,7 @@
 		else 
 			if(istype(D, /obj/machinery/door/airlock/lift))	//Stop bots committing suicide down the lift shaft, as amusing as it is
 				return !D.check_access(ID) || D.density
-			
+
 			var/obj/machinery/door/airlock/A = D
 			if(istype(A) && (A.locked || A.isAllPowerLoss() || A.welded))	//Avoid airlocks that are bolted, welded, or have no power
 				return 1
