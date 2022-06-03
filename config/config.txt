@@ -22,7 +22,7 @@ BAN_LEGACY_SYSTEM
 
 ## Unhash this entry to have certain antag roles require your account to be at least a certain number of days old for round start and auto-spawn selection.
 ## Non-automatic antagonist recruitment, such as being converted to cultism is not affected. Has the same database requirements and notes as USE_AGE_RESTRICTION_FOR_JOBS.
-#USE_AGE_RESTRICTION_FOR_ANTAGS
+USE_AGE_RESTRICTION_FOR_ANTAGS
 
 ## Unhash this to use recursive explosions, keep it hashed to use circle explosions. Recursive explosions react to walls, airlocks and blast doors, making them look a lot cooler than the boring old circular explosions. They require more CPU and are (as of january 2013) experimental
 USE_RECURSIVE_EXPLOSIONS
@@ -63,6 +63,9 @@ LOG_PDA
 ## log world.log messages
 # LOG_WORLD_OUTPUT
 
++## Log all timers on timer auto reset
++# LOG_TIMERS_ON_BUCKET_RESET
+
 ## log debug output
 LOG_DEBUG
 
@@ -88,7 +91,7 @@ ERROR_SILENCE_TIME 6000
 ERROR_MSG_DELAY 50
 
 ## sql switching
-# SQL_ENABLED
+SQL_ENABLED
 
 ## disconnect players who did nothing during the set amount of minutes
 # KICK_INACTIVE 10
@@ -100,22 +103,22 @@ MODS_CAN_TEMPBAN
 MODS_CAN_JOB_TEMPBAN
 
 ## Maximum mod tempban duration (in minutes)
-MOD_TEMPBAN_MAX 1440
+MOD_TEMPBAN_MAX 4320
 
 ## Maximum mod job tempban duration (in minutes)
-MOD_JOB_TEMPBAN_MAX 1440
+MOD_JOB_TEMPBAN_MAX 4320
 
 
 ## probablities for game modes chosen in "secret" and "random" modes
 ##
 ## default probablity is 1, increase to make that mode more likely to be picked
 ## set to 0 to disable that mode
-PROBABILITY EXTENDED 1
+PROBABILITY EXTENDED 0
 PROBABILITY TRAITOR 1
 PROBABILITY SPYVSSPY 1
 PROBABILITY WIZARD 1
 PROBABILITY VAMPIRE 1
-PROBABILITY MALFUNCTION 1
+PROBABILITY MALFUNCTION 0
 PROBABILITY VISITORS 1
 PROBABILITY CHANGELING 1
 PROBABILITY CULT 2
@@ -191,7 +194,7 @@ VOTE_AUTOTRANSFER_INITIAL 72000
 VOTE_AUTOTRANSFER_INTERVAL 36000
 
 ## Time left (seconds) before round start when automatic gamemote vote is called (default 100).
-VOTE_AUTOGAMEMODE_TIMELEFT 30
+VOTE_AUTOGAMEMODE_TIMELEFT 260
 
 ## prevents dead players from voting or starting votes
 #NO_DEAD_VOTE
