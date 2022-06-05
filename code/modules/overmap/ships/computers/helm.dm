@@ -282,7 +282,7 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 		return TOPIC_REFRESH
 
 
-/obj/machinery/computer/ship/attackby(var/obj/item/I, var/mob/user)
+/obj/machinery/computer/ship/navigation/attackby(var/obj/item/I, var/mob/user)
 
 	if(istype(I, /obj/item/weapon/disk/station_disk))
 		if(inoperable(MAINT))
@@ -297,3 +297,5 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 			D.master_station.update_visible()
 			user.remove_from_mob(D)
 			qdel(D)
+	else
+		..()
