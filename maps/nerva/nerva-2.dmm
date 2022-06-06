@@ -12597,7 +12597,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor,
-/obj/structure/disposalpipe/segment,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -28526,16 +28525,6 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fs)
-"dvx" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/structure/cable,
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/turf/simulated/floor/plating,
-/area/security/checkpoint)
 "dvF" = (
 /obj/machinery/door/window/brigdoor/southright{
 	id = "Cell 3";
@@ -30724,6 +30713,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/portgun)
+"pVp" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/structure/cable,
+/obj/machinery/door/firedoor,
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/plating,
+/area/security/checkpoint)
 "qiD" = (
 /obj/machinery/camera/network/third_deck{
 	c_tag = "Bar Main";
@@ -56886,7 +56885,7 @@ ahX
 ajw
 akN
 ddO
-dvx
+pVp
 kBU
 aoC
 mPt
