@@ -23605,8 +23605,8 @@
 /obj/structure/disposalpipe/sortjunction{
 	dir = 4;
 	icon_state = "pipe-j2s";
-	name = "Chief of Security";
-	sortType = "Chief of Security"
+	name = "Personnel Office";
+	sortType = "Personnel Office"
 	},
 /turf/simulated/floor/plating,
 /area/hallway/commandoffices)
@@ -30582,16 +30582,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/armoury)
-"oPX" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/structure/cable,
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/turf/simulated/floor/plating,
-/area/security/checkpoint)
 "oSO" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -31586,6 +31576,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/third_deck)
+"vNC" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/structure/cable,
+/obj/machinery/door/firedoor,
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/plating,
+/area/security/checkpoint)
 "vTO" = (
 /obj/effect/paint_stripe/blue,
 /turf/simulated/wall/r_wall/prepainted,
@@ -56879,7 +56879,7 @@ ahX
 ajw
 akN
 ddO
-oPX
+vNC
 kBU
 aoC
 mPt

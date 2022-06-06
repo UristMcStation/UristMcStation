@@ -11,7 +11,7 @@
 	extra_decals = list(
 		"stripe_vertical_left_partial" = COLOR_GOLD,
 		"stripe_vertical_right_partial" = COLOR_GOLD,
-		"cap" = COLOR_GOLD
+		"captain" = COLOR_GOLD
 	)
 
 /obj/structure/closet/secure_closet/nervacap
