@@ -18111,8 +18111,8 @@
 /obj/structure/disposalpipe/sortjunction{
 	dir = 8;
 	icon_state = "pipe-j2s";
-	name = "Deck 3 Hallway";
-	sortType = "Deck 3 Hallway"
+	name = "Upper Cargo Bay";
+	sortType = "Upper Cargo Bay"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4;
@@ -30582,6 +30582,16 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/armoury)
+"oPX" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/structure/cable,
+/obj/machinery/door/firedoor,
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/plating,
+/area/security/checkpoint)
 "oSO" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -31041,16 +31051,6 @@
 /obj/effect/paint_stripe/paleblue,
 /turf/simulated/wall/r_wall/prepainted,
 /area/medical/chemistry)
-"sMC" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/structure/cable,
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/turf/simulated/floor/plating,
-/area/security/checkpoint)
 "sPc" = (
 /obj/machinery/light/small{
 	dir = 8;
@@ -56879,7 +56879,7 @@ ahX
 ajw
 akN
 ddO
-sMC
+oPX
 kBU
 aoC
 mPt

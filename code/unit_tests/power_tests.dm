@@ -70,10 +70,10 @@ datum/unit_test/roundstart_cable_connectivity/start_test()
 		pass("No areas with duplicated APCs have been found.")
 	return 1
 
-/datum/unit_test/area_power_tally_accuracy
+/*/datum/unit_test/area_power_tally_accuracy
 	name = "POWER: All areas must have accurate power use values."
 
-/datum/unit_test/area_power_tally_accuracy/start_test()
+/datum/unit_/test/area_power_tally_accuracy/start_test()
 	var/failed = FALSE
 	var/list/channel_names = list("equip", "light", "environ")
 	for(var/area/A in world)
@@ -89,4 +89,4 @@ datum/unit_test/roundstart_cable_connectivity/start_test()
 		fail("At least one area had improper power use values")
 	else
 		pass("All areas had accurate power use values.")
-	return 1
+	return 1*/

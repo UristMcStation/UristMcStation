@@ -8018,8 +8018,8 @@
 /obj/structure/disposalpipe/sortjunction{
 	dir = 8;
 	icon_state = "pipe-j2s";
-	name = "Deck 3 Hallway";
-	sortType = "Deck 3 Hallway"
+	name = "Second Deck Hallway";
+	sortType = "Second Deck Hallway"
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
