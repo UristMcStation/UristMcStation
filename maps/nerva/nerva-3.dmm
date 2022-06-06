@@ -15577,7 +15577,8 @@
 	icon_state = "pipe-j1s";
 	name = "Docking Checkpoint";
 	sortType = "Docking Checkpoint";
-	tag = "icon-pipe-j1s (NORTH)"
+	tag = "icon-pipe-j1s (NORTH)";
+	test_exempted = 1
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)

@@ -1329,6 +1329,7 @@
 	name = "sorting junction"
 	icon_state = "pipe-j1s"
 	desc = "An underfloor disposal pipe with a package sorting mechanism."
+	var/test_exempted = FALSE //are we exempted from unit tests? Only use this if you deliver to a disposal pipe across z-levels and you've manually verified it works.
 
 	var/posdir = 0
 	var/negdir = 0

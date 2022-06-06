@@ -653,7 +653,7 @@ datum/unit_test/ladder_check/start_test()
 	. = 1
 	var/fail = FALSE
 	for(var/obj/structure/disposalpipe/sortjunction/sort in world)
-		if(is_type_in_list(sort, exempt_junctions))
+		if(is_type_in_list(sort, exempt_junctions) || sort.test_exempted)
 			continue
 		var/obj/machinery/disposal/bin = get_bin_from_junction(sort)
 		if(!bin)
@@ -764,7 +764,7 @@ datum/unit_test/ladder_check/start_test()
 							objs_with_numeric_req_access |= O
 				else if(isnum(req))
 					objs_with_numeric_req_access |= O
-			
+
 	if(objs_with_numeric_req_access.len)
 		for(var/entry in objs_with_numeric_req_access)
 			log_bad("[log_info_line(entry)] has a numeric value in req_access.")
