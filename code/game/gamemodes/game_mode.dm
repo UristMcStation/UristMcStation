@@ -551,7 +551,7 @@ proc/display_roundstart_logout_report()
 
 	if(!player || !player.current) return
 
-	if(config.objectives_disabled == CONFIG_OBJECTIVE_NONE || !player.objectives.len)
+	if(config.objectives_enabled == CONFIG_OBJECTIVE_NONE || !player.objectives.len)
 		return
 
 	var/obj_count = 1

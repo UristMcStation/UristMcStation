@@ -86,6 +86,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/noctis/battery)
+"aq" = (
+/obj/item/device/radio/intercom{
+	icon_state = "intercom";
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	icon_state = "map_vent_out";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/noctis/connect)
 "ar" = (
 /obj/effect/paint/silver,
 /turf/simulated/wall/titanium,
@@ -140,6 +151,7 @@
 /area/noctis/hards)
 "aA" = (
 /obj/structure/table/rack/dark,
+/obj/item/device/suit_cooling_unit,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/shoes/magboots,
 /turf/simulated/floor/tiled/monotile,
@@ -545,6 +557,23 @@
 	},
 /turf/simulated/floor/plating,
 /area/noctis/battery)
+"bl" = (
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24;
+	req_access = list("ACCESS_NOCTIS")
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	icon_state = "map_scrubber_on";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/noctis/connect)
 "bm" = (
 /obj/machinery/door/airlock/hatch,
 /turf/simulated/floor/plating,
@@ -556,7 +585,8 @@
 	dir = 6
 	},
 /obj/structure/railing/mapped{
-	color = "#b95a00"
+	color = "#b95a00";
+	mapped_color = "#b95a00"
 	},
 /turf/space,
 /area/space)
@@ -1030,6 +1060,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/hangar)
+"cd" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/monotile,
+/area/noctis/lounge)
 "ce" = (
 /obj/effect/shuttle_landmark/nav_noctis/raptor_transit,
 /turf/space,
@@ -2234,6 +2268,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/steel_ridged,
 /area/noctis/combust)
+"ep" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	icon_state = "map_scrubber_on";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/noctis/lounge)
 "eq" = (
 /obj/structure/closet/firecloset,
 /turf/simulated/floor/tiled/monotile,
@@ -2271,16 +2312,21 @@
 /turf/simulated/floor/tiled,
 /area/noctis/afth)
 "et" = (
-/obj/item/device/radio/intercom{
-	icon_state = "intercom";
-	dir = 4
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 4;
+	frequency = 1379;
+	icon_state = "map_vent"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	icon_state = "map_vent_out";
+/obj/effect/floor_decal/techfloor{
+	icon_state = "techfloor_edges";
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
-/area/noctis/connect)
+/obj/item/stack/material/glass{
+	amount = 9
+	},
+/obj/item/stack/cable_coil/blue,
+/turf/simulated/floor/plating,
+/area/noctis/fairlock)
 "eu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	icon_state = "intact-supply";
@@ -2298,22 +2344,32 @@
 /turf/simulated/floor/plating,
 /area/noctis/connect)
 "ew" = (
-/obj/machinery/alarm{
-	dir = 8;
-	icon_state = "alarm0";
-	pixel_x = 24;
-	req_access = list("ACCESS_NOCTIS")
+/obj/item/weapon/storage/pill_bottle/bicaridine,
+/obj/item/weapon/storage/pill_bottle/inaprovaline,
+/obj/item/weapon/storage/pill_bottle/peridaxon,
+/obj/item/weapon/storage/pill_bottle/tramadol,
+/obj/item/weapon/storage/pill_bottle/dermaline,
+/obj/structure/closet/medical_wall{
+	name = "pill bottle storage";
+	pixel_x = 32
+	},
+/obj/item/weapon/reagent_containers/pill/hyronalin,
+/obj/item/weapon/reagent_containers/pill/hyronalin,
+/obj/item/weapon/reagent_containers/pill/hyronalin,
+/obj/item/weapon/reagent_containers/pill/hyronalin,
+/obj/item/weapon/storage/pill_bottle/antitox,
+/obj/structure/bed/roller,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	icon_state = "map_scrubber_on";
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/noctis/connect)
+/turf/simulated/floor/tiled/white,
+/area/noctis/medbay)
 "ex" = (
 /obj/effect/floor_decal/borderfloor{
 	icon_state = "borderfloor_white";
@@ -2586,7 +2642,10 @@
 /area/noctis/apm)
 "eQ" = (
 /obj/structure/railing/mapped{
-	color = "#b95a00"
+	color = "#b95a00";
+	dir = 4;
+	icon_state = "railing0-1";
+	mapped_color = "#b95a00"
 	},
 /turf/space,
 /area/space)
@@ -2726,11 +2785,9 @@
 /turf/simulated/floor/plating,
 /area/noctis/reactorch)
 "fe" = (
-/obj/structure/lattice,
 /obj/structure/railing/mapped{
-	icon_state = "railing0";
-	dir = 4;
-	color = "#b95a00"
+	color = "#b95a00";
+	mapped_color = "#b95a00"
 	},
 /turf/space,
 /area/space)
@@ -2777,10 +2834,12 @@
 /turf/simulated/floor/tiled,
 /area/noctis/connect)
 "fj" = (
+/obj/structure/lattice,
 /obj/structure/railing/mapped{
-	icon_state = "railing0";
+	color = "#b95a00";
 	dir = 4;
-	color = "#b95a00"
+	icon_state = "railing0-1";
+	mapped_color = "#b95a00"
 	},
 /turf/space,
 /area/space)
@@ -2980,9 +3039,12 @@
 /turf/simulated/floor/tiled,
 /area/noctis/lounge)
 "fC" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled,
-/area/noctis/lounge)
+/obj/machinery/door/airlock/external{
+	frequency = 1379;
+	id_tag = "escape_pod_1_berth_hatch"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/fairlock)
 "fD" = (
 /turf/simulated/floor/tiled,
 /area/noctis/lounge)
@@ -2994,12 +3056,14 @@
 /turf/simulated/floor/tiled,
 /area/noctis/lounge)
 "fF" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	icon_state = "map_scrubber_on";
-	dir = 8
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 8;
+	icon_state = "railing0-1";
+	mapped_color = "#b95a00"
 	},
-/turf/simulated/floor/tiled,
-/area/noctis/lounge)
+/turf/space,
+/area/space)
 "fG" = (
 /obj/effect/fluid_mapped,
 /obj/structure/cable/yellow{
@@ -3192,10 +3256,12 @@
 /area/space)
 "fS" = (
 /obj/structure/railing/mapped{
-	icon_state = "railing0";
-	dir = 8;
-	color = "#b95a00"
+	color = "#b95a00";
+	dir = 1;
+	icon_state = "railing0-1";
+	mapped_color = "#b95a00"
 	},
+/obj/structure/catwalk,
 /turf/space,
 /area/space)
 "fT" = (
@@ -3275,9 +3341,10 @@
 /area/noctis/combust)
 "ga" = (
 /obj/structure/railing/mapped{
-	icon_state = "railing0";
+	color = "#b95a00";
 	dir = 1;
-	color = "#b95a00"
+	icon_state = "railing0-1";
+	mapped_color = "#b95a00"
 	},
 /turf/space,
 /area/space)
@@ -3287,27 +3354,36 @@
 /turf/space,
 /area/space)
 "gc" = (
-/obj/structure/lattice,
-/obj/structure/catwalk,
-/obj/structure/handrai,
 /obj/structure/railing/mapped{
-	color = "#b95a00"
+	color = "#b95a00";
+	dir = 1;
+	icon_state = "railing0-1";
+	mapped_color = "#b95a00"
+	},
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 4;
+	icon_state = "railing0-1";
+	mapped_color = "#b95a00"
 	},
 /turf/space,
 /area/space)
 "gd" = (
 /obj/structure/lattice,
 /obj/structure/catwalk,
+/obj/structure/handrai,
 /obj/structure/railing/mapped{
-	color = "#b95a00"
+	color = "#b95a00";
+	mapped_color = "#b95a00"
 	},
 /turf/space,
 /area/space)
 "ge" = (
-/obj/structure/catwalk,
 /obj/structure/lattice,
+/obj/structure/catwalk,
 /obj/structure/railing/mapped{
-	color = "#b95a00"
+	color = "#b95a00";
+	mapped_color = "#b95a00"
 	},
 /turf/space,
 /area/space)
@@ -3364,10 +3440,12 @@
 /turf/simulated/floor/plating,
 /area/space)
 "gk" = (
-/obj/structure/railing/mapped{
-	color = "#b95a00"
-	},
+/obj/structure/catwalk,
 /obj/structure/lattice,
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	mapped_color = "#b95a00"
+	},
 /turf/space,
 /area/space)
 "gl" = (
@@ -3479,9 +3557,8 @@
 /area/space)
 "gt" = (
 /obj/structure/railing/mapped{
-	icon_state = "railing0";
-	dir = 1;
-	color = "#b95a00"
+	color = "#b95a00";
+	mapped_color = "#b95a00"
 	},
 /obj/structure/lattice,
 /turf/space,
@@ -3506,14 +3583,12 @@
 /area/space)
 "gw" = (
 /obj/structure/railing/mapped{
-	icon_state = "railing0";
+	color = "#b95a00";
 	dir = 1;
-	color = "#b95a00"
+	icon_state = "railing0-1";
+	mapped_color = "#b95a00"
 	},
-/obj/effect/spawner/bomb_simulator{
-	_low = 3;
-	_med = 2
-	},
+/obj/structure/lattice,
 /turf/space,
 /area/space)
 "gx" = (
@@ -3557,9 +3632,10 @@
 /area/space)
 "gB" = (
 /obj/structure/railing/mapped{
-	icon_state = "railing0";
-	dir = 4;
-	color = "#b95a00"
+	color = "#b95a00";
+	dir = 1;
+	icon_state = "railing0-1";
+	mapped_color = "#b95a00"
 	},
 /obj/effect/spawner/bomb_simulator{
 	_low = 3;
@@ -4365,20 +4441,18 @@
 /turf/simulated/floor/plating,
 /area/noctis/fm)
 "hX" = (
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/structure/railing/mapped{
+	color = "#b95a00";
 	dir = 4;
-	frequency = 1379;
-	icon_state = "map_vent"
+	icon_state = "railing0-1";
+	mapped_color = "#b95a00"
 	},
-/obj/effect/floor_decal/techfloor{
-	icon_state = "techfloor_edges";
-	dir = 1
+/obj/effect/spawner/bomb_simulator{
+	_low = 3;
+	_med = 2
 	},
-/obj/item/stack/material/glass{
-	amount = 9
-	},
-/turf/simulated/floor/plating,
-/area/noctis/fairlock)
+/turf/space,
+/area/space)
 "hY" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/effect/floor_decal/techfloor{
@@ -4546,43 +4620,6 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
-/area/noctis/medbay)
-"ik" = (
-/obj/structure/bed/roller,
-/obj/structure/cable/blue{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	icon_state = "map_scrubber_on";
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/noctis/medbay)
-"il" = (
-/obj/item/weapon/storage/pill_bottle/bicaridine,
-/obj/item/weapon/storage/pill_bottle/inaprovaline,
-/obj/item/weapon/storage/pill_bottle/peridaxon,
-/obj/item/weapon/storage/pill_bottle/tramadol,
-/obj/item/weapon/storage/pill_bottle/dermaline,
-/obj/structure/closet/medical_wall{
-	name = "pill bottle storage";
-	pixel_x = 0
-	},
-/obj/effect/paint/green_grey,
-/obj/item/weapon/reagent_containers/pill/hyronalin,
-/obj/item/weapon/reagent_containers/pill/hyronalin,
-/obj/item/weapon/reagent_containers/pill/hyronalin,
-/obj/item/weapon/reagent_containers/pill/hyronalin,
-/obj/item/weapon/storage/pill_bottle/antitox,
-/obj/machinery/access_button/airlock_exterior{
-	frequency = 1380;
-	master_tag = "noctis";
-	pixel_x = 8;
-	pixel_y = -10
-	},
-/turf/simulated/wall/titanium,
 /area/noctis/medbay)
 "im" = (
 /obj/machinery/door/airlock/external{
@@ -4780,28 +4817,6 @@
 /mob/living/simple_animal/hostile/carp,
 /turf/simulated/floor/plating,
 /area/noctis/fairlock)
-"iB" = (
-/obj/structure/railing/mapped{
-	icon_state = "railing0";
-	dir = 1;
-	color = "#b95a00"
-	},
-/obj/structure/catwalk,
-/turf/space,
-/area/space)
-"iC" = (
-/obj/structure/railing/mapped{
-	icon_state = "railing0";
-	dir = 1;
-	color = "#b95a00"
-	},
-/obj/structure/railing/mapped{
-	icon_state = "railing0";
-	dir = 4;
-	color = "#b95a00"
-	},
-/turf/space,
-/area/space)
 "iD" = (
 /obj/structure/lattice,
 /obj/structure/grille,
@@ -5001,11 +5016,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/noctis/equips)
-"iZ" = (
-/obj/machinery/door/airlock/external/bolted,
-/obj/item/taperoll/engineering/applied,
-/turf/simulated/floor/plating,
-/area/noctis/fairlock)
 "ja" = (
 /obj/effect/floor_decal/rust,
 /turf/simulated/floor/plating,
@@ -7627,7 +7637,7 @@ en
 aa
 aa
 aa
-fe
+fj
 aa
 aa
 aa
@@ -7723,14 +7733,14 @@ aa
 aa
 aa
 aa
-fj
-fj
+eQ
+eQ
 cP
 aa
 aa
-eQ
+fe
 hm
-fj
+eQ
 aa
 aa
 aa
@@ -8146,7 +8156,7 @@ mN
 mN
 fz
 hC
-gc
+gd
 aa
 aa
 aa
@@ -8248,7 +8258,7 @@ hC
 hC
 hC
 hC
-gd
+ge
 aa
 aa
 aa
@@ -8554,7 +8564,7 @@ jb
 jw
 jJ
 aa
-eQ
+fe
 aa
 aa
 aa
@@ -8656,7 +8666,7 @@ hF
 hF
 jL
 jL
-ge
+gk
 aa
 aa
 aa
@@ -8758,7 +8768,7 @@ jc
 jx
 jM
 jL
-ge
+gk
 aa
 aa
 aa
@@ -8951,7 +8961,7 @@ am
 ab
 ab
 do
-dS
+ek
 fG
 ab
 ab
@@ -9169,7 +9179,7 @@ an
 an
 gg
 aa
-fj
+eQ
 aa
 aa
 aa
@@ -9359,7 +9369,7 @@ bW
 ab
 ab
 db
-ek
+dS
 cK
 ab
 ab
@@ -9576,9 +9586,9 @@ aa
 aa
 aa
 gg
-gk
-gb
 gt
+gb
+gw
 gx
 aa
 aa
@@ -9670,7 +9680,7 @@ cy
 gE
 hh
 hL
-ik
+ew
 iT
 hj
 hj
@@ -9772,7 +9782,7 @@ fc
 gF
 hi
 hM
-il
+hj
 hj
 hj
 aa
@@ -9882,7 +9892,7 @@ aa
 aa
 aa
 aa
-eQ
+fe
 gn
 aa
 ai
@@ -9971,20 +9981,20 @@ aa
 cA
 da
 dG
-et
+aq
 jW
 gG
 hk
 aa
 aa
 en
-fj
-fj
-aa
-aa
-aa
-aa
 eQ
+eQ
+aa
+aa
+aa
+aa
+fe
 go
 gu
 gu
@@ -10083,14 +10093,14 @@ en
 ao
 fW
 en
-fj
-fj
-fj
+eQ
+eQ
+eQ
 en
 jN
 ai
-fj
-gB
+eQ
+hX
 aa
 aa
 aa
@@ -10277,7 +10287,7 @@ aa
 cB
 da
 dJ
-ew
+bl
 fk
 gG
 hk
@@ -10286,10 +10296,10 @@ aa
 en
 fR
 fY
-iB
 fS
-fS
-fS
+fF
+fF
+fF
 GM
 gn
 ga
@@ -10386,8 +10396,8 @@ af
 aa
 aa
 ai
-fS
-fS
+fF
+fF
 an
 ga
 aa
@@ -10593,7 +10603,7 @@ iU
 iU
 aa
 an
-iC
+gc
 aa
 gi
 gl
@@ -10700,7 +10710,7 @@ aa
 gg
 aa
 an
-gw
+gB
 gg
 aa
 aa
@@ -10902,7 +10912,7 @@ iU
 eR
 ai
 gg
-gk
+gt
 gb
 ai
 gg
@@ -11002,9 +11012,9 @@ jn
 jE
 iU
 an
-fj
-gg
 eQ
+gg
+fe
 an
 aa
 gg
@@ -11808,7 +11818,7 @@ jP
 cL
 dV
 eG
-fC
+cd
 gR
 hw
 cL
@@ -12114,7 +12124,7 @@ cM
 di
 dY
 eH
-fF
+ep
 gT
 hz
 cL
@@ -12627,7 +12637,7 @@ eK
 fN
 gY
 bC
-hX
+et
 cp
 aS
 de
@@ -12731,7 +12741,7 @@ gZ
 hB
 hY
 iA
-iZ
+fC
 an
 aa
 aa

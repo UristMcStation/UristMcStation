@@ -243,6 +243,7 @@ Helpers
 		bad_modes += mode_to_try
 		return
 
+	callHook("gamemode_selected", list(mode_datum))
 	//Deal with jobs and antags, check that we can actually run the mode.
 	SSjobs.reset_occupations() // Clears all players' role assignments. Clean slate.
 	mode_datum.create_antagonists() // Init operation on the mode; sets up antag datums and such.
@@ -253,6 +254,7 @@ Helpers
 		mode_datum.fail_setup()
 		SSjobs.reset_occupations()
 		bad_modes += mode_datum.config_tag
+		callHook("gamemode_start_failed", list(mode_datum))
 		return
 
 	//Declare victory, make an announcement.
