@@ -88,10 +88,7 @@
 		/area/overmap,
 		/area/infestation,
 		/area/boarding_ship,
-		/area/rnd/xenobiology/xenoflora_storage,
-		/area/jungleoutpost,
-		/area/voxship,
-		/area/morninglight
+		/area/rnd/xenobiology/xenoflora_storage
 	)
 
 	area_usage_test_exempted_root_areas = list(
@@ -127,7 +124,10 @@
 		/area/spacestations,
 		/area/unishi,
 		/area/planet,
-		/area/noctis
+		/area/noctis,
+		/area/jungleoutpost,
+		/area/voxship,
+		/area/morninglight
 	)
 
 	area_coherency_test_exempt_areas = list(

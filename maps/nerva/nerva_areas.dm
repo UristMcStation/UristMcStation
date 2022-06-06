@@ -97,10 +97,10 @@
 	name = "\improper Fourth Deck Command Hallway"
 	icon_state = "hallC1"
 
-/area/command/fourth_emergency_storage
+/*/area/command/fourth_emergency_storage
 	name = "\improper Fourth Deck Emergency Storage"
 	sound_env = SMALL_ENCLOSED
-	icon_state = "green"
+	icon_state = "green"*/
 
 /area/command/safe_room
 	name = "\improper Safe Room"
