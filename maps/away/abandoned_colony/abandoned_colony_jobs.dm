@@ -4,7 +4,7 @@
 	desc = "Scavenger Crew"
 	region = ACCESS_REGION_NONE
 
-/decl/hierarchy/outfit/colony_scavenger
+/decl/hierarchy/outfit/job/colony_scavenger
 	name = "Graveworld Scavenger"
 	uniform = /obj/item/clothing/under/overalls
 	shoes = /obj/item/clothing/shoes/dutyboots
@@ -26,7 +26,7 @@
 	title = "Graveworld Scavenger"
 	supervisors = "whatever's left of your conscience"
 	total_positions = 3
-	outfit_type = /decl/hierarchy/outfit/colony_scavenger
+	outfit_type = /decl/hierarchy/outfit/job/colony_scavenger
 	info = "You've recently become part of a small scale scavenging operation in the outer ring, \
 			digging through the ruins of Graveworlds, the planets abandoned or razed during the Galactic Crisis. \
 			You have access to your ship, the ICS Morning Light, an ugly little scrapheap with a pretty name. \

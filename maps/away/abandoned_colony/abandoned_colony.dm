@@ -59,3 +59,12 @@
 //	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED //temporary
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/morninglight)
 	cost = 1
+
+/obj/machinery/power/smes/buildable/preset/morning_light/configure_and_install_coils()
+	component_parts += new /obj/item/weapon/smes_coil/super_io(src)
+	component_parts += new /obj/item/weapon/smes_coil/super_capacity(src)
+	_input_maxed = TRUE
+	_output_maxed = TRUE
+	_input_on = TRUE
+	_output_on = TRUE
+	_fully_charged = TRUE
