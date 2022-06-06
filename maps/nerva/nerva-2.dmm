@@ -7448,12 +7448,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/catwalk_plated/dark,
-/obj/structure/disposalpipe/segment,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
 	tag = ""
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/plating,
 /area/hallway/commandport)
@@ -7461,6 +7464,10 @@
 /obj/effect/floor_decal/corner/fadeblue{
 	dir = 6;
 	icon_state = "corner_white"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandport)
@@ -8197,10 +8204,10 @@
 	name = "Boarding Armoury";
 	req_access = list("ACCESS_FIRST_OFFICER")
 	},
+/obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/techmaint,
 /area/security/boardarmoury)
 "aoT" = (
@@ -8217,7 +8224,7 @@
 	},
 /obj/effect/catwalk_plated/dark,
 /obj/structure/disposalpipe/segment{
-	dir = 8;
+	dir = 2;
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/plating,
@@ -8236,6 +8243,7 @@
 	icon_state = "alarm0";
 	pixel_x = 24
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandport)
 "aoV" = (
@@ -9103,6 +9111,13 @@
 	tag = ""
 	},
 /obj/effect/catwalk_plated/dark,
+/obj/structure/disposalpipe/sortjunction{
+	dir = 1;
+	icon_state = "pipe-j1s";
+	name = "Port Gun Bay";
+	sortType = "Port Gun Bay";
+	tag = "icon-pipe-j1s (NORTH)"
+	},
 /turf/simulated/floor/plating,
 /area/hallway/commandport)
 "aqj" = (
@@ -9113,6 +9128,10 @@
 /obj/machinery/firealarm{
 	dir = 4;
 	pixel_x = 24
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandport)
@@ -9781,6 +9800,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/hallway/commandport)
 "ark" = (
@@ -11194,9 +11214,6 @@
 	tag = "icon-pdoor1"
 	},
 /obj/effect/floor_decal/corner/fadeblue/full,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandport)
 "asC" = (
@@ -11207,9 +11224,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4;
 	icon_state = "intact-supply"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
 	},
 /obj/effect/floor_decal/corner/fadeblue{
 	dir = 9;
@@ -11226,9 +11240,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/effect/catwalk_plated/dark,
 /turf/simulated/floor/plating,
 /area/hallway/commandport)
@@ -11241,10 +11252,6 @@
 	dir = 4;
 	icon_state = "map-scrubbers"
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
 /obj/effect/catwalk_plated/dark,
 /obj/structure/cable{
 	d1 = 1;
@@ -11252,6 +11259,7 @@
 	icon_state = "1-2";
 	tag = ""
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/hallway/commandport)
 "asF" = (
@@ -28518,6 +28526,16 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fs)
+"dvx" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/structure/cable,
+/obj/machinery/door/firedoor,
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/plating,
+/area/security/checkpoint)
 "dvF" = (
 /obj/machinery/door/window/brigdoor/southright{
 	id = "Cell 3";
@@ -29264,14 +29282,13 @@
 	dir = 1;
 	icon_state = "corner_white_three_quarters"
 	},
-/obj/structure/disposalpipe/sortjunction{
-	dir = 8;
-	name = "Port Gun Bay";
-	sortType = "Port Gun Bay"
-	},
 /obj/machinery/navbeacon{
 	codes = list("patrol" = 1, "next_patrol" = "Bar");
 	location = "Bridge Port"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/commandport)
@@ -31576,16 +31593,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/third_deck)
-"vNC" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/structure/cable,
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/turf/simulated/floor/plating,
-/area/security/checkpoint)
 "vTO" = (
 /obj/effect/paint_stripe/blue,
 /turf/simulated/wall/r_wall/prepainted,
@@ -56879,7 +56886,7 @@ ahX
 ajw
 akN
 ddO
-vNC
+dvx
 kBU
 aoC
 mPt
