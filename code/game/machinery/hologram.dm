@@ -82,7 +82,7 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 		update_use_power(POWER_USE_IDLE)
 
 /obj/machinery/hologram/holopad/attack_hand(var/mob/living/carbon/human/user) //Carn: Hologram requests.
-	if(!istype(user))
+	if(!istype(user) && !isrobot(user))
 		return
 	if(stat & NOPOWER)
 		return
@@ -152,6 +152,9 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 			else
 				to_chat(user, "<span class='notice'>A request for holographic communication was already sent recently.</span>")
 
+/obj/machinery/hologram/holopad/attack_robot(var/mob/user)
+	if(Adjacent(user))
+		attack_hand(user)
 
 /obj/machinery/hologram/holopad/proc/make_call(var/obj/machinery/hologram/holopad/targetpad, var/mob/living/carbon/user)
 	connected = targetpad
