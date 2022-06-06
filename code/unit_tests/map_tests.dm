@@ -701,9 +701,14 @@ datum/unit_test/ladder_check/start_test()
 /obj/structure/disposalholder/unit_test/proc/log_and_fail()
 	var/location = log_info_line(get_turf(src))
 	var/expected_loc = log_info_line(get_turf(test.all_tagged_destinations[destinationTag]))
-	test.log_bad("A package routed from [test.packages_awaiting_delivery[src]] to [destinationTag] was misrouted to [location]; expected location was [expected_loc].")
-	test.failed = TRUE
-	test.packages_awaiting_delivery -= src
+	if(location == expected_loc) //what the fuck Bay
+		test.packages_awaiting_delivery -= src
+		return
+
+	else
+		test.log_bad("A package routed from [test.packages_awaiting_delivery[src]] to [destinationTag] was misrouted to [location]; expected location was [expected_loc].")
+		test.failed = TRUE
+		test.packages_awaiting_delivery -= src
 
 /datum/unit_test/networked_disposals_shall_deliver_tagged_packages/check_result()
 	. = 1
