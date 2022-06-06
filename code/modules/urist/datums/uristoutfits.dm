@@ -440,3 +440,20 @@
 	l_pocket = /obj/item/ammo_magazine/a762mm/spaceak
 	uniform = /obj/item/clothing/under/syndicate/pirate
 	suit = null
+
+//graveworld scavenger
+
+/decl/hierarchy/outfit/colony_scavenger
+	name = "Graveworld Scavenger"
+	uniform = /obj/item/clothing/under/overalls
+	shoes = /obj/item/clothing/shoes/dutyboots
+	belt = /obj/item/weapon/storage/belt/utility/full
+	id = /obj/item/weapon/card/id/morninglight
+	suit = /obj/item/clothing/suit/storage/hooded/sandsuit
+	glasses = /obj/item/clothing/glasses/lgoggles
+	mask = /obj/item/clothing/mask/urist/bandana/leather
+	gloves = /obj/item/clothing/gloves/urist/leather
+	l_pocket = /obj/item/device/radio
+	r_pocket = /obj/item/modular_computer/pda
+	back = /obj/item/weapon/storage/backpack/rucksack/tan
+	backpack_contents = list(/obj/item/device/flashlight = 1, /obj/item/weapon/storage/firstaid/regular = 1, /obj/item/weapon/gun/projectile/revolver/webley = 1, /obj/item/ammo_magazine/c357 = 2)

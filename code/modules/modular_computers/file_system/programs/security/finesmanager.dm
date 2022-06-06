@@ -67,7 +67,7 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 	data["auth"] = get_auth(user)
 	data["has_target"] = !isnull(target)
 	data["has_cardslot"] = !isnull(program.computer.card_slot)
-	
+
 	if(program.computer.card_slot)
 		data["id"] = !isnull(program.computer.card_slot.stored_card)
 		data["id_text"] = data["id"] ? program.computer.card_slot.stored_card.registered_name : "--------"
@@ -112,7 +112,7 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 	if(!length(fine))
 		return
 
-	var/main = "<font size = \"2\">[GLOB.using_map.station_name] Disciplinary Committee</font></center><br><hr><br>"
+	var/main = "<center><font size = \"2\">[GLOB.using_map.station_name] Disciplinary Committee</center></font><br><hr><br>"
 	main += "<b>Issued to:</b> [fine["name"]]<br>"
 	main += "<b>Fine Reference:</b> #[fine["number"]]<br>"
 	main += "<b>Fine Amount:</b> [fine["amount"]] Th<br>"
@@ -122,20 +122,20 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 	main += "<b>Time:</b> [fine["time"]]<br>"
 	main += "<b>Date:</b> [fine["date"]]<br><br><br>"
 
-	var/paper1_txt = "<center><img src = nervalogo.png><br>"
+	var/paper1_txt = "<center><img src = [GLOB.using_map.logo]><br>"
 	paper1_txt += "<b>Notice of Fine Penalty</b><br>"
 	paper1_txt += main
 	paper1_txt += "<hr><font size= \"1\">"
 	paper1_txt += "This fine penalty has been issued in accordance with [GLOB.using_map.station_name] disciplinary procedures and authorised by the commanding body.<br>"
 	paper1_txt += "Any grievances or objections are to be filed and raised with the commanding body. Subject to a 14-day grace period; failed resolutions will subsequently be taken to court in accordance with local space law. Appropriate legal representation may not be guaranteed.<br>"
 	paper1_txt += "[GLOB.using_map.station_name] commanding body retains the right to pay any reimbursements in the form of working credits. By accepting this paper issue, you agree to these terms."
-	paper1_txt += "</font>"
+	paper1_txt += "</font></center>"
 
-	var/paper2_txt = "<center><img src = nervalogo.png><br>"
+	var/paper2_txt = "<center><img src = [GLOB.using_map.logo]><br>"
 	paper2_txt += "<b>Record of Fine Penalty</b><br>"
 	paper2_txt += main
 	paper2_txt += "<hr><font size= \"1\">"
-	paper2_txt += "Administrative copy: Retain this copy for [GLOB.using_map.station_name] record keeping, and supply the notice copy to the penalized party.</font>"
+	paper2_txt += "Administrative copy: Retain this copy for [GLOB.using_map.station_name] record keeping, and supply the notice copy to the penalized party.</font></center>"
 
 	if(print(user, "Notice of Fine Penalty: [fine["name"]]", paper1_txt))
 		print(user, "Record of Fine Penalty: [fine["name"]]", paper2_txt)
@@ -155,7 +155,7 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 	if(href_list["state"])
 		display_state = text2num(href_list["state"])
 		return TOPIC_REFRESH
-			
+
 	if(href_list["more"])
 		var/k = text2num(href_list["more"])+1
 		log_info["[k]"] = !log_info["[k]"]
@@ -177,7 +177,7 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 	if(href_list["action"])
 		if(!target)
 			return TOPIC_NOACTION
-		
+
 		switch(href_list["action"])
 			if("cancel")
 				target = null
@@ -213,7 +213,7 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 					return TOPIC_NOACTION
 				fine_data["author"] = input
 				return TOPIC_REFRESH
-			
+
 			if("complete")
 				for(var/i in fine_data)
 					if(!fine_data[i])
@@ -247,7 +247,7 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 				target.do_transaction(fine)
 				station_account.do_transaction(deposit)
 
-				var/main = "<font size = \"2\">[GLOB.using_map.station_name] Disciplinary Committee</font></center><br><hr><br>"
+				var/main = "<center><font size = \"2\">[GLOB.using_map.station_name] Disciplinary Committee</font></center><br><hr><br>"
 				main += "<b>Issued to:</b> [target.owner_name]<br>"
 				main += "<b>Fine Reference:</b> #[fineNum]<br>"
 				main += "<b>Fine Amount:</b> [amount] Th<br>"
@@ -257,20 +257,20 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 				main += "<b>Time:</b> [stationtime2text()]<br>"
 				main += "<b>Date:</b> [stationdate2text()]<br><br><br>"
 
-				var/paper1_txt = "<center><img src = nervalogo.png><br>"
+				var/paper1_txt = "<center><img src = [GLOB.using_map.logo]><br>"
 				paper1_txt += "<b>Notice of Fine Penalty</b><br>"
 				paper1_txt += main
 				paper1_txt += "<hr><font size= \"1\">"
 				paper1_txt += "This fine penalty has been issued in accordance with [GLOB.using_map.station_name] disciplinary procedures and authorised by the commanding body.<br>"
 				paper1_txt += "Any grievances or objections are to be filed and raised with the commanding body. Subject to a 14-day grace period; failed resolutions will subsequently be taken to court in accordance with local space law. Appropriate legal representation may not be guaranteed.<br>"
 				paper1_txt += "[GLOB.using_map.station_name] commanding body retains the right to pay any reimbursements in the form of working credits. By accepting this paper issue, you agree to these terms."
-				paper1_txt += "</font>"
+				paper1_txt += "</font></center>"
 
-				var/paper2_txt = "<center><img src = nervalogo.png><br>"
+				var/paper2_txt = "<center><img src = [GLOB.using_map.logo]><br>"
 				paper2_txt += "<b>Record of Fine Penalty</b><br>"
 				paper2_txt += main
 				paper2_txt += "<hr><font size= \"1\">"
-				paper2_txt += "Administrative copy: Retain this copy for [GLOB.using_map.station_name] record keeping, and supply the notice copy to the penalized party.</font>"
+				paper2_txt += "Administrative copy: Retain this copy for [GLOB.using_map.station_name] record keeping, and supply the notice copy to the penalized party.</font></center>"
 
 				if(print(user, "Notice of Fine Penalty: [target.owner_name]", paper1_txt))
 					print(user, "Record of Fine Penalty: [target.owner_name]", paper2_txt)

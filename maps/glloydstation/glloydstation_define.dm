@@ -23,6 +23,7 @@
 	accessible_z_levels = list("1"=15, "3"=15, "4"=25, "6"=35)
 
 	id_hud_icons = 'maps/glloydstation/icons/assignment_hud.dmi'
+	logo = "bluentlogo.png"
 
 	shuttle_docked_message = "The scheduled Crew Transfer Shuttle to %Dock_name% has docked with the station. It will depart in approximately %ETD%"
 	shuttle_leaving_dock = "The Crew Transfer Shuttle has left the station. Estimate %ETA% until the shuttle docks at %dock_name%."

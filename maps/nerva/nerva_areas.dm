@@ -43,10 +43,10 @@
 	name = "\improper First Officer's Bedroom"
 	req_access = list(access_fo)
 
-/area/command/seniorntbedroom
+/*/area/command/seniorntbedroom
 	name = "\improper Senior Researcher's Quarters"
 	req_access = list(access_seniornt)
-	icon_state = "bridge"
+	icon_state = "bridge"*/
 
 /area/command/seniorntoffice
 	name = "\improper Senior Researcher's Office."
@@ -75,10 +75,10 @@
 	icon_state = "ai_chamber"
 	req_access = list(access_ai_upload)
 
-/area/command/aicomputer
+/*/area/command/aicomputer
 	name = "\improper AI Data Room" //???
 	icon_state = "ai_chamber"
-	req_access = list(access_ai_upload)
+	req_access = list(access_ai_upload)*/ //genuinely what the fuck is this area
 
 /area/command/eva
 	name = "\improper EVA"
@@ -140,8 +140,8 @@
 	icon_state = "kitchen"
 	req_access = list(access_kitchen)
 
-/area/civilian/messhall
-	name = "\improper Mess Hall"
+/*/area/civilian/messhall
+	name = "\improper Mess Hall"*/
 
 /area/civilian/hydro
 	name = "\improper Hydroponics"
@@ -196,9 +196,9 @@
 	name = "\improper Entertainer's Room"
 	sound_env = SMALL_ENCLOSED
 
-/area/civilian/exercise
+/*/area/civilian/exercise
 	name = "\improper Exercise Room"
-	sound_env = SMALL_ENCLOSED
+	sound_env = SMALL_ENCLOSED*/
 
 /area/civilian/journalist
 	name = "\improper Journalist's Office"
@@ -554,9 +554,9 @@
 	icon_state = "quartoffice"
 	req_access = list(access_qm)
 
-/area/logistics/storage
+/*/area/logistics/storage
 	name = "\improper Cargo General Storage"
-	icon_state = "quartstorage"
+	icon_state = "quartstorage"*/
 
 /area/logistics/primtool
 	name = "\improper General Storage"

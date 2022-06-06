@@ -14,12 +14,12 @@
 		/area/maintenance/fourth_deck/central = NO_SCRUBBER|NO_VENT,
 		/area/maintenance/fourth_deck/fp = NO_SCRUBBER|NO_VENT,
 		/area/maintenance/fourth_deck/afp = NO_SCRUBBER,
-		/area/maintenance/third_deck/fs = NO_SCRUBBER|NO_VENT,
+		/area/maintenance/third_deck/fs = NO_SCRUBBER,
 		/area/maintenance/third_deck/afs = NO_SCRUBBER|NO_VENT,
 		/area/maintenance/third_deck/cents = NO_SCRUBBER|NO_VENT,
 		/area/maintenance/third_deck/centp = NO_SCRUBBER,
 		/area/maintenance/third_deck/central = NO_SCRUBBER|NO_VENT,
-		/area/maintenance/third_deck/fp = NO_SCRUBBER|NO_VENT,
+		/area/maintenance/third_deck/fp = NO_SCRUBBER,
 		/area/maintenance/third_deck/afp = NO_SCRUBBER,
 		/area/maintenance/second_deck/fs = NO_SCRUBBER,
 		/area/maintenance/second_deck/afs = NO_SCRUBBER|NO_VENT,
@@ -88,7 +88,10 @@
 		/area/overmap,
 		/area/infestation,
 		/area/boarding_ship,
-		/area/rnd/xenobiology/xenoflora_storage
+		/area/rnd/xenobiology/xenoflora_storage,
+		/area/jungleoutpost,
+		/area/voxship,
+		/area/morninglight
 	)
 
 	area_usage_test_exempted_root_areas = list(

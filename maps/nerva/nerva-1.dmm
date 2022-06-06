@@ -3074,9 +3074,6 @@
 	dir = 4;
 	icon_state = "intact-supply"
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/machinery/light/small/red,
 /obj/structure/cable{
 	d1 = 4;
@@ -8358,11 +8355,6 @@
 /obj/effect/floor_decal/corner/fadeblue{
 	dir = 6;
 	icon_state = "corner_white"
-	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
 	},
 /obj/structure/cable{
 	d1 = 0;
@@ -23019,10 +23011,6 @@
 /area/hadrian/storage)
 "Vz" = (
 /obj/effect/wallframe_spawn/reinforced,
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora)

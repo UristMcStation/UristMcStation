@@ -3342,11 +3342,6 @@
 	name = "Sub-Acute Ward";
 	req_access = list("ACCESS_MEDICAL")
 	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
@@ -4089,6 +4084,11 @@
 	d2 = 2;
 	icon_state = "1-2";
 	tag = ""
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/centp)
@@ -6544,11 +6544,6 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/chemistry)
 "alR" = (
@@ -7216,11 +7211,6 @@
 /obj/structure/table/standard,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
 	},
 /obj/machinery/reagent_temperature{
 	pixel_x = 4
@@ -7989,14 +7979,6 @@
 "aou" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
-"aov" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/chemistry)
@@ -8790,11 +8772,6 @@
 /obj/machinery/chemical_dispenser/full,
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/chemistry)
@@ -29493,11 +29470,6 @@
 	tag = "icon-pdoor1"
 	},
 /obj/effect/floor_decal/corner/fadeblue/full,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
 "iCy" = (
@@ -31069,6 +31041,16 @@
 /obj/effect/paint_stripe/paleblue,
 /turf/simulated/wall/r_wall/prepainted,
 /area/medical/chemistry)
+"sMC" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/structure/cable,
+/obj/machinery/door/firedoor,
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/plating,
+/area/security/checkpoint)
 "sPc" = (
 /obj/machinery/light/small{
 	dir = 8;
@@ -54879,7 +54861,7 @@ ajm
 akH
 alQ
 amZ
-aov
+aow
 apJ
 aqX
 ase
@@ -56897,7 +56879,7 @@ ahX
 ajw
 akN
 ddO
-kBU
+sMC
 kBU
 aoC
 mPt

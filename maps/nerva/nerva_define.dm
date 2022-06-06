@@ -15,6 +15,7 @@
 	overmap_event_areas = 32
 
 	id_hud_icons = 'maps/nerva/icons/assignment_hud.dmi'
+	logo = "nervalogo.png"
 
 	allowed_spawns = list("Cryogenic Storage", "Secondary Cryogenic Storage", "Cyborg Storage")
 	default_spawn = "Cryogenic Storage"
@@ -85,7 +86,8 @@
 
 /datum/map/nerva/send_welcome()
 	contracts += new /datum/contract/nanotrasen/anomaly
-	var/welcome_text = "<center><br /><font size = 3><b>ICS Nerva</b> Sensor Readings:</font><hr />"
+	var/welcome_text = "<center><img src = [GLOB.using_map.logo]><br>"
+	welcome_text += "<br /><font size = 3><b>ICS Nerva</b> Sensor Readings:</font><hr />"
 	welcome_text += "Report generated on [stationdate2text()] at [stationtime2text()]</center><br /><br />"
 	welcome_text += "Current system:<br /><b>[system_name()]</b><br />"
 	welcome_text += "Next system targeted for jump:<br /><b>[generate_system_name()]</b><br />"
