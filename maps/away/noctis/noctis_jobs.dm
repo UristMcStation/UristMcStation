@@ -2,7 +2,7 @@
 	title = "Hijacker"
 	supervisors = "whatever's left of your conscience"
 	total_positions = 2
-	outfit_type = /decl/hierarchy/outfit/pirate_hijacker
+	outfit_type = /decl/hierarchy/outfit/job/pirate_hijacker
 	info = "You've recently become part of a small scale hijacking operation in the outer ring. \
 			The last job you did with your team was taking over this small exploration ship for the purposes of refitting it for combat, \
 			however, your shift is long past due and nobody seems to have woken you up."
