@@ -22,7 +22,7 @@
 /obj/effect/submap_landmark/spawnpoint/crewmember
 	name = "Exploration Crewmember"
 
-/decl/hierarchy/outfit/pirate_hijacker
+/decl/hierarchy/outfit/job/pirate_hijacker
 	name = "Noctis - Job - Hijacker"
 	uniform = /obj/item/clothing/under/syndicate
 	suit = /obj/item/clothing/suit/armor/pcarrier/light/hijacker
