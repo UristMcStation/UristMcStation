@@ -257,6 +257,12 @@
 		O.dropInto(loc)
 	toggle_filter()
 
+/obj/machinery/sleeper/AltClick(mob/user)
+	if(CanDefaultInteract(user))
+		go_out()
+	else
+		..()
+
 /obj/machinery/sleeper/proc/set_occupant(var/mob/living/carbon/occupant)
 	src.occupant = occupant
 	update_icon()

@@ -75,6 +75,20 @@
 			update_use_power(POWER_USE_IDLE)
 			queue_icon_update()
 
+/obj/machinery/reagent_temperature/proc/eject_beaker(mob/user)
+	if(!container)
+		return
+	var/obj/item/weapon/reagent_containers/B = container
+	user.put_in_hands(B)
+	container = null
+	update_icon()
+
+/obj/machinery/reagent_temperature/AltClick(mob/user)
+	if(CanDefaultInteract(user))
+		eject_beaker(user)
+	else
+		..()
+
 /obj/machinery/reagent_temperature/attack_hand(var/mob/user)
 	interact(user)
 
@@ -184,7 +198,7 @@
 	popup.open()
 
 /obj/machinery/reagent_temperature/CanUseTopic(var/mob/user, var/state, var/href_list)
-	if(href_list["remove_container"])
+	if(href_list && href_list["remove_container"])
 		. = ..(user, GLOB.physical_state, href_list)
 		if(. == STATUS_CLOSE)
 			to_chat(user, SPAN_WARNING("You are too far away."))
@@ -214,11 +228,7 @@
 			to_chat(user, SPAN_WARNING("The button clicks, but nothing happens."))
 
 	if(href_list["remove_container"])
-		if(container)
-			container.dropInto(loc)
-			user.put_in_hands(container)
-			container = null
-			update_icon()
+		eject_beaker(user)
 		. = TOPIC_REFRESH
 
 	if(. == TOPIC_REFRESH)

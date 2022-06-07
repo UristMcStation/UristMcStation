@@ -295,6 +295,17 @@
 	SetName(initial(name))
 	return
 
+/obj/machinery/atmospherics/unary/cryo_cell/AltClick(mob/user)
+	if(CanDefaultInteract(user))
+		go_out()
+	else
+		..()
+
+/obj/machinery/atmospherics/unary/cryo_cell/CtrlClick(mob/user)
+	if(CanDefaultInteract(user))
+		on = !on
+		update_icon()
+
 /obj/machinery/atmospherics/unary/cryo_cell/proc/put_mob(mob/living/carbon/M as mob)
 	if (stat & (NOPOWER|BROKEN))
 		to_chat(usr, "<span class='warning'>The cryo cell is not functioning.</span>")

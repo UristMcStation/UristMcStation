@@ -35,6 +35,12 @@
 	src.go_out()
 	add_fingerprint(usr)
 
+/obj/machinery/bodyscanner/AltClick(mob/user)
+	if(CanPhysicallyInteract(user))
+		eject()
+	else
+		..()
+
 /obj/machinery/bodyscanner/verb/move_inside()
 	set src in oview(1)
 	set category = "Object"
