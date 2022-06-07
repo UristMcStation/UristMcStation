@@ -123,19 +123,19 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 	main += "<b>Date:</b> [fine["date"]]<br><br><br>"
 
 	var/paper1_txt = "<center><img src = [GLOB.using_map.logo]><br>"
-	paper1_txt += "<b>Notice of Fine Penalty</b><br>"
+	paper1_txt += "<b>Notice of Fine Penalty</b><br></center>"
 	paper1_txt += main
 	paper1_txt += "<hr><font size= \"1\">"
 	paper1_txt += "This fine penalty has been issued in accordance with [GLOB.using_map.station_name] disciplinary procedures and authorised by the commanding body.<br>"
 	paper1_txt += "Any grievances or objections are to be filed and raised with the commanding body. Subject to a 14-day grace period; failed resolutions will subsequently be taken to court in accordance with local space law. Appropriate legal representation may not be guaranteed.<br>"
 	paper1_txt += "[GLOB.using_map.station_name] commanding body retains the right to pay any reimbursements in the form of working credits. By accepting this paper issue, you agree to these terms."
-	paper1_txt += "</font></center>"
+	paper1_txt += "</font>"
 
 	var/paper2_txt = "<center><img src = [GLOB.using_map.logo]><br>"
-	paper2_txt += "<b>Record of Fine Penalty</b><br>"
+	paper2_txt += "<b>Record of Fine Penalty</b><br></center>"
 	paper2_txt += main
 	paper2_txt += "<hr><font size= \"1\">"
-	paper2_txt += "Administrative copy: Retain this copy for [GLOB.using_map.station_name] record keeping, and supply the notice copy to the penalized party.</font></center>"
+	paper2_txt += "Administrative copy: Retain this copy for [GLOB.using_map.station_name] record keeping, and supply the notice copy to the penalized party.</font>"
 
 	if(print(user, "Notice of Fine Penalty: [fine["name"]]", paper1_txt))
 		print(user, "Record of Fine Penalty: [fine["name"]]", paper2_txt)

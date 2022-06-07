@@ -303,21 +303,21 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 				var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(src.loc)
 				P.SetName("Notice of Fine Penalty: [focused_account.owner_name]")
 				P.info = "<center><img src = [GLOB.using_map.logo]><br>"
-				P.info += "<b>Notice of Fine Penalty</b><br>"
+				P.info += "<b>Notice of Fine Penalty</b><br></center>"
 				P.info += text
 				P.info += "<hr><font size= \"1\">"
 				P.info += "This fine penalty has been issued in accordance with [GLOB.using_map.station_name] disciplinary procedures and authorised by the commanding body.<br>"
 				P.info += "Any grievances or objections are to be filed and raised with the commanding body. Subject to a 14-day grace period; failed resolutions will subsequently be taken to court in accordance with local space law. Appropriate legal representation may not be guaranteed.<br>"
 				P.info += "[GLOB.using_map.station_name] commanding body retains the right to pay any reimbursements in the form of working credits. By accepting this paper issue, you agree to these terms."
-				P.info += "</font></center>"
+				P.info += "</font>"
 
 				var/obj/item/weapon/paper/P2 = new /obj/item/weapon/paper(src.loc)
 				P2.SetName("Record of Fine Penalty: [focused_account.owner_name]")
 				P2.info = "<center><img src = [GLOB.using_map.logo]><br>"
-				P2.info += "<b>Record of Fine Penalty</b><br>"
+				P2.info += "<b>Record of Fine Penalty</b><br></center>"
 				P2.info += text
 				P2.info += "<hr><font size= \"1\">"
-				P2.info += "Administrative copy: Retain this copy for [GLOB.using_map.station_name] record keeping, and supply the notice copy to the penalized party.</font></center>"
+				P2.info += "Administrative copy: Retain this copy for [GLOB.using_map.station_name] record keeping, and supply the notice copy to the penalized party.</font>"
 
 				var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
 				stampoverlay.icon_state = "paper_stamp-hop"
