@@ -7714,20 +7714,6 @@
 "nE" = (
 /turf/simulated/wall/prepainted,
 /area/civilian/freezer)
-"nF" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Kitchen Maintenance";
-	req_access = list("ACCESS_KITCHEN")
-	},
-/obj/structure/catwalk,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/plating,
-/area/civilian/freezer)
 "nH" = (
 /obj/structure/closet,
 /obj/structure/cable,
@@ -50352,7 +50338,7 @@ kd
 kT
 lI
 mI
-nF
+qB
 oB
 pv
 nE

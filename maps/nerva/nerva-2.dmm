@@ -30691,6 +30691,16 @@
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/wood/walnut,
 /area/civilian/abandonedoffice)
+"pMv" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/structure/cable,
+/obj/machinery/door/firedoor,
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/plating,
+/area/security/checkpoint)
 "pSC" = (
 /obj/machinery/light,
 /obj/structure/cable{
@@ -30713,16 +30723,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/portgun)
-"pVp" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/structure/cable,
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/turf/simulated/floor/plating,
-/area/security/checkpoint)
 "qiD" = (
 /obj/machinery/camera/network/third_deck{
 	c_tag = "Bar Main";
@@ -56885,7 +56885,7 @@ ahX
 ajw
 akN
 ddO
-pVp
+pMv
 kBU
 aoC
 mPt
