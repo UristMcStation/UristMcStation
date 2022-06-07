@@ -82,16 +82,16 @@
 	w_class = ITEM_SIZE_NORMAL
 
 /obj/item/ammo_magazine/shotbundle/attack_hand(mob/user)
-    ..()
-    check_ammo_count(user)
+	..()
+	check_ammo_count(user)
 
 /obj/item/ammo_magazine/shotbundle/proc/check_ammo_count(mob/user)
-    if(stored_ammo.len <= 1)
-        user.drop_from_inventory(src, null)
-        if(stored_ammo.len)
-            user.put_in_hands(stored_ammo[1])
-            stored_ammo.Cut()
-        qdel(src)
+	if(stored_ammo.len <= 1)
+		user.drop_from_inventory(src, null)
+		if(stored_ammo.len)
+			user.put_in_hands(stored_ammo[1])
+			stored_ammo.Cut()
+		qdel(src)
 
 
 /obj/item/ammo_magazine/shotbundle/attack_self(mob/user)
@@ -105,7 +105,7 @@
 		overlays += image("icons/urist/items/shotbundle.dmi", "[C.icon_state]-[count]")
 		count++
 
-	
+
 /obj/item/ammo_magazine/shotholder
 	name = "shotgun slug holder"
 	desc = "A convenient pouch that holds 12 gauge shells."

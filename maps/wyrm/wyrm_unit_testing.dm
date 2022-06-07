@@ -33,7 +33,6 @@
 		/area/djstation,
 		/area/outpost,
 		/area/outpost/abandoned,
-		/area/jungleoutpost,
 		/area/science/xenoarch,
 		/area/centcom/holding,
 		/area/centcom/specops,

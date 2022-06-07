@@ -3342,11 +3342,6 @@
 	name = "Sub-Acute Ward";
 	req_access = list("ACCESS_MEDICAL")
 	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
@@ -4089,6 +4084,11 @@
 	d2 = 2;
 	icon_state = "1-2";
 	tag = ""
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/centp)
@@ -6544,11 +6544,6 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/chemistry)
 "alR" = (
@@ -7217,11 +7212,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/reagent_temperature{
 	pixel_x = 4
 	},
@@ -7458,12 +7448,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/catwalk_plated/dark,
-/obj/structure/disposalpipe/segment,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
 	tag = ""
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/plating,
 /area/hallway/commandport)
@@ -7471,6 +7464,10 @@
 /obj/effect/floor_decal/corner/fadeblue{
 	dir = 6;
 	icon_state = "corner_white"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandport)
@@ -7992,14 +7989,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/chemistry)
-"aov" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/chemistry)
 "aow" = (
 /turf/simulated/floor/tiled/white,
 /area/medical/chemistry)
@@ -8215,10 +8204,10 @@
 	name = "Boarding Armoury";
 	req_access = list("ACCESS_FIRST_OFFICER")
 	},
+/obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/techmaint,
 /area/security/boardarmoury)
 "aoT" = (
@@ -8235,7 +8224,7 @@
 	},
 /obj/effect/catwalk_plated/dark,
 /obj/structure/disposalpipe/segment{
-	dir = 8;
+	dir = 2;
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/plating,
@@ -8254,6 +8243,7 @@
 	icon_state = "alarm0";
 	pixel_x = 24
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandport)
 "aoV" = (
@@ -8791,11 +8781,6 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/chemistry)
 "apK" = (
@@ -9126,6 +9111,13 @@
 	tag = ""
 	},
 /obj/effect/catwalk_plated/dark,
+/obj/structure/disposalpipe/sortjunction{
+	dir = 1;
+	icon_state = "pipe-j1s";
+	name = "Port Gun Bay";
+	sortType = "Port Gun Bay";
+	tag = "icon-pipe-j1s (NORTH)"
+	},
 /turf/simulated/floor/plating,
 /area/hallway/commandport)
 "aqj" = (
@@ -9136,6 +9128,10 @@
 /obj/machinery/firealarm{
 	dir = 4;
 	pixel_x = 24
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandport)
@@ -9804,6 +9800,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/hallway/commandport)
 "ark" = (
@@ -11217,9 +11214,6 @@
 	tag = "icon-pdoor1"
 	},
 /obj/effect/floor_decal/corner/fadeblue/full,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandport)
 "asC" = (
@@ -11230,9 +11224,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4;
 	icon_state = "intact-supply"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
 	},
 /obj/effect/floor_decal/corner/fadeblue{
 	dir = 9;
@@ -11249,9 +11240,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/effect/catwalk_plated/dark,
 /turf/simulated/floor/plating,
 /area/hallway/commandport)
@@ -11264,10 +11252,6 @@
 	dir = 4;
 	icon_state = "map-scrubbers"
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
 /obj/effect/catwalk_plated/dark,
 /obj/structure/cable{
 	d1 = 1;
@@ -11275,6 +11259,7 @@
 	icon_state = "1-2";
 	tag = ""
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/hallway/commandport)
 "asF" = (
@@ -12612,7 +12597,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor,
-/obj/structure/disposalpipe/segment,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -18134,8 +18118,8 @@
 /obj/structure/disposalpipe/sortjunction{
 	dir = 8;
 	icon_state = "pipe-j2s";
-	name = "Deck 3 Hallway";
-	sortType = "Deck 3 Hallway"
+	name = "Upper Cargo Bay";
+	sortType = "Upper Cargo Bay"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4;
@@ -23628,8 +23612,8 @@
 /obj/structure/disposalpipe/sortjunction{
 	dir = 4;
 	icon_state = "pipe-j2s";
-	name = "Chief of Security";
-	sortType = "Chief of Security"
+	name = "Personnel Office";
+	sortType = "Personnel Office"
 	},
 /turf/simulated/floor/plating,
 /area/hallway/commandoffices)
@@ -29287,14 +29271,13 @@
 	dir = 1;
 	icon_state = "corner_white_three_quarters"
 	},
-/obj/structure/disposalpipe/sortjunction{
-	dir = 8;
-	name = "Port Gun Bay";
-	sortType = "Port Gun Bay"
-	},
 /obj/machinery/navbeacon{
 	codes = list("patrol" = 1, "next_patrol" = "Bar");
 	location = "Bridge Port"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/commandport)
@@ -29493,11 +29476,6 @@
 	tag = "icon-pdoor1"
 	},
 /obj/effect/floor_decal/corner/fadeblue/full,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
 "iCy" = (
@@ -30713,6 +30691,16 @@
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/wood/walnut,
 /area/civilian/abandonedoffice)
+"pMv" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/structure/cable,
+/obj/machinery/door/firedoor,
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/plating,
+/area/security/checkpoint)
 "pSC" = (
 /obj/machinery/light,
 /obj/structure/cable{
@@ -54879,7 +54867,7 @@ ajm
 akH
 alQ
 amZ
-aov
+aow
 apJ
 aqX
 ase
@@ -56897,7 +56885,7 @@ ahX
 ajw
 akN
 ddO
-kBU
+pMv
 kBU
 aoC
 mPt

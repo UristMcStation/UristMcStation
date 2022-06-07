@@ -27,7 +27,7 @@
 	fineNum = rand(300,1000)
 
 /obj/machinery/computer/accounts/Initialize()
-	..()
+	.=..()
 	for(var/department in department_accounts)
 		if(department == "Vendor")
 			continue
@@ -252,7 +252,7 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 							message = "[target_mind.name],\n\nYour account has been released. We apologise for any inconveniences this may have caused."
 						email_client(target_mind.initial_email_login["login"], message)
 				addLog("ACCOUNT FREEZE", "[focused_account.owner_name], [focused_account.suspended ? "frozen" : "released"]", auth_card)
-				return TOPIC_REFRESH 
+				return TOPIC_REFRESH
 
 			if("fine_account")
 				if(!focused_account || !target_mind)
@@ -289,7 +289,7 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 				station_account.do_transaction(deposit)
 
 				//For those pencil-pushers. Forms to sign and file!
-				var/text = "<font size = \"2\">[GLOB.using_map.station_name] Disciplinary Committee</font></center><br><hr><br>"
+				var/text = "<center><font size = \"2\">[GLOB.using_map.station_name] Disciplinary Committee</font></center><br><hr><br>"
 				text += "<b>Issued to:</b> [focused_account.owner_name]<br>"
 				text += "<b>Fine Reference:</b> #[fineNum]<br>"
 				text += "<b>Fine Amount:</b> [amount] Th<br>"
@@ -302,8 +302,8 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 
 				var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(src.loc)
 				P.SetName("Notice of Fine Penalty: [focused_account.owner_name]")
-				P.info = "<center><img src = nervalogo.png><br>"
-				P.info += "<b>Notice of Fine Penalty</b><br>"
+				P.info = "<center><img src = [GLOB.using_map.logo]><br>"
+				P.info += "<b>Notice of Fine Penalty</b><br></center>"
 				P.info += text
 				P.info += "<hr><font size= \"1\">"
 				P.info += "This fine penalty has been issued in accordance with [GLOB.using_map.station_name] disciplinary procedures and authorised by the commanding body.<br>"
@@ -313,8 +313,8 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 
 				var/obj/item/weapon/paper/P2 = new /obj/item/weapon/paper(src.loc)
 				P2.SetName("Record of Fine Penalty: [focused_account.owner_name]")
-				P2.info = "<center><img src = nervalogo.png><br>"
-				P2.info += "<b>Record of Fine Penalty</b><br>"
+				P2.info = "<center><img src = [GLOB.using_map.logo]><br>"
+				P2.info += "<b>Record of Fine Penalty</b><br></center>"
 				P2.info += text
 				P2.info += "<hr><font size= \"1\">"
 				P2.info += "Administrative copy: Retain this copy for [GLOB.using_map.station_name] record keeping, and supply the notice copy to the penalized party.</font>"
@@ -542,7 +542,7 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 				var/obj/item/weapon/paper/R = new /obj/item/weapon/paper(P)
 
 				R.SetName("Account information: [acc.owner_name]")
-				R.info = "<center><img src = nervalogo.png><br>"
+				R.info = "<center><img src = [GLOB.using_map.logo]><br>"
 				R.info += "<b>New Account Details</b><br>"
 				R.info += "<font size = \"2\">Strictly Confidential</font></center><br><hr><br>"
 				R.info += "Welcome, [acc.owner_name], to the [GLOB.using_map.station_name]. Please find bellow all relevant account details that have been assigned to you.<br>"

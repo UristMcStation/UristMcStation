@@ -384,46 +384,49 @@
 
 ////////////////////////////////ICE CREAM///////////////////////////////////
 /obj/item/weapon/reagent_containers/food/snacks/icecream
-        name = "ice cream"
-        desc = "Delicious ice cream."
-        icon = 'icons/urist/kitchen.dmi'
-        icon_state = "icecream_cone"
-        New()
-                ..()
-                reagents.add_reagent(/datum/reagent/nutriment, 1)
-                reagents.add_reagent(/datum/reagent/sugar,1)
-                bitesize = 1
-                update_icon()
+	name = "ice cream"
+	desc = "Delicious ice cream."
+	icon = 'icons/urist/kitchen.dmi'
+	icon_state = "icecream_cone"
 
-        update_icon()
-                overlays.Cut()
-                var/image/filling = image('icons/urist/kitchen.dmi', src, "icecream_color") //GLLEEEEEEERD!
-                filling.icon += reagents.get_color()
-                overlays += filling
+/obj/item/weapon/reagent_containers/food/snacks/icecream/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 1)
+	reagents.add_reagent(/datum/reagent/sugar,1)
+	bitesize = 1
+	update_icon()
+
+/obj/item/weapon/reagent_containers/food/snacks/icecream/update_icon()
+	overlays.Cut()
+	var/image/filling = image('icons/urist/kitchen.dmi', src, "icecream_color") //GLLEEEEEEERD!
+	filling.icon += reagents.get_color()
+	overlays += filling
 
 /obj/item/weapon/reagent_containers/food/snacks/icecream/icecreamcone
-        name = "ice cream cone"
-        desc = "Delicious ice cream."
-        icon_state = "icecream_cone"
-        volume = 500
-        New()
-                ..()
-                reagents.add_reagent(/datum/reagent/nutriment, 2)
-                reagents.add_reagent(/datum/reagent/sugar,6)
-                reagents.add_reagent(/datum/reagent/drink/ice,2)
-                bitesize = 3
+	name = "ice cream cone"
+	desc = "Delicious ice cream."
+	icon_state = "icecream_cone"
+	volume = 500
+
+/obj/item/weapon/reagent_containers/food/snacks/icecream/icecreamcone/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 2)
+	reagents.add_reagent(/datum/reagent/sugar,6)
+	reagents.add_reagent(/datum/reagent/drink/ice,2)
+	bitesize = 3
 
 /obj/item/weapon/reagent_containers/food/snacks/icecream/icecreamcup
-        name = "chocolate ice cream cone"
-        desc = "Delicious ice cream."
-        icon_state = "icecream_cup"
-        volume = 500
-        New()
-                ..()
-                reagents.add_reagent(/datum/reagent/nutriment, 4)
-                reagents.add_reagent(/datum/reagent/sugar,8)
-                reagents.add_reagent(/datum/reagent/drink/ice,2)
-                bitesize = 6
+	name = "chocolate ice cream cone"
+	desc = "Delicious ice cream."
+	icon_state = "icecream_cup"
+	volume = 500
+
+/obj/item/weapon/reagent_containers/food/snacks/icecream/icecreamcup/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 4)
+	reagents.add_reagent(/datum/reagent/sugar,8)
+	reagents.add_reagent(/datum/reagent/drink/ice,2)
+	bitesize = 6
 
 //cereals
 

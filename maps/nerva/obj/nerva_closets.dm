@@ -11,7 +11,7 @@
 	extra_decals = list(
 		"stripe_vertical_left_partial" = COLOR_GOLD,
 		"stripe_vertical_right_partial" = COLOR_GOLD,
-		"cap" = COLOR_GOLD
+		"captain" = COLOR_GOLD
 	)
 
 /obj/structure/closet/secure_closet/nervacap
@@ -87,6 +87,10 @@
 
 /decl/closet_appearance/secure_closet/command/nervaso
 	color = "#4f637d"
+	decals = list(
+		"lower_holes",
+		"upper_holes"
+	)
 	extra_decals = list(
 		"stripe_vertical_mid_partial" = COLOR_GOLD,
 		"so" = COLOR_GOLD

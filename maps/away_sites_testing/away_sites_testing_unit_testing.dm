@@ -7,7 +7,6 @@
 		/area/constructionsite/atmospherics = NO_SCRUBBER,
 		/area/constructionsite/teleporter = NO_SCRUBBER,
 		/area/derelict/ship = NO_SCRUBBER|NO_VENT,
-		/area/djstation = NO_SCRUBBER|NO_APC,
 		/area/mine/explored = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/mine/unexplored = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/outpost/abandoned = NO_SCRUBBER,
@@ -30,7 +29,7 @@
 		/area/casino/casino_solar_control = NO_SCRUBBER,
 		/area/casino/casino_maintenance = NO_SCRUBBER,
 		/area/casino/casino_hangar = NO_SCRUBBER,
-		/area/casino/casino_cutter = NO_SCRUBBER|NO_VENT,
+		/area/casino/casino_cutter = NO_SCRUBBER,
 		/area/bluespaceriver/underground = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/bluespaceriver/ground = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/slavers_base/hangar = NO_SCRUBBER,
@@ -38,7 +37,8 @@
 		/area/map_template/hydrobase/station = NO_SCRUBBER,
 		/area/mobius_rift = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/map_template/marooned = NO_SCRUBBER|NO_VENT|NO_APC,
-		/area/map_template/datacapsule = NO_SCRUBBER|NO_VENT|NO_APC
+		/area/map_template/datacapsule = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/planet/abandoned_colony = NO_SCRUBBER
 //		/area/icarus/vessel = NO_APC,
 //		/area/icarus/open = NO_SCRUBBER|NO_VENT|NO_APC,
 	)
@@ -100,5 +100,12 @@
 		/area/exoplanet,
 		/area/map_template,
 		/area/unishi,
-		/area/voxship
+		/area/voxship,
+		/area/shuttle,
+		/area/awaymission,
+		/area/infestation,
+		/area/scom,
+		/area/planet,
+		/area/jungleoutpost,
+		/area/boarding_ship
 	)

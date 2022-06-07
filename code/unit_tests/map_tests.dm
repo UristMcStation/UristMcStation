@@ -653,7 +653,7 @@ datum/unit_test/ladder_check/start_test()
 	. = 1
 	var/fail = FALSE
 	for(var/obj/structure/disposalpipe/sortjunction/sort in world)
-		if(is_type_in_list(sort, exempt_junctions))
+		if(is_type_in_list(sort, exempt_junctions) || sort.test_exempted)
 			continue
 		var/obj/machinery/disposal/bin = get_bin_from_junction(sort)
 		if(!bin)
@@ -701,9 +701,14 @@ datum/unit_test/ladder_check/start_test()
 /obj/structure/disposalholder/unit_test/proc/log_and_fail()
 	var/location = log_info_line(get_turf(src))
 	var/expected_loc = log_info_line(get_turf(test.all_tagged_destinations[destinationTag]))
-	test.log_bad("A package routed from [test.packages_awaiting_delivery[src]] to [destinationTag] was misrouted to [location]; expected location was [expected_loc].")
-	test.failed = TRUE
-	test.packages_awaiting_delivery -= src
+	if(location == expected_loc) //what the fuck Bay
+		test.packages_awaiting_delivery -= src
+		return
+
+	else
+		test.log_bad("A package routed from [test.packages_awaiting_delivery[src]] to [destinationTag] was misrouted to [location]; expected location was [expected_loc].")
+		test.failed = TRUE
+		test.packages_awaiting_delivery -= src
 
 /datum/unit_test/networked_disposals_shall_deliver_tagged_packages/check_result()
 	. = 1
@@ -764,7 +769,7 @@ datum/unit_test/ladder_check/start_test()
 							objs_with_numeric_req_access |= O
 				else if(isnum(req))
 					objs_with_numeric_req_access |= O
-			
+
 	if(objs_with_numeric_req_access.len)
 		for(var/entry in objs_with_numeric_req_access)
 			log_bad("[log_info_line(entry)] has a numeric value in req_access.")

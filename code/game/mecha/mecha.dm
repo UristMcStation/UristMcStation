@@ -82,9 +82,9 @@
 	var/datum/events/events
 
 
-	var/static/image/radial_image_eject = image(icon = 'icons/screen/radial.dmi', icon_state = "radial_eject"),
-	var/static/image/radial_image_airtoggle = image(icon= 'icons/screen/radial.dmi', icon_state = "radial_airtank"),
-	var/static/image/radial_image_lighttoggle = image(icon = 'icons/screen/radial.dmi', icon_state = "radial_light"),
+	var/static/image/radial_image_eject = image(icon = 'icons/screen/radial.dmi', icon_state = "radial_eject")
+	var/static/image/radial_image_airtoggle = image(icon= 'icons/screen/radial.dmi', icon_state = "radial_airtank")
+	var/static/image/radial_image_lighttoggle = image(icon = 'icons/screen/radial.dmi', icon_state = "radial_light")
 	var/static/image/radial_image_statpanel = image(icon = 'icons/screen/radial.dmi', icon_state = "radial_examine2")
 
 /obj/mecha/drain_power(var/drain_check)

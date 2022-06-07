@@ -45,6 +45,7 @@
 #define NETWORK_RESEARCH "Research"
 #define NETWORK_ROBOTS "Robots"
 #define NETWORK_SECURITY "Security"
+#define NETWORK_EXPLORATION "Exploration"
 #define NETWORK_THUNDER "Thunderdome"
 
 #define NETWORK_ALARM_ATMOS "Atmosphere Alarms"
