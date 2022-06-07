@@ -23,6 +23,7 @@
 	one_hand_penalty = 3
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3, TECH_POWER = 3)
 	force = 8
+	charge_cost = 12.5
 	max_shots = 12
 	accuracy = 1
 	projectile_type = /obj/item/projectile/beam/stun/heavy
@@ -52,6 +53,7 @@
 	item_state = "stunrevolver"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3, TECH_POWER = 2)
 	projectile_type = /obj/item/projectile/energy/electrode
+	charge_cost = 25
 	max_shots = 6
 	combustion = 0
 
@@ -66,6 +68,7 @@
 	one_hand_penalty = 6
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3, TECH_POWER = 3)
 	force = 10
+	charge_cost = 20
 	max_shots = 10
 	accuracy = 1
 	projectile_type = /obj/item/projectile/energy/electrode/stunshot
@@ -111,6 +114,7 @@
 	item_state = "plasma_stun"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_POWER = 3)
 	fire_delay = 20
+	charge_cost = 50
 	max_shots = 4
 	projectile_type = /obj/item/projectile/energy/plasmastun
 	combustion = 0
