@@ -5462,6 +5462,10 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics)
 "ke" = (
@@ -5477,7 +5481,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/hologram/holopad,
 /obj/structure/disposalpipe/segment{
-	dir = 1;
+	dir = 8;
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/wood/walnut,
@@ -5494,9 +5498,6 @@
 	tag = "icon-intact-scrubbers (EAST)"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /turf/simulated/floor/wood/walnut,
 /area/security/forensics)
 "kg" = (
@@ -5518,9 +5519,6 @@
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
 	},
 /turf/simulated/floor/wood/walnut,
 /area/security/forensics)
@@ -5544,9 +5542,6 @@
 	name = "Forensics Lab";
 	req_access = list("ACCESS_FORENSICS")
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /turf/simulated/floor/wood/walnut,
 /area/security/forensics)
 "ki" = (
@@ -5568,9 +5563,6 @@
 	pixel_y = -24
 	},
 /obj/effect/catwalk_plated/dark,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /turf/simulated/floor/plating,
 /area/security/breakroom)
 "kj" = (
@@ -5589,7 +5581,7 @@
 	tag = "icon-intact-scrubbers (EAST)"
 	},
 /obj/effect/catwalk_plated/dark,
-/obj/structure/disposalpipe/junction,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/security/breakroom)
 "kk" = (
@@ -6011,6 +6003,7 @@
 /obj/effect/floor_decal/corner/red/three_quarters{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics)
 "kU" = (
@@ -6388,6 +6381,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/security/forensics)
 "lJ" = (
@@ -7014,9 +7008,10 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/structure/disposalpipe/junction{
+/obj/structure/disposalpipe/sortjunction{
 	dir = 8;
-	icon_state = "pipe-j2"
+	name = "Forensics Office";
+	sortType = "Forensics Office"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fp)
@@ -7064,10 +7059,8 @@
 	dir = 4;
 	icon_state = "intact-supply"
 	},
-/obj/structure/disposalpipe/sortjunction{
-	dir = 8;
-	name = "Forensics Office";
-	sortType = "Forensics Office"
+/obj/structure/disposalpipe/junction{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fp)
@@ -8207,8 +8200,7 @@
 	icon_state = "1-4"
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/civilian/freezer)
@@ -8231,6 +8223,10 @@
 	},
 /obj/machinery/camera/network/fourth_deck{
 	c_tag = "Kitchen Staircase"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/plating,
 /area/civilian/freezer)
@@ -8666,6 +8662,10 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/plating,
 /area/civilian/freezer)
 "px" = (
@@ -8679,6 +8679,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/freezer)
 "py" = (
@@ -8688,10 +8691,16 @@
 	icon_state = "1-8"
 	},
 /obj/machinery/hologram/holopad,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/freezer)
 "pA" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -8701,6 +8710,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -8716,6 +8728,9 @@
 	icon_state = "intact-supply"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -8734,7 +8749,10 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/disposalpipe/segment,
+/obj/structure/disposalpipe/junction{
+	dir = 1;
+	icon_state = "pipe-j2"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
 "pF" = (
@@ -20318,6 +20336,9 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /mob/living/simple_animal/hostile/retaliate/goat{
