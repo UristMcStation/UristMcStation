@@ -146,7 +146,7 @@
 		usr << "<span class='warning'> This will only work on normal organic beings.</span>"
 		return
 
-	if (COLD_RESISTANCE in C.mutations)
+	if (MUTATION_COLD_RESISTANCE in C.mutations)
 		C.visible_message("<span class='warning'> A cloud of fine ice crystals engulfs [C.name], but disappears almost instantly!</span>")
 		return
 
@@ -340,7 +340,7 @@
 			else usr.pixel_y -= 8
 			sleep(1)
 
-		if (FAT in usr.mutations && prob(66))
+		if (MUTATION_FAT in usr.mutations && prob(66))
 			usr.visible_message("<span class='danger'>[usr.name] crashes due to their heavy weight!</span>")
 			//playsound(usr.loc, 'zhit.wav', 50, 1)
 			usr.weakened += 10

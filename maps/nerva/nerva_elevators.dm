@@ -59,25 +59,25 @@
 
 //i fucking hate myself
 
-/area/turbolift/main_fourth_deck		//These are backwards somehow, and it really hurts my head - Shippy
-	name = "First Deck"
+/area/turbolift/main_fourth_deck		//These are backwards somehow, and it really hurts my head - Shippy //Ships are backwards. First deck is the top floor.
+	name = "Fourth Deck"
 	base_turf = /turf/simulated/floor/plating
-	lift_announce_str = "Arriving at First Deck: Expedition Hangars. Lower Cargo Hold. Science Labs. Emergency Escape Pods."
+	lift_announce_str = "Arriving at Fourth Deck: Expedition Hangars. Lower Cargo Hold. Science Labs. Emergency Escape Pods."
 
 /area/turbolift/main_third_deck
-	name = "Second Deck"
-	base_turf = /turf/simulated/open
-	lift_announce_str = "Arriving at Second Deck: Medbay. Bridge. Brig. Cargo. Bar. Canteen. Lower Engineering."
-
-/area/turbolift/main_second_deck
 	name = "Third Deck"
 	base_turf = /turf/simulated/open
-	lift_announce_str = "Arriving at Third: Upper Engineering. Library. Chapel. Atmospherics. Tool Storage."
+	lift_announce_str = "Arriving at Third Deck: Medbay. Bridge. Brig. Cargo. Bar. Canteen. Lower Engineering."
+
+/area/turbolift/main_second_deck
+	name = "Second Deck"
+	base_turf = /turf/simulated/open
+	lift_announce_str = "Arriving at Second Deck: Upper Engineering. Library. Chapel. Atmospherics. Tool Storage."
 
 /area/turbolift/main_first_deck
-	name = "Fourth Deck"
+	name = "First Deck"
 	base_turf = /turf/simulated/open
-	lift_announce_str = "Arriving at Fourth Deck: Docking Port. AI Core. Security Checkpoint."
+	lift_announce_str = "Arriving at First Deck: Docking Port. AI Core. Security Checkpoint."
 
 /obj/nerva_lift_map_holder
 	name = "turbolift map placeholder"

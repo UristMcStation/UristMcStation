@@ -86,7 +86,7 @@
 /obj/vehicle/bike/proc/unload_engine()
 	if(!engine)
 		return
-	engine.forceMove(get_turf(src))
+	engine.dropInto(loc)
 	if(trail)
 		trail.stop()
 		qdel(trail)
@@ -196,7 +196,7 @@
 		return
 	..()
 
-/obj/vehicle/bike/update_icon()
+/obj/vehicle/bike/on_update_icon()
 	overlays.Cut()
 
 	if(on)
@@ -229,7 +229,7 @@
 	desc = "A fancy space scooter."
 	icon_state = "gyroscooter_off"
 
-	land_speed = 1.5
+	land_speed = 1.2
 	space_speed = 0
 	bike_icon = "gyroscooter"
 

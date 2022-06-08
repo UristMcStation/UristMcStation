@@ -32,6 +32,25 @@
 			return
 	..()
 
+/obj/item/stack/tile/verb/place_above()
+	set name = "Place Tile Above"
+	set category = "Object"
+
+	if (usr.stat || usr.restrained() || usr.incapacitated()) return
+
+	var/turf/target = get_turf(locate(src.loc.x,src.loc.y,src.loc.z+1))
+	
+	if(!target || !AreConnectedZLevels(src.loc.z,target.z))
+		to_chat(usr, "<span class='warning'>There's nothing above you.</span>")
+		return
+	
+	if(locate(/obj/structure/lattice, target))
+		target.attackby(src, src.loc)
+		to_chat(usr, "<span class='notice'>You slide \the [src] into the lattice above.</span>")
+		playsound(usr, 'sound/weapons/Genhit.ogg', 50, 1)
+	else
+		to_chat(usr, "<span class='warning'>There's no exposed lattice above you.</span>")
+
 /*
  * Grass
  */
@@ -51,6 +70,7 @@
 	singular_name = "wood floor tile"
 	desc = "An easy to fit wooden floor tile."
 	icon_state = "tile-wood"
+	matter = list(MATERIAL_WOOD = 450)
 	build_type = /decl/flooring/wood
 
 /obj/item/stack/tile/wood/cyborg
@@ -61,13 +81,45 @@
 	stacktype = /obj/item/stack/tile/wood
 	build_type = /decl/flooring/wood
 
+/obj/item/stack/tile/mahogany
+	name = "mahogany floor tile"
+	singular_name = "mahogany floor tile"
+	desc = "An easy to fit mahogany wood floor tile."
+	icon_state = "tile-mahogany"
+	matter = list(MATERIAL_WOOD = 450)
+	build_type = /decl/flooring/wood/mahogany
+
+/obj/item/stack/tile/maple
+	name = "maple floor tile"
+	singular_name = "maple floor tile"
+	desc = "An easy to fit maple wood floor tile."
+	icon_state = "tile-maple"
+	matter = list(MATERIAL_WOOD = 450)
+	build_type = /decl/flooring/wood/maple
+
+/obj/item/stack/tile/ebony
+	name = "ebony floor tile"
+	singular_name = "ebony floor tile"
+	desc = "An easy to fit ebony floor tile."
+	icon_state = "tile-ebony"
+	matter = list(MATERIAL_WOOD = 450)
+	build_type = /decl/flooring/wood/ebony
+
+/obj/item/stack/tile/walnut
+	name = "walnut floor tile"
+	singular_name = "walnut floor tile"
+	desc = "An easy to fit walnut wood floor tile."
+	icon_state = "tile-walnut"
+	matter = list(MATERIAL_WOOD = 450)
+	build_type = /decl/flooring/wood/walnut
+
 /obj/item/stack/tile/floor
 	name = "steel floor tile"
 	singular_name = "steel floor tile"
 	desc = "Those could work as a pretty decent throwing weapon." //why?
 	icon_state = "tile"
 	force = 6
-	matter = list(DEFAULT_WALL_MATERIAL = 937.5)
+	matter = list(MATERIAL_STEEL = 450)
 	throwforce = 15
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	build_type = /decl/flooring/tiling
@@ -76,29 +128,31 @@
 	name = "steel mono tile"
 	singular_name = "steel mono tile"
 	icon_state = "tile"
-	matter = list(DEFAULT_WALL_MATERIAL = 937.5)
+	matter = list(MATERIAL_STEEL = 450)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
+	build_type = /decl/flooring/tiling/mono
 
 /obj/item/stack/tile/mono/dark
 	name = "dark mono tile"
 	singular_name = "dark mono tile"
 	icon_state = "tile"
-	matter = list(DEFAULT_WALL_MATERIAL = 937.5)
+	matter = list(MATERIAL_STEEL = 450)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
+	build_type = /decl/flooring/tiling/dark/mono
 
 /obj/item/stack/tile/mono/white
 	name = "white mono tile"
 	singular_name = "white mono tile"
 	icon_state = "tile"
-	matter = list(DEFAULT_WALL_MATERIAL = 937.5)
+	matter = list(MATERIAL_STEEL = 450)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
-	build_type = /decl/flooring/tiling/mono
+	build_type = /decl/flooring/tiling/mono/white
 
 /obj/item/stack/tile/grid
 	name = "grey grid tile"
 	singular_name = "grey grid tile"
 	icon_state = "tile_grid"
-	matter = list(DEFAULT_WALL_MATERIAL = 937.5)
+	matter = list(MATERIAL_STEEL = 450)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	build_type = /decl/flooring/tiling/new_tile/steel_grid
 
@@ -106,7 +160,7 @@
 	name = "grey ridge tile"
 	singular_name = "grey ridge tile"
 	icon_state = "tile_ridged"
-	matter = list(DEFAULT_WALL_MATERIAL = 937.5)
+	matter = list(MATERIAL_STEEL = 450)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	build_type = /decl/flooring/tiling/new_tile/steel_ridged
 
@@ -114,7 +168,7 @@
 	name = "grey techfloor tile"
 	singular_name = "grey techfloor tile"
 	icon_state = "techtile_grey"
-	matter = list(DEFAULT_WALL_MATERIAL = 937.5)
+	matter = list(MATERIAL_STEEL = 450)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	build_type = /decl/flooring/tiling/new_tile/techmaint
 
@@ -122,7 +176,7 @@
 	name = "grid techfloor tile"
 	singular_name = "grid techfloor tile"
 	icon_state = "techtile_grid"
-	matter = list(DEFAULT_WALL_MATERIAL = 937.5)
+	matter = list(MATERIAL_STEEL = 450)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	build_type = /decl/flooring/tiling/tech/grid
 
@@ -130,7 +184,7 @@
 	name = "dark techfloor tile"
 	singular_name = "dark techfloor tile"
 	icon_state = "techtile_maint"
-	matter = list(DEFAULT_WALL_MATERIAL = 937.5)
+	matter = list(MATERIAL_STEEL = 450)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	build_type = /decl/flooring/tiling/tech
 
@@ -138,7 +192,7 @@
 	name = "white floor tile"
 	singular_name = "white floor tile"
 	icon_state = "tile_white"
-	matter = list("plastic" = 937.5)
+	matter = list(MATERIAL_PLASTIC = 450)
 	build_type = /decl/flooring/tiling/white
 
 /obj/item/stack/tile/floor_white/fifty
@@ -148,7 +202,7 @@
 	name = "dark floor tile"
 	singular_name = "dark floor tile"
 	icon_state = "fr_tile"
-	matter = list("plasteel" = 937.5)
+	matter = list(MATERIAL_PLASTEEL = 450)
 	build_type = /decl/flooring/tiling/dark
 
 /obj/item/stack/tile/floor_dark/fifty
@@ -158,7 +212,7 @@
 	name = "freezer floor tile"
 	singular_name = "freezer floor tile"
 	icon_state = "tile_freezer"
-	matter = list("plastic" = 937.5)
+	matter = list(MATERIAL_PLASTIC = 450)
 	build_type = /decl/flooring/tiling/freezer
 
 /obj/item/stack/tile/floor_freezer/fifty
@@ -183,6 +237,13 @@
 
 /obj/item/stack/tile/linoleum/fifty
 	amount = 50
+
+/obj/item/stack/tile/stone
+	name = "stone slabs"
+	singular name = "stone slab"
+	desc = "A smooth, flat slab of some kind of stone."
+	icon_state = "tile_stone"
+	build_type = /decl/flooring/tiling/stone
 
 /*
  * Carpets

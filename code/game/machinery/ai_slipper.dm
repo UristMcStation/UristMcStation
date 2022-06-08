@@ -3,7 +3,6 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "motion0"
 	anchored = 1.0
-	use_power = 1
 	idle_power_usage = 10
 	var/uses = 20
 	var/disabled = 1
@@ -19,7 +18,7 @@
 	..()
 	update_icon()
 
-/obj/machinery/ai_slipper/update_icon()
+/obj/machinery/ai_slipper/on_update_icon()
 	if (stat & NOPOWER || stat & BROKEN)
 		icon_state = "motion0"
 	else

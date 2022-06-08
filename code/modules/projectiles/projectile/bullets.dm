@@ -124,9 +124,12 @@
 /obj/item/projectile/bullet/pistol
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	damage = 25 //9mm, .38, etc
+	distance_falloff = 3
 
 /obj/item/projectile/bullet/pistol/medium
 	damage = 26.5 //.45
+	penetration_modifier = 1.2
+	distance_falloff = 4
 
 /obj/item/projectile/bullet/pistol/medium/smg
 	fire_sound = 'sound/weapons/gunshot/gunshot_smg.ogg'
@@ -145,6 +148,12 @@
 /obj/item/projectile/bullet/pistol/strong/revolver //revolvers
 	damage = 50 //Revolvers get snowflake bullets, to keep them relevant
 	armor_penetration = 20
+	penetration_modifier = 0.8
+	distance_falloff = 2.5
+
+/obj/item/projectile/bullet/pistol/strong/antique
+	damage = 40
+	armor_penetration = 15
 
 /obj/item/projectile/bullet/pistol/rubber //"rubber" bullets
 	name = "rubber bullet"
@@ -153,6 +162,15 @@
 	agony = 30
 	embed = 0
 	sharp = 0
+
+//4mm. Tiny, very low damage, does not embed, but has very high penetration. Only to be used for the experimental SMG.
+/obj/item/projectile/bullet/c4mm
+	fire_sound = 'sound/weapons/gunshot/gunshot_4mm.ogg'
+	damage = 8
+	penetrating = 1
+	armor_penetration = 70
+	embed = 0
+	distance_falloff = 2
 
 /* shotgun projectiles */
 
@@ -170,6 +188,7 @@
 	embed = 0
 	sharp = 0
 	armor_penetration = 0
+	distance_falloff = 3
 
 //Should do about 80 damage at 1 tile distance (adjacent), and 50 damage at 3 tiles distance.
 //Overall less damage than slugs in exchange for more damage at very close range and more embedding
@@ -185,6 +204,7 @@
 /obj/item/projectile/bullet/rifle
 	armor_penetration = 25
 	penetrating = 1
+	distance_falloff = 1.5
 
 /obj/item/projectile/bullet/rifle/a556
 	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
@@ -204,6 +224,7 @@
 	armor_penetration = 80
 	hitscan = 1 //so the PTR isn't useless as a sniper weapon
 	penetration_modifier = 1.25
+	distance_falloff = 0.5
 
 /obj/item/projectile/bullet/rifle/a145/apds
 	damage = 75
@@ -265,8 +286,8 @@
 	sharp = 0
 
 /obj/item/projectile/bullet/pistol/cap/Process()
-	loc = null
 	qdel(src)
+	return PROCESS_KILL
 
 /obj/item/projectile/bullet/rock //spess dust
 	name = "micrometeor"
@@ -274,6 +295,7 @@
 	damage = 40
 	armor_penetration = 25
 	kill_count = 255
+	distance_falloff = 0
 
 /obj/item/projectile/bullet/rock/New()
 	icon_state = "rock[rand(1,3)]"

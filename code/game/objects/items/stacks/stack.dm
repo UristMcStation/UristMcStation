@@ -14,6 +14,7 @@
 	origin_tech = list(TECH_MATERIAL = 1)
 	var/list/datum/stack_recipe/recipes
 	var/singular_name
+	var/plural_icon_state
 	var/amount = 1
 	var/max_amount //also see stack recipes initialisation, param "max_res_amount" must be equal to this max_amount
 	var/stacktype //determines whether different stack types can merge
@@ -110,12 +111,7 @@
 			to_chat(user, "<span class='warning'>You haven't got enough [src] to build \the [recipe.display_name()]!</span>")
 		return
 
-	if (recipe.one_per_turf && (locate(recipe.result_type) in user.loc))
-		to_chat(user, "<span class='warning'>There is another [recipe.display_name()] here!</span>")
-		return
-
-	if (recipe.on_floor && !isfloor(user.loc))
-		to_chat(user, "<span class='warning'>\The [recipe.display_name()] must be constructed on the floor!</span>")
+	if(!recipe.can_make(user))
 		return
 
 	if (recipe.time)
@@ -124,20 +120,11 @@
 			return
 
 	if (use(required))
-		var/atom/O
-		if(recipe.send_material_data && recipe.use_material)
-			O = new recipe.result_type(user.loc, recipe.use_material)
-		else
-			O = new recipe.result_type(user.loc)
-		O.set_dir(user.dir)
-		O.add_fingerprint(user)
+		var/atom/O = recipe.spawn_result(user, user.loc, produced)
+		if(O)
+			O.add_fingerprint(user)
 
-		user.put_in_hands(O)
-
-		if (istype(O, /obj/item/stack))
-			var/obj/item/stack/S = O
-			S.amount = produced
-			S.add_to_stacks(user, 1)
+			user.put_in_hands(O)
 
 /obj/item/stack/Topic(href, href_list)
 	..()
@@ -181,6 +168,9 @@
 	if(!uses_charge)
 		amount -= used
 		if (amount <= 0)
+			var/obj/item/weapon/storage/ST = src.loc	//Let's check if it's in storage and remove any references to the object so it can be qdel'd
+			if(istype(ST))
+				ST.remove_from_storage(src,ST.get_loc_turf())
 			qdel(src) //should be safe to qdel immediately since if someone is still using this stack it will persist for a little while longer
 		return 1
 	else
@@ -238,16 +228,19 @@
 	if(uses_charge && !force)
 		return null
 
-	var/transfer = max(min(tamount, src.amount, initial(max_amount)), 0)
+	var/transfer = max(min(round(tamount), src.amount, initial(max_amount)), 0)
 
 	var/orig_amount = src.amount
 	if (transfer && src.use(transfer))
 		var/obj/item/stack/newstack = new src.type(loc, transfer)
-		newstack.color = color
+		newstack.copy_from(src)
 		if (prob(transfer/orig_amount * 100))
 			transfer_fingerprints_to(newstack)
 		return newstack
 	return null
+
+/obj/item/stack/proc/copy_from(var/obj/item/stack/other)
+	color = other.color
 
 /obj/item/stack/proc/get_amount()
 	if(uses_charge)
@@ -342,18 +335,44 @@
 	var/one_per_turf = 0
 	var/on_floor = 0
 	var/use_material
+	var/use_reinf_material
 	var/difficulty = 1 // higher difficulty requires higher skill level to make.
 	var/send_material_data = 0 //Whether the recipe will send the material name as an argument when creating product.
+	var/apply_material_name = 1 //Whether the recipe will prepend a material name to the title - 'steel clipboard' vs 'clipboard'
 
-/datum/stack_recipe/New(material/material)
+/datum/stack_recipe/New(material/material, var/reinforce_material)
 	if(material)
 		use_material = material.name
 		difficulty += material.construction_difficulty
+	if(reinforce_material)
+		use_reinf_material = reinforce_material
 
 /datum/stack_recipe/proc/display_name()
-	if(!use_material)
+	if(!use_material || !apply_material_name)
 		return title
-	return "[material_display_name(use_material)] [title]"
+	. = "[material_display_name(use_material)] [title]"
+	if(use_reinf_material)
+		. = "[material_display_name(use_reinf_material)]-reinforced [.]"
+
+/datum/stack_recipe/proc/spawn_result(mob/user, location, amount)
+	var/atom/O
+	if(send_material_data && use_material)
+		O = new result_type(location, use_material, use_reinf_material)
+	else
+		O = new result_type(location)
+	O.set_dir(user.dir)
+	return O
+
+/datum/stack_recipe/proc/can_make(mob/user)
+	if (one_per_turf && (locate(result_type) in user.loc))
+		to_chat(user, "<span class='warning'>There is another [display_name()] here!</span>")
+		return FALSE
+
+	if (on_floor && !isfloor(user.loc))
+		to_chat(user, "<span class='warning'>\The [display_name()] must be constructed on the floor!</span>")
+		return FALSE
+	
+	return TRUE
 
 /*
  * Recipe list datum

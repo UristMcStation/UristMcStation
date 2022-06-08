@@ -69,7 +69,7 @@
 			playsound(src.loc, 'sound/machines/buzz-two.ogg', 50, 1)
 	if(response == "Eject")
 		if(loaded_item)
-			loaded_item.loc = get_turf(src)
+			loaded_item.dropInto(loc)
 			desc = initial(desc)
 			icon_state = initial(icon_state)
 			loaded_item = null
@@ -89,7 +89,7 @@
 			to_chat(user, "Your [src] already has something inside.  Analyze or eject it first.")
 			return
 		var/obj/item/I = target
-		I.loc = src
+		I.forceMove(src)
 		loaded_item = I
 		for(var/mob/M in viewers())
 			M.show_message(text("<span class='notice'>[user] adds the [I] to the [src].</span>"), 1)
@@ -112,7 +112,7 @@
 	else
 		activate_strobe()
 
-/obj/item/weapon/party_light/update_icon()
+/obj/item/weapon/party_light/on_update_icon()
 	if (activated)
 		icon_state = "partylight-on"
 		set_light(1, 1, 7)
@@ -163,7 +163,7 @@
 //This is used to unlock other borg covers.
 /obj/item/weapon/card/robot //This is not a child of id cards, as to avoid dumb typechecks on computers.
 	name = "access code transmission device"
-	icon_state = "id-robot"
+	icon_state = "robot_base"
 	desc = "A circuit grafted onto the bottom of an ID card.  It is used to transmit access codes into other robot chassis, \
 	allowing you to lock and unlock other robots' panels."
 
@@ -218,7 +218,7 @@
 				if(calc_carry() + add >= max_carry)
 					break
 
-				I.loc = src
+				I.forceMove(src)
 				carrying.Add(I)
 				overlays += image("icon" = I.icon, "icon_state" = I.icon_state, "layer" = 30 + I.layer)
 				addedSomething = 1
@@ -246,12 +246,12 @@
 			dropspot = target.loc
 
 
-		overlays = null
+		overlays.Cut()
 
 		var droppedSomething = 0
 
 		for(var/obj/item/I in carrying)
-			I.loc = dropspot
+			I.forceMove(dropspot)
 			carrying.Remove(I)
 			droppedSomething = 1
 			if(!foundtable && isturf(dropspot))
@@ -305,7 +305,7 @@
 // Copied over from paper's rename verb
 // see code/modules/paperwork/paper.dm line 62
 
-/obj/item/weapon/pen/robopen/proc/RenamePaper(mob/user as mob,obj/paper as obj)
+/obj/item/weapon/pen/robopen/proc/RenamePaper(mob/user, obj/item/weapon/paper/paper)
 	if ( !user || !paper )
 		return
 	var/n_name = sanitizeSafe(input(user, "What would you like to label the paper?", "Paper Labelling", null)  as text, 32)
@@ -315,6 +315,7 @@
 	//n_name = copytext(n_name, 1, 32)
 	if(( get_dist(user,paper) <= 1  && user.stat == 0))
 		paper.SetName("paper[(n_name ? text("- '[n_name]'") : null)]")
+		paper.last_modified_ckey = user.ckey
 	add_fingerprint(user)
 	return
 
@@ -495,7 +496,7 @@
 		to_chat(user, "<span class='notice'>The rack is empty.</span>")
 		return
 	var/obj/item/R = held[length(held)]
-	R.forceMove(get_turf(src))
+	R.dropInto(loc)
 	held -= R
 	R.attack_self(user) // deploy it
 	to_chat(user, "<span class='notice'>You deploy [R].</span>")

@@ -15,13 +15,15 @@
 	var/panel_file = 'icons/obj/doors/hazard/panel.dmi'
 	var/welded_file = 'icons/obj/doors/hazard/welded.dmi'
 	icon_state = "open"
-	req_one_access = list(access_atmospherics, access_engine_equip)
+	req_access = list(list(access_atmospherics, access_engine_equip))
+	autoset_access = FALSE
 	opacity = 0
 	density = 0
 	glass = 1
 	layer = BELOW_DOOR_LAYER
 	open_layer = BELOW_DOOR_LAYER
 	closed_layer = ABOVE_WINDOW_LAYER
+	movable_flags = MOVABLE_FLAG_Z_INTERACT
 
 	//These are frequenly used with windows, so make sure zones can pass.
 	//Generally if a firedoor is at a place where there should be a zone boundery then there will be a regular door underneath it.
@@ -40,7 +42,6 @@
 	var/hatch_open = 0
 
 	power_channel = ENVIRON
-	use_power = 1
 	idle_power_usage = 5
 
 	var/list/tile_info[4]
@@ -77,7 +78,7 @@
 	. = ..()
 
 /obj/machinery/door/firedoor/get_material()
-	return SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL)
+	return SSmaterials.get_material_by_name(MATERIAL_STEEL)
 
 /obj/machinery/door/firedoor/examine(mob/user)
 	. = ..(user, 1)
@@ -352,7 +353,7 @@
 		if(stat & (BROKEN|NOPOWER))
 			return //needs power to open unless it was forced
 		else
-			use_power(360)
+			use_power_oneoff(360)
 	else
 		log_and_message_admins("has forced open an emergency shutter.")
 	latetoggle()
@@ -387,7 +388,7 @@
 	return
 
 
-/obj/machinery/door/firedoor/update_icon()
+/obj/machinery/door/firedoor/on_update_icon()
 	var/icon/lights_overlay
 	var/icon/panel_overlay
 	var/icon/weld_overlay

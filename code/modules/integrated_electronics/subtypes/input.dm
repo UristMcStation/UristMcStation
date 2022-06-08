@@ -146,7 +146,7 @@
 	if(H.Adjacent(get_turf(src))) // Like normal analysers, it can't be used at range.
 		var/obj/item/organ/internal/brain/brain = H.internal_organs_by_name[BP_BRAIN]
 		set_pin_data(IC_OUTPUT, 1, (brain && H.stat != DEAD))
-		set_pin_data(IC_OUTPUT, 2, H.get_pulse(1))
+		set_pin_data(IC_OUTPUT, 2, H.get_pulse_as_number())
 		set_pin_data(IC_OUTPUT, 3, (H.stat == 0))
 
 	push_data()
@@ -206,7 +206,7 @@
 		set_pin_data(IC_OUTPUT, 5, damage_to_severity(100 * H.getToxLoss() / H.maxHealth))
 		set_pin_data(IC_OUTPUT, 6, damage_to_severity(100 * H.getOxyLoss() / H.maxHealth))
 		set_pin_data(IC_OUTPUT, 7, damage_to_severity(100 * H.getCloneLoss() / H.maxHealth))
-		set_pin_data(IC_OUTPUT, 8, H.get_pulse(1))
+		set_pin_data(IC_OUTPUT, 8, H.get_pulse_as_number())
 		set_pin_data(IC_OUTPUT, 9, H.get_blood_oxygenation())
 		set_pin_data(IC_OUTPUT, 10, damage_to_severity(H.get_shock()))
 		set_pin_data(IC_OUTPUT, 11, H.radiation)
@@ -887,7 +887,7 @@
 
 	push_data()
 	activate_pin(1)
-	if(translated)
+	if(translated && !(speaking.name == LANGUAGE_GALCOM))
 		activate_pin(2)
 
 /obj/item/integrated_circuit/input/sensor
@@ -1055,7 +1055,7 @@
 		"target" = IC_PINTYPE_REF
 		)
 	outputs = list(
-		"Metal"				 	= IC_PINTYPE_NUMBER,
+		"Steel"				 	= IC_PINTYPE_NUMBER,
 		"Glass"					= IC_PINTYPE_NUMBER,
 		"Silver"				= IC_PINTYPE_NUMBER,
 		"Gold"					= IC_PINTYPE_NUMBER,
@@ -1074,8 +1074,7 @@
 		)
 	spawn_flags = IC_SPAWN_RESEARCH
 	power_draw_per_use = 40
-	var/list/mtypes = list(DEFAULT_WALL_MATERIAL, "glass", "silver", "gold", "diamond", "phoron", "uranium", "plasteel", "titanium", "glass", "plastic")
-
+	var/list/mtypes = list("steel", "glass", "silver", "gold", "diamond", "phoron", "uranium", "plasteel", "titanium", "glass", "plastic")
 
 /obj/item/integrated_circuit/input/matscan/do_work()
 	var/obj/O = get_pin_data_as_type(IC_INPUT, 1, /obj)
@@ -1179,9 +1178,9 @@
 	)
 
 /obj/item/integrated_circuit/input/data_card_reader/attackby_react(obj/item/I, mob/living/user, intent)
-	var/obj/item/weapon/card/data/card = I.GetIdCard()
+	var/obj/item/weapon/card/data/card = I
 	var/write_mode = get_pin_data(IC_INPUT, 3)
-	if(card)
+	if(istype(card))
 		if(write_mode == TRUE)
 			card.function = get_pin_data(IC_INPUT, 1)
 			card.data = get_pin_data(IC_INPUT, 2)

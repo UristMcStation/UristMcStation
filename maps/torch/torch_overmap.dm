@@ -1,15 +1,15 @@
 /obj/effect/overmap/ship/torch
 	name = "SEV Torch"
 	fore_dir = WEST
-	vessel_mass = 300
-	default_delay = 20 SECONDS
-	speed_mod = 5 SECONDS
+	vessel_mass = 40000
 	start_x = 4
 	start_y = 5
+	base = TRUE
 
 	initial_restricted_waypoints = list(
 		"Charon" = list("nav_hangar_calypso"), 	//can't have random shuttles popping inside the ship
-		"Guppy" = list("nav_hangar_guppy")
+		"Guppy" = list("nav_hangar_guppy"),
+		"Aquila" = list("nav_hangar_aquila")
 	)
 
 	initial_generic_waypoints = list(
@@ -33,13 +33,35 @@
 		"nav_deck3_guppy",
 		"nav_deck4_guppy",
 		"nav_bridge_guppy",
-		"nav_hangar_aquila",
 		"nav_deck1_aquila",
 		"nav_deck2_aquila",
 		"nav_deck3_aquila",
 		"nav_deck4_aquila",
 		"nav_bridge_aquila"
 	)
+
+/obj/effect/overmap/ship/landable/exploration_shuttle
+	name = "Charon"
+	shuttle = "Charon"
+	max_speed = 1/(4 SECONDS)
+	burn_delay = 2 SECONDS
+	fore_dir = NORTH
+
+/obj/effect/overmap/ship/landable/aquila
+	name = "Aquila"
+	shuttle = "Aquila"
+	vessel_mass = 20000
+	max_speed = 1/(2 SECONDS)
+	burn_delay = 0.5 SECONDS //spammable, but expensive
+	fore_dir = NORTH
+
+/obj/effect/overmap/ship/landable/guppy
+	name = "Guppy"
+	shuttle = "Guppy"
+	max_speed = 1/(10 SECONDS)
+	burn_delay = 2 SECONDS
+	vessel_mass = 2000
+	fore_dir = SOUTH
 
 /obj/machinery/computer/shuttle_control/explore/aquila
 	name = "aquila control console"

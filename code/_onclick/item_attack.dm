@@ -45,13 +45,13 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	return I.attack(src, user, user.zone_sel.selecting)
 
 /mob/living/carbon/human/attackby(obj/item/I, mob/user)
-	if(user == src && src.a_intent == I_DISARM && src.zone_sel.selecting == "mouth")
+	if(user == src && zone_sel.selecting == BP_MOUTH && can_devour(I, silent = TRUE))
 		var/obj/item/blocked = src.check_mouth_coverage()
 		if(blocked)
-			to_chat(user, "<span class='warning'>\The [blocked] is in the way!</span>")
-			return 1
-		else if(devour(I))
-			return 1
+			to_chat(user, SPAN_WARNING("\The [blocked] is in the way!"))
+			return TRUE
+		if(devour(I))
+			return TRUE
 	return ..()
 
 // Proximity_flag is 1 if this afterattack was called on something adjacent, in your square, or on your person.
@@ -88,7 +88,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 		playsound(loc, hitsound, 50, 1, -1)
 
 	var/power = force
-	if(HULK in user.mutations)
+	if(MUTATION_HULK in user.mutations)
 		power *= 2
 	return target.hit_with_weapon(src, user, power, hit_zone)
 

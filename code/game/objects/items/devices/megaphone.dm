@@ -5,6 +5,7 @@
 	item_state = "radio"
 	w_class = ITEM_SIZE_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
+	slot_flags = SLOT_BELT
 
 	var/spamcheck = 0
 	var/emagged = 0

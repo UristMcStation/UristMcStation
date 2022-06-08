@@ -10,7 +10,6 @@
 	icon_state = "smes"
 	density = 1
 	anchored = 1
-	use_power = 0
 	clicksound = "switch"
 
 	var/capacity = 5e6 // maximum charge
@@ -77,7 +76,7 @@
 				term.master = src
 				term.connect_to_network()
 	if(!terminals.len)
-		stat |= BROKEN
+		set_broken(TRUE)
 		return
 	update_icon()
 
@@ -92,7 +91,7 @@
 	terminals -= term
 	term.master = null
 
-/obj/machinery/power/smes/update_icon()
+/obj/machinery/power/smes/on_update_icon()
 	overlays.Cut()
 	if(stat & BROKEN)	return
 
@@ -130,6 +129,8 @@
 	// else inputting = 0, as set in process()
 
 	for(var/obj/machinery/power/terminal/term in terminals)
+		if(!term.powernet)
+			continue
 		var/inputted = term.powernet.draw_power(to_input)
 		add_charge(inputted)
 		input_available += inputted

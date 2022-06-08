@@ -3,10 +3,10 @@
 	if(player.current)
 		if(jobban_isbanned(player.current, id))
 			return 0
-		if(player.current.faction != "neutral")
+		if(player.current.faction != MOB_FACTION_NEUTRAL)
 			return 0
 
-	var/datum/job/J = job_master.GetJob(player.assigned_role)
+	var/datum/job/J = SSjobs.get_by_title(player.assigned_role)
 	if(is_type_in_list(J,blacklisted_jobs))
 		return 0
 
@@ -58,12 +58,9 @@
 	return (flags & ANTAG_VOTABLE)
 
 /datum/antagonist/proc/can_late_spawn()
-	if(!ticker)
+	if(!SSticker.mode)
 		return 0
-	if(!(id in ticker.mode.latejoin_antag_tags))
-		return 0
-	update_current_antag_max()
-	if(get_antag_count() >= cur_max)
+	if(!(id in SSticker.mode.latejoin_antag_tags))
 		return 0
 	return 1
 

@@ -86,6 +86,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/noctis/battery)
+"aq" = (
+/obj/item/device/radio/intercom{
+	icon_state = "intercom";
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	icon_state = "map_vent_out";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/noctis/connect)
 "ar" = (
 /obj/effect/paint/silver,
 /turf/simulated/wall/titanium,
@@ -140,6 +151,7 @@
 /area/noctis/hards)
 "aA" = (
 /obj/structure/table/rack/dark,
+/obj/item/device/suit_cooling_unit,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/shoes/magboots,
 /turf/simulated/floor/tiled/monotile,
@@ -166,8 +178,8 @@
 /obj/structure/table/standard,
 /obj/item/device/multitool,
 /obj/item/weapon/crowbar/prybar,
-/obj/item/weapon/weldingtool/crystal,
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/item/weapon/weldingtool/electric,
 /turf/simulated/floor/tiled,
 /area/noctis/battery)
 "aE" = (
@@ -293,7 +305,7 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	icon_state = "apc0";
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /turf/simulated/floor/plating,
 /area/noctis/apm)
@@ -356,7 +368,7 @@
 	},
 /obj/structure/closet,
 /obj/item/weapon/tank/jetpack/carbondioxide,
-/obj/item/stack/rods/ten,
+/obj/item/stack/material/rods/ten,
 /obj/item/weapon/tank/oxygen/red,
 /obj/item/weapon/tank/oxygen/red,
 /obj/item/weapon/extinguisher/mini,
@@ -398,7 +410,7 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	icon_state = "apc0";
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
@@ -545,6 +557,23 @@
 	},
 /turf/simulated/floor/plating,
 /area/noctis/battery)
+"bl" = (
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24;
+	req_access = list("ACCESS_NOCTIS")
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	icon_state = "map_scrubber_on";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/noctis/connect)
 "bm" = (
 /obj/machinery/door/airlock/hatch,
 /turf/simulated/floor/plating,
@@ -556,7 +585,8 @@
 	dir = 6
 	},
 /obj/structure/railing/mapped{
-	color = "#b95a00"
+	color = "#b95a00";
+	mapped_color = "#b95a00"
 	},
 /turf/space,
 /area/space)
@@ -634,7 +664,7 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	icon_state = "apc0";
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /obj/effect/floor_decal/borderfloorblack{
 	icon_state = "borderfloor_white";
@@ -696,10 +726,9 @@
 	icon_state = "techfloor_edges";
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
 	frequency = 1379;
-	icon_state = "map_vent";
 	id_tag = "pirate_fp_vent"
 	},
 /turf/simulated/floor/plating,
@@ -855,8 +884,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_access = list(850);
-	req_one_access = newlist()
+	req_access = list("ACCESS_NOCTIS")
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/hards)
@@ -905,8 +933,7 @@
 	dir = 1;
 	icon_state = "alarm0";
 	pixel_y = -22;
-	req_access = list(850);
-	req_one_access = newlist()
+	req_access = list("ACCESS_NOCTIS")
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/battery)
@@ -992,8 +1019,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_access = list(850);
-	req_one_access = newlist()
+	req_access = list("ACCESS_NOCTIS")
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/afth)
@@ -1011,8 +1037,7 @@
 	dir = 4;
 	icon_state = "alarm0";
 	pixel_x = -24;
-	req_access = list(850);
-	req_one_access = newlist()
+	req_access = list("ACCESS_NOCTIS")
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/hangar)
@@ -1021,7 +1046,7 @@
 	icon_state = "rwindow";
 	dir = 4
 	},
-/obj/machinery/computer/navigation{
+/obj/machinery/computer/ship/navigation{
 	icon_state = "computer";
 	dir = 8
 	},
@@ -1035,6 +1060,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/hangar)
+"cd" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/monotile,
+/area/noctis/lounge)
 "ce" = (
 /obj/effect/shuttle_landmark/nav_noctis/raptor_transit,
 /turf/space,
@@ -1057,8 +1086,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_access = list(850);
-	req_one_access = newlist()
+	req_access = list("ACCESS_NOCTIS")
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/cable/blue{
@@ -1147,15 +1175,19 @@
 	icon_state = "techfloor_edges";
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump{
-	dir = 8;
-	frequency = 1379;
-	icon_state = "map_vent";
-	id_tag = "pirate_fp_vent"
-	},
 /obj/machinery/light/small/d_green{
 	icon_state = "bulb_map";
 	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1379;
+	id_tag = "pirate_fp_vent"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1379;
+	id_tag = "pirate_fp_vent"
 	},
 /turf/simulated/floor/plating,
 /area/noctis/fairlock)
@@ -1190,14 +1222,14 @@
 /area/noctis/hards)
 "cv" = (
 /obj/machinery/suit_storage_unit/engineering/salvage{
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/noctis/hards)
 "cw" = (
 /obj/machinery/light/small/red,
 /obj/machinery/suit_cycler/engineering{
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/noctis/hards)
@@ -1235,7 +1267,7 @@
 /obj/machinery/power/apc{
 	dir = 4;
 	icon_state = "apc0";
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/afth)
@@ -1351,16 +1383,15 @@
 /turf/simulated/floor/plating,
 /area/noctis/fm)
 "cO" = (
-/obj/machinery/atmospherics/unary/vent_pump{
-	dir = 4;
-	frequency = 1379;
-	icon_state = "map_vent";
-	id_tag = "pirate_fp_vent"
-	},
 /obj/effect/floor_decal/techfloor,
 /obj/machinery/light/small/d_green{
 	icon_state = "bulb_map";
 	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4;
+	frequency = 1379;
+	id_tag = "pirate_fp_vent"
 	},
 /turf/simulated/floor/plating,
 /area/noctis/fairlock)
@@ -1607,16 +1638,15 @@
 	tag_exterior_door = "pirate_fp_ext";
 	tag_interior_door = "pirate_fp_int"
 	},
-/obj/machinery/atmospherics/unary/vent_pump{
-	dir = 8;
-	frequency = 1379;
-	icon_state = "map_vent";
-	id_tag = "pirate_fp_vent"
-	},
 /obj/machinery/airlock_sensor{
-	id_tag = "pirate_con_sensor";
+	id_tag = "pirate_fp_sensor";
 	pixel_x = 24;
 	pixel_y = -6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1379;
+	id_tag = "pirate_fp_vent"
 	},
 /turf/simulated/floor/plating,
 /area/noctis/fairlock)
@@ -1934,7 +1964,7 @@
 /area/noctis/hangar)
 "dO" = (
 /obj/machinery/door/window/southright{
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /turf/simulated/floor/carpet/purple,
 /area/noctis/raptor)
@@ -1945,20 +1975,23 @@
 	dir = 1
 	},
 /obj/machinery/access_button/airlock_interior{
+	frequency = 1380;
+	master_tag = "noctis";
 	pixel_x = 24;
 	pixel_y = 10
 	},
 /turf/simulated/floor/carpet/purple,
 /area/noctis/raptor)
 "dQ" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	frequency = 1379;
-	icon_state = "map_vent"
-	},
 /obj/structure/handrai{
 	icon_state = "handrail";
 	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4;
+	frequency = 1380;
+	icon_state = "map_vent";
+	id_tag = "noctis_pump"
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/raptor)
@@ -1993,7 +2026,7 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	icon_state = "apc0";
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /obj/item/clothing/head/urist/cowboy,
 /obj/random/smokes,
@@ -2050,7 +2083,7 @@
 /obj/machinery/power/apc{
 	dir = 8;
 	icon_state = "apc0";
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	icon_state = "map";
@@ -2235,6 +2268,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/steel_ridged,
 /area/noctis/combust)
+"ep" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	icon_state = "map_scrubber_on";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/noctis/lounge)
 "eq" = (
 /obj/structure/closet/firecloset,
 /turf/simulated/floor/tiled/monotile,
@@ -2272,16 +2312,21 @@
 /turf/simulated/floor/tiled,
 /area/noctis/afth)
 "et" = (
-/obj/item/device/radio/intercom{
-	icon_state = "intercom";
-	dir = 4
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 4;
+	frequency = 1379;
+	icon_state = "map_vent"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	icon_state = "map_vent_out";
+/obj/effect/floor_decal/techfloor{
+	icon_state = "techfloor_edges";
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
-/area/noctis/connect)
+/obj/item/stack/material/glass{
+	amount = 9
+	},
+/obj/item/stack/cable_coil/blue,
+/turf/simulated/floor/plating,
+/area/noctis/fairlock)
 "eu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	icon_state = "intact-supply";
@@ -2299,23 +2344,32 @@
 /turf/simulated/floor/plating,
 /area/noctis/connect)
 "ew" = (
-/obj/machinery/alarm{
-	dir = 8;
-	icon_state = "alarm0";
-	pixel_x = 24;
-	req_access = list(850);
-	req_one_access = newlist()
+/obj/item/weapon/storage/pill_bottle/bicaridine,
+/obj/item/weapon/storage/pill_bottle/inaprovaline,
+/obj/item/weapon/storage/pill_bottle/peridaxon,
+/obj/item/weapon/storage/pill_bottle/tramadol,
+/obj/item/weapon/storage/pill_bottle/dermaline,
+/obj/structure/closet/medical_wall{
+	name = "pill bottle storage";
+	pixel_x = 32
+	},
+/obj/item/weapon/reagent_containers/pill/hyronalin,
+/obj/item/weapon/reagent_containers/pill/hyronalin,
+/obj/item/weapon/reagent_containers/pill/hyronalin,
+/obj/item/weapon/reagent_containers/pill/hyronalin,
+/obj/item/weapon/storage/pill_bottle/antitox,
+/obj/structure/bed/roller,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	icon_state = "map_scrubber_on";
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/noctis/connect)
+/turf/simulated/floor/tiled/white,
+/area/noctis/medbay)
 "ex" = (
 /obj/effect/floor_decal/borderfloor{
 	icon_state = "borderfloor_white";
@@ -2342,14 +2396,13 @@
 	icon_state = "map-supply";
 	dir = 1
 	},
-/obj/effect/shuttle_landmark/nav_noctis/raptor,
 /turf/simulated/floor/tiled,
 /area/noctis/raptor)
 "eB" = (
 /obj/machinery/power/apc{
 	dir = 1;
 	icon_state = "apc0";
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /obj/structure/cable{
 	d2 = 2;
@@ -2362,15 +2415,24 @@
 	icon_state = "intact-supply";
 	dir = 10
 	},
+/obj/machinery/airlock_sensor{
+	frequency = 1380;
+	id_tag = "noctis_sensor";
+	pixel_x = 24;
+	pixel_y = -6
+	},
 /turf/simulated/floor/tiled,
 /area/noctis/raptor)
 "eC" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1379;
-	icon_state = "map_vent"
+	frequency = 1380;
+	icon_state = "map_vent";
+	id_tag = "noctis_pump"
 	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	frequency = 1380;
+	id_tag = "noctis";
 	pixel_x = -24
 	},
 /turf/simulated/floor/tiled,
@@ -2396,7 +2458,7 @@
 /obj/machinery/power/apc{
 	dir = 4;
 	icon_state = "apc0";
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
@@ -2580,7 +2642,10 @@
 /area/noctis/apm)
 "eQ" = (
 /obj/structure/railing/mapped{
-	color = "#b95a00"
+	color = "#b95a00";
+	dir = 4;
+	icon_state = "railing0-1";
+	mapped_color = "#b95a00"
 	},
 /turf/space,
 /area/space)
@@ -2720,11 +2785,9 @@
 /turf/simulated/floor/plating,
 /area/noctis/reactorch)
 "fe" = (
-/obj/structure/lattice,
 /obj/structure/railing/mapped{
-	icon_state = "railing0";
-	dir = 4;
-	color = "#b95a00"
+	color = "#b95a00";
+	mapped_color = "#b95a00"
 	},
 /turf/space,
 /area/space)
@@ -2771,10 +2834,12 @@
 /turf/simulated/floor/tiled,
 /area/noctis/connect)
 "fj" = (
+/obj/structure/lattice,
 /obj/structure/railing/mapped{
-	icon_state = "railing0";
+	color = "#b95a00";
 	dir = 4;
-	color = "#b95a00"
+	icon_state = "railing0-1";
+	mapped_color = "#b95a00"
 	},
 /turf/space,
 /area/space)
@@ -2789,7 +2854,7 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc{
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/connect)
@@ -2974,9 +3039,12 @@
 /turf/simulated/floor/tiled,
 /area/noctis/lounge)
 "fC" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled,
-/area/noctis/lounge)
+/obj/machinery/door/airlock/external{
+	frequency = 1379;
+	id_tag = "escape_pod_1_berth_hatch"
+	},
+/turf/simulated/floor/plating,
+/area/noctis/fairlock)
 "fD" = (
 /turf/simulated/floor/tiled,
 /area/noctis/lounge)
@@ -2988,12 +3056,14 @@
 /turf/simulated/floor/tiled,
 /area/noctis/lounge)
 "fF" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	icon_state = "map_scrubber_on";
-	dir = 8
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 8;
+	icon_state = "railing0-1";
+	mapped_color = "#b95a00"
 	},
-/turf/simulated/floor/tiled,
-/area/noctis/lounge)
+/turf/space,
+/area/space)
 "fG" = (
 /obj/effect/fluid_mapped,
 /obj/structure/cable/yellow{
@@ -3003,7 +3073,7 @@
 /obj/machinery/power/apc{
 	dir = 8;
 	icon_state = "apc0";
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /obj/effect/floor_decal/rust,
 /turf/simulated/floor/plating,
@@ -3186,10 +3256,12 @@
 /area/space)
 "fS" = (
 /obj/structure/railing/mapped{
-	icon_state = "railing0";
-	dir = 8;
-	color = "#b95a00"
+	color = "#b95a00";
+	dir = 1;
+	icon_state = "railing0-1";
+	mapped_color = "#b95a00"
 	},
+/obj/structure/catwalk,
 /turf/space,
 /area/space)
 "fT" = (
@@ -3269,9 +3341,10 @@
 /area/noctis/combust)
 "ga" = (
 /obj/structure/railing/mapped{
-	icon_state = "railing0";
+	color = "#b95a00";
 	dir = 1;
-	color = "#b95a00"
+	icon_state = "railing0-1";
+	mapped_color = "#b95a00"
 	},
 /turf/space,
 /area/space)
@@ -3281,27 +3354,36 @@
 /turf/space,
 /area/space)
 "gc" = (
-/obj/structure/lattice,
-/obj/structure/catwalk,
-/obj/structure/handrai,
 /obj/structure/railing/mapped{
-	color = "#b95a00"
+	color = "#b95a00";
+	dir = 1;
+	icon_state = "railing0-1";
+	mapped_color = "#b95a00"
+	},
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 4;
+	icon_state = "railing0-1";
+	mapped_color = "#b95a00"
 	},
 /turf/space,
 /area/space)
 "gd" = (
 /obj/structure/lattice,
 /obj/structure/catwalk,
+/obj/structure/handrai,
 /obj/structure/railing/mapped{
-	color = "#b95a00"
+	color = "#b95a00";
+	mapped_color = "#b95a00"
 	},
 /turf/space,
 /area/space)
 "ge" = (
-/obj/structure/catwalk,
 /obj/structure/lattice,
+/obj/structure/catwalk,
 /obj/structure/railing/mapped{
-	color = "#b95a00"
+	color = "#b95a00";
+	mapped_color = "#b95a00"
 	},
 /turf/space,
 /area/space)
@@ -3358,10 +3440,12 @@
 /turf/simulated/floor/plating,
 /area/space)
 "gk" = (
-/obj/structure/railing/mapped{
-	color = "#b95a00"
-	},
+/obj/structure/catwalk,
 /obj/structure/lattice,
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	mapped_color = "#b95a00"
+	},
 /turf/space,
 /area/space)
 "gl" = (
@@ -3473,9 +3557,8 @@
 /area/space)
 "gt" = (
 /obj/structure/railing/mapped{
-	icon_state = "railing0";
-	dir = 1;
-	color = "#b95a00"
+	color = "#b95a00";
+	mapped_color = "#b95a00"
 	},
 /obj/structure/lattice,
 /turf/space,
@@ -3500,14 +3583,12 @@
 /area/space)
 "gw" = (
 /obj/structure/railing/mapped{
-	icon_state = "railing0";
+	color = "#b95a00";
 	dir = 1;
-	color = "#b95a00"
+	icon_state = "railing0-1";
+	mapped_color = "#b95a00"
 	},
-/obj/effect/spawner/bomb_simulator{
-	_low = 3;
-	_med = 2
-	},
+/obj/structure/lattice,
 /turf/space,
 /area/space)
 "gx" = (
@@ -3551,9 +3632,10 @@
 /area/space)
 "gB" = (
 /obj/structure/railing/mapped{
-	icon_state = "railing0";
-	dir = 4;
-	color = "#b95a00"
+	color = "#b95a00";
+	dir = 1;
+	icon_state = "railing0-1";
+	mapped_color = "#b95a00"
 	},
 /obj/effect/spawner/bomb_simulator{
 	_low = 3;
@@ -3707,6 +3789,8 @@
 /obj/effect/paint/silver,
 /obj/machinery/atmospherics/valve/digital,
 /obj/machinery/access_button/airlock_exterior{
+	frequency = 1380;
+	master_tag = "noctis";
 	pixel_x = 8;
 	pixel_y = -10
 	},
@@ -3918,8 +4002,7 @@
 	dir = 1;
 	icon_state = "alarm0";
 	pixel_y = -22;
-	req_access = list(850);
-	req_one_access = newlist()
+	req_access = list("ACCESS_NOCTIS")
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/fairlock)
@@ -3928,7 +4011,7 @@
 /obj/machinery/power/apc{
 	dir = 8;
 	icon_state = "apc0";
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /obj/structure/cable/blue,
 /turf/simulated/floor/plating,
@@ -3942,13 +4025,14 @@
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/stack/material/steel/fifty,
-/obj/item/stack/material/titanium{
-	amount = 47
-	},
 /obj/machinery/light/small/red,
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 4
+	},
+/obj/item/stack/material/titanium{
+	amount = 50;
+	icon_state = "sheet-shiny-mult"
 	},
 /turf/simulated/floor/tiled/steel_ridged,
 /area/noctis/combust)
@@ -4105,8 +4189,7 @@
 	dir = 1;
 	icon_state = "alarm0";
 	pixel_y = -22;
-	req_access = list(850);
-	req_one_access = newlist()
+	req_access = list("ACCESS_NOCTIS")
 	},
 /obj/effect/floor_decal/borderfloor,
 /obj/structure/table/standard,
@@ -4141,7 +4224,7 @@
 /obj/machinery/power/apc{
 	dir = 4;
 	icon_state = "apc0";
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /obj/structure/cable/blue,
 /turf/simulated/floor/plating,
@@ -4241,8 +4324,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_access = list(850);
-	req_one_access = newlist()
+	req_access = list("ACCESS_NOCTIS")
 	},
 /turf/simulated/floor/tiled/white,
 /area/noctis/medbay)
@@ -4251,12 +4333,11 @@
 	dir = 4;
 	icon_state = "alarm0";
 	pixel_x = -24;
-	req_access = list(850);
-	req_one_access = newlist()
+	req_access = list("ACCESS_NOCTIS")
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/closet/crate/secure{
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
@@ -4360,20 +4441,18 @@
 /turf/simulated/floor/plating,
 /area/noctis/fm)
 "hX" = (
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/structure/railing/mapped{
+	color = "#b95a00";
 	dir = 4;
-	frequency = 1379;
-	icon_state = "map_vent"
+	icon_state = "railing0-1";
+	mapped_color = "#b95a00"
 	},
-/obj/effect/floor_decal/techfloor{
-	icon_state = "techfloor_edges";
-	dir = 1
+/obj/effect/spawner/bomb_simulator{
+	_low = 3;
+	_med = 2
 	},
-/obj/item/stack/material/glass{
-	amount = 9
-	},
-/turf/simulated/floor/plating,
-/area/noctis/fairlock)
+/turf/space,
+/area/space)
 "hY" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/effect/floor_decal/techfloor{
@@ -4418,7 +4497,7 @@
 /obj/machinery/power/apc{
 	dir = 4;
 	icon_state = "apc0";
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /turf/simulated/floor/plating,
 /area/noctis/disposal)
@@ -4542,46 +4621,17 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/noctis/medbay)
-"ik" = (
-/obj/structure/bed/roller,
-/obj/structure/cable/blue{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	icon_state = "map_scrubber_on";
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/noctis/medbay)
-"il" = (
-/obj/item/weapon/storage/pill_bottle/bicaridine,
-/obj/item/weapon/storage/pill_bottle/inaprovaline,
-/obj/item/weapon/storage/pill_bottle/peridaxon,
-/obj/item/weapon/storage/pill_bottle/tramadol,
-/obj/item/weapon/storage/pill_bottle/dermaline,
-/obj/structure/closet/medical_wall{
-	name = "pill bottle storage";
-	pixel_x = 0
-	},
-/obj/effect/paint/green_grey,
-/obj/item/weapon/reagent_containers/pill/hyronalin,
-/obj/item/weapon/reagent_containers/pill/hyronalin,
-/obj/item/weapon/reagent_containers/pill/hyronalin,
-/obj/item/weapon/reagent_containers/pill/hyronalin,
-/obj/item/weapon/storage/pill_bottle/antitox,
-/turf/simulated/wall/titanium,
-/area/noctis/medbay)
 "im" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1379
+	frequency = 1380;
+	id_tag = "noctis_outer"
 	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/shuttle_landmark/nav_noctis/raptor,
 /turf/simulated/floor/reinforced,
 /area/noctis/raptor)
 "in" = (
@@ -4698,14 +4748,14 @@
 	icon_state = "map-scrubbers";
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 4
-	},
 /obj/structure/cable/blue{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	icon_state = "map-supply";
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
@@ -4767,28 +4817,6 @@
 /mob/living/simple_animal/hostile/carp,
 /turf/simulated/floor/plating,
 /area/noctis/fairlock)
-"iB" = (
-/obj/structure/railing/mapped{
-	icon_state = "railing0";
-	dir = 1;
-	color = "#b95a00"
-	},
-/obj/structure/catwalk,
-/turf/space,
-/area/space)
-"iC" = (
-/obj/structure/railing/mapped{
-	icon_state = "railing0";
-	dir = 1;
-	color = "#b95a00"
-	},
-/obj/structure/railing/mapped{
-	icon_state = "railing0";
-	dir = 4;
-	color = "#b95a00"
-	},
-/turf/space,
-/area/space)
 "iD" = (
 /obj/structure/lattice,
 /obj/structure/grille,
@@ -4945,7 +4973,7 @@
 /obj/machinery/power/apc{
 	dir = 8;
 	icon_state = "apc0";
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /turf/simulated/floor/tiled/white,
 /area/noctis/medbay)
@@ -4988,11 +5016,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/noctis/equips)
-"iZ" = (
-/obj/machinery/door/airlock/external/bolted,
-/obj/item/taperoll/engineering/applied,
-/turf/simulated/floor/plating,
-/area/noctis/fairlock)
 "ja" = (
 /obj/effect/floor_decal/rust,
 /turf/simulated/floor/plating,
@@ -5012,7 +5035,7 @@
 /obj/machinery/power/apc{
 	dir = 8;
 	icon_state = "apc0";
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /obj/structure/cable/blue{
 	d2 = 4;
@@ -5235,8 +5258,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_access = list(850);
-	req_one_access = newlist()
+	req_access = list("ACCESS_NOCTIS")
 	},
 /obj/effect/submap_landmark/spawnpoint/crewmember,
 /turf/simulated/floor/tiled/white,
@@ -5303,7 +5325,7 @@
 /obj/item/weapon/screwdriver,
 /obj/structure/cable/blue,
 /obj/machinery/power/apc{
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/equips)
@@ -5394,8 +5416,7 @@
 	dir = 8;
 	pixel_x = 24;
 	pixel_y = 0;
-	req_access = list(850);
-	req_one_access = newlist()
+	req_access = list("ACCESS_NOCTIS")
 	},
 /turf/simulated/floor/plating,
 /area/noctis/combust)
@@ -7616,7 +7637,7 @@ en
 aa
 aa
 aa
-fe
+fj
 aa
 aa
 aa
@@ -7712,14 +7733,14 @@ aa
 aa
 aa
 aa
-fj
-fj
+eQ
+eQ
 cP
 aa
 aa
-eQ
+fe
 hm
-fj
+eQ
 aa
 aa
 aa
@@ -8135,7 +8156,7 @@ mN
 mN
 fz
 hC
-gc
+gd
 aa
 aa
 aa
@@ -8237,7 +8258,7 @@ hC
 hC
 hC
 hC
-gd
+ge
 aa
 aa
 aa
@@ -8543,7 +8564,7 @@ jb
 jw
 jJ
 aa
-eQ
+fe
 aa
 aa
 aa
@@ -8645,7 +8666,7 @@ hF
 hF
 jL
 jL
-ge
+gk
 aa
 aa
 aa
@@ -8747,7 +8768,7 @@ jc
 jx
 jM
 jL
-ge
+gk
 aa
 aa
 aa
@@ -8940,7 +8961,7 @@ am
 ab
 ab
 do
-dS
+ek
 fG
 ab
 ab
@@ -9158,7 +9179,7 @@ an
 an
 gg
 aa
-fj
+eQ
 aa
 aa
 aa
@@ -9348,7 +9369,7 @@ bW
 ab
 ab
 db
-ek
+dS
 cK
 ab
 ab
@@ -9565,9 +9586,9 @@ aa
 aa
 aa
 gg
-gk
-gb
 gt
+gb
+gw
 gx
 aa
 aa
@@ -9659,7 +9680,7 @@ cy
 gE
 hh
 hL
-ik
+ew
 iT
 hj
 hj
@@ -9761,7 +9782,7 @@ fc
 gF
 hi
 hM
-il
+hj
 hj
 hj
 aa
@@ -9871,7 +9892,7 @@ aa
 aa
 aa
 aa
-eQ
+fe
 gn
 aa
 ai
@@ -9960,20 +9981,20 @@ aa
 cA
 da
 dG
-et
+aq
 jW
 gG
 hk
 aa
 aa
 en
-fj
-fj
-aa
-aa
-aa
-aa
 eQ
+eQ
+aa
+aa
+aa
+aa
+fe
 go
 gu
 gu
@@ -10072,14 +10093,14 @@ en
 ao
 fW
 en
-fj
-fj
-fj
+eQ
+eQ
+eQ
 en
 jN
 ai
-fj
-gB
+eQ
+hX
 aa
 aa
 aa
@@ -10266,7 +10287,7 @@ aa
 cB
 da
 dJ
-ew
+bl
 fk
 gG
 hk
@@ -10275,10 +10296,10 @@ aa
 en
 fR
 fY
-iB
 fS
-fS
-fS
+fF
+fF
+fF
 GM
 gn
 ga
@@ -10375,8 +10396,8 @@ af
 aa
 aa
 ai
-fS
-fS
+fF
+fF
 an
 ga
 aa
@@ -10582,7 +10603,7 @@ iU
 iU
 aa
 an
-iC
+gc
 aa
 gi
 gl
@@ -10689,7 +10710,7 @@ aa
 gg
 aa
 an
-gw
+gB
 gg
 aa
 aa
@@ -10891,7 +10912,7 @@ iU
 eR
 ai
 gg
-gk
+gt
 gb
 ai
 gg
@@ -10991,9 +11012,9 @@ jn
 jE
 iU
 an
-fj
-gg
 eQ
+gg
+fe
 an
 aa
 gg
@@ -11797,7 +11818,7 @@ jP
 cL
 dV
 eG
-fC
+cd
 gR
 hw
 cL
@@ -12103,7 +12124,7 @@ cM
 di
 dY
 eH
-fF
+ep
 gT
 hz
 cL
@@ -12616,7 +12637,7 @@ eK
 fN
 gY
 bC
-hX
+et
 cp
 aS
 de
@@ -12720,7 +12741,7 @@ gZ
 hB
 hY
 iA
-iZ
+fC
 an
 aa
 aa
@@ -15015,10 +15036,10 @@ ED
 aa
 aa
 aa
+aa
+aa
+aa
 ce
-aa
-aa
-aa
 ED
 Wj
 Wj

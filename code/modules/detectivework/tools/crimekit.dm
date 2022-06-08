@@ -5,6 +5,7 @@
 	icon = 'icons/obj/forensics.dmi'
 	icon_state = "case"
 	item_state = "case"
+	slot_flags = SLOT_BELT
 	startswith = list(
 		/obj/item/weapon/storage/box/swabs,
 		/obj/item/weapon/storage/box/fingerprints,

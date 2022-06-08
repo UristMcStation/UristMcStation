@@ -34,7 +34,7 @@ datum/unit_test/human_breath/start_test()
 			var/obj/item/organ/internal/lungs/L
 			H.apply_effect(20, STUN, 0)
 			L = H.internal_organs_by_name[species_organ]
-			L.last_failed_breath = -INFINITY
+			L.last_successful_breath = -INFINITY
 			test_subjects[S.name] = list(H, damage_check(H, OXY))
 	return 1
 
@@ -145,7 +145,7 @@ datum/unit_test/mob_damage
 
 datum/unit_test/mob_damage/start_test()
 	var/list/test = create_test_mob_with_mind(null, mob_type)
-	var/damage_amount = 5	// Do not raise, if damage >= 10 there is a % chance to reduce damage by half in /obj/item/organ/external/take_damage()
+	var/damage_amount = 4	// Do not raise, if damage >= 5 there is a % chance to reduce damage by half in /obj/item/organ/external/take_damage()
 							// Which makes checks impossible.
 
 	if(isnull(test))
@@ -180,7 +180,7 @@ datum/unit_test/mob_damage/start_test()
 		if(species_organ)
 			L = H.internal_organs_by_name[species_organ]
 		if(L)
-			L.last_failed_breath = -INFINITY
+			L.last_successful_breath = -INFINITY
 
 	H.apply_damage(damage_amount, damagetype, damage_location)
 
@@ -497,7 +497,6 @@ datum/unit_test/robot_module_icons/start_test()
 
 	return 1
 
-#undef VULNERABLE
 #undef IMMUNE
 #undef SUCCESS
 #undef FAILURE

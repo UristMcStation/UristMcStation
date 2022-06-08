@@ -55,9 +55,6 @@
 	id = "Centcom Relay"
 	hide = 1
 	toggled = 1
-	//anchored = 1
-	//use_power = 0
-	//idle_power_usage = 0
 	produces_heat = 0
 	autolinkers = list("c_relay")
 
@@ -101,7 +98,7 @@
 	autolinkers = list("busWyrm", "serverWyrm", "receiverWyrm", "broadcasterWyrm", "prim_relay", "sub_relay")
 
 /obj/machinery/telecomms/hub/preset/nerva
-	autolinkers = list("busWyrm", "serverWyrm", "receiverWyrm", "broadcasterWyrm", "1_relay", "2_relay", "3_relay","4_relay", "Relay-PSR")
+	autolinkers = list("busNerva", "serverNerva", "receiverNerva", "broadcasterNerva", "1_relay", "2_relay", "3_relay","4_relay", "Relay-PSR")
 
 //Receivers
 
@@ -129,6 +126,12 @@
 	network = "tcommsat"
 	freq_listening = list(SCI_FREQ, MED_FREQ, SUP_FREQ, SRV_FREQ, SEC_FREQ, COMM_FREQ, ENG_FREQ, AI_FREQ, PUB_FREQ, ENT_FREQ)
 	autolinkers = list("receiverWyrm")
+
+/obj/machinery/telecomms/receiver/preset_nerva
+	id = "Nerva Receiver"
+	network = "tcommsat"
+	freq_listening = list(SCI_FREQ, MED_FREQ, SUP_FREQ, SRV_FREQ, SEC_FREQ, COMM_FREQ, ENG_FREQ, AI_FREQ, PUB_FREQ, ENT_FREQ, COMB_FREQ)
+	autolinkers = list("receiverNerva")
 
 //Buses
 
@@ -180,7 +183,7 @@
 	id = "Main Bus"
 	network = "tcommsat"
 	freq_listening = list(SCI_FREQ, MED_FREQ, SUP_FREQ, SRV_FREQ, SEC_FREQ, COMM_FREQ, ENG_FREQ, AI_FREQ, PUB_FREQ, ENT_FREQ, COMB_FREQ)
-	autolinkers = list("processorWyrm", "busWyrm")
+	autolinkers = list("processorNerva", "busNerva")
 
 //Processors
 
@@ -214,6 +217,11 @@
 	id = "Main Processor"
 	network = "tcommsat"
 	autolinkers = list("processorWyrm")
+
+/obj/machinery/telecomms/processor/preset_nerva
+	id = "Main Processor"
+	network = "tcommsat"
+	autolinkers = list("processorNerva")
 
 //Servers
 
@@ -311,8 +319,8 @@
 	autolinkers = list("serverWyrm", "busWyrm")
 
 /obj/machinery/telecomms/server/presets/nerva //the same, but with combat
-	id = "Wyrm NAS"
-	freq_listening = list(AI_FREQ, COMM_FREQ, ENG_FREQ, ENT_FREQ, MED_FREQ, PUB_FREQ, SCI_FREQ, SEC_FREQ, SRV_FREQ, SUP_FREQ)
+	id = "Nerva Server"
+	freq_listening = list(AI_FREQ, COMM_FREQ, ENG_FREQ, ENT_FREQ, MED_FREQ, PUB_FREQ, SCI_FREQ, SEC_FREQ, SRV_FREQ, SUP_FREQ, COMB_FREQ)
 	channel_tags = list(
 		list(AI_FREQ, "AI Private", "#ff00ff"),
 		list(COMM_FREQ, "Command", "#395a9a"),
@@ -326,7 +334,7 @@
 		list(SUP_FREQ, "Supply", "#7f6539"),
 		list(COMB_FREQ, "Combat", "#db135c"), //pank
 	)
-	autolinkers = list("serverWyrm", "busWyrm")
+	autolinkers = list("serverNerva", "busNerva")
 
 //Broadcasters
 
@@ -347,3 +355,8 @@
 	id = "Wyrm Broadcaster"
 	network = "tcommsat"
 	autolinkers = list("broadcasterWyrm")
+
+/obj/machinery/telecomms/broadcaster/preset_nerva
+	id = "Nerva Broadcaster"
+	network = "tcommsat"
+	autolinkers = list("broadcasterNerva")

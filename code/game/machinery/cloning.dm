@@ -138,7 +138,7 @@
 	if(occupant.getCloneLoss() == 0) // Rare case, but theoretically possible
 		return 100
 
-	return between(0, 100 * (occupant.getCloneLoss() - occupant.maxHealth / 100) / (occupant.maxHealth * heal_level / 100), 100)
+	return between(0, 100 * ((occupant.maxHealth/2 - occupant.getCloneLoss()) / (heal_level / (occupant.maxHealth/2 / 100))), 100)
 
 //Grow clones to maturity then kick them out.  FREELOADERS
 /obj/machinery/clonepod/Process()
@@ -179,7 +179,7 @@
 		//Also heal some oxyloss ourselves because inaprovaline is so bad at preventing it!!
 		occupant.adjustOxyLoss(-4)
 
-		use_power(7500) //This might need tweaking.
+		use_power_oneoff(7500, EQUIP) //This might need tweaking.
 		return
 
 	else if((!occupant) || (occupant.loc != src))

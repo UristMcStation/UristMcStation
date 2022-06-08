@@ -179,10 +179,20 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	icon_state = "apc0";
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /turf/simulated/floor/plating,
 /area/noctis/atmos)
+"aA" = (
+/obj/structure/lattice,
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 8;
+	icon_state = "railing0-1";
+	mapped_color = "#b95a00"
+	},
+/turf/simulated/open,
+/area/space)
 "aB" = (
 /obj/structure/catwalk,
 /obj/structure/lattice,
@@ -203,8 +213,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_access = list(850);
-	req_one_access = newlist()
+	req_access = list("ACCESS_NOCTIS")
 	},
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/plating,
@@ -228,13 +237,23 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	icon_state = "apc0";
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /turf/simulated/floor/plating,
 /area/noctis/fpm)
 "aF" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner,
 /turf/simulated/floor/reinforced,
+/area/space)
+"aG" = (
+/obj/structure/lattice,
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 4;
+	icon_state = "railing0-1";
+	mapped_color = "#b95a00"
+	},
+/turf/simulated/open,
 /area/space)
 "aH" = (
 /obj/effect/floor_decal/rust,
@@ -258,8 +277,7 @@
 	dir = 8
 	},
 /obj/machinery/alarm{
-	req_access = list(850);
-	req_one_access = newlist()
+	req_access = list("ACCESS_NOCTIS")
 	},
 /obj/item/weapon/grenade/chem_grenade/metalfoam,
 /obj/item/weapon/grenade/chem_grenade/metalfoam,
@@ -372,6 +390,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"aW" = (
+/obj/effect/floor_decal/corner/grey/mono,
+/obj/structure/closet/firecloset,
+/obj/effect/floor_decal/industrial/outline/blue,
+/turf/simulated/floor/tiled/monotile,
+/area/noctis/bridge)
 "aX" = (
 /obj/machinery/power/solar,
 /obj/structure/cable/blue{
@@ -410,6 +434,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/noctis/gasestore)
+"bb" = (
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 4;
+	icon_state = "railing0-1";
+	mapped_color = "#b95a00"
+	},
+/obj/effect/floor_decal/corner/grey/mono,
+/obj/machinery/light/small/red{
+	icon_state = "firelight1";
+	dir = 1
+	},
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/blue,
+/turf/simulated/floor/tiled/monotile,
+/area/noctis/bridge)
 "bc" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -477,7 +517,7 @@
 /area/noctis/atmos)
 "bg" = (
 /obj/machinery/atmospherics/omni/filter{
-	tag_east = 4;
+	tag_east = 3;
 	tag_north = 2;
 	tag_west = 1
 	},
@@ -486,11 +526,10 @@
 /area/noctis/atmos)
 "bh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
-/obj/machinery/atmospherics/pipe/cap/hidden{
-	icon_state = "cap";
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/noctis/atmos)
 "bi" = (
@@ -563,15 +602,17 @@
 /turf/simulated/floor/plating,
 /area/noctis/fpm)
 "br" = (
-/obj/structure/lattice,
 /obj/structure/railing/mapped{
 	color = "#b95a00";
-	dir = 4;
-	icon_state = "railing0";
+	dir = 8;
+	icon_state = "railing0-1";
 	mapped_color = "#b95a00"
 	},
-/turf/simulated/open,
-/area/space)
+/obj/effect/floor_decal/corner/grey/mono,
+/obj/structure/table/steel,
+/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka,
+/turf/simulated/floor/tiled/monotile,
+/area/noctis/bridge)
 "bs" = (
 /obj/effect/floor_decal/techfloor{
 	icon_state = "techfloor_edges";
@@ -655,7 +696,7 @@
 	},
 /obj/structure/cable/blue,
 /obj/machinery/power/apc{
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/gasestore)
@@ -677,8 +718,7 @@
 	dir = 4;
 	icon_state = "alarm0";
 	pixel_x = -24;
-	req_access = list(850);
-	req_one_access = newlist()
+	req_access = list("ACCESS_NOCTIS")
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/red{
 	icon_state = "map";
@@ -955,6 +995,11 @@
 	icon_state = "intact-supply";
 	dir = 4
 	},
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/noctis/atmosc)
 "ci" = (
@@ -1105,18 +1150,11 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 4;
-	icon_state = "railing0";
+	icon_state = "railing0-1";
 	mapped_color = "#b95a00"
 	},
-/obj/effect/floor_decal/corner/grey/mono,
-/obj/machinery/light/small/red{
-	icon_state = "firelight1";
-	dir = 1
-	},
-/obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/blue,
-/turf/simulated/floor/tiled/monotile,
-/area/noctis/bridge)
+/turf/simulated/open,
+/area/space)
 "cz" = (
 /obj/machinery/door/airlock/hatch,
 /turf/simulated/floor/plating,
@@ -1169,8 +1207,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_access = list(850);
-	req_one_access = newlist()
+	req_access = list("ACCESS_NOCTIS")
 	},
 /obj/machinery/pipedispenser,
 /turf/simulated/floor/tiled/techmaint,
@@ -1210,7 +1247,7 @@
 /obj/machinery/power/apc{
 	dir = 4;
 	icon_state = "apc0";
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /obj/structure/cable/blue{
 	d2 = 8;
@@ -1244,24 +1281,31 @@
 "cO" = (
 /obj/structure/railing/mapped{
 	color = "#b95a00";
-	dir = 8;
-	icon_state = "railing0";
+	dir = 4;
+	icon_state = "railing0-1";
 	mapped_color = "#b95a00"
 	},
-/obj/effect/floor_decal/corner/grey/mono,
-/obj/structure/table/steel,
-/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka,
-/turf/simulated/floor/tiled/monotile,
-/area/noctis/bridge)
+/turf/space,
+/area/space)
 "cP" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	icon_state = "map";
+	dir = 4
+	},
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 4;
-	icon_state = "railing0";
+	icon_state = "railing0-1";
 	mapped_color = "#b95a00"
 	},
-/turf/simulated/open,
-/area/space)
+/obj/structure/cable/blue{
+	d1 = 2;
+	d2 = 9;
+	icon_state = "2-9"
+	},
+/obj/machinery/meter,
+/turf/simulated/floor/plating,
+/area/noctis/combint)
 "cQ" = (
 /obj/effect/paint/silver,
 /obj/structure/sign/warning/radioactive,
@@ -1438,20 +1482,24 @@
 /turf/simulated/open,
 /area/noctis/combint)
 "du" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	icon_state = "intact";
+	dir = 9
+	},
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /obj/structure/railing/mapped{
 	color = "#b95a00";
-	dir = 8;
-	icon_state = "railing0";
+	dir = 4;
+	icon_state = "railing0-1";
 	mapped_color = "#b95a00"
 	},
-/obj/structure/lattice,
-/obj/structure/cable/blue{
-	d1 = 32;
-	d2 = 8;
-	icon_state = "32-8"
-	},
-/turf/simulated/open,
-/area/noctis/extconn)
+/obj/effect/floor_decal/rust,
+/turf/simulated/floor/plating,
+/area/noctis/combint)
 "dv" = (
 /obj/structure/closet/firecloset,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
@@ -1488,20 +1536,20 @@
 /turf/simulated/floor/plating,
 /area/noctis/atmosc)
 "dz" = (
-/obj/structure/lattice,
 /obj/structure/railing/mapped{
 	color = "#b95a00";
-	dir = 4;
-	icon_state = "railing0";
+	dir = 8;
+	icon_state = "railing0-1";
 	mapped_color = "#b95a00"
 	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/structure/lattice,
+/obj/structure/cable/blue{
+	d1 = 32;
+	d2 = 8;
+	icon_state = "32-8"
 	},
 /turf/simulated/open,
-/area/space)
+/area/noctis/extconn)
 "dA" = (
 /obj/structure/lattice,
 /obj/structure/cable/blue{
@@ -1593,11 +1641,20 @@
 /turf/simulated/open,
 /area/noctis/extconn)
 "dL" = (
-/obj/effect/floor_decal/corner/grey/mono,
-/obj/effect/floor_decal/industrial/outline/blue,
-/obj/structure/closet/firecloset,
-/turf/simulated/floor/tiled/monotile,
-/area/noctis/bridge)
+/obj/structure/lattice,
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 4;
+	icon_state = "railing0-1";
+	mapped_color = "#b95a00"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/open,
+/area/space)
 "dM" = (
 /obj/structure/railing/mapped{
 	color = "#b95a00";
@@ -1621,7 +1678,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 4;
-	icon_state = "railing0";
+	icon_state = "railing0-1";
 	mapped_color = "#b95a00"
 	},
 /obj/structure/cable/blue{
@@ -1878,7 +1935,7 @@
 /turf/simulated/floor/tiled/monotile,
 /area/noctis/bridge)
 "ev" = (
-/obj/machinery/computer/sensors{
+/obj/machinery/computer/ship/sensors{
 	icon_state = "computer";
 	dir = 8
 	},
@@ -1975,7 +2032,7 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	icon_state = "apc0";
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /obj/structure/cable/blue{
 	d2 = 8;
@@ -1997,8 +2054,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_access = list(850);
-	req_one_access = newlist()
+	req_access = list("ACCESS_NOCTIS")
 	},
 /turf/simulated/open,
 /area/noctis/reactorov)
@@ -2011,7 +2067,7 @@
 /obj/machinery/power/apc{
 	dir = 4;
 	icon_state = "apc0";
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /turf/simulated/floor/plating,
 /area/noctis/reactorov)
@@ -2065,7 +2121,7 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	icon_state = "apc0";
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/techmaint,
@@ -2179,24 +2235,16 @@
 /turf/simulated/floor/plating,
 /area/noctis/combint)
 "fb" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
-	icon_state = "map";
-	dir = 4
-	},
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 4;
-	icon_state = "railing0";
+	icon_state = "railing0-1";
 	mapped_color = "#b95a00"
 	},
-/obj/structure/cable/blue{
-	d1 = 2;
-	d2 = 9;
-	icon_state = "2-9"
-	},
-/obj/machinery/meter,
+/obj/structure/catwalk,
+/obj/random/trash,
 /turf/simulated/floor/plating,
-/area/noctis/combint)
+/area/noctis/asm)
 "fc" = (
 /turf/simulated/open,
 /area/noctis/combint)
@@ -2443,6 +2491,7 @@
 /area/noctis/bridge)
 "fr" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/overmap/ship/noctis,
 /turf/simulated/floor/tiled/dark,
 /area/noctis/bridge)
 "fs" = (
@@ -2483,7 +2532,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/noctis/bridge)
 "fw" = (
-/obj/machinery/computer/helm{
+/obj/machinery/computer/ship/helm{
 	icon_state = "computer";
 	dir = 8
 	},
@@ -2523,11 +2572,18 @@
 "fC" = (
 /obj/structure/railing/mapped{
 	color = "#b95a00";
-	dir = 4;
-	icon_state = "railing0";
+	dir = 8;
+	icon_state = "railing0-1";
 	mapped_color = "#b95a00"
 	},
 /obj/structure/catwalk,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/noctis/asm)
 "fD" = (
@@ -2565,39 +2621,28 @@
 /turf/simulated/open,
 /area/noctis/combint)
 "fH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	icon_state = "intact";
-	dir = 9
-	},
-/obj/structure/cable/blue{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
+/obj/structure/lattice,
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 4;
-	icon_state = "railing0";
+	icon_state = "railing0-1";
 	mapped_color = "#b95a00"
 	},
-/obj/effect/floor_decal/rust,
-/turf/simulated/floor/plating,
-/area/noctis/combint)
-"fI" = (
-/obj/structure/railing/mapped{
-	color = "#b95a00";
-	dir = 8;
-	icon_state = "railing0";
-	mapped_color = "#b95a00"
-	},
-/obj/structure/catwalk,
 /obj/structure/cable/blue{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/open,
+/area/space)
+"fI" = (
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 4;
+	icon_state = "railing0-1";
+	mapped_color = "#b95a00"
+	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/noctis/asm)
 "fJ" = (
@@ -2658,7 +2703,7 @@
 /obj/machinery/power/apc{
 	dir = 4;
 	icon_state = "apc0";
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /obj/structure/cable/blue{
 	d2 = 8;
@@ -2712,20 +2757,28 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/extconn)
 "fQ" = (
-/obj/structure/lattice,
 /obj/structure/railing/mapped{
 	color = "#b95a00";
-	dir = 4;
-	icon_state = "railing0";
+	dir = 8;
+	icon_state = "railing0-1";
 	mapped_color = "#b95a00"
 	},
+/obj/structure/catwalk,
 /obj/structure/cable/blue{
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 4;
+	icon_state = "1-4"
 	},
-/turf/simulated/open,
-/area/space)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/noctis/asm)
 "fR" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
@@ -2769,7 +2822,7 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	icon_state = "apc0";
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /obj/effect/floor_decal/rust,
 /obj/structure/cable/blue{
@@ -2847,8 +2900,7 @@
 	dir = 1;
 	icon_state = "alarm0";
 	pixel_y = -22;
-	req_access = list(850);
-	req_one_access = newlist()
+	req_access = list("ACCESS_NOCTIS")
 	},
 /turf/simulated/floor/plating,
 /area/noctis/combint)
@@ -2940,8 +2992,7 @@
 	dir = 4;
 	icon_state = "alarm0";
 	pixel_x = -24;
-	req_access = list(850);
-	req_one_access = newlist()
+	req_access = list("ACCESS_NOCTIS")
 	},
 /obj/effect/floor_decal/rust,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3006,7 +3057,7 @@
 /turf/simulated/floor/tiled/monotile,
 /area/noctis/bridge)
 "gs" = (
-/obj/machinery/computer/engines{
+/obj/machinery/computer/ship/engines{
 	icon_state = "computer";
 	dir = 8
 	},
@@ -3051,7 +3102,7 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	icon_state = "apc0";
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /obj/structure/cable/blue{
 	d2 = 8;
@@ -3097,7 +3148,7 @@
 "gB" = (
 /obj/effect/floor_decal/corner/grey/mono,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /obj/random/energy,
 /obj/random/handgun,
@@ -3146,7 +3197,7 @@
 /area/noctis/bridge)
 "gG" = (
 /obj/effect/floor_decal/corner/grey/mono,
-/obj/machinery/computer/navigation{
+/obj/machinery/computer/ship/navigation{
 	icon_state = "computer";
 	dir = 1
 	},
@@ -3353,25 +3404,11 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 8;
-	icon_state = "railing0";
+	icon_state = "railing0-1";
 	mapped_color = "#b95a00"
 	},
-/obj/structure/catwalk,
-/obj/structure/cable/blue{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 5
-	},
-/turf/simulated/floor/plating,
-/area/noctis/asm)
+/turf/simulated/open,
+/area/space)
 "hg" = (
 /obj/structure/catwalk,
 /obj/structure/cable/blue{
@@ -3435,8 +3472,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24;
-	req_access = list(850);
-	req_one_access = newlist()
+	req_access = list("ACCESS_NOCTIS")
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/noctis/prismngt)
@@ -3599,10 +3635,10 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 8;
-	icon_state = "railing0";
+	icon_state = "railing0-1";
 	mapped_color = "#b95a00"
 	},
-/turf/simulated/open,
+/turf/space,
 /area/space)
 "hz" = (
 /turf/simulated/open,
@@ -3611,7 +3647,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 1;
-	icon_state = "railing0";
+	icon_state = "railing0-1";
 	mapped_color = "#b95a00"
 	},
 /turf/space,
@@ -3728,8 +3764,7 @@
 	dir = 1;
 	icon_state = "alarm0";
 	pixel_y = -22;
-	req_access = list(850);
-	req_one_access = newlist()
+	req_access = list("ACCESS_NOCTIS")
 	},
 /obj/effect/floor_decal/rust,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -3755,7 +3790,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 4;
-	icon_state = "railing0";
+	icon_state = "railing0-1";
 	mapped_color = "#b95a00"
 	},
 /obj/structure/lattice,
@@ -3839,7 +3874,7 @@
 /area/noctis/prismngt)
 "hT" = (
 /obj/structure/closet/crate/secure/biohazard/blanks{
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/techfloor/grid,
@@ -3847,14 +3882,12 @@
 "hU" = (
 /obj/structure/railing/mapped{
 	color = "#b95a00";
-	dir = 4;
-	icon_state = "railing0";
+	dir = 1;
+	icon_state = "railing0-1";
 	mapped_color = "#b95a00"
 	},
-/obj/structure/catwalk,
-/obj/random/trash,
-/turf/simulated/floor/plating,
-/area/noctis/asm)
+/turf/simulated/open,
+/area/space)
 "hV" = (
 /obj/structure/cable/blue{
 	d1 = 1;
@@ -3906,8 +3939,7 @@
 	dir = 1;
 	icon_state = "alarm0";
 	pixel_y = -22;
-	req_access = list(850);
-	req_one_access = newlist()
+	req_access = list("ACCESS_NOCTIS")
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/noctis/asm)
@@ -3978,7 +4010,7 @@
 /obj/machinery/power/apc{
 	dir = 4;
 	icon_state = "apc0";
-	req_access = list(850)
+	req_access = list("ACCESS_NOCTIS")
 	},
 /obj/structure/cable/blue,
 /obj/structure/cable/blue{
@@ -4264,13 +4296,13 @@
 /turf/simulated/floor/plating,
 /area/noctis/ocabin)
 "iM" = (
-/obj/structure/lattice,
 /obj/structure/railing/mapped{
 	color = "#b95a00";
-	dir = 8;
-	icon_state = "railing0";
+	dir = 1;
+	icon_state = "railing0-1";
 	mapped_color = "#b95a00"
 	},
+/obj/structure/lattice,
 /turf/simulated/open,
 /area/space)
 "iN" = (
@@ -4311,11 +4343,6 @@
 	},
 /turf/simulated/open,
 /area/noctis/extconn)
-"ks" = (
-/obj/effect/paint/silver,
-/obj/effect/overmap/ship/noctis,
-/turf/simulated/wall/titanium,
-/area/noctis/bridge)
 "nb" = (
 /obj/effect/floor_decal/industrial/danger,
 /turf/simulated/floor/reinforced,
@@ -4427,15 +4454,6 @@
 	},
 /turf/simulated/open,
 /area/noctis/extconn)
-"Fh" = (
-/obj/structure/railing/mapped{
-	color = "#b95a00";
-	dir = 4;
-	icon_state = "railing0";
-	mapped_color = "#b95a00"
-	},
-/turf/space,
-/area/space)
 "Gm" = (
 /obj/machinery/atmospherics/unary/engine{
 	icon_state = "nozzle";
@@ -4443,15 +4461,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/noctis/asm)
-"Gv" = (
-/obj/structure/railing/mapped{
-	color = "#b95a00";
-	dir = 8;
-	icon_state = "railing0";
-	mapped_color = "#b95a00"
-	},
-/turf/space,
-/area/space)
 "Hq" = (
 /obj/effect/floor_decal/rust,
 /turf/simulated/floor/tiled/techmaint,
@@ -4468,6 +4477,15 @@
 /obj/structure/grille,
 /turf/simulated/open,
 /area/space)
+"MM" = (
+/obj/effect/paint/silver,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/wall/titanium,
+/area/noctis/ocabin)
 "NI" = (
 /obj/effect/floor_decal/industrial/danger{
 	icon_state = "danger";
@@ -4489,15 +4507,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/noctis/fpm)
-"Tl" = (
-/obj/structure/railing/mapped{
-	color = "#b95a00";
-	dir = 1;
-	icon_state = "railing0";
-	mapped_color = "#b95a00"
-	},
-/turf/simulated/open,
-/area/space)
 "Tn" = (
 /obj/machinery/light/small/d_green{
 	icon_state = "bulb_map";
@@ -4543,16 +4552,6 @@
 	},
 /turf/simulated/open,
 /area/noctis/exteriorl)
-"WV" = (
-/obj/structure/railing/mapped{
-	color = "#b95a00";
-	dir = 1;
-	icon_state = "railing0";
-	mapped_color = "#b95a00"
-	},
-/obj/structure/lattice,
-/turf/simulated/open,
-/area/space)
 "XG" = (
 /obj/structure/lattice,
 /obj/structure/closet/crate,
@@ -6553,11 +6552,11 @@ aa
 aa
 aa
 aa
-cP
-Fh
-Fh
+cy
+cO
+cO
 aa
-cP
+cy
 eq
 aa
 aa
@@ -7173,8 +7172,8 @@ fz
 dn
 gK
 he
-hU
-fC
+fb
+fI
 ib
 ib
 ib
@@ -7377,8 +7376,8 @@ dn
 dn
 gL
 hg
-fI
-hf
+fC
+fQ
 id
 iq
 aa
@@ -7575,8 +7574,8 @@ cI
 dx
 dZ
 eE
-fb
-fH
+cP
+du
 gg
 gu
 gM
@@ -8997,9 +8996,9 @@ dw
 dw
 dw
 eq
-br
-br
-br
+aG
+aG
+aG
 aF
 aL
 bJ
@@ -9007,10 +9006,10 @@ fi
 cC
 aL
 do
-dz
+dL
 dO
-fQ
-fQ
+fH
+fH
 dA
 hO
 ag
@@ -9200,10 +9199,10 @@ aX
 dw
 KY
 dw
-iM
-iM
-iM
-iM
+aA
+aA
+aA
+aA
 aH
 ep
 bW
@@ -9212,7 +9211,7 @@ fM
 dk
 dq
 dw
-iM
+aA
 hJ
 cA
 dC
@@ -9316,8 +9315,8 @@ Tn
 eq
 eq
 iN
-hy
-hy
+hf
+hf
 eq
 eq
 au
@@ -9718,7 +9717,7 @@ dK
 eh
 eh
 eh
-du
+dz
 JW
 dK
 gA
@@ -9728,7 +9727,7 @@ hY
 gy
 gy
 cU
-Tl
+hU
 eq
 sN
 eq
@@ -9830,7 +9829,7 @@ ha
 ik
 iu
 zs
-WV
+iM
 dw
 yr
 dw
@@ -9932,7 +9931,7 @@ iK
 iy
 gy
 cX
-Tl
+hU
 eq
 Qq
 eq
@@ -10027,7 +10026,7 @@ iC
 iC
 iC
 dK
-gA
+MM
 iH
 gA
 hZ
@@ -10238,7 +10237,7 @@ ix
 in
 iu
 cU
-Tl
+hU
 eq
 aa
 aa
@@ -10340,7 +10339,7 @@ hY
 io
 gy
 cU
-Tl
+hU
 eq
 aa
 aa
@@ -10530,7 +10529,7 @@ al
 bY
 ct
 cZ
-dL
+aW
 ei
 eN
 fq
@@ -10632,7 +10631,7 @@ al
 bZ
 ct
 cZ
-cy
+bb
 ej
 eO
 fr
@@ -10645,7 +10644,7 @@ hL
 gy
 bk
 aa
-Gv
+hy
 aa
 aa
 aa
@@ -10737,7 +10736,7 @@ cZ
 dN
 el
 eO
-ks
+cZ
 fV
 go
 gD
@@ -10938,7 +10937,7 @@ aa
 al
 cx
 cZ
-cO
+br
 er
 em
 iQ
@@ -10949,7 +10948,7 @@ cZ
 hv
 gy
 eo
-Gv
+hy
 aa
 aa
 aa
@@ -11764,7 +11763,7 @@ cZ
 dh
 NI
 nb
-Gv
+hy
 aa
 aa
 aa

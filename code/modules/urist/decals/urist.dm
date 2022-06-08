@@ -6,3 +6,6 @@
 
 /obj/effect/floor_decal/urist/nervalogo
 	icon_state = "nerva1"
+
+/obj/effect/paint/green_grey
+	color = "#8daf6a"

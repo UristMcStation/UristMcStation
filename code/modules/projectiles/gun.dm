@@ -31,16 +31,15 @@
 /obj/item/weapon/gun
 	name = "gun"
 	desc = "Its a gun. It's pretty terrible, though."
-	icon = 'icons/obj/gun.dmi'
+	icon = 'icons/obj/guns/gui.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/onmob/items/lefthand_guns.dmi',
 		slot_r_hand_str = 'icons/mob/onmob/items/righthand_guns.dmi',
 		)
-	icon_state = "detective"
 	item_state = "gun"
 	obj_flags =  OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	matter = list(DEFAULT_WALL_MATERIAL = 2000)
+	matter = list(MATERIAL_STEEL = 2000)
 	w_class = ITEM_SIZE_NORMAL
 	throwforce = 5
 	throw_speed = 4
@@ -52,6 +51,7 @@
 	waterproof = FALSE
 
 	var/burst = 1
+	var/can_autofire = FALSE
 	var/fire_delay = 6 	//delay after shooting before the gun can be used again
 	var/burst_delay = 2	//delay between shots, if firing in bursts
 	var/move_delay = 1
@@ -61,7 +61,13 @@
 	var/screen_shake = 0 //shouldn't be greater than 2 unless zoomed
 	var/silenced = 0
 	var/accuracy = 0   //accuracy is measured in tiles. +1 accuracy means that everything is effectively one tile closer for the purpose of miss chance, -1 means the opposite. launchers are not supported, at the moment.
-	var/scoped_accuracy = null
+	var/accuracy_power = 5  //increase of to-hit chance per 1 point of accuracy
+	var/can_dual_wield = 0
+	var/dual_wield_penalty = 4 // by default dual wielding reduces accuracy by 25%
+	var/bulk = 0			//how unwieldy this weapon for its size, affects accuracy when fired without aiming
+	var/last_handled		//time when hand gun's in became active, for purposes of aiming bonuses
+	var/scoped_accuracy = null  //accuracy used when zoomed in a scope
+	var/scope_zoom = 0
 	var/list/burst_accuracy = list(0) //allows for different accuracies for each shot in a burst. Applied on top of accuracy
 	var/list/dispersion = list(0)
 	var/one_hand_penalty
@@ -83,23 +89,27 @@
 	var/tmp/told_cant_shoot = 0 //So that it doesn't spam them with the fact they cannot hit them.
 	var/tmp/lock_time = -100
 
-/obj/item/weapon/gun/New()
-	..()
+/obj/item/weapon/gun/Initialize()
+	. = ..()
 	for(var/i in 1 to firemodes.len)
 		firemodes[i] = new /datum/firemode(src, firemodes[i])
 
 	if(isnull(scoped_accuracy))
 		scoped_accuracy = accuracy
 
+	if(scope_zoom)
+		verbs += /obj/item/weapon/gun/proc/scope
+
 /obj/item/weapon/gun/update_twohanding()
 	if(one_hand_penalty)
 		update_icon() // In case item_state is set somewhere else.
 	..()
 
-/obj/item/weapon/gun/update_icon()
-	if(wielded_item_state)
-		var/mob/living/M = loc
-		if(istype(M))
+/obj/item/weapon/gun/on_update_icon()
+	var/mob/living/M = loc
+	overlays.Cut()
+	if(istype(M))
+		if(wielded_item_state)
 			if(M.can_wield_item(src) && src.is_held_twohanded(M))
 				item_state_slots[slot_l_hand_str] = wielded_item_state
 				item_state_slots[slot_r_hand_str] = wielded_item_state
@@ -118,10 +128,10 @@
 		return 0
 
 	var/mob/living/M = user
-	if(HULK in M.mutations)
+	if(MUTATION_HULK in M.mutations)
 		to_chat(M, "<span class='danger'>Your fingers are much too large for the trigger guard!</span>")
 		return 0
-	if((CLUMSY in M.mutations) && prob(40)) //Clumsy handling
+	if((MUTATION_CLUMSY in M.mutations) && prob(40)) //Clumsy handling
 		var/obj/P = consume_next_projectile()
 		if(P)
 			if(process_projectile(P, user, user, pick(BP_L_FOOT, BP_R_FOOT)))
@@ -140,6 +150,17 @@
 	for(var/obj/O in contents)
 		O.emp_act(severity)
 
+/obj/item/weapon/gun/proc/check_dual_wield(atom/A, mob/living/user, params)
+	var/obj/item/weapon/gun/G = user.get_inactive_hand()
+	if(can_dual_wield && G.can_dual_wield)
+		if(w_class <= ITEM_SIZE_SMALL && G.w_class <= ITEM_SIZE_SMALL)
+			Fire(A,user,params, dual_wield=1)
+			user.swap_hand()
+		else
+			Fire(A,user,params) //Otherwise, fire normally.
+	else
+		Fire(A,user,params)
+
 /obj/item/weapon/gun/afterattack(atom/A, mob/living/user, adjacent, params)
 	if(adjacent) return //A is adjacent, is the user, or is on the user's person
 
@@ -149,9 +170,13 @@
 	if(user && user.client && user.aiming && user.aiming.active && user.aiming.aiming_at != A)
 		PreFire(A,user,params) //They're using the new gun system, locate what they're aiming at.
 		return
+	
+	var/obj/item/I = user.get_inactive_hand()
 
 	if(user && user.a_intent == I_HELP) //regardless of what happens, refuse to shoot if help intent is on
 		to_chat(user, "<span class='warning'>You refrain from firing \the [src] as your intent is set to help.</span>")
+	else if(istype(I, /obj/item/weapon/gun)) //DUAL WIELDING
+		check_dual_wield(A, user, params)
 	else
 		Fire(A,user,params) //Otherwise, fire normally.
 
@@ -163,7 +188,11 @@
 	else
 		return ..() //Pistolwhippin'
 
-/obj/item/weapon/gun/proc/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
+/obj/item/weapon/gun/dropped(var/mob/living/user)
+	update_icon()
+	return ..()
+
+/obj/item/weapon/gun/proc/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0, dual_wield=0)
 	if(!user || !target) return
 	if(target.z != user.z) return
 
@@ -192,13 +221,13 @@
 			handle_click_empty(user)
 			break
 
-		process_accuracy(projectile, user, target, i, held_twohanded)
+		process_accuracy(projectile, user, target, i, held_twohanded, dual_wield)
 
 		if(pointblank)
 			process_point_blank(projectile, user, target)
 
 		if(process_projectile(projectile, user, target, user.zone_sel.selecting, clickparams))
-			handle_post_fire(user, target, pointblank, reflex)
+			handle_post_fire(user, target, pointblank, reflex, dual_wield)
 			update_icon()
 
 		if(i < burst)
@@ -255,25 +284,21 @@
 	if(one_hand_penalty)
 		if(!src.is_held_twohanded(user))
 			switch(one_hand_penalty)
-				if(1)
+				if(4 to 6)
 					if(prob(50)) //don't need to tell them every single time
 						to_chat(user, "<span class='warning'>Your aim wavers slightly.</span>")
-				if(2)
-					to_chat(user, "<span class='warning'>Your aim wavers as you fire \the [src] with just one hand.</span>")
-				if(3)
+				if(6 to 8)
 					to_chat(user, "<span class='warning'>You have trouble keeping \the [src] on target with just one hand.</span>")
-				if(4 to INFINITY)
+				if(8 to INFINITY)
 					to_chat(user, "<span class='warning'>You struggle to keep \the [src] on target with just one hand!</span>")
 		else if(!user.can_wield_item(src))
 			switch(one_hand_penalty)
-				if(1)
+				if(4 to 6)
 					if(prob(50)) //don't need to tell them every single time
 						to_chat(user, "<span class='warning'>Your aim wavers slightly.</span>")
-				if(2)
-					to_chat(user, "<span class='warning'>Your aim wavers as you try to hold \the [src] steady.</span>")
-				if(3)
+				if(6 to 8)
 					to_chat(user, "<span class='warning'>You have trouble holding \the [src] steady.</span>")
-				if(4 to INFINITY)
+				if(8 to INFINITY)
 					to_chat(user, "<span class='warning'>You struggle to hold \the [src] steady!</span>")
 
 	if(screen_shake)
@@ -282,7 +307,8 @@
 
 	if(combustion)
 		var/turf/curloc = get_turf(src)
-		curloc.hotspot_expose(700, 5)
+		if(curloc)
+			curloc.hotspot_expose(700, 5)
 
 	update_icon()
 
@@ -293,46 +319,57 @@
 		return //default behaviour only applies to true projectiles
 
 	//default point blank multiplier
-	var/max_mult = 1.3
+	var/max_mult = 1
 
 	//determine multiplier due to the target being grabbed
-	if(ishuman(target))
-		var/mob/living/carbon/human/H = target
-		for(var/obj/item/grab/G in H.grabbed_by)
-			if(G.point_blank_mult() > max_mult)
-				max_mult = G.point_blank_mult()
+	if(isliving(target))
+		var/mob/living/L = target
+		if(L.incapacitated())
+			max_mult = 1.2
+		for(var/obj/item/grab/G in L.grabbed_by)
+			max_mult = max(max_mult, G.point_blank_mult())
 	P.damage *= max_mult
 
-/obj/item/weapon/gun/proc/process_accuracy(obj/projectile, mob/user, atom/target, var/burst, var/held_twohanded)
+/obj/item/weapon/gun/proc/process_accuracy(obj/projectile, mob/user, atom/target, var/burst, var/held_twohanded, var/dual_wield)
 	var/obj/item/projectile/P = projectile
 	if(!istype(P))
 		return //default behaviour only applies to true projectiles
 
 	var/acc_mod = burst_accuracy[min(burst, burst_accuracy.len)]
 	var/disp_mod = dispersion[min(burst, dispersion.len)]
-	var/stood_still = round((world.time - user.l_move_time)/15)
+	var/stood_still = last_handled
+	//Not keeping gun active will throw off aim
+	stood_still = min(user.l_move_time, last_handled)
+
+	stood_still = max(0,round((world.time - stood_still)/10) - 1)
 	if(stood_still)
-		acc_mod += 1 * max(2, stood_still)
-		if(stood_still > 5)
-			acc_mod += accuracy
+		acc_mod += min(max(2, accuracy), stood_still)
+	else
+		acc_mod -= w_class - ITEM_SIZE_NORMAL
+		acc_mod -= bulk
 
-	if(one_hand_penalty)
-		if(!stood_still)
-			acc_mod -= 1
-		if(!held_twohanded)
-			acc_mod += -ceil(one_hand_penalty/2)
-			disp_mod += one_hand_penalty*0.5 //dispersion per point of two-handedness
+	if(one_hand_penalty >= 4 && !held_twohanded)
+		acc_mod -= one_hand_penalty/2
+		disp_mod += one_hand_penalty*0.5 //dispersion per point of two-handedness
+	
+	if(dual_wield)
+		acc_mod -= dual_wield_penalty/2
+		disp_mod += dual_wield_penalty*0.5
 
-	//Accuracy modifiers
-	P.accuracy = accuracy + acc_mod
-	P.dispersion = disp_mod
+	if(burst > 1)
+		acc_mod -= 1
+		disp_mod += 0.5
 
 	//accuracy bonus from aiming
 	if (aim_targets && (target in aim_targets))
 		//If you aim at someone beforehead, it'll hit more often.
 		//Kinda balanced by fact you need like 2 seconds to aim
 		//As opposed to no-delay pew pew
-		P.accuracy += 2
+		acc_mod += 2
+
+	acc_mod += accuracy
+	P.hitchance_mod = accuracy_power*acc_mod
+	P.dispersion = disp_mod
 
 //does the actual launching of the projectile
 /obj/item/weapon/gun/proc/process_projectile(obj/projectile, mob/user, atom/target, var/target_zone, var/params=null)
@@ -411,12 +448,18 @@
 		mouthshoot = 0
 		return
 
+/obj/item/weapon/gun/proc/scope()
+	set category = "Object"
+	set name = "Use Scope"
+	set popup_menu = 1
+
+	toggle_scope(usr, scope_zoom)
+
 /obj/item/weapon/gun/proc/toggle_scope(mob/user, var/zoom_amount=2.0)
 	//looking through a scope limits your periphereal vision
 	//still, increase the view size by a tiny amount so that sniping isn't too restricted to NSEW
 	var/zoom_offset = round(world.view * zoom_amount)
 	var/view_size = round(world.view + zoom_amount)
-	var/scoped_accuracy_mod = zoom_offset
 
 	if(zoom)
 		unzoom(user)
@@ -424,7 +467,7 @@
 
 	zoom(user, zoom_offset, view_size)
 	if(zoom)
-		accuracy = scoped_accuracy + scoped_accuracy_mod
+		accuracy = scoped_accuracy
 		if(screen_shake)
 			screen_shake = round(screen_shake*zoom_amount+1) //screen shake is worse when looking through a scope
 
@@ -482,3 +525,34 @@
 		"<span class='warning'>You fire \the [src]!</span>",
 		"You hear a [fire_sound_text]!"
 		)
+
+/obj/item/weapon/gun/equipped()
+	..()
+	update_icon()
+	last_handled = world.time
+
+/obj/item/weapon/gun/on_active_hand()
+	last_handled = world.time
+
+/obj/item/weapon/gun/on_disarm_attempt(mob/target, mob/attacker)
+	var/list/turfs = list()
+	for(var/turf/T in view())
+		turfs += T
+	if(turfs.len)
+		var/turf/shoot_to = pick(turfs)
+		target.visible_message("<span class='danger'>\The [src] goes off during the struggle!</span>")
+		afterattack(shoot_to,target)
+		return 1
+
+/obj/item/weapon/gun/proc/can_autofire()
+	return (can_autofire && world.time >= next_fire_time)
+
+/client/MouseDrag(src_object, over_object, src_location, over_location, src_control, over_control, params)
+	. = ..()
+	if(over_object)
+		var/mob/living/M = mob
+		if(istype(M) && !M.incapacitated())
+			var/obj/item/weapon/gun/gun = mob.get_active_hand()
+			if(istype(gun) && gun.can_autofire())
+				M.set_dir(get_dir(M, over_object))
+				gun.Fire(get_turf(over_object), mob, params, (get_dist(over_object, mob) <= 1), FALSE)

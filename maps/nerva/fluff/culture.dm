@@ -159,4 +159,4 @@
 	collective trauma, which has come to define their lives. Adrift among the stars or languishing in squalid refugee camps, Graveworlders are generally very poor, \
 	and, in the absence of any significant help from the state, many have turned to piracy or crime."
 	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_SIGN)
-	economic_power = 0.5
+	economic_power = 0.4

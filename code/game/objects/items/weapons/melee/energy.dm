@@ -5,8 +5,11 @@
 	sharp = 0
 	edge = 0
 	armor_penetration = 50
-	atom_flags = ATOM_FLAG_NO_BLOOD
+	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_NO_BLOOD
 	obj_flags = OBJ_FLAG_NO_EMBED
+
+/obj/item/weapon/melee/energy/can_embed()
+	return FALSE
 
 /obj/item/weapon/melee/energy/proc/activate(mob/living/user)
 	if(active)
@@ -32,7 +35,7 @@
 
 /obj/item/weapon/melee/energy/attack_self(mob/living/user as mob)
 	if (active)
-		if ((CLUMSY in user.mutations) && prob(50))
+		if ((MUTATION_CLUMSY in user.mutations) && prob(50))
 			user.visible_message("<span class='danger'>\The [user] accidentally cuts \himself with \the [src].</span>",\
 			"<span class='danger'>You accidentally cut yourself with \the [src].</span>")
 			user.take_organ_damage(5,5)
@@ -70,7 +73,7 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = ITEM_SIZE_NORMAL
-	atom_flags = ATOM_FLAG_NO_BLOOD
+	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_NO_BLOOD
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	origin_tech = list(TECH_MAGNET = 3, TECH_COMBAT = 4)
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
@@ -103,7 +106,7 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = ITEM_SIZE_SMALL
-	atom_flags = ATOM_FLAG_NO_BLOOD
+	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_NO_BLOOD
 	origin_tech = list(TECH_MAGNET = 3, TECH_ILLEGAL = 4)
 	sharp = 1
 	edge = 1
@@ -130,12 +133,23 @@
 /obj/item/weapon/melee/energy/sword/purple/New()
 	blade_color = "purple"
 
+/obj/item/weapon/melee/energy/sword/black/New()
+	blade_color = "black"
+
+/obj/item/weapon/melee/energy/sword/yellow/New()
+	blade_color = "yellow"
+
+/obj/item/weapon/melee/energy/sword/orange/New()
+	blade_color = "orange"
+
 /obj/item/weapon/melee/energy/sword/activate(mob/living/user)
 	if(!active)
 		to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
 	..()
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	icon_state = "sword[blade_color]"
+	hitsound = 'sound/weapons/saberhit.ogg'
+
 
 /obj/item/weapon/melee/energy/sword/deactivate(mob/living/user)
 	if(active)
@@ -143,6 +157,7 @@
 	..()
 	attack_verb = list()
 	icon_state = initial(icon_state)
+	update_icon()
 
 /obj/item/weapon/melee/energy/sword/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(.)
@@ -153,6 +168,71 @@
 
 /obj/item/weapon/melee/energy/sword/get_parry_chance(mob/user)
 	return active ? ..() : 0
+
+/obj/item/weapon/melee/energy/sword/dualsaber
+	var/base_icon = "dualsaber"
+	icon_state = "dualsaber0"
+	name = "double-bladed energy sword"
+	desc = "Handle with care."
+	var/wielded = 0
+	var/force_wielded = 40
+	var/force_unwielded = 10
+	item_icons = DEF_URIST_INHANDS
+
+/obj/item/weapon/melee/energy/sword/dualsaber/activate(mob/living/user)
+	..()
+	icon_state = "[base_icon][blade_color]"
+	update_icon()
+
+/obj/item/weapon/melee/energy/sword/dualsaber/on_update_icon()
+	if(wielded && active)
+		item_state = "[base_icon][blade_color][wielded]"
+	else
+		item_state = initial(icon_state)
+
+/obj/item/weapon/melee/energy/sword/dualsaber/attack(target as mob, mob/living/user as mob)
+	..()
+	if((MUTATION_CLUMSY in user.mutations) && (wielded) &&prob(40))
+		user << "<span class='warning'> You twirl around a bit before losing your balance and impaling yourself on the [src].</span>"
+		user.take_organ_damage(20,25)
+		return
+	if((wielded) && prob(50))
+		spawn(0)
+			for(var/i in list(1,2,4,8,4,2,1,2,4,8,4,2))
+				user.set_dir(i)
+				sleep(1)
+
+/obj/item/weapon/melee/energy/sword/dualsaber/update_twohanding()
+	var/mob/living/M = loc
+	if(istype(M) && M.can_wield_item(src) && is_held_twohanded(M))
+		wielded = 1
+		force = force_wielded
+	else
+		wielded = 0
+		force = force_unwielded
+	update_icon()
+	..()
+
+/obj/item/weapon/melee/energy/sword/dualsaber/New()
+	blade_color = pick("red","blue","green","purple")
+
+/obj/item/weapon/melee/energy/sword/dualsaber/green/New()
+	blade_color = "green"
+
+/obj/item/weapon/melee/energy/sword/dualsaber/red/New()
+	blade_color = "red"
+
+/obj/item/weapon/melee/energy/sword/dualsaber/blue/New()
+	blade_color = "blue"
+
+/obj/item/weapon/melee/energy/sword/dualsaber/purple/New()
+	blade_color = "purple"
+
+/obj/item/weapon/melee/energy/sword/dualsaber/yellow/New()
+	blade_color = "yellow"
+
+/obj/item/weapon/melee/energy/sword/dualsaber/orange/New()
+	blade_color = "orange"
 
 /obj/item/weapon/melee/energy/sword/pirate
 	name = "energy cutlass"
@@ -181,7 +261,7 @@
 	throw_speed = 1
 	throw_range = 1
 	w_class = ITEM_SIZE_TINY //technically it's just energy or something, I dunno
-	atom_flags = ATOM_FLAG_NO_BLOOD
+	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_NO_BLOOD
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	var/mob/living/creator
 	var/datum/effect/effect/system/spark_spread/spark_system

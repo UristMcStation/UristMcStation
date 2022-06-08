@@ -20,7 +20,10 @@
  	/obj/item/stack/cable_coil,
  	/obj/item/device/analyzer,
  	/obj/item/device/mmi,
-	/obj/item/device/integrated_electronics
+	/obj/item/device/integrated_electronics,
+	/obj/item/clothing/gloves,
+	/obj/item/weapon/hand_labeler,
+	/obj/item/taperoll
  	)
 
 /obj/item/weapon/storage/belt/robotics/full/New()

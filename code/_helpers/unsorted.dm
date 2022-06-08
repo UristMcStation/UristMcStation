@@ -317,11 +317,13 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	return "[pick("1","2","3","4","5","6","7","8","9","0")][pick("!","@","#","$","%","^","&","*")][pick("!","@","#","$","%","^","&","*")][pick("!","@","#","$","%","^","&","*")]"
 
 //When an AI is activated, it can choose from a list of non-slaved borgs to have as a slave.
-/proc/freeborg()
+/proc/freeborg(z)
+	var/list/zs = get_valid_silicon_zs(z)
+
 	var/select = null
 	var/list/borgs = list()
 	for (var/mob/living/silicon/robot/A in GLOB.player_list)
-		if (A.stat == 2 || A.connected_ai || A.scrambledcodes || istype(A,/mob/living/silicon/robot/drone))
+		if (A.stat == 2 || A.connected_ai || A.scrambledcodes || istype(A,/mob/living/silicon/robot/drone) || !((get_turf(A))?.z in zs))
 			continue
 		var/name = "[A.real_name] ([A.modtype] [A.braintype])"
 		borgs[name] = A
@@ -331,32 +333,38 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		return borgs[select]
 
 //When a borg is activated, it can choose which AI it wants to be slaved to
-/proc/active_ais()
+/proc/active_ais(z)
+	var/list/zs = get_valid_silicon_zs(z)
+
 	. = list()
 	for(var/mob/living/silicon/ai/A in GLOB.living_mob_list_)
-		if(A.stat == DEAD)
-			continue
-		if(A.control_disabled == 1)
+		if(A.stat == DEAD || A.control_disabled || !((get_turf(A))?.z in zs))
 			continue
 		. += A
 	return .
 
 //Find an active ai with the least borgs. VERBOSE PROCNAME HUH!
-/proc/select_active_ai_with_fewest_borgs()
+/proc/select_active_ai_with_fewest_borgs(z)
 	var/mob/living/silicon/ai/selected
-	var/list/active = active_ais()
+	var/list/active = active_ais(z)
 	for(var/mob/living/silicon/ai/A in active)
 		if(!selected || (selected.connected_robots.len > A.connected_robots.len))
 			selected = A
 
 	return selected
 
-/proc/select_active_ai(var/mob/user)
-	var/list/ais = active_ais()
+/proc/select_active_ai(mob/user, z)
+	var/list/ais = active_ais(z)
 	if(ais.len)
-		if(user)	. = input(usr,"AI signals detected:", "AI selection") in ais
-		else		. = pick(ais)
-	return .
+		if(user)
+			. = input(user,"AI signals detected:", "AI selection") in ais
+		else
+			. = pick(ais)
+
+/proc/get_valid_silicon_zs(z)
+	if(z)
+		return GetConnectedZlevels(z)
+	return list() //We return an empty list, because we are apparently in nullspace
 
 /proc/get_sorted_mobs()
 	var/list/old_list = getmobs()
@@ -509,9 +517,11 @@ Turf and target are seperate in case you want to teleport some distance from a t
 /proc/between(var/low, var/middle, var/high)
 	return max(min(middle, high), low)
 
+#if DM_VERSION < 513
 proc/arctan(x)
 	var/y=arcsin(x/sqrt(1+x*x))
 	return y
+#endif
 
 //returns random gauss number
 proc/GaussRand(var/sigma)
@@ -757,7 +767,11 @@ proc/DuplicateObject(obj/original, var/perfectcopy = 0 , var/sameloc = 0)
 					for(var/obj/O in T)
 
 						if(!istype(O,/obj) || !O.simulated)
-							continue
+							var/obj/effect/landmark/LM = O	//Check for hologram landmarks
+							if(!istype(LM))
+								continue
+							if(!LM.can_copy)
+								continue
 
 						objs += O
 

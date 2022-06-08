@@ -76,7 +76,7 @@
 		category.Add(list(list(
 			"name" = ship.name,
 			"desc" = ship.desc,
-			"faction" = ship.hiddenfaction,
+			"faction" = ship.hiddenfaction.name,
 			"hull" = ship.health,
 			"shield" = ship.shields
 		)))

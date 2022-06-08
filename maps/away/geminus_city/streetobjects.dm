@@ -92,13 +92,17 @@
 //	brightness_color = "#0080ff"
 
 /obj/machinery/light/street
+	name = "street lamp"
 	icon = 'maps/away/geminus_city/citymap_icons/street.dmi'
 	icon_state = "streetlamp1"
 	base_state = "streetlamp"
 	desc = "A street lighting fixture."
 //	brightness_range = 8
 //	brightness_color = "#0080ff"
-//	density = 1
+//	light_type = /obj/item/weapon/light/streetbulb
+
+/obj/machinery/light/street/attack_hand(mob/user)
+	return
 
 /obj/machinery/light/invis
 	icon = 'maps/away/geminus_city/citymap_icons/floorlights.dmi'
@@ -121,41 +125,62 @@
 
 //BILLBOARDS
 
-/obj/structure/billboard
+/obj/machinery/billboard
 	name = "billboard"
 	desc = "A billboard"
 	icon = 'maps/away/geminus_city/citymap_icons/billboards.dmi'
 	icon_state = "billboard"
-//	light_range = 4
-//	light_power = 2
-	light_color = "#ebf7fe"  //white blue
-	density = 1
+	density = 0
 	anchored = 1
+	use_power = POWER_USE_ACTIVE
+	idle_power_usage = 2
+	active_power_usage = 20
 	layer = ABOVE_HUMAN_LAYER
 	plane = ABOVE_HUMAN_PLANE
+	power_channel = LIGHT
 	bounds = "64,32"
 	pixel_y = 10
+	var/on = 0
+	var/default_light_max_bright = 0.8
+	var/default_light_inner_range = 1
+	var/default_light_outer_range = 4
+	var/default_light_colour = "#ebf7fe"  //white blue
 
-/obj/structure/billboard/Destroy()
-	set_light(0)
-	return ..()
+/obj/machinery/billboard/Initialize()
+	.=..()
+	if(icon_state == "billboard")
+		icon_state = pick("ssl","ntbuilding","keeptidy","smoke","rent","vets","tunguska")
 
-/obj/structure/billboard/New()
+	on = powered()
+
+	if(!on)
+		update_use_power(POWER_USE_OFF)
+
+/obj/machinery/billboard/proc/update_brightness()
+	if(on && !light_max_bright)
+		update_use_power(POWER_USE_ACTIVE)
+		set_light(default_light_max_bright, default_light_inner_range, default_light_outer_range, l_color = default_light_colour)
+	else
+		update_use_power(POWER_USE_OFF)
+		if(light_outer_range || light_max_bright)
+			set_light(0)
+
+//	change_power_consumption((light_outer_range + light_max_bright) * 20, POWER_USE_ACTIVE)
+
+/obj/machinery/billboard/power_change()
 	..()
-	icon_state = pick("ssl","ntbuilding","keeptidy")
+	spawn(10)
+		on = powered()
+		update_brightness()
 
-/obj/structure/billboard/city
+/obj/machinery/billboard/Destroy()
+	var/area/A = get_area(src)
+	if(A)
+		on = 0
+	. = ..()
+
+/obj/machinery/billboard/city
 	name = "city billboard"
 	desc = "A billboard"
 	icon_state = "welcome"
-//	light_range = 4
-//	light_power = 5
-	light_color = "#bbfcb6"  //watered lime
-
-/obj/structure/billboard/city/Destroy()
-	set_light(0)
-	return ..()
-
-/obj/structure/billboard/city/New()
-	..()
-	icon_state = "welcome"
+	default_light_colour = "#bbfcb6"  //watered lime

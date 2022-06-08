@@ -80,3 +80,14 @@
 	name = "Bananium ore"
 	icon_state = "Clown ore"
 	origin_tech = "materials=4"
+
+//planet
+
+/turf/simulated/mineral/planet
+	mined_turf = /turf/simulated/floor/asteroid/planet
+
+/turf/simulated/mineral/random/planet
+	mined_turf = /turf/simulated/floor/asteroid/planet
+
+/turf/simulated/mineral/random/high_chance/planet
+	mined_turf = /turf/simulated/floor/asteroid/planet

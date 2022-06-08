@@ -48,14 +48,15 @@
 #define UNDER 0x4
 
 // Pulse levels, very simplified.
-#define PULSE_NONE    0 // So !M.pulse checks would be possible.
-#define PULSE_SLOW    1 // <60     bpm
-#define PULSE_NORM    2 //  60-90  bpm
-#define PULSE_FAST    3 //  90-120 bpm
-#define PULSE_2FAST   4 // >120    bpm
-#define PULSE_THREADY 5 // Occurs during hypovolemic shock
-#define GETPULSE_HAND 0 // Less accurate. (hand)
-#define GETPULSE_TOOL 1 // More accurate. (med scanner, sleeper, etc.)
+#define PULSE_NONE    0   // So !M.pulse checks would be possible.
+#define PULSE_SLOW    1   // <60     bpm
+#define PULSE_NORM    2   //  60-90  bpm
+#define PULSE_FAST    3   //  90-120 bpm
+#define PULSE_2FAST   4   // >120    bpm
+#define PULSE_THREADY 5   // Occurs during hypovolemic shock
+#define GETPULSE_HAND 0   // Less accurate. (hand)
+#define GETPULSE_TOOL 1   // More accurate. (med scanner, sleeper, etc.)
+#define PULSE_MAX_BPM 250 // Highest, readable BPM by machines and humans.
 
 //intent flags
 #define I_HELP		"help"
@@ -177,6 +178,7 @@
 #define BP_BRAIN    "brain"
 #define BP_LIVER    "liver"
 #define BP_KIDNEYS  "kidneys"
+#define BP_STOMACH  "stomach"
 #define BP_PLASMA   "plasma vessel"
 #define BP_APPENDIX "appendix"
 #define BP_CELL     "cell"
@@ -193,6 +195,9 @@
 #define BP_PHORON   "phoron filter"
 #define BP_ACETONE  "acetone reactor"
 
+// Vox bits.
+#define BP_HINDTONGUE "hindtongue"
+
 // Robo Organs.
 #define BP_POSIBRAIN	"posibrain"
 #define BP_VOICE		"vocal synthesiser"
@@ -201,6 +206,21 @@
 #define BP_FLOAT		"floatation disc"
 #define BP_JETS			"maneuvering jets"
 #define BP_COOLING_FINS "cooling fins"
+
+//Augmetations
+#define BP_AUGMENT_R_ARM         "right arm augment"
+#define BP_AUGMENT_L_ARM         "left arm augment"
+#define BP_AUGMENT_R_HAND        "right hand augment"
+#define BP_AUGMENT_L_HAND        "left hand augment"
+#define BP_AUGMENT_R_LEG         "right leg augment"
+#define BP_AUGMENT_L_LEG         "left leg augment"
+#define BP_AUGMENT_CHEST_ARMOUR   "chest armor augment"
+#define BP_AUGMENT_CHEST_ACTIVE  "active chest augment"
+#define BP_AUGMENT_HEAD           "head augment"
+
+//Augment flags
+#define AUGMENTATION_MECHANIC 1
+#define AUGMENTATION_ORGANIC  2
 
 // Limbs.
 #define BP_L_FOOT "l_foot"
@@ -274,6 +294,14 @@
 #define SPECIES_ALIEN       "Humanoid"
 #define SPECIES_ADHERENT    "Adherent"
 #define SPECIES_GOLEM       "Golem"
+#define SPECIES_YEOSA       "Yeosa'Unathi"
+#define SPECIES_VATGROWN    "Vat-Grown Human"
+#define SPECIES_SPACER      "Space-Adapted Human"
+#define SPECIES_TRITONIAN   "Tritonian"
+#define SPECIES_GRAVWORLDER "Grav-Adapted Human"
+
+#define STATION_SPECIES list(SPECIES_HUMAN, SPECIES_DIONA, SPECIES_IPC, SPECIES_UNATHI, SPECIES_SKRELL, SPECIES_RESOMI, SPECIES_TRITONIAN, SPECIES_SPACER, SPECIES_VATGROWN, SPECIES_GRAVWORLDER)
+#define RESTRICTED_SPECIES list(SPECIES_VOX, SPECIES_XENO, SPECIES_ALIEN, SPECIES_GOLEM)
 
 #define SURGERY_CLOSED 0
 #define SURGERY_OPEN 1
@@ -299,3 +327,8 @@
 #define MOB_INPUT_TEXT "text"
 #define MOB_INPUT_MESSAGE "message"
 #define MOB_INPUT_NUM "num"
+
+#define MOB_CLIMB_TIME_SMALL 30
+#define MOB_CLIMB_TIME_MEDIUM 50
+
+#define MOB_FACTION_NEUTRAL "neutral"

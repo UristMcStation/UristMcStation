@@ -221,23 +221,14 @@
 
 /mob/living/carbon/human/proc/make_grab(var/mob/living/carbon/human/attacker, var/mob/living/carbon/human/victim, var/grab_tag)
 	var/obj/item/grab/G
-
 	if(!grab_tag)
 		G = new attacker.current_grab_type(attacker, victim)
 	else
 		var/obj/item/grab/given_grab_type = all_grabobjects[grab_tag]
 		G = new given_grab_type(attacker, victim)
-
-	if(!G.pre_check())
-		qdel(G)
+	if(QDELETED(G))
 		return 0
-
-	if(G.can_grab())
-		G.init()
-		return 1
-	else
-		qdel(G)
-		return 0
+	return 1
 
 /mob/living/carbon/human
 	var/list/cloaking_sources
@@ -270,7 +261,10 @@
 	return FALSE
 
 // Returns true if the human is cloaked, otherwise false (technically returns the number of cloaking sources)
-/mob/living/carbon/human/proc/is_cloaked()
+/mob/proc/is_cloaked()
+	return FALSE
+
+/mob/living/carbon/human/is_cloaked()
 	if(clean_cloaking_sources())
 		update_icons()
 		visible_message(CLOAK_APPEAR_OTHER, CLOAK_APPEAR_SELF)
@@ -301,3 +295,8 @@
 
 	UNSETEMPTY(cloaking_sources)
 	return !cloaking_sources // If cloaking_sources wasn't initially null but is now, we've uncloaked
+
+/mob/living/carbon/human/set_sdisability(sdisability)
+	if(isSynthetic())
+		return // Can't cure disabilites, so don't give them.
+	..()

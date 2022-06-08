@@ -1,6 +1,6 @@
 // Uniform slot
 /datum/gear/uniform/roboticist_skirt
-	allowed_roles = list(/datum/job/scientist)
+	allowed_roles = list(/datum/job/scientist,/datum/job/seniorscientist)
 
 /datum/gear/uniform/scrubs
 	allowed_roles = list(/datum/job/doctor,/datum/job/cmo)

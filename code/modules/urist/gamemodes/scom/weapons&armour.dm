@@ -93,18 +93,12 @@
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 	accuracy = -3 //shooting at the hip
-	scoped_accuracy = 0
 	handle_casings = EJECT_CASINGS
 	one_hand_penalty = 8
 	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 	wielded_item_state = "woodarifle-wielded"
-
-/obj/item/weapon/gun/projectile/sniper/verb/scope()
-	set category = "Object"
-	set name = "Use Scope"
-	set popup_menu = 1
-
-	toggle_scope(usr, 2.0)
+	scoped_accuracy = 4 //increased accuracy over the LWAP because only one shot
+	scope_zoom = 2
 
 /obj/item/weapon/gun/projectile/sniper/update_icon()
 	..()
@@ -169,7 +163,7 @@
 //ammo
 
 /obj/item/weapon/storage/box/c20ammo
-	name = "box of c20r ammo"
+	name = "box of smg ammo"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
 
 	New()
@@ -184,9 +178,9 @@
 
 	New()
 		..()
-		new /obj/item/ammo_magazine/a762mm(src)
-		new /obj/item/ammo_magazine/a762mm(src)
-		new /obj/item/ammo_magazine/a762mm(src)
+		new /obj/item/ammo_magazine/a762(src)
+		new /obj/item/ammo_magazine/a762(src)
+		new /obj/item/ammo_magazine/a762(src)
 
 /obj/item/weapon/storage/box/large/lmgammo
 	name = "box of l6 saw ammo"
@@ -278,7 +272,7 @@
 		/obj/item/rig_module/mounted/egun
 		)
 
-	allowed = list(/obj/item/device/flashlight, /obj/item/weapon/tank, /obj/item/device/t_scanner, /obj/item/weapon/rcd, /obj/item/weapon/crowbar, \
+	allowed = list(/obj/item/weapon/storage/backpack,/obj/item/device/flashlight, /obj/item/weapon/tank, /obj/item/device/t_scanner, /obj/item/weapon/rcd, /obj/item/weapon/crowbar, \
 	/obj/item/weapon/screwdriver, /obj/item/weapon/weldingtool, /obj/item/weapon/wirecutters, /obj/item/weapon/wrench, /obj/item/device/multitool, \
 	/obj/item/device/radio, /obj/item/device/analyzer, /obj/item/weapon/gun/energy/laser, /obj/item/weapon/gun/energy/pulse_rifle, \
 	/obj/item/weapon/gun/energy/taser, /obj/item/weapon/melee/baton, /obj/item/weapon/gun, /obj/item/weapon/storage/firstaid, /obj/item/weapon/reagent_containers/hypospray, /obj/item/roller)

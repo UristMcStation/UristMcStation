@@ -81,6 +81,7 @@ h1.alert, h2.alert		{color: #000000;}
 .rose					{color: #ff5050;}
 .info					{color: #0000cc;}
 .notice					{color: #000099;}
+.subtle					{color: #000099; font-size: 85%; font-style: italic;}
 .alium					{color: #00ff00;}
 .cult					{color: #800080; font-weight: bold; font-style: italic;}
 .fountain				{color: #800080; font-style: italic; font-size: 175%;}
@@ -92,6 +93,7 @@ h1.alert, h2.alert		{color: #000000;}
 .alien					{color: #543354;}
 .skrell					{color: #00ced1;}
 .soghun					{color: #228b22;}
+.yeosa					{color: #218b89;}
 .nabber_lang			{color: #525252;}
 .solcom					{color: #22228b;}
 .changeling				{color: #800080;}

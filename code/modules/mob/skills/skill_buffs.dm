@@ -37,8 +37,20 @@
 	var/datum/skillset/my_skillset = skillset
 	qdel(src)
 	if(my_skillset)
-		my_skillset.update_verbs()
-		my_skillset.refresh_uis()
+		my_skillset.on_levels_change()
+
+/datum/skill_buff/proc/recalculate(to_buff)
+	//Here buff alreafy exists so only question is validity of new input
+	if(!length(to_buff))
+		return
+	var/temp = buffs.Copy()
+	buffs = to_buff
+	//attempt to clamp
+	var/datum/skillset/my_skillset = skillset
+	if(my_skillset)
+		if(tailor_buff(my_skillset.owner))
+			my_skillset.on_levels_change()
+		else buffs = temp //Return to old values. Something passed didn't make sense.
 
 //returns a list of buffs of the given type.
 /mob/proc/fetch_buffs_of_type(buff_type, subtypes = 1)
@@ -57,11 +69,10 @@
 		return //Turns out there's nothing to buff.
 	LAZYADD(skillset.skill_buffs, buff)
 	buff.skillset = skillset
-	skillset.update_verbs()
-	skillset.refresh_uis()
+	skillset.on_levels_change()
 	if(duration)
 		addtimer(CALLBACK(buff, /datum/skill_buff/proc/remove), duration)
-	return 1
+	return buff
 
 //Takes a buff type or datum; typing is false here.
 /mob/proc/too_many_buffs(datum/skill_buff/buff_type)

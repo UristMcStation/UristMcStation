@@ -173,7 +173,7 @@
 /datum/stack_recipe/leather_sandsuit
 	title = "leather protective suit"
 	result_type = /obj/item/clothing/suit/storage/hooded/sandsuit
-	req_amount = 6
+	req_amount = 7
 	time = 60
 
 /datum/stack_recipe/leather_pants

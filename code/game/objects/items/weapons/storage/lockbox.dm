@@ -54,6 +54,13 @@
 		else
 			..()
 		return
+	
+/obj/item/weapon/storage/lockbox/open(mob/user)
+	if(locked)
+		to_chat(user, "<span class='warning'>It's locked!</span>")
+	else
+		..()
+	return
 
 /obj/item/weapon/storage/lockbox/emag_act(var/remaining_charges, var/mob/user, var/emag_source, var/visual_feedback = "", var/audible_feedback = "")
 	if(!broken)
@@ -72,6 +79,11 @@
 		icon_state = src.icon_broken
 		visible_message(visual_feedback, audible_feedback)
 		return 1
+
+/obj/item/weapon/storage/lockbox/MouseDrop(over_object, src_location, over_location)
+	if (locked)
+		src.add_fingerprint(usr)
+		return
 
 /obj/item/weapon/storage/lockbox/loyalty
 	name = "lockbox of loyalty implants"

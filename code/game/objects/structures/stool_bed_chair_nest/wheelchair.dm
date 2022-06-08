@@ -11,12 +11,12 @@
 
 	movement_handlers = list(/datum/movement_handler/delay = list(2), /datum/movement_handler/move_relay_self)
 
-/obj/structure/bed/chair/wheelchair/update_icon()
+/obj/structure/bed/chair/wheelchair/on_update_icon()
 	return
 
 /obj/structure/bed/chair/wheelchair/set_dir()
 	..()
-	overlays = null
+	overlays.Cut()
 	var/image/O = image(icon = 'icons/obj/furniture.dmi', icon_state = "w_overlay", dir = src.dir)
 	O.plane = ABOVE_HUMAN_PLANE
 	O.layer = ABOVE_HUMAN_LAYER
@@ -191,5 +191,6 @@
 	..()
 
 /proc/equip_wheelchair(mob/living/carbon/human/H) //Proc for spawning in a wheelchair if a new character has no legs. Used in new_player.dm
-	var/obj/structure/bed/chair/wheelchair/W = new(H.loc)
-	W.buckle_mob(H)
+	var/obj/structure/bed/chair/wheelchair/W = new(get_turf(H))
+	if(isturf(H.loc))
+		W.buckle_mob(H)

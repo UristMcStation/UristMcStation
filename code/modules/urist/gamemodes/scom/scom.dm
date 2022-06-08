@@ -52,8 +52,8 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 
 	update_dyndifficulty()
 
-	SSshuttle.initialise_shuttle(/datum/shuttle/autodock/ferry/scom/s1)
-	SSshuttle.initialise_shuttle(/datum/shuttle/autodock/ferry/scom/s2)
+	SSshuttle.initialize_shuttle(/datum/shuttle/autodock/ferry/scom/s1)
+	SSshuttle.initialize_shuttle(/datum/shuttle/autodock/ferry/scom/s2)
 
 	return 1 //ever get that feeling you're talking to yourself?
 
@@ -117,7 +117,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 	if(onmission == 1)
 //		world << "<span class='warning'> onmission</span>"
 		aliencount = 0
-		for(var/mob/living/simple_animal/hostile/M in SSmobs.mob_list)
+		for(var/mob/living/simple_animal/hostile/M in GLOB.simple_mob_list)
 			if(M.health > 0 && M.faction != "neutral")
 				aliencount += 1
 //				world << "<span class='warning'> aliens: [aliencount]</span>"
@@ -148,7 +148,7 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 	..()
 
 	sleep(600)
-	if(!ticker.delay_end)
+	if(!SSticker.delay_end)
 		world.Reboot()
 	else
 		world << "<span class='notice'> <B>An admin has delayed the round end</B></span>"
@@ -195,10 +195,13 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 	invisibility = 101
 	var/bombdelay = 0
 	var/shipid = null //touching scom code again was a mistake. everything here is vomit inducing.
+	var/dmg_dev = 1
+	var/dmg_hvy = 2
+	var/dmg_lgt = 3
 
 /obj/effect/landmark/scom/bomb/proc/incomprehensibleprocname()
 	spawn(bombdelay)
-		explosion(src.loc, 1, 2, 3, 4)
+		explosion(src.loc, dmg_dev, dmg_hvy, dmg_lgt, 0, 0)
 
 /client/proc/delaymissions()
 

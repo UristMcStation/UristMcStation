@@ -46,14 +46,17 @@ obj/effect/icarus/irradiate/Destroy()
 /obj/effect/shuttle_landmark/nav_icarus/nav1
 	name = "Planetary Navpoint #1"
 	landmark_tag = "nav_icarus_1"
+	flags = SLANDMARK_FLAG_AUTOSET
 
 /obj/effect/shuttle_landmark/nav_icarus/nav2
 	name = "Planetary Navpoint #2"
 	landmark_tag = "nav_icarus_2"
+	flags = SLANDMARK_FLAG_AUTOSET
 
 /obj/effect/shuttle_landmark/nav_icarus/nav3
 	name = "Planetary Navpoint #3"
 	landmark_tag = "nav_icarus_antag"
+	flags = SLANDMARK_FLAG_AUTOSET
 
 obj/structure/icarus/broken_cryo
 	name = "destroyed cryo sleeper"
@@ -215,7 +218,7 @@ obj/structure/icarus/broken_cryo/attack_hand(mob/user)
 /turf/simulated/floor/exoplanet/desert/skylight
 	light_max_bright = 0.3
 	light_inner_range = 0.5
-	light_outer_range = 3.0
+	light_outer_range = 1.0
 	light_color = "#ffffff"
 
 /turf/simulated/floor/exoplanet/desert/skylight/Initialize()
@@ -225,7 +228,7 @@ obj/structure/icarus/broken_cryo/attack_hand(mob/user)
 /turf/simulated/floor/exoplanet/grass/skylight
 	light_max_bright = 0.3
 	light_inner_range = 0.5
-	light_outer_range = 3.0
+	light_outer_range = 1.0
 	light_color = "#ffffff"
 
 /turf/simulated/floor/exoplanet/grass/skylight/Initialize()
@@ -235,7 +238,7 @@ obj/structure/icarus/broken_cryo/attack_hand(mob/user)
 /turf/simulated/open/skylight
 	light_max_bright = 0.3
 	light_inner_range = 0.5
-	light_outer_range = 3.0
+	light_outer_range = 1.0
 	light_color = "#ffffff"
 
 /turf/simulated/open/skylight/Initialize()

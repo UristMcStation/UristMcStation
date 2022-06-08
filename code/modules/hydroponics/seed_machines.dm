@@ -28,7 +28,6 @@
 	icon_state = "hydrotray3"
 	density = 1
 	anchored = 1
-	use_power = 1
 
 	var/obj/item/seeds/seed // Currently loaded seed packet.
 	var/obj/item/weapon/disk/botany/loaded_disk //Currently loaded data disk.
@@ -66,7 +65,7 @@
 	if(eject_disk)
 		eject_disk = 0
 		if(loaded_disk)
-			loaded_disk.loc = get_turf(src)
+			loaded_disk.dropInto(loc)
 			visible_message("\icon[src] [src] beeps and spits out [loaded_disk].")
 			loaded_disk = null
 
@@ -131,7 +130,7 @@
 
 	var/list/data = list()
 
-	var/list/geneMasks = plant_controller.gene_masked_list
+	var/list/geneMasks = SSplants.gene_masked_list
 	data["geneMasks"] = geneMasks
 
 	data["activity"] = active
@@ -170,12 +169,12 @@
 
 	if(href_list["eject_packet"])
 		if(!seed) return
-		seed.loc = get_turf(src)
+		seed.dropInto(loc)
 
-		if(seed.seed.name == "new line" || isnull(plant_controller.seeds[seed.seed.name]))
-			seed.seed.uid = plant_controller.seeds.len + 1
+		if(seed.seed.name == "new line" || isnull(SSplants.seeds[seed.seed.name]))
+			seed.seed.uid = SSplants.seeds.len + 1
 			seed.seed.name = "[seed.seed.uid]"
-			plant_controller.seeds[seed.seed.name] = seed.seed
+			SSplants.seeds[seed.seed.name] = seed.seed
 
 		seed.update_seed()
 		visible_message("\icon[src] [src] beeps and spits out [seed].")
@@ -184,7 +183,7 @@
 
 	if(href_list["eject_disk"])
 		if(!loaded_disk) return
-		loaded_disk.loc = get_turf(src)
+		loaded_disk.dropInto(loc)
 		visible_message("\icon[src] [src] beeps and spits out [loaded_disk].")
 		loaded_disk = null
 
@@ -228,8 +227,8 @@
 		if(!genetics.roundstart)
 			loaded_disk.genesource += " (variety #[genetics.uid])"
 
-		loaded_disk.name += " ([plant_controller.gene_tag_masks[href_list["get_gene"]]], #[genetics.uid])"
-		loaded_disk.desc += " The label reads \'gene [plant_controller.gene_tag_masks[href_list["get_gene"]]], sampled from [genetics.display_name]\'."
+		loaded_disk.name += " ([SSplants.gene_tag_masks[href_list["get_gene"]]], #[genetics.uid])"
+		loaded_disk.desc += " The label reads \'gene [SSplants.gene_tag_masks[href_list["get_gene"]]], sampled from [genetics.display_name]\'."
 		eject_disk = 1
 
 		degradation += rand(20,60)
@@ -274,7 +273,7 @@
 
 		for(var/datum/plantgene/P in loaded_disk.genes)
 			if(data["locus"] != "") data["locus"] += ", "
-			data["locus"] += "[plant_controller.gene_tag_masks[P.genetype]]"
+			data["locus"] += "[SSplants.gene_tag_masks[P.genetype]]"
 
 	else
 		data["disk"] = 0
@@ -304,7 +303,7 @@
 		last_action = world.time
 		active = 1
 
-		if(!isnull(plant_controller.seeds[seed.seed.name]))
+		if(!isnull(SSplants.seeds[seed.seed.name]))
 			seed.seed = seed.seed.diverge(1)
 			seed.seed_type = seed.seed.name
 			seed.update_seed()

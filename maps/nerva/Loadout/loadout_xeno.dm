@@ -41,3 +41,7 @@
 /datum/gear/uniform/resomi/science
 	display_name = "uniform, Science (Teshari)"
 	path = /obj/item/clothing/under/resomi/science
+
+/datum/gear/uniform/resomi/coat
+	display_name = "small coat (Teshari)"
+	path = /obj/item/clothing/suit/storage/toggle/Resomicoat

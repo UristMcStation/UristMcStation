@@ -1,0 +1,7 @@
+author: Laniakeaaaa
+delete-after: True
+
+changes: 
+  - bugfix: "Senior Scientist is now able to use science-related loadout changes."
+  - maptweak: "Robotics now has a fixovein for augments installation."
+  - bugfix: "Scientists now have functional ID card sprites again!"

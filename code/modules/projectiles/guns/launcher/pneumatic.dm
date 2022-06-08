@@ -1,6 +1,7 @@
 /obj/item/weapon/gun/launcher/pneumatic
 	name = "pneumatic cannon"
 	desc = "A large gas-powered cannon."
+	icon = 'icons/obj/guns/pneumatic.dmi'
 	icon_state = "pneumatic"
 	item_state = "pneumatic"
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3)
@@ -22,8 +23,8 @@
 	var/force_divisor = 400                             // Force equates to speed. Speed/5 equates to a damage multiplier for whoever you hit.
 	                                                    // For reference, a fully pressurized oxy tank at 50% gas release firing a health
 	                                                    // analyzer with a force_divisor of 10 hit with a damage multiplier of 3000+.
-/obj/item/weapon/gun/launcher/pneumatic/New()
-	..()
+/obj/item/weapon/gun/launcher/pneumatic/Initialize()
+	. = ..()
 	item_storage = new(src)
 	item_storage.SetName("hopper")
 	item_storage.max_w_class = max_w_class
@@ -117,13 +118,13 @@
 /obj/item/weapon/gun/launcher/pneumatic/handle_post_fire()
 	if(tank)
 		var/lost_gas_amount = tank.air_contents.total_moles*(pressure_setting/100)
-		var/datum/gas_mixture/removed = tank.air_contents.remove(lost_gas_amount)
+		var/datum/gas_mixture/removed = tank.remove_air(lost_gas_amount)
 
 		var/turf/T = get_turf(src.loc)
 		if(T) T.assume_air(removed)
 	..()
 
-/obj/item/weapon/gun/launcher/pneumatic/update_icon()
+/obj/item/weapon/gun/launcher/pneumatic/on_update_icon()
 	if(tank)
 		icon_state = "pneumatic-tank"
 		item_state = "pneumatic-tank"
@@ -138,12 +139,13 @@
 /obj/item/weapon/cannonframe
 	name = "pneumatic cannon frame"
 	desc = "A half-finished pneumatic cannon."
+	icon = 'icons/obj/guns/pneumatic.dmi'
 	icon_state = "pneumatic0"
 	item_state = "pneumatic"
 
 	var/buildstate = 0
 
-/obj/item/weapon/cannonframe/update_icon()
+/obj/item/weapon/cannonframe/on_update_icon()
 	icon_state = "pneumatic[buildstate]"
 
 /obj/item/weapon/cannonframe/examine(mob/user)
@@ -163,7 +165,7 @@
 			buildstate++
 			update_icon()
 			return
-	else if(istype(W,/obj/item/stack/material) && W.get_material_name() == DEFAULT_WALL_MATERIAL)
+	else if(istype(W,/obj/item/stack/material) && W.get_material_name() == MATERIAL_STEEL)
 		if(buildstate == 2)
 			var/obj/item/stack/material/M = W
 			if(M.use(5))

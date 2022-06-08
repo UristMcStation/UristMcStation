@@ -8,7 +8,7 @@ var/list/gamemode_cache = list()
 	var/log_access = 0					// log login/logout
 	var/log_say = 0						// log client say
 	var/log_admin = 0					// log admin actions
-	var/log_debug = 1					// log debug output
+	var/log_debug = 0					// log debug output
 	var/log_game = 0					// log game events
 	var/log_vote = 0					// log voting
 	var/log_whisper = 0					// log client whisper
@@ -25,9 +25,9 @@ var/list/gamemode_cache = list()
 	var/allow_vote_restart = 0 			// allow votes to restart
 	var/ert_admin_call_only = 0
 	var/allow_vote_mode = 0				// allow votes to change mode
-	var/allow_admin_jump = 1			// allows admin jumping
-	var/allow_admin_spawning = 1		// allows admin item spawning
-	var/allow_admin_rev = 1				// allows admin revives
+	var/allow_admin_jump = 0			// allows admin jumping
+	var/allow_admin_spawning = 0		// allows admin item spawning
+	var/allow_admin_rev = 0				// allows admin revives
 	var/vote_delay = 6000				// minimum time between voting sessions (deciseconds, 10 minute default)
 	var/vote_period = 600				// length of voting period (deciseconds, default 1 minute)
 	var/vote_autotransfer_initial = 108000 // Length of time before the first autotransfer vote is called
@@ -40,7 +40,7 @@ var/list/gamemode_cache = list()
 	var/del_new_on_log = 1				// del's new players if they log before they spawn in
 	var/feature_object_spell_system = 0 //spawns a spellbook which gives object-type spells instead of verb-type spells for the wizard
 	var/traitor_scaling = 0 			//if amount of traitors scales based on amount of players
-	var/objectives_disabled = 1 			//if objectives are disabled or not
+	var/objectives_enabled = CONFIG_OBJECTIVE_VERB 			//if objectives are disabled or not
 	var/protect_roles_from_antagonist = 1// If security and such can be traitor/cult/other
 	var/continous_rounds = 0			// Gamemodes which end instantly will instead keep on going until the round ends by escape shuttle or nuke.
 	var/allow_Metadata = 0				// Metadata is supported.
@@ -56,10 +56,10 @@ var/list/gamemode_cache = list()
 	var/list/probabilities = list()		// relative probability of each mode
 	var/humans_need_surnames = 0
 	var/allow_random_events = 0			// enables random events mid-round when set to 1
-	var/allow_ai = 1					// allow ai job
+	var/allow_ai = 0					// allow ai job
 	var/hostedby = null
 	var/respawn_delay = 30
-	var/guest_jobban = 1
+	var/guest_jobban = 0
 	var/usewhitelist = 0
 	var/kick_inactive = 0				//force disconnect for inactive players after this many minutes, if non-0
 	var/mods_can_tempban = 0
@@ -70,14 +70,14 @@ var/list/gamemode_cache = list()
 	var/jobs_have_minimal_access = 0	//determines whether jobs use minimal access or expanded access.
 	var/use_cortical_stacks = 0
 
-	var/cult_ghostwriter = 1               //Allows ghosts to write in blood in cult rounds...
+	var/cult_ghostwriter = 0               //Allows ghosts to write in blood in cult rounds...
 	var/cult_ghostwriter_req_cultists = 10 //...so long as this many cultists are active.
 
 	var/character_slots = 10				// The number of available character slots
 	var/loadout_slots = 3					// The number of loadout slots per character
 
 	var/max_maint_drones = 5				//This many drones can spawn,
-	var/allow_drone_spawn = 1				//assuming the admin allow them to.
+	var/allow_drone_spawn = 0				//assuming the admin allow them to.
 	var/drone_build_time = 1200				//A drone will become available every X ticks since last drone spawn. Default is 2 minutes.
 
 	var/disable_player_mice = 0
@@ -97,6 +97,7 @@ var/list/gamemode_cache = list()
 	var/wikiurl
 	var/forumurl
 	var/githuburl
+	var/issuereporturl
 
 	var/forbid_singulo_possession = 0
 
@@ -155,6 +156,9 @@ var/list/gamemode_cache = list()
 
 	var/comms_password = ""
 	var/ban_comms_password = null
+	var/list/forbidden_versions = list() // Clients with these byond versions will be autobanned. Format: string "byond_version.byond_build"; separate with ; in config, e.g. 512.1234;512.1235
+	var/minimum_byond_version = 0
+	var/minimum_byond_build = 0
 
 	var/login_export_addr = null
 
@@ -179,7 +183,7 @@ var/list/gamemode_cache = list()
 	// 15, 45, 70 minutes respectively
 	var/list/event_delay_upper = list(EVENT_LEVEL_MUNDANE = 9000,	EVENT_LEVEL_MODERATE = 27000,	EVENT_LEVEL_MAJOR = 42000)
 
-	var/aliens_allowed = 1
+	var/aliens_allowed = 0
 	var/alien_eggs_allowed = 0
 	var/ninjas_allowed = 0
 	var/abandon_allowed = 1
@@ -309,7 +313,7 @@ var/list/gamemode_cache = list()
 					config.log_admin = 1
 
 				if ("log_debug")
-					config.log_debug = text2num(value)
+					config.log_debug = 1
 
 				if ("log_game")
 					config.log_game = 1
@@ -340,13 +344,6 @@ var/list/gamemode_cache = list()
 
 				if ("log_hrefs")
 					config.log_hrefs = 1
-
-				if ("log_runtime")
-					config.log_runtime = 1
-					var/newlog = file("data/logs/runtimes/runtime-[time2text(world.realtime, "YYYY-MM-DD")].log")
-					if(runtime_diary != newlog)
-						to_world_log("Now logging runtimes to data/logs/runtimes/runtime-[time2text(world.realtime, "YYYY-MM-DD")].log")
-						runtime_diary = newlog
 
 				if ("generate_asteroid")
 					config.generate_map = 1
@@ -436,8 +433,11 @@ var/list/gamemode_cache = list()
 				if ("githuburl")
 					config.githuburl = value
 
+				if ("issuereporturl")
+					config.issuereporturl = value
+
 				if ("ghosts_can_possess_animals")
-					config.ghosts_can_possess_animals = value
+					config.ghosts_can_possess_animals = 1
 
 				if ("guest_jobban")
 					config.guest_jobban = 1
@@ -487,21 +487,21 @@ var/list/gamemode_cache = list()
 				if ("ninjas_allowed")
 					config.ninjas_allowed = 1
 
-				if ("objectives_disabled")
+				if ("objectives_enabled")
 					if(!value)
-						log_misc("Could not find value for objectives_disabled in configuration.")
-						config.objectives_disabled = CONFIG_OBJECTIVE_NONE
+						log_misc("Could not find value for objectives_enabled in configuration.")
+						config.objectives_enabled = CONFIG_OBJECTIVE_NONE
 					else
 						switch(value)
 							if("none")
-								config.objectives_disabled = CONFIG_OBJECTIVE_NONE
+								config.objectives_enabled = CONFIG_OBJECTIVE_NONE
 							if("verb")
-								config.objectives_disabled = CONFIG_OBJECTIVE_VERB
+								config.objectives_enabled = CONFIG_OBJECTIVE_VERB
 							if("all")
-								config.objectives_disabled = CONFIG_OBJECTIVE_ALL
+								config.objectives_enabled = CONFIG_OBJECTIVE_ALL
 							else
 								log_misc("Incorrect objective disabled definition: [value]")
-								config.objectives_disabled = CONFIG_OBJECTIVE_NONE
+								config.objectives_enabled = CONFIG_OBJECTIVE_NONE
 				if("protect_roles_from_antagonist")
 					config.protect_roles_from_antagonist = 1
 
@@ -610,6 +610,15 @@ var/list/gamemode_cache = list()
 				if("ban_comms_password")
 					config.ban_comms_password = value
 
+				if("forbidden_versions")
+					config.forbidden_versions = splittext(value, ";")
+				
+				if("minimum_byond_version")
+					config.minimum_byond_version = text2num(value)
+
+				if("minimum_byond_build")
+					config.minimum_byond_build = text2num(value)
+
 				if("login_export_addr")
 					config.login_export_addr = value
 
@@ -638,7 +647,7 @@ var/list/gamemode_cache = list()
 					config.loadout_slots = text2num(value)
 
 				if("allow_drone_spawn")
-					config.allow_drone_spawn = text2num(value)
+					config.allow_drone_spawn = 1
 
 				if("drone_build_time")
 					config.drone_build_time = text2num(value)
@@ -867,14 +876,13 @@ var/list/gamemode_cache = list()
 		var/datum/game_mode/M = gamemode_cache[game_mode]
 		if (M.config_tag && M.config_tag == mode_name)
 			return M
-	return gamemode_cache["extended"]
 
 /datum/configuration/proc/get_runnable_modes()
 	var/list/runnable_modes = list()
 	for(var/game_mode in gamemode_cache)
 		var/datum/game_mode/M = gamemode_cache[game_mode]
 		if(M && !M.startRequirements() && !isnull(config.probabilities[M.config_tag]) && config.probabilities[M.config_tag] > 0)
-			runnable_modes |= M
+			runnable_modes[M.config_tag] = config.probabilities[M.config_tag]
 	return runnable_modes
 
 /datum/configuration/proc/load_event(filename)

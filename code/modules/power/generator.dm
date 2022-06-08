@@ -5,7 +5,7 @@
 	density = 1
 	anchored = 0
 
-	use_power = 1
+	use_power = POWER_USE_IDLE
 	idle_power_usage = 100 //Watts, I hope.  Just enough to do the computer and display things.
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 
@@ -69,7 +69,7 @@
 				circ1 = null
 				circ2 = null
 
-/obj/machinery/power/generator/update_icon()
+/obj/machinery/power/generator/on_update_icon()
 	if(stat & (NOPOWER|BROKEN))
 		overlays.Cut()
 	else
@@ -182,7 +182,7 @@
 		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \
 					"You [anchored ? "secure" : "unsecure"] the bolts holding [src] to the floor.", \
 					"You hear a ratchet")
-		use_power = anchored
+		update_use_power(anchored)
 		if(anchored) // Powernet connection stuff.
 			connect_to_network()
 		else

@@ -116,12 +116,9 @@
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle)
-"at" = (
-/turf/simulated/floor/planet/plains,
-/area/planet/jungle)
 "au" = (
 /obj/structure/bed/nice,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/wood/walnut{
 	tag = "icon-wood_broken6";
 	icon_state = "wood_broken6"
 	},
@@ -131,7 +128,7 @@
 /area/planet/jungle)
 "aw" = (
 /obj/structure/closet,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/wood/walnut{
 	tag = "icon-wood_broken2";
 	icon_state = "wood_broken2"
 	},
@@ -143,19 +140,19 @@
 /turf/simulated/floor/planet/plains,
 /area/planet/jungle)
 "ay" = (
-/turf/simulated/floor/wood{
+/turf/simulated/floor/wood/walnut{
 	tag = "icon-wood_broken1";
 	icon_state = "wood_broken1"
 	},
 /area/planet/jungle)
 "az" = (
-/turf/simulated/floor/wood{
+/turf/simulated/floor/wood/walnut{
 	tag = "icon-wood_broken5";
 	icon_state = "wood_broken5"
 	},
 /area/planet/jungle)
 "aA" = (
-/turf/simulated/floor/wood{
+/turf/simulated/floor/wood/walnut{
 	tag = "icon-wood_broken6";
 	icon_state = "wood_broken6"
 	},
@@ -415,7 +412,7 @@
 "br" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Canister Storage";
-	req_one_access = list(65,12)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/chemistry)
@@ -793,7 +790,7 @@
 "cu" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Auxiliary Storage";
-	req_one_access = list(65,12)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 4;
@@ -1096,7 +1093,7 @@
 "db" = (
 /obj/machinery/door/airlock/research{
 	name = "Spectrometry Lab Sample Preparation";
-	req_access = list(65)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1173,7 +1170,7 @@
 /obj/machinery/door/window/westleft{
 	dir = 1;
 	name = "Sample Preparation Loading";
-	req_access = list(65)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/effect/floor_decal/corner/lime{
 	dir = 1
@@ -1324,7 +1321,7 @@
 /area/outpost/research/power)
 "du" = (
 /obj/machinery/door/window/westleft{
-	req_one_access = list(65,10,24)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 9
@@ -1506,7 +1503,7 @@
 "dN" = (
 /obj/machinery/door/airlock/atmos{
 	name = "Outpost Atmospherics";
-	req_one_access = list(65,10,24)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
@@ -1684,7 +1681,7 @@
 	},
 /obj/machinery/door/airlock/research{
 	name = "Anomalous Materials Loading";
-	req_access = list(65)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1911,7 +1908,7 @@
 	},
 /obj/machinery/door/airlock/research{
 	name = "Anomalous Materials Sample Preparation";
-	req_access = list(65)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/chemistry)
@@ -2137,7 +2134,7 @@
 	},
 /obj/machinery/door/airlock/research{
 	name = "Spectrometry Lab";
-	req_access = list(65)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2150,7 +2147,7 @@
 	},
 /obj/machinery/door/airlock/research{
 	name = "Sample Preparation";
-	req_access = list(65)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
@@ -2633,7 +2630,7 @@
 	dir = 2;
 	layer = 3.1;
 	name = "laser testing";
-	req_access = list(65)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/structure/window/reinforced{
 	dir = 8
@@ -2657,7 +2654,7 @@
 "fG" = (
 /obj/machinery/door/airlock/glass/atmos{
 	name = "Outpost Atmospherics";
-	req_one_access = list(65,10,24)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/plating,
@@ -2832,7 +2829,7 @@
 	},
 /obj/machinery/door/airlock/research{
 	name = "Anomalous Materials";
-	req_access = list(65)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/research/hallway)
@@ -2931,7 +2928,7 @@
 	},
 /obj/machinery/door/airlock/research{
 	name = "Anomalous Materials";
-	req_access = list(65)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -3088,17 +3085,17 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/outpost/research/hallway)
 "gp" = (
 /obj/structure/bed/chair{
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/outpost/research/hallway)
 "gq" = (
 /obj/structure/table/standard,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/outpost/research/hallway)
 "gr" = (
 /obj/structure/table/standard,
@@ -3112,16 +3109,16 @@
 	icon_state = "1-2";
 	pixel_y = 0
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/outpost/research/hallway)
 "gs" = (
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/outpost/research/hallway)
 "gt" = (
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/outpost/research/hallway)
 "gu" = (
 /obj/machinery/vending/cola,
@@ -3130,7 +3127,7 @@
 	pixel_x = 32;
 	pixel_y = 0
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/outpost/research/hallway)
 "gv" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -3244,7 +3241,7 @@
 	},
 /obj/machinery/door/airlock/engineering{
 	name = "Outpost Power";
-	req_one_access = list(65,10,24)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3338,9 +3335,9 @@
 	pixel_x = -2;
 	pixel_y = 5
 	},
-/obj/item/weapon/clipboard,
+/obj/item/weapon/material/clipboard,
 /obj/item/weapon/pen,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/outpost/research/hallway)
 "gR" = (
 /obj/structure/table/standard,
@@ -3353,14 +3350,14 @@
 	icon_state = "1-2";
 	pixel_y = 0
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/outpost/research/hallway)
 "gS" = (
 /obj/machinery/vending/snack,
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/outpost/research/hallway)
 "gT" = (
 /obj/machinery/door/firedoor/border_only{
@@ -3402,7 +3399,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/research{
 	name = "Anomalous Materials Locker Room";
-	req_access = list(65)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /turf/simulated/floor/plating,
 /area/outpost/research/hallway)
@@ -3413,7 +3410,7 @@
 	},
 /obj/machinery/door/airlock/research{
 	name = "Anomalous Materials";
-	req_access = list(65)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /turf/simulated/floor/plating,
 /area/outpost/research/hallway)
@@ -3556,18 +3553,18 @@
 	dir = 8
 	},
 /obj/structure/reagent_dispensers/water_cooler,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/outpost/research/hallway)
 "hk" = (
 /obj/structure/bookcase/manuals/xenoarchaeology,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/outpost/research/hallway)
 "hl" = (
 /obj/item/modular_computer/console/preset/research{
 	dir = 4
 	},
 /obj/structure/cable,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/outpost/research/hallway)
 "hm" = (
 /obj/machinery/newscaster{
@@ -3575,11 +3572,11 @@
 	pixel_x = 0;
 	pixel_y = -27
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/outpost/research/hallway)
 "hn" = (
 /obj/machinery/vending/coffee,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/outpost/research/hallway)
 "ho" = (
 /obj/structure/cable{
@@ -3651,7 +3648,7 @@
 /obj/machinery/door/window/westleft{
 	dir = 4;
 	name = "Monkey Pen";
-	req_access = list(47)
+	req_access = list("ACCESS_RESEARCH")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3768,7 +3765,7 @@
 	id_tag = "research_outpost_hatch";
 	locked = 1;
 	name = "Research Outpost Docking Hatch";
-	req_access = list(13)
+	req_access = list("ACCESS_EXTERNAL")
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/research/dock)
@@ -3794,7 +3791,7 @@
 	},
 /obj/machinery/door/airlock/glass/research{
 	name = "Outpost Primary Access";
-	req_access = list(65)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3812,7 +3809,7 @@
 	},
 /obj/machinery/door/airlock/glass/research{
 	name = "Outpost Primary Access";
-	req_access = list(65)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/effect/floor_decal/corner/mauve,
 /turf/simulated/floor/tiled,
@@ -3840,7 +3837,7 @@
 	dir = 8;
 	name = "Locker room";
 	opacity = 0;
-	req_access = list(65)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
@@ -4008,7 +4005,7 @@
 	id_tag = "research_outpost_dock";
 	pixel_x = 0;
 	pixel_y = 30;
-	req_one_access = list(13,65);
+	req_access = list("ACCESS_XENOARCH");
 	tag_door = "research_outpost_hatch"
 	},
 /obj/effect/floor_decal/corner/mauve{
@@ -4164,14 +4161,14 @@
 	dir = 8
 	},
 /obj/structure/closet/secure_closet/xenoarchaeologist{
-	req_access = list(47)
+	req_access = list("ACCESS_RESEARCH")
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "iw" = (
 /obj/structure/closet/secure_closet/xenoarchaeologist{
-	req_access = list(47)
+	req_access = list("ACCESS_RESEARCH")
 	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/window/reinforced,
@@ -4187,7 +4184,7 @@
 	dir = 2;
 	name = "Locker room";
 	opacity = 0;
-	req_access = list(65)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -4217,7 +4214,7 @@
 /obj/machinery/door/window/westleft{
 	dir = 2;
 	name = "Monkey Pen";
-	req_access = list(47)
+	req_access = list("ACCESS_RESEARCH")
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/outpost/research/hallway)
@@ -4267,7 +4264,7 @@
 	},
 /obj/machinery/door/airlock/engineering{
 	name = "Outpost Power";
-	req_one_access = list(65,10,24)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
@@ -4379,7 +4376,7 @@
 	},
 /obj/machinery/door/airlock/glass/research{
 	name = "Research Shuttle Dock";
-	req_access = list(65)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4453,8 +4450,7 @@
 	name = "Firelock"
 	},
 /obj/machinery/door/airlock/glass/medical{
-	name = "Medbay";
-	req_one_access = list(65,5)
+	name = "Medbay"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4538,7 +4534,7 @@
 	},
 /obj/machinery/door/airlock/research{
 	name = "Temporary Storage";
-	req_access = list(65)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -5231,7 +5227,7 @@
 	icon_state = "0-2";
 	pixel_y = 0
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/outpost/mining_main/refinery)
 "kd" = (
 /obj/structure/disposalpipe/segment{
@@ -5279,7 +5275,7 @@
 	},
 /obj/machinery/door/airlock/research{
 	name = "Exotic Particles Collection";
-	req_access = list(65)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -5312,7 +5308,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	name = "Access Airlock";
-	req_access = list(65)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -5510,7 +5506,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(12,65)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /turf/simulated/floor/plating,
 /area/outpost/research/hallway)
@@ -5546,7 +5542,7 @@
 "kG" = (
 /obj/machinery/door/airlock/research{
 	name = "Anomaly Isolation";
-	req_access = list(65)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/structure/cable/blue{
 	d1 = 1;
@@ -5570,7 +5566,7 @@
 "kJ" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Maintenance Storage";
-	req_one_access = list(12,65)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -5599,7 +5595,7 @@
 	},
 /obj/machinery/door/airlock/research{
 	name = "Long Term Storage";
-	req_access = list(65)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5681,7 +5677,7 @@
 	},
 /obj/machinery/door/airlock/glass/mining{
 	name = "Expedition Prep";
-	req_access = list(65)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5694,7 +5690,7 @@
 	},
 /obj/machinery/door/airlock/research{
 	name = "Temporary Storage Loading";
-	req_access = list(65)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
@@ -6013,7 +6009,7 @@
 	},
 /obj/machinery/door/airlock/glass/mining{
 	name = "Loading area";
-	req_access = list(65)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -6079,7 +6075,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(12,65)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /turf/simulated/floor/plating,
 /area/outpost/research/hallway)
@@ -6407,7 +6403,7 @@
 /obj/structure/table/standard,
 /obj/machinery/computer/atmoscontrol/laptop{
 	monitored_alarm_ids = list("isolation_one","isolation_two","isolation_three");
-	req_one_access = list(47,24,11)
+	req_access = list("ACCESS_RESEARCH")
 	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/isolation_monitoring)
@@ -6891,7 +6887,9 @@
 /turf/simulated/floor/plating,
 /area/outpost/security/hallway)
 "nz" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	req_access = list("ACCESS_XENOARCH")
+	},
 /turf/simulated/floor/tiled,
 /area/outpost/research/dock)
 "nA" = (
@@ -7096,6 +7094,10 @@
 	icon_state = "open";
 	dir = 8
 	},
+/obj/machinery/door/airlock/glass/mining{
+	name = "Mining Outpost Bridge";
+	req_access = list("ACCESS_MINING")
+	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/hallway)
 "nP" = (
@@ -7104,14 +7106,14 @@
 	name = "conveyor switch";
 	pixel_x = 0;
 	pixel_y = 0;
-	req_access = list(65)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /turf/simulated/floor/tiled,
 /area/planet/jungle)
 "nQ" = (
 /obj/machinery/conveyor_switch{
 	id = "anosample";
-	req_access = list(65)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /turf/simulated/floor/tiled,
 /area/planet/jungle)
@@ -7122,7 +7124,7 @@
 /obj/machinery/door/airlock/external{
 	id_tag = "riso1";
 	name = "Access Airlock";
-	req_access = list(65)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/structure/cable/blue{
 	d1 = 1;
@@ -7148,6 +7150,10 @@
 	icon_state = "open";
 	dir = 8
 	},
+/obj/machinery/door/airlock/glass/mining{
+	name = "Mining Outpost Bridge";
+	req_access = list("ACCESS_MINING")
+	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "nU" = (
@@ -7159,7 +7165,7 @@
 /obj/machinery/door/airlock/external{
 	id_tag = "riso2";
 	name = "Access Airlock";
-	req_access = list(65)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/structure/cable/blue{
 	d1 = 1;
@@ -7200,7 +7206,7 @@
 /obj/machinery/door/airlock/external{
 	id_tag = "riso3";
 	name = "Access Airlock";
-	req_access = list(65)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/structure/cable/blue{
 	d1 = 1;
@@ -7257,6 +7263,7 @@
 /area/planet/jungle)
 "oj" = (
 /obj/structure/disposalpipe/segment,
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/planet/jungle)
 "ok" = (
@@ -7511,6 +7518,7 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/planet/jungle)
 "oT" = (
@@ -7518,6 +7526,7 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/planet/jungle)
 "oU" = (
@@ -7557,11 +7566,13 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/planet/jungle)
 "oZ" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/industrial/warning,
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/planet/jungle)
 "pa" = (
@@ -7580,6 +7591,7 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/planet/jungle)
 "pd" = (
@@ -7587,6 +7599,7 @@
 	dir = 8;
 	icon_state = "pipe-c"
 	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/planet/jungle)
 "pe" = (
@@ -7715,7 +7728,7 @@
 "pz" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Mining Station Communications";
-	req_access = list(48)
+	req_access = list("ACCESS_MINING")
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -8059,16 +8072,16 @@
 /area/outpost/mining_main/dorms)
 "qB" = (
 /obj/machinery/carpentry/planer,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/outpost/mining_main/refinery)
 "qC" = (
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/outpost/mining_main/refinery)
 "qD" = (
 /obj/machinery/conveyor_switch{
 	id = "planet_carpentry"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/outpost/mining_main/refinery)
 "qE" = (
 /obj/structure/window/reinforced{
@@ -8078,9 +8091,9 @@
 /obj/structure/closet/secure_closet/hunter,
 /obj/structure/window/reinforced,
 /obj/machinery/door/window/westleft{
-	req_access = list(48)
+	req_access = list("ACCESS_MINING")
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/outpost/mining_main/refinery)
 "qF" = (
 /obj/structure/table/standard,
@@ -8146,7 +8159,7 @@
 /area/planet/jungle)
 "qN" = (
 /obj/machinery/carpentry/woodprocessor,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/outpost/mining_main/refinery)
 "qO" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -8160,9 +8173,9 @@
 	health = 1e+006
 	},
 /obj/machinery/door/window/westright{
-	req_access = list(48)
+	req_access = list("ACCESS_MINING")
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/outpost/mining_main/refinery)
 "qQ" = (
 /obj/structure/bed/chair/urist/shuttle{
@@ -8230,7 +8243,7 @@
 	id_tag = "outpost_planet_dock";
 	pixel_x = 30;
 	pixel_y = 0;
-	req_access = list(1);
+	req_access = list("ACCESS_SECURITY");
 	tag_airpump = "outpost_planet_dock_pump";
 	tag_chamber_sensor = "outpost_planet_dock_sensor";
 	tag_exterior_door = "outpost_planet_dock_outer";
@@ -8251,7 +8264,7 @@
 	name = "exterior access button";
 	pixel_x = -25;
 	pixel_y = 26;
-	req_access = list(1)
+	req_access = list("ACCESS_SECURITY")
 	},
 /turf/simulated/floor/planet/jungle/clear,
 /area/planet/jungle)
@@ -8268,7 +8281,7 @@
 /area/planet/jungle)
 "rh" = (
 /obj/machinery/door/airlock/external{
-	req_access = list(48)
+	req_access = list("ACCESS_MINING")
 	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 4;
@@ -8281,14 +8294,14 @@
 	dir = 8
 	},
 /obj/machinery/smartfridge/tanningrack,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/outpost/mining_main/refinery)
 "rj" = (
 /obj/structure/table/rack,
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/outpost/mining_main/refinery)
 "rk" = (
 /obj/effect/shuttle_landmark/planet_elevator/mining/surface,
@@ -8468,13 +8481,13 @@
 /area/outpost/mining_main/refinery)
 "rH" = (
 /obj/item/weapon/stool/padded,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/outpost/mining_main/refinery)
 "rI" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/woodentable/walnut,
 /obj/item/weapon/carpentry/axe,
 /obj/item/weapon/carpentry/saw,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/outpost/mining_main/refinery)
 "rJ" = (
 /turf/simulated/floor/tiled,
@@ -8639,7 +8652,7 @@
 /obj/structure/bed/chair/office/dark{
 	dir = 8
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/outpost/mining_main/refinery)
 "sf" = (
 /obj/machinery/door/blast/shutters{
@@ -8721,7 +8734,7 @@
 	name = "interior access button";
 	pixel_x = 25;
 	pixel_y = 25;
-	req_access = list(1)
+	req_access = list("ACCESS_SECURITY")
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/hallway)
@@ -8753,13 +8766,13 @@
 "sz" = (
 /obj/machinery/door/airlock/glass/mining{
 	name = "Workshop";
-	req_access = list(48)
+	req_access = list("ACCESS_MINING")
 	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 4;
 	name = "Firelock"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/outpost/mining_main/refinery)
 "sB" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -9364,7 +9377,7 @@
 	},
 /obj/machinery/door/airlock/glass/mining{
 	name = "Mining Outpost Bridge";
-	req_access = list(48)
+	req_access = list("ACCESS_MINING")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -9431,7 +9444,7 @@
 	},
 /obj/machinery/door/airlock/glass/mining{
 	name = "Mining Outpost Bridge";
-	req_access = list(48)
+	req_access = list("ACCESS_MINING")
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
@@ -9822,7 +9835,7 @@
 "uH" = (
 /obj/machinery/door/airlock/security{
 	name = "Security Outpost";
-	req_access = list(1)
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -9839,7 +9852,7 @@
 "uI" = (
 /obj/machinery/door/airlock/security{
 	name = "Security Outpost";
-	req_access = list(1)
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -9861,7 +9874,7 @@
 "uM" = (
 /obj/machinery/door/airlock/glass/engineering{
 	name = "Engineering";
-	req_access = list(32)
+	req_access = list("ACCESS_CONSTRUCTION")
 	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 4;
@@ -9873,7 +9886,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass/engineering{
 	name = "Engineering";
-	req_access = list(32)
+	req_access = list("ACCESS_CONSTRUCTION")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -10663,7 +10676,7 @@
 "wB" = (
 /obj/machinery/door/airlock/medical{
 	name = "Operating Theatre";
-	req_access = list(45)
+	req_access = list("ACCESS_SURGERY")
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/holosign/surgery{
@@ -10697,7 +10710,7 @@
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -25;
-	req_one_access = list(201)
+	req_access = list("ACCESS_MERCHANT")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9;
@@ -10808,7 +10821,7 @@
 "wO" = (
 /obj/machinery/door/airlock/atmos{
 	name = "Outpost Atmospherics";
-	req_one_access = list(65,10,24)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
@@ -11040,14 +11053,14 @@
 "xl" = (
 /obj/machinery/door/airlock/security{
 	name = "Security Outpost Storage";
-	req_access = list(1)
+	req_access = list("ACCESS_SECURITY")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/outpost/security/storage)
 "xm" = (
 /obj/machinery/door/airlock/security{
 	name = "Security Outpost Storage";
-	req_access = list(1)
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -11162,7 +11175,7 @@
 "xA" = (
 /obj/machinery/door/window/westright{
 	name = "Production Area";
-	req_access = list(48)
+	req_access = list("ACCESS_MINING")
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
@@ -11492,7 +11505,7 @@
 	id_tag = "mining_outpost_outer";
 	locked = 1;
 	name = "Mining Dock Airlock";
-	req_access = list(13)
+	req_access = list("ACCESS_EXTERNAL")
 	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
@@ -11502,7 +11515,7 @@
 	id_tag = "mining_outpost_airlock";
 	pixel_x = 0;
 	pixel_y = 30;
-	req_one_access = list(13,48);
+	req_access = list("ACCESS_MINING");
 	tag_airpump = "mining_outpost_pump";
 	tag_chamber_sensor = "mining_outpost_sensor";
 	tag_exterior_door = "mining_outpost_outer";
@@ -11528,7 +11541,7 @@
 	id_tag = "mining_outpost_inner";
 	locked = 1;
 	name = "Mining Dock Airlock";
-	req_access = list(13)
+	req_access = list("ACCESS_EXTERNAL")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4;
@@ -11545,7 +11558,7 @@
 	name = "interior access button";
 	pixel_x = -30;
 	pixel_y = -25;
-	req_one_access = list(13,48)
+	req_access = list("ACCESS_MINING")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10;
@@ -11560,7 +11573,7 @@
 "yh" = (
 /obj/machinery/door/window/westleft{
 	name = "Production Area";
-	req_access = list(48)
+	req_access = list("ACCESS_MINING")
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
@@ -11587,7 +11600,7 @@
 "ym" = (
 /obj/machinery/door/airlock/security{
 	name = "Security Outpost";
-	req_access = list(1)
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -11983,7 +11996,7 @@
 	name = "interior access button";
 	pixel_x = 25;
 	pixel_y = -25;
-	req_access = list(1)
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	tag = "icon-intact (SOUTHEAST)";
@@ -12030,7 +12043,7 @@
 	name = "interior access button";
 	pixel_x = -25;
 	pixel_y = -25;
-	req_access = list(10)
+	req_access = list("ACCESS_ENGINEERING")
 	},
 /obj/effect/floor_decal/corner/yellow{
 	tag = "icon-corner_white (SOUTHWEST)";
@@ -12100,7 +12113,7 @@
 "zf" = (
 /obj/machinery/door/airlock/glass/atmos{
 	name = "Outpost Atmospherics";
-	req_one_access = list(65,10,24)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/plating,
@@ -12398,7 +12411,7 @@
 	id_tag = "security_docking_planet";
 	pixel_x = 30;
 	pixel_y = 0;
-	req_access = list(1);
+	req_access = list("ACCESS_SECURITY");
 	tag_airpump = "secdock_pump";
 	tag_chamber_sensor = "secdock_sensor";
 	tag_exterior_door = "secdock_outer";
@@ -12494,7 +12507,7 @@
 "zV" = (
 /obj/machinery/door/airlock/mining{
 	name = "Mining Station Storage";
-	req_access = list(48)
+	req_access = list("ACCESS_MINING")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -12537,7 +12550,7 @@
 	id_tag = "edock_airlock";
 	pixel_x = 30;
 	pixel_y = 0;
-	req_access = list(10);
+	req_access = list("ACCESS_ENGINEERING");
 	tag_airpump = "edock_pump";
 	tag_chamber_sensor = "edock_sensor";
 	tag_exterior_door = "edock_outer";
@@ -12567,7 +12580,7 @@
 "Ac" = (
 /obj/machinery/door/airlock/atmos{
 	name = "Outpost Atmospherics";
-	req_one_access = list(65,10,24)
+	req_access = list("ACCESS_XENOARCH")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -12699,7 +12712,7 @@
 	name = "exterior access button";
 	pixel_x = -25;
 	pixel_y = 0;
-	req_access = list(1)
+	req_access = list("ACCESS_SECURITY")
 	},
 /turf/simulated/floor/planet/jungle/clear,
 /area/planet/jungle)
@@ -12711,7 +12724,7 @@
 	name = "exterior access button";
 	pixel_x = 25;
 	pixel_y = 0;
-	req_access = list(10)
+	req_access = list("ACCESS_ENGINEERING")
 	},
 /turf/simulated/floor/planet/jungle/clear,
 /area/planet/jungle)
@@ -12850,6 +12863,17 @@
 	bridge = 1;
 	density = 1
 	},
+/area/planet/jungle)
+"El" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/planet/jungle)
+"KH" = (
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
 /area/planet/jungle)
 
 (1,1,1) = {"
@@ -21413,7 +21437,7 @@ av
 av
 av
 hf
-cT
+kR
 ii
 iQ
 mB
@@ -23374,8 +23398,8 @@ xM
 yp
 yV
 xH
-ny
-ny
+xH
+xH
 xH
 fl
 av
@@ -23887,7 +23911,7 @@ xl
 xO
 yr
 yX
-xH
+ny
 cl
 cl
 cl
@@ -24257,7 +24281,7 @@ cl
 cl
 cl
 cl
-gM
+El
 co
 co
 co
@@ -24514,7 +24538,7 @@ cl
 cl
 cl
 cl
-gM
+El
 co
 co
 co
@@ -24771,7 +24795,7 @@ cl
 cl
 cl
 cl
-gM
+El
 cl
 co
 co
@@ -25028,7 +25052,7 @@ cl
 cl
 cl
 cl
-gM
+El
 cl
 co
 co
@@ -25413,8 +25437,8 @@ av
 av
 av
 qL
-jV
-jV
+qL
+qL
 qL
 rC
 sL
@@ -25554,7 +25578,7 @@ fm
 hg
 co
 co
-gM
+El
 co
 co
 bn
@@ -25687,8 +25711,8 @@ xT
 yw
 zb
 uL
-kI
-kI
+uL
+uL
 Ar
 fl
 av
@@ -25811,7 +25835,7 @@ co
 co
 co
 co
-gM
+El
 co
 co
 co
@@ -26341,7 +26365,7 @@ co
 co
 co
 co
-gM
+El
 co
 co
 co
@@ -26440,7 +26464,7 @@ co
 co
 cl
 cl
-av
+KH
 jV
 jV
 jV
@@ -26609,7 +26633,7 @@ fk
 he
 co
 co
-gM
+El
 co
 co
 co
@@ -26639,7 +26663,7 @@ fm
 hg
 co
 co
-gM
+El
 co
 co
 co
@@ -26697,7 +26721,7 @@ co
 co
 cl
 cl
-av
+KH
 re
 rC
 rY
@@ -26954,7 +26978,7 @@ bn
 co
 co
 cl
-av
+KH
 re
 rD
 rZ
@@ -27211,7 +27235,7 @@ bn
 bn
 co
 cl
-av
+KH
 jV
 jV
 jV
@@ -27701,7 +27725,7 @@ co
 co
 co
 co
-gM
+El
 co
 co
 co
@@ -28231,7 +28255,7 @@ co
 co
 co
 co
-gM
+El
 co
 co
 bn
@@ -28488,7 +28512,7 @@ co
 co
 co
 co
-gM
+El
 co
 co
 bn
@@ -28745,7 +28769,7 @@ bn
 co
 co
 co
-gM
+El
 co
 co
 bn
@@ -29002,7 +29026,7 @@ bn
 co
 co
 co
-gM
+El
 co
 co
 bn
@@ -29259,7 +29283,7 @@ bn
 co
 co
 co
-gM
+El
 co
 co
 bn
@@ -29516,7 +29540,7 @@ bn
 co
 co
 co
-gM
+El
 co
 co
 bn
@@ -29773,7 +29797,7 @@ bn
 co
 co
 co
-gM
+El
 co
 co
 bn
@@ -30030,7 +30054,7 @@ bn
 co
 co
 co
-gM
+El
 co
 co
 bn
@@ -30287,7 +30311,7 @@ bn
 bn
 co
 co
-gM
+El
 co
 co
 bn
@@ -30544,7 +30568,7 @@ bn
 bn
 co
 co
-gM
+El
 co
 co
 bn
@@ -30801,7 +30825,7 @@ bn
 bn
 co
 co
-gM
+El
 co
 co
 bn
@@ -31058,7 +31082,7 @@ bn
 bn
 co
 co
-gM
+El
 co
 co
 bn
@@ -31315,7 +31339,7 @@ bn
 bn
 co
 co
-gM
+El
 co
 co
 bn
@@ -31572,7 +31596,7 @@ bn
 bn
 co
 co
-gM
+El
 co
 co
 bn
@@ -31829,7 +31853,7 @@ bn
 bn
 co
 co
-gM
+El
 co
 co
 bn
@@ -31852,7 +31876,7 @@ cl
 cl
 jG
 yd
-jG
+qs
 zg
 fl
 av
@@ -32086,7 +32110,7 @@ bn
 co
 co
 co
-gM
+El
 co
 co
 bn
@@ -32107,9 +32131,9 @@ cl
 cl
 cl
 cl
-jG
+qs
 ye
-jG
+qs
 zg
 fm
 zB
@@ -32343,7 +32367,7 @@ bn
 co
 pr
 co
-gM
+El
 co
 co
 co
@@ -32366,8 +32390,8 @@ cl
 jG
 kS
 yf
-jG
-jG
+qs
+qs
 cl
 fm
 zB
@@ -32600,7 +32624,7 @@ bn
 bn
 co
 co
-gM
+El
 co
 co
 co
@@ -32624,7 +32648,7 @@ jG
 xy
 yg
 yF
-jG
+qs
 qs
 zg
 fm
@@ -32857,7 +32881,7 @@ bn
 bn
 co
 co
-gM
+El
 co
 co
 co
@@ -33114,7 +33138,7 @@ bn
 bn
 co
 co
-gM
+El
 co
 cl
 cl
@@ -33371,7 +33395,7 @@ bn
 bn
 co
 co
-gM
+El
 cl
 cl
 cl
@@ -55020,7 +55044,7 @@ ae
 ae
 ae
 aq
-at
+ae
 ax
 aq
 av
@@ -55536,7 +55560,7 @@ ae
 aq
 av
 az
-at
+ae
 aC
 ae
 ae
@@ -72500,8 +72524,8 @@ ag
 ag
 ar
 as
-at
-at
+ae
+ae
 al
 an
 ag
@@ -72756,10 +72780,10 @@ ag
 ar
 ap
 as
-at
-at
-at
-at
+ae
+ae
+ae
+ae
 al
 an
 ag
@@ -73011,13 +73035,13 @@ ag
 ag
 ag
 ai
-at
-at
-at
-at
-at
-at
-at
+ae
+ae
+ae
+ae
+ae
+ae
+ae
 al
 an
 ag
@@ -73268,14 +73292,14 @@ ag
 ag
 ag
 ai
-at
-at
-at
+ae
+ae
+ae
 aD
 aE
-at
-at
-at
+ae
+ae
+ae
 ao
 ag
 ag
@@ -73526,13 +73550,13 @@ ag
 ag
 aj
 ah
-at
-at
-at
-at
-at
-at
-at
+ae
+ae
+ae
+ae
+ae
+ae
+ae
 ao
 ag
 ag
@@ -73784,11 +73808,11 @@ ag
 ag
 aj
 ah
-at
-at
-at
-at
-at
+ae
+ae
+ae
+ae
+ae
 ak
 am
 ag

@@ -7,7 +7,7 @@
 /datum/uplink_item/item/services/fake_ion_storm
 	name = "Ion Storm Announcement"
 	desc = "Interferes with ion sensors."
-	item_cost = 8
+	item_cost = 6
 	path = /obj/item/device/uplink_service/fake_ion_storm
 
 /datum/uplink_item/item/services/suit_sensor_garble
@@ -31,7 +31,7 @@
 /datum/uplink_item/item/services/suit_sensor_shutdown
 	name = "Complete Suit Sensor Shutdown"
 	desc = "Completely disables all suit sensors for 10 minutes."
-	item_cost = 40
+	item_cost = 32
 	path = /obj/item/device/uplink_service/jamming
 
 /datum/uplink_item/item/services/fake_update_annoncement
@@ -83,6 +83,9 @@
 	if(state != AWAITING_ACTIVATION)
 		to_chat(user, "<span class='warning'>\The [src] won't activate again.</span>")
 		return
+	if(!(user.z in GLOB.using_map.station_levels))
+		to_chat(user, SPAN_WARNING("You are too far away from \the [GLOB.using_map.name] to make use of this service."))
+		return
 	if(!enable())
 		return
 	state = CURRENTLY_ACTIVE
@@ -104,7 +107,7 @@
 	playsound(loc, "sparks", 50, 1)
 	visible_message("<span class='warning'>\The [src] shuts down with a spark.</span>")
 
-/obj/item/device/uplink_service/update_icon()
+/obj/item/device/uplink_service/on_update_icon()
 	switch(state)
 		if(AWAITING_ACTIVATION)
 			icon_state = initial(icon_state)
@@ -196,6 +199,7 @@
 #define COPY_VALUE(KEY) new_record.set_##KEY(random_record.get_##KEY())
 
 /obj/item/device/uplink_service/fake_crew_announcement/enable(var/mob/user = usr)
+
 	var/datum/computer_file/report/crew_record/random_record
 	var/obj/item/weapon/card/id/I = user.GetIdCard()
 	if(GLOB.all_crew_records.len)
@@ -203,6 +207,7 @@
 	var/datum/computer_file/report/crew_record/new_record = CreateModularRecord(user)
 	if(I)
 		new_record.set_name(I.registered_name)
+		new_record.set_formal_name("[I.formal_name_prefix][I.registered_name][I.formal_name_suffix]")
 		new_record.set_sex(I.sex)
 		new_record.set_age(I.age)
 		new_record.set_job(I.assignment)
@@ -213,6 +218,7 @@
 			new_record.set_branch(I.military_branch.name)
 			if(I.military_rank)
 				new_record.set_rank(I.military_rank.name)
+				new_record.set_formal_name("[I.registered_name][I.formal_name_suffix]") // Rank replaces formal name prefix in real manifest entries
 	if(random_record)
 		COPY_VALUE(faction)
 		COPY_VALUE(religion)
@@ -220,9 +226,19 @@
 		COPY_VALUE(fingerprint)
 		COPY_VALUE(dna)
 		COPY_VALUE(bloodtype)
-	var/datum/job/job = job_master.GetJob(new_record.get_job())
+	var/datum/job/job = SSjobs.get_by_title(new_record.get_job())
+	if(job)
+		var/skills = list()
+		for(var/decl/hierarchy/skill/S in GLOB.skills)
+			var/level = job.min_skill[S.type]
+			if(prob(10))
+				level = min(rand(1,3), job.max_skill[S.type])
+			if(level > SKILL_NONE)
+				skills += "[S.name], [S.levels[level]]"
+		new_record.set_skillset(jointext(skills,"\n"))
+
 	if(istype(job) && job.announced)
-		AnnounceArrivalSimple(new_record.get_name(), new_record.get_job(), get_announcement_frequency(job))
+		AnnounceArrivalSimple(new_record.get_name(), new_record.get_job(), "has completed cryogenic revival", get_announcement_frequency(job))
 	. = ..()
 
 #undef COPY_VALUE

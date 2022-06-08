@@ -61,7 +61,7 @@
 
 /obj/item/integrated_circuit/manipulation/weapon_firing/attack_self(var/mob/user)
 	if(installed_gun)
-		installed_gun.forceMove(get_turf(src))
+		installed_gun.dropInto(loc)
 		to_chat(user, "<span class='notice'>You slide \the [installed_gun] out of the firing mechanism.</span>")
 		size = initial(size)
 		playsound(src, 'sound/items/Crowbar.ogg', 50, 1)
@@ -222,7 +222,7 @@
 /obj/item/integrated_circuit/manipulation/grenade/proc/detach_grenade()
 	if(!attached_grenade)
 		return
-	attached_grenade.forceMove(get_turf(src))
+	attached_grenade.dropInto(loc)
 	attached_grenade = null
 	desc = initial(desc)
 
@@ -266,7 +266,7 @@
 				for(var/i in 1 to length(harvest_output))
 					harvest_output[i] = weakref(harvest_output[i])
 
-				if(harvest_output.len)
+				if(length(harvest_output))
 					set_pin_data(IC_OUTPUT, 1, harvest_output)
 					push_data()
 			if(1)
@@ -322,9 +322,11 @@
 	var/list/seed_output = list()
 	for(var/i in 1 to rand(1,4))
 		var/obj/item/seeds/seeds = new(get_turf(O))
-		seeds.seed_type = plant_controller.seeds[O.seed.name]
+		seeds.seed = SSplants.seeds[O.plantname]
+		seeds.seed_type = SSplants.seeds[O.seed.name]
 		seeds.update_seed()
 		seed_output += weakref(seeds)
+	qdel(O)
 
 	if(seed_output.len)
 		set_pin_data(IC_OUTPUT, 1, seed_output)
@@ -533,7 +535,7 @@
 
 	assembly.visible_message("<span class='danger'>[assembly] has thrown [A]!</span>")
 	log_attack("[assembly] \ref[assembly] has thrown [A].")
-	A.forceMove(get_turf(src))
+	A.dropInto(loc)
 	A.throw_at(locate(x_abs, y_abs, T.z), range, 3)
 
 	// If the item came from a grabber now we can update the outputs since we've thrown it.
@@ -548,7 +550,7 @@
 					Rift direction is a cardinal value determening in which direction the rift will be opened, relative the local north. \
 					A direction value of 0 will open the rift on top of the assembly, and any other non-cardinal values will open the rift in the assembly's current facing."
 	icon_state = "bluespace"
-	complexity = 25
+	complexity = 100
 	size = 3
 	cooldown_per_use = 10 SECONDS
 	power_draw_per_use = 300
@@ -559,11 +561,13 @@
 	action_flags = IC_ACTION_LONG_RANGE
 
 	origin_tech = list(TECH_MAGNET = 1, TECH_BLUESPACE = 3)
-	matter = list(DEFAULT_WALL_MATERIAL = 10000)
+	matter = list(MATERIAL_STEEL = 10000, MATERIAL_SILVER = 2000, MATERIAL_GOLD = 200)
 
 /obj/item/integrated_circuit/manipulation/bluespace_rift/do_work()
 	var/obj/machinery/computer/teleporter/tporter = get_pin_data_as_type(IC_INPUT, 1, /obj/machinery/computer/teleporter)
 	var/step_dir = get_pin_data(IC_INPUT, 2)
+	if(!(get_z(src) in GetConnectedZlevels(get_z(tporter))))
+		tporter = null
 
 	var/turf/rift_location = get_turf(src)
 	if(!rift_location || !isPlayerLevel(rift_location.z))

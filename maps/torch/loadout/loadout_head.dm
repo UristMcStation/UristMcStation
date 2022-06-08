@@ -42,9 +42,6 @@
 /datum/gear/head/surgical
 	allowed_roles = STERILE_ROLES
 
-/datum/gear/head/whitentberet
-	allowed_roles = list(/datum/job/guard)
-
 /datum/gear/head/beret
 	allowed_branches = CIVILIAN_BRANCHES
 
@@ -70,6 +67,7 @@
 	display_name = "formal hat selection"
 	path = /obj/item/clothing/head
 	allowed_roles = FORMAL_ROLES
+	allowed_branches = CIVILIAN_BRANCHES
 
 /datum/gear/head/informalhat
 	allowed_roles = SEMIFORMAL_ROLES
@@ -79,3 +77,19 @@
 
 /datum/gear/tactical/balaclava
 	allowed_roles = ARMORED_ROLES
+
+/datum/gear/head/fleetberet
+	display_name = "Fleet branch beret selection"
+	description = "A beret denoting service in one of the fleets within the SCG Fleet."
+	path = /obj/item/clothing/head/beret/solgov/fleet/branch
+	allowed_branches = list(/datum/mil_branch/fleet)
+
+/datum/gear/head/fleetberet/New()
+	..()
+	var/berets = list()
+	berets["first fleet beret"] = /obj/item/clothing/head/beret/solgov/fleet/branch
+	berets["second fleet beret"] = /obj/item/clothing/head/beret/solgov/fleet/branch/second
+	berets["third fleet beret"] = /obj/item/clothing/head/beret/solgov/fleet/branch/third
+	berets["fourth fleet beret"] = /obj/item/clothing/head/beret/solgov/fleet/branch/fourth
+	berets["fifth fleet beret"] = /obj/item/clothing/head/beret/solgov/fleet/branch/fifth
+	gear_tweaks += new/datum/gear_tweak/path(berets)

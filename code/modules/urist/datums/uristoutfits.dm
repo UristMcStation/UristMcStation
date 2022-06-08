@@ -37,7 +37,7 @@
 	gloves = /obj/item/clothing/gloves/thick/swat
 	l_ear = /obj/item/device/radio/headset
 	//glasses = /obj/item/clothing/glasses/thermal
-	suit = /obj/item/clothing/suit/urist/armor/anfor/marine
+	suit = /obj/item/clothing/suit/storage/urist/armor/anfor/marine
 	head = /obj/item/clothing/head/helmet/urist/anfor
 	//mask = /obj/item/clothing/mask/gas/swat
 	back = /obj/item/weapon/storage/backpack/security
@@ -276,6 +276,8 @@
 		else
 			qdel(gear)
 
+//lactera outfits
+
 /decl/hierarchy/outfit/lactera
 	name = "Lactera Soldier"
 	uniform = /obj/item/clothing/under/lactera
@@ -312,8 +314,10 @@
 	l_pocket = /obj/item/weapon/plastique/alienexplosive
 	head = /obj/item/clothing/head/lactera/cmd
 
+//terran outfits
+
 /decl/hierarchy/outfit/terranmarine
-	name = "Terran Marine"
+	name = "Terran Marine - Naval Service"
 	uniform = /obj/item/clothing/under/urist/terran/marine
 	mask = /obj/item/clothing/mask/gas/terranhalf
 	shoes = /obj/item/clothing/shoes/swat
@@ -329,15 +333,12 @@
 	l_pocket = /obj/item/ammo_magazine/a556/a22
 	suit_store = /obj/item/weapon/gun/projectile/colt/a7
 	id_slot = slot_wear_id
-	id_type = /obj/item/weapon/card/id/centcom
+	id_type = /obj/item/weapon/card/id/terran/marine
 
-/decl/hierarchy/outfit/terranmarinespace
-	name = "Terran Marine - Space"
+/decl/hierarchy/outfit/terranmarine/space
+	name = "Terran Marine - Naval Service EVA"
 	uniform = /obj/item/clothing/under/urist/terran/marine
 	mask = /obj/item/clothing/mask/gas/terranhalf
-	shoes = /obj/item/clothing/shoes/swat
-	gloves = /obj/item/clothing/gloves/thick/swat
-	l_ear = /obj/item/device/radio/headset
 	suit = /obj/item/clothing/suit/space/void/terran_marine
 	head = /obj/item/clothing/head/helmet/space/void/terran_marine
 	back = /obj/item/weapon/storage/backpack/security
@@ -347,15 +348,10 @@
 	r_pocket = /obj/item/device/radio
 	l_pocket = /obj/item/ammo_magazine/a556/a22
 	suit_store = /obj/item/weapon/tank/oxygen
-	id_slot = slot_wear_id
-	id_type = /obj/item/weapon/card/id/centcom
 
-/decl/hierarchy/outfit/terranofficer
-	name = "Terran Officer"
+/decl/hierarchy/outfit/terranmarine/officer
+	name = "Terran Officer - Naval Service"
 	uniform = /obj/item/clothing/under/urist/terran/marine
-	shoes = /obj/item/clothing/shoes/swat
-	gloves = /obj/item/clothing/gloves/thick/swat
-	l_ear = /obj/item/device/radio/headset
 	suit = /obj/item/clothing/suit/storage/urist/terran_officer
 	head = /obj/item/clothing/head/urist/terran/officercap
 	back = /obj/item/weapon/storage/backpack/urist/explorersatchel
@@ -365,5 +361,82 @@
 	r_pocket = /obj/item/device/radio
 	l_pocket = /obj/item/ammo_magazine/a9mm
 	suit_store = /obj/item/weapon/gun/projectile/colt/a7
-	id_slot = slot_wear_id
-	id_type = /obj/item/weapon/card/id/centcom
+
+/decl/hierarchy/outfit/terranmarine/ground
+	name = "Terran Marine - Ground Assault"
+	uniform = /obj/item/clothing/under/urist/anfor/terran
+	suit = /obj/item/clothing/suit/storage/urist/armor/anfor/terran
+	head = /obj/item/clothing/head/helmet/urist/anfor/terran
+	back = /obj/item/weapon/storage/backpack/rucksack/green
+	backpack_contents = list(/obj/item/ammo_magazine/c45m/a7 = 1, /obj/item/weapon/storage/firstaid/regular = 1,
+		/obj/item/device/flashlight = 1, /obj/item/ammo_magazine/a556/a22 = 2, /obj/item/device/radio = 1)
+	r_hand = /obj/item/weapon/gun/projectile/automatic/a22
+	r_pocket = /obj/item/device/radio
+	l_pocket = /obj/item/ammo_magazine/a556/a22
+	suit_store = /obj/item/weapon/gun/projectile/colt/a7
+
+/decl/hierarchy/outfit/terranmarine/groundspace
+	name = "Terran Marine - Ground Assault EVA"
+	uniform = /obj/item/clothing/under/urist/anfor/terran
+	mask = /obj/item/clothing/mask/gas/terranhalf
+	suit = /obj/item/clothing/head/helmet/space/void/terran_marine
+	head = /obj/item/clothing/head/helmet/space/void/anfor/terran
+	back = /obj/item/weapon/storage/backpack/security
+	backpack_contents = list(/obj/item/ammo_magazine/c45m/a7 = 1, /obj/item/weapon/storage/firstaid/combat = 1,
+		/obj/item/device/flashlight = 1, /obj/item/ammo_magazine/a762mm/a18 = 2, /obj/item/weapon/plastique = 1, /obj/item/weapon/gun/projectile/colt/a7 = 1)
+	r_hand = /obj/item/weapon/gun/projectile/a18
+	r_pocket = /obj/item/device/radio
+	l_pocket = /obj/item/ammo_magazine/a762mm/a18
+	suit_store = /obj/item/weapon/tank/oxygen
+
+/decl/hierarchy/outfit/terranmarine/groundofficer
+	name = "Terran Officer - Ground Assault"
+	uniform = /obj/item/clothing/under/urist/anfor/terran
+	suit = /obj/item/clothing/suit/storage/urist/armor/anfor/terran/nco
+	head = /obj/item/clothing/head/urist/anfor/terran
+	back = /obj/item/weapon/storage/backpack/urist/explorersatchel
+	backpack_contents = list(/obj/item/ammo_magazine/c45m/a7 = 1, /obj/item/weapon/storage/firstaid/combat = 1,
+		/obj/item/device/flashlight = 1, /obj/item/ammo_magazine/a9mm = 2, /obj/item/weapon/tank/emergency/oxygen = 1, /obj/item/clothing/mask/gas/terranhalf = 1)
+	r_hand = /obj/item/weapon/gun/projectile/automatic/asmg
+	r_pocket = /obj/item/device/radio
+	l_pocket = /obj/item/ammo_magazine/a9mm
+	suit_store = /obj/item/weapon/gun/projectile/colt/a7
+
+//new pirates
+
+/decl/hierarchy/outfit/newpirate
+	name = "New Pirate - Laser"
+	uniform = /obj/item/clothing/under/syndicate
+	suit = /obj/item/clothing/suit/armor/pcarrier/light/hijacker
+	shoes = /obj/item/clothing/shoes/jackboots
+	head = /obj/item/clothing/mask/bandana/red
+	l_hand = /obj/item/weapon/gun/energy/laser
+	flags = OUTFIT_HAS_BACKPACK
+
+/decl/hierarchy/outfit/newpirate/melee
+	name = "New Pirate - Melee"
+	glasses = /obj/item/clothing/glasses/eyepatch
+	head = /obj/item/clothing/head/helmet/tactical
+	suit = /obj/item/clothing/suit/pirate
+	l_hand = /obj/item/weapon/melee/energy/sword/pirate
+	gloves = /obj/item/clothing/gloves/guards
+
+/decl/hierarchy/outfit/newpirate/melee/post_equip(var/mob/living/carbon/human/H)
+	..()
+	var/obj/item/clothing/uniform = H.w_uniform
+	if(uniform)
+		var/obj/item/clothing/accessory/kneepads/gear = new()
+		if(uniform.can_attach_accessory(gear))
+			uniform.attach_accessory(null, gear)
+		else
+			qdel(gear)
+
+/decl/hierarchy/outfit/newpirate/ballistic
+	name = "New Pirate - Ballistic"
+	gloves = /obj/item/clothing/gloves/thick
+	glasses = /obj/item/clothing/glasses/tacgoggles
+	l_hand = /obj/item/weapon/gun/projectile/automatic/spaceak
+	r_pocket = /obj/item/ammo_magazine/a762mm/spaceak
+	l_pocket = /obj/item/ammo_magazine/a762mm/spaceak
+	uniform = /obj/item/clothing/under/syndicate/pirate
+	suit = null

@@ -53,6 +53,8 @@
 			if(A.name && A.name==control_area)
 				control_area = A
 				break
+	else
+		control_area = locate(control_area)
 
 	if(control_area)
 		var/area/A = control_area
@@ -198,14 +200,14 @@
 		for (var/obj/machinery/porta_turret/aTurret in control_area)
 			aTurret.setState(TC)
 
-	update_icon()
+	queue_icon_update()
 
 /obj/machinery/turretid/power_change()
 	. = ..()
 	if(.)
 		updateTurrets()
 
-/obj/machinery/turretid/update_icon()
+/obj/machinery/turretid/on_update_icon()
 	..()
 	if(stat & NOPOWER)
 		icon_state = "control_off"

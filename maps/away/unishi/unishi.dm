@@ -6,7 +6,7 @@
 	archetype = /decl/submap_archetype/derelict/unishi
 
 /decl/submap_archetype/derelict/unishi
-	descriptor = "derelict"
+	descriptor = "derelict research vessel"
 	map = "SRV Verne"
 	crew_jobs = list(
 		/datum/job/submap/unishi_crew,
@@ -16,11 +16,12 @@
 
 /obj/effect/overmap/ship/unishi
 	name = "SRV Verne"
+	ship_name = "SRV Verne"
+	classification = "medium class vessel"
 	desc = "Sensor array detects unknown class medium size vessel. The vessel appears unarmed.\
 	A small amount of radiation has been detected at the aft of the ship"
-	vessel_mass = 80
-	default_delay = 15 SECONDS
-	speed_mod = 10 SECONDS
+	vessel_mass = 5000
+	max_speed = 1/(3 SECONDS)
 	initial_generic_waypoints = list(
 		"nav_unishi_1",
 		"nav_unishi_2",
@@ -94,7 +95,7 @@ obj/item/weapon/paper/prof1
 
 obj/item/weapon/paper/prof2
 	name = "Error log"
-	info = "<large> COMPUTER ID: 15131 <br> Attempting recovery of document directory. <br> Three files recovered <br> Printing file (1/2) <br> </large> Email to iodc@nt <br> To whom it may concern, <br> I recieved your email today in regards to the research I am conducting. You have no legal right to question our research or attempt to block it. Per article 323 of SGCL, scientific research is protected information, that you have absolutely zero claim to. The compound is secret in composition, but I can fully promise you that it contains zero traces of phoron, and thus you have no claim whatsoever to it or the technologies to it. Your threats are laughable at best, and have been forwarded to CTI legal. Do not contact me aga!#!41asjw. <br> <large> Printing file (2/2) <br> </large> Email from fuckyou@12cmal <br> We have ways of making you comply. "
+	info = "<large> COMPUTER ID: 15131 <br> Attempting recovery of document directory. <br> Three files recovered <br> Printing file (1/2) <br> </large> Email to iodc@net <br> To whom it may concern, <br> I recieved your email today in regards to the research I am conducting. You have no legal right to question our research or attempt to block it. Per article 323 of SGCL, scientific research is protected information, that you have absolutely zero claim to. The compound is secret in composition, but I can fully promise you that it contains zero traces of phoron, and thus you have no claim whatsoever to it or the technologies to it. Your threats are laughable at best, and have been forwarded to CTI legal. Do not contact me aga!#!41asjw. <br> <large> Printing file (2/2) <br> </large> Email from fuckyou@12cmal <br> We have ways of making you comply. "
 
 
 

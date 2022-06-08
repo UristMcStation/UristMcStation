@@ -12,6 +12,7 @@ var/global/list/map_sectors = list()
 /turf/unsimulated/map
 	icon = 'icons/turf/space.dmi'
 	icon_state = "map"
+	color = "#6d83bd"
 
 /turf/unsimulated/map/edge
 	opacity = 1

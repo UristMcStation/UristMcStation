@@ -20,7 +20,7 @@ field_generator power level display
 	icon_state = "Field_Gen"
 	anchored = 0
 	density = 1
-	use_power = 0
+	use_power = POWER_USE_OFF
 	var/const/num_power_levels = 6	// Total number of power level icon has
 	var/Varedit_start = 0
 	var/Varpower = 0
@@ -37,7 +37,7 @@ field_generator power level display
 	var/field_power_draw = 2000	//power needed per field object
 
 
-/obj/machinery/field_generator/update_icon()
+/obj/machinery/field_generator/on_update_icon()
 	overlays.Cut()
 	if(!active)
 		if(warming_up)
@@ -276,7 +276,7 @@ field_generator power level display
 			break
 	if(isnull(G))
 		return
-	T = src.loc
+	T = get_turf(src)
 	for(var/dist = 0, dist < steps, dist += 1) // creates each field tile
 		var/field_dir = get_dir(T,get_step(G.loc, NSEW))
 		T = get_step(T, NSEW)
@@ -285,7 +285,7 @@ field_generator power level display
 			CF.set_master(src,G)
 			fields += CF
 			G.fields += CF
-			CF.loc = T
+			CF.forceMove(T)
 			CF.set_dir(field_dir)
 	var/listcheck = 0
 	for(var/obj/machinery/field_generator/FG in connected_gens)

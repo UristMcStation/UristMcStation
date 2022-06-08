@@ -17,8 +17,15 @@
 	var/data = html2pencode(target.info)
 	if(!data)
 		return
-	to_chat(user, "You scan \the [target] with [src].")
+	if(target.metadata)
+		driver.metadata_buffer = target.metadata.Copy()
+	driver.paper_type = target.type
+
+	driver.scan_file_type = target.scan_file_type
+
 	driver.data_buffer = data
+
+	to_chat(user, "You scan \the [target] with [src].")
 	SSnano.update_uis(driver.NM)
 
 /obj/item/weapon/computer_hardware/scanner/paper/do_on_attackby(mob/user, atom/target)

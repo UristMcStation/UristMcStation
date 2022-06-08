@@ -19,6 +19,7 @@ var/list/mining_floors = list()
 	density = 1
 	blocks_air = 1
 	temperature = T0C
+	color = COLOR_ASTEROID_ROCK
 	var/mined_turf = /turf/simulated/floor/asteroid
 	var/material/mineral
 	var/mined_ore = 0
@@ -37,7 +38,8 @@ var/list/mining_floors = list()
 
 	has_resources = 1
 
-/turf/simulated/mineral/New()
+/turf/simulated/mineral/Initialize()
+	. = ..()
 	if (!mining_walls["[src.z]"])
 		mining_walls["[src.z]"] = list()
 	mining_walls["[src.z]"] += src
@@ -57,7 +59,7 @@ var/list/mining_floors = list()
 /turf/simulated/mineral/is_plating()
 	return 1
 
-/turf/simulated/mineral/update_icon(var/update_neighbors)
+/turf/simulated/mineral/on_update_icon(var/update_neighbors)
 	if(!istype(mineral))
 		SetName(initial(name))
 		icon_state = "rock"
@@ -149,6 +151,7 @@ var/list/mining_floors = list()
 /turf/simulated/mineral/proc/UpdateMineral()
 	clear_ore_effects()
 	ore_overlay = image('icons/turf/mining_decals.dmi', "[mineral.ore_icon_overlay]")
+	ore_overlay.appearance_flags = RESET_COLOR
 	if(prob(50))
 		var/matrix/M = matrix()
 		M.Scale(-1,1)
@@ -159,8 +162,7 @@ var/list/mining_floors = list()
 
 //Not even going to touch this pile of spaghetti
 /turf/simulated/mineral/attackby(obj/item/weapon/W as obj, mob/user as mob)
-
-	if (!(istype(usr, /mob/living/carbon/human) || ticker) && ticker.mode.name != "monkey")
+	if (!user.IsAdvancedToolUser())
 		to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
 		return
 
@@ -248,7 +250,7 @@ var/list/mining_floors = list()
 			if(!archaeo_overlay && finds && finds.len)
 				var/datum/find/F = finds[1]
 				if(F.excavation_required <= excavation_level + F.view_range)
-					archaeo_overlay = "overlay_archaeo[rand(1,3)]"
+					archaeo_overlay = image('icons/turf/excavation_overlays.dmi',"overlay_archaeo[rand(1,3)]")
 					updateIcon = 1
 
 			else if(archaeo_overlay && (!finds || !finds.len))
@@ -270,7 +272,7 @@ var/list/mining_floors = list()
 			//update overlays displaying excavation level
 			if( !(excav_overlay && excavation_level > 0) || update_excav_overlay )
 				var/excav_quadrant = round(excavation_level / 50) + 1
-				excav_overlay = "overlay_excv[excav_quadrant]_[rand(1,3)]"
+				excav_overlay = image('icons/turf/excavation_overlays.dmi',"overlay_excv[excav_quadrant]_[rand(1,3)]")
 				updateIcon = 1
 
 			if(updateIcon)
@@ -334,6 +336,15 @@ var/list/mining_floors = list()
 	if(istype(N))
 		N.overlay_detail = "asteroid[rand(0,9)]"
 		N.updateMineralOverlays(1)
+		if(!N.has_resources || length(resources))
+			return
+		for(var/i in random_maps)
+			var/datum/random_map/noise/ore/orenoise = random_maps[i]
+			if(!istype(orenoise))
+				continue
+			if(orenoise.origin_z == N.z)
+				orenoise.generate_tile(N)
+				break
 
 /turf/simulated/mineral/proc/excavate_find(var/prob_clean = 0, var/datum/find/F)
 
@@ -366,7 +377,7 @@ var/list/mining_floors = list()
 	for(var/j in 1 to rand(1, 3 + max(min(severity, 1), 0) * 2))
 		switch(rand(1,7))
 			if(1)
-				var/obj/item/stack/rods/R = new(src)
+				var/obj/item/stack/material/rods/R = new(src)
 				R.amount = rand(5,25)
 
 			if(2)
@@ -433,7 +444,8 @@ var/list/mining_floors = list()
 
 	var/mapped = FALSE
 
-/turf/simulated/floor/asteroid/New()
+/turf/simulated/floor/asteroid/Initialize()
+	. = ..()
 	if (!mining_floors["[src.z]"])
 		mining_floors["[src.z]"] = list()
 	mining_floors["[src.z]"] += src

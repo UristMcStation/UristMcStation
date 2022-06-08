@@ -1,7 +1,6 @@
 /mob/living/carbon/New()
 	//setup reagent holders
 	bloodstr = new/datum/reagents/metabolism(120, src, CHEM_BLOOD)
-	ingested = new/datum/reagents/metabolism(240, src, CHEM_INGEST)
 	touching = new/datum/reagents/metabolism(1000, src, CHEM_TOUCH)
 	reagents = bloodstr
 
@@ -10,18 +9,24 @@
 	..()
 
 /mob/living/carbon/Destroy()
-	QDEL_NULL(ingested)
 	QDEL_NULL(touching)
-	// We don't qdel(bloodstr) because it's the same as qdel(reagents)
+	bloodstr = null // We don't qdel(bloodstr) because it's the same as qdel(reagents)
 	QDEL_NULL_LIST(internal_organs)
-	QDEL_NULL_LIST(stomach_contents)
 	QDEL_NULL_LIST(hallucinations)
+	if(loc)
+		for(var/mob/M in contents)
+			M.dropInto(loc)
+	else
+		for(var/mob/M in contents)
+			qdel(M)
 	return ..()
 
 /mob/living/carbon/rejuvenate()
 	bloodstr.clear_reagents()
-	ingested.clear_reagents()
 	touching.clear_reagents()
+	var/datum/reagents/R = get_ingested_reagents()
+	if(istype(R))
+		R.clear_reagents()
 	nutrition = 400
 	..()
 
@@ -34,7 +39,7 @@
 		src.nutrition -= DEFAULT_HUNGER_FACTOR/10
 		if (move_intent.flags & MOVE_INTENT_EXERTIVE)
 			src.nutrition -= DEFAULT_HUNGER_FACTOR/10
-	if((FAT in src.mutations) && (move_intent.flags & MOVE_INTENT_EXERTIVE) && src.bodytemperature <= 360)
+	if((MUTATION_FAT in src.mutations) && (move_intent.flags & MOVE_INTENT_EXERTIVE) && src.bodytemperature <= 360)
 		src.bodytemperature += 2
 
 	// Moving around increases germ_level faster
@@ -42,7 +47,7 @@
 		germ_level++
 
 /mob/living/carbon/relaymove(var/mob/living/user, direction)
-	if((user in src.stomach_contents) && istype(user))
+	if((user in contents) && istype(user))
 		if(user.last_special <= world.time)
 			user.last_special = world.time + 50
 			src.visible_message("<span class='danger'>You hear something rumbling inside [src]'s stomach...</span>")
@@ -61,19 +66,12 @@
 				playsound(user.loc, 'sound/effects/attackblob.ogg', 50, 1)
 
 				if(prob(src.getBruteLoss() - 50))
-					for(var/atom/movable/A in stomach_contents)
-						A.loc = loc
-						stomach_contents.Remove(A)
-					src.gib()
+					gib()
 
 /mob/living/carbon/gib()
-	for(var/mob/M in src)
-		if(M in src.stomach_contents)
-			src.stomach_contents.Remove(M)
-		M.loc = src.loc
-		for(var/mob/N in viewers(src, null))
-			if(N.client)
-				N.show_message(text("<span class='danger'>[M] bursts out of [src]!</span>"), 2)
+	for(var/mob/M in contents)
+		M.dropInto(loc)
+		visible_message(SPAN_DANGER("\The [M] bursts out of \the [src]!"))
 	..()
 
 /mob/living/carbon/attack_hand(mob/M as mob)
@@ -144,7 +142,7 @@
 	return
 
 /mob/living/carbon/swap_hand()
-	src.hand = !( src.hand )
+	hand = !hand
 	if(hud_used.l_hand_hud_object && hud_used.r_hand_hud_object)
 		if(hand)	//This being 1 means the left hand is in use
 			hud_used.l_hand_hud_object.icon_state = "l_hand_active"
@@ -152,7 +150,9 @@
 		else
 			hud_used.l_hand_hud_object.icon_state = "l_hand_inactive"
 			hud_used.r_hand_hud_object.icon_state = "r_hand_active"
-	return
+	var/obj/item/I = get_active_hand()
+	if(istype(I))
+		I.on_active_hand()
 
 /mob/living/carbon/proc/activate_hand(var/selhand) //0 or "r" or "right" for right hand; 1 or "l" or "left" for left hand.
 
@@ -205,11 +205,12 @@
 			var/show_ssd
 			var/mob/living/carbon/human/H = src
 			if(istype(H)) show_ssd = H.species.show_ssd
-			if(show_ssd && !client && !teleop)
+			if(show_ssd && ssd_check())
 				M.visible_message("<span class='notice'>[M] shakes [src] trying to wake [t_him] up!</span>", \
 				"<span class='notice'>You shake [src], but they do not respond... Maybe they have S.S.D?</span>")
-			else if(lying || src.sleeping)
-				src.sleeping = max(0,src.sleeping-5)
+			else if(lying || src.sleeping || player_triggered_sleeping)
+				src.player_triggered_sleeping = 0
+				src.sleeping = max(0,src.sleeping - 5)
 				if(src.sleeping == 0)
 					src.resting = 0
 				M.visible_message("<span class='notice'>[M] shakes [src] trying to wake [t_him] up!</span>", \
@@ -273,7 +274,7 @@
 
 /mob/living/carbon/throw_item(atom/target)
 	src.throw_mode_off()
-	if(usr.stat || !target)
+	if(src.stat || !target)
 		return
 	if(target.type == /obj/screen) return
 
@@ -294,7 +295,7 @@
 			itemsize = round(M.mob_size/4)
 			var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors
 			var/turf/end_T = get_turf(target)
-			if(start_T && end_T)
+			if(start_T && end_T && usr == src)
 				var/start_T_descriptor = "<font color='#6b5d00'>[start_T] \[[start_T.x],[start_T.y],[start_T.z]\] ([start_T.loc])</font>"
 				var/end_T_descriptor = "<font color='#6b4400'>[start_T] \[[end_T.x],[end_T.y],[end_T.z]\] ([end_T.loc])</font>"
 				admin_attack_log(usr, M, "Threw the victim from [start_T_descriptor] to [end_T_descriptor].", "Was from [start_T_descriptor] to [end_T_descriptor].", "threw, from [start_T_descriptor] to [end_T_descriptor], ")
@@ -327,6 +328,9 @@
 
 
 	item.throw_at(target, throw_range, item.throw_speed, src)
+
+	playsound(src, 'sound/effects/throw.ogg', 50, 1)
+	animate_throw(src)
 
 /mob/living/carbon/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	..()
@@ -362,11 +366,8 @@
 	set name = "Sleep"
 	set category = "IC"
 
-	if(usr.sleeping)
-		to_chat(usr, "<span class='warning'>You are already sleeping</span>")
-		return
-	if(alert(src,"You sure you want to sleep for a while?","Sleep","Yes","No") == "Yes")
-		usr.sleeping = 20 //Short nap
+	if(alert("Are you sure you want to [player_triggered_sleeping ? "wake up?" : "sleep for a while? Use 'sleep' again to wake up"]", "Sleep", "No", "Yes") == "Yes")
+		player_triggered_sleeping = !player_triggered_sleeping
 
 /mob/living/carbon/Bump(var/atom/movable/AM, yes)
 	if(now_pushing || !yes)
@@ -422,21 +423,8 @@
  *  Return FALSE if victim can't be devoured, DEVOUR_FAST if they can be devoured quickly, DEVOUR_SLOW for slow devour
  */
 /mob/living/carbon/proc/can_devour(atom/movable/victim)
-	if((FAT in mutations) && issmall(victim))
-		return DEVOUR_FAST
-
 	return FALSE
 
-/mob/living/carbon/onDropInto(var/atom/movable/AM)
-	for(var/e in stomach_contents)
-		var/atom/movable/stomach_content = e
-		if(stomach_content.contains(AM))
-			if(can_devour(AM))
-				stomach_contents += AM
-				return null
-			src.visible_message("<span class='warning'>\The [src] regurgitates \the [AM]!</span>")
-			return loc
-	return ..()
 /mob/living/carbon/proc/should_have_organ(var/organ_check)
 	return 0
 
@@ -482,3 +470,9 @@
 
 /mob/living/carbon/has_chem_effect(chem, threshold)
 	return (chem_effects[chem] >= threshold)
+
+/mob/living/carbon/get_sex()
+	return species.get_sex(src)
+
+/mob/living/carbon/proc/get_ingested_reagents()
+	return reagents

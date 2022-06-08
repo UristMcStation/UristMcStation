@@ -3,6 +3,7 @@
 	desc = "An ironing board to unwrinkle your wrinkled clothing."
 	icon = 'icons/obj/ironing.dmi'
 	item_form_type = /obj/item/roller/ironingboard
+	iv_stand = FALSE
 
 	var/obj/item/clothing/cloth // the clothing on the ironing board
 	var/obj/item/weapon/ironingiron/holding // ironing iron on the board
@@ -46,7 +47,7 @@
 	if(cloth)
 		to_chat(user, "<span class='notice'>\The \icon[cloth] [cloth] lies on it.</span>")
 
-/obj/structure/bed/roller/ironingboard/update_icon()
+/obj/structure/bed/roller/ironingboard/on_update_icon()
 	if(density)
 		icon_state = "up"
 	else

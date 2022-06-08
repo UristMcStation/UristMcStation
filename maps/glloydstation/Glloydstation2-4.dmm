@@ -541,23 +541,23 @@
 /turf/simulated/floor/plating,
 /area/djstation)
 "bd" = (
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/djstation)
 "be" = (
 /obj/machinery/light_switch{
 	pixel_y = 28
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/djstation)
 "bf" = (
 /obj/structure/bed/nice,
 /obj/item/weapon/bedsheet,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/djstation)
 "bg" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/djstation)
 "bh" = (
 /obj/structure/grille,
@@ -625,11 +625,11 @@
 /obj/machinery/door/airlock/glass{
 	name = "Cabin"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/djstation)
 "bp" = (
 /obj/machinery/sleeper,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/djstation)
 "bq" = (
 /obj/structure/grille,
@@ -693,21 +693,21 @@
 /obj/structure/computerframe{
 	anchored = 1
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/djstation)
 "bz" = (
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/djstation)
 "bA" = (
 /obj/machinery/light/small,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/djstation)
 "bB" = (
 /obj/structure/closet,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/djstation)
 "bC" = (
 /obj/structure/disposalpipe/segment,
@@ -824,7 +824,7 @@
 /turf/simulated/wall/r_wall,
 /area/space)
 "bU" = (
-/obj/structure/girder/reinforced,
+/obj/structure/girder,
 /turf/simulated/floor/plating/airless,
 /area/space)
 "bV" = (
@@ -833,7 +833,7 @@
 "bW" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Turbine Maintenance";
-	req_access = list(10)
+	req_access = list("ACCESS_ENGINEERING")
 	},
 /turf/simulated/floor/plating,
 /area/derelict/solar_control)
@@ -1196,7 +1196,7 @@
 "cM" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Starboard Solar Access";
-	req_access = list(10)
+	req_access = list("ACCESS_ENGINEERING")
 	},
 /turf/simulated/floor,
 /area/derelict/bridge/access)
@@ -1400,14 +1400,14 @@
 "du" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering Access";
-	req_access = list(10)
+	req_access = list("ACCESS_ENGINEERING")
 	},
 /turf/simulated/floor/plating/airless,
 /area/derelict/singularity_engine)
 "dv" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering Access";
-	req_access = list(10)
+	req_access = list("ACCESS_ENGINEERING")
 	},
 /turf/simulated/floor/plating,
 /area/derelict/singularity_engine)
@@ -1602,7 +1602,7 @@
 "ed" = (
 /obj/machinery/door/window/eastleft{
 	name = "Heads of Staff";
-	req_access = list(19)
+	req_access = list("ACCESS_BRIDGE")
 	},
 /turf/simulated/floor,
 /area/derelict/bridge/access)
@@ -1881,7 +1881,7 @@
 /obj/machinery/door/window{
 	dir = 2;
 	name = "Captain's Quarters";
-	req_access = list(20)
+	req_access = list("ACCESS_CAPTAIN")
 	},
 /obj/structure/grille,
 /turf/simulated/floor/plating/airless,
@@ -1954,10 +1954,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/derelict/bridge/access)
-"fc" = (
-/obj/structure/girder,
-/turf/simulated/floor/plating/airless,
-/area/space)
 "fd" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -2058,7 +2054,7 @@
 "fq" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Tech Storage";
-	req_access = list(23)
+	req_access = list("ACCESS_TECH_STORAGE")
 	},
 /turf/simulated/floor/airless,
 /area/derelict/bridge/access)
@@ -2466,7 +2462,7 @@
 "gJ" = (
 /obj/machinery/door/airlock/medical{
 	name = "Morgue";
-	req_access = list(6)
+	req_access = list("ACCESS_MORGUE")
 	},
 /turf/simulated/floor/plating,
 /area/derelict/medical/chapel)
@@ -2521,7 +2517,7 @@
 /obj/machinery/door/morgue{
 	dir = 2;
 	name = "coffin storage";
-	req_access = list(22)
+	req_access = list("ACCESS_CHAPEL_STORAGE")
 	},
 /turf/simulated/floor/plating,
 /area/derelict/medical/chapel)
@@ -2605,7 +2601,7 @@
 "hh" = (
 /obj/machinery/door/airlock/glass{
 	name = "Med-Sci";
-	req_access = list(9)
+	req_access = list("ACCESS_GENETICS")
 	},
 /turf/simulated/floor/plating/airless,
 /area/derelict/medical)
@@ -2779,7 +2775,7 @@
 	},
 /obj/machinery/door/window{
 	dir = 4;
-	req_access = list(25)
+	req_access = list("ACCESS_BAR")
 	},
 /obj/structure/closet/coffin,
 /turf/simulated/floor/plating,
@@ -2968,7 +2964,7 @@
 	},
 /obj/machinery/door/airlock/research{
 	name = "Toxins Research";
-	req_access = list(7)
+	req_access = list("ACCESS_TOXINS")
 	},
 /turf/simulated/floor/airless,
 /area/derelict/hallway/primary)
@@ -3068,7 +3064,7 @@
 	},
 /obj/machinery/door/airlock/research{
 	name = "Toxins Research";
-	req_access = list(7)
+	req_access = list("ACCESS_TOXINS")
 	},
 /turf/simulated/floor/airless,
 /area/derelict/arrival)
@@ -3260,7 +3256,7 @@
 "iP" = (
 /obj/machinery/door/airlock/security{
 	name = "Gas Storage";
-	req_access = list(3)
+	req_access = list("ACCESS_ARMORY")
 	},
 /turf/simulated/floor/plating/airless,
 /area/derelict/hallway/primary)
@@ -3313,7 +3309,7 @@
 "iW" = (
 /obj/machinery/door/airlock/security{
 	name = "Security";
-	req_access = list(1)
+	req_access = list("ACCESS_SECURITY")
 	},
 /turf/simulated/floor/airless,
 /area/derelict/hallway/primary)
@@ -3389,7 +3385,7 @@
 "jk" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Atmospherics Access";
-	req_access = list(24)
+	req_access = list("ACCESS_ATMOS")
 	},
 /turf/simulated/floor/plating/airless,
 /area/derelict/hallway/primary)
@@ -3632,7 +3628,7 @@
 "jV" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Aux Storage";
-	req_access = list(23)
+	req_access = list("ACCESS_TECH_STORAGE")
 	},
 /turf/simulated/floor/plating/airless,
 /area/derelict/hallway/secondary)
@@ -3730,7 +3726,7 @@
 "kj" = (
 /obj/machinery/door/airlock/command{
 	name = "AI Upload";
-	req_access = list(16)
+	req_access = list("ACCESS_AI_UPLOAD")
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -3804,7 +3800,7 @@
 "kt" = (
 /obj/machinery/door/airlock/command{
 	name = "AI Upload";
-	req_access = list(16)
+	req_access = list("ACCESS_AI_UPLOAD")
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -4177,7 +4173,7 @@
 "lp" = (
 /obj/machinery/door/airlock/command{
 	name = "E.V.A.";
-	req_access = list(18)
+	req_access = list("ACCESS_EVA")
 	},
 /turf/simulated/floor,
 /area/derelict/armory)
@@ -49264,8 +49260,8 @@ bR
 fx
 ic
 fx
-fc
-fc
+bU
+bU
 ak
 aa
 aa
@@ -49503,7 +49499,7 @@ ff
 fl
 eW
 cK
-fc
+bU
 aa
 fx
 fx
@@ -51063,7 +51059,7 @@ ak
 aa
 cd
 in
-fc
+bU
 aa
 aa
 aa
@@ -52582,7 +52578,7 @@ dK
 es
 dy
 dr
-fc
+bU
 ak
 aa
 aa
@@ -54642,10 +54638,10 @@ aa
 aa
 aa
 cd
-fc
+bU
 cd
 cd
-fc
+bU
 cd
 gb
 gb

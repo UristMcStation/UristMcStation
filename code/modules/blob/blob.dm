@@ -19,7 +19,7 @@
 	var/regen_rate = 5
 	var/brute_resist = 4
 	var/fire_resist = 1
-	var/laser_resist = 4	// Special resist for laser based weapons - Emitters or handheld energy weaponry. Damage is divided by this and THEN by fire_resist.
+	var/laser_resist = 2	// Special resist for laser based weapons - Emitters or handheld energy weaponry. Damage is divided by this and THEN by fire_resist.
 	var/expandType = /obj/effect/blob
 	var/secondary_core_growth_chance = 5 //% chance to grow a secondary blob core instead of whatever was suposed to grown. Secondary cores are considerably weaker, but still nasty.
 
@@ -42,7 +42,7 @@
 		if(3)
 			take_damage(rand(20, 60) / brute_resist)
 
-/obj/effect/blob/update_icon()
+/obj/effect/blob/on_update_icon()
 	if(health > maxHealth / 2)
 		icon_state = "blob"
 	else
@@ -174,9 +174,8 @@
 	icon = 'icons/mob/blob.dmi'
 	icon_state = "blob_core"
 	maxHealth = 200
-	brute_resist = 2
-	fire_resist = 2
-	laser_resist = 8
+	brute_resist = 1
+	fire_resist = 4
 	regen_rate = 2
 
 	layer = BLOB_CORE_LAYER
@@ -186,7 +185,7 @@
 	var/growth_range = 10 // Maximal distance for new blob pieces from this core.
 
 // Rough icon state changes that reflect the core's health
-/obj/effect/blob/core/update_icon()
+/obj/effect/blob/core/on_update_icon()
 	var/health_percent = (health / maxHealth) * 100
 	switch(health_percent)
 		if(66 to INFINITY)
@@ -222,15 +221,12 @@
 	icon = 'icons/mob/blob.dmi'
 	icon_state = "blob_node"
 	maxHealth = 100
-	brute_resist = 1
-	fire_resist = 1
-	laser_resist = 5
 	regen_rate = 1
 	growth_range = 3
 
 	layer = BLOB_NODE_LAYER
 
-/obj/effect/blob/core/secondary/update_icon()
+/obj/effect/blob/core/secondary/on_update_icon()
 	icon_state = (health / maxHealth >= 0.5) ? "blob_node" : "blob_factory"
 
 /obj/effect/blob/shield
@@ -239,9 +235,7 @@
 	icon_state = "blob_idle"
 	desc = "Some blob creature thingy."
 	maxHealth = 60
-	brute_resist = 1
-	fire_resist = 2
-	laser_resist = 6
+
 /obj/effect/blob/shield/New()
 	..()
 	update_nearby_tiles()
@@ -251,7 +245,7 @@
 	update_nearby_tiles()
 	..()
 
-/obj/effect/blob/shield/update_icon()
+/obj/effect/blob/shield/on_update_icon()
 	if(health > maxHealth * 2 / 3)
 		icon_state = "blob_idle"
 	else if(health > maxHealth / 3)

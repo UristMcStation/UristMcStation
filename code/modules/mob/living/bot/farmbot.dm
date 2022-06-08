@@ -10,7 +10,7 @@
 	icon_state = "farmbot0"
 	health = 50
 	maxHealth = 50
-	req_one_access = list(access_hydroponics, access_robotics)
+	req_access = list(list(access_hydroponics, access_robotics))
 
 	var/action = "" // Used to update icon
 	var/waters_trays = 1
@@ -234,7 +234,7 @@
 	new /obj/item/device/analyzer/plant_analyzer(Tsec)
 
 	if(tank)
-		tank.loc = Tsec
+		tank.forceMove(Tsec)
 
 	if(prob(50))
 		new /obj/item/robot_parts/l_arm(Tsec)

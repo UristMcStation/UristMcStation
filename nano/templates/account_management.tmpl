@@ -1,0 +1,254 @@
+{{if data.auth != 1}}
+	<div class='notice'>
+		<h1><span class='bad'>ACCESS DENIED</span></h1>
+		{{if data.auth}}
+			Correct authorisation credentials missing:<br>Please contact your system administrator for support
+		{{else}}
+			No ID card detected:<br>Please check your ID card, and try again
+		{{/if}}
+	</div>
+{{else data.state == "copy"}}
+	<span class='floatRight'>{{:helper.link('Close', 'circle-close', {'close' : 'crew_accounts'})}}</span>
+	<div class='notice'>
+		<h1><span class='good'>Account Successfully Created</span></h1>
+		Scan a new ID card now to transfer bank and email details to it
+	</div>
+{{else data.state == "account_overview"}}
+	<span class='floatRight'>{{:helper.link('Return', 'arrowreturnthick-1-w', {'close' : data.account_type == "personal" ? 'crew_accounts' : 'dep_accounts'})}}</span><br><hr>
+	<div class='block'>
+		{{if data.account_type == "personal"}}
+			<h1><center>Personal Account Overview</center></h1>
+		{{else}}
+			<h1><center>Department Account Overview</center></h1>
+		{{/if}}
+		<hr>
+		<br>
+		<div class='item'>
+			<div class='itemLabel' style='width: 15%;'>
+				Account Holder:
+			</div>
+			<div class='itemContent'>
+				{{:data.name}}
+			</div>
+		</div>
+		<div class='item'>
+			<div class='itemLabel' style='width: 15%;'>
+				Account Number:
+			</div>
+			<div class='itemContent'>
+				#{{:data.account_number}}
+			</div>
+		</div>
+		<div class='item'>
+			<div class='itemLabel' style='width: 15%;'>
+				Account Status:
+			</div>
+			<div class='itemContent'>
+				{{if data.suspended}}
+					<span class='bad'>Frozen</span>
+				{{else}}
+					Normal
+				{{/if}}
+			</div>
+		</div>
+		<div class='item'>
+			<div class='itemLabel' style='width: 15%;'>
+				Account Balance:
+			</div>
+			<div class='itemContent'>
+				{{:data.funds}} Th
+			</div>
+		</div>
+		<br>
+		{{:helper.link(data.suspended ? 'Release Account' : 'Freeze Account', data.suspended ? 'check' : 'cancel', {'action' : 'suspend_account'})}}
+		{{if data.account_type == "personal"}}
+			{{:helper.link('Pay Bonus', 'star', {'action' : 'pay_bonus'})}}
+			{{:helper.link('Issue Fine', 'notice', {'action' : 'fine_account'})}}
+		{{/if}}
+		<br>
+		<div class='block'>
+			<h3>Transactions ({{:data.transaction_num}})
+			<span class='floatRight'>{{:helper.link('', data.more_details ? 'carat-1-s' : 'carat-1-e', {'action' : 'more_details'})}}</span></h3>
+			{{if data.more_details}}
+				<table style='width: 100%;'>
+					<tr>
+						<th style='width: 10%;'>Date</th>
+						<th style='width: 5%;'>Time</th>
+						<th style='width: 45%;'>Account</th>
+						<th style='width: 2.5%;'>Tx</th>
+						<th style='width: 10%;'>Amount</th>
+						<th style='width: 30%;'>Transaction Reference</th>
+					</tr>
+					{{for data.transactions :transactionValue:transactionKey}}
+						<tr>
+							<td>{{:transactionValue.date}}</td>
+							<td>{{:transactionValue.time}}</td>
+							<td>{{:transactionValue.target_name}}</td>
+							{{if transactionValue.amount < 0}}
+								<td><span class='bad'><center>D</center></span></td>
+								<td>{{:transactionValue.amount}} Th</td>
+							{{else}}
+								<td><span class='good'><center>C</center></span></td>
+								<td>&nbsp;{{:transactionValue.amount}} Th</td>
+							{{/if}}
+							
+							<td>{{:transactionValue.purpose}}</td>
+						</tr>
+					{{/for}}
+				</table>
+			{{/if}}
+		</div>
+	</div>
+{{else data.state == "new_account"}}
+	<span class='floatRight'>{{:helper.link('Return', 'arrowreturnthick-1-w', {'close' : 'crew_accounts'})}}</span><br><hr>
+	<div class='block'>
+		<h1><center>New Account Creation</center></h1>
+		<hr>
+		<br>
+		<div class='item'>
+			<div class='itemLabel' style='width: 20%;'>
+				{{:helper.link('','pencil',{'new_account_details' : 'owner'})}} Account Holder:
+			</div>
+			<div class='itemContent'>
+				{{if data.name}}
+					{{:data.name}}
+				{{/if}}
+			</div>
+		</div>
+		<div class='item'>
+			<div class='itemLabel' style='width: 20%;'>
+				{{:helper.link('','pencil',{'new_account_details' : 'job'})}} Assigned Job:
+			</div>
+			<div class='itemContent'>
+				{{if data.jobtitle}}
+					{{:data.jobtitle}}
+				{{/if}}
+			</div>
+		</div>
+		<div class='item'>
+			<div class='itemLabel' style='width: 20%;'>
+				{{:helper.link('','pencil',{'new_account_details' : 'dept'})}} Department:
+			</div>
+			<div class='itemContent'>
+				{{if data.dept}}
+					{{:data.dept}}
+				{{/if}}
+			</div>
+		</div>
+		<div class='item'>
+			<div class='itemLabel' style='width: 20%;'>
+				{{:helper.link('','pencil', {'new_account_details' : 'pay'})}} Payrate:
+			</div>
+			<div class='itemContent'>
+				{{if data.pay}}
+					{{:data.pay}} Th
+				{{else}}
+					Job default rate
+				{{/if}}
+			</div>
+		</div>
+		<div class='item'>
+			<div class='itemLabel' style='width: 20%;'>
+				{{:helper.link('','pencil',{'new_account_details':'email'})}} Email username:
+			</div>
+			<div class='itemContent'>
+				{{if data.email}}
+					{{:data.email}}@freemail.net
+				{{/if}}
+			</div>
+		</div>
+		<br>
+		{{:helper.link('Create Account','document',{'new_account_details':'create'})}}
+		<br>
+	</div>
+{{else}}
+	{{:helper.link('Payroll', 'note', {'state' : 'payroll'}, data.auth != 1 ? 'disabled' : data.state == "payroll" ? 'selected' : null)}}
+	{{:helper.link('Crew Accounts', 'person', {'state' : 'crew_accounts'}, data.auth != 1 ? 'disabled' : data.state == "crew_accounts" ? 'selected' : null)}}
+	{{:helper.link('Department Accounts', 'suitcase', {'state' : 'dep_accounts'}, data.auth != 1 ? 'disabled' : data.state == "dep_accounts" ? 'selected' : null)}}
+	{{:helper.link('System Logs', 'clipboard', {'state' : 'logs'}, data.auth != 1 ? 'disabled' : data.state == "logs" ? 'selected' : null)}}
+	{{if data.state == "crew_accounts"}}
+		<span class='floatRight'>{{:helper.link('New Account', 'plus', {'state' : 'new_account'}, data.auth != 1 ? 'disabled' : null)}}</span>
+	{{/if}}
+	<br>
+	<hr>
+	{{if data.state == "payroll"}}
+		<b><h2>Payroll Rota<span class='floatRight'>Payroll Payout: {{:data.totalpay}} Th</span></h2></b>
+		<div class='block'>
+			{{for data.departments}}
+				<table style="width:75%">
+					<thead>
+						<tr>
+							<th style='width: 40%;border-bottom: 2px solid white;font-size: medium;'><span class='floatLeft'>{{:value.name}}</span></th>
+							<th style='width: 40%;border-bottom: 2px solid white;'>&nbsp;</th>
+							<th style='width: 10%;border-bottom: 2px solid white;font-size: small;'>{{:value.totalpay}} Th</th>
+							<th style='width: 10%;'>&nbsp;</th>
+						</tr>
+					</thead>
+					{{for value.members :memberValue:memberKey}}
+						<tbody>
+							<tr>
+								{{if memberValue.suspended}}
+									<td><span class='bad'>{{:memberValue.name}}</span></td>
+									<td><span class='bad'>{{:memberValue.job}}</span></td>
+									<td><span class='bad'><s>{{:memberValue.pay}} Th</s></span></td>
+								{{else}}
+									<td>{{:memberValue.name}}</td>
+									<td>{{:memberValue.job}}</td>
+									<td>{{:memberValue.pay}} Th</td>
+								{{/if}}
+								<td><center>{{:helper.link('', 'pencil', {'action' : 'edit_pay', 'current_pay' : memberValue.pay, 'mind' : memberValue.ref}, memberValue.suspended ? 'disabled' : null)}}
+									{{:helper.link('', memberValue.suspended ? 'check' : 'cancel', {'action' : 'suspend_pay', 'mind' : memberValue.ref})}}</center>
+								</td>
+							</tr>
+						</tbody>
+					{{/for}}
+				</table>
+				<br>
+			{{/for}}
+		</div>
+	{{else data.state == "crew_accounts" || data.state == "dep_accounts"}}
+		{{if data.state == "crew_accounts"}}
+			<h2>Crew Accounts</h2>
+		{{else}}
+			<h2>Department Accounts</h2>
+		{{/if}}
+		<div class='block'>
+			<table style='width:75%;'>
+				<tr>
+					<th style='width: 20%;'>Account Number</th>
+					<th style='width: 50%;'>Account Holder</th>
+					<th style='width: 20%;'>Balance</th>
+					<th style='width: 10%;'>&nbsp;</th>
+				</tr>
+				{{for data.accounts}}
+					<tr>
+						{{if value.suspended}}
+							<td><span class='bad'><center>#{{:value.account_number}}</center></span></td>
+							<td><span class='bad'>{{:value.name}}</span></td>
+							<td><span class='bad'>{{:value.funds}} Th</span></td>
+						{{else}}
+							<td><center>#{{:value.account_number}}</center></td>
+							<td>{{:value.name}}</td>
+							<td>{{:value.funds}} Th</td>
+						{{/if}}
+						{{if value.account_type == "personal"}}
+							<td>{{:helper.link('', 'search', {'action' : 'overview', 'account' : value.account_ref, 'account_type' : value.account_type, 'owner_ref' : value.owner_ref})}}</td>
+						{{else}}
+							<td>{{:helper.link('', 'search', {'action' : 'overview', 'account' : value.account_ref, 'account_type' : value.account_type})}}</td>
+						{{/if}}
+					</tr>
+				{{/for}}
+			</table>
+		</div>
+	{{else data.state == "logs"}}
+		<h2><u>System Logs</u></h2>
+		<br>
+		{{for data.logs}}
+			<div class='item'>
+				<div class='itemContent' style='width: 100%;'>
+					{{:value}}
+				</div>
+			</div>
+		{{/for}}
+	{{/if}}
+{{/if}}

@@ -10,7 +10,12 @@
 #define DOOR_CRUSH_DAMAGE 40
 #define ALIEN_SELECT_AFK_BUFFER  1    // How many minutes that a person can be AFK before not being allowed to be an alien.
 
+#define POWER_USE_OFF    0
+#define POWER_USE_IDLE   1
+#define POWER_USE_ACTIVE 2
+
 // Channel numbers for power.
+#define POWER_CHAN -1 // Use default channel
 #define EQUIP   1
 #define LIGHT   2
 #define ENVIRON 3
@@ -40,6 +45,7 @@
 #define NETWORK_RESEARCH "Research"
 #define NETWORK_ROBOTS "Robots"
 #define NETWORK_SECURITY "Security"
+#define NETWORK_EXPLORATION "Exploration"
 #define NETWORK_THUNDER "Thunderdome"
 
 #define NETWORK_ALARM_ATMOS "Atmosphere Alarms"
@@ -49,7 +55,7 @@
 #define NETWORK_ALARM_POWER "Power Alarms"
 
 // Those networks can only be accessed by pre-existing terminals. AIs and new terminals can't use them.
-var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY,"Secret")
+var/list/restricted_camera_networks = list(NETWORK_ERT, NETWORK_MERCENARY, NETWORK_CRESCENT, "Secret")
 
 
 //singularity defines

@@ -39,13 +39,8 @@
 
 
 /obj/item/device/lightreplacer
-
 	name = "light replacer"
 	desc = "A lightweight automated device, capable of interfacing with and rapidly replacing standard light installations."
-	description_info = "Examine or use this item to see how many lights are remaining. You can feed it lightbulbs or sheets of glass to refill it."
-	description_fluff = "Can you believe they used to have to screw lightbulbs in by hand?"
-	description_antag = "Using a cryptographic sequencer on this device will cause it to overload each light it replaces; when turned on, the new lights will explode!"
-
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "lightreplacer0"
 	item_state = "electronic"
@@ -71,11 +66,12 @@
 		var/amt_inserted = 0
 		var/turf/T = get_turf(user)
 		for(var/obj/item/weapon/light/L in S.contents)
-			if(!user.stat && src.uses < src.max_uses)
+			if(!user.stat && src.uses < src.max_uses && L.status == 0)
 				src.AddUses(1)
 				amt_inserted++
-				S.remove_from_storage(L, T)
+				S.remove_from_storage(L, T, 1)
 				qdel(L)
+		S.finish_bulk_removal()
 		if(amt_inserted)
 			to_chat(user, "You insert [amt_inserted] light\s into \The [src]. It has [uses] light\s remaining.")
 			add_fingerprint(user)
@@ -92,7 +88,7 @@
 	. = ..()
 
 /obj/item/device/lightreplacer/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/stack/material) && W.get_material_name() == "glass")
+	if(istype(W, /obj/item/stack/material) && W.get_material_name() == MATERIAL_GLASS)
 		var/obj/item/stack/G = W
 		if(uses >= max_uses)
 			to_chat(user, "<span class='warning'>[src.name] is full.</span>")
@@ -129,7 +125,7 @@
 	*/
 	to_chat(usr, "It has [uses] lights remaining.")
 
-/obj/item/device/lightreplacer/update_icon()
+/obj/item/device/lightreplacer/on_update_icon()
 	icon_state = "lightreplacer[emagged]"
 
 

@@ -256,7 +256,7 @@
 	waypoint_offsite = "arrivals_station"
 
 /datum/shuttle/autodock/ferry/centcom_arrivals/proc/AnnounceArrival()
-	if (ticker.current_state == GAME_STATE_PLAYING)
+	if (GAME_STATE >= RUNLEVEL_GAME)
 		var/obj/item/device/radio/intercom/a = new /obj/item/device/radio/intercom(null)
 		a.autosay("The Arrivals Shuttle has docked with the Station.", "Arrivals Announcement Computer")
 		qdel(a)

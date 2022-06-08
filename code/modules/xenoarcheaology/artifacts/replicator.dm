@@ -7,7 +7,6 @@
 
 	idle_power_usage = 100
 	active_power_usage = 1000
-	use_power = 1
 
 	var/spawn_progress_time = 0
 	var/max_spawn_time = 50
@@ -46,7 +45,7 @@
 	/obj/item/weapon/caution,
 	/obj/item/weapon/caution/cone,
 	/obj/item/weapon/crowbar,
-	/obj/item/weapon/clipboard,
+	/obj/item/weapon/material/clipboard,
 	/obj/item/weapon/cell,
 	/obj/item/weapon/circular_saw,
 	/obj/item/weapon/material/hatchet,
@@ -92,9 +91,9 @@
 			var/spawn_type = pop(spawning_types)
 			var/obj/spawned_obj = new spawn_type(src.loc)
 			if(source_material)
-				if(lentext(source_material.name) < MAX_MESSAGE_LEN)
+				if(length(source_material.name) < MAX_MESSAGE_LEN)
 					spawned_obj.SetName("[source_material] " +  spawned_obj.name)
-				if(lentext(source_material.desc) < MAX_MESSAGE_LEN * 2)
+				if(length(source_material.desc) < MAX_MESSAGE_LEN * 2)
 					if(spawned_obj.desc)
 						spawned_obj.desc += " It is made of [source_material]."
 					else
@@ -105,7 +104,7 @@
 			max_spawn_time = rand(30,100)
 
 			if(!spawning_types.len || !stored_materials.len)
-				use_power = 1
+				update_use_power(POWER_USE_IDLE)
 				icon_state = "borgcharger0(old)"
 
 		else if(prob(5))
@@ -142,7 +141,7 @@
 
 				spawning_types.Add(construction[construction[index]])
 				spawn_progress_time = 0
-				use_power = 2
+				update_use_power(POWER_USE_ACTIVE)
 				icon_state = "borgcharger1(old)"
 			else
 				src.visible_message(fail_message)

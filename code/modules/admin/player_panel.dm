@@ -372,17 +372,13 @@
 
 
 		if(usr.client)
-			var/client/C = usr.client
-			if(is_mentor(C))
-				dat += {"<td align=center> N/A </td>"}
-			else
-				switch(is_special_character(M))
-					if(0)
-						dat += {"<td align=center><A HREF='?src=\ref[src];traitor=\ref[M]'>Traitor?</A></td>"}
-					if(1)
-						dat += {"<td align=center><A HREF='?src=\ref[src];traitor=\ref[M]'><font color=red>Traitor?</font></A></td>"}
-					if(2)
-						dat += {"<td align=center><A HREF='?src=\ref[src];traitor=\ref[M]'><font color=red><b>Traitor?</b></font></A></td>"}
+			switch(is_special_character(M))
+				if(0)
+					dat += {"<td align=center><A HREF='?src=\ref[src];traitor=\ref[M]'>Traitor?</A></td>"}
+				if(1)
+					dat += {"<td align=center><A HREF='?src=\ref[src];traitor=\ref[M]'><font color=red>Traitor?</font></A></td>"}
+				if(2)
+					dat += {"<td align=center><A HREF='?src=\ref[src];traitor=\ref[M]'><font color=red><b>Traitor?</b></font></A></td>"}
 		else
 			dat += {"<td align=center> N/A </td>"}
 
@@ -395,10 +391,10 @@
 
 
 /datum/admins/proc/check_antagonists()
-	if (ticker && ticker.current_state >= GAME_STATE_PLAYING)
+	if (GAME_STATE >= RUNLEVEL_GAME)
 		var/dat = list()
 		dat += "<html><head><title>Round Status</title></head><body><h1><B>Round Status</B></h1>"
-		dat += "Current Game Mode: <B>[ticker.mode.name]</B><BR>"
+		dat += "Current Game Mode: <B>[SSticker.mode.name]</B><BR>"
 		dat += "Round Duration: <B>[roundduration2text()]</B><BR>"
 		dat += "<B>Evacuation</B><BR>"
 		if (evacuation_controller.is_idle())
@@ -409,7 +405,7 @@
 				dat += "ETA: [(timeleft / 60) % 60]:[add_zero(num2text(timeleft % 60), 2)]<BR>"
 				dat += "<a href='?src=\ref[src];call_shuttle=2'>Send Back</a><br>"
 
-		dat += "<a href='?src=\ref[src];delay_round_end=1'>[ticker.delay_end ? "End Round Normally" : "Delay Round End"]</a><br>"
+		dat += "<a href='?src=\ref[src];delay_round_end=1'>[SSticker.delay_end ? "End Round Normally" : "Delay Round End"]</a><br>"
 		dat += "<hr>"
 		var/list/all_antag_types = GLOB.all_antag_types_
 		for(var/antag_type in all_antag_types)

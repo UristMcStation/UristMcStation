@@ -10,11 +10,11 @@
 	path = /obj/item/weapon/scissors
 	category = "General"
 
-/obj/item/weapon/clipboard/matter = list("wood" = 30)
+///obj/item/weapon/material/clipboard/matter = list("wood" = 30)
 
 /datum/autolathe/recipe/clipboard
 	name = "clipboard"
-	path = /obj/item/weapon/clipboard
+	path = /obj/item/weapon/material/clipboard
 	category = "General"
 
 /datum/autolathe/recipe/rollingpin
@@ -84,11 +84,6 @@
 	path = /obj/item/weapon/cane
 	category = "General"
 
-/datum/autolathe/recipe/magazine_38cal_rubber
-	name = "ammunition (.38, rubber)"
-	path = /obj/item/ammo_magazine/c38/rubber
-	category = "Arms and Ammunition"
-
 /datum/autolathe/recipe/canesword
 	name = "canesword"
 	path = /obj/item/weapon/cane/concealed
@@ -105,18 +100,36 @@
 	path = /obj/item/weapon/hammer/smithing
 	category = "Tools"
 
-//torpedo
+/datum/autolathe/recipe/magazine_c20r_rubber
+	name = "ammunition (10mm, rubber)"
+	path = /obj/item/ammo_magazine/a10mm/rubber
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_hi2521smg9mm
+	name = "HI-2521 SMG ammo (9mm)"
+	path = /obj/item/ammo_magazine/hi2521smg9mm
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_hi2521smg9mm_rubber
+	name = "HI-2121 SMG ammo (9mm, rubber)"
+	path = /obj/item/ammo_magazine/hi2521smg9mm/rubber
+	category = "Arms and Ammunition"
+
+//shipweapons
 
 /datum/autolathe/recipe/torpedo_casing
 	name = "torpedo casing"
 	path = /obj/structure/shipammo/torpedo
 	category = "Arms and Ammunition"
 
-/datum/design/item/torpedo_guts
-	name = "torpedo warhead"
-	desc = "A warhead for a torpedo. Shove it in a torpedo casing and you're good to go."
-	id = "ship_torpedo_warhead"
-	req_tech = list(TECH_MATERIAL = 2, TECH_PHORON = 1, TECH_ENGINEERING = 1, TECH_COMBAT = 2)
-	materials = list(DEFAULT_WALL_MATERIAL = 1000, "plastic" = 500, "phoron" = 500) //maybe add uranium
-	build_path = /obj/item/shipweapons/torpedo_warhead
-	sort_string = "SHPWA"
+/datum/autolathe/recipe/light_autocannon_ap
+	name = "light autocannon ammunition (armour-piercing)"
+	path = /obj/structure/shipammo/light_autocannon/ap
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/light_autocannon_he
+	name = "light autocannon ammunition (high-explosive)"
+	path = /obj/structure/shipammo/light_autocannon/he
+	category = "Arms and Ammunition"

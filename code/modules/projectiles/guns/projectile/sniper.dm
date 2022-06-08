@@ -1,8 +1,10 @@
 /obj/item/weapon/gun/projectile/heavysniper
 	name = "anti-materiel rifle"
 	desc = "A portable anti-armour rifle fitted with a scope, the HI PTR-7 Rifle was originally designed to used against armoured exosuits. It is capable of punching through windows and non-reinforced walls with ease. Fires armor piercing 14.5mm shells."
+	icon = 'icons/urist/items/heavysniper.dmi'
 	icon_state = "heavysniper"
 	item_state = "heavysniper" //sort of placeholder
+	item_icons = URIST_ALL_ONMOBS
 	w_class = ITEM_SIZE_HUGE
 	force = 10
 	slot_flags = SLOT_BACK
@@ -15,7 +17,9 @@
 	ammo_type = /obj/item/ammo_casing/a145
 	one_hand_penalty = 6
 	accuracy = -2
-	scoped_accuracy = 5 //increased accuracy over the LWAP because only one shot
+	bulk = 8
+	scoped_accuracy = 8 //increased accuracy over the LWAP because only one shot
+	scope_zoom = 2
 	var/bolt_open = 0
 	wielded_item_state = "heavysniper-wielded" //sort of placeholder
 	load_sound = 'sound/weapons/guns/interaction/rifle_load.ogg'
@@ -23,10 +27,13 @@
 /obj/item/weapon/gun/projectile/heavysniper/apds
 	ammo_type = /obj/item/ammo_casing/a145/apds
 
-/obj/item/weapon/gun/projectile/heavysniper/update_icon()
+/obj/item/weapon/gun/projectile/heavysniper/on_update_icon()
 	..()
 	if(bolt_open)
-		icon_state = "heavysniper-open"
+		if(loaded.len)
+			icon_state = "heavysniper-open"
+		else
+			icon_state = "heavysniper-empty"
 	else
 		icon_state = "heavysniper"
 
@@ -63,11 +70,4 @@
 	if(!bolt_open)
 		return
 	..()
-
-/obj/item/weapon/gun/projectile/heavysniper/verb/scope()
-	set category = "Object"
-	set name = "Use Scope"
-	set popup_menu = 1
-
-	toggle_scope(usr, 2.0)
 

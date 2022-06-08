@@ -11,14 +11,28 @@
 /hook/startup
 
 /**
+ * Gamemode selected hook
+ * Called in ticker.dm after a potential gamemode has been selected, but before jobs and antags have attempted to spawn
+ * Parameters: /datum/game_mode
+ */
+/hook/gamemode_selected
+
+/**
+ * Gamemode start failed hook
+ * Called in ticker.dm when a selected gamemode is unable to start
+ * Parameters: /datum/game_mode
+ */
+/hook/gamemode_start_failed
+
+/**
  * Roundstart hook.
- * Called in gameticker.dm when a round starts.
+ * Called in ticker.dm when a round starts.
  */
 /hook/roundstart
 
 /**
  * Roundend hook.
- * Called in gameticker.dm when a round ends.
+ * Called in ticker.dm when a round ends.
  */
 /hook/roundend
 

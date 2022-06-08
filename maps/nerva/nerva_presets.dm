@@ -8,6 +8,7 @@ var/const/NETWORK_TRAJAN     		= "Trajan"
 var/const/NETWORK_HADRIAN     		= "Hadrian"
 var/const/NETWORK_ANTONINE     		= "Antonine"
 var/const/NETWORK_PRISON            = "Prison"
+var/const/NETWORK_EXPLO             = "Exploration"
 
 /datum/map/nerva/get_network_access(var/network)
 	if(network == NETWORK_COMMAND)
@@ -22,6 +23,7 @@ var/const/NETWORK_PRISON            = "Prison"
 		NETWORK_FOURTH_DECK,
 		NETWORK_COMMAND,
 		NETWORK_ENGINEERING,
+		NETWORK_EXPLO,
 		NETWORK_MEDICAL,
 		NETWORK_RESEARCH,
 		NETWORK_CARGO,
@@ -82,6 +84,9 @@ var/const/NETWORK_PRISON            = "Prison"
 /obj/machinery/camera/network/prison
 	network = list(NETWORK_PRISON)
 
+/obj/machinery/camera/network/exploration
+	network = list(NETWORK_EXPLO)
+
 // Motion
 /obj/machinery/camera/motion/command
 	network = list(NETWORK_COMMAND)
@@ -98,6 +103,7 @@ var/const/NETWORK_PRISON            = "Prison"
 
 /obj/machinery/power/smes/buildable/preset/nerva/shuttle/configure_and_install_coils()
 	component_parts += new /obj/item/weapon/smes_coil/super_io(src)
+	component_parts += new /obj/item/weapon/smes_coil/super_capacity(src)
 	_input_maxed = TRUE
 	_output_maxed = TRUE
 	_input_on = TRUE

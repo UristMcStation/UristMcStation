@@ -27,11 +27,11 @@ meteor_act
 	var/penetrating_damage = ((P.damage + P.armor_penetration) * P.penetration_modifier) - armor
 
 	//Embed or sever artery
-	if(P.can_embed() && !(species.species_flags & SPECIES_FLAG_NO_EMBED) && prob(22.5 + max(penetrating_damage, -10)) && !(prob(15) && (organ.sever_artery())))
-		var/obj/item/weapon/material/shard/shrapnel/SP = new()
+	if(P.can_embed() && !(species.species_flags & SPECIES_FLAG_NO_EMBED) && prob(22.5 + max(penetrating_damage, -10)) && !(prob(50) && (organ.sever_artery())))
+		var/obj/item/weapon/material/shard/shrapnel/SP = new P.shrapnel_type()
 		SP.SetName((P.name != "shrapnel")? "[P.name] shrapnel" : "shrapnel")
 		SP.desc = "[SP.desc] It looks like it was fired from [P.shot_from]."
-		SP.loc = organ
+		SP.forceMove(organ)
 		organ.embed(SP)
 
 	var/blocked = ..(P, def_zone)
@@ -55,26 +55,24 @@ meteor_act
 	..(stun_amount, agony_amount, def_zone)
 
 /mob/living/carbon/human/getarmor(var/def_zone, var/type)
-	var/armorval = 0
-	var/total = 0
 
+	var/psi_mod = psi ? psi.get_armour(type) : 0
+
+	//If a specific bodypart is targetted, check how that bodypart is protected and return the value.
 	if(def_zone)
-		if(isorgan(def_zone))
-			return getarmor_organ(def_zone, type)
-		var/obj/item/organ/external/affecting = get_organ(def_zone)
-		if(affecting)
-			return getarmor_organ(affecting, type)
-		//If a specific bodypart is targetted, check how that bodypart is protected and return the value.
+		return Clamp(psi_mod + getarmor_organ(isorgan(def_zone) ? def_zone : get_organ(def_zone), type),0,100)
 
 	//If you don't specify a bodypart, it checks ALL your bodyparts for protection, and averages out the values
+	var/total = 0
+	var/armorval = 0
 	for(var/organ_name in organs_by_name)
 		if (organ_name in organ_rel_size)
 			var/obj/item/organ/external/organ = organs_by_name[organ_name]
 			if(organ)
 				var/weight = organ_rel_size[organ_name]
-				armorval += (getarmor_organ(organ, type) * weight) //use plain addition here because we are calculating an average
+				armorval += getarmor_organ(organ, type) * weight //use plain addition here because we are calculating an average
 				total += weight
-	return (armorval/max(total, 1))
+	return Clamp(psi_mod + (armorval/max(total, 1)),0,100)
 
 //this proc returns the Siemens coefficient of electrical resistivity for a particular external organ.
 /mob/living/carbon/human/proc/get_siemens_coefficient_organ(var/obj/item/organ/external/def_zone)
@@ -128,6 +126,13 @@ meteor_act
 	return null
 
 /mob/living/carbon/human/proc/check_shields(var/damage = 0, var/atom/damage_source = null, var/mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+
+	var/obj/item/projectile/P = damage_source
+	if(istype(P) && !P.disrupts_psionics() && psi && P.starting && prob(psi.get_armour(P.check_armour) * 0.5) && psi.spend_power(round(damage/10)))
+		visible_message("<span class='danger'>\The [src] deflects [attack_text]!</span>")
+		P.redirect(P.starting.x + rand(-2,2), P.starting.y + rand(-2,2), get_turf(src), src)
+		return PROJECTILE_FORCE_MISS
+
 	for(var/obj/item/shield in list(l_hand, r_hand, wear_suit))
 		if(!shield) continue
 		. = shield.handle_shield(src, damage, damage_source, attacker, def_zone, attack_text)
@@ -210,6 +215,8 @@ meteor_act
 
 		//Apply blood
 		attack_bloody(I, user, effective_force, hit_zone)
+
+		animate_receive_damage(src)
 
 	return 1
 
@@ -315,10 +322,11 @@ meteor_act
 		var/dtype = O.damtype
 		var/throw_damage = O.throwforce*(speed/THROWFORCE_SPEED_DIVISOR)
 
-		var/zone
+		var/zone = BP_CHEST
 		if (istype(O.thrower, /mob/living))
 			var/mob/living/L = O.thrower
-			zone = check_zone(L.zone_sel.selecting)
+			if(L.zone_sel)
+				zone = check_zone(L.zone_sel.selecting)
 		else
 			zone = ran_zone(BP_CHEST,75)	//Hits a random part of the body, geared towards the chest
 
@@ -364,7 +372,7 @@ meteor_act
 		if(dtype == BRUTE && istype(O,/obj/item))
 			var/obj/item/I = O
 			if (!is_robot_module(I))
-				var/sharp = is_sharp(I)
+				var/sharp = I.can_embed()
 				var/damage = throw_damage //the effective damage used for embedding purposes, no actual damage is dealt here
 				if (armor)
 					damage *= blocked_mult(armor)
@@ -377,6 +385,7 @@ meteor_act
 				//Thrown sharp objects have some momentum already and have a small chance to embed even if the damage is below the threshold
 				if((sharp && prob(damage/(10*I.w_class)*100)) || (damage > embed_threshold && prob(embed_chance)))
 					affecting.embed(I, supplied_wound = created_wound)
+					I.has_embedded()
 
 		// Begin BS12 momentum-transfer code.
 		var/mass = 1.5
@@ -397,7 +406,7 @@ meteor_act
 				var/turf/T = near_wall(dir,2)
 
 				if(T)
-					src.loc = T
+					src.forceMove(T)
 					visible_message("<span class='warning'>[src] is pinned to the wall by [O]!</span>","<span class='warning'>You are pinned to the wall by [O]!</span>")
 					src.anchored = 1
 					src.pinned += O
@@ -411,10 +420,11 @@ meteor_act
 		affecting.embed(O, supplied_wound = supplied_wound)
 
 /mob/living/carbon/human/proc/bloody_hands(var/mob/living/source, var/amount = 2)
-	if (gloves)
+	var/obj/item/clothing/gloves/gloves = get_equipped_item(slot_gloves)
+	if(istype(gloves))
 		gloves.add_blood(source)
-		gloves:transfer_blood = amount
-		gloves:bloody_hands_mob = source
+		gloves.transfer_blood = amount
+		gloves.bloody_hands_mob = source
 	else
 		add_blood(source)
 		bloody_hands = amount

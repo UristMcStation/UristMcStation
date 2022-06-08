@@ -5,13 +5,11 @@ All crates that cannot be ordered go here. Please keep it tidy, by which I mean 
 
 //A crate.
 
+//CDN
 /obj/structure/closet/crate/secure/large/reinforced/singulo
 	name = "Particle Accelerator Storage"
 	desc = "A hefty, reinforced metal crate with an electronic locking system."
 	req_access = list(access_ce)
-	icon_state = "largermetal"
-	icon_opened = "largermetalopen"
-	icon_closed = "largermetal"
 
 /obj/structure/closet/crate/secure/large/reinforced/singulo/New()
 	..()
@@ -92,22 +90,17 @@ All crates that cannot be ordered go here. Please keep it tidy, by which I mean 
 		for(var/atom/movable/A in src)
 			A.forceMove(src.loc)
 		qdel(src)
-
+//CDN
 /obj/structure/closet/crate/secure/boobytrapped/weapon
 	name = "weapons crate"
 	desc = "A secure weapons crate outfitted with an anti-tamper trap."
-	icon_state = "weaponcrate"
-	icon_opened = "weaponcrateopen"
-	icon_closed = "weaponcrate"
 	trap = /obj/item/weapon/grenade/frag/high_yield
 	trap_delete_on_open = 1
-
+//CDN
 /obj/structure/closet/crate/secure/boobytrapped/gear
 	name = "gear crate"
 	desc = "A secure gear crate outfitted with an anti-tamper trap."
 	icon_state = "secgearcrate"
-	icon_opened = "secgearcrateopen"
-	icon_closed = "secgearcrate"
 	trap = /obj/item/weapon/grenade/frag/high_yield
 	trap_delete_on_open = 1
 

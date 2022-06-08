@@ -8,13 +8,13 @@ var/const/FINGERPRINT_COMPLETE = 6
 proc/is_complete_print(var/print)
 	return stringpercent(print) <= FINGERPRINT_COMPLETE
 
+atom/var/list/fingerprintshidden
+atom/var/fingerprintslast
+
 atom/var/list/suit_fibers
-atom/var/var/list/fingerprints
-atom/var/var/list/fingerprintshidden
-atom/var/var/fingerprintslast
+atom/var/list/fingerprints
+atom/var/list/gunshot_residue
 obj/item/var/list/trace_DNA
-mob/living/carbon/human/var/gunshot_residue
-obj/item/clothing/var/gunshot_residue
 
 /atom/proc/add_hiddenprint(mob/M)
 	if(!M || !M.key)
@@ -52,6 +52,7 @@ obj/item/clothing/var/gunshot_residue
 	if(!full_print)
 		return
 
+	//Using prints from severed hand items!
 	var/obj/item/organ/external/E = M.get_active_hand()
 	if(src != E && istype(E) && E.get_fingerprint())
 		full_print = E.get_fingerprint()
@@ -73,6 +74,7 @@ obj/item/clothing/var/gunshot_residue
 	return 1
 
 /atom/proc/add_partial_print(full_print)
+	LAZYINITLIST(fingerprints)
 	if(!fingerprints[full_print])
 		fingerprints[full_print] = stars(full_print, rand(0, 20))	//Initial touch, not leaving much evidence the first time.
 	else
@@ -116,19 +118,16 @@ obj/item/clothing/var/gunshot_residue
 	if(suit_fibers)
 		LAZYDISTINCTADD(A.suit_fibers, suit_fibers)
 	if(blood_DNA)
-		A.blood_DNA |= blood_DNA
+		LAZYDISTINCTADD(A.blood_DNA, blood_DNA)
+	if(gunshot_residue)
+		var/obj/item/clothing/C = A
+		LAZYDISTINCTADD(C.gunshot_residue, gunshot_residue)
 
 /obj/item/transfer_fingerprints_to(var/atom/A)
 	..()
 	if(istype(A,/obj/item) && trace_DNA)
 		var/obj/item/I = A
 		LAZYDISTINCTADD(I.trace_DNA, trace_DNA)
-
-/obj/item/clothing/transfer_fingerprints_to(var/atom/A)
-	..()
-	if(istype(A,/obj/item/clothing) && gunshot_residue)
-		var/obj/item/clothing/C = A
-		C.gunshot_residue = gunshot_residue
 
 atom/proc/add_fibers(mob/living/carbon/human/M)
 	if(!istype(M))
@@ -142,7 +141,6 @@ atom/proc/add_fibers(mob/living/carbon/human/M)
 		if(add_blood(M.bloody_hands_mob))
 			M.bloody_hands--
 
-	if(!suit_fibers) suit_fibers = list()
 	var/fibertext
 	var/item_multiplier = istype(src,/obj/item)?1.2:1
 	var/suit_coverage = 0
@@ -150,20 +148,20 @@ atom/proc/add_fibers(mob/living/carbon/human/M)
 		var/obj/item/clothing/C = M.wear_suit
 		fibertext = C.get_fibers()
 		if(fibertext && prob(10*item_multiplier))
-			suit_fibers |= fibertext
+			LAZYDISTINCTADD(suit_fibers, fibertext)
 		suit_coverage = C.body_parts_covered
 
 	if(istype(M.w_uniform, /obj/item/clothing) && (M.w_uniform.body_parts_covered & ~suit_coverage))
 		var/obj/item/clothing/C = M.w_uniform
 		fibertext = C.get_fibers()
 		if(fibertext && prob(15*item_multiplier))
-			suit_fibers |= fibertext
+			LAZYDISTINCTADD(suit_fibers, fibertext)
 
 	if(istype(M.gloves, /obj/item/clothing) && (M.gloves.body_parts_covered & ~suit_coverage))
 		var/obj/item/clothing/C = M.gloves
 		fibertext = C.get_fibers()
 		if(fibertext && prob(20*item_multiplier))
-			suit_fibers |= fibertext
+			LAZYDISTINCTADD(suit_fibers, fibertext)
 
 /obj/item/proc/add_trace_DNA(mob/living/carbon/M)
 	if(!istype(M))

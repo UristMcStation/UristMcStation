@@ -1,8 +1,6 @@
 //node1, air1, network1 correspond to input
 //node2, air2, network2 correspond to output
 
-#define ADIABATIC_EXPONENT 0.667 //Actually adiabatic exponent - 1.
-
 /obj/machinery/atmospherics/binary/circulator
 	name = "circulator"
 	desc = "A gas circulator turbine and heat exchanger."
@@ -74,7 +72,7 @@
 		recent_moles_transferred = 0
 		update_icon()
 
-/obj/machinery/atmospherics/binary/circulator/update_icon()
+/obj/machinery/atmospherics/binary/circulator/on_update_icon()
 	if(stat & (BROKEN|NOPOWER) || !anchored)
 		icon_state = "circ-p"
 	else if(last_pressure_delta > 0 && recent_moles_transferred > 0)

@@ -1,0 +1,43 @@
+{{if data.emagged}}
+	<div class='notice'>
+		<span class='bad'><b>SYSTEM ERROR</b></span>
+	</div>
+{{else}}
+	<b>User Lock: </b>
+	{{if data.lock}}
+		<span class='bad'>LOCKED</span>
+	{{else}}
+		<span class='good'>UNLOCKED</span>
+	{{/if}}
+	<br>
+	<b>Automatic Lock: </b>
+	{{if data.a_status == "ENGAGED"}}
+		<span class='bad'>
+	{{else data.a_status == "ARMED"}}
+		<span class='average'>
+	{{else}}
+		<span class='good'>
+	{{/if}}
+	{{:data.a_status}}</span>
+	<br>
+	{{:helper.link('Lock','locked',{'lock':1}, !data.has_access ? 'disabled' : data.lock ? 'selected' : null)}}
+	{{:helper.link('Unlock','unlocked',{'lock':0}, !data.has_access ? 'disabled' : data.lock ? null : 'selected')}}
+	<br><br>
+	{{if data.missing}}
+		<div class ='item'>
+			<div class='itemLabel'>
+				<span class='bad'>Missing Arms:</span>
+			</div>
+		{{for data.missing}}
+			{{if index != 0}}
+				<div class='itemLabel'>&nbsp;</div>
+			{{/if}}
+			<div class='itemContent'>
+				<span class='bad'>{{:value.amount}}x {{:value.name}}</span><br>
+			</div>
+		{{empty}}
+			Nothing
+		{{/for}}
+		</div>
+	{{/if}}
+{{/if}}

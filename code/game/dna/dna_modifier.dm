@@ -395,7 +395,7 @@
 		occupantData["name"] = connected.occupant.real_name
 		occupantData["stat"] = connected.occupant.stat
 		occupantData["isViableSubject"] = 1
-		if (NOCLONE in connected.occupant.mutations || !src.connected.occupant.dna)
+		if(MUTATION_NOCLONE in connected.occupant.mutations || !src.connected.occupant.dna)
 			occupantData["isViableSubject"] = 0
 		occupantData["health"] = connected.occupant.health
 		occupantData["maxHealth"] = connected.occupant.maxHealth
@@ -419,7 +419,7 @@
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		// the ui does not exist, so we'll create a new() one
-        // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
+		// for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
 		ui = new(user, src, ui_key, "dna_modifier.tmpl", "DNA Modifier Console", 660, 700)
 		// when the ui is first opened this is the data it will use
 		ui.set_initial_data(data)
@@ -733,7 +733,7 @@
 			return 1
 
 		if (bufferOption == "transfer")
-			if (!src.connected.occupant || (NOCLONE in src.connected.occupant.mutations) || !src.connected.occupant.dna)
+			if (!src.connected.occupant || (MUTATION_NOCLONE in src.connected.occupant.mutations) || !src.connected.occupant.dna)
 				return
 
 			irradiating = 2

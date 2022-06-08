@@ -411,22 +411,9 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristUniform.dmi')
 
-//'legacy' labcoat for non-togglable labcoats
-
-/obj/item/clothing/suit/storage/labcoat
-	name = "labcoat"
-	desc = "A suit that protects against minor chemical spills."
-	icon_state = "labcoat_open"
-	item_state = "labcoat" //Is this even used for anything?
-	blood_overlay_type = "coatblood"
-	body_parts_covered = UPPER_TORSO|ARMS
-	allowed = list(/obj/item/device/analyzer,/obj/item/stack/medical,/obj/item/weapon/reagent_containers/dropper,/obj/item/weapon/reagent_containers/syringe,/obj/item/weapon/reagent_containers/hypospray,/obj/item/device/healthanalyzer,/obj/item/device/flashlight/pen,/obj/item/weapon/reagent_containers/glass/bottle,/obj/item/weapon/reagent_containers/glass/beaker,/obj/item/weapon/reagent_containers/pill,/obj/item/weapon/storage/pill_bottle,/obj/item/weapon/paper)
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 50, rad = 0)
-	sprite_sheets = list("Vox" = 'icons/mob/species/vox/suit.dmi')
-
 //hooonk bs12
 
-/obj/item/clothing/suit/storage/toggle/labcoat/robotics //I believe this one is non-buttonable by design
+/obj/item/clothing/suit/storage/toggle/labcoat/robotics
 	item_icons = URIST_ALL_ONMOBS
 	name = "Robotics labcoat"
 	desc = "A labcoat with a few markings denoting it as the labcoat of a roboticist."
@@ -1060,22 +1047,22 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "hamilton_uniform"
 
 /obj/item/clothing/suit/urist/civilwar/bluecoatjacket
-    name = "Blue Infantry Coat"
-    desc = "A blue coat worn by soldiers."
-    icon_state = "blue_coat_coat"
-    item_state = "blue_coat_coat"
+	name = "Blue Infantry Coat"
+	desc = "A blue coat worn by soldiers."
+	icon_state = "blue_coat_coat"
+	item_state = "blue_coat_coat"
 
 /obj/item/clothing/suit/urist/civilwar/redcoatjacket
-    name = "Red Infantry Coat"
-    desc = "A red coat worn by soldiers."
-    icon_state = "red_coat_coat"
-    item_state = "red_coat_coat"
+	name = "Red Infantry Coat"
+	desc = "A red coat worn by soldiers."
+	icon_state = "red_coat_coat"
+	item_state = "red_coat_coat"
 
 /obj/item/clothing/suit/urist/civilwar/hamiltoncoat
-    name = "Hamilton Coat"
-    desc = "A blue coat sporting gold buttons."
-    icon_state = "hamiltoncoat"
-    item_state = "hamiltoncoat"
+	name = "Hamilton Coat"
+	desc = "A blue coat sporting gold buttons."
+	icon_state = "hamiltoncoat"
+	item_state = "hamiltoncoat"
 
 //RS Armor Suits
 
@@ -1195,7 +1182,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS|HEAD
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS|HEAD
 	min_cold_protection_temperature = 243.15
-	armor = list(melee = 18, bullet = 5, laser = 10, energy = 5, bomb = 0, bio = 0, rad = 0)
+	armor = list(melee = 20, bullet = 5, laser = 10, energy = 5, bomb = 0, bio = 0, rad = 0)
 	hoodtype = /obj/item/clothing/head/winterhood/sandsuit
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	item_icons = URIST_ALL_ONMOBS
@@ -1204,6 +1191,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "leather protective suit"
 	desc = "A full-body suit meant to protect against the elements."
 	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristSuit.dmi')
+	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency,/obj/item/weapon/melee/energy/sword,/obj/item/device/flashlight,/obj/item/device/radio)
 
 /obj/item/clothing/under/urist/cowboy
 	name = "cowboy's outfit"
@@ -1222,64 +1210,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "science armband"
 	desc = "An armband, worn by the crew to display which department they're assigned to. This one is purple."
 	icon_state = "rnd"
-
-//terran stuff
-
-/obj/item/clothing/suit/space/void/terran_marine
-	item_icons = URIST_ALL_ONMOBS
-	name = "Terran Confederacy Marine voidsuit"
-	desc = "A heavily armored suit that protects against moderate damage. Worn by the Terran Marines. It reeks of oppression, and also corruption somehow."
-	icon = 'icons/urist/items/clothes/clothes.dmi'
-	icon_state = "terran_void_marine"
-	gas_transfer_coefficient = 0.01
-	permeability_coefficient = 0.01
-	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency,/obj/item/weapon/melee/energy/sword)
-	armor = list(melee = 65, bullet = 60, laser = 40,energy = 20, bomb = 40, bio = 100, rad = 30)
-	can_breach = 0
-
-/obj/item/clothing/suit/space/void/commando/New()
-	..()
-	slowdown_per_slot[slot_wear_suit] = 1
-
-/obj/item/clothing/suit/storage/urist/terran_marine
-	name = "Terran Confederacy Marine armour"
-	desc = "A heavy armour vest worn by Terran Confederacy Marines."
-	icon_state = "terran_armour"
-	item_state = "terran_armour"
-	armor = list(melee = 60, bullet = 50, laser = 40, energy = 10, bomb = 25, bio = 0, rad = 0)
-
-	allowed = list(/obj/item/weapon/gun/energy,/obj/item/device/radio,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/gun/magnetic,/obj/item/weapon/tank)
-
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
-	item_flags = ITEM_FLAG_THICKMATERIAL
-	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
-	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECTION_TEMPERATURE
-	heat_protection = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
-	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
-	siemens_coefficient = 0.6
-
-/obj/item/clothing/suit/storage/urist/terran_officer
-	name = "Terran Confederacy Marine Officer armour"
-	desc = "A light armour vest worn by officers in the Terran Confederacy Marine Corps."
-	icon_state = "terran_armour_officer"
-	item_state = "terran_armour_officer"
-	armor = list(melee = 55, bullet = 40, laser = 35, energy = 10, bomb = 15, bio = 0, rad = 0)
-
-	allowed = list(/obj/item/weapon/gun/energy,/obj/item/device/radio,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/gun/magnetic,/obj/item/weapon/tank)
-
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	item_flags = ITEM_FLAG_THICKMATERIAL
-	cold_protection = UPPER_TORSO|LOWER_TORSO
-	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECTION_TEMPERATURE
-	heat_protection = UPPER_TORSO|LOWER_TORSO
-	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
-	siemens_coefficient = 0.6
-
-/obj/item/clothing/under/urist/terran/marine
-	name = "Terran Confederacy Marine uniform"
-	desc = "A grey uniform worn by the Terran Confederacy Marines."
-	icon_state = "terran_uniform"
-	item_state = "terran_uniform"
 
 // Biohazard Stuff, and Big Bulky Dumb Suits.
 
@@ -1385,3 +1315,23 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
 	item_flags = ITEM_FLAG_THICKMATERIAL
 	siemens_coefficient = 0.3
+
+//moving this here from noctis_jobs.dm for pirate use
+/obj/item/clothing/suit/armor/pcarrier/light/hijacker
+	color = "#ff0000"
+
+/obj/item/clothing/under/syndicate/pirate
+	starting_accessories = list(/obj/item/clothing/accessory/armband, /obj/item/clothing/accessory/kneepads, /obj/item/clothing/accessory/storage/bandolier)
+
+//moving this here from nerva_clothes.dm to not break other maps
+
+/obj/item/clothing/suit/urist/armor/nerva/sec
+	name = "armour vest"
+	desc = "A bulky armoured vest assigned to the ICS Nerva's security officers. Has space to attach additional pouches for storage."
+	icon_state = "nervasecarmour"
+	item_state = "nervasecarmour"
+	blood_overlay_type = "armorblood"
+	armor = list(melee = 50, bullet = 45, laser = 40, energy = 25, bomb = 30, bio = 0, rad = 0)
+	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_L, ACCESSORY_SLOT_ARMOR_S)
+	restricted_accessory_slots = list(ACCESSORY_SLOT_ARMOR_L, ACCESSORY_SLOT_ARMOR_S)
+	starting_accessories = list(/obj/item/clothing/accessory/storage/pouches/large)

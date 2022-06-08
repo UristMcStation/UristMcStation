@@ -176,7 +176,7 @@ var/list/global/organ_rel_size = list(
 		miss_chance = base_miss_chance[zone]
 	miss_chance = max(miss_chance + miss_chance_mod, 0)
 	if(prob(miss_chance))
-		if(prob(70))
+		if(ranged_attack || prob(70))
 			return null
 		return pick(base_miss_chance)
 	return zone
@@ -222,8 +222,8 @@ var/list/global/organ_rel_size = list(
 
 proc/slur(phrase)
 	phrase = html_decode(phrase)
-	var/leng=lentext(phrase)
-	var/counter=lentext(phrase)
+	var/leng=length(phrase)
+	var/counter=length(phrase)
 	var/newphrase=""
 	var/newletter=""
 	while(counter>=1)
@@ -696,3 +696,9 @@ proc/is_blind(A)
 	if(isnull(choice) || src.incapacitated() || (required_item && !GLOB.hands_state.can_use_topic(required_item,src)))
 		return null
 	return choice
+
+/mob/proc/set_sdisability(sdisability)
+	sdisabilities |= sdisability
+
+/mob/proc/unset_sdisability(sdisability)
+	sdisabilities &= ~sdisability

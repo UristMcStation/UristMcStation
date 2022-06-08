@@ -1466,7 +1466,7 @@
 	dir = 8;
 	pixel_x = 25;
 	pixel_y = 0;
-	req_one_access = list(201)
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled,
 /area/lar_maria/library)
@@ -2417,7 +2417,7 @@
 /obj/machinery/alarm{
 	frequency = 1439;
 	pixel_y = 23;
-	req_one_access = list(201)
+	req_access = newlist()
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -2512,7 +2512,7 @@
 /obj/machinery/alarm{
 	frequency = 1439;
 	pixel_y = 23;
-	req_one_access = list(201)
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/mess_hall)
@@ -2637,7 +2637,7 @@
 /obj/machinery/alarm{
 	frequency = 1439;
 	pixel_y = 23;
-	req_one_access = list(201)
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/head_f)
@@ -3050,7 +3050,7 @@
 /obj/machinery/alarm{
 	frequency = 1439;
 	pixel_y = 23;
-	req_one_access = list(201)
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled,
 /area/lar_maria/hallway)
@@ -3459,6 +3459,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/lar_maria/solar_control)
+"kQ" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/lar_maria/mess_hall)
 "lb" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -3571,7 +3576,7 @@
 /obj/machinery/alarm{
 	frequency = 1439;
 	pixel_y = 23;
-	req_one_access = list(201)
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/head_m)
@@ -3600,12 +3605,20 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/head_f)
+"xZ" = (
+/turf/simulated/floor/reinforced,
+/area/lar_maria/mess_hall)
 "DG" = (
 /obj/item/modular_computer/console{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/lar_maria/office)
+"WT" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/space)
 
 (1,1,1) = {"
 aa
@@ -25329,8 +25342,8 @@ hF
 ib
 iz
 gQ
-gx
-gx
+WT
+xZ
 ad
 ad
 aa
@@ -25531,8 +25544,8 @@ hG
 gT
 iA
 gO
-gx
-gx
+kQ
+xZ
 ad
 ad
 aa
@@ -25733,8 +25746,8 @@ gT
 gT
 iB
 gN
-gx
-gx
+kQ
+xZ
 ad
 ad
 aa
@@ -25935,8 +25948,8 @@ hH
 ic
 gS
 gS
-gx
-gx
+kQ
+xZ
 ad
 ad
 aa
@@ -26138,7 +26151,7 @@ gT
 gT
 iV
 gx
-gx
+xZ
 ad
 ad
 aa
@@ -26339,8 +26352,8 @@ gT
 gT
 gQ
 gQ
-gx
-gx
+kQ
+xZ
 ad
 ad
 aa
@@ -26541,8 +26554,8 @@ gT
 gT
 gO
 gO
-gx
-gx
+kQ
+xZ
 ad
 ad
 aa
@@ -26743,8 +26756,8 @@ gT
 gT
 gO
 iW
-gx
-gx
+kQ
+xZ
 ad
 ad
 aa
@@ -26945,8 +26958,8 @@ gT
 gT
 gS
 gS
-gx
-gx
+kQ
+xZ
 ad
 ad
 aa

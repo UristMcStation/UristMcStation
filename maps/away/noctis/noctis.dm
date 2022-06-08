@@ -22,11 +22,9 @@
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/raptor)
 
 /obj/effect/overmap/ship/noctis
-	name = "exploration corvette"
-	color = "#640000"
-	vessel_mass = 40
-	default_delay = 15 SECONDS
-	speed_mod = 0.1 MINUTE
+	classification = "exploration corvette"
+	color = "#666666"
+	vessel_mass = 4000
 	burn_delay = 2 SECONDS
 	initial_restricted_waypoints = list(
 		"Raptor" = list("nav_noctis_raptor")
@@ -37,7 +35,8 @@
 	for(var/area/noctis/A)
 		A.name = "\improper [name] - [A.name]"
 		GLOB.using_map.area_purity_test_exempt_areas += A.type
-	name = "[name], \an [initial(name)]"
+	ship_name = name
+	name = "[name], \an [classification]"
 	..()
 
 /obj/effect/floor_decal/borderfloorgrey
@@ -56,9 +55,6 @@
 
 /obj/effect/floor_decal/borderfloorgrey/cee
 	icon_state = "borderfloorcee_white"
-
-/obj/effect/paint/green_grey
-	color = "#8daf6a"
 
 /decl/prefab/ic_assembly/bluespace_radio
 	assembly_name = "bluespace radio" 					//Beware, dragons below
@@ -105,6 +101,5 @@
 
 /obj/item/stack/material/titanium
 	name = "titanium"
-	icon_state = "sheet-silver"
+	icon_state = "sheet-shiny"
 	default_type = "titanium"
-	apply_colour = 1

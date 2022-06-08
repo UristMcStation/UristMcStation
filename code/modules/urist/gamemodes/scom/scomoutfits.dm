@@ -144,16 +144,11 @@
 		new /obj/item/clothing/suit/storage/toggle/labcoat/science(src)
 		new /obj/item/clothing/shoes/jackboots/unathi(src)
 		new /obj/item/clothing/glasses/regular(src)
-
+//CDN
 /obj/structure/closet/secure_closet/personal/scom/commander
 	name = "S-COM personal closet (Commander)"
 	desc = "It's a secure locker for the Commander. Bow before its Commandiness."
-	icon_state = "capsecure1"
-	icon_closed = "capsecure"
-	icon_locked = "capsecure1"
-	icon_opened = "capsecureopen"
-	icon_broken = "capsecurebroken"
-	icon_off = "capsecureoff"
+
 
 /obj/structure/closet/secure_closet/personal/scom/commander/New()
 		new /obj/item/clothing/under/rank/centcom(src)

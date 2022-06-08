@@ -12,6 +12,24 @@
 											 				'sound/effects/wind/wind_5_1.ogg'
 												 			)
 		 												),
+		"desert"           = new/datum/holodeck_program(/area/holodeck/source_desert,
+														list(
+															'sound/effects/wind/wind_2_1.ogg',
+											 				'sound/effects/wind/wind_2_2.ogg',
+											 				'sound/effects/wind/wind_3_1.ogg',
+											 				'sound/effects/wind/wind_4_1.ogg',
+											 				'sound/effects/wind/wind_4_2.ogg',
+											 				'sound/effects/wind/wind_5_1.ogg'
+												 			)
+		 												),
+		"space"            = new/datum/holodeck_program(/area/holodeck/source_space,
+														list(
+															'sound/ambience/ambispace.ogg',
+															'sound/music/main.ogg',
+															'sound/music/space.ogg',
+															'sound/music/traitor.ogg',
+															)
+														),
 		"chapel"			= new/datum/holodeck_program(/area/holodeck/source_chapel, list()),
 		"emptycourt"        = new/datum/holodeck_program(/area/holodeck/source_emptycourt, list('sound/music/THUNDERDOME.ogg')),
 		"boxingcourt"       = new/datum/holodeck_program(/area/holodeck/source_boxingcourt, list('sound/music/THUNDERDOME.ogg')),
@@ -23,6 +41,9 @@
 		"courtroom"         = new/datum/holodeck_program(/area/holodeck/source_courtroom, list('sound/music/traitor.ogg')),
 		"volleyball"        = new/datum/holodeck_program(/area/holodeck/source_volleyball, list('sound/music/THUNDERDOME.ogg')),
 		"wildlifecarp"      = new/datum/holodeck_program(/area/holodeck/source_wildlife, list()),
+		"plaza"             = new/datum/holodeck_program(/area/holodeck/source_plaza),
+		"cafe"              = new/datum/holodeck_program(/area/holodeck/source_cafe),
+		"gym"               = new/datum/holodeck_program(/area/holodeck/source_gym),
 
 		"turnoff"			= new/datum/holodeck_program(/area/holodeck/source_plating, list())
 	)
@@ -35,7 +56,6 @@
 			"Winter Simulation"  = "winter sim",
 			"Holographic Chapel" = "chapel",
 			"Basketball Court"   = "basketball",
-			"Beach"              = "beach",
 			"Boxing Ring"        = "boxingcourt",
 			"Courtroom"          = "courtroom",
 			"Empty Court"        = "emptycourt",
@@ -43,7 +63,12 @@
 			"Picnic Area"        = "picnicarea",
 			"Theatre"            = "theatre",
 			"Thunderdome Court"  = "thunderdomecourt",
-			"Volleyball Court"   = "volleyball"
+			"Volleyball Court"   = "volleyball",
+			"Plaza"              = "plaza",
+			"Cafe"               = "cafe",
+			"Desert"             = "desert",
+			"Gym"                = "gym",
+			"Space"              = "space"
 		)
 
 	)

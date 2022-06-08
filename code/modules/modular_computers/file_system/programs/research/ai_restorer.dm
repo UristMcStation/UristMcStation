@@ -21,6 +21,7 @@
 /datum/computer_file/program/aidiag/Topic(href, href_list)
 	if(..())
 		return 1
+
 	var/mob/living/silicon/ai/A = get_ai()
 	if(!A)
 		return 0
@@ -85,6 +86,9 @@
 
 /datum/nano_module/program/computer_aidiag/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
 	var/list/data = host.initial_data()
+
+	data["terminal"] = !!program
+
 	var/mob/living/silicon/ai/A
 	// A shortcut for getting the AI stored inside the computer. The program already does necessary checks.
 	if(program && istype(program, /datum/computer_file/program/aidiag))

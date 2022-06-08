@@ -11,7 +11,7 @@
 	var/loot_max = 6
 	var/list/loot_list = list(
 		/obj/item/stack/rods/scrap,
-		/obj/item/vehicle_part/random,
+		/obj/item/vehicle_part/tire,
 		/obj/item/stack/material/plastic/scrap,
 		/obj/item/stack/material/steel/scrap,
 		/obj/item/stack/material/glass/scrap,
@@ -50,6 +50,7 @@
 		var/loot_path = pick(loot_list)
 		new loot_path(src)
 	loot = new(src)
+	loot.master_item = src
 	loot.max_w_class = 5
 	loot.max_storage_space = loot_min*4
 	shuffle_loot()
@@ -143,10 +144,9 @@
 	name = "debris pile"
 	parts_icon = 'icons/urist/structures&machinery/scrap/vehicle.dmi'
 	loot_list = list(
-		/obj/item/vehicle_part/random,
-		/obj/item/vehicle_part/random,
-		/obj/item/vehicle_part/random,
-		/obj/item/vehicle_part/random,
+		/obj/item/vehicle_part/battery,
+		/obj/item/vehicle_part/tire,
+		/obj/item/vehicle_part/transmission,
 		/obj/item/stack/rods/scrap,
 		/obj/item/stack/material/plastic/scrap,
 		/obj/item/stack/material/steel/scrap,
@@ -185,7 +185,8 @@
 	return INITIALIZE_HINT_QDEL
 
 /obj/item/weapon/storage/internal/updating/update_icon()
-	master_item.update_icon()
+	if(master_item)
+		master_item.update_icon()
 
 /obj/item/stack/rods/scrap/New(var/newloc)
 	..(newloc, rand(1,8))

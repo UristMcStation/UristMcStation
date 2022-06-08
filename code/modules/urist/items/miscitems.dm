@@ -11,7 +11,9 @@
 /obj/item/weapon/card/id/blueshield
 	name = "identification card"
 	desc = "A card issued to the station's blueshield."
-	icon_state = "centcom"
+	color = COLOR_GRAY40
+	detail_color = COLOR_COMMAND_BLUE
+	extra_details = list("goldstripe")
 	job_access_type = /datum/job/blueshield
 
 /obj/item/weapon/storage/box/glowsticks

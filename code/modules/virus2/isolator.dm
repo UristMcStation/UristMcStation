@@ -19,7 +19,7 @@
 	build_default_parts(/obj/item/weapon/circuitboard/isolater)
 	. = ..()
 
-/obj/machinery/disease2/isolator/update_icon()
+/obj/machinery/disease2/isolator/on_update_icon()
 	if (stat & (BROKEN|NOPOWER))
 		icon_state = "isolator"
 		return

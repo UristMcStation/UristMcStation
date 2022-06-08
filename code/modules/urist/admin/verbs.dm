@@ -43,14 +43,14 @@
 		to_chat(src, "<span class='danger'> You do not have the required admin rights.</span>")
 		return
 
-	if(ticker.current_state > GAME_STATE_PREGAME)
+	if(GAME_STATE > RUNLEVEL_LOBBY)
 		to_chat(usr, "This option is currently only usable during pregame. This may change at a later date.")
 		return
 
-	if(job_master)
-		var/datum/job/job = job_master.GetJob("Captain")
+	if(SSjobs)
+		var/datum/job/job = SSjobs.titles_to_datums["Captain"]
 		if(!job)
-			job = job_master.GetJob("Consul")
+			job = SSjobs.titles_to_datums["Consul"]
 			if(!job)
 				to_chat(usr, "Okay, something fucked up. Can't locate the Captain/Consul job.")
 				return

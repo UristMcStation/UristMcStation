@@ -43,13 +43,13 @@
 	if(throwforce == 15) // The rod has been superheated - we don't want it to be useable when removed from the bow.
 		to_chat(user, "[src] shatters into a scattering of overstressed metal shards as it leaves the crossbow.")
 		var/obj/item/weapon/material/shard/shrapnel/S = new()
-		S.loc = get_turf(src)
+		S.dropInto(loc)
 		qdel(src)
 
 /obj/item/weapon/gun/launcher/crossbow
 	name = "powered crossbow"
-	desc = "A 2557AD twist on an old classic. Pick up that can."
-	icon = 'icons/obj/weapons.dmi'
+	desc = "A modern twist on an old classic. Pick up that can."
+	icon = 'icons/obj/guns/crossbow.dmi'
 	icon_state = "crossbow"
 	item_state = "crossbow-solid"
 	fire_sound = 'sound/weapons/punchmiss.ogg' // TODO: Decent THWOK noise.
@@ -89,7 +89,7 @@
 	if(tension)
 		if(bolt)
 			user.visible_message("[user] relaxes the tension on [src]'s string and removes [bolt].","You relax the tension on [src]'s string and remove [bolt].")
-			bolt.loc = get_turf(src)
+			bolt.dropInto(loc)
 			var/obj/item/weapon/arrow/A = bolt
 			bolt = null
 			A.removed(user)
@@ -147,12 +147,12 @@
 			user.visible_message("[user] slides [bolt] into [src].","You slide [bolt] into [src].")
 			update_icon()
 			return
-		else if(istype(W,/obj/item/stack/rods))
-			var/obj/item/stack/rods/R = W
+		else if(istype(W,/obj/item/stack/material/rods))
+			var/obj/item/stack/material/rods/R = W
 			if (R.use(1))
 				bolt = new /obj/item/weapon/arrow/rod(src)
 				bolt.fingerprintslast = src.fingerprintslast
-				bolt.loc = src
+				bolt.dropInto(loc)
 				update_icon()
 				user.visible_message("[user] jams [bolt] into [src].","You jam [bolt] into [src].")
 				superheat_rod(user)
@@ -174,7 +174,7 @@
 	else if(isScrewdriver(W))
 		if(cell)
 			var/obj/item/C = cell
-			C.loc = get_turf(user)
+			C.dropInto(user.loc)
 			to_chat(user, "<span class='notice'>You jimmy [cell] out of [src] with [W].</span>")
 			cell = null
 		else
@@ -194,7 +194,7 @@
 	bolt.icon_state = "metal-rod-superheated"
 	cell.use(500)
 
-/obj/item/weapon/gun/launcher/crossbow/update_icon()
+/obj/item/weapon/gun/launcher/crossbow/on_update_icon()
 	var/datum/extension/base_icon_state/bis = get_extension(src, /datum/extension/base_icon_state)
 	if(tension > 1)
 		icon_state = "[bis.base_icon_state]-drawn"
@@ -210,10 +210,11 @@
 	desc = "A half-finished crossbow."
 	icon_state = "crossbowframe0"
 	item_state = "crossbow-solid"
+	icon = 'icons/obj/guns/crossbow.dmi'
 
 	var/buildstate = 0
 
-/obj/item/weapon/crossbowframe/update_icon()
+/obj/item/weapon/crossbowframe/on_update_icon()
 	icon_state = "crossbowframe[buildstate]"
 
 /obj/item/weapon/crossbowframe/examine(mob/user)
@@ -226,9 +227,9 @@
 		if(5) to_chat(user, "It has a steel cable loosely strung across the lath.")
 
 /obj/item/weapon/crossbowframe/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/stack/rods))
+	if(istype(W,/obj/item/stack/material/rods))
 		if(buildstate == 0)
-			var/obj/item/stack/rods/R = W
+			var/obj/item/stack/material/rods/R = W
 			if(R.use(3))
 				to_chat(user, "<span class='notice'>You assemble a backbone of rods around the wooden stock.</span>")
 				buildstate++
@@ -264,7 +265,7 @@
 			else
 				to_chat(user, "<span class='notice'>You need at least five segments of cable coil to complete this task.</span>")
 			return
-	else if(istype(W,/obj/item/stack/material) && W.get_material_name() == "plastic")
+	else if(istype(W,/obj/item/stack/material) && W.get_material_name() == MATERIAL_PLASTIC)
 		if(buildstate == 3)
 			var/obj/item/stack/material/P = W
 			if(P.use(3))
@@ -282,3 +283,89 @@
 		return
 	else
 		..()
+
+/*////////////////////////////
+//	Rapid Crossbow Device	//
+*/////////////////////////////
+
+/obj/item/weapon/arrow/rapidcrossbowdevice
+	name = "flashforged bolt"
+	desc = "The ultimate ghetto deconstruction implement."
+	throwforce = 4
+
+/obj/item/weapon/gun/launcher/crossbow/rapidcrossbowdevice
+	name = "rapid crossbow device"
+	desc = "A hacked RCD turns an innocent construction tool into the penultimate deconstruction tool. Flashforges bolts using matter units when the string is drawn back."
+	icon_state = "rxb"
+	slot_flags = null
+	draw_time = 10
+	var/stored_matter = 0
+	var/max_stored_matter = 120
+	var/boltcost = 30
+
+/obj/item/weapon/gun/launcher/crossbow/rapidcrossbowdevice/proc/generate_bolt(var/mob/user)
+	if(stored_matter >= boltcost && !bolt)
+		bolt = new/obj/item/weapon/arrow/rapidcrossbowdevice(src)
+		stored_matter -= boltcost
+		to_chat(user, "<span class='notice'>The RCD flashforges a new bolt!</span>")
+		queue_icon_update()
+	else
+		to_chat(user, "<span class='warning'>The \'Low Ammo\' light on the device blinks yellow.</span>")
+		flick("[icon_state]-empty", src)
+
+
+/obj/item/weapon/gun/launcher/crossbow/rapidcrossbowdevice/attack_self(mob/living/user as mob)
+	if(tension)
+		user.visible_message("[user] relaxes the tension on [src]'s string.","You relax the tension on [src]'s string.")
+		tension = 0
+		update_icon()
+	else
+		generate_bolt(user)
+		draw(user)
+
+/obj/item/weapon/gun/launcher/crossbow/rapidcrossbowdevice/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/weapon/rcd_ammo))
+		var/obj/item/weapon/rcd_ammo/cartridge = W
+		if((stored_matter + cartridge.remaining) > max_stored_matter)
+			to_chat(user, "<span class='notice'>The RCD can't hold that many additional matter-units.</span>")
+			return
+		stored_matter += cartridge.remaining
+		qdel(W)
+		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
+		to_chat(user, "<span class='notice'>The RCD now holds [stored_matter]/[max_stored_matter] matter-units.</span>")
+		update_icon()
+
+	if(istype(W, /obj/item/weapon/arrow/rapidcrossbowdevice))
+		var/obj/item/weapon/arrow/rapidcrossbowdevice/A = W
+		if((stored_matter + 10) > max_stored_matter)
+			to_chat(user, "<span class='notice'>Unable to reclaim flashforged bolt. The RCD can't hold that many additional matter-units.</span>")
+			return
+		stored_matter += 10
+		qdel(A)
+		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
+		to_chat(user, "<span class='notice'>Flashforged bolt reclaimed. The RCD now holds [stored_matter]/[max_stored_matter] matter-units.</span>")
+		update_icon()
+
+/obj/item/weapon/gun/launcher/crossbow/rapidcrossbowdevice/on_update_icon()
+	overlays.Cut()
+
+	if(bolt)
+		overlays += "rxb-bolt"
+
+	var/ratio = 0
+	if(stored_matter < boltcost)
+		ratio = 0
+	else
+		ratio = stored_matter / max_stored_matter
+		ratio = max(round(ratio, 0.25) * 100, 25)
+	overlays += "rxb-[ratio]"
+
+	if(tension > 1)
+		icon_state = "rxb-drawn"
+	else
+		icon_state = "rxb"
+
+/obj/item/weapon/gun/launcher/crossbow/rapidcrossbowdevice/examine(var/user)
+	. = ..()
+	if(.)
+		to_chat(user, "It currently holds [stored_matter]/[max_stored_matter] matter-units.")

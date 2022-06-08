@@ -6,7 +6,7 @@
 
 /datum/uplink_item/item/visible_weapons/dartgun
 	name = "Dart Gun"
-	item_cost = 20
+	item_cost = 12
 	path = /obj/item/weapon/gun/projectile/dartgun
 
 /datum/uplink_item/item/visible_weapons/crossbow
@@ -22,7 +22,8 @@
 
 /datum/uplink_item/item/visible_weapons/g9mm
 	name = "Silenced Holdout Pistol"
-	item_cost = 32
+	desc = "9mm with silencer kit and ammunition."
+	item_cost = 20
 	path = /obj/item/weapon/storage/box/syndie_kit/g9mm
 
 /datum/uplink_item/item/badassery/money_cannon
@@ -39,38 +40,35 @@
 
 /datum/uplink_item/item/visible_weapons/energy_gun
 	name = "Energy Gun"
-	item_cost = 32
+	item_cost = 24
 	path = /obj/item/weapon/gun/energy/gun
 
 /datum/uplink_item/item/visible_weapons/revolver
 	name = "Revolver, .357"
+	desc = ".357 revolver, with ammunition."
 	item_cost = 56
-	antag_costs = list(MODE_MERCENARY = 14)
 	path = /obj/item/weapon/storage/backpack/satchel/syndie_kit/revolver
 
 /datum/uplink_item/item/visible_weapons/revolver2
 	name = "Revolver, .44"
+	desc = ".44 magnum revolver, with ammunition."
 	item_cost = 48
-	antag_costs = list(MODE_MERCENARY = 5)
 	path = /obj/item/weapon/storage/backpack/satchel/syndie_kit/revolver2
 
 /datum/uplink_item/item/visible_weapons/grenade_launcher
 	name = "Grenade Launcher"
 	item_cost = 60
-	antag_roles = list(MODE_MERCENARY = 12, MODE_PARANOIA = 150)
 	path = /obj/item/weapon/gun/launcher/grenade/loaded
 
 //These are for traitors (or other antags, perhaps) to have the option of purchasing some merc gear.
 /datum/uplink_item/item/visible_weapons/submachinegun
 	name = "Submachine Gun"
 	item_cost = 52
-	antag_costs = list(MODE_MERCENARY = 20)
 	path = /obj/item/weapon/gun/projectile/automatic/c20r
 
 /datum/uplink_item/item/visible_weapons/assaultrifle
 	name = "Assault Rifle"
 	item_cost = 60
-	antag_costs = list(MODE_MERCENARY = 9, MODE_PARANOIA = 30)
 	path = /obj/item/weapon/gun/projectile/automatic/sts35
 
 /datum/uplink_item/item/visible_weapons/advanced_energy_gun
@@ -84,10 +82,17 @@
 	path = /obj/item/weapon/storage/secure/briefcase/heavysniper
 	antag_costs = list(MODE_PARANOIA = 300)
 
+/*
+/datum/uplink_item/item/visible_weapons/psi_amp
+	name = "Cerebroenergetic Psionic Amplifier"
+	item_cost = 50
+	path = /obj/item/clothing/head/helmet/space/psi_amp/lesser
+	desc = "A powerful, illegal psi-amp. Boosts latent psi-faculties to extremely high levels."
+*/
+
 /datum/uplink_item/item/visible_weapons/machine_pistol
 	name = "Machine Pistol"
 	item_cost = 45
-	antag_costs = list(MODE_MERCENARY = 10)
 	path = /obj/item/weapon/gun/projectile/automatic/machine_pistol
 
 /datum/uplink_item/item/visible_weapons/combat_shotgun
@@ -97,7 +102,7 @@
 
 /datum/uplink_item/item/visible_weapons/sawnoff
 	name = "Sawnoff Shotgun"
-	item_cost = 45
+	item_cost = 40
 	path = /obj/item/weapon/gun/projectile/shotgun/doublebarrel/sawn
 
 /datum/uplink_item/item/visible_weapons/deagle
@@ -107,8 +112,13 @@
 
 /datum/uplink_item/item/visible_weapons/beretta
 	name = "9mm Pistol"
-	item_cost = 40
+	item_cost = 32
 	path = /obj/item/weapon/gun/projectile/beretta
+
+/datum/uplink_item/item/visible_weapons/sigsauer
+	name = "10mm Pistol"
+	item_cost = 40
+	path = /obj/item/weapon/gun/projectile/sigsauer
 
 /datum/uplink_item/item/visible_weapons/detective_revolver
 	name = "Holdout Revolver"
@@ -118,18 +128,17 @@
 /datum/uplink_item/item/visible_weapons/pulserifle
 	name = "Pulse Rifle"
 	item_cost = 68
-	antag_costs = list(MODE_MERCENARY = 30)
 	path = /obj/item/weapon/gun/energy/pulse_rifle
+	antag_roles = list(MODE_MERCENARY)
 
 /datum/uplink_item/item/visible_weapons/flechetterifle
 	name = "Flechette Rifle"
 	item_cost = 60
-	antag_costs = list(MODE_MERCENARY = 20)
 	path = /obj/item/weapon/gun/magnetic/railgun/flechette
 
 /datum/uplink_item/item/visible_weapons/railgun // Like a semi-auto AMR
 	name = "Railgun"
-	item_cost = DEFAULT_TELECRYSTAL_AMOUNT
+	item_cost = DEFAULT_TELECRYSTAL_AMOUNT - (DEFAULT_TELECRYSTAL_AMOUNT - (DEFAULT_TELECRYSTAL_AMOUNT % 6)) / 6
 	antag_costs = list(MODE_MERCENARY = DEFAULT_TELECRYSTAL_AMOUNT - (DEFAULT_TELECRYSTAL_AMOUNT - (DEFAULT_TELECRYSTAL_AMOUNT % 6)) / 6)
 	path = /obj/item/weapon/gun/magnetic/railgun
 
@@ -138,3 +147,8 @@
 	item_cost = DEFAULT_TELECRYSTAL_AMOUNT + (DEFAULT_TELECRYSTAL_AMOUNT - (DEFAULT_TELECRYSTAL_AMOUNT % 6)) / 6// Only available to traitors if they share TCs.
 	antag_costs = list(MODE_MERCENARY = DEFAULT_TELECRYSTAL_AMOUNT) // This, on the other hand, is to encourage usage specifically by mercs with high budgets.
 	path = /obj/item/weapon/gun/magnetic/railgun/tcc
+
+/datum/uplink_item/item/visible_weapons/harpoonbomb
+	name = "Explosive Harpoon"
+	item_cost = 12
+	path = /obj/item/weapon/material/harpoon/bomb

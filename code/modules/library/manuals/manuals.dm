@@ -22,19 +22,25 @@
 				Here is a guide on basic food recipes and also how to not poison your customers accidentally.
 
 				<h3>Basics:</h3>
-				Knead an egg and some flour along with some water to make dough. Bake that to make a bun or flatten and cut it.
+				Knead 3 units of egg yolk (crack an egg into a bowl or beaker), 10 flour along with 10 water to make dough. Bake that to make a bun or flatten and cut it.
 
 				<h3>Burger:</h3>
 				Put a bun and some meat into the microwave and turn it on. Then wait.
 
 				<h3>Bread:</h3>
-				Put some dough and an egg into the microwave and then wait.
+				Put a couple of bits of dough and an egg into the microwave and then wait.
+
+				<h3>Batter:</h3>
+				Put 3 units of egg yolk, 5 flour and 5 milk into a beaker. Then wait.
+
+				<h3>Cakebatter:</h3>
+				Add a pinch of sugar to 2 parts of regular batter.
 
 				<h3>Waffles:</h3>
-				Add two lumps of dough and 10 units of sugar to the microwave and then wait.
+				Add 20 units of cakebatter to the microwave and then wait.
 
 				<h3>Popcorn:</h3>
-				Add 1 corn to the microwave and wait.
+				Add 1 corn and 5 units of salt to the microwave and wait.
 
 				<h3>Meat Steak:</h3>
 				Put a slice of meat, 1 unit of salt, and 1 unit of pepper into the microwave and wait.
@@ -42,14 +48,17 @@
 				<h3>Meat Pie:</h3>
 				Put a flattened piece of dough and some meat into the microwave and wait.
 
+				<h3>Spaghetti:</h3>
+				Roll flat some dough and cut it with a knife into dough slices. Cut these again into raw spaghetti.
+
 				<h3>Boiled Spaghetti:</h3>
-				Put the spaghetti (processed flour) and 5 units of water into the microwave and wait.
+				Put raw spaghetti and 10 units of water into the microwave and wait.
 
 				<h3>Donuts:</h3>
 				Add some dough and 5 units of sugar to the microwave and wait.
 
 				<h3>Fries:</h3>
-				Add one potato to the processor, then bake them in the microwave.
+				Cut one potato into sticks, then bake them in the microwave.
 
 
 				</body>
@@ -81,31 +90,31 @@
 				Here's a guide for some basic drinks.
 
 				<h3>Black Russian:</h3>
-				Mix vodka and Kahlua into a glass.
+				Mix 2 parts vodka and 1 part Kahlua into a glass.
 
 				<h3>Cafe Latte:</h3>
 				Mix milk and coffee into a glass.
 
 				<h3>Classic Martini:</h3>
-				Mix vermouth and gin into a glass.
+				Mix 1 part vermouth and 2 parts gin into a glass.
 
 				<h3>Gin Tonic:</h3>
-				Mix gin and tonic into a glass.
+				Mix 2 parts gin and 1 part tonic into a glass.
 
 				<h3>Grog:</h3>
 				Mix rum and water into a glass.
 
 				<h3>Irish Cream:</h3>
-				Mix cream and whiskey into a glass.
+				Mix 1 part cream and 2 parts whiskey into a glass.
 
 				<h3>The Manly Dorf:</h3>
-				Mix ale and beer into a glass.
+				Mix 2 parts ale and 1 part beer into a glass.
 
 				<h3>Mead:</h3>
-				Mix enzyme, water, and sugar into a glass.
+				Mix 5 units of enzyme (catalyst), 1 part water, and 1 part honey into a glass.
 
 				<h3>Screwdriver:</h3>
-				Mix vodka and orange juice into a glass.
+				Mix 2 parts vodka and 1 part orange juice into a glass.
 
 				</body>
 			</html>

@@ -33,7 +33,6 @@
 	move_to_delay = 4
 	attack_sound = 'sound/weapons/punch3.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol
-	simplify_dead_icon = 1 //set to 0 if you want a custom dead icon
 
 /mob/living/simple_animal/hostile/urist/gunman //mostly redundant, for ease of spawning
 	minimum_distance = 4
@@ -53,7 +52,7 @@
 	icon_gib = "syndicate_gib"
 	casingtype = /obj/item/ammo_casing/a10mm
 	projectilesound = 'sound/weapons/gunshot/gunshot_smg.ogg'
-	projectiletype = /obj/item/projectile/bullet/pistol/medium/smg
+	projectiletype = /obj/item/projectile/bullet/pistol
 	maxHealth = 100
 	health = 100
 
@@ -174,8 +173,18 @@
 
 //terran
 
+/mob/living/simple_animal/hostile/urist/terran
+	var/corpse = null //i really need to make this a generic var, but that's going to require going through all the old Bay simple mobs too so it'll have to wait for another day
+	hiddenfaction = /datum/factions/terran
+
+/mob/living/simple_animal/hostile/urist/terran/death(gibbed, deathmessage, show_dead_message)
+	..(gibbed, deathmessage, show_dead_message)
+	if(corpse)
+		new corpse (src.loc)
+	qdel(src)
+	return
+
 /mob/living/simple_animal/hostile/urist/terran/marine
-	faction = "terran"
 	name = "\improper Terran Confederacy Marine"
 	desc = "A Terran Confederacy Marine."
 	ranged = 1
@@ -185,19 +194,34 @@
 	icon_living = "terran_marine"
 	icon_dead = "terran_marine_dead"
 	icon_gib = "syndicate_gib"
-	casingtype = /obj/item/ammo_casing/a556
+	casingtype = /obj/item/ammo_casing/a556/used
 	projectilesound = 'sound/weapons/gunshot/gunshot2.ogg'
 	projectiletype = /obj/item/projectile/bullet/rifle/a556
 	maxHealth = 150
 	health = 150
-	minimum_distance = 4
-	retreat_distance = 2
+	minimum_distance = 5
+	retreat_distance = 3
+	corpse = /obj/effect/landmark/corpse/terran/marine
 
 /mob/living/simple_animal/hostile/urist/terran/marine/event
-	faction = "neutral"
+	faction = "terran"
+
+/mob/living/simple_animal/hostile/urist/terran/marine/ground
+	icon_state = "terran_g_marine"
+	icon_living = "terran_g_marine"
+	icon_dead = "terran_g_marine_dead"
+	corpse = /obj/effect/landmark/corpse/terran/marine_ground
+	casingtype = /obj/item/ammo_casing/a762/used
+	projectilesound = 'sound/weapons/gunshot/gunshot2.ogg'
+	projectiletype = /obj/item/projectile/bullet/rifle/a762
+	rapid = 0
+	desc = "A Terran Confederacy Marine. This one is wearing gear worn by ground assault forces."
+	ranged_cooldown_cap = 4
+
+/mob/living/simple_animal/hostile/urist/terran/marine/ground/event
+	faction = "terran"
 
 /mob/living/simple_animal/hostile/urist/terran/marine_officer
-	faction = "terran"
 	name = "\improper Terran Confederacy Marine Officer"
 	desc = "A Terran Confederacy Marine Officer."
 	ranged = 1
@@ -207,16 +231,27 @@
 	icon_living = "terran_officer"
 	icon_dead = "terran_officer_dead"
 	icon_gib = "syndicate_gib"
-	casingtype = /obj/item/ammo_casing/c9mm
+	casingtype = /obj/item/ammo_casing/c9mm/used
 	projectilesound = 'sound/weapons/gunshot/gunshot_smg.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol
-	maxHealth = 120
-	health = 120
+	maxHealth = 125
+	health = 125
 	minimum_distance = 4
 	retreat_distance = 2
+	corpse = /obj/effect/landmark/corpse/terran/officer
 
 /mob/living/simple_animal/hostile/urist/terran/marine_officer/event
-	faction = "neutral"
+	faction = "terran"
+
+/mob/living/simple_animal/hostile/urist/terran/marine_officer/ground
+	icon_state = "terran_g_officer"
+	icon_living = "terran_g_officer"
+	icon_dead = "terran_g_officer_dead"
+	desc = "A Terran Confederacy Marine Officer. This one is wearing gear worn by ground assault forces."
+	corpse = /obj/effect/landmark/corpse/terran/marine_ground_officer
+
+/mob/living/simple_animal/hostile/urist/terran/marine_officer/ground/event
+	faction = "terran"
 
 /mob/living/simple_animal/hostile/urist/terran/marine_space
 	faction = "terran"
@@ -229,28 +264,40 @@
 	icon_living = "terran_heavy"
 	icon_dead = "terran_heavy_dead"
 	icon_gib = "syndicate_gib"
-	casingtype = /obj/item/ammo_casing/a556
+	casingtype = /obj/item/ammo_casing/a556/used
 	projectilesound = 'sound/weapons/gunshot/gunshot2.ogg'
 	projectiletype = /obj/item/projectile/bullet/rifle/a556
-	maxHealth = 200
-	health = 200
+	maxHealth = 225
+	health = 225
 	min_gas = null
 	max_gas = null
 	minbodytemp = 0
 	minimum_distance = 4
 	retreat_distance = 2
+	corpse = /obj/effect/landmark/corpse/terran/marinespace
 
 /mob/living/simple_animal/hostile/urist/terran/marine_space/event
-	faction = "neutral"
+	faction = "terran"
 
+/mob/living/simple_animal/hostile/urist/terran/marine_space/ground
+	desc = "A Terran Confederacy Marine. This one is wearing a voidsuit worn by ground assault forces."
+	icon_state = "terran_g_heavy"
+	icon_living = "terran_g_heavy"
+	icon_dead = "terran_g_heavy_dead"
+	corpse = /obj/effect/landmark/corpse/terran/marine_ground_space
+
+/mob/living/simple_animal/hostile/urist/terran/marine_space/ground/event
+	faction = "terran"
+
+//rebels
 
 /mob/living/simple_animal/hostile/urist/rebel
 	icon_state = "ANTAG"
 	icon_living = "ANTAG"
 	name = "\improper Rebel"
 	desc = "A member of a growing resistance movement to both NanoTrasen and the Terran Confederacy."
-	casingtype = /obj/item/ammo_casing/a762
-	faction = "rebels"
+	casingtype = /obj/item/ammo_casing/a762/used
+	hiddenfaction = /datum/factions/rebel
 	rapid = 0
 	maxHealth = 130
 	health = 130
@@ -261,4 +308,67 @@
 	projectiletype = /obj/item/projectile/bullet/rifle/a762
 
 /mob/living/simple_animal/hostile/urist/rebel/event
-	faction = "neutral"
+	faction = "rebels"
+
+//new pirates
+
+/mob/living/simple_animal/hostile/urist/newpirate
+	name = "Pirate"
+	desc = "Does what they want 'cause a pirate is free."
+	icon_state = "newpirate_melee"
+	icon_living = "newpirate_melee"
+	icon_dead = "newpirate_melee_dead"
+	speak_chance = 0
+	turns_per_move = 5
+	response_help = "pushes"
+	response_disarm = "shoves"
+	response_harm = "hits"
+	speed = 4
+	stop_automated_movement_when_pulled = 0
+	maxHealth = 120
+	health = 120
+	can_escape = 1
+
+	harm_intent_damage = 5
+	melee_damage_lower = 30
+	melee_damage_upper = 30
+	attacktext = "slashed"
+	attack_sound = 'sound/weapons/bladeslice.ogg'
+
+	unsuitable_atmos_damage = 5
+	var/corpse = /obj/effect/landmark/corpse/newpirate/melee
+	hiddenfaction = /datum/factions/pirate
+	faction = "pirate"
+
+/mob/living/simple_animal/hostile/urist/newpirate/laser
+	name = "Pirate Gunner"
+	icon_state = "newpirate_laser"
+	icon_living = "newpirate_laser"
+	icon_dead = "newpirate_laser_dead"
+	projectilesound = 'sound/weapons/laser.ogg'
+	ranged = 1
+	rapid = 0
+	projectiletype = /obj/item/projectile/beam
+	corpse = /obj/effect/landmark/corpse/newpirate/laser
+	minimum_distance = 5
+	retreat_distance = 3
+
+/mob/living/simple_animal/hostile/urist/newpirate/ballistic
+	name = "Pirate Gunner"
+	icon_state = "newpirate_ballistic"
+	icon_living = "newpirate_ballistic"
+	icon_dead = "newpirate_ballistic_dead"
+	projectilesound = 'sound/weapons/gunshot/gunshot3.ogg'
+	ranged = 1
+	rapid = 2
+	projectiletype = /obj/item/projectile/bullet/rifle/a762
+	corpse = /obj/effect/landmark/corpse/newpirate/ballistic
+	minimum_distance = 5
+	retreat_distance = 3
+
+/mob/living/simple_animal/hostile/urist/newpirate/death(gibbed, deathmessage, show_dead_message)
+	..(gibbed, deathmessage, show_dead_message)
+	if(corpse)
+		new corpse (src.loc)
+	qdel(src)
+	return

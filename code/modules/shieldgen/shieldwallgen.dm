@@ -6,7 +6,7 @@
 	icon_state = "Shield_Gen"
 	anchored = 0
 	density = 1
-	req_one_access = list(access_engine_equip,access_research)
+	req_access = list(list(access_engine_equip,access_research))
 	var/active = 0
 	var/power = 0
 	var/locked = 1
@@ -16,7 +16,7 @@
 	//There have to be at least two posts, so these are effectively doubled
 	var/power_draw = 30 KILOWATTS //30 kW. How much power is drawn from powernet. Increase this to allow the generator to sustain longer shields, at the cost of more power draw.
 	var/max_stored_power = 50 KILOWATTS //50 kW
-	use_power = 0	//Draws directly from power net. Does not use APC power.
+	use_power = POWER_USE_OFF	//Draws directly from power net. Does not use APC power.
 	active_power_usage = 1200
 
 /obj/machinery/shieldwallgen/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
@@ -34,7 +34,7 @@
 		ui.open()
 		ui.set_auto_update(1)
 
-/obj/machinery/shieldwallgen/update_icon()
+/obj/machinery/shieldwallgen/on_update_icon()
 //	if(stat & BROKEN) -TODO: Broken icon
 	if(!active)
 		icon_state = "Shield_Gen"
@@ -104,7 +104,7 @@
 	if(C)	PN = C.powernet		// find the powernet of the connected cable
 
 	if(PN)
-		var/shieldload = between(500, max_stored_power - storedpower, power_draw)	//what we try to draw
+		var/shieldload = between(src.active >= 1 ? 500 + active_power_usage : 500, max_stored_power - storedpower, power_draw)	//what we try to draw
 		shieldload = PN.draw_power(shieldload) //what we actually get
 		storedpower += shieldload
 
@@ -120,8 +120,6 @@
 	power = 0
 	if(!(stat & BROKEN))
 		power()
-	if(power)
-		storedpower -= active_power_usage //the generator post itself uses some power
 
 	if(storedpower >= max_stored_power)
 		storedpower = max_stored_power
@@ -173,8 +171,8 @@
 		T = get_step(T2, NSEW)
 		T2 = T
 		steps += 1
-		if(locate(/obj/machinery/shieldwallgen) in T)
-			G = (locate(/obj/machinery/shieldwallgen) in T)
+		G = (locate(/obj/machinery/shieldwallgen) in T)
+		if(G)
 			steps -= 1
 			if(!G.active)
 				return
@@ -190,9 +188,9 @@
 		var/field_dir = get_dir(T2,get_step(T2, NSEW))
 		T = get_step(T2, NSEW)
 		T2 = T
-		var/obj/machinery/shieldwall/CF = new/obj/machinery/shieldwall/(src, G) //(ref to this gen, ref to connected gen)
-		CF.loc = T
+		var/obj/machinery/shieldwall/CF = new(src, G) //(ref to this gen, ref to connected gen)
 		CF.set_dir(field_dir)
+		CF.loc = T2
 
 
 /obj/machinery/shieldwallgen/attackby(obj/item/W, mob/user)
@@ -279,10 +277,8 @@
 	src.gen_secondary = B
 	if(A && B && A.active && B.active)
 		needs_power = 1
-		if(prob(50))
-			A.storedpower -= generate_power_usage
-		else
-			B.storedpower -= generate_power_usage
+		strain_power(generate_power_usage)
+
 	else
 		qdel(src) //need at least two generator posts
 
@@ -293,9 +289,15 @@
 /obj/machinery/shieldwall/attack_hand(mob/user as mob)
 	return
 
+/obj/machinery/shieldwall/proc/strain_power(var/amount)
+	if(!gen_primary || !gen_secondary)
+		return
+	var/d_amount = amount/2
+	gen_primary.storedpower -= d_amount
+	gen_secondary.storedpower -= d_amount
+
 /obj/machinery/shieldwall/attackby(var/obj/item/I, var/mob/user)
-	var/obj/machinery/shieldwallgen/G = prob(50) ? gen_primary : gen_secondary
-	G.storedpower -= I.force*2500
+	strain_power(I.force*2500)
 	user.visible_message("<span class='danger'>\The [user] hits \the [src] with \the [I]!</span>")
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src)
@@ -311,30 +313,26 @@
 			qdel(src)
 			return
 
-		var/obj/machinery/shieldwallgen/G = prob(50) ? gen_primary : gen_secondary
-		G.storedpower -= power_usage
-
+		strain_power(power_usage)
 
 /obj/machinery/shieldwall/bullet_act(var/obj/item/projectile/Proj)
 	if(needs_power)
-		var/obj/machinery/shieldwallgen/G = prob(50) ? gen_primary : gen_secondary
-		G.storedpower -= 400 * Proj.get_structure_damage()
+		strain_power(400 * Proj.get_structure_damage())
 	..()
 	return
 
 
 /obj/machinery/shieldwall/ex_act(severity)
 	if(needs_power)
-		var/obj/machinery/shieldwallgen/G = prob(50) ? gen_primary : gen_secondary
 		switch(severity)
 			if(1.0) //big boom
-				G.storedpower -= rand(30000, min(G.storedpower, 60000))
+				strain_power(rand(30000, min(prob(50) ? gen_primary.storedpower : gen_secondary.storedpower, 60000)))
 
 			if(2.0) //medium boom
-				G.storedpower -= rand(15000, min(G.storedpower, 30000))
+				strain_power(rand(15000, min(prob(50) ? gen_primary.storedpower : gen_secondary.storedpower, 30000)))
 
 			if(3.0) //lil boom
-				G.storedpower -= rand(5000, min(G.storedpower, 15000))
+				strain_power(rand(5000, min(prob(50) ? gen_primary.storedpower : gen_secondary.storedpower, 15000)))
 	return
 
 

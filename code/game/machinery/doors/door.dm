@@ -33,6 +33,8 @@
 	var/list/connections = list("0", "0", "0", "0")
 	var/list/blend_objects = list(/obj/structure/wall_frame, /obj/structure/window, /obj/structure/grille) // Objects which to blend with
 
+	var/autoset_access = FALSE // Determines whether the door will automatically set its access from the areas surrounding it. Can be used for mapping. //fuck bay
+
 	//Multi-tile doors
 	dir = SOUTH
 	var/width = 1
@@ -54,7 +56,7 @@
 		visible_message("<span class='notice'>\The [user] bonks \the [src] harmlessly.</span>")
 	attack_animation(user)
 
-/obj/machinery/door/Initialize()
+/obj/machinery/door/New()
 	. = ..()
 	if(density)
 		layer = closed_layer
@@ -62,26 +64,40 @@
 	else
 		layer = open_layer
 
+
 	if(width > 1)
-		SetBounds()
-		if(!glass)
-			create_dummy()
+		if(dir in list(EAST, WEST))
+			bound_width = width * world.icon_size
+			bound_height = world.icon_size
+		else
+			bound_width = world.icon_size
+			bound_height = width * world.icon_size
+
 	health = maxhealth
 	update_connections(1)
 	update_icon()
 
 	update_nearby_tiles(need_rebuild=1)
 
+/obj/machinery/door/Initialize()
 	set_extension(src, /datum/extension/penetration, /datum/extension/penetration/proc_call, .proc/CheckPenetration)
+	. = ..()
+	if(autoset_access)
+		if(!length(req_access))
 
-/obj/machinery/door/proc/SetBounds()
-	if(dir in list(EAST, WEST))
-		bound_width = width * world.icon_size
-		bound_height = world.icon_size
-	else
-		bound_width = world.icon_size
-		bound_height = width * world.icon_size
+/*
+#ifdef UNIT_TEST
+		if(length(req_access))
+			crash_with("A door with mapped access restrictions was set to autoinitialize access.")
+#endif
+*/
+			return INITIALIZE_HINT_LATELOAD
 
+
+/obj/machinery/door/LateInitialize()
+	..()
+	if(autoset_access) // Delayed because apparently the dir is not set by mapping and we need to wait for nearby walls to init and turn us.
+		inherit_access_from_area()
 
 /obj/machinery/door/Destroy()
 	set_density(0)
@@ -98,12 +114,12 @@
 			close_door_at = 0
 
 /obj/machinery/door/proc/can_open()
-	if(!density || operating || !ticker)
+	if(!density || operating)
 		return 0
 	return 1
 
 /obj/machinery/door/proc/can_close()
-	if(density || operating || !ticker)
+	if(density || operating)
 		return 0
 	return 1
 
@@ -201,7 +217,7 @@
 			switch (Proj.damage_type)
 				if(BRUTE)
 					new /obj/item/stack/material/steel(src.loc, 2)
-					new /obj/item/stack/rods(src.loc, 3)
+					new /obj/item/stack/material/rods(src.loc, 3)
 				if(BURN)
 					new /obj/effect/decal/cleanable/ash(src.loc) // Turn it to ashes!
 			qdel(src)
@@ -263,7 +279,7 @@
 		else
 			repairing = stack.split(amount_needed, force=TRUE)
 			if (repairing)
-				repairing.loc = src
+				repairing.dropInto(loc)
 				transfer = repairing.amount
 				repairing.uses_charge = FALSE //for clean robot door repair - stacks hint immortal if true
 
@@ -292,7 +308,7 @@
 	if(repairing && isCrowbar(I))
 		to_chat(user, "<span class='notice'>You remove \the [repairing].</span>")
 		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
-		repairing.loc = user.loc
+		repairing.dropInto(user.loc)
 		repairing = null
 		return
 
@@ -340,7 +356,7 @@
 	var/initialhealth = src.health
 	src.health = max(0, src.health - damage)
 	if(src.health <= 0 && initialhealth > 0)
-		src.set_broken()
+		src.set_broken(TRUE)
 	else if(src.health < src.maxhealth / 4 && initialhealth >= src.maxhealth / 4)
 		visible_message("\The [src] looks like it's about to break!" )
 	else if(src.health < src.maxhealth / 2 && initialhealth >= src.maxhealth / 2)
@@ -363,11 +379,10 @@
 		to_chat(user, "\The [src] shows signs of damage!")
 
 
-/obj/machinery/door/proc/set_broken()
-	stat |= BROKEN
-	visible_message("<span class = 'warning'>\The [src.name] breaks!</span>")
-	update_icon()
-
+/obj/machinery/door/set_broken(new_state)
+	. = ..()
+	if(. && new_state)
+		visible_message("<span class = 'warning'>\The [src.name] breaks!</span>")
 
 /obj/machinery/door/ex_act(severity)
 	switch(severity)
@@ -389,7 +404,7 @@
 			take_damage(100)
 
 
-/obj/machinery/door/update_icon()
+/obj/machinery/door/on_update_icon()
 	if(connections in list(NORTH, SOUTH, NORTH|SOUTH))
 		if(connections in list(WEST, EAST, EAST|WEST))
 			set_dir(SOUTH)
@@ -558,3 +573,23 @@
 
 /obj/machinery/door/CanFluidPass(var/coming_from)
 	return !density
+
+// Most doors will never be deconstructed over the course of a round,
+// so as an optimization defer the creation of electronics until
+// the airlock is deconstructed
+/obj/machinery/door/proc/create_electronics(var/electronics_type = /obj/item/weapon/airlock_electronics)
+	var/obj/item/weapon/airlock_electronics/electronics = new electronics_type(loc)
+	electronics.set_access(src)
+	electronics.autoset = autoset_access
+	return electronics
+
+/obj/machinery/door/proc/inherit_access_from_area()
+	var/area/fore = get_area(get_step(src, dir))
+	var/area/aft = get_area(get_step(src, GLOB.reverse_dir[dir])) || fore
+	if(!fore || (fore == aft))
+		req_access = (aft && aft.secure) ? aft.req_access.Copy() : list()
+		return
+	if(fore.secure || aft.secure)
+		req_access = req_access_union(fore, aft)
+		return
+	req_access = req_access_diff(fore, aft)

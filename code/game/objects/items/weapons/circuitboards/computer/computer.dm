@@ -9,12 +9,12 @@
 
 /obj/item/weapon/circuitboard/aiupload
 	name = T_BOARD("AI upload console")
-	build_path = /obj/machinery/computer/aiupload
+	build_path = /obj/machinery/computer/upload/ai
 	origin_tech = list(TECH_DATA = 4)
 
 /obj/item/weapon/circuitboard/borgupload
 	name = T_BOARD("cyborg upload console")
-	build_path = /obj/machinery/computer/borgupload
+	build_path = /obj/machinery/computer/upload/robot
 	origin_tech = list(TECH_DATA = 4)
 
 /obj/item/weapon/circuitboard/scan_consolenew
@@ -117,15 +117,19 @@
 
 /obj/item/weapon/circuitboard/helm
 	name = T_BOARD("helm control console")
-	build_path = /obj/machinery/computer/helm
+	build_path = /obj/machinery/computer/ship/helm
 
 /obj/item/weapon/circuitboard/engine
 	name = T_BOARD("engine control console")
-	build_path = /obj/machinery/computer/engines
+	build_path = /obj/machinery/computer/ship/engines
+
+/obj/item/weapon/circuitboard/combat_computer
+	name = T_BOARD("combat computer")
+	build_path = /obj/machinery/computer/combatcomputer
 
 /obj/item/weapon/circuitboard/nav
 	name = T_BOARD("navigation console")
-	build_path = /obj/machinery/computer/navigation
+	build_path = /obj/machinery/computer/ship/navigation
 
 /obj/item/weapon/circuitboard/mining_shuttle
 	name = T_BOARD("mining shuttle console")
@@ -155,3 +159,7 @@
 /obj/item/weapon/circuitboard/account_database
 	name = T_BOARD("accounts uplink terminal")
 	build_path = /obj/machinery/computer/account_database
+
+/obj/item/weapon/circuitboard/account_manager
+	name = T_BOARD("accounts management console")
+	build_path = /obj/machinery/computer/accounts

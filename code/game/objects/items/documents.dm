@@ -7,17 +7,29 @@
 	throwforce = 0
 	w_class = ITEM_SIZE_TINY
 	throw_range = 1
+	var/description_antag
+
+/obj/item/documents/examine(var/mob/user)
+	. = ..()
+	if(. && description_antag)
+		to_chat(user, description_antag)
 
 /obj/item/documents/nanotrasen
-	name = "NanoTrasen secret documents"
-	desc = "\"Top Secret\" NanoTrasen documents, filled with complex diagrams, research procedures, and details on a deal with SCG granting NT exclusive breeding rights to non-sapient species the Torch encounters."
-	description_antag = "NanoTrasen seems to be wanting to create weaponized xenobiological species. Probably as a form of WMD, by your best guess."
+	name = "secret corporate documents"
+	desc = "\"Top Secret\" corporate documents, filled with complex diagrams, research procedures, and details on cloning or breeding rights to non-sapient species the Torch encounters. It seems like they will be auctioning them off to the highest private bidder."
+	description_antag = "A conglomerate of powerful corporations seems to be wanting to create weaponized xenobiological species. Probably as a form of WMD, by your best guess."
 	icon_state = "docs_verified"
 
 /obj/item/documents/scg/verified
-	name = "SCG secret documents"
+	name = "secret government documents"
 	desc = "\"Top Secret\" documents detailing SCG IFF codes, granting the Torch access into restricted sectors. The majority of them are coordinates, codes for fellow ships, and clearance lists."
 	description_antag = "These codes seem very odd for an exploration vessel: a lot of them are SCG blacksites, covered up. You've never even heard of most of these."
+	icon_state = "docs_verified"
+
+/obj/item/documents/scg/brains
+	name = "secret medical documents"
+	desc = "Heavily classified medical documentation of brain scans and exploratory surgery conducted across the entire length of the Torch project. It seems like they have been documenting how deep-space living has altered the structure of the brain."
+	description_antag = "These studies were conducted, without consent, while the patients were under anaesthesia for some other routine medical concern. They detail some very unusual deformities within the deepest parts of the brain, correlating them with the people and places visited by the Torch 'for later assessment'. The findings, and any 'viable specimens', are to be delivered to a black site on S/2004 N 1."
 	icon_state = "docs_verified"
 
 /obj/item/documents/scg/red

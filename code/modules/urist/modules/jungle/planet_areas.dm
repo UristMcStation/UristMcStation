@@ -7,6 +7,7 @@
 	luminosity = 1
 	icon = 'icons/jungle.dmi'
 	icon_state = "area"
+	has_gravity = 1
 
 /area/planet/jungle
 	name = "jungle"

@@ -37,7 +37,7 @@
 	damage = 10
 	damage_type = BURN
 	check_armour = "energy"
-	var/temperature = 300
+	var/firing_temperature = 300
 
 /obj/item/projectile/temp/launch_from_gun(atom/target, mob/user, obj/item/weapon/gun/launcher, var/target_zone, var/x_offset=0, var/y_offset=0)
 	var/obj/item/weapon/gun/energy/temperature/T = launcher
@@ -65,7 +65,7 @@
 
 	Bump(atom/A as mob|obj|turf|area)
 		if(A == firer)
-			loc = A.loc
+			forceMove(A.loc)
 			return
 
 		sleep(-1) //Might not be important enough for a sleep(-1) but the sleep/spawn itself is necessary thanks to explosions and metoerhits
@@ -156,6 +156,7 @@
 		if(ishuman(target))
 			var/mob/living/carbon/human/M = target
 			M.confused += rand(5,8)
+
 /obj/item/projectile/chameleon
 	name = "bullet"
 	icon_state = "bullet"
@@ -165,3 +166,15 @@
 	damage_type = PAIN
 	muzzle_type = /obj/effect/projectile/bullet/muzzle
 
+/obj/item/projectile/venom
+	name = "venom bolt"
+	icon_state = "venom"
+	damage = 5 //most damage is in the reagent
+	damage_type = TOX
+	check_armour = "bio"
+
+/obj/item/projectile/venom/on_hit(atom/target, blocked, def_zone)
+	. = ..()
+	var/mob/living/L = target
+	if(L.reagents)
+		L.reagents.add_reagent(/datum/reagent/toxin/venom, 5)

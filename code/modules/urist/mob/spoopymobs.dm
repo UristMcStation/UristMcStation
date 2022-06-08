@@ -288,7 +288,7 @@
 
 	var/mobpath = /mob/living/simple_animal/hostile/urist/zombie
 
-	src.mutations.Add(HUSK)
+	src.mutations.Add(MUTATION_HUSK)
 	for(var/organ in list(BP_R_ARM,BP_L_ARM,BP_R_LEG,BP_L_LEG,BP_GROIN,BP_CHEST,BP_HEAD))
 		var/obj/item/organ/external/E = src.organs_by_name[organ]
 		if(E)

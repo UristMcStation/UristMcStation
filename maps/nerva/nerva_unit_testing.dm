@@ -14,12 +14,12 @@
 		/area/maintenance/fourth_deck/central = NO_SCRUBBER|NO_VENT,
 		/area/maintenance/fourth_deck/fp = NO_SCRUBBER|NO_VENT,
 		/area/maintenance/fourth_deck/afp = NO_SCRUBBER,
-		/area/maintenance/third_deck/fs = NO_SCRUBBER|NO_VENT,
+		/area/maintenance/third_deck/fs = NO_SCRUBBER,
 		/area/maintenance/third_deck/afs = NO_SCRUBBER|NO_VENT,
 		/area/maintenance/third_deck/cents = NO_SCRUBBER|NO_VENT,
 		/area/maintenance/third_deck/centp = NO_SCRUBBER,
 		/area/maintenance/third_deck/central = NO_SCRUBBER|NO_VENT,
-		/area/maintenance/third_deck/fp = NO_SCRUBBER|NO_VENT,
+		/area/maintenance/third_deck/fp = NO_SCRUBBER,
 		/area/maintenance/third_deck/afp = NO_SCRUBBER,
 		/area/maintenance/second_deck/fs = NO_SCRUBBER,
 		/area/maintenance/second_deck/afs = NO_SCRUBBER|NO_VENT,
@@ -67,7 +67,6 @@
 		/area/djstation,
 		/area/outpost,
 		/area/outpost/abandoned,
-		/area/jungleoutpost,
 		/area/centcom/holding,
 		/area/centcom/specops,
 		/area/centcom/holding,
@@ -111,7 +110,6 @@
 		/area/map_template,
 		/area/exoplanet,
 //		/area/lanius,
-		/area/planet/jungle,
 		/area/scom,
 		/area/shuttle/naval1,
 		/area/shuttle/scom,
@@ -125,9 +123,11 @@
 		/area/away,
 		/area/spacestations,
 		/area/unishi,
-		/area/jungleoutpost,
 		/area/planet,
-		/area/noctis
+		/area/noctis,
+		/area/jungleoutpost,
+		/area/voxship,
+		/area/morninglight
 	)
 
 	area_coherency_test_exempt_areas = list(
@@ -140,5 +140,8 @@
 		/area/exoplanet/grass,
 		/area/exoplanet/snow,
 		/area/exoplanet/garbage,
-		/area/noctis/exteriorl
+		/area/noctis/exteriorl,
+		/area/jungleoutpost,
+		/area/voxship,
+		/area/morninglight,
 	)

@@ -8,7 +8,7 @@
 	density = 1
 	anchored = 1
 
-	var/list/loot = list(/obj/item/weapon/cell,/obj/item/stack/material/iron,/obj/item/stack/rods)
+	var/list/loot = list(/obj/item/weapon/cell,/obj/item/stack/material/iron,/obj/item/stack/material/rods)
 	var/lootleft = 1
 	var/emptyprob = 95
 	health = 40
@@ -23,7 +23,7 @@
 	. = ..()
 	update_icon()
 
-/obj/structure/rubble/update_icon()
+/obj/structure/rubble/on_update_icon()
 	overlays.Cut()
 	var/list/parts = list()
 	for(var/i = 1 to 7)

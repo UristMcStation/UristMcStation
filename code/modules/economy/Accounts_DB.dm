@@ -3,7 +3,7 @@
 	name = "accounts uplink terminal"
 	desc = "Access transaction logs, account data and all kinds of other financial records."
 
-	req_one_access = list(access_hop, access_captain, access_cent_captain)
+	req_access = list(list(access_hop, access_captain, access_cent_captain))
 	var/receipt_num
 	var/machine_id = ""
 	var/obj/item/weapon/card/id/held_card
@@ -160,7 +160,7 @@
 				creating_new_account = 0
 			if("insert_card")
 				if(held_card)
-					held_card.loc = src.loc
+					held_card.dropInto(loc)
 
 					if(ishuman(usr) && !usr.get_active_hand())
 						usr.put_in_hands(held_card)

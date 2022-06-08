@@ -67,7 +67,7 @@
 
 	return 1
 
-// Address namespace (@internal-services.nt) for email addresses with special purpose only!.
+// Address namespace (@internal-services.net) for email addresses with special purpose only!.
 /datum/computer_file/data/email_account/service/
 	can_login = FALSE
 
@@ -91,3 +91,12 @@
 
 /datum/computer_file/data/email_account/service/document
 	login = EMAIL_DOCUMENTS
+
+/datum/computer_file/data/email_account/service/sysadmin
+	login = EMAIL_SYSADMIN
+
+/datum/computer_file/data/email_account/service/payroll
+	login = EMAIL_PAYROLL
+
+/datum/computer_file/data/email_account/service/finance
+	login = EMAIL_FINANCE

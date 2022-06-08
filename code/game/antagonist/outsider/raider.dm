@@ -144,7 +144,7 @@ GLOBAL_DATUM_INIT(raiders, /datum/antagonist/raider, new)
 	var/win_msg = ""
 
 	//No objectives, go straight to the feedback.
-	if(config.objectives_disabled == CONFIG_OBJECTIVE_NONE || !global_objectives.len)
+	if(config.objectives_enabled == CONFIG_OBJECTIVE_NONE || !global_objectives.len)
 		return
 
 	var/success = global_objectives.len
@@ -181,7 +181,7 @@ GLOBAL_DATUM_INIT(raiders, /datum/antagonist/raider, new)
 
 	to_world("<span class='danger'><font size = 3>[win_type] [win_group] victory!</font></span>")
 	to_world("[win_msg]")
-	feedback_set_details("round_end_result","heist - [win_type] [win_group]")
+	SSstatistics.set_field_details("round_end_result","heist - [win_type] [win_group]")
 
 /datum/antagonist/raider/proc/is_raider_crew_safe()
 

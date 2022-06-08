@@ -131,7 +131,7 @@
 // heal the given amount of damage, and if the given amount of damage was more
 // than what needed to be healed, return how much heal was left
 /datum/wound/proc/heal_damage(amount)
-	if(embedded_objects.len)
+	if(embedded_objects.len || clamped)
 		return amount // heal nothing
 	var/healed_damage = min(src.damage, amount)
 	amount -= healed_damage

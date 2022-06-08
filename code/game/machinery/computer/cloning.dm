@@ -337,13 +337,6 @@
 					temp = "Error: Clonepod malfunction."
 				else if(!config.revival_cloning)
 					temp = "Error: Unable to initiate cloning cycle."
-
-				else if(pod.growclone(C))
-					temp = "Initiating cloning cycle..."
-					if(!config.use_cortical_stacks)
-						records.Remove(C)
-					qdel(C)
-					menu = 1
 				else
 					var/cloning
 					if(config.use_cortical_stacks)
@@ -395,7 +388,7 @@
 		if(subject.isSynthetic())
 			scantemp = "Error: Subject is not organic."
 			return
-	if (NOCLONE in subject.mutations)
+	if (MUTATION_NOCLONE in subject.mutations)
 		scantemp = "Error: Major genetic degradation."
 		return
 	if (subject.species && subject.species.species_flags & SPECIES_FLAG_NO_SCAN)

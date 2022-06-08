@@ -4,7 +4,7 @@
 					/obj/item/clothing/head/helmet/space/void/excavation,
 					/obj/item/clothing/shoes/magboots)
 	cost = 120
-	containername = "\improper Excavation voidsuit crate"
+	containername = "excavation voidsuit crate"
 	containertype = /obj/structure/closet/crate/secure/large
 	access = access_nanotrasen
 
@@ -14,7 +14,7 @@
 					/obj/item/clothing/head/helmet/space/void/mining/alt,
 					/obj/item/clothing/shoes/magboots)
 	cost = 120
-	containername = "\improper Mining voidsuit crate"
+	containername = "mining voidsuit crate"
 	containertype = /obj/structure/closet/crate/secure/large
 	access = access_nanotrasen
 
@@ -24,7 +24,7 @@
 					/obj/item/clothing/head/helmet/space/void/pilot,
 					/obj/item/clothing/shoes/magboots)
 	cost = 120
-	containername = "\improper Pilot voidsuit crate"
+	containername = "pilot voidsuit crate"
 	containertype = /obj/structure/closet/crate/secure/large
 	access = access_nanotrasen
 
@@ -34,7 +34,7 @@
 					/obj/item/clothing/head/helmet/space/void/exploration,
 					/obj/item/clothing/shoes/magboots)
 	cost = 120
-	containername = "\improper Exploration voidsuit crate"
+	containername = "exploration voidsuit crate"
 	containertype = /obj/structure/closet/crate/secure/large
 	access = access_explorer
 
@@ -44,7 +44,7 @@
 					/obj/item/clothing/head/helmet/space/void/excavation,
 					/obj/item/clothing/shoes/magboots)
 	cost = 120
-	containername = "\improper Excavation voidsuit crate"
+	containername = "excavation voidsuit crate"
 	containertype = /obj/structure/closet/crate/secure/large
 	access = access_nanotrasen
 
@@ -54,7 +54,7 @@
 					/obj/item/clothing/head/helmet/space/void/mining/alt,
 					/obj/item/clothing/shoes/magboots)
 	cost = 120
-	containername = "\improper Mining voidsuit crate"
+	containername = "mining voidsuit crate"
 	containertype = /obj/structure/closet/crate/secure/large
 	access = access_nanotrasen
 
@@ -64,7 +64,7 @@
 					/obj/item/clothing/head/helmet/space/void/pilot,
 					/obj/item/clothing/shoes/magboots)
 	cost = 120
-	containername = "\improper Pilot voidsuit crate"
+	containername = "pilot voidsuit crate"
 	containertype = /obj/structure/closet/crate/secure/large
 	access = access_nanotrasen
 
@@ -74,6 +74,28 @@
 					/obj/item/clothing/head/helmet/space/void/exploration,
 					/obj/item/clothing/shoes/magboots)
 	cost = 120
-	containername = "\improper Exploration voidsuit crate"
+	containername = "exploration voidsuit crate"
 	containertype = /obj/structure/closet/crate/secure/large
 	access = access_explorer
+
+/decl/hierarchy/supply_pack/hydroponics/exoticseeds
+	contains = list(/obj/item/seeds/replicapod = 2,
+					/obj/item/seeds/libertymycelium = 2,
+					/obj/item/seeds/reishimycelium = 2,
+					/obj/item/seeds/kudzuseed = 2)
+
+/decl/hierarchy/supply_pack/science/shotgun
+	name = "Weapons - Ballistic Launcher"
+	contains = list(/obj/item/weapon/gun/projectile/shotgun/pump/exploration = 1)
+	cost = 60
+	containertype = /obj/structure/closet/crate/secure/weapon
+	containername = "ballistic launcher crate"
+	access = access_pathfinder
+
+/decl/hierarchy/supply_pack/science/nets
+	name = "Ammunition - Utility Shells"
+	contains = list(/obj/item/weapon/storage/box/ammo/explo_shells = 2)
+	cost = 30
+	containertype = /obj/structure/closet/crate/secure/weapon
+	containername = "utlity shells crate"
+	access = access_pathfinder

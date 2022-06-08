@@ -3,11 +3,12 @@
 	desc = "A little cleaning robot, he looks so excited!"
 	icon = 'icons/mob/bot/cleanbot.dmi'
 	icon_state = "cleanbot0"
-	req_one_access = list(access_janitor, access_robotics)
+	req_access = list(list(access_janitor, access_robotics))
 	botcard_access = list(access_janitor, access_maint_tunnels)
 
 	wait_if_pulled = 1
 	min_target_dist = 0
+	max_frustration = 5
 
 	var/cleaning = 0
 	var/screwloose = 0
@@ -153,6 +154,7 @@
 	target_types += /obj/effect/decal/cleanable/mucus
 	target_types += /obj/effect/decal/cleanable/dirt
 	target_types += /obj/effect/decal/cleanable/filth
+	target_types += /obj/effect/decal/cleanable/spiderling_remains
 
 	if(blood)
 		target_types += /obj/effect/decal/cleanable/blood

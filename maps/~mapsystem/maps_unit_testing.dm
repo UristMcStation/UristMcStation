@@ -9,7 +9,9 @@
 		/area/exoplanet/desert      = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/exoplanet/grass       = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/exoplanet/snow        = NO_SCRUBBER|NO_VENT|NO_APC,
-		/area/exoplanet/garbage     = NO_SCRUBBER|NO_VENT|NO_APC
+		/area/exoplanet/garbage     = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/exoplanet/shrouded    = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/exoplanet/chlorine    = NO_SCRUBBER|NO_VENT|NO_APC
 	)
 
 	var/list/area_coherency_test_exempt_areas = list(
@@ -18,23 +20,28 @@
 		/area/exoplanet/desert,
 		/area/exoplanet/grass,
 		/area/exoplanet/snow,
-		/area/exoplanet/garbage
+		/area/exoplanet/garbage,
+		/area/exoplanet/shrouded,
+		/area/exoplanet/chlorine
 	)
 	var/list/area_coherency_test_subarea_count = list()
 
 	// These areas are used specifically by code and need to be broken out somehow
 	var/list/area_usage_test_exempted_areas = list(
 		/area/beach,
+		/area/boarding_ship,
 		/area/centcom,
 		/area/centcom/holding,
 		/area/centcom/specops,
 		/area/chapel,
 		/area/hallway,
+		/area/jungleoutpost,
 		/area/maintenance,
 		/area/medical,
 		/area/medical/virology,
 		/area/medical/virologyaccess,
 		/area/overmap,
+		/area/planet,
 		/area/rnd,
 		/area/rnd/xenobiology,
 		/area/rnd/xenobiology/xenoflora,
@@ -49,13 +56,6 @@
 		/area/shuttle/escape/centcom,
 		/area/shuttle/specops,
 		/area/shuttle/specops/centcom,
-		/area/shuttle/syndicate_elite,
-		/area/shuttle/syndicate_elite/mothership,
-		/area/shuttle/syndicate_elite/station,
-		/area/shuttle/infestation/i1/station,
-		/area/shuttle/infestation/i1/ship,
-		/area/shuttle/infestation/i2/station,
-		/area/shuttle/infestation/i2/ship,
 		/area/turbolift,
 		/area/supply,
 		/area/syndicate_mothership,
@@ -66,7 +66,20 @@
 
 	var/list/area_usage_test_exempted_root_areas = list(
 		/area/map_template,
-		/area/exoplanet
+		/area/exoplanet,
+		/area/infestation,
+		/area/jungleoutpost,
+		/area/planet/jungle,
+		/area/shuttle/scom,
+		/area/shuttle/assault,
+		/area/shuttle/infestation,
+		/area/shuttle/event1,
+		/area/shuttle/event2,
+		/area/shuttle/train,
+		/area/shuttle/naval1,
+		/area/shuttle/syndicate_elite,
+		/area/scom,
+		/area/awaymission,
 	)
 
 	var/list/area_purity_test_exempt_areas = list()

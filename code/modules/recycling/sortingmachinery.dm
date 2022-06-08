@@ -72,8 +72,8 @@
 				"You hear someone scribbling a note.")
 	return
 
-/obj/structure/bigDelivery/update_icon()
-	overlays = new()
+/obj/structure/bigDelivery/on_update_icon()
+	overlays.Cut()
 	if(nameset || examtext)
 		var/image/I = new/image('icons/obj/storage.dmi',"delivery_label")
 		if(icon_state == "deliverycloset")
@@ -111,7 +111,7 @@
 
 /obj/structure/bigDelivery/Destroy()
 	if(wrapped) //sometimes items can disappear. For example, bombs. --rastaf0
-		wrapped.forceMove(get_turf(src))
+		wrapped.dropInto(loc)
 		if(istype(wrapped, /obj/structure/closet))
 			var/obj/structure/closet/O = wrapped
 			O.welded = 0
@@ -135,12 +135,7 @@
 /obj/item/smallDelivery/proc/unwrap(var/mob/user)
 	if (!wrapped || !Adjacent(user))
 		return
-	wrapped.forceMove(user.loc)
-	user.drop_item()
-	if(ishuman(user))
-		user.put_in_hands(wrapped)
-	else
-		wrapped.forceMove(get_turf(src))
+	user.put_in_hands(wrapped)
 	qdel(src)
 
 /obj/item/smallDelivery/attack_robot(mob/user as mob)
@@ -198,8 +193,8 @@
 				"You hear someone scribbling a note.")
 	return
 
-/obj/item/smallDelivery/update_icon()
-	overlays = new()
+/obj/item/smallDelivery/on_update_icon()
+	overlays.Cut()
 	if((nameset || examtext) && icon_state != "deliverycrate1")
 		var/image/I = new/image('icons/obj/storage.dmi',"delivery_label")
 		if(icon_state == "deliverycrate5")
@@ -328,6 +323,16 @@
 			"You hear someone taping paper around a large object.")
 		else if(src.get_amount() < 3)
 			to_chat(user, "<span class='warning'>You need more paper.</span>")
+	else if (istype(target, /obj/structure/shipammo))
+		if (src.get_amount() >= 3)
+			var/obj/structure/bigDelivery/P = new /obj/structure/bigDelivery(get_turf(target.loc))
+			P.icon_state = "deliverycrate"
+			P.wrapped = target
+			target.forceMove(P)
+			src.use(3)
+			user.visible_message("\The [user] wraps \a [target] with \a [src].",\
+			"<span class='notice'>You wrap \the [target], leaving [src.get_amount()] units of paper on \the [src].</span>",\
+			"You hear someone taping paper around a large object.")
 	else
 		to_chat(user, "<span class='notice'>The object you are trying to wrap is unsuitable for the sorting machinery!</span>")
 
@@ -342,7 +347,7 @@
 	item_state = "electronic"
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BELT
-	matter = list(DEFAULT_WALL_MATERIAL = 100, "glass" = 34)
+	matter = list(MATERIAL_STEEL = 100, MATERIAL_GLASS = 34)
 
 /obj/item/device/destTagger/proc/openwindow(mob/user as mob)
 	var/dat = "<tt><center><h1><b>TagMaster 2.3</b></h1></center>"
@@ -404,7 +409,7 @@
 /obj/machinery/disposal/deliveryChute/interact()
 	return
 
-/obj/machinery/disposal/deliveryChute/update_icon()
+/obj/machinery/disposal/deliveryChute/on_update_icon()
 	return
 
 /obj/machinery/disposal/deliveryChute/Bumped(var/atom/movable/AM) //Go straight into the chute
@@ -509,3 +514,76 @@
 	uses_charge = 1
 	charge_costs = list(1)
 	stacktype = /obj/item/stack/package_wrap
+
+/obj/machinery/disposal/deliveryChute/wrap
+	name = "wrapping delivery chute"
+	desc = "A chute for big and small packages alike! This one automatically wraps and tags packages"
+	var/currTag = 0
+
+/obj/machinery/disposal/deliveryChute/wrap/Bumped(var/atom/movable/AM)
+	if(istype(AM, /obj/item/projectile) || istype(AM, /obj/effect))	return
+	if(istype(AM, /obj/mecha))	return
+	switch(dir)
+		if(NORTH)
+			if(AM.loc.y != src.loc.y+1) return
+		if(EAST)
+			if(AM.loc.x != src.loc.x+1) return
+		if(SOUTH)
+			if(AM.loc.y != src.loc.y-1) return
+		if(WEST)
+			if(AM.loc.x != src.loc.x-1) return
+
+	if(currTag == 0)
+		playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 1)
+		audible_message("No destination tag set")
+		return
+	var/obj/structure/bigDelivery/P = new /obj/structure/bigDelivery(get_turf(AM.loc))
+	P.icon_state = "deliverycrate"
+	P.wrapped = AM
+	AM.forceMove(P)
+	P.sortTag = src.currTag
+	P.forceMove(src)
+	src.flush()
+
+/obj/machinery/disposal/deliveryChute/wrap/proc/openwindow(mob/user as mob)
+	var/dat = "<tt><center><h1><b>TagMaster 2.3</b></h1></center>"
+
+	dat += "<table style='width:100%; padding:4px;'><tr>"
+	for(var/i = 1, i <= GLOB.tagger_locations.len, i++)
+		dat += "<td><a href='?src=\ref[src];nextTag=[GLOB.tagger_locations[i]]'>[GLOB.tagger_locations[i]]</a></td>"
+
+		if (i%4==0)
+			dat += "</tr><tr>"
+
+	dat += "</tr></table><br>Current Selection: [currTag ? currTag : "None"]</tt>"
+	dat += "<br><a href='?src=\ref[src];nextTag=CUSTOM'>Enter custom location.</a>"
+	user << browse(dat, "window=destTagScreen;size=450x375")
+	onclose(user, "destTagScreen")
+
+/obj/machinery/disposal/deliveryChute/wrap/attack_hand(mob/user as mob)
+	. = ..()
+	openwindow(user)
+
+/obj/machinery/disposal/deliveryChute/wrap/OnTopic(user, href_list, state)
+	if(href_list["nextTag"] && href_list["nextTag"] in GLOB.tagger_locations)
+		src.currTag = href_list["nextTag"]
+		to_chat(user, "<span class='notice'>You set [src] to <b>[src.currTag]</b>.</span>")
+		playsound(src.loc, 'sound/machines/chime.ogg', 50, 1)
+		. = TOPIC_REFRESH
+	if(href_list["nextTag"] == "CUSTOM")
+		var/dest = input(user, "Please enter custom location.", "Location", src.currTag ? src.currTag : "None")
+		if(CanUseTopic(user, state))
+			if(dest && lowertext(dest) != "none")
+				src.currTag = dest
+				to_chat(user, "<span class='notice'>You designate a custom location on [src], set to <b>[src.currTag]</b>.</span>")
+				playsound(src.loc, 'sound/machines/chime.ogg', 50, 1)
+			else
+				src.currTag = 0
+				to_chat(user, "<span class='notice'>You clear [src]'s custom location.</span>")
+				playsound(src.loc, 'sound/machines/chime.ogg', 50, 1)
+			. = TOPIC_REFRESH
+		else
+			. = TOPIC_HANDLED
+
+	if(. == TOPIC_REFRESH)
+		openwindow(user)

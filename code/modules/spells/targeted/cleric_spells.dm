@@ -13,6 +13,7 @@
 
 	cooldown_reduc = 50
 	hud_state = "heal_minor"
+	cast_sound = 'sound/magic/staff_healing.ogg'
 
 	amt_dam_brute = -15
 	amt_dam_fire = -5
@@ -29,6 +30,9 @@
 	amt_dam_fire -= 15
 
 	return "[src] will now heal more."
+
+/spell/targeted/heal_target/tower
+	charge_max = 2
 
 /spell/targeted/heal_target/touch
 	name = "Healing Touch"
@@ -74,6 +78,9 @@
 
 	return "[src] heals more, and heals organ damage and radiation."
 
+/spell/targeted/heal_target/major/tower
+	charge_max = 1
+
 /spell/targeted/heal_target/area
 	name = "Cure Area"
 	desc = "This spell heals everyone in an area."
@@ -99,6 +106,8 @@
 
 	return "[src] now heals more in a wider area."
 
+/spell/targeted/heal_target/area/tower
+	charge_max = 1
 
 /spell/targeted/heal_target/area/slow
 	charge_max = 2 MINUTES
@@ -123,6 +132,7 @@
 	effect_color = "#ff0000"
 
 	hud_state = "gen_dissolve"
+	cast_sound = 'sound/magic/disintegrate.ogg'
 
 /spell/targeted/heal_target/sacrifice/empower_spell()
 	if(!..())

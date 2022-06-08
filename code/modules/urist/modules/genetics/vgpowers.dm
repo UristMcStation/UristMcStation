@@ -31,7 +31,7 @@ Obviously, requires DNA2.
 		return ..(M,flags)
 
 	OnDrawUnderlays(var/mob/M,var/g,var/fat)
-		if(HULK in M.mutations)
+		if(MUTATION_HULK in M.mutations)
 			if(fat)
 				return "hulk_[fat]_s"
 			else
@@ -40,11 +40,11 @@ Obviously, requires DNA2.
 
 	OnMobLife(var/mob/living/carbon/human/M)
 		if(!istype(M)) return
-		if(HULK in M.mutations)
+		if(MUTATION_HULK in M.mutations)
 			var/timeleft=M.hulk_time - world.time
 			if(M.health <= 25 || timeleft <= 0)
 				M.hulk_time=0 // Just to be sure.
-				M.mutations.Remove(HULK)
+				M.mutations.Remove(MUTATION_HULK)
 				//M.dna.SetSEState(HULKBLOCK,0)
 				M.update_mutations()		//update our mutation overlays
 				M.update_body()
@@ -74,7 +74,7 @@ Obviously, requires DNA2.
 		return
 	var/mob/living/carbon/human/M=usr
 	M.hulk_time = world.time + HULK_DURATION
-	M.mutations.Add(HULK)
+	M.mutations.Add(MUTATION_HULK)
 	M.update_mutations()		//update our mutation overlays
 	M.update_body()
 	//M.say(pick("",";")+pick("HULK MAD","YOU MADE HULK ANGRY")) // Just a note to security.

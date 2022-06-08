@@ -185,4 +185,4 @@
 	move_trail = null //Urist add: Sneakies buff.
 	item_flags = ITEM_FLAG_SILENT
 	atom_flags = ATOM_FLAG_NO_BLOOD
-	description_fluff =  "Originally designed to confuse Terran troops on the swamp moon of Nabier XI, where they were proven somewhat effective. Not bad on a space vessel, either."
+//TODO: Make a codex entry for this.	description_fluff =  "Originally designed to confuse Terran troops on the swamp moon of Nabier XI, where they were proven somewhat effective. Not bad on a space vessel, either."

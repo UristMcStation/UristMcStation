@@ -12,10 +12,9 @@
 	set_invisibility(101)
 	for(var/t in organs)
 		qdel(t)
-	var/atom/movable/overlay/animation = new /atom/movable/overlay( loc )
+	var/atom/movable/overlay/animation = new /atom/movable/overlay(src)
 	animation.icon_state = "blank"
 	animation.icon = 'icons/mob/mob.dmi'
-	animation.master = src
 	flick("h2monkey", animation)
 	sleep(48)
 	//animation = null
@@ -42,7 +41,16 @@
 
 /mob/new_player/AIize()
 	spawning = 1
-	return ..()
+	if(length(empty_playable_ai_cores))
+		var/obj/structure/AIcore/deactivated/C = empty_playable_ai_cores[1]
+		empty_playable_ai_cores -= C
+		var/mob/living/silicon/ai/A = ..(0)
+		A.forceMove(C.loc)
+		A.on_mob_init()
+		qdel(C)
+		return A
+	else
+		return ..()	//Fallback AIize, spawning a new AI at any AI landmark. This is only used by gamemode antag AI's which don't spawn & check for inactive cores (ie, malf)
 
 /mob/living/carbon/human/AIize(move=1) // 'move' argument needs defining here too because BYOND is dumb
 	if (HAS_TRANSFORMATION_MOVEMENT_HANDLER(src))
@@ -126,30 +134,26 @@
 
 	if(mind)		//TODO
 		mind.transfer_to(O)
-		if(O.mind.assigned_role == "Robot")
+		if(O.mind && O.mind.assigned_role == "Robot")
 			O.mind.original = O
+			if(O.mind.role_alt_title == "Drone")
+				O.mmi = new /obj/item/device/mmi/digital/robot(O)
+			else if(O.mind.role_alt_title == "Cyborg")
+				O.mmi = new /obj/item/device/mmi(O)
+			else
+				O.mmi = new /obj/item/organ/internal/posibrain(O)
+			O.mmi.transfer_identity(src)
 		else if(mind && mind.special_role)
 			O.mind.store_memory("In case you look at this after being borged, the objectives are only here until I find a way to make them not show up for you, as I can't simply delete them without screwing up round-end reporting. --NeoFite")
 	else
 		O.key = key
 
-	O.loc = loc
+	O.dropInto(loc)
 	O.job = "Robot"
-	if(O.mind.assigned_role == "Robot")
-		if(O.mind.role_alt_title == "Drone")
-			O.mmi = new /obj/item/device/mmi/digital/robot(O)
-		else if(O.mind.role_alt_title == "Cyborg")
-			O.mmi = new /obj/item/device/mmi(O)
-		else
-			O.mmi = new /obj/item/organ/internal/posibrain(O)
-
-		O.mmi.transfer_identity(src)
-
 	callHook("borgify", list(O))
 	O.Namepick()
 
-	spawn(0)	// Mobs still instantly del themselves, thus we need to spawn or O will never be returned
-		qdel(src)
+	qdel(src) // Queues us for a hard delete
 	return O
 
 /mob/living/carbon/human/proc/slimeize(adult as num, reproduce as num)
@@ -266,9 +270,6 @@
 	if(!MP)
 		return 0	//Sanity, this should never happen.
 
-	if(ispath(MP, /mob/living/simple_animal/space_worm))
-		return 0 //Unfinished. Very buggy, they seem to just spawn additional space worms everywhere and eating your own tail results in new worms spawning.
-
 	if(ispath(MP, /mob/living/simple_animal/construct/behemoth))
 		return 0 //I think this may have been an unfinished WiP or something. These constructs should really have their own class simple_animal/construct/subtype
 
@@ -309,7 +310,7 @@
 
 /mob/living/carbon/human/proc/zombify()
 	ChangeToHusk()
-	mutations |= CLUMSY
+	mutations |= MUTATION_CLUMSY
 	src.visible_message("<span class='danger'>\The [src]'s skin decays before your very eyes!</span>", "<span class='danger'>Your entire body is ripe with pain as it is consumed down to flesh and bones. You ... hunger. Not only for flesh, but to spread this gift.</span>")
 	if (src.mind)
 		if (src.mind.special_role == "Zombie")

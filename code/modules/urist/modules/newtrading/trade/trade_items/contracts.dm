@@ -44,6 +44,11 @@
 	item_type = /obj/item/weapon/paper/contract/nanotrasen/piratehunt
 	category = "ntseccontract"
 
+/datum/trade_item/contract/ntsec/ntpiratestation
+	name = "Pirate Hideout Destruction Contract"
+	item_type = /obj/item/weapon/paper/contract/nanotrasen/piratestation
+	category = "ntseccontract"
+
 //robotics
 
 

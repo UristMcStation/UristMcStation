@@ -40,3 +40,7 @@ slot_l_ear_str = 'icons/uristmob/l_ear.dmi', slot_r_ear_str = 'icons/uristmob/l_
 
 //genetics:
 #define M_NOIR 205
+
+//macro
+
+#define isstorage(A)	istype(A, /obj/item/weapon/storage)
