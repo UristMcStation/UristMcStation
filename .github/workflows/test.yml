@@ -3,10 +3,10 @@ name: Run Tests
 on:
   push:
     branches:
-      - baymerge-testing
+      - master
   pull_request:
     branches:
-      - baymerge-testing
+      - master
 env:
   BYOND_MAJOR: "514"
   BYOND_MINOR: "1584"
