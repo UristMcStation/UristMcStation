@@ -3250,10 +3250,6 @@
 	pixel_y = 4
 	},
 /obj/item/device/megaphone,
-/obj/item/weapon/melee/whip/chainofcommand{
-	pixel_x = -5;
-	pixel_y = 5
-	},
 /obj/item/modular_computer/tablet/preset/custom_loadout/advanced,
 /obj/item/device/camera,
 /obj/item/clothing/mask/smokable/cigarette/cigar,
@@ -3269,6 +3265,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/item/weapon/melee/whip/captainsdaughter,
 /turf/simulated/floor/carpet,
 /area/command/captain)
 "gw" = (
