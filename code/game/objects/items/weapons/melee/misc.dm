@@ -32,6 +32,14 @@
 	icon_state = "chain"
 	item_state = "whip"
 
+/obj/item/weapon/melee/whip/captainsdaughter
+	name = "captain's daughter"
+	desc = "Used to discipline disobediant spacers."
+	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
+	icon_state = "catwhip"
+	item_state = "catwhip"
+
+
 /obj/item/weapon/material/sword/replica/officersword
 	name = "fleet officer's sword"
 	desc = "A polished sword issued to officers of the fleet."
