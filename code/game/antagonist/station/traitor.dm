@@ -3,7 +3,7 @@ GLOBAL_DATUM_INIT(traitors, /datum/antagonist/traitor, new)
 // Inherits most of its vars from the base datum.
 /datum/antagonist/traitor
 	id = MODE_TRAITOR
-	blacklisted_jobs = list(/datum/job/ai, /datum/job/submap)
+	blacklisted_jobs = list(/datum/job/submap)
 	protected_jobs = list(/datum/job/officer, /datum/job/warden, /datum/job/detective, /datum/job/captain, /datum/job/lawyer, /datum/job/hos)
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
 	skill_setter = /datum/antag_skill_setter/station
@@ -17,6 +17,84 @@ GLOBAL_DATUM_INIT(traitors, /datum/antagonist/traitor, new)
 	if(href_list["spawn_uplink"])
 		spawn_uplink(locate(href_list["spawn_uplink"]))
 		return 1
+
+//So that we add rogue AI's to traitor counts. This won't be applicable in malf rounds so should only effect traitor spawns to ensure limits are upheld.
+/datum/antagonist/traitor/get_active_antag_count()
+	var/count = ..()
+	return count + GLOB.malf.get_active_antag_count()
+
+//Same as the parent proc, but with added AI checks for spawning rogue AI's in place of traitors, calling /datum/antagonist/rogue_ai.add_antagonist() instead
+/datum/antagonist/traitor/attempt_auto_spawn()
+	if(!can_late_spawn())
+		return 0
+
+	update_current_antag_max(SSticker.mode)
+	var/active_antags = get_active_antag_count()
+	log_debug("[uppertext(id)]: Found [active_antags]/[cur_max] active [role_text_plural].")
+
+	if(active_antags >= cur_max)
+		log_debug("Could not auto-spawn a [role_text], active antag limit reached.")
+		return 0
+
+	build_candidate_list(SSticker.mode, flags & (ANTAG_OVERRIDE_MOB|ANTAG_OVERRIDE_JOB))
+	if(!candidates.len)
+		log_debug("Could not auto-spawn a [role_text], no candidates found.")
+		return 0
+
+	attempt_spawn(1) //auto-spawn antags one at a time
+	if(!pending_antagonists.len)
+		log_debug("Could not auto-spawn a [role_text], none of the available candidates could be selected.")
+		return 0
+
+	var/datum/mind/player = pending_antagonists[1]
+	if(player.assigned_role == GLOB.malf.role_text)
+		if(!GLOB.malf.add_antagonist(player, do_not_greet = TRUE))
+			log_debug("Could not auto-spawn a [GLOB.malf.role_text], failed to add antagonist.")
+			return 0
+		GLOB.malf.greet(player, TRUE)
+		pending_antagonists -= player
+	else
+		if(!add_antagonist(player,0,0,0,1,1))
+			log_debug("Could not auto-spawn a [role_text], failed to add antagonist.")
+			return 0
+		pending_antagonists -= player
+
+	reset_antag_selection()
+
+	return 1
+
+/datum/antagonist/traitor/finalize_spawn()
+	if(!pending_antagonists)
+		return
+
+	for(var/datum/mind/player in pending_antagonists)
+		pending_antagonists -= player
+		if(player.assigned_role == GLOB.malf.role_text)
+			GLOB.malf.add_antagonist(player, do_not_greet = TRUE)
+			GLOB.malf.greet(player, TRUE)
+		else
+			add_antagonist(player,0,0,1)
+
+	reset_antag_selection()
+
+
+/datum/antagonist/traitor/draft_antagonist(var/datum/mind/player)
+	. = ..()
+	if(. && (player.assigned_role == "AI"))
+		player.assigned_role = GLOB.malf.role_text
+		player.role_alt_title = null
+		player.special_role = GLOB.malf.role_text
+
+/datum/antagonist/traitor/reset_antag_selection()
+	for(var/datum/mind/player in pending_antagonists)
+		if(isAI(player.current))
+			player.assigned_role = "AI"
+			player.special_role = null
+		if(flags & ANTAG_OVERRIDE_JOB)
+			player.assigned_job = null
+			player.assigned_role = null
+	pending_antagonists.Cut()
+	candidates.Cut()
 
 /datum/antagonist/traitor/create_objectives(var/datum/mind/traitor)
 	if(!..())

@@ -216,4 +216,5 @@
 		command_announcement.Announce("Our system administrators just reported that we've been locked out from your control network. Whoever did this now has full access to [GLOB.using_map.station_name]'s systems.", "Network Administration Center")
 	user.hack_can_fail = 0
 	user.system_override = 2
-	user.verbs += new/datum/game_mode/malfunction/verb/ai_destroy_station()
+	if(SSticker.mode.name == "AI Malfunction")	//Rampant AI's can get override, but no boom if the gamemode isn't Malf
+		user.verbs += new/datum/game_mode/malfunction/verb/ai_destroy_station()
