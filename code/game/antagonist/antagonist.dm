@@ -114,18 +114,28 @@
 	for(var/datum/mind/player in mode.get_players_for_role(id))
 		if(ghosts_only && !(isghostmind(player) || isnewplayer(player.current)))
 			log_debug("[key_name(player)] is not eligible to become a [role_text]: Only ghosts may join as this role!")
-		else if(config.use_age_restriction_for_antags && player.current.client.player_age < minimum_player_age)
-			log_debug("[key_name(player)] is not eligible to become a [role_text]: Is only [player.current.client.player_age] day\s old, has to be [minimum_player_age] day\s!")
-		else if(player.special_role)
+			continue
+		if(config.use_age_restriction_for_antags)
+			if(!isnum(player.current.client.player_age))
+				log_warning("Config option USE_AGE_RESTRICTION_FOR_ANTAGS is set but a database connection could not be established")
+				continue
+			else if(player.current.client.player_age < minimum_player_age)
+				log_debug("[key_name(player)] is not eligible to become a [role_text]: Is only [player.current.client.player_age] day\s old, has to be [minimum_player_age] day\s!")
+				continue
+		if(player.special_role)
 			log_debug("[key_name(player)] is not eligible to become a [role_text]: They already have a special role ([player.special_role])!")
-		else if (player in pending_antagonists)
+			continue
+		if(player in pending_antagonists)
 			log_debug("[key_name(player)] is not eligible to become a [role_text]: They have already been selected for this role!")
-		else if(!can_become_antag(player))
+			continue
+		if(!can_become_antag(player))
 			log_debug("[key_name(player)] is not eligible to become a [role_text]: They are blacklisted for this role!")
-		else if(player_is_antag(player))
+			continue
+		if(player_is_antag(player))
 			log_debug("[key_name(player)] is not eligible to become a [role_text]: They are already an antagonist!")
-		else
-			candidates |= player
+			continue
+
+		candidates |= player
 
 	return candidates
 
@@ -136,13 +146,23 @@
 	// Keeping broken up for readability
 	for(var/datum/mind/player in mode.get_players_for_role(id))
 		if(ghosts_only && !(isghostmind(player) || isnewplayer(player.current)))
-		else if(config.use_age_restriction_for_antags && player.current.client.player_age < minimum_player_age)
-		else if(player.special_role)
-		else if (player in pending_antagonists)
-		else if(!can_become_antag(player))
-		else if(player_is_antag(player))
-		else
-			candidates |= player
+			continue
+		if(config.use_age_restriction_for_antags)
+			if(!isnum(player.current.client.player_age))
+				log_warning("Config option USE_AGE_RESTRICTION_FOR_ANTAGS is set but a database connection could not be established")
+				continue
+			else if(player.current.client.player_age < minimum_player_age)
+				continue
+		if(player.special_role)
+			continue
+		if(player in pending_antagonists)
+			continue
+		if(!can_become_antag(player))
+			continue
+		if(player_is_antag(player))
+			continue
+
+		candidates |= player
 
 	return candidates
 
@@ -178,6 +198,7 @@
 	if(!add_antagonist(player,0,0,0,1,1))
 		log_debug("Could not auto-spawn a [role_text], failed to add antagonist.")
 		return 0
+	pending_antagonists -= player
 
 	reset_antag_selection()
 
