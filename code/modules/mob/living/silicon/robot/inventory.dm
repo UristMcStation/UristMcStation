@@ -255,6 +255,13 @@
 
 	return FALSE
 
+/mob/living/silicon/robot/remove_from_mob(obj/thing, atom/target)
+	. = ..()
+	if (.)
+		for (var/obj/item/weapon/gripper/gripper in module?.modules)
+			if (gripper.wrapped == thing)
+				gripper.wrapped = null
+
 //Robots don't use inventory slots, so we need to override this.
 /mob/living/silicon/robot/canUnEquip(obj/item/I)
 	if(!I)

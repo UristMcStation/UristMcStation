@@ -4,7 +4,7 @@
 						/datum/job/qm, /datum/job/cargo_tech,
 						/datum/job/chief_engineer, /datum/job/engineer,
 						/datum/job/hos, /datum/job/officer,
-						/datum/job/cmo, /datum/job/doctor,
+						/datum/job/cmo, /datum/job/doctor, /datum/job/psychiatrist,
 						/datum/job/scientist, /datum/job/chaplain,
 						/datum/job/mime, /datum/job/clown,
 						/datum/job/merchant, /datum/job/stowaway,
@@ -260,10 +260,29 @@
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics, access_maint_tunnels)
 	alt_titles = list("Chemist" = /decl/hierarchy/outfit/job/medical/doctor/chemist,
 		"Surgeon" = /decl/hierarchy/outfit/job/medical/doctor/surgeon,
-		"Emergency Physician" = /decl/hierarchy/outfit/job/medical/doctor/emergency_physician,
+		"Emergency Physician" = /decl/hierarchy/outfit/job/medical/doctor/emergency_physician
 		)
 /datum/job/doctor/get_description_blurb()
 	return	"You are a doctor on board the ICS Nerva, as a Doctor, it is your job to ensure all crew remain healthy, this may involve scanning patients in the bodyscanners to find internal injuries, perform medical surgery to fix ailments, produce beneficial medicine to assist the crew and provide for and seek out critically injured crew. As a Medical Doctor, ensure that you follow surgical procedures correctly to avoid malpractice, and to remind crew to set their suit sensors to maximum. You may be requested to accompany Away Missions, or other expeditions to ensure away-team safety. You answer directly to the Chief Medical Officer. If any paitent dies, remember to always remove the neural lace of the deceased crewmember and replace their body using the cloner and attach the new lace to revive them."
+
+/datum/job/psychiatrist
+	title = "Counselor"
+	department = "Medical"
+	department_flag = MED
+	hud_icon = "hudpsychiatrist"
+	total_positions = 1
+	spawn_positions = 1
+	economic_power = 4
+	minimal_player_age = 3
+	supervisors = "the chief medical officer"
+	selection_color = "#013d3b"
+	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_psychiatrist)
+	minimal_access = list(access_medical, access_medical_equip, access_psychiatrist)
+	outfit_type = /decl/hierarchy/outfit/job/medical/psychiatrist/nerva
+	alt_titles = list(
+	"Psychiatrist" = /decl/hierarchy/outfit/job/medical/psychiatrist/nerva,
+	"Psychologist" = /decl/hierarchy/outfit/job/medical/psychiatrist/psychologist/nerva)
+
 //sec
 
 /datum/job/hos
@@ -353,26 +372,18 @@
 
 /datum/job/chaplain
 	minimal_player_age = 0
-	economic_power = 4
+	economic_power = 1
 	title = "Chaplain"
-	department = "Medical"
-	department_flag = MED|CIV
+	department = "Civilian"
+	department_flag = CIV
 	hud_icon = "hudchaplain"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the second officer and the chief medical officer"
-	access = list(access_medical, access_morgue, access_chapel_office, access_crematorium, access_maint_tunnels, access_psychiatrist)
-	minimal_access = list(access_medical, access_morgue, access_chapel_office, access_crematorium, access_maint_tunnels, access_psychiatrist)
-	alt_titles = list(
-	"Counselor" = /decl/hierarchy/outfit/job/medical/psychiatrist/nerva,
-	"Morale Officer" = /decl/hierarchy/outfit/job/chaplain,
-	"Psychiatrist" = /decl/hierarchy/outfit/job/medical/psychiatrist/nerva,
-	"Psychologist" = /decl/hierarchy/outfit/job/medical/psychiatrist/psychologist/nerva)
-
-
+	supervisors = "the second officer"
+	access = list(access_morgue, access_chapel_office, access_crematorium, access_maint_tunnels)
+	minimal_access = list(access_morgue, access_chapel_office, access_crematorium, access_maint_tunnels)
+	alt_titles = list("Morale Officer" = /decl/hierarchy/outfit/job/chaplain)
 	outfit_type = /decl/hierarchy/outfit/job/chaplain
-
-// Chaplain can't really have a job blurb as he has medical and civvie roles.
 
 /datum/job/merchant
 	total_positions = 0

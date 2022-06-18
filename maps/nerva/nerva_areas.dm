@@ -204,6 +204,16 @@
 	name = "\improper Journalist's Office"
 	sound_env = SMALL_ENCLOSED
 
+/area/chapel
+	name = "\improper Chapel"
+	icon_state = "chapel"
+	sound_env = LARGE_SOFTFLOOR
+
+/area/chapel/office
+	name = "\improper Chapel Office"
+	icon_state = "chapeloffice"
+	sound_env = SMALL_ENCLOSED
+
 //////////////////////////////////////
 //			SECURITY				//
 //////////////////////////////////////

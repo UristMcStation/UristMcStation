@@ -1419,7 +1419,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/camera/network/command{
+/obj/machinery/camera/network/engineering{
 	c_tag = "Port Engine Bay"
 	},
 /turf/simulated/floor/reinforced,
