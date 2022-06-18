@@ -474,18 +474,17 @@
 /obj/item/weapon/card/id/fakecappy
 	name = "captain identification card"
 	desc = "A golden card which shows power and might?"
-	job_access_type = /datum/job/clown
 	color = "#d4c780"
 	extra_details = list("goldstripe")
 
 //Fake Replica Nuclear Authentication Disk, can't arm the nuke.
 /obj/item/weapon/disk/fakenucleardisk
-  name = "nuclear authentication disk"
-  desc = "A nuclear authentication disk, used for arming the self-destruct system. On closer inspection, this appears to be some sort of dummy replica meant for training exercises, how did it end up here?"
-  icon = 'icons/obj/items.dmi'
-  icon_state = "nucleardisk"
-  item_state = "card-id"
-  w_class = ITEM_SIZE_TINY
+	name = "nuclear authentication disk"
+	desc = "A nuclear authentication disk, used for arming the self-destruct system. On closer inspection, this appears to be some sort of dummy replica meant for training exercises, how did it end up here?"
+	icon = 'icons/obj/items.dmi'
+	icon_state = "nucleardisk"
+	item_state = "card-id"
+	w_class = ITEM_SIZE_TINY
 
 // Fake Plastic Cap Gun of the Colt Single Action
 /obj/item/weapon/gun/projectile/revolver/coltsaa/fake
@@ -542,4 +541,5 @@
 				/obj/item/weapon/stamp/hos/fake,
 				/obj/item/weapon/stamp/centcomm/fake,
 				/obj/item/weapon/stamp/nt/fake,
-				/obj/item/weapon/stamp/qm/fake)
+				/obj/item/weapon/stamp/qm/fake,
+				)
