@@ -14121,9 +14121,10 @@
 	dir = 1
 	},
 /obj/structure/disposalpipe/sortjunction{
-	dir = 4;
-	name = "Chapel";
-	sortType = "Bodyguard"
+	dir = 8;
+	icon_state = "pipe-j2s";
+	name = "Chapel Office";
+	sortType = "Chapel Office"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
