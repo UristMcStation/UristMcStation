@@ -392,12 +392,21 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 		if(FEMALE)
 			t_him = "her"
 
-	H.visible_message("<span class='notice'>[H] hugs [target] to make [t_him] feel better!</span>", \
-					"<span class='notice'>You hug [target] to make [t_him] feel better!</span>")
-
 	if(H != target)
 		H.update_personal_goal(/datum/goal/achievement/givehug, TRUE)
 		target.update_personal_goal(/datum/goal/achievement/gethug, TRUE)
+
+	if(H.zone_sel.selecting == BP_HEAD)
+		H.visible_message("<span class='notice'>[H] pats [target] on the head to make [t_him] feel better!</span>", \
+					"<span class='notice'>You pat [target] on the head to make [t_him] feel better!</span>")
+
+	else if(H.zone_sel.selecting == BP_R_HAND || H.zone_sel.selecting == BP_L_HAND)
+		H.visible_message("<span class='notice'>[H] shake [target]'s hand to make [t_him] feel better!</span>", \
+					"<span class='notice'>You shake [target]'s hand to make [t_him] feel better!</span>")
+
+	else
+		H.visible_message("<span class='notice'>[H] hugs [target] to make [t_him] feel better!</span>", \
+					"<span class='notice'>You hug [target] to make [t_him] feel better!</span>")
 
 /datum/species/proc/add_base_auras(var/mob/living/carbon/human/H)
 	if(base_auras)
