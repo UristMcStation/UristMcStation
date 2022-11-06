@@ -381,6 +381,8 @@
 			return 1
 
 /obj/item/weapon/storage/proc/make_exact_fit()
+	if(!contents.len)	//Prevent making storage with 0 slots
+		return
 	storage_slots = contents.len
 
 	can_hold.Cut()
