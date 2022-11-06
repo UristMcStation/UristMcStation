@@ -171,7 +171,10 @@
 			to_chat(user,"<span class='notice'>You transfer [count] round\s into [src].</span>")
 			playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
 		update_icon()
-		AM.update_icon()
+		if(!AM.stored_ammo.len && istype(AM, /obj/item/ammo_magazine/bundle))
+			qdel(AM)
+		else
+			AM.update_icon()
 	else ..()
 
 /obj/item/ammo_magazine/attack_self(mob/user)
