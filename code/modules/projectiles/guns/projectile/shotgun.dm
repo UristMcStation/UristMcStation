@@ -18,8 +18,8 @@
 		loaded.Insert(1, C)
 		user.visible_message("[user] inserts \a [C] into [src].", "<span class='notice'>You insert \a [C] into [src].</span>")
 		playsound(loc, load_sound, 50, 1)
-		if(istype(AM, /obj/item/ammo_magazine/shotbundle))
-			var/obj/item/ammo_magazine/shotbundle/SB = A
+		if(istype(AM, /obj/item/ammo_magazine/bundle/shotbundle))
+			var/obj/item/ammo_magazine/bundle/shotbundle/SB = A
 			SB.check_ammo_count(user)
 		AM.update_icon()
 		return

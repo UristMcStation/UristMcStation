@@ -133,17 +133,18 @@
 		var/obj/item/ammo_casing/shotgun/empty_check = I
 		if(!empty_check.BB)
 			return
-		var/obj/item/ammo_magazine/shotbundle/C = new /obj/item/ammo_magazine/shotbundle()
+		var/obj/item/ammo_magazine/bundle/shotbundle/C = new /obj/item/ammo_magazine/bundle/shotbundle()
 		C.attackby(I, user)
 		C.attackby(src, user)
 		user.put_in_hands(C)
 		return
-	if(istype(I, /obj/item/ammo_magazine/shotbundle))
+	if(istype(I, /obj/item/ammo_magazine/bundle/shotbundle))
 		if(!BB)
 			return
 		I.attackby(src, user)
 		return
 	..()
+
 /obj/item/ammo_casing/shotgun/pellet
 	name = "shotgun shell"
 	desc = "A 12 gauge shell."

@@ -411,9 +411,8 @@
 
 /obj/item/weapon/storage/box/lights/bulbs/empty
 	startswith = null
-
-/obj/item/weapon/storage/box/lights/bulbs/empty
-	startswith = null
+	max_w_class = ITEM_SIZE_SMALL
+	max_storage_space = 25
 
 /obj/item/weapon/storage/box/lights/tubes
 	name = "box of replacement tubes"
@@ -429,9 +428,8 @@
 
 /obj/item/weapon/storage/box/lights/tubes/empty
 	startswith = null
-
-/obj/item/weapon/storage/box/lights/tubes/empty
-	startswith = null
+	max_w_class = ITEM_SIZE_SMALL
+	max_storage_space = 25
 
 /obj/item/weapon/storage/box/lights/mixed
 	name = "box of replacement lights"
@@ -442,9 +440,8 @@
 
 /obj/item/weapon/storage/box/lights/mixed/empty
 	startswith = null
-
-/obj/item/weapon/storage/box/lights/mixed/empty
-	startswith = null
+	max_w_class = ITEM_SIZE_SMALL
+	max_storage_space = 25
 
 /obj/item/weapon/storage/box/glowsticks
 	name = "box of mixed glowsticks"
