@@ -1,0 +1,39 @@
+"a" = (/turf/wall,/area)
+"b" = (/turf/ground,/area)
+"c" = (/mob/goai/combatant,/turf/ground,/area)
+"e" = (/mob/goai/combatant{name = "combatant 3"},/turf/ground,/area)
+
+(1,1,1) = {"
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+abbababaabbaaabbaabbbabbbaabbbaa
+abaabababbbbabbbbabbbabbaabbbbba
+abbbbbbbbbbbbbbbbbbbbabbbbbbbbba
+abbbbbbabbbbabbbbabbbabbbabbbbba
+aaaabaaaabbaaabbaaabaaaaaaaabaaa
+abbababbaaaaaaaaaabbbbbbbbabbbba
+abbbbbbbbbbabbbbbbbbbbbbbbabbbba
+abbababbaababbbbbabbbbbbbbaaabaa
+aaaabaaaaababbbbaaaaabbbbbbabbba
+abbababbbababaaaababaaaaaaaabbba
+abbababbbababbbbbbbbbbbbbabbbbba
+abbababbbbbbbbbbbbbbbbbbbbbbbbba
+abbbbabbbababbbbbbbbbbbbbabbbbba
+abbabaabaaaaaaaaaabaaaaaaaaaaaaa
+abbabbbbbbbbbbbbbabbabbabbbbabba
+aababbbbbbbbbbbbaabbabbabbbbabba
+abbabbbbbbbbbbbbabbaabaaabbaabba
+abbaaabbbbabbbaaaabbabbabbbbaaba
+abbabbbbbbbbbbbbabbaabbabbbbabba
+abbabbbbcbbbbbbbaabbabbabbbbabaa
+abbabbbbbbebbbbbabbaabbbbbbbbbba
+abbaaabbbbbbbbaaabbbabbbbbbbbbba
+abbabbbbbbbbbbbbaabaabbbbbbbbbba
+abaabbbbbbbbbbbbabbbabbbbbbbbbba
+abbabbbbbbbbbbbaabbbbbbbbbbbbbba
+abbaaabbbbabbbbbbbbbabbbbbbbbbba
+abbabbbbbbbbbbbaaabaaabaaaabaaaa
+abbaaabbbbbbbbbbabbbabbbbbbbbbba
+abbbbbbbbbbbbbbbbbbbbbbbbbbbbbba
+abbaaabbbbbbbbbbabbbabbbbbbbbbba
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+"}
