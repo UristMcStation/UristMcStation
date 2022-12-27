@@ -1,11 +1,9 @@
 // # define OBSTACLEHUNT_DEBUG_LOGGING 0
 
 # ifdef OBSTACLEHUNT_DEBUG_LOGGING
-# define OBSTACLEHUNT_DEBUG_LOG(X) world.log << X
-# define OBSTACLEHUNT_DEBUG_LOG_TOSTR(X) world.log << #X + ": [X]"
+# define OBSTACLEHUNT_DEBUG_LOG(X) to_world_log(X)
 # else
 # define OBSTACLEHUNT_DEBUG_LOG(X)
-# define OBSTACLEHUNT_DEBUG_LOG_TOSTR(X)
 # endif
 
 
@@ -52,7 +50,7 @@
 
 	if(init_dist < 40)
 		OBSTACLEHUNT_DEBUG_LOG("[owner] entering ASTARS STAGE")
-		path = AStar(get_turf(owner), target_turf, /proc/fCardinalTurfs, /proc/fDistance, null, init_dist, min_target_dist = sqrt_dist, exclude = null)
+		path = GoaiAStar(get_turf(owner), target_turf, /proc/fCardinalTurfs, /proc/fDistance, null, init_dist, min_target_dist = sqrt_dist, exclude = null)
 
 		OBSTACLEHUNT_DEBUG_LOG("[owner] found ASTAR 1 path from [startpos] to [target_turf]: [path] ([path?.len])")
 
@@ -62,7 +60,7 @@
 
 		// No unobstructed path to target!
 		// Let's try to get a direct path and check for obstacles.
-		path = AStar(get_turf(owner), target_turf, /proc/fCardinalTurfsNoblocks, /proc/fDistance, null, init_dist, min_target_dist = sqrt_dist, exclude = null)
+		path = GoaiAStar(get_turf(owner), target_turf, /proc/fCardinalTurfsNoblocks, /proc/fDistance, null, init_dist, min_target_dist = sqrt_dist, exclude = null)
 
 		OBSTACLEHUNT_DEBUG_LOG("[src] found ASTAR 2 path from [startpos] to [target_turf]: [path] ([path?.len])")
 
@@ -74,7 +72,6 @@
 		OBSTACLEHUNT_DEBUG_LOG("[owner] entering OBSTACLE HUNT STAGE")
 		for(var/turf/pathitem in path)
 			path_pos++
-			//world.log << "[owner]: [pathitem]"
 
 			if(isnull(pathitem))
 				continue

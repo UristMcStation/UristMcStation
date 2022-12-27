@@ -28,10 +28,8 @@
 		var/list/waypoint_memdata = brain?.GetMemoryValue(MEM_WAYPOINT_LKP, null, FALSE, TRUE)
 		var/mem_waypoint_x = waypoint_memdata?[KEY_GHOST_X]
 		var/mem_waypoint_y = waypoint_memdata?[KEY_GHOST_Y]
-		world.log << "[src] waypoint positions: ([mem_waypoint_x], [mem_waypoint_y]) from [waypoint_memdata]"
 
 		if(!isnull(mem_waypoint_x) && !isnull(mem_waypoint_y))
-			world.log << "[src] found waypoint position in memory!"
 			effective_waypoint_x = mem_waypoint_x
 			effective_waypoint_y = mem_waypoint_y
 
@@ -97,12 +95,6 @@
 			if(invalid_tile)
 				continue
 
-			//var/datum/Tuple/curr_pos_tup = cand.CurrentPositionAsTuple()
-
-			/*if (curr_pos_tup ~= shot_at_where)
-				world.log << "[src]: Curr pos tup [curr_pos_tup] ([curr_pos_tup?.left], [curr_pos_tup?.right]) equals shot_at_where"
-				continue*/
-
 			var/cand_dist = ManhattanDistance(cand, src)
 			var/targ_dist = 0
 
@@ -116,34 +108,6 @@
 			if(threat_dist < min_safe_dist)
 				continue
 
-			//penalty += -threat_dist  // the further from a threat, the better
-			/*penalty += abs(open_lines-pick(
-				/*
-				This is a bit un-obvious:
-
-				What we're doing here is biasing the pathing towards
-				cover positions *around* the picked value.
-
-				For example, if we roll a 3, the ideal cover position
-				would be one with Openness score of 3.
-
-				However, this is not a hard requirement; if we don't
-				have a 3, we'll accept a 2 or a 4 (equally, preferentially)
-				and if we don't have *those* - a 1 or a 5, etc.
-
-				This makes it harder for the AI to wind up giving up due to
-				no valid positions; sub-optimal is still good enough in that case.
-
-				The randomness is here to make the leapfrogging more dynamic;
-				if we just rank by best cover, we'll just wind bouncing between
-				the same positions, and this action is supposed to be more like
-				a 'smart' tacticool wandering behaviour.
-				 */
-				120; 3,
-				50; 4,
-				5; 7
-			))*/
-
 			// Reminder to self: higher values are higher priority
 			// Smaller penalty => also higher priority
 			var/datum/Quadruple/cover_quad = new(-targ_dist, -penalty, -total_dist, cand)
@@ -155,8 +119,6 @@
 
 
 /mob/goai/combatant/proc/HandleChooseDirectionalCoverLandmark(var/datum/ActionTracker/tracker)
-	//world.log << "Running HandleChooseDirectionalCoverLandmark"
-
 	var/turf/best_local_pos = tracker?.BBGet("bestpos", null)
 	if(best_local_pos)
 		return
@@ -187,7 +149,7 @@
 
 	// Run pathfind
 	best_local_pos = ChooseDirectionalCoverLandmark(startpos, primary_threat, threats, min_safe_dist)
-	world.log << "[src]: PLAN Best local pos [best_local_pos || "null"]"
+	to_world_log("[src]: PLAN Best local pos ([best_local_pos?.x], [best_local_pos?.y])")
 
 	if(best_local_pos)
 		tracker.BBSet("bestpos", best_local_pos)
@@ -209,7 +171,7 @@
 	if(brain && isnull(best_local_pos))
 		best_local_pos = brain.GetMemoryValue("DirectionalCoverBestpos", null)
 
-	world.log << "[src]: INITIAL best_local_pos is: [best_local_pos || "null"]"
+	to_world_log("[src]: INITIAL best_local_pos is: [best_local_pos || "null"]")
 
 	var/min_safe_dist = (brain?.GetPersonalityTrait(KEY_PERS_MINSAFEDIST)) || 2
 	var/frustration_repath_maxthresh = brain?.GetPersonalityTrait(KEY_PERS_FRUSTRATION_THRESH, null) || 3
@@ -226,7 +188,7 @@
 	if(primary_threat_ghost)
 		threats[primary_threat_ghost] = primary_threat
 
-	//world.log << "[src]: Threat for [src]: [threat || "NONE"]"
+	//to_world_log("[src]: Threat for [src]: [threat || "NONE"]")
 
 	// Secondary threat:
 	var/dict/secondary_threat_ghost = GetActiveSecondaryThreatDict()
@@ -258,7 +220,7 @@
 			continue
 
 		var/atom/curr_threat = threats[threat_ghost]
-		world.log << "[src]: curr_threat is [curr_threat]"
+		to_world_log("[src]: curr_threat is [curr_threat]")
 		var/next_step_threat_distance = (next_step ? GetThreatDistance(next_step, threat_ghost, PLUS_INF) : PLUS_INF)
 		var/curr_threat_distance = GetThreatDistance(src, threat_ghost, PLUS_INF)
 		var/bestpos_threat_distance = GetThreatDistance(best_local_pos, threat_ghost, PLUS_INF)
@@ -276,7 +238,7 @@
 
 			CancelNavigate()
 
-			world.log << "[src]: best_local_pos @ [best_local_pos] is unsafe, nulling!"
+			to_world_log("[src]: best_local_pos @ [best_local_pos] is unsafe, nulling!")
 			best_local_pos = null
 			tracker.BBSet("bestpos", null)
 			brain?.DropMemory("DirectionalCoverBestpos")
@@ -288,11 +250,11 @@
 		tracker.BBSet("bestpos", best_local_pos)
 		brain?.SetMemory("DirectionalCoverBestpos", best_local_pos)
 
-		world.log << "[src]: ACTION Best local pos [best_local_pos || "null"]"
+		to_world_log("[src]: ACTION Best local pos ([best_local_pos?.x], [best_local_pos?.y])")
 
 
 	if(best_local_pos && (!active_path || active_path.target != best_local_pos))
-		world.log << "[src]: Navigating to [best_local_pos]"
+		to_world_log("[src]: Navigating to [best_local_pos]")
 		StartNavigateTo(best_local_pos)
 
 	if(best_local_pos)

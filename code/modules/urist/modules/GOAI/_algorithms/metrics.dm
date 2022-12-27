@@ -13,7 +13,6 @@
 	if(isnull(from_pos) || isnull(to_pos))
 		return PLUS_INF
 
-	//world.log << "TO POS: [to_pos], FROM_POS: [from_pos]"
 	var/dist = (abs(to_pos.x - from_pos.x) + abs(to_pos.y - from_pos.y))
 	return dist
 

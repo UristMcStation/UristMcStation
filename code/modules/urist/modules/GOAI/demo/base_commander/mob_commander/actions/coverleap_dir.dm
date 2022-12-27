@@ -1,6 +1,6 @@
 /datum/goai/mob_commander/proc/ChooseCoverleapLandmark(var/atom/startpos, var/atom/primary_threat = null, var/turf/prev_loc_memdata = null, var/list/threats = null, var/min_safe_dist = null, var/trust_first = null)
 	if(!(src.pawn))
-		world.log << "[src] does not have an owned mob!"
+		to_world_log("[src] does not have an owned mob!")
 		return
 
 	// Pathfinding/search
@@ -37,10 +37,8 @@
 		var/list/waypoint_memdata = brain?.GetMemoryValue(MEM_WAYPOINT_LKP, null, FALSE, TRUE)
 		var/mem_waypoint_x = waypoint_memdata?[KEY_GHOST_X]
 		var/mem_waypoint_y = waypoint_memdata?[KEY_GHOST_Y]
-		world.log << "[src] waypoint positions: ([mem_waypoint_x], [mem_waypoint_y]) from [waypoint_memdata]"
 
 		if(!isnull(mem_waypoint_x) && !isnull(mem_waypoint_y))
-			world.log << "[src] found waypoint position in memory!"
 			effective_waypoint_x = mem_waypoint_x
 			effective_waypoint_y = mem_waypoint_y
 
@@ -55,8 +53,10 @@
 	var/turf/unreachable = brain?.GetMemoryValue("UnreachableTile", null)
 
 	for(var/atom/candidate_cover in curr_view)
+		if(!(istype(candidate_cover, /mob) || istype(candidate_cover, /obj/machinery) || istype(candidate_cover, /obj/mecha) || istype(candidate_cover, /obj/structure) || istype(candidate_cover, /obj/vehicle) || istype(candidate_cover, /turf)))
+			continue
+
 		if(unreachable && candidate_cover == unreachable)
-			//world.log << "Cover [candidate_cover] is unreachable!"
 			continue
 
 		var/has_cover = candidate_cover?.HasCover(get_dir(candidate_cover, primary_threat), FALSE)
@@ -89,7 +89,7 @@
 
 		for(var/turf/cand in adjacents)
 			if(unreachable && cand == unreachable)
-				world.log << "Cover [cand] is unreachable!"
+				to_world_log("Cover [cand] is unreachable!")
 				continue
 
 			if(!(cand?.Enter(src.pawn, get_turf(candidate_cover))))
@@ -108,7 +108,6 @@
 				penalty -= 50
 
 			if(prev_loc_memdata && prev_loc_memdata == cand)
-				//world.log << "Prev loc [prev_loc_memdata] matched candidate [cand]"
 				penalty += MAGICNUM_DISCOURAGE_SOFT
 
 			var/threat_dist = PLUS_INF
@@ -192,10 +191,8 @@
 
 
 /datum/goai/mob_commander/proc/HandleDirectionalChooseCoverleapLandmark(var/datum/ActionTracker/tracker)
-	world.log << "Running HandleDirectionalChooseCoverleapLandmark"
-
 	if(!(src.pawn))
-		world.log << "[src] does not have an owned mob!"
+		to_world_log("[src] does not have an owned mob!")
 		return
 
 	var/turf/best_local_pos = tracker?.BBGet("bestpos", null)
@@ -245,7 +242,7 @@
 
 /datum/goai/mob_commander/proc/HandleDirectionalCoverLeapfrog(var/datum/ActionTracker/tracker)
 	if(!(src.pawn))
-		world.log << "[src] does not have an owned mob!"
+		to_world_log("[src] does not have an owned mob!")
 		return
 
 	var/tracker_frustration = tracker.BBSetDefault("frustration", 0)
@@ -270,8 +267,6 @@
 
 	if(primary_threat_ghost)
 		threats[primary_threat_ghost] = primary_threat
-
-	//world.log << "[src]: Threat for [src]: [threat || "NONE"]"
 
 	// Secondary threat:
 	var/dict/secondary_threat_ghost = GetActiveSecondaryThreatDict()
@@ -333,11 +328,10 @@
 		best_local_pos?.pDrawVectorbeam(src.pawn, best_local_pos, "n_beam")
 
 		tracker?.BBSet("bestpos", best_local_pos)
-		world.log << (isnull(best_local_pos) ? "[src]: Best local pos: null" : "[src]: Best local pos [best_local_pos]")
+		to_world_log((isnull(best_local_pos) ? "[src]: Best local pos: null" : "[src]: Best local pos ([best_local_pos?.x], [best_local_pos?.y])"))
 
 
 	if(best_local_pos && (!src.active_path || src.active_path.target != best_local_pos))
-		//world.log << "Navigating to [best_local_pos]"
 		StartNavigateTo(best_local_pos, 0, null)
 
 	if(best_local_pos)

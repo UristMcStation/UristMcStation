@@ -57,24 +57,7 @@
 	var/turf/x1y1 = locate(((centre.x-rad)<1 ? 1 : centre.x-rad),((centre.y-rad)<1 ? 1 : centre.y-rad),centre.z)
 	var/turf/x2y2 = locate(((centre.x+rad)>world.maxx ? world.maxx : centre.x+rad),((centre.y+rad)>world.maxy ? world.maxy : centre.y+rad),centre.z)
 	return block(x1y1,x2y2)
-*/
 
-/turf/proc/ObjectBlocked()
-	// simplified version of the SS13 logic
-	// TODO: add directional logic for flipped tables etc.
-
-	for(var/obj/object in src.contents)
-		if(!object.density)
-			continue
-
-		if(object.density)
-			//world.log << "[src] hit dense object [object] @ [object.loc]"
-			return TRUE
-
-	//world.log << "[src] is not blocked"
-	return FALSE
-
-/*
 /proc/LinkBlocked(var/turf/A, var/turf/B)
 	if(A == null || B == null) return TRUE
 	var/adir = get_dir(A,B)
@@ -89,24 +72,35 @@
 		return TRUE
 
 	if(DirBlocked(A,adir))
-		//world.log << "A -> B blocked; A=[A], B=[B]"
+		//to_world_log("A -> B blocked; A=[A], B=[B]")
 		return TRUE
 
 	if(DirBlocked(B,rdir))
-		//world.log << "B -> A blocked; A=[A], B=[B]"
+		//to_world_log("B -> A blocked; A=[A], B=[B]")
 		return TRUE
 
 	return FALSE
 */
 
-/proc/GoaiDirBlocked(var/atom/trg, var/dir, var/log=FALSE)
-	if(log)
-		world.log << "DirBlocked for [trg] called!"
+
+/turf/proc/GoaiObjectBlocked()
+	// simplified version of the SS13 logic
+	// TODO: add directional logic for flipped tables etc.
+
+	for(var/obj/object in src.contents)
+		if(!object.density)
+			continue
+
+		if(object.density)
+			return TRUE
+
+	return FALSE
+
+
+/proc/GoaiDirBlocked(var/atom/trg, var/dir)
 
 	for(var/atom/D in trg)
 		var/datum/directional_blocker/dirblocker = D.directional_blocker
-		if(log)
-			world.log << "DirBlocker for [trg] is [D]"
 
 		if(isnull(dirblocker))
 			continue
@@ -121,7 +115,7 @@
 	if(density)
 		return TRUE
 
-	if(check_objects && src.ObjectBlocked())
+	if(check_objects && src.GoaiObjectBlocked())
 		return TRUE
 
 	return FALSE
@@ -188,7 +182,7 @@
 
 /turf/proc/CardinalTurfsNoblocks()
 	var/result = CardinalTurfs(TRUE, FALSE, FALSE)
-	//world.log << "CardinalTurfsNoblocks([src]) => [result] ([result?.len])"
+	//to_world_log("CardinalTurfsNoblocks([src]) => [result] ([result?.len])")
 	return result
 
 
@@ -197,7 +191,7 @@
 		return
 
 	var/result = fCardinalTurfs(start, TRUE, FALSE, FALSE)
-	//world.log << "CardinalTurfsNoblocks([src]) => [result] ([result?.len])"
+	//to_world_log("CardinalTurfsNoblocks([src]) => [result] ([result?.len])")
 
 	return result
 

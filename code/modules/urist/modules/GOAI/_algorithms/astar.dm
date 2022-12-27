@@ -2,6 +2,9 @@
 
 AStar implementation shamelessly stolen from SS13 source.
 
+This has diverged from the original SS13 AStar slightly,
+so for time being this is going to be a semi-duplicate.
+
 Not really relevant to the GOAP algorithm, which uses my own custom AStar
 implementation; I just needed something better than the DM builtins for the
 demo agent pathfinds and couldn't be bothered to reimplement the algorithm
@@ -10,6 +13,7 @@ just for *that*.
 This implementation is more specialized towards atoms; the GOAP AStar is more
 generic, working on datums and whatever else you massage into a tuple.
 
+-- scrdest
 */
 
 

@@ -1,6 +1,6 @@
 /datum/goai/mob_commander/combat_commander/proc/FightTick()
 	if(!(src.pawn))
-		world.log << "[src] does not have an owned mob!"
+		to_world_log("[src] does not have an owned mob!")
 		return
 
 	var/can_fire = ((STATE_CANFIRE in states) ? states[STATE_CANFIRE] : FALSE)
@@ -23,8 +23,16 @@
 			return
 
 	spawn(aim_time)
-		if(target in view(src.pawn))
-			Shoot(null, target)
+		var/list/curr_view = brain?.perceptions?.Get(SENSE_SIGHT)
+
+		if(target in curr_view)
+			var/distance = ChebyshevDistance(src.pawn, target)
+
+			if(distance > 1)
+				Shoot(null, target)
+
+			else
+				Melee(target)
 
 	return
 

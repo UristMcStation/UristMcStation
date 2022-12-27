@@ -126,20 +126,20 @@
 
 /datum/ActionTracker/proc/SetTriggered()
 	if(!IsTriggered())
-		world.log << "Setting tracker to triggered!"
+		to_world_log("Setting tracker to triggered!")
 		trigger_time = world.time
 	return
 
 
 /datum/ActionTracker/proc/ResetTriggered()
-	world.log << "Setting tracker to non-triggered!"
+	to_world_log("Setting tracker to non-triggered!")
 	trigger_time = null
 	return
 
 
 /datum/ActionTracker/proc/SetDone()
 	if(!is_done)
-		world.log << "Setting tracker to done!"
+		to_world_log("Setting tracker to done!")
 		tracked_action.ReduceCharges(1)
 		is_done = TRUE
 
@@ -148,7 +148,7 @@
 
 /datum/ActionTracker/proc/SetFailed()
 	if(!is_failed)
-		world.log << "Setting tracker to failed!"
+		to_world_log("Setting tracker to failed!")
 		tracked_action.ReduceCharges(1)
 		is_failed = TRUE
 
@@ -163,7 +163,7 @@
 	// signalling to the Plan that, for whatever reason, the Plan is no
 	// longer valid *as a whole* and needs to be cancelled.
 	*/
-	world.log << "Setting tracker to ABORT!!!"
+	to_world_log("Setting tracker to ABORT!!!")
 	is_aborted = TRUE
 	return
 

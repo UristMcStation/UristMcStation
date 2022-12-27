@@ -21,7 +21,7 @@
 		if (270 to 314) direction = SOUTH
 		if (315 to 360) direction = SOUTHEAST
 
-	//world.log << "TRUE ANGLE: [true_angle] => DIR: [direction]"
+	//to_world_log("TRUE ANGLE: [true_angle] => DIR: [direction]")
 	return direction
 */
 
@@ -61,7 +61,7 @@
 	var/obj/gun/my_gun = locate(/obj/gun) in src.contents
 
 	if(isnull(my_gun))
-		world.log << "Gun not found for [src] to shoot D;"
+		to_world_log("Gun not found for [src] to shoot D;")
 		return
 
 	var/atom/target = GetTarget()

@@ -4,7 +4,7 @@
 
 /dict/New(var/list/init_vals = null)
 	data = isnull(init_vals) ? list() : init_vals.Copy()
-	//world.log << "DICT: Created with data [data]!"
+	//to_world_log("DICT: Created with data [data]!")
 	return
 
 
@@ -24,10 +24,10 @@
 /dict/proc/Get(var/key, var/default = null)
 	if (HasKey(key))
 		var/retrieved = data[key]
-		//world.log << "DICT: Key [key] retrieved, data is [retrieved]"
+		//to_world_log("DICT: Key [key] retrieved, data is [retrieved]")
 		return retrieved
 
-	//world.log << "DICT: Key [key] missing!"
+	//to_world_log("DICT: Key [key] missing!")
 	return default
 
 

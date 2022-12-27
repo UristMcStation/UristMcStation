@@ -67,7 +67,7 @@
 	var/obj/gun/my_gun = (isnull(cached_gun) ? (locate(/obj/gun) in src.contents) : cached_gun)
 
 	if(isnull(my_gun))
-		world.log << "Gun not found for [src] to shoot D;"
+		to_world_log("Gun not found for [src] to shoot D;")
 		return FALSE
 
 	var/atom/target = (isnull(cached_target) ? GetTarget() : cached_target)
@@ -169,7 +169,7 @@
 
 /mob/goai/combatant/proc/GetActiveThreatDicts() // -> list(/dict)
 	var/datum/memory/threat_mem_block = brain?.GetMemory(MEM_THREAT, null, FALSE)
-	//world.log << "[src] threat memory: [threat_mem]"
+	//to_world_log("[src] threat memory: [threat_mem]")
 	var/list/threat_block = threat_mem_block?.val // list(memory)
 	var/list/threats = list() // list(/dict)
 
@@ -178,7 +178,7 @@
 			continue
 
 		var/dict/threat_ghost = threat_mem?.val
-		world.log << "THREAT GHOST: [threat_ghost]"
+		to_world_log("THREAT GHOST: [threat_ghost]")
 		if(istype(threat_ghost))
 			threats.Add(threat_ghost)
 
@@ -204,11 +204,11 @@
 		var/threat_pos_x = 0
 		var/threat_pos_y = 0
 
-		//world.log << "[src] threat ghost: [threat_ghost]"
+		//to_world_log("[src] threat ghost: [threat_ghost]")
 
 		threat_pos_x = threat_ghost.Get(KEY_GHOST_X, null)
 		threat_pos_y = threat_ghost.Get(KEY_GHOST_Y, null)
-		//world.log << "[src] believes there's a threat at ([threat_pos_x], [threat_pos_y])"
+		//to_world_log("[src] believes there's a threat at ([threat_pos_x], [threat_pos_y])")
 
 		if(! (isnull(threat_pos_x) || isnull(threat_pos_y)) )
 			threat_dist = ManhattanDistanceNumeric(rel_source.x, rel_source.y, threat_pos_x, threat_pos_y)
@@ -216,7 +216,7 @@
 			// long-term, it might be nicer to index by obj/str here
 			threat_distances.Add(threat_dist)
 
-	//world.log << "[src]: GetThreatDistances => [threat_distances] LEN [threat_distances.len]"
+	//to_world_log("[src]: GetThreatDistances => [threat_distances] LEN [threat_distances.len]")
 	return threat_distances
 
 
@@ -239,11 +239,11 @@
 		var/threat_pos_x = 0
 		var/threat_pos_y = 0
 
-		//world.log << "[src] threat ghost: [threat_ghost]"
+		//to_world_log("[src] threat ghost: [threat_ghost]")
 
 		threat_pos_x = threat_ghost.Get(KEY_GHOST_X, null)
 		threat_pos_y = threat_ghost.Get(KEY_GHOST_Y, null)
-		//world.log << "[src] believes there's a threat at ([threat_pos_x], [threat_pos_y])"
+		//to_world_log("[src] believes there's a threat at ([threat_pos_x], [threat_pos_y])")
 
 		if(! (isnull(threat_pos_x) || isnull(threat_pos_y)) )
 			var/dx = (threat_pos_x - rel_source.x)
@@ -272,7 +272,7 @@
 	//
 	// Everything else - extrapolate from the above.
 	*/
-	//world.log << "Impact angle [impact_angle]"
+	//to_world_log("Impact angle [impact_angle]")
 
 	if(brain)
 		var/list/shot_memory_data = list(

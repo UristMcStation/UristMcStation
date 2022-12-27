@@ -48,7 +48,10 @@
 	var/PriorityQueue/target_queue = new /PriorityQueue(/datum/Tuple/proc/FirstCompare)
 
 	// TODO: Refactor to accept objects/structures as threats (turrets, grenades...).
-	for(var/mob/goai/enemy in true_searchspace)
+	for(var/mob/enemy in true_searchspace)
+		if(!(istype(enemy, /mob/living/carbon) || istype(enemy, /mob/living/simple_animal)))
+			continue
+
 		var/enemy_dist = ManhattanDistance(my_loc, enemy)
 
 		if (enemy_dist <= 0)

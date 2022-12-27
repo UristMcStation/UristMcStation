@@ -1,11 +1,11 @@
 
 /mob/goai/combatant/proc/HandleWaypointObstruction(var/atom/obstruction, var/atom/waypoint, var/list/shared_preconds = null, var/list/target_preconds = null, var/list/base_target_effects = null, var/move_action_name = "MoveTowards", var/move_handler = null, var/unique = TRUE, var/allow_failed = TRUE)
 	if(!waypoint || !move_action_name || !move_handler)
-		world.log << "HandleWaypointObstruction failed - no handler! FOUND: <[move_handler]>"
+		to_world_log("HandleWaypointObstruction failed - no handler! FOUND: <[move_handler]>")
 		return FALSE
 
 	if(!waypoint || !move_action_name || !move_handler)
-		world.log << "HandleWaypointObstruction failed! <[obstruction], [waypoint], [move_action_name]>"
+		to_world_log("HandleWaypointObstruction failed! <[obstruction], [waypoint], [move_action_name]>")
 		return FALSE
 
 	var/handled = isnull(obstruction)

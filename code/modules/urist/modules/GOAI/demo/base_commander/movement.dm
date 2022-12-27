@@ -10,7 +10,6 @@
 
 	for(var/adj in base_adjs)
 		if(cut_link && src == cut_link)
-			world.log << "[src] is a cut link!"
 			continue
 
 		out_adjs.Add(adj)
@@ -33,7 +32,6 @@
 
 	for(var/adj in base_adjs)
 		if(cut_link && src == cut_link)
-			world.log << "[S] is a cut link!"
 			continue
 
 		out_adjs.Add(adj)

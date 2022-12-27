@@ -66,6 +66,16 @@
 		src.Life()
 
 
+/datum/goai/Destroy()
+	. = ..()
+
+	if(!(isnull(src.registry_index)))
+		global_goai_registry[src.registry_index] = null
+
+	qdel(src.brain)
+	return
+
+
 /datum/goai/proc/LifeTick()
 	return TRUE
 
@@ -102,7 +112,6 @@
 	if(!key)
 		return
 
-	world.log << "[src]: setting state [key] => [val] on the mob!"
 	states[key] = val
 
 	if(brain)
@@ -113,7 +122,6 @@
 
 /datum/goai/proc/GetState(var/key, var/default = null)
 	if(!key)
-		world.log << "[src]: [key] is null!"
 		return
 
 	if(brain && (key in brain.states))

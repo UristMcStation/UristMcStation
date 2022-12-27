@@ -57,6 +57,7 @@
 	return null
 
 
+/*
 /atom/Enter(var/atom/movable/O, var/atom/oldloc)
 	. = ..()
 
@@ -70,3 +71,4 @@
 			return FALSE
 
 	return .
+*/

@@ -1,11 +1,9 @@
 // # define ADD_ACTION_DEBUG_LOGGING 0
 
 # ifdef ADD_ACTION_DEBUG_LOGGING
-# define ADD_ACTION_DEBUG_LOG(X) world.log << X
-# define ADD_ACTION_DEBUG_LOG_TOSTR(X) world.log << #X + ": [X]"
+# define ADD_ACTION_DEBUG_LOG(X) to_world_log(X)
 # else
 # define ADD_ACTION_DEBUG_LOG(X)
-# define ADD_ACTION_DEBUG_LOG_TOSTR(X)
 # endif
 
 /datum/brain
@@ -223,7 +221,7 @@
 
 /datum/brain/proc/HasMemory(var/mem_key)
 	var/found = (mem_key in memories.data)
-	//world.log << "Memory for key [mem_key] [found ? "TRUE" : "FALSE"]"
+	//to_world_log("Memory for key [mem_key] [found ? "TRUE" : "FALSE"]")
 	return found
 
 
@@ -248,7 +246,7 @@
 		if(isnull(retrieved_mem))
 
 			if(isnull(hivemind_mem))
-				//world.log << "Retrieved default Memory for removed [mem_key]"
+				//to_world_log("Retrieved default Memory for removed [mem_key]")
 				return default
 
 			// if root has no memory, but the *parent* does - return parent's
@@ -257,13 +255,13 @@
 		var/relevant_age = by_age ? retrieved_mem.GetAge() : retrieved_mem.GetFreshness()
 
 		if(relevant_age < retrieved_mem.ttl)
-			//world.log << "Retrieved Memory: [mem_key]"
+			//to_world_log("Retrieved Memory: [mem_key]")
 			// We already checked for parent preference - no need to redo that.
 			return retrieved_mem
 
 		memories[mem_key] = null
 
-	//world.log << "Retrieved default Memory for missing [mem_key]"
+	//to_world_log("Retrieved default Memory for missing [mem_key]")
 	return (isnull(hivemind_mem) ? default : hivemind_mem)
 
 
@@ -279,12 +277,12 @@
 	var/datum/memory/retrieved_mem = memories.Get(mem_key)
 
 	if(isnull(retrieved_mem))
-		//world.log << "Inserting Memory for [mem_key] with [mem_val]"
+		//to_world_log("Inserting Memory for [mem_key] with [mem_val]")
 		retrieved_mem = new(mem_val, mem_ttl)
 		memories.Set(mem_key, retrieved_mem)
 
 	else
-		//world.log << "Updating Memory for [mem_key] with [mem_val]"
+		//to_world_log("Updating Memory for [mem_key] with [mem_val]")
 		retrieved_mem.Update(mem_val)
 
 	return retrieved_mem
@@ -332,10 +330,7 @@
 	planner.graph = GetAvailableActions()
 
 	for(var/goalkey in goal)
-		world.log << "[src] CreatePlan goal: [goalkey] => [goal[goalkey]]"
-
-	/*for(var/graphkey in planner.graph)
-		world.log << "[src] CreatePlan Planner graph: [graphkey] => [planner.graph[graphkey]]"*/
+		to_world_log("[src] CreatePlan goal: [goalkey] => [goal[goalkey]]")
 
 	var/datum/Tuple/result = planner.Plan(arglist(params))
 
@@ -391,7 +386,7 @@
 			var/datum/goai_action/goai_act = actionslist[selected_action]
 
 			if(!goai_act)
-				//world.log << "[src]: FAILED TO RETRIEVE ACTION [goai_act] from [Act]"
+				//to_world_log("[src]: FAILED TO RETRIEVE ACTION [goai_act] from [Act]")
 				continue
 
 			if(goai_act.instant)
@@ -414,14 +409,14 @@
 				goal_state[need_key] = NEED_SAFELEVEL
 
 		if (goal_state && goal_state.len && (!is_planning))
-			//world.log << "Creating plan!"
+			//to_world_log("Creating plan!")
 			var/list/curr_available_actions = GetAvailableActions()
 
 			spawn(0)
 				var/list/raw_active_plan = CreatePlan(curr_state, goal_state, curr_available_actions)
 
 				if(raw_active_plan)
-					//world.log << "Created plan [raw_active_plan]"
+					//to_world_log("Created plan [raw_active_plan]")
 					var/first_clean_pos = 0
 
 					for (var/planstep in raw_active_plan)
@@ -434,7 +429,7 @@
 					last_plan_successful = TRUE
 
 				else
-					world.log << "Failed to create a plan | <@[src]>"
+					to_world_log("Failed to create a plan | <@[src]>")
 
 
 		else //satisfied, can be lazy
@@ -444,7 +439,7 @@
 
 
 /datum/brain/verb/DoAction(Act as anything in actionslist)
-	//world.log << "DoAction act: [Act]"
+	//to_world_log("DoAction act: [Act]")
 
 	if(!(Act in actionslist))
 		return null
@@ -452,24 +447,24 @@
 	var/datum/goai_action/goai_act = actionslist[Act]
 
 	if(!goai_act)
-		//world.log << "[src]: FAILED TO RETRIEVE ACTION [goai_act] from [Act]"
+		//to_world_log("[src]: FAILED TO RETRIEVE ACTION [goai_act] from [Act]")
 		return null
 
-	//world.log << "[src]: RETRIEVED ACTION [goai_act] from [Act]"
+	//to_world_log("[src]: RETRIEVED ACTION [goai_act] from [Act]")
 	var/datum/ActionTracker/new_actiontracker = new /datum/ActionTracker(goai_act)
 
 	if(!new_actiontracker)
-		world.log << "[src]: Failed to create a tracker for [goai_act]!"
+		to_world_log("[src]: Failed to create a tracker for [goai_act]!")
 		return null
 
-	//world.log << "New Tracker: [new_actiontracker] [new_actiontracker.tracked_action] @ [new_actiontracker.creation_time]"
+	//to_world_log("New Tracker: [new_actiontracker] [new_actiontracker.tracked_action] @ [new_actiontracker.creation_time]")
 	running_action_tracker = new_actiontracker
 
 	return new_actiontracker
 
 
 /datum/brain/verb/DoInstantAction(Act as anything in actionslist)
-	//world.log << "DoInstantAction act: [Act]"
+	//to_world_log("DoInstantAction act: [Act]")
 
 	if(!(Act in actionslist))
 		return null
@@ -477,17 +472,17 @@
 	var/datum/goai_action/goai_act = actionslist[Act]
 
 	if(!goai_act)
-		//world.log << "[src]: FAILED TO RETRIEVE ACTION [goai_act] from [Act]"
+		//to_world_log("[src]: FAILED TO RETRIEVE ACTION [goai_act] from [Act]")
 		return null
 
-	//world.log << "[src]: RETRIEVED ACTION [goai_act] from [Act]"
+	//to_world_log("[src]: RETRIEVED ACTION [goai_act] from [Act]")
 	var/datum/ActionTracker/new_actiontracker = new /datum/ActionTracker(goai_act)
 
 	if(!new_actiontracker)
-		world.log << "[src]: Failed to create a tracker for [goai_act]!"
+		to_world_log("[src]: Failed to create a tracker for [goai_act]!")
 		return null
 
-	//world.log << "New Tracker: [new_actiontracker] [new_actiontracker.tracked_action] @ [new_actiontracker.creation_time]"
+	//to_world_log("New Tracker: [new_actiontracker] [new_actiontracker.tracked_action] @ [new_actiontracker.creation_time]")
 
 	pending_instant_actions.Add(new_actiontracker)
 
@@ -568,7 +563,7 @@
 	var/fixed_value = min(NEED_MAXIMUM, max(NEED_MINIMUM, (value)))
 	needs[motive_key] = fixed_value
 	last_need_update_times[motive_key] = world.time
-	world.log << "Curr [motive_key] = [needs[motive_key]] <@[src]>"
+	to_world_log("Curr [motive_key] = [needs[motive_key]] <@[src]>")
 
 
 /datum/brain/concrete/proc/AddMotive(var/motive_key, var/amt)

@@ -1,6 +1,6 @@
 /datum/goai/mob_commander/proc/HandleOpenDoor(var/datum/ActionTracker/tracker, var/obj/cover/door/obstruction)
 	if(!(src.pawn))
-		world.log << "[src] does not have an owned mob!"
+		to_world_log("[src] does not have an owned mob!")
 		return
 
 	if(!tracker)
@@ -13,12 +13,12 @@
 	var/obj/cover/door/obsdoor = obstruction
 
 	if(isnull(obsdoor))
-		world.log << "[src] HandleOpenDoor - no Obstruction!"
+		to_world_log("[src] HandleOpenDoor - no Obstruction!")
 		tracker.SetFailed()
 		return
 
 	/*if(!istype(obsdoor))
-		world.log << "[src] HandleOpenDoor - wrong type!"
+		to_world_log("[src] HandleOpenDoor - wrong type!")
 		tracker.SetFailed()
 		return*/
 
@@ -28,7 +28,6 @@
 
 	while(dist_to_obs < 2 && !(obstruction.open))
 		// Within 1-tile range diagonally? Open it.
-		world.log << "[src] is opening a door [obsdoor]"
 		opened = obsdoor.Open()
 		if(opened)
 			break
@@ -66,7 +65,7 @@
 
 /datum/goai/mob_commander/proc/HandleOpenAutodoor(var/datum/ActionTracker/tracker, var/obstruction)
 	if(!(src.pawn))
-		world.log << "[src] does not have an owned mob!"
+		to_world_log("[src] does not have an owned mob!")
 		return
 
 	if(!tracker)
@@ -79,26 +78,15 @@
 	var/obj/cover/autodoor/obsdoor = obstruction
 
 	if(isnull(obsdoor))
-		world.log << "[src] HandleOpenAutodoor - no Obstruction <[obstruction]>!"
-		for(var/argkey in args)
-			world.log << "[src] HandleOpenAutodoor arg: [argkey]"
 		tracker.SetFailed()
 		return
-
-	/*if(!istype(obsdoor))
-		world.log << "[src] HandleOpenAutodoor - wrong type!"
-		tracker.SetFailed()
-		return*/
 
 	var/turf/obs_turf = get_turf(obsdoor)
 	var/dist_to_obs = ChebyshevDistance(get_turf(src.pawn), obs_turf)
 	var/opened = FALSE
 
-	world.log << "[src.pawn] distance to autodoor [obstruction] is [dist_to_obs]"
-
 	if(dist_to_obs < 2 && !(obsdoor.open))
 		// Within 1-tile range diagonally? Open it.
-		world.log << "[src] is opening an autodoor [obstruction]"
 		opened = obsdoor.Open()
 
 	if(obsdoor.open || opened)

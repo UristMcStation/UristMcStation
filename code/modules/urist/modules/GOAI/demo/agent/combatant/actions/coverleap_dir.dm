@@ -33,10 +33,10 @@
 		var/list/waypoint_memdata = brain?.GetMemoryValue(MEM_WAYPOINT_LKP, null, FALSE, TRUE)
 		var/mem_waypoint_x = waypoint_memdata?[KEY_GHOST_X]
 		var/mem_waypoint_y = waypoint_memdata?[KEY_GHOST_Y]
-		world.log << "[src] waypoint positions: ([mem_waypoint_x], [mem_waypoint_y]) from [waypoint_memdata]"
+		to_world_log("[src] waypoint positions: ([mem_waypoint_x], [mem_waypoint_y]) from [waypoint_memdata]")
 
 		if(!isnull(mem_waypoint_x) && !isnull(mem_waypoint_y))
-			world.log << "[src] found waypoint position in memory!"
+			to_world_log("[src] found waypoint position in memory!")
 			effective_waypoint_x = mem_waypoint_x
 			effective_waypoint_y = mem_waypoint_y
 
@@ -52,7 +52,7 @@
 
 	for(var/atom/candidate_cover in curr_view)
 		if(unreachable && candidate_cover == unreachable)
-			//world.log << "Cover [candidate_cover] is unreachable!"
+			//to_world_log("Cover [candidate_cover] is unreachable!")
 			continue
 
 		var/has_cover = candidate_cover?.HasCover(get_dir(candidate_cover, primary_threat), FALSE)
@@ -64,10 +64,6 @@
 
 		var/turf/cover_loc = (istype(candidate_cover, /turf) ? candidate_cover : candidate_cover?.loc)
 		var/list/adjacents = (has_cover ? list(candidate_cover) : (cover_loc?.CardinalTurfs(TRUE, TRUE, TRUE) || list()))
-		/*var/list/adjacents = cover_loc?.CardinalTurfs(TRUE) || list()
-
-		if(has_cover)
-			adjacents.Add(candidate_cover)*/
 
 		if(!adjacents)
 			continue
@@ -85,7 +81,7 @@
 
 		for(var/turf/cand in adjacents)
 			if(unreachable && cand == unreachable)
-				world.log << "Cover [cand] is unreachable!"
+				to_world_log("Cover [cand] is unreachable!")
 				continue
 
 			if(!(cand?.Enter(src, get_turf(candidate_cover))))
@@ -104,7 +100,7 @@
 				penalty -= 50
 
 			if(prev_loc_memdata && prev_loc_memdata == cand)
-				//world.log << "Prev loc [prev_loc_memdata] matched candidate [cand]"
+				//to_world_log("Prev loc [prev_loc_memdata] matched candidate [cand]")
 				penalty += MAGICNUM_DISCOURAGE_SOFT
 
 			var/threat_dist = PLUS_INF
@@ -188,8 +184,6 @@
 
 
 /mob/goai/combatant/proc/HandleDirectionalChooseCoverleapLandmark(var/datum/ActionTracker/tracker)
-	world.log << "Running HandleDirectionalChooseCoverleapLandmark"
-
 	var/turf/best_local_pos = tracker?.BBGet("bestpos", null)
 	if(best_local_pos)
 		return
@@ -259,8 +253,6 @@
 	if(primary_threat_ghost)
 		threats[primary_threat_ghost] = primary_threat
 
-	//world.log << "[src]: Threat for [src]: [threat || "NONE"]"
-
 	// Secondary threat:
 	var/dict/secondary_threat_ghost = GetActiveSecondaryThreatDict()
 	var/datum/Tuple/secondary_threat_pos_tuple = GetThreatPosTuple(secondary_threat_ghost)
@@ -319,11 +311,10 @@
 	if(isnull(best_local_pos))
 		best_local_pos = ChooseCoverleapLandmark(startpos, primary_threat, prev_loc_memdata, threats, min_safe_dist)
 		tracker?.BBSet("bestpos", best_local_pos)
-		world.log << (isnull(best_local_pos) ? "[src]: Best local pos: null" : "[src]: Best local pos [best_local_pos]")
+		to_world_log((isnull(best_local_pos) ? "[src]: Best local pos: null" : "[src]: Best local pos ([best_local_pos?.x], [best_local_pos?.y])"))
 
 
 	if(best_local_pos && (!active_path || active_path.target != best_local_pos))
-		//world.log << "Navigating to [best_local_pos]"
 		StartNavigateTo(best_local_pos, 0, null)
 
 	if(best_local_pos)

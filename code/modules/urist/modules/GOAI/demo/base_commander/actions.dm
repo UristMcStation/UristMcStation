@@ -21,7 +21,6 @@
 		if (270 to 314) direction = SOUTH
 		if (315 to 360) direction = SOUTHEAST
 
-	//world.log << "TRUE ANGLE: [true_angle] => DIR: [direction]"
 	return direction
 */
 

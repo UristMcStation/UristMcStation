@@ -71,19 +71,11 @@
 		if(heat >= 2)
 			continue
 
-		//var/datum/Tuple/curr_pos_tup = cand.CurrentPositionAsTuple()
-
-		/*if (curr_pos_tup ~= shot_at_where)
-			world.log << "[src]: Curr pos tup [curr_pos_tup] ([curr_pos_tup?.left], [curr_pos_tup?.right]) equals shot_at_where"
-			continue*/
-
 		var/cand_dist = ManhattanDistance(cand, src)
-		//var/targ_dist = (waypoint ? ManhattanDistance(cand, waypoint) : 0)
 		var/targ_dist = 0 // ignore waypoint, just leg it!
 		var/total_dist = (cand_dist + targ_dist)
 
 		if(threat_dist < min_safe_dist)
-			//processed.Add(cand)
 			continue
 
 		penalty += -threat_dist  // the further from a threat, the better
@@ -122,7 +114,7 @@
 			)
 
 		if(!handled)
-			world.log << "PanicRun target [best_local_pos] is unreachable!"
+			to_world_log("PanicRun target [best_local_pos] is unreachable!")
 			//brain?.SetMemory("UnreachableTile", best_local_pos)
 
 	if(best_local_pos)
@@ -161,8 +153,6 @@
 // as a GOAI Action. Also provides defaults, caching, etc.
 */
 /mob/goai/combatant/proc/HandleChoosePanicRunLandmark(var/datum/ActionTracker/tracker)
-	world.log << "Running HandleChoosePanicRunLandmark"
-
 	var/turf/best_local_pos = brain?.GetMemoryValue(MEM_BESTPOS_PANIC, null)
 	best_local_pos = best_local_pos || tracker?.BBGet(MEM_BESTPOS_PANIC, null)
 
@@ -280,8 +270,6 @@
 	if(primary_threat_ghost)
 		threats[primary_threat_ghost] = primary_threat
 
-	//world.log << "[src]: Threat for [src]: [threat || "NONE"]"
-
 	// Secondary threat:
 	var/dict/secondary_threat_ghost = GetActiveSecondaryThreatDict()
 	var/datum/Tuple/secondary_threat_pos_tuple = GetThreatPosTuple(secondary_threat_ghost)
@@ -327,7 +315,6 @@
 		if(bestpos_is_unsafe || currpos_is_unsafe)
 			if(tracker_frustration <= 3)
 				tracker.BBSet("frustration", tracker_frustration+1)
-				world.log << "[src]: Dropping PanicRun bestpos - unsafe!"
 
 				CancelNavigate()
 				best_local_pos = null
@@ -335,20 +322,16 @@
 				brain?.DropMemory(MEM_BESTPOS_PANIC)
 				break
 
-			else
-				world.log << "[src]: PanicRun bestpos unsafe, but too frustrated to care."
-
 
 	if(isnull(best_local_pos))
 		best_local_pos = ChoosePanicRunLandmark(primary_threat, threats, min_safe_dist)
-		world.log << "[src]: Found run away waypoint [best_local_pos]"
+		to_world_log("[src]: Found run away waypoint [best_local_pos]")
 		tracker.BBSet(MEM_BESTPOS_PANIC, best_local_pos)
 		brain?.SetMemory(MEM_BESTPOS_PANIC, best_local_pos, PANIC_SENSE_THROTTLE*3)
-		world.log << (isnull(best_local_pos) ? "[src]: Best local pos: null" : "[src]: Best local pos [best_local_pos]")
+		to_world_log((isnull(best_local_pos) ? "[src]: Best local pos: null" : "[src]: Best local pos ([best_local_pos?.x], [best_local_pos?.y])"))
 
 	if(best_local_pos && (!active_path || active_path.target != best_local_pos))
 		// CORE MOVEMENT TRIGGER - FOUND POSITION, START PATHING TO IT
-		world.log << "[src]: Navigating to [best_local_pos]"
 		StartNavigateTo(best_local_pos, 0, primary_threat?.loc, 0, /mob/goai/combatant/proc/fPanicRunDistance)
 
 	if(best_local_pos)

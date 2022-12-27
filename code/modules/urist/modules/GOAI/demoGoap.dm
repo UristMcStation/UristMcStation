@@ -1,11 +1,9 @@
 // # define DEMOGOAP_DEBUG_LOGGING 0
 
 # ifdef DEMOGOAP_DEBUG_LOGGING
-# define DEMOGOAP_DEBUG_LOG(X) world.log << X
-# define DEMOGOAP_DEBUG_LOG_TOSTR(X) world.log << #X + ": [X]"
+# define DEMOGOAP_DEBUG_LOG(X) to_world_log(X)
 # else
 # define DEMOGOAP_DEBUG_LOG(X)
-# define DEMOGOAP_DEBUG_LOG_TOSTR(X)
 # endif
 
 // Demo implementation
@@ -116,9 +114,6 @@
 			DEMOGOAP_DEBUG_LOG("[current_pos] failed - [req_key] REQ [-req_val] FOUND [blackboard_val]")
 			match = 0
 			break
-
-		/*else
-			DEMOGOAP_DEBUG_LOG("[current_pos] passed - [req_key] REQ [req_val] FOUND [blackboard_val]")*/
 
 	return match
 

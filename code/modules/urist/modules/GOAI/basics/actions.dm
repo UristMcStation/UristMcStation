@@ -41,10 +41,7 @@
 	src.instant = (isnull(is_instant) ? instant : is_instant)
 	src.arguments = (action_args || list())
 
-	//world.log << "Created new action [src.name] with cost [src.cost], charges [src.charges], instant=[src.instant], args=[src.arguments?.len]"
-
 
 /datum/goai_action/proc/ReduceCharges(var/amt=1)
-	world.log << "Reducing charges for [src] by [amt], curr [charges]"
 	charges -= amt
 	return charges

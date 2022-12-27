@@ -28,6 +28,12 @@
 	return
 
 
+/mob/verb/DeleteGoaiCommander(datum/goai/mob_commander/combat_commander/commander in global_goai_registry)
+	set category = "Debug GOAI Commanders"
+	deregister_ai(commander?.registry_index)
+	return
+
+
 /datum/goai/proc/LobotomizeGoai()
 	set category = "Debug GOAI Commanders"
 

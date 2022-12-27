@@ -1,6 +1,6 @@
 /datum/goai/mob_commander/proc/ChooseDirectionalCoverLandmark(var/atom/startpos, var/atom/primary_threat = null, var/list/threats = null, var/min_safe_dist = null, var/trust_first = null)
 	if(!(src.pawn))
-		world.log << "[src] does not have an owned mob!"
+		to_world_log("[src] does not have an owned mob!")
 		return
 
 	// Pathfinding/search
@@ -32,10 +32,8 @@
 		var/list/waypoint_memdata = brain?.GetMemoryValue(MEM_WAYPOINT_LKP, null, FALSE, TRUE)
 		var/mem_waypoint_x = waypoint_memdata?[KEY_GHOST_X]
 		var/mem_waypoint_y = waypoint_memdata?[KEY_GHOST_Y]
-		world.log << "[src] waypoint positions: ([mem_waypoint_x], [mem_waypoint_y]) from [waypoint_memdata]"
 
 		if(!isnull(mem_waypoint_x) && !isnull(mem_waypoint_y))
-			world.log << "[src] found waypoint position in memory!"
 			effective_waypoint_x = mem_waypoint_x
 			effective_waypoint_y = mem_waypoint_y
 
@@ -46,6 +44,9 @@
 			effective_waypoint_y = waypoint_position.right + rand(-WAYPOINT_FUZZ_Y, WAYPOINT_FUZZ_Y)
 
 	for(var/atom/candidate_cover in curr_view)
+		if(!(istype(candidate_cover, /mob) || istype(candidate_cover, /obj/machinery) || istype(candidate_cover, /obj/mecha) || istype(candidate_cover, /obj/structure) || istype(candidate_cover, /obj/vehicle) || istype(candidate_cover, /turf)))
+			continue
+
 		var/has_cover = candidate_cover?.HasCover(get_dir(candidate_cover, primary_threat), FALSE)
 		// IsCover here is Transitive=FALSE b/c has_cover will have checked transitives already)
 		var/is_cover = candidate_cover?.IsCover(FALSE, get_dir(candidate_cover, primary_threat), FALSE)
@@ -101,12 +102,6 @@
 			if(invalid_tile)
 				continue
 
-			//var/datum/Tuple/curr_pos_tup = cand.CurrentPositionAsTuple()
-
-			/*if (curr_pos_tup ~= shot_at_where)
-				world.log << "[src]: Curr pos tup [curr_pos_tup] ([curr_pos_tup?.left], [curr_pos_tup?.right]) equals shot_at_where"
-				continue*/
-
 			var/cand_dist = ManhattanDistance(cand, src.pawn)
 			var/targ_dist = 0
 
@@ -159,9 +154,8 @@
 
 
 /datum/goai/mob_commander/proc/HandleChooseDirectionalCoverLandmark(var/datum/ActionTracker/tracker)
-	//world.log << "Running HandleChooseDirectionalCoverLandmark"
 	if(!(src.pawn))
-		world.log << "[src] does not have an owned mob!"
+		to_world_log("[src] does not have an owned mob!")
 		return
 
 	var/turf/best_local_pos = tracker?.BBGet("bestpos", null)
@@ -194,7 +188,7 @@
 
 	// Run pathfind
 	best_local_pos = ChooseDirectionalCoverLandmark(startpos, primary_threat, threats, min_safe_dist)
-	world.log << "[src]: PLAN Best local pos [best_local_pos || "null"]"
+	to_world_log("[src]: PLAN Best local pos ([best_local_pos?.x], [best_local_pos?.y])")
 
 	if(best_local_pos)
 		tracker.BBSet("bestpos", best_local_pos)
@@ -210,7 +204,7 @@
 
 /datum/goai/mob_commander/proc/HandleDirectionalCover(var/datum/ActionTracker/tracker)
 	if(!(src.pawn))
-		world.log << "[src] does not have an owned mob!"
+		to_world_log("[src] does not have an owned mob!")
 		return
 
 	var/tracker_frustration = tracker.BBSetDefault("frustration", 0)
@@ -220,7 +214,7 @@
 	if(brain && isnull(best_local_pos))
 		best_local_pos = brain.GetMemoryValue("DirectionalCoverBestpos", null)
 
-	world.log << "[src]: INITIAL best_local_pos is: [best_local_pos || "null"]"
+	to_world_log("[src]: INITIAL best_local_pos is: [best_local_pos || "null"]")
 
 	var/min_safe_dist = (brain?.GetPersonalityTrait(KEY_PERS_MINSAFEDIST)) || 2
 	var/frustration_repath_maxthresh = brain?.GetPersonalityTrait(KEY_PERS_FRUSTRATION_THRESH, null) || 3
@@ -236,8 +230,6 @@
 
 	if(primary_threat_ghost)
 		threats[primary_threat_ghost] = primary_threat
-
-	//world.log << "[src]: Threat for [src]: [threat || "NONE"]"
 
 	// Secondary threat:
 	var/dict/secondary_threat_ghost = GetActiveSecondaryThreatDict()
@@ -269,7 +261,7 @@
 			continue
 
 		var/atom/curr_threat = threats[threat_ghost]
-		world.log << "[src]: curr_threat is [curr_threat]"
+		to_world_log("[src]: curr_threat is [curr_threat]")
 		var/next_step_threat_distance = (next_step ? GetThreatDistance(next_step, threat_ghost, PLUS_INF) : PLUS_INF)
 		var/curr_threat_distance = GetThreatDistance(src.pawn, threat_ghost, PLUS_INF)
 		var/bestpos_threat_distance = GetThreatDistance(best_local_pos, threat_ghost, PLUS_INF)
@@ -287,7 +279,7 @@
 
 			CancelNavigate()
 
-			world.log << "[src]: best_local_pos @ [best_local_pos] is unsafe, nulling!"
+			to_world_log("[src]: best_local_pos @ [best_local_pos] is unsafe, nulling!")
 			best_local_pos = null
 			tracker.BBSet("bestpos", null)
 			brain?.DropMemory("DirectionalCoverBestpos")
@@ -301,11 +293,10 @@
 		tracker.BBSet("bestpos", best_local_pos)
 		brain?.SetMemory("DirectionalCoverBestpos", best_local_pos)
 
-		world.log << "[src]: ACTION Best local pos [best_local_pos || "null"]"
+		to_world_log("[src]: ACTION Best local pos ([best_local_pos?.x], [best_local_pos?.y])")
 
 
 	if(best_local_pos && (!src.active_path || src.active_path.target != best_local_pos))
-		world.log << "[src]: Navigating to [best_local_pos]"
 		StartNavigateTo(best_local_pos)
 
 	if(best_local_pos)

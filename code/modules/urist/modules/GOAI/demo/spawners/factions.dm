@@ -2,8 +2,6 @@
 	var/datum/goai/goai_commander/faction_ai/new_commander = new()
 	var/true_faction_name = (faction_name || BuildFactionName())
 
-	world.log << "Spawning [true_faction_name]"
-
 	if(true_faction_name)
 		new_commander.name = true_faction_name
 

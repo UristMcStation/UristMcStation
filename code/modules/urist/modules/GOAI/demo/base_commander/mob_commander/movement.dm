@@ -3,7 +3,7 @@
 
 /datum/goai/mob_commander/proc/CurrentPositionAsTuple()
 	if(isnull(src.pawn))
-		world.log << "No owned mob found for [src.name] AI"
+		to_world_log("No owned mob found for [src.name] AI")
 		return
 
 	return src.pawn.CurrentPositionAsTuple()
@@ -11,7 +11,7 @@
 
 /datum/goai/mob_commander/proc/FindPathTo(var/trg, var/min_dist = 0, var/avoid = null, var/proc/adjproc = null, var/proc/distanceproc = null, var/list/adjargs = null)
 	if(isnull(src.pawn))
-		world.log << "No owned mob found for [src.name] AI"
+		to_world_log("No owned mob found for [src.name] AI")
 
 	var/atom/start_loc = null
 
@@ -19,7 +19,7 @@
 		start_loc = src.pawn.loc
 
 	if(!start_loc)
-		world.log << "No start loc found for [src.name] AI"
+		to_world_log("No start loc found for [src.name] AI")
 		return
 
 	var/true_avoid = (avoid || src.brain?.GetMemoryValue("BadStartTile", null))
@@ -27,7 +27,7 @@
 	var/proc/true_adjproc = (isnull(adjproc) ? /proc/fCardinalTurfs : adjproc)
 	var/proc/true_distproc = (isnull(distanceproc) ? /proc/fDistance : distanceproc)
 
-	var/list/path = AStar(
+	var/list/path = GoaiAStar(
 		start = get_turf(src.pawn.loc),
 		end = get_turf(trg),
 		adjacent = true_adjproc,
@@ -59,7 +59,7 @@
 		var/datum/Quadruple/best_cand_quad = queue.Dequeue()
 
 		if(!best_cand_quad)
-			world.log << "[src.name]: No Quad found, breaking the ValidateWaypoint loop!"
+			to_world_log("[src.name]: No Quad found, breaking the ValidateWaypoint loop!")
 			break
 
 		best_local_pos = best_cand_quad.fourth
@@ -134,7 +134,10 @@
 
 	else
 		var/atom/curr_loc = get_turf(src)
-		world.log << "[src]: Could not build a pathtracker to [trg] @ [curr_loc]"
+		to_world_log("[src]: Could not build a pathtracker to [trg] @ ([curr_loc.x] [curr_loc.y])")
+		var/atom/potential_step = get_step_towards(src.pawn, trg)
+		if(potential_step)
+			src.MovePawn(potential_step)
 		//brain?.SetMemory("BadStartTile", curr_loc, 1000)
 
 	var/turf/trg_turf = trg
@@ -153,8 +156,27 @@
 	return TRUE
 
 
+/datum/goai/mob_commander/proc/MovePawn(var/atom/trg, var/atom/override_pawn)
+	var/atom/true_pawn = (override_pawn || src.pawn)
+
+	if(isnull(true_pawn))
+		return FALSE
+
+	var/mob/pawn_mob = true_pawn
+	var/step_result = FALSE
+
+	if(pawn_mob)
+		// Mobs have a specialized API for movement
+		step_result = pawn_mob.SelfMove(get_dir(true_pawn.loc, trg))
+
+	else
+		step_result = step_towards(true_pawn, trg, 0)
+
+	return step_result
+
+
 /datum/goai/mob_commander/proc/MovementSystem()
-	if(!(src?.active_path) || src.active_path.IsDone() || src.is_moving)
+	if(!(src?.active_path) || src.active_path.IsDone() || src.is_moving || isnull(src.pawn))
 		return
 
 	var/success = FALSE
@@ -173,11 +195,12 @@
 			// repath
 			var/frustr_x = followup_step.x
 			var/frustr_y = followup_step.y
-			world.log << "[src]: FRUSTRATION, repath avoiding [next_step] @ ([frustr_x], [frustr_y])!"
+			to_world_log("[src]: FRUSTRATION, repath avoiding [next_step] @ ([frustr_x], [frustr_y])!")
 			StartNavigateTo(src.active_path.target, src.active_path.min_dist, next_step, src.active_path.frustration)
 			return
 
-		var/step_result = step_towards(src.pawn, next_step, 0)
+		var/step_result = MovePawn(next_step)
+
 		//success = (is_moving || step_result)
 
 		success = (
@@ -192,7 +215,6 @@
 		else
 			src.active_path.frustration++
 	else
-		world.log << "[src]: Setting path to Done"
 		src.active_path.SetDone()
 
 	if(success)
@@ -212,7 +234,7 @@
 
 	if(neighbors)
 		var/movedir = pick(neighbors)
-		step_to(src.pawn, movedir)
+		MovePawn(movedir)
 
 	src.is_moving = 0
 	return TRUE

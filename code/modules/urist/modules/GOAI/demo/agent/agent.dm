@@ -155,14 +155,11 @@
 	if(!key)
 		return
 
-	world.log << "[src]: setting state [key] => [val] on the mob!"
 	states[key] = val
 
 	if(brain)
-		//world.log << "[src]: brain found ([brain]), setting state [key] => [val]"
 		brain.SetState(key, val)
 
-	//world.log << "[src]: state for [key] is [GetState(key)]/[brain?.states?[key]]"
 	return TRUE
 
 
@@ -172,11 +169,9 @@
 		return
 
 	if(brain && (key in brain.states))
-		//world.log << "[src]: getting state [key] from the brain!"
 		return brain.GetState(key, default)
 
 	if(key in states)
-		//world.log << "[src]: getting state [key] from the mob!"
 		return states[key]
 
 	return default

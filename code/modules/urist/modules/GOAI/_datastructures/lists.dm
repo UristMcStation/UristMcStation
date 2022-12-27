@@ -20,7 +20,7 @@
 		if(oldVal && newVal)
 			// merge effects
 			merged[Key] = oldVal + newVal
-			world.log << "[Key]: updating from [oldVal] to [merged[Key]]."
+			to_world_log("[Key]: updating from [oldVal] to [merged[Key]].")
 
 		else if(newVal)
 			// insert key

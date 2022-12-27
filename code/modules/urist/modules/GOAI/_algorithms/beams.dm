@@ -1,3 +1,4 @@
+// DEBUG ONLY!
 
 # define DEFAULT_BEAM_VANISH_TIME 20
 
@@ -26,8 +27,6 @@
 	if((angle > 135 || angle <= -45))
 		// some stupid nonsense with how matrix.Turn() works requires this
 		turn_angle = 180 - angle
-
-	world.log << "SpinAngle [angle], YTrans: [y_translate]"
 
 	beam_transform.Scale(1, scale)
 
@@ -60,7 +59,7 @@
 
 /obj/vectorbeam/verb/Delete()
 	set src in view()
-	del(src)
+	qdel(src)
 
 
 /mob/verb/DeleteBeams()
@@ -75,7 +74,7 @@
 	. = ..()
 
 	spawn(DEFAULT_BEAM_VANISH_TIME)
-		del(src)
+		qdel(src)
 
 
 /atom/proc/pDrawVectorbeam(var/atom/start, var/atom/end = null, var/beam_icon_state = null)

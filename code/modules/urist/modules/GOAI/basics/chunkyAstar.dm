@@ -1,18 +1,10 @@
 // use Astar with Turfchunks to implement HAA*/HPA*
 
-//proc/AStar(var/start, var/end, var/proc/adjacent, var/proc/dist, var/max_nodes, var/max_node_depth = 30, var/min_target_dist = 0, var/proc/min_node_dist, var/list/adj_args = null, var/exclude)
-
-// Start/End - straightforward
-// Adjacent - chunk for (curr + chunksize) in cardinal dirs
-// Dist - probably simple dist
-// REST: default/customizeable
-
-
 /datum/chunk/proc/ChunkAdjacent(var/ignore_openness = FALSE)
 	var/datum/chunkserver/chunkServer = GetOrSetChunkserver(width)
 
 	if(!chunkServer)
-		world.log << "Failed to retrieve a ChunkServer for ChunkAdjacent()"
+		to_world_log("Failed to retrieve a ChunkServer for ChunkAdjacent()")
 		return
 
 	var/list/adjacents = list()
@@ -47,7 +39,7 @@
 	var/datum/chunkserver/chunkServer = GetOrSetChunkserver(source.width)
 
 	if(!chunkServer)
-		world.log << "Failed to retrieve a ChunkServer for ChunkAdjacent()"
+		to_world_log("Failed to retrieve a ChunkServer for ChunkAdjacent()")
 		return
 
 	var/list/adjacents = list()
@@ -122,7 +114,7 @@
 	var/datum/chunkserver/chunkServer = GetOrSetChunkserver()
 
 	if(!chunkServer)
-		world.log << "Failed to retrieve a ChunkServer for ChunkyAStar()"
+		to_world_log("Failed to retrieve a ChunkServer for ChunkyAStar()")
 		return
 
 	var/proc/true_adjproc = (isnull(adjacent) ? /proc/fChunkAdjacent : adjacent)
@@ -131,7 +123,7 @@
 	var/datum/chunk/startchunk = chunkServer.ChunkForAtom(startturf)
 	var/datum/chunk/endchunk = chunkServer.ChunkForAtom(endturf)
 
-	var/list/path = AStar(
+	var/list/path = GoaiAStar(
 		start = startchunk,
 		end = endchunk,
 		adjacent = true_adjproc,

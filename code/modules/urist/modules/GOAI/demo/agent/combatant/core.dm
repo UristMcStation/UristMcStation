@@ -74,7 +74,7 @@
 	return
 /*
 /mob/goai/combatant/verb/DoAction(Act as anything in actionslist)
-	world.log << "DoAction act: [Act]"
+	to_world_log("DoAction act: [Act]")
 
 	if(!(Act in actionslist))
 		return null
@@ -156,7 +156,7 @@
 		if(brain.last_plan_successful)
 			//brain.SetMemory(MEM_TRUST_BESTPOS, TRUE)
 		else
-			//world.log << "[src]: Getting disoriented!"
+			//to_world_log("[src]: Getting disoriented!")
 			SetState(STATE_DISORIENTED, TRUE)
 			//brain.SetMemory(MEM_TRUST_BESTPOS, FALSE, 1000)
 

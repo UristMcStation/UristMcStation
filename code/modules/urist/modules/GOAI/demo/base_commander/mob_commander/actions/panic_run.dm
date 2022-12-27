@@ -5,7 +5,7 @@
 */
 /datum/goai/mob_commander/proc/ChoosePanicRunLandmark(var/atom/primary_threat = null, var/list/threats = null, min_safe_dist = null)
 	if(!(src.pawn))
-		world.log << "[src] does not have an owned mob!"
+		to_world_log("[src] does not have an owned mob!")
 		return
 
 	// Pathfinding/search
@@ -37,26 +37,21 @@
 	var/datum/chunkserver/chunkserver = GetOrSetChunkserver()
 
 	var/my_loc = src.pawn?.loc
-	//world.log << "PANIK my_loc is [my_loc]"
 
 	for(var/turf/cand in curr_view)
+		sleep(-1)
 		// NOTE: This is DIFFERENT to cover moves! We're not doing a double-loop here!
-		world.log << "PANIK CAND: [cand]"
 
 		if(unreachable && cand == unreachable)
-			world.log << "PANIK skipping [cand] - unreachable!"
 			continue
 
 		if(!(cand?.Enter(src.pawn, my_loc)))
-			world.log << "PANIK skipping [cand] - cannot enter!"
 			continue
 
 		if(cand in processed)
-			world.log << "PANIK skipping [cand] - procesed!"
 			continue
 
 		if(!(cand in curr_view))
-			world.log << "PANIK skipping [cand] - not in view!"
 			continue
 
 		var/penalty = 0
@@ -82,29 +77,16 @@
 			penalty += MAGICNUM_DISCOURAGE_SOFT
 
 		if(heat >= 2)
-			world.log << "PANIK skipping [cand] - heat!"
 			continue
-
-		//var/datum/Tuple/curr_pos_tup = cand.CurrentPositionAsTuple()
-
-		/*if (curr_pos_tup ~= shot_at_where)
-			world.log << "[src]: Curr pos tup [curr_pos_tup] ([curr_pos_tup?.left], [curr_pos_tup?.right]) equals shot_at_where"
-			continue*/
 
 		var/cand_dist = ManhattanDistance(cand, my_loc)
 		//var/targ_dist = (waypoint ? ManhattanDistance(cand, waypoint) : 0)
 		var/targ_dist = 0 // ignore waypoint, just leg it!
 		var/total_dist = (cand_dist + targ_dist)
 
-		/*if(threat_dist < min_safe_dist)
-			//processed.Add(cand)
-			world.log << "PANIK skipping [cand] - threat too close!"
-			continue*/
-
 		penalty += -threat_dist  // the further from a threat, the better
 
 		var/datum/Quadruple/cover_quad = new(threat_dist**2, -penalty, -total_dist, cand)
-		world.log << "PANIK: enqueueing [cover_quad]"
 		cover_queue.Enqueue(cover_quad)
 		processed.Add(cand)
 
@@ -138,8 +120,7 @@
 			)
 
 		if(!handled)
-			world.log << "PanicRun target [best_local_pos] is unreachable!"
-			//brain?.SetMemory("UnreachableTile", best_local_pos)
+			to_world_log("Couldn't handle obstruction [obstruction]")
 
 	if(best_local_pos)
 		brain?.SetMemory(MEM_BESTPOS_PANIC, best_local_pos, PANIC_SENSE_THROTTLE*30)
@@ -157,7 +138,7 @@
 	var/datum/goai/mob_commander/true_owner = (owner || src)
 
 	if(!(true_owner.pawn))
-		world.log << "[src] does not have an owned mob!"
+		to_world_log("[src] does not have an owned mob!")
 		return
 
 	var/turf/best_local_pos = null
@@ -181,10 +162,8 @@
 // as a GOAI Action. Also provides defaults, caching, etc.
 */
 /datum/goai/mob_commander/proc/HandleChoosePanicRunLandmark(var/datum/ActionTracker/tracker)
-	world.log << "Running HandleChoosePanicRunLandmark"
-
 	if(!(src.pawn))
-		world.log << "[src] does not have an owned mob!"
+		to_world_log("[src] does not have an owned mob!")
 		return
 
 	var/turf/best_local_pos = brain?.GetMemoryValue(MEM_BESTPOS_PANIC, null)
@@ -282,7 +261,7 @@
 
 /datum/goai/mob_commander/proc/HandlePanickedRun(var/datum/ActionTracker/tracker)
 	if(!(src.pawn))
-		world.log << "[src] does not have an owned mob!"
+		to_world_log("[src] does not have an owned mob!")
 		return
 
 	var/tracker_frustration = tracker?.BBSetDefault("frustration", 0)
@@ -307,8 +286,6 @@
 
 	if(primary_threat_ghost)
 		threats[primary_threat_ghost] = primary_threat
-
-	//world.log << "[src]: Threat for [src]: [threat || "NONE"]"
 
 	// Secondary threat:
 	var/dict/secondary_threat_ghost = GetActiveSecondaryThreatDict()
@@ -355,7 +332,6 @@
 		if(bestpos_is_unsafe || currpos_is_unsafe)
 			if(tracker_frustration <= 3)
 				tracker.BBSet("frustration", tracker_frustration+1)
-				world.log << "[src]: Dropping PanicRun bestpos - unsafe!"
 
 				CancelNavigate()
 				best_local_pos = null
@@ -363,20 +339,17 @@
 				brain?.DropMemory(MEM_BESTPOS_PANIC)
 				break
 
-			else
-				world.log << "[src]: PanicRun bestpos unsafe, but too frustrated to care."
 
 
 	if(isnull(best_local_pos))
 		best_local_pos = ChoosePanicRunLandmark(primary_threat, threats, min_safe_dist)
-		world.log << "[src]: Found run away waypoint [best_local_pos]"
 		tracker.BBSet(MEM_BESTPOS_PANIC, best_local_pos)
 		brain?.SetMemory(MEM_BESTPOS_PANIC, best_local_pos, PANIC_SENSE_THROTTLE*3)
-		world.log << (isnull(best_local_pos) ? "[src]: Best local pos: null" : "[src]: Best local pos [best_local_pos]")
+		to_world_log((isnull(best_local_pos) ? "[src]: Best local pos: null" : "[src]: Best local pos ([best_local_pos?.x], [best_local_pos?.y])"))
 
 	if(best_local_pos && (!src.active_path || src.active_path.target != best_local_pos))
 		// CORE MOVEMENT TRIGGER - FOUND POSITION, START PATHING TO IT
-		world.log << "[src]: Navigating to [best_local_pos]"
+		to_world_log("[src]: Navigating to [best_local_pos]")
 		StartNavigateTo(best_local_pos, 0, primary_threat?.loc, 0, /datum/goai/mob_commander/proc/fPanicRunDistance)
 
 	if(best_local_pos)
