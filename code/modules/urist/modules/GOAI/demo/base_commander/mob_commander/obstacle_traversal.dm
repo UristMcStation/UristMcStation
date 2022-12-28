@@ -114,7 +114,7 @@
 			*/
 			action_name = "[action_name] [waypoint] - [obstruction] @ [ref(obstruction)]"
 
-		//world << "Adding new move action '[action_name]'"
+		//to_world("Adding new move action '[action_name]'")
 		goto_preconds["UsedUpAction [action_name]"] = FALSE
 
 		var/list/goto_effects = (isnull(base_target_effects) ? list() : base_target_effects.Copy())

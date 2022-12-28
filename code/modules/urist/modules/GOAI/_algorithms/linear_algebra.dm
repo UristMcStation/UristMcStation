@@ -131,7 +131,7 @@
 
 /proc/CoordsToTurf(var/Vector2d/coords, var/z_level = 1)
 	if(isnull(coords))
-		world.log << "CoordsToTurf: null coords!"
+		to_world_log("CoordsToTurf: null coords!")
 		return
 
 	var/x_pos = coords.x
@@ -139,14 +139,13 @@
 	var/z_pos = z_level
 
 	if(isnull(x_pos) || isnull(y_pos) || isnull(z_pos))
-		world.log << "CoordsToTurf: null position!"
+		to_world_log("CoordsToTurf: null position!")
 		return
 
 	var/adj_x_pos = floor(x_pos)
 	var/adj_y_pos = floor(y_pos)
 
 	var/turf/step_loc = locate(adj_x_pos, adj_y_pos, z_pos)
-	world.log << "CoordsToTurf locate([adj_x_pos], [adj_y_pos], [z_pos]) => [step_loc]"
 
 	return step_loc
 

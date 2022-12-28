@@ -364,20 +364,20 @@
 
 	if(running_action_tracker) // processing action
 		var/running_is_active = running_action_tracker.IsRunning()
-		world << "ACTIVE ACTION: [running_action_tracker.tracked_action] @ [running_is_active] | <@[src]>"
+		to_world("ACTIVE ACTION: [running_action_tracker.tracked_action] @ [running_is_active] | <@[src]>")
 
 		if(running_action_tracker.IsStopped())
 			running_action_tracker = null
 			pending_instant_actions = list()
 
 	else if(selected_action) // ready to go
-		world << "SELECTED ACTION: [selected_action] | <@[src]>"
+		to_world("SELECTED ACTION: [selected_action] | <@[src]>")
 		running_action_tracker = DoAction(selected_action)
 		selected_action = null
 
 	else if(active_plan && active_plan.len)
 		//step done, move on to the next
-		world << "ACTIVE PLAN: [active_plan] ([active_plan.len]) | <@[src]>"
+		to_world("ACTIVE PLAN: [active_plan] ([active_plan.len]) | <@[src]>")
 
 		while(active_plan.len && isnull(selected_action))
 			// do instants in one tick
@@ -393,12 +393,12 @@
 				continue
 
 			if(goai_act.instant)
-				world << "Instant ACTION: [selected_action] | <@[src]>"
+				to_world("Instant ACTION: [selected_action] | <@[src]>")
 				DoInstantAction(selected_action)
 				selected_action = null
 
 			else
-				world << "Regular ACTION: [selected_action] | <@[src]>"
+				to_world("Regular ACTION: [selected_action] | <@[src]>")
 
 	else //no plan & need to make one
 		var/list/curr_state = states.Copy()
