@@ -214,7 +214,7 @@
 	if(brain && isnull(best_local_pos))
 		best_local_pos = brain.GetMemoryValue("DirectionalCoverBestpos", null)
 
-	to_world_log("[src]: INITIAL best_local_pos is: [best_local_pos || "null"]")
+	to_world_log("[src]: INITIAL best_local_pos is: ([best_local_pos?.x], [best_local_pos?.y])")
 
 	var/min_safe_dist = (brain?.GetPersonalityTrait(KEY_PERS_MINSAFEDIST)) || 2
 	var/frustration_repath_maxthresh = brain?.GetPersonalityTrait(KEY_PERS_FRUSTRATION_THRESH, null) || 3

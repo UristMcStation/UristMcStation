@@ -86,6 +86,8 @@
 	var/planning_iter_cutoff = 30
 	var/datum/GOAP/planner
 
+	var/list/attachments
+
 
 /datum/brain/New(var/list/actions = null, var/list/init_memories = null, var/init_action = null, var/datum/brain/with_hivemind = null, var/dict/init_personality = null, var/newname = null, var/dict/init_relationships = null)
 	..()
@@ -99,6 +101,7 @@
 	perceptions = new()
 	relationships = new(init_relationships)
 	pending_instant_actions = list()
+	attachments = list()
 
 	if(actions)
 		actionslist = actions.Copy()

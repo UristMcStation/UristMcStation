@@ -156,8 +156,10 @@
 	return TRUE
 
 
-/datum/goai/mob_commander/proc/MovePawn(var/atom/trg, var/atom/override_pawn)
+/datum/goai/mob_commander/proc/MovePawn(var/atom/trg, var/atom/override_pawn = null)
 	var/atom/true_pawn = (override_pawn || src.pawn)
+	if(isnull(true_pawn))
+		true_pawn = src.pawn
 
 	if(isnull(true_pawn))
 		return FALSE
@@ -167,6 +169,11 @@
 
 	if(pawn_mob)
 		// Mobs have a specialized API for movement
+		var/mob/living/L = pawn_mob
+
+		if(!(L && L?.stat == CONSCIOUS))
+			return FALSE
+
 		step_result = pawn_mob.SelfMove(get_dir(true_pawn.loc, trg))
 
 	else

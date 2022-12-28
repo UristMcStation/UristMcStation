@@ -37,7 +37,7 @@
 	var/list/new_actionslist = (custom_actionslist ? custom_actionslist : actionslist)
 	var/dict/new_personality = (isnull(custom_personality) ? GeneratePersonality() : custom_personality)
 
-	var/datum/brain/concrete/combat/new_brain = new /datum/brain/concrete/faction(new_actionslist, init_memories, src.initial_action, with_hivemind, new_personality, "brain of [src.name]")
+	var/datum/brain/concrete/faction/new_brain = new /datum/brain/concrete/faction(new_actionslist, init_memories, src.initial_action, with_hivemind, new_personality, "brain of [src.name]")
 
 	new_brain.needs = (isnull(src.needs) ? new_brain.needs : src.needs)
 	new_brain.states = (isnull(src.states) ? new_brain.states : src.states)

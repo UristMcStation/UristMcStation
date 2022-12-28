@@ -1,4 +1,5 @@
-/turf/proc/CombatantAdjacents(var/mob/goai/combatant/owner)
+
+/turf/proc/CombatantAdjacents(var/mob/owner)
 	var/turf/s = get_turf(src)
 	if(!s)
 		return
@@ -6,7 +7,8 @@
 	var/list/base_adjs = s.CardinalTurfsNoblocks()
 	var/list/out_adjs = list()
 
-	var/cut_link = owner?.brain?.GetMemoryValue("BadStartTile", null)
+	var/cut_link = null
+	//var/cut_link = owner?.brain?.GetMemoryValue("BadStartTile", null)
 
 	for(var/adj in base_adjs)
 		if(cut_link && src == cut_link)
@@ -16,8 +18,7 @@
 
 	return out_adjs
 
-
-/proc/fCombatantAdjacents(var/S, var/mob/goai/combatant/owner)
+/proc/fCombatantAdjacents(var/S, var/mob/owner)
 	if(!S)
 		return
 
@@ -28,7 +29,8 @@
 	var/list/base_adjs = s.CardinalTurfsNoblocks()
 	var/list/out_adjs = list()
 
-	var/cut_link = owner?.brain?.GetMemoryValue("BadStartTile", null)
+	var/cut_link = null
+	//var/cut_link = owner?.brain?.GetMemoryValue("BadStartTile", null)
 
 	for(var/adj in base_adjs)
 		if(cut_link && src == cut_link)
@@ -39,7 +41,7 @@
 	return out_adjs
 
 
-/proc/mCombatantAdjacents(var/mob/goai/combatant/owner)
+/proc/mCombatantAdjacents(var/mob/owner)
 	if(!owner)
 		return
 
@@ -50,3 +52,4 @@
 	var/list/out_adjs = call(s, /turf/proc/CombatantAdjacents)(owner)
 
 	return out_adjs
+

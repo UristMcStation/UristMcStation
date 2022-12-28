@@ -1,3 +1,4 @@
+/*
 /proc/spawn_commanded_combatant(var/atom/loc, var/name = null, var/mob_icon = null, var/mob_icon_state = null, var/spawn_commander = TRUE)
 	var/true_name = name
 
@@ -64,6 +65,7 @@
 	)
 
 	call(script)(arglist(script_args))
+*/
 
 
 /proc/spawn_commanded_humanoid(var/atom/loc, var/name = null, var/spawn_commander = TRUE)
@@ -86,7 +88,7 @@
 	M.teleop = M
 
 	var/decl/hierarchy/outfit/antag = outfit_by_type(/decl/hierarchy/outfit/ANTAGlite)
-	antag.equip(M)
+	antag.equip(M, equip_adjustments = OUTFIT_ADJUSTMENT_SKIP_SURVIVAL_GEAR)
 
 	var/obj/item/weapon/gun/projectile/pistol/military/gun = null
 
@@ -106,8 +108,6 @@
 
 /obj/spawner/oneshot/commanded_humanoid
 	var/commander_name = null
-	var/mob_icon = null
-	var/mob_icon_state = null
 	var/spawn_commander = TRUE
 
 	icon = 'icons/uristmob/simpleanimals.dmi'
@@ -116,7 +116,7 @@
 	script = /proc/spawn_commanded_humanoid
 
 
-/obj/spawner/oneshot/commanded_mob/CallScript()
+/obj/spawner/oneshot/commanded_humanoid/CallScript()
 	if(!active)
 		return
 

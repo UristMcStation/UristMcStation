@@ -54,22 +54,29 @@
 	var/obj/item/weapon/gun/my_gun = cached_gun
 
 	var/mob/living/carbon/human/H = src.pawn
+	var/mob/living/simple_animal/hostile/SAH = src.pawn
 
+	var/atom/target = (isnull(cached_target) ? GetTarget() : cached_target)
+
+	if(SAH && target)
+		// SimpleAnimals are simple (duh), *they* handle if they can shoot so we don't have to.
+		SAH.RangedAttack(target)
+		return TRUE
+
+	if(H)
 	// either hand works
-	if(!(my_gun) && H)
-		my_gun = H.get_equipped_item(slot_r_hand)
+		if(!(my_gun))
+			my_gun = H.get_equipped_item(slot_r_hand)
 
-	if(!(my_gun) && H)
-		my_gun = H.get_equipped_item(slot_l_hand)
+		if(!(my_gun))
+			my_gun = H.get_equipped_item(slot_l_hand)
 
 	if(isnull(my_gun))
 		my_gun = (locate(/obj/item/weapon/gun) in src.pawn.contents)
 
-	if(isnull(my_gun))
+	if(isnull(my_gun) && isnull(SAH))
 		to_world_log("Gun not found for [src.pawn] to shoot D;")
 		return FALSE
-
-	var/atom/target = (isnull(cached_target) ? GetTarget() : cached_target)
 
 	if(!isnull(target) && my_gun && istype(my_gun, /obj/item/weapon/gun))
 		my_gun.Fire(target, src.pawn)
@@ -85,14 +92,28 @@
 		to_world_log("No mob not found for the [src.name] AI to attack with D;")
 		return FALSE
 
-	var/mob/living/carbon/human/H = src.pawn
+
 	var/atom/target = (isnull(cached_target) ? GetTarget() : cached_target)
 	var/distance = ChebyshevDistance(src.pawn, target)
 
-	if(!isnull(target) && H && distance <= 1)
-		var/old_intent = H.a_intent
-		target.attack_hand(H)
-		H.a_intent = old_intent
+	if(!isnull(target) && distance <= 1)
+		var/mob/living/carbon/human/H = src.pawn
+		var/mob/living/simple_animal/hostile/SAH = src.pawn
+
+		if(H && H?.stat == CONSCIOUS)
+			if(!(H.zone_sel))
+				// weird, but seemingly needed or stuff runtimes
+				H.zone_sel = new /obj/screen/zone_sel()
+
+			var/old_intent = H.a_intent
+			H.a_intent = I_HURT
+			target.attack_hand(H)
+			H.a_intent = old_intent
+
+		if(SAH && SAH?.stat == CONSCIOUS)
+			SAH.target = target
+			SAH.AttackTarget()
+
 		. = TRUE
 
 	return .
