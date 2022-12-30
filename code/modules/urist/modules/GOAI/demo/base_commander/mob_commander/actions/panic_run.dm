@@ -36,7 +36,7 @@
 	var/turf/unreachable = brain?.GetMemoryValue("UnreachableTile", null)
 	var/datum/chunkserver/chunkserver = GetOrSetChunkserver()
 
-	var/my_loc = src.pawn?.loc
+	var/my_loc = get_turf(src.pawn)
 
 	for(var/turf/cand in curr_view)
 		sleep(-1)
@@ -45,14 +45,15 @@
 		if(unreachable && cand == unreachable)
 			continue
 
-		if(!(cand?.Enter(src.pawn, my_loc)))
-			continue
+		/*if(!(pawn_mob && istype(pawn_mob)))
+			if(pawn_mob.MayEnterTurf(cand))
+				continue*/
 
 		if(cand in processed)
 			continue
 
-		if(!(cand in curr_view))
-			continue
+		/*if(!(cand in curr_view))
+			continue*/
 
 		var/penalty = 0
 		var/threat_dist = 0
@@ -350,10 +351,14 @@
 	if(best_local_pos && (!src.active_path || src.active_path.target != best_local_pos))
 		// CORE MOVEMENT TRIGGER - FOUND POSITION, START PATHING TO IT
 		to_world_log("[src]: Navigating to [best_local_pos]")
-		StartNavigateTo(best_local_pos, 0, primary_threat?.loc, 0, /datum/goai/mob_commander/proc/fPanicRunDistance)
+		var/turf/threat_turf = get_turf(primary_threat)
+		var/new_path = StartNavigateTo(best_local_pos, 0, threat_turf, 0, /datum/goai/mob_commander/proc/fPanicRunDistance)
+
+		if(!new_path)
+			src.WalkPawnAwayFrom(threat_turf)
 
 	if(best_local_pos)
-		var/dist_to_pos = ManhattanDistance(src.pawn.loc, best_local_pos)
+		var/dist_to_pos = ManhattanDistance(get_turf(src.pawn), best_local_pos)
 		if(dist_to_pos < 1)
 			tracker.SetTriggered()
 
@@ -370,15 +375,12 @@
 
 	else if(src.active_path && tracker.IsOlderThan(COMBATAI_MOVE_TICK_DELAY * 20))
 		brain?.SetMemory("UnreachableTile", src.active_path.target, MEM_TIME_LONGTERM)
-		if(prob(10))
-			step_away(src, primary_threat || secondary_threat || src)
+		walk_away(src, primary_threat || secondary_threat || get_turf(src.pawn))
 		tracker.SetFailed()
 
 
 	else if(tracker.IsOlderThan(COMBATAI_MOVE_TICK_DELAY * 10))
-		if(prob(10))
-			step_away(src, primary_threat || secondary_threat || src)
-
+		walk_away(src, primary_threat || secondary_threat || get_turf(src.pawn))
 		tracker.SetFailed()
 
 	return

@@ -111,6 +111,22 @@
 	return src
 
 
+/datum/relationships/proc/Drop(var/tag)
+	if(!(tag))
+		return FALSE
+
+	var/datum/relation_data/rel = src.data.Get(tag)
+	if(!rel)
+		return FALSE
+
+	var/curr_weight = rel.weight
+	total_weights -= curr_weight
+
+	data.Set(tag, null)
+	qdel(rel)
+	return src
+
+
 /datum/relationships/proc/Increase(var/tag, var/amt, var/wgt_if_new = 1)
 	if(!(tag && amt))
 		return src

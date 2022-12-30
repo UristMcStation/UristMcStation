@@ -58,6 +58,7 @@
 	src.InitNeeds()
 	src.InitStates()
 	src.UpdateBrain()
+	src.InitRelations()
 	src.InitSenses()
 
 	src.PostSetupHook()
@@ -70,7 +71,7 @@
 	. = ..()
 
 	if(!(isnull(src.registry_index)))
-		global_goai_registry[src.registry_index] = null
+		GLOB?.global_goai_registry[src.registry_index] = null
 
 	qdel(src.brain)
 	return
@@ -82,16 +83,14 @@
 
 /datum/goai/proc/RegisterAI()
 	// Registry pattern, to facilitate querying all GOAI AIs in verbs
-	if(!(global_goai_registry))
-		global_goai_registry = list()
 
-	global_goai_registry += src
-	src.registry_index = global_goai_registry.len
+	GLOB?.global_goai_registry += src
+	src.registry_index = GLOB?.global_goai_registry.len
 
 	if(!(src.name))
 		src.name = src.registry_index
 
-	return global_goai_registry
+	return GLOB?.global_goai_registry
 
 
 

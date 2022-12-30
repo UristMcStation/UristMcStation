@@ -24,8 +24,8 @@
 # define GOAP_KEY_SRC "source"
 
 # ifdef DEBUG_LOGGING
-# define MAYBE_LOG(X) world.log << X
-# define MAYBE_LOG_TOSTR(X) world.log << #X + ": [X]"
+# define MAYBE_LOG(X) to_world_log(X)
+# define MAYBE_LOG_TOSTR(X) to_world_log(#X + ": [X]")
 # else
 # define MAYBE_LOG(X)
 # define MAYBE_LOG_TOSTR(X)
@@ -35,14 +35,3 @@
 
 # define GUN_DISPERSION 5
 
-# define SENSE_SIGHT "Sight"
-# define SENSE_SIGHT_CURR "SightCurr"
-# define SENSE_SIGHT_PREV "SightPrev"
-
-// 1 (SOUTH) + 2 (NORTH) + 4 (EAST) + 8 (WEST) == 15
-# define ALL_CARDINAL_DIRS 15
-
-// Attachments
-# define ATTACHMENT_CONTROLLER "AiController"
-# define ATTACHMENT_CONTROLLER_BACKREF "AiControllerId"
-# define ATTACHMENT_EVTQUEUE_HIT "HitEventQueue"

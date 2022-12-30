@@ -1,3 +1,10 @@
+/*
+// Everything to do with the initial setup in the constructor (i.e. New())
+*/
+
+/datum/goai/proc/PreSetupHook()
+	return TRUE
+
 
 /datum/goai/proc/InitActionLookup()
 	/* Largely redundant; initializes handlers, but
@@ -15,22 +22,30 @@
 
 
 /datum/goai/proc/InitSenses()
-	senses = list()
+	src.senses = list()
 	return senses
 
 
 /datum/goai/proc/InitNeeds()
-	needs = list()
+	src.needs = list()
 	return needs
 
 
 /datum/goai/proc/InitStates()
-	states = list()
+	src.states = list()
 	return states
 
 
-/datum/goai/proc/PreSetupHook()
-	return TRUE
+/datum/goai/proc/InitRelations()
+	if(!(src.brain))
+		return
+
+	var/datum/relationships/relations = src.brain.relations
+	if(isnull(relations) || !istype(relations))
+		relations = new()
+
+	src.brain.relations = relations
+	return relations
 
 
 /datum/goai/proc/PostSetupHook()

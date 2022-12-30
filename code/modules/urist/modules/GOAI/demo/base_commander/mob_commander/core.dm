@@ -1,7 +1,7 @@
 /datum/goai/mob_commander
 	name = "mob commander"
 
-	var/atom/pawn
+	var/atom/movable/pawn
 	var/datum/ActivePathTracker/active_path
 
 	var/is_repathing = 0

@@ -1,5 +1,5 @@
 
-/mob/verb/InspectGoaiMobCommanderVars(datum/goai/mob_commander/commander in global_goai_registry)
+/mob/verb/InspectGoaiMobCommanderVars(datum/goai/mob_commander/commander in GLOB?.global_goai_registry)
 	set category = "Debug GOAI Commanders"
 
 	if(isnull(commander))
@@ -19,7 +19,7 @@
 	return
 
 
-/mob/verb/InspectGoaiMobCommanderTrackerVars(datum/goai/mob_commander/commander in global_goai_registry)
+/mob/verb/InspectGoaiMobCommanderTrackerVars(datum/goai/mob_commander/commander in GLOB?.global_goai_registry)
 	set category = "Debug GOAI Commanders"
 
 	if(isnull(commander))
@@ -48,8 +48,10 @@
 
 	var/removed = 0
 
-	for(var/datum/goai/mob_commander/commander in global_goai_registry)
-		if(!(commander?.pawn))
+	for(var/datum/goai/mob_commander/commander in GLOB?.global_goai_registry)
+		var/mob/living/L = commander?.pawn
+
+		if(!(commander?.pawn) || (L && istype(L) && L.stat == DEAD))
 			usr << "Deregistering [commander?.name]..."
 			deregister_ai(commander?.registry_index)
 			removed++

@@ -2,7 +2,7 @@
 ===================
 
  - angle2dir helper (might be moved)
- - Misc. actions (not worth their own module yet)
+ - Action handling API
 
 */
 

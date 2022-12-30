@@ -22,9 +22,9 @@
 # define STATE_DISORIENTED "disoriented"
 
 // Subsystem loop schedules
-# define COMBATAI_SENSE_TICK_DELAY 5
+# define COMBATAI_SENSE_TICK_DELAY 4
 # define COMBATAI_AI_TICK_DELAY 6
-# define COMBATAI_MOVE_TICK_DELAY 5
+# define COMBATAI_MOVE_TICK_DELAY 3
 # define COMBATAI_FIGHT_TICK_DELAY 25
 
 // Lower bound on the tick rate to prevent sanic loops eating your CPU.
@@ -52,10 +52,10 @@
 # define MAGICNUM_DISCOURAGE_SOFT 10000
 
 // How much getting shot decays the AI's COMPOSURE need.
-# define MAGICNUM_COMPOSURE_LOSS_ONHIT 5
+# define MAGICNUM_COMPOSURE_LOSS_ONHIT 10
 
 // How much failing a movement decays the AI's COMPOSURE need.
-# define MAGICNUM_COMPOSURE_LOSS_FAILMOVE 5
+# define MAGICNUM_COMPOSURE_LOSS_FAILMOVE 1
 
 
 # define PANIC_SENSE_THROTTLE (1 * COMBATAI_AI_TICK_DELAY)

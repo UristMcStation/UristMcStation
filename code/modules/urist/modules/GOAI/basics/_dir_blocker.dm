@@ -33,3 +33,11 @@
 	var/result = blocks & dir
 	DIRBLOCKER_DEBUG_LOG("[src] blocks & dir - [result]")
 	return result
+
+
+/datum/directional_blocker/proc/AttachTo(var/atom/blockerable)
+	if(!blockerable)
+		return FALSE
+
+	blockerable.directional_blocker = src
+	return TRUE

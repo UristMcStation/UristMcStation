@@ -49,7 +49,10 @@
 
 	// TODO: Refactor to accept objects/structures as threats (turrets, grenades...).
 	for(var/mob/enemy in true_searchspace)
-		if(!(istype(enemy, /mob/living/carbon) || istype(enemy, /mob/living/simple_animal)))
+		if(!(istype(enemy, /mob/living/carbon) || istype(enemy, /mob/living/simple_animal) || istype(enemy, /mob/living/bot)))
+			continue
+
+		if(!(owner.IsEnemy(enemy)))
 			continue
 
 		var/enemy_dist = ManhattanDistance(my_loc, enemy)

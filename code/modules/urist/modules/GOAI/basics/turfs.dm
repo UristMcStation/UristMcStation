@@ -1,3 +1,4 @@
+/*
 /turf/ground
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snow"
@@ -49,7 +50,6 @@
 	icon_state = "stone[dense_conn]"
 
 
-/*
 /proc/trange(rad = 0, turf/centre = null) //alternative to range (ONLY processes turfs and thus less intensive)
 	if(!centre)
 		return
@@ -274,7 +274,3 @@
 		return TRUE
 
 	return FALSE
-
-
-/world
-	turf = /turf/ground

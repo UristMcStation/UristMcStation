@@ -21,8 +21,10 @@
 	var/PriorityQueue/target_queue = new /PriorityQueue(/datum/Tuple/proc/FirstCompare)
 
 	for(var/mob/enemy in true_searchspace)
-		// CHECK RELATIONS!!!
-		if(!(istype(enemy, /mob/living/carbon) || istype(enemy, /mob/living/simple_animal)))
+		if(!(istype(enemy, /mob/living/carbon) || istype(enemy, /mob/living/simple_animal) || istype(enemy, /mob/living/bot)))
+			continue
+
+		if(!(src.IsEnemy(enemy)))
 			continue
 
 		var/enemy_dist = ManhattanDistance(my_loc, enemy)
@@ -44,6 +46,24 @@
 	return target
 
 
+
+/mob/living/carbon/human/proc/FindGunInHands(var/mob/living/carbon/human/trg_override = null)
+	var/mob/living/carbon/human/H = trg_override
+	if(isnull(H))
+		H = src
+
+	var/obj/item/weapon/gun/my_gun = null
+
+	// either hand works
+	if(isnull(my_gun))
+		my_gun = H.get_equipped_item(slot_r_hand)
+
+	if(isnull(my_gun))
+		my_gun = H.get_equipped_item(slot_l_hand)
+
+	return my_gun
+
+
 /datum/goai/mob_commander/proc/Shoot(var/obj/item/weapon/gun/cached_gun = null, var/atom/cached_target = null, var/datum/aim/cached_aim = null)
 	. = FALSE
 
@@ -55,32 +75,47 @@
 
 	var/mob/living/carbon/human/H = src.pawn
 	var/mob/living/simple_animal/hostile/SAH = src.pawn
+	var/obj/item/weapon/gun/gun_pawn = src.pawn
 
 	var/atom/target = (isnull(cached_target) ? GetTarget() : cached_target)
 
-	if(SAH && target)
+	var/mob/living/targetLM = target
+
+	if(SAH && istype(SAH) && target && SAH.stat == CONSCIOUS && (targetLM?.stat != DEAD))
 		// SimpleAnimals are simple (duh), *they* handle if they can shoot so we don't have to.
 		SAH.RangedAttack(target)
 		return TRUE
 
-	if(H)
-	// either hand works
-		if(!(my_gun))
-			my_gun = H.get_equipped_item(slot_r_hand)
+	if(H && istype(H))
+		if(!(H.zone_sel))
+			// weird, but seemingly needed or stuff runtimes
+			H.zone_sel = new /obj/screen/zone_sel()
 
-		if(!(my_gun))
-			my_gun = H.get_equipped_item(slot_l_hand)
+		if(H.stat == CONSCIOUS)
+			my_gun = (my_gun || H.FindGunInHands())
+			to_world_log("[src] - Humanoid: found gun [my_gun] in [H]'s hands")
+
+		else
+			return FALSE
+
+	//if(isnull(my_gun))
+	//	my_gun = (locate(/obj/item/weapon/gun) in src.pawn.contents)
 
 	if(isnull(my_gun))
-		my_gun = (locate(/obj/item/weapon/gun) in src.pawn.contents)
-
-	if(isnull(my_gun) && isnull(SAH))
-		to_world_log("Gun not found for [src.pawn] to shoot D;")
+		to_world_log("[src] - Gun not found for [src.pawn] to shoot D;")
 		return FALSE
 
-	if(!isnull(target) && my_gun && istype(my_gun, /obj/item/weapon/gun))
-		my_gun.Fire(target, src.pawn)
-		. = TRUE
+	if(!isnull(target) && (targetLM?.stat != DEAD))
+		if(my_gun)
+			my_gun.Fire(target, src.pawn)
+			return TRUE
+
+		else if(gun_pawn)
+			gun_pawn.Fire(target, gun_pawn)
+			return TRUE
+
+		else
+			to_world_log("[src] - target [target] is null or no gun found!")
 
 	return .
 
@@ -94,13 +129,14 @@
 
 
 	var/atom/target = (isnull(cached_target) ? GetTarget() : cached_target)
+	var/mob/living/targetLM = target
 	var/distance = ChebyshevDistance(src.pawn, target)
 
-	if(!isnull(target) && distance <= 1)
+	if(!isnull(target) && distance <= 1 && (targetLM?.stat != DEAD))
 		var/mob/living/carbon/human/H = src.pawn
 		var/mob/living/simple_animal/hostile/SAH = src.pawn
 
-		if(H && H?.stat == CONSCIOUS)
+		if(H && istype(H) && H?.stat == CONSCIOUS)
 			if(!(H.zone_sel))
 				// weird, but seemingly needed or stuff runtimes
 				H.zone_sel = new /obj/screen/zone_sel()
@@ -110,7 +146,7 @@
 			target.attack_hand(H)
 			H.a_intent = old_intent
 
-		if(SAH && SAH?.stat == CONSCIOUS)
+		else if(SAH && istype(SAH) && SAH.stat == CONSCIOUS)
 			SAH.target = target
 			SAH.AttackTarget()
 

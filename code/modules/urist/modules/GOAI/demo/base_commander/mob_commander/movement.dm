@@ -133,8 +133,8 @@
 		src.active_path = pathtracker
 
 	else
-		var/atom/curr_loc = get_turf(src)
-		to_world_log("[src]: Could not build a pathtracker to [trg] @ ([curr_loc.x] [curr_loc.y])")
+		var/atom/curr_loc = get_turf(src.pawn)
+		to_world_log("[src]: Could not build a pathtracker to [trg] @ ([curr_loc?.x] [curr_loc?.y])")
 		var/atom/potential_step = get_step_towards(src.pawn, trg)
 		if(potential_step)
 			src.MovePawn(potential_step)
@@ -156,8 +156,22 @@
 	return TRUE
 
 
-/datum/goai/mob_commander/proc/MovePawn(var/atom/trg, var/atom/override_pawn = null)
-	var/atom/true_pawn = (override_pawn || src.pawn)
+/datum/goai/mob_commander/proc/MovePawn(var/atom/trg, var/flee = FALSE, var/atom/override_pawn = null)
+	/* Core API to let our Commanders move our pawns (i.e. any atoms).
+	// Needs to account for different subtypes of atom having specialized
+	// movement APIs (because SS13 code is an eldritch spaghetti from hell)
+	//
+	// ARGUMENTS:
+	// - trg => target atom to move to/from
+	// - flee => boolean; if TRUE, reverses the directions (so we run AWAY from trg rather than TOWARDS it)
+	// - override_pawn => optional, can be used to *explicitly* set a pawn to be moved.
+	*/
+	var/atom/movable/true_pawn = (override_pawn || src.pawn)
+
+	if(!istype(true_pawn))
+		// Because the null-on-bad-cast is unreliable...
+		true_pawn = null
+
 	if(isnull(true_pawn))
 		true_pawn = src.pawn
 
@@ -165,25 +179,88 @@
 		return FALSE
 
 	var/mob/pawn_mob = true_pawn
+
+	if(!(pawn_mob.MayMove()))
+		return FALSE
+
 	var/step_result = FALSE
 
-	if(pawn_mob)
+	if(pawn_mob && istype(pawn_mob))
 		// Mobs have a specialized API for movement
 		var/mob/living/L = pawn_mob
 
-		if(!(L && L?.stat == CONSCIOUS))
-			return FALSE
+		if(L && istype(L))
+			if(!(L?.stat == CONSCIOUS))
+				return FALSE
 
-		step_result = pawn_mob.SelfMove(get_dir(true_pawn.loc, trg))
+	var/movedir = get_dir(get_turf(true_pawn), get_turf(trg))
 
-	else
-		step_result = step_towards(true_pawn, trg, 0)
+	if(flee)
+		movedir = dir2opposite(movedir)
 
+	step_result = true_pawn.DoMove(movedir, true_pawn, FALSE)
 	return step_result
+
+
+/datum/goai/mob_commander/proc/WalkPawn(var/atom/trg, var/flee = FALSE, var/stop_on_path = TRUE, var/stop_on_moving = TRUE, var/atom/override_pawn = null)
+	/* This is a fallback movement logic for cases where we don't have a good Astar path.
+	// It's effectively the engine's walk() proc but with an SS13/GOAI layer on top.
+	// Movement will stop once we acquire an actual path.
+	//
+	// ARGUMENTS: see MovePawn
+	*/
+	var/atom/true_pawn = (override_pawn || src.pawn)
+
+	if(!istype(true_pawn))
+		// Because the null-on-bad-cast is unreliable...
+		true_pawn = null
+
+	if(isnull(true_pawn))
+		true_pawn = src.pawn
+
+	if(isnull(true_pawn))
+		return FALSE
+
+	var/turf/targ_turf = get_turf(trg)
+
+	spawn(0)
+		// kill the loop if we have an actual path
+		while(get_turf(true_pawn) != targ_turf)
+			if(stop_on_path && src.active_path)
+				break
+
+			if(stop_on_moving && src.is_moving)
+				break
+
+			var/step_result = src.MovePawn(trg, flee, true_pawn)
+
+			if(!step_result)
+				break
+
+			sleep(COMBATAI_MOVE_TICK_DELAY)
+
+	return TRUE
+
+
+/datum/goai/mob_commander/proc/WalkPawnTowards(var/atom/trg, var/stop_on_path = TRUE, var/stop_on_moving = TRUE, var/atom/override_pawn = null)
+	/* This is a covenience partial function for WalkPawn(flee=FALSE),
+	// so broadly equivalent to the stock walk_towards() proc
+	*/
+	return src.WalkPawn(trg, FALSE, stop_on_path, stop_on_moving, override_pawn)
+
+
+/datum/goai/mob_commander/proc/WalkPawnAwayFrom(var/atom/trg, var/stop_on_path = TRUE, var/stop_on_moving = TRUE, var/atom/override_pawn = null)
+	/* This is a covenience partial function for WalkPawn(flee=TRUE),
+	// so broadly equivalent to the stock walk_away() proc
+	*/
+	return src.WalkPawn(trg, TRUE, stop_on_path, stop_on_moving, override_pawn)
 
 
 /datum/goai/mob_commander/proc/MovementSystem()
 	if(!(src?.active_path) || src.active_path.IsDone() || src.is_moving || isnull(src.pawn))
+		return
+
+	if(!(src.pawn.MayMove()))
 		return
 
 	var/success = FALSE
@@ -204,6 +281,11 @@
 			var/frustr_y = followup_step.y
 			to_world_log("[src]: FRUSTRATION, repath avoiding [next_step] @ ([frustr_x], [frustr_y])!")
 			StartNavigateTo(src.active_path.target, src.active_path.min_dist, next_step, src.active_path.frustration)
+			return
+
+		if(get_dist(src.pawn, next_step) > 0)
+			// If we somehow wind up away from the core path, move back towards it first
+			WalkPawnTowards(next_step, FALSE, TRUE)
 			return
 
 		var/step_result = MovePawn(next_step)
@@ -232,6 +314,9 @@
 
 /datum/goai/mob_commander/proc/randMove()
 	if(src.is_moving)
+		return FALSE
+
+	if(!(src.pawn?.MayMove()))
 		return FALSE
 
 	src.is_moving = 1

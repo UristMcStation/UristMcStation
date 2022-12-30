@@ -117,7 +117,7 @@
 							obstruction = potential_obstruction_prev
 							break
 
-				OBSTACLEHUNT_DEBUG_LOG("[owner]: LINK OBSTRUCTION => [obstruction] @ [obstruction?.loc]")
+				OBSTACLEHUNT_DEBUG_LOG("[owner]: LINK OBSTRUCTION => [obstruction] @ [get_turf(obstruction)]")
 				owner.brain.SetMemory(MEM_OBSTRUCTION, obstruction, MEM_TIME_LONGTERM)
 				break
 

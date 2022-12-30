@@ -63,13 +63,14 @@
 	*/
 	var/datum/brain/hivemind
 
-	/* Dict containing sensory data indexed by sense key.
-	*/
+	/* Dict containing sensory data indexed by sense key. */
 	var/dict/perceptions
 
-	/* Faction-esque data; relation modifiers by tag.
-	*/
-	var/datum/relationships
+	/* Faction-esque data; relation modifiers by tag. */
+	var/datum/relationships/relations
+
+	// For relations: minimum relation score for which we are NOT hostile
+	var/neutrality_threshold = 1
 
 	/* Bookkeeping for action execution */
 	var/is_planning = 0
@@ -92,36 +93,36 @@
 /datum/brain/New(var/list/actions = null, var/list/init_memories = null, var/init_action = null, var/datum/brain/with_hivemind = null, var/dict/init_personality = null, var/newname = null, var/dict/init_relationships = null)
 	..()
 
-	name = (newname ? newname : name)
+	src.name = (newname ? newname : name)
 
-	memories = new /dict(init_memories)
-	hivemind = with_hivemind
-	personality = (isnull(init_personality) ? personality : init_personality)
-	last_need_update_times = list()
-	perceptions = new()
-	relationships = new(init_relationships)
-	pending_instant_actions = list()
-	attachments = list()
+	src.memories = new /dict(init_memories)
+	src.hivemind = with_hivemind
+	src.personality = (isnull(init_personality) ? personality : init_personality)
+	src.last_need_update_times = list()
+	src.perceptions = new()
+	src.relations = new(init_relationships)
+	src.pending_instant_actions = list()
+	src.attachments = list()
 
 	if(actions)
-		actionslist = actions.Copy()
+		src.actionslist = actions.Copy()
 
 	if(init_action && init_action in actionslist)
-		running_action_tracker = DoAction(init_action)
+		src.running_action_tracker = DoAction(init_action)
 
-	InitNeeds()
-	InitStates()
+	src.InitNeeds()
+	src.InitStates()
 
 	return
 
 
 /datum/brain/proc/InitNeeds()
-	needs = list()
+	src.needs = list()
 	return needs
 
 
 /datum/brain/proc/InitStates()
-	states = list()
+	src.states = list()
 	return states
 
 
@@ -158,9 +159,9 @@
 
 	var/list/available_actions = list()
 
-	for(var/action_key in actionslist)
+	for(var/action_key in src.actionslist)
 		// Filter out actions w/o charges and non-action items.
-		var/datum/goai_action/action = actionslist[action_key]
+		var/datum/goai_action/action = src.actionslist[action_key]
 
 		if(!action)
 			continue
@@ -170,7 +171,7 @@
 
 		available_actions[action_key] = action
 
-	actionslist = available_actions
+	src.actionslist = available_actions
 	return available_actions
 
 
@@ -181,7 +182,7 @@
 	//                 If FALSE, a reference to the list is returned (faster, but harder to predict)
 	*/
 	ADD_ACTION_DEBUG_LOG("Adding action [name] with [cost] cost, [charges] charges")
-	var/list/available_actions = (clone ? actionslist.Copy() : actionslist) || list()
+	var/list/available_actions = (clone ? src.actionslist.Copy() : src.actionslist) || list()
 	var/datum/goai_action/newaction = new(preconds, effects, cost, name, charges, instant, action_args)
 	available_actions[name] = newaction
 
@@ -189,36 +190,36 @@
 
 
 /datum/brain/proc/GetState(var/key, var/default = null)
-	if(isnull(states))
+	if(isnull(src.states))
 		return default
 
-	var/found = (key in states)
-	var/result = (found ? states[key] : default)
+	var/found = (key in src.states)
+	var/result = (found ? src.states[key] : default)
 	return result
 
 
 /datum/brain/proc/SetState(var/key, var/val)
-	if(isnull(states))
-		states = new()
+	if(isnull(src.states))
+		src.states = new()
 
-	states[key] = val
+	src.states[key] = val
 	return TRUE
 
 
 /datum/brain/proc/GetNeed(var/key, var/default = null)
-	if(isnull(needs))
+	if(isnull(src.needs))
 		return default
 
-	var/found = (key in needs)
-	var/result = (found ? needs[key] : default)
+	var/found = (key in src.needs)
+	var/result = (found ? src.needs[key] : default)
 	return result
 
 
 /datum/brain/proc/SetNeed(var/key, var/val)
 	if(isnull(needs))
-		needs = new()
+		src.needs = new()
 
-	needs[key] = val
+	src.needs[key] = val
 	return TRUE
 
 

@@ -29,10 +29,11 @@
 			var/distance = ChebyshevDistance(src.pawn, target)
 
 			if(distance > 1)
-				Shoot(null, target)
+				//to_world_log("[src] - (pawn [src.pawn]) running Shoot!")
+				src.Shoot(null, target)
 
 			else
-				Melee(target)
+				src.Melee(target)
 
 	return
 

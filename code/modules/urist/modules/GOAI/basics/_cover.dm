@@ -24,3 +24,61 @@
 		return TRUE
 
 	return FALSE
+
+
+/datum/cover/proc/AttachTo(var/atom/coverable)
+	if(!coverable)
+		return FALSE
+
+	coverable.cover_data = src
+	return TRUE
+
+
+/atom/proc/GenerateCover()
+	// by default
+	return null
+
+
+/atom/proc/ShouldHaveCover()
+	// by default
+	return FALSE
+
+
+/atom/proc/GetCoverData(var/generate_if_missing = FALSE, var/log_on_missing = FALSE)
+	var/datum/cover = src.cover_data
+
+	if(!cover)
+		if(src.cover_gen_enabled)
+			if(generate_if_missing)
+				spawn(0)
+					cover = src.GenerateCover()
+					src.cover_data = cover
+
+			if(log_on_missing)
+				to_world_log("Failed to get cover for [src] - no cover data!")
+
+	return src.cover_data
+
+
+/atom/proc/IsCover(var/transitive = FALSE, var/for_dir = null, var/default_for_null_dir = FALSE)
+	if(src.density)
+		return TRUE
+
+	var/datum/cover/cover = GetCoverData(TRUE)
+
+	if(cover?.CoversInDir(for_dir, default_for_null_dir))
+		return TRUE
+
+	if(transitive && src.HasCover(for_dir, default_for_null_dir))
+		return TRUE
+
+	return FALSE
+
+
+/atom/proc/HasCover(var/for_dir = null, var/default_for_null_dir = FALSE)
+	for(var/atom/local_obj in src.contents)
+		if(local_obj.IsCover(FALSE, for_dir))
+			return local_obj
+
+	return null
+

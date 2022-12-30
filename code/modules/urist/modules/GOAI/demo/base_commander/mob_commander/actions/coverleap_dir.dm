@@ -4,7 +4,7 @@
 		return
 
 	// Pathfinding/search
-	var/atom/_startpos = (startpos || src.pawn.loc)
+	var/atom/_startpos = (startpos || get_turf(src.pawn))
 	var/list/_threats = (threats || list())
 	var/_min_safe_dist = (isnull(min_safe_dist) ? 0 : min_safe_dist)
 
@@ -27,6 +27,8 @@
 	var/effective_waypoint_x = null
 	var/effective_waypoint_y = null
 
+	var/mob/pawn_mob = src.pawn
+
 	var/atom/waypoint_ident = brain?.GetMemoryValue(MEM_WAYPOINT_IDENTITY, null, FALSE, TRUE)
 	var/datum/chunk/waypointchunk = null
 
@@ -44,15 +46,42 @@
 
 		else
 			var/datum/Tuple/waypoint_position = waypoint_ident.CurrentPositionAsTuple()
+			var/waypoint_fuzz_shared = min(WAYPOINT_FUZZ_X, WAYPOINT_FUZZ_Y)
 
-			effective_waypoint_x = waypoint_position.left + rand(-WAYPOINT_FUZZ_X, WAYPOINT_FUZZ_X)
-			effective_waypoint_y = waypoint_position.right + rand(-WAYPOINT_FUZZ_Y, WAYPOINT_FUZZ_Y)
+			var/waypoint_dist = max(waypoint_fuzz_shared, ChebyshevDistanceNumeric(
+				src.pawn.x,
+				src.pawn.y,
+				waypoint_position.left,
+				waypoint_position.right
+			))
+
+			/* The further we are, the more noisy our estimate is.
+			// Practically speaking, this means that our search radius
+			// gets wider and we wander around more.
+			//
+			*/
+			var/fuzz_factor = min(10, max(1, log(waypoint_fuzz_shared, waypoint_dist)))
+			var/fuzz_x = round(rand(-WAYPOINT_FUZZ_X * fuzz_factor, WAYPOINT_FUZZ_X * fuzz_factor))
+			var/fuzz_y = round(rand(-WAYPOINT_FUZZ_Y * fuzz_factor, WAYPOINT_FUZZ_Y * fuzz_factor))
+
+			effective_waypoint_x = (waypoint_position.left + fuzz_x)
+			effective_waypoint_y = (waypoint_position.right + fuzz_y)
+
+			if((waypoint_dist <= GOAI_CHEAT_SEE_WAYPOINT_TURF_MAXDIST_CUTOFF) && prob(GOAI_CHEAT_SEE_WAYPOINT_TURF_ODDS))
+				var/turf/waypoint_turf = locate(effective_waypoint_x, effective_waypoint_y, src.pawn.z)
+
+				if(waypoint_turf)
+					curr_view.Add(waypoint_turf)
+					var/list/waypoint_adjacents = fCardinalTurfsNoblocks(waypoint_turf)
+					if(waypoint_adjacents)
+						curr_view.Add(waypoint_adjacents)
 
 		waypointchunk = chunkserver.ChunkForTile(effective_waypoint_x, effective_waypoint_y, src.pawn.z)
 
 	var/turf/unreachable = brain?.GetMemoryValue("UnreachableTile", null)
 
 	for(var/atom/candidate_cover in curr_view)
+		// Need to aggressively trim down processed types here or this will take forever in object-dense areas
 		if(!(istype(candidate_cover, /mob) || istype(candidate_cover, /obj/machinery) || istype(candidate_cover, /obj/mecha) || istype(candidate_cover, /obj/structure) || istype(candidate_cover, /obj/vehicle) || istype(candidate_cover, /turf)))
 			continue
 
@@ -66,7 +95,7 @@
 		if(!(has_cover || is_cover))
 			continue
 
-		var/turf/cover_loc = (istype(candidate_cover, /turf) ? candidate_cover : candidate_cover?.loc)
+		var/turf/cover_loc = (istype(candidate_cover, /turf) ? candidate_cover : get_turf(candidate_cover))
 		var/list/adjacents = (has_cover ? list(candidate_cover) : (cover_loc?.CardinalTurfs(TRUE, TRUE, TRUE) || list()))
 		/*var/list/adjacents = cover_loc?.CardinalTurfs(TRUE) || list()
 
@@ -92,8 +121,9 @@
 				to_world_log("Cover [cand] is unreachable!")
 				continue
 
-			if(!(cand?.Enter(src.pawn, get_turf(candidate_cover))))
-				continue
+			if(!(pawn_mob && istype(pawn_mob)))
+				if(pawn_mob.MayEnterTurf(cand))
+					continue
 
 			if(cand in processed)
 				continue
@@ -104,7 +134,7 @@
 			var/penalty = 0
 			penalty += same_chunk_penalty
 
-			if(cand == candidate_cover || cand == candidate_cover.loc)
+			if(cand == candidate_cover || cand == get_turf(candidate_cover))
 				penalty -= 50
 
 			if(prev_loc_memdata && prev_loc_memdata == cand)
@@ -118,7 +148,7 @@
 				var/threat_angle = GetThreatAngle(cand, threat_ghost)
 				var/threat_dir = angle2dir(threat_angle)
 
-				var/tile_is_cover = (cand.IsCover(TRUE, threat_dir, FALSE) && cand.Enter(src.pawn, src.pawn.loc))
+				var/tile_is_cover = (cand.IsCover(TRUE, threat_dir, FALSE))
 
 				var/atom/maybe_cover = get_step(cand, threat_dir)
 
@@ -199,7 +229,7 @@
 	if(best_local_pos)
 		return
 
-	var/turf/startpos = tracker.BBSetDefault("startpos", src.pawn.loc)
+	var/turf/startpos = tracker.BBSetDefault("startpos", get_turf(src.pawn))
 	var/list/threats = new()
 	var/min_safe_dist = brain.GetPersonalityTrait(KEY_PERS_MINSAFEDIST, 2)
 	var/turf/prev_loc_memdata = brain?.GetMemoryValue(MEM_PREVLOC, null, FALSE)
@@ -234,7 +264,7 @@
 		if(brain)
 			brain.SetMemory(MEM_DIRLEAP_BESTPOS, best_local_pos)
 
-	else if(tracker.IsOlderThan(COMBATAI_MOVE_TICK_DELAY * 3))
+	else
 		tracker.SetFailed()
 
 	return
@@ -246,7 +276,7 @@
 		return
 
 	var/tracker_frustration = tracker.BBSetDefault("frustration", 0)
-	var/turf/startpos = tracker.BBSetDefault("startpos", src.pawn.loc)
+	var/turf/startpos = tracker.BBSetDefault("startpos", get_turf(src.pawn))
 
 	var/turf/best_local_pos = null
 	best_local_pos = best_local_pos || tracker?.BBGet("bestpos", null)
@@ -335,7 +365,7 @@
 		StartNavigateTo(best_local_pos, 0, null)
 
 	if(best_local_pos)
-		var/dist_to_pos = ManhattanDistance(src.pawn.loc, best_local_pos)
+		var/dist_to_pos = ManhattanDistance(get_turf(src.pawn), best_local_pos)
 		if(dist_to_pos < 1)
 			tracker.SetTriggered()
 	else
