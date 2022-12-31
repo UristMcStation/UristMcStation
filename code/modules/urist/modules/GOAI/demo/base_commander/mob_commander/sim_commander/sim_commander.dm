@@ -39,7 +39,7 @@
 
 
 /datum/goai/mob_commander/sim_commander/LifeTick()
-	//world.log << "Mob Commander [src.name] [src] <[src.pawn]> LifeTick()"
+	//to_world_log("Mob Commander [src.name] [src] <[src.pawn]> LifeTick()")
 
 	// quick hack:
 	var/datum/brain/concrete/simCommander = brain
@@ -62,11 +62,11 @@
 		if(brain.last_plan_successful)
 			//brain.SetMemory(MEM_TRUST_BESTPOS, TRUE)
 		else
-			//world.log << "[src]: Getting disoriented!"
+			//to_world_log("[src]: Getting disoriented!")
 			SetState(STATE_DISORIENTED, TRUE)
 			//brain.SetMemory(MEM_TRUST_BESTPOS, FALSE, 1000)
 
-		world.log << "Calling LifeTick()"
+		to_world_log("Calling LifeTick()")
 		brain.LifeTick()
 
 		for(var/datum/ActionTracker/instant_action_tracker in brain.pending_instant_actions)
