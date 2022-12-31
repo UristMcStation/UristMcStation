@@ -9,14 +9,14 @@
 */
 
 /sense
-    // to keep typepaths compact...
-    parent_type = /datum
-    var/processing = FALSE
+	// to keep typepaths compact...
+	parent_type = /datum
+	var/processing = FALSE
 
 
 /sense/proc/ProcessTick(var/owner)
-    // overall logic goes here;
-    // gather some data & set memories.
+	// overall logic goes here;
+	// gather some data & set memories.
 	return
 
 

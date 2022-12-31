@@ -76,9 +76,9 @@ X================================================================X
   (2) a proc to fetch Preconditions for each Action in the Graph as an assoc list
   (3) a proc to fetch Effects for each Action in the Graph as an assoc list
   (4) a proc that compares two assoc lists, Current & Preconds and returns 1 if
-      the Current state meets the requirements of the Action, 0 otherwise.
+  the Current state meets the requirements of the Action, 0 otherwise.
   (5) a proc that compares two assoc lists, Current & Goal and returns 1 if
-      the Current state meets the requirements of the Goal, 0 otherwise.
+  the Current state meets the requirements of the Goal, 0 otherwise.
 
   You can see a sample setup in the goap_testing.dm file.
 */
