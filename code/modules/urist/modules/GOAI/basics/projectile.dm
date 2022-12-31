@@ -133,7 +133,7 @@
 	set src in view(0)
 
 	if(cooling)
-		usr << "[src] is cooling down, please wait."
+		to_chat(usr, "[src] is cooling down, please wait.")
 
 	else
 		shoot(At, usr)
@@ -142,4 +142,4 @@
 /mob/verb/GimmeGun()
 	var/obj/gun/newgun = new(usr)
 
-	usr << "There ya go, one [newgun]!"
+	to_chat(usr, "There ya go, one [newgun]!")

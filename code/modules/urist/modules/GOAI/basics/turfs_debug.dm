@@ -3,12 +3,12 @@
 	var/list/neighbors = CardinalTurfs(TRUE, TRUE, TRUE)
 	var/idx = 0
 
-	usr << "=================="
+	to_chat(usr, "==================")
 	for(var/atom/neighT in neighbors)
 		idx++
-		usr << "Neighbor [idx] @ [neighT]"
+		to_chat(usr, "Neighbor [idx] @ [neighT]")
 
-	usr << "=================="
+	to_chat(usr, "==================")
 
 	return
 
@@ -25,10 +25,10 @@
 	var/result = DirBlocked(trg_turf, dir2caller, TRUE)
 	var/result_rev = DirBlocked(src_turf, dir2turf, TRUE)
 
-	usr << "=================="
-	usr << "[src_turf] -> [trg_turf] is blocked in DIR: [dir2caller] = [result ? "TRUE" : "FALSE"]"
-	usr << "[trg_turf] -> [src_turf] is blocked in DIR: [dir2turf] = [result_rev ? "TRUE" : "FALSE"]"
-	usr << "=================="
+	to_chat(usr, "==================")
+	to_chat(usr, "[src_turf] -> [trg_turf] is blocked in DIR: [dir2caller] = [result ? "TRUE" : "FALSE"]")
+	to_chat(usr, "[trg_turf] -> [src_turf] is blocked in DIR: [dir2turf] = [result_rev ? "TRUE" : "FALSE"]")
+	to_chat(usr, "==================")
 
 	return
 
@@ -41,8 +41,8 @@
 
 	var/result = LinkBlocked(src_turf, usr_turf)
 
-	usr << "=================="
-	usr << "[src] <-> [usr] LINK is blocked = [result ? "TRUE" : "FALSE"]"
-	usr << "=================="
+	to_chat(usr, "==================")
+	to_chat(usr, "[src] <-> [usr] LINK is blocked = [result ? "TRUE" : "FALSE"]")
+	to_chat(usr, "==================")
 
 	return

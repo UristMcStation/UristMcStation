@@ -7,14 +7,14 @@
 	)
 
 	if(!result)
-		usr << "Path not found!"
+		to_chat(usr, "Path not found!")
 		return
 
 	var/idx = 0
 	var/datum/chunk/oldelem = null
 
 	for(var/datum/chunk/pathelem in result)
-		usr << "Path: [idx++] = [pathelem] @ ([pathelem.centerX], [pathelem.centerY])"
+		to_chat(usr, "Path: [idx++] = [pathelem] @ ([pathelem.centerX], [pathelem.centerY])")
 
 		if(oldelem)
 			var/turf/oldT = locate(floor(oldelem.centerX), floor(oldelem.centerY), floor(oldelem.centerZ))
@@ -24,5 +24,5 @@
 
 		oldelem = pathelem
 
-	usr << ""
+	to_chat(usr, "")
 	return result

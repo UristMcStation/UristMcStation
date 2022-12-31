@@ -94,9 +94,9 @@
 /mob/verb/ListGoaiCommanders()
 	set category = "Debug GOAI Commanders"
 
-	usr << "===== GOAI COMMANDERS ===="
+	to_chat(usr, "===== GOAI COMMANDERS ====")
 
 	for(var/datum/goai/commander in GLOB.global_goai_registry)
-		usr << "- [commander.registry_index]: [commander.name] <[commander]>"
+		to_chat(usr, "- [commander.registry_index]: [commander.name] <[commander]>")
 
 	return

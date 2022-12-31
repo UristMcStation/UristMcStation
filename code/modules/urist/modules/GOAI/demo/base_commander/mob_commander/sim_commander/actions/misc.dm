@@ -8,7 +8,7 @@
 
 /datum/goai/mob_commander/sim_commander/proc/HandleSleeping(var/datum/ActionTracker/tracker)
 	if(!(src.pawn))
-		world.log << "[src] has no pawns!"
+		to_world_log("[src] has no pawns!")
 		tracker.SetFailed()
 		return
 
@@ -56,7 +56,7 @@
 
 /datum/goai/mob_commander/sim_commander/proc/HandleIdle(var/datum/ActionTracker/tracker)
 	if(!(src.pawn))
-		world.log << "[src] has no pawns!"
+		to_world_log("[src] has no pawns!")
 		return
 
 	Idle()
@@ -72,7 +72,7 @@
 
 /datum/goai/mob_commander/sim_commander/proc/HandleEating(var/datum/ActionTracker/tracker)
 	if(!(src.pawn))
-		world.log << "[src] has no pawns!"
+		to_world_log("[src] has no pawns!")
 		tracker.SetFailed()
 		return
 
@@ -83,8 +83,8 @@
 	var/dist = ManhattanDistance(src.pawn, noms)
 
 	var/time_at = ("TimeAt" in tracker.tracker_blackboard ? tracker.tracker_blackboard["TimeAt"] : null)
-	world.log << "NOMS DIST: [dist]"
-	world.log << "TIME AT NOMS: [time_at]"
+	to_world_log("NOMS DIST: [dist]")
+	to_world_log("TIME AT NOMS: [time_at]")
 
 	if(dist <= 1)
 		if(!("TimeAt" in tracker.tracker_blackboard))
@@ -112,7 +112,7 @@
 
 /datum/goai/mob_commander/sim_commander/proc/HandleWorking(var/datum/ActionTracker/tracker)
 	if(!(src.pawn))
-		world.log << "[src] has no pawns!"
+		to_world_log("[src] has no pawns!")
 		tracker.SetFailed()
 		return
 
@@ -124,7 +124,7 @@
 
 	var/dist = ManhattanDistance(src.pawn, workdesk)
 
-	world.log << "DESK DIST: [dist]"
+	to_world_log("DESK DIST: [dist]")
 
 	if(dist <= 0)
 		if(!("TimeAt" in tracker.tracker_blackboard))
@@ -133,7 +133,7 @@
 			tracker.tracker_blackboard["TimeAt"] = tracker.tracker_blackboard["TimeAt"] + 1
 
 		var/curr_time_at = tracker.tracker_blackboard["TimeAt"]
-		world.log << "TIME AT DESK: [curr_time_at]"
+		to_world_log("TIME AT DESK: [curr_time_at]")
 		src.AddMotive(MOTIVE_FUN, -0.25)
 
 	if(dist > 0)
@@ -149,7 +149,7 @@
 
 /datum/goai/mob_commander/sim_commander/proc/HandlePartying(var/datum/ActionTracker/tracker)
 	if(!(src.pawn))
-		world.log << "[src] has no pawns!"
+		to_world_log("[src] has no pawns!")
 		tracker.SetFailed()
 		return
 
@@ -166,7 +166,7 @@
 
 /datum/goai/mob_commander/sim_commander/proc/HandleShopping(var/datum/ActionTracker/tracker)
 	if(!(src.pawn))
-		world.log << "[src] has no pawns!"
+		to_world_log("[src] has no pawns!")
 		tracker.SetFailed()
 		return
 
@@ -178,7 +178,7 @@
 
 	var/dist = ChebyshevDistance(src.pawn, vendor)
 
-	world.log << "VENDOR DIST: [dist]"
+	to_world_log("VENDOR DIST: [dist]")
 
 	if(dist <= 1)
 		if(!("TimeAt" in tracker.tracker_blackboard))

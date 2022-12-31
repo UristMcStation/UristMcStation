@@ -96,4 +96,4 @@
 /atom/verb/DrawVectorbeam()
 	set src in view()
 	var/obj/vectorbeam/vanishing/new_beam = src.pDrawVectorbeam(usr)
-	usr << "Spawned new beam [new_beam]"
+	to_chat(usr, "Spawned new beam [new_beam]")
