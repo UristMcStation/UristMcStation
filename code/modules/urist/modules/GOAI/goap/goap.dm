@@ -415,7 +415,7 @@ X================================================================X
 				_pqueue.L.Cut(1, max_queue_size)
 
 	if (_pqueue.L.len <= 0)
-		world.log << "Exhausted all candidates before a path was found!"
+		to_world_log("Exhausted all candidates before a path was found!")
 		return
 
 	var/datum/Quadruple/next_cand_tuple = _pqueue.Dequeue()
