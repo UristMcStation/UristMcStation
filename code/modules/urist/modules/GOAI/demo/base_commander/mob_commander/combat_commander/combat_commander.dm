@@ -20,12 +20,16 @@
 	// AI
 	spawn(0)
 		while(src.life)
-			// Fix the tickrate to prevent runaway loops in case something messes with it.
-			// Doing it here is nice, because it saves us from sanitizing it all over the place.
-			src.ai_tick_delay = max((src?.ai_tick_delay || 0), 1)
+			var/cleaned_up = src.CheckForCleanup()
+			if(cleaned_up)
+				return
 
 			// Run the Life update function.
 			src.LifeTick()
+
+			// Fix the tickrate to prevent runaway loops in case something messes with it.
+			// Doing it here is nice, because it saves us from sanitizing it all over the place.
+			src.ai_tick_delay = max((src?.ai_tick_delay || 0), 1)
 
 			// Wait until the next update tick.
 			sleep(src.ai_tick_delay)
@@ -34,7 +38,8 @@
 	// *in parallel* to other behaviours - e.g. run-and-gun or fire from cover
 	spawn(0)
 		while(src.life)
-			if(src.pawn)
+			var/atom/movable/mypawn = src.GetPawn()
+			if(mypawn)
 				src.FightTick()
 
 			sleep(COMBATAI_FIGHT_TICK_DELAY)

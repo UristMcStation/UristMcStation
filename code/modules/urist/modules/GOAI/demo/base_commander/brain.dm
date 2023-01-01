@@ -12,11 +12,30 @@
 	return new_brain
 
 
-/datum/goai/proc/UpdateBrain()
-	if(!brain)
+/datum/goai/proc/AttachToBrain()
+	/* Injects a component (simple AI ID) into the Brain.
+	// This is so that we can check if the ID is valid; if not,
+	// we can tell that the Brain has been 'orphaned' and can potentially delete it.
+	// As the AI ID is a primitive integer value, we don't need to worry about GC!
+	*/
+	if(!(src.brain))
 		return
 
-	brain.needs = needs.Copy()
-	brain.states = states.Copy()
+	var/dict/brain_attachments = src.brain.attachments
+
+	if(isnull(brain_attachments))
+		brain_attachments = new()
+		src.brain.attachments = brain_attachments
+
+	src.brain.attachments[ATTACHMENT_CONTROLLER_BACKREF] = src.registry_index
+	return brain
+
+
+/datum/goai/proc/UpdateBrain()
+	if(!(src.brain))
+		return
+
+	src.brain.needs = needs.Copy()
+	src.brain.states = states.Copy()
 
 	return brain

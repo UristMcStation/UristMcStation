@@ -2,21 +2,24 @@
 
 
 /datum/goai/mob_commander/proc/CurrentPositionAsTuple()
-	if(isnull(src.pawn))
+	var/atom/pawn = src.GetPawn()
+	if(!pawn)
 		to_world_log("No owned mob found for [src.name] AI")
 		return
 
-	return src.pawn.CurrentPositionAsTuple()
+	return pawn.CurrentPositionAsTuple()
 
 
 /datum/goai/mob_commander/proc/FindPathTo(var/trg, var/min_dist = 0, var/avoid = null, var/proc/adjproc = null, var/proc/distanceproc = null, var/list/adjargs = null)
-	if(isnull(src.pawn))
+	var/atom/pawn = src.GetPawn()
+	if(!pawn)
 		to_world_log("No owned mob found for [src.name] AI")
+		return
 
 	var/atom/start_loc = null
 
-	if(src.pawn)
-		start_loc = src.pawn.loc
+	if(pawn)
+		start_loc = pawn.loc
 
 	if(!start_loc)
 		to_world_log("No start loc found for [src.name] AI")
@@ -28,7 +31,7 @@
 	var/proc/true_distproc = (isnull(distanceproc) ? /proc/fDistance : distanceproc)
 
 	var/list/path = GoaiAStar(
-		start = get_turf(src.pawn.loc),
+		start = get_turf(pawn.loc),
 		end = get_turf(trg),
 		adjacent = true_adjproc,
 		dist = true_distproc,
@@ -119,13 +122,15 @@
 /datum/goai/mob_commander/proc/StartNavigateTo(var/trg, var/min_dist = 0, var/avoid = null, var/inh_frustration = 0, var/refresh_loc_memories = TRUE, var/proc/costproc = null)
 	src.is_repathing = 1
 
+	var/atom/pawn = src.GetPawn()
+
 	if(brain && refresh_loc_memories)
 		var/atom/previous_oldloc = brain.GetMemoryValue("Location-1")
 
 		if(previous_oldloc && prob(10))
 			brain.SetMemory("Location-2", previous_oldloc)
 
-		brain.SetMemory("Location-1", src.pawn.loc)
+		brain.SetMemory("Location-1", pawn?.loc)
 
 	var/datum/ActivePathTracker/pathtracker = BuildPathTrackerTo(trg, min_dist, avoid, inh_frustration, costproc)
 
@@ -133,17 +138,17 @@
 		src.active_path = pathtracker
 
 	else
-		var/atom/curr_loc = get_turf(src.pawn)
+		var/atom/curr_loc = get_turf(pawn)
 		to_world_log("[src]: Could not build a pathtracker to [trg] @ ([curr_loc?.x] [curr_loc?.y])")
-		var/atom/potential_step = get_step_towards(src.pawn, trg)
+		var/atom/potential_step = get_step_towards(pawn, trg)
 		if(potential_step)
 			src.MovePawn(potential_step)
 		//brain?.SetMemory("BadStartTile", curr_loc, 1000)
 
 	var/turf/trg_turf = trg
 
-	if(trg_turf && src.pawn)
-		trg_turf.pDrawVectorbeam(src.pawn, trg_turf)
+	if(trg_turf && pawn)
+		trg_turf.pDrawVectorbeam(pawn, trg_turf)
 
 	src.is_repathing = 0
 
@@ -166,14 +171,14 @@
 	// - flee => boolean; if TRUE, reverses the directions (so we run AWAY from trg rather than TOWARDS it)
 	// - override_pawn => optional, can be used to *explicitly* set a pawn to be moved.
 	*/
-	var/atom/movable/true_pawn = (override_pawn || src.pawn)
+	var/atom/movable/true_pawn = override_pawn
 
 	if(!istype(true_pawn))
 		// Because the null-on-bad-cast is unreliable...
 		true_pawn = null
 
 	if(isnull(true_pawn))
-		true_pawn = src.pawn
+		true_pawn = src.GetPawn()
 
 	if(isnull(true_pawn))
 		return FALSE
@@ -209,14 +214,14 @@
 	//
 	// ARGUMENTS: see MovePawn
 	*/
-	var/atom/true_pawn = (override_pawn || src.pawn)
+	var/atom/true_pawn = override_pawn
 
 	if(!istype(true_pawn))
 		// Because the null-on-bad-cast is unreliable...
 		true_pawn = null
 
 	if(isnull(true_pawn))
-		true_pawn = src.pawn
+		true_pawn = src.GetPawn()
 
 	if(isnull(true_pawn))
 		return FALSE
@@ -257,10 +262,12 @@
 
 
 /datum/goai/mob_commander/proc/MovementSystem()
-	if(!(src?.active_path) || src.active_path.IsDone() || src.is_moving || isnull(src.pawn))
+	var/atom/movable/pawn = src.GetPawn()
+
+	if(!(src?.active_path) || src.active_path.IsDone() || src.is_moving || isnull(pawn))
 		return
 
-	if(!(src.pawn.MayMove()))
+	if(!(pawn.MayMove()))
 		return
 
 	var/success = FALSE
@@ -283,7 +290,7 @@
 			StartNavigateTo(src.active_path.target, src.active_path.min_dist, next_step, src.active_path.frustration)
 			return
 
-		if(get_dist(src.pawn, next_step) > 0)
+		if(get_dist(pawn, next_step) > 0)
 			// If we somehow wind up away from the core path, move back towards it first
 			WalkPawnTowards(next_step, FALSE, TRUE)
 			return
@@ -294,7 +301,7 @@
 
 		success = (
 			step_result || (
-				(src.pawn.x == next_step.x) && (src.pawn.y == next_step.y)
+				(pawn.x == next_step.x) && (pawn.y == next_step.y)
 			)
 		)
 
@@ -316,13 +323,15 @@
 	if(src.is_moving)
 		return FALSE
 
-	if(!(src.pawn?.MayMove()))
+	var/atom/movable/pawn = src.GetPawn()
+
+	if(!(pawn?.MayMove()))
 		return FALSE
 
 	src.is_moving = 1
 
-	var/turf/curr_loc = get_turf(src.pawn)
-	var/list/neighbors = fCombatantAdjacents(curr_loc, src.pawn)
+	var/turf/curr_loc = get_turf(pawn)
+	var/list/neighbors = fCombatantAdjacents(curr_loc, pawn)
 
 	if(neighbors)
 		var/movedir = pick(neighbors)

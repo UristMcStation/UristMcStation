@@ -8,8 +8,12 @@
 
 
 /datum/goai/mob_commander/proc/SpotObstacles(var/datum/goai/mob_commander/owner, var/atom/target = null, var/default_to_waypoint = TRUE, var/proc/adjproc = null, var/proc/costproc = null)
-	if(!(owner && owner.pawn))
+	if(!(owner))
 		// No mob - no point.
+		return
+
+	var/atom/pawn = owner.GetPawn()
+	if(!pawn)
 		return
 
 	var/datum/brain/owner_brain = owner?.brain
@@ -42,7 +46,7 @@
 	if(isnull(target_turf))
 		target_turf = get_turf(goal.loc)
 
-	var/turf/startpos = get_turf(owner.pawn)
+	var/turf/startpos = get_turf(pawn)
 	var/init_dist = 30
 	// NOTE: somehow, this once runtimed with the distance seemingly being -1, wtf?
 	//       the max() was added as a measure to ensure sane input
@@ -50,7 +54,7 @@
 
 	if(init_dist < 40)
 		OBSTACLEHUNT_DEBUG_LOG("[owner] entering ASTARS STAGE")
-		path = GoaiAStar(get_turf(owner.pawn), target_turf, /proc/fCardinalTurfs, /proc/fDistance, null, init_dist, min_target_dist = sqrt_dist, exclude = null)
+		path = GoaiAStar(get_turf(pawn), target_turf, /proc/fCardinalTurfs, /proc/fDistance, null, init_dist, min_target_dist = sqrt_dist, exclude = null)
 
 		OBSTACLEHUNT_DEBUG_LOG("[owner] found ASTAR 1 path from [startpos] to [target_turf]: [path] ([path?.len])")
 
@@ -60,7 +64,7 @@
 
 		// No unobstructed path to target!
 		// Let's try to get a direct path and check for obstacles.
-		path = GoaiAStar(get_turf(owner.pawn), target_turf, /proc/fCardinalTurfsNoblocks, /proc/fDistance, null, init_dist, min_target_dist = sqrt_dist, exclude = null)
+		path = GoaiAStar(get_turf(pawn), target_turf, /proc/fCardinalTurfsNoblocks, /proc/fDistance, null, init_dist, min_target_dist = sqrt_dist, exclude = null)
 
 		OBSTACLEHUNT_DEBUG_LOG("[src] found ASTAR 2 path from [startpos] to [target_turf]: [path] ([path?.len])")
 
@@ -129,7 +133,8 @@
 	// Capture any obstacles
 	// Add Action Goto<Goal> with clearing obstacles as a precond
 
-	if(!(src.pawn))
+	var/atom/movable/pawn = src.GetPawn()
+	if(!pawn)
 		tracker?.SetFailed()
 		to_world_log("[src] does not have an owned mob!")
 		return

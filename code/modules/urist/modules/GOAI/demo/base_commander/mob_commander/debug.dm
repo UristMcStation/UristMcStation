@@ -49,9 +49,10 @@
 	var/removed = 0
 
 	for(var/datum/goai/mob_commander/commander in GLOB?.global_goai_registry)
-		var/mob/living/L = commander?.pawn
+		var/atom/pawn = commander?.GetPawn()
+		var/mob/living/L = pawn
 
-		if(!(commander?.pawn) || (L && istype(L) && L.stat == DEAD))
+		if(!(pawn) || (L && istype(L) && L.stat == DEAD))
 			to_chat(usr, "Deregistering [commander?.name]...")
 			deregister_ai(commander?.registry_index)
 			removed++

@@ -4,7 +4,8 @@
 // integrations w/ other subsystems (e.g. memory)
 */
 /datum/goai/mob_commander/proc/ChoosePanicRunLandmark(var/atom/primary_threat = null, var/list/threats = null, min_safe_dist = null)
-	if(!(src.pawn))
+	var/atom/pawn = src.GetPawn()
+	if(!pawn)
 		to_world_log("[src] does not have an owned mob!")
 		return
 
@@ -36,7 +37,7 @@
 	var/turf/unreachable = brain?.GetMemoryValue("UnreachableTile", null)
 	var/datum/chunkserver/chunkserver = GetOrSetChunkserver()
 
-	var/my_loc = get_turf(src.pawn)
+	var/my_loc = get_turf(pawn)
 
 	for(var/turf/cand in curr_view)
 		sleep(-1)
@@ -138,7 +139,8 @@
 	// Abstracted ownership, but defaults to src for convenience.
 	var/datum/goai/mob_commander/true_owner = (owner || src)
 
-	if(!(true_owner.pawn))
+	var/atom/pawn = true_owner.GetPawn()
+	if(!pawn)
 		to_world_log("[src] does not have an owned mob!")
 		return
 
@@ -163,7 +165,8 @@
 // as a GOAI Action. Also provides defaults, caching, etc.
 */
 /datum/goai/mob_commander/proc/HandleChoosePanicRunLandmark(var/datum/ActionTracker/tracker)
-	if(!(src.pawn))
+	var/atom/pawn = src.GetPawn()
+	if(!pawn)
 		to_world_log("[src] does not have an owned mob!")
 		return
 
@@ -181,7 +184,7 @@
 	var/datum/Tuple/primary_threat_pos_tuple = GetThreatPosTuple(primary_threat_ghost)
 	var/atom/primary_threat = null
 	if(!(isnull(primary_threat_pos_tuple?.left) || isnull(primary_threat_pos_tuple?.right)))
-		primary_threat = locate(primary_threat_pos_tuple.left, primary_threat_pos_tuple.right, src.pawn.z)
+		primary_threat = locate(primary_threat_pos_tuple.left, primary_threat_pos_tuple.right, pawn.z)
 
 	if(primary_threat_ghost)
 		threats[primary_threat_ghost] = primary_threat
@@ -191,7 +194,7 @@
 	var/datum/Tuple/secondary_threat_pos_tuple = GetThreatPosTuple(secondary_threat_ghost)
 	var/atom/secondary_threat = null
 	if(!(isnull(secondary_threat_pos_tuple?.left) || isnull(secondary_threat_pos_tuple?.right)))
-		secondary_threat = locate(secondary_threat_pos_tuple.left, secondary_threat_pos_tuple.right, src.pawn.z)
+		secondary_threat = locate(secondary_threat_pos_tuple.left, secondary_threat_pos_tuple.right, pawn.z)
 
 	if(secondary_threat_ghost)
 		threats[secondary_threat_ghost] = secondary_threat
@@ -239,8 +242,11 @@
 	var/dict/primary_threat_ghost = GetActiveThreatDict()
 	var/datum/Tuple/primary_threat_pos_tuple = GetThreatPosTuple(primary_threat_ghost)
 	var/atom/primary_threat = null
+
+	var/atom/pawn = src.GetPawn()
+
 	if(!(isnull(primary_threat_pos_tuple?.left) || isnull(primary_threat_pos_tuple?.right)))
-		primary_threat = locate(primary_threat_pos_tuple.left, primary_threat_pos_tuple.right, src.pawn.z)
+		primary_threat = locate(primary_threat_pos_tuple.left, primary_threat_pos_tuple.right, pawn?.z)
 
 	var/turf/threat_turf = null
 	if(primary_threat)
@@ -261,7 +267,8 @@
 
 
 /datum/goai/mob_commander/proc/HandlePanickedRun(var/datum/ActionTracker/tracker)
-	if(!(src.pawn))
+	var/atom/pawn = src.GetPawn()
+	if(!pawn)
 		to_world_log("[src] does not have an owned mob!")
 		return
 
@@ -283,7 +290,7 @@
 	var/datum/Tuple/primary_threat_pos_tuple = GetThreatPosTuple(primary_threat_ghost)
 	var/atom/primary_threat = null
 	if(!(isnull(primary_threat_pos_tuple?.left) || isnull(primary_threat_pos_tuple?.right)))
-		primary_threat = locate(primary_threat_pos_tuple.left, primary_threat_pos_tuple.right, src.pawn.z)
+		primary_threat = locate(primary_threat_pos_tuple.left, primary_threat_pos_tuple.right, pawn.z)
 
 	if(primary_threat_ghost)
 		threats[primary_threat_ghost] = primary_threat
@@ -293,7 +300,7 @@
 	var/datum/Tuple/secondary_threat_pos_tuple = GetThreatPosTuple(secondary_threat_ghost)
 	var/atom/secondary_threat = null
 	if(!(isnull(secondary_threat_pos_tuple?.left) || isnull(secondary_threat_pos_tuple?.right)))
-		secondary_threat = locate(secondary_threat_pos_tuple.left, secondary_threat_pos_tuple.right, src.pawn.z)
+		secondary_threat = locate(secondary_threat_pos_tuple.left, secondary_threat_pos_tuple.right, pawn.z)
 
 	if(secondary_threat_ghost)
 		threats[secondary_threat_ghost] = secondary_threat
@@ -319,7 +326,7 @@
 
 		var/atom/curr_threat = threats[threat_ghost]
 		var/next_step_threat_distance = (next_step ? GetThreatDistance(next_step, threat_ghost, PLUS_INF) : PLUS_INF)
-		var/curr_threat_distance = GetThreatDistance(src.pawn, threat_ghost, PLUS_INF)
+		var/curr_threat_distance = GetThreatDistance(pawn, threat_ghost, PLUS_INF)
 		var/bestpos_threat_distance = GetThreatDistance(best_local_pos, threat_ghost, PLUS_INF)
 
 		var/atom/bestpos_threat_neighbor = (curr_threat ? get_step_towards(best_local_pos, curr_threat) : null)
@@ -358,7 +365,7 @@
 			src.WalkPawnAwayFrom(threat_turf)
 
 	if(best_local_pos)
-		var/dist_to_pos = ManhattanDistance(get_turf(src.pawn), best_local_pos)
+		var/dist_to_pos = ManhattanDistance(get_turf(pawn), best_local_pos)
 		if(dist_to_pos < 1)
 			tracker.SetTriggered()
 
@@ -375,12 +382,12 @@
 
 	else if(src.active_path && tracker.IsOlderThan(COMBATAI_MOVE_TICK_DELAY * 20))
 		brain?.SetMemory("UnreachableTile", src.active_path.target, MEM_TIME_LONGTERM)
-		walk_away(src, primary_threat || secondary_threat || get_turf(src.pawn))
+		walk_away(src, primary_threat || secondary_threat || get_turf(pawn))
 		tracker.SetFailed()
 
 
 	else if(tracker.IsOlderThan(COMBATAI_MOVE_TICK_DELAY * 10))
-		walk_away(src, primary_threat || secondary_threat || get_turf(src.pawn))
+		walk_away(src, primary_threat || secondary_threat || get_turf(pawn))
 		tracker.SetFailed()
 
 	return

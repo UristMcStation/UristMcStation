@@ -1,5 +1,6 @@
 /datum/goai/mob_commander/proc/HandleOpenDoor(var/datum/ActionTracker/tracker, var/obj/cover/door/obstruction)
-	if(!(src.pawn))
+	var/atom/pawn = src.GetPawn()
+	if(!pawn)
 		to_world_log("[src] does not have an owned mob!")
 		return
 
@@ -23,7 +24,7 @@
 		return*/
 
 	var/turf/obs_turf = get_turf(obsdoor)
-	var/dist_to_obs = ChebyshevDistance(get_turf(src.pawn), obs_turf)
+	var/dist_to_obs = ChebyshevDistance(get_turf(pawn), obs_turf)
 	var/opened = FALSE
 
 	while(dist_to_obs < 2 && !(obstruction.open))
@@ -64,7 +65,8 @@
 
 
 /datum/goai/mob_commander/proc/HandleOpenAutodoor(var/datum/ActionTracker/tracker, var/obstruction)
-	if(!(src.pawn))
+	var/atom/pawn = src.GetPawn()
+	if(!pawn)
 		to_world_log("[src] does not have an owned mob!")
 		return
 
@@ -82,7 +84,7 @@
 		return
 
 	var/turf/obs_turf = get_turf(obsdoor)
-	var/dist_to_obs = ChebyshevDistance(get_turf(src.pawn), obs_turf)
+	var/dist_to_obs = ChebyshevDistance(get_turf(pawn), obs_turf)
 	var/opened = FALSE
 
 	if(dist_to_obs < 2 && !(obsdoor.open))

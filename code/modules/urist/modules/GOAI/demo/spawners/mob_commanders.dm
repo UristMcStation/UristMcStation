@@ -190,7 +190,7 @@
 
 	var/datum/goai/mob_commander/combat_commander/new_commander = new()
 
-	new_commander.pawn = M
+	new_commander.pawn_ref = weakref(M)
 	new_commander.name = "AI of [M.name] (#[rand(0, 100000)])"
 
 	return

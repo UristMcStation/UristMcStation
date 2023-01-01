@@ -87,7 +87,17 @@
 	var/planning_iter_cutoff = 30
 	var/datum/GOAP/planner
 
-	var/list/attachments
+	/* Dynamically attached junk */
+	var/dict/attachments
+
+	/* Cleanup stuff */
+	var/registry_index // our index in the Big Brain List
+
+	// If positive, number of ticks before we deregister & delete ourselves.
+	var/cleanup_detached_threshold = DEFAULT_ORPHAN_CLEANUP_THRESHOLD
+
+	// Tracker for the cleanup
+	var/_ticks_since_detached = 0
 
 
 /datum/brain/New(var/list/actions = null, var/list/init_memories = null, var/init_action = null, var/datum/brain/with_hivemind = null, var/dict/init_personality = null, var/newname = null, var/dict/init_relationships = null)
@@ -102,7 +112,8 @@
 	src.perceptions = new()
 	src.relations = new(init_relationships)
 	src.pending_instant_actions = list()
-	src.attachments = list()
+	src.attachments = new()
+	src.RegisterBrain()
 
 	if(actions)
 		src.actionslist = actions.Copy()
@@ -114,6 +125,12 @@
 	src.InitStates()
 
 	return
+
+
+/datum/brain/proc/CleanDelete()
+	src.life = FALSE
+	qdel(src)
+	return TRUE
 
 
 /datum/brain/proc/InitNeeds()
@@ -349,8 +366,54 @@
 	return path
 
 
+/datum/brain/concrete/CleanDelete()
+	deregister_ai_brain(src.registry_index)
+	qdel(src)
+	return TRUE
+
+
+
+/datum/brain/concrete/proc/ShouldCleanup()
+	. = FALSE
+
+	if(src.cleanup_detached_threshold < 0)
+		return FALSE
+
+	if(src._ticks_since_detached > src.cleanup_detached_threshold)
+		return TRUE
+
+	return
+
+
+/datum/brain/concrete/proc/CheckForCleanup()
+	. = ..()
+
+	if(.)
+		return .
+
+	var/should_clean = src.ShouldCleanup()
+	if(should_clean)
+		src.CleanDelete()
+		qdel(src)
+		return TRUE
+
+	if(!(src.attachments && istype(src.attachments)))
+		return FALSE
+
+	var/ai_index = src.attachments[ATTACHMENT_CONTROLLER_BACKREF]
+	var/orphaned = (IS_REGISTERED_AIBRAIN(ai_index))
+
+	if(orphaned)
+		src._ticks_since_detached++
+	else
+		src._ticks_since_detached = 0
+
+	return
+
+
 /datum/brain/concrete/Life()
 	while(life)
+		CheckForCleanup()
 		LifeTick()
 		sleep(AI_TICK_DELAY)
 	return

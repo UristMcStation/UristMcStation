@@ -31,7 +31,6 @@
 # define MAYBE_LOG_TOSTR(X)
 # endif
 
-# define get_turf(A) get_step(A,0)
-
 # define GUN_DISPERSION 5
 
+# define DEFAULT_ORPHAN_CLEANUP_THRESHOLD 3

@@ -4,7 +4,7 @@
 	if(isnull(commander))
 		new_commander = new()
 
-	new_commander.pawn = M
+	new_commander.pawn_ref = weakref(M)
 	var/dict/pawn_attachments = M.attachments
 
 	if(isnull(pawn_attachments))

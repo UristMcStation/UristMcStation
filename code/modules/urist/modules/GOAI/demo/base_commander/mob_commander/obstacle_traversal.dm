@@ -18,7 +18,9 @@
 
 	var/action_key = null
 
-	if(obstruction == src.pawn)
+	var/atom/pawn = src.GetPawn()
+
+	if(pawn && (obstruction == pawn))
 		// Embarassing case...
 		handled = TRUE
 
