@@ -34,6 +34,9 @@
 	// Optional - for map editor. Set this to force initial action. Must be valid (in available actions).
 	var/initial_action = null
 
+	// Dynamically attached junk
+	var/dict/attachments
+
 
 /datum/goai/New(var/active = null)
 	..()
@@ -48,6 +51,7 @@
 	var/true_active = (isnull(active) ? TRUE : active)
 
 	var/spawn_time = world.time
+	src.attachments = new()
 	src.last_update_time = spawn_time
 	src.actionlookup = src.InitActionLookup()  // order matters!
 	src.actionslist = src.InitActionsList()
