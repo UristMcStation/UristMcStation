@@ -3115,6 +3115,8 @@
 #include "code\modules\urist\modules\GOAI\integrations\base_commander\mob_commander\combat_commander\orders.dm"
 #include "code\modules\urist\modules\GOAI\integrations\base_commander\mob_commander\combat_commander\senses.dm"
 #include "code\modules\urist\modules\GOAI\integrations\base_commander\mob_commander\combat_commander\setup.dm"
+#include "code\modules\urist\modules\GOAI\integrations\blocker_definitions\_shared.dm"
+#include "code\modules\urist\modules\GOAI\integrations\blocker_definitions\misc.dm"
 #include "code\modules\urist\modules\GOAI\integrations\cover_definitions\_shared.dm"
 #include "code\modules\urist\modules\GOAI\integrations\cover_definitions\machinery.dm"
 #include "code\modules\urist\modules\GOAI\integrations\cover_definitions\mecha.dm"

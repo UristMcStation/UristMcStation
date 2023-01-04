@@ -36,6 +36,10 @@ GLOBAL_LIST_EMPTY(global_goai_registry)
 
 /datum/goai/proc/RegisterAI()
 	// Registry pattern, to facilitate querying all GOAI AIs in verbs
+	if(src.registry_index)
+		// already done, fix up the registry to be sure and return
+		GLOB?.global_goai_registry?[src.registry_index] = src
+		return GLOB?.global_goai_registry
 
 	GLOB?.global_goai_registry += src
 	src.registry_index = GLOB?.global_goai_registry.len

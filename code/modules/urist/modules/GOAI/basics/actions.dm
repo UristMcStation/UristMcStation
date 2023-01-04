@@ -1,7 +1,30 @@
+/* GOAI Action datastructure.
+//
+// This is effectively a metadata wrapper for the AI.
+// The attributes mark up details about the Action for the planner.
+*/
 
 /datum/goai_action
+	/* What initial state we need to be in to initiate the Action.
+	//
+	// NOTE: This is *NOT* guaranteed to be fulfilled at runtime.
+	//       The Planner will *try* to ensure that it is to the best of
+	//       its knowledge, but it might be mistaken.
+	//       If that happens, the action may or may not fail at runtime.
+	*/
 	var/list/preconditions
+
+	/* What state changes will executing this Action result in.
+	//
+	// NOTE: This does *NOT* need to be strictly true (and we can
+	//       leverage this to keep the AI pursuing the same goal),
+	//       but if we lie too badly, the plans will often fail.
+	*/
 	var/list/effects
+
+	/* Parameters to pass to the Action, as an assoc array.
+	// Basically like Python **kwargs, will be unpacked into named args.
+	*/
 	var/list/arguments
 
 	/* Priority */

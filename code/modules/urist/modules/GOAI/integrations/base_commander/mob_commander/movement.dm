@@ -290,14 +290,12 @@
 			StartNavigateTo(src.active_path.target, src.active_path.min_dist, next_step, src.active_path.frustration)
 			return
 
-		if(get_dist(pawn, next_step) > 0)
+		if(get_dist(pawn, next_step) > 1)
 			// If we somehow wind up away from the core path, move back towards it first
 			WalkPawnTowards(next_step, FALSE, TRUE)
 			return
 
 		var/step_result = MovePawn(next_step)
-
-		//success = (is_moving || step_result)
 
 		success = (
 			step_result || (

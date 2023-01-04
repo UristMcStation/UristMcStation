@@ -1,7 +1,10 @@
 /atom
+	// attachments for cover & collision stuff
 	var/datum/cover/cover_data = null
 	var/datum/directional_blocker/directional_blocker = null
+	// toggle for lazy autogeneration of cover & collision
 	var/cover_gen_enabled = FALSE
+	var/blocker_gen_enabled = FALSE
 
 	// a free-form key-value map; intended for associated interfaces/scripts/whatevs
 	// eventually might be redone as a big array/SparseSet with implicit IDs, ECS-style
@@ -34,20 +37,3 @@
 /atom/proc/CurrentPositionAsTriple()
 	var/datum/Triple/pos_triple = new(src.x, src.y, src.z)
 	return pos_triple
-
-
-/*
-/atom/Enter(var/atom/movable/O, var/atom/oldloc)
-	. = ..()
-
-	var/turf/oldloc_turf = oldloc
-	var/turf/newloc_turf = src
-
-	if(istype(oldloc_turf) && istype(newloc_turf))
-		var/link_is_blocked = LinkBlocked(oldloc_turf, newloc_turf)
-
-		if(link_is_blocked)
-			return FALSE
-
-	return .
-*/

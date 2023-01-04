@@ -28,3 +28,18 @@ GLOBAL_LIST_EMPTY(global_faction_registry)
 
 	return
 
+
+/datum/goai/proc/RegisterFaction()
+	// Registry pattern, to facilitate querying all GOAI Brains in verbs
+	if(src.registry_index)
+		// already done, fix up the registry to be sure and return
+		GLOB?.global_faction_registry?[src.registry_index] = src
+		return GLOB?.global_faction_registry
+
+	GLOB?.global_faction_registry += src
+	src.registry_index = GLOB?.global_faction_registry.len
+
+	if(!(src.name))
+		src.name = src.registry_index
+
+	return GLOB?.global_faction_registry
