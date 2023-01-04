@@ -47,7 +47,7 @@
 
 		else
 			var/datum/Tuple/waypoint_position = waypoint_ident.CurrentPositionAsTuple()
-			var/waypoint_fuzz_shared = min(WAYPOINT_FUZZ_X, WAYPOINT_FUZZ_Y)
+			var/waypoint_fuzz_shared = max(1, min(WAYPOINT_FUZZ_X, WAYPOINT_FUZZ_Y))
 
 			var/waypoint_dist = max(waypoint_fuzz_shared, ChebyshevDistanceNumeric(
 				pawn.x,
@@ -62,8 +62,8 @@
 			//
 			*/
 			var/fuzz_factor = min(10, max(1, log(waypoint_fuzz_shared, waypoint_dist)))
-			var/fuzz_x = round(rand(-WAYPOINT_FUZZ_X * fuzz_factor, WAYPOINT_FUZZ_X * fuzz_factor))
-			var/fuzz_y = round(rand(-WAYPOINT_FUZZ_Y * fuzz_factor, WAYPOINT_FUZZ_Y * fuzz_factor))
+			var/fuzz_x = round(rand(WAYPOINT_FUZZ_X, WAYPOINT_FUZZ_X * fuzz_factor) * pick(1, -1))
+			var/fuzz_y = round(rand(WAYPOINT_FUZZ_Y, WAYPOINT_FUZZ_Y * fuzz_factor) * pick(1, -1))
 
 			effective_waypoint_x = (waypoint_position.left + fuzz_x)
 			effective_waypoint_y = (waypoint_position.right + fuzz_y)
@@ -211,9 +211,14 @@
 				5; 7
 			))*/
 
+			/* Inject some noise to stop AIs getting stuck in corners.
+			// max +/- 10% discount factor.
+			*/
+			var/noisy_dist = targ_dist * RAND_PERCENT_MULT(10)
+
 			// Reminder to self: higher values are higher priority
 			// Smaller penalty => also higher priority
-			var/datum/Quadruple/cover_quad = new(-targ_dist, -penalty, -cand_dist, cand)
+			var/datum/Quadruple/cover_quad = new(-noisy_dist, -penalty, -cand_dist, cand)
 			cover_queue.Enqueue(cover_quad)
 			processed.Add(cand)
 

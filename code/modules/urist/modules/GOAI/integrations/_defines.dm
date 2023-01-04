@@ -76,3 +76,7 @@
 
 # define KEY_PERS_MINSAFEDIST "MinSafeDist"
 # define KEY_PERS_FRUSTRATION_THRESH "FrustrationRepathMaxthresh"
+
+// Formula to add a random +/- X% modifier to a value
+// e.g. for X=10 Expected Value of this rand() is 0.1, so it's a +/- 10% discount (0.9-1.1)
+# define RAND_PERCENT_MULT(X) ((1 - (X/100)) + ((rand(0, 20*X)/1000)))
