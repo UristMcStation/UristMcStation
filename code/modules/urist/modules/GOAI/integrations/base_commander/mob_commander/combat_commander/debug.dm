@@ -6,6 +6,7 @@
 	AttachCombatCommanderTo(src, null)
 
 
+# ifdef GOAI_SS13_SUPPORT
 /mob/living/simple_animal/hostile/verb/SetSpeed(speed as num)
 	set category = "Debug GOAI Commanders"
 	set src in view()
@@ -15,3 +16,5 @@
 
 	src.speed = speed
 	to_chat(usr, "Set speed of [src] to [src.speed]")
+
+# endif

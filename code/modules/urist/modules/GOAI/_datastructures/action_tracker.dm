@@ -2,7 +2,7 @@
 	var/datum/goai_action/tracked_action
 	var/timeout_ds = null
 	var/list/tracker_blackboard
-	var/sleep_time = AI_TICK_DELAY
+	var/sleep_time = ACTION_TICK_DELAY
 
 	var/is_done = FALSE
 	var/is_failed = FALSE
@@ -17,7 +17,7 @@
 	tracked_action = action || tracked_action
 	timeout_ds = timeout
 	tracker_blackboard = list()
-	sleep_time = (isnull(tick_delay) ? (sleep_time || AI_TICK_DELAY) : tick_delay)
+	sleep_time = (isnull(tick_delay) ? (sleep_time || ACTION_TICK_DELAY) : tick_delay)
 
 	var/curr_time = world.time
 	creation_time = curr_time

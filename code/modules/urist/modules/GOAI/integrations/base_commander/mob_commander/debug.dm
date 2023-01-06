@@ -1,5 +1,5 @@
 
-/mob/verb/InspectGoaiMobCommanderVars(datum/goai/mob_commander/commander in GLOB?.global_goai_registry)
+/mob/verb/InspectGoaiMobCommanderVars(datum/goai/mob_commander/commander in GLOB.global_goai_registry)
 	set category = "Debug GOAI Commanders"
 
 	if(isnull(commander))
@@ -19,7 +19,7 @@
 	return
 
 
-/mob/verb/InspectGoaiMobCommanderTrackerVars(datum/goai/mob_commander/commander in GLOB?.global_goai_registry)
+/mob/verb/InspectGoaiMobCommanderTrackerVars(datum/goai/mob_commander/commander in GLOB.global_goai_registry)
 	set category = "Debug GOAI Commanders"
 
 	if(isnull(commander))
@@ -48,7 +48,7 @@
 
 	var/removed = 0
 
-	for(var/datum/goai/mob_commander/commander in GLOB?.global_goai_registry)
+	for(var/datum/goai/mob_commander/commander in GLOB.global_goai_registry)
 		var/atom/pawn = commander?.GetPawn()
 		var/mob/living/L = pawn
 

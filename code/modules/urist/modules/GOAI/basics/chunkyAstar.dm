@@ -1,5 +1,13 @@
 // use Astar with Turfchunks to implement HAA*/HPA*
 
+//proc/AStar(var/start, var/end, var/proc/adjacent, var/proc/dist, var/max_nodes, var/max_node_depth = 30, var/min_target_dist = 0, var/proc/min_node_dist, var/list/adj_args = null, var/exclude)
+
+// Start/End - straightforward
+// Adjacent - chunk for (curr + chunksize) in cardinal dirs
+// Dist - probably simple dist
+// REST: default/customizeable
+
+
 /datum/chunk/proc/ChunkAdjacent(var/ignore_openness = FALSE)
 	var/datum/chunkserver/chunkServer = GetOrSetChunkserver(width)
 

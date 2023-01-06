@@ -24,7 +24,7 @@
 // Subsystem loop schedules
 # define COMBATAI_SENSE_TICK_DELAY 4
 # define COMBATAI_AI_TICK_DELAY 6
-# define COMBATAI_MOVE_TICK_DELAY 3
+# define COMBATAI_MOVE_TICK_DELAY 5
 # define COMBATAI_FIGHT_TICK_DELAY 25
 
 // Lower bound on the tick rate to prevent sanic loops eating your CPU.
@@ -47,6 +47,7 @@
 # define MEM_TRUST_BESTPOS "TrustFirstBestpos"
 
 # define MEM_DIRLEAP_BESTPOS "DirectionalCoverleapBestpos"
+# define MEM_CHARGE_BESTPOS "ChargeBestpos"
 
 // Penalty value that should entirely eliminate an option unless there's absolutely no alternatives:
 # define MAGICNUM_DISCOURAGE_SOFT 10000

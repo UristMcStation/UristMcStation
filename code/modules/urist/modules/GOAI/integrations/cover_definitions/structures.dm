@@ -1,3 +1,5 @@
+# ifdef GOAI_SS13_SUPPORT
+
 // STRUCTURES
 
 /obj/structure
@@ -17,3 +19,5 @@
 		cover_data = new(FALSE, FALSE, null)
 
 	return cover_data
+
+# endif

@@ -7,7 +7,9 @@
 	if(!tracker)
 		return
 
-	if(tracker.IsOlderThan(src.ai_tick_delay * 10))
+	var/walk_dist = (tracker?.BBSetDefault("StartDist", (ManhattanDistance(get_turf(pawn), obstruction) || 0)) || 0)
+
+	if(tracker.IsOlderThan(src.ai_tick_delay * (10 + walk_dist)))
 		tracker.SetFailed()
 		return
 
@@ -65,6 +67,7 @@
 
 
 /datum/goai/mob_commander/proc/HandleOpenAutodoor(var/datum/ActionTracker/tracker, var/obstruction)
+
 	var/atom/pawn = src.GetPawn()
 	if(!pawn)
 		to_world_log("[src] does not have an owned mob!")
@@ -73,7 +76,9 @@
 	if(!tracker)
 		return
 
-	if(tracker.IsOlderThan(src.ai_tick_delay * 10))
+	var/walk_dist = (tracker?.BBSetDefault("StartDist", (ManhattanDistance(get_turf(pawn), obstruction) || 0)) || 0)
+
+	if(tracker.IsOlderThan(src.ai_tick_delay * (10 + walk_dist)))
 		tracker.SetFailed()
 		return
 

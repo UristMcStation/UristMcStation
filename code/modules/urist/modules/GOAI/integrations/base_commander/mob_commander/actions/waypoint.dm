@@ -102,7 +102,7 @@
 							continue
 
 						var/dirDelta = get_dir(previous, potential_obstruction_curr)
-						var/blocks = blocker.Blocks(dirDelta)
+						var/blocks = blocker.Blocks(dirDelta, src)
 
 						if(blocks)
 							obstruction = potential_obstruction_curr
@@ -115,7 +115,7 @@
 							continue
 
 						var/dirDeltaPrev = get_dir(path[path_pos-2], potential_obstruction_prev)
-						var/blocksPrev = blocker.Blocks(dirDeltaPrev)
+						var/blocksPrev = blocker.Blocks(dirDeltaPrev, src)
 
 						if(blocksPrev)
 							obstruction = potential_obstruction_prev
@@ -128,7 +128,7 @@
 	return
 
 
-/datum/goai/mob_commander/proc/HandleWaypoint(var/datum/ActionTracker/tracker)
+/datum/goai/mob_commander/proc/HandleWaypoint(var/datum/ActionTracker/tracker, var/move_handler, var/move_action_name = null)
 	// Locate waypoint
 	// Capture any obstacles
 	// Add Action Goto<Goal> with clearing obstacles as a precond
@@ -163,14 +163,15 @@
 	)
 
 	var/atom/obstruction = brain.GetMemoryValue(MEM_OBSTRUCTION)
+	var/_move_action_name = (move_action_name || "MoveTowards")
 
 	var/handled = HandleWaypointObstruction(
 		obstruction = obstruction,
 		waypoint = waypoint,
 		shared_preconds = common_preconds,
 		target_preconds = goto_preconds,
-		move_action_name = "MoveTowards",
-		move_handler = /datum/goai/mob_commander/proc/HandleDirectionalCoverLeapfrog,
+		move_action_name = _move_action_name,
+		move_handler = move_handler,
 		unique = TRUE,
 		allow_failed = TRUE
 	)

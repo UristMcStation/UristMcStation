@@ -21,10 +21,27 @@
 	is_active = (isnull(active) ? is_active : active)
 
 
-/datum/directional_blocker/proc/Blocks(var/dir)
+/datum/directional_blocker/proc/Blocks(var/dir, var/query_user = null)
+
 	if(!is_active)
 		DIRBLOCKER_DEBUG_LOG("[src] is inactive...")
 		return FALSE
+
+	var/atom/movable/atom_user = query_user
+
+	if(istype(atom_user))
+		if(src == atom_user.directional_blocker)
+			// no self-collisions!
+			return FALSE
+
+	var/datum/goai/mob_commander/commander_user = query_user
+
+
+	if(istype(commander_user))
+		var/atom/pawn = commander_user.GetPawn()
+		if(src == pawn?.directional_blocker)
+			// no self-collisions!
+			return FALSE
 
 	if(block_all)
 		DIRBLOCKER_DEBUG_LOG("[src] blocks all - TRUE!")

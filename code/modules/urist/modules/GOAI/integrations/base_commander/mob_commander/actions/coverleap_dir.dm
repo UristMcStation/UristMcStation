@@ -366,6 +366,7 @@
 		best_local_pos?.pDrawVectorbeam(pawn, best_local_pos, "n_beam")
 
 		tracker?.BBSet("bestpos", best_local_pos)
+		tracker?.BBSet("StartDist", (ManhattanDistance(get_turf(pawn), best_local_pos) || 0))
 		to_world_log((isnull(best_local_pos) ? "[src]: Best local pos: null" : "[src]: Best local pos ([best_local_pos?.x], [best_local_pos?.y])"))
 
 
@@ -379,6 +380,7 @@
 	else
 		tracker.SetFailed()
 
+	var/walk_dist = (tracker?.BBGet("StartDist") || 0)
 	var/datum/brain/concrete/needybrain = brain
 
 	if(tracker.IsTriggered() && !tracker.is_done)
@@ -386,7 +388,7 @@
 			tracker.SetDone()
 			brain?.SetMemory(MEM_PREVLOC, startpos, MEM_TIME_LONGTERM)
 
-	else if(src.active_path && tracker.IsOlderThan(COMBATAI_MOVE_TICK_DELAY * 20))
+	else if(src.active_path && tracker.IsOlderThan(COMBATAI_MOVE_TICK_DELAY * (20 + walk_dist)))
 		if(needybrain)
 			needybrain.AddMotive(NEED_COMPOSURE, -MAGICNUM_COMPOSURE_LOSS_FAILMOVE)
 
@@ -396,7 +398,7 @@
 		//brain?.SetMemory("UnreachableTile", src.active_path.target, MEM_TIME_LONGTERM)
 		tracker.SetFailed()
 
-	else if(tracker.IsOlderThan(COMBATAI_MOVE_TICK_DELAY * 10))
+	else if(tracker.IsOlderThan(COMBATAI_MOVE_TICK_DELAY * (10 + walk_dist)))
 		if(needybrain)
 			needybrain.AddMotive(NEED_COMPOSURE, -MAGICNUM_COMPOSURE_LOSS_FAILMOVE)
 

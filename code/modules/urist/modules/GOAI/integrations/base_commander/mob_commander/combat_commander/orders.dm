@@ -141,3 +141,23 @@
 	var/result = M.DropRelationshipTag(tag)
 	to_chat(usr, "[M] - Tag [tag] [result ? "dropped successfully" : "failed to drop"]!")
 	return
+
+
+/datum/goai/mob_commander/combat_commander/proc/ForceSwitchBerserk(var/curr_berserk_state = FALSE)
+	/* Panic/Calm are mutually exclusive, but we often need to express Action constraints
+	// on one or the other, and it's not possible without building some weirder, more fancy
+	// algebra of States, so the lazy solution is to just have two independent variables.
+	*/
+	src.SetState("BERSERK", (curr_berserk_state ? FALSE : TRUE))
+
+	return TRUE
+
+
+/mob/verb/CommanderMakeBerserk(datum/goai/mob_commander/combat_commander/M in GLOB.global_goai_registry)
+	set category = "Commander Orders"
+
+	var/curr_berserk_state = M.GetState("BERSERK")
+	to_chat(usr, "[M] curr_berserk_state is [curr_berserk_state]")
+	M.ForceSwitchBerserk(curr_berserk_state)
+	to_chat(usr, "[M] [curr_berserk_state ? "kalmed" : "BERSERKED"]!")
+	return
