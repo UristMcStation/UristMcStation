@@ -61,10 +61,10 @@ var/global/datum/chunkserver/chunkserver_singleton = null
 	// We need to transform the position by -1 to account for DM's 1-based indexing =_=
 	// Resolve shared chunks to the *right* - easier to deal with infinite positive coords this way
 	// --X-=-X-=-X-=-X-=-X-- pattern with size=5, overlap=1 (= -> shared tile, X -> centre)
-	var/chunkX = floor((posX - 1) / (chunksize - overlap))
+	var/chunkX = FLOOR((posX - 1) / (chunksize - overlap))
 	//var/chunkX_offset = posX % chunksize
 
-	var/chunkY = floor((posY - 1) / (chunksize - overlap))
+	var/chunkY = FLOOR((posY - 1) / (chunksize - overlap))
 	//var/chunkY_offset = posY % chunksize
 	//to_world_log("ChunkIdx: [chunkX], [chunkY]")
 	// Chunks are (currently) flat, so we don't do this for Zs.

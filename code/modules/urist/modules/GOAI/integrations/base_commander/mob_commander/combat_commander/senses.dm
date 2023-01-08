@@ -413,12 +413,12 @@
 	var/sense/combatant_commander_eyes/eyes = new()
 	//var/sense/combatant_commander_obstruction_handler/obstacle_handler = new()
 	var/sense/combatant_commander_panic_pathfinder/panicpath_handler = new()
-	var/sense/combatant_commander_safespace_finder/safety_finder = new()
+	//var/sense/combatant_commander_safespace_finder/safety_finder = new()
 
 	/* Register each Sense: */
 	senses.Add(eyes)
 	//senses.Add(obstacle_handler)
 	senses.Add(panicpath_handler)
-	senses.Add(safety_finder)
+	//senses.Add(safety_finder)
 
 	return

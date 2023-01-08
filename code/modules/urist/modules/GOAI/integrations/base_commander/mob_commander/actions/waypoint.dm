@@ -38,7 +38,7 @@
 
 	var/true_costproc = costproc
 	if(isnull(true_costproc))
-		true_costproc = /proc/fDistance
+		true_costproc = DEFAULT_GOAI_DISTANCE_PROC
 
 	var/list/path = null
 	var/turf/target_turf = get_turf(goal)
@@ -54,7 +54,7 @@
 
 	if(init_dist < 40)
 		OBSTACLEHUNT_DEBUG_LOG("[owner] entering ASTARS STAGE")
-		path = GoaiAStar(get_turf(pawn), target_turf, /proc/fCardinalTurfs, /proc/fDistance, null, init_dist, min_target_dist = sqrt_dist, exclude = null)
+		path = GoaiAStar(get_turf(pawn), target_turf, /proc/fCardinalTurfs, DEFAULT_GOAI_DISTANCE_PROC, null, init_dist, min_target_dist = sqrt_dist, exclude = null)
 
 		OBSTACLEHUNT_DEBUG_LOG("[owner] found ASTAR 1 path from [startpos] to [target_turf]: [path] ([path?.len])")
 
@@ -64,7 +64,7 @@
 
 		// No unobstructed path to target!
 		// Let's try to get a direct path and check for obstacles.
-		path = GoaiAStar(get_turf(pawn), target_turf, /proc/fCardinalTurfsNoblocks, /proc/fDistance, null, init_dist, min_target_dist = sqrt_dist, exclude = null)
+		path = GoaiAStar(get_turf(pawn), target_turf, /proc/fCardinalTurfsNoblocks, DEFAULT_GOAI_DISTANCE_PROC, null, init_dist, min_target_dist = sqrt_dist, exclude = null)
 
 		OBSTACLEHUNT_DEBUG_LOG("[src] found ASTAR 2 path from [startpos] to [target_turf]: [path] ([path?.len])")
 
@@ -88,7 +88,7 @@
 			if(isnull(previous))
 				continue
 
-			var/last_link_blocked = LinkBlocked(previous, pathitem)
+			var/last_link_blocked = GoaiLinkBlocked(previous, pathitem)
 
 			if(last_link_blocked)
 				OBSTACLEHUNT_DEBUG_LOG("[owner]: LINK BETWEEN [previous] & [pathitem] OBSTRUCTED")

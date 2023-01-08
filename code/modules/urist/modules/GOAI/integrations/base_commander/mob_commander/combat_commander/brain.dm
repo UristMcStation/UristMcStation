@@ -16,6 +16,20 @@
 	return result
 
 
+/datum/GOAP/demoGoap/combatCommanderGoap/compare_op(var/curr_val, var/targ_val)
+	var/absCurr = abs(curr_val)
+	var/absTarg = abs(targ_val)
+
+	var/result = (absCurr >= absTarg)
+
+	// curr_val should be always positive, but just in case:
+	if(targ_val < 0 && curr_val > 0)
+		// Complement notation for negatives, e.g. precond=-30 => 'cannot be 30+'
+		result = !result
+
+	return result
+
+
 /datum/brain/concrete/combatCommander
 
 

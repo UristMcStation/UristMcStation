@@ -1,4 +1,3 @@
-/*
 /turf/ground
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snow"
@@ -50,6 +49,7 @@
 	icon_state = "stone[dense_conn]"
 
 
+/*
 /proc/trange(rad = 0, turf/centre = null) //alternative to range (ONLY processes turfs and thus less intensive)
 	if(!centre)
 		return
@@ -57,8 +57,10 @@
 	var/turf/x1y1 = locate(((centre.x-rad)<1 ? 1 : centre.x-rad),((centre.y-rad)<1 ? 1 : centre.y-rad),centre.z)
 	var/turf/x2y2 = locate(((centre.x+rad)>world.maxx ? world.maxx : centre.x+rad),((centre.y+rad)>world.maxy ? world.maxy : centre.y+rad),centre.z)
 	return block(x1y1,x2y2)
+*/
 
-/proc/LinkBlocked(var/turf/A, var/turf/B)
+
+/proc/GoaiLinkBlocked(var/turf/A, var/turf/B)
 	if(A == null || B == null) return TRUE
 	var/adir = get_dir(A,B)
 	var/rdir = get_dir(B,A)
@@ -71,16 +73,15 @@
 		if(!LinkBlocked(A,pStep) && !LinkBlocked(pStep,B)) return FALSE
 		return TRUE
 
-	if(DirBlocked(A,adir))
+	if(GoaiDirBlocked(A,adir))
 		//to_world_log("A -> B blocked; A=[A], B=[B]")
 		return TRUE
 
-	if(DirBlocked(B,rdir))
+	if(GoaiDirBlocked(B,rdir))
 		//to_world_log("B -> A blocked; A=[A], B=[B]")
 		return TRUE
 
 	return FALSE
-*/
 
 
 /turf/proc/GoaiObjectBlocked()
@@ -147,7 +148,7 @@
 	for(var/turf/t in (trange(1, start) - start))
 		if(check_blockage)
 			if(!(t.IsBlocked(check_objects)))
-				if(!(check_links && LinkBlocked(start_turf, t)))
+				if(!(check_links && GoaiLinkBlocked(start_turf, t)))
 					adjacents += t
 		else
 			adjacents += t
@@ -212,7 +213,7 @@
 
 	var/turf/t = T
 	if(t && get_dist(start, t) == 1)
-		var/cost = (start.x - t.x) * (start.x - t.x) + (start.y - t.y) * (start.y - t.y)
+		var/cost = SQR(start.x - t.x) + SQR(start.y - t.y)
 		cost *= (start.pathweight + t.pathweight)/2
 		return cost
 
@@ -220,12 +221,28 @@
 		return get_dist(start, T)
 
 
+/proc/fDistanceUnified(var/atom/start, var/atom/T)
+	// TODO!!!
+	if(!start)
+		return PLUS_INF
+
+	var/cost = SQR(start.x - T.x) + SQR(start.y - T.y)
+
+	var/turf/s = start
+	var/turf/t = T
+
+	if(t && istype(t) && s && istype(s))
+		cost *= (s.pathweight + t.pathweight)/2
+
+	return cost
+
+
 /turf/proc/ObstaclePenaltyDistance(var/T)
 	var/turf/t = get_turf(T)
 	var/base_dist = fDistance(src, t)
 	var/block_penalty = 0
 
-	if(t && LinkBlocked(src, t))
+	if(t && GoaiLinkBlocked(src, t))
 		block_penalty = 10
 
 	var/total_dist = base_dist + block_penalty
@@ -245,7 +262,7 @@
 	var/base_dist = fDistance(s, t)
 	var/block_penalty = 0
 
-	if(t && LinkBlocked(s, t))
+	if(t && GoaiLinkBlocked(s, t))
 		block_penalty = 10
 
 	var/total_dist = base_dist + block_penalty

@@ -111,7 +111,7 @@
 	src.last_need_update_times = list()
 	src.perceptions = new()
 	src.relations = new(init_relationships)
-	src.pending_instant_actions = list()
+	PUT_EMPTY_LIST_IN(src.pending_instant_actions)
 	src.attachments = new()
 	src.RegisterBrain()
 
@@ -432,7 +432,7 @@
 
 		if(running_action_tracker.IsStopped())
 			running_action_tracker = null
-			pending_instant_actions = list()
+			PUT_EMPTY_LIST_IN(src.pending_instant_actions)
 
 	else if(selected_action) // ready to go
 		to_world("SELECTED ACTION: [selected_action] | <@[src]>")
@@ -566,7 +566,7 @@
 	running_action_tracker = null
 
 	// Cancel all instant and regular Actions
-	pending_instant_actions = list()
+	PUT_EMPTY_LIST_IN(src.pending_instant_actions)
 	active_plan = null
 
 	// Mark the plan as failed

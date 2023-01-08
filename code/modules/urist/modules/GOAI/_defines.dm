@@ -1,4 +1,4 @@
-# define PI 3.14159265
+# define MATH_PI 3.14159265
 # define LOG2(x) log(2, x)
 
 # define GOAI_AI_ENABLED 1
@@ -46,3 +46,9 @@
 # define ATTACHMENT_CONTROLLER "AiController"
 # define ATTACHMENT_CONTROLLER_BACKREF "AiControllerId"
 # define ATTACHMENT_EVTQUEUE_HIT "HitEventQueue"
+
+// Helpers
+# define IS_VALID_NON_NULL(X) (!(isnull(X)) && istype(X))
+# define PUT_EMPTY_LIST_IN(X) if(IS_VALID_NON_NULL(X)) { X.Cut() } else { X = list() }
+
+# define DEFAULT_GOAI_DISTANCE_PROC /proc/fDistanceUnified

@@ -3,7 +3,7 @@
 // the rest are higher-level abstractions and
 // integrations w/ other subsystems (e.g. memory)
 */
-/datum/goai/mob_commander/proc/ChoosePanicRunLandmark(var/atom/primary_threat = null, var/list/threats = null, min_safe_dist = null)
+/datum/goai/mob_commander/proc/ChoosePanicRunLandmark(var/atom/primary_threat = null, var/list/threats = null, min_safe_dist = null, var/atom/explicit_obstruction = null)
 	var/atom/pawn = src.GetPawn()
 	if(!pawn)
 		to_world_log("[src] does not have an owned mob!")
@@ -38,6 +38,7 @@
 	var/datum/chunkserver/chunkserver = GetOrSetChunkserver()
 
 	var/my_loc = get_turf(pawn)
+	var/mob/pawn_mob = pawn
 
 	for(var/turf/cand in curr_view)
 		sleep(-1)
@@ -46,9 +47,9 @@
 		if(unreachable && cand == unreachable)
 			continue
 
-		/*if(!(pawn_mob && istype(pawn_mob)))
-			if(pawn_mob.MayEnterTurf(cand))
-				continue*/
+		if(!(pawn_mob && istype(pawn_mob)))
+			if(!(pawn_mob.MayEnterTurf(cand)))
+				continue
 
 		if(cand in processed)
 			continue
@@ -98,7 +99,11 @@
 		src.SpotObstacles(owner = src, target = best_local_pos, default_to_waypoint = FALSE)
 
 		// Obstacles:
-		var/atom/obstruction = brain.GetMemoryValue(MEM_OBSTRUCTION)
+		var/atom/obstruction = explicit_obstruction
+
+		if(isnull(obstruction) || !(istype(obstruction)))
+			obstruction = brain.GetMemoryValue(MEM_OBSTRUCTION)
+
 		var/handled = isnull(obstruction) // if obs is null, counts as handled
 
 		if(obstruction)
@@ -266,7 +271,7 @@
 
 
 
-/datum/goai/mob_commander/proc/HandlePanickedRun(var/datum/ActionTracker/tracker)
+/datum/goai/mob_commander/proc/HandlePanickedRun(var/datum/ActionTracker/tracker, var/atom/obstruction = null)
 	var/atom/pawn = src.GetPawn()
 	if(!pawn)
 		to_world_log("[src] does not have an owned mob!")
@@ -350,7 +355,7 @@
 
 
 	if(isnull(best_local_pos))
-		best_local_pos = ChoosePanicRunLandmark(primary_threat, threats, min_safe_dist)
+		best_local_pos = ChoosePanicRunLandmark(primary_threat, threats, min_safe_dist, obstruction)
 		tracker.BBSet(MEM_BESTPOS_PANIC, best_local_pos)
 		brain?.SetMemory(MEM_BESTPOS_PANIC, best_local_pos, PANIC_SENSE_THROTTLE*3)
 		to_world_log((isnull(best_local_pos) ? "[src]: Best local pos: null" : "[src]: Best local pos ([best_local_pos?.x], [best_local_pos?.y])"))

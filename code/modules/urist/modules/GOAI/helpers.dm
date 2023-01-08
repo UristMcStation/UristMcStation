@@ -1,21 +1,16 @@
+# define SQR(x) ((x) * (x))
+# define SIGN(x) (x / abs(x))
+# define FLOOR(x) round(x)
+# define CEIL(x) -round(-x)
 
-/proc/floor(x)
-	return round(x)
-
-/*
-/proc/ceil(x)
-	return -round(-x)
-*/
 
 /proc/greater_than(var/left, var/right)
 	var/result = left > right
-	//to_world("GT: [result], L: [left], R: [right]")
 	return result
 
 
 /proc/greater_or_equal_than(var/left, var/right)
 	var/result = left >= right
-	//to_world("GT: [result], L: [left], R: [right]")
 	return result
 
 

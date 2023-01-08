@@ -75,6 +75,8 @@
 			if(tracked_instant_action)
 				HandleInstantAction(tracked_instant_action, instant_action_tracker)
 
+		PUT_EMPTY_LIST_IN(brain.pending_instant_actions)
+
 		if(brain.running_action_tracker)
 			var/tracked_action = brain.running_action_tracker.tracked_action
 

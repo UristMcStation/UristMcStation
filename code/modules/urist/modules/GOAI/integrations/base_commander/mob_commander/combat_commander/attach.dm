@@ -1,4 +1,3 @@
-
 /proc/AttachCombatCommanderTo(var/mob/M, var/datum/goai/mob_commander/commander = null)
 	var/datum/goai/mob_commander/combat_commander/new_commander = commander
 	if(isnull(commander))

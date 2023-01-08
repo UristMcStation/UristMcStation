@@ -25,6 +25,7 @@
 	var/effective_waypoint_y = null
 
 	var/atom/waypoint_ident = brain?.GetMemoryValue(MEM_WAYPOINT_IDENTITY, null, FALSE, TRUE)
+	var/mob/pawn_mob = pawn
 
 	if(waypoint_ident)
 		// This only applies to the case where the brain has a Waypoint stored, i.e. when we're
@@ -92,9 +93,9 @@
 
 		for(var/turf/cand in adjacents)
 
-			/*if(!(pawn_mob && istype(pawn_mob)))
-				if(pawn_mob.MayEnterTurf(cand))
-					continue*/
+			if(!(pawn_mob && istype(pawn_mob)))
+				if(!(pawn_mob.MayEnterTurf(cand)))
+					continue
 
 			if(cand in processed)
 				continue

@@ -204,7 +204,7 @@
 	if(!radius || radius <= 0)
 		return
 
-	var/safe_radius = floor(radius)
+	var/safe_radius = FLOOR(radius)
 	var/centre_adjustment = (exclude_centre_tile ? 0.5 : 0)
 
 	var/safeCentreX = centreX - centre_adjustment
@@ -282,7 +282,7 @@
 	if(!width || width < 0)
 		return
 
-	var/target_radius = floor(width / 2)
+	var/target_radius = FLOOR(width / 2)
 	return target_radius
 
 

@@ -28,7 +28,7 @@
 	var/true_avoid = (avoid || src.brain?.GetMemoryValue("BadStartTile", null))
 
 	var/proc/true_adjproc = (isnull(adjproc) ? /proc/fCardinalTurfs : adjproc)
-	var/proc/true_distproc = (isnull(distanceproc) ? /proc/fDistance : distanceproc)
+	var/proc/true_distproc = (isnull(distanceproc) ? DEFAULT_GOAI_DISTANCE_PROC : distanceproc)
 
 	var/list/path = GoaiAStar(
 		start = get_turf(pawn.loc),
@@ -91,7 +91,7 @@
 
 /datum/goai/mob_commander/proc/BuildPathTrackerTo(var/trg, var/min_dist = 0, var/avoid = null, var/inh_frustration = 0, var/proc/costproc = null)
 	var/datum/ActivePathTracker/pathtracker = null
-	var/cost_function = (isnull(costproc) ? /proc/fDistance : costproc)
+	var/cost_function = (isnull(costproc) ? DEFAULT_GOAI_DISTANCE_PROC : costproc)
 	//var/list/adjacency_args = list(owner = src))
 
 	var/list/path = FindPathTo(
@@ -106,7 +106,7 @@
 	if(!path)
 		path = FindPathTo(
 			trg,
-			world.view,
+			min_dist + 1,
 			avoid,
 			//adjproc = /proc/mCombatantAdjacents,
 			//adjargs = adjacency_args,

@@ -123,7 +123,7 @@
 				continue
 
 			if(!(pawn_mob && istype(pawn_mob)))
-				if(pawn_mob.MayEnterTurf(cand))
+				if(!(pawn_mob.MayEnterTurf(cand)))
 					continue
 
 			if(cand in processed)

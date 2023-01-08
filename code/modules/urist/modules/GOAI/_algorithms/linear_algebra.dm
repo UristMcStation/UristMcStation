@@ -142,8 +142,8 @@
 		to_world_log("CoordsToTurf: null position!")
 		return
 
-	var/adj_x_pos = floor(x_pos)
-	var/adj_y_pos = floor(y_pos)
+	var/adj_x_pos = FLOOR(x_pos)
+	var/adj_y_pos = FLOOR(y_pos)
 
 	var/turf/step_loc = locate(adj_x_pos, adj_y_pos, z_pos)
 

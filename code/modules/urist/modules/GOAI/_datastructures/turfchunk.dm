@@ -21,7 +21,7 @@
 
 
 /datum/chunk/proc/Radius()
-	var/radius = floor(width / 2)
+	var/radius = FLOOR(width / 2)
 	return radius
 
 

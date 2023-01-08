@@ -116,7 +116,7 @@
 	var/hit_x = (source.x + true_dx)
 	var/hit_y = (source.y + true_dy)
 
-	if ((floor(hit_x) == At.x) && (floor(hit_y) == At.y))
+	if ((FLOOR(hit_x) == At.x) && (FLOOR(hit_y) == At.y))
 		At.Hit(angle, From)
 
 		if(At.attachments)

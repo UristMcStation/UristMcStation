@@ -76,7 +76,7 @@
 
 	for(var/turf/cand in curr_view)
 		if(!(pawn_mob && istype(pawn_mob)))
-			if(pawn_mob.MayEnterTurf(cand))
+			if(!(pawn_mob.MayEnterTurf(cand)))
 				continue
 
 		if(cand in processed)
@@ -116,12 +116,7 @@
 
 				// Make a run for the closest threat.
 				var/raw_threat_cand_dist = ManhattanDistance(cand, threat_cand)
-
-				/* OK, this is a funny bit of math. Ideal distance to melee target is 1 (adjacent), not 0 (same tile)
-				// So, by substracting 1 and doing abs(), distance 1 == 0, distance 0 == 1 and distance 2 == 1.
-				// This means that 1 is the most favorable distance, while 2 & 0 are equally penalized.
-				*/
-				var/threat_cand_dist = (abs(raw_threat_cand_dist - 1))
+				var/threat_cand_dist = (raw_threat_cand_dist ** 2)
 
 				// If we have no distance, take the first candidate, otherwise the closest.
 				targ_dist = (isnull(targ_dist) ? threat_cand_dist : min(targ_dist, threat_cand_dist))
@@ -130,12 +125,13 @@
 		if(isnull(targ_dist))
 			targ_dist = 0
 
-		penalty += -targ_dist  // the closer to target, the better
+		if(targ_dist == 0)
+			// we do NOT want to get in the same spot as target or we'll wind up in Bump() hell
+			continue
 
-		/* Inject some noise to stop AIs getting stuck in corners.
-		// max +/- 10% discount factor.
-		*/
-		var/noisy_dist = targ_dist * RAND_PERCENT_MULT(10)
+		var/noisy_dist = targ_dist * rand_gauss(1, 0.01)
+
+		penalty += -noisy_dist  // the closer to target, the better
 
 		// Reminder to self: higher values are higher priority
 		// Smaller penalty => also higher priority

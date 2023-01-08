@@ -3101,6 +3101,7 @@
 #include "code\modules\urist\modules\GOAI\integrations\base_commander\mob_commander\debug.dm"
 #include "code\modules\urist\modules\GOAI\integrations\base_commander\mob_commander\movement.dm"
 #include "code\modules\urist\modules\GOAI\integrations\base_commander\mob_commander\obstacle_traversal.dm"
+#include "code\modules\urist\modules\GOAI\integrations\base_commander\mob_commander\actions\charge.dm"
 #include "code\modules\urist\modules\GOAI\integrations\base_commander\mob_commander\actions\cover_dir.dm"
 #include "code\modules\urist\modules\GOAI\integrations\base_commander\mob_commander\actions\coverleap_dir.dm"
 #include "code\modules\urist\modules\GOAI\integrations\base_commander\mob_commander\actions\obstacle_handlers.dm"
