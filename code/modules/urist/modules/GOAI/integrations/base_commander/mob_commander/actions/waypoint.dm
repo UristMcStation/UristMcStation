@@ -89,7 +89,7 @@
 			var/last_link_blocked = GoaiLinkBlocked(previous, pathitem)
 
 			if(last_link_blocked)
-				OBSTACLEHUNT_DEBUG_LOG("[owner]: LINK BETWEEN [previous] & [pathitem] OBSTRUCTED")
+				OBSTACLEHUNT_DEBUG_LOG("[owner]: LINK BETWEEN [previous] ([previous.x],[previous.y]) & [pathitem] ([pathitem.x],[pathitem.y]) OBSTRUCTED")
 				// find the obstacle
 				var/atom/obstruction = null
 
@@ -98,7 +98,8 @@
 						if(potential_obstruction_curr == pawn)
 							continue
 
-						var/datum/directional_blocker/blocker = potential_obstruction_curr?.directional_blocker
+						var/datum/directional_blocker/blocker = potential_obstruction_curr.GetBlockerData(TRUE, TRUE)
+
 						if(!blocker)
 							continue
 
@@ -114,7 +115,7 @@
 						if(potential_obstruction_prev == pawn)
 							continue
 
-						var/datum/directional_blocker/blocker = potential_obstruction_prev?.directional_blocker
+						var/datum/directional_blocker/blocker = potential_obstruction_prev.GetBlockerData(TRUE, TRUE)
 						if(!blocker)
 							continue
 

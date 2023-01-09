@@ -11,6 +11,16 @@
 //  e.g. Plan<Near<Z>> = (Goto<X>(), Open<Y>(Near<Y>), Goto<Z>(OpenAt<Y>))
 # define NEED_NEAR_ATOM(a) "at [a] @ ([a.x], [a.y], [a.z])"
 
+# define NEED_OBJ_UNLOCKED(o) "unlock [o] [ref(o)]"
+# define NEED_OBJ_PRY(o) "pry [o] [ref(o)]"
+# define NEED_OBJ_SCREW(o) "screw [o] [ref(o)]"
+# define NEED_OBJ_BROKEN(o) "break [o] [ref(o)]"
+
+# define STATE_HASCROWBAR "has_crowbar"
+# define STATE_HASMULTITOOL "has_multitool"
+# define STATE_HASSCREWDRIVER "has_screwdriver"
+# define STATE_HASINSULGLOVES "has_insul_gloves"
+
 // Keys for the states
 # define STATE_INCOVER "in_cover"
 # define STATE_DOWNTIME "no_orders"
@@ -48,6 +58,15 @@
 
 # define MEM_DIRLEAP_BESTPOS "DirectionalCoverleapBestpos"
 # define MEM_CHARGE_BESTPOS "ChargeBestpos"
+
+# define MEM_AIRLOCK_WIRES  "AirlockWires"
+
+# define MEM_OBJ_LOCKED(o) "[o] [ref(o)] IsLocked"
+# define MEM_OBJ_NOPOWER(o) "[o] [ref(o)] NoPower"
+# define MEM_OBJ_SHOCKED(o) "[o] [ref(o)] IsShocked"
+# define MEM_OBJ_PANELOPEN(o) "[o] [ref(o)] PanelOpen"
+
+# define MEM_OBJ_NOACCESS(o) "NoAccess to [o] [ref(o)]"
 
 // Penalty value that should entirely eliminate an option unless there's absolutely no alternatives:
 # define MAGICNUM_DISCOURAGE_SOFT 10000

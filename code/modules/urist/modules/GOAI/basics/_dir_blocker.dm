@@ -59,28 +59,28 @@
 	blockerable.directional_blocker = src
 	return TRUE
 
-
 /atom/proc/GenerateBlocker()
 	// by default
 	return null
-
 
 /atom/proc/ShouldHaveBlocker()
 	// by default
 	return FALSE
 
+/atom/proc/GetBlockerData(var/generate_if_missing = FALSE, var/update_if_found = FALSE, var/log_on_missing)
+	var/datum/directional_blocker/blocker = src.directional_blocker
 
-/atom/proc/GetBlockerData(var/generate_if_missing = FALSE, var/log_on_missing = FALSE)
-	var/datum/directional_blocker/myblocker = src.directional_blocker
-
-	if(!myblocker)
+	if(!blocker)
 		if(src.blocker_gen_enabled)
 			if(generate_if_missing)
-				spawn(0)
-					myblocker = src.GenerateCover()
-					src.directional_blocker = myblocker
-
+				blocker = src.GenerateBlocker()
+				src.directional_blocker = blocker
 			if(log_on_missing)
-				to_world_log("Failed to get blocker for [src] - no blocker data!")
+				to_world_log("Failed to get blocker for [src] - No blocker data!")
+	else if(update_if_found)
+		src.UpdateBlocker()
 
-	return src.directional_blocker
+	return blocker
+
+/atom/proc/UpdateBlocker()
+	return null
