@@ -10,6 +10,6 @@
 
 		else
 			// Caching to speed up queries
-			atom_owner.blocker_gen_enabled = FALSE
+			atom_owner.cover_gen_enabled = FALSE
 
 	return cover_data
