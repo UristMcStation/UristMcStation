@@ -100,3 +100,23 @@
 		to_chat(usr, "- [commander.registry_index]: [commander.name] <[commander]>")
 
 	return
+
+/mob/verb/ListCommanderActions(var/datum/goai/mob_commander/combat_commander/M in GLOB.global_goai_registry)
+	set category = "Debug GOAI Commanders"
+
+	if(!M)
+		return
+
+	to_chat(usr, "===== GOAI ACTION LIST =====")
+	for(var/action in M.actionslist)
+		var/datum/goai_action/action_datum = M.actionslist[action]
+		to_chat(usr, "<b>--Action: [action] --</b>")
+		to_chat(usr, "<b>Preconds ([length(action_datum.preconditions)]):</b>")
+		for(var/precond in action_datum.preconditions)
+			var/curr_state = M.GetState(precond)
+			to_chat(usr, "-[precond]: [action_datum.preconditions[precond]] -- (current state: [isnull(curr_state) ? "null" : curr_state])")
+		to_chat(usr, "<b>Effects ([length(action_datum.effects)]):</b>")
+		for(var/effect in action_datum.effects)
+			var/curr_state = M.GetState(effect)
+			to_chat(usr, "-[effect]: [action_datum.effects[effect]] -- (current state: [isnull(curr_state) ? "null" : curr_state])")
+		to_chat(usr, "----\n")

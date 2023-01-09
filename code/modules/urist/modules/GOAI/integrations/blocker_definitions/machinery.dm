@@ -2,6 +2,12 @@
 
 // MACHINERY
 
+/obj/machinery
+	blocker_gen_enabled = TRUE
+
+/obj/machinery/GenerateBlocker()
+	return GenerateGenericFullBlocker(src)
+
 /obj/machinery/artifact
 	blocker_gen_enabled = TRUE
 
@@ -57,6 +63,16 @@
 /obj/machinery/bodyscanner/GenerateBlocker()
 	return GenerateGenericFullBlocker(src)
 
+/obj/machinery/door/GenerateBlocker()
+	return GenerateDynamicFullBlocker(src)
 
+/obj/machinery/door/UpdateBlocker()
+	return UpdateDynamicFullBlocker(src)
+
+/obj/machinery/door/window/GenerateBlocker()
+	return GenerateDynamicDirBlocker(src)
+
+/obj/machinery/door/window/UpdateBlocker()
+	return UpdateDynamicDirBlocker(src)
 
 # endif

@@ -7,7 +7,6 @@
 /obj/structure/GenerateBlocker()
 	return GenerateGenericFullBlocker(src)
 
-
 // AYYLMAO STRUCTURES
 /obj/structure/alien/egg
 	blocker_gen_enabled = FALSE
@@ -72,27 +71,22 @@
 
 // TABLE
 /obj/structure/table/GenerateBlocker()
-	var/datum/directional_blocker/blocker_data = null
+	return GenerateDynamicDirBlocker(src)
 
-	if(src.flipped)
-		blocker_data = new(src.dir, FALSE, TRUE)
-
-	else
-		blocker_data = new(ALL_CARDINAL_DIRS, TRUE, TRUE)
-
-	return blocker_data
-
+/obj/structure/table/UpdateBlocker()
+	return UpdateDynamicDirBlocker(src)
 
 // WINDOWS
 /obj/structure/window/GenerateBlocker()
-	var/datum/directional_blocker/blocker_data = null
-
 	if(src.is_fulltile())
-		blocker_data = new(ALL_CARDINAL_DIRS, TRUE, TRUE)
-
+		return GenerateGenericFullBlocker(src)
 	else
-		blocker_data = new(src.dir, FALSE, TRUE)
+		return GenerateDynamicDirBlocker(src)
 
-	return blocker_data
+/obj/structure/window/UpdateBlocker()
+	if(src.is_fulltile())
+		return FALSE
+	else
+		return UpdateDynamicDirBlocker(src)
 
 # endif
