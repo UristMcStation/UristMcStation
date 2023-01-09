@@ -6,10 +6,10 @@
 
 	if(atom_owner)
 		if(atom_owner.density)
-			cover_data = new(TRUE, TRUE, null)
+			cover_data = new(TRUE, TRUE, ALL_CARDINAL_DIRS)
 
 		else
 			// Caching to speed up queries
-			atom_owner.cover_gen_enabled = FALSE
+			atom_owner.blocker_gen_enabled = FALSE
 
 	return cover_data

@@ -34,6 +34,9 @@
 
 # define GUN_DISPERSION 5
 
+// 1 (SOUTH) + 2 (NORTH) + 4 (EAST) + 8 (WEST) == 15
+# define ALL_CARDINAL_DIRS 15
+
 # define DEFAULT_ORPHAN_CLEANUP_THRESHOLD 3
 # define SENSE_SIGHT "Sight"
 # define SENSE_SIGHT_CURR "SightCurr"

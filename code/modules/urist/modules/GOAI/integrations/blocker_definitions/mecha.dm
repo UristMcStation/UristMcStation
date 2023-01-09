@@ -1,9 +1,11 @@
 # ifdef GOAI_SS13_SUPPORT
 
-/obj/vehicle/train
+// MECHS
+
+/obj/mecha
 	blocker_gen_enabled = TRUE
 
-/obj/vehicle/train/GenerateBlocker()
+/obj/mecha/GenerateBlocker()
 	return GenerateGenericFullBlocker(src)
 
 # endif
