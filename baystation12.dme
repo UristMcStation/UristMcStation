@@ -3048,6 +3048,7 @@
 #include "code\modules\urist\modules\GOAI\_algorithms\astar.dm"
 #include "code\modules\urist\modules\GOAI\_algorithms\beams.dm"
 #include "code\modules\urist\modules\GOAI\_algorithms\gaussdist.dm"
+#include "code\modules\urist\modules\GOAI\_algorithms\interpolation.dm"
 #include "code\modules\urist\modules\GOAI\_algorithms\linear_algebra.dm"
 #include "code\modules\urist\modules\GOAI\_algorithms\metrics.dm"
 #include "code\modules\urist\modules\GOAI\_algorithms\statistics.dm"
