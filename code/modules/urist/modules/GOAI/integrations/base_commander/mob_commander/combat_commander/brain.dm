@@ -17,13 +17,22 @@
 
 
 /datum/GOAP/demoGoap/combatCommanderGoap/compare_op(var/curr_val, var/targ_val)
-	var/absCurr = abs(curr_val)
+	if(isnull(targ_val))
+		// a non-entity constraint is always satisfiable
+		return TRUE
+
+	var/_curr_val = curr_val
+
+	if(isnull(_curr_val))
+		_curr_val = 0
+
+	var/absCurr = abs(_curr_val)
 	var/absTarg = abs(targ_val)
 
 	var/result = (absCurr >= absTarg)
 
 	// curr_val should be always positive, but just in case:
-	if(targ_val < 0 && curr_val > 0)
+	if(targ_val < 0 && _curr_val > 0)
 		// Complement notation for negatives, e.g. precond=-30 => 'cannot be 30+'
 		result = !result
 

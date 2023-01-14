@@ -351,7 +351,7 @@
 		move_action_name = "PanicRun",
 		move_handler = /datum/goai/mob_commander/proc/HandlePanickedRun,
 		unique = FALSE,
-		allow_failed = TRUE
+		allow_failed = TRUE,
 	)
 
 	if(handled)

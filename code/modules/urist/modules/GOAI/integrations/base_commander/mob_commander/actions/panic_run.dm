@@ -50,6 +50,10 @@
 		if(unreachable && cand == unreachable)
 			continue
 
+		if(get_dist(cand, pawn) > world.view)
+			// for now, reject too distant candidates
+			continue
+
 		if(!(pawn_mob && istype(pawn_mob)))
 			if(!(pawn_mob.MayEnterTurf(cand)))
 				continue

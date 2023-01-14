@@ -164,7 +164,16 @@
 		100,
 		PLUS_INF,
 		TRUE,
-		list("move_handler" = /datum/goai/mob_commander/proc/HandleDirectionalCoverLeapfrog),
+		list(
+			"move_handler" = /datum/goai/mob_commander/proc/HandleDirectionalCoverLeapfrog,
+			"goto_preconds" = list(
+				STATE_HASWAYPOINT = TRUE,
+				STATE_PANIC = -TRUE,
+			),
+			"common_preconds" = list(
+				STATE_PANIC = -TRUE,
+			)
+		)
 	)
 
 	AddAction(
@@ -191,7 +200,17 @@
 		100,
 		PLUS_INF,
 		TRUE,
-		list("move_handler" = /datum/goai/mob_commander/proc/HandleCharge, "move_action_name" = "CHAERG")
+		list(
+			"move_handler" = /datum/goai/mob_commander/proc/HandleCharge,
+			"move_action_name" = "CHAERG",
+			"goto_preconds" = list(
+				STATE_HASWAYPOINT = TRUE,
+				STATE_PANIC = -TRUE,
+			),
+			"common_preconds" = list(
+				STATE_PANIC = -TRUE,
+			)
+		)
 	)
 
 	return actionslist

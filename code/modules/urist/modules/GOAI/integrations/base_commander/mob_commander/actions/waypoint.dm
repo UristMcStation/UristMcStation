@@ -62,12 +62,15 @@
 
 		// No unobstructed path to target!
 		// Let's try to get a direct path and check for obstacles.
-		path = GoaiAStar(get_turf(pawn), target_turf, /proc/fCardinalTurfsNoblocks, DEFAULT_GOAI_DISTANCE_PROC, null, init_dist, min_target_dist = sqrt_dist, exclude = null)
+		path = GoaiAStar(get_turf(pawn), target_turf, /proc/fCardinalTurfsNoblocksObjpermissive, /proc/fTestObstacleDist, null, init_dist, min_target_dist = sqrt_dist, exclude = null)
 
 		OBSTACLEHUNT_DEBUG_LOG("[src] found ASTAR 2 path from [startpos] @ [COORDS_TUPLE(startpos)] to [target_turf] @ [COORDS_TUPLE(target_turf)]: [path] ([path?.len])")
 
 		if(!path)
+			OBSTACLEHUNT_DEBUG_LOG("!!![src] DID NOT find ASTAR 2 path from [startpos] ([startpos?.x], [startpos?.y]) to [target_turf] ([target_turf?.x], [target_turf?.y])!")
 			return
+
+		OBSTACLEHUNT_DEBUG_LOG("[src] found ASTAR 2 path from [startpos] ([startpos?.x], [startpos?.y]) to [target_turf] ([target_turf?.x], [target_turf?.y]): [path] ([path?.len])")
 
 		var/path_pos = 0
 
@@ -134,7 +137,7 @@
 	return
 
 
-/datum/goai/mob_commander/proc/HandleWaypoint(var/datum/ActionTracker/tracker, var/move_handler, var/move_action_name = null, var/atom/waypoint = null, var/atom/obstruction = null)
+/datum/goai/mob_commander/proc/HandleWaypoint(var/datum/ActionTracker/tracker, var/move_handler, var/move_action_name = null, var/atom/waypoint = null, var/atom/obstruction = null, var/list/goto_preconds = null, var/list/common_preconds = null)
 	// Locate waypoint
 	// Capture any obstacles
 	// Add Action Goto<Goal> with clearing obstacles as a precond
@@ -160,15 +163,6 @@
 
 	// Astar checking for obstacles
 	src.SpotObstacles(owner=src, target=true_waypoint, default_to_waypoint=FALSE, obstruction_tag = "WAYPOINT")
-
-	var/list/goto_preconds = list(
-		STATE_HASWAYPOINT = TRUE,
-		//STATE_DISORIENTED = -TRUE,
-	)
-
-	var/list/common_preconds = list(
-		//STATE_DISORIENTED = -TRUE,
-	)
 
 	var/atom/_obstruction = (isnull(obstruction) ? brain.GetMemoryValue(MEM_OBSTRUCTION("WAYPOINT")) : obstruction)
 	world.log << "Current obstruction is [_obstruction] @ [COORDS_TUPLE(_obstruction)]"

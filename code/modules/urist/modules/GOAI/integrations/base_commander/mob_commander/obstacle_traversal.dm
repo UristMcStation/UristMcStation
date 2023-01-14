@@ -137,9 +137,10 @@
 			action_name = "[action_name] [waypoint] ([waypoint.x],[waypoint.y])[isnull(obstruction) ? "" : " - [obstruction] @ [ref(obstruction)]"]"
 
 		//to_world("Adding new move action '[action_name]'")
-		goto_preconds[action_name] = -TRUE
-		if(isnull(src.GetState(action_name, null)))
+		goto_preconds[action_name] = FALSE
+		/*if(isnull(src.GetState(action_name, null)))
 			src.SetState(action_name, FALSE)	//Workaround
+		*/
 
 		var/list/goto_effects = (isnull(base_target_effects) ? list() : base_target_effects.Copy())
 

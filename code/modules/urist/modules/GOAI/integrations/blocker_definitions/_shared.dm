@@ -40,7 +40,7 @@
 	var/datum/directional_blocker/blocker = null
 
 	if(atom_owner)
-		var/dir_to_block = invert_dir ? dir2opposite(atom_owner.dir) : atom_owner
+		var/dir_to_block = invert_dir ? dir2opposite(atom_owner.dir) : atom_owner.dir
 		blocker = new(dir_to_block, FALSE, atom_owner.density)
 
 	return blocker

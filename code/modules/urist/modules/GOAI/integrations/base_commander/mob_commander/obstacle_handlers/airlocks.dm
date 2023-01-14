@@ -35,7 +35,7 @@
 		var/list/extra_preconds = base_preconds.Copy()
 
 		open_door_preconds[action_key] = TRUE	//Extra action key added to base open action
-		src.SetState(action_key, FALSE)	//Workaround
+		//src.SetState(action_key, FALSE)	//Workaround
 
 		extra_preconds[action_key] = -TRUE
 		extra_preconds[STATE_HASCROWBAR] = TRUE
@@ -71,9 +71,9 @@
 		var/list/extra_preconds = base_preconds.Copy()
 
 		open_door_preconds[action_key] = TRUE
-		src.SetState(action_key, FALSE)	//Workaround
+		//src.SetState(action_key, FALSE)	//Workaround
 
-		extra_preconds[action_key] = -TRUE
+		extra_preconds[action_key] = FALSE
 		extra_preconds[STATE_HASSCREWDRIVER] = TRUE
 
 		var/list/effects = list()
@@ -99,9 +99,9 @@
 	if(no_power || hack_handled)
 		action_key = "[NEED_OBJ_PRY(A)] for [waypoint]"
 
-		open_door_preconds[action_key] = -TRUE
+		open_door_preconds[action_key] = FALSE
 		open_door_preconds[STATE_HASCROWBAR] = TRUE
-		src.SetState(action_key, FALSE)	//Workaround
+		//src.SetState(action_key, FALSE)	//Workaround
 
 		var/list/effects = list()
 		effects[action_key] = TRUE
@@ -114,7 +114,7 @@
 			open_door_preconds,
 			effects,
 			/datum/goai/mob_commander/proc/HandlePry,
-			15 + rand() - (pawn ? get_dist(A, pawn) : 0),
+			25 + rand() - (pawn ? get_dist(A, pawn) : 0),
 			1,
 			FALSE,
 			action_args
@@ -123,8 +123,8 @@
 	else
 		action_key = "[NEED_OBSTACLE_OPEN(A)] for [waypoint]"
 
-		open_door_preconds[action_key] = -TRUE
-		src.SetState(action_key, FALSE)	//Workaround
+		open_door_preconds[action_key] = FALSE
+		//src.SetState(action_key, FALSE)	//Workaround
 
 		var/list/open_door_effects = list()
 		open_door_effects[action_key] = TRUE
@@ -137,7 +137,7 @@
 			open_door_preconds,
 			open_door_effects,
 			/datum/goai/mob_commander/proc/HandleAirlockOpen,
-			10 + rand() - (pawn ? get_dist(A, pawn) : 0),
+			5 + rand() - (pawn ? get_dist(A, pawn) * 3 : 0),
 			1,
 			FALSE,
 			action_args
