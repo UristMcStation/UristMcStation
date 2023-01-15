@@ -1,7 +1,7 @@
 /datum/goai/mob_commander/proc/ChooseDirectionalCoverLandmark(var/atom/startpos, var/atom/primary_threat = null, var/list/threats = null, var/min_safe_dist = null, var/trust_first = null)
 	var/atom/pawn = src.GetPawn()
 	if(!pawn)
-		to_world_log("[src] does not have an owned mob!")
+		ACTION_RUNTIME_DEBUG_LOG("[src] does not have an owned mob!")
 		return
 
 	// Pathfinding/search
@@ -13,7 +13,7 @@
 	var/list/processed = list()
 	var/PriorityQueue/cover_queue = new /PriorityQueue(/datum/Quadruple/proc/TriCompare)
 
-	var/list/curr_view = (brain?.perceptions?.Get(SENSE_SIGHT)) || list()
+	var/list/curr_view = (brain?.perceptions?.Get(SENSE_SIGHT_CURR)) || list()
 
 	var/turf/safespace_loc = brain?.GetMemoryValue(MEM_SAFESPACE, null)
 	if(safespace_loc)
@@ -185,7 +185,7 @@
 /datum/goai/mob_commander/proc/HandleChooseDirectionalCoverLandmark(var/datum/ActionTracker/tracker)
 	var/atom/pawn = src.GetPawn()
 	if(!pawn)
-		to_world_log("[src] does not have an owned mob!")
+		ACTION_RUNTIME_DEBUG_LOG("[src] does not have an owned mob!")
 		return
 
 	var/turf/best_local_pos = tracker?.BBGet("bestpos", null)
@@ -218,7 +218,7 @@
 
 	// Run pathfind
 	best_local_pos = ChooseDirectionalCoverLandmark(startpos, primary_threat, threats, min_safe_dist)
-	to_world_log("[src]: PLAN Best local pos ([best_local_pos?.x], [best_local_pos?.y])")
+	ACTION_RUNTIME_DEBUG_LOG("[src]: PLAN Best local pos ([best_local_pos?.x], [best_local_pos?.y])")
 
 	if(best_local_pos)
 		tracker.BBSet("bestpos", best_local_pos)
@@ -235,7 +235,7 @@
 /datum/goai/mob_commander/proc/HandleDirectionalCover(var/datum/ActionTracker/tracker)
 	var/atom/pawn = src.GetPawn()
 	if(!pawn)
-		to_world_log("[src] does not have an owned mob!")
+		ACTION_RUNTIME_DEBUG_LOG("[src] does not have an owned mob!")
 		return
 
 	var/tracker_frustration = tracker.BBSetDefault("frustration", 0)
@@ -245,7 +245,7 @@
 	if(brain && isnull(best_local_pos))
 		best_local_pos = brain.GetMemoryValue("DirectionalCoverBestpos", null)
 
-	to_world_log("[src]: INITIAL best_local_pos is: ([best_local_pos?.x], [best_local_pos?.y])")
+	ACTION_RUNTIME_DEBUG_LOG("[src]: INITIAL best_local_pos is: ([best_local_pos?.x], [best_local_pos?.y])")
 
 	var/min_safe_dist = (brain?.GetPersonalityTrait(KEY_PERS_MINSAFEDIST)) || 2
 	var/frustration_repath_maxthresh = brain?.GetPersonalityTrait(KEY_PERS_FRUSTRATION_THRESH, null) || 3
@@ -292,7 +292,7 @@
 			continue
 
 		var/atom/curr_threat = threats[threat_ghost]
-		to_world_log("[src]: curr_threat is [curr_threat] @ ([curr_threat?.x], [curr_threat?.y])")
+		ACTION_RUNTIME_DEBUG_LOG("[src]: curr_threat is [curr_threat] @ ([curr_threat?.x], [curr_threat?.y])")
 		var/next_step_threat_distance = (next_step ? GetThreatDistance(next_step, threat_ghost, PLUS_INF) : PLUS_INF)
 		var/curr_threat_distance = GetThreatDistance(pawn, threat_ghost, PLUS_INF)
 		var/bestpos_threat_distance = GetThreatDistance(best_local_pos, threat_ghost, PLUS_INF)
@@ -310,7 +310,7 @@
 
 			CancelNavigate()
 
-			to_world_log("[src]: best_local_pos @ [best_local_pos] is unsafe, nulling!")
+			ACTION_RUNTIME_DEBUG_LOG("[src]: best_local_pos @ [best_local_pos] is unsafe, nulling!")
 			best_local_pos = null
 			tracker.BBSet("bestpos", null)
 			brain?.DropMemory("DirectionalCoverBestpos")
@@ -325,7 +325,7 @@
 		tracker?.BBSet("StartDist", (ManhattanDistance(get_turf(pawn), best_local_pos) || 0))
 		brain?.SetMemory("DirectionalCoverBestpos", best_local_pos)
 
-		to_world_log("[src]: ACTION Best local pos ([best_local_pos?.x], [best_local_pos?.y])")
+		ACTION_RUNTIME_DEBUG_LOG("[src]: ACTION Best local pos ([best_local_pos?.x], [best_local_pos?.y])")
 
 
 	if(best_local_pos && (!src.active_path || src.active_path.target != best_local_pos))

@@ -1,7 +1,7 @@
 /datum/goai/mob_commander/proc/ChooseChargeLandmark(var/atom/startpos, var/atom/primary_threat = null, var/turf/prev_loc_memdata = null, var/list/threats = null, var/min_safe_dist = null, var/trust_first = null)
 	var/atom/pawn = src.GetPawn()
 	if(!pawn)
-		to_world_log("[src] does not have an owned mob!")
+		ACTION_RUNTIME_DEBUG_LOG("[src] does not have an owned mob!")
 		return
 
 	// Pathfinding/search
@@ -16,7 +16,7 @@
 	//var/datum/chunkserver/chunkserver = GetOrSetChunkserver()
 	//var/datum/chunk/startchunk = chunkserver.ChunkForAtom(_startpos)
 
-	var/list/curr_view = brain?.perceptions?.Get(SENSE_SIGHT)
+	var/list/curr_view = brain?.perceptions?.Get(SENSE_SIGHT_CURR)
 	curr_view.Add(_startpos)
 
 	var/effective_waypoint_x = null
@@ -146,7 +146,7 @@
 /datum/goai/mob_commander/proc/HandleChargeLandmark(var/datum/ActionTracker/tracker)
 	var/atom/pawn = src.GetPawn()
 	if(!pawn)
-		to_world_log("[src] does not have an owned mob!")
+		ACTION_RUNTIME_DEBUG_LOG("[src] does not have an owned mob!")
 		return
 
 	var/turf/best_local_pos = tracker?.BBGet("bestpos", null)
@@ -195,7 +195,7 @@
 /datum/goai/mob_commander/proc/HandleCharge(var/datum/ActionTracker/tracker)
 	var/atom/pawn = src.GetPawn()
 	if(!pawn)
-		to_world_log("[src] does not have an owned mob!")
+		ACTION_RUNTIME_DEBUG_LOG("[src] does not have an owned mob!")
 		return
 
 	//var/tracker_frustration = tracker.BBSetDefault("frustration", 0)
@@ -229,7 +229,7 @@
 
 		tracker?.BBSet("bestpos", best_local_pos)
 		tracker?.BBSet("StartDist", (ManhattanDistance(get_turf(pawn), best_local_pos) || 0))
-		to_world_log((isnull(best_local_pos) ? "[src]: Best local pos: null" : "[src]: Best local pos ([best_local_pos?.x], [best_local_pos?.y])"))
+		ACTION_RUNTIME_DEBUG_LOG((isnull(best_local_pos) ? "[src]: Best local pos: null" : "[src]: Best local pos ([best_local_pos?.x], [best_local_pos?.y])"))
 
 	if(best_local_pos && (!src.active_path || src.active_path.target != best_local_pos))
 		StartNavigateTo(best_local_pos, 0, null)

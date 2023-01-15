@@ -6,7 +6,7 @@
 /datum/goai/mob_commander/proc/ChoosePanicRunLandmark(var/atom/primary_threat = null, var/list/threats = null, min_safe_dist = null, var/atom/explicit_obstruction = null)
 	var/atom/pawn = src.GetPawn()
 	if(!pawn)
-		to_world_log("[src] does not have an owned mob!")
+		ACTION_RUNTIME_DEBUG_LOG("[src] does not have an owned mob!")
 		return
 
 	// Pathfinding/search
@@ -20,7 +20,7 @@
 	var/list/processed = list()
 	var/PriorityQueue/cover_queue = new /PriorityQueue(/datum/Quadruple/proc/TriCompare)
 
-	var/list/curr_view = brain?.perceptions?.Get(SENSE_SIGHT) || list()
+	var/list/curr_view = brain?.perceptions?.Get(SENSE_SIGHT_CURR) || list()
 
 	var/turf/last_loc = brain?.GetMemoryValue("Location-1", null)
 	if(last_loc)
@@ -44,15 +44,15 @@
 		sleep(-1)
 		// NOTE: This is DIFFERENT to cover moves! We're not doing a double-loop here!
 
+		if(cand in processed)
+			continue
+
 		if(unreachable && cand == unreachable)
 			continue
 
 		if(!(pawn_mob && istype(pawn_mob)))
 			if(!(pawn_mob.MayEnterTurf(cand)))
 				continue
-
-		if(cand in processed)
-			continue
 
 		/*if(!(cand in curr_view))
 			continue*/
@@ -83,17 +83,15 @@
 			continue
 
 		var/cand_dist = ManhattanDistance(cand, my_loc)
-		//var/targ_dist = (waypoint ? ManhattanDistance(cand, waypoint) : 0)
-		var/targ_dist = 0 // ignore waypoint, just leg it!
-		var/total_dist = (cand_dist + targ_dist)
+		//var/targ_dist = (waypoint ? ManhattanDistance(cand, waypoint) : 0) // ignore waypoint, just leg it!
 
 		penalty += -threat_dist  // the further from a threat, the better
 
-		var/datum/Quadruple/cover_quad = new(threat_dist**2, -penalty, -total_dist, cand)
+		var/datum/Quadruple/cover_quad = new(threat_dist*2 - cand_dist, -penalty, -cand_dist, cand)
 		cover_queue.Enqueue(cover_quad)
 		processed.Add(cand)
 
-	best_local_pos = ValidateWaypoint(cover_queue, TRUE)
+	best_local_pos = ValidateWaypoint(cover_queue, FALSE)
 
 	if(best_local_pos)
 		src.SpotObstacles(owner = src, target = best_local_pos, default_to_waypoint = FALSE)
@@ -127,7 +125,8 @@
 			)
 
 		if(!handled)
-			to_world_log("Couldn't handle obstruction [obstruction]")
+			handled = handled // tricking the compiler :^)
+			ACTION_RUNTIME_DEBUG_LOG("Couldn't handle obstruction [obstruction]")
 
 	if(best_local_pos)
 		brain?.SetMemory(MEM_BESTPOS_PANIC, best_local_pos, PANIC_SENSE_THROTTLE*30)
@@ -146,7 +145,7 @@
 
 	var/atom/pawn = true_owner.GetPawn()
 	if(!pawn)
-		to_world_log("[src] does not have an owned mob!")
+		ACTION_RUNTIME_DEBUG_LOG("[src] does not have an owned mob!")
 		return
 
 	var/turf/best_local_pos = null
@@ -172,7 +171,7 @@
 /datum/goai/mob_commander/proc/HandleChoosePanicRunLandmark(var/datum/ActionTracker/tracker)
 	var/atom/pawn = src.GetPawn()
 	if(!pawn)
-		to_world_log("[src] does not have an owned mob!")
+		ACTION_RUNTIME_DEBUG_LOG("[src] does not have an owned mob!")
 		return
 
 	var/turf/best_local_pos = brain?.GetMemoryValue(MEM_BESTPOS_PANIC, null)
@@ -274,7 +273,7 @@
 /datum/goai/mob_commander/proc/HandlePanickedRun(var/datum/ActionTracker/tracker, var/atom/obstruction = null)
 	var/atom/pawn = src.GetPawn()
 	if(!pawn)
-		to_world_log("[src] does not have an owned mob!")
+		ACTION_RUNTIME_DEBUG_LOG("[src] does not have an owned mob!")
 		return
 
 	var/tracker_frustration = tracker?.BBSetDefault("frustration", 0)
@@ -358,11 +357,11 @@
 		best_local_pos = ChoosePanicRunLandmark(primary_threat, threats, min_safe_dist, obstruction)
 		tracker.BBSet(MEM_BESTPOS_PANIC, best_local_pos)
 		brain?.SetMemory(MEM_BESTPOS_PANIC, best_local_pos, PANIC_SENSE_THROTTLE*3)
-		to_world_log((isnull(best_local_pos) ? "[src]: Best local pos: null" : "[src]: Best local pos ([best_local_pos?.x], [best_local_pos?.y])"))
+		ACTION_RUNTIME_DEBUG_LOG((isnull(best_local_pos) ? "[src]: Best local pos: null" : "[src]: Best local pos ([best_local_pos?.x], [best_local_pos?.y])"))
 
 	if(best_local_pos && (!src.active_path || src.active_path.target != best_local_pos))
 		// CORE MOVEMENT TRIGGER - FOUND POSITION, START PATHING TO IT
-		to_world_log("[src]: Navigating to [best_local_pos]")
+		ACTION_RUNTIME_DEBUG_LOG("[src]: Navigating to [best_local_pos]")
 		var/turf/threat_turf = get_turf(primary_threat)
 		var/new_path = StartNavigateTo(best_local_pos, 0, threat_turf, 0, /datum/goai/mob_commander/proc/fPanicRunDistance)
 

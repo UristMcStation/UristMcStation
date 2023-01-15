@@ -54,8 +54,22 @@
 	*/
 	var/instant = FALSE
 
+	/* Optional list of proc references; each should return a boolean.
+	// If set, will be called by the IsValid() method to
+	// test the instance of the calling Action.
+	//
+	// Note that this is NOT the same as Preconditions! An invalid Action
+	// is one that had been CORRECTLY planned for, but became invalid LATER;
+	// for example, OpenDoorForTarget(D, T) becomes invalid if the door D
+	// had been deleted or the target T has changed.
+	//
+	// ORDER MATTERS! The Action will be invalidated on the first failing Validator.
+	*/
+	var/list/validators = null
+	// potentially carry an arglist for validators too?
 
-/datum/goai_action/New(var/list/new_preconds, var/list/new_effects, var/new_cost = null, var/new_name = null, var/new_charges = null, var/is_instant = null, var/list/action_args = null)
+
+/datum/goai_action/New(var/list/new_preconds, var/list/new_effects, var/new_cost = null, var/new_name = null, var/new_charges = null, var/is_instant = null, var/list/action_args = null, var/list/new_validators = null)
 	src.name = (isnull(new_name) ? name : new_name)
 	src.cost = (isnull(new_cost) ? cost : new_cost)
 	src.preconditions = (new_preconds || list())
@@ -63,8 +77,40 @@
 	src.charges = (isnull(new_charges) ? charges : new_charges)
 	src.instant = (isnull(is_instant) ? instant : is_instant)
 	src.arguments = (action_args || list())
+	src.validators = ((new_validators && new_validators.len) ? new_validators : src.validators)
 
 
 /datum/goai_action/proc/ReduceCharges(var/amt=1)
-	charges -= amt
-	return charges
+	src.charges -= amt
+	return src.charges
+
+
+/datum/goai_action/proc/IsValid()
+	/* Action-side pre-flight validation.
+	//
+	// IOW: this allows the Action to invalidate itself by returning FALSE
+	// to indicate it should no longer be available BEFORE getting launched
+	// but AFTER getting planned.
+	//
+	// This would usually happen if the world has changed beneath our feet;
+	// for example, the target of an action got deleted or died.
+	//
+	// This is NOT meant to check Preconditions, generally speaking, unless
+	// you want to be 100% sure the Action doesn't make sense if a Precondition
+	// is not in an expected state - most of the time though, let the Planner worry
+	// about these kinds of scenarios.
+	//
+	// NOTE: the AI Brains can do their own validation on top of this.
+	*/
+
+	if(isnull(src.charges) || src.charges <= 0)
+		return FALSE
+
+	if(src.validators)
+		for(var/validator in validators)
+			// Dynamic proc call. Validator is a Fn(Action) -> bool.
+			var/valid = call(validator)(src)
+			if(!valid)
+				return FALSE
+
+	return TRUE

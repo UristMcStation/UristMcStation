@@ -1,9 +1,32 @@
-// # define ADD_ACTION_DEBUG_LOGGING 0
+/* This is the minimal Brain datum interface.
+//
+// Think of this as a template for writing an actual Brain class.
+// If you're looking for an implementation, look for `/datum/brain/concrete`
+// in: ./concrete_brains/_concrete.dm
+*/
 
 # ifdef ADD_ACTION_DEBUG_LOGGING
 # define ADD_ACTION_DEBUG_LOG(X) to_world_log(X)
 # else
 # define ADD_ACTION_DEBUG_LOG(X)
+# endif
+
+# ifdef RUN_ACTION_DEBUG_LOGGING
+# define RUN_ACTION_DEBUG_LOG(X) to_world(X)
+# else
+# define RUN_ACTION_DEBUG_LOG(X)
+# endif
+
+# ifdef VALIDATE_ACTION_DEBUG_LOGGING
+# define VALIDATE_ACTION_DEBUG_LOG(X) to_world(X)
+# else
+# define VALIDATE_ACTION_DEBUG_LOG(X)
+# endif
+
+# ifdef PLANNING_DEBUG_LOGGING
+# define PLANNING_DEBUG_LOG(X) to_world_log(X)
+# else
+# define PLANNING_DEBUG_LOG(X)
 # endif
 
 /datum/brain
@@ -192,7 +215,7 @@
 	return available_actions
 
 
-/datum/brain/proc/AddAction(var/name, var/list/preconds, var/list/effects, var/cost = null, var/charges = PLUS_INF, var/instant = FALSE, clone = FALSE, var/list/action_args = null)
+/datum/brain/proc/AddAction(var/name, var/list/preconds, var/list/effects, var/cost = null, var/charges = PLUS_INF, var/instant = FALSE, clone = FALSE, var/list/action_args = null, var/list/act_validators = null)
 	/*
 	//
 	// - clone (bool): If TRUE (default), the list is a clone of the actionslist (slower, but safer).
@@ -200,10 +223,54 @@
 	*/
 	ADD_ACTION_DEBUG_LOG("Adding action [name] with [cost] cost, [charges] charges")
 	var/list/available_actions = (clone ? src.actionslist.Copy() : src.actionslist) || list()
-	var/datum/goai_action/newaction = new(preconds, effects, cost, name, charges, instant, action_args)
+	var/datum/goai_action/newaction = new(preconds, effects, cost, name, charges, instant, action_args, act_validators)
 	available_actions[name] = newaction
 
 	return newaction
+
+
+/datum/brain/proc/IsActionValid(var/action_key)
+	/* Brain-side Action validation.
+	//
+	// An Action is considered invalid if it doesn't make sense to run it.
+	// For instance, if the target of the Action has been deleted, we might
+	// as well not even start it.
+	//
+	// Preconditions violation at run-time DOES NOT *ALWAYS* make the Action
+	// invalid - Preconds are primarily constraints for _planning_ and can be
+	// fudged sometimes to generate specific behaviours.
+	//
+	// For that matter, INVALID =/= FAILED!
+	// INVALID *roughly* maps to 'failed before we even started' or 'not in a runnable state'
+	// Failed Actions have started, but for whatever reason we're cancelling them before completion.
+	*/
+
+	if(!action_key)
+		// Nonexistence is futile.
+		VALIDATE_ACTION_DEBUG_LOG("[src] VALIDATION - KEYLESS [action_key]")
+		return FALSE
+
+	if(!(action_key in src.actionslist))
+		// 'Phantom' actions not allowed!
+		VALIDATE_ACTION_DEBUG_LOG("[src] VALIDATION - PHANTOM [action_key]/[checked_action]")
+		return FALSE
+
+	var/datum/goai_action/checked_action = src.actionslist[action_key]
+
+	if(!checked_action)
+		// Nonexistence is futile.
+		VALIDATE_ACTION_DEBUG_LOG("[src] VALIDATION - NONEXISTENCE [action_key]/[checked_action]")
+		return FALSE
+
+	// Ask the Action to do its own checks:
+	var/actionside_valid = checked_action.IsValid()
+
+	if(!actionside_valid)
+		// Trust the Action's opinion.
+		VALIDATE_ACTION_DEBUG_LOG("[src] VALIDATION - ACTIONSIDE [action_key]/[checked_action]")
+		return FALSE
+
+	return TRUE
 
 
 /datum/brain/proc/GetState(var/key, var/default = null)
@@ -242,7 +309,6 @@
 
 /datum/brain/proc/HasMemory(var/mem_key)
 	var/found = (mem_key in memories.data)
-	//to_world_log("Memory for key [mem_key] [found ? "TRUE" : "FALSE"]")
 	return found
 
 
@@ -298,12 +364,10 @@
 	var/datum/memory/retrieved_mem = memories.Get(mem_key)
 
 	if(isnull(retrieved_mem))
-		//to_world_log("Inserting Memory for [mem_key] with [mem_val]")
 		retrieved_mem = new(mem_val, mem_ttl)
 		memories.Set(mem_key, retrieved_mem)
 
 	else
-		//to_world_log("Updating Memory for [mem_key] with [mem_val]")
 		retrieved_mem.Update(mem_val)
 
 	return retrieved_mem
@@ -319,338 +383,3 @@
 		return default
 
 	return personality.Get(trait_key, default)
-
-
-/* Concrete implementation of the Brain logic using GOAP planners */
-/datum/brain/concrete
-
-
-/datum/brain/concrete/CreatePlan(var/list/status, var/list/goal, var/list/actions = null)
-	is_planning = 1
-	var/list/path = null
-
-	var/list/params = list()
-	// You don't have to pass args like this; this is just to make things a bit more readable.
-	params["start"] = status
-	params["goal"] = goal
-	/* For functional API variant:
-	params["graph"] = available_actions
-	params["adjacent"] = /proc/get_actions_agent
-	params["check_preconds"] = /proc/check_preconds_agent
-	params["goal_check"] = /proc/goal_checker_agent
-	params["get_effects"] = /proc/get_effects_agent
-	*/
-	params["cutoff_iter"] = planning_iter_cutoff
-
-	// For the classy API variant:
-	/* Dynamically update actions; this isn't strictly necessary for a simple AI,
-	// but it lets us do things like Smart Object updating our actionspace by
-	// serving 'their' actions (similar to how BYOND Verbs can broadcast themselves
-	// to other nearby objects with set src in whatever).
-	*/
-	planner.graph = GetAvailableActions()
-
-	for(var/goalkey in goal)
-		to_world_log("[src] CreatePlan goal: [goalkey] => [goal[goalkey]]")
-
-	var/datum/Tuple/result = planner.Plan(arglist(params))
-
-	if(result)
-		path = result.right
-		last_plan_successful = TRUE
-
-	else
-		last_plan_successful = FALSE
-
-	is_planning = 0
-	return path
-
-
-/datum/brain/concrete/CleanDelete()
-	deregister_ai_brain(src.registry_index)
-	qdel(src)
-	return TRUE
-
-
-
-/datum/brain/concrete/proc/ShouldCleanup()
-	. = FALSE
-
-	if(src.cleanup_detached_threshold < 0)
-		return FALSE
-
-	if(src._ticks_since_detached > src.cleanup_detached_threshold)
-		return TRUE
-
-	return
-
-
-/datum/brain/concrete/proc/CheckForCleanup()
-	. = ..()
-
-	if(.)
-		return .
-
-	var/should_clean = src.ShouldCleanup()
-	if(should_clean)
-		src.CleanDelete()
-		qdel(src)
-		return TRUE
-
-	if(!(src.attachments && istype(src.attachments)))
-		return FALSE
-
-	var/ai_index = src.attachments[ATTACHMENT_CONTROLLER_BACKREF]
-	var/orphaned = (IS_REGISTERED_AIBRAIN(ai_index))
-
-	if(orphaned)
-		src._ticks_since_detached++
-	else
-		src._ticks_since_detached = 0
-
-	return
-
-
-/datum/brain/concrete/Life()
-	while(life)
-		CheckForCleanup()
-		LifeTick()
-		sleep(AI_TICK_DELAY)
-	return
-
-
-/datum/brain/concrete/proc/OnBeginLifeTick()
-	return
-
-
-/datum/brain/concrete/LifeTick()
-	OnBeginLifeTick()
-
-	if(running_action_tracker) // processing action
-		var/running_is_active = running_action_tracker.IsRunning()
-		to_world("ACTIVE ACTION: [running_action_tracker.tracked_action] @ [running_is_active] | <@[src]>")
-
-		if(running_action_tracker.IsStopped())
-			running_action_tracker = null
-			PUT_EMPTY_LIST_IN(src.pending_instant_actions)
-
-	else if(selected_action) // ready to go
-		to_world("SELECTED ACTION: [selected_action] | <@[src]>")
-		running_action_tracker = DoAction(selected_action)
-		selected_action = null
-
-	else if(active_plan && active_plan.len)
-		//step done, move on to the next
-		to_world("ACTIVE PLAN: [active_plan] ([active_plan.len]) | <@[src]>")
-
-		while(active_plan.len && isnull(selected_action))
-			// do instants in one tick
-			selected_action = lpop(active_plan)
-
-			if(!(selected_action in actionslist))
-				continue
-
-			var/datum/goai_action/goai_act = actionslist[selected_action]
-
-			if(!goai_act)
-				//to_world_log("[src]: FAILED TO RETRIEVE ACTION [goai_act] from [Act]")
-				continue
-
-			if(goai_act.instant)
-				to_world("Instant ACTION: [selected_action] | <@[src]>")
-				DoInstantAction(selected_action)
-				selected_action = null
-
-			else
-				to_world("Regular ACTION: [selected_action] | <@[src]>")
-
-	else //no plan & need to make one
-		var/list/curr_state = states.Copy()
-		var/list/goal_state = list()
-
-		for (var/need_key in needs)
-			var/need_val = needs[need_key]
-			curr_state[need_key] = need_val
-
-			if (need_val < NEED_THRESHOLD)
-				goal_state[need_key] = NEED_SAFELEVEL
-
-		if (goal_state && goal_state.len && (!is_planning))
-			//to_world_log("Creating plan!")
-			var/list/curr_available_actions = GetAvailableActions()
-
-			spawn(0)
-				var/list/raw_active_plan = CreatePlan(curr_state, goal_state, curr_available_actions)
-
-				if(raw_active_plan)
-					//to_world_log("Created plan [raw_active_plan]")
-					var/first_clean_pos = 0
-
-					for (var/planstep in raw_active_plan)
-						first_clean_pos++
-						if(planstep in curr_available_actions)
-							break
-
-					raw_active_plan.Cut(0, first_clean_pos)
-					active_plan = raw_active_plan
-					last_plan_successful = TRUE
-
-				else
-					to_world_log("Failed to create a plan | <@[src]>")
-
-
-		else //satisfied, can be lazy
-			Idle()
-
-	return
-
-
-/datum/brain/verb/DoAction(Act as anything in actionslist)
-	//to_world_log("DoAction act: [Act]")
-
-	if(!(Act in actionslist))
-		return null
-
-	var/datum/goai_action/goai_act = actionslist[Act]
-
-	if(!goai_act)
-		//to_world_log("[src]: FAILED TO RETRIEVE ACTION [goai_act] from [Act]")
-		return null
-
-	//to_world_log("[src]: RETRIEVED ACTION [goai_act] from [Act]")
-	var/datum/ActionTracker/new_actiontracker = new /datum/ActionTracker(goai_act)
-
-	if(!new_actiontracker)
-		to_world_log("[src]: Failed to create a tracker for [goai_act]!")
-		return null
-
-	//to_world_log("New Tracker: [new_actiontracker] [new_actiontracker.tracked_action] @ [new_actiontracker.creation_time]")
-	running_action_tracker = new_actiontracker
-
-	return new_actiontracker
-
-
-/datum/brain/verb/DoInstantAction(Act as anything in actionslist)
-	//to_world_log("DoInstantAction act: [Act]")
-
-	if(!(Act in actionslist))
-		return null
-
-	var/datum/goai_action/goai_act = actionslist[Act]
-
-	if(!goai_act)
-		//to_world_log("[src]: FAILED TO RETRIEVE ACTION [goai_act] from [Act]")
-		return null
-
-	//to_world_log("[src]: RETRIEVED ACTION [goai_act] from [Act]")
-	var/datum/ActionTracker/new_actiontracker = new /datum/ActionTracker(goai_act)
-
-	if(!new_actiontracker)
-		to_world_log("[src]: Failed to create a tracker for [goai_act]!")
-		return null
-
-	//to_world_log("New Tracker: [new_actiontracker] [new_actiontracker.tracked_action] @ [new_actiontracker.creation_time]")
-
-	pending_instant_actions.Add(new_actiontracker)
-
-	return new_actiontracker
-
-
-/datum/brain/concrete/proc/Idle()
-	return
-
-
-/datum/brain/concrete/AbortPlan()
-	// Cancel current tracker, if any is running
-	running_action_tracker?.SetFailed()
-	running_action_tracker = null
-
-	// Cancel all instant and regular Actions
-	PUT_EMPTY_LIST_IN(src.pending_instant_actions)
-	active_plan = null
-
-	// Mark the plan as failed
-	last_plan_successful = FALSE
-
-	return TRUE
-
-
-
-/* Brain with decaying Motives, a'la The Sims */
-/datum/brain/concrete/sim
-	var/decay_per_dsecond = 0.1
-
-
-/datum/brain/concrete/sim/New(var/list/actions, var/list/init_memories = null, var/init_action = null, var/datum/brain/with_hivemind = null, var/dict/init_personality = null, var/newname = null)
-	..(actions, init_memories, init_action, with_hivemind, init_personality, newname)
-
-	needs = list()
-	needs[MOTIVE_SLEEP] = NEED_THRESHOLD
-	needs[MOTIVE_FOOD] = NEED_THRESHOLD
-	needs[MOTIVE_FUN] = NEED_THRESHOLD
-
-	var/spawn_time = world.time
-	last_mob_update_time = spawn_time
-	last_action_update_time = spawn_time
-
-	actionslist = actions
-
-	var/datum/GOAP/demoGoap/new_planner = new /datum/GOAP/demoGoap(actionslist)
-	planner = new_planner
-
-	//Life()
-
-
-/datum/brain/concrete/sim/proc/DecayNeeds()
-	for (var/need_key in needs)
-		MotiveDecay(need_key, null) // TODO: change this null to an assoc list lookup
-
-	last_mob_update_time = world.time
-
-
-/datum/brain/concrete/sim/OnBeginLifeTick()
-	DecayNeeds()
-
-
-/datum/brain/concrete/proc/GetMotive(var/motive_key)
-	if(isnull(motive_key))
-		return
-
-	if(!(motive_key in needs))
-		return
-
-	var/curr_value = needs[motive_key]
-	return curr_value
-
-
-/datum/brain/concrete/proc/ChangeMotive(var/motive_key, var/value)
-	if(isnull(motive_key))
-		return
-
-	var/fixed_value = min(NEED_MAXIMUM, max(NEED_MINIMUM, (value)))
-	needs[motive_key] = fixed_value
-	last_need_update_times[motive_key] = world.time
-	to_world_log("Curr [motive_key] = [needs[motive_key]] <@[src]>")
-
-
-/datum/brain/concrete/proc/AddMotive(var/motive_key, var/amt)
-	if(isnull(motive_key))
-		return
-
-	var/curr_val = needs[motive_key]
-	ChangeMotive(motive_key, curr_val + amt)
-
-
-/datum/brain/concrete/sim/proc/MotiveDecay(var/motive_key, var/custom_decay_rate = null)
-	var/now = world.time
-	var/decay_rate = (isnull(custom_decay_rate) ? decay_per_dsecond : custom_decay_rate)
-
-	if(!(motive_key in last_need_update_times))
-		last_need_update_times[motive_key] = now
-
-	var/last_update_time = last_need_update_times[motive_key]
-	var/deltaT = (world.time - last_update_time)
-	var/curr_value = needs[motive_key]
-	var/cand_tiredness = curr_value - deltaT * decay_rate
-
-	ChangeMotive(motive_key, cand_tiredness)

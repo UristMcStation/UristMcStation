@@ -32,10 +32,16 @@
 # define MAYBE_LOG_TOSTR(X)
 # endif
 
-# define GUN_DISPERSION 5
 
+# ifdef GOAI_LIBRARY_FEATURES
+
+# define get_turf(A) get_step(A,0)
 // 1 (SOUTH) + 2 (NORTH) + 4 (EAST) + 8 (WEST) == 15
 # define ALL_CARDINAL_DIRS 15
+
+# endif
+
+# define GUN_DISPERSION 5
 
 # define DEFAULT_ORPHAN_CLEANUP_THRESHOLD 3
 # define SENSE_SIGHT "Sight"
@@ -55,3 +61,7 @@
 # define PUT_EMPTY_LIST_IN(X) if(IS_VALID_NON_NULL(X)) { X.Cut() } else { X = list() }
 
 # define DEFAULT_GOAI_DISTANCE_PROC /proc/fDistanceUnified
+
+# define DEBUG_LOG_LIST_ARRAY(L) for(var/_li_ in L) { to_world_log("[_li_]") }
+# define DEBUG_LOG_LIST_ASSOC(L) for(var/_li_ in L) { to_world_log("[_li_]: [L[_li_]]") }
+

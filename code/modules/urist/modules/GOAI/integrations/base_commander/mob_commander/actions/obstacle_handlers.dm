@@ -1,7 +1,7 @@
 /datum/goai/mob_commander/proc/HandleOpenDoor(var/datum/ActionTracker/tracker, var/obj/cover/door/obstruction)
 	var/atom/pawn = src.GetPawn()
 	if(!pawn)
-		to_world_log("[src] does not have an owned mob!")
+		ACTION_RUNTIME_DEBUG_LOG("[src] does not have an owned mob!")
 		return
 
 	if(!tracker)
@@ -16,12 +16,12 @@
 	var/obj/cover/door/obsdoor = obstruction
 
 	if(isnull(obsdoor))
-		to_world_log("[src] HandleOpenDoor - no Obstruction!")
+		ACTION_RUNTIME_DEBUG_LOG("[src] HandleOpenDoor - no Obstruction!")
 		tracker.SetFailed()
 		return
 
 	/*if(!istype(obsdoor))
-		to_world_log("[src] HandleOpenDoor - wrong type!")
+		ACTION_RUNTIME_DEBUG_LOG("[src] HandleOpenDoor - wrong type!")
 		tracker.SetFailed()
 		return*/
 
@@ -70,7 +70,7 @@
 
 	var/atom/pawn = src.GetPawn()
 	if(!pawn)
-		to_world_log("[src] does not have an owned mob!")
+		ACTION_RUNTIME_DEBUG_LOG("[src] does not have an owned mob!")
 		return
 
 	if(!tracker)

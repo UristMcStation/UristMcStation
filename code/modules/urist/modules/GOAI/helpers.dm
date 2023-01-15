@@ -1,7 +1,19 @@
-# define SQR(x) ((x) * (x))
-# define SIGN(x) (x / abs(x))
 # define FLOOR(x) round(x)
 # define CEIL(x) -round(-x)
+# define SQR(x) ((x) * (x))
+
+# ifdef GOAI_LIBRARY_FEATURES
+/*
+/proc/floor(x)
+	return round(x)
+# endif
+
+/proc/ceil(x)
+	return -round(-x)
+*/
+# endif
+
+# define sign(x) (x / abs(x))
 
 
 /proc/greater_than(var/left, var/right)

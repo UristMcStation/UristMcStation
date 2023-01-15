@@ -24,7 +24,7 @@
 	if(visual_range)
 		owner_brain?.perceptions[SENSE_SIGHT_CURR] = visual_range
 
-	owner_brain?.perceptions[SENSE_SIGHT] = (visual_range || list()) | (old_visual_range || list())
+	owner_brain?.perceptions[SENSE_SIGHT_CURR] = (visual_range || list()) | (old_visual_range || list())
 	return
 
 
@@ -37,7 +37,7 @@
 		// No point processing this if there's no memories to set
 		return
 
-	var/list/true_searchspace = owner_brain?.perceptions?.Get(SENSE_SIGHT)
+	var/list/true_searchspace = owner_brain?.perceptions?.Get(SENSE_SIGHT_CURR)
 	if(!(true_searchspace))
 		return
 
@@ -131,7 +131,7 @@
 	if(owner_brain.GetMemory(MEM_WAYPOINT_LKP, FALSE, FALSE))
 		return
 
-	var/list/true_searchspace = owner_brain?.perceptions?.Get(SENSE_SIGHT)
+	var/list/true_searchspace = owner_brain?.perceptions?.Get(SENSE_SIGHT_CURR)
 	if(!(true_searchspace))
 		return
 
@@ -320,7 +320,6 @@
 		threats = threats,
 		min_safe_dist = min_safe_dist
 	)
-
 
 	if(isnull(waypoint))
 		// Nothing to spot.

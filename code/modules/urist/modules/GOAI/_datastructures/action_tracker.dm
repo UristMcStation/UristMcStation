@@ -1,3 +1,10 @@
+# ifdef ACTIONTRACKER_DEBUG_LOGGING
+# define ACTIONTRACKER_DEBUG_LOG(X) to_world_log(X)
+# else
+# define ACTIONTRACKER_DEBUG_LOG(X)
+# endif
+
+
 /datum/ActionTracker
 	var/datum/goai_action/tracked_action
 	var/timeout_ds = null
@@ -126,20 +133,20 @@
 
 /datum/ActionTracker/proc/SetTriggered()
 	if(!IsTriggered())
-		to_world_log("Setting tracker to triggered!")
+		ACTIONTRACKER_DEBUG_LOG("Setting tracker to triggered!")
 		trigger_time = world.time
 	return
 
 
 /datum/ActionTracker/proc/ResetTriggered()
-	to_world_log("Setting tracker to non-triggered!")
+	ACTIONTRACKER_DEBUG_LOG("Setting tracker to non-triggered!")
 	trigger_time = null
 	return
 
 
 /datum/ActionTracker/proc/SetDone()
 	if(!is_done)
-		to_world_log("Setting tracker to done!")
+		ACTIONTRACKER_DEBUG_LOG("Setting tracker to done!")
 		tracked_action.ReduceCharges(1)
 		is_done = TRUE
 
@@ -148,7 +155,7 @@
 
 /datum/ActionTracker/proc/SetFailed()
 	if(!is_failed)
-		to_world_log("Setting tracker to failed!")
+		ACTIONTRACKER_DEBUG_LOG("Setting tracker to failed!")
 		tracked_action.ReduceCharges(1)
 		is_failed = TRUE
 
@@ -163,7 +170,7 @@
 	// signalling to the Plan that, for whatever reason, the Plan is no
 	// longer valid *as a whole* and needs to be cancelled.
 	*/
-	to_world_log("Setting tracker to ABORT!!!")
+	ACTIONTRACKER_DEBUG_LOG("Setting tracker to ABORT!!!")
 	is_aborted = TRUE
 	return
 

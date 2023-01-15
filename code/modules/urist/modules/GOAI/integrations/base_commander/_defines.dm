@@ -25,3 +25,10 @@
 // These should effectively force other tags to be ignored entirely.
 # define GOAI_REL_LUDICROUS_WEIGHT 10000
 # define GOAI_REL_LUDICROUS_VALUE 10000
+
+
+# ifdef ACTION_RUNTIME_DEBUG_LOGGING
+# define ACTION_RUNTIME_DEBUG_LOG(X) to_world_log(X)
+# else
+# define ACTION_RUNTIME_DEBUG_LOG(X)
+# endif

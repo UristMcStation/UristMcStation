@@ -58,7 +58,7 @@
 
 /datum/goai/mob_commander/combat_commander/InitActionsList()
 	/* TODO: add Time as a resource! */
-	// Name, Req-ts, Effects, Priority, [Charges]
+	// Name, Req-ts, Effects, Handler, Priority, [Charges], [Is Instant], [Bound Args List], [Validator List]
 	// Priority - higher is better; -INF would only be used if there's no other option.
 
 	/*AddAction(
@@ -83,7 +83,8 @@
 		/datum/goai/mob_commander/proc/HandleChooseDirectionalCoverLandmark,
 		10,
 		PLUS_INF,
-		TRUE
+		TRUE,
+		null
 	)
 
 	AddAction(
@@ -99,7 +100,10 @@
 			"HasTakeCoverPath" = FALSE,
 		),
 		/datum/goai/mob_commander/proc/HandleDirectionalCover,
-		11
+		11,
+		PLUS_INF,
+		FALSE,
+		null
 	)
 
 	AddAction(
@@ -146,8 +150,8 @@
 		*/
 		list(
 			STATE_HASWAYPOINT = TRUE,
-			STATE_DISORIENTED = TRUE,
 			STATE_PANIC = -TRUE,
+			STATE_DISORIENTED = TRUE,
 			"BERSERK" = -TRUE,
 		),
 		list(
@@ -160,7 +164,7 @@
 		100,
 		PLUS_INF,
 		TRUE,
-		list("move_handler" = /datum/goai/mob_commander/proc/HandleDirectionalCoverLeapfrog)
+		list("move_handler" = /datum/goai/mob_commander/proc/HandleDirectionalCoverLeapfrog),
 	)
 
 	AddAction(
@@ -173,8 +177,8 @@
 		*/
 		list(
 			STATE_HASWAYPOINT = TRUE,
-			STATE_DISORIENTED = TRUE,
 			STATE_PANIC = -TRUE,
+			STATE_DISORIENTED = TRUE,
 			"BERSERK" = TRUE,
 		),
 		list(
@@ -222,6 +226,8 @@
 			var/datum/relation_data/my_faction_rel = new(5, 1) // slightly positive
 			relations.Insert(my_faction, my_faction_rel)
 
+	# ifdef GOAI_SS13_SUPPORT
+
 	// For hostile SAs, consider hidden faction too
 	var/mob/living/simple_animal/hostile/SAH = pawn
 	if(SAH && istype(SAH))
@@ -235,6 +241,7 @@
 			var/datum/relation_data/my_hiddenfaction_rel = new(1, 1) // minimally positive
 			relations.Insert(my_hiddenfaction, my_hiddenfaction_rel)
 
+	# endif
 
 	src.brain.relations = relations
 	return relations

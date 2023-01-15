@@ -1,5 +1,3 @@
-// # define OBSTACLEHUNT_DEBUG_LOGGING 0
-
 # ifdef OBSTACLEHUNT_DEBUG_LOGGING
 # define OBSTACLEHUNT_DEBUG_LOG(X) to_world_log(X)
 # else
@@ -128,7 +126,7 @@
 	return
 
 
-/datum/goai/mob_commander/proc/HandleWaypoint(var/datum/ActionTracker/tracker, var/move_handler, var/move_action_name = null)
+/datum/goai/mob_commander/proc/HandleWaypoint(var/datum/ActionTracker/tracker, var/move_handler, var/move_action_name = null, var/atom/waypoint = null)
 	// Locate waypoint
 	// Capture any obstacles
 	// Add Action Goto<Goal> with clearing obstacles as a precond
@@ -136,29 +134,31 @@
 	var/atom/movable/pawn = src.GetPawn()
 	if(!pawn)
 		tracker?.SetFailed()
-		to_world_log("[src] does not have an owned mob!")
+		ACTION_RUNTIME_DEBUG_LOG("[src] does not have an owned mob!")
 		return
 
 	if(!src || !(src?.brain))
 		tracker?.SetFailed()
 		return
 
-	var/atom/waypoint = brain.GetMemoryValue(MEM_WAYPOINT_IDENTITY, null, FALSE, TRUE)
-	if(isnull(waypoint))
+	var/atom/true_waypoint = waypoint
+
+	if(isnull(true_waypoint))
+		true_waypoint = brain.GetMemoryValue(MEM_WAYPOINT_IDENTITY, null, FALSE, TRUE)
+
+	if(isnull(true_waypoint))
 		tracker?.SetFailed() // b/c we shouldn't have triggered this in the first place if it's null
 		return
 
 	// Astar checking for obstacles
-	src.SpotObstacles(owner=src, target=waypoint, default_to_waypoint=FALSE)
+	src.SpotObstacles(owner=src, target=true_waypoint, default_to_waypoint=FALSE)
 
 	var/list/goto_preconds = list(
 		STATE_HASWAYPOINT = TRUE,
-		STATE_PANIC = -TRUE,
 		//STATE_DISORIENTED = -TRUE,
 	)
 
 	var/list/common_preconds = list(
-		STATE_PANIC = -TRUE,
 		//STATE_DISORIENTED = -TRUE,
 	)
 
@@ -167,7 +167,7 @@
 
 	var/handled = HandleWaypointObstruction(
 		obstruction = obstruction,
-		waypoint = waypoint,
+		waypoint = true_waypoint,
 		shared_preconds = common_preconds,
 		target_preconds = goto_preconds,
 		move_action_name = _move_action_name,

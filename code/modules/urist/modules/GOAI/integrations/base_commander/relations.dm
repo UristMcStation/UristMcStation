@@ -73,14 +73,17 @@
 	var/list/trg_tags = list()
 
 	var/mob/living/L = trg
-	var/mob/living/carbon/human/H = trg
-	var/mob/living/simple_animal/hostile/SAH = trg
 
 	if(istype(L))
 		// Faction:
 		var/mainfaction = L.faction
 		if(mainfaction)
 			trg_tags.Add(mainfaction)
+
+	# ifdef GOAI_SS13_SUPPORT
+
+	var/mob/living/carbon/human/H = trg
+	var/mob/living/simple_animal/hostile/SAH = trg
 
 	if(istype(H))
 		// Name, for 1-to-1 relations tracking
@@ -96,6 +99,8 @@
 		var/datum/factions/hiddenfaction = SAH.hiddenfaction
 		if(hiddenfaction && istype(hiddenfaction))
 			trg_tags.Add(hiddenfaction.factionid)
+
+	# endif
 
 	// subclass hook
 	var/list/subclass_tags = HookGetRelationshipTagsFor(trg)
