@@ -68,8 +68,10 @@
 	var/list/validators = null
 	// potentially carry an arglist for validators too?
 
+	var/cost_updater = null
 
-/datum/goai_action/New(var/list/new_preconds, var/list/new_effects, var/new_cost = null, var/new_name = null, var/new_charges = null, var/is_instant = null, var/list/action_args = null, var/list/new_validators = null)
+
+/datum/goai_action/New(var/list/new_preconds, var/list/new_effects, var/new_cost = null, var/new_name = null, var/new_charges = null, var/is_instant = null, var/list/action_args = null, var/list/new_validators = null, var/new_cost_updater = null)
 	src.name = (isnull(new_name) ? name : new_name)
 	src.cost = (isnull(new_cost) ? cost : new_cost)
 	src.preconditions = (new_preconds || list())
@@ -78,11 +80,24 @@
 	src.instant = (isnull(is_instant) ? instant : is_instant)
 	src.arguments = (action_args || list())
 	src.validators = ((new_validators && new_validators.len) ? new_validators : src.validators)
+	src.cost_updater = (new_cost_updater ? new_cost_updater : src.cost_updater)
 
 
 /datum/goai_action/proc/ReduceCharges(var/amt=1)
 	src.charges -= amt
 	return src.charges
+
+
+/datum/goai_action/proc/ReviewPriority()
+	if(!(src.cost_updater))
+		return src.cost
+
+	var/new_cost = call(src.cost_updater)(src)
+
+	if(isnull(new_cost))
+		return src.cost
+
+	return new_cost
 
 
 /datum/goai_action/proc/IsValid()

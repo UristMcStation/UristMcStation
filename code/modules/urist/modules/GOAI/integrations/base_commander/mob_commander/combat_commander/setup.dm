@@ -58,7 +58,7 @@
 
 /datum/goai/mob_commander/combat_commander/InitActionsList()
 	/* TODO: add Time as a resource! */
-	// Name, Req-ts, Effects, Handler, Priority, [Charges], [Is Instant], [Bound Args List], [Validator List]
+	// Name, Req-ts, Effects, Handler, Priority, [Charges], [Is Instant], [Bound Args List], [Validator List], [Cost Updater]
 	// Priority - higher is better; -INF would only be used if there's no other option.
 
 	/*AddAction(

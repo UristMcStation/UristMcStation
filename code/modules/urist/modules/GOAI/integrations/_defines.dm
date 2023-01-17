@@ -42,7 +42,7 @@
 # define MEM_CURRLOC "MyCurrLocation"
 # define MEM_PREVLOC "MyPrevLocation"
 # define MEM_SAFESPACE "LastSafeSpace"
-# define MEM_OBSTRUCTION "Obstruction"
+# define MEM_OBSTRUCTION(X) "Obstruction [X]"
 # define MEM_BESTPOS_PANIC "BestPosPanic"
 # define MEM_TRUST_BESTPOS "TrustFirstBestpos"
 

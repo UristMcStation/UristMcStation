@@ -292,7 +292,7 @@
 			continue
 
 		var/atom/curr_threat = threats[threat_ghost]
-		ACTION_RUNTIME_DEBUG_LOG("[src]: curr_threat is [curr_threat] @ ([curr_threat?.x], [curr_threat?.y])")
+		ACTION_RUNTIME_DEBUG_LOG("[src]: curr_threat is [curr_threat] @ [COORDS_TUPLE(curr_threat)]")
 		var/next_step_threat_distance = (next_step ? GetThreatDistance(next_step, threat_ghost, PLUS_INF) : PLUS_INF)
 		var/curr_threat_distance = GetThreatDistance(pawn, threat_ghost, PLUS_INF)
 		var/bestpos_threat_distance = GetThreatDistance(best_local_pos, threat_ghost, PLUS_INF)

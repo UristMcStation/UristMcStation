@@ -38,7 +38,7 @@
 	// serving 'their' actions (similar to how BYOND Verbs can broadcast themselves
 	// to other nearby objects with set src in whatever).
 	*/
-	planner.graph = GetAvailableActions()
+	planner.graph = (isnull(actions) ? GetAvailableActions() : actions)
 
 	for(var/goalkey in goal)
 		PLANNING_DEBUG_LOG("[src] CreatePlan goal: [goalkey] => [goal[goalkey]]")
@@ -198,9 +198,13 @@
 		if(running_action_tracker) // processing action
 			RUN_ACTION_DEBUG_LOG("ACTIVE ACTION: [running_action_tracker.tracked_action] @ [running_action_tracker.IsRunning()] | <@[src]>")
 
+			if(running_action_tracker.replan)
+				do_plan = TRUE
+				target_run_count++
+				src.AbortPlan(FALSE)
+
 			if(running_action_tracker.IsStopped())
-				running_action_tracker = null
-				PUT_EMPTY_LIST_IN(src.pending_instant_actions)
+				src.AbortPlan(FALSE)
 
 
 		/* STATE: Ready */
@@ -306,18 +310,19 @@
 	return
 
 
-/datum/brain/concrete/AbortPlan()
+/datum/brain/concrete/AbortPlan(var/mark_failed = TRUE)
+	if(mark_failed)
+		// Mark the plan as failed
+		src.last_plan_successful = FALSE
+		src.running_action_tracker?.SetFailed()
+
 	// Cancel current tracker, if any is running
-	src.running_action_tracker?.SetFailed()
 	src.running_action_tracker = null
 
 	// Cancel all instant and regular Actions
 	PUT_EMPTY_LIST_IN(src.pending_instant_actions)
 	src.active_plan = null
 	src.selected_action = null
-
-	// Mark the plan as failed
-	src.last_plan_successful = FALSE
 
 	return TRUE
 

@@ -5,7 +5,7 @@
 # endif
 
 
-/datum/goai/mob_commander/proc/SpotObstacles(var/datum/goai/mob_commander/owner, var/atom/target = null, var/default_to_waypoint = TRUE, var/proc/adjproc = null, var/proc/costproc = null)
+/datum/goai/mob_commander/proc/SpotObstacles(var/datum/goai/mob_commander/owner, var/atom/target = null, var/default_to_waypoint = TRUE, var/proc/adjproc = null, var/proc/costproc = null, var/obstruction_tag)
 	if(!(owner))
 		// No mob - no point.
 		return
@@ -54,7 +54,7 @@
 		OBSTACLEHUNT_DEBUG_LOG("[owner] entering ASTARS STAGE")
 		path = GoaiAStar(get_turf(pawn), target_turf, /proc/fCardinalTurfs, DEFAULT_GOAI_DISTANCE_PROC, null, init_dist, min_target_dist = sqrt_dist, exclude = null)
 
-		OBSTACLEHUNT_DEBUG_LOG("[owner] found ASTAR 1 path from [startpos] to [target_turf]: [path] ([path?.len])")
+		OBSTACLEHUNT_DEBUG_LOG("[owner] found ASTAR 1 path from [startpos] @ [COORDS_TUPLE(startpos)] to [target_turf] @ [COORDS_TUPLE(target_turf)]: [path] ([path?.len])")
 
 		if(path && path.len)
 			OBSTACLEHUNT_DEBUG_LOG("[owner] entering HAPPYPATH")
@@ -64,7 +64,7 @@
 		// Let's try to get a direct path and check for obstacles.
 		path = GoaiAStar(get_turf(pawn), target_turf, /proc/fCardinalTurfsNoblocks, DEFAULT_GOAI_DISTANCE_PROC, null, init_dist, min_target_dist = sqrt_dist, exclude = null)
 
-		OBSTACLEHUNT_DEBUG_LOG("[src] found ASTAR 2 path from [startpos] to [target_turf]: [path] ([path?.len])")
+		OBSTACLEHUNT_DEBUG_LOG("[src] found ASTAR 2 path from [startpos] @ [COORDS_TUPLE(startpos)] to [target_turf] @ [COORDS_TUPLE(target_turf)]: [path] ([path?.len])")
 
 		if(!path)
 			return
@@ -119,14 +119,15 @@
 							obstruction = potential_obstruction_prev
 							break
 
-				OBSTACLEHUNT_DEBUG_LOG("[owner]: LINK OBSTRUCTION => [obstruction] @ [get_turf(obstruction)]")
-				owner.brain.SetMemory(MEM_OBSTRUCTION, obstruction, MEM_TIME_LONGTERM)
+				OBSTACLEHUNT_DEBUG_LOG("[owner]: LINK OBSTRUCTION => [obstruction] @ [LOCATION_WITH_COORDS(obstruction)]")
+				var/_obstruction_tag = (isnull(obstruction_tag) ? "WAYPOINT" : obstruction_tag)
+				owner.brain.SetMemory(MEM_OBSTRUCTION(_obstruction_tag), obstruction, MEM_TIME_LONGTERM)
 				break
 
 	return
 
 
-/datum/goai/mob_commander/proc/HandleWaypoint(var/datum/ActionTracker/tracker, var/move_handler, var/move_action_name = null, var/atom/waypoint = null)
+/datum/goai/mob_commander/proc/HandleWaypoint(var/datum/ActionTracker/tracker, var/move_handler, var/move_action_name = null, var/atom/waypoint = null, var/atom/obstruction = null)
 	// Locate waypoint
 	// Capture any obstacles
 	// Add Action Goto<Goal> with clearing obstacles as a precond
@@ -151,7 +152,7 @@
 		return
 
 	// Astar checking for obstacles
-	src.SpotObstacles(owner=src, target=true_waypoint, default_to_waypoint=FALSE)
+	src.SpotObstacles(owner=src, target=true_waypoint, default_to_waypoint=FALSE, obstruction_tag = "WAYPOINT")
 
 	var/list/goto_preconds = list(
 		STATE_HASWAYPOINT = TRUE,
@@ -162,11 +163,13 @@
 		//STATE_DISORIENTED = -TRUE,
 	)
 
-	var/atom/obstruction = brain.GetMemoryValue(MEM_OBSTRUCTION)
+	var/atom/_obstruction = (isnull(obstruction) ? brain.GetMemoryValue(MEM_OBSTRUCTION("WAYPOINT")) : obstruction)
+	world.log << "Current obstruction is [_obstruction] @ [COORDS_TUPLE(_obstruction)]"
+
 	var/_move_action_name = (move_action_name || "MoveTowards")
 
 	var/handled = HandleWaypointObstruction(
-		obstruction = obstruction,
+		obstruction = _obstruction,
 		waypoint = true_waypoint,
 		shared_preconds = common_preconds,
 		target_preconds = goto_preconds,
@@ -182,6 +185,7 @@
 		tracker.SetDone()
 
 	else
+		world.log << "Waypoint failed - not handled!"
 		tracker.SetFailed()
 
 	return

@@ -85,8 +85,7 @@
 	if(true_name)
 		M.real_name = true_name
 	else
-		//M.real_name = random_name(mob_gender, SPECIES_HUMAN)
-		M.real_name = "[rand(0, 10000)]"
+		M.real_name = random_name(mob_gender, SPECIES_HUMAN)
 
 	M.h_style = random_hair_style(mob_gender, SPECIES_HUMAN)
 	M.f_style = random_facial_hair_style(mob_gender, SPECIES_HUMAN)

@@ -139,7 +139,7 @@
 
 	else
 		var/atom/curr_loc = get_turf(pawn)
-		to_world_log("[src]: Could not build a pathtracker to [trg] @ ([curr_loc?.x] [curr_loc?.y])")
+		to_world_log("[src]: Could not build a pathtracker to [trg] @ [COORDS_TUPLE(curr_loc)]")
 		var/atom/potential_step = get_step_towards(pawn, trg)
 		if(potential_step)
 			src.MovePawn(potential_step)

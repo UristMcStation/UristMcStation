@@ -203,7 +203,7 @@
 	)
 
 	// Obstacles:
-	var/atom/obstruction = owner_brain.GetMemoryValue(MEM_OBSTRUCTION)
+	var/atom/obstruction = owner_brain.GetMemoryValue(MEM_OBSTRUCTION("WAYPOINT"))
 	var/handled = isnull(obstruction) // if obs is null, counts as handled
 
 	if(obstruction)
@@ -328,10 +328,11 @@
 	owner.SpotObstacles(
 		owner = owner,
 		target = waypoint,
+		obstruction_tag = "PANIC"
 	)
 
 	// Obstacles:
-	var/atom/obstruction = owner_brain.GetMemoryValue(MEM_OBSTRUCTION)
+	var/atom/obstruction = owner_brain.GetMemoryValue(MEM_OBSTRUCTION("PANIC"))
 	var/handled = isnull(obstruction) // if obs is null, counts as handled
 
 	var/list/shared_preconds = list(

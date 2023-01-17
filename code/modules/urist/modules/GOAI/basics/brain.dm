@@ -209,13 +209,20 @@
 		if(action.charges < 1)
 			continue
 
+		if(!(action.IsValid()))
+			continue
+
+		var/new_cost = action.ReviewPriority()
+		if(!(isnull(new_cost)))
+			action.cost = new_cost
+
 		available_actions[action_key] = action
 
 	src.actionslist = available_actions
 	return available_actions
 
 
-/datum/brain/proc/AddAction(var/name, var/list/preconds, var/list/effects, var/cost = null, var/charges = PLUS_INF, var/instant = FALSE, clone = FALSE, var/list/action_args = null, var/list/act_validators = null)
+/datum/brain/proc/AddAction(var/name, var/list/preconds, var/list/effects, var/cost = null, var/charges = PLUS_INF, var/instant = FALSE, clone = FALSE, var/list/action_args = null, var/list/act_validators = null, var/cost_checker = null)
 	/*
 	//
 	// - clone (bool): If TRUE (default), the list is a clone of the actionslist (slower, but safer).
@@ -223,7 +230,7 @@
 	*/
 	ADD_ACTION_DEBUG_LOG("Adding action [name] with [cost] cost, [charges] charges")
 	var/list/available_actions = (clone ? src.actionslist.Copy() : src.actionslist) || list()
-	var/datum/goai_action/newaction = new(preconds, effects, cost, name, charges, instant, action_args, act_validators)
+	var/datum/goai_action/newaction = new(preconds, effects, cost, name, charges, instant, action_args, act_validators, cost_checker)
 	available_actions[name] = newaction
 
 	return newaction

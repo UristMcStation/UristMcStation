@@ -94,13 +94,13 @@
 	best_local_pos = ValidateWaypoint(cover_queue, FALSE)
 
 	if(best_local_pos)
-		src.SpotObstacles(owner = src, target = best_local_pos, default_to_waypoint = FALSE)
+		src.SpotObstacles(owner = src, target = best_local_pos, default_to_waypoint = FALSE, obstruction_tag = "PANIC")
 
 		// Obstacles:
 		var/atom/obstruction = explicit_obstruction
 
 		if(isnull(obstruction) || !(istype(obstruction)))
-			obstruction = brain.GetMemoryValue(MEM_OBSTRUCTION)
+			obstruction = brain.GetMemoryValue(MEM_OBSTRUCTION("PANIC"))
 
 		var/handled = isnull(obstruction) // if obs is null, counts as handled
 

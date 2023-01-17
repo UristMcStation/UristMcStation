@@ -164,7 +164,7 @@
 
 /obj/cover/door/Setup()
 	..()
-	name = "[name] @ ([x], [y])"
+	name = "[name] @ [COORDS_TUPLE(src)]"
 	directional_blocker = new(null, TRUE, TRUE)
 	UpdateOpen()
 
@@ -233,7 +233,7 @@
 
 /obj/cover/autodoor/Setup()
 	..()
-	name = "[name] @ ([x], [y])"
+	name = "[name] @ [COORDS_TUPLE(src)]"
 	directional_blocker = new(null, TRUE, TRUE)
 	UpdateOpen()
 
