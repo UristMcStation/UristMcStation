@@ -176,7 +176,7 @@
 		trg,
 		min_dist,
 		avoid,
-		//adjproc = /proc/mCombatantAdjacents,
+		adjproc = /proc/fCardinalTurfsNoblocksObjpermissive,
 		//adjargs = adjacency_args,
 		distanceproc = cost_function
 	)
@@ -186,7 +186,7 @@
 			trg,
 			min_dist + 1,
 			avoid,
-			//adjproc = /proc/mCombatantAdjacents,
+			adjproc = /proc/fCardinalTurfsNoblocksObjpermissive,
 			//adjargs = adjacency_args,
 			distanceproc = cost_function,
 		)

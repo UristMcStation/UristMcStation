@@ -157,8 +157,8 @@
 	var/walk_dist = (tracker?.BBSetDefault("StartDist", (ManhattanDistance(get_turf(pawn), obstruction) || 0)) || 0)
 
 	if(tracker.IsOlderThan(src.ai_tick_delay * (10 + walk_dist)))
-		if(src.brain.GetMemoryValue(MEM_OBSTRUCTION, null) == obstruction)
-			src.brain.DropMemory(MEM_OBSTRUCTION)
+		if(src.brain.GetMemoryValue(MEM_OBSTRUCTION("WAYPOINT"), null) == obstruction)
+			src.brain.DropMemory(MEM_OBSTRUCTION("WAYPOINT"))
 		tracker.SetFailed()
 		return
 
@@ -167,14 +167,14 @@
 		if(obstruction.locked && obstruction.lights)
 			tracker.SetFailed()
 			src.brain.SetMemory(MEM_OBJ_LOCKED(obstruction), TRUE, 5 MINUTES)
-			if(src.brain.GetMemoryValue(MEM_OBSTRUCTION, null) == obstruction)
-				src.brain.DropMemory(MEM_OBSTRUCTION)
+			if(src.brain.GetMemoryValue(MEM_OBSTRUCTION("WAYPOINT"), null) == obstruction)
+				src.brain.DropMemory(MEM_OBSTRUCTION("WAYPOINT"))
 			return
 		if(obstruction.p_open)
 			tracker.SetFailed()
 			src.brain.SetMemory(MEM_OBJ_PANELOPEN(obstruction), TRUE, 5 MINUTES)
-			if(src.brain.GetMemoryValue(MEM_OBSTRUCTION, null) == obstruction)
-				src.brain.DropMemory(MEM_OBSTRUCTION)
+			if(src.brain.GetMemoryValue(MEM_OBSTRUCTION("WAYPOINT"), null) == obstruction)
+				src.brain.DropMemory(MEM_OBSTRUCTION("WAYPOINT"))
 			return
 
 	var/turf/obs_turf = get_turf(obstruction)
@@ -187,23 +187,23 @@
 			obstruction.attack_hand(pawn)
 			tracker.SetFailed()
 			src.brain.SetMemory(obstruction.locked ? MEM_OBJ_LOCKED(obstruction) : MEM_OBJ_NOPOWER(obstruction), TRUE, 5 MINUTES)
-			if(src.brain.GetMemoryValue(MEM_OBSTRUCTION, null) == obstruction)
-				src.brain.DropMemory(MEM_OBSTRUCTION)
+			if(src.brain.GetMemoryValue(MEM_OBSTRUCTION("WAYPOINT"), null) == obstruction)
+				src.brain.DropMemory(MEM_OBSTRUCTION("WAYPOINT"))
 			return
 		if(!obstruction.allowed(pawn))
 			//No access to the airlock. Add it memory and fail the tracker. Still poke it though for that sweet sweet denied buzz
 			obstruction.attack_hand(pawn)
 			tracker.SetFailed()
 			src.brain.SetMemory(MEM_OBJ_NOACCESS(obstruction), TRUE) //Come back to this and change the ttl if changing IDs/access becomes a thing
-			if(src.brain.GetMemoryValue(MEM_OBSTRUCTION, null) == obstruction)
-				src.brain.DropMemory(MEM_OBSTRUCTION)
+			if(src.brain.GetMemoryValue(MEM_OBSTRUCTION("WAYPOINT"), null) == obstruction)
+				src.brain.DropMemory(MEM_OBSTRUCTION("WAYPOINT"))
 			return
 		if(obstruction.p_open)
 			//The panel is open, but somehow our pawn didn't see it. Normal attack_hand()'s wouldn't work here. Fail
 			tracker.SetFailed()
 			src.brain.SetMemory(MEM_OBJ_PANELOPEN(obstruction), TRUE, 5 MINUTES)
-			if(src.brain.GetMemoryValue(MEM_OBSTRUCTION, null) == obstruction)
-				src.brain.DropMemory(MEM_OBSTRUCTION)
+			if(src.brain.GetMemoryValue(MEM_OBSTRUCTION("WAYPOINT"), null) == obstruction)
+				src.brain.DropMemory(MEM_OBSTRUCTION("WAYPOINT"))
 			return
 
 		//This is hacky, but we'll call this manually so that we get the return from machinery/shock(),
@@ -219,8 +219,8 @@
 	if(!obstruction.density)
 		if(dist_to_obs < 1)
 			if(tracker.IsRunning())
-				if(src.brain.GetMemoryValue(MEM_OBSTRUCTION, null) == obstruction)
-					src.brain.DropMemory(MEM_OBSTRUCTION)
+				if(src.brain.GetMemoryValue(MEM_OBSTRUCTION("WAYPOINT"), null) == obstruction)
+					src.brain.DropMemory(MEM_OBSTRUCTION("WAYPOINT"))
 				tracker.SetDone()
 
 		else

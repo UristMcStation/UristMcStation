@@ -1,7 +1,7 @@
 /datum/goai/mob_commander/proc/HandlePry(var/datum/ActionTracker/tracker, var/obj/target)
 	log_debug("Pry task for [target]")
-	if(src.brain.GetMemoryValue(MEM_OBSTRUCTION, null) == target)
-		src.brain.DropMemory(MEM_OBSTRUCTION)
+	if(src.brain.GetMemoryValue(MEM_OBSTRUCTION("WAYPOINT"), null) == target)
+		src.brain.DropMemory(MEM_OBSTRUCTION("WAYPOINT"))
 	tracker.SetDone()
 	return
 	//TODO
@@ -23,16 +23,16 @@
 
 	if(tracker.IsOlderThan(src.ai_tick_delay * 10))
 		tracker.SetFailed()
-		if(src.brain.GetMemoryValue(MEM_OBSTRUCTION, null) == target)	//This should really be its own proc...
-			src.brain.DropMemory(MEM_OBSTRUCTION)
+		if(src.brain.GetMemoryValue(MEM_OBSTRUCTION("WAYPOINT"), null) == target)	//This should really be its own proc...
+			src.brain.DropMemory(MEM_OBSTRUCTION("WAYPOINT"))
 		return
 
 	var/obj/machinery/M = target
 
 	if(isnull(target) || (istype(M) && (M.stat & BROKEN)))
 		if(!isnull(target))
-			if(src.brain.GetMemoryValue(MEM_OBSTRUCTION, null) == target)
-				src.brain.DropMemory(MEM_OBSTRUCTION)
+			if(src.brain.GetMemoryValue(MEM_OBSTRUCTION("WAYPOINT"), null) == target)
+				src.brain.DropMemory(MEM_OBSTRUCTION("WAYPOINT"))
 		tracker.SetDone()
 		return
 
@@ -53,8 +53,8 @@
 		W = IH
 	else
 		tracker.SetFailed()
-		if(src.brain.GetMemoryValue(MEM_OBSTRUCTION, null) == target)
-			src.brain.DropMemory(MEM_OBSTRUCTION)
+		if(src.brain.GetMemoryValue(MEM_OBSTRUCTION("WAYPOINT"), null) == target)
+			src.brain.DropMemory(MEM_OBSTRUCTION("WAYPOINT"))
 
 	target.attackby(W, pawn)
 	tracker.BBSet("LastAttack", world.time)

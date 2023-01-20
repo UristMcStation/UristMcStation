@@ -64,8 +64,8 @@
 
 	if(tracker.IsOlderThan(src.ai_tick_delay * 10))
 		tracker.SetFailed()
-		if(src.brain.GetMemoryValue(MEM_OBSTRUCTION, null) == obstruction)
-			src.brain.DropMemory(MEM_OBSTRUCTION)
+		if(src.brain.GetMemoryValue(MEM_OBSTRUCTION("WAYPOINT"), null) == obstruction)
+			src.brain.DropMemory(MEM_OBSTRUCTION("WAYPOINT"))
 		return
 
 	var/turf/obs_turf = get_turf(obstruction)
@@ -76,16 +76,16 @@
 		if(!obstruction.allowed(pawn))
 			tracker.SetFailed()
 			src.brain.SetMemory(MEM_OBJ_NOACCESS(obstruction), TRUE)
-			if(src.brain.GetMemoryValue(MEM_OBSTRUCTION, null) == obstruction)
-				src.brain.DropMemory(MEM_OBSTRUCTION)
+			if(src.brain.GetMemoryValue(MEM_OBSTRUCTION("WAYPOINT"), null) == obstruction)
+				src.brain.DropMemory(MEM_OBSTRUCTION("WAYPOINT"))
 			return
 
 	if(!obstruction.density)
 		//Todo: Check dir and step + 1 towards waypoint where applicable
 		if(dist_to_obs < 1)
 			if(tracker.IsRunning())
-				if(src.brain.GetMemoryValue(MEM_OBSTRUCTION, null) == obstruction)
-					src.brain.DropMemory(MEM_OBSTRUCTION)
+				if(src.brain.GetMemoryValue(MEM_OBSTRUCTION("WAYPOINT"), null) == obstruction)
+					src.brain.DropMemory(MEM_OBSTRUCTION("WAYPOINT"))
 				tracker.SetDone()
 				obstruction.attack_hand(pawn)	//Windoors don't auto-close. Let's be polite and close it after us
 		else

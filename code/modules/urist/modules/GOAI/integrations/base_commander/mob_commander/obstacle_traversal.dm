@@ -83,7 +83,7 @@
 			open_autodoor_preconds,
 			open_autodoor_effects,
 			/datum/goai/mob_commander/proc/HandleOpenAutodoor,
-			10 + rand() - (pawn ? get_dist(AD, pawn) : 0),
+			10 + rand() + (pawn ? get_dist(AD, pawn) : 0),
 			1,
 			FALSE,
 			action_args
