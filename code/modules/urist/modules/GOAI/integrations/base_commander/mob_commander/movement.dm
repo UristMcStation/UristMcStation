@@ -46,12 +46,14 @@
 
 
 
-/datum/goai/mob_commander/proc/ValidateWaypoint(var/PriorityQueue/queue, var/trust_first = null)
+/datum/goai/mob_commander/proc/ValidateWaypoint(var/PriorityQueue/queue, var/trust_first = null, var/adjproc = null, var/distanceproc = null)
 	var/atom/best_local_pos = null
 
 	var/_trust_first = trust_first
 	if(isnull(trust_first))
 		_trust_first = brain?.GetMemoryValue(MEM_TRUST_BESTPOS, FALSE)
+
+	var/list/found_path = null
 
 	while(queue && queue.L)
 		// Iterate over found positions, AStar-ing into them and
@@ -73,14 +75,90 @@
 			break
 
 		// NOTE TO SELF: Optimization: taint turfs in a radius around the first failed
-		var/list/found_path = FindPathTo(best_local_pos,  0, null)
+		found_path = FindPathTo(best_local_pos,  0, null, adjproc, distanceproc)
 		if(found_path)
 			break
 
 		// This might take a while, better yield to higher-priority tasks
 		sleep(-1)
 
+	if(found_path)
+		var/obstacle_idx = src.CheckForObstacles(found_path)
+		if(obstacle_idx)
+			world.log << "OBSTACLE = [obstacle_idx]"
+			if(obstacle_idx > 1)
+				best_local_pos = found_path[obstacle_idx - 1]
+
 	return best_local_pos
+
+
+/datum/goai/mob_commander/proc/CheckForObstacles(var/list/dirty_path)
+	var/atom/pawn = src.GetPawn()
+
+	/*
+	// DUPLICATED CODE FROM WAYPOINT.DM!!!
+	*/
+	var/path_pos = 0
+	var/obstruction_pos = 0
+	var/obstruction = null
+
+	for(var/turf/pathitem in dirty_path)
+		path_pos++
+
+		if(isnull(pathitem))
+			continue
+
+		if(path_pos <= 1)
+			continue
+
+		var/turf/previous = dirty_path[path_pos-1]
+
+		if(isnull(previous))
+			continue
+
+		var/last_link_blocked = GoaiLinkBlocked(previous, pathitem)
+
+		if(last_link_blocked)
+			// find the obstacle
+
+			if(!obstruction)
+				for(var/atom/movable/potential_obstruction_curr in pathitem.contents)
+					if(potential_obstruction_curr == pawn)
+						continue
+
+					var/datum/directional_blocker/blocker = potential_obstruction_curr?.directional_blocker
+					if(!blocker)
+						continue
+
+					var/dirDelta = get_dir(previous, potential_obstruction_curr)
+					var/blocks = blocker.Blocks(dirDelta, src)
+
+					if(blocks)
+						obstruction = potential_obstruction_curr
+						break
+
+			if(!obstruction && path_pos > 2) // check earlier steps
+				for(var/atom/movable/potential_obstruction_prev in previous.contents)
+					if(potential_obstruction_prev == pawn)
+						continue
+
+					var/datum/directional_blocker/blocker = potential_obstruction_prev?.directional_blocker
+					if(!blocker)
+						continue
+
+					var/dirDeltaPrev = get_dir(dirty_path[path_pos-2], potential_obstruction_prev)
+					var/blocksPrev = blocker.Blocks(dirDeltaPrev, src)
+
+					if(blocksPrev)
+						obstruction = potential_obstruction_prev
+						break
+
+			break
+
+	world.log << "OBSTRUCTION [obstruction] @ IDX [path_pos] ([dirty_path[path_pos]])"
+	obstruction_pos = path_pos
+
+	return obstruction_pos
 
 
 /datum/goai/mob_commander/proc/GetCurrentChunk()

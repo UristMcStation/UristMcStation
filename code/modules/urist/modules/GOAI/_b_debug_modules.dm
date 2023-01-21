@@ -1,5 +1,6 @@
 // Uncomment defines as needed to enable various loggers.
 
+// # define RAYTRACE_DEBUG_LOGGING 0
 // # define ADD_ACTION_DEBUG_LOGGING 0
 // # define OBSTACLEHUNT_DEBUG_LOGGING 0
 // # define VALIDATE_ACTION_DEBUG_LOGGING 0

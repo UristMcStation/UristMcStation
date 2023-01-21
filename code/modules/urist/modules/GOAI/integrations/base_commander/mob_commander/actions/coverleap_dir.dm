@@ -222,7 +222,7 @@
 			cover_queue.Enqueue(cover_quad)
 			processed.Add(cand)
 
-	best_local_pos = ValidateWaypoint(cover_queue, trust_first)
+	best_local_pos = ValidateWaypoint(cover_queue, trust_first, /proc/fCardinalTurfsNoblocksObjpermissive)
 	return best_local_pos
 
 

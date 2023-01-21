@@ -259,7 +259,7 @@
 
 	if(!(action_key in src.actionslist))
 		// 'Phantom' actions not allowed!
-		VALIDATE_ACTION_DEBUG_LOG("[src] VALIDATION - PHANTOM [action_key]/[checked_action]")
+		VALIDATE_ACTION_DEBUG_LOG("[src] VALIDATION - PHANTOM [action_key]")
 		return FALSE
 
 	var/datum/goai_action/checked_action = src.actionslist[action_key]

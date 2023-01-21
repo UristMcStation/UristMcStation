@@ -95,6 +95,9 @@
 
 				if(!obstruction)
 					for(var/atom/potential_obstruction_curr in pathitem.contents)
+						if(potential_obstruction_curr == pawn)
+							continue
+
 						var/datum/directional_blocker/blocker = potential_obstruction_curr?.directional_blocker
 						if(!blocker)
 							continue
@@ -108,6 +111,9 @@
 
 				if(!obstruction && path_pos > 2) // check earlier steps
 					for(var/atom/potential_obstruction_prev in previous.contents)
+						if(potential_obstruction_prev == pawn)
+							continue
+
 						var/datum/directional_blocker/blocker = potential_obstruction_prev?.directional_blocker
 						if(!blocker)
 							continue

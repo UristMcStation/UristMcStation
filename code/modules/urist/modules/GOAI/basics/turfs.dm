@@ -142,13 +142,34 @@
 	return FALSE
 
 
-/turf/proc/GoaiObjectBlocked()
+/turf/proc/GoaiObjectBlocked(var/check_objects_permissive = FALSE)
 	// simplified version of the SS13 logic
 	// TODO: add directional logic for flipped tables etc.
 
 	for(var/obj/object in src.contents)
 		if(!object.density)
 			continue
+
+		if(check_objects_permissive)
+			# ifdef GOAI_SS13_SUPPORT
+
+			var/obj/machinery/door/D = object
+			if(D && istype(D))
+				continue
+
+			# endif
+
+			# ifdef GOAI_LIBRARY_FEATURES
+
+			var/obj/cover/door/D = object
+			if(D && istype(D))
+				continue
+
+			var/obj/cover/autodoor/AD = object
+			if(AD && istype(AD))
+				continue
+
+			# endif
 
 		if(object.density)
 			return TRUE
@@ -158,7 +179,7 @@
 
 /proc/GoaiDirBlocked(var/atom/trg, var/dir)
 	for(var/atom/D in trg)
-		var/datum/directional_blocker/dirblocker = D.directional_blocker
+		var/datum/directional_blocker/dirblocker = D.GetBlockerData(TRUE, TRUE)
 
 		if(isnull(dirblocker))
 			continue
@@ -169,18 +190,18 @@
 	return FALSE
 
 
-/turf/proc/IsBlocked(var/check_objects = FALSE)
+/turf/proc/IsBlocked(var/check_objects = FALSE, var/check_objects_permissive = FALSE)
 	if(density)
 		return TRUE
 
-	if(check_objects && src.GoaiObjectBlocked())
+	if(check_objects && src.GoaiObjectBlocked(check_objects_permissive))
 		return TRUE
 
 	return FALSE
 
 
 // NOTE: the f-prefix stands for 'functional' (i.e. not bound method)
-/proc/fAdjacentTurfs(var/turf/start, var/check_blockage = TRUE, var/check_links = TRUE, var/check_objects = TRUE)
+/proc/fAdjacentTurfs(var/turf/start, var/check_blockage = TRUE, var/check_links = TRUE, var/check_objects = TRUE, var/check_objects_permissive = FALSE)
 	if(!start)
 		return
 
@@ -189,7 +210,7 @@
 
 	for(var/turf/t in (trange(1, start) - start))
 		if(check_blockage)
-			if(!(t.IsBlocked(check_objects)))
+			if(!(t.IsBlocked(check_objects, check_objects_permissive)))
 				if(!(check_links && GoaiLinkBlocked(start_turf, t)))
 					adjacents += t
 		else
@@ -198,13 +219,13 @@
 	return adjacents
 
 
-/proc/fCardinalTurfs(var/turf/start, var/check_blockage = TRUE, var/check_links = TRUE, var/check_objects = TRUE)
+/proc/fCardinalTurfs(var/turf/start, var/check_blockage = TRUE, var/check_links = TRUE, var/check_objects = TRUE, var/check_objects_permissive = FALSE)
 	if(!start)
 		return
 
 	var/list/adjacents = list()
 
-	for(var/ad in fAdjacentTurfs(start, check_blockage, check_links, check_objects))
+	for(var/ad in fAdjacentTurfs(start, check_blockage, check_links, check_objects, check_objects_permissive))
 		var/turf/T = ad
 		if(T.x == start.x || T.y == start.y)
 			adjacents += T
@@ -213,8 +234,18 @@
 
 
 /turf/proc/CardinalTurfsNoblocks()
-	var/result = CardinalTurfs(TRUE, FALSE, FALSE)
+	var/result = CardinalTurfs(FALSE, FALSE, FALSE)
 	//to_world_log("CardinalTurfsNoblocks([src]) => [result] ([result?.len])")
+	return result
+
+
+/proc/fCardinalTurfsNoclip(var/turf/start)
+	if(!start)
+		return
+
+	var/result = fCardinalTurfs(start, FALSE, FALSE, FALSE, TRUE)
+	//to_world_log("CardinalTurfsNoblocks([src]) => [result] ([result?.len])")
+
 	return result
 
 
@@ -222,8 +253,16 @@
 	if(!start)
 		return
 
-	var/result = fCardinalTurfs(start, TRUE, FALSE, FALSE)
-	//to_world_log("CardinalTurfsNoblocks([src]) => [result] ([result?.len])")
+	var/result = fCardinalTurfs(start, TRUE, FALSE, TRUE, FALSE)
+
+	return result
+
+
+/proc/fCardinalTurfsNoblocksObjpermissive(var/turf/start)
+	if(!start)
+		return
+
+	var/result = fCardinalTurfs(start, TRUE, FALSE, TRUE, TRUE)
 
 	return result
 
@@ -254,6 +293,36 @@
 
 	if(t && istype(t) && s && istype(s))
 		cost *= (s.pathweight + t.pathweight)/2
+
+	return cost
+
+
+/proc/fTestObstacleDist(var/atom/start, var/atom/T)
+	if(!start)
+		return PLUS_INF
+
+	if(!T)
+		return PLUS_INF
+
+	var/cost = get_dist(start, T)
+
+	var/turf/t = T
+
+	if(t && istype(t))
+		for(var/obj/O in t.contents)
+			if(!(O?.density))
+				continue
+
+			# ifdef GOAI_SS13_SUPPORT
+
+			var/obj/machinery/door/D = object
+			if(D && istype(D))
+				continue
+
+			# endif
+
+			// unhandled blocking junk gets a penalty
+			cost += 30
 
 	return cost
 

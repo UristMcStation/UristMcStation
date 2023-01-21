@@ -24,17 +24,16 @@
 			return
 
 	spawn(aim_time)
-		var/list/curr_view = view(pawn)
+		var/distance = ChebyshevDistance(pawn, target)
 
-		if(target in curr_view)
-			var/distance = ChebyshevDistance(pawn, target)
+		if(distance > 1)
+			var/forecasted_impactee = AtomDensityRaytrace(pawn, target, list(pawn))
 
-			if(distance > 1)
-				//ACTION_RUNTIME_DEBUG_LOG("[src] - (pawn [pawn]) running Shoot!")
+			if(forecasted_impactee == target)
 				src.Shoot(null, target)
 
-			else
-				src.Melee(target)
+		else
+			src.Melee(target)
 
 	return
 
