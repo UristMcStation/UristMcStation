@@ -129,7 +129,7 @@
 	maxHealth = 1000 //not an overly beefy hull, but the main thing is going to be the repair module
 	health = 1000
 
-/mob/living/simple_animal/hostile/overmapship/alien/heavy/New() //only for admemes. this will fuck your day up.
+/mob/living/simple_animal/hostile/overmapship/hivebot/New() //only for admemes. this will fuck your day up.
 	components = list(
 		new /datum/shipcomponents/shield/freighter,
 		new /datum/shipcomponents/engines/freighter,
