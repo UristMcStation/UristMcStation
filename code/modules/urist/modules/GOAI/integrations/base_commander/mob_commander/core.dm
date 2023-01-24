@@ -14,6 +14,8 @@
 	var/is_repathing = 0
 	var/is_moving = 0
 
+	var/TEMP_allow_coverleap_sense = TRUE
+
 
 /datum/goai/mob_commander/proc/GetPawn()
 	var/atom/movable/mypawn = null

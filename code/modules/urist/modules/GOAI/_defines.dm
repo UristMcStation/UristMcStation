@@ -55,8 +55,8 @@
 # endif
 
 # define GUN_DISPERSION 5
-
 # define DEFAULT_ORPHAN_CLEANUP_THRESHOLD 3
+
 # define SENSE_SIGHT "Sight"
 # define SENSE_SIGHT_CURR "SightCurr"
 # define SENSE_SIGHT_PREV "SightPrev"
@@ -75,6 +75,8 @@
 
 # define DEFAULT_GOAI_DISTANCE_PROC /proc/fDistanceUnified
 
-# define DEBUG_LOG_LIST_ARRAY(L) for(var/_li_ in L) { to_world_log("[_li_]") }
-# define DEBUG_LOG_LIST_ASSOC(L) for(var/_li_ in L) { to_world_log("[_li_]: [L[_li_]]") }
+# define DEBUG_LOG_LIST_ARRAY(L, LOGGER) for(var/_li_ in L) { LOGGER("[_li_]") }
+# define DEBUG_LOG_LIST_ASSOC(L, LOGGER) for(var/_li_ in L) { LOGGER("[_li_]: [L[_li_]]") }
 
+# define SET_IF_NOT_NULL(Nullable, Var) if(!(isnull(Nullable))) { ##Var = Nullable }
+# define DEFAULT_IF_NULL(Nullable, Default) (isnull(Nullable) ? Default : Nullable)

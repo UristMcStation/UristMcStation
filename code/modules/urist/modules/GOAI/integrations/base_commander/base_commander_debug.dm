@@ -101,7 +101,7 @@
 
 	return
 
-/mob/verb/ListCommanderActions(var/datum/goai/mob_commander/combat_commander/M in GLOB.global_goai_registry)
+/mob/verb/ListCommanderActions(var/datum/goai/mob_commander/combat_commander/M in GOAI_LIBBED_GLOB_ATTR(global_goai_registry))
 	set category = "Debug GOAI Commanders"
 
 	if(!M)

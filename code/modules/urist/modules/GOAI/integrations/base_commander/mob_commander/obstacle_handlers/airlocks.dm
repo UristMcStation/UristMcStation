@@ -1,12 +1,15 @@
 //Returns action_key if handled and adds the appropriate actions
-/datum/goai/mob_commander/proc/HandleAirlockObstruction(var/obj/machinery/door/airlock/A ,var/list/common_preconds = list(), var/waypoint, var/atom/pawn)
+/datum/goai/mob_commander/proc/HandleAirlockObstruction(var/obj/machinery/door/airlock/A ,var/list/common_preconds = null, var/waypoint, var/atom/pawn, var/list/common_effects = null)
 	if(!A || !waypoint || !pawn || !istype(A))
 		return null
 
 	var/action_key = null
 
-	var/list/open_door_preconds = common_preconds.Copy()	//Any extra preconds are added here, and then passed back to the final appropriate open action
-	var/list/base_preconds = common_preconds.Copy()			//Preconditions that must be met for *all* future actions. ie, insulated gloves for shocked airlocks
+	var/list/_common_preconds = (isnull(common_preconds) ? list() : common_preconds)
+	var/list/open_door_preconds = _common_preconds.Copy()	//Any extra preconds are added here, and then passed back to the final appropriate open action
+	var/list/base_preconds = _common_preconds.Copy()			//Preconditions that must be met for *all* future actions. ie, insulated gloves for shocked airlocks
+
+	var/list/_common_effects = (isnull(common_effects) ? list() : common_effects)
 
 	var/hack_handled = FALSE
 
@@ -44,7 +47,7 @@
 		if(!panel_open)
 			extra_preconds[STATE_HASSCREWDRIVER] = TRUE
 
-		var/list/effects = list()
+		var/list/effects = _common_effects.Copy()
 		effects[action_key] = TRUE
 
 		var/list/action_args = list()
@@ -76,7 +79,7 @@
 		extra_preconds[action_key] = FALSE
 		extra_preconds[STATE_HASSCREWDRIVER] = TRUE
 
-		var/list/effects = list()
+		var/list/effects = _common_effects.Copy()
 
 		effects[action_key] = TRUE
 
@@ -103,7 +106,7 @@
 		open_door_preconds[STATE_HASCROWBAR] = TRUE
 		//src.SetState(action_key, FALSE)	//Workaround
 
-		var/list/effects = list()
+		var/list/effects = _common_effects.Copy()
 		effects[action_key] = TRUE
 
 		var/list/action_args = list()
@@ -126,7 +129,7 @@
 		open_door_preconds[action_key] = FALSE
 		//src.SetState(action_key, FALSE)	//Workaround
 
-		var/list/open_door_effects = list()
+		var/list/open_door_effects = _common_effects.Copy()
 		open_door_effects[action_key] = TRUE
 
 		var/list/action_args = list()

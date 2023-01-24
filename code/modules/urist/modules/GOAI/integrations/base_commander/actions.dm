@@ -31,10 +31,26 @@
 	if(charges < 1)
 		return
 
-	var/datum/goai_action/newaction = new(preconds, effects, cost, name, charges, instant, action_args, act_validators, cost_checker)
+	var/datum/goai_action/Action = null
+	if(name in actionslist)
+		Action = actionslist[name]
+
+	if(isnull(Action) || (!istype(Action)))
+		Action = new(preconds, effects, cost, name, charges, instant, action_args, act_validators, cost_checker)
+
+	else
+		// If an Action with the same key exists, we can update the existing object rather than reallocating!
+		SET_IF_NOT_NULL(cost, Action.cost)
+		SET_IF_NOT_NULL(preconds, Action.preconditions)
+		SET_IF_NOT_NULL(effects, Action.effects)
+		SET_IF_NOT_NULL(charges, Action.charges)
+		SET_IF_NOT_NULL(instant, Action.instant)
+		SET_IF_NOT_NULL(action_args, Action.arguments)
+		SET_IF_NOT_NULL(act_validators, Action.validators)
+		SET_IF_NOT_NULL(cost_checker, Action.cost_updater)
 
 	actionslist = (isnull(actionslist) ? list() : actionslist)
-	actionslist[name] = newaction
+	actionslist[name] = Action
 
 	if(handler)
 		actionlookup = (isnull(actionlookup) ? list() : actionlookup)
@@ -43,7 +59,7 @@
 	if(brain)
 		brain.AddAction(name, preconds, effects, cost, charges, instant, FALSE, action_args, act_validators, cost_checker)
 
-	return newaction
+	return Action
 
 
 /datum/goai/proc/HandleAction(var/datum/goai_action/action, var/datum/ActionTracker/tracker)

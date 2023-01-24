@@ -16,7 +16,9 @@
 	var/list/actionslist
 	var/list/actionlookup
 	var/list/inventory
-	var/list/senses
+
+	var/list/senses // array, primary DS for senses
+	var/list/senses_index // assoc, used for quick lookups/access only
 
 	var/last_update_time
 	var/list/last_need_update_times

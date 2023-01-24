@@ -140,6 +140,7 @@
 		11
 	)
 
+	/*
 	AddAction(
 		"Plan Path",
 		/* This is a bit convoluted: we need this step to insert new actions (Goto<Targ>/HandleObstacle<Obs>) at runtime.
@@ -212,6 +213,7 @@
 			)
 		)
 	)
+	*/
 
 	return actionslist
 

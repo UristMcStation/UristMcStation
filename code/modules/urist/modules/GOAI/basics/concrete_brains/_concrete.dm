@@ -192,8 +192,6 @@
 	OnBeginLifeTick() // hook
 
 	while(run_count++ < target_run_count)
-		RUN_ACTION_DEBUG_LOG("RUN COUNT: [run_count] / [target_run_count]")
-
 		/* STATE: Running */
 		if(running_action_tracker) // processing action
 			RUN_ACTION_DEBUG_LOG("ACTIVE ACTION: [running_action_tracker.tracked_action] @ [running_action_tracker.IsRunning()] | <@[src]>")
@@ -203,7 +201,11 @@
 				target_run_count++
 				src.AbortPlan(FALSE)
 
-			if(running_action_tracker.IsStopped())
+			else if(running_action_tracker.is_done)
+				src.NextPlanStep()
+				target_run_count++
+
+			else if(running_action_tracker.is_failed)
 				src.AbortPlan(FALSE)
 
 
@@ -230,6 +232,7 @@
 		else if(active_plan && active_plan.len)
 			//step done, move on to the next
 			RUN_ACTION_DEBUG_LOG("ACTIVE PLAN: [active_plan] ([active_plan.len]) | <@[src]>")
+			DEBUG_LOG_LIST_ARRAY(active_plan, RUN_ACTION_DEBUG_LOG)
 
 			while(active_plan.len && isnull(selected_action))
 				// do instants in one tick
@@ -308,6 +311,11 @@
 
 /datum/brain/concrete/proc/Idle()
 	return
+
+
+/datum/brain/concrete/proc/NextPlanStep()
+	src.running_action_tracker = null
+	return TRUE
 
 
 /datum/brain/concrete/AbortPlan(var/mark_failed = TRUE)
