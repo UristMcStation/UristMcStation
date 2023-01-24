@@ -17,7 +17,7 @@
 	var/naming
 	switch(severity)
 		if(EVENT_LEVEL_MUNDANE)
-			naming = "malfuncion"
+			naming = "malfunction"
 		if(EVENT_LEVEL_MODERATE)
 			naming = "uprising"
 		if(EVENT_LEVEL_MAJOR)
