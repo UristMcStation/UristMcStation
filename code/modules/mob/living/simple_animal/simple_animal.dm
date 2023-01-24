@@ -491,3 +491,7 @@
 /mob/living/simple_animal/Destroy()
 	GLOB.simple_mob_list.Remove(src)
 	..()
+
+/mob/living/simple_animal/restrained()
+	if(buckled && istype(buckled, /obj/effect/energy_net/safari))
+		return 1
