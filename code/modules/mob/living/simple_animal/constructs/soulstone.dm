@@ -11,6 +11,7 @@
 	w_class = ITEM_SIZE_SMALL
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_BLUESPACE = 4, TECH_MATERIAL = 4)
+	force = 1
 
 	var/full = SOULSTONE_EMPTY
 	var/is_evil = 1
