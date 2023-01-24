@@ -112,6 +112,19 @@
 /datum/alarm_handler/proc/unregister_alarm(var/object)
 	listeners -= object
 
-/datum/alarm_handler/proc/notify_listeners(var/alarm, var/was_raised)
+/datum/alarm_handler/proc/notify_listeners(var/datum/alarm/alarm, var/was_raised)
 	for(var/listener in listeners)
-		call(listener, listeners[listener])(src, alarm, was_raised)
+		var/z = null
+
+		var/atom/atom_listener = listener
+		var/datum/nano_module/module = listener
+
+		if(istype(atom_listener))
+			z = atom_listener.z
+		else if(istype(module))
+			var/atom/host = module.host
+			if(host && istype(host))
+				z = host.z
+
+		if(!z || AreConnectedZLevels(z, alarm.alarm_z()))
+			call(listener, listeners[listener])(src, alarm, was_raised)
