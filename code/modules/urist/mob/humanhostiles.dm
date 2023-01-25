@@ -281,9 +281,9 @@
 
 /mob/living/simple_animal/hostile/urist/terran/marine_space/ground
 	desc = "A Terran Confederacy Marine. This one is wearing a voidsuit worn by ground assault forces."
-	icon_state = "terran_g_heavy"
-	icon_living = "terran_g_heavy"
-	icon_dead = "terran_g_heavy_dead"
+	icon_state = "terran_g_space"
+	icon_living = "terran_g_space"
+	icon_dead = "terran_g_space_dead"
 	corpse = /obj/effect/landmark/corpse/terran/marine_ground_space
 
 /mob/living/simple_animal/hostile/urist/terran/marine_space/ground/event
