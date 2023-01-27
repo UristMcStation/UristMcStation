@@ -25,7 +25,12 @@ var/list/ai_status_emotions = list(
 	"Friend Computer" 			= new /datum/ai_emotion("ai_friend"),
 	"Tribunal" 					= new /datum/ai_emotion("ai_tribunal", "serithi"),
 	"Tribunal Malfunctioning"	= new /datum/ai_emotion("ai_tribunal_malf", "serithi"),
-	"Ship Scan" 				= new /datum/ai_emotion("ai_shipscan")
+	"Ship Scan" 				= new /datum/ai_emotion("ai_shipscan"),
+	"Beer"						= new /datum/ai_emotion("ai_beer"),
+	"Dwarf"						= new /datum/ai_emotion("ai_dwarf"),
+	"Fish Tank"					= new /datum/ai_emotion("ai_fishtank"),
+	"Mushroom"					= new /datum/ai_emotion("ai_plump"),
+	"Diagnostics"				= new /datum/ai_emotion("ai_diagnostics")
 	)
 
 /proc/get_ai_emotions(var/ckey)
