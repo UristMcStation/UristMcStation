@@ -254,7 +254,6 @@
 	faction = "terran"
 
 /mob/living/simple_animal/hostile/urist/terran/marine_space
-	faction = "terran"
 	name = "\improper Terran Confederacy Marine"
 	desc = "A Terran Confederacy Marine. This one is wearing a voidsuit."
 	ranged = 1
