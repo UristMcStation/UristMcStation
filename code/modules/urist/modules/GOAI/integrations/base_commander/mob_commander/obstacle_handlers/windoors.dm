@@ -1,18 +1,21 @@
 //Returns action_key if handled and adds the appropriate action
-/datum/goai/mob_commander/proc/HandleWindoorObstruction(var/obj/machinery/door/window/WD, var/list/common_preconds = list(), var/waypoint, var/atom/pawn)
+/datum/goai/mob_commander/proc/HandleWindoorObstruction(var/obj/machinery/door/window/WD, var/list/common_preconds = null, var/waypoint, var/atom/pawn, var/list/common_effects = null)
 	if(!WD || !waypoint || !pawn || !istype(WD))
 		return null
 
 	var/action_key = null
 
-	var/list/open_windoor_preconds = common_preconds.Copy()
+	var/list/_common_preconds = (isnull(common_preconds) ? list() : common_preconds)
+	var/list/open_windoor_preconds = _common_preconds.Copy()
+
+	var/list/_common_effects = (isnull(common_effects) ? list() : common_effects)
 
 	if(src.brain.GetMemoryValue(MEM_OBJ_NOACCESS(WD), null))
-		action_key = "[NEED_OBJ_BROKEN(WD)] for [waypoint]"
+		action_key = "[NEED_OBJ_BROKEN(WD)]"
 		open_windoor_preconds[action_key] = -TRUE
 		src.SetState(action_key, FALSE)	//Workaround
 
-		var/list/effects = list()
+		var/list/effects = _common_effects.Copy()
 		effects[action_key] = TRUE
 
 		var/list/action_args = list()
@@ -24,18 +27,18 @@
 			open_windoor_preconds,
 			effects,
 			/datum/goai/mob_commander/proc/HandleGenericBreak,
-			300 + rand() - (pawn ? get_dist(WD, pawn) : 0),
+			300 + rand() + (pawn ? get_dist(WD, pawn) : 0),
 			1,
 			FALSE,
 			action_args
 		)
 
 	else
-		action_key = "[NEED_OBSTACLE_OPEN(WD)] for [waypoint]"
+		action_key = "[NEED_OBSTACLE_OPEN(WD)]"
 		open_windoor_preconds[action_key] = -TRUE
 		src.SetState(action_key, FALSE)	//Workaround
 
-		var/list/effects = list()
+		var/list/effects = _common_effects.Copy()
 		effects[action_key] = TRUE
 
 		var/list/action_args = list()
@@ -46,7 +49,7 @@
 			open_windoor_preconds,
 			effects,
 			/datum/goai/mob_commander/proc/HandleWindoorOpen,
-			10 + rand() - (pawn ? get_dist(WD, pawn) : 0),
+			10 + rand() + (pawn ? get_dist(WD, pawn) : 0),
 			1,
 			FALSE,
 			action_args

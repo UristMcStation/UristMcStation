@@ -39,6 +39,10 @@
 		COMBAT_WAYFINDER_LOG("[src] does not have an owned pawn!")
 		return
 
+	var/pathing_fuzz_factor = owner.pathfinding_fuzz_perc
+	var/waypoint_fuzz_tiles_x = owner.waypoint_fuzz_tiles_x
+	var/waypoint_fuzz_tiles_y = owner.waypoint_fuzz_tiles_y
+
 	// Pathfinding/search
 	var/atom/_startpos = (startpos || get_turf(pawn))
 	var/list/_threats = (threats || list())
@@ -58,6 +62,8 @@
 	var/turf/safespace_loc = brain?.GetMemoryValue(MEM_SAFESPACE, null)
 	if(safespace_loc)
 		curr_view.Add(safespace_loc)
+
+	var/turf/hysteresis_bestpos = brain.GetMemoryValue("LastBestPos", null)
 
 	var/effective_waypoint_x = null
 	var/effective_waypoint_y = null
@@ -81,7 +87,7 @@
 
 		else
 			var/datum/Tuple/waypoint_position = waypoint_ident.CurrentPositionAsTuple()
-			var/waypoint_fuzz_shared = max(1, min(WAYPOINT_FUZZ_X, WAYPOINT_FUZZ_Y))
+			var/waypoint_fuzz_shared = max(1, min(waypoint_fuzz_tiles_x, waypoint_fuzz_tiles_y))
 
 			var/waypoint_dist = max(waypoint_fuzz_shared, ChebyshevDistanceNumeric(
 				pawn.x,
@@ -95,9 +101,9 @@
 			// gets wider and we wander around more.
 			//
 			*/
-			var/fuzz_factor = min(10, max(1, log(waypoint_fuzz_shared, waypoint_dist)))
-			var/fuzz_x = round(rand(WAYPOINT_FUZZ_X, WAYPOINT_FUZZ_X * fuzz_factor) * pick(1, -1))
-			var/fuzz_y = round(rand(WAYPOINT_FUZZ_Y, WAYPOINT_FUZZ_Y * fuzz_factor) * pick(1, -1))
+			var/fuzz_factor = min(5, max(1, log(waypoint_fuzz_shared, waypoint_dist)))
+			var/fuzz_x = round(rand(waypoint_fuzz_tiles_x, waypoint_fuzz_tiles_x * fuzz_factor) * pick(1, -1))
+			var/fuzz_y = round(rand(waypoint_fuzz_tiles_y, waypoint_fuzz_tiles_y * fuzz_factor) * pick(1, -1))
 
 			effective_waypoint_x = (waypoint_position.left + fuzz_x)
 			effective_waypoint_y = (waypoint_position.right + fuzz_y)
@@ -215,12 +221,16 @@
 			if(!isnull(effective_waypoint_x) && !isnull(effective_waypoint_y))
 				targ_dist = ManhattanDistanceNumeric(cand.x, cand.y, effective_waypoint_x, effective_waypoint_y)
 
+			if(cand == hysteresis_bestpos)
+				// Favor previously picked bestpos, if available
+				targ_dist = targ_dist //* 0.8
+
 			penalty += -targ_dist  // the closer to target, the better
 
 			/* Inject some noise to stop AIs getting stuck in corners.
 			// max +/- 10% discount factor.
 			*/
-			var/noisy_dist = targ_dist * RAND_PERCENT_MULT(30)
+			var/noisy_dist = targ_dist * RAND_PERCENT_MULT(pathing_fuzz_factor)
 
 			// Reminder to self: higher values are higher priority
 			// Smaller penalty => also higher priority
@@ -432,12 +442,9 @@
 	var/turf/best_pos = null
 
 	if(best_pos_path && best_pos_path.len)
+		best_pos = best_pos_path[best_pos_path.len]
 
-		if(best_pos_path.len > 1)
-			best_pos = best_pos_path[best_pos_path.len - 1]
-
-		else
-			best_pos = best_pos_path[1]
+	owner_brain.SetMemory("LastBestPos", best_pos, 3000)
 
 	// Check the raw path for the first obstacle and return it if it exists
 	var/datum/Tuple/obs_tuple = src.CheckForObstacles(owner, best_pos_path)
@@ -472,8 +479,7 @@
 		world.log << "Obstruction exists branch!"
 
 		var/list/common_preconds = list(
-			//STATE_PANIC = -TRUE,
-			"PreObstacleSatisfied" = TRUE
+			STATE_NEAR_ATOM(obstruction)
 		)
 
 		handled = owner.HandleWaypointObstruction(
@@ -492,28 +498,33 @@
 		premove_preconds[STATE_HASWAYPOINT] = TRUE
 		premove_preconds["PremoveUsedUp"] = FALSE
 
-		premove_effects["PreObstacleSatisfied"] = TRUE
 		premove_effects["PremoveUsedUp"] = TRUE
 
 		postmove_preconds["ObstacleHandled"] = TRUE
-		postmove_preconds["PreObstacleSatisfied"] = TRUE
 
 		// todo: grab dirblocker from Obstruction and check if we can enter the turf (e.g. for tables)
 		// in that case, the position for pre-obstacle will be just [obstruction_pos], without the '-1'
 
-		owner.AddAction(
-			name = "(Pre-obstacle) [generic_move_name_suffix]",
-			preconds = premove_preconds,
-			effects = premove_effects,
-			handler = base_movement_proc,
-			cost = 5,
-			charges = PLUS_INF,
-			instant = FALSE,
-			action_args = list("best_local_pos" = best_pos_path[obstruction_pos-1], "sense_callback" = FALSE)
-		)
-
 		if(handled)
 			world.log << "Handled, adding moves!"
+
+			var/turf/best_premove_pos = best_pos_path[obstruction_pos-1]
+
+			ADD_NEARNESS_EFFECT_TO(premove_effects, best_premove_pos, __nearTurf)
+			ADD_NEARNESS_EFFECT_TO(postmove_effects, best_pos, __nearTurf)
+
+			premove_effects["PremoveUsedUp"] = TRUE
+
+			owner.AddAction(
+				name = "(Pre-obstacle) [generic_move_name_suffix]",
+				preconds = premove_preconds,
+				effects = premove_effects,
+				handler = base_movement_proc,
+				cost = 5,
+				charges = PLUS_INF,
+				instant = FALSE,
+				action_args = list("best_local_pos" = best_premove_pos, "sense_callback" = FALSE)
+			)
 
 			owner.AddAction(
 				name = "(Post-obstacle) [generic_move_name_suffix]",
@@ -526,10 +537,11 @@
 				action_args = list("best_local_pos" = best_pos, "sense_callback" = TRUE)
 			)
 
-		owner.SetState("NoObstacle", -1)
+			owner.SetState("NoObstacle", -1)
 
 	else
 		world.log << "No obstacle, adding moves!"
+		ADD_NEARNESS_EFFECT_TO(postmove_effects, best_pos, __nearTurf)
 
 		owner.SetState("NoObstacle", 1)
 		postmove_preconds["NoObstacle"] = 1
@@ -566,7 +578,7 @@
 	world.log << "Running Sense PlanPath"
 	src.PlanPath(owner)
 
-	spawn(src.GetOwnerAiTickrate(owner) * 10)
+	spawn(src.GetOwnerAiTickrate(owner) * 20)
 	//spawn(src.GetOwnerAiTickrate(owner) * 1)
 		// Sense-side delay to avoid spamming view() scans too much
 		processing = FALSE

@@ -28,8 +28,11 @@
 # define STATE_HASWAYPOINT "has_waypoint"
 # define STATE_CANFIRE "can_shoot"
 # define STATE_PANIC "panik"
-
 # define STATE_DISORIENTED "disoriented"
+
+# define STATE_NEAR_COORDS(X, Y, Z) "Near<[X], [Y], [Z]>"
+// NOTE: this is not null-safe, validate it yourself first:
+# define STATE_NEAR_ATOM(Atom) STATE_NEAR_COORDS(Atom.x, Atom.y, Atom.z)
 
 // Subsystem loop schedules
 # define COMBATAI_SENSE_TICK_DELAY 4
@@ -105,3 +108,5 @@
 # define DEFAULT_IF_NULL(Nullable, Default) (isnull(Nullable) ? Default : Nullable)
 
 # define SENSE_COVERLEAP_WAYFINDER "SenseCoverleapWayfinder"
+
+# define ADD_NEARNESS_EFFECT_TO(List, Startpos, Varname) for(var/turf/##Varname in trange(1, Startpos)) { if(!(##Varname && istype(##Varname))) { continue }; List[STATE_NEAR_ATOM(##Varname)] = TRUE }

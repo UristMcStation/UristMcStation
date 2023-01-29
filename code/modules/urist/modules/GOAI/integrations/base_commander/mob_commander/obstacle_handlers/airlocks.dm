@@ -124,7 +124,7 @@
 		)
 	//Prying unpowered airlocks is an /alternative/ way of opening them, not a prerequisite step. We need an else here
 	else
-		action_key = "[NEED_OBSTACLE_OPEN(A)] for [waypoint]"
+		action_key = "Open Obstacle"
 
 		open_door_preconds[action_key] = FALSE
 		//src.SetState(action_key, FALSE)	//Workaround

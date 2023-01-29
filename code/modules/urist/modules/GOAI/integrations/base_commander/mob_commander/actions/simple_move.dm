@@ -1,21 +1,24 @@
 
 /datum/goai/mob_commander/proc/SimpleMove(var/datum/ActionTracker/tracker, var/turf/best_local_pos = null, var/sense_callback = FALSE, var/sense_throttle_time_ds = 10)
-	if(!(best_local_pos && istype(best_local_pos)))
+	var/turf/_best_local_pos = tracker.BBSetDefault("best_local_pos", best_local_pos)
+
+	if(!(_best_local_pos && istype(_best_local_pos)))
 		ACTION_RUNTIME_DEBUG_LOG("[src] does not have a bestpos!")
 		tracker.SetFailed()
 		return
 
 	var/atom/pawn = src.GetPawn()
-	var/callback_triggerable = FALSE
 
 	if(!pawn)
 		ACTION_RUNTIME_DEBUG_LOG("[src] does not have an owned mob!")
 		return
 
-	if(!src.active_path || (src.active_path.target != best_local_pos))
-		StartNavigateTo(best_local_pos, 0, null)
+	var/callback_triggerable = FALSE
 
-	var/dist_to_pos = ManhattanDistance(get_turf(pawn), best_local_pos)
+	if(!src.active_path || (src.active_path.target != _best_local_pos))
+		StartNavigateTo(_best_local_pos, 0, null)
+
+	var/dist_to_pos = ManhattanDistance(get_turf(pawn), _best_local_pos)
 	if(dist_to_pos < 1)
 		tracker.SetTriggered()
 
@@ -27,7 +30,7 @@
 			tracker.SetDone()
 			callback_triggerable = TRUE
 
-	else if(src.active_path && tracker.IsOlderThan(COMBATAI_MOVE_TICK_DELAY * (20 + walk_dist)))
+	else if(src.active_path && tracker.IsOlderThan(COMBATAI_MOVE_TICK_DELAY * (20 + walk_dist * 20)))
 		if(needybrain)
 			needybrain.AddMotive(NEED_COMPOSURE, -MAGICNUM_COMPOSURE_LOSS_FAILMOVE)
 

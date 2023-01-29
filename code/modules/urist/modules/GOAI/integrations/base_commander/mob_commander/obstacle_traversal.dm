@@ -37,7 +37,7 @@
 			handled = TRUE
 		else
 			var/obs_need_key = NEED_OBSTACLE_OPEN(obstruction)
-			action_key = "Open [obstruction] for [waypoint]"
+			action_key = "Open [obstruction]"
 
 			var/list/open_door_preconds = common_preconds.Copy()
 			open_door_preconds[obs_need_key] = FALSE
@@ -70,7 +70,7 @@
 			handled = TRUE
 		else
 			var/obs_need_key = NEED_OBSTACLE_OPEN(obstruction)
-			action_key = "Open [obstruction] for [waypoint]"
+			action_key = "Open [obstruction]"
 
 			/* TRIGGER WARNING: DM being cancer.
 			//
@@ -116,7 +116,7 @@
 
 	//WINDOORS
 	else if(WD && istype(WD))
-		action_key = src.HandleWindoorObstruction(WD, common_preconds, waypoint, pawn)
+		action_key = src.HandleWindoorObstruction(WD, common_preconds, waypoint, pawn, obs_handled_common_effects)
 		if(action_key)
 			goto_preconds[action_key] = TRUE
 			handled = TRUE
@@ -167,6 +167,8 @@
 			handler = move_handler,
 			cost = 4,
 			charges = (unique ? 1 : PLUS_INF),
+			instant = FALSE,
+			action_args = null
 		)
 
 	return handled

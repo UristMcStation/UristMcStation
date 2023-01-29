@@ -63,25 +63,30 @@
 	if(is_different)
 		SetState(STATE_PANIC, panicking)
 
+	if(src.brain)
+		if(!(src.brain.last_plan_successful))
+			var/disoriented = src.GetState(STATE_DISORIENTED, FALSE)
+			if(!disoriented)
+				src.SetState(STATE_DISORIENTED, TRUE)
 
-	if(brain)
-		if(!(brain.last_plan_successful))
-			SetState(STATE_DISORIENTED, TRUE)
+				var/sense/combatant_commander_coverleap_wayfinder/wayfinder = src.senses_index?["ClWayfinder"]
+				if(wayfinder && istype(wayfinder))
+					wayfinder.PlanPath(src)
 
-		brain.LifeTick()
+		src.brain.LifeTick()
 
 		for(var/datum/ActionTracker/instant_action_tracker in brain.pending_instant_actions)
 			var/tracked_instant_action = instant_action_tracker?.tracked_action
 			if(tracked_instant_action)
-				HandleInstantAction(tracked_instant_action, instant_action_tracker)
+				src.HandleInstantAction(tracked_instant_action, instant_action_tracker)
 
-		PUT_EMPTY_LIST_IN(brain.pending_instant_actions)
+		PUT_EMPTY_LIST_IN(src.brain.pending_instant_actions)
 
-		if(brain.running_action_tracker)
+		if(src.brain.running_action_tracker)
 			var/tracked_action = brain.running_action_tracker.tracked_action
 
 			if(tracked_action)
-				HandleAction(tracked_action, brain.running_action_tracker)
+				src.HandleAction(tracked_action, brain.running_action_tracker)
 
 
 	return

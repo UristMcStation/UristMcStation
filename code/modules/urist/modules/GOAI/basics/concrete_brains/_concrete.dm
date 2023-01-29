@@ -173,10 +173,10 @@
 
 				raw_active_plan.Cut(0, first_clean_pos)
 				src.active_plan = raw_active_plan
-				src.last_plan_successful = TRUE
 
 			else
 				RUN_ACTION_DEBUG_LOG("Failed to create a plan | <@[src]>")
+				src.last_plan_successful = FALSE
 
 	else //satisfied, can be lazy
 		Idle()
@@ -219,6 +219,7 @@
 
 			if(is_valid)
 				running_action_tracker = src.DoAction(selected_action)
+				target_run_count++
 
 			else
 				var/should_rerun = src.OnInvalidAction(selected_action)
@@ -261,8 +262,15 @@
 
 		/* STATE: Planning */
 		if(do_plan)
+			var/prev_plan = src.active_plan
+
 			var/should_retry = HandlePlanningState()
+
 			if(should_retry)
+				target_run_count++
+
+			if(isnull(prev_plan) && src.active_plan)
+				// If we created a new plan, execute straight away
 				target_run_count++
 
 	return

@@ -1,198 +1,3 @@
-
-/sense/combatant_commander_obstruction_handler
-	/* Spots obstacles that can be overcome with an Action,
-	// such as doors (Open/Break), tables (Climb), etc.
-	// and updates the Owner with actions to handle that action.
-
-	// WARNING: not currently used, kept to make sure the code doesn't go stale
-	*/
-
-
-/sense/combatant_commander_obstruction_handler/proc/SpotObstacles(var/datum/goai/mob_commander/combat_commander/owner)
-	if(!owner)
-		// No mob - no point.
-		return
-
-	var/atom/pawn = owner?.GetPawn()
-
-	if(!(pawn))
-		// No mob - no point.
-		return
-
-	var/datum/brain/owner_brain = owner?.brain
-	if(isnull(owner_brain))
-		// No point processing this if there's no memories to use
-		// Might not be a precondition later.
-		return
-
-	var/atom/waypoint = owner.brain.GetMemoryValue(MEM_WAYPOINT_IDENTITY, null, FALSE, TRUE)
-	if(isnull(waypoint))
-		// Nothing to spot.
-		return
-
-	owner.SpotObstacles(
-		owner = owner,
-		target = waypoint,
-	)
-
-	// Obstacles:
-	var/atom/obstruction = owner_brain.GetMemoryValue(MEM_OBSTRUCTION("WAYPOINT"))
-	var/handled = isnull(obstruction) // if obs is null, counts as handled
-
-	if(obstruction)
-		var/list/goto_preconds = list(
-			STATE_HASWAYPOINT = TRUE,
-			STATE_PANIC = -TRUE,
-			//STATE_DISORIENTED = -TRUE,
-		)
-
-		var/list/common_preconds = list(
-			STATE_PANIC = -TRUE,
-			//STATE_DISORIENTED = -TRUE,
-		)
-
-		handled = owner.HandleWaypointObstruction(
-			obstruction = obstruction,
-			waypoint = waypoint,
-			shared_preconds = common_preconds,
-			target_preconds = goto_preconds,
-			move_action_name = "Move towards",
-			move_handler = /datum/goai/mob_commander/proc/HandleDirectionalCoverLeapfrog,
-			unique = FALSE,
-			allow_failed = TRUE
-		)
-
-	return handled
-
-
-/sense/combatant_commander_obstruction_handler/ProcessTick(var/owner)
-	..(owner)
-
-	if(processing)
-		return
-
-	processing = TRUE
-
-	// This is the Sense's proc, not the mob's; name's the same:
-	src.SpotObstacles(owner)
-
-	spawn(src.GetOwnerAiTickrate(owner) * 20)
-		// Sense-side delay to avoid spamming view() scans too much
-		processing = FALSE
-	return
-
-
-
-// PANIC PATHFINDER SERVICE
-/sense/combatant_commander_panic_pathfinder
-	/* Sense component.
-	// Runs periodically and finds a path to run away to if the Owner panics.
-	//
-	// As this is a pathfinding service, it should be run on a fairly sparse schedule.
-	*/
-
-/sense/combatant_commander_panic_pathfinder/ProcessTick(var/owner)
-	..(owner)
-
-	if(processing)
-		return
-
-	processing = TRUE
-
-	// This is the Sense's proc, not the mob's; name's the same:
-	src.SpotObstacles(owner)
-
-	spawn(PANIC_SENSE_THROTTLE*2)
-		// Sense-side delay to avoid spamming Astars too much
-		processing = FALSE
-	return
-
-
-/sense/combatant_commander_panic_pathfinder/proc/SpotObstacles(var/datum/goai/mob_commander/combat_commander/owner)
-	if(!(owner))
-		// No mob - no point.
-		return
-
-	var/atom/pawn = owner?.GetPawn()
-	if(!pawn)
-		return
-
-	var/owner_z = pawn.z
-
-	var/datum/brain/owner_brain = owner?.brain
-	if(isnull(owner_brain))
-		// No point processing this if there's no memories to use
-		// Might not be a precondition later.
-		return
-
-	var/list/threats = list()
-	var/min_safe_dist = owner_brain.GetPersonalityTrait(KEY_PERS_MINSAFEDIST, 2)
-
-	// Main threat:
-	var/dict/primary_threat_ghost = owner.GetActiveThreatDict()
-	var/datum/Tuple/primary_threat_pos_tuple = owner.GetThreatPosTuple(primary_threat_ghost)
-	var/atom/primary_threat = null
-	if(!(isnull(primary_threat_pos_tuple?.left) || isnull(primary_threat_pos_tuple?.right)))
-		primary_threat = locate(primary_threat_pos_tuple.left, primary_threat_pos_tuple.right, owner_z)
-
-	if(primary_threat_ghost)
-		threats[primary_threat_ghost] = primary_threat
-
-	// Secondary threat:
-	var/dict/secondary_threat_ghost = owner.GetActiveSecondaryThreatDict()
-	var/datum/Tuple/secondary_threat_pos_tuple = owner.GetThreatPosTuple(secondary_threat_ghost)
-	var/atom/secondary_threat = null
-	if(!(isnull(secondary_threat_pos_tuple?.left) || isnull(secondary_threat_pos_tuple?.right)))
-		secondary_threat = locate(secondary_threat_pos_tuple.left, secondary_threat_pos_tuple.right, owner_z)
-
-	if(secondary_threat_ghost)
-		threats[secondary_threat_ghost] = secondary_threat
-
-	var/atom/waypoint = owner.ChoosePanicRunLandmark(
-		primary_threat = primary_threat,
-		threats = threats,
-		min_safe_dist = min_safe_dist
-	)
-
-	if(isnull(waypoint))
-		// Nothing to spot.
-		return
-
-	owner.SpotObstacles(
-		owner = owner,
-		target = waypoint,
-		obstruction_tag = "PANIC"
-	)
-
-	// Obstacles:
-	var/atom/obstruction = owner_brain.GetMemoryValue(MEM_OBSTRUCTION("PANIC"))
-	var/handled = isnull(obstruction) // if obs is null, counts as handled
-
-	var/list/shared_preconds = list(
-		STATE_PANIC = TRUE,
-	)
-
-	var/list/movement_preconds = list(
-		STATE_PANIC = TRUE,
-	)
-
-	handled = owner.HandleWaypointObstruction(
-		obstruction = obstruction,
-		waypoint = waypoint,
-		shared_preconds = shared_preconds,
-		target_preconds = movement_preconds,
-		move_action_name = "PanicRun",
-		move_handler = /datum/goai/mob_commander/proc/HandlePanickedRun,
-		unique = FALSE,
-		allow_failed = TRUE
-	)
-
-	if(handled)
-		owner_brain?.SetMemory(MEM_BESTPOS_PANIC, waypoint, PANIC_SENSE_THROTTLE*3)
-
-	return handled
-
-
 // SAFESPACE FINDER
 /sense/combatant_commander_safespace_finder
 	/* Sense component. Runs periodically and updates the mob's safe spaces.
@@ -244,16 +49,19 @@
 
 	/* Initialize sense objects: */
 	var/sense/combatant_commander_eyes/eyes = new()
-	//var/sense/combatant_commander_obstruction_handler/obstacle_handler = new()
 	//var/sense/combatant_commander_panic_pathfinder/panicpath_handler = new()
 	//var/sense/combatant_commander_safespace_finder/safety_finder = new()
 	var/sense/combatant_commander_coverleap_wayfinder/coverleap_wayfinder = new()
 
 	/* Register each Sense: */
 	senses.Add(eyes)
-	//senses.Add(obstacle_handler)
 	//senses.Add(panicpath_handler)
 	//senses.Add(safety_finder)
 	senses.Add(coverleap_wayfinder)
+
+	if(isnull(src.senses_index))
+		src.senses_index = list()
+
+	src.senses_index["ClWayfinder"] = coverleap_wayfinder
 
 	return

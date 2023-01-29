@@ -22,6 +22,7 @@
 
 	var/list/curr_view = brain?.perceptions?.Get(SENSE_SIGHT_CURR) || list()
 
+	/*
 	var/turf/last_loc = brain?.GetMemoryValue("Location-1", null)
 	if(last_loc)
 		curr_view.Add(last_loc)
@@ -33,6 +34,7 @@
 	var/turf/safespace_loc = brain?.GetMemoryValue(MEM_SAFESPACE, null)
 	if(safespace_loc)
 		curr_view.Add(safespace_loc)
+	*/
 
 	var/turf/unreachable = brain?.GetMemoryValue("UnreachableTile", null)
 	var/datum/chunkserver/chunkserver = GetOrSetChunkserver()
@@ -274,7 +276,7 @@
 
 
 
-/datum/goai/mob_commander/proc/HandlePanickedRun(var/datum/ActionTracker/tracker, var/atom/obstruction = null)
+/datum/goai/mob_commander/proc/HandlePanickedRun(var/datum/ActionTracker/tracker, var/atom/obstruction = null, var/turf/best_local_pos = null)
 	var/atom/pawn = src.GetPawn()
 	if(!pawn)
 		ACTION_RUNTIME_DEBUG_LOG("[src] does not have an owned mob!")
@@ -282,11 +284,13 @@
 
 	var/tracker_frustration = tracker?.BBSetDefault("frustration", 0)
 
-	var/turf/best_local_pos = null
-	best_local_pos = best_local_pos || tracker?.BBGet(MEM_BESTPOS_PANIC, null)
+	var/turf/_best_local_pos = null
 
-	if(isnull(best_local_pos))
-		best_local_pos = brain?.GetMemoryValue(MEM_BESTPOS_PANIC, null)
+	_best_local_pos = _best_local_pos || best_local_pos
+	_best_local_pos = _best_local_pos || tracker?.BBGet(MEM_BESTPOS_PANIC, null)
+
+	if(isnull(_best_local_pos))
+		_best_local_pos = brain?.GetMemoryValue(MEM_BESTPOS_PANIC, null)
 
 	var/min_safe_dist = (brain?.GetPersonalityTrait(KEY_PERS_MINSAFEDIST) || 2)
 	var/frustration_repath_maxthresh = brain.GetPersonalityTrait(KEY_PERS_FRUSTRATION_THRESH, null) || 3
@@ -321,8 +325,8 @@
 	*/
 
 	// Reuse cached solution if it's good enough
-	if(isnull(best_local_pos) && src.active_path && (!(src.active_path.IsDone())) && src.active_path.target && src.active_path.frustration < 2)
-		best_local_pos = src.active_path.target
+	if(isnull(_best_local_pos) && src.active_path && (!(src.active_path.IsDone())) && src.active_path.target && src.active_path.frustration < 2)
+		_best_local_pos = src.active_path.target
 
 	// Required for the following logic: next location on the path
 	var/atom/next_step = ((src.active_path && src.active_path.path && src.active_path.path.len) ? src.active_path.path[1] : null)
@@ -335,9 +339,9 @@
 		var/atom/curr_threat = threats[threat_ghost]
 		var/next_step_threat_distance = (next_step ? GetThreatDistance(next_step, threat_ghost, PLUS_INF) : PLUS_INF)
 		var/curr_threat_distance = GetThreatDistance(pawn, threat_ghost, PLUS_INF)
-		var/bestpos_threat_distance = GetThreatDistance(best_local_pos, threat_ghost, PLUS_INF)
+		var/bestpos_threat_distance = GetThreatDistance(_best_local_pos, threat_ghost, PLUS_INF)
 
-		var/atom/bestpos_threat_neighbor = (curr_threat ? get_step_towards(best_local_pos, curr_threat) : null)
+		var/atom/bestpos_threat_neighbor = (curr_threat ? get_step_towards(_best_local_pos, curr_threat) : null)
 
 		// Reevaluating plans as new threats pop up
 		var/bestpos_is_unsafe = (bestpos_threat_distance < min_safe_dist && !(bestpos_threat_neighbor?.IsCover(TRUE, get_dir(bestpos_threat_neighbor, curr_threat), FALSE)))
@@ -350,30 +354,30 @@
 				tracker.BBSet("frustration", tracker_frustration+1)
 
 				CancelNavigate()
-				best_local_pos = null
+				_best_local_pos = null
 				tracker.BBSet(MEM_BESTPOS_PANIC, null)
 				brain?.DropMemory(MEM_BESTPOS_PANIC)
 				break
 
 
 
-	if(isnull(best_local_pos))
-		best_local_pos = ChoosePanicRunLandmark(primary_threat, threats, min_safe_dist, obstruction)
-		tracker.BBSet(MEM_BESTPOS_PANIC, best_local_pos)
-		brain?.SetMemory(MEM_BESTPOS_PANIC, best_local_pos, PANIC_SENSE_THROTTLE*3)
-		ACTION_RUNTIME_DEBUG_LOG((isnull(best_local_pos) ? "[src]: Best local pos: null" : "[src]: Best local pos ([best_local_pos?.x], [best_local_pos?.y])"))
+	if(isnull(_best_local_pos))
+		_best_local_pos = ChoosePanicRunLandmark(primary_threat, threats, min_safe_dist, obstruction)
+		tracker.BBSet(MEM_BESTPOS_PANIC, _best_local_pos)
+		brain?.SetMemory(MEM_BESTPOS_PANIC, _best_local_pos, PANIC_SENSE_THROTTLE*3)
+		ACTION_RUNTIME_DEBUG_LOG((isnull(_best_local_pos) ? "[src]: Best local pos: null" : "[src]: Best local pos ([_best_local_pos?.x], [_best_local_pos?.y])"))
 
-	if(best_local_pos && (!src.active_path || src.active_path.target != best_local_pos))
+	if(_best_local_pos && (!src.active_path || src.active_path.target != _best_local_pos))
 		// CORE MOVEMENT TRIGGER - FOUND POSITION, START PATHING TO IT
-		ACTION_RUNTIME_DEBUG_LOG("[src]: Navigating to [best_local_pos]")
+		ACTION_RUNTIME_DEBUG_LOG("[src]: Navigating to [_best_local_pos]")
 		var/turf/threat_turf = get_turf(primary_threat)
-		var/new_path = StartNavigateTo(best_local_pos, 0, threat_turf, 0, /datum/goai/mob_commander/proc/fPanicRunDistance)
+		var/new_path = StartNavigateTo(_best_local_pos, 0, threat_turf, 0, /datum/goai/mob_commander/proc/fPanicRunDistance)
 
 		if(!new_path)
 			src.WalkPawnAwayFrom(threat_turf)
 
-	if(best_local_pos)
-		var/dist_to_pos = ManhattanDistance(get_turf(pawn), best_local_pos)
+	if(_best_local_pos)
+		var/dist_to_pos = ManhattanDistance(get_turf(pawn), _best_local_pos)
 		if(dist_to_pos < 1)
 			tracker.SetTriggered()
 

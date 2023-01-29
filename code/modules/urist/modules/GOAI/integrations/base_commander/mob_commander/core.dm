@@ -16,6 +16,10 @@
 
 	var/TEMP_allow_coverleap_sense = TRUE
 
+	var/pathfinding_fuzz_perc = 20
+	var/waypoint_fuzz_tiles_x = WAYPOINT_FUZZ_X
+	var/waypoint_fuzz_tiles_y = WAYPOINT_FUZZ_Y
+
 
 /datum/goai/mob_commander/proc/GetPawn()
 	var/atom/movable/mypawn = null

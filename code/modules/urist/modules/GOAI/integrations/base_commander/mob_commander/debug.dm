@@ -59,3 +59,38 @@
 
 	to_chat(usr, "Finished GOAI mob commander cleanup! Removed entry count: [removed]")
 	return
+
+
+/mob/verb/SetPathingFuzz(datum/goai/mob_commander/commander in GOAI_LIBBED_GLOB_ATTR(global_goai_registry), amt as num)
+	set category = "Debug GOAI Commanders"
+
+	if(isnull(commander))
+		return
+
+	if(amt < 0)
+		to_chat(usr, "Pathing fuzz must be non-negative!")
+		return
+
+	commander.pathfinding_fuzz_perc = amt
+
+	to_chat(usr, "Set Pathing fuzz for [commander] to [commander.pathfinding_fuzz_perc]")
+
+	return
+
+
+/mob/verb/SetWaypointFuzz(datum/goai/mob_commander/commander in GOAI_LIBBED_GLOB_ATTR(global_goai_registry), amt as num)
+	set category = "Debug GOAI Commanders"
+
+	if(isnull(commander))
+		return
+
+	if(amt < 0)
+		to_chat(usr, "Waypoint fuzz must be non-negative!")
+		return
+
+	commander.waypoint_fuzz_tiles_x = amt
+	commander.waypoint_fuzz_tiles_y = amt
+
+	to_chat(usr, "Set Waypoint fuzz for [commander] to: [commander.waypoint_fuzz_tiles_x] / [commander.waypoint_fuzz_tiles_y] (X/Y)")
+
+	return
