@@ -422,43 +422,6 @@
 	max_gas = null
 	minbodytemp = 0
 
-//a more persistent variant of the shadow wight with a different soundset
-/obj/effect/haunter
-	name = "wight"
-	icon = 'icons/mob/mob.dmi'
-	icon_state = "ghost-narsie"
-	density = 1
-
-/obj/effect/haunter/Initialize()
-	. = ..()
-	START_PROCESSING(SSobj, src)
-
-/obj/effect/haunter/Destroy()
-	STOP_PROCESSING(SSobj, src)
-	. = ..()
-
-/obj/effect/haunter/Process()
-	if(src.loc)
-		src.loc = get_turf(pick(orange(1,src)))
-		var/mob/living/carbon/M = locate() in src.loc
-		if(M)
-			playsound(src.loc, pick('sound/hallucinations/growl1.ogg',\
-			'sound/hallucinations/growl2.ogg',\
-			'sound/hallucinations/growl3.ogg',\
-			'sound/effects/ghost.ogg',\
-			'sound/effects/ghost2.ogg',\
-			'sound/hallucinations/wail.ogg',\
-			'sound/hallucinations/veryfar_noise.ogg',\
-			'sound/effects/wind/wind_2_2.ogg',\
-			'sound/effects/wind/wind_3_1.ogg',\
-			'sound/hallucinations/far_noise.ogg',\
-			), 50, 1, -3)
-			//M.sleeping = max(M.sleeping,rand(5,10))
-			if(prob(5))
-				src.loc = null
-	else
-		STOP_PROCESSING(SSobj, src)
-
 //not-faceless that split on death into weaker clones
 /mob/living/simple_animal/hostile/urist/amorph
 	name = "amorph"
