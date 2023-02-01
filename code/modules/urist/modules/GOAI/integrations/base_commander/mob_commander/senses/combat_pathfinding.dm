@@ -479,7 +479,7 @@
 		world.log << "Obstruction exists branch!"
 
 		var/list/common_preconds = list(
-			STATE_NEAR_ATOM(obstruction)
+			STATE_NEAR_ATOM(obstruction) = TRUE
 		)
 
 		handled = owner.HandleWaypointObstruction(

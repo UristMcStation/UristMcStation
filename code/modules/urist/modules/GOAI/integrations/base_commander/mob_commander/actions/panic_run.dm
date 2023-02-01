@@ -93,7 +93,7 @@
 
 		penalty += -threat_dist  // the further from a threat, the better
 
-		var/datum/Quadruple/cover_quad = new(threat_dist*2 - cand_dist, -penalty, -cand_dist, cand)
+		var/datum/Quadruple/cover_quad = new(threat_dist - cand_dist, -penalty, -cand_dist, cand)
 		cover_queue.Enqueue(cover_quad)
 		processed.Add(cand)
 
