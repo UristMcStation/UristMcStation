@@ -200,14 +200,12 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	var/max_damage = 22
 
 
-
 /mob/living/simple_animal/hostile/retaliate/goose/death(gibbed, deathmessage, show_dead_message)
 	. = ..()
 	update_icon()
 
 /mob/living/simple_animal/hostile/retaliate/goose/proc/enrage(potency)
 //	var/obj/item/W = get_natural_weapon()
-		health = (initial(health) * 1.5)
 		maxHealth = (initial(maxHealth) * 1.5)
 		enrage_potency = enrage_potency_loose
 		desc += " The [name] is loose! Oh no!"
@@ -226,8 +224,8 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	melee_damage_upper = 35
 
 /mob/living/simple_animal/hostile/retaliate/goose/doctor
-	name = "\improper Dr. Anatidae"
-	desc = "A large waterfowl, known for its beauty and quick temper when provoked. This one has a nametag, 'Dr. Anatidae'. What an odd Pet.."
+	name = "\improper Dr. Anser"
+	desc = "A large waterfowl, known for its beauty and quick temper when provoked. This one has a nametag, 'Dr. Anser'. What an odd Pet.."
 	icon_state = "goose_labcoat"
 	icon_living = "goose_labcoat"
 	icon_dead = "goose_labcoat_dead"
@@ -276,10 +274,6 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	. = ..()
 	if(damage >= 3)
 		respond_to_damage()
-
-
-
-
 
 /mob/living/simple_animal/opossum/proc/respond_to_damage()
 	if(!resting && stat == CONSCIOUS)
@@ -330,10 +324,9 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /mob/living/simple_animal/opossum/poppy/proc/check_keywords(message)
 	if(!client && stat == CONSCIOUS)
 		message = lowertext(message)
-		
+
 		for(var/aaa in aaa_words)
 			if(findtext(message, aaa))
 				return TRUE
-	
-	return FALSE
 
+	return FALSE
