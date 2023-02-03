@@ -14027,6 +14027,7 @@
 	tag = ""
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/mob/living/simple_animal/hostile/retaliate/goose/doctor,
 /turf/simulated/floor/tiled/white,
 /area/command/seniorntoffice)
 "yn" = (
