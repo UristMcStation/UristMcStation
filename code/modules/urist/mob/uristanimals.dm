@@ -323,13 +323,17 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 /mob/living/simple_animal/opossum/poppy/hear_say(message, verb = "says", datum/language/language = null, alt_name = "",italics = 0, mob/speaker = null, sound/speech_sound, sound_vol)
   . = ..()
-  check_keywords(message)
+  var/keywords_found = check_keywords(message)
+  if(keywords_found)
+      respond_to_damage()
 
 /mob/living/simple_animal/opossum/poppy/proc/check_keywords(message)
 	if(!client && stat == CONSCIOUS)
 		message = lowertext(message)
+		
 		for(var/aaa in aaa_words)
 			if(findtext(message, aaa))
-				respond_to_damage()
-				return
+				return TRUE
+	
+	return FALSE
 
