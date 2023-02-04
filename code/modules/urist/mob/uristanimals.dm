@@ -319,7 +319,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
   . = ..()
   var/keywords_found = check_keywords(message)
   if(keywords_found)
-      respond_to_damage()
+  		respond_to_damage()
 
 /mob/living/simple_animal/opossum/poppy/proc/check_keywords(message)
 	if(!client && stat == CONSCIOUS)
