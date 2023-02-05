@@ -1554,6 +1554,11 @@
 
 //generates realistic-ish pulse output based on preset levels as text
 /mob/living/carbon/human/proc/get_pulse(method)	//method 0 is for hands, 1 is for machines, more accurate
+	# ifdef INCLUDE_URIST_CODE
+	if((urist_status_flags & STATUS_UNDEAD))
+		// 2spoopy4pulse!
+		return "0"
+	# endif
 	var/obj/item/organ/internal/heart/heart_organ = internal_organs_by_name[BP_HEART]
 	if(!heart_organ)
 		// No heart, no pulse
@@ -1572,6 +1577,12 @@
 /mob/living/carbon/human/proc/pulse()
 	if (stat == DEAD)
 		return PULSE_NONE
+
+	# ifdef INCLUDE_URIST_CODE
+	if((urist_status_flags & STATUS_UNDEAD))
+		// 2spoopy4pulse!
+		return PULSE_NONE
+	# endif
 	var/obj/item/organ/internal/heart/H = internal_organs_by_name[BP_HEART]
 	return H ? H.pulse : PULSE_NONE
 
@@ -1631,6 +1642,10 @@
 		. *= (!BP_IS_ROBOTIC(H)) ? pulse()/PULSE_NORM : 1.5
 
 /mob/living/carbon/human/need_breathe()
+	# ifdef INCLUDE_URIST_CODE
+	if(urist_status_flags & STATUS_UNDEAD)
+		return 0
+	# endif
 	if(!(mNobreath in mutations) && species.breathing_organ && should_have_organ(species.breathing_organ))
 		return 1
 	else
@@ -1724,8 +1739,14 @@
 
 //Get fluffy numbers
 /mob/living/carbon/human/proc/get_blood_pressure()
+	# ifdef INCLUDE_URIST_CODE
+	if(urist_status_flags & STATUS_UNDEAD)
+		// You're dead and out of this world!
+		return "0/0"
+	# endif
 	if(status_flags & FAKEDEATH)
 		return "[Floor(120+rand(-5,5))*0.25]/[Floor(80+rand(-5,5)*0.25)]"
+
 	var/blood_result = get_blood_circulation()
 	return "[Floor((120+rand(-5,5))*(blood_result/100))]/[Floor((80+rand(-5,5))*(blood_result/100))]"
 
