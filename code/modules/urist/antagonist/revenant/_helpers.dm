@@ -12,7 +12,7 @@
 /proc/sample_with_weights(var/list/keys2weights, var/weights_total = null)
 	// For you mathier types, this is sampling from a categorical distribution.
 
-	if(istype(keys2weights) || !keys2weights?.len)
+	if(!istype(keys2weights) || !keys2weights?.len)
 		return
 
 	var/total_weights = weights_total

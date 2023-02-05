@@ -29,14 +29,18 @@
 */
 
 GLOBAL_DATUM_INIT(bluespace_revenants, /datum/antagonist/bluespace_revenant, new)
+GLOBAL_LIST(revenant_powerinstances)
 
 
-/proc/isbsrevenant(var/mob/player)
+/proc/isbsrevenant(var/mob/player, var/include_nonantags = TRUE)
 	if(!GLOB.bluespace_revenants || !player.mind)
-		return 0
+		return FALSE
 
 	if(player.mind in GLOB.bluespace_revenants.current_antagonists)
-		return 1
+		return TRUE
+
+	if(include_nonantags && player.mind.bluespace_revenant)
+		return TRUE
 
 
 /datum/antagonist/bluespace_revenant
@@ -50,8 +54,8 @@ GLOBAL_DATUM_INIT(bluespace_revenants, /datum/antagonist/bluespace_revenant, new
 	blacklisted_jobs = list(/datum/job/ai, /datum/job/cyborg, /datum/job/submap)
 	feedback_tag = "revenant_objective"
 
-	//antag_indicator = "hudcultist" // todo
-	antaghud_indicator = "hudcultist" // todo
+	antag_indicator = ""
+	antaghud_indicator = "vampire" // todo
 
 	victory_text = "The revenants survived - and will continue to corrupt reality itself!"
 	loss_text = "The crew managed to eliminate the paranormal threat!"
@@ -65,6 +69,68 @@ GLOBAL_DATUM_INIT(bluespace_revenants, /datum/antagonist/bluespace_revenant, new
 	skill_setter = /datum/antag_skill_setter/station
 
 
-/datum/antagonist/bluespace_revenant/update_antag_mob(var/datum/mind/player)
-	..()
-	player.current.make_bsrevenant() // (in revenant_add_remove.dm)
+
+/datum/power/revenant
+	/* This is an abstract base class for Revenant Hungers and Powers.
+	   Do NOT use this directly, it won't work. It's just to abstract
+	   shared functionality of Hungers and Powers without copypasta.
+	*/
+	// list of tags to determine the overall flavor of the Revenant
+	var/list/flavor_tags
+
+
+/datum/power/revenant/proc/Activate(var/datum/mind/M)
+	if(!M)
+		return FALSE
+
+	var/mob/CM = M.current
+
+	if(!CM || !istype(CM))
+		return FALSE
+
+	if(src.isVerb)
+		if(!(src in CM.verbs))
+			CM.verbs += src.verbpath
+
+	else if(src.verbpath)
+		call(CM, src.verbpath)()
+
+	return TRUE
+
+
+/datum/power/revenant/proc/Deactivate(var/datum/mind/M)
+	if(!M)
+		return TRUE
+
+	var/mob/CM = M.current
+
+	if(!CM || !istype(CM))
+		return TRUE
+
+	if(src.isVerb)
+		if(src in CM.verbs)
+			CM.verbs -= src.verbpath
+
+	else if(src.verbpath)
+		var/reverted = src.revertEffects(M)
+		if(!reverted)
+			return FALSE
+
+	return TRUE
+
+
+/datum/power/revenant/proc/revertEffects(var/datum/mind/M)
+	// Reverts the effects of non-Verb powers.
+	// Override per BSR power/hunger as needed.
+	return TRUE
+
+
+/datum/power/revenant/New(var/list/init_flavor_tags = null)
+	. = ..()
+
+	if(init_flavor_tags && istype(init_flavor_tags))
+		src.flavor_tags = init_flavor_tags
+
+	return
+
+

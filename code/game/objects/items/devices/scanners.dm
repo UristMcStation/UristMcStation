@@ -81,7 +81,11 @@ proc/medical_scan_results(var/mob/living/carbon/human/H, var/verbose)
 	var/brain_result = "normal"
 	if(H.should_have_organ(BP_BRAIN))
 		var/obj/item/organ/internal/brain/brain = H.internal_organs_by_name[BP_BRAIN]
+		# ifdef INCLUDE_URIST_CODE
+		if(!brain || H.stat == DEAD || (H.status_flags & FAKEDEATH) || (H.urist_status_flags & STATUS_UNDEAD))
+		# else
 		if(!brain || H.stat == DEAD || (H.status_flags & FAKEDEATH))
+		# endif
 			brain_result = "<span class='danger'>none, patient is braindead</span>"
 		else if(H.stat != DEAD)
 			if(H.has_brain_worms())

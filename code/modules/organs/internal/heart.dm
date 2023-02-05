@@ -55,7 +55,11 @@
 	if(oxy < BLOOD_VOLUME_BAD) //MOAR
 		pulse_mod++
 
+	# ifdef INCLUDE_URIST_CODE
+	if(owner.status_flags & FAKEDEATH || owner.chem_effects[CE_NOPULSE] || (owner.urist_status_flags & STATUS_UNDEAD))
+	# else
 	if(owner.status_flags & FAKEDEATH || owner.chem_effects[CE_NOPULSE])
+	# endif
 		pulse = Clamp(PULSE_NONE + pulse_mod, PULSE_NONE, PULSE_2FAST) //pretend that we're dead. unlike actual death, can be inflienced by meds
 		return
 

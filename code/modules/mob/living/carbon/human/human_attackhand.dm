@@ -76,7 +76,11 @@
 
 	switch(M.a_intent)
 		if(I_HELP)
+			# ifdef INCLUDE_URIST_CODE
+			if(H != src && istype(H) && (is_asystole() || (status_flags & FAKEDEATH) || (urist_status_flags & STATUS_UNDEAD) || failed_last_breath))
+			# else
 			if(H != src && istype(H) && (is_asystole() || (status_flags & FAKEDEATH) || failed_last_breath))
+			# endif
 				if (!cpr_time)
 					return 0
 
