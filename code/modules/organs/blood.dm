@@ -281,7 +281,11 @@
 
 	var/recent_pump = LAZYACCESS(heart.external_pump, 1) > world.time - (20 SECONDS)
 	var/pulse_mod = 1
+	# ifdef INCLUDE_URIST_CODE
+	if((status_flags & FAKEDEATH) || BP_IS_ROBOTIC(heart) || (urist_status_flags & STATUS_UNDEAD))
+	# else
 	if((status_flags & FAKEDEATH) || BP_IS_ROBOTIC(heart))
+	# endif
 		pulse_mod = 1
 	else
 		switch(heart.pulse)

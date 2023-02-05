@@ -44,3 +44,11 @@ slot_l_ear_str = 'icons/uristmob/l_ear.dmi', slot_r_ear_str = 'icons/uristmob/l_
 //macro
 
 #define isstorage(A)	istype(A, /obj/item/storage)
+
+// used to mark/gate Urist changes from upstream code where we couldn't have a clean module
+// (e.g. Uristcode hooks into preexisting items, mob code, etc.)
+# define INCLUDE_URIST_CODE 1
+
+// Works like FAKEDEATH, but does NOT paralyze the user
+# define STATUS_UNDEAD 0x1000
+
