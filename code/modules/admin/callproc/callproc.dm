@@ -99,6 +99,9 @@
 			clear()
 			return
 
+	else
+		procname = "/proc/[procname]"
+
 	arguments = list()
 	do_args()
 
