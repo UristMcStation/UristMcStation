@@ -3265,6 +3265,7 @@
 #include "code\modules\urist\antagonist\revenant\revenant_datum.dm"
 #include "code\modules\urist\antagonist\revenant\revenant_hungers.dm"
 #include "code\modules\urist\antagonist\revenant\revenant_powers.dm"
+#include "code\modules\urist\antagonist\revenant\revenant_ticker.dm"
 #include "code\modules\urist\antagonist\revenant\archetypes\bluespace.dm"
 #include "code\modules\urist\antagonist\revenant\archetypes\chaotic.dm"
 #include "code\modules\urist\antagonist\revenant\archetypes\chimera.dm"

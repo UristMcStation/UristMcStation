@@ -15,13 +15,12 @@
 	// We increase the weights exponentially. This is the base of the exponent.
 	// 'log-base', because log of base weight_log_base increases linearly
 	// This is to make one option the 'primary' flavor, and the rest spice it up.
-	var/const/weight_log_base = 3
+	var/const/weight_log_base = 2
 
 	// Reserve weight 1 for generic filler, least important
-	var/flavor_weight = weight_log_base
+	var/flavor_weight = weight_log_base * weight_log_base
 
 	var/list/flavors = list()
-	flavors[BSR_FLAVOR_GENERIC] = 1
 
 	while(choices && (flavors.len < safe_amt))
 		var/picked_flavor = pick(choices)
@@ -35,6 +34,8 @@
 	if(flavors.len < safe_amt)
 		to_world_log("WARNING: Bluespace Revenant exhausted all choices before picking the requested amount. Proceeding with the smaller amount available!")
 
+	// Fallback/extra spice - if we have no other choice, pick any power
+	flavors[BSR_FLAVOR_GENERIC] = 1
 	return flavors
 
 
@@ -145,7 +146,7 @@
 
 	src.unlocked_powers += Thepower
 
-	Thepower.Activate()
+	Thepower.Activate(M)
 
 	if(remake_verbs)
 		M.current.make_bsrevenant()

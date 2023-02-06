@@ -167,7 +167,11 @@
 
 	if (src.stat)
 		msg += "[SPAN_WARNING("[T.He] [T.is]n't responding to anything around [T.him] and seems to be unconscious.")]\n"
+		# ifdef INCLUDE_URIST_CODE
+		if((stat == DEAD || is_asystole() || losebreath || status_flags & FAKEDEATH || (src.urist_status_flags & STATUS_UNDEAD)) && distance <= 3)
+		# else
 		if((stat == DEAD || is_asystole() || losebreath || status_flags & FAKEDEATH) && distance <= 3)
+		# endif
 			msg += "[SPAN_WARNING("[T.He] [T.does] not appear to be breathing.")]\n"
 
 	if (fire_stacks > 0)

@@ -11,7 +11,9 @@
 
 
 /mob/proc/revenant_bloodconsume()
-	var/const/suppression_per_bloodsip = 100
+	// We have to assume the defaults are in play for this since we cannot look up the actual BSR datum - and arguably we shouldn't.
+	// 10 mins for 10% blood volume - I guess it's fair? Will balance later as we go vOv.
+	var/const/suppression_per_bloodsip = BSR_SUPPRESSION_IN_MINUTES(10, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
 
 	var/mob/living/L = src
 	var/bloodsip_size = 10
