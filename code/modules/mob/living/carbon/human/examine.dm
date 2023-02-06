@@ -165,7 +165,11 @@
 		distance = get_dist(user,src)
 	if (src.stat)
 		msg += "<span class='warning'>[T.He] [T.is]n't responding to anything around [T.him] and seems to be unconscious.</span>\n"
+		# ifdef INCLUDE_URIST_CODE
+		if((stat == DEAD || is_asystole() || src.losebreath || (src.urist_status_flags & STATUS_UNDEAD)) && distance <= 3)
+		# else
 		if((stat == DEAD || is_asystole() || src.losebreath) && distance <= 3)
+		# endif
 			msg += "<span class='warning'>[T.He] [T.does] not appear to be breathing.</span>\n"
 		if(ishuman(user) && !user.incapacitated() && Adjacent(user))
 			spawn(0)
