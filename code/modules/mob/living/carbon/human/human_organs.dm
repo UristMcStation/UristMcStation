@@ -254,6 +254,10 @@
 	return FALSE
 
 /mob/living/carbon/human/is_asystole()
+	# ifdef INCLUDE_URIST_CODE
+	if(src.urist_status_flags & STATUS_UNDEAD)
+		return FALSE
+	# endif
 	if(isSynthetic())
 		var/obj/item/organ/internal/cell/C = internal_organs_by_name[BP_CELL]
 		if(istype(C))
