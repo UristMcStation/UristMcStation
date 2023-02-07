@@ -37,5 +37,5 @@ var/list/revenant_powers = (typesof(/datum/power/revenant/bs_power) - /datum/pow
 
 
 /datum/bluespace_revenant/proc/select_powers(var/list/flavors_override = null)
-	var/helper_result = src.select_bsrevenant_attributes(flavors_override, /datum/bluespace_revenant/proc/get_powers_by_tag, 5)
+	var/helper_result = src.select_bsrevenant_attributes(flavors_override, /datum/bluespace_revenant/proc/get_powers_by_tag, 5, "Power")
 	return helper_result
