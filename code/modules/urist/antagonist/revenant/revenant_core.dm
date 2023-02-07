@@ -44,7 +44,7 @@ GLOBAL_LIST(revenant_powerinstances)
 
 
 /datum/antagonist/bluespace_revenant
-	welcome_text = "Whether it is by hanging out with the wrong crowd after dark or a mishap of Space Science, you've been... altered. You're not quite *alive*, and by the laws of ordinary physics are not meant to exist. Indulge your horrible compulsions - or face a breakdown of reality that will give you away."
+	welcome_text = "Whether it is by hanging out with the wrong crowd after dark or a mishap of Space Science, you've been... altered. You're not quite *alive*, and by the laws of ordinary physics are not meant to exist. Indulge your horrible compulsions - or face Distortion - a breakdown of reality that will give you away."
 
 	id = MODE_BSREVENANT
 	role_text = "Bluespace Revenant"
@@ -60,77 +60,11 @@ GLOBAL_LIST(revenant_powerinstances)
 	victory_text = "The revenants survived - and will continue to corrupt reality itself!"
 	loss_text = "The crew managed to eliminate the paranormal threat!"
 	victory_feedback_tag = "win - revenant win"
-	loss_feedback_tag = "loss - staff eliminax1ted the revenants"
+	loss_feedback_tag = "loss - staff eliminated the revenants"
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
 	hard_cap = 8
 	hard_cap_round = 12
 	initial_spawn_req = 1
 	initial_spawn_target = 2
 	skill_setter = /datum/antag_skill_setter/station
-
-
-
-/datum/power/revenant
-	/* This is an abstract base class for Revenant Hungers and Powers.
-	   Do NOT use this directly, it won't work. It's just to abstract
-	   shared functionality of Hungers and Powers without copypasta.
-	*/
-	// list of tags to determine the overall flavor of the Revenant
-	var/list/flavor_tags
-
-
-/datum/power/revenant/proc/Activate(var/datum/mind/M)
-	if(!M)
-		return FALSE
-
-	var/mob/CM = M.current
-
-	if(!CM || !istype(CM))
-		return FALSE
-
-	if(src.isVerb)
-		if(!(src in CM.verbs))
-			CM.verbs += src.verbpath
-
-	else if(src.verbpath)
-		call(CM, src.verbpath)()
-
-	return TRUE
-
-
-/datum/power/revenant/proc/Deactivate(var/datum/mind/M)
-	if(!M)
-		return TRUE
-
-	var/mob/CM = M.current
-
-	if(!CM || !istype(CM))
-		return TRUE
-
-	if(src.isVerb)
-		if(src in CM.verbs)
-			CM.verbs -= src.verbpath
-
-	else if(src.verbpath)
-		var/reverted = src.revertEffects(M)
-		if(!reverted)
-			return FALSE
-
-	return TRUE
-
-
-/datum/power/revenant/proc/revertEffects(var/datum/mind/M)
-	// Reverts the effects of non-Verb powers.
-	// Override per BSR power/hunger as needed.
-	return TRUE
-
-
-/datum/power/revenant/New(var/list/init_flavor_tags = null)
-	. = ..()
-
-	if(init_flavor_tags && istype(init_flavor_tags))
-		src.flavor_tags = init_flavor_tags
-
-	return
-
 

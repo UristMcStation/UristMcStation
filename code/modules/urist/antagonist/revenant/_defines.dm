@@ -10,8 +10,10 @@
 // Generic, granular tags; more flexible.
 # define BSR_FLAVOR_DARK "darkness"
 # define BSR_FLAVOR_BLOOD "blood"
+# define BSR_FLAVOR_DEATH "death"
 # define BSR_FLAVOR_SPACE "spatial"
 # define BSR_FLAVOR_FLESH "flesh"
+# define BSR_FLAVOR_PLAGUE "disease"
 # define BSR_FLAVOR_OCCULT "occult"
 # define BSR_FLAVOR_SCIFI "sci-fi"
 
@@ -25,7 +27,7 @@
 # define BSR_FLAVOR_VAMPIRE "vampire"
 
 //# define BSR_ALL_FLAVORS_LIST list(BSR_FLAVOR_BLUESPACE, BSR_FLAVOR_CHIMERA, BSR_FLAVOR_OCCULT, BSR_FLAVOR_DEMONIC, BSR_FLAVOR_VAMPIRE)
-# define BSR_ALL_FLAVORS_LIST list(BSR_FLAVOR_OCCULT, BSR_FLAVOR_VAMPIRE)
+# define BSR_ALL_FLAVORS_LIST list(BSR_FLAVOR_OCCULT, BSR_FLAVOR_VAMPIRE, BSR_FLAVOR_CHIMERA)
 
 // Tracker keys
 # define TRACKER_KEY_WARDS "wards"
@@ -34,6 +36,20 @@
 # define BSR_DEFAULT_DISTORTION_PER_TICK 100
 # define BSR_DEFAULT_DECISECONDS_PER_TICK 100 // 10 seconds
 
-# define BSR_SUPPRESSION_IN_DECISECONDS(_Deciseconds, _DistPerTick, _DecisPerTick) (_Deciseconds * (_DistPerTick / _DecisPerTick))
-# define BSR_SUPPRESSION_IN_SECONDS(_Seconds, _DistPerTick, _DecisPerTick) ( BSR_SUPPRESSION_IN_DECISECONDS(_Seconds * 10, _DistPerTick, _DecisPerTick))
-# define BSR_SUPPRESSION_IN_MINUTES(_Minutes, _DistPerTick, _DecisPerTick) ( BSR_SUPPRESSION_IN_DECISECONDS(_Minutes * 600, _DistPerTick, _DecisPerTick))
+// Helpers; return the integrated growth of Distortion over some amount of ticks given the derivatives
+// Can be used to figure out how much Suppression to apply in terms of gameplay time.
+# define BSR_DISTORTION_GROWTH_OVER_DECISECONDS(_Deciseconds, _DistPerTick, _DecisPerTick) (_Deciseconds * (_DistPerTick / _DecisPerTick))
+# define BSR_DISTORTION_GROWTH_OVER_SECONDS(_Seconds, _DistPerTick, _DecisPerTick) ( BSR_DISTORTION_GROWTH_OVER_DECISECONDS(_Seconds SECONDS, _DistPerTick, _DecisPerTick))
+# define BSR_DISTORTION_GROWTH_OVER_MINUTES(_Minutes, _DistPerTick, _DecisPerTick) ( BSR_DISTORTION_GROWTH_OVER_DECISECONDS(_Minutes MINUTES, _DistPerTick, _DecisPerTick))
+
+// Thresholds for increasing the Distortion radius
+// Might have to put these in config later
+# define BSR_THRESHOLD_RADIUS_THREETILES BSR_DISTORTION_GROWTH_OVER_MINUTES(5, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
+# define BSR_THRESHOLD_RADIUS_FIVETILES BSR_DISTORTION_GROWTH_OVER_MINUTES(30, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
+# define BSR_THRESHOLD_RADIUS_SEVENTILES BSR_DISTORTION_GROWTH_OVER_MINUTES(60, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
+
+# ifdef BSR_DEBUGGING_ENABLED
+# define BSR_DEBUG_LOG(X) to_world_log(X)
+# else
+# define BSR_DEBUG_LOG(X)
+# endif

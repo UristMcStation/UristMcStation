@@ -13,7 +13,7 @@ var/list/revenant_hungers = (typesof(/datum/power/revenant/bs_hunger) - /datum/p
 
 	for(var/P in revenant_hungers)
 
-		var/datum/power/revenant/bs_power/instanceP = GLOB.revenant_powerinstances[P]
+		var/datum/power/revenant/bs_hunger/instanceP = GLOB.revenant_powerinstances[P]
 
 		for(var/flavor_tag in instanceP.flavor_tags)
 			var/list/existing_list = tagged_list[flavor_tag]
@@ -27,5 +27,5 @@ var/list/revenant_hungers = (typesof(/datum/power/revenant/bs_hunger) - /datum/p
 
 
 /datum/bluespace_revenant/proc/select_hungers(var/list/flavors_override = null)
-	var/helper_result = src.select_bsrevenant_attributes(flavors_override, /datum/bluespace_revenant/proc/get_hungers_by_tag, 1)
+	var/helper_result = src.select_bsrevenant_attributes(flavors_override, /datum/bluespace_revenant/proc/get_hungers_by_tag, 1, "Hunger")
 	return helper_result
