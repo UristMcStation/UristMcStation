@@ -3255,7 +3255,7 @@
 #include "code\modules\urist\admin\admin_poll.dm"
 #include "code\modules\urist\admin\verbs.dm"
 #include "code\modules\urist\antagonist\conspiracies.dm"
-#include "code\modules\urist\antagonist\revenant\__debug.dm"
+#include "code\modules\urist\antagonist\revenant\__revenant_debug.dm"
 #include "code\modules\urist\antagonist\revenant\_defines.dm"
 #include "code\modules\urist\antagonist\revenant\_helpers.dm"
 #include "code\modules\urist\antagonist\revenant\distortion.dm"
