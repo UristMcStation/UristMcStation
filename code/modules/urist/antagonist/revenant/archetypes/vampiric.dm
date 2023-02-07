@@ -128,6 +128,8 @@
 /datum/power/revenant/bs_hunger/bloodthirsty
 	flavor_tags = list(
 		BSR_FLAVOR_VAMPIRE,
+		BSR_FLAVOR_DEMONIC,
+		BSR_FLAVOR_OCCULT,
 		BSR_FLAVOR_GENERIC
 	)
 	activate_message = "<span class='notice'>You've developed an unnatural thirst for humanoid blood. With an effort of will, you can digest any blood you drink to stabilize your Distortion gain.</span>"
@@ -139,9 +141,44 @@
 /datum/power/revenant/bs_power/undead
 	flavor_tags = list(
 		BSR_FLAVOR_VAMPIRE,
+		BSR_FLAVOR_DEMONIC,
+		BSR_FLAVOR_PLAGUE,
 		BSR_FLAVOR_GENERIC
 	)
 	activate_message = "<span class='warning'>Something's very wrong... You seem to have lost all vital signs - but somehow it doesn't seem to be much of a problem to you!</span>"
 	name = "Undead"
 	isVerb = FALSE
 	verbpath = /mob/proc/revenant_undeadify
+
+
+/datum/power/revenant/distortion/bats
+	flavor_tags = list(
+		BSR_FLAVOR_VAMPIRE
+	)
+	name = "DISTORTION - Bats!"
+
+
+/datum/power/revenant/distortion/bats/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+	if(isnull(A) || !istype(A))
+		return
+
+	var/turf/T = get_turf(A)
+	if(!istype(T))
+		return
+
+	var/obj/effect/gateway/hole = new(T)
+	hole.density = 0
+
+	var/list/possible_spawns = list(
+		/mob/living/simple_animal/hostile/scarybat,
+	)
+
+	var/spawn_type = pick(possible_spawns)
+
+	QDEL_IN(hole, 30 SECONDS)
+
+	spawn(rand(0, 15 SECONDS))
+		var/mob/living/L = new spawn_type(T)
+		L.visible_message("<span class='warning'>\A [L] escapes from the portal!</span>")
+
+	return TRUE

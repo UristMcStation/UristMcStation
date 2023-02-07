@@ -19,9 +19,10 @@ var/list/revenant_hungers = (typesof(/datum/power/revenant/bs_hunger) - /datum/p
 			var/list/existing_list = tagged_list[flavor_tag]
 
 			if(isnull(existing_list))
-				tagged_list[flavor_tag] = list()
+				existing_list = list()
 
-			tagged_list[flavor_tag] += P
+			existing_list += instanceP
+			tagged_list[flavor_tag] = existing_list
 
 	return tagged_list
 

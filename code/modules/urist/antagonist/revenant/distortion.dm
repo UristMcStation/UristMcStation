@@ -93,23 +93,29 @@
 	var/end_z = min(world.maxy, src_turf.z + safe_distortion_radius_z)
 
 	var/curr_bsrev_effective_distortion = (src.get_effective_distortion() || 0)
-	var/distortion_base_rate = 0.1 * log(100, curr_bsrev_effective_distortion) // 0.1% per tick, roughly
+	var/distortion_base_rate = (curr_bsrev_effective_distortion ** 0.5) / 100
 
 	var/total_per_turf_distortion = distortion_base_rate * ticks
 
-	//spawn(0)
-		// Fork off so we don't block stuff if this takes a while.
 	var/turf/startTurf = locate(start_x, start_y, start_z)
 	var/turf/endTurf = locate(end_x, end_y, end_z)
 
-	for(var/turf/simulated/T in block(startTurf, endTurf))
-		// Let's only do simulated turfs for now - potentially less work & won't mess up eventey bits
-		if(!istype(T))
-			BSR_DEBUG_LOG("BSR: Block item [T] is not a valid sim turf")
-			continue
+	spawn(0)
+		// Fork off so we don't block stuff if this takes a while.
 
-		BSR_DEBUG_LOG("BSR: SpreadDistortion processing turf [T], adding [total_per_turf_distortion] Distortion")
-		T.reality_distortion += total_per_turf_distortion
-		src.HandleDistortionFX(T)
+		for(var/turf/simulated/T in block(startTurf, endTurf))
+			// Let's only do simulated turfs for now - potentially less work & won't mess up eventey bits
+			if(!istype(T))
+				BSR_DEBUG_LOG("BSR: Block item [T] is not a valid sim turf")
+				continue
+
+			var/manhattan_dist = (abs(T.x - src_turf.x) + abs(T.y - src_turf.y))
+			if(manhattan_dist > safe_distortion_radius_xy)
+				BSR_DEBUG_LOG("BSR: Block item [T] - outside of Manhattan Distance range")
+				continue
+
+			BSR_DEBUG_LOG("BSR: SpreadDistortion processing turf [T], adding [total_per_turf_distortion] Distortion")
+			T.reality_distortion += total_per_turf_distortion
+			src.HandleDistortionFX(T)
 
 	return

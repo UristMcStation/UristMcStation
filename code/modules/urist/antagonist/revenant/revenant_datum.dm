@@ -61,6 +61,12 @@
 	src.hungers = (isnull(hungers_override) ? src.select_hungers() : hungers_override)
 	src.distortions = (isnull(distortions_override) ? src.select_distortions() : distortions_override)
 
+	if(!istype(M) && src.mob_ref)
+		M = src.mob_ref.resolve()
+
+	if(!istype(M))
+		return
+
 	if(!(M?.mind))
 		return
 
@@ -81,6 +87,19 @@
 	M.make_bsrevenant()
 
 	return TRUE
+
+
+/datum/bluespace_revenant/proc/AddCallback(var/callback)
+	if(!istype(src.callbacks))
+		src.callbacks = list()
+
+	if(isnull(callback))
+		return
+
+	if(!callback in src.callbacks)
+		src.callbacks.Add(callback)
+
+	return src
 
 
 /datum/bluespace_revenant/proc/Init(var/mob/M, var/list/flavors_override = null, var/list/powers_override = null, var/list/hungers_override = null)

@@ -22,6 +22,7 @@ var/list/revenant_distortions = (typesof(/datum/power/revenant/distortion) - /da
 		src.initialize_powerinstances()
 
 	for(var/P in revenant_distortions)
+		BSR_DEBUG_LOG("BSR: get_distortions_by_tag - processing [P]")
 
 		var/datum/power/revenant/distortion/instanceP = GLOB.revenant_powerinstances[P]
 
@@ -29,15 +30,26 @@ var/list/revenant_distortions = (typesof(/datum/power/revenant/distortion) - /da
 			var/list/existing_list = tagged_list[flavor_tag]
 
 			if(isnull(existing_list))
-				tagged_list[flavor_tag] = list()
+				existing_list = list()
 
-			tagged_list[flavor_tag] += P
+			existing_list += instanceP
+			tagged_list[flavor_tag] = existing_list
+			BSR_DEBUG_LOG("BSR: get_distortions_by_tag - added [instanceP] to a list for [flavor_tag]")
 
 	return tagged_list
 
 
 /datum/bluespace_revenant/proc/select_distortions(var/list/flavors_override = null)
-	var/helper_result = src.select_bsrevenant_attributes(flavors_override, /datum/bluespace_revenant/proc/get_distortions_by_tag, 8, "Distortion")
+	var/list/helper_result = src.select_bsrevenant_attributes(flavors_override, /datum/bluespace_revenant/proc/get_distortions_by_tag, 3, "Distortion")
+	if(!istype(helper_result))
+		helper_result = list()
+
+	if(!helper_result.len)
+		BSR_DEBUG_LOG("BSR: No Distortions were rolled by tag; picking a random one as a fallback!")
+		var/rawD = pick(revenant_distortions)
+		var/datum/power/revenant/distortion/instanceD = GLOB.revenant_powerinstances[rawD]
+		helper_result.Add(instanceD)
+
 	return helper_result
 
 
@@ -46,11 +58,11 @@ var/list/revenant_distortions = (typesof(/datum/power/revenant/distortion) - /da
 		return FALSE
 
 	// Maximum %chance of triggering a Distortion PER TURF - so, this should be fairly low
-	var/const/max_chance_per_turf = 10
+	var/const/max_chance_per_turf = BSR_DEFAULT_MAXPERC_PER_TURF
 
 	// The point where the odds will be max_chance_per_turf * 0.5
 	// Note this DOES NOT hold linearly; e.g. if x=100 => 50%, x=200 => ...66%!
-	var/const/halfway_point = 200
+	var/const/halfway_point = BSR_DEFAULT_HALFWAY_PER_TURF
 
 	// This funny-looking formula is not random; this is an additive smoother calibrated to return %odds.
 	// This gives us a nice, smooth function that rises steadily to a maximum without ever quite reaching it
@@ -73,11 +85,23 @@ var/list/revenant_distortions = (typesof(/datum/power/revenant/distortion) - /da
 	var/should_distort = src.roll_for_effects(current_dist)
 
 	if(should_distort)
+		BSR_DEBUG_LOG("BSR: ApplyDistortionFX running...")
 		var/result = src.ApplyDistortionFX(A)
 		// reset Distortion
 		if(result)
 			T.reality_distortion = 0
 			return TRUE
+
+
+	var/quart_curr_dist = (current_dist / 4)
+
+	if(current_dist > BSR_DEFAULT_HALFWAY_PER_TURF)
+		for(var/turf/simulated/NT in T.AdjacentTurfs(FALSE))
+			if(NT.reality_distortion < quart_curr_dist)
+				// diffuse Distortion to the nearest lower-Dist neighbor
+				NT.reality_distortion += quart_curr_dist
+				T.reality_distortion -= quart_curr_dist
+				break
 
 	return
 
