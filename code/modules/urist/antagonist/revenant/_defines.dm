@@ -33,11 +33,14 @@
 # define TRACKER_KEY_WARDS "wards"
 
 // const-ey things
+# define BSR_DEFAULT_MAXPERC_PER_TURF 10
+# define BSR_DEFAULT_HALFWAY_PER_TURF 200
 # define BSR_DEFAULT_DISTORTION_PER_TICK 100
 # define BSR_DEFAULT_DECISECONDS_PER_TICK 100 // 10 seconds
 
 // Helpers; return the integrated growth of Distortion over some amount of ticks given the derivatives
 // Can be used to figure out how much Suppression to apply in terms of gameplay time.
+
 # define BSR_DISTORTION_GROWTH_OVER_DECISECONDS(_Deciseconds, _DistPerTick, _DecisPerTick) (_Deciseconds * (_DistPerTick / _DecisPerTick))
 # define BSR_DISTORTION_GROWTH_OVER_SECONDS(_Seconds, _DistPerTick, _DecisPerTick) ( BSR_DISTORTION_GROWTH_OVER_DECISECONDS(_Seconds SECONDS, _DistPerTick, _DecisPerTick))
 # define BSR_DISTORTION_GROWTH_OVER_MINUTES(_Minutes, _DistPerTick, _DecisPerTick) ( BSR_DISTORTION_GROWTH_OVER_DECISECONDS(_Minutes MINUTES, _DistPerTick, _DecisPerTick))

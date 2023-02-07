@@ -109,7 +109,7 @@
 	return flavors
 
 
-/datum/bluespace_revenant/proc/select_bsrevenant_attributes(var/list/flavors_override = null, var/options_callable = null, var/count = 1, var/identifier = "attribute")
+/datum/bluespace_revenant/proc/select_bsrevenant_attributes(var/list/flavors_override = null, var/options_callable = null, var/count = 1, var/identifier = "attribute", var/abort_on_flv_miss = FALSE)
 	// This is a generic helper used by Power/Hunger/Distortions procgen
 
 	if(isnull(options_callable))
@@ -158,21 +158,23 @@
 			break
 
 		var/list/flavor_powers = power_options[rolled_flavor]
-		if(flavor_powers)
-			// Avoid mutating power options in-place
-			flavor_powers = flavor_powers.Copy()
 
-		if(isnull(flavor_powers))
-			to_world_log("BLUESPACE REVENANT: Flavor [rolled_flavor] does not correspond to a valid option. This should never happen, aborting [identifier] selection!")
+		if(isnull(flavor_powers) && abort_on_flv_miss)
+			to_world_log("BLUESPACE REVENANT: Flavor [rolled_flavor] does not correspond to a valid option in [power_options] ([power_options?.len]). This should never happen, aborting [identifier] selection!")
 			break
 
-		for(var/rawFP in flavor_powers)
-			var/datum/power/revenant/FP = GLOB.revenant_powerinstances[rawFP]
+		else
+			BSR_DEBUG_LOG("BSR: falling back to a generic set for [identifier] flavor [rolled_flavor]!")
+			flavor_powers = generic_powers
+
+		for(var/datum/power/revenant/FP in flavor_powers)
 
 			if(!istype(FP))
+				BSR_DEBUG_LOG("BSR: skipping [identifier] [FP] - wrong type!")
 				continue
 
 			if(FP in powerset)
+				BSR_DEBUG_LOG("BSR: skipping [identifier] [FP] - already selected!")
 				continue
 
 			pickable_powers.Add(FP)
@@ -212,7 +214,7 @@
 				Thepower = P
 
 	if(Thepower == null)
-		to_chat(M.current, "This is awkward.  Revenant [identifier] unlock failed for `[Pname]`, please report this bug to a coder!")
+		to_chat(M.current, "This is awkward.  Revenant unlock failed for [identifier] `[Pname]`, please report this bug to a coder!")
 		return
 
 	if(Thepower in src.unlocked_powers)

@@ -1,7 +1,6 @@
 
 /datum/power/revenant/bs_power
 
-
 /*
 /datum/power			//Could be used by other antags too
 	var/name = "Power"
@@ -29,9 +28,10 @@ var/list/revenant_powers = (typesof(/datum/power/revenant/bs_power) - /datum/pow
 			var/list/existing_list = tagged_list[flavor_tag]
 
 			if(isnull(existing_list))
-				tagged_list[flavor_tag] = list()
+				existing_list = list()
 
-			tagged_list[flavor_tag] += P
+			existing_list += instanceP
+			tagged_list[flavor_tag] = existing_list
 
 	return tagged_list
 

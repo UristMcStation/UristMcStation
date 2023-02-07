@@ -6,7 +6,7 @@
 /obj/effect/effect/smoke/mist
 	name = "fog"
 	opacity = 0
-	alpha = 128
+	alpha = 64
 	time_to_live = 1000
 
 
@@ -19,6 +19,7 @@
 		BSR_FLAVOR_OCCULT,
 		BSR_FLAVOR_CULTIST,
 		BSR_FLAVOR_DEMONIC,
+		BSR_FLAVOR_VAMPIRE,
 		BSR_FLAVOR_GENERIC
 	)
 	name = "DISTORTION: Fogweaver"
@@ -41,6 +42,35 @@
 
 
 
+/datum/power/revenant/distortion/techdiscord
+	flavor_tags = list(
+		BSR_FLAVOR_GENERIC,
+		BSR_FLAVOR_SCIFI,
+		BSR_FLAVOR_BLUESPACE
+	)
+	name = "DISTORTION: Machine Discord"
+
+
+/datum/power/revenant/distortion/techbane/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+	// Technology does not like us - sparks.
+	if(isnull(A) || !istype(A))
+		return
+
+	var/turf/T = get_turf(A)
+	if(!istype(T))
+		return
+
+	var/obj/machinery/angerymachine = locate() in T
+	if(!istype(angerymachine))
+		return FALSE
+
+	var/datum/effect/effect/system/spark_spread/sparkFX = new()
+	sparkFX.set_up(3, 0, T)
+	sparkFX.start()
+
+	return TRUE
+
+
 /datum/power/revenant/distortion/techbane
 	flavor_tags = list(
 		BSR_FLAVOR_GENERIC,
@@ -51,6 +81,7 @@
 
 
 /datum/power/revenant/distortion/techbane/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+	// Technology *hates* us - EMP and sparks.
 	if(isnull(A) || !istype(A))
 		return
 
@@ -58,6 +89,94 @@
 	if(!istype(T))
 		return
 
-	empulse(T, 0, 1)
+	var/empIsSafe = TRUE
+
+	var/mob/M = null
+	if(istype(revenant))
+		M = revenant?.mob_ref?.resolve()
+
+	if(istype(M))
+		empIsSafe = (get_dist(T, M) > 2)
+
+	var/datum/effect/effect/system/spark_spread/sparkFX = new()
+	sparkFX.set_up(3, 0, T)
+	sparkFX.start()
+
+	if(empIsSafe)
+		// we do NOT want to EMP part-mechanical BSRs randomly, because that's no fun.
+		empulse(T, 0, 1)
 
 	return TRUE
+
+
+/datum/power/revenant/distortion/lightflicker
+	flavor_tags = list(
+		BSR_FLAVOR_GENERIC,
+		BSR_FLAVOR_SCIFI,
+		BSR_FLAVOR_DARK,
+		BSR_FLAVOR_DEMONIC,
+		BSR_FLAVOR_BLUESPACE
+	)
+	name = "DISTORTION: Flicker Fluorescents"
+
+
+/datum/power/revenant/distortion/lightflicker/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+	// Flicker lights
+	if(isnull(A) || !istype(A))
+		return
+
+	var/turf/T = get_turf(A)
+	if(!istype(T))
+		return
+
+	for(var/datum/light_source/LS in T.affecting_lights)
+		var/obj/machinery/light/FL = LS.source_atom
+
+		if(istype(FL))
+			FL.flicker(3)
+
+	return TRUE
+
+
+//Recover from stuns.
+/mob/proc/bsrevenant_unstun()
+	set category = "Anomalous Powers"
+	set name = "Unnatural Recovery"
+	set desc = "Removes all stuns"
+
+	var/mob/living/carbon/human/C = src
+	if(!istype(C))
+		return
+
+	if(C.stat == DEAD)
+		to_chat(src, "<span class='notice'>A bit too late for that now, don't you think?</span>")
+		return
+
+	// Ling pasta :^)
+	C.set_stat(CONSCIOUS)
+	C.SetParalysis(0)
+	C.SetStunned(0)
+	C.SetWeakened(0)
+	C.lying = 0
+	C.UpdateLyingBuckledAndVerbStatus()
+
+	src.verbs -= /mob/proc/bsrevenant_unstun
+	spawn(5)	src.verbs += /mob/proc/bsrevenant_unstun
+
+	var/datum/bluespace_revenant/revenant = src?.mind?.bluespace_revenant
+	if(revenant)
+		revenant.total_distortion += BSR_DISTORTION_GROWTH_OVER_MINUTES(5, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
+		to_chat(src, "<span class='notice'>You feel the grip of reality on you loosen...</span>")
+
+	SSstatistics.add_field_details("bsrevenant_powers","UNS")
+	return 1
+
+
+/datum/power/revenant/bs_power/unstun
+	flavor_tags = list(
+		BSR_FLAVOR_GENERIC
+	)
+	activate_message = "<span class='notice'>You can force your body into impossible motion, even when stunned - at the cost of significant reality slippage.</span>"
+	name = "Unstun"
+	isVerb = TRUE
+	verbpath = /mob/proc/bsrevenant_unstun

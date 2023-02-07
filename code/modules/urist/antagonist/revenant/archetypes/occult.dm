@@ -216,7 +216,7 @@
 		M.bluespace_revenant.callbacks = list()
 
 	if(!(/datum/bluespace_revenant/proc/ProcessRuneWards in M.bluespace_revenant.callbacks))
-		M.bluespace_revenant.callbacks.Add(/datum/bluespace_revenant/proc/ProcessRuneWards)
+		M.bluespace_revenant.AddCallback(/datum/bluespace_revenant/proc/ProcessRuneWards)
 
 	return
 
@@ -252,3 +252,54 @@
 		T.cultify()
 
 	return TRUE
+
+
+/datum/power/revenant/distortion/veil_tear
+	flavor_tags = list(
+		BSR_FLAVOR_OCCULT,
+		BSR_FLAVOR_CULTIST,
+		BSR_FLAVOR_DEMONIC,
+		BSR_FLAVOR_GENERIC
+	)
+	name = "DISTORTION - Veil Tear"
+
+
+/datum/power/revenant/distortion/veil_tear/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+	if(isnull(A) || !istype(A))
+		return
+
+	var/turf/T = get_turf(A)
+	if(!istype(T))
+		return
+
+	if(!istype(revenant))
+		return
+
+	if(!istype(revenant.trackers))
+		revenant.trackers = list()
+
+	var/previous_time = revenant.trackers["last veil tear time"]
+	var/current_time = world.time
+
+
+	var/obj/effect/gateway/hole = new(T)
+	hole.density = 0
+
+	QDEL_IN(hole, 30 SECONDS)
+
+	if(isnull(previous_time) || ((current_time - previous_time) > 1 MINUTES))
+		revenant.trackers["last veil tear time"] = current_time
+
+		spawn(rand(5, 25 SECONDS))
+			var/list/possible_spawns = list(
+				/mob/living/simple_animal/hostile/urist/imp,
+				/mob/living/simple_animal/hostile/scarybat/cult,
+				/mob/living/simple_animal/hostile/faithless/cult
+			)
+			var/spawn_type = pick(possible_spawns)
+			var/mob/living/L = new spawn_type(T)
+			L.visible_message("<span class='warning'>\A [L] escapes from the portal!</span>")
+
+
+	return TRUE
+

@@ -64,7 +64,6 @@
 
 
 /datum/power/revenant/distortion/wallrot
-	// will make an *IN*voluntary one as a Distortion  later
 	flavor_tags = list(
 		BSR_FLAVOR_CHIMERA,
 		BSR_FLAVOR_GENERIC,
@@ -88,3 +87,55 @@
 
 	W.rot()
 	return TRUE
+
+
+
+//Grows a scary, and powerful arm blade.
+/mob/proc/bsrevenant_minor_heal()
+	set name = "Fleshmend"
+	set category = "Anomalous Powers"
+	set desc = "."
+
+	// if TRUE, we're still waiting for a handler
+	var/pending = TRUE
+
+	var/mob/living/carbon/human/H = src
+
+	if(pending && istype(H))
+		H.adjustBruteLoss(-5)
+		H.adjustToxLoss(-5)
+		H.adjustOxyLoss(-5)
+		H.adjustFireLoss(-5)
+		pending = FALSE
+
+		for(var/obj/item/organ/external/E in H.bad_external_organs)
+			if((E.status & ORGAN_ARTERY_CUT) && prob(10))
+				to_chat(H, SPAN_NOTICE("You mend the torn artery in your [E.name], stemming the worst of the bleeding."))
+				E.status &= ~ORGAN_ARTERY_CUT
+
+			for(var/datum/wound/W in E.wounds)
+				if(W.bleeding() && prob(10))
+					W.bleed_timer = 0
+					E.status &= ~ORGAN_BLEEDING
+					to_chat(H, SPAN_NOTICE("You knit together severed veins, stemming the bleeding from your [E.name]."))
+
+	if(!pending)
+		var/datum/bluespace_revenant/revenant = src?.mind?.bluespace_revenant
+		if(istype(revenant))
+			revenant.total_distortion += BSR_DISTORTION_GROWTH_OVER_MINUTES(1, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
+
+	return !pending
+
+
+/datum/power/revenant/bs_power/minorheal
+	flavor_tags = list(
+		BSR_FLAVOR_CHIMERA,
+		BSR_FLAVOR_VAMPIRE,
+		BSR_FLAVOR_GENERIC,
+		BSR_FLAVOR_FLESH,
+		BSR_FLAVOR_SCIFI,
+	)
+	activate_message = "<span class='notice'>You have an uncanny healing factor. You can heal minor damage and even stop bleeding - all at the low low price of just a little bit of damage to the local laws of physics.</span>"
+	name = "Fleshmend"
+	isVerb = TRUE
+	verbpath = /mob/proc/bsrevenant_minor_heal
