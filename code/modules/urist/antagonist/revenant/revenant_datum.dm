@@ -83,6 +83,9 @@
 		BSR_DEBUG_LOG("Proccing power [P] for unlockPower")
 		src.unlockPower(M.mind, P, 0)
 
+	// Insight is a free power, because Stat() is ugly and slow
+	src.unlockPower(M.mind, /datum/power/revenant/bs_power/bsrevenant_insight, 0)
+
 	// Rebuild verbs to account for added stuff
 	M.make_bsrevenant()
 

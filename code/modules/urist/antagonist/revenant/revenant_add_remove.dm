@@ -32,7 +32,7 @@
 			if(!(P in src.verbs))
 				src.verbs += P.verbpath
 
-	return 1
+	return TRUE
 
 
 //removes our Revenant verbs
@@ -64,11 +64,11 @@
 		return
 
 	// force-rebuild in case somehow one BSR can turn another
-	M.make_bsrevenant(null, src.power_set, src.flavors, src.hungers, TRUE)
+	var/revenantified = M.make_bsrevenant(null, src.power_set, src.flavors, src.hungers, TRUE)
 
-	if(as_antag && M.mind)
+	if(as_antag && M.mind && revenantified)
 		// This will call M.make_bsrevenant again, but it's set up to just reuse
 		//  the original setup if it's already been done, so it's all good.
 		GLOB.bluespace_revenants.add_antagonist(M.mind)
 
-	return 1
+	return revenantified
