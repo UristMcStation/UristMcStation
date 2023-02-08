@@ -41,10 +41,20 @@
 		to_world_log("BSR: Spatial Instability - AposY is null")
 		return
 
-	var/newPosX = clamp(AposX + rand(-2, 2), 0, world.maxx)
-	var/newPosY = clamp(AposY + rand(-2, 2), 0, world.maxx)
+	var/turf/T = null
 
-	var/turf/T = locate(newPosX, newPosY, A.z)
+	for(var/tries = 0, tries < 3, tries++)
+		var/newPosX = clamp(AposX + rand(-2, 2), 0, world.maxx)
+		var/newPosY = clamp(AposY + rand(-2, 2), 0, world.maxx)
+
+		T = locate(newPosX, newPosY, A.z)
+
+		if(!istype(T))
+			continue
+
+		if(T.density)
+			continue
+
 	if(!istype(T))
 		return
 
@@ -53,7 +63,7 @@
 		return
 
 	M.dizziness += rand(1, 3)
-	to_chat(M, "<span class='warning'>You feel dizzy as your body suddenly jostles through spacetime!</span>")
+	to_chat(M, SPAN_WARNING("You feel dizzy as your body suddenly jostles through spacetime!"))
 	M.buckled = null
 	M.forceMove(T)
 
@@ -114,6 +124,8 @@
 	return 1
 
 
+/*
+Proc needs to be fixed, it fails to locate a dest
 /datum/power/revenant/bs_power/areaportal
 	flavor_tags = list(
 		BSR_FLAVOR_GENERIC,
@@ -124,8 +136,8 @@
 	name = "Bluespace Tunnelling"
 	isVerb = TRUE
 	verbpath = /mob/proc/bsrevenant_portal
-	activate_message = "<span class='notice'>You and Euclidean space have an open relationship. With some effort, you can fold space, creating temporary portals between areas.</span>"
-
+	activate_message = SPAN_NOTICE("You and Euclidean space have an open relationship. With some effort, you can fold space, creating temporary portals between areas.")
+*/
 
 
 /mob/proc/bsrevenant_digitalcamo()
@@ -149,14 +161,14 @@
 
 
 	if(C.digitalcamo)
-		to_chat(C, "<span class='notice'>You return to normal.</span>")
+		to_chat(C, SPAN_NOTICE("You return to normal."))
 		C.digitalcamo -= stored_camo
 
 		if(istype(revenant))
 			revenant.trackers["stored digital camo"] = 0
 
 	else
-		to_chat(C, "<span class='notice'>You Distort your form to prevent AI-tracking.</span>")
+		to_chat(C, SPAN_NOTICE("You Distort your form to prevent AI-tracking."))
 		C.digitalcamo = ( (isnull(C.digitalcamo) ? 0 : C.digitalcamo) + 1 )
 
 		if(istype(revenant))
@@ -195,7 +207,7 @@
 	name = "Anomalous Digicamo"
 	isVerb = TRUE
 	verbpath = /mob/proc/bsrevenant_digitalcamo
-	activate_message = "<span class='notice'>Cameras seem to act erratically around you. If you allow reality to bend a bit harder, you could amplify this effect and disrupt their tracking systems...</span>"
+	activate_message = ("<span class='notice'>Cameras seem to act erratically around you. If you allow reality to bend a bit harder, you could amplify this effect and disrupt their tracking systems...</span>")
 
 
 /datum/power/revenant/bs_power/digicamo/Activate(var/datum/mind/M)

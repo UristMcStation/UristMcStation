@@ -149,7 +149,7 @@
 		return
 
 	if(C.stat == DEAD)
-		to_chat(src, "<span class='notice'>A bit too late for that now, don't you think?</span>")
+		to_chat(src, SPAN_NOTICE("A bit too late for that now, don't you think?"))
 		return
 
 	// Ling pasta :^)
@@ -166,7 +166,7 @@
 	var/datum/bluespace_revenant/revenant = src?.mind?.bluespace_revenant
 	if(revenant)
 		revenant.total_distortion += BSR_DISTORTION_GROWTH_OVER_MINUTES(5, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
-		to_chat(src, "<span class='notice'>You feel the grip of reality on you loosen...</span>")
+		to_chat(src, SPAN_NOTICE("You feel the grip of reality on you loosen..."))
 
 	SSstatistics.add_field_details("bsrevenant_powers","UNS")
 	return 1
@@ -176,7 +176,52 @@
 	flavor_tags = list(
 		BSR_FLAVOR_GENERIC
 	)
-	activate_message = "<span class='notice'>You can force your body into impossible motion, even when stunned - at the cost of significant reality slippage.</span>"
+	activate_message = ("<span class='notice'>You can force your body into impossible motion, even when stunned - at the cost of significant reality slippage.</span>")
 	name = "Unstun"
 	isVerb = TRUE
 	verbpath = /mob/proc/bsrevenant_unstun
+
+
+
+//Recover from stuns.
+/mob/proc/bsrevenant_insight()
+	set category = "Anomalous Powers"
+	set name = "Insight"
+	set desc = "Gives you a sense of local reality distortion levels."
+
+	var/mob/living/carbon/C = src
+
+	if(!istype(C))
+		return
+
+	if(C.stat == DEAD)
+		return
+
+	var/datum/bluespace_revenant/revenant = src?.mind?.bluespace_revenant
+	if(!istype(revenant))
+		return
+
+	var/total_dist = (revenant.last_tick_distortion_total || 0)
+	var/total_tiles = (revenant.last_tick_distortion_tiles || 0)
+
+	var/odds = 0
+	if(total_tiles)
+		var/avg_dist = total_dist / total_tiles
+		odds = round((revenant.roll_for_effects(avg_dist) || 0), 0.1)
+
+	switch(odds)
+		if(0 to 2)
+			to_chat(src, SPAN_NOTICE("You sense local reality is fairly stable."))
+		if(3 to 8)
+			to_chat(src, SPAN_WARNING("You sense reality is starting to crack around here..."))
+		else
+			to_chat(src, SPAN_DANGER("You sense reality is severely disturbed here!"))
+	return 1
+
+
+/datum/power/revenant/bs_power/bsrevenant_insight
+	flavor_tags = list() // everyone gets it for free
+	activate_message = "<span class='notice'>You can sense the general level of reality distortion around you.</span>"
+	name = "Distortion Insight"
+	isVerb = TRUE
+	verbpath = /mob/proc/bsrevenant_insight

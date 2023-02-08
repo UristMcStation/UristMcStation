@@ -33,7 +33,7 @@
 	flavor_tags = list(
 		BSR_FLAVOR_CHAOTIC,
 	)
-	activate_message = "<span class='warning'>Even for a walking anomaly, you're a total mess. Your phenomena will periodically change randomly.</span>"
+	activate_message = ("<span class='warning'>Even for a walking anomaly, you're a total mess. Your phenomena will periodically change randomly.</span>")
 	name = "Ontological Instability"
 	isVerb = FALSE
 

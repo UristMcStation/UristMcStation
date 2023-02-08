@@ -22,7 +22,7 @@
 	var/mob/living/carbon/human/M = src
 
 	if(M.l_hand && M.r_hand) //Make sure our hands aren't full.
-		src << "<span class='warning'>Your hands are full.  Drop something first.</span>"
+		to_chat(src,SPAN_WARNING("Your hands are full.  Drop something first."))
 		return 0
 
 	var/obj/item/weapon/W = new weapon_type(src)
@@ -56,7 +56,7 @@
 		BSR_FLAVOR_FLESH,
 		BSR_FLAVOR_SCIFI,
 	)
-	activate_message = "<span class='notice'>You realize that anatomy is more of a suggestion than a hard rule for you. You can now twist your flesh into a vicious arm-blade - but it won't be pleasant and it will increase your Distortion.</span>"
+	activate_message = ("<span class='notice'>You realize that anatomy is more of a suggestion than a hard rule for you. You can now twist your flesh into a vicious arm-blade - but it won't be pleasant and it will increase your Distortion.</span>")
 	name = "Arm Blade"
 	isVerb = TRUE
 	verbpath = /mob/proc/bsrevenant_arm_blade
@@ -94,7 +94,7 @@
 /mob/proc/bsrevenant_minor_heal()
 	set name = "Fleshmend"
 	set category = "Anomalous Powers"
-	set desc = "."
+	set desc = "Heal minor damage, chance to stop bleeding."
 
 	// if TRUE, we're still waiting for a handler
 	var/pending = TRUE
