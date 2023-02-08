@@ -3344,6 +3344,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/mob/living/simple_animal/opossum/poppy,
 /turf/simulated/floor/tiled/dark,
 /area/command/ce)
 "gC" = (
@@ -17153,9 +17154,9 @@
 	dir = 4
 	},
 /obj/structure/closet/crate,
+/obj/random/clown,
 /obj/item/device/megaphone/clown,
 /obj/item/soundsynth,
-/obj/random/clown,
 /turf/simulated/floor/plating,
 /area/civilian/entertainer)
 "UR" = (

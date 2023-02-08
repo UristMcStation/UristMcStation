@@ -12,6 +12,8 @@
 #define VERM_MICE 0
 #define VERM_LIZARDS 1
 #define VERM_SPIDERS 2
+#define VERM_POSSUMS 3
+#define VERM_GEESE 4
 
 /datum/event/infestation
 	announceWhen = 10
@@ -35,7 +37,7 @@
 
 	var/list/spawn_types = list()
 	var/max_number
-	vermin = rand(0,2)
+	vermin = rand(0,4)
 	switch(vermin)
 		if(VERM_MICE)
 			spawn_types = list(/mob/living/simple_animal/mouse) // The base mouse type selects a random color for us
@@ -49,6 +51,14 @@
 			spawn_types = list(/obj/effect/spider/spiderling)
 			max_number = 3
 			vermstring = "spiders"
+		if(VERM_POSSUMS)
+			spawn_types = list(/mob/living/simple_animal/opossum)
+			max_number = 7
+			vermstring = "possums"
+		if(VERM_GEESE)
+			spawn_types = list(/mob/living/simple_animal/hostile/retaliate/goose)
+			max_number = 4
+			vermstring = "geese"
 
 	spawn(0)
 		var/num = 0
@@ -94,3 +104,5 @@
 #undef VERM_MICE
 #undef VERM_LIZARDS
 #undef VERM_SPIDERS
+#undef VERM_POSSUMS
+#undef VERM_GEESE
