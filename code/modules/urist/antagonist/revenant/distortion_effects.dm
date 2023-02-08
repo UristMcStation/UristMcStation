@@ -68,7 +68,7 @@ var/list/revenant_distortions = (typesof(/datum/power/revenant/distortion) - /da
 	// This gives us a nice, smooth function that rises steadily to a maximum without ever quite reaching it
 	var/perc_odds = ( (current_distortion) / (current_distortion + halfway_point) ) * max_chance_per_turf
 
-	return prob(perc_odds)
+	return perc_odds
 
 
 /datum/bluespace_revenant/proc/HandleDistortionFX(var/atom/A)
@@ -82,7 +82,8 @@ var/list/revenant_distortions = (typesof(/datum/power/revenant/distortion) - /da
 
 	var/current_dist = T.reality_distortion
 
-	var/should_distort = src.roll_for_effects(current_dist)
+	var/distortion_proba = src.roll_for_effects(current_dist)
+	var/should_distort = prob(distortion_proba)
 
 	if(should_distort)
 		BSR_DEBUG_LOG("BSR: ApplyDistortionFX running...")

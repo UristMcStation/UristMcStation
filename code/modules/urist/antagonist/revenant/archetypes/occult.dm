@@ -48,13 +48,13 @@
 	src.active = TRUE
 	src.activated_at = world.time
 	src.lifespan = rand(10, 20) MINUTES
-	src.visible_message("<span class='warning'>The [src.name] glows a bloody red!</span>")
+	src.visible_message(SPAN_WARNING("The [src.name] glows a bloody red!"))
 	return TRUE
 
 
 /obj/effect/rune/revenant/ward/proc/Deactivate()
 	src.active = FALSE
-	src.visible_message("<span class='notice'>The [src.name]'s glow fades slowly...</span>")
+	src.visible_message(SPAN_NOTICE("The [src.name]'s glow fades slowly..."))
 	return TRUE
 
 
@@ -105,20 +105,20 @@
 	set desc = "Draw a rune that will stabilize you, reducing your effective Distortion generation."
 
 	var/const/self_msg = "You slice open one of your fingers and begin drawing a rune on the floor whilst chanting the ritual that binds your life essence with the dark arcane energies flowing through the surrounding world."
-	src.visible_message("<span class='warning'>\The [src] slices open a finger and begins to chant and paint symbols on the floor.</span>", "<span class='notice'>[self_msg]</span>", "You hear chanting.")
+	src.visible_message(SPAN_WARNING("\The [src] slices open a finger and begins to chant and paint symbols on the floor."), SPAN_NOTICE("[self_msg]"), "You hear chanting.")
 
 	var/turf/T = get_turf(src)
 
 	if(T.holy)
-		to_chat(src, "<span class='warning'>This place is blessed, you may not draw runes on it - defile it first.</span>")
+		to_chat(src, SPAN_WARNING("This place is blessed, you may not draw runes on it - defile it first."))
 		return
 
 	if(!istype(T, /turf/simulated))
-		to_chat(src, "<span class='warning'>You need more space to draw a rune here.</span>")
+		to_chat(src, SPAN_WARNING("You need more space to draw a rune here."))
 		return
 
 	if(locate(/obj/effect/rune) in T)
-		to_chat(src, "<span class='warning'>There's already a rune here.</span>") // Don't cross the runes
+		to_chat(src, SPAN_WARNING("There's already a rune here.")) // Don't cross the runes
 		return
 
 	if(do_after(src, 10))
@@ -221,17 +221,6 @@
 	return
 
 
-/datum/power/revenant/bs_power/summon
-	flavor_tags = list(
-		BSR_FLAVOR_OCCULT,
-		BSR_FLAVOR_CULTIST,
-		BSR_FLAVOR_GENERIC
-	)
-	name = "Summon Stuff"
-	isVerb = TRUE
-	verbpath = /mob/proc/revenant_draw_wards
-
-
 /datum/power/revenant/distortion/cultify
 	flavor_tags = list(
 		BSR_FLAVOR_OCCULT,
@@ -254,6 +243,53 @@
 	return TRUE
 
 
+
+/proc/bsrevenant_veiltear_helper(var/atom/A, var/datum/bluespace_revenant/revenant, var/list/mobselection_override = null, var/faction_override = null)
+	if(!istype(A))
+		return
+
+	if(!istype(revenant))
+		return
+
+	var/turf/T = get_turf(A)
+	if(!istype(T))
+		return
+
+	if(!istype(revenant.trackers))
+		revenant.trackers = list()
+
+	var/previous_time = revenant.trackers["last veil tear time"]
+	var/current_time = world.time
+
+	var/obj/effect/gateway/hole = new(T)
+	hole.density = 0
+
+	QDEL_IN(hole, 30 SECONDS)
+
+	if(isnull(previous_time) || ((current_time - previous_time) > 1 MINUTES))
+		revenant.trackers["last veil tear time"] = current_time
+
+		spawn(rand(15, 25 SECONDS))
+			var/list/possible_spawns = mobselection_override
+
+			if(!istype(possible_spawns) || !(possible_spawns?.len))
+				possible_spawns = list(
+					/mob/living/simple_animal/hostile/urist/imp,
+					/mob/living/simple_animal/hostile/scarybat/cult,
+					/mob/living/simple_animal/hostile/faithless/cult
+				)
+
+			var/spawn_type = pick(possible_spawns)
+			var/mob/living/L = new spawn_type(T)
+			if(faction_override)
+				L.faction = faction_override
+
+			L.visible_message(SPAN_WARNING("\A [L] escapes from the portal!"))
+
+	return TRUE
+
+
+
 /datum/power/revenant/distortion/veil_tear
 	flavor_tags = list(
 		BSR_FLAVOR_OCCULT,
@@ -268,38 +304,56 @@
 	if(isnull(A) || !istype(A))
 		return
 
-	var/turf/T = get_turf(A)
-	if(!istype(T))
-		return
-
 	if(!istype(revenant))
 		return
 
-	if(!istype(revenant.trackers))
-		revenant.trackers = list()
+	var/list/possible_spawns = list(
+		/mob/living/simple_animal/hostile/scarybat/cult,
+		/mob/living/simple_animal/hostile/faithless/cult
+	)
 
-	var/previous_time = revenant.trackers["last veil tear time"]
-	var/current_time = world.time
+	if(prob(1))
+		// minor easter egg
+		possible_spawns.Add(/mob/living/simple_animal/hostile/urist/imp)
 
+	. = bsrevenant_veiltear_helper(A, "anomalous", possible_spawns)
 
-	var/obj/effect/gateway/hole = new(T)
-	hole.density = 0
-
-	QDEL_IN(hole, 30 SECONDS)
-
-	if(isnull(previous_time) || ((current_time - previous_time) > 1 MINUTES))
-		revenant.trackers["last veil tear time"] = current_time
-
-		spawn(rand(5, 25 SECONDS))
-			var/list/possible_spawns = list(
-				/mob/living/simple_animal/hostile/urist/imp,
-				/mob/living/simple_animal/hostile/scarybat/cult,
-				/mob/living/simple_animal/hostile/faithless/cult
-			)
-			var/spawn_type = pick(possible_spawns)
-			var/mob/living/L = new spawn_type(T)
-			L.visible_message("<span class='warning'>\A [L] escapes from the portal!</span>")
+	return
 
 
-	return TRUE
 
+/mob/proc/bsrevenant_veil_rip()
+	set category = "Anomalous Powers"
+	set name = "Veil Rip"
+	set desc = "Open a dark portal to summon monsters from beyond. WARNING: they are NOT friendly!"
+
+	var/atom/A = get_turf(src)
+
+	if(isnull(A) || !istype(A))
+		return
+
+	var/list/possible_spawns = list(
+		/mob/living/simple_animal/hostile/creature/cult,
+		/mob/living/simple_animal/hostile/faithless/cult
+	)
+
+	. = bsrevenant_veiltear_helper(A, "anomalous", possible_spawns)
+
+	var/datum/bluespace_revenant/revenant = src.mind?.bluespace_revenant
+	if(istype(revenant))
+		revenant.total_distortion += BSR_DISTORTION_GROWTH_OVER_MINUTES(10, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
+		to_chat(src, SPAN_WARNING("You're feeling significantly less *real*..."))
+
+	return
+
+
+/datum/power/revenant/bs_power/veil_tear
+	flavor_tags = list(
+		BSR_FLAVOR_OCCULT,
+		BSR_FLAVOR_CULTIST,
+		BSR_FLAVOR_DEMONIC
+	)
+	name = "Rip the Veil"
+	activate_message = ("<span class='notice'>You realize creatures from beyond are creeping on the edges of reality, just waiting for someone to reach out and invite them over.</span>")
+	isVerb = TRUE
+	verbpath = /mob/proc/bsrevenant_veil_rip

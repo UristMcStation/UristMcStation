@@ -33,7 +33,7 @@
 	var/removed = FALSE
 	var/added_suppression = 0
 
-	var/const/msg = "<span class='warning'>You burn away some of your blood, anchoring yourself to reality a bit better</span>"
+	var/const/msg = "<span class='notice'>You burn away some of your blood, anchoring yourself to reality a bit better</span>"
 
 	if(istype(H))
 		var/available_amt = H.vessel.get_reagent_amount(/datum/reagent/blood)
@@ -98,10 +98,10 @@
 		removed = ingested.remove_reagent(/datum/reagent/blood, consume_amt)
 		if(removed && bloodsip_size != 0)
 			added_suppression = ((consume_amt / bloodsip_size) * suppression_per_bloodsip)
-			to_chat(src, "<span class='warning'>You digest all the blood in your stomach... somehow, and use it to anchor yourself to reality a bit better.</span>")
+			to_chat(src, SPAN_WARNING("You digest all the blood in your stomach... somehow, and use it to anchor yourself to reality a bit better."))
 
 	else
-		to_chat(src, "<span class='warning'>You currently don't have any blood in your stomach to digest.</span>")
+		to_chat(src, SPAN_WARNING("You currently don't have any blood in your stomach to digest."))
 		return removed
 
 	if(isbsrevenant(src))
@@ -130,9 +130,10 @@
 		BSR_FLAVOR_VAMPIRE,
 		BSR_FLAVOR_DEMONIC,
 		BSR_FLAVOR_OCCULT,
+		BSR_FLAVOR_DEATH,
 		BSR_FLAVOR_GENERIC
 	)
-	activate_message = "<span class='notice'>You've developed an unnatural thirst for humanoid blood. With an effort of will, you can digest any blood you drink to stabilize your Distortion gain.</span>"
+	activate_message = ("<span class='notice'>You've developed an unnatural thirst for humanoid blood. With an effort of will, you can digest any blood you drink to stabilize your Distortion gain.</span>")
 	name = "Bloodthirsty"
 	isVerb = TRUE
 	verbpath = /mob/proc/revenant_bloodconsume_stomach
@@ -143,9 +144,10 @@
 		BSR_FLAVOR_VAMPIRE,
 		BSR_FLAVOR_DEMONIC,
 		BSR_FLAVOR_PLAGUE,
+		BSR_FLAVOR_DEATH,
 		BSR_FLAVOR_GENERIC
 	)
-	activate_message = "<span class='warning'>Something's very wrong... You seem to have lost all vital signs - but somehow it doesn't seem to be much of a problem to you!</span>"
+	activate_message = ("<span class='warning'>Something's very wrong... You seem to have lost all vital signs - but somehow it doesn't seem to be much of a problem to you!</span>")
 	name = "Undead"
 	isVerb = FALSE
 	verbpath = /mob/proc/revenant_undeadify
@@ -153,7 +155,8 @@
 
 /datum/power/revenant/distortion/bats
 	flavor_tags = list(
-		BSR_FLAVOR_VAMPIRE
+		BSR_FLAVOR_VAMPIRE,
+		BSR_FLAVOR_DARK
 	)
 	name = "DISTORTION - Bats!"
 
@@ -169,16 +172,171 @@
 	var/obj/effect/gateway/hole = new(T)
 	hole.density = 0
 
-	var/list/possible_spawns = list(
-		/mob/living/simple_animal/hostile/scarybat,
-	)
+	QDEL_IN(hole, 30 SECONDS)
 
-	var/spawn_type = pick(possible_spawns)
+	spawn(rand(1, 10 SECONDS))
+		var/mob/living/simple_animal/hostile/scarybat/bat = new (T)
+		bat.visible_message(SPAN_WARNING("\A [bat] escapes from the portal!"))
+
+	return TRUE
+
+
+/mob/proc/bsrevenant_summon_bats()
+	set category = "Anomalous Powers"
+	set name = "Summon Bats"
+	set desc = "Summon some Bats Outta Hell. They're friendly... to you, anyway."
+
+	var/atom/A = get_turf(src)
+
+	if(isnull(A) || !istype(A))
+		return
+
+	var/turf/T = get_turf(A)
+	if(!istype(T))
+		return
+
+	src.visible_message(SPAN_WARNING("\The [src] reaches across spacetime, ripping the veil and leaving a portal behind!"))
+	var/obj/effect/gateway/hole = new(T)
+	hole.density = 0
 
 	QDEL_IN(hole, 30 SECONDS)
 
-	spawn(rand(0, 15 SECONDS))
-		var/mob/living/L = new spawn_type(T)
-		L.visible_message("<span class='warning'>\A [L] escapes from the portal!</span>")
+	spawn(rand(1, 10 SECONDS))
+		var/mob/living/simple_animal/hostile/scarybat/bat = new(T, src)
+		bat.visible_message(SPAN_WARNING("\A [bat] escapes from the portal!"))
+
+	var/datum/bluespace_revenant/revenant = src.mind?.bluespace_revenant
+	if(istype(revenant))
+		revenant.total_distortion += BSR_DISTORTION_GROWTH_OVER_MINUTES(10, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
+		to_chat(src, SPAN_WARNING("You're feeling significantly less *real*..."))
 
 	return TRUE
+
+
+/datum/power/revenant/bs_power/bats
+	flavor_tags = list(
+		BSR_FLAVOR_VAMPIRE,
+		BSR_FLAVOR_DARK
+	)
+	name = "Summon Bats"
+	activate_message = ("<span class='notice'>You sense creatures of the night everywhere around you, just waiting for someone to reach out and invite them to this reality.</span>")
+	isVerb = TRUE
+	verbpath = /mob/proc/bsrevenant_summon_bats
+
+
+
+/mob/proc/bsrevenant_turn_another()
+	var/datum/bluespace_revenant/revenant = src.mind?.bluespace_revenant
+	if(!istype(revenant))
+		to_chat(src, SPAN_NOTICE("You must be a Bluespace Revenant to use this ability."))
+		return
+
+	var/obj/item/grab/G = null
+	var/mob/living/carbon/srcC = src
+	var/mob/living/carbon/human/H = null
+
+	if(!istype(G) || !istype(H))
+		G = src.get_active_hand()
+		if(istype(G))
+			H = G.affecting
+
+	if(!istype(G) || !istype(H))
+		G = src.get_inactive_hand()
+		H = G.affecting
+		if(istype(G))
+			H = G.affecting
+
+	if(!istype(H))
+		to_chat(src, SPAN_NOTICE("You must be holding a humanoid mob to use this ability."))
+		return
+
+	playsound(src.loc, 'sound/weapons/bite.ogg', 50, 1, 1)
+	src.visible_message(SPAN_DANGER("[src] is biting [H] on the neck!"))
+
+	if(isbsrevenant(H))
+		to_chat(src, SPAN_DANGER("You get staggered by a surging wave of unreality and jerk back as you try to bite \the [H]."))
+		src.visible_message(SPAN_DANGER("[src] suddenly recoils from \the [H]'s neck!"))
+
+		if(istype(srcC))
+			srcC.flash_eyes()
+			srcC.Stun(rand(1,3))
+
+		H.flash_eyes()
+		H.Stun(rand(1,3))
+
+		revenant.total_distortion += BSR_DISTORTION_GROWTH_OVER_MINUTES(1, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
+		to_chat(src, SPAN_WARNING("You're feeling slightly less *real*..."))
+		return
+
+	revenant.trackers = (revenant?.trackers || list())
+
+	var/mob/living/carbon/human/last_transferred_stored = revenant.trackers["last_transferred_to"]
+	if(last_transferred_stored != H)
+		revenant.trackers["last_transferred_to"] = H
+		revenant.trackers["last_transferred_amt"] = 0
+
+	spawn(0)
+		var/init_time = world.time
+		while ((world.time - init_time) < 2 MINUTES)
+			if(!(do_after(src, 5 SECONDS, H)))
+				break
+
+			var/curr_transferred = revenant.trackers["last_transferred_amt"]
+			if(isnull(curr_transferred))
+				break // something's off
+
+			revenant = src.mind?.bluespace_revenant
+
+			if(!istype(revenant))
+				to_chat(src, SPAN_WARNING("Reality comes crashing back down on you and in the resulting surprise, you release your bite!"))
+				src.visible_message(SPAN_WARNING("[src] suddenly tears \his mouth away from \the [H]"))
+				break
+
+			H.Stun(3)
+
+			revenant.total_distortion += BSR_DISTORTION_GROWTH_OVER_SECONDS(30, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
+			to_chat(src, SPAN_WARNING("You're feeling slightly less *real*..."))
+
+			if(curr_transferred >= 100)
+				revenant.trackers["last_transferred_to"] = null
+				revenant.trackers["last_transferred_amt"] = 0
+				break // we're done
+
+			revenant.trackers["last_transferred_amt"] = curr_transferred + 10
+
+		var/total_transferred = revenant.trackers["last_transferred_amt"]
+		revenant = src.mind?.bluespace_revenant
+
+		if(istype(revenant) && H && total_transferred >= 100)
+			revenant.turn_into_child_revenant(H)
+			var/datum/bluespace_revenant/babby = H.mind?.bluespace_revenant
+
+			if(!istype(babby))
+				return
+
+			to_chat(src, SPAN_NOTICE("You have turned [H] into another Bluespace Revenant!"))
+
+			// New BSRs inherit half of our total Distortion AND half of suppression...
+			babby.total_distortion = (revenant.total_distortion / 2)
+			babby.suppressed_distortion = (revenant.suppressed_distortion / 2)
+
+			// ...*transferred* from parent, so this is an efficient way to reduce your total Distortion.
+			revenant.total_distortion = (babby.total_distortion)
+			revenant.suppressed_distortion = (babby.suppressed_distortion)
+
+		else
+			to_chat(src, SPAN_WARNING("You've been interrupted while trying to turn [H]. If you bite them again, you can resume the process."))
+	return
+
+
+/datum/power/revenant/bs_power/sire_revenant
+	flavor_tags = list(
+		BSR_FLAVOR_VAMPIRE,
+		BSR_FLAVOR_BLOOD,
+		BSR_FLAVOR_PLAGUE
+	)
+	name = "Sire Revenant"
+	activate_message = ("<span class='notice'>Whatever it is you are, it's *infectious*. By biting the neck of another humanoid, you could transform half of your Distortion and transform them into one of your own kind.</span>")
+	isVerb = TRUE
+	verbpath = /mob/proc/bsrevenant_turn_another
+

@@ -29,6 +29,12 @@
 	// Reduction in Distortion 'leaking out'. Indulging Hungers increases this.
 	var/suppressed_distortion = 0
 
+	// Helper - cache the last total Distortion added to turfs for mob verbs to inspect.
+	var/last_tick_distortion_total = 0
+
+	// Helper - cache the last number of turfs processed to calculate an average
+	var/last_tick_distortion_tiles = 0
+
 
 /datum/bluespace_revenant/proc/get_effective_distortion(var/total_distortion_override = null, var/suppressed_distortion_override = null)
 	var/raw_true_total_distortion = (isnull(total_distortion_override) ? src.total_distortion : total_distortion_override)
@@ -100,6 +106,10 @@
 	var/turf/startTurf = locate(start_x, start_y, start_z)
 	var/turf/endTurf = locate(end_x, end_y, end_z)
 
+	// Caching stuff
+	src.last_tick_distortion_tiles = 0
+	src.last_tick_distortion_total = 0
+
 	spawn(0)
 		// Fork off so we don't block stuff if this takes a while.
 
@@ -111,11 +121,13 @@
 
 			var/manhattan_dist = (abs(T.x - src_turf.x) + abs(T.y - src_turf.y))
 			if(manhattan_dist > safe_distortion_radius_xy)
-				BSR_DEBUG_LOG("BSR: Block item [T] - outside of Manhattan Distance range")
 				continue
 
 			BSR_DEBUG_LOG("BSR: SpreadDistortion processing turf [T], adding [total_per_turf_distortion] Distortion")
 			T.reality_distortion += total_per_turf_distortion
 			src.HandleDistortionFX(T)
+
+			src.last_tick_distortion_tiles++
+			src.last_tick_distortion_total += T.reality_distortion
 
 	return
