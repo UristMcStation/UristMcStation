@@ -78,11 +78,6 @@
 		BSR_DEBUG_LOG("Proccing hunger [H] for unlockPower")
 		src.unlockPower(M.mind, H, 0)
 
-	// Temporary dev measure - unlock all powers immediately
-	for(var/P in src.power_set)
-		BSR_DEBUG_LOG("Proccing power [P] for unlockPower")
-		src.unlockPower(M.mind, P, 0)
-
 	// Insight is a free power, because Stat() is ugly and slow
 	src.unlockPower(M.mind, /datum/power/revenant/bs_power/bsrevenant_insight, 0)
 
@@ -99,7 +94,7 @@
 	if(isnull(callback))
 		return
 
-	if(!callback in src.callbacks)
+	if(!(callback in src.callbacks))
 		src.callbacks.Add(callback)
 
 	return src

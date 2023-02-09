@@ -11,12 +11,12 @@
 
 
 
+/* SPATIAL INSTABILITY - Forced Blink w/o smoke. */
 /datum/power/revenant/distortion/spatial_instability
 	flavor_tags = list(
 		BSR_FLAVOR_SPACE,
 		BSR_FLAVOR_SCIFI,
-		BSR_FLAVOR_BLUESPACE,
-		BSR_FLAVOR_GENERIC
+		BSR_FLAVOR_BLUESPACE
 	)
 	name = "DISTORTION: Spatial Instability"
 
@@ -53,6 +53,7 @@
 			continue
 
 		if(T.density)
+			T = null // avoid picking it if it's the last try
 			continue
 
 	if(!istype(T))
@@ -62,14 +63,19 @@
 	if(!istype(M))
 		return
 
+	playsound(T, 'sound/effects/plunger.ogg', 50, 1, 1)
 	M.dizziness += rand(1, 3)
 	to_chat(M, SPAN_WARNING("You feel dizzy as your body suddenly jostles through spacetime!"))
+	if(prob(20))
+		M.Weaken(3)
+		M.Stun(3)
 	M.buckled = null
 	M.forceMove(T)
 
-	return
+	return TRUE
 
 
+/* AFTERIMAGE - Ghostly apparitions of the BSR who caused them. */
 /*
 /datum/power/revenant/distortion/afterimage
 	flavor_tags = list(
@@ -92,6 +98,7 @@
 	return
 */
 
+/* AREA PORTAL - Open teleport portals. Wizard fakeout. */
 /mob/proc/bsrevenant_portal()
 	set category = "Anomalous Powers"
 	set name = "Create Portal"
@@ -137,9 +144,11 @@ Proc needs to be fixed, it fails to locate a dest
 	isVerb = TRUE
 	verbpath = /mob/proc/bsrevenant_portal
 	activate_message = SPAN_NOTICE("You and Euclidean space have an open relationship. With some effort, you can fold space, creating temporary portals between areas.")
+	distortion_threshold = 18000 // 30 mins
 */
 
 
+/* DIGICAMO - Mess up tracking. Ling fakeout. */
 /mob/proc/bsrevenant_digitalcamo()
 	set category = "Anomalous Powers"
 	set name = "Toggle Digital Camouflage"
@@ -208,6 +217,7 @@ Proc needs to be fixed, it fails to locate a dest
 	isVerb = TRUE
 	verbpath = /mob/proc/bsrevenant_digitalcamo
 	activate_message = ("<span class='notice'>Cameras seem to act erratically around you. If you allow reality to bend a bit harder, you could amplify this effect and disrupt their tracking systems...</span>")
+	distortion_threshold = 18000 // 15 mins
 
 
 /datum/power/revenant/bs_power/digicamo/Activate(var/datum/mind/M)
@@ -226,3 +236,137 @@ Proc needs to be fixed, it fails to locate a dest
 		M.bluespace_revenant.callbacks.Add(/datum/bluespace_revenant/proc/ProcessDigitalCamo)
 
 	return
+
+
+
+/* TECHDISCORD - Technology does not like us - sparks. */
+/datum/power/revenant/distortion/techdiscord
+	flavor_tags = list(
+		BSR_FLAVOR_GENERIC,
+		BSR_FLAVOR_SCIFI,
+		BSR_FLAVOR_BLUESPACE
+	)
+	name = "DISTORTION: Machine Discord"
+
+
+/datum/power/revenant/distortion/techdiscord/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+	// 0
+	if(isnull(A) || !istype(A))
+		return
+
+	var/turf/T = get_turf(A)
+	if(!istype(T))
+		return
+
+	var/obj/machinery/angerymachine = locate() in T
+	if(!istype(angerymachine))
+		return FALSE
+
+	var/datum/effect/effect/system/spark_spread/sparkFX = new()
+	sparkFX.set_up(3, 0, T)
+	sparkFX.start()
+
+	return TRUE
+
+
+/* TECHBANE - Technology *hates* us - EMP and sparks. */
+/datum/power/revenant/distortion/techbane
+	flavor_tags = list(
+		BSR_FLAVOR_SCIFI,
+		BSR_FLAVOR_DARK,
+		BSR_FLAVOR_BLUESPACE
+	)
+	name = "DISTORTION: Techbane"
+
+
+/datum/power/revenant/distortion/techbane/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+	//
+	if(isnull(A) || !istype(A))
+		return
+
+	var/turf/T = get_turf(A)
+	if(!istype(T))
+		return
+
+	var/empIsSafe = TRUE
+
+	var/mob/M = null
+	if(istype(revenant))
+		M = revenant?.mob_ref?.resolve()
+
+	if(istype(M))
+		empIsSafe = (get_dist(T, M) > 2)
+
+	var/datum/effect/effect/system/spark_spread/sparkFX = new()
+	sparkFX.set_up(3, 0, T)
+	sparkFX.start()
+
+	if(empIsSafe)
+		// we do NOT want to EMP part-mechanical BSRs randomly, because that's no fun.
+		empulse(T, 0, 1)
+
+	return TRUE
+
+
+/* FLICKER - Mess up nearby fluorescents. */
+/datum/power/revenant/distortion/lightflicker
+	flavor_tags = list(
+		BSR_FLAVOR_GENERIC,
+		BSR_FLAVOR_SCIFI,
+		BSR_FLAVOR_DARK,
+		BSR_FLAVOR_DEMONIC,
+		BSR_FLAVOR_BLUESPACE
+	)
+	name = "DISTORTION: Flicker Fluorescents"
+
+
+/datum/power/revenant/distortion/lightflicker/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+	// Flicker lights
+	if(isnull(A) || !istype(A))
+		return
+
+	var/turf/T = get_turf(A)
+	if(!istype(T))
+		return
+
+	var/ran = FALSE
+
+	for(var/datum/light_source/LS in T.affecting_lights)
+		var/obj/machinery/light/FL = LS.source_atom
+
+		if(istype(FL))
+			FL.flicker(3)
+			ran = TRUE
+
+	return ran
+
+
+
+/* STATIC - will spawn a static overlay; purely visual */
+/datum/power/revenant/distortion/noisefx
+	flavor_tags = list(
+		BSR_FLAVOR_SCIFI,
+		BSR_FLAVOR_GENERIC,
+		BSR_FLAVOR_BLUESPACE,
+		BSR_FLAVOR_SPACE
+	)
+	name = "DISTORTION - Spatiotemporal Interference"
+
+
+/datum/power/revenant/distortion/noisefx/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+	if(isnull(A) || !istype(A))
+		return
+
+	var/turf/T = get_turf(A)
+	if(!istype(T))
+		return
+
+	var/randicon = rand(1, 9)
+	var/duration = rand(30 SECONDS, 90 SECONDS)
+	var/obj/effect/temporary/staticeffect = new (T, duration, 'icons/effects/static.dmi', "[randicon] light")
+
+	if(istype(staticeffect))
+		return TRUE
+
+	return
+
