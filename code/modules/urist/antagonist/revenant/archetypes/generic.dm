@@ -41,103 +41,6 @@
 	return TRUE
 
 
-
-/datum/power/revenant/distortion/techdiscord
-	flavor_tags = list(
-		BSR_FLAVOR_GENERIC,
-		BSR_FLAVOR_SCIFI,
-		BSR_FLAVOR_BLUESPACE
-	)
-	name = "DISTORTION: Machine Discord"
-
-
-/datum/power/revenant/distortion/techbane/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
-	// Technology does not like us - sparks.
-	if(isnull(A) || !istype(A))
-		return
-
-	var/turf/T = get_turf(A)
-	if(!istype(T))
-		return
-
-	var/obj/machinery/angerymachine = locate() in T
-	if(!istype(angerymachine))
-		return FALSE
-
-	var/datum/effect/effect/system/spark_spread/sparkFX = new()
-	sparkFX.set_up(3, 0, T)
-	sparkFX.start()
-
-	return TRUE
-
-
-/datum/power/revenant/distortion/techbane
-	flavor_tags = list(
-		BSR_FLAVOR_GENERIC,
-		BSR_FLAVOR_SCIFI,
-		BSR_FLAVOR_BLUESPACE
-	)
-	name = "DISTORTION: Techbane"
-
-
-/datum/power/revenant/distortion/techbane/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
-	// Technology *hates* us - EMP and sparks.
-	if(isnull(A) || !istype(A))
-		return
-
-	var/turf/T = get_turf(A)
-	if(!istype(T))
-		return
-
-	var/empIsSafe = TRUE
-
-	var/mob/M = null
-	if(istype(revenant))
-		M = revenant?.mob_ref?.resolve()
-
-	if(istype(M))
-		empIsSafe = (get_dist(T, M) > 2)
-
-	var/datum/effect/effect/system/spark_spread/sparkFX = new()
-	sparkFX.set_up(3, 0, T)
-	sparkFX.start()
-
-	if(empIsSafe)
-		// we do NOT want to EMP part-mechanical BSRs randomly, because that's no fun.
-		empulse(T, 0, 1)
-
-	return TRUE
-
-
-/datum/power/revenant/distortion/lightflicker
-	flavor_tags = list(
-		BSR_FLAVOR_GENERIC,
-		BSR_FLAVOR_SCIFI,
-		BSR_FLAVOR_DARK,
-		BSR_FLAVOR_DEMONIC,
-		BSR_FLAVOR_BLUESPACE
-	)
-	name = "DISTORTION: Flicker Fluorescents"
-
-
-/datum/power/revenant/distortion/lightflicker/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
-	// Flicker lights
-	if(isnull(A) || !istype(A))
-		return
-
-	var/turf/T = get_turf(A)
-	if(!istype(T))
-		return
-
-	for(var/datum/light_source/LS in T.affecting_lights)
-		var/obj/machinery/light/FL = LS.source_atom
-
-		if(istype(FL))
-			FL.flicker(3)
-
-	return TRUE
-
-
 //Recover from stuns.
 /mob/proc/bsrevenant_unstun()
 	set category = "Anomalous Powers"
@@ -176,14 +79,14 @@
 	flavor_tags = list(
 		BSR_FLAVOR_GENERIC
 	)
-	activate_message = ("<span class='notice'>You can force your body into impossible motion, even when stunned - at the cost of significant reality slippage.</span>")
+	activate_message = ("<span class='notice'>Even when stunned, you can force your body to move normally - at the cost of significant reality slippage.</span>")
 	name = "Unstun"
 	isVerb = TRUE
 	verbpath = /mob/proc/bsrevenant_unstun
+	distortion_threshold = 18000 // 15 mins
 
 
 
-//Recover from stuns.
 /mob/proc/bsrevenant_insight()
 	set category = "Anomalous Powers"
 	set name = "Insight"
@@ -201,21 +104,32 @@
 	if(!istype(revenant))
 		return
 
+	var/effective_rate = revenant.get_distortion_rate()
+	switch(effective_rate)
+		if(0 to 0.5)
+			to_chat(src, SPAN_NOTICE("INSIGHT: You feel reasonably real."))
+		if(0.5 to 1)
+			to_chat(src, SPAN_WARNING("INSIGHT: You are warping reality slowly..."))
+		if(1 to 2)
+			to_chat(src, SPAN_WARNING("INSIGHT: You are starting to become seriously anomalous!"))
+		else
+			to_chat(src, SPAN_DANGER("INSIGHT: You are *severely* anomalous!"))
+
 	var/total_dist = (revenant.last_tick_distortion_total || 0)
 	var/total_tiles = (revenant.last_tick_distortion_tiles || 0)
 
 	var/odds = 0
 	if(total_tiles)
 		var/avg_dist = total_dist / total_tiles
-		odds = round((revenant.roll_for_effects(avg_dist) || 0), 0.1)
+		odds = ((revenant.roll_for_effects(avg_dist) || 0) * total_tiles)
 
 	switch(odds)
-		if(0 to 2)
-			to_chat(src, SPAN_NOTICE("You sense local reality is fairly stable."))
-		if(3 to 8)
-			to_chat(src, SPAN_WARNING("You sense reality is starting to crack around here..."))
+		if(0 to 5)
+			to_chat(src, SPAN_NOTICE("INSIGHT: You sense local reality is fairly stable."))
+		if(5 to 20)
+			to_chat(src, SPAN_WARNING("INSIGHT: You sense reality is starting to crack around here..."))
 		else
-			to_chat(src, SPAN_DANGER("You sense reality is severely disturbed here!"))
+			to_chat(src, SPAN_DANGER("INSIGHT: You sense reality is severely disturbed here!"))
 	return 1
 
 
@@ -225,3 +139,4 @@
 	name = "Distortion Insight"
 	isVerb = TRUE
 	verbpath = /mob/proc/bsrevenant_insight
+	distortion_threshold = 0 // always free

@@ -160,8 +160,8 @@
 	if(isnull(src.trackers))
 		src.trackers = list()
 
-	var/suppression_per_ward = BSR_DISTORTION_GROWTH_OVER_DECISECONDS(0.05 * BSR_DEFAULT_DECISECONDS_PER_TICK, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
-	var/const/max_suppression_coeff = 0.95 // there will always be 5% of base suppression leaking through
+	var/suppression_per_ward = BSR_DISTORTION_GROWTH_OVER_DECISECONDS(0.2 * BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
+	var/const/max_suppression_coeff = 1.25 // Discourage stockpiling/spamming
 	var/active_wards = 0
 	var/expiring_wards = 0
 
@@ -191,7 +191,7 @@
 
 	var/effective_suppression_per_tick = min((src._distortion_per_tick * max_suppression_coeff), active_wards * suppression_per_ward)
 	var/effective_suppression_total = effective_suppression_per_tick * ticks
-	to_world_log("BSR: Found a total of [active_wards] wards for a suppression value [effective_suppression_total]")
+	BSR_DEBUG_LOG("BSR: Found a total of [active_wards] wards for a suppression value [effective_suppression_total]")
 
 	if(expiring_wards > 0)
 		var/mob/M = src?.mob_ref?.resolve()
@@ -316,7 +316,7 @@
 		// minor easter egg
 		possible_spawns.Add(/mob/living/simple_animal/hostile/urist/imp)
 
-	. = bsrevenant_veiltear_helper(A, "anomalous", possible_spawns)
+	. = bsrevenant_veiltear_helper(A, revenant, "anomalous", possible_spawns)
 
 	return
 
@@ -357,3 +357,35 @@
 	activate_message = ("<span class='notice'>You realize creatures from beyond are creeping on the edges of reality, just waiting for someone to reach out and invite them over.</span>")
 	isVerb = TRUE
 	verbpath = /mob/proc/bsrevenant_veil_rip
+	distortion_threshold = 18000 // 15 mins
+
+
+/* SIGILS - will spawn (unusable) runes */
+/datum/power/revenant/distortion/sigilspam
+	flavor_tags = list(
+		// NOT Blood even though it's gory; Blood's meant to be more elegant
+		BSR_FLAVOR_CULTIST,
+		BSR_FLAVOR_DEMONIC,
+		BSR_FLAVOR_OCCULT,
+		BSR_FLAVOR_VAMPIRE
+	)
+	name = "DISTORTION - Sigils"
+
+
+/datum/power/revenant/distortion/sigilspam/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+	if(isnull(A) || !istype(A))
+		return
+
+	var/turf/T = get_turf(A)
+	if(!istype(T))
+		return
+
+	var/runeicon = rand(1, 10)
+	var/duration = rand(30 SECONDS, 90 SECONDS)
+	var/obj/effect/temporary/fakerune = new(T, duration, 'icons/obj/rune.dmi', "[runeicon]")
+
+	if(istype(fakerune))
+		return TRUE
+
+	return
+

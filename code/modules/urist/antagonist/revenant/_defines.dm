@@ -26,8 +26,7 @@
 # define BSR_FLAVOR_CULTIST "cult"
 # define BSR_FLAVOR_VAMPIRE "vampire"
 
-//# define BSR_ALL_FLAVORS_LIST list(BSR_FLAVOR_BLUESPACE, BSR_FLAVOR_CHIMERA, BSR_FLAVOR_OCCULT, BSR_FLAVOR_DEMONIC, BSR_FLAVOR_VAMPIRE)
-# define BSR_ALL_FLAVORS_LIST list(BSR_FLAVOR_OCCULT, BSR_FLAVOR_VAMPIRE, BSR_FLAVOR_CHIMERA)
+# define BSR_ALL_FLAVORS_LIST list(BSR_FLAVOR_BLUESPACE, BSR_FLAVOR_CHIMERA, BSR_FLAVOR_OCCULT, BSR_FLAVOR_DEMONIC, BSR_FLAVOR_VAMPIRE)
 
 // Tracker keys
 # define TRACKER_KEY_WARDS "wards"
@@ -36,7 +35,7 @@
 # define BSR_DEFAULT_MAXPERC_PER_TURF 10
 # define BSR_DEFAULT_HALFWAY_PER_TURF 200
 # define BSR_DEFAULT_DISTORTION_PER_TICK 100
-# define BSR_DEFAULT_DECISECONDS_PER_TICK 100 // 10 seconds
+# define BSR_DEFAULT_DECISECONDS_PER_TICK 50 // 5 seconds
 
 // Helpers; return the integrated growth of Distortion over some amount of ticks given the derivatives
 // Can be used to figure out how much Suppression to apply in terms of gameplay time.
