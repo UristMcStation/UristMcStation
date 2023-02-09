@@ -5,7 +5,7 @@
 
 	// Metadata controlling the looping, 'private' vars
 	var/_ticker_active = FALSE // FALSE to kill the ticker
-	var/_tick_delay = 100 // sleep delay, in deciseconds
+	var/_tick_delay = BSR_DEFAULT_DECISECONDS_PER_TICK // sleep delay, in deciseconds
 	// The ticker resolution is tunable and possibly should be tuned; this doesn't need
 	// to be real-time, higher tick time/per-tick rate can be nicer on the CPU.
 
@@ -14,6 +14,7 @@
 	var/safe_ticks = (ticks || 0)
 
 	src.HandleDistortionUpdates(safe_ticks)
+	src.HandlePowerUpdates()
 	src.SpreadDistortion(safe_ticks)
 
 	if(callbacks)

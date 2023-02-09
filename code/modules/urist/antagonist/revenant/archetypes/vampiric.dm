@@ -83,7 +83,7 @@
 		return src.revenant_bloodconsume_bloodstr_burn()
 
 	// We have to assume the defaults are in play for this since we cannot look up the actual BSR datum - and arguably we shouldn't.
-	// 3 mins per a half-pint glass of pure blood; ~1 hr per a whole human - but you'd need to *drink* it all, poison effects and all.
+	// 3 mins per a half-pint glass of pure blood; ~1 hrs per a whole human - but you'd need to *drink* it all, poison effects and all.
 	var/suppression_per_bloodsip = BSR_DISTORTION_GROWTH_OVER_SECONDS(30, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
 	var/bloodsip_size = 5
 
@@ -116,15 +116,6 @@
 	return removed
 
 
-/mob/proc/revenant_undeadify()
-	set category = "Anomalous Powers"
-	set name = "-Undeadify Yourself-"
-	set desc = "Oops! You shouldn't be seeing this as a verb, please notify admins/coders!"
-
-	src.urist_status_flags |= STATUS_UNDEAD
-	return
-
-
 /datum/power/revenant/bs_hunger/bloodthirsty
 	flavor_tags = list(
 		BSR_FLAVOR_VAMPIRE,
@@ -137,6 +128,15 @@
 	name = "Bloodthirsty"
 	isVerb = TRUE
 	verbpath = /mob/proc/revenant_bloodconsume_stomach
+
+
+/mob/proc/revenant_undeadify()
+	set category = "Anomalous Powers"
+	set name = "-Undeadify Yourself-"
+	set desc = "Oops! You shouldn't be seeing this as a verb, please notify admins/coders!"
+
+	src.urist_status_flags |= STATUS_UNDEAD
+	return
 
 
 /datum/power/revenant/bs_power/undead
@@ -222,7 +222,7 @@
 	activate_message = ("<span class='notice'>You sense creatures of the night everywhere around you, just waiting for someone to reach out and invite them to this reality.</span>")
 	isVerb = TRUE
 	verbpath = /mob/proc/bsrevenant_summon_bats
-
+	distortion_threshold = 18000 // 15 mins
 
 
 /mob/proc/bsrevenant_turn_another()
@@ -339,4 +339,65 @@
 	activate_message = ("<span class='notice'>Whatever it is you are, it's *infectious*. By biting the neck of another humanoid, you could transform half of your Distortion and transform them into one of your own kind.</span>")
 	isVerb = TRUE
 	verbpath = /mob/proc/bsrevenant_turn_another
+	distortion_threshold = 72000 // 60 mins
 
+
+/* FANGS - gives mobs a new unarmed attack that requires head and ignores restraints. */
+/datum/unarmed_attack/bsrevenant_vampbite
+	attack_verb = list("bit", "sank his fangs in")
+	attack_sound = 'sound/weapons/bite.ogg'
+	shredding = 0
+	sharp = 1
+	edge = 1
+	attack_name = "sharp bite"
+
+
+/datum/unarmed_attack/bsrevenant_vampbite/is_usable(var/mob/living/carbon/human/user, var/mob/target, var/zone)
+	// Check if they have a functioning head
+	if(!istype(user))
+		return 0
+
+	if(user.is_muzzled())
+		return 0
+
+	var/obj/item/organ/external/E = user.organs_by_name[BP_HEAD]
+
+	if(E && !E.is_stump())
+		return 1
+
+	return 0
+
+
+/mob/proc/bsrevenant_mutate_fangs()
+	set name = "-MUTATE FANGS-"
+	set category = "Anomalous Powers"
+	set desc = "Oops! You shouldn't be seeing this as a verb, please notify admins/coders!"
+
+	var/mob/living/carbon/human/H = src
+
+	if(!istype(H))
+		return
+
+	if(!istype(H.species))
+		// just in case...
+		H.species = new()
+
+	H.species.unarmed_types += /datum/unarmed_attack/bsrevenant_vampbite
+	H.species.unarmed_attacks += new /datum/unarmed_attack/bsrevenant_vampbite()
+	return TRUE
+
+
+/datum/power/revenant/bs_power/mutate_fangs
+	flavor_tags = list(
+		BSR_FLAVOR_CHIMERA,
+		BSR_FLAVOR_VAMPIRE,
+		BSR_FLAVOR_GENERIC,
+		BSR_FLAVOR_BLOOD,
+		BSR_FLAVOR_OCCULT,
+		BSR_FLAVOR_DEMONIC,
+	)
+	activate_message = "<span class='notice'>You notice your teeth becoming longer, sharper, and thicker. </span>"
+	name = "Fangs"
+	isVerb = FALSE
+	verbpath = /mob/proc/bsrevenant_mutate_fangs
+	distortion_threshold = 12000 // 10 mins

@@ -36,6 +36,7 @@
 	activate_message = ("<span class='warning'>Even for a walking anomaly, you're a total mess. Your phenomena will periodically change randomly.</span>")
 	name = "Ontological Instability"
 	isVerb = FALSE
+	distortion_threshold = 12000 // 10 mins
 
 
 /datum/power/revenant/bs_power/chaotic_reroll/Activate(var/datum/mind/M)

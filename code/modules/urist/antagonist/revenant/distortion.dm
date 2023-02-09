@@ -56,18 +56,24 @@
 	switch(safe_distortion)
 
 		if(0 to BSR_THRESHOLD_RADIUS_THREETILES)
-			distortion_radius_xy = 0
-
-		if(BSR_THRESHOLD_RADIUS_THREETILES + 1 to BSR_THRESHOLD_RADIUS_FIVETILES)
 			distortion_radius_xy = 1
 
-		if(BSR_THRESHOLD_RADIUS_FIVETILES + 1 to BSR_THRESHOLD_RADIUS_SEVENTILES)
+		if(BSR_THRESHOLD_RADIUS_THREETILES + 1 to BSR_THRESHOLD_RADIUS_FIVETILES)
 			distortion_radius_xy = 2
 
-		else
+		if(BSR_THRESHOLD_RADIUS_FIVETILES + 1 to BSR_THRESHOLD_RADIUS_SEVENTILES)
 			distortion_radius_xy = 3
 
+		else
+			distortion_radius_xy = 4
+
 	return
+
+
+/datum/bluespace_revenant/proc/get_distortion_rate()
+	var/curr_bsrev_effective_distortion = (src.get_effective_distortion() || 0)
+	var/distortion_base_rate = (curr_bsrev_effective_distortion ** 0.5) / 100
+	return distortion_base_rate
 
 
 /datum/bluespace_revenant/proc/SpreadDistortion(var/ticks = 1)
@@ -98,9 +104,7 @@
 	var/start_z = max(1, src_turf.z - safe_distortion_radius_z)
 	var/end_z = min(world.maxy, src_turf.z + safe_distortion_radius_z)
 
-	var/curr_bsrev_effective_distortion = (src.get_effective_distortion() || 0)
-	var/distortion_base_rate = (curr_bsrev_effective_distortion ** 0.5) / 100
-
+	var/distortion_base_rate = src.get_distortion_rate()
 	var/total_per_turf_distortion = distortion_base_rate * ticks
 
 	var/turf/startTurf = locate(start_x, start_y, start_z)
