@@ -131,6 +131,11 @@
 					pending = FALSE
 					break
 
+			if(E.damage >= 5)
+				to_chat(H, SPAN_NOTICE("Your [E.name] itches as you knit its wounds shut."))
+				pending = FALSE
+				break
+
 	if(!pending)
 		var/datum/bluespace_revenant/revenant = src?.mind?.bluespace_revenant
 		if(istype(revenant))

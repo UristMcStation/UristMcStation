@@ -370,3 +370,91 @@ Proc needs to be fixed, it fails to locate a dest
 
 	return
 
+
+
+/* GREEDY - devour valuable items */
+/mob/proc/revenant_goldeater()
+	set category = "Anomalous Powers"
+	set name = "Equivalent Exchange"
+	set desc = "Devour valuable items to stabilize yourself in reality. How does it work? Who knows!"
+
+	var/mob/living/L = src
+
+	if(istype(L) && L.stat != CONSCIOUS)
+		to_chat(src, SPAN_WARNING("You need to be conscious to be able to chew!"))
+		return
+
+	// We need to do this a funny way or we can EAT OUR OWN ORGANS :^)
+	var/list/searchspace = (orange(1) + (get_turf(src))?.contents)
+	var/list/targets = list()
+
+	for(var/obj/O in searchspace)
+		var/datum/trade_item/tradable = SStrade_controller?.trade_items_by_type?[O.type]
+		if(istype(tradable) && tradable.value > 0)
+			targets.Add(O)
+
+	if(!(targets.len))
+		to_chat(src, SPAN_NOTICE("No valuable items nearby."))
+		return
+
+	var/obj/target = null
+	if(targets.len == 1)
+		target = targets[1]
+
+	if(!istype(target))
+		target = input("Select target:", "Target") as null|anything in targets
+
+	var/datum/trade_item/trade_data = SStrade_controller?.trade_items_by_type?[target.type]
+	if(!istype(trade_data))
+		to_chat(src, SPAN_DANGER("Something's gone wrong with the trade controller lookup - please notify coders/admins!"))
+		return
+
+	// Since this is a more stealthable Hunger, this should be fairly inefficient
+	var/suppression_per_unit = BSR_DISTORTION_GROWTH_OVER_DECISECONDS(1, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
+
+	var/removed = FALSE
+	var/added_suppression = 0
+	var/available_amt = trade_data.value
+	var/consume_amt = max(0, available_amt)
+
+	if(consume_amt > 0)
+		src.visible_message(SPAN_DANGER("[src] forces \his jaw wide open like a snake and is now stuffing \the [target] down his throat!"), SPAN_NOTICE("You force your jaw wide open like a snake and start stuffing \the [target] down your throat."))
+		playsound(src.loc, 'sound/effects/squelch1.ogg', 50, 1, 1)
+
+		if(do_after(src, 30, target))
+			if(target)
+				playsound(src.loc, 'sound/effects/squelch2.ogg', 50, 1, 1)
+				qdel(target)
+				removed = TRUE
+
+		if(removed)
+			// Add suppression based on the square of trade value, so we incentivize eating high-value items.
+			added_suppression = (consume_amt * consume_amt * suppression_per_unit)
+			src.visible_message(SPAN_WARNING("[src] has devoured \the [target] "), SPAN_NOTICE("You have devoured \the [target]. Reality accepts your trade."))
+
+	if(isbsrevenant(src))
+		// We'll allow the proc to run for non-Revenants for funminnery purposes, it
+		// will just not have any positive effects for the user (pure RP)
+		if(src.mind && src.mind.bluespace_revenant)
+			var/datum/bluespace_revenant/revenant_data = src.mind.bluespace_revenant
+
+			if(istype(revenant_data))
+				revenant_data.suppressed_distortion += added_suppression
+
+	return removed
+
+
+/datum/power/revenant/bs_hunger/goldeater
+	flavor_tags = list(
+		BSR_FLAVOR_BLUESPACE,
+		BSR_FLAVOR_CHIMERA,
+		BSR_FLAVOR_SCIFI,
+		BSR_FLAVOR_FLESH,
+		BSR_FLAVOR_DENTIST,
+		BSR_FLAVOR_GENERIC
+	)
+	activate_message = ("<span class='notice'>You hunger for wealth. Literally. You can consume valuables in exchange for stabilizing you in reality. Somehow, this bypasses your stomach.</span>")
+	name = "Equivalent Exchange"
+	isVerb = TRUE
+	verbpath = /mob/proc/revenant_goldeater
+

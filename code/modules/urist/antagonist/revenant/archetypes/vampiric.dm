@@ -365,6 +365,10 @@
 	if(!istype(user))
 		return 0
 
+	if(prob(50))
+		// Hack to stop the mobs from ALWAYS biting
+		return 0
+
 	if(user.is_muzzled())
 		return 0
 
