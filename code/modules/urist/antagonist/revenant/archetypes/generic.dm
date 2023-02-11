@@ -13,18 +13,24 @@
 /obj/effect/effect/smoke/chill_mist/affect(var/mob/living/carbon/M)
 	// This DELIBERATELY ignores normal smoke protection checks and has no clothes checks;
 	// it's supposed to be an unnaturally cold fog
+
 	if(!istype(M))
 		return 0
 
-	// This is always cold enough to be uncomfortable for any species that
-	// has a preference; otherwise 1 Celsius, because barely above freezing.
-	var/mist_temp = ((M?.species?.cold_discomfort_level || 275) - 1)
-
-	M.bodytemperature = mist_temp
+	if(prob(10))
+		// This is always cold enough to be uncomfortable for any species that
+		// has a preference; otherwise 5 Celsius, because barely above freezing.
+		var/mist_temp = ((M?.species?.cold_level_1 || 273) + 5)
+		M.bodytemperature = min((M.bodytemperature || 1), mist_temp)
 
 	..()
 	return 1
 
+
+/obj/effect/effect/smoke/chill_mist/Move()
+	..()
+	for(var/mob/living/carbon/M in get_turf(src))
+		src.affect(M)
 
 
 /datum/effect/effect/system/smoke_spread/chill_mist
