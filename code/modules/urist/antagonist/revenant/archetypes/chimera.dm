@@ -70,6 +70,7 @@
 		BSR_FLAVOR_CHIMERA,
 		BSR_FLAVOR_GENERIC,
 		BSR_FLAVOR_SCIFI,
+		BSR_FLAVOR_DENTIST,
 		BSR_FLAVOR_PLAGUE
 	)
 	name = "DISTORTION - Wallrot"
@@ -208,6 +209,7 @@
 		BSR_FLAVOR_SCIFI,
 		BSR_FLAVOR_DEMONIC,
 		BSR_FLAVOR_FLESH,
+		BSR_FLAVOR_DENTIST,
 		BSR_FLAVOR_GENERIC
 	)
 	activate_message = ("<span class='notice'>You feel *insatiably* hungry. You can allow your metabolism to run wild, burning through all your stored nutrition as it stabilizes you in reality.</span>")
@@ -223,6 +225,7 @@
 		BSR_FLAVOR_GENERIC,
 		BSR_FLAVOR_SCIFI,
 		BSR_FLAVOR_FLESH,
+		BSR_FLAVOR_DENTIST,
 		BSR_FLAVOR_PLAGUE
 	)
 	name = "DISTORTION - Gross"
@@ -261,6 +264,7 @@
 		BSR_FLAVOR_CULTIST,
 		BSR_FLAVOR_DEMONIC,
 		BSR_FLAVOR_OCCULT,
+		BSR_FLAVOR_DENTIST,
 		BSR_FLAVOR_PLAGUE
 	)
 	name = "DISTORTION - Bloody Mess"
@@ -312,7 +316,7 @@
 		BSR_FLAVOR_FLESH
 	)
 	activate_message = "<span class='notice'>Your body has become unnaturally tough!</span>"
-	name = "Fangs"
+	name = "Unnatural Resilience"
 	isVerb = FALSE
 	verbpath = /mob/proc/bsrevenant_mutate_stronk
 	distortion_threshold = 12000 // 10 mins

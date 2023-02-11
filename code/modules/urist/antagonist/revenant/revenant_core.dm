@@ -44,7 +44,7 @@ GLOBAL_LIST(revenant_powerinstances)
 
 
 /datum/antagonist/bluespace_revenant
-	welcome_text = "Whether it is by hanging out with the wrong crowd after dark or a mishap of Space Science, you've been... altered. You're not quite *alive*, and by the laws of ordinary physics are not meant to exist. Indulge your horrible compulsions - or face Distortion - a breakdown of reality that will give you away."
+	welcome_text = "Whether it is by hanging out with the wrong crowd after dark or a mishap of Space Science, you've been... altered. You're not quite *alive*, and by the laws of ordinary physics are not meant to exist. Indulge your horrible compulsions - or face Distortion, a breakdown of reality that will give you away and may harm you. Be warned - the more you neglect your Hunger, the *faster* reality will break around you!"
 
 	id = MODE_BSREVENANT
 	role_text = "Bluespace Revenant"

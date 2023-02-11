@@ -3,15 +3,32 @@
 */
 
 
-/obj/effect/effect/smoke/mist
+/obj/effect/effect/smoke/chill_mist
 	name = "fog"
 	opacity = 0
 	alpha = 64
 	time_to_live = 1000
 
 
-/datum/effect/effect/system/smoke_spread/mist
-	smoke_type = /obj/effect/effect/smoke/mist
+/obj/effect/effect/smoke/chill_mist/affect(var/mob/living/carbon/M)
+	// This DELIBERATELY ignores normal smoke protection checks and has no clothes checks;
+	// it's supposed to be an unnaturally cold fog
+	if(!istype(M))
+		return 0
+
+	// This is always cold enough to be uncomfortable for any species that
+	// has a preference; otherwise 1 Celsius, because barely above freezing.
+	var/mist_temp = ((M?.species?.cold_discomfort_level || 275) - 1)
+
+	M.bodytemperature = mist_temp
+
+	..()
+	return 1
+
+
+
+/datum/effect/effect/system/smoke_spread/chill_mist
+	smoke_type = /obj/effect/effect/smoke/chill_mist
 
 
 /datum/power/revenant/distortion/fogweaver
@@ -34,7 +51,7 @@
 		return
 
 	// There's a reason behind this varname and it's horrible. --scr
-	var/datum/effect/effect/system/smoke_spread/mist/funfog = new()
+	var/datum/effect/effect/system/smoke_spread/chill_mist/funfog = new()
 	funfog.set_up(5, 0, T)
 	funfog.start()
 
