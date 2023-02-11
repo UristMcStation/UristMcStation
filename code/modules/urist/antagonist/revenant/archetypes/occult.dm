@@ -337,9 +337,10 @@
 		/mob/living/simple_animal/hostile/faithless/cult
 	)
 
-	. = bsrevenant_veiltear_helper(A, "anomalous", possible_spawns)
 
 	var/datum/bluespace_revenant/revenant = src.mind?.bluespace_revenant
+	. = bsrevenant_veiltear_helper(A, revenant, "anomalous", possible_spawns)
+
 	if(istype(revenant))
 		revenant.total_distortion += BSR_DISTORTION_GROWTH_OVER_MINUTES(10, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
 		to_chat(src, SPAN_WARNING("You're feeling significantly less *real*..."))
@@ -363,7 +364,6 @@
 /* SIGILS - will spawn (unusable) runes */
 /datum/power/revenant/distortion/sigilspam
 	flavor_tags = list(
-		// NOT Blood even though it's gory; Blood's meant to be more elegant
 		BSR_FLAVOR_CULTIST,
 		BSR_FLAVOR_DEMONIC,
 		BSR_FLAVOR_OCCULT,
@@ -385,7 +385,36 @@
 	var/obj/effect/temporary/fakerune = new(T, duration, 'icons/obj/rune.dmi', "[runeicon]")
 
 	if(istype(fakerune))
+		fakerune.layer = BELOW_DOOR_LAYER
 		return TRUE
 
 	return
 
+
+
+/* HAUNTERS */
+/datum/power/revenant/distortion/haunters
+	flavor_tags = list(
+		// NOT Blood even though it's gory; Blood's meant to be more elegant
+		BSR_FLAVOR_CULTIST,
+		BSR_FLAVOR_DEMONIC,
+		BSR_FLAVOR_OCCULT,
+		BSR_FLAVOR_VAMPIRE
+	)
+	name = "DISTORTION - Haunters"
+
+
+/datum/power/revenant/distortion/haunters/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+	if(isnull(A) || !istype(A))
+		return
+
+	var/turf/T = get_turf(A)
+	if(!istype(T))
+		return
+
+	var/obj/effect/haunter/chaser/classic/spoop = new(T)
+
+	if(istype(spoop))
+		return TRUE
+
+	return

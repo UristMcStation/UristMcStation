@@ -4,14 +4,6 @@
 	// By default, 600 = 1 minute of growth w/o using other powers
 	var/distortion_threshold = 0
 
-/*
-/datum/power			//Could be used by other antags too
-	var/name = "Power"
-	var/desc = "Placeholder"
-	var/helptext = ""
-	var/isVerb = 1 	// Is it an active power, or passive?
-	var/verbpath // Path to a verb that contains the effects.
-*/
 
 var/list/revenant_powers = (typesof(/datum/power/revenant/bs_power) - /datum/power/revenant/bs_power)
 
@@ -40,7 +32,7 @@ var/list/revenant_powers = (typesof(/datum/power/revenant/bs_power) - /datum/pow
 
 
 /datum/bluespace_revenant/proc/select_powers(var/list/flavors_override = null)
-	var/helper_result = src.select_bsrevenant_attributes(flavors_override, /datum/bluespace_revenant/proc/get_powers_by_tag, 6, "Power")
+	var/helper_result = src.select_bsrevenant_attributes(flavors_override, /datum/bluespace_revenant/proc/get_powers_by_tag, 7, "Power")
 	return helper_result
 
 
