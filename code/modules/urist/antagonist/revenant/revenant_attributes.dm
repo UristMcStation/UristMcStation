@@ -45,8 +45,7 @@
 		return TRUE
 
 	if(src.isVerb)
-		if(src in CM.verbs)
-			CM.verbs -= src.verbpath
+		CM.verbs?.Remove(src.verbpath)
 
 	else if(src.verbpath)
 		var/reverted = src.revertEffects(M)
@@ -123,7 +122,7 @@
 	var/list/true_flavors = flavors_override
 
 	if(isnull(true_flavors))
-		true_flavors = src.flavors
+		true_flavors = src.flavors.Copy()
 
 	if(isnull(true_flavors))
 		true_flavors = src.select_flavors()
@@ -154,6 +153,10 @@
 		var/rolled_flavor = sample_with_weights(true_flavors)
 
 		if(isnull(rolled_flavor))
+			to_world_log("BLUESPACE REVENANT: Flavor is null. Falling back to generic flavor...")
+			rolled_flavor = BSR_FLAVOR_GENERIC
+
+		if(isnull(rolled_flavor))
 			to_world_log("BLUESPACE REVENANT: Flavor is null. This should never happen, aborting [identifier] selection!")
 			break
 
@@ -163,12 +166,7 @@
 			to_world_log("BLUESPACE REVENANT: Flavor [rolled_flavor] does not correspond to a valid option in [power_options] ([power_options?.len]). This should never happen, aborting [identifier] selection!")
 			break
 
-		else
-			BSR_DEBUG_LOG("BSR: falling back to a generic set for [identifier] flavor [rolled_flavor]!")
-			flavor_powers = generic_powers
-
 		for(var/datum/power/revenant/FP in flavor_powers)
-
 			if(!istype(FP))
 				BSR_DEBUG_LOG("BSR: skipping [identifier] [FP] - wrong type!")
 				continue
@@ -185,6 +183,7 @@
 		if(!(pickable_powers?.len))
 			BSR_DEBUG_LOG("BSR: falling back to a generic set for [identifier]!")
 			pickable_powers = generic_powers
+			true_flavors.Remove(rolled_flavor)
 
 		if(pickable_powers?.len)
 			selected_power = pick(pickable_powers)

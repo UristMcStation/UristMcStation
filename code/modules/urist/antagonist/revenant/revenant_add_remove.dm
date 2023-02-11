@@ -40,7 +40,13 @@
 	if(!(isbsrevenant(src)))
 		return
 
-	for(var/datum/power/revenant/P in src.mind.bluespace_revenant.unlocked_powers)
+	var/datum/bluespace_revenant/revenant = src?.mind?.bluespace_revenant
+	if(!istype(revenant))
+		return
+
+	revenant.stop_ticker()
+
+	for(var/datum/power/revenant/P in revenant.unlocked_powers)
 		P.Deactivate(src.mind)
 
 

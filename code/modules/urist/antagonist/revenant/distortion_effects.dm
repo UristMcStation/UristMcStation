@@ -22,7 +22,6 @@ var/list/revenant_distortions = (typesof(/datum/power/revenant/distortion) - /da
 		src.initialize_powerinstances()
 
 	for(var/P in revenant_distortions)
-		BSR_DEBUG_LOG("BSR: get_distortions_by_tag - processing [P]")
 
 		var/datum/power/revenant/distortion/instanceP = GLOB.revenant_powerinstances[P]
 
@@ -34,13 +33,12 @@ var/list/revenant_distortions = (typesof(/datum/power/revenant/distortion) - /da
 
 			existing_list += instanceP
 			tagged_list[flavor_tag] = existing_list
-			BSR_DEBUG_LOG("BSR: get_distortions_by_tag - added [instanceP] to a list for [flavor_tag]")
 
 	return tagged_list
 
 
 /datum/bluespace_revenant/proc/select_distortions(var/list/flavors_override = null)
-	var/list/helper_result = src.select_bsrevenant_attributes(flavors_override, /datum/bluespace_revenant/proc/get_distortions_by_tag, 3, "Distortion")
+	var/list/helper_result = src.select_bsrevenant_attributes(flavors_override, /datum/bluespace_revenant/proc/get_distortions_by_tag, 4, "Distortion")
 	if(!istype(helper_result))
 		helper_result = list()
 

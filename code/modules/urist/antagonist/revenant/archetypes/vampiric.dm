@@ -226,6 +226,10 @@
 
 
 /mob/proc/bsrevenant_turn_another()
+	set name = "Anomaly Metastasis (Grabbing)"
+	set category = "Anomalous Powers"
+	set desc = "REQUIRES GRAB: Turn a grabbed humanoid into a fellow Revenant."
+
 	var/datum/bluespace_revenant/revenant = src.mind?.bluespace_revenant
 	if(!istype(revenant))
 		to_chat(src, SPAN_NOTICE("You must be a Bluespace Revenant to use this ability."))
@@ -248,6 +252,10 @@
 
 	if(!istype(H))
 		to_chat(src, SPAN_NOTICE("You must be holding a humanoid mob to use this ability."))
+		return
+
+	if(!istype(H.mind))
+		to_chat(src, SPAN_NOTICE("The target's mind is inactive; this is too dangerous - either or both of you could disappear in a puff of logic."))
 		return
 
 	playsound(src.loc, 'sound/weapons/bite.ogg', 50, 1, 1)
@@ -382,19 +390,21 @@
 		// just in case...
 		H.species = new()
 
-	H.species.unarmed_types += /datum/unarmed_attack/bsrevenant_vampbite
-	H.species.unarmed_attacks += new /datum/unarmed_attack/bsrevenant_vampbite()
+	// Insert as first to prioritize it
+	H.species.unarmed_types?.Insert(1, /datum/unarmed_attack/bsrevenant_vampbite)
+	H.species.unarmed_attacks?.Insert(1, new /datum/unarmed_attack/bsrevenant_vampbite())
 	return TRUE
 
 
 /datum/power/revenant/bs_power/mutate_fangs
 	flavor_tags = list(
+		BSR_FLAVOR_DENTIST, // whole reason behind this meme preset
 		BSR_FLAVOR_CHIMERA,
 		BSR_FLAVOR_VAMPIRE,
 		BSR_FLAVOR_GENERIC,
 		BSR_FLAVOR_BLOOD,
 		BSR_FLAVOR_OCCULT,
-		BSR_FLAVOR_DEMONIC,
+		BSR_FLAVOR_DEMONIC
 	)
 	activate_message = "<span class='notice'>You notice your teeth becoming longer, sharper, and thicker. </span>"
 	name = "Fangs"

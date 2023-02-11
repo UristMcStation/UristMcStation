@@ -25,6 +25,8 @@
 # define BSR_FLAVOR_DEMONIC "demonic"
 # define BSR_FLAVOR_CULTIST "cult"
 # define BSR_FLAVOR_VAMPIRE "vampire"
+// You know who to blame for this...
+# define BSR_FLAVOR_DENTIST "dentist"
 
 # define BSR_ALL_FLAVORS_LIST list(BSR_FLAVOR_BLUESPACE, BSR_FLAVOR_CHIMERA, BSR_FLAVOR_OCCULT, BSR_FLAVOR_DEMONIC, BSR_FLAVOR_VAMPIRE)
 
