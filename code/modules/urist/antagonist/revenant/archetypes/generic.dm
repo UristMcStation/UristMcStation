@@ -17,13 +17,15 @@
 	if(!istype(M))
 		return 0
 
-	if(prob(10))
+	if(prob(20))
 		// This is always cold enough to be uncomfortable for any species that
 		// has a preference; otherwise 5 Celsius, because barely above freezing.
 		var/mist_temp = ((M?.species?.cold_level_1 || 273) + 5)
 		M.bodytemperature = min((M.bodytemperature || 1), mist_temp)
+		to_chat(M, SPAN_NOTICE("\The [src.name] chills you to the bone!"))
 
 	..()
+
 	return 1
 
 

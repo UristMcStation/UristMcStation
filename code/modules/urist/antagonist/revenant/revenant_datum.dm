@@ -72,6 +72,8 @@
 
 	M.mind.bluespace_revenant = src
 
+	M.remove_bsrevenant_powers()
+
 	// Activate all Hungers
 	BSR_DEBUG_LOG("Initiating Hunger unlock...")
 	for(var/H in src.hungers)
