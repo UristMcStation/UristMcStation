@@ -17,6 +17,9 @@
 	// Distortion FX (randomized!)
 	var/list/distortions
 
+	// Slaps - penalty for ignoring Distortion too much
+	var/list/slaps
+
 	// Unlocked powers.
 	var/list/unlocked_powers
 
@@ -52,6 +55,10 @@
 			var/datum/power/revenant/distortion/newRD = new RD()
 			GLOB.revenant_powerinstances[RD] = newRD
 
+		for(var/RS in revenant_slaps)
+			var/datum/power/revenant/bs_slap/newRS = new RS()
+			GLOB.revenant_powerinstances[RS] = newRS
+
 	return GLOB.revenant_powerinstances
 
 
@@ -60,6 +67,7 @@
 	src.power_set = (isnull(powers_override) ? src.select_powers() : powers_override)
 	src.hungers = (isnull(hungers_override) ? src.select_hungers() : hungers_override)
 	src.distortions = (isnull(distortions_override) ? src.select_distortions() : distortions_override)
+	src.slaps = src.select_slaps()
 
 	if(!istype(M) && src.mob_ref)
 		M = src.mob_ref.resolve()
