@@ -57,3 +57,13 @@
 # else
 # define BSR_DEBUG_LOG(X)
 # endif
+
+// Inline helpers for aborting if mob is unconscious/dead.
+// WARNING: these define a 'hidden' variable that in some extremely rare cases might conflict.
+// These leverage a 'do/while FALSE' pattern to create a scope to avoid weird parsing mishaps; it's an old C trick.
+# define BSR_ABORT_IF_UNCONSCIOUS(Trg, Msg) var/mob/living/__LConsc = Trg; if(!istype(__LConsc)) { return FALSE }; if(__LConsc.stat != CONSCIOUS) { to_chat(Trg, Msg); return FALSE };
+# define BSR_ABORT_IF_DEAD(Trg, Msg) var/mob/living/__LAlive = Trg; if(!istype(__LAlive)) { return FALSE }; if(__LAlive.stat != CONSCIOUS) { to_chat(Trg, Msg); return FALSE };
+
+// Partials to reduce copypasta at the cost of flexibility.
+# define BSR_ABORT_IF_UNCONSCIOUS_PRESET(Trg) BSR_ABORT_IF_UNCONSCIOUS(Trg, "<span class='notice'>You must be conscious to be able to do that!</span>")
+# define BSR_ABORT_IF_DEAD_PRESET(Trg) BSR_ABORT_IF_DEAD(Trg, "<span class='notice'>You must be alive to be able to do that!</span>")

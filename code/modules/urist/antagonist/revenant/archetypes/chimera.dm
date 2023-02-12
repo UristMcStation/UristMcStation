@@ -16,6 +16,8 @@
 	if(!revenant)
 		return
 
+	BSR_ABORT_IF_DEAD_PRESET(src)
+
 	if(!ishuman(src))
 		return 0
 
@@ -35,6 +37,7 @@
 
 	if(paincost > 0)
 		M.custom_pain("Your tissues shift and twist unnaturally!", paincost)
+
 	return 1
 
 
@@ -46,6 +49,7 @@
 
 	if(bsrevenant_generic_weapon(/obj/item/weapon/melee/arm_blade))
 		return
+
 	return
 
 
@@ -98,6 +102,8 @@
 	set name = "Fleshmend"
 	set category = "Anomalous Powers"
 	set desc = "Heal minor damage, stop bleeding. Use multiple times per each wound."
+
+	BSR_ABORT_IF_DEAD_PRESET(src)
 
 	// if TRUE, we're still waiting for a handler
 	var/pending = TRUE
@@ -165,17 +171,16 @@
 	set name = "Catabolic Stabilization"
 	set desc = "Burn through all of your nutrition to suppress your Distortion (scales with amount)."
 
+	BSR_ABORT_IF_UNCONSCIOUS_PRESET(src)
+
 	var/mob/living/carbon/C = src
 
 	if(!istype(C))
 		to_chat(src, "Your current mob type does not allow this power, sorry! If this blocks you as an antag, ask an admin for help rerolling your Hunger.")
 		return
 
-	if(C.stat == DEAD)
-		return
-
 	// Since this is a more stealthable Hunger, this should be fairly inefficient
-	var/suppression_per_unit = BSR_DISTORTION_GROWTH_OVER_DECISECONDS(5, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
+	var/suppression_per_unit = BSR_DISTORTION_GROWTH_OVER_DECISECONDS(10, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
 
 	var/removed = FALSE
 	var/added_suppression = 0
@@ -302,14 +307,27 @@
 	if(!istype(H))
 		return
 
-	if(!istype(H.species))
-		// just in case...
-		H.species = new()
+	var/datum/species/curr_species = null
 
-	H.species.strength = STR_VHIGH
-	H.species.brute_mod *= 0.8
-	H.species.stun_mod *= 0.8
-	H.species.weaken_mod *= 0.8
+	if(!istype(curr_species))
+		var/datum/species/new_species = new H.species.type()
+
+		if(!istype(new_species))
+			return
+
+		curr_species = new_species
+
+	if(!istype(curr_species))
+		to_chat(src, "Something has gone wrong with modifying your species; please notify an admin/coder!")
+		return
+
+	curr_species.strength = STR_VHIGH
+	curr_species.brute_mod *= 0.8
+	curr_species.stun_mod *= 0.8
+	curr_species.weaken_mod *= 0.8
+
+	H.species = curr_species
+
 	return TRUE
 
 
