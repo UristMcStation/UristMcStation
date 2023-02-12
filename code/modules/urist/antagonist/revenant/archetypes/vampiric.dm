@@ -15,14 +15,13 @@
 	set name = "Sacrifice Blood"
 	set desc = "Sacrifice your own blood (10% per use) to suppress your Distortion."
 
+	BSR_ABORT_IF_DEAD_PRESET(src)
+
 	var/mob/living/L = src
 	var/mob/living/carbon/human/H = L
 
 	if(!istype(L))
 		to_chat(src, "Your current mob type does not allow this power, sorry!")
-		return
-
-	if(L.stat == DEAD)
 		return
 
 	// We have to assume the defaults are in play for this since we cannot look up the actual BSR datum - and arguably we shouldn't.
@@ -68,14 +67,13 @@
 	set name = "Digest Blood"
 	set desc = "Digest all -ingested- blood to suppress your Distortion (scales with amount)."
 
+	BSR_ABORT_IF_DEAD_PRESET(src)
+
 	var/mob/living/L = src
 	var/mob/living/carbon/C = L
 
 	if(!istype(L))
 		to_chat(src, "Your current mob type does not allow this power, sorry! If this blocks you as an antag, ask an admin for help rerolling your Hunger.")
-		return
-
-	if(L.stat == DEAD)
 		return
 
 	if(!istype(C))
@@ -151,6 +149,7 @@
 	name = "Undead"
 	isVerb = FALSE
 	verbpath = /mob/proc/revenant_undeadify
+	distortion_threshold = 30000
 
 
 /datum/power/revenant/distortion/bats
@@ -184,7 +183,9 @@
 /mob/proc/bsrevenant_summon_bats()
 	set category = "Anomalous Powers"
 	set name = "Summon Bats"
-	set desc = "Summon some Bats Outta Hell. They're friendly... to you, anyway."
+	set desc = "Summon some Bats Outta Hell. They're often friendly... to you, anyway. Sometimes."
+
+	BSR_ABORT_IF_UNCONSCIOUS_PRESET(src)
 
 	var/atom/A = get_turf(src)
 
@@ -195,14 +196,26 @@
 	if(!istype(T))
 		return
 
-	src.visible_message(SPAN_WARNING("\The [src] reaches across spacetime, ripping the veil and leaving a portal behind!"))
+	src.visible_message(SPAN_WARNING("\The [src]'s arm twists at an impossible angle as \he reaches beyond reality!"))
+
+	if(!(do_after(src, 10 SECONDS)))
+		return
+
+	src.visible_message(SPAN_WARNING("\The [src] yanks \his hand back sharply, leaving a portal behind!"))
+
 	var/obj/effect/gateway/hole = new(T)
 	hole.density = 0
 
 	QDEL_IN(hole, 30 SECONDS)
 
 	spawn(rand(1, 10 SECONDS))
-		var/mob/living/simple_animal/hostile/scarybat/bat = new(T, src)
+		var/owner = null
+
+		if(prob(80))
+			// 20% chance the bats will be hostile - preventing batspammers
+			owner = src
+
+		var/mob/living/simple_animal/hostile/scarybat/bat = new(T, owner)
 		bat.visible_message(SPAN_WARNING("\A [bat] escapes from the portal!"))
 
 	var/datum/bluespace_revenant/revenant = src.mind?.bluespace_revenant
@@ -229,6 +242,8 @@
 	set name = "Anomaly Metastasis (Grabbing)"
 	set category = "Anomalous Powers"
 	set desc = "REQUIRES GRAB: Turn a grabbed humanoid into a fellow Revenant."
+
+	BSR_ABORT_IF_UNCONSCIOUS_PRESET(src)
 
 	var/datum/bluespace_revenant/revenant = src.mind?.bluespace_revenant
 	if(!istype(revenant))
@@ -283,6 +298,8 @@
 		revenant.trackers["last_transferred_to"] = H
 		revenant.trackers["last_transferred_amt"] = 0
 
+	var/const/turned_threshold = 100
+
 	spawn(0)
 		var/init_time = world.time
 		while ((world.time - init_time) < 2 MINUTES)
@@ -301,11 +318,14 @@
 				break
 
 			H.Stun(3)
+			H.Weaken(3)
+
+			to_chat(src, SPAN_NOTICE("You have transferred [100 * curr_transferred / turned_threshold]% of the power needed to turn [H] into a Revenant so far."))
 
 			revenant.total_distortion += BSR_DISTORTION_GROWTH_OVER_SECONDS(30, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
 			to_chat(src, SPAN_WARNING("You're feeling slightly less *real*..."))
 
-			if(curr_transferred >= 100)
+			if(curr_transferred >= turned_threshold)
 				revenant.trackers["last_transferred_to"] = null
 				revenant.trackers["last_transferred_amt"] = 0
 				break // we're done
@@ -315,7 +335,7 @@
 		var/total_transferred = revenant.trackers["last_transferred_amt"]
 		revenant = src.mind?.bluespace_revenant
 
-		if(istype(revenant) && H && total_transferred >= 100)
+		if(istype(revenant) && H && total_transferred >= turned_threshold)
 			revenant.turn_into_child_revenant(H)
 			var/datum/bluespace_revenant/babby = H.mind?.bluespace_revenant
 
@@ -390,13 +410,25 @@
 	if(!istype(H))
 		return
 
-	if(!istype(H.species))
-		// just in case...
-		H.species = new()
+	var/datum/species/curr_species = null
+
+	if(!istype(curr_species))
+		var/datum/species/new_species = new H.species.type()
+
+		if(!istype(new_species))
+			return
+
+		curr_species = new_species
+
+	if(!istype(curr_species))
+		to_chat(src, "Something has gone wrong with modifying your species; please notify an admin/coder!")
+		return
 
 	// Insert as first to prioritize it
-	H.species.unarmed_types?.Insert(1, /datum/unarmed_attack/bsrevenant_vampbite)
-	H.species.unarmed_attacks?.Insert(1, new /datum/unarmed_attack/bsrevenant_vampbite())
+	curr_species.unarmed_types?.Insert(1, /datum/unarmed_attack/bsrevenant_vampbite)
+	curr_species.unarmed_attacks?.Insert(1, new /datum/unarmed_attack/bsrevenant_vampbite())
+
+	H.species = curr_species
 	return TRUE
 
 

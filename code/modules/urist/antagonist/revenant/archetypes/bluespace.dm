@@ -154,6 +154,8 @@ Proc needs to be fixed, it fails to locate a dest
 	set name = "Toggle Digital Camouflage"
 	set desc = "The AI can no longer track you, but you will look different if examined.  Increases Distortion generation while active."
 
+	BSR_ABORT_IF_UNCONSCIOUS_PRESET(src)
+
 	var/mob/living/carbon/human/C = src
 	if(!istype(C))
 		return
@@ -378,11 +380,7 @@ Proc needs to be fixed, it fails to locate a dest
 	set name = "Equivalent Exchange"
 	set desc = "Devour valuable items to stabilize yourself in reality. How does it work? Who knows!"
 
-	var/mob/living/L = src
-
-	if(istype(L) && L.stat != CONSCIOUS)
-		to_chat(src, SPAN_WARNING("You need to be conscious to be able to chew!"))
-		return
+	BSR_ABORT_IF_UNCONSCIOUS(src, SPAN_WARNING("You need to be conscious to be able to chew!"))
 
 	// We need to do this a funny way or we can EAT OUR OWN ORGANS :^)
 	var/list/searchspace = (orange(1) + (get_turf(src))?.contents)

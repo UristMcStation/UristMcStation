@@ -104,6 +104,8 @@
 	set name = "Draw Wards"
 	set desc = "Draw a rune that will stabilize you, reducing your effective Distortion generation."
 
+	BSR_ABORT_IF_UNCONSCIOUS_PRESET(src)
+
 	var/const/self_msg = "You slice open one of your fingers and begin drawing a rune on the floor whilst chanting the ritual that binds your life essence with the dark arcane energies flowing through the surrounding world."
 	src.visible_message(SPAN_WARNING("\The [src] slices open a finger and begins to chant and paint symbols on the floor."), SPAN_NOTICE("[self_msg]"), "You hear chanting.")
 
@@ -255,6 +257,10 @@
 	if(!istype(T))
 		return
 
+	var/obj/effect/gateway/preexisting = locate() in T
+	if(preexisting)
+		return FALSE
+
 	if(!istype(revenant.trackers))
 		revenant.trackers = list()
 
@@ -265,6 +271,9 @@
 	hole.density = 0
 
 	QDEL_IN(hole, 30 SECONDS)
+
+	if(prob(80))
+		return TRUE
 
 	if(isnull(previous_time) || ((current_time - previous_time) > 1 MINUTES))
 		revenant.trackers["last veil tear time"] = current_time
@@ -327,6 +336,8 @@
 	set name = "Veil Rip"
 	set desc = "Open a dark portal to summon monsters from beyond. WARNING: they are NOT friendly!"
 
+	BSR_ABORT_IF_UNCONSCIOUS_PRESET(src)
+
 	var/atom/A = get_turf(src)
 
 	if(isnull(A) || !istype(A))
@@ -337,9 +348,10 @@
 		/mob/living/simple_animal/hostile/faithless/cult
 	)
 
-
 	var/datum/bluespace_revenant/revenant = src.mind?.bluespace_revenant
-	. = bsrevenant_veiltear_helper(A, revenant, "anomalous", possible_spawns)
+
+	if(do_after(src, 10 SECONDS))
+		. = bsrevenant_veiltear_helper(A, revenant, "anomalous", possible_spawns)
 
 	if(istype(revenant))
 		revenant.total_distortion += BSR_DISTORTION_GROWTH_OVER_MINUTES(10, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)

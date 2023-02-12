@@ -117,12 +117,11 @@
 	set name = "Insight"
 	set desc = "Gives you a sense of local reality distortion levels."
 
+	BSR_ABORT_IF_DEAD_PRESET(src)
+
 	var/mob/living/carbon/C = src
 
 	if(!istype(C))
-		return
-
-	if(C.stat == DEAD)
 		return
 
 	var/datum/bluespace_revenant/revenant = src?.mind?.bluespace_revenant
