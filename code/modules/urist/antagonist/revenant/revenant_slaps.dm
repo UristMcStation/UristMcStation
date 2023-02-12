@@ -169,7 +169,7 @@ var/list/revenant_slaps = (typesof(/datum/power/revenant/bs_slap) - /datum/power
 		bsr.stop_ticker()
 		M.mind.bluespace_revenant = null
 
-	src.visible_message(SPAN_WARNING("\The [src] starts to fade out of existence!."))
+	M.visible_message(SPAN_WARNING("\The [src] starts to fade out of existence!."))
 
 	animate(M, alpha=0, time=fadetime)
 
