@@ -26,6 +26,8 @@
 
 		var/datum/bluespace_revenant/revenant = new(src, preset_flavors, powerset_override, hungers_override)
 		mind.bluespace_revenant = revenant
+		revenant.start_ticker()
+
 
 	for(var/datum/power/revenant/P in mind.bluespace_revenant.unlocked_powers)
 		if(P.isVerb)

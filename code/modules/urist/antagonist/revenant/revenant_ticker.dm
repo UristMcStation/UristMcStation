@@ -13,9 +13,23 @@
 /datum/bluespace_revenant/proc/Tick(var/ticks = 1)
 	var/safe_ticks = (ticks || 0)
 
+	var/mob/M = null
+	if(istype(src.mob_ref))
+		M = src.mob_ref.resolve()
+
+	if(!istype(M))
+		// Kill the loop if the BSR's mob got deleted.
+		return FALSE
+
+	var/mob/living/L = M
+	if(istype(L) && L.stat == DEAD)
+		// Kill the loop if the BSR died.
+		return FALSE
+
 	src.HandleDistortionUpdates(safe_ticks)
 	src.HandlePowerUpdates()
 	src.SpreadDistortion(safe_ticks)
+	src.HandleApplySlaps()
 
 	if(callbacks)
 		for(var/method in callbacks)
@@ -35,7 +49,11 @@
 			if(!(src._tick_delay))
 				to_world_log("BSR: [src] ticker killed - tick delay became null!")
 
-			src.Tick(1)
+			var/is_alive = src.Tick(1)
+
+			if(!is_alive)
+				to_world_log("BSR: [src] ticker killed - Tick returned FALSE.")
+				break
 
 			// prevent runaway tickers in case someone VVs irresponsibly
 			src._tick_delay = max(1, src._tick_delay)
