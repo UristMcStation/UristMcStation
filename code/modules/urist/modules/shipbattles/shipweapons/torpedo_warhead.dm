@@ -19,6 +19,8 @@
 	var/pass_shield = FALSE
 	var/component_hit = 0
 	var/ammo_name //for naming the torpedo
+	var/component_modifier_low = 0.2
+	var/component_modifier_high = 0.5
 
 /obj/item/shipweapons/torpedo_warhead/New()
 	..()
@@ -194,28 +196,46 @@ var/const/TWARHEAD_DETONATE = 4
 	name = "bluespace torpedo warhead"
 	desc = "It's a big bluespace-capable warhead for a big torpedo. Shove it in a torpedo casing and you've got yourself a torpedo." //torpedo
 	icon_state = "bstorpedowarhead"
-	hull_damage = 350 //21.875 dps
+	hull_damage = 302 //18.875 dps
 	pass_shield = TRUE
-	component_hit = 30
+	component_hit = 65
+	component_modifier_low = 0.3
+	component_modifier_high = 0.675
 	ammo_name = "bluespace"
 
 /obj/item/shipweapons/torpedo_warhead/ap
 	name = "armour-piercing torpedo warhead"
 	desc = "It's a big armour-piercing warhead for a big torpedo. Shove it in a torpedo casing and you've got yourself a torpedo." //torpedo
 	icon_state = "aptorpedowarhead"
-	hull_damage = 600 //37.5 dps, currently the highest if the shields are down and you can score a hit
-	component_hit = 10
+	hull_damage = 620 //38.75 dps, currently the highest if the shields are down and you can score a hit
+	component_hit = 5
+	component_modifier_low = 0.1
+	component_modifier_high = 0.25
 	ammo_name = "armour-piercing"
 
 /obj/item/shipweapons/torpedo_warhead/ap/do_explosion()
 	explosion(get_turf(src), 0, 1, 3)
+
+/obj/item/shipweapons/torpedo_warhead/he
+	name = "high-explosive torpedo warhead"
+	desc = "It's a big high-explosive warhead for a big torpedo. Shove it in a torpedo casing and you've got yourself a torpedo." //torpedo
+	icon_state = "hetorpedowarhead"
+	hull_damage = 390 //24.375 dps
+	shield_damage = 100
+	component_hit = 60
+	component_modifier_low = 0.25
+	component_modifier_high = 0.65
+	ammo_name = "high-explosive"
+
+/obj/item/shipweapons/torpedo_warhead/he/do_explosion()
+	explosion(get_turf(src), 1, 2, 8)
 
 /obj/item/shipweapons/torpedo_warhead/emp
 	name = "EMP torpedo warhead"
 	desc = "It's a big armour-piercing warhead for a big torpedo. Shove it in a torpedo casing and you've got yourself a torpedo." //torpedo
 	icon_state = "emptorpedowarhead"
 	shield_damage = 500 //31.25 dps, slightly below a heavy ion cannon, this might need tweaking
-	component_hit = 50
+	component_hit = 52
 	ammo_name = "EMP"
 
 /obj/item/shipweapons/torpedo_warhead/emp/do_explosion()

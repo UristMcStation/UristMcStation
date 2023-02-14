@@ -16,6 +16,8 @@
 	var/chargedicon = null
 	var/target = null
 	var/component_hit = 0 //chance to hit components
+	var/component_modifier_low = 0.2 //component damage modifier for untargeted shots
+	var/component_modifier_high = 0.5 //component damage modifier for targeted shots
 	var/obj/item/projectile/projectile_type
 	var/fire_anim = 0
 	var/fire_sound = null
@@ -247,7 +249,7 @@
 
 	var/datum/shipcomponents/targetcomponent = pick(OM.components)
 	if(!targetcomponent.broken)
-		targetcomponent.health -= (hull_damage * 0.2)
+		targetcomponent.health -= (hull_damage * component_modifier_low)
 
 		if(targetcomponent.health <= 0)
 			targetcomponent.BlowUp()
@@ -255,7 +257,7 @@
 /obj/machinery/shipweapons/proc/TargetedHit(var/targetship, var/hull_damage, var/oc = FALSE)
 	var/mob/living/simple_animal/hostile/overmapship/OM = targetship
 	if(!targeted_component.broken)
-		targeted_component.health -= (hull_damage * 0.5) //we do more damage for aimed shots
+		targeted_component.health -= (hull_damage * component_modifier_high) //we do more damage for aimed shots
 
 		if(targeted_component.health <= 0)
 			targeted_component.BlowUp()

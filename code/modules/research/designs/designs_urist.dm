@@ -101,6 +101,15 @@ datum/design/plasmapistol
 	build_path = /obj/item/shipweapons/torpedo_warhead/emp
 	sort_string = "SHPWC"
 
+/datum/design/item/shipweapons/ap_torpedo
+	name = "AP torpedo warhead"
+	desc = "An armour-piercing warhead for a torpedo. Shove it in a torpedo casing and you're good to go."
+	id = "ship_torpedo_warhead_ap"
+	req_tech = list(TECH_MATERIAL = 1, TECH_PHORON = 1, TECH_ENGINEERING = 1, TECH_COMBAT = 3)
+	materials = list(MATERIAL_STEEL = 1600, MATERIAL_PLASTIC = 300, MATERIAL_URANIUM = 200, MATERIAL_PHORON = 200)
+	build_path = /obj/item/shipweapons/torpedo_warhead/ap
+	sort_string = "SHPWH"
+
 //shipweapons
 
 /datum/design/item/shipweapons/light_autocannon
@@ -108,7 +117,7 @@ datum/design/plasmapistol
 	desc = "A light autocannon for ship-to-ship combat."
 	id = "ship_light_autocannon"
 	req_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1, TECH_COMBAT = 2)
-	materials = list(MATERIAL_STEEL = 12000)
+	materials = list(MATERIAL_STEEL = 12000, MATERIAL_ALUMINIUM = 1000)
 	build_path = /obj/structure/shipweapons/incomplete_weapon/external/light_autocannon
 	sort_string = "SHPWD"
 
@@ -117,7 +126,7 @@ datum/design/plasmapistol
 	desc = "A light autocannon for ship-to-ship combat. Equipped with two barrels for a faster fire rate."
 	id = "ship_light_autocannon_rapid"
 	req_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2, TECH_COMBAT = 3)
-	materials = list(MATERIAL_STEEL = 20000)
+	materials = list(MATERIAL_STEEL = 20000, MATERIAL_ALUMINIUM = 1500)
 	build_path = /obj/structure/shipweapons/incomplete_weapon/external/light_autocannon/rapid
 	sort_string = "SHPWE"
 

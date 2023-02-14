@@ -54,6 +54,8 @@
 		shield_damage = loaded_ammo.shield_damage * src.fire_amount //here we pass the damage values along
 		hull_damage = loaded_ammo.hull_damage * src.fire_amount //damage values are multiplied by the fire amount so we can have weapons that use the same ammo but simulate different fire rates
 		pass_shield = loaded_ammo.pass_shield
+		component_modifier_low = loaded_ammo.component_modifier_low
+		component_modifier_high = loaded_ammo.component_modifier_high
 		if(loaded_ammo.component_hit)
 			component_hit = loaded_ammo.component_hit
 
@@ -63,6 +65,8 @@
 		hull_damage = initial(hull_damage)
 		pass_shield = initial(pass_shield)
 		component_hit = initial(component_hit)
+		component_modifier_low = initial(component_modifier_low)
+		component_modifier_high = initial(component_modifier_high)
 
 /obj/machinery/shipweapons/ammo/update_icon()
 	..()
