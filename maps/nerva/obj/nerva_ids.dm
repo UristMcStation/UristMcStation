@@ -49,4 +49,4 @@
 	job_access_type = /datum/job/seniorscientist
 
 /obj/item/weapon/card/id/medical/psychiatrist/nerva
-	job_access_type = /datum/job/chaplain
+	job_access_type = /datum/job/psychiatrist

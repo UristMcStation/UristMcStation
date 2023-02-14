@@ -14176,7 +14176,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock{
 	name = "Counselor's Office";
-	req_access = list("ACCESS_CHAPEL_STORAGE")
+	req_access = list("ACCESS_PSYCHIATRIST")
 	},
 /obj/structure/cable{
 	d1 = 1;
