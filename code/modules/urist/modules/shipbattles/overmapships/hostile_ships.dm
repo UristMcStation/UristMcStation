@@ -8,8 +8,8 @@
 /mob/living/simple_animal/hostile/overmapship/pirate/small
 //	shipdatum = /datum/ships/piratesmall
 	shields = 800
-	health = 800
-	maxHealth = 800
+	health = 1000
+	maxHealth = 1000
 	name = "small pirate vessel"
 	ship_category = "small pirate vessel"
 	boardingmap = "maps/shipmaps/ship_pirate_small1.dmm"
@@ -33,8 +33,8 @@
 /mob/living/simple_animal/hostile/overmapship/pirate/med
 //	shipdatum = /datum/ships/piratesmall
 	shields = 2000
-	health = 1000
-	maxHealth = 1000
+	health = 1400
+	maxHealth = 1400
 	name = "pirate vessel"
 	ship_category = "medium pirate vessel"
 	boardingmap = "maps/shipmaps/ship_pirate_small1.dmm"
@@ -69,8 +69,8 @@
 
 /mob/living/simple_animal/hostile/overmapship/alien/small
 	shields = 250 //really weak, but fast charging shields
-	health = 1200 //and beefy hulls
-	maxHealth = 1200
+	health = 1650 //and beefy hulls
+	maxHealth = 1650
 	ship_category = "Lactera fast attack craft"
 	boardingmap = "maps/shipmaps/ship_lactera_small.dmm"
 	can_board = TRUE
@@ -93,7 +93,7 @@
 
 /mob/living/simple_animal/hostile/overmapship/alien/heavy //you have to board this motherfucker
 	health = 2400 //really weak, but fast charging shields
-	maxHealth = 2400 //and beefy hulls
+	maxHealth = 2800 //and beefy hulls
 	ship_category = "Lactera frigate"
 	boardingmap = "maps/shipmaps/ship_lactera_large.dmm"
 	can_board = TRUE
@@ -125,8 +125,8 @@
 	wander = 1
 	color = "#f65026" //a reddish orange
 	can_board = FALSE //i've got some things in mind for this
-	shields = 1000 //the intention for the map is a freighter or something taken over by drones/hivebots. Are hivebots the end result of a successful drone uprising? idk, but it'll be a neat away.
-	maxHealth = 1000 //not an overly beefy hull, but the main thing is going to be the repair module
+	shields = 1100 //the intention for the map is a freighter or something taken over by drones/hivebots. Are hivebots the end result of a successful drone uprising? idk, but it'll be a neat away.
+	maxHealth = 1100 //not an overly beefy hull, but the main thing is going to be the repair module
 	health = 1000
 
 /mob/living/simple_animal/hostile/overmapship/hivebot/New() //only for admemes. this will fuck your day up.

@@ -105,9 +105,9 @@
 
 /datum/shipcomponents/shield/alien_light
 	name = "light alien shield"
-	strength = 300
+	strength = 400
 	health = 200
-	recharge_rate = 60
+	recharge_rate = 70
 	recharge_delay = 5 SECONDS
 	recovery_threashold = 80
 
@@ -115,7 +115,7 @@
 	name = "heavy alien shield"
 	strength = 600
 	health = 200
-	recharge_rate = 60
+	recharge_rate = 70
 	recharge_delay = 8 SECONDS
 	recovery_threashold = 80
 

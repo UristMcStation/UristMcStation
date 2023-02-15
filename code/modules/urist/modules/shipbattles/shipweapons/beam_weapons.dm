@@ -52,7 +52,7 @@
 
 /obj/machinery/shipweapons/beam/heavypulse
 	name = "heavy pulse cannon"
-	shield_damage = 150
+	shield_damage = 200
 	hull_damage = 600 //27.27 dps
 	icon_state = "bigpulsecannon"
 	idle_power_usage = 10

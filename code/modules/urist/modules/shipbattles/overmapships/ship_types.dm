@@ -32,8 +32,8 @@
 //	shipdatum = /datum/ships/nanotrasen/ntmerchant
 	name = "NanoTrasen merchant ship"
 	shields = 1000
-	health = 800
-	maxHealth = 800
+	health = 1000
+	maxHealth = 1000
 	ship_category = "NanoTrasen merchant ship"
 	can_board = TRUE
 
@@ -58,8 +58,8 @@
 /mob/living/simple_animal/hostile/overmapship/nanotrasen/fast_attack
 	name = "NanoTrasen fast attack craft"
 	shields = 3000
-	health = 500
-	maxHealth = 1000
+	health = 1200
+	maxHealth = 1200
 	ship_category = "NanoTrasen fast attack craft"
 
 /mob/living/simple_animal/hostile/overmapship/nanotrasen/fast_attack/New()
@@ -86,8 +86,8 @@
 //	shipdatum = /datum/ships/nanotrasen/ntmerchant
 	name = "Terran Confederacy merchant ship"
 	shields = 1000
-	health = 800
-	maxHealth = 800
+	health = 1000
+	maxHealth = 1000
 	ship_category = "Terran Confederacy merchant ship"
 	boardingmap = "maps/shipmaps/ship_light_freighter.dmm"
 	can_board = TRUE
@@ -112,8 +112,8 @@
 
 /mob/living/simple_animal/hostile/overmapship/terran/fast_attack
 	name = "Terran Confederacy fast attack craft"
-	health = 1000
-	maxHealth = 1000
+	health = 1200
+	maxHealth = 1200
 	ship_category = "Terran Confederacy fast attack craft"
 	boardingmap = "maps/shipmaps/ship_fastattackcraft_terran.dmm"
 	can_board = TRUE
@@ -135,8 +135,8 @@
 
 /mob/living/simple_animal/hostile/overmapship/terran/frigate
 	name = "Terran Confederacy frigate"
-	health = 1400
-	maxHealth = 1400
+	health = 1600
+	maxHealth = 1600
 	ship_category = "Terran Confederacy frigate"
 //	boardingmap = "maps/shipmaps/ship_frigate_terran.dmm"
 	can_board = FALSE
@@ -167,7 +167,7 @@
 /mob/living/simple_animal/hostile/overmapship/rebel/fast_attack
 	name = "rebel fast attack craft"
 	shields = 3000
-	health = 500
+	health = 1000
 	maxHealth = 1000
 	ship_category = "rebel fast attack craft"
 	boardingmap = "maps/shipmaps/ship_rebel_small1.dmm"
