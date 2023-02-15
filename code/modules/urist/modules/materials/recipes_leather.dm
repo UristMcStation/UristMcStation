@@ -1,25 +1,27 @@
-/material/leather/generate_recipes()
-	recipes = list()
+/material/leather/generate_recipes(var/reinforce_material)
+	. = ..()
+	if(reinforce_material)	//recipies below don't support composite materials
+		return
 
-	recipes += new/datum/stack_recipe_list("holsters", list(
+	. += new/datum/stack_recipe_list("holsters", list(
 		new/datum/stack_recipe/holster/hip(src),
 		new/datum/stack_recipe/holster/waist(src),
 		new/datum/stack_recipe/holster/armpit(src)
 		))
-	recipes += new/datum/stack_recipe/toolbelt(src)
-	recipes += new/datum/stack_recipe/briefcase(src)
-	recipes += new/datum/stack_recipe/wallet(src)
-	recipes += new/datum/stack_recipe/knifeharness(src)
-	recipes += new/datum/stack_recipe/eyepatch(src)
-	recipes += new/datum/stack_recipe/botanic_leather_gloves(src)
-	recipes += new/datum/stack_recipe/leather_work_gloves(src)
-	recipes += new/datum/stack_recipe/leather_shoes(src)
-	recipes += new/datum/stack_recipe/jungle_boots(src)
-	recipes += new/datum/stack_recipe/laceup_shoes(src)
-	recipes += new/datum/stack_recipe/leather_boots(src)
-	recipes += new/datum/stack_recipe/cowboy_hat(src)
-	recipes += new/datum/stack_recipe/flatcap(src)
-	recipes += new/datum/stack_recipe_list("coats", list( \
+	. += new/datum/stack_recipe/toolbelt(src)
+	. += new/datum/stack_recipe/briefcase(src)
+	. += new/datum/stack_recipe/wallet(src)
+	. += new/datum/stack_recipe/knifeharness(src)
+	. += new/datum/stack_recipe/eyepatch(src)
+	. += new/datum/stack_recipe/botanic_leather_gloves(src)
+	. += new/datum/stack_recipe/leather_work_gloves(src)
+	. += new/datum/stack_recipe/leather_shoes(src)
+	. += new/datum/stack_recipe/jungle_boots(src)
+	. += new/datum/stack_recipe/laceup_shoes(src)
+	. += new/datum/stack_recipe/leather_boots(src)
+	. += new/datum/stack_recipe/cowboy_hat(src)
+	. += new/datum/stack_recipe/flatcap(src)
+	. += new/datum/stack_recipe_list("coats", list( \
 		new/datum/stack_recipe/coat/duster(src),
 		new/datum/stack_recipe/coat/leather(src),
 		new/datum/stack_recipe/coat/black_leather(src),
@@ -29,12 +31,12 @@
 		new/datum/stack_recipe/coat/brown_jacket(src),
 		new/datum/stack_recipe/coat/nt_brown_jacket(src)
 		))
-	recipes += new/datum/stack_recipe/leather_sandsuit(src)
-	recipes += new/datum/stack_recipe/leather_pants(src)
-	recipes += new/datum/stack_recipe/leather_overalls(src)
-	recipes += new/datum/stack_recipe/factory_apron(src)
-	recipes += new/datum/stack_recipe/welder_apron(src)
-	recipes += new/datum/stack_recipe/leather_mask(src)
+	. += new/datum/stack_recipe/leather_sandsuit(src)
+	. += new/datum/stack_recipe/leather_pants(src)
+	. += new/datum/stack_recipe/leather_overalls(src)
+	. += new/datum/stack_recipe/factory_apron(src)
+	. += new/datum/stack_recipe/welder_apron(src)
+	. += new/datum/stack_recipe/leather_mask(src)
 
 /datum/stack_recipe/holster
 	req_amount = 2

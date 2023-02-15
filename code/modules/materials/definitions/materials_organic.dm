@@ -44,7 +44,7 @@
 	destruction_desc = "crumples"
 	conductive = 0
 
-/material/cloth //todo
+/*/material/cloth //todo
 	name = MATERIAL_CLOTH
 	stack_origin_tech = list(TECH_MATERIAL = 2)
 	door_icon_base = "wood"
@@ -55,7 +55,7 @@
 	conductive = 0
 	stack_type = null
 	hidden_from_codex = TRUE
-	construction_difficulty = 1
+	construction_difficulty = 1*/
 
 //TODO PLACEHOLDERS:
 /material/leather
@@ -66,6 +66,7 @@
 	ignition_point = T0C+300
 	melting_point = T0C+300
 	conductive = 0
+	hardness = 10
 	stack_type = null
 	hidden_from_codex = TRUE
 	construction_difficulty = 1
@@ -86,12 +87,16 @@
 
 /material/cloth
 	name = MATERIAL_COTTON
+	stack_origin_tech = list(TECH_MATERIAL = 2)
+	door_icon_base = "wood"
 	display_name ="grey"
 	use_name = "grey cloth"
 	icon_colour = "#ffffff"
 	flags = MATERIAL_PADDING
 	ignition_point = T0C+232
 	melting_point = T0C+300
+	hardness = 5
+	brute_armor = 1
 	conductive = 0
 	stack_type = null
 	hidden_from_codex = TRUE

@@ -1,18 +1,20 @@
 /material/cloth/generate_recipes(var/reinforce_material)
-	..()
+	. = ..()
+	if(reinforce_material)	//recipies below don't support composite materials
+		return
 
-	recipes += new/datum/stack_recipe/makeshiftbandage(src)
-	recipes += new/datum/stack_recipe/makeshiftmask(src)
-	recipes += new/datum/stack_recipe/rag(src)
-	recipes += new/datum/stack_recipe/bedsheet(src)
-	recipes += new/datum/stack_recipe/footwraps(src)
-	recipes += new/datum/stack_recipe/gloves(src)
-	recipes += new/datum/stack_recipe/taqiyah(src)
-	recipes += new/datum/stack_recipe/turban(src)
-	recipes += new/datum/stack_recipe/hijab(src)
-	recipes += new/datum/stack_recipe/kippa(src)
-	recipes += new/datum/stack_recipe/scarf(src)
-	recipes += new/datum/stack_recipe/uniform(src)
+	. += new/datum/stack_recipe/makeshiftbandage(src)
+	. += new/datum/stack_recipe/makeshiftmask(src)
+	. += new/datum/stack_recipe/rag(src)
+	. += new/datum/stack_recipe/bedsheet(src)
+	. += new/datum/stack_recipe/footwraps(src)
+	. += new/datum/stack_recipe/gloves(src)
+	. += new/datum/stack_recipe/taqiyah(src)
+	. += new/datum/stack_recipe/turban(src)
+	. += new/datum/stack_recipe/hijab(src)
+	. += new/datum/stack_recipe/kippa(src)
+	. += new/datum/stack_recipe/scarf(src)
+	. += new/datum/stack_recipe/uniform(src)
 
 /datum/stack_recipe/makeshiftbandage
 	title = "makeshift bandage"

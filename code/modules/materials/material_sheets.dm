@@ -29,7 +29,7 @@
 		return INITIALIZE_HINT_QDEL
 	if(default_reinf_type)
 		reinf_material = SSmaterials.get_material_by_name(default_reinf_type)
-	
+
 	if(!stacktype)
 		stacktype = material.stack_type
 	if(islist(material.stack_origin_tech))
@@ -47,7 +47,7 @@
 	if(!material)
 		return
 	recipes = material.get_recipes(reinf_material && reinf_material.name)
-	..() 
+	..()
 
 /obj/item/stack/material/get_codex_value()
 	return (material && !material.hidden_from_codex) ? "[lowertext(material.display_name)] (material)" : ..()
@@ -75,7 +75,7 @@
 
 	if(material_flags & USE_MATERIAL_PLURAL_NAME)
 		plural_name = material.sheet_plural_name
-	
+
 	if(amount>1)
 		SetName("[material.use_name] [plural_name]")
 		desc = "A stack of [material.use_name] [plural_name]."
@@ -394,9 +394,10 @@
 	amount = 25
 
 /obj/item/stack/material/cloth
-	name = "cloth"
+	name = "cotton"
 	icon_state = "sheet-cloth"
-	default_type = MATERIAL_CLOTH
+	default_type = MATERIAL_COTTON
+	material_flags = USE_MATERIAL_SINGULAR_NAME|USE_MATERIAL_PLURAL_NAME
 
 /obj/item/stack/material/cardboard
 	name = "cardboard"
@@ -424,7 +425,7 @@
 	default_type = MATERIAL_GLASS
 
 /obj/item/stack/material/glass/on_update_icon()
-	if(reinf_material) 
+	if(reinf_material)
 		icon_state = "sheet-reinf"
 		plural_icon_state = "sheet-reinf-mult"
 	else
