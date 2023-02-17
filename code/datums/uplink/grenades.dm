@@ -78,3 +78,13 @@
 	item_cost = 60
 	antag_roles = list(MODE_MERCENARY)
 	path = /obj/item/weapon/storage/box/supermatters
+
+/datum/uplink_item/item/grenades/metalfoam
+	name = "1x Metal Foam Grenade"
+	item_cost = 4
+	path = /obj/item/weapon/grenade/chem_grenade/metalfoam
+
+/datum/uplink_item/item/grenades/metalfoams
+	name = "5x Metal Foam Grenades"
+	item_cost = 16
+	path = /obj/item/weapon/storage/box/metalfoams

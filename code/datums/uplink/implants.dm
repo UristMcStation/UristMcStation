@@ -16,7 +16,7 @@
 
 /datum/uplink_item/item/implants/imp_explosive
 	name = "Explosive Implant (DANGER!)"
-	item_cost = 40
+	item_cost = 24
 	path = /obj/item/weapon/storage/box/syndie_kit/imp_explosive
 
 /datum/uplink_item/item/implants/imp_uplink

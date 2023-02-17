@@ -43,16 +43,16 @@
 	item_cost = 24
 	path = /obj/item/weapon/gun/energy/gun
 
-/datum/uplink_item/item/visible_weapons/revolver
+/datum/uplink_item/item/visible_weapons/revolver //357 and 44 revolvers are functionally identical
 	name = "Revolver, .357"
-	desc = ".357 revolver, with ammunition."
-	item_cost = 56
+	desc = ".357 Magnum revolver, with ammunition."
+	item_cost = 36
 	path = /obj/item/weapon/storage/backpack/satchel/syndie_kit/revolver
 
 /datum/uplink_item/item/visible_weapons/revolver2
 	name = "Revolver, .44"
-	desc = ".44 magnum revolver, with ammunition."
-	item_cost = 48
+	desc = ".44 Magnum revolver, with ammunition."
+	item_cost = 36
 	path = /obj/item/weapon/storage/backpack/satchel/syndie_kit/revolver2
 
 /datum/uplink_item/item/visible_weapons/grenade_launcher
@@ -63,17 +63,17 @@
 //These are for traitors (or other antags, perhaps) to have the option of purchasing some merc gear.
 /datum/uplink_item/item/visible_weapons/submachinegun
 	name = "Submachine Gun"
-	item_cost = 52
+	item_cost = 64
 	path = /obj/item/weapon/gun/projectile/automatic/c20r
 
 /datum/uplink_item/item/visible_weapons/assaultrifle
 	name = "Assault Rifle"
-	item_cost = 60
+	item_cost = 68
 	path = /obj/item/weapon/gun/projectile/automatic/sts35
 
 /datum/uplink_item/item/visible_weapons/advanced_energy_gun
 	name = "Advanced Energy Gun"
-	item_cost = 60
+	item_cost = 68
 	path = /obj/item/weapon/gun/energy/gun/nuclear
 
 /datum/uplink_item/item/visible_weapons/heavysniper
@@ -107,7 +107,7 @@
 
 /datum/uplink_item/item/visible_weapons/deagle
 	name = "Magnum Pistol"
-	item_cost = 52
+	item_cost = 60
 	path = /obj/item/weapon/gun/projectile/magnum_pistol
 
 /datum/uplink_item/item/visible_weapons/beretta
