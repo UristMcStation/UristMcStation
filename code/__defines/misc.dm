@@ -60,7 +60,7 @@
 #define MAX_PAPER_MESSAGE_LEN 6144
 #define MAX_BOOK_MESSAGE_LEN  18432
 #define MAX_LNAME_LEN         64
-#define MAX_NAME_LEN          26
+#define MAX_NAME_LEN          36
 #define MAX_DESC_LEN          128
 #define MAX_TEXTFILE_LENGTH 128000		// 512GQ file
 
