@@ -6,11 +6,11 @@
 	category = /datum/uplink_category/ammunition
 
 /datum/uplink_item/item/ammo/c45m
-	name = ".45"
+	name = ".45 pistol magazine"
 	path = /obj/item/ammo_magazine/c45m
 
 /datum/uplink_item/item/ammo/mc9mm
-	name = "9mm"
+	name = "9mm pistol magazine"
 	item_cost = 3
 	path = /obj/item/ammo_magazine/mc9mm
 
@@ -19,20 +19,24 @@
 	path = /obj/item/ammo_magazine/chemdart
 
 /datum/uplink_item/item/ammo/mc9mmds
-	name = "9mm double-stack"
+	name = "9mm double-stack magazine"
 	item_cost = 6
 	path = /obj/item/ammo_magazine/mc9mmds
 
 /datum/uplink_item/item/ammo/a44
-	name = ".44"
+	name = ".44 speed loader"
 	item_cost = 8
 	path = /obj/item/ammo_magazine/a44
 
+/datum/uplink_item/item/ammo/a357
+	name = ".357 speed loader"
+	item_cost = 8
+	path = /obj/item/ammo_magazine/c357
+
 /datum/uplink_item/item/ammo/a556
-	name = "5.56mm"
+	name = "5.56mm magazine"
 	item_cost = 8
 	path = /obj/item/ammo_magazine/c556
-	antag_roles = list(MODE_MERCENARY)
 
 /datum/uplink_item/item/ammo/sniperammo
 	name = "14.5mm"
@@ -65,7 +69,6 @@
 	name = "10mm SMG Magazine"
 	item_cost = 8
 	path = /obj/item/ammo_magazine/a10mm
-	antag_roles = list(MODE_MERCENARY)
 
 /datum/uplink_item/item/ammo/p10mm
 	name = "10mm Pistol Magazine"
@@ -90,7 +93,6 @@
 	name = "Flechette Magazine"
 	item_cost = 8
 	path = /obj/item/weapon/magnetic_ammo
-	antag_roles = list(MODE_MERCENARY)
 
 /datum/uplink_item/item/ammo/c45m_emp
 	name = ".45 EMP Ammo Box (10 rounds)"
@@ -98,11 +100,11 @@
 	path = /obj/item/ammo_magazine/box/emp/c45
 
 /datum/uplink_item/item/ammo/p10mm_emp
-	name = "10mm EMP Ammmo Box (10 rounds)"
+	name = "10mm EMP Ammo Box (10 rounds)"
 	item_cost = 8
 	path = /obj/item/ammo_magazine/box/emp/a10mm
 
 /datum/uplink_item/item/ammo/c38_emp
-	name = ".38 EMP Ammmo Box (10 rounds)"
+	name = ".38 EMP Ammo Box (10 rounds)"
 	item_cost = 6
 	path = /obj/item/ammo_magazine/box/emp

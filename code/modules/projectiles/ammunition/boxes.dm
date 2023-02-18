@@ -53,7 +53,7 @@
 	ammo_type = /obj/item/ammo_casing/c38/rubber
 
 /obj/item/ammo_magazine/c44
-	name = "speed loader (.44 magnum)"
+	name = "speed loader (.44 Magnum)"
 	desc = "A speed loader for revolvers."
 	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "44"

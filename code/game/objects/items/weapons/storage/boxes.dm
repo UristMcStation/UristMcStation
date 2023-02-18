@@ -234,6 +234,12 @@
 	icon_state = "flashbang"
 	startswith = list(/obj/item/weapon/grenade/anti_photon = 5)
 
+/obj/item/weapon/storage/box/metalfoams
+	name = "box of metal foam grenades"
+	desc = "A box 5 metal foam grenades."
+	icon_state = "flashbang"
+	startswith = list(/obj/item/weapon/grenade/chem_grenade/metalfoam = 5)
+
 /obj/item/weapon/storage/box/supermatters
 	name = "box of supermatter grenades"
 	desc = "A box containing 5 highly experimental supermatter grenades."

@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/projectile/revolver
 	name = "revolver"
-	desc = "The Lumoco Arms HE Colt is a choice revolver for when you absolutely, positively need to put a hole in the other guy. Uses .44 Magnum ammo."
+	desc = "The Lumoco Arms HE Colt is a choice revolver for when you absolutely, positively need to put a hole in the other guy. Uses .357 Magnum ammo."
 	icon = 'icons/urist/items/revolvers.dmi'
 	icon_state = "revolver"
 	item_state = "revolver"
@@ -138,13 +138,13 @@
 
 /obj/item/weapon/gun/projectile/revolver/webley
 	name = "service revolver"
-	desc = "The A&M W4. A rugged top break revolver produced by al-Maliki & Mosley. Based on the Webley model, with modern improvements. Uses .357 Magnum rounds."
+	desc = "The A&M W4. A rugged top break revolver produced by al-Maliki & Mosley. Based on the Webley model, with modern improvements. Uses .44 Magnum ammo."
 	icon_state = "webley"
 	item_state = "webley"
 	item_icons = URIST_ALL_ONMOBS
 	item_state = "webley"
 	wielded_item_state = "webley"
 	max_shells = 6
-	caliber = ".357"
+	caliber = ".44"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	ammo_type = /obj/item/ammo_casing/c357
+	ammo_type = /obj/item/ammo_casing/c44

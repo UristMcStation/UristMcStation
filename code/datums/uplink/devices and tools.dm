@@ -122,3 +122,15 @@
 	path = /obj/effect/spawner/newbomb/traitor
 	desc = "A remote-activated phoron-oxygen bomb assembly with built-in signaler. \
 			A flashing disclaimer begins with the warning 'SOME DISASSEMBLY/REASSEMBLY REQUIRED.'"
+
+/datum/uplink_item/item/tools/ductape
+	name = "Duct Tape"
+	desc = "A roll of duct tape."
+	item_cost = 2
+	path = /obj/item/weapon/tape_roll
+
+/datum/uplink_item/item/tools/handcuffs
+	name = "Handcuffs"
+	desc = "A set of handcuffs."
+	item_cost = 6
+	path = /obj/item/weapon/handcuffs
