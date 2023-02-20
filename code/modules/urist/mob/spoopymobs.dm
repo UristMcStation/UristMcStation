@@ -703,3 +703,63 @@
 	..()
 	if(!client && caution) //run awaaaay!
 		HuntingTeleport()
+
+//Angels, old testament style
+
+/mob/living/simple_animal/hostile/urist/angel
+	name = "\improper angel"
+	desc = "A suposedly divine being known to bring the wrath of their diety."
+	response_help = "tries to poke"
+	response_disarm = "tries to shove"
+	response_harm = "tries to hit"
+	attacktext = "smites down"
+	icon= 'icons/uristmob/simpleanimals.dmi'
+	icon_state = "bluespace-angel"
+	icon_living = "bluespace-angel"
+	icon_dead = ""
+	faction = "divine"
+	maxHealth = 100
+	health = 100
+	projectiletype = /obj/item/projectile/energy/holy
+	projectilesound = 'sound/magic/fireball.ogg'
+	attack_sound = 'sound/weapons/slash.ogg'
+	ranged = 1//shoots and then charges.
+	harm_intent_damage = 0
+	melee_damage_lower = 10
+	melee_damage_upper = 20
+
+/mob/living/simple_animal/hostile/urist/angel/death()
+	..()
+	visible_message("<span class='danger'>The [src.name] wails and disappears!</span>")
+	playsound(src.loc, 'sound/effects/angel-reveal.ogg', 50, 1)
+	flick("forgotten_die", src)
+	sleep(4)
+	qdel(src)
+	return
+
+/obj/item/projectile/energy/holy
+	name = "holy fire"
+//	icon = 'icons/obj/projectiles.dmi'
+	icon_state = "fireball_blue"
+	fire_sound = 'sound/magic/fireball.ogg'
+	pass_flags = PASS_FLAG_TABLE | PASS_FLAG_GLASS | PASS_FLAG_GRILLE
+	damage = 15
+	damage_type = BURN
+
+/mob/living/simple_animal/hostile/urist/angel/angry
+	name = "\improper angel"
+	icon_state = "angel-angry"
+	icon_living = "angel-angry"
+	maxHealth = 150
+	health = 150
+	melee_damage_lower = 25
+	melee_damage_upper = 30
+
+/mob/living/simple_animal/hostile/urist/angel/bronze
+	name = "\improper angel"
+	icon_state = "bronze-angel"
+	icon_living = "bronze-angel"
+	maxHealth = 200
+	health = 200
+	melee_damage_lower = 30
+	melee_damage_upper = 35
