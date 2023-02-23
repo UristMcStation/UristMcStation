@@ -717,6 +717,7 @@
 	icon_state = "bluespace-angel"
 	icon_living = "bluespace-angel"
 	icon_dead = ""
+	casingtype = /obj/effect/decal/cleanable/ash
 	faction = "divine"
 	maxHealth = 100
 	health = 100
