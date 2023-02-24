@@ -330,3 +330,45 @@ Please keep it tidy, by which I mean put comments describing the item before the
 				return TRUE
 
 	return FALSE
+
+/mob/living/simple_animal/hostile/mutated_rat
+	name = "large rat"
+	desc = "an unsightly large grey rat, it has quite sharp teeth."
+	icon = 'icons/uristmob/simpleanimals.dmi'
+	icon_state = "big_rat_white"
+	icon_living = "big_rat_white"
+	icon_dead = "big_rat_white_dead"
+	speak = list("squeaks")
+	speak_emote = list("skitters")
+	speak_chance = 1
+	response_help =  "nuzzles"
+	response_disarm = "swipes"
+	response_harm = "bites"
+	health = 25
+	maxHealth = 30
+	melee_damage_lower = 5
+	melee_damage_upper = 15
+	pass_flags = PASS_FLAG_TABLE
+	faction = "factory"
+	attacktext = "bites"
+
+/mob/living/simple_animal/hostile/mutated_corpse_rat
+	name = "large corpse rat"
+	desc = "a large, rotund rat that is clearly well fed, it's teeth look unusually dangerous."
+	icon = 'icons/uristmob/simpleanimals.dmi'
+	icon_state = "big_rat_brown"
+	icon_living = "big_rat_brown"
+	icon_dead = "big_rat_brown_dead"
+	speak = list("squeaks")
+	speak_emote = list("scrowls")
+	speak_chance = 1
+	response_help =  "hungrily nuzzles"
+	response_disarm = "swipes"
+	response_harm = "bites"
+	health = 35
+	maxHealth = 45
+	melee_damage_lower = 10
+	melee_damage_upper = 20
+	pass_flags = PASS_FLAG_TABLE
+	faction = "factory"
+	attacktext = "gnaws"
