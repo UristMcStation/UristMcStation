@@ -44,8 +44,14 @@
 		"plaza"             = new/datum/holodeck_program(/area/holodeck/source_plaza),
 		"cafe"              = new/datum/holodeck_program(/area/holodeck/source_cafe),
 		"gym"               = new/datum/holodeck_program(/area/holodeck/source_gym),
+		"turnoff"			= new/datum/holodeck_program(/area/holodeck/source_plating, list()),
+		"christmas"         = new/datum/holodeck_program(/area/holodeck/source_christmas,  list('sound/effects/wind/tundra0.ogg')),
+		"jungle"            = new/datum/holodeck_program(/area/holodeck/source_jungle,  list('sound/ambience/jungle.ogg')),
+		"ocean"             = new/datum/holodeck_program(/area/holodeck/source_ocean,	list('sound/ambience/shore.ogg')),
+		"rainycafe"         = new/datum/holodeck_program(/area/holodeck/source_rainycafe,	list('sound/ambience/rain_01.ogg'))
 
-		"turnoff"			= new/datum/holodeck_program(/area/holodeck/source_plating, list())
+
+
 	)
 
 	holodeck_supported_programs = list(
@@ -68,7 +74,11 @@
 			"Cafe"               = "cafe",
 			"Desert"             = "desert",
 			"Gym"                = "gym",
-			"Space"              = "space"
+			"Space"              = "space",
+			"Christmas"          = "christmas",
+			"Jungle"             = "jungle",
+			"Ocean"              = "ocean",
+			"Rainy Cafe"         = "rainycafe"
 		)
 
 	)
@@ -81,3 +91,54 @@
 		)
 
 	)
+
+// Holo-Turf
+
+/turf/simulated/floor/holofloor/urist/junglegrass_lightgreen
+	name =  "wet grass"
+	desc = "Perfectly simulated hot and humid climate included!"
+	base_desc = "Perfectly simulated hot and humid climate included!."
+	icon = 'icons/jungle.dmi'
+	icon_state = "grass4"
+
+/turf/simulated/floor/holofloor/urist/junglegrass_green
+	name =  "wet grass"
+	desc = "Perfectly simulated hot and humid climate included!"
+	base_desc = "Perfectly simulated hot and humid climate included!."
+	icon = 'icons/jungle.dmi'
+	icon_state = "grass3"
+
+/turf/simulated/floor/holofloor/urist/junglegrass_darkgreen
+	name =  "wet grass"
+	desc = "Perfectly simulated hot and humid climate included!"
+	base_desc = "Perfectly simulated hot and humid climate included!."
+	icon = 'icons/jungle.dmi'
+	icon_state = "grass2"
+
+/turf/simulated/floor/holofloor/urist/junglegrass_browngreen
+	name =  "wet grass"
+	desc = "Perfectly simulated hot and humid climate included!"
+	base_desc = "Perfectly simulated hot and humid climate included!."
+	icon = 'icons/jungle.dmi'
+	icon_state = "grass1"
+
+/turf/simulated/floor/holofloor/urist/jungle_water
+	name =  "murky water"
+	desc = "Holographic deep, dank water. You swear you can see something moving below occasionally."
+	base_desc = "Holographic deep, dank water. You swear you can see something moving below occasionally."
+	icon = 'icons/urist/jungle/turfs.dmi'
+	icon_state = "rivernew"
+
+/turf/simulated/floor/holofloor/urist/pavement
+	name = "Pavement"
+	desc = "Holographic deep, dank water. You swear you can see something moving below occasionally."
+	base_desc = "Holographic deep, dank water. You swear you can see something moving below occasionally."
+	icon = 'maps/away/geminus_city/citymap_icons/pavement.dmi'
+	icon_state = "pavement"
+
+/turf/simulated/floor/holofloor/urist/pavement_empty
+	name = "Pavement"
+	desc = "Holographic deep, dank water. You swear you can see something moving below occasionally."
+	base_desc = "Holographic deep, dank water. You swear you can see something moving below occasionally."
+	icon = 'maps/away/geminus_city/citymap_icons/pavement.dmi'
+	icon_state = "pave_empty"

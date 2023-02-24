@@ -895,6 +895,22 @@
 	requires_power = 0
 	dynamic_lighting = 0
 
+/area/holodeck/source_rainycafe
+	name = "\improper Holodeck - Rainy Cafe Simulation"
+	sound_env = SMALL_ENCLOSED
+
+/area/holodeck/source_ocean
+	name = "\improper Holodeck - Ocean Simulation"
+	sound_env = PLAIN
+
+/area/holodeck/source_jungle
+	name = "\improper Holodeck - Jungle Simulation"
+	sound_env = PLAIN
+
+/area/holodeck/source_christmas
+	name = "\improper Holodeck - Christmas Simulation"
+	sound_env = PLAIN
+
 ///area/wizard
 //	name = "Wizard's Lair"
 //	requires_power = 0
