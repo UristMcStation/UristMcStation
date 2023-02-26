@@ -1,7 +1,7 @@
 /decl/hierarchy/outfit/job/bodyguard
 	name = OUTFIT_JOB_NAME("Bodyguard") //done
 	uniform = /obj/item/clothing/under/bodyguard
-	suit = /obj/item/clothing/suit/armor/vest/deus_blueshield
+	suit = /obj/item/clothing/suit/armor/pcarrier/deus_blueshield
 	l_ear = /obj/item/device/radio/headset/heads/hop
 	shoes = /obj/item/clothing/shoes/jackboots
 	id_type = /obj/item/weapon/card/id/bodyguard
