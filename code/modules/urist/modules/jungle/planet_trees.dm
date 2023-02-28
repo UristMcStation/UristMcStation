@@ -123,7 +123,7 @@
 /obj/structure/flora/tree/planet/temperate
 	name = "pine tree"
 	desc = "It's a tree. Useful for combustion and/or construction."
-	icon = 'icons/obj/flora/pinetrees.dmi'
+	icon = 'icons/urist/obj/pinetrees.dmi'
 	icon_state = "pine_4"
 	size = 1
 
