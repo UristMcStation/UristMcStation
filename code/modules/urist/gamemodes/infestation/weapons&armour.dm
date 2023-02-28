@@ -382,6 +382,7 @@
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "ANFOR-SMG"
 	item_state = "ANFOR-SMG"
+	wielded_item_state = "ANFOR-SMG"
 	w_class = 3
 	force = 10
 	caliber = "9mm"
