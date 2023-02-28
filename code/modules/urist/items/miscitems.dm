@@ -685,7 +685,7 @@
 
 /obj/item/treasure/plush/scug
 	name = "slugcat plush"
-	desc = "A cute doll based off a sleeping cat hybrid"
+	desc = "A cute doll based off a sleeping slugcat."
 	icon_state = "scugplush"
 
 //i dont want to make them a toy subtype to keep the loot seperate from toys
