@@ -464,3 +464,251 @@ to avoid worrying about the sprites -Glloyd*/
 	icon_state = "risingsun"
 	item_state = "risingsun"
 	armor = list (melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+
+//Animal Pelts
+
+/obj/item/clothing/head/urist/pelt
+	name = "bison pelt"
+	desc = "A bison skin pelt, good as a rug or to to keep your head warm"
+	icon_state = "bisonpelt"
+	item_state = "bisonpelt"
+	armor = list (melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+	min_cold_protection_temperature = 263.15
+	body_parts_covered = HEAD
+	flags_inv = HIDEEARS|BLOCKHEADHAIR
+
+/obj/item/clothing/head/urist/pelt/bisonhat
+	name = "bison fur hat"
+	desc = "a proper hat made from bison fur"
+	icon_state = "bison_fur_hat"
+	item_state = "bison_fur_hat"
+
+
+/obj/item/clothing/head/urist/pelt/bear
+	name = "bear pelt"
+	desc = "a heavy bear pelt"
+	icon_state = "bearpelt"
+	item_state = "bearpelt"
+	armor = list (melee = 10, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+
+/obj/item/clothing/head/urist/pelt/bear/white
+	name = "polar bear pelt"
+	desc = "a heavy white bear pelt."
+	icon_state = "whitebearpelt"
+	item_state = "whitebearpelt"
+
+/obj/item/clothing/head/urist/pelt/bear/brown
+	icon_state = "brownbearpelt"
+	item_state = "brownbearpelt"
+
+/obj/item/clothing/head/urist/pelt/wolf
+	name = "wolf pelt"
+	desc = "a warm wolf pelt."
+	icon_state = "wolfpelt"
+	item_state = "wolfpelt"
+
+/obj/item/clothing/head/urist/pelt/wolf/white
+	icon_state = "whitewolfpelt"
+	item_state = "whitewolfpelt"
+	flags_inv = HIDEEARS|BLOCKHEADHAIR
+
+/obj/item/clothing/head/urist/pelt/panther
+	name = "panther pelt"
+	desc = "a luxurious black cat pelt."
+	icon_state = "pantherpelt"
+	item_state = "pantherpelt"
+
+/obj/item/clothing/head/urist/pelt/sheep
+	name = "sheep pelt"
+	desc = "a soft pelt from a sheep. Baaaa."
+	icon_state = "sheeppelt"
+	item_state = "sheeppelt"
+
+/obj/item/clothing/head/urist/pelt/goat
+	name = "goat pelt"
+	desc = "a pelt from a goat"
+	icon_state = "goatpelt"
+	item_state = "goatpelt"
+
+//historic helms
+
+
+/obj/item/clothing/head/urist/historic/light/cape
+	name = "black cape"
+	desc = "a black cape that will surely keep the rain off you."
+	icon_state = "black_cape"
+	item_state = "black_cape"
+	flags_inv = HIDEEARS|BLOCKHEADHAIR
+	min_cold_protection_temperature = 263.15
+
+/obj/item/clothing/head/urist/historic/light/egyptian/black
+	name = "headdress"
+	desc = "a headdress meant to protect your head from the sun."
+	icon_state = "egyptian_headdress_black"
+	item_state = "egyptian_headdress_black"
+	flags_inv = HIDEEARS|BLOCKHEADHAIR
+
+/obj/item/clothing/head/urist/historic/light/egyptian/blue
+	name = "headdress"
+	desc = "a headdress meant to protect your head from the sun."
+	icon_state = "egyptian_headdress_blue"
+	item_state = "egyptian_headdress_blue"
+	flags_inv = HIDEEARS|BLOCKHEADHAIR
+
+/obj/item/clothing/head/urist/historic/light/egyptian/red
+	name = "headdress"
+	desc = "a headdress meant to protect your head from the sun."
+	icon_state = "egyptian_headdress_red"
+	item_state = "egyptian_headdress_red"
+	flags_inv = HIDEEARS|BLOCKHEADHAIR
+
+/obj/item/clothing/head/urist/historic/crown/silver
+	name = "silver crown"
+	desc = "a beautiful silver crown."
+	icon_state = "silver_crown"
+	item_state = "silver_crown"
+
+/obj/item/clothing/head/urist/historic/crown/silver/diamond
+	name = "silver crown"
+	desc = "a beautiful silver crown. This one has a diamond set in it."
+	icon_state = "silver_crown_diamond"
+	item_state = "silver_crown_diamond"
+
+/obj/item/clothing/head/urist/historic/crown/gold
+	name = "gold crown"
+	desc = "a beautiful golden crown."
+	icon_state = "gold_crown"
+	item_state = "gold_crown"
+
+/obj/item/clothing/head/urist/historic/crown/gold/diamond
+	name = "gold crown"
+	desc = "a beautiful golden crown. This one has a diamond set in it"
+	icon_state = "gold_crown_diamond"
+	item_state = "gold_crown_diamond"
+
+/obj/item/clothing/head/urist/historic/crown/pharoah
+	name = "pharoah headdress"
+	desc = "an ancient gilded cloth headdress for a living god."
+	icon_state = "pharoah_headdress"
+	item_state = "pharoah_headdress"
+	flags_inv = HIDEEARS|BLOCKHEADHAIR
+
+/obj/item/clothing/head/urist/historic/armor
+	armor = list (melee = 43, bullet = 10, laser = 5, energy = 5, bomb = 0, bio = 0, rad = 0)
+	item_flags = ITEM_FLAG_THICKMATERIAL
+	body_parts_covered = HEAD
+	flags_inv = HIDEEARS|BLOCKHEADHAIR
+
+/obj/item/clothing/head/urist/historic/armor/goldenhelmet
+	name = "golden helmet"
+	desc = "a gilded helmet likely meant for someone important."
+	icon_state = "goldenhelmet"
+	item_state = "goldenhelmet"
+
+/obj/item/clothing/head/urist/historic/armor/greek
+	name = "greek helmet"
+	desc = "a helmet worn by ancient spear fighters."
+	icon_state = "greek"
+	item_state = "greek"
+
+/obj/item/clothing/head/urist/historic/armor/medieval1
+	name = "medieval helmet"
+	desc = "a plain helmet made for men at arms."
+	icon_state = "medieval_helmet1"
+	item_state = "medieval_helmet1"
+
+/obj/item/clothing/head/urist/historic/armor/medieval2
+	name = "medieval helmet"
+	desc = "a plain helmet made for men at arms."
+	icon_state = "medieval_helmet2"
+	item_state = "medieval_helmet2"
+
+/obj/item/clothing/head/urist/historic/armor/medieval3
+	name = "medieval helmet"
+	desc = "a plain helmet made for men at arms."
+	icon_state = "medieval_helmet3"
+	item_state = "medieval_helmet3"
+
+/obj/item/clothing/head/urist/historic/armor/knight_simple
+	name = "knight helmet"
+	desc = "a simple unadorned helm for a humble knight"
+	icon_state = "knight_simple"
+	item_state = "knight_simple"
+
+/obj/item/clothing/head/urist/historic/armor/coif
+	name = "coif"
+	desc = "a simple chain hood."
+	icon_state = "coif"
+	item_state = "coif"
+
+/obj/item/clothing/head/urist/historic/armor/coif_helmet
+	name = "coif helmet"
+	desc = "a chain hood worn under a helmet."
+	icon_state = "coif_helmet"
+	item_state = "coif_helmet"
+
+/obj/item/clothing/head/urist/historic/armor/viking
+	name = "viking helm"
+	desc = "a helm for a sea faring raider."
+	icon_state = "new_viking"
+	item_state = "new_viking"
+
+/obj/item/clothing/head/urist/historic/armor/vikingking
+	name = "gilded viking helm"
+	desc = "a golded helm worn by a raider king."
+	icon_state = "viking_king"
+	item_state = "viking_king"
+
+/obj/item/clothing/head/urist/historic/armor/barbarian
+	name = "horned helm"
+	desc = "a fantastical helmet, this one looks quite durable."
+	icon_state = "barbarian"
+	item_state = "barbarian"
+
+/obj/item/clothing/head/urist/historic/armor/valkyrie_queen
+	name = "gilded valkyrie helm"
+	desc = "a golden winged helmet for a raider queen."
+	icon_state = "valkyrie_queen"
+	item_state = "valkyrie_queen"
+
+/obj/item/clothing/head/urist/historic/armor/valkyrie
+	name = "valkyrie helm"
+	desc = "a winged helmet for a shield maiden."
+	icon_state = "valkyrie"
+	item_state = "valkyrie"
+
+/obj/item/clothing/head/urist/historic/armor/winged_greathelm
+	name = "winged greathelm"
+	desc = "a knights helm with wings. A slayer of tree lovers."
+	icon_state = "winged_greathelm"
+	item_state = "winged_greathelm"
+
+/obj/item/clothing/head/urist/historic/armor/morion_helmet
+	name = "morion helmet"
+	desc = "a helmet of a conqueror."
+	icon_state = "morion_helmet"
+	item_state = "morion_helmet"
+
+/obj/item/clothing/head/urist/historic/armor/burg_sallet
+	name = "sallet"
+	desc = "a helm with a visor."
+	icon_state = "burg_sallet"
+	item_state = "burg_sallet"
+
+/obj/item/clothing/head/urist/historic/armor/italian_sallet
+	name = "sallet"
+	desc = "a helm with a visor, this one smells like garlic."
+	icon_state = "italian_sallet"
+	item_state = "italian_sallet"
+
+/obj/item/clothing/head/urist/historic/armor/german_sallet
+	name = "sallet"
+	desc = "a helm with a visor, this one smells like sausage."
+	icon_state = "german_sallet"
+	item_state = "german_sallet"
+
+/obj/item/clothing/head/urist/historic/armor/bascinet_hounskull
+	name = "bacinet"
+	desc = "a helmet with a pointy visor."
+	icon_state = "bascinet_hounskull"
+	item_state = "bascinet_hounskull"

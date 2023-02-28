@@ -1,0 +1,287 @@
+"aa" = (/turf/space,/area/planet/forest)
+"ab" = (/turf/simulated/floor/planet/jungle/rock,/area/planet/forest)
+"ac" = (/turf/simulated/floor/planet/temperate,/area/planet/forest)
+"ad" = (/turf/simulated/floor/planet/dirt/temperate,/area/planet/forest)
+"ae" = (/turf/simulated/floor/planet/border/dirttograss{icon_state = "dirttograss_new"; dir = 9},/area/planet/forest)
+"af" = (/turf/simulated/floor/planet/border/dirttograss{icon_state = "dirttograss_new"; dir = 1},/area/planet/forest)
+"ah" = (/turf/simulated/floor/planet/border/dirttograss{icon_state = "dirttograss_new"; dir = 5},/area/planet/forest)
+"ai" = (/turf/simulated/floor/planet/border/dirttograss{icon_state = "dirttograss_new"; dir = 8},/area/planet/forest)
+"aj" = (/turf/simulated/floor/planet/border/dirttograss{icon_state = "dirttograss_new"; dir = 4},/area/planet/forest)
+"ak" = (/turf/simulated/floor/planet/border/dirttograss{icon_state = "dirttograss_new"; dir = 10},/area/planet/forest)
+"al" = (/turf/simulated/floor/planet/border/dirttograss,/area/planet/forest)
+"am" = (/turf/simulated/floor/planet/border/dirttograss{icon_state = "dirttograss_new"; dir = 6},/area/planet/forest)
+"ao" = (/turf/simulated/floor/planet/border/grasstosnow,/area/planet/forest)
+"ap" = (/turf/simulated/floor/planet/snow,/area/planet/forest)
+"aq" = (/turf/simulated/floor/planet/border/snowtograss{icon_state = "snowtograss"; dir = 8},/area/planet/forest)
+"ar" = (/turf/simulated/floor/planet/border/snowtograss{icon_state = "snowtograss"; dir = 4},/area/planet/forest)
+"as" = (/turf/simulated/floor/planet/border/snowtograss{icon_state = "snowtograss"; dir = 10},/area/planet/forest)
+"at" = (/turf/simulated/floor/planet/border/snowtograss,/area/planet/forest)
+"au" = (/turf/simulated/floor/planet/border/snowtograss{icon_state = "snowtograss"; dir = 6},/area/planet/forest)
+"av" = (/turf/simulated/floor/planet/border/grasstodirt,/area/planet/forest)
+"aw" = (/turf/simulated/floor/planet/border/grasstodirt{icon_state = "grasstodirt_new"; dir = 5},/area/planet/forest)
+"ax" = (/turf/simulated/floor/planet/border/grasstodirt{icon_state = "grasstodirt_new"; dir = 9},/area/planet/forest)
+"ay" = (/turf/simulated/floor/planet/border/grasstosnow{icon_state = "grasstosnow"; dir = 9},/area/planet/forest)
+"az" = (/turf/simulated/floor/planet/border/grasstosnow{icon_state = "grasstosnow"; dir = 1},/area/planet/forest)
+"aA" = (/turf/simulated/floor/planet/border/grasstosnow{icon_state = "grasstosnow"; dir = 5},/area/planet/forest)
+"aB" = (/turf/simulated/floor/planet/border/grasstosnow{icon_state = "grasstosnow"; dir = 8},/area/planet/forest)
+"aC" = (/obj/structure/flora/tree/planet/temperate/snowy,/turf/simulated/floor/planet/temperate,/area/planet/forest)
+"aD" = (/turf/simulated/floor/planet/border/grasstosnow{icon_state = "grasstosnow"; dir = 4},/area/planet/forest)
+"aE" = (/turf/simulated/floor/planet/border/grasstosnow{icon_state = "grasstosnow"; dir = 10},/area/planet/forest)
+"aF" = (/turf/simulated/floor/planet/border/grasstosnow{icon_state = "grasstosnow"; dir = 6},/area/planet/forest)
+"aG" = (/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest)
+"aH" = (/obj/structure/fence/corner{icon_state = "corner"; dir = 8},/turf/simulated/floor/planet/temperate,/area/planet/forest/cabin1)
+"aI" = (/obj/structure/fence/post{icon_state = "post"; dir = 4},/turf/simulated/floor/planet/temperate,/area/planet/forest/cabin1)
+"aJ" = (/obj/structure/grille,/obj/structure/window/basic/full,/obj/structure/window/basic/full,/turf/simulated/floor/wood,/area/planet/forest/cabin1)
+"aK" = (/obj/structure/grille,/obj/structure/window/basic/full,/turf/simulated/floor/wood,/area/planet/forest/cabin1)
+"aL" = (/turf/simulated/wall/wood,/area/planet/forest/cabin1)
+"aM" = (/obj/structure/fence/post,/turf/simulated/floor/planet/temperate,/area/planet/forest/cabin1)
+"aN" = (/turf/simulated/floor/wood,/area/planet/forest/cabin1)
+"aO" = (/turf/simulated/floor/wood{tag = "icon-wood_broken5"; icon_state = "wood_broken5"},/area/planet/forest/cabin1)
+"aP" = (/turf/simulated/floor/wood/broken,/area/planet/forest/cabin1)
+"aQ" = (/obj/structure/fence/door{icon_state = "door_closed"; dir = 8},/turf/simulated/floor/planet/temperate,/area/planet/forest/cabin1)
+"aR" = (/obj/machinery/door/unpowered/simple/wood,/turf/simulated/floor/wood,/area/planet/forest/cabin1)
+"aS" = (/obj/structure/bed/chair/wood/maple{dir = 1},/turf/simulated/floor/wood/broken,/area/planet/forest/cabin1)
+"aT" = (/obj/machinery/door/unpowered/simple/wood,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cabin1)
+"aU" = (/turf/simulated/mineral/random{mined_turf = /turf/simulated/floor/planet/jungle/clear/underground},/area/planet/forest/cabin1)
+"aV" = (/obj/structure/fence/cut/large{icon_state = "straight_cut3"; dir = 8},/turf/simulated/floor/planet/temperate,/area/planet/forest/cabin1)
+"aW" = (/mob/living/simple_animal/hostile/huntable/bear,/turf/simulated/floor/planet/snow,/area/planet/forest)
+"aX" = (/obj/structure/fence/cut/large{icon_state = "straight_cut3"; dir = 1},/turf/simulated/floor/planet/temperate,/area/planet/forest/cabin1)
+"aY" = (/obj/structure/stairs/wood{dir = 8},/turf/simulated/floor,/area/planet/forest/cabin1)
+"aZ" = (/turf/simulated/floor,/area/planet/forest/cabin2)
+"ba" = (/obj/structure/hygiene/sink/well,/turf/simulated/floor/planet/temperate,/area/planet/forest/cabin1)
+"bm" = (/obj/structure/hygiene/toilet{dir = 1},/mob/living/simple_animal/opossum,/turf/simulated/floor/tiled/white,/area/planet/forest/cabin1)
+"bn" = (/obj/structure/ladder,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cabin1)
+"bx" = (/mob/living/simple_animal/hostile/huntable/deer{dir = 1},/turf/simulated/floor/planet/temperate,/area/planet/forest)
+"bA" = (/obj/structure/flora/ausbushes/leafybush,/turf/simulated/floor/planet/border/dirttograss{icon_state = "dirttograss_new"; dir = 5},/area/planet/forest)
+"cr" = (/turf/simulated/floor/planet/jungle/water/deep,/area/planet/forest)
+"cE" = (/turf/simulated/open,/area/planet/forest)
+"cJ" = (/mob/living/simple_animal/hostile/huntable/bear/light,/turf/simulated/floor/planet/temperate,/area/planet/forest)
+"cR" = (/turf/simulated/floor/wood/ebony,/area/planet/forest)
+"dd" = (/obj/structure/flora/ausbushes/genericbush,/turf/simulated/floor/planet/temperate,/area/planet/forest/cabin1)
+"ds" = (/obj/structure/flora/ausbushes/fullgrass,/turf/simulated/floor/planet/border/dirttograss{icon_state = "dirttograss_new"; dir = 10},/area/planet/forest)
+"dP" = (/mob/living/simple_animal/opossum,/turf/simulated/floor/planet/temperate,/area/planet/forest)
+"fb" = (/obj/structure/flora/ausbushes/ppflowers,/turf/simulated/floor/planet/temperate,/area/planet/forest)
+"gb" = (/obj/structure/flora/ausbushes/ppflowers,/turf/simulated/floor/planet/temperate,/area/planet/forest/cabin1)
+"gy" = (/obj/structure/flora/ausbushes/genericbush,/turf/simulated/floor/planet/temperate,/area/planet/forest/cabin2)
+"gM" = (/obj/structure/flora/ausbushes/sparsegrass,/turf/simulated/floor/planet/border/dirttograss{icon_state = "dirttograss_new"; dir = 10},/area/planet/forest)
+"ha" = (/obj/structure/scrap,/turf/simulated/floor/planet/dirt/temperate,/area/planet/forest)
+"he" = (/obj/effect/shuttle_landmark/nav_caraway_forest/nav2,/turf/simulated/floor/planet/temperate,/area/planet/forest)
+"hu" = (/obj/structure/table/rack,/obj/random/tech_supply,/obj/random/tech_supply,/obj/random/tech_supply,/obj/random/tech_supply,/obj/random/tech_supply,/obj/random/tech_supply,/obj/item/weapon/storage/toolbox/mechanical,/obj/item/weapon/storage/toolbox/electrical,/obj/item/weapon/storage/toolbox/mechanical,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cabin1)
+"hx" = (/obj/structure/flora/tree/planet/temperate,/obj/structure/flora/ausbushes/pointybush,/turf/simulated/floor/planet/temperate,/area/planet/forest)
+"hK" = (/obj/structure/flora/ausbushes/fullgrass,/turf/simulated/floor/planet/temperate,/area/planet/forest/cabin2)
+"ik" = (/obj/structure/table/rack,/obj/item/weapon/shovel,/obj/item/weapon/shovel/spade,/obj/item/device/flashlight/trainlantern,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cabin1)
+"iW" = (/obj/structure/table/rack,/obj/item/weapon/reagent_containers/glass/bottle/ammonia,/obj/item/weapon/reagent_containers/glass/bottle/ammonia,/obj/item/weapon/reagent_containers/glass/bottle/ammonia,/obj/item/seeds/sugarcaneseed,/obj/item/seeds/sugarcaneseed,/obj/item/seeds/appleseed,/obj/item/seeds/appleseed,/obj/item/seeds/wheatseed,/obj/item/seeds/wheatseed,/obj/item/seeds/wheatseed,/obj/item/seeds/wheatseed,/obj/item/seeds/watermelonseed,/obj/item/seeds/watermelonseed,/obj/item/seeds/tobaccoseed,/obj/item/seeds/tobaccoseed,/obj/item/seeds/tobaccoseed,/obj/item/weapon/material/minihoe,/obj/item/weapon/carpentry/saw,/obj/item/seeds/towermycelium,/obj/item/seeds/towermycelium,/turf/simulated/floor/planet/temperate,/area/planet/forest/cabin1)
+"jd" = (/obj/structure/bed/chair/wood/maple,/turf/simulated/floor/wood/broken,/area/planet/forest/cabin1)
+"jo" = (/obj/machinery/door/unpowered/simple/iron,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest)
+"jt" = (/obj/structure/flora/ausbushes/ppflowers,/turf/simulated/floor/planet/border/dirttograss{icon_state = "dirttograss_new"; dir = 9},/area/planet/forest)
+"jF" = (/turf/simulated/floor/planet/jungle/clear/underground{name = "dark pathway"},/area/planet/forest)
+"jP" = (/obj/effect/floor_decal/water_edge{tag = "icon-test (NORTH)"; icon_state = "test"; dir = 1},/turf/simulated/floor/planet/jungle/water,/area/planet/forest)
+"ka" = (/obj/structure/flora/ausbushes/leafybush,/turf/simulated/floor/planet/border/dirttograss{icon_state = "dirttograss_new"; dir = 6},/area/planet/forest)
+"kl" = (/obj/structure/table/woodentable/mahogany,/obj/item/weapon/storage/box/ammo/shotgunshells,/obj/item/weapon/storage/box/ammo/shotgunshells,/obj/item/weapon/storage/box/ammo/shotgunshells,/obj/item/weapon/storage/box/ammo/shotgunshells,/turf/simulated/floor/wood,/area/planet/forest/cabin1)
+"lm" = (/mob/living/simple_animal/hostile/huntable/wolf{wander = 0; dir = 8},/turf/simulated/floor/planet/temperate,/area/planet/forest)
+"lr" = (/obj/structure/flora/ausbushes/genericbush,/turf/simulated/floor/planet/temperate,/area/planet/forest)
+"lL" = (/turf/simulated/floor/planet/border/grasstodirt{dir = 9},/area/planet/forest)
+"lO" = (/turf/simulated/floor,/area/planet/forest/cabin1)
+"lX" = (/mob/living/simple_animal/hostile/huntable/deer{dir = 4},/turf/simulated/floor/planet/temperate,/area/planet/forest)
+"mh" = (/obj/effect/floor_decal/water_edge{tag = "icon-test (SOUTHWEST)"; icon_state = "test"; dir = 10},/turf/simulated/floor/planet/jungle/water,/area/planet/forest)
+"mq" = (/obj/structure/table/woodentable/mahogany,/obj/machinery/microwave,/obj/effect/floor_decal/corner/black/diagonal,/turf/simulated/floor/tiled/white,/area/planet/forest/cabin1)
+"mz" = (/mob/living/simple_animal/hostile/retaliate/goose/dire,/turf/simulated/floor/planet/temperate,/area/planet/forest)
+"mZ" = (/obj/structure/table/rack,/obj/item/stack/material/steel/fifty,/obj/item/stack/material/glass/fifty,/obj/item/stack/material/phoron/ten,/obj/item/stack/material/phoron/ten,/obj/item/stack/material/plastic/ten,/obj/item/stack/material/aluminium/ten,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cabin1)
+"om" = (/obj/structure/flora/ausbushes/ppflowers,/turf/simulated/floor/planet/border/dirttograss{icon_state = "dirttograss_new"; dir = 5},/area/planet/forest)
+"ou" = (/obj/machinery/light/small{dir = 4; luminosity = 2},/turf/simulated/floor/wood,/area/planet/forest/cabin1)
+"oI" = (/obj/structure/closet/coffin,/obj/item/remains/human,/obj/item/treasure/coin,/obj/item/treasure/coin,/obj/item/treasure/coin,/obj/item/treasure/coin,/obj/random/treasure,/obj/random/treasure,/obj/random/treasure,/obj/random/treasure,/turf/simulated/floor/wood/ebony,/area/planet/forest)
+"oS" = (/obj/machinery/door/unpowered/simple/wood,/turf/simulated/floor/tiled/white,/area/planet/forest/cabin1)
+"pi" = (/turf/simulated/floor/planet/border/grasstodirt{dir = 10},/area/planet/forest)
+"pj" = (/obj/structure/flora/ausbushes/sunnybush,/turf/simulated/floor/planet/border/dirttograss{icon_state = "dirttograss_new"; dir = 6},/area/planet/forest)
+"pn" = (/mob/living/simple_animal/hostile/huntable/deer,/turf/simulated/floor/planet/temperate,/area/planet/forest)
+"qu" = (/obj/machinery/door/unpowered/simple/wood,/turf/simulated/floor/planet/temperate,/area/planet/forest/cabin1)
+"qz" = (/obj/structure/flora/tree/dead,/turf/simulated/floor/planet/snow,/area/planet/forest)
+"rp" = (/mob/living/simple_animal/hostile/huntable/wolf/white{dir = 4},/turf/simulated/floor/planet/snow,/area/planet/forest)
+"rD" = (/obj/machinery/power/port_gen/pacman,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cabin1)
+"rH" = (/obj/effect/floor_decal/water_edge{tag = "icon-test (NORTHWEST)"; icon_state = "test"; dir = 9},/turf/simulated/floor/planet/jungle/water,/area/planet/forest)
+"su" = (/obj/effect/floor_decal/water_edge{tag = "icon-test2 (NORTH)"; icon_state = "test2"; dir = 1},/obj/effect/floor_decal/water_edge{tag = "icon-test2 (WEST)"; icon_state = "test2"; dir = 8},/turf/simulated/floor/planet/jungle/water,/area/planet/forest)
+"sz" = (/turf/simulated/floor/planet/border/grasstodirt{dir = 6},/area/planet/forest)
+"sD" = (/obj/structure/flora/ausbushes/leafybush,/turf/simulated/floor/planet/temperate,/area/planet/forest)
+"sX" = (/obj/structure/flora/tree/planet/arid/small,/turf/simulated/floor/planet/border/dirttograss{icon_state = "dirttograss_new"; dir = 10},/area/planet/forest)
+"te" = (/obj/effect/floor_decal/water_edge{tag = "icon-test2 (EAST)"; icon_state = "test2"; dir = 4},/obj/structure/flora/reeds,/turf/simulated/floor/planet/jungle/water,/area/planet/forest)
+"tQ" = (/mob/living/simple_animal/hostile/urist/skeleton/ancient{faction = "hostile"},/turf/simulated/floor/planet/snow,/area/planet/forest)
+"uf" = (/obj/structure/flora/ausbushes/fullgrass,/turf/simulated/floor/planet/border/dirttograss{icon_state = "dirttograss_new"; dir = 9},/area/planet/forest)
+"uh" = (/obj/structure/table/rack,/obj/item/weapon/reagent_containers/glass/bucket,/obj/item/weapon/reagent_containers/glass/bucket,/obj/item/seeds/potatoseed,/obj/item/seeds/potatoseed,/obj/item/seeds/potatoseed,/obj/item/seeds/onionseed,/obj/item/seeds/onionseed,/obj/item/seeds/onionseed,/obj/item/seeds/carrotseed,/obj/item/seeds/carrotseed,/obj/item/seeds/carrotseed,/turf/simulated/floor/planet/temperate,/area/planet/forest/cabin1)
+"ur" = (/obj/structure/flora/tree/planet/temperate,/turf/simulated/floor/planet/temperate,/area/planet/forest/cabin2)
+"uI" = (/obj/structure/flora/grass/green,/turf/simulated/floor/planet/snow,/area/planet/forest)
+"vz" = (/obj/structure/scrap,/turf/simulated/floor/planet/border/dirttograss{icon_state = "dirttograss_new"; dir = 5},/area/planet/forest)
+"vD" = (/obj/structure/table/woodentable/mahogany,/turf/simulated/floor/wood,/area/planet/forest/cabin1)
+"wl" = (/obj/machinery/light_construct,/turf/simulated/floor/wood,/area/planet/forest/cabin1)
+"wD" = (/turf/simulated/floor/planet/jungle/rock,/area/planet/forest/cabin1)
+"zH" = (/obj/structure/flora/ausbushes/sparsegrass,/turf/simulated/floor/planet/border/dirttograss{icon_state = "dirttograss_new"; dir = 6},/area/planet/forest)
+"zJ" = (/obj/effect/floor_decal/water_edge{tag = "icon-test (SOUTHEAST)"; icon_state = "test"; dir = 6},/turf/simulated/floor/planet/jungle/water,/area/planet/forest)
+"At" = (/mob/living/simple_animal/hostile/huntable/bear/grey,/turf/simulated/floor/planet/temperate,/area/planet/forest)
+"Ax" = (/obj/structure/flora/tree/planet/temperate,/turf/simulated/floor/planet/temperate,/area/planet/forest)
+"BU" = (/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cabin1)
+"BY" = (/obj/machinery/light_switch{pixel_x = -32; pixel_y = 24},/turf/simulated/floor,/area/planet/forest/cabin2)
+"Cj" = (/obj/structure/flora/ausbushes/ywflowers,/turf/simulated/floor/planet/temperate,/area/planet/forest/cabin1)
+"Cu" = (/mob/living/simple_animal/hostile/huntable/bear/black,/turf/simulated/floor/planet/temperate,/area/planet/forest)
+"EM" = (/mob/living/simple_animal/hostile/huntable/bear/polar,/turf/simulated/floor/planet/snow,/area/planet/forest)
+"Fz" = (/obj/structure/scrap/large,/turf/simulated/floor/planet/border/dirttograss{icon_state = "dirttograss_new"; dir = 4},/area/planet/forest)
+"FE" = (/obj/structure/table/woodentable/mahogany,/obj/effect/floor_decal/corner/black/diagonal,/obj/item/weapon/material/kitchen/rollingpin,/obj/item/weapon/reagent_containers/glass/rag,/turf/simulated/floor/tiled/white,/area/planet/forest/cabin1)
+"Gd" = (/obj/structure/stairs/wood{dir = 1},/turf/simulated/floor,/area/planet/forest/cabin2)
+"Gu" = (/mob/living/simple_animal/hostile/urist/skeleton/ancient,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest)
+"GA" = (/obj/effect/floor_decal/water_edge{tag = "icon-test2 (NORTH)"; icon_state = "test2"; dir = 1},/turf/simulated/floor/planet/jungle/water,/area/planet/forest)
+"Hp" = (/obj/effect/floor_decal/water_edge{tag = "icon-test2"; icon_state = "test2"; dir = 2},/obj/structure/flora/reeds,/turf/simulated/floor/planet/jungle/water,/area/planet/forest)
+"Hx" = (/obj/effect/floor_decal/water_edge{tag = "icon-test2 (WEST)"; icon_state = "test2"; dir = 8},/turf/simulated/floor/planet/jungle/water,/area/planet/forest)
+"IT" = (/obj/structure/table/rack,/obj/item/weapon/pickaxe/old,/obj/item/weapon/pickaxe/old,/obj/item/clothing/mask/plunger,/obj/item/device/flashlight/trainlantern,/obj/item/device/flashlight/trainlantern,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cabin1)
+"Jb" = (/obj/structure/flora/ausbushes/fullgrass,/mob/living/simple_animal/opossum,/turf/simulated/floor/planet/temperate,/area/planet/forest/cabin2)
+"Jk" = (/obj/structure/grille/wood,/turf/simulated/floor,/area/planet/forest/cabin2)
+"Jq" = (/obj/structure/table/rack,/obj/item/weapon/circuitboard/biogenerator,/obj/item/weapon/circuitboard/autolathe,/obj/item/weapon/circuitboard/carpentryplaner,/obj/item/weapon/circuitboard/woodprocessor,/obj/item/weapon/circuitboard/mining_processor,/obj/item/weapon/circuitboard/mineral_processing,/obj/item/device/radio/off/old,/obj/item/device/radio/off/old,/obj/item/device/radio/off/old,/obj/item/device/radio/off/old,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cabin1)
+"JG" = (/mob/living/simple_animal/hostile/retaliate/goose,/turf/simulated/floor/planet/temperate,/area/planet/forest)
+"JI" = (/turf/simulated/wall/wood,/area/planet/forest/cabin2)
+"JS" = (/obj/structure/flora/ausbushes/sparsegrass,/turf/simulated/floor/planet/border/dirttograss{icon_state = "dirttograss_new"; dir = 9},/area/planet/forest)
+"Lx" = (/obj/structure/table/woodentable/mahogany,/obj/effect/floor_decal/corner/black/diagonal,/obj/item/weapon/material/knife,/turf/simulated/floor/tiled/white,/area/planet/forest/cabin1)
+"Md" = (/turf/simulated/floor/planet/border/grasstodirt{dir = 5},/area/planet/forest)
+"Mr" = (/turf/simulated/floor/planet/temperate,/area/planet/forest/cabin1)
+"Mx" = (/obj/item/weapon/carpentry/axe,/obj/item/weapon/carpentry/axe,/turf/simulated/floor/planet/temperate,/area/planet/forest/cabin1)
+"Ne" = (/obj/effect/floor_decal/water_edge{tag = "icon-test (NORTHWEST)"; icon_state = "test"; dir = 9},/obj/effect/floor_decal/water_edge{tag = "icon-test (SOUTHWEST)"; icon_state = "test"; dir = 10},/turf/simulated/floor/planet/jungle/water,/area/planet/forest)
+"Nh" = (/obj/structure/table/woodentable/mahogany,/obj/effect/floor_decal/corner/black/diagonal,/obj/machinery/reagentgrinder{pixel_y = 4},/obj/machinery/light_construct{dir = 4},/turf/simulated/floor/tiled/white,/area/planet/forest/cabin1)
+"Nk" = (/turf/simulated/mineral/planet{mined_turf = /turf/simulated/floor/planet/jungle/clear/underground},/area/planet/forest)
+"NR" = (/obj/structure/table/woodentable/mahogany,/obj/item/weapon/gun/projectile/shotgun/pump,/turf/simulated/floor/wood/broken,/area/planet/forest/cabin1)
+"NS" = (/obj/effect/floor_decal/water_edge{tag = "icon-test2 (EAST)"; icon_state = "test2"; dir = 4},/turf/simulated/floor/planet/jungle/water,/area/planet/forest)
+"Oi" = (/obj/structure/flora/tree/planet/arid/small,/turf/simulated/floor/planet/border/dirttograss{icon_state = "dirttograss_new"; dir = 6},/area/planet/forest)
+"ON" = (/obj/effect/floor_decal/water_edge{tag = "icon-test (SOUTHWEST)"; icon_state = "test"; dir = 10},/obj/structure/flora/reeds,/turf/simulated/floor/planet/jungle/water,/area/planet/forest)
+"OP" = (/obj/structure/closet/secure_closet/freezer/fridge,/obj/effect/floor_decal/corner/black/diagonal,/turf/simulated/floor/tiled/white,/area/planet/forest/cabin1)
+"Pc" = (/obj/structure/flora/ausbushes/grassybush,/turf/simulated/floor/planet/temperate,/area/planet/forest)
+"Pd" = (/mob/living/simple_animal/hostile/huntable/wolf/white{dir = 8},/turf/simulated/floor/planet/snow,/area/planet/forest)
+"Pn" = (/obj/structure/flora/ausbushes/fernybush,/turf/simulated/floor/planet/temperate,/area/planet/forest)
+"PB" = (/obj/machinery/power/apc{dir = 1; name = "north bump"; pixel_y = 24; req_access = list("")},/turf/simulated/floor,/area/planet/forest/cabin2)
+"PI" = (/mob/living/simple_animal/hostile/huntable/wolf/white,/turf/simulated/floor/planet/snow,/area/planet/forest)
+"PS" = (/mob/living/simple_animal/hostile/huntable/wolf{dir = 8},/turf/simulated/floor/planet/temperate,/area/planet/forest)
+"PY" = (/obj/structure/flora/ausbushes/pointybush,/turf/simulated/floor/planet/temperate,/area/planet/forest)
+"Qc" = (/obj/machinery/seed_extractor,/turf/simulated/floor/planet/temperate,/area/planet/forest/cabin1)
+"QJ" = (/obj/structure/ladder/up,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest)
+"Re" = (/mob/living/simple_animal/hostile/huntable/panther/cougar,/turf/simulated/floor/planet/temperate,/area/planet/forest)
+"RC" = (/obj/machinery/light_switch{pixel_x = -32; pixel_y = 24},/obj/machinery/power/apc{dir = 1; name = "north bump"; pixel_y = 24; req_access = list("")},/turf/simulated/floor/wood/broken,/area/planet/forest/cabin1)
+"Sj" = (/obj/effect/floor_decal/water_edge{tag = "icon-test (NORTHEAST)"; icon_state = "test"; dir = 5},/turf/simulated/floor/planet/jungle/water,/area/planet/forest)
+"Sl" = (/obj/machinery/constructable_frame/machine_frame,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cabin1)
+"SF" = (/obj/structure/table/woodentable/mahogany,/turf/simulated/floor/wood/broken,/area/planet/forest/cabin1)
+"SY" = (/obj/item/weapon/storage/pill_bottle/three_eye,/turf/simulated/floor/planet/temperate,/area/planet/forest)
+"SZ" = (/obj/structure/scrap/large,/turf/simulated/floor/planet/temperate,/area/planet/forest)
+"Tj" = (/obj/effect/shuttle_landmark/nav_caraway_forest/nav1,/turf/simulated/floor/planet/dirt/temperate,/area/planet/forest)
+"TB" = (/obj/effect/floor_decal/corner/black/diagonal,/turf/simulated/floor/tiled/white,/area/planet/forest/cabin1)
+"Ur" = (/obj/structure/flora/ausbushes/fullgrass,/turf/simulated/floor/planet/temperate,/area/planet/forest)
+"Uv" = (/obj/structure/flora/ausbushes/ywflowers,/turf/simulated/floor/planet/border/dirttograss{icon_state = "dirttograss_new"; dir = 10},/area/planet/forest)
+"UU" = (/obj/machinery/telecomms/relay/long_range_planetary,/turf/simulated/floor/planet/dirt/temperate,/area/planet/forest)
+"Vb" = (/mob/living/simple_animal/hostile/huntable/wolf{wander = 0},/turf/simulated/floor/planet/temperate,/area/planet/forest)
+"Wg" = (/obj/structure/flora/ausbushes/pointybush,/obj/structure/flora/ausbushes/fernybush,/turf/simulated/floor/planet/temperate,/area/planet/forest)
+"Wl" = (/mob/living/simple_animal/hostile/huntable/wolf{wander = 0; dir = 4},/turf/simulated/floor/planet/temperate,/area/planet/forest)
+"Xc" = (/turf/simulated/floor/planet/temperate,/area/planet/forest/cabin2)
+"Xt" = (/mob/living/simple_animal/hostile/huntable/deer{dir = 8},/turf/simulated/floor/planet/temperate,/area/planet/forest)
+"XA" = (/obj/structure/scrap,/turf/simulated/floor/planet/temperate,/area/planet/forest)
+"XD" = (/obj/structure/flora/ausbushes/fernybush,/turf/simulated/floor/planet/temperate,/area/planet/forest/cabin2)
+"Yo" = (/obj/item/weapon/caution/cone,/turf/simulated/floor/planet/temperate,/area/planet/forest/cabin2)
+"Yp" = (/obj/structure/flora/ausbushes/sparsegrass,/turf/simulated/floor/planet/border/dirttograss{icon_state = "dirttograss_new"; dir = 5},/area/planet/forest)
+"YL" = (/obj/structure/bed/chair/wood/maple{dir = 1},/turf/simulated/floor/wood,/area/planet/forest/cabin1)
+"YX" = (/obj/structure/stairs/wood{dir = 1},/turf/simulated/floor/wood,/area/planet/forest/cabin2)
+"Zg" = (/obj/structure/scrap,/turf/simulated/floor/planet/border/dirttograss{icon_state = "dirttograss_new"; dir = 4},/area/planet/forest)
+"Zy" = (/obj/structure/flora/tree/planet/arid/small,/turf/simulated/floor/planet/temperate,/area/planet/forest)
+
+(1,1,1) = {"
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaaaaaa
+aaaaaaababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaaaaaa
+aaaaaaababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaaaaaa
+aaaaaaababababababababababababababababababababababababapapEMapapapapapababababababababacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
+aaaaaaababababababababababababababababababapapapapababapapapapapapapapababababababababacacacacacacacacacacacacacacacacacacacacacSZacacacacacacacacacacacacacacaclracacacacacacacVbacacacacacabababaaaaaa
+aaaaaaabababababababQJabababaGaGaGabababapapapapapapabapapapapapapapapababababababababacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacAxacacacacacabababaaaaaa
+aaaaaaababababoIcRabNkababaGaGGuaGababapapayazaAapapapapapapapapapapapapabababababababacacacacacacacacaclracacacacacacacacacacacacaclracacacacacacacacacacaclracacacacacacacacacacacacacacacabababaaaaaa
+aaaaaaababababcRcRjoaGababaGGuaGaGabababapaBaCaDapapapabababababapapapapapapapapababablrPYacacacacacacacacacacacacacacacSZacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
+aaaaaaabababababababaGababaGabaGaGababapapaEaoaFapapababaGcEcEababapapapapapapapabababacacacacacAxacacacacSZacacacAxacacacacacacacacacacacacacacPSacaclracacacacacacacacacacacacacaccJacacacabababaaaaaa
+aaaaaaababababababaGGuaGabaGabNkNkababapapapapapapapababaGabababapapapapapapapapabababacacacacacacacacacacacacacacacacacacacacAxJSYpacacXAacacacAxacacacacPYacacacacacacacacacacacacacacacacabababaaaaaa
+aaaaaaababababababaGaGaGaGaGabNkNkabapapapapapapapabapabaGaGabababapapapapapapapabababacacacacacacacacacacacacacacAxacacacacacacgMzHacacacacacacacacacacacacacacacacacacacacacAxacacacPYacacabababaaaaaa
+aaaaaaababababababababababababapapabapapapapapapapabapababjFabababapapapapapapapabababacacacacPYacaclracacacacAxacacacacAxacacacacacacSZacacacacacAtacacacfbacAxacacacacacacacacacacacPYacacabababaaaaaa
+aaaaaaababababababababababababapapaptQapapapapapapapapababaGabapabapapqzapapapapabababacacacacacacaclracacacacacacacacacacacaclmacacacacacacaevzacacXAacacacacacacaeahacacacacacacacacacacacabababaaaaaa
+aaaaaaabababababababuIapabapapayazaAapapapapapapapapapababapapapapapapapapapapapabababacacacacacacacacacacacacacacSZacacacacacAxacacacacacacakamacacacacacacacacacakamacacacacacacacacacacacabababaaaaaa
+aaaaaaababababababapapapaptQapaBaCaDapapapapuIapapapapapapapapapapapapapapapapapabababacacacacacacVbacacacacacWlacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacAxacacacacacacacabababaaaaaa
+aaaaaaababababapapapapapapapapaEaoaFapapapapapapapapapapapapapapapapapapapapapapabababacacacacacacAxacacacacacAxacacacacacacacacacacacacAxacacacAxacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
+aaaaaaababababapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapabababacacAxacacacacacacacacacacacacacacacAxacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
+aaaaaaababababapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapabababacacacAxacacacacacacfbacacacacacacacacacacacacacacacacacacacPYacacacaclracacacacacacacacacacacacAxacacabababaaaaaa
+aaaaaaababababapapapapapapapqzapapapapapapapapapapapapapapEMapayazaAapapapapapapabababacacacacacacacacacacacacacacacJSYpacacacacPYacacacacacacacacacacacacacacacacAxacacacaclracacaclracacacabababaaaaaa
+aaaaaaababababapapapapapapapapapapapapapapapapapapapapapapapapaBaCaDapapapapapapabababacacacacacAxacacAxacacacacacacgMzHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
+aaaaaaababababapapapapapaprpapapapapapapapapapapapapapapapapapaEaoaFapaWapapapapabababacacacacacacacacacacacacacacacacacacacacacacacacacacacacacaeahacacacacacacacacacacacacacacacacacacacacabababaaaaaa
+aaaaaaababababapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapabacacacacacacacacacacXAacacUracacacacacacacacacAxacacacacacacacakamacacacacacacacacacacacacacacacacacacacacabababaaaaaa
+aaaaaaababababapapapapapapayazaAapapapapapapapapapapapapapapapapapapapapapapapapabacabacVbacacacacacacacacacacacAxacacacacacacacacacacacacacAxacacacacacacacacacacacacacacacacacPYPYacacacacabababaaaaaa
+aaaaaaababababapapapapapapaBaCaDapapapapapapapapapapapapapapapapapapapuIapapapapabacabacAxacacacacacAxacacacacacacacacacacacacacacacacacacacacacacacacacacAxacacacacaeahacacacacacacacacacacabababaaaaaa
+aaaaaaababababapapapapapapaEaoaFapapapapapapapapapapapapapapapapapapapapapapapapabacabacUracacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacakamacacacacacacacacacacabababaaaaaa
+aaaaaaababababapapapapapPdapapapapapapapapapapqzapapapapapapapapapapapapapapapapaBacabacacacacacaclrlracacaclracacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
+aaaaaaababababapapapapapapapapapPIapapapapapapapapapapapapapapapapapapapapapapapabababacacacacacacacacacacAxacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
+aaaaaaababababapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapabababacacacPYacacacacacacacacPYacacacacPYacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
+aaaaaaababababapapapapapapapapapapapapapapapapapapapapapapapapapapapayazaAapapapabababacacacacacacacacacacacacpnacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
+aaaaaaababababapapapapapapapapapapapapapapapapapapuIapapapapapapapapaBaCaDapapapabababacacacacacacacacacacacacacacXAacacfbacacacacacacacacacacacacacacheacacacacacacacacacacacacacacacacacacabababaaaaaa
+aaaaaaababababapapapapapapapapuIapapapapapapapapapapapapapapapapapapaEaoaFapapapabababacacacacVbacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
+aaaaaaababababapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapabababacacacacAxacacAxacacacacacaclracacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
+aaaaaaababababapapapapayazaAapapapapapapapapapapapapapapapapapapapapapapapapapapabababacacacacacacacacacPYXtacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacPYacabababaaaaaa
+aaaaaaababababapapapapaBaCaDapapapapapapapapapapapapapapapapapapapapapapapapapapabababacacacUracacacacacacacaeahacacacAxacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
+aaaaaaababababapapapapaEaoaFapapapapapapapapapapapapapapapapapapapapapapapapapapabababacacacacacacacacacacacakamacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
+aaaaaaababababapapapapapapapapapuIapapapapapapapapapapapapapapapapapayazaAapapapabababacacacacacacacacacacacacPYacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
+aaaaaaababababapapapapapapapapapapapapapapapapapapapapapapapapapapapaBaCaDapapapabababacacacacZyacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacPYacacacabababaaaaaa
+aaaaaaababababapapapapapapapapapapapapapapapapapapuIapapapapapapapapaEaoaFapapapabababacacacacacacacacacacacacacacacacPYacaclracacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
+aaaaaaababababapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapabababacacacSZacacacAxacacacacacPnacacPYacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
+aaaaaaababababababababababababababababapapapapapapapapababababababababababababababababacaeafahacacacacacacacPYacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
+aaaaaaabababababababababababababababababapapapapapapabababababababababababababababababafszadpiahacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacaclracacabababaaaaaa
+aaaaaaabababababababababababababababababapapapapapapabababababababababababababababababadadadhaZgSZacacZyacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
+aaaaaaababababacacacacacacacacacacacaqapapapapapapapaparacacacacacacacacacacXAacacaiadadadadadpiahacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
+aaaaaaababababacacacacacacacacacacAxasatatatatatatatatauacAxacacacacacacXAacacacacaiadUUadadadhaFzacacacacacacacAxacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
+aaaaaaababababacacPcacacacacacacacacacacacacacacacacacacacacacacacacacacacacacSZacsXMdadhaadadlLOiacacacacacacacacacachxacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
+aaaaaaababababacacacacacacacacPcacacacacacacacacacacAxacacacacacacPYacacacacacacacXAakMdadhalLamacacacacacacZyacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
+aaaaaaababababacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacXAacacacacXAakalalamXAacacacacacacacaclracacacPYacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
+aaaaaaababababacacacacacacacacacacacAxacacacacacacacacacacacacacacPcReacacacacXAacSZXAXAacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
+aaaaaaababababacacacacacacacacacacacacacacacacacacacacacacacZyacacacacacacacacZyacacacacacacSZacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacPYacacacacacacacacacUracacacabababaaaaaa
+aaaaaaababababacacacacAxacacacacacacacacPYacacacacacacacacacacacacacacacacacacacacacacacacacacacacSZacacacReacacacacAxacacacacacacacacacacacacacacacacacacacacPYacacacacacacacacacacaclracacabababaaaaaa
+aaaaaaababababacacacacacacacacacacacacacacacacacacacacacacacacacacacacJSYpacacacacacacacacXAacacacacacacacAxacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacaclracacacacacacabababaaaaaa
+aaaaaaababababacacacacacacacacacacacacacacacacacacacacacacacacacacacacgMzHacacXAacacacacacacacacacacacacacacacacacacacacacacacacacacacacacYoXcXcurXcXcXcgyXcXcXcXcXcXcXcXcXcYoacacacacacacacabababaaaaaa
+aaaaaaababababacacacacPcacacacacacacacacacacacacacacWgacacacacacacacacacacacacPYacacacacacacacacacacacacacacacacacacacacacacacacSZlracacacXcXcXcXchKXcXcXcXcXcXcXcXcXcXDXcXcXcacacacacacacacabababaaaaaa
+aaaaaaababababacacacacacacJGacacacacacacacacacacacacacAxacUracacacacacacPcacacacacacacacacacZyacacacacacacacacacacZyacacacacacacacacPcacacXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcacacaeahacacacabababaaaaaa
+aaaaaaababababacacJGacsDzJjPmhacacacacacacacacacacacacacacacacacacacacacacacacAxacacacacacacacacacacacacacacacacaebAacacacacacacacXAacacacXcXcXcXcXcXcXcXcXcXcXcXcgyXcXcXcXcXcacacakamacacacabababaaaaaa
+aaaaaaababababacacacaczJHpcrGAONacacAxacacacacacacacacacacacacacacacacacacacacacacacacSZacacacacacacacacacacacacakpjacacacacacacacacacacacXcXcXcaZJIaZaZJkJkJkXcXcXcXcXcXcXcXcacacacacacacacabababaaaaaa
+aaaaaaababababacacacPcSjNScrcrsuNeacacacacPcacacacacacacacacacacacacacacacacacacacacacXAacacacacacacAxacacacacZyacacacacacAxacacacacacacacXcXcXcaZPBBYaZJkJkJkXchKXcXcXcXcXcXcacacacacacacacabababaaaaaa
+aaaaaaababababacacacacacSjteHxrHacacacacacacacacacacacacufYpacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacXcXcXcaZaZaZaZaZYXaZXcXcXcXcXcXcXcXcacacacAxAxacacabababaaaaaa
+aaaaaaababababacacUrJGacacSjrHacacacacacacacacPnacacacacdszHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacjtomacacXcXcXcaZaZaZaZaZGdaZaZaZaZaZXcXcXcXcSZacacacacacacabababaaaaaa
+aaaaaaababababacacacacacacacacacaclracacacacacacPYacacacacacacacacacacacacacacacacacacacacacacacfbacacacacAxacacacacacacacpnacacacUvkaacacXcXcXcaZaZaZaZaZaZaZaZaZaZaZXcXcXcXcacacacacacacacabababaaaaaa
+aaaaaaababababacacacacacacacmzacacacacacacacacacacacacacacacacacAxacacacacacacZyacacacacacAxacacacacacacaclracacacacPYacacacacacAxacacacacXcXcXcaZaZaZaZaZaZaZaZaZaZaZXcXcXcXcacacacacacacacabababaaaaaa
+aaaaaaababababacJGacacacfbacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacUracacacacacacacacacPcacacacacacacacacacacacacacacacJbXcXcaZaZaZaZaZaZaZaZaZaZaZXcXcXcXcacacSZacUracacabababaaaaaa
+aaaaaaababababacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacPYacacacacacacacacacacacacacacacacacacacacacacXtacacacacXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcacacacacacacacabababaaaaaa
+aaaaaaababababacacaclracacacacaeahacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacpnacacacacacacacacacacXcXcXcXcXcXcXchKXcXcXcXcXcXcXcXcXcXcUracpnacacacacabababaaaaaa
+aaaaaaababababacacacacacacacacakamacacacacacacacacacacacacacPcacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcacacacacacacacabababaaaaaa
+aaaaaaababababacacacacacacacacacacacacacacacacacAxacacaclracacacaeafafafafafafafafafafafafahacacacacPcacacacacacacAxacacacPYacacacacacacacXcXcXcXcgyXcXcXcXcXcXcXcXcXcXcXcXcXcacacacacacacacabababaaaaaa
+aaaaaaababababacacacAxacacacacacacPYacacacacacacacacacacacacacacaiadadadadadadadadadadadadajacacacacacacacacacXAacacacacacPYPYacacAxacacacYoXcXcurXcXcXcXcXchKXcXcXcXcXcXcXcYopnlracacacacacabababaaaaaa
+aaaaaaababababacacacacacacacacPYacacacacacacacacacacacacacacPYacaiadadadadadadadadadadadadajacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacUracacacacacacacacacacacacacabababaaaaaa
+aaaaaaababababacacacacacacacacacacacacacacacacacacacacacacacacacaiadadadadadadadadadadadadajacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacaclracacacacabababaaaaaa
+aaaaaaababababacacacUracacacacacacacacacacacacacacacacacacacacacaiadadadadadadadadadadadadajacacacacacacacPcacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
+aaaaaaababababacacacacacacacacacacacacacacacacacacacacacacacacacaiadadadadadadadadadadadadajacacacaclracacacacacacacacacaclracacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
+aaaaaaababababacacacacacacacacacacacacAxacacacacaclracPnacacacacaiadadadadadadadadadadadadajacacacacAxacacacacacacAxacacacacacacPnacacacacacaHaIaIaVaIaIaIaIaIaIaIaIaIaIaIaIaVaIaIaIaIaIaIaIabababaaaaaa
+aaaaaaababababacacacacacacacacacacacacacacacPcacacacacacacacacacaiadadadadadadadadadadadadajacacacacacacacacacacacacacacacacacacacacacacacacaMMrMrMrMrMrMrMrddMrMrMrMrMrMrMrMrMrMrMrMrMrMrMrabababaaaaaa
+aaaaaaababababacacacacacacacacacaclracacacacacacacacacacacacacacaiadadadadadadadadadadadadajacacacacacacacacacacacacacacacacacacacacacacacacaMMrMrMrMrMrMrMrMrMrMrMrMrMrMrMrMrMrMrMrMrMrMrMrabababaaaaaa
+aaaaaaababababacacacacVbacacacacacacacacacacacacacacacacacacacacaiadadadadadadadadadadadadajacacacacacacacacaeavavafahacacacacacAxacacacacacaMMrbaMrMrMrMrMrMrMrMrMrMrMrMrMrMrMrMrMrddMrMrMrabababaaaaaa
+aaaaaaababababacacacacAxacacacUracacacacacacacacacacacPYacacacacaiadadadadadadTjadadadadadajacacacacacacPYacakawaxalamacacacacacacacacacacacaMMrMrMrMrMrMrCjCjMrMrMrCjCjCjQcaLquaLaLddMrMrMrabababaaaaaa
+aaaaaaababababacacacacacacacacacacacacacacacacacJSYpacacacacacacaiadadadadadadadadadadadadajacacacacacacacacacakamacacacacacacacacacacacacacaMMrMrMrMrgbaJaKaKaLaLaLaKaKaKaLaLMruhaLMrMrMrMrabababaaaaaa
+aaaaaaababababacacacacacacacacacacacacacCuacacacgMzHacAxacacacacaiadadadadadadadadadadadadajacacacacacacacacacacacacacacacacacacacacacacacacaMMrMrMrMrgbaKaNaNaPRCaPaNOPFEmqaLMxiWaLMrMrMrMrabababaaaaaa
+aaaaaaababababacacacacacacacacacacacacacacacacacacacacacacacacacaiadadadadadadadadadadadadajacacacacacacacacacacacacacacacacacacacacacacacacaMMrMrMrMraNaKaPlOlOaOaPaNTBTBLxaLwDwDwDwDwDwDwDabababaaaaaa
+aaaaaaababababacacacacacacacAxacacacacPcacacacacacacacacUracacacaiadadadadadadadadadadadadajacacacacacacacacacacacacacacAxacacacacacacacacacaMMrMrMraNaNaLaPaPaPlOaPaNTBTBNhaLwDITikJqhumZwDabababaaaaaa
+aaaaaaababababacacacacacacacacacacacPYPYacacacacacacacacacacacacaiadadadadadadadadadadadadajacacacacacacacacacacPcacacacacacacacacacacacacacaQMrddMraNaNaRaPaNaPaPaPaNaNaOaNaLwDBUBUBUBUrDwDabababaaaaaa
+aaaaaaababababacacacacacacbxacacacacacacacacacacacacacacacacacacaiadadadadadadadadadadadadajacacacacacacacacacacacacacacacacacacacacacacacacaMMrMrMraNaNaLaNjdjdjdaPaPaPaPaNaTBUBUBUBUBUBUwDabababaaaaaa
+aaaaaaababababacacacUracacacacacacacacacacacacacacacacacacacacacaiadadadadadadadadadadadadajacacacacacacPYacacacacacacacacacacacacacacacacacaMMrMrMrMraNaKaNSFklNRaPlOaPaPlOaLwDBUBUBUBUBUwDabababaaaaaa
+aaaaaaababababacacacacacacacacacaclracacacacacacacacacacacacacacaiadadadadadadadadadadadadajacacacacacacacacacacacacacacacacacUracacacacacacaMMrMrMrMrgbaKlOSFvDSFaPaPaPaNouaLwDSlBUBUBUBUwDabababaaaaaa
+aaaaaaababababacacacacacSYacacacacpnacacacacacacacacacacacacacacaiadadadadadadadadadadadadajacacacacacacacacacacacacacacacacacacacacacacacacaMMrMrMrMrgbaKlOaSaSYLwlaNaLaYaYaLwDBUBUBUbnBUwDabababaaaaaa
+aaaaaaababababacacacacacAxacacacacacacacacacacacacfbacPYPYacacacaiadadadadadadadadadadadadajacacdPacacacacacacacacacacacacacacfbacacacacacacaMMrMrMrMrMraLaLaLaLaLaLoSaLaLaLaLwDaUaUBUBUBUwDabababaaaaaa
+aaaaaaababababacacacacacacacaclXacacacacacacacacacacacacacacacacakalalalalalalalalalalalalamacacacacacacacacacAxacacaclracacacacacacacacacacaXMrMrMrMrMrMrMrwDwDwDaLbmaLwDwDwDwDaUaUaUBUBUwDabababaaaaaa
+aaaaaaababababacacacacacacacacacacacacacacacacacacacacacacPcPcacPcacacacacacacacacacacacacacacacacacacPcacacacacacacacacacPYacacacacacacacacaMMrMrMrddMrMrMrwDwDwDaLaLaLwDwDwDaUaUaUaUaUaUwDabababaaaaaa
+aaaaaaababababacacacacacacacacacacacacAxacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacdPacacacacacacacacaMMrMrMrMrMrMrMrwDwDwDwDwDwDwDwDwDaUaUaUaUaUaUwDabababaaaaaa
+aaaaaaababababacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacaMMrddMrMrMrMrMrwDwDwDwDwDwDwDwDwDwDwDwDwDwDwDwDabababaaaaaa
+aaaaaaababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaaaaaa
+aaaaaaababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaaaaaa
+aaaaaaababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaaaaaa
+aaaaaaababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+"}

@@ -117,3 +117,27 @@
 /obj/structure/flora/tree/planet/arid/large/New()
 	icon_state = "tree_[rand(1,3)]"
 	..()
+
+//pinetrees
+
+/obj/structure/flora/tree/planet/temperate
+	name = "pine tree"
+	desc = "It's a tree. Useful for combustion and/or construction."
+	icon = 'icons/obj/flora/pinetrees.dmi'
+	icon_state = "pine_4"
+	size = 1
+
+/obj/structure/flora/tree/planet/temperate/New()
+	icon_state = "pine_[rand(4,6)]"
+	..()
+
+/obj/structure/flora/tree/planet/temperate/snowy
+	name = "pine tree"
+	desc = "It's a tree. Useful for combustion and/or construction."
+	icon = 'icons/obj/flora/pinetrees.dmi'
+	icon_state = "pine_1"
+	size = 1
+
+/obj/structure/flora/tree/planet/temperate/snowy/New()
+	icon_state = "pine_[rand(1,3)]"
+	..()

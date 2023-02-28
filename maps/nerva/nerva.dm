@@ -63,6 +63,7 @@
 	#include "../away/destroyed_colony/destroyed_colony.dm"
 	#include "../away/noctis/noctis.dm"
 	#include "../away/abandoned_colony/abandoned_colony.dm"
+	#include "../away/forest/forest.dm"
 
 	#include "../../code/datums/music_tracks/chasing_time.dm"
 	#include "../../code/datums/music_tracks/absconditus.dm"

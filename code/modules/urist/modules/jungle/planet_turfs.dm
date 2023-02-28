@@ -1,31 +1,31 @@
 /turf/simulated/floor/planet
-	var/animal_spawn_chance = 0
-	var/plants_spawn_chance = 0
-	var/small_trees_chance = 0
-	var/large_trees_chance = 0
-	var/misc_plant_spawn_chance = 0
-	var/trap_spawn_chance = 0
+	var/animal_spawn_chance = 0 //% chance to spawn animals. actual percentage is roughly divided in half bc i was an idiot 9 years ago
+	var/plants_spawn_chance = 0 //%chance to spawn plants from the general plant icon database. this includes fruit bearing plants
+	var/small_trees_chance = 0 //% chance to spawn small trees
+	var/large_trees_chance = 0 //% chance to spawn large trees
+	var/misc_plant_spawn_chance = 0 //misc plant spawn chance - this is a specifically defined type
+	var/trap_spawn_chance = 0 //trap spawns??? idfk. check below for the ancient trap code
 	name = "wet grass"
 	desc = "Thick, long wet grass"
 	icon = 'icons/jungle.dmi'
-	icon_state = "grass1"
-	light_max_bright = 0.4
+	icon_state = "grass1" //what the icon looks like when mapping/ingame if icon_spawn_state is not set
+	light_max_bright = 0.4 //these keep tiles lit. you can adjust this to make things more dim or remove lighting entirely.
 	light_inner_range = 0.1
 	light_outer_range = 1.5
 	light_falloff_curve = 0.5
-	var/icon_spawn_state = "grass1"
-	var/farmed = 0
+	var/icon_spawn_state = "grass1" //what the icon looks like when it spawns. if this is not set it defaults to icon_state
+	var/farmed = 0 //has someone tilled this soil?
 	var/bushspawnchance = 0 //let's try it, why not
-	var/animal_spawn_list
+	var/animal_spawn_list //what animals types can spawn here?
 
 	var/misc_plant_type = /obj/structure/flora/reeds
 	var/bush_type = /obj/structure/bush
 	var/small_tree_type = /obj/structure/flora/tree/planet/jungle/small
 	var/large_tree_type = /obj/structure/flora/tree/planet/jungle/large
 
-	var/terrain_type = null
+	var/terrain_type = null //used for defining footstep sounds
 
-	var/spawn_scrap = 0
+	var/spawn_scrap = 0 //do we spawn scrap piles?
 
 	var/planet_light = TRUE //do we use the fancy planet lighting
 
@@ -107,8 +107,8 @@
 	return
 
 /turf/simulated/floor/planet/border
-	density = 1
-	opacity = 1
+	density = 0
+	opacity = 0
 	icon = 'icons/urist/turf/scomturfs.dmi'
 	icon_state = "border"
 	name = ""
@@ -750,3 +750,111 @@
 	color = "#b75d0e"
 	desc = "Arid, sandy Martian dirt."
 	temperature = 288.15 //15C
+
+//temperate forest turfs
+
+/turf/simulated/floor/planet/temperate
+	temperature = 283.15 //10C
+	animal_spawn_chance = 0
+	plants_spawn_chance = 0
+	small_trees_chance = 0
+	large_trees_chance = 0
+	misc_plant_spawn_chance = 0 //WHY WOULDNT YOU WORK!!
+	name = "forest floor"
+	desc = "Patchy bits of moss, grass, dirt, and leaves"
+	icon = 'icons/urist/turf/floors_borders.dmi'
+	icon_state = "browngrass0"
+	icon_spawn_state = "browngrass"
+	light_max_bright = 0.5
+	light_inner_range = 0.1
+	light_outer_range = 1.5
+	light_falloff_curve = 0.5
+	light_color = "#ffffff"
+	bushspawnchance = 0 //let's try it, why not
+	terrain_type = "grass"
+
+/turf/simulated/floor/planet/temperate/Initialize()
+    . = ..()
+    icon_state = "browngrass[rand(0,4)]"
+
+///turf/simulated/floor/planet/temperate/grass need to get more sprites for asteroid style tiling, not important ATM
+//	icon = 'icons/turf/floors.dmi'
+//	icon_state = "grass_dark"
+
+/turf/simulated/floor/planet/dirt/temperate
+	animal_spawn_chance = 0
+	plants_spawn_chance = 0
+	small_trees_chance = 0
+	large_trees_chance = 0
+	misc_plant_spawn_chance = 0
+	temperature = 283.15 //10C
+	icon = 'icons/urist/jungle/turfs.dmi'
+	icon_state = "dirt-rough0"
+	icon_spawn_state = "dirt-rough"
+	light_max_bright = 0.6
+	light_inner_range = 0.1
+	light_outer_range = 1.5
+	light_falloff_curve = 0.5
+	light_color = "#ffffff"
+
+/turf/simulated/floor/planet/dirt/temperate/Initialize()
+    . = ..()
+    icon_state = "dirt-rough[rand(0,4)]"
+
+/turf/simulated/floor/planet/border/
+	temperature = 283.15 //10C
+	name = "forest floor"
+	desc = "Patchy bits of moss, grass, dirt, and leaves"
+	icon = 'icons/urist/turf/floors_borders.dmi'
+	light_max_bright = 0.5
+	light_inner_range = 0.1
+	light_outer_range = 1.5
+	light_falloff_curve = 0.5
+	light_color = "#ffffff"
+
+/turf/simulated/floor/planet/border/grasstodirt
+	icon_state = "grasstodirt_new"
+	icon_spawn_state = "grasstodirt_new"
+
+/turf/simulated/floor/planet/border/dirttograss
+	icon_state = "dirttograss_new"
+	icon_spawn_state = "dirttograss_new"
+
+/turf/simulated/floor/planet/border/grasstosnow
+	icon_state = "grasstosnow"
+	icon_spawn_state = "grasstosnow"
+	temperature = 275.15 //2C
+
+/turf/simulated/floor/planet/border/snowtograss
+	icon_state = "snowtograss"
+	icon_spawn_state = "snowtograss"
+	temperature = 275.15 //2C
+
+/turf/simulated/floor/planet/snow
+	temperature = 273.15 //0C
+	animal_spawn_chance = 0
+	plants_spawn_chance = 0
+	small_trees_chance = 0
+	large_trees_chance = 0
+	misc_plant_spawn_chance = 0
+	name = "snow"
+	desc = "Cold and white"
+	icon = 'icons/turf/snow.dmi'
+	icon_state = "snow0"
+	icon_spawn_state = "snow0"
+	light_max_bright = 0.7
+	light_inner_range = 0.1
+	light_outer_range = 1.5
+	light_falloff_curve = 0.5
+	light_color = "#ffffff"
+	bushspawnchance = 0 //let's try it, why not
+	terrain_type = "grass"
+	animal_spawn_list = list(
+		/mob/living/simple_animal/hostile/huntable/deer,
+		/mob/living/simple_animal/hostile/huntable/bear/polar,
+		/mob/living/simple_animal/hostile/huntable/wolf/white,
+	)
+
+/turf/simulated/floor/planet/snow/Initialize()
+    . = ..()
+    icon_state = "snow[rand(0,12)]"

@@ -234,6 +234,14 @@
 			src.loc = get_step_towards(src, target)
 			stalk_tick_delay = 3
 
+/mob/living/simple_animal/hostile/huntable/panther/cougar
+	name = "cougar"
+	desc = "a large brown cat with a white belly and jaw."
+	icon_state = "cougar"
+	icon_living = "cougar"
+	icon_dead = "cougar_dead"
+	icon_gib = "cougar_dead"
+
 //*******//
 // Snake //
 //*******//
@@ -407,3 +415,75 @@
 	attack_sound = 'sound/weapons/bite.ogg'
 	meat_amount = 4
 	hide = 7 //seems like a more fair reward at 7
+
+/mob/living/simple_animal/hostile/huntable/bear/grey
+	desc = "A big scary bear, probably best to stay away"
+	icon_state = "greybear"
+	icon_living = "greybear"
+	icon_dead = "greybear_dead"
+	icon_gib = "greybear_dead"
+
+/mob/living/simple_animal/hostile/huntable/bear/black
+	desc = "A big scary black bear, probably best to stay away"
+	icon_state = "blackbear"
+	icon_living = "blackbear"
+	icon_dead = "blackbear_dead"
+	icon_gib = "blackbear_dead"
+
+/mob/living/simple_animal/hostile/huntable/bear/polar
+	desc = "A big scary polar bear, probably best to stay away"
+	icon_state = "polarbear"
+	icon_living = "polarbear"
+	icon_dead = "polarbear_dead"
+	icon_gib = "polarbear_dead"
+	melee_damage_lower = 30
+	melee_damage_upper = 40 //polar bears are v dangerous
+
+/mob/living/simple_animal/hostile/huntable/bear/light
+	desc = "A big scary bear, probably best to stay away"
+	icon_state = "blondebear"
+	icon_living = "blondebear"
+	icon_dead = "blondebear_dead"
+	icon_gib = "blondebear_dead"
+
+/mob/living/simple_animal/hostile/huntable/bear/dark
+	desc = "A big scary brown bear, probably best to stay away"
+	icon_state = "darkbrownbear"
+	icon_living = "darkbrownbear"
+	icon_dead = "darkbrownbear_dead"
+	icon_gib = "darkbrownbear_dead"
+
+//wolf
+
+/mob/living/simple_animal/hostile/huntable/wolf
+	name = "wolf"
+	desc = "A mean looking wolf"
+	icon = 'icons/uristmob/simpleanimals.dmi'
+	icon_state = "greywolf"
+	icon_living = "greywolf_dead"
+	icon_dead = "greywolf_dead"
+	icon_gib = "greywolf_dead"
+	speak_chance = 0
+	turns_per_move = 6
+	meat_type = /obj/item/clothing/head/urist/pelt/wolf
+	response_help = "pets the"
+	response_disarm = "gently pushes aside the"
+	response_harm = "hits the"
+	stop_automated_movement_when_pulled = 0
+	maxHealth = 70
+	health = 70
+	harm_intent_damage = 8
+	melee_damage_lower = 15
+	melee_damage_upper = 25
+	attacktext = "slashed"
+	attack_sound = 'sound/weapons/bite.ogg'
+	meat_amount = 0 //why does 0 make it give 1 pelt
+	hide = 0 //why do they still give animal hide when  butchered
+
+/mob/living/simple_animal/hostile/huntable/wolf/white
+	meat_type = /obj/item/clothing/head/urist/pelt/wolf/white
+	icon_state = "whitewolf"
+	icon_living = "whitewolf_dead"
+	icon_dead = "whitewolf_dead"
+	icon_gib = "whitewolf_dead"
+	hide = 0

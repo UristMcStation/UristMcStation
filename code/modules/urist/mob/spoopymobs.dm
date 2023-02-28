@@ -717,6 +717,7 @@
 	icon_state = "bluespace-angel"
 	icon_living = "bluespace-angel"
 	icon_dead = ""
+	casingtype = /obj/effect/decal/cleanable/ash
 	faction = "divine"
 	maxHealth = 100
 	health = 100
@@ -763,3 +764,22 @@
 	health = 200
 	melee_damage_lower = 30
 	melee_damage_upper = 35
+
+//skeletons
+
+/mob/living/simple_animal/hostile/urist/skeleton/ancient
+	name = "ancient skeleton"
+	desc = "an ancient risen corpse."
+	attacktext = "strikes"
+	icon= 'icons/uristmob/simpleanimals.dmi'
+	icon_state = "draugr1"
+	icon_living = "draugr1"
+	icon_dead = "skeleton_dead"
+	var/body_color
+
+/mob/living/simple_animal/hostile/urist/skeleton/ancient/New()
+	..()
+	if(!body_color)
+		body_color = pick( list("1","2","3","4","5","6") )
+	icon_state = "draugr[body_color]"
+	icon_living = "draugr[body_color]"

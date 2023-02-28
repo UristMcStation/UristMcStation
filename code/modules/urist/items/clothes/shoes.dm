@@ -78,3 +78,13 @@ icon_override sprites go to 'icons/uristmob/shoes.dmi' Items should go to clothi
 	force = 0
 	w_class = ITEM_SIZE_SMALL
 	species_restricted = null
+
+/obj/item/clothing/shoes/urist/unathiboots
+	name = "unathi skin boots"
+	desc = "a fancy pair of boots made from very large reptile."
+	icon_state = "unathiboots"
+	item_state = "unathiboots"
+
+/obj/item/clothing/shoes/urist/unathiboots/green
+	icon_state = "unathiboots_green"
+	item_state = "unathiboots_green"

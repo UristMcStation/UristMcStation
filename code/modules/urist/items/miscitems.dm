@@ -543,3 +543,204 @@
 				/obj/item/weapon/stamp/nt/fake,
 				/obj/item/weapon/stamp/qm/fake,
 				)
+
+//old hand radio
+/obj/item/device/radio/off/old
+	icon = 'icons/urist/structures&machinery/machinery.dmi'
+	icon_state = "portable_radio2"
+	item_state = "portable_radio2"
+
+//treasures meant as away loot, move some of these if they ever become a functional item like magic orbs/gems
+
+/obj/item/treasure
+	icon = 'icons/urist/items/misc.dmi'
+	throwforce = 0
+	throw_speed = 4
+	throw_range = 20
+	force = 0
+	w_class = 2
+
+/obj/item/treasure/tape
+	name = "retro holotape"
+	desc = "An old holotape cassette. Could be someone's mixtape or have valuable data."
+	icon_state = "tape1"
+
+/obj/item/treasure/tape/tape2
+	icon_state = "tape5"
+
+/obj/item/treasure/tape/tape3
+	icon_state = "tape6"
+
+/obj/item/treasure/coin
+	name = "\improper old copper coin"
+	desc = "A copper coin stamped with the image of a sailing ship."
+	icon_state = "oldcoin4"
+
+/obj/item/treasure/coin/platinum
+	name = "\improper old platinum coin"
+	desc = "A platinum coin stamped with the image of a king."
+	icon_state = "oldcoin1"
+
+/obj/item/treasure/coin/gold
+	name = "\improper old gold coin"
+	desc = "A gold coin stamped with the image of a castle."
+	icon_state = "oldcoin2"
+
+/obj/item/treasure/coin/silver
+	name = "\improper old silver coin"
+	desc = "A silver coin stamped with the image of a dragon."
+	icon_state = "oldcoin3"
+
+/obj/item/treasure/gem
+	name = "astonishing amethyst"
+	desc = "An amethyst crystal with the deepest purple."
+	icon_state = "amethyst"
+
+/obj/item/treasure/gem/pearl
+	name = "portentious pearl"
+	desc = "A particularly beautiful pearl."
+	icon_state = "pearl"
+
+/obj/item/treasure/gem/ruby
+	name = "resplendent ruby"
+	desc = "A ruby fit for a crown."
+	icon_state ="ruby"
+
+/obj/item/treasure/gem/sapphire
+	name = "splendid sapphire"
+	desc = "A sapphire that sparkles in the faintest light."
+	icon_state = "sapphire"
+
+/obj/item/treasure/gem/emerald
+	name = "enticing emerald"
+	desc = "An emerald cut with all the finest craftsmanship."
+	icon_state = "emerald"
+
+/obj/item/treasure/gem/prism
+	name = "perfect prismatic crystal"
+	desc = "A brilliantly colored gem"
+	icon_state = "prismaticgem"
+
+//thanks Grant for these names. I hate you so much <3
+/obj/item/treasure/gem/opal
+	name = "imperious opal"
+	desc = "An extravagant multi-colored gem."
+	icon_state = "opal"
+
+/obj/item/treasure/gem/fancyquartz
+	name = "polished pink star quartz"
+	desc = "A normally common stone, this one has a lovely pink with an imperfection giving the appearance of a trapped star."
+	icon_state = "starquartz"
+
+/obj/item/treasure/gem/fireopal
+	name = "fabulous fire opal"
+	desc = "A stone with a blaze inside. It won't keep you warm despite the name."
+	icon_state = "fireopal"
+
+/obj/item/treasure/gem/ruby/star
+	name = "sensational star ruby"
+	desc = "A fantastically red ruby with a star shaped imperfection."
+	icon_state = "starruby"
+
+/obj/item/treasure/gem/moonstone
+	name = "majestic moonstone"
+	desc = "A silvery blue gem that seems to demand your gaze."
+	icon_state = "moonstone"
+
+/obj/item/treasure/portrait
+	name = "king's portrait"
+	desc = "A painting of a king of old"
+	icon_state = "king"
+
+/obj/item/treasure/portrait/queen
+	name = "portrait of a queen"
+	desc = "A picture of a beautiful queen."
+	icon_state = "queen"
+
+/obj/item/treasure/portrait/knight
+	name = "knight's painting"
+	desc = "An image depicting a brave knight."
+	icon_state = "knight"
+
+/obj/item/treasure/portrait/jester
+	name = "jester's caricature"
+	desc = "A foolish jester's highly exagerated portrait."
+	icon_state = "jester"
+
+/obj/item/treasure/portrait/squire
+	name = "picture of a squire"
+	desc = "A picture of a young squire."
+	icon_state = "squire"
+
+/obj/item/treasure/plush
+	name = "old cartoon doll"
+	desc = "A cute doll of an old cartoon from early in the millennium."
+	icon_state = "rareplush1"
+
+/obj/item/treasure/plush/pink
+	icon_state = "rareplush2"
+
+/obj/item/treasure/plush/blue
+	icon_state = "rareplush3"
+
+/obj/item/treasure/plush/scug
+	name = "slugcat plush"
+	desc = "A cute doll based off a sleeping cat hybrid"
+	icon_state = "scugplush"
+
+//i dont want to make them a toy subtype to keep the loot seperate from toys
+/obj/item/treasure/plush/attack_self(mob/user as mob)
+	if(user.a_intent == I_HELP)
+		user.visible_message("<span class='notice'><b>\The [user]</b> hugs [src]!</span>","<span class='notice'>You hug [src]!</span>")
+	else if (user.a_intent == I_HURT)
+		user.visible_message("<span class='warning'><b>\The [user]</b> punches [src]!</span>","<span class='warning'>You punch [src]!</span>")
+	else if (user.a_intent == I_GRAB)
+		user.visible_message("<span class='warning'><b>\The [user]</b> attempts to strangle [src]!</span>","<span class='warning'>You attempt to strangle [src]!</span>")
+	else
+		user.visible_message("<span class='notice'><b>\The [user]</b> pokes the [src].</span>","<span class='notice'>You poke the [src].</span>")
+
+
+/obj/random/treasure
+	name = "random treasure"
+	desc = "This is some random loot."
+	icon = 'icons/obj/items.dmi'
+	icon_state = "gift3"
+
+/obj/random/treasure/spawn_choices()
+	return list(/obj/item/treasure/coin,
+				/obj/item/treasure/coin/silver,
+				/obj/item/treasure/coin/gold,
+				/obj/item/treasure/gem/pearl,
+				/obj/item/treasure/gem/sapphire,
+				/obj/item/treasure/gem/ruby ,
+				/obj/item/treasure/gem/emerald,
+				/obj/item/treasure/gem/fancyquartz,
+				/obj/item/treasure/gem/ruby/star,
+				/obj/item/treasure/gem/moonstone,
+				/obj/item/treasure/gem/opal,
+				/obj/item/treasure/gem/fireopal)
+
+/obj/random/treasure/plush
+	name = "random treasure plush"
+	desc = "This is some random loot."
+	icon = 'icons/obj/items.dmi'
+	icon_state = "gift3"
+
+/obj/random/treasure/plush/spawn_choices()
+	return list(/obj/item/treasure/plush,
+				/obj/item/treasure/plush/pink,
+				/obj/item/treasure/plush/blue,
+				/obj/item/treasure/plush/scug)
+
+/obj/random/treasure/portrait
+	name = "random treasure portrait"
+	desc = "This is some random loot."
+	icon = 'icons/obj/items.dmi'
+	icon_state = "gift3"
+
+/obj/random/treasure/plush/spawn_choices()
+	return list(/obj/item/treasure/portrait,
+				/obj/item/treasure/portrait/queen,
+				/obj/item/treasure/portrait/knight,
+				/obj/item/treasure/portrait/jester,
+				/obj/item/treasure/portrait/squire)
