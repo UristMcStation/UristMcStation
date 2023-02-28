@@ -740,7 +740,7 @@
 
 /obj/item/projectile/energy/holy
 	name = "holy fire"
-//	icon = 'icons/obj/projectiles.dmi'
+	icon = 'icons/urist/items/effects.dmi'
 	icon_state = "fireball_blue"
 	fire_sound = 'sound/magic/fireball.ogg'
 	pass_flags = PASS_FLAG_TABLE | PASS_FLAG_GLASS | PASS_FLAG_GRILLE
@@ -783,3 +783,4 @@
 		body_color = pick( list("1","2","3","4","5","6") )
 	icon_state = "draugr[body_color]"
 	icon_living = "draugr[body_color]"
+
