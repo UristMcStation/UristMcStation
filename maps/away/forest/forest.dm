@@ -90,7 +90,6 @@
 	description = "3z level planet with cave, forest surface, and 2 story buildings."
 	suffixes = list("forest/forest1.dmm", "forest/forest2.dmm", "forest/forest3.dmm")
 	accessibility_weight = 11
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /obj/effect/submap_landmark/joinable_submap/caraway_forest
 	name = "Boreal Forest"
