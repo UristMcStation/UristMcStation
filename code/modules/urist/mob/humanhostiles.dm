@@ -379,7 +379,7 @@
 	icon = 'icons/uristmob/simpleanimals.dmi'
 	icon_dead = "holonaut_dead"
 	faction = "holonaut"
-	speak = list("...?<>D-d-d-£$D<>Id it()<> work?", "I<> T-<>%$£I'm b-<C-cant feel <>ANYT-thing.</C-cant>", "?:PO$&<S-Someone...", "Three. Nine. <<><Seven-n-n-n.. One..$£% Five Nine.")
+	speak = list("...?<>D-d-d-£$D<>Id it()<> work?", "I<> T-<>%$£I'm b-<C-cant feel <>ANYT-thing.</C-cant>", "?:PO$&<S-Someone...", "Three. Nine. ><><Seven-n-n-n.. One..$£% Five Nine.")
 	speak_chance = 50
 	emote_hear = list("gasps suddenly", "garbles something unintelligible", "jitters audibly", "garbles some sort of radio message.")
 	emote_see = list("jitters uncontrollably", "stares at their palms")
