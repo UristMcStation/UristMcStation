@@ -272,7 +272,7 @@ var/global/list/sparring_attack_cache = list()
 				"<span class='danger'>[user] stomped \his [shoe_text] down onto [target]'s [organ]!</span>"))
 		if(5)
 			user.visible_message(pick(
-				"<span class='danger'>[user] stomped down hard onto [target]'s [organ][pick("", "with their [shoe_text]")]!</span>",
+				"<span class='danger'>[user] stomped down hard onto [target]'s [organ][pick("", " with their [shoe_text]")]!</span>",
 				"<span class='danger'>[user] slammed \his [shoe_text] down onto [target]'s [organ]!</span>"))
 
 /datum/unarmed_attack/light_strike
