@@ -51,9 +51,6 @@
 	if (usr.incapacitated())
 		return
 
-	if (!usr.unEquip(src))
-		return
-
 	switch(over_object.name)
 		if("r_hand")
 			if (usr.unEquip(src))
