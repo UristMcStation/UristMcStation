@@ -65,7 +65,7 @@
 "gy" = (/obj/structure/flora/ausbushes/genericbush,/turf/simulated/floor/planet/temperate,/area/planet/forest/cabin2)
 "gM" = (/obj/structure/flora/ausbushes/sparsegrass,/turf/simulated/floor/planet/border/dirttograss{icon_state = "dirttograss_new"; dir = 10},/area/planet/forest)
 "ha" = (/obj/structure/scrap,/turf/simulated/floor/planet/dirt/temperate,/area/planet/forest)
-"he" = (/obj/effect/shuttle_landmark/nav_caraway_forest/nav2,/turf/simulated/floor/planet/temperate,/area/planet/forest)
+"he" = (/obj/effect/shuttle_landmark/automatic/nav_caraway_forest/nav2,/turf/simulated/floor/planet/temperate,/area/planet/forest)
 "hu" = (/obj/structure/table/rack,/obj/random/tech_supply,/obj/random/tech_supply,/obj/random/tech_supply,/obj/random/tech_supply,/obj/random/tech_supply,/obj/random/tech_supply,/obj/item/weapon/storage/toolbox/mechanical,/obj/item/weapon/storage/toolbox/electrical,/obj/item/weapon/storage/toolbox/mechanical,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cabin1)
 "hx" = (/obj/structure/flora/tree/planet/temperate,/obj/structure/flora/ausbushes/pointybush,/turf/simulated/floor/planet/temperate,/area/planet/forest)
 "hK" = (/obj/structure/flora/ausbushes/fullgrass,/turf/simulated/floor/planet/temperate,/area/planet/forest/cabin2)
@@ -89,7 +89,7 @@
 "mZ" = (/obj/structure/table/rack,/obj/item/stack/material/steel/fifty,/obj/item/stack/material/glass/fifty,/obj/item/stack/material/phoron/ten,/obj/item/stack/material/phoron/ten,/obj/item/stack/material/plastic/ten,/obj/item/stack/material/aluminium/ten,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cabin1)
 "om" = (/obj/structure/flora/ausbushes/ppflowers,/turf/simulated/floor/planet/border/dirttograss{icon_state = "dirttograss_new"; dir = 5},/area/planet/forest)
 "ou" = (/obj/machinery/light/small{dir = 4; luminosity = 2},/turf/simulated/floor/wood,/area/planet/forest/cabin1)
-"oI" = (/obj/structure/closet/coffin,/obj/item/remains/human,/obj/item/treasure/coin,/obj/item/treasure/coin,/obj/item/treasure/coin,/obj/item/treasure/coin,/obj/random/treasure,/obj/random/treasure,/obj/random/treasure,/obj/random/treasure,/turf/simulated/floor/wood/ebony,/area/planet/forest)
+"oI" = (/obj/item/remains/human,/obj/item/treasure/coin,/obj/item/treasure/coin,/obj/item/treasure/coin,/obj/item/treasure/coin,/obj/random/treasure,/obj/random/treasure,/obj/random/treasure,/obj/random/treasure,/obj/structure/closet/coffin/urist/stonecoffin,/turf/simulated/floor/wood/ebony,/area/planet/forest)
 "oS" = (/obj/machinery/door/unpowered/simple/wood,/turf/simulated/floor/tiled/white,/area/planet/forest/cabin1)
 "pi" = (/turf/simulated/floor/planet/border/grasstodirt{dir = 10},/area/planet/forest)
 "pj" = (/obj/structure/flora/ausbushes/sunnybush,/turf/simulated/floor/planet/border/dirttograss{icon_state = "dirttograss_new"; dir = 6},/area/planet/forest)
@@ -164,7 +164,7 @@
 "SF" = (/obj/structure/table/woodentable/mahogany,/turf/simulated/floor/wood/broken,/area/planet/forest/cabin1)
 "SY" = (/obj/item/weapon/storage/pill_bottle/three_eye,/turf/simulated/floor/planet/temperate,/area/planet/forest)
 "SZ" = (/obj/structure/scrap/large,/turf/simulated/floor/planet/temperate,/area/planet/forest)
-"Tj" = (/obj/effect/shuttle_landmark/nav_caraway_forest/nav1,/turf/simulated/floor/planet/dirt/temperate,/area/planet/forest)
+"Tj" = (/obj/effect/shuttle_landmark/automatic/nav_caraway_forest/nav1,/turf/simulated/floor/planet/dirt/temperate,/area/planet/forest)
 "TB" = (/obj/effect/floor_decal/corner/black/diagonal,/turf/simulated/floor/tiled/white,/area/planet/forest/cabin1)
 "Ur" = (/obj/structure/flora/ausbushes/fullgrass,/turf/simulated/floor/planet/temperate,/area/planet/forest)
 "Uv" = (/obj/structure/flora/ausbushes/ywflowers,/turf/simulated/floor/planet/border/dirttograss{icon_state = "dirttograss_new"; dir = 10},/area/planet/forest)
@@ -210,16 +210,16 @@ aaaaaaababababapapapapapapapapapapapapapapapapapapapapapapapapaBaCaDapapapapapap
 aaaaaaababababapapapapapaprpapapapapapapapapapapapapapapapapapaEaoaFapaWapapapapabababacacacacacacacacacacacacacacacacacacacacacacacacacacacacacaeahacacacacacacacacacacacacacacacacacacacacabababaaaaaa
 aaaaaaababababapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapabacacacacacacacacacacXAacacUracacacacacacacacacAxacacacacacacacakamacacacacacacacacacacacacacacacacacacacacabababaaaaaa
 aaaaaaababababapapapapapapayazaAapapapapapapapapapapapapapapapapapapapapapapapapabacabacVbacacacacacacacacacacacAxacacacacacacacacacacacacacAxacacacacacacacacacacacacacacacacacPYPYacacacacabababaaaaaa
-aaaaaaababababapapapapapapaBaCaDapapapapapapapapapapapapapapapapapapapuIapapapapabacabacAxacacacacacAxacacacacacacacacacacacacacacacacacacacacacacacacacacAxacacacacaeahacacacacacacacacacacabababaaaaaa
+aaaaaaababababapapapapapapaBaCaDapapapapapapapapapapapapapapapapapapapuIapapapapabacabacAxacacacacacAxacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacaeahacacacacacacacacacacabababaaaaaa
 aaaaaaababababapapapapapapaEaoaFapapapapapapapapapapapapapapapapapapapapapapapapabacabacUracacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacakamacacacacacacacacacacabababaaaaaa
 aaaaaaababababapapapapapPdapapapapapapapapapapqzapapapapapapapapapapapapapapapapaBacabacacacacacaclrlracacaclracacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
 aaaaaaababababapapapapapapapapapPIapapapapapapapapapapapapapapapapapapapapapapapabababacacacacacacacacacacAxacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
 aaaaaaababababapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapabababacacacPYacacacacacacacacPYacacacacPYacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
 aaaaaaababababapapapapapapapapapapapapapapapapapapapapapapapapapapapayazaAapapapabababacacacacacacacacacacacacpnacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
-aaaaaaababababapapapapapapapapapapapapapapapapapapuIapapapapapapapapaBaCaDapapapabababacacacacacacacacacacacacacacXAacacfbacacacacacacacacacacacacacacheacacacacacacacacacacacacacacacacacacabababaaaaaa
+aaaaaaababababapapapapapapapapapapapapapapapapapapuIapapapapapapapapaBaCaDapapapabababacacacacacacacacacacacacacacXAacacfbacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
 aaaaaaababababapapapapapapapapuIapapapapapapapapapapapapapapapapapapaEaoaFapapapabababacacacacVbacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
 aaaaaaababababapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapapabababacacacacAxacacAxacacacacacaclracacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
-aaaaaaababababapapapapayazaAapapapapapapapapapapapapapapapapapapapapapapapapapapabababacacacacacacacacacPYXtacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacPYacabababaaaaaa
+aaaaaaababababapapapapayazaAapapapapapapapapapapapapapapapapapapapapapapapapapapabababacacacacacacacacacPYXtacacacacacacacacacacacacacacacacacacacacacacheacacacacacacacacacacacacacacacPYacabababaaaaaa
 aaaaaaababababapapapapaBaCaDapapapapapapapapapapapapapapapapapapapapapapapapapapabababacacacUracacacacacacacaeahacacacAxacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
 aaaaaaababababapapapapaEaoaFapapapapapapapapapapapapapapapapapapapapapapapapapapabababacacacacacacacacacacacakamacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa
 aaaaaaababababapapapapapapapapapuIapapapapapapapapapapapapapapapapapayazaAapapapabababacacacacacacacacacacacacPYacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabababaaaaaa

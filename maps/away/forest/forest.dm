@@ -76,17 +76,13 @@
 	name = "[generate_planet_name()], \a [name]"
 	..()
 
-/obj/effect/shuttle_landmark/nav_caraway_forest/nav1
+/obj/effect/shuttle_landmark/automatic/nav_caraway_forest/nav1
 	name = "Valley Landing Zone #1"
 	landmark_tag = "nav_caraway_forest_1"
-	base_area = /area/planet/forest
-	base_turf = /turf/simulated/floor/planet/dirt/temperate
 
-/obj/effect/shuttle_landmark/nav_caraway_forest/nav2
+/obj/effect/shuttle_landmark/automatic/nav_caraway_forest/nav2
 	name = "Valley Landing Zone #2"
 	landmark_tag = "nav_caraway_forest_2"
-	base_area = /area/planet/forest
-	base_turf = /turf/simulated/floor/planet/dirt/temperate
 
 /datum/map_template/ruin/away_site/caraway_forest
 	name = "Temperate Planet"

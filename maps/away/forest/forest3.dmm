@@ -23,7 +23,7 @@
 "z" = (/turf/simulated/mineral/random,/area/planet/forest/upper)
 "A" = (/obj/structure/bed,/obj/effect/submap_landmark/spawnpoint/forest_settler,/turf/simulated/floor/wood,/area/planet/forest/cabin1/attic)
 "E" = (/obj/structure/table/rack/wood,/obj/item/weapon/storage/firstaid/adv,/obj/item/weapon/storage/firstaid,/obj/item/weapon/storage/firstaid/toxin,/turf/simulated/floor/wood,/area/planet/forest/cabin1/attic)
-"F" = (/obj/structure/closet/coffin,/obj/item/clothing/head/urist/historic/armor/valkyrie,/obj/item/clothing/suit/urist/armor/historic/chain/early_chainmail,/obj/item/weapon/material/sword,/obj/random/treasure,/obj/random/treasure,/obj/item/clothing/shoes/jackboots/medievalboots,/obj/item/clothing/under/urist/historic/leather_tunic,/obj/item/remains/human,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/upper)
+"F" = (/obj/item/clothing/head/urist/historic/armor/valkyrie,/obj/item/clothing/suit/urist/armor/historic/chain/early_chainmail,/obj/item/weapon/material/sword,/obj/random/treasure,/obj/random/treasure,/obj/item/clothing/shoes/jackboots/medievalboots,/obj/item/clothing/under/urist/historic/leather_tunic,/obj/item/remains/human,/obj/structure/closet/coffin/urist/stonecoffin,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/upper)
 "H" = (/mob/living/simple_animal/opossum,/turf/simulated/floor,/area/planet/forest/cabin2/attic)
 "J" = (/obj/structure/closet,/obj/random/accessory,/obj/random/clothing,/obj/random/clothing,/obj/random/handgun,/obj/random/ammo,/obj/random/ammo,/obj/item/clothing/suit/urist/sweater/pink,/turf/simulated/floor/wood,/area/planet/forest/cabin1/attic)
 "K" = (/turf/simulated/open,/area/planet/forest/cabin1/attic)

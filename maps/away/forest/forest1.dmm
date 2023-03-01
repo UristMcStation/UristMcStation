@@ -3,11 +3,15 @@
 "ac" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"; tag = "icon-intact-scrubbers (EAST)"},/turf/simulated/floor/tiled/white,/area/planet/forest/cave/lab)
 "ad" = (/obj/structure/disposalpipe/segment,/turf/simulated/floor,/area/planet/forest/cave/engie)
 "ae" = (/obj/structure/bed/padded,/obj/item/weapon/bedsheet/blue,/mob/living/simple_animal/mouse,/turf/simulated/floor/wood/mahogany,/area/planet/forest/cave/dorms)
+"af" = (/obj/effect/decal/cleanable/filth,/mob/living/simple_animal/mouse,/turf/simulated/floor,/area/planet/forest/cave/dorms)
 "ag" = (/obj/machinery/light{dir = 8},/obj/machinery/light{dir = 8},/obj/structure/cable/blue{icon_state = "2-5"},/obj/effect/decal/cleanable/filth,/turf/simulated/floor/tiled,/area/planet/forest/cave/kitchen)
+"ah" = (/obj/structure/table/standard,/mob/living/simple_animal/hostile/giant_spider,/turf/simulated/floor,/area/planet/forest/cave/engie)
+"ai" = (/obj/effect/landmark/random_gen/planet{generation_height = 100; generation_width = 100},/turf/space,/area/planet/forest/cave)
+"aj" = (/turf/unsimulated/mask,/area/planet/forest/cave)
 "al" = (/obj/structure/closet/radiation,/turf/simulated/floor,/area/planet/forest/cave/engie)
 "an" = (/obj/structure/table/standard,/obj/item/treasure/tape/tape2,/obj/item/weapon/material/knife/hook,/turf/simulated/floor,/area/planet/forest/cave/lab)
 "ap" = (/obj/structure/window/basic,/turf/simulated/floor/tiled/white,/area/planet/forest/cave/med)
-"ar" = (/obj/structure/table/marble,/obj/item/treasure/coin,/obj/item/treasure/coin,/obj/random/treasure,/obj/random/treasure,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cave)
+"ar" = (/obj/structure/table/marble,/obj/item/treasure/coin,/obj/item/treasure/coin,/obj/random/treasure,/obj/random/treasure,/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "az" = (/obj/structure/closet/secure_closet/engineering_electrical,/turf/simulated/floor,/area/planet/forest/cave/engie)
 "aC" = (/obj/structure/boulder,/turf/simulated/floor,/area/planet/forest/cave)
 "aL" = (/obj/machinery/door/airlock/engineering{name = "Fabrication and Storage"; req_access = list("")},/obj/structure/disposalpipe/segment,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/structure/cable/blue{icon_state = "9-10"},/turf/simulated/floor/tiled,/area/planet/forest/cave/engie)
@@ -41,7 +45,7 @@
 "cL" = (/obj/structure/cable/blue{icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"; tag = "icon-intact-scrubbers (EAST)"},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
 "cP" = (/obj/effect/floor_decal/rust/mono/high,/turf/simulated/floor,/area/planet/forest/cave/engie)
 "cQ" = (/obj/structure/hygiene/toilet{dir = 1},/turf/simulated/floor/tiled,/area/planet/forest/cave/kitchen)
-"cT" = (/obj/structure/stairs/wood{dir = 8},/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cave)
+"cT" = (/obj/structure/stairs/wood{dir = 8},/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "cV" = (/obj/structure/table/woodentable/ebony,/turf/simulated/floor/wood/broken,/area/planet/forest/cave/hall)
 "cW" = (/turf/simulated/wall,/area/planet/forest/cave/dorms)
 "db" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/light_switch{pixel_x = -32; pixel_y = 24},/turf/simulated/floor/tiled/white,/area/planet/forest/cave/lab)
@@ -55,7 +59,7 @@
 "dX" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 1; icon_state = "map_scrubber_on"},/turf/simulated/floor/carpet/purple,/area/planet/forest/cave/lab)
 "ea" = (/obj/structure/reagent_dispensers/fueltank,/turf/simulated/floor/tiled/dark,/area/planet/forest/cave/engie)
 "ec" = (/obj/random/trash,/turf/simulated/wall,/area/planet/forest/cave/dorms)
-"eg" = (/obj/structure/closet/coffin,/obj/item/remains/human,/obj/item/clothing/suit/urist/armor/historic/chestplate/iron_chestplate,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cave)
+"eg" = (/obj/item/remains/human,/obj/item/clothing/suit/urist/armor/historic/chestplate/iron_chestplate,/obj/structure/closet/coffin/urist/stonecoffin,/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "ei" = (/turf/simulated/wall/r_wall,/area/planet/forest/cave/hall)
 "en" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 9; icon_state = "intact-supply"; tag = "icon-intact-supply (NORTHWEST)"},/obj/effect/decal/cleanable/filth,/turf/simulated/floor/tiled,/area/planet/forest/cave/lobby)
 "eo" = (/obj/structure/disposalpipe/segment{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/structure/cable/blue{icon_state = "1-6"},/turf/simulated/floor/tiled,/area/planet/forest/cave/kitchen)
@@ -71,7 +75,7 @@
 "eW" = (/obj/machinery/door/airlock/multi_tile/research,/turf/simulated/floor/tiled,/area/planet/forest/cave/lobby)
 "fb" = (/obj/structure/bed/chair/office/light,/turf/simulated/floor,/area/planet/forest/cave/med)
 "fc" = (/obj/structure/cable/blue{icon_state = "4-8"},/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,/obj/effect/spider/stickyweb,/turf/simulated/floor,/area/planet/forest/cave/hall)
-"ff" = (/obj/random/trash,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cave)
+"ff" = (/obj/random/trash,/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "fj" = (/turf/simulated/floor,/area/planet/forest/cave)
 "fl" = (/obj/structure/cable/blue{icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"; tag = "icon-intact-scrubbers (EAST)"},/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
 "fm" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 4; icon_state = "map_vent_out"},/mob/living/simple_animal/hostile/giant_spider,/turf/simulated/floor/tiled/white,/area/planet/forest/cave/med)
@@ -88,9 +92,9 @@
 "gm" = (/turf/space,/area/planet/forest/cave)
 "gr" = (/obj/structure/closet,/obj/random/accessory,/obj/random/cash,/obj/random/cash,/obj/random/clothing,/obj/random/clothing,/turf/simulated/floor/wood/mahogany,/area/planet/forest/cave/dorms)
 "gC" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 1; icon_state = "map_vent_out"},/obj/effect/decal/cleanable/filth,/turf/simulated/floor/tiled/dark,/area/planet/forest/cave/engie)
-"gK" = (/mob/living/simple_animal/hostile/urist/skeleton/ancient,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cave)
+"gK" = (/mob/living/simple_animal/hostile/urist/skeleton/ancient,/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "gP" = (/obj/structure/cable/blue{icon_state = "1-10"},/obj/effect/spider/stickyweb,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
-"gS" = (/obj/item/trash/cigbutt,/obj/item/trash/cigbutt,/obj/item/trash/cigbutt,/obj/item/trash/cigbutt,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cave)
+"gS" = (/obj/item/trash/cigbutt,/obj/item/trash/cigbutt,/obj/item/trash/cigbutt,/obj/item/trash/cigbutt,/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "gT" = (/obj/effect/floor_decal/corner/paleblue{dir = 5},/obj/structure/disposalpipe/segment{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/vending/cola,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
 "gV" = (/obj/structure/cable/blue{icon_state = "4-8"},/obj/machinery/atmospherics/unary/vent_pump/on{dir = 1; icon_state = "map_vent_out"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"; tag = "icon-intact-scrubbers (EAST)"},/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
 "hg" = (/obj/structure/table/woodentable_reinforced,/obj/item/device/flashlight/lamp/green,/turf/simulated/floor/tiled,/area/planet/forest/cave/lobby)
@@ -99,9 +103,9 @@
 "hs" = (/obj/structure/disposalpipe/segment{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
 "hB" = (/obj/structure/cable/blue{icon_state = "1-2"},/obj/structure/cable/blue{icon_state = "5-10"},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/effect/spider/stickyweb,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
 "hL" = (/obj/structure/cable/blue{icon_state = "1-2"},/obj/structure/disposalpipe/segment,/obj/machinery/atmospherics/pipe/manifold/hidden/supply{dir = 4},/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{dir = 4; icon_state = "map-scrubbers"; tag = "icon-map-scrubbers (EAST)"},/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
-"hM" = (/obj/random/trash,/turf/simulated/mineral/random{mined_turf = /turf/simulated/floor/planet/jungle/clear/underground},/area/planet/forest/cave)
+"hM" = (/obj/random/trash,/turf/unsimulated/mask,/area/planet/forest/cave)
 "hU" = (/obj/structure/disposalpipe/segment{dir = 2; icon_state = "pipe-c"},/turf/simulated/floor,/area/planet/forest/cave/engie)
-"hW" = (/obj/structure/table/marble,/obj/item/weapon/material/sword,/obj/item/treasure/gem/ruby,/obj/random/treasure,/obj/random/treasure,/obj/random/treasure,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cave)
+"hW" = (/obj/structure/table/marble,/obj/item/weapon/material/sword,/obj/item/treasure/gem/ruby,/obj/random/treasure,/obj/random/treasure,/obj/random/treasure,/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "hY" = (/turf/simulated/floor/wood/mahogany,/area/planet/forest/cave/dorms)
 "ia" = (/obj/machinery/disposal,/obj/structure/disposalpipe/trunk{icon_state = "pipe-t"; dir = 1},/turf/simulated/floor,/area/planet/forest/cave/engie)
 "ic" = (/obj/machinery/r_n_d/destructive_analyzer,/obj/effect/floor_decal/corner/purple/half{dir = 4},/turf/simulated/floor/tiled/white,/area/planet/forest/cave/lab)
@@ -110,7 +114,7 @@
 "ir" = (/obj/structure/hygiene/shower{dir = 4; icon_state = "shower"; pixel_x = 5},/turf/simulated/floor/tiled,/area/planet/forest/cave/kitchen)
 "iw" = (/obj/structure/table/woodentable_reinforced,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled,/area/planet/forest/cave/lobby)
 "iy" = (/obj/structure/cable/blue{icon_state = "6-9"},/turf/simulated/floor/tiled,/area/planet/forest/cave/kitchen)
-"iB" = (/obj/structure/table/standard,/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka,/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka,/obj/item/weapon/storage/fancy/cigarettes/urist/carp,/obj/item/weapon/flame/lighter/zippo/vanity/red,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cave)
+"iB" = (/obj/structure/table/standard,/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka,/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka,/obj/item/weapon/storage/fancy/cigarettes/urist/carp,/obj/item/weapon/flame/lighter/zippo/vanity/red,/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "iH" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/effect/floor_decal/corner/purple/border{dir = 4},/obj/effect/decal/cleanable/filth,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
 "iI" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/cable/blue{icon_state = "4-9"},/obj/effect/spider/stickyweb,/turf/simulated/floor/tiled,/area/planet/forest/cave/kitchen)
 "iJ" = (/obj/effect/floor_decal/rust,/turf/simulated/floor,/area/planet/forest/cave/kitchen)
@@ -140,13 +144,13 @@
 "kb" = (/obj/item/weapon/stool/bar/padded,/turf/simulated/floor/tiled,/area/planet/forest/cave/kitchen)
 "kc" = (/obj/item/weapon/stool,/obj/random/trash,/turf/simulated/floor/tiled/dark,/area/planet/forest/cave/engie)
 "kl" = (/obj/structure/disposalpipe/junction{dir = 4; icon_state = "pipe-j1"},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"; tag = "icon-intact-scrubbers (EAST)"},/turf/simulated/floor/tiled,/area/planet/forest/cave/kitchen)
-"km" = (/mob/living/simple_animal/hostile/scarybat{faction = "undead"},/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cave)
-"ko" = (/obj/item/device/flashlight/lamp/floodlamp,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cave)
+"km" = (/mob/living/simple_animal/hostile/scarybat{faction = "undead"},/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
+"ko" = (/obj/item/device/flashlight/lamp/floodlamp,/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "kt" = (/obj/machinery/atmospherics/binary/pump{dir = 8},/obj/structure/disposalpipe/segment{dir = 4},/mob/living/simple_animal/hostile/giant_spider,/turf/simulated/floor,/area/planet/forest/cave/engie)
 "kx" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"; tag = ""},/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"},/turf/simulated/floor,/area/planet/forest/cave/engie)
 "kG" = (/obj/machinery/power/apc{dir = 4; name = "east bump"; pixel_x = 24},/obj/structure/closet/secure_closet/medical2,/obj/effect/floor_decal/corner/paleblue{dir = 6},/obj/effect/floor_decal/corner/paleblue{dir = 10},/obj/structure/cable/blue{dir = 4},/turf/simulated/floor/tiled/white,/area/planet/forest/cave/med)
 "kH" = (/obj/structure/cable/blue{icon_state = "4-8"},/obj/structure/cable/blue{icon_state = "4-8"},/obj/structure/disposalpipe/segment{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
-"kN" = (/obj/item/trash/cigbutt,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cave)
+"kN" = (/obj/item/trash/cigbutt,/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "kW" = (/obj/machinery/door/airlock,/turf/simulated/floor/tiled,/area/planet/forest/cave/kitchen)
 "kY" = (/obj/structure/disposalpipe/segment{dir = 4},/obj/item/weapon/stock_parts/micro_laser,/turf/simulated/floor/tiled/dark,/area/planet/forest/cave/engie)
 "kZ" = (/obj/structure/bed/padded,/obj/effect/spider/stickyweb,/obj/item/weapon/bedsheet/orange,/obj/item/weapon/bedsheet/orange,/turf/simulated/floor/wood/mahogany,/area/planet/forest/cave/dorms)
@@ -192,7 +196,7 @@
 "nW" = (/obj/structure/cable/blue{icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"; tag = "icon-intact-scrubbers (EAST)"},/obj/effect/floor_decal/rust,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
 "nX" = (/obj/structure/bed/chair/wood/mahogany,/turf/simulated/floor/wood/ebony,/area/planet/forest/cave)
 "of" = (/obj/machinery/r_n_d/server/core,/obj/effect/floor_decal/corner/purple/half{dir = 8},/turf/simulated/floor/tiled/white,/area/planet/forest/cave/lab)
-"og" = (/obj/machinery/atmospherics/unary/outlet_injector{frequency = 1441; id = "d2_c_chamber_in"; injecting = 1; use_power = 1},/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cave)
+"og" = (/obj/machinery/atmospherics/unary/outlet_injector{frequency = 1441; id = "d2_c_chamber_in"; injecting = 1; use_power = 1},/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "ok" = (/obj/effect/floor_decal/corner/purple/half{dir = 8},/obj/structure/kitchenspike,/turf/simulated/floor/tiled/white,/area/planet/forest/cave/lab)
 "or" = (/obj/effect/floor_decal/corner/purple/half,/obj/machinery/alarm{dir = 1; icon_state = "alarm0"; pixel_y = -22},/obj/machinery/light_switch{pixel_x = -7; pixel_y = -27},/obj/effect/decal/cleanable/blood,/turf/simulated/floor/tiled/white,/area/planet/forest/cave/lab)
 "ot" = (/obj/random/trash,/turf/simulated/floor/wood/mahogany,/area/planet/forest/cave/dorms)
@@ -215,9 +219,8 @@
 "pM" = (/obj/structure/cable/blue{icon_state = "0-5"},/obj/structure/disposalpipe/segment{dir = 4},/turf/simulated/floor,/area/planet/forest/cave/engie)
 "pQ" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 4; icon_state = "map_vent_out"},/turf/simulated/floor/tiled,/area/planet/forest/cave/kitchen)
 "pW" = (/obj/structure/cable/blue{icon_state = "5-8"},/obj/structure/disposalpipe/segment{dir = 4},/turf/simulated/floor,/area/planet/forest/cave/engie)
-"qe" = (/mob/living/simple_animal/mouse,/obj/effect/decal/cleanable/filth,/turf/simulated/floor,/area/planet/forest/cave/dorms)
 "qh" = (/obj/structure/closet,/obj/random/accessory,/obj/random/clothing,/turf/simulated/floor/wood/mahogany,/area/planet/forest/cave/dorms)
-"qn" = (/mob/living/simple_animal/hostile/giant_spider/hunter,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cave)
+"qn" = (/mob/living/simple_animal/hostile/giant_spider/hunter,/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "qt" = (/obj/structure/cable/blue{icon_state = "5-10"},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/mob/living/simple_animal/hostile/giant_spider,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
 "qu" = (/obj/effect/floor_decal/corner/paleblue{dir = 5},/obj/structure/disposalpipe/segment{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
 "qB" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/effect/spider/stickyweb,/turf/simulated/floor/wood/mahogany,/area/planet/forest/cave/dorms)
@@ -246,7 +249,7 @@
 "sD" = (/obj/machinery/atmospherics/pipe/simple/visible/red{dir = 5; icon_state = "intact"},/turf/simulated/floor,/area/planet/forest/cave/engie)
 "sG" = (/obj/effect/decal/cleanable/blood,/turf/simulated/floor,/area/planet/forest/cave/lab)
 "sM" = (/obj/structure/disposalpipe/segment,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled/dark,/area/planet/forest/cave/engie)
-"sN" = (/obj/structure/table/marble,/obj/item/clothing/head/urist/historic/crown/silver,/obj/random/treasure/portrait,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cave)
+"sN" = (/obj/structure/table/marble,/obj/item/clothing/head/urist/historic/crown/silver,/obj/random/treasure/portrait,/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "sO" = (/obj/structure/disposalpipe/segment,/turf/simulated/wall/r_wall,/area/planet/forest/cave/lab)
 "sR" = (/obj/machinery/door/unpowered/simple/wood,/obj/structure/cable/blue{icon_state = "4-10"},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/effect/spider/stickyweb,/turf/simulated/floor/tiled,/area/planet/forest/cave/dorms)
 "sV" = (/obj/machinery/atmospherics/pipe/manifold/hidden/supply{dir = 4; icon_state = "map-supply"},/turf/simulated/floor,/area/planet/forest/cave/engie)
@@ -292,7 +295,7 @@
 "wE" = (/obj/machinery/vending/engivend,/turf/simulated/floor,/area/planet/forest/cave/engie)
 "wJ" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/effect/decal/cleanable/blood,/turf/simulated/floor/tiled/white,/area/planet/forest/cave/lab)
 "wR" = (/obj/machinery/atmospherics/pipe/simple/hidden/universal,/turf/simulated/floor,/area/planet/forest/cave/engie)
-"wU" = (/obj/structure/closet/coffin,/obj/item/remains/human,/obj/item/clothing/head/urist/historic/light/cape,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cave)
+"wU" = (/obj/item/remains/human,/obj/item/clothing/head/urist/historic/light/cape,/obj/structure/closet/coffin/urist/stonecoffin,/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "xa" = (/obj/structure/disposalpipe/segment,/obj/machinery/atmospherics/pipe/simple/hidden/supply{tag = "icon-intact-supply (NORTHWEST)"; icon_state = "intact-supply"; dir = 9},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 9; icon_state = "intact-scrubbers"; tag = "icon-intact-scrubbers (NORTHWEST)"},/turf/simulated/floor,/area/planet/forest/cave/kitchen)
 "xc" = (/obj/machinery/vending/cola,/turf/simulated/floor/tiled,/area/planet/forest/cave/lobby)
 "xg" = (/obj/structure/boulder,/obj/structure/girder,/turf/simulated/floor,/area/planet/forest/cave)
@@ -305,7 +308,7 @@
 "xG" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/light_switch{pixel_x = 26; pixel_y = 24},/turf/simulated/floor/tiled/white,/area/planet/forest/cave/lab)
 "xN" = (/obj/structure/reagent_dispensers/acid{density = 0; pixel_y = -32},/obj/effect/floor_decal/corner/purple/half,/turf/simulated/floor/tiled/white,/area/planet/forest/cave/lab)
 "xQ" = (/obj/structure/cable/blue{icon_state = "4-8"},/obj/structure/disposalpipe/segment{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/turf/simulated/floor/tiled,/area/planet/forest/cave/kitchen)
-"xR" = (/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cave)
+"xR" = (/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "xW" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/effect/decal/cleanable/blood,/turf/simulated/floor,/area/planet/forest/cave/lab)
 "yn" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{tag = "icon-intact-supply (NORTHWEST)"; icon_state = "intact-supply"; dir = 9},/obj/effect/decal/cleanable/filth,/turf/simulated/floor,/area/planet/forest/cave/hall)
 "yp" = (/turf/simulated/floor/tiled,/area/planet/forest/cave/lobby)
@@ -342,13 +345,12 @@
 "By" = (/obj/machinery/alarm{dir = 4; icon_state = "alarm0"; pixel_x = -22; pixel_y = 0},/obj/random/trash,/obj/effect/spider/stickyweb,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
 "BG" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 9; icon_state = "intact-scrubbers"},/turf/simulated/floor/tiled,/area/planet/forest/cave/lobby)
 "BH" = (/obj/machinery/atmospherics/pipe/manifold/visible/cyan{dir = 4; initialize_directions = 11; level = 2},/turf/simulated/floor,/area/planet/forest/cave/engie)
-"BK" = (/turf/simulated/mineral/planet{mined_turf = /turf/simulated/floor/planet/jungle/clear/underground},/area/planet/forest/cave)
 "BU" = (/obj/structure/table/standard,/obj/item/weapon/reagent_containers/glass/beaker/large,/obj/effect/floor_decal/corner/purple/three_quarters{dir = 4; icon_state = "corner_white_three_quarters"; tag = "icon-corner_white_three_quarters (EAST)"},/turf/simulated/floor/tiled/white,/area/planet/forest/cave/lab)
 "BW" = (/obj/structure/disposalpipe/junction{dir = 1; icon_state = "pipe-j2"},/turf/simulated/floor,/area/planet/forest/cave/engie)
 "BX" = (/obj/structure/disposalpipe/segment,/turf/simulated/wall/r_wall,/area/planet/forest/cave)
 "BZ" = (/obj/structure/cable/blue{icon_state = "4-8"},/obj/structure/cable/blue{icon_state = "4-9"},/obj/structure/disposalpipe/segment{dir = 4},/obj/machinery/atmospherics/pipe/manifold/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/turf/simulated/floor,/area/planet/forest/cave/engie)
+"Cb" = (/obj/machinery/door/unpowered/simple/ebony,/turf/simulated/floor/wood/ebony,/area/planet/forest/cave)
 "Cc" = (/obj/structure/cable/blue{icon_state = "4-8"},/obj/structure/cable/blue{icon_state = "4-10"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"; tag = "icon-intact-scrubbers (EAST)"},/obj/effect/spider/stickyweb,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
-"Cg" = (/mob/living/simple_animal/hostile/giant_spider,/obj/structure/table/standard,/turf/simulated/floor,/area/planet/forest/cave/engie)
 "Ci" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/effect/decal/cleanable/filth,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
 "Cj" = (/turf/simulated/floor/planet/jungle/rock,/area/planet/forest/cave)
 "Co" = (/obj/effect/decal/cleanable/filth,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
@@ -365,7 +367,6 @@
 "Dt" = (/obj/effect/wallframe_spawn/reinforced,/turf/simulated/floor/tiled,/area/planet/forest/cave/lobby)
 "DA" = (/obj/effect/floor_decal/corner/paleblue{dir = 5},/obj/structure/disposalpipe/segment{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/effect/spider/stickyweb,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
 "DC" = (/obj/structure/table/rack,/obj/random/projectile,/obj/random/energy,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
-"DE" = (/obj/effect/landmark/random_gen/asteroid{generation_height = 100; generation_width = 100},/turf/space,/area/planet/forest/cave)
 "DK" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{req_access = 1},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/effect/spider/stickyweb,/turf/simulated/floor/tiled/white,/area/planet/forest/cave/med)
 "DO" = (/obj/structure/disposalpipe/segment{dir = 4},/turf/simulated/floor/tiled/dark,/area/planet/forest/cave/engie)
 "DT" = (/obj/structure/table/rack,/obj/random/tool,/obj/random/tool,/obj/random/tool,/obj/random/tool,/obj/random/technology_scanner,/turf/simulated/floor/tiled/dark,/area/planet/forest/cave/engie)
@@ -387,7 +388,7 @@
 "Fn" = (/turf/simulated/floor/tiled,/area/planet/forest/cave/kitchen)
 "Fu" = (/obj/effect/floor_decal/corner/purple/half{dir = 8},/turf/simulated/floor/tiled/white,/area/planet/forest/cave/lab)
 "Fv" = (/obj/effect/spider/stickyweb,/turf/simulated/floor/tiled,/area/planet/forest/cave/kitchen)
-"FN" = (/obj/effect/overmap/sector/caraway_forest,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cave)
+"FN" = (/obj/effect/overmap/sector/caraway_forest,/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "FR" = (/obj/machinery/power/apc{dir = 1; name = "north bump"; pixel_y = 24},/obj/structure/cable/blue{icon_state = "0-2"},/obj/structure/cable/blue{icon_state = "2-10"},/turf/simulated/floor,/area/planet/forest/cave/kitchen)
 "FY" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 6},/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{dir = 8},/obj/random/trash,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
 "Gb" = (/obj/structure/table/woodentable/ebony,/obj/item/weapon/paper_bin,/obj/machinery/light/small{dir = 1; luminosity = 2},/turf/simulated/floor/wood/broken,/area/planet/forest/cave/hall)
@@ -406,11 +407,11 @@
 "Hp" = (/obj/machinery/light_switch{pixel_x = 22},/turf/simulated/floor/tiled,/area/planet/forest/cave/kitchen)
 "Hs" = (/turf/simulated/wall/r_wall,/area/planet/forest/cave/engie)
 "HA" = (/obj/machinery/atmospherics/unary/vent_scrubber/on,/turf/simulated/floor,/area/planet/forest/cave/med)
-"HG" = (/obj/structure/closet/coffin,/obj/item/remains/human,/obj/item/weapon/urist/blade/bronzedagger,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cave)
+"HG" = (/obj/item/remains/human,/obj/item/weapon/urist/blade/bronzedagger,/obj/structure/closet/coffin/urist/stonecoffin,/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "HJ" = (/obj/structure/disposalpipe/segment{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"; tag = "icon-intact-scrubbers (EAST)"},/obj/structure/cable/blue{icon_state = "1-10"},/obj/effect/decal/cleanable/filth,/obj/effect/decal/cleanable/filth,/turf/simulated/floor/tiled,/area/planet/forest/cave/kitchen)
 "HP" = (/turf/simulated/wall/r_wall,/area/planet/forest/cave/lobby)
 "HR" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 5; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 6; icon_state = "intact-scrubbers"},/turf/simulated/floor/wood/broken,/area/planet/forest/cave/hall)
-"HT" = (/obj/structure/closet/coffin,/obj/item/remains/human,/obj/item/clothing/head/urist/historic/armor/medieval1,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cave)
+"HT" = (/obj/item/remains/human,/obj/item/clothing/head/urist/historic/armor/medieval1,/obj/structure/closet/coffin/urist/stonecoffin,/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "HZ" = (/obj/machinery/alarm{dir = 1; icon_state = "alarm0"; pixel_y = -22},/turf/simulated/floor,/area/planet/forest/cave/engie)
 "Ie" = (/turf/simulated/wall/r_wall,/area/planet/forest/cave/med)
 "Ij" = (/obj/structure/table/woodentable_reinforced,/turf/simulated/floor/tiled,/area/planet/forest/cave/lobby)
@@ -427,9 +428,9 @@
 "Jh" = (/obj/structure/disposalpipe/junction{dir = 1; icon_state = "pipe-j2"},/obj/machinery/atmospherics/pipe/manifold/hidden/supply,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
 "Jj" = (/turf/simulated/floor/tiled/freezer,/area/planet/forest/cave/kitchen)
 "Jk" = (/obj/machinery/atmospherics/pipe/manifold4w/visible/cyan,/turf/simulated/floor,/area/planet/forest/cave/engie)
-"Jt" = (/obj/structure/bed/chair/wood/maple,/obj/item/remains/human,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cave)
+"Jt" = (/obj/structure/bed/chair/wood/maple,/obj/item/remains/human,/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "Jz" = (/obj/structure/cable/blue{icon_state = "2-4"},/obj/structure/cable/blue{icon_state = "2-9"},/obj/structure/cable/blue{icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{dir = 8; icon_state = "map-scrubbers"},/obj/random/trash,/obj/effect/spider/stickyweb,/mob/living/simple_animal/hostile/giant_spider/spitter,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
-"JF" = (/obj/item/remains/human,/obj/structure/boulder,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cave)
+"JF" = (/obj/item/remains/human,/obj/structure/boulder,/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "JH" = (/obj/structure/table/rack,/obj/random/tech_supply,/obj/random/tech_supply,/obj/random/tech_supply,/obj/item/weapon/stock_parts/micro_laser/high,/obj/item/weapon/stock_parts/manipulator,/obj/item/weapon/stock_parts/manipulator,/obj/item/weapon/stock_parts/scanning_module/adv,/obj/item/weapon/stock_parts/scanning_module/adv,/turf/simulated/floor/tiled/dark,/area/planet/forest/cave/engie)
 "JJ" = (/obj/structure/cable/blue{icon_state = "4-8"},/obj/item/weapon/material/shard{tag = "icon-medium"; icon_state = "medium"},/obj/effect/spider/stickyweb,/turf/simulated/floor/tiled,/area/planet/forest/cave/lobby)
 "JT" = (/obj/machinery/disposal,/obj/structure/disposalpipe/trunk{dir = 4},/turf/simulated/floor,/area/planet/forest/cave/kitchen)
@@ -473,7 +474,7 @@
 "Nd" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/turf/simulated/floor/tiled,/area/planet/forest/cave/lobby)
 "Nj" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/cable/blue{icon_state = "2-5"},/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
 "Ns" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 6; icon_state = "intact-scrubbers"},/turf/simulated/floor,/area/planet/forest/cave/kitchen)
-"Nv" = (/obj/item/weapon/broken_bottle,/obj/item/weapon/broken_bottle,/obj/item/weapon/broken_bottle,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cave)
+"Nv" = (/obj/item/weapon/broken_bottle,/obj/item/weapon/broken_bottle,/obj/item/weapon/broken_bottle,/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "NG" = (/obj/machinery/door/airlock/research{name = "Research Division"; req_access = list("ACCESS_RESEARCH")},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"; tag = "icon-intact-scrubbers (EAST)"},/obj/structure/cable/blue{icon_state = "4-10"},/obj/machinery/door/blast/regular{dir = 8; name = "Research Lockdown"; id = "cave_rnd"},/turf/simulated/floor/tiled/white,/area/planet/forest/cave/lab)
 "NH" = (/obj/structure/table/standard,/turf/simulated/floor/tiled/white,/area/planet/forest/cave/kitchen)
 "NP" = (/obj/machinery/atmospherics/pipe/manifold/visible/red{dir = 4; icon_state = "map"},/turf/simulated/floor,/area/planet/forest/cave/engie)
@@ -485,7 +486,7 @@
 "Ov" = (/obj/structure/cable/blue{icon_state = "1-6"},/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
 "Ow" = (/obj/machinery/alarm{dir = 4; icon_state = "alarm0"; pixel_x = -22; pixel_y = 0},/turf/simulated/floor/wood/mahogany,/area/planet/forest/cave/dorms)
 "Ox" = (/obj/structure/bed/chair/padded/yellow{dir = 8},/obj/machinery/atmospherics/unary/vent_pump/on,/turf/simulated/floor/tiled,/area/planet/forest/cave/lobby)
-"Oy" = (/obj/structure/table/marble,/obj/item/treasure/coin/silver,/obj/random/treasure,/obj/random/treasure,/obj/random/treasure,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cave)
+"Oy" = (/obj/structure/table/marble,/obj/item/treasure/coin/silver,/obj/random/treasure,/obj/random/treasure,/obj/random/treasure,/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "Oz" = (/turf/simulated/mineral/random/high_chance/planet,/area/planet/forest/cave)
 "OA" = (/obj/item/weapon/cell,/turf/simulated/floor,/area/planet/forest/cave/engie)
 "OH" = (/obj/structure/cable/blue{icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"; tag = "icon-intact-scrubbers (EAST)"},/obj/item/remains/human,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/tiled/white,/area/planet/forest/cave/lab)
@@ -500,7 +501,7 @@
 "PF" = (/turf/simulated/floor,/area/planet/forest/cave/lobby)
 "PQ" = (/obj/structure/table/woodentable_reinforced,/obj/structure/flora/pottedplant/small,/obj/structure/cable/blue{icon_state = "4-9"},/obj/structure/disposalpipe/segment{dir = 4},/turf/simulated/floor/tiled,/area/planet/forest/cave/lobby)
 "PS" = (/obj/structure/flora/pottedplant/stoutbush,/turf/simulated/floor/wood/broken,/area/planet/forest/cave/hall)
-"PU" = (/obj/structure/disposalpipe/trunk,/obj/structure/disposaloutlet{dir = 1},/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cave)
+"PU" = (/obj/structure/disposalpipe/trunk,/obj/structure/disposaloutlet{dir = 1},/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "PW" = (/obj/effect/floor_decal/rust/mono/high,/turf/simulated/floor/tiled,/area/planet/forest/cave/lobby)
 "Qe" = (/obj/machinery/atmospherics/unary/vent_pump/on,/turf/simulated/floor/tiled,/area/planet/forest/cave/lobby)
 "Qh" = (/obj/structure/disposalpipe/segment{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/turf/simulated/floor/tiled,/area/planet/forest/cave/lobby)
@@ -513,14 +514,14 @@
 "QB" = (/obj/structure/disposalpipe/segment,/obj/machinery/light_switch{pixel_x = -22},/turf/simulated/floor,/area/planet/forest/cave/engie)
 "QJ" = (/obj/machinery/light{dir = 8},/obj/effect/floor_decal/corner/paleblue{dir = 9},/obj/machinery/alarm{dir = 4; icon_state = "alarm0"; pixel_x = -22; pixel_y = 0},/turf/simulated/floor/tiled/white,/area/planet/forest/cave/med)
 "QS" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/structure/cable/blue{icon_state = "1-10"; dir = 4},/turf/simulated/floor/tiled,/area/planet/forest/cave/kitchen)
-"Rg" = (/obj/structure/ladder/up,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cave)
+"Rg" = (/obj/structure/ladder/up,/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "Rh" = (/turf/simulated/floor,/area/planet/forest/cave/kitchen)
 "Rl" = (/obj/effect/floor_decal/corner/paleblue{dir = 10},/obj/structure/cable/blue{icon_state = "4-10"},/obj/effect/spider/stickyweb,/obj/machinery/light_switch{pixel_x = -7; pixel_y = -27},/turf/simulated/floor,/area/planet/forest/cave/med)
 "Rs" = (/obj/structure/sign/urist/deptsigns/med{dir = 4},/obj/structure/sign/urist/deptsigns/eng{dir = 4; pixel_y = -7},/turf/simulated/wall/r_wall,/area/planet/forest/cave/hall)
 "Rx" = (/obj/machinery/atmospherics/binary/pump{dir = 1},/turf/simulated/floor,/area/planet/forest/cave/engie)
 "RH" = (/obj/machinery/disposal,/obj/structure/disposalpipe/trunk,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
 "RI" = (/obj/structure/table/woodentable_reinforced,/obj/item/weapon/pen,/obj/item/weapon/pen/blue,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled,/area/planet/forest/cave/lobby)
-"RJ" = (/obj/item/remains/human,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cave)
+"RJ" = (/obj/item/remains/human,/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "RK" = (/obj/effect/floor_decal/corner/purple/diagonal,/obj/machinery/door/airlock/research{name = "Research Director"; req_access = list("ACCESS_RESEARCH_DIRECTOR")},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"; tag = "icon-intact-scrubbers (EAST)"},/obj/machinery/door/blast/regular{dir = 8; name = "Research Lockdown"; id = "cave_rnd"},/turf/simulated/floor/tiled/white,/area/planet/forest/cave/lab)
 "RN" = (/obj/structure/disposalpipe/segment,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/effect/decal/cleanable/filth,/turf/simulated/floor/tiled/dark,/area/planet/forest/cave/engie)
 "RO" = (/obj/structure/table/woodentable/ebony,/obj/item/weapon/pen/fancy,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 10},/obj/item/weapon/card/id/science/head,/obj/item/treasure/plush,/obj/item/weapon/paper,/turf/simulated/floor/carpet/purple,/area/planet/forest/cave/lab)
@@ -569,7 +570,7 @@
 "VA" = (/obj/effect/floor_decal/rust/mono/medium,/turf/simulated/floor/tiled,/area/planet/forest/cave/lobby)
 "VE" = (/obj/machinery/light{dir = 8},/obj/structure/cable/blue{icon_state = "5-6"},/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
 "VF" = (/obj/structure/cable/blue{icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"; tag = "icon-intact-scrubbers (EAST)"},/obj/random/trash,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
-"VI" = (/obj/item/weapon/reagent_containers/food/drinks/bottle/whiskey,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cave)
+"VI" = (/obj/item/weapon/reagent_containers/food/drinks/bottle/whiskey,/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "VJ" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 10; icon_state = "intact-supply"; tag = "icon-intact-supply (SOUTHWEST)"},/obj/effect/floor_decal/corner/gold/border{dir = 4},/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
 "VK" = (/obj/structure/cable/blue{icon_state = "2-6"},/obj/random/trash,/obj/item/weapon/stool/bar/padded,/turf/simulated/floor/tiled,/area/planet/forest/cave/kitchen)
 "VM" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"; tag = "icon-intact-scrubbers (EAST)"},/turf/simulated/floor,/area/planet/forest/cave/lab)
@@ -580,7 +581,6 @@
 "Ws" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 1; icon_state = "map_scrubber_on"},/obj/machinery/light_switch{pixel_x = 5; pixel_y = -27},/turf/simulated/floor/wood/broken,/area/planet/forest/cave/hall)
 "Wz" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 1; icon_state = "map_scrubber_on"},/turf/simulated/floor/tiled,/area/planet/forest/cave/lobby)
 "WE" = (/obj/item/weapon/storage/backpack/satchel/syndie_kit/clerical,/obj/item/remains/human,/turf/simulated/floor,/area/planet/forest/cave)
-"WF" = (/turf/simulated/mineral/random{mined_turf = /turf/simulated/floor/planet/jungle/clear/underground},/area/planet/forest/cave)
 "WJ" = (/obj/effect/floor_decal/rust,/obj/effect/spider/stickyweb,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
 "WN" = (/obj/structure/closet/cabinet,/obj/item/weapon/haircomb/random,/obj/random/accessory,/obj/random/clothing,/turf/simulated/floor/wood/mahogany,/area/planet/forest/cave/dorms)
 "WR" = (/obj/structure/table/woodentable/ebony,/obj/machinery/light/small{dir = 1; luminosity = 2},/obj/item/device/radio/off/old,/obj/item/weapon/paper_bin,/turf/simulated/floor/carpet/purple,/area/planet/forest/cave/lab)
@@ -609,7 +609,7 @@
 "ZE" = (/obj/structure/disposalpipe/segment,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/effect/floor_decal/corner/gold/border{dir = 4},/obj/effect/decal/cleanable/filth,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
 "ZH" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/effect/decal/cleanable/blood,/turf/simulated/floor,/area/planet/forest/cave/lab)
 "ZI" = (/obj/structure/cable/blue{icon_state = "5-8"},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/effect/floor_decal/rust,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
-"ZX" = (/obj/structure/boulder,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cave)
+"ZX" = (/obj/structure/boulder,/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "ZZ" = (/turf/simulated/floor,/area/planet/forest/cave/engie)
 
 (1,1,1) = {"
@@ -619,98 +619,98 @@ gmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgm
 gmgmgmCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjgmgmgm
 gmgmgmCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjgmgmgm
 gmgmgmCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKBKBKBKBKBKWFWFWFBKWFWFBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKBKBKWFWFWFWFBKBKBKBKWFBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKWFWFWFBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKWFWFWFWFWFWFBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKxRxRxRxRxRxRxRxRxRBKBKBKxRBKBKBKBKBKBKBKBKBKBKBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKWFWFBKBKBKxRBKBKBKBKBKxRxRxRxRxRBKBKBKBKBKBKBKBKBKBKBKWFWFWFWFWFWFBKBKBKBKBKBKBKBKBKWFWFWFWFWFBKBKBKBKBKBKBKBKBKBKxRxRxRxRxRBKBKBKBKBKBKBKxRxRxRxRxRxRxRBKBKBKBKBKBKBKBKBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKWFBKBKBKBKBKxRxRxRBKBKxRxRBKBKBKBKBKBKxRxRxRxRffBKBKBKBKWFWFBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKWFBKBKBKBKBKBKBKxRxRxRxRBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKxRxRxRxRBKBKBKBKBKBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjWFWFxRxRxRxRBKBKBKxRxRxRxRBKBKBKBKBKBKBKxRLmcTffffBKBKBKWFWFBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKWFBKBKBKBKBKBKxRxRxRBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKxRxRxRBKBKBKBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjWFBKkmxRxRxRxRxRBKxRxRxRxRxRBKBKWFBKBKBKBKffffxRRJBKBKWFWFWFBKBKBKBKBKxRxRxRxRxRxRBKBKBKBKBKWFBKBKBKBKBKBKxRxRBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKWFWFWFWFWFBKBKBKxRxRBKBKBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjWFBKxRxRxRxRxRBKBKBKxRxRxRBKWFWFBKBKBKxRffffxRBKBKBKWFWFWFBKBKBKBKxRxRxRBKBKBKBKxRBKBKBKBKBKWFBKBKBKBKxRxRxRxRxRBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKWFBKBKBKBKxRBKBKBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjWFWFBKBKxRxRBKBKBKxRxRBKBKWFWFBKBKxRxRffxRBKBKBKBKBKWFWFWFBKBKxRxRxRBKBKBKBKBKBKxRxRBKBKBKBKBKBKBKxRxRxRxRxRxRxRBKBKBKBKBKsNarBKBKHGBKBKwUBKBKBKBKBKBKBKBKWFBKBKBKBKBKxRxRBKBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKWFBKBKBKxRBKBKxRxRBKWFWFWFWFBKxRxRxRBKBKBKWFWFWFWFWFWFBKBKxRxRBKBKBKBKWFWFWFWFBKxRxRBKBKBKBKBKBKxRxRxRxRBKBKBKBKBKBKBKBKxRxRBKBKxRBKBKxRBKBKBKBKBKBKBKWFBKBKBKBKBKBKxRxRBKBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKWFBKBKBKxRxRxRxRBKWFWFWFWFBKxRxRxRBKBKBKWFWFBKBKWFBKBKxRxRxRBKBKBKWFWFBKBKBKBKBKBKxRxRBKBKBKBKBKBKxRxRBKBKBKBKBKBKBKBKBKxRxRZXgKxRxRBKxRgKBKBKBKBKBKBKWFBKBKBKBKBKxRxRxRxRBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKBKBKBKBKBKxRBKWFWFBKxRxRxRBKBKWFWFWFWFBKWFWFWFxRxRxRBKBKBKWFWFWFBKBKBKBKBKBKBKBKxRBKBKBKBKBKxRxRBKBKBKBKBKBKBKBKBKBKxRxRxRgKxRxRxRxRxRxRxRxRxRBKBKBKBKBKBKBKxRxRBKBKxRBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjWFWFWFBKWFBKBKBKxRxRBKBKxRxRxRBKBKWFBKBKWFWFWFBKBKxRxRBKBKBKBKWFWFBKBKxRxRxRxRZXBKBKBKkmxRBKBKBKxRxRBKBKBKBKBKBKBKBKBKBKBKxRxRgKxRxRZXBKgKxRBKBKBKxRxRxRBKBKBKBKBKxRBKBKBKxRBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjWFBKWFWFWFWFBKBKBKxRxRxRxRxRBKBKWFWFWFWFBKBKBKBKxRxRBKWFWFWFWFWFBKBKxRxRBKBKBKBKBKBKZXxRxRxRxRxRxRxRBKBKBKBKBKBKBKBKBKBKBKxRxRBKBKxRBKBKxRBKBKBKBKBKBKxRxRBKBKBKBKxRBKBKBKxRBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjWFWFWFWFWFWFBKWFBKBKxRxRxRxRWFBKWFWFBKBKBKBKxRxRxRBKWFWFWFWFWFBKBKxRxRBKBKBKBKBKBKBKBKBKBKBKBKBKBKxRxRxRBKBKBKBKBKBKBKBKBKOyhWBKBKegBKBKHTBKBKBKBKBKBKBKxRxRBKBKBKxRBKBKBKxRBKCjCjCjgmgmgm
-gmgmgmCjCjCjBKBKBKWFWFWFWFBKWFBKBKxRxRxRBKWFWFWFWFxRxRxRxRxRxRBKBKWFWFWFWFBKBKxRxRBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKxRxRxRxRxRBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKxRBKBKxRxRBKBKBKxRBKCjCjCjgmgmgm
-gmgmgmCjCjCjBKBKBKBKBKBKBKBKBKBKxRJFxRBKBKBKBKBKBKxRBKBKBKWFWFWFWFWFWFWFBKBKxRxRBKBKBKBKBKBKBKBKBKBKBKBKBKWFWFWFBKBKBKBKBKxRxRxRxRxRxRBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKxRxRxRxRBKBKBKBKxRBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKWFBKBKBKBKBKBKxRxRxRxRxRBKBKBKBKxRxRBKBKBKBKBKBKBKBKBKBKxRxRBKBKBKBKBKWFWFWFWFWFBKBKBKWFWFWFWFWFBKBKBKBKBKBKBKBKBKxRxRxRxRxRxRBKBKBKBKBKBKBKBKBKBKBKBKBKxRBKBKBKBKBKBKxRBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKWFWFBKBKBKxRxRxRxRBKBKBKxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRBKBKBKBKBKBKBKWFWFWFWFBKBKBKWFWFWFWFWFBKBKBKBKBKBKBKBKBKBKBKBKBKxRxRxRxRxRxRBKBKBKBKBKWFWFBKBKxRxRBKWFWFBKBKxRBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjWFWFBKBKBKBKxRxRBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKWFWFWFWFWFWFWFBKBKBKBKWFWFWFWFBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKxRxRxRxRBKBKWFWFWFBKBKxRBKWFWFBKxRxRBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKBKBKxRxRxRBKBKBKBKBKBKWFWFWFWFWFWFWFBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKWFWFBKBKBKBKBKWFWFWFWFBKBKBKBKBKBKBKBKBKWFWFWFWFWFBKBKBKBKBKBKBKxRxRBKBKWFWFBKBKxRWFWFWFBKxRBKBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKBKxRxRxRBKBKBKWFWFWFWFWFWFBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKWFWFWFWFBKBKBKxRxRxRBKBKWFWFBKxRBKWFBKBKxRBKBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKBKxRxRBKBKBKBKWFBKBKBKWFWFWFWFWFBKBKBKBKBKBKBKBKxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRBKBKBKBKBKBKBKBKBKWFWFWFBKxRxRBKBKBKWFBKxRBKWFBKBKxRBKBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKxRxRBKBKBKWFWFWFBKBKBKBKWFWFWFBKBKxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRBKBKWFBKBKxRxRBKBKWFBKxRWFWFBKxRxRBKBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKxRBKBKWFWFWFxRxRxRxRxRBKBKWFWFBKBKxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRogxRPUxRxRxRxRxRxRxRxRxRxRxRBKBKWFBKBKBKxRxRBKWFBKxRWFBKBKxRBKBKBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKxRBKBKWFWFWFBKBKBKBKxRBKBKBKWFWFBKBKxRnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvXHnvBXnvnvnvnvnvnvnvnvxRxRxRBKBKBKWFBKBKBKxRBKBKBKxRWFWFBKxRBKBKBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKxRBKBKWFWFBKWFWFWFxRxRxRBKBKWFWFBKBKxRnveieieieieieieieieieieiIeIeIeIeIeIeIeIeHsHsHsHsHsHsHsHsHsHsHsHsoFHsTDHsHsHsHsHsHsHsnvxRxRxRBKWFWFWFWFBKBKxRBKBKBKxRxRBKxRxRBKBKBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKxRBKBKWFWFBKWFBKWFBKxRxRBKBKWFWFBKBKxRnveiPSmbMfiQOuRHeieieieiIedhAOdHJgTbZCIeealElErDyYzlDTEPsysfGYGYRxKiadStStStStStStHsnvxRxRxRBKBKBKBKBKWFBKxRBKBKBKxRxRxRxRxRxRBKBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKxRBKWFWFWFWFWFWFWFBKxRBKBKBKWFBKBKBKxRnveiSbWTHRvRnGBceiDCcJeiIeeHapKFfvndAvIeUzQzGAQzPECDQzOksywhJkBHsDNPadStStaRaRaRStHsnvxRxRxRBKBKBKBKBKWFBKqnBKBKBKBKBKBKBKBKxRBKBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKxRxRxRWFBKBKBKWFWFBKxRxRBKBKBKWFBKBKBKxRnveiOOrdWssZxvbJeiSdSdeiIeOgvkTflsHAZhIeuvkcfspmMqkYDOGgcpezZilnkteqBWStStzbeykxStHsnvxRxRxRBKBKBKBKBKWFBKxRBKBKBKBKBKBKBKBKxRxRBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKxRBKxRWFWFWFWFWFBKxRxRxRBKBKBKBKBKBKBKxRnveiCxCxCxCxcmKVeiIBlNcmIeQJfbfmKhLNEKIeyCvFgCRNvyQzwBPEsyZZwRcPZZwRadStStililyAStHsnvxRxRxRWFBKBKBKBKBKBKxRBKBKBKBKBKBKBKBKBKxRBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKxRBKxRBKBKBKBKxRxRxRBKxRxRBKBKBKBKxRxRxRnveiusGbUxiQcmAjeiTKcwjoIePzoNmiDKRlkGIeUrQzBjsMbLvMJHzvsyZZMrtWvwVqadStStStStyAStHsnvxRxRxRBKBKBKBKBKBKBKxRBKBKBKWFWFWFBKBKBKxRBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKxRBKxRxRxRxRxRxRBKBKBKBKxRxRBKBKBKxRxRxRnveifwcVLZfCvIhLRslueiCoIeIeIeUdLHIeIeIeHsHsHsaLHsHsHsHsHsUDmJSqvwATSrStStStVoXfVoHsnvxRxRxRBKBKWFBKBKBKBKxRBKBKBKBKWFWFWFBKBKxRBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKxRBKxRZXBKBKBKxRBKBKBKBKBKxRBKBKBKxRnvnvnveiLDrdiWhhFcwnSYjIrvQorvquQkquCZDAquKBgTsjEZJhjWjWjWVJHscPQqsVZZVqulvswExsQrfFalHsnvxRxRxRBKBKWFBKBKBKxRxRxRxRBKWFWFWFWFBKBKxRBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKxRBKxRBKBKBKBKxRBKWFWFBKBKxRBKBKBKxRnvsqsqsqcWcWcWcWcmJzCcnVOogVfllrpKjffcrRnWVFflflcLbpGXoEtHzcthjTXlBZswsXIVJWpWpMhUOAZZHsnvxRxRxRBKBKWFBKBKxRxRBKBKxRWFWFWFWFWFBKxRxRBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKxRBKxRBKBKBKBKxRBKWFWFBKBKxRBKBKBKxRnvsqgrqhcultVmcWWJhBcWcWcWcWcWcWiKzjzjzjjwYYININYLdCUWcmKDPCHsQBqZcPvwZZsavwZZcPadZZoUHsnvxRxRxRBKBKWFBKBKxRBKBKBKxRBKWFWFWFWFBKxRxRBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKxRBKxRBKBKBKBKxRBKWFWFWFBKxRBKBKBKxRnvsqotqeMaiTqBsRZIWfecxqTsxqLiEgcWMwrILoLoLoLoLoLoLoLoLoNjZEHsiacPHZCgIWDedubmbmadZZazHsnvxRxRxRBKBKBKWFBKkmBKBKBKxRBKBKWFWFBKBKxRBKBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKxRBKxRBKWFWFBKxRBKWFWFWFBKxRBKBKBKxRnvsqetXBdJvNbVcWcmEhcWOwmQDmlPoycWOucmLoFnVKkbFRIsFnRSLoKbIulVlVlVlVlVlVlVlVlVlVsOLYlVlVlVxRxRxRBKBKBKWFBKxRBKxRxRxRBKBKWFWFBKBKxRBKBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKxRBKxRWFWFWFBKxRBKWFWFWFBKxRBKBKBKxRnvsqaeCRGymFkZcWBygPcWWNpahYLLzRcWcmcmLokbBwZvjZQSWYkbLoOvmYwlbyyTOcqMjSqMGqSwlVcEWRPDlVlVxRxRxRBKBKBKWFBKxRxRxRBKBKBKWFWFBKBKxRxRBKBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKxRxRxRWFWFWFBKxRBKWFWFWFBKxRBKBKBKxRnvsqsqsqcWcWcWvSIYzjcWcWcWNccWcWcWrNfMLoagdoAWFknojOiyLoVElhNGOHbrSZTLwuVMwuacRKZpROutlVlVxRxRxRBKBKWFBKBKBKxRxRBKBKBKWFWFBKBKxRBKBKBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKxRxRBKWFBKBKBKxRBKBKBKBKxRxRBKWFBKnvnvlNcmcmaQCiRRjQhsvUCImmFiWbfoUkSPbEkHxQnLeomBqPbcHJklwzFbULwlYOoruMOJETjPGJYElVbfdXAalVlVxRxRxRBKBKWFBKBKBKxRxRxRBKWFWFBKBKxRxRBKBKBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKxRxRBKBKBKBKBKxRxRBKBKBKxRBKBKWFBKnvnvcmrIcmnFKLFYBbqtyIzjbdItCoOuVOrIbJcmLoFnmfiIaaQjFksbLoCoiHlVlVlVuQlVlVlVZelVlVlVlVlVlVlVxRxRxRBKBKBKWFBKBKBKBKxRxRWFBKBKBKxRBKBKBKBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKxRxRBKBKBKBKBKBKxRxRBKxRxRBKBKWFBKnvHPHPDtDtDgHPreKQHPDtDteGHPHPLoLoLoSHLoLokbuNoTPmtAYrKfLoCorZlVYhGqdbjxlVmexGeTbaqJGqpqlVlVxRxRxRBKWFWFWFWFBKBKBKBKxRxRBKBKBKxRBKBKBKBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKRJxRBKBKWFWFBKBKBKxRxRxRBKBKBKWFBKxRHPypSgMHAALRQhzXPQMsaTJJAtHPCPXOCPmdHpLoFvRhVSFneEFnyFLolSynlVofjGGJzglVFuZHrxsGpxfRmulVlVxRxRxRBKWFBKBKWFWFBKBKBKBKxRxRBKxRxRBKBKBKBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKxRxRBKBKBKWFWFWFBKBKBKxRBKBKBKWFWFBKxRHPLAQeUByvjyqVyplTOxypPFgauSFnpQNsxaYWLoLoLoLowpLokWUGLottcmGoVpAxcvLzlVokEkxWwJwJuJmulVlVxRxRxRBKBKBKBKBKBKBKBKBKBKBKxRxRxRBKBKBKBKBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKxRxRBKBKWFWFBKBKBKBKxRxRBKBKBKWFWFBKxRDtPFiwIjIjIzptPFhgRIjyGLPFuSFnJTMpOQFnLomNiJLoRhCNnBVdLocmxvGouRxwGmiclVrxaniViNsGpxYElVlVxRxRxRBKBKBKBKBKBKBKBKBKBKBKxRxRBKBKBKBKBKBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKZXxRBKBKWFBKBKBKBKxRxRBKBKWFWFWFWFBKxRDtMlGGviEWNdEasgbIenSQBGcyHPaXLojkLoLtLolHGQoZRhnBRhNHLocmCoGomCKZrxlAlVlVlVlVlVlVlVlVlVlVxRxRxRWFWFWFWFWFWFBKxRxRxRxRxRBKBKBKBKBKBKBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKxRxRBKBKWFBKBKBKxRxRBKBKWFWFBKWFWFBKqnmcpuTTVABrpumqtXPFyphmXmxhHPcQLocQLoirLophJjLooWTJNHlgLoCoOulVyxJUxNBUlVlVlVlVlVlVlVlVlVlVxRxRxRBKBKBKBKBKWFxRxRxRBKBKBKBKBKBKBKBKBKBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKxRxRBKWFWFBKBKBKBKBKBKBKWFBKWFWFWFBKxRHPypewdjWzypPWypdjyppuypypHPjHjHjHjHjHjHjHjHjHjHjHjHjHjHeieilVlVlVlVlVlVnvxRxRxRxRxRxRxRxRxRxRxRBKBKBKBKWFBKxRBKBKBKBKBKBKBKBKBKBKBKBKCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKxRBKBKBKBKBKBKBKBKWFWFWFBKWFBKWFBKxRHPEejzXaudUaypPFxcjzXaudEeHPnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvxRxRxRxRxRxRxRxRxRxRxRBKBKBKWFBKBKxRBKBKBKBKBKBKBKBKBKBKBKBKBKCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKxRBKBKBKWFBKBKBKBKBKBKBKBKWFBKBKBKxRHPHPDtDtDtHPeWypHPDtDtDtHPHPxRxRxRxRxRxRqnxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRBKBKWFBKBKBKxRBKBKBKBKBKBKBKTSfjfjfjiiBKCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKxRxRBKBKWFWFBKxRxRxRxRxRxRWFBKBKBKxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRFNxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRBKBKWFBKBKBKxRBKBKBKBKBKBKxRZXfjaCaCfjcrCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKxRBKBKWFWFBKxRxRBKBKBKBKBKBKBKxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRBKBKWFBKBKBKxRBKBKBKBKxRxRxRaCxgWExgfjbNCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKxRxRBKBKBKBKBKxRxRxRBKBKBKBKxRxRBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKxRWFWFBKBKBKBKBKBKBKBKBKBKBKWFxRxRxRBKBKBKBKBKBKBKBKBKBKxRBKBKxRxRxRxRBKBKaCaCBKfjaCCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKxRxRBKBKBKWFWFWFBKxRxRxRxRxRxRBKBKBKBKBKBKWFBKWFWFWFBKBKBKWFWFWFBKWFBKBKBKBKWFWFWFBKBKxRBKWFWFWFBKBKBKBKBKBKBKWFWFWFxRxRBKBKWFWFBKBKBKBKBKBKBKxRxRxRxRxRBKBKBKBKBKBKBKBKBKCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKBKxRxRxRBKBKBKWFWFBKBKBKxRxRBKBKBKBKBKBKBKWFWFBKWFWFBKBKBKBKBKWFWFWFBKWFBKWFWFBKWFWFBKxRBKBKBKWFWFBKBKBKBKBKBKWFWFBKxRxRBKBKWFWFWFBKBKBKBKBKBKxRxRxRBKBKBKBKBKBKBKBKBKBKBKCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKBKxRxRxRxRxRBKBKBKWFWFBKWFWFBKBKBKBKBKBKBKBKWFWFWFWFWFWFBKBKWFWFWFWFWFWFWFWFWFBKBKWFBKxRxRBKBKBKWFBKNvJtgSBKBKBKBKBKxRBKBKBKWFWFWFWFBKBKBKBKBKxRxRxRxRxRxRBKBKBKBKBKBKBKBKCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKBKBKffxRxRxRBKBKBKBKBKBKBKWFWFBKBKBKBKBKBKBKBKBKBKBKWFWFBKBKWFWFWFWFWFBKBKBKBKBKBKBKBKBKxRBKBKWFWFBKkNiBgSBKBKBKBKxRxRBKBKWFWFWFWFWFBKBKBKxRxRxRBKBKBKxRxRxRxRBKBKBKBKBKBKCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKBKBKxRxRxRxRxRxRBKBKWFWFWFWFWFBKBKBKxRxRxRxRxRxRxRxRxRBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKxRxRxRBKBKBKxRxRxRBKBKBKxRxRBKBKWFWFWFWFBKBKBKBKxRxRxRxRBKBKBKxRxRxRxRxRBKxRBKBKBKCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKBKxRxRBKBKBKBKxRxRxRBKBKWFWFWFBKxRxRxRBKBKBKBKBKBKBKxRxRxRBKBKBKBKxRxRxRxRxRxRxRxRxRBKBKBKxRxRBKBKBKxRxRBKBKBKBKxRBKBKBKWFWFWFWFBKBKBKxRxRBKBKBKBKxRkmxRBKBKBKxRxRBKBKBKBKCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKBKxRBKBKBKBKBKBKxRffxRBKWFBKBKxRxRBKBKBKWFWFWFWFBKBKxRxRxRxRxRBKxRxRBKBKBKBKBKBKBKxRxRBKBKBKxRxRxRxRxRBKBKBKBKxRxRxRxRBKBKBKBKBKBKBKxRxRBKBKBKBKxRxRBKBKBKBKBKBKxRxRBKBKBKCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKBKxRBKWFWFWFWFWFBKBKxRBKWFBKxRxRBKBKBKWFWFBKBKBKBKxRxRBKBKBKxRxRxRBKBKBKBKBKBKBKBKBKxRxRBKWFBKBKBKBKBKBKBKBKxRxRBKBKxRxRBKBKBKBKBKxRxRBKBKBKBKxRxRBKBKWFWFWFWFBKBKxRBKBKBKCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKxRxRBKBKBKBKBKWFBKBKxRxRxRxRxRBKBKBKWFWFWFWFBKBKBKxRBKBKBKBKBKxRxRBKBKBKBKBKBKBKBKBKBKxRxRWFWFBKWFWFBKBKBKxRxRBKBKBKBKxRxRxRxRBKBKxRxRBKBKBKBKxRBKBKBKWFWFWFWFBKBKxRBKBKBKCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKxRxRBKBKBKBKWFBKBKBKxRxRWFBKBKBKWFWFWFBKBKBKBKBKxRxRBKBKBKBKBKxRBKBKBKBKBKBKBKBKBKBKBKBKxRxRWFWFBKWFWFBKxRxRBKBKBKBKBKBKBKBKxRxRxRxRBKBKWFBKBKxRBKBKWFWFWFWFWFBKBKxRBKBKBKCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKxRxRBKBKBKWFBKBKBKBKxRxRWFWFBKBKBKBKxRxRxRxRxRxRxRBKBKBKBKBKBKxRBKBKBKxRxRxRxRxRBKBKBKBKBKxRxRBKWFWFBKRJxRBKBKBKWFWFBKBKBKBKBKBKxRxRBKBKWFBKWFxRBKBKWFBKBKBKWFBKWFxRWFBKBKCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKBKxRBKBKBKWFBKBKBKBKffxRBKWFWFWFBKBKLmLmftLmLmLmxRBKWFWFWFBKBKxRBKBKBKxRBKBKBKxRxRBKBKBKBKBKxRxRBKBKxRxRBKBKWFWFBKBKBKBKBKBKBKBKxRxRBKWFWFWFWFxRBKBKWFWFWFWFWFWFWFxRBKWFBKCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKBKxRxRxRxRBKBKBKBKBKxRxRBKWFWFWFBKBKLmTmftnXMhLmxRBKBKBKWFBKBKxRBKBKBKxRBKBKBKBKxRxRBKBKBKBKBKxRxRffxRBKBKBKBKWFBKBKxRxRxRxRBKBKxRBKWFWFWFWFBKxRxRxRxRxRxRxRxRxRBKxRBKWFBKCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKBKBKBKBKxRxRBKBKBKBKBKxRxRBKWFWFBKBKLmftftxlTELmxRBKBKWFBKBKBKxRBKBKBKxRBKBKBKBKBKxRBKBKBKBKBKBKkmffBKBKBKBKWFWFBKBKxRBKBKxRxRxRxRBKWFBKWFBKxRxRBKBKBKBKBKBKBKxRxRxRBKWFBKCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKBKBKBKBKBKxRBKBKBKBKBKxRxRBKWFWFBKBKLmftTiftftftxRBKBKWFBKBKBKxRxRBKBKxRBKBKBKBKBKxRxRBKBKBKBKxRxRxRxRBKBKBKWFWFBKBKxRBKBKBKBKBKBKBKBKWFBKBKxRxRBKBKBKBKBKWFWFWFBKxRBKBKWFCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKxRxRxRxRxRxRBKBKBKBKBKBKxRxRWFWFWFBKLmEnftftvWLmxRBKBKBKBKBKBKxRxRBKBKxRxRBKBKBKBKBKxRxRBKBKffxRBKBKxRxRBKBKWFWFBKBKxRxRxRBKBKWFWFWFBKWFBKBKxRBKBKBKBKBKBKWFWFWFBKxRBKBKBKCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKxRBKBKBKBKBKBKBKBKBKBKBKxRxRWFWFWFBKLmLmLmLmLmLmxRBKBKBKBKBKBKxRxRBKBKBKxRxRxRBKBKBKBKxRBKxRxRBKBKBKBKffxRBKBKBKBKBKBKxRxRBKBKBKBKWFWFWFBKxRxRBKBKBKBKBKxRWFWFWFxRxRBKBKBKCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKxRxRxRxRBKBKBKBKBKBKBKBKxRxRBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKxRxRBKBKBKBKBKBKxRxRxRxRxRxRxRffBKBKBKBKBKBKxRxRBKBKBKBKBKBKxRxRBKBKBKWFBKBKxRxRBKBKBKBKBKBKxRWFWFWFxRBKBKBKBKCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKxRxRBKBKxRxRBKBKBKBKBKBKBKBKxRxRBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKxRBKBKBKBKBKBKBKBKBKBKBKBKxRBKBKBKBKBKBKBKBKBKxRxRBKBKBKBKBKBKxRxRxRxRxRxRxRxRBKBKBKBKBKBKxRxRWFWFWFxROzOzOzBKCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKxRBKBKBKBKxRxRxRBKBKBKBKBKBKxRxRxRxRBKBKBKBKBKBKBKBKBKBKBKBKBKxRBKBKBKBKBKBKBKBKBKBKxRxRxRBKBKBKBKBKBKBKBKBKxRxRBKBKBKBKBKBKBKBKBKxRxRBKBKBKBKBKBKBKBKxRxRBKWFWFWFxROzOzOzBKCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKxRBKBKBKBKBKBKxRBKBKBKBKBKBKBKBKxRxRxRxRBKBKBKBKBKBKBKBKxRxRxRxRBKBKBKBKBKBKBKBKBKxRxRBKBKBKBKBKBKBKxRBKBKBKxRBKBKBKBKBKBKBKBKBKxRxRxRBKBKBKBKBKBKBKBKxRBKBKBKBKxRxRabababBKCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKxRBKWFWFWFWFhMffBKBKBKBKBKBKBKBKxRBKxRxRxRxRxRxRBKBKxRxRxRBKBKBKBKxRxRxRxRxRxRxRxRxRBKBKBKBKBKBKBKBKxRBKBKBKxRxRxRBKBKBKBKBKBKBKxRBKxRBKBKBKBKBKOzBKBKxRBKBKBKBKxRababababBKCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKxRBKBKBKBKBKWFxRBKBKBKBKBKBKBKBKxRBKBKBKxRxRxRxRxRxRxRxRxRBKxRxRxRxRxRxRxRxRxRxRBKxRxRBKBKBKBKBKBKxRxRBKBKBKxRxRxRxRxRxRBKBKBKBKxRBKxRBKBKBKBKBKOzBKxRxRBKBKBKxRxRababababCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKxRBKBKBKBKWFBKxRxRxRxRBKBKBKBKBKxRBKBKBKBKBKBKxRxRxRxRxRxRxRxRxRxRxRxRBKBKBKBKBKBKBKxRxRBKBKBKBKxRxRBKBKBKBKxRxRRJxRxRxRxRBKBKBKxRBKxRBKBKBKBKBKOzBKxRBKBKBKxRxRabababababCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKxRBKBKBKWFBKBKxRkmxRxRBKBKBKBKBKxRBKBKBKBKBKBKBKBKBKWFWFWFWFWFWFWFWFWFWFWFBKBKBKBKBKBKxRxRxRBKxRxRBKBKBKBKxRxRxRxRxRxRBKxRBKBKBKxRBKxRBKBKBKBKBKBKxRxRxRxRBKxRababababababCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKxRBKBKBKWFBKBKxRxRxRxRBKBKBKBKBKxRBKBKBKBKBKBKBKBKBKWFWFWFWFWFWFWFWFWFWFWFBKBKBKBKBKBKBKBKxRxRxRBKBKBKBKxRxRBKBKBKBKBKBKxRBKBKBKxRBKxRBKBKBKBKxRxRxRxRxRxRxRxRababababababCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKxRBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKxRBKBKBKBKBKBKBKBKBKWFWFWFWFWFWFWFWFWFWFWFBKBKBKBKBKBKBKBKBKBKxRBKBKBKBKxRxRBKBKBKBKBKBKxRxRxRxRxRxRxRxRxRxRxRxRabababababxRabababVIxRxRabCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKxRxRBKBKBKBKBKBKBKBKBKBKBKBKBKxRxRxRxRBKxRxRxRxRxRBKWFWFWFWFWFWFWFWFWFWFWFBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKxRBKBKBKxRBKBKBKBKBKBKBKxRBKBKWFWFWFWFWFWFWFababxRabababxRRgxRabCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKxRxRBKBKBKBKBKBKBKBKBKBKxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRBKBKBKBKBKBKBKBKBKBKBKBKBKBKxRxRBKBKBKxRBKBKBKBKBKBKBKxRBKBKWFWFWFWFWFWFWFabxRxRabababxRxRkoabCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKBKxRxRxRxRxRxRxRxRxRxRxRxRxRxRBKffxRxRxRxRxRxRxRxRxRxRxRxRBKBKBKBKBKBKBKxRxRxRxRBKBKBKBKBKBKBKBKBKBKxRxRBKBKBKBKxRBKBKBKBKBKBKxRxRBKBKWFWFWFWFWFWFWFabxRababababababababCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKWFWFWFWFWFWFWFBKBKBKBKBKBKxRxRxRBKBKBKBKBKBKBKBKBKxRxRxRxRxRBKBKBKBKxRxRxRBKBKBKBKBKxRBKBKBKBKBKxRxRBKBKBKWFWFWFWFWFWFWFxRxRabababababababCjCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKWFWFWFWFWFWFWFBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKxRxRxRxRxRxRBKBKBKBKBKBKxRxRBKxRxRxRxRxRBKBKBKBKBKBKBKBKababxRxRababababababababCjCjCjCjgmgmgm
-gmgmgmCjCjCjCjBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKWFWFWFWFWFWFWFBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKBKxRxRxRBKBKBKBKBKBKBKBKBKBKBKBKababababababababababababCjCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajxRxRxRxRxRxRxRxRxRajajajxRajajajajajajajajajajajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajajajajxRajajajajajxRxRxRxRxRajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajxRxRxRxRxRajajajajajajajxRxRxRxRxRxRxRajajajajajajajajajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajajajajxRxRxRajajxRxRajajajajajajxRxRxRxRffajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajxRxRxRxRajajajajajajajajajajajajajajajajajxRxRxRxRajajajajajajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajxRxRxRxRajajajxRxRxRxRajajajajajajajxRLmcTffffajajajajajajajajajajajajajajajajajajajajajajajajajajajajajxRxRxRajajajajajajajajajajajajajajajajajajajajajajajxRxRxRajajajajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajkmxRxRxRxRxRajxRxRxRxRxRajajajajajajajffffxRRJajajajajajajajajajajxRxRxRxRxRxRajajajajajajajajajajajajxRxRajajajajajajajajajajajajajajajajajajajajajajajajajajajxRxRajajajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajxRxRxRxRxRajajajxRxRxRajajajajajajxRffffxRajajajajajajajajajajxRxRxRajajajajxRajajajajajajajajajajxRxRxRxRxRajajajajajajajajajajajajajajajajajajajajajajajajajajajxRajajajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajxRxRajajajxRxRajajajajajajxRxRffxRajajajajajajajajajajxRxRxRajajajajajajxRxRajajajajajajajxRxRxRxRxRxRxRajajajajajsNarajajHGajajwUajajajajajajajajajajajajajajxRxRajajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajajxRajajxRxRajajajajajajxRxRxRajajajajajajajajajajajxRxRajajajajajajajajajxRxRajajajajajajxRxRxRxRajajajajajajajajxRxRajajxRajajxRajajajajajajajajajajajajajajxRxRajajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajajxRxRxRxRajajajajajajxRxRxRajajajajajajajajajajxRxRxRajajajajajajajajajajajxRxRajajajajajajxRxRajajajajajajajajajxRxRZXgKxRxRajxRgKajajajajajajajajajajajajxRxRxRxRajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajajajajajxRajajajajxRxRxRajajajajajajajajajajxRxRxRajajajajajajajajajajajajajajxRajajajajajxRxRajajajajajajajajajajxRxRxRgKxRxRxRxRxRxRxRxRxRajajajajajajajxRxRajajxRajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajajajajajxRxRajajxRxRxRajajajajajajajajajajxRxRajajajajajajajajajxRxRxRZXajajajkmxRajajajxRxRajajajajajajajajajajajxRxRgKxRxRZXajgKxRajajajxRxRxRajajajajajxRajajajxRajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajajajajajajxRxRxRxRxRajajajajajajajajajajxRxRajajajajajajajajajajajajajajajajZXxRxRxRxRxRxRxRajajajajajajajajajajajxRxRajajxRajajxRajajajajajajxRxRajajajajxRajajajxRajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajajajajajajajxRxRxRxRajajajajajajajajxRxRxRajajajajajajajajajajajajajajajajajajajajajajajajxRxRxRajajajajajajajajajOyhWajajegajajHTajajajajajajajxRxRajajajxRajajajxRajCjCjCjgmgmgm
+gmgmgmCjCjCjajajajajajajajajajajajxRxRxRajajajajajxRxRxRxRxRxRajajajajajajajajajajajajajajajajajajajajajajajajajajajxRxRxRxRxRajajajajajajajajajajajajajajajajajajajajajxRajajxRxRajajajxRajCjCjCjgmgmgm
+gmgmgmCjCjCjajajajajajajajajajajxRJFxRajajajajajajxRajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajxRxRxRxRxRxRajajajajajajajajajajajajajajajajajxRxRxRxRajajajajxRajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajajajajajajxRxRxRxRxRajajajajxRxRajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajxRxRxRxRxRxRajajajajajajajajajajajajajxRajajajajajajxRajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajajajxRxRxRxRajajajxRxRxRxRxRxRxRxRxRajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajxRxRxRxRxRxRajajajajajajajajajxRxRajajajajajxRajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajajajxRxRajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajxRxRxRxRajajajajajajajxRajajajajxRxRajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajajxRxRxRajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajxRxRajajajajajajxRajajajajxRajajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajxRxRxRajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajxRxRxRajajajajajxRajajajajxRajajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajxRxRajajajajajajajajajajajajajajajajajajajajajxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRajajajajajajajajajajajajajxRxRajajajajajxRajajajajxRajajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajajxRxRajajajajajajajajajajajajajajajxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRajajajajajxRxRajajajajxRajajajxRxRajajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajajxRajajajajajajajajajajajajajajajajxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRogxRPUxRxRxRxRxRxRxRxRxRxRxRajajajajajajxRxRajajajxRajajajxRajajajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajajxRajajajajajajajajajajajajajajajajajxRnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvXHnvBXnvnvnvnvnvnvnvnvxRxRxRajajajajajajajxRajajajxRajajajxRajajajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajajxRajajajajajajajajajajajajajajajajajxRnveieieieieieieieieieieiIeIeIeIeIeIeIeIeHsHsHsHsHsHsHsHsHsHsHsHsoFHsTDHsHsHsHsHsHsHsnvxRxRxRajajajajajajajxRajajajxRxRajxRxRajajajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajajxRajajajajajajajajajajajajajajajajajxRnveiPSmbMfiQOuRHeieieieiIedhAOdHJgTbZCIeealElErDyYzlDTEPsysfGYGYRxKiadStStStStStStHsnvxRxRxRajajajajajajajxRajajajxRxRxRxRxRxRajajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajajxRajajajajajajajajajajajajajajajajajxRnveiSbWTHRvRnGBceiDCcJeiIeeHapKFfvndAvIeUzQzGAQzPECDQzOksywhJkBHsDNPadStStaRaRaRStHsnvxRxRxRajajajajajajajqnajajajajajajajajxRajajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajxRxRxRajajajajajajajajajajajajajajajajxRnveiOOrdWssZxvbJeiSdSdeiIeOgvkTflsHAZhIeuvkcfspmMqkYDOGgcpezZilnkteqBWStStzbeykxStHsnvxRxRxRajajajajajajajxRajajajajajajajajxRxRajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajxRajxRajajajajajajajajajajajajajajajajxRnveiCxCxCxCxcmKVeiIBlNcmIeQJfbfmKhLNEKIeyCvFgCRNvyQzwBPEsyZZwRcPZZwRadStStililyAStHsnvxRxRxRajajajajajajajxRajajajajajajajajajxRajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajxRajxRajajajajajajajajajajajajajajxRxRxRnveiusGbUxiQcmAjeiTKcwjoIePzoNmiDKRlkGIeUrQzBjsMbLvMJHzvsyZZMrtWvwVqadStStStStyAStHsnvxRxRxRajajajajajajajxRajajajajajajajajajxRajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajxRajxRxRxRxRxRajajajajajajajajajajxRxRxRnveifwcVLZfCvIhLRslueiCoIeIeIeUdLHIeIeIeHsHsHsaLHsHsHsHsHsUDmJSqvwATSrStStStVoXfVoHsnvxRxRxRajajajajajajajxRajajajajajajajajajxRajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajxRajxRZXajajajajajajajajajajajajajxRnvnvnveiLDrdiWhhFcwnSYjIrvQorvquQkquCZDAquKBgTsjEZJhjWjWjWVJHscPQqsVZZVqulvswExsQrfFalHsnvxRxRxRajajajajajajxRxRxRxRajajajajajajajxRajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajxRajxRajajajajajajajajajajajajajajxRnvsqsqsqcWcWcWcWcmJzCcnVOogVfllrpKjffcrRnWVFflflcLbpGXoEtHzcthjTXlBZswsXIVJWpWpMhUOAZZHsnvxRxRxRajajajajajxRxRajajxRajajajajajajxRxRajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajxRajxRajajajajajajajajajajajajajajxRnvsqgrqhcultVmcWWJhBcWcWcWcWcWcWiKzjzjzjjwYYININYLdCUWcmKDPCHsQBqZcPvwZZsavwZZcPadZZoUHsnvxRxRxRajajajajajxRajajajxRajajajajajajxRxRajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajxRajxRajajajajajajajajajajajajajajxRnvsqotafMaiTqBsRZIWfecxqTsxqLiEgcWMwrILoLoLoLoLoLoLoLoLoNjZEHsiacPHZahIWDedubmbmadZZazHsnvxRxRxRajajajajajkmajajajxRajajajajajajxRajajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajxRajxRajajajajajajajajajajajajajajxRnvsqetXBdJvNbVcWcmEhcWOwmQDmlPoycWOucmLoFnVKkbFRIsFnRSLoKbIulVlVlVlVlVlVlVlVlVlVsOLYlVlVlVxRxRxRajajajajajxRajxRxRxRajajajajajajxRajajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajxRajxRajajajajajajajajajajajajajajxRnvsqaeCRGymFkZcWBygPcWWNpahYLLzRcWcmcmLokbBwZvjZQSWYkbLoOvmYwlbyyTOcqMjSqMGqSwlVcEWRPDlVlVxRxRxRajajajajajxRxRxRajajajajajajajxRxRajajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajxRxRxRajajajajajajajajajajajajajajxRnvsqsqsqcWcWcWvSIYzjcWcWcWNccWcWcWrNfMLoagdoAWFknojOiyLoVElhNGOHbrSZTLwuVMwuacRKZpROutlVlVxRxRxRajajajajajajxRxRajajajajajajajxRajajajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajxRxRajajajajajajajajajajajajajajajnvnvlNcmcmaQCiRRjQhsvUCImmFiWbfoUkSPbEkHxQnLeomBqPbcHJklwzFbULwlYOoruMOJETjPGJYElVbfdXAalVlVxRxRxRajajajajajajxRxRxRajajajajajxRxRajajajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajxRxRajajajajajajajajajajajajajajajnvnvcmrIcmnFKLFYBbqtyIzjbdItCoOuVOrIbJcmLoFnmfiIaaQjFksbLoCoiHlVlVlVuQlVlVlVZelVlVlVlVlVlVlVxRxRxRajajajajajajajajxRxRajajajajxRajajajajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajxRxRajajajajajajajajajajajajajajajnvHPHPDtDtDgHPreKQHPDtDteGHPHPLoLoLoSHLoLokbuNoTPmtAYrKfLoCorZlVYhGqdbjxlVmexGeTbaqJGqpqlVlVxRxRxRajajajajajajajajajxRxRajajajxRajajajajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajRJxRajajajajajajajajajajajajajajajxRHPypSgMHAALRQhzXPQMsaTJJAtHPCPXOCPmdHpLoFvRhVSFneEFnyFLolSynlVofjGGJzglVFuZHrxsGpxfRmulVlVxRxRxRajajajajajajajajajajxRxRajxRxRajajajajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajxRxRajajajajajajajajajajajajajajajajxRHPLAQeUByvjyqVyplTOxypPFgauSFnpQNsxaYWLoLoLoLowpLokWUGLottcmGoVpAxcvLzlVokEkxWwJwJuJmulVlVxRxRxRajajajajajajajajajajajxRxRxRajajajajajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajxRxRajajajajajajajajajajajajajajajajxRDtPFiwIjIjIzptPFhgRIjyGLPFuSFnJTMpOQFnLomNiJLoRhCNnBVdLocmxvGouRxwGmiclVrxaniViNsGpxYElVlVxRxRxRajajajajajajajajajajajxRxRajajajajajajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajZXxRajajajajajajajajajajajajajajajajxRDtMlGGviEWNdEasgbIenSQBGcyHPaXLojkLoLtLolHGQoZRhnBRhNHLocmCoGomCKZrxlAlVlVlVlVlVlVlVlVlVlVxRxRxRajajajajajajajxRxRxRxRxRajajajajajajajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajxRxRajajajajajajajajajajajajajajajajqnmcpuTTVABrpumqtXPFyphmXmxhHPcQLocQLoirLophJjLooWTJNHlgLoCoOulVyxJUxNBUlVlVlVlVlVlVlVlVlVlVxRxRxRajajajajajajxRxRxRajajajajajajajajajajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajxRxRajajajajajajajajajajajajajajajajxRHPypewdjWzypPWypdjyppuypypHPjHjHjHjHjHjHjHjHjHjHjHjHjHjHeieilVlVlVlVlVlVnvxRxRxRxRxRxRxRxRxRxRxRajajajajajajxRajajajajajajajajajajajajCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajxRajajajajajajajajajajajajajajajajxRHPEejzXaudUaypPFxcjzXaudEeHPnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvnvxRxRxRxRxRxRxRxRxRxRxRajajajajajajxRajajajajajajajajajajajajajCjCjgmgmgm
+gmgmgmCjCjCjCjajajxRajajajajajajajajajajajajajajajajxRHPHPDtDtDtHPeWypHPDtDtDtHPHPxRxRxRxRxRxRqnxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRajajajajajajxRajajajajajajajTSfjfjfjiiajCjCjgmgmgm
+gmgmgmCjCjCjCjajajxRxRajajajajajajajajajajajajajajajxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRFNxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRajajajajajajxRajajajajajajxRZXfjaCaCfjcrCjCjgmgmgm
+gmgmgmCjCjCjCjajajajxRajajajajajajajajajajajajajajajxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRajajajajajajxRajajajajxRxRxRaCxgWExgfjbNCjCjgmgmgm
+gmgmgmCjCjCjCjajajajxRxRajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajxRajajajajajajajajajajajajajajxRxRxRajajajajajajajajajajxRajajxRxRxRxRajajaCaCajfjaCCjCjgmgmgm
+gmgmgmCjCjCjCjajajajxRxRajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajxRajajajajajajajajajajajajajajxRxRajxRajajajajajajajajajxRxRxRxRxRajajajajajajajajajCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajxRxRxRajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajxRajajajajajajajajajajajajajajxRxRajajajajajajajajajajajxRxRxRajajajajajajajajajajajCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajxRxRxRxRajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajxRxRajajajajajNvJtgSajajajajajxRajajajajajajajajajajajajxRxRxRxRxRxRajajajajajajajajCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajajffxRxRxRajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajxRajajajajajkNiBgSajajajajxRxRajajajajajajajajajajxRxRxRajajajxRxRxRxRajajajajajajCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajajxRxRxRxRxRxRajajajajajajajajajajxRxRxRxRxRxRxRxRxRajajajajajajajajajajajajajajajajajxRxRxRajajajxRxRxRajajajxRxRajajajajajajajajajajxRxRxRxRajajajxRxRxRxRxRajxRajajajCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajxRxRajajajajxRxRxRajajajajajajxRxRxRajajajajajajajxRxRxRajajajajxRxRxRxRxRxRxRxRxRajajajxRxRajajajxRxRajajajajxRajajajajajajajajajajxRxRajajajajxRkmxRajajajxRxRajajajajCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajxRajajajajajajxRffxRajajajajxRxRajajajajajajajajajxRxRxRxRxRajxRxRajajajajajajajxRxRajajajxRxRxRxRxRajajajajxRxRxRxRajajajajajajajxRxRajajajajxRxRajajajajajajxRxRajajajCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajxRajajajajajajajajxRajajajxRxRajajajajajajajajajxRxRajajajxRxRxRajajajajajajajajajxRxRajajajajajajajajajajxRxRajajxRxRajajajajajxRxRajajajajxRxRajajajajajajajajxRajajajCjCjgmgmgm
+gmgmgmCjCjCjCjajajajxRxRajajajajajajajajxRxRxRxRxRajajajajajajajajajajxRajajajajajxRxRajajajajajajajajajajxRxRajajajajajajajajxRxRajajajajxRxRxRxRajajxRxRajajajajxRajajajajajajajajajxRajajajCjCjgmgmgm
+gmgmgmCjCjCjCjajajajxRxRajajajajajajajajxRxRajajajajajajajajajajajajxRxRajajajajajxRajajajajajajajajajajajajxRxRajajajajajajxRxRajajajajajajajajxRxRxRxRajajajajajxRajajajajajajajajajxRajajajCjCjgmgmgm
+gmgmgmCjCjCjCjajajajxRxRajajajajajajajajxRxRajajajajajajxRxRxRxRxRxRxRajajajajajajxRajajajxRxRxRxRxRajajajajajxRxRajajajajRJxRajajajajajajajajajajajxRxRajajajajajxRajajajajajajajajajxRajajajCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajxRajajajajajajajajffxRajajajajajajLmLmCbLmLmLmxRajajajajajajxRajajajxRajajajxRxRajajajajajxRxRajajxRxRajajajajajajajajajajajajxRxRajajajajajxRajajajajajajajajajxRajajajCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajxRxRxRxRajajajajajxRxRajajajajajajLmTmftnXMhLmxRajajajajajajxRajajajxRajajajajxRxRajajajajajxRxRffxRajajajajajajajxRxRxRxRajajxRajajajajajajxRxRxRxRxRxRxRxRxRajxRajajajCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajajajajxRxRajajajajajxRxRajajajajajLmftftxlTELmxRajajajajajajxRajajajxRajajajajajxRajajajajajajkmffajajajajajajajajxRajajxRxRxRxRajajajajajxRxRajajajajajajajxRxRxRajajajCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajajajajajxRajajajajajxRxRajajajajajLmftTiftftCbxRajajajajajajxRxRajajxRajajajajajxRxRajajajajxRxRxRxRajajajajajajajxRajajajajajajajajajajajxRxRajajajajajajajajajxRajajajCjCjgmgmgm
+gmgmgmCjCjCjCjajajajxRxRxRxRxRxRajajajajajajxRxRajajajajLmEnftftvWLmxRajajajajajajxRxRajajxRxRajajajajajxRxRajajffxRajajxRxRajajajajajajxRxRxRajajajajajajajajajxRajajajajajajajajajajxRajajajCjCjgmgmgm
+gmgmgmCjCjCjCjajajajxRajajajajajajajajajajajxRxRajajajajLmLmLmLmLmLmxRajajajajajajxRxRajajajxRxRxRajajajajxRajxRxRajajajajffxRajajajajajajxRxRajajajajajajajajxRxRajajajajajxRajajajxRxRajajajCjCjgmgmgm
+gmgmgmCjCjCjCjajajajxRxRxRxRajajajajajajajajxRxRajajajajajajajajajajajajajajajajxRxRajajajajajajxRxRxRxRxRxRxRffajajajajajajxRxRajajajajajajxRxRajajajajajajxRxRajajajajajajxRajajajxRajajajajCjCjgmgmgm
+gmgmgmCjCjCjCjajajxRxRajajxRxRajajajajajajajajxRxRajajajajajajajajajajajajajajajxRajajajajajajajajajajajajxRajajajajajajajajajxRxRajajajajajajxRxRxRxRxRxRxRxRajajajajajajxRxRajajajxROzOzOzajCjCjgmgmgm
+gmgmgmCjCjCjCjajajxRajajajajxRxRxRajajajajajajxRxRxRxRajajajajajajajajajajajajajxRajajajajajajajajajajxRxRxRajajajajajajajajajxRxRajajajajajajajajajxRxRajajajajajajajajxRxRajajajajxROzOzOzajCjCjgmgmgm
+gmgmgmCjCjCjCjajajxRajajajajajajxRajajajajajajajajxRxRxRxRajajajajajajajajxRxRxRxRajajajajajajajajajxRxRajajajajajajajxRajajajxRajajajajajajajajajxRxRxRajajajajajajajajxRajajajajxRxRabababajCjCjgmgmgm
+gmgmgmCjCjCjCjajajxRajajajajajhMffajajajajajajajajxRajxRxRxRxRxRxRajajxRxRxRajajajajxRxRxRxRxRxRxRxRxRajajajajajajajajxRajajajxRxRxRajajajajajajajxRajxRajajajajajOzajajxRajajajajxRababababajCjCjgmgmgm
+gmgmgmCjCjCjCjajajxRajajajajajajxRajajajajajajajajxRajajajxRxRxRxRxRxRxRxRxRajxRxRxRxRxRxRxRxRxRxRajxRxRajajajajajajxRxRajajajxRxRxRxRxRxRajajajajxRajxRajajajajajOzajxRxRajajajxRxRababababCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajxRajajajajajajxRxRxRxRajajajajajxRajajajajajajxRxRxRxRxRxRxRxRxRxRxRxRajajajajajajajxRxRajajajajxRxRajajajajxRxRRJxRxRxRxRajajajxRajxRajajajajajOzajxRajajajxRxRabababababCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajxRajajajajajajxRkmxRxRajajajajajxRajajajajajajajajajajajajajajajajajajajajajajajajajajxRxRxRajxRxRajajajajxRxRxRxRxRxRajxRajajajxRajxRajajajajajajxRxRxRxRajxRababababababCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajxRajajajajajajxRxRxRxRajajajajajxRajajajajajajajajajajajajajajajajajajajajajajajajajajajajxRxRxRajajajajxRxRajajajajajajxRajajajxRajxRajajajajxRxRxRxRxRxRxRxRababababababCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajxRajajajajajajajajajajajajajajajxRajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajxRajajajajxRxRajajajajajajxRxRxRxRxRxRxRxRxRxRxRxRabababababxRabababVIxRxRabCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajxRxRajajajajajajajajajajajajajxRxRxRxRajxRxRxRxRxRajajajajajajajajajajajajajajajajajajajajajajajajajajajajxRajajajxRajajajajajajajxRajajajajajajajajajababxRabababxRRgxRabCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajajxRxRajajajajajajajajajajxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRxRajajajajajajajajajajajajajajxRxRajajajxRajajajajajajajxRajajajajajajajajajabxRxRabababxRxRkoabCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajxRxRxRxRxRxRxRxRxRxRxRxRxRxRajffxRxRxRxRxRxRxRxRxRxRxRxRajajajajajajajxRxRxRxRajajajajajajajajajajxRxRajajajajxRajajajajajajxRxRajajajajajajajajajabxRababababababababCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajxRxRxRajajajajajajajajajxRxRxRxRxRajajajajxRxRxRajajajajajxRajajajajajxRxRajajajajajajajajajajxRxRabababababababCjCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajxRxRxRxRxRxRajajajajajajxRxRajxRxRxRxRxRajajajajajajajajababxRxRababababababababCjCjCjCjgmgmgm
+gmgmgmCjCjCjCjajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajxRxRxRajajajajajajajajajajajajababababababababababababCjCjCjCjgmgmgm
 gmgmgmCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjgmgmgm
 gmgmgmCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjgmgmgm
 gmgmgmCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjgmgmgm
 gmgmgmCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjCjgmgmgm
 gmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgm
 gmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgm
-DEgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgm
+aigmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgmgm
 "}
