@@ -11,10 +11,12 @@
 
 /datum/uplink_item/item/medical/surgery
 	name = "Surgery kit"
-	item_cost = 40
+	item_cost = 32  // Lowered for Solo/Duo Traitors.
+	antag_costs = list(MODE_MERCENARY = 40)
 	path = /obj/item/weapon/storage/firstaid/surgery
 
 /datum/uplink_item/item/medical/combat
 	name = "Combat medical kit"
-	item_cost = 48
+	item_cost = 36 // Lowered, for traitors.
+	antag_costs = list(MODE_MERCENARY = 48)
 	path = /obj/item/weapon/storage/firstaid/combat

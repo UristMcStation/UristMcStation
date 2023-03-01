@@ -18,7 +18,7 @@
 /datum/uplink_item/item/tools/clerical
 	name = "Morphic Clerical Kit"
 	desc = "Comes with all you need to fake paperwork. Assumes you have passed basic writing lessons."
-	item_cost = 6
+	item_cost = 4
 	path = /obj/item/weapon/storage/backpack/satchel/syndie_kit/clerical
 
 /datum/uplink_item/item/tools/plastique
@@ -54,15 +54,15 @@
 
 /datum/uplink_item/item/tools/emag
 	name = "Cryptographic Sequencer"
-	item_cost = 30
+	item_cost = 32
 	path = /obj/item/weapon/card/emag
 
 /datum/uplink_item/item/tools/hacking_tool
 	name = "Door Hacking Tool"
-	item_cost = 24
+	item_cost = 20
 	path = /obj/item/device/multitool/hacktool
 	desc = "Appears and functions as a standard multitool until the mode is toggled by applying a screwdriver appropriately. \
-			When in hacking mode this device will grant full access to any standard airlock within 20 to 40 seconds. \
+			When in hacking mode this device will grant full access to any standard airlock within 13 to 20 seconds. \
 			This device will also be able to immediately access the last 6 to 8 hacked airlocks."
 
 /datum/uplink_item/item/tools/space_suit
@@ -77,7 +77,7 @@
 
 /datum/uplink_item/item/tools/flashdark
 	name = "Flashdark"
-	item_cost = 32
+	item_cost = 20
 	path = /obj/item/device/flashlight/flashdark
 
 /datum/uplink_item/item/tools/powersink
@@ -106,13 +106,13 @@
 
 /datum/uplink_item/item/tools/camera_mask
 	name = "Camera MIU"
-	item_cost = 60
+	item_cost = 32
 	antag_costs = list(MODE_MERCENARY = 30)
 	path = /obj/item/clothing/mask/ai
 
 /datum/uplink_item/item/tools/interceptor
 	name = "Radio Interceptor"
-	item_cost = 20
+	item_cost = 10
 	path = /obj/item/device/radio/intercept
 	desc = "A radio that can intercept secure radio channels. Doesn't fit in pockets."
 
