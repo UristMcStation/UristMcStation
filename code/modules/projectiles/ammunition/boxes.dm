@@ -98,13 +98,132 @@
 		overlays += image(src.icon, "[C.icon_state]-[count]")
 		count++
 
+/*
+/obj/item/ammo_magazine/bundle/
+	name = ""
+	desc = "A fistful of "
+	icon = 'icons/urist/items/shotbundle.dmi'
+	// icon_state = ""
+	caliber = ""
+	ammo_type
+*/
+
 /obj/item/ammo_magazine/bundle/shotbundle
 	name = "fistful of shotgun shells"
 	desc = "A fistful of shotgun shells."
 	icon = 'icons/urist/items/shotbundle.dmi'
-	icon_state = "slshell-1"
+//	icon_state = "slshell-1"
 	caliber = "shotgun"
 	ammo_type = /obj/item/ammo_casing/shotgun
+
+/obj/item/ammo_magazine/bundle/a44
+	name = "fistful of .44 Magnum rounds"
+	desc = "A fistful of .44 Magnum rounds."
+	icon = 'icons/urist/items/shotbundle.dmi'
+	// icon_state = ""
+	caliber = "a44"
+	ammo_type = /obj/item/ammo_casing/a44
+	max_ammo = 6
+
+/obj/item/ammo_magazine/bundle/c44 // There are two of them defined :')
+	name = "fistful of .44 Magnum rounds"
+	desc = "A fistful of .44 Magnum rounds."
+	icon = 'icons/urist/items/shotbundle.dmi'
+	// icon_state = ""
+	caliber = "c44"
+	ammo_type = /obj/item/ammo_casing/c44
+	max_ammo = 6
+
+/obj/item/ammo_magazine/bundle/a50
+	name = "fistful of .50 AE rounds"
+	desc = "A fistful of .50 AE rounds."
+	icon = 'icons/urist/items/shotbundle.dmi'
+	// icon_state = ""
+	caliber = "a50"
+	ammo_type = /obj/item/ammo_casing/a50
+	max_ammo = 7
+
+/obj/item/ammo_magazine/bundle/c9mm
+	name = "fistful of 9mm rounds"
+	desc = "A fistful of 9mm rounds."
+	icon = 'icons/urist/items/shotbundle.dmi'
+	// icon_state = ""
+	caliber = "c9mm"
+	ammo_type = /obj/item/ammo_casing/c9mm
+	max_ammo = 15
+
+/obj/item/ammo_magazine/bundle/c357
+	name = "fistful of .357 Magnum rounds"
+	desc = "A fistful of .357 Magnum rounds."
+	icon = 'icons/urist/items/shotbundle.dmi'
+	// icon_state = ""
+	caliber = "c357"
+	ammo_type = /obj/item/ammo_casing/c357
+	max_ammo = 6
+
+/obj/item/ammo_magazine/bundle/c38
+	name = "fistful of .38 rounds"
+	desc = "A fistful of .38 rounds."
+	icon = 'icons/urist/items/shotbundle.dmi'
+	// icon_state = ""
+	caliber = "c38"
+	ammo_type = /obj/item/ammo_casing/c38
+	max_ammo = 6
+
+/obj/item/ammo_magazine/bundle/c45
+	name = "fistful of .45ACP rounds"
+	desc = "A fistful of .45ACP rounds."
+	icon = 'icons/urist/items/shotbundle.dmi'
+	// icon_state = ""
+	caliber = "c45"
+	ammo_type = /obj/item/ammo_casing/c45
+	max_ammo = 10
+
+/obj/item/ammo_magazine/bundle/a10mm
+	name = "fistful of 10mm rounds"
+	desc = "A fistful of 10mm rounds."
+	icon = 'icons/urist/items/shotbundle.dmi'
+	// icon_state = ""
+	caliber = "a10mm"
+	ammo_type = /obj/item/ammo_casing/a10mm
+	max_ammo = 10
+
+/obj/item/ammo_magazine/bundle/c44m
+	name = "fistful of 4mm rounds"
+	desc = "A fistful of 4mm rounds."
+	icon = 'icons/urist/items/shotbundle.dmi'
+	// icon_state = ""
+	caliber = "c4mm"
+	ammo_type = /obj/item/ammo_casing/c4mm
+	max_ammo = 15
+
+/obj/item/ammo_magazine/bundle/a556
+	name = "fistful of 5.56 rounds"
+	desc = "A fistful of 5.56 rounds."
+	icon = 'icons/urist/items/shotbundle.dmi'
+	// icon_state = ""
+	caliber = "a556"
+	ammo_type = /obj/item/ammo_casing/a556
+	max_ammo = 10
+
+/obj/item/ammo_magazine/bundle/a762
+	name = "fistful of 7.62 rounds"
+	desc = "A fistful of 7.62 rounds."
+	icon = 'icons/urist/items/shotbundle.dmi'
+	// icon_state = ""
+	caliber = "a762"
+	ammo_type = /obj/item/ammo_casing/a762
+	max_ammo = 10
+
+/obj/item/ammo_magazine/bundle/cap
+	name = "fistful of toygun caps"
+	desc = "A fistful of toygun caps."
+	icon = 'icons/urist/items/shotbundle.dmi'
+	// icon_state = ""
+	caliber = "cap"
+	ammo_type = /obj/item/ammo_casing/cap
+	max_ammo = 6
+
 
 /obj/item/ammo_magazine/shotholder
 	name = "shotgun slug holder"
