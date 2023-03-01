@@ -112,7 +112,7 @@
 	name = "fistful of shotgun shells"
 	desc = "A fistful of shotgun shells."
 	icon = 'icons/urist/items/shotbundle.dmi'
-//	icon_state = "slshell-1"
+	icon_state = "slshell-1"
 	caliber = "shotgun"
 	ammo_type = /obj/item/ammo_casing/shotgun
 
@@ -147,7 +147,7 @@
 	name = "fistful of 9mm rounds"
 	desc = "A fistful of 9mm rounds."
 	icon = 'icons/urist/items/shotbundle.dmi'
-	// icon_state = ""
+	icon_state = "9mm-1"
 	caliber = "c9mm"
 	ammo_type = /obj/item/ammo_casing/c9mm
 	max_ammo = 15
