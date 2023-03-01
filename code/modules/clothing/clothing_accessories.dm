@@ -56,9 +56,11 @@
 
 	switch(over_object.name)
 		if("r_hand")
-			usr.put_in_r_hand(src)
+			if (usr.unEquip(src))
+				usr.put_in_r_hand(src)
 		if("l_hand")
-			usr.put_in_l_hand(src)
+			if (usr.unEquip(src))
+				usr.put_in_l_hand(src)
 	src.add_fingerprint(usr)
 
 /obj/item/clothing/examine(var/mob/user)
@@ -75,7 +77,7 @@
 			to_chat(user, "<span class='notice'>It smells clean!</span>")
 		if(SMELL_STINKY)
 			to_chat(user, "<span class='bad'>It's quite stinky!</span>")
-	
+
 
 /obj/item/clothing/proc/update_accessory_slowdown()
 	slowdown_accessory = 0
