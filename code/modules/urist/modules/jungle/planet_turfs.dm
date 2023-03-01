@@ -364,6 +364,13 @@
 	icon_spawn_state = null
 	terrain_type = null
 
+/turf/simulated/floor/planet/jungle/rock/underground
+	name = "rock wall"
+	desc = "An impossibly hard rock wall. No point in trying to mine it"
+	light_max_bright = 0
+	light_outer_range = 0
+	light_inner_range = 0
+
 //Rocks fall, you die
 /turf/simulated/floor/planet/jungle/rock/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (istype(W, /obj/item/weapon/pickaxe))
