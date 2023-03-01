@@ -147,7 +147,7 @@
 	name = "fistful of 9mm rounds"
 	desc = "A fistful of 9mm rounds."
 	icon = 'icons/urist/items/shotbundle.dmi'
-	icon_state = "9mm-1"
+	icon_state = "pistolcasing-1"
 	caliber = "c9mm"
 	ammo_type = /obj/item/ammo_casing/c9mm
 	max_ammo = 15

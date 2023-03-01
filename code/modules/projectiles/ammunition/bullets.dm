@@ -25,6 +25,23 @@
 	caliber = "9mm"
 	projectile_type = /obj/item/projectile/bullet/pistol
 
+/obj/item/ammo_casing/c9mm/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/projectile/bullet/pistol))
+		var/obj/item/ammo_casing/c9mm/empty_check = I
+		if(!empty_check.BB)
+			return
+		var/obj/item/ammo_magazine/bundle/c9mm/C = new /obj/item/ammo_magazine/bundle/c9mm()
+		C.attackby(I, user)
+		C.attackby(src, user)
+		user.put_in_hands(C)
+		return
+	if(istype(I, /obj/item/ammo_magazine/bundle/c9mm))
+		if(!BB)
+			return
+		I.attackby(src, user)
+		return
+	..()
+
 /obj/item/ammo_casing/c9mm/flash
 	desc = "A 9mm flash shell casing."
 	projectile_type = /obj/item/projectile/energy/flash
