@@ -49,7 +49,7 @@
 		)
 	containertype = /obj/structure/closet/crate/freezer
 	containername = "seafood crate"
-	cost = 20
+	cost = 30
 
 /decl/hierarchy/supply_pack/galley/eggs
 	name = "Perishables - Eggs"
