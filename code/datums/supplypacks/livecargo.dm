@@ -80,7 +80,7 @@
 
 /decl/hierarchy/supply_pack/livecargo/crab
 	name = "Live - Crab"
-	cost = 75
+	cost = 85
 	containertype = /obj/structure/largecrate/animal/crab
 	containername = "crab crate"
 	access = access_hydroponics
