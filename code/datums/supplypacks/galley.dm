@@ -40,7 +40,12 @@
 	contains = list(
 		/obj/item/weapon/reagent_containers/food/snacks/fish = 2,
 		/obj/item/weapon/reagent_containers/food/snacks/fish/shark = 2,
-		/obj/item/weapon/reagent_containers/food/snacks/fish/octopus = 2
+		/obj/item/weapon/reagent_containers/food/snacks/fish/octopus = 2,
+		/obj/item/shellfish/crab = 3,
+		/obj/item/weapon/reagent_containers/food/snacks/shellfish/shrimp = 5,
+		/obj/item/weapon/reagent_containers/food/snacks/shellfish/oyster = 3,
+		/obj/item/weapon/reagent_containers/food/snacks/shellfish/mussel = 5,
+		/obj/item/weapon/reagent_containers/food/snacks/shellfish/clam = 3
 		)
 	containertype = /obj/structure/closet/crate/freezer
 	containername = "seafood crate"

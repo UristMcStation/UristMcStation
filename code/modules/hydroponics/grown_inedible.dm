@@ -61,3 +61,28 @@
 	throwforce = 0
 	throw_speed = 4
 	throw_range = 20
+
+/obj/item/weapon/corncob/hollowpineapple
+	name = "hollow pineapple"
+	icon_state = "hollowpineapple"
+	item_state = "hollowpineapple"
+
+/obj/item/weapon/corncob/hollowpineapple/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	..()
+	if(istype(W, /obj/item/weapon/circular_saw) || istype(W, /obj/item/weapon/material/hatchet) || istype(W, /obj/item/weapon/material/kitchen/utensil/knife) || istype(W, /obj/item/weapon/material/knife) || istype(W, /obj/item/weapon/material/knife/ritual))
+		to_chat(user, "<span class='notice'>You use [W] to carve the pineapple into a mug!</span>")
+		new /obj/item/weapon/reagent_containers/food/drinks/glass2/pineapple (user.loc)
+		qdel(src)
+
+/obj/item/weapon/corncob/hollowcoconut
+	name = "hollow coconut"
+	icon_state = "hollowcoconut"
+	item_state = "hollowcoconut"
+	throwforce = 5 //coconuts hurt
+
+/obj/item/weapon/corncob/hollowcoconut/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	..()
+	if(istype(W, /obj/item/weapon/circular_saw) || istype(W, /obj/item/weapon/material/hatchet) || istype(W, /obj/item/weapon/material/kitchen/utensil/knife) || istype(W, /obj/item/weapon/material/knife) || istype(W, /obj/item/weapon/material/knife/ritual))
+		to_chat(user, "<span class='notice'>You use [W] to carve the coconut shell into a mug!</span>")
+		new /obj/item/weapon/reagent_containers/food/drinks/glass2/coconut (user.loc)
+		qdel(src)

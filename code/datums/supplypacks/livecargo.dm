@@ -70,3 +70,17 @@
 	containertype = /obj/structure/largecrate/animal/chick
 	containername = "chicken crate"
 	access = access_hydroponics
+
+/decl/hierarchy/supply_pack/livecargo/goose
+	name = "Live - Goose"
+	cost = 75
+	containertype = /obj/structure/largecrate/animal/goose
+	containername = "goose containment unit"
+	access = access_hydroponics
+
+/decl/hierarchy/supply_pack/livecargo/crab
+	name = "Live - Crab"
+	cost = 75
+	containertype = /obj/structure/largecrate/animal/crab
+	containername = "crab crate"
+	access = access_hydroponics

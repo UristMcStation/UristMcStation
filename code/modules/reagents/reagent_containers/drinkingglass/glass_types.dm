@@ -89,3 +89,25 @@
 	possible_transfer_amounts = "5;10;15;30;60;120"
 	rim_pos = "y=26;x_left=12;x_right=21"
 	center_of_mass = "x=16;y=7"
+
+/obj/item/weapon/reagent_containers/food/drinks/glass2/pineapple
+	name = "pineapple mug"
+	desc = "A mug made from a hollowed pineapple. Tropical!"
+	base_name = "pineapple mug"
+	base_icon = "pineapple"
+	icon = 'icons/obj/drink_glasses/pineapple.dmi'
+	filling_states = "25;50;75;100"
+	volume = 40
+	possible_transfer_amounts = "5;10;20;40"
+	rim_pos = "y=22;x_left=12;x_right=20"
+
+/obj/item/weapon/reagent_containers/food/drinks/glass2/coconut
+	name = "coconut cup"
+	base_name = "coconut cup"
+	base_icon = "coconut"
+	icon = 'icons/obj/drink_glasses/coconut.dmi'
+	desc = "A cup made from a hollowed coconut."
+	filling_states = "20;40;60;80;100"
+	volume = 30
+	possible_transfer_amounts = "5;10;15;30"
+	rim_pos = "y=23;x_left=13;x_right=20"

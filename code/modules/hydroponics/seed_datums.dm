@@ -174,7 +174,7 @@
 	set_trait(TRAIT_JUICY,1)
 	set_trait(TRAIT_MATURATION,8)
 	set_trait(TRAIT_PRODUCTION,6)
-	set_trait(TRAIT_YIELD,2)
+	set_trait(TRAIT_YIELD,3)
 	set_trait(TRAIT_POTENCY,10)
 	set_trait(TRAIT_PRODUCT_ICON,"tomato")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#d10000")
@@ -202,7 +202,7 @@
 	display_name = "killer tomato plant"
 	mutants = null
 	can_self_harvest = 1
-	has_mob_product = /mob/living/simple_animal/tomato
+	product_type = /mob/living/simple_animal/tomato
 
 /datum/seed/tomato/killer/New()
 	..()
@@ -401,7 +401,7 @@
 	display_name = "walking mushrooms"
 	mutants = null
 	can_self_harvest = 1
-	has_mob_product = /mob/living/simple_animal/mushroom
+	product_type = /mob/living/simple_animal/mushroom
 
 /datum/seed/mushroom/plump/walking/New()
 	..()
@@ -1100,7 +1100,8 @@
 	seed_noun = SEED_NOUN_NODES
 	display_name = "replicant pods"
 	can_self_harvest = 1
-	has_mob_product = /mob/living/carbon/alien/diona
+	possessable = TRUE
+	product_type = /mob/living/carbon/alien/diona
 
 /datum/seed/diona/New()
 	..()
@@ -1247,4 +1248,284 @@
 	set_trait(TRAIT_PLANT_ICON,"algae")
 	set_trait(TRAIT_IDEAL_LIGHT, 6)
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
+	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
+
+//aquaculture
+
+/datum/seed/shellfish 		//parent shellfish
+	name = "shellfish"
+	seed_name = "shellfish"
+	seed_noun = SEED_NOUN_EGGS
+	display_name = "bed of shellfish"
+	product_type = /obj/item/shellfish
+
+/datum/seed/shellfish/New()
+	..()
+	set_trait(TRAIT_IMMUTABLE,1)
+	set_trait(TRAIT_CARNIVOROUS,1)
+	set_trait(TRAIT_HARVEST_REPEAT,1)
+	set_trait(TRAIT_MATURATION,6)
+	set_trait(TRAIT_PRODUCTION,5)
+	set_trait(TRAIT_YIELD,4)
+	set_trait(TRAIT_POTENCY,1)
+	set_trait(TRAIT_PRODUCT_ICON,"egg")
+	set_trait(TRAIT_WATER_CONSUMPTION,6)
+	set_trait(TRAIT_IDEAL_LIGHT,4)
+	set_trait(TRAIT_LIGHT_TOLERANCE,6)
+	set_trait(TRAIT_IDEAL_HEAT, 288)
+	set_trait(TRAIT_PRODUCT_COLOUR,"#f2f2f2")
+	set_trait(TRAIT_PLANT_COLOUR,"#f2f2f2")
+	set_trait(TRAIT_PLANT_ICON,"algae")
+
+
+/datum/seed/shellfish/clam
+	name = "clam"
+	seed_name = "clam"
+	display_name = "bed of clams"
+	product_type = /obj/item/shellfish/clam
+
+/datum/seed/shellfish/clam/New()
+	..()
+	set_trait(TRAIT_MATURATION,7)
+	set_trait(TRAIT_PRODUCT_COLOUR,"#f2f2f2")
+	set_trait(TRAIT_PLANT_COLOUR,"#f2f2f2")
+
+
+/datum/seed/shellfish/mussel
+	name = "mussel"
+	seed_name = "mussel"
+	display_name = "bed of mussels"
+	product_type = /obj/item/shellfish/mussel
+
+/datum/seed/shellfish/mussel/New()
+	..()
+	set_trait(TRAIT_IDEAL_LIGHT,5)
+	set_trait(TRAIT_YIELD,5)
+	set_trait(TRAIT_IDEAL_HEAT, 295)
+	set_trait(TRAIT_PRODUCT_COLOUR,"#34449f")
+	set_trait(TRAIT_PLANT_COLOUR,"#34449f")
+
+
+/datum/seed/shellfish/oyster
+	name = "oyster"
+	seed_name = "oyster"
+	display_name = "bed of oysters"
+	product_type = /obj/item/shellfish/oyster
+
+/datum/seed/shellfish/oyster/New()
+	..()
+	set_trait(TRAIT_PRODUCT_COLOUR,"#a8899c")
+	set_trait(TRAIT_PLANT_COLOUR,"#a8899c")
+
+
+/datum/seed/shellfish/shrimp
+	name = "shrimp"
+	seed_name = "shrimp"
+	display_name = "bed of shrimp"
+	product_type = /obj/item/shellfish/shrimp
+
+/datum/seed/shellfish/shrimp/New()
+	..()
+	set_trait(TRAIT_MATURATION,6)
+	set_trait(TRAIT_IDEAL_LIGHT,7)
+	set_trait(TRAIT_YIELD,5)
+	set_trait(TRAIT_IDEAL_HEAT, 295)
+	set_trait(TRAIT_PRODUCT_COLOUR,"#f8897b")
+	set_trait(TRAIT_PLANT_COLOUR,"#f8897b")
+
+
+/datum/seed/shellfish/crab
+	name = "crab"
+	seed_name = "crab"
+	display_name = "bed of crabs"
+	can_self_harvest = TRUE
+	product_type = /mob/living/simple_animal/crab
+
+/datum/seed/shellfish/crab/New()
+	..()
+	set_trait(TRAIT_HARVEST_REPEAT,0)
+	set_trait(TRAIT_MATURATION,8)
+	set_trait(TRAIT_YIELD,3)
+	set_trait(TRAIT_IDEAL_LIGHT,5)
+	set_trait(TRAIT_PRODUCT_COLOUR,"#ef5f32")
+	set_trait(TRAIT_PLANT_COLOUR,"#ef5f32")
+
+/datum/seed/aghrassh
+	name = "aghrassh"
+	seed_name = "aghrassh"
+	display_name = "aghrassh tree"
+	chems = list(/datum/reagent/nutriment = list(1,20))
+	kitchen_tag = "aghrassh"
+
+/datum/seed/aghrassh/New()
+	..()
+	set_trait(TRAIT_HARVEST_REPEAT,1)
+	set_trait(TRAIT_MATURATION,6)
+	set_trait(TRAIT_PRODUCTION,6)
+	set_trait(TRAIT_YIELD,4)
+	set_trait(TRAIT_POTENCY,15)
+	set_trait(TRAIT_PRODUCT_ICON,"treefruit")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#866523")
+	set_trait(TRAIT_PLANT_ICON,"tree")
+
+
+/datum/seed/gukhe
+	name = "gukhe"
+	seed_name = "gukhe bloom"
+	display_name = "gukhe bloom"
+	chems = list(/datum/reagent/nutriment = list(2,12), /datum/reagent/capsaicin = list(10,10))
+	kitchen_tag = "gukhe"
+
+/datum/seed/gukhe/New()
+	..()
+	set_trait(TRAIT_HARVEST_REPEAT,1)
+	set_trait(TRAIT_MATURATION,3)
+	set_trait(TRAIT_PRODUCTION,5)
+	set_trait(TRAIT_YIELD,4)
+	set_trait(TRAIT_POTENCY,10)
+	set_trait(TRAIT_PRODUCT_ICON,"algae")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#e93e1c")
+	set_trait(TRAIT_PLANT_COLOUR,"#6d9c6b")
+	set_trait(TRAIT_PLANT_ICON,"algae")
+	set_trait(TRAIT_IDEAL_LIGHT, 6)
+	set_trait(TRAIT_WATER_CONSUMPTION, 6)
+	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
+
+/datum/seed/coffee
+	name = "coffee"
+	seed_name = "coffee bean"
+	display_name = "coffee plant"
+	chems = list(/datum/reagent/nutriment/coffee = list(10,10))
+
+/datum/seed/coffee/New()
+	..()
+	set_trait(TRAIT_MATURATION,4)
+	set_trait(TRAIT_PRODUCTION,4)
+	set_trait(TRAIT_YIELD,3)
+	set_trait(TRAIT_POTENCY,5)
+	set_trait(TRAIT_PRODUCT_ICON,"nuts")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#71503e")
+	set_trait(TRAIT_PLANT_ICON,"vine2")
+	set_trait(TRAIT_IDEAL_LIGHT, 7)
+
+/datum/seed/vanilla
+	name = "vanilla"
+	seed_name = "vanilla flower"
+	display_name = "vanilla flower"
+	chems = list(/datum/reagent/nutriment = list(1,10), /datum/reagent/drink/syrup_vanilla = list(4,5))
+
+
+/datum/seed/vanilla/New()
+	..()
+	set_trait(TRAIT_MATURATION,5)
+	set_trait(TRAIT_PRODUCTION,5)
+	set_trait(TRAIT_YIELD,3)
+	set_trait(TRAIT_POTENCY,10)
+	set_trait(TRAIT_PRODUCT_ICON,"treefruit")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#ffffda")
+	set_trait(TRAIT_PLANT_ICON,"tree2")
+	set_trait(TRAIT_IDEAL_HEAT, 298)
+	set_trait(TRAIT_WATER_CONSUMPTION, 6)
+
+
+/datum/seed/pineapple
+	name = "pineapples"
+	seed_name = "pineapple"
+	display_name = "pineapple plant"
+	chems = list(/datum/reagent/drink/juice/pineapple = list(10,10), /datum/reagent/enzyme = list(1,5),/datum/reagent/nutriment = list(1,10))
+	trash_type = /obj/item/weapon/corncob/hollowpineapple
+	kitchen_tag = "pineapple"
+
+/datum/seed/pineapple/New()
+	..()
+	set_trait(TRAIT_HARVEST_REPEAT,1)
+	set_trait(TRAIT_JUICY,1)
+	set_trait(TRAIT_MATURATION,5)
+	set_trait(TRAIT_PRODUCTION,5)
+	set_trait(TRAIT_YIELD,2)
+	set_trait(TRAIT_POTENCY,10)
+	set_trait(TRAIT_PRODUCT_ICON,"pineapple")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#f6e12d")
+	set_trait(TRAIT_PLANT_ICON,"tree4")
+	set_trait(TRAIT_FLESH_COLOUR,"#f6ce79")
+	set_trait(TRAIT_IDEAL_LIGHT, 7)
+	set_trait(TRAIT_WATER_CONSUMPTION, 6)
+	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
+
+/datum/seed/pear
+	name = "pears"
+	seed_name = "pear"
+	display_name = "pear tree"
+	chems = list(/datum/reagent/nutriment = list(1,10), /datum/reagent/drink/juice/pear = list(10,10))
+
+/datum/seed/pear/New()
+	..()
+	set_trait(TRAIT_HARVEST_REPEAT,1)
+	set_trait(TRAIT_MATURATION,6)
+	set_trait(TRAIT_PRODUCTION,6)
+	set_trait(TRAIT_YIELD,5)
+	set_trait(TRAIT_POTENCY,10)
+	set_trait(TRAIT_PRODUCT_ICON,"apple")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#e1e463")
+	set_trait(TRAIT_PLANT_ICON,"tree2")
+	set_trait(TRAIT_FLESH_COLOUR,"#e8e39b")
+	set_trait(TRAIT_IDEAL_LIGHT, 4)
+
+
+/datum/seed/coconut
+	name = "coconuts"
+	seed_name = "coconut"
+	display_name = "coconut tree"
+	chems = list(/datum/reagent/nutriment = list(1,20), /datum/reagent/drink/coconut = list(10,20))
+	trash_type = /obj/item/weapon/corncob/hollowcoconut
+
+/datum/seed/coconut/New()
+	..()
+	set_trait(TRAIT_HARVEST_REPEAT,1)
+	set_trait(TRAIT_MATURATION,6)
+	set_trait(TRAIT_PRODUCTION,6)
+	set_trait(TRAIT_YIELD,4)
+	set_trait(TRAIT_POTENCY,15)
+	set_trait(TRAIT_PRODUCT_ICON,"treefruit")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#a36b09")
+	set_trait(TRAIT_PLANT_ICON,"tree4")
+
+
+/datum/seed/cinnamon
+	name = "cinnamon"
+	seed_name = "cinnamon"
+	display_name = "cinnamon tree"
+	chems = list(/datum/reagent/cinnamon = list(10,20))
+
+
+/datum/seed/cinnamon/New()
+	..()
+	set_trait(TRAIT_MATURATION,7)
+	set_trait(TRAIT_PRODUCTION,5)
+	set_trait(TRAIT_YIELD,5)
+	set_trait(TRAIT_PRODUCT_ICON,"stalk")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#cd6139")
+	set_trait(TRAIT_PLANT_ICON,"tree2")
+	set_trait(TRAIT_IDEAL_LIGHT, 7)
+	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.05)
+	set_trait(TRAIT_WATER_CONSUMPTION, 0.5)
+
+/datum/seed/olives
+	name = "olives"
+	seed_name = "olives"
+	display_name = "olive tree"
+	chems = list(/datum/reagent/nutriment = list(1,20), /datum/reagent/oliveoil = list(10,20))
+
+/datum/seed/olives/New()
+	..()
+	set_trait(TRAIT_HARVEST_REPEAT,1)
+	set_trait(TRAIT_MATURATION,3)
+	set_trait(TRAIT_PRODUCTION,5)
+	set_trait(TRAIT_YIELD,4)
+	set_trait(TRAIT_POTENCY,10)
+	set_trait(TRAIT_PRODUCT_ICON,"grapes")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#87a46e")
+	set_trait(TRAIT_PLANT_COLOUR,"#378f2e")
+	set_trait(TRAIT_PLANT_ICON,"vine")
+	set_trait(TRAIT_IDEAL_LIGHT, 6)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
