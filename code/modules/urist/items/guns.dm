@@ -45,7 +45,6 @@
 
 /obj/item/weapon/gag/BANG
 	item_icons = DEF_URIST_INHANDS
-	icon_override = 'icons/urist/items/guns.dmi'
 	icon = 'icons/urist/items/guns.dmi'
 	name = "BANG gun"
 	desc = "Shoots out a BANG"
@@ -56,7 +55,6 @@
 
 /obj/item/weapon/gag/BANG/attack_self(mob/user as mob)
 	item_icons = DEF_URIST_INHANDS
-	icon_override = 'icons/urist/items/guns.dmi'
 	icon = 'icons/urist/items/guns.dmi'
 	on = !on
 	if(on)
@@ -122,8 +120,9 @@ the sprite and make my own projectile -Glloyd*/
 	desc = "A lightweight, suppressed weapon. Uses .45 rounds and is intended for operations where subtlety is preferred, if only for a little while."
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "knight45"
+	item_state = "knight45"
 	item_icons = URIST_ALL_ONMOBS
-	wielded_item_state = "knight"
+	wielded_item_state = "knight45"
 	fire_sound = 'sound/urist/suppshot.ogg'
 	w_class = 2
 	max_shells = 7
@@ -343,7 +342,8 @@ the sprite and make my own projectile -Glloyd*/
 	desc = "The submachine gun for medical personnel and infantrymen. Only fires in short and long bursts. Takes magazines of 32 .45 rounds."
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "M3"
-	item_state = "arifle"
+	item_state = "mpistolen"
+	wielded_item_state = "mpistolen"
 	w_class = 3
 	force = 10
 	caliber = ".45"
@@ -784,6 +784,7 @@ the sprite and make my own projectile -Glloyd*/
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "combatSMG"
 	item_state = "combatSMG"
+	wielded_item_state = "combatSMG"
 	w_class = 3
 	force = 10
 	caliber = "9mm"
@@ -830,6 +831,7 @@ the sprite and make my own projectile -Glloyd*/
 	desc = "An antique Colt Single Action Army revolver dating from the late 19th century. Sometimes referred to as 'the gun that won the west,' this piece is the pride and joy of any 26th century gun collector. Uses .45 magnum rounds."
 	icon_state = "antiquerevolver"
 	item_state = "antiquerevolver"
+	wielded_item_state = "antiquerevolver"
 	max_shells = 6
 	caliber = ".45"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
@@ -864,6 +866,7 @@ the sprite and make my own projectile -Glloyd*/
 	desc = "A sleek modern revolver manufactured by Hephaestus Industries as part of the 2521 series. Chambered in .44, this sucker packs a punch."
 	icon_state = "combatrevolver"
 	item_state = "combatrevolver"
+	wielded_item_state = "combatrevolver"
 	max_shells = 6
 	caliber = ".44"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
@@ -896,13 +899,15 @@ the sprite and make my own projectile -Glloyd*/
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 
 /obj/item/weapon/gun/projectile/hi2521pistol/update_icon()
+	..()
 	if(ammo_magazine)
-		icon_state = "crewpistol[round(ammo_magazine.stored_ammo.len, 2)]"
-		item_state = "crewpistol[round(ammo_magazine.stored_ammo.len, 2)]"
+		icon_state = "crewpistol-[round(ammo_magazine.stored_ammo.len, 2)]"
+		item_state = "crewpistol-[round(ammo_magazine.stored_ammo.len, 2)]"
+		wielded_item_state = "crewpistol-[round(ammo_magazine.stored_ammo.len, 2)]"
 	else
 		icon_state = "crewpistol-empty"
 		item_state = "crewpistol-0"
-	..()
+		wielded_item_state = "crewpistol-0"
 
 /obj/item/ammo_magazine/hi2521pistol9mm
 	name = "HI-2521-P pistol magazine (9mm)"

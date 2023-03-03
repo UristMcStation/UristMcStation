@@ -101,7 +101,7 @@
 /decl/hierarchy/outfit/job/blueshield
 	name = OUTFIT_JOB_NAME("Blueshield")
 	uniform = /obj/item/clothing/under/rank/centcom
-	suit = /obj/item/clothing/suit/armor/vest/deus_blueshield
+	suit = /obj/item/clothing/suit/armor/pcarrier/deus_blueshield
 	l_ear = /obj/item/device/radio/headset/heads/hop
 	shoes = /obj/item/clothing/shoes/jackboots
 	id_type = /obj/item/weapon/card/id/blueshield

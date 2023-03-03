@@ -122,7 +122,7 @@ GLOBAL_DATUM_INIT(scommies, /datum/antagonist/scom, new)
 			M.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/urist/military/scom(M), slot_belt)
 			M.equip_to_slot_or_del(new /obj/item/clothing/head/beret/centcom/captain(M), slot_head)
 			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/silenced/knight(M), slot_r_store)
-			M.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest/deus_blueshield(M), slot_wear_suit)
+			M.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/pcarrier/medium(M), slot_wear_suit)
 			create_id("S-COM Officer", M)
 
 		if(RANK_COMMAND)

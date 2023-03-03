@@ -67,7 +67,7 @@
 	belt = /obj/item/weapon/storage/belt/urist/military/scom
 	head = /obj/item/clothing/head/beret/centcom/captain
 	r_pocket = /obj/item/weapon/gun/projectile/silenced/knight
-	suit = /obj/item/clothing/suit/armor/vest/deus_blueshield
+	suit = /obj/item/clothing/suit/armor/pcarrier/medium
 	l_hand = /obj/item/weapon/gun/projectile/automatic/c20r
 	r_hand = /obj/item/weapon/storage/box/c20ammo
 	id_pda_assignment = "S-COM Officer"
@@ -122,7 +122,7 @@
 		new /obj/item/weapon/storage/belt/urist/military/scom(src)
 		new /obj/item/clothing/head/beret/centcom/captain(src)
 		new /obj/item/weapon/gun/projectile/silenced/knight(src)
-		new /obj/item/clothing/suit/armor/vest/deus_blueshield(src)
+		new /obj/item/clothing/suit/armor/pcarrier/medium(src)
 		new /obj/item/weapon/gun/projectile/automatic/c20r(src)
 		new /obj/item/weapon/storage/box/c20ammo(src)
 		new /obj/item/clothing/shoes/jackboots/unathi(src)
