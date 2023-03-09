@@ -1,5 +1,5 @@
 /area/chemical_lab/
-	icon = 'chemical_lab.dmi'
+	icon = 'maps/away/chemical_lab/chemical_lab.dmi'
 
 /area/chemical_lab/airlock
 	name = "/improper Airlock"

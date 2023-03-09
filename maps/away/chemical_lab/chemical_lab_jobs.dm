@@ -5,7 +5,7 @@
 /datum/job/submap/chemical_lab_supervisor
 	title = "Lab Supervisor"
 	total_positions = 1
-	outfit_type = /decl/hierachy/outfit/chemical_lab/supervisor
+	outfit_type = /decl/hierarchy/outfit/job/chemical_lab/supervisor
 	supervisors = "yourself"
 	access = list(access_chemical_lab_worker, access_chemical_lab_supervisor)
 	info = "You are the Supervisor of an illict chemical manfucatoring operation, on an asteroid hidden in deep space. Ensure that your workers are safe, \
@@ -23,7 +23,7 @@
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "lab supervisor"
-	outfit_type = /decl/hierachy/outfit/chemical_lab/worker
+	outfit_type = /decl/hierarchy/outfit/job/chemical_lab/worker
 	access = list(access_chemical_lab_worker)
 	info = "You are one of the primary laboratory workers located on a hidden asteroid deep in space. \
 	Work together with your team, you have a plethora of reagents to experiment with, including an additional virology and botanical wing. \
@@ -39,24 +39,25 @@
 /obj/effect/submap_landmark/spawnpoint/labworker
 	name = "Lab Worker"
 
-/decl/hierachy/outfit/chemical_lab
+#define CHEMICAL_OUTFIT_JOB_NAME(job_name) ("Chemical Lab - Job - " + job_name)
+
+/decl/hierarchy/outfit/job/chemical_lab
 	hierarchy_type = /decl/hierarchy/outfit/job/chemical_lab
 	pda_type = /obj/item/modular_computer/pda
 	r_pocket = /obj/item/device/radio
-	l_eat = /obj/item/device/radio/headset
-	r_ear = null
+	l_ear = /obj/item/device/radio/headset
 
-/decl/hierachy/outfit/chemical_lab/worker
-	name = CHEMICAL_OUTFIT_JOB_NAME("Lab Worker")
+/decl/hierarchy/outfit/job/chemical_lab/worker
+	name = CHEMICAL_OUTFIT_JOB_NAME("Worker")
 	id_type = /obj/item/weapon/card/id/chemical_lab_worker
 	head = /obj/item/clothing/head/biohazardradiationhood
 	suit = /obj/item/clothing/suit/biohazardradiation
 	gloves = /obj/item/clothing/gloves/biohazard
 
-/decl/hierachy/outfit/chemical_lab/supervisor
-	name = CHEMICAL_OUTFIT_JOB_NAME("Lab Supervisor")
+/decl/hierarchy/outfit/job/chemical_lab/supervisor
+	name = CHEMICAL_OUTFIT_JOB_NAME("Supervisor")
 	id_type = /obj/item/weapon/card/id/chemical_lab_supervisor
-	uniform = /obj/item/clothing/under/urist/
 	shoes = /obj/item/clothing/shoes/black
 	l_pocket = /obj/item/
 
+#undef CHEMICAL_OUTFIT_JOB_NAME

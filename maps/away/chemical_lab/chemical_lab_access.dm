@@ -5,7 +5,7 @@
 	desc = "Chemical Lab Worker"
 	region = ACCESS_REGION_NONE
 
-/var/const/access_chemlab_supervisor = "ACCESS_CHEMICAL_LAB_SUPERVISOR"
+/var/const/access_chemical_lab_supervisor = "ACCESS_CHEMICAL_LAB_SUPERVISOR"
 /datum/access/chemical_lab_supervisor
 	id = access_chemical_lab_supervisor
 	desc = "Chemical Lab Supervisor"

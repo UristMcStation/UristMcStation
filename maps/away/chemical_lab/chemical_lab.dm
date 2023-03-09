@@ -1,6 +1,8 @@
-#include "chemical_lab_areas.dm"
 #include "chemical_lab_access.dm"
+#include "chemical_lab_areas.dm"
 #include "chemical_lab_jobs.dm"
+#include "chemical_lab_shuttle.dm"
+
 
 /obj/effect/submap_landmark/joinable_submap/chemical_lab
 	name = "Hidden Laboratory"
