@@ -1303,6 +1303,11 @@
 	dir = 6;
 	icon_state = "warning"
 	},
+/obj/machinery/camera/network/antonine{
+	c_tag = "Antonine Airlock - External";
+	dir = 8;
+	pixel_y = -22
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/logistics/hangar)
 "cO" = (
@@ -1832,11 +1837,6 @@
 	pixel_y = 25
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/camera/network/antonine{
-	c_tag = "Antonine Airlock - External";
-	dir = 8;
-	pixel_y = 8
-	},
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -2387,7 +2387,7 @@
 	input_tag = "d4_port_chamber_in";
 	name = "Chamber Gas Control";
 	output_tag = "d4_port_chamber_out";
-	sensors = list("d4_port_chamber_sensor" = "Combustion Chamber")
+	sensors = list("d4_port_chamber_sensor"="Combustion Chamber")
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/bdportengine)
@@ -7325,7 +7325,7 @@
 	dir = 4
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "Deck 4 Cargo");
+	codes = list("patrol"=1,"next_patrol"="Deck 4 Cargo");
 	location = "Deck 4 Escape"
 	},
 /turf/simulated/floor/plating,
@@ -12061,7 +12061,7 @@
 	input_tag = "d4_starboard_chamber_in";
 	name = "Chamber Gas Control";
 	output_tag = "d4_starboard_chamber_out";
-	sensors = list("d4_starboard_chamber_sensor" = "Combustion Chamber")
+	sensors = list("d4_starboard_chamber_sensor"="Combustion Chamber")
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/bdstarengine)
@@ -13977,7 +13977,7 @@
 	dir = 4
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "Deck 3 Aft Port");
+	codes = list("patrol"=1,"next_patrol"="Deck 3 Aft Port");
 	location = "Deck 4 Cargo"
 	},
 /turf/simulated/floor/plating,

@@ -90,6 +90,7 @@
 	locked = 0;
 	name = "Internal Airlock"
 	},
+/obj/machinery/atmospherics/pipe/simple/visible/black,
 /turf/simulated/floor,
 /area/smugglers/base)
 "ar" = (
