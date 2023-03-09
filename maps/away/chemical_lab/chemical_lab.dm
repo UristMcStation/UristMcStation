@@ -9,7 +9,7 @@
 	// archetype =
 
 /decl/submap_archetype/derelict/chemical_lab
-	descriptor = "A hidden illict labratory, used to create reagents, pathogens and other products."
+	descriptor = "Hidden Chemical Lab."
 	map = "chemical_lab"
 	crew_jobs = list(/datum/job/submap/chemical_lab_supervisor, /datum/job/submap/chemical_lab_worker)
 
@@ -29,7 +29,7 @@
 	cost = 1
 
 
-// Add Envelope Shit here.
+// Envelope
 
 /obj/item/weapon/folder/envelope/urist/supervisor_instructions
 	name = "employment details envelope"
