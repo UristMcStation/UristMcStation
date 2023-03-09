@@ -5,8 +5,9 @@
 /datum/job/submap/chemical_lab_supervisor
 	title = "Lab Supervisor"
 	total_positions = 1
-	//outfit_type = /decl/hierachy/outfit/job/chemlab/supervisor
+	outfit_type = /decl/hierachy/outfit/chemical_lab/supervisor
 	supervisors = "yourself"
+	access = list(access_chemical_lab_worker, access_chemical_lab_supervisor)
 	info = "You are the Supervisor of an illict chemical manfucatoring operation, on an asteroid hidden in deep space. Ensure that your workers are safe, \
 	and that production runs smoothly. You have been graciously granted multiple wings (Virology, Botany) to assist in chemistry and pathogen production. \
 	Be aware of outside interferance, trading with vessels is always welcome, but be aware of potential raiders or looters. \
@@ -20,8 +21,10 @@
 /datum/job/submap/chemical_lab_worker
 	title = "Lab Worker"
 	total_positions = 2
+	spawn_positions = 2
 	supervisors = "lab supervisor"
-	//outfit_type = /decl/hierarchy/outfit/job/chemlab/worker
+	outfit_type = /decl/hierachy/outfit/chemical_lab/worker
+	access = list(access_chemical_lab_worker)
 	info = "You are one of the primary laboratory workers located on a hidden asteroid deep in space. \
 	Work together with your team, you have a plethora of reagents to experiment with, including an additional virology and botanical wing. \
 	You can find rare and unusual reagents occasionally from your chemical storage.\
@@ -36,5 +39,24 @@
 /obj/effect/submap_landmark/spawnpoint/labworker
 	name = "Lab Worker"
 
-// Do Outfits Next.
-// Add Bimmers Outfits, too.
+/decl/hierachy/outfit/chemical_lab
+	hierarchy_type = /decl/hierarchy/outfit/job/chemical_lab
+	pda_type = /obj/item/modular_computer/pda
+	r_pocket = /obj/item/device/radio
+	l_eat = /obj/item/device/radio/headset
+	r_ear = null
+
+/decl/hierachy/outfit/chemical_lab/worker
+	name = CHEMICAL_OUTFIT_JOB_NAME("Lab Worker")
+	id_type = /obj/item/weapon/card/id/chemical_lab_worker
+	head = /obj/item/clothing/head/biohazardradiationhood
+	suit = /obj/item/clothing/suit/biohazardradiation
+	gloves = /obj/item/clothing/gloves/biohazard
+
+/decl/hierachy/outfit/chemical_lab/supervisor
+	name = CHEMICAL_OUTFIT_JOB_NAME("Lab Supervisor")
+	id_type = /obj/item/weapon/card/id/chemical_lab_supervisor
+	uniform = /obj/item/clothing/under/urist/
+	shoes = /obj/item/clothing/shoes/black
+	l_pocket = /obj/item/
+
