@@ -2091,6 +2091,28 @@
 /obj/machinery/space_heater,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/afp)
+"ec" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers";
+	tag = "icon-intact-scrubbers (EAST)"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/landmark{
+	name = "lightsout"
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/hallway/centralfourth)
 "ed" = (
 /obj/effect/catwalk_plated/dark,
 /obj/structure/cable{
@@ -4962,6 +4984,9 @@
 "jn" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/disposalpipe/segment,
+/obj/effect/landmark{
+	name = "lightsout"
+	},
 /turf/simulated/floor/wood/walnut,
 /area/security/forensics)
 "jo" = (
@@ -9314,6 +9339,9 @@
 /area/logistics/genprep)
 "qw" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/effect/landmark{
+	name = "lightsout"
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
 "qx" = (
@@ -18306,6 +18334,9 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
+/obj/effect/landmark{
+	name = "lightsout"
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "FF" = (
@@ -20780,6 +20811,33 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/hadrian/main)
+"Ls" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers";
+	tag = "icon-intact-scrubbers (EAST)"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1;
+	icon_state = "warning"
+	},
+/obj/effect/landmark{
+	name = "lightsout"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/logistics/fabwork)
 "Lt" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 4;
@@ -42021,7 +42079,7 @@ aa
 aa
 aa
 aa
-aa
+ad
 aa
 aa
 aa
@@ -42057,7 +42115,7 @@ Zm
 iM
 iM
 me
-no
+ec
 oc
 pe
 qc
@@ -44899,7 +44957,7 @@ wp
 xm
 Kr
 yd
-SX
+Ls
 zP
 AA
 sd
