@@ -157,3 +157,15 @@ so that static new weathers can be mapped in easily by VVing it directly*/
 	weather_safe = 0
 	weather_dynamic = 0
 	active_weathers = list(/obj/weathertype/sandstorm)
+
+/obj/effect/weather/invariant/holo_rain
+	name = "rain"
+	icon_state = "rain"
+	weather_safe = 1
+	active_weathers = list(/obj/weathertype/holorain)
+
+/obj/effect/weather/invariant/holo_snow
+	name = "snow"
+	icon_state = "bsnow"
+	weather_safe = 1
+	active_weathers = list(/obj/weathertype/holosnow)
