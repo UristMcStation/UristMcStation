@@ -15,6 +15,7 @@
 	greater_form = SPECIES_HUMAN
 	mob_size = MOB_SMALL
 	show_ssd = null
+	show_coma = null
 	health_hud_intensity = 1.75
 
 	gibbed_anim = "gibbed-m"
@@ -83,7 +84,7 @@
 				touchables += O
 		var/obj/touchy = pick(touchables)
 		touchy.attack_hand(H)
-	
+
 	if(prob(1))
 		H.emote(pick("scratch","jump","roll","tail"))
 
