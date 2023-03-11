@@ -4,6 +4,13 @@
 /datum/uplink_item/item/stealth_items
 	category = /datum/uplink_category/stealth_items
 
+
+/datum/uplink_item/item/stealth_items/balaclava
+	name = "Balaclava"
+	desc = "Opachki!"
+	item_cost = 1
+	path =	/obj/item/clothing/mask/balaclava
+
 /datum/uplink_item/item/stealth_items/syndigaloshes
 	name = "No-Slip Shoes"
 	item_cost = 4
@@ -52,3 +59,4 @@
 	desc = "This satchel is thin enough to be hidden in the gap between plating and tiling, great for stashing your stolen goods. Comes with a crowbar and a floor tile inside."
 	item_cost = 16
 	path = /obj/item/weapon/storage/backpack/satchel/flat
+

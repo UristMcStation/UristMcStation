@@ -12,6 +12,7 @@
 	death_msg = "expires with a pitiful chirrup..."
 	health = 60
 	maxHealth = 60
+	status_flags = NO_ANTAG
 
 	language = LANGUAGE_ROOTLOCAL
 	species_language = LANGUAGE_ROOTLOCAL
