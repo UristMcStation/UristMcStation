@@ -9035,10 +9035,6 @@
 /obj/machinery/door/airlock/hatch/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fore)
-"Cn" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black,
-/turf/simulated/floor/plating,
-/area/maintenance/first_deck/central)
 "Ct" = (
 /obj/machinery/light{
 	dir = 4
@@ -9072,10 +9068,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afp)
-"JF" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black,
-/turf/simulated/wall/r_wall/prepainted,
-/area/maintenance/first_deck/central)
 "Rn" = (
 /obj/effect/floor_decal/solarpanel,
 /obj/machinery/power/solar{
@@ -32256,8 +32248,8 @@ bV
 nm
 by
 by
-JF
-Cn
+by
+dI
 by
 ar
 ar
