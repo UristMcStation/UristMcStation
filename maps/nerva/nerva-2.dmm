@@ -7884,7 +7884,7 @@
 	},
 /obj/item/device/radio/beacon,
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "Deck 3 Port Central");
+	codes = list("patrol"=1,"next_patrol"="Deck 3 Port Central");
 	location = "Medbay"
 	},
 /turf/simulated/floor/tiled/white,
@@ -11631,7 +11631,7 @@
 	},
 /obj/effect/floor_decal/corner/lightgrey,
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "Medbay");
+	codes = list("patrol"=1,"next_patrol"="Medbay");
 	location = "Deck 3 Aft Port"
 	},
 /turf/simulated/floor/tiled,
@@ -12883,17 +12883,14 @@
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/cryo1)
 "avx" = (
-/obj/machinery/requests_console{
-	department = "Crew Quarters";
-	pixel_y = 30
-	},
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/machinery/cryopod{
 	dir = 4;
 	icon_state = "body_scanner_0";
 	tag = "icon-body_scanner_0 (EAST)"
+	},
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/cryo1)
@@ -12927,7 +12924,12 @@
 "avA" = (
 /obj/machinery/cryopod,
 /obj/machinery/light{
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
+	},
+/obj/machinery/requests_console{
+	department = "Crew Quarters";
+	pixel_y = 30
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/cryo1)
@@ -14709,7 +14711,7 @@
 	icon_state = "pipe-c"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "Security");
+	codes = list("patrol"=1,"next_patrol"="Security");
 	location = "Hydroponics"
 	},
 /turf/simulated/floor/tiled,
@@ -14800,7 +14802,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "Bridge Starboard");
+	codes = list("patrol"=1,"next_patrol"="Bridge Starboard");
 	location = "Bar"
 	},
 /turf/simulated/floor/wood/walnut,
@@ -16238,21 +16240,16 @@
 	pixel_y = -28;
 	tag = "icon-intercom (NORTH)"
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/cryo1)
 "aBZ" = (
 /obj/item/weapon/storage/toolbox/emergency,
-/obj/machinery/light,
 /obj/structure/closet/firecloset,
-/obj/item/device/radio/intercom{
-	dir = 1;
-	icon_state = "intercom";
-	pixel_y = -28;
-	tag = "icon-intercom (NORTH)"
-	},
 /obj/random/medical,
 /obj/random/medical,
 /obj/item/weapon/storage/toolbox/emergency,
+/obj/item/weapon/crowbar,
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/cryo1)
 "aCa" = (
@@ -17307,7 +17304,7 @@
 	sortType = "Disposals"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "Deck 2 Aft Port");
+	codes = list("patrol"=1,"next_patrol"="Deck 2 Aft Port");
 	location = "Deck 3 Aft Starboard"
 	},
 /turf/simulated/floor/tiled,
@@ -18676,7 +18673,7 @@
 	icon_state = "corner_white_three_quarters"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "Personnel");
+	codes = list("patrol"=1,"next_patrol"="Personnel");
 	location = "Bridge Starboard"
 	},
 /turf/simulated/floor/tiled,
@@ -20569,7 +20566,7 @@
 	icon_state = "bordercolor"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "EVA");
+	codes = list("patrol"=1,"next_patrol"="EVA");
 	location = "Personnel"
 	},
 /turf/simulated/floor/tiled,
@@ -21991,7 +21988,7 @@
 	name = "Engine Cooling Control";
 	output_tag = "cooling_out";
 	pressure_setting = 100;
-	sensors = list("engine_sensor" = "Engine Core")
+	sensors = list("engine_sensor"="Engine Core")
 	},
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for the engine charging port.";
@@ -25618,7 +25615,7 @@
 	icon_state = "2-8"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "Mailing Office");
+	codes = list("patrol"=1,"next_patrol"="Mailing Office");
 	location = "Deck 3 Cargo"
 	},
 /turf/simulated/floor/tiled,
@@ -28769,7 +28766,7 @@
 	icon_state = "corner_white"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "Bridge Port");
+	codes = list("patrol"=1,"next_patrol"="Bridge Port");
 	location = "Security"
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -28850,7 +28847,7 @@
 	icon_state = "intact-scrubbers"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "Deck 3 Aft Starboard");
+	codes = list("patrol"=1,"next_patrol"="Deck 3 Aft Starboard");
 	location = "Mailing Office"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -29272,7 +29269,7 @@
 	icon_state = "corner_white_three_quarters"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "Bar");
+	codes = list("patrol"=1,"next_patrol"="Bar");
 	location = "Bridge Port"
 	},
 /obj/structure/disposalpipe/segment{
@@ -29307,7 +29304,7 @@
 	dir = 5
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "Hydroponics");
+	codes = list("patrol"=1,"next_patrol"="Hydroponics");
 	location = "Deck 3 Port Central"
 	},
 /turf/simulated/floor/tiled,
@@ -31375,7 +31372,7 @@
 	dir = 10
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "Deck 3 Cargo");
+	codes = list("patrol"=1,"next_patrol"="Deck 3 Cargo");
 	location = "EVA"
 	},
 /turf/simulated/floor/tiled,
