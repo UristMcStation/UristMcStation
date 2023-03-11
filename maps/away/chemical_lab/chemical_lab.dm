@@ -62,3 +62,4 @@
 	4. You will have two minutes to cancel the self-destruct system before it is impossible to stop.\
 	5. Proceed to the Vulture-32B Single Seater Escape Shuttle and escape before detonation\
 	6. Crew expendable.")
+

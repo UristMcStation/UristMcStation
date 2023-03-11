@@ -1335,3 +1335,10 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_L, ACCESSORY_SLOT_ARMOR_S)
 	restricted_accessory_slots = list(ACCESSORY_SLOT_ARMOR_L, ACCESSORY_SLOT_ARMOR_S)
 	starting_accessories = list(/obj/item/clothing/accessory/storage/pouches/large)
+
+/obj/item/clothing/under/urist/chemlab_supervisor
+	name = "lab supervisor's uniform"
+	desc = "A drab dark brown uniform that offers minor protective qualities."
+	icon_state = "labsupervisor"
+	item_state = "labsupervisor"
+	armor = list(melee = 5, bullet = 5, laser = 0, energy = 0, bomb = 0, bio = 10, rad = 0)

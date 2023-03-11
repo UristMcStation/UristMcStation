@@ -1979,6 +1979,10 @@
 /obj/effect/floor_decal/corner_techfloor_grid/diagonal,
 /turf/simulated/floor/tiled/techmaint,
 /area/chemical_lab/vault)
+"yO" = (
+/obj/structure/flora/shimmering_orb,
+/turf/simulated/floor/asteroid,
+/area/space)
 "yT" = (
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /obj/effect/paint/green_grey,
@@ -7058,7 +7062,7 @@ Ay
 Ay
 UZ
 UZ
-UZ
+yO
 UZ
 UZ
 Ay
@@ -13657,9 +13661,9 @@ Ay
 Ay
 Ay
 Ay
-PR
 UZ
-Ay
+UZ
+UZ
 Ay
 Ay
 Ay
@@ -13780,8 +13784,8 @@ Ay
 Ay
 Ay
 UZ
-Ay
-Ay
+UZ
+yO
 Ay
 Ay
 Ay
@@ -13867,7 +13871,7 @@ BH
 io
 Ay
 UZ
-UZ
+yO
 UZ
 Ay
 UZ
