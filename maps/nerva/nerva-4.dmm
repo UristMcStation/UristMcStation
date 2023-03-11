@@ -340,7 +340,7 @@
 	icon_state = "intact"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "Deck 1 Starboard Docks");
+	codes = list("patrol"=1,"next_patrol"="Deck 1 Starboard Docks");
 	location = "Deck 1 Port Docks"
 	},
 /turf/simulated/floor/plating,
@@ -9057,11 +9057,17 @@
 	},
 /obj/effect/catwalk_plated,
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "Deck 4 Escape");
+	codes = list("patrol"=1,"next_patrol"="Deck 4 Escape");
 	location = "Deck 1 Starboard Docks"
 	},
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
+"II" = (
+/obj/effect/landmark{
+	name = "blobstart"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/first_deck/afp)
 "Rn" = (
 /obj/effect/floor_decal/solarpanel,
 /obj/machinery/power/solar{
@@ -18477,7 +18483,7 @@ aa
 aa
 aa
 aa
-aa
+ac
 aa
 aa
 aa
@@ -22705,7 +22711,7 @@ aa
 aa
 aa
 aa
-aa
+ac
 aa
 aa
 aa
@@ -27167,7 +27173,7 @@ bC
 bO
 cb
 cq
-bc
+II
 cX
 cp
 dV

@@ -1407,7 +1407,7 @@
 	input_tag = "fuel_in";
 	name = "Fuel Supply Control";
 	output_tag = "fuel_out";
-	sensors = list("fuel_sensor" = "Tank")
+	sensors = list("fuel_sensor"="Tank")
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
@@ -3163,7 +3163,7 @@
 	dir = 4
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "Deck 2 Fore Starboard");
+	codes = list("patrol"=1,"next_patrol"="Deck 2 Fore Starboard");
 	location = "Deck 2 Fore Port"
 	},
 /turf/simulated/floor/plating,
@@ -5228,7 +5228,7 @@
 	input_tag = "d2_c_chamber_in";
 	name = "Chamber Gas Control";
 	output_tag = "d2_c_chamber_out";
-	sensors = list("d2_c_chamber_sensor" = "Combustion Chamber")
+	sensors = list("d2_c_chamber_sensor"="Combustion Chamber")
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/fdengine)
@@ -5924,6 +5924,9 @@
 /area/engineering/break_room)
 "lT" = (
 /obj/effect/floor_decal/corner/yellow/three_quarters,
+/obj/effect/landmark{
+	name = "lightsout"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
 "lU" = (
@@ -8011,7 +8014,7 @@
 	},
 /obj/structure/catwalk,
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "Deck 2 Aft Starboard");
+	codes = list("patrol"=1,"next_patrol"="Deck 2 Aft Starboard");
 	location = "Deck 2 Fore Starboard"
 	},
 /obj/structure/cable{
@@ -10719,7 +10722,7 @@
 	input_tag = "co2_in";
 	name = "Carbon Dioxide Supply Control";
 	output_tag = "co2_out";
-	sensors = list("co2_sensor" = "Tank")
+	sensors = list("co2_sensor"="Tank")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 2;
@@ -11637,7 +11640,7 @@
 	input_tag = "h2_in";
 	name = "Hydrogen Supply Control";
 	output_tag = "h2_out";
-	sensors = list("tox_sensor" = "Tank")
+	sensors = list("tox_sensor"="Tank")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 2;
@@ -12103,7 +12106,7 @@
 	input_tag = "n2_in";
 	name = "Nitrogen Supply Control";
 	output_tag = "n2_out";
-	sensors = list("n2_sensor" = "Tank")
+	sensors = list("n2_sensor"="Tank")
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
@@ -12423,7 +12426,7 @@
 	input_tag = "n2o_in";
 	name = "Nitrous Oxide Supply Control";
 	output_tag = "n2o_out";
-	sensors = list("n2o_sensor" = "Tank")
+	sensors = list("n2o_sensor"="Tank")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 2;
@@ -12948,7 +12951,7 @@
 	input_tag = "o2_in";
 	name = "Oxygen Supply Control";
 	output_tag = "o2_out";
-	sensors = list("o2_sensor" = "Tank")
+	sensors = list("o2_sensor"="Tank")
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
@@ -13578,6 +13581,9 @@
 	tag = ""
 	},
 /obj/structure/catwalk,
+/obj/effect/landmark{
+	name = "blobstart"
+	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/second_deck)
 "AS" = (
@@ -14614,7 +14620,7 @@
 	dir = 4
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "Deck 2 Fore Port");
+	codes = list("patrol"=1,"next_patrol"="Deck 2 Fore Port");
 	location = "Deck 2 Aft Port"
 	},
 /turf/simulated/floor/plating,
@@ -15264,8 +15270,25 @@
 /turf/space,
 /area/security/prison)
 "KN" = (
+/obj/effect/landmark{
+	name = "lightsout"
+	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
+"KT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers";
+	tag = "icon-intact-scrubbers (EAST)"
+	},
+/obj/effect/landmark{
+	name = "lightsout"
+	},
+/turf/simulated/floor/carpet,
+/area/chapel)
 "KV" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -17218,6 +17241,9 @@
 	icon_state = "warning";
 	tag = "icon-warning (SOUTHEAST)"
 	},
+/obj/effect/landmark{
+	name = "lightsout"
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/command/teleporter)
 "Vl" = (
@@ -17261,7 +17287,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "Deck 1 Port Docks");
+	codes = list("patrol"=1,"next_patrol"="Deck 1 Port Docks");
 	location = "Deck 2 Aft Starboard"
 	},
 /turf/simulated/floor/tiled,
@@ -39567,7 +39593,7 @@ aa
 aa
 aa
 aa
-aa
+ae
 aa
 aa
 aa
@@ -40622,7 +40648,7 @@ tf
 Uc
 HB
 Bc
-Ll
+KT
 GX
 Bc
 Hy
@@ -48124,7 +48150,7 @@ aa
 aa
 aa
 aa
-aa
+ae
 aa
 aa
 aa
