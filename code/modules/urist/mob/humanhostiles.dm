@@ -371,3 +371,42 @@
 		new corpse (src.loc)
 	qdel(src)
 	return
+
+
+/mob/living/simple_animal/hostile/oldpirate
+	name = "pirate"
+	desc = "A pirate armed with a sword."
+	response_help = "tries to poke"
+	response_disarm = "tries to shove"
+	response_harm = "tries to hit"
+	attacktext = "slashes"
+	icon= 'icons/uristmob/simpleanimals.dmi'
+	icon_state = "piratemelee"
+	icon_living = "piratemelee"
+	icon_dead = "piratemelee_dead"
+	faction = "pirates"
+	maxHealth = 100
+	health = 100
+	ranged = 0
+	melee_damage_lower = 10
+	melee_damage_upper = 25
+
+/mob/living/simple_animal/hostile/oldpirate/ranged
+	name = "pirate"
+	desc = "A pirate armed with a musket."
+	response_help = "tries to poke"
+	response_disarm = "tries to shove"
+	response_harm = "tries to hit"
+	attacktext = "strikes"
+	icon= 'icons/uristmob/simpleanimals.dmi'
+	icon_state = "pirateranged"
+	icon_living = "pirateranged"
+	icon_dead = "pirateranged_dead"
+	faction = "pirates"
+	maxHealth = 100
+	health = 100
+	ranged = 1
+	projectiletype = /obj/item/projectile/bullet
+	projectilesound = 'sound/weapons/gunshot/gunshot2.ogg'
+	melee_damage_lower = 10
+	melee_damage_upper = 20
