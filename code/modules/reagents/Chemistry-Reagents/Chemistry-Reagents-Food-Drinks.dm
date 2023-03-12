@@ -20,6 +20,7 @@
 	for(var/taste in newdata)
 		if(taste in data)
 			data[taste] += newdata[taste]
+		else
 			data[taste] = newdata[taste]
 
 	//cull all tastes below 10% of total
