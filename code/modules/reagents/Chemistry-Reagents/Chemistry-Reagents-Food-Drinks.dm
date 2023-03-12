@@ -20,6 +20,7 @@
 	for(var/taste in newdata)
 		if(taste in data)
 			data[taste] += newdata[taste]
+		else
 			data[taste] = newdata[taste]
 
 	//cull all tastes below 10% of total
@@ -1607,13 +1608,13 @@
 	glass_desc = "Exotically blue, fruity drink, distilled from oranges."
 
 /datum/reagent/ethanol/cachaca
-	name = "Cachaca"
+	name = "Cachaça"
 	description = "A sweet alcoholic drink made from fermented sugarcane."
 	taste_description = "sweet, tropical juice"
 	color = "#d7d3b4"
 	strength = 25
 
-	glass_name = "cachaca"
+	glass_name = "cachaça"
 	glass_desc = "A sweet alcoholic drink made from fermented sugarcane."
 
 /datum/reagent/ethanol/champagne
@@ -2103,14 +2104,14 @@
 	glass_desc = "Vodka with a special tomato and hot sauce mix. Dash with salt and pepper and serve with lime."
 
 /datum/reagent/ethanol/caipirinha
-	name = "Capirinha"
-	description = "Cachaca and lime. Felicidades!"
+	name = "Caipirinha"
+	description = "Cachaça and lime. Felicidades!"
 	taste_description = "sweet tropical alcohol and lime"
 	color = "#fafedf"
 	strength = 30
 
 	glass_name = "capirinha"
-	glass_desc = "Cachaca and lime. Felicidades!."
+	glass_desc = "Cachaça and lime. Felicidades!."
 
 /datum/reagent/ethanol/changelingsting
 	name = "Changeling Sting"
