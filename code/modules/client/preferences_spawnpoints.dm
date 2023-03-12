@@ -73,7 +73,6 @@ GLOBAL_VAR(spawntypes)
 	for(var/obj/machinery/cryopod/C in A)
 		if(!C.occupant)
 			C.set_occupant(victim, 1)
-			victim.Sleeping(rand(1,3))
 			to_chat(victim,SPAN_NOTICE("You are slowly waking up from the cryostasis aboard [GLOB.using_map.full_name]. It might take a few seconds."))
 			return
 
@@ -93,7 +92,6 @@ GLOBAL_VAR(spawntypes)
 	for(var/obj/machinery/cryopod/C in A)
 		if(!C.occupant)
 			C.set_occupant(victim, 1)
-			victim.Sleeping(rand(1,3))
 			to_chat(victim,SPAN_NOTICE("You are slowly waking up from the cryostasis aboard [GLOB.using_map.full_name]. It might take a few seconds."))
 			return
 
