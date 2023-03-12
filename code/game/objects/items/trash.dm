@@ -132,3 +132,7 @@
 
 /obj/item/trash/attack(mob/M as mob, mob/living/user as mob)
 	return
+
+/obj/item/trash/usedplatter
+	name = "dirty platter"
+	icon_state = "usedplatter"

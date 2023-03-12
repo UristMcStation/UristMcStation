@@ -613,8 +613,15 @@
 					/obj/item/weapon/reagent_containers/food/drinks/coffeecup/metal = 8,
 					/obj/item/weapon/reagent_containers/food/drinks/flask/barflask = 5,
 					/obj/item/weapon/reagent_containers/food/drinks/flask/vacuumflask = 5,
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/baijiu = 5,
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/blackstrap = 5,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/gin = 5,
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/cachaca = 5,
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/champagne = 5,
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/jagermeister = 5,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/whiskey = 5,
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/rakia = 5,
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/llanbrydewhiskey = 5,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/tequilla = 5,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka = 5,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/vermouth = 5,
@@ -631,12 +638,18 @@
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/small/ale = 15,
 					/obj/item/weapon/reagent_containers/food/drinks/cans/speer = 10,
 					/obj/item/weapon/reagent_containers/food/drinks/cans/ale = 10,
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/small/hellshenpa = 15,
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/small/lager = 15,
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/small/gingerbeer = 15,
+					/obj/item/weapon/reagent_containers/food/drinks/cans/beastenergy = 10,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/cola = 5,
+					/obj/item/weapon/reagent_containers/food/drinks/cans/ionbru = 10,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/space_up = 5,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/space_mountain_wind = 5,
 					/obj/item/weapon/reagent_containers/food/drinks/tea/black = 15,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/orangejuice = 5,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/tomatojuice = 5,
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/lemonjuice = 2,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/limejuice = 5,
 					/obj/item/weapon/reagent_containers/food/drinks/cans/tonic = 15,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/cream = 5,
@@ -654,7 +667,10 @@
 					/obj/item/weapon/glass_extra/stick = 15,
 					/obj/item/weapon/glass_extra/straw = 15)
 	contraband = list(/obj/item/weapon/reagent_containers/food/drinks/bottle/premiumwine = 2,
-					/obj/item/weapon/reagent_containers/food/drinks/bottle/premiumvodka = 2)
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/premiumvodka = 2,
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/tadmorwine = 2,
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/brandy = 2,
+					/obj/item/weapon/reagent_containers/food/drinks/cans/artbru)
 	vend_delay = 15
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	product_slogans = "I hope nobody asks me for a bloody cup o' tea...;Alcohol is humanity's friend. Would you abandon a friend?;Quite delighted to serve you!;Is nobody thirsty on this station?"

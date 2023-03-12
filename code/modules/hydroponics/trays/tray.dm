@@ -131,7 +131,7 @@
 	return ..()
 
 /obj/machinery/portable_atmospherics/hydroponics/attack_ghost(var/mob/observer/ghost/user)
-	if(!(harvest && seed && seed.has_mob_product))
+	if(!(harvest && seed && seed.product_type))
 		return
 
 	if(!user.can_admin_interact())
@@ -395,7 +395,6 @@
 
 	update_icon()
 	visible_message("<span class='danger'>The </span><span class='notice'>[previous_plant]</span><span class='danger'> has suddenly mutated into </span><span class='notice'>[seed.display_name]!</span>")
-
 	return
 
 /obj/machinery/portable_atmospherics/hydroponics/attackby(var/obj/item/O as obj, var/mob/user as mob)
@@ -468,6 +467,11 @@
 
 		var/obj/item/weapon/storage/plants/S = O
 		for (var/obj/item/weapon/reagent_containers/food/snacks/grown/G in locate(user.x,user.y,user.z))
+			if(!S.can_be_inserted(G, user))
+				return
+			S.handle_item_insertion(G, 1)
+
+		for (var/obj/item/shellfish/G in locate(user.x,user.y,user.z))
 			if(!S.can_be_inserted(G, user))
 				return
 			S.handle_item_insertion(G, 1)
@@ -564,9 +568,9 @@
 		to_chat(usr, "\The [src] is <span class='danger'>infested with tiny worms</span>!")
 
 	if(dead)
-		to_chat(usr, "<span class='danger'>The plant is dead.</span>")
+		to_chat(usr, "<span class='danger'>The [seed.display_name] plant is dead.</span>")
 	else if(health <= (seed.get_trait(TRAIT_ENDURANCE)/ 2))
-		to_chat(usr, "The plant looks <span class='danger'>unhealthy</span>.")
+		to_chat(usr, "The [seed.display_name] looks <span class='danger'>unhealthy</span>.")
 
 	if(mechanical)
 		var/turf/T = loc
