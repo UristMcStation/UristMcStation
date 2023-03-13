@@ -63,3 +63,45 @@
 	5. Proceed to the Vulture-32B Single Seater Escape Shuttle and escape before detonation\
 	6. Crew expendable.")
 
+
+// Spawners
+
+// Shimmering Orbs.
+
+/obj/effect/spawner/structure/shimmeringorb
+	var/obj/structure/flora/shimmering_orb/H
+
+/obj/effect/spawner/structure/shimmeringorb/Initialize()
+	. = ..()
+	if (rand(0, 3) == 0)
+		H = new/obj/structure/flora/shimmering_orb/(loc)
+
+// Chemical Spawner
+/*
+
+Note Making for Now...
+
+
+/obj/effect/spawner/structure/chem_shelf
+	var/obj/structure/chem_shelf/H
+
+/obj/effect/spawner/structure/chem_shelf/Initialize()
+	. = ..()
+
+
+Banned Chemicals ---
+/datum/reagent/adminordrazine - Everything else is free game. Round-ending, or incredibly insane OP stuff will have a tiny chance to spawn.
+
+
+Modify Values
+/datum/reagent/water/holywater,
+/datum/reagent/chloralhydrate/beer2
+/datum/reagent/toxin/fertilizer
+/datum/reagent/xenomicrobes/uristzombie   --- SUPER RARE
+/datum/reagent/toxin/zombie -- SUPER RARE
+/datum/reagent/hell_water
+
+
+
+*/
+
