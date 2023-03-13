@@ -63,6 +63,83 @@
 	5. Proceed to the Vulture-32B Single Seater Escape Shuttle and escape before detonation\
 	6. Crew expendable.")
 
+// Closets
+// I don't know if I hate modular closets or not yet, nevermind i do now
+
+// Setup
+
+// Supervisors
+/decl/closet_appearance/secure_closet/labsupervisor
+	color = "#9b2525"
+	decals = list(
+		"lower_holes",
+		"upper_holes"
+	)
+	extra_decals = list(
+		"stripe_vertical_left_partial" = COLOR_GOLD,
+	)
+
+// Lab Worker
+/decl/closet_appearance/secure_closet/labworker
+	color = "#c76bca"
+	decals = list(
+		"lower_holes",
+		"upper_holes"
+	)
+	extra_decals = list(
+		"stripe_vertical_left_partial" = COLOR_GOLD,
+		"stripe_vertical_right_partial" = COLOR_GOLD,
+		"fo" = COLOR_GOLD
+	)
+
+// Generic Science
+/decl/closet_appearance/secure_closet/labworker_generic
+	color = "#b377a4"
+	decals = list(
+		"lower_holes",
+		"upper_holes"
+	)
+	extra_decals = list(
+		"stripe_vertical_left_partial" = COLOR_GOLD,
+		"stripe_vertical_right_partial" = COLOR_GOLD,
+		"fo" = COLOR_GOLD
+	)
+
+// Setup
+
+/obj/structure/closet/secure_closet/supervisor
+	name = "laboratory supervisor's closet"
+	req_access = list()
+	closet_appearance = /decl/closet_appearance/secure_closet/labsupervisor
+
+/obj/structure/closet/secure_closet/labworker
+	name = "labratory worker closet"
+	req_access = list(access_)
+	closet_appearance = /decl/closet_appearance/secure_closet/labworker
+
+/obj/structure/closet/labworker_generic
+	name = "labratory closet"
+	req_access = list(access_)
+	closet_appearance = /decl/closet_appearance/closet/labworker_generic
+
+
+// Weapons:
+
+/obj/weapon/projectile/bullet/pistol/lab_pistol // Change this later.
+	name = ""			// Find a decent name, do icons, etc.
+	desc = "A pistol well known for being used by criminal elements, for it's cheap cost and reliability. Uses .45 rounds"
+	icon = ''
+	icon_state = ''
+	item_icons = URIST_ALL_ONMOBS
+	wielded_item_state = ""
+	w_class = ITEM_SIZE_SMALL
+	load_method = MAGAZINE
+	caliber = ".45"
+	origin_tech = list(TECH_COMBAT = 2, TECH_ILLEGAL = 1)
+	slot_flags = list(SLOT_BELT, SLOT_POCKET) // Make sure this works.
+	ammo_type = /obk/item/ammo_casing/c45
+	// Allowed Magazines - allowed_magazines
+	// Magazine Type - magazine_type
 
 // Spawners
 
