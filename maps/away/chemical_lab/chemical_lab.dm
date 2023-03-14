@@ -93,7 +93,7 @@
 	)
 
 // Generic Science
-/decl/closet_appearance/secure_closet/labworker_generic
+/decl/closet_appearance/closet/labworker_generic
 	color = "#b377a4"
 	decals = list(
 		"lower_holes",
@@ -109,21 +109,34 @@
 
 /obj/structure/closet/secure_closet/supervisor
 	name = "laboratory supervisor's closet"
-	req_access = list()
+	req_access = list(access_chemical_lab_supervisor)
 	closet_appearance = /decl/closet_appearance/secure_closet/labsupervisor
 
 /obj/structure/closet/secure_closet/labworker
 	name = "labratory worker closet"
-	req_access = list(access_)
+	req_access = list(access_chemical_lab_worker)
 	closet_appearance = /decl/closet_appearance/secure_closet/labworker
 
 /obj/structure/closet/labworker_generic
 	name = "labratory closet"
-	req_access = list(access_)
 	closet_appearance = /decl/closet_appearance/closet/labworker_generic
 
 
-// Weapons:
+/*
+// Self-Destruct System: Able to be armed, and causes a detonation in 5 minutes.
+/obj/structure/away/self_destruct
+	name = "self-destruct mechanism"
+	icon = "self_destruct"
+	icon_state = "self_destruct"
+	anchored = 1
+	density = 1
+	var/enabled = FALSE
+
+
+
+
+
+Weapons:
 
 /obj/weapon/projectile/bullet/pistol/lab_pistol // Change this later.
 	name = ""			// Find a decent name, do icons, etc.
@@ -137,9 +150,28 @@
 	caliber = ".45"
 	origin_tech = list(TECH_COMBAT = 2, TECH_ILLEGAL = 1)
 	slot_flags = list(SLOT_BELT, SLOT_POCKET) // Make sure this works.
-	ammo_type = /obk/item/ammo_casing/c45
+	ammo_type = /obj/item/ammo_casing/c45
 	// Allowed Magazines - allowed_magazines
 	// Magazine Type - magazine_type
+
+/obj/weapon/gun/energy/sparq_beam		// Will be used for other Aways, make sure you move this later.
+	name = "Sparq Beam"
+	desc =  "A sparq beam, an outdated single-shot cartridge fed energy beam emitter, designed to immobilize a target"
+	icon = ''
+	icon_state = ''
+	item_icons = URIST_ALL_ONMOBS
+	wielded_item_state = ""
+	w_class = ITEM_SIZE_SMALL
+	load_method = MAGAZINE
+	caliber = ".45"
+	origin_tech = list(TECH_COMBAT = 2, TECH_ILLEGAL = 1)
+	slot_flags = list(SLOT_BELT, SLOT_POCKET) // Make sure this works.
+	ammo_type = /obj/item/ammo_casing/c45
+	// Allowed Magazines - allowed_magazines
+	// Magazine Type - magazine_type
+
+
+*/
 
 // Spawners
 
@@ -153,8 +185,60 @@
 	if (rand(0, 3) == 0)
 		H = new/obj/structure/flora/shimmering_orb/(loc)
 
-// Chemical Spawner
+// Chemical Shelf Structure.
+
+/obj/structure/urist/chemical_shelf
+	name = "Chemical Storage Shelf"
+	desc = "A storage shelf that can be filled with all sorts of glass bottles and vials of different chemicals."
+	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon_state = 'chem-0'
+	anchored = 1
+	opacity = 0
+
+
+
+
+
+
+
+
+
 /*
+/obj/structure/urist/chemical_shelf
+	name = "Chemical Storage Shelf"
+	desc = "A storage shelf full of all sorts of beakers and vials of different coloured liquids."
+	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon_state = 'chem-0'
+	anchored = 1
+	opacity = 0
+
+/obj/structure/urist/chemical_shelf/Initialize()
+	for(var/obj/item/I in loc)
+		if(istype(I, /obj/item/weapon/reagent_containers/glass))
+			I.forceMove(src)
+	update_icon()
+	. = ..()
+
+/obj/structure/urist/chemical_shelf/attackby(obj/O as obj, mob/user as mob)
+	if(istype(O, /obj/item/weapon/reagent_containers/glass))
+		if(!user.unEquip(O, src))
+			return
+		update_icon()
+	else
+		..()
+	return
+
+/obj/structure/urist/chemical_shelf/on_update_icon()
+	if(contents.len < 5)
+		icon_state = 'chem-[contents.len]'
+	else
+		icon_state = 'chem-4'
+
+
+*/
+
+/*
+// Chemical Spawner
 
 Note Making for Now...
 
@@ -177,8 +261,7 @@ Modify Values
 /datum/reagent/xenomicrobes/uristzombie   --- SUPER RARE
 /datum/reagent/toxin/zombie -- SUPER RARE
 /datum/reagent/hell_water
-
+three eye (oh god)
 
 
 */
-
