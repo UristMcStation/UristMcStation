@@ -52,10 +52,10 @@ var/global/list/plant_seed_sprites = list()
 
 	if(is_seeds)
 		src.SetName("packet of [seed.seed_name] [seed.seed_noun]")
-		src.desc = "It has a picture of [seed.display_name] on the front."
+		src.desc = "It has a picture of \a [seed.display_name] on the front."
 	else
 		src.SetName("sample of [seed.seed_name] [seed.seed_noun]")
-		src.desc = "It's labelled as coming from [seed.display_name]."
+		src.desc = "It's labelled as coming from \a [seed.seed_name]."
 
 /obj/item/seeds/examine(mob/user)
 	. = ..(user)
@@ -281,3 +281,48 @@ var/global/list/plant_seed_sprites = list()
 
 /obj/item/seeds/algaeseed
 	seed_type = "algae"
+
+/obj/item/seeds/shellfish
+	seed_type = "shellfish"
+
+/obj/item/seeds/clam
+	seed_type = "clam"
+
+/obj/item/seeds/mussel
+	seed_type = "mussel"
+
+/obj/item/seeds/oyster
+	seed_type = "oyster"
+
+/obj/item/seeds/shrimp
+	seed_type = "shrimp"
+
+/obj/item/seeds/crab
+	seed_type = "crab"
+
+/obj/item/seeds/coconutseed
+	seed_type = "coconuts"
+
+/obj/item/seeds/vanillaseed
+	seed_type = "vanilla"
+
+/obj/item/seeds/pineappleseed
+	seed_type = "pineapples"
+
+/obj/item/seeds/coffeeseed
+	seed_type = "coffee"
+
+/obj/item/seeds/pearseed
+	seed_type = "pears"
+
+/obj/item/seeds/olives
+	seed_type = "olives"
+
+/obj/item/seeds/aghrassh
+	seed_type = "aghrassh"
+
+/obj/item/seeds/gukhe
+	seed_type = "gukhe"
+
+/obj/item/seeds/cinnamon
+	seed_type = "cinnamon"

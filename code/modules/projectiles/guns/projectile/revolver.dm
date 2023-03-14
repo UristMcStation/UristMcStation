@@ -104,7 +104,8 @@
 	item_icons = URIST_ALL_ONMOBS
 	item_state = "deckard"
 	wielded_item_state = "deckard"
-	ammo_type = /obj/item/ammo_magazine/c38/rubber
+	caliber = ".38"
+	ammo_type = /obj/item/ammo_casing/c38/rubber
 
 /obj/item/weapon/gun/projectile/revolver/deckard/emp
 	ammo_type = /obj/item/ammo_casing/c38/emp

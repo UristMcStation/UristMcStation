@@ -263,6 +263,8 @@
 			occupant.heal_organ_damage(heal_brute,heal_fire)
 		if(beaker)
 			beaker.reagents.trans_to_mob(occupant, REM, CHEM_BLOOD)
+		if (occupant.stat == UNCONSCIOUS && prob(2))
+			to_chat(occupant, SPAN_NOTICE(SPAN_BOLD("... [pick("comfy", "feels slow", "warm")] ...")))
 
 /obj/machinery/atmospherics/unary/cryo_cell/proc/heat_gas_contents()
 	if(air_contents.total_moles < 1)

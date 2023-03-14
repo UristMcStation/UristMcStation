@@ -1038,3 +1038,213 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/spider
 	)
 	result = /obj/item/weapon/reagent_containers/food/snacks/spider/cooked
+
+//bay ports: lizardfood and seafood
+
+/datum/recipe/bacon
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/rawbacon
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/bacon
+
+
+/datum/recipe/chilied_eggs
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/boiledegg,
+		/obj/item/weapon/reagent_containers/food/snacks/boiledegg,
+		/obj/item/weapon/reagent_containers/food/snacks/boiledegg,
+		/obj/item/weapon/reagent_containers/food/snacks/hotchili
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/chilied_eggs
+
+
+/datum/recipe/hatchling_suprise
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/bacon,
+		/obj/item/weapon/reagent_containers/food/snacks/bacon,
+		/obj/item/weapon/reagent_containers/food/snacks/bacon,
+		/obj/item/weapon/reagent_containers/food/snacks/friedegg
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/hatchling_suprise
+
+
+/datum/recipe/red_sun_special
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/sausage,
+		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/red_sun_special
+
+
+/datum/recipe/sea_delight
+	reagents = list(
+		/datum/reagent/water = 10
+	)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/egg,
+		/obj/item/weapon/reagent_containers/food/snacks/egg,
+		/obj/item/weapon/reagent_containers/food/snacks/egg
+	)
+	fruit = list(
+		"gukhe" = 2
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/sea_delight
+
+/datum/recipe/stok_skewers
+	reagents = list(
+		/datum/reagent/nutriment/vinegar = 5
+	)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/cutlet,
+		/obj/item/weapon/reagent_containers/food/snacks/cutlet
+	)
+	fruit = list(
+		"gukhe" = 1
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/stok_skewers
+
+
+/datum/recipe/gukhe_fish
+	reagents = list(
+		/datum/reagent/sodiumchloride = 3,
+		/datum/reagent/nutriment/vinegar = 3
+	)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/fish
+	)
+	fruit = list(
+		"gukhe" = 1
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/gukhe_fish
+
+
+/datum/recipe/aghrassh_cake
+	reagents = list(
+		/datum/reagent/nutriment/protein = 8,
+		/datum/reagent/nutriment/coco = 3,
+		/datum/reagent/blackpepper = 3
+	)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/egg
+	)
+	fruit = list(
+		"aghrassh" = 1
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/aghrassh_cake
+
+
+/datum/recipe/clam_chowder
+	reagents = list(
+		/datum/reagent/drink/milk/cream = 10
+	)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/shellfish/clam
+	)
+	fruit = list(
+		"potato" = 1
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/clam_chowder
+
+
+/datum/recipe/bisque
+	reagents = list(
+		/datum/reagent/drink/milk/cream = 10
+	)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/shellfish/crab,
+		/obj/item/weapon/reagent_containers/food/snacks/shellfish/crab
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/bisque
+
+
+/datum/recipe/stuffed_clam
+	reagents = list(
+		/datum/reagent/sodiumchloride = 1,
+		/datum/reagent/blackpepper = 1
+	)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/shellfish/clam,
+		/obj/item/weapon/reagent_containers/food/snacks/slice/bread
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/stuffed_clam
+
+/datum/recipe/oysters_rockefeller
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/shellfish/oyster,
+		/obj/item/weapon/reagent_containers/food/snacks/shellfish/oyster,
+		/obj/item/weapon/reagent_containers/food/snacks/bacon,
+		/obj/item/weapon/reagent_containers/food/snacks/slice/bread
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/oysters_rockefeller
+
+
+/datum/recipe/crab_cakes
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/shellfish/crab,
+		/obj/item/weapon/reagent_containers/food/snacks/slice/bread,
+		/obj/item/weapon/reagent_containers/food/snacks/egg
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/crab_cakes
+
+
+/datum/recipe/crab_rangoon
+	reagents = list(
+		/datum/reagent/drink/milk/cream = 5
+	)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/doughslice,
+		/obj/item/weapon/reagent_containers/food/snacks/shellfish/crab,
+		/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/crab_rangoon
+
+
+/datum/recipe/crab_dinner
+	reagents = list(
+		/datum/reagent/water = 10
+	)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/shellfish/crab,
+		/obj/item/weapon/reagent_containers/food/snacks/shellfish/crab,
+		/obj/item/weapon/reagent_containers/food/snacks/shellfish/crab,
+		/obj/item/weapon/reagent_containers/food/snacks/fruit_slice
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/crab_dinner
+
+
+/datum/recipe/shrimp_cocktail
+	reagents = list(
+		/datum/reagent/nutriment/ketchup = 5
+	)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/shellfish/shrimp,
+		/obj/item/weapon/reagent_containers/food/snacks/shellfish/shrimp,
+		/obj/item/weapon/reagent_containers/food/snacks/shellfish/shrimp,
+		/obj/item/weapon/reagent_containers/food/drinks/glass2/cocktail
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/shrimp_cocktail
+
+
+/datum/recipe/shrimp_tempura
+	reagents = list(
+		/datum/reagent/nutriment/batter = 5
+	)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/shellfish/shrimp
+	)
+	result = /obj/item/weapon/reagent_containers/food/snacks/shrimp_tempura
+
+
+/datum/recipe/seafood_paella
+	reagents = list(
+		/datum/reagent/ethanol/wine/premium = 5
+	)
+	items = list(
+		/obj/item/weapon/reagent_containers/food/snacks/shellfish/shrimp,
+		/obj/item/weapon/reagent_containers/food/snacks/shellfish/shrimp,
+		/obj/item/weapon/reagent_containers/food/snacks/shellfish/mussel,
+		/obj/item/weapon/reagent_containers/food/snacks/shellfish/mussel,
+		/obj/item/weapon/reagent_containers/food/snacks/boiledrice
+	)
+	fruit = list("tomato" = 1)
+	result = /obj/item/weapon/reagent_containers/food/snacks/seafood_paella

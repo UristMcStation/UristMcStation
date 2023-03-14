@@ -87,3 +87,12 @@
 	name = "chicken crate"
 	held_count = 5
 	held_type = /mob/living/simple_animal/chick
+
+/obj/structure/largecrate/animal/goose
+	name = "goose containment unit"
+	held_type = /mob/living/simple_animal/hostile/retaliate/goose
+
+/obj/structure/largecrate/animal/crab
+	name = "crab crate"
+	held_count = 3
+	held_type = /mob/living/simple_animal/crab

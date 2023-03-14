@@ -100,7 +100,7 @@ GLOBAL_LIST_INIT(registered_cyborg_weapons, list())
 
 	if(!..())
 		return
-	
+
 	if(hatch_open)
 		to_chat(user, "<span class='warning'>[src] has its cell cover still open!</span>")
 		return 0
@@ -119,7 +119,7 @@ GLOBAL_LIST_INIT(registered_cyborg_weapons, list())
 				return
 			if(AM.maxcharge <= (max_shots*charge_cost))
 				user.visible_message("[user] begins to reconfigure the wires and insert the cell into [src].","<span class='notice'>You begin to reconfigure the wires and insert the cell into [src].</span>")
-				
+
 				if(!do_after(user, reload_time, src))
 					user.visible_message("[usr] stops reconfiguring the wires in [src].","<span class='warning'>You stop reconfiguring the wires in [src].</span>")
 					return
@@ -152,6 +152,7 @@ GLOBAL_LIST_INIT(registered_cyborg_weapons, list())
 			else
 				icon_state = "[initial(icon_state)][0]"
 			update_icon()
+			update_held_icon()
 		else
 			to_chat(user, "<span class='warning'>[src] is empty.</span>")
 	else
@@ -215,3 +216,4 @@ GLOBAL_LIST_INIT(registered_cyborg_weapons, list())
 			icon_state = "[modifystate][ratio]"
 		else
 			icon_state = "[initial(icon_state)][ratio]"
+		update_held_icon()

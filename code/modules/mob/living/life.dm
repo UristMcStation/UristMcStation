@@ -174,6 +174,8 @@
 		set_fullscreen(eye_blurry, "blurry", /obj/screen/fullscreen/blurry)
 		set_fullscreen(druggy, "high", /obj/screen/fullscreen/high)
 
+	set_fullscreen(stat == UNCONSCIOUS, "blind", /obj/screen/fullscreen/blind)
+
 	if(machine)
 		var/viewflags = machine.check_eye(src)
 		if(viewflags < 0)

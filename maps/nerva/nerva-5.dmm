@@ -5493,7 +5493,7 @@
 /obj/machinery/vending/cigarette{
 	name = "hacked cigarette machine";
 	prices = list();
-	products = list(/obj/item/weapon/storage/fancy/cigarettes = 10, /obj/item/weapon/storage/box/matches = 10, /obj/item/weapon/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
+	products = list(/obj/item/weapon/storage/fancy/cigarettes=10,/obj/item/weapon/storage/box/matches=10,/obj/item/weapon/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=2)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -6222,6 +6222,16 @@
 	icon_state = "lino"
 	},
 /area/tdome/tdomeobserve)
+"nK" = (
+/obj/effect/floor_decal/water_edge{
+	tag = "icon-test (WEST)";
+	icon_state = "test";
+	dir = 8
+	},
+/obj/structure/flora/ausbushes/reedbush,
+/obj/effect/weather/invariant/holo_rain,
+/turf/simulated/floor/holofloor/urist/jungle_water,
+/area/holodeck/source_jungle)
 "nL" = (
 /obj/effect/floor_decal/carpet{
 	dir = 8
@@ -6381,6 +6391,15 @@
 "ol" = (
 /turf/simulated/floor/holofloor/beach/sand,
 /area/holodeck/source_beach)
+"oo" = (
+/obj/effect/floor_decal/water_edge{
+	tag = "icon-test (NORTH)";
+	icon_state = "test";
+	dir = 1
+	},
+/obj/effect/weather/invariant/holo_rain,
+/turf/simulated/floor/holofloor/urist/jungle_water,
+/area/holodeck/source_jungle)
 "op" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
@@ -6738,6 +6757,13 @@
 "pa" = (
 /turf/simulated/floor/holofloor/beach/sand,
 /area/holodeck/source_volleyball)
+"pb" = (
+/obj/structure/bed/chair/holochair/wood{
+	icon_state = "wooden_chair_preview";
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_rainycafe)
 "pc" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 4;
@@ -6818,6 +6844,21 @@
 /obj/effect/wallframe_spawn/reinforced_phoron,
 /turf/simulated/floor/plating,
 /area/skipjack_station/start)
+"po" = (
+/obj/effect/floor_decal/water_edge,
+/obj/effect/floor_decal/water_edge{
+	tag = "icon-test (NORTHEAST)";
+	icon_state = "test";
+	dir = 5
+	},
+/obj/effect/floor_decal/water_edge{
+	tag = "icon-test (NORTH)";
+	icon_state = "test";
+	dir = 1
+	},
+/obj/effect/weather/invariant/holo_rain,
+/turf/simulated/floor/holofloor/urist/jungle_water,
+/area/holodeck/source_jungle)
 "pp" = (
 /obj/machinery/door/airlock/external{
 	density = 1;
@@ -7579,6 +7620,11 @@
 /obj/effect/overlay/palmtree_l,
 /turf/simulated/floor/holofloor/beach/sand,
 /area/holodeck/source_beach)
+"rh" = (
+/obj/structure/flora/ausbushes/sunnybush,
+/obj/effect/weather/invariant/holo_rain,
+/turf/simulated/floor/holofloor/urist/junglegrass_browngreen,
+/area/holodeck/source_jungle)
 "rj" = (
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/holofloor/beach/sand{
@@ -8001,6 +8047,16 @@
 "sH" = (
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_thunderdomecourt)
+"sI" = (
+/obj/effect/floor_decal/water_edge,
+/obj/effect/floor_decal/water_edge{
+	tag = "icon-test2";
+	icon_state = "test2";
+	dir = 2
+	},
+/obj/effect/weather/invariant/holo_rain,
+/turf/simulated/floor/holofloor/urist/jungle_water,
+/area/holodeck/source_jungle)
 "sK" = (
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_basketball)
@@ -8119,6 +8175,10 @@
 	icon_state = "vault"
 	},
 /area/tdome)
+"tb" = (
+/obj/effect/weather/invariant/holo_snow,
+/turf/simulated/floor/holofloor/snow,
+/area/holodeck/source_christmas)
 "tc" = (
 /obj/structure/holostool,
 /obj/effect/floor_decal/corner/black/border{
@@ -8249,7 +8309,7 @@
 /obj/machinery/vending/cigarette{
 	name = "hacked cigarette machine";
 	prices = list();
-	products = list(/obj/item/weapon/storage/fancy/cigarettes = 10, /obj/item/weapon/storage/box/matches = 10, /obj/item/weapon/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
+	products = list(/obj/item/weapon/storage/fancy/cigarettes=10,/obj/item/weapon/storage/box/matches=10,/obj/item/weapon/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=2)
 	},
 /turf/unsimulated/floor{
 	icon_state = "plating";
@@ -8340,6 +8400,16 @@
 	icon_state = "vault"
 	},
 /area/tdome)
+"tL" = (
+/obj/effect/floor_decal/water_edge{
+	tag = "icon-test (SOUTHWEST)";
+	icon_state = "test";
+	dir = 10
+	},
+/obj/structure/flora/ausbushes/reedbush,
+/obj/effect/weather/invariant/holo_rain,
+/turf/simulated/floor/holofloor/urist/jungle_water,
+/area/holodeck/source_jungle)
 "tM" = (
 /obj/effect/floor_decal/corner/green/three_quarters{
 	dir = 4
@@ -8615,6 +8685,12 @@
 "uO" = (
 /turf/simulated/floor/tiled/dark,
 /area/tdome)
+"uP" = (
+/obj/structure/flora/ausbushes/sunnybush,
+/obj/structure/flora/tree/planet/jungle/large,
+/obj/effect/weather/invariant/holo_rain,
+/turf/simulated/floor/holofloor/urist/junglegrass_browngreen,
+/area/holodeck/source_jungle)
 "uS" = (
 /obj/structure/table/holotable,
 /obj/item/clothing/head/helmet/thunderdome,
@@ -8750,6 +8826,11 @@
 /obj/effect/floor_decal/corner/green/three_quarters,
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_basketball)
+"vl" = (
+/obj/structure/flora/grass/brown,
+/obj/effect/weather/invariant/holo_snow,
+/turf/simulated/floor/holofloor/snow,
+/area/holodeck/source_christmas)
 "vm" = (
 /obj/effect/floor_decal/corner/green/three_quarters{
 	dir = 4
@@ -11785,7 +11866,7 @@
 /obj/machinery/vending/cigarette{
 	name = "hacked cigarette machine";
 	prices = list();
-	products = list(/obj/item/weapon/storage/fancy/cigarettes = 10, /obj/item/weapon/storage/box/matches = 10, /obj/item/weapon/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
+	products = list(/obj/item/weapon/storage/fancy/cigarettes=10,/obj/item/weapon/storage/box/matches=10,/obj/item/weapon/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=2)
 	},
 /obj/structure/window/reinforced{
 	dir = 1
@@ -13894,6 +13975,11 @@
 	icon_state = "swall_straight"
 	},
 /area/shuttle/merchant/home)
+"Hh" = (
+/obj/structure/flora/grass/both,
+/obj/effect/weather/invariant/holo_snow,
+/turf/simulated/floor/holofloor/snow,
+/area/holodeck/source_christmas)
 "Hi" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -14009,7 +14095,7 @@
 /obj/machinery/vending/assist{
 	contraband = null;
 	name = "AntagCorpVent";
-	products = list(/obj/item/device/assembly/prox_sensor = 5, /obj/item/device/assembly/signaler = 4, /obj/item/device/assembly/infra = 4, /obj/item/device/assembly/prox_sensor = 4, /obj/item/weapon/handcuffs = 8, /obj/item/device/flash = 4)
+	products = list(/obj/item/device/assembly/prox_sensor=5,/obj/item/device/assembly/signaler=4,/obj/item/device/assembly/infra=4,/obj/item/device/assembly/prox_sensor=4,/obj/item/weapon/handcuffs=8,/obj/item/device/flash=4)
 	},
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
@@ -14300,8 +14386,8 @@
 /obj/machinery/vending/cigarette{
 	contraband = newlist();
 	premium = newlist();
-	prices = list(/obj/item/weapon/storage/fancy/cigarettes = 15, /obj/item/weapon/storage/box/matches = 1, /obj/item/weapon/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 20);
-	products = list(/obj/item/weapon/storage/fancy/cigarettes = 10, /obj/item/weapon/storage/box/matches = 10, /obj/item/weapon/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
+	prices = list(/obj/item/weapon/storage/fancy/cigarettes=15,/obj/item/weapon/storage/box/matches=1,/obj/item/weapon/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=20);
+	products = list(/obj/item/weapon/storage/fancy/cigarettes=10,/obj/item/weapon/storage/box/matches=10,/obj/item/weapon/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=2)
 	},
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
@@ -17016,11 +17102,23 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_thunderdomecourt)
+"Oa" = (
+/obj/effect/floor_decal/water_edge{
+	tag = "icon-test (SOUTHWEST)";
+	icon_state = "test";
+	dir = 10
+	},
+/obj/effect/weather/invariant/holo_rain,
+/turf/simulated/floor/holofloor/urist/jungle_water,
+/area/holodeck/source_jungle)
 "Of" = (
 /turf/simulated/floor/holofloor/beach/sand{
 	icon_state = "desert2"
 	},
 /area/holodeck/source_volleyball)
+"Om" = (
+/turf/simulated/floor/holofloor/beach/water,
+/area/holodeck/source_ocean)
 "Op" = (
 /turf/simulated/floor/holofloor/beach/water{
 	icon_state = "desert3";
@@ -17129,6 +17227,12 @@
 	tag = "icon-desert5"
 	},
 /area/holodeck/source_beach)
+"OY" = (
+/obj/structure/flora/tree/planet/jungle/small,
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/effect/weather/invariant/holo_rain,
+/turf/simulated/floor/holofloor/urist/junglegrass_browngreen,
+/area/holodeck/source_jungle)
 "Pb" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -17161,6 +17265,11 @@
 /turf/space,
 /turf/simulated/floor/tiled,
 /area/shuttle/transport1/centcom)
+"Pi" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/effect/weather/invariant/holo_rain,
+/turf/simulated/floor/holofloor/urist/junglegrass_browngreen,
+/area/holodeck/source_jungle)
 "Pk" = (
 /turf/simulated/shuttle/wall{
 	dir = 1;
@@ -17360,6 +17469,12 @@
 	icon_state = "swall_straight"
 	},
 /area/shuttle/transport1/centcom)
+"QJ" = (
+/obj/structure/flora/pottedplant{
+	icon_state = "plant-10"
+	},
+/turf/simulated/floor/holofloor/lino,
+/area/holodeck/source_rainycafe)
 "Ra" = (
 /obj/structure/bed/chair/holochair/wood{
 	icon_state = "wooden_chair_preview";
@@ -17367,6 +17482,20 @@
 	},
 /turf/simulated/floor/holofloor/concrete,
 /area/holodeck/source_plaza)
+"Rb" = (
+/obj/effect/weather/invariant/holo_rain,
+/obj/effect/weather/invariant/splash,
+/turf/simulated/floor/holofloor/urist/pavement_empty,
+/area/holodeck/source_rainycafe)
+"Rd" = (
+/obj/structure/table/holo_woodentable,
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_rainycafe)
+"Rm" = (
+/obj/structure/jungle_plant,
+/obj/effect/weather/invariant/holo_rain,
+/turf/simulated/floor/holofloor/urist/junglegrass_browngreen,
+/area/holodeck/source_jungle)
 "Rs" = (
 /obj/effect/floor_decal/carpet{
 	dir = 4
@@ -17437,10 +17566,20 @@
 	},
 /turf/simulated/floor/holofloor/concrete,
 /area/holodeck/source_plaza)
+"RV" = (
+/obj/effect/weather/invariant/holo_rain,
+/obj/effect/weather/invariant/splash,
+/turf/simulated/floor/holofloor/urist/pavement,
+/area/holodeck/source_rainycafe)
 "Sk" = (
 /obj/structure/holostool,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_thunderdomecourt)
+"Sm" = (
+/obj/structure/flora/tree/dead,
+/obj/effect/weather/invariant/holo_snow,
+/turf/simulated/floor/holofloor/snow,
+/area/holodeck/source_christmas)
 "Sn" = (
 /obj/structure/bed/chair/holochair{
 	dir = 4;
@@ -17533,6 +17672,13 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_boxingcourt)
+"Ta" = (
+/obj/structure/bed/chair/holochair/wood{
+	icon_state = "wooden_chair_preview";
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_rainycafe)
 "Th" = (
 /obj/effect/wallframe_spawn/reinforced/bare,
 /obj/machinery/door/firedoor,
@@ -17563,9 +17709,25 @@
 	},
 /turf/simulated/floor/holofloor/beach/sand,
 /area/holodeck/source_volleyball)
+"TC" = (
+/obj/effect/floor_decal/water_edge,
+/obj/effect/weather/invariant/holo_rain,
+/turf/simulated/floor/holofloor/urist/jungle_water,
+/area/holodeck/source_jungle)
+"TD" = (
+/obj/structure/jungle_plant,
+/obj/structure/flora/ausbushes/sunnybush,
+/obj/effect/weather/invariant/holo_rain,
+/turf/simulated/floor/holofloor/urist/junglegrass_browngreen,
+/area/holodeck/source_jungle)
 "TL" = (
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_cafe)
+"TN" = (
+/obj/structure/flora/tree/pine,
+/obj/effect/weather/invariant/holo_snow,
+/turf/simulated/floor/holofloor/snow,
+/area/holodeck/source_christmas)
 "TP" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
@@ -17632,6 +17794,15 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_thunderdomecourt)
+"Uw" = (
+/obj/effect/floor_decal/water_edge{
+	tag = "icon-test (NORTHWEST)";
+	icon_state = "test";
+	dir = 9
+	},
+/obj/effect/weather/invariant/holo_rain,
+/turf/simulated/floor/holofloor/urist/jungle_water,
+/area/holodeck/source_jungle)
 "Ux" = (
 /turf/simulated/floor/tiled/dark,
 /area/syndicate_mothership)
@@ -17691,6 +17862,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/transport1/centcom)
+"UP" = (
+/obj/machinery/door/window/holowindoor,
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_rainycafe)
+"UZ" = (
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_rainycafe)
 "Va" = (
 /obj/effect/floor_decal/carpet{
 	dir = 4
@@ -17704,6 +17882,10 @@
 /obj/structure/holostool,
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_meetinghall)
+"Vd" = (
+/obj/effect/weather/invariant/holo_rain,
+/turf/simulated/floor/holofloor/urist/junglegrass_browngreen,
+/area/holodeck/source_jungle)
 "Vg" = (
 /obj/effect/floor_decal/corner/green/three_quarters{
 	dir = 8
@@ -17721,6 +17903,10 @@
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_cafe)
+"Vk" = (
+/obj/structure/window/reinforced/holowindow/disappearing,
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_rainycafe)
 "Vr" = (
 /obj/structure/bed/chair/holochair{
 	dir = 4;
@@ -17773,6 +17959,21 @@
 	},
 /turf/simulated/floor/holofloor/tiled/old_tile,
 /area/holodeck/source_gym)
+"VT" = (
+/obj/effect/floor_decal/water_edge{
+	tag = "icon-test (NORTH)";
+	icon_state = "test";
+	dir = 1
+	},
+/obj/effect/floor_decal/water_edge{
+	tag = "icon-test (EAST)";
+	icon_state = "test";
+	dir = 4
+	},
+/obj/structure/flora/ausbushes/reedbush,
+/obj/effect/weather/invariant/holo_rain,
+/turf/simulated/floor/holofloor/urist/jungle_water,
+/area/holodeck/source_jungle)
 "VW" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
@@ -17780,12 +17981,46 @@
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_cafe)
+"VX" = (
+/obj/effect/floor_decal/spline/fancy/wood/three_quarters,
+/turf/simulated/floor/holofloor/carpet,
+/area/holodeck/source_rainycafe)
+"VY" = (
+/obj/structure/bed/chair/holochair/wood{
+	icon_state = "wooden_chair_preview";
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_rainycafe)
+"Wd" = (
+/obj/effect/floor_decal/water_edge{
+	tag = "icon-test (NORTHEAST)";
+	icon_state = "test";
+	dir = 5
+	},
+/obj/structure/flora/ausbushes/reedbush,
+/obj/effect/weather/invariant/holo_rain,
+/turf/simulated/floor/holofloor/urist/jungle_water,
+/area/holodeck/source_jungle)
+"We" = (
+/obj/effect/weather/invariant/holo_rain,
+/turf/simulated/floor/holofloor/urist/jungle_water,
+/area/holodeck/source_jungle)
 "Wt" = (
 /turf/simulated/shuttle/wall{
 	dir = 4;
 	icon_state = "swall_c"
 	},
 /area/shuttle/transport1/centcom)
+"Wv" = (
+/obj/effect/floor_decal/water_edge{
+	tag = "icon-test2 (EAST)";
+	icon_state = "test2";
+	dir = 4
+	},
+/obj/effect/weather/invariant/holo_rain,
+/turf/simulated/floor/holofloor/urist/jungle_water,
+/area/holodeck/source_jungle)
 "Wz" = (
 /obj/structure/bed/chair/holochair{
 	dir = 4;
@@ -17811,6 +18046,11 @@
 /obj/structure/holostool,
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_meetinghall)
+"WD" = (
+/obj/structure/flora/tree/pine/xmas,
+/obj/effect/weather/invariant/holo_snow,
+/turf/simulated/floor/holofloor/snow,
+/area/holodeck/source_christmas)
 "WF" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4;
@@ -17842,6 +18082,15 @@
 /obj/effect/floor_decal/spline/fancy/wood/three_quarters,
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_plaza)
+"WR" = (
+/obj/effect/floor_decal/water_edge{
+	tag = "icon-test (EAST)";
+	icon_state = "test";
+	dir = 4
+	},
+/obj/effect/weather/invariant/holo_rain,
+/turf/simulated/floor/holofloor/urist/jungle_water,
+/area/holodeck/source_jungle)
 "WT" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/holofloor/concrete,
@@ -17872,6 +18121,16 @@
 	icon_state = "swall_c"
 	},
 /area/shuttle/transport1/centcom)
+"Xg" = (
+/obj/structure/flora/ausbushes/lavendergrass,
+/obj/structure/flora/ausbushes/ywflowers,
+/obj/structure/flora/ausbushes/ppflowers,
+/obj/structure/flora/ausbushes/brflowers,
+/obj/effect/floor_decal/spline/fancy/wood/three_quarters,
+/obj/structure/window/reinforced/holowindow/disappearing,
+/obj/structure/flora/ausbushes/sunnybush,
+/turf/simulated/floor/holofloor/grass,
+/area/holodeck/source_rainycafe)
 "Xh" = (
 /obj/structure/holostool,
 /obj/effect/floor_decal/corner/black/border,
@@ -17910,6 +18169,13 @@
 	},
 /turf/simulated/floor/holofloor/concrete,
 /area/holodeck/source_plaza)
+"Xt" = (
+/obj/effect/weather/invariant/holo_rain,
+/obj/effect/weather/invariant/splash,
+/turf/simulated/floor/holofloor/urist/pavement{
+	dir = 1
+	},
+/area/holodeck/source_rainycafe)
 "Xw" = (
 /obj/effect/floor_decal/carpet,
 /obj/effect/floor_decal/carpet{
@@ -17979,6 +18245,21 @@
 /obj/structure/holostool,
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_meetinghall)
+"Yj" = (
+/obj/effect/floor_decal/water_edge{
+	tag = "icon-test2 (NORTH)";
+	icon_state = "test2";
+	dir = 1
+	},
+/obj/structure/flora/ausbushes/reedbush,
+/obj/effect/weather/invariant/holo_rain,
+/turf/simulated/floor/holofloor/urist/jungle_water,
+/area/holodeck/source_jungle)
+"Yo" = (
+/obj/structure/flora/grass/green,
+/obj/effect/weather/invariant/holo_snow,
+/turf/simulated/floor/holofloor/snow,
+/area/holodeck/source_christmas)
 "Yr" = (
 /obj/structure/shuttle/engine/propulsion/burst/left{
 	dir = 1;
@@ -36063,14 +36344,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
 ig
 ig
 ig
@@ -36265,14 +36546,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+Om
+Om
+Om
+Om
+Om
+Om
+Om
 ig
 kn
 ko
@@ -36467,14 +36748,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+Om
+Om
+Om
+Om
+Om
+Om
+Om
 ig
 WM
 Qu
@@ -36669,14 +36950,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+Om
+Om
+Om
+Om
+Om
+Om
+Om
 ig
 lY
 Sn
@@ -36871,14 +37152,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+Om
+Om
+Om
+Om
+Om
+Om
+Om
 ig
 lY
 lj
@@ -37073,14 +37354,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+Om
+Om
+Om
+Om
+Om
+Om
+Om
 ig
 lY
 Sn
@@ -37275,14 +37556,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+Om
+Om
+Om
+Om
+Om
+Om
+Om
 ig
 nh
 WF
@@ -37477,14 +37758,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+Om
+Om
+Om
+Om
+Om
+Om
+Om
 ig
 kn
 ko
@@ -37679,14 +37960,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+Om
+Om
+Om
+Om
+Om
+Om
+Om
 ig
 kn
 ko
@@ -37881,14 +38162,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
 ig
 ig
 ig
@@ -38083,14 +38364,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+tb
+vl
+tb
+tb
+vl
+tb
+tb
 ig
 ks
 ks
@@ -38285,14 +38566,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+Yo
+tb
+tb
+tb
+tb
+TN
+tb
 ig
 ks
 ks
@@ -38487,14 +38768,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+tb
+Sm
+tb
+tb
+Yo
+tb
+tb
 ig
 ks
 me
@@ -38689,14 +38970,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+tb
+tb
+tb
+tb
+tb
+tb
+tb
 ig
 ks
 ks
@@ -38891,14 +39172,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+tb
+tb
+tb
+WD
+vl
+tb
+tb
 ig
 md
 ks
@@ -39093,14 +39374,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+vl
+tb
+tb
+tb
+tb
+tb
+Hh
 ig
 kq
 kq
@@ -39295,14 +39576,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+tb
+tb
+tb
+tb
+tb
+Hh
+tb
 ig
 kq
 kq
@@ -39497,14 +39778,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+tb
+vl
+tb
+tb
+tb
+tb
+vl
 ig
 kq
 kq
@@ -39699,14 +39980,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
 ig
 ig
 ig
@@ -39901,14 +40182,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+Vd
+Pi
+Vd
+Pi
+Vd
+Vd
+Pi
 ig
 lF
 XP
@@ -40103,14 +40384,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+Vd
+Vd
+uP
+Pi
+Vd
+Vd
+OY
 ig
 lF
 mg
@@ -40305,14 +40586,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+Vd
+Vd
+Vd
+po
+TD
+Vd
+Vd
 ig
 lF
 mg
@@ -40507,14 +40788,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+Pi
+Vd
+VT
+sI
+Pi
+Vd
+Pi
 ig
 lF
 mg
@@ -40709,14 +40990,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+Vd
+Vd
+oo
+Wv
+WR
+Wd
+Vd
 ig
 lF
 Xc
@@ -40911,14 +41192,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+Pi
+Vd
+Oa
+Yj
+We
+TC
+Vd
 ig
 RL
 RL
@@ -41113,14 +41394,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+Vd
+Vd
+rh
+tL
+nK
+Uw
+Vd
 ig
 ku
 ku
@@ -41315,14 +41596,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+Rm
+Pi
+Pi
+Vd
+Vd
+Pi
+Rm
 ig
 kt
 ku
@@ -41517,14 +41798,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
 ig
 ig
 ig
@@ -41719,14 +42000,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+QJ
+VX
+VY
+Xg
+Xt
+Rb
+RV
 ig
 kv
 lm
@@ -41921,14 +42202,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+VX
+VX
+Rd
+Vk
+Xt
+Rb
+RV
 ig
 kw
 lm
@@ -42123,14 +42404,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+UZ
+UZ
+Ta
+Vk
+Xt
+Rb
+RV
 ig
 kv
 kx
@@ -42325,14 +42606,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+Rd
+pb
+UZ
+UP
+Xt
+Rb
+RV
 ig
 kx
 ky
@@ -42527,14 +42808,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+Rd
+pb
+UZ
+UP
+Xt
+Rb
+RV
 ig
 ky
 kx
@@ -42729,14 +43010,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+UZ
+UZ
+VY
+Vk
+Xt
+Rb
+RV
 ig
 kv
 ln
@@ -42931,14 +43212,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+VX
+VX
+Rd
+Vk
+Xt
+Rb
+RV
 ig
 kw
 kv
@@ -43133,14 +43414,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+QJ
+VX
+Ta
+Xg
+Xt
+Rb
+RV
 ig
 mi
 lG
@@ -43335,14 +43616,14 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
 ig
 ig
 ig

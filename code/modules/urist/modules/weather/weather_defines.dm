@@ -167,4 +167,11 @@ all-purpose cold/hot weather helper for exposure effects, wear a hat */
 	icon_state = "splash"
 	color = "#ff0000"
 
+/obj/weathertype/holosnow
+	icon_state = "bsnow"
+
+/obj/weathertype/holorain
+	icon_state = "rain"
+	color = null
+
 #undef WEATHER_ACTION_VOLUME

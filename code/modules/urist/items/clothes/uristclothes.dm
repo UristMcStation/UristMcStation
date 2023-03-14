@@ -731,12 +731,14 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	min_cold_protection_temperature = 263.15
 	//flags =
 
-/obj/item/clothing/suit/armor/vest/deus_blueshield
+/obj/item/clothing/suit/armor/pcarrier/deus_blueshield
 	name = "blue shield security armor"
-	desc = "An armored vest with the badge of a Blue Shield Security lieutenant."
+	desc = "A plate carrier with the badge of a Blue Shield Security lieutenant. It can be equipped with armor plates, but provides no protection of its own."
 	icon = 'icons/urist/items/old_bay_custom_items.dmi'
+	item_icons = list("slot_suit" = 'icons/mob/onmob/onmob_suit.dmi')
 	icon_state = "deus_blueshield"
 	item_state = "deus_blueshield"
+	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_C)
 
 //more pants
 

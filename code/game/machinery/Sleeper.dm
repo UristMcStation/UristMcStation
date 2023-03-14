@@ -61,6 +61,8 @@
 
 	if(iscarbon(occupant) && stasis > 1)
 		occupant.SetStasis(stasis)
+		if (occupant.stat == UNCONSCIOUS && prob(20))
+			to_chat(occupant, SPAN_NOTICE(SPAN_BOLD("... [pick("comfy", "feels slow", "warm")] ...")))
 
 /obj/machinery/sleeper/on_update_icon()
 	icon_state = "sleeper_[occupant ? "1" : "0"]"
