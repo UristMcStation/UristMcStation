@@ -28,6 +28,8 @@
 
 	var/movement_delay
 
+	var/changing_turf
+
 	var/fluid_can_pass
 	var/obj/effect/flood/flood_object
 	var/fluid_blocked_dirs = 0
@@ -40,6 +42,8 @@
 	else
 		luminosity = 1
 
+	RecalculateOpacity()
+
 /turf/on_update_icon()
 	update_flood_overlay()
 
@@ -51,14 +55,17 @@
 		QDEL_NULL(flood_object)
 
 /turf/Destroy()
-	remove_cleanables()
+	if (!changing_turf)
+		crash_with("Improper turf qdel. Do not qdel turfs directly.")
+
+	changing_turf = FALSE
+
+	remove_cleanables(FALSE)
 	fluid_update()
 	REMOVE_ACTIVE_FLUID_SOURCE(src)
 	..()
 	return QDEL_HINT_IWILLGC
 
-/turf/ex_act(severity)
-	return 0
 
 /turf/proc/is_solid_structure()
 	return 1

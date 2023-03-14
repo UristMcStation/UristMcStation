@@ -73,13 +73,13 @@
 		light.destroy()
 		light = null
 	return ..()
-	
+
 /atom/set_opacity()
 	. = ..()
 	if(.)
 		var/turf/T = loc
 		if(istype(T))
-			T.handle_opacity_change(src)
+			T.RecalculateOpacity()
 
 #define LIGHT_MOVE_UPDATE \
 var/turf/old_loc = loc;\
