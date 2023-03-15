@@ -2742,7 +2742,6 @@
 /turf/simulated/floor/plating,
 /area/ship/scrap/maintenance/power)
 "hi" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 8;
