@@ -336,6 +336,6 @@
 	icon_state = "ionbru"
 	center_of_mass = "x=16;y=6"
 
-/obj/item/weapons/reagent_containers/food/drinks/cans/ionbru/Initialize()
+/obj/item/weapon/reagent_containers/food/drinks/cans/ionbru/Initialize()
 	. = . = ..()
 	reagents.add_reagent(/datum/reagent/drink/ionbru, 30)

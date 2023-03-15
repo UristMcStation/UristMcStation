@@ -43,7 +43,7 @@
 			user << "<span  class='notice'>You've filled the makeshift explosive with welding fuel.</span>"
 			playsound(get_turf(src), 'sound/effects/refill.ogg', 50, 1, -6)
 			desc = "An improvised explosive assembly. Filled to the brim with 'Explosive flavor'"
-			overlays += image('icons/obj/grenade.dmi', icon_state = "improvised_grenade_filled")
+			overlays += image('icons/urist/items/tgitems.dmi', icon_state = "improvised_grenade_filled")
 			return
 
 
@@ -55,7 +55,7 @@
 			assembled = 2
 			user << "<span  class='notice'>You wire the igniter to detonate the fuel.</span>"
 			desc = "A weak, improvised explosive."
-			overlays += image('icons/obj/grenade.dmi', icon_state = "improvised_grenade_wired")
+			overlays += image('icons/urist/items/tgitems.dmi', icon_state = "improvised_grenade_wired")
 			name = "improvised explosive"
 			active = 0
 			det_time = rand(30,80)
@@ -65,7 +65,7 @@
 		if(clown_check(user))
 			user << "<span class='warning'>You light the [name]!</span>"
 			active = 1
-			overlays -= image('icons/obj/grenade.dmi', icon_state = "improvised_grenade_filled")
+			overlays -= image('icons/urist/items/tgitems.dmi', icon_state = "improvised_grenade_filled")
 			icon_state = initial(icon_state) + "_active"
 			assembled = 3
 			add_fingerprint(user)
@@ -82,7 +82,7 @@
 
 /obj/item/weapon/grenade/iedcasing/detonate() //Blowing that can up
 	update_icon()
-	explosion(src.loc,-1,0,2)
+	explosion(src.loc,1,0,2)
 	qdel(src)
 
 /obj/item/weapon/grenade/iedcasing/examine()

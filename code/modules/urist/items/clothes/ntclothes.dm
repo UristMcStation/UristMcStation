@@ -74,12 +74,16 @@
 	icon_state = "coatsecurity"*/
 
 /obj/item/clothing/suit/armor/vest/jacket
+	item_icons = URIST_ALL_ONMOBS
 	name = "military jacket"
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
-	icon_override = 'icons/uristmob/clothes.dmi'
 	desc = "An old military jacket, it has armoring."
 	icon_state = "militaryjacket"
 	item_state = "militaryjacket"
+	item_state_slots = list(
+		slot_l_hand_str = "militaryjacket",
+		slot_r_hand_str = "militaryjacket",
+		)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 //Syndicate Stealth Rig

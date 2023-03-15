@@ -621,6 +621,7 @@
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/jagermeister = 5,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/whiskey = 5,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/rakia = 5,
+					/obj/item/weapon/reagent_containers/food/drinks/bottle/sake = 5,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/llanbrydewhiskey = 5,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/tequilla = 5,
 					/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka = 5,

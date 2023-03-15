@@ -377,7 +377,7 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/blackstrap
 	name = "Two Brothers Blackstrap"
-	desc = "A bottle of Blackstrap, distilled in Two Brothers, Earth."
+	desc = "A bottle of Blackstrap, distilled in Two Brothers, Mars."
 	icon_state = "blackstrap"
 	center_of_mass = "x=16;y=4"
 
@@ -389,7 +389,7 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/bottle/sake
 	name = "Takeo Sadow's Combined Sake"
-	desc = "Finest Sake allowed for import in the SCG."
+	desc = "Finest Sake allowed for import in the Terran Confederacy."
 	icon_state = "sake"
 	center_of_mass = "x=16;y=4"
 
@@ -486,7 +486,7 @@
 //////////////////////////PREMIUM ALCOHOL ///////////////////////
 /obj/item/weapon/reagent_containers/food/drinks/bottle/premiumvodka
 	name = "Four Stripes Quadruple Distilled"
-	desc = "Premium distilled vodka imported directly from the Gilgamesh Colonial Confederation."
+	desc = "Premium distilled vodka imported directly from Gilgamesh."
 	icon_state = "premiumvodka"
 	center_of_mass = "x=17;y=3"
 
