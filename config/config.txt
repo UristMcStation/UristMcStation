@@ -375,7 +375,7 @@ ALLOW_CULT_GHOSTWRITER
 REQ_CULT_GHOSTWRITER 6
 
 ## Sets the number of available character slots
-CHARACTER_SLOTS 10
+CHARACTER_SLOTS 20
 
 ## Sets the number of loadout slots per character
 LOADOUT_SLOTS 3
