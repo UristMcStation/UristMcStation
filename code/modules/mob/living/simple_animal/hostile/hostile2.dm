@@ -33,6 +33,7 @@
 	var/stop_automation = FALSE
 	var/break_stuff_probability = 100
 	var/datum/factions/hiddenfaction = null
+	var/aggro_sound = null //what sound, if any, do we play when aggroing
 
 mob/living/simple_animal/hostile/Initialize()
 	. = ..()
@@ -248,6 +249,8 @@ mob/living/simple_animal/hostile/Initialize()
 
 /mob/living/simple_animal/hostile/proc/Aggro()
 	vision_range = aggro_vision_range
+	if(aggro_sound)
+		playsound(src.loc, aggro_sound, 50, 1)
 
 /mob/living/simple_animal/hostile/proc/LoseAggro()
 	stop_automated_movement = 0
