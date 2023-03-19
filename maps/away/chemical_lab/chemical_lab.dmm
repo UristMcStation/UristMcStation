@@ -282,14 +282,6 @@
 /obj/structure/cable,
 /turf/simulated/floor/tiled/techmaint,
 /area/chemical_lab/lockerroom)
-"dV" = (
-/obj/structure/cable/orange{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating/airless/catwalk,
-/area/space)
 "dZ" = (
 /obj/effect/decal/remains,
 /turf/simulated/floor/plating,
@@ -1089,6 +1081,19 @@
 	},
 /turf/simulated/open,
 /area/chemical_lab/labwing)
+"pb" = (
+/obj/structure/cable/orange{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/orange{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating/airless/catwalk,
+/area/space)
 "po" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1764,6 +1769,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/chemical_lab/labwing)
 "ws" = (
+/obj/structure/stairs/south,
 /turf/space,
 /area/chemical_lab/labwing)
 "wx" = (
@@ -1980,7 +1986,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/chemical_lab/vault)
 "yO" = (
-/obj/structure/flora/shimmering_orb,
+/obj/effect/spawner/structure/shimmeringorb,
 /turf/simulated/floor/asteroid,
 /area/space)
 "yT" = (
@@ -3512,14 +3518,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techmaint,
 /area/chemical_lab/lockerroom)
-"Uw" = (
-/obj/structure/cable/orange{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/plating/airless/catwalk,
-/area/space)
 "UG" = (
 /obj/machinery/vending/assist,
 /obj/machinery/light_switch{
@@ -3675,6 +3673,19 @@
 "XV" = (
 /turf/simulated/wall,
 /area/chemical_lab/vault)
+"XZ" = (
+/obj/structure/cable/orange{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/orange{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating/airless/catwalk,
+/area/space)
 "Yk" = (
 /obj/machinery/door/airlock/hatch/maintenance,
 /obj/structure/cable{
@@ -3784,7 +3795,6 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/chemical_lab/supervisor_office)
 "ZI" = (
-/obj/structure/stairs/north,
 /turf/simulated/open,
 /area/chemical_lab/labwing)
 "ZR" = (
@@ -8273,7 +8283,7 @@ Ay
 Ay
 Ay
 Ay
-UZ
+yO
 UZ
 UZ
 CX
@@ -12082,7 +12092,7 @@ Ay
 Ay
 Ay
 UZ
-UZ
+yO
 UZ
 UZ
 CX
@@ -15976,7 +15986,7 @@ Ay
 Ay
 Ay
 CX
-Xi
+Pk
 CX
 CX
 CX
@@ -16093,16 +16103,16 @@ Ay
 Ay
 Ay
 Ay
-Ay
-Ay
-Ay
 CX
-CX
-Uw
-dV
-dV
+Pk
+Pk
+Pk
 Pk
 Xi
+CX
+CX
+CX
+CX
 CX
 CX
 CX
@@ -16215,17 +16225,17 @@ CX
 CX
 CX
 Ay
-Ay
-Ay
-Ay
-CX
 Dx
-Pk
+Xi
 jS
 CX
 Dx
 iI
 jS
+CX
+CX
+CX
+CX
 CX
 CX
 CX
@@ -16337,10 +16347,6 @@ CX
 CX
 CX
 CX
-Ay
-Ay
-Ay
-CX
 Dx
 NW
 jS
@@ -16348,6 +16354,10 @@ CX
 Dx
 iI
 jS
+CX
+CX
+CX
+CX
 CX
 CX
 CX
@@ -16459,17 +16469,17 @@ CX
 CX
 CX
 CX
-Ay
-CX
-CX
-CX
 Dx
 NW
 jS
 CX
 Dx
-iI
+pb
 jS
+CX
+CX
+CX
+CX
 CX
 CX
 CX
@@ -16495,10 +16505,6 @@ CX
 CX
 "}
 (105,1,1) = {"
-CX
-CX
-CX
-CX
 CX
 CX
 CX
@@ -16615,12 +16621,12 @@ CX
 CX
 CX
 CX
+CX
+CX
+CX
+CX
 "}
 (106,1,1) = {"
-CX
-CX
-CX
-CX
 CX
 CX
 CX
@@ -16737,12 +16743,12 @@ CX
 CX
 CX
 CX
+CX
+CX
+CX
+CX
 "}
 (107,1,1) = {"
-CX
-CX
-CX
-CX
 CX
 CX
 CX
@@ -16859,12 +16865,12 @@ CX
 CX
 CX
 CX
+CX
+CX
+CX
+CX
 "}
 (108,1,1) = {"
-CX
-CX
-CX
-CX
 CX
 CX
 CX
@@ -16981,6 +16987,10 @@ CX
 CX
 CX
 CX
+CX
+CX
+CX
+CX
 "}
 (109,1,1) = {"
 CX
@@ -17069,17 +17079,17 @@ CX
 CX
 CX
 CX
-CX
-CX
-CX
-CX
 Dx
-NW
+XZ
 jS
 CX
 Dx
 rw
 jS
+CX
+CX
+CX
+CX
 CX
 CX
 CX
@@ -17192,15 +17202,15 @@ CX
 CX
 CX
 CX
-CX
-CX
-CX
-CX
 Pp
 CX
 CX
 CX
 Pp
+CX
+CX
+CX
+CX
 CX
 CX
 CX
