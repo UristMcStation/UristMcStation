@@ -30,16 +30,7 @@
 	icon_state = "0-2";
 	pixel_y = 0
 	},
-/obj/machinery/power/smes/buildable{
-	RCon_tag = "Solar - Main";
-	capacity = 1e+007;
-	charge = 0;
-	cur_coils = 4
-	},
-/obj/structure/cable/yellow{
-	d2 = 2;
-	icon_state = "0-2"
-	},
+/obj/machinery/power/smes/buildable/outpost_substation,
 /turf/simulated/floor/plating,
 /area/space)
 "dh" = (
@@ -194,6 +185,7 @@
 	icon_state = "techfloor_edges"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/effect/submap_landmark/spawnpoint/labworker,
 /turf/simulated/floor/tiled/techmaint,
 /area/space)
 "hi" = (
@@ -235,6 +227,7 @@
 	icon_state = "intact-scrubbers";
 	dir = 9
 	},
+/obj/effect/submap_landmark/spawnpoint/labworker,
 /turf/simulated/floor/tiled/techmaint,
 /area/space)
 "iK" = (
@@ -339,6 +332,15 @@
 "ky" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/floor_decal/rust,
+/turf/simulated/floor/plating,
+/area/space)
+"kV" = (
+/obj/structure/catwalk,
+/obj/structure/disposalpipe/junction{
+	dir = 8;
+	icon_state = "pipe-j2";
+	tag = "icon-pipe-j2 (WEST)"
+	},
 /turf/simulated/floor/plating,
 /area/space)
 "ln" = (
@@ -848,7 +850,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/turf/space,
+/turf/simulated/floor/plating/airless/catwalk,
 /area/space)
 "xt" = (
 /obj/structure/cable{
@@ -1001,6 +1003,27 @@
 /obj/machinery/door/airlock/glass/civilian,
 /turf/simulated/floor/tiled/techmaint,
 /area/space)
+"AP" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	tag = ""
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8";
+	pixel_x = 0;
+	tag = ""
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "AS" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -1084,7 +1107,7 @@
 	icon_state = "0-2";
 	dir = 1
 	},
-/turf/space,
+/turf/simulated/floor/plating/airless/catwalk,
 /area/space)
 "Di" = (
 /obj/machinery/door/airlock/engineering{
@@ -1417,7 +1440,6 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
-/obj/structure/closet/emcloset,
 /turf/simulated/floor/plating,
 /area/space)
 "KC" = (
@@ -1436,11 +1458,11 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "KR" = (
-/obj/structure/stairs/north,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/open,
+/obj/structure/stairs/north,
+/turf/simulated/floor/tiled/techmaint,
 /area/space)
 "Li" = (
 /obj/item/trash/cigbutt/rand,
@@ -1478,9 +1500,6 @@
 "Mg" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
-	},
 /turf/simulated/floor/plating,
 /area/space)
 "Mk" = (
@@ -1533,7 +1552,6 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "Nf" = (
-/obj/structure/cable/orange,
 /obj/machinery/power/solar_control{
 	id = "auxsolarbridge";
 	name = "Main Solar Control";
@@ -1547,6 +1565,7 @@
 	pixel_x = 32;
 	pixel_y = 0
 	},
+/obj/structure/cable,
 /turf/simulated/floor/plating,
 /area/space)
 "Ns" = (
@@ -1602,6 +1621,14 @@
 	d2 = 4;
 	icon_state = "1-4";
 	tag = "90Curve"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8;
+	icon_state = "map-supply";
+	tag = "icon-manifold (WEST)"
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/space)
@@ -1798,10 +1825,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/space)
-"SY" = (
-/obj/machinery/atmospherics/binary/pump/on,
-/turf/simulated/floor/plating,
-/area/space)
 "Tb" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/box/monkeycubes,
@@ -1860,7 +1883,7 @@
 /obj/structure/sign/botany{
 	pixel_x = -32
 	},
-/turf/space,
+/turf/simulated/floor/tiled/techmaint,
 /area/space)
 "Uo" = (
 /mob/living/bot/farmbot/premade{
@@ -1875,13 +1898,26 @@
 /area/space)
 "Uu" = (
 /obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
+	dir = 4;
+	icon_state = "up-scrubbers";
+	tag = "icon-up-scrubbers (EAST)"
+	},
+/obj/machinery/atmospherics/pipe/zpipe/up/supply{
+	dir = 4;
+	icon_state = "up-supply";
+	tag = "icon-up-supply (EAST)"
+	},
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 4;
-	icon_state = "32-8";
-	dir = 1
+	icon_state = "16-0"
 	},
-/turf/simulated/open,
+/obj/structure/cable{
+	icon_state = "0-4";
+	d2 = 4
+	},
+/turf/simulated/floor/plating,
 /area/space)
 "UG" = (
 /obj/machinery/portable_atmospherics/hydroponics,
@@ -1927,12 +1963,10 @@
 /area/space)
 "Vr" = (
 /obj/structure/lattice,
-/obj/structure/disposalpipe/down{
-	dir = 1;
-	icon_state = "pipe-d";
-	tag = "icon-pipe-d (NORTH)"
+/obj/structure/disposalpipe/up{
+	dir = 1
 	},
-/turf/simulated/open,
+/turf/simulated/floor/plating,
 /area/space)
 "VA" = (
 /obj/structure/table/rack,
@@ -2164,6 +2198,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/pink/mono,
+/obj/effect/submap_landmark/spawnpoint/labworker,
 /turf/simulated/floor/tiled/white,
 /area/space)
 
@@ -10395,7 +10430,7 @@ Gg
 Gg
 ky
 Sj
-Sj
+nO
 Gg
 Gg
 Gg
@@ -10639,7 +10674,7 @@ Gg
 Gg
 Ko
 Vr
-Sj
+nO
 Gg
 Lw
 Gg
@@ -10866,7 +10901,7 @@ Zi
 Zi
 Zi
 Gg
-Lw
+kV
 Aa
 GK
 LY
@@ -12707,7 +12742,7 @@ Gg
 Zi
 nl
 ys
-SY
+Sj
 Mg
 nl
 Zi
@@ -12951,7 +12986,7 @@ Gg
 Zi
 nl
 cX
-ys
+AP
 Nf
 nl
 Zi

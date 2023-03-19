@@ -5,14 +5,13 @@
 
 
 /obj/effect/submap_landmark/joinable_submap/chemical_lab
-	name = "Hidden Laboratory"
-	// archetype =
+	name = "Scrambled Signal"
+	archetype = /decl/submap_archetype/derelict/chemical_lab
 
 /decl/submap_archetype/derelict/chemical_lab
-	descriptor = "Hidden Chemical Lab."
+	descriptor = "Scrambled Signal"
 	map = "chemical_lab"
 	crew_jobs = list(/datum/job/submap/chemical_lab_supervisor, /datum/job/submap/chemical_lab_worker)
-
 
 /obj/effect/overmap/sector/chemical_lab
 	name = "Scrambled Signal"
@@ -20,14 +19,12 @@
 	icon_state = "object"
 	known = 1
 
-
 /datum/map_template/ruin/away_site/chemical_lab
 	name = "Scrambled Signal"
 	id = "awaysite_chemical_lab"
 	description = "A scrambled signal appearing to come from an asteroid."
-	suffixes = list("chemical_lab/chemical_lab.dmm")
+	suffixes = list("chemical_lab/chemical_lab-1.dmm", "chemical_lab/chemical_lab-2.dmm")
 	cost = 1
-
 
 // Envelope
 
@@ -186,7 +183,7 @@ Weapons:
 		H = new/obj/structure/flora/shimmering_orb/(loc)
 
 // Chemical Shelf Structure.
-
+/*
 /obj/structure/urist/chemical_shelf
 	name = "Chemical Storage Shelf"
 	desc = "A storage shelf that can be filled with all sorts of glass bottles and vials of different chemicals."
@@ -194,7 +191,7 @@ Weapons:
 	icon_state = 'chem-0'
 	anchored = 1
 	opacity = 0
-
+*/
 
 
 
