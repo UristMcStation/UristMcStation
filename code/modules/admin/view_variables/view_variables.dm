@@ -100,7 +100,7 @@ var/global/list/view_variables_no_assoc = list("verbs", "contents","screen","ima
 			<script type='text/javascript'>
 				var complete_list = \[\];
 				var lis = document.getElementById("vars").children;
-				for(var i = lis.length; i--;) complete_list\[i\] = lis\[i\];
+				for(var i = length(lis)gth; i--;) complete_list\[i\] = lis\[i\];
 			</script>
 		</body>
 		</html>

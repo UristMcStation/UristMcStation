@@ -1,6 +1,6 @@
 /datum/species/teshari
 	name = SPECIES_RESOMI
-	name_plural = "Tesharii"
+	name_plural = "Teshari"
 	description = "A race of feathered raptors who developed alongside the Skrell, inhabiting \
 	the polar tundral regions outside of Skrell territory. Extremely fragile, they developed \
 	hunting skills that emphasized taking out their prey without themselves getting hit. They \
@@ -14,7 +14,6 @@
 	base_color = "#001144"
 	tail = "resomitail"
 	tail_hair = "feathers"
-	reagent_tag = IS_RESOMI
 
 
 	icobase = 'icons/mob/human_races/species/teshari/body.dmi'
@@ -33,14 +32,14 @@
 	metabolism_mod = 2.0
 	mob_size = MOB_SMALL
 	strength = STR_HIGH
-	holder_type = /obj/item/weapon/holder/human
+	holder_type = /obj/item/holder/human
 	light_sensitive = 6
 	gluttonous = GLUT_TINY
 	blood_volume = 400
 	hunger_factor = 0.2
 
 	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED
-	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_COLOR | HAS_EYE_COLOR
+	appearance_flags = SPECIES_APPEARANCE_HAS_HAIR_COLOR | SPECIES_APPEARANCE_HAS_SKIN_COLOR | SPECIES_APPEARANCE_HAS_EYE_COLOR
 	bump_flag = MONKEY
 	swap_flags = MONKEY|SLIME|SIMPLE_ANIMAL
 	push_flags = MONKEY|SLIME|SIMPLE_ANIMAL|ALIEN

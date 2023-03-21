@@ -276,12 +276,12 @@
 
 /datum/gear/crutch
 	display_name = "crutch"
-	path = /obj/item/weapon/cane/crutch
+	path = /obj/item/cane/crutch
 
 /datum/gear/whitecane
 	display_name = "white cane"
-	path = /obj/item/weapon/cane/white
+	path = /obj/item/cane/white
 
 /datum/gear/whitecane/telescopic
 	display_name = "telescopic white cane"
-	path = 	/obj/item/weapon/cane/white/collapsible
+	path = 	/obj/item/cane/white/collapsible

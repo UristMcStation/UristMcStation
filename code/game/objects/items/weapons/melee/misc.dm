@@ -43,7 +43,7 @@
 	item_state = "whip"
 
 
-/obj/item/weapon/melee/whip/captainsdaughter
+/obj/item/melee/whip/captainsdaughter
 	name = "captain's daughter"
 	desc = "Used to discipline disobediant spacers who've let the cat out of the bag."
 	attack_verb = list("flogged", "whipped", "lashed", "disciplined")

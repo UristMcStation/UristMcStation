@@ -15,8 +15,7 @@
 	update_leader()
 	create_objectives(target)
 	update_icons_added(target)
-	if(!do_not_greet)
-		greet(target)
+	greet(target)
 	if(!gag_announcement)
 		announce_antagonist_spawn()
 

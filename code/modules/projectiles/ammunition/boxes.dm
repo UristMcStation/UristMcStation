@@ -80,9 +80,9 @@
 	check_ammo_count(user)
 
 /obj/item/ammo_magazine/bundle/proc/check_ammo_count(mob/user)
-	if(stored_ammo.len <= 1)
+	if(length(stored_ammo) <= 1)
 		user.drop_from_inventory(src, null)
-		if(stored_ammo.len)
+		if(length(stored_ammo))
 			user.put_in_hands(stored_ammo[1])
 			stored_ammo.Cut()
 		qdel(src)
@@ -389,6 +389,7 @@
 	name = "top mounted magazine (9mm, flash)"
 	icon_state = "F9mmt"
 	ammo_type = /obj/item/ammo_casing/c9mm/flash
+
 /obj/item/ammo_magazine/box/smallpistol
 	name = "ammunition box"
 	icon_state = "smallpistol"
@@ -480,6 +481,7 @@
 	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "762"
 	origin_tech = list(TECH_COMBAT = 2)
+
 /obj/item/ammo_magazine/gyrojet
 	name = "microrocket magazine"
 	icon_state = "gyrojet"

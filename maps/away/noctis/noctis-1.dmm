@@ -39,8 +39,8 @@
 /area/space)
 "aj" = (
 /obj/structure/table/standard,
-/obj/item/weapon/scalpel,
-/obj/item/weapon/hemostat,
+/obj/item/scalpel,
+/obj/item/hemostat,
 /obj/effect/floor_decal/borderfloorwhite{
 	icon_state = "borderfloor_white";
 	dir = 9
@@ -104,8 +104,8 @@
 "as" = (
 /obj/structure/table/standard,
 /obj/random/maintenance,
-/obj/item/weapon/mop,
-/obj/item/weapon/reagent_containers/glass/bucket,
+/obj/item/mop,
+/obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/plating,
 /area/noctis/afth)
 "at" = (
@@ -177,9 +177,9 @@
 	},
 /obj/structure/table/standard,
 /obj/item/device/multitool,
-/obj/item/weapon/crowbar/prybar,
+/obj/item/crowbar/prybar,
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/item/weapon/weldingtool/electric,
+/obj/item/weldingtool/electric,
 /turf/simulated/floor/tiled,
 /area/noctis/battery)
 "aE" = (
@@ -223,10 +223,10 @@
 	dir = 8
 	},
 /obj/structure/closet/crate/internals/fuel,
-/obj/item/weapon/tank/phoron,
-/obj/item/weapon/tank/phoron,
-/obj/item/weapon/tank/phoron,
-/obj/item/weapon/tank/phoron,
+/obj/item/tank/phoron,
+/obj/item/tank/phoron,
+/obj/item/tank/phoron,
+/obj/item/tank/phoron,
 /obj/structure/cable/blue{
 	d1 = 2;
 	d2 = 8;
@@ -236,8 +236,8 @@
 	icon_state = "intact-supply";
 	dir = 10
 	},
-/obj/item/weapon/tank/phoron,
-/obj/item/weapon/tank/phoron,
+/obj/item/tank/phoron,
+/obj/item/tank/phoron,
 /turf/simulated/floor/tiled,
 /area/noctis/battery)
 "aI" = (
@@ -367,11 +367,11 @@
 	dir = 9
 	},
 /obj/structure/closet,
-/obj/item/weapon/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
 /obj/item/stack/material/rods/ten,
-/obj/item/weapon/tank/oxygen/red,
-/obj/item/weapon/tank/oxygen/red,
-/obj/item/weapon/extinguisher/mini,
+/obj/item/tank/oxygen/red,
+/obj/item/tank/oxygen/red,
+/obj/item/extinguisher/mini,
 /obj/effect/floor_decal/rust,
 /obj/machinery/light/small/red{
 	icon_state = "firelight1";
@@ -1216,8 +1216,8 @@
 	dir = 6
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/storage/belt/utility/full,
-/obj/item/weapon/tank/emergency/oxygen,
+/obj/item/storage/belt/utility/full,
+/obj/item/tank/emergency/oxygen,
 /turf/simulated/floor/tiled,
 /area/noctis/hards)
 "cv" = (
@@ -2030,7 +2030,7 @@
 	},
 /obj/item/clothing/head/urist/cowboy,
 /obj/random/smokes,
-/obj/item/weapon/flame/lighter,
+/obj/item/flame/lighter,
 /turf/simulated/floor/tiled/monotile,
 /area/noctis/lounge)
 "dV" = (
@@ -2040,10 +2040,10 @@
 /area/noctis/lounge)
 "dW" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
-/obj/item/weapon/reagent_containers/food/snacks/fish,
-/obj/item/weapon/reagent_containers/food/snacks/fish,
-/obj/item/weapon/reagent_containers/food/snacks/fish,
-/obj/item/weapon/storage/box/donkpockets,
+/obj/item/reagent_containers/food/snacks/fish,
+/obj/item/reagent_containers/food/snacks/fish,
+/obj/item/reagent_containers/food/snacks/fish,
+/obj/item/storage/box/donkpockets,
 /obj/machinery/light{
 	icon_state = "tube_map";
 	dir = 1
@@ -2130,7 +2130,7 @@
 	icon_state = "intact-scrubbers";
 	dir = 4
 	},
-/obj/item/weapon/material/shard/shrapnel,
+/obj/item/material/shard/shrapnel,
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/fairlock)
 "ed" = (
@@ -2259,7 +2259,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/solar_assembly,
-/obj/item/weapon/tracker_electronics,
+/obj/item/tracker_electronics,
 /obj/effect/floor_decal/rust,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	icon_state = "intact";
@@ -2344,20 +2344,20 @@
 /turf/simulated/floor/plating,
 /area/noctis/connect)
 "ew" = (
-/obj/item/weapon/storage/pill_bottle/bicaridine,
-/obj/item/weapon/storage/pill_bottle/inaprovaline,
-/obj/item/weapon/storage/pill_bottle/peridaxon,
-/obj/item/weapon/storage/pill_bottle/tramadol,
-/obj/item/weapon/storage/pill_bottle/dermaline,
+/obj/item/storage/pill_bottle/bicaridine,
+/obj/item/storage/pill_bottle/inaprovaline,
+/obj/item/storage/pill_bottle/peridaxon,
+/obj/item/storage/pill_bottle/tramadol,
+/obj/item/storage/pill_bottle/dermaline,
 /obj/structure/closet/medical_wall{
 	name = "pill bottle storage";
 	pixel_x = 32
 	},
-/obj/item/weapon/reagent_containers/pill/hyronalin,
-/obj/item/weapon/reagent_containers/pill/hyronalin,
-/obj/item/weapon/reagent_containers/pill/hyronalin,
-/obj/item/weapon/reagent_containers/pill/hyronalin,
-/obj/item/weapon/storage/pill_bottle/antitox,
+/obj/item/reagent_containers/pill/hyronalin,
+/obj/item/reagent_containers/pill/hyronalin,
+/obj/item/reagent_containers/pill/hyronalin,
+/obj/item/reagent_containers/pill/hyronalin,
+/obj/item/storage/pill_bottle/antitox,
 /obj/structure/bed/roller,
 /obj/structure/cable/blue{
 	d1 = 1;
@@ -2657,9 +2657,9 @@
 "eS" = (
 /obj/effect/floor_decal/corner/grey/mono,
 /obj/structure/table/rack,
-/obj/item/weapon/tank/nitrogen,
-/obj/item/weapon/tank/oxygen,
-/obj/item/weapon/tank/oxygen,
+/obj/item/tank/nitrogen,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
 /turf/simulated/floor/tiled/monotile,
 /area/noctis/fairlock)
 "eT" = (
@@ -3203,7 +3203,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/item/weapon/material/shard/shrapnel,
+/obj/item/material/shard/shrapnel,
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/fairlock)
 "fO" = (
@@ -3657,7 +3657,7 @@
 /obj/structure/closet/crate/secure/boobytrapped/weapon{
 	req_access = list(999)
 	},
-/obj/item/weapon/gun/projectile/heavysniper/ant,
+/obj/item/gun/projectile/heavysniper/ant,
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 4
@@ -3884,15 +3884,15 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/item/weapon/reagent_containers/food/drinks/glass2/shot,
-/obj/item/weapon/reagent_containers/food/drinks/glass2/shot,
+/obj/item/reagent_containers/food/drinks/glass2/shot,
+/obj/item/reagent_containers/food/drinks/glass2/shot,
 /turf/simulated/floor/tiled,
 /area/noctis/lounge)
 "gU" = (
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/food/condiment/small/saltshaker,
-/obj/item/weapon/reagent_containers/food/condiment/small/peppermill,
-/obj/item/weapon/material/kitchen/utensil/fork,
+/obj/item/reagent_containers/food/condiment/small/saltshaker,
+/obj/item/reagent_containers/food/condiment/small/peppermill,
+/obj/item/material/kitchen/utensil/fork,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	icon_state = "intact-supply";
@@ -3903,7 +3903,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/item/weapon/reagent_containers/food/drinks/glass2/shot,
+/obj/item/reagent_containers/food/drinks/glass2/shot,
 /turf/simulated/floor/tiled,
 /area/noctis/lounge)
 "gV" = (
@@ -4042,7 +4042,7 @@
 /area/noctis/combust)
 "hf" = (
 /obj/structure/table/standard,
-/obj/item/weapon/defibrillator/loaded,
+/obj/item/defibrillator/loaded,
 /obj/effect/floor_decal/corner/red/mono,
 /turf/simulated/floor/tiled/white/monotile,
 /area/noctis/medbay)
@@ -4256,8 +4256,8 @@
 "hG" = (
 /obj/structure/table/standard,
 /obj/item/stack/cable_coil/blue,
-/obj/item/weapon/weldingtool/mini,
-/obj/item/weapon/tape_roll,
+/obj/item/weldingtool/mini,
+/obj/item/tape_roll,
 /turf/simulated/floor/tiled/white,
 /area/noctis/medbay)
 "hH" = (
@@ -4266,7 +4266,7 @@
 /obj/item/stack/material/cloth{
 	amount = 30
 	},
-/obj/item/weapon/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular,
 /turf/simulated/floor/tiled/white,
 /area/noctis/medbay)
 "hI" = (
@@ -4274,13 +4274,13 @@
 /obj/structure/closet/medical_wall{
 	pixel_y = 32
 	},
-/obj/item/weapon/reagent_containers/ivbag/blood/OMinus,
-/obj/item/weapon/reagent_containers/ivbag/blood/OPlus,
-/obj/item/weapon/reagent_containers/pill/sugariron,
-/obj/item/weapon/reagent_containers/pill/sugariron,
-/obj/item/weapon/reagent_containers/pill/sugariron,
-/obj/item/weapon/reagent_containers/pill/sugariron,
-/obj/item/weapon/reagent_containers/pill/sugariron,
+/obj/item/reagent_containers/ivbag/blood/OMinus,
+/obj/item/reagent_containers/ivbag/blood/OPlus,
+/obj/item/reagent_containers/pill/surgariron,
+/obj/item/reagent_containers/pill/surgariron,
+/obj/item/reagent_containers/pill/surgariron,
+/obj/item/reagent_containers/pill/surgariron,
+/obj/item/reagent_containers/pill/surgariron,
 /turf/simulated/floor/tiled/white,
 /area/noctis/medbay)
 "hJ" = (
@@ -4462,7 +4462,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/fairlock)
 "hZ" = (
-/obj/item/weapon/tank/nitrogen,
+/obj/item/tank/nitrogen,
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 8;
 	frequency = 1379;
@@ -4518,7 +4518,7 @@
 	},
 /obj/structure/table/standard,
 /obj/item/device/flashlight/upgraded,
-/obj/item/weapon/crowbar/prybar,
+/obj/item/crowbar/prybar,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white/monotile,
 /area/noctis/cryo)
@@ -4536,7 +4536,7 @@
 	icon_state = "intact-supply";
 	dir = 6
 	},
-/obj/item/weapon/storage/mirror{
+/obj/item/storage/mirror{
 	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/white/monotile,
@@ -4902,7 +4902,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/item/weapon/tank/emergency/oxygen{
+/obj/item/tank/emergency/oxygen{
 	starting_pressure = list()
 	},
 /obj/effect/submap_landmark/spawnpoint/crewmember,
@@ -5265,8 +5265,8 @@
 /area/noctis/cryo)
 "jA" = (
 /obj/structure/table/standard,
-/obj/item/weapon/retractor,
-/obj/item/weapon/circular_saw,
+/obj/item/retractor,
+/obj/item/circular_saw,
 /obj/effect/floor_decal/borderfloorwhite{
 	icon_state = "borderfloor_white";
 	dir = 8
@@ -5303,7 +5303,7 @@
 /turf/simulated/floor/tiled/white,
 /area/noctis/medbay)
 "jD" = (
-/obj/item/weapon/gun/energy/plasmacutter,
+/obj/item/gun/energy/plasmacutter,
 /obj/effect/floor_decal/corner_techfloor_grid{
 	icon_state = "corner_techfloor_grid";
 	dir = 1
@@ -5322,7 +5322,7 @@
 	},
 /obj/structure/table/steel,
 /obj/machinery/cell_charger,
-/obj/item/weapon/screwdriver,
+/obj/item/screwdriver,
 /obj/structure/cable/blue,
 /obj/machinery/power/apc{
 	req_access = list("ACCESS_NOCTIS")
@@ -5340,10 +5340,10 @@
 /area/noctis/equips)
 "jG" = (
 /obj/structure/closet/crate,
-/obj/item/weapon/gun/energy/temperature,
+/obj/item/gun/energy/temperature,
 /obj/item/inducer,
-/obj/item/weapon/cell,
-/obj/item/weapon/cell/crap,
+/obj/item/cell,
+/obj/item/cell/crap,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	icon_state = "map_scrubber_on";
 	dir = 1

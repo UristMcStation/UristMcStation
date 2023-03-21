@@ -198,7 +198,7 @@
 
 	if(user && user.a_intent == I_HELP) //regardless of what happens, refuse to shoot if help intent is on
 		to_chat(user, "<span class='warning'>You refrain from firing \the [src] as your intent is set to help.</span>")
-	else if(istype(I, /obj/item/weapon/gun)) //DUAL WIELDING
+	else if(istype(I, /obj/item/gun)) //DUAL WIELDING
 		check_dual_wield(A, user, params)
 	else
 		Fire(A,user,params) //Otherwise, fire normally.
@@ -395,7 +395,7 @@
 	var/disp_mod = dispersion[min(burst, length(dispersion))]
 	var/stood_still = last_handled
 	//Not keeping gun active will throw off aim (for non-Masters)
-		stood_still = max(user.l_move_time, last_handled)
+	stood_still = max(user.l_move_time, last_handled)
 
 	stood_still = max(0,round((world.time - stood_still)/10) - 1)
 	if(stood_still)

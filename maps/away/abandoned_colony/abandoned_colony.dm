@@ -3,9 +3,9 @@
 
 /obj/effect/submap_landmark/joinable_submap/abandoned_colony
 	name = "ICS Morning Light"
-	archetype = /decl/submap_archetype/abandoned_colony
+	archetype = /singleton/submap_archetype/abandoned_colony
 
-/decl/submap_archetype/abandoned_colony
+/singleton/submap_archetype/abandoned_colony
 	descriptor = "abandoned colony"
 	map = "abandoned colony"
 	crew_jobs = list(
@@ -58,11 +58,11 @@
 	accessibility_weight = 10
 //	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED //temporary
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/morninglight)
-	cost = 1
+	spawn_cost = 1
 
 /obj/machinery/power/smes/buildable/preset/morning_light/configure_and_install_coils()
-	component_parts += new /obj/item/weapon/smes_coil/super_io(src)
-	component_parts += new /obj/item/weapon/smes_coil/super_capacity(src)
+	component_parts += new /obj/item/smes_coil/super_io(src)
+	component_parts += new /obj/item/smes_coil/super_capacity(src)
 	_input_maxed = TRUE
 	_output_maxed = TRUE
 	_input_on = TRUE

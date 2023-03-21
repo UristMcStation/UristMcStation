@@ -212,7 +212,7 @@
 	containername = "practice laser carbine crate"
 	access = access_solgov_crew
 
-/decl/hierarchy/supply_pack/security/magnum_ammo
+/singleton/hierarchy/supply_pack/security/magnum_ammo
 	name = "Ammo - .357 Magnum"
 	contains = list(/obj/item/ammo_magazine/c357 = 4)
 	cost = 30

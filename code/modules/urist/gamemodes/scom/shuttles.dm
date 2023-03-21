@@ -174,7 +174,7 @@
 						var/list/all_destinations = list()
 						for(var/obj/machinery/scom/teleporter2/T in SSmachines.machinery)
 							all_destinations += T
-						if(all_destinations.len)
+						if(length(all_destinations))
 							destination = pick(all_destinations)
 						if(destination)
 							destination.teleport_to(C)

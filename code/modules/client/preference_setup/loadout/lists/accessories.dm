@@ -120,7 +120,7 @@
 	)
 	flags = GEAR_HAS_NO_CUSTOMIZATION
 
-
+/*
 /datum/gear/accessory/armband_nt
 	display_name = "corporate armband"
 	path = /obj/item/clothing/accessory/armband/whitered

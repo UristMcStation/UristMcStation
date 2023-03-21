@@ -22,7 +22,7 @@
 	desc = "An explosive impant activated with a vocal trigger or radio signal. \
 	Use the included pad to adjust the settings before implanting."
 	item_cost = 24
-	path = /obj/item/weapon/storage/box/syndie_kit/imp_explosive
+	path = /obj/item/storage/box/syndie_kit/imp_explosive
 
 /datum/uplink_item/item/implants/imp_uplink
 	name = "Uplink Implant"

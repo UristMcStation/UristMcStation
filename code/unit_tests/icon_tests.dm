@@ -173,10 +173,10 @@
 
 /datum/unit_test/icon_test/item_modifiers_shall_have_icon_states/start_test()
 	var/list/bad_modifiers = list()
-	var/item_modifiers = list_values(decls_repository.get_decls(/decl/item_modifier))
+	var/item_modifiers = list_values(decls_repository.get_decls(/singleton/item_modifier))
 
 	for(var/im in item_modifiers)
-		var/decl/item_modifier/item_modifier = im
+		var/singleton/item_modifier/item_modifier = im
 		for(var/type_setup_type in item_modifier.type_setups)
 			var/list/type_setup = item_modifier.type_setups[type_setup_type]
 			var/list/icon_states = icon_states_by_type[type_setup_type]
@@ -189,7 +189,7 @@
 			if(!(type_setup["icon_state"] in icon_states))
 				bad_modifiers += type_setup_type
 
-	if(bad_modifiers.len)
+	if(length(bad_modifiers))
 		fail("Item modifiers with missing icon states: [english_list(bad_modifiers)]")
 	else
 		pass("All item modifiers have valid icon states.")

@@ -6,8 +6,8 @@
 		return 0
 
 	//check if it's a container
-	if (istype(O, /obj/item/weapon/storage))
-		var/obj/item/weapon/storage/S = O
+	if (istype(O, /obj/item/storage))
+		var/obj/item/storage/S = O
 		for(var/obj/I in S.contents)
 			if(!check_tradeable(I))
 				return 0
@@ -61,8 +61,8 @@
 
 		return round(T.value * sell_modifier)
 
-	if(istype(tradingobject, /obj/item/weapon/storage))
-		var/obj/item/weapon/storage/S = tradingobject
+	if(istype(tradingobject, /obj/item/storage))
+		var/obj/item/storage/S = tradingobject
 		var/total_value = 0
 		var/list/tempItems = list()
 		for(var/obj/I in S.contents)

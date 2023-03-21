@@ -208,7 +208,7 @@
 	dat += "<tr><td><strong>Blood volume:</strong></td><td>[scan["blood_volume"]]u/[scan["blood_volume_max"]]u</td></tr>"
 
 	if(ratio <= 0.70)
-			dat += "<tr><td colspan='2'>[SPAN_BAD("Patient is in hypovolemic shock. Transfusion highly recommended.")]</td></tr>"
+		dat += "<tr><td colspan='2'>[SPAN_BAD("Patient is in hypovolemic shock. Transfusion highly recommended.")]</td></tr>"
 
 	// Body temperature.
 	/*
@@ -238,17 +238,16 @@
 
 	dat += subdat
 
-		subdat = null
-		//Immune System
-		/*
-			<tr><td colspan='2'><center>Antibody levels and immune system performance are at 100% of baseline.</center></td></tr>
-			<tr><td colspan='2'>[SPAN_BAD("<center>Viral Pathogen detected in blood stream.</center>")]</td></tr>
-			<tr><td colspan='2'>[SPAN_BAD("<center>Large growth detected in frontal lobe, possibly cancerous.</center>")]</td></tr>
-		*/
-		dat += "<tr><td colspan = '2'>Antibody levels and immune system perfomance are at [scan["immune_system"]*100]% of baseline.</td></tr>"
-
-		if(scan["worms"])
-			dat += "<tr><td colspan='2'>[SPAN_BAD("<center>Large growth detected in frontal lobe, possibly cancerous.</center>")]</td></tr>"
+	subdat = null
+	//Immune System
+	/*
+		<tr><td colspan='2'><center>Antibody levels and immune system performance are at 100% of baseline.</center></td></tr>
+		<tr><td colspan='2'>[SPAN_BAD("<center>Viral Pathogen detected in blood stream.</center>")]</td></tr>
+		<tr><td colspan='2'>[SPAN_BAD("<center>Large growth detected in frontal lobe, possibly cancerous.</center>")]</td></tr>
+	*/
+	dat += "<tr><td colspan = '2'>Antibody levels and immune system perfomance are at [scan["immune_system"]*100]% of baseline.</td></tr>"
+	if(scan["worms"])
+		dat += "<tr><td colspan='2'>[SPAN_BAD("<center>Large growth detected in frontal lobe, possibly cancerous.</center>")]</td></tr>"
 
 	//Reagent scan
 	/*
@@ -257,16 +256,16 @@
 	*/
 	var/other_reagent = FALSE
 
-		for(var/list/R in scan["reagents"])
-			if(R["scannable"])
-				subdat += "<tr><td colspan='2'>[R["quantity"]]u [R["name"]]</td></tr>"
-			else
-				other_reagent = TRUE
-		if(subdat)
-			dat += "<tr><td colspan='2'>Beneficial reagents detected in subject's bloodstream:</td></tr>"
-			dat += subdat
-		if(other_reagent)
-			dat += "<tr><td colspan='2'>[SPAN_CLASS("average", "Warning: Unknown substance detected in subject's blood.")]</td></tr>"
+	for(var/list/R in scan["reagents"])
+		if(R["scannable"])
+			subdat += "<tr><td colspan='2'>[R["quantity"]]u [R["name"]]</td></tr>"
+		else
+			other_reagent = TRUE
+	if(subdat)
+		dat += "<tr><td colspan='2'>Beneficial reagents detected in subject's bloodstream:</td></tr>"
+		dat += subdat
+	if(other_reagent)
+		dat += "<tr><td colspan='2'>[SPAN_CLASS("average", "Warning: Unknown substance detected in subject's blood.")]</td></tr>"
 
 	//summary for the medically disinclined.
 	/*
@@ -340,20 +339,20 @@
 	dat += "<tr><th colspan='3'><center>Internal Organs</center></th></tr>"
 	for(var/list/I in scan["internal_organs"])
 		var/row = list()
-			var/inflamed = I["inflamed"] || FALSE
-			row += "<tr><td><span[inflamed ? " class='bad'" : ""]>[I["name"]]</span></td>"
-			if(I["is_broken"])
-				row += "<td>[SPAN_BAD("Severe")]</td>"
-			else if(I["is_bruised"])
-				row += "<td>[SPAN_CLASS("average", "Moderate")]</td>"
-			else if(I["is_damaged"])
-				row += "<td>[SPAN_CLASS("mild", "Minor")]</td>"
-			else
-				row += "<td>None</td>"
-			row += "<td>"
-			row += "[SPAN_BAD("[english_list(I["scan_results"], nothing_text="&nbsp;")]")]"
-			row += "</td></tr>"
-			subdat += jointext(row, null)
+		var/inflamed = I["inflamed"] || FALSE
+		row += "<tr><td><span[inflamed ? " class='bad'" : ""]>[I["name"]]</span></td>"
+		if(I["is_broken"])
+			row += "<td>[SPAN_BAD("Severe")]</td>"
+		else if(I["is_bruised"])
+			row += "<td>[SPAN_CLASS("average", "Moderate")]</td>"
+		else if(I["is_damaged"])
+			row += "<td>[SPAN_CLASS("mild", "Minor")]</td>"
+		else
+			row += "<td>None</td>"
+		row += "<td>"
+		row += "[SPAN_BAD("[english_list(I["scan_results"], nothing_text="&nbsp;")]")]"
+		row += "</td></tr>"
+		subdat += jointext(row, null)
 
 	dat += subdat
 	for(var/organ_name in scan["missing_organs"])

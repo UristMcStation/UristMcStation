@@ -190,7 +190,7 @@
 		var/mob/living/silicon/robot/R = M
 		return (R.cell)
 	if(ishuman(M))
-		var/mob/living/carbon/human/H = M		
+		var/mob/living/carbon/human/H = M
 		if(H.isSynthetic()) // FBPs and IPCs
 			return 1
 		if(istype(H.back,/obj/item/rig))
@@ -233,12 +233,12 @@
 	..()
 
 	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/recharge_station(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator/pico(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator/pico(src)
-	component_parts += new /obj/item/weapon/stock_parts/capacitor/super(src)
-	component_parts += new /obj/item/weapon/stock_parts/capacitor/super(src)
-	component_parts += new /obj/item/weapon/cell/hyper(src)
+	component_parts += new /obj/item/circuitboard/recharge_station(src)
+	component_parts += new /obj/item/stock_parts/manipulator/pico(src)
+	component_parts += new /obj/item/stock_parts/manipulator/pico(src)
+	component_parts += new /obj/item/stock_parts/capacitor/super(src)
+	component_parts += new /obj/item/stock_parts/capacitor/super(src)
+	component_parts += new /obj/item/cell/hyper(src)
 	component_parts += new /obj/item/stack/cable_coil(src, 5)
 
 	RefreshParts()

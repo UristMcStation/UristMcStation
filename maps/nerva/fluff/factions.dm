@@ -1,4 +1,4 @@
-/decl/cultural_info/faction/scg
+/singleton/cultural_info/faction/scg
 	name = FACTION_SOL_CENTRAL
 	description = "The Terran Confederacy, commonly referred to as the Confederacy or the TC, is an oligarchic federal republic \
 	with a government structure loosely based on that of the Republic of Venice, composed of numerous human planets spanning many systems. \
@@ -26,7 +26,7 @@
 	language = LANGUAGE_SOL_COMMON
 
 /*
-/decl/cultural_info/faction/scg/fleet
+/singleton/cultural_info/faction/scg/fleet
 	name = FACTION_FLEET
 	description = "The SCG DF Fleet, commonly referred to as the Fleet, is the SCG's primary component of the Defence Forces. \
 	It consists of a huge assortment of vessels of varying sizes broken up into a number of smaller \"Fleets\" each with their \
@@ -39,14 +39,14 @@
 	smugglers and taking potshots at the ocassional Vox. Currently undergoing major \
 	overhauls to improve efficiency and capabilities, publicly to counter encroachment by the Terran Colonial Confederation." */
 
-/decl/cultural_info/faction/tcc
+/singleton/cultural_info/faction/tcc
 	name = FACTION_TERRAN_CONFED //this is dumb, but I'm just gonna use this def for the UHA
 	description = "The United Human Alliance, commonly referred to as the UHA, is a growing power in human space, \
 	bordered by the Terran Confederacy towards the galactic centre. Born out of the post Galactic Crisis unrest, \
 	xenophobia and economic turmoil in the Terran Confederacy, the United Human Alliance is a radical xenophobic \
 	secessionist movement started by a group of planetary governors and Terran politicians discontent at the \
 	concessions made to the Unathi in exchange for their help during the Galactic Crisis. The UHA believes that the \
-	war could have been won without the Unathi’s help, and blame the Unathi for the TC’s post-Galactic Crisis economic troubles. \
+	war could have been won without the Unathiï¿½s help, and blame the Unathi for the TCï¿½s post-Galactic Crisis economic troubles. \
 	A number of UHA leaders even advocate a conspiracy theory that the Unathi were behind the Galactic Crisis, a xenophobic sentiment \
 	that likely stems from the apparent similarity between Lactera and Unathi. While the UHA has seen rapid initial gains in the civil war \
 	with the Terran Confederacy	the damage done to their infrastructure and the poor economic state of the planets they hold has led to a \
@@ -60,11 +60,11 @@
 	However, the central government and planetary governments are almost entirely dominated by the military, and civil rights have been extremely curtailed, in the name of winning the ongoing civil war."
 	economic_power = 0.9
 	subversive_potential = 50
-	language = LANGUAGE_INDEPENDENT
+	language = LANGUAGE_HUMAN_RUSSIAN
 	secondary_langs = list(LANGUAGE_SIGN, LANGUAGE_SOL_COMMON)
 
 /*
-/decl/cultural_info/faction/remote
+/singleton/cultural_info/faction/remote
 	name = FACTION_EXPEDITIONARY
 	description = "The Expeditionary Corps, commonly referred to as the EC and made up of 'expeds', is a non-military, uniformed \
 	organisation of the Sol Central Government, reporting to the Committee for Diplomatic Relations. It is governed by similar regulations \
@@ -78,7 +78,7 @@
 	secondary_langs = list(LANGUAGE_SIGN, LANGUAGE_SOL_COMMON)
 */
 
-/decl/cultural_info/faction/remote/nanotrasen
+/singleton/cultural_info/faction/remote/nanotrasen
 	name = FACTION_NANOTRASEN
 	description = "The NanoTrasen Corporation, commonly referred to as NT, is the largest of the great megacorporations of the modern day. A nation unto itself, \
 	NanoTrasen is currently headquartered in New Amsterdam on Procyon and headed by CEO Jackson Trasen and the NanoTrasen Board of Directors. \
@@ -94,7 +94,7 @@
 	subversive_potential = 15
 	secondary_langs = list(LANGUAGE_SIGN)
 
-/decl/cultural_info/faction/remote/xynergy
+/singleton/cultural_info/faction/remote/xynergy
 	name = FACTION_XYNERGY
 	description = "Xynergy is a privately held company known for their work with xenobiological organisms. They develop and \
 	produce products such as the netgun and dociler used for capturing or taming xenofauna. In addition, they are the largest \
@@ -103,7 +103,7 @@
 	subversive_potential = 15
 	secondary_langs = list(LANGUAGE_SIGN)
 
-/decl/cultural_info/faction/remote/hephaestus
+/singleton/cultural_info/faction/remote/hephaestus
 	name = FACTION_HEPHAESTUS
 	description = "Hephaestus Industries, known simply as Hephaestus, is one of the largest corporations in existence today. \
 	The leading manufacturer of military grade personal weapons, assault vehicles, defence systems and security measures, \
@@ -116,7 +116,7 @@
 	language = LANGUAGE_SOL_COMMON
 	secondary_langs = list(LANGUAGE_SIGN, LANGUAGE_GALCOM)
 
-/decl/cultural_info/faction/free
+/singleton/cultural_info/faction/free
 	name = FACTION_FREETRADE
 	description = "The Free Trade Union, commonly referred to as the FTU, is is an employee-owned conglomerate of tens of thousands of \
 	various traders and merchants from all over Terran space and beyond. Colloquially known as the 'fifth megacorp', they control a sizeable fleet \
@@ -128,7 +128,7 @@
 	subversive_potential = 15
 	language = LANGUAGE_SPACER
 
-/decl/cultural_info/faction/pcrc
+/singleton/cultural_info/faction/pcrc
 	name = FACTION_PCRC
 	description = "Proxima Centauri Risk Control, often known as PCRC, is one of the largest suppliers of private security in human-controlled space. \
 	PCRC handles numerous government, private and corporate contracts and provides a variety of services ranging from private law enforcement, \
@@ -140,7 +140,7 @@
 	secondary_langs = list(LANGUAGE_SIGN, LANGUAGE_GALCOM, LANGUAGE_SOL_COMMON)
 
 
-/decl/cultural_info/faction/orma
+/singleton/cultural_info/faction/orma
 	name = FACTION_ORMA
 	description = "Ostensiably an independent power, the ORMA was formed shortly after the settlement of the Outer Rim. \
 	Originally known as the United Miners Guilds of the Outer Rim, the ORMA is a loose collection of hundreds of semi-independent \
@@ -155,7 +155,7 @@
 
 
 
-/decl/cultural_info/faction/other
+/singleton/cultural_info/faction/other
 	name = FACTION_OTHER
 	description = "You belong to one of the many other factions that operate in the galaxy. Numerous, too numerous to list, these factions represent a variety of interests, purposes, intents and goals."
 	subversive_potential = 25

@@ -33,7 +33,7 @@
 
 //	unsuitable_atoms_damage = 15
 //	corpse = /obj/effect/landmark/mobcorpse/pirate
-	var/weapon1 = /obj/item/weapon/melee/energy/sword/pirate
+	var/weapon1 = /obj/item/melee/energy/sword/pirate
 
 	var/list/speech_triggers = list()
 	var/list/set_triggers = list()

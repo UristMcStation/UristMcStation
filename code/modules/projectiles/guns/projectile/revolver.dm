@@ -47,7 +47,7 @@
 	chamber_offset = 0
 	return ..()
 
-/obj/item/weapon/gun/projectile/revolver/mateba
+/obj/item/gun/projectile/revolver/mateba
 	name = "mateba"
 	icon_state = "mateba"
 	item_icons = URIST_ALL_ONMOBS

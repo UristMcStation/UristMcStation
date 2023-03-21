@@ -1,6 +1,6 @@
 //random items
 
-/obj/item/weapon/storage/box/radiokeys
+/obj/item/storage/box/radiokeys
 	name = "box of radio encryption keys"
 	desc = "A box full of assorted encryption keys."
 	startswith = list(/obj/item/device/encryptionkey/nerva/sec = 3,
@@ -104,23 +104,23 @@
 
 //stamps
 
-/obj/item/weapon/stamp/nt
+/obj/item/stamp/nt
 	name = "\improper NanoTrasen rubber stamp"
 	icon_state = "stamp-intaff"
 
-/obj/item/weapon/stamp/seniornt
+/obj/item/stamp/seniornt
 	name = "\improper Senior Researcher's rubber stamp"
 	icon_state = "stamp-intaff"
 
-/obj/item/weapon/stamp/fo
+/obj/item/stamp/fo
 	name = "\improper First Officer's rubber stamp"
 	icon_state = "stamp-hop"
 
-/obj/item/weapon/stamp/so
+/obj/item/stamp/so
 	name = "\improper Second Officer's rubber stamp"
 	icon_state = "stamp-hop"
 
-/obj/item/weapon/stamp/cos
+/obj/item/stamp/cos
 	name = "\improper Chief of Security's rubber stamp"
 	icon_state = "stamp-hos"
 
@@ -134,19 +134,19 @@
 
 //station account card
 
-/obj/item/weapon/card/id/station_account
+/obj/item/card/id/station_account
 	name = "ICS Nerva account card"
 	desc = "A banking card with access to the ICS Nerva's main account."
 	item_state = "silver_id"
 	detail_color = COLOR_COMMAND_BLUE
 
 /*
-/obj/item/weapon/card/station_account/New()
+/obj/item/card/station_account/New()
 	..()
 	associated_account_number = station_account.account_number
 */
 
-/obj/item/weapon/storage/lockbox/station_account
+/obj/item/storage/lockbox/station_account
 	name = "station account card lockbox"
 	desc = "A locked box used to store the ICS Nerva's account card."
 	icon = 'icons/urist/items/tgitems.dmi'
@@ -159,19 +159,19 @@
 	icon_locked = "medalbox+l"
 	icon_closed = "medalbox"
 	icon_broken = "medalbox+b"
-	startswith = list(/obj/item/weapon/card/id/station_account)
+	startswith = list(/obj/item/card/id/station_account)
 	var/linked = FALSE //fucking card setup doesn't work with New() or Initialize(), so we're getting hacky up in here.
 
-/obj/item/weapon/storage/lockbox/station_account/open(mob/user)
+/obj/item/storage/lockbox/station_account/open(mob/user)
 	if(!linked)
 		linked = TRUE
-		for(var/obj/item/weapon/card/id/station_account/C)
+		for(var/obj/item/card/id/station_account/C)
 			C.associated_account_number = station_account.account_number
 	..()
 
 //ammo boxes
 
-/obj/item/weapon/storage/box/nervaammo
+/obj/item/storage/box/nervaammo
 	name = "box of combat ammunition"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death. \
 	Contains everything you need to kill hostiles boarding the ICS Nerva."
@@ -180,7 +180,7 @@
 		/obj/item/ammo_magazine/hi2521smg9mm = 2
 		)
 
-/obj/item/weapon/storage/box/boardingammo
+/obj/item/storage/box/boardingammo
 	name = "box of HI-2521-P pistol magazines"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death. \
 	Contains everything you need to kill hostiles boarding the ICS Nerva."

@@ -108,6 +108,11 @@
 		/obj/item/ammo_magazine/c357
 	)
 
+/obj/item/storage/backpack/satchel/syndie_kit/revolver2
+	startswith = list(
+		/obj/item/gun/projectile/revolver/webley,
+		/obj/item/ammo_magazine/c44
+	)
 /obj/item/storage/box/syndie_kit/toxin
 	startswith = list(
 		/obj/item/reagent_containers/glass/beaker/vial/random/toxin,

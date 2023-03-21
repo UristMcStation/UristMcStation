@@ -139,15 +139,6 @@
 	distance_falloff = 2.5
 	armor_penetration = 15
 
-/obj/item/projectile/bullet/pistol/medium/revolver
-	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
-	damage = 30 //.44 magnum or something
-
-/obj/item/projectile/bullet/pistol/strong //matebas
-	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
-	damage = 60 //.50AE
-	armor_penetration = 30
-
 /obj/item/projectile/bullet/pistol/strong/revolver //revolvers
 	damage = 50 //Revolvers get snowflake bullets, to keep them relevant
 	armor_penetration = 20
@@ -220,7 +211,7 @@
 
 /* "Rifle" rounds */
 
-/obj/item/projectile/bullet/rifle
+/obj/item/projectile/bullet/rifle //762
 	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 	damage = 45
 	armor_penetration = 25
@@ -228,13 +219,13 @@
 	penetrating = 1
 	distance_falloff = 1.5
 
-/obj/item/projectile/bullet/rifle/military
+/obj/item/projectile/bullet/rifle/military //556
 	fire_sound = 'sound/weapons/gunshot/gunshot2.ogg'
 	damage = 40
 	armor_penetration = 35
 	penetration_modifier = 1
 
-/obj/item/projectile/bullet/rifle/shell
+/obj/item/projectile/bullet/rifle/shell //14.5mm
 	fire_sound = 'sound/weapons/gunshot/sniper.ogg'
 	damage = 80
 	stun = 3

@@ -7,8 +7,7 @@
 	icon_dead = ""
 	health = 200
 	maxHealth = 200
-	melee_damage_lower = 15
-	melee_damage_upper = 20
+	natural_weapon = /obj/item/natural_weapon/claws
 	attacktext = "mauled"
 	attack_sound = 'sound/weapons/slash.ogg'
 	faction = "diona"
@@ -16,7 +15,6 @@
 	max_gas = null
 	minbodytemp = 0
 	move_to_delay = 40
-	idle_vision_range = 2
 	alert_sound = list('sound/hallucinations/screech.ogg')
 
 /mob/living/simple_animal/hostile/sound/insanediona/death()
@@ -26,7 +24,9 @@
 	new /mob/living/carbon/alien/diona(get_turf(src))
 	qdel(src)
 
-/mob/living/simple_animal/hostile/sound/insanediona/AttackTarget()
+/datum/ai_holder/hostile/sound/insanediona
+
+/datum/ai_holder/hostile/sound/insanediona/engage_target()
 	if(!..())
 		return 0
 	if(ishuman(target))

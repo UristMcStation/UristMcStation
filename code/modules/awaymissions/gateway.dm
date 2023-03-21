@@ -72,13 +72,13 @@ obj/machinery/gateway/centerstation/Process()
 		toggleoff()
 		break
 
-	if(linked.len == 8)
+	if(length(linked) == 8)
 		ready = 1
 
 
 /obj/machinery/gateway/centerstation/proc/toggleon(mob/user as mob)
 	if(!ready)			return
-	if(linked.len != 8)	return
+	if(length(linked) != 8)	return
 	if(!powered())		return
 	if(!awaygate)
 		to_chat(user, "<span class='notice'>Error: No destination found.</span>")
@@ -174,13 +174,13 @@ obj/machinery/gateway/centerstation/Process()
 		toggleoff()
 		break
 
-	if(linked.len == 8)
+	if(length(linked) == 8)
 		ready = 1
 
 
 /obj/machinery/gateway/centeraway/proc/toggleon(mob/user as mob)
 	if(!ready)			return
-	if(linked.len != 8)	return
+	if(length(linked) != 8)	return
 	if(!stationgate)
 		to_chat(user, "<span class='notice'>Error: No destination found.</span>")
 		return
@@ -213,7 +213,7 @@ obj/machinery/gateway/centerstation/Process()
 	if(!ready)	return
 	if(!active)	return
 	if(istype(M, /mob/living/carbon))
-		for(var/obj/item/weapon/implant/exile/E in M)//Checking that there is an exile implant in the contents
+		for(var/obj/item/implant/exile/E in M)//Checking that there is an exile implant in the contents
 			if(E.imp_in == M)//Checking that it's actually implanted vs just in their pocket
 				to_chat(M, "The remote gate has detected your exile implant and is blocking your entry.")
 				return

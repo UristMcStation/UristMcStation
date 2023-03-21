@@ -31,7 +31,7 @@
 	item_state = "kr_boots"
 	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 5, bio = 0, rad = 0)
 
-/obj/item/weapon/storage/backpack/urist/german
+/obj/item/storage/backpack/urist/german
 	name = "Wehrmacht rucksack"
 	desc = "A rucksack typically worn by Wehrmacht riflemen."
 	icon_state = "kr_rucksack"
@@ -47,7 +47,7 @@
 
 //gr guns
 
-/obj/item/weapon/gun/projectile/manualcycle/kar98
+/obj/item/gun/projectile/manualcycle/kar98
 	item_icons = DEF_URIST_INHANDS
 	name = "Kar 98k"
 	icon = 'icons/urist/items/guns.dmi'
@@ -89,7 +89,7 @@
 /obj/item/ammo_magazine/a792x57mm/g43mag/empty
 	initial_ammo = 0
 
-/obj/item/weapon/gun/projectile/g43
+/obj/item/gun/projectile/g43
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper Gewehr 43"
 	desc = "The standard semi-automatic rifle of the Wehrmacht, chambered in 7.92x57mm. Holds 10 rounds."
@@ -107,7 +107,7 @@
 	wielded_item_state = "woodarifle-wielded"
 	max_shells = 10
 
-/obj/item/weapon/gun/projectile/g43/update_icon()
+/obj/item/gun/projectile/g43/update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "g43"
@@ -121,9 +121,9 @@
 	icon_state = "rifle-casing" //maybe change this
 	spent_icon = "rifle-casing-spent"
 	caliber = "7.92x57mm"
-	projectile_type = /obj/item/projectile/bullet/rifle/a762 //no need to make a new projectile
+	projectile_type = /obj/item/projectile/bullet/rifle //no need to make a new projectile
 
-/obj/item/weapon/gun/projectile/automatic/stg44
+/obj/item/gun/projectile/automatic/stg44
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper StG 44"
 	desc = "The standard assault rifle of the Wehrmacht. Holds 30 rounds of 7.92x33mm."
@@ -147,7 +147,7 @@
 		list(mode_name="short bursts", 	burst=5, move_delay=6, fire_delay=null, one_hand_penalty = 6, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/weapon/gun/projectile/automatic/stg44/update_icon()
+/obj/item/gun/projectile/automatic/stg44/update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "stg44"
@@ -173,9 +173,9 @@
 	icon_state = "rifle-casing"
 	spent_icon = "rifle-casing-spent"
 	caliber = "7.92x33mm"
-	projectile_type = /obj/item/projectile/bullet/rifle/a762 //no need to make a new projectile
+	projectile_type = /obj/item/projectile/bullet/rifle //no need to make a new projectile
 
-/obj/item/weapon/gun/projectile/automatic/mp40
+/obj/item/gun/projectile/automatic/mp40
 	item_icons = DEF_URIST_INHANDS
 	name = "MP 40"
 	desc = "The standard sub-machinegun of the Wehrmacht. Only fires in short and long bursts. Takes magazines of 32 9mm rounds."
@@ -196,7 +196,7 @@
 		list(mode_name="long bursts",	burst=8, fire_delay=null, move_delay=8, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/weapon/gun/projectile/automatic/mp40/update_icon()
+/obj/item/gun/projectile/automatic/mp40/update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "mp40_stock"
@@ -215,7 +215,7 @@
 /obj/item/ammo_magazine/mc9mm/mp40/empty
 	initial_ammo = 0
 
-/obj/item/weapon/gun/projectile/p38
+/obj/item/gun/projectile/p38
 	name = "\improper Walther P38"
 	desc = "The standard service pistol of the Wehrmacht. Chambered in 9mm, the magazine holds 8 rounds."
 	icon = 'icons/urist/items/guns.dmi'
@@ -229,7 +229,7 @@
 	magazine_type = /obj/item/ammo_magazine/mc9mm/p38
 	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm/p38)
 
-/obj/item/weapon/gun/projectile/p38/update_icon()
+/obj/item/gun/projectile/p38/update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "p38"
@@ -248,7 +248,7 @@
 /obj/item/ammo_magazine/mc9mm/p38/empty
 	initial_ammo = 0
 
-/obj/item/weapon/gun/projectile/automatic/l6_saw/mg42
+/obj/item/gun/projectile/automatic/l6_saw/mg42
 	item_icons = DEF_URIST_INHANDS
 	name = "MG 42"
 	desc = "The general-purpose machinegun of the Wehrmacht, perfect for support and suppresive fire. Holds 250 rounds of "
@@ -268,7 +268,7 @@
 		list(mode_name="long bursts",	burst=8, fire_delay=null, move_delay=8, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/weapon/gun/projectile/automatic/l6_saw/mg42/update_icon()
+/obj/item/gun/projectile/automatic/l6_saw/mg42/update_icon()
 //	..()
 	icon_state = "mg42[cover_open ? "open" : "closed"][ammo_magazine ? "" : "-empty"]"
 
@@ -281,14 +281,14 @@
 /obj/item/ammo_magazine/a792x57mm/mg42/empty
 	initial_ammo = 0
 
-/obj/item/weapon/grenade/stielhandgranate
+/obj/item/grenade/stielhandgranate
 	desc = "A high explosive grenade, intended to be used as a sort of 'concussion' grenade."
 	name = "Model 21 Stielhandgranate"
 	icon = 'icons/urist/items/uristweapons.dmi'
 	icon_state = "kr_sticknade"
 	item_state = "flashbang"
 
-/obj/item/weapon/grenade/stielhandgranate/detonate()
+/obj/item/grenade/stielhandgranate/detonate()
 	explosion(src.loc, 0, 0, 2, 6)
 	qdel(src)
 
@@ -326,7 +326,7 @@
 	item_state = "ru_boots"
 	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 5, bio = 0, rad = 0)
 
-/obj/item/weapon/storage/backpack/urist/soviet
+/obj/item/storage/backpack/urist/soviet
 	name = "Red Army rucksack"
 	desc = "A rucksack typically worn by Red Army riflemen."
 	icon_state = "ru_rucksack"
@@ -347,12 +347,12 @@
 	item_state = "det_suit"
 	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	allowed = list(/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/grenade)
+	allowed = list(/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/grenade)
 	armor = list(melee = 10, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
 
 //guns //making the different calibres for germany was stupid. I'm just going to collapse the 7.62�38mmR, 7.62�54mmR and 7.62�25mm Tokarev into just 7.62mm. They're all going to use the same projectile anyways, so fuck it
 
-/obj/item/weapon/gun/projectile/manualcycle/mosinnagant
+/obj/item/gun/projectile/manualcycle/mosinnagant
 	item_icons = DEF_URIST_INHANDS
 	name = "Mosin-Nagant"
 	icon = 'icons/urist/items/guns.dmi'
@@ -389,7 +389,7 @@
 /obj/item/ammo_magazine/a762mm/svt40mag/empty
 	initial_ammo = 0
 
-/obj/item/weapon/gun/projectile/svt40
+/obj/item/gun/projectile/svt40
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper SVT-40"
 	desc = "The standard semi-automatic rifle of the Red Army, chambered in 7.62. Holds 10 rounds."
@@ -407,7 +407,7 @@
 	wielded_item_state = "woodarifle-wielded"
 	max_shells = 10
 
-/obj/item/weapon/gun/projectile/svt40/update_icon()
+/obj/item/gun/projectile/svt40/update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "svt40"
@@ -415,7 +415,7 @@
 		icon_state = "svt40-empty"
 	return
 
-/obj/item/weapon/gun/projectile/automatic/bar
+/obj/item/gun/projectile/automatic/bar
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper M1918 BAR"
 	desc = "The M1918 Browning Automatic Rifle, a US Army support LMG. Chambered in 30-06, it holds 20 rounds."
@@ -439,7 +439,7 @@
 		list(mode_name="long bursts",	burst=8, fire_delay=null, move_delay=8, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/weapon/gun/projectile/automatic/bar/update_icon()
+/obj/item/gun/projectile/automatic/bar/update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "bar"
@@ -456,7 +456,7 @@
 /obj/item/ammo_magazine/a762mm/barmag/empty
 	initial_ammo = 0
 
-/obj/item/weapon/gun/projectile/automatic/ppsh
+/obj/item/gun/projectile/automatic/ppsh
 	item_icons = DEF_URIST_INHANDS
 	name = "PPSh-41"
 	desc = "The standard sub-machinegun of the Red Army. Only fires in short and long bursts. Takes drum magazines of 71 7.62x25mm rounds."
@@ -477,7 +477,7 @@
 		list(mode_name="long bursts",	burst=8, fire_delay=null, move_delay=8, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/weapon/gun/projectile/automatic/ppsh/update_icon()
+/obj/item/gun/projectile/automatic/ppsh/update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "ppsh41"
@@ -496,7 +496,7 @@
 /obj/item/ammo_magazine/mc9mm/ppsh/empty
 	initial_ammo = 0
 
-/obj/item/weapon/gun/projectile/tt33
+/obj/item/gun/projectile/tt33
 	name = "\improper TT-33"
 	desc = "The standard service pistol of the Red Army. Chambered in 7.62x25mm, the magazine holds 8 rounds."
 	icon = 'icons/urist/items/guns.dmi'
@@ -510,7 +510,7 @@
 	magazine_type = /obj/item/ammo_magazine/mc9mm/tt33
 	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm/tt33)
 
-/obj/item/weapon/gun/projectile/tt33/update_icon()
+/obj/item/gun/projectile/tt33/update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "tt33"
@@ -529,7 +529,7 @@
 /obj/item/ammo_magazine/mc9mm/tt33/empty
 	initial_ammo = 0
 
-/obj/item/weapon/gun/projectile/revolver/nagantm1895
+/obj/item/gun/projectile/revolver/nagantm1895
 	name = "Nagant M1895"
 	desc = "The standard sidearm for officers in the Red Army. Chambered in 7.62mm"
 	icon_state = "nagant"
@@ -549,7 +549,7 @@
 	max_ammo = 7
 	multiple_sprites = 1
 
-/obj/item/weapon/gun/projectile/automatic/degtyaryov
+/obj/item/gun/projectile/automatic/degtyaryov
 	item_icons = DEF_URIST_INHANDS
 	name = "Degtyaryov machine gun"
 	desc = "The standard light machinegun of the Red Army. Only fires in short and long bursts. Takes pan magazines of 60 7.62mm rounds."
@@ -571,7 +571,7 @@
 		list(mode_name="long bursts",	burst=8, move_delay=15, one_hand_penalty=9, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/weapon/gun/projectile/automatic/degtyaryov/update_icon()
+/obj/item/gun/projectile/automatic/degtyaryov/update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "DT"
@@ -590,7 +590,7 @@
 /obj/item/ammo_magazine/a762mm/degtyaryov/empty
 	initial_ammo = 0
 
-/obj/item/weapon/grenade/frag/sovietgrenade
+/obj/item/grenade/frag/sovietgrenade
 	desc = "A small explosive meant for anti-personnel use."
 	name = "F1 fragmentation grenade"
 	icon = 'icons/urist/items/uristweapons.dmi'

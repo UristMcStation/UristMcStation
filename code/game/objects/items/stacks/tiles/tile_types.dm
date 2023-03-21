@@ -39,11 +39,11 @@
 	if (usr.stat || usr.restrained() || usr.incapacitated()) return
 
 	var/turf/target = get_turf(locate(src.loc.x,src.loc.y,src.loc.z+1))
-	
+
 	if(!target || !AreConnectedZLevels(src.loc.z,target.z))
 		to_chat(usr, "<span class='warning'>There's nothing above you.</span>")
 		return
-	
+
 	if(locate(/obj/structure/lattice, target))
 		target.attackby(src, src.loc)
 		to_chat(usr, "<span class='notice'>You slide \the [src] into the lattice above.</span>")
@@ -60,7 +60,7 @@
 	desc = "A patch of grass like they often use on golf courses."
 	icon_state = "tile_grass"
 	origin_tech = list(TECH_BIO = 1)
-	build_type = /decl/flooring/grass
+	build_type = /singleton/flooring/grass
 
 /*
  * Wood
@@ -79,7 +79,7 @@
 	uses_charge = 1
 	charge_costs = list(250)
 	stacktype = /obj/item/stack/tile/wood
-	build_type = /decl/flooring/wood
+	build_type = /singleton/flooring/wood
 
 /obj/item/stack/tile/mahogany
 	name = "mahogany floor tile"
@@ -138,7 +138,7 @@
 	matter = list(MATERIAL_STEEL = 450)
 	throwforce = 15
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
-	build_type = /decl/flooring/tiling
+	build_type = /singleton/flooring/tiling
 
 /obj/item/stack/tile/mono
 	name = "steel mono tile"
@@ -146,7 +146,7 @@
 	icon_state = "tile"
 	matter = list(MATERIAL_STEEL = 450)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
-	build_type = /decl/flooring/tiling/mono
+	build_type = /singleton/flooring/tiling/mono
 
 /obj/item/stack/tile/mono/dark
 	name = "dark mono tile"
@@ -154,7 +154,7 @@
 	icon_state = "fr_tile"
 	matter = list(MATERIAL_STEEL = 450)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
-	build_type = /decl/flooring/tiling/dark/mono
+	build_type = /singleton/flooring/tiling/dark/mono
 
 /obj/item/stack/tile/mono/white
 	name = "white mono tile"
@@ -168,7 +168,7 @@
 	icon_state = "tile_grid"
 	matter = list(MATERIAL_STEEL = 450)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
-	build_type = /decl/flooring/tiling/new_tile/steel_grid
+	build_type = /singleton/flooring/tiling/new_tile/steel_grid
 
 /obj/item/stack/tile/ridge
 	name = "grey ridge tile"
@@ -176,7 +176,7 @@
 	icon_state = "tile_ridged"
 	matter = list(MATERIAL_STEEL = 450)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
-	build_type = /decl/flooring/tiling/new_tile/steel_ridged
+	build_type = /singleton/flooring/tiling/new_tile/steel_ridged
 
 /obj/item/stack/tile/techgrey
 	name = "grey techfloor tile"
@@ -184,7 +184,7 @@
 	icon_state = "techtile_grey"
 	matter = list(MATERIAL_STEEL = 450)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
-	build_type = /decl/flooring/tiling/new_tile/techmaint
+	build_type = /singleton/flooring/tiling/new_tile/techmaint
 
 /obj/item/stack/tile/techgrid
 	name = "grid techfloor tile"
@@ -192,7 +192,7 @@
 	icon_state = "techtile_grid"
 	matter = list(MATERIAL_STEEL = 450)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
-	build_type = /decl/flooring/tiling/tech/grid
+	build_type = /singleton/flooring/tiling/tech/grid
 
 /obj/item/stack/tile/techmaint
 	name = "dark techfloor tile"
@@ -200,7 +200,7 @@
 	icon_state = "techtile_maint"
 	matter = list(MATERIAL_STEEL = 450)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
-	build_type = /decl/flooring/tiling/tech
+	build_type = /singleton/flooring/tiling/tech
 
 /obj/item/stack/tile/floor_white
 	name = "white floor tile"
@@ -238,14 +238,14 @@
 	uses_charge = 1
 	charge_costs = list(250)
 	stacktype = /obj/item/stack/tile/floor
-	build_type = /decl/flooring/tiling
+	build_type = /singleton/flooring/tiling
 
 /obj/item/stack/tile/linoleum
 	name = "linoleum"
 	singular_name = "linoleum"
 	desc = "A piece of linoleum. It is the same size as a normal floor tile!"
 	icon_state = "tile_linoleum"
-	build_type = /decl/flooring/linoleum
+	build_type = /singleton/flooring/linoleum
 
 /obj/item/stack/tile/linoleum/fifty
 	amount = 50
@@ -264,7 +264,7 @@
 	singular_name = "brown carpet"
 	desc = "A piece of brown carpet."
 	icon_state = "tile_carpetbrown"
-	build_type = /decl/flooring/carpet
+	build_type = /singleton/flooring/carpet
 
 /obj/item/stack/tile/carpet/fifty
 	amount = 50
@@ -274,7 +274,7 @@
 	desc = "A piece of blue and gold carpet."
 	singular_name = "blue carpet"
 	icon_state = "tile_carpetblue"
-	build_type = /decl/flooring/carpet/blue
+	build_type = /singleton/flooring/carpet/blue
 
 /obj/item/stack/tile/carpetblue/fifty
 	amount = 50
@@ -284,7 +284,7 @@
 	desc = "A piece of blue and pale blue carpet."
 	singular_name = "pale blue carpet"
 	icon_state = "tile_carpetblue2"
-	build_type = /decl/flooring/carpet/blue2
+	build_type = /singleton/flooring/carpet/blue2
 
 /obj/item/stack/tile/carpetblue2/fifty
 	amount = 50
@@ -312,7 +312,7 @@
 	desc = "A piece of purple carpet."
 	singular_name = "purple carpet"
 	icon_state = "tile_carpetpurple"
-	build_type = /decl/flooring/carpet/purple
+	build_type = /singleton/flooring/carpet/purple
 
 /obj/item/stack/tile/carpetpurple/fifty
 	amount = 50
@@ -322,7 +322,7 @@
 	desc = "A piece of orange carpet."
 	singular_name = "orange carpet"
 	icon_state = "tile_carpetorange"
-	build_type = /decl/flooring/carpet/orange
+	build_type = /singleton/flooring/carpet/orange
 
 /obj/item/stack/tile/carpetorange/fifty
 	amount = 50
@@ -332,7 +332,7 @@
 	desc = "A piece of green carpet."
 	singular_name = "green carpet"
 	icon_state = "tile_carpetgreen"
-	build_type = /decl/flooring/carpet/green
+	build_type = /singleton/flooring/carpet/green
 
 /obj/item/stack/tile/carpetgreen/fifty
 	amount = 50
@@ -342,7 +342,7 @@
 	desc = "A piece of red carpet."
 	singular_name = "red carpet"
 	icon_state = "tile_carpetred"
-	build_type = /decl/flooring/carpet/red
+	build_type = /singleton/flooring/carpet/red
 
 /obj/item/stack/tile/carpetred/fifty
 	amount = 50

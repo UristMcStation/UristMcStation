@@ -160,7 +160,7 @@
 	health = 30
 	speak_chance = 0
 	turns_per_move = 5
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "stomps"
@@ -188,7 +188,7 @@
 	icon_gib = "panther_dead"
 	speak_chance = 0
 	turns_per_move = 3
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	response_help = "pets the"
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
@@ -228,7 +228,7 @@
 
 /mob/living/simple_animal/hostile/huntable/panther/AttackTarget()
 	..()
-	if(stance == HOSTILE_STANCE_ATTACKING && get_dist(src, target))
+	if(stance == STANCE_ATTACKING && get_dist(src, target))
 		stalk_tick_delay -= 1
 		if(stalk_tick_delay <= 0)
 			src.loc = get_step_towards(src, target)
@@ -248,7 +248,7 @@
 	icon_gib = null
 	speak_chance = 0
 	turns_per_move = 1
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	response_help = "pets the"
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
@@ -287,7 +287,7 @@
 
 /mob/living/simple_animal/hostile/snake/AttackTarget()
 	..()
-	if(stance == HOSTILE_STANCE_ATTACKING && get_dist(src, target))
+	if(stance == STANCE_ATTACKING && get_dist(src, target))
 		stalk_tick_delay -= 1
 		if(stalk_tick_delay <= 0)
 			src.loc = get_step_towards(src, target)
@@ -340,7 +340,7 @@
 	icon_gib = "deer_dead"
 	speak_chance = 0
 	turns_per_move = 3
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	response_help = "pets the"
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
@@ -365,14 +365,14 @@
 	if(target != null)
 		if(isliving(target))
 			Aggro()
-			stance = HOSTILE_STANCE_ATTACK
+			stance = STANCE_ATTACK
 			visible_message("<span class='danger'>The [src.name] tries to flee from [target.name]!</span>")
 			retreat_distance = 10
 			minimum_distance = 10
 			spawn(chase_time)
 				retreat_distance = 0
 				minimum_distance = 0
-				stance = HOSTILE_STANCE_IDLE
+				stance = STANCE_IDLE
 				target = null
 			return
 	return
@@ -391,7 +391,7 @@
 	icon_gib = "bigbear_dead"
 	speak_chance = 0
 	turns_per_move = 4
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	response_help = "pets the"
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"

@@ -11,10 +11,12 @@
 	shorthand = "YngYu"
 	space_chance = 30
 	partial_understanding = list(
-		LANGUAGE_HUMAN_EURO = 5,
+		LANGUAGE_GALCOM = 5,
 		LANGUAGE_HUMAN_ARABIC = 5,
 		LANGUAGE_HUMAN_INDIAN = 5,
 		LANGUAGE_HUMAN_SELENIAN = 10,
+		LANGUAGE_SOL_COMMON = 20,
+		LANGUAGE_HUMAN_RUSSIAN = 10,
 		LANGUAGE_SPACER = 20
 	)
 	syllables = list(

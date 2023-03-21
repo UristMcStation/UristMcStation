@@ -27,7 +27,7 @@
 	Krri'gli is mostly concerned with the design and construction of bluespace drives, and is one of the largest providers in the human side \
 	of Skrell space. Their participation in the Torch project is their first human venture, and has resulted in their sending science staff \
 	as a part of the Expeditionary Corps Organization to provide expertise and gather mission data firsthand."
-	additional_langs = list(LANGUAGE_HUMAN_EURO)
+	additional_langs = list(LANGUAGE_GALCOM)
 	economic_power = 1.5
 
 
@@ -37,17 +37,17 @@
 	security services to a variety of Skrell vessels, traders and organisations, and, more recently, human corporations. Unofficially, it is rumoured that \
 	Qonn'prri is a for-profit offshoot of Qala'oa tasked with information gathering in human space and along the frontier.So far such claims have been \
 	unfounded, and Qonn'prri is known for offering a professional, reliable and able service to Humans and Skrell alike."
-	additional_langs = list(LANGUAGE_HUMAN_EURO)
+	additional_langs = list(LANGUAGE_GALCOM)
 	economic_power = 1.4
 
 /singleton/cultural_info/faction/skrell/otherskrellfac
 	name = FACTION_SKRELL_OTHERSKRELLFAC
 	description = "There are more factions in skrellian space than can be counted, from corporations to crime syndicates to royal courts. This faction is one of those many outliers."
-	additional_langs = list(LANGUAGE_HUMAN_EURO)
+	additional_langs = list(LANGUAGE_GALCOM)
 	economic_power = 1.5
 
 /singleton/cultural_info/faction/skrell/othersdtf
 	name = FACTION_SKRELL_OTHERSDTF
 	description = "SDTFs control skrell space from the human frontiers to far, far beyond. There are too many Defense Task Forces to name, and this SDTF is one of them."
-	additional_langs = list(LANGUAGE_HUMAN_EURO)
+	additional_langs = list(LANGUAGE_GALCOM)
 	economic_power = 1.5

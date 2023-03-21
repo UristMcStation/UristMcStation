@@ -7,7 +7,7 @@
 	var/size = 0
 
 /obj/structure/flora/tree/planet/attackby(var/obj/item/I, mob/user as mob)
-	if(istype(I, /obj/item/weapon/carpentry/axe) || istype(I, /obj/item/weapon/material/twohanded/fireaxe))
+	if(istype(I, /obj/item/carpentry/axe) || istype(I, /obj/item/material/twohanded/fireaxe))
 		user << "<span class='notice'>You chop [src] with [I].</span>"
 
 		playsound(src.loc, 'sound/urist/chopchop.ogg', 100, 1)
@@ -80,7 +80,7 @@
 	anchored = 0
 
 /obj/structure/log/attackby(var/obj/item/I, mob/user as mob)
-	if(istype(I, /obj/item/weapon/carpentry/saw))
+	if(istype(I, /obj/item/carpentry/saw))
 		user << "<span class='notice'>You saw the [src] with [I].</span>"
 
 		if(do_after(user, 20))

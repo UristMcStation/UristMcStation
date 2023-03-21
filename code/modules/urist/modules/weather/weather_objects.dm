@@ -22,7 +22,7 @@
 	/*if(weather_dynamic)
 		weather_report()*/
 
-	/*if(!(active_weathers) || !(active_weathers.len))
+	/*if(!(active_weathers) || !(length(active_weathers)))
 		active_weathers += get_climate_weather(get_area(src))
 	var/index = 0
 	for(var/i in active_weathers) //paths don't work with implicit types
@@ -60,7 +60,7 @@
 //If there's still processable objects, return 1
 /obj/effect/weather/proc/WActive()
 	if(!(weather_safe))
-		if(weather_tracker.len)
+		if(length(weather_tracker))
 			return 1
 	return 0
 

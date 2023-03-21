@@ -241,6 +241,11 @@ Checks if a list has the same entries and values as an element of big.
 		return picked
 	return null
 
+//Returns the first element from the list and removes it from the list
+/proc/popleft(list/L)
+	if(length(L))
+		. = L[1]
+		L.Cut(1,2)
 
 /// Remove and return the last element of the list, or null.
 /proc/pop(list/list)

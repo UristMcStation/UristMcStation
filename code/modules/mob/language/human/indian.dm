@@ -12,10 +12,11 @@
 	shorthand = "Dehv"
 	space_chance = 30
 	partial_understanding = list(
-		LANGUAGE_HUMAN_EURO = 5,
+		LANGUAGE_GALCOM = 5,
 		LANGUAGE_HUMAN_CHINESE = 5,
 		LANGUAGE_HUMAN_ARABIC = 10,
 		LANGUAGE_HUMAN_SELENIAN = 5,
+		LANGUAGE_SOL_COMMON = 25,
 		LANGUAGE_SPACER = 20
 	)
 	syllables = list(

@@ -126,7 +126,7 @@
 		..()
 
 /turf/simulated/floor/planet/attackby(var/obj/item/I as obj, mob/user as mob)
-	if(istype(I, /obj/item/weapon/shovel))
+	if(istype(I, /obj/item/shovel))
 		if(!farmed) //todo; add a way to remove the soil
 			user.visible_message("<span class='notice'>[user] starts to dig up some soil and prepare the ground for planting.</span>", \
 			"<span class='notice'>You start to dig up some soil and prepare the ground for planting.</span>")
@@ -365,8 +365,8 @@
 	terrain_type = null
 
 //Rocks fall, you die
-/turf/simulated/floor/planet/jungle/rock/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/weapon/pickaxe))
+/turf/simulated/floor/planet/jungle/rock/attackby(obj/item/W as obj, mob/user as mob)
+	if (istype(W, /obj/item/pickaxe))
 		to_chat(user, "You begin to mine into the [src]..")
 		if(do_after(user, 12 SECONDS))
 			new /obj/structure/boulder(user.loc)
@@ -427,7 +427,7 @@
 	fishleft = rand(1,6)
 
 /turf/simulated/floor/planet/jungle/water/attackby(var/obj/item/I, mob/user as mob)
-	if(istype(I, /obj/item/weapon/fishingrod))
+	if(istype(I, /obj/item/fishingrod))
 		if(bridge)
 			to_chat(user, "<span class='notice'>There's a bridge here, try fishing somewhere else.</span>")
 			return
@@ -439,7 +439,7 @@
 			else
 				to_chat(user, "<span class='notice'>You cast your line into the water. Hold still and hopefully you can catch some fish.</span>")
 
-			var/obj/item/weapon/fishingrod/F = I
+			var/obj/item/fishingrod/F = I
 			var/fishtime = (rand(40,140)) //test this shit
 			fishtime *= F.fishingpower //here we account for using shitty improvised fishing rods, which increase the time
 			fishing = 1
@@ -459,11 +459,11 @@
 			var/obj/item/F
 
 			if(prob(2))
-				F = new/obj/item/weapon/storage/belt/utility(user.loc)
+				F = new/obj/item/storage/belt/utility(user.loc)
 			else if(prob(1))
-				F = new	/obj/item/weapon/beartrap(user.loc)
+				F = new	/obj/item/beartrap(user.loc)
 			else if(prob(10))
-				F = new/obj/item/weapon/reagent_containers/food/drinks/cans/cola(user.loc)
+				F = new/obj/item/reagent_containers/food/drinks/cans/cola(user.loc)
 			else if(prob(3))
 				F = new/obj/item/clothing/suit/storage/hazardvest(user.loc)
 			else if(prob(5))
@@ -513,7 +513,7 @@
 			else
 				to_chat(user, "<span class='notice'>You do not have enough wood to build a bridge.</span>")
 
-	else if(istype(I, /obj/item/weapon/paddle))
+	else if(istype(I, /obj/item/paddle))
 		if(!bridge)
 			for(var/obj/structure/raft/R in user.loc)
 				if(!busy)
@@ -547,7 +547,7 @@
 						to_chat(user, "<span class='notice'>You dip your paddle into the water. Okay.</span>")
 
 
-	else if(istype(I, /obj/item/weapon/crowbar))
+	else if(istype(I, /obj/item/crowbar))
 		if(bridge)
 			to_chat(user, "<span class='notice'>You begin to disassemble the bridge.</span>")
 			if (do_after(user, rand(15,30), src))
@@ -577,7 +577,7 @@
 			user.put_in_hands(WL)
 			qdel(AH)
 
-	var/obj/item/weapon/reagent_containers/RG = I
+	var/obj/item/reagent_containers/RG = I
 	if (istype(RG) && RG.is_open_container())
 		RG.reagents.add_reagent(/datum/reagent/water, min(RG.volume - RG.reagents.total_volume, RG.amount_per_transfer_from_this))
 		user.visible_message("<span class='notice'>[user] fills \the [RG] from the water.</span>","<span class='notice'> You fill \the [RG] from the water.</span>")
@@ -619,7 +619,7 @@
 	else ..()
 
 /turf/simulated/floor/planet/jungle/water/deep/attackby(var/obj/item/I, mob/user as mob)
-	if(istype(I, /obj/item/weapon/paddle))
+	if(istype(I, /obj/item/paddle))
 		if(!bridge)
 			for(var/obj/structure/raft/R in user.loc)
 				if(!busy)

@@ -1446,7 +1446,7 @@ About the new airlock wires panel:
 		brace.examine_damage_state(user)
 
 //CopyPasta'd from /tg/ by TGameCo
-/obj/machinery/door/airlock/proc/change_paintjob(var/obj/item/weapon/airlock_painter/AP, var/mob/user)
+/obj/machinery/door/airlock/proc/change_paintjob(var/obj/item/airlock_painter/AP, var/mob/user)
 	if(!AP || !AP.use())
 		return
 

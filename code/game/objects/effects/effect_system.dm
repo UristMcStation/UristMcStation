@@ -496,7 +496,7 @@ would spawn and follow the beaker, even if it is carried or thrown.
 		var/heavy = -1
 		var/light = -1
 
-		// Clamp all values to fractions of config.max_explosion_range, following the same pattern as for tank transfer bombs
+		// clamp all values to fractions of config.max_explosion_range, following the same pattern as for tank transfer bombs
 		if (round(amount/12) > 0)
 			devst = devst + amount/12
 

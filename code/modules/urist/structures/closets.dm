@@ -8,9 +8,9 @@
 /obj/structure/closet/secure_closet/captainsclothes/New()
 	..()
 	sleep(2)
-	new /obj/item/weapon/storage/backpack/duffel/duffel_cap(src)
-	new /obj/item/weapon/storage/backpack/captain(src)
-	new /obj/item/weapon/storage/backpack/satchel/cap(src)
+	new /obj/item/storage/backpack/duffel/duffel_cap(src)
+	new /obj/item/storage/backpack/captain(src)
+	new /obj/item/storage/backpack/satchel/cap(src)
 	new /obj/item/clothing/suit/captunic(src)
 	new /obj/item/clothing/suit/storage/capjacket(src)
 	new /obj/item/clothing/under/rank/captain(src)
@@ -33,14 +33,14 @@
 	new /obj/item/clothing/suit/armor/vest(src)
 	new /obj/item/clothing/head/helmet/swat(src)
 	new /obj/item/device/radio/headset/heads/captain(src)
-	new /obj/item/weapon/gun/projectile/revolver/webley(src)
+	new /obj/item/gun/projectile/revolver/webley(src)
 	new /obj/item/ammo_magazine/c44(src)
 	new /obj/item/clothing/suit/armor/captain(src)
-	new /obj/item/weapon/melee/telebaton(src)
+	new /obj/item/melee/telebaton(src)
 	new /obj/item/clothing/suit/armor/vest/capcarapace(src)
 	new /obj/item/clothing/head/caphat/cap(src)
 	new /obj/item/clothing/head/helmet/space/capspace(src)
-	new /obj/item/weapon/tank/jetpack/oxygen(src)
+	new /obj/item/tank/jetpack/oxygen(src)
 	new /obj/item/clothing/mask/gas(src)
 	return
 
@@ -53,19 +53,19 @@
 /obj/structure/closet/secure_closet/blueshield/New()
 	..()
 	sleep(2)
-	new	/obj/item/weapon/storage/firstaid/adv(src)
-	//new /obj/item/weapon/gun/projectile/revolver/detective/deckard(src)
-	new /obj/item/weapon/storage/belt/holster/security(src)
-	new /obj/item/weapon/storage/belt/security(src)
-	new /obj/item/weapon/grenade/flashbang(src)
-	new /obj/item/weapon/melee/baton/loaded(src)
-	new /obj/item/weapon/gun/energy/taser(src)
+	new	/obj/item/storage/firstaid/adv(src)
+	//new /obj/item/gun/projectile/revolver/detective/deckard(src)
+	new /obj/item/storage/belt/holster/security(src)
+	new /obj/item/storage/belt/security(src)
+	new /obj/item/grenade/flashbang(src)
+	new /obj/item/melee/baton/loaded(src)
+	new /obj/item/gun/energy/taser(src)
 	new /obj/item/clothing/accessory/storage/black_vest(src)
 	new /obj/item/clothing/accessory/storage/holster/waist(src)
 	new /obj/item/clothing/glasses/sunglasses(src)
 	new /obj/item/clothing/under/rank/centcom(src)
 	new /obj/item/device/flash(src)
-	new /obj/item/weapon/handcuffs(src)
+	new /obj/item/handcuffs(src)
 	new /obj/item/clothing/suit/storage/urist/coat/blueshield(src)
 	new /obj/item/clothing/suit/armor/pcarrier(src)
 	new /obj/item/clothing/accessory/armorplate/medium(src)
@@ -82,10 +82,10 @@
 
 	new /obj/item/clothing/head/urist/emergencyhood(src)
 	new /obj/item/clothing/suit/urist/emergencysuit(src)
-	new /obj/item/weapon/tank/emergency/oxygen(src)
+	new /obj/item/tank/emergency/oxygen(src)
 	new /obj/item/clothing/mask/breath(src)
-	new /obj/item/weapon/storage/toolbox/emergency(src)
-	new /obj/item/weapon/tank/emergency/oxygen(src)
+	new /obj/item/storage/toolbox/emergency(src)
+	new /obj/item/tank/emergency/oxygen(src)
 
 //Armored sec biosuit locker
 //CDN
@@ -115,8 +115,8 @@
 	new /obj/item/clothing/accessory/storage/black_vest(src)
 	new /obj/item/clothing/head/beret/sec/navy/officer(src)
 	new /obj/item/clothing/suit/armor/vest/jacket(src)
-	new /obj/item/weapon/gun/energy/sniperrifle(src)
-	new /obj/item/weapon/gun/projectile/magnum_pistol(src)
+	new /obj/item/gun/energy/sniperrifle(src)
+	new /obj/item/gun/projectile/magnum_pistol(src)
 	new /obj/item/ammo_magazine/a50(src)
 	new /obj/item/ammo_magazine/a50(src)
 	new /obj/item/ammo_magazine/a50(src)
@@ -129,8 +129,8 @@
 	new /obj/item/clothing/accessory/storage/black_vest(src)
 	new /obj/item/clothing/head/beret/sec/navy/officer(src)
 	new /obj/item/clothing/suit/armor/vest/jacket(src)
-	new /obj/item/weapon/gun/energy/sniperrifle(src)
-	new /obj/item/weapon/gun/projectile/magnum_pistol(src)
+	new /obj/item/gun/energy/sniperrifle(src)
+	new /obj/item/gun/projectile/magnum_pistol(src)
 	new /obj/item/ammo_magazine/a50(src)
 	new /obj/item/ammo_magazine/a50(src)
 	new /obj/item/ammo_magazine/a50(src)
@@ -170,7 +170,7 @@
 		/obj/item/clothing/under/rank/centcom,
 		/obj/item/clothing/shoes/swat,
 		/obj/item/clothing/gloves/thick/swat,
-		/obj/item/weapon/storage/belt/urist/military/scom
+		/obj/item/storage/belt/urist/military/scom
 	)
 
 //for the map
@@ -189,7 +189,7 @@
 		/obj/item/clothing/accessory/legguards/green = 2,
 		/obj/item/clothing/mask/balaclava/tactical = 2,
 		/obj/item/clothing/glasses/sunglasses/sechud/goggles = 2,
-		/obj/item/weapon/storage/belt/holster/security/tactical = 2,
+		/obj/item/storage/belt/holster/security/tactical = 2,
 		/obj/item/clothing/shoes/jackboots = 2,
 		/obj/item/clothing/gloves/thick = 2,
 	)
@@ -200,13 +200,13 @@
 
 /obj/structure/closet/secure_closet/hunter/WillContain()
 	return list(
-		/obj/item/weapon/gunattachment/scope/huntrifle,
-		/obj/item/weapon/gun/projectile/manualcycle/hunterrifle,
+		/obj/item/gunattachment/scope/huntrifle,
+		/obj/item/gun/projectile/manualcycle/hunterrifle,
 		/obj/item/ammo_magazine/a762mm/stripper = 3,
 		/obj/item/device/flashlight/lantern,
-		/obj/item/weapon/shovel,
-		/obj/item/weapon/material/hatchet,
-		/obj/item/weapon/material/knife/hunting
+		/obj/item/shovel,
+		/obj/item/material/hatchet,
+		/obj/item/material/knife/hunting
 	)
 
 /obj/structure/closet/secure_closet/guncabinet/sidearm
@@ -217,24 +217,24 @@
 /obj/structure/closet/secure_closet/guncabinet/sidearm/WillContain()
 	return list(
 			/obj/item/clothing/accessory/storage/holster/thigh = 2,
-			/obj/item/weapon/gun/energy/gun/secure = 3,
+			/obj/item/gun/energy/gun/secure = 3,
 	)
 
 /obj/structure/closet/secure_closet/guncabinet/sidearm/small
 	name = "personal sidearm cabinet"
 
 /obj/structure/closet/secure_closet/guncabinet/sidearm/small/WillContain()
-	return list(/obj/item/weapon/gun/energy/gun/small/secure = 4)
+	return list(/obj/item/gun/energy/gun/small/secure = 4)
 
 /obj/structure/closet/secure_closet/guncabinet/sidearm/combined
 	name = "combined sidearm cabinet"
 
 /obj/structure/closet/secure_closet/guncabinet/sidearm/combined/WillContain()
 	return list(
-		/obj/item/weapon/gun/energy/gun/small/secure = 2,
+		/obj/item/gun/energy/gun/small/secure = 2,
 		/obj/item/clothing/accessory/storage/holster/thigh = 2,
-		/obj/item/weapon/gun/energy/gun/secure = 2,
-		new /datum/atom_creator/weighted(list(/obj/item/weapon/gun/energy/gun/secure, /obj/item/weapon/gun/energy/gun/small/secure))
+		/obj/item/gun/energy/gun/secure = 2,
+		new /datum/atom_creator/weighted(list(/obj/item/gun/energy/gun/secure, /obj/item/gun/energy/gun/small/secure))
 	)
 
 /obj/structure/closet/medical_wall/engineering
@@ -242,6 +242,6 @@
 
 /obj/structure/closet/medical_wall/engineering/WillContain() //for radiation shit
 	return list(
-		/obj/item/weapon/storage/firstaid/rad,
-		/obj/item/weapon/storage/firstaid/toxin,
-		/obj/item/weapon/storage/med_pouch/radiation = 2)
+		/obj/item/storage/firstaid/rad,
+		/obj/item/storage/firstaid/toxin,
+		/obj/item/storage/med_pouch/radiation = 2)

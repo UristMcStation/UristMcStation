@@ -34,13 +34,13 @@ var/const/SAFETY_COOLDOWN = 100
 
 
 /obj/machinery/recycler/attackby(var/obj/item/I, var/mob/user)
-	if(istype(I, /obj/item/weapon/card/emag) && !emagged)
+	if(istype(I, /obj/item/card/emag) && !emagged)
 		emagged = 1
 		if(safety_mode)
 			safety_mode = 0
 			update_icon()
 		playsound(src.loc, "sparks", 75, 1, -1)
-	else if(istype(I, /obj/item/weapon/screwdriver) && emagged)
+	else if(istype(I, /obj/item/screwdriver) && emagged)
 		emagged = 0
 		update_icon()
 		user << "<span class='notice'>You reset the crusher to its default factory settings.</span>"
@@ -92,7 +92,7 @@ var/const/SAFETY_COOLDOWN = 100
 
 /obj/machinery/recycler/proc/recycle(var/obj/item/I, var/sound = 1)
 	I.loc = src.loc
-	if(!istype(I, /obj/item/weapon/disk/nuclear))
+	if(!istype(I, /obj/item/disk/nuclear))
 		qdel(I)
 		if(prob(15))
 			new /obj/item/stack/material/steel(loc)
@@ -154,6 +154,6 @@ var/const/SAFETY_COOLDOWN = 100
 
 
 
-/obj/item/weapon/paper/recycler
+/obj/item/paper/recycler
 	name = "paper - 'garbage duty instructions'"
 	info = "<h2>New Assignment</h2> You have been assigned to collect garbage from trash bins, located around the station. The crewmembers will put their trash into it and you will collect the said trash.<br><br>There is a recycling machine near your closet, inside maintenance; use it to recycle the trash for a small chance to get useful minerals. Then deliver these minerals to cargo or engineering. You are our last hope for a clean station, do not screw this up!"

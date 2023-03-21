@@ -33,27 +33,27 @@
 		/obj/item/ammo_magazine/a556/a22 = 60,
 		/obj/item/ammo_magazine/a762mm/a18 = 60,
 		/obj/item/ammo_magazine/a9mm = 60,
-		/obj/item/weapon/storage/box/ammo/shotgunammo = 60,
-		/obj/item/weapon/storage/box/ammo/shotgunshells = 60,
+		/obj/item/storage/box/ammo/shotgunammo = 60,
+		/obj/item/storage/box/ammo/shotgunshells = 60,
 		/obj/item/ammo_magazine/c45m/a7 = 60,
 		/obj/item/ammo_magazine/a132x108mm/stripper = 10,
 		//guns,
-		/obj/item/weapon/gun/projectile/automatic/a22 = 10,
-		/obj/item/weapon/gun/projectile/a18 = 10,
-		/obj/item/weapon/gun/projectile/automatic/asmg = 10,
-		/obj/item/weapon/gun/projectile/shotgun/pump/combat/A41 = 10,
-		/obj/item/weapon/gun/projectile/colt/a7 = 20,
-		/obj/item/weapon/gun/projectile/manualcycle/a50 = 2,
+		/obj/item/gun/projectile/automatic/a22 = 10,
+		/obj/item/gun/projectile/a18 = 10,
+		/obj/item/gun/projectile/automatic/asmg = 10,
+		/obj/item/gun/projectile/shotgun/pump/combat/A41 = 10,
+		/obj/item/gun/projectile/colt/a7 = 20,
+		/obj/item/gun/projectile/manualcycle/a50 = 2,
 		//attachments,
-//		/obj/item/weapon/gunattachment/grenadelauncher = 10,
-//		/obj/item/weapon/gunattachment/scope/a18 = 10,
+//		/obj/item/gunattachment/grenadelauncher = 10,
+//		/obj/item/gunattachment/scope/a18 = 10,
 		//grenades and mines,
-		/obj/item/weapon/storage/box/anforgrenade = 10,
-		/obj/item/weapon/storage/box/large/mines = 3
+		/obj/item/storage/box/anforgrenade = 10,
+		/obj/item/storage/box/large/mines = 3
 		)
 	contraband = list(
-		/obj/item/weapon/storage/box/ammo/flashshells = 5,
-		/obj/item/weapon/storage/box/ammo/beanbags = 5,
+		/obj/item/storage/box/ammo/flashshells = 5,
+		/obj/item/storage/box/ammo/beanbags = 5,
 		/obj/item/ammo_magazine/c38 = 10,
 		/obj/item/ammo_magazine/c45m = 10,
 		/obj/item/ammo_magazine/a762 = 10,
@@ -75,10 +75,8 @@
 		/obj/item/clothing/under/urist/anfor = 20,
 		/obj/item/clothing/head/helmet/urist/anfor = 20,
 		/obj/item/clothing/shoes/urist/anforjackboots = 20,
-		/obj/item/weapon/storage/belt/holster/security/tactical = 20
+		/obj/item/storage/belt/holster/security/tactical = 20
 		)
 	contraband = list(
-		/obj/item/weapon/storage/fancy/cigar = 1
+		/obj/item/storage/fancy/cigar = 1
 		)
-
-

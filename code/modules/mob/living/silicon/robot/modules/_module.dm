@@ -10,7 +10,7 @@
 	var/channels = list()
 	var/networks = list()
 	var/languages = list(
-		LANGUAGE_HUMAN_EURO     = TRUE,
+		LANGUAGE_GALCOM     = TRUE,
 		LANGUAGE_HUMAN_CHINESE  = TRUE,
 		LANGUAGE_HUMAN_ARABIC   = TRUE,
 		LANGUAGE_HUMAN_INDIAN   = TRUE,

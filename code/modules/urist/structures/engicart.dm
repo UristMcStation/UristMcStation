@@ -12,11 +12,11 @@
 	var/obj/item/stack/material/steel/mymetal = null
 	var/obj/item/stack/material/plasteel/myplasteel = null
 	var/obj/item/device/flashlight/myflashlight = null
-	var/obj/item/weapon/storage/toolbox/mechanical/mybluetoolbox = null
-	var/obj/item/weapon/storage/toolbox/electrical/myyellowtoolbox = null
-	var/obj/item/weapon/storage/toolbox/emergency/myredtoolbox = null
+	var/obj/item/storage/toolbox/mechanical/mybluetoolbox = null
+	var/obj/item/storage/toolbox/electrical/myyellowtoolbox = null
+	var/obj/item/storage/toolbox/emergency/myredtoolbox = null
 	var/obj/item/taperoll/engineering/myengitape = null
-	var/obj/item/weapon/storage/briefcase/inflatable/myinflate = null
+	var/obj/item/storage/briefcase/inflatable/myinflate = null
 
 /obj/structure/engineeringcart/proc/put_in_cart(obj/item/I, mob/user)
 	user.drop_item()
@@ -59,7 +59,7 @@
 		else
 			user << fail_msg
 
-	else if(istype(I, /obj/item/weapon/storage/toolbox/mechanical))
+	else if(istype(I, /obj/item/storage/toolbox/mechanical))
 		if(!mybluetoolbox)
 			put_in_cart(I, user)
 			mybluetoolbox=I
@@ -67,7 +67,7 @@
 		else
 			user << fail_msg
 
-	else if(istype(I, /obj/item/weapon/storage/toolbox/electrical))
+	else if(istype(I, /obj/item/storage/toolbox/electrical))
 		if(!myyellowtoolbox)
 			put_in_cart(I, user)
 			myyellowtoolbox=I
@@ -75,7 +75,7 @@
 		else
 			user << fail_msg
 
-	else if(istype(I, /obj/item/weapon/storage/toolbox/emergency))
+	else if(istype(I, /obj/item/storage/toolbox/emergency))
 		if(!myredtoolbox)
 			put_in_cart(I, user)
 			myredtoolbox=I
@@ -91,7 +91,7 @@
 		else
 			user << fail_msg
 
-	else if(istype(I, /obj/item/weapon/storage/briefcase/inflatable))
+	else if(istype(I, /obj/item/storage/briefcase/inflatable))
 		if(!myinflate)
 			put_in_cart(I, user)
 			myinflate=I

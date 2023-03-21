@@ -16,8 +16,8 @@
 /obj/machinery/carpentry/planer/New()
 	..()
 	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/carpentryplaner(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
+	component_parts += new /obj/item/circuitboard/carpentryplaner(src)
+	component_parts += new /obj/item/stock_parts/manipulator(src)
 	component_parts += new /obj/item/stack/cable_coil(src, 2)
 
 /obj/machinery/carpentry/planer/attackby(var/obj/item/I, mob/user as mob)
@@ -28,7 +28,7 @@
 	if(default_part_replacement(user, I))
 		return
 
-	if(istype(I, /obj/item/weapon/wrench))
+	if(istype(I, /obj/item/wrench))
 		if(busy)
 			to_chat(user, "<span class='warning'>Can not do that while [src] is in use.</span>")
 
@@ -120,7 +120,7 @@
 				busy = 0
 				update_use_power(1)
 
-	if(istype(I, /obj/item/weapon/wrench))
+	if(istype(I, /obj/item/wrench))
 		if(busy)
 			to_chat(user, "<span class='warning'>Can not do that while [src] is in use.</span>")
 
@@ -179,12 +179,12 @@
 					return
 
 			if( href_list["on3"] )
-				new /obj/item/weapon/paper(get_turf(src))
+				new /obj/item/paper(get_turf(src))
 				sheets -= 1
 				return
 
 			if( href_list["on4"] )
-				new /obj/item/weapon/storage/fancy/rollingpapers(get_turf(src))
+				new /obj/item/storage/fancy/rollingpapers(get_turf(src))
 				sheets -= 1
 				return
 		else
@@ -201,8 +201,8 @@
 /obj/machinery/carpentry/woodprocessor/New()
 	..()
 	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/woodprocessor(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/console_screen(src)
+	component_parts += new /obj/item/circuitboard/woodprocessor(src)
+	component_parts += new /obj/item/stock_parts/manipulator(src)
+	component_parts += new /obj/item/stock_parts/matter_bin(src)
+	component_parts += new /obj/item/stock_parts/console_screen(src)
 	component_parts += new /obj/item/stack/cable_coil(src, 5)

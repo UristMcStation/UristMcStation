@@ -20,10 +20,10 @@
 	if(on)
 		user << "<span class='notice'>[src] is still active!</span>"
 		return
-	if(!istype(I, /obj/item/weapon/reagent_containers/food/snacks/))
+	if(!istype(I, /obj/item/reagent_containers/food/snacks/))
 		user << "<span class='warning'>Budget cuts won't let you put that in there.</span>"
 		return
-	if(istype(I, /obj/item/weapon/reagent_containers/food/snacks/deepfryholder))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/deepfryholder))
 		user << "<span class='userdanger'>You cannot doublefry.</span>"
 		return
 	else
@@ -36,9 +36,9 @@
 		sleep(200)
 
 		if(frying && frying.loc == src)
-			var/obj/item/weapon/reagent_containers/food/snacks/deepfryholder/S = new(get_turf(src))
-			if(istype(frying, /obj/item/weapon/reagent_containers/))
-				var/obj/item/weapon/reagent_containers/food = frying
+			var/obj/item/reagent_containers/food/snacks/deepfryholder/S = new(get_turf(src))
+			if(istype(frying, /obj/item/reagent_containers/))
+				var/obj/item/reagent_containers/food = frying
 				food.reagents.trans_to(S, food.reagents.total_volume)
 			S.color = "#ffad33"
 			S.icon = frying.icon

@@ -190,7 +190,7 @@
 			return "Input values list out of bounds at [init_name]."
 
 		for(var/list/input in loaded_inputs)
-			if(input.len != 3)
+			if(length(input) != 3)
 				return "Malformed input data at [init_name]."
 
 			var/input_id = input[1]

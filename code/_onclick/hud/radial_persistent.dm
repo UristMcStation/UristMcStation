@@ -30,7 +30,7 @@
 	select_proc_callback.Invoke(choices_values[choice_id])
 
 /datum/radial_menu/persistent/proc/change_choices(list/newchoices, tooltips)
-	if(!newchoices.len)
+	if(!length(newchoices))
 		return
 	Reset()
 	set_choices(newchoices,tooltips)

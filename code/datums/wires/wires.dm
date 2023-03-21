@@ -162,13 +162,9 @@ var/global/list/wireColours = list("red", "blue", "green", "darkred", "orange", 
 					if(istype(I, /obj/item/device/assembly/signaler))
 						if(L.unEquip(I))
 							Attach(colour, I)
-							if(!failed)
-								to_chat(usr, SPAN_NOTICE("You attach the signaller to the [colour] wire."))
+							to_chat(usr, SPAN_NOTICE("You attach the signaller to the [colour] wire."))
 					else
 						to_chat(L, SPAN_CLASS("error", "You need a remote signaller!"))
-			else if(href_list["examine"])
-				var/colour = href_list["examine"]
-				to_chat(usr, examine(GetIndex(colour), usr))
 
 
 
@@ -195,9 +191,6 @@ var/global/list/wireColours = list("red", "blue", "green", "darkred", "orange", 
 /datum/wires/proc/ResetPulsed(index)
 	return
 
-/datum/wires/proc/examine(index, mob/user)
-	var/datum/wire_description/wd = get_description(index)
-	return wd.description
 
 /datum/wires/proc/CanUse(mob/living/L)
 	return 1
@@ -227,11 +220,6 @@ var/global/const/POWER = 8
 //
 // Helper Procs
 //
-
-/datum/wires/proc/get_description(index)
-	for(var/datum/wire_description/desc in descriptions)
-		if(desc.index == index)
-			return desc
 
 /datum/wires/proc/PulseColour(colour)
 	PulseIndex(GetIndex(colour))

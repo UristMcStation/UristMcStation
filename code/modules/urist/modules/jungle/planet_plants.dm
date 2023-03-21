@@ -43,7 +43,7 @@
 
 /obj/structure/bush/attackby(var/obj/I as obj, var/mob/user as mob)
 	//hatchets can clear away undergrowth
-	if(istype(I, /obj/item/weapon/material/hatchet) || istype(I, /obj/item/weapon/material/sword/machete) || istype(I, /obj/item/weapon/carpentry/axe))
+	if(istype(I, /obj/item/material/hatchet) || istype(I, /obj/item/material/sword/machete) || istype(I, /obj/item/carpentry/axe))
 		if(indestructable)
 			//this bush marks the edge of the map, you can't destroy it
 			user << "<span class='warning'> You flail away at the undergrowth, but it's too thick here.</span>"
@@ -111,13 +111,13 @@ var/jungle_plants_init = 0
 	fruit_icon_states = shuffle(fruit_icon_states)
 	reagent_effects = shuffle(reagent_effects)
 
-/obj/item/weapon/reagent_containers/food/snacks/grown/jungle_fruit
+/obj/item/reagent_containers/food/snacks/grown/jungle_fruit
 	name = "jungle fruit"
 	desc = "It smells weird and looks off."
 	icon_state = "orange"
 //	potency = 1
 
-/obj/item/weapon/reagent_containers/food/snacks/grown/jungle_fruit/New()
+/obj/item/reagent_containers/food/snacks/grown/jungle_fruit/New()
 	seed = SSplants.create_random_seed() //it could be anything!
 	plantname = seed.name
 	..()
@@ -156,7 +156,7 @@ var/jungle_plants_init = 0
 		fruits_left--
 		user << "<span class='notice'> You pick a fruit off [src].</span>"
 
-		var/obj/item/weapon/reagent_containers/food/snacks/grown/jungle_fruit/J = new (src.loc)
+		var/obj/item/reagent_containers/food/snacks/grown/jungle_fruit/J = new (src.loc)
 //		J.potency = plant_strength
 //		J.icon_state = fruit_icon_states[fruit_type]
 //		J.reagents.add_reagent(reagent_effects[fruit_type], 1+round((plant_strength / 20), 1))
@@ -172,15 +172,15 @@ var/jungle_plants_init = 0
 
 /obj/structure/jungle_plant/attackby(var/obj/I as obj, var/mob/user as mob)
 	//hatchets can clear away undergrowth
-	if(istype(I, /obj/item/weapon/material/hatchet) || istype(I, /obj/item/weapon/material/sword/machete) || istype(I, /obj/item/weapon/carpentry/axe))
+	if(istype(I, /obj/item/material/hatchet) || istype(I, /obj/item/material/sword/machete) || istype(I, /obj/item/carpentry/axe))
 
 
 		user.visible_message("<span class='danger'>[user] begins clearing away [src].</span>","<span class='danger'>You begin clearing away [src].</span>")
 		spawn(rand(15,30))
 			if(get_dist(user,src) < 2)
 				user << "<span class='notice'> You clear away [src].</span>"
-				new/obj/item/weapon/reagent_containers/food/snacks/grown/jungle_fruit(src.loc)
-				new/obj/item/weapon/reagent_containers/food/snacks/grown/jungle_fruit(src.loc)
+				new/obj/item/reagent_containers/food/snacks/grown/jungle_fruit(src.loc)
+				new/obj/item/reagent_containers/food/snacks/grown/jungle_fruit(src.loc)
 				qdel(src)
 //reeds
 
@@ -202,7 +202,7 @@ var/jungle_plants_init = 0
 		icon_state = "reedbush_4"
 
 /obj/structure/flora/reeds/attackby(var/obj/I as obj, var/mob/user as mob)
-	if(istype(I, /obj/item/weapon/material/hatchet) || istype(I, /obj/item/weapon/material/sword/machete) || istype(I, /obj/item/weapon/carpentry/axe))
+	if(istype(I, /obj/item/material/hatchet) || istype(I, /obj/item/material/sword/machete) || istype(I, /obj/item/carpentry/axe))
 		user.visible_message("<span class='danger'>[user] begins clearing away [src].</span>","<span class='danger'>You begin clearing away [src].</span>")
 		spawn(rand(5,10))
 			if(get_dist(user,src) < 2)

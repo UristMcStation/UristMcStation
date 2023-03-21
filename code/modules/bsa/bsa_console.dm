@@ -4,7 +4,7 @@
 	name = "bluespace artillery control"
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "computer"
-	circuit = /obj/item/weapon/circuitboard/bsa
+	circuit = /obj/item/circuitboard/bsa
 
 	icon_keyboard = "rd_key"
 	icon_screen = "teleport"

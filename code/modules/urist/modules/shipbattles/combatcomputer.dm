@@ -13,7 +13,7 @@
 	var/target = null
 	var/obj/effect/overmap/ship/combat/homeship
 	var/fallback_connect = FALSE
-	circuit = /obj/item/weapon/circuitboard/combat_computer
+	circuit = /obj/item/circuitboard/combat_computer
 
 /*
 /obj/machinery/computer/combatcomputer/attack_hand(user as mob)
@@ -97,7 +97,7 @@
 	var/list/weapons[0]
 	var/list/targetcomponents[0]
 
-	if(linkedweapons.len)
+	if(length(linkedweapons))
 		for(var/obj/machinery/shipweapons/S in linkedweapons)
 			/*var/status
 			if(istype(S))

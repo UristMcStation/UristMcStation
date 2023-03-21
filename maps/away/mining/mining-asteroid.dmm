@@ -59,7 +59,7 @@
 "aw" = (
 /obj/random/closet,
 /obj/random/loot,
-/obj/item/weapon/circuitboard/teleporter,
+/obj/item/circuitboard/teleporter,
 /turf/simulated/floor/tiled/airless,
 /area/djstation)
 "ax" = (
@@ -374,7 +374,7 @@
 	},
 /obj/item/device/spaceflare,
 /obj/item/device/radio,
-/obj/item/weapon/storage/belt/utility/full,
+/obj/item/storage/belt/utility/full,
 /obj/machinery/light{
 	dir = 8
 	},

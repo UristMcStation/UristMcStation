@@ -67,7 +67,7 @@
 /obj/item/mech_equipment/clamp/attack_hand(mob/user)
 	if(owner && LAZYISIN(owner.pilots, user))
 		if(!owner.hatch_closed && length(carrying))
-			var/obj/chosen_obj = input(user, "Choose an object to grab.", "Clamp Claw") as null|anything in carrying
+			var/obj/chosen_obj = input(user, "Choose an object to grab.", "clamp Claw") as null|anything in carrying
 			if(!chosen_obj)
 				return
 			if(!do_after(user, 2 SECONDS, owner, DO_PUBLIC_UNIQUE)) return
@@ -200,7 +200,7 @@
 		return
 	var/obj/chosen_obj = carrying[1]
 	if(choose_object)
-		chosen_obj = input(user, "Choose an object to set down.", "Clamp Claw") as null|anything in carrying
+		chosen_obj = input(user, "Choose an object to set down.", "clamp Claw") as null|anything in carrying
 	if(!chosen_obj)
 		return
 	if(chosen_obj.density)

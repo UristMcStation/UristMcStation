@@ -9,8 +9,8 @@
 		/obj/item/stack/medical/advanced/bruise_pack = 10,
 		/obj/item/reagent_containers/pill/sugariron = 6,
 		/obj/item/storage/pill_bottle/paracetamol = 2,
-		/obj/item/storage/pill_bottle/inaprovaline
-		/obj/item/weapon/storage/pill_bottle/bicaridine,
+		/obj/item/storage/pill_bottle/inaprovaline,
+		/obj/item/storage/pill_bottle/bicaridine,
 		)
 
 /obj/structure/closet/crate/med_crate/burn
@@ -24,8 +24,8 @@
 		/obj/item/stack/medical/advanced/ointment = 10,
 		/obj/item/storage/pill_bottle/kelotane,
 		/obj/item/storage/pill_bottle/tramadol = 2,
-		/obj/item/storage/pill_bottle/spaceacillin
-		/obj/item/weapon/reagent_containers/pill/sugariron = 2,
+		/obj/item/storage/pill_bottle/spaceacillin,
+		/obj/item/reagent_containers/pill/surgariron = 2,
 	)
 
 /obj/structure/closet/crate/med_crate/oxyloss
@@ -37,8 +37,8 @@
 	return list(
 		/obj/item/device/scanner/health = 2,
 		/obj/item/storage/pill_bottle/dexalin = 2,
-		/obj/item/storage/pill_bottle/inaprovaline
-		/obj/item/weapon/storage/pill_bottle/peridaxon,
+		/obj/item/storage/pill_bottle/inaprovaline,
+		/obj/item/storage/pill_bottle/peridaxon,
 	)
 /obj/structure/closet/crate/med_crate/toxin
 	name = "\improper Toxin crate"

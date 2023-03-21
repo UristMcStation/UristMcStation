@@ -106,29 +106,29 @@
 						var/datum/preferences/A = new()
 						A.sanitize_preferences()
 						A.randomize_appearance_and_body_for(M)
-						var/decl/cultural_info/culture/C = SSculture.get_culture(M.species.default_cultural_info[TAG_CULTURE])
+						var/singleton/cultural_info/culture/C = SSculture.get_culture(M.species.default_cultural_info[TAG_CULTURE])
 						if(istype(C))
 							M.real_name = C.get_random_name(gender)
 
 						else
 							M.real_name = random_name(gender)
 
-						var/decl/hierarchy/outfit/defender_outfit = outfit_by_type(D.defender_outfit)
+						var/singleton/hierarchy/outfit/defender_outfit = outfit_by_type(D.defender_outfit)
 						defender_outfit.equip(M)
 
 						M.update_icon()
 
 /obj/effect/urist/triggers/defender_landmark/pirate
-	defender_outfit = /decl/hierarchy/outfit/newpirate
+	defender_outfit = /singleton/hierarchy/outfit/newpirate
 
 /obj/effect/urist/triggers/defender_landmark/terran
-	defender_outfit = /decl/hierarchy/outfit/terranmarine/space
+	defender_outfit = /singleton/hierarchy/outfit/terranmarine/space
 
 /obj/effect/urist/triggers/defender_landmark/rebel/miner
-	defender_outfit = /decl/hierarchy/outfit/grayson/miner
+	defender_outfit = /singleton/hierarchy/outfit/grayson/miner
 
 /obj/effect/urist/triggers/defender_landmark/lactera
-	defender_outfit = /decl/hierarchy/outfit/lactera
+	defender_outfit = /singleton/hierarchy/outfit/lactera
 
 //weapons
 
@@ -158,7 +158,7 @@
 
 //disk spawner
 
-/obj/item/weapon/disk/station_disk
+/obj/item/disk/station_disk
 	name = "Data Disk"
 	icon = 'icons/obj/cloning.dmi'
 	icon_state = "datadisk0"
@@ -172,7 +172,7 @@
 	var/faction_id
 
 /obj/effect/urist/triggers/station_disk/proc/spawn_disk(var/obj/effect/overmap/sector/station/stored_station)
-	var/obj/item/weapon/disk/station_disk/D = new /obj/item/weapon/disk/station_disk(src.loc)
+	var/obj/item/disk/station_disk/D = new /obj/item/disk/station_disk(src.loc)
 	D.master_station = stored_station
 	qdel(src)
 

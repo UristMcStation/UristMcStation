@@ -38,7 +38,7 @@
 	id = "awaysite_nanotrasentrading"
 	description = "A NanoTrasen trading station, dock here to trade with its many merchants."
 	suffixes = list("stations/nanotrasentrading.dmm")
-	cost = 0
+	spawn_cost = 0
 	accessibility_weight = 10
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 

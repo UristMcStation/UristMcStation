@@ -91,7 +91,7 @@
 /area/derelict/ship)
 "an" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/regular{
+/obj/item/storage/firstaid/regular{
 	pixel_x = 6;
 	pixel_y = -5
 	},
@@ -141,7 +141,7 @@
 	},
 /area/derelict/ship)
 "at" = (
-/obj/item/weapon/scalpel,
+/obj/item/scalpel,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},
@@ -228,7 +228,7 @@
 	},
 /area/derelict/ship)
 "aF" = (
-/obj/item/weapon/cell{
+/obj/item/cell{
 	charge = 100;
 	maxcharge = 15000
 	},
@@ -318,7 +318,7 @@
 /area/derelict/ship)
 "aQ" = (
 /obj/structure/bed/nice,
-/obj/item/weapon/bedsheet,
+/obj/item/bedsheet,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -348,7 +348,7 @@
 /area/space)
 "aU" = (
 /obj/structure/table/standard,
-/obj/item/weapon/gun/energy/retro,
+/obj/item/gun/energy/retro,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},
@@ -377,7 +377,7 @@
 /area/derelict/ship)
 "aX" = (
 /obj/structure/table/standard,
-/obj/item/weapon/tank/oxygen,
+/obj/item/tank/oxygen,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},
@@ -507,7 +507,7 @@
 /area/derelict/ship)
 "bo" = (
 /obj/structure/bed/nice,
-/obj/item/weapon/bedsheet,
+/obj/item/bedsheet,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -555,7 +555,7 @@
 	},
 /area/space)
 "bu" = (
-/obj/item/weapon/table_parts,
+/obj/item/table_parts,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},
@@ -614,7 +614,7 @@
 	},
 /area/space)
 "bB" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/simulated/shuttle/floor{
@@ -622,7 +622,7 @@
 	},
 /area/derelict/ship)
 "bC" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /obj/structure/bed/chair,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
@@ -655,10 +655,10 @@
 /area/derelict/ship)
 "bG" = (
 /obj/structure/table/rack,
-/obj/item/weapon/tank/emergency/oxygen,
-/obj/item/weapon/tank/emergency/oxygen,
-/obj/item/weapon/tank/emergency/oxygen,
-/obj/item/weapon/tank/emergency/oxygen,
+/obj/item/tank/emergency/oxygen,
+/obj/item/tank/emergency/oxygen,
+/obj/item/tank/emergency/oxygen,
+/obj/item/tank/emergency/oxygen,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},
@@ -674,7 +674,7 @@
 /area/derelict/ship)
 "bI" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/toolbox/syndicate,
+/obj/item/storage/toolbox/syndicate,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},
@@ -767,7 +767,7 @@
 /area/derelict/ship)
 "bU" = (
 /obj/structure/table/standard,
-/obj/item/weapon/screwdriver,
+/obj/item/screwdriver,
 /obj/machinery/light,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
@@ -851,7 +851,7 @@
 /turf/simulated/floor/plating/airless,
 /area/tcommsat/chamber/abandoned)
 "cj" = (
-/obj/item/weapon/cell,
+/obj/item/cell,
 /turf/simulated/floor/plating/airless,
 /area/tcommsat/chamber/abandoned)
 "ck" = (
@@ -888,7 +888,7 @@
 /turf/simulated/floor/plating/airless,
 /area/tcommsat/chamber/abandoned)
 "cr" = (
-/obj/item/weapon/wrench,
+/obj/item/wrench,
 /turf/simulated/floor/plating/airless,
 /area/tcommsat/chamber/abandoned)
 "cs" = (
@@ -912,13 +912,13 @@
 	pressure_checks = 0
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/paper,
+/obj/item/paper,
 /turf/simulated/floor/airless,
 /area/tcommsat/chamber/abandoned)
 "cv" = (
 /obj/structure/table/standard,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen/blue,
+/obj/item/paper_bin,
+/obj/item/pen/blue,
 /turf/simulated/floor/airless,
 /area/tcommsat/chamber/abandoned)
 "cw" = (
@@ -930,7 +930,7 @@
 /turf/simulated/floor/airless,
 /area/tcommsat/chamber/abandoned)
 "cy" = (
-/obj/item/weapon/reagent_containers/food/snacks/meat/syntiflesh{
+/obj/item/reagent_containers/food/snacks/meat/syntiflesh{
 	name = "Cuban Pete-Meat"
 	},
 /turf/simulated/floor/reinforced,
@@ -978,7 +978,7 @@
 /turf/space,
 /area/space)
 "cG" = (
-/obj/item/weapon/folder/yellow,
+/obj/item/folder/yellow,
 /turf/simulated/floor/airless,
 /area/tcommsat/chamber/abandoned)
 "cH" = (
@@ -1043,14 +1043,14 @@
 /turf/simulated/floor/airless,
 /area/tcommsat/chamber/abandoned)
 "cQ" = (
-/obj/item/weapon/paper/crumpled,
+/obj/item/paper/crumpled,
 /turf/simulated/floor/airless,
 /area/tcommsat/chamber/abandoned)
 "cR" = (
-/obj/item/weapon/reagent_containers/food/snacks/meat/syntiflesh{
+/obj/item/reagent_containers/food/snacks/meat/syntiflesh{
 	name = "Cuban Pete-Meat"
 	},
-/obj/item/weapon/spacecash,
+/obj/item/spacecash,
 /turf/simulated/floor/reinforced,
 /area/tcommsat/chamber/abandoned)
 "cS" = (
@@ -1061,7 +1061,7 @@
 /area/tcommsat/chamber/abandoned)
 "cT" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/fancy/cigarettes,
+/obj/item/storage/fancy/cigarettes,
 /turf/simulated/floor/airless,
 /area/tcommsat/chamber/abandoned)
 "cU" = (
@@ -1095,7 +1095,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/item/weapon/airlock_electronics,
+/obj/item/airlock_electronics,
 /turf/simulated/floor/plating,
 /area/tcommsat/chamber/abandoned)
 "cZ" = (
@@ -1196,7 +1196,7 @@
 /turf/space,
 /area/space)
 "do" = (
-/obj/item/weapon/table_parts,
+/obj/item/table_parts,
 /turf/simulated/floor/airless,
 /area/tcommsat/chamber/abandoned)
 "dp" = (
@@ -1223,7 +1223,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/simulated/floor/plating,
@@ -1293,7 +1293,7 @@
 /area/tcommsat/chamber/abandoned)
 "dC" = (
 /obj/item/stack/rods,
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/simulated/floor/plating,
@@ -1341,7 +1341,7 @@
 /area/tcommsat/chamber/abandoned)
 "dI" = (
 /obj/effect/decal/cleanable/blood,
-/obj/item/weapon/scalpel{
+/obj/item/scalpel{
 	pixel_y = 12
 	},
 /turf/simulated/floor/plating,
@@ -1350,7 +1350,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/simulated/floor/plating,
@@ -1367,7 +1367,7 @@
 /area/tcommsat/chamber/abandoned)
 "dL" = (
 /obj/structure/table/rack,
-/obj/item/weapon/circuitboard/teleporter,
+/obj/item/circuitboard/teleporter,
 /turf/simulated/floor/airless,
 /area/tcommsat/chamber/abandoned)
 "dM" = (
@@ -1396,7 +1396,7 @@
 /obj/effect/decal/cleanable/blood,
 /obj/structure/bed/chair,
 /obj/item/clothing/under/rank/centcom_officer,
-/obj/item/weapon/handcuffs,
+/obj/item/handcuffs,
 /obj/item/remains/human,
 /turf/simulated/floor/plating,
 /area/tcommsat/chamber/abandoned)
@@ -1433,7 +1433,7 @@
 /area/tcommsat/chamber/abandoned)
 "dX" = (
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/syringe/ld50_syringe/choral,
+/obj/item/reagent_containers/syringe/ld50_syringe/choral,
 /turf/simulated/floor/plating,
 /area/tcommsat/chamber/abandoned)
 "dY" = (
@@ -1450,7 +1450,7 @@
 /turf/simulated/floor/plating,
 /area/tcommsat/chamber/abandoned)
 "dZ" = (
-/obj/item/weapon/storage/toolbox/syndicate,
+/obj/item/storage/toolbox/syndicate,
 /turf/simulated/floor/airless,
 /area/tcommsat/chamber/abandoned)
 "ea" = (
@@ -1460,12 +1460,12 @@
 /area/tcommsat/chamber/abandoned)
 "eb" = (
 /obj/structure/table/standard,
-/obj/item/weapon/hemostat,
+/obj/item/hemostat,
 /turf/simulated/floor/plating,
 /area/tcommsat/chamber/abandoned)
 "ec" = (
 /obj/structure/table/standard,
-/obj/item/weapon/circular_saw,
+/obj/item/circular_saw,
 /turf/simulated/floor/plating,
 /area/tcommsat/chamber/abandoned)
 "ed" = (
@@ -1513,7 +1513,7 @@
 /turf/simulated/floor/plating,
 /area/tcommsat/chamber/abandoned)
 "ej" = (
-/obj/item/weapon/paper/crumpled,
+/obj/item/paper/crumpled,
 /turf/simulated/floor/plating,
 /area/tcommsat/chamber/abandoned)
 "ek" = (
@@ -1529,11 +1529,11 @@
 /area/tcommsat/chamber/abandoned)
 "em" = (
 /obj/machinery/light/small,
-/obj/item/weapon/paper,
+/obj/item/paper,
 /turf/simulated/floor/plating,
 /area/tcommsat/chamber/abandoned)
 "en" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/space,
@@ -1541,7 +1541,7 @@
 "eo" = (
 /obj/structure/lattice,
 /obj/item/stack/rods,
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/space,
@@ -1593,7 +1593,7 @@
 /turf/simulated/floor/plating,
 /area/tcommsat/chamber/abandoned)
 "ex" = (
-/obj/item/weapon/paper/crumpled,
+/obj/item/paper/crumpled,
 /turf/simulated/floor,
 /area/tcommsat/chamber/abandoned)
 "ey" = (
@@ -1609,7 +1609,7 @@
 /turf/simulated/floor/plating,
 /area/tcommsat/chamber/abandoned)
 "eB" = (
-/obj/item/weapon/crowbar,
+/obj/item/crowbar,
 /turf/simulated/floor/plating/airless,
 /area/space)
 "eC" = (
@@ -1618,7 +1618,7 @@
 /turf/simulated/floor/plating,
 /area/tcommsat/chamber/abandoned)
 "eD" = (
-/obj/item/weapon/storage/toolbox/electrical{
+/obj/item/storage/toolbox/electrical{
 	pixel_x = 1;
 	pixel_y = -1
 	},
@@ -1665,7 +1665,7 @@
 /turf/simulated/floor/plating/airless,
 /area/AIsattele)
 "eM" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/simulated/floor/plating/airless,
@@ -1684,7 +1684,7 @@
 /turf/simulated/floor/plating/airless,
 /area/AIsattele)
 "eQ" = (
-/obj/item/weapon/cell,
+/obj/item/cell,
 /turf/simulated/floor/plating/airless,
 /area/AIsattele)
 "eR" = (
@@ -1698,7 +1698,7 @@
 /turf/space,
 /area/AIsattele)
 "eT" = (
-/obj/item/weapon/table_parts,
+/obj/item/table_parts,
 /turf/simulated/floor/plating/airless,
 /area/AIsattele)
 "eU" = (
@@ -1724,7 +1724,7 @@
 /turf/space,
 /area/AIsattele)
 "eY" = (
-/obj/item/weapon/storage/toolbox/electrical{
+/obj/item/storage/toolbox/electrical{
 	pixel_x = 1;
 	pixel_y = -1
 	},

@@ -1,6 +1,6 @@
 //Hacky addition for Urist
 
-/decl/xgm_gas/hydrogen/boron
+/singleton/xgm_gas/hydrogen/boron
 	id = "boron"
 	name = "Boron-11"
 

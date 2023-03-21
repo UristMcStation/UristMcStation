@@ -157,12 +157,12 @@
 		if(AM.caliber != caliber)
 			to_chat(user, "<span class='warning'>[AM] does not fit into [src].</span>")
 			return
-		if(stored_ammo.len >= max_ammo)
+		if(length(stored_ammo) >= max_ammo)
 			to_chat(user, "<span class='warning'>[src] is full!</span>")
 			return
 		var/count = 0
 		for(var/obj/item/ammo_casing/C in AM.stored_ammo)
-			if(stored_ammo.len >= max_ammo)
+			if(length(stored_ammo) >= max_ammo)
 				break
 			if(C.caliber == caliber)
 				C.forceMove(src)

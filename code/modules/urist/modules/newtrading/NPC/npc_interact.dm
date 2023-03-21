@@ -16,7 +16,7 @@
 			to_chat(user, "[src] is already dealing with [interacting_mob]!")
 
 		else
-			current_greeting_index = rand(1, greetings.len)
+			current_greeting_index = rand(1, length(greetings))
 			say(greetings[current_greeting_index])
 			speak_chance = 0
 
@@ -41,7 +41,7 @@
 	data["npc_name"] = src.name
 	data["interact_icon"] = interact_icon
 	data["interact_screen"] = interact_screen
-	if(interact_inventory.len)
+	if(length(interact_inventory))
 		data["can_trade"] = 1
 	else
 		data["can_trade"] = 0
@@ -87,10 +87,10 @@
 			data["r_sellable"] = 0
 
 		data["l_is_bag"] = 0
-		if(istype(M.l_hand, /obj/item/weapon/storage))
+		if(istype(M.l_hand, /obj/item/storage))
 			data["l_is_bag"] = 1
 		data["r_is_bag"] = 0
-		if(istype(M.r_hand, /obj/item/weapon/storage))
+		if(istype(M.r_hand, /obj/item/storage))
 			data["r_is_bag"] = 1
 
 	data["user"] = "\ref[user]"

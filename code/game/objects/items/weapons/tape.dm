@@ -157,11 +157,11 @@
 			else if(dir_offset & SOUTH)
 				pixel_y -= 32
 
-/obj/item/weapon/ducttape/preset_paper
+/obj/item/ducttape/preset_paper
 	var/data = ""
 	var/title = ""
 
-/obj/item/weapon/ducttape/preset_paper/Initialize()
+/obj/item/ducttape/preset_paper/Initialize()
 	. = ..()
-	var/obj/item/weapon/paper/P = new(loc, data, title)
+	var/obj/item/paper/P = new(loc, data, title)
 	attach(P)

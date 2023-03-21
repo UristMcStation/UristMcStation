@@ -12,13 +12,13 @@
 	active_power_usage = 2
 	name = "Maintenance light fixture"
 	desc = "A small, low-power lighting fixture used for maintenance lighting."
-	light_type = /obj/item/weapon/light/bulb/red
+	light_type = /obj/item/light/bulb/red
 
 /obj/machinery/light/small/red/New()
 	..()
 	icon_state = "firelight1"
 
-/obj/item/weapon/light/bulb/red
+/obj/item/light/bulb/red
 	name = "light bulb (maintenance)"
 	desc = "A replacement light bulb. This one has a red filter and is designed for usage in Maintenance."
 	icon_state = "flight"
@@ -29,14 +29,14 @@
 
 //cold, blue tint; feedback was good on putting it in Medbay
 /obj/machinery/light/coldtint
-	light_type = /obj/item/weapon/light/tube/tinted/coldtint
+	light_type = /obj/item/light/tube/tinted/coldtint
 
-/obj/item/weapon/light/tube/tinted
+/obj/item/light/tube/tinted
 	name = "light tube (tinted)"
 	desc = "A replacement light tube."
 	b_colour = "#f0008c" //PANK. Shouldn't show up normally, so it's a telltale color something's wrong.
 
-/obj/item/weapon/light/tube/tinted/coldtint
+/obj/item/light/tube/tinted/coldtint
 	name = "light tube (cold-light)"
 	desc = "A replacement light tube. This one emits soothing high-Kelvin light."
 	icon_state = "ltube"
@@ -46,9 +46,9 @@
 
 //super warm tint (color literally stolen from candles), for the Bar
 /obj/machinery/light/warmtint
-	light_type = /obj/item/weapon/light/tube/tinted/warmtint
+	light_type = /obj/item/light/tube/tinted/warmtint
 
-/obj/item/weapon/light/tube/tinted/warmtint
+/obj/item/light/tube/tinted/warmtint
 	name = "light tube (incandescent)"
 	desc = "A replacement light tube. This one emits amber low-Kelvin light."
 	icon_state = "ltube"
@@ -58,9 +58,9 @@
 
 //green tint
 /obj/machinery/light/greentint
-	light_type = /obj/item/weapon/light/tube/tinted/greentint
+	light_type = /obj/item/light/tube/tinted/greentint
 
-/obj/item/weapon/light/tube/tinted/greentint
+/obj/item/light/tube/tinted/greentint
 	name = "light tube (green)"
 	desc = "A replacement light tube. This one has an integrated green filter for vibrant green light."
 	icon_state = "ltube"
@@ -68,7 +68,7 @@
 	item_state = "c_tube"
 	b_colour ="#a8ffb1"
 
-/obj/item/weapon/light/tube/tinted/redtint
+/obj/item/light/tube/tinted/redtint
 	name = "light tube (red)"
 	desc = "A replacement light tube. This one has an integrated red filter."
 	icon_state = "ltube"
@@ -90,22 +90,22 @@
 
 	on = 0
 
-/obj/item/weapon/storage/box/lights/mixedtint
+/obj/item/storage/box/lights/mixedtint
 	name = "box of replacement tinted lights"
 	icon_state = "lightmixed"
 
-/obj/item/weapon/storage/box/lights/mixedtint/New()
+/obj/item/storage/box/lights/mixedtint/New()
 	for(var/i = 0; i < 21; i++)
-		var/variant = pick((typesof(/obj/item/weapon/light/tube/tinted)) - (/obj/item/weapon/light/tube/tinted))
+		var/variant = pick((typesof(/obj/item/light/tube/tinted)) - (/obj/item/light/tube/tinted))
 		new variant(src)
 	..()
 
-/obj/item/weapon/storage/box/lights/redbulbs
+/obj/item/storage/box/lights/redbulbs
 	name = "box of replacement red bulbs"
 
-/obj/item/weapon/storage/box/lights/redbulbs/New()
+/obj/item/storage/box/lights/redbulbs/New()
 	for(var/i = 0; i < 21; i++)
-		new /obj/item/weapon/light/bulb/red(src)
+		new /obj/item/light/bulb/red(src)
 	..()
 
 //experiment - object-based sunlight.

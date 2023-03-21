@@ -67,7 +67,7 @@
 	item_state = "hollowcoconut"
 	result_type = /obj/item/reagent_containers/food/drinks/glass2/coconut
 
-/obj/item/weapon/hollowpineapple
+/obj/item/hollowpineapple
 	name = "hollow pineapple"
 	icon = 'icons/obj/trash.dmi'
 	icon_state = "hollowpineapple"
@@ -79,14 +79,14 @@
 	throw_range = 20
 
 
-/obj/item/weapon/hollowpineapple/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/hollowpineapple/attackby(obj/item/W as obj, mob/user as mob)
 	..()
-	if(istype(W, /obj/item/weapon/circular_saw) || istype(W, /obj/item/weapon/material/hatchet) || istype(W, /obj/item/weapon/material/kitchen/utensil/knife) || istype(W, /obj/item/weapon/material/knife) || istype(W, /obj/item/weapon/material/knife/ritual))
+	if(istype(W, /obj/item/circular_saw) || istype(W, /obj/item/material/hatchet) || istype(W, /obj/item/material/kitchen/utensil/knife) || istype(W, /obj/item/material/knife) || istype(W, /obj/item/material/knife/ritual))
 		to_chat(user, "<span class='notice'>You use [W] to carve the pineapple into a mug!</span>")
-		new /obj/item/weapon/reagent_containers/food/drinks/glass2/pineapple (user.loc)
+		new /obj/item/reagent_containers/food/drinks/glass2/pineapple (user.loc)
 		qdel(src)
 
-/obj/item/weapon/hollowcoconut
+/obj/item/hollowcoconut
 	name = "hollow coconut"
 	icon = 'icons/obj/trash.dmi'
 	icon_state = "hollowcoconut"
@@ -98,9 +98,9 @@
 	throw_range = 20
 
 
-/obj/item/weapon/hollowcoconut/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/hollowcoconut/attackby(obj/item/W as obj, mob/user as mob)
 	..()
-	if(istype(W, /obj/item/weapon/circular_saw) || istype(W, /obj/item/weapon/material/hatchet) || istype(W, /obj/item/weapon/material/kitchen/utensil/knife) || istype(W, /obj/item/weapon/material/knife) || istype(W, /obj/item/weapon/material/knife/ritual))
+	if(istype(W, /obj/item/circular_saw) || istype(W, /obj/item/material/hatchet) || istype(W, /obj/item/material/kitchen/utensil/knife) || istype(W, /obj/item/material/knife) || istype(W, /obj/item/material/knife/ritual))
 		to_chat(user, "<span class='notice'>You use [W] to carve the coconut shell into a mug!</span>")
-		new /obj/item/weapon/reagent_containers/food/drinks/glass2/coconut (user.loc)
+		new /obj/item/reagent_containers/food/drinks/glass2/coconut (user.loc)
 		qdel(src)

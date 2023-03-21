@@ -1006,7 +1006,7 @@
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
 "ck" = (
-/obj/item/weapon/stool,
+/obj/item/stool,
 /obj/random/junk,
 /mob/living/simple_animal/hostile/rogue_drone,
 /turf/simulated/floor/plating,
@@ -1031,8 +1031,8 @@
 /obj/random/tool,
 /obj/random/tool,
 /obj/random/maintenance,
-/obj/item/weapon/spacecash/bundle/c10,
-/obj/item/weapon/spacecash/bundle/c10,
+/obj/item/spacecash/bundle/c10,
+/obj/item/spacecash/bundle/c10,
 /obj/random/coin,
 /obj/random/smokes,
 /turf/simulated/floor/plating,
@@ -1109,13 +1109,13 @@
 /obj/structure/closet/crate,
 /obj/random/junk,
 /obj/random/junk,
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
 "cx" = (
-/obj/item/weapon/table_parts,
+/obj/item/table_parts,
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
 "cy" = (
@@ -1146,11 +1146,11 @@
 /turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/first_deck/fp)
 "cD" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afp)
 "cE" = (
-/obj/item/weapon/storage/firstaid/fire{
+/obj/item/storage/firstaid/fire{
 	pixel_x = -2;
 	pixel_y = 4
 	},
@@ -1197,7 +1197,7 @@
 	},
 /obj/item/modular_computer/console/preset/security,
 /obj/machinery/power/apc{
-	cell_type = /obj/item/weapon/cell/high;
+	cell_type = /obj/item/cell/high;
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24
@@ -1272,7 +1272,7 @@
 	opened = 1
 	},
 /obj/item/device/flashlight,
-/obj/item/weapon/crowbar,
+/obj/item/crowbar,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "cR" = (
@@ -1324,9 +1324,9 @@
 	dir = 1
 	},
 /obj/item/clothing/suit/fire/firefighter,
-/obj/item/weapon/tank/oxygen,
+/obj/item/tank/oxygen,
 /obj/item/clothing/mask/gas,
-/obj/item/weapon/extinguisher,
+/obj/item/extinguisher,
 /obj/item/clothing/head/hardhat/red,
 /obj/item/clothing/glasses/meson,
 /turf/simulated/floor/plating,
@@ -1426,7 +1426,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/item/weapon/table_parts/rack,
+/obj/item/table_parts/rack,
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 8;
@@ -1442,7 +1442,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
 "di" = (
@@ -1451,7 +1451,7 @@
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
 "dj" = (
-/obj/item/weapon/broken_bottle,
+/obj/item/broken_bottle,
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
 "dk" = (
@@ -1673,7 +1673,7 @@
 	tag_exterior_door = "nuke_shuttle_dock_outer";
 	tag_interior_door = "nuke_shuttle_dock_inner"
 	},
-/obj/item/weapon/pen,
+/obj/item/pen,
 /turf/simulated/floor/tiled/techmaint,
 /area/security/dockingcheckpoint)
 "dC" = (
@@ -1821,7 +1821,7 @@
 /obj/structure/closet/walllocker/emerglocker/west,
 /obj/structure/closet/firecloset,
 /obj/machinery/power/apc{
-	cell_type = /obj/item/weapon/cell/high;
+	cell_type = /obj/item/cell/high;
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24
@@ -1870,9 +1870,9 @@
 /obj/structure/table/rack{
 	dir = 1
 	},
-/obj/item/weapon/wrench,
+/obj/item/wrench,
 /obj/item/device/flash,
-/obj/item/weapon/crowbar,
+/obj/item/crowbar,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -1966,7 +1966,7 @@
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
 "eg" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/plating,
@@ -2065,8 +2065,8 @@
 "er" = (
 /obj/effect/floor_decal/corner/red/three_quarters,
 /obj/structure/table/reinforced,
-/obj/item/weapon/folder/red,
-/obj/item/weapon/paper_bin{
+/obj/item/folder/red,
+/obj/item/paper_bin{
 	pixel_x = 1;
 	pixel_y = 9
 	},
@@ -2097,7 +2097,7 @@
 "eu" = (
 /obj/random/junk,
 /obj/machinery/power/apc{
-	cell_type = /obj/item/weapon/cell/high;
+	cell_type = /obj/item/cell/high;
 	dir = 2;
 	name = "south bump";
 	pixel_y = -24
@@ -2111,7 +2111,7 @@
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
 "ew" = (
-/obj/item/weapon/table_parts/rack,
+/obj/item/table_parts/rack,
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
 "ex" = (
@@ -3396,7 +3396,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/mainsolar)
 "gQ" = (
-/obj/item/weapon/stool,
+/obj/item/stool,
 /obj/machinery/alarm{
 	dir = 1;
 	icon_state = "alarm0";
@@ -3782,7 +3782,7 @@
 /area/hallway/centralfirst)
 "hE" = (
 /obj/machinery/power/apc{
-	cell_type = /obj/item/weapon/cell/high;
+	cell_type = /obj/item/cell/high;
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24
@@ -5482,7 +5482,7 @@
 /area/maintenance/first_deck/central)
 "ks" = (
 /obj/machinery/power/apc{
-	cell_type = /obj/item/weapon/cell/high;
+	cell_type = /obj/item/cell/high;
 	dir = 2;
 	name = "south bump";
 	pixel_y = -24
@@ -5592,7 +5592,7 @@
 /area/hallway/centralfirst)
 "kC" = (
 /obj/machinery/power/apc{
-	cell_type = /obj/item/weapon/cell/super;
+	cell_type = /obj/item/cell/super;
 	dir = 4;
 	name = "east bump";
 	pixel_x = 24;
@@ -5625,8 +5625,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "kG" = (
-/obj/item/weapon/material/shard,
-/obj/item/weapon/hammer/smithing,
+/obj/item/material/shard,
+/obj/item/hammer/smithing,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "kH" = (
@@ -5852,7 +5852,7 @@
 /obj/structure/closet/toolcloset,
 /obj/effect/floor_decal/corner/yellow/full,
 /obj/machinery/power/apc{
-	cell_type = /obj/item/weapon/cell/high;
+	cell_type = /obj/item/cell/high;
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24
@@ -6063,12 +6063,12 @@
 /area/maintenance/first_deck/central)
 "ll" = (
 /obj/effect/decal/cleanable/blood,
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /mob/living/simple_animal/hostile/rogue_drone,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "lm" = (
-/obj/item/weapon/paper/crumpled/bloody{
+/obj/item/paper/crumpled/bloody{
 	info = "Stay the fuck away from my chairs! The last person to try to fuck with my chairs died. You're next."
 	},
 /turf/simulated/floor/plating,
@@ -6207,7 +6207,7 @@
 /area/hallway/centralfirst)
 "lz" = (
 /obj/structure/closet,
-/obj/item/weapon/contraband/poster,
+/obj/item/contraband/poster,
 /obj/random/soap,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
@@ -6220,13 +6220,13 @@
 /area/maintenance/first_deck/central)
 "lB" = (
 /obj/effect/decal/cleanable/blood,
-/obj/item/weapon/gunsmith/barrel/flintlock,
+/obj/item/gunsmith/barrel/flintlock,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "lC" = (
 /obj/effect/decal/cleanable/blood,
 /obj/structure/bed/chair/office/comfy/purple,
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/plating,
@@ -6631,11 +6631,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "lY" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "lZ" = (
-/obj/item/weapon/storage/firstaid/fire{
+/obj/item/storage/firstaid/fire{
 	pixel_x = -2;
 	pixel_y = 4
 	},
@@ -6651,13 +6651,13 @@
 /obj/structure/closet,
 /obj/item/device/flashlight,
 /obj/random/tool,
-/obj/item/weapon/crowbar,
+/obj/item/crowbar,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "mc" = (
 /obj/structure/curtain/open/bed,
 /obj/structure/bed/nice,
-/obj/item/weapon/paper/crumpled/bloody{
+/obj/item/paper/crumpled/bloody{
 	info = "Whatever you do, don't touch the chairs."
 	},
 /turf/simulated/floor/plating,
@@ -6715,8 +6715,8 @@
 /area/maintenance/first_deck/fs)
 "ml" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/box/lights/mixed,
-/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/storage/box/lights/mixed,
+/obj/item/storage/toolbox/mechanical,
 /obj/item/device/multitool,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
@@ -6793,9 +6793,9 @@
 	dir = 1
 	},
 /obj/item/clothing/suit/fire/firefighter,
-/obj/item/weapon/tank/oxygen,
+/obj/item/tank/oxygen,
 /obj/item/clothing/mask/gas,
-/obj/item/weapon/extinguisher,
+/obj/item/extinguisher,
 /obj/item/clothing/head/hardhat/red,
 /obj/item/clothing/glasses/meson,
 /turf/simulated/floor/plating,
@@ -6824,11 +6824,11 @@
 /area/maintenance/first_deck/central)
 "mz" = (
 /obj/structure/table/standard,
-/obj/item/weapon/paper_bin{
+/obj/item/paper_bin{
 	pixel_x = 1;
 	pixel_y = 9
 	},
-/obj/item/weapon/pen,
+/obj/item/pen,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "mA" = (
@@ -7109,7 +7109,7 @@
 /area/maintenance/first_deck/afs)
 "mY" = (
 /obj/machinery/power/apc{
-	cell_type = /obj/item/weapon/cell/high;
+	cell_type = /obj/item/cell/high;
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24
@@ -7373,9 +7373,9 @@
 	dir = 1
 	},
 /obj/item/clothing/suit/fire/firefighter,
-/obj/item/weapon/tank/oxygen,
+/obj/item/tank/oxygen,
 /obj/item/clothing/mask/gas,
-/obj/item/weapon/extinguisher,
+/obj/item/extinguisher,
 /obj/item/clothing/head/hardhat/red,
 /obj/item/clothing/glasses/meson,
 /turf/simulated/floor/plating,
@@ -7414,7 +7414,7 @@
 /area/maintenance/first_deck/fs)
 "ny" = (
 /obj/machinery/power/apc{
-	cell_type = /obj/item/weapon/cell/high;
+	cell_type = /obj/item/cell/high;
 	dir = 2;
 	name = "south bump";
 	pixel_y = -24
@@ -7577,7 +7577,7 @@
 /area/solar/auxaft)
 "nO" = (
 /obj/structure/closet/crate,
-/obj/item/weapon/storage/firstaid/fire{
+/obj/item/storage/firstaid/fire{
 	pixel_x = -2;
 	pixel_y = 4
 	},
@@ -7825,7 +7825,7 @@
 /area/security/abandonedcheckpoint)
 "ol" = (
 /obj/machinery/power/apc{
-	cell_type = /obj/item/weapon/cell/super;
+	cell_type = /obj/item/cell/super;
 	dir = 4;
 	name = "east bump";
 	pixel_x = 24;
@@ -7855,7 +7855,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fs)
 "oo" = (
-/obj/item/weapon/storage/belt/utility,
+/obj/item/storage/belt/utility,
 /obj/structure/table/rack,
 /obj/random/shoes,
 /obj/random/glasses,
@@ -7963,12 +7963,12 @@
 /area/maintenance/first_deck/central)
 "oC" = (
 /obj/structure/table/standard,
-/obj/item/weapon/flame/lighter,
+/obj/item/flame/lighter,
 /obj/item/device/flashlight/lamp/green,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "oD" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fs)
 "oE" = (
@@ -8231,7 +8231,7 @@
 "pj" = (
 /obj/structure/closet/crate,
 /obj/random/maintenance,
-/obj/item/weapon/contraband/poster,
+/obj/item/contraband/poster,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "pk" = (
@@ -8562,7 +8562,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "pF" = (
-/obj/item/weapon/crowbar,
+/obj/item/crowbar,
 /obj/item/clothing/glasses/welding,
 /obj/structure/closet/crate{
 	icon_state = "crateopen";
@@ -8723,8 +8723,8 @@
 /obj/structure/table/rack{
 	dir = 1
 	},
-/obj/item/weapon/extinguisher,
-/obj/item/weapon/wrench,
+/obj/item/extinguisher,
+/obj/item/wrench,
 /obj/random/storage,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
@@ -9042,7 +9042,7 @@
 /turf/simulated/floor/reinforced,
 /area/security/topgun)
 "Fd" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/plating,

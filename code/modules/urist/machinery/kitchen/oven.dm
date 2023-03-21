@@ -21,15 +21,15 @@
 	if(on)
 		user << "The machine is already running."
 		return
-	if(!istype(I,/obj/item/weapon/reagent_containers/food/snacks/))
+	if(!istype(I,/obj/item/reagent_containers/food/snacks/))
 		user << "That isn't food."
 		return
-	if(!istype(I,/obj/item/weapon/reagent_containers/food/snacks/grown/) && grown_only)
+	if(!istype(I,/obj/item/reagent_containers/food/snacks/grown/) && grown_only)
 		user << "You can only still grown items."
 		return
 	else
-		var/obj/item/weapon/reagent_containers/food/snacks/F = I
-		var/obj/item/weapon/reagent_containers/food/snacks/customizable/C
+		var/obj/item/reagent_containers/food/snacks/F = I
+		var/obj/item/reagent_containers/food/snacks/customizable/C
 		C = input("Select food to make.", "Cooking", C) in food_choices
 		if(!C)
 			return
@@ -59,8 +59,8 @@
 /obj/machinery/cooking/oven/updatefood()
 	for(var/U in food_choices)
 		food_choices.Remove(U)
-	for(var/U in typesof(/obj/item/weapon/reagent_containers/food/snacks/customizable/cook)-(/obj/item/weapon/reagent_containers/food/snacks/customizable/cook))
-		var/obj/item/weapon/reagent_containers/food/snacks/customizable/cook/V = new U
+	for(var/U in typesof(/obj/item/reagent_containers/food/snacks/customizable/cook)-(/obj/item/reagent_containers/food/snacks/customizable/cook))
+		var/obj/item/reagent_containers/food/snacks/customizable/cook/V = new U
 		src.food_choices += V
 	return
 
@@ -74,8 +74,8 @@
 /obj/machinery/cooking/candy/updatefood()
 	for(var/U in food_choices)
 		food_choices.Remove(U)
-	for(var/U in typesof(/obj/item/weapon/reagent_containers/food/snacks/customizable/candy)-(/obj/item/weapon/reagent_containers/food/snacks/customizable/candy))
-		var/obj/item/weapon/reagent_containers/food/snacks/customizable/candy/V = new U
+	for(var/U in typesof(/obj/item/reagent_containers/food/snacks/customizable/candy)-(/obj/item/reagent_containers/food/snacks/customizable/candy))
+		var/obj/item/reagent_containers/food/snacks/customizable/candy/V = new U
 		src.food_choices += V
 	return
 
@@ -91,7 +91,7 @@
 /obj/machinery/cooking/still/updatefood()
 	for(var/U in food_choices)
 		food_choices.Remove(U)
-	for(var/U in typesof(/obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/)-(/obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/))
-		var/obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/V = new U
+	for(var/U in typesof(/obj/item/reagent_containers/food/drinks/bottle/customizable/)-(/obj/item/reagent_containers/food/drinks/bottle/customizable/))
+		var/obj/item/reagent_containers/food/drinks/bottle/customizable/V = new U
 		src.food_choices += V
 	return

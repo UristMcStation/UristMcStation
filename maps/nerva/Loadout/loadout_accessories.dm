@@ -47,22 +47,22 @@
 
 /datum/gear/survivalkit
 	display_name = "survival kit"
-	path = /obj/item/weapon/storage/box/survivalkit
+	path = /obj/item/storage/box/survivalkit
 	allowed_roles = list(/datum/job/qm, /datum/job/cargo_tech)
 
-/datum/gear/accessory/drop_pouches
+/datum/gear/storage/pouches
 	display_name = "drop pouches selection"
-	path = /obj/item/clothing/accessory/storage/drop_pouches
+	path = /obj/item/clothing/accessory/storage
 	allowed_roles = COMMAND_ROLES
 	cost = 3
 
-/datum/gear/accessory/drop_pouches/New()
+/datum/gear/storage/pouches/New()
 	..()
-	var/drop_pouches = list()
-	drop_pouches["black drop pouches"] = /obj/item/clothing/accessory/storage/drop_pouches/black
-	drop_pouches["brown drop pouches"] = /obj/item/clothing/accessory/storage/drop_pouches/brown
-	drop_pouches["white drop pouches"] = /obj/item/clothing/accessory/storage/drop_pouches/white
-	gear_tweaks += new/datum/gear_tweak/path(drop_pouches)
+	var/pouches = list()
+	pouches += /obj/item/clothing/accessory/storage/black_drop
+	pouches += /obj/item/clothing/accessory/storage/brown_drop
+	pouches += /obj/item/clothing/accessory/storage/white_drop
+	gear_tweaks += new/datum/gear_tweak/path/specified_types_list(pouches)
 
 /datum/gear/accessory/badge
 	display_name = "badge selection"

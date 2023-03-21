@@ -65,7 +65,7 @@
 	else
 		overlays += image(icon, "[initial(icon_state)]-ammo2")
 
-/obj/item/weapon/gun/projectile/automatic/c20r
+/obj/item/gun/projectile/automatic/c20r
 	name = "10mm submachine gun"
 	desc = "The Novaya Zemlya Arms C-20r is a lightweight and rapid firing SMG. In production since the 2280s, the C-20r has proliferated across human space, in some part due to it being issued to smaller ICCGN vessels."
 	icon = 'icons/urist/items/c20r.dmi'

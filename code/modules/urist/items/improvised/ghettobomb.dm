@@ -1,10 +1,10 @@
 //improvised explosives//
 
 //iedcasing assembly crafting//
-/obj/item/weapon/reagent_containers/food/drinks/cans/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/reagent_containers/food/drinks/cans/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/device/assembly/igniter))
 		var/obj/item/device/assembly/igniter/G = I
-		var/obj/item/weapon/grenade/iedcasing/W = new /obj/item/weapon/grenade/iedcasing
+		var/obj/item/grenade/iedcasing/W = new /obj/item/grenade/iedcasing
 		user.remove_from_mob(G)
 		user.remove_from_mob(src)
 		user.put_in_hands(W)
@@ -14,7 +14,7 @@
 		qdel(src)
 
 
-/obj/item/weapon/grenade/iedcasing
+/obj/item/grenade/iedcasing
 	name = "improvised explosive assembly"
 	desc = "An igniter stuffed into an aluminum shell."
 	w_class = 2.0
@@ -31,7 +31,7 @@
 
 
 
-/obj/item/weapon/grenade/iedcasing/afterattack(atom/target, mob/user , flag) //Filling up the can
+/obj/item/grenade/iedcasing/afterattack(atom/target, mob/user , flag) //Filling up the can
 	if(assembled == 0)
 		if(istype(target, /obj/structure/reagent_dispensers/fueltank) && in_range(src, target))
 			if(target.reagents.total_volume < 50)
@@ -47,7 +47,7 @@
 			return
 
 
-/obj/item/weapon/grenade/iedcasing/attackby(var/obj/item/I, mob/user as mob) //Wiring the can for ignition
+/obj/item/grenade/iedcasing/attackby(var/obj/item/I, mob/user as mob) //Wiring the can for ignition
 	if(istype(I, /obj/item/stack/cable_coil))
 		if(assembled == 1)
 			var/obj/item/stack/cable_coil/C = I
@@ -60,7 +60,7 @@
 			active = 0
 			det_time = rand(30,80)
 
-/obj/item/weapon/grenade/iedcasing/attack_self(mob/user as mob) //
+/obj/item/grenade/iedcasing/attack_self(mob/user as mob) //
 	if(!active)
 		if(clown_check(user))
 			user << "<span class='warning'>You light the [name]!</span>"
@@ -80,12 +80,12 @@
 			spawn(det_time)
 				detonate()
 
-/obj/item/weapon/grenade/iedcasing/detonate() //Blowing that can up
+/obj/item/grenade/iedcasing/detonate() //Blowing that can up
 	update_icon()
 	explosion(src.loc,1,0,2)
 	qdel(src)
 
-/obj/item/weapon/grenade/iedcasing/examine()
+/obj/item/grenade/iedcasing/examine()
 	set src in usr
 	usr << desc
 	if(assembled == 3)

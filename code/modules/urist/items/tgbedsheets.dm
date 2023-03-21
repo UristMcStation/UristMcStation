@@ -3,41 +3,41 @@ CONTAINS:
 BEDSHEETS
 */
 
-/obj/item/weapon/bedsheet/urist
+/obj/item/bedsheet/urist
 	icon = 'icons/urist/items/tgitems.dmi'
 	icon_override = 'icons/uristmob/back.dmi'
 	icon_state = "sheetwhite"
 	item_state = "bedsheet"
 
-/obj/item/weapon/bedsheet/urist/qm
+/obj/item/bedsheet/urist/qm
 	name = "quartermaster's bedsheet"
 	desc = "It is decorated with a crate emblem in silver lining.  It's rather tough, and just the thing to lie on after a hard day of pushing paper."
 	icon_state = "sheetqm"
 	item_state = "sheetqm"
 	//item_color = "qm"
 
-/obj/item/weapon/bedsheet/urist/centcom
+/obj/item/bedsheet/urist/centcom
 	name = "\improper Centcom bedsheet"
 	desc = "Woven with advanced nanothread for warmth as well as being very decorated, essential for all officials."
 	icon_state = "sheetcentcom"
 	item_state = "sheetcentcom"
 	//item_color = "centcom"
 
-/obj/item/weapon/bedsheet/urist/syndie
+/obj/item/bedsheet/urist/syndie
 	name = "syndicate bedsheet"
 	desc = "It has a syndicate emblem and it has an aura of evil."
 	icon_state = "sheetsyndie"
 	item_state = "sheetsyndie"
 	//item_color = "syndie"
 
-/obj/item/weapon/bedsheet/urist/cult
+/obj/item/bedsheet/urist/cult
 	name = "cultist's bedsheet"
 	desc = "You might dream of Nar'Sie if you sleep with this.  It seems rather tattered and glows of an eldritch presence."
 	icon_state = "sheetcult"
 	item_state = "sheetcult"
 	//item_color = "cult"
 
-/obj/item/weapon/bedsheet/urist/wiz
+/obj/item/bedsheet/urist/wiz
 	name = "wizard's bedsheet"
 	desc = "A special fabric enchanted with magic so you can have an enchanted night.  It even glows!"
 	icon_state = "sheetwiz"
@@ -46,7 +46,7 @@ BEDSHEETS
 
 //bedsheet bandanas
 
-/obj/item/weapon/bedsheet/verb/toggle_bandana()
+/obj/item/bedsheet/verb/toggle_bandana()
 	set name = "Fold Bandana"
 	set category = "Object"
 //	set src in usr
@@ -243,7 +243,7 @@ BEDSHEETS
 /*oldcode, will delete if there are no issues with this.
 //I KNOW THERE IS A BETTER WAY TO DO THIS USING COLOURS, BUT I'M DOING THIS QUICK AND DIRTY SO PEOPLE STOP BITCHING AT ME. I WILL RETURN TO CLEAN THIS UP.
 
-/obj/item/weapon/bedsheet/white/verb/toggle_bandana()
+/obj/item/bedsheet/white/verb/toggle_bandana()
 	set name = "Fold Bandana"
 	set category = "Object"
 
@@ -257,7 +257,7 @@ BEDSHEETS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 
-/obj/item/weapon/bedsheet/blue/verb/toggle_bandana()
+/obj/item/bedsheet/blue/verb/toggle_bandana()
 	set name = "Fold Bandana"
 	set category = "Object"
 
@@ -271,7 +271,7 @@ BEDSHEETS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 
-/obj/item/weapon/bedsheet/orange/verb/toggle_bandana()
+/obj/item/bedsheet/orange/verb/toggle_bandana()
 	set name = "Fold Bandana"
 	set category = "Object"
 
@@ -285,7 +285,7 @@ BEDSHEETS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 
-/obj/item/weapon/bedsheet/red/verb/toggle_bandana()
+/obj/item/bedsheet/red/verb/toggle_bandana()
 	set name = "Fold Bandana"
 	set category = "Object"
 
@@ -299,7 +299,7 @@ BEDSHEETS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 
-/obj/item/weapon/bedsheet/purple/verb/toggle_bandana()
+/obj/item/bedsheet/purple/verb/toggle_bandana()
 	set name = "Fold Bandana"
 	set category = "Object"
 
@@ -313,7 +313,7 @@ BEDSHEETS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 
-/obj/item/weapon/bedsheet/green/verb/toggle_bandana()
+/obj/item/bedsheet/green/verb/toggle_bandana()
 	set name = "Fold Bandana"
 	set category = "Object"
 
@@ -327,7 +327,7 @@ BEDSHEETS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 
-/obj/item/weapon/bedsheet/yellow/verb/toggle_bandana()
+/obj/item/bedsheet/yellow/verb/toggle_bandana()
 	set name = "Fold Bandana"
 	set category = "Object"
 
@@ -341,7 +341,7 @@ BEDSHEETS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 
-/obj/item/weapon/bedsheet/rainbow/verb/toggle_bandana()
+/obj/item/bedsheet/rainbow/verb/toggle_bandana()
 	set name = "Fold Bandana"
 	set category = "Object"
 
@@ -355,7 +355,7 @@ BEDSHEETS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 
-/obj/item/weapon/bedsheet/brown/verb/toggle_bandana()
+/obj/item/bedsheet/brown/verb/toggle_bandana()
 	set name = "Fold Bandana"
 	set category = "Object"
 
@@ -369,7 +369,7 @@ BEDSHEETS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 
-/obj/item/weapon/bedsheet/captain/verb/toggle_bandana()
+/obj/item/bedsheet/captain/verb/toggle_bandana()
 	set name = "Fold Bandana"
 	set category = "Object"
 
@@ -383,7 +383,7 @@ BEDSHEETS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 
-/obj/item/weapon/bedsheet/hop/verb/toggle_bandana()
+/obj/item/bedsheet/hop/verb/toggle_bandana()
 	set name = "Fold Bandana"
 	set category = "Object"
 
@@ -397,7 +397,7 @@ BEDSHEETS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 
-/obj/item/weapon/bedsheet/ce/verb/toggle_bandana()
+/obj/item/bedsheet/ce/verb/toggle_bandana()
 	set name = "Fold Bandana"
 	set category = "Object"
 
@@ -411,7 +411,7 @@ BEDSHEETS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 
-/obj/item/weapon/bedsheet/hos/verb/toggle_bandana()
+/obj/item/bedsheet/hos/verb/toggle_bandana()
 	set name = "Fold Bandana"
 	set category = "Object"
 
@@ -426,7 +426,7 @@ BEDSHEETS
 		qdel(src)
 
 
-/obj/item/weapon/bedsheet/medical/verb/toggle_bandana()
+/obj/item/bedsheet/medical/verb/toggle_bandana()
 	set name = "Fold Bandana"
 	set category = "Object"
 
@@ -440,7 +440,7 @@ BEDSHEETS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 
-/obj/item/weapon/bedsheet/cmo/verb/toggle_bandana()
+/obj/item/bedsheet/cmo/verb/toggle_bandana()
 	set name = "Fold Bandana"
 	set category = "Object"
 
@@ -454,7 +454,7 @@ BEDSHEETS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 
-/obj/item/weapon/bedsheet/rd/verb/toggle_bandana()
+/obj/item/bedsheet/rd/verb/toggle_bandana()
 	set name = "Fold Bandana"
 	set category = "Object"
 
@@ -468,7 +468,7 @@ BEDSHEETS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 
-/obj/item/weapon/bedsheet/qm/verb/toggle_bandana()
+/obj/item/bedsheet/qm/verb/toggle_bandana()
 	set name = "Fold Bandana"
 	set category = "Object"
 
@@ -482,7 +482,7 @@ BEDSHEETS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 
-/obj/item/weapon/bedsheet/centcom/verb/toggle_bandana()
+/obj/item/bedsheet/centcom/verb/toggle_bandana()
 	set name = "Fold Bandana"
 	set category = "Object"
 
@@ -496,7 +496,7 @@ BEDSHEETS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 
-/obj/item/weapon/bedsheet/syndie/verb/toggle_bandana()
+/obj/item/bedsheet/syndie/verb/toggle_bandana()
 	set name = "Fold Bandana"
 	set category = "Object"
 
@@ -510,7 +510,7 @@ BEDSHEETS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 
-/obj/item/weapon/bedsheet/cult/verb/toggle_bandana()
+/obj/item/bedsheet/cult/verb/toggle_bandana()
 	set name = "Fold Bandana"
 	set category = "Object"
 
@@ -524,7 +524,7 @@ BEDSHEETS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 
-/obj/item/weapon/bedsheet/wiz/verb/toggle_bandana()
+/obj/item/bedsheet/wiz/verb/toggle_bandana()
 	set name = "Fold Bandana"
 	set category = "Object"
 
@@ -538,7 +538,7 @@ BEDSHEETS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 
-/obj/item/weapon/bedsheet/clown/verb/toggle_bandana()
+/obj/item/bedsheet/clown/verb/toggle_bandana()
 	set name = "Fold Bandana"
 	set category = "Object"
 
@@ -552,7 +552,7 @@ BEDSHEETS
 		user << "<span class='notice'>You fold the bedsheet into a bandana.</span>"
 		qdel(src)
 
-/obj/item/weapon/bedsheet/mime/verb/toggle_bandana()
+/obj/item/bedsheet/mime/verb/toggle_bandana()
 	set name = "Fold Bandana"
 	set category = "Object"
 

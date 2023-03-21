@@ -10,7 +10,7 @@
 "j" = (/obj/item/trash/cigbutt,/turf/simulated/floor/tiled,/area/template_noop)
 "k" = (/obj/structure/extinguisher_cabinet{pixel_x = 32},/turf/simulated/floor/tiled,/area/template_noop)
 "l" = (/obj/machinery/newscaster{pixel_x = 32},/obj/item/ammo_casing/c9mm,/obj/item/trash/cigbutt,/turf/simulated/floor/tiled,/area/template_noop)
-"m" = (/obj/structure/table/standard,/obj/item/weapon/storage/firstaid/adv,/turf/simulated/floor/plating,/area/template_noop)
+"m" = (/obj/structure/table/standard,/obj/item/storage/firstaid/adv,/turf/simulated/floor/plating,/area/template_noop)
 "n" = (/obj/item/trash/cigbutt,/turf/simulated/floor/plating,/area/template_noop)
 "o" = (/obj/structure/table/standard/flipped/n,/turf/simulated/floor/tiled,/area/template_noop)
 "p" = (/obj/machinery/dna_scannernew,/turf/simulated/floor/plating,/area/template_noop)

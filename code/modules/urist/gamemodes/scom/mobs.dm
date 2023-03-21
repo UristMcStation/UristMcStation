@@ -5,14 +5,14 @@
 	stop_automated_movement = 1
 //	world << "IM BEING CALLED"
 	if(!target_mob)
-		stance = HOSTILE_STANCE_IDLE
+		stance = STANCE_IDLE
 //		world << "FOUND YOUR ERROR"
 	if(target_mob in ListTargets(10))
 		walk_to(src, target_mob, 1, move_to_delay)
 //		world << "MOVING SMOOTHLY"
 	if(get_dist(src, target_mob) <= 1)	//heal bitches
 		target_mob.health = target_mob.health + 15
-		stance = HOSTILE_STANCE_IDLE
+		stance = STANCE_IDLE
 //		world << "HEALING BITCHES"
 		return 1
 
@@ -21,13 +21,13 @@
 		if(will_help && M.faction == faction)
 			M.target_mob = src.target_mob
 
-	stance = HOSTILE_STANCE_ATTACK
+	stance = STANCE_ATTACK
 
 	step_away(src, target_mob)
 
 	spawn(20)
 
-	stance = HOSTILE_STANCE_IDLE*/
+	stance = STANCE_IDLE*/
 
 
 /mob/living/simple_animal/hostile/scom
@@ -47,7 +47,6 @@
 	var/will_help = 0
 	var/can_heal = 0
 	var/will_flee = 0
-	search_objects = 1
 
 /mob/living/simple_animal/hostile/scom/death(gibbed, deathmessage, show_dead_message)
 	if(diesnormally)
@@ -63,16 +62,19 @@
 	maxHealth = 75
 	health = 75
 	harm_intent_damage = 5
-	melee_damage_lower = 20 //stay away
-	melee_damage_upper = 20
+	natural_weapon = /obj/item/natural_weapon/melee/meatbits/weak
 	diesnormally = 1
+	ai_holder = /datum/ai_holder/simple_animal/melee/meat
 
-/mob/living/simple_animal/hostile/scom/GiveTarget(var/new_target)
+/obj/item/natural_weapon/melee/meatbits/weak
+	force = 20
+
+/*/mob/living/simple_animal/hostile/scom/GiveTarget(var/new_target)
 	target = new_target
 	if(target != null)
 		if(isliving(target))
 			Aggro()
-			stance = HOSTILE_STANCE_ATTACK
+			stance = STANCE_ATTACK
 
 			if(health <= 15 && will_flee)
 				visible_message("<span class='danger'>The [src.name] tries to flee from [target.name]!</span>")
@@ -90,16 +92,15 @@
 								M.health = M.health + 30
 								return
 						M.target = target
-			return
+			return*/
 
 /mob/living/simple_animal/hostile/scom/lactera
 	will_help = 1
-	melee_damage_lower = 15
-	melee_damage_upper = 15
+	natural_weapon = /obj/item/natural_weapon/claws
 	ranged = 1
 	projectilesound = 'sound/weapons/laser.ogg'
 	weapon1 = /obj/item/scom/aliengun/a1
-	minimum_distance = 5
+	ai_holder = /datum/ai_holder/simple_animal/humanoid/hostile
 
 /mob/living/simple_animal/hostile/scom/lactera/light
 	will_flee = 1
@@ -190,8 +191,10 @@
 	maxHealth = 150
 	health = 150
 	harm_intent_damage = 0
-	melee_damage_lower = 35 //stay away
-	melee_damage_upper = 35
+	natural_weapon = /obj/item/natural_weapon/harvester
+
+/obj/item/natural_weapon/harvester
+	force = 35
 
 /mob/living/simple_animal/hostile/scom/harvester/death()
 	..()
@@ -210,11 +213,10 @@
 	icon_dead = ""
 	maxHealth = 250
 	health = 250
-	ranged = 1 //ranged, but we rush like the old mobs.
 	harm_intent_damage = 0
-	melee_damage_lower = 25
-	melee_damage_upper = 25
+	natural_weapon = /obj/item/natural_weapon/bite/strong
 	projectiletype = /obj/item/projectile/energy/scom/forgotten
+	ai_holder = /datum/ai_holder/simple_animal/ranged/aggressive
 
 /mob/living/simple_animal/hostile/scom/forgotten/death()
 	..()
@@ -234,8 +236,7 @@
 	icon_dead = "ravager_dead"
 	maxHealth = 70
 	health = 70
-	melee_damage_lower = 30
-	melee_damage_upper = 30
+	natural_weapon = /obj/item/natural_weapon/giant
 
 /obj/item/projectile/beam/scom
 	icon = 'icons/urist/items/guns.dmi'
@@ -298,4 +299,3 @@
 	sleep(6)
 	qdel(src)
 	return
-

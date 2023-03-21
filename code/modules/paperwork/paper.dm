@@ -43,7 +43,7 @@
 	var/list/metadata
 	var/readable = TRUE  //Paper will not be able to be written on and will not bring up a window upon examine if FALSE
 	var/is_memo = FALSE  //If TRUE, paper will act the same as readable = FALSE, but will also be unrenameable.
-	var/datum/language/language = LANGUAGE_HUMAN_EURO // Language the paper was written in. Editable by users up until something's actually written
+	var/datum/language/language = LANGUAGE_GALCOM // Language the paper was written in. Editable by users up until something's actually written
 
 	var/const/deffont = "Verdana"
 	var/const/signfont = "Brush Script MT"
@@ -62,7 +62,7 @@
 	var/old_language = language
 	if (!set_language(language, TRUE))
 		log_debug("[src] ([type]) initialized with invalid or missing language `[old_language]` defined.")
-		set_language(LANGUAGE_HUMAN_EURO, TRUE)
+		set_language(LANGUAGE_GALCOM, TRUE)
 
 /obj/item/paper/proc/set_content(text, title, parse_pencode = TRUE)
 	if(title)

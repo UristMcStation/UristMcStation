@@ -344,7 +344,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				var/count = 1
 				if(href_list["buildmult"])
 					count = input("Select the number of [being_built] to make. Max 100", "Build Multiple") as num
-					count = Clamp(count, 1, 100)
+					count = clamp(count, 1, 100)
 				for(var/i=1, i<=count, i++)
 					linked_lathe.addToQueue(being_built)
 		. = TOPIC_REFRESH
@@ -360,7 +360,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				var/count = 1
 				if(href_list["imprintmult"])
 					count = input("Select the number of [being_built] to make. Max 100", "Build Multiple") as num
-					count = Clamp(count, 1, 100)
+					count = clamp(count, 1, 100)
 				for(var/i=1, i<=count, i++)
 					linked_imprinter.addToQueue(being_built)
 	else if(href_list["disposeI"])  //Causes the circuit imprinter to dispose of a single reagent (all of it)
@@ -1099,7 +1099,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 /obj/machinery/computer/rdconsole/core
 	name = "core fabricator console"
 	id = 1
-	
+
 
 
 #undef CHECK_LATHE

@@ -24,7 +24,7 @@
 		)
 //BS12 EDIT
  // All cult functionality moved to Null Rod
-/obj/item/weapon/storage/bible/proc/bless(mob/living/carbon/M as mob)
+/obj/item/storage/bible/proc/bless(mob/living/carbon/M as mob)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		var/heal_amt = 10
@@ -33,7 +33,7 @@
 				H.UpdateDamageIcon()
 	return
 
-/obj/item/weapon/storage/bible/attack(mob/living/M as mob, mob/living/user as mob)
+/obj/item/storage/bible/attack(mob/living/M as mob, mob/living/user as mob)
 
 	var/chaplain = 0
 	if(user.mind && (user.mind.assigned_role == "Chaplain"))

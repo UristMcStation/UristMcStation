@@ -6,7 +6,7 @@
 	name = CULTURE_HUMAN
 	description = "You are from one of various planetary cultures of humankind."
 	secondary_langs = list(
-		LANGUAGE_HUMAN_EURO,
+		LANGUAGE_GALCOM,
 		LANGUAGE_HUMAN_CHINESE,
 		LANGUAGE_HUMAN_ARABIC,
 		LANGUAGE_HUMAN_INDIAN,
@@ -84,7 +84,7 @@
 	the planet has led to the people of Pluto having something of a seedy reputation, its citizens being viewed with disrepute. The people themselves, however, are usually \
 	just happy to get off the rock and to healthier locales. Unfortunately, despite the efforts of the wider SCG, many Plutonians tend to maintain criminal ties, even offworld."
 	economic_power = 0.8
-	secondary_langs = list (LANGUAGE_HUMAN_EURO,
+	secondary_langs = list (LANGUAGE_GALCOM,
 		LANGUAGE_HUMAN_CHINESE,
 		LANGUAGE_HUMAN_ARABIC,
 		LANGUAGE_HUMAN_INDIAN,
@@ -148,7 +148,7 @@
 	name = CULTURE_HUMAN_OTHER
 	description = "Some people are from places no one has ever heard of or places too wild and fantastical to make it into Encyclopedia Galactica. You are one of these. "
 	economic_power = 1
-	secondary_langs = list (LANGUAGE_HUMAN_EURO,
+	secondary_langs = list (LANGUAGE_GALCOM,
 		LANGUAGE_HUMAN_CHINESE,
 		LANGUAGE_HUMAN_ARABIC,
 		LANGUAGE_HUMAN_INDIAN,

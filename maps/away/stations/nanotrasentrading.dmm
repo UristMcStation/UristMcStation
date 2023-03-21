@@ -64,11 +64,11 @@
 /area/spacestations/nanotrasenspace)
 "ak" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/paper_bin{
+/obj/item/paper_bin{
 	pixel_x = 1;
 	pixel_y = 9
 	},
-/obj/item/weapon/pen,
+/obj/item/pen,
 /obj/machinery/door/window/westleft{
 	name = "Transit Desk"
 	},
@@ -110,7 +110,7 @@
 	d2 = 2
 	},
 /obj/machinery/power/apc/high{
-	cell_type = /obj/item/weapon/cell/infinite;
+	cell_type = /obj/item/cell/infinite;
 	dir = 8;
 	name = "west bump";
 	pixel_x = -24
@@ -312,7 +312,7 @@
 /area/spacestations/nanotrasenspace)
 "aO" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/shuttle/white,
 /area/spacestations/nanotrasenspace)
 "aP" = (
@@ -344,7 +344,7 @@
 /area/spacestations/nanotrasenspace)
 "aV" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/regular{
+/obj/item/storage/firstaid/regular{
 	pixel_x = 2;
 	pixel_y = 3
 	},
@@ -422,7 +422,7 @@
 	pixel_x = 11;
 	pixel_y = 0
 	},
-/obj/item/weapon/storage/mirror{
+/obj/item/storage/mirror{
 	pixel_x = 28;
 	pixel_y = -2
 	},
@@ -806,7 +806,7 @@
 /turf/simulated/floor/grass,
 /area/spacestations/nanotrasenspace)
 "ch" = (
-/obj/item/weapon/stool/bar/padded,
+/obj/item/stool/bar/padded,
 /turf/simulated/floor/wood,
 /area/spacestations/nanotrasenspace)
 "ci" = (
@@ -1018,7 +1018,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /turf/simulated/floor/plating,
 /area/spacestations/nanotrasenspace)
 "cN" = (
@@ -1286,9 +1286,9 @@
 	dir = 1
 	},
 /obj/item/clothing/suit/fire/firefighter,
-/obj/item/weapon/tank/oxygen,
+/obj/item/tank/oxygen,
 /obj/item/clothing/mask/gas,
-/obj/item/weapon/extinguisher,
+/obj/item/extinguisher,
 /obj/item/clothing/head/hardhat/red,
 /obj/item/clothing/glasses/meson,
 /turf/simulated/floor/plating,
@@ -1306,7 +1306,7 @@
 /turf/simulated/wall/r_wall/hull,
 /area/spacestations/nanotrasenspace)
 "dz" = (
-/obj/item/weapon/storage/firstaid/fire{
+/obj/item/storage/firstaid/fire{
 	pixel_x = -2;
 	pixel_y = 4
 	},
@@ -1414,7 +1414,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "dO" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /mob/living/simple_animal/hostile/npc/colonist/trader/organsmuggler,
 /turf/simulated/floor/plating{
 	color = "#bbbbbb"
@@ -1683,7 +1683,7 @@
 /area/spacestations/nanotrasenspace)
 "oQ" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/reagent_containers/food/condiment/small/peppermill,
+/obj/item/reagent_containers/food/condiment/small/peppermill,
 /turf/simulated/floor/wood,
 /area/spacestations/nanotrasenspace)
 "pc" = (
@@ -1727,11 +1727,11 @@
 "pY" = (
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced,
-/obj/item/weapon/paper_bin{
+/obj/item/paper_bin{
 	pixel_x = 1;
 	pixel_y = 9
 	},
-/obj/item/weapon/pen,
+/obj/item/pen,
 /obj/effect/floor_decal/corner/red/three_quarters,
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
@@ -1845,7 +1845,7 @@
 /area/spacestations/nanotrasenspace)
 "vs" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/folder,
+/obj/item/folder,
 /obj/machinery/door/window/southleft{
 	name = "Transit Checkpoint";
 	req_access = list("ACCESS_CENT_GENERAL")
@@ -1876,11 +1876,11 @@
 /area/spacestations/nanotrasenspace)
 "vT" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/paper_bin{
+/obj/item/paper_bin{
 	pixel_x = 1;
 	pixel_y = 9
 	},
-/obj/item/weapon/pen,
+/obj/item/pen,
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/corner/red/three_quarters,
 /turf/simulated/floor/tiled/dark,
@@ -1890,7 +1890,7 @@
 	dir = 8
 	},
 /obj/structure/table/woodentable,
-/obj/item/weapon/reagent_containers/food/condiment/barbecue,
+/obj/item/reagent_containers/food/condiment/barbecue,
 /turf/simulated/floor/wood,
 /area/spacestations/nanotrasenspace)
 "wu" = (
@@ -2057,7 +2057,7 @@
 	name = "Transit Checkpoint";
 	req_access = list("ACCESS_CENT_GENERAL")
 	},
-/obj/item/weapon/folder,
+/obj/item/folder,
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
@@ -2190,7 +2190,7 @@
 /area/spacestations/nanotrasenspace)
 "EU" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/material/ashtray/plastic,
+/obj/item/material/ashtray/plastic,
 /turf/simulated/floor/wood,
 /area/spacestations/nanotrasenspace)
 "EW" = (
@@ -2358,7 +2358,7 @@
 /area/spacestations/nanotrasenspace)
 "OE" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/folder,
+/obj/item/folder,
 /obj/machinery/door/window/northleft{
 	name = "Transit Checkpoint";
 	req_access = list("ACCESS_CENT_GENERAL")
@@ -2397,11 +2397,11 @@
 /area/spacestations/nanotrasenspace)
 "Pz" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/paper_bin{
+/obj/item/paper_bin{
 	pixel_x = 1;
 	pixel_y = 9
 	},
-/obj/item/weapon/pen,
+/obj/item/pen,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -2542,7 +2542,7 @@
 /area/spacestations/nanotrasenspace)
 "TZ" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/reagent_containers/food/condiment/small/saltshaker,
+/obj/item/reagent_containers/food/condiment/small/saltshaker,
 /turf/simulated/floor/wood,
 /area/spacestations/nanotrasenspace)
 "Vo" = (

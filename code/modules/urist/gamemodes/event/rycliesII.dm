@@ -229,7 +229,7 @@
 	item_state = "ryclieshelm"
 	armor = list(melee = 60, bullet = 80, laser = 40,energy = 35, bomb = 10, bio = 2, rad = 0)
 
-/obj/item/weapon/gun/projectile/automatic/kh50
+/obj/item/gun/projectile/automatic/kh50
 	item_icons = DEF_URIST_INHANDS
 	name = "KH50"
 	desc = "A compact rifle chambered in 12.7x54mm Caseless. Heavy and inaccurate, but hard-hitting and reliable. The stamped text on the side reads, 'Kayman-Hale KH-50'"
@@ -244,7 +244,7 @@
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
 
-/obj/item/weapon/gun/projectile/automatic/kh50/update_icon()
+/obj/item/gun/projectile/automatic/kh50/update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "KH50"
@@ -278,7 +278,7 @@
 /obj/item/projectile/bullet/rifle/a127
 	damage = 25 //low-ish for 12.7, equal with 7.62, but it's what it used to inflict pre-0.1.19 - balance this
 
-/obj/item/weapon/storage/box/kh50ammo
+/obj/item/storage/box/kh50ammo
 	name = "box of KH-50 ammo"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
 

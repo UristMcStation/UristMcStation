@@ -38,9 +38,9 @@
 				if(use_leader_drops)
 					var/intel
 					if(A.faction_descriptor)
-						intel = new /obj/item/weapon/conspiracyintel(presetconspiracy = A.faction_descriptor)
+						intel = new /obj/item/conspiracyintel(presetconspiracy = A.faction_descriptor)
 					else
-						intel = new /obj/item/weapon/conspiracyintel()
+						intel = new /obj/item/conspiracyintel()
 					if(!(leadermob.equip_to_storage(intel)))
 						leadermob.put_in_hands(intel)
 					anydropped++
@@ -51,7 +51,7 @@
 				if(!spawnedany)
 					if((A.faction_descriptor) && (IU.faction))
 						if(cmptext(IU.faction,A.faction_descriptor))
-							new /obj/item/weapon/conspiracyintel(IU.loc, presetconspiracy = A.faction_descriptor)
+							new /obj/item/conspiracyintel(IU.loc, presetconspiracy = A.faction_descriptor)
 							anydropped++
 							spawnedany = 1
 
@@ -63,7 +63,7 @@
 				if(IS.probability)
 					spawnprob = IS.probability
 				if(prob(spawnprob))
-					new /obj/item/weapon/conspiracyintel/random(IS.loc)
+					new /obj/item/conspiracyintel/random(IS.loc)
 					landmarkspawns++
 					anydropped++
 	return anydropped

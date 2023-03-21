@@ -55,7 +55,7 @@
 		)
 	var/list/supporting_limbs = list() //If not-null, automatically splints breaks. Checked when removing the suit.
 	equip_delay = null
-	allowed = list(/obj/item/device/flashlight, /obj/item/device/radio, /obj/item/weapon/tank, /obj/item/device/suit_cooling_unit, /obj/item/weapon/storage/backpack)
+	allowed = list(/obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank, /obj/item/device/suit_cooling_unit, /obj/item/storage/backpack)
 
 
 /obj/item/clothing/suit/space/rig/equipped(mob/M)

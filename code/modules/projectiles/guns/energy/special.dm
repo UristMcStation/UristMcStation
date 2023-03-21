@@ -182,7 +182,6 @@
 	if(!safety())
 		if(M)
 			M.welding_eyecheck()//Welding tool eye check
-				return 0
 		spark_system.start()
 		return 1
 	handle_click_empty(M)

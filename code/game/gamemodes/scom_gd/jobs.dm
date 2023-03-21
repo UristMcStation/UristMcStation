@@ -14,9 +14,9 @@
 	spawn_positions = 1
 	supervisors = "SCOM High Command"
 	selection_color = "#1d1d4f"
-	outfit_type = /decl/hierarchy/outfit/job/captain
+	outfit_type = /singleton/hierarchy/outfit/job/captain
 	access = list()
-	minimal_access = list()
+
 
 /datum/job/scom/captain/get_access()
 	return get_all_station_access()

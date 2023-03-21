@@ -11,10 +11,6 @@
 		return 0
 	var/assigned = pick(blocksLeft)
 	blocksLeft.Remove(assigned)
-	if(good)
-		good_blocks += assigned
-	else
-		bad_blocks += assigned
 	assigned_blocks[assigned]=name
 	dna_activity_bounds[assigned]=activity_bounds
 	//testing("[name] assigned to block #[assigned].")

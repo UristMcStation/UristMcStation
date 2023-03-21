@@ -14,7 +14,7 @@
 		skillset = null
 	. = ..()
 
-//Clamps the buff amounts so that the target stays between SKILL_MIN and SKILL_MAX in all skills.
+//clamps the buff amounts so that the target stays between SKILL_MIN and SKILL_MAX in all skills.
 /datum/skill_buff/proc/tailor_buff(mob/target)
 	if(!buffs)
 		return

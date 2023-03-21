@@ -214,7 +214,7 @@
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/weapon/bedsheet/white/B = new /obj/item/weapon/bedsheet/white
+		var/obj/item/bedsheet/white/B = new /obj/item/bedsheet/white
 
 		user.remove_from_mob(src)
 
@@ -230,7 +230,7 @@
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/weapon/bedsheet/white/B = new /obj/item/weapon/bedsheet/white
+		var/obj/item/bedsheet/white/B = new /obj/item/bedsheet/white
 
 		user.remove_from_mob(src)
 
@@ -244,7 +244,7 @@
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/weapon/bedsheet/blue/B = new /obj/item/weapon/bedsheet/blue
+		var/obj/item/bedsheet/blue/B = new /obj/item/bedsheet/blue
 
 		user.remove_from_mob(src)
 
@@ -258,7 +258,7 @@
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/weapon/bedsheet/orange/B = new /obj/item/weapon/bedsheet/orange
+		var/obj/item/bedsheet/orange/B = new /obj/item/bedsheet/orange
 
 		user.remove_from_mob(src)
 
@@ -272,7 +272,7 @@
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/weapon/bedsheet/red/B = new /obj/item/weapon/bedsheet/red
+		var/obj/item/bedsheet/red/B = new /obj/item/bedsheet/red
 
 		user.remove_from_mob(src)
 
@@ -286,7 +286,7 @@
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/weapon/bedsheet/purple/B = new /obj/item/weapon/bedsheet/purple
+		var/obj/item/bedsheet/purple/B = new /obj/item/bedsheet/purple
 
 		user.remove_from_mob(src)
 
@@ -300,7 +300,7 @@
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/weapon/bedsheet/green/B = new /obj/item/weapon/bedsheet/green
+		var/obj/item/bedsheet/green/B = new /obj/item/bedsheet/green
 
 		user.remove_from_mob(src)
 
@@ -314,7 +314,7 @@
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/weapon/bedsheet/yellow/B = new /obj/item/weapon/bedsheet/yellow
+		var/obj/item/bedsheet/yellow/B = new /obj/item/bedsheet/yellow
 
 		user.remove_from_mob(src)
 
@@ -328,7 +328,7 @@
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/weapon/bedsheet/rainbow/B = new /obj/item/weapon/bedsheet/rainbow
+		var/obj/item/bedsheet/rainbow/B = new /obj/item/bedsheet/rainbow
 
 		user.remove_from_mob(src)
 
@@ -342,7 +342,7 @@
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/weapon/bedsheet/brown/B = new /obj/item/weapon/bedsheet/brown
+		var/obj/item/bedsheet/brown/B = new /obj/item/bedsheet/brown
 
 		user.remove_from_mob(src)
 
@@ -356,7 +356,7 @@
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/weapon/bedsheet/captain/B = new /obj/item/weapon/bedsheet/captain
+		var/obj/item/bedsheet/captain/B = new /obj/item/bedsheet/captain
 
 		user.remove_from_mob(src)
 
@@ -370,7 +370,7 @@
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/weapon/bedsheet/hop/B = new /obj/item/weapon/bedsheet/hop
+		var/obj/item/bedsheet/hop/B = new /obj/item/bedsheet/hop
 
 		user.remove_from_mob(src)
 
@@ -384,7 +384,7 @@
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/weapon/bedsheet/ce/B = new /obj/item/weapon/bedsheet/ce
+		var/obj/item/bedsheet/ce/B = new /obj/item/bedsheet/ce
 
 		user.remove_from_mob(src)
 
@@ -398,7 +398,7 @@
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/weapon/bedsheet/hos/B = new /obj/item/weapon/bedsheet/hos
+		var/obj/item/bedsheet/hos/B = new /obj/item/bedsheet/hos
 
 		user.remove_from_mob(src)
 
@@ -413,7 +413,7 @@
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/weapon/bedsheet/medical/B = new /obj/item/weapon/bedsheet/medical
+		var/obj/item/bedsheet/medical/B = new /obj/item/bedsheet/medical
 
 		user.remove_from_mob(src)
 
@@ -427,7 +427,7 @@
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/weapon/bedsheet/cmo/B = new /obj/item/weapon/bedsheet/cmo
+		var/obj/item/bedsheet/cmo/B = new /obj/item/bedsheet/cmo
 
 		user.remove_from_mob(src)
 
@@ -441,7 +441,7 @@
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/weapon/bedsheet/rd/B = new /obj/item/weapon/bedsheet/rd
+		var/obj/item/bedsheet/rd/B = new /obj/item/bedsheet/rd
 
 		user.remove_from_mob(src)
 
@@ -455,7 +455,7 @@
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/weapon/bedsheet/qm/B = new /obj/item/weapon/bedsheet/qm
+		var/obj/item/bedsheet/qm/B = new /obj/item/bedsheet/qm
 
 		user.remove_from_mob(src)
 
@@ -469,7 +469,7 @@
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/weapon/bedsheet/centcom/B = new /obj/item/weapon/bedsheet/centcom
+		var/obj/item/bedsheet/centcom/B = new /obj/item/bedsheet/centcom
 
 		user.remove_from_mob(src)
 
@@ -483,7 +483,7 @@
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/weapon/bedsheet/syndie/B = new /obj/item/weapon/bedsheet/syndie
+		var/obj/item/bedsheet/syndie/B = new /obj/item/bedsheet/syndie
 
 		user.remove_from_mob(src)
 
@@ -497,7 +497,7 @@
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/weapon/bedsheet/cult/B = new /obj/item/weapon/bedsheet/cult
+		var/obj/item/bedsheet/cult/B = new /obj/item/bedsheet/cult
 
 		user.remove_from_mob(src)
 
@@ -511,7 +511,7 @@
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/weapon/bedsheet/wiz/B = new /obj/item/weapon/bedsheet/wiz
+		var/obj/item/bedsheet/wiz/B = new /obj/item/bedsheet/wiz
 
 		user.remove_from_mob(src)
 
@@ -525,7 +525,7 @@
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/weapon/bedsheet/clown/B = new /obj/item/weapon/bedsheet/clown
+		var/obj/item/bedsheet/clown/B = new /obj/item/bedsheet/clown
 
 		user.remove_from_mob(src)
 
@@ -539,7 +539,7 @@
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/weapon/bedsheet/mime/B = new /obj/item/weapon/bedsheet/mime
+		var/obj/item/bedsheet/mime/B = new /obj/item/bedsheet/mime
 
 		user.remove_from_mob(src)
 

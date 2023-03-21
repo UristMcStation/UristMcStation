@@ -168,13 +168,13 @@
 /obj/item/melee/energy/sword/purple
 	blade_color = "purple"
 
-/obj/item/weapon/melee/energy/sword/black/New()
+/obj/item/melee/energy/sword/black/New()
 	blade_color = "black"
 
-/obj/item/weapon/melee/energy/sword/yellow/New()
+/obj/item/melee/energy/sword/yellow/New()
 	blade_color = "yellow"
 
-/obj/item/weapon/melee/energy/sword/orange/New()
+/obj/item/melee/energy/sword/orange/New()
 	blade_color = "orange"
 
 /obj/item/melee/energy/sword/dropped(mob/user)
@@ -193,7 +193,7 @@
 /obj/item/melee/energy/sword/get_parry_chance(mob/user)
 	return active ? ..() : 0
 
-/obj/item/weapon/melee/energy/sword/dualsaber
+/obj/item/melee/energy/sword/dualsaber
 	var/base_icon = "dualsaber"
 	icon_state = "dualsaber0"
 	name = "double-bladed energy sword"
@@ -203,18 +203,18 @@
 	var/force_unwielded = 10
 	item_icons = DEF_URIST_INHANDS
 
-/obj/item/weapon/melee/energy/sword/dualsaber/activate(mob/living/user)
+/obj/item/melee/energy/sword/dualsaber/activate(mob/living/user)
 	..()
 	icon_state = "[base_icon][blade_color]"
 	update_icon()
 
-/obj/item/weapon/melee/energy/sword/dualsaber/on_update_icon()
+/obj/item/melee/energy/sword/dualsaber/on_update_icon()
 	if(wielded && active)
 		item_state = "[base_icon][blade_color][wielded]"
 	else
 		item_state = initial(icon_state)
 
-/obj/item/weapon/melee/energy/sword/dualsaber/attack(target as mob, mob/living/user as mob)
+/obj/item/melee/energy/sword/dualsaber/attack(target as mob, mob/living/user as mob)
 	..()
 	if((MUTATION_CLUMSY in user.mutations) && (wielded) &&prob(40))
 		user << "<span class='warning'> You twirl around a bit before losing your balance and impaling yourself on the [src].</span>"
@@ -226,7 +226,7 @@
 				user.set_dir(i)
 				sleep(1)
 
-/obj/item/weapon/melee/energy/sword/dualsaber/update_twohanding()
+/obj/item/melee/energy/sword/dualsaber/update_twohanding()
 	var/mob/living/M = loc
 	if(istype(M) && M.can_wield_item(src) && is_held_twohanded(M))
 		wielded = 1
@@ -237,25 +237,25 @@
 	update_icon()
 	..()
 
-/obj/item/weapon/melee/energy/sword/dualsaber/New()
+/obj/item/melee/energy/sword/dualsaber/New()
 	blade_color = pick("red","blue","green","purple")
 
-/obj/item/weapon/melee/energy/sword/dualsaber/green/New()
+/obj/item/melee/energy/sword/dualsaber/green/New()
 	blade_color = "green"
 
-/obj/item/weapon/melee/energy/sword/dualsaber/red/New()
+/obj/item/melee/energy/sword/dualsaber/red/New()
 	blade_color = "red"
 
-/obj/item/weapon/melee/energy/sword/dualsaber/blue/New()
+/obj/item/melee/energy/sword/dualsaber/blue/New()
 	blade_color = "blue"
 
-/obj/item/weapon/melee/energy/sword/dualsaber/purple/New()
+/obj/item/melee/energy/sword/dualsaber/purple/New()
 	blade_color = "purple"
 
-/obj/item/weapon/melee/energy/sword/dualsaber/yellow/New()
+/obj/item/melee/energy/sword/dualsaber/yellow/New()
 	blade_color = "yellow"
 
-/obj/item/weapon/melee/energy/sword/dualsaber/orange/New()
+/obj/item/melee/energy/sword/dualsaber/orange/New()
 	blade_color = "orange"
 
 /obj/item/melee/energy/sword/pirate

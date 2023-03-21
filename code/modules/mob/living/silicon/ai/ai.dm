@@ -149,7 +149,7 @@ var/global/list/ai_verbs_default = list(
 	//Languages
 	add_language(LANGUAGE_ROBOT_GLOBAL, 1)
 	add_language(LANGUAGE_EAL, 1)
-	add_language(LANGUAGE_HUMAN_EURO, 1)
+	add_language(LANGUAGE_GALCOM, 1)
 	add_language(LANGUAGE_HUMAN_ARABIC, 1)
 	add_language(LANGUAGE_HUMAN_CHINESE, 1)
 	add_language(LANGUAGE_HUMAN_IBERIAN, 1)
@@ -160,7 +160,6 @@ var/global/list/ai_verbs_default = list(
 	add_language(LANGUAGE_SKRELLIAN, 1)
 	add_language(LANGUAGE_SPACER, 1)
 	add_language(LANGUAGE_SIGN, 0)
-	add_language(LANGUAGE_INDEPENDENT, 1)
 	add_language(LANGUAGE_SPACER, 1)
 	add_language(LANGUAGE_RESOMI, 1)
 
@@ -549,7 +548,7 @@ var/global/list/ai_verbs_default = list(
 			for(var/datum/computer_file/report/crew_record/t in GLOB.all_crew_records)//Look in data core locked.
 				personnel_list["[t.get_name()]: [t.get_rank()]"] = t.photo_front//Pull names, rank, and image.
 
-			if(personnel_list.len)
+			if(length(personnel_list))
 				var/input = input("Select a crew member:") as null|anything in personnel_list
 				var/icon/character_icon = personnel_list[input]
 				if(character_icon)
@@ -560,30 +559,46 @@ var/global/list/ai_verbs_default = list(
 			else
 				alert("No suitable records found. Aborting.")
 
-		if(length(personnel_list))
-			input = input("Select a crew member:") as null|anything in personnel_list
-			var/icon/character_icon = personnel_list[input]
-			if(character_icon)
-				qdel(holo_icon)//Clear old icon so we're not storing it in memory.
+		if("Unique")
+			var/list/hologramsAICanUse = list()
+			var/holograms_by_type = GET_SINGLETON_SUBTYPE_MAP(/singleton/ai_holo)
+			for (var/holo_type in holograms_by_type)
+				var/singleton/ai_holo/holo = holograms_by_type[holo_type]
+				if (holo.may_be_used_by_ai(src))
+					hologramsAICanUse.Add(holo)
+			var/singleton/ai_holo/choice = input("Please select a hologram:") as null|anything in hologramsAICanUse
+			if(choice)
+				qdel(holo_icon)
 				qdel(holo_icon_longrange)
 				holo_icon = getHologramIcon(icon(choice.icon, choice.icon_state), noDecolor=choice.bypass_colorize)
 				holo_icon_longrange = getHologramIcon(icon(choice.icon, choice.icon_state), noDecolor=choice.bypass_colorize, hologram_color = HOLOPAD_LONG_RANGE)
 				holo_icon_malf = choice.requires_malf
 
-	else
-		var/list/hologramsAICanUse = list()
-		var/holograms_by_type = GET_SINGLETON_SUBTYPE_MAP(/singleton/ai_holo)
-		for (var/holo_type in holograms_by_type)
-			var/singleton/ai_holo/holo = holograms_by_type[holo_type]
-			if (holo.may_be_used_by_ai(src))
-				hologramsAICanUse.Add(holo)
-		var/singleton/ai_holo/choice = input("Please select a hologram:") as null|anything in hologramsAICanUse
-		if(choice)
-			qdel(holo_icon)
-			qdel(holo_icon_longrange)
-			holo_icon = getHologramIcon(icon(choice.icon, choice.icon_state), noDecolor=choice.bypass_colorize)
-			holo_icon_longrange = getHologramIcon(icon(choice.icon, choice.icon_state), noDecolor=choice.bypass_colorize, hologram_color = HOLOPAD_LONG_RANGE)
-			holo_icon_malf = choice.requires_malf
+		if("Character Slot")	//Allows players to use a character slot for their hologram. Changes with loadout/job gear selection.
+			if(!client || !client.prefs)	//Shouldn't be possible but... Never hurts
+				return
+
+			var/savefile/S = new /savefile(client.prefs.path)
+			if(S)
+				var/list/characters = list()
+				for(var/i=1, i<= config.character_slots, i++)
+					S.cd = GLOB.using_map.character_load_path(S, i)
+					var/name
+					S["real_name"] >> name
+					characters[name] = i
+				var/chosen_character = input("Which slot do you want to use?") in characters
+				var/prev_slot = client.prefs.default_slot	//So we leave the loaded slot to whatever the player originally set it to
+				client.prefs.load_character(characters[chosen_character])
+				var/mob/living/carbon/human/dummy/mannequin = new()
+				client.prefs.dress_preview_mob(mannequin)
+				client.prefs.load_character(prev_slot)
+				qdel(holo_icon)
+				qdel(holo_icon_longrange)
+				holo_icon = getHologramIcon(icon(mannequin))
+				holo_icon_longrange = getHologramIcon(icon(mannequin), hologram_color = HOLOPAD_LONG_RANGE)
+				qdel(mannequin)
+			else
+				alert("No character slots found. Aborting.")
 	return
 
 //Toggles the luminosity and applies it by re-entereing the camera.

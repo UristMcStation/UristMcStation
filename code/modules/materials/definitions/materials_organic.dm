@@ -47,7 +47,7 @@
 	conductive = 0
 	value = 0
 
-/*/material/cloth //todo
+/material/cloth //todo
 	name = MATERIAL_CLOTH
 	display_name ="cotton"
 	use_name = "cotton"

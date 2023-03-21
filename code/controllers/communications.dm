@@ -136,7 +136,6 @@ var/global/const/SEC_I_FREQ = 1475
 //channel for spacecombat spam
 var/const/COMB_FREQ = 1365
 
-var/list/radiochannels = list(
 // Away Site Channels
 var/global/list/AWAY_FREQS_UNASSIGNED = list(1491, 1493, 1495, 1497, 1499, 1501, 1503, 1505, 1507, 1509)
 var/global/list/AWAY_FREQS_ASSIGNED = list("Hailing" = HAIL_FREQ)

@@ -136,7 +136,7 @@
 	compatible_mobs = list(/mob/living/carbon/human)
 
 /spell/targeted/cryokinesis/cast(list/targets)
-	if(!targets.len)
+	if(!length(targets))
 		usr << "<span class='notice'>No target found in range.</span>"
 		return
 
@@ -218,7 +218,7 @@
 
 	targets += input("Choose the target of your hunger.", "Targeting") as anything in possible_targets
 
-	if(!targets.len) //doesn't waste the spell
+	if(!length(targets)) //doesn't waste the spell
 		return
 
 	perform(targets)
@@ -238,7 +238,7 @@
 		H.updatehealth()
 
 /spell/targeted/eat/cast(list/targets)
-	if(!targets.len)
+	if(!length(targets))
 		usr << "<span class='notice'>No target found in range.</span>"
 		return
 
@@ -502,8 +502,8 @@
 		if(H.mind && H.mind.initial_account)
 			numbers += H.mind.initial_account.account_number
 			numbers += H.mind.initial_account.remote_access_pin
-		if(numbers.len>0)
-			usr << "<span class='notice'> <b>Numbers</b>: You sense the number[numbers.len>1?"s":""] [english_list(numbers)] [numbers.len>1?"are":"is"] important to [M.name].</span>"
+		if(length(numbers)>0)
+			usr << "<span class='notice'> <b>Numbers</b>: You sense the number[length(numbers)>1?"s":""] [english_list(numbers)] [length(numbers)>1?"are":"is"] important to [M.name].</span>"
 	usr << "<span class='notice'> <b>Thoughts</b>: [M.name] is currently [thoughts].</span>"
 
 	if (/datum/dna/gene/basic/grant_verb/empath in M.active_genes)

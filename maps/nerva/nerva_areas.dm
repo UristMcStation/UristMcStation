@@ -544,7 +544,7 @@
 
 /area/medical/cloning
 	name = "\improper Cloning Bay"
-	req_access = list(access_genetics)
+	req_access = list(access_medical)
 
 /area/medical/extstorage
 	name = "\improper Medbay Extra Storage"

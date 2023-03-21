@@ -8,7 +8,7 @@
 	hidden_from_codex = TRUE
 	language = LANGUAGE_ADHERENT
 	secondary_langs = list(
-		LANGUAGE_HUMAN_EURO,
+		LANGUAGE_GALCOM,
 		LANGUAGE_SPACER
 	)
 

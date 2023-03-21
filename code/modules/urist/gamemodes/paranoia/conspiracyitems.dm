@@ -1,24 +1,24 @@
 //Holds items added specifically for the Paranoia mode
 
 //Jet Fuel: silly replacement for C4 as a proof-of-concept
-/obj/item/weapon/storage/box/syndie_kit/jetfuel
+/obj/item/storage/box/syndie_kit/jetfuel
 	name = "jet fuel kit"
 	desc = "Certified chemical demolitions kit. May or may not melt steel beams."
 
-/obj/item/weapon/storage/box/syndie_kit/jetfuel/New()
+/obj/item/storage/box/syndie_kit/jetfuel/New()
 	..()
-	new /obj/item/weapon/reagent_containers/glass/beaker/vial/random/jetfuel(src)
+	new /obj/item/reagent_containers/glass/beaker/vial/random/jetfuel(src)
 
-/obj/item/weapon/reagent_containers/glass/beaker/vial/random/jetfuel
+/obj/item/reagent_containers/glass/beaker/vial/random/jetfuel
 	random_reagent_list = list(
 		list(/datum/reagent/fuel = 15, /datum/reagent/thermite = 15)	= 9,
 		list(/datum/reagent/fuel = 30)	 = 1,) //10% chance, the mix cannot, in fact, melt steel beams.
 
-/obj/item/weapon/reagent_containers/glass/beaker/vial/random/jetfuel/New()
+/obj/item/reagent_containers/glass/beaker/vial/random/jetfuel/New()
 	..()
 	desc = "Contains jet fuel. Warning: results may vary!"
 
-/obj/item/weapon/conspiracyintel
+/obj/item/conspiracyintel
 	name = "intel"
 	desc = "A file containing top-secret data."
 	gender = NEUTER
@@ -35,7 +35,7 @@
 	var/basedesc = "A file containing top-secret data."
 	var/faction = "Broken Code Initiative"
 
-/obj/item/weapon/conspiracyintel/New(loc = src.loc, var/presetconspiracy)
+/obj/item/conspiracyintel/New(loc = src.loc, var/presetconspiracy)
 	..()
 	if(presetconspiracy)
 		faction = presetconspiracy
@@ -63,21 +63,21 @@
 			if("Aliuminati")
 				icon_state = "folder_yellow*/
 
-/obj/item/weapon/conspiracyintel/buildaborg
+/obj/item/conspiracyintel/buildaborg
 	faction = "Buildaborg Group"
 
-/obj/item/weapon/conspiracyintel/freemesons
+/obj/item/conspiracyintel/freemesons
 	faction = "Freemesons"
 
-/obj/item/weapon/conspiracyintel/mig
+/obj/item/conspiracyintel/mig
 	faction = "Men in Grey"
 
-/obj/item/weapon/conspiracyintel/aliuminati
+/obj/item/conspiracyintel/aliuminati
 	faction = "Aliuminati"
 
-/obj/item/weapon/conspiracyintel/random
+/obj/item/conspiracyintel/random
 
-/obj/item/weapon/conspiracyintel/random/New()
+/obj/item/conspiracyintel/random/New()
 
 	faction = pick("Buildaborg Group","Freemesons","Men in Grey","Aliuminati")
 	..()
@@ -183,8 +183,8 @@
 /obj/item/device/inteluplink/attackby(var/obj/item/I,mob/user as mob)
 	if(!open)
 		return
-	if(istype(I,/obj/item/weapon/conspiracyintel))
-		var/obj/item/weapon/conspiracyintel/C = I
+	if(istype(I,/obj/item/conspiracyintel))
+		var/obj/item/conspiracyintel/C = I
 		if(cmptext(C.faction,faction))
 			user << "<span class='notice'>\The [C] you are trying to upload belongs to the faction you're trying to send it to.</span>"
 			return
@@ -267,11 +267,11 @@
 	usedonce = 1
 
 
-/obj/item/weapon/storage/box/syndie_kit/fleshsuit
+/obj/item/storage/box/syndie_kit/fleshsuit
 	name = "H. sapiens Imitation Suit"
 	desc = "Contains a set of clothing to disguise nonhumans as humans: a full-body suit with special tail compartment, and an airtight, stretching mask with a non-resettable voice changer."
 
-/obj/item/weapon/storage/box/syndie_kit/fleshsuit/New()
+/obj/item/storage/box/syndie_kit/fleshsuit/New()
 	..()
 	new /obj/item/clothing/suit/urist/fleshsuit(src)
 	new /obj/item/clothing/mask/chameleon/voice/fleshmask(src)

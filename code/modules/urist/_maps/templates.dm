@@ -50,7 +50,7 @@ var/list/datum/map_template/ship/ship_templates = list()
 		var/datum/map_template/T = potentialRuins[A]
 		if(!T.loaded)
 			possible_ruins += T
-	if(!template && possible_ruins.len)
+	if(!template && length(possible_ruins))
 		template = safepick(possible_ruins)
 	if(!template)
 		return
@@ -66,7 +66,7 @@ var/list/datum/map_template/ship/ship_templates = list()
 		if(!T.loaded)
 			possible_ruins += T
 //	world << "<span class='boldannounce'>Loading ruins...</span>"
-	if(!template && possible_ruins.len)
+	if(!template && length(possible_ruins))
 		template = safepick(possible_ruins)
 	if(!template)
 //		world << "<span class='boldannounce'>No ruins found.</span>"
@@ -82,7 +82,7 @@ var/list/datum/map_template/ship/ship_templates = list()
 		var/datum/map_template/T = potentialRuins[A]
 		if(!T.loaded)
 			possible_ruins += T
-	if(!template && possible_ruins.len)
+	if(!template && length(possible_ruins))
 		template = safepick(possible_ruins)
 	if(!template)
 		return
@@ -193,7 +193,7 @@ var/list/datum/map_template/ship/ship_templates = list()
 	var/list/atoms_to_initialise = list()
 
 	for (var/mappath in mappaths)
-		var/datum/map_load_metadata/M = maploader.load_map(file(mappath), T.x, T.y, T.z, cropMap=TRUE, clear_contents=(template_flags & TEMPLATE_FLAG_CLEAR_CONTENTS))
+		var/datum/map_load_metadata/M = GLOB.maploader.load_map(file(mappath), T.x, T.y, T.z, cropMap=TRUE, clear_contents=(template_flags & TEMPLATE_FLAG_CLEAR_CONTENTS))
 		if (M)
 			atoms_to_initialise += M.atoms_to_initialise
 		else

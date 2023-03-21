@@ -33,7 +33,7 @@ SUBSYSTEM_DEF(payment_controller)
 	var/datum/computer_file/data/email_account/server = ntnet_global.find_email_by_name(EMAIL_PAYROLL)
 	var/thisbrand = pick(brand)
 	var/thisslogan = pick(slogan)
-	for(var/mob/living/carbon/human/H in GLOB.living_mob_list_) //we don't pay dead people
+	for(var/mob/living/carbon/H in GLOB.living_players) //we don't pay dead people
 		if(H.mind)
 			if(H.mind.initial_account && H.mind.assigned_role) //this excludes stowaways and other non-crew roles including derelict ships
 				if(H.mind.assigned_role == "Captain" && GLOB.using_map.name == "Nerva") //todo, make a map var for captain ownership if we have other ship maps in a similar situation (never)

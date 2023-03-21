@@ -36,7 +36,7 @@ var/NOIRBLOCK = 0
 
 //Attaches each element of a list to a single string seperated by 'seperator'.
 /proc/dd_list2text(var/list/the_list, separator)
-	var/total = the_list.len
+	var/total = length(the_list)
 	if(!total)
 		return
 	var/count = 2

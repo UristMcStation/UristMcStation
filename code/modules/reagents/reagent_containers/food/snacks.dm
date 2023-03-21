@@ -3146,7 +3146,7 @@
 	nutriment_desc = list("bread" = 3)
 	nutriment_amt = 3
 
-/obj/item/weapon/reagent_containers/food/snacks/rawbacon
+/obj/item/reagent_containers/food/snacks/rawbacon
 	name = "raw bacon"
 	desc = "A raw, fatty strip of meat."
 	icon_state = "rawbacon"
@@ -3154,11 +3154,11 @@
 	bitesize = 1
 	center_of_mass = "x=16;y=15"
 
-/obj/item/weapon/reagent_containers/food/snacks/rawbacon/Initialize()
+/obj/item/reagent_containers/food/snacks/rawbacon/Initialize()
 	.=..()
 	reagents.add_reagent(/datum/reagent/nutriment/protein, 1)
 
-/obj/item/weapon/reagent_containers/food/snacks/bacon
+/obj/item/reagent_containers/food/snacks/bacon
 	name = "bacon"
 	desc = "A delicious, crispy strip of meat."
 	icon_state = "bacon"
@@ -3166,7 +3166,7 @@
 	bitesize = 2
 	center_of_mass = "x=16;y=15"
 
-/obj/item/weapon/reagent_containers/food/snacks/bacon/Initialize()
+/obj/item/reagent_containers/food/snacks/bacon/Initialize()
 	.=..()
 	reagents.add_reagent(/datum/reagent/nutriment/protein, 1)
 

@@ -145,7 +145,7 @@
 						else
 							cur_oct[cur_note] = ni
 					playnote(uppertext(copytext(note,1,2)) + cur_acc[cur_note] + cur_oct[cur_note])
-				if(notes.len >= 2 && text2num(notes[2]))
+				if(length(notes) >= 2 && text2num(notes[2]))
 					sleep(song.tempo / text2num(notes[2]))
 				else
 					sleep(song.tempo)
@@ -291,7 +291,7 @@
 				if(copytext(lines[1],1,6) == "BPM: ")
 					tempo = 600 / text2num(copytext(lines[1],6))
 					lines.Cut(1,2)
-				if(lines.len > 50)
+				if(length(lines) > 50)
 					usr << "Too many lines!"
 					lines.Cut(51)
 				var/linenum = 1

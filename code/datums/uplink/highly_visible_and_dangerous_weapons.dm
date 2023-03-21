@@ -68,12 +68,6 @@
 	path = /obj/item/gun/launcher/money/hacked
 	desc = "Too much money? Not enough screaming? Try the Money Cannon."
 
-/datum/uplink_item/item/visible_weapons/riggedlaser
-	name = "Exosuit (APLU) Rigged Laser"
-	item_cost = 32
-	path = /obj/item/mecha_parts/mecha_equipment/energy/riggedlaser
-	antag_costs = list(MODE_PARANOIA = 96)
-
 /datum/uplink_item/item/visible_weapons/energy_gun
 	name = "Energy Gun"
 	desc = "A energy based sidearm with three different lethality settings."
@@ -172,18 +166,19 @@
 
 /datum/uplink_item/item/visible_weapons/deagle
 	name = "Magnum Pistol"
+	desc = "A .50 pistol that packs a punch."
 	item_cost = 60
-	path = /obj/item/gun/projectile/magnum_pistol
+	path = /obj/item/gun/projectile/pistol/magnum_pistol
 
 /datum/uplink_item/item/visible_weapons/beretta
 	name = "9mm Pistol"
 	item_cost = 32
-	path = /obj/item/gun/projectile/beretta
+	path = /obj/item/gun/projectile/pistol/beretta
 
 /datum/uplink_item/item/visible_weapons/sigsauer
 	name = "10mm Pistol"
 	item_cost = 40
-	path = /obj/item/gun/projectile/sigsauer
+	path = /obj/item/gun/projectile/pistol/sigsauer
 
 /datum/uplink_item/item/visible_weapons/detective_revolver
 	name = "Small Revolver"

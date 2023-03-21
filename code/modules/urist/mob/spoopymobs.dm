@@ -66,12 +66,12 @@
 		var/true_dose = H.chem_doses[type] + volume
 		var/idlemsg_proba = 10
 
-		if(true_dose > 10 && prob(Clamp(50*(true_dose-10)/(true_dose+15), 0, 100)))
+		if(true_dose > 10 && prob(clamp(50*(true_dose-10)/(true_dose+15), 0, 100)))
 			if(prob(1))
 				// psych!
 				to_chat(H, "<span class='warning'>[pick(transformation_msgs)]</span>")
 
-			else if(prob(Clamp(true_dose+0.1*H.getBrainLoss(), 0, 25)))
+			else if(prob(clamp(true_dose+0.1*H.getBrainLoss(), 0, 25)))
 				idlemsg_proba = 5 // symptom spam avoidance
 				var/organs = list(BP_R_ARM,BP_L_LEG,BP_L_ARM,BP_R_LEG,BP_GROIN,BP_CHEST)
 				var/undecayed_ctr = length(organs) // make your own immature joke here
@@ -100,7 +100,7 @@
 
 				H.update_body(1)
 
-				if(prob(Clamp(100-100*(undecayed_ctr/length(organs)), 0, 100)))
+				if(prob(clamp(100-100*(undecayed_ctr/length(organs)), 0, 100)))
 					// NOTE: this *deliberately* does not care if the mob lost the limb.
 					// So, reverse necromorph - less limbs => less tissue to infect.
 					var/obj/item/organ/external/Head = H.organs_by_name[BP_HEAD]
@@ -113,30 +113,29 @@
 							H.uZombify(1, 1, transformation_msgs)
 		else
 			// almost straight copy of plain reagent/toxin/affect_blood()
-			if(alien != IS_DIONA)
-				M.add_chemical_effect(CE_TOXIN, 5)
-				var/dam = 0.05 * rand(1, 20)
-				if(target_organ)
-					var/obj/item/organ/internal/I = H.internal_organs_by_name[target_organ]
-					if(I)
-						var/can_damage = I.max_damage - I.damage
-						if(can_damage > 0)
-							if(dam > can_damage)
-								I.take_internal_damage(can_damage, silent=TRUE)
-								dam -= can_damage
-							else
-								I.take_internal_damage(dam, silent=TRUE)
-								dam = 0
-				if(dam)
-					// nerfed damage w/ target_organ here -scr
-					M.adjustToxLoss(target_organ ? (dam * 0.25) : dam)
+			M.add_chemical_effect(CE_TOXIN, 5)
+			var/dam = 0.05 * rand(1, 20)
+			if(target_organ)
+				var/obj/item/organ/internal/I = H.internal_organs_by_name[target_organ]
+				if(I)
+					var/can_damage = I.max_damage - I.damage
+					if(can_damage > 0)
+						if(dam > can_damage)
+							I.take_internal_damage(can_damage, silent=TRUE)
+							dam -= can_damage
+						else
+							I.take_internal_damage(dam, silent=TRUE)
+							dam = 0
+			if(dam)
+				// nerfed damage w/ target_organ here -scr
+				M.adjustToxLoss(target_organ ? (dam * 0.25) : dam)
 			// endcopy
 
 		// custom sadism
-		if(prob(Clamp(idlemsg_proba, 0, 100)))
+		if(prob(clamp(idlemsg_proba, 0, 100)))
 			to_chat(H, "<span class='warning'>[pick(symptom_msgs)]</span>")
 
-		if(prob(Clamp(true_dose, 0, 100)))
+		if(prob(clamp(true_dose, 0, 100)))
 			H.reagents.add_reagent(src.type, rand(removed, 0.1*true_dose))
 
 		H.add_chemical_effect(CE_PAINKILLER, 40)
@@ -145,7 +144,7 @@
 		H.add_chemical_effect(CE_PULSE, 4)
 		H.nutrition -= min(H.nutrition, true_dose)
 		H.bodytemperature = max(H.bodytemperature, H.species.heat_discomfort_level + rand(5, 15))
-		if(prob(Clamp(5+true_dose, 0, 20)))
+		if(prob(clamp(5+true_dose, 0, 20)))
 			H.make_jittery(5)
 
 /mob/living/simple_animal/hostile/urist/zombie/Aggro()
@@ -172,10 +171,10 @@
 	if(regen)
 		to_chat(src, "You begin to regenerate. This will take about [regen_delay/60] minutes.")
 		to_chat(src, "If you ghost, you can re-enter the mob assuming it still exists.")
-		addtimer(CALLBACK(src, /mob/living/simple_animal/hostile/urist/zombie/proc/deathregen), regen_delay SECONDS, TIMER_STOPPABLE)
+		addtimer(new Callback(src, /mob/living/simple_animal/hostile/urist/zombie/proc/deathregen), regen_delay SECONDS, TIMER_STOPPABLE)
 
 	if(src.contents)
-		var/inv_size = contents.len
+		var/inv_size = length(contents)
 		for(var/obj/O in src.contents)
 			if (!(regen) || prob(100 * (1 / inv_size)))
 				drop_from_inventory(O)
@@ -224,7 +223,7 @@
 
 			if(victim.reagents)
 				var/biosafety = victim.getarmor(null, "bio")
-				if(!prob(Clamp(biosafety, 0, 100)))
+				if(!prob(clamp(biosafety, 0, 100)))
 					victim.reagents.add_reagent(/datum/reagent/xenomicrobes/uristzombie, rand(5, 10))
 
 			uZombieInfect(victim)
@@ -268,7 +267,7 @@
 
 	// unless the odds are messing with you, as soon as you get the message your only hope is a *good* death
 	to_chat(src, "<span class='warning'>[pick(transformation_msgs)]</span>")
-	addtimer(CALLBACK(src, /mob/living/carbon/human/proc/uZombifyInstant, regens, infects, hitpoints), time SECONDS, TIMER_STOPPABLE)
+	addtimer(new Callback(src, /mob/living/carbon/human/proc/uZombifyInstant, regens, infects, hitpoints), time SECONDS, TIMER_STOPPABLE)
 
 
 /mob/living/carbon/human/proc/uZombifyInstant(var/regens = 0, var/infects = 0, var/hitpoints = 40) //I swear officer, that Animalize() proc fell out the back of a truck.
@@ -540,16 +539,13 @@
 	icon_state = "imp"
 	icon_living = "imp"
 	icon_dead = "imp_dead"
-	simplify_dead_icon = 0 //because fancy dead icon
 	faction = "cult"
-	minimum_distance = 2
 	ranged = 1
 	maxHealth = 75
 	health = 75
 	projectiletype = /obj/item/projectile/energy/phoron
 	projectilesound = 'sound/effects/squelch1.ogg'
-	melee_damage_lower = 5
-	melee_damage_upper = 15
+	natural_weapon = /obj/item/natural_weapon/bite
 	attacktext = "slashed"
 	attack_sound = 'sound/weapons/rapidslice.ogg'
 
@@ -565,8 +561,7 @@
 	resistance = 6
 	ranged = 0
 	move_to_delay = 6
-	melee_damage_lower = 10
-	melee_damage_upper = 15
+	natural_weapon = /obj/item/material/knife/kitchen
 	attacktext = "slashed"
 	attack_sound = 'sound/weapons/rapidslice.ogg'
 	attack_same = 1
@@ -605,7 +600,7 @@
 		if(stalkee)
 			if(stalkee.stat == DEAD)
 				GetNewStalkee()
-			else if(stance == HOSTILE_STANCE_IDLE)
+			else if(stance == STANCE_IDLE)
 				if(!client && prob(25))
 					HuntingTeleport()
 		else
@@ -633,7 +628,7 @@
 		if(shadow_check(T, 1))
 			destinations += T
 
-	if(destinations.len)
+	if(length(destinations))
 		var/turf/picked = pick(destinations)
 
 		if(!picked || !isturf(picked))

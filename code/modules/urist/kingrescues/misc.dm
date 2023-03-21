@@ -13,7 +13,7 @@
 
 //BOOKS
 
-/obj/item/weapon/book/manual/betting
+/obj/item/book/manual/betting
 	name = "The Book of Betting"
 	icon = 'icons/urist/king/misc.dmi'
 	icon_state = "bettingbook"

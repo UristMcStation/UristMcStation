@@ -151,7 +151,7 @@ GLOBAL_LIST_INIT(rpd_pipe_selection_skilled, list(
 /obj/item/rpd/examine(mob/user, distance)
 	. = ..()
 	if(distance <= 1)
-			to_chat(user, "[SPAN_NOTICE("Current selection reads:")] [P]")
+		to_chat(user, "[SPAN_NOTICE("Current selection reads:")] [P]")
 
 /obj/item/rpd/attack_self(mob/user)
 	interact(user)

@@ -138,7 +138,7 @@
 
 /datum/map/nerva/RoundEndInfo()
 	to_world("<hr><br><h3>Economic Summary</h3>")
-	if(all_money_accounts.len)
+	if(length(all_money_accounts))
 		var/datum/money_account/max_profit = all_money_accounts[1]
 		var/datum/money_account/max_loss = all_money_accounts[1]
 		var/stationmoney

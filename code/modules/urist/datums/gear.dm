@@ -130,7 +130,7 @@
 	path =  /obj/item/clothing/suit/storage/toggle/urist/coat/black
 	slot = slot_wear_suit
 	cost = 1
-	
+
 /datum/gear/eyes/welding
 	display_name = "welding goggles"
 	path = /obj/item/clothing/glasses/welding
@@ -143,4 +143,4 @@
 
 /datum/gear/eyes/security/goggles
 	display_name = "Security HUD Goggles"
-	path = /obj/item/clothing/glasses/sunglasses/sechud/goggles
+	path = /obj/item/clothing/glasses/hud/security/prot

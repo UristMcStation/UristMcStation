@@ -6,26 +6,6 @@ SUBSYSTEM_DEF(skybox)
 	/// The background color of space in the current round
 	var/static/background_color
 
-/datum/controller/subsystem/skybox/Initialize(timeofday)
-	..(timeofday)
-	var/month = text2num(time2text(world.timeofday, "MM"))
-	if(month == 6) //There's probably a better way to do this, but this works -Vak
-		if(prob(50))
-			BGstate = "rainbow"
-			BGcolor = null
-			BGrot = RANDOM_RIGHT_ANGLE
-		else
-			BGcolor = RANDOM_RGB
-			BGrot = RANDOM_RIGHT_ANGLE
-	else
-		if(prob(5))
-			BGstate = "rainbow"
-			BGcolor = null
-			BGrot = RANDOM_RIGHT_ANGLE
-		else
-			BGcolor = RANDOM_RGB
-			BGrot = RANDOM_RIGHT_ANGLE
-
 	/// The skybox icon file to use for backgrounds. Expects to be 736x736
 	var/static/skybox_icon = 'icons/skybox/skybox.dmi'
 
@@ -126,3 +106,19 @@ SUBSYSTEM_DEF(skybox)
 		skybox_cache.Cut()
 		for (var/client/client as anything in GLOB.clients)
 			client.update_skybox(TRUE)
+
+/datum/controller/subsystem/skybox/Initialize(timeofday)
+	..(timeofday)
+	var/month = text2num(time2text(world.timeofday, "MM"))
+	if(month == 6) //There's probably a better way to do this, but this works -Vak
+		if(prob(50))
+			background_icon = "rainbow"
+			background_color = null
+		else
+			background_color = RANDOM_RGB
+	else
+		if(prob(5))
+			background_icon = "rainbow"
+			background_color = null
+		else
+			background_color = RANDOM_RGB

@@ -6,8 +6,8 @@
 		to_chat(M,"<span class = 'warning'>It's not worth your time to do that.</span>")
 		return
 
-	if(istype(O, /obj/item/weapon/storage))
-		var/obj/item/weapon/storage/S = O
+	if(istype(O, /obj/item/storage))
+		var/obj/item/storage/S = O
 		for(var/obj/I in S.contents)
 			S.remove_from_storage(I, src)
 			if(resell)
@@ -60,7 +60,7 @@
 /mob/living/simple_animal/hostile/npc/proc/player_buy(var/item_name, var/mob/M)
 	var/datum/trade_item/D = trade_items_inventory_by_name[item_name]
 	var/value = D.value
-	var/obj/item/weapon/spacecash/B = M.l_hand
+	var/obj/item/spacecash/B = M.l_hand
 
 	if(!value) //for contracts and the like
 		if(D.req_access)
@@ -90,19 +90,19 @@
 					var/user_msg = "<span class='game say'><span class='name'>[src.name]</span> whispers to you, <span class='message emote'><span class='body'>\"Sorry, you're not authorized to buy that.\"</span></span></span>"
 					M.visible_message("<span class='info'>[src] whispers something to [M].</span>", user_msg)
 				else
-					if(istype (B, /obj/item/weapon/spacecash/bundle))
+					if(istype (B, /obj/item/spacecash/bundle))
 						//take the cash
-						var/obj/item/weapon/spacecash/bundle/P = B
-						var/obj/item/weapon/spacecash/bundle/payment = P.split_off(value, M)
+						var/obj/item/spacecash/bundle/P = B
+						var/obj/item/spacecash/bundle/payment = P.split_off(value, M)
 						payment.loc = src
 						qdel(payment)
 
 					GiveItem(D, M)
 			else
-				if(istype (B, /obj/item/weapon/spacecash/bundle))
+				if(istype (B, /obj/item/spacecash/bundle))
 					//take the cash
-					var/obj/item/weapon/spacecash/bundle/P = B
-					var/obj/item/weapon/spacecash/bundle/payment = P.split_off(value, M)
+					var/obj/item/spacecash/bundle/P = B
+					var/obj/item/spacecash/bundle/payment = P.split_off(value, M)
 					payment.loc = src
 					qdel(payment)
 
@@ -144,7 +144,7 @@
 
 
 /mob/living/simple_animal/hostile/npc/proc/CanPurchase(var/mob/M, var/access)
-	var/obj/item/weapon/card/id/id_card = M.GetIdCard()
+	var/obj/item/card/id/id_card = M.GetIdCard()
 	var/list/L = id_card.GetAccess()
 	if(has_access(access, list(), L))
 		return 1

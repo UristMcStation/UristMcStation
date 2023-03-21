@@ -69,7 +69,7 @@
 /obj/item/ammo_casing/c357
 	desc = "A .357 Magnum bullet casing."
 	caliber = ".357"
-	projectile_type = /obj/item/projectile/bullet/pistol/medium/revolver
+	projectile_type = /obj/item/projectile/bullet/pistol/strong/revolver
 	icon_state = "357casing"
 	spent_icon = "357casing-spent"
 
@@ -254,7 +254,7 @@
 /obj/item/ammo_casing/a556
 	desc = "A 5.56mm bullet casing."
 	caliber = "a556"
-	projectile_type = /obj/item/projectile/bullet/rifle/a556
+	projectile_type = /obj/item/projectile/bullet/rifle/military
 	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "556casing"
 	spent_icon = "556casing-spent"
@@ -285,18 +285,18 @@
 	desc = "A 14.5mm Armour Piercing Discarding Sabot shell."
 	icon_state = "APlcasing"
 	spent_icon = "APlcasing-spent"
-	projectile_type = /obj/item/projectile/bullet/rifle/a145/apds
+	projectile_type = /obj/item/projectile/bullet/rifle/shell/apds
 
 /obj/item/ammo_casing/a762
 	desc = "A 7.62mm bullet casing."
 	caliber = "a762"
-	projectile_type = /obj/item/projectile/bullet/rifle/a762
+	projectile_type = /obj/item/projectile/bullet/rifle
 	icon_state = "762casing"
 	spent_icon = "762casing-spent"
 
 /obj/item/ammo_casing/a762/practice
 	desc = "A 7.62mm practice bullet casing."
-	projectile_type = /obj/item/projectile/bullet/rifle/a762/practice
+	projectile_type = /obj/item/projectile/bullet/rifle/practice
 	icon_state = "762casing_p"
 
 /obj/item/ammo_casing/rifle/military/practice

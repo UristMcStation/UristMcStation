@@ -102,8 +102,8 @@ var/const/NETWORK_EXPLO             = "Exploration"
 	network = list(NETWORK_COMMAND)
 
 /obj/machinery/power/smes/buildable/preset/nerva/shuttle/configure_and_install_coils()
-	component_parts += new /obj/item/weapon/smes_coil/super_io(src)
-	component_parts += new /obj/item/weapon/smes_coil/super_capacity(src)
+	component_parts += new /obj/item/smes_coil/super_io(src)
+	component_parts += new /obj/item/smes_coil/super_capacity(src)
 	_input_maxed = TRUE
 	_output_maxed = TRUE
 	_input_on = TRUE
@@ -111,8 +111,8 @@ var/const/NETWORK_EXPLO             = "Exploration"
 	_fully_charged = TRUE
 
 /obj/machinery/power/smes/buildable/preset/nerva/hangar/configure_and_install_coils()
-	component_parts += new /obj/item/weapon/smes_coil/super_io(src)
-	component_parts += new /obj/item/weapon/smes_coil/super_io(src)
+	component_parts += new /obj/item/smes_coil/super_io(src)
+	component_parts += new /obj/item/smes_coil/super_io(src)
 	_input_maxed = TRUE
 	_output_maxed = TRUE
 	_input_on = TRUE

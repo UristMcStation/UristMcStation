@@ -156,7 +156,7 @@
 	* Chopsticks!
   */
 
-/obj/item/weapon/material/kitchen/utensil/chopsticks
+/obj/item/material/kitchen/utensil/chopsticks
 	name = "chopsticks"
 	desc = "A pair of wooden chopsticks, with a stylish finish."
 	icon = 'icons/urist/items/uristutensils.dmi'
@@ -165,7 +165,7 @@
 	default_material = "wood"
 	applies_material_colour = 0
 
-/obj/item/weapon/material/kitchen/chopsticks/attack(mob/living/M as mob, mob/living/user as mob)
+/obj/item/material/kitchen/chopsticks/attack(mob/living/M as mob, mob/living/user as mob)
 	if ((MUTATION_CLUMSY in user.mutations) && prob(50) && user.unEquip(src))
 		to_chat(user, "<span class='warning'>You somehow manage to lodge the chopsticks firmly into your nose.</span>")
 		user.Paralyse(3)

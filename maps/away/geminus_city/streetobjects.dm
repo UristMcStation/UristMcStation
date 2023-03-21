@@ -12,63 +12,63 @@
 /obj/machinery/light/colored/orange
 	base_state = "orange"		// base description and icon_state
 	icon_state = "orange1"
-	light_type = /obj/item/weapon/light/tube/large/neon/orange
+	light_type = /obj/item/light/tube/large/neon/orange
 
 /obj/machinery/light/colored/purple
 	base_state = "purple"		// base description and icon_state
 	icon_state = "purple1"
-	light_type = /obj/item/weapon/light/tube/large/neon/purple
+	light_type = /obj/item/light/tube/large/neon/purple
 
 /obj/machinery/light/colored/red
 	base_state = "red"		// base description and icon_state
 	icon_state = "red1"
-	light_type = /obj/item/weapon/light/tube/large/neon/red
+	light_type = /obj/item/light/tube/large/neon/red
 
 
 /obj/machinery/light/colored/pink
 	base_state = "pink"		// base description and icon_state
 	icon_state = "pink1"
-	light_type = /obj/item/weapon/light/tube/large/neon/pink
+	light_type = /obj/item/light/tube/large/neon/pink
 
 /obj/machinery/light/colored/blue
 	base_state = "blue"		// base description and icon_state
 	icon_state = "blue1"
-	light_type = /obj/item/weapon/light/tube/large/neon/blue
+	light_type = /obj/item/light/tube/large/neon/blue
 
 /obj/machinery/light/colored/green
 	base_state = "green"		// base description and icon_state
 	icon_state = "green1"
-	light_type = /obj/item/weapon/light/tube/large/neon/green
+	light_type = /obj/item/light/tube/large/neon/green
 
 
 //colored bulbs
 
-/obj/item/weapon/light/tube/large/neon/red
+/obj/item/light/tube/large/neon/red
 	color = "#feebeb"
 //	brightness_color = "#feebeb"
 	light_color = "#feebeb"
 
-/obj/item/weapon/light/tube/large/neon/orange
+/obj/item/light/tube/large/neon/orange
 	color = "#fef9eb"
 //	brightness_color = "#fef9eb"
 	light_color = "#fef9eb"
 
-/obj/item/weapon/light/tube/large/neon/purple
+/obj/item/light/tube/large/neon/purple
 	color = "#fcebfe"
 //	brightness_color = "#fcebfe"
 	light_color = "#fcebfe"
 
-/obj/item/weapon/light/tube/large/neon/pink
+/obj/item/light/tube/large/neon/pink
 	color = "#fff9f9"
 //	brightness_color = "#fff9f9"
 	light_color = "#fff9f9"
 
-/obj/item/weapon/light/tube/large/neon/blue
+/obj/item/light/tube/large/neon/blue
 	color = "#ebf7fe"
 //	brightness_color = "#ebf7fe"
 	light_color = "#ebf7fe"
 
-/obj/item/weapon/light/tube/large/neon/green
+/obj/item/light/tube/large/neon/green
 	color = "#ebfeec"
 //	brightness_color = "#ebfeec"
 	light_color = "#ebfeec"
@@ -78,7 +78,7 @@
 	base_state = "floor"
 	layer = BELOW_OBJ_LAYER
 	plane = HIDING_MOB_PLANE
-	light_type = /obj/item/weapon/light/bulb
+	light_type = /obj/item/light/bulb
 //	brightness_range = 4
 //	brightness_power = 2
 //	brightness_color = "#a0a080"
@@ -99,7 +99,7 @@
 	desc = "A street lighting fixture."
 //	brightness_range = 8
 //	brightness_color = "#0080ff"
-//	light_type = /obj/item/weapon/light/streetbulb
+//	light_type = /obj/item/light/streetbulb
 
 /obj/machinery/light/street/attack_hand(mob/user)
 	return

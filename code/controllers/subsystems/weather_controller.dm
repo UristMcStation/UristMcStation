@@ -31,7 +31,7 @@ SUBSYSTEM_DEF(weather)
 		current_wcticks = 0
 
 /datum/controller/subsystem/weather/proc/update_cache()
-	if(pending_weathers.len) //uh-oh, we have a backlog
+	if(length(pending_weathers)) //uh-oh, we have a backlog
 		for(var/WO in pending_weathers)
 			weather_cache += WO
 			pending_weathers -= WO //transfer from backlog

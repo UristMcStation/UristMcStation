@@ -21,3 +21,15 @@
 	var/pry_desc = "prying" //"X begins pry_desc the door!"
 
 	ai_holder = /datum/ai_holder/simple_animal/melee
+
+	var/datum/factions/hiddenfaction = null
+
+mob/living/simple_animal/hostile/Initialize()
+	. = ..()
+
+	if(hiddenfaction)
+		for(var/datum/factions/F in SSfactions.factions)
+			if(F.type == hiddenfaction)
+				hiddenfaction = F
+				if(F.hostile)
+					faction = F.factionid

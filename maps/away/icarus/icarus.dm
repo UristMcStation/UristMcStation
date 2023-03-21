@@ -41,7 +41,7 @@ obj/effect/icarus/irradiate/Destroy()
 	id = "awaysite_icarus"
 	description = "The crashlanding site of the SEV Icarus."
 	suffixes = list("icarus/icarus-1.dmm", "icarus/icarus-2.dmm")
-	cost = 2
+	spawn_cost = 2
 
 /obj/effect/shuttle_landmark/nav_icarus/nav1
 	name = "Planetary Navpoint #1"
@@ -103,7 +103,7 @@ obj/structure/icarus/broken_cryo/attack_hand(mob/user)
 	icon_state = "dead_personnel"
 	w_class = ITEM_SIZE_LARGE//pile of bones
 
-/obj/item/weapon/disk/icarus
+/obj/item/disk/icarus
 	name = "black box backup disk"
 	desc = "Digital storage. Inscription says: \"Deliver to Sol Goverment Expeditionary Corps Command!\". Content is encrypted with quantum crypthography methods."
 	icon = 'icons/obj/items.dmi'
@@ -111,7 +111,7 @@ obj/structure/icarus/broken_cryo/attack_hand(mob/user)
 	item_state = "card-id"
 	w_class = ITEM_SIZE_TINY
 
-/obj/item/weapon/paper/icarus/log
+/obj/item/paper/icarus/log
 	name = "Printed piece of paper"
 	info = "\[LOG\]: Orbit stabilized. Next correction burst, est.: 2 hrs 12 m<br>\
 			\[LOG\]: Orbit stabiliztion. Announcing...<br>\
@@ -143,7 +143,7 @@ obj/structure/icarus/broken_cryo/attack_hand(mob/user)
 			\[LOG\]: Now you can you safely turn off your computer.<br>"
 
 
-/obj/item/weapon/paper/icarus/crew_roster
+/obj/item/paper/icarus/crew_roster
 	name = "Printed piece of paper"
 	info = "<center>\[solcrest]<BR>\
 			<b>SEV Icarus</b><br>\

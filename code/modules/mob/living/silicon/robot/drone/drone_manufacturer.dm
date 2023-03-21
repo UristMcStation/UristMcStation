@@ -45,11 +45,11 @@
 
 /obj/machinery/drone_fabricator/Initialize()
 	. = ..()
-	build_default_parts(/obj/item/weapon/circuitboard/drone_fab)
+	build_default_parts(/obj/item/circuitboard/drone_fab)
 
 /obj/machinery/drone_fabricator/construction/Initialize()
 	. = ..()
-	build_default_parts(/obj/item/weapon/circuitboard/adv_drone_fab)
+	build_default_parts(/obj/item/circuitboard/adv_drone_fab)
 
 /obj/machinery/drone_fabricator/power_change()
 	. = ..()

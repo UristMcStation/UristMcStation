@@ -46,7 +46,7 @@
 
 // Galactic common languages (systemwide accepted standards).
 /datum/language/lunar
-	name = LANGUAGE_LUNAR
+	name = LANGUAGE_HUMAN_SELENIAN
 	desc = "Maintained by the various trading cartels in major systems, this elegant, structured language is used for bartering and bargaining."
 	speech_verb = "enunciates"
 	colour = "moon"
@@ -71,7 +71,7 @@
 	colour = "rough"
 	key = "3"
 	syllables = list ("gra","ba","ba","breh","bra","rah","dur","ra","ro","gro","go","ber","bar","geh","heh", "gra")
-	partial_understanding = list(LANGUAGE_GALCOM = 10, LANGUAGE_INDEPENDENT = 20, LANGUAGE_SOL_COMMON = 20)
+	partial_understanding = list(LANGUAGE_GALCOM = 10, LANGUAGE_HUMAN_RUSSIAN = 20, LANGUAGE_SOL_COMMON = 20)
 	shorthand = "GT"
 
 /datum/language/sign

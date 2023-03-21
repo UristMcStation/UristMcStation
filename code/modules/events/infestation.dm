@@ -52,7 +52,7 @@
 			max_number = 3
 			vermstring = "spiders"
 		if(VERM_POSSUMS)
-			spawn_types = list(/mob/living/simple_animal/opossum)
+			spawn_types = list(/mob/living/simple_animal/passive/opossum)
 			max_number = 7
 			vermstring = "possums"
 		if(VERM_GEESE)

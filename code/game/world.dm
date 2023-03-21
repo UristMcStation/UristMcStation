@@ -510,57 +510,6 @@ GLOBAL_VAR_INIT(world_topic_last, world.timeofday)
 		return
 	status = config.generate_hub_entry()
 
-
-	s += "<b>[station_name()]</b>";
-
-	s += " - Beginner friendly MRP set on a spaceship"
-
-	s += " ("
-	s += "<a href=\"https://discord.gg/0oRsdvoS1DDd5Rv0/\">" //Change this to wherever you want the hub to link to.
-//	s += "[game_version]"
-	s += "Discord"  //Replace this with something else. Or ever better, delete it and uncomment the game version.
-	s += "</a>"
-	s += ")"
-
-	var/list/features = list()
-
-	if(SSticker.master_mode)
-		features += SSticker.master_mode
-	else
-		features += "<b>STARTING</b>"
-
-	if (!config.enter_allowed)
-		features += "closed"
-
-	features += config.abandon_allowed ? "respawn" : "no respawn"
-
-	if (config && config.allow_vote_mode)
-		features += "vote"
-
-	if (config && config.allow_ai)
-		features += "AI allowed"
-
-	var/n = 0
-	for (var/mob/M in GLOB.player_list)
-		if (M.client)
-			n++
-
-	if (n > 1)
-		features += "~[n] players"
-	else if (n > 0)
-		features += "~[n] player"
-
-
-	if (config && config.hostedby)
-		features += "hosted by <b>[config.hostedby]</b>"
-
-	if (features)
-		s += ": [jointext(features, ", ")]"
-
-	/* does this help? I do not know */
-	if (src.status != s)
-		src.status = s
-
 /world/proc/SetupLogs()
 	GLOB.log_directory = "data/logs/[time2text(world.realtime, "YYYY/MM/DD")]/round-"
 	if(game_id)

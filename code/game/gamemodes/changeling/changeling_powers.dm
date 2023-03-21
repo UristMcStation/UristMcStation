@@ -817,7 +817,7 @@ var/global/list/datum/absorbed_dna/hivemind_bank = list()
 		src << "<span class='warning'>Our hands are full.  Drop something first.</span>"
 		return 0
 
-	var/obj/item/weapon/W = new weapon_type(src)
+	var/obj/item/W = new weapon_type(src)
 	src.put_in_hands(W)
 
 	src.mind.changeling.chem_charges -= cost
@@ -830,11 +830,11 @@ var/global/list/datum/absorbed_dna/hivemind_bank = list()
 	set category = "Changeling"
 	set name = "Arm Blade (20)"
 
-	if(changeling_generic_weapon(/obj/item/weapon/melee/arm_blade))
+	if(changeling_generic_weapon(/obj/item/melee/arm_blade))
 		return 1
 	return 0
 
-/obj/item/weapon/melee/arm_blade
+/obj/item/melee/arm_blade
 	name = "arm blade"
 	desc = "A grotesque blade made out of bone and flesh that cleaves through people as a hot knife through butter."
 	icon = 'icons/urist/items/uristweapons.dmi'
@@ -851,12 +851,12 @@ var/global/list/datum/absorbed_dna/hivemind_bank = list()
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	var/mob/living/creator //This is just like ninja swords, needed to make sure dumb shit that removes the sword doesn't make it stay around.
 
-/obj/item/weapon/melee/arm_blade/greater
+/obj/item/melee/arm_blade/greater
 	name = "arm greatblade"
 	desc = "A grotesque blade made out of bone and flesh that cleaves through people and armor as a hot knife through butter."
 	armor_penetration = 30
 
-/obj/item/weapon/melee/arm_blade/Initialize(location)
+/obj/item/melee/arm_blade/Initialize(location)
 	. = ..()
 	START_PROCESSING(SSobj,src)
 	if(ismob(loc))
@@ -867,7 +867,7 @@ var/global/list/datum/absorbed_dna/hivemind_bank = list()
 			"<span class='italics'>You hear organic matter ripping and tearing!</span>"
 			)
 
-/obj/item/weapon/melee/arm_blade/dropped(mob/user)
+/obj/item/melee/arm_blade/dropped(mob/user)
 	user.visible_message(
 		"<span class='warning'>With a sickening crunch, [creator] reforms their arm blade into an arm!</span>",
 		"<span class='notice'>We assimilate the weapon back into our body.</span>",
@@ -878,13 +878,13 @@ var/global/list/datum/absorbed_dna/hivemind_bank = list()
 		if(src)
 			qdel(src)
 
-/obj/item/weapon/melee/arm_blade/Destroy()
+/obj/item/melee/arm_blade/Destroy()
 	STOP_PROCESSING(SSobj,src)
 	creator = null
 	. = ..()
 
 //TODO ensure embedded objects call dropped, ensure items unembed themselves when deleted
-/obj/item/weapon/melee/arm_blade/Process()  //Stolen from ninja swords.
+/obj/item/melee/arm_blade/Process()  //Stolen from ninja swords.
 	if(!creator || loc != creator || (creator.l_hand != src && creator.r_hand != src))
 		// Tidy up a bit.
 		if(istype(loc,/mob/living))

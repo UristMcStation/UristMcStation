@@ -13,7 +13,7 @@
 	damage_absorption = list("brute"=0.75,"fire"=1,"bullet"=0.8,"laser"=0.7,"energy"=0.85,"bomb"=1) //we start off the same as a gygax
 	wreckage = /obj/effect/decal/mecha_wreckage/cvrt
 
-/obj/mecha/working/cvrt/add_cell(var/obj/item/weapon/cell/infinite/C=null)
+/obj/mecha/working/cvrt/add_cell(var/obj/item/cell/infinite/C=null)
 	if(C)
 		C.forceMove(src)
 		cell = C

@@ -54,7 +54,7 @@
 		to_chat(user, SPAN_NOTICE("You put [P] in [src]."))
 		flick("[initial(icon_state)]-open",src)
 		updateUsrDialog()
-	else if(istype(P, /obj/item/weapon/screwdriver))
+	else if(istype(P, /obj/item/screwdriver))
 		if(secure)
 			user << "<span class='warning'>You can't see anywhere to unscrew that!</span>"
 			return

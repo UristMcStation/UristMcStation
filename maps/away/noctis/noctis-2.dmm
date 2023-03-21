@@ -204,7 +204,7 @@
 /turf/simulated/open,
 /area/space)
 "aC" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /turf/simulated/floor/plating,
 /area/noctis/atmos)
 "aD" = (
@@ -220,14 +220,14 @@
 /area/noctis/atmos)
 "aE" = (
 /obj/structure/table/steel,
-/obj/item/weapon/extinguisher{
+/obj/item/extinguisher{
 	max_water = 0
 	},
 /obj/effect/floor_decal/techfloor{
 	icon_state = "techfloor_edges";
 	dir = 4
 	},
-/obj/item/weapon/extinguisher{
+/obj/item/extinguisher{
 	max_water = 0
 	},
 /obj/structure/cable/blue{
@@ -279,15 +279,15 @@
 /obj/machinery/alarm{
 	req_access = list("ACCESS_NOCTIS")
 	},
-/obj/item/weapon/grenade/chem_grenade/metalfoam,
-/obj/item/weapon/grenade/chem_grenade/metalfoam,
-/obj/item/weapon/grenade/smokebomb,
-/obj/item/weapon/grenade/chem_grenade/metalfoam,
+/obj/item/grenade/chem_grenade/metalfoam,
+/obj/item/grenade/chem_grenade/metalfoam,
+/obj/item/grenade/smokebomb,
+/obj/item/grenade/chem_grenade/metalfoam,
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/techfloor,
 /area/noctis/fpm)
 "aK" = (
-/obj/item/weapon/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket,
 /obj/effect/floor_decal/techfloor{
 	icon_state = "techfloor_edges";
 	dir = 4
@@ -542,7 +542,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/atmos)
 "bj" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /obj/structure/cable/blue{
 	d1 = 1;
 	d2 = 2;
@@ -555,13 +555,13 @@
 /area/space)
 "bl" = (
 /obj/structure/table/standard,
-/obj/item/weapon/deck/cards,
+/obj/item/deck/cards,
 /obj/effect/floor_decal/rust,
 /obj/random/snack,
 /turf/simulated/floor/plating,
 /area/noctis/atmos)
 "bm" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /obj/machinery/light/small/red{
 	icon_state = "firelight1";
 	dir = 4
@@ -580,8 +580,8 @@
 /area/noctis/atmos)
 "bp" = (
 /obj/structure/table/rack/dark,
-/obj/item/weapon/weldingtool/largetank,
-/obj/item/weapon/weldingtool/empty,
+/obj/item/weldingtool/largetank,
+/obj/item/weldingtool/empty,
 /obj/effect/scorcher,
 /turf/simulated/floor/plating,
 /area/noctis/fpm)
@@ -610,7 +610,7 @@
 	},
 /obj/effect/floor_decal/corner/grey/mono,
 /obj/structure/table/steel,
-/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka,
+/obj/item/reagent_containers/food/drinks/bottle/vodka,
 /turf/simulated/floor/tiled/monotile,
 /area/noctis/bridge)
 "bs" = (
@@ -873,7 +873,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/plating,
 /area/space)
 "bQ" = (
@@ -927,7 +927,7 @@
 /area/noctis/exteriorl)
 "bX" = (
 /obj/structure/table/steel,
-/obj/item/weapon/weldingtool/mini,
+/obj/item/weldingtool/mini,
 /turf/simulated/floor/tiled/techfloor,
 /area/noctis/fpm)
 "bY" = (
@@ -1126,7 +1126,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/fpm)
 "cu" = (
-/obj/item/weapon/extinguisher,
+/obj/item/extinguisher,
 /obj/machinery/light/small/red{
 	icon_state = "firelight1";
 	dir = 1
@@ -1257,9 +1257,9 @@
 /area/noctis/atmosc)
 "cL" = (
 /obj/structure/table/standard,
-/obj/item/weapon/deck/cah,
-/obj/item/weapon/deck/cah/black,
-/obj/item/weapon/pen/chameleon,
+/obj/item/deck/cah,
+/obj/item/deck/cah/black,
+/obj/item/pen/chameleon,
 /turf/simulated/floor/plating,
 /area/noctis/atmos)
 "cM" = (
@@ -1750,8 +1750,8 @@
 	icon_state = "firelight1";
 	dir = 4
 	},
-/obj/item/weapon/wrench,
-/obj/item/weapon/wirecutters,
+/obj/item/wrench,
+/obj/item/wirecutters,
 /obj/item/device/analyzer,
 /turf/simulated/floor/plating,
 /area/noctis/combint)
@@ -2668,7 +2668,7 @@
 	icon_state = "danger";
 	dir = 8
 	},
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /obj/structure/cable/blue{
@@ -3218,14 +3218,14 @@
 /area/noctis/asm)
 "gJ" = (
 /obj/structure/closet/crate,
-/obj/item/weapon/circuitboard/prisoner,
-/obj/item/weapon/circuitboard/rdconsole,
-/obj/item/weapon/circuitboard/operating,
-/obj/item/weapon/circuitboard/circuit_imprinter,
-/obj/item/weapon/circuitboard/protolathe,
-/obj/item/weapon/circuitboard/broken,
-/obj/item/weapon/circuitboard/autolathe,
-/obj/item/weapon/circuitboard/broken,
+/obj/item/circuitboard/prisoner,
+/obj/item/circuitboard/rdconsole,
+/obj/item/circuitboard/operating,
+/obj/item/circuitboard/circuit_imprinter,
+/obj/item/circuitboard/protolathe,
+/obj/item/circuitboard/broken,
+/obj/item/circuitboard/autolathe,
+/obj/item/circuitboard/broken,
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/asm)
 "gK" = (
@@ -3262,15 +3262,15 @@
 /area/noctis/prismngt)
 "gP" = (
 /obj/structure/table/rack/dark,
-/obj/item/weapon/handcuffs,
-/obj/item/weapon/handcuffs/cable/blue,
-/obj/item/weapon/handcuffs/cable/red,
-/obj/item/weapon/handcuffs/cable/yellow,
+/obj/item/handcuffs,
+/obj/item/handcuffs/cable/blue,
+/obj/item/handcuffs/cable/red,
+/obj/item/handcuffs/cable/yellow,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/noctis/prismngt)
 "gQ" = (
 /obj/structure/table/rack/dark,
-/obj/item/weapon/melee/baton,
+/obj/item/melee/baton,
 /obj/machinery/light/small/red{
 	icon_state = "firelight1";
 	dir = 1
@@ -3373,7 +3373,7 @@
 /area/noctis/ocabin)
 "hb" = (
 /obj/structure/table/standard,
-/obj/item/weapon/material/ashtray/plastic,
+/obj/item/material/ashtray/plastic,
 /obj/random/drinkbottle,
 /obj/random/smokes,
 /turf/simulated/floor/plating,
@@ -3460,7 +3460,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/plating,
 /area/noctis/prismngt)
 "hl" = (
@@ -3668,7 +3668,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/tiled/techfloor,
@@ -3944,9 +3944,9 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/noctis/asm)
 "ie" = (
-/obj/item/weapon/gun/launcher/net,
+/obj/item/gun/launcher/net,
 /obj/structure/table/steel,
-/obj/item/weapon/handcuffs,
+/obj/item/handcuffs,
 /obj/item/device/radio/intercom{
 	icon_state = "intercom";
 	dir = 4
@@ -4059,8 +4059,8 @@
 "io" = (
 /obj/structure/table/steel,
 /obj/item/device/flashlight/lamp/green,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
+/obj/item/paper_bin,
+/obj/item/pen,
 /turf/simulated/floor/plating,
 /area/noctis/ocabin)
 "ip" = (
@@ -4076,7 +4076,7 @@
 /obj/random/cash,
 /obj/structure/table/steel,
 /obj/random/cash,
-/obj/item/weapon/spacecash/bundle/c1000,
+/obj/item/spacecash/bundle/c1000,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/noctis/prismngt)
 "is" = (
@@ -4555,10 +4555,10 @@
 "XG" = (
 /obj/structure/lattice,
 /obj/structure/closet/crate,
-/obj/item/weapon/ore/diamond,
-/obj/item/weapon/ore/diamond,
-/obj/item/weapon/ore/diamond,
-/obj/item/weapon/ore/diamond,
+/obj/item/ore/diamond,
+/obj/item/ore/diamond,
+/obj/item/ore/diamond,
+/obj/item/ore/diamond,
 /turf/simulated/open,
 /area/noctis/reactorov)
 

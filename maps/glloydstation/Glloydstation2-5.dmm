@@ -52,7 +52,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/plating/airless,
@@ -96,7 +96,7 @@
 /turf/simulated/floor/plating,
 /area/outpost/abandoned)
 "aq" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /obj/structure/alien/node{
@@ -119,7 +119,7 @@
 /turf/simulated/floor/plating/airless,
 /area/outpost/abandoned)
 "at" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned)
 "au" = (
@@ -130,7 +130,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/plating/airless,
 /area/outpost/abandoned)
 "aw" = (
@@ -141,7 +141,7 @@
 /turf/simulated/floor/plating,
 /area/outpost/abandoned)
 "ax" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/simulated/floor/asteroid,
@@ -202,7 +202,7 @@
 /turf/simulated/floor/asteroid,
 /area/mine/unexplored)
 "aG" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /obj/item/stack/rods,
 /turf/simulated/floor/plating/airless,
 /area/outpost/abandoned)
@@ -242,7 +242,7 @@
 /turf/simulated/floor/plating/airless,
 /area/outpost/abandoned)
 "aN" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /obj/item/clothing/suit/space/syndicate,
@@ -266,11 +266,11 @@
 /turf/simulated/floor/plating/airless,
 /area/outpost/abandoned)
 "aQ" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/asteroid,
 /area/mine/unexplored)
 "aR" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/plating/airless,
@@ -298,11 +298,11 @@
 /turf/simulated/floor/plating/airless,
 /area/outpost/abandoned)
 "aW" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/plating/airless,
 /area/outpost/abandoned)
 "aX" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/asteroid,
@@ -356,7 +356,7 @@
 /turf/simulated/floor/airless,
 /area/outpost/abandoned)
 "bh" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/airless,
@@ -370,13 +370,13 @@
 /area/outpost/abandoned)
 "bj" = (
 /obj/structure/table/standard,
-/obj/item/weapon/paper/crumpled,
+/obj/item/paper/crumpled,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned)
 "bk" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/simulated/floor/plating/airless,
@@ -449,7 +449,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/plating/airless{
 	icon_state = "asteroidplating"
 	},
@@ -475,11 +475,11 @@
 /turf/simulated/floor/plating,
 /area/outpost/abandoned)
 "bx" = (
-/obj/item/weapon/table_parts,
+/obj/item/table_parts,
 /turf/simulated/floor/airless,
 /area/outpost/abandoned)
 "by" = (
-/obj/item/weapon/table_parts/rack,
+/obj/item/table_parts/rack,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned)
 "bz" = (
@@ -513,14 +513,14 @@
 	density = 0;
 	icon_state = "brokengrille"
 	},
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /obj/item/stack/rods,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned)
 "bE" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/simulated/floor/plating,
@@ -537,7 +537,7 @@
 	icon_state = "brokengrille"
 	},
 /obj/item/stack/rods,
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/plating/airless{
 	icon_state = "asteroidplating"
 	},
@@ -709,7 +709,7 @@
 	dir = 4
 	},
 /obj/structure/table/rack,
-/obj/item/weapon/storage/belt/archaeology,
+/obj/item/storage/belt/archaeology,
 /obj/item/clothing/suit/space/void/excavation,
 /obj/item/clothing/head/helmet/space/void/excavation,
 /obj/item/clothing/mask/breath,
@@ -717,7 +717,7 @@
 /area/outpost/research/eva)
 "cb" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/belt/archaeology,
+/obj/item/storage/belt/archaeology,
 /obj/item/clothing/suit/space/void/excavation,
 /obj/item/clothing/head/helmet/space/void/excavation,
 /obj/item/clothing/mask/breath,
@@ -979,7 +979,7 @@
 	dir = 8
 	},
 /obj/structure/table/rack,
-/obj/item/weapon/rig/hazmat/equipped,
+/obj/item/rig/hazmat/equipped,
 /turf/simulated/floor/tiled,
 /area/outpost/research/eva)
 "cw" = (
@@ -1037,14 +1037,14 @@
 /area/outpost/research/eva)
 "cA" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/samplebags,
-/obj/item/weapon/pickaxe,
+/obj/item/storage/box/samplebags,
+/obj/item/pickaxe,
 /obj/machinery/status_display{
 	layer = 4;
 	pixel_x = 32;
 	pixel_y = 0
 	},
-/obj/item/weapon/wrench,
+/obj/item/wrench,
 /obj/item/device/measuring_tape,
 /obj/item/stack/flag/yellow,
 /obj/effect/floor_decal/corner/mauve{
@@ -1150,9 +1150,9 @@
 /area/outpost/research/eva)
 "cH" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/samplebags,
-/obj/item/weapon/pickaxe,
-/obj/item/weapon/wrench,
+/obj/item/storage/box/samplebags,
+/obj/item/pickaxe,
+/obj/item/wrench,
 /obj/item/device/measuring_tape,
 /obj/item/stack/flag/green,
 /obj/effect/floor_decal/corner/mauve{
@@ -1236,7 +1236,7 @@
 	pixel_x = -5;
 	pixel_y = 30
 	},
-/obj/item/weapon/storage/box/lights/bulbs,
+/obj/item/storage/box/lights/bulbs,
 /obj/machinery/alarm{
 	dir = 8;
 	icon_state = "alarm0";
@@ -1499,12 +1499,12 @@
 /area/mine/explored)
 "du" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/asteroid,
 /area/mine/explored)
 "dv" = (
 /obj/structure/table/rack,
-/obj/item/weapon/pickaxe,
+/obj/item/pickaxe,
 /turf/simulated/floor/asteroid,
 /area/mine/explored)
 "dw" = (
@@ -1526,9 +1526,9 @@
 	dir = 1
 	},
 /obj/structure/table/reinforced,
-/obj/item/weapon/wrench,
-/obj/item/weapon/screwdriver,
-/obj/item/weapon/crowbar,
+/obj/item/wrench,
+/obj/item/screwdriver,
+/obj/item/crowbar,
 /turf/simulated/floor/plating,
 /area/mine/explored)
 "dz" = (
@@ -1549,8 +1549,8 @@
 /area/mine/explored)
 "dC" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/cell/super,
-/obj/item/weapon/cell/super,
+/obj/item/cell/super,
+/obj/item/cell/super,
 /turf/simulated/floor/plating,
 /area/mine/explored)
 "dD" = (
@@ -1633,7 +1633,7 @@
 /obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/head/helmet/space/void/mining,
-/obj/item/weapon/mining_scanner,
+/obj/item/mining_scanner,
 /obj/effect/floor_decal/corner/beige{
 	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
@@ -1646,7 +1646,7 @@
 /obj/item/clothing/suit/space/void/mining/cold,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/head/helmet/space/void/mining/cold,
-/obj/item/weapon/mining_scanner,
+/obj/item/mining_scanner,
 /obj/effect/floor_decal/corner/beige{
 	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
@@ -1734,7 +1734,7 @@
 	pixel_y = 24
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/storage/toolbox/mechanical{
+/obj/item/storage/toolbox/mechanical{
 	pixel_x = -2;
 	pixel_y = -1
 	},
@@ -1761,7 +1761,7 @@
 /area/outpost/mining_main/eva)
 "ec" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/backpack/satchel,
+/obj/item/storage/backpack/satchel,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -1774,8 +1774,8 @@
 /area/outpost/mining_main/eva)
 "ed" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/belt/utility,
-/obj/item/weapon/pickaxe,
+/obj/item/storage/belt/utility,
+/obj/item/pickaxe,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -2357,7 +2357,7 @@
 	pixel_x = -5;
 	pixel_y = 30
 	},
-/obj/item/weapon/storage/box/lights/bulbs,
+/obj/item/storage/box/lights/bulbs,
 /obj/machinery/alarm{
 	dir = 8;
 	icon_state = "alarm0";

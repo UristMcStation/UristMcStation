@@ -1,4 +1,4 @@
-/decl/cultural_info/culture/hidden/xenophage/lactera
+/singleton/cultural_info/culture/hidden/xenophage/lactera
 	name = CULTURE_LACTERA
 	language = LANGUAGE_XENOPHAGE
 	description = "Similar in appearance to the Unathi, the Lactera are one of the constituent races of the invading alien forces of the Galactic Crisis. Formerly mind-slaved to the powerful Allophylus, \
@@ -14,7 +14,7 @@
 	additional_langs = list(LANGUAGE_XENOPHAGE_HIVE)
 	caste_name = "soldier"
 
-/decl/cultural_info/faction/galactic_crisis
+/singleton/cultural_info/faction/galactic_crisis
 	name = FACTION_GALACTIC_CRISIS
 	language = LANGUAGE_XENOPHAGE
 	default_language = LANGUAGE_XENOPHAGE
@@ -29,7 +29,7 @@
 	economic_power = 0
 	hidden = TRUE
 
-/decl/cultural_info/location/deep_space/galactic_crisis
+/singleton/cultural_info/location/deep_space/galactic_crisis
 	name = HOME_SYSTEM_GALACTIC_CRISIS
 	description = "You came from somewhere beyond the Milky Way, along with the other alien forces of the Galactic Crisis. \
 	Now that the Galactic Crisis is over and the alien forces are broken, you wander the galaxy aimlessly."

@@ -1,10 +1,3 @@
-#define ROOM_ERR_SPACE 0
-#define ROOM_ERR_TOOLARGE 1
-#define BORDER_NONE 0
-#define BORDER_SPACE 1
-#define BORDER_BETWEEN 2
-#define BORDER_2NDTILE 3
-
 /obj/item/blueprints
 	name = "blueprints"
 	desc = "Blueprints for building a station. There is a \"Classified\" stamp and several coffee stains on it."

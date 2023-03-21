@@ -88,7 +88,7 @@
 
 /datum/contract/cargo/kitchen/aesirsalad
 	name = "Aesir Salad Delivery Contract"
-	wanted_types = list(/obj/item/weapon/reagent_containers/food/snacks/aesirsalad)
+	wanted_types = list(/obj/item/reagent_containers/food/snacks/aesirsalad)
 	money = 350
 
 /datum/contract/cargo/kitchen/aesirsalad/New()
@@ -98,7 +98,7 @@
 
 /datum/contract/cargo/kitchen/dionaroast
 	name = "Diona Roast Delivery Contract"
-	wanted_types = list(/obj/item/weapon/reagent_containers/food/snacks/dionaroast)
+	wanted_types = list(/obj/item/reagent_containers/food/snacks/dionaroast)
 	money = 260
 
 /datum/contract/cargo/kitchen/dionaroast/New()
@@ -108,7 +108,7 @@
 
 /datum/contract/cargo/kitchen/cubancarp
 	name = "Cuban Carp Delivery Contract"
-	wanted_types = list(/obj/item/weapon/reagent_containers/food/snacks/cubancarp)
+	wanted_types = list(/obj/item/reagent_containers/food/snacks/cubancarp)
 	money = 280
 
 /datum/contract/cargo/kitchen/cubancarp/New()
@@ -118,7 +118,7 @@
 
 /datum/contract/cargo/kitchen/coldchili
 	name = "Cold Chili Delivery Contract"
-	wanted_types = list(/obj/item/weapon/reagent_containers/food/snacks/coldchili)
+	wanted_types = list(/obj/item/reagent_containers/food/snacks/coldchili)
 	money = 240
 
 /datum/contract/cargo/kitchen/coldchili/New()
@@ -130,7 +130,7 @@
 
 /datum/contract/cargo/eswords
 	name = "Energy Sword Delivery Contract"
-	wanted_types = list(/obj/item/weapon/melee/energy/sword, /obj/item/weapon/melee/energy/sword/pirate)
+	wanted_types = list(/obj/item/melee/energy/sword, /obj/item/melee/energy/sword/pirate)
 	money = 950
 	rep_points = 2
 

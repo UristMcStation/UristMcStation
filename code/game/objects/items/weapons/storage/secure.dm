@@ -106,7 +106,7 @@
 				attack_self(M)
 			return
 
-/obj/item/weapon/storage/secure/MouseDrop(over_object, src_location, over_location)
+/obj/item/storage/secure/MouseDrop(over_object, src_location, over_location)
 	if (locked)
 		src.add_fingerprint(usr)
 		return
@@ -195,7 +195,7 @@
 
 //Safe that only unlocks under red alert, and relocks once red alert is removed.
 
-/obj/item/weapon/storage/secure/alert_safe
+/obj/item/storage/secure/alert_safe
 	name = "personal arms safe"
 	max_storage_space = 24
 	req_access = list(access_bridge)
@@ -210,10 +210,10 @@
 	max_w_class = ITEM_SIZE_HUGE
 	anchored = 1.0
 	density = 0
-	cant_hold = list(/obj/item/weapon/storage/secure/briefcase)
+	cant_hold = list(/obj/item/storage/secure/briefcase)
 	startswith = list(
-	/obj/item/weapon/gun/energy/taser = 1,
-	/obj/item/weapon/gun/projectile/revolver/hi2521r = 1,
+	/obj/item/gun/energy/taser = 1,
+	/obj/item/gun/projectile/revolver/hi2521r = 1,
 	/obj/item/ammo_magazine/c44 = 2
 	)
 
@@ -223,13 +223,13 @@
 
 	//Registered gear. This is gear that -must- be returned to the safe for it to re-lock fully. Also needs to be in startswith
 	//Name and number of items is generated on Initialize()
-	var/list/registered_gear = list(/obj/item/weapon/gun/energy/taser, /obj/item/weapon/gun/projectile/revolver/hi2521r)
+	var/list/registered_gear = list(/obj/item/gun/energy/taser, /obj/item/gun/projectile/revolver/hi2521r)
 
-/obj/item/weapon/storage/secure/alert_safe/New()
+/obj/item/storage/secure/alert_safe/New()
 	..()
 	GLOB.alert_locked += src
 
-/obj/item/weapon/storage/secure/alert_safe/Initialize()
+/obj/item/storage/secure/alert_safe/Initialize()
 	. = ..()
 	for(var/obj/item/I in contents)	//Because we cannot grab a name var from a path, we fetch it here and store it for later
 		if(I.type in registered_gear)
@@ -239,17 +239,17 @@
 			else
 				registered_gear[I.type] = list("name" = I.name, "target" = 1, "current" = 1)
 
-/obj/item/weapon/storage/secure/alert_safe/Destroy()
+/obj/item/storage/secure/alert_safe/Destroy()
 	GLOB.alert_locked -= src
 	. = ..()
 
-/obj/item/weapon/storage/secure/alert_safe/MouseDrop(over_object, src_location, over_location)
+/obj/item/storage/secure/alert_safe/MouseDrop(over_object, src_location, over_location)
 	if(secure)
 		src.add_fingerprint(usr)
 		return
 	..()
 
-/obj/item/weapon/storage/secure/alert_safe/proc/check_arms(var/return_missing = FALSE)
+/obj/item/storage/secure/alert_safe/proc/check_arms(var/return_missing = FALSE)
 	if(return_missing)
 		var/list/wanted = list()
 		for(var/R in registered_gear)
@@ -264,7 +264,7 @@
 				return FALSE
 		return TRUE
 
-/obj/item/weapon/storage/secure/alert_safe/proc/alert_unlock(var/unlocked)
+/obj/item/storage/secure/alert_safe/proc/alert_unlock(var/unlocked)
 	alert_unlocked = unlocked
 	if(alert_unlocked)
 		spawn(2 SECONDS)
@@ -285,7 +285,7 @@
 		next_reminder = 60
 		START_PROCESSING(SSobj, src)
 
-/obj/item/weapon/storage/secure/alert_safe/Process(var/wait)	//Time to bug people until they lock the safe & return the weapons
+/obj/item/storage/secure/alert_safe/Process(var/wait)	//Time to bug people until they lock the safe & return the weapons
 	if(!secure)
 		secure = check_arms() && locked
 		if(secure)
@@ -304,37 +304,37 @@
 	else	//Shouldn't be possible, but just in case
 		STOP_PROCESSING(SSobj, src)
 
-/obj/item/weapon/storage/secure/alert_safe/attack_hand(mob/user as mob)
+/obj/item/storage/secure/alert_safe/attack_hand(mob/user as mob)
 	return attack_self(user)
 
-/obj/item/weapon/storage/secure/alert_safe/attack_self(mob/user as mob)
+/obj/item/storage/secure/alert_safe/attack_self(mob/user as mob)
 	ui_interact(user)
 
-/obj/item/weapon/storage/secure/alert_safe/emag_act(var/remaining_charges, var/mob/user, var/feedback)
+/obj/item/storage/secure/alert_safe/emag_act(var/remaining_charges, var/mob/user, var/feedback)
 	if(..())
 		STOP_PROCESSING(SSobj, src)
 		GLOB.alert_locked -= src	//Remove it from the GLOB list so further alert changes have no effect
 		secure = 0
 		return 1
 
-/obj/item/weapon/storage/secure/alert_safe/can_be_inserted(obj/item/W, mob/user, stop_messages)
+/obj/item/storage/secure/alert_safe/can_be_inserted(obj/item/W, mob/user, stop_messages)
 	if(secure)
 		return 0
 	. = ..()
 
-/obj/item/weapon/storage/secure/alert_safe/handle_item_insertion(var/obj/item/W, var/prevent_warning = 0, var/NoUpdate = 0)
+/obj/item/storage/secure/alert_safe/handle_item_insertion(var/obj/item/W, var/prevent_warning = 0, var/NoUpdate = 0)
 	. = ..()
 	if(.)
 		if(W.type in registered_gear)
 			registered_gear[W.type]["current"]++
 
-/obj/item/weapon/storage/secure/alert_safe/remove_from_storage(obj/item/W as obj, atom/new_location, var/NoUpdate = 0)
+/obj/item/storage/secure/alert_safe/remove_from_storage(obj/item/W as obj, atom/new_location, var/NoUpdate = 0)
 	. = ..()
 	if(.)
 		if(W.type in registered_gear)
 			registered_gear[W.type]["current"]--
 
-/obj/item/weapon/storage/secure/alert_safe/ui_interact(mob/user, ui_key="main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/item/storage/secure/alert_safe/ui_interact(mob/user, ui_key="main", var/datum/nanoui/ui = null, var/force_open = 1)
 	user.set_machine(src)
 
 	var/data[0]
@@ -363,7 +363,7 @@
 		ui.open()
 		ui.set_auto_update(1)
 
-/obj/item/weapon/storage/secure/alert_safe/OnTopic(var/mob/user, var/list/href_list, state)
+/obj/item/storage/secure/alert_safe/OnTopic(var/mob/user, var/list/href_list, state)
 	if(..())
 		return 1
 	if(!allowed(user))
@@ -375,16 +375,16 @@
 			overlays += image(icon, locked ? icon_armed : icon_opened)
 	return 1
 
-/obj/item/weapon/storage/secure/alert_safe/so
+/obj/item/storage/secure/alert_safe/so
 	name = "second officer's arms safe"
 	req_access = list(access_hop)
 	startswith = list(
-		/obj/item/weapon/gun/energy/gun/secure = 1,
-		/obj/item/weapon/gun/projectile/revolver/hi2521r = 1,
+		/obj/item/gun/energy/gun/secure = 1,
+		/obj/item/gun/projectile/revolver/hi2521r = 1,
 		/obj/item/ammo_magazine/c44 = 2
 		)
 
 	registered_gear = list(
-		/obj/item/weapon/gun/projectile/revolver/hi2521r,
-		/obj/item/weapon/gun/energy/gun/secure
+		/obj/item/gun/projectile/revolver/hi2521r,
+		/obj/item/gun/energy/gun/secure
 		)

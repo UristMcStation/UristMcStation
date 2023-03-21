@@ -142,7 +142,7 @@
 //	 bleeder clamping surgery step
 //////////////////////////////////////////////////////////////////
 /singleton/surgery_step/generic/clamp_bleeders
-	name = "Clamp bleeders"
+	name = "clamp bleeders"
 	allowed_tools = list(
 		/obj/item/hemostat = 100,
 		/obj/item/stack/cable_coil = 75,

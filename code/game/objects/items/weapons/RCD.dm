@@ -188,7 +188,7 @@
 /obj/item/rcd/mounted/can_use(mob/user,turf/T)
 	return (user.Adjacent(T) && !user.incapacitated())
 
-/obj/item/weapon/rcd/shipwright
+/obj/item/rcd/shipwright
 	name = "shipwright RCD"
 	desc = "Small, portable, and far, far heavier than it looks, this gun-shaped device has a port into which one may insert compressed matter cartridges. This is an advanced variant that can deconstruct reinforced walls."
 	item_icons = DEF_URIST_INHANDS

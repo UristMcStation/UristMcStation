@@ -311,6 +311,7 @@
 		return
 
 	//actually throw it!
+	var/message = "\The [src] has thrown \the [item]."
 	src.visible_message(SPAN_WARNING("[message]"), range = min(itemsize*2,world.view))
 
 	if(!src.lastarea)

@@ -7,7 +7,7 @@
 	hidden_from_codex = TRUE
 	language = LANGUAGE_VOX
 	secondary_langs = list(
-		LANGUAGE_HUMAN_EURO,
+		LANGUAGE_GALCOM,
 		LANGUAGE_SPACER,
 		LANGUAGE_GUTTER,
 		LANGUAGE_SIGN

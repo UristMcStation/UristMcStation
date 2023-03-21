@@ -1076,7 +1076,7 @@
 	set_face_dir(client.client_dir(WEST))
 
 /mob/proc/can_shift()
-	return !(incapacitated() || buckled || grabbed_by.len)
+	return !(incapacitated() || buckled || length(grabbed_by))
 
 /mob/verb/shiftnorth()
 	set hidden = TRUE

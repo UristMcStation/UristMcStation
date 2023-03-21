@@ -279,7 +279,7 @@
 
 //rigs
 
-/obj/item/weapon/rig/command/exploration
+/obj/item/rig/command/exploration
 	name = "exploration command HCM"
 	suit_type = "exploration command hardsuit"
 	desc = "A specialized hardsuit rig control module issued to the quartermaster of the ICS Nerva."
@@ -296,7 +296,7 @@
 	boot_type = /obj/item/clothing/shoes/magboots/rig/command/exploration
 	glove_type = /obj/item/clothing/gloves/rig/command/exploration
 
-	allowed = list(/obj/item/weapon/storage/backpack,/obj/item/weapon/gun, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/weapon/tank, /obj/item/device/suit_cooling_unit, /obj/item/weapon/storage/backpack)
+	allowed = list(/obj/item/storage/backpack,/obj/item/gun, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank, /obj/item/device/suit_cooling_unit, /obj/item/storage/backpack)
 	req_access = list(access_qm)
 
 /obj/item/clothing/head/helmet/space/rig/command/exploration
@@ -321,7 +321,7 @@
 	item_icons = list(slot_gloves_str = 'maps/torch/icons/mob/onmob_hands_solgov.dmi')
 	species_restricted = list(SPECIES_HUMAN)
 
-/obj/item/weapon/rig/command/exploration/equipped
+/obj/item/rig/command/exploration/equipped
 
 	initial_modules = list(
 		/obj/item/rig_module/maneuvering_jets,
@@ -332,7 +332,7 @@
 
 //nerva captain
 /*
-/obj/item/weapon/rig/command/nervacap
+/obj/item/rig/command/nervacap
 	name = "Captain's command HCM"
 	suit_type = "captain's command hardsuit"
 	desc = "A high-tech powered suit adorned with ceremonial frills of crimson and gold. Cost more to produce and manufacture than the ship you're on right now."
@@ -349,7 +349,7 @@
 	boot_type = /obj/item/clothing/shoes/magboots/rig/command/nervacap
 	glove_type = /obj/item/clothing/gloves/rig/command/nervacap
 
-	allowed = list(/obj/item/weapon/gun, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/weapon/tank, /obj/item/device/suit_cooling_unit)
+	allowed = list(/obj/item/gun, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank, /obj/item/device/suit_cooling_unit)
 	req_access = list(access_captain)
 
 /obj/item/clothing/head/helmet/space/rig/command/nervacap
@@ -374,7 +374,7 @@
 	item_icons = list(slot_gloves_str = 'icons/uristmob/gloves.dmi')
 	species_restricted = list(SPECIES_HUMAN)
 
-/obj/item/weapon/rig/command/nervacap/equipped
+/obj/item/rig/command/nervacap/equipped
 
 	initial_modules = list(
 		/obj/item/rig_module/mounted/egun,

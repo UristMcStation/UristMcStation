@@ -40,12 +40,12 @@ var/global/remaininggens = 6
 	for(var/obj/structure/reagent_dispensers/fueltank/S in world) //what we've done here is remove the consoles that can get people off the station. All of assault takes place on the station.
 		qdel(S)
 
-	for(var/mob/living/carbon/human/M in GLOB.living_mob_list_)
+	for(var/mob/living/carbon/human/M in GLOB.living_players)
 		if(prob(16))
 	//		if(M.Species == "Human")
 
 			for (var/obj/item/I in M)
-				if (istype(I, /obj/item/weapon/implant) || istype(I, /obj/item/organ) || istype(I, /obj/item/clothing/glasses))
+				if (istype(I, /obj/item/implant) || istype(I, /obj/item/organ) || istype(I, /obj/item/clothing/glasses))
 					continue
 
 				else
@@ -58,22 +58,22 @@ var/global/remaininggens = 6
 			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/thick/swat(M), slot_gloves)
 			M.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/urist/anfor(M), slot_head)
 
-			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/security(M), slot_back)
-			M.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(M), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/storage/backpack/security(M), slot_back)
+			M.equip_to_slot_or_del(new /obj/item/storage/box/survival(M), slot_in_backpack)
 
 			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/c45m/a7(M), slot_in_backpack)
-			M.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/regular(M), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/storage/firstaid/regular(M), slot_in_backpack)
 			M.equip_to_slot_or_del(new /obj/item/device/flashlight(M), slot_in_backpack)
 			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/a556/a22(M), slot_in_backpack)
 			M.equip_to_slot_or_del(new /obj/item/device/radio(M), slot_in_backpack)
 			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/a556/a22(M), slot_in_backpack)
 			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/a556/a22(M), slot_l_store)
-			M.equip_to_slot_or_del(new /obj/item/weapon/material/hatchet/tacknife(M), slot_r_store)
-			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/colt/a7(M), slot_s_store)
+			M.equip_to_slot_or_del(new /obj/item/material/knife/combat(M), slot_r_store)
+			M.equip_to_slot_or_del(new /obj/item/gun/projectile/colt/a7(M), slot_s_store)
 
-			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/automatic/a22(M), slot_r_hand)
+			M.equip_to_slot_or_del(new /obj/item/gun/projectile/automatic/a22(M), slot_r_hand)
 
-			var/obj/item/weapon/card/id/W = new(M)
+			var/obj/item/card/id/W = new(M)
 			W.name = "[M.real_name]'s ID Card"
 			W.icon_state = "centcom"
 			W.access = get_all_accesses()
@@ -105,7 +105,7 @@ var/global/remaininggens = 6
 	aliensurvivors = 0
 
 	//For each survivor, add one to the count. Should work accurately enough.
-	for(var/mob/living/carbon/human/H in GLOB.living_mob_list_)
+	for(var/mob/living/carbon/human/H in GLOB.living_players)
 		if(H) //Prevent any runtime errors
 			if(H.client && H.stat != DEAD && H.z == 1) // If they're connected/unghosted and alive, not debrained and on the station z
 				if(H.species == "Xenomorph")
@@ -180,7 +180,7 @@ var/global/remaininggens = 6
 /*/mob/new_player/proc/AssaultRobotLateJoin(var/mob/living/silicon/L)
 	if(L.mind.assigned_role == "Cyborg")
 		L.loc = pick(scomspawn3)
-		for(var/obj/item/weapon/cell/cell in L)
+		for(var/obj/item/cell/cell in L)
 			cell.maxcharge = INFINITY
 			cell.charge = INFINITY*/
 
@@ -199,10 +199,10 @@ var/global/remaininggens = 6
 				H.equip_to_slot_or_del(new /obj/item/clothing/under/lactera(H), slot_w_uniform)
 				H.equip_to_slot_or_del(new /obj/item/clothing/suit/lactera/officer(H), slot_wear_suit)
 				H.equip_to_slot_or_del(new /obj/item/clothing/shoes/magboots/lactera(H), slot_shoes)
-				H.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/lactera/a1(H), slot_belt)
-				H.equip_to_slot_or_del(new /obj/item/weapon/plastique/alienexplosive(H), slot_l_store)
-				H.equip_to_slot_or_del(new /obj/item/weapon/grenade/aliengrenade(H), slot_r_store)
-				H.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/lactera/a3(H), slot_r_hand)
+				H.equip_to_slot_or_del(new /obj/item/gun/energy/lactera/a1(H), slot_belt)
+				H.equip_to_slot_or_del(new /obj/item/plastique/alienexplosive(H), slot_l_store)
+				H.equip_to_slot_or_del(new /obj/item/grenade/aliengrenade(H), slot_r_store)
+				H.equip_to_slot_or_del(new /obj/item/gun/energy/lactera/a3(H), slot_r_hand)
 				H.equip_to_slot_or_del(new /obj/item/clothing/glasses/night(H), slot_glasses)
 
 				H << "<B>You are a lactera officer. Born in a laboratory and raised for the sole purpose of killing, you are a creature genetically modified to be an ideal soldier. You do not feel pain, you do not need to breathe and your feet are implanted with a magnetic traction system. You are a slave to your hivemind, and must lead your fellow lactera to destroy the humans and their shield generator.</B>"
@@ -211,10 +211,10 @@ var/global/remaininggens = 6
 				H.equip_to_slot_or_del(new /obj/item/clothing/under/lactera(H), slot_w_uniform)
 				H.equip_to_slot_or_del(new /obj/item/clothing/suit/lactera/regular(H), slot_wear_suit)
 				H.equip_to_slot_or_del(new /obj/item/clothing/shoes/magboots/lactera(H), slot_shoes)
-				H.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/lactera/a1(H), slot_belt)
-				H.equip_to_slot_or_del(new /obj/item/weapon/plastique/alienexplosive(H), slot_l_store)
-				H.equip_to_slot_or_del(new /obj/item/weapon/grenade/aliengrenade(H), slot_r_store)
-				H.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/lactera/a2(H), slot_r_hand)
+				H.equip_to_slot_or_del(new /obj/item/gun/energy/lactera/a1(H), slot_belt)
+				H.equip_to_slot_or_del(new /obj/item/plastique/alienexplosive(H), slot_l_store)
+				H.equip_to_slot_or_del(new /obj/item/grenade/aliengrenade(H), slot_r_store)
+				H.equip_to_slot_or_del(new /obj/item/gun/energy/lactera/a2(H), slot_r_hand)
 				H.equip_to_slot_or_del(new /obj/item/clothing/glasses/night(H), slot_glasses)
 
 				H << "<B>You are a lactera soldier. Born in a laboratory and raised for the sole purpose of killing, you are a creature genetically modified to be an ideal soldier. You do not feel pain, you do not need to breathe and your feet are implanted with a magnetic traction system. You are a slave to your hivemind, and must work with your fellow lactera to destroy the humans and their shield generator.</B>"
@@ -236,4 +236,3 @@ var/global/remaininggens = 6
 	remaininglactera = rl
 
 	message_admins("[key_name_admin(usr)] changed the remaining lactera to [rl].")
-

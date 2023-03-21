@@ -13,7 +13,7 @@
 	language = LANGUAGE_SKRELLIAN
 	secondary_langs = list(
 		LANGUAGE_SIGN,
-		LANGUAGE_HUMAN_EURO,
+		LANGUAGE_GALCOM,
 		LANGUAGE_SPACER
 	)
 

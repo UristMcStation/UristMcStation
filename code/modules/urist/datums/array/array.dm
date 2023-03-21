@@ -56,16 +56,16 @@
 	var/transpose = 0
 
 	var/list/indices = splittext(position, ",")
-	while(indices.len < src.dims)
+	while(length(indices) < src.dims)
 		indices.Add(":")
 
-	for(var/i=1, i<=indices.len, i++):
+	for(var/i=1, i<=length(indices), i++):
 		var/str_idx = indices[i]
 
 		if(findtext(str_idx, re))
 
 			if(findtext(":", str_idx))
-				if((transpose+1)==indices.len)
+				if((transpose+1)==length(indices))
 					var/list/flatlist = list()
 
 					for(var/c=1, c<=src.grid.len, c++)
@@ -75,7 +75,7 @@
 							flatlist += src.grid[c]
 
 						else
-							for(var/r=1, r<=flattened_col.len, r++)
+							for(var/r=1, r<=length(flattened_col), r++)
 								flatlist += flattened_col[r]
 
 					return flatlist
@@ -130,7 +130,7 @@
 			if(!isnull(num_idx))
 				coords.Add(num_idx)
 
-	if (coords.len < src.dims)
+	if (length(coords) < src.dims)
 		return
 
 	array[coords[1]][coords[2]] = value
@@ -181,4 +181,3 @@
 			var/successful = src.assign(coords, value)
 			if(!successful)
 				log_debug( "Failed to set array @([col],[row])!")
-

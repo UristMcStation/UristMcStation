@@ -34,8 +34,8 @@
 
 /obj/item/clothing/suit/storage/hazardvest/attackby(var/obj/item/I, mob/user as mob)
 	..()
-	if(istype(I, /obj/item/weapon/wirecutters))
-		for(var/obj/item/weapon/storage/internal/O in contents)
+	if(istype(I, /obj/item/wirecutters))
+		for(var/obj/item/storage/internal/O in contents)
 			var/turf/T = get_turf(src)
 			for(var/obj/item/Z in O.contents)
 				O.remove_from_storage(Z, T)
@@ -90,4 +90,3 @@
 		user << "<span class='notice'>You tie the sheet of metal tightly to the hazard vest with the cable, forming a rudimentary armored vest.</span>"
 
 		qdel(src)
-

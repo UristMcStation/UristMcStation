@@ -24,11 +24,7 @@ var/global/datum/robolimb/basic_robolimb
 	var/list/species_cannot_use = list(SPECIES_RESOMI)
 	var/list/restricted_to = list()
 	var/list/applies_to_part = list() //TODO.
-<<<<<<< HEAD
-	var/list/allowed_bodytypes = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_SKRELL, SPECIES_UNATHI, SPECIES_RESOMI, "Grav-Adapted Human", "Space-Adapted Human", "Vat-Grown Human") //Yes, Resomi has to be in here even though most prostheses are blocked for them, otherwise they can't get them in Chargen at all. Why? Iunno. - Vak
-=======
-	var/list/allowed_bodytypes = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_SKRELL, SPECIES_UNATHI)
->>>>>>> dev
+	var/list/allowed_bodytypes = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_SKRELL, SPECIES_UNATHI, SPECIES_RESOMI)
 
 /datum/robolimb/bishop
 	company = "Bishop"
@@ -36,19 +32,12 @@ var/global/datum/robolimb/basic_robolimb
 	icon = 'icons/mob/human_races/cyberlimbs/bishop/bishop_main.dmi'
 	unavailable_at_fab = 1
 
-<<<<<<< HEAD
-/datum/robolimb/bishop/industrial
-	company = "Bishop Industrial Frame"
-	icon = 'icons/mob/human_races/cyberlimbs/bishop/bishop_ind.dmi'
-	has_eyes = FALSE
-=======
 /datum/robolimb/bishop/rook
 	company = "Bishop Rook"
 	desc = "This limb has a polished metallic casing and a holographic face emitter."
 	icon = 'icons/mob/human_races/cyberlimbs/bishop/bishop_rook.dmi'
 	has_eyes = FALSE
 	unavailable_at_fab = 1
->>>>>>> dev
 
 /datum/robolimb/bishop/alt
 	company = "Bishop Alt."
@@ -78,8 +67,6 @@ var/global/datum/robolimb/basic_robolimb
 	applies_to_part = list(BP_HEAD)
 	unavailable_at_fab = 1
 
-<<<<<<< HEAD
-=======
 /datum/robolimb/hephaestus/titan
 	company = "Hephaestus Titan"
 	desc = "This limb has a casing of an olive drab finish, providing a reinforced housing look."
@@ -87,7 +74,6 @@ var/global/datum/robolimb/basic_robolimb
 	has_eyes = FALSE
 	unavailable_at_fab = 1
 
->>>>>>> dev
 /datum/robolimb/hephaestus/alt/monitor
 	company = "Hephaestus Monitor."
 	icon = 'icons/mob/human_races/cyberlimbs/hephaestus/hephaestus_monitor.dmi'
@@ -101,13 +87,6 @@ var/global/datum/robolimb/basic_robolimb
 	icon = 'icons/mob/human_races/cyberlimbs/zenghu/zenghu_main.dmi'
 	can_eat = 1
 	unavailable_at_fab = 1
-<<<<<<< HEAD
-	allowed_bodytypes = list(SPECIES_HUMAN, SPECIES_IPC, "Grav-Adapted Human", "Space-Adapted Human", "Vat-Grown Human")
-
-/datum/robolimb/zenghu/industrial
-	company = "Zeng-Hu Research Frame"
-	icon = 'icons/mob/human_races/cyberlimbs/zenghu/zenghu_ind.dmi'
-=======
 	allowed_bodytypes = list(SPECIES_HUMAN,SPECIES_IPC)
 
 /datum/robolimb/zenghu/spirit
@@ -115,24 +94,17 @@ var/global/datum/robolimb/basic_robolimb
 	desc = "This limb has a sleek black and white polymer finish."
 	icon = 'icons/mob/human_races/cyberlimbs/zenghu/zenghu_spirit.dmi'
 	unavailable_at_fab = 1
->>>>>>> dev
 
 /datum/robolimb/xion
 	company = "Xion"
 	desc = "This limb has a minimalist black and red casing."
 	icon = 'icons/mob/human_races/cyberlimbs/xion/xion_main.dmi'
 
-<<<<<<< HEAD
-/datum/robolimb/xion/industrial
-	company = "Xion Industrial Frame"
-	icon = 'icons/mob/human_races/cyberlimbs/xion/xion_ind.dmi'
-=======
 /datum/robolimb/xion/econo
 	company = "Xion Econ"
 	desc = "This skeletal mechanical limb has a minimalist black and red casing."
 	icon = 'icons/mob/human_races/cyberlimbs/xion/xion_econo.dmi'
 	unavailable_at_fab = 1
->>>>>>> dev
 
 /datum/robolimb/xion/alt
 	company = "Xion Alt."
@@ -232,8 +204,7 @@ var/global/datum/robolimb/basic_robolimb
 	can_eat = 1
 	skintone = 1
 	unavailable_at_fab = 1
-<<<<<<< HEAD
-	allowed_bodytypes = list(SPECIES_HUMAN, SPECIES_IPC, "Grav-Adapted Human", "Space-Adapted Human", "Vat-Grown Human")
+	allowed_bodytypes = list(SPECIES_HUMAN, SPECIES_IPC)
 
 /datum/robolimb/resomi
 	company = "Small prosthetic"
@@ -254,9 +225,6 @@ var/global/datum/robolimb/basic_robolimb
 	desc = "This prosthetic is small and fit for nonhuman proportions."
 	icon = 'icons/uristmob/species/teshari/unbranded/unbranded.dmi'
 	applies_to_part = list()
-=======
-	species_cannot_use = list(SPECIES_IPC)
->>>>>>> dev
 
 /datum/robolimb/shellguard
 	company = "Shellguard"
@@ -274,9 +242,6 @@ var/global/datum/robolimb/basic_robolimb
 	icon = 'icons/mob/human_races/cyberlimbs/shellguard/shellguard_monitor.dmi'
 	applies_to_part = list(BP_HEAD)
 	unavailable_at_fab = 1
-<<<<<<< HEAD
-	allowed_bodytypes = list(SPECIES_IPC)
-=======
 	allowed_bodytypes = list(SPECIES_IPC)
 
 /datum/robolimb/vox
@@ -288,4 +253,3 @@ var/global/datum/robolimb/basic_robolimb
 /datum/robolimb/vox/crap
 	company = "Improvised"
 	icon = 'icons/mob/human_races/cyberlimbs/vox/improvised.dmi'
->>>>>>> dev

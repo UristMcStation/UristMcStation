@@ -415,8 +415,7 @@ meteor_act
 
 /mob/living/carbon/human/embed(obj/O, def_zone=null, datum/wound/supplied_wound)
 	if(!def_zone) ..()
-	if(O.obj_flags & OBJ_FLAG_NO_EMBED)
-		return
+
 	var/obj/item/organ/external/affecting = get_organ(def_zone)
 	if(affecting)
 		affecting.embed(O, supplied_wound = supplied_wound)

@@ -188,8 +188,8 @@
 		else
 			disconnect_from_network()
 		reconnect()
-	if(istype(W, /obj/item/weapon/reagent_containers))
-		var/obj/item/weapon/reagent_containers/R = W
+	if(istype(W, /obj/item/reagent_containers))
+		var/obj/item/reagent_containers/R = W
 		R.standard_pour_into(user, src)
 		to_chat(user, "<span class='notice'>You pour the fluid into [src].</span>")
 	else

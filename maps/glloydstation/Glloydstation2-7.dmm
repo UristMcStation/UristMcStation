@@ -134,7 +134,7 @@
 	},
 /area/planet/jungle)
 "ax" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/planet/plains,
@@ -165,7 +165,7 @@
 /obj/structure/window/basic{
 	dir = 5
 	},
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/plating,
 /area/planet/jungle)
 "aD" = (
@@ -515,13 +515,13 @@
 /area/outpost/research/chemistry)
 "bK" = (
 /obj/structure/table/standard,
-/obj/item/weapon/cell,
+/obj/item/cell,
 /obj/item/stack/cable_coil/random,
 /obj/item/stack/cable_coil/random,
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/item/device/analyzer/plant_analyzer,
+/obj/item/device/scanner/plant,
 /turf/simulated/floor/plating,
 /area/outpost/research/chemistry)
 "bL" = (
@@ -635,12 +635,12 @@
 /obj/item/stack/material/glass{
 	amount = 50
 	},
-/obj/item/weapon/storage/belt/utility{
+/obj/item/storage/belt/utility{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/weapon/storage/toolbox/mechanical,
-/obj/item/weapon/storage/toolbox/emergency{
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/emergency{
 	pixel_x = 5;
 	pixel_y = 5
 	},
@@ -651,7 +651,7 @@
 /area/outpost/research/chemistry)
 "ca" = (
 /obj/structure/reagent_dispensers/watertank,
-/obj/item/weapon/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/plating,
 /area/outpost/research/chemistry)
 "cb" = (
@@ -674,7 +674,7 @@
 /turf/simulated/wall,
 /area/outpost/research/chemistry)
 "cf" = (
-/obj/item/weapon/bedsheet/brown,
+/obj/item/bedsheet/brown,
 /obj/machinery/alarm{
 	frequency = 1441;
 	pixel_y = 22
@@ -760,15 +760,15 @@
 /area/outpost/research/analysis)
 "cr" = (
 /obj/structure/closet/crate/hydroponics,
-/obj/item/weapon/shovel/spade,
-/obj/item/weapon/reagent_containers/glass/bucket,
-/obj/item/weapon/material/minihoe,
-/obj/item/weapon/reagent_containers/spray/plantbgone{
+/obj/item/shovel/spade,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/material/minihoe,
+/obj/item/reagent_containers/spray/plantbgone{
 	pixel_x = 13;
 	pixel_y = 5
 	},
 /obj/item/weedkiller/triclopyr,
-/obj/item/weapon/reagent_containers/glass/bottle/eznutrient,
+/obj/item/reagent_containers/glass/bottle/eznutrient,
 /turf/simulated/floor/plating,
 /area/outpost/research/chemistry)
 "cs" = (
@@ -953,7 +953,7 @@
 /area/planet/jungle)
 "cJ" = (
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/analysis)
 "cK" = (
@@ -1078,7 +1078,7 @@
 /turf/simulated/floor/bluegrid,
 /area/outpost/research/analysis)
 "cZ" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
@@ -1202,7 +1202,7 @@
 	dir = 8
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/botanydisk,
+/obj/item/storage/box/botanydisk,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5;
 	icon_state = "intact";
@@ -1231,7 +1231,7 @@
 /obj/structure/hygiene/sink{
 	pixel_y = 30
 	},
-/obj/item/weapon/storage/mirror{
+/obj/item/storage/mirror{
 	dir = 4;
 	pixel_x = -32;
 	pixel_y = 0
@@ -1369,7 +1369,7 @@
 /area/outpost/research/analysis)
 "dA" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/beakers{
+/obj/item/storage/box/beakers{
 	pixel_x = 2;
 	pixel_y = 2
 	},
@@ -1384,7 +1384,7 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/chemistry)
 "dB" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/chemistry)
 "dC" = (
@@ -1838,8 +1838,8 @@
 /area/outpost/research/chemistry)
 "ey" = (
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/glass/beaker/large,
-/obj/item/weapon/reagent_containers/dropper{
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/item/reagent_containers/dropper{
 	pixel_y = -4
 	},
 /obj/effect/floor_decal/corner/lime,
@@ -1852,10 +1852,10 @@
 /area/outpost/research/chemistry)
 "ez" = (
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/glass/beaker/water,
-/obj/item/weapon/reagent_containers/glass/beaker/fuel,
-/obj/item/weapon/reagent_containers/glass/bottle/toxin,
-/obj/item/weapon/reagent_containers/glass/beaker/sulphuric{
+/obj/item/reagent_containers/glass/beaker/water,
+/obj/item/reagent_containers/glass/beaker/fuel,
+/obj/item/reagent_containers/glass/bottle/toxin,
+/obj/item/reagent_containers/glass/beaker/sulphuric{
 	name = "beaker 'sulphuric acid'"
 	},
 /obj/effect/floor_decal/corner/lime,
@@ -2185,8 +2185,8 @@
 /area/outpost/research/lab)
 "eX" = (
 /obj/structure/table/standard,
-/obj/item/weapon/flame/lighter/random,
-/obj/item/weapon/crowbar,
+/obj/item/flame/lighter/random,
+/obj/item/crowbar,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -2589,12 +2589,12 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/lab)
 "fA" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/lab)
 "fB" = (
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/dropper{
+/obj/item/reagent_containers/dropper{
 	pixel_y = -4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3099,7 +3099,7 @@
 /area/outpost/research/hallway)
 "gr" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/mixedglasses{
+/obj/item/storage/box/mixedglasses{
 	pixel_x = 1;
 	pixel_y = 4
 	},
@@ -3179,7 +3179,7 @@
 "gz" = (
 /obj/structure/table/rack,
 /obj/item/clothing/head/welding,
-/obj/item/weapon/weldingtool,
+/obj/item/weldingtool,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
@@ -3189,10 +3189,10 @@
 "gA" = (
 /obj/structure/table/standard,
 /obj/machinery/cell_charger,
-/obj/item/weapon/screwdriver{
+/obj/item/screwdriver{
 	pixel_y = 15
 	},
-/obj/item/weapon/melee/baton/loaded,
+/obj/item/melee/baton/loaded,
 /obj/effect/floor_decal/corner/mauve,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/lab)
@@ -3331,19 +3331,19 @@
 /area/outpost/research/dock)
 "gQ" = (
 /obj/structure/table/standard,
-/obj/item/weapon/paper_bin{
+/obj/item/paper_bin{
 	pixel_x = -2;
 	pixel_y = 5
 	},
-/obj/item/weapon/material/clipboard,
-/obj/item/weapon/pen,
+/obj/item/material/clipboard,
+/obj/item/pen,
 /turf/simulated/floor/wood/walnut,
 /area/outpost/research/hallway)
 "gR" = (
 /obj/structure/table/standard,
 /obj/item/device/camera,
-/obj/item/weapon/stamp,
-/obj/item/weapon/folder,
+/obj/item/stamp,
+/obj/item/folder,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -4081,8 +4081,8 @@
 /area/outpost/research/dock)
 "ip" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/regular,
-/obj/item/weapon/storage/firstaid/toxin,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/toxin,
 /obj/effect/floor_decal/corner/paleblue/three_quarters{
 	dir = 8
 	},
@@ -4090,11 +4090,11 @@
 /area/outpost/research/medical)
 "iq" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/o2{
+/obj/item/storage/firstaid/o2{
 	pixel_x = 2;
 	pixel_y = 2
 	},
-/obj/item/weapon/storage/firstaid/fire,
+/obj/item/storage/firstaid/fire,
 /obj/machinery/alarm{
 	dir = 8;
 	icon_state = "alarm0";
@@ -5339,11 +5339,11 @@
 /area/outpost/research/anomaly_analysis)
 "kl" = (
 /obj/structure/table/standard,
-/obj/item/weapon/anodevice{
+/obj/item/anodevice{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/weapon/anodevice,
+/obj/item/anodevice,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/anomaly_analysis)
 "km" = (
@@ -5396,7 +5396,7 @@
 	dir = 1;
 	pixel_y = -25
 	},
-/obj/item/weapon/material/hatchet/wood,
+/obj/item/material/hatchet/wood,
 /obj/effect/floor_decal/corner/mauve{
 	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
@@ -5407,7 +5407,7 @@
 "ks" = (
 /obj/structure/cable,
 /obj/structure/table/standard,
-/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
 /obj/machinery/power/apc{
 	dir = 2;
 	name = "south bump";
@@ -5635,19 +5635,19 @@
 /area/outpost/research/anomaly_analysis)
 "kQ" = (
 /obj/structure/table/standard,
-/obj/item/weapon/anobattery{
+/obj/item/anobattery{
 	pixel_x = -6;
 	pixel_y = 2
 	},
-/obj/item/weapon/anobattery{
+/obj/item/anobattery{
 	pixel_x = -2;
 	pixel_y = -2
 	},
-/obj/item/weapon/anobattery{
+/obj/item/anobattery{
 	pixel_x = 2;
 	pixel_y = 2
 	},
-/obj/item/weapon/anobattery{
+/obj/item/anobattery{
 	pixel_x = 6;
 	pixel_y = 6
 	},
@@ -5819,8 +5819,8 @@
 /area/outpost/research/isolation_monitoring)
 "lg" = (
 /obj/structure/table/standard,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/tape_roll,
+/obj/item/paper_bin,
+/obj/item/tape_roll,
 /obj/effect/floor_decal/corner/mauve{
 	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
@@ -6409,9 +6409,9 @@
 /area/outpost/research/isolation_monitoring)
 "ms" = (
 /obj/structure/table/standard,
-/obj/item/weapon/folder,
+/obj/item/folder,
 /obj/item/device/camera,
-/obj/item/weapon/pen,
+/obj/item/pen,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/isolation_monitoring)
 "mt" = (
@@ -6424,8 +6424,8 @@
 	icon_state = "corner_white";
 	dir = 4
 	},
-/obj/item/weapon/storage/firstaid/regular,
-/obj/item/weapon/storage/firstaid/rad,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/rad,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/isolation_monitoring)
 "mu" = (
@@ -6749,11 +6749,11 @@
 /area/outpost/research/emergency_storage)
 "nj" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/box/gloves{
+/obj/item/storage/box/gloves{
 	pixel_x = 4;
 	pixel_y = 5
 	},
-/obj/item/weapon/storage/box/samplebags{
+/obj/item/storage/box/samplebags{
 	pixel_x = 3;
 	pixel_y = -3
 	},
@@ -6761,7 +6761,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/item/weapon/storage/toolbox/emergency{
+/obj/item/storage/toolbox/emergency{
 	pixel_x = 5;
 	pixel_y = 5
 	},
@@ -6787,14 +6787,14 @@
 	dir = 8
 	},
 /obj/structure/table/rack,
-/obj/item/weapon/fishingrod,
-/obj/item/weapon/material/hatchet/wood,
+/obj/item/fishingrod,
+/obj/item/material/hatchet/wood,
 /turf/simulated/floor/tiled,
 /area/outpost/research/dock)
 "nn" = (
-/obj/item/weapon/material/hatchet/wood,
+/obj/item/material/hatchet/wood,
 /obj/structure/table/rack,
-/obj/item/weapon/shovel,
+/obj/item/shovel,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/outpost/research/dock)
@@ -6852,23 +6852,23 @@
 /area/outpost/research/isolation_monitoring)
 "nu" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/box/monkeycubes,
-/obj/item/weapon/storage/box/monkeycubes,
-/obj/item/weapon/storage/box/monkeycubes,
-/obj/item/weapon/reagent_containers/spray/cleaner,
+/obj/item/storage/box/monkeycubes,
+/obj/item/storage/box/monkeycubes,
+/obj/item/storage/box/monkeycubes,
+/obj/item/reagent_containers/spray/cleaner,
 /turf/simulated/floor/plating,
 /area/outpost/research/emergency_storage)
 "nv" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/box/lights/bulbs{
+/obj/item/storage/box/lights/bulbs{
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/obj/item/weapon/storage/box/lights/tubes{
+/obj/item/storage/box/lights/tubes{
 	pixel_x = -5;
 	pixel_y = 5
 	},
-/obj/item/weapon/storage/box/lights/mixed,
+/obj/item/storage/box/lights/mixed,
 /obj/machinery/light/small,
 /turf/simulated/floor/plating,
 /area/outpost/research/emergency_storage)
@@ -7714,12 +7714,12 @@
 /turf/simulated/floor/bluegrid,
 /area/outpost/mining_main/dorms)
 "pw" = (
-/obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiavulgaris,
-/obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiavulgaris,
+/obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
+/obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
 /turf/simulated/floor/planet/jungle/clear/underground,
 /area/planet/jungle)
 "px" = (
-/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/libertycap,
+/obj/item/reagent_containers/food/snacks/grown/mushroom/libertycap,
 /turf/simulated/floor/planet/jungle/clear/underground,
 /area/planet/jungle)
 "py" = (
@@ -7744,11 +7744,11 @@
 /turf/simulated/floor/planet/jungle/clear/underground,
 /area/planet/jungle)
 "pB" = (
-/obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiavulgaris,
+/obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
 /turf/simulated/floor/planet/jungle/clear/underground,
 /area/planet/jungle)
 "pC" = (
-/obj/item/weapon/bedsheet/brown,
+/obj/item/bedsheet/brown,
 /obj/structure/bed/nice,
 /turf/simulated/floor/carpet,
 /area/outpost/mining_main/dorms)
@@ -7792,7 +7792,7 @@
 /area/outpost/mining_main/dorms)
 "pH" = (
 /obj/structure/bed/nice,
-/obj/item/weapon/bedsheet/red,
+/obj/item/bedsheet/red,
 /turf/simulated/floor/carpet,
 /area/outpost/mining_main/dorms)
 "pI" = (
@@ -8101,10 +8101,10 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/obj/item/weapon/reagent_containers/food/condiment/small/peppermill{
+/obj/item/reagent_containers/food/condiment/small/peppermill{
 	pixel_x = 3
 	},
-/obj/item/weapon/reagent_containers/food/condiment/small/saltshaker{
+/obj/item/reagent_containers/food/condiment/small/saltshaker{
 	pixel_x = -3;
 	pixel_y = 0
 	},
@@ -8214,7 +8214,7 @@
 /area/outpost/mining_main/dorms)
 "qW" = (
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer,
+/obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /turf/simulated/floor/tiled/white,
 /area/outpost/mining_main/dorms)
 "qX" = (
@@ -8313,9 +8313,9 @@
 /area/shuttle/elevator/mining/surface)
 "rm" = (
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer,
-/obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer,
-/obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer,
+/obj/item/reagent_containers/food/drinks/bottle/small/beer,
+/obj/item/reagent_containers/food/drinks/bottle/small/beer,
+/obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /turf/simulated/floor/tiled/white,
 /area/outpost/mining_main/dorms)
 "rn" = (
@@ -8404,7 +8404,7 @@
 /turf/simulated/floor/carpet,
 /area/outpost/mining_main/dorms)
 "rw" = (
-/obj/item/weapon/mop,
+/obj/item/mop,
 /obj/structure/mopbucket,
 /obj/machinery/light/small{
 	dir = 8
@@ -8413,7 +8413,7 @@
 /area/outpost/mining_main/hallway)
 "rx" = (
 /obj/structure/reagent_dispensers/watertank,
-/obj/item/weapon/reagent_containers/glass/bucket{
+/obj/item/reagent_containers/glass/bucket{
 	amount_per_transfer_from_this = 50
 	},
 /turf/simulated/floor/tiled/dark,
@@ -8455,10 +8455,10 @@
 	dir = 8
 	},
 /obj/structure/table/rack,
-/obj/item/weapon/fishingrod,
-/obj/item/weapon/fishingrod,
-/obj/item/weapon/material/hatchet/wood,
-/obj/item/weapon/shovel,
+/obj/item/fishingrod,
+/obj/item/fishingrod,
+/obj/item/material/hatchet/wood,
+/obj/item/shovel,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "rF" = (
@@ -8470,8 +8470,8 @@
 /area/outpost/mining_main/refinery)
 "rG" = (
 /obj/structure/table/rack,
-/obj/item/weapon/material/hatchet/wood,
-/obj/item/weapon/shovel,
+/obj/item/material/hatchet/wood,
+/obj/item/shovel,
 /obj/effect/floor_decal/corner/beige/three_quarters{
 	tag = "icon-corner_white_three_quarters (NORTH)";
 	icon_state = "corner_white_three_quarters";
@@ -8480,13 +8480,13 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "rH" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /turf/simulated/floor/wood/walnut,
 /area/outpost/mining_main/refinery)
 "rI" = (
 /obj/structure/table/woodentable/walnut,
-/obj/item/weapon/carpentry/axe,
-/obj/item/weapon/carpentry/saw,
+/obj/item/carpentry/axe,
+/obj/item/carpentry/saw,
 /turf/simulated/floor/wood/walnut,
 /area/outpost/mining_main/refinery)
 "rJ" = (
@@ -8501,7 +8501,7 @@
 /area/planet/jungle)
 "rL" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/donkpockets,
+/obj/item/storage/box/donkpockets,
 /turf/simulated/floor/tiled/white,
 /area/outpost/mining_main/dorms)
 "rM" = (
@@ -8568,11 +8568,11 @@
 /area/outpost/mining_main/hallway)
 "rU" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/reagent_containers/spray/cleaner{
+/obj/item/reagent_containers/spray/cleaner{
 	pixel_x = 6;
 	pixel_y = 3
 	},
-/obj/item/weapon/reagent_containers/spray/plantbgone,
+/obj/item/reagent_containers/spray/plantbgone,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/mining_main/hallway)
 "rV" = (
@@ -8829,7 +8829,7 @@
 	pixel_y = 20;
 	tag = "icon-sink (NORTH)"
 	},
-/obj/item/weapon/storage/mirror{
+/obj/item/storage/mirror{
 	dir = 4;
 	pixel_x = 0;
 	pixel_y = 32
@@ -8845,7 +8845,7 @@
 	pixel_y = 20;
 	tag = "icon-sink (NORTH)"
 	},
-/obj/item/weapon/storage/mirror{
+/obj/item/storage/mirror{
 	dir = 4;
 	pixel_x = 0;
 	pixel_y = 32
@@ -9967,13 +9967,13 @@
 /area/outpost/mining_main/medbay)
 "vd" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/o2{
+/obj/item/storage/firstaid/o2{
 	layer = 2.8;
 	pixel_x = 4;
 	pixel_y = 6
 	},
-/obj/item/weapon/storage/firstaid/toxin,
-/obj/item/weapon/storage/firstaid/fire{
+/obj/item/storage/firstaid/toxin,
+/obj/item/storage/firstaid/fire{
 	layer = 2.9;
 	pixel_x = 2;
 	pixel_y = 3
@@ -9998,11 +9998,11 @@
 /area/outpost/mining_main/medbay)
 "vh" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/o2{
+/obj/item/storage/firstaid/o2{
 	pixel_x = 2;
 	pixel_y = 2
 	},
-/obj/item/weapon/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular,
 /turf/simulated/floor/tiled/white,
 /area/outpost/mining_main/medbay)
 "vi" = (
@@ -10043,8 +10043,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/outpost/security/storage)
 "vl" = (
-/obj/item/weapon/storage/box/handcuffs,
-/obj/item/weapon/storage/box/flashbangs{
+/obj/item/storage/box/handcuffs,
+/obj/item/storage/box/flashbangs{
 	pixel_x = -2;
 	pixel_y = -2
 	},
@@ -10076,8 +10076,8 @@
 /area/outpost/security/storage)
 "vn" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/toolbox/mechanical,
-/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/security/storage)
@@ -10138,8 +10138,8 @@
 /area/outpost/engineering/hallway)
 "vv" = (
 /obj/structure/table/rack,
-/obj/item/weapon/material/hatchet/wood,
-/obj/item/weapon/shovel,
+/obj/item/material/hatchet/wood,
+/obj/item/shovel,
 /obj/effect/floor_decal/corner/yellow/full,
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
@@ -10179,8 +10179,8 @@
 "vz" = (
 /obj/structure/table/standard,
 /obj/item/stack/medical/advanced/bruise_pack,
-/obj/item/weapon/cautery,
-/obj/item/weapon/FixOVein,
+/obj/item/cautery,
+/obj/item/FixOVein,
 /obj/effect/floor_decal/corner/lime/three_quarters{
 	dir = 8
 	},
@@ -10219,19 +10219,19 @@
 /area/outpost/mining_main/medbay)
 "vD" = (
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/ivbag/blood/OPlus{
+/obj/item/reagent_containers/ivbag/blood/OPlus{
 	pixel_x = 4;
 	pixel_y = 2
 	},
-/obj/item/weapon/reagent_containers/ivbag/blood/OPlus{
+/obj/item/reagent_containers/ivbag/blood/OPlus{
 	pixel_x = 4;
 	pixel_y = 2
 	},
-/obj/item/weapon/reagent_containers/ivbag/blood/OMinus{
+/obj/item/reagent_containers/ivbag/blood/OMinus{
 	pixel_x = -5;
 	pixel_y = -1
 	},
-/obj/item/weapon/reagent_containers/ivbag/blood/OMinus{
+/obj/item/reagent_containers/ivbag/blood/OMinus{
 	pixel_x = -5;
 	pixel_y = -1
 	},
@@ -10293,8 +10293,8 @@
 	pixel_y = -7
 	},
 /obj/item/stack/cable_coil,
-/obj/item/weapon/airlock_electronics,
-/obj/item/weapon/airlock_electronics,
+/obj/item/airlock_electronics,
+/obj/item/airlock_electronics,
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
 "vL" = (
@@ -10302,11 +10302,11 @@
 	dir = 8;
 	layer = 2.9
 	},
-/obj/item/weapon/storage/belt/utility,
+/obj/item/storage/belt/utility,
 /obj/item/clothing/suit/storage/hazardvest,
 /obj/item/clothing/suit/storage/hazardvest,
-/obj/item/weapon/tank/emergency/oxygen/engi,
-/obj/item/weapon/storage/toolbox/electrical,
+/obj/item/tank/emergency/oxygen/engi,
+/obj/item/storage/toolbox/electrical,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
@@ -10418,8 +10418,8 @@
 /area/outpost/mining_main/refinery)
 "vY" = (
 /obj/structure/table/standard,
-/obj/item/weapon/bonegel,
-/obj/item/weapon/bonesetter,
+/obj/item/bonegel,
+/obj/item/bonesetter,
 /obj/effect/floor_decal/corner/lime{
 	dir = 9
 	},
@@ -10520,7 +10520,7 @@
 /obj/item/stack/rods{
 	amount = 50
 	},
-/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
 "wl" = (
@@ -10647,10 +10647,10 @@
 /area/outpost/mining_main/refinery)
 "wy" = (
 /obj/structure/table/standard,
-/obj/item/weapon/scalpel{
+/obj/item/scalpel{
 	pixel_y = 15
 	},
-/obj/item/weapon/circular_saw,
+/obj/item/circular_saw,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1"
@@ -11002,8 +11002,8 @@
 /area/outpost/mining_main/refinery)
 "xg" = (
 /obj/structure/table/standard,
-/obj/item/weapon/hemostat,
-/obj/item/weapon/retractor,
+/obj/item/hemostat,
+/obj/item/retractor,
 /obj/effect/floor_decal/corner/lime{
 	dir = 9
 	},
@@ -11194,8 +11194,8 @@
 /area/outpost/mining_main/refinery)
 "xD" = (
 /obj/structure/table/standard,
-/obj/item/weapon/surgicaldrill,
-/obj/item/weapon/reagent_containers/spray/sterilizine,
+/obj/item/surgicaldrill,
+/obj/item/reagent_containers/spray/sterilizine,
 /obj/effect/floor_decal/corner/lime/three_quarters,
 /turf/simulated/floor/tiled/white,
 /area/outpost/mining_main/medbay)
@@ -11953,9 +11953,9 @@
 "yQ" = (
 /obj/effect/floor_decal/corner/red/three_quarters,
 /obj/structure/table/standard,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
-/obj/item/weapon/folder/red,
+/obj/item/paper_bin,
+/obj/item/pen,
+/obj/item/folder/red,
 /turf/simulated/floor/tiled,
 /area/outpost/security/hallway)
 "yR" = (

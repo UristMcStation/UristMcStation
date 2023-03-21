@@ -228,7 +228,7 @@
 		if(mastership.health < mastership.maxHealth)
 			var/mastership_after_repair = mastership.health + repair_amount
 			if(mastership_after_repair > mastership.maxHealth) //don't want to exceed the health value
-				var/new_rep_amount = Clamp(repair_amount, 0, mastership.maxHealth)
+				var/new_rep_amount = clamp(repair_amount, 0, mastership.maxHealth)
 				mastership.health += new_rep_amount
 				did_repair = TRUE
 			else //if we good, just add a lump sum of health
@@ -245,7 +245,7 @@
 			if(M.health < mod_start_health)
 				var/module_after_repair = M.health + repair_amount
 				if(module_after_repair > mod_start_health)
-					var/new_mod_rep_amt = Clamp(repair_amount, 0, mod_start_health)
+					var/new_mod_rep_amt = clamp(repair_amount, 0, mod_start_health)
 					M.health = new_mod_rep_amt
 					did_repair = TRUE
 				else
@@ -260,7 +260,7 @@
 					continue
 				if(did_repair)
 					break
-				M.health = Clamp(repair_amount, 0, M.GetInitial(health)) //incase we're repairing more than a module has in terms of health
+				M.health = clamp(repair_amount, 0, M.GetInitial(health)) //incase we're repairing more than a module has in terms of health
 				M.broken = FALSE
 				M.name = M.GetInitial(name)
 				did_repair = TRUE
@@ -318,7 +318,7 @@
 	else
 		for(var/datum/shipcomponents/engines/E in mastership.components)
 			if((E.evasion_chance + evasion_increase) > 90)
-				var/new_evasion_chance = Clamp(evasion_increase, 0, 90)
+				var/new_evasion_chance = clamp(evasion_increase, 0, 90)
 				E.evasion_chance += new_evasion_chance
 				active = TRUE
 			else

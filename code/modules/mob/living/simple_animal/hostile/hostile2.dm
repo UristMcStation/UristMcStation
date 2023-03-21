@@ -1,10 +1,10 @@
-/mob/living/simple_animal/hostile
+/*/mob/living/simple_animal/hostile
 	faction = "hostile"
 	mouse_opacity = 2 //This makes it easier to hit hostile mobs, you only need to click on their tile, and is set back to 1 when they die
 	stop_automated_movement_when_pulled = 0
 	environment_smash = 1 //Set to 1 to break closets,tables,racks, etc; 2 for walls; 3 for rwalls
 
-	var/stance = HOSTILE_STANCE_IDLE	//Used to determine behavior
+	var/stance = STANCE_IDLE	//Used to determine behavior
 	var/atom/target // /vg/ edit:  Removed type specification so spiders can target doors.
 	var/attack_same = 0 //Set us to 1 to allow us to attack our own faction, or 2, to only ever attack our own faction
 	var/ranged = 0
@@ -58,16 +58,16 @@ mob/living/simple_animal/hostile/Initialize()
 		return 0
 	if(!stat)
 		switch(stance)
-			if(HOSTILE_STANCE_IDLE)
+			if(STANCE_IDLE)
 				if(environment_smash)
 					EscapeConfinement()
 				var/new_target = FindTarget()
 				GiveTarget(new_target)
 
-			if(HOSTILE_STANCE_ATTACK)
+			if(STANCE_ATTACK)
 				MoveToTarget() || DestroySurroundings()
 
-			if(HOSTILE_STANCE_ATTACKING)
+			if(STANCE_ATTACKING)
 				AttackTarget() || DestroySurroundings()
 
 
@@ -118,7 +118,7 @@ mob/living/simple_animal/hostile/Initialize()
 			if(target_dist < possible_target_distance)
 				Targets -= A
 
-	if(!Targets.len)//We didnt find nothin!
+	if(!length(Targets))//We didnt find nothin!
 		return
 
 	var/chosen_target = pick(Targets)//Pick the remaining targets (if any) at random
@@ -158,7 +158,7 @@ mob/living/simple_animal/hostile/Initialize()
 	target = new_target
 	if(target != null)
 		Aggro()
-		stance = HOSTILE_STANCE_ATTACK
+		stance = STANCE_ATTACK
 	return
 
 /mob/living/simple_animal/hostile/proc/MoveToTarget()//Step 5, handle movement between us and our target
@@ -214,12 +214,12 @@ mob/living/simple_animal/hostile/Initialize()
 			search_objects = 0
 			target = null
 
-		if(stance == HOSTILE_STANCE_IDLE)//If we took damage while idle, immediately attempt to find the source of it so we find a living target
+		if(stance == STANCE_IDLE)//If we took damage while idle, immediately attempt to find the source of it so we find a living target
 			Aggro()
 			var/new_target = FindTarget()
 			GiveTarget(new_target)
 
-		if(stance == HOSTILE_STANCE_ATTACK)//No more pulling a mob forever and having a second player attack it, it can switch targets now if it finds a more suitable one
+		if(stance == STANCE_ATTACK)//No more pulling a mob forever and having a second player attack it, it can switch targets now if it finds a more suitable one
 			if(target != null && prob(25))
 				var/new_target = FindTarget()
 				GiveTarget(new_target)
@@ -254,13 +254,13 @@ mob/living/simple_animal/hostile/Initialize()
 	vision_range = idle_vision_range
 
 /mob/living/simple_animal/hostile/proc/LoseTarget()
-	stance = HOSTILE_STANCE_IDLE
+	stance = STANCE_IDLE
 	target = null
 	walk(src, 0)
 	LoseAggro()
 
 /mob/living/simple_animal/hostile/proc/LostTarget()
-	stance = HOSTILE_STANCE_IDLE
+	stance = STANCE_IDLE
 	walk(src, 0)
 	LoseAggro()
 
@@ -395,7 +395,7 @@ mob/living/simple_animal/hostile/Initialize()
 	return 0
 /*	if(emergency_shuttle.shuttle.location)
 		if(!enroute && !target_mob)	//The shuttle docked, all monsters rush for the escape hallway
-			if(!shuttletarget && escape_list.len) //Make sure we didn't already assign it a target, and that there are targets to pick
+			if(!shuttletarget && length(escape_list)) //Make sure we didn't already assign it a target, and that there are targets to pick
 				shuttletarget = pick(escape_list) //Pick a shuttle target
 			enroute = 1
 			stop_automated_movement = 1
@@ -446,6 +446,7 @@ mob/living/simple_animal/hostile/Initialize()
 
 /mob/living/simple_animal/hostile/proc/kick_stance()
 	if(target)
-		stance = HOSTILE_STANCE_ATTACK
+		stance = STANCE_ATTACK
 	else
-		stance = HOSTILE_STANCE_IDLE
+		stance = STANCE_IDLE
+*/

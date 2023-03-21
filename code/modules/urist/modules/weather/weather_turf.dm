@@ -34,7 +34,7 @@
 
 /turf/proc/WActive()
 	if(!(weather_safe))
-		if(weather_tracker.len)
+		if(length(weather_tracker))
 			return 1
 	return 0
 

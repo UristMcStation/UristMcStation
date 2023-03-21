@@ -46,7 +46,7 @@
 		/obj/item/device/radio/headset/heads/torchntcommand/alt
 	)
 
-/decl/closet_appearance/secure_closet/torch/corporate/bodyguard
+/singleton/closet_appearance/secure_closet/torch/corporate/bodyguard
 	extra_decals = list(
 		"stripe_vertical_left_full" =  COLOR_OFF_WHITE,
 		"stripe_vertical_right_full" = COLOR_OFF_WHITE,
@@ -56,14 +56,14 @@
 /obj/structure/closet/secure_closet/bodyguard
 	name = "\improper corporate protection locker"
 	req_access = list(access_sec_guard)
-	closet_appearance = /decl/closet_appearance/secure_closet/torch/corporate/bodyguard
+	closet_appearance = /singleton/closet_appearance/secure_closet/torch/corporate/bodyguard
 
 /obj/structure/closet/secure_closet/bodyguard/WillContain()
 	return list(
 		/obj/item/device/flash,
 		/obj/item/clothing/accessory/storage/holster/armpit,
-		/obj/item/weapon/gun/energy/gun/secure/corporate,
-		/obj/item/weapon/storage/secure/briefcase,
+		/obj/item/gun/energy/gun/secure/corporate,
+		/obj/item/storage/secure/briefcase,
 		/obj/item/clothing/shoes/laceup,
 		/obj/item/clothing/under/rank/internalaffairs/plain/nt,
 		/obj/item/clothing/suit/storage/toggle/suit/black,

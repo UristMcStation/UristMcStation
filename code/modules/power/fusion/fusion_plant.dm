@@ -43,6 +43,6 @@ GLOBAL_LIST_INIT(fusion_plants, new)
 		fusion_cores   -= device
 		fuel_injectors -= device
 		gyrotrons      -= device
-	if(all_objects.len <= 0)
+	if(length(all_objects) <= 0)
 		qdel(src)
 	return isnull(all_objects[device])

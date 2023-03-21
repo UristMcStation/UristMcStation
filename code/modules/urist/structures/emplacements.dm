@@ -19,7 +19,7 @@
 	icon_state = "mgun+barrier"
 	var/fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	var/empty_sound = 'sound/weapons/empty.ogg'
-	var/ammo_type = /obj/item/projectile/bullet/rifle/a762
+	var/ammo_type = /obj/item/projectile/bullet/rifle
 	var/ammo = 500
 	var/ammomax = 500
 	var/list/row1 = list()
@@ -167,7 +167,7 @@
 
 /obj/structure/emplacement/machinegun/attackby(obj/item/W as obj, mob/user as mob)
 	var/obj/item/machinegunammo/Ammo = W
-	if(istype(W, /obj/item/weapon/wrench))
+	if(istype(W, /obj/item/wrench))
 		if(anchored)
 			user.visible_message("<span class='notice'> \The [user] starts to unbolt \the [src] from the plating...</span>")
 			if(!do_after(user,40))
@@ -200,7 +200,7 @@
 		return ..()
 
 /obj/structure/emplacement/laser/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/wrench))
+	if(istype(W, /obj/item/wrench))
 		if(anchored)
 			user.visible_message("<span class='notice'> \The [user] starts to unbolt \the [src] from the plating...</span>")
 			if(!do_after(user,40))

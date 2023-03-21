@@ -16,7 +16,7 @@
 
 /obj/weathertype/New()
 	. = ..()
-	if(init_reagents.len)
+	if(length(init_reagents))
 		create_reagents(999)
 		for(var/R in init_reagents) //TODO: secure this from non-reagent ID strings
 			reagents.add_reagent(R, 50, null, 1)

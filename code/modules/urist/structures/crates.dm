@@ -28,8 +28,8 @@ All crates that cannot be ordered go here. Please keep it tidy, by which I mean 
 	name = "Schrodinger's Crate"
 	desc = "What happens if you open it?"
 
-	attackby(obj/item/weapon/W as obj, mob/user as mob)
-		if(istype(W, /obj/item/weapon/crowbar))
+	attackby(obj/item/W as obj, mob/user as mob)
+		if(istype(W, /obj/item/crowbar))
 			var/mob/living/simple_animal/cat/Cat1 = new(loc)
 			Cat1.apply_damage(250)//,TOX)
 			Cat1.name = "Schrodinger's Cat"
@@ -68,8 +68,8 @@ All crates that cannot be ordered go here. Please keep it tidy, by which I mean 
 			if(istype(trap, /obj/effect/mine))
 				var/obj/effect/mine/M = trap
 				M.explode2()
-			else if(istype(trap, /obj/item/weapon/grenade))
-				var/obj/item/weapon/grenade/G = trap
+			else if(istype(trap, /obj/item/grenade))
+				var/obj/item/grenade/G = trap
 				G.detonate()
 		else
 			explosion(loc, 0, 2, 4, 5)
@@ -94,14 +94,14 @@ All crates that cannot be ordered go here. Please keep it tidy, by which I mean 
 /obj/structure/closet/crate/secure/boobytrapped/weapon
 	name = "weapons crate"
 	desc = "A secure weapons crate outfitted with an anti-tamper trap."
-	trap = /obj/item/weapon/grenade/frag/high_yield
+	trap = /obj/item/grenade/frag/high_yield
 	trap_delete_on_open = 1
 //CDN
 /obj/structure/closet/crate/secure/boobytrapped/gear
 	name = "gear crate"
 	desc = "A secure gear crate outfitted with an anti-tamper trap."
 	icon_state = "secgearcrate"
-	trap = /obj/item/weapon/grenade/frag/high_yield
+	trap = /obj/item/grenade/frag/high_yield
 	trap_delete_on_open = 1
 
 /obj/structure/closet/crate/secure/boobytrapped/weapon/random/New()

@@ -135,7 +135,7 @@
 	name = "Standard EMP Ammo Box"
 	desc = "A box of EMP ammo for standard pistols. Contains 15 rounds."
 	item_cost = 8
-	path = /obj/item/weapon/magnetic_ammo
+	path = /obj/item/magnetic_ammo
 
 /datum/uplink_item/item/ammo/c45m_emp
 	name = ".45 EMP Ammo Box (10 rounds)"

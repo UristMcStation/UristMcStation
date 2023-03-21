@@ -134,7 +134,7 @@
 		var/multiplier = text2num(href_list["multiplier"])
 		var/datum/scomscience/recipe/making
 
-		if(index > 0 && index <= machine_recipes.len)
+		if(index > 0 && index <= length(machine_recipes))
 			making = machine_recipes[index]
 
 		//Exploit detection, not sure if necessary after rewrite.
@@ -234,11 +234,11 @@
 					user.equip_to_slot_or_del(new /obj/item/clothing/suit/urist/armor/heavy(user), slot_wear_suit)
 					new /obj/item/clothing/accessory/storage/black_vest(src.loc)
 					new /obj/item/ammo_magazine/c45m(src.loc)
-					new /obj/item/weapon/reagent_containers/hypospray/autoinjector(src.loc)
-					new /obj/item/weapon/gun/projectile/automatic/l6_saw(src.loc)
-					new /obj/item/weapon/storage/box/large/lmgammo(src.loc)
+					new /obj/item/reagent_containers/hypospray/autoinjector(src.loc)
+					new /obj/item/gun/projectile/automatic/l6_saw(src.loc)
+					new /obj/item/storage/box/large/lmgammo(src.loc)
 
-					for (var/obj/item/weapon/card/id/W in user)
+					for (var/obj/item/card/id/W in user)
 						if(W.assignment == "S-COM Operative")
 							W.assignment = "S-COM Heavy Operative"
 
@@ -246,32 +246,32 @@
 					user.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest(user), slot_wear_suit)
 					new /obj/item/clothing/accessory/storage/black_vest(src.loc)
 					new /obj/item/ammo_magazine/c45m(src.loc)
-					new /obj/item/weapon/gun/projectile/shotgun/pump/combat(src.loc)
-					new /obj/item/weapon/reagent_containers/hypospray/autoinjector(src.loc)
-					new /obj/item/weapon/storage/box/ammo/shotgunammo(src.loc)
-					new /obj/item/weapon/storage/box/ammo/shotgunammo(src.loc)
-					new /obj/item/weapon/storage/box/ammo/shotgunammo(src.loc)
+					new /obj/item/gun/projectile/shotgun/pump/combat(src.loc)
+					new /obj/item/reagent_containers/hypospray/autoinjector(src.loc)
+					new /obj/item/storage/box/ammo/shotgunammo(src.loc)
+					new /obj/item/storage/box/ammo/shotgunammo(src.loc)
+					new /obj/item/storage/box/ammo/shotgunammo(src.loc)
 
-					for (var/obj/item/weapon/card/id/W in user)
+					for (var/obj/item/card/id/W in user)
 						if(W.assignment == "S-COM Operative")
 							W.assignment = "S-COM Assault Operative"
 
 				if("Medic")
 					user.equip_to_slot_or_del(new /obj/item/clothing/suit/urist/armor/medic(user), slot_wear_suit)
 					user.equip_to_slot_or_del(new /obj/item/clothing/glasses/hud/health(user), slot_glasses)
-					user.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/ert/medical(user), slot_back)
-					user.equip_to_slot_or_del(new /obj/item/weapon/defibrillator/compact/combat/loaded(user.back), slot_in_backpack)
-					user.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/fire(user.back), slot_in_backpack)
-					user.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/adv(user.back), slot_in_backpack)
+					user.equip_to_slot_or_del(new /obj/item/storage/backpack/ert/medical(user), slot_back)
+					user.equip_to_slot_or_del(new /obj/item/defibrillator/compact/combat/loaded(user.back), slot_in_backpack)
+					user.equip_to_slot_or_del(new /obj/item/storage/firstaid/fire(user.back), slot_in_backpack)
+					user.equip_to_slot_or_del(new /obj/item/storage/firstaid/adv(user.back), slot_in_backpack)
 					user.equip_to_slot_or_del(new /obj/item/bodybag/cryobag(user.back), slot_in_backpack)
 					new /obj/item/bodybag/cryobag(src.loc)
 					new /obj/item/clothing/accessory/storage/black_vest(src.loc)
-					new /obj/item/weapon/gun/projectile/automatic/c20r(src.loc)
-					new /obj/item/weapon/storage/box/c20ammo(src.loc)
-					new /obj/item/weapon/grenade/chem_grenade/heal2(src.loc)
+					new /obj/item/gun/projectile/automatic/c20r(src.loc)
+					new /obj/item/storage/box/c20ammo(src.loc)
+					new /obj/item/grenade/chem_grenade/heal2(src.loc)
 					new /obj/item/ammo_magazine/c45m(src.loc)
-					new /obj/item/weapon/storage/firstaid/adv(src.loc)
-					for (var/obj/item/weapon/card/id/W in user)
+					new /obj/item/storage/firstaid/adv(src.loc)
+					for (var/obj/item/card/id/W in user)
 						if(W.assignment == "S-COM Operative")
 							W.assignment = "S-COM Combat Medic"
 
@@ -280,11 +280,11 @@
 					new /obj/item/ammo_magazine/a50(src.loc)
 					new /obj/item/ammo_magazine/a50(src.loc)
 					new /obj/item/clothing/accessory/storage/black_vest(src.loc)
-					new /obj/item/weapon/reagent_containers/hypospray/autoinjector(src.loc)
-					new /obj/item/weapon/storage/box/sniperammo(src.loc)
-					new /obj/item/weapon/gun/projectile/sniper(src.loc)
-					new /obj/item/weapon/gun/projectile/magnum_pistol(src.loc)
-					for (var/obj/item/weapon/card/id/W in user)
+					new /obj/item/reagent_containers/hypospray/autoinjector(src.loc)
+					new /obj/item/storage/box/sniperammo(src.loc)
+					new /obj/item/gun/projectile/sniper(src.loc)
+					new /obj/item/gun/projectile/magnum_pistol(src.loc)
+					for (var/obj/item/card/id/W in user)
 						if(W.assignment == "S-COM Operative")
 							W.assignment = "S-COM Sniper"
 
@@ -323,7 +323,7 @@
 	var/list/all_destinations = list()
 	for(var/obj/machinery/scom/teleporter2/T in SSmachines.machinery)
 		all_destinations += T
-	if(all_destinations.len)
+	if(length(all_destinations))
 		destination = pick(all_destinations)
 	return destination
 

@@ -1,7 +1,7 @@
 
 //holojanisign
 
-/obj/item/weapon/holosign_creator
+/obj/item/holosign_creator
 	name = "holographic sign projector"
 	desc = "A handy-dandy projector that displays a janitorial sign."
 	icon = 'icons/urist/items/hologram_creator.dmi'
@@ -18,7 +18,7 @@
 	var/creation_time = 0
 	var/holosign_type = /obj/structure/hologramsign
 
-/obj/item/weapon/holosign_creator/afterattack(atom/target, mob/user, flag)
+/obj/item/holosign_creator/afterattack(atom/target, mob/user, flag)
 	if(flag)
 		var/turf/T = get_turf(target)
 		var/obj/structure/hologramsign/H = locate() in T
@@ -27,7 +27,7 @@
 			signs -= H
 			qdel(H)
 		else
-			if(signs.len < max_signs)
+			if(length(signs) < max_signs)
 				if(do_after(user, creation_time, src))
 					H = new holosign_type (get_turf(target))
 					signs += H
@@ -35,11 +35,11 @@
 			else
 				to_chat(user, "<span class='notice'>[src] is projecting at max capacity!</span>")
 
-/obj/item/weapon/holosign_creator/attack(mob/living/carbon/human/M, mob/user)
+/obj/item/holosign_creator/attack(mob/living/carbon/human/M, mob/user)
 	return
 
-/obj/item/weapon/holosign_creator/attack_self(mob/user)
-	if(signs.len)
+/obj/item/holosign_creator/attack_self(mob/user)
+	if(length(signs))
 		var/list/L = signs.Copy()
 		for(var/sign in L)
 			qdel(sign)
@@ -72,7 +72,7 @@
 	to_chat(M, "<span class = 'notice' >Slow down, if you intend to blatantly violate this posted warning!</span>")
 	return FALSE
 
-/obj/item/weapon/holosign_creator/security
+/obj/item/holosign_creator/security
 	name = "security holobarrier projector"
 	desc = "A holographic projector that creates holographic security barriers."
 	icon_state = "signmaker_sec"
@@ -80,7 +80,7 @@
 	creation_time = 30
 	max_signs = 6
 
-/obj/item/weapon/holosign_creator/engineering
+/obj/item/holosign_creator/engineering
 	name = "engineering holobarrier projector"
 	desc = "A holographic projector that creates holographic engineering barriers."
 	icon_state = "signmaker_engi"
@@ -93,7 +93,7 @@
 	desc = "A holographic barrier with a certain engineering interest."
 	icon_state = "holosign_engi"
 
-/obj/item/weapon/holosign_creator/atmos
+/obj/item/holosign_creator/atmos
 	name = "ATMOS holofan projector"
 	desc = "A holographic projector that creates holographic barriers that prevent changes in atmosphere conditions."
 	icon_state = "signmaker_atmos"

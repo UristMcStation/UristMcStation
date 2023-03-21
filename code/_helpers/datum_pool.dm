@@ -30,7 +30,7 @@
 		if(isnull(masterdatumPool[type]))
 			masterdatumPool[type] = list()
 
-		if(B && B.len)
+		if(B && length(B))
 			return new type(arglist(B))
 		else
 			return new type()
@@ -45,11 +45,11 @@
 	if(!O || !istype(O))
 		O = new type(arglist(B))
 	else
-		if(istype(O, /atom/movable) && B.len) // B.len check so we don't OoB.
+		if(istype(O, /atom/movable) && length(B)) // length(B) check so we don't OoB.
 			var/atom/movable/AM = O
 			AM.forceMove(B[1], FALSE, TRUE)
 
-		if(B && B.len)
+		if(B && length(B))
 			O.New(arglist(B))
 		else
 			O.New()

@@ -69,7 +69,7 @@
 /datum/uplink_item/item/stealth_items/fleshsuit
 	name = "Human-suit"
 	item_cost = 5
-	path = /obj/item/weapon/storage/box/syndie_kit/fleshsuit
+	path = /obj/item/storage/box/syndie_kit/fleshsuit
 
 /datum/uplink_item/item/stealth_items/sneakies
 	name = "Sneakies"

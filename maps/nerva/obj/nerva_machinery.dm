@@ -10,7 +10,7 @@
 	suit_type = /obj/item/clothing/suit/space/void/exploration
 	helmet_type = /obj/item/clothing/head/helmet/space/void/exploration
 	boots_type = /obj/item/clothing/shoes/magboots
-	tank_type = /obj/item/weapon/tank/oxygen
+	tank_type = /obj/item/tank/oxygen
 	mask_type = /obj/item/clothing/mask/breath
 	req_access = list(access_expedition)
 	islocked = 1
@@ -20,7 +20,7 @@
 	suit_type = /obj/item/clothing/suit/space/void/pilot
 	helmet_type = /obj/item/clothing/head/helmet/space/void/pilot
 	boots_type = /obj/item/clothing/shoes/magboots
-	tank_type = /obj/item/weapon/tank/oxygen
+	tank_type = /obj/item/tank/oxygen
 	mask_type = /obj/item/clothing/mask/breath
 	req_access = list(access_expedition)
 	islocked = 1

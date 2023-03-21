@@ -362,7 +362,7 @@
 
 /*
 /area/maintenance/sub
-	turf_initializer = /decl/turf_initializer/maintenance/heavy
+	turf_initializer = /singleton/turf_initializer/maintenance/heavy
 	ambience = list(
 		'sound/ambience/ambiatm1.ogg',
 		'sound/ambience/ambigen3.ogg',
@@ -1100,7 +1100,7 @@ area/rnd/test_area
 	icon_state = "maint_security_starboard"
 	area_flags = AREA_FLAG_EXTERNAL
 	has_gravity = FALSE
-	turf_initializer = /decl/turf_initializer/maintenance/space
+	turf_initializer = /singleton/turf_initializer/maintenance/space
 
 // CentCom
 

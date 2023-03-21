@@ -35,7 +35,7 @@
 		Flip()
 		return
 
-	attackby(obj/item/weapon/W as obj, mob/user as mob)
+	attackby(obj/item/W as obj, mob/user as mob)
 		var/mob/M = user
 		if(istype(W,/obj/item/toy/card) && loc==user)
 			M.drop_item()
@@ -73,7 +73,7 @@
 		examine()
 		return
 
-	attackby(obj/item/weapon/W as obj, mob/user as mob)
+	attackby(obj/item/W as obj, mob/user as mob)
 		var/mob/M = user
 		if(istype(W,/obj/item/toy/card) && loc==user)
 			M.drop_item()
@@ -97,7 +97,7 @@
 
 		var/mob/M = usr
 		var/obj/item/toy/card
-		if(contents.len>1)
+		if(length(contents)>1)
 			card = input(usr, "Select a card to pick.", "Card hand") in contents
 			card.loc = M
 			M.put_in_hands(card)
@@ -109,7 +109,7 @@
 		return
 
 
-/obj/item/weapon/storage/deck
+/obj/item/storage/deck
 	name = "Card deck"
 	desc = "Deck of cards!"
 	icon = 'icons/urist/items/cards.dmi'
@@ -144,7 +144,7 @@
 		set category = "Object"
 		set src in oview(1)
 
-		if(contents && contents.len>0)
+		if(contents && length(contents)>0)
 			usr.visible_message("<span class='notice'>[usr] pulls the card from the deck.</span>","<span class='notice'>You pull the card from the deck! </span>")
 			var/I = src.contents[1]
 			var/mob/M = usr
@@ -154,4 +154,3 @@
 
 	attack_self(mob/user as mob)
 		pull_card()
-

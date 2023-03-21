@@ -198,7 +198,7 @@
 	icon_state = "emsbelt"
 	item_state = "emsbelt"
 
-/obj/item/weapon/storage/belt/medical/classic
+/obj/item/storage/belt/medical/classic
 	icon = 'icons/urist/items/clothes/belt.dmi'
 	item_icons = URIST_ALL_ONMOBS
 

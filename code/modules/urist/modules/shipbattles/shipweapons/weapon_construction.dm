@@ -87,7 +87,7 @@
 
 			if(isWelder(W))
 
-				var/obj/item/weapon/weldingtool/F = W
+				var/obj/item/weldingtool/F = W
 				if(F.isOn())
 					if(F.remove_fuel(0,user))
 						playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
@@ -121,7 +121,7 @@
 
 			else if(isWelder(W))
 
-				var/obj/item/weapon/weldingtool/F = W
+				var/obj/item/weldingtool/F = W
 				if(F.isOn())
 					if(F.remove_fuel(0,user))
 						playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)

@@ -58,10 +58,10 @@
 /obj/machinery/smartfridge/tanningrack/New()
 	..()
 	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/tanningrack(src)
+	component_parts += new /obj/item/circuitboard/tanningrack(src)
 	component_parts += new /obj/item/stack/material/wood(src, 4)
-	component_parts += new /obj/item/weapon/stock_parts/scanning_module(src)
-	component_parts += new /obj/item/weapon/stock_parts/console_screen(src)
+	component_parts += new /obj/item/stock_parts/scanning_module(src)
+	component_parts += new /obj/item/stock_parts/console_screen(src)
 	component_parts += new /obj/item/stack/cable_coil(src, 5)
 
 /obj/machinery/smartfridge/tanningrack/attackby(var/obj/item/I, mob/user as mob)
@@ -87,7 +87,7 @@
 //step two is dehairing. We actually soak it first, then dehair it, then put it on our magical tanning rack.
 //we're skipping curing and going straight to soaking. Skipping liming and going straight to dehairing, and skipping all the stages with the chemicals and just going straight to our tanning rack.
 
-/obj/item/stack/hide/wet/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/stack/hide/wet/attackby(obj/item/W as obj, mob/user as mob)
 	if(is_sharp(W))
 		if(!busy)
 		//visible message on mobs is defined as visible_message(var/message, var/self_message, var/blind_message)
@@ -132,9 +132,9 @@
 		new/datum/stack_recipe("waist holster", /obj/item/clothing/accessory/storage/holster/waist, 2, time = 40), \
 		new/datum/stack_recipe("armpit holster", /obj/item/clothing/accessory/storage/holster/armpit, 2, time = 40), \
 		))
-	recipes += new/datum/stack_recipe("tool belt", /obj/item/weapon/storage/belt/utility, 3, time = 45)
-	recipes += new/datum/stack_recipe("briefcase", /obj/item/weapon/storage/briefcase, 1, time = 30)
-	recipes += new/datum/stack_recipe("wallet", /obj/item/weapon/storage/wallet/leather, 1, time = 30)
+	recipes += new/datum/stack_recipe("tool belt", /obj/item/storage/belt/utility, 3, time = 45)
+	recipes += new/datum/stack_recipe("briefcase", /obj/item/storage/briefcase, 1, time = 30)
+	recipes += new/datum/stack_recipe("wallet", /obj/item/storage/wallet/leather, 1, time = 30)
 	recipes += new/datum/stack_recipe("knife harness", /obj/item/clothing/accessory/storage/knifeharness, 1, time = 30)
 	recipes += new/datum/stack_recipe("eyepatch", /obj/item/clothing/glasses/eyepatch, 1, time = 30)
 	recipes += new/datum/stack_recipe("botanist leather gloves", /obj/item/clothing/gloves/botanic_leather, 2, time = 40)

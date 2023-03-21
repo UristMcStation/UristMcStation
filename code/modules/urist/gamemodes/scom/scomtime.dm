@@ -10,7 +10,7 @@
 	for(var/mob/living/silicon/S in GLOB.player_list)
 		if(istype(S, /mob/living/silicon/robot))
 			S.loc = pick(scomspawn3)
-			for(var/obj/item/weapon/cell/cell in S)
+			for(var/obj/item/cell/cell in S)
 				cell.maxcharge = INFINITY
 				cell.charge = INFINITY
 
@@ -18,7 +18,7 @@
 			var/mob/living/silicon/robot/R = new /mob/living/silicon/robot(S.loc)
 			R.ckey = S.ckey
 			R.loc = pick(scomspawn3)
-			for(var/obj/item/weapon/cell/cell in R)
+			for(var/obj/item/cell/cell in R)
 				cell.maxcharge = INFINITY
 				cell.charge = INFINITY
 			qdel(S)
@@ -26,7 +26,7 @@
 /mob/new_player/proc/ScomRobotLateJoin(var/mob/living/silicon/L)
 	if(L.mind.assigned_role == "Cyborg")
 		L.loc = pick(scomspawn3)
-		for(var/obj/item/weapon/cell/cell in L)
+		for(var/obj/item/cell/cell in L)
 			cell.maxcharge = INFINITY
 			cell.charge = INFINITY
 		return 1
@@ -63,17 +63,17 @@
 			L.equip_to_slot_or_del(new /obj/item/device/radio/headset/syndicate(M), slot_l_ear)
 			L.equip_to_slot_or_del(new /obj/item/clothing/under/psysuit(M), slot_w_uniform)
 			L.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(M), slot_shoes)
-			L.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/urist/military/scom(M), slot_belt)
+			L.equip_to_slot_or_del(new /obj/item/storage/belt/urist/military/scom(M), slot_belt)
 			L.equip_to_slot_or_del(new /obj/item/clothing/head/wizard/amp(M), slot_head)
 			L.equip_to_slot_or_del(new /obj/item/clothing/suit/wizrobe/psypurple(M), slot_wear_suit)
-			L.equip_to_slot_or_del(new /obj/item/weapon/staff(M), slot_l_hand)
+			L.equip_to_slot_or_del(new /obj/item/staff(M), slot_l_hand)
 			L.mutations.Add(HEAL)
 			L.spell_list += new /obj/effect/proc_holder/spell/targeted/turf_teleport/blink(M)
 			L.spell_list += new /obj/effect/proc_holder/spell/aoe_turf/conjure/forcewall(M)
 			L.spell_list += new /obj/effect/proc_holder/spell/targeted/smoke(M)
 			L.mutations.Add(LASER) //TODO: FIX THIS SHIT
 
-			for (var/obj/item/weapon/card/id/W in M)
+			for (var/obj/item/card/id/W in M)
 				W.name = "[L.real_name]'s ID Card"
 				W.icon_state = "centcom"
 				W.access = get_all_accesses()
@@ -117,7 +117,7 @@
 
 		var/file = file("maps/GamemodeMaps/missions2.dmm")
 		if(isfile(file))
-			maploader.load_map(file)
+			GLOB.maploader.load_map(file)
 
 			world << "<span class='warning'> Initializing S-COM map objects...</span>"
 

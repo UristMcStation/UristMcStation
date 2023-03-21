@@ -1,15 +1,15 @@
 
-/obj/item/weapon/gun/projectile/shotgun
+/obj/item/gun/projectile/shotgun
 	icon = 'icons/urist/items/shotguns.dmi'
 
-/obj/item/weapon/gun/projectile/shotgun/load_ammo(var/obj/item/A, mob/user)
+/obj/item/gun/projectile/shotgun/load_ammo(var/obj/item/A, mob/user)
 	if(istype(A, /obj/item/ammo_magazine))
 		. = TRUE
 		var/obj/item/ammo_magazine/AM = A
 		if(caliber != AM.caliber || !(AM.mag_type & SPEEDLOADER))
 			return
 
-		if(loaded.len >= max_shells)
+		if(length(loaded) >= max_shells)
 			to_chat(user, "<span class='warning'>[src] is full!</span>")
 			return
 
@@ -27,9 +27,9 @@
 	return ..()
 
 
-/obj/item/weapon/gun/projectile/shotgun/on_update_icon()
+/obj/item/gun/projectile/shotgun/on_update_icon()
 	..()
-	if(loaded.len)
+	if(length(loaded))
 		icon_state = "[initial(icon_state)]"
 	else
 		icon_state = "[initial(icon_state)]-empty"

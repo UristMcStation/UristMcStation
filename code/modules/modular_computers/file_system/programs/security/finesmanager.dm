@@ -36,7 +36,7 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 		return 1
 
 /datum/nano_module/program/finesmanager/proc/scan_id(var/mob/user)
-	var/obj/item/weapon/card/id/id
+	var/obj/item/card/id/id
 	if(program.computer.card_slot)
 		id = program.computer.card_slot.stored_card
 	if(!id)
@@ -150,7 +150,7 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 	if(get_auth(user) < 2)
 		return TOPIC_REFRESH
 
-	var/obj/item/weapon/card/id/auth_card = user.GetIdCard()
+	var/obj/item/card/id/auth_card = user.GetIdCard()
 
 	if(href_list["state"])
 		display_state = text2num(href_list["state"])
@@ -191,7 +191,7 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 				if(!input)
 					return TOPIC_NOACTION
 				if(get_auth(user) == 2)
-					input = Clamp(round(input),1,max_fine)
+					input = clamp(round(input),1,max_fine)
 				else
 					input = max(round(input), 1)
 				if(target.money - input < 0)

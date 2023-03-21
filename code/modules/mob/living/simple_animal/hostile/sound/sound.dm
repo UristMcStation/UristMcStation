@@ -17,7 +17,7 @@
 
 /mob/living/simple_animal/hostile/sound/PickTarget(var/list/visible)
 	var/list/moved = list()
-	if(!visible.len)
+	if(!length(visible))
 		return
 	for(var/mob/living/V in visible)
 		if(V.name in last_saw)
@@ -27,7 +27,7 @@
 	last_saw = list()
 	for(var/mob/VI in visible)
 		last_saw[VI.name] = list("mob" = VI, "x" = VI.x, "y" = VI.y)
-	if(!moved.len)
+	if(!length(moved))
 		return
 	var/youmessedup = pick(moved)
 	alerted(youmessedup)
@@ -38,11 +38,11 @@
 	last_saw = list()
 
 /mob/living/simple_animal/hostile/sound/proc/alerted(var/mob/detected)
-	if(islist(alert_message) && alert_message.len)
+	if(islist(alert_message) && length(alert_message))
 		if(next_alert > world.time)
 			var/message = pick(alert_message)
 			visible_message("<span class = 'danger'><font size = 3>[src] [message] [detected]!</font></span>")
 			next_alert = world.time + 15 SECONDS
-	if(islist(alert_sound) && alert_sound.len)
+	if(islist(alert_sound) && length(alert_sound))
 		var/sound = pick(alert_sound)
 		playsound(src, sound, 100, 1)

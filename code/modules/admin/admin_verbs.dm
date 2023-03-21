@@ -342,7 +342,7 @@ var/global/list/admin_verbs_mod = list(
 		admin_verbs_rejuv,
 		admin_verbs_sounds,
 		admin_verbs_spawn,
-		admin_verbs_poll,
+//		admin_verbs_poll,
 		debug_verbs
 		)
 

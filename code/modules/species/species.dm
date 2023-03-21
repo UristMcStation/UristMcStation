@@ -669,8 +669,8 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 
 	var/state_mod = attacker.melee_accuracy_mods() - target.melee_accuracy_mods()
 	var/stim_mod = target.chem_effects[CE_STIMULANT]
-	var/push_threshold = 12 + (skill_mod - stim_mod)
-	var/disarm_threshold = 24 + ((skill_mod - stim_mod) * 2)
+	var/push_threshold = 12 + (1 - stim_mod)
+	var/disarm_threshold = 24 + ((1 - stim_mod) * 2)
 
 	if(target.a_intent == I_HELP)
 		state_mod -= 30
@@ -869,6 +869,12 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 	if (!exertion_effect_chance)
 		return
 	var/chance = exertion_effect_chance * H.encumbrance()
+		var/synthetic = H.isSynthetic()
+		if (synthetic)
+			if (exertion_charge_scale)
+				var/obj/item/organ/internal/cell/cell = locate() in H.internal_organs
+				if (cell)
+					cell.use(cell.get_power_drain() * exertion_charge_scale)
 		if (exertion_hydration_scale)
 			H.adjust_hydration(-DEFAULT_THIRST_FACTOR * exertion_hydration_scale)
 		if (exertion_nutrition_scale)

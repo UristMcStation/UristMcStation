@@ -42,17 +42,17 @@
 	date_offset = 535 //i need to fix the function for this
 
 	objective_items = list(
-		"the captain's antique laser gun" = /obj/item/weapon/gun/energy/captain,
+		"the captain's antique laser gun" = /obj/item/gun/energy/captain,
 		"a bluespace rift generator" = /obj/item/integrated_circuit/manipulation/bluespace_rift,
 		"a captain's jumpsuit" = /obj/item/clothing/under/rank/captain,
-		"a functional AI" = /obj/item/weapon/aicard,
+		"a functional AI" = /obj/item/aicard,
 		"the NSS Urist blueprints" = /obj/item/blueprints,
-		"a piece of corgi meat" = /obj/item/weapon/reagent_containers/food/snacks/meat/corgi,
+		"a piece of corgi meat" = /obj/item/reagent_containers/food/snacks/meat/corgi,
 		"a research director's jumpsuit" = /obj/item/clothing/under/rank/research_director,
 		"a chief engineer's jumpsuit" = /obj/item/clothing/under/rank/chief_engineer,
 		"a head of security's jumpsuit" = /obj/item/clothing/under/rank/head_of_security,
 		"a head of personnel's jumpsuit" = /obj/item/clothing/under/rank/head_of_personnel,
-		"the captain's pinpointer" = /obj/item/weapon/pinpointer
+		"the captain's pinpointer" = /obj/item/pinpointer
 		)
 
 /datum/map/glloydstation/perform_map_generation()

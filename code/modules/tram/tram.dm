@@ -104,7 +104,7 @@
 /obj/tram/tram_controller/proc/init_walls()
 	var/turf/T = get_turf(src)
 	if(!T)	return
-	if(!tram_floors.len)	return
+	if(!length(tram_floors))	return
 	var/obj/tram/floor/TTW = locate(/obj/tram/wall) in T //Find and link wall on controller turf
 	if(istype(TTW))	add_wall(TTW)
 	for(var/obj/tram/floor/TF in tram_floors)

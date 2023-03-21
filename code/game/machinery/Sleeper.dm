@@ -104,7 +104,7 @@
 	data["reagents"] = reagents.Copy()
 
 	if(istype(occupant))
-		var/scan = medical_scan_results(occupant) : SPAN_CLASS("white", "<b>Contains: \the [occupant]</b>")
+		var/scan = medical_scan_results(occupant)
 		scan = replacetext(scan,"'scan_notice'","'white'")
 		scan = replacetext(scan,"'scan_warning'","'average'")
 		scan = replacetext(scan,"'scan_danger'","'bad'")

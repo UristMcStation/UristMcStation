@@ -124,21 +124,21 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	desc = "A seedy table for seedy dealings in seedy places."
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "pokertable_table"
-	parts = /obj/item/weapon/table_parts/poker
+	parts = /obj/item/table_parts/poker
 	health = 50
 
-/obj/item/weapon/table_parts/poker
+/obj/item/table_parts/poker
 	name = "poker table parts"
 	desc = "Keep away from fire, and keep near seedy dealers."
 	icon = 'icons/urist/items/tgitems.dmi'
 	icon_state = "poker_tableparts"
 	obj_flags = null
 
-/*/obj/item/weapon/table_parts/wood/attackby(var/obj/item/I, mob/user as mob)
+/*/obj/item/table_parts/wood/attackby(var/obj/item/I, mob/user as mob)
 	..()
 	if(istype(I, /obj/item/stack/tile/grass))
 		var/obj/item/stack/tile/grass/R = I
-		var/obj/item/weapon/table_parts/poker/H = new /obj/item/weapon/table_parts/poker
+		var/obj/item/table_parts/poker/H = new /obj/item/table_parts/poker
 		R.use(1)
 
 		user.remove_from_mob(src)
@@ -205,18 +205,18 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //stools
 
-/obj/item/weapon/stool/urist
+/obj/item/stool/urist
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 
-/obj/item/weapon/stool/urist/update_icon()
+/obj/item/stool/urist/update_icon()
 	return
 
-/obj/item/weapon/stool/urist/bar
+/obj/item/stool/urist/bar
 	name = "bar stool"
 	icon_state = "barstool"
 	item_state = "stool"
 
-/*/obj/item/weapon/stool/urist/wood
+/*/obj/item/stool/urist/wood
 	item_icons = DEF_URIST_INHANDS
 	name = "wood stool"
 	icon_state = "woodstool"
@@ -244,7 +244,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "tallcabinet"
 
 /obj/structure/filingcabinet/wood/attackby(var/obj/item/P, mob/user as mob)
-	if(istype(P, /obj/item/weapon/screwdriver))
+	if(istype(P, /obj/item/screwdriver))
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		user << "<span class='notice'>You disassemble \the [src].</span>"
 		var/obj/item/stack/material/wood/S =  new /obj/item/stack/material/wood(src.loc)
@@ -256,7 +256,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //legacy reasons, all this does is create a new table frame somewhere. //i'm okay with this for now
 
-/obj/item/weapon/table_parts
+/obj/item/table_parts
 	name = "table parts"
 	desc = "Parts of a table. Poor table."
 	gender = PLURAL
@@ -267,7 +267,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	attack_verb = list("slammed", "bashed", "battered", "bludgeoned", "thrashed", "whacked")
 	var/tabletype = /obj/structure/table/standard
 
-/obj/item/weapon/table_parts/attack_self(mob/user as mob)
+/obj/item/table_parts/attack_self(mob/user as mob)
 	if(locate(/obj/structure/table) in user.loc)
 		user << "<span class='warning'>There is already a table here.</span>"
 		return
@@ -279,17 +279,17 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		qdel(src)
 		return
 
-/obj/item/weapon/table_parts/reinforced
+/obj/item/table_parts/reinforced
 	tabletype = /obj/structure/table/reinforced
 	icon_state = "reinf_tableparts"
 	name = "reinforced table parts"
 
-/obj/item/weapon/table_parts/wood
+/obj/item/table_parts/wood
 	tabletype = /obj/structure/table/woodentable
 	icon_state = "wood_tableparts"
 	name = "wood table parts"
 
-/obj/item/weapon/table_parts/rack
+/obj/item/table_parts/rack
 	name = "rack parts"
 	desc = "Parts of a rack. Poor rack."
 	tabletype = /obj/structure/table/rack
@@ -303,7 +303,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "rack"
 
 /obj/structure/table/rack/wood/attackby(var/obj/item/P, mob/user as mob)
-	if(istype(P, /obj/item/weapon/wrench))
+	if(istype(P, /obj/item/wrench))
 		playsound(src, 'sound/items/Deconstruct.ogg', 50, 1)
 		user << "<span class='notice'>You disassemble \the [src].</span>"
 		var/obj/item/stack/material/wood/S =  new /obj/item/stack/material/wood(src.loc)
@@ -420,7 +420,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 			return
 
 	else if(built)
-		if(istype(W,/obj/item/weapon/wirecutters))
+		if(istype(W,/obj/item/wirecutters))
 			to_chat(user, "<span class='notice'>You begin cutting apart the cables holding the raft together.</span>")
 			if (do_after(user, 20, src))
 				var/obj/item/stack/material/wood/R = new /obj/item/stack/material/wood(src.loc)

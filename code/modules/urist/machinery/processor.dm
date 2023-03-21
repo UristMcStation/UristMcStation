@@ -26,28 +26,28 @@
 
 	/* objs */
 /*	meat
-		input = /obj/item/weapon/reagent_containers/food/snacks/meat
-		output = /obj/item/weapon/reagent_containers/food/snacks/meatball
+		input = /obj/item/reagent_containers/food/snacks/meat
+		output = /obj/item/reagent_containers/food/snacks/meatball
 
 	potato
-		input = /obj/item/weapon/reagent_containers/food/snacks/grown/potato
-		output = /obj/item/weapon/reagent_containers/food/snacks/rawsticks
+		input = /obj/item/reagent_containers/food/snacks/grown/potato
+		output = /obj/item/reagent_containers/food/snacks/rawsticks
 
 	carrot
-		input = /obj/item/weapon/reagent_containers/food/snacks/grown/carrot
-		output = /obj/item/weapon/reagent_containers/food/snacks/carrotfries
+		input = /obj/item/reagent_containers/food/snacks/grown/carrot
+		output = /obj/item/reagent_containers/food/snacks/carrotfries
 
 	soybeans
-		input = /obj/item/weapon/reagent_containers/food/snacks/grown/soybeans
-		output = /obj/item/weapon/reagent_containers/food/snacks/soydope
+		input = /obj/item/reagent_containers/food/snacks/grown/soybeans
+		output = /obj/item/reagent_containers/food/snacks/soydope
 
 	wheat
-		input = /obj/item/weapon/reagent_containers/food/snacks/grown/wheat
-		output = /obj/item/weapon/reagent_containers/food/snacks/flour
+		input = /obj/item/reagent_containers/food/snacks/grown/wheat
+		output = /obj/item/reagent_containers/food/snacks/flour
 
 	spaghetti
-		input = /obj/item/weapon/reagent_containers/food/snacks/flour
-		output = /obj/item/weapon/reagent_containers/food/snacks/spagetti*/
+		input = /obj/item/reagent_containers/food/snacks/flour
+		output = /obj/item/reagent_containers/food/snacks/spagetti*/
 
 	/* mobs */
 	mob
@@ -82,7 +82,7 @@
 							"You jump out from the processor", \
 							"You hear chimp")
 					return
-				var/obj/item/weapon/reagent_containers/glass/bucket/bucket_of_blood = new(loc)
+				var/obj/item/reagent_containers/glass/bucket/bucket_of_blood = new(loc)
 				var/datum/reagent/blood/B = new()
 				B.holder = bucket_of_blood
 				B.volume = 70
@@ -115,8 +115,8 @@
 		user << "<span class='warning'> Something is already in the processing chamber.</span>"
 		return 1
 	var/what = O
-	if (istype(O, /obj/item/weapon/grab))
-		var/obj/item/weapon/grab/G = O
+	if (istype(O, /obj/item/grab))
+		var/obj/item/grab/G = O
 		what = G.affecting
 
 	var/datum/food_processor_process/P = select_recipe(what)

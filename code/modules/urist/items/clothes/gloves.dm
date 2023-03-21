@@ -11,9 +11,9 @@ icon_override sprites go to 'icons/uristmob/gloves.dmi' Items should go to cloth
 
 //cunts. fucking alien cunts.
 
-/obj/item/clothing/gloves/attackby(obj/item/weapon/W, mob/user)
+/obj/item/clothing/gloves/attackby(obj/item/W, mob/user)
 
-	if(istype(W, /obj/item/weapon/wirecutters) || istype(W, /obj/item/weapon/scalpel))
+	if(istype(W, /obj/item/wirecutters) || istype(W, /obj/item/scalpel))
 		//clipping fingertips
 		if(!clipped)
 			playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)

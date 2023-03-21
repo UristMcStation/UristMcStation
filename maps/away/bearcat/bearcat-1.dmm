@@ -1542,7 +1542,7 @@
 	icon_state = "corner_white";
 	dir = 10
 	},
-/obj/item/weapon/bedsheet/red,
+/obj/item/bedsheet/red,
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/scrap/crew/dorms2)
 "dh" = (

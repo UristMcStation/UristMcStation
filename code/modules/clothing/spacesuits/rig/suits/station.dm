@@ -277,7 +277,7 @@
 	boot_type = /obj/item/clothing/shoes/magboots/rig/hazmat
 	glove_type = /obj/item/clothing/gloves/rig/hazmat
 
-	allowed = list(/obj/item/weapon/storage/backpack,/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/stack/flag,/obj/item/weapon/storage/excavation,/obj/item/weapon/pickaxe,/obj/item/device/healthanalyzer,/obj/item/device/measuring_tape,/obj/item/device/ano_scanner,/obj/item/device/depth_scanner,/obj/item/device/core_sampler,/obj/item/device/gps,/obj/item/weapon/pinpointer/radio,/obj/item/device/radio/beacon,/obj/item/weapon/pickaxe/xeno,/obj/item/weapon/storage/bag/fossils)
+	allowed = list(/obj/item/storage/backpack,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/stack/flag,/obj/item/storage/excavation,/obj/item/pickaxe,/obj/item/device/healthanalyzer,/obj/item/device/measuring_tape,/obj/item/device/ano_scanner,/obj/item/device/depth_scanner,/obj/item/device/core_sampler,/obj/item/device/gps,/obj/item/pinpointer/radio,/obj/item/device/radio/beacon,/obj/item/pickaxe/xeno,/obj/item/storage/bag/fossils)
 	req_access = list(access_tox)
 
 /obj/item/clothing/head/helmet/space/rig/hazmat
@@ -383,20 +383,20 @@
 	)
 	species_restricted = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI,SPECIES_RESOMI,SPECIES_IPC)
 	sprite_sheets = list(
-		SPECIES_RESOMI = 'icons/mob/species/resomi/suit.dmi'
-
+		SPECIES_RESOMI = 'icons/mob/species/resomi/suit.dmi',
+		)
 /obj/item/clothing/shoes/magboots/rig/medical
 	species_restricted = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI,SPECIES_RESOMI,SPECIES_IPC)
 	sprite_sheets = list(
-		SPECIES_RESOMI = 'icons/mob/species/resomi/shoes.dmi'
-		SPECIES_UNATHI = 'icons/mob/species/unathi/onmob_feet_unathi.dmi'
+		SPECIES_RESOMI = 'icons/mob/species/resomi/shoes.dmi',
+		SPECIES_UNATHI = 'icons/mob/species/unathi/onmob_feet_unathi.dmi',
 		)
 
 /obj/item/clothing/gloves/rig/medical
 	species_restricted = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI,SPECIES_RESOMI,SPECIES_IPC)
 	sprite_sheets = list(
-		SPECIES_UNATHI = 'icons/mob/species/unathi/onmob_hands_unathi.dmi'
-		SPECIES_RESOMI = 'icons/mob/species/resomi/gloves.dmi'
+		SPECIES_UNATHI = 'icons/mob/species/unathi/onmob_hands_unathi.dmi',
+		SPECIES_RESOMI = 'icons/mob/species/resomi/gloves.dmi',
 	)
 
 /obj/item/rig/medical/equipped

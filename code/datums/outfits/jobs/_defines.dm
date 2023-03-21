@@ -31,9 +31,9 @@ backpack_overrides[/singleton/backpack_outfit/satchel]       = /obj/item/storage
 backpack_overrides[/singleton/backpack_outfit/messenger_bag] = /obj/item/storage/backpack/messenger/sec/exo;
 
 #define BACKPACK_OVERRIDE_SECURITY_EXO \
-backpack_overrides[/decl/backpack_outfit/backpack]      = /obj/item/weapon/storage/backpack/security/exo; \
-backpack_overrides[/decl/backpack_outfit/satchel]       = /obj/item/weapon/storage/backpack/satchel/sec/exo; \
-backpack_overrides[/decl/backpack_outfit/messenger_bag] = /obj/item/weapon/storage/backpack/messenger/sec/exo;
+backpack_overrides[/singleton/backpack_outfit/backpack]      = /obj/item/storage/backpack/security/exo; \
+backpack_overrides[/singleton/backpack_outfit/satchel]       = /obj/item/storage/backpack/satchel/sec/exo; \
+backpack_overrides[/singleton/backpack_outfit/messenger_bag] = /obj/item/storage/backpack/messenger/sec/exo;
 
 #define BACKPACK_OVERRIDE_VIROLOGY \
 backpack_overrides[/singleton/backpack_outfit/backpack]      = /obj/item/storage/backpack/virology; \

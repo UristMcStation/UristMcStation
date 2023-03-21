@@ -11,7 +11,7 @@
 	var/report_num = 0
 
 /obj/machinery/microscope/Initialize()
-	build_default_parts(/obj/item/weapon/circuitboard/microscope)
+	build_default_parts(/obj/item/circuitboard/microscope)
 	. = ..()
 
 /obj/machinery/microscope/Destroy()

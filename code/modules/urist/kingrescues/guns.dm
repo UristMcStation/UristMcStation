@@ -40,7 +40,7 @@
 
 //
 
-/obj/item/weapon/gun/projectile/manualcycle/musket
+/obj/item/gun/projectile/manualcycle/musket
 	name = "long musket"
 	desc = "It's a long rifle, it fires ball ammo."
 	icon = 'icons/urist/king/gunsmith.dmi'
@@ -55,7 +55,7 @@
 	max_shells = 1
 	var/datum/effect/effect/system/smoke_spread/bad/smoke
 
-/obj/item/weapon/gun/projectile/manualcycle/musket/handle_post_fire(mob/user, atom/target)
+/obj/item/gun/projectile/manualcycle/musket/handle_post_fire(mob/user, atom/target)
 	var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread()
 	smoke.set_up(1,0, src.loc, 0)
 	smoke.start()
@@ -64,7 +64,7 @@
 		chambered.expend()
 		process_chambered()
 
-/obj/item/weapon/gun/projectile/manualcycle/musket/short
+/obj/item/gun/projectile/manualcycle/musket/short
 	name = "short rifle"
 	desc = "It's a short rifle, it fires ball ammo."
 	icon = 'icons/urist/king/gunsmith.dmi'
@@ -74,7 +74,7 @@
 	ammo_type = /obj/item/ammo_casing/musket/short
 	w_class = ITEM_SIZE_NORMAL
 
-/obj/item/weapon/gun/projectile/manualcycle/musket/flintlock
+/obj/item/gun/projectile/manualcycle/musket/flintlock
 	name = "flintlock pistol"
 	desc = "It's a flintlock pistol, it fires ball ammo."
 	icon = 'icons/urist/king/gunsmith.dmi'
@@ -86,7 +86,7 @@
 	slot_flags = SLOT_BELT
 //
 
-/obj/item/weapon/storage/bullet
+/obj/item/storage/bullet
 	name = "musket ball bag"
 	desc = "Leather bag for holding all the musket balls you could need."
 	icon = 'icons/urist/king/gunsmith.dmi'

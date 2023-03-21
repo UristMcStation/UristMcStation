@@ -55,13 +55,13 @@
 	if(H.gender == MALE) //Male underwear for males
 		//H << "Is male"
 		var/new_undies = input(user, "Choose your underwear", "Changing") as null|anything in underwear_m //This part converts the string into the number accepted by the update_body proc
-		for(var/i, i <= underwear_m.len, i++)
+		for(var/i, i <= length(underwear_m), i++)
 			if(new_undies == underwear_m[i])
 				new_undies_num = i
 				break
 	else if (H.gender == FEMALE) //Female underwear for females
 		var/new_undies = input(user, "Choose your underwear", "Changing") as null|anything in underwear_f //This part converts the string into the number accepted by the update_body proc
-		for(var/i, i <= underwear_f.len, i++)
+		for(var/i, i <= length(underwear_f), i++)
 			if(new_undies == underwear_f[i])
 				new_undies_num = i
 				//H << i
@@ -69,7 +69,7 @@
 	else //Return if the user dosn't have a gender...
 		return
 	var/new_undershirt = input(user, "Choose your Undershirt", "Changing") as null|anything in undershirt_t //This part converts the string into the number accepted by the update_body proc
-	for(var/i, i <= undershirt_t.len, i++)
+	for(var/i, i <= length(undershirt_t), i++)
 		if(new_undershirt == undershirt_t[i])
 			new_undershirt_num = i
 			//H << i <-- Old debug code
@@ -84,8 +84,8 @@
 	H.update_body() // Putting on the underclothes
 	//H << "Done" <--Debug code
 */
-/obj/structure/dresser/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/wrench))
+/obj/structure/dresser/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/wrench))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 		var/obj/item/stack/material/wood/S = new /obj/item/stack/material/wood(src.loc)
 		S.amount = 5

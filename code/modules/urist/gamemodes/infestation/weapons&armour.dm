@@ -65,7 +65,7 @@
 	name = "ANFOR NCO helmet"
 	desc = "An olive drab M10 protective helmet, standard issue for all ANFOR marines. This one has the markings of a Non-Commissioned Officer."
 	icon_state = "ANFOR-cmdhelm"
-//	var/obj/item/weapon/storage/fancy/cigarettes/cigs
+//	var/obj/item/storage/fancy/cigarettes/cigs
 
 /*
 /obj/item/clothing/head/helmet/urist/anfor/attack_hand(var/mob/living/M)
@@ -81,7 +81,7 @@
 	..()
 
 /obj/item/clothing/head/helmet/urist/anfor/attackby(var/obj/item/I, var/mob/living/M)
-	if(istype(I, /obj/item/weapon/storage/fancy/cigarettes))
+	if(istype(I, /obj/item/storage/fancy/cigarettes))
 		if(cigs)	return
 		M.drop_item()
 		cigs = I
@@ -99,7 +99,7 @@
 	force = 3
 	armor = list(melee = 40, bullet = 40, laser = 15, energy = 15, bomb = 25, bio = 0, rad = 0)
 	siemens_coefficient = 0.7
-	var/obj/item/weapon/material/hatchet/tacknife/knife
+	var/obj/item/material/knife/combat/knife
 
 /obj/item/clothing/shoes/urist/anforjackboots/attack_hand(var/mob/living/M)
 	if(knife)
@@ -114,7 +114,7 @@
 	..()
 
 /obj/item/clothing/shoes/urist/anforjackboots/attackby(var/obj/item/I, var/mob/living/M)
-	if(istype(I, /obj/item/weapon/material/hatchet/tacknife))
+	if(istype(I, /obj/item/material/knife/combat))
 		if(knife)	return
 		M.drop_item()
 		knife = I
@@ -137,7 +137,7 @@
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "ANFOR-evasuit"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS
-	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/tank)
+	allowed = list(/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/tank)
 	armor = list(melee = 60, bullet = 80, laser = 45,energy = 25, bomb = 50, bio = 100, rad = 100)
 	flags_inv = HIDESHOES|HIDEJUMPSUIT
 	siemens_coefficient = 0.6
@@ -158,7 +158,7 @@
 
 //Weapons
 
-/obj/item/weapon/gun/projectile/automatic/a22
+/obj/item/gun/projectile/automatic/a22
 	item_icons = URIST_ALL_ONMOBS
 	name = "\improper A22 Combat Rifle"
 	desc = "20 high-powered rounds of 5.56mm. Staple rifle for the ANFOR Marine Corps and the Terran Confederacy Marine Corps, perfect for punching 5.56 millimetre holes in alien scum. Can fire semi automatic or in 3 or 5 round bursts."
@@ -182,7 +182,7 @@
 		list(mode_name="short bursts", burst=5, fire_delay=null, move_delay=6, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/weapon/gun/projectile/automatic/a22/update_icon()
+/obj/item/gun/projectile/automatic/a22/update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "ANFOR-rifle"
@@ -205,7 +205,7 @@
 /obj/item/ammo_magazine/a556/a22/empty
 	initial_ammo = 0
 
-/obj/item/weapon/gun/projectile/a18
+/obj/item/gun/projectile/a18
 	item_icons = URIST_ALL_ONMOBS
 	name = "\improper A18 Marksman's Rifle"
 	desc = "30 high-powered rounds of 7.62mm. The standard-issue marksman's rifle for the ANFOR Marine Corps and the Terran Confederacy Marine Corps. Can mount either a scope or a grenade launcher, making it a versatile, accurate semi-automatic rifle perfect for those serving in support roles."
@@ -229,25 +229,25 @@
 		list(mode_name="semiauto", burst=1, fire_delay=0, use_launcher = null, move_delay=null, burst_accuracy=null, dispersion=null)
 		)
 
-//	var/obj/item/weapon/gun/launcher/grenade/underslung/launcher
+//	var/obj/item/gun/launcher/grenade/underslung/launcher
 
 //	var/gl_attach = 0
 //	var/scoped = 0
 /*
-/obj/item/weapon/gun/projectile/a18/scoped
+/obj/item/gun/projectile/a18/scoped
 	name = "A18-Scoped"
 	scoped = 1
 	icon_state = "FALrifle-scope"
 */
 /*
-/obj/item/weapon/gun/projectile/a18/verb/scope()
+/obj/item/gun/projectile/a18/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"
 	set popup_menu = 1
 
 	toggle_scope(usr, 2.0)
 */
-/obj/item/weapon/gun/projectile/a18/update_icon()
+/obj/item/gun/projectile/a18/update_icon()
 	..()
 /*
 	if(gl_attach)
@@ -268,18 +268,18 @@
 		icon_state = "ANFOR-battlerifle-empty"
 
 /*
-/obj/item/weapon/gun/projectile/a18/New()
+/obj/item/gun/projectile/a18/New()
 	..()
 	launcher = new(src)
 */
 /*
-/obj/item/weapon/gun/projectile/a18/attackby(obj/item/I, mob/user) //i really need to make a partent class for guns that can be modified, but right now it's only the one so fuck it. //GlloydTODO
+/obj/item/gun/projectile/a18/attackby(obj/item/I, mob/user) //i really need to make a partent class for guns that can be modified, but right now it's only the one so fuck it. //GlloydTODO
 	..()
 
 	if(gl_attach)
-		if((istype(I, /obj/item/weapon/grenade)))
+		if((istype(I, /obj/item/grenade)))
 			launcher.load(I, user)
-		else if(istype(I, /obj/item/weapon/wrench))
+		else if(istype(I, /obj/item/wrench))
 			user << "<span class='notice'>You remove the underslung grenade launcher from the A18.</span>"
 			gl_attach = 0
 			firemodes = null
@@ -287,20 +287,20 @@
 				list(mode_name="semiauto", burst=1, fire_delay=0, use_launcher = null, move_delay=null, burst_accuracy=null, dispersion=null)
 				)
 			update_icon()
-			new /obj/item/weapon/gunattachment/grenadelauncher(user.loc)
+			new /obj/item/gunattachment/grenadelauncher(user.loc)
 
-			for(var/i in 1 to firemodes.len)
+			for(var/i in 1 to length(firemodes))
 				firemodes[i] = new /datum/firemode(src, firemodes[i])
 
 	else if(!gl_attach && !scoped)
 
-		if(istype(I, /obj/item/weapon/gunattachment/scope/a18))
+		if(istype(I, /obj/item/gunattachment/scope/a18))
 			scoped = 1
 			update_icon()
 			user.remove_from_mob(I)
 			qdel(I)
 
-		else if(istype(I, /obj/item/weapon/gunattachment/grenadelauncher))
+		else if(istype(I, /obj/item/gunattachment/grenadelauncher))
 			gl_attach = 1
 			firemodes = null
 			firemodes = list(
@@ -311,24 +311,24 @@
 			user.remove_from_mob(I)
 			qdel(I)
 
-			for(var/i in 1 to firemodes.len)
+			for(var/i in 1 to length(firemodes))
 				firemodes[i] = new /datum/firemode(src, firemodes[i])
 
 	else if(scoped)
 
-		if(istype(I, /obj/item/weapon/wrench))
+		if(istype(I, /obj/item/wrench))
 			user << "<span class='notice'>You remove the scope from the A18</span>"
 			scoped = 0
 			update_icon()
-			new /obj/item/weapon/gunattachment/scope/a18(user.loc)
+			new /obj/item/gunattachment/scope/a18(user.loc)
 
-/obj/item/weapon/gun/projectile/a18/attack_hand(mob/user)
+/obj/item/gun/projectile/a18/attack_hand(mob/user)
 	if(user.get_inactive_hand() == src && use_launcher && gl_attach)
 		launcher.unload(user)
 	else
 		..()
 
-/obj/item/weapon/gun/projectile/a18/gl/Fire(atom/target, mob/living/user, params, pointblank=0, reflex=0)
+/obj/item/gun/projectile/a18/gl/Fire(atom/target, mob/living/user, params, pointblank=0, reflex=0)
 	if(use_launcher)
 		launcher.Fire(target, user, params, pointblank, reflex)
 		if(!launcher.chambered)
@@ -336,7 +336,7 @@
 	else
 		..()
 
-/obj/item/weapon/gun/projectile/a18/gl
+/obj/item/gun/projectile/a18/gl
 	name = "A18-GL"
 	icon_state = "FALrifle-GL"
 	gl_attach = 1
@@ -346,16 +346,16 @@
 		)
 */
 
-/obj/item/weapon/gunattachment
+/obj/item/gunattachment
 	icon = 'icons/urist/items/guns.dmi'
 
 /*
-/obj/item/weapon/gunattachment/grenadelauncher
+/obj/item/gunattachment/grenadelauncher
 	name = "A18 attachable grenade launcher"
 	desc = "An underslung grenade launcher designed to be attached to an A18 rifle."
 	icon_state = "a18grenadelauncher"
 
-/obj/item/weapon/gunattachment/scope/a18
+/obj/item/gunattachment/scope/a18
 	icon_state = "a18scope"
 	name = "A18 attachable scope"
 	desc = "A marksman's scope designed to be attached to an A18 rifle."
@@ -375,7 +375,7 @@
 /obj/item/ammo_magazine/a762mm/a18/empty
 	initial_ammo = 0
 
-/obj/item/weapon/gun/projectile/automatic/asmg
+/obj/item/gun/projectile/automatic/asmg
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper A37 SMG"
 	desc = "The standard submachine gun of the ANFOR Marine Corps and the Terran Confederacy Marine Corps. Has 40 rounds of 9mm ammo, and can fire semi automatic or in 3 or 5 round bursts.."
@@ -399,7 +399,7 @@
 		list(mode_name="short bursts", 	burst=5, move_delay=6, fire_delay=null, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/weapon/gun/projectile/automatic/asmg/update_icon()
+/obj/item/gun/projectile/automatic/asmg/update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "ANFOR-SMG"
@@ -421,7 +421,7 @@
 /obj/item/ammo_magazine/a9mm/empty
 	initial_ammo = 0
 
-/obj/item/weapon/gun/projectile/shotgun/pump/combat/A41
+/obj/item/gun/projectile/shotgun/pump/combat/A41
 	max_shells = 10
 	name = "\improper A41 combat shotgun"
 	desc = "The standard issue ANFOR shotgun. Holds 10 rounds (11 with one in the chamber). Pump-action, it's perfect for CQB and tight hallway clearing."
@@ -434,7 +434,7 @@
 	one_hand_penalty = 3
 	fire_sound = 'sound/weapons/gunshot/shotgun.ogg'
 
-/obj/item/weapon/gun/projectile/colt/a7
+/obj/item/gun/projectile/colt/a7
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper A7 pistol"
 	desc = "A slightly modified version of the classic Colt M1911, the standard sidearm for ANFOR and Terran Marines. It holds 8 .45 rounds."
@@ -455,7 +455,7 @@
 /obj/item/ammo_magazine/c45m/a7/empty
 	initial_ammo = 0
 
-/obj/item/weapon/gun/projectile/manualcycle/a50
+/obj/item/gun/projectile/manualcycle/a50
 	item_icons = list(
 		slot_l_hand_str = 'icons/uristmob/items_lefthand48x32.dmi',
 		slot_r_hand_str = 'icons/uristmob/items_righthand48x32.dmi',
@@ -488,7 +488,7 @@
 	icon_state = "lcasing"
 	spent_icon = "lcasing-spent"
 	caliber = "13.2x108mm"
-	projectile_type = /obj/item/projectile/bullet/rifle/a145
+	projectile_type = /obj/item/projectile/bullet/rifle/shell
 	matter = list(DEFAULT_WALL_MATERIAL = 1250)
 
 /obj/item/projectile/bullet/rifle/a132x108mm

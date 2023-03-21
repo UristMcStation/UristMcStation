@@ -3,13 +3,13 @@
 //6 copies of itself when I try to start the damn game.
 
 proc/createPlanetOutpost()
-//	if(awaydestinations.len)	//crude, but it saves another var!
+//	if(length(awaydestinations))	//crude, but it saves another var!
 //		return
 
 	var/list/potentialPlanetOutposts = list()
 	world << "\red \b Searching for away missions..."
 	var/list/Lines = file2list("maps/PlanetOutposts/fileList.txt") //leaving this in, because maybe I'll want randomized planets in the future.
-	if(!Lines.len)	return //										You know what they say, variety is the spice of life. :D
+	if(!length(Lines))	return //										You know what they say, variety is the spice of life. :D
 	for (var/t in Lines)
 		if (!t)
 			continue
@@ -38,13 +38,13 @@ proc/createPlanetOutpost()
 		potentialPlanetOutposts.Add(name)
 
 
-	if(potentialPlanetOutposts.len)
+	if(length(potentialPlanetOutposts))
 		world << "\red \b loading Planetary Outpost..."
 
 		var/map = pick(potentialPlanetOutposts)
 		var/file = file(map)
 		if(isfile(file))
-			maploader.load_map(file)
+			GLOB.maploader.load_map(file)
 			world.log << "planet outpost loaded: [map]"
 
 			for(var/x = 1 to world.maxx)

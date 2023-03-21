@@ -1,4 +1,4 @@
-/decl/cultural_info/culture/teshari
+/singleton/cultural_info/culture/teshari
 	name =                    CULTURE_TESHARI
 	secondary_langs =         list(LANGUAGE_RESOMI)
 	name_language =           LANGUAGE_RESOMI

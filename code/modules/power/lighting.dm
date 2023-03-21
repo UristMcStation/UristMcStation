@@ -214,7 +214,7 @@
 	light_type = /obj/item/light/bulb/red
 
 /obj/machinery/light/small/d_green
-	light_type = /obj/item/weapon/light/bulb/d_green
+	light_type = /obj/item/light/bulb/d_green
 
 /obj/machinery/light/spot
 	name = "spotlight"

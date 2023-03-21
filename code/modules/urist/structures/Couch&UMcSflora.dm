@@ -84,13 +84,13 @@
 	color = rgb(255,113,0)
 
 
-/obj/structure/bed/chair/couch/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/wrench))
+/obj/structure/bed/chair/couch/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/wrench))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 		new /obj/item/stack/material/steel(src.loc)
 		qdel(src)
-	if(istype(W, /obj/item/weapon/chair_painter))
-		var/obj/item/weapon/chair_painter/C = W
+	if(istype(W, /obj/item/chair_painter))
+		var/obj/item/chair_painter/C = W
 		color = rgb(C.red,C.green,C.blue)
 	else
 		..()
@@ -146,7 +146,7 @@
 	layer = 9
 
 /obj/structure/flora/pottedplant/Nienplants/Glloydtree/attackby(var/obj/item/I, mob/user as mob)
-	if(istype(I, /obj/item/weapon/carpentry/axe))
+	if(istype(I, /obj/item/carpentry/axe))
 		to_chat(user, "<span class='notice'>Your axe bounces off the tree! Holy shit, is it metal? Cheapass Nanotrasen corporate bastards.</span>")
 		return
 
@@ -156,4 +156,3 @@
 	icon = 'icons/obj/flora/ausflora.dmi'
 	icon_state = "firstbush_1"
 	anchored = 1
-

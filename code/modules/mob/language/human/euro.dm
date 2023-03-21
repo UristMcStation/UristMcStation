@@ -6,23 +6,29 @@
 *///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /datum/language/human/euro
-	name = LANGUAGE_HUMAN_EURO
-	desc = "A constructed language established by a conference of European and African research universities convening in Zurich, Switzerland starting in 2119, \
-			later adopted with little controversy as the lingua franca of the entirety of Sol space following the establishment of the SCG."
+	name = LANGUAGE_GALCOM
+	desc = "A constructed language established by a conference of human and Skrellian linguists convening in New Earth, \
+			in the hopes of a language easily pronounceable by most species and \
+			later adopted with little controversy as the lingua franca of much of known space."
 	speech_verb = "says"
 	whisper_verb = "whispers"
 	colour = ""
 	key = "1"
 	flags = WHITELISTED
-	shorthand = "ZAC"
+	shorthand = "GC"
 	partial_understanding = list(
-		LANGUAGE_HUMAN_CHINESE = 5,
-		LANGUAGE_HUMAN_ARABIC = 5,
-		LANGUAGE_HUMAN_INDIAN = 5,
-		LANGUAGE_HUMAN_IBERIAN = 30,
-		LANGUAGE_HUMAN_RUSSIAN = 5,
-		LANGUAGE_HUMAN_SELENIAN = 85,
-		LANGUAGE_SPACER = 20
+		LANGUAGE_HUMAN_CHINESE = 10,
+		LANGUAGE_HUMAN_ARABIC = 10,
+		LANGUAGE_HUMAN_INDIAN = 10,
+		LANGUAGE_HUMAN_IBERIAN = 10,
+		LANGUAGE_HUMAN_RUSSIAN = 10,
+		LANGUAGE_HUMAN_SELENIAN = 15,
+		LANGUAGE_SPACER = 20,
+		LANGUAGE_SKRELLIAN = 20,
+		LANGUAGE_SOL_COMMON = 30,
+		LANGUAGE_UNATHI_SINTA = 20,
+		LANGUAGE_UNATHI_YEOSA = 15,
+		LANGUAGE_RESOMI = 20
 	)
 	syllables = list(
 		"al", "an", "ar", "as", "at", "ea", "ed", "en", "er", "es", "ha", "he", "hi", "in", "is", "it",

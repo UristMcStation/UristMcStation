@@ -6,7 +6,7 @@
 	icon_keyboard = "id_key"
 	icon_screen = "comm_logs"
 	req_access = list(list(access_hop, access_captain))
-	circuit = /obj/item/weapon/circuitboard/account_manager
+	circuit = /obj/item/circuitboard/account_manager
 
 	var/fineNum
 	var/display_state = "payroll"
@@ -53,13 +53,13 @@
 	ui_interact(user)
 
 /obj/machinery/computer/accounts/attackby(obj/O, mob/user)
-	if(!istype(O, /obj/item/weapon/card/id))
+	if(!istype(O, /obj/item/card/id))
 		return ..()
 
 	//Although not necessary; it's nice to be able to set the email and account info to the ID, so that they can ID login to email and swipe to pay at vendors
 	//We don't want to expose these details to anyone but the crewmember, so we'll copy them over here once account creation is complete
 	if(copy_mode && temp_account_items["new_email"])
-		var/obj/item/weapon/card/id/target_id = O
+		var/obj/item/card/id/target_id = O
 		if(target_id.associated_account_number || target_id.associated_email_login["login"])	//So we cannot copy bank details to our own ID card.
 			to_chat(user, "<span class='warning'>\The [src] flashes a warning: Unassociated ID card required</span>")
 			playsound(loc, 'sound/machines/buzz-two.ogg', 30)
@@ -74,7 +74,7 @@
 			playsound(loc, 'sound/machines/chime.ogg', 30)
 
 /obj/machinery/computer/accounts/proc/get_auth(var/mob/user)
-	var/obj/item/weapon/card/id/auth_card = user.GetIdCard()
+	var/obj/item/card/id/auth_card = user.GetIdCard()
 	if(!auth_card)
 		return 0	//No ID
 	if(check_access_list(auth_card.access))
@@ -130,7 +130,7 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 		if("payroll")
 			var/list/departments = list()
 			var/totalpayroll = 0
-			for(var/mob/living/carbon/human/H in GLOB.living_mob_list_)
+			for(var/mob/living/carbon/human/H in GLOB.living_players)
 				if(H.mind)
 					if(H.mind.initial_account && H.mind.assigned_role)
 						if(H.mind.assigned_role == "Captain" && GLOB.using_map.name == "Nerva")
@@ -218,7 +218,7 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 	if(get_auth(user) != 1)
 		return TOPIC_REFRESH
 
-	var/obj/item/weapon/card/id/auth_card = user.GetIdCard()
+	var/obj/item/card/id/auth_card = user.GetIdCard()
 
 	if(href_list["state"])
 		display_state = href_list["state"]
@@ -300,7 +300,7 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 				text += "<b>Date:</b> [stationdate2text()]<br><br><br>"
 				text += "<font size= \"1\">Terminal: [machine_id]</font>"
 
-				var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(src.loc)
+				var/obj/item/paper/P = new /obj/item/paper(src.loc)
 				P.SetName("Notice of Fine Penalty: [focused_account.owner_name]")
 				P.info = "<center><img src = [GLOB.using_map.logo]><br>"
 				P.info += "<b>Notice of Fine Penalty</b><br></center>"
@@ -311,7 +311,7 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 				P.info += "[GLOB.using_map.station_name] commanding body retains the right to pay any reimbursements in the form of working credits. By accepting this paper issue, you agree to these terms."
 				P.info += "</font>"
 
-				var/obj/item/weapon/paper/P2 = new /obj/item/weapon/paper(src.loc)
+				var/obj/item/paper/P2 = new /obj/item/paper(src.loc)
 				P2.SetName("Record of Fine Penalty: [focused_account.owner_name]")
 				P2.info = "<center><img src = [GLOB.using_map.logo]><br>"
 				P2.info += "<b>Record of Fine Penalty</b><br></center>"
@@ -323,7 +323,7 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 				stampoverlay.icon_state = "paper_stamp-hop"
 				if(!P.stamped)
 					P.stamped = new
-				P.stamped += /obj/item/weapon/stamp
+				P.stamped += /obj/item/stamp
 				P.overlays += stampoverlay
 				P.stamps += "<HR><i>This paper has been stamped by the Second Officer's Desk.</i>"
 				P.fields++
@@ -332,7 +332,7 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 
 				if(!P2.stamped)
 					P2.stamped = new
-				P2.stamped += /obj/item/weapon/stamp
+				P2.stamped += /obj/item/stamp
 				P2.overlays += stampoverlay
 				P2.stamps += "<HR><i>This paper has been stamped by the Second Officer's Desk.</i>"
 				P2.fields++
@@ -538,8 +538,8 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 				M.initial_account = acc
 
 				//More paperwork! This time for pins and account info. Only the crewmember should know this, so we'll put it in an envelope with a seal
-				var/obj/item/weapon/folder/envelope/P = new /obj/item/weapon/folder/envelope(src.loc)
-				var/obj/item/weapon/paper/R = new /obj/item/weapon/paper(P)
+				var/obj/item/folder/envelope/P = new /obj/item/folder/envelope(src.loc)
+				var/obj/item/paper/R = new /obj/item/paper(P)
 
 				R.SetName("Account information: [acc.owner_name]")
 				R.info = "<center><img src = [GLOB.using_map.logo]><br>"
@@ -564,7 +564,7 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 				stampoverlay.icon_state = "paper_stamp-hop"
 				if(!R.stamped)
 					R.stamped = new
-				R.stamped += /obj/item/weapon/stamp
+				R.stamped += /obj/item/stamp
 				R.overlays += stampoverlay
 				R.stamps += "<HR><i>This paper has been stamped by the Second Officer's Desk.</i>"
 				R.update_icon()
@@ -595,7 +595,7 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 	message.source = server.login
 	server.send_mail(address, message)
 
-/obj/machinery/computer/accounts/proc/addLog(var/action, var/details, var/obj/item/weapon/card/id/auth_card)
+/obj/machinery/computer/accounts/proc/addLog(var/action, var/details, var/obj/item/card/id/auth_card)
 	if(!details || !action || !auth_card)
 		return
 	var/log = "\[[stationdate2text()] [stationtime2text()]] - [auth_card.registered_name] ([auth_card.assignment]) - \[[action]]: [details]"

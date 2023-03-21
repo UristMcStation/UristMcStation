@@ -102,13 +102,13 @@
 	if(ignorezeros) //prevents very pure colors from averaging asymptotically to black
 		//note that the parameter being set to 1 makes the coloring non-symmetrical!
 		if(color1 == 0)
-			resultcolor = Clamp(color2, low, high)
+			resultcolor = clamp(color2, low, high)
 		else if(color2 == 0)
-			resultcolor = Clamp(color1, low, high)
+			resultcolor = clamp(color1, low, high)
 		else
-			resultcolor = Clamp(((color1 + color2)/2), low, high)
+			resultcolor = clamp(((color1 + color2)/2), low, high)
 	else
-		resultcolor = Clamp(((color1 + color2)/2), low, high)
+		resultcolor = clamp(((color1 + color2)/2), low, high)
 	return resultcolor
 
 //as above, but handles 2 RGB color lists and the min/max are for lightness; defaults to unbound, so can be black to white)
@@ -246,7 +246,7 @@
 /proc/living_player_count()
 	var/living_player_count = 0
 	for(var/mob in GLOB.player_list)
-		if(mob in GLOB.living_mob_list_)
+		if(mob in GLOB.living_players)
 			living_player_count += 1
 	return living_player_count
 

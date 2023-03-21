@@ -14,7 +14,7 @@
 	if(on)
 		user << "<span class='notice'>[src] is already processing, please wait.</span>"
 		return
-	if(istype(I, /obj/item/weapon/grab)||istype(I, /obj/item/tk_grab))
+	if(istype(I, /obj/item/grab)||istype(I, /obj/item/tk_grab))
 		user << "<span class='warning'>That isn't going to fit.</span>"
 		return
 //	if(!user.unEquip(I))
@@ -44,8 +44,8 @@
 		on = FALSE
 		icon_state = "grill_off"
 
-		if(istype(I, /obj/item/weapon/reagent_containers/))
-			var/obj/item/weapon/reagent_containers/food = I
+		if(istype(I, /obj/item/reagent_containers/))
+			var/obj/item/reagent_containers/food = I
 			food.reagents.add_reagent(/datum/reagent/nutriment, 10)
 			food.reagents.trans_to(I, food.reagents.total_volume)
 		I.loc = get_turf(src)

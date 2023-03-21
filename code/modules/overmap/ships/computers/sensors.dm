@@ -10,7 +10,7 @@
 	health_max = 100
 	var/obj/machinery/shipsensors/sensors
 	var/list/last_scan
-	var/print_language = LANGUAGE_HUMAN_EURO
+	var/print_language = LANGUAGE_GALCOM
 
 /obj/machinery/computer/ship/sensors/spacer
 	construct_state = /singleton/machine_construction/default/panel_closed/computer/no_deconstruct

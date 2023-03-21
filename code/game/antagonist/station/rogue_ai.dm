@@ -46,9 +46,8 @@ GLOBAL_DATUM_INIT(malf, /datum/antagonist/rogue_ai, new)
 
 	// Initializes the AI's malfunction stuff.
 	spawn(0)
-		if(!skip_initial)
-			if(!..())
-				return
+		if(!..())
+			return
 
 		var/mob/living/silicon/ai/A = player.current
 		if(!istype(A))

@@ -30,7 +30,7 @@
 	slot_flags = SLOT_MASK
 
 /obj/item/clothing/mask/flower/attackby(var/obj/item/I, mob/user as mob)
-	if(istype(I, /obj/item/weapon/scissors))
+	if(istype(I, /obj/item/scissors))
 		var/obj/item/clothing/head/urist/paperflower/F = new /obj/item/clothing/head/urist/paperflower
 		user.remove_from_mob(src)
 		user.put_in_hands(F)

@@ -33,7 +33,7 @@
 
 	//Grab some more ore to process this tick.
 	if(input_turf)
-		for(var/obj/item/weapon/ore/I in recursive_content_check(input_turf, sight_check = FALSE, include_mobs = FALSE))
+		for(var/obj/item/ore/I in recursive_content_check(input_turf, sight_check = FALSE, include_mobs = FALSE))
 			if(QDELETED(I) || !I.simulated || I.anchored)
 				continue
 			if(LAZYLEN(I.matter))

@@ -9,6 +9,9 @@
 	flags = WHITELISTED
 	space_chance = 50
 	shorthand = "SCH"
+	partial_understanding = list(
+		LANGUAGE_SPACER = 20
+	)
 	syllables = list(
 			"ca", "ra", "ma", "sa", "na", "ta", "la", "sha", "scha", "a", "a",
 			"ce", "re", "me", "se", "ne", "te", "le", "she", "sche", "e", "e",

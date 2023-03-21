@@ -59,7 +59,7 @@
 				M.DoActivate()
 
 	if(src == GLOB.using_map.overmap_ship)
-		var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
+		var/singleton/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
 		security_state.stored_security_level = security_state.current_security_level
 		security_state.set_security_level(security_state.high_security_level)
 
@@ -107,7 +107,7 @@
 	src.unhalt()
 
 	if(src == GLOB.using_map.overmap_ship)
-		var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
+		var/singleton/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
 		security_state.set_security_level(security_state.stored_security_level)
 
 /obj/effect/overmap/ship/combat/Crossed(O as mob)
@@ -183,7 +183,7 @@
 	if(!target || fleeing)	return
 	var/obj/effect/overmap/ship/combat/OM = target
 	fleeing = 1
-	flee_timer = Clamp((600 + round(2*((vessel_mass - OM.vessel_mass)/100))), 300, 900)	//Temp formula for now. Smaller ships escape faster for balancing.
+	flee_timer = clamp((600 + round(2*((vessel_mass - OM.vessel_mass)/100))), 300, 900)	//Temp formula for now. Smaller ships escape faster for balancing.
 	autoannounce("<b>Restabilizing engines - ETA [flee_timer] seconds</b>", "private")
 	OM.autoannounce("<b>[ship_name] engine restabilization in progress - ETA [flee_timer] seconds</b>", "private")
 
@@ -232,7 +232,7 @@
 		autoannounce("<b>Engines destabilized - [OM.ship_name] weapon systems online</b>", "public")
 
 	if(src == GLOB.using_map.overmap_ship)	//If the Nerva is involved, let's put it on Red Alert.
-		var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
+		var/singleton/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
 		security_state.stored_security_level = security_state.current_security_level
 		security_state.set_security_level(security_state.high_security_level)
 
@@ -254,7 +254,7 @@
 		autoannounce("<b>[T.ship_name] has exceeded weapons range - Exiting combat.</b>", "public")
 
 	if(src == GLOB.using_map.overmap_ship)	//If the Nerva is involved, put the alert level back where it was
-		var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
+		var/singleton/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
 		security_state.set_security_level(security_state.stored_security_level)
 
 	T.leave_pvp_combat(!fled)	//Calls the other ship to leave. Won't loop back as target was cleared.

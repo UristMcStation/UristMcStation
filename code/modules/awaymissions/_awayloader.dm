@@ -11,11 +11,11 @@
 			remaining -= possible_away.value
 			var/file = file(possible_away.map_path)
 			if(isfile(file))
-				maploader.load_map(file)
+				GLOB.maploader.load_map(file)
 				possible_away.perform_setup()
 				remaining -= possible_away.value
 		missions -= randaway
-		if(!missions.len)
+		if(!length(missions))
 			remaining = 0
 	admin_notice("<span class='danger'>Away mission(s) loaded.</span>", R_DEBUG)
 
@@ -36,7 +36,7 @@
 	var/list/potentialRandomZlevels = list()
 	admin_notice("<span class='danger'>Searching for away missions...</span>", R_DEBUG)
 	var/list/Lines = file2list("maps/RandomZLevels/fileList.txt")
-	if(!Lines.len)	return
+	if(!length(Lines))	return
 	for (var/t in Lines)
 		if (!t)
 			continue
@@ -65,13 +65,13 @@
 		potentialRandomZlevels.Add(name)
 
 
-	if(potentialRandomZlevels.len)
+	if(length(potentialRandomZlevels))
 		admin_notice("<span class='danger'>Loading away mission...</span>", R_DEBUG)
 
 		var/map = pick(potentialRandomZlevels)
 		var/file = file(map)
 		if(isfile(file))
-			maploader.load_map(file)
+			GLOB.maploader.load_map(file)
 			log_debug("away mission loaded: [map]")
 
 		for(var/obj/effect/landmark/L in landmarks_list)
@@ -88,7 +88,7 @@
 /proc/generateMapList(filename)
 	var/list/potentialMaps = list()
 	var/list/Lines = file2list(filename)
-	if(!Lines.len)
+	if(!length(Lines))
 		return
 	for (var/t in Lines)
 		if (!t)

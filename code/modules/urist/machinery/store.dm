@@ -70,9 +70,9 @@ var/global/datum/store/centcomm_store=new
 	name = "Merchandise Computer"
 	icon_screen = "comm_logs"
 	light_color = "#00b000"
-	circuit = "/obj/item/weapon/circuitboard/merch"
+	circuit = "/obj/item/circuitboard/merch"
 
-/obj/item/weapon/circuitboard/merch
+/obj/item/circuitboard/merch
 	name = "\improper Merchandise Computer Circuitboard"
 	build_path = /obj/machinery/computer/merch
 
@@ -222,4 +222,3 @@ td.cost.toomuch {
 		else
 			icon_state = initial(icon_state)
 			stat &= ~NOPOWER*/
-

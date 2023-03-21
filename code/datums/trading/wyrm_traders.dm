@@ -17,17 +17,15 @@
 				"bribe_accept"      = "Why not! Glad to be here for a few more minutes.",
 				)
 
-	possible_trading_items = list(/obj/item/weapon/stock_parts          = TRADER_SUBTYPES_ONLY,
+	possible_trading_items = list(/obj/item/stock_parts                 = TRADER_SUBTYPES_ONLY,
 								/obj/item/stack/cable_coil              = TRADER_SUBTYPES_ONLY,
 								/obj/item/stack/cable_coil/cyborg       = TRADER_BLACKLIST,
 								/obj/item/stack/cable_coil/random       = TRADER_BLACKLIST,
 								/obj/item/stack/cable_coil/cut          = TRADER_BLACKLIST,
-								/obj/item/weapon/cell                   = TRADER_SUBTYPES_ONLY,
-								/obj/item/weapon/cell/mecha             = TRADER_BLACKLIST,
-								/obj/item/weapon/cell/apc               = TRADER_BLACKLIST,
-								/obj/item/weapon/cell/slime             = TRADER_BLACKLIST,
-								/obj/item/weapon/smes_coil              = TRADER_ALL,
-								/obj/item/weapon/storage/part_replacer  = TRADER_THIS_TYPE)
+								/obj/item/cell                          = TRADER_SUBTYPES_ONLY,
+								/obj/item/cell/slime                    = TRADER_BLACKLIST,
+								/obj/item/stock_parts/smes_coil         = TRADER_ALL,
+								/obj/item/storage/part_replacer         = TRADER_THIS_TYPE)
 
 /datum/trader/ship/gardener
 	name = "Garden Ship Employee"
@@ -55,8 +53,8 @@
 	possible_trading_items = list(/obj/machinery/seed_storage                      = TRADER_THIS_TYPE,
 								/obj/machinery/vending/hydronutrients              = TRADER_THIS_TYPE,
 								/obj/machinery/portable_atmospherics/hydroponics   = TRADER_THIS_TYPE,
-								/obj/item/weapon/gun/energy/floragun               = TRADER_THIS_TYPE,
-								/obj/item/device/analyzer/plant_analyzer           = TRADER_THIS_TYPE,
+								/obj/item/gun/energy/floragun                      = TRADER_THIS_TYPE,
+								/obj/item/device/scanner/plant                     = TRADER_THIS_TYPE,
 								/obj/structure/reagent_dispensers/watertank        = TRADER_THIS_TYPE,
 								/obj/structure/closet/crate/hydroponics/prespawned = TRADER_THIS_TYPE,
 								/obj/item/seeds                                    = TRADER_SUBTYPES_ONLY,

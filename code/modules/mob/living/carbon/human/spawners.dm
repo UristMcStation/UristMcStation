@@ -13,7 +13,7 @@
 	var/list/skin_color      // RGB
 	var/list/eye_color       // RGB
 	var/list/hair_color = "RAND" // RGB
-	var/clothing             // /decl/hierarchy/outfit
+	var/clothing             // /singleton/hierarchy/outfit
 	var/rank                 // Outfit rank
 	var/assignment           // Outfit assignment
 	var/killed               // Brain dead on spawn
@@ -55,7 +55,7 @@
 	if(tone && !skin_color)
 		if(tone == "RAND")
 			H.change_skin_tone(random_skin_tone())
-		else if(islist(tone) && tone.len >= 1)
+		else if(islist(tone) && length(tone) >= 1)
 			var/rand_tone = pick(tone)
 			H.change_skin_tone(rand_tone)
 
@@ -73,7 +73,7 @@
 			H.change_facial_hair_color(hair_color[1],hair_color[2],hair_color[3])
 
 	if(clothing)
-		var/decl/hierarchy/outfit/O = outfit_by_type(clothing)
+		var/singleton/hierarchy/outfit/O = outfit_by_type(clothing)
 		O.equip(H)
 
 	if(killed)
@@ -92,7 +92,7 @@
 			var/turf/T = H.near_wall(dir,2)
 			var/obj/item/organ/external/E = H.organs_by_name[damage["impale"]]
 			if(T && E && E.wounds.len)
-				var/obj/item/weapon/arrow/rod/R = new(H)
+				var/obj/item/arrow/rod/R = new(H)
 				H.set_dir(GLOB.reverse_dir[dir])
 				H.loc = T
 				H.anchored = 1
@@ -111,7 +111,7 @@
 //Humans
 
 /obj/effect/spawner/carbon/human/grayson/miner
-	clothing = /decl/hierarchy/outfit/grayson/miner
+	clothing = /singleton/hierarchy/outfit/grayson/miner
 
 /obj/effect/spawner/carbon/human/grayson/miner/crystal
 	killed = TRUE
@@ -132,34 +132,34 @@
 	qdel(src)
 
 /obj/effect/spawner/carbon/human/pcrc
-	clothing = /decl/hierarchy/outfit/pcrc
+	clothing = /singleton/hierarchy/outfit/pcrc
 
 /obj/effect/spawner/carbon/human/patient
-	clothing = /decl/hierarchy/outfit/patient
+	clothing = /singleton/hierarchy/outfit/patient
 
 /obj/effect/spawner/carbon/human/vaultrich
 	killed = TRUE
-	clothing = /decl/hierarchy/outfit/vaultrich
+	clothing = /singleton/hierarchy/outfit/vaultrich
 
 //Nanotrasen
 
 /obj/effect/spawner/carbon/human/virus/ntsci
-	clothing = /decl/hierarchy/outfit/nanotrasensci
+	clothing = /singleton/hierarchy/outfit/nanotrasensci
 
 /obj/effect/spawner/carbon/human/nt
-	clothing = /decl/hierarchy/outfit/nanotrasensci
+	clothing = /singleton/hierarchy/outfit/nanotrasensci
 
 /obj/effect/spawner/carbon/human/nt/hurt
 	damage = list("damage_all_brute" = 50, "damage_all_burn" = 50)
 
 /obj/effect/spawner/carbon/human/nt/hurt/loot
-	clothing = /decl/hierarchy/outfit/nanotrasensci/loot
+	clothing = /singleton/hierarchy/outfit/nanotrasensci/loot
 
 /obj/effect/spawner/carbon/human/nt/exec
-	clothing = /decl/hierarchy/outfit/nanotrasensci/exec
+	clothing = /singleton/hierarchy/outfit/nanotrasensci/exec
 
 /obj/effect/spawner/carbon/human/nt/exec/armed
-	clothing = /decl/hierarchy/outfit/nanotrasensci/exec/armed
+	clothing = /singleton/hierarchy/outfit/nanotrasensci/exec/armed
 
 //Vox
 
@@ -168,16 +168,16 @@
 	hair_color = list()
 
 /obj/effect/spawner/carbon/human/vox/robed
-	clothing = /decl/hierarchy/outfit/vox/robes
+	clothing = /singleton/hierarchy/outfit/vox/robes
 
 /obj/effect/spawner/carbon/human/vox/medic
-	clothing = /decl/hierarchy/outfit/vox/medic
+	clothing = /singleton/hierarchy/outfit/vox/medic
 
 /obj/effect/spawner/carbon/human/vox/stealth
-	clothing = /decl/hierarchy/outfit/vox/stealth
+	clothing = /singleton/hierarchy/outfit/vox/stealth
 
 /obj/effect/spawner/carbon/human/vox/assault
-	clothing = /decl/hierarchy/outfit/vox/assault
+	clothing = /singleton/hierarchy/outfit/vox/assault
 
 //Skrell castes
 
@@ -202,10 +202,10 @@
 	caste_colors = list(1 = list(0, 153, 255), 2 = list(51, 153, 102), 3 = list(128, 128, 0))
 
 /obj/effect/spawner/carbon/human/skrell/malish/veymed
-	clothing = /decl/hierarchy/outfit/veymed
+	clothing = /singleton/hierarchy/outfit/veymed
 
 /obj/effect/spawner/carbon/human/skrell/malish/veymed/head
-	clothing = /decl/hierarchy/outfit/veymed/head
+	clothing = /singleton/hierarchy/outfit/veymed/head
 
 /obj/effect/spawner/carbon/human/skrell/kanin
 	caste_colors = list(1 = list(153, 102, 0), 2 = list(153, 0, 0), 3 = list(128, 128, 0), 4 = list(0, 0, 0))
@@ -233,29 +233,29 @@
 
 //Spawner Outfits
 
-/decl/hierarchy/outfit/nanotrasensci
+/singleton/hierarchy/outfit/nanotrasensci
 	name = "Nanotrasen scientist"
 	uniform = /obj/item/clothing/under/rank/scientist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science/nanotrasen
 	shoes = /obj/item/clothing/shoes/white
-	back = /obj/item/weapon/storage/backpack/nt
+	back = /obj/item/storage/backpack/nt
 	l_ear = /obj/item/device/radio/headset/headset_sci
 
-/decl/hierarchy/outfit/nanotrasensci/loot
+/singleton/hierarchy/outfit/nanotrasensci/loot
 	name = "NT Scientist - Random Loot"
 	backpack_contents = list(/obj/random/material, /obj/random/material, /obj/random/material, /obj/random/loot)
 
-/decl/hierarchy/outfit/nanotrasensci/exec
+/singleton/hierarchy/outfit/nanotrasensci/exec
 	name = "NT Senior Scientist"
 	uniform = /obj/item/clothing/under/rank/scientist/executive
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/rd
 	gloves = /obj/item/clothing/gloves/white
 
-/decl/hierarchy/outfit/nanotrasensci/exec/armed
+/singleton/hierarchy/outfit/nanotrasensci/exec/armed
 	name = "NT Senior Scientist - Armed"
-	backpack_contents = list(/obj/random/energy, /obj/item/weapon/archaeological_find)
+	backpack_contents = list(/obj/random/energy, /obj/item/archaeological_find)
 
-/decl/hierarchy/outfit/vaultrich
+/singleton/hierarchy/outfit/vaultrich
 	name = "Banker"
 	uniform = /obj/item/clothing/under/det/black
 	shoes = /obj/item/clothing/shoes/laceup

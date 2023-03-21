@@ -382,7 +382,7 @@
 /*
 * CHIEF SCIENCE OFFICER
 */
-/obj/item/weapon/rig/command/science
+/obj/item/rig/command/science
 	name = "research command HCM"
 	suit_type = "research command hardsuit"
 	desc = "A specialized hardsuit rig control module issued to ranking research officers of the Expeditionary Corps."

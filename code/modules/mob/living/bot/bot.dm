@@ -495,7 +495,7 @@
 				return !D.check_access(ID)
 			//if((dir & SOUTH) && (D.dir & (EAST|WEST)))		return !D.check_access(ID)
 			//if((dir & EAST ) && (D.dir & (NORTH|SOUTH)))	return !D.check_access(ID)
-		else 
+		else
 			if(istype(D, /obj/machinery/door/airlock/lift))	//Stop bots committing suicide down the lift shaft, as amusing as it is
 				return !D.check_access(ID) || D.density
 
@@ -542,7 +542,7 @@
 	return manhattan_dist * ((currentPathweight+targetPathweight)/2)
 
 //NORTH, SOUTH, EAST, WEST, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST + Traversal up and down stairs
-/turf/proc/AllDirTurfsWithAccessWithZ(var/obj/item/weapon/card/id/ID)
+/turf/proc/AllDirTurfsWithAccessWithZ(var/obj/item/card/id/ID)
 	var/L[] = new()
 
 	for(var/d in GLOB.alldirs)
@@ -562,7 +562,7 @@
 	return L
 
 //NORTH, SOUTH, EAST, WEST + Traversal up and down stairs
-/turf/proc/CardinalTurfsWithAccessWithZ(var/obj/item/weapon/card/id/ID)
+/turf/proc/CardinalTurfsWithAccessWithZ(var/obj/item/card/id/ID)
 	var/L[] = new()
 
 	for(var/d in GLOB.cardinal)

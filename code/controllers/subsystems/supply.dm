@@ -25,8 +25,6 @@ SUBSYSTEM_DEF(supply)
 		"time" = "Base station supply",
 		"manifest" = "From exported manifests",
 		"crate" = "From exported crates",
-		"virology_antibodies" = "From uploaded antibody data",
-		"virology_dishes" = "From exported virus dishes",
 		"gep" = "From uploaded good explorer points",
 		"total" = "Total" // If you're adding additional point sources, add it here in a new line. Don't forget to put a comma after the old last line.
 	)
@@ -48,7 +46,6 @@ SUBSYSTEM_DEF(supply)
 			"time" = "Base station supply",
 			"manifest" = "From exported manifests",
 			"crate" = "From exported crates",
-			"virology" = "From uploaded antibody data",
 			"gep" = "From uploaded good explorer points",
 			"trade" = "From trading items",
 			"total" = "Total" // If you're adding additional point sources, add it here in a new line. Don't forget to put a comma after the old last line.
@@ -118,6 +115,7 @@ SUBSYSTEM_DEF(supply)
 	var/list/material_count = list()
 	var/list/to_sell = list()
 	var/list/crates = list()
+	var/atom/A = atom
 
 	for(var/area/subarea in shuttle.shuttle_area)
 		for(var/atom/movable/AM in subarea)
@@ -162,7 +160,6 @@ SUBSYSTEM_DEF(supply)
 						continue
 
 					// Sell manifests
-					var/atom/A = atom
 					if(find_slip && istype(A,/obj/item/paper/manifest))
 						var/obj/item/paper/manifest/slip = A
 						if(!slip.is_copy && slip.stamped && length(slip.stamped)) //Any stamp works.
@@ -184,17 +181,6 @@ SUBSYSTEM_DEF(supply)
 						var/obj/item/disk/survey/D = A
 						add_points_from_source(round(D.Value() * 0.005), "gep")
 						qdel(D)
-						continue
-
-					// Sell virus dishes.
-					if(istype(A, /obj/item/weapon/virusdish))
-						//Obviously the dish must be unique and never sold before.
-						var/obj/item/weapon/virusdish/dish = A
-						if(dish.analysed && istype(dish.virus2) && dish.virus2.uniqueID)
-							if(!(dish.virus2.uniqueID in sold_virus_strains))
-								add_points_from_source(5, "virology_dishes")
-								sold_virus_strains += dish.virus2.uniqueID
-						qdel(dish)
 						continue
 
 					//Sell anything else that isn't unique or needs special handling

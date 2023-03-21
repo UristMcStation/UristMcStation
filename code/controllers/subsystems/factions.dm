@@ -22,7 +22,7 @@ SUBSYSTEM_DEF(factions)
 
 /datum/controller/subsystem/factions/proc/update_reputation(var/datum/factions/faction, var/rep = 0) //call this on stuff that would incur a relationship boost or hit
 	faction.reputation += rep
-	faction.reputation = Clamp(faction.reputation, -100, 100)
+	faction.reputation = clamp(faction.reputation, -100, 100)
 
 	if(faction.reputation < 0 && !faction.hostile) //maybe cap things at 100? idk
 		faction.hostile = TRUE

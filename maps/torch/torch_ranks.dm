@@ -265,34 +265,6 @@
 		/datum/mil_rank/sol/scientist
 	)
 
-/datum/mil_branch/terran
-	name = "Independent Navy"
-	name_short = "ICCGN"
-	email_domain = "gilgamesh.navy.mil"
-
-	rank_types = list(
-		/datum/mil_rank/terran/e1,
-		/datum/mil_rank/terran/e3,
-		/datum/mil_rank/terran/e4,
-		/datum/mil_rank/terran/e6,
-		/datum/mil_rank/terran/e7,
-		/datum/mil_rank/terran/e9,
-		/datum/mil_rank/terran/e9_alt1,
-		/datum/mil_rank/terran/o1,
-		/datum/mil_rank/terran/o2,
-		/datum/mil_rank/terran/o3,
-		/datum/mil_rank/terran/o4,
-		/datum/mil_rank/terran/o5,
-		/datum/mil_rank/terran/o6,
-		/datum/mil_rank/terran/o7,
-		/datum/mil_rank/terran/o8,
-		/datum/mil_rank/terran/o9,
-		/datum/mil_rank/terran/o10
-	)
-	min_skill = list(	SKILL_HAULING = SKILL_BASIC,
-						SKILL_WEAPONS = SKILL_BASIC,
-						SKILL_EVA     = SKILL_BASIC)
-
 /datum/mil_rank/grade()
 	. = ..()
 	if(!sort_order)
@@ -672,7 +644,7 @@
  *  Civilians
  *  =========
  */
- 
+
 /datum/mil_rank/civ/civ
 	name = "Civilian"
 

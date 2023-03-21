@@ -83,7 +83,7 @@
 	if(isrobot(loc) || istype(loc, /obj/item/rig_module) || istype(loc, /obj/item/mech_equipment))
 		return loc.get_cell()
 
-/obj/item/weapon/gun/energy/special_check(var/mob/user)
+/obj/item/gun/energy/special_check(var/mob/user)
 
 	if(!..())
 		return
@@ -94,7 +94,7 @@
 	return 1
 
 //To load a new power cell into the energy gun, if item A is a cell type and the gun is not self-recharging
-/obj/item/weapon/gun/energy/proc/load_ammo(var/obj/item/weapon/cell/AM, mob/user)
+/obj/item/gun/energy/proc/load_ammo(var/obj/item/cell/AM, mob/user)
 	if(self_recharge)
 		return
 	//only let's you load in power cells
@@ -124,7 +124,7 @@
 		update_icon()
 
 //To unload the existing power cell, if the cell cover is open and the gun is not self recharging
-/obj/item/weapon/gun/energy/proc/unload_ammo(mob/user)
+/obj/item/gun/energy/proc/unload_ammo(mob/user)
 	if(self_recharge)
 		return
 	if(hatch_open)
@@ -147,7 +147,7 @@
 		return
 
 //to trigger loading cell
-/obj/item/weapon/gun/energy/attackby(var/obj/item/A as obj, mob/user as mob)
+/obj/item/gun/energy/attackby(var/obj/item/A as obj, mob/user as mob)
 	if(isScrewdriver(A) && (!self_recharge))
 		if(!hatch_open)
 			hatch_open = 1
@@ -163,13 +163,13 @@
 		return ..()
 
 //to trigger unloading the cell
-/obj/item/weapon/gun/energy/attack_self(mob/user as mob)
-	if(firemodes.len > 1)
+/obj/item/gun/energy/attack_self(mob/user as mob)
+	if(length(firemodes) > 1)
 		..()
 	else
 		unload_ammo(user)
 
-/obj/item/weapon/gun/energy/attack_hand(mob/user as mob)
+/obj/item/gun/energy/attack_hand(mob/user as mob)
 	if(user.get_inactive_hand() == src)
 		unload_ammo(user)
 	else

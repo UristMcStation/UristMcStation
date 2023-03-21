@@ -46,17 +46,17 @@
 /turf/simulated/floor/holofloor/tiled/old_tile
 	name = "floor"
 	icon_state = "tile_full"
-	initial_flooring = /decl/flooring/tiling/new_tile
+	initial_flooring = /singleton/flooring/tiling/new_tile
 
 /turf/simulated/floor/holofloor/tiled/stone
 	name = "stone floor"
 	icon_state = "stone"
-	initial_flooring = /decl/flooring/tiling/stone
+	initial_flooring = /singleton/flooring/tiling/stone
 
 /turf/simulated/floor/holofloor/tiled/white
 	name = "white floor"
 	icon_state = "white"
-	initial_flooring = /decl/flooring/tiling/white
+	initial_flooring = /singleton/flooring/tiling/white
 
 /turf/simulated/floor/holofloor/lino
 	name = "lino"
@@ -247,7 +247,7 @@
 /obj/structure/bed/chair/holochair/wood/New(var/newloc)
 	..(newloc, MATERIAL_WOOD)
 
-/obj/item/weapon/holo
+/obj/item/holo
 	damtype = PAIN
 	no_attack_log = 1
 
@@ -494,5 +494,5 @@
 
 //fitness
 
-/obj/structure/fitness/weightlifter/holo/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/fitness/weightlifter/holo/attackby(obj/item/W as obj, mob/user as mob)
 	return

@@ -3,7 +3,7 @@
 /mob/living/silicon/robot
 	name = "Cyborg"
 	real_name = "Cyborg"
-	icon = 'icons/uristmob/robots.dmi'
+	icon = 'icons/mob/robots.dmi'
 	icon_state = "robot"
 	maxHealth = 300
 	health = 300
@@ -32,6 +32,7 @@
 	var/icontype         			//Persistent icontype tracking allows for cleaner icon updates
 	var/module_sprites[0]			//Used to store the associations between sprite names and sprite index.
 	var/icon_selected = 1			//If icon selection has been completed yet
+	var/icon_selection_tries = 0//Remaining attempts to select icon before a selection is forced
 
 //Hud stuff
 

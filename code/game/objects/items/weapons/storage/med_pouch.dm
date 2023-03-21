@@ -216,7 +216,7 @@ Single Use Emergency Pouches
 	name = "emergency adrenaline autoinjector"
 	starts_with = list(/datum/reagent/adrenaline = 5)
 
-/obj/item/weapon/reagent_containers/hypospray/autoinjector/pouch_auto/nanoblood
+/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/nanoblood
 	name = "emergency nanoblood autoinjector"
 	amount_per_transfer_from_this = 5
 	starts_with = list(/datum/reagent/nanoblood = 5)

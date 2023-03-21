@@ -12,7 +12,7 @@
 
 	antaghud_offset_y = 8
 
-	assisted_langs = list(LANGUAGE_GUTTER, LANGUAGE_UNATHI_SINTA, LANGUAGE_SKRELLIAN, LANGUAGE_HUMAN_EURO, LANGUAGE_EAL, LANGUAGE_HUMAN_RUSSIAN)
+	assisted_langs = list(LANGUAGE_GUTTER, LANGUAGE_UNATHI_SINTA, LANGUAGE_SKRELLIAN, LANGUAGE_GALCOM, LANGUAGE_EAL, LANGUAGE_HUMAN_RUSSIAN)
 	min_age = 8
 	max_age = 40
 
@@ -140,7 +140,7 @@
 			RELIGION_OTHER
 		)
 
-	)
+	)*/
 	pain_emotes_with_pain_level = list(
 			list(/singleton/emote/audible/bug_hiss) = 40
 	)

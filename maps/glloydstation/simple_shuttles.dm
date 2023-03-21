@@ -15,25 +15,25 @@
 	name = "naval shuttle console"
 	shuttle_tag = "Naval"
 	//req_access =
-	//circuit = /obj/item/weapon/circuitboard/
+	//circuit = /obj/item/circuitboard/
 
 /obj/machinery/computer/shuttle_control/outpost
 	name = "outpost shuttle console"
 	shuttle_tag = "Outpost"
 	//req_one_access_txt =
-	//circuit = /obj/item/weapon/circuitboard/
+	//circuit = /obj/item/circuitboard/
 */
 /obj/machinery/computer/shuttle_control/elevator/mining
 	name = "mining elevator console"
 	shuttle_tag = "Mining Elevator"
 	req_access = list("ACCESS_MINING")
-	//circuit = /obj/item/weapon/circuitboard/
+	//circuit = /obj/item/circuitboard/
 
 /obj/machinery/computer/shuttle_control/elevator/research
 	name = "research elevator console"
 	shuttle_tag = "Xenoarch Elevator"
 	req_access = list("ACCESS_XENOARCH")
-	//circuit = /obj/item/weapon/circuitboard/
+	//circuit = /obj/item/circuitboard/
 
 /obj/machinery/computer/shuttle_control/securityoutpost
 	name = "security outpost shuttle console"

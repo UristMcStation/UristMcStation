@@ -203,7 +203,7 @@
 
 /turf/simulated/floor/tiled/dark/monotile
 	icon_state = "monotile"
-	initial_flooring = /decl/flooring/tiling/dark/mono
+	initial_flooring = /singleton/flooring/tiling/dark/mono
 
 /turf/simulated/floor/tiled/white
 	name = "white floor"
@@ -323,7 +323,7 @@
 	name = "sand covered tiles"
 	icon = 'icons/turf/flooring/asteroid.dmi'
 	icon_state = "asteroidfloor"
-	initial_flooring = /decl/flooring/tiling/sand
+	initial_flooring = /singleton/flooring/tiling/sand
 
 /turf/simulated/floor/lino
 	name = "lino"

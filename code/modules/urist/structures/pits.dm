@@ -10,8 +10,8 @@
 	var/punji = 0
 	var/animal_safe
 
-/obj/structure/pit/attackby(obj/item/weapon/W, mob/user)
-	if( istype(W,/obj/item/weapon/shovel) )
+/obj/structure/pit/attackby(obj/item/W, mob/user)
+	if( istype(W,/obj/item/shovel) )
 		if(punji)
 			to_chat(user, "<span class='notice'>Remove the sharpened sticks before filling it up.</span>")
 		visible_message("<span class='notice'>\The [user] starts [open ? "filling" : "digging open"] \the [src]</span>")
@@ -37,7 +37,7 @@
 			else
 				to_chat(user, "<span class='notice'>You stop making a grave marker.</span>")
 		return
-	if(istype(W,/obj/item/weapon/sharpwoodrod))
+	if(istype(W,/obj/item/sharpwoodrod))
 		if(open)
 			if(punji == 6)
 				to_chat(user, "<span class='notice'>There are too many sharpened sticks in there.</span>")
@@ -72,7 +72,7 @@
 /obj/structure/pit/attack_hand(var/mob/user as mob)
 	if(punji)
 		to_chat(user, "You yank out one of the sharpened sticks from the pit.")
-		new /obj/item/weapon/sharpwoodrod(src.loc)
+		new /obj/item/sharpwoodrod(src.loc)
 		src.overlays -= image('icons/urist/structures&machinery/structures.dmi', "punji[punji]")
 		punji -= 1
 
@@ -234,7 +234,7 @@
 	new /obj/item/clothing/under/urist/cowboy(C)
 	new /obj/item/clothing/suit/urist/poncho(C)
 	new /obj/item/clothing/accessory/storage/holster/hip(C)
-	new /obj/item/weapon/gun/projectile/revolver/capgun(C)
+	new /obj/item/gun/projectile/revolver/capgun(C)
 
 	var/obj/structure/gravemarker/cross/R = new(src.loc)
 	R.message = "Here lies a man who had no name. Died fighting for a fistful of dollars." //memes
@@ -272,15 +272,14 @@
 
 	message = "Here lies [nam], [born] - [died]."
 
-/obj/structure/gravemarker/attackby(obj/item/weapon/W, mob/user)
-	if(istype(W,/obj/item/weapon/material/hatchet))
+/obj/structure/gravemarker/attackby(obj/item/W, mob/user)
+	if(istype(W,/obj/item/material/hatchet))
 		visible_message("<span class = 'warning'>\The [user] starts hacking away at \the [src] with \the [W].</span>")
 		if(!do_after(user, 30))
 			visible_message("<span class = 'warning'>\The [user] hacks \the [src] apart.</span>")
 			new /obj/item/stack/material/wood(src)
 			qdel(src)
-	if(istype(W,/obj/item/weapon/pen))
+	if(istype(W,/obj/item/pen))
 		var/msg = sanitize(input(user, "What should it say?", "Grave marker", message) as text|null)
 		if(msg)
 			message = msg
-

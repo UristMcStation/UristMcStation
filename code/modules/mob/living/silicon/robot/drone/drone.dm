@@ -102,8 +102,6 @@ var/global/list/mob_hat_cache = list()
 
 	if (AreConnectedZLevels(z_locked, new_z))
 		return
-	if(controlling_ai)
-		return
 
 	// None of the tests passed, good bye
 	self_destruct()

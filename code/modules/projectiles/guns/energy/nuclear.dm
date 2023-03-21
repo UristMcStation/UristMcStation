@@ -16,8 +16,8 @@
 		list(mode_name="shock", projectile_type=/obj/item/projectile/beam/stun/shock, modifystate="energyshock"),
 		list(mode_name="kill", projectile_type=/obj/item/projectile/beam, modifystate="energykill"),
 		)
-		
-/obj/item/weapon/gun/energy/gun/skrell
+
+/obj/item/gun/energy/gun/skrell
 	name = "skrellian handgun"
 	desc = "A common Skrellian side-arm, the Xuxquu*'Voom-5, or XV-5, is a more traditional energy weapon, tuned to dispense beams in three different wavelengths."
 	w_class = ITEM_SIZE_NORMAL

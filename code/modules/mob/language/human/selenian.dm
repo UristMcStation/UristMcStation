@@ -1,5 +1,5 @@
 /datum/language/human/selenian
-	name = LANGUAGE_LUNAR
+	name = LANGUAGE_HUMAN_SELENIAN
 	desc = "An informal dialect of Sol Common that arose from the close confines, mixed population, and technical focus of the moon's first city."
 	colour = "selenian"
 	key = "7"

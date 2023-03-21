@@ -568,15 +568,15 @@
 
 	to_chat(user, SPAN_NOTICE("\An [seed.display_name] is growing here."))
 
-		if(weedlevel >= 5)
-			to_chat(user, "\The [src] is [SPAN_DANGER("infested with weeds")]!")
-		if(pestlevel >= 5)
-			to_chat(user, "\The [src] is [SPAN_DANGER("infested with tiny worms")]!")
+	if(weedlevel >= 5)
+		to_chat(user, "\The [src] is [SPAN_DANGER("infested with weeds")]!")
+	if(pestlevel >= 5)
+		to_chat(user, "\The [src] is [SPAN_DANGER("infested with tiny worms")]!")
 
-		if(dead)
-			to_chat(user, SPAN_DANGER("The [seed.display_name] is dead."))
-		else if(health <= (seed.get_trait(TRAIT_ENDURANCE)/ 2))
-			to_chat(user, "The [seed.display_name] looks [SPAN_DANGER("unhealthy")].")
+	if(dead)
+		to_chat(user, SPAN_DANGER("The [seed.display_name] is dead."))
+	else if(health <= (seed.get_trait(TRAIT_ENDURANCE)/ 2))
+		to_chat(user, "The [seed.display_name] looks [SPAN_DANGER("unhealthy")].")
 
 	if(mechanical && Adjacent(user))
 		var/turf/T = loc

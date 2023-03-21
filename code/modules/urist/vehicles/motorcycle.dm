@@ -85,9 +85,9 @@
 					to_chat(user, "<span class='notice'>You need at least three rods to complete this task.</span>")
 				return
 
-	else if(istype(W,/obj/item/weapon/weldingtool))
+	else if(istype(W,/obj/item/weldingtool))
 		if(buildstate == 1)
-			var/obj/item/weapon/weldingtool/T = W
+			var/obj/item/weldingtool/T = W
 			if(T.remove_fuel(0,user))
 				if(!src || !T.isOn()) return
 				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
@@ -112,7 +112,7 @@
 			qdel(W)
 			return
 
-	else if(istype(W,/obj/item/weapon/wrench))
+	else if(istype(W,/obj/item/wrench))
 		if(buildstate == 4)
 			to_chat(user, "<span class='notice'>You secure the tires into the motorcycle frame.</span>")
 			buildstate++
@@ -135,7 +135,7 @@
 			qdel(W)
 			return
 
-	else if(istype(W,/obj/item/weapon/screwdriver))
+	else if(istype(W,/obj/item/screwdriver))
 		if(buildstate == 6)
 			to_chat(user, "<span class='notice'>You secure the transmission into the frame.</span>")
 			buildstate++
@@ -303,9 +303,9 @@
 	collision_cooldown = 0
 
 /obj/vehicle/bike/motorcycle/electric
-	engine_type = /obj/item/weapon/engine/electric
+	engine_type = /obj/item/engine/electric
 	prefilled = 1
 
 /obj/vehicle/bike/motorcycle/thermal
-	engine_type = /obj/item/weapon/engine/thermal
+	engine_type = /obj/item/engine/thermal
 	prefilled = 1

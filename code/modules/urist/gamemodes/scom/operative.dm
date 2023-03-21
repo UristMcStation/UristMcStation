@@ -34,7 +34,7 @@ GLOBAL_DATUM_INIT(scommies, /datum/antagonist/scom, new)
 
 	valid_species = list("Unathi","Skrell","Human","Resomi")
 	min_player_age = 0
-	id_type = /obj/item/weapon/card/id/centcom/ERT
+	id_type = /obj/item/card/id/centcom/ERT
 	default_access = list() //TODO
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_RANDOM_EXCEPTED | ANTAG_CLEAR_EQUIPMENT
 	landmark_id = "scomspawn3"
@@ -78,7 +78,7 @@ GLOBAL_DATUM_INIT(scommies, /datum/antagonist/scom, new)
 			M.equip_to_slot_or_del(new /obj/item/clothing/under/rank/scientist(M), slot_w_uniform)
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/white(M), slot_shoes)
 			M.equip_to_slot_or_del(new /obj/item/modular_computer/pda/science(M), slot_belt)
-			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/toxins(M), slot_back)
+			M.equip_to_slot_or_del(new /obj/item/storage/backpack/toxins(M), slot_back)
 			M.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat/science(M), slot_wear_suit)
 			create_id("S-COM Researcher", M)
 
@@ -98,9 +98,9 @@ GLOBAL_DATUM_INIT(scommies, /datum/antagonist/scom, new)
 			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/ert(M), slot_l_ear)
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(M), slot_shoes)
 			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/thick/swat(M), slot_gloves)
-			M.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/urist/military/scom(M), slot_belt)
+			M.equip_to_slot_or_del(new /obj/item/storage/belt/urist/military/scom(M), slot_belt)
 			M.equip_to_slot_or_del(new /obj/item/clothing/head/beret/sec/navy/officer(M), slot_head)
-			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/silenced/knight(M), slot_r_store)
+			M.equip_to_slot_or_del(new /obj/item/gun/projectile/silenced/knight(M), slot_r_store)
 			create_id("S-COM Operative", M)
 
 		if(RANK_OFFICER)
@@ -119,9 +119,9 @@ GLOBAL_DATUM_INIT(scommies, /datum/antagonist/scom, new)
 			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/ert(M), slot_l_ear)
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(M), slot_shoes)
 			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/thick/swat(M), slot_gloves)
-			M.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/urist/military/scom(M), slot_belt)
+			M.equip_to_slot_or_del(new /obj/item/storage/belt/urist/military/scom(M), slot_belt)
 			M.equip_to_slot_or_del(new /obj/item/clothing/head/beret/centcom/captain(M), slot_head)
-			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/silenced/knight(M), slot_r_store)
+			M.equip_to_slot_or_del(new /obj/item/gun/projectile/silenced/knight(M), slot_r_store)
 			M.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/pcarrier/medium(M), slot_wear_suit)
 			create_id("S-COM Officer", M)
 

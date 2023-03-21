@@ -86,7 +86,7 @@
 /obj/random/medical,
 /obj/random/medical,
 /obj/random/medical,
-/obj/item/weapon/storage/firstaid/stab,
+/obj/item/storage/firstaid/stab,
 /turf/simulated/floor/plating/vox,
 /area/voxship/base)
 "as" = (
@@ -102,7 +102,7 @@
 /obj/random/medical,
 /obj/random/medical,
 /obj/random/medical,
-/obj/item/weapon/storage/firstaid/adv,
+/obj/item/storage/firstaid/adv,
 /turf/simulated/floor/plating/vox,
 /area/voxship/base)
 "au" = (
@@ -150,7 +150,7 @@
 /obj/random/medical,
 /obj/random/medical,
 /obj/random/medical,
-/obj/item/weapon/storage/firstaid/combat,
+/obj/item/storage/firstaid/combat,
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -250,7 +250,7 @@
 /obj/item/clothing/mask/gas/vox,
 /obj/item/clothing/mask/gas/vox,
 /obj/structure/table/steel,
-/obj/item/weapon/gun/launcher/alien/slugsling,
+/obj/item/gun/launcher/alien/slugsling,
 /turf/simulated/floor/tiled/techmaint/vox,
 /area/voxship/base)
 "aX" = (
@@ -491,8 +491,8 @@
 /turf/simulated/floor/plating/vox,
 /area/voxship/base)
 "bA" = (
-/obj/item/weapon/reagent_containers/glass/bottle/chloralhydrate,
-/obj/item/weapon/reagent_containers/glass/bottle/chloralhydrate,
+/obj/item/reagent_containers/glass/bottle/chloralhydrate,
+/obj/item/reagent_containers/glass/bottle/chloralhydrate,
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/techmaint/vox,
 /area/voxship/base)
@@ -611,7 +611,7 @@
 /turf/simulated/floor/tiled/techmaint/vox,
 /area/voxship/base)
 "bQ" = (
-/obj/item/weapon/reagent_containers/glass/bottle/cyanide,
+/obj/item/reagent_containers/glass/bottle/cyanide,
 /turf/simulated/floor/airless,
 /area/space)
 "bR" = (
@@ -682,8 +682,8 @@
 /turf/simulated/floor/plating/vox,
 /area/voxship/ship)
 "bY" = (
-/obj/item/weapon/storage/box/vox,
-/obj/item/weapon/storage/box/vox,
+/obj/item/storage/box/vox,
+/obj/item/storage/box/vox,
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	icon_state = "intact";
 	dir = 9
@@ -755,8 +755,8 @@
 /turf/simulated/floor/plating/vox,
 /area/voxship/ship)
 "ci" = (
-/obj/item/weapon/storage/firstaid/surgery,
-/obj/item/weapon/scalpel/manager,
+/obj/item/storage/firstaid/surgery,
+/obj/item/scalpel/manager,
 /obj/machinery/light/small{
 	icon_state = "bulb1";
 	dir = 4
@@ -853,7 +853,7 @@
 /turf/simulated/floor/plating/vox,
 /area/voxship/ship)
 "cr" = (
-/obj/item/weapon/reagent_containers/food/snacks/clownburger,
+/obj/item/reagent_containers/food/snacks/clownburger,
 /turf/simulated/floor/airless,
 /area/space)
 "cs" = (
@@ -1038,7 +1038,7 @@
 /turf/simulated/floor/plating/vox,
 /area/voxship/base)
 "cT" = (
-/obj/item/weapon/reagent_containers/food/snacks/meat/monkey,
+/obj/item/reagent_containers/food/snacks/meat/monkey,
 /turf/simulated/floor/plating/vox,
 /area/voxship/base)
 "cU" = (
@@ -1063,10 +1063,10 @@
 /area/voxship/base)
 "cW" = (
 /obj/item/stack/material/rods,
-/obj/item/weapon/reagent_containers/food/snacks/meat/monkey,
-/obj/item/weapon/reagent_containers/food/snacks/meat/goat,
-/obj/item/weapon/reagent_containers/food/snacks/meat/corgi,
-/obj/item/weapon/reagent_containers/food/snacks/bearmeat,
+/obj/item/reagent_containers/food/snacks/meat/monkey,
+/obj/item/reagent_containers/food/snacks/meat/goat,
+/obj/item/reagent_containers/food/snacks/meat/corgi,
+/obj/item/reagent_containers/food/snacks/bearmeat,
 /turf/simulated/floor/plating/vox,
 /area/voxship/base)
 "cX" = (
@@ -1082,10 +1082,10 @@
 /turf/simulated/floor/plating/vox,
 /area/voxship/base)
 "cZ" = (
-/obj/item/weapon/reagent_containers/food/snacks/meat/monkey,
-/obj/item/weapon/reagent_containers/food/snacks/meat/goat,
-/obj/item/weapon/reagent_containers/food/snacks/fish/carp,
-/obj/item/weapon/reagent_containers/food/snacks/fish/carp,
+/obj/item/reagent_containers/food/snacks/meat/monkey,
+/obj/item/reagent_containers/food/snacks/meat/goat,
+/obj/item/reagent_containers/food/snacks/fish/carp,
+/obj/item/reagent_containers/food/snacks/fish/carp,
 /turf/simulated/floor/plating/vox{
 	icon_state = "dmg4"
 	},
@@ -1103,7 +1103,7 @@
 /area/voxship/base)
 "dc" = (
 /obj/item/stack/material/rods,
-/obj/item/weapon/reagent_containers/food/snacks/meat/corgi,
+/obj/item/reagent_containers/food/snacks/meat/corgi,
 /turf/simulated/floor/plating/vox{
 	icon_state = "dmg4"
 	},
@@ -1113,21 +1113,21 @@
 /turf/simulated/floor/plating/vox,
 /area/voxship/base)
 "de" = (
-/obj/item/weapon/reagent_containers/food/snacks/meat/goat,
-/obj/item/weapon/reagent_containers/food/snacks/meat/corgi,
-/obj/item/weapon/reagent_containers/food/snacks/organ,
-/obj/item/weapon/reagent_containers/food/snacks/bearmeat,
+/obj/item/reagent_containers/food/snacks/meat/goat,
+/obj/item/reagent_containers/food/snacks/meat/corgi,
+/obj/item/reagent_containers/food/snacks/organ,
+/obj/item/reagent_containers/food/snacks/bearmeat,
 /turf/simulated/floor/plating/vox{
 	icon_state = "dmg4"
 	},
 /area/voxship/base)
 "df" = (
 /obj/item/stack/material/rods,
-/obj/item/weapon/reagent_containers/food/snacks/bearmeat,
-/obj/item/weapon/reagent_containers/food/snacks/caviar,
-/obj/item/weapon/reagent_containers/food/snacks/caviar,
-/obj/item/weapon/reagent_containers/food/snacks/caviar,
-/obj/item/weapon/reagent_containers/food/snacks/caviar,
+/obj/item/reagent_containers/food/snacks/bearmeat,
+/obj/item/reagent_containers/food/snacks/caviar,
+/obj/item/reagent_containers/food/snacks/caviar,
+/obj/item/reagent_containers/food/snacks/caviar,
+/obj/item/reagent_containers/food/snacks/caviar,
 /turf/simulated/floor/plating/vox{
 	icon_state = "dmg4"
 	},
@@ -1137,7 +1137,7 @@
 /turf/simulated/wall/r_wall/hull,
 /area/space)
 "dh" = (
-/obj/item/weapon/reagent_containers/food/snacks/bearmeat,
+/obj/item/reagent_containers/food/snacks/bearmeat,
 /turf/simulated/floor/plating/vox{
 	icon_state = "dmg2"
 	},
@@ -1177,7 +1177,7 @@
 /turf/simulated/floor/asteroid,
 /area/voxship/base)
 "dp" = (
-/obj/item/weapon/pickaxe/silver,
+/obj/item/pickaxe/silver,
 /obj/structure/inflatable/wall,
 /turf/simulated/floor/asteroid,
 /area/voxship/base)
@@ -1202,7 +1202,7 @@
 /turf/simulated/floor/asteroid,
 /area/voxship/base)
 "du" = (
-/obj/item/weapon/storage/ore,
+/obj/item/storage/ore,
 /turf/simulated/floor/asteroid,
 /area/voxship/base)
 "dv" = (
@@ -1339,12 +1339,12 @@
 /turf/simulated/floor/tiled/techmaint/vox,
 /area/voxship/base)
 "dL" = (
-/obj/item/weapon/gun/projectile/dartgun/vox/raider,
+/obj/item/gun/projectile/dartgun/vox/raider,
 /obj/item/ammo_magazine/chemdart,
 /obj/item/ammo_magazine/chemdart,
 /obj/item/ammo_magazine/chemdart,
 /obj/structure/table/rack,
-/obj/item/weapon/gun/launcher/alien/spikethrower,
+/obj/item/gun/launcher/alien/spikethrower,
 /turf/simulated/floor/tiled/techmaint/vox,
 /area/voxship/base)
 "dM" = (
@@ -1464,12 +1464,12 @@
 /turf/simulated/floor/tiled/techmaint/vox,
 /area/voxship/base)
 "dY" = (
-/obj/item/weapon/tank/nitrogen,
-/obj/item/weapon/tank/nitrogen,
-/obj/item/weapon/tank/nitrogen,
-/obj/item/weapon/tank/nitrogen,
-/obj/item/weapon/tank/nitrogen,
-/obj/item/weapon/tank/nitrogen,
+/obj/item/tank/nitrogen,
+/obj/item/tank/nitrogen,
+/obj/item/tank/nitrogen,
+/obj/item/tank/nitrogen,
+/obj/item/tank/nitrogen,
+/obj/item/tank/nitrogen,
 /obj/random/masks,
 /obj/random/masks,
 /obj/random/masks,
@@ -1478,11 +1478,11 @@
 /turf/simulated/floor/tiled/techmaint/vox,
 /area/voxship/base)
 "dZ" = (
-/obj/item/weapon/tank/nitrogen,
-/obj/item/weapon/tank/nitrogen,
-/obj/item/weapon/tank/nitrogen,
-/obj/item/weapon/tank/nitrogen,
-/obj/item/weapon/tank/nitrogen,
+/obj/item/tank/nitrogen,
+/obj/item/tank/nitrogen,
+/obj/item/tank/nitrogen,
+/obj/item/tank/nitrogen,
+/obj/item/tank/nitrogen,
 /obj/random/masks,
 /obj/random/masks,
 /obj/random/masks,
@@ -1564,7 +1564,7 @@
 /turf/simulated/floor/tiled/techmaint/vox,
 /area/voxship/base)
 "en" = (
-/obj/item/weapon/shovel,
+/obj/item/shovel,
 /obj/effect/floor_decal/asteroid,
 /turf/simulated/floor/asteroid,
 /area/voxship/base)
@@ -1671,7 +1671,7 @@
 /turf/space,
 /area/space)
 "eD" = (
-/obj/item/weapon/pickaxe/jackhammer,
+/obj/item/pickaxe/jackhammer,
 /obj/effect/floor_decal/asteroid,
 /turf/simulated/floor/asteroid,
 /area/voxship/base)
@@ -1789,9 +1789,9 @@
 "eU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/submap_landmark/spawnpoint/voxship_crew,
-/obj/item/weapon/tank/oxygen,
-/obj/item/weapon/tank/oxygen,
-/obj/item/weapon/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
 /obj/structure/catwalk,
 /turf/simulated/floor/plating/vox,
 /area/voxship/base)
@@ -1846,7 +1846,7 @@
 /turf/simulated/floor/plating/vox,
 /area/voxship/ship)
 "fe" = (
-/obj/item/weapon/storage/toolbox/syndicate,
+/obj/item/storage/toolbox/syndicate,
 /obj/machinery/computer/general_air_control/large_tank_control{
 	dir = 4;
 	frequency = 2002;
@@ -1973,7 +1973,7 @@
 /turf/simulated/wall/iron,
 /area/voxship/base)
 "fv" = (
-/obj/item/weapon/storage/toolbox/syndicate,
+/obj/item/storage/toolbox/syndicate,
 /turf/simulated/floor/tiled/techmaint/vox,
 /area/voxship/base)
 "fw" = (

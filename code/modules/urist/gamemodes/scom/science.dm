@@ -66,7 +66,7 @@
 
 /obj/item/scom/borgmodkit/attack(var/mob/living/silicon/robot/R)
 //	R/var/module_sprites[0]
-	R.module = new /obj/item/weapon/robot_module/security/combat/(src)
+	R.module = new /obj/item/robot_module/security/combat/(src)
 	R.modtype = "Combat"
 //	R.module_sprites["Combat Android"] = "droid-combat"
 	R.update_icon()

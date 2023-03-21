@@ -445,8 +445,8 @@
 	motd = file2text("config/motd.txt") || ""
 	event = file2text("config/event.txt") || ""
 
-				if("SCOM_dynamic_difficulty")
-					config.SCOM_dynamic_difficulty = 1
+/*				if("SCOM_dynamic_difficulty")
+					config.SCOM_dynamic_difficulty = 1*/
 
 /// Read a text file, stripping lines starting with # and empties
 /datum/configuration/proc/read_commentable(filename)

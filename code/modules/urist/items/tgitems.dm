@@ -17,7 +17,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 
 //Fucking powergamers
 
-/obj/item/weapon/book/manual/security_space_law/tg
+/obj/item/book/manual/security_space_law/tg
 	name = "Space Law"
 	desc = "A set of Nanotrasen guidelines for keeping law and order on their space stations."
 	icon_state = "bookSpaceLaw"
@@ -39,14 +39,14 @@ Please only put items here that don't have a huge definition - Glloyd											
 
 //technically /vg/, but not warrenting its own .dm
 
-/obj/item/weapon/book/manual/security_space_law/urist
+/obj/item/book/manual/security_space_law/urist
 	name = "Corporate Regulations"
 	desc = "A set of NanoTrasen guidelines for keeping law and order on their space stations."
 	icon_state = "bookSpaceLaw"
 	author = "NanoTrasen"
 	title = "Corporate Regulations"
 
-/obj/item/weapon/book/manual/security_space_law/urist/New()
+/obj/item/book/manual/security_space_law/urist/New()
 	..()
 
 	/* Use this as a template for other in-game manuals. This allows you to store the file locally rather then on a file, which
@@ -61,7 +61,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 
 // ICS Nerva version of Space Law.
 
-/obj/item/weapon/book/manual/security_space_law/nervaspacelaw
+/obj/item/book/manual/security_space_law/nervaspacelaw
 	name = "ICS Nerva - Security Law & Regulation Guidelines."
 	desc = "A book describing the multiple sentencings for different crimes aboard the ICS Nerva."
 	icon = 'icons/urist/items/library.dmi'
@@ -69,7 +69,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	author = "ICS Nerva Security Team"
 	title = "Security Law & Regulation Guidelines"
 
-/obj/item/weapon/book/manual/security_space_law/nervaspacelaw/New()
+/obj/item/book/manual/security_space_law/nervaspacelaw/New()
 	..()
 
 	var/nervalaw = file2text('ingame_manuals/icsnervalaw.html')
@@ -90,7 +90,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 //           Book bag
 // -----------------------------
 
-/obj/item/weapon/storage/bag/books
+/obj/item/storage/bag/books
 	name = "book bag"
 	desc = "A bag for books."
 	icon = 'icons/urist/items/tgitems.dmi'
@@ -99,11 +99,11 @@ Please only put items here that don't have a huge definition - Glloyd											
 	max_storage_space = 21 //check values!
 	max_w_class = 3
 	w_class = 4 //Bigger than a book because physics
-	can_hold = list(/obj/item/weapon/book, /obj/item/weapon/spellbook) //No bibles, consistent with bookcase
+	can_hold = list(/obj/item/book, /obj/item/spellbook) //No bibles, consistent with bookcase
 
 //moo000ooo000ooo
 
-/obj/item/weapon/veilrender //WTF, it was removed for now discernible reason in the spellsystem port
+/obj/item/veilrender //WTF, it was removed for now discernible reason in the spellsystem port
 	name = "veil render"
 	desc = "A wicked curved blade of alien origin, recovered from the ruins of a vast city."
 	icon = 'icons/obj/wizard.dmi'
@@ -153,7 +153,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 		qdel(src)
 
 /obj/effect/rend/cow/attackby(obj/item/I as obj, mob/user as mob)
-	if(istype(I, /obj/item/weapon/nullrod))
+	if(istype(I, /obj/item/nullrod))
 		visible_message("<span class='danger'>[I] strikes a blow against \the [src], banishing it!</span>")
 		spawn(1)
 			qdel(src)
@@ -163,7 +163,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 /obj/effect/rend/sm
 	spawn_type = /mob/living/simple_animal/hostile/smshard
 
-/obj/item/weapon/veilrender/attack_self(mob/user as mob)
+/obj/item/veilrender/attack_self(mob/user as mob)
 	if(charged)
 		new rend_type(get_turf(usr))
 		charged = 0
@@ -171,19 +171,19 @@ Please only put items here that don't have a huge definition - Glloyd											
 	else
 		to_chat(user, "<span class='warning'> The unearthly energies that powered the blade are now dormant</span>")
 
-/obj/item/weapon/veilrender/vealrender
+/obj/item/veilrender/vealrender
 	name = "veal render"
 	desc = "A wicked curved blade of alien origin, recovered from the ruins of a vast farm."
 	rend_type = /obj/effect/rend/cow
 
-/obj/item/weapon/veilrender/sm
+/obj/item/veilrender/sm
 	name = "glowing blade"
 	desc = "An odd blade with a pale yellow glow. <span class='danger'>It strains your eyes to look at.</span>"
 	rend_type = /obj/effect/rend/sm
 
 //Medals. Noone uses them, but I like them, so fuck you all.
 
-/obj/item/weapon/storage/lockbox/medal
+/obj/item/storage/lockbox/medal
 	name = "medal box"
 	desc = "A locked box used to store medals of honor."
 	icon = 'icons/urist/items/tgitems.dmi'
@@ -197,7 +197,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	icon_closed = "medalbox"
 	icon_broken = "medalbox+b"
 
-/obj/item/weapon/storage/lockbox/medal/New()
+/obj/item/storage/lockbox/medal/New()
 	..()
 	new /obj/item/clothing/accessory/medal/silver(src)
 	new /obj/item/clothing/accessory/medal/silver(src)
@@ -208,16 +208,16 @@ Please only put items here that don't have a huge definition - Glloyd											
 	new /obj/item/clothing/accessory/medal/gold/nanotrasen(src)
 
 
-/obj/item/weapon/grenade/chem_grenade/teargas
+/obj/item/grenade/chem_grenade/teargas
 	name = "teargas grenade"
 	desc = "Used for nonlethal riot control. Contents under pressure. Do not directly inhale contents."
 	path = 1
 	stage = 2
 
-/obj/item/weapon/grenade/chem_grenade/teargas/New()
+/obj/item/grenade/chem_grenade/teargas/New()
 	..()
-	var/obj/item/weapon/reagent_containers/glass/beaker/B1 = new(src)
-	var/obj/item/weapon/reagent_containers/glass/beaker/B2 = new(src)
+	var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
+	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
 
 	B1.reagents.add_reagent(/datum/reagent/capsaicin, 25)
 	B1.reagents.add_reagent(/datum/reagent/potassium, 25)
@@ -230,13 +230,13 @@ Please only put items here that don't have a huge definition - Glloyd											
 	beakers += B2
 	icon_state = "grenade"
 
-/obj/item/weapon/storage/box/teargas
+/obj/item/storage/box/teargas
 	name = "box of tear gas grenades (WARNING)"
 	desc = "<B>WARNING: These devices are extremely dangerous and can cause blindness and skin irritation.</B>"
 	icon_state = "flashbang"
 
 //TG cigarettes
-/obj/item/weapon/storage/fancy/cigarettes/urist
+/obj/item/storage/fancy/cigarettes/urist
 	name = "urist packet"
 	desc = "The most dwarven of all cigarettes"
 	icon = 'icons/urist/items/tgitems.dmi'
@@ -247,48 +247,48 @@ Please only put items here that don't have a huge definition - Glloyd											
 	key_type = /obj/item/clothing/mask/smokable/cigarette
 
 
-/obj/item/weapon/storage/fancy/cigarettes/urist/uplift
+/obj/item/storage/fancy/cigarettes/urist/uplift
 	name = "uplift smooth packet"
 	desc = "Your favorite brand, now menthol flavored."
 	icon_state = "upliftpacket"
 	item_state = "upliftpacket"
 
-/obj/item/weapon/storage/fancy/cigarettes/urist/devil
+/obj/item/storage/fancy/cigarettes/urist/devil
 	name = "devil's premium packet"
 	desc = "Smoked only by the baddest of the bad."
 	icon_state = "devilpacket"
 	item_state = "devilpacket"
 
-/obj/item/weapon/storage/fancy/cigarettes/urist/carp
+/obj/item/storage/fancy/cigarettes/urist/carp
 	name = "carp classic packet"
 	desc = "Seems a little fishy."
 	icon_state = "carppacket"
 	item_state = "carppacket"
 
-/obj/item/weapon/storage/fancy/cigarettes/urist/syndicate
+/obj/item/storage/fancy/cigarettes/urist/syndicate
 	name = "cigarette packet"
 	desc = "An obscure brand of cigarettes."
 	icon_state = "syndiepacket"
 	item_state = "syndiepacket"
 
-/obj/item/weapon/storage/fancy/cigarettes/urist/syndicate/New()
+/obj/item/storage/fancy/cigarettes/urist/syndicate/New()
 	..()
 	for(var/i = 1 to storage_slots)
 		reagents.add_reagent(/datum/reagent/drink/doctor_delight,15)
 
-/obj/item/weapon/storage/fancy/cigarettes/urist/midori
+/obj/item/storage/fancy/cigarettes/urist/midori
 	name = "midori tabako packet"
 	desc = "Does this packet smell funny to you?"
 	icon_state = "midoripacket"
 	item_state = "midoripacket"
 
-/obj/item/weapon/storage/fancy/cigarettes/urist/shadyjim
+/obj/item/storage/fancy/cigarettes/urist/shadyjim
 	name = "shady jim packet"
 	desc = "Shady Jim's super slim packets! Watch the fat burn away, guaranteed!"
 	icon_state = "shadyjimpacket"
 	item_state = "shadyjimpacket"
 
-/obj/item/weapon/storage/fancy/cigarettes/urist/shadyjim/New()
+/obj/item/storage/fancy/cigarettes/urist/shadyjim/New()
 	..()
 	for(var/i = 1 to storage_slots)
 		reagents.add_reagent(/datum/reagent/lipozine,4)
@@ -298,7 +298,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 
 // Smuggler's satchel from /tg/.
 
-/obj/item/weapon/storage/backpack/satchel/flat
+/obj/item/storage/backpack/satchel/flat
 	name = "smuggler's satchel"
 	desc = "A very slim satchel that can easily fit into tight spaces."
 	icon = 'icons/urist/items/tgitems.dmi'
@@ -308,9 +308,9 @@ Please only put items here that don't have a huge definition - Glloyd											
 	storage_slots = 5
 	max_storage_space = 15 //check values!
 	level = 1
-	cant_hold = list(/obj/item/weapon/storage/backpack/satchel/flat) //muh recursive backpacks
+	cant_hold = list(/obj/item/storage/backpack/satchel/flat) //muh recursive backpacks
 
-/obj/item/weapon/storage/backpack/satchel/flat/hide(var/intact)
+/obj/item/storage/backpack/satchel/flat/hide(var/intact)
 	if(intact)
 		invisibility = 101
 		anchored = 1 //otherwise you can start pulling, cover it, and drag around an invisible backpack.
@@ -320,9 +320,9 @@ Please only put items here that don't have a huge definition - Glloyd											
 		anchored = 0
 		icon_state = initial(icon_state)
 
-/obj/item/weapon/storage/backpack/satchel/flat/New()
+/obj/item/storage/backpack/satchel/flat/New()
 	..()
-	new /obj/item/weapon/crowbar(src)
+	new /obj/item/crowbar(src)
 
 // Rolling papers from /tg/
 
@@ -358,18 +358,18 @@ Please only put items here that don't have a huge definition - Glloyd											
 	src.pixel_y = rand(-5, 5)
 
 
-/obj/item/weapon/rollingpaper
+/obj/item/rollingpaper
 	name = "rolling paper"
 	desc = "A thin piece of paper used to make fine smokeables."
 	icon = 'icons/urist/items/tgitems.dmi'
 	icon_state = "cig_paper"
 	w_class = 1
 
-/obj/item/weapon/rollingpaper/afterattack(atom/target, mob/user, proximity)
+/obj/item/rollingpaper/afterattack(atom/target, mob/user, proximity)
 	if(!proximity)
 		return
-	if(istype(target, /obj/item/weapon/reagent_containers/food/snacks/grown))
-		var/obj/item/weapon/reagent_containers/food/snacks/grown/O = target
+	if(istype(target, /obj/item/reagent_containers/food/snacks/grown))
+		var/obj/item/reagent_containers/food/snacks/grown/O = target
 		if(O.dry)
 			user.unEquip(target, 1)
 			user.unEquip(src, 1)
@@ -386,20 +386,20 @@ Please only put items here that don't have a huge definition - Glloyd											
 	else
 		..()
 
-/obj/item/weapon/storage/fancy/rollingpapers
+/obj/item/storage/fancy/rollingpapers
 	name = "rolling paper pack"
 	desc = "A pack of NanoTrasen brand rolling papers."
 	w_class = 1
 	icon = 'icons/urist/items/tgitems.dmi'
 	icon_state = "cig_paper_pack"
 	storage_slots = 10
-	key_type = /obj/item/weapon/rollingpaper
-	can_hold = list(/obj/item/weapon/rollingpaper)
-	startswith = list(/obj/item/weapon/rollingpaper = 10)
+	key_type = /obj/item/rollingpaper
+	can_hold = list(/obj/item/rollingpaper)
+	startswith = list(/obj/item/rollingpaper = 10)
 
 
-/obj/item/weapon/storage/fancy/rollingpapers/update_icon()
+/obj/item/storage/fancy/rollingpapers/update_icon()
 	overlays.Cut()
-	if(!contents.len)
+	if(!length(contents))
 		overlays += "[icon_state]_empty"
 	return

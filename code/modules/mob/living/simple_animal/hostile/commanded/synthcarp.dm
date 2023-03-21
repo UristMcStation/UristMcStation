@@ -6,9 +6,7 @@
 	attacktext = "bites"
 	health = 100
 	maxHealth = 100
-	melee_damage_lower = 15
-	melee_damage_upper = 25
-
+	natural_weapon = /obj/item/natural_weapon/bite
 	response_help = "pets"
 
 /obj/item/synthcarp

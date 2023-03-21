@@ -33,7 +33,7 @@
 	for(var/P in typesof(/obj/item/modular_computer/pda)-blocked)
 		var/obj/item/modular_computer/pda/D = new P
 
-		//D.name = "PDA Style [colorlist.len+1]" //Gotta set the name, otherwise it all comes up as "PDA"
+		//D.name = "PDA Style [length(colorlist)+1]" //Gotta set the name, otherwise it all comes up as "PDA"
 		D.name = D.icon_state //PDAs don't have unique names, but using the sprite names works.
 
 		src.colorlist += D

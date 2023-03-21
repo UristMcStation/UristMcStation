@@ -15,6 +15,6 @@
 			nuweather = list()
 			local_climate = WA.climate.Copy() //so we can remove values from it
 			nuweather += (take_weather_from(local_climate))
-			if(prob(10) && local_climate.len) //check values on prob
+			if(prob(10) && length(local_climate)) //check values on prob
 				nuweather += (take_weather_from(local_climate))
 	return nuweather

@@ -1,7 +1,7 @@
 /obj/item/modular_computer/console/preset/nervacommand/install_default_hardware()
 	..()
-	nano_printer = new/obj/item/weapon/computer_hardware/nano_printer(src)
-	card_slot = new/obj/item/weapon/computer_hardware/card_slot(src)
+	nano_printer = new/obj/item/computer_hardware/nano_printer(src)
+	card_slot = new/obj/item/computer_hardware/card_slot(src)
 
 /obj/item/modular_computer/console/preset/nervacommand/install_default_programs()
 	..()
@@ -29,11 +29,11 @@
 
 /obj/item/modular_computer/console/preset/nervasci/install_default_hardware()
 	..()
-	nano_printer = new/obj/item/weapon/computer_hardware/nano_printer(src)
+	nano_printer = new/obj/item/computer_hardware/nano_printer(src)
 
 /obj/item/modular_computer/console/preset/nervasupply/install_default_hardware()
 	..()
-	nano_printer = new/obj/item/weapon/computer_hardware/nano_printer(src)
+	nano_printer = new/obj/item/computer_hardware/nano_printer(src)
 
 /obj/item/modular_computer/console/preset/nervasupply/install_default_programs()
 	..()
@@ -43,4 +43,4 @@
 
 /obj/item/modular_computer/console/preset/supply/magic/install_default_hardware()
 	..()
-	network_card = new/obj/item/weapon/computer_hardware/network_card/wired/magic(src)
+	network_card = new/obj/item/computer_hardware/network_card/wired/magic(src)

@@ -144,7 +144,7 @@ transit/east is the same thing now AFAIK
 /turf/simulated/floor/plating/airless/catwalk/attackby(obj/item/C as obj, mob/user as mob)
 	if(!C || !user)
 		return 0
-	if(istype(C, /obj/item/weapon/screwdriver))
+	if(istype(C, /obj/item/screwdriver))
 		ReplaceWithLattice()
 		playsound(src, 'sound/items/Screwdriver.ogg', 80, 1)
 		return

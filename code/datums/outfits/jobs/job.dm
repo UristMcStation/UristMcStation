@@ -13,8 +13,8 @@
 
 	flags = OUTFIT_FLAGS_JOB_DEFAULT
 
-/decl/hierarchy/outfit/job/equip_id(mob/living/carbon/human/H)
-	var/obj/item/weapon/card/id/C = ..()
+/singleton/hierarchy/outfit/job/equip_id(mob/living/carbon/human/H)
+	var/obj/item/card/id/C = ..()
 	if(!C)
 		return
 	if(H.mind)

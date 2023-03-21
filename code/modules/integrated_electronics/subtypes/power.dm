@@ -27,7 +27,7 @@
 	var/max_to_move = 10000
 
 /obj/item/integrated_circuit/power/transmitter/on_data_written()
-	amount_to_move = Clamp(get_pin_data(IC_INPUT, 2),1,max_to_move)
+	amount_to_move = clamp(get_pin_data(IC_INPUT, 2),1,max_to_move)
 
 /obj/item/integrated_circuit/power/transmitter/large
 	name = "large power transmission circuit"

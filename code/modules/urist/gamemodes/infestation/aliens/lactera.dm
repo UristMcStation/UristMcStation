@@ -1,5 +1,5 @@
 /mob/living/carbon/human/lactera/New(var/new_loc)
-	h_style = "Bald"
+	head_hair_style = "Bald"
 	..(new_loc, "Lactera")
 
 	faction = "alien"
@@ -126,7 +126,9 @@
 	species_flags	 = SPECIES_FLAG_NO_SCAN | SPECIES_FLAG_NO_PAIN | SPECIES_FLAG_NO_POISON | SPECIES_FLAG_NO_EMBED | SPECIES_FLAG_NO_TANGLE | SPECIES_FLAG_NO_MINOR_CUT
 	spawn_flags = SPECIES_IS_RESTRICTED
 
-	reagent_tag = IS_XENOS
+	traits = list(
+	/singleton/trait/general/metabolically_inert = TRAIT_LEVEL_MAJOR,
+	)
 
 	blood_color = "#a10808"
 
@@ -152,7 +154,7 @@
 		TAG_CULTURE =   CULTURE_LACTERA,
 		TAG_HOMEWORLD = HOME_SYSTEM_GALACTIC_CRISIS,
 		TAG_FACTION =   FACTION_GALACTIC_CRISIS,
-		TAG_RELIGION =  RELIGION_OTHER
+		TAG_RELIGION =  RELIGION_UNSTATED
 	)
 
 	has_organ = list(

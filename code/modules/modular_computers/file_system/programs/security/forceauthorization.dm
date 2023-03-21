@@ -47,7 +47,7 @@
 			data["unregistered_guns"] += list(list("name" = "[G]", "ref" = "\ref[G]", "modes" = modes, "area" = area_name, "out_of_range" = out_of_range))
 
 	var/list/safes = list()
-	for(var/obj/item/weapon/storage/secure/alert_safe/S in GLOB.alert_locked)
+	for(var/obj/item/storage/secure/alert_safe/S in GLOB.alert_locked)
 		var/status
 		if(S.secure)
 			status = "Secure"

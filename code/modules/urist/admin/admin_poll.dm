@@ -61,9 +61,9 @@
 				return
 			while(vote_query.NextRow())
 				pollvotes += vote_query.item[1]
-			dat += "<tr><td>[option_query.item[2]]</td><td>[pollvotes.len]</td><td>"
+			dat += "<tr><td>[option_query.item[2]]</td><td>[length(pollvotes)]</td><td>"
 			var/i
-			for(i=1;i<=pollvotes.len,i++)
+			for(i=1;i<=length(pollvotes),i++)
 				dat += "<br>[pollvotes[i]]"
 			dat += "</td></tr>"
 
@@ -120,15 +120,15 @@
 			while(vote_query.NextRow())
 				pollckey += vote_query.item[1]
 				pollrating += text2num(vote_query.item[2])
-			if(pollrating.len != 0) // calculate the average
+			if(length(pollrating) != 0) // calculate the average
 				var/i
-				for(i=1;i<=pollrating.len,i++)
+				for(i=1;i<=length(pollrating),i++)
 					average = average + pollrating[i]
-				average = average / pollrating.len
+				average = average / length(pollrating)
 
-			dat += "<tr><td>[option_query.item[2]] ([minval],[maxval])</td><td>[average]</td><td>[pollrating.len]</td><td>"
+			dat += "<tr><td>[option_query.item[2]] ([minval],[maxval])</td><td>[average]</td><td>[length(pollrating)]</td><td>"
 			var/i
-			for(i=1;i<=pollckey.len,i++)
+			for(i=1;i<=length(pollckey),i++)
 				dat += "<br>[pollckey[i]] ([pollrating[i]])"
 			dat += "</td></tr>"
 
@@ -171,7 +171,7 @@
 	dat += "<tr><td>Poll question (click for results):</td><td>Poll Type:</td><td>Start time:</td><td>End Time:</td>"
 	dat += "<td>Admin-only?</td><td>Choice Limit</td><td>Options</td><td>Remove</td></tr>"
 
-	for(i=1;i<=pollid.len,i++)
+	for(i=1;i<=length(pollid),i++)
 		dat += "<tr><td><a href='?_src_=holder;view_poll=[pollid[i]]'>[pollquestion[i]]</a></td>"
 		dat += "<td>[polltype[i]]</td><td>[pollstart[i]]</td><td>[pollend[i]]</td>"
 		if(polladmin[i] == "1")
@@ -373,8 +373,8 @@
 	usr << "Poll end: [timeend]"
 	usr << "Poll question: [question]"
 	if(polltype != "TEXT")
-		usr << "# of poll options: [polloptions.len]"
-		for(i=1;i<=polloptions.len,i++)
+		usr << "# of poll options: [length(polloptions)]"
+		for(i=1;i<=length(polloptions),i++)
 			usr << "Poll option [i]: [polloptions[i]]"
 
 	//usr << "INSERT INTO erro_poll_question VALUES (NULL,'[polltype]','[timestart]','[timeend]','[question]',[adminonly],[multilimit])"
@@ -401,7 +401,7 @@
 
 	if(polltype != "TEXT")
 		var/DBQuery/option_query
-		for(i=1;i<=polloptions.len,i++)
+		for(i=1;i<=length(polloptions),i++)
 			//usr << "INSERT INTO erro_poll_option VALUES (NULL,[id],'[polloptions[i]]',1,[minval],[maxval],'[descmin]','[descmed]','[descmax]')"
 			option_query = dbcon.NewQuery("INSERT INTO erro_poll_option VALUES (NULL,[id],'[polloptions[i]]',1,[minval],[maxval],'[descmin]','[descmed]','[descmax]')")
 			if(!option_query.Execute())

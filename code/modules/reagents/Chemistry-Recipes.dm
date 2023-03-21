@@ -497,7 +497,7 @@
 	result = null
 	required_reagents = list(/datum/reagent/iron = 5, /datum/reagent/uranium = 20)
 	result_amount = 1
-	maximum_temperature = -80 CELCIUS
+	maximum_temperature = -80 CELSIUS
 	mix_message = "The solution hardens."
 
 /datum/chemical_reaction/uraniumsolidification/on_reaction(var/datum/reagents/holder, var/created_volume, var/reaction_flags)
@@ -509,7 +509,7 @@
 	result = null
 	required_reagents = list(/datum/reagent/iron = 5, /datum/reagent/gold = 20)
 	result_amount = 1
-	maximum_temperature = -80 CELCIUS
+	maximum_temperature = -80 CELSIUS
 	mix_message = "The solution hardens."
 
 /datum/chemical_reaction/goldsolidification/on_reaction(var/datum/reagents/holder, var/created_volume, var/reaction_flags)
@@ -521,7 +521,7 @@
 	result = null
 	required_reagents = list(/datum/reagent/iron = 5, /datum/reagent/silver = 20)
 	result_amount = 1
-	maximum_temperature = -80 CELCIUS
+	maximum_temperature = -80 CELSIUS
 	mix_message = "The solution hardens."
 
 /datum/chemical_reaction/silversolidification/on_reaction(var/datum/reagents/holder, var/created_volume, var/reaction_flags)
@@ -533,7 +533,7 @@
 	result = null
 	required_reagents = list(/datum/reagent/iron = 20, /datum/reagent/carbon = 5)
 	result_amount = 1
-	maximum_temperature = -80 CELCIUS
+	maximum_temperature = -80 CELSIUS
 	mix_message = "The solution hardens."
 
 /datum/chemical_reaction/steelsolidification/on_reaction(var/datum/reagents/holder, var/created_volume, var/reaction_flags)
@@ -545,7 +545,7 @@
 	result = null
 	required_reagents = list(/datum/reagent/iron = 5, /datum/reagent/hydrazine = 20)
 	result_amount = 1
-	maximum_temperature = -80 CELCIUS
+	maximum_temperature = -80 CELSIUS
 	mix_message = "The solution hardens."
 
 /datum/chemical_reaction/mhydrogensolidification/on_reaction(var/datum/reagents/holder, var/created_volume, var/reaction_flags)
@@ -558,7 +558,7 @@
 	required_reagents = list(/datum/reagent/iron = 25)
 	inhibitors = list(/datum/reagent/carbon = 5)
 	result_amount = 1
-	maximum_temperature = -80 CELCIUS
+	maximum_temperature = -80 CELSIUS
 	mix_message = "The solution hardens."
 
 /datum/chemical_reaction/ironsolidification/on_reaction(var/datum/reagents/holder, var/created_volume, var/reaction_flags)
@@ -570,7 +570,7 @@
 	result = null
 	required_reagents = list(/datum/reagent/iron = 5, /datum/reagent/aluminum = 20)
 	result_amount = 1
-	maximum_temperature = -80 CELCIUS
+	maximum_temperature = -80 CELSIUS
 	mix_message = "The solution hardens."
 
 /datum/chemical_reaction/aluminumsolidification/on_reaction(var/datum/reagents/holder, var/created_volume, var/reaction_flags)
@@ -653,7 +653,7 @@
 	result = null
 	required_reagents = list(/datum/reagent/uranium = 1, /datum/reagent/iron = 1) // Yes, laugh, it's the best recipe I could think of that makes a little bit of sense
 	result_amount = 2
-	minimum_temperature = -80 CELCIUS
+	minimum_temperature = -80 CELSIUS
 	mix_message = "The solution bubbles vigorously!"
 
 /datum/chemical_reaction/emp_pulse/on_reaction(datum/reagents/holder, created_volume, reaction_flags)

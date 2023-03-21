@@ -10,7 +10,7 @@
 	var/list/potentialEventMap = list()
 	world << "<span class='danger'> Searching for Event Map...</span>"
 	var/list/Lines = file2list("maps/EventMaps/fileList.txt")
-	if(!Lines.len)	return
+	if(!length(Lines))	return
 	for (var/t in Lines)
 		if (!t)
 			continue
@@ -37,7 +37,7 @@
 		potentialEventMap.Add(name)
 
 
-	if(potentialEventMap.len)
+	if(length(potentialEventMap))
 		world << "<span class='danger'> Loading EventMap...</span>"
 
 		var/eventmap = input(src,"Which event map to load?") as null|anything in potentialEventMap
@@ -49,7 +49,7 @@
 			return
 
 		if(isfile(file))
-			maploader.load_map(file)
+			GLOB.maploader.load_map(file)
 			world << "<span class='danger'> Event Map loaded.</span>"
 
 		else

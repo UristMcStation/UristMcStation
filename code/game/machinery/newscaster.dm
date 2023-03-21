@@ -922,8 +922,8 @@ var/global/list/obj/machinery/newscaster/allCasters = list() //Global list that 
 			src.scribble = s
 			src.attack_self(user)
 		return
-	if(istype(W, /obj/item/weapon/newspaper))
-		var/obj/item/weapon/improvised/mbrick/S = new /obj/item/weapon/improvised/mbrick
+	if(istype(W, /obj/item/newspaper))
+		var/obj/item/improvised/mbrick/S = new /obj/item/improvised/mbrick
 		user.remove_from_mob(W)
 		user.remove_from_mob(src)
 

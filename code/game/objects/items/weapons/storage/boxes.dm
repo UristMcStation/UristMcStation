@@ -189,12 +189,12 @@
 	name = "box of stun shells"
 	startswith = list(/obj/item/ammo_magazine/shotholder/stun = 2)
 
-/obj/item/weapon/storage/box/ammo/sniperammo
+/obj/item/storage/box/ammo/sniperammo
 	name = "box of 14.5mm shells"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
 	startswith = list(/obj/item/ammo_casing/a145 = 7)
 
-/obj/item/weapon/storage/box/ammo/sniperammo/apds
+/obj/item/storage/box/ammo/sniperammo/apds
 	name = "box of 14.5mm APDS shells"
 	startswith = list(/obj/item/ammo_casing/a145/apds = 3)
 
@@ -240,11 +240,11 @@
 	icon_state = "flashbang"
 	startswith = list(/obj/item/grenade/anti_photon = 5)
 
-/obj/item/weapon/storage/box/metalfoams
+/obj/item/storage/box/metalfoams
 	name = "box of metal foam grenades"
 	desc = "A box 5 metal foam grenades."
 	icon_state = "flashbang"
-	startswith = list(/obj/item/weapon/grenade/chem_grenade/metalfoam = 5)
+	startswith = list(/obj/item/grenade/chem_grenade/metalfoam = 5)
 
 /obj/item/storage/box/supermatters
 	name = "box of supermatter grenades"

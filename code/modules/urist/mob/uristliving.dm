@@ -62,7 +62,7 @@ GLOBAL_LIST_INIT(mutation_color_matrices, list("[M_NOIR]"=COLMX_EXPRESSIONIST))
 			var/list/difference = difflist(cached_colormatrix.get(), color_to_apply)
 			src.color = color_to_apply
 			src.updating_color = 0
-			if((!istype(difference) || difference.len > 0)) // panic panic panic
+			if((!istype(difference) || length(difference) > 0)) // panic panic panic
 				src.mob.update_color(forceupdate = 1)
 		else
 			GLOB.bad_changing_color_ckeys["[src.ckey]"] = 1
@@ -81,7 +81,7 @@ GLOBAL_LIST_INIT(mutation_color_matrices, list("[M_NOIR]"=COLMX_EXPRESSIONIST))
 		client.cached_colormatrix = DEFAULT_COLOR_MATRIX
 	var/list/difference = difflist(client.cached_colormatrix.get(), color_to_apply)
 
-	if(!istype(difference) || difference.len > 0)
+	if(!istype(difference) || length(difference) > 0)
 		client.updating_color = 1
 		if(forceupdate)
 			time = 0
@@ -89,4 +89,4 @@ GLOBAL_LIST_INIT(mutation_color_matrices, list("[M_NOIR]"=COLMX_EXPRESSIONIST))
 			time = 170
 		client.cached_colormatrix = colormatrix
 		client.color_transition(colormatrix, time = time)
-		addtimer(CALLBACK(client, /client/proc/_update_client_color_callback, color_to_apply), time, TIMER_UNIQUE)
+		addtimer(new Callback(client, /client/proc/_update_client_color_callback, color_to_apply), time, TIMER_UNIQUE)

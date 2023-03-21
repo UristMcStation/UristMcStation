@@ -111,7 +111,7 @@ var/datum/antagonist/agent/agents
 	if(agent_mob.client && agent_mob.client.prefs)
 		priority_order = agent_mob.client.prefs.uplink_sources
 
-	if(!priority_order || !priority_order.len)
+	if(!priority_order || !length(priority_order))
 		priority_order = list()
 		for(var/entry in GLOB.default_uplink_source_priority)
 			priority_order += decls_repository.get_decl(entry)
@@ -156,7 +156,7 @@ var/datum/antagonist/agent/agents
 			freq += 2
 			if ((freq % 2) == 0)
 				freq += 1
-		freq = freqlist[rand(1, freqlist.len)]
+		freq = freqlist[rand(1, length(freqlist))]
 		var/obj/item/device/uplink/T = new(R, agent_mob.mind)
 		target_radio.hidden_uplink = T
 		target_radio.traitor_frequency = freq
@@ -164,5 +164,5 @@ var/datum/antagonist/agent/agents
 		agent_mob.mind.store_memory("<B>Radio Freq:</B> [format_frequency(freq)] ([R.name] [loc]).")
 
 	else if (istype(R, /obj/item/modular_computer/pda))
-		var/decl/uplink_source/pda/uplink_source = new
+		var/singleton/uplink_source/pda/uplink_source = new
 		uplink_source.setup_uplink_source(agent_mob, 0)

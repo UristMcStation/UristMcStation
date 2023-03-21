@@ -132,9 +132,9 @@
 "ax" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/stamp/cargo,
-/obj/item/weapon/stamp/denied,
+/obj/item/paper_bin,
+/obj/item/stamp/cargo,
+/obj/item/stamp/denied,
 /obj/random/clipboard,
 /obj/item/device/radio,
 /obj/item/device/radio/intercom{
@@ -225,7 +225,7 @@
 /area/ship/scrap/cargo/lower)
 "aJ" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /turf/simulated/floor/tiled,
 /area/ship/scrap/cargo/lower)
 "aK" = (
@@ -308,7 +308,7 @@
 /obj/structure/closet/crate/plastic,
 /obj/random/accessory,
 /obj/random/accessory,
-/obj/item/weapon/reagent_containers/glass/paint/random,
+/obj/item/reagent_containers/glass/paint/random,
 /obj/structure/handrai{
 	tag = "icon-handrail (WEST)";
 	icon_state = "handrail";
@@ -470,7 +470,7 @@
 	},
 /obj/structure/curtain/open/bed,
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/green,
+/obj/item/bedsheet/green,
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/lino,
 /area/ship/scrap/crew/dorms1)
@@ -498,9 +498,9 @@
 	dir = 5
 	},
 /obj/structure/table/gamblingtable,
-/obj/item/weapon/deck/cards,
+/obj/item/deck/cards,
 /obj/random_multi/single_item/captains_spare_id,
-/obj/item/weapon/dice,
+/obj/item/dice,
 /turf/simulated/floor/plating,
 /area/ship/scrap/gambling)
 "bp" = (
@@ -715,7 +715,7 @@
 	},
 /obj/structure/closet/coffin,
 /obj/random/drinkbottle,
-/obj/item/weapon/contraband/poster,
+/obj/item/contraband/poster,
 /obj/item/stack/material/phoron/ten,
 /turf/simulated/floor/tiled/monotile,
 /area/ship/scrap/cargo/lower)
@@ -749,7 +749,7 @@
 	},
 /obj/structure/curtain/open/bed,
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/brown,
+/obj/item/bedsheet/brown,
 /turf/simulated/floor/lino,
 /area/ship/scrap/crew/dorms1)
 "bT" = (
@@ -770,12 +770,12 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/closet/crate,
-/obj/item/weapon/fossil/skull,
-/obj/item/weapon/fossil/bone,
-/obj/item/weapon/fossil/bone,
-/obj/item/weapon/fossil/shell,
+/obj/item/fossil/skull,
+/obj/item/fossil/bone,
+/obj/item/fossil/bone,
+/obj/item/fossil/shell,
 /obj/item/xenos_claw,
-/obj/item/weapon/ore/strangerock,
+/obj/item/ore/strangerock,
 /turf/simulated/floor/tiled/monotile,
 /area/ship/scrap/cargo/lower)
 "bV" = (
@@ -998,7 +998,7 @@
 	icon_state = "corner_white";
 	dir = 5
 	},
-/obj/item/weapon/bedsheet/ce,
+/obj/item/bedsheet/ce,
 /obj/effect/landmark/start{
 	name = "Cook"
 	},
@@ -1116,7 +1116,7 @@
 /area/ship/scrap/crew/dorms2)
 "cG" = (
 /obj/structure/table/standard,
-/obj/item/weapon/newspaper,
+/obj/item/newspaper,
 /turf/simulated/floor/lino,
 /area/ship/scrap/crew/dorms2)
 "cH" = (
@@ -1174,7 +1174,7 @@
 	icon_state = "corner_white";
 	dir = 10
 	},
-/obj/item/weapon/bedsheet/red,
+/obj/item/bedsheet/red,
 /obj/random_multi/single_item/captains_spare_id,
 /obj/effect/landmark/start{
 	name = "Chief Engineer"
@@ -1277,18 +1277,18 @@
 /turf/simulated/floor/tiled,
 /area/ship/scrap/broken1)
 "dc" = (
-/obj/item/weapon/caution,
-/obj/item/weapon/caution,
-/obj/item/weapon/FixOVein,
+/obj/item/caution,
+/obj/item/caution,
+/obj/item/FixOVein,
 /obj/structure/closet/crate,
-/obj/item/weapon/mop,
+/obj/item/mop,
 /obj/item/device/radio,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 2;
 	layer = 2.4;
 	level = 2
 	},
-/obj/item/weapon/storage/bag/trash,
+/obj/item/storage/bag/trash,
 /obj/machinery/firealarm{
 	pixel_y = 24
 	},
@@ -1406,7 +1406,7 @@
 	},
 /obj/structure/curtain/open/bed,
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/green,
+/obj/item/bedsheet/green,
 /obj/effect/decal/cleanable/cobweb2,
 /obj/effect/landmark/start{
 	name = "Doc"
@@ -1571,7 +1571,7 @@
 	},
 /obj/structure/curtain/open/bed,
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/brown,
+/obj/item/bedsheet/brown,
 /turf/simulated/floor/lino,
 /area/ship/scrap/crew/dorms3)
 "dO" = (
@@ -1753,11 +1753,11 @@
 /area/ship/scrap/maintenance/techstorage)
 "ek" = (
 /obj/structure/closet/crate/plastic,
-/obj/item/weapon/storage/ore,
-/obj/item/weapon/pickaxe,
+/obj/item/storage/ore,
+/obj/item/pickaxe,
 /obj/item/stack/flag/yellow,
-/obj/item/weapon/storage/box/glowsticks,
-/obj/item/weapon/mining_scanner,
+/obj/item/storage/box/glowsticks,
+/obj/item/mining_scanner,
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/scrap/maintenance/storage)
 "em" = (
@@ -1790,7 +1790,7 @@
 /area/ship/scrap/maintenance/storage)
 "eo" = (
 /obj/structure/table/rack,
-/obj/item/weapon/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
 /obj/item/clothing/mask/breath,
 /turf/simulated/floor/plating,
 /area/ship/scrap/maintenance/eva)
@@ -1801,7 +1801,7 @@
 	dir = 1
 	},
 /obj/structure/table/rack,
-/obj/item/weapon/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
 /obj/item/clothing/mask/breath,
 /turf/simulated/floor/plating,
 /area/ship/scrap/maintenance/eva)
@@ -2047,13 +2047,13 @@
 /turf/simulated/floor/tiled/steel_ridged,
 /area/ship/scrap/maintenance/eva)
 "eJ" = (
-/obj/item/weapon/stock_parts/capacitor,
-/obj/item/weapon/stock_parts/capacitor,
-/obj/item/weapon/stock_parts/capacitor/adv,
-/obj/item/weapon/stock_parts/scanning_module,
-/obj/item/weapon/stock_parts/scanning_module,
-/obj/item/weapon/stock_parts/scanning_module,
-/obj/item/weapon/stock_parts/scanning_module/adv,
+/obj/item/stock_parts/capacitor,
+/obj/item/stock_parts/capacitor,
+/obj/item/stock_parts/capacitor/adv,
+/obj/item/stock_parts/scanning_module,
+/obj/item/stock_parts/scanning_module,
+/obj/item/stock_parts/scanning_module,
+/obj/item/stock_parts/scanning_module/adv,
 /obj/structure/table/rack,
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
@@ -2062,13 +2062,13 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/ship/scrap/maintenance/techstorage)
 "eK" = (
-/obj/item/weapon/stock_parts/console_screen,
-/obj/item/weapon/stock_parts/console_screen,
-/obj/item/weapon/stock_parts/console_screen,
-/obj/item/weapon/stock_parts/micro_laser,
-/obj/item/weapon/stock_parts/micro_laser,
-/obj/item/weapon/stock_parts/micro_laser,
-/obj/item/weapon/stock_parts/micro_laser/ultra,
+/obj/item/stock_parts/console_screen,
+/obj/item/stock_parts/console_screen,
+/obj/item/stock_parts/console_screen,
+/obj/item/stock_parts/micro_laser,
+/obj/item/stock_parts/micro_laser,
+/obj/item/stock_parts/micro_laser,
+/obj/item/stock_parts/micro_laser/ultra,
 /obj/structure/table/rack,
 /obj/machinery/power/apc{
 	dir = 2;
@@ -2085,12 +2085,12 @@
 /area/ship/scrap/maintenance/techstorage)
 "eL" = (
 /obj/structure/table/rack,
-/obj/item/weapon/circuitboard/pacman/super/potato,
+/obj/item/circuitboard/pacman/super/potato,
 /obj/item/stack/material/glass/phoronrglass/ten,
 /obj/item/stack/material/ocp/ten,
-/obj/item/weapon/circuitboard/unary_atmos/engine,
-/obj/item/weapon/circuitboard/unary_atmos/engine,
-/obj/item/weapon/circuitboard/unary_atmos/engine,
+/obj/item/circuitboard/unary_atmos/engine,
+/obj/item/circuitboard/unary_atmos/engine,
+/obj/item/circuitboard/unary_atmos/engine,
 /turf/simulated/floor/plating,
 /area/ship/scrap/maintenance/techstorage)
 "eN" = (
@@ -2175,8 +2175,8 @@
 /obj/structure/table/standard,
 /obj/item/device/flashlight,
 /obj/item/device/flashlight,
-/obj/item/weapon/storage/box/lights/bulbs,
-/obj/item/weapon/storage/box/lights/mixed,
+/obj/item/storage/box/lights/bulbs,
+/obj/item/storage/box/lights/mixed,
 /obj/structure/cable,
 /obj/machinery/power/apc{
 	name = "Tools Storage APC"
@@ -2190,7 +2190,7 @@
 /area/ship/scrap/maintenance/storage)
 "eW" = (
 /obj/structure/table/standard,
-/obj/item/weapon/inflatable_dispenser,
+/obj/item/inflatable_dispenser,
 /obj/item/device/radio,
 /obj/item/device/radio,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -2200,7 +2200,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/scrap/maintenance/storage)
 "eX" = (
-/obj/item/weapon/tape_roll,
+/obj/item/tape_roll,
 /obj/item/stack/material/plasteel/fifty,
 /obj/item/stack/material/rods/fifty,
 /obj/item/stack/material/steel/fifty,
@@ -2215,7 +2215,7 @@
 "eY" = (
 /obj/item/clothing/head/welding,
 /obj/item/device/radio,
-/obj/item/weapon/tape_roll,
+/obj/item/tape_roll,
 /obj/structure/table/standard,
 /obj/item/device/radio/intercom{
 	pixel_y = -32
@@ -2421,7 +2421,7 @@
 	dir = 8;
 	layer = 2.9
 	},
-/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
 /obj/item/device/multitool{
 	pixel_x = 3
 	},
@@ -2513,11 +2513,11 @@
 /turf/simulated/wall/r_wall/hull,
 /area/ship/scrap/escape_port)
 "tb" = (
-/obj/item/weapon/storage/toolbox/mechanical{
+/obj/item/storage/toolbox/mechanical{
 	pixel_x = 5;
 	pixel_y = -7
 	},
-/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
 /obj/item/clothing/head/welding,
 /obj/item/device/analyzer,
 /obj/effect/floor_decal/corner/yellow{
@@ -2830,7 +2830,7 @@
 	layer = 2.4;
 	level = 2
 	},
-/obj/item/weapon/storage/briefcase,
+/obj/item/storage/briefcase,
 /obj/machinery/firealarm{
 	dir = 1;
 	pixel_y = -24
@@ -2941,7 +2941,7 @@
 /turf/simulated/floor/lino,
 /area/ship/scrap/crew/dorms3)
 "Tb" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /obj/machinery/light/small,
 /obj/machinery/firealarm{
 	dir = 1;
@@ -3014,9 +3014,9 @@
 /turf/simulated/wall,
 /area/ship/scrap/broken1)
 "Xb" = (
-/obj/item/weapon/circuitboard/pacman,
-/obj/item/weapon/circuitboard/recharge_station,
-/obj/item/weapon/circuitboard/shield_generator,
+/obj/item/circuitboard/pacman,
+/obj/item/circuitboard/recharge_station,
+/obj/item/circuitboard/shield_generator,
 /obj/structure/table/rack,
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
@@ -3042,29 +3042,29 @@
 /turf/space,
 /area/space)
 "Yb" = (
-/obj/item/weapon/circuitboard/helm,
-/obj/item/weapon/circuitboard/unary_atmos/cooler,
+/obj/item/circuitboard/helm,
+/obj/item/circuitboard/unary_atmos/cooler,
 /obj/structure/table/rack,
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
 	dir = 5
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/item/weapon/circuitboard/unary_atmos/heater,
+/obj/item/circuitboard/unary_atmos/heater,
 /turf/simulated/floor/tiled/techmaint,
 /area/ship/scrap/maintenance/techstorage)
 "Zb" = (
-/obj/item/weapon/storage/toolbox/electrical,
-/obj/item/weapon/storage/toolbox/electrical{
+/obj/item/storage/toolbox/electrical,
+/obj/item/storage/toolbox/electrical{
 	pixel_x = 7;
 	pixel_y = 4
 	},
 /obj/item/device/t_scanner,
-/obj/item/weapon/cell/high,
+/obj/item/cell/high,
 /obj/machinery/alarm{
 	pixel_y = 24
 	},
-/obj/item/weapon/tape_roll,
+/obj/item/tape_roll,
 /obj/machinery/light_switch{
 	pixel_x = -24
 	},
@@ -3072,9 +3072,9 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/item/weapon/airalarm_electronics,
-/obj/item/weapon/airlock_electronics,
-/obj/item/weapon/airlock_electronics,
+/obj/item/airalarm_electronics,
+/obj/item/airlock_electronics,
+/obj/item/airlock_electronics,
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/scrap/maintenance/storage)

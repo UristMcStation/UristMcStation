@@ -6,7 +6,7 @@
 	density = 0
 	icon_state = "small"
 	icon = 'icons/urist/structures&machinery/scrap/base.dmi'
-	var/obj/item/weapon/storage/internal/updating/loot	//the visible loot
+	var/obj/item/storage/internal/updating/loot	//the visible loot
 	var/loot_min = 2
 	var/loot_max = 6
 	var/list/loot_list = list(
@@ -16,24 +16,24 @@
 		/obj/item/stack/material/steel/scrap,
 		/obj/item/stack/material/glass/scrap,
 		/obj/item/stack/material/plasteel/scrap,
-		/obj/item/weapon/material/shard,
-		/obj/item/weapon/material/shard/phoron,
-		/obj/item/weapon/material/shard/shrapnel,
+		/obj/item/material/shard,
+		/obj/item/material/shard/phoron,
+		/obj/item/material/shard/shrapnel,
 		/obj/item/pipe,
 		/obj/item/stack/material/r_wood/scrap,
 		/obj/item/stack/cable_coil/scrap,
 		/obj/item/stack/material/wood/scrap,
 		/obj/item/trash/tray,
-		/obj/item/weapon/cell/crap/empty,
-		/obj/item/weapon/cell/super/empty,
-		/obj/item/weapon/crowbar,
-		/obj/item/weapon/stock_parts/console_screen,
-		/obj/item/weapon/stock_parts/capacitor,
-		/obj/item/weapon/stock_parts/matter_bin,
-		/obj/item/weapon/stock_parts/manipulator,
-		/obj/item/weapon/stool,
-		/obj/item/weapon/tape_roll,
-		/obj/item/weapon/table_parts,
+		/obj/item/cell/crap/empty,
+		/obj/item/cell/super/empty,
+		/obj/item/crowbar,
+		/obj/item/stock_parts/console_screen,
+		/obj/item/stock_parts/capacitor,
+		/obj/item/stock_parts/matter_bin,
+		/obj/item/stock_parts/manipulator,
+		/obj/item/stool,
+		/obj/item/tape_roll,
+		/obj/item/table_parts,
 		/obj/item/frame/air_alarm,
 		/obj/item/frame/apc,
 		/obj/item/frame/light,
@@ -66,7 +66,7 @@
 		loot.close_all()
 	for(var/A in loot)
 		loot.remove_from_storage(A,src)
-	if(contents.len)
+	if(length(contents))
 		contents = shuffle(contents)
 		var/num = rand(1,loot_min)
 		var/size = 0
@@ -112,16 +112,16 @@
 	..(over_object)
 
 /obj/structure/scrap/attackby(obj/item/W, mob/user)
-	if(istype(W,/obj/item/weapon/shovel))
+	if(istype(W,/obj/item/shovel))
 		var/list/ways = list("pokes around", "digs through", "rummages through", "goes through","picks through")
 		visible_message("<span class='notice'>\The [user] [pick(ways)] \the [src].</span>")
 		shuffle_loot()
-		if(!(loot.contents.len || contents.len > 1))
+		if(!(loot.contents.len || length(contents) > 1))
 			to_chat(user, "<span class='notice'>There doesn't seem to be anything of interest left in \the [src]...</span>")
 
-	if(istype(W,/obj/item/weapon/weldingtool))
-		if(!(loot.contents.len || contents.len > 1))
-			var/obj/item/weapon/weldingtool/WT = W
+	if(istype(W,/obj/item/weldingtool))
+		if(!(loot.contents.len || length(contents) > 1))
+			var/obj/item/weldingtool/WT = W
 			if (WT.remove_fuel(0,user))
 				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
 				user.visible_message("[user.name] starts to disassemble the scrap pile.", \
@@ -131,7 +131,7 @@
 					if(!src || !WT.isOn()) return
 					new /obj/item/stack/material/steel(src.loc)
 					new /obj/item/stack/material/plastic(src.loc)
-					new /obj/item/weapon/material/shard(src.loc)
+					new /obj/item/material/shard(src.loc)
 					qdel(src)
 					to_chat(user, "You disassemble the scrap pile.")
 			else
@@ -151,8 +151,8 @@
 		/obj/item/stack/material/plastic/scrap,
 		/obj/item/stack/material/steel/scrap,
 		/obj/item/pipe,
-		/obj/item/weapon/material/shard,
-		/obj/item/weapon/cell/crap/empty
+		/obj/item/material/shard,
+		/obj/item/cell/crap/empty
 		)
 
 /obj/structure/scrap/vehicle/New()
@@ -184,7 +184,7 @@
 	new A(src.loc)
 	return INITIALIZE_HINT_QDEL
 
-/obj/item/weapon/storage/internal/updating/update_icon()
+/obj/item/storage/internal/updating/update_icon()
 	if(master_item)
 		master_item.update_icon()
 
@@ -221,7 +221,7 @@
 
 /obj/item/vehicle_part/random/Initialize()
 	. = ..()
-	var/part = pick(/obj/item/vehicle_part/battery, /obj/item/vehicle_part/transmission, /obj/item/weapon/engine/thermal, /obj/item/weapon/engine/electric, /obj/item/vehicle_part/tire)
+	var/part = pick(/obj/item/vehicle_part/battery, /obj/item/vehicle_part/transmission, /obj/item/engine/thermal, /obj/item/engine/electric, /obj/item/vehicle_part/tire)
 	new part(src.loc)
 	return INITIALIZE_HINT_QDEL
 

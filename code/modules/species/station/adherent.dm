@@ -54,7 +54,7 @@
 	slowdown = -1
 	hud_type = /datum/hud_data/adherent
 
-	available_cultural_info = list(
+	/*available_cultural_info = list(
 		TAG_CULTURE = list(
 			CULTURE_ADHERENT
 		),
