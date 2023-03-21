@@ -14,7 +14,7 @@
 	cast_sound = 'sound/effects/squelch2.ogg'
 	hud_state = "const_rune"
 
-/spell/aoe_turf/drain_blood/cast(var/list/targets, var/mob/user)
+/spell/aoe_turf/drain_blood/cast(list/targets, mob/user)
 	for(var/t in targets)
 		for(var/mob/living/L in t)
 			if(L.stat == DEAD || L == user)
@@ -25,7 +25,7 @@
 				H.vessel.remove_reagent(/datum/reagent/blood, 10)
 			else
 				L.adjustBruteLoss(10)
-			to_chat(L, "<span class='danger'>You feel your lifeforce being ripping out of your body!</span>")
+			to_chat(L, SPAN_DANGER("You feel your lifeforce being ripping out of your body!"))
 
 			//Do effect
 			var/obj/item/projectile/beam/blood_effect/effect = new(get_turf(user))
@@ -49,12 +49,12 @@
 	icon_state = "blood"
 	damage = 0
 	randpixel = 0
-	no_attack_log = 1
+	no_attack_log = TRUE
 	muzzle_type = /obj/effect/projectile/blood
 	tracer_type = /obj/effect/projectile/blood
 	impact_type = /obj/effect/projectile/blood
 
-/obj/item/projectile/beam/blood_effect/Bump(var/atom/a)
+/obj/item/projectile/beam/blood_effect/Bump(atom/a, forced=0)
 	if(a == original)
 		on_impact(a)
 		qdel(src)

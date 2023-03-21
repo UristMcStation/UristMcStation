@@ -3,6 +3,7 @@
 /obj/item/device/t_scanner
 	name = "\improper T-ray scanner"
 	desc = "A terahertz-ray emitter and scanner, capable of penetrating conventional hull materials."
+	icon = 'icons/obj/t_ray_scanner.dmi'
 	icon_state = "t-ray0"
 	slot_flags = SLOT_BELT
 	w_class = ITEM_SIZE_SMALL
@@ -18,7 +19,7 @@
 	var/list/active_scanned = list() //assoc list of objects being scanned, mapped to their overlay
 	var/client/user_client //since making sure overlays are properly added and removed is pretty important, so we track the current user explicitly
 
-	var/global/list/overlay_cache = list() //cache recent overlays
+	var/static/list/overlay_cache = list() //cache recent overlays
 
 /obj/item/device/t_scanner/Destroy()
 	. = ..()
@@ -29,14 +30,20 @@
 	icon_state = "t-ray[on]"
 
 /obj/item/device/t_scanner/emp_act()
-	audible_message(src, "<span class = 'notice'> \The [src] buzzes oddly.</span>")
+	audible_message(SPAN_NOTICE(" \The [src] buzzes oddly."))
 	set_active(FALSE)
+	..()
 
 /obj/item/device/t_scanner/attack_self(mob/user)
 	set_active(!on)
 	user.update_action_buttons()
 
-/obj/item/device/t_scanner/proc/set_active(var/active)
+/obj/item/device/t_scanner/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+	var/obj/structure/disposalpipe/D = target
+	if(D && istype(D))
+		to_chat(user, SPAN_INFO("Pipe segment integrity: [100 - D.get_damage_percentage()]%"))
+
+/obj/item/device/t_scanner/proc/set_active(active)
 	on = active
 	if(on)
 		START_PROCESSING(SSfastprocess, src)
@@ -76,7 +83,7 @@
 		active_scanned -= A
 
 //creates a new overlay for a scanned object
-/obj/item/device/t_scanner/proc/get_overlay(var/atom/movable/scanned)
+/obj/item/device/t_scanner/proc/get_overlay(atom/movable/scanned)
 	//Use a cache so we don't create a whole bunch of new images just because someone's walking back and forth in a room.
 	//Also means that images are reused if multiple people are using t-rays to look at the same objects.
 	if(scanned in overlay_cache)
@@ -89,9 +96,7 @@
 			I = image(loc = scanned, icon = scanned.icon, icon_state = scanned.icon_state)
 		I.plane = HUD_PLANE
 		I.layer = UNDER_HUD_LAYER
-		I.appearance_flags = RESET_ALPHA
-		if(!standard_mode)
-			I.appearance_flags |= RESET_COLOR	//Because the placeholder icon can be hard to see at times.
+		I.appearance_flags = DEFAULT_APPEARANCE_FLAGS | RESET_ALPHA
 
 		//Pipes are special
 		if(istype(scanned, /obj/machinery/atmospherics/pipe))
@@ -103,8 +108,8 @@
 		if(ismob(scanned))
 			if(ishuman(scanned))
 				var/mob/living/carbon/human/H = scanned
-				if(H.species.appearance_flags & HAS_SKIN_COLOR)
-					I.color = rgb(H.r_skin, H.g_skin, H.b_skin)
+				if(H.species.appearance_flags & SPECIES_APPEARANCE_HAS_SKIN_COLOR)
+					I.color = H.skin_color
 					I.icon = 'icons/mob/mob.dmi'
 					I.icon_state = "phaseout"
 			var/mob/M = scanned
@@ -118,10 +123,10 @@
 
 	// Add it to cache, cutting old entries if the list is too long
 	overlay_cache[scanned] = .
-	if(overlay_cache.len > OVERLAY_CACHE_LEN)
-		overlay_cache.Cut(1, overlay_cache.len-OVERLAY_CACHE_LEN-1)
+	if(length(overlay_cache) > OVERLAY_CACHE_LEN)
+		overlay_cache.Cut(1, length(overlay_cache)-OVERLAY_CACHE_LEN-1)
 
-/obj/item/device/t_scanner/proc/get_scanned_objects(var/scan_dist)
+/obj/item/device/t_scanner/proc/get_scanned_objects(scan_dist)
 	. = list()
 	
 	var/turf/center
@@ -142,7 +147,11 @@
 				else if(round_is_spooky() && isobserver(M))
 					. += M
 
-			if(!!T.is_plating())
+		if(!!T.is_plating())
+			continue
+
+		for(var/obj/O in T.contents)
+			if(O.level != ATOM_LEVEL_UNDER_TILE)
 				continue
 
 			for(var/obj/O in T.contents)
@@ -156,7 +165,7 @@
 				. += T
 
 
-/obj/item/device/t_scanner/proc/set_user_client(var/client/new_client)
+/obj/item/device/t_scanner/proc/set_user_client(client/new_client)
 	if(new_client == user_client)
 		return
 	if(user_client)

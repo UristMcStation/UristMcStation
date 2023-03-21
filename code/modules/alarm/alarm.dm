@@ -8,7 +8,7 @@
 	var/start_time	= 0		// When this source began alarming.
 	var/end_time	= 0		// Use to set when this trigger should clear, in case the source is lost.
 
-/datum/alarm_source/New(var/atom/source)
+/datum/alarm_source/New(atom/source)
 	src.source = source
 	start_time = world.time
 	source_name = source.get_source_name()
@@ -25,7 +25,7 @@
 	var/last_z_level				//The last acquired z-level, used should origin be lost
 	var/end_time					//Used to set when this alarm should clear, in case the origin is lost.
 
-/datum/alarm/New(var/atom/origin, var/atom/source, var/duration, var/severity)
+/datum/alarm/New(atom/origin, atom/source, duration, severity)
 	src.origin = origin
 
 	cameras()	// Sets up both cameras and last alarm area.
@@ -44,7 +44,7 @@
 			AS.duration = 0
 			AS.end_time = world.time + ALARM_RESET_DELAY
 
-/datum/alarm/proc/set_source_data(var/atom/source, var/duration, var/severity)
+/datum/alarm/proc/set_source_data(atom/source, duration, severity)
 	var/datum/alarm_source/AS = sources_assoc[source]
 	if(!AS)
 		AS = new/datum/alarm_source(source)
@@ -56,7 +56,7 @@
 		AS.duration = duration
 	AS.severity = severity
 
-/datum/alarm/proc/clear(var/source)
+/datum/alarm/proc/clear(source)
 	var/datum/alarm_source/AS = sources_assoc[source]
 	sources -= AS
 	sources_assoc -= source
@@ -106,18 +106,38 @@
 /******************
 * Assisting procs *
 ******************/
+/**
+ * Determines the alarm's z-level.
+ *
+ * TODO: Possibly redundant. Check how areas respond to `get_z()` and potentially just replace this call with that.
+ *
+ * Returns integer.
+ */
 /atom/proc/get_alarm_z()
 	return get_z(src)
 
-area/get_alarm_z()
-	return contents.len ? get_z(contents[1]) : 0
+/area/get_alarm_z()
+	return length(contents) ? get_z(contents[1]) : 0
 
+/**
+ * Retrieves the atom's area for alarms.
+ *
+ * TODO: Redundant. Replace with `get_area()`.
+ *
+ * Returns instance of `/area`.
+ */
 /atom/proc/get_alarm_area()
 	return get_area(src)
 
 /area/get_alarm_area()
 	return src
 
+/**
+ * Retrieves the name to use for alarms. For mobs, this is the mob's name. For everything else, this is the arom's
+ * area's name.
+ *
+ * Returns string.
+ */
 /atom/proc/get_alarm_name()
 	var/area/A = get_area(src)
 	return A.name
@@ -128,27 +148,29 @@ area/get_alarm_z()
 /mob/get_alarm_name()
 	return name
 
+/**
+ * Retrieves an alarm's origin name. Generally this is the atom's name or, for cameras, `c_tag`.
+ *
+ * Returns string.
+ */
 /atom/proc/get_source_name()
 	return name
 
 /obj/machinery/camera/get_source_name()
 	return c_tag
 
+/**
+ * Retrieves a list of cameras from the atom's area.
+ *
+ * TODO: Redundant. Replace with `get_area()` and `get_cameras()`.
+ *
+ * Returns list (Instances of `/obj/machinery/camera`). All cameras in the atom's area.
+ */
 /atom/proc/get_alarm_cameras()
 	var/area/A = get_area(src)
 	return A.get_cameras()
 
 /area/get_alarm_cameras()
 	return get_cameras()
-
-/mob/living/silicon/robot/get_alarm_cameras()
-	var/list/cameras = ..()
-	if(camera)
-		cameras += camera
-
-	return cameras
-
-/mob/living/silicon/robot/syndicate/get_alarm_cameras()
-	return list()
 
 #undef ALARM_RESET_DELAY

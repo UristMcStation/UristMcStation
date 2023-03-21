@@ -2,7 +2,7 @@
 	name = "Toggle Waddling"
 	var/waddling = FALSE
 
-/datum/admin_secret_item/fun_secret/waddle/do_execute(var/mob/user)
+/datum/admin_secret_item/fun_secret/waddle/do_execute(mob/user)
 	waddling = !waddling
 	if(waddling)
 		GLOB.moved_event.register_global(src, .proc/waddle)
@@ -14,5 +14,9 @@
 	if(!istype(L) || L.incapacitated() || L.lying)
 		return
 	animate(L, pixel_z = 4, time = 0)
-	animate(pixel_z = 0, transform = turn(matrix(), pick(-12, 0, 12)), time=2)
+	animate(
+		pixel_z = 0,
+		transform = matrix().Update(rotation = pick(-12, 0, 12)),
+		time = 2
+	)
 	animate(pixel_z = 0, transform = matrix(), time = 0)

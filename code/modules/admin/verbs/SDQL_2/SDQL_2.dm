@@ -3,13 +3,13 @@
 // Examples
 /*
 	-- Will call the proc for all computers in the world, thats dir is 2.
-	CALL ex_act(1) ON /obj/machinery/computer IN world WHERE dir == 2
+	CALL ex_act(EX_ACT_DEVASTATING) ON /obj/machinery/computer IN world WHERE dir == 2
 	-- Will open a window with a list of all the closets in the world, with a link to VV them.
 	SELECT /obj/structure/closet/secure_closet/security/cargo IN world WHERE icon_off == "secoff"
 	-- Will change all the tube lights to green, and flicker them. The semicolon is important to separate the consecutive querys, but is not required for standard one-query use.
 	UPDATE /obj/machinery/light SET color = "#0F0" WHERE icon_state == "tube1"; CALL flicker(1) ON /obj/machinery/light
 	-- Will delete all pickaxes. "IN world" is not required.
-	DELETE /obj/item/weapon/pickaxe
+	DELETE /obj/item/pickaxe
 
 	--You can use operators other than ==, such as >, <=, != and etc..
 
@@ -18,15 +18,15 @@
 
 // Used by update statements, this is to handle shit like preventing editing the /datum/admins though SDQL but WITHOUT +PERMISSIONS.
 // Assumes the variable actually exists.
-/datum/proc/SDQL_update(var/const/var_name, var/new_value)
+/datum/proc/SDQL_update(const/var_name, new_value)
 	vars[var_name] = new_value
 	return 1
 
-/client/proc/SDQL2_query(var/query_text as message)
+/client/proc/SDQL2_query(query_text as message)
 	set category = "Debug"
 
 	if(!check_rights(R_DEBUG))  // Shouldn't happen... but just to be safe.
-		message_admins("<span class='warning'>ERROR: Non-admin [usr.key] attempted to execute the following SDQL query: [query_text]</span>")
+		message_admins(SPAN_WARNING("ERROR: Non-admin [usr.key] attempted to execute the following SDQL query: [query_text]"))
 		log_admin("Non-admin [usr.key] attempted to execute the following SDQL query: [query_text]!")
 		return
 
@@ -40,12 +40,12 @@
 
 	var/list/query_list = SDQL2_tokenize(query_text)
 
-	if(!query_list || query_list.len < 1)
+	if(!query_list || length(query_list) < 1)
 		return
 
 	var/list/querys = SDQL_parse(query_list)
 
-	if(!querys || querys.len < 1)
+	if(!querys || length(querys) < 1)
 		return
 
 	try
@@ -93,7 +93,12 @@
 
 				if("delete")
 					for(var/datum/d in objs)
-						qdel(d)
+						if (isturf(d))
+							// turfs are special snowflakes that explode if qdeleted
+							var/turf/T = d
+							T.ChangeTurf(world.turf)
+						else
+							qdel(d)
 						CHECK_TICK
 
 				if("select")
@@ -127,7 +132,7 @@
 								var/datum/temp = d
 								var/i = 0
 								for(var/v in sets)
-									if(++i == sets.len)
+									if(++i == length(sets))
 										if(istype(temp, /turf) && (v == "x" || v == "y" || v == "z"))
 											break
 
@@ -142,9 +147,9 @@
 
 							CHECK_TICK
 
-			to_chat(usr, "<span class='notice'>Query executed on [objs.len] object\s.</span>")
+			to_chat(usr, SPAN_NOTICE("Query executed on [length(objs)] object\s."))
 	catch(var/exception/e)
-		to_chat(usr, "<span class='danger'>An exception has occured during the execution of your query and your query has been aborted.</span>")
+		to_chat(usr, SPAN_DANGER("An exception has occured during the execution of your query and your query has been aborted."))
 		to_chat(usr, "exception name: [e.name]")
 		to_chat(usr, "file/line: [e.file]/[e.line]")
 		return
@@ -159,19 +164,19 @@
 	for(var/val in query_list)
 		if(val == ";")
 			do_parse = 1
-		else if(pos >= query_list.len)
+		else if(pos >= length(query_list))
 			query_tree += val
 			do_parse = 1
 		if(do_parse)
 			parser.query = query_tree
 			var/list/parsed_tree
 			parsed_tree = parser.parse()
-			if(parsed_tree.len > 0)
-				querys.len = querys_pos
+			if(length(parsed_tree) > 0)
+				LIST_RESIZE(querys, querys_pos)
 				querys[querys_pos] = parsed_tree
 				querys_pos++
 			else //There was an error so don't run anything, and tell the user which query has errored.
-				to_chat(usr, "<span class='danger'>Parsing error on [querys_pos]\th query. Nothing was executed.</span>")
+				to_chat(usr, SPAN_DANGER("Parsing error on [querys_pos]\th query. Nothing was executed."))
 				return list()
 			query_tree = list()
 			do_parse = 0
@@ -262,7 +267,7 @@
 	var/result = 0
 	var/val
 
-	for(var/i = start, i <= expression.len, i++)
+	for(var/i = start, i <= length(expression), i++)
 		var/op = ""
 
 		if(i > start)
@@ -306,7 +311,7 @@
 				if("or", "||")
 					result = (result || val)
 				else
-					to_chat(usr, "<span class='warning'>SDQL2: Unknown op [op]</span>")
+					to_chat(usr, SPAN_WARNING("SDQL2: Unknown op [op]"))
 					result = null
 		else
 			result = val
@@ -317,7 +322,7 @@
 	var/i = start
 	var/val = null
 
-	if(i > expression.len)
+	if(i > length(expression))
 		return list("val" = null, "i" = i)
 
 	if(istype(expression[i], /list))
@@ -366,25 +371,26 @@
 
 	else
 		val = SDQL_var(object, expression, i, object)
-		i = expression.len
+		i = length(expression)
 
 	return list("val" = val, "i" = i)
 
 /proc/SDQL_var(datum/object, list/expression, start = 1, source)
 	var/v
 	var/static/list/exclude = list("usr", "src", "marked", "global")
-	var/long = start < expression.len
+	var/long = start < length(expression)
 
 	if (object == world && (!long || expression[start + 1] == ".") && !(expression[start] in exclude))
-		v = readglobal(expression[start])
+		var/name = expression[start]
+		v = global.vars[name]
 
 	else if (expression [start] == "{" && long)
 		if (lowertext(copytext(expression[start + 1], 1, 3)) != "0x")
-			to_chat(usr, "<span class='danger'>Invalid pointer syntax: [expression[start + 1]]</span>")
+			to_chat(usr, SPAN_DANGER("Invalid pointer syntax: [expression[start + 1]]"))
 			return null
 		v = locate("\[[expression[start + 1]]]")
 		if (!v)
-			to_chat(usr, "<span class='danger'>Invalid pointer: [expression[start + 1]]</span>")
+			to_chat(usr, SPAN_DANGER("Invalid pointer: [expression[start + 1]]"))
 			return null
 		start++
 
@@ -423,8 +429,8 @@
 		else if (expression[start + 1] == "\[" && islist(v))
 			var/list/L = v
 			var/index = SDQL_expression(source, expression[start + 2])
-			if (isnum(index) && (!IsInteger(index) || L.len < index))
-				to_chat(usr, "<span class='danger'>Invalid list index: [index]</span>")
+			if (isnum(index) && (!IsInteger(index) || length(L) < index))
+				to_chat(usr, SPAN_DANGER("Invalid list index: [index]"))
 				return null
 
 			return L[index]
@@ -432,12 +438,12 @@
 	return v
 
 
-/proc/SDQL_function(var/datum/object, var/procname, var/list/arguments, source)
+/proc/SDQL_function(datum/object, procname, list/arguments, source)
 	set waitfor = FALSE
 
 	var/list/new_args = list()
 	for(var/arg in arguments)
-		new_args[++new_args.len] = SDQL_expression(source, arg)
+		new_args[LIST_PRE_INC(new_args)] = SDQL_expression(source, arg)
 
 	if (object == world) // Global proc.
 		procname = "/proc/[procname]"
@@ -492,7 +498,7 @@
 
 		else if(char == "'")
 			if(word != "")
-				to_chat(usr, "<span class='warning'>SDQL2: You have an error in your SDQL syntax, unexpected ' in query: \"<font color=gray>[query_text]</font>\" following \"<font color=gray>[word]</font>\". Please check your syntax, and try again.</span>")
+				to_chat(usr, SPAN_WARNING("SDQL2: You have an error in your SDQL syntax, unexpected ' in query: \"[SPAN_COLOR("gray", query_text)]\" following \"[SPAN_COLOR("gray", word)]\". Please check your syntax, and try again."))
 				return null
 
 			word = "'"
@@ -512,7 +518,7 @@
 					word += char
 
 			if(i > len)
-				to_chat(usr, "<span class='warning'>SDQL2: You have an error in your SDQL syntax, unmatched ' in query: \"<font color=gray>[query_text]</font>\". Please check your syntax, and try again.</span>")
+				to_chat(usr, SPAN_WARNING("SDQL2: You have an error in your SDQL syntax, unmatched ' in query: \"[SPAN_COLOR("gray", "[query_text]")]\". Please check your syntax, and try again."))
 				return null
 
 			query_list += "[word]'"
@@ -520,7 +526,7 @@
 
 		else if(char == "\"")
 			if(word != "")
-				to_chat(usr, "<span class='warning'>SDQL2: You have an error in your SDQL syntax, unexpected \" in query: \"<font color=gray>[query_text]</font>\" following \"<font color=gray>[word]</font>\". Please check your syntax, and try again.</span>")
+				to_chat(usr, SPAN_WARNING("SDQL2: You have an error in your SDQL syntax, unexpected \" in query: \"[SPAN_COLOR("gray", query_text)]\" following \"[SPAN_COLOR("gray", word)]\". Please check your syntax, and try again."))
 				return null
 
 			word = "\""
@@ -540,7 +546,7 @@
 					word += char
 
 			if(i > len)
-				to_chat(usr, "<span class='warning'>SDQL2: You have an error in your SDQL syntax, unmatched \" in query: \"<font color=gray>[query_text]</font>\". Please check your syntax, and try again.</span>")
+				to_chat(usr, SPAN_WARNING("SDQL2: You have an error in your SDQL syntax, unmatched \" in query: \"[SPAN_COLOR("gray", "[query_text]")]\". Please check your syntax, and try again."))
 				return null
 
 			query_list += "[word]\""

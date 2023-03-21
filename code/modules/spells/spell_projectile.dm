@@ -2,12 +2,12 @@
 	name = "spell"
 	icon = 'icons/obj/projectiles.dmi'
 
-	nodamage = 1 //Most of the time, anyways
+	nodamage = TRUE
 
 	var/spell/targeted/projectile/carried
 
 	penetrating = 0
-	kill_count = 10 //set by the duration of the spell
+	life_span = 10 //set by the duration of the spell
 
 	var/proj_trail = 0 //if it leaves a trail
 	var/proj_trail_lifespan = 0 //deciseconds
@@ -35,13 +35,13 @@
 			trails -= trail
 			qdel(trail)
 
-/obj/item/projectile/spell_projectile/proc/prox_cast(var/list/targets)
+/obj/item/projectile/spell_projectile/proc/prox_cast(list/targets)
 	if(loc)
 		carried.prox_cast(targets, src)
 		qdel(src)
 	return
 
-/obj/item/projectile/spell_projectile/Bump(var/atom/A)
+/obj/item/projectile/spell_projectile/Bump(atom/A, forced=0)
 	if(loc && carried)
 		prox_cast(carried.choose_prox_targets(user = carried.holder, spell_holder = src))
 	return 1

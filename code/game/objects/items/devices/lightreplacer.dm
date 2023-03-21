@@ -32,11 +32,6 @@
 //
 // The explosion cannot insta-kill anyone with 30% or more health.
 
-#define LIGHT_OK 0
-#define LIGHT_EMPTY 1
-#define LIGHT_BROKEN 2
-#define LIGHT_BURNED 3
-
 
 /obj/item/device/lightreplacer
 	name = "light replacer"
@@ -51,22 +46,34 @@
 
 	var/max_uses = 32
 	var/uses = 32
-	var/emagged = 0
+	var/emagged = FALSE
 	var/charge = 0
+	/// The lighting tone to use for placed light bulbs. One of `LIGHT_COLOR_*` or `LIGHT_REPLACE_*`, or a valid hex color code. Default `LIGHT_REPLACE_RANDOM`.
+	var/lighting_tone = LIGHT_REPLACE_RANDOM
 
-/obj/item/device/lightreplacer/examine(mob/user)
-	if(..(user, 2))
+/obj/item/device/lightreplacer/examine(mob/user, distance)
+	. = ..()
+	if(distance <= 2)
 		to_chat(user, "It has [uses] light\s remaining.")
+		switch (lighting_tone)
+			if (LIGHT_REPLACE_AREA)
+				to_chat(user, "It is configured to match the room's blueprints for bulb color and tone.")
+			if (LIGHT_REPLACE_EXISTING)
+				to_chat(user, "It is configured to match the replaced bulb's color and tone.")
+			if (LIGHT_REPLACE_RANDOM)
+				to_chat(user, "It is configured to print bulbs in random tones.")
+			else
+				to_chat(user, "It is configured to print bulbs in this color: <span style='color: [lighting_tone];'>■</span>")
 
-/obj/item/device/lightreplacer/resolve_attackby(var/atom/A, mob/user)
+/obj/item/device/lightreplacer/resolve_attackby(atom/A, mob/user)
 
 	//Check for lights in a container, refilling our charges.
-	if(istype(A, /obj/item/weapon/storage/))
-		var/obj/item/weapon/storage/S = A
+	if(istype(A, /obj/item/storage))
+		var/obj/item/storage/S = A
 		var/amt_inserted = 0
 		var/turf/T = get_turf(user)
-		for(var/obj/item/weapon/light/L in S.contents)
-			if(!user.stat && src.uses < src.max_uses && L.status == 0)
+		for(var/obj/item/light/L in S.contents)
+			if(!user.stat && src.uses < src.max_uses && L.status == LIGHT_OK)
 				src.AddUses(1)
 				amt_inserted++
 				S.remove_from_storage(L, T, 1)
@@ -78,7 +85,7 @@
 			return
 
 	//Actually replace the light.
-	if(istype(A, /obj/machinery/light/))
+	if(istype(A, /obj/machinery/light))
 		var/obj/machinery/light/L = A
 		if(isliving(user))
 			var/mob/living/U = user
@@ -91,18 +98,18 @@
 	if(istype(W, /obj/item/stack/material) && W.get_material_name() == MATERIAL_GLASS)
 		var/obj/item/stack/G = W
 		if(uses >= max_uses)
-			to_chat(user, "<span class='warning'>[src.name] is full.</span>")
+			to_chat(user, SPAN_WARNING("[src.name] is full."))
 			return
 		else if(G.use(1))
 			AddUses(16) //Autolathe converts 1 sheet into 16 lights.
-			to_chat(user, "<span class='notice'>You insert a piece of glass into \the [src.name]. You have [uses] light\s remaining.</span>")
+			to_chat(user, SPAN_NOTICE("You insert a piece of glass into \the [src.name]. You have [uses] light\s remaining."))
 			return
 		else
-			to_chat(user, "<span class='warning'>You need one sheet of glass to replace lights.</span>")
+			to_chat(user, SPAN_WARNING("You need one sheet of glass to replace lights."))
 
-	if(istype(W, /obj/item/weapon/light))
-		var/obj/item/weapon/light/L = W
-		if(L.status == 0) // LIGHT OKAY
+	if(istype(W, /obj/item/light))
+		var/obj/item/light/L = W
+		if(L.status == LIGHT_OK)
 			if(uses < max_uses)
 				if(!user.unEquip(L))
 					return
@@ -129,40 +136,89 @@
 	icon_state = "lightreplacer[emagged]"
 
 
-/obj/item/device/lightreplacer/proc/Use(var/mob/user)
+/obj/item/device/lightreplacer/attack_self(mob/user)
+	var/selection = input(user, "Select a color, tone, or matching option:", "Light Replace Color", LIGHT_REPLACE_OPTIONS[1]) in LIGHT_REPLACE_OPTIONS
+	if (!selection)
+		return
+	switch (selection)
+		if ("Random (Default)")
+			lighting_tone = LIGHT_REPLACE_RANDOM
+			to_chat(user, SPAN_NOTICE("You configure \the [src] to print bulbs in random tones."))
+		if ("Match Blueprint")
+			lighting_tone = LIGHT_REPLACE_AREA
+			to_chat(user, SPAN_NOTICE("You configure \the [src] to match the room's blueprints for bulb color and tone."))
+		if ("Match Existing")
+			lighting_tone = LIGHT_REPLACE_EXISTING
+			to_chat(user, SPAN_NOTICE("You configure \the [src] to match the replaced bulb's color and tone."))
+		if ("Warm")
+			lighting_tone = LIGHT_COLOUR_WARM
+			to_chat(user, SPAN_NOTICE("You configure \the [src] to print bulbs in warm tones."))
+		if ("Cool")
+			lighting_tone = LIGHT_COLOUR_COOL
+			to_chat(user, SPAN_NOTICE("You configure \the [src] to print bulbs in cool tones."))
+		if ("White")
+			lighting_tone = LIGHT_COLOUR_WHITE
+			to_chat(user, SPAN_NOTICE("You configure \the [src] to print bulbs in white tones."))
+		if ("Custom")
+			var/new_lighting_tone = input(user, "Select a color:", "Light Replace Color") as color
+			if (!new_lighting_tone)
+				return
+			lighting_tone = new_lighting_tone
+			to_chat(user, SPAN_NOTICE("You configure \the [src] to print bulbs in the color: <span style='color: [lighting_tone];'>■</span>"))
+
+
+/obj/item/device/lightreplacer/proc/Use(mob/user)
 
 	playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
 	AddUses(-1)
 	return 1
 
 // Negative numbers will subtract
-/obj/item/device/lightreplacer/proc/AddUses(var/amount = 1)
+/obj/item/device/lightreplacer/proc/AddUses(amount = 1)
 	uses = min(max(uses + amount, 0), max_uses)
 
-/obj/item/device/lightreplacer/proc/Charge(var/mob/user, var/amount = 1)
+/obj/item/device/lightreplacer/proc/Charge(mob/user, amount = 1)
 	charge += amount
 	if(charge > 6)
 		AddUses(1)
 		charge = 0
 
-/obj/item/device/lightreplacer/proc/ReplaceLight(var/obj/machinery/light/target, var/mob/living/U)
+/obj/item/device/lightreplacer/proc/ReplaceLight(obj/machinery/light/target, mob/living/U)
 
 	if(target.get_status() == LIGHT_OK)
 		to_chat(U, "There is a working [target.get_fitting_name()] already inserted.")
 	else if(!CanUse(U))
 		to_chat(U, "\The [src]'s refill light blinks red.")
 	else if(Use(U))
-		to_chat(U, "<span class='notice'>You replace the [target.get_fitting_name()] with the [src].</span>")
+		to_chat(U, SPAN_NOTICE("You replace the [target.get_fitting_name()] with the [src]."))
+
+		var/bulb_color = null
+		if (lighting_tone == LIGHT_REPLACE_AREA)
+			bulb_color = target.get_color_from_area()
+		else if (lighting_tone == LIGHT_REPLACE_EXISTING)
+			bulb_color = target.lightbulb?.get_color()
+		else if (lighting_tone == LIGHT_REPLACE_RANDOM)
+			bulb_color = pick(LIGHT_STANDARD_COLORS)
+		else
+			bulb_color = lighting_tone
+		if (!bulb_color)
+			bulb_color = pick(LIGHT_STANDARD_COLORS)
 
 		if(target.lightbulb)
+			var/obj/item/bulb = target.lightbulb
 			target.remove_bulb()
+			if (isrobot(U))
+				qdel(bulb)
 
-		var/obj/item/weapon/light/L = new target.light_type()
-		L.rigged = emagged
+		var/obj/item/light/L = new target.light_type(target, bulb_color)
+		if (emagged)
+			log_and_message_admins("used an emagged light replacer.", U)
+			L.create_reagents(5)
+			L.reagents.add_reagent(/datum/reagent/toxin/phoron, 5)
 		target.insert_bulb(L)
 
 
-/obj/item/device/lightreplacer/emag_act(var/remaining_charges, var/mob/user)
+/obj/item/device/lightreplacer/emag_act(remaining_charges, mob/user)
 	emagged = !emagged
 	playsound(src.loc, "sparks", 100, 1)
 	update_icon()
@@ -170,15 +226,10 @@
 
 //Can you use it?
 
-/obj/item/device/lightreplacer/proc/CanUse(var/mob/living/user)
+/obj/item/device/lightreplacer/proc/CanUse(mob/living/user)
 	src.add_fingerprint(user)
 	//Not sure what else to check for. Maybe if clumsy?
 	if(uses > 0)
 		return 1
 	else
 		return 0
-
-#undef LIGHT_OK
-#undef LIGHT_EMPTY
-#undef LIGHT_BROKEN
-#undef LIGHT_BURNED

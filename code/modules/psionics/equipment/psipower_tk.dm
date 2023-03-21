@@ -1,6 +1,6 @@
 /obj/item/psychic_power/telekinesis
 	name = "telekinetic grip"
-	maintain_cost = 3
+	maintain_cost = 6
 	icon_state = "telekinesis"
 	var/atom/movable/focus
 
@@ -14,24 +14,26 @@
 		return
 	. = ..()
 
-/obj/item/psychic_power/telekinesis/proc/set_focus(var/atom/movable/_focus)
+/obj/item/psychic_power/telekinesis/proc/set_focus(atom/movable/_focus)
 
-	if(_focus.anchored || !_focus.simulated || !istype(_focus.loc, /turf))
+	if(!_focus.simulated || !istype(_focus.loc, /turf))
 		return FALSE
 
 	var/check_paramount
 	if(ismob(_focus))
 		var/mob/victim = _focus
 		check_paramount = (victim.mob_size >= MOB_MEDIUM)
-	else if(istype(_focus, /obj/item))
-		var/obj/item/item = _focus
-		check_paramount = (item.w_class >= 5)
+	else if(isobj(_focus))
+		var/obj/thing = _focus
+		check_paramount = (thing.w_class >= 5)
 	else
 		return FALSE
 
-	if(check_paramount && owner.psi.get_rank(PSI_PSYCHOKINESIS) < PSI_RANK_PARAMOUNT)
-		to_chat(owner, SPAN_WARNING("\The [_focus] is too hefty for you to get a mind-grip on."))
-		qdel(src)
+	if(_focus.anchored || (check_paramount && owner.psi.get_rank(PSI_PSYCHOKINESIS) < PSI_RANK_PARAMOUNT))
+		focus = _focus
+		. = attack_self(owner)
+		if(!.)
+			to_chat(owner, SPAN_WARNING("\The [_focus] is too hefty for you to get a mind-grip on."))
 		return FALSE
 
 	focus = _focus
@@ -42,25 +44,18 @@
 	overlays += I
 	return TRUE
 
-/obj/item/psychic_power/telekinesis/attack_self(var/mob/user)
-
+/obj/item/psychic_power/telekinesis/attack_self(mob/user)
 	user.visible_message(SPAN_NOTICE("\The [user] makes a strange gesture."))
 	sparkle()
+	return focus.do_simple_ranged_interaction(user)
 
-	if(istype(focus, /obj/item))
-		var/obj/item/I = focus
-		return I.attack_self(user)
-	//if(istype(focus, /mob) && owner.psi.get_rank(PSI_PSYCHOKINESIS) >= PSI_RANK_PARAMOUNT)
-	//	return // TODO: force choke
-	. = ..()
+/obj/item/psychic_power/telekinesis/afterattack(atom/target, mob/living/user, proximity)
 
-/obj/item/psychic_power/telekinesis/afterattack(var/atom/target, var/mob/living/user, var/proximity)
-
-	if(!target || !user || (isobj(target) && !isturf(target.loc)) || !user.psi || !user.psi.can_use() || !user.psi.spend_power(5))
+	if(!target || !user || (isobj(target) && !isturf(target.loc)) || !user.psi || !user.psi.can_use() || !user.psi.spend_power(8))
 		return
 
-	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.psi.set_cooldown(5)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN * 2)
+	user.psi.set_cooldown(8)
 
 	var/user_psi_leech = user.do_psionics_check(5, user)
 	if(user_psi_leech)
@@ -87,18 +82,20 @@
 			if(!resolved && target && I)
 				I.afterattack(target,user,1) // for splashing with beakers
 		else
-			var/user_rank = owner.psi.get_rank(PSI_PSYCHOKINESIS)
-			focus.throw_at(target, user_rank*2, user_rank*10, owner)
+			if(!focus.anchored)
+				var/user_rank = owner.psi.get_rank(PSI_PSYCHOKINESIS)
+				focus.throw_at(target, user_rank*2, user_rank*3, owner)
 			sleep(1)
 			sparkle()
+		owner.drop_from_inventory(src)
 
 /obj/item/psychic_power/telekinesis/proc/sparkle()
 	set waitfor = 0
 	if(focus)
 		var/obj/effect/overlay/O = new /obj/effect/overlay(get_turf(focus))
 		O.name = "sparkles"
-		O.anchored = 1
-		O.density = 0
+		O.anchored = TRUE
+		O.density = FALSE
 		O.layer = FLY_LAYER
 		O.set_dir(pick(GLOB.cardinal))
 		O.icon = 'icons/effects/effects.dmi'

@@ -37,36 +37,44 @@
 #define AIRLOCK_CRUSH_INCREMENT 10 // Damage caused by airlock crushing a mob is split into multiple smaller hits. Makes door crushing behave more like a "slow" crushing effect rather than high-speed impacts.
 #define CYBORG_AIRLOCKCRUSH_RESISTANCE 2 // Damage caused to silicon mobs (usually cyborgs) from being crushed by airlocks is divided by this number. Unlike organics cyborgs don't have passive regeneration.
 
-/atom/movable/proc/airlock_crush(var/crush_damage)
-	return
+/**
+ * Whether or not the atom can be crushed and damaged by a closing airlock.
+ */
+/atom/movable/proc/airlock_can_crush()
+	if (get_max_health())
+		return TRUE
+	return FALSE
 
-/obj/structure/window/airlock_crush(var/crush_damage)
-	ex_act(2)//Smashin windows
+/**
+ * Handles being crushed by a closing airlock. Has no return value.
+ */
+/atom/movable/proc/airlock_crush(crush_damage)
+	damage_health(crush_damage, DAMAGE_BRUTE)
 
-/obj/machinery/portable_atmospherics/canister/airlock_crush(var/crush_damage)
-	. = ..()
-	health -= crush_damage
-	healthcheck()
+/obj/structure/window/airlock_crush(crush_damage)
+	shatter(TRUE)
 
-/obj/effect/energy_field/airlock_crush(var/crush_damage)
+/obj/effect/energy_field/airlock_can_crush()
+	return TRUE
+
+/obj/effect/energy_field/airlock_crush(crush_damage)
 	Stress(crush_damage)
 
-/obj/structure/closet/airlock_crush(var/crush_damage)
-	..()
-	damage(crush_damage)
+/obj/structure/closet/airlock_crush(crush_damage)
 	for(var/atom/movable/AM in src)
-		AM.airlock_crush()
-	return
+		AM.airlock_crush(crush_damage)
+	..()
 
-/mob/living/airlock_crush(var/crush_damage)
-	. = ..()
+/mob/living/airlock_can_crush()
+	if (status_flags & GODMODE)
+		return FALSE
+	return TRUE
 
-	//using getarmor() instead of run_armor_check() to reflect the fact that this is "slow" damage and not high-impact damage
-	var/protection = blocked_mult(getarmor(null, "melee"))
-	crush_damage *= protection
+/mob/living/airlock_crush(crush_damage)
+	..()
 
 	for(var/i in 1 to round(crush_damage/AIRLOCK_CRUSH_INCREMENT, 1))
-		apply_damage(AIRLOCK_CRUSH_INCREMENT, BRUTE, null, 0)
+		apply_damage(AIRLOCK_CRUSH_INCREMENT, DAMAGE_BRUTE)
 
 	SetStunned(round(crush_damage / 8, 1))
 	SetWeakened(round(crush_damage / 8, 1))
@@ -81,17 +89,29 @@
 		if(!new_turf.contains_dense_objects())
 			valid_turfs |= new_turf
 
-	while(valid_turfs.len)
+	while(length(valid_turfs))
 		T = pick(valid_turfs)
 		valid_turfs -= T
 		// Try to move us to the turf. If all turfs fail for some reason we will stay on this tile.
 		if(src.Move(T))
 			return
 
-/mob/living/carbon/airlock_crush(var/crush_damage)
-	. = ..()
+/mob/living/carbon/airlock_crush(crush_damage)
+	..()
 	if (can_feel_pain())
 		emote("scream")
 
-/mob/living/silicon/robot/airlock_crush(var/crush_damage)
-	return ..(round(crush_damage / CYBORG_AIRLOCKCRUSH_RESISTANCE)) //TODO implement robot melee armour and remove this.
+/mob/living/silicon/robot/airlock_crush(crush_damage)
+	..(round(crush_damage / CYBORG_AIRLOCKCRUSH_RESISTANCE)) //TODO implement robot melee armour and remove this.
+
+/obj/structure/disposalpipe/airlock_can_crush()
+	return FALSE
+
+/obj/machinery/atmospherics/pipe/airlock_can_crush()
+	return FALSE
+
+/obj/structure/cable/airlock_can_crush()
+	return FALSE
+
+/obj/machinery/door/airlock_can_crush()
+	return FALSE // Shutters, firedoors, etc

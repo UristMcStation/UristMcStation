@@ -44,7 +44,7 @@
 			playsound(src, 'sound/machines/boop1.ogg', 30)
 			return
 
-/mob/living/bot/cleanbot/confirmTarget(var/obj/effect/decal/cleanable/D)
+/mob/living/bot/cleanbot/confirmTarget(obj/effect/decal/cleanable/D)
 	if(!..())
 		return 0
 	for(var/T in target_types)
@@ -56,7 +56,7 @@
 	if(get_turf(target) == src.loc)
 		UnarmedAttack(target)
 
-/mob/living/bot/cleanbot/UnarmedAttack(var/obj/effect/decal/cleanable/D, var/proximity)
+/mob/living/bot/cleanbot/UnarmedAttack(obj/effect/decal/cleanable/D, proximity)
 	if(!..())
 		return
 
@@ -69,8 +69,8 @@
 	busy = 1
 	visible_message("\The [src] begins to clean up \the [D]")
 	update_icons()
-	var/cleantime = istype(D, /obj/effect/decal/cleanable/dirt) ? 10 : 50
-	if(do_after(src, cleantime, progress = 0))
+	var/cleantime = (istype(D, /obj/effect/decal/cleanable/dirt) ? 1 : 5) SECONDS
+	if(do_after(src, cleantime, D, DO_DEFAULT | DO_USER_UNIQUE_ACT | DO_PUBLIC_PROGRESS))
 		if(istype(loc, /turf/simulated))
 			var/turf/simulated/f = loc
 			f.dirt = 0
@@ -85,10 +85,10 @@
 
 /mob/living/bot/cleanbot/explode()
 	on = 0
-	visible_message("<span class='danger'>[src] blows apart!</span>")
+	visible_message(SPAN_DANGER("[src] blows apart!"))
 	var/turf/Tsec = get_turf(src)
 
-	new /obj/item/weapon/reagent_containers/glass/bucket(Tsec)
+	new /obj/item/reagent_containers/glass/bucket(Tsec)
 	new /obj/item/device/assembly/prox_sensor(Tsec)
 	if(prob(50))
 		new /obj/item/robot_parts/l_arm(Tsec)
@@ -117,7 +117,7 @@
 	. = "Odd looking screw twiddled: <a href='?src=\ref[src];command=screw'>[screwloose ? "Yes" : "No"]</a>"
 	. += "<br>Weird button pressed: <a href='?src=\ref[src];command=oddbutton'>[oddbutton ? "Yes" : "No"]</a>"
 
-/mob/living/bot/cleanbot/ProcessCommand(var/mob/user, var/command, var/href_list)
+/mob/living/bot/cleanbot/ProcessCommand(mob/user, command, href_list)
 	..()
 	if(CanAccessPanel(user))
 		switch(command)
@@ -135,14 +135,27 @@
 			if("oddbutton")
 				oddbutton = !oddbutton
 
-/mob/living/bot/cleanbot/emag_act(var/remaining_uses, var/mob/user)
+/mob/living/bot/cleanbot/emag_act(remaining_uses, mob/user)
 	. = ..()
 	if(!screwloose || !oddbutton)
 		if(user)
-			to_chat(user, "<span class='notice'>The [src] buzzes and beeps.</span>")
+			to_chat(user, SPAN_NOTICE("The [src] buzzes and beeps."))
 		oddbutton = 1
 		screwloose = 1
 		return 1
+
+
+/mob/living/bot/cleanbot/get_construction_info()
+	return list(
+		"Attach a <b>Proximity Sensor</b> to a <b>Bucket</b>.",
+		"Add a <b>Robot Arm</b> to complete the cleanbot."
+	)
+
+
+/mob/living/bot/cleanbot/get_antag_interactions_info()
+	. = ..()
+	.[CODEX_INTERACTION_EMAG] += "<p>Turns on malfunctions that causes \the [initial(name)] to spew out gibs and water.</p>"
+
 
 /mob/living/bot/cleanbot/proc/get_targets()
 	target_types = list()
@@ -158,35 +171,3 @@
 
 	if(blood)
 		target_types += /obj/effect/decal/cleanable/blood
-
-/* Assembly */
-
-/obj/item/weapon/bucket_sensor
-	desc = "It's a bucket. With a sensor attached."
-	name = "proxy bucket"
-	icon = 'icons/mob/bot/cleanbot.dmi'
-	icon_state = "bucket_proxy"
-	force = 3.0
-	throwforce = 10.0
-	throw_speed = 2
-	throw_range = 5
-	w_class = ITEM_SIZE_NORMAL
-	var/created_name = "Cleanbot"
-
-/obj/item/weapon/bucket_sensor/attackby(var/obj/item/O, var/mob/user)
-	..()
-	if(istype(O, /obj/item/robot_parts/l_arm) || istype(O, /obj/item/robot_parts/r_arm))
-		qdel(O)
-		var/turf/T = get_turf(loc)
-		var/mob/living/bot/cleanbot/A = new /mob/living/bot/cleanbot(T)
-		A.SetName(created_name)
-		to_chat(user, "<span class='notice'>You add the robot arm to the bucket and sensor assembly. Beep boop!</span>")
-		qdel(src)
-
-	else if(istype(O, /obj/item/weapon/pen))
-		var/t = sanitizeSafe(input(user, "Enter new robot name", name, created_name), MAX_NAME_LEN)
-		if(!t)
-			return
-		if(!in_range(src, usr) && src.loc != usr)
-			return
-		created_name = t

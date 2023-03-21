@@ -14,15 +14,15 @@
 
 /obj/item/device/radio/electropack/attack_hand(mob/user as mob)
 	if(src == user.back)
-		to_chat(user, "<span class='notice'>You need help taking this off!</span>")
+		to_chat(user, SPAN_NOTICE("You need help taking this off!"))
 		return
 	..()
 
-/obj/item/device/radio/electropack/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/device/radio/electropack/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 	if(istype(W, /obj/item/clothing/head/helmet))
 		if(!b_stat)
-			to_chat(user, "<span class='notice'>[src] is not ready to be attached!</span>")
+			to_chat(user, SPAN_NOTICE("[src] is not ready to be attached!"))
 			return
 		if(!user.unEquip(W) || !user.unEquip(src))
 			return
@@ -73,7 +73,7 @@
 					if(M.client)
 						attack_self(M)
 	else
-		usr << browse(null, "window=radio")
+		close_browser(usr, "window=radio")
 		return
 	return
 
@@ -91,14 +91,14 @@
 				sleep(50)
 				if(M)
 					M.moved_recently = 0
-		to_chat(M, "<span class='danger'>You feel a sharp shock!</span>")
+		to_chat(M, SPAN_DANGER("You feel a sharp shock!"))
 		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
 		s.set_up(3, 1, M)
 		s.start()
 
 		M.Weaken(10)
 
-	if(master && wires & 1)
+	if(master && listening)
 		master.receive_signal()
 	return
 
@@ -122,6 +122,6 @@ Code:
 <A href='byond://?src=\ref[src];code=1'>+</A>
 <A href='byond://?src=\ref[src];code=5'>+</A><BR>
 </TT>"}
-	user << browse(dat, "window=radio")
+	show_browser(user, dat, "window=radio")
 	onclose(user, "radio")
 	return

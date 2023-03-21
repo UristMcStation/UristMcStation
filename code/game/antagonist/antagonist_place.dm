@@ -20,8 +20,8 @@
 				command_announcement.Announce("[spawn_announcement]", "[spawn_announcement_title ? spawn_announcement_title : "Priority Alert"]")
 	return
 
-/datum/antagonist/proc/place_mob(var/mob/living/mob)
-	if(!starting_locations || !starting_locations.len)
+/datum/antagonist/proc/place_mob(mob/living/mob)
+	if(!starting_locations || !length(starting_locations))
 		return
 	var/turf/T = pick_mobless_turf_if_exists(starting_locations)
 	mob.forceMove(T)

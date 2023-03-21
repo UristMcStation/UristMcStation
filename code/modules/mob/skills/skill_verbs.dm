@@ -51,7 +51,7 @@ GLOBAL_LIST_INIT(skill_verbs, init_subtypes(/datum/skill_verb))
 		return
 	cooling_down = 1
 	update_verb()
-	addtimer(CALLBACK(src, .proc/remove_cooldown), cooldown)
+	addtimer(new Callback(src, .proc/remove_cooldown), cooldown)
 
 /datum/skill_buff/motivate/can_buff(mob/target)
 	if(!..())
@@ -102,7 +102,7 @@ The Appraise verb. Used on objects to estimate their value.
 			var/high = low + level
 			if(!low && multiple >= 2)
 				low = 10 ** (multiple - 1) //Adjusts the lowball estimate away from 0 if the item has a high upper estimate.
-			message = "You appraise the item to be worth between [low] and [high] thaler."
+			message = "You appraise the item to be worth between [low] and [high] [GLOB.using_map.local_currency_name]."
 	to_chat(src, message)
 
 /proc/get_appraise_level(skill)
@@ -147,7 +147,3 @@ The Appraise verb. Used on objects to estimate their value.
 		add_client_color(/datum/client_color/noir)
 	else
 		to_chat(src, "You stop looking for clues.")
-
-
-
-

@@ -1,6 +1,6 @@
 #define plain_key_name(A) key_name(A, highlight_special_characters = 0)
 
-/decl/communication_channel
+/singleton/communication_channel
 	var/name
 	var/config_setting
 	var/expected_communicator_type = /datum
@@ -9,34 +9,27 @@
 	var/mute_setting
 	var/show_preference_setting
 
-/decl/communication_channel/proc/can_ignore(var/client/C)
+
+/singleton/communication_channel/proc/can_ignore(client/C)
 	if (!C)
 		return TRUE
 	// Channels that cannot be toggled can never be ignored
-	if(!show_preference_setting)
+	if (!show_preference_setting)
 		return FALSE
 	// If you're trying to see the channel, you can't ignore it
-	if (C.get_preference_value(show_preference_setting) == GLOB.PREF_SHOW)
-		return FALSE
-	// I suppose the host is more equal than others
-	if (check_rights(R_HOST, 0, C))
-		return TRUE
-	// Admins without ban permissions may ignore communication channels
-	if (check_rights(R_ADMIN, 0, C) && (!check_rights(R_BAN, 0, C)))
-		return TRUE
-	// Anyone else with investigation status may not ignore communication channels
-	return !check_rights(R_INVESTIGATE, 0, C)
+	return C.get_preference_value(show_preference_setting) != GLOB.PREF_SHOW
+
 
 /*
 * Procs for handling sending communication messages
 */
-/decl/communication_channel/proc/communicate(var/datum/communicator, var/message)
+/singleton/communication_channel/proc/communicate(datum/communicator, message)
 	if(can_communicate(arglist(args)))
 		call(log_proc)("[(flags&COMMUNICATION_LOG_CHANNEL_NAME) ? "([name]) " : ""][communicator.communication_identifier()] : [message]")
 		return do_communicate(arglist(args))
 	return FALSE
 
-/decl/communication_channel/proc/can_communicate(var/datum/communicator, var/message)
+/singleton/communication_channel/proc/can_communicate(datum/communicator, message)
 
 	if(!message)
 		return FALSE
@@ -46,36 +39,46 @@
 		return FALSE
 
 	if(config_setting && !config.vars[config_setting] && !check_rights(R_INVESTIGATE,0,communicator))
-		to_chat(communicator, "<span class='danger'>[name] is globally muted.</span>")
+		to_chat(communicator, SPAN_DANGER("[name] is globally muted."))
 		return FALSE
 
 	var/client/C = communicator.get_client()
 
 	if(jobban_isbanned(C.mob, name))
-		to_chat(communicator, "<span class='danger'>You cannot use [name] (banned).</span>")
+		to_chat(communicator, SPAN_DANGER("You cannot use [name] (banned)."))
 		return FALSE
 
 	if(can_ignore(C))
-		to_chat(communicator, "<span class='warning'>Couldn't send message - you have [name] muted.</span>")
+		to_chat(communicator, SPAN_WARNING("Couldn't send message - you have [name] muted."))
 		return FALSE
 
 	if(C && mute_setting && (C.prefs.muted & mute_setting))
-		to_chat(communicator, "<span class='danger'>You cannot use [name] (muted).</span>")
+		to_chat(communicator, SPAN_DANGER("You cannot use [name] (muted)."))
 		return FALSE
 
 	if(C && (flags & COMMUNICATION_NO_GUESTS) && IsGuestKey(C.key))
-		to_chat(communicator, "<span class='danger'>Guests may not use the [name] channel.</span>")
+		to_chat(communicator, SPAN_DANGER("Guests may not use the [name] channel."))
+		return FALSE
+
+	if (config.forbidden_message_regex && !check_rights(R_INVESTIGATE, 0, communicator) && findtext(message, config.forbidden_message_regex))
+		if (!config.forbidden_message_no_notifications)
+			if (!config.forbidden_message_hide_details)
+				log_and_message_admins("attempted to send a forbidden message in [name]: [message]", user = C)
+			else
+				log_and_message_admins("attempted to send a forbidden message in [name]", user = C)
+		if (C && config.forbidden_message_warning)
+			to_chat(C, config.forbidden_message_warning)
 		return FALSE
 
 	return TRUE
 
-/decl/communication_channel/proc/do_communicate(var/communicator, var/message)
+/singleton/communication_channel/proc/do_communicate(communicator, message)
 	return
 
 /*
 * Procs for handling the reception of communication messages
 */
-/decl/communication_channel/proc/receive_communication(var/datum/communicator, var/datum/receiver, var/message)
+/singleton/communication_channel/proc/receive_communication(datum/communicator, datum/receiver, message)
 	if(can_receive_communication(receiver))
 		var/has_follow_links = FALSE
 		if((flags & COMMUNICATION_ADMIN_FOLLOW))
@@ -89,15 +92,50 @@
 				message = "[extra_links] [message]"
 		do_receive_communication(arglist(args))
 
-/decl/communication_channel/proc/can_receive_communication(var/datum/receiver)
+/singleton/communication_channel/proc/can_receive_communication(datum/receiver)
 	if(show_preference_setting)
 		var/client/C = receiver.get_client()
 		if(can_ignore(C))
 			return FALSE
 	return TRUE
 
-/decl/communication_channel/proc/do_receive_communication(var/datum/communicator, var/datum/receiver, var/message)
+/singleton/communication_channel/proc/do_receive_communication(datum/communicator, datum/receiver, message)
 	to_chat(receiver, message)
+
+
+/*
+ * Procs for the handling of system broadcasts
+ */
+/singleton/communication_channel/proc/broadcast(message, force = FALSE)
+	if (!can_broadcast(message, force))
+		return FALSE
+	call(log_proc)("[(flags & COMMUNICATION_LOG_CHANNEL_NAME) ? "([name]) " : ""]SYSTEM BROADCAST : [message]")
+	return do_broadcast(message, force)
+
+
+/singleton/communication_channel/proc/can_broadcast(message, override_config = FALSE)
+	if (!message)
+		return FALSE
+
+	if (!override_config && config_setting && !config.vars[config_setting])
+		return FALSE
+
+	return TRUE
+
+
+/singleton/communication_channel/proc/do_broadcast(message)
+	return
+
+
+/singleton/communication_channel/proc/receive_broadcast(datum/receiver, message)
+	if (!can_receive_communication(receiver))
+		return
+	do_receive_broadcast(receiver, message)
+
+
+/singleton/communication_channel/proc/do_receive_broadcast(datum/receiver, message)
+	to_chat(receiver, message)
+
 
 // Misc. helpers
 /datum/proc/communication_identifier()
@@ -107,17 +145,24 @@
 	var/key_name = plain_key_name(src)
 	return usr != src ? "[key_name] - usr: [plain_key_name(usr)]" : key_name
 
-/proc/sanitize_and_communicate(var/channel_type, var/communicator, var/message)
+/proc/sanitize_and_communicate(channel_type, communicator, message)
 	message = sanitize(message)
 	return communicate(arglist(args))
 
-/proc/communicate(var/channel_type, var/communicator, var/message)
-	var/list/channels = decls_repository.get_decls_of_subtype(/decl/communication_channel)
-	var/decl/communication_channel/channel = channels[channel_type]
+/proc/communicate(channel_type, communicator, message)
+	var/list/channels = GET_SINGLETON_SUBTYPE_MAP(/singleton/communication_channel)
+	var/singleton/communication_channel/channel = channels[channel_type]
 
+	message = process_chat_markup(message)
 	var/list/new_args = list(communicator, message)
 	new_args += args.Copy(4)
 
 	return channel.communicate(arglist(new_args))
+
+/proc/communicate_broadcast(channel_type, message, forced = FALSE)
+	var/list/channels = GET_SINGLETON_SUBTYPE_MAP(/singleton/communication_channel)
+	var/singleton/communication_channel/channel = channels[channel_type]
+
+	return channel.broadcast(message, forced)
 
 #undef plain_key_name

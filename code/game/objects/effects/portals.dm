@@ -3,11 +3,11 @@
 	desc = "Looks unstable. Best to test it with the clown."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "portal"
-	density = 1
-	unacidable = 1//Can't destroy energy portals.
+	density = TRUE
+	unacidable = TRUE
 	var/obj/item/target = null
 	var/creator = null
-	anchored = 1.0
+	anchored = TRUE
 	var/dangerous = 0
 	var/failchance = 0
 
@@ -29,7 +29,7 @@
 		return
 	return
 
-/obj/effect/portal/New(var/start, var/end, var/delete_after = 300, var/failure_rate)
+/obj/effect/portal/New(start, end, delete_after = 300, failure_rate)
 	..()
 	if(failure_rate)
 		failchance = failure_rate
@@ -49,8 +49,6 @@
 
 /obj/effect/portal/proc/teleport(atom/movable/M as mob|obj)
 	if(istype(M, /obj/effect)) //sparks don't teleport
-		return
-	if (M.anchored&&istype(M, /obj/mecha))
 		return
 	if (icon_state == "portal1")
 		return

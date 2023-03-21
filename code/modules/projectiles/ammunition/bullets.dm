@@ -37,19 +37,34 @@
 
 /obj/item/ammo_casing/c9mm/practice
 	desc = "A 9mm practice bullet casing."
+/obj/item/ammo_casing/pistol
+	desc = "A pistol bullet casing."
+	caliber = CALIBER_PISTOL
+	projectile_type = /obj/item/projectile/bullet/pistol
+	icon_state = "pistolcasing"
+	spent_icon = "pistolcasing-spent"
+
+/obj/item/ammo_casing/pistol/rubber
+	desc = "A rubber pistol bullet casing."
+	projectile_type = /obj/item/projectile/bullet/pistol/rubber
+	icon_state = "pistolcasing_r"
+
+/obj/item/ammo_casing/pistol/practice
+	desc = "A practice pistol bullet casing."
 	projectile_type = /obj/item/projectile/bullet/pistol/practice
 	icon_state = "pistolcasing_p"
 
-/obj/item/ammo_casing/c44
-	desc = "A .44 magnum bullet casing."
-	caliber = ".44"
-	projectile_type = /obj/item/projectile/bullet/pistol/medium/revolver
+/obj/item/ammo_casing/pistol/small
+	desc = "A small pistol bullet casing."
+	caliber = CALIBER_PISTOL_SMALL
+	projectile_type = /obj/item/projectile/bullet/pistol/holdout
+	icon_state = "smallcasing"
+	spent_icon = "smallcasing-spent"
 
-/obj/item/ammo_casing/c44/rubber
-	desc = "A .44 magnum rubber bullet casing."
-	projectile_type = /obj/item/projectile/bullet/pistol/rubber
-	icon_state = "r-casing"
-	spent_icon = "r-casing-spent"
+/obj/item/ammo_casing/pistol/small/rubber
+	desc = "A small pistol rubber bullet casing."
+	projectile_type = /obj/item/projectile/bullet/pistol/rubber/holdout
+	icon_state = "pistolcasing_r"
 
 /obj/item/ammo_casing/c357
 	desc = "A .357 Magnum bullet casing."
@@ -82,6 +97,8 @@
 
 /obj/item/ammo_casing/c45/practice
 	desc = "A .45 practice bullet casing."
+/obj/item/ammo_casing/pistol/small/practice
+	desc = "A small pistol practice bullet casing."
 	projectile_type = /obj/item/projectile/bullet/pistol/practice
 	icon_state = "pistolcasing_p"
 
@@ -89,11 +106,20 @@
 	desc = "A .45 rubber bullet casing."
 	projectile_type = /obj/item/projectile/bullet/pistol/rubber
 	icon_state = "pistolcasing_r"
+/obj/item/ammo_casing/pistol/magnum
+	desc = "A high-power pistol bullet casing."
+	caliber = CALIBER_PISTOL_MAGNUM
+	projectile_type = /obj/item/projectile/bullet/pistol/strong
+	icon_state = "magnumcasing"
+	spent_icon = "magnumcasing-spent"
 
 /obj/item/ammo_casing/c45/flash
 	desc = "A .45 flash shell casing."
 	projectile_type = /obj/item/projectile/energy/flash
 	icon_state = "pistolcasing_f"
+/obj/item/ammo_casing/pistol/throwback
+	desc = "An antique pistol bullet casing. Somewhere between 9 and 11 mm in caliber."
+	caliber = CALIBER_PISTOL_ANTIQUE
 
 /obj/item/ammo_casing/a10mm
 	desc = "A 10mm bullet casing."
@@ -101,6 +127,12 @@
 	projectile_type = /obj/item/projectile/bullet/pistol/medium/smg
 	icon_state = "10mmcasing"
 	spent_icon = "10mmcasing-spent"
+/obj/item/ammo_casing/gyrojet
+	desc = "A minirocket casing."
+	caliber = CALIBER_GYROJET
+	projectile_type = /obj/item/projectile/bullet/gyro
+	icon_state = "lcasing"
+	spent_icon = "lcasing-spent"
 
 /obj/item/ammo_casing/c4mm
 	desc = "A 4mm bullet casing."
@@ -109,6 +141,13 @@
 	icon_state = "4mmcasing"
 	spent_icon = "4mmcasing-spent"
 
+/obj/item/ammo_casing/flechette
+	desc = "A flechette casing."
+	caliber = CALIBER_PISTOL_FLECHETTE
+	projectile_type = /obj/item/projectile/bullet/flechette
+	icon_state = "flechette-casing"
+	spent_icon = "flechette-casing-spent"
+
 /obj/item/ammo_casing/shotgun
 	name = "shotgun slug"
 	desc = "A 12 gauge slug."
@@ -116,7 +155,7 @@
 	icon_state = "slshell"
 	spent_icon = "slshell-spent"
 	var/global_icon = "slshell-casing"
-	caliber = "shotgun"
+	caliber = CALIBER_SHOTGUN
 	projectile_type = /obj/item/projectile/bullet/shotgun
 	matter = list(MATERIAL_STEEL = 360)
 	fall_sounds = list('sound/weapons/guns/shotgun_fall.ogg')
@@ -147,11 +186,17 @@
 
 /obj/item/ammo_casing/shotgun/pellet
 	name = "shotgun shell"
-	desc = "A 12 gauge shell."
+	desc = "A shotshell."
 	icon_state = "gshell"
 	spent_icon = "gshell-spent"
 	global_icon = "gshell-casing"
 	projectile_type = /obj/item/projectile/bullet/pellet/shotgun
+	matter = list(MATERIAL_STEEL = 360)
+
+/obj/item/ammo_casing/shotgun/flechette
+	name = "flechette shell"
+	desc = "A flechette shell."
+	projectile_type = /obj/item/projectile/bullet/pellet/shotgun/flechette
 	matter = list(MATERIAL_STEEL = 360)
 
 /obj/item/ammo_casing/shotgun/blank
@@ -185,16 +230,17 @@
 //is blocked by clothing that stops tasers and is vulnerable to EMP
 /obj/item/ammo_casing/shotgun/stunshell
 	name = "stun shell"
-	desc = "A 12 gauge taser cartridge."
+	desc = "An energy stun cartridge."
 	icon_state = "stunshell"
 	spent_icon = "stunshell-spent"
 	projectile_type = /obj/item/projectile/energy/electrode/stunshot
-	leaves_residue = 0
+	leaves_residue = FALSE
 	matter = list(MATERIAL_STEEL = 360, MATERIAL_GLASS = 720)
 
 /obj/item/ammo_casing/shotgun/stunshell/emp_act(severity)
 	if(prob(100/severity)) BB = null
 	update_icon()
+	..()
 
 //Does not stun, only blinds, but has area of effect.
 /obj/item/ammo_casing/shotgun/flash
@@ -212,15 +258,26 @@
 	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "556casing"
 	spent_icon = "556casing-spent"
+/obj/item/ammo_casing/rifle
+	desc = "A rifle bullet casing."
+	caliber = CALIBER_RIFLE
+	projectile_type = /obj/item/projectile/bullet/rifle
+	icon_state = "riflecasing"
+	spent_icon = "riflecasing-spent"
 
-/obj/item/ammo_casing/a145
+/obj/item/ammo_casing/rifle/practice
+	desc = "A rifle practice bullet casing."
+	projectile_type = /obj/item/projectile/bullet/rifle/practice
+	icon_state = "riflecasing_p"
+
+/obj/item/ammo_casing/shell
 	name = "shell casing"
 	desc = "A 14.5mm shell."
 	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "lcasing"
 	spent_icon = "lcasing-spent"
-	caliber = "14.5mm"
-	projectile_type = /obj/item/projectile/bullet/rifle/a145
+	caliber = CALIBER_ANTIMATERIAL
+	projectile_type = /obj/item/projectile/bullet/rifle/shell
 	matter = list(MATERIAL_STEEL = 1250)
 
 /obj/item/ammo_casing/a145/apds
@@ -242,6 +299,11 @@
 	projectile_type = /obj/item/projectile/bullet/rifle/a762/practice
 	icon_state = "762casing_p"
 
+/obj/item/ammo_casing/rifle/military/practice
+	desc = "A military rifle practice bullet casing."
+	projectile_type = /obj/item/projectile/bullet/rifle/military/practice
+	icon_state = "rifle_mil_p"
+
 /obj/item/ammo_casing/rocket
 	name = "rocket shell"
 	desc = "A high explosive designed to be fired from a launcher."
@@ -252,7 +314,7 @@
 /obj/item/ammo_casing/cap
 	name = "cap"
 	desc = "A cap for children toys."
-	caliber = "caps"
+	caliber = CALIBER_CAPS
 	color = "#ff0000"
 	projectile_type = /obj/item/projectile/bullet/pistol/cap
 
@@ -262,6 +324,7 @@
 	desc = "A .38 bullet casing fitted with a single-use ion pulse generator."
 	icon_state = "pistolcasing_h"
 	projectile_type = /obj/item/projectile/ion/small
+	icon_state = "pistolcasing_h"
 	matter = list(MATERIAL_STEEL = 130, MATERIAL_URANIUM = 100)
 
 /obj/item/ammo_casing/c45/emp

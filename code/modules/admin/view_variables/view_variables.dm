@@ -1,18 +1,21 @@
 // Variables not to expand the lists of. Vars is pointless to expand, and overlays/underlays cannot be expanded.
-/var/list/view_variables_dont_expand = list("overlays", "underlays", "vars")
+var/global/list/view_variables_dont_expand = list("overlays", "underlays", "vars")
 // Variables that runtime if you try to test associativity of the lists they contain by indexing
-/var/list/view_variables_no_assoc = list("verbs", "contents","screen","images")
+var/global/list/view_variables_no_assoc = list("verbs", "contents","screen","images")
 
 // Acceptable 'in world', as VV would be incredibly hampered otherwise
 /client/proc/debug_variables(datum/D in world)
 	set category = "Debug"
 	set name = "View Variables"
 
-	if(!check_rights(0))
+	if(!istype(D, /datum))
+		to_chat(usr, SPAN_WARNING("Not a viewable datum."))
 		return
 
-	if(!D)
+	if(!check_rights())
 		return
+
+	var/static/cookieoffset = rand(1, 9999) //to force cookies to reset after the round.
 
 	var/icon/sprite
 	var/atom/A
@@ -20,7 +23,7 @@
 		A = D
 		if(A.icon && A.icon_state)
 			sprite = icon(A.icon, A.icon_state)
-			usr << browse_rsc(sprite, "view_vars_sprite.png")
+			send_rsc(usr, sprite, "view_vars_sprite.png")
 
 	send_rsc(usr,'code/js/view_variables.js', "view_variables.js")
 
@@ -34,7 +37,7 @@
 				.value { font-family: "Courier New", monospace; font-size: 8pt; }
 			</style>
 		</head>
-		<body onload='selectTextField(); updateSearch()'; onkeyup='updateSearch()'>
+		<body onload='selectTextField(\ref[D]); updateSearch(\ref[D])'; onkeyup='updateSearch(\ref[D])'>
 			<div align='center'>
 				<table width='100%'><tr>
 					<td width='50%'>
@@ -43,8 +46,8 @@
 							<td><div align='center'>[D.get_view_variables_header()]</div></td>
 						</tr></table>
 						<div align='center'>
-							<b><font size='1'>[replacetext("[D.type]", "/", "/<wbr>")]</font></b>
-							[holder.marked_datum() == D ? "<br/><font size='1' color='red'><b>Marked Object</b></font>" : ""]
+							<b><span style='font-size: 10px'>[replacetext("[D.type]", "/", "/<wbr>")]</span></b>
+							[holder.marked_datum() == D ? "<br/><span style='font-size: 10px; color: red'><b>Marked Object</b></span>" : ""]
 						</div>
 					</td>
 					<td width='50%'>
@@ -70,11 +73,11 @@
 				</tr></table>
 			</div>
 			<hr/>
-			<font size='1'>
+			<span style='font-size: 10px'>
 				<b>E</b> - Edit, tries to determine the variable type by itself.<br/>
 				<b>C</b> - Change, asks you for the var type first.<br/>
 				<b>M</b> - Mass modify: changes this variable for all objects of this type.<br/>
-			</font>
+			</span>
 			<hr/>
 			<table width='100%'><tr>
 				<td width='20%'>
@@ -94,11 +97,16 @@
 			<ol id='vars'>
 				[make_view_variables_var_list(D)]
 			</ol>
+			<script type='text/javascript'>
+				var complete_list = \[\];
+				var lis = document.getElementById("vars").children;
+				for(var i = lis.length; i--;) complete_list\[i\] = lis\[i\];
+			</script>
 		</body>
 		</html>
 		"}
 
-	usr << browse(html, "window=variables\ref[D];size=475x650")
+	show_browser(usr, html, "window=variables\ref[D];size=475x650")
 
 /client
 	var/list/watched_variables = list()
@@ -172,10 +180,10 @@
 		vtext = "<a href='?_src_=vars;Vars=\ref[C]'>\ref[C]</a> - [C] ([C.type])"
 	else if(islist(value))
 		var/list/L = value
-		vtext = "/list ([L.len])"
-		if(!(varname in view_variables_dont_expand) && L.len > 0 && L.len < 100)
+		vtext = "/list ([length(L)])"
+		if(!(varname in view_variables_dont_expand) && length(L) > 0 && length(L) < 100)
 			extra += "<ul>"
-			for (var/index = 1 to L.len)
+			for (var/index = 1 to length(L))
 				var/entry = L[index]
 				if(!isnum(entry) && !isnull(entry) && !(varname in view_variables_no_assoc) && L[entry] != null)
 					extra += "<li>[index]: [make_view_variables_value(entry)] -> [make_view_variables_value(L[entry])]</li>"
@@ -185,7 +193,7 @@
 	else
 		vtext = "[value]"
 
-	return "<span class=value>[vtext]</span>[jointext(extra, null)]"
+	return "[SPAN_CLASS("value", "[vtext]")][jointext(extra, null)]"
 
 /proc/make_view_variables_var_entry(datum/D, varname, value, level=0)
 	var/ecm = null

@@ -19,7 +19,7 @@
 	spawn_flags = 0
 
 /obj/item/integrated_circuit/input/card_reader/attackby_react(obj/item/I, mob/living/user, intent)
-	var/obj/item/weapon/card/id/card = I.GetIdCard()
+	var/obj/item/card/id/card = I.GetIdCard()
 	var/list/access = I.GetAccess()
 	var/json_access = json_encode(access)
 	var/passkey = add_data_signature(json_access)
@@ -36,7 +36,7 @@
 		return FALSE
 
 	set_pin_data(IC_OUTPUT, 3, passkey)
-	user.visible_message("<span class='notice'>\The [user] swipes \the [I] onto \the [get_object()]'s card reader.</span>")
+	user.visible_message(SPAN_NOTICE("\The [user] swipes \the [I] onto \the [get_object()]'s card reader."))
 	push_data()
 	activate_pin(1)
 	return TRUE
@@ -56,13 +56,16 @@
 
 /obj/item/integrated_circuit/output/access_displayer/do_work()
 	var/list/signature_and_data = splittext(get_pin_data(IC_INPUT, 1), ":")
+	if(length(signature_and_data) < 2)
+		return
+
 	var/signature = signature_and_data[1]
 	var/result = signature_and_data[2]
 
 	// check if the signature is valid
 	if(!check_data_signature(signature, result))
 		return FALSE
-	
+
 	if(length(result) > 1)
 		result = json_decode(result)
 	else

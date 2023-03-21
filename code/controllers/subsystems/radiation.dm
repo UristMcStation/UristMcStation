@@ -8,19 +8,19 @@ SUBSYSTEM_DEF(radiation)
 	var/list/sources_assoc = list()		// Sources indexed by turf for de-duplication.
 	var/list/resistance_cache = list()	// Cache of turf's radiation resistance.
 
-	var/tmp/list/current_sources   = list()
-	var/tmp/list/current_res_cache = list()
-	var/tmp/list/listeners         = list()
+	var/list/current_sources   = list()
+	var/list/current_res_cache = list()
+	var/list/listeners         = list()
 
 /datum/controller/subsystem/radiation/fire(resumed = FALSE)
 	if (!resumed)
 		current_sources = sources.Copy()
 		current_res_cache = resistance_cache.Copy()
-		listeners = GLOB.living_mob_list_.Copy()		
+		listeners = GLOB.alive_mobs.Copy()
 
-	while(current_sources.len)
-		var/datum/radiation_source/S = current_sources[current_sources.len]
-		current_sources.len--
+	while(length(current_sources))
+		var/datum/radiation_source/S = current_sources[length(current_sources)]
+		LIST_DEC(current_sources)
 
 		if(QDELETED(S))
 			sources -= S
@@ -28,10 +28,10 @@ SUBSYSTEM_DEF(radiation)
 			S.update_rad_power(S.rad_power - config.radiation_decay_rate)
 		if (MC_TICK_CHECK)
 			return
-	
-	while(current_res_cache.len)
-		var/turf/T = current_res_cache[current_res_cache.len]
-		current_res_cache.len--
+
+	while(length(current_res_cache))
+		var/turf/T = current_res_cache[length(current_res_cache)]
+		LIST_DEC(current_res_cache)
 
 		if(QDELETED(T))
 			resistance_cache -= T
@@ -40,26 +40,32 @@ SUBSYSTEM_DEF(radiation)
 		if (MC_TICK_CHECK)
 			return
 
-	if(!sources.len)
+	if(!length(sources))
 		listeners.Cut()
 
-	while(listeners.len)
-		var/atom/A = listeners[listeners.len]
-		listeners.len--
+	while(length(listeners))
+		var/atom/A = listeners[length(listeners)]
+		LIST_DEC(listeners)
 
 		if(!QDELETED(A))
-			var/turf/T = get_turf(A)
-			var/rads = get_rads_at_turf(T)
+			var/atom/location = A.loc
+			var/rads = 0
+			if(istype(location))
+				rads = location.get_rads()
 			if(rads)
 				A.rad_act(rads)
 		if (MC_TICK_CHECK)
 			return
 
-/datum/controller/subsystem/radiation/stat_entry()
-	..("S:[sources.len], RC:[resistance_cache.len]")
+
+/datum/controller/subsystem/radiation/UpdateStat(time)
+	if (PreventUpdateStat(time))
+		return ..()
+	..("Sources: [length(sources)] Cache: [length(resistance_cache)]")
+
 
 // Ray trace from all active radiation sources to T and return the strongest effect.
-/datum/controller/subsystem/radiation/proc/get_rads_at_turf(var/turf/T)
+/datum/controller/subsystem/radiation/proc/get_rads_at_turf(turf/T)
 	. = 0
 	if(!istype(T))
 		return
@@ -98,7 +104,7 @@ SUBSYSTEM_DEF(radiation)
 			. = 0
 
 // Add a radiation source instance to the repository.  It will override any existing source on the same turf.
-/datum/controller/subsystem/radiation/proc/add_source(var/datum/radiation_source/S)
+/datum/controller/subsystem/radiation/proc/add_source(datum/radiation_source/S)
 	if(!isturf(S.source_turf))
 		return
 	var/datum/radiation_source/existing = sources_assoc[S.source_turf]
@@ -117,7 +123,7 @@ SUBSYSTEM_DEF(radiation)
 	add_source(S)
 
 // Sets the radiation in a range to a constant value.
-/datum/controller/subsystem/radiation/proc/flat_radiate(source, power, range, var/respect_maint = FALSE)
+/datum/controller/subsystem/radiation/proc/flat_radiate(source, power, range, respect_maint = FALSE)
 	if(!(source && power && range))
 		return
 	var/datum/radiation_source/S = new()
@@ -129,7 +135,7 @@ SUBSYSTEM_DEF(radiation)
 	add_source(S)
 
 // Irradiates a full Z-level. Hacky way of doing it, but not too expensive.
-/datum/controller/subsystem/radiation/proc/z_radiate(var/atom/source, power, var/respect_maint = FALSE)
+/datum/controller/subsystem/radiation/proc/z_radiate(atom/source, power, respect_maint = FALSE)
 	if(!(power && source))
 		return
 	var/turf/epicentre = locate(round(world.maxx / 2), round(world.maxy / 2), source.z)

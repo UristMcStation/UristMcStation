@@ -5,12 +5,13 @@
 /obj/machinery/atmospherics/binary/passive_gate
 	icon = 'icons/atmos/passive_gate.dmi'
 	icon_state = "map_off"
-	level = 1
+	level = ATOM_LEVEL_UNDER_TILE
 
 	name = "pressure regulator"
 	desc = "A one-way air valve that can be used to regulate input or output pressure, and flow rate. Does not require power."
 
 	use_power = POWER_USE_OFF
+	uncreated_component_parts = null
 	interact_offline = 1
 	var/unlocked = 0	//If 0, then the valve is locked closed, otherwise it is open(-able, it's a one-way valve so it closes if gas would flow backwards).
 	var/target_pressure = ONE_ATMOSPHERE
@@ -24,12 +25,15 @@
 	var/id = null
 	var/datum/radio_frequency/radio_connection
 
+	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_FUEL
+	build_icon_state = "passivegate"
+
 /obj/machinery/atmospherics/binary/passive_gate/on
 	unlocked = 1
 	icon_state = "map_on"
 
-/obj/machinery/atmospherics/binary/passive_gate/New()
-	..()
+/obj/machinery/atmospherics/binary/passive_gate/Initialize()
+	. = ..()
 	air1.volume = ATMOS_DEFAULT_VOLUME_PUMP * 2.5
 	air2.volume = ATMOS_DEFAULT_VOLUME_PUMP * 2.5
 
@@ -45,7 +49,7 @@
 		add_underlay(T, node1, turn(dir, 180))
 		add_underlay(T, node2, dir)
 
-/obj/machinery/atmospherics/binary/passive_gate/hide(var/i)
+/obj/machinery/atmospherics/binary/passive_gate/hide(i)
 	update_underlays()
 
 /obj/machinery/atmospherics/binary/passive_gate/Process()
@@ -103,7 +107,7 @@
 	radio_controller.remove_object(src, frequency)
 	frequency = new_frequency
 	if(frequency)
-		radio_connection = radio_controller.add_object(src, frequency, radio_filter = RADIO_ATMOSIA)
+		radio_connection = radio_controller.add_object(src, frequency, object_filter = RADIO_ATMOSIA)
 
 /obj/machinery/atmospherics/binary/passive_gate/proc/broadcast_status()
 	if(!radio_connection)
@@ -132,22 +136,23 @@
 	if(frequency)
 		set_frequency(frequency)
 
+/obj/machinery/atmospherics/binary/passive_gate/Destroy()
+	unregister_radio(src, frequency)
+	. = ..()
+
 /obj/machinery/atmospherics/binary/passive_gate/receive_signal(datum/signal/signal)
 	if(!signal.data["tag"] || (signal.data["tag"] != id) || (signal.data["sigtype"]!="command"))
 		return 0
 
-	if("power" in signal.data)
-		unlocked = text2num(signal.data["power"])
+	if("set_power" in signal.data)
+		unlocked = text2num(signal.data["set_power"])
 
 	if("power_toggle" in signal.data)
 		unlocked = !unlocked
 
 	if("set_target_pressure" in signal.data)
-		target_pressure = between(
-			0,
-			text2num(signal.data["set_target_pressure"]),
-			max_pressure_setting
-		)
+		target_pressure = text2num(signal.data["set_target_pressure"])
+		target_pressure = clamp(target_pressure, 0, max_pressure_setting)
 
 	if("set_regulate_mode" in signal.data)
 		regulate_mode = text2num(signal.data["set_regulate_mode"])
@@ -165,21 +170,11 @@
 	update_icon()
 	return
 
-/obj/machinery/atmospherics/binary/passive_gate/attack_hand(user as mob)
-	if(..())
-		return
-	src.add_fingerprint(usr)
-	if(!src.allowed(user))
-		to_chat(user, "<span class='warning'>Access denied.</span>")
-		return
-	usr.set_machine(src)
+/obj/machinery/atmospherics/binary/passive_gate/interface_interact(mob/user)
 	ui_interact(user)
 	return
 
-/obj/machinery/atmospherics/binary/passive_gate/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	if(stat & (BROKEN|NOPOWER))
-		return
-
+/obj/machinery/atmospherics/binary/passive_gate/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1)
 	// this is the data which will be sent to the ui
 	var/data[0]
 
@@ -224,7 +219,7 @@
 			target_pressure = max_pressure_setting
 		if ("set")
 			var/new_pressure = input(usr,"Enter new output pressure (0-[max_pressure_setting]kPa)","Pressure Control",src.target_pressure) as num
-			src.target_pressure = between(0, new_pressure, max_pressure_setting)
+			src.target_pressure = clamp(new_pressure, 0, max_pressure_setting)
 
 	switch(href_list["set_flow_rate"])
 		if ("min")
@@ -233,33 +228,33 @@
 			set_flow_rate = air1.volume
 		if ("set")
 			var/new_flow_rate = input(usr,"Enter new flow rate limit (0-[air1.volume]kPa)","Flow Rate Control",src.set_flow_rate) as num
-			src.set_flow_rate = between(0, new_flow_rate, air1.volume)
+			src.set_flow_rate = clamp(new_flow_rate, 0, air1.volume)
 
 	usr.set_machine(src)	//Is this even needed with NanoUI?
 	src.update_icon()
 	src.add_fingerprint(usr)
 	return
 
-/obj/machinery/atmospherics/binary/passive_gate/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
+/obj/machinery/atmospherics/binary/passive_gate/attackby(obj/item/W as obj, mob/user as mob)
 	if(!isWrench(W))
 		return ..()
 	if (unlocked)
-		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], turn it off first.</span>")
+		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], turn it off first."))
 		return 1
 	var/datum/gas_mixture/int_air = return_air()
 	var/datum/gas_mixture/env_air = loc.return_air()
 	if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
-		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it too exerted due to internal pressure.</span>")
+		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it too exerted due to internal pressure."))
 		add_fingerprint(user)
 		return 1
 	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
-	if (do_after(user, 40, src))
+	to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
+	if (do_after(user, 4 SECONDS, src, DO_REPAIR_CONSTRUCT))
 		user.visible_message( \
-			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
-			"<span class='notice'>You have unfastened \the [src].</span>", \
+			SPAN_NOTICE("\The [user] unfastens \the [src]."), \
+			SPAN_NOTICE("You have unfastened \the [src]."), \
 			"You hear ratchet.")
-		new /obj/item/pipe(loc, make_from=src)
+		new /obj/item/pipe(loc, src)
 		qdel(src)
 
 #undef REGULATE_NONE

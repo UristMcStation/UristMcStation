@@ -6,10 +6,9 @@
 
 	if(alert("WARNING: Executing this command will perform a full reset of atmosphere. All pipelines will lose any gas that may be in them, and all zones will be reset to contain air mix as on roundstart. The supermatter engine will also be stopped (to prevent overheat due to removal of coolant). Do not use unless the map is suffering serious atmospheric issues due to grief or bug.", "Full Atmosphere Reboot", "No", "Yes") == "No")
 		return
-	SSstatistics.add_field_details("admin_verb","FA")
 
 	log_and_message_admins("Full atmosphere reset initiated by [usr].")
-	to_world("<span class = 'danger'>Initiating restart of atmosphere. The server may lag a bit.</span>")
+	to_world(SPAN_CLASS("danger", "Initiating restart of atmosphere. The server may lag a bit."))
 	sleep(10)
 	var/current_time = world.timeofday
 
@@ -41,10 +40,12 @@
 		T.air = null
 		T.overlays.Remove(unsorted_overlays)
 		T.zone = null
+		for(var/obj/effect/gas_overlay/effect in T.vis_contents)
+			T.vis_contents -= effect
 
 	to_chat(usr, "\[4/5\] - All turfs reset to roundstart values.")
 
 	SSair.reboot()
 
 	to_chat(usr, "\[5/5\] - ZAS Rebooted")
-	to_world("<span class = 'danger'>Atmosphere restart completed in <b>[(world.timeofday - current_time)/10]</b> seconds.</span>")
+	to_world(SPAN_CLASS("danger", "Atmosphere restart completed in <b>[(world.timeofday - current_time)/10]</b> seconds."))

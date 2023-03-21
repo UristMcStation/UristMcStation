@@ -21,7 +21,7 @@
 	var/toggle = 0 //Can we toggle this?
 	var/list/transformed_dudes = list() //Who we transformed. Transformed = Transformation. Both mobs.
 
-/spell/targeted/shapeshift/cast(var/list/targets, mob/user)
+/spell/targeted/shapeshift/cast(list/targets, mob/user)
 	for(var/m in targets)
 		var/mob/living/M = m
 		if(M.stat == DEAD)
@@ -29,7 +29,7 @@
 			continue
 		if(M.buckled)
 			M.buckled.unbuckle_mob()
-		if(toggle && transformed_dudes.len && stop_transformation(M))
+		if(toggle && length(transformed_dudes) && stop_transformation(M))
 			continue
 		var/new_mob = pick(possible_transformations)
 
@@ -53,7 +53,7 @@
 		new /obj/effect/temporary(get_turf(M), 5, 'icons/effects/effects.dmi', "summoning")
 
 		M.forceMove(trans) //move inside the new dude to hide him.
-		M.status_flags |= GODMODE //dont want him to die or breathe or do ANYTHING
+		M.status_flags |= GODMODE //don't want him to die or breathe or do ANYTHING
 		transformed_dudes[trans] = M
 		GLOB.death_event.register(trans,src,/spell/targeted/shapeshift/proc/stop_transformation)
 		GLOB.destroyed_event.register(trans,src,/spell/targeted/shapeshift/proc/stop_transformation)
@@ -62,12 +62,12 @@
 			spawn(duration)
 				stop_transformation(trans)
 
-/spell/targeted/shapeshift/proc/destroyed_transformer(var/mob/target) //Juuuuust in case
+/spell/targeted/shapeshift/proc/destroyed_transformer(mob/target) //Juuuuust in case
 	var/mob/current = transformed_dudes[target]
-	to_chat(current, "<span class='danger'>You suddenly feel as if this transformation has become permanent...</span>")
+	to_chat(current, SPAN_DANGER("You suddenly feel as if this transformation has become permanent..."))
 	remove_target(target)
 
-/spell/targeted/shapeshift/proc/stop_transformation(var/mob/living/target)
+/spell/targeted/shapeshift/proc/stop_transformation(mob/living/target)
 	var/mob/living/transformer = transformed_dudes[target]
 	if(!transformer)
 		return FALSE
@@ -75,7 +75,7 @@
 	if(share_damage)
 		var/ratio = target.health/target.maxHealth
 		var/damage = transformer.maxHealth - round(transformer.maxHealth*(ratio))
-		for(var/i in 1 to ceil(damage/10))
+		for(var/i in 1 to Ceil(damage/10))
 			transformer.adjustBruteLoss(10)
 	if(target.mind)
 		target.mind.transfer_to(transformer)
@@ -87,7 +87,7 @@
 	qdel(target)
 	return TRUE
 
-/spell/targeted/shapeshift/proc/remove_target(var/mob/living/target)
+/spell/targeted/shapeshift/proc/remove_target(mob/living/target)
 	var/mob/current = transformed_dudes[target]
 	GLOB.destroyed_event.unregister(target,src)
 	GLOB.death_event.unregister(current,src)
@@ -99,7 +99,7 @@
 	name = "Baleful Polymorth"
 	desc = "This spell transforms its target into a small, furry animal."
 	feedback = "BP"
-	possible_transformations = list(/mob/living/simple_animal/lizard,/mob/living/simple_animal/mouse,/mob/living/simple_animal/corgi)
+	possible_transformations = list(/mob/living/simple_animal/passive/lizard,/mob/living/simple_animal/passive/mouse,/mob/living/simple_animal/passive/corgi)
 
 	share_damage = 0
 	invocation = "Yo'balada!"
@@ -128,7 +128,7 @@
 	name = "Polymorph"
 	desc = "This spell transforms the wizard into the common parrot."
 	feedback = "AV"
-	possible_transformations = list(/mob/living/simple_animal/parrot)
+	possible_transformations = list(/mob/living/simple_animal/hostile/retaliate/parrot)
 
 	drop_items = 0
 	share_damage = 0

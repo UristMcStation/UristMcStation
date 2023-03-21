@@ -117,6 +117,10 @@ ul {
     list-style-type: none;
 }
 
+dl dt {
+    font-weight: bold;
+}
+
 li {
     padding: 0 0 2px 0;
 }
@@ -160,6 +164,11 @@ abbr {
 .good {
     color: #4f7529;
     font-weight: bold;
+}
+
+.mild {
+	color: #cda500;
+	font-weight: bold;
 }
 
 .average {
@@ -574,7 +583,7 @@ div.notice {
     text-align: center;
 }
 
-table.fixed { 
+table.fixed {
 	table-layout:fixed;
 }
 
@@ -704,4 +713,9 @@ th.bot {
 }
 .candystripe:nth-child(odd) {
 	background-color: rgba(0, 0, 0, 0.16);
+}
+
+.redacted {
+	background-color: black;
+	color: black;
 }

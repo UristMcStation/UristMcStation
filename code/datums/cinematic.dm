@@ -7,16 +7,16 @@ GLOBAL_DATUM_INIT(cinematic, /datum/cinematic, new)
 	var/obj/screen/cinematic_screen = null
 
 //Plus it provides an easy way to make cinematics for other events. Just use this as a template :)
-/datum/cinematic/proc/station_explosion_cinematic(var/station_missed=0, var/datum/game_mode/override)
+/datum/cinematic/proc/station_explosion_cinematic(station_missed=0, datum/game_mode/override)
 	set waitfor = FALSE
 
-	if(cinematic_screen)	
+	if(cinematic_screen)
 		return	//already a cinematic in progress!
 
 	if(!override)
 		override = SSticker.mode
 	if(!override)
-		override = gamemode_cache["extended"]
+		override = SSticker.mode_cache["extended"]
 	if(!override)
 		return
 
@@ -31,7 +31,7 @@ GLOBAL_DATUM_INIT(cinematic, /datum/cinematic, new)
 
 	//Let's not discuss how this worked previously.
 	var/list/viewers = list()
-	for(var/mob/living/M in GLOB.living_mob_list_)
+	for(var/mob/living/M in GLOB.alive_mobs)
 		if(M.client)
 			M.client.screen += cinematic_screen //show every client the cinematic
 			viewers[M.client] = M.stunned

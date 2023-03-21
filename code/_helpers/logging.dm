@@ -1,13 +1,9 @@
-//wrapper macros for easier grepping
-#define DIRECT_OUTPUT(A, B) A << B
-#define WRITE_FILE(file, text) DIRECT_OUTPUT(file, text)
-
 
 // On Linux/Unix systems the line endings are LF, on windows it's CRLF, admins that don't use notepad++
 // will get logs that are one big line if the system is Linux and they are using notepad.  This solves it by adding CR to every line ending
 // in the logs.  ascii character 13 = CR
 
-/var/global/log_end= world.system_type == UNIX ? ascii2text(13) : ""
+var/global/log_end= world.system_type == UNIX ? ascii2text(13) : ""
 
 
 /proc/error(msg)
@@ -34,7 +30,7 @@
 	to_world_log("## TESTING: [msg][log_end]")
 
 /proc/game_log(category, text)
-	diary << "\[[time_stamp()]] [game_id] [category]: [text][log_end]"
+	to_file(global.diary, "\[[time_stamp()]] [game_id] [category]: [text][log_end]")
 
 /proc/log_admin(text)
 	GLOB.admin_log.Add(text)
@@ -46,6 +42,11 @@
 		game_log("DEBUG", text)
 	to_debug_listeners(text)
 
+/proc/log_runtime(text)
+	for (var/client/C as anything in GLOB.admins)
+		if (C.get_preference_value(/datum/client_preference/staff/show_runtime_logs) == GLOB.PREF_SHOW)
+			to_chat(C, append_admin_tools(SPAN_DEBUG("<b>RUNTIME</b>: [text]"), usr, usr?.loc))
+
 /proc/log_error(text)
 	error(text)
 	to_debug_listeners(text, "ERROR")
@@ -55,9 +56,9 @@
 	to_debug_listeners(text, "WARNING")
 
 /proc/to_debug_listeners(text, prefix = "DEBUG")
-	for(var/client/C in GLOB.admins)
+	for(var/client/C as anything in GLOB.admins)
 		if(C.get_preference_value(/datum/client_preference/staff/show_debug_logs) == GLOB.PREF_SHOW)
-			to_chat(C, "[prefix]: [text]")
+			to_chat(C, SPAN_DEBUG("<b>[prefix]</b>: [text]"))
 
 /proc/log_game(text)
 	if (config.log_game)
@@ -99,10 +100,6 @@
 	if (config.log_adminwarn)
 		game_log("ADMINWARN", text)
 
-/proc/log_pda(text)
-	if (config.log_pda)
-		game_log("PDA", text)
-
 /proc/log_misc(text)
 	game_log("MISC", text)
 
@@ -111,7 +108,7 @@
 	log_debug(text)
 
 /proc/log_qdel(text)
-	WRITE_FILE(GLOB.world_qdel_log, "\[[time_stamp()]]QDEL: [text]")
+	to_file(GLOB.world_qdel_log, "\[[time_stamp()]]QDEL: [text]")
 
 //This replaces world.log so it displays both in DD and the file
 /proc/log_world(text)
@@ -120,7 +117,7 @@
 		game_log("DD_OUTPUT", text)
 
 //pretty print a direction bitflag, can be useful for debugging.
-/proc/dir_text(var/dir)
+/proc/dir_text(dir)
 	var/list/comps = list()
 	if(dir & NORTH) comps += "NORTH"
 	if(dir & SOUTH) comps += "SOUTH"
@@ -132,7 +129,7 @@
 	return english_list(comps, nothing_text="0", and_text="|", comma_text="|")
 
 //more or less a logging utility
-/proc/key_name(var/whom, var/include_link = null, var/include_name = 1, var/highlight_special_characters = 1, var/datum/ticket/ticket = null)
+/proc/key_name(whom, include_link = null, include_name = 1, highlight_special_characters = 1, datum/ticket/ticket = null)
 	var/mob/M
 	var/client/C
 	var/key
@@ -145,7 +142,7 @@
 	else if(ismob(whom))
 		M = whom
 		C = M.client
-		key = M.key
+		key = LAST_KEY(M)
 	else if(istype(whom, /datum/mind))
 		var/datum/mind/D = whom
 		key = D.key
@@ -181,14 +178,14 @@
 			name = M.name
 
 
-		if(include_link && is_special_character(M) && highlight_special_characters)
-			. += "/(<font color='#ffa500'>[name]</font>)" //Orange
+		if(is_special_character(M) && highlight_special_characters)
+			. += "/([SPAN_COLOR("#ffa500", name)])" //Orange
 		else
 			. += "/([name])"
 
 	return .
 
-/proc/key_name_admin(var/whom, var/include_name = 1)
+/proc/key_name_admin(whom, include_name = 1)
 	return key_name(whom, 1, include_name)
 
 // Helper procs for building detailed log lines
@@ -208,7 +205,7 @@
 /mob/get_log_info_line()
 	return ckey ? "[..()] ([ckey])" : ..()
 
-/proc/log_info_line(var/datum/d)
+/proc/log_info_line(datum/d)
 	if(isnull(d))
 		return "*null*"
 	if(islist(d))
@@ -222,6 +219,6 @@
 		return json_encode(d)
 	return d.get_log_info_line()
 
-/proc/report_progress(var/progress_message)
-	admin_notice("<span class='boldannounce'>[progress_message]</span>", R_DEBUG)
+/proc/report_progress(progress_message)
+	admin_notice(SPAN_CLASS("boldannounce", "[progress_message]"), R_DEBUG)
 	to_world_log(progress_message)

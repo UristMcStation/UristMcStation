@@ -1,4 +1,4 @@
-/proc/create_objects_in_loc(var/atom/loc, var/atom_paths)
+/proc/create_objects_in_loc(atom/loc, atom_paths)
 	if(!istype(loc))
 		CRASH("Inappropriate loction given.")
 
@@ -14,7 +14,7 @@
 	else
 		CRASH("Unhandled input: [log_info_line(atom_paths)]")
 
-/datum/atom_creator/proc/create(var/loc)
+/datum/atom_creator/proc/create(loc)
 	return
 
 /datum/atom_creator/simple
@@ -22,15 +22,15 @@
 	var/probability
 	var/prob_method = /proc/prob_call
 
-/datum/atom_creator/simple/New(var/path, var/probability)
-	if(args.len != 2)
-		CRASH("Invalid number of arguments. Expected 2, was [args.len]")
+/datum/atom_creator/simple/New(path, probability)
+	if(length(args) != 2)
+		CRASH("Invalid number of arguments. Expected 2, was [length(args)]")
 	if(!isnum(probability) || probability < 1 || probability > 99)
 		CRASH("Invalid probability. Expected a number between 1 and 99, was [log_info_line(probability)]") // A probability of 0 or 100 is pretty meaningless.
 	src.probability = probability
 	src.path = path
 
-/datum/atom_creator/simple/create(var/loc)
+/datum/atom_creator/simple/create(loc)
 	if(call(prob_method)(probability))
 		create_objects_in_loc(loc, path)
 
@@ -38,9 +38,9 @@
 	var/list/paths
 	var/selection_method = /proc/pickweight
 
-/datum/atom_creator/weighted/New(var/list/paths)
-	if(args.len != 1)
-		CRASH("Invalid number of arguments. Expected 1, was [args.len]")
+/datum/atom_creator/weighted/New(list/paths)
+	if(length(args) != 1)
+		CRASH("Invalid number of arguments. Expected 1, was [length(args)]")
 	if(!istype(paths))
 		CRASH("Invalid argument type. Expected /list, was [log_info_line(paths)]")
 	for(var/path in paths)
@@ -49,6 +49,6 @@
 			CRASH("Invalid probability. Expected null or a number greater than 0, was [log_info_line(probability)]")
 	src.paths = paths
 
-/datum/atom_creator/weighted/create(var/loc)
+/datum/atom_creator/weighted/create(loc)
 	var/path = call(selection_method)(paths)
 	create_objects_in_loc(loc, path)

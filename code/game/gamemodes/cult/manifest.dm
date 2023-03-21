@@ -10,14 +10,12 @@
 		TAG_FACTION =   FACTION_OTHER
 	)
 
-/datum/species/human/cult/handle_death(var/mob/living/carbon/human/H)
+/datum/species/human/cult/handle_death(mob/living/carbon/human/H)
 	spawn(1)
 		if(H)
 			H.dust()
 
-/datum/species/human/cult/handle_post_spawn(var/mob/living/carbon/human/H)
-	H.s_tone = 35
-	H.r_eyes = 230
-	H.b_eyes = 7
-	H.g_eyes = 7
+/datum/species/human/cult/handle_post_spawn(mob/living/carbon/human/H)
+	H.skin_tone = 35
+	H.eye_color = "#e60707"
 	H.update_eyes()

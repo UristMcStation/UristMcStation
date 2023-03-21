@@ -13,7 +13,7 @@
 	var/graffiti_age = 0
 	var/author = "unknown"
 
-/obj/effect/decal/writing/New(var/newloc, var/_age, var/_message, var/_author)
+/obj/effect/decal/writing/New(newloc, _age, _message, _author)
 	..(newloc)
 	if(!isnull(_age))
 		graffiti_age = _age
@@ -25,7 +25,7 @@
 	var/list/random_icon_states = icon_states(icon)
 	for(var/obj/effect/decal/writing/W in loc)
 		random_icon_states.Remove(W.icon_state)
-	if(random_icon_states.len)
+	if(length(random_icon_states))
 		icon_state = pick(random_icon_states)
 	SSpersistence.track_value(src, /datum/persistent/graffiti)
 	. = ..()
@@ -36,32 +36,34 @@
 
 /obj/effect/decal/writing/examine(mob/user)
 	. = ..(user)
-	if(.)
-		to_chat(user,  "It reads \"[message]\".")
-	else
-		to_chat(user, "<span class='notice'>You have to go closer if you want to read it.</span>")
+	to_chat(user,  "It reads \"[message]\".")
 
-/obj/effect/decal/writing/attackby(var/obj/item/thing, var/mob/user)
-	if(isWelder(thing))
-		var/obj/item/weapon/weldingtool/welder = thing
-		if(welder.isOn() && welder.remove_fuel(0,user) && do_after(user, 5, src) && !QDELETED(src))
-			playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
-			user.visible_message("<span class='notice'>\The [user] clears away some graffiti.</span>")
-			qdel(src)
-	else if(thing.sharp)
 
-		if(jobban_isbanned(user, "Graffiti"))
-			to_chat(user, SPAN_WARNING("You are banned from leaving persistent information across rounds."))
-			return
+/obj/effect/decal/writing/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Sharp Item - Engrave additional message
+	if (is_sharp(tool))
+		var/turf/target = get_turf(src)
+		target.try_graffiti(user, tool)
+		return TRUE
 
-		var/_message = sanitize(input("Enter an additional message to engrave.", "Graffiti") as null|text, trim = TRUE)
-		if(_message && loc && user && !user.incapacitated() && user.Adjacent(loc) && thing.loc == user)
-			user.visible_message("<span class='warning'>\The [user] begins carving something into \the [loc].</span>")
-			if(do_after(user, max(20, length(_message)), src) && loc)
-				user.visible_message("<span class='danger'>\The [user] carves some graffiti into \the [loc].</span>")
-				message = "[message] [_message]"
-				author = user.ckey
-				if(lowertext(message) == "elbereth")
-					to_chat(user, "<span class='notice'>You feel much safer.</span>")
-	else
-		. = ..()
+	// Welding Torch - Remove decal
+	if (isWelder(tool))
+		var/obj/item/weldingtool/welder = tool
+		if (!welder.can_use(1, user, "to remove \the [src]."))
+			return TRUE
+		playsound(src, 'sound/items/Welder2.ogg', 50, TRUE)
+		user.visible_message(
+			SPAN_NOTICE("\The [user] starts burning away \the [src] with \a [tool]."),
+			SPAN_NOTICE("You start burning away \the [src] with \the [tool].")
+		)
+		if (!do_after(user, 0.5 SECONDS, src, DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool) || !welder.can_use(1, user, "to remove \the [src]"))
+			return TRUE
+		user.visible_message(
+			SPAN_NOTICE("\The [user] clears away \the [src] with \a [tool]."),
+			SPAN_NOTICE("You clear away \the [src] with \the [tool].")
+		)
+		playsound(src, 'sound/items/Welder2.ogg', 50, TRUE)
+		qdel(src)
+		return TRUE
+
+	return ..()

@@ -13,8 +13,12 @@ SUBSYSTEM_DEF(processing)
 	var/debug_last_thing
 	var/debug_original_process_proc // initial() does not work with procs
 
-/datum/controller/subsystem/processing/stat_entry(msg)
-	..("P:[processing.len][msg]")
+
+/datum/controller/subsystem/processing/UpdateStat(time)
+	if (PreventUpdateStat(time))
+		return ..()
+	..("Queue [length(processing)]")
+
 
 /datum/controller/subsystem/processing/fire(resumed = 0)
 	if (!resumed)
@@ -24,9 +28,9 @@ SUBSYSTEM_DEF(processing)
 	var/wait = src.wait
 	var/times_fired = src.times_fired
 
-	while(current_run.len)
-		var/datum/thing = current_run[current_run.len]
-		current_run.len--
+	while(length(current_run))
+		var/datum/thing = current_run[length(current_run)]
+		LIST_DEC(current_run)
 		if(QDELETED(thing) || (call(thing, process_proc)(wait, times_fired, src) == PROCESS_KILL))
 			if(thing)
 				thing.is_processing = null
@@ -47,10 +51,13 @@ SUBSYSTEM_DEF(processing)
 
 	to_chat(usr, "[name] - Debug mode [debug_original_process_proc ? "en" : "dis"]abled")
 
+/datum/controller/subsystem/processing/Recover(datum/controller/subsystem/processing/P)
+	processing = P.processing
+
 /datum/controller/subsystem/processing/VV_static()
 	return ..() + list("processing", "current_run", "process_proc", "debug_last_thing", "debug_original_process_proc")
 
-/datum/proc/DebugSubsystemProcess(var/wait, var/times_fired, var/datum/controller/subsystem/processing/subsystem)
+/datum/proc/DebugSubsystemProcess(wait, times_fired, datum/controller/subsystem/processing/subsystem)
 	subsystem.debug_last_thing = src
 	var/start_tick = world.time
 	var/start_tick_usage = world.tick_usage

@@ -16,7 +16,7 @@
 		armor_pieces = nlist
 	return ..()
 
-/spell/toggle_armor/proc/drop_piece(var/obj/I)
+/spell/toggle_armor/proc/drop_piece(obj/I)
 	if(istype(I.loc, /mob))
 		var/mob/M = I.loc
 		M.drop_from_inventory(I)
@@ -24,7 +24,7 @@
 /spell/toggle_armor/choose_targets()
 	return list(holder)
 
-/spell/toggle_armor/cast(var/list/targets, var/mob/user)
+/spell/toggle_armor/cast(list/targets, mob/user)
 	equip = !equip
 	name = "[initial(name)] ([equip ? "off" : "on"])"
 	if(equip)
@@ -32,7 +32,7 @@
 			var/slot = armor_pieces[piece]
 			drop_piece(piece)
 			user.drop_from_inventory(user.get_equipped_item(slot))
-			user.equip_to_slot_if_possible(piece,slot,0,1,1,1)
+			user.equip_to_slot_if_possible(piece, slot, TRYEQUIP_REDRAW | TRYEQUIP_SILENT | TRYEQUIP_FORCE)
 	else
 		for(var/piece in armor_pieces)
 			var/obj/item/I = piece
@@ -47,8 +47,8 @@
 						/obj/item/clothing/gloves/insulated/cheap = slot_gloves,
 						/obj/item/clothing/mask/gas = slot_wear_mask,
 						/obj/item/clothing/shoes/black = slot_shoes,
-						/obj/item/weapon/storage/toolbox/mechanical = slot_r_hand,
-						/obj/item/weapon/extinguisher = slot_l_hand)
+						/obj/item/storage/toolbox/mechanical = slot_r_hand,
+						/obj/item/extinguisher = slot_l_hand)
 
 /spell/toggle_armor/caretaker
 	name = "Toggle Armor (Caretaker)"
@@ -72,7 +72,7 @@
 	name = "Toggle Sword"
 	invocation_type = SpI_EMOTE
 	invocation = "thrusts /his hand forward, and it is enveloped in golden embers!"
-	armor_pieces = list(/obj/item/weapon/excalibur = slot_r_hand)
+	armor_pieces = list(/obj/item/excalibur = slot_r_hand)
 	hud_state = "excalibur"
 
 /spell/toggle_armor/fiend
@@ -107,8 +107,8 @@
 	name = "Toggle Counterfeit Kit"
 	invocation_type = SpI_EMOTE
 	invocation = "flicks /his wrists, one at a time"
-	armor_pieces = list(/obj/item/weapon/stamp/chameleon = slot_l_hand,
-						/obj/item/weapon/pen/chameleon = slot_r_hand)
+	armor_pieces = list(/obj/item/stamp/chameleon = slot_l_hand,
+						/obj/item/pen/chameleon = slot_r_hand)
 	hud_state = "forgery"
 
 /spell/toggle_armor/overseer

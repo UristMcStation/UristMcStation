@@ -33,12 +33,12 @@
 /obj/item/organ/internal/lungs/proc/can_drown()
 	return (is_broken() || !has_gills)
 
-/obj/item/organ/internal/lungs/proc/remove_oxygen_deprivation(var/amount)
+/obj/item/organ/internal/lungs/proc/remove_oxygen_deprivation(amount)
 	var/last_suffocation = oxygen_deprivation
 	oxygen_deprivation = min(species.total_health,max(0,oxygen_deprivation - amount))
 	return -(oxygen_deprivation - last_suffocation)
 
-/obj/item/organ/internal/lungs/proc/add_oxygen_deprivation(var/amount)
+/obj/item/organ/internal/lungs/proc/add_oxygen_deprivation(amount)
 	var/last_suffocation = oxygen_deprivation
 	oxygen_deprivation = min(species.total_health,max(0,oxygen_deprivation + amount))
 	return (oxygen_deprivation - last_suffocation)
@@ -53,7 +53,7 @@
 	. = ..()
 	icon_state = "lungs-prosthetic"
 
-/obj/item/organ/internal/lungs/set_dna(var/datum/dna/new_dna)
+/obj/item/organ/internal/lungs/set_dna(datum/dna/new_dna)
 	..()
 	sync_breath_types()
 	max_pressure_diff = species.max_pressure_diff
@@ -67,9 +67,9 @@
  */
 /obj/item/organ/internal/lungs/proc/sync_breath_types()
 	min_breath_pressure = species.breath_pressure
-	breath_type = species.breath_type ? species.breath_type : "oxygen"
-	poison_types = species.poison_types ? species.poison_types : list("phoron" = TRUE)
-	exhale_type = species.exhale_type ? species.exhale_type : "carbon_dioxide"
+	breath_type = species.breath_type ? species.breath_type : GAS_OXYGEN
+	poison_types = species.poison_types ? species.poison_types : list(GAS_PHORON = TRUE)
+	exhale_type = species.exhale_type ? species.exhale_type : GAS_CO2
 
 /obj/item/organ/internal/lungs/Process()
 	..()
@@ -85,7 +85,7 @@
 			if(active_breathing)
 				owner.visible_message(
 					"<B>\The [owner]</B> coughs up blood!",
-					"<span class='warning'>You cough up blood!</span>",
+					SPAN_WARNING("You cough up blood!"),
 					"You hear someone coughing!",
 				)
 			else
@@ -99,13 +99,13 @@
 			if(active_breathing)
 				owner.visible_message(
 					"<B>\The [owner]</B> gasps for air!",
-					"<span class='danger'>It becomes harder to breathe!</span>",
+					SPAN_DANGER("You can't breathe!"),
 					"You hear someone gasp for air!",
 				)
 			else
-				to_chat(owner, "<span class='danger'>You're having trouble getting enough [breath_type]!</span>")
+				to_chat(owner, SPAN_DANGER("You're having trouble getting enough [breath_type]!"))
 
-			owner.losebreath += round(damage/2)
+			owner.losebreath = max(round(damage / 2), owner.losebreath)
 
 /obj/item/organ/internal/lungs/proc/rupture()
 	var/obj/item/organ/external/parent = owner.get_organ(parent_organ)
@@ -121,28 +121,28 @@
 	var/datum/gas_mixture/environment = loc.return_air_for_internal_lifeform()
 	var/ext_pressure = environment && environment.return_pressure() // May be null if, say, our owner is in nullspace
 	var/int_pressure_diff = abs(last_int_pressure - breath_pressure)
-	var/ext_pressure_diff = abs(last_ext_pressure - ext_pressure) * owner.get_pressure_weakness()
+	var/ext_pressure_diff = abs(last_ext_pressure - ext_pressure) * owner.get_pressure_weakness(ext_pressure)
 	if(int_pressure_diff > max_pressure_diff && ext_pressure_diff > max_pressure_diff)
 		var/lung_rupture_prob = BP_IS_ROBOTIC(src) ? prob(30) : prob(60) //Robotic lungs are less likely to rupture.
 		if(!is_bruised() && lung_rupture_prob) //only rupture if NOT already ruptured
 			rupture()
 
-/obj/item/organ/internal/lungs/proc/handle_breath(datum/gas_mixture/breath, var/forced)
+/obj/item/organ/internal/lungs/proc/handle_breath(datum/gas_mixture/breath, forced)
 
 	if(!owner)
 		return 1
 
 	if(!breath || (max_damage <= 0))
-		handle_failed_breath(TRUE)
+		breath_fail_ratio = 1
+		handle_failed_breath()
 		return 1
 
 	var/breath_pressure = breath.return_pressure()
 	check_rupturing(breath_pressure)
 
 	var/datum/gas_mixture/environment = loc.return_air_for_internal_lifeform()
-	if(environment)
-		last_ext_pressure = environment.return_pressure()
-		last_int_pressure = breath_pressure
+	last_ext_pressure = environment && environment.return_pressure()
+	last_int_pressure = breath_pressure
 	if(breath.total_moles == 0)
 		handle_failed_breath(TRUE)
 		return 1
@@ -196,7 +196,7 @@
 				breath.adjust_gas(gasname, -breath.gas[gasname], update = 0) //update after
 
 	// Moved after reagent injection so we don't instantly poison ourselves with CO2 or whatever.
-	if(exhale_type)
+	if(exhale_type && (!istype(owner.wear_mask) || !(exhale_type in owner.wear_mask.filtered_gases)))
 		breath.adjust_gas_temp(exhale_type, inhaled_gas_used, owner.bodytemperature, update = 0) //update afterwards
 
 	// Deal with any airborne viruses
@@ -253,8 +253,7 @@
 		else
 			owner.emote(pick("shiver","twitch"))
 
-	var/deprivation = get_oxygen_deprivation()
-	if(((breath_fail_ratio * 100) > deprivation) || ((damage / max_damage * 100) > deprivation) || owner.chem_effects[CE_BREATHLOSS])
+	if(damage || owner.chem_effects[CE_BREATHLOSS] || world.time > last_successful_breath + 2 MINUTES)
 		owner.adjustOxyLoss(HUMAN_MAX_OXYLOSS*breath_fail_ratio)
 
 	owner.oxygen_alert = max(owner.oxygen_alert, 2)
@@ -266,7 +265,7 @@
 		var/damage = 0
 		if(breath.temperature <= species.cold_level_1)
 			if(prob(20))
-				to_chat(owner, "<span class='danger'>You feel your face freezing and icicles forming in your lungs!</span>")
+				to_chat(owner, SPAN_DANGER("You feel your face freezing and icicles forming in your lungs!"))
 			switch(breath.temperature)
 				if(species.cold_level_3 to species.cold_level_2)
 					damage = COLD_GAS_DAMAGE_LEVEL_3
@@ -276,13 +275,13 @@
 					damage = COLD_GAS_DAMAGE_LEVEL_1
 
 			if(prob(20))
-				owner.apply_damage(damage, BURN, BP_HEAD, used_weapon = "Excessive Cold")
+				owner.apply_damage(damage, DAMAGE_BURN, BP_HEAD, used_weapon = "Excessive Cold")
 			else
 				src.damage += damage
 			owner.fire_alert = 1
 		else if(breath.temperature >= species.heat_level_1)
 			if(prob(20))
-				to_chat(owner, "<span class='danger'>You feel your face burning and a searing heat in your lungs!</span>")
+				to_chat(owner, SPAN_DANGER("You feel your face burning and a searing heat in your lungs!"))
 
 			switch(breath.temperature)
 				if(species.heat_level_1 to species.heat_level_2)
@@ -293,7 +292,7 @@
 					damage = HEAT_GAS_DAMAGE_LEVEL_3
 
 			if(prob(20))
-				owner.apply_damage(damage, BURN, BP_HEAD, used_weapon = "Excessive Heat")
+				owner.apply_damage(damage, DAMAGE_BURN, BP_HEAD, used_weapon = "Excessive Heat")
 			else
 				src.damage += damage
 			owner.fire_alert = 2
@@ -337,7 +336,7 @@
 		breathtype += pick("straining","labored")
 	if(owner.shock_stage > 50)
 		breathtype += pick("shallow and rapid")
-	if(!breathtype.len)
+	if(!length(breathtype))
 		breathtype += "healthy"
 
 	. += "[english_list(breathtype)] breathing"

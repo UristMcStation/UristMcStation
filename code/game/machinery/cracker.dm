@@ -3,8 +3,9 @@
 	desc = "An integrated catalytic water cracking system used to break H2O down into H and O. An advanced molecular extractor also allows it to isolate liquid deuterium from seawater."
 	icon = 'icons/obj/machines/cracker.dmi'
 	icon_state = "cracker"
-	density = 1
-	anchored = 1
+	construct_state = /singleton/machine_construction/default/panel_closed
+	density = TRUE
+	anchored = TRUE
 	waterproof = TRUE
 	volume = 5000
 	use_power = POWER_USE_IDLE
@@ -12,30 +13,25 @@
 	active_power_usage = 10000
 
 	var/list/reagent_buffer = list()
-	var/tmp/fluid_consumption_per_tick = 100
-	var/tmp/gas_generated_per_tick = 1
-	var/tmp/max_reagents = 100
-	var/tmp/deuterium_generation_chance = 10
-	var/tmp/deuterium_generation_amount = 1
+	var/fluid_consumption_per_tick = 100
+	var/gas_generated_per_tick = 1
+	var/max_reagents = 100
+	var/deuterium_generation_chance = 10
+	var/deuterium_generation_amount = 1
 
 /obj/machinery/portable_atmospherics/cracker/on_update_icon()
 	icon_state = (use_power == POWER_USE_ACTIVE) ? "cracker_on" : "cracker"
 
-/obj/machinery/portable_atmospherics/cracker/attack_ai(var/mob/user)
-	if(istype(user, /mob/living/silicon/ai) || user.Adjacent(src))
-		attack_hand(user)
-
-/obj/machinery/portable_atmospherics/cracker/attack_hand(var/mob/user)
-	if(stat & (BROKEN|NOPOWER))
-		return
+/obj/machinery/portable_atmospherics/cracker/interface_interact(mob/user)
 	if(use_power == POWER_USE_IDLE)
 		update_use_power(POWER_USE_ACTIVE)
 	else
 		update_use_power(POWER_USE_IDLE)
 	user.visible_message(SPAN_NOTICE("\The [user] [use_power == POWER_USE_ACTIVE ? "engages" : "disengages"] \the [src]."))
 	update_icon()
+	return TRUE
 
-/obj/machinery/portable_atmospherics/cracker/attackby(var/obj/item/thing, var/mob/user)
+/obj/machinery/portable_atmospherics/cracker/attackby(obj/item/thing, mob/user)
 	// remove deuterium as a reagent
 	if(thing.is_open_container() && thing.reagents)
 		if(!reagent_buffer[MATERIAL_DEUTERIUM] || reagent_buffer[MATERIAL_DEUTERIUM] <= 0)
@@ -49,19 +45,20 @@
 		return
 	. = ..()
 
-/obj/machinery/portable_atmospherics/cracker/Process()
-
+/obj/machinery/portable_atmospherics/cracker/power_change()
 	. = ..()
-
-	if(. == PROCESS_KILL)
-		return
-
-	if(stat & (BROKEN|NOPOWER))
-		if(use_power == POWER_USE_ACTIVE)
-			update_use_power(POWER_USE_IDLE)
+	if(. && !is_powered())
+		update_use_power(POWER_USE_IDLE)
 		update_icon()
-		return
 
+/obj/machinery/portable_atmospherics/cracker/set_broken(new_state)
+	. = ..()
+	if(. && MACHINE_IS_BROKEN(src))
+		update_use_power(POWER_USE_IDLE)
+		update_icon()
+
+/obj/machinery/portable_atmospherics/cracker/Process()
+	..()
 	if(use_power == POWER_USE_IDLE)
 		return
 
@@ -79,8 +76,8 @@
 			// Gas production.
 			var/datum/gas_mixture/produced = new
 			var/gen_amt = min(1, (gas_generated_per_tick * (consuming/fluid_consumption_per_tick)))
-			produced.adjust_gas("oxygen",  gen_amt)
-			produced.adjust_gas("hydrogen", gen_amt * 2)
+			produced.adjust_gas(GAS_OXYGEN,  gen_amt)
+			produced.adjust_gas(GAS_HYDROGEN, gen_amt * 2)
 			produced.temperature = T20C //todo water temperature
 			air_contents.merge(produced)
 

@@ -10,7 +10,7 @@
 	number_of_channels = 0
 	time_between_channels = 200
 	hud_state = "wiz_air"
-	var/list/air_change = list("oxygen" = ONE_ATMOSPHERE)
+	var/list/air_change = list(GAS_OXYGEN = ONE_ATMOSPHERE)
 	number_of_channels = 0
 
 /spell/create_air/choose_targets()
@@ -19,7 +19,7 @@
 		return list(air)
 	return null
 
-/spell/create_air/cast(var/list/targets, var/mob/holder, var/channel_count)
+/spell/create_air/cast(list/targets, mob/holder, channel_count)
 	var/datum/gas_mixture/environment = targets[1]
 	for(var/gas in air_change)
 		environment.adjust_gas(gas, air_change[gas])

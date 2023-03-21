@@ -14,7 +14,7 @@
 			else
 				map[current_cell] = FLOOR_CHAR
 
-/datum/random_map/building/handle_post_overlay_on(var/datum/random_map/target_map, var/tx, var/ty)
+/datum/random_map/building/handle_post_overlay_on(datum/random_map/target_map, tx, ty)
 	var/list/possible_doors
 	for(var/x = 1, x <= limit_x, x++)
 		for(var/y = 1, y <= limit_y, y++)
@@ -41,7 +41,7 @@
 			if(place_door)
 				possible_doors |= target_map.get_map_cell(tx+x,ty+y)
 
-	if(possible_doors.len)
+	if(length(possible_doors))
 		// Place at least one door.
 		var/placing_door = pick(possible_doors)
 		possible_doors -= placing_door

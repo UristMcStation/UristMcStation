@@ -2,11 +2,11 @@
 	holder_type = /obj/item/device/radio
 	wire_count = 3
 
-var/const/WIRE_SIGNAL = 1
-var/const/WIRE_RECEIVE = 2
-var/const/WIRE_TRANSMIT = 4
+var/global/const/WIRE_SIGNAL = 1
+var/global/const/WIRE_RECEIVE = 2
+var/global/const/WIRE_TRANSMIT = 4
 
-/datum/wires/radio/CanUse(var/mob/living/L)
+/datum/wires/radio/CanUse(mob/living/L)
 	var/obj/item/device/radio/R = holder
 	if(R.b_stat)
 		return 1
@@ -18,7 +18,7 @@ var/const/WIRE_TRANSMIT = 4
 	if(R.cell)
 		. += "<BR><A href='?src=\ref[R];remove_cell=1'>Remove cell</A><BR>"
 
-/datum/wires/radio/UpdatePulsed(var/index)
+/datum/wires/radio/UpdatePulsed(index)
 	var/obj/item/device/radio/R = holder
 	switch(index)
 		if(WIRE_SIGNAL)
@@ -32,7 +32,7 @@ var/const/WIRE_TRANSMIT = 4
 			R.broadcasting = !R.broadcasting && !IsIndexCut(WIRE_SIGNAL)
 	SSnano.update_uis(holder)
 
-/datum/wires/radio/UpdateCut(var/index, var/mended)
+/datum/wires/radio/UpdateCut(index, mended)
 	var/obj/item/device/radio/R = holder
 	switch(index)
 		if(WIRE_SIGNAL)

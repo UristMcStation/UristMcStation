@@ -19,10 +19,9 @@
 	. = ..()
 
 /obj/item/integrated_circuit/memory/examine(mob/user)
-	if(!(. = ..()))
-		return
+	. = ..()
 	var/i
-	for(i = 1, i <= outputs.len, i++)
+	for(i = 1, i <= length(outputs), i++)
 		var/datum/integrated_io/O = outputs[i]
 		var/data = "nothing"
 		if(isweakref(O.data))
@@ -34,7 +33,7 @@
 		to_chat(user, "\The [src] has [data] saved to address [i].")
 
 /obj/item/integrated_circuit/memory/do_work()
-	for(var/i = 1 to inputs.len)
+	for(var/i = 1 to length(inputs))
 		var/datum/integrated_io/I = inputs[i]
 		var/datum/integrated_io/O = outputs[i]
 		O.data = I.data
@@ -87,9 +86,10 @@
 	O.push_data()
 
 /obj/item/integrated_circuit/memory/constant/emp_act()
-	for(var/i in 1 to activators.len)
+	for(var/i in 1 to length(activators))
 		var/datum/integrated_io/activate/A = activators[i]
 		A.scramble()
+	..()
 
 /obj/item/integrated_circuit/memory/constant/save_special()
 	var/datum/integrated_io/O = outputs[1]
@@ -114,27 +114,27 @@
 			new_data = input("Now type in a string.","[src] string writing") as null|text
 			if(istext(new_data) && user.IsAdvancedToolUser())
 				O.data = new_data
-				to_chat(user, "<span class='notice'>You set \the [src]'s memory to [O.display_data(O.data)].</span>")
+				to_chat(user, SPAN_NOTICE("You set \the [src]'s memory to [O.display_data(O.data)]."))
 		if("number")
 			accepting_refs = FALSE
 			new_data = input("Now type in a number.","[src] number writing") as null|num
 			if(isnum(new_data) && user.IsAdvancedToolUser())
 				O.data = new_data
-				to_chat(user, "<span class='notice'>You set \the [src]'s memory to [O.display_data(O.data)].</span>")
+				to_chat(user, SPAN_NOTICE("You set \the [src]'s memory to [O.display_data(O.data)]."))
 		if("ref")
 			accepting_refs = TRUE
-			to_chat(user, "<span class='notice'>You turn \the [src]'s ref scanner on.  Slide it across \
-			an object for a ref of that object to save it in memory.</span>")
+			to_chat(user, SPAN_NOTICE("You turn \the [src]'s ref scanner on.  Slide it across \
+			an object for a ref of that object to save it in memory."))
 		if("null")
 			O.data = null
-			to_chat(user, "<span class='notice'>You set \the [src]'s memory to absolutely nothing.</span>")
+			to_chat(user, SPAN_NOTICE("You set \the [src]'s memory to absolutely nothing."))
 
 /obj/item/integrated_circuit/memory/constant/afterattack(atom/target, mob/living/user, proximity)
 	. = ..()
 	if(accepting_refs && proximity)
 		var/datum/integrated_io/O = outputs[1]
 		O.data = weakref(target)
-		visible_message("<span class='notice'>[user] slides \a [src]'s over \the [target].</span>")
-		to_chat(user, "<span class='notice'>You set \the [src]'s memory to a reference to [O.display_data(O.data)].  The ref scanner is \
-		now off.</span>")
+		visible_message(SPAN_NOTICE("[user] slides \a [src]'s over \the [target]."))
+		to_chat(user, SPAN_NOTICE("You set \the [src]'s memory to a reference to [O.display_data(O.data)].  The ref scanner is \
+		now off."))
 		accepting_refs = FALSE

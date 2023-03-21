@@ -7,7 +7,7 @@
 	if((life_tick % MOB_BREATH_DELAY) == 0 || failed_last_breath || is_asystole()) //First, resolve location and get a breath
 		breathe()
 
-/mob/living/carbon/proc/breathe(var/active_breathe = 1)
+/mob/living/carbon/proc/breathe(active_breathe = 1)
 	//if(istype(loc, /obj/machinery/atmospherics/unary/cryo_cell)) return
 	if(!need_breathe()) return
 
@@ -36,12 +36,12 @@
 	handle_breath(breath)
 	handle_post_breath(breath)
 
-/mob/living/carbon/proc/get_breath_from_internal(var/volume_needed=STD_BREATH_VOLUME) //hopefully this will allow overrides to specify a different default volume without breaking any cases where volume is passed in.
+/mob/living/carbon/proc/get_breath_from_internal(volume_needed=STD_BREATH_VOLUME) //hopefully this will allow overrides to specify a different default volume without breaking any cases where volume is passed in.
 	if(internal)
 		if (!contents.Find(internal))
-			internal = null
+			set_internals(null)
 		if (!(wear_mask && (wear_mask.item_flags & ITEM_FLAG_AIRTIGHT)))
-			internal = null
+			set_internals(null)
 		if(internal)
 			if (internals)
 				internals.icon_state = "internal1"
@@ -51,14 +51,14 @@
 				internals.icon_state = "internal0"
 	return null
 
-/mob/living/carbon/proc/get_breath_from_environment(var/volume_needed=STD_BREATH_VOLUME)
+/mob/living/carbon/proc/get_breath_from_environment(volume_needed=STD_BREATH_VOLUME, atom/location = src.loc)
 	if(volume_needed <= 0)
 		return
 	var/datum/gas_mixture/breath = null
 
 	var/datum/gas_mixture/environment
-	if(loc)
-		environment = loc.return_air_for_internal_lifeform()
+	if(location)
+		environment = location.return_air_for_internal_lifeform()
 
 	if(environment)
 		breath = environment.remove_volume(volume_needed)
@@ -69,12 +69,12 @@
 		if(istype(wear_mask, /obj/item/clothing/mask) && breath)
 			var/obj/item/clothing/mask/M = wear_mask
 			var/datum/gas_mixture/filtered = M.filter_air(breath)
-			loc.assume_air(filtered)
+			location.assume_air(filtered)
 		return breath
 	return null
 
 //Handle possble chem smoke effect
-/mob/living/carbon/proc/handle_chemical_smoke(var/datum/gas_mixture/environment)
+/mob/living/carbon/proc/handle_chemical_smoke(datum/gas_mixture/environment)
 	if(species && environment.return_pressure() < species.breath_pressure/5)
 		return //pressure is too low to even breathe in.
 	if(wear_mask && (wear_mask.item_flags & ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT))

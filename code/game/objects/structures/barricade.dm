@@ -2,16 +2,14 @@
 /obj/structure/barricade
 	name = "barricade"
 	icon_state = "barricade"
-	anchored = 1.0
-	density = 1
+	anchored = TRUE
+	density = TRUE
 	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_CLIMBABLE
 	layer = ABOVE_WINDOW_LAYER
 
-	health = 100
-	var/maxhealth = 100
 	var/spiky = FALSE
 
-/obj/structure/barricade/Initialize(var/mapload, var/material_name)
+/obj/structure/barricade/Initialize(mapload, material_name)
 	. = ..(mapload)
 	if(!material_name)
 		material_name = MATERIAL_WOOD
@@ -21,8 +19,7 @@
 	SetName("[material.display_name] barricade")
 	desc = "A heavy, solid barrier made of [material.display_name]."
 	color = material.icon_colour
-	maxhealth = material.integrity
-	health = maxhealth
+	set_max_health(round(material.integrity * 1.33)) // Equivalent to a global resistance value of 0.75
 
 /obj/structure/barricade/get_material()
 	return material
@@ -31,67 +28,47 @@
 	if(istype(W, /obj/item/stack/material/rods) && !spiky)
 		var/obj/item/stack/material/rods/R = W
 		if(R.get_amount() < 5)
-			to_chat(user, "<span class='warning'>You need more rods to build a cheval de frise.</span>")
+			to_chat(user, SPAN_WARNING("You need more rods to build a cheval de frise."))
 			return
-		visible_message("<span class='notice'>\The [user] begins to work on \the [src].</span>")
-		if(do_after(user, 4 SECONDS, src))
+		visible_message(SPAN_NOTICE("\The [user] begins to work on \the [src]."))
+		if(do_after(user, 4 SECONDS, src, DO_REPAIR_CONSTRUCT))
 			if(R.use(5))
-				visible_message("<span class='notice'>\The [user] fastens \the [R] to \the [src].</span>")
+				visible_message(SPAN_NOTICE("\The [user] fastens \the [R] to \the [src]."))
 				var/obj/structure/barricade/spike/CDF = new(loc, material.name, R.material.name)
 				CDF.dir = user.dir
 				qdel(src)
 				return
 		else
-			to_chat(user, "<span class='warning'>You must remain still while building.</span>")
 			return
 
 	if(istype(W, /obj/item/stack))
 		var/obj/item/stack/D = W
 		if(D.get_material_name() != material.name)
 			return //hitting things with the wrong type of stack usually doesn't produce messages, and probably doesn't need to.
-		if (health < maxhealth)
+		if (get_damage_value())
 			if (D.get_amount() < 1)
-				to_chat(user, "<span class='warning'>You need one sheet of [material.display_name] to repair \the [src].</span>")
+				to_chat(user, SPAN_WARNING("You need one sheet of [material.display_name] to repair \the [src]."))
 				return
-			visible_message("<span class='notice'>[user] begins to repair \the [src].</span>")
-			if(do_after(user,20,src) && health < maxhealth)
+			visible_message(SPAN_NOTICE("[user] begins to repair \the [src]."))
+			if(do_after(user, 2 SECONDS, src, DO_REPAIR_CONSTRUCT) && get_damage_value())
 				if (D.use(1))
-					health = maxhealth
-					visible_message("<span class='notice'>[user] repairs \the [src].</span>")
+					restore_health(get_max_health())
+					visible_message(SPAN_NOTICE("[user] repairs \the [src]."))
 				return
 		return
 
 	else
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		switch(W.damtype)
-			if(BURN)
-				take_damage(W.force * 1)
-			if(BRUTE)
-				take_damage(W.force * 0.75)
+		damage_health(W.force, W.damtype)
 		..()
 
-/obj/structure/barricade/take_damage(amount)
-	health -= amount
-	if(health <= 0)
-		dismantle()
+/obj/structure/barricade/on_death()
+	dismantle()
 
 /obj/structure/barricade/proc/dismantle()
-	visible_message("<span class='danger'>The barricade is smashed apart!</span>")
+	visible_message(SPAN_DANGER("The barricade is smashed apart!"))
 	material.place_dismantled_product(get_turf(src))
 	qdel(src)
-
-/obj/structure/barricade/ex_act(severity)
-	switch(severity)
-		if(1.0)
-			visible_message("<span class='danger'>\The [src] is blown apart!</span>")
-			qdel(src)
-			return
-		if(2.0)
-			src.health -= 25
-			if (src.health <= 0)
-				visible_message("<span class='danger'>\The [src] is blown apart!</span>")
-				dismantle()
-			return
 
 /obj/structure/barricade/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
 	if(air_group || (height==0))
@@ -113,7 +90,7 @@
 	var/damage //how badly it smarts when you run into this like a rube
 	var/list/poke_description = list("gored", "spiked", "speared", "stuck", "stabbed")
 
-/obj/structure/barricade/spike/Initialize(var/mapload, var/material_name, var/rod_material_name)
+/obj/structure/barricade/spike/Initialize(mapload, material_name, rod_material_name)
 	. = ..(mapload, material_name)
 	if(!rod_material_name)
 		rod_material_name = MATERIAL_WOOD
@@ -139,5 +116,5 @@
 	if(isanimal(victim)) //simple animals have simple health, reduce our damage
 		damage_holder = (damage / 4)
 
-	victim.apply_damage(damage_holder, BRUTE, target_zone, damage_flags = DAM_SHARP, used_weapon = src)
+	victim.apply_damage(damage_holder, DAMAGE_BRUTE, target_zone, damage_flags = DAMAGE_FLAG_SHARP, used_weapon = src)
 	visible_message(SPAN_DANGER("\The [victim] is [pick(poke_description)] by \the [src]!"))

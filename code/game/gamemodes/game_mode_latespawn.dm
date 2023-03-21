@@ -21,13 +21,13 @@
 	return TRUE
 
 //This can be overriden in case a game mode needs to do stuff when a player latejoins
-/datum/game_mode/proc/handle_latejoin(var/mob/living/carbon/human/character)
+/datum/game_mode/proc/handle_latejoin(mob/living/carbon/human/character)
 	if(character.mind)
-		character.mind.generate_goals(character.mind.assigned_job)
+		character.mind.generate_goals(character.mind.assigned_job, is_spawning=TRUE)
 		character.show_goals()
 	return 0
 
-/datum/game_mode/proc/handle_offsite_latejoin(var/mob/living/carbon/human/character)
+/datum/game_mode/proc/handle_offsite_latejoin(mob/living/carbon/human/character)
 	return 0
 
 /datum/game_mode/proc/process_autoantag()
@@ -39,12 +39,12 @@
 			message_admins("[uppertext(name)]: [A.id] selected for spawn attempt.")
 			usable_templates |= A
 
-	if(!usable_templates.len)
+	if(!length(usable_templates))
 		message_admins("[uppertext(name)]: Failed to find configured mode spawn templates, please re-enable auto-antagonists after one is added.")
 		round_autoantag = 0
 		return
 
-	while(usable_templates.len)
+	while(length(usable_templates))
 		var/datum/antagonist/spawn_antag = pick(usable_templates)
 		usable_templates -= spawn_antag
 

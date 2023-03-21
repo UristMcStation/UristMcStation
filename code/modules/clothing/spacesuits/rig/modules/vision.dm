@@ -56,6 +56,10 @@
 	activate_string = "Enable Visor"
 	deactivate_string = "Disable Visor"
 
+	banned_modules = list(
+		/obj/item/rig_module/vision
+	)
+
 	var/datum/rig_vision/vision
 	var/list/vision_modes = list(
 		/datum/rig_vision/nvg,
@@ -161,18 +165,18 @@
 
 	// Don't cycle if this engage() is being called by activate().
 	if(starting_up)
-		to_chat(holder.wearer, "<font color='blue'>You activate your visual sensors.</font>")
+		to_chat(holder.wearer, SPAN_INFO("You activate your visual sensors."))
 		return 1
 
-	if(vision_modes.len > 1)
+	if(length(vision_modes) > 1)
 		vision_index++
-		if(vision_index > vision_modes.len)
+		if(vision_index > length(vision_modes))
 			vision_index = 1
 		vision = vision_modes[vision_index]
 
-		to_chat(holder.wearer, "<font color='blue'>You cycle your sensors to <b>[vision.mode]</b> mode.</font>")
+		to_chat(holder.wearer, SPAN_INFO("You cycle your sensors to <b>[vision.mode]</b> mode."))
 	else
-		to_chat(holder.wearer, "<font color='blue'>Your sensors only have one mode.</font>")
+		to_chat(holder.wearer, SPAN_INFO("Your sensors only have one mode."))
 	return 1
 
 /obj/item/rig_module/vision/Initialize()

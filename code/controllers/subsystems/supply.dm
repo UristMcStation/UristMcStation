@@ -37,8 +37,7 @@ SUBSYSTEM_DEF(supply)
 	var/price_modifier = 0.04	//% price goes down from each sale of a material to the supply station: 4% decrease in value for each item sold
 	var/sold_items = list()	//Items sold to the supply station	//TODO: Generate an inventory of trade_item datums for the station and simulate supply/demand proper
 
-/datum/controller/subsystem/supply/Initialize()
-	. = ..()
+/datum/controller/subsystem/supply/Initialize(start_uptime)
 	ordernum = rand(1,9000)
 
 	if(GLOB.using_map.using_new_cargo) //here we do setup for the new cargo system
@@ -56,10 +55,10 @@ SUBSYSTEM_DEF(supply)
 		)
 
 	//Build master supply list
-	var/decl/hierarchy/supply_pack/root = decls_repository.get_decl(/decl/hierarchy/supply_pack)
-	for(var/decl/hierarchy/supply_pack/sp in root.children)
+	var/singleton/hierarchy/supply_pack/root = GET_SINGLETON(/singleton/hierarchy/supply_pack)
+	for(var/singleton/hierarchy/supply_pack/sp in root.children)
 		if(sp.is_category())
-			for(var/decl/hierarchy/supply_pack/spc in sp.get_descendents())
+			for(var/singleton/hierarchy/supply_pack/spc in sp.get_descendents())
 				spc.setup()
 				master_supply_list += spc
 
@@ -74,8 +73,11 @@ SUBSYSTEM_DEF(supply)
 //	if(GLOB.using_map.using_new_cargo)
 //		points = station_account.money
 
-/datum/controller/subsystem/supply/stat_entry()
+/datum/controller/subsystem/supply/UpdateStat(time)
+	if (PreventUpdateStat(time))
+		return ..()
 	..("Points: [points]")
+
 
 //Supply-related helper procs.
 
@@ -98,16 +100,16 @@ SUBSYSTEM_DEF(supply)
 /datum/controller/subsystem/supply/proc/forbidden_atoms_check(atom/A)
 	if(istype(A,/mob/living))
 		return 1
-	if(istype(A,/obj/item/weapon/disk/nuclear))
+	if(istype(A,/obj/item/disk/nuclear))
 		return 1
 	if(istype(A,/obj/machinery/nuclearbomb))
 		return 1
-	if(istype(A,/obj/item/device/radio/beacon))
+	if(istype(A,/obj/machinery/tele_beacon))
 		return 1
 	if(istype(A,/obj/machinery/power/supermatter))
 		return 1
 
-	for(var/i=1, i<=A.contents.len, i++)
+	for(var/i=1, i<=length(A.contents), i++)
 		var/atom/B = A.contents[i]
 		if(.(B))
 			return 1
@@ -132,7 +134,7 @@ SUBSYSTEM_DEF(supply)
 				if(QDELETED(AM))	//Our atom was qdel'd/used in a contract-- move onto the next atom to free up the reference for GC
 					continue
 
-			if(istype(AM, /obj/structure/closet/crate/))
+			if(istype(AM, /obj/structure/closet/crate))
 				var/obj/structure/closet/crate/CR = AM
 				crates[CR] = subarea	//Store the crate to be handled later, as we'll have object refrences we'll need for the contents inside it
 				var/find_slip = 1
@@ -160,16 +162,26 @@ SUBSYSTEM_DEF(supply)
 						continue
 
 					// Sell manifests
-					if(find_slip && istype(A,/obj/item/weapon/paper/manifest))
-						var/obj/item/weapon/paper/manifest/slip = A
-						if(!slip.is_copy && slip.stamped && slip.stamped.len) //Any stamp works.
+					var/atom/A = atom
+					if(find_slip && istype(A,/obj/item/paper/manifest))
+						var/obj/item/paper/manifest/slip = A
+						if(!slip.is_copy && slip.stamped && length(slip.stamped)) //Any stamp works.
 							add_points_from_source(points_per_slip, "manifest")
 							find_slip = 0
 						continue
 
+					// Sell materials
+					if(istype(A, /obj/item/stack/material))
+						var/obj/item/stack/material/P = A
+						if(P.material && P.material.sale_price > 0)
+							material_count[P.material.display_name] += P.get_amount() * P.material.sale_price * P.matter_multiplier
+						if(P.reinf_material && P.reinf_material.sale_price > 0)
+							material_count[P.reinf_material.display_name] += P.get_amount() * P.reinf_material.sale_price * P.matter_multiplier * 0.5
+						continue
+
 					// Must sell ore detector disks in crates
-					if(istype(A, /obj/item/weapon/disk/survey))
-						var/obj/item/weapon/disk/survey/D = A
+					if(istype(A, /obj/item/disk/survey))
+						var/obj/item/disk/survey/D = A
 						add_points_from_source(round(D.Value() * 0.005), "gep")
 						qdel(D)
 						continue
@@ -220,10 +232,7 @@ SUBSYSTEM_DEF(supply)
 	//Pay our lovely people what they earned
 	add_points_from_source(payout, "trade")
 
-//Buyin
-/datum/controller/subsystem/supply/proc/buy()
-	if(!shoppinglist.len)
-		return
+/datum/controller/subsystem/supply/proc/get_clear_turfs()
 	var/list/clear_turfs = list()
 
 	for(var/area/subarea in shuttle.shuttle_area)
@@ -238,30 +247,40 @@ SUBSYSTEM_DEF(supply)
 				break
 			if(!occupied)
 				clear_turfs += T
+
+	return clear_turfs
+
+//Buyin
+/datum/controller/subsystem/supply/proc/buy()
+	if(!length(shoppinglist))
+		return
+
+	var/list/clear_turfs = get_clear_turfs()
+
 	for(var/S in shoppinglist)
-		if(!clear_turfs.len)
+		if(!length(clear_turfs))
 			break
 		var/turf/pickedloc = pick_n_take(clear_turfs)
 		shoppinglist -= S
 		donelist += S
 
 		var/datum/supply_order/SO = S
-		var/decl/hierarchy/supply_pack/SP = SO.object
+		var/singleton/hierarchy/supply_pack/SP = SO.object
 
 		var/obj/A = new SP.containertype(pickedloc)
 		A.SetName("[SP.containername][SO.comment ? " ([SO.comment])":"" ]")
 		//supply manifest generation begin
 
-		var/obj/item/weapon/paper/manifest/slip
+		var/obj/item/paper/manifest/slip
 		if(!SP.contraband)
 			var/info = list()
-			info +="<h3>[command_name()] Shipping Manifest</h3><hr><br>"
+			info +="<h3>[GLOB.using_map.boss_name] Shipping Manifest</h3><hr><br>"
 			info +="Order #[SO.ordernum]<br>"
 			info +="Destination: [GLOB.using_map.station_name]<br>"
-			info +="[shoppinglist.len] PACKAGES IN THIS SHIPMENT<br>"
+			info +="[length(shoppinglist)] PACKAGES IN THIS SHIPMENT<br>"
 			info +="CONTENTS:<br><ul>"
 
-			slip = new /obj/item/weapon/paper/manifest(A, JOINTEXT(info))
+			slip = new /obj/item/paper/manifest(A, JOINTEXT(info))
 			slip.is_copy = 0
 
 		//spawn the stuff, finish generating the manifest while you're at it
@@ -278,9 +297,21 @@ SUBSYSTEM_DEF(supply)
 				slip.info += "<li>[content.name]</li>" //add the item to the manifest
 			slip.info += "</ul><br>CHECK CONTENTS AND STAMP BELOW THE LINE TO CONFIRM RECEIPT OF GOODS<hr>"
 
+// Adds any given item to the supply shuttle
+/datum/controller/subsystem/supply/proc/addAtom(atom/movable/A)
+	var/list/clear_turfs = get_clear_turfs()
+	if(!length(clear_turfs))
+		return FALSE
+
+	var/turf/pickedloc = pick(clear_turfs)
+
+	A.forceMove(pickedloc)
+
+	return TRUE
+
 /datum/supply_order
 	var/ordernum
-	var/decl/hierarchy/supply_pack/object = null
+	var/singleton/hierarchy/supply_pack/object = null
 	var/orderedby = null
 	var/comment = null
 	var/reason = null

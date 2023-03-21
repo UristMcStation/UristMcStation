@@ -4,12 +4,14 @@
 	name = "cryo cell"
 	icon = 'icons/obj/cryogenics.dmi' // map only
 	icon_state = "pod_preview"
-	density = 1
-	anchored = 1.0
-	plane = ABOVE_HUMAN_PLANE // this needs to be fairly high so it displays over most things, but it needs to be under lighting
+	density = TRUE
+	anchored = TRUE
 	interact_offline = 1
 	layer = ABOVE_HUMAN_LAYER
 	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE
+	construct_state = /singleton/machine_construction/default/panel_closed
+	uncreated_component_parts = null
+	stat_immune = 0
 
 	var/on = 0
 	idle_power_usage = 20
@@ -17,9 +19,12 @@
 	clicksound = 'sound/machines/buttonbeep.ogg'
 	clickvol = 30
 
+	machine_name = "cryo cell"
+	machine_desc = "Uses a supercooled chemical bath to hold living beings in something close to suspended animation. Often paired with specialized medicines to rapidly heal wounds of a patient inside."
+
 	var/temperature_archived
 	var/mob/living/carbon/human/occupant = null
-	var/obj/item/weapon/reagent_containers/glass/beaker = null
+	var/obj/item/reagent_containers/glass/beaker = null
 
 	var/current_heat_capacity = 50
 
@@ -27,22 +32,11 @@
 	. = ..()
 	icon = 'icons/obj/cryogenics_split.dmi'
 	update_icon()
-	initialize_directions = dir
 	atmos_init()
-	component_parts = list(
-		new /obj/item/weapon/circuitboard/cryo_cell(src),
-		new /obj/item/weapon/stock_parts/scanning_module(src),
-		new /obj/item/weapon/stock_parts/manipulator(src),
-		new /obj/item/weapon/stock_parts/manipulator(src),
-		new /obj/item/weapon/stock_parts/console_screen(src),
-		new /obj/item/pipe(src))
-	RefreshParts()
-
-
 
 /obj/machinery/atmospherics/unary/cryo_cell/Destroy()
-	var/turf/T = loc
-	T.contents += contents
+	for(var/atom/movable/A in src)
+		A.dropInto(loc)
 	if(beaker)
 		beaker.forceMove(get_step(loc, SOUTH)) //Beaker is carefully ejected from the wreckage of the cryotube
 		beaker = null
@@ -59,11 +53,11 @@
 
 /obj/machinery/atmospherics/unary/cryo_cell/examine(mob/user)
 	. = ..()
-	if (. && user.Adjacent(src))
+	if (user.Adjacent(src))
 		if (beaker)
 			to_chat(user, "It is loaded with a beaker.")
 		if (occupant)
-			occupant.examine(user)
+			occupant.examine(arglist(args))
 
 /obj/machinery/atmospherics/unary/cryo_cell/Process()
 	..()
@@ -99,8 +93,9 @@
 	if(src.occupant == user && !user.stat)
 		go_out()
 
-/obj/machinery/atmospherics/unary/cryo_cell/attack_hand(mob/user)
+/obj/machinery/atmospherics/unary/cryo_cell/interface_interact(user)
 	ui_interact(user)
+	return TRUE
 
  /**
   * The ui_interact proc is used to open and update Nano UIs
@@ -113,7 +108,7 @@
   *
   * @return nothing
   */
-/obj/machinery/atmospherics/unary/cryo_cell/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/atmospherics/unary/cryo_cell/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1)
 	if(user == occupant || user.stat)
 		return
 
@@ -143,7 +138,7 @@
 
 	data["cellTemperature"] = round(air_contents.temperature)
 	data["cellTemperatureStatus"] = "good"
-	if(air_contents.temperature > T0C) // if greater than 273.15 kelvin (0 celcius)
+	if(air_contents.temperature > T0C) // if greater than 273.15 kelvin (0 celsius)
 		data["cellTemperatureStatus"] = "bad"
 	else if(air_contents.temperature > 225)
 		data["cellTemperatureStatus"] = "average"
@@ -197,18 +192,17 @@
 		go_out()
 		return TOPIC_REFRESH
 
-
-/obj/machinery/atmospherics/unary/cryo_cell/attackby(var/obj/G, var/mob/user as mob)
-	if(default_deconstruction_screwdriver(user, G))
+/obj/machinery/atmospherics/unary/cryo_cell/state_transition(singleton/machine_construction/default/new_state)
+	. = ..()
+	if(istype(new_state))
 		updateUsrDialog()
-		return
-	if(default_deconstruction_crowbar(user, G))
-		return
-	if(default_part_replacement(user, G))
-		return
-	if(istype(G, /obj/item/weapon/reagent_containers/glass))
+
+/obj/machinery/atmospherics/unary/cryo_cell/attackby(obj/G, mob/user as mob)
+	if(component_attackby(G, user))
+		return TRUE
+	if(istype(G, /obj/item/reagent_containers/glass))
 		if(beaker)
-			to_chat(user, "<span class='warning'>A beaker is already loaded into the machine.</span>")
+			to_chat(user, SPAN_WARNING("A beaker is already loaded into the machine."))
 			return
 		if(!user.unEquip(G, src))
 			return // Temperature will be adjusted on Entered()
@@ -255,16 +249,11 @@
 		if(occupant.stat == DEAD)
 			return
 		occupant.set_stat(UNCONSCIOUS)
-		if(occupant.bodytemperature < 225)
-			if (occupant.getToxLoss())
-				occupant.adjustToxLoss(max(-1, -10/occupant.getToxLoss()))
-			var/heal_brute = occupant.getBruteLoss() ? min(1, 20/occupant.getBruteLoss()) : 0
-			var/heal_fire = occupant.getFireLoss	() ? min(1, 20/occupant.getFireLoss()) : 0
-			occupant.heal_organ_damage(heal_brute,heal_fire)
-		if(beaker)
+		var/has_cryo_medicine = occupant.reagents.has_any_reagent(list(/datum/reagent/cryoxadone, /datum/reagent/clonexadone, /datum/reagent/nanitefluid)) >= REM
+		if(beaker && !has_cryo_medicine)
 			beaker.reagents.trans_to_mob(occupant, REM, CHEM_BLOOD)
-		if (occupant.stat == UNCONSCIOUS && prob(2))
-			to_chat(occupant, SPAN_NOTICE(SPAN_BOLD("... [pick("comfy", "feels slow", "warm")] ...")))
+		if (prob(2))
+			to_chat(occupant, SPAN_NOTICE(SPAN_BOLD("... [pick("floating", "cold")] ...")))
 
 /obj/machinery/atmospherics/unary/cryo_cell/proc/heat_gas_contents()
 	if(air_contents.total_moles < 1)
@@ -287,9 +276,9 @@
 	if (occupant.client)
 		occupant.client.eye = occupant.client.mob
 		occupant.client.perspective = MOB_PERSPECTIVE
-	occupant.forceMove(get_step(loc, SOUTH))	//this doesn't account for walls or anything, but i don't forsee that being a problem.
-	if (occupant.bodytemperature < 261 && occupant.bodytemperature >= 70) //Patch by Aranclanos to stop people from taking burn damage after being ejected
-		occupant.bodytemperature = 261									  // Changed to 70 from 140 by Zuhayr due to reoccurance of bug.
+	occupant.forceMove(get_step(loc, SOUTH))
+	if (occupant.bodytemperature < 261 && occupant.bodytemperature >= 70)
+		occupant.bodytemperature = 261
 	occupant = null
 	current_heat_capacity = initial(current_heat_capacity)
 	update_use_power(POWER_USE_IDLE)
@@ -309,20 +298,20 @@
 		update_icon()
 
 /obj/machinery/atmospherics/unary/cryo_cell/proc/put_mob(mob/living/carbon/M as mob)
-	if (stat & (NOPOWER|BROKEN))
-		to_chat(usr, "<span class='warning'>The cryo cell is not functioning.</span>")
+	if (inoperable())
+		to_chat(usr, SPAN_WARNING("The cryo cell is not functioning."))
 		return
 	if (!istype(M))
-		to_chat(usr, "<span class='danger'>The cryo cell cannot handle such a lifeform!</span>")
+		to_chat(usr, SPAN_DANGER("The cryo cell cannot handle such a lifeform!"))
 		return
 	if (occupant)
-		to_chat(usr, "<span class='danger'>The cryo cell is already occupied!</span>")
+		to_chat(usr, SPAN_DANGER("The cryo cell is already occupied!"))
 		return
 	if (M.abiotic())
-		to_chat(usr, "<span class='warning'>Subject may not have abiotic items on.</span>")
+		to_chat(usr, SPAN_WARNING("Subject may not have abiotic items on."))
 		return
 	if(!node)
-		to_chat(usr, "<span class='warning'>The cell is not correctly connected to its pipe network!</span>")
+		to_chat(usr, SPAN_WARNING("The cell is not correctly connected to its pipe network!"))
 		return
 	if (M.client)
 		M.client.perspective = EYE_PERSPECTIVE
@@ -331,7 +320,7 @@
 	M.forceMove(src)
 	M.ExtinguishMob()
 	if(M.health > -100 && (M.health < 0 || M.sleeping))
-		to_chat(M, "<span class='notice'><b>You feel a cold liquid surround you. Your skin starts to freeze up.</b></span>")
+		to_chat(M, SPAN_NOTICE("<b>You feel a cold liquid surround you. Your skin starts to freeze up.</b>"))
 	occupant = M
 	current_heat_capacity = HEAT_CAPACITY_HUMAN
 	update_use_power(POWER_USE_ACTIVE)
@@ -341,16 +330,16 @@
 	return 1
 
 	//Like grab-putting, but for mouse-dropping.
-/obj/machinery/atmospherics/unary/cryo_cell/MouseDrop_T(var/mob/target, var/mob/user)
+/obj/machinery/atmospherics/unary/cryo_cell/MouseDrop_T(mob/target, mob/user)
 	if(!CanMouseDrop(target, user))
 		return
 	if (!istype(target))
 		return
 	if (target.buckled)
-		to_chat(user, "<span class='warning'>Unbuckle the subject before attempting to move them.</span>")
+		to_chat(user, SPAN_WARNING("Unbuckle the subject before attempting to move them."))
 		return
-	user.visible_message("<span class='notice'>\The [user] begins placing \the [target] into \the [src].</span>", "<span class='notice'>You start placing \the [target] into \the [src].</span>")
-	if(!do_after(user, 30, src))
+	user.visible_message(SPAN_NOTICE("\The [user] begins placing \the [target] into \the [src]."), SPAN_NOTICE("You start placing \the [target] into \the [src]."))
+	if(!do_after(user, 3 SECONDS, src, DO_PUBLIC_UNIQUE))
 		return
 	put_mob(target)
 
@@ -362,7 +351,7 @@
 	if(usr == occupant)//If the user is inside the tube...
 		if (usr.stat == 2)//and he's not dead....
 			return
-		to_chat(usr, "<span class='notice'>Release sequence activated. This will take two minutes.</span>")
+		to_chat(usr, SPAN_NOTICE("Release sequence activated. This will take two minutes."))
 		sleep(1200)
 		if(!src || !usr || !occupant || (occupant != usr)) //Check if someone's released/replaced/bombed him already
 			return
@@ -390,7 +379,11 @@
 /obj/machinery/atmospherics/unary/cryo_cell/return_air()
 	return air_contents
 
-//This proc literally only exists for cryo cells.
+/**
+ * Alternative to `return_air()` used for internal organ and lung checks.
+ *
+ * Returns instance of `/datum/gas_mixture`.
+ */
 /atom/proc/return_air_for_internal_lifeform()
 	return return_air()
 

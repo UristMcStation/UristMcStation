@@ -8,11 +8,6 @@
 	path = /obj/item/clothing/under/color
 	flags = GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/uniform/jumpsuit_f
-	display_name = "feminine jumpsuit, colour select"
-	path = /obj/item/clothing/under/fcolor
-	flags = GEAR_HAS_COLOR_SELECTION
-
 /datum/gear/uniform/shortjumpskirt
 	display_name = "short jumpskirt, colour select"
 	path = /obj/item/clothing/under/shortjumpskirt
@@ -138,7 +133,7 @@
 
 /datum/gear/uniform/shorts/custom
 	display_name = "athletic shorts, colour select"
-	path = /obj/item/clothing/under/shorts/
+	path = /obj/item/clothing/under/shorts
 	flags = GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/uniform/turtleneck
@@ -174,6 +169,7 @@
 	corps += /obj/item/clothing/under/morpheus
 	corps += /obj/item/clothing/under/skinner
 	corps += /obj/item/clothing/under/dais
+	corps += /obj/item/clothing/under/rank/roboticist/bishop
 	gear_tweaks += new/datum/gear_tweak/path/specified_types_list(corps)
 
 /datum/gear/uniform/corp_exec
@@ -199,6 +195,7 @@
 /datum/gear/uniform/sterile
 	display_name = "sterile jumpsuit"
 	path = /obj/item/clothing/under/sterile
+	flags = GEAR_HAS_TYPE_SELECTION
 
 /datum/gear/uniform/hazard
 	display_name = "hazard jumpsuit"

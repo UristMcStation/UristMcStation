@@ -95,7 +95,7 @@ Class Procs:
 /connection_edge/proc/recheck()
 
 /connection_edge/proc/flow(list/movable, differential, repelled)
-	for(var/i = 1; i <= movable.len; i++)
+	for(var/i = 1; i <= length(movable); i++)
 		var/atom/movable/M = movable[i]
 
 		//If they're already being tossed, don't do it again.
@@ -112,7 +112,7 @@ Class Procs:
 			var/list/close_turfs = list()
 			for(var/turf/U in connecting_turfs)
 				if(get_dist(M,U) < world.view) close_turfs += U
-			if(!close_turfs.len) continue
+			if(!length(close_turfs)) continue
 
 			M.airflow_dest = pick(close_turfs) //Pick a random midpoint to fly towards.
 
@@ -247,7 +247,7 @@ Class Procs:
 	if(!A.air.compare(air, vacuum_exception = 1))
 		SSair.mark_edge_active(src)
 
-proc/ShareHeat(datum/gas_mixture/A, datum/gas_mixture/B, connecting_tiles)
+/proc/ShareHeat(datum/gas_mixture/A, datum/gas_mixture/B, connecting_tiles)
 	//This implements a simplistic version of the Stefan-Boltzmann law.
 	var/energy_delta = ((A.temperature - B.temperature) ** 4) * STEFAN_BOLTZMANN_CONSTANT * connecting_tiles * 2.5
 	var/maximum_energy_delta = max(0, min(A.temperature * A.heat_capacity() * A.group_multiplier, B.temperature * B.heat_capacity() * B.group_multiplier))

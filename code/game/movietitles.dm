@@ -5,8 +5,7 @@
 
 GLOBAL_LIST(end_titles)
 
-client
-	var/list/credits
+/client/var/list/credits
 
 /client/proc/RollCredits()
 	set waitfor = FALSE
@@ -67,7 +66,7 @@ client
 /obj/screen/credit/Initialize(mapload, credited, client/P)
 	. = ..()
 	parent = P
-	maptext = credited
+	maptext = {"<div style="font:'Small Fonts'">[credited]</div>"}
 	maptext_height = world.icon_size * 2
 	maptext_width = world.icon_size * 14
 
@@ -85,11 +84,10 @@ client
 	parent.screen += src
 
 /obj/screen/credit/Destroy()
-	var/client/P = parent
 	if(parent)
-		P.screen -= src
-	LAZYREMOVE(P.credits, src)
-	parent = null
+		parent.screen -= src
+		LAZYREMOVE(parent.credits, src)
+		parent = null
 	return ..()
 
 /proc/generate_titles()
@@ -100,8 +98,8 @@ client
 	var/chunksize = 0
 	if(!GLOB.end_credits_title)
 		/* Establish a big-ass list of potential titles for the "episode". */
-		possible_titles += "THE [pick("DOWNFALL OF", "RISE OF", "TROUBLE WITH", "FINAL STAND OF", "DARK SIDE OF", "DESOLATION OF", "DESTRUCTION OF", "CRISIS OF")]\
-							 [pick("SPACEMEN", "HUMANITY", "DIGNITY", "SANITY", "THE CHIMPANZEES", "THE VENDOMAT PRICES", "GIANT ARMORED", "THE GAS JANITOR",\
+		possible_titles += "THE [pick("DOWNFALL OF ", "RISE OF ", "TROUBLE WITH ", "FINAL STAND OF ", "DARK SIDE OF ", "DESOLATION OF ", "DESTRUCTION OF ", "CRISIS OF ")]\
+							[pick("SPACEMEN", "HUMANITY", "DIGNITY", "SANITY", "THE CHIMPANZEES", "THE VENDOMAT PRICES", "GIANT ARMORED", "THE GAS JANITOR",\
 							"THE SUPERMATTER CRYSTAL", "MEDICAL", "ENGINEERING", "SECURITY", "RESEARCH", "THE SERVICE DEPARTMENT", "COMMAND", "THE EXPLORERS", "THE PATHFINDER",\
 							"[uppertext(GLOB.using_map.station_name)]")]"
 		possible_titles += "THE CREW GETS [pick("RACIST", "PICKLED", "AN INCURABLE DISEASE", "PIZZA", "A VALUABLE HISTORY LESSON", "A BREAK", "HIGH", "TO LIVE", "TO RELIVE THEIR CHILDHOOD", "EMBROILED IN CIVIL WAR", "A BAD HANGOVER", "SERIOUS ABOUT [pick("DRUG ABUSE", "CRIME", "PRODUCTIVITY", "ANCIENT AMERICAN CARTOONS", "SPACEBALL", "DECOMPRESSION PROCEDURES")]")]"
@@ -114,14 +112,14 @@ client
 	else
 		titles += "<center><h1>EPISODE [rand(1,1000)]<br>[GLOB.end_credits_title]<h1></h1></h1></center>"
 
-	for(var/mob/living/carbon/human/H in GLOB.living_mob_list_|GLOB.dead_mob_list_)
+	for(var/mob/living/carbon/human/H in GLOB.alive_mobs|GLOB.dead_mobs)
 		if(findtext(H.real_name,"(mannequin)"))
 			continue
-		if(H.isMonkey() && findtext(H.real_name,"[lowertext(H.species.name)]")) //no monki
+		if(H.is_species(SPECIES_MONKEY) && findtext(H.real_name,"[lowertext(H.species.name)]")) //no monki
 			continue
-		if(H.timeofdeath && H.timeofdeath < 5 MINUTES) //don't mention these losers (prespawned corpses mostly)
+		if(H.last_ckey == null) //don't mention these losers (prespawned corpses mostly)
 			continue
-		if(!cast.len && !chunksize)
+		if(!length(cast) && !chunksize)
 			chunk += "CAST:"
 		var/job = ""
 		if(GetAssignment(H) != "Unassigned")
@@ -129,20 +127,20 @@ client
 		var/used_name = H.real_name
 		var/datum/computer_file/report/crew_record/R = get_crewmember_record(H.real_name)
 		if(R && R.get_rank())
-			var/datum/mil_rank/rank = mil_branches.get_rank(R.get_branch(), R.get_rank())
+			var/datum/mil_rank/rank = GLOB.mil_branches.get_rank(R.get_branch(), R.get_rank())
 			if(rank.name_short)
 				used_name = "[rank.name_short] [used_name]"
 		var/showckey = 0
-		if(H.ckey && H.client)			
+		if(H.ckey && H.client)
 			if(H.client.get_preference_value(/datum/client_preference/show_ckey_credits) == GLOB.PREF_SHOW)
 				showckey = 1
-		var/decl/cultural_info/actor_culture = SSculture.get_culture(H.get_cultural_value(TAG_CULTURE))
+		var/singleton/cultural_info/actor_culture = SSculture.get_culture(H.get_cultural_value(TAG_CULTURE))
 		if(!actor_culture || !(H.species.spawn_flags & SPECIES_CAN_JOIN) || prob(10))
 			actor_culture = SSculture.get_culture(CULTURE_HUMAN)
 		if(!showckey)
 			if(prob(90))
 				chunk += "[actor_culture.get_random_name(H.gender)]\t \t \t \t[uppertext(used_name)][job]"
-			else				
+			else
 				var/datum/gender/G = gender_datums[H.gender]
 				chunk += "[used_name]\t \t \t \t[uppertext(G.him)]SELF"
 		else
@@ -152,47 +150,48 @@ client
 			cast += "<center>[jointext(chunk,"<br>")]</center>"
 			chunk.Cut()
 			chunksize = 0
-	if(chunk.len)
+	if(length(chunk))
 		cast += "<center>[jointext(chunk,"<br>")]</center>"
 
 	titles += cast
 
 	var/list/corpses = list()
 	var/list/monkies = list()
-	for(var/mob/living/carbon/human/H in GLOB.dead_mob_list_)
-		if(H.timeofdeath < 5 MINUTES) //no prespawned corpses
+	for(var/mob/living/carbon/human/H in GLOB.dead_mobs)
+		if(H.last_ckey == null) //no prespawned corpses
 			continue
-		if(H.isMonkey() && findtext(H.real_name,"[lowertext(H.species.name)]"))
+		if(H.is_species(SPECIES_MONKEY) && findtext(H.real_name,"[lowertext(H.species.name)]"))
 			monkies[H.species.name] += 1
 		else if(H.real_name)
 			corpses += H.real_name
 	for(var/spec in monkies)
 		var/datum/species/S = all_species[spec]
 		corpses += "[monkies[spec]] [lowertext(monkies[spec] > 1 ? S.name_plural : S.name)]"
-	if(corpses.len)
+	if(length(corpses))
 		titles += "<center>BASED ON REAL EVENTS<br>In memory of [english_list(corpses)].</center>"
 
 	var/list/staff = list("PRODUCTION STAFF:")
-	var/list/staffjobs = list("Coffe Fetcher", "Cameraman", "Angry Yeller", "Chair Operator", "Choreographer", "Historical Consultant", "Costume Designer", "Chief Editor", "Executive Assistant")
+	var/list/staffjobs = list("Coffee Fetcher", "Cameraman", "Angry Yeller", "Chair Operator", "Choreographer", "Historical Consultant", "Costume Designer", "Chief Editor", "Executive Assistant")
 	var/list/goodboys = list()
 	for(var/client/C)
-		if(!C.holder)
+		if(!C.holder || C.is_stealthed())
 			continue
+
 		if(C.holder.rights & (R_DEBUG|R_ADMIN))
-			var/decl/cultural_info/cult = SSculture.cultural_info_by_name[pick(SSculture.cultural_info_by_name)]
+			var/singleton/cultural_info/cult = SSculture.cultural_info_by_name[pick(SSculture.cultural_info_by_name)]
 			staff += "[uppertext(pick(staffjobs))] - [cult.get_random_name(pick(MALE, FEMALE))] a.k.a. '[C.key]'"
 		else if(C.holder.rights & R_MOD)
 			goodboys += "[C.key]"
 
 	titles += "<center>[jointext(staff,"<br>")]</center>"
-	if(goodboys.len)
+	if(length(goodboys))
 		titles += "<center>STAFF'S GOOD BOYS:<br>[english_list(goodboys)]</center><br>"
 
 	var/disclaimer = "<br>Sponsored by [GLOB.using_map.company_name].<br>All rights reserved.<br>\
 					 This motion picture is protected under the copyright laws of the Sol Central Government<br> and other nations throughout the galaxy.<br>\
 					 Colony of First Publication: [pick("Mars", "Luna", "Earth", "Venus", "Phobos", "Ceres", "Tiamat", "Ceti Epsilon", "Eos", "Pluto", "Ouere",\
-					 "Lordania", "Kingston", "Cinu", "Yuklid V", "Lorriman", "Tersten", "Gaia")].<br>"
-	disclaimer += pick("Use for parody prohibited. PROHIBITED.", 
+					 "Tadmor", "Brahe", "Pirx", "Iolaus", "Saffar", "Gaia")].<br>"
+	disclaimer += pick("Use for parody prohibited. PROHIBITED.",
 					   "All stunts were performed by underpaid interns. Do NOT try at home.",
 					   "[GLOB.using_map.company_name] does not endorse behaviour depicted. Attempt at your own risk.",
 					   "Any unauthorized exhibition, distribution, or copying of this film or any part thereof (including soundtrack)<br>\
@@ -204,6 +203,7 @@ client
 						with the depiction of tobacco products, despite the copious amounts	of smoking depicted within.<br>\
 						(This disclaimer sponsored by Carcinoma - Carcinogens are our Business!(TM)).",
 						"No animals were harmed in the making of this motion picture except for those listed previously as dead. Do not try this at home.")
-	titles += "<center>[JOINTEXT(disclaimer)]</center>"
+	titles += "<hr>"
+	titles += "<center><span style='font-size:6pt;'>[JOINTEXT(disclaimer)]</span></center>"
 
 	return titles

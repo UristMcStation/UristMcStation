@@ -2,7 +2,7 @@
 
 // Recruiting observers to play as pAIs
 
-var/datum/paiController/paiController			// Global handler for pAI candidates
+var/global/datum/paiController/paiController			// Global handler for pAI candidates
 
 /datum/paiCandidate
 	var/name
@@ -11,6 +11,8 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 	var/role
 	var/comments
 	var/ready = 0
+	var/chassis = "Drone"
+	var/say_verb = "Robotic"
 
 
 /hook/startup/proc/paiControllerSetup()
@@ -39,6 +41,11 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 				pai.SetName(candidate.name)
 			pai.real_name = pai.name
 			pai.key = candidate.key
+			pai.chassis = pai.icon_state = GLOB.possible_chassis[candidate.chassis]
+			var/list/sayverbs = GLOB.possible_say_verbs[candidate.say_verb]
+			pai.speak_statement = sayverbs[1]
+			pai.speak_exclamation = sayverbs[(length(sayverbs)>1 ? 2 : length(sayverbs))]
+			pai.speak_query = sayverbs[(length(sayverbs)>2 ? 3 : length(sayverbs))]
 
 			card.setPersonality(pai)
 			card.looking_for_personality = 0
@@ -46,10 +53,12 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 			if(pai.mind) update_antag_icons(pai.mind)
 
 			pai_candidates -= candidate
-			usr << browse(null, "window=findPai")
+			close_browser(usr, "window=findPai")
 
 	if(href_list["new"])
 		var/datum/paiCandidate/candidate = locate(href_list["candidate"])
+		if(!istype(candidate))
+			return
 		var/option = href_list["option"]
 		var/t = ""
 
@@ -70,6 +79,14 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 				t = input("Enter any OOC comments", "pAI OOC Comments", candidate.comments) as message
 				if(t)
 					candidate.comments = sanitize(t)
+			if("chassis")
+				t = input(usr,"What would you like to use for your mobile chassis icon?") as null|anything in GLOB.possible_chassis
+				if(t)
+					candidate.chassis = t
+			if("say")
+				t = input(usr,"What theme would you like to use for your speech verbs?") as null|anything in GLOB.possible_say_verbs
+				if(t)
+					candidate.say_verb = t
 			if("save")
 				candidate.savefile_save(usr)
 			if("load")
@@ -83,6 +100,10 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 					candidate.role = sanitize(candidate.role)
 				if(candidate.comments)
 					candidate.comments = sanitize(candidate.comments)
+				if(!candidate.chassis) //default to drone
+					candidate.chassis = "Drone"
+				if(!candidate.say_verb)//default to Robotic
+					candidate.say_verb = "Robotic"
 
 			if("submit")
 				if(candidate)
@@ -90,12 +111,12 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 					for(var/obj/item/device/paicard/p in world)
 						if(p.looking_for_personality == 1)
 							p.alertUpdate()
-				usr << browse(null, "window=paiRecruit")
+				close_browser(usr, "window=paiRecruit")
 				return
 
 		recruitWindow(usr, href_list["allow_submit"] != "0")
 
-/datum/paiController/proc/recruitWindow(var/mob/M as mob, allowSubmit = 1)
+/datum/paiController/proc/recruitWindow(mob/M as mob, allowSubmit = 1)
 	var/datum/paiCandidate/candidate
 	for(var/datum/paiCandidate/c in pai_candidates)
 		if(!istype(c) || !istype(M))
@@ -168,7 +189,7 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 
 	dat += {"
 	<body>
-		<b><font size="3px">pAI Personality Configuration</font></b>
+		<b><span style="font-size: 3px">pAI Personality Configuration</span></b>
 		<p class="top">Please configure your pAI personality's options. Remember, what you enter here could determine whether or not the user requesting a personality chooses you!</p>
 
 		<table>
@@ -200,6 +221,17 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 			<tr class="d1">
 				<td>Anything you'd like to address specifically to the player reading this in an OOC manner. \"I prefer more serious RP.\", \"I'm still learning the interface!\", etc. Feel free to leave this blank if you want.</td>
 			</tr>
+			<tr class="d0">
+				<th rowspan="2"><a href='byond://?src=\ref[src];option=chassis;new=1;allow_submit=[allowSubmit];candidate=\ref[candidate]'>Chassis Type</a>:</th>
+				<td class="desc">[candidate.chassis]&nbsp;</td>
+			</tr>
+			<tr class="d1">
+				<td>Open up the Character Setup in the OOC tab to view the different models!</td>
+			</tr>
+			<tr class="d0">
+				<th rowspan="2"><a href='byond://?src=\ref[src];option=say;new=1;allow_submit=[allowSubmit];candidate=\ref[candidate]'>Say Verb</a>:</th>
+				<td class="desc">[candidate.say_verb]&nbsp;</td>
+			</tr>
 		</table>
 		<br>
 		<table>
@@ -218,16 +250,16 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 	if(allowSubmit)
 		dat += {"
 			<table>
-				<td class="button"><a href='byond://?src=\ref[src];option=submit;new=1;candidate=\ref[candidate]' class="button"><b><font size="4px">Submit Personality</font></b></a></td>
+				<td class="button"><a href='byond://?src=\ref[src];option=submit;new=1;candidate=\ref[candidate]' class="button"><b><span style="font-size: 4px">Submit Personality</span></b></a></td>
 			</table><br>
 			"}
 	dat += {"
 	<body>
 	"}
 
-	M << browse(dat, "window=paiRecruit;size=580x580;")
+	show_browser(M, dat, "window=paiRecruit;size=580x580;")
 
-/datum/paiController/proc/findPAI(var/obj/item/device/paicard/p, var/mob/user)
+/datum/paiController/proc/findPAI(obj/item/device/paicard/p, mob/user)
 	requestRecruits(user)
 	var/list/available = list()
 	for(var/datum/paiCandidate/c in paiController.pai_candidates)
@@ -305,7 +337,7 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 				</style>
 			</head>
 			<body>
-				<b><font size='3px'>pAI Availability List</font></b><br><br>
+				<b>[SPAN_SIZE("3px", "pAI Availability List")]</b><br><br>
 	"}
 	dat += "<p>Displaying available AI personalities from central database... If there are no entries, or if a suitable entry is not listed, check again later as more personalities may be added.</p>"
 
@@ -341,10 +373,10 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 		</html>
 	"}
 
-	user << browse(dat, "window=findPai")
+	show_browser(user, dat, "window=findPai")
 
 
-/datum/paiController/proc/requestRecruits(var/mob/user)
+/datum/paiController/proc/requestRecruits(mob/user)
 	inquirer = user
 	for(var/mob/observer/ghost/O in GLOB.player_list)
 		if(!O.MayRespawn())
@@ -360,7 +392,7 @@ var/datum/paiController/paiController			// Global handler for pAI candidates
 			if(BE_PAI in O.client.prefs.be_special_role)
 				question(O.client)
 
-/datum/paiController/proc/question(var/client/C)
+/datum/paiController/proc/question(client/C)
 	spawn(0)
 		if(!C)	return
 		asked.Add(C.key)

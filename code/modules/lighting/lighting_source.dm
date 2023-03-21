@@ -1,4 +1,4 @@
-/var/total_lighting_sources = 0
+var/global/total_lighting_sources = 0
 // This is where the fun begins.
 // These are the main datums that emit light.
 
@@ -19,9 +19,9 @@
 	var/lum_b
 
 	// The lumcount values used to apply the light.
-	var/tmp/applied_lum_r
-	var/tmp/applied_lum_g
-	var/tmp/applied_lum_b
+	var/applied_lum_r
+	var/applied_lum_g
+	var/applied_lum_b
 
 	var/list/datum/lighting_corner/effect_str     // List used to store how much we're affecting corners.
 	var/list/turf/affecting_turfs
@@ -33,7 +33,7 @@
 	var/destroyed       // Whether we are destroyed and need to stop emitting light.
 	var/force_update
 
-/datum/light_source/New(var/atom/owner, var/atom/top)
+/datum/light_source/New(atom/owner, atom/top)
 	total_lighting_sources++
 	source_atom = owner // Set our new owner.
 	if(!source_atom.light_sources)
@@ -97,7 +97,7 @@
 	}
 
 // This proc will cause the light source to update the top atom, and add itself to the update queue.
-/datum/light_source/proc/update(var/atom/new_top_atom)
+/datum/light_source/proc/update(atom/new_top_atom)
 	// This top atom is different.
 	if(new_top_atom && new_top_atom != top_atom)
 		if(top_atom != source_atom) // Remove ourselves from the light sources of that top atom.
@@ -223,6 +223,9 @@
 	applied_lum_b = lum_b
 
 	FOR_DVIEW(var/turf/T, light_outer_range, source_turf, INVISIBILITY_LIGHTING)
+		check_t:
+		if (!T)
+			continue
 		if(!T.lighting_corners_initialised)
 			T.generate_missing_corners()
 
@@ -242,41 +245,13 @@
 		LAZYADD(T.affecting_lights, src)
 		affecting_turfs += T
 
-		var/turf/simulated/open/O = T
-		if(istype(O) && O.below)
-			// Consider the turf below us as well. (Z-lights)
-			//Do subprocessing for open turfs
-			for(T = O.below; !isnull(T); T = process_the_turf(T,update_gen));
+		if (T.z_flags & ZM_ALLOW_LIGHTING)
+			T = T.below
+			goto check_t
 
-
+	END_FOR_DVIEW
 
 	update_gen++
-
-/datum/light_source/proc/process_the_turf(var/turf/T, update_gen)
-
-	if(!T.lighting_corners_initialised)
-		T.generate_missing_corners()
-
-	for(var/datum/lighting_corner/C in T.get_corners())
-		if(C.update_gen == update_gen)
-			continue
-
-		C.update_gen = update_gen
-		C.affecting += src
-
-		if(!C.active)
-			effect_str[C] = 0
-			continue
-
-		APPLY_CORNER(C)
-
-	LAZYADD(T.affecting_lights, src)
-	affecting_turfs += T
-
-	var/turf/simulated/open/O = T
-	if(istype(O) && O.below)
-		return O.below
-	return null
 
 /datum/light_source/proc/remove_lum()
 	applied = FALSE
@@ -293,7 +268,7 @@
 
 	effect_str.Cut()
 
-/datum/light_source/proc/recalc_corner(var/datum/lighting_corner/C)
+/datum/light_source/proc/recalc_corner(datum/lighting_corner/C)
 	if(effect_str.Find(C)) // Already have one.
 		REMOVE_CORNER(C)
 
@@ -303,6 +278,8 @@
 	var/list/datum/lighting_corner/corners = list()
 	var/list/turf/turfs                    = list()
 	FOR_DVIEW(var/turf/T, light_outer_range, source_turf, 0)
+		if (!T)
+			continue
 		if(!T.lighting_corners_initialised)
 			T.generate_missing_corners()
 		corners |= T.get_corners()
@@ -312,6 +289,7 @@
 		if(istype(O) && O.below)
 			// Consider the turf below us as well. (Z-lights)
 			for(T = O.below; !isnull(T); T = update_the_turf(T,corners, turfs));
+	END_FOR_DVIEW
 
 	var/list/L = turfs - affecting_turfs // New turfs, add us to the affecting lights of them.
 	affecting_turfs += L
@@ -337,7 +315,7 @@
 		effect_str -= C
 
 
-/datum/light_source/proc/update_the_turf(var/turf/T, var/list/datum/lighting_corner/corners, var/list/turf/turfs)
+/datum/light_source/proc/update_the_turf(turf/T, list/datum/lighting_corner/corners, list/turf/turfs)
 	if(!T.lighting_corners_initialised)
 		T.generate_missing_corners()
 	corners |= T.get_corners()

@@ -49,26 +49,26 @@
 	overdose = REAGENTS_OVERDOSE * 0.5
 	color_weight = 20
 
-/datum/reagent/paint/touch_turf(var/turf/T)
+/datum/reagent/paint/touch_turf(turf/T)
 	if(istype(T) && !istype(T, /turf/space))
 		T.color = color
 
-/datum/reagent/paint/touch_obj(var/obj/O)
+/datum/reagent/paint/touch_obj(obj/O)
 	if(istype(O))
 		O.color = color
 
-/datum/reagent/paint/touch_mob(var/mob/M)
+/datum/reagent/paint/touch_mob(mob/M)
 	if(istype(M) && !isobserver(M)) //painting observers: not allowed
 		M.color = color //maybe someday change this to paint only clothes and exposed body parts for human mobs.
 
 /datum/reagent/paint/get_data()
 	return color
 
-/datum/reagent/paint/initialize_data(var/newdata)
+/datum/reagent/paint/initialize_data(newdata)
 	color = newdata
 	return
 
-/datum/reagent/paint/mix_data(var/newdata, var/newamount)
+/datum/reagent/paint/mix_data(newdata, newamount)
 	var/list/colors = list(0, 0, 0, 0)
 	var/tot_w = 0
 
@@ -107,10 +107,10 @@
 	glass_name = "liquid gold"
 	glass_desc = "It's magic. We don't have to explain it."
 
-/datum/reagent/adminordrazine/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	affect_blood(M, alien, removed)
+/datum/reagent/adminordrazine/affect_touch(mob/living/carbon/M, removed)
+	affect_blood(M, removed)
 
-/datum/reagent/adminordrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/adminordrazine/affect_blood(mob/living/carbon/M, removed)
 	M.rejuvenate()
 
 /datum/reagent/gold
@@ -119,6 +119,7 @@
 	taste_description = "expensive metal"
 	reagent_state = SOLID
 	color = "#f7c430"
+	value = 7
 
 /datum/reagent/silver
 	name = "Silver"
@@ -126,6 +127,7 @@
 	taste_description = "expensive yet reasonable metal"
 	reagent_state = SOLID
 	color = "#d0d0d0"
+	value = 4
 
 /datum/reagent/uranium
 	name = "Uranium"
@@ -133,14 +135,15 @@
 	taste_description = "the inside of a reactor"
 	reagent_state = SOLID
 	color = "#b8b8c0"
+	value = 9
 
-/datum/reagent/uranium/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	affect_ingest(M, alien, removed)
+/datum/reagent/uranium/affect_touch(mob/living/carbon/M, removed)
+	affect_ingest(M, removed)
 
-/datum/reagent/uranium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.apply_effect(5 * removed, IRRADIATE, blocked = 0)
+/datum/reagent/uranium/affect_blood(mob/living/carbon/M, removed)
+	M.apply_damage(5 * removed, DAMAGE_RADIATION, armor_pen = 100)
 
-/datum/reagent/uranium/touch_turf(var/turf/T)
+/datum/reagent/uranium/touch_turf(turf/T)
 	if(volume >= 3)
 		if(!istype(T, /turf/space))
 			var/obj/effect/decal/cleanable/greenglow/glow = locate(/obj/effect/decal/cleanable/greenglow, T)
@@ -156,7 +159,7 @@
 	glass_name = "holy water"
 	glass_desc = "An ashen-obsidian-water mix, this solution will alter certain sections of the brain's rationality."
 
-/datum/reagent/water/holywater/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/water/holywater/affect_ingest(mob/living/carbon/M, removed)
 	..()
 	if(ishuman(M)) // Any location
 		if(iscultist(M))
@@ -164,28 +167,9 @@
 				GLOB.cult.offer_uncult(M)
 			if(prob(2))
 				var/obj/effect/spider/spiderling/S = new /obj/effect/spider/spiderling(M.loc)
-				M.visible_message("<span class='warning'>\The [M] coughs up \the [S]!</span>")
-		else if(M.mind && GLOB.godcult.is_antagonist(M.mind))
-			if(volume > 5)
-				M.adjustHalLoss(5)
-				M.adjustBruteLoss(1)
-				if(prob(10)) //Only annoy them a /bit/
-					to_chat(M,"<span class='danger'>You feel your insides curdle and burn!</span> \[<a href='?src=\ref[src];deconvert=\ref[M]'>Give Into Purity</a>\]")
+				M.visible_message(SPAN_WARNING("\The [M] coughs up \the [S]!"))
 
-/datum/reagent/water/holywater/Topic(href, href_list)
-	. = ..()
-	if(!. && href_list["deconvert"])
-		var/mob/living/carbon/C = locate(href_list["deconvert"])
-		if(C.mind)
-			GLOB.godcult.remove_antagonist(C.mind,1)
-
-/datum/reagent/water/holywater/touch_mob(var/mob/living/L, var/amount)
-	..()
-	if(ishuman(L))
-		if(L.mind && GLOB.vamps.is_antagonist(L.mind))
-			L.adjust_fire_stacks(amount / 4) //because it's a way more fun effect
-
-/datum/reagent/water/holywater/touch_turf(var/turf/T)
+/datum/reagent/water/holywater/touch_turf(turf/T)
 	if(volume >= 5)
 		T.holy = 1
 	return
@@ -196,6 +180,7 @@
 	taste_description = "iron"
 	reagent_state = LIQUID
 	color = "#604030"
+	value = 0.9
 
 /datum/reagent/surfactant // Foam precursor
 	name = "Azosurfactant"
@@ -203,6 +188,7 @@
 	taste_description = "metal"
 	reagent_state = LIQUID
 	color = "#9e6b38"
+	value = 0.05
 
 /datum/reagent/foaming_agent // Metal foaming agent. This is lithium hydride. Add other recipes (e.g. LiH + H2O -> LiOH + H2) eventually.
 	name = "Foaming agent"
@@ -218,8 +204,9 @@
 	reagent_state = SOLID
 	color = "#673910"
 	touch_met = 50
+	value = 6
 
-/datum/reagent/thermite/touch_turf(var/turf/T)
+/datum/reagent/thermite/touch_turf(turf/T)
 	if(volume >= 5)
 		if(istype(T, /turf/simulated/wall))
 			var/turf/simulated/wall/W = T
@@ -228,11 +215,11 @@
 			remove_self(5)
 	return
 
-/datum/reagent/thermite/touch_mob(var/mob/living/L, var/amount)
+/datum/reagent/thermite/touch_mob(mob/living/L, amount)
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 5)
 
-/datum/reagent/thermite/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/thermite/affect_blood(mob/living/carbon/M, removed)
 	M.adjustFireLoss(3 * removed)
 
 /datum/reagent/napalm
@@ -242,12 +229,13 @@
 	reagent_state = LIQUID
 	color = "#673910"
 	touch_met = 50
+	accelerant_quality = 20
 
-/datum/reagent/napalm/touch_turf(var/turf/T)
+/datum/reagent/napalm/touch_turf(turf/T)
 	new /obj/effect/decal/cleanable/liquid_fuel(T, volume)
 	remove_self(volume)
 
-/datum/reagent/napalm/touch_mob(var/mob/living/L, var/amount)
+/datum/reagent/napalm/touch_mob(mob/living/L, amount)
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 100)
 
@@ -262,11 +250,12 @@
 	reagent_state = LIQUID
 	color = "#a5f0ee"
 	touch_met = 50
+	value = 0.7
 
-/datum/reagent/space_cleaner/touch_obj(var/obj/O)
+/datum/reagent/space_cleaner/touch_obj(obj/O)
 	O.clean_blood()
 
-/datum/reagent/space_cleaner/touch_turf(var/turf/T)
+/datum/reagent/space_cleaner/touch_turf(turf/T)
 	if(volume >= 1)
 		if(istype(T, /turf/simulated))
 			var/turf/simulated/S = T
@@ -279,11 +268,9 @@
 		for(var/mob/living/carbon/slime/M in T)
 			M.adjustToxLoss(rand(5, 10))
 
-/datum/reagent/space_cleaner/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	if(M.r_hand)
-		M.r_hand.clean_blood()
-	if(M.l_hand)
-		M.l_hand.clean_blood()
+/datum/reagent/space_cleaner/affect_touch(mob/living/carbon/M, removed)
+	for (var/obj/item/item as anything in M.GetAllHeld())
+		item.clean_blood()
 	if(M.wear_mask)
 		if(M.wear_mask.clean_blood())
 			M.update_inv_wear_mask(0)
@@ -304,28 +291,16 @@
 		else
 			H.clean_blood(1)
 			return
+	M.update_icons()
 	M.clean_blood()
 
-/datum/reagent/lube // TODO: spraying on borgs speeds them up
-	name = "Space Lube"
-	description = "Lubricant is a substance introduced between two moving surfaces to reduce the friction and wear between them. giggity."
-	taste_description = "slime"
-	reagent_state = LIQUID
-	color = "#009ca8"
-
-/datum/reagent/lube/touch_turf(var/turf/simulated/T)
-	if(!istype(T))
-		return
-	if(volume >= 1)
-		T.wet_floor(80)
-
-/datum/reagent/lube/oil // TODO: Robot Overhaul in general
+/datum/reagent/oil
 	name = "Oil"
 	description = "A thick greasy industrial lubricant. Commonly found in robotics."
 	taste_description = "greasy diesel"
 	color = "#000000"
 
-/datum/reagent/lube/oil/touch_turf(var/turf/simulated/T)
+/datum/reagent/oil/touch_turf(turf/simulated/T)
 	if(!istype(T, /turf/space))
 		new /obj/effect/decal/cleanable/blood/oil/streak(T)
 
@@ -335,6 +310,7 @@
 	taste_description = "sweetness"
 	reagent_state = LIQUID
 	color = "#808080"
+	value = 8
 
 /datum/reagent/nitroglycerin
 	name = "Nitroglycerin"
@@ -342,8 +318,9 @@
 	taste_description = "oil"
 	reagent_state = LIQUID
 	color = "#808080"
+	value = 9
 
-/datum/reagent/nitroglycerin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/nitroglycerin/affect_blood(mob/living/carbon/M, removed)
 	..()
 	M.add_chemical_effect(CE_PULSE, 2)
 
@@ -355,15 +332,16 @@
 	taste_mult = 1.1
 	reagent_state = LIQUID
 	color = "#c8a5dc"
+	value = 0.8
 
-/datum/reagent/coolant/touch_turf(var/turf/simulated/T)
+/datum/reagent/coolant/touch_turf(turf/simulated/T)
 	if(!istype(T))
 		return
 
 	var/datum/gas_mixture/environment = T.return_air()
 	var/min_temperature = 263.15 // -10C.
 
-	var/hotspot = (locate(/obj/fire) in T)
+	var/hotspot = (locate(/obj/hotspot) in T)
 	if(hotspot && !istype(T, /turf/space))
 		var/datum/gas_mixture/lowertemp = T.remove_air(T:air:total_moles)
 		lowertemp.temperature = max(min(lowertemp.temperature-2000, lowertemp.temperature / 2), 0)
@@ -372,10 +350,10 @@
 		qdel(hotspot)
 
 	if (environment && environment.temperature > min_temperature) // Abstracted as steam or something
-		var/removed_heat = between(0, volume * COOLANT_LATENT_HEAT, -environment.get_thermal_energy_change(min_temperature))
+		var/removed_heat = clamp(volume * COOLANT_LATENT_HEAT, 0, -environment.get_thermal_energy_change(min_temperature))
 		environment.add_thermal_energy(-removed_heat)
 		if (prob(5) && environment && environment.temperature > T100C)
-			T.visible_message("<span class='warning'>The water sizzles as it lands on \the [T]!</span>")
+			T.visible_message(SPAN_WARNING("The water sizzles as it lands on \the [T]!"))
 
 
 /datum/reagent/ultraglue
@@ -388,8 +366,22 @@
 	name = "Wood Pulp"
 	description = "A mass of wood fibers."
 	taste_description = "wood"
-	reagent_state = LIQUID
-	color = "#b97a57"
+	reagent_state = SOLID
+	color = WOOD_COLOR_GENERIC
+
+/datum/reagent/bamboo
+	name = "Bamboo Pulp"
+	description = "A mass of bamboo fibers."
+	taste_description = "grass"
+	reagent_state = SOLID
+	color = WOOD_COLOR_PALE2
+
+/datum/reagent/resinpulp
+	name = "Resin Pulp"
+	description = "A mass of goopy resin."
+	taste_description = "gooey"
+	reagent_state = SOLID
+	color = "#3a4e1b"
 
 /datum/reagent/luminol
 	name = "Luminol"
@@ -397,11 +389,12 @@
 	taste_description = "metal"
 	reagent_state = LIQUID
 	color = "#f2f3f4"
+	value = 1.4
 
-/datum/reagent/luminol/touch_obj(var/obj/O)
+/datum/reagent/luminol/touch_obj(obj/O)
 	O.reveal_blood()
 
-/datum/reagent/luminol/touch_mob(var/mob/living/L)
+/datum/reagent/luminol/touch_mob(mob/living/L)
 	L.reveal_blood()
 
 /datum/reagent/helium
@@ -412,8 +405,8 @@
 	color = COLOR_GRAY80
 	metabolism = 0.05 // So that low dosages have a chance to build up in the body.
 
-/datum/reagent/helium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
+/datum/reagent/helium/affect_blood(mob/living/carbon/M, removed)
+	if (IS_METABOLICALLY_INERT(M))
 		return
 	..()
 	M.add_chemical_effect(CE_SQUEAKY, 1)
@@ -426,8 +419,8 @@
 	reagent_state = LIQUID
 	color = COLOR_GRAY80
 
-/datum/reagent/oxygen/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_VOX)
+/datum/reagent/oxygen/affect_blood(mob/living/carbon/M, removed)
+	if (GAS_OXYGEN in M.species.poison_types)
 		M.adjustToxLoss(removed * 6)
 
 /datum/reagent/carbon_monoxide
@@ -438,8 +431,8 @@
 	color = COLOR_GRAY80
 	metabolism = 0.05 // As with helium.
 
-/datum/reagent/carbon_monoxide/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
-	if(!istype(M) || alien == IS_DIONA)
+/datum/reagent/carbon_monoxide/affect_blood(mob/living/carbon/human/M, removed)
+	if(!istype(M) || IS_METABOLICALLY_INERT(M))
 		return
 	var/warning_message
 	var/warning_prob = 10
@@ -460,35 +453,126 @@
 	else
 		M.co2_alert = 0
 	if(warning_message && prob(warning_prob))
-		to_chat(M, "<span class='warning'>You feel [warning_message].</span>")
+		to_chat(M, SPAN_WARNING("You feel [warning_message]."))
 
-/datum/reagent/anfo
-	name = "ANFO"
-	description = "Ammonia Nitrate Fuel Oil mix, an explosive compound known for centuries. Safe to handle, can be set off with a small explosion."
-	taste_description = "fertilizer and fuel"
-	reagent_state = SOLID
-	color = "#dbc3c3"
-	var/boompower = 1
+/datum/reagent/dye
+	name = "Dye"
+	description = "Non-toxic artificial coloration used for food and drinks. When mixed with reagents, the compound will take on the dye's coloration."
+	color = "#ffffff"
+	color_weight = 40
+	color_transfer = TRUE
+	color_foods = TRUE
+	taste_mult = 0
 
-/datum/reagent/anfo/ex_act(obj/item/weapon/reagent_containers/holder, severity)
-	var/activated_volume = volume
-	switch(severity)
-		if(2)
-			if(prob(max(0, 2*(volume - 120))))
-				activated_volume = rand(volume/4, volume)
-		if(3)
-			if(prob(max(0, 2*(volume - 60))))
-				activated_volume = rand(0, max(volume, 120))
-	if(activated_volume < 30) //whiff
+/datum/reagent/dye/strong
+	name = "Strong Dye"
+	description = "An extra-strength dye. Used for tinting food, but is especially effective with drinks and other fluids."
+	color_weight = 100
+
+/datum/reagent/capilliumate
+	name = "Capilliumate"
+	description = "Used across the Sol system by balding men to retrieve their lost youth."
+	taste_description = "mothballs"
+	reagent_state = LIQUID
+	color = "#33270b"
+	overdose = REAGENTS_OVERDOSE
+
+/datum/reagent/capilliumate/affect_touch(mob/living/carbon/human/M, removed)
+	if (!(M.species.appearance_flags & SPECIES_APPEARANCE_HAS_STATIC_HAIR))
+		var/datum/sprite_accessory/hair/newhair = /datum/sprite_accessory/hair/longest
+		var/datum/sprite_accessory/facial_hair/newbeard = /datum/sprite_accessory/facial_hair/vlongbeard
+		M.change_hair(initial(newhair.name))
+		M.change_facial_hair(initial(newbeard.name))
+		M.visible_message(
+			SPAN_NOTICE("\The [M]'s hair grows to extraordinary lengths!"),
+			SPAN_NOTICE("Your hair grows to extraordinary lengths!")
+		)
+	remove_self(volume)
+
+/datum/reagent/capilliumate/affect_blood(mob/living/carbon/M, removed)
+	if (IS_METABOLICALLY_INERT(M))
 		return
-	var/turf/T = get_turf(holder)
-	if(T)
-		var/adj_power = round(boompower * activated_volume/60)
-		explosion(T, adj_power, adj_power + 1, adj_power*2 + 2)
-		remove_self(activated_volume)
+	if (prob(10))
+		to_chat(M, SPAN_WARNING("Your tongue feels... fuzzy."))
+	M.slurring = max(M.slurring, 10)
 
-/datum/reagent/anfo/plus
-	name = "ANFO+"
-	description = "Ammonia Nitrate Fuel Oil, with aluminium powder, an explosive compound known for centuries. Safe to handle, can be set off with a small explosion."
-	color = "#ffe8e8"
-	boompower = 2
+/datum/reagent/hair_dye
+	name = "Hair Dye"
+	description = "Some hair dye. Be fabulous! Requires an extra color to mix with."
+	taste_description = "bad choices"
+	reagent_state = LIQUID
+	color = "#b6f0ef"
+	overdose = REAGENTS_OVERDOSE
+
+/datum/reagent/colored_hair_dye
+	name = "Hair Dye"
+	description = "Apply to your head to add some color to your life!"
+	reagent_state = LIQUID
+	taste_description = "bad choices"
+
+/datum/reagent/colored_hair_dye/proc/apply_dye_color(mob/living/carbon/human/H, red, green, blue)
+	if (H.head_hair_style && H.species.appearance_flags & SPECIES_APPEARANCE_HAS_HAIR_COLOR)
+		var/datum/sprite_accessory/hair/hair_style = GLOB.hair_styles_list[H.head_hair_style]
+		if (~hair_style.flags & HAIR_BALD)
+			H.change_hair_color(red, green, blue)
+			H.change_facial_hair_color(red, green, blue)
+			H.visible_message(
+				SPAN_NOTICE("\The [H]'s hair changes color!"),
+				SPAN_NOTICE("Your hair changes color!")
+			)
+	remove_self(volume)
+
+/datum/reagent/colored_hair_dye/affect_touch(mob/living/carbon/human/H, removed)
+	var/list/dye_args = list(H) + GetHexColors(color)
+	apply_dye_color(arglist(dye_args))
+
+/datum/reagent/colored_hair_dye/red
+	name = "Red Hair Dye"
+	color = "#b33636"
+
+/datum/reagent/colored_hair_dye/orange
+	name = "Orange Hair Dye"
+	color = "#b5772f"
+
+/datum/reagent/colored_hair_dye/yellow
+	name = "Yellow Hair Dye"
+	color = "#a6a035"
+
+/datum/reagent/colored_hair_dye/green
+	name = "Green Hair Dye"
+	color = "#61a834"
+
+/datum/reagent/colored_hair_dye/blue
+	name = "Blue Hair Dye"
+	color = "#3470a8"
+
+/datum/reagent/colored_hair_dye/purple
+	name = "Purple Hair Dye"
+	color = "#6d2d91"
+
+/datum/reagent/colored_hair_dye/grey
+	name = "Grey Hair Dye"
+	color = "#696969"
+
+/datum/reagent/colored_hair_dye/brown
+	name = "Brown Hair Dye"
+	color = "#3b2d0f"
+
+/datum/reagent/colored_hair_dye/light_brown
+	name = "Light Brown Hair Dye"
+	color = "#3d3729"
+
+/datum/reagent/colored_hair_dye/black
+	name = "Black Hair Dye"
+	color = "#000000"
+
+/datum/reagent/colored_hair_dye/white
+	name = "White Hair Dye"
+	color = "#ffffff"
+
+/datum/reagent/colored_hair_dye/chaos
+	name = "Chaotic Hair Dye"
+	description = "This hair dye can be any color! Only one way to find out what kind!"
+
+/datum/reagent/colored_hair_dye/chaos/affect_touch(mob/living/carbon/human/H, removed)
+	apply_dye_color(H, Frand(1, 254), Frand(1, 254), Frand(1, 254))

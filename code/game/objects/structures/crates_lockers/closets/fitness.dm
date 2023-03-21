@@ -1,7 +1,7 @@
 /obj/structure/closet/athletic_mixed
 	name = "athletic wardrobe"
 	desc = "It's a storage unit for athletic wear."
-	closet_appearance = /decl/closet_appearance/wardrobe/mixed
+	closet_appearance = /singleton/closet_appearance/wardrobe/mixed
 
 /obj/structure/closet/athletic_mixed/WillContain()
 	return list(
@@ -17,7 +17,7 @@
 		/obj/item/clothing/under/swimsuit/purple,
 		/obj/item/clothing/mask/snorkel = 2,
 		/obj/item/clothing/shoes/swimmingfins = 2,
-		/obj/item/weapon/towel = 2)
+		/obj/item/towel = 2)
 
 /obj/structure/closet/boxinggloves
 	name = "boxing gloves"
@@ -43,19 +43,19 @@
 /obj/structure/closet/lasertag/red
 	name = "red laser tag equipment"
 	desc = "It's a storage unit for laser tag equipment."
-	closet_appearance = /decl/closet_appearance/wardrobe/red
+	closet_appearance = /singleton/closet_appearance/wardrobe/red
 
 /obj/structure/closet/lasertag/red/WillContain()
 	return list(
-		/obj/item/weapon/gun/energy/lasertag/red = 3,
+		/obj/item/gun/energy/lasertag/red = 3,
 		/obj/item/clothing/suit/redtag = 3)
 
 /obj/structure/closet/lasertag/blue
 	name = "blue laser tag equipment"
 	desc = "It's a storage unit for laser tag equipment."
-	closet_appearance = /decl/closet_appearance/wardrobe
+	closet_appearance = /singleton/closet_appearance/wardrobe
 
 /obj/structure/closet/lasertag/blue/WillContain()
 	return list(
-		/obj/item/weapon/gun/energy/lasertag/blue = 3,
+		/obj/item/gun/energy/lasertag/blue = 3,
 		/obj/item/clothing/suit/bluetag = 3)

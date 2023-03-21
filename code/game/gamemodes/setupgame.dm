@@ -5,8 +5,8 @@
 // Randomize block, assign a reference name, and optionally define difficulty (by making activation zone smaller or bigger)
 // The name is used on /vg/ for species with predefined genetic traits,
 //  and for the DNA panel in the player panel.
-/proc/getAssignedBlock(var/name,var/list/blocksLeft, var/activity_bounds=DNA_DEFAULT_BOUNDS, var/good=0)
-	if(blocksLeft.len==0)
+/proc/getAssignedBlock(name,list/blocksLeft, activity_bounds=DNA_DEFAULT_BOUNDS)
+	if(length(blocksLeft)==0)
 		warning("[name]: No more blocks left to assign!")
 		return 0
 	var/assigned = pick(blocksLeft)
@@ -35,8 +35,8 @@
 	//testing("Assigning DNA blocks:")
 
 	// Standard muts, imported from older code above.
-	GLOB.BLINDBLOCK         = getAssignedBlock("BLIND",         numsToAssign)
-	GLOB.DEAFBLOCK          = getAssignedBlock("DEAF",          numsToAssign)
+	GLOB.BLINDBLOCK         = getAssignedBlock("BLINDED",         numsToAssign)
+	GLOB.DEAFBLOCK          = getAssignedBlock("DEAFENED",          numsToAssign)
 	GLOB.HULKBLOCK          = getAssignedBlock("HULK",          numsToAssign, DNA_HARD_BOUNDS)
 	GLOB.TELEBLOCK          = getAssignedBlock("TELE",          numsToAssign, DNA_HARD_BOUNDS)
 	GLOB.FIREBLOCK          = getAssignedBlock("FIRE",          numsToAssign, DNA_HARDER_BOUNDS)

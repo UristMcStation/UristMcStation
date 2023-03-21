@@ -1,11 +1,12 @@
 /datum/extension/appearance
+	base_type = /datum/extension/appearance
 	expected_type = /atom
 	flags = EXTENSION_FLAG_IMMEDIATE // | EXTENSION_FLAG_MULTIPLE_INSTANCES
 	var/appearance_handler_type
 	var/item_equipment_proc
 	var/item_removal_proc
 
-/datum/extension/appearance/New(var/holder)
+/datum/extension/appearance/New(holder)
 	var/appearance_handler = appearance_manager.get_appearance_handler(appearance_handler_type)
 	if(!appearance_handler)
 		CRASH("Unable to acquire the [appearance_handler_type] appearance handler.")

@@ -113,7 +113,7 @@ var/global/vs_control/vsc = new
 			if("[ch]_NAME" in vars) vw_name = vars["[ch]_NAME"]
 		dat += "<b>[vw_name] = [vw]</b> <A href='?src=\ref[src];changevar=[ch]'>\[Change\]</A><br>"
 		dat += "<i>[vw_desc]</i><br><br>"
-	user << browse(dat,"window=settings")
+	show_browser(user, dat,"window=settings")
 
 /vs_control/Topic(href,href_list)
 	if("changevar" in href_list)
@@ -169,7 +169,7 @@ var/global/vs_control/vsc = new
 		vars[ch] = vw
 	if(how == "Toggle")
 		newvar = (newvar?"ON":"OFF")
-	to_world("<span class='notice'><b>[key_name(user)] changed the setting [display_description] to [newvar].</b></span>")
+	to_world(SPAN_NOTICE("<b>[key_name(user)] changed the setting [display_description] to [newvar].</b>"))
 	if(ch in plc.settings)
 		ChangeSettingsDialog(user,plc.settings)
 	else
@@ -191,7 +191,7 @@ var/global/vs_control/vsc = new
 	for(var/V in plc.settings)
 		plc.Randomize(V)
 
-/vs_control/proc/SetDefault(var/mob/user)
+/vs_control/proc/SetDefault(mob/user)
 	var/list/setting_choices = list("Phoron - Standard", "Phoron - Low Hazard", "Phoron - High Hazard", "Phoron - Oh Shit!",\
 	"ZAS - Normal", "ZAS - Forgiving", "ZAS - Dangerous", "ZAS - Hellish", "ZAS/Phoron - Initial")
 	var/def = input(user, "Which of these presets should be used?") as null|anything in setting_choices
@@ -322,7 +322,7 @@ var/global/vs_control/vsc = new
 			plc.N2O_HALLUCINATION 			= initial(plc.N2O_HALLUCINATION)
 
 
-	to_world("<span class='notice'><b>[key_name(user)] changed the global phoron/ZAS settings to \"[def]\"</b></span>")
+	to_world(SPAN_NOTICE("<b>[key_name(user)] changed the global phoron/ZAS settings to \"[def]\"</b>"))
 
 /pl_control/var/list/settings = list()
 

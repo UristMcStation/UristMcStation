@@ -25,7 +25,7 @@
 	cultify_wall()
 
 /turf/simulated/floor/proc/cultify_floor()
-	set_flooring(get_flooring_data(/decl/flooring/reinforced/cult))
+	set_flooring(GET_SINGLETON(/singleton/flooring/reinforced/cult))
 	GLOB.cult.add_cultiness(CULTINESS_PER_TURF)
 
 

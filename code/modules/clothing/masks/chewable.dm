@@ -9,27 +9,34 @@
 	var/chewtime = 0
 	var/brand
 	var/list/filling = list()
+	item_flags = null
 
-obj/item/clothing/mask/chewable/New()
+/obj/item/clothing/mask/chewable/New()
 	..()
 	atom_flags |= ATOM_FLAG_NO_REACT // so it doesn't react until you light it
 	create_reagents(chem_volume) // making the cigarrete a chemical holder with a maximum volume of 15
 	for(var/R in filling)
 		reagents.add_reagent(R, filling[R])
 
-/obj/item/clothing/mask/chewable/equipped(var/mob/living/user, var/slot)
+/obj/item/clothing/mask/chewable/equipped(mob/living/user, slot)
 	..()
-	if(slot == SLOT_MASK)
+	if(slot == slot_wear_mask)
+		sprite_sheets = list(
+				SPECIES_VOX = 'icons/mob/species/vox/onmob_mask_vox.dmi',
+				SPECIES_UNATHI = 'icons/mob/species/unathi/onmob_mask_unathi.dmi'
+				)
 		if(user.check_has_mouth())
 			START_PROCESSING(SSobj, src)
 		else
-			to_chat(user, "<span class='notice'>You don't have a mouth, and can't make much use of \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You don't have a mouth, and can't make much use of \the [src]."))
+	else
+		sprite_sheets = list()
 
 /obj/item/clothing/mask/chewable/dropped()
 	STOP_PROCESSING(SSobj, src)
 	..()
 
-obj/item/clothing/mask/chewable/Destroy()
+/obj/item/clothing/mask/chewable/Destroy()
 	. = ..()
 	STOP_PROCESSING(SSobj, src)
 
@@ -45,13 +52,9 @@ obj/item/clothing/mask/chewable/Destroy()
 			STOP_PROCESSING(SSobj, src)
 
 /obj/item/clothing/mask/chewable/Process()
-	if(!equipped())
-		STOP_PROCESSING(SSobj, src)
-		return
 	chew(1)
 	if(chewtime < 1)
 		extinguish()
-		return
 
 /obj/item/clothing/mask/chewable/tobacco
 	name = "wad"
@@ -70,7 +73,7 @@ obj/item/clothing/mask/chewable/Destroy()
 	desc = "A disgusting spitwad."
 	icon_state = "spit-chew"
 
-/obj/item/clothing/mask/chewable/proc/extinguish(var/mob/user, var/no_message)
+/obj/item/clothing/mask/chewable/proc/extinguish(mob/user, no_message)
 	STOP_PROCESSING(SSobj, src)
 	if (type_butt)
 		var/obj/item/butt = new type_butt(get_turf(src))
@@ -81,7 +84,7 @@ obj/item/clothing/mask/chewable/Destroy()
 		if(ismob(loc))
 			var/mob/living/M = loc
 			if (!no_message)
-				to_chat(M, "<span class='notice'>You spit out the [name].</span>")
+				to_chat(M, SPAN_NOTICE("You spit out the [name]."))
 		qdel(src)
 
 /obj/item/clothing/mask/chewable/tobacco/lenni
@@ -91,7 +94,7 @@ obj/item/clothing/mask/chewable/Destroy()
 
 /obj/item/clothing/mask/chewable/tobacco/redlady
 	name = "chewing tobacco"
-	desc = "A chewy wad of fine tobacco. Cut in long strands and treated with syrups so it doesn't taste like a ash-tray when you stuff it into your face"
+	desc = "A chewy wad of fine tobacco. Cut in long strands and treated with syrups so it doesn't taste like a ash-tray when you stuff it into your face."
 	filling = list(/datum/reagent/tobacco/fine = 2)
 
 /obj/item/clothing/mask/chewable/tobacco/nico
@@ -188,3 +191,20 @@ obj/item/clothing/mask/chewable/Destroy()
 				/datum/reagent/kelotane,
 				/datum/reagent/inaprovaline)), 10)
 	color = reagents.get_color()
+
+/obj/item/clothing/mask/chewable/candy/lolli/weak_meds
+	name = "medicine lollipop"
+	desc = "A sucrose sphere on a small handle, it has been infused with medication."
+	filling = list(/datum/reagent/sugar = 6)
+
+/obj/item/clothing/mask/chewable/candy/lolli/weak_meds/New()
+	..()
+	var/datum/reagent/payload = pick(list(
+				/datum/reagent/antidexafen,
+				/datum/reagent/paracetamol,
+				/datum/reagent/tricordrazine,
+				/datum/reagent/dylovene,
+				/datum/reagent/inaprovaline))
+	reagents.add_reagent(payload, 15)
+	color = reagents.get_color()
+	desc = "[desc]. This one is labeled '[initial(payload.name)]'"

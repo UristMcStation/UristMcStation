@@ -39,7 +39,7 @@
 /area/ship/scrap/crew/toilets
 	name = "Bathrooms"
 	icon_state = "toilet"
-	turf_initializer = /decl/turf_initializer/maintenance
+	turf_initializer = /singleton/turf_initializer/maintenance
 
 /area/ship/scrap/crew/wash
 	name = "Washroom"
@@ -64,11 +64,9 @@
 	name = "Firefighting Equipment Comparment"
 	icon_state = "green"
 
-/area/ship/scrap/unused
-	name = "Compartment 2-B"
+/area/ship/scrap/tcomms
+	name = "Telecomms Compartment"
 	icon_state = "yellow"
-	turf_initializer = /decl/turf_initializer/maintenance
-	ambience = list('sound/ambience/ambigen3.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambigen5.ogg','sound/ambience/ambigen6.ogg','sound/ambience/ambimo1.ogg','sound/ambience/ambimo2.ogg')
 
 /area/ship/scrap/hidden
 	name = "Unknown" //shielded compartment

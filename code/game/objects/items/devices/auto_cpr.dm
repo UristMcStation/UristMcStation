@@ -7,6 +7,7 @@
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
 	slot_flags = SLOT_OCLOTHING
 	var/last_pump
+	var/skilled_setup
 
 /obj/item/auto_cpr/mob_can_equip(mob/living/carbon/human/H, slot, disable_warning = 0, force = 0)
 	. = ..()
@@ -17,18 +18,18 @@
 	else
 		return FALSE
 
-/obj/item/auto_cpr/attack(mob/living/carbon/human/M, mob/living/user, var/target_zone)
+/obj/item/auto_cpr/attack(mob/living/carbon/human/M, mob/living/user, target_zone)
 	if(istype(M) && user.a_intent == I_HELP)
 		if(M.wear_suit)
 			to_chat(user, SPAN_WARNING("Their [M.wear_suit] is in the way, remove it first!"))
 			return 1
 		user.visible_message(SPAN_NOTICE("[user] starts fitting [src] onto the [M]'s chest."))
 
-		if(!do_mob(user, M, 2 SECONDS))
+		if(!do_after(user, 2 SECONDS, M, DO_EQUIP))
 			return
-			
+
 		if(user.unEquip(src))
-			if(!M.equip_to_slot_if_possible(src, slot_wear_suit, del_on_fail=0, disable_warning=1, redraw_mob=1))
+			if(!M.equip_to_slot_if_possible(src, slot_wear_suit, TRYEQUIP_REDRAW | TRYEQUIP_SILENT))
 				user.put_in_active_hand(src)
 			return 1
 	else
@@ -56,6 +57,13 @@
 	if(world.time > last_pump + 15 SECONDS)
 		last_pump = world.time
 		playsound(src, 'sound/machines/pump.ogg', 25)
-		var/obj/item/organ/internal/heart/heart = H.internal_organs_by_name[BP_HEART]
-		if(heart)
-			heart.external_pump = list(world.time, 0.6)
+		if(!skilled_setup && prob(20))
+			var/obj/item/organ/external/E = H.get_organ(BP_CHEST)
+			E.add_pain(15)
+			to_chat(H, SPAN_DANGER("Your [E] is compressed painfully!"))
+			if(prob(5))
+				E.fracture()
+		else
+			var/obj/item/organ/internal/heart/heart = H.internal_organs_by_name[BP_HEART]
+			if(heart)
+				heart.external_pump = list(world.time, 0.6)
