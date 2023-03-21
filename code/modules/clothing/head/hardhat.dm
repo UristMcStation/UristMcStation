@@ -60,7 +60,7 @@
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.9
 	randpixel = 0
-	species_restricted = list("exclude", SPECIES_NABBER, SPECIES_DIONA)
+	species_restricted = list("exclude", SPECIES_NABBER, SPECIES_DIONA, "Xenophage")
 	flash_protection = FLASH_PROTECTION_MAJOR
 
 /obj/item/clothing/head/hardhat/firefighter/Chief

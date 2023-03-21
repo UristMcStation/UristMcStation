@@ -336,7 +336,7 @@
 	if(!environment || (MUTATION_SPACERES in mutations))
 		return
 
-	//Stuff like diona water absorbtion happens here.
+	//Stuff like the xenomorph's plasma regen happens here.
 	species.handle_environment_special(src)
 
 	//Moved pressure calculations here for use in skip-processing check.
@@ -981,7 +981,8 @@
 		var/image/holder = hud_list[STATUS_HUD]
 		if(stat == DEAD || status_flags & FAKEDEATH)
 			holder.icon_state = "huddead"
-
+		else if(status_flags & XENO_HOST)
+			holder.icon_state = "hudxeno"
 		else if(has_brain_worms())
 			var/mob/living/simple_animal/borer/B = has_brain_worms()
 			if(B.controlling)
@@ -994,6 +995,8 @@
 		var/image/holder2 = hud_list[STATUS_HUD_OOC]
 		if(stat == DEAD)
 			holder2.icon_state = "huddead"
+		else if(status_flags & XENO_HOST)
+			holder2.icon_state = "hudxeno"
 		else if(has_brain_worms())
 			holder2.icon_state = "hudbrainworm"
 		else

@@ -44,6 +44,7 @@
 #define MODE_CULTIST       "cultist"
 #define MODE_MONKEY        "monkey"
 #define MODE_RENEGADE      "renegade"
+#define MODE_XENOMORPH "xeno"
 #define MODE_REVOLUTIONARY "revolutionary"
 #define MODE_MALFUNCTION   "malf"
 #define MODE_TRAITOR       "traitor"

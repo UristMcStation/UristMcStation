@@ -1,6 +1,6 @@
-GLOBAL_DATUM_INIT(borers, /datum/antagonist/borer, new)
+GLOBAL_DATUM_INIT(borers, /datum/antagonist/xenos/borer, new)
 
-/datum/antagonist/borer
+/datum/antagonist/xenos/borer
 	id = MODE_BORER
 	role_text = "Cortical Borer"
 	role_text_plural = "Cortical Borers"
@@ -15,10 +15,7 @@ GLOBAL_DATUM_INIT(borers, /datum/antagonist/borer, new)
 	faction_descriptor = "Unity"
 	faction_welcome = "You are now a thrall to a cortical borer. Please listen to what they have to say; they're in your head."
 	faction = "borer"
-	faction_indicator = "hudalien"
 
-	hard_cap = 5
-	hard_cap_round = 8
 	initial_spawn_req = 3
 	initial_spawn_target = 5
 

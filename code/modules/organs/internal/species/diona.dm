@@ -53,7 +53,7 @@
 	name = BP_NUTRIENT
 	parent_organ = BP_CHEST
 	organ_tag = BP_NUTRIENT
-	icon = 'icons/obj/alien.dmi'
+	icon = 'icons/mob/alien.dmi'
 	icon_state = "claw"
 
 /obj/item/organ/internal/diona/nutrients/removed(mob/user)
@@ -63,7 +63,7 @@
 	name = "response node"
 	parent_organ = BP_HEAD
 	organ_tag = "response node"
-	icon = 'icons/obj/alien.dmi'
+	icon = 'icons/mob/alien.dmi'
 	icon_state = "claw"
 
 /obj/item/organ/internal/diona/node/Process()

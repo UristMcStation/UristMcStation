@@ -90,6 +90,12 @@
 		return nutrition + food_volume * 15
 	return 0 //Always hungry, but you can't actually eat. :(
 
+/mob/living/carbon/human/Stat()
+	. = ..()
+	if(statpanel("Status"))
+		var/obj/item/organ/internal/xeno/plasmavessel/P = internal_organs_by_name[BP_PLASMA]
+		if(P)
+			stat(null, "Phoron Stored: [P.stored_plasma]/[P.max_plasma]")
 /mob/living/carbon/human/ex_act(severity)
 	if (status_flags & GODMODE)
 		return

@@ -26,6 +26,8 @@
 #define LANGUAGE_RESOMI            "Schechi"
 
 //Antag
+#define LANGUAGE_XENOPHAGE         "Xenophage"
+#define LANGUAGE_XENOPHAGE_GLOBAL  "Hivemind"
 #define LANGUAGE_CULT              "Cult"
 #define LANGUAGE_CULT_GLOBAL       "Occult"
 #define LANGUAGE_ALIUM             "Alium"

@@ -207,6 +207,10 @@ var/global/floorIsLava = 0
 				<b>Rudimentary transformation:</b>[FONT_NORMAL("<br>These transformations only create a new mob type and copy stuff over. They do not take into account MMIs and similar mob-specific things. The buttons in 'Transformations' are preferred, when possible.")]<br>
 				<A href='?src=\ref[src];simplemake=observer;mob=\ref[M]'>Observer</A> |
 				\[ Xenos: <A href='?src=\ref[src];simplemake=larva;mob=\ref[M]'>Larva</A>
+				<A href='?src=\ref[src];simplemake=human;species=Xenophage Drone;mob=\ref[M]'>Drone</A>
+				<A href='?src=\ref[src];simplemake=human;species=Xenophage Hunter;mob=\ref[M]'>Hunter</A>
+				<A href='?src=\ref[src];simplemake=human;species=Xenophage Sentinel;mob=\ref[M]'>Sentinel</A>
+				<A href='?src=\ref[src];simplemake=human;species=Xenophage Queen;mob=\ref[M]'>Queen</A> \] |
 				\[ Crew: <A href='?src=\ref[src];simplemake=human;mob=\ref[M]'>Human</A>
 				<A href='?src=\ref[src];simplemake=human;species=Unathi;mob=\ref[M]'>Unathi</A>
 				<A href='?src=\ref[src];simplemake=human;species=Skrell;mob=\ref[M]'>Skrell</A>
@@ -919,6 +923,42 @@ GLOBAL_VAR_INIT(skip_allow_lists, FALSE)
 		to_world("<B>You may no longer respawn :(</B>")
 	log_and_message_admins("toggled respawn to [config.abandon_allowed ? "On" : "Off"].")
 	world.update_status()
+
+/datum/admins/proc/toggle_aliens()
+	set category = "Server"
+	set desc="Toggle alien mobs"
+	set name="Toggle Aliens"
+	if(!check_rights(R_ADMIN))
+		return
+
+	config.aliens_allowed = !config.aliens_allowed
+	log_admin("[key_name(usr)] toggled Aliens to [config.aliens_allowed].")
+	message_admins("[key_name_admin(usr)] toggled Aliens [config.aliens_allowed ? "on" : "off"].", 1)
+	SSstatistics.add_field_details("admin_verb","TA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/datum/admins/proc/toggle_alien_eggs()
+	set category = "Server"
+	set desc="Toggle xenomorph egg laying"
+	set name="Toggle Alien Eggs"
+
+	if(!check_rights(R_ADMIN))
+		return
+	config.alien_eggs_allowed = !config.alien_eggs_allowed
+	log_admin("[key_name(usr)] toggled Alien Egg Laying to [config.alien_eggs_allowed].")
+	message_admins("[key_name_admin(usr)] toggled Alien Egg Laying [config.alien_eggs_allowed ? "on" : "off"].", 1)
+	SSstatistics.add_field_details("admin_verb","AEA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+
+/datum/admins/proc/toggle_space_ninja()
+	set category = "Server"
+	set desc="Toggle space ninjas spawning."
+	set name="Toggle Space Ninjas"
+	if(!check_rights(R_ADMIN))
+		return
+
+	config.ninjas_allowed = !config.ninjas_allowed
+	log_and_message_admins("toggled Space Ninjas [config.ninjas_allowed ? "on" : "off"].")
+	SSstatistics.add_field_details("admin_verb","TSN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/delay()
 	set category = "Server"

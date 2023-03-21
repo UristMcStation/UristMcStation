@@ -220,6 +220,9 @@
 /obj/machinery/door/unpowered/simple/glass/New(newloc,material_name,complexity)
 	..(newloc, MATERIAL_GLASS, complexity)
 
+/obj/machinery/door/unpowered/simple/resin/New(var/newloc,var/material_name,var/complexity)
+	..(newloc, MATERIAL_RESIN, complexity)
+
 /obj/machinery/door/unpowered/simple/cult/New(newloc,material_name,complexity)
 	..(newloc, MATERIAL_CULT, complexity)
 
