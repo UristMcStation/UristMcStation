@@ -122,7 +122,7 @@
 /obj/item/organ/external/hand/right/teshari
 	body_hair = "feathers"
 /obj/item/organ/external/head/teshari
-	eye_icon_location = 'icons/mob/human_races/species/teshari/eyes.dmi'
+	eye_icon = 'icons/mob/human_races/species/teshari/eyes.dmi'
 /obj/item/organ/internal/kidneys/teshari
 	parent_organ = BP_CHEST
 /obj/item/organ/internal/liver/teshari

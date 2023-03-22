@@ -158,7 +158,7 @@
 		spawn(round(proj_data.time) * 10) // in seconds
 			if(!telepad)
 				return
-			if(telepad.stat & NOPOWER)
+			if(telepad.stat & MACHINE_STAT_NOPOWER)
 				return
 			teleporting = 0
 			teleport_cooldown = world.time + (power * 2)

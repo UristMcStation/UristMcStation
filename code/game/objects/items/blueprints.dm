@@ -1,9 +1,13 @@
 /obj/item/blueprints
 	name = "blueprints"
-	desc = "Blueprints for building a station. There is a \"Classified\" stamp and several coffee stains on it."
+	desc = "Blueprints..."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "blueprints"
 	attack_verb = list("attacked", "bapped", "hit")
+	var/const/AREA_ERRNONE = 0
+	var/const/AREA_STATION = 1
+	var/const/AREA_SPACE =   2
+	var/const/AREA_SPECIAL = 3
 
 	var/const/BORDER_ERROR = 0
 	var/const/BORDER_NONE = 1
@@ -20,10 +24,10 @@
 	desc = "Blueprints of \the [station_name()]. There is a \"Classified\" stamp and several coffee stains on it."
 
 /obj/item/blueprints/attack_self(mob/M as mob)
-	if(!istype(M,/mob/living/carbon/human))
+	if (!istype(M,/mob/living/carbon/human))
 		to_chat(M, "This stack of blue paper means nothing to you.")//monkeys cannot into projecting
-		return
 
+		return
 	interact()
 
 /obj/item/blueprints/DefaultTopicState()
@@ -31,15 +35,18 @@
 
 /obj/item/blueprints/OnTopic(user, href_list)
 	switch(href_list["action"])
-		if("create_area")
+		if ("create_area")
+			if (get_area_type()!=AREA_SPACE)
+				interact()
+				return
 			create_area()
 		if ("edit_area")
+			if (get_area_type()!=AREA_STATION)
+				interact()
+				return
 			edit_area()
-		if("merge_area")
-			merge_area()
-		if("add_to_area")
-			add_to_area()
-		if ("remove_area")
+		if ("delete_area")
+			//skip the sanity checking, delete_area() does it anyway
 			delete_area()
 
 /obj/item/blueprints/proc/get_header()
@@ -130,7 +137,7 @@
 		return
 	to_chat(usr, SPAN_NOTICE("You scrub [A.name] off the blueprint."))
 	log_and_message_admins("deleted area [A.name] via station blueprints.")
-	deleteArea(A)
+	qdel(A)
 	interact()
 
 /obj/item/blueprints/proc/set_area_machinery_title(area/A,title,oldtitle)
@@ -154,15 +161,12 @@
 		return BORDER_SPACE //omg hull breach we all going to die here
 	if (istype(T2, /turf/simulated/shuttle))
 		return BORDER_SPACE
-	if(istype(T2, /turf/simulated/floor/planet))
-		return BORDER_SPACE
-	if (!isspace(T2.loc) || !isplanet(T2.loc))
+	if (get_area_type(T2.loc)!=AREA_SPACE)
 		return BORDER_BETWEEN
 	if (istype(T2, /turf/simulated/wall))
 		return BORDER_2NDTILE
 	if (!istype(T2, /turf/simulated))
 		return BORDER_BETWEEN
-
 
 	for (var/obj/structure/window/W in T2)
 		if(turn(dir,180) == W.dir)

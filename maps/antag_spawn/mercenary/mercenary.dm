@@ -37,7 +37,6 @@
 	warmup_time = 5
 	range = 2
 	fuel_consumption = 2
-	skill_needed = SKILL_NONE
 
 /turf/simulated/floor/shuttle_ceiling/merc
 	color = COLOR_DARK_GUNMETAL

@@ -38,7 +38,7 @@
 			SSfactions.update_reputation(neg_faction, neg_rep_points)
 
 		var/datum/transaction/T = new("[GLOB.using_map.station_name]", "Contract Completion", money, "[faction.name]")
-		station_account.do_transaction(T)
+		station_account.add_transaction(T)
 		GLOB.using_map.completed_contracts += 1
 		GLOB.using_map.contract_money += src.money
 		GLOB.using_map.contracts -= src

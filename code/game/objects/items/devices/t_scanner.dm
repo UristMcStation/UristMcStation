@@ -11,7 +11,7 @@
 	matter = list(MATERIAL_ALUMINIUM = 150)
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
 	action_button_name = "Toggle T-Ray scanner"
-	
+
 	var/standard_mode = TRUE
 	var/scan_range = 3
 
@@ -128,7 +128,7 @@
 
 /obj/item/device/t_scanner/proc/get_scanned_objects(scan_dist)
 	. = list()
-	
+
 	var/turf/center
 	if(standard_mode)
 		center = get_turf(src.loc)
@@ -146,6 +146,9 @@
 						. += M
 				else if(round_is_spooky() && isobserver(M))
 					. += M
+		else
+			if(isopenspace(T))
+				. += T
 
 		if(!!T.is_plating())
 			continue
@@ -153,16 +156,10 @@
 		for(var/obj/O in T.contents)
 			if(O.level != ATOM_LEVEL_UNDER_TILE)
 				continue
+			if(!O.invisibility)
+				continue //if it's already visible don't need an overlay for it
+			. += O
 
-			for(var/obj/O in T.contents)
-				if(O.level != 1)
-					continue
-				if(!O.invisibility)
-					continue //if it's already visible don't need an overlay for it
-				. += O
-		else
-			if(isopenspace(T))
-				. += T
 
 
 /obj/item/device/t_scanner/proc/set_user_client(client/new_client)

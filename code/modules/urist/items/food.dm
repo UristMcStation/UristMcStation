@@ -260,6 +260,7 @@
 	desc = "A test juicebox, contact the admins if you see this, something has broken."
 	icon = 'icons/urist/items/uristfood.dmi'
 	icon_state = "juicebox-test"
+	var/trash = /obj/item/trash/urist/mingus_trash
 
 // Add the noise and the straw overlay to show it's open.
 /obj/item/reagent_containers/food/drinks/cans/juicebox/open(mob/user)

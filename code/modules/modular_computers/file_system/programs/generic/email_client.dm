@@ -63,7 +63,7 @@
 	var/stored_password = ""
 	var/error = ""
 
-	//var/msg_title = ""
+	var/msg_title = ""
 	var/msg_body = ""
 	var/msg_recipient = ""
 	var/datum/computer_file/msg_attachment = null

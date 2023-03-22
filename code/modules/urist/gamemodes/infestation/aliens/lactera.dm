@@ -66,7 +66,7 @@
 	limb_flags = null
 	dislocated = -1
 	arterial_bleed_severity = 0
-	eye_icon_location = 'icons/uristmob/species/lactera/eyes.dmi'
+	eye_icon = 'icons/uristmob/species/lactera/eyes.dmi'
 
 /*/datum/hud_data/lactera //work on this //just make the lactera clothing unremovable, delete this
 	has_internals = 0

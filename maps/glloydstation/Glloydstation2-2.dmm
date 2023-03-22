@@ -3683,7 +3683,7 @@
 /obj/item/stack/material/steel{
 	amount = 10
 	},
-/obj/item/device/floor_painter,
+/obj/item/device/paint_sprayer,
 /turf/simulated/floor/plating,
 /area/merchant_station)
 "aji" = (
@@ -4045,7 +4045,7 @@
 	dir = 4;
 	pixel_y = 8
 	},
-/obj/item/tank/emergency/oxygen/double,
+/obj/item/tank/oxygen_emergency_double,
 /turf/simulated/floor/plating,
 /area/merchant_station)
 "ajW" = (
@@ -4619,7 +4619,7 @@
 /area/centcom/evac)
 "alt" = (
 /turf/unsimulated/wall,
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "alu" = (
 /obj/structure/table/standard,
 /turf/unsimulated/floor{
@@ -4659,23 +4659,23 @@
 	icon_state = "gravsnow_corner";
 	dir = 9
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "alz" = (
 /turf/unsimulated/floor/snow,
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "alA" = (
 /obj/structure/flora/tree/pine,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/snow.dmi';
 	icon_state = "snow"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "alB" = (
 /turf/unsimulated/floor{
 	icon = 'icons/turf/snow.dmi';
 	icon_state = "snow"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "alC" = (
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
@@ -4683,7 +4683,7 @@
 	icon_state = "gravsnow_corner";
 	dir = 5
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "alD" = (
 /obj/structure/table/standard,
 /obj/item/hand_labeler,
@@ -4699,15 +4699,15 @@
 	icon_state = "gravsnow_corner";
 	dir = 8
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "alF" = (
 /obj/structure/flora/tree/pine,
 /turf/unsimulated/floor/snow,
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "alG" = (
 /obj/structure/flora/grass/both,
 /turf/unsimulated/floor/snow,
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "alH" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle,
@@ -4776,7 +4776,7 @@
 	icon_state = "gravsnow_corner";
 	dir = 6
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "alP" = (
 /turf/simulated/shuttle/wall{
 	icon_state = "swall";
@@ -4786,7 +4786,7 @@
 "alQ" = (
 /obj/structure/flora/grass/brown,
 /turf/unsimulated/floor/snow,
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "alR" = (
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
@@ -4794,7 +4794,7 @@
 	icon_state = "gravsnow_corner";
 	dir = 6
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "alS" = (
 /obj/structure/closet/secure_closet/personal/patient,
 /turf/unsimulated/floor{
@@ -4862,7 +4862,7 @@
 	icon_state = "gravsnow_corner";
 	dir = 4
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "alZ" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp{
@@ -4872,7 +4872,7 @@
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "ama" = (
 /obj/structure/table/standard,
 /obj/effect/landmark{
@@ -4881,7 +4881,7 @@
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "amb" = (
 /obj/structure/table/standard,
 /obj/item/paper_bin{
@@ -4894,7 +4894,7 @@
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "amc" = (
 /obj/structure/window/shuttle,
 /obj/structure/grille,
@@ -4941,13 +4941,13 @@
 	dir = 1;
 	icon_state = "fakewindows"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "amj" = (
 /obj/structure/bed/nice,
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "amk" = (
 /obj/effect/landmark{
 	name = "Syndicate-Spawn"
@@ -4955,12 +4955,12 @@
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aml" = (
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "amm" = (
 /obj/machinery/sleeper,
 /turf/unsimulated/floor{
@@ -5015,13 +5015,13 @@
 /obj/structure/flora/grass/both,
 /obj/structure/flora/tree/pine,
 /turf/unsimulated/floor/snow,
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "amt" = (
 /turf/unsimulated/wall/fakeglass{
 	icon_state = "fakewindows2";
 	dir = 1
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "amu" = (
 /obj/machinery/vending/wallmed1{
 	name = "Emergency NanoMed";
@@ -5048,7 +5048,7 @@
 /area/centcom/evac)
 "amx" = (
 /turf/unsimulated/wall/fakeglass,
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "amy" = (
 /obj/machinery/door/window/northright{
 	base_state = "right";
@@ -5076,7 +5076,7 @@
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "amB" = (
 /turf/simulated/shuttle/wall{
 	icon_state = "swall_t";
@@ -5106,14 +5106,14 @@
 	tag = "icon-gravsnow_corner";
 	icon_state = "gravsnow_corner"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "amF" = (
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
 	tag = "icon-gravsnow_corner";
 	icon_state = "gravsnow_corner"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "amG" = (
 /obj/structure/flora/grass/both,
 /turf/unsimulated/floor/snow,
@@ -5121,7 +5121,7 @@
 	tag = "icon-gravsnow_corner";
 	icon_state = "gravsnow_corner"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "amH" = (
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
@@ -5129,7 +5129,7 @@
 	icon_state = "gravsnow_surround";
 	dir = 4
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "amI" = (
 /obj/machinery/computer/crew,
 /turf/unsimulated/floor{
@@ -5157,19 +5157,19 @@
 "amL" = (
 /obj/structure/flora/bush,
 /turf/unsimulated/floor/snow,
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "amM" = (
 /turf/unsimulated/wall/fakeglass{
 	icon_state = "fakewindows";
 	dir = 9
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "amN" = (
 /turf/unsimulated/wall/fakeglass{
 	icon_state = "fakewindows";
 	dir = 4
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "amO" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Barracks";
@@ -5179,7 +5179,7 @@
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "amP" = (
 /obj/structure/table/reinforced,
 /turf/unsimulated/floor{
@@ -5201,7 +5201,7 @@
 	name = "plating";
 	icon_state = "cult"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "amS" = (
 /obj/structure/sign/uristmap/left{
 	pixel_y = 32
@@ -5211,7 +5211,7 @@
 	name = "plating";
 	icon_state = "cult"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "amT" = (
 /obj/structure/sign/uristmap/right{
 	pixel_y = 32
@@ -5221,7 +5221,7 @@
 	name = "plating";
 	icon_state = "cult"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "amU" = (
 /obj/machinery/vending/snack,
 /turf/unsimulated/floor{
@@ -5229,13 +5229,13 @@
 	name = "plating";
 	icon_state = "cult"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "amV" = (
 /obj/structure/table/standard,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "amW" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/mixedglasses{
@@ -5245,7 +5245,7 @@
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "amX" = (
 /obj/structure/hygiene/sink/kitchen{
 	pixel_y = 28
@@ -5253,13 +5253,13 @@
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "amY" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "amZ" = (
 /obj/item/storage/lockbox,
 /obj/structure/table/reinforced,
@@ -5307,7 +5307,7 @@
 	name = "plating";
 	icon_state = "cult"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "anf" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Kitchen";
@@ -5317,12 +5317,12 @@
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "ang" = (
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "anh" = (
 /obj/structure/table/reinforced,
 /obj/machinery/microwave{
@@ -5332,7 +5332,7 @@
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "ani" = (
 /obj/structure/window/shuttle{
 	icon_state = "window4"
@@ -5363,7 +5363,7 @@
 	name = "plating";
 	icon_state = "cult"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "anm" = (
 /obj/structure/table/standard,
 /obj/item/folder{
@@ -5374,7 +5374,7 @@
 	name = "plating";
 	icon_state = "cult"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "ann" = (
 /obj/structure/table/standard,
 /obj/item/paper_bin{
@@ -5389,7 +5389,7 @@
 	name = "plating";
 	icon_state = "cult"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "ano" = (
 /obj/structure/bed/chair/comfy/black{
 	dir = 8
@@ -5399,7 +5399,7 @@
 	name = "plating";
 	icon_state = "cult"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "anp" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/box/donkpockets{
@@ -5409,7 +5409,7 @@
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "anq" = (
 /turf/unsimulated/floor{
 	icon = 'icons/turf/snow.dmi';
@@ -5450,7 +5450,7 @@
 	name = "plating";
 	icon_state = "cult"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "anu" = (
 /obj/machinery/vending/cola,
 /turf/unsimulated/floor{
@@ -5458,7 +5458,7 @@
 	name = "plating";
 	icon_state = "cult"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "anv" = (
 /obj/structure/closet/secure_closet/freezer/kitchen{
 	req_access = list("ACCESS_SYNDICATE")
@@ -5466,7 +5466,7 @@
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "anw" = (
 /obj/structure/table/reinforced,
 /obj/item/tray{
@@ -5475,7 +5475,7 @@
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "anx" = (
 /obj/structure/table/reinforced,
 /obj/item/reagent_containers/food/drinks/bottle/vodka{
@@ -5489,7 +5489,7 @@
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "any" = (
 /turf/simulated/shuttle/wall{
 	icon_state = "wall3"
@@ -5528,7 +5528,7 @@
 	name = "plating";
 	icon_state = "cult"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "anF" = (
 /obj/machinery/microwave{
 	pixel_x = -1;
@@ -5552,13 +5552,13 @@
 	icon_state = "fakewindows";
 	dir = 10
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "anJ" = (
 /turf/unsimulated/wall/fakeglass{
 	icon_state = "fakewindows2";
 	dir = 8
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "anK" = (
 /obj/structure/hygiene/urinal{
 	pixel_y = 32
@@ -5567,7 +5567,7 @@
 	icon_state = "freezerfloor";
 	dir = 2
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "anL" = (
 /obj/structure/hygiene/shower{
 	pixel_y = 32
@@ -5579,7 +5579,7 @@
 	icon_state = "freezerfloor";
 	dir = 2
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "anM" = (
 /obj/structure/hygiene/shower{
 	pixel_y = 32
@@ -5589,7 +5589,7 @@
 	icon_state = "freezerfloor";
 	dir = 2
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "anN" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1331;
@@ -5642,7 +5642,7 @@
 	icon_state = "gravsnow_corner";
 	dir = 1
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "anT" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Bathroom";
@@ -5652,13 +5652,13 @@
 	icon_state = "freezerfloor";
 	dir = 2
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "anU" = (
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
 	dir = 2
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "anV" = (
 /obj/structure/hygiene/shower{
 	dir = 1
@@ -5667,7 +5667,7 @@
 	icon_state = "freezerfloor";
 	dir = 2
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "anW" = (
 /obj/item/stack/material/glass{
 	amount = 15
@@ -5713,7 +5713,7 @@
 	icon_state = "freezerfloor";
 	dir = 2
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aoa" = (
 /turf/unsimulated/floor{
 	icon = 'icons/turf/snow.dmi';
@@ -5744,7 +5744,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aoe" = (
 /obj/structure/table/rack,
 /obj/item/ammo_magazine/a10mm,
@@ -5759,7 +5759,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aof" = (
 /obj/structure/table/rack,
 /obj/item/ammo_magazine/c45m,
@@ -5772,7 +5772,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aog" = (
 /obj/structure/table/rack,
 /obj/item/gun/energy/ionrifle,
@@ -5783,7 +5783,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aoh" = (
 /obj/structure/closet,
 /turf/simulated/floor/shuttle/darkred,
@@ -5795,7 +5795,7 @@
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aoj" = (
 /obj/structure/closet{
 	name = "custodial"
@@ -5806,7 +5806,7 @@
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aok" = (
 /obj/structure/table/rack,
 /obj/item/clothing/accessory/storage/brown_vest,
@@ -5818,7 +5818,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aol" = (
 /obj/structure/table/rack,
 /obj/item/clothing/accessory/storage/black_vest,
@@ -5830,7 +5830,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aom" = (
 /obj/structure/bed/chair{
 	dir = 8
@@ -5852,7 +5852,7 @@
 	icon_state = "gravsnow_corner";
 	dir = 8
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aoo" = (
 /obj/machinery/door/airlock/external{
 	req_access = list("ACCESS_SYNDICATE")
@@ -5860,7 +5860,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aop" = (
 /obj/structure/table/rack,
 /obj/item/storage/belt/urist/military,
@@ -5868,7 +5868,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aoq" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -5900,7 +5900,7 @@
 	tag = "icon-gravsnow_surround";
 	icon_state = "gravsnow_surround"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aou" = (
 /obj/machinery/door/airlock/external{
 	req_access = list("ACCESS_SYNDICATE")
@@ -5916,16 +5916,16 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aov" = (
 /turf/unsimulated/wall/fakeglass{
 	icon_state = "fakewindows";
 	dir = 8
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aow" = (
 /obj/structure/table/standard,
-/obj/item/material/kitchen/utensil/knife{
+/obj/item/material/knife/kitchen{
 	pixel_x = -6
 	},
 /obj/item/reagent_containers/syringe/drugs{
@@ -5943,7 +5943,7 @@
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aox" = (
 /obj/machinery/door/airlock/vault{
 	name = "Armory";
@@ -5952,7 +5952,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aoy" = (
 /obj/effect/landmark{
 	name = "Syndicate-Uplink"
@@ -5960,7 +5960,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aoz" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -6008,20 +6008,20 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aoC" = (
 /obj/structure/bed/chair,
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aoD" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/snacks/syndicake,
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aoE" = (
 /obj/structure/table/rack,
 /obj/item/gun/energy/gun,
@@ -6034,7 +6034,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aoF" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -6126,7 +6126,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aoO" = (
 /obj/structure/table/rack,
 /obj/item/device/radio/electropack,
@@ -6136,21 +6136,21 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aoP" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/drinks/bottle/pwine,
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aoQ" = (
 /obj/structure/table/standard,
 /obj/item/flame/lighter/zippo/vanity/redwhitered,
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aoR" = (
 /obj/structure/table/standard,
 /obj/item/material/ashtray/bronze,
@@ -6158,7 +6158,7 @@
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aoS" = (
 /obj/structure/table/rack,
 /obj/item/pinpointer/nukeop,
@@ -6176,7 +6176,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aoT" = (
 /obj/structure/table/rack,
 /obj/item/storage/belt/holster/security,
@@ -6190,14 +6190,14 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aoU" = (
 /obj/structure/table/rack,
 /obj/item/gun/launcher/grenade,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aoV" = (
 /obj/structure/table/rack,
 /obj/item/storage/box/flashbangs,
@@ -6208,7 +6208,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aoW" = (
 /obj/structure/table/rack,
 /obj/item/storage/box/bodybags{
@@ -6221,7 +6221,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aoX" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
@@ -6287,7 +6287,7 @@
 	},
 /obj/structure/window/reinforced,
 /turf/unsimulated/floor/plating,
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aph" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Suit Storage";
@@ -6296,7 +6296,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "api" = (
 /obj/machinery/door/window{
 	dir = 1;
@@ -6342,7 +6342,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "apm" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
@@ -6352,7 +6352,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "apn" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
@@ -6362,7 +6362,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "apo" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
@@ -6372,7 +6372,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "app" = (
 /obj/structure/table/rack,
 /obj/item/tank/jetpack/oxygen,
@@ -6384,13 +6384,13 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "apq" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "apr" = (
 /obj/machinery/vending/cigarette{
 	contraband = newlist();
@@ -6463,7 +6463,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "apz" = (
 /obj/structure/table/rack,
 /obj/item/tank/jetpack/carbondioxide,
@@ -6475,29 +6475,29 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "apA" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "apB" = (
 /obj/structure/table/standard,
 /obj/item/clothing/mask/gas/payday/dallas,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "apC" = (
 /obj/structure/table/standard,
 /obj/item/clothing/mask/gas/payday/chains,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "apD" = (
-/obj/item/material/kitchen/utensil/knife{
+/obj/item/material/knife/kitchen{
 	pixel_x = -6
 	},
 /obj/item/reagent_containers/syringe/drugs{
@@ -6592,33 +6592,33 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "apN" = (
 /obj/structure/table/rack,
-/obj/item/tank/emergency/oxygen/double,
-/obj/item/tank/emergency/oxygen/double,
-/obj/item/tank/emergency/oxygen/double,
-/obj/item/tank/emergency/oxygen/double,
-/obj/item/tank/emergency/oxygen/double,
-/obj/item/tank/emergency/oxygen/double,
+/obj/item/tank/oxygen_emergency_double,
+/obj/item/tank/oxygen_emergency_double,
+/obj/item/tank/oxygen_emergency_double,
+/obj/item/tank/oxygen_emergency_double,
+/obj/item/tank/oxygen_emergency_double,
+/obj/item/tank/oxygen_emergency_double,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "apO" = (
 /obj/structure/table/standard,
 /obj/item/clothing/mask/gas/payday/hoxton,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "apP" = (
 /obj/structure/table/standard,
 /obj/item/clothing/mask/gas/payday/wolf,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "apQ" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
@@ -6628,7 +6628,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "apR" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
@@ -6638,7 +6638,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "apS" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
@@ -6648,7 +6648,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "apT" = (
 /obj/effect/landmark/start,
 /turf/unsimulated/floor,
@@ -6752,7 +6752,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aqf" = (
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -7040,7 +7040,7 @@
 	icon_state = "gravsnow_surround";
 	dir = 1
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aqP" = (
 /obj/structure/shuttle/engine/heater,
 /obj/structure/window/reinforced{
@@ -7088,13 +7088,13 @@
 	icon_state = "gravsnow_corner";
 	dir = 8
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aqW" = (
 /turf/unsimulated/floor/snow{
 	tag = "icon-permafrost";
 	icon_state = "permafrost"
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aqX" = (
 /turf/unsimulated/floor/snow{
 	tag = "icon-permafrost";
@@ -7105,7 +7105,7 @@
 	icon_state = "gravsnow_corner";
 	dir = 4
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aqY" = (
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
@@ -7113,7 +7113,7 @@
 	icon_state = "gravsnow_corner";
 	dir = 10
 	},
-/area/syndicate_mothership)
+/area/map_template/syndicate_mothership)
 "aqZ" = (
 /turf/unsimulated/wall,
 /area/centcom)
@@ -8702,14 +8702,14 @@
 /area/centcom/specops)
 "auP" = (
 /obj/structure/table/rack,
-/obj/item/tank/emergency/oxygen/double,
-/obj/item/tank/emergency/oxygen/double,
-/obj/item/tank/emergency/oxygen/double,
-/obj/item/tank/emergency/oxygen/double,
-/obj/item/tank/emergency/oxygen/double,
-/obj/item/tank/emergency/oxygen/double,
-/obj/item/tank/emergency/oxygen/double,
-/obj/item/tank/emergency/oxygen/double,
+/obj/item/tank/oxygen_emergency_double,
+/obj/item/tank/oxygen_emergency_double,
+/obj/item/tank/oxygen_emergency_double,
+/obj/item/tank/oxygen_emergency_double,
+/obj/item/tank/oxygen_emergency_double,
+/obj/item/tank/oxygen_emergency_double,
+/obj/item/tank/oxygen_emergency_double,
+/obj/item/tank/oxygen_emergency_double,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -9572,7 +9572,7 @@
 /area/centcom/specops)
 "awD" = (
 /obj/structure/table/reinforced,
-/obj/item/storage/fancy/cigar,
+/obj/item/storage/fancy/smokable/cigar,
 /obj/item/storage/box/matches,
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -11308,8 +11308,8 @@
 /obj/structure/table/rack,
 /obj/item/clothing/mask/breath,
 /obj/item/tank/emergency/oxygen,
-/obj/item/clothing/head/urist/emergencyhood,
-/obj/item/clothing/suit/urist/emergencysuit,
+/obj/item/clothing/head/helmet/space/emergency,
+/obj/item/clothing/suit/space/emergency,
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape/centcom)
 "aAH" = (
@@ -13390,7 +13390,7 @@
 "aFw" = (
 /obj/structure/table/rack,
 /obj/item/storage/box/lights/mixed,
-/obj/item/device/floor_painter,
+/obj/item/device/paint_sprayer,
 /turf/unsimulated/floor{
 	icon_state = "plating";
 	name = "plating"
@@ -14952,11 +14952,11 @@
 /area/tdome)
 "aIV" = (
 /turf/unsimulated/wall,
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aIW" = (
 /obj/structure/hygiene/sink,
 /turf/unsimulated/wall,
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aIX" = (
 /turf/simulated/shuttle/wall,
 /area/shuttle/arrivals/centcom)
@@ -15141,7 +15141,7 @@
 	dir = 8;
 	icon_state = "wood"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aJy" = (
 /obj/structure/bookcase{
 	name = "Forbidden Knowledge"
@@ -15150,13 +15150,13 @@
 	dir = 8;
 	icon_state = "wood"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aJz" = (
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aJA" = (
 /obj/item/modular_computer/console/preset/library,
 /obj/structure/table/woodentable/walnut,
@@ -15164,7 +15164,7 @@
 	dir = 8;
 	icon_state = "wood"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aJB" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/book/manual/security_space_law/tg,
@@ -15172,7 +15172,7 @@
 	dir = 8;
 	icon_state = "wood"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aJC" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/book/manual/nuclear,
@@ -15180,7 +15180,7 @@
 	dir = 8;
 	icon_state = "wood"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aJD" = (
 /obj/structure/table/woodentable/walnut,
 /obj/effect/landmark{
@@ -15190,7 +15190,7 @@
 	dir = 2;
 	icon_state = "carpet"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aJE" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/paper{
@@ -15201,7 +15201,7 @@
 	dir = 2;
 	icon_state = "carpet"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aJF" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/storage/backpack/satchel,
@@ -15209,7 +15209,7 @@
 	dir = 2;
 	icon_state = "carpet"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aJG" = (
 /obj/structure/hygiene/toilet{
 	pixel_y = 8
@@ -15218,13 +15218,13 @@
 	icon_state = "freezerfloor";
 	dir = 2
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aJH" = (
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
 	dir = 2
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aJI" = (
 /obj/item/storage/mirror{
 	pixel_y = 28
@@ -15233,7 +15233,7 @@
 	icon_state = "freezerfloor";
 	dir = 2
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aJJ" = (
 /turf/simulated/shuttle/wall{
 	icon_state = "swall_straight";
@@ -15572,13 +15572,13 @@
 	dir = 2;
 	icon_state = "carpet"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aKy" = (
 /turf/unsimulated/floor{
 	dir = 2;
 	icon_state = "carpet"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aKz" = (
 /obj/effect/landmark/start{
 	name = "wizard"
@@ -15587,14 +15587,14 @@
 	dir = 2;
 	icon_state = "carpet"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aKA" = (
 /obj/machinery/door/unpowered/simple/iron,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
 	dir = 2
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aKB" = (
 /obj/structure/hygiene/shower{
 	icon_state = "shower";
@@ -15604,7 +15604,7 @@
 	icon_state = "freezerfloor";
 	dir = 2
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aKC" = (
 /obj/structure/shuttle/window,
 /obj/structure/grille,
@@ -15778,7 +15778,7 @@
 	dir = 8;
 	icon_state = "wood"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aLc" = (
 /obj/structure/closet/coffin,
 /obj/item/device/radio/intercom{
@@ -15794,7 +15794,7 @@
 	dir = 8;
 	icon_state = "wood"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aLd" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/device/flashlight/lamp/green{
@@ -15816,7 +15816,7 @@
 	dir = 2;
 	icon_state = "carpet"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aLe" = (
 /obj/machinery/light,
 /turf/simulated/floor/shuttle/white,
@@ -16059,7 +16059,7 @@
 	dir = 8;
 	icon_state = "diagonalWall3"
 	},
-/area/syndicate_mothership/elite_squad)
+/area/syndicate_elite_squad)
 "aLK" = (
 /turf/unsimulated/wall{
 	desc = "That looks like it doesn't open easily.";
@@ -16067,12 +16067,12 @@
 	icon_state = "pdoor1";
 	name = "Shuttle Bay Blast Door"
 	},
-/area/syndicate_mothership/elite_squad)
+/area/syndicate_elite_squad)
 "aLL" = (
 /turf/simulated/shuttle/wall{
 	icon_state = "wall3"
 	},
-/area/syndicate_mothership/elite_squad)
+/area/syndicate_elite_squad)
 "aLM" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/storage/bag/cash,
@@ -16080,18 +16080,18 @@
 	dir = 8;
 	icon_state = "wood"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aLN" = (
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aLO" = (
 /obj/structure/bed/nice,
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aLP" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/suit/wizrobe/red,
@@ -16101,7 +16101,7 @@
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aLQ" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/suit/wizrobe/marisa,
@@ -16111,7 +16111,7 @@
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aLR" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/suit/wizrobe/magusblue,
@@ -16120,7 +16120,7 @@
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aLS" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/suit/wizrobe/urist/necro,
@@ -16129,7 +16129,7 @@
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aLT" = (
 /turf/space,
 /turf/simulated/shuttle/wall/corner/smoothwhite/sw,
@@ -16380,14 +16380,14 @@
 	dir = 8;
 	icon_state = "wood"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aMz" = (
 /obj/machinery/vending/magivend,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aMA" = (
 /obj/machinery/door/unpowered/simple/wood{
 	tag = "icon-wood";
@@ -16396,7 +16396,7 @@
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aMB" = (
 /obj/item/device/radio/intercom{
 	desc = "Talk through this. Evilly";
@@ -16410,7 +16410,7 @@
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aMC" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -16561,28 +16561,28 @@
 	dir = 8;
 	icon_state = "wood"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aMV" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/storage/backpack/cultpack,
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aMW" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/clothing/glasses/monocle,
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aMX" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/storage/backpack,
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aMY" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/psysuit,
@@ -16592,7 +16592,7 @@
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aMZ" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/shoes/sandal/marisa{
@@ -16606,7 +16606,7 @@
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aNa" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/suit/wizrobe/magusred,
@@ -16615,7 +16615,7 @@
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aNb" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/shoes/sandal/marisa,
@@ -16625,7 +16625,7 @@
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aNc" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -16757,7 +16757,7 @@
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/syndicate_mothership/elite_squad)
+/area/syndicate_elite_squad)
 "aNw" = (
 /obj/item/device/radio/intercom/syndicate{
 	dir = 8;
@@ -16766,7 +16766,7 @@
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/syndicate_mothership/elite_squad)
+/area/syndicate_elite_squad)
 "aNx" = (
 /obj/machinery/vending/cigarette,
 /turf/unsimulated/floor{
@@ -16979,7 +16979,7 @@
 	dir = 8;
 	icon_state = "wood"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aNR" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/dice/d20,
@@ -16987,7 +16987,7 @@
 	dir = 8;
 	icon_state = "wood"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aNS" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/storage/box/cups,
@@ -16995,7 +16995,7 @@
 	dir = 8;
 	icon_state = "wood"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aNT" = (
 /obj/structure/bed/chair/wood/wings/walnut{
 	icon_state = "wooden_chair_wings";
@@ -17005,7 +17005,7 @@
 	dir = 8;
 	icon_state = "wood"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aNU" = (
 /obj/item/target,
 /turf/unsimulated/floor{
@@ -17013,7 +17013,7 @@
 	name = "plating";
 	icon_state = "cult"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aNV" = (
 /obj/item/target/syndicate,
 /turf/unsimulated/floor{
@@ -17021,7 +17021,7 @@
 	name = "plating";
 	icon_state = "cult"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aNW" = (
 /obj/item/target/alien,
 /turf/unsimulated/floor{
@@ -17029,27 +17029,27 @@
 	name = "plating";
 	icon_state = "cult"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aNX" = (
 /turf/unsimulated/wall/fakeglass{
 	icon_state = "fakewindows2";
 	dir = 1
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aNY" = (
 /obj/structure/table/rack,
 /obj/item/material/knife/ritual,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aNZ" = (
 /obj/structure/kitchenspike,
 /obj/structure/table/reinforced,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aOa" = (
 /obj/machinery/computer/shuttle_control/centcom/arrivals{
 	dir = 4
@@ -17322,7 +17322,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership/elite_squad)
+/area/syndicate_elite_squad)
 "aOC" = (
 /obj/item/device/radio/intercom/syndicate{
 	dir = 2;
@@ -17331,7 +17331,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership/elite_squad)
+/area/syndicate_elite_squad)
 "aOD" = (
 /obj/effect/landmark{
 	name = "Syndicate-Commando"
@@ -17339,24 +17339,24 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership/elite_squad)
+/area/syndicate_elite_squad)
 "aOE" = (
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership/elite_squad)
+/area/syndicate_elite_squad)
 "aOF" = (
 /obj/machinery/mech_recharger,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership/elite_squad)
+/area/syndicate_elite_squad)
 "aOG" = (
 /obj/mecha/combat/marauder/mauler,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership/elite_squad)
+/area/syndicate_elite_squad)
 "aOH" = (
 /obj/structure/table/woodentable/walnut,
 /obj/structure/table/woodentable/walnut,
@@ -17365,7 +17365,7 @@
 	dir = 8;
 	icon_state = "wood"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aOI" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/dice,
@@ -17373,22 +17373,22 @@
 	dir = 8;
 	icon_state = "wood"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aOJ" = (
 /turf/unsimulated/floor{
 	tag = "icon-cult";
 	name = "plating";
 	icon_state = "cult"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aOK" = (
 /turf/unsimulated/wall/fakeglass,
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aOL" = (
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aOM" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/unsimulated/wall/fakeglass{
@@ -17606,7 +17606,7 @@
 	icon_state = "plating";
 	name = "plating"
 	},
-/area/syndicate_mothership/elite_squad)
+/area/syndicate_elite_squad)
 "aPk" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/device/megaphone,
@@ -17614,7 +17614,7 @@
 	dir = 8;
 	icon_state = "wood"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aPl" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/storage/box/donut,
@@ -17622,7 +17622,7 @@
 	dir = 8;
 	icon_state = "wood"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aPm" = (
 /obj/structure/sign/urist/nt,
 /turf/unsimulated/wall,
@@ -17820,7 +17820,7 @@
 	icon_state = "plating";
 	name = "plating"
 	},
-/area/syndicate_mothership/elite_squad)
+/area/syndicate_elite_squad)
 "aPG" = (
 /obj/machinery/door/airlock/external{
 	req_access = list("ACCESS_SYNDICATE")
@@ -17828,7 +17828,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership/elite_squad)
+/area/syndicate_elite_squad)
 "aPH" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/reagent_containers/food/snacks/chawanmushi,
@@ -17836,7 +17836,7 @@
 	dir = 8;
 	icon_state = "wood"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aPI" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/spacecash/bundle/c1,
@@ -17844,7 +17844,7 @@
 	dir = 8;
 	icon_state = "wood"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aPJ" = (
 /obj/structure/table/reinforced,
 /obj/item/book/manual/robotics_cyborgs,
@@ -17853,7 +17853,7 @@
 	name = "plating";
 	icon_state = "cult"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aPK" = (
 /obj/structure/table/reinforced,
 /obj/item/robot_parts/head,
@@ -17862,7 +17862,7 @@
 	name = "plating";
 	icon_state = "cult"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aPL" = (
 /obj/item/device/radio/intercom{
 	desc = "Talk through this. Evilly";
@@ -17878,7 +17878,7 @@
 	name = "plating";
 	icon_state = "cult"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aPM" = (
 /obj/structure/window/basic{
 	dir = 8
@@ -18044,7 +18044,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership/elite_squad)
+/area/syndicate_elite_squad)
 "aQd" = (
 /obj/machinery/button/remote/blast_door{
 	id = "syndicate_elite_mech_room";
@@ -18056,7 +18056,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership/elite_squad)
+/area/syndicate_elite_squad)
 "aQe" = (
 /obj/structure/sign/urist/ad/sign5{
 	pixel_y = -32
@@ -18372,25 +18372,25 @@
 	icon_state = "fakewindows";
 	dir = 8
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aQG" = (
 /turf/unsimulated/wall/fakeglass{
 	icon_state = "fakewindows2";
 	dir = 8
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aQH" = (
 /turf/unsimulated/wall/fakeglass{
 	dir = 1;
 	icon_state = "fakewindows"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aQI" = (
 /turf/unsimulated/wall/fakeglass{
 	icon_state = "fakewindows";
 	dir = 4
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aQJ" = (
 /obj/structure/table/reinforced,
 /obj/item/paper_bin{
@@ -18610,40 +18610,40 @@
 	name = "plating";
 	icon_state = "lava"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aRf" = (
 /turf/unsimulated/floor{
 	tag = "icon-lava";
 	name = "plating";
 	icon_state = "lava"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aRg" = (
 /turf/unsimulated/floor{
 	icon_state = "asteroid";
 	tag = "icon-ironsand7"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aRh" = (
 /turf/unsimulated/floor{
 	icon_state = "grass0";
 	name = "grass"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aRi" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/unsimulated/floor{
 	icon_state = "grass0";
 	name = "grass"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aRj" = (
 /obj/effect/decal/cleanable/blood,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
 	dir = 2
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aRk" = (
 /mob/living/carbon/human/monkey{
 	name = "Murphey"
@@ -18652,7 +18652,7 @@
 	icon_state = "freezerfloor";
 	dir = 2
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aRl" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 1
@@ -18768,7 +18768,7 @@
 	name = "plating";
 	icon_state = "lava"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aRy" = (
 /mob/living/simple_animal/hostile/tribesman{
 	name = "Experiment 69T"
@@ -18777,14 +18777,14 @@
 	icon_state = "asteroid";
 	tag = "icon-ironsand7"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aRz" = (
 /obj/structure/flora/ausbushes/grassybush,
 /turf/unsimulated/floor{
 	icon_state = "grass0";
 	name = "grass"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aRA" = (
 /mob/living/simple_animal/hostile/retaliate/goat{
 	name = "Experiment 97d"
@@ -18793,21 +18793,21 @@
 	icon_state = "grass0";
 	name = "grass"
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aRB" = (
 /obj/item/caution,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
 	dir = 2
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aRC" = (
 /obj/item/material/knife/ritual,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
 	dir = 2
 	},
-/area/wizard_station)
+/area/map_template/wizard_station)
 "aRD" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -18823,15 +18823,15 @@
 /area/centcom/scom)
 "aRF" = (
 /obj/structure/table/rack,
-/obj/item/tank/emergency/oxygen/double,
-/obj/item/tank/emergency/oxygen/double,
-/obj/item/tank/emergency/oxygen/double,
-/obj/item/tank/emergency/oxygen/double,
-/obj/item/tank/emergency/oxygen/double,
-/obj/item/tank/emergency/oxygen/double,
-/obj/item/tank/emergency/oxygen/double,
-/obj/item/tank/emergency/oxygen/double,
-/obj/item/tank/emergency/oxygen/double,
+/obj/item/tank/oxygen_emergency_double,
+/obj/item/tank/oxygen_emergency_double,
+/obj/item/tank/oxygen_emergency_double,
+/obj/item/tank/oxygen_emergency_double,
+/obj/item/tank/oxygen_emergency_double,
+/obj/item/tank/oxygen_emergency_double,
+/obj/item/tank/oxygen_emergency_double,
+/obj/item/tank/oxygen_emergency_double,
+/obj/item/tank/oxygen_emergency_double,
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/unsimulated/floor{
 	icon_state = "white"
@@ -19332,10 +19332,10 @@
 /area/centcom/scom)
 "aSv" = (
 /turf/simulated/mineral,
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aSw" = (
 /turf/unsimulated/wall,
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aSx" = (
 /obj/effect/landmark{
 	name = "voxstart"
@@ -19343,12 +19343,12 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aSy" = (
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aSz" = (
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/cobweb2,
@@ -19360,7 +19360,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aSA" = (
 /obj/item/stool/padded,
 /turf/unsimulated/floor{
@@ -19424,7 +19424,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aSH" = (
 /obj/structure/table/rack,
 /obj/item/paper/pamphlet/SCOM,
@@ -19472,7 +19472,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aSN" = (
 /obj/structure/bed/chair/comfy/brown,
 /obj/random/junk,
@@ -19651,25 +19651,25 @@
 /area/centcom/scom)
 "aTd" = (
 /turf/simulated/shuttle/wall/corner/dark/nw,
-/area/syndicate_mothership/ninja)
+/area/map_template/syndicate_mothership/ninja)
 "aTe" = (
 /turf/simulated/shuttle/wall{
 	icon_state = "wall3"
 	},
-/area/syndicate_mothership/ninja)
+/area/map_template/syndicate_mothership/ninja)
 "aTf" = (
 /obj/effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
-/area/syndicate_mothership/ninja)
+/area/map_template/syndicate_mothership/ninja)
 "aTg" = (
 /turf/simulated/shuttle/wall/corner/dark/ne,
-/area/syndicate_mothership/ninja)
+/area/map_template/syndicate_mothership/ninja)
 "aTh" = (
 /turf/unsimulated/floor{
 	tag = "icon-asteroid";
 	icon_state = "asteroid"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aTi" = (
 /obj/item/tape/engineering{
 	dir = 4;
@@ -19679,7 +19679,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aTj" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/paper_bin,
@@ -19827,16 +19827,16 @@
 	dir = 4;
 	icon_state = "diagonalWall3"
 	},
-/area/syndicate_mothership/ninja)
+/area/map_template/syndicate_mothership/ninja)
 "aTy" = (
 /turf/simulated/floor/shuttle/red,
-/area/syndicate_mothership/ninja)
+/area/map_template/syndicate_mothership/ninja)
 "aTz" = (
 /turf/simulated/floor/shuttle/red,
 /turf/simulated/shuttle/wall{
 	icon_state = "diagonalWall3"
 	},
-/area/syndicate_mothership/ninja)
+/area/map_template/syndicate_mothership/ninja)
 "aTA" = (
 /obj/item/tape/engineering{
 	dir = 4;
@@ -19847,7 +19847,7 @@
 	tag = "icon-asteroid";
 	icon_state = "asteroid"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aTB" = (
 /obj/structure/table/reinforced,
 /obj/item/tray{
@@ -19856,7 +19856,7 @@
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aTC" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/mixedglasses{
@@ -19866,7 +19866,7 @@
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aTD" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/pen,
@@ -19975,19 +19975,19 @@
 	name = "ninjastart"
 	},
 /turf/simulated/floor/shuttle/red,
-/area/syndicate_mothership/ninja)
+/area/map_template/syndicate_mothership/ninja)
 "aTP" = (
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aTQ" = (
 /obj/structure/table/standard,
 /obj/machinery/chemical_dispenser/bar_soft/full,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aTR" = (
 /obj/structure/bed/chair/comfy/brown{
 	dir = 1
@@ -20135,7 +20135,7 @@
 	name = "ninjastart"
 	},
 /turf/simulated/floor/shuttle/red,
-/area/syndicate_mothership/ninja)
+/area/map_template/syndicate_mothership/ninja)
 "aUi" = (
 /obj/structure/bed/nice,
 /obj/item/bedsheet/orange,
@@ -20146,7 +20146,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aUj" = (
 /obj/structure/table/reinforced,
 /obj/machinery/microwave{
@@ -20156,7 +20156,7 @@
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aUk" = (
 /obj/structure/table/woodentable/walnut{
 	dir = 5
@@ -20355,13 +20355,13 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aUK" = (
 /obj/structure/closet/secure_closet/freezer/kitchen,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aUL" = (
 /obj/structure/table/woodentable/walnut{
 	dir = 5
@@ -20608,7 +20608,7 @@
 	tag = "icon-asteroid";
 	icon_state = "asteroid"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aVp" = (
 /obj/structure/hygiene/urinal{
 	pixel_y = 32
@@ -20618,7 +20618,7 @@
 	icon_state = "freezerfloor";
 	dir = 2
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aVq" = (
 /obj/structure/hygiene/urinal{
 	pixel_y = 32
@@ -20627,13 +20627,13 @@
 	icon_state = "freezerfloor";
 	dir = 2
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aVr" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aVs" = (
 /obj/structure/synthesized_instrument/synthesizer/piano,
 /turf/unsimulated/floor{
@@ -20741,46 +20741,46 @@
 "aVG" = (
 /obj/machinery/computer/teleporter,
 /turf/simulated/floor/plating,
-/area/syndicate_mothership/ninja)
+/area/map_template/syndicate_mothership/ninja)
 "aVH" = (
 /obj/machinery/teleport/station,
 /turf/simulated/floor/plating,
-/area/syndicate_mothership/ninja)
+/area/map_template/syndicate_mothership/ninja)
 "aVI" = (
 /obj/machinery/teleport/hub,
 /turf/simulated/floor/plating,
-/area/syndicate_mothership/ninja)
+/area/map_template/syndicate_mothership/ninja)
 "aVJ" = (
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
 	dir = 2
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aVK" = (
 /obj/effect/decal/cleanable/blood,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
 	dir = 2
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aVL" = (
 /obj/effect/decal/cleanable/blood,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aVM" = (
 /obj/machinery/gibber,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aVN" = (
 /obj/structure/kitchenspike,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aVO" = (
 /obj/random/trash,
 /turf/unsimulated/floor{
@@ -21137,21 +21137,21 @@
 	dir = 1
 	},
 /turf/simulated/floor/airless,
-/area/syndicate_mothership/ninja)
+/area/map_template/syndicate_mothership/ninja)
 "aWt" = (
 /obj/item/clothing/head/xenos,
 /turf/unsimulated/floor{
 	tag = "icon-asteroid";
 	icon_state = "asteroid"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aWu" = (
 /obj/item/organ/internal/xeno/plasmavessel,
 /turf/unsimulated/floor{
 	tag = "icon-asteroid";
 	icon_state = "asteroid"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aWv" = (
 /obj/structure/hygiene/sink{
 	icon_state = "sink";
@@ -21167,7 +21167,7 @@
 	icon_state = "freezerfloor";
 	dir = 2
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aWw" = (
 /obj/structure/table/reinforced,
 /obj/item/pen,
@@ -21287,26 +21287,26 @@
 /area/centcom/antag)
 "aWG" = (
 /turf/simulated/shuttle/wall/corner/dark/sw,
-/area/syndicate_mothership/ninja)
+/area/map_template/syndicate_mothership/ninja)
 "aWH" = (
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_l"
 	},
 /turf/space,
-/area/syndicate_mothership/ninja)
+/area/map_template/syndicate_mothership/ninja)
 "aWI" = (
 /obj/structure/shuttle/engine/propulsion,
 /turf/space,
-/area/syndicate_mothership/ninja)
+/area/map_template/syndicate_mothership/ninja)
 "aWJ" = (
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_r"
 	},
 /turf/space,
-/area/syndicate_mothership/ninja)
+/area/map_template/syndicate_mothership/ninja)
 "aWK" = (
 /turf/simulated/shuttle/wall/corner/dark/se,
-/area/syndicate_mothership/ninja)
+/area/map_template/syndicate_mothership/ninja)
 "aWL" = (
 /obj/item/clothing/mask/gas/swat{
 	desc = "A close-fitting mask clearly not made for a human face.";
@@ -21316,14 +21316,14 @@
 	tag = "icon-asteroid";
 	icon_state = "asteroid"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aWM" = (
 /obj/item/xenos_claw,
 /turf/unsimulated/floor{
 	tag = "icon-asteroid";
 	icon_state = "asteroid"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aWN" = (
 /obj/structure/table/rack,
 /obj/item/clothing/suit/space/vox/carapace,
@@ -21336,7 +21336,7 @@
 	tag = "icon-asteroid";
 	icon_state = "asteroid"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aWO" = (
 /obj/structure/table/rack,
 /obj/item/clothing/suit/space/vox/carapace,
@@ -21349,7 +21349,7 @@
 	tag = "icon-asteroid";
 	icon_state = "asteroid"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aWP" = (
 /obj/structure/table/rack,
 /obj/item/gun/projectile/dartgun/vox/raider,
@@ -21362,7 +21362,7 @@
 	tag = "icon-asteroid";
 	icon_state = "asteroid"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aWQ" = (
 /obj/structure/hygiene/sink{
 	icon_state = "sink";
@@ -21379,7 +21379,7 @@
 	icon_state = "freezerfloor";
 	dir = 2
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aWR" = (
 /obj/structure/hygiene/shower{
 	dir = 1
@@ -21388,7 +21388,7 @@
 	icon_state = "freezerfloor";
 	dir = 2
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aWS" = (
 /obj/structure/table/poker,
 /turf/unsimulated/floor{
@@ -21519,7 +21519,7 @@
 	tag = "icon-asteroid";
 	icon_state = "asteroid"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aXf" = (
 /obj/structure/table/rack,
 /obj/item/clothing/suit/space/vox/medic,
@@ -21531,7 +21531,7 @@
 	tag = "icon-asteroid";
 	icon_state = "asteroid"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aXg" = (
 /obj/structure/table/rack,
 /obj/item/gun/launcher/pneumatic,
@@ -21544,7 +21544,7 @@
 	tag = "icon-asteroid";
 	icon_state = "asteroid"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aXh" = (
 /obj/structure/reagent_dispensers/beerkeg,
 /turf/unsimulated/floor{
@@ -21552,14 +21552,14 @@
 	name = "plating";
 	icon_state = "cult"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aXi" = (
 /turf/unsimulated/floor{
 	tag = "icon-cult";
 	name = "plating";
 	icon_state = "cult"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aXj" = (
 /obj/effect/decal/cleanable/cobweb2,
 /turf/unsimulated/floor{
@@ -21567,7 +21567,7 @@
 	name = "plating";
 	icon_state = "cult"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aXk" = (
 /obj/structure/bed/chair/comfy/black{
 	dir = 1
@@ -21863,7 +21863,7 @@
 	tag = "icon-asteroid";
 	icon_state = "asteroid"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aXI" = (
 /obj/structure/table/rack,
 /obj/item/clothing/suit/space/vox/stealth,
@@ -21876,7 +21876,7 @@
 	tag = "icon-asteroid";
 	icon_state = "asteroid"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aXJ" = (
 /obj/structure/table/rack,
 /obj/item/gun/launcher/alien/spikethrower,
@@ -21888,7 +21888,7 @@
 	tag = "icon-asteroid";
 	icon_state = "asteroid"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aXK" = (
 /obj/effect/landmark{
 	name = "voxstart"
@@ -21898,7 +21898,7 @@
 	name = "plating";
 	icon_state = "cult"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aXL" = (
 /obj/machinery/vending/snack,
 /turf/unsimulated/floor{
@@ -22033,21 +22033,21 @@
 	tag = "icon-asteroid";
 	icon_state = "asteroid"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aYe" = (
 /obj/item/organ/internal/xeno/eggsac,
 /turf/unsimulated/floor{
 	tag = "icon-asteroid";
 	icon_state = "asteroid"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aYf" = (
 /obj/item/organ/internal/stack,
 /turf/unsimulated/floor{
 	tag = "icon-asteroid";
 	icon_state = "asteroid"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aYg" = (
 /obj/structure/bed/chair,
 /turf/unsimulated/floor{
@@ -22055,7 +22055,7 @@
 	name = "plating";
 	icon_state = "cult"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aYh" = (
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
@@ -22268,7 +22268,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aYF" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -22278,7 +22278,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aYG" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -22291,7 +22291,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aYH" = (
 /obj/item/modular_computer/console/preset/mercenary{
 	dir = 1
@@ -22301,7 +22301,7 @@
 	name = "plating";
 	icon_state = "cult"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aYI" = (
 /obj/machinery/computer/shuttle_control/multi/vox{
 	dir = 1
@@ -22311,7 +22311,7 @@
 	name = "plating";
 	icon_state = "cult"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aYJ" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -22325,7 +22325,7 @@
 	icon_state = "plating";
 	name = "plating"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aYK" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -22336,7 +22336,7 @@
 	icon_state = "plating";
 	name = "plating"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aYL" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -22350,7 +22350,7 @@
 	icon_state = "plating";
 	name = "plating"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aYM" = (
 /obj/item/soap/nanotrasen,
 /turf/unsimulated/floor{
@@ -22640,14 +22640,14 @@
 	tag = "icon-asteroid";
 	icon_state = "asteroid"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aZj" = (
 /obj/item/clothing/head/philosopher_wig,
 /turf/unsimulated/floor{
 	tag = "icon-asteroid";
 	icon_state = "asteroid"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aZk" = (
 /obj/structure/hygiene/shower{
 	dir = 4
@@ -22874,7 +22874,7 @@
 	dir = 4
 	},
 /turf/space,
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aZK" = (
 /obj/machinery/door/airlock/external{
 	req_access = list("ACCESS_SYNDICATE")
@@ -22882,14 +22882,14 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aZL" = (
 /obj/structure/lattice,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /turf/space,
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "aZM" = (
 /obj/structure/sign/urist/deptsigns/arm{
 	dir = 4;
@@ -23074,7 +23074,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "bag" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -23082,7 +23082,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/syndicate_mothership/raider_base)
+/area/map_template/syndicate_mothership/raider_base)
 "bah" = (
 /obj/structure/hygiene/shower{
 	tag = "icon-shower (NORTH)";
@@ -24327,7 +24327,7 @@
 "bcZ" = (
 /obj/structure/table/standard,
 /obj/item/material/kitchen/utensil/spoon/plastic,
-/obj/item/material/kitchen/utensil/knife/plastic,
+/obj/item/material/knife/kitchen/plastic,
 /obj/item/material/kitchen/utensil/fork/plastic,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";

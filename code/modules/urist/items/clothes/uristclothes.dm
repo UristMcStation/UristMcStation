@@ -50,7 +50,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 //Emergency Suit. It's really shitty, but better than a firesuit when it comes to space or biological hazards. Will need a special "emergency locker" for this.
 //One of the lockers will go in each of the emergency storages, and have one of these fuckers in them. Prepare to feel the suck as it slowly kills you.
 
-/obj/item/clothing/suit/urist/emergencysuit
+/*/obj/item/clothing/suit/urist/emergencysuit
 	name = "emergency suit"
 	desc = "A bulky suit meant to be used in emergencies only. It doesn't look too safe... Wait, is that blood?" //PREPARE FOR YOUR DOOM
 	icon = 'icons/urist/items/clothes/clothes.dmi'
@@ -60,7 +60,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.50
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank/emergency)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank/)
 	armor = list(melee = 5, bullet = 0, laser = 5,energy = 0, bomb = 5, bio = 50, rad = 25)
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	item_flags = ITEM_FLAG_STOPPRESSUREDAMAGE
@@ -71,7 +71,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 /obj/item/clothing/suit/urist/emergencysuit/New()
 	..()
 	slowdown_per_slot[slot_wear_suit] = 1.5
-
+*/
 //Armoured biosuit for sec
 
 /obj/item/clothing/suit/bio_suit/asec
@@ -84,7 +84,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	w_class = 4//bulky item
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
-	allowed = list(/obj/item/tank/emergency,/obj/item/pen,/obj/item/device/flashlight/pen)
+	allowed = list(/obj/item/tank/,/obj/item/pen,/obj/item/device/flashlight/pen)
 	armor = list(melee = 20, bullet = 15, laser = 25, energy = 10, bomb = 25, bio = 100, rad = 20)
 	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristSuit.dmi')
 
@@ -113,7 +113,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "navyspace"
 	desc = "A high quality space suit used by the NanoTrasen Navy. Smells like oppression."
 	w_class = 3
-	allowed = list(/obj/item/gun,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs,/obj/item/tank/emergency,/obj/item/device/flashlight)
+	allowed = list(/obj/item/gun,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs,/obj/item/tank,/obj/item/device/flashlight)
 	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 30, rad = 30)
 
 /obj/item/clothing/suit/space/naval/New()
@@ -130,7 +130,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "commando"
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
-	allowed = list(/obj/item/gun,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/tank/emergency,/obj/item/melee/energy/sword)
+	allowed = list(/obj/item/gun,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/tank/,/obj/item/melee/energy/sword)
 	armor = list(melee = 80, bullet = 60, laser = 50,energy = 25, bomb = 50, bio = 30, rad = 30)
 	can_breach = 0
 
@@ -170,7 +170,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "tweedjacket"
 	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	allowed = list(/obj/item/device/analyzer,/obj/item/stack/medical,/obj/item/reagent_containers/dropper,/obj/item/reagent_containers/syringe,/obj/item/reagent_containers/hypospray,/obj/item/device/healthanalyzer,/obj/item/device/flashlight/pen,/obj/item/reagent_containers/glass/bottle,/obj/item/reagent_containers/glass/beaker,/obj/item/reagent_containers/pill,/obj/item/storage/pill_bottle,/obj/item/paper)
+	allowed = list(/obj/item/device/scanner/gas,/obj/item/stack/medical,/obj/item/reagent_containers/dropper,/obj/item/reagent_containers/syringe,/obj/item/reagent_containers/hypospray,/obj/item/device/scanner/health,/obj/item/device/flashlight/pen,/obj/item/reagent_containers/glass/bottle,/obj/item/reagent_containers/glass/beaker,/obj/item/reagent_containers/pill,/obj/item/storage/pill_bottle,/obj/item/paper)
 
 	verb/toggle()
 		set name = "Toggle Coat Buttons"
@@ -396,9 +396,9 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 //	icon_override = 'icons/uristmob/clothes.dmi'
 	desc = "A slightly fancier labcoat sometimes worn by the CMO."
-	icon_state = "cmo_lab_open"
-	icon_open = "cmo_lab_open"
-	icon_closed = "cmo_lab"
+	//icon_state = "cmo_lab_open"
+	//icon_open = "cmo_lab_open"
+	//icon_closed = "cmo_lab"
 
 //sexy captain's outfit by imblyings from /tg/
 
@@ -420,8 +420,8 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 //	icon_override = 'icons/uristmob/clothes.dmi'
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "aeneasrinil_open"
-	icon_open = "aeneasrinil_open"
-	icon_closed = "aeneasrinil"
+	//icon_open = "aeneasrinil_open"
+	//icon_closed = "aeneasrinil"
 	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristSuit.dmi')
 
 //for the carpenter
@@ -445,8 +445,8 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	item_icons = URIST_ALL_ONMOBS
 	icon_state = "blackcoat_open"
-	icon_open = "blackcoat_open"
-	icon_closed = "blackcoat_closed"
+	//icon_open = "blackcoat_open"
+	//icon_closed = "blackcoat_closed"
 	item_state = "blackcoat_open"
 	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
@@ -474,37 +474,37 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A warm wool coat in navy blue. Perfect for looking nice in Space Winter."
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "navycoat_open"
-	icon_open = "navycoat_open"
-	icon_closed = "navycoat_closed"
+	//icon_open = "navycoat_open"
+	//icon_closed = "navycoat_closed"
 	item_state = "navy_suit"
 
 /obj/item/clothing/suit/storage/toggle/urist/coat/charcoat
 	name = "charcoal coat"
 	desc = "A warm wool coat in dark grey. Perfect for looking nice in Space Winter."
 	icon_state = "charcoat_open"
-	icon_open = "charcoat_open"
-	icon_closed = "charcoat_closed"
+	//icon_open = "charcoat_open"
+	//icon_closed = "charcoat_closed"
 
 /obj/item/clothing/suit/storage/toggle/urist/coat/blackcoat
 	name = "black coat"
 	desc = "A warm wool coat in black. Perfect for looking nice in Space Winter."
 	icon_state = "blackcoat_open"
-	icon_open = "blackcoat_open"
-	icon_closed = "blackcoat_closed"
+	//icon_open = "blackcoat_open"
+	//icon_closed = "blackcoat_closed"
 
 /obj/item/clothing/suit/storage/toggle/urist/coat/blackcoat/suit
 	name = "black coat with suit jacket"
 	desc = "A warm wool coat in black with a black suit jacket. Because you're feeling dressy."
 	icon_state = "blackcoat_suit"
-	icon_open = "blackcoat_suit"
-	icon_closed = "blackcoat_closed"
+	//icon_open = "blackcoat_suit"
+	//icon_closed = "blackcoat_closed"
 
 /obj/item/clothing/suit/storage/toggle/urist/coat/burgcoat
 	name = "burgundy coat"
 	desc = "A warm wool coat in burgundy. Perfect for looking nice in Space Winter."
 	icon_state = "burgcoat_open"
-	icon_open = "burgcoat_open"
-	icon_closed = "burgcoat_closed"
+	//icon_open = "burgcoat_open"
+	//icon_closed = "burgcoat_closed"
 	item_state = "burgundy_suit"
 
 /obj/item/clothing/suit/storage/urist/coat/tajcoat
@@ -712,7 +712,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "autumn"
 	blood_overlay_type = "armorblood"
 	armor = list(melee = 20, bullet = 20, laser = 5, energy = 5, bomb = 5, bio = 0, rad = 10)
-	allowed = list(/obj/item/material/knife, /obj/item/material/knife/butch, /obj/item/stamp, /obj/item/reagent_containers/food/drinks/flask, /obj/item/melee, /obj/item/device/flash, /obj/item/storage/box/matches, /obj/item/clothing/mask/smokable/cigarette, /obj/item/storage/fancy/cigarettes, /obj/item/tank/emergency, /obj/item/device/flashlight, /obj/item/gun/energy, /obj/item/gun/projectile, /obj/item/scalpel, /obj/item/cautery, /obj/item/hemostat, /obj/item/retractor)
+	allowed = list(/obj/item/material/knife, /obj/item/material/knife/kitchen/cleaver, /obj/item/stamp, /obj/item/reagent_containers/food/drinks/flask, /obj/item/melee, /obj/item/device/flash, /obj/item/storage/box/matches, /obj/item/clothing/mask/smokable/cigarette, /obj/item/storage/fancy/cigarettes, /obj/item/tank/, /obj/item/device/flashlight, /obj/item/gun/energy, /obj/item/gun/projectile, /obj/item/scalpel, /obj/item/cautery, /obj/item/hemostat, /obj/item/retractor)
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
 	min_cold_protection_temperature = 263.15
 
@@ -807,7 +807,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	blood_overlay_type = "armorblood"
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
 	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_C)
-	starting_accessories = list(/obj/item/clothing/accessory/armorplate/medium)
+	accessories = list(/obj/item/clothing/accessory/armor_plate/medium)
 
 /obj/item/clothing/under/urist/blackwarden
 	name = "black Warden's jumpsuit"
@@ -1137,16 +1137,16 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "grey hoodie"
 	desc = "A warm, comfortable grey hoodie."
 	icon_state = "grey_hoodie_open"
-	icon_open = "grey_hoodie_open"
-	icon_closed = "grey_hoodie_closed"
+	//icon_open = "grey_hoodie_open"
+	//icon_closed = "grey_hoodie_closed"
 	item_state = "grey_hoodie_open"
 
 /obj/item/clothing/suit/storage/toggle/urist/hoodie/black
 	name = "black hoodie"
 	desc = "A warm, comfortable black hoodie."
 	icon_state = "black_hoodie_open"
-	icon_open = "black_hoodie_open"
-	icon_closed = "black_hoodie_closed"
+	//icon_open = "black_hoodie_open"
+	//icon_closed = "black_hoodie_closed"
 	item_state = "black_hoodie_open"
 
 //overalls/apron
@@ -1193,7 +1193,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "leather protective suit"
 	desc = "A full-body suit meant to protect against the elements."
 	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristSuit.dmi')
-	allowed = list(/obj/item/gun,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/tank/emergency,/obj/item/melee/energy/sword,/obj/item/device/flashlight,/obj/item/device/radio)
+	allowed = list(/obj/item/gun,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/tank/,/obj/item/melee/energy/sword,/obj/item/device/flashlight,/obj/item/device/radio)
 
 /obj/item/clothing/under/urist/cowboy
 	name = "cowboy's outfit"
@@ -1243,7 +1243,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	gas_transfer_coefficient = 0
 	permeability_coefficient = 0
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
-	allowed = list(/obj/item/tank/emergency,/obj/item/pen,/obj/item/device/flashlight/pen,/obj/item/device/healthanalyzer,/obj/item/device/ano_scanner,/obj/item/clothing/head/bio_hood,/obj/item/clothing/mask/gas)
+	allowed = list(/obj/item/tank/,/obj/item/pen,/obj/item/device/flashlight/pen,/obj/item/device/scanner/health,/obj/item/device/ano_scanner,/obj/item/clothing/head/bio_hood,/obj/item/clothing/mask/gas)
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 100, rad = 20)
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
 	item_flags = ITEM_FLAG_THICKMATERIAL
@@ -1276,7 +1276,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.50
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|HANDS|FEET
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank/emergency,/obj/item/clothing/head/radiation,/obj/item/clothing/mask/gas)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank/,/obj/item/clothing/head/radiation,/obj/item/clothing/mask/gas)
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 100)
 	flags_inv = HIDEJUMPSUIT|HIDETAIL|HIDEGLOVES|HIDESHOES
 	siemens_coefficient = 0.3
@@ -1312,7 +1312,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	gas_transfer_coefficient = 0
 	permeability_coefficient = 0
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
-	allowed = list(/obj/item/tank/emergency,/obj/item/pen,/obj/item/device/flashlight/pen,/obj/item/device/healthanalyzer,/obj/item/device/ano_scanner,/obj/item/clothing/head/bio_hood,/obj/item/clothing/mask/gas)
+	allowed = list(/obj/item/tank/,/obj/item/pen,/obj/item/device/flashlight/pen,/obj/item/device/scanner/health,/obj/item/device/ano_scanner,/obj/item/clothing/head/bio_hood,/obj/item/clothing/mask/gas)
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 100, rad = 20)
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
 	item_flags = ITEM_FLAG_THICKMATERIAL
@@ -1323,7 +1323,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	color = "#ff0000"
 
 /obj/item/clothing/under/syndicate/pirate
-	starting_accessories = list(/obj/item/clothing/accessory/armband, /obj/item/clothing/accessory/kneepads, /obj/item/clothing/accessory/storage/bandolier)
+	accessories = list(/obj/item/clothing/accessory/armband, /obj/item/clothing/accessory/kneepads, /obj/item/clothing/accessory/storage/bandolier)
 
 //moving this here from nerva_clothes.dm to not break other maps
 
@@ -1336,4 +1336,4 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	armor = list(melee = 50, bullet = 45, laser = 40, energy = 25, bomb = 30, bio = 0, rad = 0)
 	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_L, ACCESSORY_SLOT_ARMOR_S)
 	restricted_accessory_slots = list(ACCESSORY_SLOT_ARMOR_L, ACCESSORY_SLOT_ARMOR_S)
-	starting_accessories = list(/obj/item/clothing/accessory/storage/pouches/large)
+	accessories = list(/obj/item/clothing/accessory/storage/pouches/large)

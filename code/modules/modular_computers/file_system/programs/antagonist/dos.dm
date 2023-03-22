@@ -97,7 +97,7 @@
 		executed = TRUE
 		target.dos_sources.Add(src)
 
-		var/list/sources_to_show = list(computer.network_card.get_network_tag())
+		var/list/sources_to_show = list(computer.get_network_tag())
 
 		ntnet_global.add_log_with_ids_check("Excess traffic flood targeting Quantum Relay ([target.uid]) detected from [length(sources_to_show)] device\s: [english_list(sources_to_show)]")
 		return TRUE

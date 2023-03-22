@@ -97,3 +97,16 @@
 	icon_state = "revolver"
 	desc += " Someone snipped off the barrel's toy mark. How dastardly, this could get someone shot."
 	return 1
+
+/obj/item/gun/projectile/revolver/webley
+	name = "service revolver"
+	desc = "The A&M W4. A rugged top break revolver produced by al-Maliki & Mosley. Based on the Webley model, with modern improvements. Uses .44 Magnum ammo."
+	icon_state = "webley"
+	item_state = "webley"
+	item_icons = URIST_ALL_ONMOBS
+	item_state = "webley"
+	wielded_item_state = "webley"
+	max_shells = 6
+	caliber = ".44"
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	ammo_type = /obj/item/ammo_casing/c44

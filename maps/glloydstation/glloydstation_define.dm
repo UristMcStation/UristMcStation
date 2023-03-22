@@ -11,7 +11,7 @@
 	company_name  = "NanoTrasen"
 	company_short = "NT"
 
-	lobby_icon = 'maps/glloydstation/glloydstation_lobby.dmi'
+	current_lobby_screen = 'maps/glloydstation/glloydstation_lobby.dmi'
 
 	station_levels = list(1)
 	admin_levels = list(2)

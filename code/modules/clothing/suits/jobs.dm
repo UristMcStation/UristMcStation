@@ -347,8 +347,8 @@
 	desc = "A snappy dress jacket."
 	icon_state = "suitjacket_blue_open"
 	item_state = "suitjacket_blue_open"
-	icon_open = "suitjacket_blue_open"
-	icon_closed = "suitjacket_blue"
+//	icon_open = "suitjacket_blue_open"
+//	icon_closed = "suitjacket_blue"
 	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|ARMS
 

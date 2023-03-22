@@ -1,4 +1,4 @@
-/datum/exoplanet_theme
+/*/datum/exoplanet_theme
 	var/name = "Nothing Special"
 
 /datum/exoplanet_theme/proc/before_map_generation(obj/effect/overmap/sector/exoplanet/E)
@@ -28,7 +28,7 @@
 
 /datum/random_map/automata/cave_system/mountains/get_additional_spawns(value, var/turf/simulated/mineral/T)
 	T.color = rock_color
-	if(planetary_area)	
+	if(planetary_area)
 		planetary_area.contents.Add(T)
 		if(istype(T))
-			T.mined_turf = planetary_area.base_turf
+			T.mined_turf = planetary_area.base_turf*/

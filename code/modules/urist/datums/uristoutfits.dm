@@ -1,6 +1,6 @@
 /singleton/hierarchy/outfit/ANTAG
 	name = "ANTAG Operative"
-	uniform = /obj/item/clothing/under/urist/suit_jacket/black{ starting_accessories=list(/obj/item/clothing/accessory/wcoat, /obj/item/clothing/accessory/red) }
+	uniform = /obj/item/clothing/under/urist/suit_jacket/black{ accessories=list(/obj/item/clothing/accessory/wcoat, /obj/item/clothing/accessory/red) }
 	shoes = /obj/item/clothing/shoes/laceup
 	gloves = /obj/item/clothing/gloves/thick
 	l_ear = /obj/item/device/radio/headset
@@ -44,7 +44,7 @@
 	backpack_contents = list(/obj/item/ammo_magazine/c45m/a7 = 1, /obj/item/storage/firstaid/combat = 1,
 		/obj/item/device/flashlight = 1, /obj/item/ammo_magazine/a556/a22 = 2, /obj/item/device/radio = 1, /obj/item/storage/box/survival = 1)
 	r_hand = /obj/item/gun/projectile/automatic/a22
-	r_pocket = /obj/item/tank/emergency/oxygen
+	r_pocket = /obj/item/tank/oxygen_emergency
 	l_pocket = /obj/item/ammo_magazine/a556/a22
 	suit_store = /obj/item/gun/projectile/colt/a7
 
@@ -356,7 +356,7 @@
 	head = /obj/item/clothing/head/urist/terran/officercap
 	back = /obj/item/storage/backpack/urist/explorersatchel
 	backpack_contents = list(/obj/item/ammo_magazine/c45m/a7 = 1, /obj/item/storage/firstaid/combat = 1,
-		/obj/item/device/flashlight = 1, /obj/item/ammo_magazine/a9mm = 2, /obj/item/tank/emergency/oxygen = 1, /obj/item/clothing/mask/gas/terranhalf = 1)
+		/obj/item/device/flashlight = 1, /obj/item/ammo_magazine/a9mm = 2, /obj/item/tank/oxygen_emergency = 1, /obj/item/clothing/mask/gas/terranhalf = 1)
 	r_hand = /obj/item/gun/projectile/automatic/asmg
 	r_pocket = /obj/item/device/radio
 	l_pocket = /obj/item/ammo_magazine/a9mm
@@ -396,7 +396,7 @@
 	head = /obj/item/clothing/head/urist/anfor/terran
 	back = /obj/item/storage/backpack/urist/explorersatchel
 	backpack_contents = list(/obj/item/ammo_magazine/c45m/a7 = 1, /obj/item/storage/firstaid/combat = 1,
-		/obj/item/device/flashlight = 1, /obj/item/ammo_magazine/a9mm = 2, /obj/item/tank/emergency/oxygen = 1, /obj/item/clothing/mask/gas/terranhalf = 1)
+		/obj/item/device/flashlight = 1, /obj/item/ammo_magazine/a9mm = 2, /obj/item/tank/oxygen_emergency = 1, /obj/item/clothing/mask/gas/terranhalf = 1)
 	r_hand = /obj/item/gun/projectile/automatic/asmg
 	r_pocket = /obj/item/device/radio
 	l_pocket = /obj/item/ammo_magazine/a9mm

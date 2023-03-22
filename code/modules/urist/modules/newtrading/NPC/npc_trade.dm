@@ -1,5 +1,5 @@
 
-/mob/living/simple_animal/hostile/npc/proc/check_tradeable(var/obj/O)
+/mob/living/simple_animal/passive/npc/proc/check_tradeable(var/obj/O)
 	. = 0
 
 	if(!O)
@@ -25,7 +25,7 @@
 	if(O.type in trade_items_by_type)
 		return 1
 
-/mob/living/simple_animal/hostile/npc/proc/get_trade_value(var/obj/O, var/count = 1)
+/mob/living/simple_animal/passive/npc/proc/get_trade_value(var/obj/O, var/count = 1)
 	if(!O)
 		return 0
 
@@ -34,7 +34,7 @@
 
 	return isnull(worth) ? get_value(O)*count : worth
 
-/mob/living/simple_animal/hostile/npc/proc/get_trade_info(var/obj/tradingobject, var/count)
+/mob/living/simple_animal/passive/npc/proc/get_trade_info(var/obj/tradingobject, var/count)
 	//see if we are already selling the item
 	var/datum/trade_item/T = trade_items_inventory_by_type[tradingobject.type]
 	if(T)
@@ -87,7 +87,7 @@
 
 		return round(T.value * sell_modifier)
 
-/mob/living/simple_animal/hostile/npc/proc/calculate_multiple_sales(var/datum/trade_item/T , var/count)
+/mob/living/simple_animal/passive/npc/proc/calculate_multiple_sales(var/datum/trade_item/T , var/count)
 	if(!T || !count)
 		return
 	var/newPrice = T.value

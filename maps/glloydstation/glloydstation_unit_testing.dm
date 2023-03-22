@@ -98,7 +98,6 @@
 		/area/engineering/engine_eva,
 		/area/exoplanet,
 		/area/exoplanet/desert,
-		/area/exoplanet/garbage,
 		/area/exoplanet/grass,
 		/area/exoplanet/snow,
 		/area/holodeck/source_courtroom,

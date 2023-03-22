@@ -1,3 +1,4 @@
+/*
 // Interfaces for the SpacemanDMM linter, define'd to nothing when the linter
 // is not in use.
 
@@ -14,4 +15,4 @@
 	#define UNLINT(X) X
 	#define SHOULD_NOT_OVERRIDE(X)
 	#define VAR_FINAL var
-#endif
+#endif*/

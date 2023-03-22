@@ -38,9 +38,9 @@
 					boarding_failure_chance += 25 // four shield generators to TOTALLY block boarding.
 
 	if(!boarding_turf) //Locate where we're boarding, give them a warning.
-		var/obj/item/device/radio/beacon/active_beacon //what beacon are we locking onto?
+		var/obj/machinery/tele_beacon/active_beacon //what beacon are we locking onto?
 		var/list/beacon_list = list()
-		for(var/obj/item/device/radio/beacon/B in GLOB.listening_objects)
+		for(var/obj/machinery/tele_beacon/B in GLOB.listening_objects)
 			if(B.z in mastership.target_ship.map_z)
 				beacon_list += B
 		active_beacon = pick(beacon_list)

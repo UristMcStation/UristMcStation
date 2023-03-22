@@ -81,12 +81,6 @@
 	#include "items/clothing/solgov-head.dm"
 	#include "items/clothing/solgov-suit.dm"
 	#include "items/clothing/solgov-under.dm"
-	#include "items/clothing/terran-accessory.dm"
-	#include "items/clothing/terran-feet.dm"
-	#include "items/clothing/terran-hands.dm"
-	#include "items/clothing/terran-head.dm"
-	#include "items/clothing/terran-suit.dm"
-	#include "items/clothing/terran-under.dm"
 
 	#include "items/wallets.dm"
 	#include "items/weapons.dm"

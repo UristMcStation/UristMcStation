@@ -61,8 +61,8 @@
 	spawn_cost = 1
 
 /obj/machinery/power/smes/buildable/preset/morning_light/configure_and_install_coils()
-	component_parts += new /obj/item/smes_coil/super_io(src)
-	component_parts += new /obj/item/smes_coil/super_capacity(src)
+	component_parts += new /obj/item/stock_parts/smes_coil/super_io(src)
+	component_parts += new /obj/item/stock_parts/smes_coil/super_capacity(src)
 	_input_maxed = TRUE
 	_output_maxed = TRUE
 	_input_on = TRUE

@@ -200,3 +200,10 @@
 /proc/grand(min = 0, max = 1)
 	var/static/generator/gauss = generator("num", 0, 1, NORMAL_RAND)
 	return min + gauss.Rand() * (max - min)
+
+//for radial menus
+// min is inclusive, max is exclusive
+/proc/Wrap(val, min, max)
+	var/d = max - min
+	var/t = Floor((val - min) / d)
+	return val - (t * d)

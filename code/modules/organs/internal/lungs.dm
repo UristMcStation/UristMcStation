@@ -199,18 +199,6 @@
 	if(exhale_type && (!istype(owner.wear_mask) || !(exhale_type in owner.wear_mask.filtered_gases)))
 		breath.adjust_gas_temp(exhale_type, inhaled_gas_used, owner.bodytemperature, update = 0) //update afterwards
 
-	// Deal with any airborne viruses
-	for(var/V in breath.viruses)
-		if(istype(breath.viruses[V], /datum/disease2/disease))
-			var/datum/disease2/disease/V2 = breath.viruses[V]
-			infect_virus2(owner, V2, 1)
-
-	for(var/D1 in owner.virus2)
-		if(istype(owner.virus2[D1], /datum/disease2/disease))
-			var/datum/disease2/disease/D2 = owner.virus2[D1]
-			if(D2.spreadtype == "Airborne")
-				breath.viruses |= owner.virus2
-
 	// Were we able to breathe?
 	var/failed_breath = failed_inhale || failed_exhale
 	if(!failed_breath)

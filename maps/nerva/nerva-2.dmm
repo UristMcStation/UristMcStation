@@ -129,7 +129,7 @@
 /area/maintenance/third_deck/centp)
 "aav" = (
 /obj/structure/table/rack,
-/obj/item/tank/emergency/oxygen/engi,
+/obj/item/tank/oxygen_emergency_extended,
 /obj/item/device/flashlight,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/centp)
@@ -701,7 +701,7 @@
 	dir = 6;
 	icon_state = "corner_white"
 	},
-/obj/item/device/healthanalyzer,
+/obj/item/device/scanner/health,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "abM" = (
@@ -1180,7 +1180,7 @@
 	dir = 1;
 	icon_state = "warningcorner"
 	},
-/obj/item/device/healthanalyzer,
+/obj/item/device/scanner/health,
 /turf/simulated/floor/tiled/white,
 /area/medical/treatment)
 "acR" = (
@@ -4348,7 +4348,7 @@
 /obj/structure/table/reinforced,
 /obj/item/device/radio/off,
 /obj/item/device/flashlight/flare,
-/obj/item/device/analyzer,
+/obj/item/device/scanner/gas,
 /turf/simulated/floor/tiled/techmaint,
 /area/security/office)
 "air" = (
@@ -5648,12 +5648,12 @@
 /obj/structure/closet/crate,
 /obj/item/circuitboard/smes,
 /obj/item/circuitboard/smes,
-/obj/item/smes_coil,
-/obj/item/smes_coil,
-/obj/item/smes_coil/super_capacity,
-/obj/item/smes_coil/super_capacity,
-/obj/item/smes_coil/super_io,
-/obj/item/smes_coil/super_io,
+/obj/item/stock_parts/smes_coil,
+/obj/item/stock_parts/smes_coil,
+/obj/item/stock_parts/smes_coil/super_capacity,
+/obj/item/stock_parts/smes_coil/super_capacity,
+/obj/item/stock_parts/smes_coil/super_io,
+/obj/item/stock_parts/smes_coil/super_io,
 /turf/simulated/floor/plating,
 /area/engineering/securestorage)
 "akj" = (
@@ -6260,7 +6260,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/clothing/suit/storage/hooded/wintercoat/engineering,
 /obj/item/storage/backpack/duffel/duffel_eng,
-/obj/item/tank/emergency/oxygen/engi,
+/obj/item/tank/oxygen_emergency_extended,
 /obj/item/clothing/under/rank/engineer,
 /obj/item/clothing/accessory/armband/engine,
 /turf/simulated/floor/tiled/dark,
@@ -6270,7 +6270,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/clothing/suit/storage/hooded/wintercoat/engineering,
 /obj/item/storage/backpack/duffel/duffel_eng,
-/obj/item/tank/emergency/oxygen/engi,
+/obj/item/tank/oxygen_emergency_extended,
 /obj/item/device/radio/intercom{
 	name = "Station Intercom (General)";
 	pixel_y = 28
@@ -6284,7 +6284,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/clothing/suit/storage/hooded/wintercoat/engineering/atmos,
 /obj/item/storage/backpack/duffel/duffel_eng,
-/obj/item/tank/emergency/oxygen/engi,
+/obj/item/tank/oxygen_emergency_extended,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -7882,7 +7882,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/item/device/radio/beacon,
+/obj/machinery/tele_beacon,
 /obj/machinery/navbeacon{
 	codes = list("patrol"=1,"next_patrol"="Deck 3 Port Central");
 	location = "Medbay"
@@ -8648,7 +8648,7 @@
 	},
 /obj/item/clothing/accessory/stethoscope,
 /obj/item/device/flashlight/pen,
-/obj/item/device/healthanalyzer,
+/obj/item/device/scanner/health,
 /turf/simulated/floor/tiled/white,
 /area/medical/examroom)
 "apA" = (
@@ -8732,7 +8732,7 @@
 	dir = 4
 	},
 /obj/item/screwdriver,
-/obj/item/device/healthanalyzer,
+/obj/item/device/scanner/health,
 /turf/simulated/floor/tiled/white,
 /area/medical/storage)
 "apH" = (
@@ -10058,7 +10058,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/item/device/radio/beacon,
+/obj/machinery/tele_beacon,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/tool)
 "arF" = (
@@ -14469,7 +14469,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/command/bridge)
 "ayN" = (
-/obj/item/device/radio/beacon,
+/obj/machinery/tele_beacon,
 /obj/effect/floor_decal/corner/fadeblue/full,
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
@@ -20749,7 +20749,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine)
 "aJH" = (
-/obj/item/smes_coil,
+/obj/item/stock_parts/smes_coil,
 /obj/item/stock_parts/console_screen,
 /obj/item/stock_parts/micro_laser,
 /obj/item/stock_parts/capacitor,
@@ -20928,7 +20928,7 @@
 	pixel_x = 3;
 	pixel_y = -3
 	},
-/obj/item/device/healthanalyzer,
+/obj/item/device/scanner/health,
 /obj/machinery/firealarm{
 	dir = 8;
 	pixel_x = -24
@@ -22988,7 +22988,7 @@
 /area/engineering/genstorage)
 "aNk" = (
 /obj/structure/table/reinforced,
-/obj/item/device/floor_painter,
+/obj/item/device/paint_sprayer,
 /obj/item/device/pipe_painter,
 /obj/item/storage/box/lights/mixed,
 /obj/effect/floor_decal/corner/yellow/full,
@@ -29123,7 +29123,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/civilian/bar)
 "fXL" = (
-/obj/item/device/radio/beacon,
+/obj/machinery/tele_beacon,
 /turf/simulated/floor/tiled/dark,
 /area/command/eva)
 "gfg" = (
@@ -29746,7 +29746,7 @@
 /turf/space,
 /area/space)
 "kdu" = (
-/obj/item/device/radio/beacon,
+/obj/machinery/tele_beacon,
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/cryo1)
 "kil" = (
@@ -30520,7 +30520,7 @@
 /obj/item/device/flashlight,
 /obj/item/crowbar,
 /obj/item/device/assembly/timer,
-/obj/item/device/analyzer,
+/obj/item/device/scanner/gas,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fp)
 "oDe" = (
@@ -30913,7 +30913,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/robotics)
 "rUD" = (
-/obj/item/device/radio/beacon,
+/obj/machinery/tele_beacon,
 /turf/simulated/floor/tiled,
 /area/logistics/uppercargo)
 "rVz" = (
@@ -30931,7 +30931,7 @@
 /area/security/starboardexternalgun)
 "rYt" = (
 /obj/effect/floor_decal/corner/red/full,
-/obj/item/device/radio/beacon,
+/obj/machinery/tele_beacon,
 /turf/simulated/floor/tiled/techmaint,
 /area/security/office)
 "sbY" = (

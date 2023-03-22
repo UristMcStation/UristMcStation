@@ -215,7 +215,7 @@
 	icon_state = "wiredrod"
 	item_state = "rods"
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
-	force_divisor = 0.55
+	force_multiplier = 0.55
 	throwforce = 10
 	w_class = 3
 	attack_verb = list("hit", "bludgeoned", "whacked", "bonked")
@@ -224,7 +224,7 @@
 /obj/item/material/woodwirerod/attackby(var/obj/item/I, mob/user as mob)
 	..()
 	var/obj/item/finished
-	if(istype(I, /obj/item/material/shard) || istype(I, /obj/item/material/butterflyblade))
+	if(istype(I, /obj/item/material/shard) || istype(I, /obj/item/material/small_blade) || istype(I, /obj/item/material/large_blade))
 		var/obj/item/material/tmp_shard = I
 
 		var/want = input("What would you like to make?", "Weapon construction", "Cancel") in list ("Cancel", "Spear", "Makeshift Arrow")
@@ -455,7 +455,7 @@
 					/obj/item/stack/medical/bruise_pack = 1,
 					/obj/item/stack/medical/ointment = 1,
 					/obj/item/device/flashlight/flare/glowstick = 1,
-					/obj/item/reagent_containers/food/snacks/candy/proteinbar = 1)
+					/obj/item/reagent_containers/food/snacks/proteinbar = 1)
 
 /obj/item/reagent_containers/food/drinks/survivalcanteen
 	name = "survival canteen"

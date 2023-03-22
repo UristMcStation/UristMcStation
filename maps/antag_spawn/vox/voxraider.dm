@@ -33,7 +33,6 @@
 	warmup_time = 5
 	range = 2
 	fuel_consumption = 0
-	skill_needed = SKILL_NONE
 	knockdown = FALSE
 
 /turf/simulated/floor/tiled/dark/vox

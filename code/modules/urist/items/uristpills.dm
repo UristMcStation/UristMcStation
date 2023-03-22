@@ -10,10 +10,10 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "pill20"
 	New()
 		..()
-		reagents.add_reagent(/datum/reagent/space_drugs, 50)
+		reagents.add_reagent(/datum/reagent/drugs/hextro, 50)
 
 //now time to define the actual pills
-
+/*
 /obj/item/reagent_containers/pill/methylphenidate
 	name = "Methylphenidate pill"
 	desc = "Improves the ability to concentrate."
@@ -37,7 +37,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	New()
 		..()
 		reagents.add_reagent(/datum/reagent/paroxetine, 15)
-
+*/
 //Tactical medicine from some skrellian pharmaceutical company
 
 /obj/item/reagent_containers/pill/bloodloss

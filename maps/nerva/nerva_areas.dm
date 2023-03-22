@@ -963,7 +963,7 @@
 /area/merchant_station
 	name = "\improper Merchant Station"
 
-/area/syndicate_mothership/raider_base
+/area/map_template/syndicate_mothership/raider_base
 	name = "\improper Raider Base"
 
 /area/deity_spawn

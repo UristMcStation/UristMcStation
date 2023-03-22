@@ -1,7 +1,7 @@
 /singleton/hierarchy/outfit/vox
 	name = "Vox Equipment"
 	mask = /obj/item/clothing/mask/breath
-	l_pocket = /obj/item/tank/emergency/nitrogen
+	l_pocket = /obj/item/tank/nitrogen_emergency
 	uniform = /obj/item/clothing/under/vox/vox_casual
 	gloves = /obj/item/clothing/gloves/vox
 	shoes = /obj/item/clothing/shoes/magboots/vox

@@ -22,7 +22,7 @@ SUBSYSTEM_DEF(payment_controller)
 			GLOB.global_announcer.autosay("<b>Hourly salary payments have been processed and deposited into your accounts. Thank you for your service to the [GLOB.using_map.station_name]. This message is brought to you by [newbrand]: make sure to buy [newbrand] at your nearest vending machine.</b>", "[GLOB.using_map.station_name] Automated Payroll System", "Common")
 			total_paid += moneybuffer
 			var/datum/transaction/T = new("[GLOB.using_map.station_name] Payroll", "Automated Payroll Deposits", -moneybuffer, "[GLOB.using_map.station_name] Automated Payroll System")
-			station_account.do_transaction(T)
+			station_account.add_transaction(T)
 			GLOB.global_announcer.autosay("<b>[moneybuffer]Th has been removed from the [GLOB.using_map.station_name]'s main account due to automated payroll services.</b>", "[GLOB.using_map.station_name] Automated Payroll System", "Command")
 			moneybuffer = 0
 
@@ -46,7 +46,7 @@ SUBSYSTEM_DEF(payment_controller)
 					else
 						economic_modifier = H.mind.get_pay()
 						var/datum/transaction/T = new("[station_account.owner_name]", "Automated Payroll Deposit", economic_modifier, "[GLOB.using_map.station_name] Automated Payroll System")
-						H.mind.initial_account.do_transaction(T)
+						H.mind.initial_account.add_transaction(T)
 
 					if(H.mind.initial_email_login["login"])
 						var/datum/computer_file/data/email_message/message = new()

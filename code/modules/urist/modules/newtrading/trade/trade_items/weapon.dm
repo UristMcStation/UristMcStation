@@ -126,7 +126,7 @@
 
 /datum/trade_item/sec
 	name = "NT Mk58 pistol"
-	item_type = /obj/item/gun/projectile/sec
+	item_type = /obj/item/gun/projectile/pistol/sec
 	quantity = 10
 	value = 600
 	trader_weight = 10
@@ -144,7 +144,7 @@
 
 /datum/trade_item/magnum_pistol
 	name = "Magnum pistol"
-	item_type = /obj/item/gun/projectile/magnum_pistol
+	item_type = /obj/item/gun/projectile/pistol/magnum_pistol
 	quantity = 10
 	value = 600
 	trader_weight = 10

@@ -114,7 +114,7 @@
 "cj" = (/obj/structure/table/woodentable,/obj/item/reagent_containers/food/drinks/glass2/square,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
 "ck" = (/obj/structure/table/woodentable,/obj/machinery/chemical_dispenser/bar_alc/full,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
 "cl" = (/obj/structure/table/woodentable,/obj/machinery/light/small{brightness_range = 8; dir = 4},/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
-"cm" = (/obj/structure/closet/secure_closet/bar{req_access = list(25)},/obj/item/storage/fancy/cigar,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
+"cm" = (/obj/structure/closet/secure_closet/bar{req_access = list(25)},/obj/item/storage/fancy/smokable/cigar,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
 "cn" = (/obj/structure/reagent_dispensers/beerkeg,/turf/unsimulated/floor{tag = "icon-wood"; icon_state = "wood"},/area/awaymission/train/snow)
 "co" = (/obj/weathertype/snow/cryo,/obj/weathertype/snow/cryo,/turf/unsimulated/wall/other/transparent{tag = "icon-metal10"; icon_state = "metal10"},/area/awaymission/train)
 "cp" = (/obj/weathertype/snow/cryo,/obj/weathertype/snow/cryo,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train)

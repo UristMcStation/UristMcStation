@@ -24,7 +24,7 @@ to avoid worrying about the sprites -Glloyd*/
 
 //emergency suit hood
 
-/obj/item/clothing/head/urist/emergencyhood
+/*/obj/item/clothing/head/urist/emergencyhood
 	name = "emergency hood"
 	desc = "A bulky hood meant to be used in emergencies only. It doesn't look too safe, and has some strange gray stains inside..."
 	icon = 'icons/urist/items/clothes/head.dmi'
@@ -33,7 +33,7 @@ to avoid worrying about the sprites -Glloyd*/
 	armor = list(melee = 5, bullet = 0, laser = 0,energy = 0, bomb = 5, bio = 50, rad = 25)
 	obj_flags = ITEM_FLAG_STOPPRESSUREDAMAGE
 	cold_protection = HEAD
-	species_restricted = list("exclude","Vox",SPECIES_RESOMI)
+	species_restricted = list("exclude","Vox",SPECIES_RESOMI)*/
 
 //armored biosuit hood
 

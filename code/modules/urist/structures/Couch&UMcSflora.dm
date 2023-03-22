@@ -15,11 +15,11 @@
 
 	if(couchpart == 1)
 		armrest = image("icons/urist/structures&machinery/Nienplants&Couch.dmi", "armrest_left")
-		armrest.plane = ABOVE_HUMAN_PLANE
+		armrest.plane = ABOVE_HUMAN_LAYER
 		armrest.layer = ABOVE_HUMAN_LAYER
 	else if(couchpart == 2)
 		armrest = image("icons/urist/structures&machinery/Nienplants&Couch.dmi", "armrest_right")
-		armrest.plane = ABOVE_HUMAN_PLANE
+		armrest.plane = ABOVE_HUMAN_LAYER
 		armrest.layer = ABOVE_HUMAN_LAYER
 
 	..()

@@ -136,8 +136,6 @@
 			else
 				item_state_slots[slot_l_hand_str] = initial(item_state)
 				item_state_slots[slot_r_hand_str] = initial(item_state)
-	if(safety_icon)
-		overlays += image(icon,"[safety_icon][safety()]")
 
 //Checks whether a given mob can use the gun
 //Any checks that shouldn't result in handle_click_empty() being called if they fail should go here.
@@ -474,9 +472,6 @@
 		return
 	M.setClickCooldown((burst - 1) * burst_delay)
 	next_fire_time = world.time + max(burst_delay + 1, fire_delay)
-	if (safety())
-		handle_click_safety(M)
-		return
 
 	last_safety_check = world.time
 	admin_attacker_log(M, "is trying to commit suicide with \a [src]")

@@ -114,7 +114,7 @@
 "cj" = (/turf/simulated/shuttle/wall{tag = "icon-swall (EAST)"; icon_state = "swall"; dir = 4},/area/scom/mission/nolighting)
 "ck" = (/turf/simulated/shuttle/wall{tag = "icon-swall15"; icon_state = "swall15"},/area/scom/mission/nolighting)
 "cl" = (/turf/simulated/shuttle/wall{icon_state = "swall_t"; dir = 4},/area/scom/mission/nolighting)
-"cm" = (/obj/item/material/knife/butch,/obj/effect/decal/cleanable/blood,/obj/effect/floor_decal/corner/grey/diagonal,/turf/unsimulated/floor{icon_state = "white"},/area/scom/mission/nolighting)
+"cm" = (/obj/item/material/knife/kitchen/cleaver,/obj/effect/decal/cleanable/blood,/obj/effect/floor_decal/corner/grey/diagonal,/turf/unsimulated/floor{icon_state = "white"},/area/scom/mission/nolighting)
 "cn" = (/obj/structure/bed/chair,/obj/effect/floor_decal/corner/grey/diagonal,/turf/unsimulated/floor{icon_state = "white"},/area/scom/mission/nolighting)
 "co" = (/obj/structure/table/rack,/obj/effect/floor_decal/industrial/hatch,/obj/item/gun/projectile/automatic/c20r,/turf/unsimulated/floor{icon_state = "dark"},/area/scom/mission/nolighting)
 "cp" = (/obj/effect/floor_decal/industrial/outline,/obj/structure/closet/syndicate,/turf/unsimulated/floor{icon_state = "dark"},/area/scom/mission/nolighting)

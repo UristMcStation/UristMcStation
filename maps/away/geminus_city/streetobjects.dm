@@ -77,7 +77,7 @@
 	icon_state = "floor1"
 	base_state = "floor"
 	layer = BELOW_OBJ_LAYER
-	plane = HIDING_MOB_PLANE
+	plane = HIDING_MOB_LAYER
 	light_type = /obj/item/light/bulb
 //	brightness_range = 4
 //	brightness_power = 2
@@ -136,7 +136,7 @@
 	idle_power_usage = 2
 	active_power_usage = 20
 	layer = ABOVE_HUMAN_LAYER
-	plane = ABOVE_HUMAN_PLANE
+//	plane = ABOVE_HUMAN_LAYER
 	power_channel = LIGHT
 	bounds = "64,32"
 	pixel_y = 10

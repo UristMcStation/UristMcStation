@@ -13,7 +13,7 @@
 	name = "Rusted Airlock"
 	icon = 'maps/wyrm/icons/awaymission.dmi'
 	layer = ABOVE_HUMAN_LAYER
-	plane = ABOVE_HUMAN_PLANE
+	plane = ABOVE_HUMAN_LAYER
 	width = 2
 
 /obj/structure/curtain/var/id = null

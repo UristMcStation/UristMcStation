@@ -236,6 +236,31 @@
 /obj/item/ammo_magazine/machine_pistol/empty
 	initial_ammo = 0
 
+/obj/item/ammo_magazine/pistol/rubber
+	labels = list("rubber")
+	ammo_type = /obj/item/ammo_casing/pistol/rubber
+
+/obj/item/ammo_magazine/smg_top
+	name = "top mounted magazine"
+	icon_state = "smg_top"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/pistol/small
+	matter = list(MATERIAL_STEEL = 1200)
+	caliber = CALIBER_PISTOL_SMALL
+	max_ammo = 20
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/smg_top/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/smg_top/rubber
+	labels = list("rubber")
+	ammo_type = /obj/item/ammo_casing/pistol/small/rubber
+
+/obj/item/ammo_magazine/smg_top/practice
+	labels = list("practice")
+	ammo_type = /obj/item/ammo_casing/pistol/small/practice
+
 /obj/item/ammo_magazine/c45m/rubber
 	name = "magazine (.45, rubber)"
 	ammo_type = /obj/item/ammo_casing/c45/rubber

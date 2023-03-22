@@ -12,9 +12,9 @@
 
 /obj/machinery/suit_storage_unit/anfor
 	name = "ANFOR Voidsuit Storage Unit"
-	suit_type = /obj/item/clothing/suit/space/void/anfor
-	helmet_type = /obj/item/clothing/head/helmet/space/void/anfor
-	mask_type = /obj/item/clothing/mask/breath
+	suit = /obj/item/clothing/suit/space/void/anfor
+	helmet = /obj/item/clothing/head/helmet/space/void/anfor
+	mask = /obj/item/clothing/mask/breath
 	req_access = list(access_cent_general)
 	islocked = 1
 
@@ -27,7 +27,6 @@
 	vend_reply = "Git some!"
 	product_ads = "Food for your rifle.;Out of rounds? We're here for you.;Resupply here!"
 	product_slogans = "Bullets for every occasion!;Tactical reloads!;RAMIREZ!"
-	vend_delay = 5
 	products = list(
 		//ammo,
 		/obj/item/ammo_magazine/a556/a22 = 60,
@@ -67,7 +66,6 @@
 	desc = "An automated ANFOR supply cache for efficent storage and distribution of armor and equipment."
 	product_slogans = "Look like a real soldier."
 	product_ads = "Keep yourself covered.;Protection for our fighting forces."
-	vend_delay = 15
 	vend_reply = "Suit up!"
 	icon_state = "clothing2"
 	products = list(
@@ -78,5 +76,5 @@
 		/obj/item/storage/belt/holster/security/tactical = 20
 		)
 	contraband = list(
-		/obj/item/storage/fancy/cigar = 1
+		/obj/item/storage/fancy/smokable/cigar = 1
 		)

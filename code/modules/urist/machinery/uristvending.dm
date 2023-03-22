@@ -17,7 +17,6 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_deny = "theater-deny"
 	req_access = list(access_theatre) // Theatre access needed, unless hacked.
 	product_slogans = "Dress for success!;Suited and booted!;It's show time!;Why leave style up to fate? Use AutoDrobe!"
-	vend_delay = 15
 	vend_reply = "Thank you for using AutoDrobe!"
 	products = list(/obj/item/clothing/suit/chickensuit = 1,/obj/item/clothing/head/chicken = 1,/obj/item/clothing/under/gladiator = 1,
 					/obj/item/clothing/head/helmet/gladiator = 1,/obj/item/clothing/under/gimmick/rank/captain/suit = 1,/obj/item/clothing/head/flatcap = 1,
@@ -49,7 +48,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	products = list(/obj/item/reagent_containers/food/snacks/tofu = 24,
 					/obj/item/reagent_containers/food/drinks/ice = 12,
 					/obj/item/reagent_containers/food/snacks/candy_corn = 6)
-	contraband = list(/obj/item/material/kitchen/utensil/knife = 6)
+	contraband = list(/obj/item/material/knife/kitchen = 6)
 
 //nt vanity machine.
 
@@ -58,7 +57,6 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	desc = "A vending machine that dispenses goods with the Nanotrasen colours and logo."
 	product_slogans = "Nanotrasen, working for you!;Show your loyalty to Nanotrasen!;Glory to Nanotrasen!;Nanotrasen brand goods, buy today!"
 	product_ads = "Nanotrasen, definitely not evil!;Nanotrasen, expanding out of control since the 22nd century!;Nanotrasen cares!;Quality goods, quality prices!;Glory to Nanotrasen!;Nanotrasen, paving a brighter future.;Look stylish and loyal!;Nanotrasen, making your work experience better one toolbox at a time!"
-	vend_delay = 15
 	vend_reply = "Glory to Nanotrasen!"
 	icon_state = "clothing2"
 	products = list(/obj/item/clothing/under/urist/nanotrasen/blue = 10,/obj/item/clothing/head/soft/nanotrasen/blue = 10,/obj/item/clothing/under/urist/nanotrasen/white = 10,/obj/item/clothing/head/soft/nanotrasen/white = 10,/obj/item/clothing/suit/urist/sweater/nanotrasen = 10,/obj/item/storage/toolbox/nanotrasen = 4)
@@ -71,8 +69,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "\improper Automated Dress Vendor"
 	desc = "A vending machine that apparently dispenses dresses... What will Nanotrasen think of next?"
 	product_ads = "Say yes!;Say yes to the dress!;Buy the dress you've always wanted today!;Beautiful dresses... In space.;Want to impress? Buy a dress!"
-	product_slogans = "Say yes!;Say yes to the dress!;You better say yes!;Your id is on file, say yes to the fucking dress.;Beautiful!;Sexy!;Stunning!;Stylish!;Let your inner princess free!;Fabulous!;Buy a new dress today!;The dresses of the future... today!;We know dresses. Buy one today!;Impress people, buy a dress!"
-	vend_delay = 15
+	product_slogans = "Say yes!;Say yes to the dress!;You better say yes!;Your id is on file, say yes to the fucking dress.;Beautiful!;Sexy!;Stunning!;Stylish!;Let your inner princess free!;Fabulous!;Buy a new dress today!;The dresses of the future... today!;We know dresses. Buy one today!;Impress, buy a dress!"
 	vend_reply = "Enjoy your beautiful new dress!"
 	icon_state = "dress"
 	products = list(/obj/item/clothing/under/urist/dress/teal = 5,/obj/item/clothing/under/urist/dress/yellow = 5,/obj/item/clothing/under/urist/dress/white1 = 5,/obj/item/clothing/under/urist/dress/white2 = 5,/obj/item/clothing/under/dress/dress_fire = 5,/obj/item/clothing/under/dress/dress_green = 5,/obj/item/clothing/under/dress/dress_orange = 5,/obj/item/clothing/under/dress/dress_pink = 5,

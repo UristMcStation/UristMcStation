@@ -37,7 +37,7 @@ var/global/datum/store/centcomm_store=new
 		return 0
 	mind.initial_account.money -= amount
 	var/datum/transaction/T = new()
-	T.target_name = "[command_name()] Merchandising"
+	T.get_target_name() = "[command_name()] Merchandising"
 	T.purpose = "Purchase of [item.name]"
 	T.amount = -amount
 	T.date = stationdate2text()
@@ -87,7 +87,7 @@ var/global/datum/store/centcomm_store=new
 	user.set_machine(src)
 	add_fingerprint(user)
 
-	if(stat & (BROKEN|NOPOWER))
+	if(stat & (inoperable()))
 		return
 
 	var/balance=0
@@ -216,9 +216,9 @@ td.cost.toomuch {
 	if(stat & BROKEN)
 		icon_state = "comm_logs0"
 	else
-		if(stat & NOPOWER)
+		if(stat & MACHINE_STAT_NOPOWER)
 			src.icon_state = "comm_logs"
-			stat |= NOPOWER
+			stat |= MACHINE_STAT_NOPOWER
 		else
 			icon_state = initial(icon_state)
-			stat &= ~NOPOWER*/
+			stat &= ~MACHINE_STAT_NOPOWER*/

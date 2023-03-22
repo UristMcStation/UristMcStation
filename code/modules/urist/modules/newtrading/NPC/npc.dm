@@ -1,23 +1,18 @@
-/mob/living/simple_animal/hostile/npc
+/mob/living/simple_animal/passive/npc
 	anchored = 1
 	name = "NPC"
 	desc = "npc"
 	var/npc_job_title
 	icon = 'code/modules/urist/modules/newtrading/NPC/npc.dmi'
 	icon_state = "Human_m"
-	speak_chance = 0
 	turns_per_move = 5
 	response_help = "pushes"
 	response_disarm = "shoves"
 	response_harm = "hits"
 	speed = 4
-	can_ignite = 1
-	ignite_overlay = "Standing"
-	stop_automated_movement_when_pulled = 0
 	maxHealth = 100
 	health = 100
 	faction = "neutral"
-	wander = 0
 	var/list/jumpsuits = list()
 	var/list/shoes = list()
 	var/list/hats = list()
@@ -30,6 +25,7 @@
 	var/suit_chance = 25
 	var/list/glasses = list()
 	var/glasses_chance = 0
+	ai_holder = /datum/ai_holder/simple_animal/passive/nowandering
 
 //	unsuitable_atoms_damage = 15
 //	corpse = /obj/effect/landmark/mobcorpse/pirate
@@ -102,14 +98,16 @@
 	var/datum/species/my_species
 //	var/language_override = 0
 
+/datum/ai_holder/simple_animal/passive/nowandering
+	wander = FALSE
+	speak_chance = 0
 
-
-/mob/living/simple_animal/hostile/npc/proc/can_use(var/mob/M)
+/mob/living/simple_animal/passive/npc/proc/can_use(var/mob/M)
 	if(M.stat || M.restrained() || M.lying || !istype(M, /mob/living) || get_dist(M, src) > 1)
 		return 0
 	return 1
 
-/mob/living/simple_animal/hostile/npc/Life()
+/mob/living/simple_animal/passive/npc/Life()
 	. = ..()
 
 	if(stat == CONSCIOUS)
@@ -139,7 +137,7 @@
 			say_time = 0
 			say(say_next)
 
-/mob/living/simple_animal/hostile/npc/death(gibbed, deathmessage = "dies!", show_dead_message)
+/mob/living/simple_animal/passive/npc/death(gibbed, deathmessage = "dies!", show_dead_message)
 	. = ..()
 
 	//fall over

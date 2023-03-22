@@ -37,12 +37,6 @@
 		user.take_organ_damage(10, 0)
 		user.Paralyse(20)
 		return
-	if(M.mind)
-		if(M.mind.vampire)
-			if(ishuman(M))
-				if(!(VAMP_FULL in M.mind.vampire.powers))
-					M << "<span class='warning'>The nullrod's power interferes with your own!</span>"
-					M.mind.vampire.nullified = max(5, M.mind.vampire.nullified + 2)
 
 	if(GLOB.cult && iscultist(M))
 		M.visible_message(SPAN_NOTICE("\The [user] waves \the [src] over \the [M]'s head."))

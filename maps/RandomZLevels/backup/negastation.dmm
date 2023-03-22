@@ -82,7 +82,7 @@
 "bD" = (/obj/machinery/door/window{dir = 1},/turf/unsimulated/floor{name = "engraved floor"; icon = 'icons/turf/flooring/cult.dmi'; icon_state = "cult"},/area/space)
 "bE" = (/obj/item/reagent_containers/food/drinks/glass2/square{pixel_x = 4; pixel_y = 5},/obj/item/reagent_containers/food/drinks/glass2/square{pixel_x = 6; pixel_y = -1},/turf/unsimulated/floor{name = "engraved floor"; icon = 'icons/turf/flooring/cult.dmi'; icon_state = "cult"},/area/space)
 "bF" = (/obj/structure/bed/chair{dir = 1},/turf/unsimulated/floor{icon = 'icons/turf/flooring/cult.dmi'; icon_state = "cult-narsie"; light_color = "ff0000"; light_power = 2; light_range = 3; name = "engraved floor"},/area/space)
-"bG" = (/obj/item/device/radio/beacon,/turf/unsimulated/floor{icon = 'icons/turf/flooring/cult.dmi'; icon_state = "cult-narsie"; light_color = "ff0000"; light_power = 2; light_range = 3; name = "engraved floor"},/area/space)
+"bG" = (/obj/machinery/tele_beacon,/turf/unsimulated/floor{icon = 'icons/turf/flooring/cult.dmi'; icon_state = "cult-narsie"; light_color = "ff0000"; light_power = 2; light_range = 3; name = "engraved floor"},/area/space)
 "bH" = (/obj/random/trash,/turf/unsimulated/floor{name = "engraved floor"; icon = 'icons/turf/flooring/cult.dmi'; icon_state = "cult"},/area/space)
 "bI" = (/obj/item/stack/material/cardboard,/turf/unsimulated/floor{name = "engraved floor"; icon = 'icons/turf/flooring/cult.dmi'; icon_state = "cult"},/area/space)
 "bJ" = (/obj/effect/decal/cleanable/cobweb2,/turf/unsimulated/floor{name = "engraved floor"; icon = 'icons/turf/flooring/cult.dmi'; icon_state = "cult"},/area/space)

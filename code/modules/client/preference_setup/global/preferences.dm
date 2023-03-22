@@ -295,6 +295,11 @@ var/global/list/_client_preferences_by_type
 	options = list(GLOB.PREF_YES, GLOB.PREF_NO)
 	default_value = GLOB.PREF_YES
 
+/datum/client_preference/floating_messages
+	description ="Floating chat messages"
+	key = "FLOATING_CHAT"
+	options = list(GLOB.PREF_SHOW, GLOB.PREF_HIDE)
+
 /********************
 * General Staff Preferences *
 ********************/

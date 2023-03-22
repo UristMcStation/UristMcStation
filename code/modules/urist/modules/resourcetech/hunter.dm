@@ -11,10 +11,10 @@
 	desc = "A machine for tanning hides."
 	icon = 'icons/urist/structures&machinery/machinery.dmi'
 	icon_state = "drying_rack"
-	icon_on = "drying_rack_on"
-	icon_off = "drying_rack"
+	var/icon_on = "drying_rack_on"
+	var/icon_off = "drying_rack"
 
-/obj/machinery/smartfridge/tanningrack/accept_check(var/obj/item/O as obj)
+/obj/machinery/smartfridge/tanningrack/accept_check(obj/item/O as obj)
 	if(istype(O, /obj/item/stack/hide/hairless))
 		return 1
 
@@ -64,15 +64,6 @@
 	component_parts += new /obj/item/stock_parts/console_screen(src)
 	component_parts += new /obj/item/stack/cable_coil(src, 5)
 
-/obj/machinery/smartfridge/tanningrack/attackby(var/obj/item/I, mob/user as mob)
-	if(default_deconstruction_screwdriver(user, I))
-		return
-	if(default_deconstruction_crowbar(user, I))
-		return
-	if(default_part_replacement(user, I))
-		return
-
-	..()
 
 //hide
 

@@ -1,12 +1,12 @@
 
-/mob/living/simple_animal/hostile/npc/verb/interact()
+/mob/living/simple_animal/passive/npc/verb/interact()
 	set src in view(1)
 	set name = "Interact with NPC"
 	set category = "NPC"
 
 	attack_hand(usr)
 
-/mob/living/simple_animal/hostile/npc/attack_hand(var/mob/living/user)
+/mob/living/simple_animal/passive/npc/attack_hand(var/mob/living/user)
 	if(user && istype(user) && can_use(user))
 
 		if(interacting_mob && !can_use(interacting_mob))
@@ -25,7 +25,7 @@
 			interacting_mob = user
 			ui_interact(user)
 
-/mob/living/simple_animal/hostile/npc/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/mob/living/simple_animal/passive/npc/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 
 	if(!can_use(user))
 		close_ui(ui)
@@ -102,14 +102,14 @@
 		ui.open()
 		ui.set_auto_update(1)
 
-/mob/living/simple_animal/hostile/npc/proc/close_ui(var/datum/nanoui/ui = null)
+/mob/living/simple_animal/passive/npc/proc/close_ui(var/datum/nanoui/ui = null)
 	if(ui)
 		ui.close()
 	interacting_mob = null
 	say(pick(goodbyes))
 	speak_chance = initial(speak_chance)
 
-/mob/living/simple_animal/hostile/npc/Topic(href, href_list)
+/mob/living/simple_animal/passive/npc/Topic(href, href_list)
 	if(href_list["sell_item_l"])
 		var/mob/living/carbon/M = locate(href_list["user"])
 		if(M && istype(M))
@@ -142,7 +142,7 @@
 	if(href_list["close"])
 		close_ui()
 
-/mob/living/simple_animal/hostile/npc/proc/handle_question(var/mob/living/carbon/user)
+/mob/living/simple_animal/passive/npc/proc/handle_question(var/mob/living/carbon/user)
 	for(var/trigger in src.speech_triggers)
 
 		var/datum/npc_speech_trigger/S = new trigger

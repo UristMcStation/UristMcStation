@@ -1819,7 +1819,7 @@
 /turf/space,
 /area/space)
 "eZ" = (
-/obj/effect/overmap/ship/landable/vox,
+/obj/effect/overmap/visitable/ship/landable/vox,
 /turf/space,
 /area/space)
 "fa" = (

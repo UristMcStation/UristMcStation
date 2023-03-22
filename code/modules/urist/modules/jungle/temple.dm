@@ -154,7 +154,7 @@
 				var/new_type = pick(
 				200; /obj/item/material/hatchet, \
 				/obj/item/gun/projectile/pistol, \
-				/obj/item/gun/projectile/magnum_pistol, \
+				/obj/item/gun/projectile/pistol/magnum_pistol, \
 				// /obj/item/gun/projectile/revolver/russian, \ //got commented out in revolver.dm
 				)
 				new new_type(C)
@@ -311,7 +311,7 @@
 			//flick("sawblade",src)
 		if("poison_dart")
 			M << "<span class='danger'>You feel something small and sharp strike you!</span>"
-			M.apply_damage(rand(5,10), TOX)
+			M.apply_damage(rand(5,10), DAMAGE_TOXIN)
 
 			var/atom/myloc = src.loc
 			var/image/flicker = image('icons/jungle.dmi',"dart[rand(1,3)]")

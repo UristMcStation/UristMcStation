@@ -24,18 +24,18 @@
 	move_delay = config.creep_delay
 
 /singleton/move_intent/walk
-	name = "Walk"
-	hud_icon_state = "walking"
+	name = "Run"
+	hud_icon_state = "running"
 
 /singleton/move_intent/walk/Initialize()
 	. = ..()
 	move_delay = config.walk_delay
 
-/singleton/move_intent/run
+/*singleton/move_intent/run
 	name = "Run"
 	flags = MOVE_INTENT_EXERTIVE | MOVE_INTENT_QUICK
 	hud_icon_state = "running"
 
 /singleton/move_intent/run/Initialize()
 	. = ..()
-	move_delay = config.run_delay
+	move_delay = config.run_delay*/

@@ -18,7 +18,7 @@
  	/obj/item/device/multitool,
  	/obj/item/device/flashlight,
  	/obj/item/stack/cable_coil,
- 	/obj/item/device/analyzer,
+ 	/obj/item/device/scanner/gas,
  	/obj/item/device/mmi,
 	/obj/item/device/integrated_electronics,
 	/obj/item/clothing/gloves,

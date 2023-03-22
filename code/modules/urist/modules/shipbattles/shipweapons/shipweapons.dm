@@ -43,7 +43,7 @@
 	..()
 
 /obj/machinery/shipweapons/proc/Charging() //maybe do this with powercells
-	if(stat & (BROKEN|NOPOWER))
+	if(stat & (inoperable()))
 		return
 	if(status & FIRING)	//If we're firing, we shouldn't recharge until it's done.
 		return
@@ -66,7 +66,7 @@
 
 	status &= ~FIRING	//If power was lost mid-fire, let's reset the flag so status updates correctly
 
-	if(!status & (CHARGED|RECHARGING)) //if we're not charged, we'll try charging when the power changes. that way, if the power is off, and we didn't charge, we'll try again when it comes on
+	if(!status && (CHARGED|RECHARGING)) //if we're not charged, we'll try charging when the power changes. that way, if the power is off, and we didn't charge, we'll try again when it comes on
 		Charging()
 
 /obj/machinery/shipweapons/attack_hand(mob/user as mob) //we can fire it by hand in a pinch
@@ -106,7 +106,7 @@
 		ConnectWeapons()
 		return FALSE
 
-	if(status == CHARGED && !(stat & BROKEN))		//If any flags other than CHARGED is set, we shouldn't be able to fire.
+	if(status == CHARGED && !(stat & inoperable()))		//If any flags other than CHARGED is set, we shouldn't be able to fire.
 		status |= FIRING
 
 		playsound(src, fire_sound, 40, 1)
@@ -304,7 +304,7 @@
 /obj/machinery/shipweapons/proc/getStatusString()
 	if(status & FIRING)
 		return "Firing"
-	if(stat & BROKEN)
+	if(stat & inoperable())
 		return "Destroyed"
 	if(status & RECHARGING)
 		return "Recharging"

@@ -210,9 +210,9 @@ var/global/list/holder_mob_icon_cache = list()
 	var/mob/living/carbon/human/owner = M
 	if(istype(owner) && owner.species)
 
-		var/skin_colour = rgb(owner.r_skin, owner.g_skin, owner.b_skin)
-		var/hair_colour = rgb(owner.r_hair, owner.g_hair, owner.b_hair)
-		var/eye_colour =  rgb(owner.r_eyes, owner.g_eyes, owner.b_eyes)
+		var/skin_colour = rgb(owner.skin_color)
+		var/hair_colour = rgb(owner.head_hair_color, owner.facial_hair_color)
+		var/eye_colour =  rgb(owner.eye_color)
 		var/species_name = lowertext(owner.species.get_bodytype(owner))
 
 		for(var/cache_entry in generate_for_slots)

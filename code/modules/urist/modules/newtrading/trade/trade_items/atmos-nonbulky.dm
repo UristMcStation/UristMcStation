@@ -2,7 +2,7 @@
 
 /datum/trade_item/atmospherics/oxyengi
 	name = "extended oxygen tank"
-	item_type = /obj/item/tank/emergency/oxygen/engi
+	item_type = /obj/item/tank/oxygen_emergency_extended
 	category = "atmospherics"
 	quantity = 5
 	value = 80
@@ -46,7 +46,7 @@
 
 /datum/trade_item/atmospherics/atmosscanner
 	name = "atmospherics scanner module"
-	item_type = /obj/item/computer_hardware/scanner/atmos
+	item_type = /obj/item/stock_parts/computer/scanner/atmos
 	category = "atmospherics"
 	quantity = 5
 	value = 202

@@ -120,7 +120,7 @@
 
 /obj/machinery/light/chromatic
 	name = "chromatic light"
-	var/id_tag = 1
+	id_tag = 1
 	var/freq = 1343
 
 /obj/machinery/light/chromatic/Initialize()

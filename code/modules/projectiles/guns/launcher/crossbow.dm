@@ -198,11 +198,11 @@
 
 /obj/item/gun/launcher/crossbow/on_update_icon()
 	if(tension > 1)
-		icon_state = "[bis.base_icon_state]-drawn"
+		icon_state = "crossbow-drawn"
 	else if(bolt)
-		icon_state = "[bis.base_icon_state]-nocked"
+		icon_state = "crossbow-nocked"
 	else
-		icon_state = "[bis.base_icon_state]"
+		icon_state = "crossbow"
 
 /*////////////////////////////
 //	Rapid Crossbow Device	//

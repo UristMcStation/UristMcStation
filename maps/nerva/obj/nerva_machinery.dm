@@ -7,20 +7,20 @@
 
 /obj/machinery/suit_storage_unit/explorer
 	name = "Exploration Voidsuit Storage Unit"
-	suit_type = /obj/item/clothing/suit/space/void/exploration
-	helmet_type = /obj/item/clothing/head/helmet/space/void/exploration
-	boots_type = /obj/item/clothing/shoes/magboots
-	tank_type = /obj/item/tank/oxygen
-	mask_type = /obj/item/clothing/mask/breath
+	suit = /obj/item/clothing/suit/space/void/exploration
+	helmet = /obj/item/clothing/head/helmet/space/void/exploration
+	boots = /obj/item/clothing/shoes/magboots
+	tank = /obj/item/tank/oxygen
+	mask = /obj/item/clothing/mask/breath
 	req_access = list(access_expedition)
 	islocked = 1
 
 /obj/machinery/suit_storage_unit/pilot
 	name = "Pilot Voidsuit Storage Unit"
-	suit_type = /obj/item/clothing/suit/space/void/pilot
-	helmet_type = /obj/item/clothing/head/helmet/space/void/pilot
-	boots_type = /obj/item/clothing/shoes/magboots
-	tank_type = /obj/item/tank/oxygen
-	mask_type = /obj/item/clothing/mask/breath
+	suit = /obj/item/clothing/suit/space/void/pilot
+	helmet = /obj/item/clothing/head/helmet/space/void/pilot
+	boots = /obj/item/clothing/shoes/magboots
+	tank = /obj/item/tank/oxygen
+	mask = /obj/item/clothing/mask/breath
 	req_access = list(access_expedition)
 	islocked = 1

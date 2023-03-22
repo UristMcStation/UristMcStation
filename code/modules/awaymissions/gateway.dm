@@ -48,7 +48,7 @@
 
 
 obj/machinery/gateway/centerstation/Process()
-	if(stat & (NOPOWER))
+	if(stat & (MACHINE_STAT_NOPOWER))
 		if(active) toggleoff()
 		return
 

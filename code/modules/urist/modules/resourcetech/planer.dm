@@ -21,12 +21,6 @@
 	component_parts += new /obj/item/stack/cable_coil(src, 2)
 
 /obj/machinery/carpentry/planer/attackby(var/obj/item/I, mob/user as mob)
-	if(default_deconstruction_screwdriver(user, I))
-		return
-	if(default_deconstruction_crowbar(user, I))
-		return
-	if(default_part_replacement(user, I))
-		return
 
 	if(istype(I, /obj/item/wrench))
 		if(busy)
@@ -97,12 +91,6 @@
 	active_power_usage = 800
 
 /obj/machinery/carpentry/woodprocessor/attackby(var/obj/item/I, mob/user as mob)
-	if(default_deconstruction_screwdriver(user, I))
-		return
-	if(default_deconstruction_crowbar(user, I))
-		return
-	if(default_part_replacement(user, I))
-		return
 
 	if(istype(I, /obj/item/stack/material/wood) || istype(I, /obj/item/stack/material/r_wood))
 		if(busy)

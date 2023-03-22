@@ -37,7 +37,7 @@
 "aK" = (/obj/machinery/power/breakerbox{dir = 2},/turf/simulated/floor/plating,/area/engineering/subsmes)
 "aL" = (/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"; pixel_x = 0; tag = ""},/obj/machinery/firealarm,/turf/simulated/floor/plating,/area/engineering/subsmes)
 "aM" = (/obj/structure/ladder/up,/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"},/turf/simulated/floor/plating,/area/engineering/subsmes)
-"aN" = (/obj/structure/closet/crate,/obj/item/smes_coil/super_capacity,/obj/item/smes_coil/super_capacity,/obj/item/smes_coil/super_capacity,/obj/item/smes_coil/super_io,/obj/item/smes_coil/super_io,/obj/item/smes_coil/super_io,/obj/machinery/light{icon_state = "tube1"; dir = 1},/turf/simulated/floor/plating,/area/engineering/subsmes)
+"aN" = (/obj/structure/closet/crate,/obj/item/stock_parts/smes_coil/super_capacity,/obj/item/stock_parts/smes_coil/super_capacity,/obj/item/stock_parts/smes_coil/super_capacity,/obj/item/stock_parts/smes_coil/super_io,/obj/item/stock_parts/smes_coil/super_io,/obj/item/stock_parts/smes_coil/super_io,/obj/machinery/light{icon_state = "tube1"; dir = 1},/turf/simulated/floor/plating,/area/engineering/subsmes)
 "aO" = (/obj/machinery/atmospherics/pipe/simple/heat_exchanging,/obj/structure/lattice,/turf/space,/area/engineering/extsubmaint)
 "aP" = (/obj/machinery/atmospherics/pipe/simple/heat_exchanging{icon_state = "intact"; dir = 6},/obj/structure/lattice,/turf/space,/area/engineering/extsubmaint)
 "aQ" = (/obj/structure/window/reinforced,/turf/space,/area/space)

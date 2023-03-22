@@ -433,7 +433,7 @@
 /area/space)
 "be" = (
 /obj/structure/table/standard,
-/obj/item/device/analyzer,
+/obj/item/device/scanner/gas,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},
@@ -655,10 +655,10 @@
 /area/derelict/ship)
 "bG" = (
 /obj/structure/table/rack,
-/obj/item/tank/emergency/oxygen,
-/obj/item/tank/emergency/oxygen,
-/obj/item/tank/emergency/oxygen,
-/obj/item/tank/emergency/oxygen,
+/obj/item/tank/oxygen_emergency,
+/obj/item/tank/oxygen_emergency,
+/obj/item/tank/oxygen_emergency,
+/obj/item/tank/oxygen_emergency,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},

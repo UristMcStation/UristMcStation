@@ -49,7 +49,7 @@
 	path = /obj/item/melee/energy/sword
 	antag_costs = list(MODE_PARANOIA = 96)
 
-/datum/uplink_item/item/visible_weapons/g9mm
+/datum/uplink_item/item/visible_weapons/silenced
 	name = "Silenced Holdout Pistol"
 	desc = "A kit with a pocket-sized holdout pistol, silencer, and an extra magazine. \
 			Attaching the silencer will make it too big to conceal in your pocket."

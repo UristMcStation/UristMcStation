@@ -10,10 +10,6 @@
 	var/obj/item/sample = null
 	var/report_num = 0
 
-/obj/machinery/microscope/Initialize()
-	build_default_parts(/obj/item/circuitboard/microscope)
-	. = ..()
-
 /obj/machinery/microscope/Destroy()
 	if(sample)
 		sample.dropInto(loc)

@@ -105,8 +105,6 @@
 		for(var/g in giver.gas)
 			gas[g] += giver.gas[g]
 
-	viruses |= giver.viruses
-
 	update_values()
 
 // Used to equalize the mixture between two zones before sleeping an edge.
@@ -128,9 +126,6 @@
 	if(our_heatcap + share_heatcap)
 		temperature = ((temperature * our_heatcap) + (sharer.temperature * share_heatcap)) / (our_heatcap + share_heatcap)
 	sharer.temperature = temperature
-
-	viruses |= sharer.viruses
-	sharer.viruses |= viruses
 
 	update_values()
 	sharer.update_values()
@@ -305,7 +300,6 @@
 /datum/gas_mixture/proc/copy_from(const/datum/gas_mixture/sample)
 	gas = sample.gas.Copy()
 	temperature = sample.temperature
-	viruses |= sample.viruses
 
 	update_values()
 

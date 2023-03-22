@@ -6,7 +6,7 @@
 	icon_keyboard = "id_key"
 	icon_screen = "comm_logs"
 	req_access = list(list(access_hop, access_captain))
-	circuit = /obj/item/circuitboard/account_manager
+	circuit = /obj/item/stock_parts/circuitboard/account_manager
 
 	var/fineNum
 	var/display_state = "payroll"
@@ -182,7 +182,7 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 			for(var/datum/transaction/T in focused_account.transaction_log)
 				var/list/transaction = list()
 				transaction.Add(list(list(
-					"target_name" = T.target_name,
+					"target" = T.target(),
 					"purpose" = T.purpose,
 					"amount" = T.amount,
 					"date" = T.date,
@@ -273,20 +273,20 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 
 				var/datum/transaction/fine = new()
 				var/datum/transaction/deposit = new()
-				fine.target_name = "[station_account.owner_name] (via [auth_card.registered_name])"
+				fine.target = "[station_account.owner_name] (via [auth_card.registered_name])"
 				fine.purpose = "Fine Issued (Ref. #[fineNum])"
 				fine.amount = -amount
 				fine.date = stationdate2text()
 				fine.time = stationtime2text()
-				fine.source_terminal = machine_id
-				deposit.target_name = "[focused_account.owner_name] (via [auth_card.registered_name])"
+				fine.source = machine_id
+				deposit.target = "[focused_account.owner_name] (via [auth_card.registered_name])"
 				deposit.purpose = "Fine Revenue (Ref. #[fineNum])"
 				deposit.amount = amount
 				deposit.date = stationdate2text()
 				deposit.time = stationtime2text()
-				deposit.source_terminal = machine_id
-				focused_account.do_transaction(fine)
-				station_account.do_transaction(deposit)
+				deposit.source = machine_id
+				focused_account.add_transaction(fine)
+				station_account.add_transaction(deposit)
 
 				//For those pencil-pushers. Forms to sign and file!
 				var/text = "<center><font size = \"2\">[GLOB.using_map.station_name] Disciplinary Committee</font></center><br><hr><br>"
@@ -381,20 +381,20 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 				var/datum/transaction/T_employee = new()
 				var/datum/transaction/T_department = new()
 
-				T_employee.target_name = "[dept_account.owner_name] (via [auth_card.registered_name])"
+				T_employee.target = "[dept_account.owner_name] (via [auth_card.registered_name])"
 				T_employee.purpose = "Bonus Pay from [author]"
 				T_employee.amount = amount
 				T_employee.date = stationdate2text()
 				T_employee.time = stationtime2text()
-				T_employee.source_terminal = machine_id
-				T_department.target_name = "[focused_account.owner_name] (via [auth_card.registered_name])"
+				T_employee.source = machine_id
+				T_department.target = "[focused_account.owner_name] (via [auth_card.registered_name])"
 				T_department.purpose = "Bonus Pay from [author]"
 				T_department.amount = -amount
 				T_department.date = stationdate2text()
 				T_department.time = stationtime2text()
-				T_department.source_terminal = machine_id
-				focused_account.do_transaction(T_employee)
-				dept_account.do_transaction(T_department)
+				T_department.source = machine_id
+				focused_account.add_transaction(T_employee)
+				dept_account.add_transaction(T_department)
 
 				if(target_mind.initial_email_login["login"])
 					var/message = "[target_mind.name],\n\n<b>Congratulations!</b> You have been awarded a bonus of <b>[amount] Th</b> from the [dept_account.owner_name] on behalf of [author]. Keep up the continued hard work!"
@@ -528,12 +528,12 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 				ntnet_global.create_email(M.current, temp_account_items["email"], "freemail.net")
 				var/datum/money_account/acc = create_account(M.current.real_name, 0)
 				var/datum/transaction/T = new()
-				T.target_name = M.current.real_name
+				T.account_name() = M.current.real_name
 				T.purpose = "Account creation"
 				T.amount = 0
 				T.date = stationdate2text()
 				T.time = stationtime2text()
-				T.source_terminal = machine_id
+				T.source = machine_id
 				acc.transaction_log[1] = T
 				M.initial_account = acc
 

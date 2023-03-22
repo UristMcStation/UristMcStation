@@ -17,5 +17,5 @@
 	turns_per_move = 10
 	voice_name = "unidentifiable shriek"
 
-/datum/say_list/vox =
+/datum/say_list/vox
 	speak = list("SHRIEKS")

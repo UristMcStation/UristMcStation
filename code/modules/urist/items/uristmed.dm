@@ -28,7 +28,7 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 	startswith = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/rad = 5,
 		/obj/item/reagent_containers/syringe/antitoxin,
-		/obj/item/device/healthanalyzer
+		/obj/item/device/scanner/health
 		)
 
 /obj/item/storage/firstaid/rad/New()
@@ -45,7 +45,7 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 	max_storage_space = 20
 
 	startswith = list(
-		/obj/item/device/healthanalyzer,
+		/obj/item/device/scanner/health,
 		/obj/item/reagent_containers/hypospray,
 		/obj/item/storage/pill_bottle/bloodloss,
 		/obj/item/storage/pill_bottle/peridaxon,

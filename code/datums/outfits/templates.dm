@@ -17,7 +17,7 @@
 	uniform = /obj/item/clothing/under/rank/medical/scrubs/green
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/corp/veymed
 	shoes = /obj/item/clothing/shoes/white
-	suit_store = /obj/item/device/healthanalyzer
+	suit_store = /obj/item/device/scanner/health
 	back = /obj/item/storage/backpack/satchel/med
 	gloves = /obj/item/clothing/gloves/latex
 	id = /obj/item/card/id/fake/veymed

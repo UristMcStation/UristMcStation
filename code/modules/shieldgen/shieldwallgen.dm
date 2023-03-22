@@ -287,6 +287,13 @@
 	update_nearby_tiles()
 	..()
 
+/obj/machinery/shieldwall/proc/strain_power(var/amount)
+	if(!gen_primary || !gen_secondary)
+		return
+	var/d_amount = amount/2
+	gen_primary.storedpower -= d_amount
+	gen_secondary.storedpower -= d_amount
+
 /obj/machinery/shieldwall/attackby(obj/item/I, mob/user)
 	var/obj/machinery/shieldwallgen/G = prob(50) ? gen_primary : gen_secondary
 	G.storedpower -= I.force*2500
@@ -319,13 +326,13 @@
 	if(needs_power)
 		switch(severity)
 			if(EX_ACT_DEVASTATING) //big boom
-				G.storedpower -= rand(30000, min(G.storedpower, 60000))
+				strain_power(rand(30000, min(prob(50) ? gen_primary.storedpower : gen_secondary.storedpower, 60000)))
 
 			if(EX_ACT_HEAVY) //medium boom
-				G.storedpower -= rand(15000, min(G.storedpower, 30000))
+				strain_power(rand(15000, min(prob(50) ? gen_primary.storedpower : gen_secondary.storedpower, 30000)))
 
 			if(EX_ACT_LIGHT) //lil boom
-				G.storedpower -= rand(5000, min(G.storedpower, 15000))
+				strain_power(rand(5000, min(prob(50) ? gen_primary.storedpower : gen_secondary.storedpower, 15000)))
 	return
 
 

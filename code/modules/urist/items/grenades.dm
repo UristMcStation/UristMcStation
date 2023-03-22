@@ -17,10 +17,10 @@
 		..()
 		var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
 		var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
-		B1.reagents.add_reagent(/datum/reagent/space_drugs, 1)
+		B1.reagents.add_reagent(/datum/reagent/drugs/hextro, 1)
 		B1.reagents.add_reagent(/datum/reagent/potassium, 32)
 		B1.reagents.add_reagent(/datum/reagent/sugar, 17)
-		B2.reagents.add_reagent(/datum/reagent/space_drugs, 3)
+		B2.reagents.add_reagent(/datum/reagent/drugs/hextro, 3)
 		B2.reagents.add_reagent(/datum/reagent/sugar, 15)
 		B2.reagents.add_reagent(/datum/reagent/phosphorus, 32)
 

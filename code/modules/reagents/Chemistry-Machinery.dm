@@ -22,6 +22,7 @@
 	clickvol = 20
 	var/obj/item/reagent_containers/beaker = null
 	var/obj/item/storage/pill_bottle/loaded_pill_bottle = null
+	var/condi = 0
 
 	var/to_beaker = FALSE // If TRUE, reagents will move from buffer -> beaker. If FALSE, reagents will be destroyed when moved from the buffer.
 	var/useramount = 30 // Last used amount
@@ -123,10 +124,6 @@
 				if(their_reagent)
 					var/mult = 1
 					var/amount = clamp((text2num(href_list["amount"])), 0, get_remaining_volume())
-					if(sloppy)
-						var/contaminants = fetch_contaminants(user, R, their_reagent)
-						for(var/datum/reagent/reagent in contaminants)
-							R.trans_type_to(src, reagent.type, round(rand()*amount/5, 0.1))
 					R.trans_type_to(src, their_reagent.type, amount, mult)
 
 		else if (href_list["addcustom"])
@@ -142,7 +139,6 @@
 				var/datum/reagent/my_reagents = locate(href_list["remove"]) in reagents.reagent_list
 				if(my_reagents)
 					var/amount = clamp((text2num(href_list["amount"])), 0, 200)
-					var/contaminants = fetch_contaminants(user, reagents, my_reagents)
 					if(to_beaker)
 						reagents.trans_type_to(beaker, my_reagents.type, amount)
 					else
@@ -360,7 +356,6 @@
 /obj/machinery/chem_master/condimaster
 	name = "\improper CondiMaster 3000"
 	desc = "A machine pre-supplied with plastic condiment containers to bottle up reagents for use with foods."
-	core_skill = SKILL_COOKING
 	production_options = CHEMMASTER_OPTIONS_CONDIMENTS
 
 /obj/machinery/chem_master/condimaster/get_chem_info(datum/reagent/reagent)

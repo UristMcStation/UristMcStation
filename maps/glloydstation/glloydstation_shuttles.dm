@@ -416,7 +416,7 @@
 	name = "Mercenary Base"
 	landmark_tag = "merc_ship_start"
 	base_turf = /turf/unsimulated/floor/snow
-	base_area = /area/syndicate_mothership
+	base_area = /area/map_template/syndicate_mothership
 
 /obj/effect/shuttle_landmark/mercenary/transit
 	name = "In Transit"

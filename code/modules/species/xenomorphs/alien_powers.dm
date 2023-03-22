@@ -224,7 +224,7 @@ mob/living/carbon/human/proc/xeno_infest(mob/living/carbon/human/M as mob in ovi
 
 	src.visible_message("<span class='danger'>\The [src] crouches over \the [M], extending a hideous protuberance from its head!</span>")
 
-	if(!do_mob(src, M, 150))
+	if(!do_after(src, M, 150))
 		return
 
 	if(!M || !M.Adjacent(src))

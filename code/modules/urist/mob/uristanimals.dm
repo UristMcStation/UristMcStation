@@ -11,17 +11,21 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "fox"
 	icon_living = "fox"
 	icon_dead = "fox_dead"
-	speak = list("Ack-Ack","Ack-Ack-Ack-Ackawoooo","Purr","Awoo","Tchoff")
 	speak_emote = list("purrs", "barks")
-	emote_hear = list("howls","barks")
-	emote_see = list("shakes its head", "shivers")
-	speak_chance = 1
 	turns_per_move = 5
 	see_in_dark = 6
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
+	ai_holder = /datum/ai_holder/simple_animal/passive/fox
+
+/datum/ai_holder/simple_animal/passive/fox
+	speak_chance = 1
+/datum/say_list/fox
+	speak = list("Ack-Ack","Ack-Ack-Ack-Ackawoooo","Purr","Awoo","Tchoff")
+	emote_hear = list("howls","barks")
+	emote_see = list("shakes its head", "shivers")
 
 //Renault, the captain's fox.
 
@@ -155,7 +159,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	response_harm = "bites"
 	health = 25
 	maxHealth = 30
-	natural_weapon = obj/item/natural_weapon/bite
+	natural_weapon = /obj/item/natural_weapon/bite
 	pass_flags = PASS_FLAG_TABLE
 	faction = "factory"
 	attacktext = "bites"
@@ -170,7 +174,6 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "big_rat_brown"
 	icon_living = "big_rat_brown"
 	icon_dead = "big_rat_brown_dead"
-	speak = list("squeaks")
 	speak_emote = list("scrowls")
 	response_help =  "hungrily nuzzles"
 	response_disarm = "swipes"
@@ -181,6 +184,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	pass_flags = PASS_FLAG_TABLE
 	faction = "factory"
 	attacktext = "gnaws"
+	ai_holder = /datum/ai_holder/simple_animal/melee
 
 /datum/say_list/mutated_corpse_rat
 	speak = list("squeaks")

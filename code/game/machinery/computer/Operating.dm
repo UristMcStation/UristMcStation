@@ -9,15 +9,16 @@
 	machine_name = "patient monitoring console"
 	machine_desc = "Displays a realtime health readout of a patient laid onto an adjacent operating table."
 	var/mob/living/carbon/human/victim = null
+	var/obj/machinery/optable/table = null
 	var/obj/watching = null
 
 /obj/machinery/computer/operating/New()
 	..()
-	for(var/direction in GLOB.cardinal)
-		for(var/obj/O in get_step(src, direction))
-			if((O.obj_flags & OBJ_FLAG_SURGICAL) && (O.can_buckle || istype(O, /obj/machinery/optable)))
-				watching = O
-				return
+	for(var/D in list(NORTH,EAST,SOUTH,WEST))
+		table = locate(/obj/machinery/optable, get_step(src, D))
+		if (table)
+			table.computer = src
+			break
 
 /obj/machinery/computer/operating/interface_interact(user)
 	interact(user)

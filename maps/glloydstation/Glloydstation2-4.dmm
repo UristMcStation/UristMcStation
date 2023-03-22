@@ -3443,7 +3443,7 @@
 /area/derelict/arrival)
 "ju" = (
 /obj/structure/table/standard,
-/obj/item/device/healthanalyzer,
+/obj/item/device/scanner/health,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/primary)
 "jv" = (

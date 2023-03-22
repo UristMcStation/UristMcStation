@@ -81,7 +81,7 @@
 
 /obj/item/hollowpineapple/attackby(obj/item/W as obj, mob/user as mob)
 	..()
-	if(istype(W, /obj/item/circular_saw) || istype(W, /obj/item/material/hatchet) || istype(W, /obj/item/material/kitchen/utensil/knife) || istype(W, /obj/item/material/knife) || istype(W, /obj/item/material/knife/ritual))
+	if(istype(W, /obj/item/circular_saw) || istype(W, /obj/item/material/hatchet) || istype(W, /obj/item/material/knife/kitchen) || istype(W, /obj/item/material/knife) || istype(W, /obj/item/material/knife/ritual))
 		to_chat(user, "<span class='notice'>You use [W] to carve the pineapple into a mug!</span>")
 		new /obj/item/reagent_containers/food/drinks/glass2/pineapple (user.loc)
 		qdel(src)
@@ -100,7 +100,7 @@
 
 /obj/item/hollowcoconut/attackby(obj/item/W as obj, mob/user as mob)
 	..()
-	if(istype(W, /obj/item/circular_saw) || istype(W, /obj/item/material/hatchet) || istype(W, /obj/item/material/kitchen/utensil/knife) || istype(W, /obj/item/material/knife) || istype(W, /obj/item/material/knife/ritual))
+	if(istype(W, /obj/item/circular_saw) || istype(W, /obj/item/material/hatchet) || istype(W, /obj/item/material/knife/kitchen) || istype(W, /obj/item/material/knife) || istype(W, /obj/item/material/knife/ritual))
 		to_chat(user, "<span class='notice'>You use [W] to carve the coconut shell into a mug!</span>")
 		new /obj/item/reagent_containers/food/drinks/glass2/coconut (user.loc)
 		qdel(src)

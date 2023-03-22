@@ -466,7 +466,7 @@
 /obj/item/stack/material/cloth
 	name = "cotton"
 	icon_state = "sheet-cloth"
-	default_type = MATERIAL_COTTON
+	default_type = MATERIAL_CLOTH
 	material_flags = USE_MATERIAL_SINGULAR_NAME|USE_MATERIAL_PLURAL_NAME
 
 /obj/item/stack/material/cardboard

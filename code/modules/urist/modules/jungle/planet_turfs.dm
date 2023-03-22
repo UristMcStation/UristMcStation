@@ -188,7 +188,7 @@
 	terrain_type = "grass"
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/deer,
-		/mob/living/simple_animal/parrot/jungle,
+		/mob/living/simple_animal/hostile/retaliate/parrot/jungle,
 		/mob/living/simple_animal/huntable/monkey
 	)
 
@@ -209,7 +209,7 @@
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/simple_animal/hostile/huntable/deer,
-		/mob/living/simple_animal/parrot/jungle,
+		/mob/living/simple_animal/hostile/retaliate/parrot/jungle,
 		)
 
 /turf/simulated/floor/planet/jungle/thick
@@ -237,7 +237,7 @@
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/simple_animal/hostile/huntable/deer,
-		/mob/living/simple_animal/parrot/jungle,
+		/mob/living/simple_animal/hostile/retaliate/parrot/jungle,
 		/mob/living/simple_animal/huntable/monkey
 		)
 
@@ -278,7 +278,7 @@
 	light_max_bright = 0.3
 	animal_spawn_chance = 0.15
 	animal_spawn_list = list(
-		/mob/living/simple_animal/parrot/jungle,
+		/mob/living/simple_animal/hostile/retaliate/parrot/jungle,
 		/mob/living/simple_animal/huntable/monkey
 		)
 
@@ -338,7 +338,7 @@
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/simple_animal/hostile/huntable/deer,
-		/mob/living/simple_animal/parrot/jungle,
+		/mob/living/simple_animal/hostile/retaliate/parrot/jungle,
 		/mob/living/simple_animal/huntable/monkey
 		)
 

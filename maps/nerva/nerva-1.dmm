@@ -1102,7 +1102,7 @@
 	pixel_x = 3;
 	pixel_y = 2
 	},
-/obj/item/device/analyzer,
+/obj/item/device/scanner/gas,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/afp)
 "cu" = (
@@ -2456,7 +2456,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/afp)
 "eJ" = (
-/obj/item/device/analyzer,
+/obj/item/device/scanner/gas,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/afp)
 "eK" = (
@@ -3461,7 +3461,7 @@
 /turf/simulated/floor/tiled,
 /area/antonine_hangar/start)
 "gv" = (
-/obj/item/device/radio/beacon/anchored{
+/obj/machinery/tele_beacon/anchored{
 	level = 1
 	},
 /obj/machinery/hologram/holopad/longrange,
@@ -3663,7 +3663,7 @@
 	dir = 8;
 	icon_state = "map-scrubbers"
 	},
-/obj/item/device/radio/beacon/anchored{
+/obj/machinery/tele_beacon/anchored{
 	level = 1
 	},
 /turf/simulated/floor/tiled,
@@ -4512,7 +4512,7 @@
 "iu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/freezer/rations,
-/obj/item/material/knife/butch,
+/obj/item/material/knife/kitchen/cleaver,
 /obj/item/beartrap,
 /turf/simulated/floor/tiled/dark,
 /area/exploration_shuttle/cargo)
@@ -5406,7 +5406,7 @@
 	},
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/tank/emergency/oxygen/engi,
+/obj/item/tank/oxygen_emergency_extended,
 /obj/item/stack/medical/ointment,
 /obj/item/stack/medical/bruise_pack{
 	amount = 1;
@@ -8523,7 +8523,7 @@
 /area/hallway/centralfourth)
 "pc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/item/device/radio/beacon,
+/obj/machinery/tele_beacon,
 /turf/simulated/floor/tiled,
 /area/hallway/centralfourth)
 "pd" = (
@@ -13501,7 +13501,7 @@
 	dir = 4;
 	icon_state = "intact-supply"
 	},
-/obj/item/device/radio/beacon,
+/obj/machinery/tele_beacon,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "xB" = (
@@ -14686,7 +14686,7 @@
 "zp" = (
 /obj/structure/table/standard,
 /obj/item/folder/nt,
-/obj/item/device/healthanalyzer,
+/obj/item/device/scanner/health,
 /obj/item/trash/cigbutt/rand,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
@@ -19415,7 +19415,7 @@
 /obj/structure/closet/crate,
 /obj/item/cell/super,
 /obj/item/wrench,
-/obj/item/tank/emergency/oxygen/engi,
+/obj/item/tank/oxygen_emergency_extended,
 /obj/item/clothing/mask/gas{
 	pixel_x = -3;
 	pixel_y = -3
@@ -19424,8 +19424,8 @@
 /obj/item/device/flashlight,
 /obj/item/storage/briefcase/inflatable,
 /obj/item/reagent_containers/food/snacks/liquidfood,
-/obj/item/reagent_containers/food/snacks/candy/proteinbar,
-/obj/item/reagent_containers/food/snacks/candy/proteinbar,
+/obj/item/reagent_containers/food/snacks/proteinbar,
+/obj/item/reagent_containers/food/snacks/proteinbar,
 /obj/item/gun/launcher/net,
 /obj/structure/cable/cyan{
 	d2 = 4;
@@ -19758,7 +19758,7 @@
 /obj/structure/closet/crate,
 /obj/item/material/hatchet,
 /obj/item/device/radio,
-/obj/item/device/analyzer,
+/obj/item/device/scanner/gas,
 /obj/random/toolbox,
 /obj/random/tech_supply,
 /obj/item/cell/super,
@@ -20199,7 +20199,7 @@
 	pixel_x = 22;
 	pixel_y = 22
 	},
-/obj/item/device/radio/beacon/anchored{
+/obj/machinery/tele_beacon/anchored{
 	level = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -21772,7 +21772,7 @@
 "Qp" = (
 /obj/structure/table/standard,
 /obj/random/toolbox,
-/obj/item/device/analyzer,
+/obj/item/device/scanner/gas,
 /obj/item/cell/super,
 /obj/item/device/spaceflare,
 /obj/structure/cable/cyan{
@@ -23969,7 +23969,7 @@
 	icon_state = "edge"
 	},
 /obj/structure/table/standard,
-/obj/item/device/healthanalyzer,
+/obj/item/device/scanner/health,
 /obj/item/wrench,
 /obj/machinery/light/chromatic{
 	dir = 4;

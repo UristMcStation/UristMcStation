@@ -68,7 +68,7 @@
 	new /obj/item/handcuffs(src)
 	new /obj/item/clothing/suit/storage/urist/coat/blueshield(src)
 	new /obj/item/clothing/suit/armor/pcarrier(src)
-	new /obj/item/clothing/accessory/armorplate/medium(src)
+	new /obj/item/clothing/accessory/armor_plate/medium(src)
 	return
 
 //Emergency suits locker
@@ -80,12 +80,12 @@
 /obj/structure/closet/emsuits/New()
 	..()
 
-	new /obj/item/clothing/head/urist/emergencyhood(src)
-	new /obj/item/clothing/suit/urist/emergencysuit(src)
-	new /obj/item/tank/emergency/oxygen(src)
+	new /obj/item/clothing/head/helmet/space/emergency(src)
+	new /obj/item/clothing/suit/space/emergency(src)
+	new /obj/item/tank/oxygen_emergency(src)
 	new /obj/item/clothing/mask/breath(src)
 	new /obj/item/storage/toolbox/emergency(src)
-	new /obj/item/tank/emergency/oxygen(src)
+	new /obj/item/tank/oxygen_emergency(src)
 
 //Armored sec biosuit locker
 //CDN
@@ -116,7 +116,7 @@
 	new /obj/item/clothing/head/beret/sec/navy/officer(src)
 	new /obj/item/clothing/suit/armor/vest/jacket(src)
 	new /obj/item/gun/energy/sniperrifle(src)
-	new /obj/item/gun/projectile/magnum_pistol(src)
+	new /obj/item/gun/projectile/pistol/magnum_pistol(src)
 	new /obj/item/ammo_magazine/a50(src)
 	new /obj/item/ammo_magazine/a50(src)
 	new /obj/item/ammo_magazine/a50(src)
@@ -130,7 +130,7 @@
 	new /obj/item/clothing/head/beret/sec/navy/officer(src)
 	new /obj/item/clothing/suit/armor/vest/jacket(src)
 	new /obj/item/gun/energy/sniperrifle(src)
-	new /obj/item/gun/projectile/magnum_pistol(src)
+	new /obj/item/gun/projectile/pistol/magnum_pistol(src)
 	new /obj/item/ammo_magazine/a50(src)
 	new /obj/item/ammo_magazine/a50(src)
 	new /obj/item/ammo_magazine/a50(src)
@@ -182,7 +182,7 @@
 /obj/structure/closet/wardrobe/tactical/double/WillContain()
 	return list(
 		/obj/item/clothing/suit/armor/pcarrier/green = 2,
-		/obj/item/clothing/accessory/armorplate/medium = 2,
+		/obj/item/clothing/accessory/armor_plate/medium = 2,
 		/obj/item/clothing/under/tactical = 2,
 		/obj/item/clothing/head/helmet/nt/tactical = 2,
 		/obj/item/clothing/accessory/armguards/green = 2,

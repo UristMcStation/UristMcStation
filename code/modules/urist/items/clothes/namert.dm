@@ -82,7 +82,7 @@
 		/obj/item/device/megaphone,
 		/obj/item/melee,
 		/obj/item/gun/projectile/bhp9mm,
-		/obj/item/gun/projectile/sec,
+		/obj/item/gun/projectile/pistol/sec,
 		/obj/item/taperoll/police
 		)
 

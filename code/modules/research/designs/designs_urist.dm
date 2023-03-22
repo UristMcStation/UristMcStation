@@ -19,37 +19,35 @@ datum/design/plasmapistol
 	name = "tanning rack"
 	id = "tanning rack"
 	req_tech = list(TECH_BIO = 1, TECH_ENGINEERING = 1)
-	build_path = /obj/item/circuitboard/tanningrack
+	build_path = /obj/item/stock_parts/circuitboard/tanningrack
 	sort_string = "URSTB"
 
 /datum/design/circuit/carpentryplaner
 	name = "wood processor"
 	id = "wood processor"
 	req_tech = list(TECH_ENGINEERING = 1)
-	build_path = /obj/item/circuitboard/carpentryplaner
+	build_path = /obj/item/stock_parts/circuitboard/carpentryplaner
 	sort_string = "URSTC"
 
 /datum/design/circuit/woodprocessor
 	name = "pulp and paper processor"
 	id = "pulp and paper processor"
 	req_tech = list(TECH_ENGINEERING = 1)
-	build_path = /obj/item/circuitboard/woodprocessor
+	build_path = /obj/item/stock_parts/circuitboard/woodprocessor
 	sort_string = "URSTD"
 
 /datum/design/circuit/drying_rack
 	name = "drying rack"
 	id = "drying rack"
 	req_tech = list(TECH_BIO = 1, TECH_ENGINEERING = 1)
-	build_path = /obj/item/circuitboard/drying_rack
+	build_path = /obj/item/stock_parts/circuitboard/drying_rack
 	sort_string = "URSTE"
 
-/datum/design/circuit/washing_machine
-	name = "washing machine"
-	id = "washing machine"
-	req_tech = list(TECH_ENGINEERING = 1)
-	build_path = /obj/item/circuitboard/washing_machine
+/datum/design/circuit/account_manager
+	name = "account manager"
+	id = "accountmanager"
+	build_path = /obj/item/stock_parts/circuitboard/account_manager
 	sort_string = "URSTF"
-
 /datum/design/item/stock_part/BRPED
 	name = "Bluespace Rapid Part Exchange Device"
 	desc = "A version of the RPED that allows for replacement of parts and scanning from a distance, along with higher capacity for parts."

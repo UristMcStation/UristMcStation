@@ -5,26 +5,25 @@
 	icon_state = "zombie_s"
 	icon_living = "zombie_s"
 	icon_dead = "zombie_d"
-	simplify_dead_icon = 1
 	health = 40
 	maxHealth = 40
-	melee_damage_lower = 5
-	melee_damage_upper = 10
+	natural_weapon = /obj/item/natural_weapon/bite
 	attacktext = "bit"
 	attack_sound = 'sound/weapons/bite.ogg'
 	faction = "undead"
 	min_gas = null
 	max_gas = null
 	minbodytemp = 0
-	idle_vision_range = 3
-	aggro_vision_range = 15 //fairly easy to evade a single one, but DO NOT PISS THEM OFF
 	move_to_delay = 7
-	stat_attack = 1
 	ranged = 0
 	environment_smash = 1
 	var/plague = 0 //whether biting dead people spawns new zombies
 	var/regen = 0 //if true, they won't stay down, but revive after a delay
 	var/regen_delay = 90 //delay for regen revive
+	ai_holder = /datum/ai_holder/simple_animal/melee/zombie
+
+/datum/ai_holder/simple_animal/melee/zombie
+	vision_range = 3 // fairly easy to evade a single one
 
 /datum/reagent/xenomicrobes/uristzombie
 	metabolism = REM
@@ -147,7 +146,7 @@
 		if(prob(clamp(5+true_dose, 0, 20)))
 			H.make_jittery(5)
 
-/mob/living/simple_animal/hostile/urist/zombie/Aggro()
+/mob/living/simple_animal/hostile/urist/zombie/proc/Aggro()
 	if(prob(35))
 		playsound(src.loc, pick('sound/hallucinations/wail.ogg', 'sound/hallucinations/screech.ogg', 'sound/hallucinations/growl1.ogg', 'sound/hallucinations/growl2.ogg', 'sound/hallucinations/growl3.ogg'))
 	..()
@@ -204,13 +203,11 @@
 	desc = "This zombie SIMPLY. WON'T. STAY. DEAD. Run!"
 	health = 60
 	maxHealth = 60
-	idle_vision_range = 3
 	regen = 1
 	icon_dead = "zombie_s" //ugly, but effective, workaround to use sprite rotation instead of having a custom death icon
 
 /mob/living/simple_animal/hostile/urist/zombie/plague //Because non-infectious unkillable zombies weren't bad enough. Round-ender.
 	desc = "A bloodthirsty and brain-hungry corpse revived by an unknown infectious pathogen with extreme regenerative abilities."
-	stat_attack = 2
 	regen = 1
 	plague = 1
 
@@ -222,7 +219,7 @@
 			var/mob/living/carbon/human/victim = A
 
 			if(victim.reagents)
-				var/biosafety = victim.getarmor(null, "bio")
+				var/biosafety = victim.get_armors_by_zone(null, "bio")
 				if(!prob(clamp(biosafety, 0, 100)))
 					victim.reagents.add_reagent(/datum/reagent/xenomicrobes/uristzombie, rand(5, 10))
 
@@ -242,8 +239,8 @@
 	if(!infectee || infectee.stat != DEAD)
 		return
 
-	var/munch_msg_ext = "<span class = 'warning'> <b>[src]</b> chomps at [infectee]'s brain!</span>",
-	var/munch_msg_self = "<span class = 'warning'>You chomps at [infectee]'s brain!</span>"
+	var/munch_msg_ext = SPAN_WARNING("[src] chomps at [infectee]'s brain!")
+	var/munch_msg_self = SPAN_WARNING("You chomp at [infectee]'s brain!")
 
 	if(ishuman(infectee))
 		var/mob/living/carbon/human/victim = infectee
@@ -380,8 +377,7 @@
 	icon_dead = "vampire_m_d"
 	health = 100
 	maxHealth = 100
-	melee_damage_lower = 15
-	melee_damage_upper = 20
+	natural_weapon = /obj/item/natural_weapon/bite
 	attacktext = "bit"
 	attack_sound = 'sound/items/drink.ogg'
 	faction = "undead"
@@ -389,7 +385,7 @@
 	max_gas = null
 	minbodytemp = 0
 	ranged = 0
-	simplify_dead_icon = 1
+	//simplify_dead_icon = 1
 
 /mob/living/simple_animal/hostile/urist/vampire/New()
 	var/danglybits = pick(0, 1) //random gender
@@ -415,8 +411,7 @@
 	resistance = 10 //but not much to hit either unless you use a heavy object
 	ranged = 0
 	attacktext = "stabbed"
-	melee_damage_lower = 10
-	melee_damage_upper = 20
+	natural_weapon = /obj/item/natural_weapon/claws
 	min_gas = null
 	max_gas = null
 	minbodytemp = 0
@@ -461,11 +456,10 @@
 	maxHealth = 80
 	health = 80
 	ranged = 0
-	retreat_distance = 0
-	melee_damage_lower = 10
-	melee_damage_upper = 15
+	natural_weapon = /obj/item/natural_weapon/claws
 	attacktext = "hacked"
 	attack_sound = 'sound/weapons/slice.ogg'
+	ai_holder = /datum/ai_holder/simple_animal
 
 /mob/living/simple_animal/hostile/urist/mutant/Life()
 	if(IsInRange(src.health, 1, (maxHealth - 1)))
@@ -480,10 +474,10 @@
 	ranged = 1
 	projectilesound = 'sound/weapons/gunshot/shotgun.ogg'
 	projectiletype = /obj/item/projectile/bullet/pellet/shotgun //check balance
-	ranged_cooldown_cap = 10
 	attacktext = "kicked"
 	attack_sound = 'sound/weapons/genhit3.ogg'
-	minimum_distance = 2
+	ai_holder = /datum/ai_holder/simple_animal/ranged
+
 
 /mob/living/simple_animal/hostile/urist/mutant/melee
 	desc = "Homicidal, tough bastard wielding a heavy axe."
@@ -491,9 +485,7 @@
 	icon_living = "mutant_melee"
 	environment_smash = 2
 	ranged = 0
-	minimum_distance = 1
-	melee_damage_lower = 15
-	melee_damage_upper = 25
+	natural_weapon = /obj/item/material/hatchet
 	resistance = 5
 	attacktext = "hacked"
 	attack_sound = 'sound/weapons/slice.ogg'
@@ -505,11 +497,7 @@
 	maxHealth = 120
 	health = 120
 	ranged = 0
-	minimum_distance = 1
-	melee_damage_lower = 10
-	melee_damage_upper = 15
-	vision_range = 12
-	aggro_vision_range = 18
+	natural_weapon = /obj/item/natural_weapon/claws
 	attacktext = "slashed"
 	attack_sound = 'sound/weapons/rapidslice.ogg'
 
@@ -520,17 +508,16 @@
 	icon_state = "eyelien"
 	icon_living = "eyelien"
 	icon_dead = "eyelien_dead"
-	simplify_dead_icon = 0
 	faction = "biohorror"
 	attacktext = "chomped"
 	attack_sound = 'sound/weapons/bite.ogg'
 	maxHealth = 100
 	health = 100
 	ranged = 1
-	ranged_message = "spits"
+	fire_desc = "spits"
 	projectiletype = /obj/item/projectile/energy/neurotoxin
 	projectilesound = 'sound/weapons/bite.ogg'
-	minimum_distance = 1
+	ai_holder = /datum/ai_holder/simple_animal/ranged
 
 //even more blatant...
 /mob/living/simple_animal/hostile/urist/imp
@@ -548,9 +535,11 @@
 	natural_weapon = /obj/item/natural_weapon/bite
 	attacktext = "slashed"
 	attack_sound = 'sound/weapons/rapidslice.ogg'
+	ai_holder = /datum/ai_holder/simple_animal/ranged
+
 
 //TOUGH bastard, teleports around to follow a victim (random if none, varedit to set)
-/mob/living/simple_animal/hostile/urist/stalker
+/*/mob/living/simple_animal/hostile/urist/stalker
 	name = "psycho"
 	desc = "Implacable killer."
 	icon_state = "psycho"
@@ -569,7 +558,9 @@
 	var/mob/stalkee //who he stalks
 	var/flickerlights = 0 //for more fun - can fuck with lights around the victim to get a TP zone.
 	var/datum/effect/effect/system/tele_effect = null //something to spawn when teleporting/disappearing, presumably effects
+	ai_holder = /datum/ai_holder/simple_animal/melee/evasive/stalker
 
+/datum/ai_holder/simple_animal/melee/evasive/stalker
 /mob/living/simple_animal/hostile/urist/stalker/New()
 	..()
 	GetNewStalkee()
@@ -661,3 +652,4 @@
 	..()
 	if(!client && caution) //run awaaaay!
 		HuntingTeleport()
+*/

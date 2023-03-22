@@ -4,7 +4,6 @@
 #define DEAD        2
 
 // Bitflags defining which status effects could be or are inflicted on a mob.
-<<<<<<< HEAD
 #define CANSTUN     FLAG(0)
 #define CANWEAKEN   FLAG(1)
 #define CANPARALYSE FLAG(2)
@@ -15,17 +14,7 @@
 #define FAKEDEATH   FLAG(7)  // Replaces stuff like changeling.changeling_fakedeath.
 #define NO_ANTAG    FLAG(8)  // Players are restricted from gaining antag roles when occupying this mob
 #define NOTARGET    FLAG(9)  // Player is invisible to all simple mobs
-=======
-#define CANSTUN     0x1
-#define CANWEAKEN   0x2
-#define CANPARALYSE 0x4
-#define CANPUSH     0x8
-#define PASSEMOTES  0x10    // Mob has a cortical borer or holders inside of it that need to see emotes.
-#define GODMODE     0x1000
-#define FAKEDEATH   0x2000  // Replaces stuff like changeling.changeling_fakedeath.
-#define NO_ANTAG    0x4000  // Players are restricted from gaining antag roles when occupying this mob
-#define XENO_HOST   0x8000  // Tracks whether we're gonna be a baby alien's mummy.
->>>>>>> parent of 48c3953... Nuked xenophage, xenolarvae and all related structures.
+#define XENO_HOST   FLAG(10)  // Tracks whether we're gonna be a baby alien's mummy.
 
 // Grab Types
 #define GRAB_NORMAL			"normal"
@@ -375,11 +364,8 @@
 #define SPECIES_UNATHI      "Unathi"
 #define SPECIES_SKRELL      "Skrell"
 #define SPECIES_PROMETHEAN  "Promethean"
-<<<<<<< HEAD
 #define SPECIES_RESOMI      "Teshari"
-=======
 #define SPECIES_XENO        "Xenophage"
->>>>>>> parent of 48c3953... Nuked xenophage, xenolarvae and all related structures.
 #define SPECIES_ALIEN       "Humanoid"
 #define SPECIES_ADHERENT    "Adherent"
 #define SPECIES_GOLEM       "Golem"
@@ -392,14 +378,9 @@
 #define SPECIES_MONKEY      "Monkey"
 #define SPECIES_NABBER         "giant armoured serpentid"
 
-<<<<<<< HEAD
 #define UNRESTRICTED_SPECIES list(SPECIES_HUMAN, SPECIES_DIONA, SPECIES_IPC, SPECIES_UNATHI, SPECIES_YEOSA, SPECIES_SKRELL, SPECIES_TRITONIAN, SPECIES_SPACER, SPECIES_VATGROWN, SPECIES_GRAVWORLDER, SPECIES_MULE)
-#define RESTRICTED_SPECIES   list(SPECIES_VOX, SPECIES_ALIEN, SPECIES_GOLEM)
-#define HUMAN_SPECIES        list(SPECIES_HUMAN, SPECIES_VATGROWN, SPECIES_SPACER, SPECIES_GRAVWORLDER, SPECIES_MULE)
-=======
-#define STATION_SPECIES list(SPECIES_HUMAN, SPECIES_DIONA, SPECIES_IPC, SPECIES_UNATHI, SPECIES_SKRELL, SPECIES_TRITONIAN, SPECIES_SPACER, SPECIES_VATGROWN, SPECIES_GRAVWORLDER)
 #define RESTRICTED_SPECIES list(SPECIES_VOX, SPECIES_XENO, SPECIES_ALIEN, SPECIES_GOLEM)
->>>>>>> parent of 48c3953... Nuked xenophage, xenolarvae and all related structures.
+#define HUMAN_SPECIES        list(SPECIES_HUMAN, SPECIES_VATGROWN, SPECIES_SPACER, SPECIES_GRAVWORLDER, SPECIES_MULE)
 
 #define SURGERY_CLOSED 0
 #define SURGERY_OPEN 1

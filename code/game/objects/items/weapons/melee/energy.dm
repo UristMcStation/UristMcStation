@@ -8,7 +8,6 @@
 	var/inactive_attack_verb = list()
 	armor_penetration = 50
 	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_NO_BLOOD
-	obj_flags = OBJ_FLAG_NO_EMBED
 
 /obj/item/melee/energy/can_embed()
 	return FALSE

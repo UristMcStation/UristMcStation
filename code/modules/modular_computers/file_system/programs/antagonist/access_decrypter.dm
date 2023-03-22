@@ -94,7 +94,8 @@
 	return 30
 
 /datum/computer_file/program/access_decrypter/proc/get_speed()
-	return computer.processor_unit.max_idle_programs
+	var/obj/item/stock_parts/computer/processor_unit/CPU = computer.get_component(PART_CPU)
+	return CPU?.processing_power
 
 /datum/nano_module/program/access_decrypter
 	name = "NTNet Access Decrypter"

@@ -110,7 +110,7 @@ the sprite and make my own projectile -Glloyd*/
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "plasma"
 	damage = 20
-	damage_type = TOX
+	damage_type = DAMAGE_TOXIN
 	irradiate = 20
 
 //Knight .45 - suppressed PDW

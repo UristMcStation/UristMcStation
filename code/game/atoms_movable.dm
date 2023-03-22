@@ -189,18 +189,6 @@
 /atom/movable/overlay/proc/SetInitLoc()
 	forceMove(master.loc)
 
-	if(istype(master, /atom/movable))
-		GLOB.moved_event.register(master, src, follow_proc)
-		SetInitLoc()
-
-	GLOB.destroyed_event.register(master, src, /datum/proc/qdel_self)
-	GLOB.dir_set_event.register(master, src, /atom/proc/recursive_dir_set)
-
-	. = ..()
-
-/atom/movable/overlay/proc/SetInitLoc()
-	forceMove(master.loc)
-
 /atom/movable/overlay/Destroy()
 	if(istype(master, /atom/movable))
 		GLOB.moved_event.unregister(master, src)

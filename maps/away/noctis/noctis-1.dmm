@@ -54,7 +54,7 @@
 	dir = 1
 	},
 /obj/item/clothing/accessory/stethoscope,
-/obj/item/device/healthanalyzer,
+/obj/item/device/scanner/health,
 /turf/simulated/floor/tiled/white,
 /area/noctis/medbay)
 "ak" = (
@@ -1217,7 +1217,7 @@
 	},
 /obj/structure/table/standard,
 /obj/item/storage/belt/utility/full,
-/obj/item/tank/emergency/oxygen,
+/obj/item/tank/oxygen_emergency,
 /turf/simulated/floor/tiled,
 /area/noctis/hards)
 "cv" = (
@@ -4902,7 +4902,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/item/tank/emergency/oxygen{
+/obj/item/tank/oxygen_emergency{
 	starting_pressure = list()
 	},
 /obj/effect/submap_landmark/spawnpoint/crewmember,

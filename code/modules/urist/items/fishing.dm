@@ -33,8 +33,8 @@
 		icon_state = "fish2"
 
 /obj/item/fish/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/material/kitchen/utensil/knife))
-		user << "<span class='notice'>You chop up the fish into wonderful fish fillet.</span>"
+	if(istype(W, /obj/item/material/knife/kitchen))
+		user << (SPAN_NOTICE("You chop up the fish into wonderful fish fillet."))
 		new /obj/item/reagent_containers/food/snacks/fishmeat(user.loc)
 		qdel(src)
 
@@ -50,24 +50,24 @@
 	reagents.add_reagent(/datum/reagent/nutriment/protein, 3)
 	src.bitesize = 6
 
-/datum/recipe/fishburger2
-	items = list(
+/datum/microwave_recipe/fishburger2
+	required_items = list(
 		/obj/item/reagent_containers/food/snacks/bun,
 		/obj/item/reagent_containers/food/snacks/fishmeat
 	)
-	result = /obj/item/reagent_containers/food/snacks/fishburger
+	result_path = /obj/item/reagent_containers/food/snacks/fishburger
 
-/datum/recipe/fishandchips2
-	items = list(
+/datum/microwave_recipe/fishandchips2
+	required_items = list(
 		/obj/item/reagent_containers/food/snacks/fries,
 		/obj/item/reagent_containers/food/snacks/fishmeat,
 	)
-	result = /obj/item/reagent_containers/food/snacks/fishandchips
+	result_path = /obj/item/reagent_containers/food/snacks/fishandchips
 
-/datum/recipe/fishfingers2
-	reagents = list(/datum/reagent/nutriment/flour = 10)
-	items = list(
+/datum/microwave_recipe/fishfingers2
+	required_reagents = list(/datum/reagent/nutriment/flour = 10)
+	required_items = list(
 		/obj/item/reagent_containers/food/snacks/egg,
 		/obj/item/reagent_containers/food/snacks/fishmeat,
 	)
-	result = /obj/item/reagent_containers/food/snacks/fishfingers
+	result_path = /obj/item/reagent_containers/food/snacks/fishfingers

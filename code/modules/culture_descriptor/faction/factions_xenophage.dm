@@ -1,4 +1,4 @@
-/decl/cultural_info/faction/xenophage
+/singleton/cultural_info/faction/xenophage
 	name = FACTION_XENOPHAGE
 	language = LANGUAGE_XENOPHAGE
 	default_language = LANGUAGE_XENOPHAGE

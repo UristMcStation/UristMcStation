@@ -12,7 +12,8 @@
 	icon_state = "civ1"
 	icon_living = "civ1"
 	icon_dead = "civ1_d"
-	ai_holder = /datum/ai_holder/simple_animal/humanoid/runaway
+	ai_holder = /datum/ai_holder/simple_animal/passive
+
 
 /mob/living/simple_animal/passive/scom/civ/civvie/New()
 	..()

@@ -156,7 +156,7 @@
 /area/icarus/vessel)
 "aK" = (
 /obj/structure/table/woodentable,
-/obj/item/storage/fancy/cigar,
+/obj/item/storage/fancy/smokable/cigar,
 /turf/simulated/floor/wood,
 /area/icarus/vessel)
 "aL" = (
@@ -1027,7 +1027,7 @@
 /area/icarus/vessel)
 "dp" = (
 /obj/structure/table/standard,
-/obj/item/material/kitchen/utensil/knife,
+/obj/item/material/knife/kitchen,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel)
 "dq" = (
@@ -1452,7 +1452,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/material/kitchen/utensil/knife,
+/obj/item/material/knife/kitchen,
 /turf/unsimulated/beach/sand,
 /area/icarus/open)
 "eJ" = (

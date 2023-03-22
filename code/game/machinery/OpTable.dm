@@ -81,8 +81,8 @@
 		to_chat(user, SPAN_WARNING("There is nobody on \the [src]. It would be pointless to turn the suppressor on."))
 		return TRUE
 
-	if(stat & (NOPOWER|BROKEN))
-		to_chat(user, "<span class='warning'>You try to switch on the suppressor, yet nothing happens.</span>")
+	if(stat & (inoperable()))
+		to_chat(user, SPAN_WARNING("You try to switch on the suppressor, yet nothing happens."))
 		return
 
 	if(user != victim && !suppressing) // Skip checks if you're doing it to yourself or turning it off, this is an anti-griefing mechanic more than anything.

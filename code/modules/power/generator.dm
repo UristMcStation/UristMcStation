@@ -168,8 +168,8 @@
 	add_avail(effective_gen)
 	lubricated = 0
 	thermal_efficiency = 0.65
-	if(reagents.has_reagent(/datum/reagent/lube/oil))
-		reagents.remove_reagent(/datum/reagent/lube/oil, 0.01)
+	if(reagents.has_reagent(/datum/reagent/oil))
+		reagents.remove_reagent(/datum/reagent/oil, 0.01)
 		thermal_efficiency = 0.80
 		lubricated = 1
 	else

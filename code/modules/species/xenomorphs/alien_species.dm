@@ -42,11 +42,9 @@
 	cold_level_3 = -1
 
 	species_flags = SPECIES_FLAG_NO_SCAN | SPECIES_FLAG_NO_PAIN | SPECIES_FLAG_NO_SLIP | SPECIES_FLAG_NO_POISON | SPECIES_FLAG_NO_EMBED | SPECIES_FLAG_NO_TANGLE
-	appearance_flags = HAS_EYE_COLOR | HAS_SKIN_COLOR
+	appearance_flags = SPECIES_APPEARANCE_HAS_EYE_COLOR | SPECIES_APPEARANCE_HAS_SKIN_COLOR
 
 	spawn_flags = SPECIES_IS_RESTRICTED
-
-	reagent_tag = IS_XENOS
 
 	blood_color = "#05ee05"
 	flesh_color = "#282846"
@@ -128,7 +126,7 @@
 		H.mind.assigned_role = "Alien"
 		H.mind.special_role = "Alien"
 
-	var/decl/cultural_info/culture/hidden/xenophage/culture = SSculture.get_culture(force_cultural_info[TAG_CULTURE])
+	var/singleton/cultural_info/culture/hidden/xenophage/culture = SSculture.get_culture(force_cultural_info[TAG_CULTURE])
 	if(istype(culture))
 		culture.caste_number++
 		H.real_name = culture.get_random_name(H)
@@ -253,7 +251,7 @@
 	total_health = 300
 	base_color = "#001a33"
 	standing_jump_range = 5
-	maneuvers = list(/decl/maneuver/leap/grab)
+	maneuvers = list(/singleton/maneuver/leap/grab)
 
 	icobase = 'icons/mob/human_races/species/xenos/body_hunter.dmi'
 	deform =  'icons/mob/human_races/species/xenos/body_hunter.dmi'
@@ -292,7 +290,7 @@
 	icobase = 'icons/mob/human_races/species/xenos/body_sentinel.dmi'
 	deform =  'icons/mob/human_races/species/xenos/body_sentinel.dmi'
 	standing_jump_range = 5
-	maneuvers = list(/decl/maneuver/leap/grab)
+	maneuvers = list(/singleton/maneuver/leap/grab)
 
 	has_organ = list(
 		BP_EYES =     /obj/item/organ/internal/eyes/xeno,

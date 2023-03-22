@@ -1,10 +1,10 @@
-/obj/machinery/computer/cloning
+/*/obj/machinery/computer/cloning
 	name = "cloning control console"
 	icon = 'icons/obj/computer.dmi'
 	icon_keyboard = "med_key"
 	icon_screen = "dna"
 	light_color = "#315ab4"
-	circuit = /obj/item/circuitboard/cloning
+	circuit = /obj/item/stock_parts/circuitboard/cloning
 	req_access = list(access_heads) //Only used for record deletion right now.
 	var/obj/machinery/dna_scannernew/scanner = null //Linked scanner. For scanning.
 	var/list/pods = list() //Linked cloning pods.
@@ -109,7 +109,7 @@
 	user.set_machine(src)
 	add_fingerprint(user)
 
-	if(stat & (BROKEN|NOPOWER))
+	if(stat & (inoperable()))
 		return
 
 	updatemodules()
@@ -433,3 +433,4 @@
 			selected_record = R
 			break
 			return selected_record
+*/

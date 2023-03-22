@@ -32,6 +32,10 @@
 	autonomous = TRUE
 	var/potential_weapons = list()
 	var/boarders_amount = 0 //how many human boarders can we have?
+	ai_holder = /datum/ai_holder/simple_animal/inert/overmapship
+
+/datum/ai_holder/simple_animal/inert/overmapship
+	wander = 1
 
 /mob/living/simple_animal/hostile/overmapship/Initialize()
 	.=..()
@@ -166,7 +170,7 @@
 			target_ship.autoannounce("<b>The attacking [src.ship_category] is now able to be boarded via teleporter. Please await further instructions from Command.</b>", "public") //add name+designation if I get lists for that stuff
 
 			for(var/obj/effect/urist/triggers/boarding_landmark/L in GLOB.trigger_landmarks)
-				new /obj/item/device/radio/beacon(L.loc)
+				new /obj/machinery/tele_beacon(L.loc)
 
 			for(var/obj/effect/urist/triggers/shipweapons/S in GLOB.trigger_landmarks)
 				var/datum/shipcomponents/weapons/W = pick(weapons)

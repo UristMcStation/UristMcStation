@@ -63,25 +63,25 @@
 //robotics
 
 /datum/contract/cargo/robotics/durandparts
-	name = "Durand Parts Delivery Contract"
-	wanted_types = list(/obj/item/mecha_parts/part/durand_torso, /obj/item/mecha_parts/part/durand_left_arm, /obj/item/mecha_parts/part/durand_left_leg, /obj/item/mecha_parts/part/durand_right_arm, /obj/item/mecha_parts/part/durand_right_leg, /obj/item/mecha_parts/part/durand_head)
+	name = "Heavy Mech Parts Delivery Contract"
+	wanted_types = list(/obj/item/mech_component/chassis/heavy, /obj/item/mech_component/manipulators/heavy, /obj/item/mech_component/propulsion/heavy, /obj/item/mech_component/sensors/heavy)
 	money = 850
 	rep_points = 2
 
 /datum/contract/cargo/robotics/durandparts/New()
 	amount = rand(3,6)
-	desc = "Pirates hit our last shipment of high-tech mech parts, and NanoTrasen Security Forces are worried about future attacks. We need the [GLOB.using_map.station_name] to ship [amount] Durand parts at the nearest trading station, as soon as possible. Any parts will do, legs, arms, whatever, we're desparate."
+	desc = "Pirates hit our last shipment of high-tech mech parts, and NanoTrasen Security Forces are worried about future attacks. We need the [GLOB.using_map.station_name] to ship [amount] heavy mech parts at the nearest trading station, as soon as possible. Any parts will do, legs, arms, whatever, we're desparate."
 	..()
 
 /datum/contract/cargo/robotics/lasercannon
 	name = "Mecha Laser Cannon Delivery Contract"
-	wanted_types = list(/obj/item/mecha_parts/mecha_equipment/weapon/energy/laser/heavy)
+	wanted_types = list(/obj/item/gun/energy/lasercannon/mounted/mech)
 	money = 750
 	rep_points = 2
 
 /datum/contract/cargo/robotics/lasercannon/New()
 	amount = rand(2,4)
-	desc = "Pirates hit our last shipment of high-tech mech parts, and NanoTrasen Security Forces are worried about future attacks. We need the [GLOB.using_map.station_name] to ship [amount] CH-LC \"Solaris\" laser cannons at the nearest trading station, as soon as possible."
+	desc = "Pirates hit our last shipment of high-tech mech parts, and NanoTrasen Security Forces are worried about future attacks. We need the [GLOB.using_map.station_name] to ship [amount] CH-PS \"Immolator\" laser cannons at the nearest trading station, as soon as possible."
 	..()
 
 //chef

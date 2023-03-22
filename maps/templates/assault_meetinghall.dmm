@@ -28,7 +28,7 @@
 "aB" = (/obj/effect/floor_decal/industrial/warning,/turf/simulated/floor/reinforced,/area/template_noop)
 "aC" = (/obj/effect/floor_decal/industrial/warning{dir = 6},/turf/simulated/floor/reinforced,/area/template_noop)
 "aD" = (/obj/machinery/light{dir = 4},/obj/structure/table/standard/flipped/s,/turf/simulated/floor/tiled/dark,/area/template_noop)
-"aE" = (/obj/item/gun/projectile/sec,/turf/simulated/floor/tiled/dark,/area/template_noop)
+"aE" = (/obj/item/gun/projectile/pistol/sec,/turf/simulated/floor/tiled/dark,/area/template_noop)
 "aF" = (/obj/item/storage/firstaid/o2,/turf/simulated/floor/tiled/dark,/area/template_noop)
 "aG" = (/obj/machinery/computer/arcade,/turf/simulated/floor/tiled/dark,/area/template_noop)
 "aH" = (/obj/machinery/vending/cigarette{pixel_x = 0; pixel_y = 0},/turf/simulated/floor/tiled/dark,/area/template_noop)

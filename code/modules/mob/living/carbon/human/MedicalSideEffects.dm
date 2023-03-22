@@ -20,7 +20,7 @@
 /datum/medical_effect/proc/on_life(mob/living/carbon/human/H, strength)
 	return
 
-/datum/medical_effect/proc/can_cure(mob/living/carbon/human/H)
+/datum/medical_effect/proc/cure(mob/living/carbon/human/H)
 	for(var/R in cures)
 		if(H.reagents.has_reagent(R))
 			if (cure_message)

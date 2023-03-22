@@ -35,7 +35,7 @@
 
 /obj/effect/landmark/animal_spawner/parrot
 	name = "parrot spawner"
-	spawn_type = /mob/living/simple_animal/parrot/jungle
+	spawn_type = /mob/living/simple_animal/hostile/retaliate/parrot/jungle
 
 /obj/effect/landmark/animal_spawner/monkey
 	name = "monkey spawner"
@@ -86,7 +86,7 @@
 	spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/carbon/human/monkey/jungle,
-		/mob/living/simple_animal/parrot/jungle,
+		/mob/living/simple_animal/hostile/retaliate/parrot/jungle,
 		/mob/living/simple_animal/hostile/huntable/deer
 		)
 
@@ -154,24 +154,27 @@
 	faction = "hostile"
 	mob_size = MOB_SMALL
 	speak_emote = list("chirps")
-	emote_hear = list("chirps")
-	emote_see = list("chirps")
 	maxHealth = 30
 	health = 30
-	speak_chance = 0
 	turns_per_move = 5
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "stomps"
 	friendly = "pokes"
-	hide = 1
-	meat_amount = 1
+	meat_amount = 2
+	bone_amount = 2
+	skin_amount = 2
+	skin_material = MATERIAL_SKIN_FUR
+	ai_holder = /datum/ai_holder/simple_animal/passive
+
+/datum/say_list/monkey
+	emote_hear = list("chirps")
+	emote_see = list("chirps")
 
 //to prevent spam from parrots, and deer killing parrots
 
-/mob/living/simple_animal/parrot/jungle
-	speak_chance = 0
+/mob/living/simple_animal/hostile/retaliate/parrot/jungle
 	faction = "hostile"
 
 //*********//
@@ -186,19 +189,20 @@
 	icon_living = "panther"
 	icon_dead = "panther_dead"
 	icon_gib = "panther_dead"
-	speak_chance = 0
 	turns_per_move = 3
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	response_help = "pets the"
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
-	stop_automated_movement_when_pulled = 0
 	maxHealth = 75
 	health = 75
+	meat_amount = 4
+	bone_amount = 4
+	skin_amount = 4
+	skin_material = MATERIAL_SKIN_FUR_BLACK
 
 	harm_intent_damage = 8
-	melee_damage_lower = 15
-	melee_damage_upper = 20
+	natural_weapon = /obj/item/natural_weapon/claws
 	attacktext = "slashed"
 	attack_sound = 'sound/weapons/bite.ogg'
 	meat_amount = 2
@@ -246,21 +250,22 @@
 	icon_living = "snake_green"
 	icon_dead = "snake_green_dead"
 	icon_gib = null
-	speak_chance = 0
 	turns_per_move = 1
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	response_help = "pets the"
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
-	stop_automated_movement_when_pulled = 0
 	maxHealth = 25
 	health = 25
-	vision_range = 5 //balancing snakes so they don't slither all the way across the plains to kill you.
 	harm_intent_damage = 2
-	melee_damage_lower = 3
-	melee_damage_upper = 10
+	natural_weapon = /obj/item/natural_weapon/bite/weak
 	attacktext = "bitten"
 	attack_sound = 'sound/weapons/bite.ogg'
+	ai_holder = /datum/ai_holder/simple_animal/melee/snek
+
+/datum/ai_holder/simple_animal/melee/snek
+	vision_range = 5 //balancing snakes so they don't slither all the way across the plains to kill you.
+
 
 //	layer = 3.1		//so they can stay hidde under the /obj/structure/bush
 	var/stalk_tick_delay = 3
@@ -283,7 +288,7 @@
 		bite(L)
 
 /mob/living/simple_animal/hostile/snake/proc/bite(var/mob/living/L)
-	L.apply_damage(rand(3,12), TOX)
+	L.apply_damage(rand(3,12), DAMAGE_TOXIN)
 
 /mob/living/simple_animal/hostile/snake/AttackTarget()
 	..()
@@ -298,7 +303,7 @@
 	icon_living = "snake_brown"
 	icon_dead = "snake_brown_dead"
 	desc = "A sinuously coiled, venomous looking reptile. This one looks rather exotic."
-	melee_damage_upper = 5
+	natural_weapon = /obj/item/natural_weapon/bite/weak
 	var/bite_vol = 5
 	var/obj/item/venom_sac/venomsac
 
@@ -338,29 +343,30 @@
 	icon_living = "deer"
 	icon_dead = "deer_dead"
 	icon_gib = "deer_dead"
-	speak_chance = 0
 	turns_per_move = 3
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	response_help = "pets the"
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
-	stop_automated_movement_when_pulled = 0
 	maxHealth = 40
 	health = 40
-	vision_range = 6
-	aggro_vision_range = 9
-	idle_vision_range = 6
 	move_to_delay = 3
 	harm_intent_damage = 8
-	melee_damage_lower = 15
-	melee_damage_upper = 15
+	natural_weapon = /obj/item/natural_weapon/bite
 	attacktext = "gored" //antlers
 	attack_sound = 'sound/weapons/bite.ogg'
 	var/chase_time = 100
 	hide = 4
 	meat_amount = 2
+	bone_amount = 2
+	skin_amount = 2
+	skin_material = MATERIAL_SKIN_GENERIC
+	ai_holder = /datum/ai_holder/simple_animal/passive/deer
 
-/mob/living/simple_animal/hostile/huntable/deer/GiveTarget(var/new_target)
+/datum/ai_holder/simple_animal/passive/deer
+	speak_chance = 0
+
+/*/mob/living/simple_animal/hostile/huntable/deer/GiveTarget(var/new_target)
 	target = new_target
 	if(target != null)
 		if(isliving(target))
@@ -375,7 +381,7 @@
 				stance = STANCE_IDLE
 				target = null
 			return
-	return
+	return*/
 
 //******//
 // Bear //
@@ -389,21 +395,20 @@
 	icon_living = "bigbear"
 	icon_dead = "bigbear_dead"
 	icon_gib = "bigbear_dead"
-	speak_chance = 0
 	turns_per_move = 4
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	response_help = "pets the"
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
-	stop_automated_movement_when_pulled = 0
 	maxHealth = 150
 	health = 150
 	bound_width = 64
-
+	ai_holder = /datum/ai_holder/simple_animal
 	harm_intent_damage = 8
-	melee_damage_lower = 25
-	melee_damage_upper = 30
+	natural_weapon = /obj/item/natural_weapon/giant
 	attacktext = "slashed"
 	attack_sound = 'sound/weapons/bite.ogg'
 	meat_amount = 4
-	hide = 7 //seems like a more fair reward at 7
+	bone_amount = 3
+	skin_amount = 7
+	skin_material = MATERIAL_SKIN_FUR

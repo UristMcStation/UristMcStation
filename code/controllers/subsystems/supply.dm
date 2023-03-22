@@ -86,7 +86,7 @@ SUBSYSTEM_DEF(supply)
 	if(GLOB.using_map.using_new_cargo)
 		if(amount)
 			var/datum/transaction/T = new("[GLOB.using_map.station_name]", "Trading Revenue", amount, "[GLOB.using_map.trading_faction.name] Automated Trading System")
-			station_account.do_transaction(T)
+			station_account.add_transaction(T)
 			var/repamount = GLOB.using_map.new_cargo_inflation * GLOB.using_map.new_cargo_inflation
 			if(amount >= repamount)
 				SSfactions.update_reputation(GLOB.using_map.trading_faction, 2)
@@ -115,7 +115,7 @@ SUBSYSTEM_DEF(supply)
 	var/list/material_count = list()
 	var/list/to_sell = list()
 	var/list/crates = list()
-	var/atom/A = atom
+	//var/atom/A = atom
 
 	for(var/area/subarea in shuttle.shuttle_area)
 		for(var/atom/movable/AM in subarea)

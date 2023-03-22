@@ -10,12 +10,11 @@
 	response_disarm = "shoves"
 	response_harm = "hits"
 	speed = -1
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/xenomeat
+	meat_type = /obj/item/reagent_containers/food/snacks/xenomeat
 	maxHealth = 100
 	health = 100
 	harm_intent_damage = 5
-	melee_damage_lower = 25
-	melee_damage_upper = 25
+	natural_weapon = /obj/item/natural_weapon/claws
 	attacktext = "slashed"
 	a_intent = I_HURT
 	attack_sound = 'sound/weapons/bladeslice.ogg'
@@ -36,8 +35,7 @@
 	icon_living = "aliend_running"
 	icon_dead = "aliend_dead"
 	health = 60
-	melee_damage_lower = 15
-	melee_damage_upper = 15
+	natural_weapon = /obj/item/natural_weapon/claws
 	can_escape = 0
 
 /mob/living/simple_animal/hostile/alien/sentinel
@@ -46,8 +44,7 @@
 	icon_living = "aliens_running"
 	icon_dead = "aliens_dead"
 	health = 120
-	melee_damage_lower = 15
-	melee_damage_upper = 15
+	natural_weapon = /obj/item/natural_weapon/claws
 	ranged = 1
 	projectiletype = /obj/item/projectile/neurotox
 	projectilesound = 'sound/weapons/pierce.ogg'
@@ -61,8 +58,7 @@
 	icon_dead = "alienq_dead"
 	health = 250
 	maxHealth = 250
-	melee_damage_lower = 15
-	melee_damage_upper = 15
+	natural_weapon = /obj/item/natural_weapon/claws/strong
 	ranged = 1
 	move_to_delay = 3
 	projectiletype = /obj/item/projectile/neurotox
@@ -72,7 +68,7 @@
 
 /mob/living/simple_animal/hostile/alien/queen/large
 	name = "alien empress"
-	icon = 'icons/mob/alienqueen.dmi'
+	icon = 'icons/uristmob/alienqueen.dmi'
 	icon_state = "queen_s"
 	icon_living = "queen_s"
 	icon_dead = "queen_dead"

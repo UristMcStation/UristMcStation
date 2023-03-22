@@ -564,7 +564,7 @@
 	landmark_tag = "nav_merc_start"
 	docking_controller = "merc_home"
 	base_turf = /turf/unsimulated/floor/snow
-	base_area = /area/syndicate_mothership
+	base_area = /area/map_template/syndicate_mothership
 
 /obj/effect/shuttle_landmark/merc/internim
 	name = "In transit"
@@ -593,7 +593,7 @@
 	name = "South of the Fourth deck"
 	landmark_tag = "nav_merc_deck4"
 
-/area/syndicate_mothership
+/area/map_template/syndicate_mothership
 	name = "\improper Mercenary Base"
 	icon_state = "syndie-ship"
 	requires_power = 0
@@ -628,7 +628,7 @@
 		"nav_yacht_antag",
 		"nav_slavers_base_antag",
 		)
-	shuttle_area =  /area/skipjack_station/start
+	shuttle_area =  /area/map_template/skipjack_station/start
 	dock_target = "skipjack_shuttle"
 	current_location = "nav_skipjack_start"
 	landmark_transition = "nav_skipjack_transition"

@@ -8,17 +8,17 @@ proc/create_new_xenomorph(var/alien_caste,var/target)
 	return new_alien
 
 /mob/living/carbon/human/xdrone/New(var/new_loc)
-	h_style = "Bald"
+	head_hair_style = "Bald"
 	..(new_loc, "Xenophage Drone")
 
 /mob/living/carbon/human/xsentinel/New(var/new_loc)
-	h_style = "Bald"
+	head_hair_style = "Bald"
 	..(new_loc, "Xenophage Sentinel")
 
 /mob/living/carbon/human/xhunter/New(var/new_loc)
-	h_style = "Bald"
+	head_hair_style = "Bald"
 	..(new_loc, "Xenophage Hunter")
 
 /mob/living/carbon/human/xqueen/New(var/new_loc)
-	h_style = "Bald"
+	head_hair_style = "Bald"
 	..(new_loc, "Xenophage Queen")

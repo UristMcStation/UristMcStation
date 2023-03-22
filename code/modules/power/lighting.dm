@@ -622,6 +622,10 @@
 	else
 		set_mode(null)
 
+/obj/item/light/bulb/d_green
+	color = "#4b734b"
+	b_colour = "#4b734b"
+
 /obj/machinery/light/navigation
 	name = "navigation light"
 	desc = "A periodically flashing light."

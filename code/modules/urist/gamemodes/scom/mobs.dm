@@ -48,13 +48,13 @@
 	var/can_heal = 0
 	var/will_flee = 0
 
-/mob/living/simple_animal/hostile/scom/death(gibbed, deathmessage, show_dead_message)
+/*/mob/living/simple_animal/hostile/scom/death(gibbed, deathmessage, show_dead_message)
 	if(diesnormally)
 		..()
 	else
 		LoseAggro()
 		mouse_opacity = 1
-		walk(src, 0)
+		walk(src, 0)*/
 
 /mob/living/simple_animal/hostile/scom/husk
 	name = "Husk"
@@ -267,7 +267,7 @@
 	weaken = 5
 	stutter = 5
 	irradiate = 10
-	damage_type = BURN
+	damage_type = DAMAGE_BURN
 
 /obj/item/projectile/energy/scom/forgotten
 	name = "dark energy"
@@ -276,7 +276,7 @@
 	stun = 5
 	weaken = 5
 	stutter = 5
-	damage_type = BURN
+	damage_type = DAMAGE_BURN
 
 /obj/item/projectile/beam/scom/alien6//for the fighters
 	name = "alien beam"

@@ -155,6 +155,13 @@
 	maxcharge = 150
 	matter = list(MATERIAL_STEEL = 70, MATERIAL_GLASS = 6)
 
+/obj/item/weapon/cell/device/premium
+	name = "premium device power cell"
+	desc = "A small power cell designed to power the most energy-demanding devices."
+	icon_state = "hdevice"
+	maxcharge = 200
+	matter = list(MATERIAL_STEEL = 70, MATERIAL_GLASS = 7)
+
 /obj/item/cell/crap
 	name = "old power cell"
 	desc = "A cheap old power cell. It's probably been in use for quite some time now."

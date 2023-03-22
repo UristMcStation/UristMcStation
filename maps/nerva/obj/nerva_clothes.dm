@@ -93,8 +93,8 @@
 	name = "chief of security's jacket"
 	desc = "A hardy jacket worn by the ICS Nerva's Chief of Security."
 	icon_state = "service_hos_open"
-	icon_open = "service_hos_open"
-	icon_closed = "service_hos_closed"
+//	icon_open = "service_hos_open"
+//	icon_closed = "service_hos_closed"
 	item_state = "service_hos"
 	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
@@ -106,8 +106,8 @@
 	name = "quartermaster's jacket"
 	desc = "A light jacket worn by the ICS Nerva's Quartermaster."
 	icon_state = "service_qm_open"
-	icon_open = "service_qm_open"
-	icon_closed = "service_qm_closed"
+//	icon_open = "service_qm_open"
+//	icon_closed = "service_qm_closed"
 	item_state = "service_qm"
 	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
@@ -118,8 +118,8 @@
 	name = "supply technician's jacket"
 	desc = "A light jacket worn by the ICS Nerva's supply technicians."
 	icon_state = "service_cargo_open"
-	icon_open = "service_cargo_open"
-	icon_closed = "service_cargo_closed"
+//	icon_open = "service_cargo_open"
+//	icon_closed = "service_cargo_closed"
 	item_state = "service_cargo"
 	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
@@ -130,8 +130,8 @@
 	name = "captain's jacket"
 	desc = "A hardy synthleather flight jacket worn by the captain of the ICS Nerva. Stylsh, practical and lightly armoured, this outfit exudes an aura of command."
 	icon_state = "nervacapcoat_open"
-	icon_open = "nervacapcoat_open"
-	icon_closed = "nervacapcoat_closed"
+//	icon_open = "nervacapcoat_open"
+//	icon_closed = "nervacapcoat_closed"
 	item_state = "nervacapcoat"
 	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
@@ -145,8 +145,8 @@
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	item_state = "n_lab"
 	icon_state = "n_lab"
-	icon_open = "n_lab_open"
-	icon_closed = "n_lab"
+//	icon_open = "n_lab_open"
+//	icon_closed = "n_lab"
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 15, rad = 0)
 
 
@@ -161,13 +161,13 @@
 	armor = list(melee = 60, bullet = 50, laser = 45, energy = 30, bomb = 35, bio = 0, rad = 0)
 	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_A, ACCESSORY_SLOT_ARMOR_L, ACCESSORY_SLOT_ARMOR_S)
 	restricted_accessory_slots = list(ACCESSORY_SLOT_ARMOR_A, ACCESSORY_SLOT_ARMOR_L, ACCESSORY_SLOT_ARMOR_S)
-	starting_accessories = list(/obj/item/clothing/accessory/armguards/merc, /obj/item/clothing/accessory/legguards/merc, /obj/item/clothing/accessory/storage/pouches/large, /obj/item/clothing/accessory/armor/tag/nerva)
+	accessories = list(/obj/item/clothing/accessory/arm_guards/merc, /obj/item/clothing/accessory/leg_guards/merc, /obj/item/clothing/accessory/storage/pouches/large, /obj/item/clothing/accessory/armor/tag/nerva)
 
 /obj/item/clothing/suit/armor/pcarrier/medium/nerva
-	starting_accessories = list(/obj/item/clothing/accessory/armorplate/medium, /obj/item/clothing/accessory/storage/pouches, /obj/item/clothing/accessory/armor/tag/nerva)
+	accessories = list(/obj/item/clothing/accessory/armor_plate/medium, /obj/item/clothing/accessory/storage/pouches, /obj/item/clothing/accessory/armor/tag/nerva)
 
 /obj/item/clothing/suit/armor/pcarrier/merc/cos
-	starting_accessories = list(/obj/item/clothing/accessory/armorplate/merc, /obj/item/clothing/accessory/armguards/merc, /obj/item/clothing/accessory/legguards/merc, /obj/item/clothing/accessory/storage/pouches/large, /obj/item/clothing/accessory/armor/tag/nerva)
+	accessories = list(/obj/item/clothing/accessory/armor_plate/merc, /obj/item/clothing/accessory/arm_guards/merc, /obj/item/clothing/accessory/leg_guards/merc, /obj/item/clothing/accessory/storage/pouches/large, /obj/item/clothing/accessory/armor/tag/nerva)
 
 //tag
 
@@ -244,7 +244,6 @@
 	force = 3
 	armor = list(melee = 30, bullet = 10, laser = 10, energy = 15, bomb = 20, bio = 0, rad = 0)
 	siemens_coefficient = 0.7
-	can_hold_knife = 1
 	cold_protection = FEET
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
 

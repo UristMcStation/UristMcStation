@@ -40,7 +40,7 @@
 	accessories = list(/obj/item/clothing/accessory/helmet_cover/nt)
 
 /obj/item/clothing/head/helmet/nt/tactical
-	starting_accessories = list(/obj/item/clothing/accessory/armor/helmcover/green)
+	accessories = list(/obj/item/clothing/accessory/helmet_cover/green)
 
 /obj/item/clothing/head/helmet/tactical
 	name = "tactical helmet"

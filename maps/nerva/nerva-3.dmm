@@ -4908,7 +4908,7 @@
 /area/hallway/aft/second_deck)
 "jX" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/item/device/radio/beacon,
+/obj/machinery/tele_beacon,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/aft/second_deck)
 "jY" = (
@@ -5693,7 +5693,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/item/device/radio/beacon,
+/obj/machinery/tele_beacon,
 /turf/simulated/floor/tiled,
 /area/hallway/fore/second_deck)
 "lu" = (
@@ -9037,7 +9037,7 @@
 /turf/simulated/floor/plating,
 /area/command/fobedroom)
 "rF" = (
-/obj/item/tank/emergency/oxygen/double,
+/obj/item/tank/oxygen_emergency_double,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
 "rG" = (
@@ -10639,7 +10639,7 @@
 	},
 /obj/item/tank/oxygen/yellow,
 /obj/item/tank/oxygen/yellow,
-/obj/item/tank/emergency/oxygen/double,
+/obj/item/tank/oxygen_emergency_double,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -10922,10 +10922,10 @@
 /area/civilian/observatory)
 "uO" = (
 /obj/structure/table/rack,
-/obj/item/tank/emergency/oxygen/double,
-/obj/item/tank/emergency/oxygen/double,
-/obj/item/tank/emergency/oxygen/double,
-/obj/item/tank/emergency/oxygen/double,
+/obj/item/tank/oxygen_emergency_double,
+/obj/item/tank/oxygen_emergency_double,
+/obj/item/tank/oxygen_emergency_double,
+/obj/item/tank/oxygen_emergency_double,
 /obj/item/clothing/mask/gas/half,
 /obj/item/clothing/mask/gas/half,
 /obj/item/clothing/mask/gas/half,
@@ -12169,7 +12169,7 @@
 	dir = 4;
 	icon_state = "intact"
 	},
-/obj/item/device/radio/beacon,
+/obj/machinery/tele_beacon,
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
 "xy" = (
@@ -14775,7 +14775,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fp)
 "HS" = (
-/obj/item/device/radio/beacon,
+/obj/machinery/tele_beacon,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
@@ -15327,7 +15327,7 @@
 /turf/simulated/floor/plating,
 /area/civilian/journalist)
 "Le" = (
-/obj/item/tank/emergency/oxygen/double,
+/obj/item/tank/oxygen_emergency_double,
 /obj/structure/reagent_dispensers/beerkeg,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)

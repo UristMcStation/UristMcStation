@@ -283,7 +283,7 @@
 					new /obj/item/reagent_containers/hypospray/autoinjector(src.loc)
 					new /obj/item/storage/box/sniperammo(src.loc)
 					new /obj/item/gun/projectile/sniper(src.loc)
-					new /obj/item/gun/projectile/magnum_pistol(src.loc)
+					new /obj/item/gun/projectile/pistol/magnum_pistol(src.loc)
 					for (var/obj/item/card/id/W in user)
 						if(W.assignment == "S-COM Operative")
 							W.assignment = "S-COM Sniper"

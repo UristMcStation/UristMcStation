@@ -116,14 +116,13 @@
 	health = 75
 	move_to_delay = 2 //gotta go fast!
 	alpha = 200
-	minimum_distance = 1
 	environment_smash = 2
 	faction = "cult"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 	natural_weapon = /obj/item/melee/cultblade
-	aggro_vision_range = 18
 	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_LEVEL_TWO
+	ai_holder = /datum/ai_holder/simple_animal/melee/pirate //they probably shouldnt all be pirates...
 
 /mob/living/simple_animal/hostile/urist/cultist/death()
 	..()
@@ -170,7 +169,6 @@
 	name = "\improper Terran Confederacy Marine"
 	desc = "A Terran Confederacy Marine."
 	ranged = 1
-	ranged_cooldown_cap = 5
 	rapid = 2
 	icon_state = "terran_marine"
 	icon_living = "terran_marine"
@@ -181,9 +179,8 @@
 	projectiletype = /obj/item/projectile/bullet/rifle/military
 	maxHealth = 150
 	health = 150
-	minimum_distance = 5
-	retreat_distance = 3
 	corpse = /obj/effect/landmark/corpse/terran/marine
+	ai_holder = /datum/ai_holder/simple_animal/humanoid/hostile
 
 /mob/living/simple_animal/hostile/urist/terran/marine/event
 	faction = "terran"
@@ -198,7 +195,6 @@
 	projectiletype = /obj/item/projectile/bullet/rifle
 	rapid = 0
 	desc = "A Terran Confederacy Marine. This one is wearing gear worn by ground assault forces."
-	ranged_cooldown_cap = 4
 
 /mob/living/simple_animal/hostile/urist/terran/marine/ground/event
 	faction = "terran"
@@ -207,7 +203,6 @@
 	name = "\improper Terran Confederacy Marine Officer"
 	desc = "A Terran Confederacy Marine Officer."
 	ranged = 1
-	ranged_cooldown_cap = 5
 	rapid = 2
 	icon_state = "terran_officer"
 	icon_living = "terran_officer"
@@ -218,8 +213,7 @@
 	projectiletype = /obj/item/projectile/bullet/pistol
 	maxHealth = 125
 	health = 125
-	minimum_distance = 4
-	retreat_distance = 2
+	ai_holder = /datum/ai_holder/simple_animal/humanoid/hostile
 	corpse = /obj/effect/landmark/corpse/terran/officer
 
 /mob/living/simple_animal/hostile/urist/terran/marine_officer/event
@@ -239,7 +233,6 @@
 	name = "\improper Terran Confederacy Marine"
 	desc = "A Terran Confederacy Marine. This one is wearing a voidsuit."
 	ranged = 1
-	ranged_cooldown_cap = 5
 	rapid = 2
 	icon_state = "terran_heavy"
 	icon_living = "terran_heavy"
@@ -253,8 +246,7 @@
 	min_gas = null
 	max_gas = null
 	minbodytemp = 0
-	minimum_distance = 4
-	retreat_distance = 2
+	ai_holder = /datum/ai_holder/simple_animal/humanoid/hostile
 	corpse = /obj/effect/landmark/corpse/terran/marinespace
 
 /mob/living/simple_animal/hostile/urist/terran/marine_space/event
@@ -282,9 +274,7 @@
 	rapid = 0
 	maxHealth = 130
 	health = 130
-	minimum_distance = 4
-	retreat_distance = 2
-	ranged_cooldown_cap = 2
+	ai_holder = /datum/ai_holder/simple_animal/humanoid/hostile
 	projectilesound = 'sound/weapons/gunshot/gunshot3.ogg'
 	projectiletype = /obj/item/projectile/bullet/rifle
 
@@ -299,24 +289,20 @@
 	icon_state = "newpirate_melee"
 	icon_living = "newpirate_melee"
 	icon_dead = "newpirate_melee_dead"
-	speak_chance = 0
 	turns_per_move = 5
 	response_help = "pushes"
 	response_disarm = "shoves"
 	response_harm = "hits"
 	speed = 4
-	stop_automated_movement_when_pulled = 0
 	maxHealth = 120
 	health = 120
-	can_escape = 1
+	can_escape = TRUE
 
 	harm_intent_damage = 5
-	melee_damage_lower = 30
-	melee_damage_upper = 30
-	attacktext = "slashed"
-	attack_sound = 'sound/weapons/bladeslice.ogg'
+	natural_weapon = /obj/item/melee/energy/sword/pirate/activated
+	ai_holder = /datum/ai_holder/simple_animal/melee/pirate
 
-	unsuitable_atmos_damage = 5
+	unsuitable_atmos_damage = 15
 	var/corpse = /obj/effect/landmark/corpse/newpirate/melee
 	hiddenfaction = /datum/factions/pirate
 	faction = "pirate"
@@ -331,8 +317,7 @@
 	rapid = 0
 	projectiletype = /obj/item/projectile/beam
 	corpse = /obj/effect/landmark/corpse/newpirate/laser
-	minimum_distance = 5
-	retreat_distance = 3
+	ai_holder = /datum/ai_holder/simple_animal/pirate/ranged
 
 /mob/living/simple_animal/hostile/urist/newpirate/ballistic
 	name = "Pirate Gunner"
@@ -344,8 +329,7 @@
 	rapid = 2
 	projectiletype = /obj/item/projectile/bullet/rifle
 	corpse = /obj/effect/landmark/corpse/newpirate/ballistic
-	minimum_distance = 5
-	retreat_distance = 3
+	ai_holder = /datum/ai_holder/simple_animal/pirate/ranged
 
 /mob/living/simple_animal/hostile/urist/newpirate/death(gibbed, deathmessage, show_dead_message)
 	..(gibbed, deathmessage, show_dead_message)
@@ -361,13 +345,18 @@
 	icon = 'icons/uristmob/simpleanimals.dmi'
 	icon_dead = "holonaut_dead"
 	faction = "holonaut"
-	speak = list("...?<>D-d-d-£$D<>Id it()<> work?", "I<> T-<>%$£I'm b-<C-cant feel <>ANYT-thing.</C-cant>", "?:PO$&<S-Someone...", "Three. Nine. ><><Seven-n-n-n.. One..$£% Five Nine.")
-	speak_chance = 50
-	emote_hear = list("gasps suddenly", "garbles something unintelligible", "jitters audibly", "garbles some sort of radio message.")
-	emote_see = list("jitters uncontrollably", "stares at their palms")
 	response_help = "holds tightly"
 	response_disarm = "pulls down"
 	response_harm = "grasps"
+	ai_holder = /datum/ai_holder/simple_animal/hostile/hololab
+
+/datum/ai_holder/simple_animal/hostile/hololab
+	speak_chance = 50
+
+/datum/say_list/hololab
+	speak = list("...?<>D-d-d-£$D<>Id it()<> work?", "I<> T-<>%$£I'm b-<C-cant feel <>ANYT-thing.</C-cant>", "?:PO$&<S-Someone...", "Three. Nine. ><><Seven-n-n-n.. One..$£% Five Nine.")
+	emote_hear = list("gasps suddenly", "garbles something unintelligible", "jitters audibly", "garbles some sort of radio message.")
+	emote_see = list("jitters uncontrollably", "stares at their palms")
 
 
 /mob/living/simple_animal/hostile/urist/hololab/holonautgrunt  // Weakest Holonaut
@@ -378,8 +367,7 @@
 	health = 100 // Less strong, as he isn't wearing anything.
 	ranged = 0
 	attacktext = "contorts"
-	melee_damage_lower = 10
-	melee_damage_upper = 20
+	natural_weapon = /obj/item/natural_weapon/punch
 
 /mob/living/simple_animal/hostile/urist/hololab/holonautregular // More dangerous holonaut, with some resistance.
 	name = "\improper distorted holonaut"
@@ -390,8 +378,7 @@
 	resistance = 15 //
 	ranged = 0
 	attacktext = "tears"
-	melee_damage_lower = 15
-	melee_damage_upper = 25
+	natural_weapon = /obj/item/natural_weapon/claws
 
 /mob/living/simple_animal/hostile/urist/hololab/holonautsuit
 	name = "\improper gesticulating Holonaut"
@@ -401,6 +388,5 @@
 	health = 50 // Weak, but dangerous up close.
 	resistance = 20
 	ranged = 0
+	natural_weapon = /obj/item/natural_weapon/claws/strong
 	attacktext = "rends"
-	melee_damage_lower = 25
-	melee_damage_upper = 30

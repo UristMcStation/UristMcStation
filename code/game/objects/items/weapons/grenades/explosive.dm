@@ -106,7 +106,7 @@
 
 /obj/item/grenade/frag/makeshift
 	name = "improvised explosive device"
-	desc = "An aluminum can with a wire fuse leading inside of it. Partially guaranteed to blow your mind AND hands!"
+	desc = "An aluminium can with a wire fuse leading inside of it. Partially guaranteed to blow your mind AND hands!"
 	icon_state = "ghetto"
 	arm_sound = 'sound/effects/flare.ogg'
 

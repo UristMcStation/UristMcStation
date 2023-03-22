@@ -116,7 +116,6 @@
 				else
 					visible_message(SPAN_NOTICE("\The [src] turns on."))
 				playsound(src, "switch", 50)
-				update_efficiency()
 				shot_number = 0
 				fire_delay = get_initial_fire_delay()
 				log_and_message_admins("turned on \the [src] in [A.name]", user, src)

@@ -326,25 +326,6 @@ Please only put items here that don't have a huge definition - Glloyd											
 
 // Rolling papers from /tg/
 
-/obj/item/clothing/mask/smokable/cigarette/rollie
-	icon = 'icons/urist/items/tgitems.dmi'
-	icon_override = 'icons/uristmob/mask.dmi'
-
-	name = "rollie"
-	desc = "A roll of dried plant matter wrapped in thin paper."
-	icon_state = "spliffoff"
-	icon_on = "spliffon"
-	type_butt = /obj/item/trash/cigbutt/roach
-	throw_speed = 0.5
-	item_state = "spliffoff"
-	smoketime = 180
-	chem_volume = 50
-
-/obj/item/clothing/mask/cigarette/rollie/New()
-	..()
-	src.pixel_x = rand(-5, 5)
-	src.pixel_y = rand(-5, 5)
-
 /obj/item/trash/cigbutt/roach
 	icon = 'icons/urist/items/tgitems.dmi'
 
@@ -358,33 +339,12 @@ Please only put items here that don't have a huge definition - Glloyd											
 	src.pixel_y = rand(-5, 5)
 
 
-/obj/item/rollingpaper
+/obj/item/paper/cig/fancy/nt
 	name = "rolling paper"
 	desc = "A thin piece of paper used to make fine smokeables."
 	icon = 'icons/urist/items/tgitems.dmi'
 	icon_state = "cig_paper"
 	w_class = 1
-
-/obj/item/rollingpaper/afterattack(atom/target, mob/user, proximity)
-	if(!proximity)
-		return
-	if(istype(target, /obj/item/reagent_containers/food/snacks/grown))
-		var/obj/item/reagent_containers/food/snacks/grown/O = target
-		if(O.dry)
-			user.unEquip(target, 1)
-			user.unEquip(src, 1)
-			var/obj/item/clothing/mask/smokable/cigarette/rollie/R = new /obj/item/clothing/mask/smokable/cigarette/rollie(user.loc)
-			R.chem_volume = target.reagents.total_volume
-			target.reagents.trans_to_holder(R.reagents, R.chem_volume)
-			user.put_in_active_hand(R)
-			user << "<span class='notice'>You roll the [target.name] into a rolling paper.</span>"
-			R.desc = "Dried [target.name] rolled up in a thin piece of paper."
-			qdel(target)
-			qdel(src)
-		else
-			user << "<span class='warning'>You need to dry this first!</span>"
-	else
-		..()
 
 /obj/item/storage/fancy/rollingpapers
 	name = "rolling paper pack"
@@ -393,9 +353,9 @@ Please only put items here that don't have a huge definition - Glloyd											
 	icon = 'icons/urist/items/tgitems.dmi'
 	icon_state = "cig_paper_pack"
 	storage_slots = 10
-	key_type = /obj/item/rollingpaper
-	can_hold = list(/obj/item/rollingpaper)
-	startswith = list(/obj/item/rollingpaper = 10)
+	key_type = /obj/item/paper/cig
+	can_hold = list(/obj/item/paper/cig)
+	startswith = list(/obj/item/paper/cig/fancy/nt = 10)
 
 
 /obj/item/storage/fancy/rollingpapers/update_icon()
@@ -403,3 +363,18 @@ Please only put items here that don't have a huge definition - Glloyd											
 	if(!length(contents))
 		overlays += "[icon_state]_empty"
 	return
+
+/obj/item/storage/part_replacer/bluespace //from tg... somewhat
+	name = "bluespace rapid part exchange device"
+	desc = "A version of the RPED that allows for replacement of parts and scanning from a distance, along with higher capacity for parts."
+	icon = 'icons/urist/items/tgitems.dmi'
+	icon_state = "BS_RPED"
+	w_class = ITEM_SIZE_NORMAL
+	storage_slots = 91 //400 originally but that many item slots makes the screen go screwy
+	max_storage_space = 200 //800 orginally, lowered with storage slots
+
+/*/obj/item/storage/part_replacer/bluespace/afterattack(obj/machinery/T, mob/living/user, adjacent, params) //horrible stupid mess i made to get it to work with how bay does stuff
+	if(!istype(T))
+		return ..()
+	T.default_part_replacement(user, src, 1)
+	return ..()*/

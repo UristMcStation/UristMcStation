@@ -441,7 +441,7 @@
 		reagents.add_reagent(/datum/reagent/nutriment, 30)
 
 //deepfryer shit
-
+/*
 /obj/item/reagent_containers/food/snacks/deepfryholder
 	name = "Deep Fried Foods Holder Obj"
 	desc = "If you can see this description the code for the deep fryer fucked up."
@@ -451,7 +451,7 @@
 	deepfried = 1
 	New()
 		..()
-		reagents.add_reagent(/datum/reagent/nutriment, 30)
+		reagents.add_reagent(/datum/reagent/nutriment, 30)*/
 
 //////////////
 //STILL SHIT//

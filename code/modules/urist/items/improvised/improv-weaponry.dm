@@ -1,8 +1,8 @@
 //Improvised weaponry, some from /tg/, some by me
 
 //begin /tg/ weapons
-
-/*/obj/item/wirerod
+/*
+/obj/item/wirerod
 	item_icons = DEF_URIST_INHANDS
 	name = "Wired rod"
 	desc = "A rod with some wire wrapped around the top. It'd be easy to attach something to the top bit."
@@ -67,7 +67,7 @@
 		qdel(src)*/
 
 //Makeshift stun baton. Replacement for stun gloves.
-/obj/item/melee/baton/cattleprod
+/*/obj/item/melee/baton/cattleprod
 	name = "stunprod"
 	desc = "An improvised stun baton."
 	icon_state = "stunprod_nocell"
@@ -84,7 +84,7 @@
 		icon_state = "stunprod_active"
 	else
 		icon_state = "stunprod"
-
+*/
 //END /tg/ stuff
 
 //begin Urist stuff
@@ -100,7 +100,7 @@
 	desc = "A haphazardly-constructed yet still deadly weapon... Looks to be little more than two metal rods tied together."
 	w_class = 4.0
 	slot_flags = SLOT_BACK
-	force_divisor = 0.23 //13.5
+	force_multiplier = 0.23 //13.5
 	unwielded_force_divisor = 0.15 //9
 	throwforce = 8
 	//flags = NOSHIELD
@@ -319,7 +319,7 @@
 	desc = "A haphazardly-constructed yet still deadly weapon of ancient design. It has a wooden shaft."
 	w_class = 4
 	slot_flags = SLOT_BACK
-	force_divisor = 0.33 //16
+	force_multiplier = 0.33 //16
 	unwielded_force_divisor = 0.2 //10
 	throwforce = 18
 	throw_speed = 3
@@ -343,7 +343,7 @@
 	desc = "A haphazardly-constructed yet still deadly weapon... Looks to be little more than two metal rods tied together."
 	w_class = 4.0
 	slot_flags = SLOT_BACK
-	force_divisor = 0.8 //12
+	force_multiplier = 0.8 //12
 	unwielded_force_divisor = 0.5 //7.5
 	throwforce = 8
 	//flags = NOSHIELD
@@ -362,7 +362,7 @@
 	desc = "It's a pole. With an axe tied to it. Okay, why not."
 	w_class = 5
 	slot_flags = SLOT_BACK
-	force_divisor = 1.1 //16.5
+	force_multiplier = 1.1 //16.5
 	unwielded_force_divisor = 0.7 //10.5
 	throwforce = 8
 	edge = 1

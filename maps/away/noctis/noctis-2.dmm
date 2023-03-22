@@ -1099,7 +1099,7 @@
 "cq" = (
 /obj/structure/table/standard,
 /obj/machinery/light/small/red,
-/obj/item/device/analyzer,
+/obj/item/device/scanner/gas,
 /obj/item/device/oxycandle,
 /obj/item/device/oxycandle,
 /obj/item/device/oxycandle,
@@ -1752,7 +1752,7 @@
 	},
 /obj/item/wrench,
 /obj/item/wirecutters,
-/obj/item/device/analyzer,
+/obj/item/device/scanner/gas,
 /turf/simulated/floor/plating,
 /area/noctis/combint)
 "dX" = (

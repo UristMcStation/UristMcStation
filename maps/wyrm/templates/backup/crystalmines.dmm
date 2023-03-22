@@ -55,7 +55,7 @@
 "bc" = (/obj/item/tank/aliether,/obj/item/tank/aliether,/obj/random/masks,/obj/random/masks,/obj/structure/table/reinforced,/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
 "bd" = (/obj/structure/table/reinforced,/obj/item/archaeological_find,/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
 "be" = (/obj/item/archaeological_find,/obj/structure/table/reinforced,/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
-"bf" = (/obj/item/device/analyzer,/obj/structure/table/reinforced,/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
+"bf" = (/obj/item/device/scanner/gas,/obj/structure/table/reinforced,/turf/simulated/floor/tiled/white/airless,/area/away/abandoned)
 "bg" = (/obj/structure/window/reinforced,/turf/simulated/floor/asteroid,/area/away/abandoned)
 "bh" = (/turf/simulated/wall,/area/mine/explored)
 "bi" = (/obj/effect/floor_decal/industrial/warning/dust{icon_state = "warning_dust"; dir = 4},/obj/effect/decal/cleanable/blood/drip,/turf/simulated/floor/asteroid,/area/mine/explored)

@@ -7,7 +7,6 @@
 #define LANGUAGE_HUMAN_INDIAN    "New Dehlavi"
 #define LANGUAGE_HUMAN_IBERIAN   "Iberian"
 #define LANGUAGE_HUMAN_RUSSIAN   "Pan-Slavic"
-#define LANGUAGE_HUMAN_SELENIAN  "Selenian"
 
 //Human misc
 #define LANGUAGE_GUTTER         "Gutter"

@@ -25,7 +25,7 @@
 	item_state = "ranger2"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	armor = list(melee = 55, bullet = 40, laser = 30, energy = 10, bomb = 25, bio = 0, rad = 0)
-	allowed = list(/obj/item/gun/energy,/obj/item/device/radio,/obj/item/reagent_containers/spray/pepper,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/gun/magnetic,/obj/item/tank/emergency,/obj/item/device/flashlight)
+	allowed = list(/obj/item/gun/energy,/obj/item/device/radio,/obj/item/reagent_containers/spray/pepper,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/gun/magnetic,/obj/item/tank/oxygen_emergency,/obj/item/device/flashlight)
 
 /obj/item/clothing/suit/space/void/tdfrangerarmor
 	item_icons = URIST_ALL_ONMOBS
@@ -43,7 +43,7 @@
 	icon_state = "ncr_vest"
 	item_state = "ncr_vest"
 	armor = list(melee = 45, bullet = 15, laser = 40, energy = 10, bomb = 25, bio = 0, rad = 0)
-	allowed = list(/obj/item/gun/energy,/obj/item/device/radio,/obj/item/reagent_containers/spray/pepper,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/gun/magnetic,/obj/item/tank/emergency,/obj/item/device/flashlight)
+	allowed = list(/obj/item/gun/energy,/obj/item/device/radio,/obj/item/reagent_containers/spray/pepper,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/gun/magnetic,/obj/item/tank/oxygen_emergency,/obj/item/device/flashlight)
 
 /obj/item/clothing/suit/urist/terran/tdfreinfarmor
 	name = "Defence Force reinforced armour vest"
@@ -51,7 +51,7 @@
 	icon_state = "ncr_mantle"
 	item_state = "ncr_mantle"
 	armor = list(melee = 50, bullet = 20, laser = 50, energy = 15, bomb = 25, bio = 0, rad = 0)
-	allowed = list(/obj/item/gun/energy,/obj/item/device/radio,/obj/item/reagent_containers/spray/pepper,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/gun/magnetic,/obj/item/tank/emergency,/obj/item/device/flashlight)
+	allowed = list(/obj/item/gun/energy,/obj/item/device/radio,/obj/item/reagent_containers/spray/pepper,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/gun/magnetic,/obj/item/tank/oxygen_emergency,/obj/item/device/flashlight)
 
 /obj/item/clothing/suit/urist/terran/tdfrangerpatrol
 	name = "ranger patrol armor"
@@ -60,7 +60,7 @@
 	item_state = "ncr_patrol"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	armor = list(melee = 50, bullet = 25, laser = 40, energy = 15, bomb = 25, bio = 0, rad = 0)
-	allowed = list(/obj/item/gun/energy,/obj/item/device/radio,/obj/item/reagent_containers/spray/pepper,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/gun/magnetic,/obj/item/tank/emergency,/obj/item/device/flashlight)
+	allowed = list(/obj/item/gun/energy,/obj/item/device/radio,/obj/item/reagent_containers/spray/pepper,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/gun/magnetic,/obj/item/tank/oxygen_emergency,/obj/item/device/flashlight)
 
 //head
 
@@ -196,7 +196,7 @@
 	icon_state = "terran_void_marine"
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
-	allowed = list(/obj/item/gun,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/tank/emergency,/obj/item/melee/energy/sword)
+	allowed = list(/obj/item/gun,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/tank/oxygen_emergency,/obj/item/melee/energy/sword)
 	armor = list(melee = 65, bullet = 65, laser = 40,energy = 20, bomb = 40, bio = 100, rad = 30)
 	can_breach = 0
 

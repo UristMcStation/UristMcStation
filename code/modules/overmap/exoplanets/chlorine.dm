@@ -1,3 +1,4 @@
+/*
 /obj/effect/overmap/sector/exoplanet/chlorine
 	name = "chlorine exoplanet"
 	desc = "An exoplanet with a chlorine based ecosystem. Large quantities of liquid chlorine are present."
@@ -67,3 +68,4 @@
 /turf/simulated/floor/exoplanet/chlorine_sand/New()
 	icon_state = "chlorine_sand[rand(0,11)]"
 	..()
+	*/

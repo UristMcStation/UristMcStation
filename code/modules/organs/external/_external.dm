@@ -764,7 +764,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			continue
 
 		if(!W.is_surgical())
-			if(W.damage_type == BURN)
+			if(W.damage_type == DAMAGE_BURN)
 				burn_dam += W.damage
 			else
 				brute_dam += W.damage

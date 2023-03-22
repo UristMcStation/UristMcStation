@@ -306,7 +306,7 @@
 		row += "<tr><td>[E["name"]]</td>"
 		if(E["is_stump"])
 			row += "<td><span style='font-weight: bold; color: [COLOR_MEDICAL_MISSING]'>Missing</span></td>"
-				row += "<td><span>[english_list(E["scan_results"], nothing_text = "&nbsp;")]</span></td>"
+			row += "<td><span>[english_list(E["scan_results"], nothing_text = "&nbsp;")]</span></td>"
 		else
 			row += "<td>"
 			if(E["brute_dam"] + E["burn_dam"] == 0)

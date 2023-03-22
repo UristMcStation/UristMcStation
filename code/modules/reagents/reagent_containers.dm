@@ -212,7 +212,7 @@
 	if(!reagents)
 		return
 	if(hasHUD(user, HUD_SCIENCE))
-		to_chat(user, SPAN_NOTICE("The [src] contains: [reagents.get_reagents(precision = prec)]."))
+		to_chat(user, SPAN_NOTICE("The [src] contains: [reagents.get_reagents()]."))
 
 /obj/item/reagent_containers/ex_act(severity)
 	if(reagents)

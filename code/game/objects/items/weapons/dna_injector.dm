@@ -1,4 +1,4 @@
-/obj/item/dnainjector
+/*/obj/item/dnainjector
 	name = "\improper DNA injector"
 	desc = "This injects the person with DNA."
 	icon = 'icons/obj/items.dmi'
@@ -596,3 +596,4 @@
 	New()
 		block = GLOB.MONKEYBLOCK
 ..() */ //Monkeyification and Demonkeyficiation doesn't work anymore! -Vak
+*/

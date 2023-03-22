@@ -131,6 +131,3 @@
 			var/atom/host = module.host
 			if(host && istype(host))
 				z = host.z
-
-		if(!z || AreConnectedZLevels(z, alarm.alarm_z()))
-			call(listener, listeners[listener])(src, alarm, was_raised)

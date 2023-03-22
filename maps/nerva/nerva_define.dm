@@ -3,7 +3,7 @@
 	full_name = "ICS Nerva"
 	path = "nerva"
 
-	lobby_icon = 'maps/nerva/nerva_lobby.dmi'
+	current_lobby_screen = 'maps/nerva/nerva_lobby.dmi'
 	game_year = (text2num(time2text(world.realtime, "YYYY")) + GLOB.using_map.date_offset)
 	station_levels = list(1,2,3,4)
 	contact_levels = list(1,2,3,4)
@@ -71,7 +71,7 @@
 /datum/map/nerva/setup_map()
 	var/month = text2num(time2text(world.timeofday, "MM"))
 	if(month == 6) //stolen from rainbow background code
-		lobby_icon = 'maps/nerva/nerva_rainbow_lobby.dmi'
+		current_lobby_screen = 'maps/nerva/nerva_rainbow_lobby.dmi'
 	..()
 	system_name = generate_system_name()
 	minor_announcement = new(new_sound = sound('sound/AI/torch/commandreport.ogg', volume = 45))
@@ -89,7 +89,7 @@
 	var/welcome_text = "<center><img src = [GLOB.using_map.logo]><br>"
 	welcome_text += "<br /><font size = 3><b>ICS Nerva</b> Sensor Readings:</font><hr />"
 	welcome_text += "Report generated on [stationdate2text()] at [stationtime2text()]</center><br /><br />"
-	welcome_text += "Current system:<br /><b>[system_name()]</b><br />"
+	welcome_text += "Current system:<br /><b>[system_name]</b><br />"
 	welcome_text += "Next system targeted for jump:<br /><b>[generate_system_name()]</b><br />"
 	welcome_text += "Travel time to Sol:<br /><b>[rand(5,10)] days</b><br />"
 	welcome_text += "Time since last port visit:<br /><b>[rand(30,50)] days</b><br />"
@@ -100,7 +100,7 @@
 		var/obj/effect/overmap/O = map_sectors[zlevel]
 		if(O.name == nerva.name)
 			continue
-		if(istype(O, /obj/effect/overmap/ship/landable)) //Don't show shuttles
+		if(istype(O, /obj/effect/overmap/visitable/ship/landable)) //Don't show shuttles
 			continue
 		space_things |= O
 

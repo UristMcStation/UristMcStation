@@ -33,7 +33,7 @@
 	alerted(youmessedup)
 	return youmessedup
 
-/mob/living/simple_animal/hostile/sound/LoseAggro()
+/mob/living/simple_animal/hostile/sound/lost_target()
 	..()
 	last_saw = list()
 

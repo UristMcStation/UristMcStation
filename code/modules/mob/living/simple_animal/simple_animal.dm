@@ -152,6 +152,9 @@
 	var/return_damage_min
 	var/return_damage_max
 
+	var/autonomous = FALSE //we don't need anyone //mobs will move around in z levels nobody else is in if true
+
+
 /mob/living/simple_animal/Initialize()
 	. = ..()
 	if(LAZYLEN(natural_armor))

@@ -1,8 +1,8 @@
 
-
+/*
 /obj/item/projectile/jungle_spear
 	damage = 10
-	damage_type = TOX
+	damage_type = DAMAGE_TOXIN
 	icon_state = "bullet"
 
 /obj/effect/jungle_tribe_spawn
@@ -88,3 +88,4 @@
 	visible_message("<span class='warning'> <b>[src]</b> throws a spear at [target_mob]!</span>", 1)
 	flick(src, "native[my_type]_act")
 	..()
+*/

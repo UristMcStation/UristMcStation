@@ -268,7 +268,7 @@
 	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_NO_BLOOD
 	base_parry_chance = 50
 	var/active = 0
-	var/blade_color
+	var/item_color
 
 /obj/item/holo/esword/green
 	item_color = "green"
@@ -295,7 +295,7 @@
 	active = !active
 	if (active)
 		force = 30
-		icon_state = "sword[blade_color]"
+		icon_state = "sword[item_color]"
 		w_class = ITEM_SIZE_HUGE
 		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
 		to_chat(user, SPAN_NOTICE("[src] is now active."))

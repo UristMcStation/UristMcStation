@@ -1,16 +1,3 @@
-#define SECOND *10
-#define SECONDS *10
-
-#define MINUTE *600
-#define MINUTES *600
-
-#define HOUR *36000
-#define HOURS *36000
-
-#define DAY *864000
-#define DAYS *864000
-
-
 /// Real time since the server started. Same concept as REALTIMEOFDAY.
 /proc/Uptime(from_zero)
 	var/static/days = 0

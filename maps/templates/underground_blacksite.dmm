@@ -35,7 +35,7 @@
 "aI" = (/obj/machinery/door/airlock/centcom{name = "Holding Facility"; opacity = 1; req_access = list(150)},/turf/simulated/floor/tiled/dark,/area/mine/unexplored)
 "aJ" = (/obj/structure/filingcabinet/chestdrawer,/turf/simulated/floor/carpet,/area/mine/unexplored)
 "aK" = (/turf/simulated/floor/carpet,/area/mine/unexplored)
-"aL" = (/obj/structure/table/gamblingtable,/obj/item/storage/fancy/cigar,/turf/simulated/floor/carpet,/area/mine/unexplored)
+"aL" = (/obj/structure/table/gamblingtable,/obj/item/storage/fancy/smokable/cigar,/turf/simulated/floor/carpet,/area/mine/unexplored)
 "aM" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark,/area/mine/unexplored)
 "aN" = (/obj/structure/hygiene/sink{icon_state = "sink"; dir = 8; pixel_x = -12; pixel_y = 2},/obj/item/storage/mirror{dir = 4; pixel_x = -28; pixel_y = 0},/turf/simulated/floor/tiled/freezer,/area/mine/unexplored)
 "aO" = (/turf/simulated/floor/tiled/freezer,/area/mine/unexplored)

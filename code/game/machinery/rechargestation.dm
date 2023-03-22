@@ -233,7 +233,7 @@
 	..()
 
 	component_parts = list()
-	component_parts += new /obj/item/circuitboard/recharge_station(src)
+	component_parts += new /obj/item/stock_parts/circuitboard/recharge_station(src)
 	component_parts += new /obj/item/stock_parts/manipulator/pico(src)
 	component_parts += new /obj/item/stock_parts/manipulator/pico(src)
 	component_parts += new /obj/item/stock_parts/capacitor/super(src)

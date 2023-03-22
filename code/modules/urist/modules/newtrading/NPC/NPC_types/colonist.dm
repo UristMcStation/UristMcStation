@@ -1,4 +1,4 @@
-/mob/living/simple_animal/hostile/npc/colonist
+/mob/living/simple_animal/passive/npc/colonist
 	name = "colonist"
 	desc = "A human who decided to try their luck amongst the stars."
 	icon = 'code/modules/urist/modules/newtrading/NPC/npc.dmi'
@@ -103,11 +103,11 @@
 		/obj/item/clothing/suit/apron/overalls\
 	)
 
-/mob/living/simple_animal/hostile/npc/colonist/nanotrasen
+/mob/living/simple_animal/passive/npc/colonist/nanotrasen
 	hiddenfaction = /datum/factions/nanotrasen
 	speech_triggers = list(/datum/npc_speech_trigger/colonist/colonist_nt, /datum/npc_speech_trigger/colonist/colonist_pirate, /datum/npc_speech_trigger/colonist/colonist_galacticcrisis, /datum/npc_speech_trigger/colonist/colonist_lactera)
 
-/mob/living/simple_animal/hostile/npc/colonist/New()
+/mob/living/simple_animal/passive/npc/colonist/New()
 	desc = "This is [src]. [initial(desc)]."
 	if(prob(angryprob))
 		angryspeak = 1
@@ -116,7 +116,7 @@
 	..()
 
 
-/mob/living/simple_animal/hostile/npc/colonist/labourer
+/mob/living/simple_animal/passive/npc/colonist/labourer
 	angryprob = 25
 	jumpsuits = list(\
 		/obj/item/clothing/under/focal,\
@@ -147,11 +147,11 @@
 	)
 	suit_chance = 5
 
-/mob/living/simple_animal/hostile/npc/colonist/labourer/nanotrasen
+/mob/living/simple_animal/passive/npc/colonist/labourer/nanotrasen
 	hiddenfaction = /datum/factions/nanotrasen
 	speech_triggers = list(/datum/npc_speech_trigger/colonist/colonist_nt, /datum/npc_speech_trigger/colonist/colonist_pirate, /datum/npc_speech_trigger/colonist/colonist_galacticcrisis, /datum/npc_speech_trigger/colonist/colonist_lizards, /datum/npc_speech_trigger/colonist/colonist_lactera)
 
-/mob/living/simple_animal/hostile/npc/colonist/highclass
+/mob/living/simple_animal/passive/npc/colonist/highclass
 	angryprob = 0
 	jumpsuits = list(\
 		/obj/item/clothing/under/blazer,\
@@ -192,6 +192,6 @@
 	suit_chance = 10
 
 
-/mob/living/simple_animal/hostile/npc/colonist/highclass/nanotrasen
+/mob/living/simple_animal/passive/npc/colonist/highclass/nanotrasen
 	hiddenfaction = /datum/factions/nanotrasen
 	speech_triggers = list(/datum/npc_speech_trigger/colonist/colonist_nt, /datum/npc_speech_trigger/colonist/colonist_pirate, /datum/npc_speech_trigger/colonist/colonist_lactera)

@@ -242,7 +242,7 @@
 	power_use = 5
 	has_hardpoints = list(HARDPOINT_BACK, HARDPOINT_LEFT_SHOULDER)
 	damage_sound = 'sound/effects/glass_crack1.ogg'
-	desc = "The Veymed Odysseus series cockpits combine ultralight materials and clear aluminum laminates to provide an optimized cockpit experience."
+	desc = "The Veymed Odysseus series cockpits combine ultralight materials and clear aluminium laminates to provide an optimized cockpit experience."
 	climb_time = 15
 
 /obj/item/mech_component/chassis/light/prebuild()

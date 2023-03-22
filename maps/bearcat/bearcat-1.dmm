@@ -1292,7 +1292,7 @@
 /obj/machinery/firealarm{
 	pixel_y = 24
 	},
-/obj/item/device/floor_painter,
+/obj/item/device/paint_sprayer,
 /turf/simulated/floor/plating,
 /area/ship/scrap/maintenance/storage)
 "dd" = (
@@ -2519,7 +2519,7 @@
 	},
 /obj/item/storage/toolbox/mechanical,
 /obj/item/clothing/head/welding,
-/obj/item/device/analyzer,
+/obj/item/device/scanner/gas,
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
 	dir = 9
@@ -3015,7 +3015,7 @@
 /area/ship/scrap/broken1)
 "Xb" = (
 /obj/item/circuitboard/pacman,
-/obj/item/circuitboard/recharge_station,
+/obj/item/stock_parts/circuitboard/recharge_station,
 /obj/item/circuitboard/shield_generator,
 /obj/structure/table/rack,
 /obj/effect/floor_decal/corner/yellow{

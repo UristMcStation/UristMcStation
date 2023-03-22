@@ -20,7 +20,7 @@
 	var/map_pad_id = "" as text //what's my name
 	var/map_pad_link_id = "" as text //who's my friend
 
-/obj/item/circuitboard/telepad
+/obj/item/stock_parts/circuitboard/telepad
 	name = T_BOARD("telepad")
 	build_path = /obj/machinery/power/quantumpad
 	board_type = "machine"
@@ -33,7 +33,7 @@
 
 /obj/machinery/power/quantumpad/New()
 	..()
-	build_default_parts(/obj/item/circuitboard/telepad)
+	build_default_parts(/obj/item/stock_parts/circuitboard/telepad)
 	connect_to_network()
 	if(map_pad_id)
 		mapped_quantum_pads[map_pad_id] = src

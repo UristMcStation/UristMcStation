@@ -105,7 +105,7 @@
 /datum/design/circuit/fusion/gyrotron
 	name = "gyrotron"
 	id = "gyrotron"
-	build_path = /obj/item/circuitboard/gyrotron
+	build_path = /obj/item/stock_parts/circuitboard/gyrotron
 	sort_string = "GYROT"
 	category = "Machinery Circuitry"
 

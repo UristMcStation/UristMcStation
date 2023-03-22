@@ -187,15 +187,3 @@
 	if(get_dist(holder, A) < run_if_this_close)
 		holder.IMove(get_step_away(holder, A))
 		holder.face_atom(A)
-
-/datum/ai_holder/simple_animal/hostile/flee //this mob tries to run away when it sees something dangerous
-
-/datum/ai_holder/simple_animal/hostile/flee/special_flee_check()
-	var/run_if_this_close = 4
-	hostile = FALSE
-
-/datum/ai_holder/simple_animal/humanoid/runaway
-
-/datum/ai_holder/simple_animal/humanoid/runaway/special_flee_check()
-	var/run_if_this_close = 4
-	hostile = FALSE

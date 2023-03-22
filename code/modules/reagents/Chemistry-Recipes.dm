@@ -565,15 +565,15 @@
 	..()
 	new /obj/item/stack/material/iron(get_turf(holder.my_atom), created_volume)
 
-/datum/chemical_reaction/aluminumsolidification
-	name = "Solid Aluminum"
+/datum/chemical_reaction/aluminiumsolidification
+	name = "Solid Aluminium"
 	result = null
-	required_reagents = list(/datum/reagent/iron = 5, /datum/reagent/aluminum = 20)
+	required_reagents = list(/datum/reagent/iron = 5, /datum/reagent/aluminium = 20)
 	result_amount = 1
 	maximum_temperature = -80 CELSIUS
 	mix_message = "The solution hardens."
 
-/datum/chemical_reaction/aluminumsolidification/on_reaction(var/datum/reagents/holder, var/created_volume, var/reaction_flags)
+/datum/chemical_reaction/aluminiumsolidification/on_reaction(var/datum/reagents/holder, var/created_volume, var/reaction_flags)
 	..()
 	new /obj/item/stack/material/aluminium(get_turf(holder.my_atom), created_volume)
 

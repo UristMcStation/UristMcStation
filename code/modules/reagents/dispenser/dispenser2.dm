@@ -157,16 +157,12 @@
 		var/label = href_list["dispense"]
 		if(cartridges[label] && container && container.is_open_container())
 			var/obj/item/reagent_containers/chem_disp_cartridge/C = cartridges[label]
-			C.reagents.trans_to(container, amount*mult)
-			var/contaminants_left = rand(0, max(SKILL_ADEPT - user.get_skill_value(core_skill), 0)) * can_contaminate
+			C.reagents.trans_to(container, amount)
 			var/choices = cartridges.Copy()
-			while(length(choices) && contaminants_left)
+			while(length(choices))
 				var/chosen_label = pick_n_take(choices)
 				var/obj/item/reagent_containers/chem_disp_cartridge/choice = cartridges[chosen_label]
-				if(choice == C)
-					continue
-				choice.reagents.trans_to(container, round(rand()*amount/5, 0.1))
-				contaminants_left--
+				C.reagents.trans_to(amount)
 			return TOPIC_REFRESH
 		return TOPIC_HANDLED
 

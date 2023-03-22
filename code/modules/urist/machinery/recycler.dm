@@ -24,7 +24,7 @@ var/const/SAFETY_COOLDOWN = 100
 /obj/machinery/recycler/examine()
 	set src in view()
 	..()
-	usr << "The power light is [(stat & NOPOWER) ? "off" : "on"]."
+	usr << "The power light is [(stat & MACHINE_STAT_NOPOWER) ? "off" : "on"]."
 	usr << "The safety-mode light is [safety_mode ? "on" : "off"]."
 	usr << "The safety-sensors status light is [emagged ? "off" : "on"]."
 
@@ -51,7 +51,7 @@ var/const/SAFETY_COOLDOWN = 100
 
 /obj/machinery/recycler/update_icon()
 	..()
-	var/is_powered = !(stat & (BROKEN|NOPOWER))
+	var/is_powered = !(stat & (inoperable()))
 	if(safety_mode)
 		is_powered = 0
 	icon_state = icon_name + "[is_powered]" + "[(blood ? "bld" : "")]" // add the blood tag at the end
@@ -65,7 +65,7 @@ var/const/SAFETY_COOLDOWN = 100
 
 /obj/machinery/recycler/Bumped(var/atom/movable/AM)
 
-	if(stat & (BROKEN|NOPOWER))
+	if(stat & (inoperable()))
 		return
 	if(safety_mode)
 		return

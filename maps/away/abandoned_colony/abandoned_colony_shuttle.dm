@@ -23,7 +23,7 @@
 	name = "ICS Morning Light control console"
 	shuttle_tag = "ICS Morning Light"
 
-/obj/effect/overmap/ship/landable/morninglight
+/obj/effect/overmap/visitable/ship/landable/morninglight
 	name = "ICS Morning Light"
 	shuttle = "ICS Morning Light"
 	fore_dir = EAST

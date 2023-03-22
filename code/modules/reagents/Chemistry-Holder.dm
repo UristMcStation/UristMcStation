@@ -382,8 +382,6 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 	F.add_reagent(type, amount, tmpdata)
 	remove_reagent(type, amount)
 
-	if(ismob(target) && mob_method)
-		. = F.trans_to_mob(target,amount,mob_method)
 	else
 		. = F.trans_to(target, amount) // Let this proc check the atom's type
 

@@ -157,14 +157,14 @@
 
 //SYNDICATES
 
-/area/syndicate_mothership
+/area/map_template/syndicate_mothership
 	name = "\improper Mercenary Base"
 	icon_state = "syndie-ship"
 	requires_power = 0
 	dynamic_lighting = 0
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
-/area/syndicate_mothership/ninja
+/area/map_template/syndicate_mothership/ninja
 	name = "\improper Ninja Base"
 
 //RESCUE
@@ -1498,7 +1498,7 @@ area/rnd/test_area
 
 // Syndicate
 
-/area/syndicate_mothership/raider_base
+/area/map_template/syndicate_mothership/raider_base
 	name = "\improper Raider Base"
 
 // ACTORS GUILD

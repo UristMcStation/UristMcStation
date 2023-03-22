@@ -10305,7 +10305,7 @@
 /obj/item/storage/belt/utility,
 /obj/item/clothing/suit/storage/hazardvest,
 /obj/item/clothing/suit/storage/hazardvest,
-/obj/item/tank/emergency/oxygen/engi,
+/obj/item/tank/oxygen_emergency_extended,
 /obj/item/storage/toolbox/electrical,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,

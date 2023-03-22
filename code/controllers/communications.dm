@@ -286,6 +286,8 @@ var/global/const/RADIO_AIRLOCK = "radio_airlock"
 var/global/const/RADIO_SECBOT = "radio_secbot"
 var/global/const/RADIO_MULEBOT = "radio_mulebot"
 var/global/const/RADIO_MAGNETS = "radio_magnet"
+var/global/const/RADIO_CHROMATIC = "radio_chromatic"
+var/global/const/RADIO_CHEM_VENT = "radio_chemvent"
 
 // These are exposed to players, by name.
 GLOBAL_LIST_INIT(all_selectable_radio_filters, list(

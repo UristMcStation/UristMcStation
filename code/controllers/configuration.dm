@@ -107,6 +107,12 @@
 	/// if amount of traitors scales based on amount of players
 	var/static/traitor_scaling = FALSE
 
+	///if xenophages are allowed to exist
+	var/aliens_allowed = 0
+
+	///if xenophages are allowed to lay eggs
+	var/alien_eggs_allowed = 0
+
 	/// if objectives are disabled or not
 	var/static/objectives_disabled = FALSE
 
@@ -255,10 +261,10 @@
 	var/static/glide_size
 
 	/// Modifier for ticks between moves while running
-	var/static/run_delay = 2
+	//var/static/run_delay = 2
 
 	/// Modifier for ticks between moves while walking
-	var/static/walk_delay = 4
+	var/static/walk_delay = 2.5
 
 	/// Modifier for ticks between moves while creeping
 	var/static/creep_delay = 6
@@ -633,6 +639,10 @@
 				usewhitelist = TRUE
 			if ("traitor_scaling")
 				traitor_scaling = TRUE
+			if ("aliens_allowed")
+				aliens_allowed = TRUE
+			if("alien_eggs_allowed")
+				alien_eggs_allowed = TRUE
 			if ("objectives_disabled")
 				if (!value)
 					log_misc("Could not find value for objectives_disabled in configuration")
@@ -880,8 +890,8 @@
 				bones_can_break = value
 			if ("limbs_can_break")
 				limbs_can_break = value
-			if ("run_delay")
-				run_delay = value
+			//if ("run_delay")
+//				run_delay = value
 			if ("walk_delay")
 				walk_delay = value
 			if ("creep_delay")

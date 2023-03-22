@@ -165,7 +165,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 /obj/structure/bed/chair/urist/shuttle/New()
 	armrest = image('icons/urist/structures&machinery/structures.dmi', "shuttlechair_armrest")
-	armrest.plane = ABOVE_HUMAN_PLANE
+	armrest.plane = ABOVE_HUMAN_LAYER
 	armrest.layer = ABOVE_HUMAN_LAYER
 
 	return ..()

@@ -114,7 +114,7 @@ var/datum/antagonist/agent/agents
 	if(!priority_order || !length(priority_order))
 		priority_order = list()
 		for(var/entry in GLOB.default_uplink_source_priority)
-			priority_order += decls_repository.get_decl(entry)
+			priority_order += Singletons.get(entry)
 
 	if(priority_order[1] == "Headset")
 		R = locate(/obj/item/device/radio) in agent_mob.contents

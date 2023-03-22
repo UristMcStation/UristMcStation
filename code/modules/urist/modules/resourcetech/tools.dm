@@ -117,8 +117,8 @@
 /obj/item/material/knife/hunting
 	icon = 'icons/urist/items/uristweapons.dmi'
 	icon_state = "huntknife"
-	force_divisor = 0.2 // 12 with hardness 60 (steel)
-	thrown_force_divisor = 0.15 // 9 when wielded with hardness 60 (steel)
+	force_multiplier = 0.2 // 12 with hardness 60 (steel)
+	thrown_force_multiplier = 0.15 // 9 when wielded with hardness 60 (steel)
 	applies_material_colour = 0
 	w_class = 2
 	name = "hunting knife"
@@ -131,8 +131,8 @@
 	desc = "A serrated survival knife, used for hunting, gutting, prying, skewering and just about everything else a traditional knife does."
 	icon = 'icons/urist/items/uristweapons.dmi'
 	icon_state = "survivalknife"
-	force_divisor = 0.2
-	thrown_force_divisor = 0.10
+	force_multiplier = 0.2
+	thrown_force_multiplier = 0.10
 	sharp = 1
 	edge = 1
 	w_class = 2

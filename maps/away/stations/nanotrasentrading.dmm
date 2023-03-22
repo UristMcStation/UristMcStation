@@ -459,7 +459,7 @@
 	icon_state = "benchright";
 	dir = 8
 	},
-/mob/living/simple_animal/hostile/npc/colonist/nanotrasen{
+/mob/living/simple_animal/passive/npc/colonist/nanotrasen{
 	tag = "icon-body_m_s (WEST)";
 	icon_state = "body_m_s";
 	dir = 8
@@ -673,7 +673,7 @@
 	icon_state = "benchmid";
 	dir = 8
 	},
-/mob/living/simple_animal/hostile/npc/colonist/nanotrasen{
+/mob/living/simple_animal/passive/npc/colonist/nanotrasen{
 	tag = "icon-body_m_s (WEST)";
 	icon_state = "body_m_s";
 	dir = 8
@@ -820,7 +820,7 @@
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "ck" = (
-/mob/living/simple_animal/hostile/npc/colonist/labourer/nanotrasen{
+/mob/living/simple_animal/passive/npc/colonist/labourer/nanotrasen{
 	wander = 1
 	},
 /turf/simulated/floor/tiled,
@@ -1022,7 +1022,7 @@
 /turf/simulated/floor/plating,
 /area/spacestations/nanotrasenspace)
 "cN" = (
-/mob/living/simple_animal/hostile/npc/colonist/trader/crop_trader,
+/mob/living/simple_animal/passive/npc/colonist/trader/crop_trader,
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "cO" = (
@@ -1239,7 +1239,7 @@
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "dn" = (
-/mob/living/simple_animal/hostile/npc/colonist/trader/tool_trader,
+/mob/living/simple_animal/passive/npc/colonist/trader/tool_trader,
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "do" = (
@@ -1415,7 +1415,7 @@
 /area/spacestations/nanotrasenspace)
 "dO" = (
 /obj/item/stool/padded,
-/mob/living/simple_animal/hostile/npc/colonist/trader/organsmuggler,
+/mob/living/simple_animal/passive/npc/colonist/trader/organsmuggler,
 /turf/simulated/floor/plating{
 	color = "#bbbbbb"
 	},
@@ -1461,7 +1461,7 @@
 	icon_state = "corner_white";
 	dir = 5
 	},
-/mob/living/simple_animal/hostile/npc/colonist/contract/nthos,
+/mob/living/simple_animal/passive/npc/colonist/contract/nthos,
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
@@ -1541,7 +1541,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "hM" = (
-/mob/living/simple_animal/hostile/npc/colonist/trader/atmos_trader,
+/mob/living/simple_animal/passive/npc/colonist/trader/atmos_trader,
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "iD" = (
@@ -1599,7 +1599,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "ky" = (
-/mob/living/simple_animal/hostile/npc/colonist/trader/bartender_trader,
+/mob/living/simple_animal/passive/npc/colonist/trader/bartender_trader,
 /turf/simulated/floor/wood,
 /area/spacestations/nanotrasenspace)
 "kz" = (
@@ -1928,7 +1928,7 @@
 /obj/structure/sign/urist/transitmap{
 	pixel_x = -32
 	},
-/mob/living/simple_animal/hostile/npc/colonist/highclass/nanotrasen{
+/mob/living/simple_animal/passive/npc/colonist/highclass/nanotrasen{
 	tag = "icon-body_m_s (EAST)";
 	icon_state = "body_m_s";
 	dir = 4
@@ -1949,7 +1949,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/mob/living/simple_animal/hostile/npc/colonist/contract/ntchef,
+/mob/living/simple_animal/passive/npc/colonist/contract/ntchef,
 /turf/simulated/floor/wood,
 /area/spacestations/nanotrasenspace)
 "xl" = (
@@ -2119,7 +2119,7 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
-/mob/living/simple_animal/hostile/npc/colonist/nanotrasen{
+/mob/living/simple_animal/passive/npc/colonist/nanotrasen{
 	tag = "icon-body_m_s (WEST)";
 	icon_state = "body_m_s";
 	dir = 8
@@ -2339,7 +2339,7 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/mob/living/simple_animal/hostile/npc/colonist/contract/ntscientist{
+/mob/living/simple_animal/passive/npc/colonist/contract/ntscientist{
 	tag = "icon-body_m_s (EAST)";
 	icon_state = "body_m_s";
 	dir = 4
