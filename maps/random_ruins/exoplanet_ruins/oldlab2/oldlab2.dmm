@@ -3016,6 +3016,7 @@
 /area/map_template/oldlab2/medical)
 "qJ" = (
 /obj/machinery/light/spot,
+/obj/vehicle/train/cargo/trolley,
 /turf/simulated/floor/reinforced/airless,
 /area/map_template/oldlab2/Airlock)
 "qL" = (
@@ -5114,6 +5115,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/test1)
+"Be" = (
+/obj/vehicle/train/cargo/engine,
+/turf/simulated/floor/reinforced/airless,
+/area/map_template/oldlab2/Airlock)
 "Bi" = (
 /turf/simulated/wall/titanium,
 /area/map_template/oldlab2/living5)
@@ -6286,6 +6291,10 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/server)
+"GO" = (
+/obj/vehicle/train/cargo/trolley,
+/turf/simulated/floor/reinforced/airless,
+/area/map_template/oldlab2/Airlock)
 "GP" = (
 /obj/machinery/light{
 	dir = 1
@@ -11729,7 +11738,7 @@ Nz
 Nz
 Nz
 Nz
-Nz
+GO
 gb
 uX
 DJ
@@ -11833,7 +11842,7 @@ Nz
 Nz
 Nz
 Nz
-Nz
+Be
 gb
 gb
 aU

@@ -1055,6 +1055,10 @@
 /obj/structure/lattice,
 /turf/space,
 /area/space)
+"jc" = (
+/obj/vehicle/train/cargo/engine,
+/turf/simulated/floor/airless,
+/area/scavver/gantry/up2)
 "jd" = (
 /obj/structure/railing/mapped{
 	dir = 8;
@@ -5530,6 +5534,10 @@
 /obj/effect/floor_decal/corner_steel_grid{
 	dir = 6
 	},
+/turf/simulated/floor/airless,
+/area/scavver/gantry/up2)
+"WU" = (
+/obj/vehicle/train/cargo/trolley,
 /turf/simulated/floor/airless,
 /area/scavver/gantry/up2)
 "WW" = (
@@ -17624,9 +17632,9 @@ In
 In
 In
 In
-In
-In
-In
+WU
+WU
+jc
 In
 In
 Qr

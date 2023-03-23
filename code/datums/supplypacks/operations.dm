@@ -106,3 +106,4 @@
 	cost = 15
 	containertype = /obj/structure/closet/crate/large
 	containername = "office supplies crate"
+

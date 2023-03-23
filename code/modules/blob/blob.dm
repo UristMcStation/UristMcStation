@@ -108,6 +108,18 @@
 		qdel(F)
 		return
 
+	var/obj/vehicle/V = locate() in T
+	if (V?.health > 0)
+		playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
+		V.adjust_health(-damage)
+		return
+
+	var/obj/machinery/camera/CA = locate() in T
+	if (CA && !CA.is_broken())
+		playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
+		CA.take_damage(30)
+		return
+
 	var/sound_played
 
 	for(var/mob/living/L in T)
