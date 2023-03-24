@@ -106,7 +106,7 @@
 				for (var/datum/wound/W as anything in affecting.wounds)
 					if (W.bandaged && W.disinfected && W.salved)
 						continue
-					var/delay = (W.damage / 4) * user.skill_delay_mult(SKILL_MEDICAL, 0.8)
+					var/delay = (W.damage / 4)
 					owner.setClickCooldown(delay)
 					if(!do_after(user, delay, target))
 						break

@@ -46,7 +46,7 @@
 
 /obj/item/mech_equipment/examine(mob/user, distance)
 	. = ..()
-	if(user.skill_check(SKILL_DEVICES, SKILL_BASIC))
+	if(user.skill_check(SKILL_DEVICES, SKILL_NONE))
 		if(length(restricted_software))
 			to_chat(user, SPAN_SUBTLE("It seems it would require [english_list(restricted_software)] to be used."))
 		if(length(restricted_hardpoints))

@@ -369,8 +369,8 @@
 /obj/structure/closet,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/stack/material/rods/ten,
-/obj/item/tank/oxygen/red,
-/obj/item/tank/oxygen/red,
+/obj/item/tank/oxygen_scba,
+/obj/item/tank/oxygen_scba,
 /obj/item/extinguisher/mini,
 /obj/effect/floor_decal/rust,
 /obj/machinery/light/small/red{

@@ -1195,7 +1195,7 @@
 /obj/effect/floor_decal/corner/red/three_quarters{
 	dir = 1
 	},
-/obj/item/modular_computer/console/preset/security,
+/obj/machinery/computer/modular/preset/security,
 /obj/machinery/power/apc{
 	cell_type = /obj/item/cell/high;
 	dir = 1;
@@ -3432,17 +3432,17 @@
 /area/command/aicore)
 "gT" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/item/modular_computer/console/preset/medical,
+/obj/machinery/computer/modular/preset/medical,
 /turf/simulated/floor/tiled/dark,
 /area/command/aicore)
 "gU" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/item/modular_computer/console/preset/command,
+/obj/machinery/computer/modular/preset/command,
 /turf/simulated/floor/tiled/dark,
 /area/command/aicore)
 "gV" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/item/modular_computer/console/preset/security,
+/obj/machinery/computer/modular/preset/security,
 /turf/simulated/floor/tiled/dark,
 /area/command/aicore)
 "gW" = (
@@ -5286,7 +5286,7 @@
 /area/solar/main)
 "ka" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/item/modular_computer/console/preset/civilian{
+/obj/machinery/computer/modular/preset/civilian{
 	dir = 1;
 	icon_state = "console"
 	},
@@ -5294,14 +5294,14 @@
 /area/command/aicore)
 "kb" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/item/modular_computer/console/preset/engineering{
+/obj/machinery/computer/modular/preset/engineering{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/aicore)
 "kc" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/item/modular_computer/console/preset/research{
+/obj/machinery/computer/modular/preset/research{
 	dir = 1;
 	icon_state = "console"
 	},
@@ -6754,7 +6754,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/first_deck_storage)
 "mq" = (
-/obj/item/modular_computer/console/preset/engineering{
+/obj/machinery/computer/modular/preset/engineering{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,

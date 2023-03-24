@@ -41,6 +41,9 @@ var/global/ntnet_card_uid = 1
 	icon_state = "netcard_ethernet"
 	hardware_size = 3
 
+/obj/item/stock_parts/computer/network_card/wired/magic
+	magic = TRUE
+
 /obj/item/stock_parts/computer/network_card/diagnostics()
 	. = ..()
 	. += "NIX Unique ID: [identification_id]"

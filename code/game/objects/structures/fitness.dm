@@ -62,24 +62,7 @@
 		flick("[icon_state]_[weight]", src)
 		if(do_after(user, (2 + weight) SECONDS, src, DO_DEFAULT | DO_BOTH_UNIQUE_ACT))
 			playsound(src.loc, 'sound/effects/weightdrop.ogg', 25, 1)
-			var/skill = max_weight * user.get_skill_value(SKILL_HAULING)/SKILL_MAX
-			var/message
-			if(skill < weight)
-				if(weight - skill > max_weight/2)
-					if(prob(50))
-						message = ", getting hurt in the process"
-						user.apply_damage(5)
-					else
-						message = "; this does not look safe"
-				else
-					message = fail_message[min(1 + round(weight - skill), length(fail_message))]
-				user.visible_message(SPAN_NOTICE("\The [user] fails to lift the weights[message]."), SPAN_NOTICE("You fail to lift the weights[message]."))
-			else
-				if(!synth)
-					var/adj_weight = weight * 5
-					user.adjust_nutrition(-(adj_weight * DEFAULT_HUNGER_FACTOR))
-					user.adjust_hydration(-(adj_weight * DEFAULT_THIRST_FACTOR))
-				message = success_message[min(1 + round(skill - weight), length(fail_message))]
-				user.visible_message(SPAN_NOTICE("\The [user] lift\s the weights [message]."), SPAN_NOTICE("You lift the weights [message]."))
-				user.update_personal_goal(/datum/goal/weights, 1)
+			if(!synth)
+				user.nutrition -= weight * 10
+			to_chat(user, "<span class='notice'>You lift the weights [qualifiers[weight]].</span>")
 		being_used = FALSE

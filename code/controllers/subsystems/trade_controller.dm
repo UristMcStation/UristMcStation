@@ -28,7 +28,7 @@ SUBSYSTEM_DEF(trade_controller)
 	for(var/mob/living/simple_animal/passive/npc/N in GLOB.simple_mob_list)
 		N.generate_trade_items()
 
-	for(var/obj/effect/overmap/sector/station/S in overmap_stations)
+	for(var/obj/effect/overmap/visitable/station/S in overmap_stations)
 		S.setup_spawning()
 
 	. = ..()

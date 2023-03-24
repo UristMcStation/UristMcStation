@@ -253,7 +253,7 @@
 "eS" = (/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{tag = "icon-map_vent_in (WEST)"; icon_state = "map_vent_in"; dir = 8; color = "#bbbbbb"},/obj/effect/floor_decal/industrial/outline/yellow{color = "#d2af6e"},/turf/simulated/floor/reinforced/airless{color = "#bbbbbb"},/area/away/refueling)
 "eT" = (/obj/machinery/atmospherics/pipe/manifold/visible{color = "#bbbbbb"},/turf/simulated/floor/reinforced/oxygen{color = "#bbbbbb"},/area/away/refueling)
 "eU" = (/obj/machinery/atmospherics/pipe/manifold/visible{color = "#bbbbbb"},/turf/simulated/floor/reinforced/phoron{color = "#bbbbbb"},/area/away/refueling)
-"eV" = (/obj/effect/overmap/sector/refueling,/turf/space,/area/space)
+"eV" = (/obj/effect/overmap/visitable/refueling,/turf/space,/area/space)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababab

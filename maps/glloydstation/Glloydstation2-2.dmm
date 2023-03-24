@@ -1299,7 +1299,7 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "adD" = (
-/obj/item/modular_computer/console/preset/civilian,
+/obj/machinery/computer/modular/preset/civilian,
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "adE" = (
@@ -1991,7 +1991,7 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "afr" = (
-/obj/item/modular_computer/console/preset/merchant{
+/obj/machinery/computer/modular/preset/merchant{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -5005,7 +5005,7 @@
 	},
 /area/centcom/evac)
 "amr" = (
-/obj/item/modular_computer/console/preset/command,
+/obj/machinery/computer/modular/preset/command,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/shuttle.dmi';
 	icon_state = "floor4"
@@ -5148,7 +5148,7 @@
 	},
 /area/centcom/evac)
 "amK" = (
-/obj/item/modular_computer/console/preset/command,
+/obj/machinery/computer/modular/preset/command,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/shuttle.dmi';
 	icon_state = "floor"
@@ -5501,7 +5501,7 @@
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "anA" = (
-/obj/item/modular_computer/console/preset/mercenary,
+/obj/machinery/computer/modular/preset/mercenary,
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "anB" = (
@@ -5747,12 +5747,12 @@
 /area/map_template/syndicate_mothership)
 "aoe" = (
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
 /obj/item/gun/projectile/automatic/c20r,
 /obj/item/gun/projectile/automatic/c20r,
 /obj/item/gun/projectile/automatic/c20r,
@@ -5762,11 +5762,11 @@
 /area/map_template/syndicate_mothership)
 "aof" = (
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/a45m,
+/obj/item/ammo_magazine/a45m,
+/obj/item/ammo_magazine/a45m,
+/obj/item/ammo_magazine/a45m,
+/obj/item/ammo_magazine/a45m,
 /obj/item/gun/projectile/silenced/knight,
 /obj/item/gun/projectile/silenced/knight,
 /turf/unsimulated/floor{
@@ -6336,9 +6336,9 @@
 "apl" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/syndicate/black/red,
+/obj/item/clothing/suit/urist/space/syndicate/black/red,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/syndicate/black/red,
+/obj/item/clothing/head/urist/helmet/red,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -6346,9 +6346,9 @@
 "apm" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/syndicate/black/orange,
+/obj/item/clothing/suit/urist/space/syndicate/black/orange,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/syndicate/black/orange,
+/obj/item/clothing/head/urist/helmet/orange,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -6356,9 +6356,9 @@
 "apn" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/syndicate/black/blue,
+/obj/item/clothing/suit/urist/space/syndicate/black/blue,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/syndicate/black/blue,
+/obj/item/clothing/head/urist/helmet/blue,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -6366,9 +6366,9 @@
 "apo" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/syndicate/black/green,
+/obj/item/clothing/suit/urist/space/syndicate/black/green,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/syndicate/black/green,
+/obj/item/clothing/head/urist/helmet/green,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -6622,9 +6622,9 @@
 "apQ" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/syndicate/black/engie,
+/obj/item/clothing/suit/urist/space/syndicate/black/engie,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/syndicate/black/engie,
+/obj/item/clothing/head/urist/helmet/engie,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -6632,9 +6632,9 @@
 "apR" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/syndicate/black/med,
+/obj/item/clothing/suit/urist/space/syndicate/black/med,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/syndicate/black/med,
+/obj/item/clothing/head/urist/helmet/med,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -6644,7 +6644,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/syndicate/black,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/syndicate/black,
+/obj/item/clothing/head/urist/helmet,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -7594,7 +7594,7 @@
 /area/shuttle/administration/centcom)
 "asC" = (
 /obj/structure/table/reinforced,
-/obj/item/modular_computer/console/preset/library,
+/obj/machinery/computer/modular/preset/library,
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/administration/centcom)
 "asD" = (
@@ -7714,7 +7714,7 @@
 	},
 /area/centcom)
 "asV" = (
-/obj/item/modular_computer/console/preset/command,
+/obj/machinery/computer/modular/preset/command,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -7849,10 +7849,10 @@
 "atn" = (
 /obj/structure/table/rack,
 /obj/item/gun/projectile/automatic/m3,
-/obj/item/ammo_magazine/c45m/m3,
-/obj/item/ammo_magazine/c45m/m3,
-/obj/item/ammo_magazine/c45m/m3,
-/obj/item/ammo_magazine/c45m/m3,
+/obj/item/ammo_magazine/a45m/m3,
+/obj/item/ammo_magazine/a45m/m3,
+/obj/item/ammo_magazine/a45m/m3,
+/obj/item/ammo_magazine/a45m/m3,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -7860,10 +7860,10 @@
 "ato" = (
 /obj/item/gun/projectile/automatic/m16,
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/a556/m16,
-/obj/item/ammo_magazine/a556/m16,
-/obj/item/ammo_magazine/a556/m16,
-/obj/item/ammo_magazine/a556/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -7871,10 +7871,10 @@
 "atp" = (
 /obj/item/gun/projectile/automatic/m16/gl,
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/a556/m16,
-/obj/item/ammo_magazine/a556/m16,
-/obj/item/ammo_magazine/a556/m16,
-/obj/item/ammo_magazine/a556/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
+/obj/item/ammo_magazine/rifle/m16,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -7882,10 +7882,10 @@
 "atq" = (
 /obj/item/gun/projectile/automatic/l6_saw/m60,
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/box/a762/m60,
-/obj/item/ammo_magazine/box/a762/m60,
-/obj/item/ammo_magazine/box/a762/m60,
-/obj/item/ammo_magazine/box/a762/m60,
+/obj/item/ammo_magazine/box/rifle/military/m60,
+/obj/item/ammo_magazine/box/rifle/military/m60,
+/obj/item/ammo_magazine/box/rifle/military/m60,
+/obj/item/ammo_magazine/box/rifle/military/m60,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -8130,10 +8130,10 @@
 "atU" = (
 /obj/item/gun/projectile/automatic/m14,
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/a762mm/m14,
-/obj/item/ammo_magazine/a762mm/m14,
-/obj/item/ammo_magazine/a762mm/m14,
-/obj/item/ammo_magazine/a762mm/m14,
+/obj/item/ammo_magazine/rifle/military/m14,
+/obj/item/ammo_magazine/rifle/military/m14,
+/obj/item/ammo_magazine/rifle/military/m14,
+/obj/item/ammo_magazine/rifle/military/m14,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -8343,16 +8343,16 @@
 	pixel_x = -1;
 	pixel_y = -3
 	},
-/obj/item/clothing/glasses/sunglasses/sechud{
+/obj/item/clothing/glasses/hud/security/prot/sunglasses{
 	pixel_y = 3
 	},
-/obj/item/clothing/glasses/sunglasses/sechud{
+/obj/item/clothing/glasses/hud/security/prot/sunglasses{
 	pixel_y = 3
 	},
-/obj/item/clothing/glasses/sunglasses/sechud{
+/obj/item/clothing/glasses/hud/security/prot/sunglasses{
 	pixel_y = 3
 	},
-/obj/item/clothing/glasses/sunglasses/sechud{
+/obj/item/clothing/glasses/hud/security/prot/sunglasses{
 	pixel_y = 3
 	},
 /turf/unsimulated/floor{
@@ -9067,7 +9067,7 @@
 /turf/simulated/floor/grass,
 /area/centcom/specops)
 "avz" = (
-/obj/item/modular_computer/console/preset/medical,
+/obj/machinery/computer/modular/preset/medical,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -9264,7 +9264,7 @@
 	},
 /area/centcom)
 "avV" = (
-/obj/item/modular_computer/console/preset/command,
+/obj/machinery/computer/modular/preset/command,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -9295,7 +9295,7 @@
 "avZ" = (
 /obj/structure/table/reinforced,
 /obj/item/device/megaphone,
-/obj/item/clothing/glasses/sunglasses/sechud,
+/obj/item/clothing/glasses/hud/security/prot/sunglasses,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -9430,7 +9430,7 @@
 	},
 /area/centcom)
 "awr" = (
-/obj/item/modular_computer/console/preset/security,
+/obj/machinery/computer/modular/preset/security,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -9992,7 +9992,7 @@
 	},
 /area/centcom)
 "axr" = (
-/obj/item/modular_computer/console/preset/command,
+/obj/machinery/computer/modular/preset/command,
 /obj/item/card/id/centcom,
 /turf/unsimulated/floor{
 	tag = "icon-wood";
@@ -10273,7 +10273,7 @@
 	req_access = list("ACCESS_EXTERNAL");
 	tag_door = "escape_shuttle_hatch"
 	},
-/obj/item/modular_computer/console/preset/medical,
+/obj/machinery/computer/modular/preset/medical,
 /turf/simulated/floor/shuttle/blue,
 /area/shuttle/escape/centcom)
 "axW" = (
@@ -10558,7 +10558,7 @@
 	},
 /area/centcom)
 "ayF" = (
-/obj/item/modular_computer/console/preset/command{
+/obj/machinery/computer/modular/preset/command{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -10648,7 +10648,7 @@
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/specops/centcom)
 "ayS" = (
-/obj/item/modular_computer/console/preset/command,
+/obj/machinery/computer/modular/preset/command,
 /obj/item/device/radio/intercom{
 	broadcasting = 0;
 	dir = 1;
@@ -10915,13 +10915,13 @@
 	},
 /area/shuttle/escape/centcom)
 "azB" = (
-/obj/item/modular_computer/console/preset/command{
+/obj/machinery/computer/modular/preset/command{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/blue,
 /area/shuttle/escape/centcom)
 "azC" = (
-/obj/item/modular_computer/console/preset/security{
+/obj/machinery/computer/modular/preset/security{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/blue,
@@ -12029,7 +12029,7 @@
 	},
 /area/scom/mission/nolighting)
 "aCn" = (
-/mob/living/simple_animal/crab,
+/mob/living/simple_animal/passive/crab,
 /turf/unsimulated/beach/sand{
 	tag = "icon-desert3";
 	icon_state = "desert3"
@@ -12142,7 +12142,7 @@
 /obj/structure/sign/urist/nt{
 	pixel_x = 32
 	},
-/obj/item/modular_computer/console/preset/command{
+/obj/machinery/computer/modular/preset/command{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -14204,7 +14204,7 @@
 /obj/structure/sign/urist/nt{
 	pixel_x = 32
 	},
-/obj/item/modular_computer/console/preset/command{
+/obj/machinery/computer/modular/preset/command{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -14437,7 +14437,7 @@
 	},
 /area/tdome)
 "aHG" = (
-/obj/item/modular_computer/console/preset/command{
+/obj/machinery/computer/modular/preset/command{
 	dir = 8
 	},
 /obj/structure/sign/urist/nt{
@@ -15158,7 +15158,7 @@
 	},
 /area/map_template/wizard_station)
 "aJA" = (
-/obj/item/modular_computer/console/preset/library,
+/obj/machinery/computer/modular/preset/library,
 /obj/structure/table/woodentable/walnut,
 /turf/unsimulated/floor{
 	dir = 8;
@@ -15436,7 +15436,7 @@
 	},
 /area/acting/backstage)
 "aKj" = (
-/obj/item/modular_computer/console/preset/library{
+/obj/machinery/computer/modular/preset/library{
 	anchored = 0
 	},
 /turf/unsimulated/floor{
@@ -15736,7 +15736,7 @@
 /turf/simulated/floor/shuttle/blue,
 /area/shuttle/naval1/centcom)
 "aKU" = (
-/obj/item/modular_computer/console/preset/security,
+/obj/machinery/computer/modular/preset/security,
 /turf/simulated/floor/shuttle/blue,
 /area/shuttle/naval1/centcom)
 "aKV" = (
@@ -15751,7 +15751,7 @@
 /turf/simulated/floor/shuttle/blue,
 /area/shuttle/naval1/centcom)
 "aKW" = (
-/obj/item/modular_computer/console/preset/command,
+/obj/machinery/computer/modular/preset/command,
 /turf/simulated/floor/shuttle/blue,
 /area/shuttle/naval1/centcom)
 "aKX" = (
@@ -22293,7 +22293,7 @@
 	},
 /area/map_template/syndicate_mothership/raider_base)
 "aYH" = (
-/obj/item/modular_computer/console/preset/mercenary{
+/obj/machinery/computer/modular/preset/mercenary{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -22522,10 +22522,10 @@
 /obj/structure/closet/cabinet{
 	name = "ammo cabinet"
 	},
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a45m,
+/obj/item/ammo_magazine/a45m,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
 /obj/item/ammo_casing/shotgun,
 /obj/item/ammo_casing/shotgun,
 /obj/item/ammo_casing/shotgun,
@@ -22537,22 +22537,22 @@
 /obj/item/ammo_casing/shotgun,
 /obj/item/ammo_casing/shotgun,
 /obj/item/ammo_casing/shotgun,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/a762mm,
-/obj/item/ammo_magazine/a762mm,
-/obj/item/ammo_magazine/a762mm,
+/obj/item/ammo_magazine/a45m,
+/obj/item/ammo_magazine/a45m,
+/obj/item/ammo_magazine/a45m,
+/obj/item/ammo_magazine/rifle/military,
+/obj/item/ammo_magazine/rifle/military,
+/obj/item/ammo_magazine/rifle/military,
 /turf/unsimulated/floor{
 	tag = "icon-cult";
 	name = "plating";
@@ -23638,7 +23638,7 @@
 /turf/unsimulated/beach/sand,
 /area/beach)
 "bbv" = (
-/mob/living/simple_animal/crab/Coffee,
+/mob/living/simple_animal/passive/crab/Coffee,
 /turf/unsimulated/beach/sand,
 /area/beach)
 "bbw" = (
@@ -25298,9 +25298,9 @@
 "beO" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/syndicate/black/engie,
+/obj/item/clothing/suit/urist/space/syndicate/black/engie,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/syndicate/black/engie,
+/obj/item/clothing/head/urist/helmet/engie,
 /obj/machinery/light/small{
 	dir = 8
 	},

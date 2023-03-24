@@ -213,9 +213,9 @@
 			/obj/item/clothing/accessory/medal,
 			/obj/item/clothing/accessory/medal/iron,
 			/obj/item/clothing/accessory/medal/silver,
-			/obj/item/clothing/accessory/medal/silver/sword,
+			/obj/item/clothing/accessory/medal/solgov/mil/silver_sword,
 			/obj/item/clothing/accessory/medal/gold,
-			/obj/item/clothing/accessory/medal/gold/crest
+			/obj/item/clothing/accessory/medal/solgov/mil/medal_of_honor
 			)
 		loot = pick(misc)
 		new loot(C)

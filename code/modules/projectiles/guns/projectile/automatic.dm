@@ -40,9 +40,9 @@
 	load_method = MAGAZINE
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2, TECH_ESOTERIC = 3)
 	slot_flags = SLOT_BELT
-	ammo_type = /obj/item/ammo_casing/c45
-	magazine_type = /obj/item/ammo_magazine/c45uzi
-	allowed_magazines = /obj/item/ammo_magazine/c45uzi //more damage compared to the wt550, smaller mag size
+	ammo_type = /obj/item/ammo_casing/a45
+	magazine_type = /obj/item/ammo_magazine/a45uzi
+	allowed_magazines = /obj/item/ammo_magazine/a45uzi //more damage compared to the wt550, smaller mag size
 	one_hand_penalty = 2
 
 	firemodes = list(
@@ -102,7 +102,7 @@
 	else
 		icon_state = "c20r"
 
-/obj/item/gun/projectile/automatic/assault_rifle
+/obj/item/gun/projectile/automatic/sts35
 	name = "assault rifle"
 	desc = "The rugged STS-35 is a durable automatic weapon of a make popular on the frontier worlds. Originally designed in the mid 20th century, today variants are made by most firearm producers. This one appears to be HI made, with the serial number conveniently absent."
 	icon = 'icons/obj/guns/assault_rifle.dmi'
@@ -116,8 +116,8 @@
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 1, TECH_ESOTERIC = 5)
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/c556
-	allowed_magazines = /obj/item/ammo_magazine/c556
+	magazine_type = /obj/item/ammo_magazine/rifle
+	allowed_magazines = /obj/item/ammo_magazine/rifle
 	one_hand_penalty = 8
 	accuracy_power = 7
 	accuracy = 2
@@ -133,7 +133,7 @@
 		list(mode_name="short bursts",   burst=5, fire_delay=null, move_delay=6,    one_hand_penalty=11, burst_accuracy=list(0,-1,-2,-3,-3), dispersion=list(0.6, 1.0, 1.2, 1.2, 1.5)),
 		)
 
-/obj/item/gun/projectile/automatic/assault_rifle/on_update_icon()
+/obj/item/gun/projectile/automatic/sts35/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "arifle"
@@ -142,7 +142,7 @@
 		icon_state = "arifle-empty"
 		wielded_item_state = "arifle-wielded-empty"
 
-/obj/item/gun/projectile/automatic/sec_smg
+/obj/item/gun/projectile/automatic/wt550
 	name = "9mm submachine gun"
 	desc = "The WT-550 Saber is a cheap self-defense weapon, mass-produced by Ward-Takahashi for paramilitary and private use."
 	icon = 'icons/obj/guns/sec_smg.dmi'
@@ -168,7 +168,7 @@
 		list(mode_name="short bursts",   burst=5, fire_delay=null, move_delay=4,    one_hand_penalty=5, burst_accuracy=list(0,-1,-1,-1,-2), dispersion=list(0.6, 0.6, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/gun/projectile/automatic/sec_smg/on_update_icon()
+/obj/item/gun/projectile/automatic/wt550/on_update_icon()
 	..()
 	if(ammo_magazine)
 		overlays += image(icon, "mag-[round(length(ammo_magazine.stored_ammo),5)]")
@@ -177,10 +177,10 @@
 	else
 		overlays += image(icon, "ammo-bad")
 
-/obj/item/gun/projectile/automatic/bullpup_rifle
+/obj/item/gun/projectile/automatic/z8
 	name = "bullpup assault rifle"
-	desc = "The Hephaestus Industries Z8 is one of the oldest weapons currently in service with the SCGDF. Despite its age, it still remains the de-facto main rifle of the SCG Army, due to its ease of handling, cheap production costs, reliability, and plentiful surplus stock."
-	icon = 'icons/obj/guns/bullpup_rifle.dmi'
+	desc = "The Z8 Bulldog is an older model bullpup carbine, made by the now defunct Zendai Foundries. Uses armor piercing 7.62mm rounds. Makes you feel like a space marine when you hold it."
+	icon = 'icons/urist/items/z8carbine.dmi'
 	icon_state = "carbine"
 	item_state = "z8carbine"
 	item_icons = URIST_ALL_ONMOBS
@@ -211,23 +211,23 @@
 	var/use_launcher = 0
 	var/obj/item/gun/launcher/grenade/underslung/launcher
 
-/obj/item/gun/projectile/automatic/bullpup_rifle/Initialize()
+/obj/item/gun/projectile/automatic/z8/Initialize()
 	. = ..()
 	launcher = new(src)
 
-/obj/item/gun/projectile/automatic/bullpup_rifle/attackby(obj/item/I, mob/user)
+/obj/item/gun/projectile/automatic/z8/attackby(obj/item/I, mob/user)
 	if((istype(I, /obj/item/grenade)))
 		launcher.load(I, user)
 	else
 		..()
 
-/obj/item/gun/projectile/automatic/bullpup_rifle/attack_hand(mob/user)
+/obj/item/gun/projectile/automatic/z8/attack_hand(mob/user)
 	if(user.get_inactive_hand() == src && use_launcher)
 		launcher.unload(user)
 	else
 		..()
 
-/obj/item/gun/projectile/automatic/bullpup_rifle/Fire(atom/target, mob/living/user, params, pointblank=0, reflex=0)
+/obj/item/gun/projectile/automatic/z8/Fire(atom/target, mob/living/user, params, pointblank=0, reflex=0)
 	if(use_launcher)
 		launcher.Fire(target, user, params, pointblank, reflex)
 		if(!launcher.chambered)
@@ -235,7 +235,7 @@
 	else
 		..()
 
-/obj/item/gun/projectile/automatic/bullpup_rifle/on_update_icon()
+/obj/item/gun/projectile/automatic/z8/on_update_icon()
 	..()
 	if(ammo_magazine)
 		if(length(ammo_magazine.stored_ammo))
@@ -245,14 +245,14 @@
 	else
 		icon_state = "carbine"
 
-/obj/item/gun/projectile/automatic/bullpup_rifle/examine(mob/user)
+/obj/item/gun/projectile/automatic/z8/examine(mob/user)
 	. = ..()
 	if(launcher.chambered)
 		to_chat(user, "\The [launcher] has \a [launcher.chambered] loaded.")
 	else
 		to_chat(user, "\The [launcher] is empty.")
 
-/obj/item/gun/projectile/automatic/bullpup_rifle/light
+/obj/item/gun/projectile/automatic/z8/light
 	name = "light bullpup assault rifle"
 	desc = "The standard-issue rifle of the SCGDF, the Z9 Pitbull is the modern answer to violence's question. It has been given a blued finish with a Sol yellow stripe on its stock for easy identification of its owner."
 	icon = 'icons/obj/guns/bullpup_rifle_light.dmi'
@@ -285,8 +285,8 @@
 	slot_flags = 0 //need sprites for SLOT_BACK
 	ammo_type = /obj/item/ammo_casing/rifle
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/box/a556
-	allowed_magazines = list(/obj/item/ammo_magazine/box/a556, /obj/item/ammo_magazine/c556)
+	magazine_type = /obj/item/ammo_magazine/box/rifle
+	allowed_magazines = list(/obj/item/ammo_magazine/box/rifle, /obj/item/ammo_magazine/rifle)
 	one_hand_penalty = 10
 	wielded_item_state = "gun_wielded"
 	mag_insert_sound = 'sound/weapons/guns/interaction/lmg_magin.ogg'

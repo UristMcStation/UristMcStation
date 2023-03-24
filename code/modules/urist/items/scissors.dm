@@ -14,10 +14,8 @@
 	attack_verb = list("slices", "cuts", "stabs", "jabs")
 	var/childpart = /obj/item/improvised/scissorknife //This is so any thing made is specified. It's helpful for things
 
-	/*suicide_act(mob/user)
-		viewers(user) << pick("<span class='danger'>[user] is slitting \his wrists with the [src]! It looks like \he's trying to commit suicide.</span>", \
-							"<span class='danger'>[user] is slitting \his throat with the [src]! It looks like \he's trying to commit suicide.</span>")
-		return (BRUTELOSS)*/
+/obj/item/Scissors/IsWirecutter()
+	return TRUE
 
 /obj/item/scissors/attackby(var/obj/item/I, mob/user as mob) //Seperation of the scissors
 	if(istype(I, /obj/item/screwdriver))
@@ -123,7 +121,7 @@
 				user.visible_message("[user] stops cutting [M]'s hair.", "You stop cutting [M]'s hair.", "The sounds of scissors stop")
 				return
 			if(f_new_style)
-				H.f_style = f_new_style
+				H.facial_hair_style = f_new_style
 			if(h_new_style)
 				H.head_hair_style = h_new_style
 

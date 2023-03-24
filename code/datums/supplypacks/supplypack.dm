@@ -13,6 +13,8 @@
 	var/supply_method = /singleton/supply_method
 	var/singleton/security_level/security_level
 
+	var/newcargocost = null //to raise prices if necessary to avoid exploitable situations
+
 //Is run once on init for non-base-category supplypacks.
 /singleton/hierarchy/supply_pack/proc/setup()
 	if(!num_contained)

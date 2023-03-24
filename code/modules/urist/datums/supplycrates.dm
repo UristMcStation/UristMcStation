@@ -25,7 +25,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	containername = "Turtle Crate"
 
 //Ripley Paint Crate - TGC
-
+/*
 /singleton/hierarchy/supply_pack/engineering/ripleypaintkits
 	name = "Customization Crate (APLU \"Ripley\")"
 	num_contained = 1 //only one paintkit for you //needs a port to the paintkit refactor, TGCode
@@ -38,7 +38,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	containertype = /obj/structure/closet/crate/secure
 	containername = "APLU \"Ripley\" Customization Crate"
 	supply_method = /singleton/supply_method/randomized
-
+*/
 //Mail supply crate - 2 rolls of packing wrap and a destination tagger - Octobomb
 
 /singleton/hierarchy/supply_pack/operations/mail_supplies
@@ -83,8 +83,8 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /singleton/hierarchy/supply_pack/operations/hunting_supplies
 	name = "Hunting Supplies"
 	contains = list(/obj/item/gun/projectile/manualcycle/hunterrifle,
-					/obj/item/ammo_magazine/a762mm/stripper,
-					/obj/item/ammo_magazine/a762mm/stripper,
+					/obj/item/ammo_magazine/rifle/military/stripper,
+					/obj/item/ammo_magazine/rifle/military/stripper,
 					/obj/item/device/flashlight/lantern,
 					/obj/item/material/hatchet,
 					/obj/item/material/knife/hunting,

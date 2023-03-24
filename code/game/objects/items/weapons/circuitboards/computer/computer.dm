@@ -107,6 +107,10 @@
 	name = T_BOARD("accounts uplink terminal")
 	build_path = /obj/machinery/computer/account_database
 
+/obj/item/stock_parts/circuitboard/account_manager
+	name = T_BOARD("accounts management console")
+	build_path = /obj/machinery/computer/accounts
+
 /obj/item/stock_parts/circuitboard/guestpass
 	name = T_BOARD("guest pass terminal")
 	build_path = /obj/machinery/computer/guestpass

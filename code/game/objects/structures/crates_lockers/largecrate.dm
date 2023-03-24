@@ -83,4 +83,4 @@
 /obj/structure/largecrate/animal/crab
 	name = "crab crate"
 	held_count = 3
-	held_type = /mob/living/simple_animal/crab
+	held_type = /mob/living/simple_animal/passive/crab

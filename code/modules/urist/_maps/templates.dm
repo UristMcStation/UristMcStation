@@ -51,7 +51,7 @@ var/list/datum/map_template/ship/ship_templates = list()
 		if(!T.loaded)
 			possible_ruins += T
 	if(!template && length(possible_ruins))
-		template = safepick(possible_ruins)
+		template = difflist(possible_ruins)
 	if(!template)
 		return
 	var/turf/central_turf = get_turf(src)
@@ -67,7 +67,7 @@ var/list/datum/map_template/ship/ship_templates = list()
 			possible_ruins += T
 //	world << "<span class='boldannounce'>Loading ruins...</span>"
 	if(!template && length(possible_ruins))
-		template = safepick(possible_ruins)
+		template = difflist(possible_ruins)
 	if(!template)
 //		world << "<span class='boldannounce'>No ruins found.</span>"
 		return
@@ -83,7 +83,7 @@ var/list/datum/map_template/ship/ship_templates = list()
 		if(!T.loaded)
 			possible_ruins += T
 	if(!template && length(possible_ruins))
-		template = safepick(possible_ruins)
+		template = difflist(possible_ruins)
 	if(!template)
 		return
 	var/turf/central_turf = get_turf(src)

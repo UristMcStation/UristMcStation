@@ -40,8 +40,8 @@
 		/obj/item/device/holowarrant,
 		/obj/item/folder/blue,
 		/obj/item/flame/lighter/zippo/vanity/black,
-		new /datum/atom_creator/weighted(list(/obj/item/storage/backpack/captain, /obj/item/storage/backpack/satchel/cap)),
-		new /datum/atom_creator/weighted(list(/obj/item/storage/backpack/dufflebag/captain, /obj/item/storage/backpack/messenger/com))
+		new /datum/atom_creator/weighted(list(/obj/item/storage/backpack/command, /obj/item/storage/backpack/satchel/com)),
+		new /datum/atom_creator/weighted(list(/obj/item/storage/backpack/dufflebag/com, /obj/item/storage/backpack/messenger/com))
 	)
 
 /singleton/closet_appearance/secure_closet/command/nervafo
@@ -137,7 +137,7 @@
 		/obj/item/reagent_containers/spray/pepper,
 		/obj/item/grenade/chem_grenade/teargas,
 		/obj/item/melee/baton/loaded,
-		/obj/item/clothing/glasses/sunglasses/sechud/goggles,
+		/obj/item/clothing/glasses/hud/security/prot,
 		/obj/item/taperoll/police,
 		/obj/item/device/hailer,
 		/obj/item/clothing/accessory/storage/black_vest,
@@ -164,7 +164,7 @@
 		/obj/item/clothing/head/helmet,
 		/obj/item/device/radio/headset/heads/nerva_cos,
 		/obj/item/clothing/suit/storage/hooded/seccloak,
-		/obj/item/clothing/glasses/sunglasses/sechud/goggles,
+		/obj/item/clothing/glasses/hud/security/prot,
 		/obj/item/taperoll/police,
 		/obj/item/handcuffs,
 		/obj/item/storage/belt/holster/security,

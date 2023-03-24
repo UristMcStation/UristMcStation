@@ -175,8 +175,6 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	opacity = 1
 	anchored = FALSE
 	mouse_opacity = 0
-	plane = EFFECTS_BELOW_LIGHTING_PLANE
-	layer = ABOVE_PROJECTILE_LAYER
 	var/amount = 6.0
 	var/time_to_live = 100
 

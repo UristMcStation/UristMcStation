@@ -1,4 +1,4 @@
-/obj/effect/overmap/ship/combat
+/obj/effect/overmap/visitable/ship/combat
 	var/list/hostile_factions = list() //who hates us rn
 	var/canfight = 0 //will this ship engage with the combat system? Why is this zero? well, if the ship moves, we're part of the combat system. this is to compensate for lowpop rounds where noone ever moves the ship, to avoid them getting fucked by chance
 	var/incombat = 0 //are we fighting
@@ -22,17 +22,17 @@
 	var/evac_y = 0
 	var/evac_z = 0
 
-/obj/effect/overmap/ship/combat/relaymove()
+/obj/effect/overmap/visitable/ship/combat/relaymove()
 	if(!canfight)
 		canfight = 1
 
 	..()
 
-/obj/effect/overmap/ship/combat/New()
+/obj/effect/overmap/visitable/ship/combat/New()
 	GLOB.overmap_ships += src	//Fallback connect uses this. Let's populate it
 	..()
 
-/obj/effect/overmap/ship/combat/Initialize()
+/obj/effect/overmap/visitable/ship/combat/Initialize()
 	for(var/obj/machinery/computer/combatcomputer/CC in SSmachines.machinery)//now we assign ourself to the combat computer
 		if(CC.shipid == src.shipid) //having things tied to shipid means that in the future we might be able to have pvp ship combat, if i change a couple things with attacking
 			CC.homeship = src
@@ -45,7 +45,7 @@
 			L.mothership = src
 	.=..()
 
-/obj/effect/overmap/ship/combat/proc/enter_combat()
+/obj/effect/overmap/visitable/ship/combat/proc/enter_combat()
 	src.incombat = 1
 	target.incombat = 1
 	autoannounce("<b>A hostile [target.ship_category] has engaged the [ship_name]</b>", "public")	//Because it's weird to be told there's a ship -after- you've been shot at
@@ -59,11 +59,11 @@
 				M.DoActivate()
 
 	if(src == GLOB.using_map.overmap_ship)
-		var/singleton/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
+		var/singleton/security_state/security_state = Singletons.get(GLOB.using_map.security_state)
 		security_state.stored_security_level = security_state.current_security_level
 		security_state.set_security_level(security_state.high_security_level)
 
-/obj/effect/overmap/ship/combat/proc/set_targets(var/new_target = null)
+/obj/effect/overmap/visitable/ship/combat/proc/set_targets(var/new_target = null)
 	if(!target)
 
 		for(var/obj/machinery/computer/combatcomputer/CC in SSmachines.machinery)//now we assign our targets to the combat computer (to show data)
@@ -91,11 +91,11 @@
 				SW.target = null
 				SW.targeted_component = null
 
-		if(!istype(target, /obj/effect/overmap/ship/combat))	//Player ships individually call this proc so no need to unset that here
+		if(!istype(target, /obj/effect/overmap/visitable/ship/combat))	//Player ships individually call this proc so no need to unset that here
 			target.target_ship = null
 		src.target = null
 
-/obj/effect/overmap/ship/combat/proc/leave_combat()
+/obj/effect/overmap/visitable/ship/combat/proc/leave_combat()
 	if(target)
 		target.incombat = 0
 		target.stop_automated_movement = 0
@@ -107,13 +107,13 @@
 	src.unhalt()
 
 	if(src == GLOB.using_map.overmap_ship)
-		var/singleton/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
+		var/singleton/security_state/security_state = Singletons.get(GLOB.using_map.security_state)
 		security_state.set_security_level(security_state.stored_security_level)
 
-/obj/effect/overmap/ship/combat/Crossed(O as mob)
+/obj/effect/overmap/visitable/ship/combat/Crossed(O as mob)
 	..()
-	if(istype(O, /obj/effect/overmap/ship/combat))	//canfight checks are done later. Means we could add things in the future to ship-to-ship
-		var/obj/effect/overmap/ship/combat/OM = O
+	if(istype(O, /obj/effect/overmap/visitable/ship/combat))	//canfight checks are done later. Means we could add things in the future to ship-to-ship
+		var/obj/effect/overmap/visitable/ship/combat/OM = O
 		contacts += OM
 		OM.contacts += src
 		autoannounce("<b>The [OM.ship_name], \a [OM.classification], has entered the [ship_name]'s defensive proximity</b>", "public")
@@ -128,10 +128,10 @@
 					src.Contact(L)
 
 
-/obj/effect/overmap/ship/combat/Uncrossed(O as mob)
+/obj/effect/overmap/visitable/ship/combat/Uncrossed(O as mob)
 	..()
-	if(istype(O, /obj/effect/overmap/ship/combat))
-		var/obj/effect/overmap/ship/combat/OM = O
+	if(istype(O, /obj/effect/overmap/visitable/ship/combat))
+		var/obj/effect/overmap/visitable/ship/combat/OM = O
 		contacts -= OM
 		OM.contacts -= src
 		if(target == OM)	//This shouldn't be possible, but just in case
@@ -139,7 +139,7 @@
 		if(OM.target == src)
 			OM.set_targets()
 
-/obj/effect/overmap/ship/combat/proc/Contact(var/mob/living/simple_animal/hostile/overmapship/L)
+/obj/effect/overmap/visitable/ship/combat/proc/Contact(var/mob/living/simple_animal/hostile/overmapship/L)
 	src.halt() //cancel our momentum
 	crossed = 1 //we're in combat now, so let's cancel out momentum
 	//now let's cancel the momentum of the mob
@@ -164,7 +164,7 @@
 		else
 			return
 
-/obj/effect/overmap/ship/combat/proc/intercept(var/obj/effect/overmap/ship/combat/S)
+/obj/effect/overmap/visitable/ship/combat/proc/intercept(var/obj/effect/overmap/visitable/ship/combat/S)
 	if(!S || !S.canfight || !canfight || S.pvp_cooldown || pvp_cooldown)	return	//If either ship can't fight, we don't
 
 	halt()	//Stop both ships
@@ -179,15 +179,15 @@
 	enter_pvp_combat(TRUE)	//Blow eachother up
 	S.enter_pvp_combat()
 
-/obj/effect/overmap/ship/combat/proc/restabilize_engines()
+/obj/effect/overmap/visitable/ship/combat/proc/restabilize_engines()
 	if(!target || fleeing)	return
-	var/obj/effect/overmap/ship/combat/OM = target
+	var/obj/effect/overmap/visitable/ship/combat/OM = target
 	fleeing = 1
 	flee_timer = clamp((600 + round(2*((vessel_mass - OM.vessel_mass)/100))), 300, 900)	//Temp formula for now. Smaller ships escape faster for balancing.
 	autoannounce("<b>Restabilizing engines - ETA [flee_timer] seconds</b>", "private")
 	OM.autoannounce("<b>[ship_name] engine restabilization in progress - ETA [flee_timer] seconds</b>", "private")
 
-/obj/effect/overmap/ship/combat/proc/cancel_restabilize_engines(var/announce = FALSE)
+/obj/effect/overmap/visitable/ship/combat/proc/cancel_restabilize_engines(var/announce = FALSE)
 	if(!fleeing)	return
 
 	fleeing = 0
@@ -196,9 +196,9 @@
 	if(announce)
 		autoannounce("<b>Engine restabilization aborted</b>", "private")
 
-/obj/effect/overmap/ship/combat/proc/flee()	//Let's give the other ship/any boarders a quick minute chance to act.
+/obj/effect/overmap/visitable/ship/combat/proc/flee()	//Let's give the other ship/any boarders a quick minute chance to act.
 	if(!can_escape || fleeing == 2)	return
-	var/obj/effect/overmap/ship/combat/OM = target
+	var/obj/effect/overmap/visitable/ship/combat/OM = target
 	if(!OM)	return
 	fleeing = 2
 	autoannounce("<b>Thrusters engaged - ETA 1 minute to disengage</b>", "private")
@@ -206,12 +206,12 @@
 	spawn(60 SECONDS)
 		leave_pvp_combat(TRUE)
 
-/obj/effect/overmap/ship/combat/Process(var/wait)
+/obj/effect/overmap/visitable/ship/combat/Process(var/wait)
 	..()
 	if(fleeing == 1)
 		flee_timer = max(flee_timer - (wait / 10), 0)
 		if(flee_timer == 0 && fleeing)
-			var/obj/effect/overmap/ship/combat/OM = target
+			var/obj/effect/overmap/visitable/ship/combat/OM = target
 			if(!OM)	return
 			fleeing = 0
 			can_escape = TRUE
@@ -221,9 +221,9 @@
 	if(pvp_cooldown)
 		pvp_cooldown = max(pvp_cooldown - (wait / 10), 0)
 
-/obj/effect/overmap/ship/combat/proc/enter_pvp_combat(var/attacker = FALSE)
+/obj/effect/overmap/visitable/ship/combat/proc/enter_pvp_combat(var/attacker = FALSE)
 	if(!target)	return
-	var/obj/effect/overmap/ship/combat/OM = target
+	var/obj/effect/overmap/visitable/ship/combat/OM = target
 	incombat = 1
 
 	if(attacker)
@@ -232,14 +232,14 @@
 		autoannounce("<b>Engines destabilized - [OM.ship_name] weapon systems online</b>", "public")
 
 	if(src == GLOB.using_map.overmap_ship)	//If the Nerva is involved, let's put it on Red Alert.
-		var/singleton/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
+		var/singleton/security_state/security_state = Singletons.get(GLOB.using_map.security_state)
 		security_state.stored_security_level = security_state.current_security_level
 		security_state.set_security_level(security_state.high_security_level)
 
-/obj/effect/overmap/ship/combat/proc/leave_pvp_combat(var/fled = FALSE)
+/obj/effect/overmap/visitable/ship/combat/proc/leave_pvp_combat(var/fled = FALSE)
 	if(!can_escape && fled) return
 	if(!target)	return
-	var/obj/effect/overmap/ship/combat/T = target
+	var/obj/effect/overmap/visitable/ship/combat/T = target
 	cancel_restabilize_engines()	//Reset any timers incase both ships were escaping
 	can_escape = TRUE
 	incombat = 0
@@ -254,12 +254,12 @@
 		autoannounce("<b>[T.ship_name] has exceeded weapons range - Exiting combat.</b>", "public")
 
 	if(src == GLOB.using_map.overmap_ship)	//If the Nerva is involved, put the alert level back where it was
-		var/singleton/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
+		var/singleton/security_state/security_state = Singletons.get(GLOB.using_map.security_state)
 		security_state.set_security_level(security_state.stored_security_level)
 
 	T.leave_pvp_combat(!fled)	//Calls the other ship to leave. Won't loop back as target was cleared.
 
-/obj/effect/overmap/ship/combat/proc/autoannounce(var/message, var/channel)	//Moved all combat announcements to call this proc instead. In future, other player ships might have their own frequencies
+/obj/effect/overmap/visitable/ship/combat/proc/autoannounce(var/message, var/channel)	//Moved all combat announcements to call this proc instead. In future, other player ships might have their own frequencies
 	if(!message || !channel)
 		return
 	if(announcement_channel[channel])	//Stops any player ships without their own freq using the Nerva's, which would be wierd.

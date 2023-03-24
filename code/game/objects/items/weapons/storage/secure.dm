@@ -214,7 +214,7 @@
 	startswith = list(
 	/obj/item/gun/energy/taser = 1,
 	/obj/item/gun/projectile/revolver/hi2521r = 1,
-	/obj/item/ammo_magazine/c44 = 2
+	/obj/item/ammo_magazine/a44 = 2
 	)
 
 	var/alert_unlocked = FALSE
@@ -381,7 +381,7 @@
 	startswith = list(
 		/obj/item/gun/energy/gun/secure = 1,
 		/obj/item/gun/projectile/revolver/hi2521r = 1,
-		/obj/item/ammo_magazine/c44 = 2
+		/obj/item/ammo_magazine/a44 = 2
 		)
 
 	registered_gear = list(

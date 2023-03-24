@@ -162,23 +162,23 @@
 				var/obj/structure/closet/syndicate/C = new(src.loc)
 				if(prob(25))
 					new /obj/item/clothing/suit/space/syndicate/black(C)
-					new /obj/item/clothing/head/helmet/space/syndicate/black(C)
-					new /obj/item/tank/oxygen/red(C)
+					new /obj/item/clothing/head/urist/helmet(C)
+					new /obj/item/tank/oxygen_scba(C)
 					new /obj/item/clothing/mask/breath(C)
 				else if(prob(33))
-					new /obj/item/clothing/suit/space/syndicate/blue(C)
-					new /obj/item/clothing/head/helmet/space/syndicate/blue(C)
-					new /obj/item/tank/oxygen/red(C)
+					new /obj/item/clothing/suit/urist/space/syndicate/blue(C)
+					new /obj/item/clothing/head/urist/helmet/space/syndicate/blue(C)
+					new /obj/item/tank/oxygen_scba(C)
 					new /obj/item/clothing/mask/breath(C)
 				else if(prob(50))
-					new /obj/item/clothing/suit/space/syndicate/green(C)
-					new /obj/item/clothing/head/helmet/space/syndicate/green(C)
-					new /obj/item/tank/oxygen/red(C)
+					new /obj/item/clothing/suit/urist/space/syndicate/green(C)
+					new /obj/item/clothing/head/urist/helmet/space/syndicate/green(C)
+					new /obj/item/tank/oxygen_scba(C)
 					new /obj/item/clothing/mask/breath(C)
 				else
-					new /obj/item/clothing/suit/space/syndicate/orange(C)
-					new /obj/item/clothing/head/helmet/space/syndicate/orange(C)
-					new /obj/item/tank/oxygen/red(C)
+					new /obj/item/clothing/suit/urist/space/syndicate/orange(C)
+					new /obj/item/clothing/head/urist/helmet/space/syndicate/orange(C)
+					new /obj/item/tank/oxygen_scba(C)
 					new /obj/item/clothing/mask/breath(C)
 			if("health")
 				//hopefully won't be necessary, but there were an awful lot of traps to get through...
@@ -300,7 +300,7 @@
 	switch(trap_type)
 		if("sawburst")
 			M << "<span class='danger'>A sawblade shoots out of the ground and strikes you!</span>"
-			M.apply_damage(rand(5,10), BRUTE, sharp=1, edge=1)
+			M.apply_damage(rand(5,10), DAMAGE_BRUTE, sharp=1, edge=1)
 
 			var/atom/myloc = src.loc
 			var/image/flicker = image('icons/jungle.dmi',"sawblade")
@@ -322,7 +322,7 @@
 			//flick("dart[rand(1,3)]",src)
 		if("flame_burst")
 			M << "<span class='danger'>A jet of fire comes out of nowhere!</span>"
-			M.apply_damage(rand(5,10), BURN)
+			M.apply_damage(rand(5,10), DAMAGE_BURN)
 
 			var/atom/myloc = src.loc
 			var/image/flicker = image('icons/jungle.dmi',"flameburst")

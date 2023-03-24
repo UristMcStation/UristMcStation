@@ -1,12 +1,12 @@
-var/const/NETWORK_MAINTENANCE         = "Maintenance Deck"
-var/const/NETWORK_PRISON              = "Prison"
-var/const/NETWORK_RESEARCH_OUTPOST    = "Research Outpost"
-var/const/NETWORK_TELECOM             = "Tcomsat"
-var/const/NETWORK_URIST               = "Urist"
-var/const/NETWORK_COMMAND             = "Command"
-var/const/NETWORK_ENGINE              = "Engine"
-var/const/NETWORK_ENGINEERING_OUTPOST = "Engineering Outpost"
-var/const/NETWORK_EXPLO  	          = "Exploration"
+var/global/const/NETWORK_MAINTENANCE         = "Maintenance Deck"
+var/global/const/NETWORK_PRISON              = "Prison"
+var/global/const/NETWORK_RESEARCH_OUTPOST    = "Research Outpost"
+var/global/const/NETWORK_TELECOM             = "Tcomsat"
+var/global/const/NETWORK_URIST               = "Urist"
+var/global/const/NETWORK_COMMAND             = "Command"
+var/global/const/NETWORK_ENGINE              = "Engine"
+var/global/const/NETWORK_ENGINEERING_OUTPOST = "Engineering Outpost"
+var/global/const/NETWORK_EXPLO  	          = "Exploration"
 
 /datum/map/proc/get_shared_network_access(var/network)
 	switch(network)

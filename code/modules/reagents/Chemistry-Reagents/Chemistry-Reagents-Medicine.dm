@@ -967,7 +967,7 @@
 		if(M.chem_doses[type] > M.species.blood_volume/8) //half of blood was replaced with us, rip white bodies
 			M.immunity = max(M.immunity - 3, 0)
 
-/datum/reagent/tridezatane
+/*/datum/reagent/tridezatane
 	name = "Tridezatane"
 	description = "An experimental and unstable antibiotic designed to completely erradicate viral infections. Side effects may include cardiac arrest."
 	taste_description = "freezing bitterness"
@@ -983,7 +983,7 @@
 		M.antibodies |= V.antigen
 	if(!M.is_asystole() && prob(5))
 		M.add_chemical_effect(CE_NOPULSE, 1)
-
+*/
 /datum/reagent/latrazine
 	name = "Latrazine"
 	description = "ERR: Database entry null. Analysis reports possible harmful neural effects."

@@ -195,7 +195,7 @@
 "dM" = (/obj/machinery/atmospherics/pipe/simple/visible/green,/turf/simulated/wall,/area/spacestations/pirate/station)
 "dN" = (/obj/machinery/atmospherics/unary/outlet_injector{dir = 1; injecting = 1; use_power = 1},/turf/simulated/floor/reinforced/airless,/area/spacestations/pirate/exterior)
 "dO" = (/obj/effect/landmark/random_gen/asteroid,/turf/unsimulated/wall/urist/other/border,/area/space)
-"dP" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 4},/obj/structure/catwalk,/obj/effect/overmap/sector/station/hostile/pirate,/turf/simulated/floor,/area/spacestations/pirate/station)
+"dP" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 4},/obj/structure/catwalk,/obj/effect/overmap/visitable/station/hostile/pirate,/turf/simulated/floor,/area/spacestations/pirate/station)
 "dQ" = (/obj/structure/extinguisher_cabinet{icon_state = "extinguisher_closed"; dir = 8; pixel_x = 31; pixel_x = 30},/obj/structure/ladder,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "dR" = (/turf/simulated/open,/area/spacestations/pirate/station)
 "dS" = (/obj/effect/landmark/map_data{height = 2},/turf/space,/area/space)

@@ -2,7 +2,7 @@
 	name = "\improper Destroyed Colony"
 	base_turf = /turf/simulated/floor/planet/ariddirt/clear
 
-/obj/effect/overmap/sector/destroyed_colony
+/obj/effect/overmap/visitable/destroyed_colony
 	name = "destroyed colony"
 	desc = "A former Terran Confederation colony, any settlements on this world were destroyed during the Galactic Crisis. Little remains, but sensors are detecting a faint signal from a destroyed settlement."
 	icon_state = "globe"
@@ -14,7 +14,7 @@
 		"nav_destroyed_colony_2"
 		)
 
-/obj/effect/overmap/sector/destroyed_colony/New(nloc, max_x, max_y)
+/obj/effect/overmap/visitable/destroyed_colony/New(nloc, max_x, max_y)
 	name = "[generate_planet_name()], \a [name]"
 	..()
 

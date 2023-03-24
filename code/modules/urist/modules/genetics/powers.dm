@@ -270,7 +270,7 @@
 			return 0
 		usr.visible_message("<span class='danger'>[usr] begins stuffing [the_item]'s [limb.name] into [m_his] gaping maw!</span>")
 		var/oldloc = H.loc
-		if(!do_mob(usr,H,EAT_MOB_DELAY))
+		if(!do_after(usr,H,EAT_MOB_DELAY))
 			usr << "<span class='warning'> You were interrupted before you could eat [the_item]!</span>"
 		else
 			if(!limb || !H)

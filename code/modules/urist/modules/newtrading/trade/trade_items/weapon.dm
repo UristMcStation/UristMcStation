@@ -14,7 +14,7 @@
 	value = 400
 	trader_weight = 20
 	category = "weapon"
-	bonus_items = list(/obj/item/ammo_magazine/c45uzi)
+	bonus_items = list(/obj/item/ammo_magazine/a45uzi)
 
 /datum/trade_item/c20r
 	name = "C-20r submachine gun"
@@ -23,7 +23,7 @@
 	value = 1500
 	trader_weight = 15
 	category = "weapon"
-	bonus_items = list(/obj/item/ammo_magazine/a10mm)
+	bonus_items = list(/obj/item/ammo_magazine/pistol)
 
 /datum/trade_item/sts35
 	name = "STS35 assault rifle"
@@ -50,7 +50,7 @@
 	value = 10000
 	trader_weight = 5
 	category = "weapon"
-	bonus_items = list(/obj/item/ammo_magazine/a556)
+	bonus_items = list(/obj/item/ammo_magazine/rifle)
 
 /datum/trade_item/l6_saw
 	name = "L6 SAW light machine gun"
@@ -59,7 +59,7 @@
 	value = 12000
 	trader_weight = 5
 	category = "weapon"
-	bonus_items = list(/obj/item/ammo_magazine/box/a762)
+	bonus_items = list(/obj/item/ammo_magazine/box/rifle/military)
 
 /datum/trade_item/shotgun_pump
 	name = "W-T Remmington 29x shotgun"
@@ -113,7 +113,7 @@
 	value = 600
 	trader_weight = 10
 	category = "weapon"
-	bonus_items = list(/obj/item/ammo_casing/c38)
+	bonus_items = list(/obj/item/ammo_casing/a38)
 
 /datum/trade_item/colt
 	name = "Colt M1911 pistol"
@@ -122,7 +122,7 @@
 	value = 600
 	trader_weight = 10
 	category = "weapon"
-	bonus_items = list(/obj/item/ammo_magazine/c45m)
+	bonus_items = list(/obj/item/ammo_magazine/a45m)
 
 /datum/trade_item/sec
 	name = "NT Mk58 pistol"
@@ -131,7 +131,7 @@
 	value = 600
 	trader_weight = 10
 	category = "weapon"
-	bonus_items = list(/obj/item/ammo_magazine/c45m)
+	bonus_items = list(/obj/item/ammo_magazine/a45m)
 
 /datum/trade_item/silenced
 	name = "silenced pistol"
@@ -140,7 +140,7 @@
 	value = 600
 	trader_weight = 10
 	category = "weapon"
-	bonus_items = list(/obj/item/ammo_magazine/c45m)
+	bonus_items = list(/obj/item/ammo_magazine/a45m)
 
 /datum/trade_item/magnum_pistol
 	name = "Magnum pistol"

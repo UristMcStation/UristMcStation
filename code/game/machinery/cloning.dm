@@ -26,7 +26,7 @@
 
 /obj/machinery/clonepod/Initialize()
 	. = ..()
-	build_default_parts(/obj/item/circuitboard/clonepod)
+	build_default_parts(/obj/item/stock_parts/circuitboard/clonepod)
 
 /obj/machinery/clonepod/New()
 	set_extension(src, /datum/extension/interactive/multitool, /datum/extension/interactive/multitool/store)

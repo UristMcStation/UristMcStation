@@ -3034,9 +3034,9 @@
 /obj/item/ammo_magazine/smg_top/rubber,
 /obj/item/ammo_magazine/smg_top/rubber,
 /obj/item/ammo_magazine/smg_top/rubber,
-/obj/item/gun/projectile/automatic/sec_smg,
-/obj/item/gun/projectile/automatic/sec_smg,
-/obj/item/gun/projectile/automatic/sec_smg,
+/obj/item/gun/projectile/automatic/wt550,
+/obj/item/gun/projectile/automatic/wt550,
+/obj/item/gun/projectile/automatic/wt550,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -3068,8 +3068,8 @@
 /obj/item/ammo_magazine/mil_rifle/heavy,
 /obj/item/ammo_magazine/mil_rifle/heavy,
 /obj/item/ammo_magazine/mil_rifle/heavy,
-/obj/item/gun/projectile/automatic/bullpup_rifle,
-/obj/item/gun/projectile/automatic/bullpup_rifle,
+/obj/item/gun/projectile/automatic/z8,
+/obj/item/gun/projectile/automatic/z8,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"

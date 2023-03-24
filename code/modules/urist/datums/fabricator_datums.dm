@@ -92,7 +92,7 @@
 
 /datum/fabricator_recipe/magazine_762_stripper
 	name = "hunting rifle ammo (7.62mm)"
-	path = /obj/item/ammo_magazine/a762mm/stripper
+	path = /obj/item/ammo_magazine/rifle/military/stripper
 	category = "Arms and Ammunition"
 
 /datum/fabricator_recipe/smithinghammer
@@ -102,7 +102,7 @@
 
 /datum/fabricator_recipe/magazine_c20r_rubber
 	name = "ammunition (10mm, rubber)"
-	path = /obj/item/ammo_magazine/a10mm/rubber
+	path = /obj/item/ammo_magazine/pistol/rubber
 	hidden = 1
 	category = "Arms and Ammunition"
 

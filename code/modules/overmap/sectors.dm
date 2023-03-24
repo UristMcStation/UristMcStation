@@ -25,6 +25,9 @@
 	/// null | num | list. If a num or a (num, num) list, the radius or random bounds for placing this sector near the main map's overmap icon.
 	var/list/place_near_main
 
+	var/hidden = FALSE //hidden for the purposes of tooltips. currently only used for the pirate station to avoid cheese
+
+
 /obj/effect/overmap/visitable/Initialize()
 	. = ..()
 	if(. == INITIALIZE_HINT_QDEL)
@@ -66,6 +69,11 @@
 
 /obj/effect/overmap/visitable/proc/get_areas()
 	return get_filtered_areas(list(/proc/area_belongs_to_zlevels = map_z))
+
+/obj/effect/overmap/visitable/MouseEntered(location, control, params)
+	if(!hidden)
+		openToolTip(user = usr, tip_src = src, params = params, title = name)
+	..()
 
 /obj/effect/overmap/visitable/proc/find_z_levels()
 	map_z = GetConnectedZlevels(z)

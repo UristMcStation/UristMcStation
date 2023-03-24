@@ -12,7 +12,7 @@
 /area/jungleoutpost/engi
 	name = "\improper Jungle Outpost Engineering"
 
-/obj/effect/overmap/sector/glloyd_jungle
+/obj/effect/overmap/visitable/glloyd_jungle
 	name = "Jungle planetoid"
 	desc = "Geneseeded world detected, possible intelligent life detected."
 	icon_state = "globe"
@@ -24,7 +24,7 @@
 		"nav_glloyd_jungle_2"
 		)
 
-/obj/effect/overmap/sector/glloyd_jungle/New(nloc, max_x, max_y)
+/obj/effect/overmap/visitable/glloyd_jungle/New(nloc, max_x, max_y)
 	name = "[generate_planet_name()], \a [name]"
 	..()
 

@@ -2380,11 +2380,11 @@
 	required_reagents = list(/datum/reagent/dexalinp = 1, /datum/reagent/iron = 1, /datum/reagent/blood = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/tridezatane
+/*/datum/chemical_reaction/tridezatane
 	name = "Tridezatane"
 	result = /datum/reagent/tridezatane
 	required_reagents = list(/datum/reagent/spaceacillin = 3, /datum/reagent/uranium = 1)
-	result_amount = 1
+	result_amount = 1*/
 
 /datum/chemical_reaction/latrazine
 	name = "Latrazine"

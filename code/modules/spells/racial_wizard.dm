@@ -40,14 +40,14 @@
 	qdel(src)
 
 //RESOMI
-/spell/aoe_turf/conjure/summon/resomi
-	name = "Summon Nano Machines"
-	desc = "This spell summons nano machines from the wizard's body to help them."
+/spell/aoe_turf/conjure/forcewall/resomi
+	name = "Invisible wall"
+	desc = "Create an invisible wall at your location."
 
 	school = "racial"
 	spell_flags = Z2NOCAST
 	invocation_type = SpI_EMOTE
-	invocation = "spasms a moment as nanomachines come out of a port on their back!"
+	invocation = "mimes placing their hands on a flat surfacing, and pushing against it."
 
 	level_max = list(Sp_TOTAL = 0, Sp_SPEED = 0, Sp_POWER = 0)
 
@@ -60,7 +60,7 @@
 	hud_state = "wiz_resomi"
 
 	summon_amt = 1
-	summon_type = list(/mob/living/simple_animal/hostile/commanded/nanomachine)
+	summon_type = list(/obj/effect/forcefield/mime)
 
 /spell/aoe_turf/conjure/summon/resomi/before_cast()
 	..()

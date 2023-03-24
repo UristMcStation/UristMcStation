@@ -36,9 +36,9 @@
 	uniform = /obj/item/clothing/under/frontier
 	shoes = /obj/item/clothing/shoes/workboots
 	belt = /obj/item/storage/belt/utility/full
-	id_type = /obj/item/card/id/noctis
+	id_types = list(/obj/item/card/id/noctis)
 
-/var/const/access_noctis = "ACCESS_NOCTIS" //850
+/var/global/const/access_noctis = "ACCESS_NOCTIS" //850
 /datum/access/noctis
 	id = access_noctis
 	desc = "Explorer Crew"

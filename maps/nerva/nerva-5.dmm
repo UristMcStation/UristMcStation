@@ -517,10 +517,10 @@
 /area/rescue_base/base)
 "bj" = (
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/box/a556,
-/obj/item/ammo_magazine/box/a556,
-/obj/item/ammo_magazine/box/a556,
-/obj/item/ammo_magazine/box/a556,
+/obj/item/ammo_magazine/box/rifle,
+/obj/item/ammo_magazine/box/rifle,
+/obj/item/ammo_magazine/box/rifle,
+/obj/item/ammo_magazine/box/rifle,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -538,8 +538,8 @@
 /area/rescue_base/base)
 "bl" = (
 /obj/structure/table/rack,
-/obj/item/circuitboard/borgupload,
-/obj/item/circuitboard/aiupload{
+/obj/item/stock_parts/circuitboard/borgupload,
+/obj/item/stock_parts/circuitboard/aiupload{
 	pixel_x = -3;
 	pixel_y = -3
 	},
@@ -942,12 +942,12 @@
 /area/rescue_base/base)
 "bZ" = (
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/a762,
-/obj/item/ammo_magazine/a762,
-/obj/item/ammo_magazine/a762,
-/obj/item/ammo_magazine/a762,
-/obj/item/ammo_magazine/a762,
-/obj/item/ammo_magazine/a762,
+/obj/item/ammo_magazine/rifle/military,
+/obj/item/ammo_magazine/rifle/military,
+/obj/item/ammo_magazine/rifle/military,
+/obj/item/ammo_magazine/rifle/military,
+/obj/item/ammo_magazine/rifle/military,
+/obj/item/ammo_magazine/rifle/military,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -2329,9 +2329,9 @@
 /area/rescue_base/base)
 "et" = (
 /obj/structure/table/reinforced,
-/obj/item/mecha_parts/mecha_equipment/tool/sleeper,
-/obj/item/mecha_parts/mecha_equipment/tool/sleeper,
-/obj/item/mecha_parts/mecha_equipment/tool/syringe_gun,
+/obj/item/mech_equipment/tool/sleeper,
+/obj/item/mech_equipment/tool/sleeper,
+/obj/item/mech_equipment/tool/syringe_gun,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -2339,11 +2339,11 @@
 /area/rescue_base/base)
 "eu" = (
 /obj/structure/table/reinforced,
-/obj/item/mecha_parts/mecha_equipment/teleporter,
-/obj/item/mecha_parts/mecha_tracking,
-/obj/item/mecha_parts/mecha_tracking,
-/obj/item/mecha_parts/mecha_tracking,
-/obj/item/mecha_parts/mecha_tracking,
+/obj/item/mech_equipment/teleporter,
+/obj/item/mech_equipment/mecha_tracking,
+/obj/item/mech_equipment/mecha_tracking,
+/obj/item/mech_equipment/mecha_tracking,
+/obj/item/mech_equipment/mecha_tracking,
 /obj/item/device/radio/intercom/specops{
 	dir = 2;
 	pixel_y = 22
@@ -2457,7 +2457,7 @@
 /turf/space,
 /area/rescue_base/base)
 "eH" = (
-/obj/item/modular_computer/console/preset/command{
+/obj/machinery/computer/modular/preset/command{
 	dir = 4;
 	icon_state = "console"
 	},
@@ -2738,8 +2738,8 @@
 /area/rescue_base/base)
 "eV" = (
 /obj/structure/table/reinforced,
-/obj/item/circuitboard/smes,
-/obj/item/circuitboard/smes,
+/obj/item/stock_parts/circuitboard/smes,
+/obj/item/stock_parts/circuitboard/smes,
 /obj/item/stock_parts/smes_coil,
 /obj/item/stock_parts/smes_coil,
 /obj/item/stock_parts/smes_coil/super_capacity,
@@ -2774,8 +2774,8 @@
 /area/rescue_base/base)
 "eZ" = (
 /obj/structure/table/reinforced,
-/obj/item/mecha_parts/mecha_equipment/armor_booster/anticcw_armor_booster,
-/obj/item/mecha_parts/mecha_equipment/armor_booster/antiproj_armor_booster,
+/obj/item/mech_equipment/armor_booster/anticcw_armor_booster,
+/obj/item/mech_equipment/armor_booster/antiproj_armor_booster,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -2844,8 +2844,8 @@
 /area/rescue_base/base)
 "fg" = (
 /obj/structure/table/reinforced,
-/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp,
-/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp,
+/obj/item/mech_equipment/tool/hydraulic_clamp,
+/obj/item/mech_equipment/tool/hydraulic_clamp,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -2853,14 +2853,14 @@
 /area/rescue_base/base)
 "fh" = (
 /obj/structure/table/reinforced,
-/obj/item/mecha_parts/mecha_equipment/tesla_energy_relay,
-/obj/item/mecha_parts/mecha_equipment/tesla_energy_relay,
-/obj/item/mecha_parts/mecha_equipment/tesla_energy_relay,
-/obj/item/mecha_parts/mecha_equipment/tesla_energy_relay,
-/obj/item/mecha_parts/mecha_equipment/repair_droid,
-/obj/item/mecha_parts/mecha_equipment/repair_droid,
-/obj/item/mecha_parts/mecha_equipment/repair_droid,
-/obj/item/mecha_parts/mecha_equipment/repair_droid,
+/obj/item/mech_equipment/tesla_energy_relay,
+/obj/item/mech_equipment/tesla_energy_relay,
+/obj/item/mech_equipment/tesla_energy_relay,
+/obj/item/mech_equipment/tesla_energy_relay,
+/obj/item/mech_equipment/repair_droid,
+/obj/item/mech_equipment/repair_droid,
+/obj/item/mech_equipment/repair_droid,
+/obj/item/mech_equipment/repair_droid,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -2868,8 +2868,8 @@
 /area/rescue_base/base)
 "fi" = (
 /obj/structure/table/reinforced,
-/obj/item/mecha_parts/mecha_equipment/tool/drill/diamonddrill,
-/obj/item/mecha_parts/mecha_equipment/tool/cable_layer,
+/obj/item/mech_equipment/tool/drill/diamonddrill,
+/obj/item/mech_equipment/tool/cable_layer,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -2877,8 +2877,8 @@
 /area/rescue_base/base)
 "fj" = (
 /obj/structure/table/reinforced,
-/obj/item/mecha_parts/mecha_equipment/tool/extinguisher,
-/obj/item/mecha_parts/mecha_equipment/tool/rcd,
+/obj/item/mech_equipment/tool/extinguisher,
+/obj/item/mech_equipment/tool/rcd,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -2886,8 +2886,8 @@
 /area/rescue_base/base)
 "fk" = (
 /obj/structure/table/reinforced,
-/obj/item/mecha_parts/mecha_equipment/tool/passenger,
-/obj/item/mecha_parts/mecha_equipment/tool/passenger,
+/obj/item/mech_equipment/tool/passenger,
+/obj/item/mech_equipment/tool/passenger,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -2895,8 +2895,8 @@
 /area/rescue_base/base)
 "fl" = (
 /obj/structure/table/reinforced,
-/obj/item/mecha_parts/mecha_equipment/weapon/energy/ion,
-/obj/item/mecha_parts/mecha_equipment/weapon/energy/taser,
+/obj/item/mech_equipment/weapon/energy/ion,
+/obj/item/mech_equipment/weapon/energy/taser,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -3008,7 +3008,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/rescue_base/start)
 "fz" = (
-/obj/item/modular_computer/console/preset/command,
+/obj/machinery/computer/modular/preset/command,
 /turf/simulated/floor/tiled/dark,
 /area/rescue_base/start)
 "fA" = (
@@ -3119,7 +3119,7 @@
 /turf/simulated/floor/plating,
 /area/rescue_base/start)
 "fM" = (
-/obj/item/modular_computer/console/preset/medical{
+/obj/machinery/computer/modular/preset/medical{
 	dir = 4;
 	icon_state = "console"
 	},
@@ -3129,7 +3129,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/rescue_base/start)
 "fO" = (
-/obj/item/modular_computer/console/preset/engineering{
+/obj/machinery/computer/modular/preset/engineering{
 	dir = 8;
 	icon_state = "console"
 	},
@@ -3158,7 +3158,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/rescue_base/start)
 "fR" = (
-/obj/item/modular_computer/console/preset/security{
+/obj/machinery/computer/modular/preset/security{
 	dir = 8;
 	icon_state = "console"
 	},
@@ -10725,7 +10725,7 @@
 /area/map_template/wizard_station)
 "zS" = (
 /obj/structure/table/woodentable,
-/obj/item/modular_computer/console/preset/library,
+/obj/machinery/computer/modular/preset/library,
 /obj/item/device/radio/intercom/syndicate{
 	dir = 4;
 	pixel_x = -22
@@ -10872,7 +10872,7 @@
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "Ai" = (
-/obj/item/modular_computer/console/preset/mercenary,
+/obj/machinery/computer/modular/preset/mercenary,
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "Aj" = (
@@ -12252,12 +12252,12 @@
 /area/map_template/syndicate_mothership)
 "Dy" = (
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/ammo_magazine/a10mm,
-/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
 /obj/item/gun/projectile/automatic/c20r,
 /obj/item/gun/projectile/automatic/c20r,
 /obj/item/gun/projectile/automatic/c20r,
@@ -12267,11 +12267,11 @@
 /area/map_template/syndicate_mothership)
 "Dz" = (
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/a45m,
+/obj/item/ammo_magazine/a45m,
+/obj/item/ammo_magazine/a45m,
+/obj/item/ammo_magazine/a45m,
+/obj/item/ammo_magazine/a45m,
 /obj/item/gun/projectile/silenced/knight,
 /obj/item/gun/projectile/silenced/knight,
 /turf/unsimulated/floor{
@@ -12475,7 +12475,7 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "DV" = (
-/obj/item/modular_computer/console/preset/civilian,
+/obj/machinery/computer/modular/preset/civilian,
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "DW" = (
@@ -13338,7 +13338,7 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "FL" = (
-/obj/item/modular_computer/console/preset/merchant{
+/obj/machinery/computer/modular/preset/merchant{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -14113,9 +14113,9 @@
 "Hx" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/syndicate/black/red,
+/obj/item/clothing/suit/urist/space/syndicate/black/red,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/syndicate/black/red,
+/obj/item/clothing/head/urist/helmet/red,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -14123,9 +14123,9 @@
 "Hy" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/syndicate/black/orange,
+/obj/item/clothing/suit/urist/space/syndicate/black/orange,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/syndicate/black/orange,
+/obj/item/clothing/head/urist/helmet/orange,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -14133,9 +14133,9 @@
 "Hz" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/syndicate/black/blue,
+/obj/item/clothing/suit/urist/space/syndicate/black/blue,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/syndicate/black/blue,
+/obj/item/clothing/head/urist/helmet/blue,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -14143,9 +14143,9 @@
 "HA" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/syndicate/black/green,
+/obj/item/clothing/suit/urist/space/syndicate/black/green,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/syndicate/black/green,
+/obj/item/clothing/head/urist/helmet/green,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -15063,9 +15063,9 @@
 "JK" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/syndicate/black/engie,
+/obj/item/clothing/suit/urist/space/syndicate/black/engie,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/syndicate/black/engie,
+/obj/item/clothing/head/urist/helmet/engie,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -15073,9 +15073,9 @@
 "JL" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/syndicate/black/med,
+/obj/item/clothing/suit/urist/space/syndicate/black/med,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/syndicate/black/med,
+/obj/item/clothing/head/urist/helmet/med,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -15085,7 +15085,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/syndicate/black,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/helmet/space/syndicate/black,
+/obj/item/clothing/head/urist/helmet,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -16088,7 +16088,7 @@
 /turf/simulated/floor/plating,
 /area/merchant_station)
 "LL" = (
-/mob/living/simple_animal/crab{
+/mob/living/simple_animal/passive/crab{
 	name = "Experiment 68a"
 	},
 /turf/unsimulated/floor{
@@ -16744,7 +16744,7 @@
 /area/ninja_dojo/start)
 "Ne" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/item/modular_computer/console/preset/security{
+/obj/machinery/computer/modular/preset/security{
 	dir = 1;
 	icon_state = "console"
 	},

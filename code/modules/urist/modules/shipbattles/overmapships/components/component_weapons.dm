@@ -22,7 +22,7 @@
 
 	else
 		if(!map_landmark)
-			var/obj/effect/overmap/ship/combat/T = mastership.target_ship
+			var/obj/effect/overmap/visitable/ship/combat/T = mastership.target_ship
 			map_landmark = pick(T.landmarks)
 
 		if(burst)

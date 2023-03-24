@@ -47,7 +47,7 @@
 "bc" = (/obj/structure/girder,/turf/simulated/floor/tiled/airless,/area/djstation)
 "bd" = (/obj/structure/largecrate,/turf/simulated/floor/tiled/airless,/area/djstation)
 "be" = (/obj/random/maintenance,/turf/simulated/floor/asteroid,/area/mine/explored)
-"bf" = (/obj/effect/overmap/sector/cluster,/turf/simulated/floor/asteroid,/area/mine/explored)
+"bf" = (/obj/effect/overmap/visitable/cluster,/turf/simulated/floor/asteroid,/area/mine/explored)
 "cb" = (/obj/effect/shuttle_landmark/cluster/syndie,/turf/simulated/floor/asteroid,/area/mine/explored)
 "db" = (/obj/effect/shuttle_landmark/cluster/ninja,/turf/space,/area/space)
 "eb" = (/obj/effect/shuttle_landmark/cluster/ert,/turf/space,/area/space)

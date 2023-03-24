@@ -194,7 +194,7 @@
 "dL" = (/obj/effect/floor_decal/industrial/warning/dust/corner{icon_state = "warningcorner_dust"; dir = 8},/obj/effect/decal/cleanable/blood/drip,/obj/effect/decal/cleanable/blood/drip,/obj/effect/decal/cleanable/blood/drip,/turf/simulated/floor/asteroid,/area/mine/explored)
 "dM" = (/obj/machinery/artifact,/turf/simulated/floor/plating,/area/mine/explored)
 "dN" = (/obj/machinery/suspension_gen/empty{icon_state = "suspension2"; dir = 8},/obj/effect/floor_decal/industrial/warning/dust{icon_state = "warning_dust"; dir = 8},/turf/simulated/floor/asteroid,/area/mine/explored)
-"dO" = (/obj/effect/overmap/sector/asteroid,/turf/space,/area/space)
+"dO" = (/obj/effect/overmap/visitable/asteroid,/turf/space,/area/space)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababab

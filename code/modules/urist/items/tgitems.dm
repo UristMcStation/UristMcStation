@@ -147,7 +147,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 
 /obj/effect/rend/cow/Process()
 	if(locate(/mob) in loc) return
-	new /mob/living/simple_animal/cow(loc)
+	new /mob/living/simple_animal/passive/cow(loc)
 	cowsleft--
 	if(cowsleft <= 0)
 		qdel(src)

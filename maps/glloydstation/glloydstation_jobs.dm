@@ -83,7 +83,7 @@
 	backpack_contents = list(/obj/item/reagent_containers/food/drinks/bottle/bottleofnothing = 1, /obj/item/pen/crayon/mime = 1)
 	suit = /obj/item/clothing/suit/suspenders
 	pda_type = /obj/item/modular_computer/pda/mime
-	id_type = /obj/item/card/id/civilian/mime
+	id_types = list(/obj/item/card/id/civilian/mime)
 
 //Clown :^)
 
@@ -114,7 +114,7 @@
 		/obj/item/reagent_containers/spray/waterflower = 1)
 	back = /obj/item/storage/backpack/clown
 	pda_type = /obj/item/modular_computer/pda/clown
-	id_type = /obj/item/card/id/civilian/clown
+	id_types = list(/obj/item/card/id/civilian/clown)
 
 //ids for the jobs
 

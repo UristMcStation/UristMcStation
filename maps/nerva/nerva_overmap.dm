@@ -1,4 +1,4 @@
-/obj/effect/overmap/ship/combat/nerva
+/obj/effect/overmap/visitable/ship/combat/nerva
 	name = "ICS Nerva"
 	ship_name = "ICS Nerva"
 	classification = "large class vessel"	//???
@@ -46,7 +46,7 @@
 		"hostile"
 	)
 
-/obj/effect/overmap/ship/combat/nerva/Initialize()
+/obj/effect/overmap/visitable/ship/combat/nerva/Initialize()
 	GLOB.using_map.overmap_ship = src
 
 	.=..()

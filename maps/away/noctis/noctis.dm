@@ -21,7 +21,7 @@
 	spawn_cost = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/raptor)
 
-/obj/effect/overmap/ship/noctis
+/obj/effect/overmap/visitable/ship/noctis
 	classification = "exploration corvette"
 	color = "#666666"
 	vessel_mass = 4000
@@ -30,7 +30,7 @@
 		"Raptor" = list("nav_noctis_raptor")
 	)
 
-/obj/effect/overmap/ship/noctis/New()
+/obj/effect/overmap/visitable/ship/noctis/New()
 	name = "UXO [pick("Khan's Blade", "Liberator", "Serpentine", "Arachnophobia","Sailor's Delight","NULL")]"
 	for(var/area/noctis/A)
 		A.name = "\improper [name] - [A.name]"
@@ -69,7 +69,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/prefab/bluespace_radio/LateInitialize()
-	var/singleton/prefab/prefab = decls_repository.get_decl(prefab_type)
+	var/singleton/prefab/prefab = Singletons.get(prefab_type)
 	prefab.create(loc)
 	qdel(src)
 
@@ -95,7 +95,7 @@
 		/obj/item/clothing/head/welding/fancy = 1,
 		/obj/item/weldingtool = 1,
 		/obj/item/weldingtool/experimental = 1,
-		/obj/item/weldpack = 1,
+		/obj/item/storage/backpack/weldpack = 1,
 		/obj/item/welder_tank = 3
 	)
 

@@ -5,7 +5,7 @@
 "ae" = (/obj/effect/shuttle_landmark/cluster/nav1,/turf/space,/area/space)
 "af" = (/obj/effect/shuttle_landmark/cluster/nav4,/turf/space,/area/space)
 "ag" = (/turf/simulated/floor/asteroid,/area/mine/explored)
-"ah" = (/obj/effect/overmap/sector/cluster,/turf/simulated/floor/asteroid,/area/mine/explored)
+"ah" = (/obj/effect/overmap/visitable/cluster,/turf/simulated/floor/asteroid,/area/mine/explored)
 "ai" = (/obj/effect/shuttle_landmark/cluster/nav7,/turf/simulated/floor/asteroid,/area/mine/explored)
 "aj" = (/obj/effect/shuttle_landmark/cluster/nav6,/turf/space,/area/space)
 "ak" = (/obj/effect/shuttle_landmark/cluster/nav2,/turf/space,/area/space)

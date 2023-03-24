@@ -55,7 +55,7 @@
 		flick("[initial(icon_state)]-open",src)
 		updateUsrDialog()
 	else if(istype(P, /obj/item/screwdriver))
-		if(secure)
+		if (anchored)
 			user << "<span class='warning'>You can't see anywhere to unscrew that!</span>"
 			return
 		else

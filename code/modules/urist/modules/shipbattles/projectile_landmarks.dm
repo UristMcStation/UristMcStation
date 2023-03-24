@@ -4,7 +4,7 @@
 	invisibility = 101
 	anchored = 1
 	var/shipid = null
-	var/obj/effect/overmap/ship/combat/mothership = null
+	var/obj/effect/overmap/visitable/ship/combat/mothership = null
 //	var/fire_dir = 0
 //	var/obj/item/projectile/projectile_type
 	var/fire_type = 0

@@ -20,53 +20,42 @@
 	max_ammo = 6
 	multiple_sprites = 1
 
-/obj/item/ammo_magazine/c357
+/obj/item/ammo_magazine/a357
 	name = "speed loader (.357 Magnum)"
 	desc = "A speed loader for revolvers."
 	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "38"
-	ammo_type = /obj/item/ammo_casing/c357
+	ammo_type = /obj/item/ammo_casing/a357
 	matter = list(MATERIAL_STEEL = 450)
 	caliber = ".357"
 	max_ammo = 6
 	multiple_sprites = 1
 
-/obj/item/ammo_magazine/c357/rubber
+/obj/item/ammo_magazine/a357/rubber
 	name = "speed loader (.357 Magnum, rubber)"
 	icon_state = "38_r"
-	ammo_type = /obj/item/ammo_casing/c357/rubber
+	ammo_type = /obj/item/ammo_casing/a357/rubber
 
-/obj/item/ammo_magazine/c38
+/obj/item/ammo_magazine/a38
 	name = "speed loader (.38)"
 	desc = "A speed loader for revolvers."
 	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "38"
 	caliber = ".38"
 	matter = list(MATERIAL_STEEL = 360)
-	ammo_type = /obj/item/ammo_casing/c38
+	ammo_type = /obj/item/ammo_casing/a38
 	max_ammo = 6
 	multiple_sprites = 1
 
-/obj/item/ammo_magazine/c38/rubber
+/obj/item/ammo_magazine/a38/rubber
 	name = "speed loader (.38, rubber)"
 	icon_state = "38_r"
-	ammo_type = /obj/item/ammo_casing/c38/rubber
+	ammo_type = /obj/item/ammo_casing/a38/rubber
 
-/obj/item/ammo_magazine/c44
-	name = "speed loader (.44 Magnum)"
-	desc = "A speed loader for revolvers."
-	icon = 'icons/urist/items/ammo.dmi'
-	icon_state = "44"
-	ammo_type = /obj/item/ammo_casing/c44
-	matter = list(DEFAULT_WALL_MATERIAL = 450)
-	caliber = ".44"
-	max_ammo = 6
-	multiple_sprites = 1
-
-/obj/item/ammo_magazine/c44/rubber
+/obj/item/ammo_magazine/a44/rubber
 	name = "speed loader (.44 magnum, rubber)"
 	icon_state = "44_r"
-	ammo_type = /obj/item/ammo_casing/c44/rubber
+	ammo_type = /obj/item/ammo_casing/a44/rubber
 
 /obj/item/ammo_magazine/bundle
 	initial_ammo = 0
@@ -106,7 +95,7 @@
 	caliber = "shotgun"
 	ammo_type = /obj/item/ammo_casing/shotgun
 
-/obj/item/ammo_magazine/c45m
+/obj/item/ammo_magazine/a45m
 	name = "magazine (.45)"
 	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "45"
@@ -261,19 +250,19 @@
 	labels = list("practice")
 	ammo_type = /obj/item/ammo_casing/pistol/small/practice
 
-/obj/item/ammo_magazine/c45m/rubber
+/obj/item/ammo_magazine/a45m/rubber
 	name = "magazine (.45, rubber)"
-	ammo_type = /obj/item/ammo_casing/c45/rubber
+	ammo_type = /obj/item/ammo_casing/a45/rubber
 
-/obj/item/ammo_magazine/c45m/practice
+/obj/item/ammo_magazine/a45m/practice
 	name = "magazine (.45, practice)"
-	ammo_type = /obj/item/ammo_casing/c45/practice
+	ammo_type = /obj/item/ammo_casing/a45/practice
 
-/obj/item/ammo_magazine/c45m/flash
+/obj/item/ammo_magazine/a45m/flash
 	name = "magazine (.45, flash)"
-	ammo_type = /obj/item/ammo_casing/c45/flash
+	ammo_type = /obj/item/ammo_casing/a45/flash
 
-/obj/item/ammo_magazine/c45mds
+/obj/item/ammo_magazine/a45mds
 	name = "double-stack magazine (.45)"
 	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "45ds"
@@ -287,21 +276,21 @@
 /obj/item/ammo_magazine/smg_top/empty
 	initial_ammo = 0
 
-/obj/item/ammo_magazine/c45mds/rubber
+/obj/item/ammo_magazine/a45mds/rubber
 	name = "double-stack magazine (.45, rubber)"
 	icon_state = "R45ds"
-	ammo_type = /obj/item/ammo_casing/c45/rubber
+	ammo_type = /obj/item/ammo_casing/a45/rubber
 
-/obj/item/ammo_magazine/c45mds/practice
+/obj/item/ammo_magazine/a45mds/practice
 	name = "double-stack magazine (.45, practice)"
-	ammo_type = /obj/item/ammo_casing/c45/practice
+	ammo_type = /obj/item/ammo_casing/a45/practice
 
-/obj/item/ammo_magazine/c45mds/flash
+/obj/item/ammo_magazine/a45mds/flash
 	name = "double-stack magazine (.45, flash)"
 	icon_state = "F45ds"
-	ammo_type = /obj/item/ammo_casing/c45/flash
+	ammo_type = /obj/item/ammo_casing/a45/flash
 
-/obj/item/ammo_magazine/c45uzi
+/obj/item/ammo_magazine/a45uzi
 	name = "stick magazine (.45)"
 	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "uzi45"
@@ -381,14 +370,14 @@
 	ammo_type = /obj/item/ammo_casing/pistol/magnum
 	max_ammo = 7
 	multiple_sprites = 1
-/obj/item/ammo_magazine/box/emp/c45
+/obj/item/ammo_magazine/box/emp/a45
 	name = "ammunition box (.45, haywire)"
-	ammo_type = /obj/item/ammo_casing/c45/emp
+	ammo_type = /obj/item/ammo_casing/a45/emp
 	caliber = ".45"
 
-/obj/item/ammo_magazine/box/emp/a10mm
+/obj/item/ammo_magazine/box/emp/pistol
 	name = "ammunition box (10mm, haywire)"
-	ammo_type = /obj/item/ammo_casing/a10mm/emp
+	ammo_type = /obj/item/ammo_casing/pistol/emp
 	caliber = "10mm"
 
 /obj/item/ammo_magazine/mc9mmt
@@ -436,7 +425,7 @@
 /obj/item/ammo_magazine/box/pistol/empty
 	initial_ammo = 0
 
-/obj/item/ammo_magazine/a10mm
+/obj/item/ammo_magazine/pistol
 	name = "submachine gun magazine (10mm)"
 	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "10mm"
@@ -473,7 +462,7 @@
 	max_ammo = 40
 	multiple_sprites = 1
 
-/obj/item/ammo_magazine/a10mm/empty
+/obj/item/ammo_magazine/pistol/empty
 	initial_ammo = 0
 
 /obj/item/ammo_magazine/p10mm
@@ -483,7 +472,7 @@
 	mag_type = MAGAZINE
 	caliber = "10mm"
 	matter = list(MATERIAL_STEEL = 750)
-	ammo_type = /obj/item/ammo_casing/a10mm
+	ammo_type = /obj/item/ammo_casing/pistol
 	max_ammo = 10
 	multiple_sprites = 1
 
@@ -501,7 +490,7 @@
 	max_ammo = 40
 	multiple_sprites = 1
 
-/obj/item/ammo_magazine/a762
+/obj/item/ammo_magazine/rifle/military
 	name = "magazine (7.62mm)"
 	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "762"
@@ -519,9 +508,9 @@
 /obj/item/ammo_magazine/gyrojet/empty
 	initial_ammo = 0
 
-/obj/item/ammo_magazine/a762/practice
+/obj/item/ammo_magazine/rifle/military/practice
 	name = "magazine (7.62mm, practice)"
-	ammo_type = /obj/item/ammo_casing/a762/practice
+	ammo_type = /obj/item/ammo_casing/rifle/military/practice
 
 /obj/item/ammo_magazine/a50
 	name = "magazine (.50)"
@@ -564,7 +553,7 @@
 /obj/item/ammo_magazine/a75/empty
 	initial_ammo = 0
 
-/obj/item/ammo_magazine/box/a556
+/obj/item/ammo_magazine/box/rifle
 	name = "magazine box (5.56mm)"
 	icon_state = "a556"
 /obj/item/ammo_magazine/mil_rifle
@@ -584,14 +573,14 @@
 /obj/item/ammo_magazine/mil_rifle/heavy/empty
 	initial_ammo = 0
 
-/obj/item/ammo_magazine/c556
+/obj/item/ammo_magazine/rifle
 	name = "magazine (5.56mm)"
 	icon = 'icons/urist/items/ammo.dmi'
-	icon_state = "c556"
+	icon_state = "a556"
 	mag_type = MAGAZINE
-	caliber = "a556"
+	caliber = CALIBER_RIFLE
 	matter = list(MATERIAL_STEEL = 1800)
-	ammo_type = /obj/item/ammo_casing/a556
+	ammo_type = /obj/item/ammo_casing/rifle
 /obj/item/ammo_magazine/mil_rifle/heavy/practice
 	labels = list("heavy, practice")
 	ammo_type = /obj/item/ammo_casing/rifle/military/practice

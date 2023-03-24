@@ -161,7 +161,7 @@
 			C.handcuffed = src
 	else if(istype(M, /mob/living/simple_animal/hostile))
 		var/mob/living/simple_animal/hostile/HM = M
-		HM.LoseTarget()
+		HM.lose_target()
 	return 1
 
 /obj/effect/energy_net/post_buckle_mob(mob/living/M)

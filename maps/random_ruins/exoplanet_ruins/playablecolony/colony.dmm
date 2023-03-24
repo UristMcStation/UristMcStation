@@ -7003,8 +7003,8 @@
 /area/map_template/colony/hydroponics)
 "mI" = (
 /obj/structure/table/rack,
-/obj/item/gun/projectile/automatic/assault_rifle,
-/obj/item/gun/projectile/automatic/assault_rifle,
+/obj/item/gun/projectile/automatic/sts35,
+/obj/item/gun/projectile/automatic/sts35,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},

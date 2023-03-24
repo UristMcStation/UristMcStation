@@ -423,9 +423,9 @@
 "bj" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/circuitboard/aicore,
-/obj/item/circuitboard/smes,
-/obj/item/circuitboard/shield_generator,
+/obj/item/stock_parts/circuitboard/aicore,
+/obj/item/stock_parts/circuitboard/smes,
+/obj/item/stock_parts/circuitboard/shield_generator,
 /obj/machinery/camera/network/engineering{
 	c_tag = "Secure Tech Storage";
 	dir = 4;
@@ -444,7 +444,7 @@
 "bl" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/circuitboard/mecha_control,
+/obj/item/stock_parts/circuitboard/mecha_control,
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -545,7 +545,7 @@
 	},
 /area/maintenance/second_deck/afp)
 "bv" = (
-/obj/item/circuitboard/aiupload,
+/obj/item/stock_parts/circuitboard/aiupload,
 /obj/structure/table/rack,
 /obj/structure/cable/orange{
 	d2 = 4;
@@ -561,7 +561,7 @@
 	dir = 4;
 	icon_state = "map_scrubber_on"
 	},
-/obj/item/circuitboard/borgupload,
+/obj/item/stock_parts/circuitboard/borgupload,
 /turf/simulated/floor/plating,
 /area/engineering/stech)
 "bw" = (
@@ -582,16 +582,16 @@
 /turf/simulated/floor/plating,
 /area/engineering/stech)
 "bx" = (
-/obj/item/circuitboard/atmoscontrol,
+/obj/item/stock_parts/circuitboard/atmoscontrol,
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
 	icon_state = "map_vent_out"
 	},
-/obj/item/circuitboard/helm,
-/obj/item/circuitboard/combat_computer,
-/obj/item/circuitboard/account_manager,
+/obj/item/stock_parts/circuitboard/helm,
+/obj/item/stock_parts/circuitboard/combat_computer,
+/obj/item/stock_parts/circuitboard/account_manager,
 /turf/simulated/floor/plating,
 /area/engineering/stech)
 "bz" = (
@@ -1436,11 +1436,11 @@
 /area/maintenance/second_deck/afp)
 "dd" = (
 /obj/structure/table/rack,
-/obj/item/circuitboard/autolathe,
-/obj/item/circuitboard/fusion_fuel_compressor,
-/obj/item/circuitboard/fusion_fuel_control,
-/obj/item/circuitboard/gyrotron_control,
-/obj/item/circuitboard/fusion/core_control,
+/obj/item/stock_parts/circuitboard/autolathe,
+/obj/item/stock_parts/circuitboard/fusion_fuel_compressor,
+/obj/item/stock_parts/circuitboard/fusion_fuel_control,
+/obj/item/stock_parts/circuitboard/gyrotron_control,
+/obj/item/stock_parts/circuitboard/fusion/core_control,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/camera/network/engineering{
 	c_tag = "Tech Storage";
@@ -1466,7 +1466,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/techstorage)
 "dg" = (
-/obj/item/modular_computer/console/preset/sysadmin{
+/obj/machinery/computer/modular/preset/sysadmin{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -1668,9 +1668,9 @@
 /area/maintenance/second_deck/afp)
 "dF" = (
 /obj/structure/table/rack,
-/obj/item/circuitboard/crew,
-/obj/item/circuitboard/powermonitor,
-/obj/item/circuitboard/rcon_console,
+/obj/item/stock_parts/circuitboard/crew,
+/obj/item/stock_parts/circuitboard/powermonitor,
+/obj/item/stock_parts/circuitboard/rcon_console,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/alarm{
 	dir = 4;
@@ -1686,8 +1686,8 @@
 "dH" = (
 /obj/structure/table/rack,
 /obj/item/computer_hardware/network_card/wired,
-/obj/item/computer_hardware/nano_printer,
-/obj/item/computer_hardware/card_slot,
+/obj/item/stock_parts/computer/nano_printer	,
+/obj/item/stock_parts/computer/card_slot,
 /obj/item/computer_hardware/ai_slot,
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/item/device/radio/intercom{
@@ -1939,12 +1939,12 @@
 /area/maintenance/second_deck/afp)
 "eo" = (
 /obj/structure/table/rack,
-/obj/item/circuitboard/mechfab,
-/obj/item/circuitboard/protolathe,
-/obj/item/circuitboard/rdserver,
-/obj/item/circuitboard/rdservercontrol,
-/obj/item/circuitboard/circuit_imprinter,
-/obj/item/circuitboard/destructive_analyzer,
+/obj/item/stock_parts/circuitboard/mechfab,
+/obj/item/stock_parts/circuitboard/protolathe,
+/obj/item/stock_parts/circuitboard/rdserver,
+/obj/item/stock_parts/circuitboard/rdservercontrol,
+/obj/item/stock_parts/circuitboard/circuit_imprinter,
+/obj/item/stock_parts/circuitboard/destructive_analyzer,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/engineering/techstorage)
@@ -2357,7 +2357,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/command/ce)
 "fx" = (
-/obj/item/modular_computer/console/preset/engineering,
+/obj/machinery/computer/modular/preset/engineering,
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "north bump";
@@ -5628,7 +5628,7 @@
 /turf/simulated/floor/plating,
 /area/civilian/lounge)
 "lp" = (
-/obj/item/modular_computer/console/preset/civilian{
+/obj/machinery/computer/modular/preset/civilian{
 	dir = 8
 	},
 /obj/machinery/firealarm{
@@ -5792,7 +5792,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/command/captain)
 "lE" = (
-/obj/item/modular_computer/console/preset/nervacommand{
+/obj/machinery/computer/modular/preset/nervacommand{
 	dir = 8;
 	icon_state = "console";
 	tag = "icon-console (WEST)"
@@ -16102,7 +16102,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/aft/second_deck)
 "OG" = (
-/obj/item/modular_computer/console/preset/library,
+/obj/machinery/computer/modular/preset/library,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -16834,7 +16834,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/fore/second_deck)
 "Sh" = (
-/obj/item/modular_computer/console/preset/library{
+/obj/machinery/computer/modular/preset/library{
 	dir = 1;
 	icon_state = "console"
 	},
@@ -17045,7 +17045,7 @@
 /turf/simulated/wall/prepainted,
 /area/chapel)
 "Ul" = (
-/obj/item/ammo_magazine/c44,
+/obj/item/ammo_magazine/a44,
 /obj/structure/closet/secure_closet/nervacap,
 /obj/item/clothing/accessory/armband/bluegoldcom,
 /turf/simulated/floor/wood/walnut,

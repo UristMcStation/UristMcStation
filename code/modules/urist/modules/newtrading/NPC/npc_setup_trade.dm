@@ -44,7 +44,7 @@
 	//check if we're using a global template
 	if(I.is_template)
 		//create our own instance of the trade item
-		var/datum/trade_item/copy = DuplicateObject(I, 1)
+		var/datum/trade_item/copy = clone_atom(I, 1)
 		copy.is_template = 0
 
 		//clear out the old one

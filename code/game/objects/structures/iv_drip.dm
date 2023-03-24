@@ -251,7 +251,7 @@
 	)
 	if (!user.do_skilled(1.5 SECONDS, SKILL_MEDICAL, patient))
 		return
-	if (!user.skill_check(SKILL_MEDICAL, SKILL_BASIC))
+	if (!user.skill_check(SKILL_MEDICAL, SKILL_NONE))
 		RipDrip(user)
 		return
 	STOP_PROCESSING(SSobj, src)

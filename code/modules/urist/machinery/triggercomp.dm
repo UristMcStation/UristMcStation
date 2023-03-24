@@ -15,9 +15,9 @@
 	var/id6 = null
 	var/id7 = null
 
-/*	circuit = /obj/item/circuitboard/merch
+/*	circuit = /obj/item/stock_parts/circuitboard/merch
 
-/obj/item/circuitboard/trigger/blast
+/obj/item/stock_parts/circuitboard/trigger/blast
 	name = "\improper Blast Door Computer Circuitboard"
 	build_path = /obj/machinery/computer/trigger/blast*/
 

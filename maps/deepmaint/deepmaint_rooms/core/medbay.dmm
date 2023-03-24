@@ -305,7 +305,7 @@
 /obj/structure/table/reinforced,
 /obj/machinery/reagentgrinder,
 /obj/item/material/shard,
-/obj/item/circuitboard/chemical_dispenser,
+/obj/item/stock_parts/circuitboard/chemical_dispenser,
 /turf/simulated/floor/tiled/white,
 /area/map_template/deepmaint)
 "CK" = (

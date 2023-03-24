@@ -7,7 +7,7 @@
 	var/using_new_cargo = FALSE //for nerva //this var inits the stuff related to the contract system, the new trading system, and other misc things including the endround station profit report.
 	var/new_cargo_inflation = 1 //used to calculate how much points are now (original point value multiplied by this number). this needs balancing
 	var/list/contracts = list() //the current active contracts
-	var/obj/effect/overmap/ship/combat/overmap_ship = null //this is for space combat, it is the overmap object used by the main map
+	var/obj/effect/overmap/visitable/ship/combat/overmap_ship = null //this is for space combat, it is the overmap object used by the main map
 	var/completed_contracts = 0 //this and destroyed_ships are used for endround stats
 	var/contract_money = 0 //likewise
 	var/destroyed_ships = 0
@@ -40,7 +40,7 @@
 	else
 		lobby_track_type = pick(subtypesof(/music_track))
 
-	lobby_track = decls_repository.get_decl(lobby_track_type)
+	lobby_track = Singletons.get(lobby_track_type)
 
 	if(!date_offset)
 		game_year = 2556
@@ -88,8 +88,8 @@
 		return
 
 	for(var/i = 0, i < num_exoplanets, i++)
-		var/exoplanet_type = pick(subtypesof(/obj/effect/overmap/sector/exoplanet))
-		var/obj/effect/overmap/sector/exoplanet/new_planet = new exoplanet_type(null, planet_size[1], planet_size[2])
+		var/exoplanet_type = pick(subtypesof(/obj/effect/overmap/visitable/exoplanet))
+		var/obj/effect/overmap/visitable/exoplanet/new_planet = new exoplanet_type(null, planet_size[1], planet_size[2])
 		new_planet.build_level()
 
 // Used to apply various post-compile procedural effects to the map.
@@ -138,7 +138,7 @@
 		station_account = create_account("[station_name()] Primary Account", starting_money)
 
 	for(var/job in allowed_jobs)
-		var/datum/job/J = decls_repository.get_decl(job)
+		var/datum/job/J = Singletons.get(job)
 		if(J.department)
 			station_departments |= J.department
 	for(var/department in station_departments)

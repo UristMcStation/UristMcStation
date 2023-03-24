@@ -61,6 +61,7 @@
 	var/obj/item/cell/cell = null    // Used for firing superheated rods.
 	var/current_user                        // Used to check if the crossbow has changed hands since being drawn.
 	var/draw_time = 20						// Time needed to draw the bow back by one "tension"
+	var/powered = TRUE											// Do we allow cells to be used?
 
 /obj/item/gun/launcher/crossbow/toggle_safety(mob/user)
 	to_chat(user, SPAN_WARNING("There's no safety on \the [src]!"))
@@ -162,6 +163,9 @@
 				user.visible_message("[user] jams [bolt] into [src].","You jam [bolt] into [src].")
 				superheat_rod(user)
 			return
+
+	if(!powered)
+		..()
 
 	if(istype(W, /obj/item/cell))
 		if(!cell)

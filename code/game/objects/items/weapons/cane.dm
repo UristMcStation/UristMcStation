@@ -83,11 +83,6 @@
 	one_hand_penalty = 5
 	accuracy = -3
 
-/obj/item/gun/projectile/shotgun/cane/examine(mob/user, distance)
-	. = ..()
-	if (distance <= 1 && !safety_state && user.skill_check(SKILL_WEAPONS, SKILL_BASIC))
-		to_chat(user, SPAN_NOTICE("You notice a small trigger sticking out from the bottom of \the [src]."))
-
 /obj/item/gun/projectile/shotgun/cane/on_update_icon()
 	return
 

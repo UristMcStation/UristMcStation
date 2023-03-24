@@ -331,9 +331,9 @@
 				/obj/item/storage/box/ammo/flechetteshells = 2,
 				/obj/item/storage/box/ammo/stunshells = 1,
 				/obj/item/ammo_magazine/mc9mmt = 2,
-				/obj/item/ammo_magazine/c45m/flash = 4,
-				/obj/item/ammo_magazine/c45m/rubber = 4,
-				/obj/item/ammo_magazine/c45m = 2,
+				/obj/item/ammo_magazine/a45m/flash = 4,
+				/obj/item/ammo_magazine/a45m/rubber = 4,
+				/obj/item/ammo_magazine/a45m = 2,
 				/obj/item/ammo_magazine/pistol/throwback = 1)
 
 /obj/random/action_figure

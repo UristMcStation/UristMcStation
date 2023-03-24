@@ -1,4 +1,4 @@
-/*/obj/effect/overmap/sector/exoplanet/shrouded
+/*/obj/effect/overmap/visitable/exoplanet/shrouded
 	name = "shrouded exoplanet"
 	desc = "An exoplanet shrouded in a perpetual storm of bizzare, light absorbing particles."
 	color = "#3e3960"
@@ -16,14 +16,14 @@
 							/datum/map_template/ruin/exoplanet/playablecolony,
 							/datum/map_template/ruin/exoplanet/datacapsule)
 
-/obj/effect/overmap/sector/exoplanet/shrouded/generate_map()
+/obj/effect/overmap/visitable/exoplanet/shrouded/generate_map()
 	..()
 	for(var/zlevel in map_z)
 		var/datum/random_map/noise/exoplanet/M = new /datum/random_map/noise/exoplanet/shrouded(null,1,1,zlevel,maxx,maxy,0,1,1,planetary_area)
 		get_biostuff(M)
 		new /datum/random_map/noise/ore/poor(null,1,1,zlevel,maxx,maxy,0,1,1)
 
-/obj/effect/overmap/sector/exoplanet/shrouded/generate_atmosphere()
+/obj/effect/overmap/visitable/exoplanet/shrouded/generate_atmosphere()
 	..()
 	if(atmosphere)
 		atmosphere.temperature = T20C - rand(10, 20)

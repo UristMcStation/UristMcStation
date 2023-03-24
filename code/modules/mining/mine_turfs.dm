@@ -433,6 +433,8 @@ var/global/list/mining_floors = list()
 	var/overlay_detail
 	has_resources = 1
 
+	var/mapped = FALSE
+
 /turf/simulated/floor/asteroid/Initialize()
 	. = ..()
 	if (!mining_floors["[src.z]"])

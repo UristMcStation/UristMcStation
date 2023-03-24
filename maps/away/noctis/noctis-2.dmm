@@ -2491,7 +2491,7 @@
 /area/noctis/bridge)
 "fr" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/effect/overmap/ship/noctis,
+/obj/effect/overmap/visitable/ship/noctis,
 /turf/simulated/floor/tiled/dark,
 /area/noctis/bridge)
 "fs" = (
@@ -3218,14 +3218,14 @@
 /area/noctis/asm)
 "gJ" = (
 /obj/structure/closet/crate,
-/obj/item/circuitboard/prisoner,
-/obj/item/circuitboard/rdconsole,
-/obj/item/circuitboard/operating,
-/obj/item/circuitboard/circuit_imprinter,
-/obj/item/circuitboard/protolathe,
-/obj/item/circuitboard/broken,
-/obj/item/circuitboard/autolathe,
-/obj/item/circuitboard/broken,
+/obj/item/stock_parts/circuitboard/prisoner,
+/obj/item/stock_parts/circuitboard/rdconsole,
+/obj/item/stock_parts/circuitboard/operating,
+/obj/item/stock_parts/circuitboard/circuit_imprinter,
+/obj/item/stock_parts/circuitboard/protolathe,
+/obj/item/stock_parts/circuitboard/broken,
+/obj/item/stock_parts/circuitboard/autolathe,
+/obj/item/stock_parts/circuitboard/broken,
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/asm)
 "gK" = (
@@ -4080,7 +4080,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/noctis/prismngt)
 "is" = (
-/obj/item/modular_computer/console/preset/merchant{
+/obj/machinery/computer/modular/preset/merchant{
 	computer_emagged = 1;
 	dir = 1;
 	icon_state = "console"

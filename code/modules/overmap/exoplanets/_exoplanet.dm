@@ -282,7 +282,7 @@ GLOBAL_VAR(planet_repopulation_disabled)
 	. = ..()
 	var/list/extra_data = list("<br>")
 	if (atmosphere)
-		if (user.skill_check(SKILL_SCIENCE, SKILL_ADEPT))
+		if (user.skill_check(SKILL_SCIENCE, SKILL_NONE))
 			var/list/gases = list()
 			for (var/g in atmosphere.gas)
 				if (atmosphere.gas[g] > atmosphere.total_moles * 0.05)
@@ -290,17 +290,17 @@ GLOBAL_VAR(planet_repopulation_disabled)
 			extra_data += "Atmosphere composition: [english_list(gases)]"
 			var/inaccuracy = rand(8,12)/10
 			extra_data += "Atmosphere pressure [atmosphere.return_pressure()*inaccuracy] kPa, temperature [atmosphere.temperature*inaccuracy] K"
-		else if (user.skill_check(SKILL_SCIENCE, SKILL_BASIC))
+		else if (user.skill_check(SKILL_SCIENCE, SKILL_NONE))
 			extra_data += "Atmosphere present"
 		extra_data += "<br>"
 
-	if (length(seeds) && user.skill_check(SKILL_SCIENCE, SKILL_BASIC))
+	if (length(seeds) && user.skill_check(SKILL_SCIENCE, SKILL_NONE))
 		extra_data += "Xenoflora detected"
 
-	if (length(animals) && user.skill_check(SKILL_SCIENCE, SKILL_BASIC))
+	if (length(animals) && user.skill_check(SKILL_SCIENCE, SKILL_NONE))
 		extra_data += "Life traces detected"
 
-	if (LAZYLEN(spawned_features) && user.skill_check(SKILL_SCIENCE, SKILL_ADEPT))
+	if (LAZYLEN(spawned_features) && user.skill_check(SKILL_SCIENCE, SKILL_NONE))
 		var/ruin_num = 0
 		for (var/datum/map_template/ruin/exoplanet/R in spawned_features)
 			if (!(R.ruin_tags & RUIN_NATURAL))

@@ -176,7 +176,7 @@
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death. \
 	Contains everything you need to kill hostiles boarding the ICS Nerva."
 	startswith = list(
-		/obj/item/ammo_magazine/c44 = 1,
+		/obj/item/ammo_magazine/a44 = 1,
 		/obj/item/ammo_magazine/hi2521smg9mm = 2
 		)
 

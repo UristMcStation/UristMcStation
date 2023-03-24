@@ -79,7 +79,7 @@
 				new /mob/living/simple_animal/hostile/alien/ravager(src.loc)
 				new /mob/living/simple_animal/hostile/alien/drone(src.loc)
 		if(spawntype == 100) //civs temporarily removed
-			new /mob/living/simple_animal/hostile/scom/civ/civvie(src.loc)
+			new /mob/living/simple_animal/passive/scom/civ/civvie(src.loc)
 //		world << "SPAWNED"
 		qdel(src)
 

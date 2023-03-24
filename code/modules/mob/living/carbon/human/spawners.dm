@@ -120,17 +120,6 @@
 /obj/effect/spawner/carbon/human/grayson/miner/brokenarm
 	damage = list("r_arm" = 35)
 
-/obj/effect/spawner/carbon/human/virus
-	post_setup = TRUE
-	var/severity = 3
-
-/obj/effect/spawner/carbon/human/virus/Initialize()
-	. = ..()
-	var/datum/disease2/disease/V = new /datum/disease2/disease
-	V.makerandom(severity)
-	infect_virus2(H,V,1)
-	qdel(src)
-
 /obj/effect/spawner/carbon/human/pcrc
 	clothing = /singleton/hierarchy/outfit/pcrc
 
@@ -238,7 +227,7 @@
 	uniform = /obj/item/clothing/under/rank/scientist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science/nanotrasen
 	shoes = /obj/item/clothing/shoes/white
-	back = /obj/item/storage/backpack/nt
+	back = /obj/item/storage/backpack/toxins
 	l_ear = /obj/item/device/radio/headset/headset_sci
 
 /singleton/hierarchy/outfit/nanotrasensci/loot

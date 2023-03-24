@@ -156,6 +156,21 @@
 	agony = 30
 	embed = FALSE
 
+/obj/item/projectile/bullet/rifle/military/rubber //"rubber" bullets
+	name = "rubber rifle bullet"
+	check_armour = "melee"
+	damage = 7
+	agony = 40
+	embed = 0
+	sharp = 0
+/obj/item/projectile/bullet/rifle/rubber //"rubber" bullets
+	name = "rubber rifle bullet"
+	check_armour = "melee"
+	damage = 7
+	agony = 40
+	embed = 0
+	sharp = 0
+
 /obj/item/projectile/bullet/pistol/rubber/holdout
 	agony = 20
 

@@ -6,7 +6,7 @@
 
 //access
 
-/var/const/access_away_trading_station = "ACCESS_AWAY_TRADING_STATION"
+/var/global/const/access_away_trading_station = "ACCESS_AWAY_TRADING_STATION"
 /datum/access/away_trading_station
 	id = access_away_trading_station
 	desc = "Trading Station"

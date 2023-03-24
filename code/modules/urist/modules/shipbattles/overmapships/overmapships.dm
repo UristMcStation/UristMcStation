@@ -18,8 +18,8 @@
 	var/list/weapons = list()
 	var/incombat = 0
 	var/aggressive = 0 //will always attack
-	var/obj/effect/overmap/ship/combat/target_ship
-	var/obj/effect/overmap/sector/station/home_station
+	var/obj/effect/overmap/visitable/ship/combat/target_ship
+	var/obj/effect/overmap/visitable/station/home_station
 	min_gas = null
 	max_gas = null
 	minbodytemp = 0
@@ -66,8 +66,8 @@
 
 	if(!event)
 
-		if(istype(O, /obj/effect/overmap/ship/combat))
-			var/obj/effect/overmap/ship/combat/L = O
+		if(istype(O, /obj/effect/overmap/visitable/ship/combat))
+			var/obj/effect/overmap/visitable/ship/combat/L = O
 			if(L.canfight)
 				if(!L.incombat && !L.crossed)
 					L.Contact(src)

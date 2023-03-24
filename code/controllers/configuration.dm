@@ -261,7 +261,7 @@
 	var/static/glide_size
 
 	/// Modifier for ticks between moves while running
-	//var/static/run_delay = 2
+	var/static/run_delay = 2
 
 	/// Modifier for ticks between moves while walking
 	var/static/walk_delay = 2.5
@@ -890,8 +890,8 @@
 				bones_can_break = value
 			if ("limbs_can_break")
 				limbs_can_break = value
-			//if ("run_delay")
-//				run_delay = value
+			if ("run_delay")
+				run_delay = value
 			if ("walk_delay")
 				walk_delay = value
 			if ("creep_delay")

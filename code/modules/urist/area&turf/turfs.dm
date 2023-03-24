@@ -144,14 +144,14 @@ transit/east is the same thing now AFAIK
 /turf/simulated/floor/plating/airless/catwalk/attackby(obj/item/C as obj, mob/user as mob)
 	if(!C || !user)
 		return 0
-	if(istype(C, /obj/item/screwdriver))
+	if(isScrewdriver(C))
 		ReplaceWithLattice()
 		playsound(src, 'sound/items/Screwdriver.ogg', 80, 1)
 		return
 
-	if(istype(C, /obj/item/stack/cable_coil))
+	if(isCoil(C))
 		var/obj/item/stack/cable_coil/coil = C
-		coil.turf_place(src, user)
+		coil.PlaceCableOnTurf(src, user)(src, user)
 
 /turf/simulated/floor/plating/airless/catwalk/is_catwalk()
 	return 1

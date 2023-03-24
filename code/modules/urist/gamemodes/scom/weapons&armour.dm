@@ -83,9 +83,9 @@
 	item_state = "SVD"
 	icon = 'icons/urist/items/guns.dmi'
 	force = 10
-	caliber = "a762"
-	ammo_type = /obj/item/ammo_casing/a762/sniper
-	magazine_type = /obj/item/ammo_magazine/a762mm/sniper
+	caliber = CALIBER_RIFLE_MILITARY
+	ammo_type = /obj/item/ammo_casing/rifle/military/sniper
+	magazine_type = /obj/item/ammo_magazine/rifle/military/sniper
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	zoomdevicename = "scope"
@@ -107,37 +107,37 @@
 	else
 		icon_state = "SVD-empty"
 
-/obj/item/ammo_magazine/a762mm
+/obj/item/ammo_magazine/rifle/military
 	name = "magazine (7.62mm)"
 	icon_state = "7.62mm"
 	icon = 'icons/urist/items/guns.dmi'
 	origin_tech = "combat=2"
-	ammo_type = /obj/item/ammo_casing/a762
+	ammo_type = /obj/item/ammo_casing/rifle/military
 	mag_type = MAGAZINE
-	caliber = "a762"
+	caliber = CALIBER_RIFLE_MILITARY
 
-/obj/item/ammo_magazine/a762mm/sniper
+/obj/item/ammo_magazine/rifle/military/sniper
 	name = "magazine (7.62mm)"
 	icon_state = "7.62mm"
 	icon = 'icons/urist/items/guns.dmi'
 	origin_tech = "combat=2"
-	ammo_type = /obj/item/ammo_casing/a762/sniper
+	ammo_type = /obj/item/ammo_casing/rifle/military/sniper
 	max_ammo = 10
 	mag_type = MAGAZINE
 	multiple_sprites = 1
-	caliber = "a762"
+	caliber = CALIBER_RIFLE_MILITARY
 
-/obj/item/ammo_magazine/a762mm/sniper/empty
+/obj/item/ammo_magazine/rifle/military/sniper/empty
 	name = "magazine (7.62mm)"
 	icon_state = "7.62mm"
 	icon = 'icons/urist/items/guns.dmi'
-	ammo_type = /obj/item/ammo_casing/a762/sniper
+	ammo_type = /obj/item/ammo_casing/rifle/military/sniper
 	mag_type = MAGAZINE
 	initial_ammo = 0
 
-/obj/item/ammo_casing/a762/sniper
+/obj/item/ammo_casing/rifle/military/sniper
 	desc = "A 7.62mm bullet casing."
-	caliber = "a762"
+	caliber = CALIBER_RIFLE_MILITARY
 	projectile_type = /obj/item/projectile/bullet/rifle/sniper
 
 /obj/item/projectile/bullet/rifle/sniper
@@ -168,9 +168,9 @@
 
 	New()
 		..()
-		new /obj/item/ammo_magazine/a10mm(src)
-		new /obj/item/ammo_magazine/a10mm(src)
-		new /obj/item/ammo_magazine/a10mm(src)
+		new /obj/item/ammo_magazine/pistol(src)
+		new /obj/item/ammo_magazine/pistol(src)
+		new /obj/item/ammo_magazine/pistol(src)
 
 /obj/item/storage/box/sniperammo
 	name = "box of sniper ammo"
@@ -178,9 +178,9 @@
 
 	New()
 		..()
-		new /obj/item/ammo_magazine/a762(src)
-		new /obj/item/ammo_magazine/a762(src)
-		new /obj/item/ammo_magazine/a762(src)
+		new /obj/item/ammo_magazine/rifle/military(src)
+		new /obj/item/ammo_magazine/rifle/military(src)
+		new /obj/item/ammo_magazine/rifle/military(src)
 
 /obj/item/storage/box/large/lmgammo
 	name = "box of l6 saw ammo"
@@ -188,9 +188,9 @@
 
 	New()
 		..()
-		new /obj/item/ammo_magazine/box/a762(src)
-		new /obj/item/ammo_magazine/box/a762(src)
-		new /obj/item/ammo_magazine/box/a762(src)
+		new /obj/item/ammo_magazine/box/rifle/military(src)
+		new /obj/item/ammo_magazine/box/rifle/military(src)
+		new /obj/item/ammo_magazine/box/rifle/military(src)
 
 /obj/item/storage/box/knightammo
 	name = "box of Knight ammo"
@@ -198,10 +198,10 @@
 
 	New()
 		..()
-		new /obj/item/ammo_magazine/c45m(src)
-		new /obj/item/ammo_magazine/c45m(src)
-		new /obj/item/ammo_magazine/c45m(src)
-		new /obj/item/ammo_magazine/c45m(src)
+		new /obj/item/ammo_magazine/a45m(src)
+		new /obj/item/ammo_magazine/a45m(src)
+		new /obj/item/ammo_magazine/a45m(src)
+		new /obj/item/ammo_magazine/a45m(src)
 
 //armour (first heavy tier and first medic tier. possibly 2nd/3rd sniper tier.
 

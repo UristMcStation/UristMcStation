@@ -30,12 +30,12 @@ All crates that cannot be ordered go here. Please keep it tidy, by which I mean 
 
 	attackby(obj/item/W as obj, mob/user as mob)
 		if(istype(W, /obj/item/crowbar))
-			var/mob/living/simple_animal/cat/Cat1 = new(loc)
+			var/mob/living/simple_animal/passive/cat/Cat1 = new(loc)
 			Cat1.apply_damage(250)//,TOX)
 			Cat1.name = "Schrodinger's Cat"
 			Cat1.desc = "It seems it's been dead for a while."
 
-			var/mob/living/simple_animal/cat/Cat2 = new(loc)
+			var/mob/living/simple_animal/passive/cat/Cat2 = new(loc)
 			Cat2.name = "Schrodinger's Cat"
 			Cat2.desc = "It was alive the whole time!"
 			sleep(2)
@@ -84,8 +84,8 @@ All crates that cannot be ordered go here. Please keep it tidy, by which I mean 
 
 /obj/structure/closet/crate/secure/boobytrapped/damage(var/damage)
 	/* full override since I'd rather not touch qdel(), keep this updated with closet's damage() */
-	health -= damage
-	if(health <= 0)
+	health_current -= damage
+	if(health_current <= 0)
 		trigger_trap()
 		for(var/atom/movable/A in src)
 			A.forceMove(src.loc)

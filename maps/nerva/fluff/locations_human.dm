@@ -162,7 +162,7 @@
 	distance = "22.5 light years."
 	economic_power = 0.9
 
-/singleton/cultural_info/location/human/tersten
+/*/singleton/cultural_info/location/human/tersten
 	name = HOME_SYSTEM_TERSTEN
 	distance = "52 light years"
 	description = "Tersten is a large plains world in the Gavil system.  With vast mountain ranges, prairie, mesas, forests and deserts, it is a diverse planet. \
@@ -261,7 +261,7 @@
 	economic_power = 1.1
 	language = LANGUAGE_SOL_COMMON
 	secondary_langs = list(LANGUAGE_SPACER, LANGUAGE_GALCOM)
-
+*/
 /singleton/cultural_info/location/human/gaia
 	name = HOME_SYSTEM_GAIA
 	distance = "14 light years"

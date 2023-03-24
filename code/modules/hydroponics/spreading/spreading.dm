@@ -219,8 +219,6 @@
 		)
 		playsound(src, weapon.hitsound, 50, TRUE)
 		var/chop_time = (get_current_health() / weapon.force) * 0.5 SECONDS
-		if (user.skill_check(SKILL_BOTANY, SKILL_ADEPT))
-			chop_time *= 0.5
 		if (!do_after(user, round(chop_time), src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, weapon))
 			return TRUE
 		user.visible_message(

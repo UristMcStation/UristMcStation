@@ -1430,7 +1430,7 @@
 
 /obj/item/holder/cat/fluff/bones/custom_item/New()
 	if (!length(contents))
-		new/mob/living/simple_animal/cat/fluff/bones (src)
+		new/mob/living/simple_animal/passive/cat/fluff/bones (src)
 	..()
 
 /obj/item/holder/cat/fluff/bones
@@ -1439,7 +1439,7 @@
 	gender = MALE
 	icon_state = "cat3"
 
-/mob/living/simple_animal/cat/fluff/bones
+/mob/living/simple_animal/passive/cat/fluff/bones
 	name = "Bones"
 	desc = "That's Bones the cat. He's a laid back, black cat. Meow."
 	gender = MALE
@@ -1449,7 +1449,7 @@
 	holder_type = /obj/item/holder/cat/fluff/bones
 	var/friend_name = "Erstatz Vryroxes"
 
-/mob/living/simple_animal/cat/fluff/bones/handle_movement_target()
+/mob/living/simple_animal/passive/cat/fluff/bones/handle_movement_target()
 	if (!friend)
 		for (var/mob/living/carbon/human/M in player_list)
 			if (M.real_name == friend_name)

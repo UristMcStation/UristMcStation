@@ -4,7 +4,7 @@
 	suit = /obj/item/clothing/suit/armor/pcarrier/deus_blueshield
 	l_ear = /obj/item/device/radio/headset/heads/hop
 	shoes = /obj/item/clothing/shoes/jackboots
-	id_type = /obj/item/card/id/bodyguard
+	id_types = list(/obj/item/card/id/bodyguard)
 	pda_type = /obj/item/modular_computer/pda/heads/hop
 	backpack_contents = list(/obj/item/storage/box/deathimp = 1)
 	gloves = /obj/item/clothing/gloves/thick/combat
@@ -21,7 +21,7 @@
 	gloves = /obj/item/clothing/gloves/white
 	shoes = /obj/item/clothing/shoes/black
 	pda_type = /obj/item/modular_computer/pda/mime
-	id_type = /obj/item/card/id/civilian/mime
+	id_types = list(/obj/item/card/id/civilian/mime)
 
 /singleton/hierarchy/outfit/job/clown
 	name = OUTFIT_JOB_NAME("Clown") //done
@@ -33,7 +33,7 @@
 		/obj/item/reagent_containers/spray/waterflower = 1)
 	back = /obj/item/storage/backpack/clown
 	pda_type = /obj/item/modular_computer/pda/clown
-	id_type = /obj/item/card/id/civilian/clown
+	id_types = list(/obj/item/card/id/civilian/clown)
 
 //fo
 
@@ -42,7 +42,7 @@
 	uniform = /obj/item/clothing/under/urist/nerva/foregular
 	l_ear = /obj/item/device/radio/headset/heads/firstofficer
 	shoes = /obj/item/clothing/shoes/black
-	id_type = /obj/item/card/id/firstofficer
+	id_types = list(/obj/item/card/id/firstofficer)
 	pda_type = /obj/item/modular_computer/pda/heads/hop //change
 	gloves = /obj/item/clothing/gloves/color/grey
 	head = /obj/item/clothing/head/urist/beret/nervafo
@@ -54,7 +54,7 @@
 	uniform = /obj/item/clothing/under/urist/nerva/soregular
 	l_ear = /obj/item/device/radio/headset/heads/secondofficer
 	shoes = /obj/item/clothing/shoes/black
-	id_type = /obj/item/card/id/secondofficer
+	id_types = list(/obj/item/card/id/secondofficer)
 	pda_type = /obj/item/modular_computer/pda/heads/hop
 	gloves = /obj/item/clothing/gloves/color/grey
 	head = /obj/item/clothing/head/urist/beret/nervaso
@@ -68,7 +68,7 @@
 	suit = /obj/item/clothing/suit/storage/toggle/urist/cargojacket
 	l_ear = /obj/item/device/radio/headset/headset_cargo
 	shoes = /obj/item/clothing/shoes/urist/leather
-	id_type = /obj/item/card/id/cargo
+	id_types = list(/obj/item/card/id/cargo)
 	pda_type = /obj/item/modular_computer/pda/cargo
 	gloves = /obj/item/clothing/gloves/urist/leather
 
@@ -78,7 +78,7 @@
 	suit = /obj/item/clothing/suit/storage/toggle/urist/qmjacket
 	l_ear = /obj/item/device/radio/headset/heads/nerva_qm
 	shoes = /obj/item/clothing/shoes/black
-	id_type = /obj/item/card/id/cargo/head
+	id_types = list(/obj/item/card/id/cargo/head)
 	pda_type = /obj/item/modular_computer/pda/heads/hop
 	gloves = /obj/item/clothing/gloves/color/grey
 
@@ -89,7 +89,7 @@
 	l_ear = /obj/item/device/radio/headset/headset_cargo
 	shoes = /obj/item/clothing/shoes/black
 	belt = /obj/item/storage/belt/robotics/full
-	id_type = /obj/item/card/id/cargo
+	id_types = list(/obj/item/card/id/cargo)
 	pda_slot = slot_r_store
 	pda_type = /obj/item/modular_computer/pda/roboticist
 
@@ -105,7 +105,7 @@
 	suit = /obj/item/clothing/suit/storage/toggle/urist/nervacapjacket
 	l_ear = /obj/item/device/radio/headset/heads/nerva_cap
 	shoes = /obj/item/clothing/shoes/urist/capboots
-	id_type = /obj/item/card/id/gold
+	id_types = list(/obj/item/card/id/gold)
 	pda_type = /obj/item/modular_computer/pda/captain
 	gloves = /obj/item/clothing/gloves/thick/combat
 	head = /obj/item/clothing/head/urist/beret/nervacap
@@ -117,7 +117,7 @@
 	uniform = /obj/item/clothing/under/urist/nerva/secregular
 	l_pocket = /obj/item/device/flash
 	r_pocket = /obj/item/handcuffs
-	id_type = /obj/item/card/id/security
+	id_types = list(/obj/item/card/id/security)
 	pda_type = /obj/item/modular_computer/pda/security
 	head = /obj/item/clothing/head/beret/sec
 	l_ear = /obj/item/device/radio/headset/nerva_sec
@@ -126,7 +126,7 @@
 	name = OUTFIT_JOB_NAME("Chief of Security")
 	uniform = /obj/item/clothing/under/urist/nerva/cosregular
 	l_ear = /obj/item/device/radio/headset/heads/nerva_cos
-	id_type = /obj/item/card/id/security/head
+	id_types = list(/obj/item/card/id/security/head)
 	pda_type = /obj/item/modular_computer/pda/heads/hos
 	backpack_contents = list(/obj/item/handcuffs = 1)
 	head = /obj/item/clothing/head/beret/sec/nervacos
@@ -139,7 +139,7 @@
 	suit = /obj/item/clothing/suit/storage/toggle/urist/science
 	shoes = /obj/item/clothing/shoes/white
 	pda_type = /obj/item/modular_computer/pda/science
-	id_type = /obj/item/card/id/nerva_scientist
+	id_types = list(/obj/item/card/id/nerva_scientist)
 	l_ear = /obj/item/device/radio/headset/nervananotrasen
 
 /singleton/hierarchy/outfit/job/nerva/scientist/New()
@@ -151,7 +151,7 @@
 /singleton/hierarchy/outfit/job/service/nervabartender
 	name = OUTFIT_JOB_NAME("Nerva Bartender")
 	uniform = /obj/item/clothing/under/rank/bartender
-	id_type = /obj/item/card/id/civilian/chef
+	id_types = list(/obj/item/card/id/civilian/chef)
 	pda_type = /obj/item/modular_computer/pda
 
 //stowaway
@@ -159,7 +159,7 @@
 	name = OUTFIT_JOB_NAME("Nerva Stowaway")
 	shoes = /obj/item/clothing/shoes/black
 	uniform = /obj/item/clothing/under/color/grey
-	id_type = null
+	id_types = null
 	pda_type = null
 	l_ear = null
 	l_pocket = /obj/item/wrench
@@ -170,11 +170,11 @@
 
 /singleton/hierarchy/outfit/job/medical/psychiatrist/nerva
 	name = OUTFIT_JOB_NAME("Nerva Psychiatrist")
-	id_type = /obj/item/card/id/medical/psychiatrist/nerva
+	id_types = list(/obj/item/card/id/medical/psychiatrist/nerva)
 
 /singleton/hierarchy/outfit/job/medical/psychiatrist/psychologist/nerva
 	name = OUTFIT_JOB_NAME("Nerva Psychologist")
-	id_type = /obj/item/card/id/medical/psychiatrist/nerva
+	id_types = list(/obj/item/card/id/medical/psychiatrist/nerva)
 
 // Senior Scientist
 
@@ -186,5 +186,5 @@
 	back = /obj/item/storage/backpack/satchel/leather
 	shoes = /obj/item/clothing/shoes/brown
 	l_hand = /obj/item/material/clipboard
-	id_type = /obj/item/card/id/nerva_senior_scientist
+	id_types = list(/obj/item/card/id/nerva_senior_scientist)
 	pda_type = /obj/item/modular_computer/pda/science

@@ -108,7 +108,7 @@ GLOBAL_LIST_INIT(rpd_pipe_selection_skilled, list(
 
 /obj/item/rpd/interact(mob/user)
 	popup = new (user, "Pipe List", "[src] menu")
-	popup.set_content(get_console_data(user.skill_check(SKILL_ATMOS,SKILL_EXPERT) ? GLOB.rpd_pipe_selection_skilled : GLOB.rpd_pipe_selection, TRUE))
+	popup.set_content(get_console_data(user.skill_check(SKILL_ATMOS,SKILL_NONE) ? GLOB.rpd_pipe_selection_skilled : GLOB.rpd_pipe_selection, TRUE))
 	popup.open()
 
 /obj/item/rpd/OnTopic(user, list/href_list)

@@ -25,7 +25,7 @@
 		/obj/item/storage/pill_bottle/kelotane,
 		/obj/item/storage/pill_bottle/tramadol = 2,
 		/obj/item/storage/pill_bottle/spaceacillin,
-		/obj/item/reagent_containers/pill/surgariron = 2,
+		/obj/item/reagent_containers/pill/sugariron = 2,
 	)
 
 /obj/structure/closet/crate/med_crate/oxyloss

@@ -201,7 +201,7 @@ var/global/list/holder_mob_icon_cache = list()
 
 
 /obj/item/holder/human
-	icon = 'icons/mob/holder_complex.dmi'
+	icon = 'icons/uristmob/holder_complex.dmi'
 	var/list/generate_for_slots = list(slot_l_hand_str, slot_r_hand_str, slot_back_str)
 	slot_flags = SLOT_BACK
 

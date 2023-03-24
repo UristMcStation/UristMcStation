@@ -1,6 +1,6 @@
 #include "icarus_areas.dm"
 
-/obj/effect/overmap/sector/icarus
+/obj/effect/overmap/visitable/icarus
 	name = "forest planetoid"
 	desc = "Sensors detect anomalous radiation area with the presence of artificial structures."
 	icon_state = "globe"
@@ -11,7 +11,7 @@
 		"nav_icarus_antag"
 	)
 
-/obj/effect/overmap/sector/icarus/New(nloc, max_x, max_y)
+/obj/effect/overmap/visitable/icarus/New(nloc, max_x, max_y)
 	name = "[generate_planet_name()], \a [name]"
 	..()
 

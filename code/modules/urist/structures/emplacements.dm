@@ -31,7 +31,7 @@
 	density = 1
 	anchored = 0
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
-	health = 500
+	health_max = 500
 
 /obj/structure/emplacement/AT
 	name = "anti-tank gun"
@@ -250,8 +250,8 @@
 		else
 			return 1					//But only from one side
 		if(prob(chance))
-			health -= P.damage/2
-			if (health > 0)
+			health_current -= P.damage/2
+			if (health_current > 0)
 				visible_message("<span class='warning'>[P] hits \the [src]!</span>")
 				return 0
 			else

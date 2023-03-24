@@ -76,7 +76,7 @@
 						mobs += M
 
 					for(var/mob/M in mobs)
-						newmobs += DuplicateObject(M , 1)
+						newmobs += clone_atom(M , 1)
 
 					for(var/mob/M in newmobs)
 						M.loc = X

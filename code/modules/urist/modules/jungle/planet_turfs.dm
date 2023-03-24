@@ -13,6 +13,7 @@
 	light_inner_range = 0.1
 	light_outer_range = 1.5
 	light_falloff_curve = 0.5
+	footstep_type = /singleton/footsteps/grass
 	var/icon_spawn_state = "grass1"
 	var/farmed = 0
 	var/bushspawnchance = 0 //let's try it, why not
@@ -32,11 +33,6 @@
 /turf/simulated/floor/planet/update_air_properties() //No, you can't flood the jungle with phoron silly.
 	return
 
-/turf/simulated/floor/planet/get_footstep_sound()
-	if(terrain_type == "grass")
-		return safepick(footstep_sounds[FOOTSTEP_GRASS])
-	else
-		..()
 
 /turf/simulated/floor/planet/Initialize()
 	var/bushes = FALSE
@@ -602,7 +598,7 @@
 			spawn(rand(25,50))
 				var/zone = pick(BP_R_LEG, BP_L_LEG)
 				to_chat(M, pick("<span class='warning'> Something sharp bites you!</span>","<span class='warning'> Sharp teeth grab hold of you!</span>","<span class='warning'> You feel something bite into your leg!</span>"))
-				M.apply_damage(rand(3,5), BRUTE, zone, 0, DAM_SHARP)
+				M.apply_damage(rand(3,5), DAMAGE_BRUTE, zone, 0, DAMAGE_FLAG_SHARP)
 
 
 /turf/simulated/floor/planet/jungle/water/deep
@@ -676,13 +672,11 @@
 	light_outer_range = 0
 	light_max_bright = 0
 	terrain_type = null
+	footstep_type = /singleton/footsteps/asteroid
 
 /turf/simulated/floor/planet/jungle/clear/underground/weather_enable(var/override = 0)
 	if(override)
 		..()
-
-/turf/simulated/floor/planet/jungle/clear/underground/get_footstep_sound()
-	return safepick(footstep_sounds[FOOTSTEP_ASTEROID])
 
 //dirt
 

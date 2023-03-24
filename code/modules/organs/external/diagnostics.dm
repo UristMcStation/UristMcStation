@@ -184,7 +184,7 @@
 
 /singleton/diagnostic_sign/proc/get_description(mob/user)
 	. = descriptor
-	if(user && user.skill_check(SKILL_MEDICAL, hint_min_skill))
+	if(user && user.skill_check(SKILL_MEDICAL, SKILL_NONE))
 		. += "<small><a href='?src=\ref[src];show_diagnostic_hint=1'>(?)</a></small>"
 
 /singleton/diagnostic_sign/Topic(href, list/href_list)

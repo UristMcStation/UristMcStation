@@ -21,7 +21,7 @@
 /obj/item/mine/frag
 	name = "frag mine"
 	desc = "A frag mine. Press the button to set it up and move the fuck away."
-	icon = 'icons/obj/weapons.dmi'
+	icon = 'icons/obj/weapons/other.dmi'
 	icon_state = "uglymine" //should probably ask olly or nien for a better sprite
 
 /obj/item/mine/attack_self(mob/user as mob)
@@ -96,8 +96,7 @@
 	desc = "The shield generator for the station. Protect it with your life. Repair it with a welding torch."
 	icon = 'icons/obj/power.dmi'
 	icon_state = "bbox_on"
-	health = 300
-	var/maxhealth = 300
+	health_max = 300
 	anchored = 1
 	density = 1
 
@@ -105,8 +104,8 @@
 	if(istype(W, /obj/item/weldingtool))
 		var/obj/item/weldingtool/WT = W
 		if (WT.remove_fuel(0,user))
-			if(health >= maxhealth)
-				user << "<span class='warning'>The shield generator is fully repaired alredy!</span>"
+			if(health_current >= health_max)
+				user << "<span class='warning'>The shield generator is fully repaired already!</span>"
 			else
 				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
 				user.visible_message("[user.name] starts to patch some dents on the shield generator.", \
@@ -114,7 +113,7 @@
 					"You hear welding")
 				if (do_after(user,20))
 					if(!src || !WT.isOn()) return
-					health += 10
+					health_current += 10
 
 		else
 			user << "<span class='warning'>You need more welding fuel to complete this task.</span>"
@@ -142,13 +141,13 @@
 				kaboom()
 				return
 			else
-				health -= 150
+				health_current -= 150
 		if(3.0)
 			if(prob(5))
 				kaboom()
 				return
 			else
-				health -= 50
+				health_current -= 50
 
 	if(src.health <=0)
 		visible_message("<span class='danger'>The shield generator is smashed apart!</span>")

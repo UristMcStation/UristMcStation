@@ -22,7 +22,7 @@
 "v" = (/obj/item/material/shard,/obj/item/caution,/turf/simulated/floor/plating,/area/jungle)
 "w" = (/obj/structure/disposalpipe/broken,/turf/simulated/floor/plating,/area/jungle)
 "x" = (/obj/structure/grille,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 4},/turf/simulated/floor/plating,/area/jungle)
-"y" = (/obj/item/circuitboard/broken,/turf/simulated/floor/plating,/area/jungle)
+"y" = (/obj/item/stock_parts/circuitboard/broken,/turf/simulated/floor/plating,/area/jungle)
 "z" = (/obj/structure/grille,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 4},/obj/item/material/shard{icon_state = "medium"},/turf/simulated/floor/plating,/area/jungle)
 "A" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 4},/turf/simulated/floor/plating,/area/jungle)
 "B" = (/obj/effect/decal/cleanable/blood/xeno,/turf/simulated/floor,/area/jungle)

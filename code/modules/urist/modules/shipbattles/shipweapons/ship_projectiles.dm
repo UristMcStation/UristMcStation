@@ -6,7 +6,7 @@
 	heavy_effect_range = 4
 	light_effect_range = 7
 	ship = 1
-	kill_count = 300
+	life_span = 300
 
 /obj/item/projectile/ion/ship/on_hit(var/atom/target, var/blocked = 0)
 	var/flicker_range = light_effect_range * 2 //16 for the base ion pulse
@@ -21,7 +21,7 @@
 
 /obj/item/projectile/bullet/ship
 	ship = 1
-	kill_count = 300
+	life_span = 300
 	var/shake_range = 0 //what's the range that we shake people's screens
 
 /obj/item/projectile/bullet/ship/cannon //don't get hit by this
@@ -29,7 +29,7 @@
 	icon = 'icons/urist/items/ship_projectiles.dmi'
 	icon_state= "cannon"
 	damage = 100
-	check_armour = "bullet"
+	damage_flags = DAMAGE_FLAG_BULLET
 	sharp = 1
 	edge = 1
 	stun = 1
@@ -185,7 +185,7 @@
 //	var/life = 20
 	icon = 'icons/urist/items/ship_projectiles.dmi'
 	ship = 1
-	kill_count = 300
+	life_span = 300
 	var/wall_decon = FALSE
 	var/shake_range = 10
 	var/ex_devestation = 0

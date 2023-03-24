@@ -6,7 +6,7 @@
 	cost = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/lanius)
 
-/obj/effect/overmap/sector/distress
+/obj/effect/overmap/visitable/distress
 	name = "distress signal"
 	desc = "Emergency signal detected. No further data avaliable."
 	icon_state = "event"

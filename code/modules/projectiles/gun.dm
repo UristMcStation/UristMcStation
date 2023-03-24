@@ -107,7 +107,7 @@
 	/// What skill governs safe handling of this gun. Basic skill level and higher will also show the safety overlay to the player.
 	var/gun_skill = SKILL_WEAPONS
 	/// What skill level is needed in the gun's skill to completely negate the chance of an accident.
-	var/safety_skill = SKILL_EXPERT
+	//var/safety_skill = SKILL_EXPERT
 
 /obj/item/gun/Initialize()
 	. = ..()
@@ -384,7 +384,7 @@
 			max_mult = max(max_mult, G.point_blank_mult())
 	P.damage *= max_mult
 
-/obj/item/gun/proc/process_accuracy(obj/projectile, mob/living/user, atom/target, burst, held_twohanded)
+/obj/item/gun/proc/process_accuracy(obj/projectile, mob/living/user, atom/target, burst, held_twohanded, dual_wield)
 	var/obj/item/projectile/P = projectile
 	if(!istype(P))
 		return //default behaviour only applies to true projectiles

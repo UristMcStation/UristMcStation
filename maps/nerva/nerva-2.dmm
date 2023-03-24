@@ -5646,8 +5646,8 @@
 "aki" = (
 /obj/machinery/hologram/holopad,
 /obj/structure/closet/crate,
-/obj/item/circuitboard/smes,
-/obj/item/circuitboard/smes,
+/obj/item/stock_parts/circuitboard/smes,
+/obj/item/stock_parts/circuitboard/smes,
 /obj/item/stock_parts/smes_coil,
 /obj/item/stock_parts/smes_coil,
 /obj/item/stock_parts/smes_coil/super_capacity,
@@ -7852,7 +7852,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/lobby)
 "aoe" = (
-/obj/item/modular_computer/console/preset/medical,
+/obj/machinery/computer/modular/preset/medical,
 /turf/simulated/floor/tiled/white,
 /area/medical/lobby)
 "aof" = (
@@ -8145,7 +8145,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/security/office)
 "aoM" = (
-/obj/item/modular_computer/console/preset/security{
+/obj/machinery/computer/modular/preset/security{
 	dir = 8
 	},
 /obj/machinery/recharger/wallcharger{
@@ -8892,7 +8892,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/black/three_quarters,
-/obj/item/modular_computer/console/preset/security{
+/obj/machinery/computer/modular/preset/security{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -12681,7 +12681,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
 "avc" = (
-/obj/item/modular_computer/console/preset/sysadmin{
+/obj/machinery/computer/modular/preset/sysadmin{
 	dir = 8
 	},
 /obj/structure/cable{
@@ -12827,7 +12827,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/smes)
 "avq" = (
-/obj/item/modular_computer/console/preset/engineering{
+/obj/machinery/computer/modular/preset/engineering{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -13370,7 +13370,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
 "awz" = (
-/obj/item/modular_computer/console/preset/engineering{
+/obj/machinery/computer/modular/preset/engineering{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/fadeblue/three_quarters{
@@ -13470,7 +13470,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/smes)
 "awI" = (
-/obj/item/modular_computer/console/preset/engineering{
+/obj/machinery/computer/modular/preset/engineering{
 	dir = 4
 	},
 /obj/machinery/light{
@@ -14461,7 +14461,7 @@
 	dir = 6;
 	icon_state = "corner_white"
 	},
-/obj/item/modular_computer/console/preset/nervacommand{
+/obj/machinery/computer/modular/preset/nervacommand{
 	dir = 8;
 	icon_state = "console";
 	tag = "icon-console (WEST)"
@@ -14884,7 +14884,7 @@
 "azF" = (
 /obj/machinery/hologram/holopad/longrange,
 /obj/effect/floor_decal/corner/fadeblue/full,
-/obj/effect/overmap/ship/combat/nerva,
+/obj/effect/overmap/visitable/ship/combat/nerva,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -15479,7 +15479,7 @@
 	dir = 6;
 	icon_state = "corner_white"
 	},
-/obj/item/modular_computer/console/preset/nervacommand{
+/obj/machinery/computer/modular/preset/nervacommand{
 	dir = 8;
 	icon_state = "console";
 	tag = "icon-console (WEST)"
@@ -16661,7 +16661,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
 "aCM" = (
-/obj/item/modular_computer/console/preset/medical{
+/obj/machinery/computer/modular/preset/medical{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/fadeblue/three_quarters{
@@ -17016,7 +17016,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
 "aDo" = (
-/obj/item/modular_computer/console/preset/security{
+/obj/machinery/computer/modular/preset/security{
 	dir = 8
 	},
 /obj/structure/cable{
@@ -18824,7 +18824,7 @@
 	icon_state = "xraycam";
 	tag = "icon-xraycam (NORTH)"
 	},
-/obj/item/modular_computer/console/preset/nervacommand{
+/obj/machinery/computer/modular/preset/nervacommand{
 	dir = 1;
 	icon_state = "console";
 	tag = "icon-console (NORTH)"
@@ -19741,7 +19741,7 @@
 	dir = 4;
 	pixel_x = 24
 	},
-/obj/item/modular_computer/console/preset/nervasci{
+/obj/machinery/computer/modular/preset/nervasci{
 	dir = 8;
 	icon_state = "console";
 	tag = "icon-console (WEST)"
@@ -19882,7 +19882,7 @@
 /obj/machinery/keycard_auth{
 	pixel_y = 26
 	},
-/obj/item/modular_computer/console/preset/command,
+/obj/machinery/computer/modular/preset/command,
 /turf/simulated/floor/carpet,
 /area/command/fo)
 "aIc" = (
@@ -19912,7 +19912,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/fore/third_deck)
 "aIe" = (
-/obj/item/modular_computer/console/preset/command,
+/obj/machinery/computer/modular/preset/command,
 /obj/machinery/button/remote/blast_door{
 	id = "soofficeshutters";
 	name = "Second Officer Privacy Shutter";
@@ -20471,7 +20471,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/command/eva)
 "aJf" = (
-/obj/item/modular_computer/console/preset/security{
+/obj/machinery/computer/modular/preset/security{
 	dir = 1
 	},
 /turf/simulated/floor/carpet,
@@ -20753,7 +20753,7 @@
 /obj/item/stock_parts/console_screen,
 /obj/item/stock_parts/micro_laser,
 /obj/item/stock_parts/capacitor,
-/obj/item/circuitboard/shield_generator,
+/obj/item/stock_parts/circuitboard/shield_generator,
 /obj/item/stack/cable_coil{
 	amount = 5
 	},
@@ -20862,7 +20862,7 @@
 /obj/effect/floor_decal/corner/beige/three_quarters{
 	dir = 4
 	},
-/obj/item/modular_computer/console/preset/nervasupply{
+/obj/machinery/computer/modular/preset/nervasupply{
 	dir = 8;
 	icon_state = "console";
 	tag = "icon-console (WEST)"
@@ -22006,7 +22006,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/smmon)
 "aLN" = (
-/obj/item/modular_computer/console/preset/engineering{
+/obj/machinery/computer/modular/preset/engineering{
 	dir = 2;
 	icon_state = "console"
 	},
@@ -25283,7 +25283,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/smmon)
 "aQK" = (
-/obj/item/modular_computer/console/preset/engineering{
+/obj/machinery/computer/modular/preset/engineering{
 	dir = 1;
 	icon_state = "console"
 	},
@@ -25927,7 +25927,7 @@
 /area/engineering/smmon)
 "aRS" = (
 /obj/effect/floor_decal/corner/fadeblue/three_quarters,
-/obj/item/modular_computer/console/preset/sysadmin{
+/obj/machinery/computer/modular/preset/sysadmin{
 	dir = 4;
 	icon_state = "console"
 	},
@@ -26396,7 +26396,7 @@
 	dir = 4;
 	icon_state = "map_scrubber_on"
 	},
-/mob/living/simple_animal/cat/fluff/Runtime,
+/mob/living/simple_animal/passive/cat/fluff/Runtime,
 /turf/simulated/floor/tiled/white,
 /area/medical/cmo)
 "aSH" = (
@@ -26451,7 +26451,7 @@
 	on = 1;
 	pixel_y = -24
 	},
-/obj/item/modular_computer/console/preset/medical{
+/obj/machinery/computer/modular/preset/medical{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/black/border{
@@ -26865,7 +26865,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/cmo)
 "aTz" = (
-/obj/item/modular_computer/console/preset/medical,
+/obj/machinery/computer/modular/preset/medical,
 /turf/simulated/floor/tiled/white,
 /area/medical/cmo)
 "aTA" = (
@@ -27387,7 +27387,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/logistics/qm)
 "aUB" = (
-/obj/item/modular_computer/console/preset/nervasupply{
+/obj/machinery/computer/modular/preset/nervasupply{
 	dir = 8;
 	icon_state = "console";
 	tag = "icon-console (WEST)"
@@ -28255,7 +28255,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/fore/third_deck)
 "bzY" = (
-/obj/item/modular_computer/console/preset/security{
+/obj/machinery/computer/modular/preset/security{
 	dir = 8
 	},
 /obj/machinery/newscaster/security_unit{

@@ -396,16 +396,11 @@ SUBSYSTEM_DEF(jobs)
 					else
 						permitted = 1
 
-				if(permitted && G.allowed_skills)
-					for(var/required in G.allowed_skills)
-						if(!H.skill_check(required,G.allowed_skills[required]))
-							permitted = 0
-
 				if(G.whitelisted && (!(H.species.name in G.whitelisted)))
 					permitted = 0
 
 				if(!permitted)
-					to_chat(H, SPAN_WARNING("Your current species, job, branch, skills or whitelist status does not permit you to spawn with [thing]!"))
+					to_chat(H, SPAN_WARNING("Your current species, job, or whitelist status does not permit you to spawn with [thing]!"))
 					continue
 
 				if(!G.slot || G.slot == slot_tie || (G.slot in loadout_taken_slots) || !G.spawn_on_mob(H, H.client.prefs.Gear()[G.display_name]))

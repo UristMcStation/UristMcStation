@@ -23,7 +23,7 @@
 		return
 	GLOB.using_map.station_short = ship
 	GLOB.using_map.station_name = "FTV [ship]"
-	var/obj/effect/overmap/ship/bearcat/B = locate() in world
+	var/obj/effect/overmap/visitable/ship/bearcat/B = locate() in world
 	if(B)
 		B.SetName(GLOB.using_map.station_name)
 	command_announcement.Announce("Attention all hands on [GLOB.using_map.station_name]! Thank you for your attention.", "Ship re-christened")
@@ -109,7 +109,7 @@
 	shoes = /obj/item/clothing/shoes/black
 	pda_type = /obj/item/modular_computer/pda/captain
 	r_pocket = /obj/item/device/radio
-	id_type = /obj/item/card/id/gold
+	id_types = list(/obj/item/card/id/gold)
 
 
 /singleton/hierarchy/outfit/job/bearcat/captain/post_equip(var/mob/living/carbon/human/H)
@@ -132,7 +132,7 @@
 	pda_type = /obj/item/modular_computer/pda/heads/ce
 	l_hand = /obj/item/wrench
 	belt = /obj/item/storage/belt/utility/full
-	id_type = /obj/item/card/id/engineering/head
+	id_types = list(/obj/item/card/id/engineering/head)
 	r_pocket = /obj/item/device/radio
 	flags = OUTFIT_HAS_BACKPACK|OUTFIT_EXTENDED_SURVIVAL
 

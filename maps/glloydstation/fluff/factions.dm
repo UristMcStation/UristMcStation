@@ -83,7 +83,6 @@
 	technology, means their installations are often considered unsafe and hazardous. However, in some systems, they are the only human presence, and as such, \
 	they also have a virtual monopoly on trade in the outer systems."
 	economic_power = 1.2
-	subversive_potential = 15
 	secondary_langs = list(LANGUAGE_SIGN)
 
 /singleton/cultural_info/faction/remote/xynergy
@@ -92,7 +91,6 @@
 	produce products such as the netgun and dociler used for capturing or taming xenofauna. In addition, they are the largest \
 	fisher of space faring animals such as space carp and pike."
 	economic_power = 1.1
-	subversive_potential = 15
 	secondary_langs = list(LANGUAGE_SIGN)
 
 /singleton/cultural_info/faction/remote/hephaestus
@@ -104,7 +102,6 @@
 	reliability of its equipment as well as its general affordability. Internally, Hephaestus is a desirable employer as a result of its \
 	many employee benefits and focus on employee development, though many dread being transferred to one of the 'remote' branches."
 	economic_power = 1.2
-	subversive_potential = 15
 	language = LANGUAGE_SOL_COMMON
 	secondary_langs = list(LANGUAGE_SIGN, LANGUAGE_GALCOM)
 
@@ -117,7 +114,6 @@
 	Gateway installations and planets. Somewhat unscrupulous, FTU stations and merchants are known for \
 	selling a great many restricted items and supplying all manner of goods indiscriminately."
 	economic_power = 1.3
-	subversive_potential = 15
 	language = LANGUAGE_SPACER
 
 /singleton/cultural_info/faction/pcrc
@@ -127,7 +123,6 @@
 	security, close protection, asset protection, search and rescue and peacekeeping and escort duties. A relatively quiet and new company, \
 	it has quickly established itself as a reliable and effective provider of security solutions. This has often put it at odds with its main \
 	competitor, SAARE."
-	subversive_potential = 15
 	language = LANGUAGE_SPACER
 	secondary_langs = list(LANGUAGE_SIGN, LANGUAGE_GALCOM, LANGUAGE_SOL_COMMON)
 
@@ -139,7 +134,6 @@
 	mining colonies in the Outer Rim. Following the arrival of NanoTrasen in the area two decades after its formation, \
 	the ORMA began to steadily lose power, as NanoTrasen bought, bartered and in some cases took over many of the various mining colonies. \
 	Nowadays, some say that the ORMA council of 30 is nothing but a puppet of NanoTrasen, despite their fierce proclamations to the contrary."
-	subversive_potential = 15
 	language = LANGUAGE_SPACER
 	secondary_langs = list(LANGUAGE_SIGN, LANGUAGE_SOL_COMMON)
 
@@ -147,6 +141,5 @@
 /singleton/cultural_info/faction/other
 	name = FACTION_OTHER
 	description = "You belong to one of the many other factions that operate in the galaxy. Numerous, too numerous to list, these factions represent a variety of interests, purposes, intents and goals."
-	subversive_potential = 25
 	language = LANGUAGE_GALCOM
 	secondary_langs = list(LANGUAGE_SIGN)

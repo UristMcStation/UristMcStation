@@ -184,7 +184,7 @@
 "dB" = (/obj/machinery/power/shield_generator,/turf/simulated/floor/tiled/steel_grid,/area/spacestations/pirate/station)
 "dC" = (/obj/structure/closet/walllocker/emerglocker/north,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
 "dD" = (/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled/steel_grid,/area/spacestations/pirate/station)
-"dE" = (/obj/item/mecha_parts/mecha_equipment/armor_booster/antiproj_armor_booster,/obj/structure/table/rack/dark,/turf/simulated/floor/tiled/steel_grid,/area/spacestations/pirate/station)
+"dE" = (/obj/item/mech_equipment/armor_booster/antiproj_armor_booster,/obj/structure/table/rack/dark,/turf/simulated/floor/tiled/steel_grid,/area/spacestations/pirate/station)
 "dF" = (/obj/structure/table/rack,/obj/item/storage/bag/cash,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
 "dG" = (/obj/structure/table/rack,/obj/random/contraband,/obj/random/loot,/obj/effect/floor_decal/industrial/outline/grey,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/tiled/dark,/area/spacestations/pirate/station)
 "dH" = (/obj/structure/closet/crate,/obj/effect/floor_decal/industrial/outline/grey,/turf/simulated/floor/tiled/dark,/area/spacestations/pirate/station)

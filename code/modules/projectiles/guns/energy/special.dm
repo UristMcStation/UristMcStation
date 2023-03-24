@@ -179,13 +179,9 @@
 	return ..()
 
 /obj/item/gun/energy/plasmacutter/proc/slice(mob/M = null)
-	if(!safety())
-		if(M)
-			M.welding_eyecheck()//Welding tool eye check
-		spark_system.start()
-		return 1
-	handle_click_empty(M)
-	return 0
+	if(M)
+		M.welding_eyecheck()//Welding tool eye check
+	spark_system.start()
 
 
 /obj/item/gun/energy/plasmacutter/IsHeatSource()

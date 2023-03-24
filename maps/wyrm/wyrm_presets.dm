@@ -1,7 +1,7 @@
-var/const/NETWORK_SUBWYRM		= "Sub Deck"
-var/const/NETWORK_PRIMWYRM		= "Primary Deck"
-var/const/NETWORK_COMMAND		= "Command"
-var/const/NETWORK_HATCHLING		= "Hatchling"
+var/global/const/NETWORK_SUBWYRM		= "Sub Deck"
+var/global/const/NETWORK_PRIMWYRM		= "Primary Deck"
+var/global/const/NETWORK_COMMAND		= "Command"
+var/global/const/NETWORK_HATCHLING		= "Hatchling"
 
 /datum/map/wyrm/get_network_access(var/network)
 	switch(network)

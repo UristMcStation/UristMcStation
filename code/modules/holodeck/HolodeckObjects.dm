@@ -248,10 +248,6 @@
 	..(newloc, MATERIAL_WOOD)
 
 /obj/item/holo
-	damtype = PAIN
-	no_attack_log = 1
-
-/obj/item/holo
 	damtype = DAMAGE_PAIN
 	no_attack_log = TRUE
 

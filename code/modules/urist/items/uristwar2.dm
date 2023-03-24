@@ -364,16 +364,16 @@
 	one_hand_penalty = 4
 	force = 10
 	slot_flags = SLOT_BACK
-	caliber = "a762"
+	caliber = CALIBER_RIFLE_MILITARY
 	handle_casings = HOLD_CASINGS
 //	load_method = SINGLE_CASING
 	max_shells = 5
-	ammo_type = /obj/item/ammo_casing/a762
+	ammo_type = /obj/item/ammo_casing/rifle/military
 //	accuracy = -1
 //	jam_chance = 5
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 
-/obj/item/ammo_magazine/a762mm/stripper
+/obj/item/ammo_magazine/rifle/military/stripper
 	name = "stripper clip (7.62mm)"
 	icon_state = "stripper"
 	max_ammo = 5
@@ -381,12 +381,12 @@
 	mag_type = SPEEDLOADER
 	matter = list(DEFAULT_WALL_MATERIAL = 1500)
 
-/obj/item/ammo_magazine/a762mm/svt40mag
+/obj/item/ammo_magazine/rifle/military/svt40mag
 	name = "SVT-40 magazine (7.62mm)"
 	icon_state = "svtmag"
 	max_ammo = 10
 
-/obj/item/ammo_magazine/a762mm/svt40mag/empty
+/obj/item/ammo_magazine/rifle/military/svt40mag/empty
 	initial_ammo = 0
 
 /obj/item/gun/projectile/svt40
@@ -398,11 +398,11 @@
 	item_state = "rifle2"
 	w_class = 4
 	force = 10
-	caliber = "a762"
+	caliber = CALIBER_RIFLE_MILITARY
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/a762mm/svt40mag
-	allowed_magazines = list(/obj/item/ammo_magazine/a762mm/svt40mag)
+	magazine_type = /obj/item/ammo_magazine/rifle/military/svt40mag
+	allowed_magazines = list(/obj/item/ammo_magazine/rifle/military/svt40mag)
 	one_hand_penalty = 4
 	wielded_item_state = "woodarifle-wielded"
 	max_shells = 10
@@ -424,11 +424,11 @@
 	item_state = "bar"
 	w_class = 4
 	force = 10
-	caliber = "a762" //i mean... 30-06 is 7.62, so fuck it.
+	caliber = CALIBER_RIFLE_MILITARY //i mean... 30-06 is 7.62, so fuck it.
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/a762mm/barmag
-	allowed_magazines = list(/obj/item/ammo_magazine/a762mm/barmag)
+	magazine_type = /obj/item/ammo_magazine/rifle/military/barmag
+	allowed_magazines = list(/obj/item/ammo_magazine/rifle/military/barmag)
 	one_hand_penalty = 4
 	fire_sound = 'sound/weapons/gunshot/gunshot2.ogg'
 	wielded_item_state = "genericrifle-wielded"
@@ -447,13 +447,13 @@
 		icon_state = "bar-empty"
 	return
 
-/obj/item/ammo_magazine/a762mm/barmag
+/obj/item/ammo_magazine/rifle/military/barmag
 	name = "BAR magazine (30-06)" //shhhh
 	icon_state = "bar_mag"
-	ammo_type = /obj/item/ammo_casing/a762
+	ammo_type = /obj/item/ammo_casing/rifle/military
 	max_ammo = 20
 
-/obj/item/ammo_magazine/a762mm/barmag/empty
+/obj/item/ammo_magazine/rifle/military/barmag/empty
 	initial_ammo = 0
 
 /obj/item/gun/projectile/automatic/ppsh
@@ -535,17 +535,17 @@
 	icon_state = "nagant"
 	icon = 'icons/urist/items/guns.dmi'
 	item_state = "revolver"
-	caliber = "a762"
+	caliber = CALIBER_RIFLE_MILITARY
 	w_class = 2
 	handle_casings = CYCLE_CASINGS
 	max_shells = 7
-	ammo_type = /obj/item/ammo_casing/a762
+	ammo_type = /obj/item/ammo_casing/rifle/military
 
 /obj/item/ammo_magazine/r762
 	name = "speed loader (7.62mm)"
 	icon_state = "T38"
-	caliber = "a762"
-	ammo_type = /obj/item/ammo_casing/a762
+	caliber = CALIBER_RIFLE_MILITARY
+	ammo_type = /obj/item/ammo_casing/rifle/military
 	max_ammo = 7
 	multiple_sprites = 1
 
@@ -558,11 +558,11 @@
 	item_state = "l6closedmag"
 	w_class = 5
 	force = 8
-	caliber = "a762"
+	caliber = CALIBER_RIFLE_MILITARY
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/a762mm/degtyaryov
-	allowed_magazines = list(/obj/item/ammo_magazine/a762mm/degtyaryov)
+	magazine_type = /obj/item/ammo_magazine/rifle/military/degtyaryov
+	allowed_magazines = list(/obj/item/ammo_magazine/rifle/military/degtyaryov)
 	wielded_item_state = "genericLMG-wielded"
 	one_hand_penalty = 6
 	max_shells = 60
@@ -579,15 +579,15 @@
 		icon_state = "DT-empty"
 	return
 
-/obj/item/ammo_magazine/a762mm/degtyaryov
+/obj/item/ammo_magazine/rifle/military/degtyaryov
 	name = "Degtyaryov pan magazine (7.62mm)"
 	icon_state = "DTmag"
 	icon = 'icons/urist/items/guns.dmi'
 	mag_type = MAGAZINE
-	ammo_type = /obj/item/ammo_casing/a762
+	ammo_type = /obj/item/ammo_casing/rifle/military
 	max_ammo = 60 //only the vehicle mounted version had 60 round mags, but fuck it.
 
-/obj/item/ammo_magazine/a762mm/degtyaryov/empty
+/obj/item/ammo_magazine/rifle/military/degtyaryov/empty
 	initial_ammo = 0
 
 /obj/item/grenade/frag/sovietgrenade

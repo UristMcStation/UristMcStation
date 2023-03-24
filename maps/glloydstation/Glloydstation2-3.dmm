@@ -1367,7 +1367,7 @@
 /area/tcommsat/chamber/abandoned)
 "dL" = (
 /obj/structure/table/rack,
-/obj/item/circuitboard/teleporter,
+/obj/item/stock_parts/circuitboard/teleporter,
 /turf/simulated/floor/airless,
 /area/tcommsat/chamber/abandoned)
 "dM" = (

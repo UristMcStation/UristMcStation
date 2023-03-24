@@ -3629,7 +3629,7 @@
 	name = "donut"
 	desc = "Goes great with Robust Coffee."
 	icon_state = "donut1"
-	filling_color = "#d9c386"
+	filling_color = "#d9a386"
 	var/overlay_state = "box-donut1"
 	center_of_mass = "x=13;y=16"
 	nutriment_desc = list("sweetness", "donut")

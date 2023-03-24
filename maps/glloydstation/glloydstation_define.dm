@@ -60,14 +60,14 @@
 	new /datum/random_map/noise/ore(null, 1, 1, 5, 64, 64)         // Create the mining ore distribution map.
 	return 1
 
-/obj/effect/overmap/sector/urist
+/obj/effect/overmap/visitable/urist
 	name = "NSS Urist"
 	desc = "Starbase records report: NT owned, unknown crew status."
 	base = TRUE
 	start_x = 11
 	start_y = 12
 
-/obj/effect/overmap/sector/uristplanet
+/obj/effect/overmap/visitable/uristplanet
 	name = "Nyx Phi III"
 	desc = "Geneseeded world detected, possible intelligent life detected."
 	base = TRUE

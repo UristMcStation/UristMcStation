@@ -11,7 +11,7 @@
 	handle_casings = CYCLE_CASINGS
 	max_shells = 6
 	fire_delay = 12 //Revolvers are naturally slower-firing
-	ammo_type = /obj/item/ammo_casing/c357
+	ammo_type = /obj/item/ammo_casing/a357
 	var/chamber_offset = 0 //how many empty chambers in the cylinder until you hit a round
 	mag_insert_sound = 'sound/weapons/guns/interaction/rev_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/rev_magout.ogg'
@@ -109,4 +109,4 @@
 	max_shells = 6
 	caliber = ".44"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	ammo_type = /obj/item/ammo_casing/c44
+	ammo_type = /obj/item/ammo_casing/a44

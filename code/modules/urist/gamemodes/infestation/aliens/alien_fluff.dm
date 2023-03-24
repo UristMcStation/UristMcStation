@@ -8,13 +8,13 @@
 	Indeed, they do not feel pain, they do not need to breathe, and their feet are implanted with a magnetic traction system. Driven only by a desire to kill, they can psionically \
 	communicate with the other members of their hivemind in order to work effectively as a unit."
 	default_language = LANGUAGE_XENOPHAGE
-	additional_langs = list(LANGUAGE_XENOPHAGE_HIVE)
+	additional_langs = list(LANGUAGE_XENOPHAGE_GLOBAL)
 
 /singleton/cultural_info/faction/galactic_crisis
 	name = FACTION_GALACTIC_CRISIS
 	language = LANGUAGE_XENOPHAGE
 	default_language = LANGUAGE_XENOPHAGE
-	additional_langs = list(LANGUAGE_XENOPHAGE_HIVE)
+	additional_langs = list(LANGUAGE_XENOPHAGE_GLOBAL)
 	description = "The aliens of the Galactic Crisis are a force from an unknown galaxy that invaded the Milky Way beginning in 2556. Comprising a wide range of species held together \
 	by the psionic control of the Allophylus, the only goal of the alien forces appears to be to wipe out humanity and to mind-slave them to the Allophylus, as has been done \
 	with the other constituent species of the invading force."

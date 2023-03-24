@@ -18,7 +18,7 @@
 	luminosity = 0
 	lightswitch = 1
 
-/obj/effect/overmap/sector/abandoned_colony
+/obj/effect/overmap/visitable/abandoned_colony
 	name = "abandoned colony"
 	desc = "A former Terran Confederation colony, evacuated during the Galactic Crisis. It is now a 'Graveworld', one of the many broken monuments to the billions of dead and displaced across the galaxy. However, sensors are detecting signs of life on the surface."
 	icon_state = "globe"
@@ -33,7 +33,7 @@
 		"ICS Morning Light" = list("nav_morninglight")
 		)
 
-/obj/effect/overmap/sector/abandoned_colony/Initialize() //make it spawn a lactera ship
+/obj/effect/overmap/visitable/abandoned_colony/Initialize() //make it spawn a lactera ship
 	.=..()
 	name = "[generate_planet_name()], \a [name]"
 	new /mob/living/simple_animal/hostile/overmapship/alien/small(get_turf(src))

@@ -49,7 +49,7 @@
 			var/datum/gas_mixture/air = tank.return_air()
 			var/kpa = air.return_pressure()  / (TANK_LEAK_PRESSURE * 0.8) * 100
 			var/display = "[round(kpa)]%"
-			if (user.skill_check(SKILL_ATMOS, SKILL_BASIC))
+			if (user.skill_check(SKILL_ATMOS, SKILL_NONE))
 				switch(kpa)
 					if (100 to INFINITY)
 						display = "unsafe ([display])"
@@ -62,7 +62,7 @@
 			to_chat(user, "\The [tank] pressure is [display]")
 		if (cell)
 			var/display = cell.percent()
-			if (user.skill_check(SKILL_ELECTRICAL, SKILL_BASIC))
+			if (user.skill_check(SKILL_ELECTRICAL, SKILL_NONE))
 				switch (display)
 					if (67 to INFINITY)
 						display = "high ([display]%)"

@@ -143,7 +143,7 @@
 
 
 
-					for(var/obj/effect/overmap/sector/station/S in SStrade_controller.overmap_stations)
+					for(var/obj/effect/overmap/visitable/station/S in SStrade_controller.overmap_stations)
 						if(src.z in S.map_z)
 							for(var/datum/contract/station_destroy/A in GLOB.using_map.contracts)
 								if(A.neg_faction == S.faction)

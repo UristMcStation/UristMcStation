@@ -2,8 +2,8 @@
 	name = "vintage .45 pistol"
 	desc = "A cheap Martian knock-off of a Colt M1911. Uses .45 rounds."
 	item_icons = URIST_ALL_ONMOBS
-	magazine_type = /obj/item/ammo_magazine/c45m
-	allowed_magazines = /obj/item/ammo_magazine/c45m
+	magazine_type = /obj/item/ammo_magazine/a45m
+	allowed_magazines = /obj/item/ammo_magazine/a45m
 	icon = 'icons/urist/items/pistols.dmi'
 	item_state = "colt"
 	icon_state = "colt"
@@ -24,8 +24,8 @@
 /obj/item/gun/projectile/military
 	name = "military .45 pistol"
 	desc = "The WT45 - a mass produced kinetic sidearm in widespread service with the SCGDF. Uses .45 rounds."
-	magazine_type = /obj/item/ammo_magazine/c45mds/flash
-	allowed_magazines = /obj/item/ammo_magazine/c45mds
+	magazine_type = /obj/item/ammo_magazine/a45mds/flash
+	allowed_magazines = /obj/item/ammo_magazine/a45mds
 	icon = 'icons/obj/guns/military_pistol.dmi'
 	icon_state = "military"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
@@ -64,6 +64,18 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 
 /obj/item/gun/projectile/pistol/sec/lethal
+	magazine_type = /obj/item/ammo_magazine/pistol
+
+/obj/item/gun/projectile/pistol/sec/wood
+	desc = "The NT Mk58 is a cheap, ubiquitous sidearm, produced by a NanoTrasen subsidiary. This one has a sweet wooden grip, among other modifications. Uses .45 rounds."
+	name = "custom pistol"
+	icon = 'icons/urist/items/pistols.dmi'
+	icon_state = "secgundark"
+	item_state = "secgundark"
+	wielded_item_state = "secgundark"
+	accuracy = 0
+
+/obj/item/gun/projectile/pistol/sec/wood/lethal
 	magazine_type = /obj/item/ammo_magazine/pistol
 
 /obj/item/gun/projectile/pistol/sigsauer

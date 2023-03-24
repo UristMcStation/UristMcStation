@@ -44,7 +44,7 @@
 	icon_state = "syndicateranged"
 	icon_living = "syndicateranged"
 	icon_gib = "syndicate_gib"
-	casingtype = /obj/item/ammo_casing/a10mm
+	casingtype = /obj/item/ammo_casing/pistol
 	projectilesound = 'sound/weapons/gunshot/gunshot_smg.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol
 	maxHealth = 100
@@ -67,7 +67,7 @@
 	icon_living = "ANTAG"
 	name = "\improper ANTAG Operative"
 	desc = "A member of a covert cell of a terrorist paramilitary collaborating with aliens to further their own goals, and a snappy dresser."
-	casingtype = /obj/item/ammo_casing/a762
+	casingtype = /obj/item/ammo_casing/rifle/military
 	faction = "alien"
 	rapid = 0
 	maxHealth = 130
@@ -81,7 +81,7 @@
 	icon_dead = "skrelloristdead"
 	name = "\improper Skrellian terrorist"
 	desc = "An anti-human, Skrell-isolationist insurgent."
-	casingtype = /obj/item/ammo_casing/a10mm
+	casingtype = /obj/item/ammo_casing/pistol
 	faction = "skrellt"
 	rapid = 2
 	maxHealth = 100
@@ -174,7 +174,7 @@
 	icon_living = "terran_marine"
 	icon_dead = "terran_marine_dead"
 	icon_gib = "syndicate_gib"
-	casingtype = /obj/item/ammo_casing/a556/used
+	casingtype = /obj/item/ammo_casing/rifle/used
 	projectilesound = 'sound/weapons/gunshot/gunshot2.ogg'
 	projectiletype = /obj/item/projectile/bullet/rifle/military
 	maxHealth = 150
@@ -190,7 +190,7 @@
 	icon_living = "terran_g_marine"
 	icon_dead = "terran_g_marine_dead"
 	corpse = /obj/effect/landmark/corpse/terran/marine_ground
-	casingtype = /obj/item/ammo_casing/a762/used
+	casingtype = /obj/item/ammo_casing/rifle/military/used
 	projectilesound = 'sound/weapons/gunshot/gunshot2.ogg'
 	projectiletype = /obj/item/projectile/bullet/rifle
 	rapid = 0
@@ -238,7 +238,7 @@
 	icon_living = "terran_heavy"
 	icon_dead = "terran_heavy_dead"
 	icon_gib = "syndicate_gib"
-	casingtype = /obj/item/ammo_casing/a556/used
+	casingtype = /obj/item/ammo_casing/rifle/used
 	projectilesound = 'sound/weapons/gunshot/gunshot2.ogg'
 	projectiletype = /obj/item/projectile/bullet/rifle/military
 	maxHealth = 225
@@ -269,7 +269,7 @@
 	icon_living = "ANTAG"
 	name = "\improper Rebel"
 	desc = "A member of a growing resistance movement to both NanoTrasen and the Terran Confederacy."
-	casingtype = /obj/item/ammo_casing/a762/used
+	casingtype = /obj/item/ammo_casing/rifle/military/used
 	hiddenfaction = /datum/factions/rebel
 	rapid = 0
 	maxHealth = 130

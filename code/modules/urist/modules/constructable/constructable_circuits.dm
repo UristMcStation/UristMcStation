@@ -1,4 +1,4 @@
-/obj/item/circuitboard/constructable/radiation_collector
+/obj/item/stock_parts/circuitboard/constructable/radiation_collector
 	name = "circuit board (radiation collector array)"
 	build_path = /obj/machinery/power/rad_collector
 	board_type = "machine"
@@ -11,7 +11,7 @@
 							/obj/item/stack/material/glass/phoronrglass = 2
 							)
 
-/obj/item/circuitboard/constructable/emitter
+/obj/item/stock_parts/circuitboard/constructable/emitter
 	name = "circuit board (emitter)"
 	build_path = /obj/machinery/power/emitter
 	board_type = "machine"
@@ -23,7 +23,7 @@
 							/obj/item/stack/material/plasteel = 15
 							)
 
-/obj/item/circuitboard/constructable/circulator
+/obj/item/stock_parts/circuitboard/constructable/circulator
 	name = "circuit board (circulator)"
 	build_path = /obj/machinery/atmospherics/binary/circulator
 	board_type = "machine"
@@ -36,7 +36,7 @@
 							/obj/item/pipe = 6
 							)
 
-/obj/item/circuitboard/constructable/teg
+/obj/item/stock_parts/circuitboard/constructable/teg
 	name = "circuit board (thermal generator)"
 	build_path = /obj/machinery/power/generator
 	board_type = "machine"
@@ -49,7 +49,7 @@
 							/obj/item/stack/material/plasteel = 15
 							)
 
-/obj/item/circuitboard/constructable/smartfridge
+/obj/item/stock_parts/circuitboard/constructable/smartfridge
 	name = "circuit board (smartfridge)"
 	build_path = /obj/machinery/smartfridge
 	board_type = "machine"
@@ -60,7 +60,7 @@
 							/obj/item/stack/cable_coil = 5
 							)
 
-/obj/item/circuitboard/constructable/hydroponic_basin
+/obj/item/stock_parts/circuitboard/constructable/hydroponic_basin
 	name = "circuit board (hydroponic basin)"
 	build_path = /obj/machinery/portable_atmospherics/hydroponics
 	board_type = "machine"
@@ -70,7 +70,7 @@
 							/obj/item/stack/cable_coil = 5
 							)
 
-/obj/item/circuitboard/constructable/honey_extractor
+/obj/item/stock_parts/circuitboard/constructable/honey_extractor
 	name = "circuit board (honey extractor)"
 	build_path = /obj/machinery/honey_extractor
 	board_type = "machine"

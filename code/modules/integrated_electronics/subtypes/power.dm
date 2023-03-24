@@ -53,6 +53,7 @@
 	if(!assembly)
 		return FALSE // Pointless to do everything else if there's no battery to draw from.
 	var/obj/item/cell/cell = O.get_cell()
+	var/obj/machinery/power/smes/S = O
 	if(cell)
 		var/transfer_amount = amount_to_move
 		var/turf/A = get_turf(src)

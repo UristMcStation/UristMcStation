@@ -84,7 +84,7 @@
 /obj/structure/sign/urist/nt{
 	pixel_x = 32
 	},
-/obj/item/modular_computer/console/preset/command{
+/obj/machinery/computer/modular/preset/command{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -222,7 +222,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "aC" = (
-/obj/item/modular_computer/console/preset/command{
+/obj/machinery/computer/modular/preset/command{
 	dir = 8
 	},
 /obj/structure/sign/urist/nt{
@@ -1421,12 +1421,12 @@
 	},
 /area/spacestations/nanotrasenspace)
 "dP" = (
-/obj/item/modular_computer/console/preset/supply/magic,
+/obj/machinery/computer/modular/preset/supply/magic,
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "dQ" = (
 /obj/machinery/light,
-/obj/item/modular_computer/console/preset/supply/magic,
+/obj/machinery/computer/modular/preset/supply/magic,
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "dR" = (
@@ -1805,7 +1805,7 @@
 /turf/simulated/floor/tiled/old_tile,
 /area/spacestations/nanotrasenspace)
 "tw" = (
-/obj/effect/overmap/sector/station/nanotrasentrading,
+/obj/effect/overmap/visitable/station/nanotrasentrading,
 /obj/effect/floor_decal/corner/blue{
 	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";

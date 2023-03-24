@@ -114,14 +114,11 @@
 	icon = 'maps/away/geminus_city/citymap_icons/structures.dmi'
 	name = "small fence"
 	icon_state = "fence"
-	health = 10
 
 /obj/structure/grille/frame
 	icon = 'maps/away/geminus_city/citymap_icons/structures.dmi'
 	name = "frame"
 	icon_state = "frame"
-	health = 10
-
 
 //BILLBOARDS
 

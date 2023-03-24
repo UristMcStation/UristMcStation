@@ -66,7 +66,7 @@
 		candidates += O
 	//Next we see if there are any ships around. Logically they are between us and the sector if one exists.
 	if(!length(candidates))
-		for(var/obj/effect/overmap/ship/S in overmaptarget)
+		for(var/obj/effect/overmap/visitable/ship/S in overmaptarget)
 			if(S == linked)
 				continue //Why are you shooting yourself?
 			candidates += S

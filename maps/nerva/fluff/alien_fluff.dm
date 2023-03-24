@@ -11,14 +11,14 @@
 	Individual units of Lactera have turned to piracy and raiding - killing is the only thing they know, and they continue to do so aimlessly, although \
 	with ruthless efficiency they became known for during the Galactic Crisis."
 	default_language = LANGUAGE_XENOPHAGE
-	additional_langs = list(LANGUAGE_XENOPHAGE_HIVE)
+	additional_langs = list(LANGUAGE_XENOPHAGE_GLOBAL)
 	caste_name = "soldier"
 
 /singleton/cultural_info/faction/galactic_crisis
 	name = FACTION_GALACTIC_CRISIS
 	language = LANGUAGE_XENOPHAGE
 	default_language = LANGUAGE_XENOPHAGE
-	additional_langs = list(LANGUAGE_XENOPHAGE_HIVE)
+	additional_langs = list(LANGUAGE_XENOPHAGE_GLOBAL)
 	description = "The aliens of the Galactic Crisis are a force from an unknown galaxy that invaded the Milky Way beginning in 2556. Comprising a wide range of species held together \
 	by the psionic control of the Allophylus, the only goal of the alien forces appeared to be to wipe out humanity and to mind-slave them to the Allophylus, as had been done \
 	with the other constituent species of the invading force. With the alien forces broken after the Battle of Qerrbalak in 2565, the Galactic Crisis has ended. However, although the  \

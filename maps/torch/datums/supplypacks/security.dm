@@ -107,7 +107,7 @@
 
 /singleton/hierarchy/supply_pack/security/pdw
 	name = "Weapons - Ballistic PDWs"
-	contains = list(/obj/item/gun/projectile/automatic/sec_smg = 2)
+	contains = list(/obj/item/gun/projectile/automatic/wt550 = 2)
 	cost = 40
 	containertype = /obj/structure/closet/crate/secure/weapon
 	containername = "\improper Ballistic PDW crate"
@@ -116,7 +116,7 @@
 
 /singleton/hierarchy/supply_pack/security/bullpup
 	name = "Weapons - Heavy ballistic rifles"
-	contains = list(/obj/item/gun/projectile/automatic/bullpup_rifle = 2)
+	contains = list(/obj/item/gun/projectile/automatic/z8 = 2)
 	cost = 100 //A little more expensive than the 5mmR variant. Hits harder!
 	containertype = /obj/structure/closet/crate/secure/weapon
 	containername = "bullpup heavy automatic rifle crate"
@@ -125,7 +125,7 @@
 
 /singleton/hierarchy/supply_pack/security/light_bullpup
 	name = "Weapons - Light ballistic rifles"
-	contains = list(/obj/item/gun/projectile/automatic/bullpup_rifle/light = 2)
+	contains = list(/obj/item/gun/projectile/automatic/z8/light = 2)
 	cost = 80
 	containertype = /obj/structure/closet/crate/secure/weapon
 	containername = "bullpup light automatic rifle crate"
@@ -214,7 +214,7 @@
 
 /singleton/hierarchy/supply_pack/security/magnum_ammo
 	name = "Ammo - .357 Magnum"
-	contains = list(/obj/item/ammo_magazine/c357 = 4)
+	contains = list(/obj/item/ammo_magazine/a357 = 4)
 	cost = 30
 	containertype = /obj/structure/closet/crate/secure/weapon
 	containername = ".357 magnum ammunition crate"

@@ -96,7 +96,6 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		/datum/reagent/adminordrazine,
 		/datum/reagent/toxin/phoron/oxygen,
 		/datum/reagent/water,
-		/datum/reagent/antibodies,
 		/datum/reagent/nutriment,
 		/datum/reagent/drink,
 		/datum/reagent/peridaxon,

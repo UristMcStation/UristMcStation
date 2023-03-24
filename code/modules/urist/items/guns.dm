@@ -129,8 +129,8 @@ the sprite and make my own projectile -Glloyd*/
 	slot_flags = SLOT_BELT
 	load_method = MAGAZINE
 	caliber = ".45"
-	ammo_type = /obj/item/ammo_casing/c45
-	magazine_type = /obj/item/ammo_magazine/c45m
+	ammo_type = /obj/item/ammo_casing/a45
+	magazine_type = /obj/item/ammo_magazine/a45m
 	auto_eject = 1
 
 /obj/item/gun/projectile/silenced/knight/update_icon()
@@ -162,14 +162,14 @@ the sprite and make my own projectile -Glloyd*/
 
 //NamERT
 
-/obj/item/ammo_magazine/box/a762
-	caliber = "a762"
-	ammo_type = /obj/item/ammo_casing/a762
+/obj/item/ammo_magazine/box/rifle/military
+	caliber = CALIBER_RIFLE_MILITARY
+	ammo_type = /obj/item/ammo_casing/rifle/military
 	mag_type = MAGAZINE
 
-/obj/item/ammo_magazine/a556
-	caliber = "a556"
-	ammo_type = /obj/item/ammo_casing/a556
+/obj/item/ammo_magazine/rifle
+	caliber = CALIBER_RIFLE
+	ammo_type = /obj/item/ammo_casing/rifle
 	mag_type = MAGAZINE
 
 /obj/item/gun/projectile/automatic/l6_saw/m60
@@ -180,24 +180,24 @@ the sprite and make my own projectile -Glloyd*/
 	icon_state = "M60closed75"
 	item_state = "l6closedmag"
 	max_shells = 75
-	allowed_magazines = list(/obj/item/ammo_magazine/box/a762/m60)
-	magazine_type = /obj/item/ammo_magazine/box/a762/m60
-	ammo_type = /obj/item/ammo_casing/a762
+	allowed_magazines = list(/obj/item/ammo_magazine/box/rifle/military/m60)
+	magazine_type = /obj/item/ammo_magazine/box/rifle/military/m60
+	ammo_type = /obj/item/ammo_casing/rifle/military
 	one_hand_penalty = 6
 	wielded_item_state = "genericLMG-wielded"
-	caliber = "a762"
+	caliber = CALIBER_RIFLE_MILITARY
 
 /obj/item/gun/projectile/automatic/l6_saw/m60/update_icon()
 	icon_state = "M60[cover_open ? "open" : "closed"][ammo_magazine ? round(ammo_magazine.stored_ammo.len, 15) : "-empty"]"
 
-/obj/item/ammo_magazine/box/a762/m60
+/obj/item/ammo_magazine/box/rifle/military/m60
 	name = "M60 magazine box (7.62mm)"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "M60MAG"
 	max_ammo = 75
 	multiple_sprites = 0
 
-/obj/item/ammo_magazine/box/a762/m60/empty
+/obj/item/ammo_magazine/box/rifle/military/m60/empty
 	initial_ammo = 0
 
 /obj/item/gun/projectile/automatic/m14
@@ -209,13 +209,13 @@ the sprite and make my own projectile -Glloyd*/
 	item_state = "arifle"
 	w_class = 4
 	force = 10
-	caliber = "a762"
+	caliber = CALIBER_RIFLE_MILITARY
 	origin_tech = "combat=6;materials=1;syndicate=2"
 	slot_flags = SLOT_BACK
-	ammo_type = "/obj/item/ammo_casing/a762"
+	ammo_type = "/obj/item/ammo_casing/rifle/military"
 	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/a762mm/m14
+	magazine_type = /obj/item/ammo_magazine/rifle/military/m14
 	one_hand_penalty = 4
 	wielded_item_state = "woodarifle-wielded"
 
@@ -232,13 +232,13 @@ the sprite and make my own projectile -Glloyd*/
 		icon_state = "M14-empty"
 	return
 
-/obj/item/ammo_magazine/a762mm/m14
+/obj/item/ammo_magazine/rifle/military/m14
 	name = "M14 magazine box (7.62mm)"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "M14MAG"
 	max_ammo = 15
 
-/obj/item/ammo_magazine/a762mm/m14/empty
+/obj/item/ammo_magazine/rifle/military/m14/empty
 	initial_ammo = 0
 
 /obj/item/gun/projectile/automatic/m16
@@ -250,13 +250,13 @@ the sprite and make my own projectile -Glloyd*/
 	item_state = "arifle"
 	w_class = 4
 	force = 10
-	caliber = "a556"
+	caliber = CALIBER_RIFLE
 	origin_tech = "combat=6;materials=1;syndicate=4"
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
-	allowed_magazines = list(/obj/item/ammo_magazine/a556/m16)
-	magazine_type = /obj/item/ammo_magazine/a556/m16
-	ammo_type = /obj/item/ammo_casing/a556
+	allowed_magazines = list(/obj/item/ammo_magazine/rifle/m16)
+	magazine_type = /obj/item/ammo_magazine/rifle/m16
+	ammo_type = /obj/item/ammo_casing/rifle
 	one_hand_penalty = 4
 	fire_sound = 'sound/weapons/gunshot/gunshot2.ogg'
 	wielded_item_state = "genericrifle-wielded"
@@ -321,13 +321,13 @@ the sprite and make my own projectile -Glloyd*/
 	else
 		user << "\The [launcher] is empty."
 
-/obj/item/ammo_magazine/a556/m16
+/obj/item/ammo_magazine/rifle/m16
 	name = "M16 magazine (5.56mm)"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "M16MAG"
 	max_ammo = 25
 
-/obj/item/ammo_magazine/a556/m16/empty
+/obj/item/ammo_magazine/rifle/m16/empty
 	initial_ammo = 0
 
 /obj/item/gun/projectile/shotgun/pump/combat/ithaca
@@ -350,7 +350,7 @@ the sprite and make my own projectile -Glloyd*/
 	origin_tech = "combat=6;materials=1;syndicate=4"
 	slot_flags = SLOT_BELT
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/c45m/m3
+	magazine_type = /obj/item/ammo_magazine/a45m/m3
 	one_hand_penalty = 1
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	firemodes = list(
@@ -366,17 +366,17 @@ the sprite and make my own projectile -Glloyd*/
 		icon_state = "M3-empty"
 	return
 
-/obj/item/ammo_magazine/c45m/m3
+/obj/item/ammo_magazine/a45m/m3
 	name = "M3 magazine (.45)"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "M3MAG"
 	mag_type = MAGAZINE
-	ammo_type = /obj/item/ammo_casing/c45
+	ammo_type = /obj/item/ammo_casing/a45
 	matter = list(DEFAULT_WALL_MATERIAL = 525) //metal costs are very roughly based around 1 .45 casing = 75 metal
 	caliber = ".45"
 	max_ammo = 32
 
-/obj/item/ammo_magazine/c45m/m3/empty
+/obj/item/ammo_magazine/a45m/m3/empty
 	initial_ammo = 0
 
 /obj/item/gun/projectile/bhp9mm
@@ -497,12 +497,12 @@ the sprite and make my own projectile -Glloyd*/
 	force = 10
 	slot_flags = SLOT_BACK
 	origin_tech = "combat=2;materials=1"
-	caliber = "a762"
+	caliber = CALIBER_RIFLE_MILITARY
 	//fire_sound = 'sound/weapons/sniper.ogg'
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING
 	max_shells = 3
-	ammo_type = /obj/item/ammo_casing/a762
+	ammo_type = /obj/item/ammo_casing/rifle/military
 	accuracy = -1
 
 
@@ -518,12 +518,12 @@ the sprite and make my own projectile -Glloyd*/
 	force = 4
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	origin_tech = "combat=1"
-	caliber = "a762"
+	caliber = CALIBER_RIFLE_MILITARY
 	//fire_sound = 'sound/weapons/sniper.ogg'
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING
 	max_shells = 3
-	ammo_type = /obj/item/ammo_casing/a762
+	ammo_type = /obj/item/ammo_casing/rifle/military
 	accuracy = -2
 
 //rifle construction
@@ -716,11 +716,11 @@ the sprite and make my own projectile -Glloyd*/
 	one_hand_penalty = 4
 	force = 10
 	slot_flags = SLOT_BACK
-	caliber = "a762"
+	caliber = CALIBER_RIFLE_MILITARY
 	handle_casings = HOLD_CASINGS
 //	load_method = SINGLE_CASING
 	max_shells = 5
-	ammo_type = /obj/item/ammo_casing/a762
+	ammo_type = /obj/item/ammo_casing/rifle/military
 //	accuracy = -1
 //	jam_chance = 5
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
@@ -730,8 +730,8 @@ the sprite and make my own projectile -Glloyd*/
 	desc = ""
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = ""
-	caliber = "c45m"
-	ammo_type = /obj/item/ammo_casing/c45m
+	caliber = "a45m"
+	ammo_type = /obj/item/ammo_casing/a45m
 */
 
 
@@ -746,13 +746,13 @@ the sprite and make my own projectile -Glloyd*/
 	item_state = "sexyrifle"
 	w_class = 4
 	force = 10
-	caliber = "a762"
+	caliber = CALIBER_RIFLE_MILITARY
 	origin_tech = "combat=4;materials=1;syndicate=1"
 	slot_flags = SLOT_BACK
-	ammo_type = "/obj/item/ammo_casing/a762"
+	ammo_type = "/obj/item/ammo_casing/rifle/military"
 	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/a762mm/spaceak
+	magazine_type = /obj/item/ammo_magazine/rifle/military/spaceak
 	one_hand_penalty = 4
 	wielded_item_state = "sexyrifle-wielded"
 
@@ -770,7 +770,7 @@ the sprite and make my own projectile -Glloyd*/
 		icon_state = "sexyrifle_empty"
 	return
 
-/obj/item/ammo_magazine/a762mm/spaceak
+/obj/item/ammo_magazine/rifle/military/spaceak
 	name = "U2442 magazine box (7.62mm)"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "sexyrifle-mag"
@@ -835,7 +835,7 @@ the sprite and make my own projectile -Glloyd*/
 	max_shells = 6
 	caliber = ".45"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	ammo_type = /obj/item/ammo_casing/c45
+	ammo_type = /obj/item/ammo_casing/a45
 
 /obj/item/gun/projectile/revolver/coltsaa/update_icon()
 	..()
@@ -844,20 +844,20 @@ the sprite and make my own projectile -Glloyd*/
 	else
 		icon_state = "antiquerevolver_empty"
 
-/obj/item/ammo_magazine/c45r
+/obj/item/ammo_magazine/a45r
 	name = "speed loader (.45 magnum)"
 	desc = "A speed loader for revolvers."
 	icon_state = "38"
-	ammo_type = /obj/item/ammo_casing/c45
+	ammo_type = /obj/item/ammo_casing/a45
 	matter = list(DEFAULT_WALL_MATERIAL = 450)
 	caliber = ".45"
 	max_ammo = 6
 	multiple_sprites = 1
 
-/obj/item/ammo_magazine/c45r/rubber
+/obj/item/ammo_magazine/a45r/rubber
 	name = "speed loader (.45 magnum, rubber)"
 	icon_state = "R38"
-	ammo_type = /obj/item/ammo_casing/c45/rubber
+	ammo_type = /obj/item/ammo_casing/a45/rubber
 
 /obj/item/gun/projectile/revolver/hi2521r
 	icon = 'icons/urist/items/guns.dmi'
@@ -870,7 +870,7 @@ the sprite and make my own projectile -Glloyd*/
 	max_shells = 6
 	caliber = ".44"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	ammo_type = /obj/item/ammo_casing/c44
+	ammo_type = /obj/item/ammo_casing/a44
 
 /obj/item/gun/projectile/revolver/hi2521r/update_icon()
 	..()
@@ -880,7 +880,7 @@ the sprite and make my own projectile -Glloyd*/
 		icon_state = "combatrevolver_empty"
 
 /obj/item/gun/projectile/revolver/hi2521r/rubber
-	ammo_type = /obj/item/ammo_casing/c44/rubber
+	ammo_type = /obj/item/ammo_casing/a44/rubber
 
 /obj/item/gun/projectile/hi2521pistol
 	item_icons = URIST_ALL_ONMOBS

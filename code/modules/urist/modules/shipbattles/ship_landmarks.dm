@@ -164,14 +164,14 @@
 	icon_state = "datadisk0"
 	item_state = "card-id"
 	w_class = ITEM_SIZE_SMALL
-	var/obj/effect/overmap/sector/station/master_station
+	var/obj/effect/overmap/visitable/station/master_station
 
 /obj/effect/urist/triggers/station_disk
 	icon_state = "x3"
 	icon = 'icons/mob/screen1.dmi'
 	var/faction_id
 
-/obj/effect/urist/triggers/station_disk/proc/spawn_disk(var/obj/effect/overmap/sector/station/stored_station)
+/obj/effect/urist/triggers/station_disk/proc/spawn_disk(var/obj/effect/overmap/visitable/station/stored_station)
 	var/obj/item/disk/station_disk/D = new /obj/item/disk/station_disk(src.loc)
 	D.master_station = stored_station
 	qdel(src)

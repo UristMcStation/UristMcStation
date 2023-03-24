@@ -78,7 +78,7 @@
 			if(!get_location_accessible(H, "mouth"))
 				user << "<span class='warning'>The mask is in the way.</span>"
 				return
-			if(H.f_style == "Shaved")
+			if(H.facial_hair_style == "Shaved")
 				user << "<span class='notice'>Already clean-shaven.</span>"
 				return
 			if(H == user) //shaving yourself
@@ -87,7 +87,7 @@
 				if(do_after(user, 50))
 					user.visible_message("<span class='notice'>[user] shaves his facial hair clean with the [src].</span>", \
 					"<span class='notice'>You finish shaving with the [src]. Fast and clean!</span>")
-					H.f_style = "Shaved"
+					H.facial_hair_style = "Shaved"
 					H.update_hair()
 					playsound(src.loc, 'sound/items/Welder2.ogg', 20, 1)
 			else
@@ -99,7 +99,7 @@
 					if(user_loc == user.loc && H_loc == H.loc)
 						user.visible_message("<span class='danger'>[user] shaves off [H]'s facial hair with \the [src].</span>", \
 						"<span class='notice'>You shave [H]'s facial hair clean off.</span>")
-						H.f_style = "Shaved"
+						H.facial_hair_style = "Shaved"
 						H.update_hair()
 						playsound(src.loc, 'sound/items/Welder2.ogg', 20, 1)
 		if(user.zone_sel.selecting == "head")

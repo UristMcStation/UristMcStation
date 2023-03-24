@@ -1,14 +1,14 @@
-var/const/NETWORK_FIRST_DECK		= "First Deck" //new top
-var/const/NETWORK_SECOND_DECK		= "Second Deck" //top central, old top
-var/const/NETWORK_THIRD_DECK		= "Third Deck" //bottom central, old central
-var/const/NETWORK_FOURTH_DECK		= "Fourth Deck" //bottom
-var/const/NETWORK_COMMAND			= "Command"
-var/const/NETWORK_CARGO				= "Cargo"
-var/const/NETWORK_TRAJAN     		= "Trajan"
-var/const/NETWORK_HADRIAN     		= "Hadrian"
-var/const/NETWORK_ANTONINE     		= "Antonine"
-var/const/NETWORK_PRISON            = "Prison"
-var/const/NETWORK_EXPLO             = "Exploration"
+var/global/const/NETWORK_FIRST_DECK		= "First Deck" //new top
+var/global/const/NETWORK_SECOND_DECK		= "Second Deck" //top central, old top
+var/global/const/NETWORK_THIRD_DECK		= "Third Deck" //bottom central, old central
+var/global/const/NETWORK_FOURTH_DECK		= "Fourth Deck" //bottom
+var/global/const/NETWORK_COMMAND			= "Command"
+var/global/const/NETWORK_CARGO				= "Cargo"
+var/global/const/NETWORK_TRAJAN     		= "Trajan"
+var/global/const/NETWORK_HADRIAN     		= "Hadrian"
+var/global/const/NETWORK_ANTONINE     		= "Antonine"
+var/global/const/NETWORK_PRISON            = "Prison"
+var/global/const/NETWORK_EXPLO             = "Exploration"
 
 /datum/map/nerva/get_network_access(var/network)
 	if(network == NETWORK_COMMAND)

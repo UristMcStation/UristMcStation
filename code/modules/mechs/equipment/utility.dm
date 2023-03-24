@@ -899,7 +899,7 @@
 		var/network = input("Which network would you like to configure it for?") as null|anything in (all_networks)
 		if(!network)
 			to_chat(user, SPAN_WARNING("You cannot connect to any camera network!."))
-		var/delay = 2 SECONDS * user.skill_delay_mult(SKILL_DEVICES)
+		var/delay = 2 SECONDS
 		if(do_after(user, delay, src, DO_DEFAULT | DO_BOTH_UNIQUE_ACT) && network)
 			camera.network = list(network)
 			camera.update_coverage(TRUE)

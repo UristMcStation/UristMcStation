@@ -47,7 +47,7 @@
 	shoes = /obj/item/clothing/shoes/black
 	suit = /obj/item/clothing/suit/suspenders
 	pda_type = /obj/item/modular_computer/pda/mime
-	id_type = /obj/item/card/id/civilian/mime
+	id_types = list(/obj/item/card/id/civilian/mime)
 
 /singleton/hierarchy/outfit/job/clown
 	name = OUTFIT_JOB_NAME("Clown")
@@ -59,7 +59,7 @@
 		/obj/item/reagent_containers/spray/waterflower = 1)
 	back = /obj/item/storage/backpack/clown
 	pda_type = /obj/item/modular_computer/pda/clown
-	id_type = /obj/item/card/id/civilian/clown
+	id_types = list(/obj/item/card/id/civilian/clown)
 
 /obj/item/card/id/civilian/clown
 	name = "identification card"
@@ -100,7 +100,7 @@
 	suit = /obj/item/clothing/suit/armor/pcarrier/deus_blueshield
 	l_ear = /obj/item/device/radio/headset/heads/hop
 	shoes = /obj/item/clothing/shoes/jackboots
-	id_type = /obj/item/card/id/bodyguard
+	id_types = list(/obj/item/card/id/bodyguard)
 	pda_type = /obj/item/modular_computer/pda/heads/hop
 	backpack_contents = list(/obj/item/storage/box/deathimp = 1)
 	gloves = /obj/item/clothing/gloves/thick/combat

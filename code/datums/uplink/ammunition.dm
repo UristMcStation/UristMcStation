@@ -5,10 +5,10 @@
 	item_cost = 4
 	category = /datum/uplink_category/ammunition
 
-/datum/uplink_item/item/ammo/c45m
+/datum/uplink_item/item/ammo/a45m
 	name = ".45 pistol magazine"
 	desc = "Contains "
-	path = /obj/item/ammo_magazine/c45m
+	path = /obj/item/ammo_magazine/a45m
 
 /datum/uplink_item/item/ammo/mc9mm
 	name = "9mm pistol magazine"
@@ -52,9 +52,9 @@
 /datum/uplink_item/item/ammo/a357
 	name = ".357 speed loader"
 	item_cost = 8
-	path = /obj/item/ammo_magazine/c357
+	path = /obj/item/ammo_magazine/a357
 
-/datum/uplink_item/item/ammo/a556
+/datum/uplink_item/item/ammo/rifle
 	name = "5.56mm magazine"
 	item_cost = 8
 	path = /obj/item/ammo_magazine/mil_rifle/heavy
@@ -102,7 +102,7 @@
 	name = "Standard Box Magazine"
 	desc = "A magazine for standard SMGs. Contains 20 rounds."
 	item_cost = 8
-	path = /obj/item/ammo_magazine/a10mm
+	path = /obj/item/ammo_magazine/pistol
 
 /datum/uplink_item/item/ammo/p10mm
 	name = "10mm Pistol Magazine"
@@ -120,9 +120,9 @@
 	item_cost = 8
 	path = /obj/item/ammo_magazine/speedloader/magnum
 
-/datum/uplink_item/item/ammo/c38
+/datum/uplink_item/item/ammo/a38
 	name = ".38 speedloader"
-	path = /obj/item/ammo_magazine/c38
+	path = /obj/item/ammo_magazine/a38
 
 /datum/uplink_item/item/ammo/flechette
 	name = "Flechette Rifle Magazine"
@@ -137,17 +137,17 @@
 	item_cost = 8
 	path = /obj/item/magnetic_ammo
 
-/datum/uplink_item/item/ammo/c45m_emp
+/datum/uplink_item/item/ammo/a45m_emp
 	name = ".45 EMP Ammo Box (10 rounds)"
 	item_cost = 6
-	path = /obj/item/ammo_magazine/box/emp/c45
+	path = /obj/item/ammo_magazine/box/emp/a45
 
 /datum/uplink_item/item/ammo/p10mm_emp
 	name = "10mm EMP Ammo Box (10 rounds)"
 	item_cost = 8
-	path = /obj/item/ammo_magazine/box/emp/a10mm
+	path = /obj/item/ammo_magazine/box/emp/pistol
 
-/datum/uplink_item/item/ammo/c38_emp
+/datum/uplink_item/item/ammo/a38_emp
 	name = ".38 EMP Ammo Box (10 rounds)"
 	item_cost = 6
 	path = /obj/item/ammo_magazine/box/emp

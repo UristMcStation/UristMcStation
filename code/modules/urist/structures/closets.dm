@@ -9,8 +9,8 @@
 	..()
 	sleep(2)
 	new /obj/item/storage/backpack/duffel/duffel_cap(src)
-	new /obj/item/storage/backpack/captain(src)
-	new /obj/item/storage/backpack/satchel/cap(src)
+	new /obj/item/storage/backpack/command(src)
+	new /obj/item/storage/backpack/satchel/com(src)
 	new /obj/item/clothing/suit/captunic(src)
 	new /obj/item/clothing/suit/storage/capjacket(src)
 	new /obj/item/clothing/under/rank/captain(src)
@@ -34,7 +34,7 @@
 	new /obj/item/clothing/head/helmet/swat(src)
 	new /obj/item/device/radio/headset/heads/captain(src)
 	new /obj/item/gun/projectile/revolver/webley(src)
-	new /obj/item/ammo_magazine/c44(src)
+	new /obj/item/ammo_magazine/a44(src)
 	new /obj/item/clothing/suit/armor/captain(src)
 	new /obj/item/melee/telebaton(src)
 	new /obj/item/clothing/suit/armor/vest/capcarapace(src)
@@ -185,10 +185,10 @@
 		/obj/item/clothing/accessory/armor_plate/medium = 2,
 		/obj/item/clothing/under/tactical = 2,
 		/obj/item/clothing/head/helmet/nt/tactical = 2,
-		/obj/item/clothing/accessory/armguards/green = 2,
-		/obj/item/clothing/accessory/legguards/green = 2,
+		/obj/item/clothing/accessory/arm_guards/green = 2,
+		/obj/item/clothing/accessory/leg_guards/green = 2,
 		/obj/item/clothing/mask/balaclava/tactical = 2,
-		/obj/item/clothing/glasses/sunglasses/sechud/goggles = 2,
+		/obj/item/clothing/glasses/hud/security/prot = 2,
 		/obj/item/storage/belt/holster/security/tactical = 2,
 		/obj/item/clothing/shoes/jackboots = 2,
 		/obj/item/clothing/gloves/thick = 2,
@@ -202,7 +202,7 @@
 	return list(
 		/obj/item/gunattachment/scope/huntrifle,
 		/obj/item/gun/projectile/manualcycle/hunterrifle,
-		/obj/item/ammo_magazine/a762mm/stripper = 3,
+		/obj/item/ammo_magazine/rifle/military/stripper = 3,
 		/obj/item/device/flashlight/lantern,
 		/obj/item/shovel,
 		/obj/item/material/hatchet,

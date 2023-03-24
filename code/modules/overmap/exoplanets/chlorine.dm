@@ -1,5 +1,5 @@
 /*
-/obj/effect/overmap/sector/exoplanet/chlorine
+/obj/effect/overmap/visitable/exoplanet/chlorine
 	name = "chlorine exoplanet"
 	desc = "An exoplanet with a chlorine based ecosystem. Large quantities of liquid chlorine are present."
 	color = "#efff7c"
@@ -16,7 +16,7 @@
 							/datum/map_template/ruin/exoplanet/playablecolony,
 							/datum/map_template/ruin/exoplanet/datacapsule)
 
-/obj/effect/overmap/sector/exoplanet/chlorine/generate_map()
+/obj/effect/overmap/visitable/exoplanet/chlorine/generate_map()
 	..()
 	if(prob(50))
 		lightlevel = rand(7,10)/10 //It could be night.
@@ -27,7 +27,7 @@
 		get_biostuff(M)
 		new /datum/random_map/noise/ore/poor(null,1,1,zlevel,maxx,maxy,0,1,1)
 
-/obj/effect/overmap/sector/exoplanet/chlorine/generate_atmosphere()
+/obj/effect/overmap/visitable/exoplanet/chlorine/generate_atmosphere()
 	..()
 	if(atmosphere)
 		atmosphere.adjust_gas("chlorine", MOLES_O2STANDARD)

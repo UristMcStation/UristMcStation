@@ -3560,7 +3560,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/outpost/research/hallway)
 "hl" = (
-/obj/item/modular_computer/console/preset/research{
+/obj/machinery/computer/modular/preset/research{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -5219,7 +5219,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/research/hallway)
 "kc" = (
-/obj/item/modular_computer/console/preset/civilian{
+/obj/machinery/computer/modular/preset/civilian{
 	dir = 4
 	},
 /obj/structure/cable{
@@ -7180,7 +7180,7 @@
 	icon_state = "corner_white_three_quarters";
 	dir = 8
 	},
-/obj/item/modular_computer/console/preset/security{
+/obj/machinery/computer/modular/preset/security{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -7191,7 +7191,7 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/item/modular_computer/console/preset/security{
+/obj/machinery/computer/modular/preset/security{
 	dir = 4
 	},
 /obj/machinery/light{

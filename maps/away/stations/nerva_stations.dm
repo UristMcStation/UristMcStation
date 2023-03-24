@@ -1,6 +1,6 @@
 #include "station_areas.dm"
 
-/obj/effect/overmap/sector/station/nanotrasentrading
+/obj/effect/overmap/visitable/station/nanotrasentrading
 	name = "NanoTrasen trading station"
 	desc = "A NanoTrasen trading station, dock here to trade with its many merchants."
 	faction = /datum/factions/nanotrasen
@@ -44,7 +44,7 @@
 
 //nt mining outpost
 /*
-/obj/effect/overmap/sector/station/nanotrasenmining
+/obj/effect/overmap/visitable/station/nanotrasenmining
 	name = "NanoTrasen mining outpost"
 	desc = "A NanoTrasen mining outpost on a largely uninhabited planet, dock here to engage in trading."
 	faction = "nanotrasen"
@@ -77,7 +77,7 @@
 
 //tc
 
-/obj/effect/overmap/sector/station/tccolony
+/obj/effect/overmap/visitable/station/tccolony
 	name = "Terran Confederacy colony"
 	desc = "A small Terran Confederacy colony on a largely uninhabited planet, dock here to engage in trading."
 	faction = "nanotrasen"

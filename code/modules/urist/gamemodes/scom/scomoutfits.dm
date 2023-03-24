@@ -4,7 +4,7 @@
 	l_ear = /obj/item/device/radio/headset
 	pda_type = null
 	uniform = /obj/item/clothing/under/urist/scom //assures they have SOME jumpsuit
-	id_type = /obj/item/card/id/centcom //ditto, ID
+	id_types = list(/obj/item/card/id/centcom) //ditto, ID
 	pda_slot = null
 
 /singleton/hierarchy/outfit/scom/pre_equip(mob/living/carbon/human/H)
@@ -12,7 +12,7 @@
 	if(H.species == "Unathi")
 		shoes = /obj/item/clothing/shoes/jackboots/unathi
 	if(H.disabilities)
-		glasses = /obj/item/clothing/glasses/regular
+		glasses = /obj/item/clothing/glasses
 
 /singleton/hierarchy/outfit/scom/scommander
 	name = "S-COM Commander"
@@ -26,7 +26,7 @@
 	l_pocket = /obj/item/pen
 	r_pocket = /obj/item/flame/lighter/zippo
 	id_pda_assignment = "Commander"
-	id_type = /obj/item/card/id/centcom
+	id_types = list(/obj/item/card/id/centcom)
 
 /singleton/hierarchy/outfit/scom/scomscientist
 	name = "S-COM Researcher"
@@ -104,7 +104,7 @@
 		new /obj/item/clothing/head/beret/sec/navy/officer(src)
 		new /obj/item/gun/projectile/silenced/knight(src)
 		new /obj/item/clothing/shoes/jackboots/unathi(src)
-		new /obj/item/clothing/glasses/regular(src)
+		new /obj/item/clothing/glasses(src)
 		new /obj/item/clothing/under/urist/scom(src)
 
 	return
@@ -126,7 +126,7 @@
 		new /obj/item/gun/projectile/automatic/c20r(src)
 		new /obj/item/storage/box/c20ammo(src)
 		new /obj/item/clothing/shoes/jackboots/unathi(src)
-		new /obj/item/clothing/glasses/regular(src)
+		new /obj/item/clothing/glasses(src)
 		new /obj/item/clothing/under/urist/scom(src)
 	return
 
@@ -143,7 +143,7 @@
 		new /obj/item/storage/backpack/toxins(src)
 		new /obj/item/clothing/suit/storage/toggle/labcoat/science(src)
 		new /obj/item/clothing/shoes/jackboots/unathi(src)
-		new /obj/item/clothing/glasses/regular(src)
+		new /obj/item/clothing/glasses(src)
 //CDN
 /obj/structure/closet/secure_closet/personal/scom/commander
 	name = "S-COM personal closet (Commander)"
@@ -161,4 +161,4 @@
 		new /obj/item/storage/fancy/cigarettes(src)
 		new /obj/item/flame/lighter/zippo(src)
 		new /obj/item/clothing/shoes/jackboots/unathi(src)
-		new /obj/item/clothing/glasses/regular(src)
+		new /obj/item/clothing/glasses(src)

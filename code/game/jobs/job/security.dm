@@ -92,7 +92,7 @@
 	suit = /obj/item/clothing/suit/armor/pcarrier/deus_blueshield
 	l_ear = /obj/item/device/radio/headset/heads/hop
 	shoes = /obj/item/clothing/shoes/jackboots
-	id_type = /obj/item/card/id/blueshield
+	id_types = list(/obj/item/card/id/blueshield)
 	pda_type = /obj/item/modular_computer/pda/heads/hop
 	backpack_contents = list(/obj/item/storage/box/deathimp = 1)
 	gloves = /obj/item/clothing/gloves/thick/combat

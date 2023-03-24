@@ -30,5 +30,5 @@
 	unacidable = TRUE
 
 
-/obj/item/gun/projectile/shotgun/popout/check_accidents(mob/living/user, message, skill_path, fail_chance, no_more_fail, factor)
-	return FALSE // Ignore the effects of weapons training for this, since it's special
+///obj/item/gun/projectile/shotgun/popout/check_accidents(mob/living/user, message, skill_path, fail_chance, no_more_fail, factor)
+//	return FALSE // Ignore the effects of weapons training for this, since it's special

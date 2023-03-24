@@ -6,7 +6,6 @@
 	density = TRUE
 	anchored = TRUE
 	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_CLIMBABLE
-	obj_flags = OBJ_FLAG_SURGICAL
 	layer = TABLE_LAYER
 	throwpass = 1
 	mob_offset = 12

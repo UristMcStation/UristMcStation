@@ -185,7 +185,7 @@
 		SPAN_ITALIC("You extract \the [src]'s cannula from \the [patient]."),
 		range = 5
 	)
-	if (!user.skill_check(SKILL_MEDICAL, SKILL_BASIC))
+	if (!user.skill_check(SKILL_MEDICAL, SKILL_NONE))
 		RipDrip(user)
 		return
 	STOP_PROCESSING(SSobj, src)

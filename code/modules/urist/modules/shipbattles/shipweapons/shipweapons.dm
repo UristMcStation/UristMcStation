@@ -21,7 +21,7 @@
 	var/obj/item/projectile/projectile_type
 	var/fire_anim = 0
 	var/fire_sound = null
-	var/obj/effect/overmap/ship/combat/homeship = null
+	var/obj/effect/overmap/visitable/ship/combat/homeship = null
 	var/obj/machinery/computer/combatcomputer/linkedcomputer = null
 	var/status = CHARGED
 	var/datum/shipcomponents/targeted_component
@@ -124,7 +124,7 @@
 			update_icon()
 			Charging() //time to recharge
 
-		if(istype(target, /obj/effect/overmap/ship/combat))
+		if(istype(target, /obj/effect/overmap/visitable/ship/combat))
 			MapFire()	//PVP combat just lobs projectiles at the other ship, no need for further calculations.
 			return TRUE
 
@@ -277,8 +277,8 @@
 		icon_state = "[initial(icon_state)]-empty"
 
 /obj/machinery/shipweapons/proc/MapFire()
-	if(istype(target, /obj/effect/overmap/ship/combat))
-		var/obj/effect/overmap/ship/combat/T = target
+	if(istype(target, /obj/effect/overmap/visitable/ship/combat))
+		var/obj/effect/overmap/visitable/ship/combat/T = target
 		var/obj/effect/urist/projectile_landmark/ship/P = pick(T.landmarks)
 		P.Fire(projectile_type)
 	else
@@ -297,7 +297,7 @@
 		target = linkedcomputer.target
 
 	if(!homeship)
-		for(var/obj/effect/overmap/ship/combat/C in GLOB.overmap_ships)
+		for(var/obj/effect/overmap/visitable/ship/combat/C in GLOB.overmap_ships)
 			if(C.shipid == src.shipid)
 				homeship = C
 

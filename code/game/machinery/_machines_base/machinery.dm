@@ -397,7 +397,7 @@
 			var/obj/item/fake_thing = type
 			parts += "[num2text(missing[type])] [initial(fake_thing.name)]"
 		to_chat(user, SPAN_WARNING("\The [src] is missing [english_list(parts)], rendering it inoperable."))
-	if (user.skill_check(SKILL_CONSTRUCTION, SKILL_BASIC) || isobserver(user))
+	if (user.skill_check(SKILL_CONSTRUCTION, SKILL_NONE) || isobserver(user))
 		to_chat(user, SPAN_NOTICE(machine_desc))
 
 /obj/machinery/get_mechanics_info()

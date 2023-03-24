@@ -16,7 +16,7 @@
  	suffixes = list("../RandomZLevels/wildwest/wildwest.dmm")
  	cost = 2
 
-/obj/effect/overmap/sector/wild_west
+/obj/effect/overmap/visitable/wild_west
 	name = "desert planetoid"
 	desc = "System scans detect an ongoing quarantine alert; caution is well advised."
 	in_space = 0
@@ -28,7 +28,7 @@
 		"wild_west_3"
 	)
 
-/obj/effect/overmap/sector/wild_west/New(nloc, max_x, max_y)
+/obj/effect/overmap/visitable/wild_west/New(nloc, max_x, max_y)
 	name = "[generate_planet_name()], \a [name]"
 	..()
 

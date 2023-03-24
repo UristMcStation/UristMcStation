@@ -22,7 +22,7 @@
 "w" = (/turf/simulated/wall,/area/template_noop)
 "x" = (/obj/item/mop,/turf/simulated/floor/tiled,/area/template_noop)
 "y" = (/obj/machinery/door/blast/regular{density = 0; icon_state = "pdoor0"; id = "TradingPost"; name = "Trading Post Door"; opacity = 0},/turf/simulated/floor/tiled,/area/template_noop)
-"A" = (/obj/structure/table/reinforced,/obj/machinery/door/window/westleft{dir = 2; name = "Trading Post Desk"},/obj/item/scissors,/obj/item/paper/cig,/obj/item/ammo_magazine/c38,/turf/simulated/floor/tiled,/area/template_noop)
+"A" = (/obj/structure/table/reinforced,/obj/machinery/door/window/westleft{dir = 2; name = "Trading Post Desk"},/obj/item/scissors,/obj/item/paper/cig,/obj/item/ammo_magazine/a38,/turf/simulated/floor/tiled,/area/template_noop)
 "B" = (/obj/machinery/door/airlock/maintenance{req_access = list(12)},/turf/simulated/floor/plating,/area/template_noop)
 "C" = (/obj/machinery/button/remote/blast_door{id = "TradingPost"; name = "Trading Post Door Control"; pixel_x = -28},/turf/simulated/floor/tiled,/area/template_noop)
 "D" = (/obj/structure/closet/crate{icon_state = "crateopen"; opened = 1},/obj/item/shield/riot,/obj/item/shield/riot,/obj/item/shield/riot,/obj/item/storage/box/large/mines,/turf/simulated/floor/tiled,/area/template_noop)

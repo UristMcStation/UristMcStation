@@ -68,9 +68,9 @@
 		if(get_dist(W, src.loc) <= 1)
 			W.hit(40,0)
 	for(var/obj/machinery/door/window/D in view(4, src.loc)) //Busting windoors
-		D.take_damage(150)
+		D.damage_health(150)
 		if(get_dist(D, src.loc) <= 2)
-			D.take_damage(150)
+			D.damage_health(150)
 
 	for(var/mob/living/carbon/M in hearers(6, src.loc))
 		var/distance = get_dist(M, src.loc)

@@ -11,7 +11,7 @@
 	new /datum/random_map/automata/cave_system(null, 1, 1, world.maxz, 200, 200)
 	new /datum/random_map/noise/ore(null, 1, 1, world.maxz, 200, 200)
 
-/obj/effect/overmap/sector/cluster
+/obj/effect/overmap/visitable/cluster
 	name = "asteroid cluster"
 	desc = "Large group of asteroids. Mineral content detected."
 	icon_state = "sector"
@@ -69,7 +69,7 @@
 	new /datum/random_map/automata/cave_system(null, 1, 1, world.maxz, 200, 200)
 	new /datum/random_map/noise/ore(null, 1, 1, world.maxz, 200, 200)
 
-/obj/effect/overmap/sector/away
+/obj/effect/overmap/visitable/away
 	name = "faint signal"
 	desc = "Faint signal detected, originating from the site's surface."
 	icon_state = "sector"

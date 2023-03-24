@@ -15,8 +15,8 @@
 
 /area/New()
 	icon_state = ""
-	plane = EFFECTS_BELOW_LIGHTING_PLANE
-	layer = ALARM_LAYER
+	//plane = EFFECTS_BELOW_LIGHTING_PLANE
+	//layer = ALARM_LAYER
 	uid = ++global_uid
 
 	if(!requires_power)

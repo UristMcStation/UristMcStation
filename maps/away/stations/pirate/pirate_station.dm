@@ -13,13 +13,13 @@
 	base_turf = /turf/simulated/open
 	icon_state = "yellow"
 
-/var/const/access_away_pirate_station = "ACCESS_AWAY_PIRATE_STATION"
+/var/global/const/access_away_pirate_station = "ACCESS_AWAY_PIRATE_STATION"
 /datum/access/away_pirate_station
 	id = access_away_pirate_station
 	desc = "Pirate Station"
 	region = ACCESS_TYPE_NONE
 
-/obj/effect/overmap/sector/station/hostile/pirate
+/obj/effect/overmap/visitable/station/hostile/pirate
 	name = "large asteroid"
 	desc = "Sensor array detects a large asteroid."
 	icon = 'icons/obj/overmap.dmi'
@@ -76,7 +76,7 @@
 	base_area = /area/spacestations/pirate/exterior
 	base_turf = /turf/simulated/open
 
-/obj/effect/overmap/sector/station/hostile/pirate/update_visible()
+/obj/effect/overmap/visitable/station/hostile/pirate/update_visible()
 	if(!known)
 		known = 1
 		icon = 'icons/urist/misc/overmap.dmi'

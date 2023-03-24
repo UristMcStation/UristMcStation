@@ -45,11 +45,11 @@
 	one_hand_penalty = 4
 	force = 10
 	slot_flags = SLOT_BACK
-	caliber = "a762"
+	caliber = CALIBER_RIFLE_MILITARY
 	handle_casings = HOLD_CASINGS
 //	load_method = SINGLE_CASING
 	max_shells = 5
-	ammo_type = /obj/item/ammo_casing/a762
+	ammo_type = /obj/item/ammo_casing/rifle/military
 //	accuracy = -1
 //	jam_chance = 5
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'

@@ -167,11 +167,11 @@
 	item_state = "ANFOR-rifle"
 	w_class = 4
 	force = 10
-	caliber = "a556"
+	caliber = CALIBER_RIFLE
 	origin_tech = "combat=6;materials=1;syndicate=4"
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/a556/a22
+	magazine_type = /obj/item/ammo_magazine/rifle/a22
 	one_hand_penalty = 5
 	fire_sound = 'sound/weapons/gunshot/gunshot2.ogg'
 	wielded_item_state = "ANFOR-rifle-wielded"
@@ -190,19 +190,19 @@
 		icon_state = "ANFOR-rifle-empty"
 	return
 
-/obj/item/ammo_magazine/a556/a22
+/obj/item/ammo_magazine/rifle/a22
 	name = "A22 magazine (5.56mm)"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "ANFOR-riflemag"
 	mag_type = MAGAZINE
-	caliber = "a556"
+	caliber = CALIBER_RIFLE
 	origin_tech = "combat=2"
 	matter = list(DEFAULT_WALL_MATERIAL = 3500)
-	ammo_type = /obj/item/ammo_casing/a556
+	ammo_type = /obj/item/ammo_casing/rifle
 	max_ammo = 30
 	multiple_sprites = 1
 
-/obj/item/ammo_magazine/a556/a22/empty
+/obj/item/ammo_magazine/rifle/a22/empty
 	initial_ammo = 0
 
 /obj/item/gun/projectile/a18
@@ -214,11 +214,11 @@
 	item_state = "ANFOR-battlerifle"
 	w_class = 4
 	force = 10
-	caliber = "a762"
+	caliber = CALIBER_RIFLE_MILITARY
 	origin_tech = "combat=6;materials=1;syndicate=4"
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/a762mm/a18
+	magazine_type = /obj/item/ammo_magazine/rifle/military/a18
 	one_hand_penalty = 5
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 //	var/use_launcher = 0
@@ -361,18 +361,18 @@
 	desc = "A marksman's scope designed to be attached to an A18 rifle."
 */
 
-/obj/item/ammo_magazine/a762mm/a18
+/obj/item/ammo_magazine/rifle/military/a18
 	name = "A18 magazine (7.62mm)"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "ANFOR-battleriflemag"
 	mag_type = MAGAZINE
-	caliber = "a762"
+	caliber = CALIBER_RIFLE_MILITARY
 	origin_tech = "combat=2"
 	matter = list(DEFAULT_WALL_MATERIAL = 4500)
-	ammo_type = /obj/item/ammo_casing/a762
+	ammo_type = /obj/item/ammo_casing/rifle/military
 	max_ammo = 30
 
-/obj/item/ammo_magazine/a762mm/a18/empty
+/obj/item/ammo_magazine/rifle/military/a18/empty
 	initial_ammo = 0
 
 /obj/item/gun/projectile/automatic/asmg
@@ -438,21 +438,21 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper A7 pistol"
 	desc = "A slightly modified version of the classic Colt M1911, the standard sidearm for ANFOR and Terran Marines. It holds 8 .45 rounds."
-	magazine_type = /obj/item/ammo_magazine/c45m/a7
+	magazine_type = /obj/item/ammo_magazine/a45m/a7
 	icon_state = "ANFOR-pistol"
 	icon = 'icons/urist/items/guns.dmi'
 	load_method = MAGAZINE
 
-/obj/item/ammo_magazine/c45m/a7
+/obj/item/ammo_magazine/a45m/a7
 	icon = 'icons/urist/items/guns.dmi'
 	name = "A7 magazine (.45)"
 	icon_state = "ANFOR-pistolmag"
-	ammo_type = /obj/item/ammo_casing/c45
+	ammo_type = /obj/item/ammo_casing/a45
 	caliber = ".45"
 	max_ammo = 8
 	multiple_sprites = 1
 
-/obj/item/ammo_magazine/c45m/a7/empty
+/obj/item/ammo_magazine/a45m/a7/empty
 	initial_ammo = 0
 
 /obj/item/gun/projectile/manualcycle/a50

@@ -158,9 +158,7 @@
 					SPAN_WARNING("You hear some struggling and muffled cries of surprise")
 				)
 
-				var/grab_time = 6 SECONDS
-				if (user.skill_check(SKILL_COMBAT, SKILL_ADEPT))
-					grab_time = 3 SECONDS
+				var/grab_time = 3 SECONDS
 
 				if (do_after(user, grab_time, target, DO_PUBLIC_UNIQUE))
 					user.visible_message(

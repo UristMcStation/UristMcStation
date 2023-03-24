@@ -62,7 +62,7 @@
 	return list(
 		/obj/item/device/flash,
 		/obj/item/clothing/accessory/storage/holster/armpit,
-		/obj/item/gun/energy/gun/secure/corporate,
+		/obj/item/gun/energy/gun/small/secure,
 		/obj/item/storage/secure/briefcase,
 		/obj/item/clothing/shoes/laceup,
 		/obj/item/clothing/under/rank/internalaffairs/plain/nt,

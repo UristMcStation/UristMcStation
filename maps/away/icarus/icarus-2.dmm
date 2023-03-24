@@ -131,7 +131,7 @@
 /area/icarus/vessel)
 "aG" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/overmap/sector/icarus,
+/obj/effect/overmap/visitable/icarus,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel)
 "aH" = (
@@ -663,7 +663,7 @@
 /area/icarus/vessel)
 "cp" = (
 /obj/structure/table/woodentable,
-/obj/item/storage/backpack/captain,
+/obj/item/storage/backpack/command,
 /obj/machinery/alarm{
 	alarm_id = "xenobio3_alarm";
 	dir = 8;

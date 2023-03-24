@@ -145,9 +145,3 @@
 	overlays += get_charge_overlay()
 	overlays += get_reactor_overlay()
 	overlays += get_mode_overlay()
-
-	// Safety
-	if (ismob(loc))
-		var/mob/M = loc
-		if (M.skill_check(SKILL_WEAPONS, SKILL_BASIC))
-			overlays += image('icons/obj/guns/gui.dmi', "safety[safety()]")

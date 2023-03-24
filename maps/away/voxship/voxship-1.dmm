@@ -1815,7 +1815,7 @@
 	},
 /area/voxship/base)
 "eY" = (
-/obj/effect/overmap/sector/vox_base,
+/obj/effect/overmap/visitable/vox_base,
 /turf/space,
 /area/space)
 "eZ" = (

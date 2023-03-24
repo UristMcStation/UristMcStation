@@ -109,7 +109,7 @@
 /datum/uplink_item/item/visible_weapons/assaultrifle
 	name = "STS-35 Assault Rifle"
 	item_cost = 68
-	path = /obj/item/gun/projectile/automatic/assault_rifle
+	path = /obj/item/gun/projectile/automatic/sts35
 
 /datum/uplink_item/item/visible_weapons/battlerifle
 	name = "Battle Rifle"

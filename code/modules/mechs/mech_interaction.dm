@@ -111,7 +111,7 @@
 			zone_sel.set_selected_zone(BP_CHEST)
 	// You may attack the target with your exosuit FIST if you're malfunctioning.
 	var/atom/movable/AM = A
-	var/fail_prob = (user != src && istype(AM) && AM.loc != src) ? (user.skill_check(SKILL_MECH, HAS_PERK) ? 0: 15 ) : 0
+	var/fail_prob = (user != src && istype(AM) && AM.loc != src) ? (user.skill_check(SKILL_MECH, SKILL_NONE) ? 0: 15 ) : 0
 	var/failed = FALSE
 	if(prob(fail_prob))
 		to_chat(user, SPAN_DANGER("Your incompetence leads you to target the wrong thing with the exosuit!"))
@@ -376,7 +376,7 @@
 					return
 
 				visible_message(SPAN_WARNING("\The [user] begins unwrenching the securing bolts holding \the [src] together."))
-				var/delay = 6 SECONDS * user.skill_delay_mult(SKILL_DEVICES)
+				var/delay = 6 SECONDS
 				if(!do_after(user, delay, src, DO_PUBLIC_UNIQUE) || !maintenance_protocols)
 					return
 				visible_message(SPAN_NOTICE("\The [user] loosens and removes the securing bolts, dismantling \the [src]."))
@@ -411,7 +411,7 @@
 				if(!body || !body.cell)
 					to_chat(user, SPAN_WARNING("There is no cell here for you to remove!"))
 					return
-				var/delay = 2 SECONDS * user.skill_delay_mult(SKILL_DEVICES)
+				var/delay = 2 SECONDS
 				if(!do_after(user, delay, src, DO_PUBLIC_UNIQUE) || !maintenance_protocols || !body || !body.cell)
 					return
 
@@ -429,7 +429,7 @@
 					return
 				if(!body) //Error
 					return
-				var/delay = min(50 * user.skill_delay_mult(SKILL_DEVICES), 50 * user.skill_delay_mult(SKILL_EVA))
+				var/delay = 50
 				visible_message(SPAN_NOTICE("\The [user] starts forcing the \the [src]'s emergency [body.hatch_descriptor] release using \the [thing]."))
 				if(!do_after(user, delay, src, DO_PUBLIC_UNIQUE))
 					return

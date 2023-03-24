@@ -20,7 +20,7 @@
 
 /obj/machinery/bsa/front/Initialize()
 	. = ..()
-	component_parts = list(new /obj/item/circuitboard/bsafront(src))
+	component_parts = list(new /obj/item/stock_parts/circuitboard/bsafront(src))
 	for(var/i = 1 to 5)
 		component_parts += new /obj/item/stock_parts/manipulator/pico(src)
 
@@ -33,7 +33,7 @@
 
 /obj/machinery/bsa/middle/Initialize()
 	. = ..()
-	component_parts = list(new /obj/item/circuitboard/bsamiddle(src))
+	component_parts = list(new /obj/item/stock_parts/circuitboard/bsamiddle(src))
 	for(var/i = 1 to 10)
 		component_parts += new /obj/item/stock_parts/subspace/crystal(src)
 
@@ -47,6 +47,6 @@
 
 /obj/machinery/bsa/back/Initialize()
 	. = ..()
-	component_parts = list(new /obj/item/circuitboard/bsaback(src))
+	component_parts = list(new /obj/item/stock_parts/circuitboard/bsaback(src))
 	for(var/i = 1 to 5)
 		component_parts += new /obj/item/stock_parts/capacitor/super(src)

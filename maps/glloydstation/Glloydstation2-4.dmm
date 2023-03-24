@@ -1440,7 +1440,7 @@
 /turf/simulated/floor,
 /area/derelict/bridge)
 "dB" = (
-/obj/item/modular_computer/console/preset/security,
+/obj/machinery/computer/modular/preset/security,
 /turf/simulated/floor,
 /area/derelict/bridge)
 "dC" = (

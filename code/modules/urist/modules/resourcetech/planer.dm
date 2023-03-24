@@ -16,7 +16,7 @@
 /obj/machinery/carpentry/planer/New()
 	..()
 	component_parts = list()
-	component_parts += new /obj/item/circuitboard/carpentryplaner(src)
+	component_parts += new /obj/item/stock_parts/circuitboard/carpentryplaner(src)
 	component_parts += new /obj/item/stock_parts/manipulator(src)
 	component_parts += new /obj/item/stack/cable_coil(src, 2)
 
@@ -189,7 +189,7 @@
 /obj/machinery/carpentry/woodprocessor/New()
 	..()
 	component_parts = list()
-	component_parts += new /obj/item/circuitboard/woodprocessor(src)
+	component_parts += new /obj/item/stock_parts/circuitboard/woodprocessor(src)
 	component_parts += new /obj/item/stock_parts/manipulator(src)
 	component_parts += new /obj/item/stock_parts/matter_bin(src)
 	component_parts += new /obj/item/stock_parts/console_screen(src)

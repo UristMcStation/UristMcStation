@@ -125,11 +125,11 @@ var/global/const/TELEBEACON_WIRE_SIGNALLER = 4
 		return
 
 	if (!functioning())
-		if (user.skill_check(SKILL_DEVICES, SKILL_BASIC))
+		if (user.skill_check(SKILL_DEVICES, SKILL_NONE))
 			to_chat(user, SPAN_WARNING("It appears to be offline or disabled."))
 		return
 
-	if (user.skill_check(SKILL_DEVICES, SKILL_ADEPT))
+	if (user.skill_check(SKILL_DEVICES, SKILL_NONE))
 		if (wires.IsIndexCut(TELEBEACON_WIRE_SIGNALLER))
 			to_chat(user, SPAN_WARNING("The signal lights appear to be disabled."))
 		else if (LAZYLEN(connected_computers))
@@ -291,7 +291,7 @@ var/global/const/TELEBEACON_WIRE_SIGNALLER = 4
 		. += "<li>The panel seems to be completely unpowered or disabled.</li>"
 	else
 		. += "<li>The panel is powered.</li>"
-		if (user.skill_check(SKILL_ELECTRICAL, SKILL_ADEPT))
+		if (user.skill_check(SKILL_ELECTRICAL, SKILL_NONE))
 			. += "<li>The remote relay chip is [IsIndexCut(TELEBEACON_WIRE_RELAY) ? "disconnected" : "connected"].</li>"
 			. += "<li>The connection signaller circuitry is [IsIndexCut(TELEBEACON_WIRE_SIGNALLER) ? "disconnected" : "connected"].</li>"
 		else

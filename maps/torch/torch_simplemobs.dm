@@ -96,8 +96,8 @@
 	icon_living = "fleetrifleman"
 	casingtype = /obj/item/ammo_casing/rifle
 	projectiletype = /obj/item/projectile/bullet/rifle
-	natural_weapon = /obj/item/gun/projectile/automatic/bullpup_rifle/light
-	weapon1 = /obj/item/gun/projectile/automatic/bullpup_rifle/light
+	natural_weapon = /obj/item/gun/projectile/automatic/z8/light
+	weapon1 = /obj/item/gun/projectile/automatic/z8/light
 	status_flags = EMPTY_BITFIELD
 
 /mob/living/simple_animal/hostile/fleet/ranged/bullpup/neutral
@@ -188,8 +188,8 @@
 	icon_living = "fleetassaultarmed"
 	casingtype = /obj/item/ammo_casing/rifle
 	projectiletype = /obj/item/projectile/bullet/rifle
-	natural_weapon = /obj/item/gun/projectile/automatic/bullpup_rifle/light
-	weapon1 = /obj/item/gun/projectile/automatic/bullpup_rifle/light
+	natural_weapon = /obj/item/gun/projectile/automatic/z8/light
+	weapon1 = /obj/item/gun/projectile/automatic/z8/light
 
 /mob/living/simple_animal/hostile/fleet/space/ranged/on_update_icon()
 	..()

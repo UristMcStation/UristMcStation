@@ -2218,7 +2218,7 @@
 /turf/simulated/floor/tiled,
 /area/exploration_shuttle/cockpit)
 "el" = (
-/obj/effect/overmap/ship/landable/trajan,
+/obj/effect/overmap/visitable/ship/landable/trajan,
 /obj/machinery/hologram/holopad/longrange,
 /turf/simulated/floor/tiled,
 /area/exploration_shuttle/cockpit)
@@ -4959,7 +4959,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fp)
 "jl" = (
-/obj/item/modular_computer/console/preset/medical{
+/obj/machinery/computer/modular/preset/medical{
 	dir = 4
 	},
 /obj/item/clothing/gloves/forensic,
@@ -5459,7 +5459,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fp)
 "kc" = (
-/obj/item/modular_computer/console/preset/security{
+/obj/machinery/computer/modular/preset/security{
 	dir = 4;
 	icon_state = "console";
 	tag = "icon-console (EAST)"
@@ -5729,7 +5729,7 @@
 	icon_state = "warning";
 	tag = "icon-warning (EAST)"
 	},
-/obj/item/modular_computer/console/preset/nervacommand{
+/obj/machinery/computer/modular/preset/nervacommand{
 	dir = 8;
 	icon_state = "console";
 	tag = "icon-console (WEST)"
@@ -6451,7 +6451,7 @@
 	icon_state = "warning";
 	tag = "icon-warning (EAST)"
 	},
-/obj/item/modular_computer/console/preset/nervacommand{
+/obj/machinery/computer/modular/preset/nervacommand{
 	dir = 8;
 	icon_state = "console";
 	tag = "icon-console (WEST)"
@@ -7162,7 +7162,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/industrial/warning,
-/obj/item/modular_computer/console/preset/engineering{
+/obj/machinery/computer/modular/preset/engineering{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/monotile,
@@ -8460,7 +8460,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/security/hangercheckpoint)
 "oX" = (
-/obj/item/modular_computer/console/preset/security,
+/obj/machinery/computer/modular/preset/security,
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
@@ -8881,7 +8881,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "pR" = (
-/obj/item/modular_computer/console/preset/engineering{
+/obj/machinery/computer/modular/preset/engineering{
 	dir = 1;
 	name = "Drone Monitoring Cameras"
 	},
@@ -14375,7 +14375,7 @@
 /turf/simulated/floor/tiled/white,
 /area/logistics/advwork)
 "yO" = (
-/obj/item/modular_computer/console/preset/research{
+/obj/machinery/computer/modular/preset/research{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -20264,7 +20264,7 @@
 	pixel_x = 0;
 	pixel_y = 32
 	},
-/obj/item/modular_computer/console/preset/medical,
+/obj/machinery/computer/modular/preset/medical,
 /turf/simulated/floor/tiled/monotile,
 /area/command/weapons_command)
 "Jz" = (
@@ -20803,7 +20803,7 @@
 	pixel_x = -24;
 	pixel_y = 24
 	},
-/obj/effect/overmap/ship/landable/hadrian,
+/obj/effect/overmap/visitable/ship/landable/hadrian,
 /obj/structure/cable/cyan{
 	d1 = 2;
 	d2 = 8;
@@ -22302,7 +22302,7 @@
 /area/maintenance/fourth_deck/fs)
 "RT" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
-/obj/item/modular_computer/console/preset/research{
+/obj/machinery/computer/modular/preset/research{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,

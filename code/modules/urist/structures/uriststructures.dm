@@ -125,7 +125,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "pokertable_table"
 	parts = /obj/item/table_parts/poker
-	health = 50
+	health_max = 50
 
 /obj/item/table_parts/poker
 	name = "poker table parts"
@@ -350,7 +350,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	init_material = MATERIAL_WOOD
 //	icon = 'icons/urist/structures&machinery/structures.dmi'
 //	icon_state = "woodgrille"
-	rodpath = /obj/item/stack/woodrods
+//	rodpath = /obj/item/stack/woodrods
 
 /*/obj/structure/grille/wood/update_icon()
 	update_onframe()
@@ -479,14 +479,12 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	desc = "This space is blocked off by a crude assortment of planks."
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "woodenbarricade-old"
-	health = 50
-	maxhealth = 50
+	health_max = 50
 
 /obj/structure/barricade/wooden/crude/snow
 	desc = "This space is blocked off by a crude assortment of planks. It seems to be covered in a layer of snow."
 	icon_state = "woodenbarricade-snow-old"
-	health = 75
-	maxhealth = 75
+	health_max = 75
 
 /obj/structure/silicon_decoy
 	icon = 'icons/mob/AI.dmi'

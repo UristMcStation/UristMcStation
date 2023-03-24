@@ -37,6 +37,8 @@
 	var/load_item_visible = 1	//set if the loaded item should be overlayed on the vehicle sprite
 	var/load_offset_x = 0		//pixel_x offset for item overlay
 	var/load_offset_y = 0		//pixel_y offset for item overlay
+	var/mob_offset_y = 0		//pixel_y offset for mob overlay
+	var/mob_offset_x = 0		//pixel_x offset for mob overlay
 
 //-------------------------------------------
 // Standard procs
@@ -142,7 +144,7 @@
 
 /obj/vehicle/emp_act(severity)
 	var/was_on = on
-	stat |= EMPED
+	stat |= MACHINE_STAT_EMPED
 	var/obj/effect/overlay/pulse2 = new /obj/effect/overlay(loc)
 	pulse2.icon = 'icons/effects/effects.dmi'
 	pulse2.icon_state = "empdisable"
@@ -155,7 +157,7 @@
 	if(on)
 		turn_off()
 	spawn(severity*300)
-		stat &= ~EMPED
+		stat &= ~MACHINE_STAT_EMPED
 		if(was_on)
 			turn_on()
 
@@ -294,8 +296,12 @@
 	if(ismob(C))
 		buckle_mob(C)
 	else if(load_item_visible)
-		C.pixel_x += load_offset_x
-		C.pixel_y += load_offset_y
+		if(ismob(C) && mob_offset_x != 0 && mob_offset_y != 0) //if the offset is not set, use load offset
+			C.pixel_x += mob_offset_x
+			C.pixel_y += mob_offset_y
+		else
+			C.pixel_x += load_offset_x
+			C.pixel_y += load_offset_y
 
 	return 1
 

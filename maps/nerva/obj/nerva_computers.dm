@@ -1,46 +1,52 @@
-/obj/item/modular_computer/console/preset/nervacommand/install_default_hardware()
-	..()
-	nano_printer = new/obj/item/computer_hardware/nano_printer(src)
-	card_slot = new/obj/item/computer_hardware/card_slot(src)
+/obj/machinery/computer/modular/preset/nervacommand/full
+	uncreated_component_parts = list(
+	nano_printer = /obj/item/stock_parts/computer/nano_printer,
+	card_slot = /obj/item/stock_parts/computer/card_slot
+	)
 
-/obj/item/modular_computer/console/preset/nervacommand/install_default_programs()
-	..()
-	hard_drive.store_file(new/datum/computer_file/program/chatclient())
-	hard_drive.store_file(new/datum/computer_file/program/card_mod())
-	hard_drive.store_file(new/datum/computer_file/program/comm())
-	hard_drive.store_file(new/datum/computer_file/program/contract_database())
-	hard_drive.store_file(new/datum/computer_file/program/camera_monitor())
-	hard_drive.store_file(new/datum/computer_file/program/email_client())
-	hard_drive.store_file(new/datum/computer_file/program/records())
-	hard_drive.store_file(new/datum/computer_file/program/wordprocessor())
-	hard_drive.store_file(new/datum/computer_file/program/docking())
+/obj/machinery/computer/modular/preset/nervacommand/Initialize()
+	default_software = list(
+	/datum/computer_file/program/chatclient,
+	/datum/computer_file/program/card_mod,
+	/datum/computer_file/program/comm,
+	/datum/computer_file/program/contract_database,
+	/datum/computer_file/program/camera_monitor,
+	/datum/computer_file/program/email_client,
+	/datum/computer_file/program/records,
+	/datum/computer_file/program/wordprocessor,
+	/datum/computer_file/program/docking,
+	)
+/obj/machinery/computer/modular/preset/nervasci/Initialize()
+	default_software = list(
+	/datum/computer_file/program/chatclient,
+	/datum/computer_file/program/nttransfer,
+	/datum/computer_file/program/newscast,
+	/datum/computer_file/program/camera_monitor,
+	/datum/computer_file/program/email_client,
+	/datum/computer_file/program/supply,
+	/datum/computer_file/program/records,
+	/datum/computer_file/program/wordprocessor,
+	/datum/computer_file/program/contract_database,
+	)
 
-/obj/item/modular_computer/console/preset/nervasci/install_default_programs()
-	..()
-	hard_drive.store_file(new/datum/computer_file/program/chatclient())
-	hard_drive.store_file(new/datum/computer_file/program/nttransfer())
-	hard_drive.store_file(new/datum/computer_file/program/newsbrowser())
-	hard_drive.store_file(new/datum/computer_file/program/camera_monitor())
-	hard_drive.store_file(new/datum/computer_file/program/email_client())
-	hard_drive.store_file(new/datum/computer_file/program/supply())
-	hard_drive.store_file(new/datum/computer_file/program/records())
-	hard_drive.store_file(new/datum/computer_file/program/wordprocessor())
-	hard_drive.store_file(new/datum/computer_file/program/contract_database())
+/obj/machinery/computer/modular/preset/nervasci/install_default_hardware()
+	uncreated_component_parts = list(
+	nano_printer = /obj/item/stock_parts/computer/nano_printer	(src)
+	)
 
-/obj/item/modular_computer/console/preset/nervasci/install_default_hardware()
-	..()
-	nano_printer = new/obj/item/computer_hardware/nano_printer(src)
+/obj/machinery/computer/modular/preset/nervasupply/install_default_hardware()
+	uncreated_component_parts = list(
+	nano_printer = /obj/item/stock_parts/computer/nano_printer	(src)
+	)
 
-/obj/item/modular_computer/console/preset/nervasupply/install_default_hardware()
-	..()
-	nano_printer = new/obj/item/computer_hardware/nano_printer(src)
+/obj/machinery/computer/modular/preset/nervasupply/Initialize()
+	default_software = list(
+	/datum/computer_file/program/contract_database,
+	/datum/computer_file/program/supply,
+	)
+	autorun_program = /datum/computer_file/program/supply
 
-/obj/item/modular_computer/console/preset/nervasupply/install_default_programs()
-	..()
-	hard_drive.store_file(new/datum/computer_file/program/contract_database())
-	hard_drive.store_file(new/datum/computer_file/program/supply())
-	set_autorun("supply")
-
-/obj/item/modular_computer/console/preset/supply/magic/install_default_hardware()
-	..()
+/obj/machinery/computer/modular/preset/supply/magic/install_default_hardware()
+	uncreated_component_parts = list(
 	network_card = new/obj/item/computer_hardware/network_card/wired/magic(src)
+	)

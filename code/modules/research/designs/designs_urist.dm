@@ -48,6 +48,7 @@ datum/design/plasmapistol
 	id = "accountmanager"
 	build_path = /obj/item/stock_parts/circuitboard/account_manager
 	sort_string = "URSTF"
+
 /datum/design/item/stock_part/BRPED
 	name = "Bluespace Rapid Part Exchange Device"
 	desc = "A version of the RPED that allows for replacement of parts and scanning from a distance, along with higher capacity for parts."
