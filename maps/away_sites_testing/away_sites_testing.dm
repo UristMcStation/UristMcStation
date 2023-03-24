@@ -1,4 +1,4 @@
-#if !defined(USING_MAP_DATUM)
+#if !defined(using_map_DATUM)
 	#include "away_sites_testing_lobby.dm"
 
 	#include "blank.dmm"
@@ -23,7 +23,7 @@
 	#include "../away/scavver/scavver_gantry.dm"
 	#include "../away/voxship/voxship.dm"
 
-	#define USING_MAP_DATUM /datum/map/away_sites_testing
+	#define using_map_DATUM /datum/map/away_sites_testing
 
 #elif !defined(MAP_OVERRIDE)
 

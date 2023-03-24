@@ -1,4 +1,4 @@
-/datum/extension/interactive/multitool/cryo/get_interact_window(var/obj/item/device/multitool/M, var/mob/user)
+/*/datum/extension/interactive/multitool/cryo/get_interact_window(var/obj/item/device/multitool/M, var/mob/user)
 	. += buffer(M)
 	. += "<HR><b>Connected Cloning Pods:</b><br>"
 	var/obj/machinery/computer/cloning/C = holder
@@ -25,4 +25,4 @@
 		to_chat(user, "<span class='notice'>You disconnect \the [P] from \the [C].</span>")
 	else
 		to_chat(user, "<span class='notice'>You failed to disconnect \the [P] from \the [C].</span>")
-	return MT_REFRESH
+	return MT_REFRESH*/

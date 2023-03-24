@@ -51,8 +51,6 @@
 
 	level_max = list(Sp_TOTAL = 0, Sp_SPEED = 0, Sp_POWER = 0)
 
-	name_summon = 1
-
 	charge_type = Sp_HOLDVAR
 	holder_var_type = "shock_stage"
 	holder_var_amount = 15

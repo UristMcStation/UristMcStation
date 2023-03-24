@@ -96,23 +96,30 @@
 
 /obj/item/spacecash/bundle/attack_hand(mob/user as mob)
 	if (user.get_inactive_hand() == src)
-		var/amount = input(usr, "How many [GLOB.using_map.local_currency_name] do you want to take? (0 to [src.worth])", "Take Money", 20) as num
-		amount = round(clamp(amount, 0, src.worth))
-		if (amount==0) return 0
+	var/amount = input(usr, "How many credits do you want to take out? (0 to [src.worth])", "Take Money", 20) as num
+	var/result = split_off(amount, usr)
+	if(result)
+		usr.put_in_hands(result)
+	else
+		return 0
 
-		src.worth -= amount
-		src.update_icon()
-		if (amount in list(1000,500,200,100,50,20,1))
-			var/cashtype = text2path("/obj/item/spacecash/bundle/c[amount]")
-			var/obj/cash = new cashtype (usr.loc)
-			usr.put_in_hands(cash)
-		else
-			var/obj/item/spacecash/bundle/bundle = new (usr.loc)
-			bundle.worth = amount
-			bundle.update_icon()
-			usr.put_in_hands(bundle)
-		if (!worth)
-			qdel(src)
+/obj/item/spacecash/bundle/proc/split_off(var/amount, var/mob/user)
+	amount = round(clamp(amount, 0, src.worth))
+	if(amount==0) return 0
+
+	src.worth -= amount
+	src.update_icon()
+	if (amount in list(1000,500,200,100,50,20,1))
+		var/cashtype = text2path("/obj/item/spacecash/bundle/c[amount]")
+		var/obj/cash = new cashtype (usr.loc)
+		usr.put_in_hands(cash)
+	else
+		var/obj/item/spacecash/bundle/bundle = new (usr.loc)
+		bundle.worth = amount
+		bundle.update_icon()
+		usr.put_in_hands(bundle)
+	if (!worth)
+		qdel(src)
 	else
 		..()
 

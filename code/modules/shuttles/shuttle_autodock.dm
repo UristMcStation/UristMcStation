@@ -119,6 +119,8 @@
 	next_location = null
 	in_use = null	//release lock
 
+/datum/shuttle/autodock/proc/get_travel_time()
+	return move_time
 
 /datum/shuttle/autodock/proc/process_launch()
 	if(!next_location.is_valid(src) || current_location.cannot_depart(src))

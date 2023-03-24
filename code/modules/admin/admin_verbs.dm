@@ -703,7 +703,7 @@ var/global/list/admin_verbs_mod = list(
 //---- bs12 verbs ----
 
 
-/client/proc/editappear(mob/living/carbon/human/M as mob in SSmobs.mob_list)
+/client/proc/editappear()
 	set name = "Edit Appearance"
 	set category = "Fun"
 

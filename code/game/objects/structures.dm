@@ -24,17 +24,6 @@
 	set waitfor = FALSE
 	return FALSE
 
-/obj/structure/attack_generic(var/mob/user, var/damage, var/attack_verb, var/wallbreaker)
-	if(wallbreaker && damage && breakable)
-		visible_message("<span class='danger'>\The [user] smashes the \[src] to pieces!</span>")
-		attack_animation(user)
-		qdel(src)
-		return 1
-	visible_message("<span class='danger'>\The [user] [attack_verb] \the [src]!</span>")
-	attack_animation(user)
-	take_damage(damage)
-	return 1
-
 /obj/structure/Destroy()
 	reset_mobs_offset()
 	var/turf/T = get_turf(src)
@@ -216,6 +205,6 @@
 	return TRUE
 
 // Urist addition - stub proc to define the interface
-/obj/structure/proc/take_damage(damage)
-	src.health -= damage
-	return (src.health > 0)
+///obj/structure/proc/take_damage(damage)
+//	src.health_current -= damage
+//	return (src.health_current > 0)

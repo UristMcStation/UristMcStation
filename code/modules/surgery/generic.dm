@@ -75,7 +75,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_NOTICE("[user] has constructed a prepared incision on and within [target]'s [affected.name] with \the [tool]."), \
 	SPAN_NOTICE("You have constructed a prepared incision on and within [target]'s [affected.name] with \the [tool]."),)
-	affected.createwound(INJURY_TYPE_CUT, affected.min_broken_damage/2, 1) // incision
+	var/datum/wound/W = affected.createwound(INJURY_TYPE_CUT, affected.min_broken_damage/2, 1) // incision
 	affected.clamp_organ() // clamp
 	affected.open_incision() // retract
 	W.desc = "clean surgical incision"
@@ -282,7 +282,7 @@
 		affected.update_wounds()
 	if(affected.is_stump())
 		affected.status &= ~ORGAN_ARTERY_CUT
-	if(affected.wounds_clamped())
+	if(affected.clamped())
 		affected.remove_clamps()
 
 /singleton/surgery_step/generic/cauterize/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

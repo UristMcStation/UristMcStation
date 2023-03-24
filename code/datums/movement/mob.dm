@@ -263,7 +263,6 @@
 	if(get_turf(mob) != old_turf)
 		if(MOVING_QUICKLY(mob))
 			mob.last_quick_move_time = world.time
-			mob.adjust_stamina(-(mob.get_stamina_used_per_step() * (1+mob.encumbrance())))
 		mob.handle_embedded_and_stomach_objects()
 
 	mob.moving = 0
@@ -274,20 +273,6 @@
 /datum/movement_handler/mob/movement/proc/HandleGrabs(var/direction, var/old_turf)
 	. = 0
 	// TODO: Look into making grabs use movement events instead, this is a mess.
-	var/list/L = mob.ret_grab()
-	if(LAZYLEN(L))
-		var/turf/T = get_step(mob,reverse_direction(direction))
-		L -= mob
-		for(var/mob/M in L)
-			if ((get_dist(mob, M) <= 2 || M.loc == mob.loc))
-				if (isturf(M.loc))
-					var/diag = get_dir(mob, M)
-					if ((diag - 1) & diag)
-					else
-						diag = null
-					if ((get_dist(mob, M) > 1 || diag))
-						step(M, get_dir(M.loc, T))
-
 	for (var/obj/item/grab/G in mob)
 		if(G.assailant == G.affecting)
 			return

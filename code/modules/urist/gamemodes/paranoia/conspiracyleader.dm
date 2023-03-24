@@ -80,7 +80,7 @@ var/datum/antagonist/agent/agents
 		return
 
 	convert_to_faction(M.mind, conspiracy)
-	M.mind.store_memory("You remember that <B>[conspiracy.leader] leads the [conspiracy.faction_descriptor]</B>", 0, 0)
+	M.mind.edit_memory("You remember that <B>[conspiracy.leader] leads the [conspiracy.faction_descriptor]</B>", 0, 0)
 
 /datum/antagonist/agent/get_extra_panel_options(var/datum/mind/player)
 	return "<a href='?src=\ref[player];common=crystals'>\[set crystals\]</a><a href='?src=\ref[src];spawn_uplink=\ref[player.current]'>\[spawn uplink\]</a>"
@@ -114,7 +114,7 @@ var/datum/antagonist/agent/agents
 	if(!priority_order || !length(priority_order))
 		priority_order = list()
 		for(var/entry in GLOB.default_uplink_source_priority)
-			priority_order += Singletons.get(entry)
+			priority_order += GET_SINGLETON(entry)
 
 	if(priority_order[1] == "Headset")
 		R = locate(/obj/item/device/radio) in agent_mob.contents
@@ -161,7 +161,7 @@ var/datum/antagonist/agent/agents
 		target_radio.hidden_uplink = T
 		target_radio.traitor_frequency = freq
 		agent_mob << "A portable object teleportation relay has been installed in your [R.name] [loc]. Simply dial the frequency [format_frequency(freq)] to unlock its hidden features."
-		agent_mob.mind.store_memory("<B>Radio Freq:</B> [format_frequency(freq)] ([R.name] [loc]).")
+		agent_mob.mind.edit_memory("<B>Radio Freq:</B> [format_frequency(freq)] ([R.name] [loc]).")
 
 	else if (istype(R, /obj/item/modular_computer/pda))
 		var/singleton/uplink_source/pda/uplink_source = new

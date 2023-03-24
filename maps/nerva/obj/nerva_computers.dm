@@ -29,14 +29,14 @@
 	/datum/computer_file/program/contract_database,
 	)
 
-/obj/machinery/computer/modular/preset/nervasci/install_default_hardware()
+/obj/machinery/computer/modular/preset/nervasci/
 	uncreated_component_parts = list(
-	nano_printer = /obj/item/stock_parts/computer/nano_printer	(src)
+	nano_printer = /obj/item/stock_parts/computer/nano_printer(src)
 	)
 
-/obj/machinery/computer/modular/preset/nervasupply/install_default_hardware()
+/obj/machinery/computer/modular/preset/nervasupply/
 	uncreated_component_parts = list(
-	nano_printer = /obj/item/stock_parts/computer/nano_printer	(src)
+	nano_printer = /obj/item/stock_parts/computer/nano_printer(src)
 	)
 
 /obj/machinery/computer/modular/preset/nervasupply/Initialize()
@@ -46,7 +46,7 @@
 	)
 	autorun_program = /datum/computer_file/program/supply
 
-/obj/machinery/computer/modular/preset/supply/magic/install_default_hardware()
+/obj/machinery/computer/modular/preset/supply/magic/
 	uncreated_component_parts = list(
-	network_card = new/obj/item/computer_hardware/network_card/wired/magic(src)
+	network_card = new/obj/item/stock_parts/computer/network_card/wired/magic(src)
 	)

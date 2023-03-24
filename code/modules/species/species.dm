@@ -537,7 +537,7 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 //Used for swimming
 /datum/species/proc/can_float(mob/living/carbon/human/H)
 	if(!H.is_physically_disabled())
-		if(H.skill_check(SKILL_HAULING, SKILL_BASIC))
+		if(H.skill_check(SKILL_HAULING, SKILL_NONE))
 			if(H.encumbrance() < 1)
 				return TRUE //Is not possible to swim while pulling big things
 	return FALSE

@@ -96,7 +96,7 @@
 	new /obj/item/implanter(src)
 	new /obj/item/implantpad(src)
 
-/obj/item/stack/woodrods
+/*/obj/item/stack/woodrods //bay has these
 	name = "wood shafts"
 	desc = "Some wood shafts. Can be used for some shit probably."
 	singular_name = "wood shaft"
@@ -110,14 +110,19 @@
 	matter = list("wood" = 200)
 	max_amount = 100
 	center_of_mass = null
-	attack_verb = list("hit", "bludgeoned", "whacked")
+	attack_verb = list("hit", "bludgeoned", "whacked")*/
 
 /obj/item/stack/woodrods/New()
 	..()
 	update_icon()
 
-/obj/item/stack/woodrods/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/stack/material/rods/attackby(obj/item/W as obj, mob/user as mob)
 	..()
+	var/obj/item/stack/material/rods/R
+	if(!R.material == MATERIAL_WOOD)
+		to_chat(user, SPAN_NOTICE("This is too hard to work with - try a wooden rod."))
+		return
+
 	if(W.edge)
 		user << "<span class='warning'>You use the edge of [W] to sharpen the tip of the shaft.</span>"
 		new /obj/item/sharpwoodrod(user.loc)
@@ -151,7 +156,7 @@
 
 		user.put_in_hands(T)
 
-/obj/item/stack/woodrods/attack_self(mob/user as mob)
+/*/obj/item/stack/woodrods/attack_self(mob/user as mob)
 	src.add_fingerprint(user)
 
 	if(!istype(user.loc,/turf)) return 0
@@ -196,7 +201,7 @@
 /obj/item/stack/woodrods/add()
 	. = ..()
 	update_icon()
-
+*/
 /obj/item/sharpwoodrod
 	icon = 'icons/urist/items/misc.dmi'
 //	item_state = "sharpwoodrod"
@@ -244,11 +249,11 @@
 			finished = new /obj/item/fishingrod/improvised(get_turf(user))
 			user << "<span class='notice'>You tie in the length of cable, forming an improvised fishing rod.</span>"
 
-	else if(istype(I, /obj/item/stack/woodrods))
+	/*else if(istype(I, /obj/item/stack/woodrods))
 		var/obj/item/stack/woodrods/R = I
 		if (R.use(1))
 			finished = new /obj/item/material/twohanded/woodquarterstaff(get_turf(user))
-			user << "<span class='notice'>You fasten the two rods together tightly with the cable.</span>"
+			user << "<span class='notice'>You fasten the two rods together tightly with the cable.</span>"*/
 
 	else if(istype(I, /obj/item/stack/material/steel))
 		var/obj/item/stack/material/steel/R = I
@@ -417,10 +422,14 @@
 /obj/item/improv/axe_head/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 
-	if(istype(W, /obj/item/stack/woodrods))
-		var/obj/item/stack/woodrods/R = W
+	if(istype(W, /obj/item/stack/material/rods))
+		var/obj/item/stack/material/rods/R = W
 		var/obj/item/carpentry/axe/T = new /obj/item/carpentry/axe(get_turf(user))
-		user << "<span class='notice'>You slam that axe head down onto the wood rod. You got yourself an axe son.</span>"
+		if(!R.material == MATERIAL_WOOD)
+			to_chat(user, SPAN_NOTICE("This is too hard to work with - try a wooden rod."))
+			return
+		else
+			to_chat(user, SPAN_NOTICE("You slam that axe head down onto the wood rod. You got yourself an axe son."))
 		R.use(1)
 
 		user.put_in_hands(T)

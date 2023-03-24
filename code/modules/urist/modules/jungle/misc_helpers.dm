@@ -28,16 +28,16 @@
 	var/list/refined_src = new/list()
 	for(var/turf/T in turfs_src)
 		refined_src += T
-		refined_src[T] = new/datum/coords
-		var/datum/coords/C = refined_src[T]
+		refined_src[T] = new/datum/vector2
+		var/datum/vector2/C = refined_src[T]
 		C.x_pos = (T.x - src_min_x)
 		C.y_pos = (T.y - src_min_y)
 
 	var/list/refined_trg = new/list()
 	for(var/turf/T in turfs_trg)
 		refined_trg += T
-		refined_trg[T] = new/datum/coords
-		var/datum/coords/C = refined_trg[T]
+		refined_trg[T] = new/datum/vector2
+		var/datum/vector2/C = refined_trg[T]
 		C.x_pos = (T.x - trg_min_x)
 		C.y_pos = (T.y - trg_min_y)
 
@@ -48,9 +48,9 @@
 
 	moving:
 		for (var/turf/T in refined_src)
-			var/datum/coords/C_src = refined_src[T]
+			var/datum/source_turf/C_src = refined_src[T]
 			for (var/turf/B in refined_trg)
-				var/datum/coords/C_trg = refined_trg[B]
+				var/datum/source_turf/C_trg = refined_trg[B]
 				if(C_src.x_pos == C_trg.x_pos && C_src.y_pos == C_trg.y_pos)
 
 					var/old_dir1 = T.dir

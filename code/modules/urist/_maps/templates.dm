@@ -28,7 +28,7 @@ var/list/datum/map_template/ship/ship_templates = list()
 
 /obj/effect/template_loader
 	name = "random ruin"
-	icon = 'icons/obj/weapons.dmi'
+	icon = 'icons/obj/weapons/other.dmi'
 	icon_state = "syndballoon"
 	invisibility = 101
 	var/gamemode = 0

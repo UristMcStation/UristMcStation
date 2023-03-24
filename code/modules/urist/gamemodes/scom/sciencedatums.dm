@@ -286,7 +286,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/cvrt2
 	name = "CVR"
-	path = /obj/mecha/working/cvrt/basic
+	path = /mob/living/exosuit/cvrt/basic
 	category = "Vehicles"
 	scomtechlvl = 2
 	hidden = 1
@@ -414,7 +414,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/cvrt3
 	name = "advanced CVR"
-	path = /obj/mecha/working/cvrt/upgraded
+	path = /mob/living/exosuit/cvrt/basic
 	category = "Vehicles"
 	scomtechlvl = 6
 	hidden = 1

@@ -59,7 +59,7 @@
 				M.DoActivate()
 
 	if(src == GLOB.using_map.overmap_ship)
-		var/singleton/security_state/security_state = Singletons.get(GLOB.using_map.security_state)
+		var/singleton/security_state/security_state = GET_SINGLETON(GLOB.using_map.security_state)
 		security_state.stored_security_level = security_state.current_security_level
 		security_state.set_security_level(security_state.high_security_level)
 
@@ -107,7 +107,7 @@
 	src.unhalt()
 
 	if(src == GLOB.using_map.overmap_ship)
-		var/singleton/security_state/security_state = Singletons.get(GLOB.using_map.security_state)
+		var/singleton/security_state/security_state = GET_SINGLETON(GLOB.using_map.security_state)
 		security_state.set_security_level(security_state.stored_security_level)
 
 /obj/effect/overmap/visitable/ship/combat/Crossed(O as mob)
@@ -232,7 +232,7 @@
 		autoannounce("<b>Engines destabilized - [OM.ship_name] weapon systems online</b>", "public")
 
 	if(src == GLOB.using_map.overmap_ship)	//If the Nerva is involved, let's put it on Red Alert.
-		var/singleton/security_state/security_state = Singletons.get(GLOB.using_map.security_state)
+		var/singleton/security_state/security_state = GET_SINGLETON(GLOB.using_map.security_state)
 		security_state.stored_security_level = security_state.current_security_level
 		security_state.set_security_level(security_state.high_security_level)
 
@@ -254,7 +254,7 @@
 		autoannounce("<b>[T.ship_name] has exceeded weapons range - Exiting combat.</b>", "public")
 
 	if(src == GLOB.using_map.overmap_ship)	//If the Nerva is involved, put the alert level back where it was
-		var/singleton/security_state/security_state = Singletons.get(GLOB.using_map.security_state)
+		var/singleton/security_state/security_state = GET_SINGLETON(GLOB.using_map.security_state)
 		security_state.set_security_level(security_state.stored_security_level)
 
 	T.leave_pvp_combat(!fled)	//Calls the other ship to leave. Won't loop back as target was cleared.

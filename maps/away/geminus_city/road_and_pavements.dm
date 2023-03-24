@@ -36,7 +36,7 @@
 	light_falloff_curve = 0.5
 
 /turf/simulated/floor/pavement/lighting/Initialize()
-	light_color = SSskybox.BGcolor
+	light_color = SSskybox.background_color
 
 	. = ..()
 

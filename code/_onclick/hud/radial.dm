@@ -287,7 +287,7 @@ GLOBAL_LIST_EMPTY(radial_menus)
 				return
 
 		if(custom_check_callback && next_check < world.time)
-			if(!custom_check_callback.Invoke())
+			if(!invoke(custom_check_callback))
 				return
 			else
 				next_check = world.time + check_delay

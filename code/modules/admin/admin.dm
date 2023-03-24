@@ -949,17 +949,6 @@ GLOBAL_VAR_INIT(skip_allow_lists, FALSE)
 	SSstatistics.add_field_details("admin_verb","AEA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 
-/datum/admins/proc/toggle_space_ninja()
-	set category = "Server"
-	set desc="Toggle space ninjas spawning."
-	set name="Toggle Space Ninjas"
-	if(!check_rights(R_ADMIN))
-		return
-
-	config.ninjas_allowed = !config.ninjas_allowed
-	log_and_message_admins("toggled Space Ninjas [config.ninjas_allowed ? "on" : "off"].")
-	SSstatistics.add_field_details("admin_verb","TSN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
 /datum/admins/proc/delay()
 	set category = "Server"
 	set desc="Delay the game start/end"

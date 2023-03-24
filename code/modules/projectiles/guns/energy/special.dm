@@ -158,9 +158,6 @@
 	self_recharge = 1
 	var/datum/effect/effect/system/spark_spread/spark_system
 
-	// As an industrial tool the plasma cutter's safety training falls under construction.
-	gun_skill = SKILL_CONSTRUCTION
-	safety_skill = SKILL_ADEPT
 
 /obj/item/gun/energy/plasmacutter/mounted
 	name = "mounted plasma cutter"

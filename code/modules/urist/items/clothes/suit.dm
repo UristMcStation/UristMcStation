@@ -1,4 +1,5 @@
 //rescued colored spacesuits from bay. too nice to let go
+/obj/item/clothing/suit/urist/space/syndicate
 
 //Green syndicate space suit
 

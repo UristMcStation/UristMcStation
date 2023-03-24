@@ -100,18 +100,21 @@ var/global/const/NETWORK_EXPLO             = "Exploration"
 /obj/machinery/camera/xray/command //for the bridge
 	network = list(NETWORK_COMMAND)
 
-/obj/machinery/power/smes/buildable/preset/nerva/shuttle/configure_and_install_coils()
-	component_parts += new /obj/item/stock_parts/smes_coil/super_io(src)
-	component_parts += new /obj/item/stock_parts/smes_coil/super_capacity(src)
+/obj/machinery/power/smes/buildable/preset/nerva/shuttle/Initialize()
+	uncreated_component_parts = list(
+	/obj/item/stock_parts/smes_coil/super_io = 1,
+	/obj/item/stock_parts/smes_coil/super_capacity = 1
+	)
 	_input_maxed = TRUE
 	_output_maxed = TRUE
 	_input_on = TRUE
 	_output_on = TRUE
 	_fully_charged = TRUE
 
-/obj/machinery/power/smes/buildable/preset/nerva/hangar/configure_and_install_coils()
-	component_parts += new /obj/item/stock_parts/smes_coil/super_io(src)
-	component_parts += new /obj/item/stock_parts/smes_coil/super_io(src)
+/obj/machinery/power/smes/buildable/preset/nerva/hangar/Initialize()
+	uncreated_component_parts = list(
+	/obj/item/stock_parts/smes_coil/super_io = 2,
+	)
 	_input_maxed = TRUE
 	_output_maxed = TRUE
 	_input_on = TRUE

@@ -28,7 +28,8 @@
 /datum/species/human/gravworlder/can_float(mob/living/carbon/human/H)
 	. = ..()
 	if(.)
-		return H.skill_check(SKILL_HAULING, SKILL_EXPERT) //Hard for them to swim
+		if(H.encumbrance() < 2)
+			return H.skill_check(SKILL_HAULING, SKILL_EXPERT) //Hard for them to swim
 
 /datum/species/human/spacer
 	name = SPECIES_SPACER

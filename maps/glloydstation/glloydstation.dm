@@ -1,4 +1,4 @@
-#if !defined(USING_MAP_DATUM)
+#if !defined(using_map_DATUM)
 
 	#include "glloydstation_areas.dm"
 	#include "glloydstation_shuttles.dm"
@@ -37,7 +37,7 @@
 	#include "../../code/datums/music_tracks/dilbert.dm"
 	#include "../../code/datums/music_tracks/space_oddity.dm"
 
-	#define USING_MAP_DATUM /datum/map/glloydstation
+	#define using_map_DATUM /datum/map/glloydstation
 	#define URISTCODE 1 //hacky override that tells the compiler that yes, the map is Uristcrap-compatible
 	#define SCOM_ZLEVEL 2 //in case we ever have more maps
 

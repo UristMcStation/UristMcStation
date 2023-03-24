@@ -208,19 +208,22 @@
 	meat_amount = 2
 	hide = 4
 
+	ai_holder = /datum/ai_holder/simple_animal/melee/hit_and_run/panther
+
 //	layer = 3.1		//so they can stay hidde under the /obj/structure/bush
+/datum/ai_holder/simple_animal/melee/hit_and_run/panther
 	var/stalk_tick_delay = 3
 
-/mob/living/simple_animal/hostile/huntable/panther/ListTargets()
+/datum/ai_holder/simple_animal/melee/hit_and_run/panther/list_targets()
 	var/list/targets = list()
 	for(var/mob/living/carbon/human/H in view(src, 10))
 		targets += H
 	return targets
 
-/mob/living/simple_animal/hostile/huntable/panther/FindTarget()
+/datum/ai_holder/simple_animal/melee/hit_and_run/panther/find_target(list/possible_targets, has_targets_list)
 	. = ..()
 	if(.)
-		emote("nashes at [.]")
+		holder.custom_emote(1,"nashes at [.]")
 
 /mob/living/simple_animal/hostile/huntable/panther/UnarmedAttack(var/atom/A, var/proximity)
 	. =..()
@@ -230,7 +233,7 @@
 			L.Weaken(3)
 			L.visible_message("<span class='danger'>\the [src] knocks down \the [L]!</span>")
 
-/mob/living/simple_animal/hostile/huntable/panther/AttackTarget()
+/datum/ai_holder/simple_animal/melee/hit_and_run/panther/engage_target()
 	..()
 	if(stance == STANCE_ATTACKING && get_dist(src, target))
 		stalk_tick_delay -= 1
@@ -270,16 +273,16 @@
 //	layer = 3.1		//so they can stay hidde under the /obj/structure/bush
 	var/stalk_tick_delay = 3
 
-/mob/living/simple_animal/hostile/snake/ListTargets()
+/datum/ai_holder/simple_animal/melee/snek/list_targets()
 	var/list/targets = list()
 	for(var/mob/living/carbon/human/H in view(src, 10))
 		targets += H
 	return targets
 
-/mob/living/simple_animal/hostile/snake/FindTarget()
+/datum/ai_holder/simple_animal/melee/snek/find_target()
 	. = ..()
 	if(.)
-		emote("hisses wickedly")
+		holder.custom_emote(1,"hisses wickedly")
 
 /mob/living/simple_animal/hostile/snake/UnarmedAttack(var/atom/A, var/proximity)
 	. =..()
@@ -290,7 +293,7 @@
 /mob/living/simple_animal/hostile/snake/proc/bite(var/mob/living/L)
 	L.apply_damage(rand(3,12), DAMAGE_TOXIN)
 
-/mob/living/simple_animal/hostile/snake/AttackTarget()
+/datum/ai_holder/simple_animal/melee/snek/engage_target()
 	..()
 	if(stance == STANCE_ATTACKING && get_dist(src, target))
 		stalk_tick_delay -= 1
@@ -403,7 +406,7 @@
 	maxHealth = 150
 	health = 150
 	bound_width = 64
-	ai_holder = /datum/ai_holder/simple_animal
+	ai_holder = /datum/ai_holder/simple_animal/destructive
 	harm_intent_damage = 8
 	natural_weapon = /obj/item/natural_weapon/giant
 	attacktext = "slashed"

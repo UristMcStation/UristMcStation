@@ -14,18 +14,6 @@
 	set hidden = TRUE
 	link_url(config.wiki_url, "Wiki", TRUE)
 
-/client/verb/forum()
-	set name = "Forum"
-	set desc = "Visit the Discord server."
-	set hidden = 1
-	if( config.forumurl )
-		if(alert("This will open the Discord server in your browser. Are you sure?",,"Yes","No")=="No")
-			return
-		send_link(src, config.forumurl)
-	else
-		to_chat(src, "<span class='warning'>The forum URL is not set in the server configuration.</span>")
-	return
-
 /client/verb/link_source()
 	set name = "link source"
 	set hidden = TRUE

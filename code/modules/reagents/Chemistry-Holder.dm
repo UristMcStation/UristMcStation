@@ -382,8 +382,7 @@ GLOBAL_DATUM_INIT(temp_reagents_holder, /obj, new)
 	F.add_reagent(type, amount, tmpdata)
 	remove_reagent(type, amount)
 
-	else
-		. = F.trans_to(target, amount) // Let this proc check the atom's type
+	. = F.trans_to(target, amount) // Let this proc check the atom's type
 
 	qdel(F)
 

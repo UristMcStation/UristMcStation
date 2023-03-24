@@ -1,4 +1,4 @@
-/mob/living/simple_animal/hostile/commanded/synthcarp
+/*/mob/living/simple_animal/hostile/commanded/synthcarp //commanded mobs are not yet integrated by bay
 	name = "\improper C.A.R.P. Unit"
 	desc = "A tiny synthetic carp designed for personal defense."
 	icon = 'icons/uristmob/simpleanimals.dmi'
@@ -11,7 +11,7 @@
 
 /obj/item/synthcarp
 	name = "\improper inactive C.A.R.P. unit"
-	desc = "An inactive synthetic carp, simply press the button and it'll register you as it's master."
+	desc = "An inactive synthetic carp, simply press the button and it'll register you as its master."
 	icon = 'icons/uristmob/simpleanimals.dmi'
 	icon_state = "synthcarp"
 
@@ -22,3 +22,4 @@
 					"<span class = 'notice'>\icon[src] The [src] pings as it floats out of your hands.</span>")
 	if(!QDELETED(src))
 		qdel(src)
+*/

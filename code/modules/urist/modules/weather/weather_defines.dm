@@ -10,7 +10,7 @@
 	mouse_opacity = 2
 	anchored = 1
 	layer = EFFECTS_LAYER
-	plane = WEATHER_PLANE
+//	plane = WEATHER_PLANE
 	var/weathertemp = 310.15 //Kelvin temperature, default is neutral to mobs
 	var/list/init_reagents = list() //carried reagents as ids
 
@@ -39,7 +39,7 @@ all-purpose cold/hot weather helper for exposure effects, wear a hat */
 			temp_adj = (1-thermal_protection) * ((weathertemp - M.bodytemperature) / BODYTEMP_HEAT_DIVISOR)
 
 	//Assume standard conditions, thermodynamics go home, atmos can handle that
-	M.bodytemperature += between(BODYTEMP_COOLING_MAX, temp_adj, BODYTEMP_HEATING_MAX)
+	M.bodytemperature += clamp(BODYTEMP_COOLING_MAX, temp_adj, BODYTEMP_HEATING_MAX)
 
 	//Manually triggering discomforts since they work on breath for some reason
 	if(istype(M, /mob/living/carbon/human))
@@ -143,7 +143,7 @@ all-purpose cold/hot weather helper for exposure effects, wear a hat */
 			damage *= H.reagent_permeability() //wear covering clothes
 			H.take_organ_damage(damage, 0, 1, 0) //check sharp vs edge
 		else
-			O.apply_damage(5, BRUTE)
+			O.apply_damage(5, DAMAGE_BRUTE)
 		if(prob(25) && damage)
 			to_chat(O, "<span class='warning'>The sand tears at your body!</span>")
 

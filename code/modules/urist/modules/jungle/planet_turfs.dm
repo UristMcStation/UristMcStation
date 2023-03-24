@@ -95,7 +95,7 @@
 //	weather_enable() //Fog does some odd things with duplicating the turf, need to invesi //he died shortly thereafter
 
 	if(planet_light)
-		light_color = SSskybox.BGcolor
+		light_color = SSskybox.background_color
 
 	. = ..()
 

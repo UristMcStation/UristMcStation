@@ -221,7 +221,7 @@ obj/structure/icarus/broken_cryo/attack_hand(mob/user)
 	light_color = "#ffffff"
 
 /turf/simulated/floor/exoplanet/desert/skylight/Initialize()
-	light_color = SSskybox.BGcolor
+	light_color = SSskybox.background_color
 	. = ..()
 
 /turf/simulated/floor/exoplanet/grass/skylight
@@ -231,7 +231,7 @@ obj/structure/icarus/broken_cryo/attack_hand(mob/user)
 	light_color = "#ffffff"
 
 /turf/simulated/floor/exoplanet/grass/skylight/Initialize()
-	light_color = SSskybox.BGcolor
+	light_color = SSskybox.background_color
 	. = ..()
 
 /turf/simulated/open/skylight
@@ -241,5 +241,5 @@ obj/structure/icarus/broken_cryo/attack_hand(mob/user)
 	light_color = "#ffffff"
 
 /turf/simulated/open/skylight/Initialize()
-	light_color = SSskybox.BGcolor
+	light_color = SSskybox.background_color
 	. = ..()

@@ -208,6 +208,7 @@
 	if(lying) //Crawling, it's slower
 		. += (8 + ((weakened * 3) + (confused * 2)))
 	. += move_intent.move_delay
+	. += encumbrance() * (2)
 
 	if(pulling)
 		if(istype(pulling, /obj))
@@ -218,6 +219,19 @@
 			. += max(0, M.mob_size) / MOB_MEDIUM
 		else
 			. += 1
+
+/mob/proc/encumbrance()
+	. = 0
+	if(pulling)
+		if(istype(pulling, /obj))
+			var/obj/O = pulling
+			. += clamp(O.w_class, 0, ITEM_SIZE_GARGANTUAN) / 5
+		else if(istype(pulling, /mob))
+			var/mob/M = pulling
+			. += max(0, M.mob_size) / MOB_MEDIUM
+		else
+			. += 1
+	. *= (0.8 ** size_strength_mod())
 
 //Determines mob size/strength effects for slowdown purposes. Standard is 0; can be pos/neg.
 /mob/proc/size_strength_mod()

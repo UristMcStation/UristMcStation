@@ -62,6 +62,8 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 
 	var/list/map_admin_faxes = list()
 
+	var/has_central_command = TRUE
+
 	var/shuttle_docked_message
 	var/shuttle_leaving_dock
 	var/shuttle_called_message

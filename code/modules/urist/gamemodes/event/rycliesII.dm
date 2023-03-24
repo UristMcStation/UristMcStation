@@ -11,11 +11,12 @@
 			return
 		if(2.0)
 			if(prob(75))
-				take_damage(rand(150, 250))
+				src.ChangeTurf(/turf/unsimulated/floor)
 			else
 				dismantle_wall(1,1)
 		if(3.0)
-			take_damage(rand(0, 250))
+			if(prob(10))
+				src.ChangeTurf(/turf/unsimulated/floor)
 		else
 	return
 
@@ -319,7 +320,7 @@
 	layer = 4.1		//just above mobs
 	density = 1
 
-/obj/structure/scom/shieldwall/shieldwall1/Bumped(var/obj/mecha/working/hoverpod/fighter/small/alien/M)
+/obj/structure/scom/shieldwall/shieldwall1/Bumped(var/mob/living/exosuit/premade/hoverpod/fighter/M)
 	M.x = src.x
 	M.y = src.y
 
@@ -332,7 +333,7 @@
 	layer = 4.1		//just above mobs
 	density = 1
 
-/obj/structure/scom/shieldwall/shieldwall2/Bumped(var/obj/mecha/working/hoverpod/fighter/M)
+/obj/structure/scom/shieldwall/shieldwall2/Bumped(var/mob/living/exosuit/premade/hoverpod/fighter/M)
 	M.x = src.x
 	M.y = src.y
 

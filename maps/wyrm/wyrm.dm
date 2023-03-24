@@ -1,4 +1,4 @@
-#if !defined(USING_MAP_DATUM)
+#if !defined(using_map_DATUM)
 
 	#include "wyrm_areas.dm"
 	#include "wyrm_shuttles.dm"
@@ -46,7 +46,7 @@
 	#include "../../code/datums/music_tracks/dilbert.dm"
 	#include "../../code/datums/music_tracks/space_oddity.dm"
 
-	#define USING_MAP_DATUM /datum/map/wyrm
+	#define using_map_DATUM /datum/map/wyrm
 	#define URISTCODE 1
 
 #elif !defined(MAP_OVERRIDE)

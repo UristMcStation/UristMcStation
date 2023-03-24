@@ -69,7 +69,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/prefab/bluespace_radio/LateInitialize()
-	var/singleton/prefab/prefab = Singletons.get(prefab_type)
+	var/singleton/prefab/prefab = GET_SINGLETON(prefab_type)
 	prefab.create(loc)
 	qdel(src)
 

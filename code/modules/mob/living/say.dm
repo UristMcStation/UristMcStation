@@ -303,11 +303,14 @@ var/global/list/channel_to_radio_key = new
 				M.hear_say(stars(message), verb, speaking, alt_name, italics, src, speech_sound, sound_vol)
 				if(M.client)
 					speech_bubble_recipients |= M.client
-
+					whisper_floating |= M.client
 		for(var/obj/O in eavesdroping)
 			spawn(0)
 				if(O) //It's possible that it could be deleted in the meantime.
 					O.hear_talk(src, stars(message), verb, speaking)
+
+	invoke_async(GLOBAL_PROC, .proc/animate_speech_bubble, speech_bubble, speech_bubble_recipients, 30)
+	invoke_async(src, /atom/movable/proc/animate_chat, message, speaking, italics, speech_bubble_recipients, whisper_floating, 30)
 
 	if(whispering)
 		log_whisper("[name]/[key] : [message]")

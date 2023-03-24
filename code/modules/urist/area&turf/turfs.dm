@@ -151,7 +151,7 @@ transit/east is the same thing now AFAIK
 
 	if(isCoil(C))
 		var/obj/item/stack/cable_coil/coil = C
-		coil.PlaceCableOnTurf(src, user)(src, user)
+		coil.PlaceCableOnTurf(src, user)
 
 /turf/simulated/floor/plating/airless/catwalk/is_catwalk()
 	return 1
@@ -299,6 +299,6 @@ transit/east is the same thing now AFAIK
 	light_falloff_curve = 0.5
 
 /turf/simulated/floor/fixed/destroyedroad/planet/Initialize()
-	light_color = SSskybox.BGcolor
+	light_color = SSskybox.background_color
 
 	. = ..()

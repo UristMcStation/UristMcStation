@@ -49,12 +49,14 @@
 
 /obj/item/mech_component/propulsion/cvrt
 	name = "CV-R treads"
+	mech_turn_sound = 'sound/machines/hiss.ogg'
+	mech_step_sound = 'sound/machines/hiss.ogg'
 
 //these three procs overriden to play different sounds
 /*/mob/living/exosuit/cvrt/mechturn(direction)
 	set_dir(direction)
 	//playsound(src,'sound/machines/hiss.ogg',40,1)
-	return 1*/
+	return 1
 
 /mob/living/exosuit/cvrt/mechstep(direction)
 	var/result = step(src,direction)
@@ -67,7 +69,7 @@
 	var/result = step_rand(src)
 	if(result)
 		playsound(src,'sound/machines/hiss.ogg',40,1)
-	return result
+	return result*/
 
 /*/mob/living/exosuit/cvrt/basic/New() //we've got a gun and we take four passengers
 	..()

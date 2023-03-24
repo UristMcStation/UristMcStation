@@ -121,11 +121,11 @@
 	else
 		switch(W.damtype)
 			if("fire")
-				src.health -= W.force * 1
+				src.health_current -= W.force * 1
 			if("brute")
-				src.health -= W.force * 0.50
+				src.health_current -= W.force * 0.50
 			else
-		if (src.health <= 0)
+		if (src.health_current <= 0)
 			visible_message("<span class='danger'>The shield generator is smashed apart!</span>")
 			kaboom()
 			return
@@ -149,16 +149,16 @@
 			else
 				health_current -= 50
 
-	if(src.health <=0)
+	if(src.health_current <=0)
 		visible_message("<span class='danger'>The shield generator is smashed apart!</span>")
 		qdel(src)
 
 	return
 
 /obj/structure/assaultshieldgen/bullet_act(var/obj/item/projectile/Proj)
-	health -= Proj.damage
+	health_current -= Proj.damage
 
-	if(health <= 0)
+	if(health_current <= 0)
 		kaboom()
 
 	..()

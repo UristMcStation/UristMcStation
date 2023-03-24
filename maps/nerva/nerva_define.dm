@@ -4,7 +4,6 @@
 	path = "nerva"
 
 	current_lobby_screen = 'maps/nerva/nerva_lobby.dmi'
-	game_year = (text2num(time2text(world.realtime, "YYYY")) + GLOB.using_map.date_offset)
 	station_levels = list(1,2,3,4)
 	contact_levels = list(1,2,3,4)
 	player_levels = list(1,2,3,4)

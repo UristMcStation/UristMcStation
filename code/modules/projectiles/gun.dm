@@ -555,6 +555,7 @@
 
 /obj/item/gun/examine(mob/user)
 	. = ..()
+	if(user.skill_check(SKILL_WEAPONS, SKILL_NONE))
 		if(length(firemodes) > 1)
 			var/datum/firemode/current_mode = firemodes[sel_mode]
 			to_chat(user, "The fire selector is set to [current_mode.name].")

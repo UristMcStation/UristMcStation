@@ -32,8 +32,6 @@
 		crash_with("Shuttle controller tried to handle topic with no shuttle provided.")
 		to_chat(usr, SPAN_DEBUG("Shuttle controller tried to handle topic with no shuttle provided. This is a bug and should be reported immediately, something's probably horribly broken."))
 		return TOPIC_HANDLED
-	if(ismob(usr))
-		var/mob/user = usr
 
 	if((. = ..()) != null)
 		return

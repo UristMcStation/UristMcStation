@@ -63,9 +63,6 @@
 	var/draw_time = 20						// Time needed to draw the bow back by one "tension"
 	var/powered = TRUE											// Do we allow cells to be used?
 
-/obj/item/gun/launcher/crossbow/toggle_safety(mob/user)
-	to_chat(user, SPAN_WARNING("There's no safety on \the [src]!"))
-
 /obj/item/gun/launcher/crossbow/update_release_force()
 	release_force = tension*release_speed
 

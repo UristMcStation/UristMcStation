@@ -691,7 +691,7 @@
 	. = 1
 	var/fail = FALSE
 	for(var/obj/structure/disposalpipe/sortjunction/sort in world)
-		if(is_type_in_list(sort, exempt_junctions) || sort.test_exempted)
+		if(is_type_in_list(sort, exempt_junctions))
 			continue
 		var/obj/machinery/disposal/bin = get_bin_from_junction(sort)
 		if(!bin)

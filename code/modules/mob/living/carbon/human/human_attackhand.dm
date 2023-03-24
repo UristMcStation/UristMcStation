@@ -78,8 +78,6 @@
 				if (!cpr_time)
 					return 0
 
-				var/pumping_skill = max(M.get_skill_value(SKILL_MEDICAL),M.get_skill_value(SKILL_ANATOMY))
-				var/cpr_delay = 15 * M.skill_delay_mult(SKILL_ANATOMY, 0.2)
 				cpr_time = 0
 
 				H.visible_message(SPAN_NOTICE("\The [H] is trying to perform CPR on \the [src]."))
@@ -98,8 +96,7 @@
 
 					var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
 					if(heart)
-						heart.external_pump = list(world.time, 0.4 + 0.1*pumping_skill + rand(-0.1,0.1))
-
+						heart.external_pump = list(world.time, 0.5 + rand(-0.1,0.1))
 					if(stat != DEAD && prob(15))
 						resuscitate()
 
@@ -144,23 +141,6 @@
 			if(!istype(H))
 				attack_generic(H,rand(1,3),"punched")
 				return
-			//Vampire code //hope I didn't fuck up the copypasta - scr
-			if(M.zone_sel && M.zone_sel.selecting == "head" && src != M)
-				if(M.mind && M.mind.vampire && !M.mind.vampire.draining)
-					if((head && (check_head_coverage()) || (check_mouth_coverage())))
-						M << "<span class='warning'> Remove their mask!</span>"
-						return 0
-					if((H.head && (H.check_head_coverage()) || (H.check_mouth_coverage())))
-						M << "<span class='warning'> Remove your mask!</span>"
-						return 0
-					if(mind && mind.vampire)
-						M << "<span class='warning'> Your fangs fail to pierce [src.name]'s cold flesh</span>"
-						return 0
-					//we're good to suck the blood, blaah
-					M.handle_bloodsucking(src)
-					return
-			//end vampire codes
-
 
 			var/rand_damage = rand(1, 5)
 			var/block = 0

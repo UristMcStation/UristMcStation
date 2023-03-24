@@ -153,10 +153,16 @@
 	var/return_damage_max
 
 	var/autonomous = FALSE //we don't need anyone //mobs will move around in z levels nobody else is in if true
-
+	var/datum/factions/hiddenfaction = null
 
 /mob/living/simple_animal/Initialize()
 	. = ..()
+	if(hiddenfaction)
+		for(var/datum/factions/F in SSfactions.factions)
+			if(F.type == hiddenfaction)
+				hiddenfaction = F
+				if(F.hostile)
+					faction = F.factionid
 	if(LAZYLEN(natural_armor))
 		set_extension(src, armor_type, natural_armor)
 	if(!icon_living)

@@ -1030,7 +1030,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		W.clamped = 1
 	return rval
 
-/obj/item/organ/external/proc/wounds_clamped()
+/obj/item/organ/external/proc/clamped()
 	for(var/datum/wound/W in wounds)
 		if(W.clamped)
 			return 1

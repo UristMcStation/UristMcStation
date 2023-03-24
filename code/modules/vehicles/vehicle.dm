@@ -15,7 +15,7 @@
 
 	can_buckle = 1
 	buckle_movable = 1
-	buckle_lying = 0
+	buckle_stance = BUCKLE_FORCE_STAND
 
 	var/attack_log = null
 	var/on = 0

@@ -1,4 +1,4 @@
-#if !defined(USING_MAP_DATUM)
+#if !defined(using_map_DATUM)
 
 	#include "nerva_announcements.dm"
 	#include "nerva_areas.dm"
@@ -70,7 +70,7 @@
 	#include "../../code/datums/music_tracks/dilbert.dm"
 	#include "../../code/datums/music_tracks/space_oddity.dm"*/
 
-	#define USING_MAP_DATUM /datum/map/nerva
+	#define using_map_DATUM /datum/map/nerva
 	#define URISTCODE 1
 
 #elif !defined(MAP_OVERRIDE)

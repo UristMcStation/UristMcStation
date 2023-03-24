@@ -82,14 +82,21 @@ All crates that cannot be ordered go here. Please keep it tidy, by which I mean 
 				qdel(trap) //no frags for you!
 	..()
 
-/obj/structure/closet/crate/secure/boobytrapped/damage(var/damage)
+/*/obj/structure/closet/crate/secure/boobytrapped/damage(var/damage)
 	/* full override since I'd rather not touch qdel(), keep this updated with closet's damage() */
 	health_current -= damage
 	if(health_current <= 0)
 		trigger_trap()
 		for(var/atom/movable/A in src)
 			A.forceMove(src.loc)
+		qdel(src)*/
+
+/obj/structure/closet/crate/secure/boobytrapped/on_death()
+	trigger_trap()
+	for(var/atom/movable/A in src)
+		A.forceMove(src.loc)
 		qdel(src)
+
 //CDN
 /obj/structure/closet/crate/secure/boobytrapped/weapon
 	name = "weapons crate"
