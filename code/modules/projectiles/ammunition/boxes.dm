@@ -222,7 +222,7 @@
 	// icon_state = ""
 	caliber = "cap"
 	ammo_type = /obj/item/ammo_casing/cap
-	max_ammo = 6
+	max_ammo = 30
 
 
 /obj/item/ammo_magazine/shotholder
