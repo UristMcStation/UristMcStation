@@ -48,7 +48,7 @@
 
 
 //Black syndicate space suit
-/obj/item/clothing/head/urist/helmet
+/obj/item/clothing/head/helmet/space/syndicate/black
 	name = "black space helmet"
 	desc = "A black helmet sporting clean lines and durable plating."
 	icon_state = "syndicate-helm-black"

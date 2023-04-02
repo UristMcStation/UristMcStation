@@ -223,12 +223,6 @@
 
 	qdel(src)
 
-/obj/effect/spawner/welderbomb/New()
-	var/obj/structure/reagent_dispensers/fueltank/F = new(loc)
-	var/obj/item/device/assembly_holder/prox_igniter/I = new(F)
-	F.modded = TRUE
-	F.rig = I
-
 //the other type of bomb spawner for use in mapping to make more accurate destroyed places
 /obj/effect/spawner/bomb_simulator
 	var/_high = 0

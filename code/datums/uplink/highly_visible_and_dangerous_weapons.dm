@@ -56,11 +56,11 @@
 	item_cost = 20
 	path = /obj/item/storage/box/syndie_kit/silenced
 
-/datum/uplink_item/item/visible_weapons/broomstick
+/*/datum/uplink_item/item/visible_weapons/broomstick //broken on bay's end
 	name = "Broomstick Pistol"
 	desc = "An antique pistol stolen from a museum. Be warned, it may be faulty and comes unloaded."
 	item_cost = 40
-	path = /obj/item/gun/projectile/pistol/broomstick
+	path = /obj/item/gun/projectile/pistol/broomstick*/
 
 /datum/uplink_item/item/badassery/money_cannon
 	name = "Modified Money Cannon"
@@ -85,13 +85,6 @@
 	desc = "Ion rifle in compact form."
 	item_cost = 50
 	path = /obj/item/gun/energy/ionrifle/small
-
-
-/datum/uplink_item/item/visible_weapons/revolver2
-	name = "Revolver, .44"
-	desc = ".44 Magnum revolver, with ammunition."
-	item_cost = 36
-	path = /obj/item/storage/backpack/satchel/syndie_kit/revolver2
 
 /datum/uplink_item/item/visible_weapons/grenade_launcher
 	name = "Grenade Launcher"
@@ -170,15 +163,10 @@
 	item_cost = 60
 	path = /obj/item/gun/projectile/pistol/magnum_pistol
 
-/datum/uplink_item/item/visible_weapons/beretta
-	name = "9mm Pistol"
-	item_cost = 32
-	path = /obj/item/gun/projectile/pistol/beretta
-
 /datum/uplink_item/item/visible_weapons/sigsauer
 	name = "10mm Pistol"
 	item_cost = 40
-	path = /obj/item/gun/projectile/pistol/sigsauer
+	path = /obj/item/gun/projectile/pistol/optimus
 
 /datum/uplink_item/item/visible_weapons/detective_revolver
 	name = "Small Revolver"

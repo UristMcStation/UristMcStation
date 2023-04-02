@@ -690,7 +690,7 @@
 /turf/simulated/floor/tiled,
 /area/djstation)
 "by" = (
-/obj/structure/computerframe{
+/obj/machinery/constructable_frame/computerframe{
 	anchored = 1
 	},
 /turf/simulated/floor/wood/walnut,
@@ -1323,7 +1323,7 @@
 /turf/simulated/floor/plating,
 /area/derelict/armory)
 "de" = (
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/derelict/bridge/access)
 "df" = (
@@ -1352,7 +1352,7 @@
 /turf/simulated/floor/plating,
 /area/derelict/bridge/access)
 "dk" = (
-/obj/machinery/door/firedoor/border_only{
+/obj/machinery/door/firedoor{
 	dir = 8;
 	name = "Firelock West"
 	},
@@ -1424,11 +1424,11 @@
 /turf/simulated/floor,
 /area/derelict/bridge/access)
 "dy" = (
-/obj/structure/computerframe,
+/obj/machinery/constructable_frame/computerframe,
 /turf/simulated/floor,
 /area/derelict/bridge)
 "dz" = (
-/obj/structure/computerframe,
+/obj/machinery/constructable_frame/computerframe,
 /obj/structure/cable{
 	icon_state = "0-2";
 	d2 = 2
@@ -1617,7 +1617,7 @@
 /area/derelict/bridge)
 "eg" = (
 /obj/structure/table/standard,
-/obj/item/cell,
+/obj/item/cell/standard,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -1940,7 +1940,7 @@
 /area/derelict/bridge/access)
 "fa" = (
 /obj/structure/table/standard,
-/obj/item/cell{
+/obj/item/cell/hyper{
 	charge = 100;
 	maxcharge = 15000
 	},
@@ -3335,7 +3335,7 @@
 /area/derelict/hallway/primary)
 "jb" = (
 /obj/structure/table/standard,
-/obj/item/cell,
+/obj/item/cell/standard,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/primary)
 "jc" = (
@@ -3742,7 +3742,7 @@
 /turf/simulated/floor/plating/airless,
 /area/derelict/hallway/secondary)
 "kl" = (
-/obj/machinery/door/firedoor/border_only{
+/obj/machinery/door/firedoor{
 	dir = 4;
 	name = "Firelock East"
 	},
@@ -3766,7 +3766,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/airless,
 /area/derelict/bridge/ai_upload)
 "kp" = (
@@ -4113,11 +4113,11 @@
 /turf/simulated/floor/airless,
 /area/derelict/teleporter)
 "lh" = (
-/obj/machinery/teleport/station,
+/obj/machinery/computer/teleporter,
 /turf/simulated/floor/airless,
 /area/derelict/teleporter)
 "li" = (
-/obj/machinery/teleport/hub,
+/obj/machinery/tele_pad,
 /turf/simulated/floor/airless,
 /area/derelict/teleporter)
 "lj" = (
@@ -4128,7 +4128,7 @@
 /area/derelict/teleporter)
 "lk" = (
 /obj/structure/table/standard,
-/obj/item/cell{
+/obj/item/cell/hyper{
 	charge = 100;
 	maxcharge = 15000
 	},

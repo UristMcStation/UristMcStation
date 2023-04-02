@@ -12,6 +12,7 @@
 	icon_state = "civ1"
 	icon_living = "civ1"
 	icon_dead = "civ1_d"
+	simplify_dead_icon = 1
 	ai_holder = /datum/ai_holder/simple_animal/passive
 
 
@@ -45,6 +46,7 @@
 	icon_living = "gunman"
 	icon_dead = "gunman_dead"
 	ai_holder = /datum/ai_holder/simple_animal/humanoid/hostile
+	faction = "neutral"
 
 
 /mob/living/simple_animal/hostile/scom/civ/combat/mil

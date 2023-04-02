@@ -52,7 +52,6 @@
 
 	//blatant copypaste from frags, but those are a whole different type so vOv
 	set waitfor = 0
-	..()
 
 	var/turf/O = get_turf(src)
 	if(!O) return

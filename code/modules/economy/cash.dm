@@ -96,12 +96,12 @@
 
 /obj/item/spacecash/bundle/attack_hand(mob/user as mob)
 	if (user.get_inactive_hand() == src)
-	var/amount = input(usr, "How many credits do you want to take out? (0 to [src.worth])", "Take Money", 20) as num
-	var/result = split_off(amount, usr)
-	if(result)
-		usr.put_in_hands(result)
-	else
-		return 0
+		var/amount = input(usr, "How many credits do you want to take out? (0 to [src.worth])", "Take Money", 20) as num
+		var/result = split_off(amount, usr)
+		if(result)
+			usr.put_in_hands(result)
+		else
+			return 0
 
 /obj/item/spacecash/bundle/proc/split_off(var/amount, var/mob/user)
 	amount = round(clamp(amount, 0, src.worth))
@@ -120,8 +120,6 @@
 		usr.put_in_hands(bundle)
 	if (!worth)
 		qdel(src)
-	else
-		..()
 
 /obj/item/spacecash/bundle/c1
 	name = "1 Thaler"

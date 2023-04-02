@@ -98,7 +98,7 @@
 /obj/effect/overmap/visitable/ship/combat/proc/leave_combat()
 	if(target)
 		target.incombat = 0
-		target.stop_automated_movement = 0
+		target.ai_holder.wander = 0
 
 		src.set_targets()
 
@@ -143,7 +143,7 @@
 	src.halt() //cancel our momentum
 	crossed = 1 //we're in combat now, so let's cancel out momentum
 	//now let's cancel the momentum of the mob
-	L.stop_automated_movement = 1
+	L.ai_holder.wander = 1
 //			L.combat
 	L.target_ship = src
 

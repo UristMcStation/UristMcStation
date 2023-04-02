@@ -206,11 +206,11 @@
 /obj/item/stack/material/wood/scrap/New(var/newloc)
 	..(newloc, rand(1,6))
 
-/obj/item/stack/cable_coil/scrap/New()
-	amount = rand(1,6)
+/obj/item/stack/cable_coil/scrap/New(var/newloc)
+	..(newloc, rand(1,6))
 
-/obj/item/stack/material/r_wood/scrap/New()
-	amount = rand(1,8)
+/obj/item/stack/material/r_wood/scrap/New(var/newloc)
+	..(newloc, rand(1,8))
 
 /obj/item/vehicle_part
 	name = "vehicle part"

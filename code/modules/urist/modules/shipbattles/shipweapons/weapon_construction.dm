@@ -9,6 +9,7 @@
 	icon_state = "hardpoint"
 	anchored = 1
 	density = 0
+	layer = BELOW_OBJ_LAYER
 	var/attached = FALSE
 
 /obj/structure/shipweapons/hardpoint/ex_act()

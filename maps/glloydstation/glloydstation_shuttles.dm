@@ -463,7 +463,7 @@
 		"raider_SW_urist",
 		"raider_planetside"
 		)
-	shuttle_area = /area/skipjack_station/start
+	shuttle_area = /area/map_template/skipjack_station/start
 	home_waypoint = "raider_start_point"
 	current_location = "raider_start_point"
 	landmark_transition = "raider_in_transit"

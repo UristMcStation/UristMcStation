@@ -86,11 +86,6 @@
 
 	..()
 
-/mob/living/simple_animal/hostile/overmapship/handle_automated_movement()
-	turns_since_move++
-	if(turns_since_move >= turns_per_move)
-		DoMove(pick(GLOB.cardinal), src)
-		turns_since_move = 0
 
 /*
 	if(turns_since_move >= turns_per_move)

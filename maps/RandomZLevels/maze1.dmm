@@ -42,7 +42,7 @@
 "aP" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 1},/turf/simulated/floor/tiled/white,/area/space)
 "aQ" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled/white,/area/space)
 "aR" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 1},/turf/simulated/floor/tiled/white,/area/space)
-"aS" = (/obj/machinery/light{dir = 4},/obj/structure/closet/l3closet/scientist,/obj/machinery/button/remote/blast_door{id = "letsgo"; name = "shutter control"; pixel_x = 26},/turf/simulated/floor/tiled/white,/area/space)
+"aS" = (/obj/machinery/light{dir = 4},/obj/structure/closet/l3closet/scientist,/obj/machinery/button/blast_door{id = "letsgo"; name = "shutter control"; pixel_x = 26},/turf/simulated/floor/tiled/white,/area/space)
 "aT" = (/obj/effect/step_trigger/teleporter/urist{teleport_x = 59; teleport_y = 97},/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/space)
 "aU" = (/obj/item/paper/crumpled/bloody,/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/space)
 "aV" = (/obj/machinery/power/emitter{active = 1; active_power_usage = 0; anchored = 1; dir = 4; idle_power_usage = 0; locked = 1; name = "Energy Cannon"; req_access = list(100); state = 2; use_power = 0},/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/space)

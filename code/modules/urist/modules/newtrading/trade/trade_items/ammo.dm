@@ -1,7 +1,7 @@
 
 /datum/trade_item/a45uzi
 	name = "stick magazine (.45)"
-	item_type = /obj/item/ammo_magazine/a45uzi
+	item_type = /obj/item/ammo_magazine/machine_pistol
 	quantity = 10
 	value = 25
 	trader_weight = 0
@@ -23,9 +23,9 @@
 	trader_weight = 0
 	category = "weapon"
 
-/datum/trade_item/mc9mmt
-	name = "top mounted magazine (9mm)"
-	item_type = /obj/item/ammo_magazine/mc9mmt
+/datum/trade_item/pistol
+	name = "top mounted magazine"
+	item_type = /obj/item/ammo_magazine/pistol
 	quantity = 10
 	value = 100
 	trader_weight = 0
@@ -49,7 +49,7 @@
 
 /datum/trade_item/a357
 	name = "speed loader (.357)"
-	item_type = /obj/item/ammo_magazine/a357
+	item_type = /obj/item/ammo_magazine/speedloader/magnum
 	quantity = 10
 	value = 50
 	trader_weight = 0
@@ -57,15 +57,15 @@
 
 /datum/trade_item/a38
 	name = "speed loader (.38)"
-	item_type = /obj/item/ammo_magazine/a38
+	item_type = /obj/item/ammo_magazine/speedloader
 	quantity = 10
 	value = 50
 	trader_weight = 0
 	category = "weapon"
 
-/datum/trade_item/a45m
+/datum/trade_item/pistol
 	name = "magazine (.45)"
-	item_type = /obj/item/ammo_magazine/a45m
+	item_type = /obj/item/ammo_magazine/pistol
 	quantity = 10
 	value = 25
 	trader_weight = 0
@@ -87,9 +87,9 @@
 	trader_weight = 0
 	category = "weapon"
 
-/datum/trade_item/mc9mm
-	name = "magazine (9mm)"
-	item_type = /obj/item/ammo_magazine/mc9mm
+/datum/trade_item/pistol
+	name = "magazine (10mm)"
+	item_type = /obj/item/ammo_magazine/pistol
 	quantity = 10
 	value = 50
 	trader_weight = 0

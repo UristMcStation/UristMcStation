@@ -223,7 +223,7 @@
 	visible_message("<span class='danger'>The [src.name] wails and disappears!</span>")
 	playsound(src.loc, 'sound/hallucinations/wail.ogg', 50, 1)
 	flick("forgotten_die", src)
-	sleep(4)
+	//sleep(4)
 	qdel(src)
 	return
 
@@ -288,7 +288,7 @@
 	if(weapon1)
 		new weapon1 (src.loc)
 	flick("fire", src)
-	sleep(5)
+	//sleep(5)
 	qdel(src)
 	return
 
@@ -296,6 +296,6 @@
 	..()
 	visible_message("<span class='danger'>The [src.name] bursts into a ball of psionic energy!</span>")
 	flick("emfield_s1", src)
-	sleep(6)
+	//sleep(6)
 	qdel(src)
 	return

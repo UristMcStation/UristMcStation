@@ -52,11 +52,17 @@
 	req_amount = 2
 	time = 20
 
-/datum/stack_recipe/woodrod
+/datum/stack_recipe/woodenbow
+	title = "wooden bow"
+	result_type = /obj/item/gun/launcher/crossbow/bow
+	req_amount = 5
+	time = 40
+
+/*/datum/stack_recipe/woodrod
 	title = "wood rod"
 	result_type = /obj/item/stack/woodrods
 	res_amount = 2
 	max_res_amount = 60
-	time = 5
+	time = 5*/
 
 //	recipes += new/datum/stack_recipe("wooden bow", /obj/item/gun/launcher/crossbow/bow, 5, time = 40, on_floor = 1)

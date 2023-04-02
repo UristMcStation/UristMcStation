@@ -1,4 +1,4 @@
-/datum/antagonist/proc/create_antagonist(datum/mind/target, move, gag_announcement, preserve_appearance)
+/datum/antagonist/proc/create_antagonist(datum/mind/target, move, gag_announcement, preserve_appearance, do_not_greet)
 
 	if(!target)
 		return

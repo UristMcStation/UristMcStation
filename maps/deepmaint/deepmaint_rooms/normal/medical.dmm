@@ -154,7 +154,7 @@
 /turf/simulated/wall/r_wall,
 /area/map_template/deepmaint)
 "G" = (
-/obj/structure/iv_drip,
+/obj/structure/iv_stand,
 /obj/effect/floor_decal/corner/blue/mono,
 /turf/simulated/floor/tiled/white/monotile,
 /area/map_template/deepmaint)

@@ -5,17 +5,6 @@
 	item_cost = 4
 	category = /datum/uplink_category/ammunition
 
-/datum/uplink_item/item/ammo/a45m
-	name = ".45 pistol magazine"
-	desc = "Contains "
-	path = /obj/item/ammo_magazine/a45m
-
-/datum/uplink_item/item/ammo/mc9mm
-	name = "9mm pistol magazine"
-	desc = "Contains "
-	item_cost = 3
-	path = /obj/item/ammo_magazine/mc9mm
-
 /datum/uplink_item/item/ammo/holdout
 	name = "Small Magazine"
 	desc = "A magazine for small pistols. Contains 8 rounds."
@@ -25,7 +14,7 @@
 /datum/uplink_item/item/ammo/empslug
 	name = "Haywire Slug"
 	desc = "Single 12-gauge shotgun slug fitted with a single-use ion pulse generator."
-	item_cost = 8
+	item_cost = 1
 	path = /obj/item/ammo_casing/shotgun/emp
 
 /datum/uplink_item/item/ammo/holdout_speedloader
@@ -39,35 +28,33 @@
 	desc = "A small cartridge for a gas-powered dart gun. Contains 5 hollow darts."
 	path = /obj/item/ammo_magazine/chemdart
 
-/datum/uplink_item/item/ammo/mc9mmds
-	name = "9mm double-stack magazine"
-	item_cost = 6
-	path = /obj/item/ammo_magazine/mc9mmds
-
-/datum/uplink_item/item/ammo/a44
-	name = ".44 speed loader"
+/datum/uplink_item/item/ammo/speedloader
+	name = "Standard Speedloader"
+	desc = "A speedloader for standard revolvers. Contains 6 rounds."
 	item_cost = 8
-	path = /obj/item/ammo_magazine/a44
-
-/datum/uplink_item/item/ammo/a357
-	name = ".357 speed loader"
-	item_cost = 8
-	path = /obj/item/ammo_magazine/a357
+	path = /obj/item/ammo_magazine/speedloader
 
 /datum/uplink_item/item/ammo/rifle
-	name = "5.56mm magazine"
+	name = "Rifle Magazine"
+	desc = "A magazine for assault rifles. Contains 20 rounds."
+	item_cost = 8
+	path = /obj/item/ammo_magazine/rifle
+
+/datum/uplink_item/item/ammo/bullpup //for zipguns
+	name = "Bullpup Rifle Magazine"
+	desc = "A magazine for bullpup assault rifles. Contains 15 rounds."
 	item_cost = 8
 	path = /obj/item/ammo_magazine/mil_rifle/heavy
 
 /datum/uplink_item/item/ammo/sniperammo
-	name = "Ammobox of 14.5mm"
+	name = "Ammobox of Sniper Rounds"
 	desc = "A container of rounds for the anti-materiel rifle. Contains 7 rounds."
 	item_cost = 8
 	path = /obj/item/storage/box/ammo/sniperammo
 	antag_roles = list(MODE_MERCENARY)
 
 /datum/uplink_item/item/ammo/sniperammo/apds
-	name = "Ammobox of 14.5mm Sniper Rounds"
+	name = "Ammobox of APDS Sniper Rounds"
 	desc = "A container of armor piercing rounds for the anti-materiel rifle. Contains 3 rounds."
 	item_cost = 12
 	path = /obj/item/storage/box/ammo/sniperammo/apds
@@ -102,15 +89,18 @@
 	name = "Standard Box Magazine"
 	desc = "A magazine for standard SMGs. Contains 20 rounds."
 	item_cost = 8
-	path = /obj/item/ammo_magazine/pistol
+	path = /obj/item/ammo_magazine/smg
+	antag_roles = list(MODE_MERCENARY)
 
-/datum/uplink_item/item/ammo/p10mm
-	name = "10mm Pistol Magazine"
-	item_cost = 6
-	path = /obj/item/ammo_magazine/p10mm
+/datum/uplink_item/item/ammo/pistol
+	name = "Standard Doublestack Magazine"
+	desc = "A magazine for standard military pistols. Contains 15 rounds."
+	item_cost = 9
+	path = /obj/item/ammo_magazine/pistol/double
 
-/datum/uplink_item/item/ammo/a50
-	name = ".50 AE magazine"
+/datum/uplink_item/item/ammo/magnum
+	name = "Magnum Magazine"
+	desc = "A magazine for magnum pistols. Contains 7 rounds."
 	item_cost = 8
 	path = /obj/item/ammo_magazine/magnum
 
@@ -119,10 +109,6 @@
 	desc = "A speedloader for magnum revolvers. Contains 6 rounds."
 	item_cost = 8
 	path = /obj/item/ammo_magazine/speedloader/magnum
-
-/datum/uplink_item/item/ammo/a38
-	name = ".38 speedloader"
-	path = /obj/item/ammo_magazine/a38
 
 /datum/uplink_item/item/ammo/flechette
 	name = "Flechette Rifle Magazine"
@@ -135,22 +121,13 @@
 	name = "Standard EMP Ammo Box"
 	desc = "A box of EMP ammo for standard pistols. Contains 15 rounds."
 	item_cost = 8
-	path = /obj/item/magnetic_ammo
-
-/datum/uplink_item/item/ammo/a45m_emp
-	name = ".45 EMP Ammo Box (10 rounds)"
-	item_cost = 6
-	path = /obj/item/ammo_magazine/box/emp/a45
-
-/datum/uplink_item/item/ammo/p10mm_emp
-	name = "10mm EMP Ammo Box (10 rounds)"
-	item_cost = 8
 	path = /obj/item/ammo_magazine/box/emp/pistol
 
-/datum/uplink_item/item/ammo/a38_emp
-	name = ".38 EMP Ammo Box (10 rounds)"
+/datum/uplink_item/item/ammo/holdout_emp
+	name = "Small EMP Ammo Box"
+	desc = "A box of EMP ammo for small pistols and revolvers. Contains 8 rounds."
 	item_cost = 6
-	path = /obj/item/ammo_magazine/box/emp
+	path = /obj/item/ammo_magazine/box/emp/smallpistol
 
 /datum/uplink_item/item/ammo/stripperclip
 	name = "Stripper Clip"

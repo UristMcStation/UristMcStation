@@ -214,7 +214,7 @@
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/bedsheet/white/B = new /obj/item/bedsheet/white
+		var/obj/item/bedsheet/B = new /obj/item/bedsheet
 
 		user.remove_from_mob(src)
 
@@ -230,7 +230,7 @@
 
 	var/mob/living/carbon/human/user = usr
 	if(on)
-		var/obj/item/bedsheet/white/B = new /obj/item/bedsheet/white
+		var/obj/item/bedsheet/B = new /obj/item/bedsheet
 
 		user.remove_from_mob(src)
 

@@ -17,7 +17,7 @@
 	l_pocket = /obj/item/device/radio
 	r_pocket = /obj/item/modular_computer/pda
 	back = /obj/item/storage/backpack/rucksack/tan
-	backpack_contents = list(/obj/item/device/flashlight = 1, /obj/item/storage/firstaid/regular = 1, /obj/item/gun/projectile/revolver/webley = 1, /obj/item/ammo_magazine/a357 = 2)
+	backpack_contents = list(/obj/item/device/flashlight = 1, /obj/item/storage/firstaid/regular = 1, /obj/item/gun/projectile/revolver/webley = 1, /obj/item/ammo_magazine/speedloader/magnum = 2)
 
 /obj/item/card/id/morninglight
 	access = list(access_morninglight, access_merchant)

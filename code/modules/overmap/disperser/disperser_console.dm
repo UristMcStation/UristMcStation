@@ -5,8 +5,6 @@
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "computer"
 
-	core_skill = SKILL_PILOT
-	var/skill_offset = SKILL_ADEPT - 1 //After which skill level it starts to matter. -1, because we have to index from zero
 
 	icon_keyboard = "rd_key"
 	icon_screen = "teleport"
@@ -140,7 +138,6 @@
 		data["range"] = range
 		data["next_shot"] = round(get_next_shot_seconds())
 		data["nopower"] = !data["faillink"] && (!front.powered() || !middle.powered() || !back.powered())
-		data["skill"] = user.get_skill_value(core_skill) > skill_offset
 
 		var/charge = SPAN_BOLD("UNKNOWN ERROR")
 		switch(get_charge_type())
@@ -178,9 +175,6 @@
 			var/calnum = sanitize_integer(text2num(href_list["calibration"]), 0, caldigit)//sanitiiiiize
 			calibration[calnum + 1] = sanitize_integer(input, 0, 9, 0)//must add 1 because nanoui indexes from 0
 
-	if(href_list["skill_calibration"])
-		for(var/i = 1 to min(caldigit, user.get_skill_value(core_skill) - skill_offset))
-			calibration[i] = calexpected[i]
 
 	if(href_list["strength"])
 		var/input = input("1-5", "disperser strength", 1) as num|null

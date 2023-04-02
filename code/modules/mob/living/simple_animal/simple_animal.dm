@@ -144,6 +144,8 @@
 	// contained in a cage
 	var/in_stasis = 0
 
+	var/simplify_dead_icon = FALSE
+
 	//for simple animals with abilities, mostly megafauna
 	var/ability_cooldown
 	var/time_last_used_ability
@@ -182,6 +184,9 @@
 
 /mob/living/simple_animal/death(gibbed, deathmessage = "dies!", show_dead_message)
 	icon_state = icon_dead
+	if(simplify_dead_icon) //in case it had been applied, remove the turn
+		var/matrix/N = matrix()
+		src.transform = N
 	update_icon()
 	density = FALSE
 	adjustBruteLoss(maxHealth) //Make sure dey dead.

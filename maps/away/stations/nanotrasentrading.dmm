@@ -84,7 +84,7 @@
 /obj/structure/sign/urist/nt{
 	pixel_x = 32
 	},
-/obj/machinery/computer/modular/preset/command{
+/obj/machinery/computer/modular/preset/cardslot/command{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -222,7 +222,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "aC" = (
-/obj/machinery/computer/modular/preset/command{
+/obj/machinery/computer/modular/preset/cardslot/command{
 	dir = 8
 	},
 /obj/structure/sign/urist/nt{
@@ -820,9 +820,7 @@
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "ck" = (
-/mob/living/simple_animal/passive/npc/colonist/labourer/nanotrasen{
-	wander = 1
-	},
+/mob/living/simple_animal/passive/npc/colonist/labourer/nanotrasen,
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "cl" = (
@@ -1264,7 +1262,7 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	icon_state = "pdoor1";
-	id = "supplyshuttledoors";
+	id_tag = "supplyshuttledoors";
 	name = "Supply Shuttle";
 	p_open = 0
 	},
@@ -1421,12 +1419,12 @@
 	},
 /area/spacestations/nanotrasenspace)
 "dP" = (
-/obj/machinery/computer/modular/preset/supply/magic,
+/obj/machinery/computer/modular/preset/supply_public/magic,
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "dQ" = (
 /obj/machinery/light,
-/obj/machinery/computer/modular/preset/supply/magic,
+/obj/machinery/computer/modular/preset/supply_public/magic,
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "dR" = (
@@ -1701,7 +1699,7 @@
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
-	id = null;
+	id_tag = null;
 	name = "transit blast door";
 	opacity = 0
 	},
@@ -1747,7 +1745,7 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/spacestations/nanotrasenspace)
 "qN" = (
-/obj/machinery/teleport/hub{
+/obj/machinery/tele_pad{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -2207,6 +2205,12 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
+"Ga" = (
+/obj/machinery/door/blast/regular{
+	name = "Secure Access"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
 "Gm" = (
 /obj/effect/floor_decal/industrial/warning{
 	color = "#d2af6e";
@@ -2270,14 +2274,11 @@
 	},
 /area/spacestations/nanotrasenspace)
 "Kd" = (
-/turf/unsimulated/wall{
-	tag = "icon-pdoor1 (EAST)";
-	name = "Secure Access";
-	desc = "That looks like it doesn't open easily.";
-	icon = 'icons/obj/doors/rapid_pdoor.dmi';
-	icon_state = "pdoor1";
-	dir = 4
+/obj/machinery/door/blast/regular{
+	dir = 4;
+	name = "Secure Access"
 	},
+/turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "LM" = (
 /obj/structure/table/reinforced,
@@ -2452,12 +2453,10 @@
 	},
 /area/spacestations/nanotrasenspace)
 "Rl" = (
-/obj/machinery/teleport/station{
-	dir = 1
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/machinery/tele_projector,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/spacestations/nanotrasenspace)
 "Rq" = (
@@ -2482,7 +2481,7 @@
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
-	id = null;
+	id_tag = null;
 	name = "transit blast door";
 	opacity = 0
 	},
@@ -4786,7 +4785,7 @@ aa
 (26,1,1) = {"
 ab
 ad
-ae
+Ga
 af
 aj
 af
@@ -5418,7 +5417,7 @@ ad
 ad
 dj
 ad
-az
+ad
 az
 ad
 Ii
@@ -5533,7 +5532,7 @@ ai
 ad
 ap
 aw
-ae
+Ga
 aE
 af
 af
@@ -5615,7 +5614,7 @@ ai
 ad
 af
 af
-ae
+Ga
 aE
 af
 af
@@ -5697,12 +5696,12 @@ ai
 ad
 aq
 af
-ae
+Ga
 aE
 af
 af
 af
-bG
+Ga
 Ji
 bj
 vs
@@ -5720,7 +5719,7 @@ aL
 OE
 cJ
 Cp
-bG
+Ga
 ad
 ad
 ad
@@ -6608,7 +6607,7 @@ ad
 ad
 ad
 ad
-bG
+Ga
 xl
 lh
 bp

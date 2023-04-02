@@ -113,7 +113,7 @@
 	if(stat == CONSCIOUS)
 		if(last_afraid)
 			say_time = 0
-			speak_chance = 0
+			ai_holder.speak_chance = 0
 
 			var/turf/target_turf = pick(view(7, src))
 			for(var/i=0,i<5,i++)
@@ -131,7 +131,7 @@
 
 			if(world.time > last_afraid + duration_afraid)
 				last_afraid = 0
-				speak_chance = initial(speak_chance)
+				ai_holder.speak_chance = initial(ai_holder.speak_chance)
 
 		else if(say_time && world.time >= say_time)
 			say_time = 0

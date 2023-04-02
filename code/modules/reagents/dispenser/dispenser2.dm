@@ -158,11 +158,6 @@
 		if(cartridges[label] && container && container.is_open_container())
 			var/obj/item/reagent_containers/chem_disp_cartridge/C = cartridges[label]
 			C.reagents.trans_to(container, amount)
-			var/choices = cartridges.Copy()
-			while(length(choices))
-				var/chosen_label = pick_n_take(choices)
-				var/obj/item/reagent_containers/chem_disp_cartridge/choice = cartridges[chosen_label]
-				C.reagents.trans_to(amount)
 			return TOPIC_REFRESH
 		return TOPIC_HANDLED
 

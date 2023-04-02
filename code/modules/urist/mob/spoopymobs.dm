@@ -5,6 +5,7 @@
 	icon_state = "zombie_s"
 	icon_living = "zombie_s"
 	icon_dead = "zombie_d"
+	simplify_dead_icon = 1
 	health = 40
 	maxHealth = 40
 	natural_weapon = /obj/item/natural_weapon/bite
@@ -149,7 +150,6 @@
 /mob/living/simple_animal/hostile/urist/zombie/proc/Aggro()
 	if(prob(35))
 		playsound(src.loc, pick('sound/hallucinations/wail.ogg', 'sound/hallucinations/screech.ogg', 'sound/hallucinations/growl1.ogg', 'sound/hallucinations/growl2.ogg', 'sound/hallucinations/growl3.ogg'))
-	..()
 
 /mob/living/simple_animal/hostile/urist/zombie/say()
 	var/acount = rand(2,8)
@@ -385,7 +385,7 @@
 	max_gas = null
 	minbodytemp = 0
 	ranged = 0
-	//simplify_dead_icon = 1
+	simplify_dead_icon = 1
 
 /mob/living/simple_animal/hostile/urist/vampire/New()
 	var/danglybits = pick(0, 1) //random gender

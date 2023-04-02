@@ -173,6 +173,9 @@
 #define COLOR_SABER_SKRELL     "#6600cc"
 #define COLOR_SABER_AXE        "#00ccff"
 #define COLOR_SABER_CUTLASS    "#ff0033"
+#define COLOR_SABER_YELLOW     "#fffb00"
+#define COLOR_SABER_ORANGE 	   "#fda500"
+#define COLOR_SABER_BLACK      "#ffffff"
 
 // Used by fluid system.
 #define COLOR_OCEAN "#99f5ff"

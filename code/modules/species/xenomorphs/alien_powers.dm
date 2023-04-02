@@ -129,7 +129,7 @@
 	set desc = "Drench an object in acid, destroying it over time."
 	set category = "Abilities"
 
-	if(!O in oview(1))
+	if((!O) in oview(1))
 		to_chat(src, "<span class='alium'>[O] is too far away.</span>")
 		return
 
@@ -200,7 +200,7 @@
 			new /obj/structure/bed/nest(loc)
 	return
 
-mob/living/carbon/human/proc/xeno_infest(mob/living/carbon/human/M as mob in oview())
+/mob/living/carbon/human/proc/xeno_infest(mob/living/carbon/human/M as mob in oview())
 	set name = "Infest (500)"
 	set desc = "Link a victim to the hivemind."
 	set category = "Abilities"
@@ -224,7 +224,7 @@ mob/living/carbon/human/proc/xeno_infest(mob/living/carbon/human/M as mob in ovi
 
 	src.visible_message("<span class='danger'>\The [src] crouches over \the [M], extending a hideous protuberance from its head!</span>")
 
-	if(!do_after(src, M, 150))
+	if(!do_after(src, 150, M))
 		return
 
 	if(!M || !M.Adjacent(src))

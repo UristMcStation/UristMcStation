@@ -59,7 +59,6 @@
 "aw" = (
 /obj/random/closet,
 /obj/random/loot,
-/obj/item/stock_parts/circuitboard/teleporter,
 /turf/simulated/floor/tiled/airless,
 /area/djstation)
 "ax" = (
@@ -181,15 +180,6 @@
 /area/djstation)
 "aY" = (
 /obj/random/closet,
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/machinery/power/apc/derelict{
-	dir = 1;
-	icon_state = "apc0";
-	pixel_y = 24
-	},
 /turf/simulated/floor/airless,
 /area/djstation)
 "aZ" = (
@@ -227,9 +217,6 @@
 /obj/effect/overmap/visitable/sector/cluster,
 /turf/simulated/floor/asteroid,
 /area/mine/explored)
-"bI" = (
-/turf/simulated/floor/asteroid,
-/area/mine/unexplored)
 "cb" = (
 /obj/effect/shuttle_landmark/cluster/nav5,
 /turf/simulated/floor/asteroid,
@@ -250,37 +237,14 @@
 /obj/effect/shuttle_landmark/cluster/nav3,
 /turf/space,
 /area/space)
-"gO" = (
-/obj/machinery/power/smes/buildable,
-/turf/simulated/floor/airless,
-/area/djstation)
 "hb" = (
 /obj/effect/shuttle_landmark/cluster/nav1,
 /turf/space,
 /area/space)
-"hi" = (
-/obj/machinery/power/port_gen/pacman/mrs{
-	sheets = 0
-	},
-/obj/structure/cable/yellow{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/turf/simulated/floor/airless,
-/area/djstation)
 "ib" = (
 /obj/effect/shuttle_landmark/cluster/nav7,
 /turf/simulated/floor/asteroid,
 /area/mine/explored)
-"iy" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4";
-	tag = ""
-	},
-/turf/simulated/floor/tiled/airless,
-/area/djstation)
 "jb" = (
 /obj/machinery/access_button/airlock_exterior{
 	master_tag = "lp_north_airlock";
@@ -328,15 +292,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/airless,
 /area/djstation)
-"pU" = (
-/obj/random/junk,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/airless,
-/area/djstation)
 "qb" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -366,29 +321,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/djstation)
-"th" = (
-/obj/structure/table/rack,
-/obj/structure/cable/cyan{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/obj/item/device/spaceflare,
-/obj/item/device/radio,
-/obj/item/storage/belt/utility/full,
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/random/tool,
-/obj/random/tech_supply,
-/obj/item/stack/material/tritium/ten,
-/obj/item/stack/material/tritium/ten,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
-	},
-/obj/random/maintenance,
-/turf/simulated/floor/plating,
-/area/djstation)
 "ub" = (
 /obj/machinery/access_button{
 	command = "cycle_interior";
@@ -411,14 +343,6 @@
 	},
 /turf/simulated/floor/asteroid,
 /area/mine/explored)
-"vN" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/airless,
-/area/djstation)
 "wb" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
@@ -23245,11 +23169,11 @@ af
 af
 ab
 ab
-bI
-bI
-bI
-bI
-bI
+ab
+ab
+ab
+ab
+ab
 ab
 aj
 qb
@@ -23269,7 +23193,7 @@ aX
 aZ
 ba
 bb
-th
+aX
 aj
 ab
 ab
@@ -23445,15 +23369,15 @@ af
 af
 af
 af
-bI
-bI
-bI
-bI
-bI
-bI
-bI
-bI
-TD
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aj
 rb
 al
 ar
@@ -23473,9 +23397,9 @@ ar
 as
 ar
 aj
-aj
-aj
-aj
+ab
+ab
+ab
 ab
 ab
 ab
@@ -23647,15 +23571,15 @@ af
 af
 af
 af
-bI
-bI
-bI
-bI
-bI
-bI
-bI
-bI
-TD
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aj
 rb
 ar
 at
@@ -23674,9 +23598,9 @@ ar
 aO
 ar
 ar
-at
-hi
-Rn
+aj
+aj
+aj
 aj
 ab
 ab
@@ -23871,14 +23795,14 @@ ar
 ar
 ar
 aK
-iy
-SF
-pU
-SF
-vN
-SF
-Gy
-gO
+ar
+ar
+at
+ar
+at
+ar
+ar
+aI
 aj
 ab
 ab
@@ -24275,7 +24199,7 @@ ar
 aT
 aV
 aL
-aI
+as
 at
 ub
 ar
@@ -24477,8 +24401,6 @@ ar
 at
 aj
 aj
-TD
-TD
 aj
 aj
 aj
@@ -24680,9 +24602,9 @@ at
 aG
 ar
 aj
-bI
-bI
-bI
+ab
+ab
+ab
 aj
 wb
 aj
@@ -24882,9 +24804,9 @@ al
 ar
 ar
 aj
-bI
-bI
-bI
+ab
+ab
+ab
 aj
 xb
 aj
@@ -25084,9 +25006,9 @@ ar
 aR
 aU
 aj
-bI
-bI
-bI
+ab
+ab
+ab
 aj
 yb
 aj
@@ -25286,9 +25208,9 @@ aj
 aj
 aj
 aj
-bI
-bI
-bI
+ab
+ab
+ab
 aj
 zb
 aj
@@ -25489,8 +25411,8 @@ ab
 ab
 ab
 ab
-bI
-bI
+ab
+ab
 vb
 af
 af
@@ -25691,8 +25613,8 @@ ab
 ab
 ab
 ab
-bI
-bI
+ab
+ab
 af
 af
 af
@@ -25894,7 +25816,7 @@ ab
 ab
 ab
 ab
-bI
+ab
 af
 af
 af

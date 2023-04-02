@@ -623,7 +623,7 @@ GLOBAL_LIST_EMPTY(diversion_junctions)
 	set waitfor = FALSE
 	flick("outlet-open", src)
 	playsound(src, 'sound/machines/warning-buzzer.ogg', 50, 0, 0)
-	sleep(20)	//wait until correct animation frame
+	sleep(27)	//wait until correct animation frame
 	playsound(src, 'sound/machines/hiss.ogg', 50, 0, 0)
 
 /obj/structure/disposaloutlet/attackby(obj/item/I, mob/user)
@@ -667,6 +667,11 @@ GLOBAL_LIST_EMPTY(diversion_junctions)
 
 // called when movable is expelled from a disposal pipe or outlet
 // by default does nothing, override for special behaviour
+
+/obj/structure/disposaloutlet/unwrap
+	name = "unwrapping disposal outlet"
+	desc = "An outlet for the pneumatic disposal system that automatically unwraps large packages."
+	unwrap = TRUE
 
 /atom/movable/proc/pipe_eject(direction)
 	return

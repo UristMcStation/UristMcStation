@@ -190,13 +190,12 @@
 	startswith = list(/obj/item/ammo_magazine/shotholder/stun = 2)
 
 /obj/item/storage/box/ammo/sniperammo
-	name = "box of 14.5mm shells"
-	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
-	startswith = list(/obj/item/ammo_casing/a145 = 7)
+	name = "box of sniper shells"
+	startswith = list(/obj/item/ammo_casing/shell = 7)
 
 /obj/item/storage/box/ammo/sniperammo/apds
-	name = "box of 14.5mm APDS shells"
-	startswith = list(/obj/item/ammo_casing/a145/apds = 3)
+	name = "box of sniper APDS shells"
+	startswith = list(/obj/item/ammo_casing/shell/apds = 3)
 
 /obj/item/storage/box/flashbangs
 	name = "box of flashbangs"
@@ -242,7 +241,7 @@
 
 /obj/item/storage/box/metalfoams
 	name = "box of metal foam grenades"
-	desc = "A box 5 metal foam grenades."
+	desc = "A box of 5 metal foam grenades."
 	icon_state = "flashbang"
 	startswith = list(/obj/item/grenade/chem_grenade/metalfoam = 5)
 
@@ -409,8 +408,6 @@
 
 /obj/item/storage/box/lights/bulbs/empty
 	startswith = null
-	max_w_class = ITEM_SIZE_SMALL
-	max_storage_space = 25
 
 /obj/item/storage/box/lights/tubes
 	name = "box of replacement tubes"
@@ -426,8 +423,6 @@
 
 /obj/item/storage/box/lights/tubes/empty
 	startswith = null
-	max_w_class = ITEM_SIZE_SMALL
-	max_storage_space = 25
 
 /obj/item/storage/box/lights/mixed
 	name = "box of replacement lights"
@@ -438,8 +433,6 @@
 
 /obj/item/storage/box/lights/mixed/empty
 	startswith = null
-	max_w_class = ITEM_SIZE_SMALL
-	max_storage_space = 25
 
 /obj/item/storage/box/glowsticks
 	name = "box of mixed glowsticks"

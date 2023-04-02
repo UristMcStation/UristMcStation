@@ -262,7 +262,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	gender = PLURAL
 	icon = 'icons/obj/items.dmi'
 	icon_state = "table_parts"
-	matter = list("metal" = 3750)
+	matter = list("steel" = 3750)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	attack_verb = list("slammed", "bashed", "battered", "bludgeoned", "thrashed", "whacked")
 	var/tabletype = /obj/structure/table/standard

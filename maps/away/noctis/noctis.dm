@@ -66,6 +66,7 @@
 	prefab_type = /singleton/prefab/ic_assembly/bluespace_radio
 
 /obj/prefab/bluespace_radio/Initialize() //The circuit verify absolutely hates this prefab
+	..()
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/prefab/bluespace_radio/LateInitialize()
@@ -103,3 +104,10 @@
 	name = "titanium"
 	icon_state = "sheet-shiny"
 	default_type = "titanium"
+
+//corpses
+/obj/effect/landmark/corpse/noctiscaptain
+	hair_styles_per_species = list(SPECIES_HUMAN = list("Buzzcut 2"))
+	facial_styles_per_species = list(SPECIES_HUMAN = list("5 O'clock Shadow"))
+	corpse_outfits = list(/singleton/hierarchy/outfit/freightercap)
+	damage = list(BP_HEAD = 27, BP_CHEST = 53, "impale" = BP_CHEST)

@@ -108,7 +108,7 @@
 	icon_state = "smg10mm"
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
-	caliber = "10mm"
+	caliber = CALIBER_PISTOL
 	matter = list(DEFAULT_WALL_MATERIAL = 1500)
 	ammo_type = /obj/item/ammo_casing/pistol
 	max_ammo = 24
@@ -130,7 +130,7 @@
 	icon_state = "pistol10mm"
 	item_state = "gun"
 	w_class = 2
-	caliber = "10mm"
+	caliber = CALIBER_PISTOL
 	fire_sound = 'sound/weapons/gunshot/Gunshot_pistol.ogg'
 	slot_flags = SLOT_BELT
 	load_method = MAGAZINE
@@ -154,7 +154,7 @@
 	item_state = "smg10mm-fo"
 	w_class = 3
 	force = 10
-	caliber = "10mm"
+	caliber = CALIBER_PISTOL
 	origin_tech = "combat=4;materials=1;syndicate=1"
 	slot_flags = SLOT_BELT
 	load_method = MAGAZINE

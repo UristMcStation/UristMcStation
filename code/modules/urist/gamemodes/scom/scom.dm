@@ -134,7 +134,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 						declared = 0
 
 
-datum/game_mode/scom/declare_completion() //failure states removed pending a rewrite
+/datum/game_mode/scom/declare_completion() //failure states removed pending a rewrite
 	if(sploded == 2)
 		declared = 1
 		world << "<FONT size = 3><B>Major S-COM victory!</B></FONT>"

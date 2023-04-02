@@ -1,4 +1,3 @@
-"aa" = (/turf/simulated/floor/asteroid,/area/mine/unexplored)
 "ab" = (/turf/simulated/wall/r_wall,/area/mine/unexplored)
 "ac" = (/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{tag = "icon-rwindow (NORTH)"; icon_state = "rwindow"; dir = 1},/obj/structure/grille,/turf/simulated/floor,/area/mine/unexplored)
 "ad" = (/obj/machinery/door/airlock/highsecurity,/turf/simulated/floor,/area/mine/unexplored)
@@ -60,13 +59,12 @@
 "bh" = (/obj/structure/bed/padded,/obj/item/bedsheet/urist/syndie,/obj/structure/closet/walllocker/emerglocker{pixel_y = -32},/mob/living/simple_animal/hostile/urist/skrellterrorist,/turf/simulated/floor/wood,/area/mine/unexplored)
 "bi" = (/obj/structure/window/reinforced{tag = "icon-rwindow (NORTH)"; icon_state = "rwindow"; dir = 1},/obj/structure/window/reinforced{dir = 4},/obj/effect/floor_decal/corner/paleblue/diagonal,/turf/simulated/floor/tiled/white,/area/mine/unexplored)
 "bj" = (/obj/effect/floor_decal/corner/paleblue{dir = 10},/turf/simulated/floor/wood,/area/mine/unexplored)
-"bk" = (/obj/structure/sign/warning/secure_area{pixel_x = 28},/obj/structure/window/reinforced{tag = "icon-rwindow (NORTH)"; icon_state = "rwindow"; dir = 1},/obj/structure/window/reinforced{dir = 8; health = 1e+006},/obj/effect/floor_decal/corner/paleblue/diagonal,/turf/simulated/floor/tiled/white,/area/mine/unexplored)
+"bk" = (/obj/structure/sign/warning/secure_area{pixel_x = 28},/obj/structure/window/reinforced{tag = "icon-rwindow (NORTH)"; icon_state = "rwindow"; dir = 1},/obj/structure/window/reinforced{dir = 8; !INVALID_VAR! = 1e+006},/obj/effect/floor_decal/corner/paleblue/diagonal,/turf/simulated/floor/tiled/white,/area/mine/unexplored)
 "bl" = (/obj/structure/closet/syndicate/suit,/obj/machinery/light/small{active_power_usage = 0; idle_power_usage = 0; on = 1; use_power = 0},/turf/simulated/floor/reinforced,/area/mine/unexplored)
 "bm" = (/obj/structure/closet/syndicate,/obj/random/firstaid,/obj/item/reagent_containers/glass/beaker/vial/random/toxin,/turf/simulated/floor/reinforced,/area/mine/unexplored)
 "bn" = (/obj/structure/closet/syndicate,/obj/random/ammo,/obj/random/ammo,/obj/item/grenade/chem_grenade/teargas,/turf/simulated/floor/reinforced,/area/mine/unexplored)
-"bo" = (/obj/structure/safe,/obj/item/storage/bag/cash,/obj/item/vampiric,/obj/item/virusdish/random,/obj/item/archaeological_find,/turf/simulated/floor/reinforced,/area/mine/unexplored)
+"bo" = (/obj/structure/safe,/obj/item/storage/bag/cash,/obj/item/vampiric,/obj/item/archaeological_find,/turf/simulated/floor/reinforced,/area/mine/unexplored)
 "bp" = (/obj/structure/reagent_dispensers/water_cooler,/turf/simulated/floor,/area/mine/unexplored)
-"bq" = (/obj/effect/floor_decal/corner/paleblue/diagonal,/turf/simulated/floor/tiled/white,/area/mine/unexplored)
 "br" = (/obj/structure/hygiene/toilet{tag = "icon-toilet00 (EAST)"; icon_state = "toilet00"; dir = 4},/turf/simulated/floor/tiled/dark,/area/mine/unexplored)
 "bs" = (/obj/machinery/door/unpowered/simple/wood,/turf/simulated/floor/tiled/dark,/area/mine/unexplored)
 "bt" = (/obj/structure/closet/medical_wall{pixel_y = 32},/obj/structure/hygiene/sink{dir = 4; icon_state = "sink"; pixel_x = 8; tag = "icon-sink (EAST)"},/obj/item/storage/mirror{pixel_x = 28},/turf/simulated/floor/tiled/dark,/area/mine/unexplored)
@@ -84,7 +82,7 @@
 "bF" = (/turf/simulated/floor/tiled/freezer,/area/mine/unexplored)
 "bG" = (/obj/effect/decal/cleanable/flour,/turf/simulated/floor/tiled/freezer,/area/mine/unexplored)
 "bH" = (/obj/machinery/light{tag = "icon-tube1 (EAST)"; icon_state = "tube1"; dir = 4},/obj/machinery/cooker/grill,/obj/effect/decal/cleanable/ash,/turf/simulated/floor/tiled/freezer,/area/mine/unexplored)
-"bI" = (/area/map_template/hydrobase/station/shower{tag = "icon-shower (EAST)"; icon_state = "shower"; dir = 4},/obj/item/soap/syndie,/turf/simulated/floor/tiled/dark,/area/mine/unexplored)
+"bI" = (/obj/item/soap/red_soap,/turf/simulated/floor/tiled/dark,/area/mine/unexplored)
 "bJ" = (/obj/structure/curtain/open/shower,/turf/simulated/floor/tiled/dark,/area/mine/unexplored)
 "bK" = (/obj/item/stool,/obj/effect/floor_decal/corner/paleblue/diagonal,/mob/living/simple_animal/hostile/urist/skrellterrorist,/turf/simulated/floor/tiled/white,/area/mine/unexplored)
 "bL" = (/obj/structure/table/standard,/obj/item/reagent_containers/food/snacks/ricepudding,/obj/item/material/kitchen/utensil/spoon/plastic,/obj/effect/floor_decal/spline/fancy{tag = "icon-spline_fancy (NORTHWEST)"; icon_state = "spline_fancy"; dir = 9},/turf/simulated/floor/tiled/freezer,/area/mine/unexplored)
@@ -118,17 +116,17 @@
 "cn" = (/obj/item/trash/cigbutt,/obj/item/trash/cigbutt,/obj/machinery/light/spot{active_power_usage = 0; dir = 4; icon_state = "tube1"; idle_power_usage = 0; on = 1; tag = "icon-tube1 (EAST)"; use_power = 0},/turf/simulated/floor/asteroid,/area/mine/unexplored)
 "co" = (/obj/structure/table/rack,/turf/simulated/floor/tiled/dark,/area/mine/unexplored)
 "cp" = (/obj/structure/coatrack,/obj/effect/floor_decal/corner/paleblue/diagonal,/turf/simulated/floor/tiled/white,/area/mine/unexplored)
-"cq" = (/obj/machinery/media/jukebox,/obj/effect/floor_decal/corner/paleblue/diagonal,/turf/simulated/floor/tiled/white,/area/mine/unexplored)
+"cq" = (/obj/effect/floor_decal/corner/paleblue/diagonal,/turf/simulated/floor/tiled/white,/area/mine/unexplored)
 "cr" = (/mob/living/simple_animal/hostile/syndicate/ranged/space{faction = "skrellt"; name = "Skrellian terrorist"},/turf/simulated/floor/asteroid,/area/mine/unexplored)
 "cs" = (/obj/item/trash/cigbutt,/obj/structure/sign/warning/secure_area{pixel_x = 32},/turf/simulated/floor/asteroid,/area/mine/unexplored)
 "ct" = (/obj/machinery/space_heater,/obj/effect/decal/cleanable/spiderling_remains,/obj/effect/floor_decal/corner/paleblue/diagonal,/turf/simulated/floor/tiled/white,/area/mine/unexplored)
 "cu" = (/obj/machinery/smartfridge/drinks,/obj/effect/floor_decal/corner/paleblue/diagonal,/turf/simulated/floor/tiled/white,/area/mine/unexplored)
 "cv" = (/obj/item/ammo_casing/pistol,/obj/item/ammo_casing/pistol,/obj/item/ammo_casing/pistol,/obj/item/ammo_casing/pistol,/turf/simulated/floor/asteroid,/area/mine/unexplored)
 "cw" = (/obj/item/ammo_casing/pistol,/obj/item/ammo_casing/pistol,/obj/item/ammo_casing/pistol,/obj/item/ammo_casing/pistol,/obj/item/ammo_casing/pistol,/mob/living/simple_animal/hostile/syndicate/ranged/space{faction = "skrellt"; name = "Skrellian terrorist"},/turf/simulated/floor/asteroid,/area/mine/unexplored)
-"cx" = (/obj/item/target,/turf/simulated/floor/asteroid,/area/mine/unexplored)
+"cx" = (/turf/simulated/floor/asteroid,/area/mine/unexplored)
 
 (1,1,1) = {"
-aaabacabacabacabacababababababadabababab
+cxabacabacabacabacababababababadabababab
 abaeafagafahafaiajaeaeakalamabanananaoab
 acapaqaqaqaqaqaqaqaraeasatauabavavawanab
 abaxaqayazaAaBaCaqaDaeaEaFaGababababaHab
@@ -136,16 +134,16 @@ acafaqaIaJaKaLaMaqaqaNaqaqaqabaOaPaQaRab
 abaSaqaTaUaVaWaXaqaqaNaqaqaqadaRaRaRaYab
 acafaqaqaqaqaqaqaqaZaebabbbbadaRbcbcaRab
 abaebdbebdbfbdbgbhaeaebibjbkabblbmbnboab
-abaeaeaeaeaeaeaeaeaebpbqbqbqabababababab
-abbrbsanbtaebuanbvbqbqbqbqbqbwbxbybzbAab
-abaeaeanbBaebCanbvbqbqbqbqbDbEbFbFbGbHab
-abbIbJananbsananbvbqbqbqbKbLbFbFbFbFbMab
-abaeaeanbBaebCanbvbqbqbqbNbObFbPbFbQbRab
-abbSbsanbTaebUanbvbqbqbqbNbVbFbFbFbFbWab
-abababababababababbXbqbqbKbYbFbFbFbFbZab
-aaaacaabcbcccccdabcebqbqbqbNcfbFbFbFcgab
-aachaaadanancianaHbqbqbqbqbqbNcjckclcmab
-aaaacnabcocococoabcpbqbqbqbqbqbNbNbqcqab
-aacrcsababababababababababctbqbqbqbqcuab
-aaaaaacvcwaaaaaaaaaaaacxabababababababab
+abaeaeaeaeaeaeaeaeaebpcqcqcqabababababab
+abbrbsanbtaebuanbvcqcqcqcqcqbwbxbybzbAab
+abaeaeanbBaebCanbvcqcqcqcqbDbEbFbFbGbHab
+abbIbJananbsananbvcqcqcqbKbLbFbFbFbFbMab
+abaeaeanbBaebCanbvcqcqcqbNbObFbPbFbQbRab
+abbSbsanbTaebUanbvcqcqcqbNbVbFbFbFbFbWab
+abababababababababbXcqcqbKbYbFbFbFbFbZab
+cxcxcaabcbcccccdabcecqcqcqbNcfbFbFbFcgab
+cxchcxadanancianaHcqcqcqcqcqbNcjckclcmab
+cxcxcnabcocococoabcpcqcqcqcqcqbNbNcqcqab
+cxcrcsababababababababababctcqcqcqcqcuab
+cxcxcxcvcwcxcxcxcxcxcxcxabababababababab
 "}

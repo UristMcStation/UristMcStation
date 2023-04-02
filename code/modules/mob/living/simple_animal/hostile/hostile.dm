@@ -17,14 +17,10 @@
 	var/shuttletarget = null
 	var/enroute = 0
 	var/stop_automation = FALSE //stops AI procs from running
-	var/pry_time = 7 SECONDS //time it takes for mob to pry open a door
-	var/pry_desc = "prying" //"X begins pry_desc the door!"
 
 	ai_holder = /datum/ai_holder/simple_animal/melee
 
-	var/datum/factions/hiddenfaction = null
-
-mob/living/simple_animal/hostile/Initialize()
+/mob/living/simple_animal/hostile/Initialize()
 	. = ..()
 
 	if(hiddenfaction)

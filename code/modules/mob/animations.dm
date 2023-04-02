@@ -176,6 +176,9 @@ note dizziness decrements automatically in the mob's Life() proc.
 	var/matrix/initial_transform = matrix(transform)
 	var/matrix/rotated_transform = transform.Turn(15 * turn_dir)
 
+	animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff, transform = rotated_transform, time = 2, easing = BACK_EASING | EASE_IN)
+	animate(pixel_x = default_pixel_x, pixel_y = default_pixel_y, transform = initial_transform, time = 2, easing = SINE_EASING)
+
 /atom/movable/proc/do_attack_effect(atom/A, effect) //Simple effects for telegraphing or marking attack locations
 	if (effect)
 		var/image/I = image('icons/effects/effects.dmi', A, effect, ABOVE_PROJECTILE_LAYER)

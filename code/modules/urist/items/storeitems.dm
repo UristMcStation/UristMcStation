@@ -140,61 +140,61 @@
 //                     Doll(s?)                        //
 /////////////////////////////////////////////////////////
 
-datum/storeitem/dollunathigreen
+/datum/storeitem/dollunathigreen
 	name="Green Unathi Doll"
 	desc="A cute little doll modeled after an ugly lizard! This one is green."
 	typepath=/obj/item/vanity/doll/unathi/green
 	cost = 300
 
-datum/storeitem/dollunathired
+/datum/storeitem/dollunathired
 	name="Red Unathi Doll"
 	desc="A cute little doll modeled after an ugly lizard! This one is red."
 	typepath=/obj/item/vanity/doll/unathi/red
 	cost = 300
 
-datum/storeitem/dollunathilightblue
+/datum/storeitem/dollunathilightblue
 	name="Light Blue Unathi Doll"
 	desc="A cute little doll modeled after an ugly lizard! This one is light blue."
 	typepath=/obj/item/vanity/doll/unathi/lightblue
 	cost = 300
 
-datum/storeitem/dollunathiblack
+/datum/storeitem/dollunathiblack
 	name="Black Unathi Doll"
 	desc="A cute little doll modeled after an ugly lizard! This one is black."
 	typepath=/obj/item/vanity/doll/unathi/black
 	cost = 350 //Hey, that extra dye costs extra!
 
-datum/storeitem/dollunathiyellow
+/datum/storeitem/dollunathiyellow
 	name="Yellow Unathi Doll"
 	desc="A cute little doll modeled after an ugly lizard! This one is yellow."
 	typepath=/obj/item/vanity/doll/unathi/yellow
 	cost = 300
 
-datum/storeitem/dollunathiwhite
+/datum/storeitem/dollunathiwhite
 	name="White Unathi Doll"
 	desc="A cute little doll modeled after an ugly lizard! This one is white."
 	typepath=/obj/item/vanity/doll/unathi/white
 	cost = 200 //No dye is very cheap!
 
-datum/storeitem/dollunathipurple
+/datum/storeitem/dollunathipurple
 	name="Purple Unathi Doll"
 	desc="A cute little doll modeled after an ugly lizard! This one is purple."
 	typepath=/obj/item/vanity/doll/unathi/purple
 	cost = 300
 
-datum/storeitem/dollunathiorange
+/datum/storeitem/dollunathiorange
 	name="Orange Unathi Doll"
 	desc="A cute little doll modeled after an ugly lizard! This one is orange."
 	typepath=/obj/item/vanity/doll/unathi/orange
 	cost = 300
 
-datum/storeitem/dollunathibrown
+/datum/storeitem/dollunathibrown
 	name="Brown Unathi Doll"
 	desc="A cute little doll modeled after an ugly lizard! This one is brown."
 	typepath=/obj/item/vanity/doll/unathi/brown
 	cost = 300
 
-datum/storeitem/dollfarwa
+/datum/storeitem/dollfarwa
 	name="Farwa Doll"
 	desc="A plush little farwa doll to keep you company in the lonely depths of space."
 	typepath=/obj/item/toy/plushie/farwa
@@ -205,7 +205,7 @@ datum/storeitem/dollfarwa
 //                       Random                        //
 /////////////////////////////////////////////////////////
 
-datum/storeitem/glowsticksbox
+/datum/storeitem/glowsticksbox
 	name="Glowsticks Box"
 	desc="A box containing 7 different colour glowsticks."
 	typepath=/obj/item/storage/box/glowsticks

@@ -2,6 +2,7 @@
 #include "bearcat_jobs.dm"
 #include "bearcat_access.dm"
 #include "bearcat_radio.dm"
+#include "bearcat_shuttle.dm"
 
 /obj/effect/submap_landmark/joinable_submap/bearcat
 	name = "FTV Bearcat"

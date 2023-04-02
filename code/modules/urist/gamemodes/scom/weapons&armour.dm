@@ -166,42 +166,42 @@
 	name = "box of smg ammo"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
 
-	New()
-		..()
-		new /obj/item/ammo_magazine/pistol(src)
-		new /obj/item/ammo_magazine/pistol(src)
-		new /obj/item/ammo_magazine/pistol(src)
+/obj/item/storage/box/c20ammo/New()
+	..()
+	new /obj/item/ammo_magazine/pistol(src)
+	new /obj/item/ammo_magazine/pistol(src)
+	new /obj/item/ammo_magazine/pistol(src)
 
 /obj/item/storage/box/sniperammo
 	name = "box of sniper ammo"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
 
-	New()
-		..()
-		new /obj/item/ammo_magazine/rifle/military(src)
-		new /obj/item/ammo_magazine/rifle/military(src)
-		new /obj/item/ammo_magazine/rifle/military(src)
+/obj/item/storage/box/sniperammo/New()
+	..()
+	new /obj/item/ammo_magazine/rifle/military(src)
+	new /obj/item/ammo_magazine/rifle/military(src)
+	new /obj/item/ammo_magazine/rifle/military(src)
 
 /obj/item/storage/box/large/lmgammo
 	name = "box of l6 saw ammo"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
 
-	New()
-		..()
-		new /obj/item/ammo_magazine/box/rifle/military(src)
-		new /obj/item/ammo_magazine/box/rifle/military(src)
-		new /obj/item/ammo_magazine/box/rifle/military(src)
+/obj/item/storage/box/large/lmgammo/New()
+	..()
+	new /obj/item/ammo_magazine/box/rifle/military(src)
+	new /obj/item/ammo_magazine/box/rifle/military(src)
+	new /obj/item/ammo_magazine/box/rifle/military(src)
 
 /obj/item/storage/box/knightammo
 	name = "box of Knight ammo"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
 
-	New()
-		..()
-		new /obj/item/ammo_magazine/a45m(src)
-		new /obj/item/ammo_magazine/a45m(src)
-		new /obj/item/ammo_magazine/a45m(src)
-		new /obj/item/ammo_magazine/a45m(src)
+/obj/item/storage/box/knightammo/New()
+	..()
+	new /obj/item/ammo_magazine/pistol(src)
+	new /obj/item/ammo_magazine/pistol(src)
+	new /obj/item/ammo_magazine/pistol(src)
+	new /obj/item/ammo_magazine/pistol(src)
 
 //armour (first heavy tier and first medic tier. possibly 2nd/3rd sniper tier.
 

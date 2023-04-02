@@ -12,7 +12,7 @@
 "al" = (/obj/machinery/access_button{command = "cycle_exterior"; frequency = 1379; master_tag = "pirate_station_3_airlock3"; name = "exterior access button"; pixel_x = -25; pixel_y = 25; req_access = list("ACCESS_EXTERNAL")},/obj/structure/catwalk,/turf/simulated/floor/plating/airless,/area/spacestations/pirate/station)
 "am" = (/turf/simulated/floor/reinforced/airless,/area/spacestations/pirate/exterior)
 "an" = (/obj/effect/wallframe_spawn/reinforced/hull,/turf/simulated/floor,/area/spacestations/pirate/station)
-"ao" = (/obj/machinery/atmospherics/unary/vent_pump/high_volume{dir = 2; frequency = 1379; id_tag = "pirate_station_3_pump3"},/turf/simulated/floor,/area/spacestations/pirate/station)
+"ao" = (/obj/machinery/atmospherics/unary/vent_pump/high_volume{dir = 2; id_tag = "pirate_station_3_pump3"},/turf/simulated/floor,/area/spacestations/pirate/station)
 "ap" = (/obj/machinery/atmospherics/pipe/manifold/visible{dir = 8},/obj/machinery/embedded_controller/radio/airlock/airlock_controller{frequency = 1379; id_tag = "pirate_station_3_airlock3"; pixel_x = -25; req_access = list("ACCESS_EXTERNAL"); tag_airpump = "pirate_station_3_pump3"; tag_chamber_sensor = "pirate_station_3_sensor3"; tag_exterior_door = "pirate_station_3_outer3"; tag_interior_door = "pirate_station_3_inner3"},/obj/machinery/airlock_sensor{frequency = 1379; id_tag = "pirate_station_3_sensor3"; pixel_x = -25; pixel_y = 12},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
 "aq" = (/obj/machinery/atmospherics/pipe/simple/visible{icon_state = "intact"; dir = 9},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
 "ar" = (/obj/machinery/atmospherics/pipe/simple/visible,/obj/machinery/door/airlock/external{frequency = 1379; icon_state = "door_locked"; id_tag = "pirate_station_3_inner3"; locked = 1; name = "Engineering External Access"; req_access = list("ACCESS_EXTERNAL")},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
@@ -89,7 +89,7 @@
 "bK" = (/obj/item/material/shard,/turf/simulated/floor/tiled/steel_ridged,/area/spacestations/pirate/station)
 "bL" = (/obj/random/trash,/obj/structure/closet/crate,/obj/machinery/atmospherics/unary/vent_pump/on,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "bM" = (/obj/machinery/cryopod{dir = 4},/obj/effect/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
-"bN" = (/obj/machinery/light/small{dir = 1},/obj/machinery/computer/cryopod{density = 0; pixel_y = 32},/obj/item/roller,/obj/machinery/atmospherics/unary/vent_scrubber/on,/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
+"bN" = (/obj/machinery/light/small{dir = 1},/obj/machinery/computer/cryopod{density = 0; pixel_y = 32},/obj/item/roller_bed,/obj/machinery/atmospherics/unary/vent_scrubber/on,/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
 "bO" = (/obj/item/device/radio/intercom{dir = 2; pixel_y = 22},/obj/structure/table/reinforced,/obj/item/storage/firstaid/toxin,/obj/item/storage/firstaid/o2{layer = 2.8; pixel_x = 4; pixel_y = 6},/obj/item/storage/firstaid/fire{layer = 2.9; pixel_x = 2; pixel_y = 3},/obj/item/storage/firstaid/adv{pixel_x = -2},/obj/item/storage/firstaid/regular{pixel_x = -2; pixel_y = 4},/obj/item/bodybag/cryobag{pixel_x = 5},/obj/effect/floor_decal/industrial/outline/blue,/obj/machinery/atmospherics/unary/vent_pump/on,/turf/simulated/floor/tiled/white,/area/spacestations/pirate/station)
 "bP" = (/obj/random/trash,/obj/machinery/door/airlock/glass/civilian,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "bQ" = (/obj/structure/window/reinforced{dir = 8},/obj/structure/bed/nice,/obj/item/bedsheet,/obj/structure/curtain/open/bed,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
@@ -114,7 +114,7 @@
 "cj" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 9; icon_state = "intact-supply"; tag = "icon-intact-supply (NORTHWEST)"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 9},/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
 "ck" = (/obj/structure/closet/crate,/obj/random/smokes,/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 1},/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "cl" = (/obj/machinery/microwave{pixel_x = -3; pixel_y = 6},/obj/structure/table/reinforced,/obj/effect/floor_decal/corner/blue/three_quarters{dir = 8},/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
-"cm" = (/obj/item/storage/box/donkpockets,/obj/structure/table/reinforced,/obj/structure/window/reinforced{dir = 1},/obj/effect/floor_decal/corner/blue{dir = 1},/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
+"cm" = (/obj/item/storage/box/donkpocket_mixed,/obj/structure/table/reinforced,/obj/structure/window/reinforced{dir = 1},/obj/effect/floor_decal/corner/blue{dir = 1},/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "cn" = (/obj/machinery/door/window/northright,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
 "co" = (/obj/structure/filingcabinet/chestdrawer,/obj/item/device/radio/intercom{dir = 8; pixel_x = 22},/obj/structure/window/reinforced{dir = 1},/obj/effect/floor_decal/corner/blue,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "cp" = (/obj/item/table_parts,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
@@ -148,8 +148,8 @@
 "cR" = (/obj/structure/closet/secure_closet/engineering_welding,/turf/simulated/floor/tiled/steel_ridged,/area/spacestations/pirate/station)
 "cS" = (/obj/machinery/vending/tool,/obj/machinery/vending/engineering,/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled/steel_ridged,/area/spacestations/pirate/station)
 "cT" = (/obj/machinery/vending/engivend,/turf/simulated/floor/tiled/steel_ridged,/area/spacestations/pirate/station)
-"cU" = (/obj/machinery/atmospherics/pipe/tank/air,/turf/simulated/floor/tiled/steel_ridged,/area/spacestations/pirate/station)
-"cV" = (/obj/machinery/light/small{dir = 4; pixel_y = 0},/obj/machinery/atmospherics/pipe/tank/air,/turf/simulated/floor/tiled/steel_ridged,/area/spacestations/pirate/station)
+"cU" = (/obj/machinery/atmospherics/unary/tank/air,/turf/simulated/floor/tiled/steel_ridged,/area/spacestations/pirate/station)
+"cV" = (/obj/machinery/light/small{dir = 4; pixel_y = 0},/obj/machinery/atmospherics/unary/tank/air,/turf/simulated/floor/tiled/steel_ridged,/area/spacestations/pirate/station)
 "cW" = (/obj/structure/bed/chair/office/dark,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "cX" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 5},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 5},/obj/structure/catwalk,/obj/effect/urist/triggers/away_ai_landmark/pirate,/turf/simulated/floor,/area/spacestations/pirate/station)
 "cY" = (/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{dir = 1},/obj/machinery/atmospherics/pipe/manifold/hidden/supply,/obj/structure/catwalk,/turf/simulated/floor,/area/spacestations/pirate/station)
@@ -174,7 +174,7 @@
 "dr" = (/obj/random/material,/turf/simulated/floor/tiled/steel_grid,/area/spacestations/pirate/station)
 "ds" = (/obj/random/junk,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled/steel_ridged,/area/spacestations/pirate/station)
 "dt" = (/obj/random/material,/turf/simulated/floor/tiled/steel_ridged,/area/spacestations/pirate/station)
-"du" = (/obj/machinery/atmospherics/trinary/mixer/m_mixer,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
+"du" = (/obj/machinery/atmospherics/omni/mixer,/turf/simulated/floor/plating,/area/spacestations/pirate/station)
 "dv" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/green{icon_state = "intact"; dir = 9},/obj/structure/extinguisher_cabinet{icon_state = "extinguisher_closed"; dir = 8; pixel_x = 31; pixel_x = 30},/turf/simulated/floor/plating,/area/spacestations/pirate/station)
 "dw" = (/obj/item/material/shard,/turf/simulated/floor,/area/spacestations/pirate/station)
 "dx" = (/obj/random/tank,/turf/simulated/floor,/area/spacestations/pirate/station)
@@ -194,7 +194,6 @@
 "dL" = (/obj/machinery/atmospherics/pipe/simple/visible/green,/turf/simulated/floor,/area/spacestations/pirate/station)
 "dM" = (/obj/machinery/atmospherics/pipe/simple/visible/green,/turf/simulated/wall,/area/spacestations/pirate/station)
 "dN" = (/obj/machinery/atmospherics/unary/outlet_injector{dir = 1; injecting = 1; use_power = 1},/turf/simulated/floor/reinforced/airless,/area/spacestations/pirate/exterior)
-"dO" = (/obj/effect/landmark/random_gen/asteroid,/turf/unsimulated/wall/urist/other/border,/area/space)
 "dP" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 4},/obj/structure/catwalk,/obj/effect/overmap/visitable/station/hostile/pirate,/turf/simulated/floor,/area/spacestations/pirate/station)
 "dQ" = (/obj/structure/extinguisher_cabinet{icon_state = "extinguisher_closed"; dir = 8; pixel_x = 31; pixel_x = 30},/obj/structure/ladder,/turf/simulated/floor/tiled,/area/spacestations/pirate/station)
 "dR" = (/turf/simulated/open,/area/spacestations/pirate/station)
@@ -311,7 +310,7 @@ aaaaabcHadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadad
 aaaaabcHadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaabcHadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaabcHacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaadOababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

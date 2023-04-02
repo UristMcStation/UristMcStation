@@ -6,7 +6,7 @@
 	icon_state = "scissors"
 	item_state = "scissors"
 	force = 5
-	matter = list("metal" = 35)
+	matter = list("steel" = 35)
 	sharp = 1
 	edge = 1
 	w_class = 2
@@ -46,7 +46,7 @@
 	icon = 'icons/urist/uristicons.dmi'
 	icon_state = "scissors"
 	item_state = "scissors"
-	matter = list("metal" = 35)
+	matter = list("steel" = 35)
 	force = 3
 	edge = 1
 	w_class = 2

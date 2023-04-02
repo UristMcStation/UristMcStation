@@ -17,7 +17,7 @@
 	//var/list/departments = list(
 	//	/datum/department/medbay
 	//)
-	var/logo //to hopefully get map specific logos again
+	var/logo = "exologo.png" // what is our default logo from the list of logos? Used for the logo macro
 	var/list/blacklisted_programs = list()
 	var/xenomorph_spawn_sound = sound('sound/AI/torch/aliens.ogg', volume = 45)
 

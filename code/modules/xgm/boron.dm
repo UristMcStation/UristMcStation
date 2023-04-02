@@ -1,5 +1,5 @@
 //Hacky addition for Urist
-
+/*
 /singleton/xgm_gas/hydrogen/boron
 	id = "boron"
 	name = "Boron-11"
@@ -16,3 +16,4 @@
 	color = "#837e79"
 	value = 4
 	strength = 7
+*/

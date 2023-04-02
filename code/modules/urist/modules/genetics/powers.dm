@@ -10,8 +10,8 @@
 
 	mutation=M_SOBER
 
-	New()
-		block=SOBERBLOCK
+/datum/dna/gene/basic/sober/New()
+	block=SOBERBLOCK
 
 //WAS: /datum/bioEffect/psychic_resist
 /datum/dna/gene/basic/psychic_resist
@@ -22,7 +22,7 @@
 
 	mutation=M_PSY_RESIST
 
-	New()
+/datum/dna/gene/basic/psychic_resist/New()
 		block=PSYRESISTBLOCK
 
 /////////////////////////
@@ -30,16 +30,17 @@
 /////////////////////////
 
 /datum/dna/gene/basic/stealth
-	can_activate(var/mob/M, var/flags)
-		// Can only activate one of these at a time.
-		if(is_type_in_list(/datum/dna/gene/basic/stealth,M.active_genes))
-			testing("Cannot activate [type]: /datum/dna/gene/basic/stealth in M.active_genes.")
-			return 0
-		return ..(M,flags)
 
-	deactivate(var/mob/M)
-		..(M)
-		M.alpha=255
+/datum/dna/gene/basic/stealth/can_activate(var/mob/M, var/flags)
+	// Can only activate one of these at a time.
+	if(is_type_in_list(/datum/dna/gene/basic/stealth,M.active_genes))
+		testing("Cannot activate [type]: /datum/dna/gene/basic/stealth in M.active_genes.")
+		return 0
+	return ..(M,flags)
+
+/datum/dna/gene/basic/stealth/deactivate(var/mob/M)
+	..(M)
+	M.alpha=255
 
 // WAS: /datum/bioEffect/darkcloak
 /datum/dna/gene/basic/stealth/darkcloak
@@ -48,19 +49,19 @@
 	activation_messages = list("You begin to fade into the shadows.")
 	deactivation_messages = list("You become fully visible.")
 
-	New()
-		block=SHADOWBLOCK
+/datum/dna/gene/basic/stealth/darkcloak/New()
+	block=SHADOWBLOCK
 
-	OnMobLife(var/mob/M)
+/datum/dna/gene/basic/stealth/darkcloak/OnMobLife(var/mob/M)
 
-		if(isturf(M.loc))
-			var/turf/T = M.loc
-			if(shadow_check(T, 2, 1))
-				M.alpha = 0
-			else
-				M.alpha = round(255 * 0.80)
+	if(isturf(M.loc))
+		var/turf/T = M.loc
+		if(shadow_check(T, 2, 1))
+			M.alpha = 0
 		else
 			M.alpha = round(255 * 0.80)
+	else
+		M.alpha = round(255 * 0.80)
 
 //WAS: /datum/bioEffect/chameleon
 /*/datum/dna/gene/basic/stealth/chameleon // needs work to port - Glloyd
@@ -83,28 +84,28 @@
 /datum/dna/gene/basic/grant_spell
 	var/spell/spelltype //TODO: might need to convert it to a list later
 
-	activate(var/mob/M, var/connected, var/flags)
-		..()
-		M.add_spell(src.spelltype, "genetic_spell_ready")
-		return 1
+/datum/dna/gene/basic/grant_spell/activate(var/mob/M, var/connected, var/flags)
+	..()
+	M.add_spell(src.spelltype, "genetic_spell_ready")
+	return 1
 
 
-	deactivate(var/mob/M, var/connected, var/flags)
-		..()
-		M.remove_spell(src.spelltype)
-		return 1
+/datum/dna/gene/basic/grant_spell/deactivate(var/mob/M, var/connected, var/flags)
+	..()
+	M.remove_spell(src.spelltype)
+	return 1
 
 /datum/dna/gene/basic/grant_verb
 	var/verbtype
 
-	activate(var/mob/M, var/connected, var/flags)
-		..()
-		M.verbs += verbtype
-		return 1
+/datum/dna/gene/basic/grant_verb/activate(var/mob/M, var/connected, var/flags)
+	..()
+	M.verbs += verbtype
+	return 1
 
-	deactivate(var/mob/M, var/connected, var/flags)
-		..()
-		M.verbs -= verbtype
+/datum/dna/gene/basic/grant_verb/deactivate(var/mob/M, var/connected, var/flags)
+	..()
+	M.verbs -= verbtype
 
 // WAS: /datum/bioEffect/cryokinesis
 /datum/dna/gene/basic/grant_spell/cryo
@@ -115,9 +116,9 @@
 
 	spelltype = new/spell/targeted/cryokinesis
 
-	New()
-		..()
-		block = CRYOBLOCK
+/datum/dna/gene/basic/grant_spell/cryo/New()
+	..()
+	block = CRYOBLOCK
 
 /spell/targeted/cryokinesis
 	name = "Cryokinesis"
@@ -170,12 +171,13 @@
 	desc = ""
 	//layer = 15
 
-	New(var/atom/location, var/icon/I, var/duration = 20, var/oname = "something")
-		src.name = oname
-		loc=location
-		src.icon = I
-		spawn(duration)
-			qdel(src)
+/obj/effects/self_deleting/New(var/atom/location, var/icon/I, var/duration = 20, var/oname = "something")
+	..()
+	src.name = oname
+	loc=location
+	src.icon = I
+	spawn(duration)
+		qdel(src)
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -188,9 +190,9 @@
 
 	spelltype = new/spell/targeted/eat
 
-	New()
-		..()
-		block = EATBLOCK
+/datum/dna/gene/basic/grant_spell/mattereater/New()
+	..()
+	block = EATBLOCK
 
 /spell/targeted/eat
 	name = "Eat"
@@ -306,9 +308,9 @@
 
 	spelltype = new/spell/targeted/leap
 
-	New()
-		..()
-		block = JUMPBLOCK
+/datum/dna/gene/basic/grant_spell/jumpy/New()
+	..()
+	block = JUMPBLOCK
 
 /spell/targeted/leap
 	name = "Jump"
@@ -426,7 +428,7 @@
 	activation_messages = list("You suddenly notice more about others than you did before.")
 	deactivation_messages = list("You no longer feel able to sense intentions.")
 
-	New()
+/datum/dna/gene/basic/grant_verb/empath/New()
 		..()
 		block = EMPATHBLOCK
 

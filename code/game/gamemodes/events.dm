@@ -13,13 +13,13 @@ var/global/hadevent    = 0
 			break
 
 
-/proc/alien_infestation(var/spawncount = 1) // -- TLE
+/proc/alien_infestation(spawncount = 1) // -- TLE
 	//command_alert("Unidentified lifesigns detected coming aboard [station_name()]. Secure any exterior access, including ducting and ventilation.", "Lifesign Alert")
 //	sound_to(world, sound('sound/AI/aliens.ogg'))
 
 	var/list/vents = list()
 	for(var/obj/machinery/atmospherics/unary/vent_pump/temp_vent in SSmachines.machinery)
-		if(!temp_vent.welded && temp_vent.network && temp_vent.loc.z in GLOB.using_map.station_levels)
+		if((!temp_vent.welded && temp_vent.network && temp_vent.loc.z) in GLOB.using_map.station_levels)
 			if(temp_vent.network.normal_members.len > 50) // Stops Aliens getting stuck in small networks. See: Security, Virology
 				vents += temp_vent
 

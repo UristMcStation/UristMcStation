@@ -283,11 +283,11 @@
 	name = "box of KH-50 ammo"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
 
-	New()
-		..()
-		new /obj/item/ammo_magazine/a127x54mm(src)
-		new /obj/item/ammo_magazine/a127x54mm(src)
-		new /obj/item/ammo_magazine/a127x54mm(src)
+/obj/item/storage/box/kh50ammo/New()
+	..()
+	new /obj/item/ammo_magazine/a127x54mm(src)
+	new /obj/item/ammo_magazine/a127x54mm(src)
+	new /obj/item/ammo_magazine/a127x54mm(src)
 
 /obj/structure/scom/shieldgen
 	name = "shield generator"

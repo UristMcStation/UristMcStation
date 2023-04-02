@@ -77,9 +77,7 @@
 /obj/item/organ/internal/eyes/xeno/update_colour()
 	if(!owner)
 		return
-	owner.r_eyes = 153
-	owner.g_eyes = 0
-	owner.b_eyes = 153
+	owner.eye_color = "#990099"
 	..()
 
 /obj/item/organ/internal/xeno/hivenode/removed(var/mob/living/user)

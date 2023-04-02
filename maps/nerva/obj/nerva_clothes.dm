@@ -92,10 +92,10 @@
 /obj/item/clothing/suit/storage/toggle/urist/hosjacket
 	name = "chief of security's jacket"
 	desc = "A hardy jacket worn by the ICS Nerva's Chief of Security."
-	icon_state = "service_hos_open"
+	icon_state = "service_hos"
 //	icon_open = "service_hos_open"
 //	icon_closed = "service_hos_closed"
-	item_state = "service_hos"
+//	item_state = "service_hos"
 	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
@@ -105,10 +105,10 @@
 /obj/item/clothing/suit/storage/toggle/urist/qmjacket
 	name = "quartermaster's jacket"
 	desc = "A light jacket worn by the ICS Nerva's Quartermaster."
-	icon_state = "service_qm_open"
+	icon_state = "service_qm"
 //	icon_open = "service_qm_open"
 //	icon_closed = "service_qm_closed"
-	item_state = "service_qm"
+//	item_state = "service_qm"
 	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
@@ -117,10 +117,10 @@
 /obj/item/clothing/suit/storage/toggle/urist/cargojacket
 	name = "supply technician's jacket"
 	desc = "A light jacket worn by the ICS Nerva's supply technicians."
-	icon_state = "service_cargo_open"
+	icon_state = "service_cargo"
 //	icon_open = "service_cargo_open"
 //	icon_closed = "service_cargo_closed"
-	item_state = "service_cargo"
+//	item_state = "service_cargo"
 	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
@@ -129,10 +129,10 @@
 /obj/item/clothing/suit/storage/toggle/urist/nervacapjacket
 	name = "captain's jacket"
 	desc = "A hardy synthleather flight jacket worn by the captain of the ICS Nerva. Stylsh, practical and lightly armoured, this outfit exudes an aura of command."
-	icon_state = "nervacapcoat_open"
+	icon_state = "nervacapcoat"
 //	icon_open = "nervacapcoat_open"
 //	icon_closed = "nervacapcoat_closed"
-	item_state = "nervacapcoat"
+	//item_state = "nervacapcoat"
 	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
@@ -143,7 +143,7 @@
 	name = "science labcoat"
 	desc = "A coat that protects against minor chemical spills. It has the insignia of the ICS Nerva on it."
 	icon = 'icons/urist/items/clothes/clothes.dmi'
-	item_state = "n_lab"
+//	item_state = "n_lab"
 	icon_state = "n_lab"
 //	icon_open = "n_lab_open"
 //	icon_closed = "n_lab"

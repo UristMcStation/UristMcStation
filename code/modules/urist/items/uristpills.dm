@@ -8,9 +8,10 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "happy pill"
 	desc = "Ready to party?"
 	icon_state = "pill20"
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/drugs/hextro, 50)
+
+/obj/item/reagent_containers/pill/spacedrugs/New()
+	..()
+	reagents.add_reagent(/datum/reagent/drugs/hextro, 50)
 
 //now time to define the actual pills
 /*
@@ -44,61 +45,68 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "Blood recovery pill"
 	desc = "Extremely strong blood restoration."
 	icon_state = "pill12"
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/nutriment, 15)
-		reagents.add_reagent(/datum/reagent/nanoblood, 15)
-		reagents.add_reagent(/datum/reagent/iron, 15)
-		reagents.add_reagent(/datum/reagent/sugar, 15)
+
+/obj/item/reagent_containers/pill/bloodloss/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 15)
+	reagents.add_reagent(/datum/reagent/nanoblood, 15)
+	reagents.add_reagent(/datum/reagent/iron, 15)
+	reagents.add_reagent(/datum/reagent/sugar, 15)
 
 /obj/item/reagent_containers/pill/peridaxon
 	name = "Peridaxon (10u)"
 	desc = "Regenerates internal organs and reverses organ decay."
 	icon_state = "pill8"
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/peridaxon, 10)
+
+/obj/item/reagent_containers/pill/peridaxon/New()
+	..()
+	reagents.add_reagent(/datum/reagent/peridaxon, 10)
 
 /obj/item/reagent_containers/pill/rezadone
 	name = "Rezadone (15u)"
 	desc = "Only to be used in absolute emergencies."
 	icon_state = "pill18"
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/rezadone, 15)
+
+/obj/item/reagent_containers/pill/rezadone/New()
+	..()
+	reagents.add_reagent(/datum/reagent/rezadone, 15)
 
 /obj/item/reagent_containers/pill/exspaceacillin
 	name = "Extreme spaceacillin pill"
 	desc = "WARNING: Overdose level of spaceacillin for extreme cases of infections."
 	icon_state = "pill9"
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/spaceacillin, 45)
+
+/obj/item/reagent_containers/pill/exspaceacillin/New()
+	..()
+	reagents.add_reagent(/datum/reagent/spaceacillin, 45)
 
 /obj/item/reagent_containers/pill/exbicaridine
 	name = "Bicaridine (45u)"
 	desc = "For arterial bleeding cases only."
 	icon_state = "pill10"
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/bicaridine, 45)
+
+/obj/item/reagent_containers/pill/exbicaridine/New()
+	..()
+	reagents.add_reagent(/datum/reagent/bicaridine, 45)
 
 /obj/item/reagent_containers/pill/latrazine
 	name = "Latrazine (5u)"
 	desc = "WARNING: Unstable mixture. Do not consume under normal conditions. Only for use in critical non-compound fractures."
 	icon_state = "pill2"
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/latrazine, 5)
+
+/obj/item/reagent_containers/pill/latrazine/New()
+	..()
+	reagents.add_reagent(/datum/reagent/latrazine, 5)
 
 /obj/item/reagent_containers/pill/clonefix
 	name = "Clone fix pill"
 	desc = "Repairs possible cloning faults."
 	icon_state = "pill7"
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/alkysine, 10)
-		reagents.add_reagent(/datum/reagent/ryetalyn, 1)
+
+/obj/item/reagent_containers/pill/clonefix/New()
+	..()
+	reagents.add_reagent(/datum/reagent/alkysine, 10)
+	reagents.add_reagent(/datum/reagent/ryetalyn, 1)
 
 //Now pill bottle time
 

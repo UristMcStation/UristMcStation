@@ -110,28 +110,30 @@
 	matter = list("wood" = 200)
 	max_amount = 100
 	center_of_mass = null
-	attack_verb = list("hit", "bludgeoned", "whacked")*/
+	attack_verb = list("hit", "bludgeoned", "whacked")
 
 /obj/item/stack/woodrods/New()
 	..()
-	update_icon()
+	update_icon()*/
 
 /obj/item/stack/material/rods/attackby(obj/item/W as obj, mob/user as mob)
-	..()
-	var/obj/item/stack/material/rods/R
-	if(!R.material == MATERIAL_WOOD)
-		to_chat(user, SPAN_NOTICE("This is too hard to work with - try a wooden rod."))
-		return
+	var/obj/item/stack/material/rods/R = src
 
-	if(W.edge)
-		user << "<span class='warning'>You use the edge of [W] to sharpen the tip of the shaft.</span>"
-		new /obj/item/sharpwoodrod(user.loc)
-		src.use(1)
+	if(W.sharp && W.edge && !sharp)
+
+		if(!istype(R.material, /material/wood))
+			to_chat(user, SPAN_NOTICE("This is too hard to sharpen - try a wooden rod."))
+			return
+		else
+			to_chat(user, SPAN_WARNING("You use the edge of [W] to sharpen the tip of the shaft."))
+			new /obj/item/sharpwoodrod(user.loc)
+			src.use(1)
+
 
 	if(istype(W, /obj/item/reagent_containers/glass/rag))
 //		var/obj/item/reagent_containers/glass/rag/R = W
 		var/obj/item/flame/torch/T = new /obj/item/flame/torch(get_turf(user))
-		user << "<span class='notice'>You wrap the rag around the shaft forming an improvised torch.</span>"
+		to_chat (user, SPAN_NOTICE("You wrap the rag around the shaft forming an improvised torch."))
 		src.use(1)
 		user.drop_from_inventory(W)
 		qdel(W)
@@ -140,7 +142,7 @@
 
 	else if(istype(W, /obj/item/improv/axe_head))
 		var/obj/item/carpentry/axe/T = new /obj/item/carpentry/axe(get_turf(user))
-		user << "<span class='notice'>You fit the axe head onto the wooden rod..</span>"
+		to_chat (user, SPAN_NOTICE("You fit the axe head onto the wooden rod.."))
 		src.use(1)
 		user.drop_from_inventory(W)
 		qdel(W)
@@ -149,13 +151,14 @@
 
 	else if(istype(W, /obj/item/improv/pickaxe_head))
 		var/obj/item/pickaxe/old/T = new /obj/item/pickaxe/old(get_turf(user))
-		user << "<span class='notice'>You fit the pickaxe head onto the wooden rod..</span>"
+		to_chat (user, SPAN_NOTICE("You fit the pickaxe head onto the wooden rod.."))
 		src.use(1)
 		user.drop_from_inventory(W)
 		qdel(W)
 
 		user.put_in_hands(T)
-
+	else
+		..()
 /*/obj/item/stack/woodrods/attack_self(mob/user as mob)
 	src.add_fingerprint(user)
 
@@ -214,7 +217,7 @@
 	attack_verb = list("attacked", "stabbed")
 	sharp = 1
 
-/obj/item/material/woodwirerod
+/*/obj/item/material/woodwirerod
 	name = "wired shaft"
 	desc = "A rod with some wire wrapped around the top. It'd be easy to attach something to the top bit."
 	icon_state = "wiredrod"
@@ -271,7 +274,7 @@
 		qdel(I)
 		qdel(src)
 		user.put_in_hands(finished)
-	update_icon(user)
+	update_icon(user)*/
 
 /obj/item/flame/torch
 	name = "torch"
@@ -365,7 +368,7 @@
 /obj/item/shovel/improvised/afterattack(mob/user as mob)
 	if(prob(5))
 		user << "<span class='notice'>The shovel falls apart in your hands!</span>"
-		new /obj/item/material/woodwirerod(user.loc)
+//		new /obj/item/material/woodwirerod(user.loc)
 		qdel(src)
 
 	..()
@@ -425,7 +428,7 @@
 	if(istype(W, /obj/item/stack/material/rods))
 		var/obj/item/stack/material/rods/R = W
 		var/obj/item/carpentry/axe/T = new /obj/item/carpentry/axe(get_turf(user))
-		if(!R.material == MATERIAL_WOOD)
+		if(!istype(R.material, /material/wood))
 			to_chat(user, SPAN_NOTICE("This is too hard to work with - try a wooden rod."))
 			return
 		else
@@ -443,10 +446,14 @@
 /obj/item/improv/pickaxe_head/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 
-	if(istype(W, /obj/item/stack/woodrods))
-		var/obj/item/stack/woodrods/R = W
+	if(istype(W, /obj/item/stack/material/rods))
+		var/obj/item/stack/material/rods/R = W
 		var/obj/item/pickaxe/old/T = new /obj/item/pickaxe/old(get_turf(user))
-		user << "<span class='notice'>You slam that pickaxe head down onto the wood rod. You got yourself a pickaxe son.</span>"
+		if(!istype(R.material, /material/wood))
+			to_chat(user, SPAN_NOTICE("This is too hard to work with - try a wooden rod."))
+			return
+		else
+			to_chat(user, SPAN_NOTICE("You slam that pickaxe head down onto the wood rod. You got yourself a pickaxe son."))
 		R.use(1)
 
 		user.put_in_hands(T)

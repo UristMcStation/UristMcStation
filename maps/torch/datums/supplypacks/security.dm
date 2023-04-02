@@ -214,7 +214,7 @@
 
 /singleton/hierarchy/supply_pack/security/magnum_ammo
 	name = "Ammo - .357 Magnum"
-	contains = list(/obj/item/ammo_magazine/a357 = 4)
+	contains = list(/obj/item/ammo_magazine/speedloader/magnum = 4)
 	cost = 30
 	containertype = /obj/structure/closet/crate/secure/weapon
 	containername = ".357 magnum ammunition crate"

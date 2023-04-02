@@ -55,15 +55,6 @@
 			else
 				S.dried += 1
 
-/obj/machinery/smartfridge/tanningrack/New()
-	..()
-	component_parts = list()
-	component_parts += new /obj/item/stock_parts/circuitboard/tanningrack(src)
-	component_parts += new /obj/item/stack/material/wood(src, 4)
-	component_parts += new /obj/item/stock_parts/scanning_module(src)
-	component_parts += new /obj/item/stock_parts/console_screen(src)
-	component_parts += new /obj/item/stack/cable_coil(src, 5)
-
 
 //hide
 

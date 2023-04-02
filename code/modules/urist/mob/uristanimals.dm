@@ -19,6 +19,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
 	ai_holder = /datum/ai_holder/simple_animal/passive/fox
+	say_list_type = /datum/say_list/fox
 
 /datum/ai_holder/simple_animal/passive/fox
 	speak_chance = 1
@@ -74,6 +75,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "hits"
+	say_list_type = /datum/say_list/turtle
 
 /datum/say_list/turtle
 	emote_see = list("blinks", "snaps the air")
@@ -162,6 +164,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	pass_flags = PASS_FLAG_TABLE
 	faction = "factory"
 	attacktext = "bites"
+	say_list_type = /datum/say_list/mutated_rat
 
 /datum/say_list/mutated_rat
 	speak = list("squeaks")
@@ -184,6 +187,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	faction = "factory"
 	attacktext = "gnaws"
 	ai_holder = /datum/ai_holder/simple_animal/melee
+	say_list_type = /datum/say_list/mutated_corpse_rat
 
 /datum/say_list/mutated_corpse_rat
 	speak = list("squeaks")

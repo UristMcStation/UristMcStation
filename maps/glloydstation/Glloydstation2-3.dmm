@@ -156,7 +156,7 @@
 /turf/simulated/floor/plating,
 /area/derelict/ship)
 "aw" = (
-/obj/structure/computerframe{
+/obj/machinery/constructable_frame/computerframe{
 	anchored = 1
 	},
 /turf/simulated/shuttle/floor{
@@ -228,7 +228,7 @@
 	},
 /area/derelict/ship)
 "aF" = (
-/obj/item/cell{
+/obj/item/cell/hyper{
 	charge = 100;
 	maxcharge = 15000
 	},
@@ -636,7 +636,7 @@
 /area/derelict/ship)
 "bE" = (
 /obj/structure/cable,
-/obj/structure/computerframe{
+/obj/machinery/constructable_frame/computerframe{
 	anchored = 1
 	},
 /turf/simulated/shuttle/floor{
@@ -645,7 +645,7 @@
 /area/derelict/ship)
 "bF" = (
 /obj/structure/cable,
-/obj/structure/computerframe{
+/obj/machinery/constructable_frame/computerframe{
 	anchored = 1
 	},
 /obj/item/stack/cable_coil/cut,
@@ -851,7 +851,7 @@
 /turf/simulated/floor/plating/airless,
 /area/tcommsat/chamber/abandoned)
 "cj" = (
-/obj/item/cell,
+/obj/item/cell/hyper,
 /turf/simulated/floor/plating/airless,
 /area/tcommsat/chamber/abandoned)
 "ck" = (
@@ -922,7 +922,7 @@
 /turf/simulated/floor/airless,
 /area/tcommsat/chamber/abandoned)
 "cw" = (
-/obj/structure/computerframe,
+/obj/machinery/constructable_frame/computerframe,
 /turf/simulated/floor/airless,
 /area/tcommsat/chamber/abandoned)
 "cx" = (
@@ -1061,7 +1061,7 @@
 /area/tcommsat/chamber/abandoned)
 "cT" = (
 /obj/structure/table/standard,
-/obj/item/storage/fancy/cigarettes,
+/obj/item/storage/fancy/smokable,
 /turf/simulated/floor/airless,
 /area/tcommsat/chamber/abandoned)
 "cU" = (
@@ -1631,22 +1631,22 @@
 /turf/simulated/floor/plating,
 /area/tcommsat/chamber/abandoned)
 "eF" = (
-/obj/structure/computerframe,
+/obj/machinery/constructable_frame/computerframe,
 /turf/simulated/floor/plating,
 /area/tcommsat/chamber/abandoned)
 "eG" = (
-/obj/machinery/teleport/station,
+/obj/machinery/computer/teleporter,
 /turf/simulated/floor/plating,
 /area/tcommsat/chamber/abandoned)
 "eH" = (
-/obj/machinery/teleport/hub,
+/obj/machinery/tele_pad,
 /turf/simulated/floor/plating,
 /area/tcommsat/chamber/abandoned)
 "eI" = (
 /turf/simulated/wall/r_wall,
 /area/AIsattele)
 "eJ" = (
-/obj/structure/computerframe,
+/obj/machinery/constructable_frame/computerframe,
 /obj/structure/cable{
 	icon_state = "0-2";
 	d2 = 2
@@ -1654,7 +1654,7 @@
 /turf/simulated/floor/plating/airless,
 /area/AIsattele)
 "eK" = (
-/obj/machinery/teleport/station,
+/obj/machinery/computer/teleporter,
 /obj/structure/cable{
 	icon_state = "0-2";
 	d2 = 2
@@ -1684,7 +1684,7 @@
 /turf/simulated/floor/plating/airless,
 /area/AIsattele)
 "eQ" = (
-/obj/item/cell,
+/obj/item/cell/hyper,
 /turf/simulated/floor/plating/airless,
 /area/AIsattele)
 "eR" = (

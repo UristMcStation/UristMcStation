@@ -577,15 +577,10 @@ var/global/list/ai_verbs_default = list(
 		if("Character Slot")	//Allows players to use a character slot for their hologram. Changes with loadout/job gear selection.
 			if(!client || !client.prefs)	//Shouldn't be possible but... Never hurts
 				return
-
-			var/savefile/S = new /savefile(client.prefs.path)
-			if(S)
-				var/list/characters = list()
-				for(var/i=1, i<= config.character_slots, i++)
-					S.cd = GLOB.using_map.character_load_path(S, i)
-					var/name
-					S["real_name"] >> name
-					characters[name] = i
+			var/list/characters = list()
+			for(var/i = 1, i <= config.character_slots, i++)
+				var/datum/pref_record_reader/R = client.prefs.load_pref_record(i)
+				characters[R.read("real_name")] = i
 				var/chosen_character = input("Which slot do you want to use?") in characters
 				var/prev_slot = client.prefs.default_slot	//So we leave the loaded slot to whatever the player originally set it to
 				client.prefs.load_character(characters[chosen_character])
@@ -597,8 +592,6 @@ var/global/list/ai_verbs_default = list(
 				holo_icon = getHologramIcon(icon(mannequin))
 				holo_icon_longrange = getHologramIcon(icon(mannequin), hologram_color = HOLOPAD_LONG_RANGE)
 				qdel(mannequin)
-			else
-				alert("No character slots found. Aborting.")
 	return
 
 //Toggles the luminosity and applies it by re-entereing the camera.

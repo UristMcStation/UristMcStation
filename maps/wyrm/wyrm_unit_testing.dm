@@ -42,7 +42,7 @@
 		/area/shuttle/escape/centcom,
 		/area/shuttle/specops/centcom,
 		/area/shuttle/syndicate_elite/mothership,
-		/area/skipjack_station/start,
+		/area/map_template/skipjack_station/start,
 		/area/syndicate_elite_squad,
 		/area/map_template/wizard_station,
 		/area/beach,

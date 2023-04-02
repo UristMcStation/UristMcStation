@@ -184,11 +184,11 @@
 	item_state = "ppsh"
 	w_class = 3
 	force = 8
-	caliber = "9mm"
+	caliber = CALIBER_PISTOL_SMALL
 	slot_flags = SLOT_BELT || SLOT_BACK
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/mc9mm/mp40
-	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm/mp40)
+	magazine_type = /obj/item/ammo_magazine/pistol/mp40
+	allowed_magazines = list(/obj/item/ammo_magazine/pistol/mp40)
 	one_hand_penalty = 1
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	firemodes = list(
@@ -204,15 +204,15 @@
 		icon_state = "mp40_stock-empty"
 	return
 
-/obj/item/ammo_magazine/mc9mm/mp40
+/obj/item/ammo_magazine/pistol/mp40
 	icon = 'icons/urist/items/guns.dmi'
-	name = "MP 40 (9mm)"
+	name = "MP 40"
 	icon_state = "mpmag"
 	mag_type = MAGAZINE
-	ammo_type = /obj/item/ammo_casing/c9mm
+	ammo_type = /obj/item/ammo_casing/pistol/small
 	max_ammo = 32
 
-/obj/item/ammo_magazine/mc9mm/mp40/empty
+/obj/item/ammo_magazine/pistol/mp40/empty
 	initial_ammo = 0
 
 /obj/item/gun/projectile/p38
@@ -222,12 +222,12 @@
 	icon_state = "p38"
 	item_state = "gun"
 	w_class = 2
-	caliber = "9mm"
+	caliber = CALIBER_PISTOL_SMALL
 	fire_sound = 'sound/weapons/gunshot/Gunshot_pistol.ogg'
 	slot_flags = SLOT_BELT
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/mc9mm/p38
-	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm/p38)
+	magazine_type = /obj/item/ammo_magazine/pistol/p38
+	allowed_magazines = list(/obj/item/ammo_magazine/pistol/p38)
 
 /obj/item/gun/projectile/p38/update_icon()
 	..()
@@ -237,15 +237,15 @@
 		icon_state = "p38-empty"
 	return
 
-/obj/item/ammo_magazine/mc9mm/p38
+/obj/item/ammo_magazine/pistol/p38
 	icon = 'icons/urist/items/guns.dmi'
-	name = "Walther P38 magazine (9mm)"
+	name = "Walther P38 magazine"
 	icon_state = "p38mag"
 	mag_type = MAGAZINE
-	ammo_type = /obj/item/ammo_casing/c9mm
+	ammo_type = /obj/item/ammo_casing/pistol/small
 	max_ammo = 8
 
-/obj/item/ammo_magazine/mc9mm/p38/empty
+/obj/item/ammo_magazine/pistol/p38/empty
 	initial_ammo = 0
 
 /obj/item/gun/projectile/automatic/l6_saw/mg42
@@ -465,11 +465,11 @@
 	item_state = "ppsh"
 	w_class = 3
 	force = 8
-	caliber = "9mm"
+	caliber = CALIBER_PISTOL_SMALL
 	slot_flags = SLOT_BELT || SLOT_BACK
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/mc9mm/ppsh
-	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm/ppsh)
+	magazine_type = /obj/item/ammo_magazine/pistol/ppsh
+	allowed_magazines = list(/obj/item/ammo_magazine/pistol/ppsh)
 	one_hand_penalty = 1
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	firemodes = list(
@@ -485,15 +485,15 @@
 		icon_state = "ppsh41-empty"
 	return
 
-/obj/item/ammo_magazine/mc9mm/ppsh
+/obj/item/ammo_magazine/pistol/ppsh
 	name = "PPSh-41 drum magazine (7.62x25mm)" //7.62x25 is close enough to 9mm actually, so fuck it
 	icon_state = "ppsh_drum"
 	icon = 'icons/urist/items/guns.dmi'
 	mag_type = MAGAZINE
-	ammo_type = /obj/item/ammo_casing/c9mm
+	ammo_type = /obj/item/ammo_casing/pistol/small
 	max_ammo = 71
 
-/obj/item/ammo_magazine/mc9mm/ppsh/empty
+/obj/item/ammo_magazine/pistol/ppsh/empty
 	initial_ammo = 0
 
 /obj/item/gun/projectile/tt33
@@ -503,12 +503,12 @@
 	icon_state = "tt33"
 	item_state = "gun"
 	w_class = 2
-	caliber = "9mm"
+	caliber = CALIBER_PISTOL_SMALL
 	fire_sound = 'sound/weapons/gunshot/Gunshot_pistol.ogg'
 	slot_flags = SLOT_BELT
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/mc9mm/tt33
-	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm/tt33)
+	magazine_type = /obj/item/ammo_magazine/pistol/tt33
+	allowed_magazines = list(/obj/item/ammo_magazine/pistol/tt33)
 
 /obj/item/gun/projectile/tt33/update_icon()
 	..()
@@ -518,15 +518,15 @@
 		icon_state = "tt33-empty"
 	return
 
-/obj/item/ammo_magazine/mc9mm/tt33
+/obj/item/ammo_magazine/pistol/tt33
 	icon = 'icons/urist/items/guns.dmi'
 	name = "TT-33 magazine (7.62x25mm)"
 	icon_state = "tt33mag"
 	mag_type = MAGAZINE
-	ammo_type = /obj/item/ammo_casing/c9mm
+	ammo_type = /obj/item/ammo_casing/pistol/small
 	max_ammo = 8
 
-/obj/item/ammo_magazine/mc9mm/tt33/empty
+/obj/item/ammo_magazine/pistol/tt33/empty
 	initial_ammo = 0
 
 /obj/item/gun/projectile/revolver/nagantm1895

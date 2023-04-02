@@ -201,11 +201,11 @@ transit/east is the same thing now AFAIK
 
 /turf/simulated/wall/false
 	can_open = 1
-	paint_color = COLOR_GUNMETAL
+	paint_color = COLOR_WALL_GUNMETAL
 
 /turf/simulated/wall/r_wall/false
 	can_open = 1
-	paint_color = COLOR_GUNMETAL
+	paint_color = COLOR_WALL_GUNMETAL
 
 /turf/simulated/wall/r_wall/hull/false
 	can_open = 1

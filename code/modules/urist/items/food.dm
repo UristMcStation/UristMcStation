@@ -42,10 +42,10 @@
 	trash = /obj/item/trash/urist/blamco
 	filling_color = "#ffe98c"
 
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/nutriment, 3)
-		bitesize = 2
+/obj/item/reagent_containers/food/snacks/urist/blamco/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 3)
+	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/urist/bubblegum
 	name = "bubblegum."
@@ -54,9 +54,9 @@
 	trash = /obj/item/trash/urist/bubblegum
 	filling_color = "#ffe98c"
 
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/sugar, 2)
+/obj/item/reagent_containers/food/snacks/urist/bubblegum/New()
+	..()
+	reagents.add_reagent(/datum/reagent/sugar, 2)
 
 /obj/item/reagent_containers/food/snacks/urist/cram
 	name = "cram"
@@ -65,11 +65,11 @@
 	trash = /obj/item/trash/urist/cram
 	filling_color = "#ffbec7"
 
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/nutriment, 3)
-		reagents.add_reagent(/datum/reagent/sugar, 2)
-		bitesize = 3
+/obj/item/reagent_containers/food/snacks/urist/cram/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 3)
+	reagents.add_reagent(/datum/reagent/sugar, 2)
+	bitesize = 3
 
 /obj/item/reagent_containers/food/snacks/urist/dapples
 	name = "dandy boy apples"
@@ -78,10 +78,10 @@
 	trash = /obj/item/trash/urist/dapples
 	filling_color = "#ffbec7"
 
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/nutriment, 1)
-		reagents.add_reagent(/datum/reagent/sugar, 3)
+/obj/item/reagent_containers/food/snacks/urist/dapples/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 1)
+	reagents.add_reagent(/datum/reagent/sugar, 3)
 
 /obj/item/reagent_containers/food/snacks/urist/fancycakes
 	name = "fancy lads snack cakes"
@@ -90,11 +90,11 @@
 	trash = /obj/item/trash/urist/fancycakes
 	filling_color = "#f3f6ff"
 
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/nutriment, 2)
-		reagents.add_reagent(/datum/reagent/sugar, 3)
-		bitesize = 2
+/obj/item/reagent_containers/food/snacks/urist/fancycakes/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 2)
+	reagents.add_reagent(/datum/reagent/sugar, 3)
+	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/urist/instamash
 	name = "instaMash"
@@ -103,10 +103,10 @@
 	trash = /obj/item/trash/urist/instamash
 	filling_color = "#f94a32"
 
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/nutriment, 4)
-		bitesize = 2
+/obj/item/reagent_containers/food/snacks/urist/instamash/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 4)
+	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/urist/onigiri
 	name = "Umeboshi Onigiri"
@@ -116,10 +116,10 @@
 	trash = /obj/item/trash/onigiri
 	filling_color = "#eddd00"
 
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/nutriment, 3)
-		bitesize = 2
+/obj/item/reagent_containers/food/snacks/urist/onigiri/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 3)
+	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/urist/onigiri2
 	name = "Katsoubushi Onigiri"
@@ -129,10 +129,10 @@
 	trash = /obj/item/trash/onigiri
 	filling_color = "#eddd00"
 
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/nutriment, 4)
-		bitesize = 2
+/obj/item/reagent_containers/food/snacks/urist/onigiri2/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 4)
+	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/urist/onigiri4
 	name = "Cat-Shaped Onigiri"
@@ -142,10 +142,10 @@
 	trash = /obj/item/trash/onigiri
 	filling_color = "#eddd00"
 
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/nutriment, 3)
-		bitesize = 2
+/obj/item/reagent_containers/food/snacks/urist/onigiri4/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 3)
+	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/urist/yakidango
 	name = "Yakidango Skewers"
@@ -155,10 +155,10 @@
 	trash = /obj/item/trash/skewers
 	filling_color = "#7a3d11"
 
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/nutriment, 5)
-		bitesize = 4
+/obj/item/reagent_containers/food/snacks/urist/yakidango/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 5)
+	bitesize = 4
 
 /obj/item/reagent_containers/food/snacks/urist/ramenmiso
 	name = "Miso Ramen"
@@ -168,10 +168,10 @@
 	trash = /obj/item/trash/ramenbowl
 	filling_color = "#7a3d11"
 
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/nutriment, 5)
-		bitesize = 3
+/obj/item/reagent_containers/food/snacks/urist/ramenmiso/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 5)
+	bitesize = 3
 
 // Mingus Dew Reagent
 /datum/reagent/drink/mingusdew

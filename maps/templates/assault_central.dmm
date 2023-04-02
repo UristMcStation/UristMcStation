@@ -29,7 +29,7 @@
 "C" = (/obj/structure/table/standard,/obj/machinery/recharger,/turf/simulated/floor/reinforced,/area/hallway/primary/central_one)
 "D" = (/obj/machinery/shieldgen,/turf/simulated/floor/reinforced,/area/hallway/primary/central_one)
 "E" = (/obj/structure/table/standard/flipped/s,/turf/simulated/floor/reinforced,/area/hallway/primary/central_one)
-"F" = (/obj/structure/table/standard/flipped/s,/obj/item/storage/box/shotgunammo,/turf/simulated/floor/reinforced,/area/hallway/primary/central_one)
+"F" = (/obj/structure/table/standard/flipped/s,/obj/item/storage/box/ammo/shotgunammo,/turf/simulated/floor/reinforced,/area/hallway/primary/central_one)
 "G" = (/obj/machinery/newscaster{hitstaken = 1; pixel_x = 0; pixel_y = -32},/turf/simulated/floor/reinforced,/area/hallway/primary/central_one)
 "H" = (/obj/item/device/radio/intercom{name = "Station Intercom (General)"; pixel_y = -29},/turf/simulated/floor/reinforced,/area/hallway/primary/central_one)
 

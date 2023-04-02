@@ -34,7 +34,7 @@
 		/obj/item/ammo_magazine/a9mm = 60,
 		/obj/item/storage/box/ammo/shotgunammo = 60,
 		/obj/item/storage/box/ammo/shotgunshells = 60,
-		/obj/item/ammo_magazine/a45m/a7 = 60,
+		/obj/item/ammo_magazine/pistol/a7 = 60,
 		/obj/item/ammo_magazine/a132x108mm/stripper = 10,
 		//guns,
 		/obj/item/gun/projectile/automatic/a22 = 10,
@@ -53,8 +53,8 @@
 	contraband = list(
 		/obj/item/storage/box/ammo/flashshells = 5,
 		/obj/item/storage/box/ammo/beanbags = 5,
-		/obj/item/ammo_magazine/a38 = 10,
-		/obj/item/ammo_magazine/a45m = 10,
+		/obj/item/ammo_magazine/speedloader = 10,
+		/obj/item/ammo_magazine/pistol = 10,
 		/obj/item/ammo_magazine/rifle/military = 10,
 		/obj/item/ammo_magazine/rifle = 10
 		)

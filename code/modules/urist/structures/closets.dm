@@ -34,7 +34,7 @@
 	new /obj/item/clothing/head/helmet/swat(src)
 	new /obj/item/device/radio/headset/heads/captain(src)
 	new /obj/item/gun/projectile/revolver/webley(src)
-	new /obj/item/ammo_magazine/a44(src)
+	new /obj/item/ammo_magazine/speedloader(src)
 	new /obj/item/clothing/suit/armor/captain(src)
 	new /obj/item/melee/telebaton(src)
 	new /obj/item/clothing/suit/armor/vest/capcarapace(src)

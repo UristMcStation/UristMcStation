@@ -54,7 +54,7 @@
 	to_chat(user, SPAN_NOTICE("You begin hacking \the [target]..."))
 	is_hacking = 1
 	// Hackin takes roughly 13-20 seconds. Fairly small random span to avoid people simply aborting and trying again.
-	var/hack_result = do_after(user, (13 SECONDS + rand(0, 4 SECONDS) + rand(0, 3 SECONDS)), progress = 0)
+	var/hack_result = do_after(user, (13 SECONDS + rand(0, 4 SECONDS) + rand(0, 3 SECONDS)), DO_DEFAULT)
 	is_hacking = 0
 
 	if(hack_result && in_hack_mode)

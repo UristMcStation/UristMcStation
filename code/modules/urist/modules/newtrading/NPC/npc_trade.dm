@@ -19,7 +19,7 @@
 		if(!T.sellable)
 			return 0
 
-	if(O.trader_category && O.trader_category in trade_categories_by_name)
+	if(O.trader_category && (O.trader_category in trade_categories_by_name))
 		return 1
 
 	if(O.type in trade_items_by_type)

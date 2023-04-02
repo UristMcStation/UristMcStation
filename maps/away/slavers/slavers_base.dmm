@@ -2863,7 +2863,8 @@
 /turf/simulated/floor/airless/ceiling,
 /area/slavers_base/maint)
 "hg" = (
-/obj/item/coilgun_assembly,
+/obj/item/weapon_frame,
+/obj/item/stack/material/steel/ten,
 /turf/simulated/floor/airless/ceiling,
 /area/slavers_base/powatm)
 "hh" = (

@@ -50,6 +50,26 @@
 
 //******Outfits for corpse spawners******
 
+/obj/effect/landmark/corpse/wildwest/cowboy
+	genders_per_species = list(SPECIES_HUMAN = list(MALE))
+	damage = list("damage_all_brute" = 25)
+	corpse_outfits = list(/singleton/hierarchy/outfit/wildwest/cowboy)
+
+/obj/effect/landmark/corpse/wildwest/saloongirl
+	genders_per_species = list(SPECIES_HUMAN = list(FEMALE))
+	damage = list("damage_all_brute" = 25)
+	corpse_outfits = list(/singleton/hierarchy/outfit/wildwest/saloongirl)
+
+/obj/effect/landmark/corpse/wildwest/poncho
+	genders_per_species = list(SPECIES_HUMAN = list(MALE))
+	damage = list("damage_all_brute" = 25)
+	corpse_outfits = list(/singleton/hierarchy/outfit/wildwest/poncho)
+
+/obj/effect/landmark/corpse/wildwest/banker
+	genders_per_species = list(SPECIES_HUMAN = list(MALE))
+	damage = list("damage_all_brute" = 25)
+	corpse_outfits = list(/singleton/hierarchy/outfit/wildwest/banker)
+
 /singleton/hierarchy/outfit/wildwest/cowboy
 	name = "Wild West - Cowboy"
 	uniform = /obj/item/clothing/under/urist/cowboy
@@ -75,7 +95,7 @@
 	head = /obj/item/clothing/head/bowlerhat
 
 //******Corpse Spawners******
-
+/*
 /obj/effect/spawner/carbon/human/wildwest/cowboy
 	new_gender = MALE
 	clothing = /singleton/hierarchy/outfit/wildwest/cowboy
@@ -98,4 +118,4 @@
 	new_gender = MALE
 	clothing = /singleton/hierarchy/outfit/wildwest/banker
 	killed = TRUE
-	damage = list("damage_all_brute" = 25)
+	damage = list("damage_all_brute" = 25)*/

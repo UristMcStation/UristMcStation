@@ -101,8 +101,7 @@
 /obj/random/ammo_magazine_smug/spawn_choices()
 	return list(
 		/obj/item/ammo_magazine/pistol,
-		/obj/item/ammo_magazine/a44,
-		/obj/item/ammo_magazine/a45m,
+		/obj/item/ammo_magazine/speedloader,
 		/obj/item/ammo_magazine/rifle,
 		/obj/item/ammo_magazine/rifle/military)
 

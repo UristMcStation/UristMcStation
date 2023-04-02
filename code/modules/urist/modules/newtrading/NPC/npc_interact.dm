@@ -18,7 +18,7 @@
 		else
 			current_greeting_index = rand(1, length(greetings))
 			say(greetings[current_greeting_index])
-			speak_chance = 0
+			ai_holder.speak_chance = 0
 
 			add_fingerprint(user)
 			user.set_machine(src)
@@ -31,7 +31,7 @@
 		close_ui(ui)
 		return
 
-	wander = 0
+	ai_holder.wander = 0
 	/*spawn(600)
 		wander = 1
 		interacting_mob = null*/
@@ -107,7 +107,7 @@
 		ui.close()
 	interacting_mob = null
 	say(pick(goodbyes))
-	speak_chance = initial(speak_chance)
+	ai_holder.speak_chance = initial(ai_holder.speak_chance)
 
 /mob/living/simple_animal/passive/npc/Topic(href, href_list)
 	if(href_list["sell_item_l"])

@@ -20,8 +20,8 @@
 		qdel(briefcase_item)
 	sec_briefcase.contents += new /obj/item/clothing/accessory/storage/webbing
 	sec_briefcase.contents += new /obj/item/gun/projectile/pistol
-	sec_briefcase.contents += new /obj/item/ammo_magazine/mc9mm
-	sec_briefcase.contents += new /obj/item/ammo_magazine/mc9mm
+	sec_briefcase.contents += new /obj/item/ammo_magazine/pistol
+	sec_briefcase.contents += new /obj/item/ammo_magazine/pistol
 	sec_briefcase.contents += new /obj/item/grenade/empgrenade(src)
 	H.equip_to_slot_or_del(sec_briefcase, slot_l_hand)
 
@@ -41,7 +41,7 @@
 	head = /obj/item/clothing/head/helmet/urist/anfor
 	//mask = /obj/item/clothing/mask/gas/swat
 	back = /obj/item/storage/backpack/security
-	backpack_contents = list(/obj/item/ammo_magazine/a45m/a7 = 1, /obj/item/storage/firstaid/combat = 1,
+	backpack_contents = list(/obj/item/ammo_magazine/pistol/a7 = 1, /obj/item/storage/firstaid/combat = 1,
 		/obj/item/device/flashlight = 1, /obj/item/ammo_magazine/rifle/a22 = 2, /obj/item/device/radio = 1, /obj/item/storage/box/survival = 1)
 	r_hand = /obj/item/gun/projectile/automatic/a22
 	r_pocket = /obj/item/tank/oxygen_emergency
@@ -176,9 +176,9 @@
 	shoes = /obj/item/clothing/shoes/urist/wwii/germanboots
 	back = /obj/item/gun/projectile/automatic/mp40
 	r_pocket = /obj/item/grenade/stielhandgranate
-	l_pocket = /obj/item/ammo_magazine/mc9mm/mp40
-	r_hand = /obj/item/ammo_magazine/mc9mm/mp40
-	l_hand = /obj/item/ammo_magazine/mc9mm/p38
+	l_pocket = /obj/item/ammo_magazine/pistol/mp40
+	r_hand = /obj/item/ammo_magazine/pistol/mp40
+	l_hand = /obj/item/ammo_magazine/pistol/p38
 	belt = /obj/item/gun/projectile/p38
 
 /singleton/hierarchy/outfit/wwii/germanofficer/post_equip(var/mob/living/carbon/human/H)
@@ -206,10 +206,10 @@
 /singleton/hierarchy/outfit/wwii/sovietrifleman/pre_equip(mob/living/carbon/human/H)
 	if(prob(5))
 		back = /obj/item/gun/projectile/automatic/ppsh
-		l_pocket = /obj/item/ammo_magazine/mc9mm/ppsh
-		r_hand = /obj/item/ammo_magazine/mc9mm/ppsh
-		l_hand = /obj/item/ammo_magazine/mc9mm/ppsh
-		belt = /obj/item/ammo_magazine/mc9mm/ppsh
+		l_pocket = /obj/item/ammo_magazine/pistol/ppsh
+		r_hand = /obj/item/ammo_magazine/pistol/ppsh
+		l_hand = /obj/item/ammo_magazine/pistol/ppsh
+		belt = /obj/item/ammo_magazine/pistol/ppsh
 
 	else if(prob(10))
 		back = /obj/item/gun/projectile/svt40
@@ -252,9 +252,9 @@
 	shoes = /obj/item/clothing/shoes/urist/wwii/sovietboots
 	back = /obj/item/gun/projectile/automatic/ppsh
 	r_pocket = /obj/item/grenade/frag/sovietgrenade
-	l_pocket = /obj/item/ammo_magazine/mc9mm/ppsh
-	r_hand = /obj/item/ammo_magazine/mc9mm/ppsh
-	l_hand = /obj/item/ammo_magazine/mc9mm/tt33
+	l_pocket = /obj/item/ammo_magazine/pistol/ppsh
+	r_hand = /obj/item/ammo_magazine/pistol/ppsh
+	l_hand = /obj/item/ammo_magazine/pistol/tt33
 	belt = /obj/item/gun/projectile/tt33
 
 /singleton/hierarchy/outfit/wwii/sovietofficer/pre_equip(mob/living/carbon/human/H)
@@ -326,7 +326,7 @@
 	suit = /obj/item/clothing/suit/storage/urist/terran_marine
 	head = /obj/item/clothing/head/helmet/urist/terran_marine
 	back = /obj/item/storage/backpack/rucksack/tan
-	backpack_contents = list(/obj/item/ammo_magazine/a45m/a7 = 1, /obj/item/storage/firstaid/regular = 1,
+	backpack_contents = list(/obj/item/ammo_magazine/pistol/a7 = 1, /obj/item/storage/firstaid/regular = 1,
 		/obj/item/device/flashlight = 1, /obj/item/ammo_magazine/rifle/a22 = 2, /obj/item/device/radio = 1)
 	r_hand = /obj/item/gun/projectile/automatic/a22
 	r_pocket = /obj/item/device/radio
@@ -342,7 +342,7 @@
 	suit = /obj/item/clothing/suit/space/void/terran_marine
 	head = /obj/item/clothing/head/helmet/space/void/terran_marine
 	back = /obj/item/storage/backpack/security
-	backpack_contents = list(/obj/item/ammo_magazine/a45m/a7 = 1, /obj/item/storage/firstaid/combat = 1,
+	backpack_contents = list(/obj/item/ammo_magazine/pistol/a7 = 1, /obj/item/storage/firstaid/combat = 1,
 		/obj/item/device/flashlight = 1, /obj/item/ammo_magazine/rifle/a22 = 2, /obj/item/plastique = 1, /obj/item/gun/projectile/colt/a7 = 1)
 	r_hand = /obj/item/gun/projectile/automatic/a22
 	r_pocket = /obj/item/device/radio
@@ -355,7 +355,7 @@
 	suit = /obj/item/clothing/suit/storage/urist/terran_officer
 	head = /obj/item/clothing/head/urist/terran/officercap
 	back = /obj/item/storage/backpack/urist/explorersatchel
-	backpack_contents = list(/obj/item/ammo_magazine/a45m/a7 = 1, /obj/item/storage/firstaid/combat = 1,
+	backpack_contents = list(/obj/item/ammo_magazine/pistol/a7 = 1, /obj/item/storage/firstaid/combat = 1,
 		/obj/item/device/flashlight = 1, /obj/item/ammo_magazine/a9mm = 2, /obj/item/tank/oxygen_emergency = 1, /obj/item/clothing/mask/gas/terranhalf = 1)
 	r_hand = /obj/item/gun/projectile/automatic/asmg
 	r_pocket = /obj/item/device/radio
@@ -368,7 +368,7 @@
 	suit = /obj/item/clothing/suit/storage/urist/armor/anfor/terran
 	head = /obj/item/clothing/head/helmet/urist/anfor/terran
 	back = /obj/item/storage/backpack/rucksack/green
-	backpack_contents = list(/obj/item/ammo_magazine/a45m/a7 = 1, /obj/item/storage/firstaid/regular = 1,
+	backpack_contents = list(/obj/item/ammo_magazine/pistol/a7 = 1, /obj/item/storage/firstaid/regular = 1,
 		/obj/item/device/flashlight = 1, /obj/item/ammo_magazine/rifle/a22 = 2, /obj/item/device/radio = 1)
 	r_hand = /obj/item/gun/projectile/automatic/a22
 	r_pocket = /obj/item/device/radio
@@ -382,7 +382,7 @@
 	suit = /obj/item/clothing/head/helmet/space/void/terran_marine
 	head = /obj/item/clothing/head/helmet/space/void/anfor/terran
 	back = /obj/item/storage/backpack/security
-	backpack_contents = list(/obj/item/ammo_magazine/a45m/a7 = 1, /obj/item/storage/firstaid/combat = 1,
+	backpack_contents = list(/obj/item/ammo_magazine/pistol/a7 = 1, /obj/item/storage/firstaid/combat = 1,
 		/obj/item/device/flashlight = 1, /obj/item/ammo_magazine/rifle/military/a18 = 2, /obj/item/plastique = 1, /obj/item/gun/projectile/colt/a7 = 1)
 	r_hand = /obj/item/gun/projectile/a18
 	r_pocket = /obj/item/device/radio
@@ -395,7 +395,7 @@
 	suit = /obj/item/clothing/suit/storage/urist/armor/anfor/terran/nco
 	head = /obj/item/clothing/head/urist/anfor/terran
 	back = /obj/item/storage/backpack/urist/explorersatchel
-	backpack_contents = list(/obj/item/ammo_magazine/a45m/a7 = 1, /obj/item/storage/firstaid/combat = 1,
+	backpack_contents = list(/obj/item/ammo_magazine/pistol/a7 = 1, /obj/item/storage/firstaid/combat = 1,
 		/obj/item/device/flashlight = 1, /obj/item/ammo_magazine/a9mm = 2, /obj/item/tank/oxygen_emergency = 1, /obj/item/clothing/mask/gas/terranhalf = 1)
 	r_hand = /obj/item/gun/projectile/automatic/asmg
 	r_pocket = /obj/item/device/radio

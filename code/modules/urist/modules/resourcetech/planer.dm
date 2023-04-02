@@ -13,12 +13,6 @@
 	icon_state = "planer"
 	active_power_usage = 1000
 
-/obj/machinery/carpentry/planer/New()
-	..()
-	component_parts = list()
-	component_parts += new /obj/item/stock_parts/circuitboard/carpentryplaner(src)
-	component_parts += new /obj/item/stock_parts/manipulator(src)
-	component_parts += new /obj/item/stack/cable_coil(src, 2)
 
 /obj/machinery/carpentry/planer/attackby(var/obj/item/I, mob/user as mob)
 
@@ -185,12 +179,3 @@
 	var/obj/item/stack/material/wood/W = new /obj/item/stack/material/wood(src.loc)
 	W.amount = sheets
 	..()
-
-/obj/machinery/carpentry/woodprocessor/New()
-	..()
-	component_parts = list()
-	component_parts += new /obj/item/stock_parts/circuitboard/woodprocessor(src)
-	component_parts += new /obj/item/stock_parts/manipulator(src)
-	component_parts += new /obj/item/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/stock_parts/console_screen(src)
-	component_parts += new /obj/item/stack/cable_coil(src, 5)

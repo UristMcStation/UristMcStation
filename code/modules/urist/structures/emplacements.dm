@@ -1,15 +1,15 @@
 /mob/living/carbon/human
 	var/obj/structure/emplacement/mounted
 
-	ClickOn(var/atom/A, params)
-		if(mounted)
-			if(mounted.loc == src.loc)
-				if(A && mounted.nextshot <= world.time && mounted.anchored)
-					mounted.shoot(get_turf(A))
-			else
-				mounted = null
+/mob/living/carbon/human/ClickOn(var/atom/A, params)
+	if(mounted)
+		if(mounted.loc == src.loc)
+			if(A && mounted.nextshot <= world.time && mounted.anchored)
+				mounted.shoot(get_turf(A))
 		else
-			..()
+			mounted = null
+	else
+		..()
 
 
 /obj/structure/emplacement
@@ -229,7 +229,6 @@
 		return !density
 	else
 		return 1
-	return 0
 
 //checks if projectile 'P' from turf 'from' can hit whatever is behind the table. Returns 1 if it can, 0 if bullet stops.
 /obj/structure/emplacement/proc/check_cover(obj/item/projectile/P, turf/from)
@@ -266,7 +265,6 @@
 		return !density
 	else
 		return 1
-	return 1
 
 /obj/item/machinegunammo
 	icon = 'icons/urist/structures&machinery/emplacements.dmi'

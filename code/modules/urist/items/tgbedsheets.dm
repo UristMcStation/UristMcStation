@@ -243,7 +243,7 @@ BEDSHEETS
 /*oldcode, will delete if there are no issues with this.
 //I KNOW THERE IS A BETTER WAY TO DO THIS USING COLOURS, BUT I'M DOING THIS QUICK AND DIRTY SO PEOPLE STOP BITCHING AT ME. I WILL RETURN TO CLEAN THIS UP.
 
-/obj/item/bedsheet/white/verb/toggle_bandana()
+/obj/item/bedsheet/verb/toggle_bandana()
 	set name = "Fold Bandana"
 	set category = "Object"
 

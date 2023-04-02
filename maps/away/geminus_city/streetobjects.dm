@@ -77,7 +77,7 @@
 	icon_state = "floor1"
 	base_state = "floor"
 	layer = BELOW_OBJ_LAYER
-	plane = HIDING_MOB_LAYER
+//	plane = HIDING_MOB_LAYER
 	light_type = /obj/item/light/bulb
 //	brightness_range = 4
 //	brightness_power = 2

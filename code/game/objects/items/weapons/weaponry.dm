@@ -160,8 +160,8 @@
 		if(!C.handcuffed)
 			C.handcuffed = src
 	else if(istype(M, /mob/living/simple_animal/hostile))
-		var/mob/living/simple_animal/hostile/HM = M
-		HM.lose_target()
+		var/datum/ai_holder/simple_animal/HM = M
+		HM.remove_target()
 	return 1
 
 /obj/effect/energy_net/post_buckle_mob(mob/living/M)

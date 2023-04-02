@@ -516,7 +516,7 @@
 //Multi-Z AStar Procs
 
 /turf/proc/Euclidean3dDistance(turf/t)
-	var/euclid_dist = sqrt(Square(src.x - t.x) + Square(src.y - t.y) + Square(src.z - t.z))
+	var/euclid_dist = sqrt((src.x - t.x)**2 + (src.y - t.y)**2 + (src.z - t.z)**2)
 	var/currentPathweight = src.pathweight
 	var/targetPathweight = t.pathweight
 

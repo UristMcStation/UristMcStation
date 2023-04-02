@@ -320,10 +320,10 @@
 
 	if(istype(mob,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = mob
-		if(!H.buckled && prob(H.skill_fail_chance(SKILL_EVA, 100, SKILL_PROF)))
+		if(!H.buckled)
 			if(!MOVING_DELIBERATELY(H))
-				H.AdjustStunned(6)
-				H.AdjustWeakened(6)
+				H.AdjustStunned(5)
+				H.AdjustWeakened(5)
 			else
 				H.AdjustStunned(3)
 				H.AdjustWeakened(3)

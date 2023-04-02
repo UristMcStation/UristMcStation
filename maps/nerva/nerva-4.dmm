@@ -64,7 +64,6 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 2;
-	frequency = 1380;
 	id_tag = "merchant_shuttle_station_pump"
 	},
 /turf/simulated/floor/plating,
@@ -72,7 +71,6 @@
 "am" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 2;
-	frequency = 1380;
 	id_tag = "merchant_shuttle_station_pump"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -180,7 +178,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
 "az" = (
-/obj/structure/handrai{
+/obj/structure/handrail{
 	dir = 4;
 	icon_state = "handrail"
 	},
@@ -272,7 +270,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	frequency = 1379;
 	id_tag = "security_pump3"
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -285,7 +282,6 @@
 "aK" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	frequency = 1379;
 	id_tag = "security_pump3"
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -481,7 +477,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 2;
-	frequency = 1379;
 	id_tag = "security_pump3"
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -494,7 +489,6 @@
 "ba" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 2;
-	frequency = 1379;
 	id_tag = "security_pump3"
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -1095,7 +1089,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8;
-	frequency = 1439;
 	id_tag = null
 	},
 /turf/simulated/floor/tiled,
@@ -1576,7 +1569,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1379;
 	id_tag = "security_pump"
 	},
 /obj/machinery/airlock_sensor{
@@ -2175,7 +2167,7 @@
 /obj/structure/catwalk,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "bridgeoutlock";
+	id_tag = "bridgeoutlock";
 	name = "Bridge Outer Lockdown";
 	tag = "icon-pdoor1"
 	},
@@ -2349,7 +2341,6 @@
 "eX" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	frequency = 1331;
 	id_tag = "nuke_shuttle_dock_pump"
 	},
 /obj/machinery/airlock_sensor{
@@ -2370,7 +2361,6 @@
 "eY" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	frequency = 1331;
 	id_tag = "nuke_shuttle_dock_pump"
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -2597,7 +2587,7 @@
 	RCon_tag = "Solar - Main";
 	capacity = 1e+007;
 	charge = 0;
-	cur_coils = 4
+	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak=4)
 	},
 /obj/item/device/radio/intercom{
 	pixel_y = 23
@@ -2740,7 +2730,6 @@
 "fG" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 2;
-	frequency = 1331;
 	id_tag = "nuke_shuttle_dock_pump"
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -2993,7 +2982,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "gd" = (
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
 	icon_state = "closed";
 	locked = 0;
@@ -3097,7 +3086,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1379;
 	id_tag = "solar_bridge_pump"
 	},
 /obj/machinery/light/small,
@@ -3437,7 +3425,7 @@
 /area/command/aicore)
 "gU" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/computer/modular/preset/command,
+/obj/machinery/computer/modular/preset/cardslot/command,
 /turf/simulated/floor/tiled/dark,
 /area/command/aicore)
 "gV" = (
@@ -3466,7 +3454,6 @@
 "gY" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8;
-	frequency = 1439;
 	id_tag = null
 	},
 /turf/simulated/floor/reinforced,
@@ -3734,7 +3721,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8;
-	frequency = 1439;
 	id_tag = null
 	},
 /turf/simulated/floor/tiled,
@@ -3897,7 +3883,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1379;
 	id_tag = "security_pump2"
 	},
 /obj/machinery/airlock_sensor{
@@ -4177,7 +4162,6 @@
 "ii" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8;
-	frequency = 1439;
 	id_tag = null
 	},
 /turf/simulated/floor/tiled,
@@ -4696,7 +4680,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8;
-	frequency = 1439;
 	id_tag = null
 	},
 /turf/simulated/floor/plating,
@@ -5301,7 +5284,7 @@
 /area/command/aicore)
 "kc" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/computer/modular/preset/research{
+/obj/machinery/computer/modular/preset/aislot/research{
 	dir = 1;
 	icon_state = "console"
 	},
@@ -5826,7 +5809,6 @@
 /area/maintenance/first_deck/afs)
 "kW" = (
 /obj/effect/floor_decal/corner/yellow/full,
-/obj/machinery/telecomms/relay/preset/firstdeck,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/first_deck_storage)
@@ -6936,7 +6918,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fs)
 "mP" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8;
 	icon_state = "air_map";
 	tag = "icon-air_map (WEST)"
@@ -7021,7 +7003,7 @@
 /obj/structure/catwalk,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "bridgeoutlock";
+	id_tag = "bridgeoutlock";
 	name = "Bridge Outer Lockdown";
 	tag = "icon-pdoor1"
 	},
@@ -7669,7 +7651,7 @@
 /turf/simulated/floor/plating,
 /area/security/abandonedcheckpoint)
 "nX" = (
-/obj/structure/computerframe,
+/obj/machinery/constructable_frame/computerframe,
 /turf/simulated/floor/plating,
 /area/security/abandonedcheckpoint)
 "nY" = (
@@ -7932,7 +7914,6 @@
 /obj/structure/filingcabinet/filingcabinet,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8;
-	frequency = 1439;
 	id_tag = null
 	},
 /obj/machinery/alarm{
@@ -8346,7 +8327,6 @@
 "ps" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1379;
 	id_tag = "aft_solar_pump"
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
@@ -8354,7 +8334,7 @@
 	id_tag = "aft_solar_airlock";
 	layer = 4;
 	pixel_x = 0;
-	pixel_y = -25;
+	pixel_y = 18;
 	req_access = list("ACCESS_EXTERNAL");
 	tag_airpump = "aft_solar_pump";
 	tag_chamber_sensor = "aft_solar_sensor";
@@ -8754,7 +8734,6 @@
 "pW" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8;
-	frequency = 1439;
 	id_tag = null
 	},
 /obj/machinery/camera/network/first_deck{
@@ -8876,11 +8855,6 @@
 "ql" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/ladder,
-/obj/effect/decal/cleanable/cobweb{
-	dir = 4;
-	icon_state = "cobweb1";
-	tag = "icon-cobweb1 (EAST)"
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
 "qm" = (
@@ -8952,7 +8926,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	frequency = 1380;
 	id_tag = "skipjack_shuttle_dock_pump"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -8962,7 +8935,6 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	frequency = 1380;
 	id_tag = "skipjack_shuttle_dock_pump"
 	},
 /obj/machinery/light/small{

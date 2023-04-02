@@ -35,7 +35,7 @@
 /area/space)
 "ai" = (
 /obj/structure/catwalk,
-/obj/structure/handrai{
+/obj/structure/handrail{
 	dir = 1;
 	icon_state = "handrail"
 	},
@@ -84,16 +84,16 @@
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	frequency = 1379;
 	id_tag = "solar_tool_airlock";
-	pixel_x = 25;
+	pixel_x = 20;
 	req_access = list("ACCESS_EXTERNAL");
 	tag_airpump = "solar_tool_pump";
 	tag_chamber_sensor = "solar_tool_sensor";
 	tag_exterior_door = "solar_tool_outer";
-	tag_interior_door = "solar_tool_inner"
+	tag_interior_door = "solar_tool_inner";
+	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 2;
-	frequency = 1379;
 	id_tag = "solar_tool_pump"
 	},
 /obj/machinery/light/small{
@@ -225,9 +225,7 @@
 /obj/structure/closet/crate,
 /obj/item/material/coin/silver,
 /obj/effect/decal/cleanable/cobweb2,
-/obj/item/cell{
-	maxcharge = 2000
-	},
+/obj/item/cell/super,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
 "aD" = (
@@ -276,7 +274,8 @@
 /obj/item/venom_sac,
 /obj/item/contraband/poster,
 /obj/item/contraband/poster,
-/obj/item/coilgun_assembly,
+/obj/item/weapon_frame,
+/obj/item/stack/material/steel/ten,
 /obj/random/drinkbottle,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
@@ -444,7 +443,6 @@
 "bl" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/stock_parts/circuitboard/mecha_control,
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -488,6 +486,10 @@
 /obj/item/trash/cigbutt/rand,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
+"br" = (
+/obj/machinery/cryopod,
+/turf/simulated/floor/tiled/dark,
+/area/security/prison)
 "bs" = (
 /turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/second_deck/fp)
@@ -941,7 +943,6 @@
 	dir = 4;
 	external_pressure_bound = 0;
 	external_pressure_bound_default = 0;
-	frequency = 1441;
 	icon_state = "map_vent_in";
 	id_tag = "fuel_out";
 	initialize_directions = 1;
@@ -953,7 +954,6 @@
 	use_power = 1
 	},
 /obj/machinery/air_sensor{
-	frequency = 1441;
 	id_tag = "fuel_sensor"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -1232,7 +1232,7 @@
 	density = 0;
 	dir = 4;
 	icon_state = "pdoor0";
-	id = "Prison Lockdown";
+	id_tag = "Prison Lockdown";
 	name = "Prison Lockdown";
 	opacity = 0
 	},
@@ -1345,9 +1345,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fp)
 "cW" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8;
-	icon_state = "air_map";
 	tag = "icon-air_map (WEST)"
 	},
 /turf/simulated/floor/plating,
@@ -1357,7 +1356,7 @@
 	dir = 4;
 	frequency = 1441;
 	icon_state = "map_injector";
-	id = "fuel_in";
+	id_tag = "fuel_in";
 	pixel_y = 1;
 	use_power = 1
 	},
@@ -1380,7 +1379,7 @@
 	icon_state = "warning"
 	},
 /obj/machinery/button/ignition{
-	id = "engines";
+	id_tag = "engines";
 	pixel_y = -26
 	},
 /obj/machinery/camera/network/second_deck{
@@ -1401,13 +1400,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/fuelbay)
 "db" = (
-/obj/machinery/computer/general_air_control/large_tank_control{
+/obj/machinery/computer/air_control{
 	dir = 1;
 	frequency = 1441;
 	input_tag = "fuel_in";
 	name = "Fuel Supply Control";
 	output_tag = "fuel_out";
-	sensors = list("fuel_sensor"="Tank")
+	sensor_tag = list("fuel_sensor"="Tank")
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
@@ -1466,7 +1465,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/techstorage)
 "dg" = (
-/obj/machinery/computer/modular/preset/sysadmin{
+/obj/machinery/computer/modular/preset/aislot/sysadmin{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -1555,7 +1554,7 @@
 	density = 0;
 	dir = 4;
 	icon_state = "pdoor0";
-	id = "Prison Lockdown";
+	id_tag = "Prison Lockdown";
 	name = "Prison Lockdown";
 	opacity = 0
 	},
@@ -1685,10 +1684,10 @@
 /area/engineering/techstorage)
 "dH" = (
 /obj/structure/table/rack,
-/obj/item/computer_hardware/network_card/wired,
-/obj/item/stock_parts/computer/nano_printer	,
+/obj/item/stock_parts/computer/network_card/wired,
+/obj/item/stock_parts/computer/nano_printer,
 /obj/item/stock_parts/computer/card_slot,
-/obj/item/computer_hardware/ai_slot,
+/obj/item/stock_parts/computer/ai_slot,
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/item/device/radio/intercom{
 	dir = 8;
@@ -1810,9 +1809,7 @@
 "dV" = (
 /obj/structure/closet/crate,
 /obj/item/module/power_control,
-/obj/item/cell{
-	maxcharge = 2000
-	},
+/obj/item/cell/super,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fp)
 "dW" = (
@@ -1974,10 +1971,10 @@
 /area/engineering/techstorage)
 "er" = (
 /obj/structure/table/rack,
-/obj/item/computer_hardware/tesla_link,
-/obj/item/computer_hardware/processor_unit,
-/obj/item/computer_hardware/hard_drive/advanced,
-/obj/item/computer_hardware/battery_module,
+/obj/item/stock_parts/computer/tesla_link,
+/obj/item/stock_parts/computer/processor_unit,
+/obj/item/stock_parts/computer/hard_drive/advanced,
+/obj/item/stock_parts/computer/battery_module,
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/machinery/power/apc{
 	dir = 4;
@@ -2286,7 +2283,7 @@
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular/open{
 	dir = 1;
-	id = "capbedroomview";
+	id_tag = "capbedroomview";
 	name = "Captain's Bedroom Door";
 	tag = "icon-pdoor1"
 	},
@@ -2418,8 +2415,8 @@
 	dir = 1;
 	icon_state = "pipe-j1s";
 	name = "Counselor's Office";
-	sortType = "Counselor's Office";
-	tag = "icon-pipe-j1s (NORTH)"
+	tag = "icon-pipe-j1s (NORTH)";
+	sort_type = "Counselor's Office"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
@@ -2459,7 +2456,7 @@
 	density = 0;
 	dir = 8;
 	icon_state = "pdoor0";
-	id = "Engineering Lockdown";
+	id_tag = "Engineering Lockdown";
 	name = "engineering security door";
 	opacity = 0;
 	tag = "icon-pdoor0 (WEST)"
@@ -3223,7 +3220,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/fore/second_deck)
 "gq" = (
-/obj/item/soap/deluxe,
+/obj/item/soap/diamond_soap,
 /obj/item/bikehorn/rubberducky,
 /obj/structure/hygiene/shower{
 	dir = 4;
@@ -3262,7 +3259,7 @@
 /turf/simulated/floor/carpet,
 /area/command/captain)
 "gv" = (
-/obj/item/material/coin/phoron,
+/obj/item/material/coin/platinum,
 /obj/item/storage/lockbox/medal{
 	pixel_y = 4
 	},
@@ -3305,7 +3302,7 @@
 "gx" = (
 /obj/machinery/door/blast/regular{
 	dir = 1;
-	id = "cChamber1pV";
+	id_tag = "cChamber1pV";
 	name = "Chamber Vent"
 	},
 /turf/simulated/floor/plating,
@@ -3344,7 +3341,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/mob/living/simple_animal/opossum/poppy,
+/mob/living/simple_animal/passive/opossum/poppy,
 /turf/simulated/floor/tiled/dark,
 /area/command/ce)
 "gC" = (
@@ -3389,7 +3386,7 @@
 	density = 0;
 	dir = 8;
 	icon_state = "pdoor0";
-	id = "Engineering Lockdown";
+	id_tag = "Engineering Lockdown";
 	name = "engineering security door";
 	opacity = 0;
 	tag = "icon-pdoor0 (WEST)"
@@ -3514,7 +3511,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/fore/second_deck)
 "gT" = (
-/obj/machinery/atmospherics/valve/shutoff{
+/obj/machinery/atmospherics/valve/shutoff/supply{
 	dir = 8;
 	icon_state = "map_vclamp0";
 	tag = "icon-map_vclamp0 (WEST)"
@@ -3699,7 +3696,6 @@
 /area/engineering/fdengine)
 "hu" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	frequency = 1441;
 	id_tag = "d2_c_chamber_out";
 	internal_pressure_bound = 35000;
 	internal_pressure_bound_default = 35000
@@ -3922,8 +3918,8 @@
 "hW" = (
 /obj/structure/bed/nice,
 /obj/item/bedsheet/captain,
-/obj/machinery/button/remote/blast_door{
-	id = "capbedroomview";
+/obj/machinery/button/blast_door{
+	id_tag = "capbedroomview";
 	name = "Bedroom Blast Door Control";
 	pixel_x = -2;
 	pixel_y = 28;
@@ -3935,7 +3931,7 @@
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "capbedroomview";
+	id_tag = "capbedroomview";
 	name = "Captain's Bedroom Door";
 	tag = "icon-pdoor1"
 	},
@@ -3957,13 +3953,12 @@
 /area/engineering/fdengine)
 "ia" = (
 /obj/machinery/sparker{
-	id = "engines";
+	id_tag = "engines";
 	pixel_x = -24
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 4;
-	frequency = 1441;
 	id_tag = "d2_c_chamber_out";
 	internal_pressure_bound = 35000;
 	internal_pressure_bound_default = 35000
@@ -4374,20 +4369,19 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "capbedroomview";
+	id_tag = "capbedroomview";
 	name = "Captain's Bedroom Door";
 	tag = "icon-pdoor1"
 	},
 /turf/simulated/floor/plating,
 /area/command/captain)
 "iY" = (
-/obj/machinery/atmospherics/pipe/tank/oxygen,
+/obj/machinery/atmospherics/unary/tank/oxygen,
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/blue,
-/obj/machinery/atmospherics/pipe/tank/oxygen,
 /turf/simulated/floor/reinforced,
 /area/engineering/fdengine)
 "iZ" = (
@@ -4406,7 +4400,7 @@
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 1441;
-	id = "d2_c_chamber_in";
+	id_tag = "d2_c_chamber_in";
 	injecting = 1;
 	use_power = 1
 	},
@@ -4415,7 +4409,7 @@
 "jb" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 1441;
-	id = "d2_c_chamber_in";
+	id_tag = "d2_c_chamber_in";
 	injecting = 1;
 	use_power = 1
 	},
@@ -4425,9 +4419,7 @@
 "jc" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /obj/machinery/air_sensor{
-	frequency = 1441;
-	id_tag = "d2_c_chamber_sensor";
-	output = 111
+	id_tag = "d2_c_chamber_sensor"
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/fdengine)
@@ -4767,7 +4759,7 @@
 "jM" = (
 /obj/machinery/door/blast/regular{
 	dir = 1;
-	id = "d1centrenacelle"
+	id_tag = "d1centrenacelle"
 	},
 /obj/effect/wallframe_spawn/reinforced_phoron,
 /turf/simulated/floor/reinforced,
@@ -4776,7 +4768,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /obj/machinery/door/blast/regular{
 	dir = 1;
-	id = "d1centrenacelle"
+	id_tag = "d1centrenacelle"
 	},
 /obj/effect/wallframe_spawn/reinforced_phoron,
 /turf/simulated/floor/reinforced,
@@ -4785,7 +4777,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /obj/machinery/door/blast/regular{
 	dir = 1;
-	id = "d1centrenacelle"
+	id_tag = "d1centrenacelle"
 	},
 /obj/effect/wallframe_spawn/reinforced_phoron,
 /turf/simulated/floor/reinforced,
@@ -4822,7 +4814,7 @@
 	dir = 4;
 	icon_state = "pipe-j2s";
 	name = "Chief Engineer";
-	sortType = "Chief Engineer"
+	sort_type = "Chief Engineer"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
@@ -5027,7 +5019,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/fore/second_deck)
 "kr" = (
-/obj/machinery/teleport/hub{
+/obj/machinery/tele_pad{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -5061,15 +5053,15 @@
 /area/command/teleporter)
 "ku" = (
 /obj/structure/displaycase,
+/obj/item/gun/projectile/revolver/coltsaa{
+	randpixel = 0
+	},
 /obj/machinery/newscaster/security_unit{
 	pixel_x = -32;
 	pixel_y = 0
 	},
 /obj/machinery/light{
 	dir = 1
-	},
-/obj/item/gun/projectile/revolver/coltsaa{
-	randpixel = 0
 	},
 /turf/simulated/floor/wood/walnut,
 /area/command/captain)
@@ -5120,7 +5112,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "capofficeview";
+	id_tag = "capofficeview";
 	name = "Captain's Office Door";
 	tag = "icon-pdoor1"
 	},
@@ -5181,8 +5173,7 @@
 /area/engineering/fdengine)
 "kI" = (
 /obj/machinery/atmospherics/valve/digital{
-	frequency = 1447;
-	id = "fuelmode"
+	id_tag = "fuelmode"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -5224,11 +5215,11 @@
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 4
 	},
-/obj/machinery/computer/general_air_control/large_tank_control{
+/obj/machinery/computer/air_control{
 	input_tag = "d2_c_chamber_in";
 	name = "Chamber Gas Control";
 	output_tag = "d2_c_chamber_out";
-	sensors = list("d2_c_chamber_sensor"="Combustion Chamber")
+	sensor_tag = list("d2_c_chamber_sensor"="Combustion Chamber")
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/fdengine)
@@ -5236,9 +5227,9 @@
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 10
 	},
-/obj/machinery/button/remote/blast_door{
-	id = "d1centrenacelle";
-	name = "combustion chamber blast door controll";
+/obj/machinery/button/blast_door{
+	id_tag = "d1centrenacelle";
+	name = "combustion chamber blast door control";
 	pixel_x = 0;
 	pixel_y = 24
 	},
@@ -5396,7 +5387,7 @@
 	density = 0;
 	dir = 8;
 	icon_state = "pdoor0";
-	id = "Engineering Lockdown";
+	id_tag = "Engineering Lockdown";
 	name = "engineering security door";
 	opacity = 0;
 	tag = "icon-pdoor0 (WEST)"
@@ -5505,7 +5496,7 @@
 /obj/structure/disposalpipe/sortjunction{
 	dir = 4;
 	name = "Checkpoint";
-	sortType = "Checkpoint"
+	sort_type = "Checkpoint"
 	},
 /turf/simulated/floor/wood/walnut,
 /area/civilian/dorms)
@@ -5722,7 +5713,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/fore/second_deck)
 "lv" = (
-/obj/machinery/teleport/station{
+/obj/machinery/tele_projector{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -5730,8 +5721,8 @@
 	icon_state = "warning";
 	tag = "icon-warning (WEST)"
 	},
-/obj/machinery/button/remote/blast_door{
-	id = "TeleporterHub";
+/obj/machinery/button/blast_door{
+	id_tag = "TeleporterHub";
 	name = "Teleporter Blast Door Control";
 	pixel_x = -24;
 	pixel_y = 0;
@@ -5861,8 +5852,7 @@
 /area/engineering/fdengine)
 "lL" = (
 /obj/machinery/atmospherics/valve/digital{
-	frequency = 1447;
-	id = "fuelmode"
+	id_tag = "fuelmode"
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/fdengine)
@@ -6281,7 +6271,7 @@
 /obj/machinery/atmospherics/tvalve/digital{
 	dir = 8;
 	frequency = 1447;
-	id = "fuelmode"
+	id_tag = "fuelmode"
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -6295,9 +6285,9 @@
 	c_tag = "Auxiliary Engine Bay";
 	dir = 1
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/machinery/button/blast_door{
 	dir = 1;
-	id = "cChamber1pV";
+	id_tag = "cChamber1pV";
 	name = "combustion chamber vent control";
 	pixel_y = -24
 	},
@@ -6318,7 +6308,7 @@
 	tag = ""
 	},
 /obj/machinery/button/ignition{
-	id = "engines";
+	id_tag = "engines";
 	pixel_y = -26
 	},
 /turf/simulated/floor/reinforced,
@@ -6341,7 +6331,7 @@
 /obj/machinery/atmospherics/tvalve/mirrored/digital{
 	dir = 4;
 	frequency = 1447;
-	id = "fuelmode"
+	id_tag = "fuelmode"
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/cable{
@@ -7162,7 +7152,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "fobedroomview";
+	id_tag = "fobedroomview";
 	name = "First Officer's Bedroom Door";
 	tag = "icon-pdoor1"
 	},
@@ -7643,8 +7633,8 @@
 /area/command/fobedroom)
 "pd" = (
 /obj/structure/bed/nice,
-/obj/machinery/button/remote/blast_door{
-	id = "fobedroomview";
+/obj/machinery/button/blast_door{
+	id_tag = "fobedroomview";
 	name = "Bedroom Blast Door Control";
 	pixel_x = -2;
 	pixel_y = -28;
@@ -7782,7 +7772,7 @@
 	density = 0;
 	dir = 8;
 	icon_state = "pdoor0";
-	id = "Engineering Lockdown";
+	id_tag = "Engineering Lockdown";
 	name = "engineering security door";
 	opacity = 0;
 	tag = "icon-pdoor0 (WEST)"
@@ -8044,7 +8034,7 @@
 	dir = 8;
 	icon_state = "pipe-j2s";
 	name = "Second Deck Hallway";
-	sortType = "Second Deck Hallway"
+	sort_type = "Second Deck Hallway"
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
@@ -8145,7 +8135,7 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
-	id = "bridgeoutlock";
+	id_tag = "bridgeoutlock";
 	name = "Bridge Outer Lockdown";
 	tag = "icon-pdoor1"
 	},
@@ -8691,7 +8681,7 @@
 /obj/machinery/door/blast/regular/open{
 	dir = 8;
 	icon_state = "pdoor0";
-	id = "bridgelock";
+	id_tag = "bridgelock";
 	name = "Bridge Lockdown";
 	tag = "icon-pdoor0 (WEST)"
 	},
@@ -8711,7 +8701,7 @@
 /obj/machinery/door/blast/regular/open{
 	dir = 8;
 	icon_state = "pdoor0";
-	id = "bridgelock";
+	id_tag = "bridgelock";
 	name = "Bridge Lockdown";
 	tag = "icon-pdoor0 (WEST)"
 	},
@@ -8858,7 +8848,7 @@
 	dir = 1;
 	icon_state = "pipe-j2s";
 	name = "Atmospherics";
-	sortType = "Atmospherics"
+	sort_type = "Atmospherics"
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -9030,7 +9020,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 1;
-	id = "fobedroomview";
+	id_tag = "fobedroomview";
 	name = "First Officer's Bedroom Door";
 	tag = "icon-pdoor1"
 	},
@@ -9429,7 +9419,7 @@
 /obj/structure/disposalpipe/sortjunction/flipped{
 	dir = 8;
 	name = "Journalists Office";
-	sortType = "Journalists Office"
+	sort_type = "Journalists Office"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/aft/second_deck)
@@ -9585,7 +9575,7 @@
 /obj/structure/disposalpipe/sortjunction{
 	dir = 8;
 	name = "Rec Room";
-	sortType = "Rec Room"
+	sort_type = "Rec Room"
 	},
 /obj/effect/catwalk_plated/dark,
 /turf/simulated/floor/plating,
@@ -10018,7 +10008,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
 "tm" = (
-/obj/machinery/atmospherics/valve/shutoff{
+/obj/machinery/atmospherics/valve/shutoff/supply{
 	dir = 8;
 	icon_state = "map_vclamp0";
 	tag = "icon-map_vclamp0 (WEST)"
@@ -10261,7 +10251,7 @@
 /obj/structure/disposalpipe/sortjunction{
 	dir = 8;
 	name = "Primary Tool Storage";
-	sortType = "Primary Tool Storage"
+	sort_type = "Primary Tool Storage"
 	},
 /obj/effect/catwalk_plated,
 /turf/simulated/floor/plating,
@@ -10340,13 +10330,13 @@
 /turf/simulated/wall/r_wall/prepainted,
 /area/engineering/atmospherics)
 "tG" = (
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
-	id = "Atmospherics Lockdown";
+	id_tag = "Atmospherics Lockdown";
 	name = "Atmospherics Lockdown";
 	opacity = 0
 	},
@@ -10363,7 +10353,7 @@
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
-	id = "Atmospherics Lockdown";
+	id_tag = "Atmospherics Lockdown";
 	name = "Atmospherics Lockdown";
 	opacity = 0
 	},
@@ -10637,8 +10627,8 @@
 /obj/structure/table/rack{
 	dir = 8
 	},
-/obj/item/tank/oxygen/yellow,
-/obj/item/tank/oxygen/yellow,
+/obj/item/tank/oxygen_yellow,
+/obj/item/tank/oxygen_yellow,
 /obj/item/tank/oxygen_emergency_double,
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -10715,14 +10705,14 @@
 	dir = 4;
 	icon_state = "intact"
 	},
-/obj/machinery/computer/general_air_control/large_tank_control{
+/obj/machinery/computer/air_control{
 	dir = 8;
 	frequency = 1441;
 	icon_state = "computer";
 	input_tag = "co2_in";
 	name = "Carbon Dioxide Supply Control";
 	output_tag = "co2_out";
-	sensors = list("co2_sensor"="Tank")
+	sensor_tag = list("co2_sensor"="Tank")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 2;
@@ -10731,7 +10721,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
 "ux" = (
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 4;
@@ -10745,7 +10735,7 @@
 	dir = 8;
 	frequency = 1441;
 	icon_state = "map_injector";
-	id = "co2_in";
+	id_tag = "co2_in";
 	pixel_y = 1;
 	use_power = 1
 	},
@@ -11002,7 +10992,7 @@
 /area/logistics/primtool)
 "uY" = (
 /obj/structure/table/standard,
-/obj/item/airlock_painter,
+/obj/item/device/paint_sprayer,
 /obj/item/tape_roll,
 /turf/simulated/floor/tiled,
 /area/logistics/primtool)
@@ -11118,7 +11108,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /obj/machinery/meter,
 /obj/effect/wallframe_spawn/reinforced_phoron,
 /turf/simulated/floor/plating,
@@ -11128,7 +11118,6 @@
 	dir = 8;
 	external_pressure_bound = 0;
 	external_pressure_bound_default = 0;
-	frequency = 1441;
 	icon_state = "map_vent_in";
 	id_tag = "co2_out";
 	initialize_directions = 1;
@@ -11140,7 +11129,6 @@
 	use_power = 1
 	},
 /obj/machinery/air_sensor{
-	frequency = 1441;
 	id_tag = "co2_sensor"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -11527,7 +11515,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
 "wm" = (
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/atmos{
 	name = "Atmospherics Maintenance";
 	req_access = list("ACCESS_ATMOS");
@@ -11544,7 +11532,7 @@
 	density = 0;
 	dir = 4;
 	icon_state = "pdoor0";
-	id = "Atmospherics Lockdown";
+	id_tag = "Atmospherics Lockdown";
 	name = "Atmospherics Lockdown";
 	opacity = 0
 	},
@@ -11634,13 +11622,13 @@
 	dir = 4;
 	icon_state = "intact"
 	},
-/obj/machinery/computer/general_air_control/large_tank_control{
+/obj/machinery/computer/air_control{
 	dir = 8;
 	frequency = 1441;
 	input_tag = "h2_in";
 	name = "Hydrogen Supply Control";
 	output_tag = "h2_out";
-	sensors = list("tox_sensor"="Tank")
+	sensor_tag = list("tox_sensor"="Tank")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 2;
@@ -11653,7 +11641,7 @@
 	dir = 8;
 	frequency = 1441;
 	icon_state = "map_injector";
-	id = "h2_in";
+	id_tag = "h2_in";
 	pixel_y = 1;
 	use_power = 1
 	},
@@ -11771,8 +11759,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/structure/bed/roller/ironingboard,
-/obj/item/ironingiron,
+/obj/structure/ironing_board,
+/obj/item/ironing_iron,
 /turf/simulated/floor/tiled/white,
 /area/civilian/personal)
 "wF" = (
@@ -11972,7 +11960,6 @@
 	dir = 8;
 	external_pressure_bound = 0;
 	external_pressure_bound_default = 0;
-	frequency = 1441;
 	icon_state = "map_vent_in";
 	id_tag = "h2_out";
 	initialize_directions = 1;
@@ -11984,7 +11971,6 @@
 	use_power = 1
 	},
 /obj/machinery/air_sensor{
-	frequency = 1441;
 	id_tag = "tox_sensor"
 	},
 /turf/simulated/floor/reinforced/hydrogen,
@@ -12083,7 +12069,7 @@
 	dir = 4;
 	frequency = 1441;
 	icon_state = "map_injector";
-	id = "n2_in";
+	id_tag = "n2_in";
 	use_power = 1
 	},
 /turf/simulated/floor/reinforced/nitrogen,
@@ -12100,13 +12086,13 @@
 /obj/item/device/radio/intercom{
 	pixel_y = 28
 	},
-/obj/machinery/computer/general_air_control/large_tank_control{
+/obj/machinery/computer/air_control{
 	dir = 4;
 	frequency = 1441;
 	input_tag = "n2_in";
 	name = "Nitrogen Supply Control";
 	output_tag = "n2_out";
-	sensors = list("n2_sensor"="Tank")
+	sensor_tag = list("n2_sensor"="Tank")
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
@@ -12266,17 +12252,17 @@
 "xI" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	frequency = 1379;
 	id_tag = "exti2_pump"
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	frequency = 1379;
 	id_tag = "exti2_airlock";
-	pixel_x = 29;
+	pixel_x = 20;
 	tag_airpump = "exti2_pump";
 	tag_chamber_sensor = "exti2_sensor";
 	tag_exterior_door = "exti2_outer";
-	tag_interior_door = "exti2_inner"
+	tag_interior_door = "exti2_inner";
+	dir = 8
 	},
 /obj/machinery/airlock_sensor{
 	frequency = 1379;
@@ -12294,7 +12280,6 @@
 	dir = 4;
 	external_pressure_bound = 0;
 	external_pressure_bound_default = 0;
-	frequency = 1441;
 	icon_state = "map_vent_in";
 	id_tag = "n2_out";
 	initialize_directions = 1;
@@ -12306,7 +12291,6 @@
 	use_power = 1
 	},
 /obj/machinery/air_sensor{
-	frequency = 1441;
 	id_tag = "n2_sensor"
 	},
 /turf/simulated/floor/reinforced/nitrogen,
@@ -12316,7 +12300,7 @@
 	dir = 1;
 	icon_state = "map"
 	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /obj/machinery/meter,
 /obj/effect/wallframe_spawn/reinforced_phoron,
 /turf/simulated/floor/plating,
@@ -12420,13 +12404,13 @@
 	dir = 4;
 	icon_state = "intact"
 	},
-/obj/machinery/computer/general_air_control/large_tank_control{
+/obj/machinery/computer/air_control{
 	dir = 8;
 	frequency = 1441;
 	input_tag = "n2o_in";
 	name = "Nitrous Oxide Supply Control";
 	output_tag = "n2o_out";
-	sensors = list("n2o_sensor"="Tank")
+	sensor_tag = list("n2o_sensor"="Tank")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 2;
@@ -12439,7 +12423,7 @@
 	dir = 8;
 	frequency = 1441;
 	icon_state = "map_injector";
-	id = "n2o_in";
+	id_tag = "n2o_in";
 	pixel_y = 1;
 	use_power = 1
 	},
@@ -12525,7 +12509,7 @@
 /obj/structure/disposalpipe/sortjunction{
 	dir = 8;
 	name = "Locker Room";
-	sortType = "Locker Room"
+	sort_type = "Locker Room"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
@@ -12679,7 +12663,6 @@
 	dir = 8;
 	external_pressure_bound = 0;
 	external_pressure_bound_default = 0;
-	frequency = 1441;
 	icon_state = "map_vent_in";
 	id_tag = "n2o_out";
 	initialize_directions = 1;
@@ -12691,7 +12674,6 @@
 	use_power = 1
 	},
 /obj/machinery/air_sensor{
-	frequency = 1441;
 	id_tag = "n2o_sensor"
 	},
 /turf/simulated/floor/reinforced/n20,
@@ -12834,7 +12816,7 @@
 /area/shuttle/escape_pod1/station)
 "yE" = (
 /obj/structure/catwalk,
-/obj/structure/handrai,
+/obj/structure/handrail,
 /turf/simulated/floor/reinforced/airless,
 /area/maintenance/second_deck/fs)
 "yF" = (
@@ -12888,7 +12870,7 @@
 	req_access = list("ACCESS_ATMOS");
 	secured_wires = 1
 	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -12900,7 +12882,7 @@
 	density = 0;
 	dir = 4;
 	icon_state = "pdoor0";
-	id = "Atmospherics Lockdown";
+	id_tag = "Atmospherics Lockdown";
 	name = "Atmospherics Lockdown";
 	opacity = 0
 	},
@@ -12945,13 +12927,13 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/green,
-/obj/machinery/computer/general_air_control/large_tank_control{
+/obj/machinery/computer/air_control{
 	dir = 1;
 	frequency = 1441;
 	input_tag = "o2_in";
 	name = "Oxygen Supply Control";
 	output_tag = "o2_out";
-	sensors = list("o2_sensor"="Tank")
+	sensor_tag = list("o2_sensor"="Tank")
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
@@ -13005,7 +12987,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
 "yR" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -13111,7 +13093,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
 "zf" = (
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/simple/visible/green,
 /obj/effect/wallframe_spawn/reinforced_phoron,
@@ -13121,7 +13103,7 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
 	dir = 8
 	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /obj/machinery/meter,
 /obj/effect/wallframe_spawn/reinforced_phoron,
 /turf/simulated/floor/plating,
@@ -13274,7 +13256,7 @@
 	dir = 1;
 	frequency = 1441;
 	icon_state = "map_injector";
-	id = "o2_in";
+	id_tag = "o2_in";
 	use_power = 1
 	},
 /turf/simulated/floor/reinforced/oxygen,
@@ -13284,7 +13266,6 @@
 	dir = 1;
 	external_pressure_bound = 0;
 	external_pressure_bound_default = 0;
-	frequency = 1441;
 	icon_state = "map_vent_in";
 	id_tag = "o2_out";
 	initialize_directions = 1;
@@ -13296,7 +13277,6 @@
 	use_power = 1
 	},
 /obj/machinery/air_sensor{
-	frequency = 1441;
 	id_tag = "o2_sensor"
 	},
 /turf/simulated/floor/reinforced/oxygen,
@@ -14128,7 +14108,7 @@
 	dir = 8;
 	icon_state = "pipe-j2s";
 	name = "Chapel Office";
-	sortType = "Chapel Office"
+	sort_type = "Chapel Office"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
@@ -14414,7 +14394,7 @@
 	density = 0;
 	dir = 4;
 	icon_state = "pdoor0";
-	id = "Prison Lockdown";
+	id_tag = "Prison Lockdown";
 	name = "Prison Lockdown";
 	opacity = 0
 	},
@@ -14576,15 +14556,6 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
-"GE" = (
-/obj/structure/ladder/updown,
-/obj/effect/decal/cleanable/cobweb{
-	dir = 8;
-	icon_state = "cobweb1";
-	tag = "icon-cobweb1 (WEST)"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/fs)
 "GF" = (
 /obj/machinery/door/firedoor,
 /obj/effect/wallframe_spawn/reinforced/polarized/full{
@@ -14676,10 +14647,6 @@
 	dir = 9;
 	icon_state = "intact-scrubbers";
 	tag = "icon-intact-scrubbers (NORTHWEST)"
-	},
-/obj/machinery/camera/network/prison{
-	c_tag = "Prison Dorms";
-	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/prison)
@@ -14785,7 +14752,7 @@
 /obj/machinery/door/blast/regular{
 	dir = 2;
 	icon_state = "pdoor1";
-	id = "boarding_armory";
+	id_tag = "boarding_armory";
 	layer = 3.3;
 	name = "Boarding Armoury Access"
 	},
@@ -14836,8 +14803,8 @@
 	pixel_y = 7
 	},
 /obj/prefab/hand_teleporter,
-/obj/machinery/button/remote/blast_door{
-	id = "boarding_armory";
+/obj/machinery/button/blast_door{
+	id_tag = "boarding_armory";
 	name = "Boarding Armory Blast Doors";
 	pixel_x = 0;
 	pixel_y = 22;
@@ -14982,7 +14949,7 @@
 /obj/structure/flora/pottedplant/smallcactus,
 /obj/structure/window/reinforced{
 	dir = 8;
-	health = 1e+006
+	health_max = 1e+006
 	},
 /obj/machinery/newscaster{
 	hitstaken = 1;
@@ -15202,7 +15169,7 @@
 /obj/machinery/door/blast/regular{
 	dir = 2;
 	icon_state = "pdoor1";
-	id = "TeleporterHub";
+	id_tag = "TeleporterHub";
 	layer = 3.3;
 	name = "Teleporter Access"
 	},
@@ -15302,7 +15269,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/prison)
 "KX" = (
-/obj/structure/computerframe,
+/obj/machinery/constructable_frame/computerframe,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -15492,15 +15459,15 @@
 /obj/structure/table/woodentable/walnut,
 /obj/item/folder/blue,
 /obj/item/stamp/captain,
-/obj/machinery/button/remote/blast_door{
-	id = "capofficeview";
+/obj/machinery/button/blast_door{
+	id_tag = "capofficeview";
 	name = "Office Blast Door Control";
 	pixel_x = 6;
 	pixel_y = 22;
 	req_access = list("ACCESS_CAPTAIN")
 	},
 /obj/machinery/button/remote/airlock{
-	id = "bridgesafedoor";
+	id_tag = "bridgesafedoor";
 	name = "safe room door-control";
 	pixel_x = -6;
 	pixel_y = 22;
@@ -15571,9 +15538,10 @@
 	dir = 1
 	},
 /obj/machinery/button/windowtint{
-	id = "journalist";
+	id_tag = "journalist";
 	pixel_x = 24;
-	pixel_y = 6
+	pixel_y = 6;
+	id = "journalist"
 	},
 /obj/machinery/light_switch{
 	pixel_x = 24;
@@ -15928,9 +15896,8 @@
 	dir = 1;
 	icon_state = "pipe-j1s";
 	name = "Docking Checkpoint";
-	sortType = "Docking Checkpoint";
 	tag = "icon-pipe-j1s (NORTH)";
-	test_exempted = 1
+	sort_type = "Docking Checkpoint"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
@@ -15991,8 +15958,8 @@
 /area/security/prison)
 "Oc" = (
 /obj/structure/closet/crate/internals,
-/obj/item/tank/emergency/oxygen,
-/obj/item/tank/emergency/oxygen,
+/obj/item/tank/oxygen_emergency,
+/obj/item/tank/oxygen_emergency,
 /obj/item/clothing/mask/breath/emergency,
 /obj/item/clothing/mask/breath/emergency,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -16019,10 +15986,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4;
 	icon_state = "intact-scrubbers"
-	},
-/obj/machinery/light/small{
-	dir = 1;
-	luminosity = 2
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/security/prison)
@@ -16145,7 +16108,7 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/window/reinforced{
 	dir = 8;
-	health = 1e+006
+	health_max = 1e+006
 	},
 /turf/simulated/floor/tiled/white,
 /area/security/prison)
@@ -16274,10 +16237,11 @@
 /obj/machinery/button/windowtint{
 	dir = 4;
 	icon_state = "light0";
-	id = "chaplain";
+	id_tag = "chaplain";
 	pixel_x = 24;
 	range = 5;
-	tag = "icon-light0 (EAST)"
+	tag = "icon-light0 (EAST)";
+	id = "chaplain"
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -16395,7 +16359,7 @@
 	dir = 2;
 	icon_state = "pipe-j2s";
 	name = "Captain";
-	sortType = "Captain"
+	sort_type = "Captain"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5;
@@ -16518,7 +16482,7 @@
 	density = 0;
 	dir = 4;
 	icon_state = "pdoor0";
-	id = "Prison Lockdown";
+	id_tag = "Prison Lockdown";
 	name = "Prison Lockdown";
 	opacity = 0
 	},
@@ -16714,7 +16678,7 @@
 /obj/machinery/door/blast/regular{
 	dir = 2;
 	icon_state = "pdoor1";
-	id = "boarding_armory";
+	id_tag = "boarding_armory";
 	layer = 3.3;
 	name = "Boarding Armoury Access"
 	},
@@ -16980,7 +16944,7 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	icon_state = "pdoor1";
-	id = "TeleporterHub";
+	id_tag = "TeleporterHub";
 	layer = 3.3;
 	name = "Teleporter Blast Door Control"
 	},
@@ -17045,7 +17009,7 @@
 /turf/simulated/wall/prepainted,
 /area/chapel)
 "Ul" = (
-/obj/item/ammo_magazine/a44,
+/obj/item/ammo_magazine/speedloader,
 /obj/structure/closet/secure_closet/nervacap,
 /obj/item/clothing/accessory/armband/bluegoldcom,
 /turf/simulated/floor/wood/walnut,
@@ -17189,9 +17153,10 @@
 	pixel_y = 25
 	},
 /obj/machinery/button/windowtint{
-	id = "psych";
+	id_tag = "psych";
 	pixel_x = 20;
-	pixel_y = 25
+	pixel_y = 25;
+	id = "psych"
 	},
 /obj/effect/landmark/start{
 	name = "Counselor"
@@ -17383,6 +17348,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/logistics/auxtool)
+"Ws" = (
+/obj/structure/railing/mapped,
+/obj/machinery/light/small{
+	dir = 8;
+	luminosity = 2
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/prison)
 "Wu" = (
 /obj/effect/floor_decal/corner/red/three_quarters{
 	dir = 1
@@ -17391,8 +17364,8 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
-/obj/machinery/button/remote/blast_door{
-	id = "Prison Lockdown";
+/obj/machinery/button/blast_door{
+	id_tag = "Prison Lockdown";
 	name = "Prison Lockdown";
 	pixel_y = 26;
 	req_access = list("ACCESS_BRIG")
@@ -17700,7 +17673,7 @@
 /obj/machinery/door/blast/regular{
 	dir = 2;
 	icon_state = "pdoor1";
-	id = "boarding_armory";
+	id_tag = "boarding_armory";
 	layer = 3.3;
 	name = "Boarding Armoury Access"
 	},
@@ -18030,6 +18003,10 @@
 	},
 /obj/machinery/light/small{
 	dir = 4
+	},
+/obj/machinery/camera/network/prison{
+	c_tag = "Prison Dorms";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/prison)
@@ -46279,7 +46256,7 @@ QK
 Eg
 PC
 Hh
-AE
+Ws
 Op
 Ob
 AE
@@ -46481,7 +46458,7 @@ Xy
 AE
 Zm
 KV
-AE
+br
 ST
 dC
 AE
@@ -48725,7 +48702,7 @@ qZ
 oW
 sI
 sI
-GE
+uj
 sG
 Kg
 sG

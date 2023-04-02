@@ -549,7 +549,7 @@
 	density = 0;
 	pixel_y = 32
 	},
-/obj/item/roller,
+/obj/item/roller_bed,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
 /area/merchant_station)
@@ -855,7 +855,7 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "acy" = (
-/obj/item/storage/box/donkpockets,
+/obj/item/storage/box/donkpocket_mixed,
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced{
 	dir = 1
@@ -898,7 +898,7 @@
 /obj/machinery/vending/cigarette{
 	name = "hacked cigarette machine";
 	prices = list();
-	products = list(/obj/item/storage/fancy/cigarettes = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
+	products = list(/obj/item/storage/fancy/smokable = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
 	},
 /obj/structure/window/reinforced{
 	dir = 1
@@ -1030,7 +1030,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/obj/structure/computerframe{
+/obj/machinery/constructable_frame/computerframe{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -2196,7 +2196,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/machinery/button/blast_door{
 	id = "merchantbase";
 	name = "Merchant Loading Shutters";
 	pixel_x = 27;
@@ -2350,7 +2350,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/merchant/home)
 "agn" = (
-/obj/structure/computerframe{
+/obj/machinery/constructable_frame/computerframe{
 	dir = 4
 	},
 /obj/machinery/light/small{
@@ -2611,7 +2611,7 @@
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/machinery/button/blast_door{
 	id = "merchantshuttle";
 	name = "Merchant Window Shutters";
 	pixel_x = 0;
@@ -3419,10 +3419,9 @@
 /turf/space,
 /area/merchant_station)
 "aiE" = (
-/obj/machinery/autolathe{
-	desc = "Your typical Autolathe. It appears to have much more options than your regular one, however...";
-	hacked = 1;
-	name = "Unlocked Autolathe"
+/obj/machinery/fabricator{
+	desc = "Your typical Fabricator. It appears to have much more options than your regular one, however...";
+	name = "Unlocked Fabricator"
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)
@@ -4131,7 +4130,7 @@
 /turf/simulated/floor/plating,
 /area/merchant_station)
 "akg" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -4205,7 +4204,7 @@
 /turf/simulated/floor/plating,
 /area/merchant_station)
 "akr" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	tag = "icon-air_map (NORTH)";
 	icon_state = "air_map";
 	dir = 1;
@@ -4215,7 +4214,7 @@
 /turf/simulated/floor/plating,
 /area/merchant_station)
 "aks" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	tag = "icon-air_map (NORTH)";
 	icon_state = "air_map";
 	dir = 1;
@@ -5005,7 +5004,7 @@
 	},
 /area/centcom/evac)
 "amr" = (
-/obj/machinery/computer/modular/preset/command,
+/obj/machinery/computer/modular/preset/cardslot/command,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/shuttle.dmi';
 	icon_state = "floor4"
@@ -5148,7 +5147,7 @@
 	},
 /area/centcom/evac)
 "amK" = (
-/obj/machinery/computer/modular/preset/command,
+/obj/machinery/computer/modular/preset/cardslot/command,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/shuttle.dmi';
 	icon_state = "floor"
@@ -5402,7 +5401,7 @@
 /area/map_template/syndicate_mothership)
 "anp" = (
 /obj/structure/table/reinforced,
-/obj/item/storage/box/donkpockets{
+/obj/item/storage/box/donkpocket_mixed{
 	pixel_x = 3;
 	pixel_y = 3
 	},
@@ -5509,11 +5508,11 @@
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "anC" = (
-/obj/structure/computerframe,
+/obj/machinery/constructable_frame/computerframe,
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "anD" = (
-/obj/machinery/button/remote/blast_door{
+/obj/machinery/button/blast_door{
 	id = "syndieshutters";
 	name = "remote shutter control";
 	req_access = list("ACCESS_SYNDICATE")
@@ -5584,7 +5583,7 @@
 /obj/structure/hygiene/shower{
 	pixel_y = 32
 	},
-/obj/item/soap/syndie,
+/obj/item/soap/red_soap,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
 	dir = 2
@@ -5610,7 +5609,7 @@
 /turf/simulated/floor/shuttle/darkred,
 /area/space)
 "anP" = (
-/obj/item/storage/box/donkpockets{
+/obj/item/storage/box/donkpocket_mixed{
 	pixel_x = 2;
 	pixel_y = 3
 	},
@@ -5629,7 +5628,7 @@
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "anR" = (
-/obj/structure/computerframe,
+/obj/machinery/constructable_frame/computerframe,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -5672,7 +5671,7 @@
 /obj/item/stack/material/glass{
 	amount = 15
 	},
-/obj/item/cell{
+/obj/item/cell/hyper{
 	charge = 100;
 	maxcharge = 15000
 	},
@@ -5762,11 +5761,11 @@
 /area/map_template/syndicate_mothership)
 "aof" = (
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/a45m,
-/obj/item/ammo_magazine/a45m,
-/obj/item/ammo_magazine/a45m,
-/obj/item/ammo_magazine/a45m,
-/obj/item/ammo_magazine/a45m,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
 /obj/item/gun/projectile/silenced/knight,
 /obj/item/gun/projectile/silenced/knight,
 /turf/unsimulated/floor{
@@ -6073,7 +6072,7 @@
 /obj/structure/table/rack,
 /obj/item/storage/belt/holster/security,
 /obj/item/storage/belt/holster/security,
-/obj/item/ammo_magazine/mc9mm/flash,
+/obj/item/ammo_magazine/pistol/flash,
 /obj/item/gun/projectile/pistol/flash,
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
@@ -6154,7 +6153,7 @@
 "aoR" = (
 /obj/structure/table/standard,
 /obj/item/material/ashtray/bronze,
-/obj/item/storage/fancy/cigarettes/urist/syndicate,
+/obj/item/storage/fancy/smokable/urist/syndicate,
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
@@ -6338,7 +6337,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/urist/space/syndicate/black/red,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/urist/helmet/red,
+/obj/item/clothing/head/helmet/space/syndicate,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -6348,7 +6347,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/urist/space/syndicate/black/orange,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/urist/helmet/orange,
+/obj/item/clothing/head/urist/helmet/space/syndicate/orange,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -6358,7 +6357,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/urist/space/syndicate/black/blue,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/urist/helmet/blue,
+/obj/item/clothing/head/urist/helmet/space/syndicate/blue,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -6368,7 +6367,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/urist/space/syndicate/black/green,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/urist/helmet/green,
+/obj/item/clothing/head/urist/helmet/space/syndicate/green,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -6395,8 +6394,8 @@
 /obj/machinery/vending/cigarette{
 	contraband = newlist();
 	premium = newlist();
-	prices = list(/obj/item/storage/fancy/cigarettes = 15, /obj/item/storage/box/matches = 1, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 20);
-	products = list(/obj/item/storage/fancy/cigarettes = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
+	prices = list(/obj/item/storage/fancy/smokable = 15, /obj/item/storage/box/matches = 1, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 20);
+	products = list(/obj/item/storage/fancy/smokable = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
 	},
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
@@ -6450,7 +6449,7 @@
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "apx" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8;
 	start_pressure = 740.5
 	},
@@ -6624,7 +6623,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/urist/space/syndicate/black/engie,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/urist/helmet/engie,
+/obj/item/clothing/head/urist/helmet/space/syndicate/black/engie,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -6634,7 +6633,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/urist/space/syndicate/black/med,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/urist/helmet/med,
+/obj/item/clothing/head/urist/helmet/space/syndicate/black/med,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -6644,7 +6643,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/syndicate/black,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/urist/helmet,
+/obj/item/clothing/head/helmet/space/syndicate/black,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -6669,7 +6668,7 @@
 /area/syndicate_station/start)
 "apX" = (
 /obj/structure/table/standard,
-/obj/item/roller{
+/obj/item/roller_bed{
 	pixel_y = 8
 	},
 /turf/simulated/floor/shuttle/white,
@@ -6853,7 +6852,7 @@
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "aqt" = (
-/obj/machinery/button/remote/blast_door{
+/obj/machinery/button/blast_door{
 	id = "syndieshutters_infirmary";
 	name = "remote shutter control";
 	pixel_x = -25
@@ -6887,7 +6886,7 @@
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "aqx" = (
-/obj/machinery/button/remote/blast_door{
+/obj/machinery/button/blast_door{
 	id = "syndieshutters_workshop";
 	name = "remote shutter control";
 	pixel_x = 25
@@ -7049,11 +7048,11 @@
 /turf/simulated/floor/plating,
 /area/syndicate_station/start)
 "aqQ" = (
-/obj/machinery/teleport/station,
+/obj/machinery/computer/teleporter,
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "aqR" = (
-/obj/machinery/teleport/hub,
+/obj/machinery/tele_pad,
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "aqS" = (
@@ -7229,7 +7228,7 @@
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/administration/centcom)
 "arv" = (
-/obj/item/storage/fancy/cigarettes,
+/obj/item/storage/fancy/smokable,
 /obj/structure/table/standard,
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/administration/centcom)
@@ -7328,7 +7327,7 @@
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/administration/centcom)
 "arN" = (
-/obj/machinery/autolathe{
+/obj/machinery/fabricator{
 	desc = "Your typical Autolathe. It appears to have much more options than your regular one, however...";
 	hacked = 1;
 	name = "Thunderdome Autolathe"
@@ -7714,7 +7713,7 @@
 	},
 /area/centcom)
 "asV" = (
-/obj/machinery/computer/modular/preset/command,
+/obj/machinery/computer/modular/preset/cardslot/command,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -7722,7 +7721,7 @@
 /area/centcom)
 "asW" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/donkpockets{
+/obj/item/storage/box/donkpocket_mixed{
 	pixel_x = 3;
 	pixel_y = 3
 	},
@@ -7849,10 +7848,10 @@
 "atn" = (
 /obj/structure/table/rack,
 /obj/item/gun/projectile/automatic/m3,
-/obj/item/ammo_magazine/a45m/m3,
-/obj/item/ammo_magazine/a45m/m3,
-/obj/item/ammo_magazine/a45m/m3,
-/obj/item/ammo_magazine/a45m/m3,
+/obj/item/ammo_magazine/pistol/m3,
+/obj/item/ammo_magazine/pistol/m3,
+/obj/item/ammo_magazine/pistol/m3,
+/obj/item/ammo_magazine/pistol/m3,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -7911,12 +7910,12 @@
 /area/centcom/specops)
 "att" = (
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
 /obj/item/gun/projectile/automatic,
 /obj/item/gun/projectile/automatic,
 /obj/item/gun/projectile/automatic,
@@ -7962,11 +7961,11 @@
 /turf/simulated/floor/bluegrid,
 /area/centcom)
 "atA" = (
-/obj/machinery/teleport/station,
+/obj/machinery/computer/teleporter,
 /turf/simulated/floor/bluegrid,
 /area/centcom)
 "atB" = (
-/obj/machinery/teleport/hub,
+/obj/machinery/tele_pad,
 /turf/simulated/floor/bluegrid,
 /area/centcom)
 "atC" = (
@@ -8118,11 +8117,11 @@
 /area/centcom/specops)
 "atT" = (
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/mc9mm/bhp,
-/obj/item/ammo_magazine/mc9mm/bhp,
-/obj/item/ammo_magazine/mc9mm/bhp,
-/obj/item/ammo_magazine/mc9mm/bhp,
-/obj/item/ammo_magazine/mc9mm/bhp,
+/obj/item/ammo_magazine/pistol/bhp,
+/obj/item/ammo_magazine/pistol/bhp,
+/obj/item/ammo_magazine/pistol/bhp,
+/obj/item/ammo_magazine/pistol/bhp,
+/obj/item/ammo_magazine/pistol/bhp,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -9264,7 +9263,7 @@
 	},
 /area/centcom)
 "avV" = (
-/obj/machinery/computer/modular/preset/command,
+/obj/machinery/computer/modular/preset/cardslot/command,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -9527,12 +9526,12 @@
 /area/centcom/specops)
 "awA" = (
 /obj/structure/table/rack,
-/obj/item/roller,
-/obj/item/roller,
-/obj/item/roller,
-/obj/item/roller,
-/obj/item/roller,
-/obj/item/roller,
+/obj/item/roller_bed,
+/obj/item/roller_bed,
+/obj/item/roller_bed,
+/obj/item/roller_bed,
+/obj/item/roller_bed,
+/obj/item/roller_bed,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -9622,7 +9621,7 @@
 "awJ" = (
 /obj/structure/table/rack,
 /obj/item/storage/secure/briefcase,
-/obj/item/storage/fancy/cigarettes,
+/obj/item/storage/fancy/smokable,
 /obj/item/flame/lighter/zippo,
 /obj/item/storage/belt/utility,
 /obj/item/storage/backpack/satchel,
@@ -9658,7 +9657,7 @@
 	},
 /area/centcom)
 "awN" = (
-/obj/structure/iv_drip,
+/obj/structure/iv_stand,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -9929,12 +9928,14 @@
 	name = "Blood Locker";
 	pixel_x = 32
 	},
-/obj/item/reagent_containers/ivbag/blood/OMinus,
-/obj/item/reagent_containers/ivbag/blood/OMinus,
-/obj/item/reagent_containers/ivbag/blood/OMinus,
-/obj/item/reagent_containers/ivbag/blood/OPlus,
-/obj/item/reagent_containers/ivbag/blood/OPlus,
-/obj/item/reagent_containers/ivbag/blood/OPlus,
+/obj/item/reagent_containers/ivbag/blood/human/oneg,
+/obj/item/reagent_containers/ivbag/blood/human/oneg,
+/obj/item/reagent_containers/ivbag/blood/human/oneg,
+/obj/item/reagent_containers/ivbag/blood/human/oneg,
+/obj/item/reagent_containers/ivbag/blood/skrell/oneg,
+/obj/item/reagent_containers/ivbag/blood/skrell/oneg,
+/obj/item/reagent_containers/ivbag/blood/unathi/oneg,
+/obj/item/reagent_containers/ivbag/blood/unathi/oneg,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -9992,7 +9993,7 @@
 	},
 /area/centcom)
 "axr" = (
-/obj/machinery/computer/modular/preset/command,
+/obj/machinery/computer/modular/preset/cardslot/command,
 /obj/item/card/id/centcom,
 /turf/unsimulated/floor{
 	tag = "icon-wood";
@@ -10053,7 +10054,7 @@
 /obj/structure/table/woodentable/walnut{
 	dir = 10
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/machinery/button/blast_door{
 	name = "Spec Ops Ready Room";
 	desc = "A remote control switch to block view of the singularity.";
 	icon_state = "doorctrl0";
@@ -10061,7 +10062,7 @@
 	req_access = list("ACCESS_ENGINE_EQUIP");
 	id = "CREED"
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/machinery/button/blast_door{
 	name = "Mech Storage";
 	desc = "A remote control switch to block view of the singularity.";
 	icon_state = "doorctrl0";
@@ -10443,7 +10444,7 @@
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape/centcom)
 "ayt" = (
-/obj/structure/bed/roller,
+/obj/structure/roller_bed,
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape/centcom)
 "ayu" = (
@@ -10558,7 +10559,7 @@
 	},
 /area/centcom)
 "ayF" = (
-/obj/machinery/computer/modular/preset/command{
+/obj/machinery/computer/modular/preset/cardslot/command{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -10648,7 +10649,7 @@
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/specops/centcom)
 "ayS" = (
-/obj/machinery/computer/modular/preset/command,
+/obj/machinery/computer/modular/preset/cardslot/command,
 /obj/item/device/radio/intercom{
 	broadcasting = 0;
 	dir = 1;
@@ -10670,7 +10671,7 @@
 /area/centcom)
 "ayU" = (
 /obj/structure/bed/chair/office/dark,
-/obj/machinery/button/remote/blast_door{
+/obj/machinery/button/blast_door{
 	desc = "A remote control switch for port-side blast doors.";
 	icon_state = "doorctrl0";
 	id = "CentComPort";
@@ -10915,7 +10916,7 @@
 	},
 /area/shuttle/escape/centcom)
 "azB" = (
-/obj/machinery/computer/modular/preset/command{
+/obj/machinery/computer/modular/preset/cardslot/command{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/blue,
@@ -11307,7 +11308,7 @@
 "aAG" = (
 /obj/structure/table/rack,
 /obj/item/clothing/mask/breath,
-/obj/item/tank/emergency/oxygen,
+/obj/item/tank/oxygen_emergency,
 /obj/item/clothing/head/helmet/space/emergency,
 /obj/item/clothing/suit/space/emergency,
 /turf/simulated/floor/shuttle/white,
@@ -11473,7 +11474,7 @@
 	dir = 5
 	},
 /obj/item/flame/lighter/zippo,
-/obj/item/storage/fancy/cigarettes,
+/obj/item/storage/fancy/smokable,
 /obj/item/material/ashtray/bronze{
 	pixel_x = -1;
 	pixel_y = 1
@@ -11954,7 +11955,7 @@
 	},
 /area/centcom/holding)
 "aCd" = (
-/obj/structure/bed/roller,
+/obj/structure/roller_bed,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -12142,7 +12143,7 @@
 /obj/structure/sign/urist/nt{
 	pixel_x = 32
 	},
-/obj/machinery/computer/modular/preset/command{
+/obj/machinery/computer/modular/preset/cardslot/command{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -12410,7 +12411,7 @@
 	},
 /area/centcom/holding)
 "aDg" = (
-/obj/machinery/atmospherics/pipe/tank/oxygen{
+/obj/machinery/atmospherics/unary/tank/oxygen{
 	dir = 1;
 	volume = 3200
 	},
@@ -12929,26 +12930,26 @@
 	},
 /area/centcom/holding)
 "aEs" = (
-/obj/structure/iv_drip,
+/obj/structure/iv_stand,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
 /area/centcom/holding)
 "aEt" = (
 /obj/structure/table/standard,
-/obj/item/reagent_containers/ivbag/blood/OPlus{
+/obj/item/reagent_containers/ivbag/blood/human/opos{
 	pixel_x = 4;
 	pixel_y = 2
 	},
-/obj/item/reagent_containers/ivbag/blood/OPlus{
+/obj/item/reagent_containers/ivbag/blood/human/opos{
 	pixel_x = 4;
 	pixel_y = 2
 	},
-/obj/item/reagent_containers/ivbag/blood/OMinus{
+/obj/item/reagent_containers/ivbag/blood/human/oneg{
 	pixel_x = -5;
 	pixel_y = -1
 	},
-/obj/item/reagent_containers/ivbag/blood/OMinus{
+/obj/item/reagent_containers/ivbag/blood/human/oneg{
 	pixel_x = -5;
 	pixel_y = -1
 	},
@@ -13109,7 +13110,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /obj/item/flame/lighter/zippo,
-/obj/item/storage/fancy/cigarettes,
+/obj/item/storage/fancy/smokable,
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
@@ -13265,19 +13266,19 @@
 /area/acting/backstage)
 "aFg" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/donkpockets{
+/obj/item/storage/box/donkpocket_mixed{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/storage/box/donkpockets{
+/obj/item/storage/box/donkpocket_mixed{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/storage/box/donkpockets{
+/obj/item/storage/box/donkpocket_mixed{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/storage/box/donkpockets{
+/obj/item/storage/box/donkpocket_mixed{
 	pixel_x = 3;
 	pixel_y = 3
 	},
@@ -13344,14 +13345,14 @@
 /turf/simulated/floor/shuttle/blue,
 /area/supply/dock)
 "aFr" = (
-/obj/machinery/button/remote/blast_door{
+/obj/machinery/button/blast_door{
 	dir = 2;
 	id = "QMLoaddoor2";
 	name = "Loading Doors";
 	pixel_x = -8;
 	pixel_y = 28
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/machinery/button/blast_door{
 	id = "QMLoaddoor";
 	name = "Loading Doors";
 	pixel_x = 8;
@@ -14204,7 +14205,7 @@
 /obj/structure/sign/urist/nt{
 	pixel_x = 32
 	},
-/obj/machinery/computer/modular/preset/command{
+/obj/machinery/computer/modular/preset/cardslot/command{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -14437,7 +14438,7 @@
 	},
 /area/tdome)
 "aHG" = (
-/obj/machinery/computer/modular/preset/command{
+/obj/machinery/computer/modular/preset/cardslot/command{
 	dir = 8
 	},
 /obj/structure/sign/urist/nt{
@@ -14568,7 +14569,7 @@
 /obj/machinery/vending/cigarette{
 	name = "hacked cigarette machine";
 	prices = list();
-	products = list(/obj/item/storage/fancy/cigarettes = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
+	products = list(/obj/item/storage/fancy/smokable = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
 	},
 /turf/unsimulated/floor{
 	icon_state = "plating";
@@ -15751,7 +15752,7 @@
 /turf/simulated/floor/shuttle/blue,
 /area/shuttle/naval1/centcom)
 "aKW" = (
-/obj/machinery/computer/modular/preset/command,
+/obj/machinery/computer/modular/preset/cardslot/command,
 /turf/simulated/floor/shuttle/blue,
 /area/shuttle/naval1/centcom)
 "aKX" = (
@@ -16714,7 +16715,7 @@
 /area/shuttle/naval1/centcom)
 "aNn" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/donkpockets,
+/obj/item/storage/box/donkpocket_mixed,
 /turf/simulated/floor/shuttle/blue,
 /area/shuttle/naval1/centcom)
 "aNo" = (
@@ -17282,10 +17283,9 @@
 	},
 /area/centcom/scom)
 "aOx" = (
-/obj/machinery/autolathe{
-	desc = "Your typical Autolathe. It appears to have much more options than your regular one, however...";
-	hacked = 1;
-	name = "Unlocked Autolathe"
+/obj/machinery/fabricator{
+	desc = "Your typical Fabricator. It appears to have much more options than your regular one, however...";
+	name = "Unlocked Fabricator"
 	},
 /turf/unsimulated/floor{
 	icon_state = "vault";
@@ -18046,7 +18046,7 @@
 	},
 /area/syndicate_elite_squad)
 "aQd" = (
-/obj/machinery/button/remote/blast_door{
+/obj/machinery/button/blast_door{
 	id = "syndicate_elite_mech_room";
 	name = "Mech Access";
 	pixel_x = 32;
@@ -18742,7 +18742,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
-/obj/structure/bed/roller,
+/obj/structure/roller_bed,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -18888,7 +18888,7 @@
 	},
 /area/centcom/scom)
 "aRK" = (
-/obj/machinery/atmospherics/pipe/tank/oxygen{
+/obj/machinery/atmospherics/unary/tank/oxygen{
 	dir = 1;
 	volume = 3200
 	},
@@ -19218,7 +19218,7 @@
 	},
 /area/centcom/scom)
 "aSk" = (
-/obj/structure/iv_drip,
+/obj/structure/iv_stand,
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
 	},
@@ -19228,19 +19228,19 @@
 /area/centcom/scom)
 "aSl" = (
 /obj/structure/table/standard,
-/obj/item/reagent_containers/ivbag/blood/OPlus{
+/obj/item/reagent_containers/ivbag/blood/human/opos{
 	pixel_x = 4;
 	pixel_y = 2
 	},
-/obj/item/reagent_containers/ivbag/blood/OPlus{
+/obj/item/reagent_containers/ivbag/blood/human/opos{
 	pixel_x = 4;
 	pixel_y = 2
 	},
-/obj/item/reagent_containers/ivbag/blood/OMinus{
+/obj/item/reagent_containers/ivbag/blood/human/oneg{
 	pixel_x = -5;
 	pixel_y = -1
 	},
-/obj/item/reagent_containers/ivbag/blood/OMinus{
+/obj/item/reagent_containers/ivbag/blood/human/oneg{
 	pixel_x = -5;
 	pixel_y = -1
 	},
@@ -19561,7 +19561,7 @@
 	},
 /area/centcom/scom)
 "aSW" = (
-/obj/structure/iv_drip,
+/obj/structure/iv_stand,
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
@@ -19571,19 +19571,19 @@
 /area/centcom/scom)
 "aSX" = (
 /obj/structure/table/standard,
-/obj/item/reagent_containers/ivbag/blood/OPlus{
+/obj/item/reagent_containers/ivbag/blood/human/opos{
 	pixel_x = 4;
 	pixel_y = 2
 	},
-/obj/item/reagent_containers/ivbag/blood/OPlus{
+/obj/item/reagent_containers/ivbag/blood/human/opos{
 	pixel_x = 4;
 	pixel_y = 2
 	},
-/obj/item/reagent_containers/ivbag/blood/OMinus{
+/obj/item/reagent_containers/ivbag/blood/human/oneg{
 	pixel_x = -5;
 	pixel_y = -1
 	},
-/obj/item/reagent_containers/ivbag/blood/OMinus{
+/obj/item/reagent_containers/ivbag/blood/human/oneg{
 	pixel_x = -5;
 	pixel_y = -1
 	},
@@ -19920,7 +19920,7 @@
 	},
 /area/centcom/scom)
 "aTI" = (
-/obj/structure/bed/roller,
+/obj/structure/roller_bed,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -19931,7 +19931,7 @@
 	pixel_x = 0;
 	pixel_y = 29
 	},
-/obj/structure/bed/roller,
+/obj/structure/roller_bed,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -20162,7 +20162,7 @@
 	dir = 5
 	},
 /obj/item/flame/lighter/zippo,
-/obj/item/storage/fancy/cigarettes,
+/obj/item/storage/fancy/smokable,
 /obj/item/material/ashtray/bronze{
 	pixel_x = -1;
 	pixel_y = 1
@@ -20178,7 +20178,7 @@
 	dir = 5
 	},
 /obj/item/flame/lighter/zippo,
-/obj/item/storage/fancy/cigarettes,
+/obj/item/storage/fancy/smokable,
 /obj/item/material/ashtray/bronze{
 	pixel_x = -1;
 	pixel_y = 1
@@ -20613,7 +20613,7 @@
 /obj/structure/hygiene/urinal{
 	pixel_y = 32
 	},
-/obj/item/soap/syndie,
+/obj/item/soap/red_soap,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
 	dir = 2
@@ -20743,11 +20743,11 @@
 /turf/simulated/floor/plating,
 /area/map_template/syndicate_mothership/ninja)
 "aVH" = (
-/obj/machinery/teleport/station,
+/obj/machinery/computer/teleporter,
 /turf/simulated/floor/plating,
 /area/map_template/syndicate_mothership/ninja)
 "aVI" = (
-/obj/machinery/teleport/hub,
+/obj/machinery/tele_pad,
 /turf/simulated/floor/plating,
 /area/map_template/syndicate_mothership/ninja)
 "aVJ" = (
@@ -21105,12 +21105,12 @@
 /area/shuttle/scom/s1/base)
 "aWo" = (
 /obj/structure/table/rack,
-/obj/item/roller,
-/obj/item/roller,
-/obj/item/roller,
-/obj/item/roller,
-/obj/item/roller,
-/obj/item/roller,
+/obj/item/roller_bed,
+/obj/item/roller_bed,
+/obj/item/roller_bed,
+/obj/item/roller_bed,
+/obj/item/roller_bed,
+/obj/item/roller_bed,
 /obj/structure/window/reinforced,
 /turf/unsimulated/floor/uristturf/shuttle{
 	tag = "icon-mainfloor (EAST)";
@@ -21676,7 +21676,7 @@
 	},
 /area/centcom/scom)
 "aXt" = (
-/obj/structure/iv_drip,
+/obj/structure/iv_stand,
 /obj/effect/floor_decal/corner/paleblue/diagonal{
 	tag = "icon-corner_white_diagonal (EAST)";
 	icon_state = "corner_white_diagonal";
@@ -21688,19 +21688,19 @@
 /area/centcom/scom)
 "aXu" = (
 /obj/structure/table/standard,
-/obj/item/reagent_containers/ivbag/blood/OPlus{
+/obj/item/reagent_containers/ivbag/blood/human/opos{
 	pixel_x = 4;
 	pixel_y = 2
 	},
-/obj/item/reagent_containers/ivbag/blood/OPlus{
+/obj/item/reagent_containers/ivbag/blood/human/opos{
 	pixel_x = 4;
 	pixel_y = 2
 	},
-/obj/item/reagent_containers/ivbag/blood/OMinus{
+/obj/item/reagent_containers/ivbag/blood/human/oneg{
 	pixel_x = -5;
 	pixel_y = -1
 	},
-/obj/item/reagent_containers/ivbag/blood/OMinus{
+/obj/item/reagent_containers/ivbag/blood/human/oneg{
 	pixel_x = -5;
 	pixel_y = -1
 	},
@@ -21821,7 +21821,7 @@
 	},
 /area/shuttle/scom/s1/base)
 "aXD" = (
-/obj/structure/iv_drip,
+/obj/structure/iv_stand,
 /turf/unsimulated/floor/uristturf/shuttle{
 	tag = "icon-mainfloor";
 	icon_state = "mainfloor"
@@ -22481,18 +22481,18 @@
 /obj/item/gun/projectile/pistol,
 /obj/item/gun/projectile/pistol,
 /obj/item/gun/projectile/pistol,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
 /obj/item/material/knife/ritual,
 /obj/item/material/knife/ritual,
 /obj/item/material/knife/ritual,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
 /turf/unsimulated/floor{
 	tag = "icon-cult";
 	name = "plating";
@@ -22522,34 +22522,34 @@
 /obj/structure/closet/cabinet{
 	name = "ammo cabinet"
 	},
-/obj/item/ammo_magazine/a45m,
-/obj/item/ammo_magazine/a45m,
-/obj/item/ammo_magazine/pistol,
-/obj/item/ammo_magazine/pistol,
-/obj/item/ammo_casing/shotgun,
-/obj/item/ammo_casing/shotgun,
-/obj/item/ammo_casing/shotgun,
-/obj/item/ammo_casing/shotgun,
-/obj/item/ammo_casing/shotgun,
-/obj/item/ammo_casing/shotgun,
-/obj/item/ammo_casing/shotgun,
-/obj/item/ammo_casing/shotgun,
-/obj/item/ammo_casing/shotgun,
-/obj/item/ammo_casing/shotgun,
-/obj/item/ammo_casing/shotgun,
 /obj/item/ammo_magazine/pistol,
 /obj/item/ammo_magazine/pistol,
 /obj/item/ammo_magazine/pistol,
 /obj/item/ammo_magazine/pistol,
+/obj/item/ammo_casing/shotgun,
+/obj/item/ammo_casing/shotgun,
+/obj/item/ammo_casing/shotgun,
+/obj/item/ammo_casing/shotgun,
+/obj/item/ammo_casing/shotgun,
+/obj/item/ammo_casing/shotgun,
+/obj/item/ammo_casing/shotgun,
+/obj/item/ammo_casing/shotgun,
+/obj/item/ammo_casing/shotgun,
+/obj/item/ammo_casing/shotgun,
+/obj/item/ammo_casing/shotgun,
 /obj/item/ammo_magazine/pistol,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/a45m,
-/obj/item/ammo_magazine/a45m,
-/obj/item/ammo_magazine/a45m,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
 /obj/item/ammo_magazine/rifle/military,
 /obj/item/ammo_magazine/rifle/military,
 /obj/item/ammo_magazine/rifle/military,
@@ -23549,10 +23549,10 @@
 /area/centcom/antag)
 "bbh" = (
 /turf/simulated/shuttle/wall/corner/dark/nw,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bbi" = (
 /turf/simulated/shuttle/wall/corner/dark/ne,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bbj" = (
 /obj/structure/table/standard,
 /obj/machinery/microwave,
@@ -23649,7 +23649,7 @@
 	},
 /area/centcom/antag)
 "bbx" = (
-/obj/structure/computerframe{
+/obj/machinery/constructable_frame/computerframe{
 	anchored = 1
 	},
 /turf/unsimulated/floor{
@@ -23718,7 +23718,7 @@
 /area/centcom/antag)
 "bbG" = (
 /turf/simulated/wall/voxshuttle,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bbH" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -23727,7 +23727,7 @@
 	req_access = list("ACCESS_SYNDICATE")
 	},
 /turf/simulated/wall/voxshuttle,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bbI" = (
 /obj/machinery/door/airlock/hatch{
 	frequency = 1331;
@@ -23737,7 +23737,7 @@
 	req_access = list("ACCESS_SYNDICATE")
 	},
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bbJ" = (
 /obj/machinery/door/blast/regular{
 	id = "skipjackshutters";
@@ -23745,7 +23745,7 @@
 	},
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bbK" = (
 /obj/machinery/door/airlock/hatch{
 	frequency = 1331;
@@ -23755,7 +23755,7 @@
 	req_access = list("ACCESS_SYNDICATE")
 	},
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bbL" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -23764,7 +23764,7 @@
 	req_access = list("ACCESS_SYNDICATE")
 	},
 /turf/simulated/wall/voxshuttle,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bbM" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
 /turf/unsimulated/floor{
@@ -23790,7 +23790,7 @@
 /area/centcom/scom)
 "bbP" = (
 /obj/structure/table/standard,
-/obj/item/storage/fancy/cigarettes,
+/obj/item/storage/fancy/smokable,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/unsimulated/floor{
 	icon_state = "white"
@@ -24018,7 +24018,7 @@
 	id_tag = "vox_west_vent"
 	},
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bcq" = (
 /obj/machinery/airlock_sensor{
 	frequency = 1331;
@@ -24026,27 +24026,27 @@
 	pixel_x = 25
 	},
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bcr" = (
 /obj/machinery/computer/station_alert,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bcs" = (
 /obj/machinery/computer/shuttle_control/multi/vox,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bct" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bcu" = (
-/obj/machinery/button/remote/blast_door{
+/obj/machinery/button/blast_door{
 	id = "skipjackshutters";
 	name = "remote shutter control";
 	req_access = list("ACCESS_SYNDICATE")
 	},
 /turf/simulated/wall/voxshuttle,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bcv" = (
 /obj/machinery/airlock_sensor{
 	frequency = 1331;
@@ -24054,14 +24054,14 @@
 	pixel_x = -25
 	},
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bcw" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	frequency = 1331;
 	id_tag = "vox_east_vent"
 	},
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bcx" = (
 /obj/structure/closet/secure_closet/freezer/meat,
 /turf/unsimulated/floor{
@@ -24251,7 +24251,7 @@
 	},
 /obj/machinery/meter,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bcS" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	tag_airpump = "vox_west_vent";
@@ -24270,19 +24270,19 @@
 	},
 /obj/machinery/light/small,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bcT" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bcU" = (
 /obj/structure/bed/chair{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bcV" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -24291,13 +24291,13 @@
 /obj/item/clothing/head/pirate,
 /obj/effect/shuttle_landmark/raider_skipjack/start,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bcW" = (
 /obj/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bcX" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	tag_airpump = "vox_east_vent";
@@ -24316,14 +24316,14 @@
 	},
 /obj/machinery/light/small,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bcY" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
 	},
 /obj/machinery/meter,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bcZ" = (
 /obj/structure/table/standard,
 /obj/item/material/kitchen/utensil/spoon/plastic,
@@ -24612,20 +24612,20 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bdB" = (
 /obj/structure/table/rack,
 /obj/item/rig/industrial,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bdC" = (
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bdD" = (
 /obj/structure/table/rack,
 /obj/item/rig/light/hacker,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bdE" = (
 /obj/machinery/door/airlock/hatch{
 	frequency = 1331;
@@ -24636,7 +24636,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bdF" = (
 /obj/structure/closet/crate/freezer/rations,
 /turf/unsimulated/floor{
@@ -24954,7 +24954,7 @@
 	req_access = list("ACCESS_SYNDICATE")
 	},
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bei" = (
 /obj/structure/table/rack,
 /obj/item/gun/energy/ionrifle,
@@ -24969,7 +24969,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/rig/light/stealth,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bej" = (
 /obj/machinery/microwave{
 	pixel_x = -1;
@@ -24977,7 +24977,7 @@
 	},
 /obj/structure/table/steel,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bek" = (
 /obj/item/seeds/potatoseed,
 /obj/item/seeds/potatoseed,
@@ -24986,19 +24986,19 @@
 /obj/item/beartrap,
 /obj/structure/table/steel,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bel" = (
 /obj/machinery/vending/hydroseeds,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bem" = (
 /obj/structure/table/rack,
 /obj/item/melee/energy/sword/pirate,
-/obj/item/clothing/suit/space/pirate,
-/obj/item/clothing/suit/space/pirate,
+/obj/item/clothing/suit/pirate,
+/obj/item/clothing/suit/pirate,
 /obj/item/tank/oxygen,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "ben" = (
 /obj/structure/table/rack,
 /obj/item/storage/belt/utility/full,
@@ -25007,14 +25007,14 @@
 /obj/item/device/multitool,
 /obj/item/clothing/shoes/magboots,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "beo" = (
 /obj/machinery/washing_machine,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bep" = (
 /obj/structure/table/standard,
-/obj/item/storage/fancy/cigarettes,
+/obj/item/storage/fancy/smokable,
 /obj/item/flame/lighter/zippo,
 /obj/item/clothing/gloves/insulated,
 /obj/item/stack/material/steel{
@@ -25025,7 +25025,7 @@
 	},
 /obj/item/card/emag,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "beq" = (
 /obj/structure/table/rack,
 /obj/item/gun/energy/sniperrifle,
@@ -25036,7 +25036,7 @@
 /obj/item/tank/oxygen,
 /obj/item/tank/oxygen,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "ber" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/machinery/access_button{
@@ -25047,7 +25047,7 @@
 	req_access = list("ACCESS_SYNDICATE")
 	},
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bes" = (
 /obj/structure/closet/secure_closet/freezer/kitchen,
 /turf/unsimulated/floor{
@@ -25278,38 +25278,38 @@
 "beK" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "beL" = (
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "beM" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "beN" = (
 /obj/machinery/door/airlock/hatch{
 	req_access = list("ACCESS_SYNDICATE")
 	},
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "beO" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/urist/space/syndicate/black/engie,
+/obj/item/clothing/head/urist/helmet/space/syndicate/black/engie,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/urist/helmet/engie,
+/obj/item/clothing/suit/urist/space/syndicate/black/engie,
 /obj/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "beP" = (
 /obj/item/robot_parts/head,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "beQ" = (
 /obj/machinery/door/airlock/glass{
 	name = "Mess Hall"
@@ -25438,17 +25438,17 @@
 "bfd" = (
 /obj/effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bfe" = (
 /obj/machinery/door/airlock/hatch{
 	req_access = list("ACCESS_SYNDICATE")
 	},
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bff" = (
 /obj/item/robot_parts/l_leg,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bfg" = (
 /obj/machinery/vending/dinnerware,
 /turf/unsimulated/floor{
@@ -25564,11 +25564,11 @@
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bfu" = (
 /obj/machinery/floodlight,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bfv" = (
 /obj/structure/table/rack,
 /obj/item/gun/launcher/crossbow,
@@ -25585,14 +25585,14 @@
 /obj/item/beartrap,
 /obj/item/beartrap,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bfw" = (
 /obj/structure/table/rack,
 /obj/item/grenade/empgrenade,
 /obj/item/grenade/flashbang,
 /obj/item/grenade/spawnergrenade,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bfx" = (
 /obj/structure/table/steel,
 /obj/machinery/recharger,
@@ -25600,17 +25600,17 @@
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bfy" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bfz" = (
 /obj/item/robot_parts/robot_suit,
 /obj/item/robot_parts/r_leg,
 /obj/item/robot_parts/r_arm,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bfA" = (
 /obj/structure/table/standard,
 /obj/item/flame/lighter,
@@ -25643,11 +25643,11 @@
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bfE" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bfF" = (
 /obj/structure/bed/chair{
 	dir = 8
@@ -25656,7 +25656,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bfG" = (
 /obj/structure/hygiene/sink{
 	icon_state = "sink";
@@ -25665,17 +25665,17 @@
 	pixel_y = 2
 	},
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bfH" = (
 /obj/item/wrench,
 /obj/item/mop,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bfI" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/item/crowbar,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bfJ" = (
 /obj/machinery/vending/cigarette,
 /obj/effect/floor_decal/corner/paleblue{
@@ -25736,30 +25736,30 @@
 	},
 /obj/structure/flora/pottedplant/subterranean,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bfQ" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bfR" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bfS" = (
 /turf/simulated/floor/shuttle/black,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bfT" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/black,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bfU" = (
 /obj/machinery/door/blast/regular{
 	dir = 4;
@@ -25768,30 +25768,30 @@
 	},
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bfV" = (
 /obj/structure/bed/chair{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bfW" = (
 /obj/structure/table/steel,
 /obj/item/deck/cards,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bfX" = (
 /obj/structure/bed/chair{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bfY" = (
 /obj/machinery/bodyscanner{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/white,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bfZ" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -25800,21 +25800,21 @@
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/white,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bga" = (
 /turf/simulated/floor/shuttle/white,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bgb" = (
 /obj/structure/hygiene/toilet{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bgc" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
 /obj/item/tank/nitrogen,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bgd" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -25824,7 +25824,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bge" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -25954,14 +25954,14 @@
 /area/space)
 "bgp" = (
 /turf/simulated/shuttle/wall/corner/dark/sw,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bgq" = (
 /obj/structure/window/reinforced{
 	dir = 1
 	},
 /obj/structure/shuttle/engine/heater,
 /turf/simulated/floor/airless,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bgr" = (
 /obj/structure/hygiene/sink{
 	dir = 4;
@@ -25970,10 +25970,10 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/shuttle/white,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bgs" = (
 /turf/simulated/shuttle/wall/corner/dark/se,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bgt" = (
 /obj/structure/closet/secure_closet/personal/scom/officer,
 /turf/unsimulated/floor{
@@ -26029,20 +26029,20 @@
 /turf/simulated/shuttle/wall{
 	icon_state = "wall3"
 	},
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bgB" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/shuttle/black,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bgC" = (
 /obj/structure/table/standard,
 /obj/item/deck/cards,
 /turf/simulated/floor/shuttle/black,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bgD" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bgE" = (
 /obj/structure/table/standard,
 /obj/item/circular_saw{
@@ -26052,11 +26052,11 @@
 /obj/item/scalpel,
 /obj/item/stack/medical/advanced/bruise_pack,
 /turf/simulated/floor/shuttle/white,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bgF" = (
 /obj/structure/shuttle/engine/propulsion,
 /turf/simulated/floor/airless,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bgG" = (
 /obj/structure/bed/nice,
 /obj/structure/window/reinforced{
@@ -26147,7 +26147,7 @@
 "bgO" = (
 /obj/machinery/optable,
 /turf/simulated/floor/shuttle/white,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bgP" = (
 /obj/structure/table/standard,
 /obj/item/cautery,
@@ -26156,7 +26156,7 @@
 /obj/item/reagent_containers/glass/bottle/stoxin,
 /obj/item/reagent_containers/syringe,
 /turf/simulated/floor/shuttle/white,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bgQ" = (
 /obj/effect/floor_decal/carpet{
 	dir = 8
@@ -26235,24 +26235,24 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/shuttle/black,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bgY" = (
 /obj/structure/bed/nice,
 /obj/item/bedsheet/rainbow,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bgZ" = (
 /obj/structure/bed/nice,
 /obj/item/bedsheet/hos,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bha" = (
 /obj/structure/table/standard,
 /obj/item/bonesetter,
 /obj/item/bonegel,
 /obj/item/FixOVein,
 /turf/simulated/floor/shuttle/white,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bhb" = (
 /obj/structure/bed/nice,
 /obj/item/bedsheet/clown,
@@ -26339,12 +26339,12 @@
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/black,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bhl" = (
 /obj/structure/bed/nice,
 /obj/item/bedsheet/orange,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bhm" = (
 /obj/structure/bed/nice,
 /obj/item/bedsheet/green,
@@ -26352,7 +26352,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bhn" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/fire{
@@ -26363,7 +26363,7 @@
 	pixel_y = 3
 	},
 /turf/simulated/floor/shuttle/white,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bho" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/adv{
@@ -26377,7 +26377,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/white,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bhp" = (
 /obj/structure/sign/goldenplaque{
 	desc = "";
@@ -26453,23 +26453,23 @@
 /obj/structure/bed/nice,
 /obj/item/bedsheet/rd,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bhz" = (
 /obj/item/pizzabox/meat,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bhA" = (
 /obj/structure/bed/nice,
 /obj/item/bedsheet/clown,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bhB" = (
 /obj/structure/shuttle/engine/heater,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "bhC" = (
 /obj/effect/weather/invariant/blowingsnow,
 /turf/unsimulated/wall/stone{

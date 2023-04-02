@@ -19,7 +19,7 @@
 "as" = (/obj/machinery/light{dir = 8; icon_state = "tube1"},/obj/structure/closet/secure_closet/brig,/turf/simulated/floor/tiled,/area/mine/unexplored)
 "at" = (/turf/simulated/floor/tiled,/area/mine/unexplored)
 "au" = (/obj/effect/wingrille_spawn/reinforced/polarized/full,/turf/simulated/floor/plating,/area/mine/unexplored)
-"av" = (/obj/effect/floor_decal/corner/blue{tag = "icon-corner_white (SOUTHEAST)"; icon_state = "corner_white"; dir = 6},/obj/machinery/teleport/hub,/turf/simulated/floor/tiled,/area/mine/unexplored)
+"av" = (/obj/effect/floor_decal/corner/blue{tag = "icon-corner_white (SOUTHEAST)"; icon_state = "corner_white"; dir = 6},/obj/machinery/tele_pad,/turf/simulated/floor/tiled,/area/mine/unexplored)
 "aw" = (/turf/simulated/wall,/area/mine/unexplored)
 "ax" = (/obj/structure/table/steel_reinforced,/obj/item/storage/box/donut,/turf/simulated/floor/tiled,/area/mine/unexplored)
 "ay" = (/obj/structure/table/steel_reinforced,/turf/simulated/floor/tiled,/area/mine/unexplored)

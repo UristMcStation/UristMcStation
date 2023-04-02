@@ -25,7 +25,7 @@
 	status_flags = CANPUSH
 	projectiletype = /obj/item/projectile/bullet
 	projectilesound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
-	casingtype = /obj/item/ammo_casing/c9mm
+	casingtype = /obj/item/ammo_casing/pistol/small
 	move_to_delay = 4
 	attack_sound = 'sound/weapons/punch3.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol
@@ -208,7 +208,7 @@
 	icon_living = "terran_officer"
 	icon_dead = "terran_officer_dead"
 	icon_gib = "syndicate_gib"
-	casingtype = /obj/item/ammo_casing/c9mm/used
+	casingtype = /obj/item/ammo_casing/pistol/small/used
 	projectilesound = 'sound/weapons/gunshot/gunshot_smg.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol
 	maxHealth = 125
@@ -349,6 +349,7 @@
 	response_disarm = "pulls down"
 	response_harm = "grasps"
 	ai_holder = /datum/ai_holder/simple_animal/hostile/hololab
+	say_list_type = /datum/say_list/hololab
 
 /datum/ai_holder/simple_animal/hostile/hololab
 	speak_chance = 50

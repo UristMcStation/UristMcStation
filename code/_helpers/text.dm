@@ -439,6 +439,7 @@
 	t = replacetext(t, "\[xynlogo\]", "<img src = xynlogo.png>")
 	t = replacetext(t, "\[fleetlogo\]", "<img src = fleetlogo.png>")
 	t = replacetext(t, "\[sfplogo\]", "<img src = sfplogo.png>")
+	t = replacetext(t, "\[nervalogo\]", "<img src = nervalogo.png>")
 	t = replacetext(t, "\[editorbr\]", "")
 	return t
 

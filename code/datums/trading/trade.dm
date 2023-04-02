@@ -155,7 +155,7 @@
 	trade_quantity(quantity, list(), trade_num, location)
 	return make_response(TRADER_TRADE_COMPLETE, "Thank you for your patronage!", -value, TRUE)
 
-datum/trader/proc/offer_items_for_bulk(quantity, list/offers, num, turf/location)
+/datum/trader/proc/offer_items_for_bulk(quantity, list/offers, num, turf/location)
 	if(!length(offers))
 		return make_response(TRADER_NOT_ENOUGH, "That's not enough.", 0, FALSE)
 	num = clamp(num, 1, length(trading_items))

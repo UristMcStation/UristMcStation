@@ -394,3 +394,6 @@
 
 /obj/item/stack/cable_coil/white
 	color = COLOR_SILVER
+
+/obj/structure/cable/fadeblue
+	color = "#4f637d"

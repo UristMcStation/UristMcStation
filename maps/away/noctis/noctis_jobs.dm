@@ -47,13 +47,6 @@
 /obj/item/card/id/noctis
 	access = list(access_noctis, access_merchant)
 
-/obj/effect/spawner/carbon/human/freightercap
-	hair_style = "Buzzcut 2"
-	facial_hair = "5 O'clock Shadow"
-	clothing = /singleton/hierarchy/outfit/freightercap
-	damage = list(BP_HEAD = 27, BP_CHEST = 53, "impale" = BP_CHEST)
-	killed = TRUE
-
 /singleton/hierarchy/outfit/freightercap
 	name = "Freighter Captain"
 	uniform = /obj/item/clothing/under/shorts/jeans/grey

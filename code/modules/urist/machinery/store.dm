@@ -37,12 +37,12 @@ var/global/datum/store/centcomm_store=new
 		return 0
 	mind.initial_account.money -= amount
 	var/datum/transaction/T = new()
-	T.get_target_name() = "[command_name()] Merchandising"
+	T.target = "Nanotrasen Merchandising"
 	T.purpose = "Purchase of [item.name]"
 	T.amount = -amount
 	T.date = stationdate2text()
 	T.time = stationtime2text()
-	T.source_terminal = "\[CLASSIFIED\] Terminal #[rand(111,333)]"
+	T.source = "\[CLASSIFIED\] Terminal #[rand(111,333)]"
 	mind.initial_account.transaction_log.Add(T)
 	return 1
 
@@ -98,7 +98,7 @@ var/global/datum/store/centcomm_store=new
 	var/dat = {"
 <html>
 	<head>
-		<title>[command_name()] Merchandise</title>
+		<title>Nanotrasen Merchandise</title>
 		<style type="text/css">
 * {
 	font-family:sans-serif;
@@ -146,7 +146,7 @@ td.cost.toomuch {
 	</head>
 	<body>
 	<p style="float:right"><a href='byond://?src=\ref[src];refresh=1'>Refresh</a> | <b>Balance:</b> $[balance]</p>
-	<h1>[command_name()] Merchandise</h1>
+	<h1>Nanotrasen Merchandise</h1>
 	<p>
 		<b>Doing your job and not getting any recognition at work?</b>  Well, welcome to the
 		merch shop!  Here, you can buy cool things in exchange for money.

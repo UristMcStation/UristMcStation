@@ -1,6 +1,6 @@
 "a" = (/turf/simulated/mineral,/area/mine/unexplored)
 "b" = (/obj/machinery/door/unpowered/simple/iron,/turf/simulated/floor/wood,/area/mine/unexplored)
-"c" = (/obj/machinery/teleport/hub,/turf/simulated/floor/wood,/area/mine/unexplored)
+"c" = (/obj/machinery/tele_pad,/turf/simulated/floor/wood,/area/mine/unexplored)
 "d" = (/turf/simulated/floor/wood,/area/mine/unexplored)
 "e" = (/obj/structure/coatrack,/turf/simulated/floor/wood,/area/mine/unexplored)
 "f" = (/turf/simulated/wall/wood,/area/mine/unexplored)

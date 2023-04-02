@@ -8,7 +8,7 @@
 	pixel_y = rand(-10, 10)
 
 
-/obj/item/ammo_casing/a45/used/Initialize()
+/obj/item/ammo_casing/pistol/used/Initialize()
 	. = ..()
 	expend()
 	pixel_x = rand(-10, 10)
@@ -26,7 +26,7 @@
 	pixel_x = rand(-10, 10)
 	pixel_y = rand(-10, 10)
 
-/obj/item/ammo_casing/c9mm/used/Initialize()
+/obj/item/ammo_casing/pistol/small/used/Initialize()
 	. = ..()
 	expend()
 	pixel_x = rand(-10, 10)

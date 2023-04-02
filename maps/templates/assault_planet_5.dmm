@@ -15,7 +15,7 @@
 "o" = (/turf/simulated/wall/r_wall,/area/planet/jungle)
 "p" = (/obj/structure/table/standard/flipped/n,/turf/simulated/floor/tiled,/area/planet/jungle)
 "q" = (/turf/simulated/floor/tiled,/area/planet/jungle)
-"r" = (/obj/structure/grille,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 1},/obj/machinery/door/firedoor/border_only{dir = 2},/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/plating,/area/planet/jungle)
+"r" = (/obj/structure/grille,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 1},/obj/machinery/door/firedoor{dir = 2},/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/plating,/area/planet/jungle)
 "s" = (/obj/structure/table/standard,/obj/item/stack/material/steel/fifty,/turf/simulated/floor/tiled,/area/planet/jungle)
 "t" = (/obj/item/device/flashlight/lamp/lantern{on = 1},/obj/structure/table/standard,/turf/simulated/floor/tiled,/area/planet/jungle)
 "u" = (/obj/machinery/door/airlock/security,/turf/simulated/floor/tiled,/area/planet/jungle)

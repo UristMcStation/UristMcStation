@@ -228,3 +228,8 @@
 
 /obj/machinery/door/unpowered/simple/supermatter/New(newloc,material_name,complexity)
 	..(newloc, MATERIAL_SUPERMATTER, complexity)
+
+/obj/machinery/door/unpowered/simple/wood/saloon
+	icon_base = "saloon"
+	autoclose = 1
+	normalspeed = 0

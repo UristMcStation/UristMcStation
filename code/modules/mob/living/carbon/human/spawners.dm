@@ -1,5 +1,5 @@
 
-/obj/effect/spawner/carbon/human
+/*/obj/effect/spawner/carbon/human
 	icon = 'icons/mob/screen1.dmi'
 	icon_state = "x"
 	invisibility = 0
@@ -67,10 +67,10 @@
 
 	if(hair_color)
 		if(hair_color == "RAND")
-			hair_color = random_hair_color()
-		else
-			H.change_hair_color(hair_color[1],hair_color[2],hair_color[3])
-			H.change_facial_hair_color(hair_color[1],hair_color[2],hair_color[3])
+			var/datum/species/target_species = all_species[species]
+			hair_color = target_species.get_random_hair_color()
+		H.change_hair_color(hair_color[1],hair_color[2],hair_color[3])
+		H.change_facial_hair_color(hair_color[1],hair_color[2],hair_color[3])
 
 	if(clothing)
 		var/singleton/hierarchy/outfit/O = outfit_by_type(clothing)
@@ -106,75 +106,67 @@
 		B.buckle_mob(H)
 
 	if(!post_setup)
-		qdel(src)
+		qdel(src)*/
 
 //Humans
 
-/obj/effect/spawner/carbon/human/grayson/miner
-	clothing = /singleton/hierarchy/outfit/grayson/miner
-
-/obj/effect/spawner/carbon/human/grayson/miner/crystal
-	killed = TRUE
+/obj/effect/landmark/corpse/graysonminer
+	corpse_outfits = list(/singleton/hierarchy/outfit/grayson/miner)
 	damage = list("damage_all_brute" = 50, "damage_all_burn" = 0)
 
-/obj/effect/spawner/carbon/human/grayson/miner/brokenarm
+/obj/effect/landmark/corpse/graysonminer/brokenarm
 	damage = list("r_arm" = 35)
 
-/obj/effect/spawner/carbon/human/pcrc
-	clothing = /singleton/hierarchy/outfit/pcrc
+/obj/effect/landmark/corpse/pcrc
+	corpse_outfits = list(/singleton/hierarchy/outfit/pcrc)
 
-/obj/effect/spawner/carbon/human/patient
-	clothing = /singleton/hierarchy/outfit/patient
+/obj/effect/landmark/corpse/patient
+	corpse_outfits = list(/singleton/hierarchy/outfit/patient)
 
-/obj/effect/spawner/carbon/human/vaultrich
-	killed = TRUE
-	clothing = /singleton/hierarchy/outfit/vaultrich
+/obj/effect/landmark/corpse/vaultrich
+	corpse_outfits = list(/singleton/hierarchy/outfit/vaultrich)
 
 //Nanotrasen
 
-/obj/effect/spawner/carbon/human/virus/ntsci
-	clothing = /singleton/hierarchy/outfit/nanotrasensci
+/obj/effect/landmark/corpse/nt
+	corpse_outfits = list(/singleton/hierarchy/outfit/nanotrasensci)
 
-/obj/effect/spawner/carbon/human/nt
-	clothing = /singleton/hierarchy/outfit/nanotrasensci
-
-/obj/effect/spawner/carbon/human/nt/hurt
+/obj/effect/landmark/corpse/nt/hurt
 	damage = list("damage_all_brute" = 50, "damage_all_burn" = 50)
 
-/obj/effect/spawner/carbon/human/nt/hurt/loot
-	clothing = /singleton/hierarchy/outfit/nanotrasensci/loot
+/obj/effect/landmark/corpse/nt/hurt/loot
+	corpse_outfits = list(/singleton/hierarchy/outfit/nanotrasensci/loot)
 
-/obj/effect/spawner/carbon/human/nt/exec
-	clothing = /singleton/hierarchy/outfit/nanotrasensci/exec
+/obj/effect/landmark/corpse/nt/exec
+	corpse_outfits = list(/singleton/hierarchy/outfit/nanotrasensci/exec)
 
-/obj/effect/spawner/carbon/human/nt/exec/armed
-	clothing = /singleton/hierarchy/outfit/nanotrasensci/exec/armed
+/obj/effect/landmark/corpse/nt/exec/armed
+	corpse_outfits = list(/singleton/hierarchy/outfit/nanotrasensci/exec/armed)
 
 //Vox
 
-/obj/effect/spawner/carbon/human/vox
-	species = SPECIES_VOX
-	hair_color = list()
+/obj/effect/landmark/corpse/vox
+	species = list(SPECIES_VOX)
 
-/obj/effect/spawner/carbon/human/vox/robed
-	clothing = /singleton/hierarchy/outfit/vox/robes
+/obj/effect/landmark/corpse/vox/robed
+	corpse_outfits = list(/singleton/hierarchy/outfit/vox/robes)
 
-/obj/effect/spawner/carbon/human/vox/medic
-	clothing = /singleton/hierarchy/outfit/vox/medic
+/obj/effect/landmark/corpse/vox/medic
+	corpse_outfits = list(/singleton/hierarchy/outfit/vox/medic)
 
-/obj/effect/spawner/carbon/human/vox/stealth
-	clothing = /singleton/hierarchy/outfit/vox/stealth
+/obj/effect/landmark/corpse/vox/stealth
+	corpse_outfits = list(/singleton/hierarchy/outfit/vox/stealth)
 
-/obj/effect/spawner/carbon/human/vox/assault
-	clothing = /singleton/hierarchy/outfit/vox/assault
+/obj/effect/landmark/corpse/vox/assault
+	corpse_outfits = list(/singleton/hierarchy/outfit/vox/assault)
 
 //Skrell castes
 
-/obj/effect/spawner/carbon/human/skrell
-	species = SPECIES_SKRELL
-	var/list/caste_colors
+/obj/effect/landmark/corpse/skrell
+	species = list(SPECIES_SKRELL)
+	//var/list/caste_colors
 
-/obj/effect/spawner/carbon/human/skrell/Initialize()
+/*/obj/effect/landmark/corpse/skrell/Initialize()
 	if(caste_colors)
 		var/caste = pick(caste_colors)
 		caste[1] += rand(-7,7)
@@ -182,41 +174,40 @@
 		caste[3] += rand(-7,7)
 		skin_color = list(caste[1],caste[2],caste[3])
 		hair_color = list(caste[1],caste[2],caste[3])
-	. = ..()
+	. = ..()*/
 
-/obj/effect/spawner/carbon/human/skrell/katish
-	caste_colors = list(1 = list(51, 153, 51))
+/obj/effect/landmark/corpse/skrell/katish
+	skin_colors_per_species = list(SPECIES_SKRELL = list(51, 153, 51))
 
-/obj/effect/spawner/carbon/human/skrell/malish
-	caste_colors = list(1 = list(0, 153, 255), 2 = list(51, 153, 102), 3 = list(128, 128, 0))
+/obj/effect/landmark/corpse/skrell/malish
+	skin_colors_per_species = list(SPECIES_SKRELL = list(0, 153, 255))
 
-/obj/effect/spawner/carbon/human/skrell/malish/veymed
-	clothing = /singleton/hierarchy/outfit/veymed
+/obj/effect/landmark/corpse/skrell/malish/veymed
+	corpse_outfits = list(/singleton/hierarchy/outfit/veymed)
 
-/obj/effect/spawner/carbon/human/skrell/malish/veymed/head
-	clothing = /singleton/hierarchy/outfit/veymed/head
+/obj/effect/landmark/corpse/skrell/malish/veymed/head
+	corpse_outfits = list(/singleton/hierarchy/outfit/veymed/head)
 
-/obj/effect/spawner/carbon/human/skrell/kanin
-	caste_colors = list(1 = list(153, 102, 0), 2 = list(153, 0, 0), 3 = list(128, 128, 0), 4 = list(0, 0, 0))
+/obj/effect/landmark/corpse/skrell/kanin
+	skin_colors_per_species = list(SPECIES_SKRELL = list(153, 102, 0))
 
-/obj/effect/spawner/carbon/human/skrell/talum //Worst caste
-	caste_colors = list(1 = list(102, 0, 255), 2 = list(51, 102, 255), 3 = list(153, 0, 204), 4 = list(150, 150, 150))
-
+/obj/effect/landmark/corpse/skrell/talum //Worst caste
+	skin_colors_per_species = list(SPECIES_SKRELL = list(102, 0, 255))
 
 //Unathi clans
 
-/obj/effect/spawner/carbon/human/unathi
-	species = SPECIES_UNATHI
+/obj/effect/landmark/corpse/unathi
+	species = list(SPECIES_UNATHI)
 
 //Teshari
 
-/obj/effect/spawner/carbon/human/teshari
-	species = SPECIES_RESOMI
+/obj/effect/landmark/corpse/teshari
+	species = list(SPECIES_RESOMI)
 
 //Diona
 
-/obj/effect/spawner/carbon/human/diona
-	species = SPECIES_DIONA
+/obj/effect/landmark/corpse/diona
+	species = list(SPECIES_DIONA)
 
 //IPCs/Synths
 

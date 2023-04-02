@@ -139,7 +139,7 @@
 		/obj/item/clothing/glasses/science,\
 		/obj/item/clothing/glasses/eyepatch,\
 		/obj/item/clothing/glasses/monocle,\
-		/obj/item/clothing/glasses/regular/hipster)
+		/obj/item/clothing/glasses)
 	glasses_chance = 50
 	suits = list(\
 		/obj/item/clothing/suit/storage/det_trench,\

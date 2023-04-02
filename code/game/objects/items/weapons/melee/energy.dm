@@ -122,10 +122,11 @@
  * Energy Sword
  */
 /obj/item/melee/energy/sword
-	icon = 'icons/obj/weapons/melee_energy.dmi'
+	icon = 'icons/urist/items/uristweapons.dmi'
 	name = "energy sword"
 	desc = "May the force be within you."
 	icon_state = "sword0"
+	item_icons = URIST_ALL_ONMOBS
 	active_force = 30
 	active_throwforce = 20
 	force = 3
@@ -144,10 +145,10 @@
 
 /obj/item/melee/energy/sword/Initialize()
 	if(!blade_color)
-		blade_color = pick("red","blue","green","purple")
+		blade_color = pick("red","blue","green","purple","black","yellow","orange")
 
 	active_icon = "sword[blade_color]"
-	var/color_hex = list("red" = COLOR_SABER_RED,  "blue" = COLOR_SABER_BLUE, "green" = COLOR_SABER_GREEN, "purple" = COLOR_SABER_PURPLE)
+	var/color_hex = list("red" = COLOR_SABER_RED,  "blue" = COLOR_SABER_BLUE, "green" = COLOR_SABER_GREEN, "purple" = COLOR_SABER_PURPLE, "orange" = COLOR_SABER_ORANGE, "yellow" = COLOR_SABER_YELLOW, "black" = COLOR_SABER_BLACK)
 	lighting_color = color_hex[blade_color]
 
 	. = ..()
@@ -167,13 +168,13 @@
 /obj/item/melee/energy/sword/purple
 	blade_color = "purple"
 
-/obj/item/melee/energy/sword/black/New()
+/obj/item/melee/energy/sword/black
 	blade_color = "black"
 
-/obj/item/melee/energy/sword/yellow/New()
+/obj/item/melee/energy/sword/yellow
 	blade_color = "yellow"
 
-/obj/item/melee/energy/sword/orange/New()
+/obj/item/melee/energy/sword/orange
 	blade_color = "orange"
 
 /obj/item/melee/energy/sword/dropped(mob/user)
@@ -194,22 +195,38 @@
 
 /obj/item/melee/energy/sword/dualsaber
 	var/base_icon = "dualsaber"
+	icon = 'icons/urist/items/uristweapons.dmi'
 	icon_state = "dualsaber0"
 	name = "double-bladed energy sword"
 	desc = "Handle with care."
 	var/wielded = 0
 	var/force_wielded = 40
-	var/force_unwielded = 10
+	var/force_unwielded = 5
 	item_icons = DEF_URIST_INHANDS
+
+/obj/item/melee/energy/sword/dualsaber/Initialize()
+	if(!blade_color)
+		blade_color = pick("red","blue","green","purple","yellow","orange")
+
+	active_icon = "dualsaber[blade_color]"
+	var/color_hex = list("red" = COLOR_SABER_RED,  "blue" = COLOR_SABER_BLUE, "green" = COLOR_SABER_GREEN, "purple" = COLOR_SABER_PURPLE, "yellow" = COLOR_SABER_YELLOW, "orange" = COLOR_SABER_ORANGE)
+	lighting_color = color_hex[blade_color]
+
+	. = ..()
 
 /obj/item/melee/energy/sword/dualsaber/activate(mob/living/user)
 	..()
-	icon_state = "[base_icon][blade_color]"
+	icon_state = "dualsaber[blade_color]"
+	update_icon()
+
+/obj/item/melee/energy/sword/dualsaber/deactivate(mob/living/user)
+	..()
+	icon_state = "dualsaber0"
 	update_icon()
 
 /obj/item/melee/energy/sword/dualsaber/on_update_icon()
 	if(wielded && active)
-		item_state = "[base_icon][blade_color][wielded]"
+		item_state = "dualsaber[blade_color][wielded]"
 	else
 		item_state = initial(icon_state)
 
@@ -236,25 +253,25 @@
 	update_icon()
 	..()
 
-/obj/item/melee/energy/sword/dualsaber/New()
-	blade_color = pick("red","blue","green","purple")
+/*/obj/item/melee/energy/sword/dualsaber/New()
+	blade_color = pick("red","blue","green","purple","yellow","orange")*/
 
-/obj/item/melee/energy/sword/dualsaber/green/New()
+/obj/item/melee/energy/sword/dualsaber/green
 	blade_color = "green"
 
-/obj/item/melee/energy/sword/dualsaber/red/New()
+/obj/item/melee/energy/sword/dualsaber/red
 	blade_color = "red"
 
-/obj/item/melee/energy/sword/dualsaber/blue/New()
+/obj/item/melee/energy/sword/dualsaber/blue
 	blade_color = "blue"
 
-/obj/item/melee/energy/sword/dualsaber/purple/New()
+/obj/item/melee/energy/sword/dualsaber/purple
 	blade_color = "purple"
 
-/obj/item/melee/energy/sword/dualsaber/yellow/New()
+/obj/item/melee/energy/sword/dualsaber/yellow
 	blade_color = "yellow"
 
-/obj/item/melee/energy/sword/dualsaber/orange/New()
+/obj/item/melee/energy/sword/dualsaber/orange
 	blade_color = "orange"
 
 /obj/item/melee/energy/sword/pirate

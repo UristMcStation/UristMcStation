@@ -3394,11 +3394,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/lar_maria/solar_control)
-"kQ" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/lar_maria/mess_hall)
 "lb" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -3549,9 +3544,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/head_f)
-"xZ" = (
-/turf/simulated/floor/reinforced,
-/area/lar_maria/mess_hall)
 "DG" = (
 /obj/machinery/computer/modular{
 	dir = 1
@@ -25295,8 +25287,8 @@ hF
 ib
 iz
 gQ
-WT
-xZ
+gx
+gx
 ad
 ad
 aa
@@ -25497,8 +25489,8 @@ hG
 gT
 iA
 gO
-kQ
-xZ
+gx
+gx
 ad
 ad
 aa
@@ -25699,8 +25691,8 @@ gT
 gT
 iB
 gN
-kQ
-xZ
+gx
+gx
 ad
 ad
 aa
@@ -25901,8 +25893,8 @@ hH
 ic
 gS
 gS
-kQ
-xZ
+gx
+gx
 ad
 ad
 aa
@@ -26104,7 +26096,7 @@ gT
 gT
 iV
 gx
-xZ
+gx
 ad
 ad
 aa
@@ -26305,8 +26297,8 @@ gT
 gT
 gQ
 gQ
-kQ
-xZ
+gx
+gx
 ad
 ad
 aa
@@ -26507,8 +26499,8 @@ gT
 gT
 gO
 gO
-kQ
-xZ
+gx
+gx
 ad
 ad
 aa
@@ -26709,8 +26701,8 @@ gT
 gT
 gO
 iW
-kQ
-xZ
+gx
+gx
 ad
 ad
 aa
@@ -26911,8 +26903,8 @@ gT
 gT
 gS
 gS
-kQ
-xZ
+gx
+gx
 ad
 ad
 aa

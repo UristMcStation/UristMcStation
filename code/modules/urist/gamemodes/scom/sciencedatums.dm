@@ -121,7 +121,7 @@
 
 //tier 2 - lets have everything here by 3 missions in.
 
-datum/scomscience/recipe/lsniper
+/datum/scomscience/recipe/lsniper
 	name = "LWAP sniper"
 	path = /obj/item/gun/energy/sniperrifle
 	category = "Sniper"
@@ -286,7 +286,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/cvrt2
 	name = "CVR"
-	path = /mob/living/exosuit/cvrt/basic
+	path = /mob/living/exosuit/premade/cvrt/basic
 	category = "Vehicles"
 	scomtechlvl = 2
 	hidden = 1
@@ -414,7 +414,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/cvrt3
 	name = "advanced CVR"
-	path = /mob/living/exosuit/cvrt/basic
+	path = /mob/living/exosuit/premade/cvrt/basic
 	category = "Vehicles"
 	scomtechlvl = 6
 	hidden = 1
@@ -424,7 +424,7 @@ datum/scomscience/recipe/lsniper
 
 ///datum/scomscience/recipe/assaultarmort3
 //	name = "ultimate rig"
-//	path = /obj/item/storage/box/shotgunammo
+//	path = /obj/item/storage/box/ammo/shotgunammo
 //	category = "General"
 //	scomtechlvl = 10
 //	hidden = 1

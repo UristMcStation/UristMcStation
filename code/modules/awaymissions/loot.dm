@@ -1,4 +1,4 @@
-/obj/effect/spawner/lootdrop
+/*/obj/effect/spawner/lootdrop
 	icon = 'icons/mob/screen1.dmi'
 	icon_state = "x2"
 	var/lootcount = 1		//how many items will be spawned
@@ -36,4 +36,4 @@
 		if(!O.simulated || O.density)
 			continue
 		O.forceMove(C)
-	qdel(src)
+	qdel(src)*/

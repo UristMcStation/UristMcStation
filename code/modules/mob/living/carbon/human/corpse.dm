@@ -38,7 +38,7 @@
 	var/hair_styles_per_species   = list() // Custom hair styles, per species -type-, if any. For example if you want a punk gang with handlebars.
 	var/facial_styles_per_species = list() // Custom facial hair styles, per species -type-, if any. See above as to why
 	var/genders_per_species       = list() // For gender biases per species -type-
-
+	var/list/damage // Use BP defines = damage
 
 /obj/effect/landmark/corpse/Initialize()
 	..()
@@ -53,6 +53,26 @@
 	var/obj/item/organ/internal/heart/heart = corpse.internal_organs_by_name[BP_HEART]
 	if (heart)
 		heart.pulse = PULSE_NONE
+	if(damage)
+		if(damage["damage_all_brute"] || damage["damage_all_burn"])
+			corpse.take_overall_damage(damage["damage_all_brute"], damage["damage_all_burn"])
+		else
+			for(var/limb in damage)
+				var/obj/item/organ/external/O = corpse.organs_by_name[limb]
+				if(O)
+					O.take_external_damage(damage[limb])
+
+		if(damage["impale"])
+			var/turf/T = corpse.near_wall(dir,2)
+			var/obj/item/organ/external/E = corpse.organs_by_name[damage["impale"]]
+			if(T && E && E.wounds.len)
+				var/obj/item/arrow/rod/R = new(corpse)
+				corpse.set_dir(GLOB.reverse_dir[dir])
+				corpse.loc = T
+				corpse.anchored = 1
+				corpse.pinned += R
+				var/datum/wound/W = E.wounds[1]
+				W.embedded_objects += R
 	randomize_appearance(corpse, new_species)
 	equip_outfit(corpse)
 	corpse.update_icon()

@@ -28,22 +28,22 @@ All crates that cannot be ordered go here. Please keep it tidy, by which I mean 
 	name = "Schrodinger's Crate"
 	desc = "What happens if you open it?"
 
-	attackby(obj/item/W as obj, mob/user as mob)
-		if(istype(W, /obj/item/crowbar))
-			var/mob/living/simple_animal/passive/cat/Cat1 = new(loc)
-			Cat1.apply_damage(250)//,TOX)
-			Cat1.name = "Schrodinger's Cat"
-			Cat1.desc = "It seems it's been dead for a while."
+/obj/structure/largecrate/schrodinger/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/crowbar))
+		var/mob/living/simple_animal/passive/cat/Cat1 = new(loc)
+		Cat1.apply_damage(250)//,TOX)
+		Cat1.name = "Schrodinger's Cat"
+		Cat1.desc = "It seems it's been dead for a while."
 
-			var/mob/living/simple_animal/passive/cat/Cat2 = new(loc)
-			Cat2.name = "Schrodinger's Cat"
-			Cat2.desc = "It was alive the whole time!"
-			sleep(2)
-			if(prob(50))
-				del Cat1
-			else
-				del Cat2
-		..()
+		var/mob/living/simple_animal/passive/cat/Cat2 = new(loc)
+		Cat2.name = "Schrodinger's Cat"
+		Cat2.desc = "It was alive the whole time!"
+		sleep(2)
+		if(prob(50))
+			del Cat1
+		else
+			del Cat2
+	..()
 
 
 /* Boobytrapped secure crates, only legit access to disarm. */

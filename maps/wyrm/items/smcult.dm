@@ -2,7 +2,7 @@
 	name = "blood covered tome"
 	author = "Dux Sectatores"
 	title = "Scientific Journal"
-	icon = 'icons/obj/weapons.dmi'
+	icon = 'icons/obj/weapons/melee_physical.dmi'
 	icon_state = "tome"
 	unique = 1
 

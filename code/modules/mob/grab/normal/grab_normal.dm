@@ -245,7 +245,7 @@
 	user.visible_message(SPAN_DANGER("\The [user] begins to slit [affecting]'s throat with \the [W]!"))
 
 	user.next_move = world.time + 20 //also should prevent user from triggering this repeatedly
-	if(!do_after(user, 20, progress = 0))
+	if(!do_after(user, 20))
 		return 0
 	if(!(G && G.affecting == affecting)) //check that we still have a grab
 		return 0

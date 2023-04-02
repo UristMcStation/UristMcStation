@@ -14,7 +14,7 @@
 	value = 400
 	trader_weight = 20
 	category = "weapon"
-	bonus_items = list(/obj/item/ammo_magazine/a45uzi)
+	bonus_items = list(/obj/item/ammo_magazine/machine_pistol)
 
 /datum/trade_item/c20r
 	name = "C-20r submachine gun"
@@ -41,7 +41,7 @@
 	value = 2000
 	trader_weight = 10
 	category = "weapon"
-	bonus_items = list(/obj/item/ammo_magazine/mc9mmt)
+	bonus_items = list(/obj/item/ammo_magazine/pistol)
 
 /datum/trade_item/z8
 	name = "Z8 bullpup assault rifle"
@@ -104,7 +104,7 @@
 	value = 600
 	trader_weight = 10
 	category = "weapon"
-	bonus_items = list(/obj/item/ammo_magazine/a357)
+	bonus_items = list(/obj/item/ammo_magazine/speedloader/magnum)
 
 /datum/trade_item/revolver_detective
 	name = "Smith & Wesson Model 10 revolver (Martian special)"
@@ -122,7 +122,7 @@
 	value = 600
 	trader_weight = 10
 	category = "weapon"
-	bonus_items = list(/obj/item/ammo_magazine/a45m)
+	bonus_items = list(/obj/item/ammo_magazine/pistol)
 
 /datum/trade_item/sec
 	name = "NT Mk58 pistol"
@@ -131,7 +131,7 @@
 	value = 600
 	trader_weight = 10
 	category = "weapon"
-	bonus_items = list(/obj/item/ammo_magazine/a45m)
+	bonus_items = list(/obj/item/ammo_magazine/pistol)
 
 /datum/trade_item/silenced
 	name = "silenced pistol"
@@ -140,7 +140,7 @@
 	value = 600
 	trader_weight = 10
 	category = "weapon"
-	bonus_items = list(/obj/item/ammo_magazine/a45m)
+	bonus_items = list(/obj/item/ammo_magazine/pistol)
 
 /datum/trade_item/magnum_pistol
 	name = "Magnum pistol"
@@ -167,7 +167,7 @@
 	value = 600
 	trader_weight = 10
 	category = "weapon"
-	bonus_items = list(/obj/item/ammo_magazine/mc9mm)
+	bonus_items = list(/obj/item/ammo_magazine/pistol)
 
 /datum/trade_item/heavysniper
 	name = "HI PTR-7 anti-materiel rifle"

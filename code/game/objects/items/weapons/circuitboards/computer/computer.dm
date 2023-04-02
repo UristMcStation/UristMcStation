@@ -114,3 +114,7 @@
 /obj/item/stock_parts/circuitboard/guestpass
 	name = T_BOARD("guest pass terminal")
 	build_path = /obj/machinery/computer/guestpass
+
+/obj/item/stock_parts/circuitboard/combat_computer
+	name = T_BOARD("combat computer")
+	build_path = /obj/machinery/computer/combatcomputer/nerva

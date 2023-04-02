@@ -1,17 +1,17 @@
 /obj/item/gun/projectile/revolver
 	name = "revolver"
-	desc = "The Lumoco Arms HE Colt is a choice revolver for when you absolutely, positively need to put a hole in the other guy. Uses .357 Magnum ammo."
+	desc = "The Lumoco Arms HE Colt is a choice revolver for when you absolutely, positively need to put a hole in the other guy. You feelin' lucky punk?"
 	icon = 'icons/obj/guns/revolvers.dmi'
 	icon_state = "revolver"
 	item_state = "revolver"
 	item_icons = URIST_ALL_ONMOBS
 	wielded_item_state = "revolver"
-	caliber = ".357"
+	caliber = CALIBER_PISTOL_MAGNUM
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	handle_casings = CYCLE_CASINGS
 	max_shells = 6
 	fire_delay = 12 //Revolvers are naturally slower-firing
-	ammo_type = /obj/item/ammo_casing/a357
+	ammo_type = /obj/item/ammo_casing/pistol/magnum
 	var/chamber_offset = 0 //how many empty chambers in the cylinder until you hit a round
 	mag_insert_sound = 'sound/weapons/guns/interaction/rev_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/rev_magout.ogg'
@@ -53,7 +53,7 @@
 	item_icons = URIST_ALL_ONMOBS
 	item_state = "mateba"
 	wielded_item_state = "mateba"
-	caliber = ".50"
+	caliber = CALIBER_PISTOL_MAGNUM
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	ammo_type = /obj/item/ammo_casing/a50
 
@@ -100,13 +100,14 @@
 
 /obj/item/gun/projectile/revolver/webley
 	name = "service revolver"
-	desc = "The A&M W4. A rugged top break revolver produced by al-Maliki & Mosley. Based on the Webley model, with modern improvements. Uses .44 Magnum ammo."
+	desc = "The A&M W4. A rugged top break revolver produced by al-Maliki & Mosley. Based on the Webley model, with modern improvements. Uses magnum ammo."
+	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "webley"
 	item_state = "webley"
 	item_icons = URIST_ALL_ONMOBS
 	item_state = "webley"
 	wielded_item_state = "webley"
 	max_shells = 6
-	caliber = ".44"
+	caliber = CALIBER_PISTOL_MAGNUM
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	ammo_type = /obj/item/ammo_casing/a44
+	ammo_type = /obj/item/ammo_casing/pistol/magnum

@@ -37,7 +37,7 @@
 	update_icon()
 
 /obj/machinery/shipweapons/Process()
-	if(!status & (CHARGED|RECHARGING))
+	if(!status && (CHARGED|RECHARGING))
 		Charging()
 
 	..()
@@ -80,7 +80,7 @@
 					if(status == CHARGED) //just in case, we check again
 						user << "<span class='warning'>You fire the [src.name].</span>"
 						Fire()
-					else if(!status & CHARGED)
+					else if(!status && CHARGED)
 						user << "<span class='warning'>The [src.name] needs to charge!</span>"
 
 
@@ -91,7 +91,7 @@
 		else
 			user << "<span class='warning'>There is nothing to shoot at...</span>"
 
-	else if(!status & CHARGED)
+	else if(!status && CHARGED)
 		user << "<span class='warning'>The [src.name] needs to charge!</span>"
 
 	else if(!target)
@@ -273,7 +273,7 @@
 	if(status & RECHARGING)
 		icon_state = "[initial(icon_state)]-charging"
 
-	if(!status & (CHARGED|RECHARGING))
+	if(!status && (CHARGED|RECHARGING))
 		icon_state = "[initial(icon_state)]-empty"
 
 /obj/machinery/shipweapons/proc/MapFire()
@@ -308,7 +308,7 @@
 		return "Destroyed"
 	if(status & RECHARGING)
 		return "Recharging"
-	if(!status & (CHARGED|RECHARGING))
+	if(!status && (CHARGED|RECHARGING))
 		return "Unable to Fire"
 	if(status & LOADING) //no need to yell at cargo yet, we're reloading
 		return "Reloading"

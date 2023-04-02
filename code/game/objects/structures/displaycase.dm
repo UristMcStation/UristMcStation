@@ -60,6 +60,7 @@
 		icon_state = "glassboxb"
 	else
 		icon_state = "glassbox"
+	underlays.Cut()
 	for(var/atom/movable/AM in contents)
 		underlays += AM.appearance
 

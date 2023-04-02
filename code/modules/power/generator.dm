@@ -38,7 +38,7 @@
 		reconnect()
 
 /obj/machinery/power/generator/examine(mob/user)
-	..()
+	. = ..()
 	to_chat(user, "Auxilary tank shows [reagents.total_volume]u of liquid in it.")
 	if(!lubricated)
 		to_chat(user, "It seems to be in need of oiling.")

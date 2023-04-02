@@ -265,16 +265,17 @@ Please only put items here that don't have a huge definition - Glloyd											
 	icon_state = "carppacket"
 	item_state = "carppacket"
 
-/obj/item/storage/fancy/cigarettes/urist/syndicate
+/obj/item/storage/fancy/smokable/urist/syndicate
 	name = "cigarette packet"
 	desc = "An obscure brand of cigarettes."
 	icon_state = "syndiepacket"
 	item_state = "syndiepacket"
+	startswith = list(
+		/obj/item/clothing/mask/smokable/cigarette/urist/syndicate = 6
+	)
 
-/obj/item/storage/fancy/cigarettes/urist/syndicate/New()
-	..()
-	for(var/i = 1 to storage_slots)
-		reagents.add_reagent(/datum/reagent/drink/doctor_delight,15)
+/obj/item/clothing/mask/smokable/cigarette/urist/syndicate
+	filling = list(/datum/reagent/drink/doctor_delight = 15)
 
 /obj/item/storage/fancy/cigarettes/urist/midori
 	name = "midori tabako packet"

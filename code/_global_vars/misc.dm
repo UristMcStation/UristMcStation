@@ -20,3 +20,5 @@ GLOBAL_LIST_EMPTY(stat_fauna_scanned)
 GLOBAL_VAR_INIT(extracted_slime_cores_amount, 0)
 
 GLOBAL_VAR_INIT(crew_death_count, 0)
+
+GLOBAL_VAR_INIT(triai, 0)

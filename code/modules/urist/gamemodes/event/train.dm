@@ -102,7 +102,7 @@ var/list/eventwarp3 = list()
 	icon_state = "trainman2"
 
 //hurt me good
-proc/traintime()
+/client/proc/traintime()
 	set name = "Train Time!"
 	set category = "Fun"
 	set desc = "All aboard!"
@@ -154,7 +154,7 @@ proc/traintime()
 
 //snow train stuff
 
-proc/snowtraintime()
+/client/proc/snowtraintime()
 	for(var/mob/living/carbon/human/M in GLOB.player_list)
 
 		for (var/obj/item/I in M)

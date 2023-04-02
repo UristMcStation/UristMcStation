@@ -13,6 +13,9 @@
 
 //general command
 
+/datum/job
+	required_language = LANGUAGE_GALCOM
+
 /datum/job/ai
 	minimal_player_age = 7
 
@@ -352,6 +355,7 @@
 	outfit_type = /singleton/hierarchy/outfit/job/nerva/stowaway
 	latejoin_at_spawnpoints = 1
 	announced = FALSE
+	required_language = null
 
 /datum/job/stowaway/get_description_blurb()
 	return	"Survive."

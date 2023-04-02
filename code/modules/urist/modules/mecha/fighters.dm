@@ -16,12 +16,15 @@
 	if(!legs)
 		legs = new /obj/item/mech_component/propulsion/combat(src)
 		legs.color = COLOR_GUNMETAL
+		legs.icon_state = null
 	if(!head)
 		head = new /obj/item/mech_component/sensors/combat(src)
 		head.color = COLOR_GUNMETAL
+		head.icon_state = null
 	if(!body)
 		body = new/obj/item/mech_component/chassis/hoverpod/fighter(src)
 		body.color = COLOR_GUNMETAL
+		body.icon_state = null
 
 	. = ..()
 
@@ -122,6 +125,8 @@
 	if(!legs)
 		legs = new /obj/item/mech_component/propulsion/heavy/fighter(src)
 		legs.color = COLOR_GUNMETAL
+		legs.icon_state = null
+	. = ..()
 
 /mob/living/exosuit/premade/hoverpod/fighter/large/human/spawn_mech_equipment()
 	..()
@@ -179,10 +184,10 @@
 	projectile_type = /obj/item/missile/heavy
 	burst = 4
 
-/obj/item/mech_equipment/weapon/ballistic/missile_rack/explosive/heavy/Fire(atom/movable/AM, atom/target, turf/aimloc)
+/*/obj/item/mech_equipment/weapon/ballistic/missile_rack/explosive/heavy/Fire(atom/movable/AM, atom/target, turf/aimloc)
 	var/obj/item/missile/heavy/M = AM
 	M.primed = 1
-	..()
+	..()*/
 
 /obj/item/gun/energy/missile //this is just so mechs can shoot missiles. it is energy for recharging purposes. very cursed
 	name = "missile launcher"
@@ -198,13 +203,13 @@
 	icon_state = "missile"
 	throwforce = 15
 
-	throw_impact(atom/hit_atom)
-		if(primed)
-			explosion(hit_atom, 1, 2, 4, 4)
-			qdel(src)
-		else
-			..()
-		return
+/obj/item/missile/heavy/throw_impact(atom/hit_atom)
+	if(primed)
+		explosion(hit_atom, 1, 2, 4, 4)
+		qdel(src)
+	else
+		..()
+	return
 
 /mob/living/simple_animal/hostile/scom/fighter
 	name = "alien fighter"
@@ -253,6 +258,9 @@
 	if(!legs)
 		legs = new /obj/item/mech_component/propulsion/heavy/fighter/heavy(src)
 		legs.color = COLOR_GUNMETAL
+		legs.icon_state = null
+
+	.=..()
 
 /mob/living/exosuit/premade/hoverpod/fighter/large/alien/spawn_mech_equipment()
 	..()

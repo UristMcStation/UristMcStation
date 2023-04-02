@@ -1445,20 +1445,6 @@ About the new airlock wires panel:
 		to_chat(user, "\The [brace] is installed on \the [src], preventing it from opening.")
 		brace.examine_damage_state(user)
 
-//CopyPasta'd from /tg/ by TGameCo
-/obj/machinery/door/airlock/proc/change_paintjob(var/obj/item/airlock_painter/AP, var/mob/user)
-	if(!AP || !AP.use())
-		return
-
-	var/choice = input(user, "What would you like to change?","Airlock Painting") in list("Door Color","Stripe Color")
-	switch(choice)
-		if("Door Color")
-			door_color = input(user, "Choose a new door color:", "Airlock Painting", rgb(255,255,255)) as color|null
-		if("Stripe Color")
-			stripe_color = input(user, "Choose a new stripe color:", "Airlock Painting", rgb(255,255,255)) as color|null
-
-	update_icon()
-
 /obj/machinery/door/airlock/autoname
 
 /obj/machinery/door/airlock/autoname/New()

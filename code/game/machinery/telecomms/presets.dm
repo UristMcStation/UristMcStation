@@ -383,3 +383,81 @@
 	id = "Nerva Broadcaster"
 	network = "tcommsat"
 	autolinkers = list("broadcasterNerva")
+
+	//Relay
+
+/obj/machinery/telecomms/relay/preset
+	network = "tcommsat"
+
+/obj/machinery/telecomms/relay/preset/station
+	id = "Primary Relay"
+	autolinkers = list("s_relay")
+
+/obj/machinery/telecomms/relay/preset/station/Initialize()
+	listening_levels = GLOB.using_map.contact_levels
+	return ..()
+
+/obj/machinery/telecomms/relay/preset/telecomms
+	id = "Telecomms Relay"
+	autolinkers = list("relay")
+
+/obj/machinery/telecomms/relay/preset/mining
+	id = "Mining Relay"
+	autolinkers = list("m_relay")
+
+/obj/machinery/telecomms/relay/preset/bridge
+	id = "Bridge Relay"
+	autolinkers = list("b_relay")
+
+/obj/machinery/telecomms/relay/preset/firstdeck
+	id = "First Deck Relay"
+	autolinkers = list("1_relay")
+
+/obj/machinery/telecomms/relay/preset/seconddeck
+	id = "Second Deck Relay"
+	autolinkers = list("2_relay")
+
+/obj/machinery/telecomms/relay/preset/thirddeck
+	id = "Third Deck Relay"
+	autolinkers = list("3_relay")
+
+/obj/machinery/telecomms/relay/preset/fourthdeck
+	id = "Fourth Deck Relay"
+	autolinkers = list("4_relay")
+
+/obj/machinery/telecomms/relay/preset/fifthdeck
+	id = "Fifth Deck Relay"
+	autolinkers = list("5_relay")
+
+/obj/machinery/telecomms/relay/preset/ruskie
+	id = "Ruskie Relay"
+	hide = 1
+	toggled = 0
+	autolinkers = list("r_relay")
+
+/obj/machinery/telecomms/relay/preset/centcom
+	id = "Centcom Relay"
+	hide = 1
+	toggled = 1
+	produces_heat = 0
+	autolinkers = list("c_relay")
+
+/obj/machinery/telecomms/relay/preset/wyrm_prim
+	id = "Primary Deck Relay"
+	autolinkers = list("prim_relay")
+
+/obj/machinery/telecomms/relay/preset/wyrm_sub
+	id = "Sub Deck Relay"
+	autolinkers = list("sub_relay")
+
+/obj/machinery/telecomms/relay/preset/department_level
+	id = "Departmental Level Relay"
+	autolinkers = list("dep_relay")
+
+/obj/machinery/telecomms/relay/preset/construction_level
+	id = "Construction Level Relay"
+	autolinkers = list("con_relay")
+
+/obj/machinery/telecomms/relay/preset/supply_level
+	id = "Supply Level Relay"
+	autolinkers = list("sup_relay")

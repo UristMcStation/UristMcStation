@@ -9,10 +9,10 @@
 	w_class = ITEM_SIZE_NORMAL
 	bulk = -1
 	load_method = MAGAZINE
-	caliber = "4mm"
+	caliber = CALIBER_PISTOL_FLECHETTE
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 3)
 	slot_flags = SLOT_BELT
-	ammo_type = /obj/item/ammo_casing/c4mm
+	ammo_type = /obj/item/ammo_casing/flechette
 	magazine_type = /obj/item/ammo_magazine/proto_smg
 	allowed_magazines = /obj/item/ammo_magazine/proto_smg
 	multi_aim = 1
@@ -35,14 +35,14 @@
 	item_state = "mpistolen"
 	item_icons = URIST_ALL_ONMOBS
 	wielded_item_state = "mpistolen"
-	caliber = ".45"
+	caliber = CALIBER_PISTOL
 	w_class = ITEM_SIZE_NORMAL
 	load_method = MAGAZINE
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2, TECH_ESOTERIC = 3)
 	slot_flags = SLOT_BELT
-	ammo_type = /obj/item/ammo_casing/a45
-	magazine_type = /obj/item/ammo_magazine/a45uzi
-	allowed_magazines = /obj/item/ammo_magazine/a45uzi //more damage compared to the wt550, smaller mag size
+	ammo_type = /obj/item/ammo_casing/pistol
+	magazine_type = /obj/item/ammo_magazine/machine_pistol
+	allowed_magazines = /obj/item/ammo_magazine/machine_pistol //more damage compared to the wt550, smaller mag size
 	one_hand_penalty = 2
 
 	firemodes = list(
@@ -156,8 +156,8 @@
 	slot_flags = SLOT_BELT
 	ammo_type = /obj/item/ammo_casing/pistol/small
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/mc9mmt/rubber
-	allowed_magazines = /obj/item/ammo_magazine/mc9mmt
+	magazine_type = /obj/item/ammo_magazine/pistol/rubber
+	allowed_magazines = /obj/item/ammo_magazine/pistol
 	accuracy_power = 7
 	one_hand_penalty = 3
 
@@ -227,7 +227,7 @@
 	else
 		..()
 
-/obj/item/gun/projectile/automatic/z8/Fire(atom/target, mob/living/user, params, pointblank=0, reflex=0)
+/obj/item/gun/projectile/automatic/z8/Fire(atom/target, mob/living/user, params, pointblank=0, reflex=0, dual_wield=0)
 	if(use_launcher)
 		launcher.Fire(target, user, params, pointblank, reflex)
 		if(!launcher.chambered)

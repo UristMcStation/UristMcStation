@@ -2,13 +2,13 @@
 	name = "vintage .45 pistol"
 	desc = "A cheap Martian knock-off of a Colt M1911. Uses .45 rounds."
 	item_icons = URIST_ALL_ONMOBS
-	magazine_type = /obj/item/ammo_magazine/a45m
-	allowed_magazines = /obj/item/ammo_magazine/a45m
+	magazine_type = /obj/item/ammo_magazine/pistol
+	allowed_magazines = /obj/item/ammo_magazine/pistol
 	icon = 'icons/urist/items/pistols.dmi'
 	item_state = "colt"
 	icon_state = "colt"
 	wielded_item_state = "colt"
-	caliber = ".45"
+	caliber = CALIBER_PISTOL
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	load_method = MAGAZINE
 	accuracy_power = 7
@@ -24,8 +24,8 @@
 /obj/item/gun/projectile/military
 	name = "military .45 pistol"
 	desc = "The WT45 - a mass produced kinetic sidearm in widespread service with the SCGDF. Uses .45 rounds."
-	magazine_type = /obj/item/ammo_magazine/a45mds/flash
-	allowed_magazines = /obj/item/ammo_magazine/a45mds
+	magazine_type = /obj/item/ammo_magazine/pistol/flash
+	allowed_magazines = /obj/item/ammo_magazine/pistol
 	icon = 'icons/obj/guns/military_pistol.dmi'
 	icon_state = "military"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
@@ -78,28 +78,21 @@
 /obj/item/gun/projectile/pistol/sec/wood/lethal
 	magazine_type = /obj/item/ammo_magazine/pistol
 
-/obj/item/gun/projectile/pistol/sigsauer
+/obj/item/gun/projectile/pistol/optimus
 	name = "10mm pistol"
-	desc = "The HelTek Optimus, best known as the standard-issue sidearm for the ICCG Navy. Uses 10mm rounds."
-	magazine_type = /obj/item/ammo_magazine/p10mm
-	allowed_magazines = /obj/item/ammo_magazine/p10mm
-	icon_state = "p220"
-	caliber = "10mm"
+	desc = "The HelTek Optimus, best known as the standard-issue sidearm for the Terran Navy. Uses 10mm rounds."
+	magazine_type = /obj/item/ammo_magazine/pistol/double
+	allowed_magazines = /obj/item/ammo_magazine/pistol/double
+	icon_state = "optimus"
+	item_state = "secgundark"
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2, TECH_ESOTERIC = 8)
 	load_method = MAGAZINE
 	accuracy = 0.40
 	fire_delay = 7.5
 
-/obj/item/gun/projectile/pistol/sigsauer/on_update_icon()
-	..()
-	if(ammo_magazine && ammo_magazine.stored_ammo.len)
-		icon_state = "p220"
-	else
-		icon_state = "p220-e"
-
 /obj/item/gun/projectile/pistol/magnum_pistol
 	name = ".50 magnum pistol"
-	desc = "The HelTek Magnus, a robust Terran handgun that uses .50 AE ammo."
+	desc = "The HelTek Magnus, a robust Terran handgun that uses high-caliber ammo."
 	icon = 'icons/obj/guns/magnum_pistol.dmi'
 	icon_state = "magnum"
 	item_state = "magnum"
@@ -143,26 +136,6 @@
 	else
 		icon_state = "[base_icon]-e"
 
-/obj/item/gun/projectile/pistol/beretta
-	name = "9mm combat pistol"
-	desc = "The Lumoco Arms P9 Brigadier. A robust sidearm designed for military duty. Uses 9mm rounds."
-	magazine_type = /obj/item/ammo_magazine/mc9mmds
-	allowed_magazines = /obj/item/ammo_magazine/mc9mmds
-	icon_state = "92fs"
-	item_icons = URIST_ALL_ONMOBS
-	item_state = "92fs"
-	wielded_item_state = "92fs"
-	caliber = "9mm"
-	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
-	load_method = MAGAZINE
-	accuracy = 0.35
-
-/obj/item/gun/projectile/pistol/beretta/on_update_icon()
-	..()
-	if(ammo_magazine && ammo_magazine.stored_ammo.len)
-		icon_state = "92fs"
-	else
-		icon_state = "92fs-e"
 /obj/item/gun/projectile/pistol/gyropistol
 	name = "gyrojet pistol"
 	desc = "A bulky pistol designed to fire self propelled rounds."
@@ -246,6 +219,10 @@
 		icon_state = "pistol"
 	if(!(ammo_magazine && length(ammo_magazine.stored_ammo)))
 		icon_state = "[icon_state]-e"
+
+/obj/item/gun/projectile/pistol/flash
+	name = "holdout signal pistol"
+	magazine_type = /obj/item/ammo_magazine/pistol/flash
 
 /obj/item/silencer
 	name = "silencer"

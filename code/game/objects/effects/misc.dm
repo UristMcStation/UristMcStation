@@ -110,11 +110,17 @@
 /obj/effect/paint_stripe/mauve
 	color = COLOR_PALE_PURPLE_GRAY
 
+/obj/effect/paint_stripe/beige
+	color = COLOR_BEIGE
+
 /obj/effect/paint_stripe/white
 	color = COLOR_SILVER
 
 /obj/effect/paint_stripe/gunmetal
 	color = COLOR_GUNMETAL
+
+/obj/effect/paint_stripe/sun
+	color = COLOR_SUN
 
 /obj/effect/gas_setup	//cryogenic
 	icon = 'icons/mob/screen1.dmi'

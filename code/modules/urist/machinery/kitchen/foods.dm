@@ -59,9 +59,9 @@
 
 	var/list/ingredients = list()
 
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/nutriment, 8)
+/obj/item/reagent_containers/food/snacks/customizable/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 8)
 
 /obj/item/reagent_containers/food/snacks/customizable/pizza
 	name = "personal pizza"
@@ -382,52 +382,6 @@
 
 	usr << "<span class='notice'> You think you can see [whatsinside] in there.</span>"
 
-////////////////////////////////ICE CREAM///////////////////////////////////
-/obj/item/reagent_containers/food/snacks/icecream
-	name = "ice cream"
-	desc = "Delicious ice cream."
-	icon = 'icons/urist/kitchen.dmi'
-	icon_state = "icecream_cone"
-
-/obj/item/reagent_containers/food/snacks/icecream/New()
-	..()
-	reagents.add_reagent(/datum/reagent/nutriment, 1)
-	reagents.add_reagent(/datum/reagent/sugar,1)
-	bitesize = 1
-	update_icon()
-
-/obj/item/reagent_containers/food/snacks/icecream/update_icon()
-	overlays.Cut()
-	var/image/filling = image('icons/urist/kitchen.dmi', src, "icecream_color") //GLLEEEEEEERD!
-	filling.icon += reagents.get_color()
-	overlays += filling
-
-/obj/item/reagent_containers/food/snacks/icecream/icecreamcone
-	name = "ice cream cone"
-	desc = "Delicious ice cream."
-	icon_state = "icecream_cone"
-	volume = 500
-
-/obj/item/reagent_containers/food/snacks/icecream/icecreamcone/New()
-	..()
-	reagents.add_reagent(/datum/reagent/nutriment, 2)
-	reagents.add_reagent(/datum/reagent/sugar,6)
-	reagents.add_reagent(/datum/reagent/drink/ice,2)
-	bitesize = 3
-
-/obj/item/reagent_containers/food/snacks/icecream/icecreamcup
-	name = "chocolate ice cream cone"
-	desc = "Delicious ice cream."
-	icon_state = "icecream_cup"
-	volume = 500
-
-/obj/item/reagent_containers/food/snacks/icecream/icecreamcup/New()
-	..()
-	reagents.add_reagent(/datum/reagent/nutriment, 4)
-	reagents.add_reagent(/datum/reagent/sugar,8)
-	reagents.add_reagent(/datum/reagent/drink/ice,2)
-	bitesize = 6
-
 //cereals
 
 /obj/item/reagent_containers/food/snacks/cereal
@@ -436,9 +390,10 @@
 	icon = 'icons/urist/kitchen.dmi'
 	icon_state = "cereal_box"
 	bitesize = 2
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/nutriment, 30)
+
+/obj/item/reagent_containers/food/snacks/cereal/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 30)
 
 //deepfryer shit
 /*
@@ -474,10 +429,10 @@
 
 	var/list/ingredients = list()
 
-	New()
-		..()
-		src.reagents.add_reagent(boozetype, 20)
-		ferment(boozetype)
+/obj/item/reagent_containers/food/drinks/bottle/customizable/New()
+	..()
+	src.reagents.add_reagent(boozetype, 20)
+	ferment(boozetype)
 
 
 /obj/item/reagent_containers/food/drinks/bottle/customizable/wine

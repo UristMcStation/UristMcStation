@@ -11,7 +11,7 @@
 "k" = (/obj/machinery/door/airlock/security,/turf/simulated/floor/tiled/white,/area/outpost/mining_main/dorms)
 "l" = (/turf/simulated/floor/tiled/white,/area/outpost/mining_main/dorms)
 "m" = (/obj/item/stack/material/steel{amount = 50},/turf/simulated/floor/tiled,/area/outpost/mining_main/dorms)
-"n" = (/obj/structure/table/standard,/obj/item/storage/box/donkpockets,/turf/simulated/floor/tiled/white,/area/outpost/mining_main/dorms)
+"n" = (/obj/structure/table/standard,/obj/item/storage/box/donkpocket_mixed,/turf/simulated/floor/tiled/white,/area/outpost/mining_main/dorms)
 "o" = (/obj/structure/assaultshieldgen,/obj/structure/window/phoronreinforced{tag = "icon-phoronrwindow (NORTH)"; icon_state = "phoronrwindow"; dir = 1},/turf/simulated/floor/tiled,/area/outpost/mining_main/dorms)
 "p" = (/obj/structure/assaultshieldgen,/obj/structure/window/phoronreinforced{tag = "icon-phoronrwindow (EAST)"; icon_state = "phoronrwindow"; dir = 4},/obj/structure/window/phoronreinforced{tag = "icon-phoronrwindow (NORTH)"; icon_state = "phoronrwindow"; dir = 1},/turf/simulated/floor/tiled,/area/outpost/mining_main/dorms)
 "q" = (/obj/structure/assaultshieldgen,/obj/structure/window/phoronreinforced,/turf/simulated/floor/tiled,/area/outpost/mining_main/dorms)

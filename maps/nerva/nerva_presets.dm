@@ -100,7 +100,7 @@ var/global/const/NETWORK_EXPLO             = "Exploration"
 /obj/machinery/camera/xray/command //for the bridge
 	network = list(NETWORK_COMMAND)
 
-/obj/machinery/power/smes/buildable/preset/nerva/shuttle/Initialize()
+/obj/machinery/power/smes/buildable/preset/nerva/shuttle
 	uncreated_component_parts = list(
 	/obj/item/stock_parts/smes_coil/super_io = 1,
 	/obj/item/stock_parts/smes_coil/super_capacity = 1
@@ -111,7 +111,7 @@ var/global/const/NETWORK_EXPLO             = "Exploration"
 	_output_on = TRUE
 	_fully_charged = TRUE
 
-/obj/machinery/power/smes/buildable/preset/nerva/hangar/Initialize()
+/obj/machinery/power/smes/buildable/preset/nerva/hangar
 	uncreated_component_parts = list(
 	/obj/item/stock_parts/smes_coil/super_io = 2,
 	)

@@ -229,7 +229,7 @@
 
 	go_in(usr)
 
-/obj/machinery/recharge_station/maxed/New()
+/*/New()
 	..()
 
 	component_parts = list()
@@ -243,4 +243,4 @@
 
 	RefreshParts()
 
-	update_icon()
+	update_icon()*/

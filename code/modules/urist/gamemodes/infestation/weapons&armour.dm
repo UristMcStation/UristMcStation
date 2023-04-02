@@ -385,7 +385,7 @@
 	wielded_item_state = "ANFOR-SMG"
 	w_class = 3
 	force = 10
-	caliber = "9mm"
+	caliber = CALIBER_PISTOL_SMALL
 	origin_tech = "combat=6;materials=1;syndicate=4"
 	slot_flags = SLOT_BELT
 	load_method = MAGAZINE
@@ -407,14 +407,14 @@
 		icon_state = "ANFOR-SMG-empty"
 
 /obj/item/ammo_magazine/a9mm
-	name = "A37 magazine (9mm)"
+	name = "A37 magazine"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "ASMGmag"
 	mag_type = MAGAZINE
-	caliber = "9mm"
+	caliber = CALIBER_PISTOL_SMALL
 	origin_tech = "combat=2"
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
-	ammo_type = /obj/item/ammo_casing/c9mm
+	ammo_type = /obj/item/ammo_casing/pistol/small
 	max_ammo = 40
 	multiple_sprites = 1
 
@@ -438,21 +438,21 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper A7 pistol"
 	desc = "A slightly modified version of the classic Colt M1911, the standard sidearm for ANFOR and Terran Marines. It holds 8 .45 rounds."
-	magazine_type = /obj/item/ammo_magazine/a45m/a7
+	magazine_type = /obj/item/ammo_magazine/pistol/a7
 	icon_state = "ANFOR-pistol"
 	icon = 'icons/urist/items/guns.dmi'
 	load_method = MAGAZINE
 
-/obj/item/ammo_magazine/a45m/a7
+/obj/item/ammo_magazine/pistol/a7
 	icon = 'icons/urist/items/guns.dmi'
 	name = "A7 magazine (.45)"
 	icon_state = "ANFOR-pistolmag"
-	ammo_type = /obj/item/ammo_casing/a45
-	caliber = ".45"
+	ammo_type = /obj/item/ammo_casing/pistol
+	caliber = CALIBER_PISTOL
 	max_ammo = 8
 	multiple_sprites = 1
 
-/obj/item/ammo_magazine/a45m/a7/empty
+/obj/item/ammo_magazine/pistol/a7/empty
 	initial_ammo = 0
 
 /obj/item/gun/projectile/manualcycle/a50

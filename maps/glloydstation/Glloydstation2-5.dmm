@@ -822,7 +822,7 @@
 /area/outpost/research/eva)
 "ck" = (
 /obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/firedoor/border_only{
+/obj/machinery/door/firedoor{
 	dir = 2
 	},
 /turf/simulated/floor/plating,
@@ -1194,13 +1194,13 @@
 /area/outpost/research/eva)
 "cL" = (
 /obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/firedoor/border_only{
+/obj/machinery/door/firedoor{
 	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/eva)
 "cM" = (
-/obj/machinery/door/firedoor/border_only{
+/obj/machinery/door/firedoor{
 	dir = 2
 	},
 /obj/machinery/door/airlock/external{
@@ -1294,7 +1294,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/research/eva)
 "cT" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 1;
 	initialize_directions = 0;
 	level = 1
@@ -1378,7 +1378,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/research/eva)
 "db" = (
-/obj/machinery/door/firedoor/border_only{
+/obj/machinery/door/firedoor{
 	dir = 2
 	},
 /obj/machinery/door/airlock/external{
@@ -1398,14 +1398,14 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/anomaly_container,
+/obj/machinery/anomaly_container,
 /turf/simulated/floor/asteroid,
 /area/mine/explored)
 "dd" = (
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/anomaly_container,
+/obj/machinery/anomaly_container,
 /turf/simulated/floor/asteroid,
 /area/mine/explored)
 "de" = (
@@ -1633,7 +1633,7 @@
 /obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/head/helmet/space/void/mining,
-/obj/item/mining_scanner,
+/obj/item/device/scanner/mining,
 /obj/effect/floor_decal/corner/beige{
 	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
@@ -1646,7 +1646,7 @@
 /obj/item/clothing/suit/space/void/mining/cold,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/head/helmet/space/void/mining/cold,
-/obj/item/mining_scanner,
+/obj/item/device/scanner/mining,
 /obj/effect/floor_decal/corner/beige{
 	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
@@ -2021,7 +2021,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "ez" = (
-/obj/machinery/door/firedoor/border_only{
+/obj/machinery/door/firedoor{
 	dir = 2
 	},
 /obj/machinery/door/airlock/external{
@@ -2066,7 +2066,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "eC" = (
-/obj/machinery/door/firedoor/border_only{
+/obj/machinery/door/firedoor{
 	dir = 2
 	},
 /obj/machinery/door/airlock/external{
@@ -2366,7 +2366,7 @@
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/eva)
 "fi" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 1;
 	initialize_directions = 0;
 	level = 1

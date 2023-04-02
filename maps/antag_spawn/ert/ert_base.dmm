@@ -2001,7 +2001,7 @@
 /area/map_template/rescue_base/base)
 "dT" = (
 /obj/structure/table/steel,
-/obj/item/stamp/solgov,
+/obj/item/clothing/suit/dress/solgov,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -2201,7 +2201,8 @@
 	},
 /area/map_template/rescue_base/base)
 "es" = (
-/obj/structure/closet/secure_closet/cos,
+/obj/structure/closet/secure_closet/nervacos,
+/obj/item/clothing/suit/armor/pcarrier/merc/cos,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -3164,8 +3165,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/map_template/rescue_base/start)
 "gr" = (
+/obj/random/raider/hardsuit,
 /obj/structure/table/rack,
-/obj/random/solgov,
+/obj/item/clothing/suit/dress/solgov,
 /turf/simulated/floor/tiled/dark,
 /area/map_template/rescue_base/start)
 "gs" = (

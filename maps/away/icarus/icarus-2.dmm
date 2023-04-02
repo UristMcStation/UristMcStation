@@ -37,7 +37,7 @@
 /turf/simulated/floor/tiled,
 /area/icarus/vessel)
 "am" = (
-/obj/item/modular_computer/console,
+/obj/machinery/computer/modular,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel)
 "an" = (
@@ -116,7 +116,7 @@
 /turf/simulated/floor/tiled,
 /area/icarus/open)
 "aE" = (
-/obj/item/modular_computer/console{
+/obj/machinery/computer/modular{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -142,7 +142,7 @@
 /area/icarus/vessel)
 "aJ" = (
 /obj/structure/table/steel_reinforced,
-/obj/item/storage/fancy/cigarettes/killthroat,
+/obj/item/storage/fancy/smokable/killthroat,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel)
 "aK" = (
@@ -169,7 +169,7 @@
 /turf/simulated/floor/tiled,
 /area/icarus/vessel)
 "aP" = (
-/obj/item/modular_computer/console,
+/obj/machinery/computer/modular,
 /obj/item/disk/icarus,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel)
@@ -183,7 +183,7 @@
 /turf/simulated/floor/tiled,
 /area/icarus/vessel)
 "aS" = (
-/obj/item/modular_computer/console,
+/obj/machinery/computer/modular,
 /obj/item/paper/icarus/log,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel)
@@ -263,7 +263,7 @@
 /obj/item/airlock_brace,
 /obj/item/airlock_brace,
 /obj/item/airlock_brace,
-/obj/item/crowbar/brace_jack,
+/obj/item/material/twohanded/jack,
 /turf/simulated/floor/tiled/dark,
 /area/icarus/vessel)
 "be" = (
@@ -542,7 +542,7 @@
 /turf/simulated/floor/tiled,
 /area/icarus/open)
 "bW" = (
-/obj/item/modular_computer/console,
+/obj/machinery/computer/modular,
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel)
@@ -914,7 +914,7 @@
 /turf/simulated/floor/tiled,
 /area/icarus/vessel)
 "da" = (
-/obj/item/modular_computer/console,
+/obj/machinery/computer/modular,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -1099,7 +1099,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/item/modular_computer/console{
+/obj/machinery/computer/modular{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -1198,7 +1198,7 @@
 	pixel_y = -25;
 	req_access = newlist()
 	},
-/obj/item/modular_computer/console{
+/obj/machinery/computer/modular{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -1222,7 +1222,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/item/modular_computer/console{
+/obj/machinery/computer/modular{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -1501,7 +1501,7 @@
 /turf/simulated/floor/shuttle/white,
 /area/icarus/vessel)
 "eO" = (
-/obj/item/modular_computer/console{
+/obj/machinery/computer/modular{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/white,
@@ -1528,7 +1528,6 @@
 "eT" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1379;
 	id_tag = "bridgeport_pump"
 	},
 /turf/simulated/floor/plating,
@@ -1552,7 +1551,6 @@
 "eW" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1331;
 	id_tag = "ninja_shuttle_pump"
 	},
 /turf/simulated/floor/plating,
@@ -1781,7 +1779,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	frequency = 1331;
 	id_tag = "calypso_shuttle_pump"
 	},
 /turf/simulated/floor/plating,
@@ -1882,7 +1879,9 @@
 /turf/simulated/floor/reinforced,
 /area/icarus/open)
 "fF" = (
-/obj/effect/landmark/random_gen/asteroid,
+/obj/effect/landmark/map_data{
+	height = 2
+	},
 /turf/unsimulated/mineral,
 /area/space)
 "gi" = (
@@ -1891,7 +1890,7 @@
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "mS" = (
-/obj/item/modular_computer/console{
+/obj/machinery/computer/modular{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -1911,7 +1910,7 @@
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "wH" = (
-/obj/item/modular_computer/console{
+/obj/machinery/computer/modular{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -1927,19 +1926,19 @@
 /turf/simulated/floor/tiled,
 /area/icarus/vessel)
 "Me" = (
-/obj/item/modular_computer/console{
+/obj/machinery/computer/modular{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/white,
 /area/icarus/open)
 "MD" = (
-/obj/item/modular_computer/console{
+/obj/machinery/computer/modular{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/icarus/vessel)
 "Zf" = (
-/obj/item/modular_computer/console{
+/obj/machinery/computer/modular{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,

@@ -46,7 +46,7 @@
 	var/team3uniform = /obj/item/clothing/under/urist/scom/s3
 	var/team4uniform = /obj/item/clothing/under/urist/scom/s4
 
-/singleton/hierarchy/outfit/scom/squaddie/equip(mob/living/carbon/human/H, var/rank, var/assignment, var/teamnum)
+/singleton/hierarchy/outfit/scom/squaddie/equip(mob/living/carbon/human/H, var/rank, var/assignment, var/teamnum, equip_adjustments)
 	if(teamnum)
 		if(teamnum == 1)
 			uniform = team1uniform
@@ -94,7 +94,7 @@
 	name = "S-COM personal closet (Operatives)"
 	desc = "It's a secure locker for S-COM Operatives."
 
-/obj/structure/closet/secure_closet/personal/scom/grunt/New()
+/obj/structure/closet/secure_closet/personal/scom/grunt/WillContain()
 	..()
 	spawn(2)
 		new /obj/item/device/radio/headset(src)
@@ -113,7 +113,7 @@
 	name = "S-COM personal closet (Officers)"
 	desc = "It's a secure locker for S-COM Officers."
 
-/obj/structure/closet/secure_closet/personal/scom/officer/New()
+/obj/structure/closet/secure_closet/personal/scom/officer/WillContain()
 	..()
 	spawn(2)
 		new /obj/item/device/radio/headset(src)
@@ -134,7 +134,7 @@
 	name = "S-COM personal closet (MedSci)"
 	desc = "It's a secure locker for S-COM Researchers."
 
-/obj/structure/closet/secure_closet/personal/scom/researcher/New()
+/obj/structure/closet/secure_closet/personal/scom/researcher/WillContain()
 	..()
 	spawn(2)
 		new /obj/item/device/radio/headset/heads/captain(src)
@@ -150,7 +150,7 @@
 	desc = "It's a secure locker for the Commander. Bow before its Commandiness."
 
 
-/obj/structure/closet/secure_closet/personal/scom/commander/New()
+/obj/structure/closet/secure_closet/personal/scom/commander/WillContain()
 		new /obj/item/clothing/under/rank/centcom(src)
 		new /obj/item/clothing/suit/captunic(src)
 		new /obj/item/clothing/shoes/laceup(src)

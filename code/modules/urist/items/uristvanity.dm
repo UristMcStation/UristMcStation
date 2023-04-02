@@ -70,12 +70,12 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "ntoolbox"
 	item_state = "toolbox_blue"
 
-	New()
-		..()
-		new /obj/item/screwdriver(src)
-		new /obj/item/wrench(src)
-		new /obj/item/crowbar/nanotrasen(src)
-		new /obj/item/device/flashlight/nanotrasen(src)
+/obj/item/storage/toolbox/nanotrasen/New()
+	..()
+	new /obj/item/screwdriver(src)
+	new /obj/item/wrench(src)
+	new /obj/item/crowbar/nanotrasen(src)
+	new /obj/item/device/flashlight/nanotrasen(src)
 
 
 
@@ -126,11 +126,11 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	item_state = "comb"
 	color = "#9932cc"
 
-	attack_self(mob/user)
-		if(user.r_hand == src || user.l_hand == src)
-			for(var/mob/O in viewers(user, null))
-				O.show_message(text("<span class='warning'> [] uses [] to comb their hair with incredible style and sophistication. Wow, that's pretty suave.</span>", user, src), 1)
-		return
+/obj/item/vanity/comb/attack_self(mob/user)
+	if(user.r_hand == src || user.l_hand == src)
+		for(var/mob/O in viewers(user, null))
+			O.show_message(text("<span class='warning'> [] uses [] to comb their hair with incredible style and sophistication. Wow, that's pretty suave.</span>", user, src), 1)
+	return
 
 //unathi doll and doll parent type
 

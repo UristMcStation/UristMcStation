@@ -53,4 +53,4 @@
 #define ALT_TRANSMIT 512 // Language is not based on vision or sound (Todo: add this into the say code and use it for the rootspeak languages)
 
 // Misc
-#define MAX_LANGUAGES 3
+#define MAX_LANGUAGES 4

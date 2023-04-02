@@ -264,7 +264,7 @@
 	var/static/run_delay = 2
 
 	/// Modifier for ticks between moves while walking
-	var/static/walk_delay = 2.5
+	var/static/walk_delay = 2
 
 	/// Modifier for ticks between moves while creeping
 	var/static/creep_delay = 6
@@ -295,6 +295,8 @@
 
 	/// Do antags use account age restrictions? --requires database
 	var/static/use_age_restriction_for_antags = FALSE
+
+	var/gateway_delay = 18000 //How long the gateway takes before it activates. Default is half an hour.
 
 	var/static/comms_password
 
@@ -703,6 +705,8 @@
 				disable_player_mice = TRUE
 			if ("uneducated_mice")
 				uneducated_mice = TRUE
+			if("gateway_delay")
+				gateway_delay = text2num(value)
 			if ("comms_password")
 				comms_password = value
 			if ("ban_comms_password")

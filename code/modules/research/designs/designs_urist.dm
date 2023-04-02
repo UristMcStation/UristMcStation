@@ -5,7 +5,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //Plasma pistol
 
-datum/design/plasmapistol
+/datum/design/plasmapistol
 	name = "Phoron Pistol"
 	desc = "Weaponized phoron... Scary."
 	id = "plasmapistol"

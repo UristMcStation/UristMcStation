@@ -33,7 +33,6 @@
 
 /obj/machinery/power/quantumpad/New()
 	..()
-	build_default_parts(/obj/item/stock_parts/circuitboard/telepad)
 	connect_to_network()
 	if(map_pad_id)
 		mapped_quantum_pads[map_pad_id] = src
@@ -58,9 +57,6 @@
 	teleport_cooldown -= (E * 100)
 
 /obj/machinery/power/quantumpad/attackby(obj/item/I, mob/user, params)
-	if(default_deconstruction_screwdriver(user, I))
-		return
-
 	if(istype(I, /obj/item/device/multitool))
 		if(panel_open)
 			var/obj/item/device/multitool/M = I
@@ -73,11 +69,6 @@
 				linked_pad = M.buffer_name
 				to_chat(user, "<span class='notice'>You link [src] to the one in [I]'s buffer.</span>")
 				return 1
-
-	if(default_part_replacement(user, I))
-		return
-
-	if(default_deconstruction_crowbar(user, I))
 		return
 
 	return ..()

@@ -380,7 +380,8 @@
 		'html/images/daislogo.png',
 		'html/images/eclogo.png',
 		'html/images/fleetlogo.png',
-		'html/images/sfplogo.png'
+		'html/images/sfplogo.png',
+		'html/images/nervalogo.png'
 		)
 	addtimer(new Callback(src, .proc/after_send_resources), 1 SECOND)
 

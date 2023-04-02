@@ -160,14 +160,14 @@
 	},
 /area/rescue_base/base)
 "aw" = (
-/obj/machinery/teleport/station,
+/obj/machinery/computer/teleporter,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
 	},
 /area/rescue_base/base)
 "ax" = (
-/obj/machinery/teleport/hub,
+/obj/machinery/tele_pad,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -635,15 +635,15 @@
 /area/rescue_base/base)
 "bu" = (
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/mc9mmt/rubber,
-/obj/item/ammo_magazine/mc9mmt/rubber,
-/obj/item/ammo_magazine/mc9mmt/rubber,
-/obj/item/ammo_magazine/mc9mmt/rubber,
-/obj/item/ammo_magazine/mc9mmt/rubber,
-/obj/item/ammo_magazine/mc9mmt/rubber,
-/obj/item/ammo_magazine/mc9mmt/rubber,
-/obj/item/ammo_magazine/mc9mmt/rubber,
-/obj/item/ammo_magazine/mc9mmt/rubber,
+/obj/item/ammo_magazine/pistol/rubber,
+/obj/item/ammo_magazine/pistol/rubber,
+/obj/item/ammo_magazine/pistol/rubber,
+/obj/item/ammo_magazine/pistol/rubber,
+/obj/item/ammo_magazine/pistol/rubber,
+/obj/item/ammo_magazine/pistol/rubber,
+/obj/item/ammo_magazine/pistol/rubber,
+/obj/item/ammo_magazine/pistol/rubber,
+/obj/item/ammo_magazine/pistol/rubber,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -732,16 +732,16 @@
 /area/rescue_base/base)
 "bD" = (
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/mc9mmt,
-/obj/item/ammo_magazine/mc9mmt,
-/obj/item/ammo_magazine/mc9mmt,
-/obj/item/ammo_magazine/mc9mmt,
-/obj/item/ammo_magazine/mc9mmt,
-/obj/item/ammo_magazine/mc9mmt,
-/obj/item/ammo_magazine/mc9mmt,
-/obj/item/ammo_magazine/mc9mmt,
-/obj/item/ammo_magazine/mc9mmt,
-/obj/item/ammo_magazine/mc9mmt,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -834,7 +834,7 @@
 "bM" = (
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/blue/diagonal,
-/obj/item/storage/box/donkpockets{
+/obj/item/storage/box/donkpocket_mixed{
 	pixel_x = 3;
 	pixel_y = 3
 	},
@@ -844,7 +844,7 @@
 /area/rescue_base/base)
 "bN" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
-/obj/item/storage/box/sinpockets,
+/obj/item/storage/box/donkpocket_premium,
 /obj/structure/closet/secure_closet/freezer/kitchen,
 /obj/item/reagent_containers/food/condiment/enzyme,
 /turf/unsimulated/floor{
@@ -884,7 +884,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	icon_state = "pdoor1";
-	id = "heavyrescue";
+	id_tag = "heavyrescue";
 	name = "Restricted Equipment";
 	p_open = 0
 	},
@@ -1023,7 +1023,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	icon_state = "pdoor1";
-	id = "standardrescue";
+	id_tag = "standardrescue";
 	name = "Heavy Equipment";
 	p_open = 0
 	},
@@ -1512,10 +1512,9 @@
 	},
 /area/rescue_base/base)
 "cT" = (
-/obj/machinery/autolathe{
-	desc = "Your typical Autolathe. It appears to have much more options than your regular one, however...";
-	hacked = 1;
-	name = "Unlocked Autolathe"
+/obj/machinery/fabricator/hacked{
+	desc = "Your typical fabricator. It appears to have much more options than your regular one, however...";
+	name = "Unlocked Fabricator"
 	},
 /turf/unsimulated/floor{
 	dir = 1;
@@ -1552,14 +1551,14 @@
 /area/rescue_base/base)
 "cW" = (
 /obj/structure/table/reinforced,
-/obj/item/reagent_containers/ivbag/blood/OMinus,
-/obj/item/reagent_containers/ivbag/blood/OMinus,
-/obj/item/reagent_containers/ivbag/blood/OMinus,
-/obj/item/reagent_containers/ivbag/blood/OMinus,
-/obj/item/reagent_containers/ivbag/blood/OMinus,
-/obj/item/reagent_containers/ivbag/blood/OMinus,
-/obj/item/reagent_containers/ivbag/blood/OMinus,
-/obj/item/reagent_containers/ivbag/blood/OMinus,
+/obj/item/reagent_containers/ivbag/blood/human/oneg,
+/obj/item/reagent_containers/ivbag/blood/human/oneg,
+/obj/item/reagent_containers/ivbag/blood/human/oneg,
+/obj/item/reagent_containers/ivbag/blood/human/oneg,
+/obj/item/reagent_containers/ivbag/blood/human/oneg,
+/obj/item/reagent_containers/ivbag/blood/human/oneg,
+/obj/item/reagent_containers/ivbag/blood/human/oneg,
+/obj/item/reagent_containers/ivbag/blood/human/oneg,
 /obj/item/bodybag/cryobag,
 /obj/item/bodybag/cryobag,
 /obj/item/bodybag/cryobag,
@@ -1575,12 +1574,12 @@
 /area/rescue_base/base)
 "cX" = (
 /obj/structure/table/reinforced,
-/obj/item/roller,
-/obj/item/roller,
-/obj/item/roller,
-/obj/item/roller,
-/obj/item/roller,
-/obj/item/roller,
+/obj/item/roller_bed,
+/obj/item/roller_bed,
+/obj/item/roller_bed,
+/obj/item/roller_bed,
+/obj/item/roller_bed,
+/obj/item/roller_bed,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -1712,7 +1711,7 @@
 	},
 /area/rescue_base/base)
 "dj" = (
-/obj/structure/iv_drip,
+/obj/structure/iv_stand,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -1906,7 +1905,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	icon_state = "pdoor1";
-	id = "standardrescue";
+	id_tag = "standardrescue";
 	name = "EVA";
 	p_open = 0
 	},
@@ -2166,7 +2165,7 @@
 	},
 /area/rescue_base/base)
 "eb" = (
-/obj/machinery/pipedispenser/orderable,
+/obj/machinery/pipedispenser,
 /obj/item/device/radio/intercom/specops{
 	dir = 2;
 	pixel_y = 22
@@ -2177,7 +2176,7 @@
 	},
 /area/rescue_base/base)
 "ec" = (
-/obj/machinery/pipedispenser/disposal/orderable,
+/obj/machinery/pipedispenser/disposal,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -2239,7 +2238,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	icon_state = "pdoor1";
-	id = "standardrescue";
+	id_tag = "standardrescue";
 	name = "Garage";
 	p_open = 0
 	},
@@ -2315,8 +2314,8 @@
 	},
 /area/rescue_base/base)
 "es" = (
-/obj/machinery/button/remote/blast_door{
-	id = "rescuegarage";
+/obj/machinery/button/blast_door{
+	id_tag = "rescuegarage";
 	name = "Garage";
 	pixel_x = -24;
 	pixel_y = -4;
@@ -2329,9 +2328,9 @@
 /area/rescue_base/base)
 "et" = (
 /obj/structure/table/reinforced,
-/obj/item/mech_equipment/tool/sleeper,
-/obj/item/mech_equipment/tool/sleeper,
-/obj/item/mech_equipment/tool/syringe_gun,
+/obj/item/mech_equipment/sleeper,
+/obj/item/mech_equipment/sleeper,
+/obj/item/mech_equipment/mender,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -2339,11 +2338,7 @@
 /area/rescue_base/base)
 "eu" = (
 /obj/structure/table/reinforced,
-/obj/item/mech_equipment/teleporter,
-/obj/item/mech_equipment/mecha_tracking,
-/obj/item/mech_equipment/mecha_tracking,
-/obj/item/mech_equipment/mecha_tracking,
-/obj/item/mech_equipment/mecha_tracking,
+/obj/item/mech_equipment/catapult,
 /obj/item/device/radio/intercom/specops{
 	dir = 2;
 	pixel_y = 22
@@ -2442,7 +2437,7 @@
 "eF" = (
 /obj/machinery/door/blast/regular{
 	icon_state = "pdoor1";
-	id = "rescuegarage";
+	id_tag = "rescuegarage";
 	name = "Garage Exit";
 	p_open = 0
 	},
@@ -2453,11 +2448,11 @@
 /area/rescue_base/base)
 "eG" = (
 /obj/machinery/mech_recharger,
-/obj/mecha/medical/odysseus/loaded,
+/mob/living/exosuit/premade/light,
 /turf/space,
 /area/rescue_base/base)
 "eH" = (
-/obj/machinery/computer/modular/preset/command{
+/obj/machinery/computer/modular/preset/cardslot/command{
 	dir = 4;
 	icon_state = "console"
 	},
@@ -2491,15 +2486,15 @@
 /area/rescue_base/base)
 "eL" = (
 /obj/machinery/mech_recharger,
-/obj/mecha/working/ripley/firefighter,
+/mob/living/exosuit/premade/firefighter,
 /turf/space,
 /area/rescue_base/base)
 "eM" = (
 /obj/structure/table/woodentable{
 	dir = 5
 	},
-/obj/machinery/button/remote/blast_door{
-	id = "heavyrescue";
+/obj/machinery/button/blast_door{
+	id_tag = "heavyrescue";
 	name = "Heavy Gear";
 	pixel_x = -5;
 	pixel_y = 4;
@@ -2527,8 +2522,8 @@
 /obj/structure/table/woodentable{
 	dir = 5
 	},
-/obj/machinery/button/remote/blast_door{
-	id = "standardrescue";
+/obj/machinery/button/blast_door{
+	id_tag = "standardrescue";
 	name = "Standard Gear";
 	pixel_x = 5;
 	pixel_y = 4
@@ -2760,7 +2755,7 @@
 /area/rescue_base/base)
 "eX" = (
 /obj/machinery/mech_recharger,
-/obj/mecha/working/hoverpod,
+/mob/living/exosuit/premade/powerloader/flames_red,
 /turf/space,
 /area/rescue_base/base)
 "eY" = (
@@ -2774,8 +2769,8 @@
 /area/rescue_base/base)
 "eZ" = (
 /obj/structure/table/reinforced,
-/obj/item/mech_equipment/armor_booster/anticcw_armor_booster,
-/obj/item/mech_equipment/armor_booster/antiproj_armor_booster,
+/obj/item/mech_equipment/ballistic_shield,
+/obj/item/mech_equipment/shields,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -2819,7 +2814,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	icon_state = "pdoor1";
-	id = "heavyrescue";
+	id_tag = "heavyrescue";
 	name = "Combat Exosuit";
 	p_open = 0
 	},
@@ -2829,7 +2824,7 @@
 	},
 /area/rescue_base/base)
 "fe" = (
-/obj/mecha/combat/gygax/dark,
+/mob/living/exosuit/premade/combat,
 /obj/machinery/mech_recharger,
 /turf/space,
 /area/rescue_base/base)
@@ -2844,8 +2839,8 @@
 /area/rescue_base/base)
 "fg" = (
 /obj/structure/table/reinforced,
-/obj/item/mech_equipment/tool/hydraulic_clamp,
-/obj/item/mech_equipment/tool/hydraulic_clamp,
+/obj/item/mech_equipment/clamp,
+/obj/item/mech_equipment/clamp,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -2853,14 +2848,14 @@
 /area/rescue_base/base)
 "fh" = (
 /obj/structure/table/reinforced,
-/obj/item/mech_equipment/tesla_energy_relay,
-/obj/item/mech_equipment/tesla_energy_relay,
-/obj/item/mech_equipment/tesla_energy_relay,
-/obj/item/mech_equipment/tesla_energy_relay,
-/obj/item/mech_equipment/repair_droid,
-/obj/item/mech_equipment/repair_droid,
-/obj/item/mech_equipment/repair_droid,
-/obj/item/mech_equipment/repair_droid,
+/obj/item/cell/hyper,
+/obj/item/cell/hyper,
+/obj/item/cell/hyper,
+/obj/item/cell/hyper,
+/obj/item/mech_equipment/ballistic_shield,
+/obj/item/mech_equipment/ballistic_shield,
+/obj/item/mech_equipment/shields,
+/obj/item/mech_equipment/shields,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -2868,8 +2863,8 @@
 /area/rescue_base/base)
 "fi" = (
 /obj/structure/table/reinforced,
-/obj/item/mech_equipment/tool/drill/diamonddrill,
-/obj/item/mech_equipment/tool/cable_layer,
+/obj/item/material/drill_head/diamond,
+/obj/item/mech_equipment/drill,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -2877,8 +2872,8 @@
 /area/rescue_base/base)
 "fj" = (
 /obj/structure/table/reinforced,
-/obj/item/mech_equipment/tool/extinguisher,
-/obj/item/mech_equipment/tool/rcd,
+/obj/item/mech_equipment/mounted_system/extinguisher,
+/obj/item/mech_equipment/mounted_system/rcd,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -2886,8 +2881,8 @@
 /area/rescue_base/base)
 "fk" = (
 /obj/structure/table/reinforced,
-/obj/item/mech_equipment/tool/passenger,
-/obj/item/mech_equipment/tool/passenger,
+/obj/item/mech_equipment/mounted_system/taser/laser,
+/obj/item/mech_equipment/mounted_system/taser/laser,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -2895,8 +2890,8 @@
 /area/rescue_base/base)
 "fl" = (
 /obj/structure/table/reinforced,
-/obj/item/mech_equipment/weapon/energy/ion,
-/obj/item/mech_equipment/weapon/energy/taser,
+/obj/item/mech_equipment/mounted_system/taser/ion,
+/obj/item/mech_equipment/mounted_system/taser,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -2967,7 +2962,7 @@
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
-	id = "rescuebridge";
+	id_tag = "rescuebridge";
 	name = "Cockpit Blast Shutters";
 	opacity = 0
 	},
@@ -2978,7 +2973,7 @@
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
-	id = "rescuedock";
+	id_tag = "rescuedock";
 	name = "Blast Shutters";
 	opacity = 0
 	},
@@ -2998,9 +2993,9 @@
 /area/rescue_base/start)
 "fy" = (
 /obj/structure/table/steel_reinforced,
-/obj/machinery/button/remote/blast_door{
+/obj/machinery/button/blast_door{
 	icon_state = "doorctrl0";
-	id = "rescuebridge";
+	id_tag = "rescuebridge";
 	name = "Window Shutters Control";
 	pixel_y = -4;
 	req_access = list("ACCESS_CENT_CREED")
@@ -3008,7 +3003,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/rescue_base/start)
 "fz" = (
-/obj/machinery/computer/modular/preset/command,
+/obj/machinery/computer/modular/preset/cardslot/command,
 /turf/simulated/floor/tiled/dark,
 /area/rescue_base/start)
 "fA" = (
@@ -3028,7 +3023,6 @@
 "fC" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1331;
 	id_tag = "rescue_shuttle_pump"
 	},
 /obj/machinery/airlock_sensor{
@@ -3052,7 +3046,6 @@
 "fE" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1380;
 	id_tag = "rescue_shuttle_pump"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
@@ -3093,7 +3086,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/rescue_base/start)
 "fJ" = (
-/obj/structure/handrai{
+/obj/structure/handrail{
 	dir = 4;
 	icon_state = "handrail"
 	},
@@ -3104,15 +3097,15 @@
 /turf/simulated/floor/plating,
 /area/rescue_base/start)
 "fL" = (
-/obj/machinery/button/remote/blast_door{
+/obj/machinery/button/blast_door{
 	icon_state = "doorctrl0";
-	id = "rescuedock";
+	id_tag = "rescuedock";
 	name = "Window Shutters Control";
 	pixel_x = 24;
 	pixel_y = -4;
 	req_access = list("ACCESS_CENT_CREED")
 	},
-/obj/structure/handrai{
+/obj/structure/handrail{
 	dir = 8;
 	icon_state = "handrail"
 	},
@@ -3141,7 +3134,7 @@
 	pixel_x = 22;
 	pixel_y = 0
 	},
-/obj/structure/handrai{
+/obj/structure/handrail{
 	dir = 8;
 	icon_state = "handrail"
 	},
@@ -3167,7 +3160,6 @@
 "fS" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1380;
 	id_tag = "rescue_shuttle_pump"
 	},
 /obj/machinery/light{
@@ -3187,7 +3179,6 @@
 "fV" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1380;
 	id_tag = "rescue_shuttle_pump"
 	},
 /obj/machinery/light{
@@ -3233,7 +3224,7 @@
 	density = 0;
 	dir = 4;
 	icon_state = "pdoor0";
-	id = "rescuebridge";
+	id_tag = "rescuebridge";
 	name = "Cockpit Blast Shutters";
 	opacity = 0
 	},
@@ -3258,7 +3249,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/rescue_base/start)
 "ge" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 4;
 	start_pressure = 740.5
 	},
@@ -3286,7 +3277,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/rescue_base/start)
 "gh" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3296,7 +3287,7 @@
 	density = 0;
 	dir = 4;
 	icon_state = "pdoor0";
-	id = "rescueeva";
+	id_tag = "rescueeva";
 	name = "Blast Shutters";
 	opacity = 0
 	},
@@ -3305,8 +3296,8 @@
 /area/rescue_base/start)
 "gj" = (
 /obj/structure/closet,
-/obj/item/storage/box/sinpockets,
-/obj/item/storage/box/sinpockets,
+/obj/item/storage/box/donkpocket_premium,
+/obj/item/storage/box/donkpocket_premium,
 /turf/simulated/floor/tiled/dark,
 /area/rescue_base/start)
 "gk" = (
@@ -3362,7 +3353,7 @@
 /turf/space,
 /area/drone_test)
 "gr" = (
-/obj/structure/handrai{
+/obj/structure/handrail{
 	dir = 1;
 	icon_state = "handrail"
 	},
@@ -3386,7 +3377,7 @@
 /area/rescue_base/start)
 "gu" = (
 /obj/structure/table/steel_reinforced,
-/obj/item/storage/fancy/cigarettes/dromedaryco,
+/obj/item/storage/fancy/smokable/dromedaryco,
 /turf/simulated/floor/tiled/dark,
 /area/rescue_base/start)
 "gv" = (
@@ -3414,9 +3405,9 @@
 /obj/machinery/light,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
-/obj/machinery/button/remote/blast_door{
+/obj/machinery/button/blast_door{
 	icon_state = "doorctrl0";
-	id = "rescueeva";
+	id_tag = "rescueeva";
 	name = "Window Shutters Control";
 	pixel_x = 24;
 	pixel_y = -4;
@@ -3463,7 +3454,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/rescue_base/start)
 "gE" = (
-/obj/structure/handrai,
+/obj/structure/handrail,
 /turf/simulated/floor/tiled/dark,
 /area/rescue_base/start)
 "gF" = (
@@ -3488,7 +3479,7 @@
 /area/rescue_base/start)
 "gJ" = (
 /obj/machinery/flasher{
-	id = "rescueflash";
+	id_tag = "rescueflash";
 	pixel_x = 0;
 	pixel_y = 28
 	},
@@ -3615,8 +3606,8 @@
 /obj/item/reagent_containers/syringe,
 /obj/item/reagent_containers/syringe/antiviral,
 /obj/item/reagent_containers/syringe/antiviral,
-/obj/item/reagent_containers/ivbag/blood/OMinus,
-/obj/item/reagent_containers/ivbag/blood/OMinus,
+/obj/item/reagent_containers/ivbag/blood/human/oneg,
+/obj/item/reagent_containers/ivbag/blood/human/oneg,
 /turf/simulated/floor/tiled/white,
 /area/rescue_base/start)
 "he" = (
@@ -3708,7 +3699,7 @@
 /area/deity_spawn)
 "hs" = (
 /obj/machinery/button/flasher{
-	id = "rescueflash";
+	id_tag = "rescueflash";
 	name = "Flasher";
 	pixel_x = 27;
 	pixel_y = 0
@@ -3749,10 +3740,10 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/structure/iv_drip,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/iv_stand,
+/obj/machinery/button/blast_door{
 	icon_state = "doorctrl0";
-	id = "rescueinfirm";
+	id_tag = "rescueinfirm";
 	name = "Window Shutters Control";
 	pixel_x = 24;
 	pixel_y = -4;
@@ -3772,7 +3763,7 @@
 	density = 0;
 	dir = 4;
 	icon_state = "pdoor0";
-	id = "rescuebridge";
+	id_tag = "rescuebridge";
 	name = "Blast Shutters";
 	opacity = 0
 	},
@@ -3820,7 +3811,7 @@
 	density = 0;
 	dir = 4;
 	icon_state = "pdoor0";
-	id = "rescueinfirm";
+	id_tag = "rescueinfirm";
 	name = "Blast Shutters";
 	opacity = 0
 	},
@@ -3986,9 +3977,7 @@
 	},
 /area/map_template/syndicate_mothership/raider_base)
 "id" = (
-/obj/mecha/working/ripley/mining{
-	internals_req_access = list("ACCESS_SYNDICATE")
-	},
+/mob/living/exosuit/premade/powerloader,
 /turf/unsimulated/floor{
 	icon_state = "plating";
 	name = "plating"
@@ -4109,7 +4098,7 @@
 "iw" = (
 /obj/structure/grille{
 	desc = "A flimsy fence of metal rods, with screws to secure it to the floor.";
-	health = 1000;
+	health_max = 1000;
 	icon = 'maps/wyrm/icons/railing.dmi';
 	icon_state = "0,2";
 	name = "fence"
@@ -4303,7 +4292,7 @@
 /obj/structure/hygiene/urinal{
 	pixel_y = 32
 	},
-/obj/item/soap/syndie,
+/obj/item/soap/red_soap,
 /turf/unsimulated/floor{
 	dir = 2;
 	icon_state = "freezerfloor"
@@ -4525,7 +4514,7 @@
 "jz" = (
 /obj/structure/grille{
 	desc = "A flimsy fence of metal rods, with screws to secure it to the floor.";
-	health = 1000;
+	health_max = 1000;
 	icon = 'maps/wyrm/icons/railing.dmi';
 	icon_state = "0,1";
 	name = "fence"
@@ -4546,7 +4535,7 @@
 "jA" = (
 /obj/structure/grille{
 	desc = "A flimsy fence of metal rods, with screws to secure it to the floor.";
-	health = 1000;
+	health_max = 1000;
 	icon = 'maps/wyrm/icons/railing.dmi';
 	icon_state = "5,0";
 	name = "fence"
@@ -4570,7 +4559,7 @@
 "jB" = (
 /obj/structure/grille{
 	desc = "A flimsy fence of metal rods, with screws to secure it to the floor.";
-	health = 1000;
+	health_max = 1000;
 	icon = 'maps/wyrm/icons/railing.dmi';
 	icon_state = "2,1";
 	name = "fence"
@@ -4611,7 +4600,7 @@
 	pixel_x = -12;
 	pixel_y = 2
 	},
-/obj/item/storage/mirror/raider{
+/obj/item/storage/mirror{
 	pixel_x = -28;
 	pixel_y = 0
 	},
@@ -4646,10 +4635,9 @@
 /area/map_template/syndicate_mothership/raider_base)
 "jH" = (
 /obj/effect/decal/cleanable/cobweb,
-/obj/machinery/autolathe{
-	desc = "Your typical Autolathe. It appears to have much more options than your regular one, however...";
-	hacked = 1;
-	name = "Unlocked Autolathe"
+/obj/machinery/fabricator/hacked{
+	desc = "Your typical fabricator. It appears to have much more options than your regular one, however...";
+	name = "Unlocked Fabricator"
 	},
 /turf/unsimulated/floor{
 	icon_state = "plating";
@@ -4690,7 +4678,7 @@
 	desc = "A warning sign which reads 'NO SMOKING'. Someone has scratched a variety of crude words in gutter across the entire sign.";
 	pixel_y = 32
 	},
-/obj/item/storage/fancy/cigarettes/dromedaryco,
+/obj/item/storage/fancy/smokable/dromedaryco,
 /turf/unsimulated/floor{
 	icon_state = "plating";
 	name = "plating"
@@ -4716,7 +4704,7 @@
 "jN" = (
 /obj/structure/grille{
 	desc = "A flimsy fence of metal rods, with screws to secure it to the floor.";
-	health = 1000;
+	health_max = 1000;
 	icon = 'maps/wyrm/icons/railing.dmi';
 	icon_state = "5,0";
 	name = "fence"
@@ -4726,7 +4714,7 @@
 "jO" = (
 /obj/structure/grille{
 	desc = "A flimsy fence of metal rods, with screws to secure it to the floor.";
-	health = 1000;
+	health_max = 1000;
 	icon = 'maps/wyrm/icons/railing.dmi';
 	icon_state = "0,2";
 	name = "fence"
@@ -4758,7 +4746,7 @@
 "jQ" = (
 /obj/structure/grille{
 	desc = "A flimsy fence of metal rods, with screws to secure it to the floor.";
-	health = 1000;
+	health_max = 1000;
 	icon = 'maps/wyrm/icons/railing.dmi';
 	icon_state = "0,2";
 	name = "fence"
@@ -5493,7 +5481,7 @@
 /obj/machinery/vending/cigarette{
 	name = "hacked cigarette machine";
 	prices = list();
-	products = list(/obj/item/storage/fancy/cigarettes=10,/obj/item/storage/box/matches=10,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=2)
+	products = list(/obj/item/storage/fancy/smokable=10,/obj/item/storage/box/matches=10,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=2)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -5507,7 +5495,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/grille{
 	desc = "A flimsy fence of metal rods, with screws to secure it to the floor.";
-	health = 1000;
+	health_max = 1000;
 	icon = 'maps/wyrm/icons/railing.dmi';
 	icon_state = "5,0";
 	name = "fence"
@@ -5524,7 +5512,7 @@
 	},
 /obj/structure/grille{
 	desc = "A flimsy fence of metal rods, with screws to secure it to the floor.";
-	health = 1000;
+	health_max = 1000;
 	icon = 'maps/wyrm/icons/railing.dmi';
 	icon_state = "5,0";
 	name = "fence"
@@ -5537,7 +5525,7 @@
 	},
 /obj/structure/grille{
 	desc = "A flimsy fence of metal rods, with screws to secure it to the floor.";
-	health = 1000;
+	health_max = 1000;
 	icon = 'maps/wyrm/icons/railing.dmi';
 	icon_state = "5,0";
 	name = "fence"
@@ -5550,7 +5538,7 @@
 	},
 /obj/structure/grille{
 	desc = "A flimsy fence of metal rods, with screws to secure it to the floor.";
-	health = 1000;
+	health_max = 1000;
 	icon = 'maps/wyrm/icons/railing.dmi';
 	icon_state = "2,1";
 	name = "fence"
@@ -5566,7 +5554,7 @@
 "lU" = (
 /obj/structure/grille{
 	desc = "A flimsy fence of metal rods, with screws to secure it to the floor.";
-	health = 1000;
+	health_max = 1000;
 	icon = 'maps/wyrm/icons/railing.dmi';
 	icon_state = "0,2";
 	name = "fence"
@@ -5624,6 +5612,11 @@
 "lY" = (
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
+"mc" = (
+/obj/effect/paint/merc,
+/obj/effect/paint/merc,
+/turf/simulated/wall/titanium,
+/area/syndicate_station/start)
 "md" = (
 /obj/structure/flora/grass/brown,
 /turf/simulated/floor/holofloor/snow,
@@ -5710,7 +5703,7 @@
 	icon_state = "warning"
 	},
 /obj/random/junk,
-/obj/item/soap/syndie,
+/obj/item/soap/red_soap,
 /turf/simulated/floor/tiled/dark,
 /area/fightclub)
 "mv" = (
@@ -5724,7 +5717,7 @@
 "mw" = (
 /obj/structure/grille{
 	desc = "A flimsy fence of metal rods, with screws to secure it to the floor.";
-	health = 1000;
+	health_max = 1000;
 	icon = 'maps/wyrm/icons/railing.dmi';
 	icon_state = "0,1";
 	name = "fence"
@@ -5745,7 +5738,7 @@
 "mx" = (
 /obj/structure/grille{
 	desc = "A flimsy fence of metal rods, with screws to secure it to the floor.";
-	health = 1000;
+	health_max = 1000;
 	icon = 'maps/wyrm/icons/railing.dmi';
 	icon_state = "5,0";
 	name = "fence"
@@ -5772,7 +5765,7 @@
 "my" = (
 /obj/structure/grille{
 	desc = "A flimsy fence of metal rods, with screws to secure it to the floor.";
-	health = 1000;
+	health_max = 1000;
 	icon = 'maps/wyrm/icons/railing.dmi';
 	icon_state = "2,1";
 	name = "fence"
@@ -5889,11 +5882,10 @@
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_emptycourt)
 "mR" = (
-/mob/living/simple_animal/parrot{
-	available_channels = list();
+/mob/living/simple_animal/hostile/retaliate/parrot{
 	ears = list();
 	name = "\proper Meatbag";
-	speak = list("Yaaar!","Squaaak!","Fight me Matey!","BAWWWWK Vox trying to eat me!")
+	say_list_type = /datum/say_list/parrot/heist
 	},
 /turf/unsimulated/floor{
 	icon_state = "asteroid"
@@ -5998,7 +5990,7 @@
 /turf/simulated/floor/tiled/white,
 /area/fightclub)
 "nc" = (
-/obj/machinery/vending/medical/wall,
+/obj/machinery/vending/wallmed1,
 /turf/simulated/wall/voxshuttle,
 /area/fightclub)
 "nd" = (
@@ -6023,7 +6015,7 @@
 	name = "Thunderdome"
 	},
 /obj/machinery/door/blast/regular{
-	id = "crescent_thunderdome";
+	id_tag = "crescent_thunderdome";
 	name = "Thunderdome"
 	},
 /turf/unsimulated/floor{
@@ -6191,7 +6183,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /obj/item/flame/lighter/zippo,
-/obj/item/storage/fancy/cigarettes,
+/obj/item/storage/fancy/smokable,
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
@@ -6317,19 +6309,19 @@
 /area/acting/backstage)
 "oa" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/donkpockets{
+/obj/item/storage/box/donkpocket_mixed{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/storage/box/donkpockets{
+/obj/item/storage/box/donkpocket_mixed{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/storage/box/donkpockets{
+/obj/item/storage/box/donkpocket_mixed{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/storage/box/donkpockets{
+/obj/item/storage/box/donkpocket_mixed{
 	pixel_x = 3;
 	pixel_y = 3
 	},
@@ -6805,7 +6797,7 @@
 /turf/simulated/shuttle/wall/corner/dark{
 	dir = 9
 	},
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "pi" = (
 /obj/machinery/door/airlock/hatch{
 	frequency = 1331;
@@ -6816,7 +6808,7 @@
 	},
 /obj/machinery/shield_diffuser,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "pj" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -6824,26 +6816,26 @@
 	master_tag = "vox_west_control"
 	},
 /turf/simulated/wall/voxshuttle,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "pk" = (
 /turf/simulated/shuttle/wall/corner/dark{
 	dir = 5
 	},
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "pl" = (
 /turf/simulated/wall/voxshuttle,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "pm" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
-	id = "SkipjackShuttersNorth";
+	id_tag = "SkipjackShuttersNorth";
 	name = "Blast Doors";
 	opacity = 0
 	},
 /obj/effect/wallframe_spawn/reinforced_phoron,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "po" = (
 /obj/effect/floor_decal/water_edge,
 /obj/effect/floor_decal/water_edge{
@@ -6870,7 +6862,7 @@
 /obj/machinery/shield_diffuser,
 /obj/effect/shuttle_landmark/skipjack/start,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "pq" = (
 /obj/item/paper{
 	info = "\[center]\[b]READ INSTRUCTIONS CAREFULLY\[/b]\[/center]\[br]\[br]Hello! Welcome and congratulations on being hired for NanoTrasen's new Television initiative. You are now tasked with the creation and production of NanoTrasen brand television that is to be broadcasted to all of our stations!\[br]\[br] We've outfitted these facilities with all the materials and objects you will need.\[br]On the port side you'll find various venders and machines, namely the Wardrobe Dispenser, which will dispense holoclothing and items for you to use, and a Quickee brand plastic surgery machine (which I would remind you you are contractually obligated to \[b]not\[/b] report to the authorities.) which can change your appearance into anything you want, even other races. Stern and aft you'll find all the materials we could muster up on short notice. Use it to decorate the stage to your liking. Starboard you'll find gases, microwaves, hydroponic trays and the like. Go silly! This is already paid for (as are you) so do what you want and entertain!";
@@ -6968,12 +6960,11 @@
 /area/holodeck/source_courtroom)
 "pC" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1331;
 	id_tag = "vox_west_vent"
 	},
 /obj/random/junk,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "pD" = (
 /obj/machinery/airlock_sensor{
 	frequency = 1331;
@@ -6981,20 +6972,20 @@
 	pixel_x = 25
 	},
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "pE" = (
-/obj/structure/computerframe,
+/obj/machinery/constructable_frame/computerframe,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "pF" = (
 /obj/machinery/computer/shuttle_control/multi/vox,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "pG" = (
 /obj/structure/table/steel,
 /obj/random/plushie,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "pH" = (
 /obj/random/trash,
 /obj/machinery/airlock_sensor{
@@ -7004,15 +6995,14 @@
 	pixel_y = 25
 	},
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "pI" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 2;
-	frequency = 1380;
 	id_tag = "skipjack_shuttle_pump"
 	},
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "pJ" = (
 /obj/machinery/vending/tool,
 /turf/unsimulated/floor{
@@ -7035,7 +7025,7 @@
 /area/acting/backstage)
 "pM" = (
 /obj/machinery/door/blast/regular{
-	id = "thunderdomeaxe";
+	id_tag = "thunderdomeaxe";
 	name = "Axe Supply"
 	},
 /turf/unsimulated/floor{
@@ -7089,7 +7079,7 @@
 	},
 /obj/machinery/meter,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "pX" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	frequency = 1331;
@@ -7103,12 +7093,11 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1331;
 	id_tag = "vox_west_vent"
 	},
 /obj/machinery/light/small,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "pY" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -7118,7 +7107,7 @@
 	icon_state = "computer"
 	},
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "pZ" = (
 /obj/structure/bed/chair/shuttle{
 	dir = 8;
@@ -7126,44 +7115,44 @@
 	tag = "icon-shuttle_chair_preview (WEST)"
 	},
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "qa" = (
-/obj/machinery/button/remote/blast_door{
-	id = "SkipjackShuttersNorth";
+/obj/machinery/button/blast_door{
+	id_tag = "SkipjackShuttersNorth";
 	name = "Skipjack North Shutters";
 	pixel_y = 39;
 	req_access = list("ACCESS_SYNDICATE")
 	},
-/obj/machinery/button/remote/blast_door{
-	id = "SkipjackShuttersWest";
+/obj/machinery/button/blast_door{
+	id_tag = "SkipjackShuttersWest";
 	name = "Skipjack West Shutters";
 	pixel_x = -5;
 	pixel_y = 31;
 	req_access = list("ACCESS_SYNDICATE")
 	},
-/obj/machinery/button/remote/blast_door{
-	id = "SkipjackShuttersEast";
+/obj/machinery/button/blast_door{
+	id_tag = "SkipjackShuttersEast";
 	name = "Skipjack East Shutters";
 	pixel_x = 5;
 	pixel_y = 31;
 	req_access = list("ACCESS_SYNDICATE")
 	},
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "qb" = (
 /obj/structure/bed/chair/office/light{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "qc" = (
-/obj/structure/computerframe,
+/obj/machinery/constructable_frame/computerframe,
 /obj/machinery/light/small{
 	dir = 4;
 	icon_state = "bulb1"
 	},
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "qd" = (
 /obj/machinery/light/small,
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
@@ -7175,18 +7164,17 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1380;
 	id_tag = "skipjack_shuttle_pump"
 	},
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "qe" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
 	},
 /obj/machinery/meter,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "qf" = (
 /obj/machinery/vending/hydroseeds,
 /turf/unsimulated/floor{
@@ -7227,7 +7215,7 @@
 /area/tdome)
 "qk" = (
 /obj/machinery/door/blast/regular{
-	id = "thunderdomegen";
+	id_tag = "thunderdomegen";
 	name = "General Supply"
 	},
 /turf/unsimulated/floor{
@@ -7246,7 +7234,7 @@
 /area/tdome/tdome2)
 "qm" = (
 /obj/machinery/door/blast/regular{
-	id = "thunderdome";
+	id_tag = "thunderdome";
 	name = "Thunderdome Blast Door"
 	},
 /turf/unsimulated/floor{
@@ -7326,31 +7314,31 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "qx" = (
 /obj/structure/table/rack,
 /obj/random/hardsuit,
 /obj/item/clothing/glasses/thermal/plain/monocle,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "qy" = (
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "qz" = (
 /obj/random/maintenance,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "qA" = (
 /obj/random/junk,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "qB" = (
 /obj/structure/table/rack,
 /obj/random/hardsuit,
 /obj/item/clothing/head/pirate,
 /obj/item/gun/launcher/money,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "qC" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/machinery/door/airlock/external{
@@ -7360,7 +7348,7 @@
 	req_access = list("ACCESS_SYNDICATE")
 	},
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "qD" = (
 /obj/machinery/vending/hydronutrients,
 /turf/unsimulated/floor{
@@ -7428,7 +7416,7 @@
 	pixel_x = -22
 	},
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "qM" = (
 /obj/structure/table/rack,
 /obj/random/maintenance,
@@ -7439,7 +7427,7 @@
 /obj/item/material/harpoon,
 /obj/random/energy,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "qN" = (
 /obj/machinery/microwave{
 	pixel_x = -1;
@@ -7447,7 +7435,7 @@
 	},
 /obj/structure/table/steel,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "qO" = (
 /obj/item/seeds/potatoseed,
 /obj/item/seeds/potatoseed,
@@ -7456,16 +7444,16 @@
 /obj/item/beartrap,
 /obj/structure/table/steel,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "qP" = (
 /obj/machinery/vending/hydroseeds,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "qQ" = (
 /obj/structure/table/rack,
 /obj/item/melee/energy/sword/pirate,
-/obj/item/clothing/suit/space/pirate,
-/obj/item/clothing/suit/space/pirate,
+/obj/item/clothing/suit/pirate,
+/obj/item/clothing/suit/pirate,
 /obj/item/tank/oxygen,
 /obj/item/clothing/shoes/magboots,
 /obj/random/voidsuit,
@@ -7475,12 +7463,12 @@
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "qR" = (
 /obj/structure/table/rack,
 /obj/item/melee/energy/sword/pirate,
-/obj/item/clothing/suit/space/pirate,
-/obj/item/clothing/suit/space/pirate,
+/obj/item/clothing/suit/pirate,
+/obj/item/clothing/suit/pirate,
 /obj/item/tank/oxygen,
 /obj/item/clothing/shoes/magboots,
 /obj/random/voidsuit,
@@ -7491,7 +7479,7 @@
 	icon_state = "bulb1"
 	},
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "qS" = (
 /obj/structure/table/rack,
 /obj/item/storage/belt/utility/full,
@@ -7505,14 +7493,14 @@
 /obj/random/voidhelmet,
 /obj/random/maintenance,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "qT" = (
 /obj/machinery/washing_machine,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "qU" = (
 /obj/structure/table/standard,
-/obj/item/storage/fancy/cigarettes,
+/obj/item/storage/fancy/smokable,
 /obj/item/flame/lighter/zippo,
 /obj/item/clothing/gloves/insulated,
 /obj/item/stack/material/steel{
@@ -7523,7 +7511,7 @@
 	},
 /obj/item/card/emag,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "qV" = (
 /obj/structure/table/rack,
 /obj/random/maintenance,
@@ -7533,7 +7521,7 @@
 /obj/random/voidhelmet,
 /obj/random/energy,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "qW" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/machinery/access_button{
@@ -7546,7 +7534,7 @@
 	req_access = list("ACCESS_SYNDICATE")
 	},
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "qX" = (
 /obj/machinery/vending/medical,
 /turf/unsimulated/floor{
@@ -7595,7 +7583,7 @@
 /area/tdome)
 "rd" = (
 /obj/machinery/flasher{
-	id = "flash";
+	id_tag = "flash";
 	name = "Thunderdome Flash"
 	},
 /turf/unsimulated/floor{
@@ -7679,27 +7667,27 @@
 "rs" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "rt" = (
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "ru" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "rv" = (
 /obj/effect/wallframe_spawn/reinforced/bare,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "rw" = (
 /obj/machinery/door/airlock/hatch{
 	req_access = list("ACCESS_SYNDICATE")
 	},
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "rx" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -7712,15 +7700,15 @@
 /obj/random/voidhelmet,
 /obj/random/projectile,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "ry" = (
 /obj/random/loot,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "rz" = (
 /obj/item/robot_parts/head,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "rA" = (
 /obj/machinery/vending/robotics,
 /turf/unsimulated/floor{
@@ -7759,41 +7747,41 @@
 	density = 0;
 	dir = 4;
 	icon_state = "shutter0";
-	id = "SkipjackShuttersWest";
+	id_tag = "SkipjackShuttersWest";
 	name = "Skipjack Shutters";
 	opacity = 0
 	},
 /obj/effect/wallframe_spawn/reinforced_phoron,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "rF" = (
 /obj/random/trash,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "rG" = (
 /obj/random/maintenance,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "rH" = (
 /obj/random/trash,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "rI" = (
 /obj/item/robot_parts/l_leg,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "rJ" = (
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 8;
 	icon_state = "shutter0";
-	id = "SkipjackShuttersEast";
+	id_tag = "SkipjackShuttersEast";
 	name = "Skipjack Shutters";
 	opacity = 0
 	},
 /obj/effect/wallframe_spawn/reinforced_phoron,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "rK" = (
 /obj/machinery/vending/engivend,
 /turf/unsimulated/floor{
@@ -7937,11 +7925,11 @@
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "sn" = (
 /obj/machinery/floodlight,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "so" = (
 /obj/structure/table/rack,
 /obj/item/gun/launcher/crossbow,
@@ -7958,21 +7946,21 @@
 /obj/item/beartrap,
 /obj/item/beartrap,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "sp" = (
 /obj/structure/table/rack,
 /obj/item/grenade/empgrenade,
 /obj/item/grenade/flashbang,
-/obj/item/grenade/spawnergrenade/manhacks,
+/obj/item/grenade/spawnergrenade/viscerator,
 /obj/random/energy,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "sq" = (
 /obj/machinery/suit_cycler/syndicate{
 	locked = 0
 	},
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "sr" = (
 /obj/structure/table/steel,
 /obj/machinery/recharger,
@@ -7980,22 +7968,22 @@
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "ss" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "st" = (
 /obj/item/robot_parts/robot_suit,
 /obj/item/robot_parts/r_leg,
 /obj/item/robot_parts/r_arm,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "su" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/random/maintenance,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "sw" = (
 /obj/machinery/vending/dinnerware,
 /turf/unsimulated/floor{
@@ -8082,11 +8070,11 @@
 /obj/random/loot,
 /obj/vehicle/bike/thermal,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "sO" = (
 /obj/structure/closet/crate/freezer/rations,
 /obj/item/clothing/mask/gas/cyborg,
-/obj/item/storage/box/donkpockets{
+/obj/item/storage/box/donkpocket_mixed{
 	pixel_x = 3;
 	pixel_y = 3
 	},
@@ -8096,13 +8084,13 @@
 	icon_state = "plating";
 	name = "plating"
 	},
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "sP" = (
 /obj/machinery/door/airlock/hatch{
 	req_access = list("ACCESS_SYNDICATE")
 	},
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "sQ" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -8111,12 +8099,12 @@
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "sR" = (
 /obj/structure/table/steel,
 /obj/random/maintenance,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "sS" = (
 /obj/structure/bed/chair{
 	dir = 8
@@ -8125,7 +8113,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "sT" = (
 /obj/structure/hygiene/sink{
 	dir = 8;
@@ -8134,17 +8122,17 @@
 	pixel_y = 2
 	},
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "sU" = (
 /obj/item/wrench,
 /obj/item/mop,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "sV" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/item/crowbar,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "sX" = (
 /obj/machinery/vending/cola{
 	name = "hacked Robust Softdrinks";
@@ -8167,7 +8155,7 @@
 /area/tdome)
 "sZ" = (
 /obj/machinery/door/blast/regular{
-	id = "thunderdomehea";
+	id_tag = "thunderdomehea";
 	name = "Heavy Supply"
 	},
 /turf/unsimulated/floor{
@@ -8230,48 +8218,48 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "tn" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "to" = (
 /turf/simulated/floor/shuttle/black,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "tp" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/black,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "tq" = (
 /obj/effect/wallframe_spawn/reinforced/bare,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "tr" = (
 /obj/structure/bed/chair{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "ts" = (
 /obj/item/deck/cards,
 /obj/structure/table/steel,
 /obj/random/projectile,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "tt" = (
 /obj/structure/bed/chair{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "tu" = (
 /obj/machinery/bodyscanner{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/white,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "tv" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -8280,21 +8268,21 @@
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/white,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "tw" = (
 /turf/simulated/floor/shuttle/white,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "tx" = (
 /obj/structure/hygiene/toilet{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "ty" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
 /obj/item/tank/nitrogen,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "tz" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -8304,12 +8292,12 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "tA" = (
 /obj/machinery/vending/cigarette{
 	name = "hacked cigarette machine";
 	prices = list();
-	products = list(/obj/item/storage/fancy/cigarettes=10,/obj/item/storage/box/matches=10,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=2)
+	products = list(/obj/item/storage/fancy/smokable=10,/obj/item/storage/box/matches=10,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=2)
 	},
 /turf/unsimulated/floor{
 	icon_state = "plating";
@@ -8476,20 +8464,20 @@
 	dir = 1
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "tY" = (
 /obj/random/trash,
 /turf/simulated/floor/shuttle/black,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "tZ" = (
 /obj/structure/table/steel,
 /obj/random/loot,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "ua" = (
 /obj/random/junk,
 /turf/simulated/floor/shuttle/white,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "ub" = (
 /obj/structure/hygiene/sink{
 	dir = 4;
@@ -8498,7 +8486,7 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/shuttle/white,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "uc" = (
 /obj/machinery/vending/containers,
 /turf/unsimulated/floor{
@@ -8596,36 +8584,36 @@
 /turf/simulated/shuttle/wall/corner/dark{
 	dir = 10
 	},
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "uB" = (
 /obj/structure/shuttle/engine/propulsion,
 /turf/simulated/shuttle/wall{
 	icon_state = "wall3"
 	},
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "uC" = (
 /turf/simulated/shuttle/wall/corner/dark{
 	dir = 6
 	},
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "uD" = (
 /obj/structure/table/standard,
 /obj/random/maintenance,
 /turf/simulated/floor/shuttle/black,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "uE" = (
 /obj/structure/table/standard,
 /obj/item/deck/cards,
 /turf/simulated/floor/shuttle/black,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "uF" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "uG" = (
 /obj/random/trash,
 /turf/simulated/floor/shuttle/white,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "uH" = (
 /obj/structure/table/standard,
 /obj/item/circular_saw{
@@ -8635,7 +8623,7 @@
 /obj/item/scalpel,
 /obj/item/stack/medical/advanced/bruise_pack,
 /turf/simulated/floor/shuttle/white,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "uI" = (
 /obj/machinery/pipedispenser,
 /turf/unsimulated/floor{
@@ -8734,12 +8722,12 @@
 "uY" = (
 /obj/random/junk,
 /turf/simulated/floor/shuttle/black,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "uZ" = (
 /obj/machinery/optable,
 /obj/item/clothing/mask/gas,
 /turf/simulated/floor/shuttle/white,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "va" = (
 /obj/structure/table/standard,
 /obj/item/cautery,
@@ -8751,7 +8739,7 @@
 /obj/item/storage/box/syringegun,
 /obj/item/reagent_containers/glass/beaker/vial/random/toxin,
 /turf/simulated/floor/shuttle/white,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "vb" = (
 /obj/machinery/acting/changer,
 /turf/unsimulated/floor{
@@ -8860,20 +8848,20 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/shuttle/black,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "vr" = (
 /obj/structure/bed,
 /obj/item/bedsheet/rainbow,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "vs" = (
 /obj/structure/bed,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "vt" = (
 /obj/random/maintenance,
 /turf/simulated/floor/shuttle/white,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "vu" = (
 /obj/structure/table/standard,
 /obj/item/bonesetter,
@@ -8882,7 +8870,7 @@
 /obj/item/reagent_containers/syringe/antiviral,
 /obj/item/reagent_containers/syringe/antiviral,
 /turf/simulated/floor/shuttle/white,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "vv" = (
 /obj/machinery/vending/props,
 /turf/unsimulated/floor{
@@ -8958,8 +8946,10 @@
 	},
 /area/tdome/tdomeadmin)
 "vD" = (
-/obj/machinery/computer/pod{
-	id = "thunderdomeaxe";
+/obj/machinery/button/blast_door{
+	dir = 1;
+	icon_state = "computer";
+	id_tag = "thunderdomeaxe";
 	name = "Thunderdome Axe Supply"
 	},
 /turf/unsimulated/floor{
@@ -8967,8 +8957,9 @@
 	},
 /area/tdome/tdomeadmin)
 "vE" = (
-/obj/machinery/computer/pod{
-	id = "thunderdomegen";
+/obj/machinery/button/blast_door{
+	dir = 1;
+	id_tag = "thunderdomegen";
 	name = "Thunderdome General Supply"
 	},
 /turf/unsimulated/floor{
@@ -8976,8 +8967,9 @@
 	},
 /area/tdome/tdomeadmin)
 "vF" = (
-/obj/machinery/computer/pod{
-	id = "thunderdomehea";
+/obj/machinery/button/blast_door{
+	dir = 1;
+	id_tag = "thunderdomehea";
 	name = "Thunderdome Heavy Supply"
 	},
 /turf/unsimulated/floor{
@@ -8985,8 +8977,9 @@
 	},
 /area/tdome/tdomeadmin)
 "vG" = (
-/obj/machinery/computer/pod{
-	id = "thunderdome";
+/obj/machinery/button/blast_door{
+	dir = 1;
+	id_tag = "thunderdome";
 	name = "Thunderdome Blast Door Control"
 	},
 /turf/unsimulated/floor{
@@ -9055,13 +9048,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/black,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "vQ" = (
 /obj/structure/closet/crate,
-/obj/item/clothing/suit/space/pirate,
+/obj/item/clothing/suit/pirate,
 /obj/item/clothing/under/rank/medical/scrubs/black,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "vR" = (
 /obj/structure/bed,
 /obj/item/bedsheet/green,
@@ -9069,7 +9062,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "vS" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/fire{
@@ -9080,7 +9073,7 @@
 	pixel_y = 3
 	},
 /turf/simulated/floor/shuttle/white,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "vT" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/adv{
@@ -9095,20 +9088,20 @@
 	},
 /obj/item/melee/baton/cattleprod,
 /turf/simulated/floor/shuttle/white,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "vU" = (
 /obj/structure/bed,
 /obj/item/bedsheet/rd,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "vV" = (
 /obj/item/pizzabox/meat,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "vW" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/shuttle/red,
-/area/skipjack_station/start)
+/area/map_template/skipjack_station/start)
 "vX" = (
 /obj/effect/step_trigger/thrower{
 	affect_ghosts = 1;
@@ -9294,8 +9287,8 @@
 	},
 /area/space)
 "wB" = (
-/obj/machinery/button/remote/blast_door{
-	id = "supplyshuttle";
+/obj/machinery/button/blast_door{
+	id_tag = "supplyshuttle";
 	name = "Loading Shutter Control"
 	},
 /turf/simulated/shuttle/wall{
@@ -9312,8 +9305,8 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "wD" = (
-/obj/machinery/button/remote/blast_door{
-	id = "supplyshuttle";
+/obj/machinery/button/blast_door{
+	id_tag = "supplyshuttle";
 	name = "Loading Shutter Control"
 	},
 /turf/simulated/shuttle/wall{
@@ -9576,8 +9569,8 @@
 /area/ninja_dojo/dojo)
 "xn" = (
 /obj/structure/table/glass,
-/obj/item/reagent_containers/ivbag/blood/OMinus,
-/obj/item/reagent_containers/ivbag/blood/OMinus,
+/obj/item/reagent_containers/ivbag/blood/human/oneg,
+/obj/item/reagent_containers/ivbag/blood/human/oneg,
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
@@ -9700,14 +9693,14 @@
 	},
 /area/ninja_dojo/dojo)
 "xC" = (
-/obj/machinery/teleport/station,
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
+/obj/structure/shuttle/engine/propulsion,
+/obj/effect/paint/merc,
+/turf/simulated/shuttle/wall{
+	icon_state = "wall3"
 	},
-/area/ninja_dojo/dojo)
+/area/syndicate_station/start)
 "xD" = (
-/obj/machinery/teleport/hub,
+/obj/machinery/tele_pad,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/unsimulated/floor{
 	icon_state = "plating";
@@ -9913,7 +9906,7 @@
 	},
 /area/ninja_dojo/dojo)
 "yc" = (
-/obj/structure/iv_drip,
+/obj/structure/iv_stand,
 /obj/structure/window/reinforced/crescent,
 /turf/unsimulated/floor{
 	dir = 2;
@@ -10404,7 +10397,7 @@
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
-	id = null;
+	id_tag = null;
 	name = "transit shuttle door";
 	opacity = 0
 	},
@@ -10491,20 +10484,19 @@
 	},
 /area/ninja_dojo/dojo)
 "zs" = (
-/turf/unsimulated/floor{
-	icon = 'icons/turf/snow.dmi';
-	icon_state = "snow"
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_r"
 	},
+/obj/effect/paint/merc,
 /turf/simulated/shuttle/wall{
-	dir = 8;
-	icon_state = "diagonalWall3"
+	icon_state = "wall3"
 	},
 /area/syndicate_station/start)
 "zt" = (
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	icon_state = "shutter0";
-	id = "syndieshutters";
+	id_tag = "syndieshutters";
 	name = "Blast Shutters";
 	opacity = 0
 	},
@@ -10512,14 +10504,11 @@
 /turf/simulated/floor/plating,
 /area/syndicate_station/start)
 "zu" = (
-/turf/unsimulated/floor{
-	icon = 'icons/turf/snow.dmi';
-	icon_state = "snow"
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l"
 	},
-/turf/simulated/shuttle/wall{
-	dir = 1;
-	icon_state = "diagonalWall3"
-	},
+/obj/effect/paint/merc,
+/turf/simulated/wall/titanium,
 /area/syndicate_station/start)
 "zv" = (
 /obj/structure/bed/chair/comfy/black{
@@ -10579,7 +10568,7 @@
 /area/map_template/syndicate_mothership)
 "zA" = (
 /obj/structure/table/reinforced,
-/obj/item/storage/box/donkpockets{
+/obj/item/storage/box/donkpocket_mixed{
 	pixel_x = 3;
 	pixel_y = 3
 	},
@@ -10872,7 +10861,7 @@
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "Ai" = (
-/obj/machinery/computer/modular/preset/mercenary,
+/obj/machinery/computer/modular/preset/full/merc,
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "Aj" = (
@@ -10880,12 +10869,12 @@
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "Ak" = (
-/obj/structure/computerframe,
+/obj/machinery/constructable_frame/computerframe,
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "Al" = (
-/obj/machinery/button/remote/blast_door{
-	id = "syndieshutters";
+/obj/machinery/button/blast_door{
+	id_tag = "syndieshutters";
 	name = "remote shutter control";
 	req_access = list("ACCESS_SYNDICATE")
 	},
@@ -11133,7 +11122,7 @@
 	density = 0;
 	pixel_y = 32
 	},
-/obj/item/roller,
+/obj/item/roller_bed,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
 /area/merchant_station)
@@ -11281,7 +11270,7 @@
 /turf/unsimulated/wall/fakeglass,
 /area/map_template/wizard_station)
 "Bk" = (
-/obj/item/soap/deluxe,
+/obj/item/soap/diamond_soap,
 /turf/unsimulated/floor{
 	dir = 2;
 	icon = 'icons/misc/beach.dmi';
@@ -11403,7 +11392,7 @@
 	},
 /area/ninja_dojo/dojo)
 "Bv" = (
-/obj/item/storage/box/donkpockets{
+/obj/item/storage/box/donkpocket_mixed{
 	pixel_x = 2;
 	pixel_y = 3
 	},
@@ -11422,7 +11411,7 @@
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "Bx" = (
-/obj/structure/computerframe,
+/obj/machinery/constructable_frame/computerframe,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -11472,7 +11461,7 @@
 /obj/structure/hygiene/shower{
 	pixel_y = 32
 	},
-/obj/item/soap/syndie,
+/obj/item/soap/red_soap,
 /turf/unsimulated/floor{
 	dir = 2;
 	icon_state = "freezerfloor"
@@ -11613,7 +11602,7 @@
 /obj/structure/curtain/open/shower,
 /obj/structure/window/reinforced{
 	dir = 1;
-	health = 1e+006
+	health_max = 1e+006
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/merchant_station)
@@ -11730,7 +11719,7 @@
 /area/ninja_dojo/dojo)
 "Cj" = (
 /obj/structure/table/woodentable,
-/obj/item/storage/box/sinpockets,
+/obj/item/storage/box/donkpocket_premium,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -11748,7 +11737,7 @@
 /obj/item/stack/material/glass{
 	amount = 15
 	},
-/obj/item/cell{
+/obj/item/cell/hyper{
 	charge = 100;
 	maxcharge = 15000
 	},
@@ -11823,7 +11812,7 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "Cu" = (
-/obj/item/storage/box/donkpockets,
+/obj/item/storage/box/donkpocket_mixed,
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced{
 	dir = 1
@@ -11852,7 +11841,7 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "Cx" = (
-/obj/machinery/media/jukebox,
+/obj/machinery/jukebox,
 /obj/item/device/radio/intercom{
 	dir = 4;
 	pixel_x = -22
@@ -11866,7 +11855,7 @@
 /obj/machinery/vending/cigarette{
 	name = "hacked cigarette machine";
 	prices = list();
-	products = list(/obj/item/storage/fancy/cigarettes=10,/obj/item/storage/box/matches=10,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=2)
+	products = list(/obj/item/storage/fancy/smokable=10,/obj/item/storage/box/matches=10,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=2)
 	},
 /obj/structure/window/reinforced{
 	dir = 1
@@ -12038,13 +12027,8 @@
 	},
 /area/ninja_dojo/dojo)
 "CT" = (
-/turf/unsimulated/floor{
-	icon = 'icons/turf/snow.dmi';
-	icon_state = "snow"
-	},
-/turf/simulated/shuttle/wall{
-	icon_state = "diagonalWall3"
-	},
+/obj/machinery/tele_projector,
+/turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "CU" = (
 /obj/machinery/door/window/northright{
@@ -12054,14 +12038,8 @@
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "CV" = (
-/turf/unsimulated/floor{
-	icon = 'icons/turf/snow.dmi';
-	icon_state = "snow"
-	},
-/turf/simulated/shuttle/wall{
-	dir = 4;
-	icon_state = "diagonalWall3"
-	},
+/obj/effect/paint/merc,
+/turf/simulated/wall/titanium,
 /area/syndicate_station/start)
 "CW" = (
 /obj/item/storage/mirror{
@@ -12252,12 +12230,12 @@
 /area/map_template/syndicate_mothership)
 "Dy" = (
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/pistol,
-/obj/item/ammo_magazine/pistol,
-/obj/item/ammo_magazine/pistol,
-/obj/item/ammo_magazine/pistol,
-/obj/item/ammo_magazine/pistol,
-/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/smg,
+/obj/item/ammo_magazine/smg,
+/obj/item/ammo_magazine/smg,
+/obj/item/ammo_magazine/smg,
+/obj/item/ammo_magazine/smg,
+/obj/item/ammo_magazine/smg,
 /obj/item/gun/projectile/automatic/c20r,
 /obj/item/gun/projectile/automatic/c20r,
 /obj/item/gun/projectile/automatic/c20r,
@@ -12267,11 +12245,11 @@
 /area/map_template/syndicate_mothership)
 "Dz" = (
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/a45m,
-/obj/item/ammo_magazine/a45m,
-/obj/item/ammo_magazine/a45m,
-/obj/item/ammo_magazine/a45m,
-/obj/item/ammo_magazine/a45m,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
+/obj/item/ammo_magazine/pistol,
 /obj/item/gun/projectile/silenced/knight,
 /obj/item/gun/projectile/silenced/knight,
 /turf/unsimulated/floor{
@@ -12797,8 +12775,8 @@
 /obj/structure/table/rack,
 /obj/item/gun/energy/plasmastun,
 /obj/machinery/recharger/wallcharger{
-	pixel_x = 37;
-	pixel_y = 5
+	pixel_x = 32;
+	pixel_y = -3
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -12892,14 +12870,14 @@
 /obj/effect/floor_decal/corner/paleblue/three_quarters,
 /obj/structure/window/reinforced{
 	dir = 1;
-	health = 1e+006
+	health_max = 1e+006
 	},
 /turf/simulated/floor/tiled/dark,
 /area/supply/dock)
 "ER" = (
 /obj/structure/window/reinforced{
 	dir = 1;
-	health = 1e+006
+	health_max = 1e+006
 	},
 /turf/simulated/floor/tiled/dark,
 /area/supply/dock)
@@ -12910,7 +12888,7 @@
 	},
 /obj/structure/window/reinforced{
 	dir = 1;
-	health = 1e+006
+	health_max = 1e+006
 	},
 /turf/simulated/floor/tiled/dark,
 /area/supply/dock)
@@ -12922,7 +12900,7 @@
 	},
 /obj/structure/window/reinforced{
 	dir = 1;
-	health = 1e+006
+	health_max = 1e+006
 	},
 /obj/machinery/light{
 	dir = 4
@@ -13020,7 +12998,9 @@
 	id_tag = "merc_home_outer";
 	req_access = list("ACCESS_SYNDICATE")
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
 /area/map_template/syndicate_mothership)
 "Fe" = (
 /turf/unsimulated/wall/fakeglass{
@@ -13223,7 +13203,7 @@
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
-	id = "smindicate";
+	id_tag = "smindicate";
 	name = "Outer Airlock";
 	opacity = 0
 	},
@@ -13303,7 +13283,7 @@
 	density = 0;
 	dir = 2;
 	icon_state = "shutter0";
-	id = "merchantshuttle";
+	id_tag = "merchantshuttle";
 	name = "Merchant Window Shutters";
 	opacity = 0
 	},
@@ -13405,11 +13385,14 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/structure/handrail{
+	dir = 4
+	},
 /turf/simulated/floor/shuttle/black,
 /area/syndicate_station/start)
 "FU" = (
 /obj/machinery/flasher{
-	id = "syndieflash";
+	id_tag = "syndieflash";
 	pixel_x = 0;
 	pixel_y = 28
 	},
@@ -13439,14 +13422,13 @@
 /obj/structure/table/rack,
 /obj/item/storage/belt/holster/security,
 /obj/item/storage/belt/holster/security,
-/obj/item/ammo_magazine/mc9mm/flash,
+/obj/item/ammo_magazine/pistol/flash,
 /obj/item/gun/projectile/pistol/flash,
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "FY" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1331;
 	id_tag = "synd_pump"
 	},
 /obj/machinery/light/small{
@@ -13465,7 +13447,6 @@
 "Ga" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1331;
 	id_tag = "synd_pump"
 	},
 /obj/machinery/airlock_sensor{
@@ -13516,7 +13497,7 @@
 "Gf" = (
 /obj/structure/table/standard,
 /obj/item/material/ashtray/bronze,
-/obj/item/storage/fancy/cigarettes/urist/syndicate,
+/obj/item/storage/fancy/smokable/urist/syndicate,
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
@@ -13662,8 +13643,8 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/button/remote/blast_door{
-	id = "merchantbase";
+/obj/machinery/button/blast_door{
+	id_tag = "merchantbase";
 	name = "Merchant Loading Shutters";
 	pixel_x = 27;
 	pixel_y = -9;
@@ -13791,7 +13772,6 @@
 "GM" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1331;
 	id_tag = "synd_pump"
 	},
 /turf/simulated/floor/shuttle/darkred,
@@ -13803,15 +13783,14 @@
 "GO" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1331;
 	id_tag = "synd_pump"
 	},
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "GP" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/pod/old/syndicate{
-	id = "smindicate"
+/obj/machinery/button/blast_door{
+	id_tag = "smindicate"
 	},
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
@@ -13843,7 +13822,7 @@
 	density = 0;
 	dir = 4;
 	icon_state = "shutter0";
-	id = "merchantshuttle";
+	id_tag = "merchantshuttle";
 	name = "Merchant Window Shutters";
 	opacity = 0
 	},
@@ -13964,7 +13943,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 2;
-	frequency = 1380;
 	id_tag = "merchant_ship_vent"
 	},
 /turf/simulated/floor/plating,
@@ -13990,7 +13968,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	dir = 8;
-	id = "merchantbase";
+	id_tag = "merchantbase";
 	name = "Merchant Loading Shutters"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -14021,7 +13999,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/conveyor_switch{
-	id = "merchantbelt2"
+	id_tag = "merchantbelt2"
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)
@@ -14115,7 +14093,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/urist/space/syndicate/black/red,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/urist/helmet/red,
+/obj/item/clothing/head/helmet/space/syndicate,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -14125,7 +14103,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/urist/space/syndicate/black/orange,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/urist/helmet/orange,
+/obj/item/clothing/head/urist/helmet/space/syndicate/orange,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -14135,7 +14113,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/urist/space/syndicate/black/blue,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/urist/helmet/blue,
+/obj/item/clothing/head/urist/helmet/space/syndicate/blue,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -14145,7 +14123,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/urist/space/syndicate/black/green,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/urist/helmet/green,
+/obj/item/clothing/head/urist/helmet/space/syndicate/green,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -14176,8 +14154,8 @@
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/obj/machinery/button/remote/blast_door{
-	id = "merchantshuttle";
+/obj/machinery/button/blast_door{
+	id_tag = "merchantshuttle";
 	name = "Merchant Window Shutters";
 	pixel_x = 0;
 	pixel_y = -28;
@@ -14292,7 +14270,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	dir = 8;
-	id = "merchantbase";
+	id_tag = "merchantbase";
 	name = "Merchant Loading Shutters"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -14302,7 +14280,7 @@
 "HS" = (
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "merchantbelt1"
+	id_tag = "merchantbelt1"
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station)
@@ -14310,14 +14288,14 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "merchantbelt1"
+	id_tag = "merchantbelt1"
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station)
 "HU" = (
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "merchantbelt2"
+	id_tag = "merchantbelt2"
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station)
@@ -14386,8 +14364,8 @@
 /obj/machinery/vending/cigarette{
 	contraband = newlist();
 	premium = newlist();
-	prices = list(/obj/item/storage/fancy/cigarettes=15,/obj/item/storage/box/matches=1,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=20);
-	products = list(/obj/item/storage/fancy/cigarettes=10,/obj/item/storage/box/matches=10,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=2)
+	prices = list(/obj/item/storage/fancy/smokable=15,/obj/item/storage/box/matches=1,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=20);
+	products = list(/obj/item/storage/fancy/smokable=10,/obj/item/storage/box/matches=10,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=2)
 	},
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
@@ -14396,7 +14374,7 @@
 	dir = 8
 	},
 /obj/machinery/button/flasher{
-	id = "syndieflash";
+	id_tag = "syndieflash";
 	name = "Flasher";
 	pixel_x = 27;
 	pixel_y = 0;
@@ -14441,7 +14419,7 @@
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "Ij" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8;
 	start_pressure = 740.5
 	},
@@ -14578,7 +14556,6 @@
 "IC" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	frequency = 1380;
 	id_tag = "merchant_ship_vent"
 	},
 /turf/simulated/floor/plating,
@@ -14611,7 +14588,7 @@
 /obj/effect/decal/cleanable/ash,
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "merchantbelt1"
+	id_tag = "merchantbelt1"
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station)
@@ -14628,10 +14605,9 @@
 	},
 /area/ninja_dojo/start)
 "IJ" = (
-/obj/machinery/autolathe{
-	desc = "Your typical Autolathe. It appears to have much more options than your regular one, however...";
-	hacked = 1;
-	name = "Unlocked Autolathe"
+/obj/machinery/fabricator/hacked{
+	desc = "Your typical fabricator. It appears to have much more options than your regular one, however...";
+	name = "Unlocked Fabricator"
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/unsimulated/floor{
@@ -14762,7 +14738,7 @@
 	density = 0;
 	dir = 1;
 	icon_state = "shutter0";
-	id = "merchantshuttle";
+	id_tag = "merchantshuttle";
 	name = "Merchant Window Shutters";
 	opacity = 0
 	},
@@ -14910,7 +14886,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "merchantbelt1"
+	id_tag = "merchantbelt1"
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station)
@@ -15020,14 +14996,14 @@
 	icon_state = "warning"
 	},
 /obj/machinery/conveyor_switch{
-	id = "merchantbelt1"
+	id_tag = "merchantbelt1"
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "JF" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "merchantbelt1"
+	id_tag = "merchantbelt1"
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station)
@@ -15065,7 +15041,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/urist/space/syndicate/black/engie,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/urist/helmet/engie,
+/obj/item/clothing/head/urist/helmet/space/syndicate/black/engie,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -15075,7 +15051,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/urist/space/syndicate/black/med,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/urist/helmet/med,
+/obj/item/clothing/head/urist/helmet/space/syndicate/black/med,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -15085,7 +15061,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/syndicate/black,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/head/urist/helmet,
+/obj/item/clothing/head/helmet/space/syndicate/black,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -15110,10 +15086,9 @@
 	},
 /area/map_template/syndicate_mothership)
 "JO" = (
-/obj/machinery/autolathe{
-	desc = "Your typical Autolathe. It appears to have much more options than your regular one, however...";
-	hacked = 1;
-	name = "Unlocked Autolathe"
+/obj/machinery/fabricator/hacked{
+	desc = "Your typical Fabricator. It appears to have much more options than your regular one, however...";
+	name = "Unlocked Fabricator"
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -15182,7 +15157,6 @@
 "JT" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1380;
 	id_tag = "merchant_station_vent"
 	},
 /turf/simulated/floor/plating,
@@ -15396,7 +15370,7 @@
 /area/syndicate_station/start)
 "Kp" = (
 /obj/structure/table/standard,
-/obj/item/roller{
+/obj/item/roller_bed{
 	pixel_y = 8
 	},
 /turf/simulated/floor/shuttle/white,
@@ -15476,10 +15450,9 @@
 /turf/space,
 /area/merchant_station)
 "Kx" = (
-/obj/machinery/autolathe{
-	desc = "Your typical Autolathe. It appears to have much more options than your regular one, however...";
-	hacked = 1;
-	name = "Unlocked Autolathe"
+/obj/machinery/fabricator{
+	desc = "Your typical Fabricator. It appears to have much more options than your regular one, however...";
+	name = "Unlocked Fabricator"
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)
@@ -15615,11 +15588,11 @@
 /turf/simulated/floor/plating,
 /area/ninja_dojo/start)
 "KL" = (
-/obj/machinery/teleport/station,
+/obj/machinery/tele_projector,
 /turf/simulated/floor/plating,
 /area/ninja_dojo/start)
 "KM" = (
-/obj/machinery/teleport/hub,
+/obj/machinery/tele_pad,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/ninja_dojo/start)
@@ -15644,7 +15617,7 @@
 	density = 0;
 	dir = 8;
 	icon_state = "shutter0";
-	id = "syndieshutters_infirmary";
+	id_tag = "syndieshutters_infirmary";
 	name = "Blast Shutters";
 	opacity = 0
 	},
@@ -15671,7 +15644,7 @@
 	density = 0;
 	dir = 4;
 	icon_state = "shutter0";
-	id = "syndieshutters_workshop";
+	id_tag = "syndieshutters_workshop";
 	name = "Blast Shutters";
 	opacity = 0
 	},
@@ -15904,7 +15877,7 @@
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
-	id = "ninjadoor";
+	id_tag = "ninjadoor";
 	name = "Blast Door";
 	opacity = 0
 	},
@@ -16152,11 +16125,10 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1331;
 	id_tag = "ninja_shuttle_pump"
 	},
-/obj/machinery/button/remote/blast_door{
-	id = "ninjadoor";
+/obj/machinery/button/blast_door{
+	id_tag = "ninjadoor";
 	name = "remote shutter control";
 	pixel_x = 25
 	},
@@ -16305,8 +16277,8 @@
 	},
 /area/ninja_dojo/start)
 "Mk" = (
-/obj/machinery/button/remote/blast_door{
-	id = "syndieshutters_infirmary";
+/obj/machinery/button/blast_door{
+	id_tag = "syndieshutters_infirmary";
 	name = "remote shutter control";
 	pixel_x = -25
 	},
@@ -16339,8 +16311,8 @@
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "Mo" = (
-/obj/machinery/button/remote/blast_door{
-	id = "syndieshutters_workshop";
+/obj/machinery/button/blast_door{
+	id_tag = "syndieshutters_workshop";
 	name = "remote shutter control";
 	pixel_x = 25
 	},
@@ -16535,8 +16507,8 @@
 	pixel_x = 24;
 	pixel_y = -24
 	},
-/obj/machinery/button/remote/blast_door{
-	id = "ninjawindow";
+/obj/machinery/button/blast_door{
+	id_tag = "ninjawindow";
 	name = "remote shutter control";
 	pixel_x = 36;
 	pixel_y = -24
@@ -16633,7 +16605,7 @@
 /area/syndicate_station/start)
 "MQ" = (
 /obj/machinery/door/blast/regular{
-	id = "smindicate";
+	id_tag = "smindicate";
 	name = "Outer Airlock"
 	},
 /turf/simulated/floor/shuttle/darkred,
@@ -16715,7 +16687,7 @@
 /turf/simulated/floor/plating,
 /area/merchant_station)
 "Nb" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -16779,9 +16751,8 @@
 /obj/item/clothing/gloves/latex,
 /obj/item/clothing/mask/surgical,
 /obj/item/reagent_containers/glass/bottle/stoxin,
-/turf/simulated/shuttle/wall{
-	icon_state = "wall3"
-	},
+/obj/effect/paint/merc,
+/turf/simulated/wall/titanium,
 /area/syndicate_station/start)
 "Ni" = (
 /obj/effect/landmark{
@@ -16845,7 +16816,7 @@
 /obj/machinery/door/blast/regular{
 	density = 1;
 	icon_state = "pdoor1";
-	id = "ninjawindow";
+	id_tag = "ninjawindow";
 	name = "Blast Shutter";
 	opacity = 1
 	},
@@ -16864,7 +16835,7 @@
 /obj/machinery/door/blast/regular{
 	density = 1;
 	icon_state = "pdoor1";
-	id = "ninjawindow";
+	id_tag = "ninjawindow";
 	name = "Blast Shutter";
 	opacity = 1
 	},
@@ -16880,7 +16851,7 @@
 /obj/machinery/door/blast/regular{
 	density = 1;
 	icon_state = "pdoor1";
-	id = "ninjawindow";
+	id_tag = "ninjawindow";
 	name = "Blast Shutter";
 	opacity = 1
 	},
@@ -16936,11 +16907,11 @@
 /turf/simulated/floor/plating,
 /area/syndicate_station/start)
 "Nz" = (
-/obj/machinery/teleport/station,
+/obj/machinery/computer/teleporter,
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "NA" = (
-/obj/machinery/teleport/hub,
+/obj/machinery/tele_pad,
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "NB" = (
@@ -16970,7 +16941,7 @@
 /turf/simulated/floor/plating,
 /area/merchant_station)
 "NE" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 1;
 	icon_state = "air_map";
 	start_pressure = 740.5;
@@ -16980,7 +16951,7 @@
 /turf/simulated/floor/plating,
 /area/merchant_station)
 "NF" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 1;
 	icon_state = "air_map";
 	start_pressure = 740.5;
@@ -16995,23 +16966,22 @@
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_l"
 	},
+/obj/effect/paint/merc,
 /turf/simulated/shuttle/wall{
 	icon_state = "wall3"
 	},
 /area/syndicate_station/start)
 "NI" = (
 /obj/structure/shuttle/engine/propulsion,
-/turf/simulated/shuttle/wall{
-	icon_state = "wall3"
-	},
+/obj/effect/paint/merc,
+/turf/simulated/wall/titanium,
 /area/syndicate_station/start)
 "NJ" = (
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_r"
 	},
-/turf/simulated/shuttle/wall{
-	icon_state = "wall3"
-	},
+/obj/effect/paint/merc,
+/turf/simulated/wall/titanium,
 /area/syndicate_station/start)
 "NK" = (
 /obj/effect/landmark/test/space_turf,
@@ -17152,10 +17122,11 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1331;
 	id_tag = "merc_home_pump"
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
 /area/map_template/syndicate_mothership)
 "OF" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -17731,10 +17702,11 @@
 "TP" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1331;
 	id_tag = "merc_home_pump"
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
 /area/map_template/syndicate_mothership)
 "TW" = (
 /obj/effect/floor_decal/beach{
@@ -17803,9 +17775,6 @@
 /obj/effect/weather/invariant/holo_rain,
 /turf/simulated/floor/holofloor/urist/jungle_water,
 /area/holodeck/source_jungle)
-"Ux" = (
-/turf/simulated/floor/tiled/dark,
-/area/map_template/syndicate_mothership)
 "Uy" = (
 /obj/structure/bed/chair/holochair/wood{
 	icon_state = "wooden_chair_preview";
@@ -18360,7 +18329,9 @@
 	dir = 4;
 	icon_state = "intact"
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
 /area/map_template/syndicate_mothership)
 "Zi" = (
 /obj/structure/bed/chair/holochair{
@@ -34773,7 +34744,7 @@ wk
 wl
 wl
 xe
-xC
+xB
 xP
 yh
 xR
@@ -41259,17 +41230,17 @@ wM
 wM
 wM
 wM
-zs
-Ag
+CV
+CV
 KO
 KO
 KO
-Ag
-Ag
-Ag
-Ag
-Ag
-CT
+CV
+CV
+CV
+CV
+CV
+CV
 wH
 vY
 "}
@@ -41455,13 +41426,13 @@ wb
 wb
 wb
 wb
-zs
+CV
 GH
-Ag
-Ag
-Ag
-Ag
-Ag
+CV
+CV
+CV
+CV
+CV
 Km
 KP
 Lr
@@ -41656,14 +41627,14 @@ wb
 wb
 wb
 wb
-zs
-Ag
+CV
+CV
 GI
 Ag
 Id
 IR
 Jt
-Ag
+CV
 Kn
 KP
 Ls
@@ -41673,7 +41644,7 @@ MJ
 KP
 Nv
 Ny
-NI
+xC
 NN
 vY
 "}
@@ -41858,14 +41829,14 @@ wb
 wb
 wb
 xT
-Ag
+CV
 FT
 GJ
 GH
 AP
 AP
 AP
-Ag
+CV
 Ko
 KP
 KP
@@ -41875,7 +41846,7 @@ MK
 Ng
 Nw
 Ny
-NJ
+zs
 NO
 vY
 "}
@@ -42051,23 +42022,23 @@ wn
 wb
 yl
 wb
-zs
-Ag
-Ag
-Ag
-CT
+CV
+CV
+CV
+CV
+CV
 wM
 wb
 wb
 xT
-Ag
+CV
 FU
 GK
 Hu
 AP
 AP
 AP
-Ag
+CV
 Kp
 KP
 KP
@@ -42075,8 +42046,8 @@ KP
 KP
 ML
 Nh
-Ag
-Ag
+CV
+CV
 CV
 NQ
 vY
@@ -42252,31 +42223,31 @@ wb
 wb
 wG
 wb
-zs
-Ag
+CV
+CV
 AO
 Bv
 Cl
-Ag
-CT
+CV
+CV
 wM
 wM
 wH
-Ag
+CV
 FV
 GJ
 GH
 Ie
 AP
 AP
-Ag
+CV
 Kq
 KQ
 KP
 KP
 Ml
 MM
-Ag
+CV
 Nx
 wb
 wb
@@ -42459,28 +42430,28 @@ Ah
 AP
 AP
 AP
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+CV
+CV
+CV
+CV
+CV
+CV
+CV
+CV
+CV
+CV
 IS
 Ju
-Ag
-Ag
-Ag
+CV
+CV
+CV
 Lt
 LR
-Ag
-Ag
-Ag
-Ag
-CT
+CV
+CV
+CV
+CV
+CV
 wM
 wH
 vY
@@ -42661,14 +42632,14 @@ Ai
 AP
 AP
 AP
-Ag
+CV
 Dw
 Bw
 Bw
 Fb
 Fv
 FW
-Ag
+CV
 AP
 If
 AP
@@ -42682,7 +42653,7 @@ GH
 MN
 MP
 Ny
-NH
+zu
 NM
 NM
 vY
@@ -43065,14 +43036,14 @@ Ak
 AP
 AP
 Cm
-Ag
+CV
 Dw
 Ef
 EB
 EB
 EB
 FX
-Ag
+CV
 Hv
 AP
 AP
@@ -43267,27 +43238,27 @@ Al
 AP
 Bw
 AP
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+CV
+CV
+CV
+CV
+CV
+CV
+CV
+CV
+CV
+CV
 IT
 Jv
-Ag
-Ag
-Ag
+CV
+CV
+CV
 Lu
 LS
-Ag
-Ag
-Ag
-Ag
+CV
+CV
+CV
+CV
 CV
 wm
 NQ
@@ -43464,31 +43435,31 @@ wn
 wb
 wb
 wo
-zu
-Ag
+CV
+CV
 Ak
 Bx
 Cn
-Ag
+CV
 CV
 Eg
 Eg
 Fc
-Ag
+CV
 FY
 GM
 GH
 Ig
 AP
 AP
-Ag
+CV
 Kt
 Kr
 AP
 AP
 Mn
 MP
-Ag
+CV
 Nx
 wb
 wb
@@ -43667,33 +43638,33 @@ yl
 wG
 wb
 wd
-zu
-Ag
-Ag
-Ag
+CV
+CV
+CV
+CV
 CV
 xT
 ym
 xg
 xr
-Ag
+mc
 FZ
 GN
 Hw
 Ih
 AP
 Jw
-Ag
+CV
 Kt
 AP
 AP
 AP
 Mn
-Ag
-Ag
-Ag
-Ag
-CT
+CV
+CV
+CV
+CV
+CV
 wH
 vY
 "}
@@ -43885,17 +43856,17 @@ GH
 Ii
 AP
 AP
-Ag
+CV
 Ku
 AP
 AP
 AP
 Jw
-Ag
+CV
 AP
-Ak
+Nz
 Ny
-NH
+zu
 NM
 vY
 "}
@@ -44080,14 +44051,14 @@ xT
 vY
 Zh
 Fe
-zu
-Ag
+CV
+CV
 GP
-Ag
+CV
 Ij
 IU
 Jx
-Ag
+CV
 Kv
 AP
 Lv
@@ -44095,7 +44066,7 @@ AP
 AP
 MQ
 AP
-Nz
+CT
 Ny
 NI
 NN
@@ -44283,19 +44254,19 @@ vY
 OE
 Bz
 Co
-zu
-Ag
-Ag
-Ag
-Ag
-Ag
-Ag
+CV
+CV
+CV
+CV
+CV
+CV
+CV
 Kv
 KR
 Lw
 LT
 Mo
-Ag
+CV
 Ks
 NA
 Ny
@@ -44482,7 +44453,7 @@ Co
 wb
 wH
 Fe
-Ux
+Dx
 Bz
 we
 wM
@@ -44491,16 +44462,16 @@ Eg
 Eg
 Eg
 wb
-zu
-Ag
+CV
+CV
 KS
 KS
 KS
-Ag
-Ag
-Ag
-Ag
-Ag
+CV
+CV
+CV
+CV
+CV
 CV
 NQ
 vY

@@ -26,6 +26,7 @@
 /singleton/move_intent/walk
 	name = "Run"
 	hud_icon_state = "running"
+	flags = MOVE_INTENT_QUICK
 
 /singleton/move_intent/walk/Initialize()
 	. = ..()

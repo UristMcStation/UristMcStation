@@ -17,6 +17,7 @@
 	maxHealth = 35
 	speed = 3
 	hostile_drone = 0
+	say_list_type = /datum/say_list/robot
 
 /datum/say_list/robot
 	speak = list("ALERT.","Who's ready to have their ass kicked?!","You better run, you commie-loving bastard!","There's nothing I like better than making some other poor bastard die for his country!","Unit deactivating. This troop is hitting the rack!","What is your major malfunction, maggot?")

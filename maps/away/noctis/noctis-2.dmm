@@ -65,7 +65,7 @@
 /area/noctis/fpm)
 "am" = (
 /obj/structure/grille/broken,
-/obj/effect/scorcher,
+/obj/effect/landmark/scorcher,
 /turf/simulated/floor/plating,
 /area/noctis/gasestore)
 "an" = (
@@ -74,11 +74,11 @@
 /area/noctis/gasestore)
 "ao" = (
 /obj/machinery/portable_atmospherics/canister/empty,
-/obj/effect/floor_decal/industrial/danger,
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/gasestore)
 "ap" = (
-/obj/effect/floor_decal/industrial/danger,
+/obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light/small/red{
 	icon_state = "firelight1";
 	dir = 1
@@ -87,7 +87,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/gasestore)
 "aq" = (
-/obj/effect/floor_decal/industrial/danger,
+/obj/effect/floor_decal/industrial/warning,
 /obj/structure/table/standard,
 /obj/random/powercell,
 /turf/simulated/floor/tiled/techmaint,
@@ -189,7 +189,6 @@
 	color = "#b95a00";
 	dir = 8;
 	icon_state = "railing0-1";
-	mapped_color = "#b95a00"
 	},
 /turf/simulated/open,
 /area/space)
@@ -251,7 +250,6 @@
 	color = "#b95a00";
 	dir = 4;
 	icon_state = "railing0-1";
-	mapped_color = "#b95a00"
 	},
 /turf/simulated/open,
 /area/space)
@@ -359,7 +357,7 @@
 /turf/simulated/wall/titanium,
 /area/noctis/gasestore)
 "aT" = (
-/obj/effect/floor_decal/industrial/danger{
+/obj/effect/floor_decal/industrial/warning{
 	icon_state = "danger";
 	dir = 4
 	},
@@ -439,7 +437,6 @@
 	color = "#b95a00";
 	dir = 4;
 	icon_state = "railing0-1";
-	mapped_color = "#b95a00"
 	},
 /obj/effect/floor_decal/corner/grey/mono,
 /obj/machinery/light/small/red{
@@ -582,7 +579,7 @@
 /obj/structure/table/rack/dark,
 /obj/item/weldingtool/largetank,
 /obj/item/weldingtool/empty,
-/obj/effect/scorcher,
+/obj/effect/landmark/scorcher,
 /turf/simulated/floor/plating,
 /area/noctis/fpm)
 "bq" = (
@@ -606,7 +603,6 @@
 	color = "#b95a00";
 	dir = 8;
 	icon_state = "railing0-1";
-	mapped_color = "#b95a00"
 	},
 /obj/effect/floor_decal/corner/grey/mono,
 /obj/structure/table/steel,
@@ -663,7 +659,7 @@
 /turf/simulated/wall/titanium,
 /area/noctis/gasestore)
 "bx" = (
-/obj/effect/floor_decal/industrial/danger{
+/obj/effect/floor_decal/industrial/warning{
 	icon_state = "danger";
 	dir = 4
 	},
@@ -682,7 +678,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/gasestore)
 "bz" = (
-/obj/effect/floor_decal/industrial/danger{
+/obj/effect/floor_decal/industrial/warning{
 	icon_state = "danger";
 	dir = 9
 	},
@@ -690,7 +686,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/gasestore)
 "bA" = (
-/obj/effect/floor_decal/industrial/danger{
+/obj/effect/floor_decal/industrial/warning{
 	icon_state = "danger";
 	dir = 1
 	},
@@ -701,7 +697,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/gasestore)
 "bB" = (
-/obj/effect/floor_decal/industrial/danger{
+/obj/effect/floor_decal/industrial/warning{
 	icon_state = "danger";
 	dir = 1
 	},
@@ -881,12 +877,12 @@
 /turf/simulated/floor/plating,
 /area/noctis/fpm)
 "bR" = (
-/obj/effect/scorcher,
+/obj/effect/landmark/scorcher,
 /turf/simulated/floor/plating,
 /area/noctis/fpm)
 "bS" = (
 /obj/structure/window/reinforced,
-/obj/effect/floor_decal/industrial/danger/corner{
+/obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "dangercorner";
 	dir = 8
 	},
@@ -940,7 +936,7 @@
 /area/noctis/fpm)
 "ca" = (
 /obj/machinery/door/blast/regular/open{
-	maxhealth = 0
+	health_max = 0
 	},
 /turf/simulated/floor/reinforced,
 /area/noctis/fpm)
@@ -954,7 +950,7 @@
 /area/noctis/gasestore)
 "cc" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/effect/floor_decal/industrial/danger{
+/obj/effect/floor_decal/industrial/warning{
 	icon_state = "danger";
 	dir = 4
 	},
@@ -966,7 +962,7 @@
 /area/noctis/gasestore)
 "ce" = (
 /obj/machinery/portable_atmospherics/canister/phoron,
-/obj/effect/floor_decal/industrial/danger{
+/obj/effect/floor_decal/industrial/warning{
 	icon_state = "danger";
 	dir = 8
 	},
@@ -1024,7 +1020,7 @@
 	icon_state = "rwindow";
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/danger/corner{
+/obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "dangercorner";
 	dir = 1
 	},
@@ -1069,11 +1065,11 @@
 /turf/simulated/floor/plating,
 /area/space)
 "co" = (
-/obj/effect/floor_decal/industrial/danger/corner{
+/obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "dangercorner";
 	dir = 1
 	},
-/obj/structure/handrai{
+/obj/structure/handrail{
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -1106,7 +1102,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/atmos)
 "cr" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	icon_state = "air_map";
 	dir = 1
 	},
@@ -1114,7 +1110,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/atmos)
 "cs" = (
-/obj/effect/scorcher,
+/obj/effect/landmark/scorcher,
 /obj/structure/cable/blue{
 	d1 = 1;
 	d2 = 2;
@@ -1151,7 +1147,6 @@
 	color = "#b95a00";
 	dir = 4;
 	icon_state = "railing0-1";
-	mapped_color = "#b95a00"
 	},
 /turf/simulated/open,
 /area/space)
@@ -1183,22 +1178,21 @@
 "cE" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 8;
-	health = 0;
+	health_max = 0;
 	icon_state = "pdoor0";
-	maxhealth = 0
 	},
 /turf/simulated/floor/reinforced,
 /area/noctis/fpm)
 "cF" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/effect/floor_decal/industrial/danger{
+/obj/effect/floor_decal/industrial/warning{
 	icon_state = "danger";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/gasestore)
 "cG" = (
-/obj/effect/floor_decal/industrial/danger{
+/obj/effect/floor_decal/industrial/warning{
 	icon_state = "danger";
 	dir = 8
 	},
@@ -1283,7 +1277,6 @@
 	color = "#b95a00";
 	dir = 4;
 	icon_state = "railing0-1";
-	mapped_color = "#b95a00"
 	},
 /turf/space,
 /area/space)
@@ -1296,7 +1289,6 @@
 	color = "#b95a00";
 	dir = 4;
 	icon_state = "railing0-1";
-	mapped_color = "#b95a00"
 	},
 /obj/structure/cable/blue{
 	d1 = 2;
@@ -1383,11 +1375,11 @@
 /turf/simulated/floor/plating,
 /area/noctis/bridge)
 "dg" = (
-/obj/effect/floor_decal/industrial/danger/corner{
+/obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "dangercorner";
 	dir = 8
 	},
-/obj/structure/handrai{
+/obj/structure/handrail{
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -1495,7 +1487,6 @@
 	color = "#b95a00";
 	dir = 4;
 	icon_state = "railing0-1";
-	mapped_color = "#b95a00"
 	},
 /obj/effect/floor_decal/rust,
 /turf/simulated/floor/plating,
@@ -1540,7 +1531,6 @@
 	color = "#b95a00";
 	dir = 8;
 	icon_state = "railing0-1";
-	mapped_color = "#b95a00"
 	},
 /obj/structure/lattice,
 /obj/structure/cable/blue{
@@ -1625,7 +1615,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/extconn)
 "dJ" = (
-/obj/effect/floor_decal/industrial/danger{
+/obj/effect/floor_decal/industrial/warning{
 	icon_state = "danger";
 	dir = 8
 	},
@@ -1646,7 +1636,6 @@
 	color = "#b95a00";
 	dir = 4;
 	icon_state = "railing0-1";
-	mapped_color = "#b95a00"
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1658,7 +1647,6 @@
 "dM" = (
 /obj/structure/railing/mapped{
 	color = "#b95a00";
-	mapped_color = "#b95a00"
 	},
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1679,7 +1667,6 @@
 	color = "#b95a00";
 	dir = 4;
 	icon_state = "railing0-1";
-	mapped_color = "#b95a00"
 	},
 /obj/structure/cable/blue{
 	d2 = 2;
@@ -1823,7 +1810,6 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1379;
 	id_tag = "pirate_con_vent"
 	},
 /turf/simulated/floor/plating,
@@ -2103,7 +2089,7 @@
 	dir = 4
 	},
 /obj/structure/catwalk,
-/obj/effect/floor_decal/industrial/danger{
+/obj/effect/floor_decal/industrial/warning{
 	icon_state = "danger";
 	dir = 8
 	},
@@ -2239,7 +2225,6 @@
 	color = "#b95a00";
 	dir = 4;
 	icon_state = "railing0-1";
-	mapped_color = "#b95a00"
 	},
 /obj/structure/catwalk,
 /obj/random/trash,
@@ -2566,7 +2551,7 @@
 /area/space)
 "fB" = (
 /obj/machinery/shipweapons/beam/ion,
-/obj/effect/floor_decal/industrial/danger,
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced,
 /area/space)
 "fC" = (
@@ -2574,7 +2559,6 @@
 	color = "#b95a00";
 	dir = 8;
 	icon_state = "railing0-1";
-	mapped_color = "#b95a00"
 	},
 /obj/structure/catwalk,
 /obj/structure/cable/blue{
@@ -2626,7 +2610,6 @@
 	color = "#b95a00";
 	dir = 4;
 	icon_state = "railing0-1";
-	mapped_color = "#b95a00"
 	},
 /obj/structure/cable/blue{
 	d1 = 1;
@@ -2640,7 +2623,6 @@
 	color = "#b95a00";
 	dir = 4;
 	icon_state = "railing0-1";
-	mapped_color = "#b95a00"
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
@@ -2664,7 +2646,7 @@
 /area/noctis/reactorov)
 "fL" = (
 /obj/structure/catwalk,
-/obj/effect/floor_decal/industrial/danger{
+/obj/effect/floor_decal/industrial/warning{
 	icon_state = "danger";
 	dir = 8
 	},
@@ -2745,7 +2727,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/extconn)
 "fP" = (
-/obj/effect/floor_decal/industrial/danger{
+/obj/effect/floor_decal/industrial/warning{
 	icon_state = "danger";
 	dir = 4
 	},
@@ -2761,7 +2743,6 @@
 	color = "#b95a00";
 	dir = 8;
 	icon_state = "railing0-1";
-	mapped_color = "#b95a00"
 	},
 /obj/structure/catwalk,
 /obj/structure/cable/blue{
@@ -3405,7 +3386,6 @@
 	color = "#b95a00";
 	dir = 8;
 	icon_state = "railing0-1";
-	mapped_color = "#b95a00"
 	},
 /turf/simulated/open,
 /area/space)
@@ -3636,7 +3616,6 @@
 	color = "#b95a00";
 	dir = 8;
 	icon_state = "railing0-1";
-	mapped_color = "#b95a00"
 	},
 /turf/space,
 /area/space)
@@ -3648,7 +3627,6 @@
 	color = "#b95a00";
 	dir = 1;
 	icon_state = "railing0-1";
-	mapped_color = "#b95a00"
 	},
 /turf/space,
 /area/space)
@@ -3791,7 +3769,6 @@
 	color = "#b95a00";
 	dir = 4;
 	icon_state = "railing0-1";
-	mapped_color = "#b95a00"
 	},
 /obj/structure/lattice,
 /obj/structure/cable/blue{
@@ -3884,7 +3861,6 @@
 	color = "#b95a00";
 	dir = 1;
 	icon_state = "railing0-1";
-	mapped_color = "#b95a00"
 	},
 /turf/simulated/open,
 /area/space)
@@ -4081,7 +4057,7 @@
 /area/noctis/prismngt)
 "is" = (
 /obj/machinery/computer/modular/preset/merchant{
-	computer_emagged = 1;
+	emagged = 1;
 	dir = 1;
 	icon_state = "console"
 	},
@@ -4158,7 +4134,7 @@
 /turf/simulated/floor/reinforced,
 /area/noctis/extconn)
 "iD" = (
-/obj/effect/scorcher,
+/obj/effect/landmark/scorcher,
 /obj/effect/floor_decal/techfloor,
 /obj/structure/cable/blue{
 	d1 = 1;
@@ -4207,7 +4183,7 @@
 /area/noctis/extconn)
 "iG" = (
 /obj/effect/floor_decal/rust,
-/obj/machinery/atmospherics/valve/shutoff,
+/obj/machinery/atmospherics/valve/shutoff/supply,
 /obj/effect/catwalk_plated/dark,
 /obj/structure/cable/blue{
 	d1 = 1;
@@ -4300,7 +4276,6 @@
 	color = "#b95a00";
 	dir = 1;
 	icon_state = "railing0-1";
-	mapped_color = "#b95a00"
 	},
 /obj/structure/lattice,
 /turf/simulated/open,
@@ -4313,14 +4288,13 @@
 "iO" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	frequency = 1379;
 	icon_state = "map_vent";
 	id_tag = "pirate_con_vent"
 	},
 /turf/simulated/floor/plating,
 /area/noctis/extconn)
 "iP" = (
-/obj/effect/floor_decal/industrial/danger{
+/obj/effect/floor_decal/industrial/warning{
 	icon_state = "danger";
 	dir = 8
 	},
@@ -4344,7 +4318,7 @@
 /turf/simulated/open,
 /area/noctis/extconn)
 "nb" = (
-/obj/effect/floor_decal/industrial/danger,
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced,
 /area/space)
 "nG" = (
@@ -4487,7 +4461,7 @@
 /turf/simulated/wall/titanium,
 /area/noctis/ocabin)
 "NI" = (
-/obj/effect/floor_decal/industrial/danger{
+/obj/effect/floor_decal/industrial/warning{
 	icon_state = "danger";
 	dir = 1
 	},

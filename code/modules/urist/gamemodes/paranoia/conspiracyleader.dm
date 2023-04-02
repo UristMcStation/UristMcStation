@@ -75,7 +75,7 @@ var/datum/antagonist/agent/agents
 		else
 			src << "<span class='warning'>[M] refuses to abandon their cause!"
 			return
-	else if(0)
+	else
 		src << "span class='warning'>Something's wrong, yell at the coders!</span>"
 		return
 

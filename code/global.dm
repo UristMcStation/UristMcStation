@@ -181,5 +181,3 @@ var/global/obj/item/device/radio/announcer/global_announcer = new
 var/global/obj/item/device/radio/announcer/subspace/global_headset = new
 
 var/list/station_departments = list("Command", "Medical", "Engineering", "Science", "Security", "Cargo", "Civilian")
-
-GLOBAL_VAR_INIT(triai, 0)

@@ -13,7 +13,7 @@
 	var/target = null
 	var/obj/effect/overmap/visitable/ship/combat/homeship
 	var/fallback_connect = FALSE
-	// circuit =/obj/item/stock_parts/circuitboard/combat_computer
+//	circuit = /obj/item/stock_parts/circuitboard/combat_computer
 
 /*
 /obj/machinery/computer/combatcomputer/attack_hand(user as mob)

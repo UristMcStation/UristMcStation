@@ -6,7 +6,6 @@
 
 	var/datum/radio_frequency/radio_connection
 	var/mapped = TRUE
-	var/id_tag
 	var/list/chemicals = null
 
 /obj/machinery/chemical_vent/polyacid

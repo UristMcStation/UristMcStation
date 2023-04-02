@@ -39,7 +39,7 @@
 
 /obj/effect/landmark/animal_spawner/monkey
 	name = "monkey spawner"
-	spawn_type = /mob/living/carbon/human/monkey/jungle
+	spawn_type = /mob/living/simple_animal/huntable/monkey
 
 /obj/effect/landmark/animal_spawner/snake
 	name = "snake spawner"
@@ -85,7 +85,7 @@
 	crosstrigger = 1
 	spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
-		/mob/living/carbon/human/monkey/jungle,
+		/mob/living/simple_animal/huntable/monkey,
 		/mob/living/simple_animal/hostile/retaliate/parrot/jungle,
 		/mob/living/simple_animal/hostile/huntable/deer
 		)
@@ -138,7 +138,7 @@
 
 //to prevent spam from monkeys being half killed
 
-/mob/living/carbon/human/monkey/jungle/New()
+/mob/living/simple_animal/huntable/monkey/New()
 	..()
 	faction = "hostile"
 
@@ -167,10 +167,10 @@
 	skin_amount = 2
 	skin_material = MATERIAL_SKIN_FUR
 	ai_holder = /datum/ai_holder/simple_animal/passive
+	say_list_type = /datum/say_list/monkey
 
 /datum/say_list/monkey
 	emote_hear = list("chirps")
-	emote_see = list("chirps")
 
 //to prevent spam from parrots, and deer killing parrots
 
@@ -191,14 +191,14 @@
 	icon_gib = "panther_dead"
 	turns_per_move = 3
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
-	response_help = "pets the"
-	response_disarm = "gently pushes aside the"
-	response_harm = "hits the"
+	response_help = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm = "hits"
 	maxHealth = 75
 	health = 75
 	meat_amount = 4
-	bone_amount = 4
-	skin_amount = 4
+	bone_amount = 8
+	skin_amount = 8
 	skin_material = MATERIAL_SKIN_FUR_BLACK
 
 	harm_intent_damage = 8
@@ -208,37 +208,105 @@
 	meat_amount = 2
 	hide = 4
 
-	ai_holder = /datum/ai_holder/simple_animal/melee/hit_and_run/panther
-
+	ai_holder = /datum/ai_holder/simple_animal/melee/hit_and_run/panther //cloaking taken from spider lurkers. should cloak, attack, run, repeat basically
+/// Lower = Harder to see.
+	var/cloaked_alpha = 45
+	/// This is added on top of the normal melee damage.
+	var/cloaked_bonus_damage = 30
+	/// How long to stun for.
+	var/cloaked_weaken_amount = 3
+	/// Amount of time needed to re-cloak after losing it.
+	var/cloak_cooldown = 10 SECONDS
+	/// world.time
+	var/last_uncloak = 0
+	var/cloaked = FALSE
 //	layer = 3.1		//so they can stay hidde under the /obj/structure/bush
 /datum/ai_holder/simple_animal/melee/hit_and_run/panther
 	var/stalk_tick_delay = 3
 
-/datum/ai_holder/simple_animal/melee/hit_and_run/panther/list_targets()
+/*/datum/ai_holder/simple_animal/melee/hit_and_run/panther/list_targets()
 	var/list/targets = list()
 	for(var/mob/living/carbon/human/H in view(src, 10))
 		targets += H
-	return targets
+	return targets*/
 
 /datum/ai_holder/simple_animal/melee/hit_and_run/panther/find_target(list/possible_targets, has_targets_list)
 	. = ..()
 	if(.)
 		holder.custom_emote(1,"nashes at [.]")
 
-/mob/living/simple_animal/hostile/huntable/panther/UnarmedAttack(var/atom/A, var/proximity)
-	. =..()
-	var/mob/living/L = .
-	if(istype(L))
-		if(prob(15))
-			L.Weaken(3)
-			L.visible_message("<span class='danger'>\the [src] knocks down \the [L]!</span>")
+/mob/living/simple_animal/hostile/huntable/panther/proc/cloak()
+	if (is_cloaked())
+		return
+	animate(src, alpha = cloaked_alpha, time = 1 SECOND)
+	cloaked = TRUE
+
+
+/mob/living/simple_animal/hostile/huntable/panther/proc/uncloak()
+	last_uncloak = world.time // This is assigned even if it isn't cloaked already, to 'reset' the timer if the panther is continously getting attacked.
+	if (!is_cloaked())
+		return
+	animate(src, alpha = initial(alpha), time = 1 SECOND)
+	cloaked = FALSE
+
+/// Check if cloaking is possible.
+/mob/living/simple_animal/hostile/huntable/panther/proc/can_cloak()
+	if (stat)
+		return FALSE
+	if (last_uncloak + cloak_cooldown > world.time)
+		return FALSE
+
+	return TRUE
+
+/// Called by things that break cloaks.
+/mob/living/simple_animal/hostile/huntable/panther/proc/break_cloak()
+	uncloak()
+
+
+/mob/living/simple_animal/hostile/huntable/panther/is_cloaked()
+	return cloaked
+
+
+// Cloaks the panther automatically, if possible.
+/mob/living/simple_animal/hostile/huntable/panther/handle_special()
+	if (!is_cloaked() && can_cloak())
+		cloak()
+
+
+// Applies bonus base damage if cloaked.
+/mob/living/simple_animal/hostile/huntable/panther/apply_bonus_melee_damage(atom/A, damage_amount)
+	if (is_cloaked())
+		return damage_amount + cloaked_bonus_damage
+	return ..()
+
+// Applies stun, then uncloaks.
+/mob/living/simple_animal/hostile/huntable/panther/apply_melee_effects(atom/A)
+	if (is_cloaked() && isliving(A))
+		var/mob/living/L = A
+		L.Weaken(cloaked_weaken_amount)
+		to_chat(L, SPAN_DANGER("\The [src] ambushes you!"))
+		playsound(src, 'sound/weapons/spiderlunge.ogg', 75, 1)
+	uncloak()
+	..() // For the poison.
+
+// Force uncloaking if attacked.
+/mob/living/simple_animal/hostile/huntable/panther/bullet_act(obj/item/projectile/P)
+	if (status_flags & GODMODE)
+		return PROJECTILE_FORCE_MISS
+	. = ..()
+	break_cloak()
+
+/mob/living/simple_animal/hostile/huntable/panther/hit_with_weapon(obj/item/O, mob/living/user, effective_force, hit_zone)
+	. = ..()
+	break_cloak()
+
 
 /datum/ai_holder/simple_animal/melee/hit_and_run/panther/engage_target()
 	..()
 	if(stance == STANCE_ATTACKING && get_dist(src, target))
 		stalk_tick_delay -= 1
 		if(stalk_tick_delay <= 0)
-			src.loc = get_step_towards(src, target)
+			holder.IMove(get_step_towards(holder, target))
 			stalk_tick_delay = 3
 
 //*******//
@@ -255,9 +323,9 @@
 	icon_gib = null
 	turns_per_move = 1
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
-	response_help = "pets the"
-	response_disarm = "gently pushes aside the"
-	response_harm = "hits the"
+	response_help = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm = "hits"
 	maxHealth = 25
 	health = 25
 	harm_intent_damage = 2
@@ -298,7 +366,7 @@
 	if(stance == STANCE_ATTACKING && get_dist(src, target))
 		stalk_tick_delay -= 1
 		if(stalk_tick_delay <= 0)
-			src.loc = get_step_towards(src, target)
+			holder.IMove(get_step_towards(holder, target))
 			stalk_tick_delay = 3
 
 /mob/living/simple_animal/hostile/snake/randvenom
@@ -326,7 +394,7 @@
 	..()
 
 /mob/living/simple_animal/hostile/snake/randvenom/bite(var/mob/living/L)
-	if(L && venomsac && venomsac in src.contents)
+	if((L && venomsac && venomsac) in src.contents)
 		venomsac.reagents.trans_to_mob(L, bite_vol, CHEM_BLOOD, copy=1)
 
 /mob/living/simple_animal/hostile/snake/randvenom/green //so they blend into the plain's turf
@@ -360,9 +428,9 @@
 	attack_sound = 'sound/weapons/bite.ogg'
 	var/chase_time = 100
 	hide = 4
-	meat_amount = 2
-	bone_amount = 2
-	skin_amount = 2
+	meat_amount = 4
+	bone_amount = 10
+	skin_amount = 8
 	skin_material = MATERIAL_SKIN_GENERIC
 	ai_holder = /datum/ai_holder/simple_animal/passive/deer
 
@@ -411,7 +479,7 @@
 	natural_weapon = /obj/item/natural_weapon/giant
 	attacktext = "slashed"
 	attack_sound = 'sound/weapons/bite.ogg'
-	meat_amount = 4
-	bone_amount = 3
-	skin_amount = 7
+	meat_amount = 8
+	bone_amount = 10
+	skin_amount = 15
 	skin_material = MATERIAL_SKIN_FUR

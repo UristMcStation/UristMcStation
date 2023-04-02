@@ -96,7 +96,7 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 		ui.open()
 		ui.set_auto_update(0)
 
-/datum/nano_module/program/finesmanager/proc/print(var/mob/user, var/title, var/text)
+/datum/nano_module/program/finesmanager/proc/print(mob/user, title, text)
 	if(!program.computer.has_component(PART_PRINTER))
 		to_chat(src, SPAN_WARNING("Hardware Error: Printer not found."))
 		return FALSE
@@ -104,7 +104,7 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 		to_chat(src, SPAN_WARNING("Error: Printer was unable to print the document. It may be out of paper."))
 	return TRUE
 
-/datum/nano_module/program/finesmanager/proc/re_print(var/mob/user, var/index)
+/datum/nano_module/program/finesmanager/proc/re_print(mob/user, index)
 	if(!index)
 		return
 	if(!program.computer.has_component(PART_PRINTER))
@@ -236,18 +236,18 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 				var/datum/transaction/fine = new()
 				var/datum/transaction/deposit = new()
 
-				fine.target_name = "[station_account.owner_name] (via [auth_card.registered_name])"
+				fine.target = "[station_account.owner_name] (via [auth_card.registered_name])"
 				fine.purpose = "Fine Issued (Ref. #[fineNum])"
 				fine.amount = -amount
 				fine.date = stationdate2text()
 				fine.time = stationtime2text()
-				fine.source_terminal = "Fines Manager"
-				deposit.target_name = "[target.owner_name] (via [auth_card.registered_name])"
+				fine.source = "Fines Manager"
+				deposit.target = "[target.owner_name] (via [auth_card.registered_name])"
 				deposit.purpose = "Fine Revenue (Ref. #[fineNum])"
 				deposit.amount = amount
 				deposit.date = stationdate2text()
 				deposit.time = stationtime2text()
-				deposit.source_terminal = "Fines Manager"
+				deposit.source = "Fines Manager"
 				target.add_transaction(fine)
 				station_account.add_transaction(deposit)
 

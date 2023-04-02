@@ -61,7 +61,7 @@ var/global/remaininggens = 6
 			M.equip_to_slot_or_del(new /obj/item/storage/backpack/security(M), slot_back)
 			M.equip_to_slot_or_del(new /obj/item/storage/box/survival(M), slot_in_backpack)
 
-			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/a45m/a7(M), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/a7(M), slot_in_backpack)
 			M.equip_to_slot_or_del(new /obj/item/storage/firstaid/regular(M), slot_in_backpack)
 			M.equip_to_slot_or_del(new /obj/item/device/flashlight(M), slot_in_backpack)
 			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/a22(M), slot_in_backpack)

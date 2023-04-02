@@ -120,14 +120,4 @@
 
 /datum/alarm_handler/proc/notify_listeners(alarm, was_raised)
 	for(var/listener in listeners)
-		var/z = null
-
-		var/atom/atom_listener = listener
-		var/datum/nano_module/module = listener
-
-		if(istype(atom_listener))
-			z = atom_listener.z
-		else if(istype(module))
-			var/atom/host = module.host
-			if(host && istype(host))
-				z = host.z
+		call(listener, listeners[listener])(src, alarm, was_raised)

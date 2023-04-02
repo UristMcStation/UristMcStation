@@ -82,7 +82,7 @@
 	else
 		return 2	//ID but no access
 
-obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 
 	var/data[0]
 	data["state"] = display_state
@@ -182,7 +182,7 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 			for(var/datum/transaction/T in focused_account.transaction_log)
 				var/list/transaction = list()
 				transaction.Add(list(list(
-					"target" = T.target(),
+					"target" = T.get_target_name(),
 					"purpose" = T.purpose,
 					"amount" = T.amount,
 					"date" = T.date,
@@ -527,13 +527,7 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 				M.manual_pay_rate = temp_account_items["pay"]
 				ntnet_global.create_email(M.current, temp_account_items["email"], "freemail.net")
 				var/datum/money_account/acc = create_account(M.current.real_name, 0)
-				var/datum/transaction/T = new()
-				T.account_name() = M.current.real_name
-				T.purpose = "Account creation"
-				T.amount = 0
-				T.date = stationdate2text()
-				T.time = stationtime2text()
-				T.source = machine_id
+				var/datum/transaction/singular/T = new(TRUE, acc, machine_id, 0, "Account creation")
 				acc.transaction_log[1] = T
 				M.initial_account = acc
 
