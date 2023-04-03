@@ -2211,10 +2211,6 @@
 /obj/structure/ore_box,
 /turf/simulated/floor/asteroid,
 /area/space)
-"Cp" = (
-/obj/effect/overmap/sector/chemical_lab,
-/turf/space,
-/area/space)
 "Cq" = (
 /obj/machinery/atmospherics/binary/pump/on,
 /turf/simulated/floor/plating,
@@ -3710,10 +3706,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/techmaint,
 /area/chemical_lab/vault_corridor)
-"WX" = (
-/obj/effect/submap_landmark/joinable_submap/chemical_lab,
-/turf/space,
-/area/space)
 "Xi" = (
 /obj/structure/cable/orange{
 	d2 = 4;
@@ -11359,8 +11351,8 @@ CX
 CX
 CX
 CX
-WX
-Cp
+CX
+CX
 Ay
 Ay
 Ay

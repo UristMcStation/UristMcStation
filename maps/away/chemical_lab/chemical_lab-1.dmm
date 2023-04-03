@@ -343,6 +343,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"lh" = (
+/mob/living/simple_animal/hostile/rogue_drone,
+/turf/simulated/floor/plating,
+/area/space)
 "ln" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -842,6 +846,11 @@
 /obj/machinery/disease2/diseaseanalyser,
 /obj/effect/floor_decal/corner/pink/mono,
 /turf/simulated/floor/tiled/white,
+/area/space)
+"wZ" = (
+/obj/structure/catwalk,
+/mob/living/bot/cleanbot,
+/turf/simulated/floor/plating,
 /area/space)
 "xl" = (
 /obj/effect/floor_decal/solarpanel,
@@ -1832,6 +1841,10 @@
 /obj/effect/floor_decal/corner/pink/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/space)
+"Tw" = (
+/obj/effect/overmap/sector/chemical_lab,
+/turf/space,
+/area/space)
 "TA" = (
 /obj/machinery/door/airlock/hatch/maintenance,
 /obj/structure/cable{
@@ -2034,6 +2047,10 @@
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/techmaint,
+/area/space)
+"WM" = (
+/obj/effect/submap_landmark/joinable_submap/chemical_lab,
+/turf/space,
 /area/space)
 "Xd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -10417,7 +10434,7 @@ IR
 fk
 Sj
 Sj
-Sj
+lh
 yV
 MO
 MO
@@ -11385,7 +11402,7 @@ Zi
 Zi
 Gg
 TP
-Sj
+lh
 Gg
 XG
 MO
@@ -11495,7 +11512,7 @@ iW
 iW
 iW
 iW
-iW
+Tw
 Zi
 Zi
 Zi
@@ -11535,7 +11552,7 @@ Ga
 Xo
 Zi
 Gg
-Lw
+wZ
 ex
 SJ
 iW
@@ -11617,7 +11634,7 @@ iW
 iW
 iW
 iW
-iW
+WM
 Zi
 Zi
 Zi

@@ -3,22 +3,6 @@
 #include "chemical_lab_jobs.dm"
 #include "chemical_lab_shuttle.dm"
 
-
-/obj/effect/submap_landmark/joinable_submap/chemical_lab
-	name = "Scrambled Signal"
-	archetype = /decl/submap_archetype/derelict/chemical_lab
-
-/decl/submap_archetype/derelict/chemical_lab
-	descriptor = "Scrambled Signal"
-	map = "chemical_lab"
-	crew_jobs = list(/datum/job/submap/chemical_lab_supervisor, /datum/job/submap/chemical_lab_worker)
-
-/obj/effect/overmap/sector/chemical_lab
-	name = "Scrambled Signal"
-	desc = "A scrambled signal appears to be originating from a nearby asteroid."
-	icon_state = "object"
-	known = 1
-
 /datum/map_template/ruin/away_site/chemical_lab
 	name = "Scrambled Signal"
 	id = "awaysite_chemical_lab"
@@ -26,7 +10,27 @@
 	suffixes = list("chemical_lab/chemical_lab-1.dmm", "chemical_lab/chemical_lab-2.dmm")
 	cost = 1
 
+/obj/effect/overmap/sector/chemical_lab
+	name = "Scrambled Signal"
+	desc = "A distorted signal, full of ghost radio chatter, appearing to triangulate to a nearby asteroid."
+	icon_state = "object"
+	known = 1
+
+/obj/effect/submap_landmark/joinable_submap/chemical_lab
+	name = "Chemical Laboratory"
+	archetype = /decl/submap_archetype/derelict/chemical_lab
+
+/decl/submap_archetype/derelict/chemical_lab
+	descriptor = "Scrambled Signal"
+	map = "chemical_lab"
+	crew_jobs = list(
+			/datum/job/submap/chemical_lab_supervisor,
+			/datum/job/submap/chemical_lab_worker
+	)
+
+// Items, Structures, Etc.
 // Envelope
+
 
 /obj/item/weapon/folder/envelope/urist/supervisor_instructions
 	name = "employment details envelope"
