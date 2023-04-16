@@ -108,3 +108,9 @@
 	name = ".38 EMP Ammo Box (10 rounds)"
 	item_cost = 6
 	path = /obj/item/ammo_magazine/box/emp
+
+/datum/uplink_item/item/ammo/empslug
+	name = "Haywire Slug"
+	desc = "Single 12-Gauge shotgun slug designed to combat rampant synthetics threats."
+	item_cost = 1
+	path = /obj/item/ammo_casing/shotgun/emp
