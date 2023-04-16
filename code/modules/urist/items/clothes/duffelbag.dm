@@ -71,3 +71,25 @@
 	desc = "An exclusive duffel bag for... Clowns. Looks to be made by Honk! Co."
 	icon_state = "duffel-clown"
 	item_state = "duffel-clown"
+
+/obj/item/weapon/storage/backpack/dufflebag/syndie/urist/med
+	name = "medical dufflebag"
+	desc = "A large dufflebag for holding extra tactical medical supplies."
+	icon_state = "duffle_syndiemed"
+	item_state_slots = list(
+		slot_l_hand_str = "duffle_syndiemed",
+		slot_r_hand_str = "duffle_syndiemed",
+		)
+
+/obj/item/weapon/storage/backpack/dufflebag/syndie/urist/med/New()
+	startswith = list(
+		/obj/item/roller,
+		/obj/item/weapon/storage/box/syringes,
+		/obj/item/clothing/gloves/latex/nitrile,
+		/obj/item/clothing/glasses/hud/health,
+		/obj/item/device/healthanalyzer,
+		/obj/item/auto_cpr,
+		/obj/item/weapon/defibrillator/loaded,
+		/obj/item/weapon/reagent_containers/ivbag/nanoblood,
+		/obj/item/weapon/storage/firstaid/adv
+	)

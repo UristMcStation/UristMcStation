@@ -170,3 +170,66 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 	reagents.add_reagent(/datum/reagent/tramadol/oxycodone, 45)
 	reagents.add_reagent(/datum/reagent/dexalinp, 15)
 	update_icon()
+
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/combatstim
+	name ="autoinjector (combat Stimulants)"
+	desc = "An autoinjector containing a cocktail of stimulants to keep you going under pressure."
+	icon = 'icons/obj/syringe.dmi'
+	icon_state = "injector1"
+	item_state = "autoinjector"
+
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/combatstim/New()
+	..()
+	reagents.add_reagent(/datum/reagent/inaprovaline, 10)
+	reagents.add_reagent(/datum/reagent/hyperzine, 3)
+	reagents.add_reagent(/datum/reagent/synaptizine, 1)
+	update_icon()
+	return
+
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/coagulant
+	name ="autoinjector (coagulant)"
+	desc = "An autoinjector designed to counter severe bloodloss."
+	icon = 'icons/obj/syringe.dmi'
+	icon_state = "injector1"
+	item_state = "autoinjector"
+
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/coagulant/New()
+	..()
+	reagents.add_reagent(/datum/reagent/coagulant, 1)
+	reagents.add_reagent(/datum/reagent/nanoblood, 4)
+	update_icon()
+	return
+
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/dexalin_plus
+	name ="autoinjector (dexalin plus)"
+	desc = "An autoinjector used to assist with severe oxygen deprivation."
+	icon = 'icons/obj/syringe.dmi'
+	icon_state = "injector1"
+	item_state = "autoinjector"
+
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/dexalin_plus/New()
+	..()
+	reagents.add_reagent(/datum/reagent/dexalinp, 5)
+	update_icon()
+	return
+
+
+/obj/item/weapon/storage/firstaid/sleekstab
+	name = "Slimline stabilisation kit"
+	desc = "A sleek and expensive looking medical kit."
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "bezerk"
+	item_state = "firstaid-advanced"
+	w_class = ITEM_SIZE_SMALL
+	storage_slots = 7
+
+	startswith = list(
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/coagulant,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/pain,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/dexalin_plus,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/detox,
+	)
+

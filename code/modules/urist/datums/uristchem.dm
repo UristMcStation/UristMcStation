@@ -21,3 +21,25 @@
 /datum/reagent/drink/pilk/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	M.adjustBrainLoss(0.1)
+
+/datum/reagent/coagulant
+	name = "Coagulant"
+	description = "An experimental coagulant capable of staunching both internal and external bleeding."
+	taste_description = "iron"
+	reagent_state = LIQUID
+	color = "#bf0000"
+	metabolism = REM * 0.05
+	scannable = TRUE
+
+/datum/reagent/coagulant/affect_blood(mob/living/carbon/M, alien, removed)
+	if(alien == IS_DIONA)
+		return
+	if(ishuman(M))
+		for(var/obj/item/organ/external/E in M.organs)
+			if(E.status & ORGAN_ARTERY_CUT && prob(10))
+				E.status &= ~ORGAN_ARTERY_CUT
+			for(var/datum/wound/W in E.wounds)
+				if(W.bleeding() && prob(20))
+					W.bleed_timer = 0
+					W.clamped = TRUE
+					E.status &= ~ORGAN_BLEEDING
