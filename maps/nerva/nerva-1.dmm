@@ -5906,6 +5906,16 @@
 	dir = 4;
 	icon_state = "camera"
 	},
+/obj/structure/sign/directions/urist/trajan{
+	dir = 4;
+	pixel_y = -8;
+	pixel_x = -32
+	},
+/obj/structure/sign/directions/urist/antonine{
+	dir = 4;
+	pixel_y = 8;
+	pixel_x = -32
+	},
 /turf/simulated/floor/plating,
 /area/logistics/hangar)
 "kI" = (
@@ -5992,6 +6002,11 @@
 	c_tag = "Hanger Expedition Prep - Port";
 	dir = 8;
 	icon_state = "camera"
+	},
+/obj/structure/sign/directions/urist/antonine{
+	dir = 1;
+	pixel_x = 32;
+	pixel_y = 8
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/logistics/hangar)
@@ -21182,6 +21197,15 @@
 /area/maintenance/fourth_deck/fp)
 "ND" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/sign/directions/urist/trajan{
+	dir = 8;
+	pixel_x = 32
+	},
+/obj/structure/sign/directions/urist/antonine{
+	dir = 8;
+	pixel_y = 8;
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled/monotile,
 /area/logistics/hangar)
 "NF" = (
