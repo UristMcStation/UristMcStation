@@ -215,6 +215,7 @@
 	melee_damage_lower = 25
 	melee_damage_upper = 25
 	projectiletype = /obj/item/projectile/energy/scom/forgotten
+	aggro_sound = 'sound/hallucinations/screech.ogg'
 
 /mob/living/simple_animal/hostile/scom/forgotten/death()
 	..()
@@ -224,6 +225,9 @@
 	sleep(4)
 	qdel(src)
 	return
+
+/mob/living/simple_animal/hostile/scom/forgotten/awaymap //slightly less brtual
+	projectiletype = /obj/item/projectile/energy/scom/forgotten/awaymap
 
 /mob/living/simple_animal/hostile/alien/ravager
 	name = "alien ravager"
@@ -277,6 +281,15 @@
 	stutter = 5
 	damage_type = BURN
 
+/obj/item/projectile/energy/scom/forgotten/awaymap
+	name = "dark energy"
+	icon_state = "dblast"
+	damage = 15
+	stun = 1
+	weaken = 1
+	stutter = 1
+	damage_type = BURN
+
 /obj/item/projectile/beam/scom/alien6//for the fighters
 	name = "alien beam"
 	icon_state = "alienprojectile"
@@ -295,6 +308,7 @@
 	..()
 	visible_message("<span class='danger'>The [src.name] bursts into a ball of psionic energy!</span>")
 	flick("emfield_s1", src)
+	empulse(src, 2, 5)
 	sleep(6)
 	qdel(src)
 	return
