@@ -386,6 +386,7 @@
 	response_help = "holds tightly"
 	response_disarm = "pulls down"
 	response_harm = "grasps"
+	aggro_sound = 'sound/urist/holonaut_chatter_02.ogg'
 
 
 /mob/living/simple_animal/hostile/urist/hololab/holonautgrunt  // Weakest Holonaut
