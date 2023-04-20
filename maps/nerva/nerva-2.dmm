@@ -11693,6 +11693,10 @@
 	tag = "icon-corner_white (SOUTHWEST)"
 	},
 /obj/machinery/light,
+/obj/structure/sign/directions/urist/botany{
+	dir = 4;
+	pixel_y = -24
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/third_deck)
 "atp" = (
@@ -13040,6 +13044,13 @@
 "avI" = (
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/structure/sign/directions/urist/antonine{
+	pixel_x = 32;
+	pixel_y = 8
+	},
+/obj/structure/sign/directions/urist/trajan{
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/third_deck)
@@ -15270,6 +15281,20 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/sign/directions/urist/atmos{
+	pixel_x = 32;
+	pixel_y = 8;
+	dir = 1
+	},
+/obj/structure/sign/directions/urist/chapel{
+	pixel_x = 32;
+	dir = 1
+	},
+/obj/structure/sign/directions/urist/toolstorage{
+	pixel_x = 32;
+	pixel_y = -8;
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/third_deck)
 "aAf" = (
@@ -17268,6 +17293,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/sign/directions/urist/janitor{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/third_deck)
 "aDH" = (
@@ -18087,6 +18115,20 @@
 	dir = 4;
 	icon_state = "intact-supply"
 	},
+/obj/structure/sign/directions/urist/botany{
+	pixel_y = -22;
+	dir = 4
+	},
+/obj/structure/sign/directions/urist/eva{
+	pixel_y = -30;
+	dir = 4
+	},
+/obj/structure/sign/directions/engineering{
+	dir = 8;
+	icon_state = "direction_eng";
+	pixel_y = -38;
+	tag = "icon-direction_eng (WEST)"
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/third_deck)
 "aFc" = (
@@ -18253,6 +18295,10 @@
 	icon_state = "direction_med";
 	pixel_y = -22;
 	tag = "icon-direction_med (NORTH)"
+	},
+/obj/structure/sign/directions/urist/botany{
+	dir = 1;
+	pixel_y = -30
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/central/third_deck)
@@ -18481,6 +18527,9 @@
 	icon_state = "4-8";
 	pixel_y = 0
 	},
+/obj/structure/sign/directions/urist/eva{
+	pixel_y = -24
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/third_deck)
 "aFw" = (
@@ -18634,6 +18683,10 @@
 	tag = "icon-direction_bridge (EAST)"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/sign/directions/urist/eva{
+	pixel_y = -38;
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/third_deck)
 "aFI" = (
@@ -18657,6 +18710,10 @@
 	tag = "icon-direction_supply (WEST)"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/sign/directions/urist/toolstorage{
+	pixel_y = -38;
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/third_deck)
 "aFJ" = (
@@ -28328,6 +28385,15 @@
 /obj/item/weapon/reagent_containers/food/condiment/small/saltshaker,
 /turf/simulated/floor/wood/walnut,
 /area/civilian/bar)
+"chN" = (
+/obj/structure/sign/directions/engineering{
+	dir = 8;
+	icon_state = "direction_eng";
+	pixel_y = -8;
+	tag = "icon-direction_eng (WEST)"
+	},
+/turf/simulated/wall/prepainted,
+/area/civilian/cryo1)
 "csj" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4;
@@ -31788,6 +31854,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/civilian/abandonedoffice)
+"wYG" = (
+/obj/effect/paint_stripe/red,
+/obj/structure/sign/directions/urist/botany{
+	pixel_y = 6;
+	dir = 8
+	},
+/turf/simulated/wall/r_wall/prepainted,
+/area/security/checkpoint)
 "xah" = (
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/plating,
@@ -49423,7 +49497,7 @@ kdu
 azZ
 aze
 aBY
-aux
+chN
 aDG
 aEV
 aGn
@@ -56886,7 +56960,7 @@ pMv
 kBU
 aoC
 mPt
-mPt
+wYG
 aso
 atC
 sPK

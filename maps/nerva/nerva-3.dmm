@@ -4668,6 +4668,13 @@
 	tag = "icon-railing0 (EAST)"
 	},
 /obj/structure/railing/mapped,
+/obj/structure/sign/directions/security{
+	pixel_x = -32;
+	pixel_y = 8
+	},
+/obj/structure/sign/directions/urist/eva{
+	pixel_x = -32
+	},
 /turf/simulated/open,
 /area/hallway/fore/second_deck)
 "jD" = (
@@ -8657,6 +8664,18 @@
 	c_tag = "Second Deck Fore Hallway - Starboard";
 	dir = 1;
 	icon_state = "camera"
+	},
+/obj/structure/sign/directions/urist/atmos{
+	pixel_y = -40;
+	dir = 8
+	},
+/obj/structure/sign/directions/urist/toolstorage{
+	pixel_y = -24;
+	dir = 8
+	},
+/obj/structure/sign/directions/urist/chapel{
+	pixel_y = -32;
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/second_deck)
@@ -16108,6 +16127,31 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
+"OP" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/lightgrey{
+	dir = 9;
+	icon_state = "corner_white";
+	tag = "icon-corner_white (NORTHWEST)"
+	},
+/obj/structure/sign/directions/urist/atmos{
+	pixel_x = -32;
+	pixel_y = 8;
+	dir = 8
+	},
+/obj/structure/sign/directions/urist/chapel{
+	pixel_x = -32;
+	dir = 4
+	},
+/obj/structure/sign/directions/urist/toolstorage{
+	pixel_x = -32;
+	pixel_y = -8;
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/aft/second_deck)
 "OR" = (
 /obj/machinery/camera/network/second_deck{
 	c_tag = "Counselor's Office";
@@ -17044,6 +17088,13 @@
 "Uc" = (
 /turf/simulated/wall/prepainted,
 /area/chapel)
+"Uf" = (
+/obj/machinery/door/firedoor,
+/obj/structure/sign/directions/urist/chapel{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/fore/second_deck)
 "Ul" = (
 /obj/item/ammo_magazine/c44,
 /obj/structure/closet/secure_closet/nervacap,
@@ -17404,6 +17455,14 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/engineering/substation/second_deck)
+"WA" = (
+/obj/structure/sign/directions/urist/toolstorage{
+	pixel_x = -32;
+	pixel_y = 24;
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/fore/second_deck)
 "WC" = (
 /obj/structure/sign/warning/vacuum{
 	pixel_y = 32
@@ -37609,7 +37668,7 @@ Ah
 Ah
 mR
 jh
-hF
+OP
 IT
 VK
 rp
@@ -41852,7 +41911,7 @@ hJ
 hJ
 hJ
 hJ
-pH
+Uf
 LA
 ru
 sm
@@ -42054,7 +42113,7 @@ me
 nd
 BX
 hJ
-iK
+WA
 iK
 ru
 sn
