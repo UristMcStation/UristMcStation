@@ -61,6 +61,7 @@
 	var/datum/vampire/vampire			//vamp holder; really have to clean this up someday.
 
 	var/rev_cooldown = 0
+	var/last_words
 
 	// the world.time since the mob has been brigged, or -1 if not at all
 	var/brigged_since = -1

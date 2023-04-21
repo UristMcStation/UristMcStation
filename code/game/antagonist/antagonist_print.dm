@@ -12,6 +12,8 @@
 		if(ambition)
 			text += "<br>Their goals for today were..."
 			text += "<br><span class='notice'>[ambition.summarize()]</span>"
+		if(P.current.stat == DEAD && P.last_words)
+			text += "<br><b>Their last words were:</b> '[P.last_words]'"
 		if(!global_objectives.len && P.objectives && P.objectives.len)
 			var/failed
 			var/num = 1

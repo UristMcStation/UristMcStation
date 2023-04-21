@@ -326,6 +326,9 @@ proc/get_radio_key_from_channel(var/channel)
 	INVOKE_ASYNC(GLOBAL_PROC, .proc/animate_speech_bubble, speech_bubble, speech_bubble_recipients, 30)
 	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, speaking, italics, speech_bubble_recipients, whisper_floating, 30)
 
+	if(mind)
+		mind.last_words = message
+
 	if(whispering)
 		log_whisper("[name]/[key] : [message]")
 	else
