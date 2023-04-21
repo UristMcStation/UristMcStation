@@ -106,7 +106,11 @@
 	icon_state = "emag"
 	item_state = "card-id"
 	origin_tech = list(TECH_MAGNET = 2, TECH_ILLEGAL = 2)
-	var/uses = 24
+	var/uses = 18
+
+/obj/item/weapon/card/emag/New()
+	uses = rand(18, 24)
+	..()
 
 var/const/NO_EMAG_ACT = -50
 /obj/item/weapon/card/emag/resolve_attackby(atom/A, mob/user)
