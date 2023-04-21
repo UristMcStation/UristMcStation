@@ -86,10 +86,10 @@
 	desc = "A painting that shows what appears to be fruit on a table in great detail."
 	icon_state = "still"
 
-/obj/structure/sign/painting/persistance
+/obj/structure/sign/painting/persistence
 	name = "\improper surreal painting"
 	desc = "A surreal painting focusing on clocks melting into the landscape, almost trippy to look at."
-	icon_state = "persistance"
+	icon_state = "persistence"
 
 /obj/structure/sign/painting/sonofman
 	name = "\improper surreal portrait"
