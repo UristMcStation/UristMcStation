@@ -37,7 +37,7 @@
 	name = "Advanced medical toolkit"
 	desc = "A duffle bag containing a roller bed, syringes, health analyzer, health HUD, auto-compressor, auto-resuscitator, nanoblood, an advanced first-aid kit, and a pair of nitrile gloves."
 	item_cost = 24
-	path = /obj/item/weapon/storage/backpack/dufflebag/syndie/urist/med
+	path = /obj/item/weapon/storage/backpack/dufflebag/syndie/urist/med/full
 
 /datum/uplink_item/item/medical/surgery
 	name = "Surgery kit"

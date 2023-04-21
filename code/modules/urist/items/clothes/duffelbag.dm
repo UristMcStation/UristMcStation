@@ -75,21 +75,20 @@
 /obj/item/weapon/storage/backpack/dufflebag/syndie/urist/med
 	name = "medical dufflebag"
 	desc = "A large dufflebag for holding extra tactical medical supplies."
+	max_storage_space = 38
 	icon_state = "duffle_syndiemed"
 	item_state_slots = list(
 		slot_l_hand_str = "duffle_syndiemed",
 		slot_r_hand_str = "duffle_syndiemed",
 		)
 
-/obj/item/weapon/storage/backpack/dufflebag/syndie/urist/med/New()
-	startswith = list(
-		/obj/item/roller,
-		/obj/item/weapon/storage/box/syringes,
-		/obj/item/clothing/gloves/latex/nitrile,
-		/obj/item/clothing/glasses/hud/health,
-		/obj/item/device/healthanalyzer,
-		/obj/item/auto_cpr,
-		/obj/item/weapon/defibrillator/loaded,
-		/obj/item/weapon/reagent_containers/ivbag/nanoblood,
-		/obj/item/weapon/storage/firstaid/adv
-	)
+/obj/item/weapon/storage/backpack/dufflebag/syndie/urist/med/full
+	startswith = list(/obj/item/roller,
+				/obj/item/weapon/storage/box/syringes = 1,
+				/obj/item/clothing/gloves/latex/nitrile = 1,
+				/obj/item/clothing/glasses/hud/health = 1,
+				/obj/item/device/healthanalyzer = 1,
+				/obj/item/auto_cpr = 1,
+				/obj/item/weapon/defibrillator/loaded = 1,
+				/obj/item/weapon/reagent_containers/ivbag/nanoblood = 1,
+				/obj/item/weapon/storage/firstaid/adv = 1)
