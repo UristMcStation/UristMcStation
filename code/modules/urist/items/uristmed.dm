@@ -175,7 +175,7 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 	name ="autoinjector (combat Stimulants)"
 	desc = "An autoinjector containing a cocktail of stimulants to keep you going under pressure."
 	icon = 'icons/obj/syringe.dmi'
-	icon_state = "injector1"
+	icon_state = "stiminjector"
 	item_state = "autoinjector"
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/combatstim/New()
@@ -190,7 +190,7 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 	name ="autoinjector (coagulant)"
 	desc = "An autoinjector designed to counter severe bloodloss."
 	icon = 'icons/obj/syringe.dmi'
-	icon_state = "injector1"
+	icon_state = "stiminjector"
 	item_state = "autoinjector"
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/coagulant/New()
@@ -204,7 +204,7 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 	name ="autoinjector (dexalin plus)"
 	desc = "An autoinjector used to assist with severe oxygen deprivation."
 	icon = 'icons/obj/syringe.dmi'
-	icon_state = "injector1"
+	icon_state = "stiminjector"
 	item_state = "autoinjector"
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/dexalin_plus/New()
