@@ -34,11 +34,41 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "Renault"
 	desc = "Renault, the Captain's trustworthy fox. I wonder what it says?"
 	var/turns_since_scan = 0
-	var/mob/living/simple_animal/mouse/movement_target
+	var/mob/living/simple_animal/passive/mouse/movement_target
+
+//Space bats from /tg/
+
+/mob/living/simple_animal/hostile/retaliate/bat
+	name = "Space Bat"
+	desc = "A rare breed of bat which roosts in spaceships, probably not vampiric."
+	icon = 'icons/urist/uristicons.dmi'
+	icon_state = "bat"
+	icon_living = "bat"
+	icon_dead = "bat_dead"
+	icon_gib = "bat_dead"
+	turns_per_move = 1
+	response_help = "brushes aside"
+	response_disarm = "flails at"
+	response_harm = "hits"
+	a_intent = "harm"
+	maxHealth = 15
+	health = 15
+	see_in_dark = 10
+	harm_intent_damage = 6
+	natural_weapon = /obj/item/natural_weapon/bite
+	attacktext = "bites"
+	pass_flags = PASS_FLAG_TABLE
+	faction = "carp"
+	attack_sound = 'sound/weapons/bite.ogg'
+
+	//Space bats need no air to fly in.
+	min_gas = null
+	max_gas = null
+	minbodytemp = 0
 
 //ARANEUS. Squee?
 
-/mob/living/simple_animal/hostile/retaliate/beast/antlion/araneus
+/mob/living/simple_animal/hostile/retaliate/bat/araneus
 	desc = "A fierce companion for any person of power, this spider has been carefully trained by NanoTrasen specialists. Its beady, staring eyes send shivers down your spine."
 	faction = "spiders"
 	harm_intent_damage = 3

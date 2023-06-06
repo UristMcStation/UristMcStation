@@ -15,6 +15,18 @@
 	name = "captain's rubber stamp"
 	icon_state = "stamp-cap"
 
+/obj/item/stamp/hop
+	name = "\improper Head of Personnel's rubber stamp"
+	icon_state = "stamp-hop"
+
+/obj/item/stamp/hos
+	name = "\improper Head of Security's rubber stamp"
+	icon_state = "stamp-hos"
+
+/obj/item/stamp/ward
+	name = "\improper Warden's rubber stamp"
+	icon_state = "stamp-ward"
+
 /obj/item/stamp/ce
 	name = "chief engineer's rubber stamp"
 	icon_state = "stamp-ce"

@@ -83,7 +83,7 @@
 	desc = "A fistful of shotgun shells."
 	icon = 'icons/urist/items/shotbundle.dmi'
 	icon_state = "slshell-1"
-	caliber = "shotgun"
+	caliber = CALIBER_SHOTGUN
 	ammo_type = /obj/item/ammo_casing/shotgun
 
 /obj/item/ammo_magazine/bundle
@@ -120,7 +120,7 @@
 	name = "shotgun slug holder"
 	desc = "A convenient pouch that holds 12 gauge shells."
 	icon_state = "shotholder"
-	caliber = "shotgun"
+	caliber = CALIBER_SHOTGUN
 	ammo_type = /obj/item/ammo_casing/shotgun
 	matter = list(MATERIAL_STEEL = 1440)
 	max_ammo = 4
