@@ -272,7 +272,7 @@
 	if (failure_probability < 5)
 		failure_probability = 0
 
-	if (failure_probability && prob(failure_probability * (1.5 - (user.get_skill_value(core_skill) - SKILL_MIN)/(SKILL_MAX - SKILL_MIN))))// 0.5 - 1.5, step of 0.25
+	if (failure_probability && prob(failure_probability * (0.5)))// 0.5 - 1.5, step of 0.25
 		total_system_failure(failure_probability, user)
 		return TRUE
 

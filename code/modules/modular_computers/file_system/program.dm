@@ -49,7 +49,7 @@
 	/// Whether the program can be downloaded from SyndiNet (accessible via emagging the computer). Set to TRUE to enable.
 	var/available_on_syndinet = FALSE
 	/// Holder for skill value of current/recent operator for programs that tick.
-	var/operator_skill = SKILL_MIN
+	var/operator_skill = SKILL_NONE
 
 /datum/computer_file/program/Destroy()
 	if(computer && computer.active_program == src)

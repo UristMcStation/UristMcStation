@@ -615,26 +615,6 @@
 	materials = list(MATERIAL_STEEL = 2000, MATERIAL_GLASS = 2000)
 	id = "augment_toolset_surgery"
 
-/datum/design/item/mechfab/augment/reflex
-	name = "Synapse interceptors"
-	build_path = /obj/item/organ/internal/augment/boost/reflex
-	materials = list(MATERIAL_STEEL = 750, MATERIAL_GLASS = 750, MATERIAL_SILVER = 100)
-	req_tech = list(TECH_MATERIAL = 5, TECH_COMBAT = 4, TECH_BIO = 4, TECH_MAGNET = 5)
-	id = "augment_booster_reflex"
-
-/datum/design/item/mechfab/augment/shooting
-	name = "Gunnery booster"
-	build_path = /obj/item/organ/internal/augment/boost/shooting
-	materials = list(MATERIAL_STEEL = 750, MATERIAL_GLASS = 750, MATERIAL_SILVER = 100)
-	req_tech = list(TECH_MATERIAL = 5, TECH_COMBAT = 5, TECH_BIO = 4)
-	id = "augment_booster_gunnery"
-
-/datum/design/item/mechfab/augment/muscle
-	name = "Mechanical muscles"
-	build_path = /obj/item/organ/internal/augment/boost/muscle
-	materials = list(MATERIAL_STEEL = 5000, MATERIAL_GLASS = 1000)
-	id = "augment_booster_muscles"
-
 /datum/design/item/mechfab/augment/armor
 	name = "Subdermal armor"
 	build_path = /obj/item/organ/internal/augment/armor

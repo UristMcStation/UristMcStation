@@ -8,7 +8,6 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 	silicon_restriction = STATUS_UPDATE
 	machine_name = "helm control console"
 	machine_desc = "A navigation system used to control spacecraft big and small, allowing for configuration of heading and autopilot as well as providing navigational data."
-	//core_skill = SKILL_PILOT
 	var/autopilot = 0
 	var/list/known_sectors = list()
 	var/dx		//desitnation

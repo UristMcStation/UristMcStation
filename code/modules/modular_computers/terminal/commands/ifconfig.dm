@@ -8,7 +8,6 @@
 		"Returns network adaptor information."
 	)
 	pattern = "^ifconfig"
-	skill_needed = SKILL_EXPERT
 
 /datum/terminal_command/ifconfig/proper_input_entered(text, mob/user, datum/terminal/terminal)
 	var/command = copytext(text, 1, length(name) + 2)

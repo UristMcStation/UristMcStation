@@ -123,22 +123,15 @@
 		var/atom/movable/M = trading_items[num]
 		return "<b>[initial(M.name)]</b>"
 
-/datum/trader/proc/skill_curve(skill)
-	switch(skill)
-		if(SKILL_NONE)
-			. = 1
-	//This condition ensures that the buy price is higher than the sell price on generic goods, i.e. the merchant can't be exploited
-	. = max(., price_rng/((margin - 1)*(200 - price_rng)))
-
-/datum/trader/proc/get_item_value(trading_num, skill = SKILL_MAX)
+/datum/trader/proc/get_item_value(trading_num)
 	if(!trading_items[trading_items[trading_num]])
 		var/type = trading_items[trading_num]
 		var/value = get_value(type)
 		value = round(rand(100 - price_rng,100 + price_rng)/100 * value) //For some reason rand doesn't like decimals.
 		trading_items[type] = value
-	. = trading_items[trading_items[trading_num]]
+	return trading_items[trading_items[trading_num]]
 
-/datum/trader/proc/get_buy_price(item, is_wanted, skill = SKILL_MAX)
+/datum/trader/proc/get_buy_price(item, is_wanted)
 	. = get_value(item)
 	if(is_wanted)
 		. *= want_multiplier

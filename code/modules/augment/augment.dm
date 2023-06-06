@@ -157,10 +157,8 @@
 		return
 	else if (user.mind?.special_role)
 		level = 2
-	else if (user.skill_check(SKILL_DEVICES, SKILL_NONE))
+	else
 		level = 2
-	else if (user.skill_check(SKILL_DEVICES, SKILL_NONE))
-		level = 1
 	if (!level)
 		return
 	var/list/attach_types = list()

@@ -243,10 +243,7 @@
 		SPAN_ITALIC("You start extracting \the [src]'s cannula from \the [buckled_mob]."),
 		range = 5
 	)
-	if (!user.do_skilled(1.5 SECONDS, SKILL_MEDICAL, buckled_mob))
-		return
-	if (!user.skill_check(SKILL_MEDICAL, SKILL_NONE))
-		RipDrip(user)
+	if (!do_after(user, 1.5 SECONDS, buckled_mob))
 		return
 	STOP_PROCESSING(SSobj, src)
 	user.visible_message(
@@ -280,15 +277,7 @@
 		SPAN_ITALIC("You start to hook up \the [target] to \the [src]."),
 		range = 5
 	)
-	if (!user.do_skilled(3 SECONDS, SKILL_MEDICAL, target))
-		return
-	if (prob(user.skill_fail_chance(SKILL_MEDICAL, 50, SKILL_BASIC)))
-		user.visible_message(
-			SPAN_DANGER("\The [user] fishes for a vein on \the [target] and fails, stabbing them instead!"),
-			SPAN_DANGER("You fish inexpertly for a vein on \the [target] and stab them instead!"),
-			range = 5
-		)
-		target.apply_damage(rand(2, 6), DAMAGE_BRUTE, pick(BP_R_ARM, BP_L_ARM), damage_flags = DAMAGE_FLAG_SHARP, armor_pen = 100)
+	if (!do_after(user, 3 SECONDS, target))
 		return
 	START_PROCESSING(SSobj, src)
 	user.visible_message(

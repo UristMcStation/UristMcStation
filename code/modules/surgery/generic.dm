@@ -133,10 +133,9 @@
 
 /singleton/surgery_step/generic/cut_open/success_chance(mob/living/user, mob/living/carbon/human/target, obj/item/tool)
 	. = ..()
-	if(user.skill_check(SKILL_FORENSICS, SKILL_NONE))
+	. += 40
+	if(target.stat == DEAD)
 		. += 40
-		if(target.stat == DEAD)
-			. += 40
 
 //////////////////////////////////////////////////////////////////
 //	 bleeder clamping surgery step
@@ -308,14 +307,6 @@
 	var/obj/item/organ/external/affected = ..()
 	if(affected && (affected.limb_flags & ORGAN_FLAG_CAN_AMPUTATE) && !affected.how_open())
 		return affected
-
-/singleton/surgery_step/generic/amputate/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/tool)
-	var/target_zone = user.zone_sel.selecting
-	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	if(BP_IS_ROBOTIC(affected))
-		return SURGERY_SKILLS_ROBOTIC
-	else
-		return ..()
 
 /singleton/surgery_step/generic/amputate/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)

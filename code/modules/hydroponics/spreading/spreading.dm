@@ -244,11 +244,6 @@
 		if (!seed)
 			USE_FEEDBACK_FAILURE("There is nothing on \the [src] to take a sample from.")
 			return TRUE
-		var/needed_skill = seed.mysterious ? SKILL_ADEPT : SKILL_BASIC
-		if (prob(user.skill_fail_chance(SKILL_BOTANY, 90, needed_skill)))
-			USE_FEEDBACK_FAILURE("You failed to get a usable sample from \the [src], and damage it in the process.")
-			damage_health(rand(15, 25), tool.damtype)
-			return TRUE
 		seed.harvest(user, 0, 1)
 		return TRUE
 

@@ -16,7 +16,7 @@
 	var/executed = FALSE
 
 /datum/computer_file/program/ntnet_dos/process_tick()
-	dos_speed = computer.get_ntnet_speed(computer.get_ntnet_status()) * (NTNETSPEED_DOS_AMPLIFICATION + operator_skill - SKILL_BASIC)
+	dos_speed = computer.get_ntnet_speed(computer.get_ntnet_status()) * (NTNETSPEED_DOS_AMPLIFICATION)
 	if(target && executed)
 		target.dos_overload += dos_speed
 		if(!target.operable())

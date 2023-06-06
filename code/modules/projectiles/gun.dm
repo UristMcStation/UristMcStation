@@ -104,11 +104,6 @@
 	var/has_safety = TRUE
 	var/safety_icon 	   //overlay to apply to gun based on safety state, if any
 
-	/// What skill governs safe handling of this gun. Basic skill level and higher will also show the safety overlay to the player.
-	var/gun_skill = SKILL_WEAPONS
-	/// What skill level is needed in the gun's skill to completely negate the chance of an accident.
-	//var/safety_skill = SKILL_EXPERT
-
 /obj/item/gun/Initialize()
 	. = ..()
 	for(var/i in 1 to length(firemodes))
@@ -555,10 +550,9 @@
 
 /obj/item/gun/examine(mob/user)
 	. = ..()
-	if(user.skill_check(SKILL_WEAPONS, SKILL_NONE))
-		if(length(firemodes) > 1)
-			var/datum/firemode/current_mode = firemodes[sel_mode]
-			to_chat(user, "The fire selector is set to [current_mode.name].")
+	if(length(firemodes) > 1)
+		var/datum/firemode/current_mode = firemodes[sel_mode]
+		to_chat(user, "The fire selector is set to [current_mode.name].")
 
 /obj/item/gun/proc/switch_firemodes()
 

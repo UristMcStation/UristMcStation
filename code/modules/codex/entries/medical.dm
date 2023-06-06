@@ -81,6 +81,5 @@
 	associated_paths = list(/obj/item/auto_cpr)
 	mechanics_text = "This automatic pump will help a patient whose heart is stopped, much like CPR, when put in the patient's suit slot.<br>\
 	<br>\
-	There are several things to keep in mind when using it. First off, you need Basic Medicine AND Anatomy skills to align it properly, otherwise it'll hurt patient. \
 	It will only provide some circulation, you need to fix blood volume and oxygen supply issues for it to be useful. \
-	It performs worse than manual CPR by a skilled user and will NOT restart the heart. It's advantage is automatic nature.<br>"
+	It performs worse than manual CPR and will NOT restart the heart. It's advantage is its automatic nature.<br>"

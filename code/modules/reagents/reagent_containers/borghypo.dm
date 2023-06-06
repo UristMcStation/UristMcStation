@@ -76,7 +76,7 @@
 	if (allow)
 		if (allow == INJECTION_PORT)
 			user.visible_message(SPAN_WARNING("\The [user] begins hunting for an injection port on \the [M]'s suit!"))
-			if(!user.do_skilled(INJECTION_PORT_DELAY, SKILL_MEDICAL, M, do_flags = DO_MEDICAL))
+			if(!do_after(user, INJECTION_PORT_DELAY, M, do_flags = DO_MEDICAL))
 				return
 		to_chat(user, SPAN_NOTICE("You inject [M] with the injector."))
 		if(ishuman(M))

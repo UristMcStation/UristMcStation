@@ -52,12 +52,6 @@ GLOBAL_LIST_INIT(surgery_tool_exception_cache, new)
 
 	return 1
 
-/singleton/surgery_step/proc/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/tool, target_zone)
-	if(delicate)
-		return SURGERY_SKILLS_DELICATE
-	else
-		return SURGERY_SKILLS_GENERIC
-
 // checks whether this step can be applied with the given user and target
 /singleton/surgery_step/proc/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return assess_bodypart(user, target, target_zone, tool) && assess_surgery_candidate(user, target, target_zone, tool)
@@ -193,8 +187,10 @@ GLOBAL_LIST_INIT(surgery_tool_exception_cache, new)
 	else if(LAZYLEN(possible_surgeries) >= 1)
 		if(user.client) // In case of future autodocs.
 			S = input(user, "Which surgery would you like to perform?", "Surgery") as null|anything in possible_surgeries
-		if(S && !user.skill_check_multiple(S.get_skill_reqs(user, M, src, zone)))
+		if(S && !user.client)
 			S = pick(possible_surgeries)
+		else
+			S = show_radial_menu(user, M, possible_surgeries, radius = 42, use_labels = TRUE, require_near = TRUE, check_locs = list(src))
 
 	var/obj/item/gripper/gripper = user.get_active_hand()
 	// We didn't find a surgery, or decided not to perform one.

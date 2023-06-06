@@ -44,7 +44,7 @@
 			user.visible_message(SPAN_WARNING("\The [user] begins hunting for an injection port on \the [M]'s suit!"))
 		else
 			to_chat(user, SPAN_NOTICE("You begin hunting for an injection port on your suit."))
-		if(!user.do_skilled(INJECTION_PORT_DELAY, SKILL_MEDICAL, M, do_flags = DO_MEDICAL))
+		if(!do_after(user, INJECTION_PORT_DELAY, M, do_flags = DO_MEDICAL))
 			return
 
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
@@ -52,7 +52,7 @@
 
 	if(user != M && !M.incapacitated() && time) // you're injecting someone else who is concious, so apply the device's intrisic delay
 		to_chat(user, SPAN_WARNING("\The [user] is trying to inject \the [M] with \the [name]."))
-		if(!user.do_skilled(time, SKILL_MEDICAL, M, do_flags = DO_MEDICAL))
+		if(!do_after(user, time, M, do_flags = DO_MEDICAL))
 			return
 
 	if(single_use && reagents.total_volume <= 0) // currently only applies to autoinjectors

@@ -11,7 +11,6 @@
 	density = TRUE
 	anchored = TRUE
 	clicksound = "switch"
-	core_skill = SKILL_ELECTRICAL
 	power_channel = LOCAL // Draws power from direct connections to powernets.
 	construct_state = /singleton/machine_construction/default/panel_closed
 	uncreated_component_parts = null

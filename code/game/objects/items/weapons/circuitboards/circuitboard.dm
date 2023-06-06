@@ -29,9 +29,6 @@
 
 /obj/item/stock_parts/circuitboard/examine(mob/user)
 	. = ..()
-	if (!user.skill_check(SKILL_CONSTRUCTION, SKILL_NONE) && !isobserver(user))
-		to_chat(user, "You aren't sure what you can build with this.")
-		return
 	if (build_path)
 		var/obj/machinery/M = build_path
 		var/machine_name = initial(M.machine_name)
@@ -41,17 +38,16 @@
 			to_chat(user, SPAN_NOTICE(machine_desc))
 			if (buildtype_select)
 				to_chat(user, SPAN_NOTICE("This board can be used for multiple machines. Use a multitool to determine what type of machine that will be created."))
-	if (user.skill_check(SKILL_CONSTRUCTION, SKILL_NONE) || isobserver(user))
-		if (length(req_components))
-			to_chat(user, SPAN_NOTICE("It requires the following parts to function:"))
-			for (var/V in req_components)
-				var/obj/item/I = V
-				to_chat(user, SPAN_NOTICE("&nbsp;&nbsp;[req_components[V]] [initial(I.name)]"))
-		if (length(additional_spawn_components))
-			to_chat(user, SPAN_NOTICE("It[length(req_components) ? " also" : ""] requires the following parts to actually be usable:"))
-			for (var/V in additional_spawn_components)
-				var/obj/item/I = V
-				to_chat(user, SPAN_NOTICE("&nbsp;&nbsp;[additional_spawn_components[V]] [initial(I.name)]"))
+	if (length(req_components))
+		to_chat(user, SPAN_NOTICE("It requires the following parts to function:"))
+		for (var/V in req_components)
+			var/obj/item/I = V
+			to_chat(user, SPAN_NOTICE("&nbsp;&nbsp;[req_components[V]] [initial(I.name)]"))
+	if (length(additional_spawn_components))
+		to_chat(user, SPAN_NOTICE("It[length(req_components) ? " also" : ""] requires the following parts to actually be usable:"))
+		for (var/V in additional_spawn_components)
+			var/obj/item/I = V
+			to_chat(user, SPAN_NOTICE("&nbsp;&nbsp;[additional_spawn_components[V]] [initial(I.name)]"))
 
 //Called when the circuitboard is used to contruct a new machine.
 /obj/item/stock_parts/circuitboard/proc/construct(obj/machinery/M)

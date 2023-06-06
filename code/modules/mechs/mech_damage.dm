@@ -54,7 +54,6 @@
 			var/message = "\The [AM] lands in \the [src]'s cockpit with a crash. Get in the damn exosuit!"
 			if (TT.thrower == TT.thrownthing)
 				//This is someone jumping
-				chance = M.skill_check_multiple(list(SKILL_MECH = HAS_PERK, SKILL_HAULING = SKILL_ADEPT)) ? 100 : chance
 				message = "\The [AM] gets in \the [src]'s cockpit in one fluid motion."
 			if (prob(chance))
 				if (enter(AM, silent = TRUE, check_incap = FALSE, instant = TRUE))

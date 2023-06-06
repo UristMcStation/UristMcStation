@@ -53,14 +53,6 @@
 	else
 		. = TRUE
 
-/singleton/surgery_step/limb/attach/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/organ/external/tool)
-	if(istype(tool) && BP_IS_ROBOTIC(tool))
-		if(target.isSynthetic())
-			return SURGERY_SKILLS_ROBOTIC
-		else
-			return SURGERY_SKILLS_ROBOTIC_ON_MEAT
-	return ..()
-
 /singleton/surgery_step/limb/attach/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(..())
 		var/obj/item/organ/external/E = tool
@@ -103,15 +95,6 @@
 	min_duration = 100
 	max_duration = 120
 
-/singleton/surgery_step/limb/connect/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/tool, target_zone)
-	var/obj/item/organ/external/E = target && target.get_organ(target_zone)
-	if(istype(E) && BP_IS_ROBOTIC(E))
-		if(target.isSynthetic())
-			return SURGERY_SKILLS_ROBOTIC
-		else
-			return SURGERY_SKILLS_ROBOTIC_ON_MEAT
-	return ..()
-
 /singleton/surgery_step/limb/connect/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(..())
 		var/obj/item/organ/external/E = target.get_organ(target_zone)
@@ -149,12 +132,6 @@
 
 	min_duration = 80
 	max_duration = 100
-
-/singleton/surgery_step/limb/mechanize/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/tool)
-	if(target.isSynthetic())
-		return SURGERY_SKILLS_ROBOTIC
-	else
-		return SURGERY_SKILLS_ROBOTIC_ON_MEAT
 
 /singleton/surgery_step/limb/mechanize/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(..())

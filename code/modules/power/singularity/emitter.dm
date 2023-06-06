@@ -23,7 +23,6 @@
 	var/shot_number = 0
 	var/state = EMITTER_LOOSE
 	var/locked = FALSE
-	core_skill = SKILL_ENGINES
 
 	uncreated_component_parts = list(
 		/obj/item/stock_parts/radio/receiver,
@@ -67,7 +66,7 @@
 			if (EMITTER_WELDED)
 				state_message = "It is firmly secured in place."
 		to_chat(user, SPAN_NOTICE(state_message))
-		if (emagged && (user.skill_check(core_skill, SKILL_ADEPT) || is_observer))
+		if (emagged)
 			to_chat(user, SPAN_WARNING("Its control locks have been fried."))
 
 /obj/machinery/power/emitter/on_update_icon()

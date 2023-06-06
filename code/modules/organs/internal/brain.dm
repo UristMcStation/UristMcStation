@@ -142,8 +142,6 @@
 
 /obj/item/organ/internal/brain/Process()
 	if(owner)
-		if(damage > max_damage / 2 && healed_threshold)
-			handle_severe_brain_damage()
 
 		handle_disabilities()
 		handle_damage_effects()

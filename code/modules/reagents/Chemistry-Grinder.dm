@@ -13,7 +13,6 @@
 	machine_name = "reagent grinder"
 	machine_desc = "An industrial grinder with durable blades that shreds objects into their component reagents."
 
-	var/skill = SKILL_CHEMISTRY
 	var/grind_sound = 'sound/machines/grinder.ogg'
 	var/list/items = list()
 	var/max_items = 10
@@ -73,30 +72,29 @@
 	update_icon()
 
 	addtimer(new Callback(src, .proc/reset_machine, user), grind_time)
-	var/skill_multiplier = CLAMP01(0.5 + (user.get_skill_value(skill) - 1) * 0.167)
 	for (var/obj/item/I in items)
 		if (container.reagents.total_volume >= container.reagents.maximum_volume)
 			break
 		if (I.reagents?.total_volume)
-			I.reagents.trans_to(container, I.reagents.total_volume, skill_multiplier)
+			I.reagents.trans_to(container, I.reagents.total_volume)
 			I.reagents.clear_reagents()
 		var/material/M = I.get_material()
 		if (length(M?.chem_products))
 			if (isstack(I))
 				var/sheet_volume = 0
 				for (var/chem in M.chem_products)
-					sheet_volume += M.chem_products[chem] * skill_multiplier
+					sheet_volume += M.chem_products[chem]
 				var/obj/item/stack/material/S = I
 				var/used_sheets = min(Ceil((container.reagents.maximum_volume - container.reagents.total_volume) / sheet_volume), S.get_amount())
 				var/used_all = used_sheets == S.get_amount()
 				S.use(used_sheets)
 				for (var/chem in M.chem_products)
-					container.reagents.add_reagent(chem, used_sheets * M.chem_products[chem] * skill_multiplier)
+					container.reagents.add_reagent(chem, used_sheets * M.chem_products[chem])
 				if (!used_all)
 					break
 			else
 				for (var/chem in M.chem_products)
-					container.reagents.add_reagent(chem, M.chem_products[chem] * skill_multiplier)
+					container.reagents.add_reagent(chem, M.chem_products[chem])
 		items -= I
 		qdel(I)
 
@@ -262,7 +260,6 @@
 	anchored = FALSE
 	grind_sound = 'sound/machines/juicer.ogg'
 	max_item_size = ITEM_SIZE_NORMAL
-	skill = SKILL_COOKING
 	banned_items = list(
 		/obj/item/stack/material
 	)

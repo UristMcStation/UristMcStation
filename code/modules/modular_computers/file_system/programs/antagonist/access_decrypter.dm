@@ -16,10 +16,6 @@
 	var/target_progress = 300
 	var/datum/access/target_access = null
 	var/list/restricted_access_codes = list(access_change_ids) // access codes that are not hackable due to balance reasons
-	var/list/skill_restricted_access_codes = list(
-		access_network = SKILL_EXPERT,
-		access_network_admin = SKILL_PROF
-	)
 
 /datum/computer_file/program/access_decrypter/on_shutdown(forced)
 	reset()
@@ -56,7 +52,6 @@
 /datum/computer_file/program/access_decrypter/Topic(href, href_list)
 	if(..())
 		return TOPIC_HANDLED
-	operator_skill = usr.get_skill_value(SKILL_COMPUTER)
 	if(href_list["PRG_reset"])
 		reset()
 		return TOPIC_HANDLED
@@ -77,8 +72,6 @@
 		if(access in id_card.access)
 			return TOPIC_HANDLED
 		if(access in restricted_access_codes)
-			return TOPIC_HANDLED
-		if(skill_restricted_access_codes[access] && operator_skill < skill_restricted_access_codes[access])
 			return TOPIC_HANDLED
 		target_access = get_access_by_id(access)
 		if(!target_access)
@@ -136,7 +129,7 @@
 						"desc" = replacetext(get_access_desc(access), " ", "&nbsp"),
 						"ref" = access,
 						"allowed" = (access in id_card.access) ? 1 : 0,
-						"blocked" = ((access in PRG.restricted_access_codes) || (PRG.skill_restricted_access_codes[access] && PRG.operator_skill < PRG.skill_restricted_access_codes[access])) ? 1 : 0
+						"blocked" = (access in PRG.restricted_access_codes) ? 1 : 0
 					)))
 
 			regions.Add(list(list(

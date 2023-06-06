@@ -8,7 +8,6 @@
 	)
 	pattern = "^purge$"
 	req_access = list(access_network_admin)
-	skill_needed = SKILL_PROF
 
 /datum/terminal_command/purge/proper_input_entered(text, mob/user, datum/terminal/terminal)
 	if(!ntnet_global || !terminal.computer.get_ntnet_status())

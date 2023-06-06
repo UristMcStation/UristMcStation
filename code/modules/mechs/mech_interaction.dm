@@ -110,13 +110,8 @@
 		else
 			zone_sel.set_selected_zone(BP_CHEST)
 	// You may attack the target with your exosuit FIST if you're malfunctioning.
-	var/atom/movable/AM = A
-	var/fail_prob = (user != src && istype(AM) && AM.loc != src) ? (user.skill_check(SKILL_MECH, SKILL_NONE) ? 0: 15 ) : 0
 	var/failed = FALSE
-	if(prob(fail_prob))
-		to_chat(user, SPAN_DANGER("Your incompetence leads you to target the wrong thing with the exosuit!"))
-		failed = TRUE
-	else if(emp_damage > EMP_ATTACK_DISRUPT && prob(emp_damage*2))
+	if(emp_damage > EMP_ATTACK_DISRUPT && prob(emp_damage*2))
 		to_chat(user, SPAN_DANGER("The wiring sparks as you attempt to control the exosuit!"))
 		failed = TRUE
 
@@ -143,10 +138,7 @@
 
 			// Slip up and attack yourself maybe.
 			failed = FALSE
-			if(prob(fail_prob))
-				to_chat(user, SPAN_DANGER("You artlessly shove the exosuit controls the wrong way!"))
-				failed = TRUE
-			else if(emp_damage>EMP_MOVE_DISRUPT && prob(10))
+			if(emp_damage>EMP_MOVE_DISRUPT && prob(10))
 				failed = TRUE
 
 			if(failed)

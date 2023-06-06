@@ -27,8 +27,6 @@
 		return TRUE
 	var/list/toxins = reagents.get_reagent_amount_list(/datum/reagent/toxin)
 	for (var/toxin_type in toxins)
-		if (user.skill_fail_prob(SKILL_COOKING, 90, SKILL_PROF))
-			continue
 		reagents.remove_reagent(toxin_type, toxins[toxin_type])
 	var/transfer = Floor(reagents.total_volume * 0.3)
 	for(var/i = 1 to 3)

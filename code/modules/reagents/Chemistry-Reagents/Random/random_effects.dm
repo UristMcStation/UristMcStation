@@ -191,27 +191,20 @@
 	if(chem_effect_define && !IS_METABOLICALLY_INERT(M)) // screw diona
 		M.add_chemical_effect(chem_effect_define, value)
 
-/singleton/random_chem_effect/random_properties/get_interactions(datum/reagent/random/reagent, sci_skill, chem_skill)
-	if(chem_skill < SKILL_EXPERT)
-		return
+/singleton/random_chem_effect/random_properties/get_interactions(datum/reagent/random/reagent)
 	. = list("<br>")
-	if(sci_skill > SKILL_ADEPT)
-		. += "For [desc]:<br>"
+	. += "For [desc]:<br>"
 	var/list/interactions = list()
-	if(chem_skill == SKILL_PROF)
-		. += "Heating: "
+	. += "Heating: "
 	for(var/interaction in distillation_inhibitor_cache[reagent.type])
 		var/datum/reagent/R = interaction
 		interactions += initial(R.name)
-	if(chem_skill == SKILL_PROF)
-		. += english_list(interactions)
-		interactions.Cut()
-		. += ". Cooling: "
+	. += english_list(interactions)
+	interactions.Cut()
+	. += ". Cooling: "
 	for(var/interaction in cooling_enhancer_cache[reagent.type])
 		var/datum/reagent/R = interaction
 		interactions += initial(R.name)
-	if(chem_skill <= SKILL_PROF)
-		shuffle(interactions)
 	. += english_list(interactions)
 	. += "."
 

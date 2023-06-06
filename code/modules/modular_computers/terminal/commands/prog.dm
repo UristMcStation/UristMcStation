@@ -13,7 +13,6 @@
 		"NOTICE: Programs are executed using access credentials of the original terminal session."
 	)
 	pattern = "^prog"
-	skill_needed = SKILL_ADEPT
 
 /datum/terminal_command/prog/proper_input_entered(text, mob/user, datum/terminal/terminal)
 	. = syntax_error()

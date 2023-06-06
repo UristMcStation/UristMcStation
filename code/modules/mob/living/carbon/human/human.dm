@@ -1497,11 +1497,8 @@
 	if(!current_limb || !S || !U)
 		return
 
-	var/fail_prob = U.skill_fail_chance(SKILL_MEDICAL, 60, SKILL_ADEPT, 3)
-	if(self)
-		fail_prob += U.skill_fail_chance(SKILL_MEDICAL, 20, SKILL_EXPERT, 1)
 	var/datum/gender/T = gender_datums[get_gender()]
-	if(prob(fail_prob))
+	if(self && prob(15))
 		visible_message( \
 		SPAN_CLASS("danger", "[U] pops [self ? "[T.his]" : "[S]'s"] [current_limb.joint] in the WRONG place!"), \
 		SPAN_CLASS("danger", "[self ? "You pop" : "[U] pops"] your [current_limb.joint] in the WRONG place!") \
@@ -1751,7 +1748,7 @@
 
 /mob/living/carbon/human/ranged_accuracy_mods()
 	. = ..()
-	if(get_shock() > 10 && !skill_check(SKILL_WEAPONS, SKILL_ADEPT))
+	if(get_shock() > 20)
 		. -= 1
 	if(get_shock() > 50)
 		. -= 1
@@ -1759,12 +1756,6 @@
 		. -= 1
 	if(shock_stage > 30)
 		. -= 1
-	if(skill_check(SKILL_WEAPONS, SKILL_ADEPT))
-		. += 1
-	if(skill_check(SKILL_WEAPONS, SKILL_EXPERT))
-		. += 1
-	if(skill_check(SKILL_WEAPONS, SKILL_PROF))
-		. += 2
 
 /mob/living/carbon/human/can_drown()
 	if(!internal && (!istype(wear_mask) || !wear_mask.filters_water()))

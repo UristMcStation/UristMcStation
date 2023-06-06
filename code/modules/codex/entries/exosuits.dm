@@ -4,8 +4,7 @@
 
 /datum/codex_entry/exosuit_equipment
 	associated_paths = list(/obj/item/mech_equipment)
-	mechanics_text = "Exosuit equipment is mounted onto specific exosuit hardpoints. In order to correctly attach itself, it will also need the exosuit to have the right software. \
-	You can find out more about this if you have at least basic complex devices skill."
+	mechanics_text = "Exosuit equipment is mounted onto specific exosuit hardpoints. In order to correctly attach itself, it will also need the exosuit to have the right software."
 
 /datum/codex_entry/exosuit_flash
 	associated_paths = list(/obj/item/mech_equipment/flash)

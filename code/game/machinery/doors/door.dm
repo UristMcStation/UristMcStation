@@ -315,8 +315,7 @@
 
 /obj/machinery/door/examine(mob/user)
 	. = ..()
-	if (emagged && ishuman(user) && user.skill_check(SKILL_COMPUTER, SKILL_NONE))
-		to_chat(user, SPAN_WARNING("\The [src]'s control panel looks fried."))
+	to_chat(user, SPAN_WARNING("\The [src]'s control panel looks fried."))
 
 
 /obj/machinery/door/set_broken(new_state)

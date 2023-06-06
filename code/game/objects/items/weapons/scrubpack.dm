@@ -49,29 +49,25 @@
 			var/datum/gas_mixture/air = tank.return_air()
 			var/kpa = air.return_pressure()  / (TANK_LEAK_PRESSURE * 0.8) * 100
 			var/display = "[round(kpa)]%"
-			if (user.skill_check(SKILL_ATMOS, SKILL_NONE))
-				switch(kpa)
-					if (100 to INFINITY)
-						display = "unsafe ([display])"
-					if (67 to 100)
-						display = "high ([display])"
-					if (33 to 67)
-						display = "low ([display])"
-					else
-						display = "very low ([display])"
+			switch(kpa)
+				if (100 to INFINITY)
+					display = "unsafe ([display])"
+				if (67 to 100)
+					display = "high ([display])"
+				if (33 to 67)
+					display = "low ([display])"
+				else
+					display = "very low ([display])"
 			to_chat(user, "\The [tank] pressure is [display]")
 		if (cell)
 			var/display = cell.percent()
-			if (user.skill_check(SKILL_ELECTRICAL, SKILL_NONE))
-				switch (display)
-					if (67 to INFINITY)
-						display = "high ([display]%)"
-					if (33 to 67)
-						display = "medium ([display]%)"
-					else
-						display = "low ([display]%)"
-			else
-				display = "[display]%"
+			switch (display)
+				if (67 to INFINITY)
+					display = "high ([display]%)"
+				if (33 to 67)
+					display = "medium ([display]%)"
+				else
+					display = "low ([display]%)"
 			to_chat(user, "\The [cell] charge is [display]")
 
 /obj/item/scrubpack/attackby(obj/item/W, mob/user)
@@ -126,7 +122,7 @@
 		var/selection = input("Which would you like to remove?") as null|anything in options
 		if (!selection)
 			return TRUE
-		var/time_cost = 5 - round(user.get_skill_value(SKILL_ATMOS) * 0.5) //0,1,1,2,2
+		var/time_cost = 4
 		if (!do_after(user, time_cost SECONDS, src, do_flags = DO_PUBLIC_UNIQUE))
 			return TRUE
 		var/removed

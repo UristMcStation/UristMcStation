@@ -53,16 +53,13 @@
 		var/brain_activity = "none"
 		var/obj/item/organ/internal/brain/brain = victim.internal_organs_by_name[BP_BRAIN]
 		if(istype(brain) && victim.stat != DEAD && !(victim.status_flags & FAKEDEATH))
-			if(user.skill_check(SKILL_MEDICAL, SKILL_NONE))
-				switch(brain.get_current_damage_threshold())
-					if(0 to 2)
-						brain_activity = "normal"
-					if(3 to 5)
-						brain_activity = "weak"
-					if(6 to INFINITY)
-						brain_activity = "extremely weak"
-			else
-				brain_activity = "some"
+			switch(brain.get_current_damage_threshold())
+				if(0 to 2)
+					brain_activity = "normal"
+				if(3 to 5)
+					brain_activity = "weak"
+				if(6 to INFINITY)
+					brain_activity = "extremely weak"
 		to_chat(user, SPAN_NOTICE("Brain activity: [brain_activity]"))
 
 		var/breathing = "none"

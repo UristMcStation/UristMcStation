@@ -96,7 +96,7 @@
 		range = 5
 	)
 	take_internal_damage(5)
-	if (!user.do_skilled(5 SECONDS, SKILL_ANATOMY, src) || QDELETED(src))
+	if (!do_after(user, 5 SECONDS, src) || QDELETED(src))
 		return
 	if (!Adjacent(user) || user.incapacitated())
 		return

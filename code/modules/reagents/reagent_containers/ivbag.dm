@@ -154,16 +154,16 @@
 		SPAN_ITALIC("You start to hook up \the [target] to \the [src]."),
 		range = 5
 	)
-	if (!user.do_skilled(5 SECONDS, SKILL_MEDICAL, target)) //slower than stands and beds
+	if (!do_after(user, 5 SECONDS, target)) //slower than stands and beds
 		return
-	if (prob(user.skill_fail_chance(SKILL_MEDICAL, 80, SKILL_ADEPT))) // harder than stands and beds
+	/*if (prob(user.skill_fail_chance(SKILL_MEDICAL, 80, SKILL_ADEPT))) // harder than stands and beds
 		user.visible_message(
 			SPAN_DANGER("\The [user] fishes for a vein on \the [target] and fails, stabbing them instead!"),
 			SPAN_DANGER("You fish inexpertly for a vein on \the [target] and stab them instead!"),
 			range = 5
 		)
 		target.apply_damage(rand(2, 6), DAMAGE_BRUTE, pick(BP_R_ARM, BP_L_ARM), damage_flags = DAMAGE_FLAG_SHARP, armor_pen = 100)
-		return
+		return*/ //commented instead of deleted because this might be worth turning into a job-based-skill thing
 	user.visible_message(
 		SPAN_ITALIC("\The [user] successfully inserts \a [src]'s cannula into \the [target]."),
 		SPAN_NOTICE("You successfully insert \the [src]'s cannula into \the [target]."),
@@ -185,9 +185,6 @@
 		SPAN_ITALIC("You extract \the [src]'s cannula from \the [patient]."),
 		range = 5
 	)
-	if (!user.skill_check(SKILL_MEDICAL, SKILL_NONE))
-		RipDrip(user)
-		return
 	STOP_PROCESSING(SSobj, src)
 	user.visible_message(
 		SPAN_WARNING("\The [user] extracts \the [src]'s cannula from \the [patient]."),

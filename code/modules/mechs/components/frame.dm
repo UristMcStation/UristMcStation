@@ -136,7 +136,7 @@
 			return
 
 		visible_message(SPAN_NOTICE("\The [user] begins tightening screws, flipping connectors and finishing off \the [src]."))
-		if(!user.do_skilled(5 SECONDS, SKILL_DEVICES, src))
+		if(!do_after(user, 5 SECONDS, src))
 			return
 
 		if(is_reinforced < FRAME_REINFORCED_WELDED || is_wired < FRAME_WIRED_ADJUSTED || !(arms && legs && head && body) || QDELETED(src) || QDELETED(user))
@@ -228,7 +228,7 @@
 		var/last_reinforced_state = is_reinforced
 		visible_message("\The [user] begins adjusting the metal reinforcement inside \the [src].")
 
-		if(!user.do_skilled(4 SECONDS, SKILL_DEVICES,src) || last_reinforced_state != is_reinforced)
+		if(!do_after(user, 4 SECONDS, src) || last_reinforced_state != is_reinforced)
 			return
 
 		visible_message("\The [user] [(is_reinforced == 2) ? "unsecures" : "secures"] the metal reinforcement inside \the [src].")

@@ -431,9 +431,6 @@
 			to_chat(user, SPAN_WARNING("The plant is dead."))
 			return
 
-		var/needed_skill = seed.mysterious ? SKILL_ADEPT : SKILL_BASIC
-		if(prob(user.skill_fail_chance(SKILL_BOTANY, 90, needed_skill)))
-			to_chat(user, SPAN_WARNING("You failed to get a usable sample."))
 		else
 			// Create a sample.
 			seed.harvest(user,yield_mod,1)

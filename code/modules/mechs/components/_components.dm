@@ -138,14 +138,13 @@
 	if(!WT.isOn())
 		to_chat(user, SPAN_WARNING("Turn \the [WT] on, first."))
 		return
-	if(WT.remove_fuel((SKILL_MAX + 1) - user.get_skill_value(SKILL_CONSTRUCTION), user))
+	if(WT.remove_fuel(5, user))
 		user.visible_message(
 			SPAN_NOTICE("\The [user] begins welding the damage on \the [src]..."),
 			SPAN_NOTICE("You begin welding the damage on \the [src]...")
 		)
-		var/repair_value = 10 * max(user.get_skill_value(SKILL_CONSTRUCTION), user.get_skill_value(SKILL_DEVICES))
-		if(user.do_skilled(1 SECOND, SKILL_DEVICES , src, 0.6) && brute_damage)
-			repair_brute_damage(repair_value)
+		if(do_after(user, 1 SECOND, src) && brute_damage)
+			repair_brute_damage(20)
 			to_chat(user, SPAN_NOTICE("You mend the damage to \the [src]."))
 			playsound(user.loc, 'sound/items/Welder.ogg', 25, 1)
 
@@ -156,15 +155,14 @@
 		to_chat(user, SPAN_NOTICE("\The [src]'s wiring doesn't need replacing."))
 		return
 
-	var/needed_amount = 6 - user.get_skill_value(SKILL_ELECTRICAL)
-	if(CC.get_amount() < needed_amount)
-		to_chat(user, SPAN_WARNING("You need at least [needed_amount] unit\s of cable to repair this section."))
+	if(CC.get_amount() < 5)
+		to_chat(user, SPAN_WARNING("You need at least 5 units of cable to repair this section."))
 		return
 
 	user.visible_message("\The [user] begins replacing the wiring of \the [src]...")
 
-	if(user.do_skilled(1 SECOND, SKILL_DEVICES , src, 0.6) && burn_damage)
-		if(QDELETED(CC) || QDELETED(src) || !CC.use(needed_amount))
+	if(do_after(user, 1 SECOND, src) && burn_damage)
+		if(QDELETED(CC) || QDELETED(src) || !CC.use(5))
 			return
 
 		repair_burn_damage(25)

@@ -188,9 +188,6 @@
 		if (pruned)
 			USE_FEEDBACK_FAILURE("\The [src] has already been pruned.")
 			return TRUE
-		if (prob(user.skill_fail_chance(SKILL_SCIENCE, 90, SKILL_EXPERT)))
-			USE_FEEDBACK_FAILURE("You fail to collect a sample from \the [src].")
-			return TRUE
 		var/obj/item/sample = new product(user.loc)
 		pruned = TRUE
 		user.visible_message(

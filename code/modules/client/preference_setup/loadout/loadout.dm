@@ -73,16 +73,6 @@ var/global/list/gear_datums = list()
 			continue
 		. += gear_name
 
-/datum/category_item/player_setup_item/loadout/proc/skill_check(list/jobs, list/skills_required)
-	for(var/datum/job/J in jobs)
-		. = TRUE
-		for(var/R in skills_required)
-			if(pref.get_total_skill_value(J, R) < skills_required[R])
-				. = FALSE
-				break
-		if(.)
-			return
-
 /datum/category_item/player_setup_item/loadout/sanitize_character()
 	pref.gear_slot = sanitize_integer(pref.gear_slot, 1, config.loadout_slots, initial(pref.gear_slot))
 	if(!islist(pref.gear_list)) pref.gear_list = list()
@@ -214,28 +204,6 @@ var/global/list/gear_datums = list()
 				allowed = good_branch
 
 				entry += "[english_list(branch_checks)]</i>"
-
-		if(allowed && G.allowed_skills)
-			var/list/skills_required = list()//make it into instances? instead of path
-			for(var/skill in G.allowed_skills)
-				var/singleton/hierarchy/skill/instance = GET_SINGLETON(skill)
-				skills_required[instance] = G.allowed_skills[skill]
-
-			allowed = skill_check(jobs, skills_required)//Checks if a single job has all the skills required
-
-			entry += "<br><i>"
-			var/list/skill_checks = list()
-			for(var/R in skills_required)
-				var/singleton/hierarchy/skill/S = R
-				var/skill_entry
-				skill_entry += "[S.levels[skills_required[R]]]"
-				if(allowed)
-					skill_entry = SPAN_COLOR("#55cc55", "[skill_entry] [R]")
-				else
-					skill_entry = SPAN_COLOR("#cc5555", "[skill_entry] [R]")
-				skill_checks += skill_entry
-
-			entry += "[english_list(skill_checks)]</i>"
 
 		entry += "</tr>"
 		if(ticked)

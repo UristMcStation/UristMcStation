@@ -55,29 +55,17 @@
 		to_chat(user, SPAN_WARNING("\The [scanner] is designed for organic humanoid patients only."))
 		return
 
-	. = medical_scan_results(scan_subject, verbose, user.get_skill_value(SKILL_MEDICAL))
+	. = medical_scan_results(scan_subject, verbose)
 	to_chat(user, "<hr>")
 	to_chat(user, .)
 	to_chat(user, "<hr>")
 
-/proc/medical_scan_results(mob/living/carbon/human/H, verbose, skill_level = SKILL_DEFAULT)
+/proc/medical_scan_results(mob/living/carbon/human/H, verbose)
 	. = list()
 	var/header = list()
 	var/b
 	var/endb
 	var/dat = list()
-
-	if(skill_level >= SKILL_BASIC)
-		header += "<style> .scan_notice{color: #5f94af;}</style>"
-		header += "<style> .scan_warning{color: #ff0000; font-style: italic;}</style>"
-		header += "<style> .scan_danger{color: #ff0000; font-weight: bold;}</style>"
-		header += "<style> .scan_red{color:red}</style>"
-		header += "<style> .scan_green{color:green}</style>"
-		header += "<style> .scan_blue{color: #5f94af}</style>"
-		header += "<style> .scan_orange{color:#ffa500}</style>"
-		b		= "<b>"
-		endb	= "</b>"
-
 	. += "[b]Scan results for \the [H]:[endb]"
 
 	// Brain activity.
@@ -89,25 +77,22 @@
 		else if(H.stat != DEAD)
 			if(H.has_brain_worms())
 				brain_result = SPAN_CLASS("scan_danger", "ERROR - aberrant/unknown brainwave patterns, advanced scanner recommended")
+			else if (istype(brain))
+				switch(brain.get_current_damage_threshold())
+					if(0)
+						brain_result = "normal"
+					if(1 to 2)
+						brain_result = SPAN_CLASS("scan_notice", "minor brain damage")
+					if(3 to 5)
+						brain_result = SPAN_CLASS("scan_warning", "weak")
+					if(6 to 8)
+						brain_result = SPAN_CLASS("scan_danger", "extremely weak")
+					if(9 to INFINITY)
+						brain_result = SPAN_CLASS("scan_danger", "fading")
+					else
+						brain_result = SPAN_CLASS("scan_danger", "ERROR - Hardware fault")
 			else
-				if(skill_level < SKILL_BASIC)
-					brain_result = "there's movement on the graph"
-				else if(istype(brain))
-					switch(brain.get_current_damage_threshold())
-						if(0)
-							brain_result = "normal"
-						if(1 to 2)
-							brain_result = SPAN_CLASS("scan_notice", "minor brain damage")
-						if(3 to 5)
-							brain_result = SPAN_CLASS("scan_warning", "weak")
-						if(6 to 8)
-							brain_result = SPAN_CLASS("scan_danger", "extremely weak")
-						if(9 to INFINITY)
-							brain_result = SPAN_CLASS("scan_danger", "fading")
-						else
-							brain_result = SPAN_CLASS("scan_danger", "ERROR - Hardware fault")
-				else
-					brain_result = SPAN_CLASS("scan_danger", "ERROR - Organ not recognized")
+				brain_result = SPAN_CLASS("scan_danger", "ERROR - Organ not recognized")
 	else
 		brain_result = SPAN_CLASS("scan_danger", "ERROR - Nonstandard biology")
 	dat += "Brain activity: [brain_result]."
@@ -176,53 +161,48 @@
 		dat += SPAN_CLASS("scan_warning", "Patient is at serious risk of going into shock. Pain relief recommended.")
 
 	// Other general warnings.
-	if(skill_level >= SKILL_BASIC)
-		if(H.getOxyLoss() > 50)
-			dat += SPAN_CLASS("scan_blue", "[b]Severe oxygen deprivation detected.[endb]")
-		if(H.getToxLoss() > 50)
-			dat += SPAN_CLASS("scan_green", "[b]Major systemic organ failure detected.[endb]")
+	if(H.getOxyLoss() > 50)
+		dat += SPAN_CLASS("scan_blue", "[b]Severe oxygen deprivation detected.[endb]")
+	if(H.getToxLoss() > 50)
+		dat += SPAN_CLASS("scan_green", "[b]Major systemic organ failure detected.[endb]")
 	if(H.getFireLoss() > 50)
 		dat += SPAN_CLASS("scan_orange", "[b]Severe burn damage detected.[endb]")
 	if(H.getBruteLoss() > 50)
 		dat += SPAN_CLASS("scan_red", "[b]Severe anatomical damage detected.[endb]")
 
-	if(skill_level >= SKILL_BASIC)
-		for(var/name in H.organs_by_name)
-			var/obj/item/organ/external/e = H.organs_by_name[name]
-			if(!e)
-				continue
-			var/limb = e.name
-			if(e.status & ORGAN_BROKEN)
-				if(((e.name == BP_L_ARM) || (e.name == BP_R_ARM) || (e.name == BP_L_LEG) || (e.name == BP_R_LEG)) && (!e.splinted))
-					dat += SPAN_CLASS("scan_warning", "Unsecured fracture in subject [limb]. Splinting recommended for transport.")
-			if(e.has_infected_wound())
-				dat += SPAN_CLASS("scan_warning", "Infected wound detected in subject [limb]. Disinfection recommended.")
+	for(var/name in H.organs_by_name)
+		var/obj/item/organ/external/e = H.organs_by_name[name]
+		if(!e)
+			continue
+		var/limb = e.name
+		if(e.status & ORGAN_BROKEN)
+			if(((e.name == BP_L_ARM) || (e.name == BP_R_ARM) || (e.name == BP_L_LEG) || (e.name == BP_R_LEG)) && (!e.splinted))
+				dat += SPAN_CLASS("scan_warning", "Unsecured fracture in subject [limb]. Splinting recommended for transport.")
+		if(e.has_infected_wound())
+			dat += SPAN_CLASS("scan_warning", "Infected wound detected in subject [limb]. Disinfection recommended.")
 
-		for(var/name in H.organs_by_name)
-			var/obj/item/organ/external/e = H.organs_by_name[name]
-			if(e && e.status & ORGAN_BROKEN)
-				dat += SPAN_CLASS("scan_warning", "Bone fractures detected. Advanced scanner required for location.")
-				break
+	for(var/name in H.organs_by_name)
+		var/obj/item/organ/external/e = H.organs_by_name[name]
+		if(e && e.status & ORGAN_BROKEN)
+			dat += SPAN_CLASS("scan_warning", "Bone fractures detected. Advanced scanner required for location.")
+			break
 
-		var/found_bleed
-		var/found_tendon
-		var/found_disloc
-		for(var/obj/item/organ/external/e in H.organs)
-			if(e)
-				if(!found_disloc && e.dislocated >= 1)
-					dat += SPAN_CLASS("scan_warning", "Dislocation detected. Advanced scanner required for location.")
-					found_disloc = TRUE
-				if(!found_bleed && (e.status & ORGAN_ARTERY_CUT))
-					dat += SPAN_CLASS("scan_warning", "Arterial bleeding detected. Advanced scanner required for location.")
-					found_bleed = TRUE
-				if(!found_tendon && (e.status & ORGAN_TENDON_CUT))
-					dat += SPAN_CLASS("scan_warning", "Tendon or ligament damage detected. Advanced scanner required for location.")
-					found_tendon = TRUE
-			if(found_disloc && found_bleed && found_tendon)
-				break
-
-	. += (skill_level < SKILL_BASIC) ? shuffle(dat) : dat
-	dat = list()
+	var/found_bleed
+	var/found_tendon
+	var/found_disloc
+	for(var/obj/item/organ/external/e in H.organs)
+		if(e)
+			if(!found_disloc && e.dislocated >= 1)
+				dat += SPAN_CLASS("scan_warning", "Dislocation detected. Advanced scanner required for location.")
+				found_disloc = TRUE
+			if(!found_bleed && (e.status & ORGAN_ARTERY_CUT))
+				dat += SPAN_CLASS("scan_warning", "Arterial bleeding detected. Advanced scanner required for location.")
+				found_bleed = TRUE
+			if(!found_tendon && (e.status & ORGAN_TENDON_CUT))
+				dat += SPAN_CLASS("scan_warning", "Tendon or ligament damage detected. Advanced scanner required for location.")
+				found_tendon = TRUE
+		if(found_disloc && found_bleed && found_tendon)
+			break
 
 	if(verbose)
 		// Limb status.
@@ -241,7 +221,6 @@
 				dat += limb_result
 		else
 			dat += "No detectable limb injuries."
-	. += (skill_level < SKILL_BASIC) ? shuffle(dat) : dat
 
 	// Reagent data.
 	. += "[b]Reagent scan:[endb]"

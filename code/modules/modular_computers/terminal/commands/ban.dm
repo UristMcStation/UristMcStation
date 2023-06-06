@@ -10,7 +10,6 @@
 	)
 	pattern = "^banned"
 	req_access = list(list(access_network, access_network_admin))
-	skill_needed = SKILL_ADEPT
 
 /datum/terminal_command/banned/proper_input_entered(text, mob/user, datum/terminal/terminal)
 	var/list/arguments = get_arguments(text)

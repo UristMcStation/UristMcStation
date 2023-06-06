@@ -109,40 +109,28 @@ GLOBAL_LIST_INIT(random_chem_interaction_blacklist, list(
 
 /datum/reagent/random/proc/get_scan_data(mob/user)
 	var/list/dat = list()
-	var/chem_skill = user.get_skill_value(SKILL_CHEMISTRY)
-	if(chem_skill < SKILL_BASIC)
-		dat += "You analyze the strange liquid. The readings are confusing; could it maybe be juice?"
-	else if(chem_skill < SKILL_ADEPT)
-		dat += "You analyze the strange liquid. Based on the readings, you are skeptical that this is safe to drink."
-	else
-		dat += "The readings are very unsual and intriguing. You suspect it may be of alien origin."
-		var/sci_skill = user.get_skill_value(SKILL_SCIENCE)
-		var/beneficial
-		var/harmful
-		var/list/effect_descs = list()
-		var/list/interactions = list()
-		FOR_ALL_EFFECTS
-			if(effect.beneficial > 0)
-				beneficial = 1
-			if(effect.beneficial < 0)
-				harmful = 1
-			if(effect.desc)
-				effect_descs += effect.desc
-			var/interaction = effect.get_interactions(src, sci_skill, chem_skill)
-			if(interaction)
-				interactions += interaction
-		if(sci_skill <= SKILL_ADEPT)
-			if(beneficial)
-				dat += "The scan suggests that the chemical has some potentially beneficial effects!"
-			if(harmful)
-				dat += "The readings confirm that the chemical is not safe for human use."
-		else
-			dat += "A close analysis of the scan suggests that the chemical has some of the following effects: [english_list(effect_descs)]."
-		if(chem_skill == SKILL_ADEPT)
-			dat += "You aren't sure how this chemical will react with other reagents, but it does seem to be sensitive to changes in temperature."
-		else
-			dat += "Here are the chemicals you suspect this one will interact with, probably when heated or cooled:"
-			dat += JOINTEXT(interactions)
+	dat += "The readings are very unusual and intriguing. You suspect it may be of alien origin."
+	var/beneficial
+	var/harmful
+	var/list/effect_descs = list()
+	var/list/interactions = list()
+	FOR_ALL_EFFECTS
+		if(effect.beneficial > 0)
+			beneficial = 1
+		if(effect.beneficial < 0)
+			harmful = 1
+		if(effect.desc)
+			effect_descs += effect.desc
+		var/interaction = effect.get_interactions(src)
+		if(interaction)
+			interactions += interaction
+		if(beneficial)
+			dat += "The scan suggests that the chemical has some potentially beneficial effects!"
+		if(harmful)
+			dat += "The readings confirm that the chemical is not safe for human use."
+		dat += "A close analysis of the scan suggests that the chemical has some of the following effects: [english_list(effect_descs)]."
+		dat += "Here are the chemicals you suspect this one will interact with, probably when heated or cooled:"
+		dat += JOINTEXT(interactions)
 	return jointext(dat, "<br>")
 
 /datum/reagent/random/Value()

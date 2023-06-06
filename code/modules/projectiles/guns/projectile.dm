@@ -131,7 +131,7 @@
 					to_chat(user, SPAN_WARNING("\The [A] won't fit into [src]."))
 					return
 				if(ammo_magazine)
-					if(user.a_intent == I_HELP || user.a_intent == I_DISARM || !user.skill_check(SKILL_WEAPONS, SKILL_NONE))
+					if(user.a_intent == I_HELP || user.a_intent == I_DISARM)
 						to_chat(user, SPAN_WARNING("[src] already has a magazine loaded."))//already a magazine here
 						return
 					else
@@ -155,8 +155,7 @@
 								return
 							if(!user.unEquip(AM, src))
 								return
-							//Experienced gets a 0.5 second delay, master gets a 0.25 second delay
-							if(do_after(user, user.get_skill_value(SKILL_WEAPONS) == SKILL_PROF ? PROF_SPD_RELOAD : EXP_SPD_RELOAD, src, DO_DEFAULT | DO_BOTH_UNIQUE_ACT))
+							if(do_after(user, 1, src, DO_DEFAULT | DO_BOTH_UNIQUE_ACT))
 								if(jam_chance && istype(ammo_magazine, magazine_type))
 									jam_chance -= 10
 								ammo_magazine.update_icon()
@@ -289,7 +288,7 @@
 
 /obj/item/gun/projectile/examine(mob/user)
 	. = ..()
-	if(is_jammed && user.skill_check(SKILL_WEAPONS, SKILL_NONE))
+	if(is_jammed)
 		to_chat(user, SPAN_WARNING("It looks jammed."))
 	if(ammo_magazine)
 		to_chat(user, "It has \a [ammo_magazine] loaded.")

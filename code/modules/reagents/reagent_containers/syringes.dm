@@ -145,7 +145,7 @@
 					user.visible_message(SPAN_WARNING("\The [user] begins hunting for an injection port on \the [target]'s suit!"))
 				else
 					to_chat(user, SPAN_NOTICE("You begin hunting for an injection port on your suit."))
-				if(!user.do_skilled(INJECTION_PORT_DELAY, SKILL_MEDICAL, target, do_flags = DO_MEDICAL))
+				if(!do_after(user, INJECTION_PORT_DELAY, target, do_flags = DO_MEDICAL))
 					return
 
 				if (!reagents)
@@ -159,7 +159,7 @@
 			user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 			user.do_attack_animation(target)
 
-			if(!user.do_skilled(time, SKILL_MEDICAL, target, do_flags = DO_MEDICAL))
+			if(!do_after(user, time, target, do_flags = DO_MEDICAL))
 				return
 
 			if (!reagents)
@@ -237,7 +237,7 @@
 			user.visible_message(SPAN_WARNING("\The [user] begins hunting for an injection port on \the [target]'s suit!"))
 		else
 			to_chat(user, SPAN_NOTICE("You begin hunting for an injection port on your suit."))
-		if(!user.do_skilled(INJECTION_PORT_DELAY, SKILL_MEDICAL, trackTarget, do_flags = DO_MEDICAL))
+		if(!do_after(user, INJECTION_PORT_DELAY, trackTarget, do_flags = DO_MEDICAL))
 			return
 
 	if(target != user)
@@ -248,7 +248,7 @@
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(trackTarget)
 
-	if(!user.do_skilled(time, SKILL_MEDICAL, trackTarget, do_flags = DO_MEDICAL))
+	if(!do_after(user, time, trackTarget, do_flags = DO_MEDICAL))
 		return
 
 	if(target != user && target != trackTarget && target.loc != trackTarget)

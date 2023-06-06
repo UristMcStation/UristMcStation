@@ -177,15 +177,12 @@
 	var/name = "Some symptom"
 	var/descriptor
 	var/explanation
-	var/hint_min_skill = SKILL_BASIC
 
 //Checks conditions for this sign to appear
 /singleton/diagnostic_sign/proc/manifested_in(obj/item/organ/external/victim)
 
 /singleton/diagnostic_sign/proc/get_description(mob/user)
-	. = descriptor
-	if(user && user.skill_check(SKILL_MEDICAL, SKILL_NONE))
-		. += "<small><a href='?src=\ref[src];show_diagnostic_hint=1'>(?)</a></small>"
+	descriptor += "<small><a href='?src=\ref[src];show_diagnostic_hint=1'>(?)</a></small>"
 
 /singleton/diagnostic_sign/Topic(href, list/href_list)
 	. = ..()

@@ -58,23 +58,17 @@
 /obj/item/organ/internal/posibrain/attack_self(mob/user)
 	if (!user.IsAdvancedToolUser())
 		return
-	if (user.skill_check(SKILL_DEVICES, SKILL_NONE))
-		if (status & ORGAN_DEAD || !brainmob)
-			to_chat(user, SPAN_WARNING("\The [src] is ruined; it will never turn on again."))
-			return
-		if (damage)
-			to_chat(user, SPAN_WARNING("\The [src] is damaged and requires repair first."))
-			return
-		if (searching != TIMER_ID_NULL)
-			visible_message("\The [user] flicks the activation switch on \the [src]. The lights go dark.", range = 3)
-			cancel_search()
-			return
-		start_search(user)
-	else
-		if ((status & ORGAN_DEAD) || !brainmob || damage || (searching != TIMER_ID_NULL))
-			to_chat(user, SPAN_WARNING("\The [src] doesn't respond to your pokes and prods."))
-			return
-		start_search(user)
+	if (status & ORGAN_DEAD || !brainmob)
+		to_chat(user, SPAN_WARNING("\The [src] is ruined; it will never turn on again."))
+		return
+	if (damage)
+		to_chat(user, SPAN_WARNING("\The [src] is damaged and requires repair first."))
+		return
+	if (searching != TIMER_ID_NULL)
+		visible_message("\The [user] flicks the activation switch on \the [src]. The lights go dark.", range = 3)
+		cancel_search()
+		return
+	start_search(user)
 
 /obj/item/organ/internal/posibrain/proc/start_search(mob/user)
 	if (!brainmob)
@@ -143,42 +137,26 @@
 	if (distance > 3)
 		return
 	var/msg = ""
-	if (isghost(user) || user.skill_check(SKILL_DEVICES, SKILL_NONE))
-		if ((status & ORGAN_DEAD) || damage)
-			if ((status & ORGAN_DEAD))
-				msg += SPAN_ITALIC("It is ruined and lifeless, damaged beyond hope of recovery.")
-			else if (damage > min_broken_damage)
-				msg += SPAN_ITALIC("It is seriously damaged and requires repair to work properly.")
-			else if (damage > min_bruised_damage)
-				msg += SPAN_ITALIC("It has taken some damage and is in need of repair.")
-			else
-				msg += SPAN_ITALIC("It has superficial wear and should work normally.")
-		if (!(status & ORGAN_DEAD))
-			if (msg)
-				msg += "\n"
-			if (brainmob && brainmob.key)
-				msg += SPAN_ITALIC("It blinks with activity.")
-				if (brainmob.stat || !brainmob.client)
-					msg += SPAN_ITALIC(" The responsiveness fault indicator is lit.")
-			else if (damage)
-				msg += SPAN_ITALIC("The red integrity fault indicator pulses slowly.")
-			else
-				msg += SPAN_ITALIC("The golden ready indicator [searching != TIMER_ID_NULL ? "flickers quickly as it tries to generate a personality" : "pulses lazily"].")
-	else
-		if ((status & ORGAN_DEAD) || damage > min_broken_damage)
-			msg += SPAN_ITALIC("It looks wrecked.")
+	if ((status & ORGAN_DEAD) || damage)
+		if ((status & ORGAN_DEAD))
+			msg += SPAN_ITALIC("It is ruined and lifeless, damaged beyond hope of recovery.")
+		else if (damage > min_broken_damage)
+			msg += SPAN_ITALIC("It is seriously damaged and requires repair to work properly.")
 		else if (damage > min_bruised_damage)
-			msg += SPAN_ITALIC("It looks damaged.")
-		if (!(status & ORGAN_DEAD))
-			if (msg)
-				msg += "\n"
-			if (brainmob && brainmob.key)
-				msg += SPAN_ITALIC("Little lights flicker on its surface.")
-			else
-				if (damage)
-					msg += SPAN_ITALIC("A lone red light pulses malevolently on its surface.")
-				else
-					msg += SPAN_ITALIC("A lone golden light [searching != TIMER_ID_NULL ? "flickers quickly" : "pulses lazily"].")
+			msg += SPAN_ITALIC("It has taken some damage and is in need of repair.")
+		else
+			msg += SPAN_ITALIC("It has superficial wear and should work normally.")
+	if (!(status & ORGAN_DEAD))
+		if (msg)
+			msg += "\n"
+		if (brainmob && brainmob.key)
+			msg += SPAN_ITALIC("It blinks with activity.")
+			if (brainmob.stat || !brainmob.client)
+				msg += SPAN_ITALIC(" The responsiveness fault indicator is lit.")
+		else if (damage)
+			msg += SPAN_ITALIC("The red integrity fault indicator pulses slowly.")
+		else
+			msg += SPAN_ITALIC("The golden ready indicator [searching != TIMER_ID_NULL ? "flickers quickly as it tries to generate a personality" : "pulses lazily"].")
 	if (msg)
 		to_chat(user, msg)
 

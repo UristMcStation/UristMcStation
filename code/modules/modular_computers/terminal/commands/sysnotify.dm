@@ -6,7 +6,6 @@
 		"Triggers a system notification showing the specified message, along with an audio alert."
 	)
 	pattern = "^sysnotify"
-	skill_needed = SKILL_PROF
 
 /datum/terminal_command/sysnotify/proper_input_entered(text, mob/user, datum/terminal/terminal)
 	var/argument = copytext(text, length(name) + 2, 0)

@@ -76,7 +76,7 @@ var/global/list/tank_gauge_cache = list()
 		if (GET_FLAGS(tank_flags, TANK_FLAG_WIRED))
 			mods += "some wires"
 		if (proxyassembly.assembly)
-			mods += user.skill_check(SKILL_DEVICES, SKILL_NONE) ? "an ignition assembly" : "a device"
+			mods += "an ignition assembly"
 		if (length(mods))
 			to_chat(user, "[english_list(mods)] are attached.")
 	else
@@ -132,8 +132,7 @@ var/global/list/tank_gauge_cache = list()
 		if (GET_FLAGS(tank_flags, TANK_FLAG_WELDED))
 			to_chat(user, SPAN_WARNING("The valve is stuck. You can't move it at all!"))
 			return
-		var/reduction = round(user.get_skill_value(SKILL_ATMOS) * 0.5) //0,1,1,2,2
-		if (do_after(user, (5 - reduction) SECONDS, src, DO_PUBLIC_UNIQUE))
+		if (do_after(user, (4) SECONDS, src, DO_PUBLIC_UNIQUE))
 			if (GET_FLAGS(tank_flags, TANK_FLAG_WELDED))
 				to_chat(user, SPAN_WARNING("The valve is stuck. You can't move it at all!"))
 				return

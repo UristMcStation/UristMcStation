@@ -244,8 +244,8 @@
 	return 1
 
 // Harvest an animal's delicious byproducts
-/mob/living/simple_animal/proc/harvest(mob/user, skill_level)
-	var/actual_meat_amount = round(max(1,(meat_amount / 2) + skill_level / 2))
+/mob/living/simple_animal/proc/harvest(mob/user, amount)
+	var/actual_meat_amount = round(max(1,(meat_amount / 2) + amount / 2))
 	user.visible_message(SPAN_DANGER("\The [user] chops up \the [src]!"))
 	if(meat_type && actual_meat_amount > 0 && (stat == DEAD))
 		for(var/i=0;i<actual_meat_amount;i++)

@@ -34,7 +34,7 @@
 	downloaderror = ""
 	ui_header = "downloader_finished.gif"
 
-/datum/computer_file/program/ntnetdownload/proc/begin_file_download(filename, skill)
+/datum/computer_file/program/ntnetdownload/proc/begin_file_download(filename)
 	if(downloaded_file)
 		return FALSE
 
@@ -66,7 +66,7 @@
 
 	return TRUE
 
-/datum/computer_file/program/ntnetdownload/proc/hide_file_info(datum/computer_file/file, skill)
+/datum/computer_file/program/ntnetdownload/proc/hide_file_info(datum/computer_file/file)
 	server = (file in ntnet_global.available_station_software) ? "NTNet Software Repository" : "unspecified server"
 	if(!hacked_download)
 		return "[file.filename].[file.filetype]"

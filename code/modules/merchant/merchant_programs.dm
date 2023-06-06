@@ -77,14 +77,14 @@
 	bank += tr.money_delta
 	return tr.success
 
-/datum/computer_file/program/merchant/proc/offer_money(datum/trader/T, num, skill)
+/datum/computer_file/program/merchant/proc/offer_money(datum/trader/T, num)
 	var/quantity = 1
 	if(pad)
-		get_response(T.offer_money_for_bulk(quantity, num, bank, get_turf(pad), skill))
+		get_response(T.offer_money_for_bulk(quantity, num, bank, get_turf(pad)))
 	else
 		last_comms = "PAD NOT CONNECTED"
 
-/datum/computer_file/program/merchant/proc/offer_bulk(datum/trader/T, num, skill)
+/datum/computer_file/program/merchant/proc/offer_bulk(datum/trader/T, num)
 	var/quantity = input("How many do you wish to buy? (1-30)") as num | null //limiting to max 30 per purchase to reduce flooding of the server with spawned items.
 	if(!isnum(quantity))
 		last_comms = "ERROR #417 - NUMBER EXPECTED"
@@ -93,7 +93,7 @@
 		last_comms = "ERROR #415 - BLUESPACE ALIGNMENT TERMINATED DUE TO UNEXPECTED VALUE."
 		return
 	if(pad)
-		get_response(T.offer_money_for_bulk(quantity, num, bank, get_turf(pad), skill))
+		get_response(T.offer_money_for_bulk(quantity, num, bank, get_turf(pad)))
 	else
 		last_comms = "PAD NOT CONNECTED"
 
@@ -103,7 +103,7 @@
 		return
 	get_response(T.bribe_to_stay_longer(amt))
 
-/datum/computer_file/program/merchant/proc/offer_item(datum/trader/T, num, skill)
+/datum/computer_file/program/merchant/proc/offer_item(datum/trader/T, num)
 	var/quantity = 1
 	if(pad)
 		var/list/targets = pad.get_targets()
@@ -111,11 +111,11 @@
 			if(!computer.emagged() && istype(target,/mob/living/carbon/human))
 				last_comms = "SAFETY LOCK ENABLED: SENTIENT MATTER UNTRANSMITTABLE"
 				return
-		get_response(T.offer_items_for_bulk(quantity, targets, num, get_turf(pad), skill))
+		get_response(T.offer_items_for_bulk(quantity, targets, num, get_turf(pad)))
 	else
 		last_comms = "PAD NOT CONNECTED"
 
-/datum/computer_file/program/merchant/proc/offer_item_bulk(datum/trader/T, num, skill)
+/datum/computer_file/program/merchant/proc/offer_item_bulk(datum/trader/T, num)
 	var/quantity = input("How many do you wish to buy? (1-30)") as num //limiting to max 30 per purchase to reduce flooding of the server with spawned items
 	if(!isnum(quantity))
 		last_comms = "ERROR #417 - NUMBER EXPECTED"
@@ -129,14 +129,14 @@
 			if(!computer.emagged() && istype(target,/mob/living/carbon/human))
 				last_comms = "SAFETY LOCK ENABLED: SENTIENT MATTER UNTRANSMITTABLE"
 				return
-		get_response(T.offer_items_for_bulk(quantity, targets, num, get_turf(pad), skill))
+		get_response(T.offer_items_for_bulk(quantity, targets, num, get_turf(pad)))
 	else
 		last_comms = "PAD NOT CONNECTED"
 
-/datum/computer_file/program/merchant/proc/sell_items(datum/trader/T, skill)
+/datum/computer_file/program/merchant/proc/sell_items(datum/trader/T)
 	if(pad)
 		var/list/targets = pad.get_targets()
-		get_response(T.sell_items(targets, skill))
+		get_response(T.sell_items(targets))
 	else
 		last_comms = "PAD NOT CONNECTED"
 
@@ -229,28 +229,27 @@
 				get_response(T.compliment())
 			if(href_list["PRG_offer_item"])
 				. = TOPIC_HANDLED
-				offer_item(T,text2num(href_list["PRG_offer_item"]) + 1, user.get_skill_value(SKILL_FINANCE))
+				offer_item(T,text2num(href_list["PRG_offer_item"]) + 1)
 			if(href_list["PRG_offer_item_for_bulk"])
 				. = TOPIC_HANDLED
-				offer_item_bulk(T,text2num(href_list["PRG_offer_item_for_bulk"]) + 1, user.get_skill_value(SKILL_FINANCE))
+				offer_item_bulk(T,text2num(href_list["PRG_offer_item_for_bulk"]) + 1)
 				offer_item(T,text2num(href_list["PRG_offer_item"]) + 1)
 			if(href_list["PRG_how_much_do_you_want"])
 				. = TOPIC_HANDLED
-				get_response(T.how_much_do_you_want(text2num(href_list["PRG_how_much_do_you_want"]) + 1, user.get_skill_value(SKILL_FINANCE)))
+				get_response(T.how_much_do_you_want(text2num(href_list["PRG_how_much_do_you_want"]) + 1))
 				last_comms = T.how_much_do_you_want(text2num(href_list["PRG_how_much_do_you_want"]) + 1)
 			if(href_list["PRG_offer_money_for_item"])
 				. = TOPIC_HANDLED
-				offer_money(T, text2num(href_list["PRG_offer_money_for_item"])+1, user.get_skill_value(SKILL_FINANCE))
+				offer_money(T, text2num(href_list["PRG_offer_money_for_item"])+1)
 			if(href_list["PRG_offer_money_for_bulk"])
 				. = TOPIC_HANDLED
-				offer_bulk(T, text2num(href_list["PRG_offer_money_for_bulk"])+1, user.get_skill_value(SKILL_FINANCE))
+				offer_bulk(T, text2num(href_list["PRG_offer_money_for_bulk"])+1)
 				offer_money(T, text2num(href_list["PRG_offer_money_for_item"])+1)
 			if(href_list["PRG_what_do_you_want"])
 				. = TOPIC_HANDLED
 				get_response(T.what_do_you_want())
 			if(href_list["PRG_sell_items"])
 				. = TOPIC_HANDLED
-				sell_items(T, user.get_skill_value(SKILL_FINANCE))
 				sell_items(T)
 			if(href_list["PRG_bribe"])
 				. = TOPIC_HANDLED
