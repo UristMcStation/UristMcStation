@@ -29,12 +29,11 @@
 	var/can_board = FALSE //can we be boarded
 	var/map_spawned = FALSE //have we spawned our boardingmap
 	turns_per_move = 10 //this is now determined by the engine component
-	autonomous = TRUE
 	var/potential_weapons = list()
 	var/boarders_amount = 0 //how many human boarders can we have?
-	ai_holder = /datum/ai_holder/simple_animal/inert/overmapship
+	ai_holder = /datum/ai_holder/simple_animal/overmapship
 
-/datum/ai_holder/simple_animal/inert/overmapship
+/datum/ai_holder/simple_animal/overmapship
 	wander = 1
 
 /mob/living/simple_animal/hostile/overmapship/Initialize()
@@ -52,7 +51,7 @@
 
 		if(istype(C, /datum/shipcomponents/engines))
 			var/datum/shipcomponents/engines/E = C
-			turns_per_move = E.turns_per_move
+			ai_holder.base_wander_delay = E.turns_per_move
 
 	name = ship_category //once i get names, flesh this out
 	faction = "neutral" //come back to this

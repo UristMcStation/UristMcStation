@@ -11094,7 +11094,7 @@
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "AQ" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/chair/shuttle/black{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/darkred,
@@ -11405,8 +11405,9 @@
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "Bw" = (
-/obj/structure/bed/chair{
-	dir = 4
+/obj/structure/bed/chair/shuttle/black{
+	dir = 4;
+	icon_state = "shuttle_chair_preview"
 	},
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
@@ -11470,7 +11471,7 @@
 "BE" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1331;
-	id_tag = "merc_shuttle";
+	id_tag = "merc_shuttle_base";
 	pixel_x = -8;
 	pixel_y = 25;
 	req_access = list("ACCESS_SYNDICATE")
@@ -11760,6 +11761,7 @@
 /obj/item/pen{
 	pixel_y = 4
 	},
+/obj/structure/table/reinforced,
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "Co" = (
@@ -12545,7 +12547,7 @@
 	},
 /area/ninja_dojo/dojo)
 "Ef" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/chair/shuttle/black{
 	dir = 8
 	},
 /obj/machinery/light{
@@ -12758,7 +12760,7 @@
 	},
 /area/ninja_dojo/dojo)
 "EB" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/chair/shuttle/black{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/darkred,
@@ -12971,8 +12973,9 @@
 	},
 /area/ninja_dojo/dojo)
 "Fb" = (
-/obj/structure/bed/chair{
-	dir = 4
+/obj/structure/bed/chair/shuttle/black{
+	dir = 4;
+	icon_state = "shuttle_chair_preview"
 	},
 /obj/item/device/radio/intercom{
 	desc = "Talk through this. Evilly";
@@ -13181,8 +13184,9 @@
 	},
 /area/ninja_dojo/dojo)
 "Fv" = (
-/obj/structure/bed/chair{
-	dir = 4
+/obj/structure/bed/chair/shuttle/black{
+	dir = 4;
+	icon_state = "shuttle_chair_preview"
 	},
 /obj/machinery/light{
 	dir = 8;
@@ -13458,7 +13462,8 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1331;
 	id_tag = "synd";
-	pixel_x = 25
+	pixel_x = 25;
+	dir = 8
 	},
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
@@ -15373,6 +15378,7 @@
 /obj/item/roller_bed{
 	pixel_y = 8
 	},
+/obj/item/bodybag/cryobag,
 /turf/simulated/floor/shuttle/white,
 /area/syndicate_station/start)
 "Kq" = (
@@ -16537,8 +16543,6 @@
 	dir = 1
 	},
 /obj/structure/table/standard,
-/obj/item/bonesetter,
-/obj/item/bonegel,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1";
@@ -16727,10 +16731,7 @@
 /area/ninja_dojo/start)
 "Nf" = (
 /obj/structure/table/standard,
-/obj/item/scalpel,
-/obj/item/circular_saw{
-	pixel_y = 8
-	},
+/obj/item/reagent_containers/spray/sterilizine,
 /turf/simulated/floor/shuttle/white,
 /area/syndicate_station/start)
 "Ng" = (
@@ -16868,8 +16869,7 @@
 /area/ninja_dojo/start)
 "Nu" = (
 /obj/structure/table/standard,
-/obj/item/cautery,
-/obj/item/hemostat,
+/obj/item/storage/firstaid/surgery,
 /turf/simulated/floor/shuttle/white,
 /area/syndicate_station/start)
 "Nv" = (
@@ -16877,9 +16877,6 @@
 /turf/simulated/floor/shuttle/white,
 /area/syndicate_station/start)
 "Nw" = (
-/obj/structure/table/standard,
-/obj/item/stack/medical/advanced/bruise_pack,
-/obj/item/retractor,
 /obj/item/device/radio/intercom{
 	desc = "Talk through this. Evilly";
 	dir = 8;
@@ -16889,6 +16886,7 @@
 	subspace_transmission = 1;
 	syndie = 1
 	},
+/obj/machinery/vitals_monitor,
 /turf/simulated/floor/shuttle/white,
 /area/syndicate_station/start)
 "Nx" = (
@@ -16905,10 +16903,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/syndicate_station/start)
-"Nz" = (
-/obj/machinery/computer/teleporter,
-/turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "NA" = (
 /obj/machinery/tele_pad,
@@ -43864,7 +43858,7 @@ AP
 Jw
 CV
 AP
-Nz
+Ak
 Ny
 zu
 NM

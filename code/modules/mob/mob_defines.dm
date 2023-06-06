@@ -118,8 +118,8 @@
 	var/shakecamera = 0
 	var/a_intent = I_HELP//Living
 
-	var/singleton/move_intent/move_intent = /singleton/move_intent/walk
-	var/list/move_intents = list(/singleton/move_intent/walk)
+	var/singleton/move_intent/move_intent = /singleton/move_intent/run
+	var/list/move_intents = list(/singleton/move_intent/run)
 
 	var/singleton/move_intent/default_walk_intent
 	var/singleton/move_intent/default_run_intent

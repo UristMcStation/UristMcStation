@@ -264,7 +264,7 @@
 	var/static/run_delay = 2
 
 	/// Modifier for ticks between moves while walking
-	var/static/walk_delay = 2
+	var/static/walk_delay = 4
 
 	/// Modifier for ticks between moves while creeping
 	var/static/creep_delay = 6
@@ -273,7 +273,7 @@
 	var/static/minimum_sprint_cost = 0.8
 
 	/// Modifier for amount hauling skill can reduce stamina cost
-	var/static/skill_sprint_cost_range = 0.8
+	var/static/skill_sprint_cost_range = 0
 
 	/// Modifier for minimum rate mobs can regain stamina
 	var/static/minimum_stamina_recovery = 1

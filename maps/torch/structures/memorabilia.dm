@@ -31,7 +31,7 @@
 
 /obj/structure/decorative/ed209/attackby(obj/item/O, mob/user)
 	. = ..()
-	if(isScrewdriver(O) && user.skill_check(SKILL_DEVICES, SKILL_NONE))
+	if(isScrewdriver(O))
 		if(!salvaged)
 			var/delay = 2 SECONDS
 			user.visible_message(SPAN_NOTICE("\The [user] starts rummaging through \the [src]."), SPAN_NOTICE("You start looking for useful components in \the [src]."))

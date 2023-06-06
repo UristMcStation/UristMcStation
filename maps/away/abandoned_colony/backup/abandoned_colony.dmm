@@ -168,7 +168,7 @@
 "dl" = (/obj/machinery/vending/snack,/turf/simulated/floor/tiled/uristturf/geminus{icon_state = "tiled"},/area/planet/abandoned_colony)
 "dm" = (/obj/effect/wallframe_spawn/reinforced,/turf/simulated/floor/tiled/uristturf/geminus{icon_state = "tiled"},/area/planet/abandoned_colony)
 "dn" = (/obj/machinery/light/colored/green,/turf/simulated/floor/tiled/uristturf/geminus{icon_state = "tiles1"; tag = "icon-freezerfloor"},/area/planet/abandoned_colony)
-"do" = (/obj/machinery/media/jukebox,/obj/machinery/light/overhead_blue,/turf/simulated/floor/tiled/uristturf/geminus{icon_state = "tiles1"; tag = "icon-freezerfloor"},/area/planet/abandoned_colony)
+"do" = (/obj/machinery/jukebox,/obj/machinery/light/overhead_blue,/turf/simulated/floor/tiled/uristturf/geminus{icon_state = "tiles1"; tag = "icon-freezerfloor"},/area/planet/abandoned_colony)
 "dp" = (/obj/machinery/vending/cigarette,/turf/simulated/floor/tiled/uristturf/geminus{icon_state = "tiled"},/area/planet/abandoned_colony)
 "dq" = (/obj/machinery/light/small,/turf/simulated/floor/tiled/uristturf/geminus{icon_state = "tiled"},/area/planet/abandoned_colony)
 "dr" = (/obj/structure/sign/neon/bar{pixel_y = -32},/obj/effect/decal/cleanable/dirt,/obj/item/reagent_containers/syringe{desc = "Probably has at least five incurable STDs."; name = "dirty syringe"},/turf/simulated/floor/pavement/empty,/area/planet/abandoned_colony)

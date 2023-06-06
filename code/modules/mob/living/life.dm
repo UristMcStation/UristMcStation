@@ -205,13 +205,7 @@
 	set_see_invisible(max(vision[2], see_invisible))
 
 /mob/living/proc/update_living_sight()
-	var/set_sight_flags = sight & ~(SEE_TURFS|SEE_MOBS|SEE_OBJS)
-	if(stat & UNCONSCIOUS)
-		set_sight_flags |= BLIND
-	else
-		set_sight_flags &= ~BLIND
-
-	set_sight(set_sight_flags)
+	set_sight(sight&(~(SEE_TURFS|SEE_MOBS|SEE_OBJS)))
 	set_see_in_dark(initial(see_in_dark))
 	set_see_invisible(initial(see_invisible))
 

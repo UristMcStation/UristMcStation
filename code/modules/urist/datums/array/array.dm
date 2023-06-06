@@ -59,7 +59,7 @@
 	while(length(indices) < src.dims)
 		indices.Add(":")
 
-	for(var/i=1, i<=length(indices), i++):
+	for(var/i=1, i<=length(indices), i++)
 		var/str_idx = indices[i]
 
 		if(findtext(str_idx, re))
@@ -124,7 +124,7 @@
 	var/list/coords = list()
 	var/list/array = src.grid
 
-	for (var/str_idx in indices):
+	for (var/str_idx in indices)
 		if(validation_re.Find(str_idx))
 			var/num_idx = text2num(str_idx)
 			if(!isnull(num_idx))

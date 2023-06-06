@@ -847,7 +847,7 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced{
 	dir = 5;
-	health = 1e+007
+	health_max = 1e+007
 	},
 /turf/simulated/floor/plating,
 /area/derelict/solar_control)
@@ -1546,7 +1546,7 @@
 "dV" = (
 /obj/structure/window/reinforced{
 	dir = 5;
-	health = 1e+007
+	health_max = 1e+007
 	},
 /turf/simulated/floor,
 /area/derelict/bridge/access)
@@ -2424,7 +2424,8 @@
 /turf/simulated/floor/plating,
 /area/derelict/medical)
 "gD" = (
-/obj/item/firstaid_arm_assembly,
+/obj/item/storage/firstaid,
+/obj/item/robot_parts/l_arm,
 /turf/simulated/floor/plating,
 /area/derelict/medical)
 "gE" = (
@@ -2762,7 +2763,7 @@
 /area/derelict/arrival)
 "hD" = (
 /obj/machinery/door/blast/regular{
-	id = "derelict_gun";
+	id_tag = "derelict_gun";
 	name = "Derelict Mass Driver"
 	},
 /turf/simulated/floor/plating,
@@ -2771,7 +2772,7 @@
 /obj/machinery/mass_driver{
 	dir = 8;
 	icon_state = "mass_driver";
-	id = "derelict_gun"
+	id_tag = "derelict_gun"
 	},
 /obj/machinery/door/window{
 	dir = 4;
@@ -3166,10 +3167,9 @@
 /area/derelict/arrival)
 "iE" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/pod/old{
-	name = "ProComp IIe";
+/obj/machinery/button/blast_door{
 	pixel_y = 7;
-	id = "derelict_gun"
+	id_tag = "derelict_gun"
 	},
 /turf/simulated/floor/plating,
 /area/derelict/medical/chapel)
@@ -3475,7 +3475,7 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced{
 	dir = 5;
-	health = 1e+007
+	health_max = 1e+007
 	},
 /turf/simulated/floor/plating,
 /area/derelict/arrival)
@@ -3562,7 +3562,7 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced{
 	dir = 5;
-	health = 1e+007
+	health_max = 1e+007
 	},
 /turf/simulated/floor/plating/airless,
 /area/space)

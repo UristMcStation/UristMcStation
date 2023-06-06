@@ -31,6 +31,7 @@ SUBSYSTEM_DEF(presence)
 		else if (MC_TICK_CHECK)
 			queue.Cut(1, cut_until)
 			return
+	++build["[GLOB.using_map.overmap_z]"]
 	levels = build
 	queue.Cut()
 

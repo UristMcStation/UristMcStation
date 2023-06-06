@@ -239,7 +239,6 @@
 	},
 /area/spacestations/nanotrasenspace)
 "aE" = (
-/turf/simulated/floor/tiled/dark,
 /turf/unsimulated/wall{
 	desc = "That looks like it doesn't open easily.";
 	icon = 'icons/obj/machines/shielding.dmi';
@@ -2614,6 +2613,9 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"WJ" = (
+/turf/unsimulated/floor/steel,
 /area/spacestations/nanotrasenspace)
 "WK" = (
 /obj/item/modular_computer/laptop/preset/records,
@@ -5534,9 +5536,9 @@ ap
 aw
 Ga
 aE
-af
-af
-af
+WJ
+WJ
+WJ
 ad
 ad
 ad
@@ -5616,9 +5618,9 @@ af
 af
 Ga
 aE
-af
-af
-af
+WJ
+WJ
+WJ
 ad
 kz
 VJ
@@ -5698,9 +5700,9 @@ aq
 af
 Ga
 aE
-af
-af
-af
+WJ
+WJ
+WJ
 Ga
 Ji
 bj
@@ -5780,9 +5782,9 @@ ad
 ad
 ad
 ai
-af
-af
-af
+WJ
+WJ
+WJ
 ad
 Ws
 PJ

@@ -66,6 +66,10 @@
 	#include "../away/miningstation/miningstation.dm"
 	#include "../away/mininghome/mininghome.dm"
 	#include "../away/scavver/scavver_gantry.dm"
+	#include "../away/geminus_city/road_and_pavements.dm"
+	#include "../away/geminus_city/signs.dm"
+	#include "../away/geminus_city/streetobjects.dm"
+	#include "../away/icarus/icarus_areas.dm"
 
 	/*#include "../../code/datums/music_tracks/chasing_time.dm"
 	#include "../../code/datums/music_tracks/absconditus.dm"

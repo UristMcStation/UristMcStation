@@ -91,8 +91,7 @@
 	tag_interior_door = "solar_tool_inner3";
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2;
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	id_tag = "solar_tool_pump3"
 	},
 /obj/machinery/light/small{
@@ -1240,10 +1239,10 @@
 	pixel_y = -24
 	},
 /obj/machinery/button/windowtint{
-	id_tag = "surgery_windows";
 	pixel_x = -6;
 	pixel_y = -24;
-	range = 4
+	range = 4;
+	id = "surgery_windows"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -1835,7 +1834,9 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/treatment)
 "aeg" = (
-/obj/effect/wallframe_spawn/reinforced/polarized/full,
+/obj/effect/wallframe_spawn/reinforced/polarized/full{
+	id = "recov_windows"
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/medical/ward)
@@ -1852,10 +1853,10 @@
 "aei" = (
 /obj/structure/table/standard,
 /obj/machinery/button/windowtint{
-	id_tag = "recov_windows";
 	pixel_x = -12;
 	pixel_y = 26;
-	pixel_z = 0
+	pixel_z = 0;
+	id = "recov_windows"
 	},
 /obj/machinery/camera/network/medbay{
 	c_tag = "Infirmary - Sub Acute Ward"
@@ -6408,7 +6409,9 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/lobby)
 "alG" = (
-/obj/effect/wallframe_spawn/reinforced/polarized/full,
+/obj/effect/wallframe_spawn/reinforced/polarized/full{
+	id = "exam_windows"
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/medical/examroom)
@@ -7107,16 +7110,18 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/lobby)
 "amO" = (
-/obj/effect/wallframe_spawn/reinforced/polarized/full,
+/obj/effect/wallframe_spawn/reinforced/polarized/full{
+	id = "exam_windows"
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/medical/lobby)
 "amP" = (
 /obj/machinery/button/windowtint{
-	id_tag = "exam_windows";
 	pixel_x = -30;
 	pixel_y = 24;
-	pixel_z = 0
+	pixel_z = 0;
+	id = "exam_windows"
 	},
 /obj/machinery/light_switch{
 	pixel_x = -20;
@@ -7532,9 +7537,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afp)
 "anF" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	id_tag = "robotics_solar_pump"
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+	id_tag = "robotics_solar_pump";
+	dir = 4
 	},
 /obj/machinery/airlock_sensor{
 	frequency = 1379;
@@ -9554,7 +9559,9 @@
 	name = "Infirmary Emergency Quarantine Shutters";
 	opacity = 0
 	},
-/obj/effect/wallframe_spawn/reinforced/polarized/full,
+/obj/effect/wallframe_spawn/reinforced/polarized/full{
+	id = "exam_windows"
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/medical/examroom)
@@ -15535,7 +15542,7 @@
 	dir = 4;
 	frequency = 1438;
 	icon_state = "map_injector";
-	id_tag = "cooling_in";
+	id = "cooling_in";
 	name = "Coolant Injector";
 	pixel_y = 1;
 	power_rating = 30000;
@@ -19203,7 +19210,9 @@
 	name = "Personnel Office Shutters";
 	tag = "icon-shutter1 (EAST)"
 	},
-/obj/effect/wallframe_spawn/reinforced/polarized/full,
+/obj/effect/wallframe_spawn/reinforced/polarized/full{
+	id = "sotint"
+	},
 /turf/simulated/floor/tiled,
 /area/command/hop)
 "aGQ" = (
@@ -21530,11 +21539,11 @@
 	icon_state = "warning"
 	},
 /obj/machinery/button/windowtint{
-	id_tag = "roboticisttint";
 	pixel_x = 22;
 	pixel_y = 6;
 	range = 7;
-	req_access = list("ACCESS_ROBOTICS")
+	req_access = list("ACCESS_ROBOTICS");
+	id = "roboticisttint"
 	},
 /obj/machinery/light_switch{
 	pixel_x = 22;
@@ -25288,12 +25297,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/smmon)
 "aQM" = (
-/obj/machinery/button/remote/driver{
-	id_tag = "enginecore";
-	name = "Emergency Core Eject";
-	pixel_x = 0;
-	pixel_y = -20
-	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/window/brigdoor/northleft{
 	name = "emergency core eject";
@@ -25301,6 +25304,11 @@
 	},
 /obj/structure/window/reinforced{
 	dir = 8
+	},
+/obj/machinery/button/mass_driver{
+	id_tag = "enginecore";
+	name = "Emergency Core Eject";
+	pixel_y = -20
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/smmon)
@@ -26029,7 +26037,9 @@
 /turf/simulated/wall/prepainted,
 /area/logistics/qm)
 "aSe" = (
-/obj/effect/wallframe_spawn/reinforced/polarized/full,
+/obj/effect/wallframe_spawn/reinforced/polarized/full{
+	id = "qmofficetint"
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/logistics/qm)
@@ -27536,9 +27546,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/cents)
 "aUP" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	id_tag = "primarydeck_vent"
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+	id_tag = "primarydeck_vent";
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9;
@@ -27699,9 +27709,9 @@
 /turf/simulated/floor/plating,
 /area/command/eva)
 "aVg" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	id_tag = "primarydeck_vent"
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+	id_tag = "primarydeck_vent";
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6;
@@ -27762,7 +27772,8 @@
 	pixel_x = 0;
 	pixel_y = -24;
 	range = 7;
-	tag = "icon-light0 (EAST)"
+	tag = "icon-light0 (EAST)";
+	id = "qmofficetint"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/qm)
@@ -28529,11 +28540,11 @@
 /area/command/bridge)
 "dvF" = (
 /obj/machinery/door/window/brigdoor/southright{
-	id_tag = "Cell 3";
+	id = "Cell 3";
 	req_access = list("ACCESS_SECURITY")
 	},
 /obj/machinery/door/window/brigdoor/northleft{
-	id_tag = "Cell 3";
+	id = "Cell 3";
 	req_access = list("ACCESS_SECURITY")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -28735,7 +28746,8 @@
 	},
 /obj/machinery/button/windowtint{
 	pixel_x = 6;
-	pixel_y = -20
+	pixel_y = -20;
+	id = "sotint"
 	},
 /obj/structure/closet/secure_closet/nervaso,
 /obj/item/clothing/accessory/armband/bluegoldcom,
@@ -29152,11 +29164,11 @@
 /area/rnd/office)
 "grS" = (
 /obj/machinery/door/window/brigdoor/southright{
-	id_tag = "Cell 2";
+	id = "Cell 2";
 	req_access = list("ACCESS_SECURITY")
 	},
 /obj/machinery/door/window/brigdoor/northleft{
-	id_tag = "Cell 2";
+	id = "Cell 2";
 	req_access = list("ACCESS_SECURITY")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -30397,8 +30409,7 @@
 	tag_exterior_door = "port_gun_outer";
 	tag_interior_door = "port_gun_inner"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2;
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	id_tag = "port_gun_pump"
 	},
 /obj/machinery/light/small{
@@ -30412,9 +30423,9 @@
 /turf/simulated/wall/prepainted,
 /area/engineering/locker)
 "nDh" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	id_tag = "starboardgun_pump"
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+	id_tag = "starboardgun_pump";
+	dir = 1
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	frequency = 1379;
@@ -31037,11 +31048,11 @@
 /area/maintenance/third_deck/cents)
 "sCk" = (
 /obj/machinery/door/window/brigdoor/southright{
-	id_tag = "Cell 1";
+	id = "Cell 1";
 	req_access = list("ACCESS_SECURITY")
 	},
 /obj/machinery/door/window/brigdoor/northleft{
-	id_tag = "Cell 1";
+	id = "Cell 1";
 	req_access = list("ACCESS_SECURITY")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,

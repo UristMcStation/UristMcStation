@@ -105,6 +105,8 @@ var/global/ntnet_card_uid = 1
 		return
 	if(!ntnet_global.check_function() && !ethernet)
 		return
+	if(magic) //for the computers on the station
+		. = 3
 	var/strength = 1
 	if(ethernet)
 		strength = 3

@@ -49,7 +49,7 @@
 
 /datum/shuttle/autodock/ferry/elevator/arrived()
 	for(var/obj/machinery/door/blast/M in SSmachines.machinery)
-		if(M.id == src.id)
+		if(M.id_tag == src.id)
 			if(M.density)
 				spawn(0)
 					M.open()

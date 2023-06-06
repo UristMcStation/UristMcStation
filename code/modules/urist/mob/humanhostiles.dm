@@ -348,10 +348,10 @@
 	response_help = "holds tightly"
 	response_disarm = "pulls down"
 	response_harm = "grasps"
-	ai_holder = /datum/ai_holder/simple_animal/hostile/hololab
+	ai_holder = /datum/ai_holder/simple_animal/hololab
 	say_list_type = /datum/say_list/hololab
 
-/datum/ai_holder/simple_animal/hostile/hololab
+/datum/ai_holder/simple_animal/hololab
 	speak_chance = 50
 
 /datum/say_list/hololab

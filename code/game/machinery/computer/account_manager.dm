@@ -60,12 +60,13 @@
 	//We don't want to expose these details to anyone but the crewmember, so we'll copy them over here once account creation is complete
 	if(copy_mode && temp_account_items["new_email"])
 		var/obj/item/card/id/target_id = O
+		var/list/email_login = temp_account_items["new_email"]
 		if(target_id.associated_account_number || target_id.associated_email_login["login"])	//So we cannot copy bank details to our own ID card.
 			to_chat(user, "<span class='warning'>\The [src] flashes a warning: Unassociated ID card required</span>")
 			playsound(loc, 'sound/machines/buzz-two.ogg', 30)
 		else
 			target_id.associated_account_number = temp_account_items["account"]
-			target_id.associated_email_login = temp_account_items["new_email"].Copy()
+			target_id.associated_email_login = email_login.Copy()
 			target_id.registered_name = temp_account_items["name"]
 			temp_account_items = list("name" = null, "pay" = null, "jobtitle" = null, "dept" = null, "email" = null)
 			copy_mode = FALSE

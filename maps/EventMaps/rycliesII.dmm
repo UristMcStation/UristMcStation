@@ -730,7 +730,7 @@
 "ob" = (/turf/simulated/shuttle/wall{icon_state = "swall7"; dir = 2},/area/scom/mission/nolighting)
 "oc" = (/obj/machinery/vending/cola,/turf/unsimulated/floor/planet{name = "plating"},/area/scom/mission/nolighting)
 "od" = (/obj/machinery/vending/snack,/turf/unsimulated/floor/planet{icon_state = "floor"},/area/scom/mission/nolighting)
-"oe" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 5; health = 1e+007},/turf/unsimulated/floor/planet{name = "plating"},/area/scom/mission/nolighting)
+"oe" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 5; health_max = 1e+007},/turf/unsimulated/floor/planet{name = "plating"},/area/scom/mission/nolighting)
 "of" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-2,13"; icon_state = "2,13"},/area/scom/mission/nolighting)
 "og" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-3,13"; icon_state = "3,13"},/area/scom/mission/nolighting)
 "oh" = (/obj/structure/shuttle/window,/obj/structure/grille,/turf/simulated/shuttle/plating,/area/scom/mission/nolighting)

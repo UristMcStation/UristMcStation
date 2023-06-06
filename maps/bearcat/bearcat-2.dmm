@@ -4179,7 +4179,7 @@
 /obj/machinery/meter/turf,
 /obj/structure/window/reinforced{
 	dir = 2;
-	health = 1e+007
+	health_max = 1e+007
 	},
 /turf/simulated/floor/reinforced/nitrogen,
 /area/ship/scrap/maintenance/atmos)
@@ -4194,7 +4194,7 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/window/reinforced{
 	dir = 2;
-	health = 1e+007
+	health_max = 1e+007
 	},
 /turf/simulated/floor/reinforced/nitrogen,
 /area/ship/scrap/maintenance/atmos)
@@ -5842,7 +5842,7 @@
 /obj/machinery/newscaster{
 	pixel_x = -32
 	},
-/obj/machinery/media/jukebox,
+/obj/machinery/jukebox,
 /turf/simulated/floor/tiled,
 /area/ship/scrap/crew/saloon)
 "Kb" = (

@@ -48,7 +48,7 @@
 		new corpse (src.loc)
 	if (weapon)
 		new weapon(src.loc)
-	visible_message(SPAN_WARNING("Small shining spores float away from dying [src]!"))
+	visible_message(SPAN_WARNING("Small shining spores float away from [src] as they die!"))
 	qdel(src)
 
 /mob/living/simple_animal/hostile/lar_maria/test_subject

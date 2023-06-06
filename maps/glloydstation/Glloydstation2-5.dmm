@@ -582,7 +582,7 @@
 /area/outpost/research/eva)
 "bO" = (
 /obj/machinery/door/blast/shutters{
-	id = "planet_research";
+	id_tag = "planet_research";
 	name = "Elevator Shutters"
 	},
 /turf/simulated/floor/plating,
@@ -1260,7 +1260,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1379;
 	id_tag = "research_pump"
 	},
 /obj/effect/floor_decal/corner/mauve/three_quarters{
@@ -1282,7 +1281,6 @@
 "cS" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1379;
 	id_tag = "research_pump"
 	},
 /obj/structure/closet/walllocker/emerglocker/east,
@@ -1350,7 +1348,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1379;
 	id_tag = "research_pump"
 	},
 /obj/effect/floor_decal/corner/mauve/three_quarters,
@@ -1367,7 +1364,6 @@
 /obj/structure/ore_box,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1379;
 	id_tag = "research_pump"
 	},
 /obj/effect/floor_decal/corner/mauve/three_quarters{
@@ -1706,7 +1702,7 @@
 /area/outpost/mining_main/eva)
 "dY" = (
 /obj/machinery/door/blast/shutters{
-	id = "planet_mining";
+	id_tag = "planet_mining";
 	name = "Elevator Shutters"
 	},
 /turf/simulated/floor/plating,
@@ -1823,7 +1819,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 2;
-	frequency = 1379;
 	id_tag = "mining_east_pump"
 	},
 /turf/simulated/floor/tiled,
@@ -1832,7 +1827,6 @@
 /obj/structure/closet/emcloset,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 2;
-	frequency = 1379;
 	id_tag = "mining_east_pump"
 	},
 /turf/simulated/floor/tiled,
@@ -2196,7 +2190,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	frequency = 1379;
 	id_tag = "mining_east_pump"
 	},
 /turf/simulated/floor/tiled,
@@ -2211,7 +2204,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	frequency = 1379;
 	id_tag = "mining_east_pump"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,

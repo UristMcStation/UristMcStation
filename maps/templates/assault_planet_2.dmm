@@ -64,7 +64,7 @@
 "bl" = (/obj/effect/floor_decal/corner/paleblue{dir = 1},/obj/effect/floor_decal/corner/paleblue{tag = "icon-corner_white (SOUTHWEST)"; icon_state = "corner_white"; dir = 10},/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
 "bm" = (/obj/machinery/vending/medical{req_access = newlist()},/obj/effect/floor_decal/corner/paleblue/three_quarters{tag = "icon-corner_white_three_quarters (EAST)"; icon_state = "corner_white_three_quarters"; dir = 4},/turf/simulated/floor/tiled/white,/area/outpost/mining_main/medbay)
 "bn" = (/obj/effect/floor_decal/corner/red{tag = "icon-corner_white (NORTHWEST)"; icon_state = "corner_white"; dir = 9},/obj/machinery/light{dir = 8},/turf/simulated/floor/tiled,/area/outpost/security/hallway)
-"bo" = (/obj/machinery/deployable/barrier,/obj/machinery/vending/wallmed1{pixel_y = -32},/turf/simulated/floor/tiled/dark,/area/outpost/security/storage)
+"bo" = (/obj/machinery/barrier,/obj/machinery/vending/wallmed1{pixel_y = -32},/turf/simulated/floor/tiled/dark,/area/outpost/security/storage)
 "bp" = (/obj/item/device/radio/intercom{broadcasting = 0; dir = 1; listening = 1; name = "Station Intercom (General)"; pixel_x = -6; pixel_y = -28},/obj/machinery/light,/turf/simulated/floor/tiled/dark,/area/outpost/security/storage)
 "bq" = (/obj/structure/table/standard,/obj/machinery/recharger{pixel_y = 4},/turf/simulated/floor/tiled/dark,/area/outpost/security/storage)
 "br" = (/obj/machinery/chem_master,/obj/effect/floor_decal/corner/beige{tag = "icon-corner_white (SOUTHEAST)"; icon_state = "corner_white"; dir = 6},/obj/effect/floor_decal/corner/black{tag = "icon-corner_white (NORTHWEST)"; icon_state = "corner_white"; dir = 9},/turf/simulated/floor/holofloor/tiled/dark,/area/outpost/mining_main/medbay)

@@ -62,15 +62,13 @@
 	pixel_y = 8
 	},
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2;
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	id_tag = "merchant_shuttle_station_pump"
 	},
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
 "am" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2;
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	id_tag = "merchant_shuttle_station_pump"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -268,7 +266,7 @@
 	tag_exterior_door = "security_outer3";
 	tag_interior_door = "security_inner3"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	dir = 1;
 	id_tag = "security_pump3"
 	},
@@ -280,7 +278,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
 "aK" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	dir = 1;
 	id_tag = "security_pump3"
 	},
@@ -475,8 +473,7 @@
 	pixel_x = 8;
 	pixel_y = -25
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2;
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	id_tag = "security_pump3"
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -487,8 +484,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
 "ba" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2;
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	id_tag = "security_pump3"
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -1567,7 +1563,7 @@
 	pixel_x = 0;
 	pixel_y = -32
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	dir = 4;
 	id_tag = "security_pump"
 	},
@@ -2339,7 +2335,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fore)
 "eX" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	dir = 1;
 	id_tag = "nuke_shuttle_dock_pump"
 	},
@@ -2359,7 +2355,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
 "eY" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	dir = 1;
 	id_tag = "nuke_shuttle_dock_pump"
 	},
@@ -2728,8 +2724,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
 "fG" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2;
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	id_tag = "nuke_shuttle_dock_pump"
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -3084,7 +3079,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	dir = 8;
 	id_tag = "solar_bridge_pump"
 	},
@@ -8325,7 +8320,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/aftsolar)
 "ps" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	dir = 4;
 	id_tag = "aft_solar_pump"
 	},
@@ -8924,7 +8919,7 @@
 	pixel_x = -24;
 	pixel_y = 8
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	dir = 1;
 	id_tag = "skipjack_shuttle_dock_pump"
 	},
@@ -8933,7 +8928,7 @@
 /area/hallway/centralfirst)
 "qs" = (
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	dir = 1;
 	id_tag = "skipjack_shuttle_dock_pump"
 	},

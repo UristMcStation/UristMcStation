@@ -25,7 +25,7 @@
 	icon = 'icons/obj/overmap.dmi'
 	icon_state = "meteor4"
 	faction = /datum/factions/pirate
-	color = "#cc5474"
+	color = "#a08444"
 	station_holder = /mob/living/simple_animal/hostile/overmapship/station_holder/pirate
 	total_ships = 2
 	remaining_ships = 4

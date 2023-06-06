@@ -832,8 +832,7 @@
 	tag_interior_door = "solar_tool_inner3";
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2;
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	id_tag = "solar_tool_pump3"
 	},
 /obj/machinery/light/small{
@@ -1806,9 +1805,9 @@
 /turf/simulated/floor/plating,
 /area/logistics/hangar)
 "dE" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	id_tag = "antonine_shuttle_pump_out_external"
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/shuttle{
+	id_tag = "antonine_shuttle_pump_out_external";
+	dir = 4
 	},
 /obj/machinery/airlock_sensor{
 	command = "cycle_exterior";
@@ -1854,7 +1853,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/shuttle{
 	dir = 8;
 	id_tag = "antonine_shuttle_pump_out_internal"
 	},
@@ -2230,7 +2229,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/shuttle{
 	dir = 4;
 	id_tag = "antonine_shuttle_pump"
 	},
@@ -2270,7 +2269,7 @@
 	pixel_x = 0;
 	pixel_y = -24
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/shuttle{
 	dir = 8;
 	id_tag = "antonine_shuttle_pump"
 	},
@@ -2966,7 +2965,7 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 1;
 	frequency = 1441;
-	id_tag = "d4_port_chamber_in";
+	id = "d4_port_chamber_in";
 	injecting = 1;
 	use_power = 1
 	},
@@ -2978,7 +2977,7 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 1;
 	frequency = 1441;
-	id_tag = "d4_port_chamber_in";
+	id = "d4_port_chamber_in";
 	injecting = 1;
 	use_power = 1
 	},
@@ -5891,8 +5890,7 @@
 /turf/simulated/floor/plating,
 /area/logistics/hangar)
 "kI" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2;
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/shuttle{
 	id_tag = "trajan_shuttle_pump_out_external"
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -6272,7 +6270,7 @@
 	dir = 9;
 	icon_state = "warning"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/shuttle{
 	dir = 8;
 	id_tag = "trajan_shuttle_pump_out_internal"
 	},
@@ -6804,7 +6802,7 @@
 /turf/simulated/floor/plating,
 /area/logistics/hangar)
 "mq" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/shuttle{
 	dir = 1;
 	id_tag = "trajan_shuttle_pump_out_external"
 	},
@@ -6841,7 +6839,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/shuttle{
 	dir = 8;
 	id_tag = "trajan_shuttle_pump_out_internal"
 	},
@@ -6861,9 +6859,9 @@
 	dir = 1;
 	icon_state = "handrail"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	id_tag = "trajan_shuttle_pump"
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/shuttle{
+	id_tag = "trajan_shuttle_pump";
+	dir = 1
 	},
 /obj/machinery/airlock_sensor{
 	frequency = 1331;
@@ -6877,9 +6875,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	id_tag = "trajan_shuttle_pump"
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/shuttle{
+	id_tag = "trajan_shuttle_pump";
+	dir = 1
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
@@ -11184,7 +11182,7 @@
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 1441;
-	id_tag = "d4_starboard_chamber_in";
+	id = "d4_starboard_chamber_in";
 	injecting = 1;
 	use_power = 1
 	},
@@ -11194,7 +11192,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 1441;
-	id_tag = "d4_starboard_chamber_in";
+	id = "d4_starboard_chamber_in";
 	injecting = 1;
 	use_power = 1
 	},
@@ -12747,7 +12745,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/logistics/hangar)
 "ws" = (
-/obj/effect/wallframe_spawn/reinforced/polarized/full,
+/obj/effect/wallframe_spawn/reinforced/polarized/full{
+	id = "seniorscientint"
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/command/seniorntoffice)
@@ -14423,7 +14423,7 @@
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/item/hand_labeler,
 /obj/machinery/button/windowtint{
-	id_tag = "surgery_windows";
+	id_tag = "seniorscientint";
 	pixel_x = -6;
 	pixel_y = -24;
 	range = 4
@@ -17814,10 +17814,10 @@
 	pixel_y = 4;
 	req_access = list("ACCESS_MAINT")
 	},
-/obj/machinery/button/remote/driver{
-	id_tag = "trash";
+/obj/machinery/button/mass_driver{
 	pixel_x = 26;
-	pixel_y = -6
+	pixel_y = -6;
+	id_tag = "trash"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
@@ -18913,7 +18913,6 @@
 	frequency = 1380;
 	icon_state = "closed";
 	id_tag = "hadrian_shuttle_dock_inner";
-	locked = 1;
 	name = "Docking Port Airlock";
 	req_access = list("ACCESS_XENOBIO")
 	},
@@ -18933,7 +18932,6 @@
 	frequency = 1380;
 	icon_state = "closed";
 	id_tag = "hadrian_shuttle_dock_inner";
-	locked = 1;
 	name = "Docking Port Airlock";
 	req_access = list("ACCESS_XENOBIO")
 	},
@@ -18952,7 +18950,7 @@
 	dir = 4;
 	icon_state = "camera"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	dir = 8;
 	id_tag = "hadrian_shuttle_dock_pump"
 	},
@@ -18980,13 +18978,13 @@
 	},
 /obj/machinery/airlock_sensor{
 	frequency = 1380;
-	id_tag = "aquila_shuttle_dock_sensor";
+	id_tag = "hadrian_shuttle_dock_sensor";
 	pixel_x = 24;
 	pixel_y = 0
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	id_tag = "hadrian_shuttle_dock_pump"
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+	id_tag = "hadrian_shuttle_dock_pump";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
@@ -19182,7 +19180,7 @@
 	icon_state = "handrail";
 	tag = "icon-handrail (EAST)"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/shuttle{
 	dir = 1;
 	id_tag = "hadrian_shuttle_pump_out_internal"
 	},
@@ -19202,7 +19200,7 @@
 	icon_state = "1-2";
 	pixel_y = 0
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/shuttle{
 	dir = 1;
 	id_tag = "hadrian_shuttle_pump_out_internal"
 	},
@@ -19269,7 +19267,7 @@
 	icon_state = "1-2";
 	pixel_y = 0
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/shuttle{
 	dir = 8;
 	id_tag = "hadrian_shuttle_pump"
 	},
@@ -19355,7 +19353,7 @@
 	name = "Station Intercom (General)";
 	pixel_x = 22
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/shuttle{
 	dir = 8;
 	id_tag = "hadrian_shuttle_pump"
 	},
@@ -20561,9 +20559,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/logistics/fabwork)
 "KE" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	id_tag = "hadrian_shuttle_pump_out_external"
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/shuttle{
+	id_tag = "hadrian_shuttle_pump_out_external";
+	dir = 4
 	},
 /obj/machinery/air_sensor{
 	id_tag = "hadrian_out"
@@ -22265,9 +22263,9 @@
 /turf/simulated/wall/r_wall/prepainted,
 /area/security/nuke_storage)
 "RV" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	id_tag = "hadrian_shuttle_pump_out_external"
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/shuttle{
+	id_tag = "hadrian_shuttle_pump_out_external";
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/light/spot{
@@ -22283,7 +22281,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	dir = 8;
 	id_tag = "hadrian_shuttle_dock_pump"
 	},
@@ -22620,9 +22618,9 @@
 	icon_state = "1-2";
 	pixel_y = 0
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	id_tag = "hadrian_shuttle_dock_pump"
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+	id_tag = "hadrian_shuttle_dock_pump";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)

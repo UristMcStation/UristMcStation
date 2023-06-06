@@ -185,11 +185,13 @@
 
 /singleton/security_level/default/switching_up_to()
 	if(up_description)
+		up_description = replacetext(up_description, "VESSEL_NAME", GLOB.using_map.full_name)
 		security_announcement_up.Announce(up_description, "Attention! Alert level elevated to [name]!")
 	notify_station()
 
 /singleton/security_level/default/switching_down_to()
 	if(down_description)
+		down_description = replacetext(down_description, "VESSEL_NAME", GLOB.using_map.full_name)
 		security_announcement_down.Announce(down_description, "Attention! Alert level changed to [name]!")
 	notify_station()
 

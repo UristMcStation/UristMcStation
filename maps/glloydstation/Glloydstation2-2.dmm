@@ -763,7 +763,7 @@
 /obj/structure/curtain/open/shower,
 /obj/structure/window/reinforced{
 	dir = 1;
-	health = 1e+006
+	health_max = 1e+006
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/merchant_station)
@@ -891,14 +891,14 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/media/jukebox/old,
+/obj/machinery/jukebox/old,
 /turf/simulated/floor/wood/walnut,
 /area/merchant_station)
 "acC" = (
 /obj/machinery/vending/cigarette{
 	name = "hacked cigarette machine";
 	prices = list();
-	products = list(/obj/item/storage/fancy/smokable = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
+	products = list(/obj/item/storage/fancy/smokable=10,/obj/item/storage/box/matches=10,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=2)
 	},
 /obj/structure/window/reinforced{
 	dir = 1
@@ -1950,7 +1950,7 @@
 	density = 0;
 	dir = 2;
 	icon_state = "shutter0";
-	id = "merchantshuttle";
+	id_tag = "merchantshuttle";
 	name = "Merchant Window Shutters";
 	opacity = 0
 	},
@@ -1965,7 +1965,7 @@
 	density = 0;
 	dir = 2;
 	icon_state = "shutter0";
-	id = "merchantshuttle";
+	id_tag = "merchantshuttle";
 	name = "Merchant Window Shutters";
 	opacity = 0
 	},
@@ -2130,7 +2130,7 @@
 	density = 0;
 	dir = 2;
 	icon_state = "shutter0";
-	id = "merchantshuttle";
+	id_tag = "merchantshuttle";
 	name = "Merchant Window Shutters";
 	opacity = 0
 	},
@@ -2188,7 +2188,7 @@
 	},
 /obj/structure/window/reinforced{
 	dir = 8;
-	health = 1e+006
+	health_max = 1e+006
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/merchant/home)
@@ -2197,7 +2197,7 @@
 	dir = 4
 	},
 /obj/machinery/button/blast_door{
-	id = "merchantbase";
+	id_tag = "merchantbase";
 	name = "Merchant Loading Shutters";
 	pixel_x = 27;
 	pixel_y = -9;
@@ -2343,7 +2343,7 @@
 	density = 0;
 	dir = 4;
 	icon_state = "shutter0";
-	id = "merchantshuttle";
+	id_tag = "merchantshuttle";
 	name = "Merchant Window Shutters";
 	opacity = 0
 	},
@@ -2464,7 +2464,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 2;
-	frequency = 1380;
 	id_tag = "merchant_ship_vent"
 	},
 /turf/simulated/floor/plating,
@@ -2489,7 +2488,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	dir = 8;
-	id = "merchantbase";
+	id_tag = "merchantbase";
 	name = "Merchant Loading Shutters"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -2595,7 +2594,7 @@
 	density = 0;
 	dir = 4;
 	icon_state = "shutter0";
-	id = "merchantshuttle";
+	id_tag = "merchantshuttle";
 	name = "Merchant Window Shutters";
 	opacity = 0
 	},
@@ -2612,7 +2611,7 @@
 	dir = 8
 	},
 /obj/machinery/button/blast_door{
-	id = "merchantshuttle";
+	id_tag = "merchantshuttle";
 	name = "Merchant Window Shutters";
 	pixel_x = 0;
 	pixel_y = -28;
@@ -2634,7 +2633,7 @@
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced{
 	dir = 1;
-	health = 1e+006
+	health_max = 1e+006
 	},
 /obj/item/paper_bin{
 	pixel_x = 1;
@@ -2650,7 +2649,7 @@
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced{
 	dir = 1;
-	health = 1e+006
+	health_max = 1e+006
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant/home)
@@ -2727,7 +2726,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	dir = 8;
-	id = "merchantbase";
+	id_tag = "merchantbase";
 	name = "Merchant Loading Shutters"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2784,7 +2783,7 @@
 	density = 0;
 	dir = 4;
 	icon_state = "shutter0";
-	id = "merchantshuttle";
+	id_tag = "merchantshuttle";
 	name = "Merchant Window Shutters";
 	opacity = 0
 	},
@@ -2882,7 +2881,6 @@
 "ahA" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	frequency = 1380;
 	id_tag = "merchant_ship_vent"
 	},
 /turf/simulated/floor/plating,
@@ -2972,7 +2970,7 @@
 	density = 0;
 	dir = 1;
 	icon_state = "shutter0";
-	id = "merchantshuttle";
+	id_tag = "merchantshuttle";
 	name = "Merchant Window Shutters";
 	opacity = 0
 	},
@@ -2987,7 +2985,7 @@
 	density = 0;
 	dir = 1;
 	icon_state = "shutter0";
-	id = "merchantshuttle";
+	id_tag = "merchantshuttle";
 	name = "Merchant Window Shutters";
 	opacity = 0
 	},
@@ -3002,7 +3000,7 @@
 	density = 0;
 	dir = 1;
 	icon_state = "shutter0";
-	id = "merchantshuttle";
+	id_tag = "merchantshuttle";
 	name = "Merchant Window Shutters";
 	opacity = 0
 	},
@@ -3315,7 +3313,6 @@
 "aiu" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1380;
 	id_tag = "merchant_station_vent"
 	},
 /turf/simulated/floor/plating,
@@ -4172,7 +4169,7 @@
 /turf/simulated/floor/plating,
 /area/merchant_station)
 "akn" = (
-/obj/structure/bed/alien,
+/obj/structure/bed/nest,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -5410,35 +5407,19 @@
 	},
 /area/map_template/syndicate_mothership)
 "anq" = (
-/turf/unsimulated/floor{
-	icon = 'icons/turf/snow.dmi';
-	icon_state = "snow"
-	},
-/turf/simulated/shuttle/wall{
-	dir = 8;
-	icon_state = "diagonalWall3"
-	},
+/obj/effect/paint/merc,
+/turf/simulated/wall/titanium,
 /area/syndicate_station/start)
 "anr" = (
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	icon_state = "shutter0";
-	id = "syndieshutters";
+	id_tag = "syndieshutters";
 	name = "Blast Shutters";
 	opacity = 0
 	},
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
-/area/syndicate_station/start)
-"ans" = (
-/turf/unsimulated/floor{
-	icon = 'icons/turf/snow.dmi';
-	icon_state = "snow"
-	},
-/turf/simulated/shuttle/wall{
-	dir = 1;
-	icon_state = "diagonalWall3"
-	},
 /area/syndicate_station/start)
 "ant" = (
 /obj/structure/bed/chair/comfy/black{
@@ -5490,9 +5471,10 @@
 	},
 /area/map_template/syndicate_mothership)
 "any" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "wall3"
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_r"
 	},
+/turf/simulated/wall/titanium,
 /area/syndicate_station/start)
 "anz" = (
 /obj/machinery/recharger,
@@ -5500,7 +5482,7 @@
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "anA" = (
-/obj/machinery/computer/modular/preset/mercenary,
+/obj/machinery/computer/modular/preset/full/merc,
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "anB" = (
@@ -5513,7 +5495,7 @@
 /area/syndicate_station/start)
 "anD" = (
 /obj/machinery/button/blast_door{
-	id = "syndieshutters";
+	id_tag = "syndieshutters";
 	name = "remote shutter control";
 	req_access = list("ACCESS_SYNDICATE")
 	},
@@ -5592,7 +5574,7 @@
 "anN" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1331;
-	id_tag = "merc_shuttle";
+	id_tag = "merc_shuttle_base";
 	pixel_x = -8;
 	pixel_y = 25;
 	req_access = list("ACCESS_SYNDICATE")
@@ -5694,6 +5676,7 @@
 /obj/item/pen{
 	pixel_y = 4
 	},
+/obj/structure/table/reinforced,
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "anZ" = (
@@ -5713,31 +5696,12 @@
 	dir = 2
 	},
 /area/map_template/syndicate_mothership)
-"aoa" = (
-/turf/unsimulated/floor{
-	icon = 'icons/turf/snow.dmi';
-	icon_state = "snow"
-	},
-/turf/simulated/shuttle/wall{
-	icon_state = "diagonalWall3"
-	},
-/area/syndicate_station/start)
 "aob" = (
 /obj/machinery/door/window/northright{
 	name = "Flight Deck";
 	req_access = list("ACCESS_SYNDICATE")
 	},
 /turf/simulated/floor/shuttle/darkred,
-/area/syndicate_station/start)
-"aoc" = (
-/turf/unsimulated/floor{
-	icon = 'icons/turf/snow.dmi';
-	icon_state = "snow"
-	},
-/turf/simulated/shuttle/wall{
-	dir = 4;
-	icon_state = "diagonalWall3"
-	},
 /area/syndicate_station/start)
 "aod" = (
 /turf/unsimulated/floor{
@@ -5983,7 +5947,7 @@
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
-	id = "smindicate";
+	id_tag = "smindicate";
 	name = "Outer Airlock";
 	opacity = 0
 	},
@@ -6038,11 +6002,14 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/structure/handrail{
+	dir = 4
+	},
 /turf/simulated/floor/shuttle/black,
 /area/syndicate_station/start)
 "aoG" = (
 /obj/machinery/flasher{
-	id = "syndieflash";
+	id_tag = "syndieflash";
 	pixel_x = 0;
 	pixel_y = 28
 	},
@@ -6079,7 +6046,6 @@
 "aoK" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1331;
 	id_tag = "synd_pump"
 	},
 /obj/machinery/light/small{
@@ -6098,12 +6064,11 @@
 "aoM" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1331;
 	id_tag = "synd_pump"
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	frequency = 1331;
-	id_tag = "merc_shuttle";
+	id_tag = "merc_shuttle_base";
 	pixel_x = 25;
 	tag_airpump = "synd_pump";
 	tag_chamber_sensor = "synd_sensor";
@@ -6249,7 +6214,6 @@
 "apc" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1331;
 	id_tag = "synd_pump"
 	},
 /turf/simulated/floor/shuttle/darkred,
@@ -6261,15 +6225,14 @@
 "ape" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1331;
 	id_tag = "synd_pump"
 	},
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "apf" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/pod/old/syndicate{
-	id = "smindicate"
+/obj/machinery/button/blast_door{
+	id_tag = "smindicate"
 	},
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
@@ -6317,7 +6280,7 @@
 /obj/machinery/vending/assist{
 	contraband = null;
 	name = "AntagCorpVent";
-	products = list(/obj/item/device/assembly/prox_sensor = 5, /obj/item/device/assembly/signaler = 4, /obj/item/device/assembly/infra = 4, /obj/item/device/assembly/prox_sensor = 4, /obj/item/handcuffs = 8, /obj/item/device/flash = 4)
+	products = list(/obj/item/device/assembly/prox_sensor=5,/obj/item/device/assembly/signaler=4,/obj/item/device/assembly/infra=4,/obj/item/device/assembly/prox_sensor=4,/obj/item/handcuffs=8,/obj/item/device/flash=4)
 	},
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
@@ -6394,8 +6357,8 @@
 /obj/machinery/vending/cigarette{
 	contraband = newlist();
 	premium = newlist();
-	prices = list(/obj/item/storage/fancy/smokable = 15, /obj/item/storage/box/matches = 1, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 20);
-	products = list(/obj/item/storage/fancy/smokable = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
+	prices = list(/obj/item/storage/fancy/smokable=15,/obj/item/storage/box/matches=1,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=20);
+	products = list(/obj/item/storage/fancy/smokable=10,/obj/item/storage/box/matches=10,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=2)
 	},
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
@@ -6404,7 +6367,7 @@
 	dir = 8
 	},
 /obj/machinery/button/flasher{
-	id = "syndieflash";
+	id_tag = "syndieflash";
 	name = "Flasher";
 	pixel_x = 27;
 	pixel_y = 0;
@@ -6671,6 +6634,7 @@
 /obj/item/roller_bed{
 	pixel_y = 8
 	},
+/obj/item/bodybag/cryobag,
 /turf/simulated/floor/shuttle/white,
 /area/syndicate_station/start)
 "apY" = (
@@ -6757,7 +6721,7 @@
 	density = 0;
 	dir = 8;
 	icon_state = "shutter0";
-	id = "syndieshutters_infirmary";
+	id_tag = "syndieshutters_infirmary";
 	name = "Blast Shutters";
 	opacity = 0
 	},
@@ -6784,7 +6748,7 @@
 	density = 0;
 	dir = 4;
 	icon_state = "shutter0";
-	id = "syndieshutters_workshop";
+	id_tag = "syndieshutters_workshop";
 	name = "Blast Shutters";
 	opacity = 0
 	},
@@ -6853,7 +6817,7 @@
 /area/syndicate_station/start)
 "aqt" = (
 /obj/machinery/button/blast_door{
-	id = "syndieshutters_infirmary";
+	id_tag = "syndieshutters_infirmary";
 	name = "remote shutter control";
 	pixel_x = -25
 	},
@@ -6887,7 +6851,7 @@
 /area/syndicate_station/start)
 "aqx" = (
 /obj/machinery/button/blast_door{
-	id = "syndieshutters_workshop";
+	id_tag = "syndieshutters_workshop";
 	name = "remote shutter control";
 	pixel_x = 25
 	},
@@ -6898,8 +6862,6 @@
 	dir = 1
 	},
 /obj/structure/table/standard,
-/obj/item/bonesetter,
-/obj/item/bonegel,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1";
@@ -6966,17 +6928,14 @@
 /area/syndicate_station/start)
 "aqG" = (
 /obj/machinery/door/blast/regular{
-	id = "smindicate";
+	id_tag = "smindicate";
 	name = "Outer Airlock"
 	},
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "aqH" = (
 /obj/structure/table/standard,
-/obj/item/scalpel,
-/obj/item/circular_saw{
-	pixel_y = 8
-	},
+/obj/item/reagent_containers/spray/sterilizine,
 /turf/simulated/floor/shuttle/white,
 /area/syndicate_station/start)
 "aqI" = (
@@ -6997,9 +6956,8 @@
 /obj/item/clothing/gloves/latex,
 /obj/item/clothing/mask/surgical,
 /obj/item/reagent_containers/glass/bottle/stoxin,
-/turf/simulated/shuttle/wall{
-	icon_state = "wall3"
-	},
+/obj/effect/paint/merc,
+/turf/simulated/wall/titanium,
 /area/syndicate_station/start)
 "aqK" = (
 /obj/effect/landmark{
@@ -7009,8 +6967,7 @@
 /area/syndicate_station/start)
 "aqL" = (
 /obj/structure/table/standard,
-/obj/item/cautery,
-/obj/item/hemostat,
+/obj/item/storage/firstaid/surgery,
 /turf/simulated/floor/shuttle/white,
 /area/syndicate_station/start)
 "aqM" = (
@@ -7018,9 +6975,6 @@
 /turf/simulated/floor/shuttle/white,
 /area/syndicate_station/start)
 "aqN" = (
-/obj/structure/table/standard,
-/obj/item/stack/medical/advanced/bruise_pack,
-/obj/item/retractor,
 /obj/item/device/radio/intercom{
 	desc = "Talk through this. Evilly";
 	dir = 8;
@@ -7030,6 +6984,7 @@
 	subspace_transmission = 1;
 	syndie = 1
 	},
+/obj/machinery/vitals_monitor,
 /turf/simulated/floor/shuttle/white,
 /area/syndicate_station/start)
 "aqO" = (
@@ -7048,7 +7003,7 @@
 /turf/simulated/floor/plating,
 /area/syndicate_station/start)
 "aqQ" = (
-/obj/machinery/computer/teleporter,
+/obj/machinery/tele_projector,
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "aqR" = (
@@ -7059,23 +7014,19 @@
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_l"
 	},
-/turf/simulated/shuttle/wall{
-	icon_state = "wall3"
-	},
+/turf/simulated/wall/titanium,
 /area/syndicate_station/start)
 "aqT" = (
 /obj/structure/shuttle/engine/propulsion,
-/turf/simulated/shuttle/wall{
-	icon_state = "wall3"
-	},
+/obj/effect/paint/merc,
+/turf/simulated/wall/titanium,
 /area/syndicate_station/start)
 "aqU" = (
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_r"
 	},
-/turf/simulated/shuttle/wall{
-	icon_state = "wall3"
-	},
+/obj/effect/paint/merc,
+/turf/simulated/wall/titanium,
 /area/syndicate_station/start)
 "aqV" = (
 /turf/unsimulated/floor/snow{
@@ -7327,10 +7278,9 @@
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/administration/centcom)
 "arN" = (
-/obj/machinery/fabricator{
-	desc = "Your typical Autolathe. It appears to have much more options than your regular one, however...";
-	hacked = 1;
-	name = "Thunderdome Autolathe"
+/obj/machinery/fabricator/hacked{
+	desc = "Your typical Fabricator. It appears to have much more options than your regular one, however...";
+	name = "Thunderdome Fabricator"
 	},
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/administration/centcom)
@@ -7488,18 +7438,18 @@
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/administration/centcom)
 "asl" = (
-/obj/machinery/dna_scannernew,
-/turf/simulated/floor/shuttle/white,
-/area/shuttle/administration/centcom)
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l"
+	},
+/obj/effect/paint/merc,
+/turf/simulated/shuttle/wall{
+	icon_state = "wall3"
+	},
+/area/syndicate_station/start)
 "asm" = (
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/computer/cloning,
-/turf/simulated/floor/shuttle/white,
-/area/shuttle/administration/centcom)
-"asn" = (
-/obj/machinery/clonepod,
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/administration/centcom)
 "aso" = (
@@ -7810,7 +7760,7 @@
 	dir = 2;
 	network = list("ERT")
 	},
-/obj/mecha/combat/gygax/dark,
+/mob/living/exosuit/premade/combat/military,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -7960,10 +7910,6 @@
 /obj/machinery/computer/teleporter,
 /turf/simulated/floor/bluegrid,
 /area/centcom)
-"atA" = (
-/obj/machinery/computer/teleporter,
-/turf/simulated/floor/bluegrid,
-/area/centcom)
 "atB" = (
 /obj/machinery/tele_pad,
 /turf/simulated/floor/bluegrid,
@@ -7979,7 +7925,7 @@
 "atD" = (
 /obj/machinery/door/blast/regular{
 	icon_state = "pdoor1";
-	id = "ASSAULT3";
+	id_tag = "ASSAULT3";
 	name = "Launch Bay #3";
 	p_open = 0
 	},
@@ -7990,7 +7936,7 @@
 "atE" = (
 /obj/machinery/mass_driver{
 	dir = 8;
-	id = "ASSAULT3";
+	id_tag = "ASSAULT3";
 	name = "gravpult"
 	},
 /turf/unsimulated/floor{
@@ -8025,7 +7971,7 @@
 	},
 /area/centcom)
 "atI" = (
-/obj/mecha/medical/odysseus/loaded,
+/mob/living/exosuit/premade/light,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -8039,7 +7985,7 @@
 "atK" = (
 /obj/machinery/door/blast/regular{
 	icon_state = "pdoor1";
-	id = "ASSAULT";
+	id_tag = "ASSAULT";
 	name = "Assault Armor Storage";
 	p_open = 0
 	},
@@ -8097,7 +8043,7 @@
 "atR" = (
 /obj/machinery/door/blast/regular{
 	icon_state = "pdoor1";
-	id = "ASSAULT2";
+	id_tag = "ASSAULT2";
 	name = "Launch Bay #2";
 	p_open = 0
 	},
@@ -8108,7 +8054,7 @@
 "atS" = (
 /obj/machinery/mass_driver{
 	dir = 8;
-	id = "ASSAULT2";
+	id_tag = "ASSAULT2";
 	name = "gravpult"
 	},
 /turf/unsimulated/floor{
@@ -8283,7 +8229,7 @@
 	},
 /area/centcom)
 "aul" = (
-/obj/mecha/working/ripley/firefighter,
+/mob/living/exosuit/premade/firefighter,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -8481,7 +8427,7 @@
 "auB" = (
 /obj/machinery/door/blast/regular{
 	icon_state = "pdoor1";
-	id = "ASSAULT1";
+	id_tag = "ASSAULT1";
 	name = "Launch Bay #1";
 	p_open = 0
 	},
@@ -8492,7 +8438,7 @@
 "auC" = (
 /obj/machinery/mass_driver{
 	dir = 8;
-	id = "ASSAULT1";
+	id_tag = "ASSAULT1";
 	name = "gravpult"
 	},
 /turf/unsimulated/floor{
@@ -8793,7 +8739,7 @@
 "ava" = (
 /obj/machinery/door/blast/regular{
 	icon_state = "pdoor1";
-	id = "ASSAULT0";
+	id_tag = "ASSAULT0";
 	name = "Launch Bay #0";
 	p_open = 0
 	},
@@ -8804,7 +8750,7 @@
 "avb" = (
 /obj/machinery/mass_driver{
 	dir = 8;
-	id = "ASSAULT0";
+	id_tag = "ASSAULT0";
 	name = "gravpult"
 	},
 /turf/unsimulated/floor{
@@ -9177,7 +9123,7 @@
 "avL" = (
 /obj/machinery/door/blast/regular{
 	icon_state = "pdoor1";
-	id = "CREED";
+	id_tag = "CREED";
 	name = "Ready Room";
 	p_open = 0
 	},
@@ -10060,7 +10006,7 @@
 	icon_state = "doorctrl0";
 	pixel_y = 15;
 	req_access = list("ACCESS_ENGINE_EQUIP");
-	id = "CREED"
+	id_tag = "CREED"
 	},
 /obj/machinery/button/blast_door{
 	name = "Mech Storage";
@@ -10068,7 +10014,7 @@
 	icon_state = "doorctrl0";
 	pixel_y = 0;
 	req_access = list("ACCESS_ENGINE_EQUIP");
-	id = "ASSAULT"
+	id_tag = "ASSAULT"
 	},
 /turf/unsimulated/floor{
 	tag = "icon-wood";
@@ -10090,8 +10036,8 @@
 	},
 /area/centcom)
 "axA" = (
-/obj/machinery/computer/pod{
-	id = "NTrasen";
+/obj/machinery/button/blast_door{
+	id_tag = "NTrasen";
 	name = "Hull Door Control"
 	},
 /obj/item/device/radio/intercom{
@@ -10367,7 +10313,7 @@
 "ayj" = (
 /obj/structure/window/reinforced{
 	dir = 8;
-	health = 1e+006
+	health_max = 1e+006
 	},
 /obj/structure/shuttle/engine/heater{
 	icon_state = "heater";
@@ -10393,7 +10339,7 @@
 /area/centcom)
 "aym" = (
 /obj/machinery/door/blast/regular{
-	id = "CentComPort";
+	id_tag = "CentComPort";
 	name = "Security Doors"
 	},
 /turf/unsimulated/floor{
@@ -10674,7 +10620,7 @@
 /obj/machinery/button/blast_door{
 	desc = "A remote control switch for port-side blast doors.";
 	icon_state = "doorctrl0";
-	id = "CentComPort";
+	id_tag = "CentComPort";
 	name = "Security Doors";
 	pixel_x = -12;
 	pixel_y = -25;
@@ -10745,7 +10691,7 @@
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
-	id = "CentComPort";
+	id_tag = "CentComPort";
 	name = "Security Doors";
 	opacity = 0
 	},
@@ -12384,7 +12330,7 @@
 	req_access = list("ACCESS_CENT_GENERAL")
 	},
 /obj/machinery/door/blast/regular{
-	id = "crescent_thunderdome";
+	id_tag = "crescent_thunderdome";
 	name = "Thunderdome"
 	},
 /turf/unsimulated/floor{
@@ -12590,7 +12536,7 @@
 "aDD" = (
 /obj/structure/window/reinforced{
 	dir = 5;
-	health = 1e+007
+	health_max = 1e+007
 	},
 /turf/unsimulated/wall/fakeglass{
 	dir = 1;
@@ -12668,7 +12614,7 @@
 "aDO" = (
 /obj/structure/window/reinforced{
 	dir = 5;
-	health = 1e+007
+	health_max = 1e+007
 	},
 /turf/unsimulated/wall/fakeglass{
 	icon_state = "fakewindows2";
@@ -12689,7 +12635,7 @@
 "aDQ" = (
 /obj/structure/window/reinforced{
 	dir = 5;
-	health = 1e+007
+	health_max = 1e+007
 	},
 /turf/unsimulated/wall/fakeglass{
 	icon_state = "fakewindows";
@@ -12699,7 +12645,7 @@
 "aDR" = (
 /obj/structure/window/reinforced{
 	dir = 5;
-	health = 1e+007
+	health_max = 1e+007
 	},
 /turf/unsimulated/wall/fakeglass{
 	icon_state = "fakewindows2";
@@ -12709,7 +12655,7 @@
 "aDS" = (
 /obj/structure/window/reinforced{
 	dir = 5;
-	health = 1e+007
+	health_max = 1e+007
 	},
 /turf/unsimulated/wall/fakeglass{
 	icon_state = "fakewindows";
@@ -12794,14 +12740,10 @@
 "aEd" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/gloves{
-	pixel_x = -4;
-	pixel_y = -3;
 	pixel_x = 3;
 	pixel_y = 4
 	},
 /obj/item/storage/box/masks{
-	pixel_x = 4;
-	pixel_y = 5;
 	pixel_x = 0;
 	pixel_y = 0
 	},
@@ -12812,7 +12754,7 @@
 "aEe" = (
 /obj/structure/window/reinforced{
 	dir = 5;
-	health = 1e+007
+	health_max = 1e+007
 	},
 /turf/unsimulated/wall/fakeglass,
 /area/centcom/holding)
@@ -12905,14 +12847,10 @@
 "aEq" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/gloves{
-	pixel_x = -4;
-	pixel_y = -3;
 	pixel_x = 3;
 	pixel_y = 4
 	},
 /obj/item/storage/box/masks{
-	pixel_x = 4;
-	pixel_y = 5;
 	pixel_x = 0;
 	pixel_y = 0
 	},
@@ -13028,7 +12966,7 @@
 	req_access = list("ACCESS_CENT_GENERAL")
 	},
 /obj/machinery/door/blast/regular{
-	id = "crescent_thunderdome";
+	id_tag = "crescent_thunderdome";
 	name = "Thunderdome"
 	},
 /turf/unsimulated/floor{
@@ -13077,7 +13015,7 @@
 	name = "Thunderdome"
 	},
 /obj/machinery/door/blast/regular{
-	id = "crescent_thunderdome";
+	id_tag = "crescent_thunderdome";
 	name = "Thunderdome"
 	},
 /turf/unsimulated/floor{
@@ -13197,7 +13135,7 @@
 	id = "QMLoad2"
 	},
 /obj/machinery/door/blast/regular{
-	id = "QMLoaddoor2";
+	id_tag = "QMLoaddoor2";
 	name = "supply dock loading door"
 	},
 /turf/simulated/floor/shuttle/blue,
@@ -13219,7 +13157,7 @@
 	id = "QMLoad"
 	},
 /obj/machinery/door/blast/regular{
-	id = "QMLoaddoor";
+	id_tag = "QMLoaddoor";
 	name = "supply dock loading door"
 	},
 /turf/simulated/floor/shuttle/blue,
@@ -13347,13 +13285,13 @@
 "aFr" = (
 /obj/machinery/button/blast_door{
 	dir = 2;
-	id = "QMLoaddoor2";
+	id_tag = "QMLoaddoor2";
 	name = "Loading Doors";
 	pixel_x = -8;
 	pixel_y = 28
 	},
 /obj/machinery/button/blast_door{
-	id = "QMLoaddoor";
+	id_tag = "QMLoaddoor";
 	name = "Loading Doors";
 	pixel_x = 8;
 	pixel_y = 28
@@ -13824,7 +13762,7 @@
 /area/acting/backstage)
 "aGl" = (
 /obj/machinery/door/blast/regular{
-	id = "thunderdomeaxe";
+	id_tag = "thunderdomeaxe";
 	name = "Axe Supply"
 	},
 /turf/unsimulated/floor{
@@ -13938,7 +13876,7 @@
 "aGB" = (
 /obj/machinery/door/blast/regular{
 	dir = 4;
-	id = "thunderdomegen";
+	id_tag = "thunderdomegen";
 	name = "General Supply"
 	},
 /turf/unsimulated/floor{
@@ -13958,7 +13896,7 @@
 "aGD" = (
 /obj/machinery/door/blast/regular{
 	dir = 4;
-	id = "thunderdome";
+	id_tag = "thunderdome";
 	name = "Thunderdome Blast Door"
 	},
 /turf/unsimulated/floor{
@@ -14156,7 +14094,7 @@
 /area/tdome)
 "aHc" = (
 /obj/machinery/flasher{
-	id = "flash";
+	id_tag = "flash";
 	name = "Thunderdome Flash"
 	},
 /turf/unsimulated/floor{
@@ -14509,7 +14447,7 @@
 /area/tdome)
 "aHO" = (
 /obj/machinery/door/blast/regular{
-	id = "thunderdomehea";
+	id_tag = "thunderdomehea";
 	name = "Heavy Supply"
 	},
 /turf/unsimulated/floor{
@@ -14569,7 +14507,7 @@
 /obj/machinery/vending/cigarette{
 	name = "hacked cigarette machine";
 	prices = list();
-	products = list(/obj/item/storage/fancy/smokable = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
+	products = list(/obj/item/storage/fancy/smokable=10,/obj/item/storage/box/matches=10,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=2)
 	},
 /turf/unsimulated/floor{
 	icon_state = "plating";
@@ -15471,9 +15409,9 @@
 	},
 /area/tdome/tdomeadmin)
 "aKm" = (
-/obj/machinery/computer/pod{
+/obj/machinery/button/blast_door{
 	dir = 1;
-	id = "thunderdomeaxe";
+	id_tag = "thunderdomeaxe";
 	name = "Thunderdome Axe Supply"
 	},
 /turf/unsimulated/floor{
@@ -15481,9 +15419,9 @@
 	},
 /area/tdome/tdomeadmin)
 "aKn" = (
-/obj/machinery/computer/pod{
+/obj/machinery/button/blast_door{
 	dir = 1;
-	id = "thunderdomegen";
+	id_tag = "thunderdomegen";
 	name = "Thunderdome General Supply"
 	},
 /turf/unsimulated/floor{
@@ -15491,9 +15429,9 @@
 	},
 /area/tdome/tdomeadmin)
 "aKo" = (
-/obj/machinery/computer/pod{
+/obj/machinery/button/blast_door{
 	dir = 1;
-	id = "thunderdomehea";
+	id_tag = "thunderdomehea";
 	name = "Thunderdome Heavy Supply"
 	},
 /turf/unsimulated/floor{
@@ -15507,9 +15445,9 @@
 	},
 /area/tdome/tdomeadmin)
 "aKq" = (
-/obj/machinery/computer/pod{
+/obj/machinery/button/blast_door{
 	dir = 1;
-	id = "thunderdome";
+	id_tag = "thunderdome";
 	name = "Thunderdome Blast Door Control"
 	},
 /turf/unsimulated/floor{
@@ -15544,7 +15482,7 @@
 "aKu" = (
 /obj/structure/table/standard,
 /obj/machinery/button/ignition{
-	id = "tdome"
+	id_tag = "tdome"
 	},
 /turf/unsimulated/floor{
 	icon_state = "lino"
@@ -16193,7 +16131,7 @@
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
-	id = null;
+	id_tag = null;
 	name = "transit shuttle door";
 	opacity = 0
 	},
@@ -16445,7 +16383,7 @@
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
-	id = null;
+	id_tag = null;
 	name = "transit blast door";
 	opacity = 0
 	},
@@ -16825,7 +16763,7 @@
 	},
 /area/centcom/transit)
 "aNC" = (
-/obj/mecha/combat/marauder,
+/mob/living/exosuit/premade/heavy,
 /turf/simulated/floor/shuttle/yellow,
 /area/shuttle/naval1/centcom)
 "aND" = (
@@ -16946,11 +16884,6 @@
 /area/centcom/scom)
 "aNM" = (
 /obj/structure/closet/crate,
-/obj/item/target/alien,
-/obj/item/target/alien,
-/obj/item/target/alien,
-/obj/item/target/alien,
-/obj/item/target/alien,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 8
@@ -17008,7 +16941,6 @@
 	},
 /area/map_template/wizard_station)
 "aNU" = (
-/obj/item/target,
 /turf/unsimulated/floor{
 	tag = "icon-cult";
 	name = "plating";
@@ -17016,21 +16948,16 @@
 	},
 /area/map_template/wizard_station)
 "aNV" = (
-/obj/item/target/syndicate,
-/turf/unsimulated/floor{
-	tag = "icon-cult";
-	name = "plating";
-	icon_state = "cult"
+/obj/structure/shuttle/engine/propulsion,
+/obj/effect/paint/merc,
+/turf/simulated/shuttle/wall{
+	icon_state = "wall3"
 	},
-/area/map_template/wizard_station)
+/area/syndicate_station/start)
 "aNW" = (
-/obj/item/target/alien,
-/turf/unsimulated/floor{
-	tag = "icon-cult";
-	name = "plating";
-	icon_state = "cult"
-	},
-/area/map_template/wizard_station)
+/obj/structure/shuttle/engine/propulsion,
+/turf/simulated/wall/titanium,
+/area/syndicate_station/start)
 "aNX" = (
 /turf/unsimulated/wall/fakeglass{
 	icon_state = "fakewindows2";
@@ -17229,15 +17156,11 @@
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/structure/table/steel_reinforced,
 /obj/item/storage/box/gloves{
-	pixel_x = -4;
-	pixel_y = -3;
 	pixel_x = 3;
 	pixel_y = 4
 	},
 /obj/item/reagent_containers/spray/cleaner,
 /obj/item/storage/box/masks{
-	pixel_x = 4;
-	pixel_y = 5;
 	pixel_x = 0;
 	pixel_y = 0
 	},
@@ -17315,8 +17238,8 @@
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/syndicate_elite/mothership)
 "aOB" = (
-/obj/machinery/computer/pod{
-	id = "syndicate_elite";
+/obj/machinery/button/blast_door{
+	id_tag = "syndicate_elite";
 	name = "Hull Door Control"
 	},
 /turf/unsimulated/floor{
@@ -17352,7 +17275,7 @@
 	},
 /area/syndicate_elite_squad)
 "aOG" = (
-/obj/mecha/combat/marauder/mauler,
+/mob/living/exosuit/premade/heavy/merc,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -17372,13 +17295,6 @@
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
-	},
-/area/map_template/wizard_station)
-"aOJ" = (
-/turf/unsimulated/floor{
-	tag = "icon-cult";
-	name = "plating";
-	icon_state = "cult"
 	},
 /area/map_template/wizard_station)
 "aOK" = (
@@ -17765,7 +17681,7 @@
 "aPA" = (
 /obj/structure/window/reinforced/tinted{
 	dir = 8;
-	health = 1000;
+	health_max = 1000;
 	icon_state = "twindow";
 	name = "hardened window";
 	opacity = 0
@@ -17809,7 +17725,7 @@
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
-	id = "syndicate_elite";
+	id_tag = "syndicate_elite";
 	name = "Side Hull Door";
 	opacity = 0
 	},
@@ -18016,11 +17932,6 @@
 	icon_state = "steel"
 	},
 /area/centcom/scom)
-"aQa" = (
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
-/area/centcom/scom)
 "aQb" = (
 /obj/effect/floor_decal/corner/black{
 	tag = "icon-corner_white (SOUTHEAST)";
@@ -18038,7 +17949,7 @@
 	req_access = list("ACCESS_SYNDICATE")
 	},
 /obj/machinery/door/blast/regular{
-	id = "syndicate_elite_mech_room";
+	id_tag = "syndicate_elite_mech_room";
 	name = "Mech Room Door"
 	},
 /turf/unsimulated/floor{
@@ -18047,7 +17958,7 @@
 /area/syndicate_elite_squad)
 "aQd" = (
 /obj/machinery/button/blast_door{
-	id = "syndicate_elite_mech_room";
+	id_tag = "syndicate_elite_mech_room";
 	name = "Mech Access";
 	pixel_x = 32;
 	pixel_y = 0;
@@ -18221,19 +18132,12 @@
 	},
 /area/centcom/scom)
 "aQs" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 9
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l"
 	},
-/obj/effect/floor_decal/industrial/warning/cee{
-	tag = "icon-warningcee (WEST)";
-	icon_state = "warningcee";
-	dir = 8
-	},
-/obj/machinery/dna_scannernew,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
-/area/centcom/scom)
+/obj/effect/paint/merc,
+/turf/simulated/wall/titanium,
+/area/syndicate_station/start)
 "aQt" = (
 /obj/effect/floor_decal/industrial/warning/cee{
 	icon_state = "warningcee";
@@ -18291,15 +18195,6 @@
 	icon_state = "white"
 	},
 /area/centcom/scom)
-"aQx" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 5
-	},
-/obj/machinery/resleever,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
-/area/centcom/scom)
 "aQy" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -18345,7 +18240,6 @@
 	},
 /area/centcom/scom)
 "aQC" = (
-/obj/structure/target_stake,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -18361,8 +18255,8 @@
 	},
 /area/centcom/scom)
 "aQE" = (
-/obj/machinery/computer/pod{
-	id = "syndicate_elite";
+/obj/machinery/button/blast_door{
+	id_tag = "syndicate_elite";
 	name = "Hull Door Control"
 	},
 /turf/simulated/floor/shuttle/red,
@@ -18453,9 +18347,6 @@
 "aQP" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9
-	},
-/obj/machinery/computer/cloning{
-	dir = 4
 	},
 /turf/unsimulated/floor{
 	icon_state = "white"
@@ -18590,7 +18481,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	icon_state = "pdoor1";
-	id = "syndicate_elite";
+	id_tag = "syndicate_elite";
 	name = "Front Hull Door";
 	opacity = 1
 	},
@@ -18616,12 +18507,6 @@
 	tag = "icon-lava";
 	name = "plating";
 	icon_state = "lava"
-	},
-/area/map_template/wizard_station)
-"aRg" = (
-/turf/unsimulated/floor{
-	icon_state = "asteroid";
-	tag = "icon-ironsand7"
 	},
 /area/map_template/wizard_station)
 "aRh" = (
@@ -18713,7 +18598,6 @@
 	icon_state = "warningcee";
 	dir = 8
 	},
-/obj/machinery/clonepod,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -18770,9 +18654,6 @@
 	},
 /area/map_template/wizard_station)
 "aRy" = (
-/mob/living/simple_animal/hostile/tribesman{
-	name = "Experiment 69T"
-	},
 /turf/unsimulated/floor{
 	icon_state = "asteroid";
 	tag = "icon-ironsand7"
@@ -20743,9 +20624,14 @@
 /turf/simulated/floor/plating,
 /area/map_template/syndicate_mothership/ninja)
 "aVH" = (
-/obj/machinery/computer/teleporter,
-/turf/simulated/floor/plating,
-/area/map_template/syndicate_mothership/ninja)
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_r"
+	},
+/obj/effect/paint/merc,
+/turf/simulated/shuttle/wall{
+	icon_state = "wall3"
+	},
+/area/syndicate_station/start)
 "aVI" = (
 /obj/machinery/tele_pad,
 /turf/simulated/floor/plating,
@@ -20878,14 +20764,10 @@
 /obj/item/clothing/glasses/hud/health,
 /obj/item/clothing/glasses/hud/health,
 /obj/item/storage/box/masks{
-	pixel_x = 4;
-	pixel_y = 5;
 	pixel_x = 0;
 	pixel_y = 0
 	},
 /obj/item/storage/box/gloves{
-	pixel_x = -4;
-	pixel_y = -3;
 	pixel_x = 3;
 	pixel_y = 4
 	},
@@ -21159,7 +21041,7 @@
 	pixel_x = -12;
 	pixel_y = 2
 	},
-/obj/item/storage/mirror/raider{
+/obj/item/vox_changer{
 	pixel_x = -28;
 	pixel_y = 0
 	},
@@ -21640,14 +21522,10 @@
 "aXr" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/gloves{
-	pixel_x = -4;
-	pixel_y = -3;
 	pixel_x = 3;
 	pixel_y = 4
 	},
 /obj/item/storage/box/masks{
-	pixel_x = 4;
-	pixel_y = 5;
 	pixel_x = 0;
 	pixel_y = 0
 	},
@@ -21716,14 +21594,10 @@
 "aXv" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/gloves{
-	pixel_x = -4;
-	pixel_y = -3;
 	pixel_x = 3;
 	pixel_y = 4
 	},
 /obj/item/storage/box/masks{
-	pixel_x = 4;
-	pixel_y = 5;
 	pixel_x = 0;
 	pixel_y = 0
 	},
@@ -22293,7 +22167,7 @@
 	},
 /area/map_template/syndicate_mothership/raider_base)
 "aYH" = (
-/obj/machinery/computer/modular/preset/mercenary{
+/obj/machinery/computer/modular/preset/full/merc{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -22352,7 +22226,7 @@
 	},
 /area/map_template/syndicate_mothership/raider_base)
 "aYM" = (
-/obj/item/soap/nanotrasen,
+/obj/item/soap/random,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
 	dir = 2
@@ -22511,7 +22385,7 @@
 /obj/item/gun/projectile/automatic/c20r,
 /obj/item/gun/projectile/automatic/c20r,
 /obj/item/gun/projectile/automatic/c20r,
-/obj/item/gun/projectile/automatic/mini_uzi,
+/obj/item/gun/projectile/automatic/machine_pistol,
 /turf/unsimulated/floor{
 	tag = "icon-cult";
 	name = "plating";
@@ -23740,7 +23614,7 @@
 /area/map_template/skipjack_station/start)
 "bbJ" = (
 /obj/machinery/door/blast/regular{
-	id = "skipjackshutters";
+	id_tag = "skipjackshutters";
 	name = "Skipjack Blast Shielding"
 	},
 /obj/effect/wallframe_spawn/reinforced,
@@ -24014,7 +23888,6 @@
 /area/centcom/antag)
 "bcp" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1331;
 	id_tag = "vox_west_vent"
 	},
 /turf/simulated/floor/plating,
@@ -24041,7 +23914,7 @@
 /area/map_template/skipjack_station/start)
 "bcu" = (
 /obj/machinery/button/blast_door{
-	id = "skipjackshutters";
+	id_tag = "skipjackshutters";
 	name = "remote shutter control";
 	req_access = list("ACCESS_SYNDICATE")
 	},
@@ -24057,7 +23930,6 @@
 /area/map_template/skipjack_station/start)
 "bcw" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1331;
 	id_tag = "vox_east_vent"
 	},
 /turf/simulated/floor/plating,
@@ -24265,7 +24137,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1331;
 	id_tag = "vox_west_vent"
 	},
 /obj/machinery/light/small,
@@ -24311,7 +24182,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1331;
 	id_tag = "vox_east_vent"
 	},
 /obj/machinery/light/small,
@@ -24327,7 +24197,7 @@
 "bcZ" = (
 /obj/structure/table/standard,
 /obj/item/material/kitchen/utensil/spoon/plastic,
-/obj/item/material/knife/kitchen/plastic,
+/obj/item/material/knife/kitchen,
 /obj/item/material/kitchen/utensil/fork/plastic,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
@@ -25763,7 +25633,7 @@
 "bfU" = (
 /obj/machinery/door/blast/regular{
 	dir = 4;
-	id = "skipjackshutters";
+	id_tag = "skipjackshutters";
 	name = "Skipjack Blast Shielding"
 	},
 /obj/effect/wallframe_spawn/reinforced,
@@ -25829,7 +25699,7 @@
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 1;
-	health = 1e+006
+	health_max = 1e+006
 	},
 /turf/unsimulated/floor/fakestairs{
 	tag = "icon-fakestairs_left";
@@ -26061,7 +25931,7 @@
 /obj/structure/bed/nice,
 /obj/structure/window/reinforced{
 	dir = 1;
-	health = 1e+006
+	health_max = 1e+006
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -26080,7 +25950,7 @@
 	},
 /obj/structure/window/reinforced{
 	dir = 1;
-	health = 1e+006
+	health_max = 1e+006
 	},
 /turf/unsimulated/floor{
 	icon_state = "carpet";
@@ -26111,7 +25981,7 @@
 	},
 /obj/structure/window/reinforced{
 	dir = 1;
-	health = 1e+006
+	health_max = 1e+006
 	},
 /turf/unsimulated/floor{
 	icon_state = "carpet";
@@ -37518,7 +37388,7 @@ aSb
 aSb
 aSb
 aZo
-aQa
+aQC
 baj
 baL
 bbk
@@ -37775,7 +37645,7 @@ aSc
 aSc
 aYN
 aZp
-aQa
+aQC
 baj
 baL
 bbk
@@ -38018,9 +37888,9 @@ aSd
 aSd
 aSd
 aSd
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
 aSd
 aSd
 aSd
@@ -38029,10 +37899,10 @@ aSd
 aSd
 aSd
 aSd
-aQa
+aQC
 aYO
 aZp
-aQa
+aQC
 baj
 baL
 bbk
@@ -38275,9 +38145,9 @@ aNt
 aNt
 aSB
 aNt
-aQa
+aQC
 aTF
-aQa
+aQC
 aNt
 aNt
 aNt
@@ -38286,10 +38156,10 @@ aUm
 aNt
 aNt
 aNt
-aQa
+aQC
 aYO
 aZp
-aQa
+aQC
 aNt
 baL
 baL
@@ -38789,18 +38659,18 @@ aSf
 aSf
 aSf
 aSB
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
 aNt
 aUN
-aQa
+aQC
 aVR
 aVR
-aQa
+aQC
 aXn
 aNt
-aQa
+aQC
 aYO
 aZp
 aZN
@@ -39046,9 +38916,9 @@ aSg
 aSf
 aSH
 aNt
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
 aNt
 aUN
 aVu
@@ -39057,10 +38927,10 @@ aWw
 aWV
 aXn
 aNt
-aQa
+aQC
 aYO
 aZp
-aQa
+aQC
 bak
 aNt
 aNt
@@ -39303,9 +39173,9 @@ aNt
 aSB
 aNt
 aNt
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
 aNt
 aUN
 aVu
@@ -39314,23 +39184,23 @@ aVT
 aWV
 aXn
 aNt
-aQa
+aQC
 aYO
 aZp
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
 bgu
 aOy
 aOy
@@ -39551,18 +39421,18 @@ aJs
 aNs
 aNt
 aNt
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
 aUm
 aUO
 aVu
@@ -39571,23 +39441,23 @@ aVT
 aWV
 aXo
 aUm
-aQa
+aQC
 aYO
 aZp
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
 bgu
 aOy
 aOy
@@ -39808,18 +39678,18 @@ aae
 aae
 aae
 aNt
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
 aUm
 aUO
 aVu
@@ -39828,7 +39698,7 @@ aVT
 aWV
 aXo
 aUm
-aQa
+aQC
 aYO
 aZp
 aZM
@@ -40065,8 +39935,8 @@ aae
 aae
 aae
 aNt
-aQa
-aQa
+aQC
+aQC
 aNt
 aNt
 aNt
@@ -40074,9 +39944,9 @@ aNt
 aRo
 aRo
 aNt
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
 aNt
 aUN
 aVu
@@ -40085,7 +39955,7 @@ aVT
 aWV
 aXn
 aNt
-aQa
+aQC
 aYO
 aZp
 aZN
@@ -40322,8 +40192,8 @@ aae
 aae
 aae
 aNt
-aQa
-aQa
+aQC
+aQC
 aNt
 aRD
 aRD
@@ -40331,9 +40201,9 @@ aRD
 aRE
 aRE
 aNt
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
 aNt
 aUN
 aVu
@@ -40342,23 +40212,23 @@ aVT
 aWV
 aXn
 aNt
-aQa
+aQC
 aYO
 aZp
-aQa
+aQC
 aUn
-aQa
-aQa
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
+aQC
+aQC
 bdI
 bev
-aQa
-aQa
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
+aQC
+aQC
 aNt
 aNt
 aNt
@@ -40580,7 +40450,7 @@ aNt
 aNt
 aNt
 aQn
-aQa
+aQC
 aRo
 aRE
 aRE
@@ -40588,21 +40458,21 @@ aRE
 aRE
 aRE
 aRo
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
 aNt
 aUN
-aQa
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
+aQC
 aXn
 aNt
-aQa
+aQC
 aYO
 aZp
-aQa
+aQC
 aNt
 baN
 baN
@@ -40837,7 +40707,7 @@ aPc
 aPz
 aPV
 aQn
-aQa
+aQC
 aRo
 aRE
 aRE
@@ -40845,9 +40715,9 @@ aRE
 aRE
 aRE
 aRo
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
 aNt
 aUP
 aTX
@@ -40856,23 +40726,23 @@ aVW
 aTX
 aXp
 aNt
-aQa
+aQC
 aYO
 aZp
-aQa
+aQC
 aUn
-aQa
-aQa
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
+aQC
+aQC
 bdI
 bev
-aQa
-aQa
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
+aQC
+aQC
 bgv
 aae
 aae
@@ -41094,7 +40964,7 @@ aPc
 aPz
 aPV
 aQn
-aQa
+aQC
 aNt
 aRF
 aRF
@@ -41102,9 +40972,9 @@ aSh
 aSh
 aRD
 aNt
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
 aNt
 aNt
 aNt
@@ -41116,7 +40986,7 @@ aNt
 aYn
 aYO
 aZp
-aQa
+aQC
 aNt
 baN
 baN
@@ -41351,7 +41221,7 @@ aNt
 aNt
 aNt
 aQn
-aQa
+aQC
 aNt
 aNt
 aNt
@@ -41359,34 +41229,34 @@ aNt
 aNt
 aNt
 aNt
-aQa
-aQa
+aQC
+aQC
 aTW
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
 aYO
 aZp
-aQa
+aQC
 aUn
-aQa
-aQa
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
+aQC
+aQC
 bdI
 bev
-aQa
-aQa
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
+aQC
+aQC
 bgv
 aae
 aae
@@ -41607,30 +41477,30 @@ aae
 aae
 aae
 aNt
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
 aYO
 aZp
-aQa
+aQC
 aNt
 baN
 baN
@@ -41864,43 +41734,43 @@ aae
 aae
 aae
 aNt
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
 aTo
 aTH
 aTX
 aTX
 aTX
 aTH
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
 aYO
 aZp
-aQa
+aQC
 aUn
-aQa
-aQa
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
+aQC
+aQC
 bdI
 bev
-aQa
-aQa
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
+aQC
+aQC
 bgv
 aae
 aae
@@ -42144,20 +42014,20 @@ aNt
 aYo
 aYO
 aZp
-aQa
+aQC
 aNt
 aVu
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
 bda
 bdJ
 bew
 beS
-aQa
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
+aQC
 aNt
 aae
 aae
@@ -42390,7 +42260,7 @@ aSU
 aNt
 aTI
 aTZ
-aQa
+aQC
 aUR
 aRR
 aVY
@@ -42398,23 +42268,23 @@ aWd
 aWW
 aXr
 aNt
-aQa
+aQC
 aYO
 aZp
 aZO
 aNt
 aVu
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
 bda
 bdK
 bex
 beS
-aQa
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
+aQC
 aNt
 aae
 aae
@@ -42641,13 +42511,13 @@ aRq
 aRH
 aNt
 aSj
-aQa
-aQa
+aQC
+aQC
 aSV
 aNt
 aTI
 aTZ
-aQa
+aQC
 aUR
 aRS
 aVZ
@@ -42655,7 +42525,7 @@ aWa
 aWa
 aWa
 aNt
-aQa
+aQC
 aYO
 aZp
 aZP
@@ -42898,13 +42768,13 @@ aNt
 aNt
 aNt
 aSk
-aQa
-aQa
+aQC
+aQC
 aSW
 aNt
 aTJ
 aTZ
-aQa
+aQC
 aUR
 aVv
 aWa
@@ -42912,7 +42782,7 @@ aWa
 aWX
 aXs
 aNt
-aQa
+aQC
 aYO
 aZp
 aZQ
@@ -43155,13 +43025,13 @@ aOy
 aRI
 aRR
 aSl
-aQa
-aQa
+aQC
+aQC
 aSX
 aNt
 aTJ
 aTZ
-aQa
+aQC
 aUR
 aRR
 aWb
@@ -43169,7 +43039,7 @@ aWa
 aWa
 aXt
 aNt
-aQa
+aQC
 aYO
 aZp
 aZQ
@@ -43412,13 +43282,13 @@ aOy
 aRJ
 aRS
 aSm
-aQa
-aQa
+aQC
+aQC
 aSY
 aNt
 aTK
 aTZ
-aQa
+aQC
 aUR
 aRS
 aWc
@@ -43426,7 +43296,7 @@ aWa
 aWY
 aXu
 aNt
-aQa
+aQC
 aYO
 aZp
 aZR
@@ -43669,13 +43539,13 @@ aOy
 aOy
 aRT
 aSn
-aQa
-aQa
+aQC
+aQC
 aSW
 aNt
 aTK
 aTZ
-aQa
+aQC
 aUR
 aNt
 aNt
@@ -43686,7 +43556,7 @@ aNt
 aYp
 aYO
 aZp
-aQa
+aQC
 aNt
 baO
 bbm
@@ -43926,14 +43796,14 @@ aNt
 aNt
 aNt
 aSo
-aQa
-aQa
+aQC
+aQC
 aSX
 aNt
 aTL
 aTZ
-aQa
-aQa
+aQC
+aQC
 aTZ
 aTZ
 aTZ
@@ -44177,30 +44047,30 @@ aae
 aae
 aae
 aNt
-aQs
+aRr
 aQP
 aRr
 aRr
 aNt
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
 aTZ
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
 aRT
 aUN
 aYO
 aZp
-aQa
+aQC
 aNt
 baQ
 bbm
@@ -44446,8 +44316,8 @@ aSp
 aSp
 aSp
 aTZ
-aQa
-aQa
+aQC
+aQC
 aUa
 aUa
 aUa
@@ -44457,7 +44327,7 @@ aUc
 aUN
 aYO
 aZp
-aQa
+aQC
 aNt
 aNt
 bbn
@@ -44693,8 +44563,8 @@ aae
 aNt
 aQu
 aQR
-aQa
-aQa
+aQC
+aQC
 aRV
 aSq
 aSq
@@ -44703,7 +44573,7 @@ aSq
 aSq
 aSq
 aUa
-aQa
+aQC
 aUR
 aNt
 aNt
@@ -44714,7 +44584,7 @@ aNt
 aYp
 aYO
 aZp
-aQa
+aQC
 aNt
 baO
 bbm
@@ -44950,17 +44820,17 @@ aae
 aNt
 aQv
 aQS
-aQa
-aQa
+aQC
+aQC
 aNt
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
 aUa
-aQa
+aQC
 aUR
 aRR
 aWd
@@ -44968,10 +44838,10 @@ aWa
 aWW
 aXv
 aNt
-aQa
+aQC
 aYO
 aZp
-aQa
+aQC
 aNt
 baP
 bbm
@@ -45207,8 +45077,8 @@ aae
 aNt
 aQv
 aQS
-aQa
-aQa
+aQC
+aQC
 aNt
 aNt
 aRT
@@ -45217,7 +45087,7 @@ aRT
 aNt
 aNt
 aUa
-aQa
+aQC
 aUR
 aRS
 aVZ
@@ -45225,10 +45095,10 @@ aWa
 aWa
 aWa
 aNt
-aQa
+aQC
 aYO
 aZp
-aQa
+aQC
 aNt
 baQ
 bbm
@@ -45468,13 +45338,13 @@ aRs
 aRK
 aNt
 aSr
-aQa
+aQC
 aSr
-aQa
+aQC
 aTp
 aTM
 aUa
-aQa
+aQC
 aUR
 aVv
 aWa
@@ -45482,7 +45352,7 @@ aWa
 aWX
 aXs
 aNt
-aQa
+aQC
 aYO
 aZp
 aZO
@@ -45725,13 +45595,13 @@ aRt
 aRK
 aNt
 aSs
-aQa
+aQC
 aSs
-aQa
+aQC
 aTp
 aTM
 aUa
-aQa
+aQC
 aUR
 aRR
 aWb
@@ -45978,8 +45848,8 @@ aae
 aNt
 aQu
 aQU
-aQa
-aQa
+aQC
+aQC
 aRU
 aSp
 aSp
@@ -45988,7 +45858,7 @@ aSp
 aSp
 aSp
 aTZ
-aQa
+aQC
 aUR
 aRS
 aWc
@@ -45996,7 +45866,7 @@ aWa
 aWY
 aXu
 aNt
-aQa
+aQC
 aYO
 aZp
 aZQ
@@ -46234,18 +46104,18 @@ aae
 aae
 aNt
 aQw
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
 aRT
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
 aUR
 aNt
 aNt
@@ -46253,7 +46123,7 @@ aVv
 aNt
 aNt
 aNt
-aQa
+aQC
 aYO
 aZp
 aZR
@@ -46490,10 +46360,10 @@ aae
 aae
 aae
 aNt
-aQx
-aQa
-aQa
-aQa
+aQy
+aQC
+aQC
+aQC
 aRV
 aSq
 aSq
@@ -46502,18 +46372,18 @@ aSq
 aSq
 aSq
 aUa
-aQa
-aQa
+aQC
+aQC
 aRT
 aWe
 aWe
 aWe
 aWe
 aRT
-aQa
+aQC
 aYO
 aZp
-aQa
+aQC
 aNt
 baO
 bbm
@@ -46747,10 +46617,10 @@ aae
 aae
 aae
 aNt
-aQx
-aQa
-aQa
-aQa
+aQy
+aQC
+aQC
+aQC
 aNt
 aNt
 aSD
@@ -46759,18 +46629,18 @@ aNt
 aTq
 aNt
 aUa
-aQa
-aQa
+aQC
+aQC
 aRT
-aQa
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
+aQC
 aRT
-aQa
+aQC
 aYO
 aZp
-aQa
+aQC
 aNt
 baR
 bbm
@@ -47005,9 +46875,9 @@ aae
 aae
 aNt
 aQy
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
 aNt
 aNt
 aSD
@@ -47016,18 +46886,18 @@ aNt
 aNt
 aNt
 aUa
-aQa
+aQC
 aUS
 aNt
 aWf
-aQa
-aQa
+aQC
+aQC
 aXw
 aNt
 aYq
 aYO
 aZp
-aQa
+aQC
 aNt
 baQ
 bbm
@@ -47273,18 +47143,18 @@ aSZ
 aNt
 aSZ
 aUb
-aQa
+aQC
 aUR
 aNt
 aWg
-aQa
-aQa
+aQC
+aQC
 aXx
 aNt
-aQa
+aQC
 aYO
 aZp
-aQa
+aQC
 aNt
 aNt
 bbo
@@ -47530,18 +47400,18 @@ aSZ
 aNt
 aSZ
 aUb
-aQa
+aQC
 aUR
 aNt
 aWh
-aQa
-aQa
+aQC
+aQC
 aXy
 aNt
-aQa
+aQC
 aYO
 aZp
-aQa
+aQC
 aNt
 baO
 bbm
@@ -47787,7 +47657,7 @@ aSZ
 aNt
 aSZ
 aUb
-aQa
+aQC
 aUR
 aNt
 aWi
@@ -47795,10 +47665,10 @@ aWy
 aWZ
 aWh
 aNt
-aQa
+aQC
 aYO
 aZp
-aQa
+aQC
 aNt
 baR
 bbm
@@ -48044,7 +47914,7 @@ aNt
 aNt
 aNt
 aUa
-aQa
+aQC
 aUR
 aNt
 aWj
@@ -48052,10 +47922,10 @@ aWz
 aXa
 aXz
 aNt
-aQa
+aQC
 aYO
 aZp
-aQa
+aQC
 aNt
 baQ
 bbm
@@ -48309,10 +48179,10 @@ aNt
 aNt
 aNt
 aNt
-aQa
+aQC
 aYO
 aZp
-aQa
+aQC
 aNt
 aNt
 aNt
@@ -48552,8 +48422,8 @@ aNt
 aRL
 aRW
 aRW
-aQa
-aQa
+aQC
+aQC
 aNt
 aTr
 aTN
@@ -48579,8 +48449,8 @@ aZq
 aZq
 beB
 aNt
-aQa
-aQa
+aQC
+aQC
 beT
 bfj
 aNt
@@ -48809,8 +48679,8 @@ aNt
 aRM
 aRX
 aRX
-aQa
-aQa
+aQC
+aQC
 aNt
 aRY
 aOy
@@ -49066,8 +48936,8 @@ aNt
 aRL
 aRW
 aRW
-aQa
-aQa
+aQC
+aQC
 aNt
 aRY
 aOy
@@ -49096,7 +48966,7 @@ beU
 beU
 beU
 bfM
-aQa
+aQC
 aNt
 aae
 aae
@@ -49323,8 +49193,8 @@ aNt
 aRM
 aRX
 aRX
-aQa
-aQa
+aQC
+aQC
 aNt
 aRY
 aOy
@@ -49351,9 +49221,9 @@ aYr
 aZq
 aNt
 bfj
-aQa
+aQC
 beU
-aQa
+aQC
 aNt
 aae
 aae
@@ -49577,11 +49447,11 @@ aPC
 aPC
 aPC
 aRv
-aQa
-aQa
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
+aQC
+aQC
 aTa
 aRY
 aOy
@@ -49834,11 +49704,11 @@ aPC
 aPC
 aPC
 aRv
-aQa
-aQa
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
+aQC
+aQC
 aTb
 aRY
 aOy
@@ -50091,11 +49961,11 @@ aPC
 aPC
 aPC
 aRv
-aQa
-aQa
+aQC
+aQC
 aSt
-aQa
-aQa
+aQC
+aQC
 aNt
 aTs
 aOy
@@ -50858,9 +50728,9 @@ aae
 aae
 aae
 aNt
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
 aNt
 aNt
 aNt
@@ -51115,9 +50985,9 @@ aae
 aae
 aae
 aNt
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
 aNt
 aRO
 aRY
@@ -51372,9 +51242,9 @@ aae
 aae
 aae
 aNt
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
 aNt
 aRO
 aOy
@@ -51629,9 +51499,9 @@ aae
 aae
 aae
 aNt
-aQa
-aQa
-aQa
+aQC
+aQC
+aQC
 aNt
 aRO
 aOy
@@ -51886,9 +51756,9 @@ aae
 aae
 aae
 aNt
-aQa
 aQC
-aQa
+aQC
+aQC
 aNt
 aRP
 aRZ
@@ -54372,7 +54242,7 @@ aro
 aro
 aro
 are
-asl
+aso
 aso
 aso
 asK
@@ -54886,7 +54756,7 @@ arI
 aro
 aro
 are
-asn
+aso
 aso
 aso
 asL
@@ -62605,7 +62475,7 @@ arR
 arD
 arR
 aqZ
-atA
+atz
 arb
 arb
 arb
@@ -63967,8 +63837,8 @@ aNT
 aNT
 aJz
 aQG
-aRg
-aRg
+aRy
+aRy
 aIV
 aae
 aae
@@ -64224,7 +64094,7 @@ aJz
 aJz
 aJz
 aQG
-aRg
+aRy
 aRy
 aIV
 aae
@@ -64476,13 +64346,13 @@ aIV
 aIV
 aIV
 aNU
-aOJ
-aOJ
-aOJ
-aOJ
+aNU
+aNU
+aNU
+aNU
 aQG
-aRg
-aRg
+aRy
+aRy
 aIV
 aae
 aae
@@ -64732,11 +64602,11 @@ aLN
 aLN
 aMV
 aIV
-aNV
-aOJ
-aOJ
-aOJ
-aOJ
+aNU
+aNU
+aNU
+aNU
+aNU
 aQH
 aNX
 aOK
@@ -64989,11 +64859,11 @@ aLN
 aLN
 aMW
 aIV
-aNW
-aOJ
-aOJ
-aOJ
-aOJ
+aNU
+aNU
+aNU
+aNU
+aNU
 aQG
 aRh
 aRz
@@ -65247,10 +65117,10 @@ aLN
 aMX
 aIV
 aNU
-aOJ
-aOJ
-aOJ
-aOJ
+aNU
+aNU
+aNU
+aNU
 aQG
 aRh
 aRA
@@ -65386,16 +65256,16 @@ alY
 alY
 alY
 anq
-any
+anq
 aqf
 aqf
 aqf
-any
-any
-any
-any
-any
-aoa
+anq
+anq
+anq
+anq
+anq
+anq
 alR
 alt
 aae
@@ -65505,9 +65375,9 @@ aIV
 aIV
 aNX
 aOK
-aOJ
-aOJ
-aOJ
+aNU
+aNU
+aNU
 aQG
 aRi
 aRh
@@ -65638,11 +65508,11 @@ alz
 alz
 anq
 aoX
-any
-any
-any
-any
-any
+anq
+anq
+anq
+anq
+anq
 apU
 aqg
 aqk
@@ -65652,7 +65522,7 @@ aqy
 aqH
 aqL
 aqP
-aqS
+aQs
 aqV
 alt
 aae
@@ -65762,9 +65632,9 @@ aMY
 aIV
 aNY
 aOL
-aOJ
-aOJ
-aOJ
+aNU
+aNU
+aNU
 aQH
 aNX
 aOK
@@ -65893,13 +65763,13 @@ alz
 alz
 alz
 anq
-any
+anq
 aoY
-any
+anq
 apr
 apD
 apH
-any
+anq
 apV
 aqg
 aql
@@ -66019,9 +65889,9 @@ aMZ
 aIV
 aNZ
 aOL
-aOJ
+aNU
 aPJ
-aOJ
+aNU
 aQG
 aRj
 aRB
@@ -66149,14 +66019,14 @@ alz
 alz
 alz
 amF
-any
+anq
 aoF
 aoZ
 aoX
 anG
 anG
 anG
-any
+anq
 apW
 aqg
 aqg
@@ -66276,9 +66146,9 @@ aNa
 aIV
 aNZ
 aOL
-aOJ
+aNU
 aPK
-aOJ
+aNU
 aQG
 aRk
 aJH
@@ -66399,21 +66269,21 @@ amL
 alz
 alz
 anq
-any
-any
-any
-aoa
+anq
+anq
+anq
+anq
 alz
 alz
 amF
-any
+anq
 aoG
 apa
 api
 anG
 anG
 anG
-any
+anq
 apX
 aqg
 aqg
@@ -66421,9 +66291,9 @@ aqg
 aqg
 aqB
 aqJ
-any
-any
-aoc
+anq
+anq
+anq
 aqY
 alt
 aae
@@ -66533,9 +66403,9 @@ aNb
 aIV
 aNY
 aOL
-aOJ
+aNU
 aPL
-aOJ
+aNU
 aQI
 aJH
 aRC
@@ -66655,29 +66525,29 @@ alQ
 alz
 alz
 anq
-any
+anq
 anF
 anP
 anW
-any
-aoa
+anq
+anq
 alY
 alR
-any
+anq
 aoH
 aoZ
 aoX
 aps
 anG
 anG
-any
+anq
 apY
 aqh
 aqg
 aqg
 aqu
 aqC
-any
+anq
 aqO
 alz
 alz
@@ -66916,27 +66786,27 @@ anz
 anG
 anG
 anG
-any
-any
-any
-any
-any
-any
-any
-any
-any
+anq
+anq
+anq
+anq
+anq
+anq
+anq
+anq
+anq
 apE
 apI
-any
-any
-any
+anq
+anq
+anq
 aqm
 aqq
-any
-any
-any
-any
-aoa
+anq
+anq
+anq
+anq
+anq
 alY
 alR
 alt
@@ -67173,13 +67043,13 @@ anA
 anG
 anG
 anG
-any
+anq
 aoh
 anQ
 aoq
 aoz
 aoI
-any
+anq
 anG
 apt
 anG
@@ -67450,7 +67320,7 @@ aqv
 anG
 aqK
 aqP
-aqT
+aNW
 aqW
 aqW
 alt
@@ -67687,13 +67557,13 @@ anC
 anG
 anG
 anX
-any
+anq
 aoh
 aom
 aos
 aos
 aoJ
-any
+anq
 apj
 anG
 anG
@@ -67707,7 +67577,7 @@ aoX
 aqE
 anG
 aqP
-aqU
+any
 aqX
 aqX
 alt
@@ -67944,27 +67814,27 @@ anD
 anG
 anQ
 anG
-any
-any
-any
-any
-any
-any
-any
-any
-any
+anq
+anq
+anq
+anq
+anq
+anq
+anq
+anq
+anq
 apF
 apJ
-any
-any
-any
+anq
+anq
+anq
 aqn
 aqr
-any
-any
-any
-any
-aoc
+anq
+anq
+anq
+anq
+anq
 alE
 aqY
 alt
@@ -68196,30 +68066,30 @@ alz
 alz
 alG
 alz
-ans
-any
+anq
+anq
 anC
 anR
 anY
-any
-aoc
+anq
+anq
 aon
 aot
-any
+anq
 aoK
 apc
 aoX
 apu
 anG
 anG
-any
+anq
 aqb
 apZ
 anG
 anG
 aqw
 aqF
-any
+anq
 aqO
 alz
 alz
@@ -68454,32 +68324,32 @@ alQ
 alz
 alz
 alB
-ans
-any
-any
-any
-aoc
+anq
+anq
+anq
+anq
+anq
 amM
 amt
 amx
-any
+anq
 aoL
 apd
 apk
 apv
 anG
 apK
-any
+anq
 aqb
 anG
 anG
 anG
 aqw
-any
-any
-any
-any
-aoa
+anq
+anq
+anq
+anq
+anq
 alR
 alt
 aae
@@ -68726,17 +68596,17 @@ aoX
 apw
 anG
 anG
-any
+anq
 aqc
 anG
 anG
 anG
 apK
-any
+anq
 anG
 anC
 aqP
-aqS
+asl
 aqV
 alt
 aae
@@ -68976,14 +68846,14 @@ amF
 anJ
 aod
 aov
-ans
-any
+anq
+anq
 apf
-any
+anq
 apx
 apG
 apL
-any
+anq
 aqd
 anG
 aqo
@@ -68993,7 +68863,7 @@ aqG
 anG
 aqQ
 aqP
-aqT
+aNV
 aqW
 alt
 aae
@@ -69234,23 +69104,23 @@ anJ
 aod
 anJ
 anS
-ans
-any
-any
-any
-any
-any
-any
+anq
+anq
+anq
+anq
+anq
+anq
+anq
 aqd
 aqi
 aqp
 aqs
 aqx
-any
+anq
 aqa
 aqR
 aqP
-aqU
+aVH
 aqX
 alt
 aae
@@ -69497,17 +69367,17 @@ aon
 aon
 aon
 alz
-ans
-any
+anq
+anq
 aqj
 aqj
 aqj
-any
-any
-any
-any
-any
-aoc
+anq
+anq
+anq
+anq
+anq
+anq
 aqY
 alt
 aae
@@ -80685,7 +80555,7 @@ aTO
 aTy
 aTy
 aTy
-aVH
+aVG
 aWs
 aWI
 ajW

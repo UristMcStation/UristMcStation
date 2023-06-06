@@ -92,8 +92,7 @@
 	tag_interior_door = "solar_tool_inner";
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2;
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	id_tag = "solar_tool_pump"
 	},
 /obj/machinery/light/small{
@@ -1356,7 +1355,7 @@
 	dir = 4;
 	frequency = 1441;
 	icon_state = "map_injector";
-	id_tag = "fuel_in";
+	id = "fuel_in";
 	pixel_y = 1;
 	use_power = 1
 	},
@@ -4400,7 +4399,7 @@
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 1441;
-	id_tag = "d2_c_chamber_in";
+	id = "d2_c_chamber_in";
 	injecting = 1;
 	use_power = 1
 	},
@@ -4409,7 +4408,7 @@
 "jb" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 1441;
-	id_tag = "d2_c_chamber_in";
+	id = "d2_c_chamber_in";
 	injecting = 1;
 	use_power = 1
 	},
@@ -10735,7 +10734,7 @@
 	dir = 8;
 	frequency = 1441;
 	icon_state = "map_injector";
-	id_tag = "co2_in";
+	id = "co2_in";
 	pixel_y = 1;
 	use_power = 1
 	},
@@ -11641,7 +11640,7 @@
 	dir = 8;
 	frequency = 1441;
 	icon_state = "map_injector";
-	id_tag = "h2_in";
+	id = "h2_in";
 	pixel_y = 1;
 	use_power = 1
 	},
@@ -12069,7 +12068,7 @@
 	dir = 4;
 	frequency = 1441;
 	icon_state = "map_injector";
-	id_tag = "n2_in";
+	id = "n2_in";
 	use_power = 1
 	},
 /turf/simulated/floor/reinforced/nitrogen,
@@ -12250,9 +12249,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/escape_pod1/station)
 "xI" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	id_tag = "exti2_pump"
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+	id_tag = "exti2_pump";
+	dir = 1
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	frequency = 1379;
@@ -12423,7 +12422,7 @@
 	dir = 8;
 	frequency = 1441;
 	icon_state = "map_injector";
-	id_tag = "n2o_in";
+	id = "n2o_in";
 	pixel_y = 1;
 	use_power = 1
 	},
@@ -13256,7 +13255,7 @@
 	dir = 1;
 	frequency = 1441;
 	icon_state = "map_injector";
-	id_tag = "o2_in";
+	id = "o2_in";
 	use_power = 1
 	},
 /turf/simulated/floor/reinforced/oxygen,
@@ -15538,7 +15537,6 @@
 	dir = 1
 	},
 /obj/machinery/button/windowtint{
-	id_tag = "journalist";
 	pixel_x = 24;
 	pixel_y = 6;
 	id = "journalist"
@@ -16237,7 +16235,6 @@
 /obj/machinery/button/windowtint{
 	dir = 4;
 	icon_state = "light0";
-	id_tag = "chaplain";
 	pixel_x = 24;
 	range = 5;
 	tag = "icon-light0 (EAST)";
@@ -16775,9 +16772,6 @@
 	icon_state = "bordercolor";
 	dir = 8
 	},
-/obj/machinery/camera/network/second_deck{
-	c_tag = "Chaplain's Morgue"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/chapel/office)
 "Sg" = (
@@ -17153,7 +17147,6 @@
 	pixel_y = 25
 	},
 /obj/machinery/button/windowtint{
-	id_tag = "psych";
 	pixel_x = 20;
 	pixel_y = 25;
 	id = "psych"

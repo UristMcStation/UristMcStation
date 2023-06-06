@@ -39,6 +39,11 @@
 	#include "../away/lar_maria/lar_maria.dm"
 	#include "../away/contact_light/contact_light.dm"
 
+	#include "items\smcult.dm"
+	#include "items\clothing\corporate.dm"
+	#include "obj\alien.dm"
+	#include "turf\generic.dm"
+
 	#include "../../code/datums/music_tracks/chasing_time.dm"
 	#include "../../code/datums/music_tracks/absconditus.dm"
 	#include "../../code/datums/music_tracks/clouds_of_fire.dm"

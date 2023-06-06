@@ -684,7 +684,7 @@
 /area/outpost/research/hallway)
 "cg" = (
 /obj/machinery/button/remote/airlock{
-	id = "rdorm1";
+	id_tag = "rdorm1";
 	name = "Door Bolt Control";
 	pixel_x = 25;
 	pixel_y = 0;
@@ -722,7 +722,7 @@
 /area/outpost/research/hallway)
 "ck" = (
 /obj/machinery/button/remote/airlock{
-	id = "rdorm2";
+	id_tag = "rdorm2";
 	name = "Door Bolt Control";
 	pixel_x = -25;
 	pixel_y = 0;
@@ -1450,7 +1450,7 @@
 	pixel_x = 0;
 	pixel_y = -25;
 	req_access = "0";
-	id = "rbath"
+	id_tag = "rbath"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -1852,8 +1852,6 @@
 /area/outpost/research/chemistry)
 "ez" = (
 /obj/structure/table/standard,
-/obj/item/reagent_containers/glass/beaker/water,
-/obj/item/reagent_containers/glass/beaker/fuel,
 /obj/item/reagent_containers/glass/bottle/toxin,
 /obj/item/reagent_containers/glass/beaker/sulphuric{
 	name = "beaker 'sulphuric acid'"
@@ -2022,7 +2020,6 @@
 	dir = 1;
 	external_pressure_bound = 0;
 	external_pressure_bound_default = 0;
-	frequency = 1441;
 	icon_state = "map_vent_in";
 	initialize_directions = 1;
 	internal_pressure_bound = 4000;
@@ -2034,14 +2031,14 @@
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 4;
-	health = 1000;
+	health_max = 1000;
 	icon_state = "twindow";
 	name = "hardened window";
 	opacity = 0
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 1;
-	health = 1000;
+	health_max = 1000;
 	icon_state = "twindow";
 	name = "hardened window";
 	opacity = 0
@@ -2075,7 +2072,6 @@
 	dir = 8;
 	external_pressure_bound = 0;
 	external_pressure_bound_default = 0;
-	frequency = 1441;
 	icon_state = "map_vent_in";
 	initialize_directions = 1;
 	internal_pressure_bound = 4000;
@@ -2087,14 +2083,14 @@
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 8;
-	health = 1000;
+	health_max = 1000;
 	icon_state = "twindow";
 	name = "hardened window";
 	opacity = 0
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 1;
-	health = 1000;
+	health_max = 1000;
 	icon_state = "twindow";
 	name = "hardened window";
 	opacity = 0
@@ -2257,7 +2253,7 @@
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 4;
-	health = 1000;
+	health_max = 1000;
 	icon_state = "twindow";
 	name = "hardened window";
 	opacity = 0
@@ -2303,7 +2299,7 @@
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 8;
-	health = 1000;
+	health_max = 1000;
 	icon_state = "twindow";
 	name = "hardened window";
 	opacity = 0
@@ -3027,7 +3023,7 @@
 /obj/machinery/power/smes/buildable{
 	capacity = 1e+007;
 	charge = 1e+007;
-	cur_coils = 2;
+	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak=2);
 	input_attempt = 1;
 	input_level = 500000;
 	inputting = 1;
@@ -3317,7 +3313,7 @@
 /obj/machinery/mass_driver{
 	dir = 1;
 	icon_state = "mass_driver";
-	id = "research";
+	id_tag = "research";
 	tag = "icon-mass_driver (NORTH)"
 	},
 /turf/simulated/floor/plating,
@@ -3912,7 +3908,7 @@
 /area/outpost/research/power)
 "hX" = (
 /obj/machinery/button/remote/driver{
-	id = "research";
+	id_tag = "research";
 	pixel_x = 6;
 	pixel_y = -26
 	},
@@ -6459,7 +6455,7 @@
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	icon_state = "shutter0";
-	id = "planet_research";
+	id_tag = "planet_research";
 	name = "Elevator Shutters";
 	opacity = 0
 	},
@@ -6651,7 +6647,6 @@
 "mX" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8;
-	frequency = 1439;
 	id_tag = null
 	},
 /turf/simulated/floor/tiled,
@@ -6923,7 +6918,7 @@
 /area/planet/jungle)
 "nD" = (
 /obj/machinery/button/remote/airlock{
-	id = "riso1";
+	id_tag = "riso1";
 	name = "Door Bolt Control";
 	pixel_x = -25;
 	pixel_y = 0;
@@ -6970,7 +6965,7 @@
 /area/outpost/research/isolation_monitoring)
 "nG" = (
 /obj/machinery/button/remote/airlock{
-	id = "riso2";
+	id_tag = "riso2";
 	name = "Door Bolt Control";
 	pixel_x = 0;
 	pixel_y = -25;
@@ -7013,7 +7008,7 @@
 /area/outpost/research/isolation_monitoring)
 "nI" = (
 /obj/machinery/button/remote/airlock{
-	id = "riso3";
+	id_tag = "riso3";
 	name = "Door Bolt Control";
 	pixel_x = 0;
 	pixel_y = -25;
@@ -7757,7 +7752,7 @@
 	dir = 4
 	},
 /obj/machinery/button/remote/airlock{
-	id = "miningdorm1";
+	id_tag = "miningdorm1";
 	name = "Door Bolt Control";
 	pixel_x = 25;
 	pixel_y = 0;
@@ -7779,7 +7774,7 @@
 /area/outpost/mining_main/dorms)
 "pG" = (
 /obj/machinery/button/remote/airlock{
-	id = "secplanetdorm8";
+	id_tag = "secplanetdorm8";
 	name = "Door Bolt Control";
 	pixel_x = -25;
 	pixel_y = 0;
@@ -7871,7 +7866,7 @@
 	dir = 4
 	},
 /obj/machinery/button/remote/airlock{
-	id = "miningdorm2";
+	id_tag = "miningdorm2";
 	name = "Door Bolt Control";
 	pixel_x = 25;
 	pixel_y = 0;
@@ -7881,7 +7876,7 @@
 /area/outpost/mining_main/dorms)
 "pX" = (
 /obj/machinery/button/remote/airlock{
-	id = "secplanetdorm2";
+	id_tag = "secplanetdorm2";
 	name = "Door Bolt Control";
 	pixel_x = -25;
 	pixel_y = 0;
@@ -8029,7 +8024,7 @@
 	dir = 4
 	},
 /obj/machinery/button/remote/airlock{
-	id = "miningdorm3";
+	id_tag = "miningdorm3";
 	name = "Door Bolt Control";
 	pixel_x = 25;
 	pixel_y = 0;
@@ -8059,7 +8054,7 @@
 /area/outpost/mining_main/dorms)
 "qA" = (
 /obj/machinery/button/remote/airlock{
-	id = "secplanetdorm7";
+	id_tag = "secplanetdorm7";
 	name = "Door Bolt Control";
 	pixel_x = -25;
 	pixel_y = 0;
@@ -8086,7 +8081,7 @@
 "qE" = (
 /obj/structure/window/reinforced{
 	dir = 1;
-	health = 1e+006
+	health_max = 1e+006
 	},
 /obj/structure/closet/secure_closet/hunter,
 /obj/structure/window/reinforced,
@@ -8170,7 +8165,7 @@
 /obj/structure/closet/secure_closet/hunter,
 /obj/structure/window/reinforced{
 	dir = 1;
-	health = 1e+006
+	health_max = 1e+006
 	},
 /obj/machinery/door/window/westright{
 	req_access = list("ACCESS_MINING")
@@ -8251,7 +8246,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1380;
 	id_tag = "outpost_planet_dock_pump"
 	},
 /turf/simulated/floor/plating,
@@ -8385,14 +8379,13 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8;
-	frequency = 1439;
 	id_tag = null
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/dorms)
 "rv" = (
 /obj/machinery/button/remote/airlock{
-	id = "secplanetdorm6";
+	id_tag = "secplanetdorm6";
 	name = "Door Bolt Control";
 	pixel_x = -25;
 	pixel_y = 0;
@@ -8438,7 +8431,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1380;
 	id_tag = "outpost_planet_dock_pump"
 	},
 /turf/simulated/floor/plating,
@@ -8658,7 +8650,7 @@
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	icon_state = "shutter0";
-	id = "planet_mining";
+	id_tag = "planet_mining";
 	name = "Elevator Shutters";
 	opacity = 0
 	},
@@ -10191,7 +10183,7 @@
 	dir = 5
 	},
 /obj/machinery/button/holosign{
-	id = "surgeryholo3";
+	id_tag = "surgeryholo3";
 	pixel_x = -7;
 	pixel_y = 25
 	},
@@ -10494,7 +10486,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/security/hallway)
 "wh" = (
-/obj/machinery/deployable/barrier,
+/obj/machinery/barrier,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/security/storage)
 "wi" = (
@@ -10680,7 +10672,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/holosign/surgery{
-	id = "surgeryholo3"
+	id_tag = "surgeryholo3"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -11415,7 +11407,6 @@
 	dir = 1;
 	external_pressure_bound = 0;
 	external_pressure_bound_default = 0;
-	frequency = 1441;
 	icon_state = "map_vent_in";
 	initialize_directions = 1;
 	internal_pressure_bound = 4000;
@@ -11427,14 +11418,14 @@
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 4;
-	health = 1000;
+	health_max = 1000;
 	icon_state = "twindow";
 	name = "hardened window";
 	opacity = 0
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 1;
-	health = 1000;
+	health_max = 1000;
 	icon_state = "twindow";
 	name = "hardened window";
 	opacity = 0
@@ -11468,7 +11459,6 @@
 	dir = 8;
 	external_pressure_bound = 0;
 	external_pressure_bound_default = 0;
-	frequency = 1441;
 	icon_state = "map_vent_in";
 	initialize_directions = 1;
 	internal_pressure_bound = 4000;
@@ -11480,14 +11470,14 @@
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 8;
-	health = 1000;
+	health_max = 1000;
 	icon_state = "twindow";
 	name = "hardened window";
 	opacity = 0
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 1;
-	health = 1000;
+	health_max = 1000;
 	icon_state = "twindow";
 	name = "hardened window";
 	opacity = 0
@@ -11529,7 +11519,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1380;
 	id_tag = "mining_outpost_pump"
 	},
 /turf/simulated/floor,
@@ -11788,7 +11777,7 @@
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 4;
-	health = 1000;
+	health_max = 1000;
 	icon_state = "twindow";
 	name = "hardened window";
 	opacity = 0
@@ -11834,7 +11823,7 @@
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 8;
-	health = 1000;
+	health_max = 1000;
 	icon_state = "twindow";
 	name = "hardened window";
 	opacity = 0
@@ -12312,7 +12301,7 @@
 /obj/machinery/power/smes/buildable{
 	capacity = 1e+007;
 	charge = 1e+007;
-	cur_coils = 2;
+	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak=2);
 	input_attempt = 1;
 	input_level = 500000;
 	inputting = 1;
@@ -12400,7 +12389,6 @@
 "zK" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1380;
 	id_tag = "secdock_pump"
 	},
 /turf/simulated/floor/plating,
@@ -12450,7 +12438,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1380;
 	id_tag = "edock_pump"
 	},
 /turf/simulated/floor/plating,
@@ -12558,7 +12545,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1380;
 	id_tag = "edock_pump"
 	},
 /turf/simulated/floor/plating,

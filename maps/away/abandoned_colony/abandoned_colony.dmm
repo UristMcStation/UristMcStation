@@ -6111,8 +6111,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/planet/abandoned_colony)
 "qt" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2;
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/shuttle{
 	id_tag = "morninglight_shuttle_pump_out_external"
 	},
 /obj/machinery/air_sensor{
@@ -6125,8 +6124,7 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/morninglight/entrance)
 "qu" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2;
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/shuttle{
 	id_tag = "morninglight_shuttle_pump_out_external"
 	},
 /obj/machinery/airlock_sensor{
@@ -6350,9 +6348,9 @@
 /turf/simulated/floor/pavement/empty,
 /area/planet/abandoned_colony)
 "qT" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	id_tag = "morninglight_shuttle_pump_out_internal"
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/shuttle{
+	id_tag = "morninglight_shuttle_pump_out_internal";
+	dir = 1
 	},
 /obj/machinery/oxygen_pump{
 	pixel_x = -26;
@@ -6430,9 +6428,9 @@
 /turf/simulated/floor/lino,
 /area/planet/abandoned_colony)
 "rd" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	id_tag = "morninglight_shuttle_pump_out_internal"
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/shuttle{
+	id_tag = "morninglight_shuttle_pump_out_internal";
+	dir = 1
 	},
 /obj/machinery/light/small{
 	icon_state = "bulb1";
@@ -6446,9 +6444,8 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/morninglight/entrance)
 "re" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2;
-	id_tag = "morninglight_shuttle_pump"
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/shuttle{
+	id_tag = "morninglight_shuttle_pump_out_internal"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	cycle_to_external_air = 1;
@@ -6555,9 +6552,8 @@
 	},
 /area/planet/abandoned_colony)
 "rp" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2;
-	id_tag = "morninglight_shuttle_pump"
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/shuttle{
+	id_tag = "morninglight_shuttle_pump_out_internal"
 	},
 /obj/structure/handrail{
 	dir = 8;

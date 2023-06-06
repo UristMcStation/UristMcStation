@@ -30,16 +30,16 @@
 	#include "Glloydstation2-6.dmm"
 	#include "Glloydstation2-7.dmm"
 
-	#include "../../code/datums/music_tracks/chasing_time.dm"
+/*	#include "../../code/datums/music_tracks/chasing_time.dm"
 	#include "../../code/datums/music_tracks/absconditus.dm"
 	#include "../../code/datums/music_tracks/clouds_of_fire.dm"
 	#include "../../code/datums/music_tracks/endless_space.dm"
 	#include "../../code/datums/music_tracks/dilbert.dm"
-	#include "../../code/datums/music_tracks/space_oddity.dm"
+	#include "../../code/datums/music_tracks/space_oddity.dm"*/
 
 	#define using_map_DATUM /datum/map/glloydstation
 	#define URISTCODE 1 //hacky override that tells the compiler that yes, the map is Uristcrap-compatible
-	#define SCOM_ZLEVEL 2 //in case we ever have more maps
+//	#define SCOM_ZLEVEL 2 //in case we ever have more maps
 
 #elif !defined(MAP_OVERRIDE)
 
