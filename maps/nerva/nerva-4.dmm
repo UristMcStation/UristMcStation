@@ -340,7 +340,7 @@
 	icon_state = "intact"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Deck 1 Starboard Docks");
+	codes = list("patrol"=1,"next_patrol"="Deck  1  Starboard  Docks");
 	location = "Deck 1 Port Docks"
 	},
 /turf/simulated/floor/plating,
@@ -1747,6 +1747,9 @@
 "dK" = (
 /obj/structure/bed/chair{
 	dir = 4
+	},
+/obj/effect/landmark/start{
+	name = "Stowaway"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
@@ -9057,11 +9060,18 @@
 	},
 /obj/effect/catwalk_plated,
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Deck 4 Escape");
+	codes = list("patrol"=1,"next_patrol"="Deck  4  Escape");
 	location = "Deck 1 Starboard Docks"
 	},
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
+"Hf" = (
+/obj/item/trash/cigbutt/rand,
+/obj/effect/landmark/start{
+	name = "Stowaway"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/first_deck/central)
 "II" = (
 /obj/effect/landmark{
 	name = "blobstart"
@@ -30637,7 +30647,7 @@ oA
 dI
 dI
 dl
-cm
+Hf
 dI
 dI
 by
