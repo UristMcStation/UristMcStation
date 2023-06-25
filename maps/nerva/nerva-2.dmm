@@ -7884,7 +7884,7 @@
 	},
 /obj/item/device/radio/beacon,
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Deck        3        Port        Central");
+	codes = list("patrol"=1,"next_patrol"="Deck 3 Port Central");
 	location = "Medbay"
 	},
 /turf/simulated/floor/tiled/white,
@@ -14783,7 +14783,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Bridge        Starboard");
+	codes = list("patrol"=1,"next_patrol"="Bridge Starboard");
 	location = "Bar"
 	},
 /turf/simulated/floor/wood/walnut,
@@ -17264,7 +17264,7 @@
 	sortType = "Disposals"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Deck        2        Aft        Port");
+	codes = list("patrol"=1,"next_patrol"="Deck 2 Aft Port");
 	location = "Deck 3 Aft Starboard"
 	},
 /turf/simulated/floor/tiled,
@@ -21948,7 +21948,7 @@
 	name = "Engine Cooling Control";
 	output_tag = "cooling_out";
 	pressure_setting = 100;
-	sensors = list("engine_sensor"="Engine        Core")
+	sensors = list("engine_sensor"="Engine Core")
 	},
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for the engine charging port.";
@@ -25575,7 +25575,7 @@
 	icon_state = "2-8"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Mailing        Office");
+	codes = list("patrol"=1,"next_patrol"="Mailing Office");
 	location = "Deck 3 Cargo"
 	},
 /turf/simulated/floor/tiled,
@@ -28748,7 +28748,7 @@
 	icon_state = "corner_white"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Bridge        Port");
+	codes = list("patrol"=1,"next_patrol"="Bridge Port");
 	location = "Security"
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -28829,7 +28829,7 @@
 	icon_state = "intact-scrubbers"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Deck        3        Aft        Starboard");
+	codes = list("patrol"=1,"next_patrol"="Deck 3 Aft Starboard");
 	location = "Mailing Office"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -31372,7 +31372,7 @@
 	dir = 10
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Deck        3        Cargo");
+	codes = list("patrol"=1,"next_patrol"="Deck 3 Cargo");
 	location = "EVA"
 	},
 /turf/simulated/floor/tiled,

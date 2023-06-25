@@ -3156,7 +3156,7 @@
 	dir = 4
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Deck                                2                                Fore                                Starboard");
+	codes = list("patrol"=1,"next_patrol"="Deck 2 Fore Starboard");
 	location = "Deck 2 Fore Port"
 	},
 /turf/simulated/floor/plating,
@@ -5154,7 +5154,7 @@
 	input_tag = "d2_c_chamber_in";
 	name = "Chamber Gas Control";
 	output_tag = "d2_c_chamber_out";
-	sensors = list("d2_c_chamber_sensor"="Combustion                                Chamber")
+	sensors = list("d2_c_chamber_sensor"="Combustion Chamber")
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/fdengine)
@@ -7715,16 +7715,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/second_deck)
-"pO" = (
-/obj/machinery/firealarm{
-	dir = 2;
-	pixel_y = 24
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/fore/second_deck)
 "pP" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/status_display{
@@ -7817,7 +7807,7 @@
 	},
 /obj/structure/catwalk,
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Deck                                2                                Aft                                Starboard");
+	codes = list("patrol"=1,"next_patrol"="Deck 2 Aft Starboard");
 	location = "Deck 2 Fore Starboard"
 	},
 /obj/structure/cable{
@@ -13977,6 +13967,11 @@
 /area/chapel)
 "Eb" = (
 /obj/machinery/vending/coffee,
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24
+	},
 /turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "Ec" = (
@@ -14276,6 +14271,11 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/civilian/journalist)
+"FA" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/civilian/lounge)
 "FC" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4;
@@ -14345,6 +14345,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
+"Ga" = (
+/obj/machinery/firealarm{
+	dir = 2;
+	pixel_y = 24
+	},
+/turf/simulated/wall/prepainted,
+/area/civilian/lounge)
 "Gb" = (
 /obj/machinery/door/airlock/glass{
 	name = "Auxiliary Storage"
@@ -14512,7 +14519,7 @@
 	dir = 4
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Deck                                2                                Fore                                Port");
+	codes = list("patrol"=1,"next_patrol"="Deck 2 Fore Port");
 	location = "Deck 2 Aft Port"
 	},
 /turf/simulated/floor/plating,
@@ -15160,9 +15167,6 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "KF" = (
-/obj/machinery/alarm{
-	pixel_y = 25
-	},
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-18";
 	tag = "icon-plant-18"
@@ -17426,7 +17430,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Deck                                1                                Port                                Docks");
+	codes = list("patrol"=1,"next_patrol"="Deck 1 Port Docks");
 	location = "Deck 2 Aft Starboard"
 	},
 /turf/simulated/floor/tiled,
@@ -17522,6 +17526,16 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/security/prison)
+"Wm" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/firealarm{
+	dir = 2;
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/fore/second_deck)
 "Wo" = (
 /obj/item/stack/material/rods/ten,
 /obj/machinery/camera/network/second_deck{
@@ -44266,8 +44280,8 @@ iz
 iz
 JE
 Sh
-hJ
-qV
+Ga
+Wm
 qQ
 ru
 st
@@ -44468,7 +44482,7 @@ ix
 lk
 ix
 iz
-hJ
+FA
 pN
 qJ
 rz
@@ -44670,8 +44684,8 @@ iz
 mi
 ix
 iz
-hJ
-pO
+FA
+qV
 iK
 rA
 su
@@ -46076,7 +46090,7 @@ cR
 fi
 gk
 hf
-hJ
+FA
 KF
 iz
 Ui
@@ -46084,7 +46098,7 @@ KP
 pS
 KR
 ix
-hJ
+FA
 pT
 qO
 rA
@@ -46278,7 +46292,7 @@ cR
 fi
 ge
 gZ
-hJ
+FA
 MM
 js
 CC
@@ -46286,7 +46300,7 @@ Rl
 iz
 PP
 JR
-hJ
+FA
 iK
 iK
 rA

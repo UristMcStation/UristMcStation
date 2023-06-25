@@ -340,7 +340,7 @@
 	icon_state = "intact"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Deck  1  Starboard  Docks");
+	codes = list("patrol"=1,"next_patrol"="Deck 1 Starboard Docks");
 	location = "Deck 1 Port Docks"
 	},
 /turf/simulated/floor/plating,
@@ -9060,7 +9060,7 @@
 	},
 /obj/effect/catwalk_plated,
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Deck  4  Escape");
+	codes = list("patrol"=1,"next_patrol"="Deck 4 Escape");
 	location = "Deck 1 Starboard Docks"
 	},
 /turf/simulated/floor/plating,
