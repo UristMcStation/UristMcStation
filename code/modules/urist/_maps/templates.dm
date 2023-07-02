@@ -7,22 +7,26 @@ var/list/datum/map_template/ship/ship_templates = list()
 /datum/controller/subsystem/mapping/proc/preloadOtherTemplates()
 	var/list/potentialSpaceRuins = generateMapList(filename = "config/spaceRuins.txt")
 	for(var/ruin in potentialSpaceRuins)
-		var/datum/map_template/T = new(path = "[ruin]", rename = "[ruin]")
+		var/datum/map_template/T = new(list(ruin), ruin)
+		log_debug("[ruin]")
 		space_ruins_templates[T.name] = T
 
 	var/list/potentialPlanetTemplates = generateMapList(filename = "config/planetTemplates.txt")
 	for(var/ruin in potentialPlanetTemplates)
-		var/datum/map_template/T = new(path = "[ruin]", rename = "[ruin]")
+		var/datum/map_template/T = new(list(ruin), ruin)
+		log_debug("[ruin]")
 		planet_templates[T.name] = T
 
 	var/list/potentialUndergroundTemplates = generateMapList(filename = "config/undergroundTemplates.txt")
 	for(var/ruin in potentialUndergroundTemplates)
-		var/datum/map_template/T = new(path = "[ruin]", rename = "[ruin]")
+		var/datum/map_template/T = new(list(ruin), ruin)
+		log_debug("[ruin]")
 		underground_templates[T.name] = T
 
 	var/list/potentialShipTemplates = generateMapList(filename = "config/shipTemplates.txt")
 	for(var/ruin in potentialShipTemplates)
-		var/datum/map_template/ship/T = new(path = "[ruin]", rename = "[ruin]")
+		var/datum/map_template/ship/T = new(list(ruin), ruin)
+		log_debug("[ruin]")
 		ship_templates[T.name] = T
 		SSmapping.map_templates += T
 

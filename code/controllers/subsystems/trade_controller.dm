@@ -18,18 +18,13 @@ SUBSYSTEM_DEF(trade_controller)
 		var/datum/trade_item/I = new item_type()
 		trade_items.Add(I)
 		trade_items_by_type[I.item_type] = I
-
 		var/datum/trade_category/C = trade_categories_by_name[I.category]
 		if(C)
 			C.trade_items.Add(I)
 			C.trade_items_by_type[I.item_type] = I
 			C.total_weighting += I.trader_weight
-
 	for(var/mob/living/simple_animal/passive/npc/N in GLOB.simple_mob_list)
 		N.generate_trade_items()
-
-	for(var/obj/effect/overmap/visitable/station/S in overmap_stations)
-		S.setup_spawning()
 
 	. = ..()
 
@@ -42,3 +37,6 @@ SUBSYSTEM_DEF(trade_controller)
 /datum/controller/subsystem/trade_controller/proc/get_item_category(var/obj/O)
 	if(O.trader_category)
 		return O.trader_category
+
+/datum/controller/subsystem/trade_controller/UpdateStat()
+	return

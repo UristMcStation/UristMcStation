@@ -17,17 +17,12 @@
 	var/station_holder = null //the holder for station battles
 
 /obj/effect/overmap/visitable/station/Initialize() //I'm not really sure what i was doing here
-	SStrade_controller.overmap_stations += src
-	. = ..()
-
-/obj/effect/overmap/visitable/station/proc/setup_spawning()
-	if(spawn_ships)
-		START_PROCESSING(SSobj, src)
-
+	START_PROCESSING(SSobj, src)
 	if(faction)
 		for(var/datum/factions/F in SSfactions.factions)
 			if(F.type == faction)
 				faction = F
+	. = ..()
 
 /obj/effect/overmap/visitable/station/Process()
 	if(remaining_ships && !busy)
@@ -45,6 +40,9 @@
 
 			spawn(rand(spawn_time_low,spawn_time_high))
 				busy = FALSE
+
+	if(remaining_ships == 0)
+		STOP_PROCESSING(SSobj, src)
 
 /obj/effect/overmap/visitable/station/proc/fallback_spawning()
 	if(remaining_ships)
