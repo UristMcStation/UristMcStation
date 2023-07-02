@@ -2979,8 +2979,8 @@
 /area/noctis/lounge)
 "fy" = (
 /obj/effect/spawner/bomb_simulator{
-	_low = 3;
-	_med = 2
+	ex_range = 9;
+	severity = EX_ACT_HEAVY
 	},
 /turf/space,
 /area/space)
@@ -3578,8 +3578,8 @@
 	icon_state = "0-4"
 	},
 /obj/effect/spawner/bomb_simulator{
-	_low = 3;
-	_med = 2
+	ex_range = 9;
+	severity = EX_ACT_HEAVY
 	},
 /turf/simulated/floor/plating,
 /area/space)
@@ -3613,8 +3613,8 @@
 	icon_state = "railing0-1";
 	},
 /obj/effect/spawner/bomb_simulator{
-	_low = 3;
-	_med = 2
+	ex_range = 9;
+	severity = EX_ACT_HEAVY
 	},
 /turf/space,
 /area/space)
@@ -4422,8 +4422,8 @@
 	icon_state = "railing0-1";
 	},
 /obj/effect/spawner/bomb_simulator{
-	_low = 3;
-	_med = 2
+	ex_range = 9;
+	severity = EX_ACT_HEAVY
 	},
 /turf/space,
 /area/space)

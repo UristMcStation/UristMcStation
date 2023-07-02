@@ -225,10 +225,9 @@
 
 //the other type of bomb spawner for use in mapping to make more accurate destroyed places
 /obj/effect/spawner/bomb_simulator
-	var/_high = 0
-	var/_med = 0
-	var/_low = 0
+	var/severity = EX_ACT_LIGHT
+	var/ex_range = 9
 
-/obj/effect/spawner/bomb_simulator/Initialize()
+/obj/effect/spawner/bomb_simulator/LateInitialize()
 	. = ..()
-	explosion(loc,_high,_med,_low,adminlog = FALSE)
+	explosion(loc, ex_range, severity, adminlog = FALSE)
