@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/colt
-	name = "vintage .45 pistol"
-	desc = "A cheap Martian knock-off of a Colt M1911. Uses .45 rounds."
+	name = "vintage pistol"
+	desc = "A cheap Martian knock-off of a Colt M1911."
 	item_icons = URIST_ALL_ONMOBS
 	magazine_type = /obj/item/ammo_magazine/pistol
 	allowed_magazines = /obj/item/ammo_magazine/pistol
@@ -22,8 +22,8 @@
 		icon_state = "[initial(icon_state)]-e"
 
 /obj/item/gun/projectile/military
-	name = "military .45 pistol"
-	desc = "The WT45 - a mass produced kinetic sidearm in widespread service with the SCGDF. Uses .45 rounds."
+	name = "military pistol"
+	desc = "The WT45 - a mass produced kinetic sidearm in widespread service with the SCGDF."
 	magazine_type = /obj/item/ammo_magazine/pistol/flash
 	allowed_magazines = /obj/item/ammo_magazine/pistol
 	icon = 'icons/obj/guns/military_pistol.dmi'
@@ -67,7 +67,7 @@
 	magazine_type = /obj/item/ammo_magazine/pistol
 
 /obj/item/gun/projectile/pistol/sec/wood
-	desc = "The NT Mk58 is a cheap, ubiquitous sidearm, produced by a NanoTrasen subsidiary. This one has a sweet wooden grip, among other modifications. Uses .45 rounds."
+	desc = "The NT Mk58 is a cheap, ubiquitous sidearm, produced by a NanoTrasen subsidiary. This one has a sweet wooden grip, among other modifications."
 	name = "custom pistol"
 	icon = 'icons/urist/items/pistols.dmi'
 	icon_state = "secgundark"

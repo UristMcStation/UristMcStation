@@ -28,7 +28,7 @@
 		)
 
 /obj/item/gun/projectile/automatic/machine_pistol
-	name = ".45 machine pistol"
+	name = "machine pistol"
 	desc = "The Hephaestus Industries MP6 Vesper, A fairly common machine pistol based off a mid 20th century design. Sometimes refered to as an 'uzi' by the backwater spacers it is often associated with."
 	icon = 'icons/urist/items/machine_pistol.dmi'
 	icon_state = "mpistolen"

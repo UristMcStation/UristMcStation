@@ -437,7 +437,7 @@
 /obj/item/gun/projectile/colt/a7
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper A7 pistol"
-	desc = "A slightly modified version of the classic Colt M1911, the standard sidearm for ANFOR and Terran Marines. It holds 8 .45 rounds."
+	desc = "A slightly modified version of the classic Colt M1911, the standard sidearm for ANFOR and Terran Marines. It holds 8 rounds."
 	magazine_type = /obj/item/ammo_magazine/pistol/a7
 	icon_state = "ANFOR-pistol"
 	icon = 'icons/urist/items/guns.dmi'
@@ -445,7 +445,7 @@
 
 /obj/item/ammo_magazine/pistol/a7
 	icon = 'icons/urist/items/guns.dmi'
-	name = "A7 magazine (.45)"
+	name = "A7 magazine"
 	icon_state = "ANFOR-pistolmag"
 	ammo_type = /obj/item/ammo_casing/pistol
 	caliber = CALIBER_PISTOL

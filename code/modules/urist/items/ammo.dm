@@ -31,19 +31,19 @@
 	projectile_type = /obj/item/projectile/energy/flash
 
 /obj/item/ammo_casing/rifle/flash
-	desc = "A 5.56mm flash shell casing."
-	projectile_type = /obj/item/projectile/energy/flash
-
-/obj/item/ammo_casing/rifle/rubber
-	desc = "A 5.56mm rubber bullet casing."
-	projectile_type = /obj/item/projectile/bullet/rifle/rubber
-
-/obj/item/ammo_casing/rifle/military/flash
 	desc = "A 7.62mm flash shell casing."
 	projectile_type = /obj/item/projectile/energy/flash
 
-/obj/item/ammo_casing/rifle/military/rubber
+/obj/item/ammo_casing/rifle/rubber
 	desc = "A 7.62mm rubber bullet casing."
+	projectile_type = /obj/item/projectile/bullet/rifle/rubber
+
+/obj/item/ammo_casing/rifle/military/flash
+	desc = "A 5.56mm flash shell casing."
+	projectile_type = /obj/item/projectile/energy/flash
+
+/obj/item/ammo_casing/rifle/military/rubber
+	desc = "A 5.56mm rubber bullet casing."
 	projectile_type = /obj/item/projectile/bullet/rifle/military/rubber
 
 /obj/item/ammo_magazine/pistol/rubber
@@ -73,7 +73,7 @@
 	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "20mm"
 	mag_type = MAGAZINE
-	caliber = "75"
+	caliber = CALIBER_PISTOL_MAGNUM
 	ammo_type = /obj/item/ammo_casing/a75
 	multiple_sprites = 1
 	max_ammo = 4

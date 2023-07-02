@@ -116,8 +116,8 @@ the sprite and make my own projectile -Glloyd*/
 //Knight .45 - suppressed PDW
 
 /obj/item/gun/projectile/silenced/knight
-	name = "Knight .45"
-	desc = "A lightweight, suppressed weapon. Uses .45 rounds and is intended for operations where subtlety is preferred, if only for a little while."
+	name = "Knight-45"
+	desc = "A lightweight, suppressed weapon. Intended for operations where subtlety is preferred, if only for a little while."
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "knight45"
 	item_state = "knight45"
@@ -339,7 +339,7 @@ the sprite and make my own projectile -Glloyd*/
 /obj/item/gun/projectile/automatic/m3
 	item_icons = DEF_URIST_INHANDS
 	name = "M3 Grease Gun"
-	desc = "The submachine gun for medical personnel and infantrymen. Only fires in short and long bursts. Takes magazines of 32 .45 rounds."
+	desc = "The submachine gun for medical personnel and infantrymen. Only fires in short and long bursts. Takes magazines of 32 rounds."
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "M3"
 	item_state = "mpistolen"
@@ -367,7 +367,7 @@ the sprite and make my own projectile -Glloyd*/
 	return
 
 /obj/item/ammo_magazine/pistol/m3
-	name = "M3 magazine (.45)"
+	name = "M3 magazine"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "M3MAG"
 	mag_type = MAGAZINE
@@ -381,7 +381,7 @@ the sprite and make my own projectile -Glloyd*/
 
 /obj/item/gun/projectile/bhp9mm
 	name = "\improper Browning HP pistol"
-	desc = "The NCO's sidearm. 15 rounds of 9mm. Less power than a .45, but almost double the capacity. May be issued to medical units as well."
+	desc = "The NCO's sidearm. 15 rounds, almost double the usual capacity. May be issued to medical units as well."
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "brownhp"
 	item_state = "pistol"
@@ -403,7 +403,7 @@ the sprite and make my own projectile -Glloyd*/
 
 /obj/item/ammo_magazine/pistol/bhp
 	icon = 'icons/urist/items/guns.dmi'
-	name = "Browning HP magazine (10mm)"
+	name = "Browning HP magazine"
 	icon_state = "BROWNHPMAG"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/pistol/small
@@ -828,7 +828,7 @@ the sprite and make my own projectile -Glloyd*/
 	icon = 'icons/urist/items/guns.dmi'
 	item_icons = DEF_URIST_INHANDS
 	name = "Colt Single Action Army"
-	desc = "An antique Colt Single Action Army revolver dating from the late 19th century. Sometimes referred to as 'the gun that won the west,' this piece is the pride and joy of any 26th century gun collector. Uses .45 magnum rounds."
+	desc = "An antique Colt Single Action Army revolver dating from the late 19th century. Sometimes referred to as 'the gun that won the west,' this piece is the pride and joy of any 26th century gun collector."
 	icon_state = "antiquerevolver"
 	item_state = "antiquerevolver"
 	wielded_item_state = "antiquerevolver"
@@ -845,8 +845,9 @@ the sprite and make my own projectile -Glloyd*/
 		icon_state = "antiquerevolver_empty"
 
 /obj/item/ammo_magazine/a45r
-	name = "speed loader (.45 magnum)"
+	name = "speed loader"
 	desc = "A speed loader for revolvers."
+	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "38"
 	ammo_type = /obj/item/ammo_casing/pistol
 	matter = list(DEFAULT_WALL_MATERIAL = 450)
@@ -855,7 +856,7 @@ the sprite and make my own projectile -Glloyd*/
 	multiple_sprites = 1
 
 /obj/item/ammo_magazine/a45r/rubber
-	name = "speed loader (.45 magnum, rubber)"
+	name = "speed loader (rubber)"
 	icon_state = "R38"
 	ammo_type = /obj/item/ammo_casing/pistol/rubber
 
