@@ -41,7 +41,7 @@
 		)
 	)
 
-	exertion_effect_chance = 10
+	/*exertion_effect_chance = 10
 	exertion_hydration_scale = 1
 	exertion_charge_scale = 1
 	exertion_reagent_scale = 5
@@ -54,7 +54,7 @@
 	exertion_emotes_synthetic = list(
 		/singleton/emote/exertion/synthetic,
 		/singleton/emote/exertion/synthetic/creak
-	)
+	)*/
 
 /datum/species/human/get_bodytype(mob/living/carbon/human/H)
 	return SPECIES_HUMAN
@@ -231,7 +231,7 @@
 		BP_EYES =     /obj/item/organ/internal/eyes/skrell
 		)
 
-	exertion_effect_chance = 10
+	/*exertion_effect_chance = 10
 	exertion_hydration_scale = 1
 	exertion_charge_scale = 1
 	exertion_reagent_scale = 5
@@ -244,7 +244,7 @@
 	exertion_emotes_synthetic = list(
 		/singleton/emote/exertion/synthetic,
 		/singleton/emote/exertion/synthetic/creak
-	)
+	)*/
 
 	ingest_amount = 15
 

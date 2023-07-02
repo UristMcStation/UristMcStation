@@ -145,7 +145,7 @@
 			list(/singleton/emote/audible/bug_hiss) = 40
 	)
 
-	exertion_effect_chance = 10
+	/*exertion_effect_chance = 10
 	exertion_hydration_scale = 1
 	exertion_reagent_scale = 5
 	exertion_reagent_path = /datum/reagent/lactate
@@ -153,7 +153,7 @@
 		/singleton/emote/exertion/biological,
 		/singleton/emote/exertion/biological/breath,
 		/singleton/emote/exertion/biological/pant
-	)
+	)*/
 
 	ingest_amount = 6
 

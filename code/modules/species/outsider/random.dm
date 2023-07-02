@@ -17,7 +17,7 @@
 		TAG_CULTURE = CULTURE_ALIUM
 	)
 
-	exertion_effect_chance = 10
+	/*exertion_effect_chance = 10
 	exertion_hydration_scale = 1
 	exertion_reagent_scale = 5
 	exertion_reagent_path = /datum/reagent/lactate
@@ -25,7 +25,7 @@
 		/singleton/emote/exertion/biological,
 		/singleton/emote/exertion/biological/breath,
 		/singleton/emote/exertion/biological/pant
-	)
+	)*/
 
 /datum/species/alium/New()
 	//Coloring

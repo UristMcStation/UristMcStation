@@ -141,7 +141,7 @@
 			list(/singleton/emote/audible/grunt, /singleton/emote/audible/groan, /singleton/emote/audible/hiss) = 20,
 		)
 
-	exertion_effect_chance = 10
+	/*exertion_effect_chance = 10
 	exertion_hydration_scale = 1
 	exertion_reagent_scale = 5
 	exertion_reagent_path = /datum/reagent/lactate
@@ -149,7 +149,7 @@
 		/singleton/emote/exertion/biological,
 		/singleton/emote/exertion/biological/breath,
 		/singleton/emote/exertion/biological/pant
-	)
+	)*/
 
 	ingest_amount = 20
 
