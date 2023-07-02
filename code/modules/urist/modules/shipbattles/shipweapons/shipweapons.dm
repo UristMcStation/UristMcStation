@@ -233,10 +233,6 @@
 					homeship.dam_announced = 1
 					homeship.autoannounce("<b>The attacking [OM.ship_category]'s hull integrity is below 50%.</b>", "private")
 
-			if(!OM.boarding && OM.can_board && !OM.shields)
-				if(homeship.can_board)
-					OM.boarded()
-
 		return TRUE
 	else
 		return FALSE

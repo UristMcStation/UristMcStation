@@ -40,7 +40,7 @@
 	if(!boarding_turf) //Locate where we're boarding, give them a warning.
 		var/obj/machinery/tele_beacon/active_beacon //what beacon are we locking onto?
 		var/list/beacon_list = list()
-		for(var/obj/machinery/tele_beacon/B in GLOB.listening_objects)
+		for(var/obj/machinery/tele_beacon/B in world)
 			if(B.z in mastership.target_ship.map_z)
 				beacon_list += B
 		active_beacon = pick(beacon_list)
@@ -68,7 +68,7 @@
 			if(!istype(T, /turf/simulated/floor))
 				continue
 			turfs_in_range.Add(T)
-
+		new /obj/structure/boarding/shipportal/shipside(boarding_turf)
 		for(var/S = 1 to boarding_number)
 			var/boarding_type = pick(boarding_mobs)
 			var/spawnturf = pick(turfs_in_range)

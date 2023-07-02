@@ -48,6 +48,32 @@
 	teleport_y = 90
 	teleport_z = 1
 
+/obj/structure/boarding/shipportal/shipside
+    var/source_x
+    var/source_y
+    var/source_z
+
+/obj/structure/boarding/shipportal/shipside/Initialize()
+	for(var/obj/structure/boarding/shipportal/sp)
+		if(!isPlayerLevel(sp.z))
+			source_x = sp.x
+			source_y = sp.y
+			source_z = sp.z
+			break
+	QDEL_IN(src, 3 MINUTES)
+	. = ..()
+
+/obj/structure/boarding/shipportal/shipside/teleport(atom/movable/M as mob|obj)
+	if(istype(M, /obj/effect)) //sparks don't teleport
+		return
+	if(block_pirate_teleport && istype(M, /mob/living))
+		var/mob/living/H = M
+		if(H.faction != "neutral")
+			return
+
+	do_teleport(M, locate(source_x,source_y,source_z), 0)
+	M << "<span class='warning'>You teleport to the attacking ship!</span>"
+
 //self destruct for boarding
 
 /obj/structure/boarding/self_destruct

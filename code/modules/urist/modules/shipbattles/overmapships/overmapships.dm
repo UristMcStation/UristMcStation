@@ -114,6 +114,7 @@
 				for(var/obj/effect/urist/triggers/station_disk/D in GLOB.trigger_landmarks)
 					if(D.faction_id == hiddenfaction.factionid)
 						D.spawn_disk(home_station)
+			boarded()
 		return
 
 /mob/living/simple_animal/hostile/overmapship/proc/despawnmap()
@@ -161,7 +162,7 @@
 		boarding = TRUE
 
 		if(target_ship == GLOB.using_map.overmap_ship) //currently only the main ship can board, pending a rewrite of boarding code
-			target_ship.autoannounce("<b>The attacking [src.ship_category] is now able to be boarded via teleporter. Please await further instructions from Command.</b>", "public") //add name+designation if I get lists for that stuff
+			//target_ship.autoannounce("<b>The attacking [src.ship_category] is now able to be boarded via teleporter. Please await further instructions from Command.</b>", "public") //add name+designation if I get lists for that stuff
 
 			for(var/obj/effect/urist/triggers/boarding_landmark/L in GLOB.trigger_landmarks)
 				new /obj/machinery/tele_beacon(L.loc)
