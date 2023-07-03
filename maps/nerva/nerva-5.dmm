@@ -5114,7 +5114,7 @@
 /obj/item/clothing/under/lawyer/black,
 /obj/item/clothing/under/lawyer/bluesuit,
 /obj/item/clothing/under/rank/mailman,
-/obj/item/clothing/accessory/storage,
+/obj/item/clothing/accessory/toggleable/suit_vest,
 /obj/item/clothing/under/rank/dispatch,
 /turf/unsimulated/floor{
 	icon_state = "carpet";
@@ -6183,7 +6183,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /obj/item/flame/lighter/zippo,
-/obj/item/storage/fancy/smokable,
+/obj/item/storage/fancy/smokable/transstellar,
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
@@ -7500,7 +7500,7 @@
 /area/map_template/skipjack_station/start)
 "qU" = (
 /obj/structure/table/standard,
-/obj/item/storage/fancy/smokable,
+/obj/item/storage/fancy/smokable/trident,
 /obj/item/flame/lighter/zippo,
 /obj/item/clothing/gloves/insulated,
 /obj/item/stack/material/steel{

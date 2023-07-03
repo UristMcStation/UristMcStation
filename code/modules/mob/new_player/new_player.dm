@@ -44,7 +44,7 @@
 	output += "<hr>"
 	if (GAME_STATE > RUNLEVEL_LOBBY)
 		output += "<a href='byond://?src=\ref[src];manifest=1'>Manifest</a>"
-	output += "<a href='byond://?src=\ref[src];show_preferences=1'>Options</a>"
+	output += "<a href='byond://?src=\ref[src];show_preferences=1'>Character Setup</a>"
 	output += "<hr>"
 	output += "<b>Playing As</b><br>"
 	output += "<a href='byond://?src=\ref[client.prefs];load=1;details=1'>[client.prefs.real_name || "(Random)"]</a><br>"

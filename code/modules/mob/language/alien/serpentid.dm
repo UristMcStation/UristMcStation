@@ -3,7 +3,7 @@
 	desc = "A strange language that can be understood both by the sounds made and by the movement needed to create those sounds."
 	signlang_verb = list("chitters", "grinds its mouthparts", "chitters and grinds its mouthparts")
 	key = "n"
-	flags = WHITELISTED | SIGNLANG | NO_STUTTER | NONVERBAL
+	flags = WHITELISTED | SIGNLANG | NO_STUTTER | NONVERBAL | RESTRICTED
 	colour = ".nabber_lang"
 	shorthand = "SD"
 

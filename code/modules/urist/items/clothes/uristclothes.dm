@@ -396,7 +396,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 //	icon_override = 'icons/uristmob/clothes.dmi'
 	desc = "A slightly fancier labcoat sometimes worn by the CMO."
-	//icon_state = "cmo_lab_open"
+	icon_state = "cmo_lab"
 	//icon_open = "cmo_lab_open"
 	//icon_closed = "cmo_lab"
 
@@ -419,7 +419,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A labcoat with a few markings denoting it as the labcoat of a roboticist."
 //	icon_override = 'icons/uristmob/clothes.dmi'
 	icon = 'icons/urist/items/clothes/clothes.dmi'
-	icon_state = "aeneasrinil_open"
+	icon_state = "aeneasrinil"
 	//icon_open = "aeneasrinil_open"
 	//icon_closed = "aeneasrinil"
 	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristSuit.dmi')
@@ -444,10 +444,10 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A long, warm garment. Perfect for looking nice in Space Winter."
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	item_icons = URIST_ALL_ONMOBS
-	icon_state = "blackcoat_open"
+	icon_state = "blackcoat"
 	//icon_open = "blackcoat_open"
 	//icon_closed = "blackcoat_closed"
-	item_state = "blackcoat_open"
+	item_state = "blackcoat"
 	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
@@ -464,7 +464,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A long, warm garment. Perfect for looking nice in Space Winter. It seems to be missing its buttons."
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	item_icons = URIST_ALL_ONMOBS
-	icon_state = "blackcoat_open"
+	icon_state = "blackcoat"
 	item_state = "charcoal_suit"
 	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
@@ -473,55 +473,47 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "navy coat"
 	desc = "A warm wool coat in navy blue. Perfect for looking nice in Space Winter."
 	icon = 'icons/urist/items/clothes/clothes.dmi'
-	icon_state = "navycoat_open"
-	//icon_open = "navycoat_open"
-	//icon_closed = "navycoat_closed"
+	icon_state = "navycoat"
 	item_state = "navy_suit"
 
 /obj/item/clothing/suit/storage/toggle/urist/coat/charcoat
 	name = "charcoal coat"
 	desc = "A warm wool coat in dark grey. Perfect for looking nice in Space Winter."
-	icon_state = "charcoat_open"
-	//icon_open = "charcoat_open"
-	//icon_closed = "charcoat_closed"
+	icon_state = "charcoat"
 
 /obj/item/clothing/suit/storage/toggle/urist/coat/blackcoat
 	name = "black coat"
 	desc = "A warm wool coat in black. Perfect for looking nice in Space Winter."
-	icon_state = "blackcoat_open"
-	//icon_open = "blackcoat_open"
-	//icon_closed = "blackcoat_closed"
+	icon_state = "blackcoat"
 
 /obj/item/clothing/suit/storage/toggle/urist/coat/blackcoat/suit
 	name = "black coat with suit jacket"
 	desc = "A warm wool coat in black with a black suit jacket. Because you're feeling dressy."
 	icon_state = "blackcoat_suit"
-	//icon_open = "blackcoat_suit"
-	//icon_closed = "blackcoat_closed"
 
 /obj/item/clothing/suit/storage/toggle/urist/coat/burgcoat
 	name = "burgundy coat"
 	desc = "A warm wool coat in burgundy. Perfect for looking nice in Space Winter."
-	icon_state = "burgcoat_open"
-	//icon_open = "burgcoat_open"
-	//icon_closed = "burgcoat_closed"
+	icon_state = "burgcoat"
 	item_state = "burgundy_suit"
 
 /obj/item/clothing/suit/storage/urist/coat/tajcoat
 	name = "tajaran fur coat"
 	desc = "A very heavy, very warm belted fur coat made out of furs of an extinct race. Production of these coats is highly regulated to a small number of companies allowed to do so. NanoTrasen isn't one, but who cares?"
-	icon_state = "tajcoat_open"
+	icon_state = "tajcoat"
 
 /obj/item/clothing/suit/storage/urist/coat/journocoat
 	name = "Journalist's coat"
 	desc = "A durable brown double-breasted coat. Keeps you warm while you expose corporate corruption."
-	icon_state = "browncoat_closed" //non-togglable
+	icon_state = "browncoat" //non-togglable
+	item_state = "browncoat"
 
 /obj/item/clothing/under/urist/dresden
 	name = "black pullover"
 	desc = "A black jumper and a pair of jeans, basic and inconspicuous."
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "dresdenunder"
+	item_state = "dresdenunder"
 	//item_color = "dresdenunder"
 
 //alt janitor shit
@@ -1136,7 +1128,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 /obj/item/clothing/suit/storage/toggle/urist/hoodie/grey
 	name = "grey hoodie"
 	desc = "A warm, comfortable grey hoodie."
-	icon_state = "grey_hoodie_open"
+	icon_state = "grey_hoodie"
 	//icon_open = "grey_hoodie_open"
 	//icon_closed = "grey_hoodie_closed"
 	item_state = "grey_hoodie_open"
@@ -1144,7 +1136,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 /obj/item/clothing/suit/storage/toggle/urist/hoodie/black
 	name = "black hoodie"
 	desc = "A warm, comfortable black hoodie."
-	icon_state = "black_hoodie_open"
+	icon_state = "black_hoodie"
 	//icon_open = "black_hoodie_open"
 	//icon_closed = "black_hoodie_closed"
 	item_state = "black_hoodie_open"

@@ -40,7 +40,7 @@
 /datum/design/circuit/hydroponic_basin
 	name = "hydroponic_basin"
 	id = "hydroponic_basin"
-	build_path = /obj/machinery/portable_atmospherics/hydroponics
+	build_path = /obj/item/stock_parts/circuitboard/constructable/hydroponic_basin
 	sort_string = "HYDRO"
 	category = "Machinery Circuitry"
 

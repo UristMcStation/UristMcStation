@@ -39,6 +39,7 @@
 	var/facial_styles_per_species = list() // Custom facial hair styles, per species -type-, if any. See above as to why
 	var/genders_per_species       = list() // For gender biases per species -type-
 	var/list/damage // Use BP defines = damage
+	var/faction = "neutral"
 
 /obj/effect/landmark/corpse/Initialize()
 	..()
@@ -76,6 +77,7 @@
 	randomize_appearance(corpse, new_species)
 	equip_outfit(corpse)
 	corpse.update_icon()
+	corpse.faction = faction
 	qdel(src)
 
 
@@ -189,6 +191,7 @@
 	name = "Pirate"
 	corpse_outfits = list(/singleton/hierarchy/outfit/pirate/norm)
 	spawn_flags = CORPSE_SPAWNER_NO_RANDOMIZATION
+	faction = "pirate"
 
 /obj/effect/landmark/corpse/pirate/ranged
 	name = "Pirate Gunner"
@@ -198,6 +201,7 @@
 	name = "Russian"
 	corpse_outfits = list(/singleton/hierarchy/outfit/soviet_soldier)
 	spawn_flags = CORPSE_SPAWNER_NO_RANDOMIZATION
+	faction = "russian"
 
 /obj/effect/landmark/corpse/russian/ranged
 	corpse_outfits = list(/singleton/hierarchy/outfit/soviet_soldier)
@@ -206,6 +210,7 @@
 	name = "Syndicate Operative"
 	corpse_outfits = list(/singleton/hierarchy/outfit/mercenary/syndicate)
 	spawn_flags = CORPSE_SPAWNER_NO_RANDOMIZATION
+	faction = "syndicate"
 
 /obj/effect/landmark/corpse/syndicate/commando
 	name = "Syndicate Commando"

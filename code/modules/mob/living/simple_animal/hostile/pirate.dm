@@ -9,8 +9,8 @@
 	response_disarm = "shoves"
 	response_harm = "hits"
 	speed = 4
-	maxHealth = 100
-	health = 100
+	maxHealth = 50
+	health = 50
 	can_escape = TRUE
 
 	harm_intent_damage = 5
@@ -31,7 +31,7 @@
 	icon_dead = "piratemelee_dead"
 	projectilesound = 'sound/weapons/laser.ogg'
 	ranged = 1
-	rapid = 2
+	attack_delay = 1.5 SECONDS
 	projectiletype = /obj/item/projectile/beam
 	corpse = /obj/effect/landmark/corpse/pirate/ranged
 	weapon1 = /obj/item/gun/energy/laser

@@ -101,6 +101,7 @@
 	projectilesound = 'sound/weapons/laser.ogg'
 	weapon1 = /obj/item/scom/aliengun/a1
 	ai_holder = /datum/ai_holder/simple_animal/humanoid/hostile
+	attack_delay = 1.5 SECONDS
 
 /mob/living/simple_animal/hostile/scom/lactera/light
 	will_flee = 1

@@ -293,7 +293,7 @@
 */
 /mob/living/carbon/human/proc/apply_pressure(mob/living/user, target_zone)
 	var/obj/item/organ/external/organ = get_organ(target_zone)
-	if(!organ || !(organ.status & ORGAN_BLEEDING || organ.status & ORGAN_ARTERY_CUT) || BP_IS_ROBOTIC(organ))
+	if(!organ || !(organ.status & ORGAN_BLEEDING) || BP_IS_ROBOTIC(organ))
 		return 0
 
 	if(organ.applied_pressure)
@@ -305,9 +305,18 @@
 		user.visible_message("\The [user] starts applying pressure to \his [organ.name]!", "You start applying pressure to your [organ.name]!")
 	else
 		user.visible_message("\The [user] starts applying pressure to [src]'s [organ.name]!", "You start applying pressure to [src]'s [organ.name]!")
+	spawn(0)
+		organ.applied_pressure = user
 
 		//apply pressure as long as they stay still and keep grabbing
 		do_after(user, INFINITY, src, (DO_DEFAULT & ~DO_SHOW_PROGRESS) | DO_USER_SAME_ZONE)
+
+		organ.applied_pressure = null
+
+		if(user == src)
+			user.visible_message("\The [user] stops applying pressure to \his [organ.name]!", "You stop applying pressure to your [organ.name]!")
+		else
+			user.visible_message("\The [user] stops applying pressure to [src]'s [organ.name]!", "You stop applying pressure to [src]'s [organ.name]!")
 
 	return 1
 

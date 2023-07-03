@@ -308,7 +308,7 @@
 	set desc = "Select your default walking style."
 	set category = "IC"
 	var/choice = input(usr, "Select a default walk.", "Set Default Walk") as null|anything in get_movement_datums_by_missing_flag(MOVE_INTENT_QUICK)
-	if(choice && (choice in get_movement_datums_by_missing_flag(MOVE_INTENT_QUICK)))
+	if(choice && (choice in get_movement_datums_by_missing_flag(0)))
 		default_walk_intent = choice
 		to_chat(src, "You will now default to [default_walk_intent] when moving deliberately.")
 
@@ -340,8 +340,8 @@
 /mob/proc/set_moving_quickly()
 	if(!default_run_intent)
 		default_run_intent = get_movement_datum_by_flag(MOVE_INTENT_QUICK)
-	if(default_run_intent && move_intent != default_run_intent)
-		set_move_intent(default_run_intent)
+	//if(default_run_intent && move_intent != default_run_intent)
+	//	set_move_intent(default_run_intent)
 
 /mob/proc/can_sprint()
 	return FALSE

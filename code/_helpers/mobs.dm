@@ -143,6 +143,7 @@
 	var/atom/user_loc = do_flags & DO_USER_CAN_MOVE ? null : user.loc
 	var/user_dir = do_flags & DO_USER_CAN_TURN ? null : user.dir
 	var/user_hand = do_flags & DO_USER_SAME_HAND ? user.hand : null
+	var/user_item = user.get_active_hand()
 
 	var/atom/target_loc = do_flags & DO_TARGET_CAN_MOVE ? null : target?.loc
 	var/target_dir = do_flags & DO_TARGET_CAN_TURN ? null : target?.dir
@@ -193,7 +194,7 @@
 		if (target_dir && target_dir != target.dir)
 			. = DO_TARGET_CAN_TURN
 			break
-		if ((do_flags & DO_USER_SAME_HAND) && user_hand != user.hand)
+		if ((do_flags & DO_USER_SAME_HAND) && (user_hand != user.hand || user_item != user.get_active_hand()))
 			. = DO_USER_SAME_HAND
 			break
 		if (initial_handle && initial_handle != user.do_unique_user_handle)

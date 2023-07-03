@@ -188,13 +188,13 @@ VOTE_DELAY 6000
 VOTE_PERIOD 600
 
 ## autovote initial delay (deciseconds) before first automatic transfer vote call (default 180 minutes)
-VOTE_AUTOTRANSFER_INITIAL 72000
+VOTE_AUTOTRANSFER_INITIAL 120
 
 ##autovote delay (deciseconds) before sequential automatic transfer votes are called (default 30 minutes)
-VOTE_AUTOTRANSFER_INTERVAL 36000
+VOTE_AUTOTRANSFER_INTERVAL 60
 
 ## Time left (seconds) before round start when automatic gamemote vote is called (default 100).
-VOTE_AUTOGAMEMODE_TIMELEFT 260
+VOTE_AUTOGAMEMODE_TIMELEFT 100
 
 ## prevents dead players from voting or starting votes
 #NO_DEAD_VOTE
@@ -468,6 +468,9 @@ GENERATE_ASTEROID
 
 ##Uncomment to enable simple Skype/Discord style markup over say.
 ALLOW_CHAT_MARKUP
+CHAT_MARKUP /(^|\s)\/([^\/]+)\//g;$1<i>$2</i>
+CHAT_MARKUP /(^|\s)\*([^\*]+)\*/g;$1<b>$2</b>
+CHAT_MARKUP /(^|\s)_([^_]+)_/g;$1<u>$2</u>
 
 ## Default language prefix keys, separated with spaces. Only single character keys are supported. If unset, defaults to , # and -
 # DEFAULT_LANGUAGE_PREFIXES , # -

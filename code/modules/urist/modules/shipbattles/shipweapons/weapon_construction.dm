@@ -172,6 +172,7 @@
 	external = TRUE
 	icon = 'icons/urist/structures&machinery/64x32machinery.dmi'
 	pixel_y = 0
+	var/list/origin_tech = list()
 
 /obj/structure/shipweapons/incomplete_weapon/external/light_autocannon
 	icon_state = "cannon-con"

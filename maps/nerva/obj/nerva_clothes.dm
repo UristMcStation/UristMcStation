@@ -218,6 +218,7 @@
 
 /obj/item/clothing/suit/storage/hooded/seccloak/update_icon()
 	icon_state = "seccloak[state]"
+	item_state = "seccloak[state]"
 
 /obj/item/clothing/head/urist/seccloakhood
 	name = "cloak hood"

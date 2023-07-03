@@ -9,7 +9,7 @@
 	uniform = /obj/item/clothing/under/overalls
 	shoes = /obj/item/clothing/shoes/dutyboots
 	belt = /obj/item/storage/belt/utility/full
-	id = /obj/item/card/id/morninglight
+	id_types = list(/obj/item/card/id/morninglight)
 	suit = /obj/item/clothing/suit/storage/hooded/sandsuit
 	glasses = /obj/item/clothing/glasses/lgoggles
 	mask = /obj/item/clothing/mask/urist/bandana/leather

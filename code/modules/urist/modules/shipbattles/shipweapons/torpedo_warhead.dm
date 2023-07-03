@@ -140,7 +140,7 @@
 			qdel(src)
 
 /obj/item/shipweapons/torpedo_warhead/proc/do_explosion()
-	explosion(get_turf(src), 0, 3, 6)
+	explosion(get_turf(src), 7, EX_ACT_HEAVY, 1)
 
 /datum/wires/torpedowarhead
 	holder_type = /obj/item/shipweapons/torpedo_warhead
@@ -214,7 +214,7 @@ var/const/TWARHEAD_DETONATE = 4
 	ammo_name = "armour-piercing"
 
 /obj/item/shipweapons/torpedo_warhead/ap/do_explosion()
-	explosion(get_turf(src), 0, 1, 3)
+	explosion(get_turf(src), 4, EX_ACT_HEAVY, 1)
 
 /obj/item/shipweapons/torpedo_warhead/he
 	name = "high-explosive torpedo warhead"
@@ -228,7 +228,7 @@ var/const/TWARHEAD_DETONATE = 4
 	ammo_name = "high-explosive"
 
 /obj/item/shipweapons/torpedo_warhead/he/do_explosion()
-	explosion(get_turf(src), 1, 2, 8)
+	explosion(get_turf(src), 9, EX_ACT_DEVASTATING, 1)
 
 /obj/item/shipweapons/torpedo_warhead/emp
 	name = "EMP torpedo warhead"

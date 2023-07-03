@@ -6455,6 +6455,10 @@
 /obj/machinery/power/breakerbox/activated{
 	RCon_tag = "Command Bypass"
 	},
+/obj/structure/cable/yellow{
+	d2 = 4;
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/command)
 "lR" = (
@@ -18913,8 +18917,7 @@
 	frequency = 1380;
 	icon_state = "closed";
 	id_tag = "hadrian_shuttle_dock_inner";
-	name = "Docking Port Airlock";
-	req_access = list("ACCESS_XENOBIO")
+	name = "Docking Port Airlock"
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
@@ -18932,8 +18935,7 @@
 	frequency = 1380;
 	icon_state = "closed";
 	id_tag = "hadrian_shuttle_dock_inner";
-	name = "Docking Port Airlock";
-	req_access = list("ACCESS_XENOBIO")
+	name = "Docking Port Airlock"
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
@@ -18950,19 +18952,17 @@
 	dir = 4;
 	icon_state = "camera"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
-	dir = 8;
-	id_tag = "hadrian_shuttle_dock_pump"
-	},
-/obj/machinery/access_button{
-	command = "cycle_exterior";
+/obj/machinery/access_button/airlock_exterior{
 	frequency = 1380;
 	master_tag = "hadrian_shuttle_outer";
-	name = "Hadrian exterior access button";
 	pixel_x = -25;
-	pixel_y = 10;
+	name = "Hadrian exterior access button";
 	req_access = list("ACCESS_XENOBIO");
-	id_tag = "hadrian_shuttle_outer"
+	pixel_y = 10
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
+	dir = 8;
+	id_tag = "hadrian_shuttle_dock_pump"
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
@@ -18982,9 +18982,9 @@
 	pixel_x = 24;
 	pixel_y = 0
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
-	id_tag = "hadrian_shuttle_dock_pump";
-	dir = 4
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
+	dir = 4;
+	id_tag = "hadrian_shuttle_dock_pump"
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
@@ -19075,9 +19075,7 @@
 	frequency = 1380;
 	icon_state = "closed";
 	id_tag = "hadrian_shuttle_dock_outer";
-	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list("ACCESS_XENOBIO")
+	name = "Docking Port Airlock"
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
@@ -19096,9 +19094,7 @@
 	frequency = 1380;
 	icon_state = "closed";
 	id_tag = "hadrian_shuttle_dock_outer";
-	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list("ACCESS_XENOBIO")
+	name = "Docking Port Airlock"
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
@@ -19111,7 +19107,8 @@
 	density = 1;
 	frequency = 1380;
 	id_tag = "hadrian_shuttle_outer";
-	name = "Hadrian External Access"
+	name = "Hadrian External Access";
+	req_access = list("ACCESS_XENOBIO")
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1;
@@ -19132,7 +19129,8 @@
 	density = 1;
 	frequency = 1380;
 	id_tag = "hadrian_shuttle_outer";
-	name = "Hadrian External Access"
+	name = "Hadrian External Access";
+	req_access = list("ACCESS_XENOBIO")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10;
@@ -19267,7 +19265,7 @@
 	icon_state = "1-2";
 	pixel_y = 0
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/shuttle{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 8;
 	id_tag = "hadrian_shuttle_pump"
 	},
@@ -19322,7 +19320,8 @@
 	pixel_x = -24;
 	pixel_y = 0;
 	tag_exterior_sensor = "hadrian_shuttle_sensor_external";
-	dir = 4
+	dir = 4;
+	tag_chamber_sensor = "hadrian_shuttle_sensor"
 	},
 /obj/machinery/airlock_sensor{
 	frequency = 1380;
@@ -19353,9 +19352,9 @@
 	name = "Station Intercom (General)";
 	pixel_x = 22
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/shuttle{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 8;
-	id_tag = "hadrian_shuttle_pump"
+	id_tag = "hadrian_shuttle_dock_pump"
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/hadrian/main)
@@ -22281,9 +22280,9 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 8;
-	id_tag = "hadrian_shuttle_dock_pump"
+	id_tag = "hadrian_shuttle_pump"
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
@@ -22618,9 +22617,9 @@
 	icon_state = "1-2";
 	pixel_y = 0
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
-	id_tag = "hadrian_shuttle_dock_pump";
-	dir = 4
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
+	dir = 4;
+	id_tag = "hadrian_shuttle_dock_pump"
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)

@@ -15552,6 +15552,7 @@
 /obj/machinery/power/breakerbox/activated{
 	RCon_tag = "Atmospherics Bypass"
 	},
+/obj/structure/cable/yellow,
 /turf/simulated/floor/plating,
 /area/engineering/substation/atmos)
 "Mp" = (
@@ -15745,6 +15746,7 @@
 /obj/machinery/power/breakerbox/activated{
 	RCon_tag = "Second Deck Bypass"
 	},
+/obj/structure/cable/yellow,
 /turf/simulated/floor/plating,
 /area/engineering/substation/second_deck)
 "Ng" = (

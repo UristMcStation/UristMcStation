@@ -28,7 +28,7 @@
 	suit = /obj/item/clothing/suit/armor/pcarrier/light/hijacker
 	shoes = /obj/item/clothing/shoes/jackboots
 	head = /obj/item/clothing/mask/bandana/red
-	id = /obj/item/card/id/noctis
+	id_types = list(/obj/item/card/id/noctis)
 	flags = OUTFIT_HAS_BACKPACK
 
 /singleton/hierarchy/outfit/job/exploration_crew

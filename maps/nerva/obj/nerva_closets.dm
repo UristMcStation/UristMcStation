@@ -260,7 +260,7 @@
 	return list(
 		new/datum/atom_creator/weighted(list(/obj/item/storage/backpack = 75,  /obj/item/storage/backpack/satchel/grey = 25)),
 		new/datum/atom_creator/simple(/obj/item/storage/backpack/dufflebag, 25),
-		/obj/item/clothing/under/rank/cargotech,
+		/obj/item/clothing/under/urist/nerva/qm,
 		/obj/item/clothing/shoes/brown,
 		/obj/item/device/radio/headset/heads/nerva_qm,
 		/obj/item/clothing/gloves/thick,

@@ -99,13 +99,15 @@
 	for(var/organ in target.internal_organs_by_name)
 		var/obj/item/organ/I = target.internal_organs_by_name[organ]
 		if(I && !(I.status & ORGAN_CUT_AWAY) && I.parent_organ == target_zone)
-			LAZYDISTINCTADD(attached_organs, organ)
+			var/image/radial_button = image(icon = I.icon, icon_state = I.icon_state)
+			radial_button.name = "Detach \the [I.name]"
+			LAZYSET(attached_organs, I, radial_button)
 	if(!LAZYLEN(attached_organs))
 		to_chat(user, SPAN_WARNING("You can't find any organs to separate."))
 	else
 		var/obj/item/organ/organ_to_remove = attached_organs[1]
 		if(length(attached_organs) > 1)
-			organ_to_remove = input(user, "Which organ do you want to separate?") as null|anything in attached_organs
+			organ_to_remove = show_radial_menu(user, target, attached_organs, radius = 42, use_labels = TRUE, require_near = TRUE, check_locs = list(src))
 		if(organ_to_remove)
 			return organ_to_remove
 	return FALSE
@@ -150,13 +152,15 @@
 		var/list/removable_organs
 		for(var/obj/item/organ/internal/I in affected.implants)
 			if(I.status & ORGAN_CUT_AWAY)
-				LAZYDISTINCTADD(removable_organs, I)
+				var/image/radial_button = image(icon = I.icon, icon_state = I.icon_state)
+				radial_button.name = "Remove \the [I.name]"
+				LAZYSET(removable_organs, I, radial_button)
 		if(!LAZYLEN(removable_organs))
 			to_chat(user, SPAN_WARNING("You can't find any removable organs."))
 		else
 			var/obj/item/organ/organ_to_remove = removable_organs[1]
 			if(length(removable_organs) > 1)
-				organ_to_remove = input(user, "Which organ do you want to remove?") as null|anything in removable_organs
+				organ_to_remove = show_radial_menu(user, target, removable_organs, radius = 42, use_labels = TRUE, require_near = TRUE, check_locs = list(src))
 			if(organ_to_remove)
 				return organ_to_remove
 	return FALSE
@@ -290,12 +294,15 @@
 
 	for(var/obj/item/organ/I in affected.implants)
 		if(I && (I.status & ORGAN_CUT_AWAY))
-			LAZYADD(attachable_organs, I)
+			var/image/radial_button = image(icon = I.icon, icon_state = I.icon_state)
+			radial_button.name = "Attach \the [I.name]"
+			LAZYSET(attachable_organs, I, radial_button)
 
 	if(!LAZYLEN(attachable_organs))
 		return FALSE
 
-	var/obj/item/organ/organ_to_replace = input(user, "Which organ do you want to reattach?") as null|anything in attachable_organs
+	var/obj/item/organ/organ_to_replace = show_radial_menu(user, target, attachable_organs, radius = 42, use_labels = TRUE, require_near = TRUE, check_locs = list(src))
+
 	if(!organ_to_replace)
 		return FALSE
 
@@ -378,12 +385,15 @@
 	var/list/obj/item/organ/internal/dead_organs = list()
 	for(var/obj/item/organ/internal/I in target.internal_organs)
 		if(I && !(I.status & ORGAN_CUT_AWAY) && (I.status & ORGAN_DEAD) && I.parent_organ == affected.organ_tag && !BP_IS_ROBOTIC(I))
-			dead_organs |= I
+			var/image/radial_button = image(icon = I.icon, icon_state = I.icon_state)
+			radial_button.name = "Treat \the [I.name]"
+			LAZYSET(dead_organs, I, radial_button)
 	if(!length(dead_organs))
 		return FALSE
 	var/obj/item/organ/internal/organ_to_fix = dead_organs[1]
 	if(length(dead_organs) > 1)
-		organ_to_fix = input(user, "Which organ do you want to regenerate?") as null|anything in dead_organs
+		organ_to_fix = show_radial_menu(user, target, dead_organs, radius = 42, use_labels = TRUE, require_near = TRUE, check_locs = list(src))
+
 	if(!organ_to_fix)
 		return FALSE
 	if(!organ_to_fix.can_recover())

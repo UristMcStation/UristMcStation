@@ -11,6 +11,7 @@
 	density = 0
 	anchored = 0
 	var/short_name //for the display
+	var/list/origin_tech = list()
 
 //torpedo ammo
 

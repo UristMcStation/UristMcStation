@@ -2,6 +2,7 @@
 	var/unique_name
 	var/datum/detective_gun_skin/unique_reskin
 	var/static/list/gun_options
+	icon = 'icons/urist/items/pistols.dmi'
 
 /obj/item/gun/projectile/pistol/sec/detective/Initialize()
 	. = ..()

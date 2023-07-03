@@ -66,6 +66,17 @@
 	var/b
 	var/endb
 	var/dat = list()
+
+	header += "<style> .scan_notice{color: #5f94af;}</style>"
+	header += "<style> .scan_warning{color: #ff0000; font-style: italic;}</style>"
+	header += "<style> .scan_danger{color: #ff0000; font-weight: bold;}</style>"
+	header += "<style> .scan_red{color:red}</style>"
+	header += "<style> .scan_green{color:green}</style>"
+	header += "<style> .scan_blue{color: #5f94af}</style>"
+	header += "<style> .scan_orange{color:#ffa500}</style>"
+	b		= "<b>"
+	endb	= "</b>"
+
 	. += "[b]Scan results for \the [H]:[endb]"
 
 	// Brain activity.
@@ -203,7 +214,8 @@
 				found_tendon = TRUE
 		if(found_disloc && found_bleed && found_tendon)
 			break
-
+	. += dat
+	dat = list()
 	if(verbose)
 		// Limb status.
 		. += "[b]Specific limb damage:[endb]"
@@ -221,7 +233,7 @@
 				dat += limb_result
 		else
 			dat += "No detectable limb injuries."
-
+	. += dat
 	// Reagent data.
 	. += "[b]Reagent scan:[endb]"
 
