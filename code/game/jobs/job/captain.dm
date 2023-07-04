@@ -26,6 +26,11 @@ var/global/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 /datum/job/captain/get_access()
 	return get_all_station_access()
 
+/datum/job/captain/post_equip_rank(mob/person, alt_title)
+	var/sound/announce_sound = (GAME_STATE <= RUNLEVEL_SETUP)? null : sound('sound/misc/boatswain.ogg', volume=20)
+	captain_announcement.Announce("All hands, [alt_title || title] [person.real_name] on deck!", new_sound = announce_sound)
+	..()
+
 /datum/job/hop
 	title = "Head of Personnel"
 	head_position = 1

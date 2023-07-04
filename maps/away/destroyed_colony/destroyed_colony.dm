@@ -36,4 +36,5 @@
 	description = "A former Terran Confederation colony, any settlements on this world were destroyed during the Galactic Crisis. Little remains, but sensors are detecting a faint signal from a destroyed settlement."
 	suffixes = list("destroyed_colony/destroyed_colony.dmm")
 	accessibility_weight = 10
+	spawn_cost = 1
 //	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED

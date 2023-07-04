@@ -286,12 +286,13 @@
 		ammo_magazine = null
 		update_icon() //make sure to do this after unsetting ammo_magazine
 
-/obj/item/gun/projectile/examine(mob/user)
+/obj/item/gun/projectile/examine(mob/user, distance)
 	. = ..()
 	if(is_jammed)
 		to_chat(user, SPAN_WARNING("It looks jammed."))
 	if(ammo_magazine)
 		to_chat(user, "It has \a [ammo_magazine] loaded.")
+	if(distance <= 1)
 		to_chat(user, "Has [getAmmo()] round\s remaining.")
 
 /obj/item/gun/projectile/proc/getAmmo()

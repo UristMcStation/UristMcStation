@@ -3,7 +3,8 @@
 	icon = 'icons/obj/clothing/obj_eyes.dmi'
 	sprite_sheets = list(
 		SPECIES_VOX = 'icons/mob/species/vox/onmob_eyes_vox.dmi',
-		SPECIES_UNATHI = 'icons/mob/species/unathi/onmob_eyes_unathi.dmi'
+		SPECIES_UNATHI = 'icons/mob/species/unathi/onmob_eyes_unathi.dmi',
+		SPECIES_RESOMI = 'icons/mob/species/resomi/eyes.dmi'
 		)
 	var/hud_type
 	var/prescription = FALSE

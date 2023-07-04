@@ -60,7 +60,6 @@
 	if(src.locked && (!istype(user, /mob/living/silicon)))
 		t += "<I>(Swipe ID card to unlock control panel.)</I><BR>"
 	else
-		t += text("Dispenser [] - <A href='?src=\ref[];toggleOn=1'>[]?</a><br>\n", src.disabled?"deactivated":"activated", src, src.disabled?"Enable":"Disable")
 		t += text("Uses Left: [uses]. <A href='?src=\ref[src];toggleUse=1'>Activate the dispenser?</A><br>\n")
 
 	show_browser(user, t, "window=computer;size=575x450")
@@ -73,10 +72,6 @@
 	return ..()
 
 /obj/machinery/ai_slipper/OnTopic(user, href_list)
-	if (href_list["toggleOn"])
-		src.disabled = !src.disabled
-		update_icon()
-		. = TOPIC_REFRESH
 	if (href_list["toggleUse"])
 		if(!(cooldown_on || disabled))
 			new /obj/effect/effect/foam(src.loc)

@@ -196,8 +196,9 @@
 	offline_vision_restriction = TINT_HEAVY
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE // this is passed to the rig suit components when deployed, including the helmet.
 
-	chest_type = /obj/item/clothing/suit/space/rig/ce
 	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/back.dmi')
+
+	chest_type = /obj/item/clothing/suit/space/rig/ce
 	helm_type = /obj/item/clothing/head/helmet/space/rig/ce
 	glove_type = /obj/item/clothing/gloves/rig/ce
 

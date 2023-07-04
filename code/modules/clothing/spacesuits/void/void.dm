@@ -29,7 +29,7 @@
 	sprite_sheets_obj = list(
 		SPECIES_UNATHI = 'icons/obj/clothing/species/unathi/obj_head_unathi.dmi',
 		SPECIES_SKRELL = 'icons/obj/clothing/species/skrell/obj_head_skrell.dmi',
-		SPECIES_SKRELL = 'icons/obj/clothing/species/skrell/obj_head_skrell.dmi',
+		SPECIES_RESOMI = 'icons/obj/clothing/species/resomi/obj_head_resomi.dmi',
 		)
 
 	light_overlay = "helmet_light"
