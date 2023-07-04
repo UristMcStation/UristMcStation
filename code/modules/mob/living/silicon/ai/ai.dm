@@ -579,19 +579,21 @@ var/global/list/ai_verbs_default = list(
 				return
 			var/list/characters = list()
 			for(var/i = 1, i <= config.character_slots, i++)
-				var/datum/pref_record_reader/R = client.prefs.load_pref_record(i)
-				characters[R.read("real_name")] = i
-				var/chosen_character = input("Which slot do you want to use?") in characters
-				var/prev_slot = client.prefs.default_slot	//So we leave the loaded slot to whatever the player originally set it to
-				client.prefs.load_character(characters[chosen_character])
-				var/mob/living/carbon/human/dummy/mannequin = new()
-				client.prefs.dress_preview_mob(mannequin)
-				client.prefs.load_character(prev_slot)
-				qdel(holo_icon)
-				qdel(holo_icon_longrange)
-				holo_icon = getHologramIcon(icon(mannequin))
-				holo_icon_longrange = getHologramIcon(icon(mannequin), hologram_color = HOLOPAD_LONG_RANGE)
-				qdel(mannequin)
+				var/name = client.prefs.slot_names?[client.prefs.get_slot_key(i)]
+				if(!name)	//Shouldn't be possible. Sanity check
+					continue
+				characters[name] = i
+			var/chosen_character = input("Which slot do you want to use?") in characters
+			var/prev_slot = client.prefs.default_slot	//So we leave the loaded slot to whatever the player originally set it to
+			client.prefs.load_character(characters[chosen_character])
+			var/mob/living/carbon/human/dummy/mannequin = new()
+			client.prefs.dress_preview_mob(mannequin)
+			client.prefs.load_character(prev_slot)
+			qdel(holo_icon)
+			qdel(holo_icon_longrange)
+			holo_icon = getHologramIcon(getFullIcon(mannequin))
+			holo_icon_longrange = getHologramIcon(getFullIcon(mannequin), hologram_color = HOLOPAD_LONG_RANGE)
+			qdel(mannequin)
 	return
 
 //Toggles the luminosity and applies it by re-entereing the camera.
