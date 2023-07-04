@@ -790,6 +790,16 @@ The _flatIcons list is a cache for generated icon files.
 		alpha_mask.Blend(image_overlay,ICON_OR)//OR so they are lumped together in a nice overlay.
 	return alpha_mask//And now return the mask.
 
+/proc/getFullIcon(atom/A)	//Returns a complete flat icon for all dirs
+	if(!A)
+		return
+	var/icon/complete = icon('icons/effects/effects.dmi', "icon_state"="nothing")
+	for(var/currdir in list(NORTH, SOUTH, EAST, WEST))
+		var/icon/icon_dir = getFlatIcon(A,currdir,always_use_defdir=1)
+		complete.Insert(icon_dir,dir=currdir)
+		qdel(icon_dir)
+	return complete
+
 /mob/proc/AddCamoOverlay(atom/A)//A is the atom which we are using as the overlay.
 	var/icon/opacity_icon = new(A.icon, A.icon_state)//Don't really care for overlays/underlays.
 	//Now we need to culculate overlays+underlays and add them together to form an image for a mask.
