@@ -1,7 +1,7 @@
 /datum/computer_file/program/email_client
-	filename = "messengerc"
-	filedesc = "Messenger Client"
-	extended_desc = "This program may be used to log in into your messenger account."
+	filename = "emailc"
+	filedesc = "Email Client"
+	extended_desc = "This program may be used to log in into your email account."
 	program_icon_state = "generic"
 	program_key_state = "generic_key"
 	program_menu_icon = "mail-closed"
@@ -119,13 +119,10 @@
 	for(var/datum/computer_file/data/email_account/account in ntnet_global.email_accounts)
 		if(!account || !account.can_login)
 			continue
-		if(stored_login)
-			if(stored_login == account.login)
-				target = account
-				break
-			else
-				continue
 		if(id_login && id_login["login"] == account.login)
+			target = account
+			break
+		if(stored_login && stored_login == account.login)
 			target = account
 			break
 
@@ -156,7 +153,7 @@
 	if(!current_account)
 		return 0
 
-	var/list/allmails = current_account.inbox
+	var/list/allmails = current_account.all_emails()
 
 	if(length(allmails) > last_message_count)
 		. = 2
@@ -246,7 +243,6 @@
 				message_source = current_account.inbox
 			else if(folder == "Sent")
 				message_source = current_account.outbox
-				data["at_prefix"] = "Sent at"
 			else if(folder == "Spam")
 				message_source = current_account.spam
 			else if(folder == "Deleted")
@@ -292,7 +288,7 @@
 
 /datum/nano_module/email_client/proc/clear_message()
 	new_message = FALSE
-	//msg_title = ""
+	msg_title = ""
 	msg_body = ""
 	msg_recipient = ""
 	msg_attachment = null
@@ -417,14 +413,6 @@
 		return TOPIC_HANDLED
 
 	if(href_list["send"])
-		msg_recipient = sanitize(href_list["send"])
-		addressbook = FALSE
-		var/oldtext = html_decode(msg_body)
-		oldtext = replacetext(oldtext, "\[br\]", "\n")
-
-		var/newtext = sanitize(replacetext(input(usr, "Enter your message. You may use most tags from paper formatting", "Message Editor", oldtext) as message|null, "\n", "\[br\]"), 20000)
-		if(newtext)
-			msg_body = newtext
 		if(!current_account)
 			return TOPIC_HANDLED
 		if((msg_body == "") || (msg_recipient == ""))
@@ -434,7 +422,7 @@
 			msg_title = "No subject"
 
 		var/datum/computer_file/data/email_message/message = new()
-		//message.title = msg_title
+		message.title = msg_title
 		message.stored_data = msg_body
 		message.source = current_account.login
 		message.attachment = msg_attachment
@@ -442,7 +430,7 @@
 			error = "Error sending email: this address doesn't exist."
 			return TOPIC_HANDLED
 		else
-			error = "Message successfully sent."
+			error = "Email successfully sent."
 			clear_message()
 			return TOPIC_HANDLED
 
@@ -454,15 +442,19 @@
 		var/datum/computer_file/data/email_message/M = find_message_by_fuid(href_list["reply"])
 		if(!istype(M))
 			return TOPIC_HANDLED
-		error = null
-		new_message = TRUE
-		msg_recipient = M.source
-		//msg_title = "Re: [M.title]"
-		var/atom/movable/AM = host
-		if(istype(AM))
-			if(ismob(AM.loc))
-				ui_interact(AM.loc)
-		return TOPIC_HANDLED
+		var/response = input("Reply") as null|text
+		if(!response)
+			return TOPIC_HANDLED
+		var/datum/computer_file/data/email_message/message = new()
+		message.title = "Re: [M.title]"
+		message.stored_data = response
+		message.source = current_account.login
+		if(!current_account.send_mail(M.source, message))
+			error = "Error sending email: this address doesn't exist."
+			return TOPIC_HANDLED
+		else
+			error = "Email successfully sent."
+			return TOPIC_HANDLED
 
 	if(href_list["view"])
 		var/datum/computer_file/data/email_message/M = find_message_by_fuid(href_list["view"])
