@@ -50,9 +50,10 @@
 	default_law_type = /datum/ai_laws/manifest
 	use_overmap = 1
 
-	num_exoplanets = 0
+	num_exoplanets = 1
 
-	away_site_budget = 7
+	away_site_budget = 4
+	min_offmap_players = 0
 
 	date_offset = 560
 
