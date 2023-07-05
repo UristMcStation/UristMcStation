@@ -49,9 +49,6 @@
 	if (weapon)
 		new weapon(src.loc)
 	visible_message(SPAN_WARNING("Small shining spores float away from [src] as they die!"))
-	for (var/mob/living/carbon/human/L in orange(3))//infect those who are around
-		if (prob(infection_chance(L, "Airborne")))
-			infect_virus2(L, LMD, 1)
 	qdel(src)
 
 /mob/living/simple_animal/hostile/lar_maria/test_subject

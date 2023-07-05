@@ -103,7 +103,7 @@
 
 /obj/structure/sign/painting/skeleton
  	name = "\improper skeleton portrait"
- 	desc = "A painting of a skeleton smoking a ciggarette."
+ 	desc = "A painting of a skeleton smoking a cigarette."
  	icon_state = "skeletoncig"
 
 /obj/structure/sign/painting/isleofthedead

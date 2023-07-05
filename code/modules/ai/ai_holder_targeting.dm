@@ -21,6 +21,8 @@
 											// This uses strings and not refs to allow for disguises, and to avoid needing to use weakrefs.
 	var/destructive = FALSE					// Will target 'neutral' structures/objects and not just 'hostile' ones.
 
+	var/aggro_sound = null //what sound, if any, do we play when aggroing
+
 // A lot of this is based off of /TG/'s AI code.
 
 /// Step 1, find out what we can see.
@@ -70,6 +72,8 @@
 /datum/ai_holder/proc/give_target(new_target, urgent = FALSE)
 	ai_log("give_target() : Given '[new_target]', urgent=[urgent].", AI_LOG_TRACE)
 	target = new_target
+	if(aggro_sound)
+		playsound(holder, aggro_sound, 50, 1)
 
 	if (target != null)
 		lose_target_time = 0

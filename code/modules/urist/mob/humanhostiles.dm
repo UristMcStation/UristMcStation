@@ -350,10 +350,10 @@
 	response_harm = "grasps"
 	ai_holder = /datum/ai_holder/simple_animal/hololab
 	say_list_type = /datum/say_list/hololab
-	aggro_sound = 'sound/urist/holonaut_chatter_02.ogg'
 
 /datum/ai_holder/simple_animal/hololab
 	speak_chance = 50
+	aggro_sound = 'sound/urist/holonaut_chatter_02.ogg'
 
 /datum/say_list/hololab
 	speak = list("...?<>D-d-d-£$D<>Id it()<> work?", "I<> T-<>%$£I'm b-<C-cant feel <>ANYT-thing.</C-cant>", "?:PO$&<S-Someone...", "Three. Nine. ><><Seven-n-n-n.. One..$£% Five Nine.")

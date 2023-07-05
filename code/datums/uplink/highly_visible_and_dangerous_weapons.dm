@@ -226,4 +226,4 @@
 	name = "Ion Pistol"
 	desc = "Ion rifle in compact form."
 	item_cost = 36	// TC in line with Magnums/Heavy .44's, to reflect it's nuking capability on Synths.
-	path = /obj/item/weapon/gun/energy/ionrifle/small
+	path = /obj/item/gun/energy/ionrifle/small

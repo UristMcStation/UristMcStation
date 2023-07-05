@@ -217,7 +217,10 @@
 	harm_intent_damage = 0
 	natural_weapon = /obj/item/natural_weapon/bite/strong
 	projectiletype = /obj/item/projectile/energy/scom/forgotten
-	ai_holder = /datum/ai_holder/simple_animal/ranged/aggressive
+	ai_holder = /datum/ai_holder/simple_animal/ranged/aggressive/forgotten
+	attack_delay = 2 SECONDS
+
+/datum/ai_holder/simple_animal/ranged/aggressive/forgotten
 	aggro_sound = 'sound/hallucinations/screech.ogg'
 
 /mob/living/simple_animal/hostile/scom/forgotten/death()
@@ -290,7 +293,7 @@
 	stun = 1
 	weaken = 1
 	stutter = 1
-	damage_type = BURN
+	damage_type = DAMAGE_BURN
 
 /obj/item/projectile/beam/scom/alien6//for the fighters
 	name = "alien beam"
