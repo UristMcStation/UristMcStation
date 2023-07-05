@@ -2240,7 +2240,8 @@
 	pixel_x = 0;
 	pixel_y = -24;
 	req_access = list("ACCESS_TRAJAN_HELM");
-	tag_exterior_sensor = "antonine_shuttle_sensor_external"
+	tag_exterior_sensor = "antonine_shuttle_sensor_external";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/antonine_hangar/start)
@@ -4183,7 +4184,8 @@
 	id_tag = "escape_pod_2";
 	pixel_x = -25;
 	pixel_y = 0;
-	tag_door = "escape_pod_2_hatch"
+	tag_door = "escape_pod_2_hatch";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/shuttle/escape_pod2/station)
@@ -4198,7 +4200,8 @@
 	id_tag = "escape_pod_3";
 	pixel_x = 25;
 	pixel_y = 0;
-	tag_door = "escape_pod_3_hatch"
+	tag_door = "escape_pod_3_hatch";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/shuttle/escape_pod3/station)
@@ -6032,7 +6035,8 @@
 /obj/item/device/camera_film,
 /obj/item/device/taperecorder,
 /obj/machinery/light_switch{
-	pixel_x = 22
+	pixel_x = 22;
+	dir = 8
 	},
 /turf/simulated/floor/wood/walnut,
 /area/security/forensics)
@@ -6046,7 +6050,8 @@
 /area/security/breakroom)
 "kY" = (
 /obj/machinery/light_switch{
-	pixel_x = -22
+	pixel_x = -22;
+	dir = 4
 	},
 /obj/structure/closet/secure_closet/personal,
 /obj/effect/floor_decal/corner/red/three_quarters,
@@ -12529,7 +12534,8 @@
 	},
 /obj/machinery/light_switch{
 	pixel_x = 26;
-	pixel_y = 24
+	pixel_y = 24;
+	dir = 8
 	},
 /obj/structure/cable{
 	d1 = 2;
@@ -14025,7 +14031,7 @@
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/structure/bed/chair/comfy/purple,
 /obj/effect/landmark/start{
-	name = "Senior Researcher"
+	name = "Senior Scientist"
 	},
 /turf/simulated/floor/tiled/white,
 /area/command/seniorntoffice)
@@ -19461,8 +19467,7 @@
 	},
 /obj/structure/bed/chair/shuttle,
 /obj/machinery/recharger/wallcharger{
-	pixel_x = -26;
-	pixel_y = 2
+	pixel_x = -26
 	},
 /turf/simulated/floor/tiled/white,
 /area/hadrian/main)

@@ -89,7 +89,8 @@
 "aq" = (
 /obj/item/device/radio/intercom{
 	icon_state = "intercom";
-	dir = 4
+	dir = 4;
+	pixel_x = -24
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	icon_state = "map_vent_out";
@@ -220,7 +221,8 @@
 "aH" = (
 /obj/item/device/radio/intercom{
 	icon_state = "intercom";
-	dir = 8
+	dir = 8;
+	pixel_x = 24
 	},
 /obj/structure/closet/crate/internals/fuel,
 /obj/item/tank/phoron,
@@ -585,14 +587,15 @@
 	dir = 6
 	},
 /obj/structure/railing/mapped{
-	color = "#b95a00";
+	color = "#b95a00"
 	},
 /turf/space,
 /area/space)
 "bo" = (
 /obj/item/device/radio/intercom{
 	icon_state = "intercom";
-	dir = 4
+	dir = 4;
+	pixel_x = -24
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
@@ -791,7 +794,7 @@
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	id_tag = "pirate_ap_controller";
 	pixel_x = 6;
-	pixel_y = -24;
+	pixel_y = 18;
 	tag_airpump = "pirate_ap_vent";
 	tag_chamber_sensor = "pirate_ap_sensor";
 	tag_exterior_door = "pirate_ap_ext";
@@ -1629,7 +1632,9 @@
 	tag_airpump = "pirate_fp_vent";
 	tag_chamber_sensor = "pirate_fp_sensor";
 	tag_exterior_door = "pirate_fp_ext";
-	tag_interior_door = "pirate_fp_int"
+	tag_interior_door = "pirate_fp_int";
+	dir = 8;
+	pixel_y = 4
 	},
 /obj/machinery/airlock_sensor{
 	id_tag = "pirate_fp_sensor";
@@ -1685,7 +1690,9 @@
 	icon_state = "firelight1";
 	dir = 4
 	},
-/obj/item/device/radio/intercom,
+/obj/item/device/radio/intercom{
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/fairlock)
 "dt" = (
@@ -1802,7 +1809,8 @@
 	},
 /obj/item/device/radio/intercom{
 	icon_state = "intercom";
-	dir = 4
+	dir = 4;
+	pixel_x = -24
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	icon_state = "map-scrubbers";
@@ -2066,7 +2074,8 @@
 	},
 /obj/item/device/radio/intercom{
 	icon_state = "intercom";
-	dir = 8
+	dir = 8;
+	pixel_x = 24
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/lounge)
@@ -2422,7 +2431,8 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "noctis";
-	pixel_x = -24
+	pixel_x = -24;
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/raptor)
@@ -2633,7 +2643,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 4;
-	icon_state = "railing0-1";
+	icon_state = "railing0-1"
 	},
 /turf/space,
 /area/space)
@@ -2774,7 +2784,7 @@
 /area/noctis/reactorch)
 "fe" = (
 /obj/structure/railing/mapped{
-	color = "#b95a00";
+	color = "#b95a00"
 	},
 /turf/space,
 /area/space)
@@ -2825,7 +2835,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 4;
-	icon_state = "railing0-1";
+	icon_state = "railing0-1"
 	},
 /turf/space,
 /area/space)
@@ -3045,7 +3055,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 8;
-	icon_state = "railing0-1";
+	icon_state = "railing0-1"
 	},
 /turf/space,
 /area/space)
@@ -3243,7 +3253,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 1;
-	icon_state = "railing0-1";
+	icon_state = "railing0-1"
 	},
 /obj/structure/catwalk,
 /turf/space,
@@ -3327,7 +3337,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 1;
-	icon_state = "railing0-1";
+	icon_state = "railing0-1"
 	},
 /turf/space,
 /area/space)
@@ -3340,12 +3350,12 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 1;
-	icon_state = "railing0-1";
+	icon_state = "railing0-1"
 	},
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 4;
-	icon_state = "railing0-1";
+	icon_state = "railing0-1"
 	},
 /turf/space,
 /area/space)
@@ -3354,7 +3364,7 @@
 /obj/structure/catwalk,
 /obj/structure/handrail,
 /obj/structure/railing/mapped{
-	color = "#b95a00";
+	color = "#b95a00"
 	},
 /turf/space,
 /area/space)
@@ -3362,7 +3372,7 @@
 /obj/structure/lattice,
 /obj/structure/catwalk,
 /obj/structure/railing/mapped{
-	color = "#b95a00";
+	color = "#b95a00"
 	},
 /turf/space,
 /area/space)
@@ -3422,7 +3432,7 @@
 /obj/structure/catwalk,
 /obj/structure/lattice,
 /obj/structure/railing/mapped{
-	color = "#b95a00";
+	color = "#b95a00"
 	},
 /turf/space,
 /area/space)
@@ -3535,7 +3545,7 @@
 /area/space)
 "gt" = (
 /obj/structure/railing/mapped{
-	color = "#b95a00";
+	color = "#b95a00"
 	},
 /obj/structure/lattice,
 /turf/space,
@@ -3562,7 +3572,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 1;
-	icon_state = "railing0-1";
+	icon_state = "railing0-1"
 	},
 /obj/structure/lattice,
 /turf/space,
@@ -3610,7 +3620,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 1;
-	icon_state = "railing0-1";
+	icon_state = "railing0-1"
 	},
 /obj/effect/spawner/bomb_simulator{
 	ex_range = 9;
@@ -4419,7 +4429,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 4;
-	icon_state = "railing0-1";
+	icon_state = "railing0-1"
 	},
 /obj/effect/spawner/bomb_simulator{
 	ex_range = 9;
@@ -4611,7 +4621,8 @@
 /obj/structure/catwalk,
 /obj/item/device/radio/intercom{
 	icon_state = "intercom";
-	dir = 1
+	dir = 1;
+	pixel_y = -29
 	},
 /obj/structure/cable/blue{
 	d1 = 4;
@@ -5037,7 +5048,8 @@
 	},
 /obj/item/device/radio/intercom{
 	icon_state = "intercom";
-	dir = 8
+	dir = 8;
+	pixel_x = 24
 	},
 /obj/structure/cable/blue{
 	d1 = 1;

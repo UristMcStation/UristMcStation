@@ -76,7 +76,8 @@
 	tag_airpump = "cargo_pump";
 	tag_chamber_sensor = "cargo_sensor";
 	tag_exterior_door = "cargo_out";
-	tag_interior_door = "cargo_in"
+	tag_interior_door = "cargo_in";
+	dir = 8
 	},
 /turf/simulated/floor,
 /area/ship/scrap/cargo/lower)
@@ -431,7 +432,8 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/light_switch{
-	pixel_x = 24
+	pixel_x = 24;
+	dir = 8
 	},
 /obj/machinery/power/apc/derelict{
 	dir = 1
@@ -984,7 +986,8 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/light_switch{
-	pixel_x = 24
+	pixel_x = 24;
+	dir = 8
 	},
 /obj/machinery/power/apc/derelict{
 	dir = 1
@@ -1082,7 +1085,8 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/light_switch{
-	pixel_x = -24
+	pixel_x = -24;
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
@@ -1344,7 +1348,8 @@
 	},
 /obj/item/storage/briefcase,
 /obj/machinery/light_switch{
-	pixel_y = -25
+	pixel_y = -25;
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scrap/crew/dorms2)
@@ -1449,7 +1454,8 @@
 /area/ship/scrap/broken1)
 "cX" = (
 /obj/machinery/light_switch{
-	pixel_x = 24
+	pixel_x = 24;
+	dir = 8
 	},
 /obj/machinery/organ_printer/robot/mapped,
 /obj/item/device/radio/intercom/map_preset/bearcat{
@@ -1815,7 +1821,8 @@
 	},
 /obj/structure/holostool,
 /obj/machinery/light_switch{
-	pixel_y = -25
+	pixel_y = -25;
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scrap/crew/dorms3)
@@ -2094,7 +2101,8 @@
 	},
 /obj/item/tape_roll,
 /obj/machinery/light_switch{
-	pixel_x = -24
+	pixel_x = -24;
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
@@ -2730,7 +2738,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/techfloor/airless,
+/turf/simulated/floor/tiled/techfloor,
 /area/ship/scrap/damselfly)
 "kz" = (
 /obj/effect/paint/brown,
@@ -2895,7 +2903,7 @@
 /area/ship/scrap/damselfly)
 "uO" = (
 /obj/machinery/door/airlock/external,
-/turf/simulated/floor/tiled/techfloor/airless,
+/turf/simulated/floor/tiled/techfloor,
 /area/ship/scrap/damselfly)
 "uP" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2947,14 +2955,14 @@
 	icon_state = "intact";
 	dir = 4
 	},
-/turf/simulated/floor/tiled/techfloor/airless,
+/turf/simulated/floor/tiled/techfloor,
 /area/ship/scrap/damselfly)
 "yn" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/shuttle{
 	dir = 8;
 	id_tag = "bearcat_shuttle_pump"
 	},
-/turf/simulated/floor/tiled/techfloor/airless,
+/turf/simulated/floor/tiled/techfloor,
 /area/ship/scrap/damselfly)
 "yF" = (
 /obj/structure/cable/green{
@@ -2976,7 +2984,7 @@
 	pixel_y = 12;
 	id_tag = "bearcat_shuttle_sensor"
 	},
-/turf/simulated/floor/tiled/techfloor/airless,
+/turf/simulated/floor/tiled/techfloor,
 /area/ship/scrap/damselfly)
 "yN" = (
 /obj/effect/paint/brown,
@@ -3168,7 +3176,7 @@
 	icon_state = "intact";
 	dir = 4
 	},
-/turf/simulated/floor/tiled/techfloor/airless,
+/turf/simulated/floor/tiled/techfloor,
 /area/ship/scrap/damselfly)
 "JN" = (
 /obj/effect/floor_decal/corner/beige{
@@ -3343,7 +3351,7 @@
 	pixel_x = -24;
 	pixel_y = -9
 	},
-/turf/simulated/floor/tiled/techfloor/airless,
+/turf/simulated/floor/tiled/techfloor,
 /area/ship/scrap/damselfly)
 "UJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{

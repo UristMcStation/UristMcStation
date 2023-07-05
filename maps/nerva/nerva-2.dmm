@@ -1909,7 +1909,8 @@
 	},
 /obj/machinery/light_switch{
 	pixel_x = 6;
-	pixel_y = -24
+	pixel_y = -24;
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/locker)
@@ -2713,7 +2714,8 @@
 	},
 /obj/machinery/light_switch{
 	pixel_x = -20;
-	pixel_y = 0
+	pixel_y = 0;
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/pink{
 	dir = 10
@@ -2922,7 +2924,8 @@
 	},
 /obj/machinery/light_switch{
 	pixel_x = 6;
-	pixel_y = -24
+	pixel_y = -24;
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2981,7 +2984,8 @@
 	pixel_y = -24
 	},
 /obj/machinery/light_switch{
-	pixel_x = -22
+	pixel_x = -22;
+	dir = 4
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/interrogation)
@@ -3096,6 +3100,11 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 4;
+	pixel_y = -24;
+	dir = 1
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/armoury)
 "agk" = (
@@ -3149,7 +3158,8 @@
 	},
 /obj/structure/window/reinforced,
 /obj/machinery/light_switch{
-	pixel_x = 22
+	pixel_x = 22;
+	dir = 8
 	},
 /obj/machinery/firealarm{
 	dir = 1;
@@ -3437,16 +3447,9 @@
 /turf/simulated/floor/plating,
 /area/security/office)
 "agV" = (
-/obj/machinery/recharger/wallcharger{
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/machinery/recharger/wallcharger{
-	pixel_x = 4;
-	pixel_y = -8
-	},
-/turf/simulated/wall/r_wall/prepainted,
-/area/security/armoury)
+/obj/machinery/radio_beacon,
+/turf/simulated/floor/bluegrid/server,
+/area/engineering/tcomms)
 "agW" = (
 /obj/machinery/door/blast/regular{
 	dir = 2;
@@ -4281,6 +4284,10 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4;
 	icon_state = "warningcorner"
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 4;
+	pixel_y = 22
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/office)
@@ -6823,7 +6830,9 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/vending/coffee,
+/obj/machinery/vending/coffee{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/office)
 "aml" = (
@@ -6962,7 +6971,8 @@
 "amA" = (
 /obj/machinery/light_switch{
 	pixel_x = -20;
-	pixel_y = 0
+	pixel_y = 0;
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/locker)
@@ -8886,7 +8896,8 @@
 "apR" = (
 /obj/machinery/light_switch{
 	pixel_x = -22;
-	pixel_y = 6
+	pixel_y = 6;
+	dir = 4
 	},
 /obj/machinery/button/blast_door{
 	id_tag = "seccheckpointshutters";
@@ -11280,7 +11291,7 @@
 /obj/item/device/radio/intercom{
 	dir = 8;
 	icon_state = "intercom";
-	pixel_x = 28;
+	pixel_x = 24;
 	tag = "icon-intercom (WEST)"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -13825,17 +13836,21 @@
 /turf/simulated/floor/wood/walnut,
 /area/command/meeting)
 "axB" = (
-/obj/machinery/vending/snack,
+/obj/machinery/vending/snack{
+	dir = 8
+	},
 /turf/simulated/floor/wood/walnut,
 /area/command/meeting)
 "axC" = (
 /obj/machinery/recharger/wallcharger{
-	pixel_x = -26;
-	pixel_y = 2
+	pixel_x = -24;
+	pixel_y = 2;
+	dir = 4
 	},
 /obj/machinery/recharger/wallcharger{
-	pixel_x = -26;
-	pixel_y = -14
+	pixel_x = -24;
+	pixel_y = -14;
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/fadeblue,
 /obj/effect/floor_decal/corner/black{
@@ -14426,10 +14441,13 @@
 /turf/simulated/floor/carpet/green,
 /area/command/meeting)
 "ayK" = (
-/obj/machinery/vending/cigarette,
+/obj/machinery/vending/cigarette{
+	dir = 8
+	},
 /obj/machinery/light_switch{
 	pixel_x = 28;
-	pixel_y = 0
+	pixel_y = 0;
+	dir = 8
 	},
 /turf/simulated/floor/wood/walnut,
 /area/command/meeting)
@@ -14437,7 +14455,7 @@
 /obj/item/device/radio/intercom{
 	dir = 4;
 	icon_state = "intercom";
-	pixel_x = -25;
+	pixel_x = -24;
 	tag = "icon-intercom (EAST)"
 	},
 /obj/effect/floor_decal/corner/black/border{
@@ -14678,7 +14696,8 @@
 /obj/machinery/disposal,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/light_switch{
-	pixel_y = -24
+	pixel_y = -24;
+	dir = 1
 	},
 /obj/structure/disposalpipe/trunk{
 	dir = 4;
@@ -14789,7 +14808,8 @@
 /area/hallway/central/third_deck)
 "azv" = (
 /obj/machinery/light_switch{
-	pixel_x = -22
+	pixel_x = -22;
+	dir = 4
 	},
 /obj/structure/table/standard,
 /obj/machinery/chemical_dispenser/bar_soft/full{
@@ -15439,7 +15459,9 @@
 /turf/simulated/floor/carpet/green,
 /area/command/meeting)
 "aAy" = (
-/obj/machinery/vending/cola,
+/obj/machinery/vending/cola{
+	dir = 8
+	},
 /obj/machinery/alarm{
 	dir = 8;
 	icon_state = "alarm0";
@@ -15964,7 +15986,9 @@
 /turf/simulated/floor/carpet/green,
 /area/command/meeting)
 "aBA" = (
-/obj/machinery/vending/coffee,
+/obj/machinery/vending/coffee{
+	dir = 8
+	},
 /obj/machinery/atm{
 	pixel_x = 30
 	},
@@ -19796,7 +19820,8 @@
 /obj/machinery/suit_storage_unit/standard_unit,
 /obj/effect/floor_decal/corner/green/full,
 /obj/machinery/light_switch{
-	pixel_x = 22
+	pixel_x = 22;
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/eva)
@@ -20103,7 +20128,8 @@
 	pixel_y = 0
 	},
 /obj/machinery/light_switch{
-	pixel_x = 22
+	pixel_x = 22;
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/yellow{
@@ -20984,7 +21010,8 @@
 /area/hallway/central/third_deck)
 "aKd" = (
 /obj/machinery/light_switch{
-	pixel_x = -22
+	pixel_x = -22;
+	dir = 4
 	},
 /obj/structure/table/woodentable/walnut,
 /obj/item/paper_bin,
@@ -21770,7 +21797,8 @@
 /obj/machinery/light_switch{
 	on = 1;
 	pixel_x = 6;
-	pixel_y = -20
+	pixel_y = -20;
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/disposalpipe/trunk{
@@ -21802,7 +21830,8 @@
 /obj/machinery/light_switch{
 	on = 1;
 	pixel_x = 6;
-	pixel_y = -20
+	pixel_y = -20;
+	dir = 1
 	},
 /turf/simulated/floor/carpet,
 /area/command/fo)
@@ -22250,7 +22279,8 @@
 "aMi" = (
 /obj/machinery/disposal,
 /obj/machinery/light_switch{
-	pixel_x = -22
+	pixel_x = -22;
+	dir = 4
 	},
 /obj/structure/disposalpipe/trunk{
 	dir = 1;
@@ -22798,7 +22828,7 @@
 /area/engineering/engine)
 "aNa" = (
 /obj/machinery/light_switch{
-	dir = 4;
+	dir = 8;
 	on = 0;
 	pixel_x = 22
 	},
@@ -26420,7 +26450,7 @@
 	},
 /obj/machinery/disposal,
 /obj/machinery/light_switch{
-	dir = 4;
+	dir = 8;
 	on = 1;
 	pixel_x = 25
 	},
@@ -26434,7 +26464,8 @@
 "aSK" = (
 /obj/machinery/light_switch{
 	on = 1;
-	pixel_y = -24
+	pixel_y = -24;
+	dir = 1
 	},
 /obj/machinery/computer/modular/preset/medical{
 	dir = 4
@@ -27255,7 +27286,7 @@
 	tag = "icon-corner_white_diagonal (EAST)"
 	},
 /obj/machinery/button/windowtint{
-	dir = 4;
+	dir = 8;
 	icon_state = "light0";
 	pixel_x = 24;
 	range = 5;
@@ -27624,7 +27655,8 @@
 	dir = 9
 	},
 /obj/machinery/light_switch{
-	pixel_x = -22
+	pixel_x = -22;
+	dir = 4
 	},
 /obj/effect/landmark/start{
 	name = "Quartermaster"
@@ -27757,13 +27789,13 @@
 	},
 /obj/effect/floor_decal/corner/yellow/three_quarters,
 /obj/machinery/button/windowtint{
-	dir = 4;
 	icon_state = "light0";
 	pixel_x = 0;
 	pixel_y = -24;
 	range = 7;
 	tag = "icon-light0 (EAST)";
-	id = "qmofficetint"
+	id = "qmofficetint";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/qm)
@@ -28732,12 +28764,14 @@
 /obj/machinery/light_switch{
 	on = 1;
 	pixel_x = -6;
-	pixel_y = -20
+	pixel_y = -20;
+	dir = 1
 	},
 /obj/machinery/button/windowtint{
 	pixel_x = 6;
 	pixel_y = -20;
-	id = "sotint"
+	id = "sotint";
+	dir = 1
 	},
 /obj/structure/closet/secure_closet/nervaso,
 /obj/item/clothing/accessory/armband/bluegoldcom,
@@ -49242,7 +49276,7 @@ aLW
 aNn
 aOw
 aOw
-aOw
+agV
 aOw
 aOw
 aTN
@@ -59512,7 +59546,7 @@ adP
 aeF
 aft
 agj
-agV
+adn
 aih
 ajH
 ndE

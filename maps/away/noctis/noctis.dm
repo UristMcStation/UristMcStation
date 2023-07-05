@@ -19,6 +19,7 @@
 	description = "An exploration vessel taken over by pirates."
 	suffixes = list("noctis/noctis-1.dmm", "noctis/noctis-2.dmm")
 	spawn_cost = 1
+	player_cost = 0
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/raptor)
 
 /obj/effect/overmap/visitable/ship/noctis

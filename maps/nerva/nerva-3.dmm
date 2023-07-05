@@ -2004,7 +2004,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/aft/second_deck)
 "et" = (
-/obj/machinery/vending/coffee,
+/obj/machinery/vending/coffee{
+	dir = 8
+	},
 /obj/effect/floor_decal/corner/black/three_quarters{
 	dir = 4
 	},
@@ -4028,7 +4030,8 @@
 	},
 /obj/machinery/light_switch{
 	pixel_x = 28;
-	pixel_y = 0
+	pixel_y = 0;
+	dir = 8
 	},
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering Break Room Port Entrance";
@@ -4038,7 +4041,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
 "ih" = (
-/obj/machinery/vending/cigarette,
+/obj/machinery/vending/cigarette{
+	dir = 4
+	},
 /obj/effect/floor_decal/corner/yellow/three_quarters{
 	dir = 8;
 	icon_state = "corner_white_three_quarters";
@@ -4140,7 +4145,9 @@
 /turf/simulated/floor/tiled,
 /area/hallway/aft/second_deck)
 "iw" = (
-/obj/machinery/vending/cola,
+/obj/machinery/vending/cola{
+	dir = 4
+	},
 /turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "ix" = (
@@ -4177,7 +4184,8 @@
 /obj/item/device/synthesized_instrument/violin,
 /obj/machinery/light_switch{
 	pixel_x = 28;
-	pixel_y = 0
+	pixel_y = 0;
+	dir = 8
 	},
 /turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
@@ -4336,7 +4344,8 @@
 /area/command/captain)
 "iU" = (
 /obj/machinery/light_switch{
-	pixel_y = -25
+	pixel_y = -25;
+	dir = 1
 	},
 /obj/machinery/hologram/holopad,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4537,7 +4546,9 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/vending/snack,
+/obj/machinery/vending/snack{
+	dir = 4
+	},
 /turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "jq" = (
@@ -4939,7 +4950,9 @@
 	pixel_x = -27;
 	pixel_y = 1
 	},
-/obj/machinery/vending/cigarette,
+/obj/machinery/vending/cigarette{
+	dir = 4
+	},
 /turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "kg" = (
@@ -5434,7 +5447,8 @@
 /area/hallway/aft/second_deck)
 "kY" = (
 /obj/machinery/light_switch{
-	pixel_y = -20
+	pixel_y = -20;
+	dir = 1
 	},
 /turf/simulated/floor/wood/walnut,
 /area/civilian/dorms)
@@ -5586,7 +5600,9 @@
 	dir = 4;
 	icon_state = "camera"
 	},
-/obj/machinery/vending/coffee,
+/obj/machinery/vending/coffee{
+	dir = 4
+	},
 /turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "lk" = (
@@ -6009,10 +6025,13 @@
 /turf/simulated/floor/carpet/blue2,
 /area/civilian/dorms)
 "mc" = (
-/obj/machinery/vending/coffee,
+/obj/machinery/vending/coffee{
+	dir = 8
+	},
 /obj/machinery/light_switch{
 	pixel_x = 28;
-	pixel_y = 0
+	pixel_y = 0;
+	dir = 8
 	},
 /turf/simulated/floor/carpet/blue2,
 /area/civilian/dorms)
@@ -6192,7 +6211,8 @@
 /obj/machinery/light_switch{
 	on = 1;
 	pixel_x = 10;
-	pixel_y = -25
+	pixel_y = -25;
+	dir = 1
 	},
 /turf/simulated/floor/wood/walnut,
 /area/command/captain)
@@ -6907,7 +6927,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/central)
 "nN" = (
-/obj/machinery/vending/cigarette,
+/obj/machinery/vending/cigarette{
+	dir = 4
+	},
 /obj/machinery/newscaster{
 	pixel_x = -26
 	},
@@ -8729,7 +8751,7 @@
 /area/command/fobedroom)
 "rc" = (
 /obj/machinery/light_switch{
-	dir = 4;
+	dir = 8;
 	pixel_x = 25;
 	pixel_y = 0
 	},
@@ -9246,8 +9268,9 @@
 "sb" = (
 /obj/machinery/vending/urist/beltdispenser,
 /obj/machinery/light_switch{
-	pixel_x = 28;
-	pixel_y = 0
+	pixel_x = 24;
+	pixel_y = 0;
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/civilian/personal)
@@ -9278,7 +9301,8 @@
 	},
 /obj/machinery/light_switch{
 	pixel_x = 28;
-	pixel_y = 0
+	pixel_y = 0;
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/civilian/personal)
@@ -10583,7 +10607,8 @@
 	},
 /obj/machinery/light_switch{
 	pixel_x = -20;
-	pixel_y = 6
+	pixel_y = 6;
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
@@ -10964,7 +10989,8 @@
 	icon_state = "camera"
 	},
 /obj/machinery/light_switch{
-	pixel_y = -25
+	pixel_y = -25;
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/logistics/primtool)
@@ -12896,7 +12922,8 @@
 	},
 /obj/machinery/light_switch{
 	pixel_x = -6;
-	pixel_y = -24
+	pixel_y = -24;
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
@@ -14468,6 +14495,9 @@
 /obj/random/plushie,
 /obj/item/storage/fancy/crayons,
 /obj/machinery/light,
+/obj/item/clothing/under/rank/psych/turtleneck,
+/obj/item/material/clipboard,
+/obj/item/storage/belt/general,
 /turf/simulated/floor/wood/walnut,
 /area/civilian/counselor)
 "Gj" = (
@@ -15539,11 +15569,13 @@
 /obj/machinery/button/windowtint{
 	pixel_x = 24;
 	pixel_y = 6;
-	id = "journalist"
+	id = "journalist";
+	dir = 8
 	},
 /obj/machinery/light_switch{
 	pixel_x = 24;
-	pixel_y = -6
+	pixel_y = -6;
+	dir = 8
 	},
 /turf/simulated/floor/carpet/blue2,
 /area/civilian/journalist)
@@ -16235,7 +16267,7 @@
 	dir = 8
 	},
 /obj/machinery/button/windowtint{
-	dir = 4;
+	dir = 8;
 	icon_state = "light0";
 	pixel_x = 24;
 	range = 5;
@@ -17897,7 +17929,8 @@
 /obj/structure/morgue,
 /obj/machinery/light_switch{
 	pixel_x = -24;
-	pixel_y = -8
+	pixel_y = -8;
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/black/border{
 	tag = "icon-bordercolor (WEST)";

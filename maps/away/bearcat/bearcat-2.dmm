@@ -198,7 +198,8 @@
 	req_access = newlist()
 	},
 /obj/machinery/light_switch{
-	pixel_y = -25
+	pixel_y = -25;
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scrap/command/bridge)
@@ -468,7 +469,8 @@
 	dir = 8
 	},
 /obj/item/device/radio/intercom/map_preset/bearcat{
-	pixel_y = -32
+	pixel_y = -29;
+	dir = 1
 	},
 /obj/machinery/alarm{
 	dir = 8;
@@ -493,7 +495,8 @@
 /area/ship/scrap/command/hallway)
 "ba" = (
 /obj/item/device/radio/intercom/map_preset/bearcat{
-	pixel_x = -32
+	pixel_x = -24;
+	dir = 4
 	},
 /obj/item/gun/projectile/shotgun/pump/combat{
 	desc = "When words don't strike hard enough.";
@@ -766,7 +769,8 @@
 /area/ship/scrap/dock)
 "bA" = (
 /obj/item/device/radio/intercom/map_preset/bearcat{
-	pixel_x = -32
+	pixel_x = -24;
+	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4;
@@ -791,10 +795,8 @@
 /area/ship/scrap/dock)
 "bC" = (
 /obj/machinery/light_switch{
-	pixel_x = 28
-	},
-/obj/machinery/light_switch{
-	pixel_x = 28
+	pixel_x = 28;
+	dir = 8
 	},
 /obj/machinery/light,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -922,7 +924,8 @@
 /area/ship/scrap/dock)
 "bN" = (
 /obj/item/device/radio/intercom/map_preset/bearcat{
-	pixel_y = -32
+	pixel_y = -32;
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/alarm{
@@ -945,7 +948,8 @@
 /area/ship/scrap/dock)
 "bP" = (
 /obj/item/device/radio/intercom/map_preset/bearcat{
-	pixel_y = -32
+	pixel_y = -32;
+	dir = 1
 	},
 /obj/machinery/alarm{
 	dir = 4;
@@ -1315,7 +1319,8 @@
 	icon_state = "bulb1"
 	},
 /obj/item/device/radio/intercom/map_preset/bearcat{
-	pixel_x = -32
+	pixel_x = -24;
+	dir = 4
 	},
 /obj/structure/closet/wardrobe/pjs,
 /obj/structure/sign/poster{
@@ -1618,7 +1623,8 @@
 	name = "Bathrooms APC"
 	},
 /obj/machinery/light_switch{
-	pixel_y = -25
+	pixel_y = -25;
+	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -1684,7 +1690,8 @@
 	dir = 4
 	},
 /obj/item/device/radio/intercom/map_preset/bearcat{
-	pixel_y = -32
+	pixel_y = -29;
+	dir = 1
 	},
 /obj/structure/ladder,
 /turf/simulated/floor/tiled,
@@ -1695,7 +1702,8 @@
 	dir = 8
 	},
 /obj/machinery/light_switch{
-	pixel_x = 28
+	pixel_x = 28;
+	dir = 8
 	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
@@ -1718,7 +1726,8 @@
 	name = "Dorms APC"
 	},
 /obj/machinery/light_switch{
-	pixel_x = -25
+	pixel_x = -25;
+	dir = 4
 	},
 /obj/structure/closet/wardrobe/mixed,
 /obj/item/storage/backpack/dufflebag/med,
@@ -1741,7 +1750,8 @@
 "dx" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/light_switch{
-	pixel_x = -25
+	pixel_x = -25;
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1764,7 +1774,8 @@
 /area/ship/scrap/cargo)
 "dA" = (
 /obj/machinery/light_switch{
-	pixel_x = -25
+	pixel_x = -25;
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1794,7 +1805,7 @@
 /area/ship/scrap/crew/kitchen)
 "dF" = (
 /obj/item/device/radio/intercom/map_preset/bearcat{
-	pixel_y = 32
+	pixel_y = 24
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	level = 2
@@ -1849,7 +1860,7 @@
 /area/ship/scrap/cargo)
 "dJ" = (
 /obj/item/device/radio/intercom/map_preset/bearcat{
-	pixel_y = 32
+	pixel_y = 24
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
@@ -1908,7 +1919,7 @@
 /area/ship/scrap/crew/medbay)
 "dQ" = (
 /obj/item/device/radio/intercom/map_preset/bearcat{
-	pixel_y = 32
+	pixel_y = 24
 	},
 /obj/item/bedsheet/medical,
 /obj/structure/curtain/open/privacy,
@@ -2486,7 +2497,8 @@
 	dir = 1
 	},
 /obj/machinery/light_switch{
-	pixel_x = 28
+	pixel_x = 28;
+	dir = 8
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled,
@@ -2498,7 +2510,8 @@
 /area/ship/scrap/crew/hallway/port)
 "eI" = (
 /obj/machinery/light_switch{
-	pixel_x = -25
+	pixel_x = -25;
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
@@ -2562,7 +2575,8 @@
 "eO" = (
 /obj/structure/table/standard,
 /obj/machinery/light_switch{
-	pixel_x = -25
+	pixel_x = -25;
+	dir = 4
 	},
 /obj/structure/closet/medical_wall/filled{
 	pixel_y = -32
@@ -3058,7 +3072,8 @@
 	dir = 1
 	},
 /obj/machinery/light_switch{
-	pixel_x = 28
+	pixel_x = 28;
+	dir = 8
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
@@ -3387,7 +3402,8 @@
 	},
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/machinery/light_switch{
-	pixel_x = 28
+	pixel_x = 28;
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/ship/scrap/fire)
@@ -4042,7 +4058,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/device/radio/intercom/map_preset/bearcat{
-	pixel_y = 32
+	pixel_y = 24
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/corner/yellow{
@@ -5193,10 +5209,6 @@
 	},
 /turf/simulated/wall,
 /area/ship/scrap/maintenance/power)
-"jB" = (
-/obj/item/stack/material/rods,
-/turf/space,
-/area/space)
 "jC" = (
 /obj/structure/table/standard,
 /obj/item/device/multitool{
@@ -5269,12 +5281,6 @@
 	use_power = 1
 	},
 /turf/simulated/floor,
-/area/ship/scrap/maintenance/engine/aft)
-"jN" = (
-/obj/item/stack/material/steel,
-/obj/item/stack/material/rods,
-/obj/structure/lattice,
-/turf/space,
 /area/ship/scrap/maintenance/engine/aft)
 "jO" = (
 /turf/space,
@@ -5450,15 +5456,8 @@
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall,
 /area/ship/scrap/maintenance/atmos)
-"xF" = (
-/obj/item/stack/material/steel,
-/obj/structure/lattice,
-/turf/space,
-/area/ship/scrap/maintenance/atmos)
 "xU" = (
-/obj/effect/paint/brown,
-/turf/simulated/wall/r_wall,
-/area/ship/scrap/maintenance/power)
+)
 "zT" = (
 /obj/effect/floor_decal/corner/blue/diagonal{
 	dir = 4
@@ -5483,7 +5482,7 @@
 	dir = 8
 	},
 /obj/item/device/radio/intercom/map_preset/bearcat{
-	pixel_y = 32
+	pixel_y = 24
 	},
 /obj/item/cell/crap,
 /obj/item/cell/crap,
@@ -5584,9 +5583,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/scrap/maintenance/engineering)
-"JH" = (
-/turf/simulated/floor/reinforced/airless,
-/area/ship/scrap/maintenance/power)
 "Kj" = (
 /turf/simulated/floor/reinforced/airless,
 /area/ship/scrap/crew/cryo)
@@ -5623,10 +5619,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/scrap/hidden)
-"Ng" = (
-/obj/structure/lattice,
-/turf/space,
-/area/ship/scrap/maintenance/power)
 "Od" = (
 /obj/effect/floor_decal/corner/blue,
 /obj/effect/floor_decal/corner/yellow{
@@ -13813,6 +13805,7 @@ aa
 aa
 aa
 aa
+xU
 "}
 (67,1,1) = {"
 aa
@@ -14011,48 +14004,52 @@ Va
 Va
 Va
 Va
+Ak
+Ak
+Ak
+Ht
+Ak
+Ak
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 xU
 xU
 xU
-JH
 xU
-xU
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (69,1,1) = {"
 aa

@@ -188,7 +188,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 8;
-	icon_state = "railing0-1";
+	icon_state = "railing0-1"
 	},
 /turf/simulated/open,
 /area/space)
@@ -249,7 +249,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 4;
-	icon_state = "railing0-1";
+	icon_state = "railing0-1"
 	},
 /turf/simulated/open,
 /area/space)
@@ -436,7 +436,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 4;
-	icon_state = "railing0-1";
+	icon_state = "railing0-1"
 	},
 /obj/effect/floor_decal/corner/grey/mono,
 /obj/machinery/light/small/red{
@@ -602,7 +602,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 8;
-	icon_state = "railing0-1";
+	icon_state = "railing0-1"
 	},
 /obj/effect/floor_decal/corner/grey/mono,
 /obj/structure/table/steel,
@@ -641,7 +641,8 @@
 "bv" = (
 /obj/item/device/radio/intercom{
 	icon_state = "intercom";
-	dir = 8
+	dir = 8;
+	pixel_x = 24
 	},
 /obj/effect/floor_decal/techfloor{
 	icon_state = "techfloor_edges";
@@ -931,7 +932,9 @@
 /turf/simulated/floor/plating,
 /area/noctis/fpm)
 "bZ" = (
-/obj/item/device/radio/intercom,
+/obj/item/device/radio/intercom{
+	pixel_y = 30
+	},
 /turf/simulated/floor/plating,
 /area/noctis/fpm)
 "ca" = (
@@ -1146,7 +1149,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 4;
-	icon_state = "railing0-1";
+	icon_state = "railing0-1"
 	},
 /turf/simulated/open,
 /area/space)
@@ -1179,7 +1182,7 @@
 /obj/machinery/door/blast/regular/open{
 	dir = 8;
 	health_max = 0;
-	icon_state = "pdoor0";
+	icon_state = "pdoor0"
 	},
 /turf/simulated/floor/reinforced,
 /area/noctis/fpm)
@@ -1276,7 +1279,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 4;
-	icon_state = "railing0-1";
+	icon_state = "railing0-1"
 	},
 /turf/space,
 /area/space)
@@ -1288,7 +1291,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 4;
-	icon_state = "railing0-1";
+	icon_state = "railing0-1"
 	},
 /obj/structure/cable/blue{
 	d1 = 2;
@@ -1486,7 +1489,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 4;
-	icon_state = "railing0-1";
+	icon_state = "railing0-1"
 	},
 /obj/effect/floor_decal/rust,
 /turf/simulated/floor/plating,
@@ -1530,7 +1533,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 8;
-	icon_state = "railing0-1";
+	icon_state = "railing0-1"
 	},
 /obj/structure/lattice,
 /obj/structure/cable/blue{
@@ -1635,7 +1638,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 4;
-	icon_state = "railing0-1";
+	icon_state = "railing0-1"
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1646,7 +1649,7 @@
 /area/space)
 "dM" = (
 /obj/structure/railing/mapped{
-	color = "#b95a00";
+	color = "#b95a00"
 	},
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1666,7 +1669,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 4;
-	icon_state = "railing0-1";
+	icon_state = "railing0-1"
 	},
 /obj/structure/cable/blue{
 	d2 = 2;
@@ -1677,7 +1680,9 @@
 /area/space)
 "dP" = (
 /obj/effect/floor_decal/corner/grey/mono,
-/obj/item/device/radio/intercom,
+/obj/item/device/radio/intercom{
+	pixel_y = 30
+	},
 /obj/machinery/computer/shuttle_control/explore/raptor,
 /turf/simulated/floor/tiled/monotile,
 /area/noctis/bridge)
@@ -1807,7 +1812,8 @@
 "ef" = (
 /obj/item/device/radio/intercom{
 	icon_state = "intercom";
-	dir = 8
+	dir = 8;
+	pixel_x = 24
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	id_tag = "pirate_con_vent"
@@ -2061,12 +2067,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	id_tag = "pirate_con_controller";
-	pixel_x = 24;
+	pixel_x = 20;
 	pixel_y = 6;
 	tag_airpump = "pirate_con_vent";
 	tag_chamber_sensor = "pirate_con_sensor";
 	tag_exterior_door = "pirate_con_ext";
-	tag_interior_door = "pirate_con_int"
+	tag_interior_door = "pirate_con_int";
+	dir = 8
 	},
 /obj/machinery/airlock_sensor{
 	id_tag = "pirate_con_sensor";
@@ -2086,7 +2093,8 @@
 	},
 /obj/item/device/radio/intercom{
 	icon_state = "intercom";
-	dir = 4
+	dir = 4;
+	pixel_x = -24
 	},
 /obj/structure/catwalk,
 /obj/effect/floor_decal/industrial/warning{
@@ -2160,7 +2168,9 @@
 	dir = 1
 	},
 /obj/structure/table/steel,
-/obj/item/device/radio/intercom,
+/obj/item/device/radio/intercom{
+	pixel_y = 30
+	},
 /turf/simulated/floor/tiled/techfloor,
 /area/noctis/bridge)
 "eT" = (
@@ -2224,7 +2234,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 4;
-	icon_state = "railing0-1";
+	icon_state = "railing0-1"
 	},
 /obj/structure/catwalk,
 /obj/random/trash,
@@ -2558,7 +2568,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 8;
-	icon_state = "railing0-1";
+	icon_state = "railing0-1"
 	},
 /obj/structure/catwalk,
 /obj/structure/cable/blue{
@@ -2609,7 +2619,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 4;
-	icon_state = "railing0-1";
+	icon_state = "railing0-1"
 	},
 /obj/structure/cable/blue{
 	d1 = 1;
@@ -2622,7 +2632,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 4;
-	icon_state = "railing0-1";
+	icon_state = "railing0-1"
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
@@ -2742,7 +2752,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 8;
-	icon_state = "railing0-1";
+	icon_state = "railing0-1"
 	},
 /obj/structure/catwalk,
 /obj/structure/cable/blue{
@@ -2847,7 +2857,7 @@
 /area/noctis/bridge)
 "gb" = (
 /obj/effect/floor_decal/techfloor,
-/obj/structure/table/steel,
+/obj/machinery/radio_beacon,
 /turf/simulated/floor/tiled/techfloor,
 /area/noctis/bridge)
 "gc" = (
@@ -3049,7 +3059,8 @@
 	},
 /obj/item/device/radio/intercom{
 	icon_state = "intercom";
-	dir = 1
+	dir = 1;
+	pixel_y = -29
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/noctis/bridge)
@@ -3385,7 +3396,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 8;
-	icon_state = "railing0-1";
+	icon_state = "railing0-1"
 	},
 /turf/simulated/open,
 /area/space)
@@ -3615,7 +3626,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 8;
-	icon_state = "railing0-1";
+	icon_state = "railing0-1"
 	},
 /turf/space,
 /area/space)
@@ -3626,7 +3637,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 1;
-	icon_state = "railing0-1";
+	icon_state = "railing0-1"
 	},
 /turf/space,
 /area/space)
@@ -3728,7 +3739,8 @@
 "hK" = (
 /obj/item/device/radio/intercom{
 	icon_state = "intercom";
-	dir = 1
+	dir = 1;
+	pixel_y = -29
 	},
 /obj/effect/floor_decal/rust,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -3768,7 +3780,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 4;
-	icon_state = "railing0-1";
+	icon_state = "railing0-1"
 	},
 /obj/structure/lattice,
 /obj/structure/cable/blue{
@@ -3860,7 +3872,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 1;
-	icon_state = "railing0-1";
+	icon_state = "railing0-1"
 	},
 /turf/simulated/open,
 /area/space)
@@ -3925,7 +3937,8 @@
 /obj/item/handcuffs,
 /obj/item/device/radio/intercom{
 	icon_state = "intercom";
-	dir = 4
+	dir = 4;
+	pixel_x = -24
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	icon_state = "map_vent_out";
@@ -4275,7 +4288,7 @@
 /obj/structure/railing/mapped{
 	color = "#b95a00";
 	dir = 1;
-	icon_state = "railing0-1";
+	icon_state = "railing0-1"
 	},
 /obj/structure/lattice,
 /turf/simulated/open,
