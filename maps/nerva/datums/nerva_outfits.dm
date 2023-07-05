@@ -183,7 +183,6 @@
 	l_ear = /obj/item/device/radio/headset/heads/nerva_senior
 	uniform = /obj/item/clothing/under/urist/nerva/seniornt
 	suit = /obj/item/clothing/suit/storage/toggle/urist/science
-	back = /obj/item/storage/backpack/satchel/leather
 	shoes = /obj/item/clothing/shoes/brown
 	l_hand = /obj/item/material/clipboard
 	id_types = list(/obj/item/card/id/nerva_senior_scientist)

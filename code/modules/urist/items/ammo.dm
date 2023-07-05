@@ -103,7 +103,6 @@
 		if(length(stored_ammo))
 			user.put_in_hands(stored_ammo[1])
 			stored_ammo.Cut()
-		qdel(src)
 
 /obj/item/ammo_magazine/bundle/attack_self(mob/user)
 	..()
