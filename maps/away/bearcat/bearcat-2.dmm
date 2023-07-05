@@ -5434,6 +5434,11 @@
 /obj/effect/decal/cleanable/ash,
 /turf/simulated/floor/airless,
 /area/ship/scrap/maintenance/engine/aft)
+"uM" = (
+/obj/item/stack/material/steel,
+/obj/structure/lattice,
+/turf/space,
+/area/ship/scrap/maintenance/atmos)
 "vs" = (
 /obj/structure/lattice,
 /obj/effect/paint/brown,
@@ -5447,15 +5452,6 @@
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall,
 /area/ship/scrap/maintenance/atmos)
-"xF" = (
-/obj/item/stack/material/steel,
-/obj/structure/lattice,
-/turf/space,
-/area/ship/scrap/maintenance/atmos)
-"xU" = (
-/obj/effect/paint/brown,
-/turf/simulated/wall/r_wall,
-/area/ship/scrap/maintenance/power)
 "zT" = (
 /obj/effect/floor_decal/corner/blue/diagonal{
 	dir = 4
@@ -5464,7 +5460,9 @@
 /turf/simulated/floor/reinforced/airless,
 /area/ship/scrap/maintenance/atmos)
 "Ak" = (
-)
+/obj/effect/paint/brown,
+/turf/simulated/wall/r_wall,
+/area/ship/scrap/maintenance/power)
 "Cs" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/paint/red,
@@ -11819,7 +11817,7 @@ hx
 iQ
 hx
 hw
-xF
+uM
 aa
 aa
 aa
@@ -13806,7 +13804,7 @@ aa
 aa
 aa
 aa
-Ak
+aa
 "}
 (67,1,1) = {"
 aa
@@ -14005,52 +14003,52 @@ Va
 Va
 Va
 Va
-xU
-xU
-xU
+Ak
+Ak
+Ak
 Ht
-xU
-xU
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 Ak
 Ak
-Ak
-Ak
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}
 (69,1,1) = {"
 aa
