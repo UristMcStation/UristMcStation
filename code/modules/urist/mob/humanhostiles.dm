@@ -350,6 +350,7 @@
 	response_harm = "grasps"
 	ai_holder = /datum/ai_holder/simple_animal/hololab
 	say_list_type = /datum/say_list/hololab
+	aggro_sound = 'sound/urist/holonaut_chatter_02.ogg'
 
 /datum/ai_holder/simple_animal/hololab
 	speak_chance = 50
@@ -358,6 +359,7 @@
 	speak = list("...?<>D-d-d-£$D<>Id it()<> work?", "I<> T-<>%$£I'm b-<C-cant feel <>ANYT-thing.</C-cant>", "?:PO$&<S-Someone...", "Three. Nine. ><><Seven-n-n-n.. One..$£% Five Nine.")
 	emote_hear = list("gasps suddenly", "garbles something unintelligible", "jitters audibly", "garbles some sort of radio message.")
 	emote_see = list("jitters uncontrollably", "stares at their palms")
+
 
 
 /mob/living/simple_animal/hostile/urist/hololab/holonautgrunt  // Weakest Holonaut

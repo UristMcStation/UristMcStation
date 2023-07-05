@@ -11,9 +11,9 @@
 	var/wax
 	var/last_lit
 	var/icon_set = "candle"
-	var/candle_max_bright = 0.3
+	var/candle_max_bright = 0.7
 	var/candle_inner_range = 0.1
-	var/candle_outer_range = 4
+	var/candle_outer_range = 3
 	var/candle_falloff = 2
 
 /obj/item/flame/candle/Initialize()

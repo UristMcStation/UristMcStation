@@ -221,3 +221,9 @@
 	item_cost = 12
 	path = /obj/item/gun/projectile/heavysniper/boltaction
 	antag_roles = list(MODE_REVOLUTIONARY)
+
+/datum/uplink_item/item/visible_weapons/ionpistol
+	name = "Ion Pistol"
+	desc = "Ion rifle in compact form."
+	item_cost = 36	// TC in line with Magnums/Heavy .44's, to reflect it's nuking capability on Synths.
+	path = /obj/item/weapon/gun/energy/ionrifle/small
