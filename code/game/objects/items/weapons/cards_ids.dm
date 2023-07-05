@@ -193,7 +193,7 @@ var/global/const/NO_EMAG_ACT = -50
 	slot_flags = SLOT_ID
 
 	sprite_sheets = list(
-		SPECIES_RESOMI = 'icons/mob/species/resomi/id.dmi'
+		SPECIES_RESOMI = 'icons/mob/species/resomi/id.dmi',
 		)
 
 	var/list/access = list()

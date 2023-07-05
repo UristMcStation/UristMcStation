@@ -25,7 +25,7 @@
 
 	darksight_range = 6
 	darksight_tint = DARKTINT_GOOD
-	slowdown = -0.08
+	slowdown = -0.1
 	total_health = 150
 	brute_mod = 1.25
 	burn_mod =  1.25

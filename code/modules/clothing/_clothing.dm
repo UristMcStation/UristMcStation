@@ -212,7 +212,7 @@
 	w_class = ITEM_SIZE_TINY
 	throwforce = 2
 	slot_flags = SLOT_EARS
-	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/ears.dmi')
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/ears.dmi',)
 
 
 /obj/item/clothing/ears/update_clothing_icon()
@@ -228,7 +228,8 @@
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
 	volume_multiplier = 0.1
 	sprite_sheets = list(
-		SPECIES_UNATHI = 'icons/mob/species/unathi/onmob_ears_unathi.dmi'
+		SPECIES_UNATHI = 'icons/mob/species/unathi/onmob_ears_unathi.dmi',
+		SPECIES_RESOMI = 'icons/mob/species/resomi/ears.dmi'
 	)
 
 
@@ -399,8 +400,7 @@ BLIND     // can't see anything
 		SPECIES_VOX = 'icons/mob/species/vox/onmob_head_vox.dmi',
 		SPECIES_UNATHI = 'icons/mob/species/unathi/onmob_head_unathi.dmi',
 		SPECIES_NABBER = 'icons/mob/species/nabber/onmob_head_gas.dmi',
-		SPECIES_RESOMI = 'icons/mob/species/resomi/head.dmi'
-
+		SPECIES_RESOMI = 'icons/mob/species/resomi/head.dmi',
 	)
 	body_parts_covered = HEAD
 	slot_flags = SLOT_HEAD

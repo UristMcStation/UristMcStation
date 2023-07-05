@@ -18,12 +18,14 @@
 	sprite_sheets = list(
 		SPECIES_SKRELL = 'icons/mob/species/skrell/onmob_head_skrell.dmi',
 		SPECIES_UNATHI = 'icons/mob/species/unathi/onmob_head_unathi.dmi',
-		SPECIES_VOX = 'icons/mob/species/vox/onmob_head_vox.dmi'
+		SPECIES_VOX = 'icons/mob/species/vox/onmob_head_vox.dmi',
+		SPECIES_RESOMI = 'icons/mob/species/resomi/helmet.dmi',
 		)
 	sprite_sheets_obj = list(
 		SPECIES_UNATHI = 'icons/obj/clothing/species/unathi/obj_head_unathi.dmi',
 		SPECIES_SKRELL = 'icons/obj/clothing/species/skrell/obj_head_skrell.dmi',
-		SPECIES_VOX = 'icons/obj/clothing/species/vox/obj_head_vox.dmi'
+		SPECIES_VOX = 'icons/obj/clothing/species/vox/obj_head_vox.dmi',
+		SPECIES_RESOMI = 'icons/obj/clothing/species/resomi/obj_head_resomi.dmi',
 		)
 	camera = /obj/machinery/camera/network/mercenary
 	light_overlay = "explorer_light"

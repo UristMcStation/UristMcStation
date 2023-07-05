@@ -11,7 +11,8 @@
 	icon_state = "petehat"
 	sprite_sheets = list(
 		SPECIES_VOX = 'icons/mob/species/vox/onmob_head_vox.dmi',
-		SPECIES_RESOMI = 'icons/mob/species/resomi/head.dmi'
+		SPECIES_RESOMI = 'icons/mob/species/resomi/head.dmi',
+		SPECIES_UNATHI = 'icons/mob/species/unathi/generated/onmob_head_unathi.dmi',
 		)
 
 /obj/item/clothing/head/collectable/xenom

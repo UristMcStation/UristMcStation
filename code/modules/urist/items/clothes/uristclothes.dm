@@ -1117,30 +1117,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	armor = list(melee = 15, bullet = 5, laser = 5, energy = 5, bomb = 0, bio = 0, rad = 0)
 
-//hoodies
-
-/obj/item/clothing/suit/storage/toggle/urist/hoodie
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
-	min_cold_protection_temperature = 263.15 //sure?
-	blood_overlay_type = "coatblood"
-
-/obj/item/clothing/suit/storage/toggle/urist/hoodie/grey
-	name = "grey hoodie"
-	desc = "A warm, comfortable grey hoodie."
-	icon_state = "grey_hoodie"
-	//icon_open = "grey_hoodie_open"
-	//icon_closed = "grey_hoodie_closed"
-	item_state = "grey_hoodie_open"
-
-/obj/item/clothing/suit/storage/toggle/urist/hoodie/black
-	name = "black hoodie"
-	desc = "A warm, comfortable black hoodie."
-	icon_state = "black_hoodie"
-	//icon_open = "black_hoodie_open"
-	//icon_closed = "black_hoodie_closed"
-	item_state = "black_hoodie_open"
-
 //overalls/apron
 
 /obj/item/clothing/suit/storage/urist/overalls
@@ -1449,3 +1425,12 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A heavy, modified version of a common emergency response hardsuit. Has blood red highlights.  Armoured and space ready."
 	suit_type = "heavy emergency response"
 	icon_state = "asset_protection_rig"
+
+// rescued resomi coat
+/obj/item/clothing/suit/storage/toggle/urist/Resomicoat
+ 	name = "small coat"
+ 	desc = "A coat that seems too small to fit a human."
+ 	icon_state = "resomicoat"
+ 	item_state = "resomicoat"
+ 	body_parts_covered = UPPER_TORSO|ARMS|LOWER_TORSO|LEGS
+ 	species_restricted = list(SPECIES_RESOMI)

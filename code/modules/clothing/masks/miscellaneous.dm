@@ -44,9 +44,6 @@
 	down_body_parts_covered = null
 	down_icon_state = "steriledown"
 	pull_mask = 1
-	sprite_sheets = list(
-		SPECIES_RESOMI = 'icons/mob/species/resomi/masks.dmi'
-		)
 
 /obj/item/clothing/mask/fakemoustache
 	name = "fake moustache"

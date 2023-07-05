@@ -20,7 +20,7 @@
 	siemens_coefficient = 0.4
 
 	//Species-specific stuff.
-	species_restricted = list(SPECIES_HUMAN, SPECIES_IPC)
+	species_restricted = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_RESOMI)
 	sprite_sheets = list(
 		SPECIES_UNATHI = 'icons/mob/species/unathi/onmob_head_unathi.dmi',
 		SPECIES_SKRELL = 'icons/mob/species/skrell/onmob_head_skrell.dmi',

@@ -45,7 +45,7 @@
 	)
 
 	//Species that the suits can be configured to fit.
-	var/list/species = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI)
+	var/list/species = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI,SPECIES_RESOMI)
 
 	var/singleton/item_modifier/target_modification
 	var/target_species

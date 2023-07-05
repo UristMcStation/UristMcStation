@@ -44,4 +44,4 @@
 
 /datum/gear/uniform/resomi/coat
 	display_name = "small coat (Teshari)"
-	path = /obj/item/clothing/suit/storage/toggle/Resomicoat
+	path = /obj/item/clothing/suit/storage/toggle/urist/Resomicoat
