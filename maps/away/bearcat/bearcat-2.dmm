@@ -924,7 +924,7 @@
 /area/ship/scrap/dock)
 "bN" = (
 /obj/item/device/radio/intercom/map_preset/bearcat{
-	pixel_y = -32;
+	pixel_y = -29;
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -948,7 +948,7 @@
 /area/ship/scrap/dock)
 "bP" = (
 /obj/item/device/radio/intercom/map_preset/bearcat{
-	pixel_y = -32;
+	pixel_y = -29;
 	dir = 1
 	},
 /obj/machinery/alarm{
@@ -5427,10 +5427,6 @@
 /obj/structure/lattice,
 /turf/simulated/floor/airless,
 /area/ship/scrap/maintenance/atmos)
-"ts" = (
-/obj/structure/lattice,
-/turf/space,
-/area/ship/scrap/maintenance/power)
 "uf" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 5
@@ -5438,11 +5434,6 @@
 /obj/effect/decal/cleanable/ash,
 /turf/simulated/floor/airless,
 /area/ship/scrap/maintenance/engine/aft)
-"uM" = (
-/obj/item/stack/material/steel,
-/obj/structure/lattice,
-/turf/space,
-/area/ship/scrap/maintenance/atmos)
 "vs" = (
 /obj/structure/lattice,
 /obj/effect/paint/brown,
@@ -5456,8 +5447,15 @@
 /obj/effect/paint/brown,
 /turf/simulated/wall/r_wall,
 /area/ship/scrap/maintenance/atmos)
+"xF" = (
+/obj/item/stack/material/steel,
+/obj/structure/lattice,
+/turf/space,
+/area/ship/scrap/maintenance/atmos)
 "xU" = (
-)
+/obj/effect/paint/brown,
+/turf/simulated/wall/r_wall,
+/area/ship/scrap/maintenance/power)
 "zT" = (
 /obj/effect/floor_decal/corner/blue/diagonal{
 	dir = 4
@@ -5466,9 +5464,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/ship/scrap/maintenance/atmos)
 "Ak" = (
-/obj/effect/paint/brown,
-/turf/simulated/wall/r_wall,
-/area/ship/scrap/maintenance/power)
+)
 "Cs" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/paint/red,
@@ -5619,6 +5615,10 @@
 	},
 /turf/simulated/floor,
 /area/ship/scrap/hidden)
+"Ng" = (
+/obj/structure/lattice,
+/turf/space,
+/area/ship/scrap/maintenance/power)
 "Od" = (
 /obj/effect/floor_decal/corner/blue,
 /obj/effect/floor_decal/corner/yellow{
@@ -5699,7 +5699,8 @@
 	icon_state = "1-2"
 	},
 /obj/item/device/radio/intercom/map_preset/bearcat{
-	pixel_x = -32
+	pixel_x = -24;
+	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/ship/scrap/maintenance/engine/aft)
@@ -11818,7 +11819,7 @@ hx
 iQ
 hx
 hw
-uM
+xF
 aa
 aa
 aa
@@ -13805,7 +13806,7 @@ aa
 aa
 aa
 aa
-xU
+Ak
 "}
 (67,1,1) = {"
 aa
@@ -13891,7 +13892,7 @@ hg
 iN
 jc
 jo
-ts
+Ng
 aa
 aa
 aa
@@ -14004,52 +14005,52 @@ Va
 Va
 Va
 Va
-Ak
-Ak
-Ak
+xU
+xU
+xU
 Ht
+xU
+xU
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 Ak
 Ak
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-xU
-xU
-xU
-xU
+Ak
+Ak
 "}
 (69,1,1) = {"
 aa
