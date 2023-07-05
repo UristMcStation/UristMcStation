@@ -217,10 +217,6 @@
 		dat += "<BR><A href='?src=\ref[src];webbed=1'>Webbed</A>"
 		break
 
-	for(var/entry in worn_underwear)
-		var/obj/item/underwear/UW = entry
-		dat += "<BR><a href='?src=\ref[src];item=\ref[UW]'>Remove \the [UW]</a>"
-
 	dat += "<BR><A href='?src=\ref[src];refresh=1'>Refresh</A>"
 	dat += "<BR><A href='?src=\ref[user];mach_close=mob[name]'>Close</A>"
 

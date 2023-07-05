@@ -98,9 +98,9 @@
 	check_ammo_count(user)
 
 /obj/item/ammo_magazine/bundle/proc/check_ammo_count(mob/user)
-	if(stored_ammo.len <= 1)
+	if(length(stored_ammo) <= 1)
 		user.drop_from_inventory(src, null)
-		if(stored_ammo.len)
+		if(length(stored_ammo))
 			user.put_in_hands(stored_ammo[1])
 			stored_ammo.Cut()
 		qdel(src)

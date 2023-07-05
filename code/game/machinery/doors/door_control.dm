@@ -25,7 +25,7 @@
 	return src.attack_hand(user)
 
 /obj/machinery/button/remote/emag_act(var/remaining_charges, var/mob/user)
-	if(req_access.len)
+	if(length(req_access))
 		req_access.Cut()
 		playsound(src.loc, "sparks", 100, 1)
 		return 1

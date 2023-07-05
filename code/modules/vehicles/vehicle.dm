@@ -328,7 +328,7 @@
 			var/new_dir = get_step_to(src, get_step(src, test_dir))
 			if(new_dir && load.Adjacent(new_dir))
 				options += new_dir
-		if(options.len)
+		if(length(options))
 			dest = pick(options)
 		else
 			dest = get_turf(src)	//otherwise just dump it on the same turf as the vehicle

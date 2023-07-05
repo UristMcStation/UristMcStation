@@ -33,7 +33,7 @@
 		if(src.Adjacent(H) && H.lying)
 			choices += H
 
-	if(!choices.len)
+	if(!length(choices))
 		to_chat(src, "<span class='danger'>There are no viable hosts within range.</span>")
 		return
 
