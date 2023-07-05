@@ -113,6 +113,7 @@
 	display_name = "Anti-Glare Eyewear"
 	description = "Provides basic bright light and flash protection."
 	path = /obj/item/clothing/glasses
+	cost = 3
 
 
 /datum/gear/eyes/sunglasses/New()

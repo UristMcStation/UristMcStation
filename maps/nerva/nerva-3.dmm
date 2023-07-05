@@ -2355,7 +2355,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/command/ce)
 "fx" = (
-/obj/machinery/computer/modular/preset/engineering,
+/obj/machinery/computer/modular/preset/cardslot/command_eng,
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "north bump";
@@ -10052,16 +10052,13 @@
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
 "tp" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1379;
-	id_tag = "escape_pod_1_berth_hatch"
-	},
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
 	pixel_y = 0
 	},
+/obj/machinery/door/airlock/external/escapepod,
 /turf/simulated/floor/tiled,
 /area/maintenance/second_deck/fs)
 "tq" = (
@@ -16479,6 +16476,7 @@
 /obj/machinery/alarm{
 	pixel_y = 24
 	},
+/obj/item/clothing/accessory/badge/press,
 /turf/simulated/floor/wood/walnut,
 /area/civilian/journalist)
 "Qz" = (

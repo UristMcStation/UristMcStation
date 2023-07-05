@@ -161,6 +161,7 @@ var/global/list/ai_verbs_default = list(
 	add_language(LANGUAGE_SPACER, 1)
 	add_language(LANGUAGE_SIGN, 0)
 	add_language(LANGUAGE_SPACER, 1)
+	add_language(LANGUAGE_UNATHI_YEOSA, 1)
 	add_language(LANGUAGE_RESOMI, 1)
 
 	if(!safety)//Only used by AIize() to successfully spawn an AI.

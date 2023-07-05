@@ -3415,17 +3415,23 @@
 /area/command/aicore)
 "gT" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/computer/modular/preset/medical,
+/obj/machinery/computer/modular/preset/medical{
+	autorun_program = /datum/computer_file/program/suit_sensors
+	},
 /turf/simulated/floor/tiled/dark,
 /area/command/aicore)
 "gU" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/computer/modular/preset/cardslot/command,
+/obj/machinery/computer/modular/preset/cardslot/command{
+	autorun_program = /datum/computer_file/program/comm
+	},
 /turf/simulated/floor/tiled/dark,
 /area/command/aicore)
 "gV" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/computer/modular/preset/security,
+/obj/machinery/computer/modular/preset/security{
+	autorun_program = /datum/computer_file/program/forceauthorization
+	},
 /turf/simulated/floor/tiled/dark,
 /area/command/aicore)
 "gW" = (

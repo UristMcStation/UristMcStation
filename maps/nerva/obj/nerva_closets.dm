@@ -196,9 +196,9 @@
 
 /obj/structure/closet/secure_closet/science_nerva/WillContain()
 	return list(
-		/obj/item/clothing/under/rank/scientist/nanotrasen,
-		/obj/item/clothing/suit/storage/toggle/labcoat/science/nanotrasen,
-		/obj/item/clothing/suit/storage/toggle/labcoat/science/nanotrasen,
+		/obj/item/clothing/under/urist/nerva/sci,
+		/obj/item/clothing/suit/storage/toggle/urist/science,
+		/obj/item/clothing/suit/storage/toggle/urist/science,
 		/obj/item/clothing/shoes/white,
 		/obj/item/device/radio/headset/nervananotrasen,
 		/obj/item/clothing/mask/gas,

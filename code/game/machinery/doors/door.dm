@@ -315,7 +315,8 @@
 
 /obj/machinery/door/examine(mob/user)
 	. = ..()
-	to_chat(user, SPAN_WARNING("\The [src]'s control panel looks fried."))
+	if(emagged)
+		to_chat(user, SPAN_WARNING("\The [src]'s control panel looks fried."))
 
 
 /obj/machinery/door/set_broken(new_state)

@@ -68,6 +68,7 @@
 	description = "Head augments with vision effects."
 	path = /obj/item/organ/internal/augment
 	flags = GEAR_HAS_NO_CUSTOMIZATION
+	cost = 6
 
 
 /datum/gear/augment/head_vision/New()

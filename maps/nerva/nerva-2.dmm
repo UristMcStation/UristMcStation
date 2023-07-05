@@ -3088,7 +3088,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/brig)
 "agj" = (
-/obj/structure/closet/secure_closet/armoredbiosuit,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/power/apc{
 	dir = 8;
@@ -3105,6 +3104,10 @@
 	pixel_y = -24;
 	dir = 1
 	},
+/obj/structure/table/rack,
+/obj/item/shield/riot/metal,
+/obj/item/shield/riot/metal,
+/obj/item/shield/riot/metal,
 /turf/simulated/floor/tiled/techmaint,
 /area/security/armoury)
 "agk" = (
@@ -7871,7 +7874,9 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/lobby)
 "aoe" = (
-/obj/machinery/computer/modular/preset/medical,
+/obj/machinery/computer/modular/preset/medical{
+	autorun_program = /datum/computer_file/program/suit_sensors
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/lobby)
 "aof" = (
@@ -8165,7 +8170,8 @@
 /area/security/office)
 "aoM" = (
 /obj/machinery/computer/modular/preset/security{
-	dir = 8
+	dir = 8;
+	autorun_program = /datum/computer_file/program/camera_monitor
 	},
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 32
@@ -8912,7 +8918,8 @@
 /obj/effect/floor_decal/corner/black/three_quarters,
 /obj/machinery/computer/modular/preset/security{
 	dir = 4;
-	uncreated_component_parts = list(/obj/item/stock_parts/computer/card_slot)
+	uncreated_component_parts = list(/obj/item/stock_parts/computer/card_slot);
+	autorun_program = /datum/computer_file/program/camera_monitor
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/checkpoint)
@@ -12702,7 +12709,8 @@
 /area/command/bridge)
 "avc" = (
 /obj/machinery/computer/modular/preset/aislot/sysadmin{
-	dir = 8
+	dir = 8;
+	autorun_program = /datum/computer_file/program/ntnetmonitor
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -12848,7 +12856,8 @@
 /area/engineering/smes)
 "avq" = (
 /obj/machinery/computer/modular/preset/engineering{
-	dir = 4
+	dir = 4;
+	autorun_program = /datum/computer_file/program/power_monitor
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/lobby)
@@ -13131,6 +13140,7 @@
 	req_access = list("ACCESS_KITCHEN");
 	tag = "icon-blastctrl (EAST)"
 	},
+/obj/item/reagent_containers/glass/bottle/dye/polychromic,
 /turf/simulated/floor/tiled/white,
 /area/civilian/kitchen)
 "avY" = (
@@ -13391,7 +13401,8 @@
 /area/command/bridge)
 "awz" = (
 /obj/machinery/computer/modular/preset/engineering{
-	dir = 8
+	dir = 8;
+	autorun_program = /datum/computer_file/program/alarm_monitor
 	},
 /obj/effect/floor_decal/corner/fadeblue/three_quarters{
 	dir = 4;
@@ -13490,7 +13501,8 @@
 /area/engineering/smes)
 "awI" = (
 /obj/machinery/computer/modular/preset/engineering{
-	dir = 4
+	dir = 4;
+	autorun_program = /datum/computer_file/program/rcon_console
 	},
 /obj/machinery/light{
 	dir = 8;
@@ -16577,6 +16589,9 @@
 /obj/machinery/light,
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/condiment/flour,
+/obj/machinery/cooker/candy{
+	pixel_y = 13
+	},
 /turf/simulated/floor/tiled/white,
 /area/civilian/kitchen)
 "aCz" = (
@@ -16674,7 +16689,8 @@
 /area/command/bridge)
 "aCM" = (
 /obj/machinery/computer/modular/preset/medical{
-	dir = 8
+	dir = 8;
+	autorun_program = /datum/computer_file/program/suit_sensors
 	},
 /obj/effect/floor_decal/corner/fadeblue/three_quarters{
 	dir = 1;
@@ -17028,7 +17044,8 @@
 /area/command/bridge)
 "aDo" = (
 /obj/machinery/computer/modular/preset/security{
-	dir = 8
+	dir = 8;
+	autorun_program = /datum/computer_file/program/camera_monitor
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -18838,7 +18855,9 @@
 /obj/machinery/computer/modular/preset/nervacommand{
 	dir = 1;
 	icon_state = "console";
-	tag = "icon-console (NORTH)"
+	tag = "icon-console (NORTH)";
+	autorun_program = /datum/computer_file/program/reports;
+	default_software = list(/datum/computer_file/program/chatclient,/datum/computer_file/program/card_mod,/datum/computer_file/program/comm,/datum/computer_file/program/contract_database,/datum/computer_file/program/camera_monitor,/datum/computer_file/program/email_client,/datum/computer_file/program/records,/datum/computer_file/program/wordprocessor,/datum/computer_file/program/docking,/datum/computer_file/program/reports)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
@@ -19896,7 +19915,10 @@
 /obj/machinery/keycard_auth{
 	pixel_y = 26
 	},
-/obj/machinery/computer/modular/preset/cardslot/command,
+/obj/machinery/computer/modular/preset/cardslot/command{
+	autorun_program = /datum/computer_file/program/card_mod;
+	default_software = list(/datum/computer_file/program/comm,/datum/computer_file/program/camera_monitor,/datum/computer_file/program/email_client,/datum/computer_file/program/records,/datum/computer_file/program/docking,/datum/computer_file/program/wordprocessor,/datum/computer_file/program/card_mod)
+	},
 /turf/simulated/floor/carpet,
 /area/command/fo)
 "aIc" = (
@@ -19926,7 +19948,10 @@
 /turf/simulated/floor/tiled,
 /area/hallway/fore/third_deck)
 "aIe" = (
-/obj/machinery/computer/modular/preset/cardslot/command,
+/obj/machinery/computer/modular/preset/cardslot/command{
+	autorun_program = /datum/computer_file/program/card_mod;
+	default_software = list(/datum/computer_file/program/comm,/datum/computer_file/program/camera_monitor,/datum/computer_file/program/email_client,/datum/computer_file/program/records,/datum/computer_file/program/docking,/datum/computer_file/program/wordprocessor,/datum/computer_file/program/card_mod)
+	},
 /obj/machinery/button/blast_door{
 	id_tag = "soofficeshutters";
 	name = "Second Officer Privacy Shutter";
@@ -20486,7 +20511,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/command/eva)
 "aJf" = (
-/obj/machinery/computer/modular/preset/security{
+/obj/machinery/computer/modular/preset/cardslot/command_sec{
 	dir = 1
 	},
 /turf/simulated/floor/carpet,
@@ -22025,7 +22050,8 @@
 "aLN" = (
 /obj/machinery/computer/modular/preset/engineering{
 	dir = 2;
-	icon_state = "console"
+	icon_state = "console";
+	autorun_program = /datum/computer_file/program/supermatter_monitor
 	},
 /obj/machinery/light{
 	dir = 1
@@ -25299,7 +25325,8 @@
 "aQK" = (
 /obj/machinery/computer/modular/preset/engineering{
 	dir = 1;
-	icon_state = "console"
+	icon_state = "console";
+	autorun_program = /datum/computer_file/program/alarm_monitor
 	},
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/yellow{
@@ -25942,7 +25969,8 @@
 /obj/effect/floor_decal/corner/fadeblue/three_quarters,
 /obj/machinery/computer/modular/preset/aislot/sysadmin{
 	dir = 4;
-	icon_state = "console"
+	icon_state = "console";
+	autorun_program = /datum/computer_file/program/email_administration
 	},
 /turf/simulated/floor/tiled/white,
 /area/engineering/tcommsmon)
@@ -26468,7 +26496,8 @@
 	dir = 1
 	},
 /obj/machinery/computer/modular/preset/medical{
-	dir = 4
+	dir = 4;
+	autorun_program = /datum/computer_file/program/suit_sensors
 	},
 /obj/effect/floor_decal/corner/black/border{
 	dir = 8;
@@ -26881,7 +26910,9 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/cmo)
 "aTz" = (
-/obj/machinery/computer/modular/preset/medical,
+/obj/machinery/computer/modular/preset/medical{
+	autorun_program = /datum/computer_file/program/suit_sensors
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/cmo)
 "aTA" = (
@@ -28273,7 +28304,8 @@
 /area/hallway/fore/third_deck)
 "bzY" = (
 /obj/machinery/computer/modular/preset/security{
-	dir = 8
+	dir = 8;
+	autorun_program = /datum/computer_file/program/finesmanager
 	},
 /obj/machinery/newscaster/security_unit{
 	pixel_x = 32
@@ -31553,7 +31585,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fs)
 "vnZ" = (
-/obj/machinery/vending/cigarette,
+/obj/machinery/vending/cigarette{
+	dir = 8
+	},
 /obj/effect/floor_decal/corner/black/full,
 /turf/simulated/floor/tiled/techmaint,
 /area/security/office)

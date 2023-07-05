@@ -5446,7 +5446,8 @@
 /obj/machinery/computer/modular/preset/security{
 	dir = 4;
 	icon_state = "console";
-	tag = "icon-console (EAST)"
+	tag = "icon-console (EAST)";
+	autorun_program = /datum/computer_file/program/records
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
@@ -5716,7 +5717,8 @@
 /obj/machinery/computer/modular/preset/nervacommand{
 	dir = 8;
 	icon_state = "console";
-	tag = "icon-console (WEST)"
+	tag = "icon-console (WEST)";
+	autorun_program = /datum/computer_file/program/comm
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10;
@@ -6140,32 +6142,13 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/command/bottom_hallway)
 "lh" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "closed";
-	id_tag = "escape_pod_2_berth_hatch";
-	locked = 1;
-	name = "Escape Pod";
-	req_access = list("ACCESS_EXTERNAL")
-	},
 /obj/effect/floor_decal/corner/orange/full,
+/obj/machinery/door/airlock/external/escapepod,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/centralfourth)
 "li" = (
 /obj/structure/sign/warning/pods/south,
 /turf/simulated/wall/r_wall/prepainted,
-/area/hallway/centralfourth)
-"lj" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "closed";
-	id_tag = "escape_pod_3_berth_hatch";
-	locked = 1;
-	name = "Escape Pod";
-	req_access = list("ACCESS_EXTERNAL")
-	},
-/obj/effect/floor_decal/corner/orange/full,
-/turf/simulated/floor/tiled/dark,
 /area/hallway/centralfourth)
 "lk" = (
 /obj/machinery/door/airlock/maintenance{
@@ -7146,7 +7129,8 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/computer/modular/preset/engineering{
-	dir = 1
+	dir = 1;
+	autorun_program = /datum/computer_file/program/alarm_monitor
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/command/weapons_command)
@@ -10144,6 +10128,12 @@
 	dir = 1;
 	icon_state = "camera"
 	},
+/obj/item/clothing/accessory/buddy_tag,
+/obj/item/clothing/accessory/buddy_tag,
+/obj/item/clothing/accessory/buddy_tag,
+/obj/item/clothing/accessory/buddy_tag,
+/obj/item/clothing/accessory/buddy_tag,
+/obj/item/clothing/accessory/buddy_tag,
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/genprep)
 "rF" = (
@@ -18729,14 +18719,14 @@
 "GD" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/monkeycubes,
-/obj/item/storage/box/monkeycubes,
-/obj/item/storage/box/monkeycubes,
-/obj/item/storage/box/monkeycubes,
 /obj/machinery/alarm{
 	dir = 1;
 	icon_state = "alarm0";
 	pixel_y = -22
 	},
+/obj/item/storage/box/monkeycubes/farwacubes,
+/obj/item/storage/box/monkeycubes/neaeracubes,
+/obj/item/storage/box/monkeycubes/stokcubes,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "GE" = (
@@ -20231,7 +20221,9 @@
 	pixel_x = 0;
 	pixel_y = 32
 	},
-/obj/machinery/computer/modular/preset/medical,
+/obj/machinery/computer/modular/preset/medical{
+	autorun_program = /datum/computer_file/program/suit_sensors
+	},
 /turf/simulated/floor/tiled/monotile,
 /area/command/weapons_command)
 "Jz" = (
@@ -22258,7 +22250,8 @@
 "RT" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/computer/modular/preset/aislot/research{
-	dir = 8
+	dir = 8;
+	default_software = list(/datum/computer_file/program/ntnetmonitor,/datum/computer_file/program/nttransfer,/datum/computer_file/program/camera_monitor,/datum/computer_file/program/aidiag,/datum/computer_file/program/email_client,/datum/computer_file/program/wordprocessor,datum/computer_file/program/reports)
 	},
 /turf/simulated/floor/tiled/white,
 /area/command/seniorntoffice)
@@ -40240,7 +40233,7 @@ gh
 gh
 jF
 kB
-lj
+lh
 lW
 nh
 nX

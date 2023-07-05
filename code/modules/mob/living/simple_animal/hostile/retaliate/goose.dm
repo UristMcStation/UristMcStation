@@ -89,6 +89,7 @@
 	icon_state = "goose_labcoat"
 	icon_living = "goose_labcoat"
 	icon_dead = "goose_labcoat_dead"
+	density = FALSE
 
 /datum/say_list/goose
 	speak = list("Honk!")
