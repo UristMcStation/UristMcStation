@@ -3,6 +3,7 @@
 	desc = "A human who decided to try their luck amongst the stars."
 	icon = 'code/modules/urist/modules/newtrading/NPC/npc.dmi'
 	icon_state = "body_m_s"
+	faction = "nanotrasen"
 	ai_holder = /datum/ai_holder/simple_animal/passive/nowandering/talkative
 	say_list_type = /datum/say_list/colonist
 	angryprob = 15

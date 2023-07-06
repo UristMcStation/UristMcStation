@@ -45,9 +45,23 @@
 	icon_state = "gunman"
 	icon_living = "gunman"
 	icon_dead = "gunman_dead"
-	ai_holder = /datum/ai_holder/simple_animal/humanoid/hostile
-	faction = "neutral"
+	ai_holder = /datum/ai_holder/simple_animal/humanoid/police
+	faction = "nanotrasen"
+	ranged = 1
+	attack_delay = 1.5 SECONDS
+	projectiletype = /obj/item/projectile/bullet/pistol
+	weapon1 = /obj/item/gun/projectile/pistol/sec/lethal
+	say_list_type = /datum/say_list/police
 
+/datum/ai_holder/simple_animal/humanoid/police
+	hostile = FALSE
+	pointblank = TRUE
+
+/datum/say_list/police
+	say_escalate = list("Hands up!")
+	say_threaten = list("You're banned from the premises.")
+	say_stand_down = list("Good.")
+	speak = list()
 
 /mob/living/simple_animal/hostile/scom/civ/combat/mil
 	name = "soldier"

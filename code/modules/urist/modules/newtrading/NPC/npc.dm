@@ -102,6 +102,11 @@
 	wander = FALSE
 	speak_chance = 0
 
+/datum/ai_holder/simple_animal/passive/nowandering/react_to_attack(atom/movable/attacker)
+	. = ..()
+	for(var/mob/living/simple_animal/hostile/scom/civ/combat/police/p in orange(7, holder))
+		p.ai_holder.hostile = TRUE
+
 /mob/living/simple_animal/passive/npc/proc/can_use(var/mob/M)
 	if(M.stat || M.restrained() || M.lying || !istype(M, /mob/living) || get_dist(M, src) > 1)
 		return 0
