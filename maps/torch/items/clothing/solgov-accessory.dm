@@ -403,6 +403,7 @@ armbands
 /*****************
 armour attachments
 *****************/
+/*
 /obj/item/clothing/accessory/armor_tag/solgov
 	name = "\improper SCG Flag"
 	desc = "An emblem depicting the Sol Central Government's flag."
@@ -411,6 +412,7 @@ armour attachments
 	accessory_icons = list(slot_w_uniform_str = 'maps/torch/icons/mob/onmob_accessories_solgov.dmi', slot_wear_suit_str = 'maps/torch/icons/mob/onmob_accessories_solgov.dmi')
 	icon_state = "solflag"
 	slot = ACCESSORY_SLOT_ARMOR_M
+*/
 
 /obj/item/clothing/accessory/armor_tag/solgov/ec
 	name = "\improper Expeditionary Corps crest"
@@ -427,6 +429,7 @@ armour attachments
 	desc = "An armor tag with the word MEDIC printed in red lettering on it."
 	icon_state = "medictag"
 
+/*
 /obj/item/clothing/accessory/armor_tag/solgov/agent
 	name = "\improper SFP AGENT tag"
 	desc = "An armor tag with the words SFP AGENT printed in gold lettering on it."
@@ -436,6 +439,7 @@ armour attachments
 	name = "\improper SCG tag"
 	desc = "An armor tag with the words SOL CENTRAL GOVERNMENT printed in gold lettering on it."
 	icon_state = "comtag"
+*/
 
 /obj/item/clothing/accessory/armor_tag/solgov/com/sec
 	name = "\improper POLICE tag"

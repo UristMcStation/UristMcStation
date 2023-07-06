@@ -219,7 +219,7 @@
 
 /obj/item/clothing/suit/storage/toggle/highvis
 	name = "high visibility jacket"
-	desc = "A loose-fitting, high visibility jacket to help crew be recognizable in high traffic areas with large industrial equipment. Don't catch the Charon's landing gear with your teeth!"
+	desc = "A loose-fitting, high visibility jacket to help crew be recognizable in high traffic areas with large industrial equipment."
 	icon_state = "highvis"
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|ARMS

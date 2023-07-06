@@ -71,12 +71,6 @@
 	slot = slot_w_uniform
 	cost = 1
 
-/datum/gear/schoolgirl
-	display_name = "schoolgirl uniform"
-	path = /obj/item/clothing/under/schoolgirl
-	slot = slot_w_uniform
-	cost = 1
-
 /datum/gear/camopants
 	display_name = "camo pants"
 	path = /obj/item/clothing/under/pants/urist/camo
