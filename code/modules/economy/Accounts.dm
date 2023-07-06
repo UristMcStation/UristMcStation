@@ -10,6 +10,7 @@
 							//1 - require manual login / account number and pin
 							//2 - require card and manual login
 	var/account_type = ACCOUNT_TYPE_PERSONAL
+	var/starting_amount = 0
 
 /datum/money_account/New(account_type)
 	account_type = account_type ? account_type : ACCOUNT_TYPE_PERSONAL
@@ -47,7 +48,7 @@
 	M.owner_name = (owner_name ? owner_name : account_name)
 	M.account_type = account_type
 	M.remote_access_pin = rand(1111, 111111)
-
+	M.starting_amount = starting_funds
 	//create an entry in the account transaction log for when it was created
 	//note that using the deposit proc on the account isn't really feasible because we need to change the transaction data before performing it
 	var/datum/transaction/singular/T = new(M, (source_db ? source_db.machine_id : "NTGalaxyNet Terminal #[rand(111,1111)]"), starting_funds, "Account creation")
