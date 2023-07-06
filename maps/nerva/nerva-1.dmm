@@ -6158,7 +6158,11 @@
 /area/command/bottom_hallway)
 "lh" = (
 /obj/effect/floor_decal/corner/orange/full,
-/obj/machinery/door/airlock/external/escapepod,
+/obj/machinery/door/airlock/external/escapepod{
+	id_tag = "escape_pod_2_berth_hatch";
+	name = "Escape Pod Two";
+	req_access = list("ACCESS_EXTERNAL")
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/centralfourth)
 "li" = (
@@ -6480,7 +6484,7 @@
 	frequency = 1380;
 	id_tag = "escape_pod_2_berth";
 	pixel_x = -25;
-	pixel_y = 30;
+	pixel_y = 28;
 	tag_door = "escape_pod_2_berth_hatch"
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -6529,7 +6533,7 @@
 	frequency = 1380;
 	id_tag = "escape_pod_3_berth";
 	pixel_x = -25;
-	pixel_y = 30;
+	pixel_y = 28;
 	tag_door = "escape_pod_3_berth_hatch"
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -12906,6 +12910,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
+"wF" = (
+/obj/effect/floor_decal/corner/orange/full,
+/obj/machinery/door/airlock/external/escapepod{
+	req_access = list("ACCESS_EXTERNAL");
+	name = "Escape Pod Three";
+	id_tag = "escape_pod_3_berth_hatch"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hallway/centralfourth)
 "wH" = (
 /obj/structure/sign/monkey_painting{
 	desc = "Under the painting a plaque reads: 'Get well soon, little monkeys!'";
@@ -40257,7 +40270,7 @@ gh
 gh
 jF
 kB
-lh
+wF
 lW
 nh
 nX

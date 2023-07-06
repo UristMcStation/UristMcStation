@@ -13,6 +13,8 @@
 	#include "datums/nerva_outfits.dm"
 	#include "datums/nerva_supplypacks.dm"
 	#include "datums/nerva_objectives.dm"
+	#include "datums/nerva_reports.dm"
+
 	#include "obj/nerva_ids.dm"
 	#include "obj/nerva_closets.dm"
 	#include "obj/nerva_machinery.dm"
@@ -26,6 +28,7 @@
 	#include "fluff/species_overrides.dm"
 	#include "fluff/alien_fluff.dm"
 
+	#include "loadout/_defines.dm"
 	#include "loadout/loadout_accessories.dm"
 	#include "loadout/loadout_eyes.dm"
 	#include "loadout/loadout_hands.dm"
@@ -33,6 +36,7 @@
 	#include "loadout/loadout_suit.dm"
 	#include "loadout/loadout_uniform.dm"
 	#include "loadout/loadout_xeno.dm"
+	#include "loadout/~defines.dm"
 
 	#include "nerva-1.dmm"
 	#include "nerva-2.dmm"

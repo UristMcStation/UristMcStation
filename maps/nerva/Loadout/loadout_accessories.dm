@@ -1,5 +1,3 @@
-#define ARMED_ROLES list(/datum/job/captain, /datum/job/firstofficer, /datum/job/hop, /datum/job/blueshield, /datum/job/hos, /datum/job/officer, /datum/job/merchant)
-#define COMMAND_ROLES list(/datum/job/captain, /datum/job/firstofficer, /datum/job/hop, /datum/job/cmo, /datum/job/chief_engineer, /datum/job/seniorscientist, /datum/job/qm, /datum/job/hos, /datum/job/blueshield, /datum/job/merchant)
 
 /datum/gear/accessory/armband
 	display_name = "armband selection"
@@ -9,13 +7,8 @@
 	..()
 	var/armbands = list()
 	armbands["red armband"] = /obj/item/clothing/accessory/armband
-	armbands["cargo armband"] = /obj/item/clothing/accessory/armband/cargo
-	armbands["EMT armband"] = /obj/item/clothing/accessory/armband/medgreen
-	armbands["medical armband"] = /obj/item/clothing/accessory/armband/med
-	armbands["engineering armband"] = /obj/item/clothing/accessory/armband/engine
-	armbands["hydroponics armband"] = /obj/item/clothing/accessory/armband/hydro
 	armbands["science armband"] = /obj/item/clothing/accessory/armband/science
-	armbands["NanoTrasen armband"] = /obj/item/clothing/accessory/armband/whitered
+	armbands["corporate armband"] = /obj/item/clothing/accessory/armband/whitered
 	gear_tweaks += new/datum/gear_tweak/path(armbands)
 
 /datum/gear/accessory/stethoscope
@@ -77,5 +70,23 @@
 	badge["neck-corded holobadge"] = /obj/item/clothing/accessory/badge/holo/cord
 	gear_tweaks += new/datum/gear_tweak/path(badge)
 
-#undef ARMED_ROLES
-#undef COMMAND_ROLES
+/datum/gear/accessory/armband_security
+	allowed_roles = SECURITY_ROLES
+
+/datum/gear/accessory/armband_cargo
+	allowed_roles = SUPPLY_ROLES
+
+/datum/gear/accessory/armband_medical
+	allowed_roles = MEDICAL_ROLES
+
+/datum/gear/accessory/armband_emt
+	display_name = "EMT armband"
+	path = /obj/item/clothing/accessory/armband/medgreen
+	allowed_roles = list(
+		/datum/job/doctor
+	)
+	flags = GEAR_HAS_NO_CUSTOMIZATION
+
+
+/datum/gear/accessory/armband_engineering
+	allowed_roles = ENGINEERING_ROLES

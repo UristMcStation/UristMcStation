@@ -9873,24 +9873,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
 "arn" = (
-/obj/structure/closet/l3closet/command,
 /obj/effect/floor_decal/corner/fadeblue/full,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/fadeblue/full,
+/obj/structure/table/glass,
+/obj/item/toy/torchmodel/urist,
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
 "aro" = (
@@ -14468,7 +14454,7 @@
 	dir = 8
 	},
 /obj/machinery/light_switch{
-	pixel_x = 28;
+	pixel_x = 24;
 	pixel_y = 0;
 	dir = 8
 	},
@@ -17592,7 +17578,7 @@
 "aEf" = (
 /obj/machinery/firealarm{
 	dir = 2;
-	pixel_y = 24
+	pixel_y = 25
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/third_deck)
@@ -17608,7 +17594,7 @@
 	dir = 2;
 	listening = 1;
 	name = "Station Intercom (General)";
-	pixel_y = 28
+	pixel_y = 25
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/third_deck)

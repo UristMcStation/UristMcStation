@@ -569,3 +569,8 @@
 	permeability_coefficient = 0.05
 	siemens_coefficient = 0.50 //thick work gloves
 	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
+
+//replica boat
+/obj/item/toy/torchmodel/urist
+	name = "table-top replica ship"
+	desc = "This is a replica of an unnamed exploration ship on a handsome wooden stand. Small lights blink on the hull and at the engine exhaust."

@@ -8980,15 +8980,18 @@
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
 "rw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5;
+	icon_state = "intact-supply"
+	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth{
 	id_tag = "escape_pod_1_berth";
-	pixel_x = -26;
-	tag_door = "escape_pod_1_berth_hatch"
+	tag_door = "escape_pod_1_berth_hatch";
+	dir = 1;
+	pixel_y = -24
 	},
-/obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/fs)
+/turf/simulated/floor/tiled,
+/area/hallway/fore/second_deck)
 "rx" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
@@ -10077,7 +10080,11 @@
 	icon_state = "1-2";
 	pixel_y = 0
 	},
-/obj/machinery/door/airlock/external/escapepod,
+/obj/machinery/door/airlock/external/escapepod{
+	id_tag = "escape_pod_1_berth_hatch";
+	name = "Escape Pod One";
+	req_access = list("ACCESS_EXTERNAL")
+	},
 /turf/simulated/floor/tiled,
 /area/maintenance/second_deck/fs)
 "tq" = (
@@ -42925,7 +42932,7 @@ ne
 ne
 oP
 pJ
-qL
+rw
 ru
 sm
 sI
@@ -43128,7 +43135,7 @@ nZ
 hK
 pK
 qM
-rw
+ry
 sr
 to
 tY
