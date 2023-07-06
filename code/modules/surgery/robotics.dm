@@ -381,7 +381,7 @@
 		if(I && !(I.status & ORGAN_CUT_AWAY) && !BP_IS_CRYSTAL(I) && I.parent_organ == target_zone)
 			var/image/radial_button = image(icon = I.icon, icon_state = I.icon_state)
 			radial_button.name = "Decouple \the [I.name]"
-			LAZYSET(attached_organs, I, radial_button)
+			LAZYSET(attached_organs, organ, radial_button)
 	if(!LAZYLEN(attached_organs))
 		to_chat(user, SPAN_WARNING("There are no appropriate internal components to decouple."))
 		return FALSE
@@ -426,7 +426,7 @@
 		if ((I.status & ORGAN_CUT_AWAY) && BP_IS_ROBOTIC(I) && !BP_IS_CRYSTAL(I) && (I.parent_organ == target_zone))
 			var/image/radial_button = image(icon = I.icon, icon_state = I.icon_state)
 			radial_button.name = "Reattach \the [I.name]"
-			LAZYSET(removable_organs, I, radial_button)
+			LAZYSET(removable_organs, I.organ_tag, radial_button)
 	var/organ_to_replace = show_radial_menu(user, target, removable_organs, radius = 42, use_labels = TRUE, require_near = TRUE, check_locs = list(src))
 	if(!organ_to_replace)
 		return FALSE

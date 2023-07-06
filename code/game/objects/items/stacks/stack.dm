@@ -91,14 +91,7 @@
 			else
 				title+= "[R.display_name()]"
 			title+= " ([R.req_amount] [src.singular_name]\s)"
-			var/skill_label = ""
-			if(!user.skill_check(SKILL_CONSTRUCTION, R.difficulty))
-				var/singleton/hierarchy/skill/S = GET_SINGLETON(SKILL_CONSTRUCTION)
-				skill_label = SPAN_COLOR("red", "\[[S.levels[R.difficulty]]\]")
-			if (can_build)
-				t1 +="[skill_label]<A href='?src=\ref[src];sublist=[recipes_sublist];make=[i];multiplier=1'>[title]</A>"
-			else
-				t1 += "[skill_label][title]"
+			t1 +="<A href='?src=\ref[src];sublist=[recipes_sublist];make=[i];multiplier=1'>[title]</A>"
 			if (R.max_res_amount>1 && max_multiplier>1)
 				max_multiplier = min(max_multiplier, round(R.max_res_amount/R.res_amount))
 				t1 += " |"

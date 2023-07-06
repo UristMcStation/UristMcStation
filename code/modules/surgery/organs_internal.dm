@@ -101,7 +101,7 @@
 		if(I && !(I.status & ORGAN_CUT_AWAY) && I.parent_organ == target_zone)
 			var/image/radial_button = image(icon = I.icon, icon_state = I.icon_state)
 			radial_button.name = "Detach \the [I.name]"
-			LAZYSET(attached_organs, I, radial_button)
+			LAZYSET(attached_organs, organ, radial_button)
 	if(!LAZYLEN(attached_organs))
 		to_chat(user, SPAN_WARNING("You can't find any organs to separate."))
 	else

@@ -123,6 +123,7 @@
 	desc = "A small and nasty-looking hand saw used to cut through bone, or in an emergency, pizza."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "saw"
+	item_state = "saw3"
 	hitsound = 'sound/weapons/circsawhit.ogg'
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	force = 15.0

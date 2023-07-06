@@ -70,7 +70,7 @@
 	desc = "The NT Mk58 is a cheap, ubiquitous sidearm, produced by a NanoTrasen subsidiary. This one has a sweet wooden grip, among other modifications."
 	name = "custom pistol"
 	icon = 'icons/urist/items/pistols.dmi'
-	icon_state = "secgundark"
+	icon_state = "optimus"
 	item_state = "secgundark"
 	wielded_item_state = "secgundark"
 	accuracy = 0
