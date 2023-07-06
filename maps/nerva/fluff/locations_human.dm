@@ -156,7 +156,7 @@
 	and much of the population burdened by increasingly high taxes in order to support the ongoing civil war. This state of affairs has seen the emigration of many UHA citizens, hoping to escape the poor conditions they have found themselves in. \
 	Despite this, the people of Terra are a proud and unbroken people who are heavily patriotic and tend to bring this with them wherever they go."
 	capital = "Ameranth"
-	ruling_body = FACTION_TERRAN_CONFED
+	ruling_body = FACTION_INDIE_CONFED
 	language = LANGUAGE_HUMAN_RUSSIAN
 	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_GALCOM)
 	distance = "22.5 light years."

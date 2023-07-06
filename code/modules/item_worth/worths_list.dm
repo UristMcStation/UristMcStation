@@ -42,7 +42,7 @@ var/global/list/worths = list(
 					/obj/item/gun/launcher/alien = 3500,
 					/obj/item/gun/launcher = 300,
 //AUTOMATICS,
-					/obj/item/gun/projectile/automatic/merc_smg = 3250,
+					/obj/item/gun/projectile/automatic/c20r = 3250,
 					/obj/item/gun/projectile/automatic/sts35 = 3800,
 					/obj/item/gun/projectile/automatic/z8 = 3100,
 					/obj/item/gun/projectile/automatic/battlerifle = 1750,

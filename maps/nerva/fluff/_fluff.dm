@@ -1,7 +1,6 @@
 #define HOME_SYSTEM_RYCLIES   "Ryclies I"
 #define HOME_SYSTEM_READE   "Reade III"
 #define HOME_SYSTEM_PROCYON   "Procyon"
-#define FACTION_TERRAN_CONFED  "United Human Alliance"
 #define FACTION_ORMA     "Outer Rim Miners Alliance"
 #define CULTURE_HUMAN_UHA_OFFTERRA   "UHA Spacer"
 #define CULTURE_HUMAN_ORMA	"ORMA Spacer"
@@ -31,7 +30,7 @@
 			FACTION_XYNERGY,
 			FACTION_HEPHAESTUS,
 			FACTION_SOL_CENTRAL,
-			FACTION_TERRAN_CONFED,
+			FACTION_INDIE_CONFED,
 			FACTION_PCRC,
 			FACTION_ORMA
 		),

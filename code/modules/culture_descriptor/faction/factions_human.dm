@@ -38,7 +38,7 @@
 	reluctant to harpoon their own project."
 	economic_power = 1.2
 
-
+/*
 /singleton/cultural_info/faction/gcc
 	name = FACTION_INDIE_CONFED
 	description = "The Independent Colonial Confederation of Gilgamesh, commonly referred to as the Gilgamesh Colonial Confederation (GCC), is a regional power in human space,\
@@ -50,7 +50,7 @@
 	heavily mistrusted and in some instances, met with downright hostility. Today the GCC continues to be an economic powerhouse following \
 	a period of steady economic recovery, with most of its exports being manufactured goods, primarily armaments."
 	economic_power = 0.9
-
+*/
 
 /singleton/cultural_info/faction/remote
 	name = FACTION_EXPEDITIONARY

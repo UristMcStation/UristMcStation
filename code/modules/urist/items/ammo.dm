@@ -99,10 +99,10 @@
 
 /obj/item/ammo_magazine/bundle/proc/check_ammo_count(mob/user)
 	if(length(stored_ammo) <= 1)
-		user.drop_from_inventory(src, null)
-		if(length(stored_ammo))
-			user.put_in_hands(stored_ammo[1])
-			stored_ammo.Cut()
+		user.drop_from_inventory(src, get_turf(src))
+		user.put_in_hands(stored_ammo[1])
+		stored_ammo.Cut()
+		qdel(src)
 
 /obj/item/ammo_magazine/bundle/attack_self(mob/user)
 	..()

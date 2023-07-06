@@ -39,7 +39,7 @@
 		/obj/item/gun/projectile/sniper/garand = 4,
 		/obj/item/gun/projectile/sniper/semistrip = 4,
 		/obj/item/gun/projectile/shotgun/pump = 3,
-		/obj/item/gun/projectile/automatic/merc_smg = 2,
+		/obj/item/gun/projectile/automatic/c20r = 2,
 		/obj/item/gun/projectile/automatic/sts35 = 2,
 		/obj/item/gun/projectile/automatic/z8 = 2,
 		/obj/item/gun/projectile/pistol/optimus = 3,

@@ -40,7 +40,7 @@
 	overhauls to improve efficiency and capabilities, publicly to counter encroachment by the Terran Colonial Confederation." */
 
 /singleton/cultural_info/faction/tcc
-	name = FACTION_TERRAN_CONFED //this is dumb, but I'm just gonna use this def for the UHA
+	name = FACTION_INDIE_CONFED //this is dumb, but I'm just gonna use this def for the UHA
 	description = "The United Human Alliance, commonly referred to as the UHA, is a growing power in human space, \
 	bordered by the Terran Confederacy towards the galactic centre. Born out of the post Galactic Crisis unrest, \
 	xenophobia and economic turmoil in the Terran Confederacy, the United Human Alliance is a radical xenophobic \

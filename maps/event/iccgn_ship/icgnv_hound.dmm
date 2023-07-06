@@ -828,9 +828,9 @@
 /obj/structure/closet/walllocker{
 	pixel_x = 32
 	},
-/obj/item/gun/projectile/automatic/merc_smg,
-/obj/item/gun/projectile/automatic/merc_smg,
-/obj/item/gun/projectile/automatic/merc_smg,
+/obj/item/gun/projectile/automatic/c20r,
+/obj/item/gun/projectile/automatic/c20r,
+/obj/item/gun/projectile/automatic/c20r,
 /obj/item/ammo_magazine/smg,
 /obj/item/ammo_magazine/smg,
 /obj/item/ammo_magazine/smg,

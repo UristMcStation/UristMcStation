@@ -16,6 +16,7 @@
 		var/obj/item/ammo_casing/C = AM.stored_ammo[AM.stored_ammo.len]
 		AM.stored_ammo -= C
 		loaded.Insert(1, C)
+		C.forceMove(src)
 		user.visible_message("[user] inserts \a [C] into [src].", "<span class='notice'>You insert \a [C] into [src].</span>")
 		playsound(loc, load_sound, 50, 1)
 		if(istype(AM, /obj/item/ammo_magazine/bundle/shotbundle))

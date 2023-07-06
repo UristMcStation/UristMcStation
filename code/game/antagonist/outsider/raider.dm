@@ -73,7 +73,7 @@ GLOBAL_DATUM_INIT(raiders, /datum/antagonist/raider, new)
 		/obj/item/gun/launcher/grenade/loaded,
 		/obj/item/gun/launcher/pneumatic,
 		/obj/item/gun/projectile/automatic/machine_pistol,
-		/obj/item/gun/projectile/automatic/merc_smg,
+		/obj/item/gun/projectile/automatic/c20r,
 		/obj/item/gun/projectile/automatic/wt550,
 		/obj/item/gun/projectile/automatic/sts35,
 		/obj/item/gun/projectile/shotgun/pump,
