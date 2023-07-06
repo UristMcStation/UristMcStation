@@ -281,6 +281,7 @@
 	icon_state = "x3"
 	var/probability = 50 //so that it can be tweaked for areas with various amounts of traffic
 
-/obj/effect/landmark/intelspawn/New()
+/obj/effect/landmark/intelspawn/Initialize()
+	. = ..()
 	invisibility = 101
 	return

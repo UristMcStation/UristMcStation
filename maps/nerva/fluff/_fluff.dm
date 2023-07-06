@@ -1,15 +1,9 @@
 #define HOME_SYSTEM_RYCLIES   "Ryclies I"
 #define HOME_SYSTEM_READE   "Reade III"
 #define HOME_SYSTEM_PROCYON   "Procyon"
-
-#define FACTION_SOL_CENTRAL    "Terran Confederacy"
 #define FACTION_TERRAN_CONFED  "United Human Alliance"
 #define FACTION_ORMA     "Outer Rim Miners Alliance"
-
-#define CULTURE_HUMAN_CONFED   "UHA Terran"
 #define CULTURE_HUMAN_UHA_OFFTERRA   "UHA Spacer"
-#define CULTURE_HUMAN_VENUSIAN "Venusian, Upper Class"
-#define CULTURE_HUMAN_VENUSLOW "Venusian, Lower Class"
 #define CULTURE_HUMAN_ORMA	"ORMA Spacer"
 #define CULTURE_HUMAN_NT	"NanoTrasen Spacer"
 #define CULTURE_HUMAN_GRAVEWORLDER "Graveworlder"

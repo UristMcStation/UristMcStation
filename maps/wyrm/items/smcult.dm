@@ -52,3 +52,4 @@
 				<i>The pages of this book are either complete gibberish or burnt to ash."</i>
 				</font>
 				</html>"}
+	..()

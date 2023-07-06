@@ -12,7 +12,8 @@
 	var/spawnprob = 100 //used for scaling down spawns
 //	invisibility = 101
 
-/obj/effect/landmark/scom/enemyspawn/New()
+/obj/effect/landmark/scom/enemyspawn/Initialize()
+	. = ..()
 	invisibility = 101
 	return
 

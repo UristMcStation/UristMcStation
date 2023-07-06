@@ -264,7 +264,7 @@
 			var/obj/structure/closet/crate/secure/gear/C = new(src.loc)
 			for(var/i=0,i<num,i++)
 				new /mob/living/simple_animal/hostile/viscerator(C)
-
+	..()
 	qdel(src)
 
 /obj/effect/landmark/loot_spawn/low
@@ -292,6 +292,7 @@
 	if(prob(90))
 		var/turf/T = get_turf(src)
 		T.desc = pick("There is a faint sheen of moisture over the top.","It looks a little unstable.","Something doesn't seem right.")
+	..()
 
 /obj/effect/step_trigger/trap/Trigger(var/atom/A)
 	var/mob/living/M = A
@@ -377,6 +378,7 @@
 	if(prob(90))
 		var/turf/T = get_turf(src)
 		T.desc = pick("It looks a little dustier than the surrounding tiles.","It is somewhat ornate.","It looks a little darker than the surrounding tiles.")
+		..()
 	qdel(src)
 
 //50% chance of being a trap

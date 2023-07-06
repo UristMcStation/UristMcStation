@@ -16,6 +16,7 @@
 
 	START_PROCESSING(SSobj, src)
 	spawned_animal = new spawn_type(get_turf(src))
+	..()
 
 /obj/effect/landmark/animal_spawner/Process()
 	//if any of our animals are killed, spawn new ones
@@ -59,6 +60,7 @@
 		START_PROCESSING(SSobj, src)
 		spawn_type = pick(spawn_list)
 		spawned_animal = new spawn_type(get_turf(src))
+	..()
 
 /obj/effect/landmark/animal_spawner/random/Process()
 	//if any of our animals are killed, spawn new ones

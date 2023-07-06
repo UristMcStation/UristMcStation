@@ -127,6 +127,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	var/spawn_type = /obj/singularity/narsie/wizard
 
 /obj/effect/rend/New()
+	..()
 	spawn(50)
 		new spawn_type(loc)
 		qdel(src)

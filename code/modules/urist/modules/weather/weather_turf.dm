@@ -91,5 +91,6 @@ use area procs or whatever, or you'll break the map */
 		var/turf/WT = src.loc
 		WT.weather_enable()
 	qdel(src)
+	..()
 
 #undef WEATHER_PLANE

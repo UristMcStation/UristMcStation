@@ -154,7 +154,8 @@
 						var/found = FALSE
 						for(var/i in departments)	//NanoUI hates working with keyed tables, so we have to do it this way...
 							if(i["name"] == dept)
-								i["members"].Add(member)
+								var/list/e = i["members"]
+								e.Add(member)
 								i["totalpay"] += pay
 								found = TRUE
 								break

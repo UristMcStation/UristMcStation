@@ -60,6 +60,7 @@
 
 /obj/structure/flora/tree/planet/jungle/large/New()
 	icon_state = "tree[rand(1,4)]"
+	..()
 
 /obj/structure/flora/tree/planet/jungle/small
 	name = "jungle tree"
@@ -70,6 +71,7 @@
 
 /obj/structure/flora/tree/planet/jungle/small/New()
 	icon_state = "tree[rand(1,10)]"
+	..()
 
 //logs
 

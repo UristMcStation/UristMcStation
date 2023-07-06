@@ -26,6 +26,7 @@
 
 	if(indestructable)
 		icon_state = "thickbush[rand(1,2)]"
+	..()
 
 /obj/structure/bush/Bumped(M as mob)
 	if (istype(M, /mob/living/simple_animal))
@@ -150,6 +151,7 @@ var/jungle_plants_init = 0
 	fruit_overlay.Blend(rgb(fruit_r, fruit_g, fruit_b), ICON_ADD)
 	overlays += fruit_overlay
 //	plant_strength = rand(20,200)
+	..()
 
 /obj/structure/jungle_plant/attack_hand(var/mob/user as mob)
 	if(fruits_left > 0)
@@ -200,6 +202,7 @@ var/jungle_plants_init = 0
 		icon_state = "reedbush_3"
 	if(prob(25))
 		icon_state = "reedbush_4"
+	..()
 
 /obj/structure/flora/reeds/attackby(var/obj/I as obj, var/mob/user as mob)
 	if(istype(I, /obj/item/material/hatchet) || istype(I, /obj/item/material/sword/machete) || istype(I, /obj/item/carpentry/axe))

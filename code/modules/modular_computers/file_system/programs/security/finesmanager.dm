@@ -84,7 +84,8 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 			data["amount"] = fine_data["amount"]
 			data["author"] = fine_data["author"]
 		if(2)
-			var/list/logs = GLOB.all_fines["records"].Copy()
+			var/list/f = GLOB.all_fines["records"]
+			var/list/logs = f.Copy()
 			for(var/i=1, i <= length(logs), i++)
 				logs[i]["more_details"] = log_info["[i]"]
 			data["logs"] = logs
@@ -301,7 +302,8 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 					"amount" = amount,
 					"reason" = reason
 				)))
-				GLOB.all_fines["records"].Add(logs)
+				var/list/g = GLOB.all_fines["records"]
+				g.Add(logs)
 				GLOB.all_fines["fineNum"]++
 				target = null
 				target_email = null

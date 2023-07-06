@@ -4,7 +4,8 @@
 	w_class = 2
 	origin_tech = list(TECH_MAGNET = 7, TECH_MATERIAL = 6, TECH_ENGINEERING = 4, TECH_POWER=7)
 
-/obj/item/scom/science/New()
+/obj/item/scom/science/Initialize()
+	. = ..()
 	icon_state = pick("capacitor", "micro_laser", "micro_mani", "matter_bin", "scan_module")
 
 /obj/structure/scom

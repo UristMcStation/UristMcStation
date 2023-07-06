@@ -22,6 +22,7 @@
 			if(up && down)	//if both our connections are filled
 				break
 		update_icon()
+	..()
 
 /obj/structure/fakeladder/update_icon()
 	if(up && down)
