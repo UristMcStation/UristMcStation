@@ -10,4 +10,5 @@
 /datum/access/away_trading_station
 	id = access_away_trading_station
 	desc = "Trading Station"
-	region = ACCESS_TYPE_NONE
+	access_type = ACCESS_TYPE_NONE
+	region = ACCESS_REGION_NONE

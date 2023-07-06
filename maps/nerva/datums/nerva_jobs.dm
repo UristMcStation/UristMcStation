@@ -11,6 +11,17 @@
 						/datum/job/ai, /datum/job/cyborg
 						)
 
+	access_modify_region = list(
+		ACCESS_REGION_SECURITY = list(access_change_ids),
+		ACCESS_REGION_MEDBAY = list(access_change_ids),
+		ACCESS_REGION_RESEARCH = list(access_rd),
+		ACCESS_REGION_ENGINEERING = list(access_change_ids),
+		ACCESS_REGION_COMMAND = list(access_change_ids),
+		ACCESS_REGION_GENERAL = list(access_change_ids),
+		ACCESS_REGION_SUPPLY = list(access_change_ids),
+		ACCESS_REGION_SERVICE = list(access_change_ids)
+	)
+
 //general command
 
 /datum/job

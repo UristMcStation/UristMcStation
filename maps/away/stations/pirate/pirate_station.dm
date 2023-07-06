@@ -17,7 +17,8 @@
 /datum/access/away_pirate_station
 	id = access_away_pirate_station
 	desc = "Pirate Station"
-	region = ACCESS_TYPE_NONE
+	access_type = ACCESS_TYPE_NONE
+	region = ACCESS_REGION_NONE
 
 /obj/effect/overmap/visitable/station/hostile/pirate
 	name = "large asteroid"

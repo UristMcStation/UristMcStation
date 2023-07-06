@@ -38,10 +38,38 @@
 /datum/access/seniornt
 	id = access_seniornt
 	desc = "Senior Researcher"
-	region = ACCESS_REGION_COMMAND
+	access_type = ACCESS_TYPE_NONE
+	region = ACCESS_REGION_RESEARCH
 
 /var/global/const/access_gunnery = "ACCESS_GUNNERY"
 /datum/access/gunnery
 	id = access_gunnery
 	desc = "Gunnery"
 	region = ACCESS_REGION_COMMAND
+
+/datum/access/chapel_office
+	region = ACCESS_REGION_SERVICE
+
+/datum/access/bar
+	region = ACCESS_REGION_SERVICE
+
+/datum/access/kitchen
+	region = ACCESS_REGION_SERVICE
+
+/datum/access/eva
+	region = ACCESS_REGION_GENERAL
+
+/datum/access/crematorium
+	region = ACCESS_REGION_MEDBAY
+
+/datum/access/janitor
+	region = ACCESS_REGION_SERVICE
+
+/datum/access/cmo
+	region = ACCESS_REGION_MEDBAY
+
+/datum/access/tcomsat
+	region = ACCESS_REGION_ENGINEERING
+
+/datum/access/pilot
+	region = ACCESS_REGION_NONE
