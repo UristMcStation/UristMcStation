@@ -963,12 +963,9 @@
 /turf/simulated/floor/plating,
 /area/logistics/hangar)
 "cb" = (
-/obj/effect/paint/hull,
-/obj/machinery/light/spot{
-	pixel_y = 32
-	},
-/turf/simulated/wall/titanium,
-/area/exploration_shuttle/power)
+/obj/machinery/light/spot,
+/turf/simulated/floor/plating,
+/area/logistics/hangar)
 "cc" = (
 /obj/effect/paint/hull,
 /turf/simulated/wall/titanium,
@@ -1179,27 +1176,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/logistics/hangar)
-"cF" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/obj/structure/handrail{
-	dir = 4;
-	icon_state = "handrail";
-	tag = "icon-handrail (EAST)"
-	},
-/obj/machinery/power/port_gen/pacman,
-/obj/machinery/alarm{
-	dir = 4;
-	icon_state = "alarm0";
-	pixel_x = -22
-	},
-/obj/machinery/firealarm{
-	dir = 2;
-	pixel_y = 24
-	},
-/turf/simulated/floor/plating,
-/area/exploration_shuttle/power)
 "cG" = (
 /obj/structure/cable/cyan{
 	d1 = 2;
@@ -1213,6 +1189,13 @@
 	dir = 10;
 	icon_state = "intact-supply"
 	},
+/obj/machinery/power/port_gen/pacman,
+/obj/structure/handrail{
+	dir = 4;
+	icon_state = "handrail";
+	tag = "icon-handrail (EAST)"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/power)
 "cH" = (
@@ -1711,6 +1694,10 @@
 /obj/item/storage/belt/utility/full,
 /obj/item/material/hatchet,
 /obj/item/stack/material/phoron/ten,
+/obj/machinery/firealarm{
+	dir = 2;
+	pixel_y = 24
+	},
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/power)
 "dv" = (
@@ -2149,6 +2136,11 @@
 	pixel_y = -1
 	},
 /obj/item/reagent_containers/spray/cleaner,
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22
+	},
 /turf/simulated/floor/plating,
 /area/exploration_shuttle/power)
 "eg" = (
@@ -2529,8 +2521,8 @@
 	tag = "icon-handrail (EAST)"
 	},
 /obj/machinery/recharger/wallcharger{
-	pixel_x = -26;
-	pixel_y = 2
+	pixel_x = -22;
+	dir = 4
 	},
 /obj/structure/cable/cyan{
 	d1 = 2;
@@ -2777,6 +2769,9 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 30
 	},
 /turf/simulated/floor/tiled,
 /area/exploration_shuttle/main)
@@ -4036,7 +4031,7 @@
 /obj/item/device/radio/intercom{
 	dir = 1;
 	name = "Station Intercom (General)";
-	pixel_y = -28
+	pixel_y = -30
 	},
 /obj/machinery/camera/network/trajan{
 	c_tag = "Trajan Atmospherics";
@@ -6892,7 +6887,7 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	pixel_y = -28
+	pixel_y = -30
 	},
 /obj/structure/handrail{
 	dir = 1;
@@ -22142,7 +22137,7 @@
 /obj/item/device/radio/intercom{
 	dir = 1;
 	name = "Station Intercom (General)";
-	pixel_y = -28
+	pixel_y = -30
 	},
 /turf/simulated/floor/tiled,
 /area/exploration_shuttle/cockpit)
@@ -45306,7 +45301,7 @@ bh
 bk
 bE
 cc
-cF
+cc
 du
 ef
 cc

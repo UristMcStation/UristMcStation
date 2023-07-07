@@ -160,7 +160,9 @@
 	},
 /area/rescue_base/base)
 "aw" = (
-/obj/machinery/computer/teleporter,
+/obj/machinery/tele_projector{
+	dir = 4
+	},
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -371,7 +373,7 @@
 /obj/item/gun/projectile/shotgun/pump/combat,
 /obj/item/device/radio/intercom/specops{
 	dir = 2;
-	pixel_y = 22
+	pixel_y = 23
 	},
 /turf/unsimulated/floor{
 	dir = 1;
@@ -446,7 +448,7 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/item/device/radio/intercom/specops{
 	dir = 2;
-	pixel_y = 22
+	pixel_y = 23
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -458,7 +460,7 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/item/device/radio/intercom/specops{
 	dir = 2;
-	pixel_y = 22
+	pixel_y = 23
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -521,6 +523,8 @@
 /obj/item/ammo_magazine/box/rifle,
 /obj/item/ammo_magazine/box/rifle,
 /obj/item/ammo_magazine/box/rifle,
+/obj/item/ammo_magazine/box/machinegun,
+/obj/item/ammo_magazine/box/machinegun,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -529,7 +533,7 @@
 "bk" = (
 /obj/item/device/radio/intercom/specops{
 	dir = 2;
-	pixel_y = 22
+	pixel_y = 23
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -670,7 +674,7 @@
 	},
 /obj/item/device/radio/intercom/specops{
 	dir = 2;
-	pixel_y = 22
+	pixel_y = 23
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -999,7 +1003,7 @@
 /obj/item/bedsheet/captain,
 /obj/item/device/radio/intercom/specops{
 	dir = 2;
-	pixel_y = 22
+	pixel_y = 23
 	},
 /turf/unsimulated/floor{
 	dir = 1;
@@ -1352,7 +1356,7 @@
 /obj/item/cell/high,
 /obj/item/device/radio/intercom/specops{
 	dir = 2;
-	pixel_y = 22
+	pixel_y = 23
 	},
 /turf/unsimulated/floor{
 	dir = 1;
@@ -2036,7 +2040,7 @@
 "dN" = (
 /obj/item/device/radio/intercom/specops{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = -28
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -2048,7 +2052,8 @@
 	frequency = 1380;
 	id_tag = "rescue_base";
 	pixel_x = 5;
-	pixel_y = -25
+	pixel_y = -24;
+	dir = 1
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -2127,7 +2132,7 @@
 /obj/item/pinpointer/advpinpointer,
 /obj/item/device/radio/intercom/specops{
 	dir = 2;
-	pixel_y = 22
+	pixel_y = 23
 	},
 /turf/unsimulated/floor{
 	dir = 1;
@@ -2168,7 +2173,7 @@
 /obj/machinery/pipedispenser,
 /obj/item/device/radio/intercom/specops{
 	dir = 2;
-	pixel_y = 22
+	pixel_y = 23
 	},
 /turf/unsimulated/floor{
 	dir = 1;
@@ -2341,7 +2346,7 @@
 /obj/item/mech_equipment/catapult,
 /obj/item/device/radio/intercom/specops{
 	dir = 2;
-	pixel_y = 22
+	pixel_y = 23
 	},
 /turf/unsimulated/floor{
 	dir = 1;
@@ -2463,6 +2468,7 @@
 /area/rescue_base/base)
 "eI" = (
 /obj/structure/closet/secure_closet/nervacos,
+/obj/item/clothing/suit/armor/pcarrier/merc/cos,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -2761,7 +2767,7 @@
 "eY" = (
 /obj/item/device/radio/intercom/specops{
 	dir = 2;
-	pixel_y = 22
+	pixel_y = 23
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -3051,8 +3057,8 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "rescue_shuttle";
-	pixel_x = -8;
-	pixel_y = 25;
+	pixel_x = -3;
+	pixel_y = 24;
 	req_access = list("ACCESS_CENT_SPECOPS")
 	},
 /obj/machinery/light{
@@ -3396,7 +3402,7 @@
 "gx" = (
 /obj/item/device/radio/intercom/specops{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = -28
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rescue_base/start)
@@ -3539,6 +3545,7 @@
 /area/rescue_base/start)
 "gS" = (
 /obj/structure/table/rack,
+/obj/random/raider/hardsuit,
 /turf/simulated/floor/tiled/dark,
 /area/rescue_base/start)
 "gT" = (
@@ -3630,7 +3637,9 @@
 /area/rescue_base/start)
 "hh" = (
 /obj/machinery/recharger/wallcharger{
-	pixel_x = -25
+	pixel_x = -23;
+	dir = 4;
+	pixel_y = -3
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rescue_base/start)
@@ -3667,7 +3676,7 @@
 "hn" = (
 /obj/item/device/radio/intercom/specops{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = -28
 	},
 /turf/simulated/floor/tiled/white,
 /area/rescue_base/start)
@@ -3793,6 +3802,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 1
 	},
+/obj/effect/paint/sun,
 /turf/simulated/floor/reinforced/airless,
 /area/rescue_base/start)
 "hB" = (
@@ -3842,6 +3852,7 @@
 /area/rescue_base/start)
 "hH" = (
 /obj/structure/shuttle/engine/propulsion,
+/obj/effect/paint/sun,
 /turf/simulated/floor/reinforced/airless,
 /area/rescue_base/start)
 "hI" = (
@@ -5084,7 +5095,7 @@
 "kM" = (
 /obj/item/device/radio/intercom/raider{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = -30
 	},
 /obj/effect/floor_decal/carpet,
 /obj/effect/floor_decal/carpet{
@@ -5612,11 +5623,6 @@
 "lY" = (
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
-"mc" = (
-/obj/effect/paint/merc,
-/obj/effect/paint/merc,
-/turf/simulated/wall/titanium,
-/area/syndicate_station/start)
 "md" = (
 /obj/structure/flora/grass/brown,
 /turf/simulated/floor/holofloor/snow,
@@ -5931,8 +5937,9 @@
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
 	id_tag = "skipjack_base";
-	pixel_x = -25;
-	pixel_y = -5
+	pixel_x = -22;
+	pixel_y = -1;
+	dir = 4
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -6794,10 +6801,14 @@
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_courtroom)
 "ph" = (
-/turf/simulated/shuttle/wall/corner/dark{
-	dir = 9
+/obj/machinery/tele_projector{
+	dir = 4
 	},
-/area/map_template/skipjack_station/start)
+/turf/unsimulated/floor{
+	icon_state = "plating";
+	name = "plating"
+	},
+/area/ninja_dojo/dojo)
 "pi" = (
 /obj/machinery/door/airlock/hatch{
 	frequency = 1331;
@@ -6816,11 +6827,6 @@
 	master_tag = "vox_west_control"
 	},
 /turf/simulated/wall/voxshuttle,
-/area/map_template/skipjack_station/start)
-"pk" = (
-/turf/simulated/shuttle/wall/corner/dark{
-	dir = 5
-	},
 /area/map_template/skipjack_station/start)
 "pl" = (
 /turf/simulated/wall/voxshuttle,
@@ -7084,12 +7090,13 @@
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	frequency = 1331;
 	id_tag = "vox_west_control";
-	pixel_x = 24;
+	pixel_x = 23;
 	req_access = list("ACCESS_SYNDICATE");
 	tag_airpump = "vox_west_vent";
 	tag_chamber_sensor = "vox_west_sensor";
 	tag_exterior_door = "vox_northwest_lock";
-	tag_interior_door = "vox_southwest_lock"
+	tag_interior_door = "vox_southwest_lock";
+	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
@@ -7158,9 +7165,9 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "skipjack_shuttle";
-	pixel_x = -25;
-	pixel_y = 8;
-	req_access = list("ACCESS_SYNDICATE")
+	pixel_x = -20;
+	req_access = list("ACCESS_SYNDICATE");
+	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
@@ -8580,20 +8587,10 @@
 "uz" = (
 /turf/simulated/mineral,
 /area/space)
-"uA" = (
-/turf/simulated/shuttle/wall/corner/dark{
-	dir = 10
-	},
-/area/map_template/skipjack_station/start)
 "uB" = (
 /obj/structure/shuttle/engine/propulsion,
 /turf/simulated/shuttle/wall{
 	icon_state = "wall3"
-	},
-/area/map_template/skipjack_station/start)
-"uC" = (
-/turf/simulated/shuttle/wall/corner/dark{
-	dir = 6
 	},
 /area/map_template/skipjack_station/start)
 "uD" = (
@@ -9760,7 +9757,7 @@
 "xL" = (
 /obj/item/device/radio/intercom/syndicate{
 	dir = 8;
-	pixel_x = 22
+	pixel_x = 24
 	},
 /turf/simulated/floor/carpet,
 /area/map_template/wizard_station)
@@ -9814,7 +9811,7 @@
 	},
 /obj/item/device/radio/intercom/syndicate{
 	dir = 8;
-	pixel_x = 22
+	pixel_x = 24
 	},
 /turf/unsimulated/floor{
 	dir = 2;
@@ -10273,7 +10270,7 @@
 "yW" = (
 /obj/item/device/radio/intercom/syndicate{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = -28
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -10820,7 +10817,7 @@
 "Ac" = (
 /obj/item/device/radio/intercom/syndicate{
 	dir = 8;
-	pixel_x = 22
+	pixel_x = 24
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -10843,7 +10840,7 @@
 "Af" = (
 /obj/item/device/radio/intercom/syndicate{
 	dir = 4;
-	pixel_x = -22
+	pixel_x = -24
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -10851,10 +10848,11 @@
 	},
 /area/ninja_dojo/dojo)
 "Ag" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "wall3"
+/obj/machinery/hologram/holopad/longrange,
+/turf/unsimulated/floor{
+	icon_state = "dark"
 	},
-/area/syndicate_station/start)
+/area/rescue_base/base)
 "Ah" = (
 /obj/machinery/recharger,
 /obj/structure/table/reinforced,
@@ -11284,7 +11282,7 @@
 	},
 /obj/item/device/radio/intercom/syndicate{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = -28
 	},
 /turf/unsimulated/floor{
 	dir = 2;
@@ -11326,7 +11324,7 @@
 /obj/machinery/chemical_dispenser/bar_soft/full,
 /obj/item/device/radio/intercom/syndicate{
 	dir = 8;
-	pixel_x = 22
+	pixel_x = 24
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -11357,7 +11355,7 @@
 /obj/item/staff/gentcane,
 /obj/item/device/radio/intercom/syndicate{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = -28
 	},
 /turf/unsimulated/floor{
 	icon_state = "lino"
@@ -11749,7 +11747,7 @@
 /obj/machinery/light,
 /obj/item/device/radio/intercom/syndicate{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = -28
 	},
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
@@ -12029,7 +12027,9 @@
 	},
 /area/ninja_dojo/dojo)
 "CT" = (
-/obj/machinery/tele_projector,
+/obj/machinery/tele_projector{
+	dir = 4
+	},
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "CU" = (
@@ -12288,8 +12288,8 @@
 /obj/structure/table/rack,
 /obj/item/gun/energy/ionrifle,
 /obj/machinery/recharger/wallcharger{
-	pixel_x = 32;
-	pixel_y = -3
+	pixel_x = 22;
+	dir = 8
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -12304,7 +12304,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/obj/machinery/computer/shuttle_control/merchant,
+/obj/machinery/computer/shuttle_control/merchant{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "DF" = (
@@ -12777,8 +12779,8 @@
 /obj/structure/table/rack,
 /obj/item/gun/energy/plasmastun,
 /obj/machinery/recharger/wallcharger{
-	pixel_x = 32;
-	pixel_y = -3
+	pixel_x = 22;
+	dir = 8
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -12912,7 +12914,7 @@
 "EU" = (
 /obj/item/device/radio/intercom/syndicate{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = -30
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -12949,7 +12951,7 @@
 /obj/item/toy/figure/wizard,
 /obj/item/device/radio/intercom/syndicate{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = -28
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -12982,7 +12984,7 @@
 	dir = 4;
 	frequency = 1213;
 	name = "Syndicate Intercom";
-	pixel_x = -32;
+	pixel_x = -22;
 	subspace_transmission = 1;
 	syndie = 1
 	},
@@ -13058,18 +13060,13 @@
 	icon_state = "dark"
 	},
 /area/map_template/syndicate_mothership)
-"Fj" = (
-/turf/simulated/shuttle/wall{
-	dir = 4;
-	icon_state = "swall_s"
-	},
-/area/shuttle/merchant/home)
 "Fk" = (
 /obj/structure/shuttle/engine/heater{
 	dir = 4;
 	icon_state = "heater"
 	},
-/turf/simulated/shuttle/wall,
+/obj/effect/paint/silver,
+/turf/simulated/wall/r_titanium,
 /area/shuttle/merchant/home)
 "Fl" = (
 /obj/structure/shuttle/engine/propulsion/burst/right{
@@ -13251,37 +13248,17 @@
 /obj/item/gun/energy/gun,
 /obj/item/gun/energy/gun,
 /obj/machinery/recharger/wallcharger{
-	pixel_x = 32;
-	pixel_y = -3
+	pixel_x = 22;
+	dir = 8
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
 /area/map_template/syndicate_mothership)
-"FB" = (
-/turf/simulated/shuttle/wall{
-	dir = 8;
-	icon_state = "swall_s"
-	},
-/area/shuttle/merchant/home)
 "FC" = (
-/turf/simulated/shuttle/wall{
-	dir = 4;
-	icon_state = "swall_straight"
-	},
-/area/shuttle/merchant/home)
-"FD" = (
-/turf/simulated/shuttle/wall{
-	dir = 2;
-	icon_state = "swall_t"
-	},
-/area/shuttle/merchant/home)
-"FE" = (
-/turf/simulated/shuttle/wall{
-	dir = 1;
-	icon_state = "swall_t"
-	},
-/area/shuttle/merchant/home)
+/obj/effect/paint/hull,
+/turf/simulated/wall/titanium,
+/area/rescue_base/start)
 "FF" = (
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -13295,11 +13272,9 @@
 /turf/simulated/floor/plating,
 /area/shuttle/merchant/home)
 "FH" = (
-/turf/simulated/shuttle/wall{
-	dir = 2;
-	icon_state = "swall_s"
-	},
-/area/shuttle/merchant/home)
+/obj/effect/paint/sun,
+/turf/simulated/wall/titanium,
+/area/rescue_base/start)
 "FI" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -13342,7 +13317,7 @@
 /area/map_template/wizard_station)
 "FO" = (
 /obj/item/device/radio/intercom/syndicate{
-	pixel_y = 22
+	pixel_y = 23
 	},
 /turf/unsimulated/floor{
 	icon_state = "cult";
@@ -13361,7 +13336,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner,
 /obj/item/device/radio/intercom/syndicate{
 	dir = 4;
-	pixel_x = -22
+	pixel_x = -24
 	},
 /turf/unsimulated/floor{
 	dir = 2;
@@ -13446,6 +13421,12 @@
 	icon_state = "map";
 	tag = "icon-manifold (NORTH)"
 	},
+/obj/machinery/airlock_sensor{
+	frequency = 1331;
+	id_tag = "synd_sensor";
+	pixel_x = 8;
+	pixel_y = 22
+	},
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "Ga" = (
@@ -13453,17 +13434,12 @@
 	dir = 8;
 	id_tag = "synd_pump"
 	},
-/obj/machinery/airlock_sensor{
-	frequency = 1331;
-	id_tag = "synd_sensor";
-	pixel_x = 25;
-	pixel_y = 12
-	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1331;
 	id_tag = "synd";
-	pixel_x = 25;
-	dir = 8
+	pixel_x = 22;
+	dir = 8;
+	pixel_y = 6
 	},
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
@@ -13584,17 +13560,9 @@
 	},
 /area/map_template/syndicate_mothership)
 "Gm" = (
-/turf/simulated/shuttle/wall{
-	dir = 8;
-	icon_state = "swall_t"
-	},
-/area/shuttle/merchant/home)
-"Go" = (
-/turf/simulated/shuttle/wall{
-	dir = 4;
-	icon_state = "swall_t"
-	},
-/area/shuttle/merchant/home)
+/obj/machinery/telecomms/allinone/ert,
+/turf/simulated/floor/plating,
+/area/rescue_base/start)
 "Gp" = (
 /obj/structure/closet/secure_closet{
 	name = "merchant's locker";
@@ -13604,12 +13572,6 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/merchant/home)
-"Gq" = (
-/turf/simulated/shuttle/wall{
-	dir = 1;
-	icon_state = "swall"
-	},
 /area/shuttle/merchant/home)
 "Gr" = (
 /obj/structure/table/rack,
@@ -13953,10 +13915,8 @@
 /turf/simulated/floor/plating,
 /area/shuttle/merchant/home)
 "Hg" = (
-/turf/simulated/shuttle/wall{
-	dir = 1;
-	icon_state = "swall_straight"
-	},
+/obj/effect/paint/silver,
+/turf/simulated/wall/r_titanium,
 /area/shuttle/merchant/home)
 "Hh" = (
 /obj/structure/flora/grass/both,
@@ -14068,7 +14028,7 @@
 	dir = 4;
 	frequency = 1213;
 	name = "Syndicate Intercom";
-	pixel_x = -32;
+	pixel_x = -22;
 	subspace_transmission = 1;
 	syndie = 1
 	},
@@ -14346,14 +14306,8 @@
 	},
 /area/map_template/wizard_station)
 "Ia" = (
-/turf/simulated/shuttle/wall/corner/dark{
-	dir = 9
-	},
-/area/ninja_dojo/start)
-"Ib" = (
-/turf/simulated/shuttle/wall/corner/dark{
-	dir = 5
-	},
+/obj/effect/paint/black,
+/turf/simulated/wall/titanium,
 /area/ninja_dojo/start)
 "Ic" = (
 /obj/machinery/door/morgue{
@@ -14503,13 +14457,6 @@
 /obj/random/handgun,
 /turf/simulated/floor/wood,
 /area/shuttle/merchant/home)
-"Iu" = (
-/turf/simulated/shuttle/wall{
-	dir = 2;
-	icon_state = "swall";
-	tag = "icon-swall2"
-	},
-/area/shuttle/merchant/home)
 "Iv" = (
 /obj/machinery/light{
 	dir = 8;
@@ -14604,11 +14551,6 @@
 	name = "grass"
 	},
 /area/map_template/wizard_station)
-"II" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "wall3"
-	},
-/area/ninja_dojo/start)
 "IJ" = (
 /obj/machinery/fabricator/hacked{
 	desc = "Your typical fabricator. It appears to have much more options than your regular one, however...";
@@ -14967,12 +14909,6 @@
 	icon_state = "dark"
 	},
 /area/map_template/syndicate_mothership)
-"JA" = (
-/turf/simulated/shuttle/wall{
-	dir = 1;
-	icon_state = "swall_s"
-	},
-/area/shuttle/merchant/home)
 "JB" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -15138,14 +15074,15 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "merchant_station_dock";
-	pixel_x = -28;
+	pixel_x = -24;
 	pixel_y = 0;
 	req_access = list("ACCESS_MERCHANT");
 	tag_airpump = "merchant_station_vent";
 	tag_chamber_sensor = "merchant_station_sensor";
 	tag_exterior_door = "merchant_station_exterior";
 	tag_interior_door = "merchant_station_interior";
-	tag_interior_sensor = null
+	tag_interior_sensor = null;
+	dir = 4
 	},
 /obj/machinery/airlock_sensor{
 	frequency = 1380;
@@ -15267,9 +15204,8 @@
 	dir = 1;
 	icon_state = "propulsion"
 	},
-/turf/simulated/shuttle/wall{
-	icon_state = "wall3"
-	},
+/obj/effect/paint/black,
+/turf/simulated/wall/titanium,
 /area/ninja_dojo/start)
 "Ke" = (
 /obj/structure/table/steel_reinforced,
@@ -15342,7 +15278,7 @@
 /obj/item/plastique,
 /obj/item/device/radio/intercom/syndicate{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = -28
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/unsimulated/floor{
@@ -15407,7 +15343,7 @@
 	dir = 4;
 	frequency = 1213;
 	name = "Syndicate Intercom";
-	pixel_x = -32;
+	pixel_x = -22;
 	subspace_transmission = 1;
 	syndie = 1
 	},
@@ -15468,7 +15404,6 @@
 	dir = 1
 	},
 /obj/machinery/firealarm{
-	dir = 1;
 	pixel_y = 24
 	},
 /turf/simulated/floor/tiled,
@@ -16252,11 +16187,6 @@
 	icon_state = "asteroid"
 	},
 /area/map_template/wizard_station)
-"Mg" = (
-/turf/simulated/shuttle/wall/corner/dark{
-	dir = 10
-	},
-/area/ninja_dojo/start)
 "Mh" = (
 /obj/structure/closet,
 /obj/machinery/light{
@@ -16277,11 +16207,6 @@
 	icon_state = "dark"
 	},
 /area/ninja_dojo/start)
-"Mj" = (
-/turf/simulated/shuttle/wall/corner/dark{
-	dir = 6
-	},
-/area/ninja_dojo/start)
 "Mk" = (
 /obj/machinery/button/blast_door{
 	id_tag = "syndieshutters_infirmary";
@@ -16297,7 +16222,7 @@
 	dir = 8;
 	frequency = 1213;
 	name = "Syndicate Intercom";
-	pixel_x = 32;
+	pixel_x = 22;
 	subspace_transmission = 1;
 	syndie = 1
 	},
@@ -16491,7 +16416,7 @@
 	},
 /obj/item/device/radio/intercom/syndicate{
 	dir = 4;
-	pixel_x = -22
+	pixel_x = -24
 	},
 /obj/machinery/cell_charger,
 /obj/item/screwdriver,
@@ -16813,41 +16738,6 @@
 /obj/machinery/atmospherics/pipe/manifold4w/visible/cyan,
 /turf/simulated/floor/plating,
 /area/merchant_station)
-"Nr" = (
-/obj/machinery/door/blast/regular{
-	density = 1;
-	icon_state = "pdoor1";
-	id_tag = "ninjawindow";
-	name = "Blast Shutter";
-	opacity = 1
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced/polarized/full,
-/obj/structure/window/reinforced/polarized,
-/obj/structure/window/reinforced/polarized{
-	dir = 1
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/ninja_dojo/start)
-"Ns" = (
-/obj/machinery/door/blast/regular{
-	density = 1;
-	icon_state = "pdoor1";
-	id_tag = "ninjawindow";
-	name = "Blast Shutter";
-	opacity = 1
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced/polarized/full,
-/obj/structure/window/reinforced/polarized,
-/obj/structure/window/reinforced/polarized{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/ninja_dojo/start)
 "Nt" = (
 /obj/machinery/door/blast/regular{
 	density = 1;
@@ -16856,15 +16746,10 @@
 	name = "Blast Shutter";
 	opacity = 1
 	},
-/obj/structure/grille,
-/obj/structure/window/reinforced/polarized/full,
-/obj/structure/window/reinforced/polarized,
-/obj/structure/window/reinforced/polarized{
-	dir = 1
+/obj/effect/wallframe_spawn/reinforced/polarized{
+	id = "ninja_ship"
 	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4
-	},
+/obj/effect/paint/black,
 /turf/simulated/floor/plating,
 /area/ninja_dojo/start)
 "Nu" = (
@@ -16882,7 +16767,7 @@
 	dir = 8;
 	frequency = 1213;
 	name = "Syndicate Intercom";
-	pixel_x = 32;
+	pixel_x = 22;
 	subspace_transmission = 1;
 	syndie = 1
 	},
@@ -22862,7 +22747,7 @@ ac
 ac
 ac
 ac
-ag
+ac
 ag
 ag
 ag
@@ -23065,7 +22950,7 @@ ac
 ac
 ac
 ag
-ac
+ag
 ac
 ac
 ac
@@ -31935,9 +31820,9 @@ Ad
 Ad
 Ad
 Ia
-II
-II
-Mg
+Ia
+Ia
+Ia
 Ad
 Ad
 Ae
@@ -32136,11 +32021,11 @@ Ad
 Ad
 Ad
 Ia
-II
+Ia
 Lk
 LM
-II
-Mg
+Ia
+Ia
 Ad
 Ad
 Ad
@@ -32338,12 +32223,12 @@ Ad
 Ad
 Ad
 Kd
-II
+Ia
 Ll
 Ll
-II
-II
-Mg
+Ia
+Ia
+Ia
 Ad
 Ad
 Ae
@@ -32536,17 +32421,17 @@ wl
 Ae
 Ad
 Ia
-II
-II
-II
-II
+Ia
+Ia
+Ia
+Ia
 KJ
 Lm
 Ll
 Mh
 ME
-II
-Mg
+Ia
+Ia
 Ad
 Ae
 vZ
@@ -32741,14 +32626,14 @@ Ad
 Ae
 Ad
 Ad
-II
+Ia
 KK
 Ln
 Ll
 Ll
 Ll
 Nc
-Nr
+Nt
 Ad
 Ae
 vZ
@@ -32943,14 +32828,14 @@ Ad
 Ae
 Ae
 Ad
-II
+Ia
 KL
 Ln
 LN
 Ll
 MF
 Nd
-Ns
+Nt
 Ad
 Ad
 vZ
@@ -33145,7 +33030,7 @@ Ad
 Ad
 Ad
 Ad
-II
+Ia
 KM
 Ln
 Ll
@@ -33343,18 +33228,18 @@ xE
 wl
 Ad
 Ad
-Ib
-II
-II
-II
-II
+Ia
+Ia
+Ia
+Ia
+Ia
 KN
 Lo
 LO
 Mi
 MH
-II
-Mj
+Ia
+Ia
 Ad
 Ad
 vZ
@@ -33550,12 +33435,12 @@ Ad
 Ad
 Ad
 Kd
-II
-II
+Ia
+Ia
 LP
-II
-II
-Mj
+Ia
+Ia
+Ia
 Ad
 Ad
 Ad
@@ -33751,12 +33636,12 @@ Ad
 Ad
 Ad
 Ad
-Ib
-II
+Ia
+Ia
 Lp
 LQ
-II
-Mj
+Ia
+Ia
 Ad
 Ad
 Ad
@@ -33954,10 +33839,10 @@ Ae
 Ad
 Ad
 Ad
-Ib
+Ia
 Lq
-II
-Mj
+Ia
+Ia
 Ad
 Ad
 Ad
@@ -34738,7 +34623,7 @@ wk
 wl
 wl
 xe
-xB
+ph
 xP
 yh
 xR
@@ -41624,7 +41509,7 @@ wb
 CV
 CV
 GI
-Ag
+CV
 Id
 IR
 Jt
@@ -43641,7 +43526,7 @@ xT
 ym
 xg
 xr
-mc
+CV
 FZ
 GN
 Hw
@@ -51204,7 +51089,7 @@ aF
 aF
 cc
 at
-aI
+Ag
 cR
 aI
 dg
@@ -51519,13 +51404,13 @@ ab
 nt
 nt
 ab
-Fj
-Gm
+ab
+Hg
 GS
 GS
 GS
-Gm
-JA
+Hg
+ab
 ab
 ab
 KU
@@ -51721,13 +51606,13 @@ Cs
 Cs
 RG
 ab
-FB
+ab
 FF
 GT
 HE
 Iq
 IV
-FH
+ab
 ab
 ab
 ab
@@ -52044,16 +51929,16 @@ fq
 fq
 fq
 fq
-fu
-fu
-fu
-fu
-fu
-fu
+FC
+FC
+FC
+FC
+FC
+FC
 hx
-fu
-fu
-fu
+FC
+FH
+FH
 fq
 hO
 bP
@@ -52246,7 +52131,7 @@ fq
 fq
 fq
 fq
-fu
+FC
 gI
 gQ
 fW
@@ -52328,11 +52213,11 @@ Eo
 Cs
 ab
 ab
-FC
+Hg
 GW
 HG
 It
-FC
+Hg
 ab
 ab
 ab
@@ -52448,7 +52333,7 @@ fq
 fq
 fq
 fq
-fu
+FC
 gJ
 fN
 ha
@@ -52529,13 +52414,13 @@ DH
 Ep
 Cs
 nt
-Fj
-Go
-Gq
+Hg
+Hg
+Hg
 HH
-Iu
-Go
-JA
+Hg
+Hg
+Hg
 ab
 ab
 ab
@@ -52650,7 +52535,7 @@ fq
 fq
 fq
 fq
-fu
+FC
 gK
 gR
 fW
@@ -52731,13 +52616,13 @@ DI
 RG
 RG
 EF
-FC
+Hg
 Gp
 GX
 GY
 Iv
 IY
-FC
+Hg
 ab
 ab
 KU
@@ -52840,28 +52725,28 @@ bP
 bO
 fn
 fq
-fu
-fu
-fu
-fu
-fu
-fu
+FC
+FC
+FC
+FC
+FC
+FC
 gb
 gb
 gb
-fu
-fu
+FC
+FC
 fq
-fu
-fu
-fu
-fu
+FC
+FC
+FC
+FC
 hi
-fu
-fu
-fu
-fu
-fu
+FC
+FC
+FC
+FH
+FH
 fq
 hO
 bP
@@ -52933,14 +52818,14 @@ DJ
 RG
 nt
 ab
-FD
+Hg
 Gp
 GY
 GY
 GY
 IZ
-FE
-JA
+Hg
+Hg
 ab
 ab
 ab
@@ -53052,14 +52937,14 @@ gc
 gj
 gn
 gc
-fu
+FC
 fq
 fq
 fq
-fu
+FC
 fN
 fN
-fu
+FC
 fq
 fq
 fq
@@ -53134,14 +53019,14 @@ BK
 DJ
 Cs
 ab
-Fj
-FC
+Hg
+Hg
 Gp
 GY
 HI
 Iw
 Ja
-FC
+Hg
 Fk
 ab
 ab
@@ -53254,14 +53139,14 @@ fN
 fN
 fN
 gr
-fu
-fu
-fu
-fu
-fu
+FC
+FC
+FC
+FC
+FC
 gE
 hj
-fu
+FC
 fq
 fq
 fq
@@ -53337,13 +53222,13 @@ DK
 Cs
 ab
 Fk
-FE
-Gq
+Hg
+Hg
 GZ
 HJ
 Ix
-Iu
-FD
+Hg
+Hg
 JR
 ab
 nt
@@ -53463,7 +53348,7 @@ gD
 fN
 fN
 gx
-fu
+FC
 fq
 fq
 fq
@@ -53665,7 +53550,7 @@ fW
 gS
 gS
 hk
-fu
+FC
 fq
 fq
 fq
@@ -53850,26 +53735,26 @@ bP
 du
 fn
 fq
-fu
-fu
-fu
-fu
-fu
-fu
-fu
-fu
-fu
-fu
+FC
+FC
+FC
+FC
+FC
+FC
+FC
+FC
+FC
+FC
 fu
 gE
 gr
-fu
-fu
-fu
-fu
-fu
-fu
-fu
+FC
+FC
+FC
+FC
+FC
+FH
+FH
 fq
 fq
 fq
@@ -53901,7 +53786,7 @@ hT
 hT
 hT
 hT
-ph
+pl
 pl
 pl
 pl
@@ -53912,7 +53797,7 @@ rE
 rE
 pl
 pl
-uA
+pl
 ab
 ab
 ab
@@ -53943,13 +53828,13 @@ DN
 Cs
 ab
 ab
-FC
+Hg
 Gr
 Hb
 HM
 IA
 Gs
-FD
+Hg
 ab
 nt
 Cs
@@ -54060,12 +53945,12 @@ fq
 fq
 fq
 fq
-fu
+FC
 gt
 gA
 fN
 fN
-fu
+FC
 gT
 hb
 gU
@@ -54145,13 +54030,13 @@ DO
 Cs
 EF
 ab
-FC
+Hg
 Gr
 Hb
 HM
 Iz
 Je
-FC
+Hg
 nt
 nt
 Cs
@@ -54262,7 +54147,7 @@ fq
 fq
 fq
 fq
-fu
+FC
 gu
 gB
 fN
@@ -54347,13 +54232,13 @@ DP
 RG
 nt
 nt
-FE
+Hg
 Gs
 Hc
 HM
 Iz
 Jf
-FC
+Hg
 EG
 Cs
 Cs
@@ -54464,7 +54349,7 @@ fq
 fq
 fq
 fq
-fu
+FC
 fF
 gB
 fN
@@ -54507,7 +54392,7 @@ hT
 ka
 ka
 hT
-pk
+pl
 pl
 pl
 pl
@@ -54518,7 +54403,7 @@ sn
 sO
 tn
 pl
-uC
+pl
 ab
 ab
 ab
@@ -54549,13 +54434,13 @@ XF
 RG
 EG
 nt
-FC
+Hg
 Gt
 Hb
 HL
 IA
 Gs
-FD
+Hg
 RG
 Kx
 KV
@@ -54666,16 +54551,16 @@ fq
 fq
 fq
 fq
-fu
+FC
 gv
 gC
 fN
 fN
-fu
+FC
 gV
 gV
 hl
-gU
+Gm
 hA
 hH
 fq
@@ -54724,7 +54609,7 @@ pl
 pl
 pl
 pl
-uA
+pl
 ab
 ab
 ab
@@ -54751,13 +54636,13 @@ DR
 Eq
 Cs
 ab
-FC
+Hg
 Gu
 Hb
 HL
 Iz
 Jc
-FC
+Hg
 RG
 Ky
 KW
@@ -54860,26 +54745,26 @@ bP
 bP
 fn
 fq
-fu
-fu
-fu
-fu
-fu
-fu
-fu
-fu
-fu
-fu
-fu
+FC
+FC
+FC
+FC
+FC
+FC
+FC
+FC
+FC
+FC
+FC
 gE
 gx
-fu
-fu
-fu
-fu
-fu
-fu
-fu
+FC
+FC
+FC
+FC
+FC
+FH
+FH
 fq
 fq
 fq
@@ -54953,13 +54838,13 @@ CY
 Er
 Cs
 ab
-FC
+Hg
 Gv
 Hd
 HN
 Iz
 Jg
-FC
+Hg
 RG
 Kz
 KX
@@ -55062,12 +54947,12 @@ bP
 bP
 fn
 fq
-fu
+FC
 fC
 fJ
 fJ
 fS
-fu
+FC
 ge
 gl
 gp
@@ -55079,7 +54964,7 @@ fW
 gW
 hc
 hm
-fu
+FC
 fq
 fq
 fq
@@ -55114,7 +54999,7 @@ ab
 ab
 ab
 ab
-ph
+pl
 pl
 pl
 pl
@@ -55129,7 +55014,7 @@ to
 to
 vP
 pl
-uA
+pl
 ab
 ab
 ab
@@ -55155,13 +55040,13 @@ CY
 Er
 Cs
 ab
-FH
-Gm
+Hg
+Hg
 Gs
 HO
 Gs
-Gm
-FB
+Hg
+Hg
 RG
 KA
 KY
@@ -55281,7 +55166,7 @@ gM
 gX
 gX
 hn
-fu
+FC
 fq
 fq
 fq
@@ -55315,7 +55200,7 @@ hT
 ab
 ab
 ab
-ph
+pl
 pl
 pl
 qx
@@ -55332,7 +55217,7 @@ vq
 to
 pl
 pl
-uA
+pl
 ab
 ab
 ab
@@ -55358,11 +55243,11 @@ Er
 Cs
 ab
 ab
-FC
+Hg
 He
 HP
 IB
-FC
+Hg
 RG
 RG
 yK
@@ -55476,14 +55361,14 @@ gg
 fN
 fN
 gx
-fu
-fu
-fu
-fu
-fu
+FC
+FC
+FC
+FC
+FC
 hd
 ho
-fu
+FC
 fq
 fq
 fq
@@ -55560,7 +55445,7 @@ Er
 Cs
 Cs
 ab
-FC
+Hg
 He
 HP
 IB
@@ -55668,24 +55553,24 @@ eq
 bP
 fn
 fq
-fu
+FC
 fE
 fL
 fP
 fV
-fu
+FC
 gh
 gm
 gm
 gy
-fu
+FC
 fq
 fq
 fq
-fu
+FC
 he
 gX
-fu
+FC
 fq
 fq
 fq
@@ -55762,7 +55647,7 @@ Er
 CY
 Cs
 nt
-FC
+Hg
 Hf
 HQ
 IC
@@ -55870,28 +55755,28 @@ eq
 bP
 fn
 fq
-fu
-fu
-fu
-fu
-fu
-fu
+FC
+FC
+FC
+FC
+FC
+FC
 gi
 gi
 gi
-fu
-fu
+FC
+FC
 fq
-fu
-fu
-fu
+FC
+FC
+FC
 hf
 gX
-fu
-fu
-fu
-fu
-fu
+FC
+FC
+FC
+FH
+FH
 fq
 hO
 bP
@@ -55964,11 +55849,11 @@ Es
 EH
 Cs
 nt
-FH
 Hg
 Hg
 Hg
-FB
+Hg
+Hg
 Cs
 JU
 Th
@@ -56084,7 +55969,7 @@ fq
 fq
 fq
 fq
-fu
+FC
 gN
 gY
 gX
@@ -56286,7 +56171,7 @@ fq
 fq
 fq
 fq
-fu
+FC
 gO
 gZ
 gX
@@ -56488,7 +56373,7 @@ fq
 fq
 fq
 fq
-fu
+FC
 gP
 gX
 hg
@@ -56527,7 +56412,7 @@ hT
 ab
 ab
 ab
-pk
+pl
 pl
 pl
 qB
@@ -56544,7 +56429,7 @@ tw
 vS
 pl
 pl
-uC
+pl
 ab
 ab
 ab
@@ -56690,16 +56575,16 @@ fq
 fq
 fq
 fq
-fu
-fu
-fu
-fu
-fu
-fu
+FC
+FC
+FC
+FC
+FC
+FC
 hD
-fu
-fu
-fu
+FC
+FH
+FH
 fq
 hO
 bP
@@ -56730,7 +56615,7 @@ ab
 ab
 ab
 ab
-pk
+pl
 pl
 pl
 pl
@@ -56745,7 +56630,7 @@ tw
 vt
 vT
 pl
-uC
+pl
 ab
 ab
 ab
@@ -57148,7 +57033,7 @@ pl
 pl
 pl
 pl
-uC
+pl
 ab
 ab
 ab
@@ -57335,7 +57220,7 @@ hT
 ka
 ka
 hT
-ph
+pl
 pl
 pl
 pl
@@ -57346,7 +57231,7 @@ rt
 sT
 tx
 pl
-uA
+pl
 ab
 ab
 ab
@@ -57941,7 +57826,7 @@ hT
 hT
 hT
 hT
-pk
+pl
 pl
 pl
 pl
@@ -57952,7 +57837,7 @@ rJ
 rJ
 pl
 pl
-uC
+pl
 ab
 ab
 ab
