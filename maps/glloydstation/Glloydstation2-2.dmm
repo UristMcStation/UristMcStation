@@ -13614,9 +13614,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/supply/dock)
-"aFT" = (
-/turf/unsimulated/wall,
-/area/centcom/transit)
 "aFU" = (
 /turf/unsimulated/wall{
 	desc = "That looks like it doesn't open easily.";
@@ -13961,17 +13958,13 @@
 	dir = 5
 	},
 /area/centcom/transit)
-"aGL" = (
-/turf/unsimulated/wall/fakeglass{
-	icon_state = "fakewindows";
-	dir = 8
-	},
-/area/centcom/transit)
 "aGM" = (
-/turf/unsimulated/wall/fakeglass{
-	icon_state = "fakewindows";
-	dir = 4
+/obj/machinery/door/airlock/centcom{
+	name = "Transit Checkpoint";
+	opacity = 1;
+	req_access = list("ACCESS_CENT_CAPTAIN")
 	},
+/turf/simulated/floor/tiled/dark,
 /area/centcom/transit)
 "aGN" = (
 /turf/unsimulated/floor/uristturf/other/scom{
@@ -14033,18 +14026,12 @@
 	dir = 8
 	},
 /obj/item/modular_computer/laptop/preset/records,
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/centcom/transit)
 "aGV" = (
 /obj/item/modular_computer/laptop/preset/records,
 /obj/structure/table/reinforced,
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/centcom/transit)
 "aGW" = (
 /obj/machinery/vending/medical,
@@ -14125,19 +14112,13 @@
 /obj/machinery/door/window/westleft{
 	name = "Transit Desk"
 	},
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/centcom/transit)
 "aHf" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/centcom/transit)
 "aHg" = (
 /obj/structure/sign/urist/nt{
@@ -14146,10 +14127,7 @@
 /obj/machinery/computer/modular/preset/cardslot/command{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/centcom/transit)
 "aHh" = (
 /obj/effect/decal/warning_stripes/urist/arrow,
@@ -14255,17 +14233,11 @@
 	name = "Transit Processing";
 	req_access = list("ACCESS_CENT_GENERAL")
 	},
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/centcom/transit)
 "aHs" = (
 /obj/structure/filingcabinet,
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/centcom/transit)
 "aHt" = (
 /turf/unsimulated/floor/uristturf/other/scom{
@@ -14350,7 +14322,7 @@
 	},
 /area/tdome)
 "aHC" = (
-/turf/unsimulated/floor/plating,
+/turf/simulated/floor/plating,
 /area/centcom/transit)
 "aHD" = (
 /turf/unsimulated/floor/uristturf/other/scom{
@@ -14382,10 +14354,7 @@
 /obj/structure/sign/urist/nt{
 	pixel_x = 32
 	},
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/centcom/transit)
 "aHH" = (
 /turf/space,
@@ -14582,27 +14551,9 @@
 	dir = 5
 	},
 /area/tdome)
-"aIe" = (
-/obj/effect/wallframe_spawn/reinforced,
-/turf/unsimulated/wall/fakeglass{
-	icon_state = "fakewindows";
-	dir = 8
-	},
-/area/centcom/transit)
-"aIf" = (
-/obj/effect/wallframe_spawn/reinforced,
-/turf/unsimulated/wall/fakeglass{
-	icon_state = "fakewindows2";
-	dir = 8
-	},
-/area/centcom/transit)
 "aIg" = (
-/obj/effect/wallframe_spawn/reinforced,
-/turf/unsimulated/wall/fakeglass{
-	icon_state = "fakewindows";
-	dir = 4
-	},
-/area/centcom/transit)
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "aIh" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
@@ -14743,53 +14694,20 @@
 	icon_state = "lino"
 	},
 /area/tdome/tdomeadmin)
-"aIA" = (
-/turf/space,
-/turf/simulated/shuttle/wall/corner/smoothwhite/nw,
-/area/shuttle/arrivals/centcom)
-"aIB" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_straight";
-	dir = 4
-	},
-/area/shuttle/arrivals/centcom)
 "aIC" = (
-/obj/structure/shuttle/window{
-	tag = "icon-14";
-	icon_state = "14"
-	},
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/shuttle/arrivals/centcom)
+/turf/simulated/wall/titanium,
+/area/space)
 "aID" = (
-/obj/structure/shuttle/window{
-	tag = "icon-17";
-	icon_state = "17"
-	},
+/obj/effect/wallframe_spawn/reinforced/titanium,
 /obj/structure/grille,
 /turf/simulated/floor/plating,
-/area/shuttle/arrivals/centcom)
-"aIE" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_t";
-	dir = 1
-	},
 /area/shuttle/arrivals/centcom)
 "aIF" = (
 /turf/space,
-/turf/simulated/shuttle/wall/corner/smoothwhite/ne,
+/turf/simulated/wall/titanium,
 /area/shuttle/arrivals/centcom)
-"aIG" = (
-/obj/effect/wallframe_spawn/reinforced,
-/turf/unsimulated/wall/fakeglass{
-	dir = 1;
-	icon_state = "fakewindows"
-	},
-/area/centcom/transit)
 "aIH" = (
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aII" = (
 /obj/structure/bed/chair/urist/bench/bench1/left{
@@ -14797,17 +14715,13 @@
 	icon_state = "benchleft";
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aIJ" = (
 /obj/structure/hygiene/toilet{
 	pixel_y = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/simulated/floor/tiled/white,
 /area/centcom/transit)
 "aIK" = (
 /obj/structure/closet/crate,
@@ -14896,9 +14810,6 @@
 /obj/structure/hygiene/sink,
 /turf/unsimulated/wall,
 /area/map_template/wizard_station)
-"aIX" = (
-/turf/simulated/shuttle/wall,
-/area/shuttle/arrivals/centcom)
 "aIY" = (
 /obj/structure/table/standard,
 /obj/item/storage/toolbox/mechanical,
@@ -14944,40 +14855,27 @@
 	icon_state = "propulsion_l";
 	dir = 4
 	},
-/turf/unsimulated/floor/plating,
+/turf/simulated/wall/titanium,
 /area/shuttle/arrivals/centcom)
-"aJh" = (
-/obj/effect/wallframe_spawn/reinforced,
-/turf/unsimulated/wall/fakeglass{
-	icon_state = "fakewindows2";
-	dir = 1
-	},
-/area/centcom/transit)
 "aJi" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
 	tag = "icon-benchmid (WEST)";
 	icon_state = "benchmid";
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aJj" = (
 /obj/machinery/door/airlock{
 	name = "Unit 1"
 	},
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/simulated/floor/tiled/white,
 /area/centcom/transit)
 "aJk" = (
 /obj/machinery/door/airlock{
 	name = "Unit 2"
 	},
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/simulated/floor/tiled/white,
 /area/centcom/transit)
 "aJl" = (
 /obj/structure/closet/crate,
@@ -15174,10 +15072,7 @@
 	},
 /area/map_template/wizard_station)
 "aJJ" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_straight";
-	dir = 1
-	},
+/turf/simulated/wall/titanium,
 /area/shuttle/arrivals/centcom)
 "aJK" = (
 /turf/simulated/floor/shuttle/white,
@@ -15212,9 +15107,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/arrivals/centcom)
 "aJO" = (
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/simulated/floor/tiled/white,
 /area/centcom/transit)
 "aJP" = (
 /obj/structure/hygiene/sink{
@@ -15227,9 +15120,7 @@
 	pixel_x = 28;
 	pixel_y = -2
 	},
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/simulated/floor/tiled/white,
 /area/centcom/transit)
 "aJQ" = (
 /obj/structure/closet/crate,
@@ -15544,11 +15435,6 @@
 	dir = 2
 	},
 /area/map_template/wizard_station)
-"aKC" = (
-/obj/structure/shuttle/window,
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/shuttle/arrivals/centcom)
 "aKD" = (
 /obj/machinery/door/unpowered/shuttle,
 /turf/simulated/floor/shuttle/white,
@@ -15559,51 +15445,18 @@
 /area/shuttle/arrivals/centcom)
 "aKF" = (
 /obj/structure/bed/chair/office/dark,
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/centcom/transit)
 "aKG" = (
 /obj/structure/sign/urist/nt{
 	pixel_x = 32
 	},
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
-	},
-/area/centcom/transit)
-"aKH" = (
-/turf/simulated/shuttle/wall{
-	tag = "icon-wall_plating (EAST)";
-	icon = 'icons/urist/turf/uristturf.dmi';
-	icon_state = "wall_plating";
-	dir = 4
-	},
+/turf/simulated/floor/tiled/dark,
 /area/centcom/transit)
 "aKI" = (
-/obj/structure/shuttle/window{
-	tag = "icon-14";
-	icon_state = "14"
-	},
+/obj/effect/wallframe_spawn/reinforced/titanium,
 /obj/structure/grille,
 /turf/space,
-/area/centcom/transit)
-"aKJ" = (
-/obj/structure/shuttle/window{
-	tag = "icon-17";
-	icon_state = "17"
-	},
-/obj/structure/grille,
-/turf/space,
-/area/centcom/transit)
-"aKK" = (
-/turf/simulated/shuttle/wall{
-	tag = "icon-wall_plating";
-	icon = 'icons/urist/turf/uristturf.dmi';
-	icon_state = "wall_plating";
-	dir = 2
-	},
 /area/centcom/transit)
 "aKL" = (
 /obj/structure/closet/crate,
@@ -15766,17 +15619,13 @@
 	icon_state = "benchright";
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aLg" = (
 /obj/machinery/door/airlock{
 	name = "Unisex Restrooms"
 	},
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aLh" = (
 /obj/structure/table/reinforced,
@@ -15786,10 +15635,7 @@
 	},
 /obj/item/pen,
 /obj/structure/window/reinforced,
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/centcom/transit)
 "aLi" = (
 /obj/structure/table/reinforced,
@@ -15798,52 +15644,31 @@
 	name = "Transit Checkpoint";
 	req_access = list("ACCESS_CENT_GENERAL")
 	},
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/centcom/transit)
 "aLj" = (
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced,
 /obj/item/modular_computer/laptop/preset/records,
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/centcom/transit)
 "aLk" = (
 /obj/structure/flora/pottedplant{
 	tag = "icon-plant-22";
 	icon_state = "plant-22"
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aLl" = (
 /obj/structure/bed/chair/urist/bench/bench1/left,
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aLm" = (
 /obj/structure/bed/chair/urist/bench/bench1/right,
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
-/area/centcom/transit)
-"aLn" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_straight";
-	dir = 1
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aLo" = (
-/turf/unsimulated/floor{
-	icon = 'icons/turf/shuttle.dmi';
-	icon_state = "floor2"
-	},
+/turf/simulated/floor/shuttle/yellow,
 /area/centcom/transit)
 "aLp" = (
 /obj/structure/bed/chair/urist/bench/bench2/top{
@@ -15854,10 +15679,7 @@
 /obj/effect/landmark{
 	name = "JoinLate"
 	},
-/turf/unsimulated/floor{
-	icon = 'icons/turf/shuttle.dmi';
-	icon_state = "floor2"
-	},
+/turf/simulated/floor/shuttle/yellow,
 /area/centcom/transit)
 "aLq" = (
 /turf/unsimulated/wall/urist/other/see{
@@ -16069,10 +15891,6 @@
 	icon_state = "lino"
 	},
 /area/map_template/wizard_station)
-"aLT" = (
-/turf/space,
-/turf/simulated/shuttle/wall/corner/smoothwhite/sw,
-/area/shuttle/arrivals/centcom)
 "aLU" = (
 /obj/machinery/light{
 	dir = 8;
@@ -16104,28 +15922,15 @@
 /area/shuttle/arrivals/centcom)
 "aLY" = (
 /obj/machinery/vending/coffee,
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aLZ" = (
 /obj/machinery/vending/cola,
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aMa" = (
 /obj/machinery/vending/snack,
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
-/area/centcom/transit)
-"aMb" = (
-/obj/effect/wallframe_spawn/reinforced,
-/turf/unsimulated/floor{
-	icon_state = "plating";
-	name = "plating"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aMc" = (
 /obj/machinery/door/blast/regular{
@@ -16135,10 +15940,7 @@
 	name = "transit shuttle door";
 	opacity = 0
 	},
-/turf/unsimulated/floor{
-	icon = 'icons/turf/shuttle.dmi';
-	icon_state = "floor2"
-	},
+/turf/simulated/floor/shuttle/yellow,
 /area/centcom/transit)
 "aMd" = (
 /obj/structure/bed/chair/urist/bench/bench2/mid{
@@ -16149,10 +15951,7 @@
 /obj/effect/landmark{
 	name = "JoinLate"
 	},
-/turf/unsimulated/floor{
-	icon = 'icons/turf/shuttle.dmi';
-	icon_state = "floor2"
-	},
+/turf/simulated/floor/shuttle/yellow,
 /area/centcom/transit)
 "aMe" = (
 /obj/structure/closet/crate,
@@ -16360,24 +16159,15 @@
 	},
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/arrivals/centcom)
-"aMD" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_t";
-	dir = 2
-	},
-/area/shuttle/arrivals/centcom)
 "aME" = (
-/turf/space,
-/turf/simulated/shuttle/wall/corner/smoothwhite/se,
-/area/shuttle/arrivals/centcom)
+/turf/simulated/floor,
+/area/centcom/transit)
 "aMF" = (
 /obj/effect/decal/warning_stripes/urist/arrow{
 	tag = "icon-arrow-w";
 	icon_state = "arrow-w"
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aMG" = (
 /obj/machinery/door/blast/regular{
@@ -16387,16 +16177,11 @@
 	name = "transit blast door";
 	opacity = 0
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aMH" = (
 /obj/structure/sign/urist/transitmap,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_straight";
-	dir = 1
-	},
+/turf/simulated/wall/titanium,
 /area/centcom/transit)
 "aMI" = (
 /obj/structure/table/standard,
@@ -16573,30 +16358,14 @@
 	locked = 1;
 	name = "CentCom Arrival Airlock"
 	},
-/turf/unsimulated/floor/plating,
+/turf/simulated/floor,
 /area/centcom/transit)
 "aNd" = (
-/obj/effect/wallframe_spawn/reinforced,
-/turf/unsimulated/wall/fakeglass{
-	icon_state = "fakewindows";
-	dir = 9
-	},
+/obj/effect/wallframe_spawn/reinforced/titanium,
+/turf/space,
 /area/centcom/transit)
 "aNe" = (
-/obj/effect/wallframe_spawn/reinforced,
-/turf/unsimulated/wall/fakeglass{
-	tag = "icon-fakewindows2 (EAST)";
-	icon_state = "fakewindows2";
-	dir = 4
-	},
-/area/centcom/transit)
-"aNf" = (
-/obj/effect/wallframe_spawn/reinforced,
-/turf/unsimulated/wall/fakeglass{
-	tag = "icon-fakewindows (SOUTHEAST)";
-	icon_state = "fakewindows";
-	dir = 6
-	},
+/turf/simulated/floor/tiled/dark,
 /area/centcom/transit)
 "aNg" = (
 /obj/structure/bed/chair/urist/bench/bench1/left{
@@ -16604,9 +16373,7 @@
 	icon_state = "benchleft";
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aNh" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
@@ -16614,9 +16381,7 @@
 	icon_state = "benchmid";
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aNi" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
@@ -16624,9 +16389,7 @@
 	icon_state = "benchright";
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aNj" = (
 /obj/structure/bed/chair/urist/bench/bench1/left{
@@ -16634,9 +16397,7 @@
 	icon_state = "benchleft";
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aNk" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
@@ -16708,9 +16469,7 @@
 /area/syndicate_elite_squad)
 "aNx" = (
 /obj/machinery/vending/cigarette,
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aNy" = (
 /obj/structure/window/reinforced{
@@ -16720,10 +16479,7 @@
 	tag = "icon-ywflowers_3";
 	icon_state = "ywflowers_3"
 	},
-/turf/unsimulated/floor{
-	icon_state = "grass0";
-	name = "grass"
-	},
+/turf/simulated/floor/grass,
 /area/centcom/transit)
 "aNz" = (
 /obj/structure/window/reinforced{
@@ -16733,10 +16489,7 @@
 	tag = "icon-ppflowers_3";
 	icon_state = "ppflowers_3"
 	},
-/turf/unsimulated/floor{
-	icon_state = "grass0";
-	name = "grass"
-	},
+/turf/simulated/floor/grass,
 /area/centcom/transit)
 "aNA" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
@@ -16744,9 +16497,7 @@
 	icon_state = "benchmid";
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aNB" = (
 /obj/structure/bed/chair/urist/bench/bench2/bot{
@@ -16757,10 +16508,7 @@
 /obj/effect/landmark{
 	name = "JoinLate"
 	},
-/turf/unsimulated/floor{
-	icon = 'icons/turf/shuttle.dmi';
-	icon_state = "floor2"
-	},
+/turf/simulated/floor/shuttle/yellow,
 /area/centcom/transit)
 "aNC" = (
 /mob/living/exosuit/premade/heavy,
@@ -16982,9 +16730,7 @@
 /obj/machinery/computer/shuttle_control/centcom/arrivals{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aOb" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
@@ -16995,29 +16741,21 @@
 /obj/structure/sign/urist/ad/sign1{
 	pixel_x = 32
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aOc" = (
 /obj/structure/flora/pottedplant/Nienplants/plant{
 	tag = "icon-ppflowers_3";
 	icon_state = "ppflowers_3"
 	},
-/turf/unsimulated/floor{
-	icon_state = "grass0";
-	name = "grass"
-	},
+/turf/simulated/floor/grass,
 /area/centcom/transit)
 "aOd" = (
 /obj/structure/flora/pottedplant/Nienplants/plant{
 	tag = "icon-sunnybush_3";
 	icon_state = "sunnybush_3"
 	},
-/turf/unsimulated/floor{
-	icon_state = "grass0";
-	name = "grass"
-	},
+/turf/simulated/floor/grass,
 /area/centcom/transit)
 "aOe" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
@@ -17028,28 +16766,11 @@
 /obj/structure/sign/urist/transitmap{
 	pixel_x = -32
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aOf" = (
 /obj/machinery/door/unpowered/shuttle,
-/turf/unsimulated/floor{
-	icon = 'icons/turf/shuttle.dmi';
-	icon_state = "floor2"
-	},
-/area/centcom/transit)
-"aOg" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_straight";
-	dir = 4
-	},
-/area/centcom/transit)
-"aOh" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_t";
-	dir = 4
-	},
+/turf/simulated/floor/shuttle/yellow,
 /area/centcom/transit)
 "aOi" = (
 /obj/structure/window/basic{
@@ -17305,29 +17026,13 @@
 	icon_state = "dark"
 	},
 /area/map_template/wizard_station)
-"aOM" = (
-/obj/effect/wallframe_spawn/reinforced,
-/turf/unsimulated/wall/fakeglass{
-	tag = "icon-fakewindows (SOUTHWEST)";
-	icon_state = "fakewindows";
-	dir = 10
-	},
-/area/centcom/transit)
-"aON" = (
-/obj/effect/wallframe_spawn/reinforced,
-/turf/unsimulated/wall/fakeglass,
-/area/centcom/transit)
 "aOO" = (
 /obj/machinery/vending/urist/nanotrasen,
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aOP" = (
 /obj/effect/decal/warning_stripes/urist/arrow,
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aOQ" = (
 /obj/structure/window/reinforced,
@@ -17335,10 +17040,7 @@
 	tag = "icon-ywflowers_3";
 	icon_state = "ywflowers_3"
 	},
-/turf/unsimulated/floor{
-	icon_state = "grass0";
-	name = "grass"
-	},
+/turf/simulated/floor/grass,
 /area/centcom/transit)
 "aOR" = (
 /obj/structure/window/reinforced,
@@ -17346,10 +17048,7 @@
 	tag = "icon-ppflowers_3";
 	icon_state = "ppflowers_3"
 	},
-/turf/unsimulated/floor{
-	icon_state = "grass0";
-	name = "grass"
-	},
+/turf/simulated/floor/grass,
 /area/centcom/transit)
 "aOS" = (
 /obj/structure/window/basic{
@@ -17541,22 +17240,18 @@
 /area/map_template/wizard_station)
 "aPm" = (
 /obj/structure/sign/urist/nt,
-/turf/unsimulated/wall,
+/turf/simulated/wall/titanium,
 /area/centcom/transit)
 "aPn" = (
 /obj/effect/decal/warning_stripes/urist/arrow{
 	tag = "icon-arrow-n";
 	icon_state = "arrow-n"
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aPo" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid,
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aPp" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
@@ -17564,9 +17259,7 @@
 	icon_state = "benchright";
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aPq" = (
 /obj/structure/flora/grass/both,
@@ -17977,9 +17670,7 @@
 	icon_state = "benchleft";
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aQf" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
@@ -17992,9 +17683,7 @@
 	pixel_x = 0;
 	pixel_y = -27
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aQg" = (
 /obj/structure/bed/chair/urist/bench/bench1/left{
@@ -18009,9 +17698,7 @@
 	pixel_y = -24;
 	tag_door = "centcom_arrivals_door"
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aQh" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
@@ -18022,9 +17709,7 @@
 /obj/structure/sign/urist/ad/sign4{
 	pixel_y = -32
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aQi" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
@@ -18037,9 +17722,7 @@
 	pixel_x = 0;
 	pixel_y = -27
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aQj" = (
 /obj/structure/bed/chair/urist/bench/bench1/left{
@@ -18050,9 +17733,7 @@
 /obj/structure/sign/urist/ad/sign3{
 	pixel_y = -32
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aQk" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
@@ -18063,9 +17744,7 @@
 /obj/structure/sign/urist/ad/sign2{
 	pixel_y = -32
 	},
-/turf/unsimulated/floor{
-	icon_state = "steel"
-	},
+/turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aQl" = (
 /obj/machinery/computer/shuttle_control/assault/alien2{
@@ -18295,10 +17974,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/centcom/transit)
 "aQK" = (
 /obj/structure/table/reinforced,
@@ -18307,10 +17983,7 @@
 	name = "Transit Checkpoint";
 	req_access = list("ACCESS_CENT_GENERAL")
 	},
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/centcom/transit)
 "aQL" = (
 /obj/structure/table/reinforced,
@@ -18318,10 +17991,7 @@
 	dir = 1
 	},
 /obj/item/modular_computer/laptop/preset/records,
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/centcom/transit)
 "aQM" = (
 /turf/unsimulated/wall/urist/other{
@@ -18542,25 +18212,10 @@
 /obj/structure/bed/chair/office/dark{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
-	},
-/area/centcom/transit)
-"aRm" = (
-/turf/simulated/shuttle/wall{
-	dir = 1;
-	icon = 'icons/urist/turf/uristturf.dmi';
-	icon_state = "wall_plating"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/centcom/transit)
 "aRn" = (
-/turf/simulated/shuttle/wall{
-	tag = "icon-wall_plating (WEST)";
-	icon = 'icons/urist/turf/uristturf.dmi';
-	icon_state = "wall_plating";
-	dir = 8
-	},
+/turf/simulated/wall/titanium,
 /area/centcom/transit)
 "aRo" = (
 /obj/machinery/door/airlock{
@@ -67162,22 +66817,22 @@ aaf
 aae
 aae
 aae
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
 aae
 aae
 aae
@@ -67419,13 +67074,13 @@ aaf
 aae
 aae
 aae
-aFT
+aRn
 aae
-aIA
+aIF
 aJJ
-aKC
+aID
 aJJ
-aLT
+aIF
 aae
 aae
 aae
@@ -67434,7 +67089,7 @@ aae
 aae
 aae
 aae
-aFT
+aRn
 aae
 aae
 aae
@@ -67676,13 +67331,13 @@ aaf
 aae
 aae
 aae
-aFT
+aRn
 aae
-aIB
+aJJ
 aJK
 aJM
 aJK
-aIB
+aJJ
 aae
 aae
 aae
@@ -67691,7 +67346,7 @@ aae
 aae
 aae
 aae
-aFT
+aRn
 aae
 aae
 aae
@@ -67933,13 +67588,13 @@ aaf
 aae
 aae
 aae
-aFT
+aRn
 aae
-aIB
+aJJ
 aJL
 aJK
 aLe
-aIB
+aJJ
 aae
 aae
 aae
@@ -67948,7 +67603,7 @@ aae
 aae
 aae
 aae
-aFT
+aRn
 aae
 aae
 aae
@@ -68190,13 +67845,13 @@ aaf
 aae
 aae
 aae
-aFT
+aRn
 aae
-aIB
+aJJ
 aJM
 aJK
 aJM
-aIB
+aJJ
 aae
 aae
 aae
@@ -68205,7 +67860,7 @@ aae
 aae
 aae
 aae
-aFT
+aRn
 aae
 aae
 aae
@@ -68447,22 +68102,22 @@ aaf
 aae
 aae
 aae
-aFT
-aIA
-aIX
+aRn
+aIF
+aJJ
 aJJ
 aKD
 aJJ
-aIX
-aLT
+aJJ
+aIF
 aae
 aae
 aae
-aFT
+aRn
 aPm
-aFT
+aRn
 aPm
-aFT
+aRn
 aae
 aae
 aae
@@ -68704,22 +68359,22 @@ aaf
 aae
 aae
 aae
-aFT
-aIB
+aRn
+aJJ
 aIY
 aJK
 aJK
 aJK
 aLU
-aIB
-aFT
-aFT
-aFT
-aFT
+aJJ
+aRn
+aRn
+aRn
+aRn
 aLk
 aOa
 aLk
-aFT
+aRn
 aae
 aae
 aae
@@ -68961,8 +68616,8 @@ aaf
 aae
 aae
 aae
-aFT
-aIB
+aRn
+aJJ
 aIZ
 aJM
 aJM
@@ -68970,13 +68625,13 @@ aJM
 aJK
 aMC
 aNc
-aHC
-aHC
+aME
+aME
 aNc
 aPn
 aIH
 aQe
-aFT
+aRn
 aae
 aae
 aae
@@ -69218,8 +68873,8 @@ aaf
 aae
 aae
 aae
-aFT
-aIB
+aRn
+aJJ
 aJa
 aJK
 aJK
@@ -69227,13 +68882,13 @@ aJK
 aJK
 aMC
 aNc
-aHC
-aHC
+aME
+aME
 aNc
 aPn
 aIH
 aNh
-aFT
+aRn
 aae
 aae
 aae
@@ -69475,22 +69130,22 @@ aaf
 aae
 aae
 aae
-aFT
-aIB
+aRn
+aJJ
 aJb
 aJM
 aJM
 aJM
 aLV
-aIB
-aIG
-aJh
-aJh
-aOM
+aJJ
+aNd
+aNd
+aNd
+aNd
 aIH
 aIH
 aNh
-aFT
+aRn
 aae
 aae
 aae
@@ -69732,22 +69387,22 @@ aaf
 aae
 aae
 aae
-aFT
-aIC
+aRn
+aID
 aJc
 aJK
 aKE
 aJK
 aJK
-aIC
+aID
 aae
 aae
 aae
-aNe
+aNd
 aIH
 aIH
 aQf
-aFT
+aRn
 aae
 aae
 aae
@@ -69989,7 +69644,7 @@ aae
 aae
 aae
 aae
-aFT
+aRn
 aID
 aJd
 aJM
@@ -70000,11 +69655,11 @@ aID
 aae
 aae
 aae
-aNe
+aNd
 aIH
 aIH
 aQg
-aFT
+aRn
 aae
 aae
 aae
@@ -70246,22 +69901,22 @@ aae
 aae
 aae
 aae
-aFT
-aIB
+aRn
+aJJ
 aJe
 aJK
 aJK
 aJK
 aLW
-aIB
-aIG
-aJh
-aJh
-aNf
+aJJ
+aNd
+aNd
+aNd
+aNd
 aIH
 aMF
 aNh
-aFT
+aRn
 aae
 aae
 aae
@@ -70503,8 +70158,8 @@ aae
 aae
 aae
 aae
-aFT
-aIB
+aRn
+aJJ
 aIZ
 aJM
 aJM
@@ -70512,13 +70167,13 @@ aJM
 aJK
 aMC
 aNc
-aHC
-aHC
+aME
+aME
 aNc
 aPn
 aIH
 aQh
-aFT
+aRn
 aae
 aae
 aae
@@ -70760,8 +70415,8 @@ aae
 aae
 aae
 aae
-aFT
-aIB
+aRn
+aJJ
 aJf
 aJK
 aJK
@@ -70769,13 +70424,13 @@ aJK
 aLX
 aMC
 aNc
-aHC
-aHC
+aME
+aME
 aNc
 aPn
 aIH
 aNi
-aFT
+aRn
 aae
 aae
 aae
@@ -71017,22 +70672,22 @@ aae
 aae
 aae
 aae
-aFT
-aIE
-aIX
+aRn
+aJJ
+aJJ
 aJN
 aJN
 aJN
-aIX
-aMD
+aJJ
+aJJ
 aNd
-aJh
-aJh
-aON
+aNd
+aNd
+aNd
 aIH
 aIH
 aNg
-aFT
+aRn
 aae
 aae
 aae
@@ -71274,22 +70929,22 @@ aae
 aae
 aae
 aae
-aFT
+aRn
 aIF
 aJg
 aJg
 aJg
 aJg
 aJg
-aME
-aNe
+aIF
+aNd
 aNx
 aOa
 aOO
 aIH
 aMF
 aQi
-aFT
+aRn
 aae
 aae
 aae
@@ -71521,32 +71176,32 @@ aae
 aae
 aae
 aae
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aIG
-aJh
-aJh
-aJh
-aJh
-aJh
-aJh
-aNf
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aNd
+aNd
+aNd
+aNd
+aNd
+aNd
+aNd
+aNd
 aIH
 aMF
 aIH
 aIH
 aIH
 aNh
-aFT
+aRn
 aae
 aae
 aae
@@ -71779,16 +71434,16 @@ aae
 aae
 aae
 aFU
-aGf
-aGf
+aNe
+aNe
 aGK
-aGf
-aGf
-aGf
-aGf
-aGf
-aGf
-aGK
+aNe
+aNe
+aNe
+aNe
+aNe
+aNe
+aGM
 aIH
 aIH
 aIH
@@ -71803,7 +71458,7 @@ aIH
 aIH
 aIH
 aNi
-aFT
+aRn
 aae
 aae
 aae
@@ -72035,17 +71690,17 @@ aae
 aae
 aae
 aae
-aFT
-aGf
-aGf
-aFT
+aRn
+aNe
+aNe
+aRn
 aGU
 aHe
 aHr
 aGU
 aHe
 aHr
-aIe
+aNd
 aIH
 aIH
 aIH
@@ -72060,7 +71715,7 @@ aOP
 aIH
 aIH
 aQj
-aFT
+aRn
 aae
 aae
 aae
@@ -72292,17 +71947,17 @@ aae
 aae
 aae
 aae
-aaf
-aEf
-aEf
-aGL
-aGf
+aIC
+aIg
+aIg
+aNd
+aNe
 aHf
-aGf
-aGf
+aNe
+aNe
 aHf
-aGf
-aIf
+aNe
+aNd
 aIH
 aIH
 aIH
@@ -72317,7 +71972,7 @@ aJi
 aII
 aMF
 aNh
-aFT
+aRn
 aae
 aae
 aae
@@ -72549,17 +72204,17 @@ aae
 aae
 aae
 aae
-aaf
-aEf
-aEf
-aGM
+aIC
+aIg
+aIg
+aNd
 aGV
 aHg
 aHs
 aGV
 aHG
 aHs
-aIg
+aNd
 aLf
 aJi
 aJi
@@ -72574,7 +72229,7 @@ aIH
 aIH
 aIH
 aNh
-aFT
+aRn
 aae
 aae
 aae
@@ -72806,22 +72461,22 @@ aae
 aae
 aae
 aae
-aaf
-aaf
-aaf
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
+aIC
+aIC
+aIC
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
 aIH
 aIH
 aLf
@@ -72831,7 +72486,7 @@ aJi
 aII
 aIH
 aQf
-aFT
+aRn
 aae
 aae
 aae
@@ -73073,7 +72728,7 @@ aae
 aae
 aae
 aae
-aFT
+aRn
 aIJ
 aJj
 aJO
@@ -73088,7 +72743,7 @@ aIH
 aIH
 aIH
 aNg
-aFT
+aRn
 aae
 aae
 aae
@@ -73330,12 +72985,12 @@ aae
 aae
 aae
 aae
-aFT
-aFT
-aFT
+aRn
+aRn
+aRn
 aJO
 aJO
-aFT
+aRn
 aLY
 aMF
 aLf
@@ -73345,7 +73000,7 @@ aJi
 aII
 aMF
 aNh
-aFT
+aRn
 aae
 aae
 aae
@@ -73587,12 +73242,12 @@ aae
 aae
 aae
 aae
-aFT
+aRn
 aIJ
 aJk
 aJO
 aJO
-aFT
+aRn
 aLZ
 aIH
 aIH
@@ -73602,7 +73257,7 @@ aIH
 aIH
 aIH
 aQk
-aFT
+aRn
 aae
 aae
 aae
@@ -73844,12 +73499,12 @@ aae
 aae
 aae
 aae
-aFT
-aFT
-aFT
+aRn
+aRn
+aRn
 aJP
 aJP
-aFT
+aRn
 aMa
 aIH
 aLf
@@ -73859,7 +73514,7 @@ aJi
 aII
 aIH
 aNi
-aFT
+aRn
 aae
 aae
 aae
@@ -74100,29 +73755,29 @@ aae
 aae
 aae
 aae
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aMb
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aNd
 aMG
-aMb
-aFT
-aFT
-aFT
-aMb
+aNd
+aRn
+aRn
+aRn
+aNd
 aMG
-aMb
-aFT
-aFT
-aFT
-aFT
-aaf
-aaf
-aaf
+aNd
+aRn
+aRn
+aRn
+aRn
+aIC
+aIC
+aIC
 aae
 aae
 aae
@@ -74357,12 +74012,12 @@ aae
 aae
 aae
 aae
-aFT
+aRn
 aIh
 aGf
-aFT
+aRn
 aHs
-aGf
+aNe
 aLh
 aIH
 aIH
@@ -74374,12 +74029,12 @@ aLm
 aMF
 aIH
 aQJ
-aGf
+aNe
 aHs
-aFT
+aRn
 aEf
 aEf
-aaf
+aIC
 aae
 aae
 aae
@@ -74614,11 +74269,11 @@ aae
 aae
 aae
 aae
-aFT
+aRn
 aGf
 aGf
-aGK
-aGf
+aGM
+aNe
 aKF
 aLi
 aIH
@@ -74632,11 +74287,11 @@ aIH
 aOP
 aQK
 aRl
-aGf
-aGK
+aNe
+aGM
 aEf
 aEf
-aaf
+aIC
 aae
 aae
 aae
@@ -74871,10 +74526,10 @@ aae
 aae
 aae
 aae
-aFT
+aRn
 aGf
 aGf
-aFT
+aRn
 aGV
 aKG
 aLj
@@ -74890,10 +74545,10 @@ aIH
 aQL
 aKG
 aGV
-aFT
+aRn
 aEf
 aEf
-aaf
+aIC
 aae
 aae
 aae
@@ -75128,29 +74783,29 @@ aae
 aae
 aae
 aae
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aMb
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aNd
 aMG
-aMb
-aFT
-aFT
-aFT
-aMb
+aNd
+aRn
+aRn
+aRn
+aNd
 aMG
-aMb
-aFT
-aFT
-aFT
-aFT
-aaf
-aaf
-aaf
+aNd
+aRn
+aRn
+aRn
+aRn
+aIC
+aIC
+aIC
 aae
 aae
 aae
@@ -75390,7 +75045,7 @@ aae
 aae
 aae
 aae
-aFT
+aRn
 aLk
 aIH
 aMF
@@ -75402,7 +75057,7 @@ aPp
 aMF
 aIH
 aLk
-aFT
+aRn
 aae
 aae
 aae
@@ -75647,7 +75302,7 @@ aae
 aae
 aae
 aae
-aFT
+aRn
 aLm
 aIH
 aIH
@@ -75659,7 +75314,7 @@ aIH
 aIH
 aIH
 aNg
-aFT
+aRn
 aae
 aae
 aae
@@ -75904,7 +75559,7 @@ aae
 aae
 aae
 aae
-aFT
+aRn
 aLl
 aIH
 aMF
@@ -75916,7 +75571,7 @@ aIH
 aMF
 aIH
 aNi
-aFT
+aRn
 aae
 aae
 aae
@@ -76153,15 +75808,15 @@ aae
 aae
 aae
 aae
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
 aIH
 aIH
 aIH
@@ -76173,15 +75828,15 @@ aIH
 aIH
 aIH
 aIH
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
 aae
 aae
 aae
@@ -76410,7 +76065,7 @@ aae
 aae
 aae
 aae
-aFT
+aRn
 aHC
 aHC
 aHC
@@ -76418,19 +76073,19 @@ aHC
 aHC
 aHC
 aHC
-aKH
-aLn
+aRn
+aRn
 aMc
 aMc
 aMc
-aLn
-aLn
-aLn
+aRn
+aRn
+aRn
 aMc
 aMc
 aMc
-aLn
-aRm
+aRn
+aRn
 aHC
 aHC
 aHC
@@ -76438,7 +76093,7 @@ aHC
 aHC
 aHC
 aHC
-aFT
+aRn
 aae
 aae
 aae
@@ -76667,7 +76322,7 @@ aae
 aae
 aae
 aae
-aFT
+aRn
 aHC
 aHC
 aHC
@@ -76695,7 +76350,7 @@ aHC
 aHC
 aHC
 aHC
-aFT
+aRn
 aae
 aae
 aae
@@ -76924,7 +76579,7 @@ aae
 aae
 aae
 aae
-aFT
+aRn
 aHC
 aHC
 aHC
@@ -76932,19 +76587,19 @@ aHC
 aHC
 aHC
 aHC
-aKJ
+aKI
 aLp
 aMd
 aMd
 aMd
 aNB
-aOg
+aRn
 aLp
 aMd
 aMd
 aMd
 aNB
-aKJ
+aKI
 aHC
 aHC
 aHC
@@ -76952,7 +76607,7 @@ aHC
 aHC
 aHC
 aHC
-aFT
+aRn
 aae
 aae
 aae
@@ -77181,26 +76836,6 @@ aae
 aae
 aae
 aae
-aFT
-aHC
-aHC
-aHC
-aHC
-aHC
-aHC
-aHC
-aKK
-aLn
-aLn
-aMH
-aLn
-aLn
-aOh
-aLn
-aLn
-aMH
-aLn
-aLn
 aRn
 aHC
 aHC
@@ -77209,7 +76844,27 @@ aHC
 aHC
 aHC
 aHC
-aFT
+aRn
+aRn
+aRn
+aMH
+aRn
+aRn
+aRn
+aRn
+aRn
+aMH
+aRn
+aRn
+aRn
+aHC
+aHC
+aHC
+aHC
+aHC
+aHC
+aHC
+aRn
 aae
 aae
 aae
@@ -77438,35 +77093,35 @@ aae
 aae
 aae
 aae
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
-aFT
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
+aRn
 aae
 aae
 aae

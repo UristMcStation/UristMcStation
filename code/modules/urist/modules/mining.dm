@@ -84,6 +84,10 @@
 
 //planet
 
+/turf/simulated/floor/asteroid/planet
+	initial_gas = list("oxygen" = MOLES_O2STANDARD, "nitrogen" = MOLES_N2STANDARD)
+	temperature = 293.15
+
 /turf/simulated/mineral/planet
 	mined_turf = /turf/simulated/floor/asteroid/planet
 

@@ -2,14 +2,18 @@
 #define HOME_SYSTEM_READE   "Reade III"
 #define HOME_SYSTEM_PROCYON   "Procyon"
 
-#define FACTION_SOL_CENTRAL    "Terran Confederacy"
 #define FACTION_TERRAN_CONFED  "United Human Alliance"
 #define FACTION_ORMA     "Outer Rim Miners Alliance"
 
-#define CULTURE_HUMAN_VENUSIAN "Venusian, Upper Class"
-#define CULTURE_HUMAN_VENUSLOW "Venusian, Lower Class"
 #define CULTURE_HUMAN_ORMA	"ORMA Spacer"
 #define CULTURE_HUMAN_NT	"NanoTrasen Spacer"
+
+#define HOME_SYSTEM_TERSTEN    "Tersten"
+#define HOME_SYSTEM_LORRIMAN   "Lorriman"
+#define HOME_SYSTEM_CINU       "Cinu"
+#define HOME_SYSTEM_YUKLID     "Yuklid V"
+#define HOME_SYSTEM_LORDANIA   "Lordania"
+#define HOME_SYSTEM_KINGSTON   "Kingston"
 
 /datum/map/nerva
 	available_cultural_info = list(

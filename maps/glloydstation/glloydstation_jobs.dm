@@ -116,6 +116,9 @@
 	pda_type = /obj/item/modular_computer/pda/clown
 	id_types = list(/obj/item/card/id/civilian/clown)
 
+//rd
+/datum/job/rd
+	title = "Research Director"
 //ids for the jobs
 
 /obj/item/card/id/civilian/clown

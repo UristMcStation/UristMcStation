@@ -423,6 +423,34 @@
 	icon_state = "captain"
 	sound_env = MEDIUM_SOFTFLOOR
 
+/area/command
+	req_access = list(access_bridge)
+	icon_state = "heads"
+/area/command/ce
+	name = "\improper Chief Engineer's Office"
+	icon_state = "heads_ce"
+
+/area/command/cmo
+	name = "\improper Chief Medical Officer's Office"
+	icon_state = "heads_cmo"
+
+/area/command/rd
+	name = "\improper Research Director's Office"
+	icon_state = "heads_rd"
+
+/area/command/hos
+	name = "\improper Head of Security's Office"
+	icon_state = "heads_hos"
+
+/area/command/hop
+	name = "\improper Head of Personnel's Office"
+	icon_state = "heads_hop"
+
+/area/command/quarters
+	name = "\improper Command Quarters"
+	icon_state = "heads"
+	area_flags = AREA_FLAG_RAD_SHIELDED
+
 // Crew
 
 /area/crew_quarters
@@ -686,7 +714,7 @@
 	name = "\improper Toxins Storage"
 	icon_state = "toxstorage"
 
-area/rnd/test_area
+/area/rnd/test_area
 	name = "\improper Toxins Test Area"
 	icon_state = "toxtest"
 
