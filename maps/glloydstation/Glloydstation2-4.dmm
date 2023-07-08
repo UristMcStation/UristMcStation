@@ -2424,7 +2424,7 @@
 /turf/simulated/floor/plating,
 /area/derelict/medical)
 "gD" = (
-/obj/item/storage/firstaid,
+/obj/random/firstaid,
 /obj/item/robot_parts/l_arm,
 /turf/simulated/floor/plating,
 /area/derelict/medical)
@@ -4109,10 +4109,6 @@
 /turf/simulated/floor/plating,
 /area/derelict/teleporter)
 "lg" = (
-/obj/machinery/computer/teleporter,
-/turf/simulated/floor/airless,
-/area/derelict/teleporter)
-"lh" = (
 /obj/machinery/computer/teleporter,
 /turf/simulated/floor/airless,
 /area/derelict/teleporter)
@@ -31327,7 +31323,7 @@ bR
 lc
 ld
 ld
-lh
+lg
 ld
 ld
 lb

@@ -7179,7 +7179,7 @@
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/administration/centcom)
 "arv" = (
-/obj/item/storage/fancy/smokable,
+/obj/random/smokes,
 /obj/structure/table/standard,
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/administration/centcom)
@@ -9567,7 +9567,7 @@
 "awJ" = (
 /obj/structure/table/rack,
 /obj/item/storage/secure/briefcase,
-/obj/item/storage/fancy/smokable,
+/obj/random/smokes,
 /obj/item/flame/lighter/zippo,
 /obj/item/storage/belt/utility,
 /obj/item/storage/backpack/satchel,
@@ -11420,7 +11420,7 @@
 	dir = 5
 	},
 /obj/item/flame/lighter/zippo,
-/obj/item/storage/fancy/smokable,
+/obj/random/smokes,
 /obj/item/material/ashtray/bronze{
 	pixel_x = -1;
 	pixel_y = 1
@@ -13048,7 +13048,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /obj/item/flame/lighter/zippo,
-/obj/item/storage/fancy/smokable,
+/obj/random/smokes,
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
@@ -19698,7 +19698,7 @@
 	dir = 5
 	},
 /obj/item/flame/lighter/zippo,
-/obj/item/storage/fancy/smokable,
+/obj/random/smokes,
 /obj/item/material/ashtray/bronze{
 	pixel_x = -1;
 	pixel_y = 1
@@ -19714,7 +19714,7 @@
 	dir = 5
 	},
 /obj/item/flame/lighter/zippo,
-/obj/item/storage/fancy/smokable,
+/obj/random/smokes,
 /obj/item/material/ashtray/bronze{
 	pixel_x = -1;
 	pixel_y = 1
@@ -23319,7 +23319,7 @@
 /area/centcom/scom)
 "bbP" = (
 /obj/structure/table/standard,
-/obj/item/storage/fancy/smokable,
+/obj/random/smokes,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/unsimulated/floor{
 	icon_state = "white"
@@ -24539,7 +24539,7 @@
 /area/map_template/skipjack_station/start)
 "bep" = (
 /obj/structure/table/standard,
-/obj/item/storage/fancy/smokable,
+/obj/random/smokes,
 /obj/item/flame/lighter/zippo,
 /obj/item/clothing/gloves/insulated,
 /obj/item/stack/material/steel{

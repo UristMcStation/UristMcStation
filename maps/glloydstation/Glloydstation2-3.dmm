@@ -1061,7 +1061,7 @@
 /area/tcommsat/chamber/abandoned)
 "cT" = (
 /obj/structure/table/standard,
-/obj/item/storage/fancy/smokable,
+/obj/random/smokes,
 /turf/simulated/floor/airless,
 /area/tcommsat/chamber/abandoned)
 "cU" = (

@@ -5375,9 +5375,7 @@
 /turf/simulated/floor/carpet,
 /area/hallway/secondary/entry)
 "alw" = (
-/obj/item/storage/fancy/smokable{
-	pixel_y = 2
-	},
+/obj/random/smokes,
 /obj/item/flame/lighter{
 	pixel_x = 4;
 	pixel_y = 2
@@ -7560,9 +7558,7 @@
 	pixel_x = 4;
 	pixel_y = 2
 	},
-/obj/item/storage/fancy/smokable{
-	pixel_y = 2
-	},
+/obj/random/smokes,
 /obj/item/trash/cigbutt,
 /obj/item/flame/match,
 /obj/effect/decal/cleanable/cobweb2,
@@ -7870,7 +7866,7 @@
 /area/command/quarters)
 "aqX" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
-/obj/item/storage/fancy/smokable,
+/obj/random/smokes,
 /obj/item/clothing/under/rank/chief_engineer,
 /obj/item/device/gps,
 /turf/simulated/floor/lino,
@@ -28204,7 +28200,7 @@
 /area/maintenance/medbay)
 "bfo" = (
 /obj/structure/table/standard,
-/obj/item/storage/fancy/smokable,
+/obj/random/smokes,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "bfp" = (
@@ -38707,7 +38703,7 @@
 /area/security/detectives_office)
 "bzz" = (
 /obj/structure/table/woodentable/walnut,
-/obj/item/storage/fancy/smokable,
+/obj/item/storage/fancy/smokable/professionals,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -64269,9 +64265,7 @@
 /area/crew_quarters/party)
 "cxd" = (
 /obj/structure/table/standard,
-/obj/item/storage/fancy/smokable{
-	pixel_y = 16
-	},
+/obj/random/smokes,
 /turf/simulated/floor/plating,
 /area/crew_quarters/party)
 "cxe" = (
@@ -68694,7 +68688,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
 "cGq" = (
-/obj/item/storage/fancy/smokable,
+/obj/random/smokes,
 /obj/structure/table/rack,
 /obj/effect/landmark/intelspawn,
 /turf/simulated/floor/plating,
@@ -72127,7 +72121,7 @@
 /area/maintenance/cargo)
 "cNm" = (
 /obj/structure/table/standard,
-/obj/item/storage/fancy/smokable,
+/obj/random/smokes,
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
 "cNn" = (
@@ -77545,7 +77539,7 @@
 /area/maintenance/aft)
 "cXQ" = (
 /obj/structure/bed/chair,
-/obj/item/storage/fancy/smokable,
+/obj/random/smokes,
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
 "cXR" = (
@@ -78816,7 +78810,7 @@
 /area/engineering/singulo)
 "dal" = (
 /obj/structure/table/standard,
-/obj/item/storage/fancy/smokable,
+/obj/random/smokes,
 /obj/item/flame/lighter/random{
 	pixel_x = 5
 	},
@@ -83059,7 +83053,7 @@
 "diM" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/matches,
-/obj/item/storage/fancy/smokable,
+/obj/random/smokes,
 /obj/machinery/light/small{
 	dir = 8
 	},

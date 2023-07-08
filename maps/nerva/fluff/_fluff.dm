@@ -7,6 +7,13 @@
 #define CULTURE_HUMAN_NT	"NanoTrasen Spacer"
 #define CULTURE_HUMAN_GRAVEWORLDER "Graveworlder"
 
+#define HOME_SYSTEM_TERSTEN    "Tersten"
+#define HOME_SYSTEM_LORRIMAN   "Lorriman"
+#define HOME_SYSTEM_CINU       "Cinu"
+#define HOME_SYSTEM_YUKLID     "Yuklid V"
+#define HOME_SYSTEM_LORDANIA   "Lordania"
+#define HOME_SYSTEM_KINGSTON   "Kingston"
+
 /datum/map/nerva
 	available_cultural_info = list(
 		TAG_HOMEWORLD = list(
@@ -18,6 +25,12 @@
 			HOME_SYSTEM_TAU_CETI,
 			HOME_SYSTEM_HELIOS,
 			HOME_SYSTEM_TERRA,
+			HOME_SYSTEM_TERSTEN,
+			HOME_SYSTEM_LORRIMAN,
+			HOME_SYSTEM_CINU,
+			HOME_SYSTEM_YUKLID,
+			HOME_SYSTEM_LORDANIA,
+			HOME_SYSTEM_KINGSTON,
 			HOME_SYSTEM_GAIA,
 			HOME_SYSTEM_RYCLIES,
 			HOME_SYSTEM_READE,

@@ -2,7 +2,6 @@
 #define HOME_SYSTEM_READE   "Reade III"
 #define HOME_SYSTEM_PROCYON   "Procyon"
 
-#define FACTION_TERRAN_CONFED  "United Human Alliance"
 #define FACTION_ORMA     "Outer Rim Miners Alliance"
 
 #define CULTURE_HUMAN_ORMA	"ORMA Spacer"
@@ -15,7 +14,7 @@
 #define HOME_SYSTEM_LORDANIA   "Lordania"
 #define HOME_SYSTEM_KINGSTON   "Kingston"
 
-/datum/map/nerva
+/datum/map/glloydstation
 	available_cultural_info = list(
 		TAG_HOMEWORLD = list(
 			HOME_SYSTEM_MARS,

@@ -30,8 +30,9 @@
 	It is well funded, but seen as complacent and bloated. Until recently the Fleet have not had a serious enemy to deal with, \
 	but is generally respected by the populace due to their work keeping away pirates, putting down insurrections, destroying \
 	smugglers and taking potshots at the ocassional Vox. Currently undergoing major \
-	overhauls to improve efficiency and capabilities, publicly to counter encroachment by the Terran Colonial Confederation." */
-/*
+	overhauls to improve efficiency and capabilities, publicly to counter encroachment by the Terran Colonial Confederation."
+
+
 /singleton/cultural_info/faction/tcc
 	name = FACTION_TERRAN_CONFED //this is dumb, but I'm just gonna use this def for the UHA
 	description = "The United Human Alliance, commonly referred to as the UHA, is a growing power in human space, \
@@ -55,8 +56,8 @@
 	subversive_potential = 50
 	language = LANGUAGE_HUMAN_RUSSIAN
 	secondary_langs = list(LANGUAGE_SIGN, LANGUAGE_SOL_COMMON)
-*/
-/*
+
+
 /singleton/cultural_info/faction/remote
 	name = FACTION_EXPEDITIONARY
 	description = "The Expeditionary Corps, commonly referred to as the EC and made up of 'expeds', is a non-military, uniformed \
