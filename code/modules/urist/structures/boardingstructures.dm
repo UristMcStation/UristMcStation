@@ -60,7 +60,7 @@
 			source_y = sp.y
 			source_z = sp.z
 			break
-	QDEL_IN(src, 3 MINUTES)
+	QDEL_IN(src, 5 MINUTES)
 	. = ..()
 
 /obj/structure/boarding/shipportal/shipside/teleport(atom/movable/M as mob|obj)

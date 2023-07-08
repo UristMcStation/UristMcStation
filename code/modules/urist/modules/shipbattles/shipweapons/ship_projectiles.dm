@@ -85,7 +85,7 @@
 	shake_range = 15
 	severity = EX_ACT_HEAVY
 	ex_range = 8
-	ex_dist = 6
+	ex_dist = 12
 
 /obj/item/projectile/bullet/ship/missile/smallalienmissile
 	name = "small alien missile"
@@ -96,7 +96,7 @@
 	shake_range = 20
 	severity = EX_ACT_HEAVY
 	ex_range = 11
-	ex_dist = 7
+	ex_dist = 15
 
 /obj/item/projectile/bullet/ship/missile/bigmissile
 	name = "big missile"
@@ -107,7 +107,7 @@
 	wall_decon = TRUE
 	severity = EX_ACT_DEVASTATING
 	ex_range = 11
-	ex_dist = 9
+	ex_dist = 15
 
 /obj/item/projectile/bullet/ship/missile/bigalienmissile
 	name = "big alien missile"
@@ -118,7 +118,7 @@
 	wall_decon = TRUE
 	severity = EX_ACT_DEVASTATING
 	ex_range = 11
-	ex_dist = 10
+	ex_dist = 15
 
 /obj/item/projectile/bullet/ship/missile/smalltorpedo
 	name = "small torpedo"
@@ -128,8 +128,8 @@
 	shake_range = 20
 	wall_decon = TRUE
 	severity = EX_ACT_HEAVY
-	ex_range = 33
-	ex_dist = 8
+	ex_range = 15
+	ex_dist = 20
 
 /obj/item/projectile/bullet/ship/missile/bigtorpedo
 	name = "big torpedo"
@@ -139,8 +139,8 @@
 	shake_range = 30
 	wall_decon = TRUE
 	severity = EX_ACT_DEVASTATING
-	ex_range = 35
-	ex_dist = 9
+	ex_range = 20
+	ex_dist = 25
 
 /obj/item/projectile/bullet/ship/missile/alientorpedo
 	name = "alien torpedo"
@@ -150,8 +150,8 @@
 	shake_range = 25
 	wall_decon = TRUE
 	severity = EX_ACT_DEVASTATING
-	ex_range = 35
-	ex_dist = 9
+	ex_range = 20
+	ex_dist = 25
 
 /obj/item/projectile/bullet/ship/missile/bigalientorpedo
 	name = "alien torpedo"
@@ -161,8 +161,8 @@
 	shake_range = 30
 	wall_decon = TRUE
 	severity = EX_ACT_DEVASTATING
-	ex_range = 50
-	ex_dist = 10
+	ex_range = 25
+	ex_dist = 30
 
 //beam weapons
 
@@ -269,11 +269,11 @@
 /obj/item/projectile/beam/ship/pulse/light
 	damage = 100
 	severity = EX_ACT_DEVASTATING
-	ex_range = 19
-	shake_range = 12
+	ex_range = 9
+	shake_range = 15
 
 /obj/item/projectile/beam/ship/pulse/heavy
 	damage = 100
 	severity = EX_ACT_DEVASTATING
-	ex_range = 33
-	shake_range = 15
+	ex_range = 15
+	shake_range = 20
