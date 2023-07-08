@@ -412,13 +412,13 @@ armour attachments
 	accessory_icons = list(slot_w_uniform_str = 'maps/torch/icons/mob/onmob_accessories_solgov.dmi', slot_wear_suit_str = 'maps/torch/icons/mob/onmob_accessories_solgov.dmi')
 	icon_state = "solflag"
 	slot = ACCESSORY_SLOT_ARMOR_M
-*/
+
 
 /obj/item/clothing/accessory/armor_tag/solgov/ec
 	name = "\improper Expeditionary Corps crest"
 	desc = "An emblem depicting the crest of the SCG Expeditionary Corps."
 	icon_state = "ecflag"
-
+*/
 /obj/item/clothing/accessory/armor_tag/solgov/sec
 	name = "\improper POLICE tag"
 	desc = "An armor tag with the word POLICE printed in silver lettering on it."

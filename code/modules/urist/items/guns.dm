@@ -869,7 +869,7 @@ the sprite and make my own projectile -Glloyd*/
 	item_state = "combatrevolver"
 	wielded_item_state = "combatrevolver"
 	max_shells = 6
-	caliber = CALIBER_PISTOL_MAGNUM
+	caliber = CALIBER_PISTOL
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	ammo_type = /obj/item/ammo_casing/pistol
 

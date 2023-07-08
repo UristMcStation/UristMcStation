@@ -23,6 +23,7 @@
 	icon = 'icons/obj/guns/ion_pistol.dmi'
 	icon_state = "ionpistol"
 	item_state = "ionpistol"
+	wielded_item_state = "ionpistol"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 4)
 	w_class = ITEM_SIZE_NORMAL
 	force = 5

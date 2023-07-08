@@ -24,6 +24,12 @@
 	var/singleton/supply_method/sm = get_supply_method(supply_method)
 	manifest = sm.setup_manifest(src)
 
+	if(GLOB.using_map.using_new_cargo)
+		if(newcargocost)
+			cost = (newcargocost * GLOB.using_map.new_cargo_inflation)
+		else
+			cost = (cost * GLOB.using_map.new_cargo_inflation) //this needs balancing
+
 /singleton/hierarchy/supply_pack/proc/sec_available()
 	if(isnull(security_level))
 		return TRUE
