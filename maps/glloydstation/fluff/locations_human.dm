@@ -13,8 +13,6 @@
 	distance = "1.5AU"
 	capital = "Olympus"
 	economic_power = 1.1
-	language = LANGUAGE_SOL_COMMON
-	secondary_langs = list(LANGUAGE_SIGN, LANGUAGE_GALCOM)
 	ruling_body = FACTION_SOL_CENTRAL
 
 /*/singleton/cultural_info/location/human/earth
@@ -49,8 +47,6 @@
 
 	capital = "Selene"
 	economic_power = 1.3
-	language = LANGUAGE_HUMAN_SELENIAN
-	secondary_langs = list(LANGUAGE_SIGN,LANGUAGE_SOL_COMMON)
 
 /singleton/cultural_info/location/human/venus
 	name = HOME_SYSTEM_VENUS
@@ -83,8 +79,6 @@
 	employed in shipbuilding, manufacturing, vessel services and hospitality. Belters generally regard themselves as adaptive, proud members of the Terran Confederacy \
 	and some of the best engineers Humanity has to offer."
 	capital = "Government Zone, Ceres Station"
-	language = LANGUAGE_SPACER
-	secondary_langs = list(LANGUAGE_SIGN, LANGUAGE_SOL_COMMON, LANGUAGE_GUTTER)
 
 /singleton/cultural_info/location/human/pluto
 	name = HOME_SYSTEM_PLUTO
@@ -99,8 +93,6 @@
 	manage to escape rarely wish to return, though often possess a looser set of morales as a result of their time on the planet."
 	capital = "New Santa Domingo"
 	economic_power = 0.8
-	language = LANGUAGE_GUTTER
-	secondary_langs = list(LANGUAGE_SIGN, LANGUAGE_SOL_COMMON, LANGUAGE_SPACER)
 
 /singleton/cultural_info/location/human/cetiepsilon
 	name = HOME_SYSTEM_TAU_CETI
@@ -110,12 +102,10 @@
 	in the wider Terran Confederacy, the planet attracted many to its glittering neon lights and easy to get lost in streets. The bright point of \
 	the planet is the Ceti Institute of Technology, is one of the foremost institutions of its type in the TC. \
 	br><br>The people of Ceti Epsilon are some of the most, well, average in the TC. Being from a largely built up world with a focus on \
-	the cutting edge, most Episoloners are tech-savvy, at the very least and are usually well educated, with a focus on the sciences. The people \
+	the cutting edge, most Epsiloners are tech-savvy, at the very least and are usually well educated, with a focus on the sciences. The people \
 	of Ceti Episilon have developed a reputation for being some of the best and brightest that the Confederacy has to offer."
 	capital = "Verlize"
 	economic_power = 1.2
-	language = LANGUAGE_GALCOM
-	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_SIGN)
 
 /singleton/cultural_info/location/human/eos
 	name = HOME_SYSTEM_HELIOS
@@ -126,8 +116,6 @@
 	This fact alone is what has allowed the Helios system and Eos as a whole to weather multiple economic recessions and has allowed Eos to establish itself as a premier commercial centre of the wider \
 	TC."
 	capital = "Surya"
-	language = LANGUAGE_SOL_COMMON
-	secondary_langs = list(LANGUAGE_SIGN, LANGUAGE_SPACER)
 	economic_power = 1.3
 	distance = "10 light years"
 /*
@@ -165,8 +153,6 @@
 	Many Tersteners serve in the Defence Forces, and many gave their lives in the Unathi Wars."
 	capital = "Tersten City"
 	economic_power = 1.0
-	language = LANGUAGE_GALCOM
-	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_SIGN)
 
 /singleton/cultural_info/location/human/lorriman
 	name = HOME_SYSTEM_LORRIMAN
@@ -182,7 +168,6 @@
 	A scientifically driven people, they have served many organisations loyally."
 	capital = "The Hub"
 	economic_power = 1.0
-	secondary_langs = list(LANGUAGE_SIGN)
 
 /singleton/cultural_info/location/human/cinu
 	name = HOME_SYSTEM_CINU
@@ -197,8 +182,6 @@
 	with many refusing to participate in the Defence Forces. Instead, they serve as peacekeepers and diplomats."
 	capital = "Al-Mular"
 	economic_power = 1.0
-	language = LANGUAGE_GALCOM
-	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_SIGN)
 
 /singleton/cultural_info/location/human/yuklid
 	name = HOME_SYSTEM_YUKLID
@@ -211,8 +194,6 @@
 	More recently, a spiritualist movement has developed on the planet, taking aspects of religious theory and the hippocratic oath."
 	capital = "Iyeegi"
 	economic_power = 0.9
-	language = LANGUAGE_GALCOM
-	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_SIGN)
 
 /singleton/cultural_info/location/human/lordania
 	name = HOME_SYSTEM_LORDANIA
@@ -227,8 +208,6 @@
 	and often see themselves as better. Most Lordanians are seen as untrustworthy, or selfish. As such, they are rarely seen within the Terran Defence Forces."
 	capital = "New Ares"
 	economic_power = 1.2
-	language = LANGUAGE_GALCOM
-	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_HUMAN_SELENIAN)
 
 /singleton/cultural_info/location/human/kingston
 	name = HOME_SYSTEM_KINGSTON
@@ -242,8 +221,6 @@
 	their Sol-born brothers, and are usually seen onboard most TC Vessels.  Growing up on a waterworld, most Kingstonians can sail a boat, something rare in the 26th Century."
 	capital = "New Havana"
 	economic_power = 1.1
-	language = LANGUAGE_SOL_COMMON
-	secondary_langs = list(LANGUAGE_SPACER, LANGUAGE_GALCOM)
 
 /singleton/cultural_info/location/human/gaia
 	name = HOME_SYSTEM_GAIA
@@ -251,8 +228,6 @@
 	description = "Gaia is the sole planet in the Galilei system, and a noted agricultural world."
 	capital = "New Venice"
 	economic_power = 0.7
-	language = LANGUAGE_SOL_COMMON
-	secondary_langs = list(LANGUAGE_HUMAN_RUSSIAN, LANGUAGE_GALCOM)
 
 /singleton/cultural_info/location/human/ryclies
 	name = HOME_SYSTEM_RYCLIES
@@ -267,8 +242,6 @@
 	a point of pride for many Ryclians."
 	capital = "Ryclies City"
 	economic_power = 0.7
-	language = LANGUAGE_SOL_COMMON
-	secondary_langs = list(LANGUAGE_SPACER, LANGUAGE_GALCOM)
 
 /singleton/cultural_info/location/human/reade
 	name = HOME_SYSTEM_READE
@@ -278,8 +251,6 @@
 	capital = "New Reade City"
 	economic_power = 0.7
 	ruling_body = FACTION_ORMA
-	language = LANGUAGE_SPACER
-	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_GALCOM)
 
 /singleton/cultural_info/location/human/procyon
 	name = HOME_SYSTEM_PROCYON
@@ -291,5 +262,3 @@
 	capital = "Trasen City"
 	economic_power = 1.3
 	ruling_body = FACTION_NANOTRASEN
-	language = LANGUAGE_SOL_COMMON
-	secondary_langs = list(LANGUAGE_GALCOM)

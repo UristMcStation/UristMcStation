@@ -7,13 +7,14 @@
 	description = "You are from one of various planetary cultures of humankind."
 	secondary_langs = list(
 		LANGUAGE_GALCOM,
+		LANGUAGE_SOL_COMMON,
 		LANGUAGE_HUMAN_CHINESE,
 		LANGUAGE_HUMAN_ARABIC,
 		LANGUAGE_HUMAN_INDIAN,
 		LANGUAGE_HUMAN_IBERIAN,
 		LANGUAGE_HUMAN_RUSSIAN,
 		LANGUAGE_SPACER,
-		LANGUAGE_SIGN
+		LANGUAGE_SIGN,
 	)
 
 /singleton/cultural_info/culture/human/martian_surfacer
@@ -92,7 +93,8 @@
 		LANGUAGE_HUMAN_RUSSIAN,
 		LANGUAGE_SPACER,
 		LANGUAGE_GUTTER,
-		LANGUAGE_SIGN)
+		LANGUAGE_SIGN,
+		LANGUAGE_SOL_COMMON)
 
 /singleton/cultural_info/culture/human/earthling
 	name = CULTURE_HUMAN_EARTH
@@ -156,7 +158,8 @@
 		LANGUAGE_HUMAN_RUSSIAN,
 		LANGUAGE_SPACER,
 		LANGUAGE_GUTTER,
-		LANGUAGE_SIGN)
+		LANGUAGE_SIGN,
+		LANGUAGE_SOL_COMMON)
 
 /singleton/cultural_info/culture/human/vatgrown
 	name = CULTURE_HUMAN_VATGROWN

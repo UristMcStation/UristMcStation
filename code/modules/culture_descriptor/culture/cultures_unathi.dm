@@ -70,8 +70,8 @@
 	much of their origins to the nomadic savannah clans, though it still varies greatly. Many of them still retain their traditions from their \
 	original homes. Now considering themselves as pioneers, they are varied in their ways. Many function as merchants and trade haulers, offering services \
 	to the Moghes Hegemony and Sol businesses alike."
+	language = LANGUAGE_UNATHI_SINTA
 	secondary_langs = list(
-		LANGUAGE_UNATHI_SINTA,
 		LANGUAGE_UNATHI_YEOSA,
 		LANGUAGE_SIGN,
 		LANGUAGE_GALCOM,

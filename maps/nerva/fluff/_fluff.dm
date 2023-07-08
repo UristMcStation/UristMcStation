@@ -89,3 +89,6 @@
 		TAG_CULTURE =   CULTURE_HUMAN_MARTIAN,
 		TAG_RELIGION =  RELIGION_AGNOSTICISM
 	)
+
+/datum/language/human/euro
+	warning = "Automatically given if spawning on the Nerva."

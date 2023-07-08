@@ -4,7 +4,6 @@
 	are known as Monsians, the largest cultural group on the planet. Most Surfacers have had a decent upbringing and represent the \
 	average level of comfort expected in Terran space. Most surfacers are like many across the galaxy, though a few harbour rivalries with other Martian cultural \
 	groups or are generally overly proud of their heritage, to the point that they constantly refer to it."
-	secondary_langs = list(LANGUAGE_SOL_COMMON)
 	economic_power = 1
 
 /singleton/cultural_info/culture/human/martian_tunneller
@@ -14,7 +13,6 @@
 	to the same amenities and services as Surfacers are somewhat poorer than their aboveground brethren as a result of their less desirable locale as well as a strong \
 	criminal presence stemming from centuries of poor policing and a focus on the surface by the martian government. Most Tunnellers are resilient, though distrusting \
 	and wary of outsiders, and tend to strongly dislike non-Martians."
-	secondary_langs = list(LANGUAGE_GUTTER, LANGUAGE_SIGN)
 	economic_power = 0.9
 
 /singleton/cultural_info/culture/human/luna_poor
@@ -23,7 +21,6 @@
 	While Luna is known for its richness, the arts, culture and old money, it is also home to a sizeable population of working poor and indentured servants. Typically the corporate employees \
 	of one of the various corporations, persons hired in service roles in one of the many prefectures or a resident of New Vegas. The 'poor' of Luna typically resent the rich because of their \
 	financial, cultural and political power and influence over their lives."
-	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_SPACER)
 	economic_power = 0.7
 
 /singleton/cultural_info/culture/human/luna_rich
@@ -33,7 +30,6 @@
 	Luna’s upper class isn’t equal; generally divided between new, corporate money and old, dynastic money; many members of the old dynasties look down on the newly wealthy. \
 	Much of the elite of Luna is embroiled in 'The Game' a state of political manoeuvring and intrigue among various factions and persons of influence and power \
 	with implications far beyond the squabbles of the prefectures."
-	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_HUMAN_SELENIAN)
 	economic_power = 1.5
 
 /singleton/cultural_info/culture/human/venusian_upper
@@ -41,7 +37,6 @@
 	description = "You are from one of the wealthier aerostats of Venus. Floating high above the ground of the planet on massive platforms, you are one of the many who live on one of the most decadent locations in the \
 	Terran Confederacy. As a Venusian, you know luxury, wealth and entertainment. Primarily a trade and tourist destination, many of the permanent residents work in the tourism industry and are notably middle-income. \
 	Those above are exceptionally wealthy, being hotel, casino, resort owners, politicians, bankers, traders or rich retirees."
-	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_HUMAN_SELENIAN)
 	economic_power = 1.4
 
 /singleton/cultural_info/culture/human/venusian_surfacer
@@ -50,7 +45,6 @@
 	have far lower standards of living. A hardy people who spend much of their time working in mostly unpleasant conditions in order to maintain Venusian society, \
 	they are a people who value hard work, solidarity, unity and democracy. Unfortunately, while they support noble ideals, the reality of their situation does not always \
 	match them, and much of the poorer aerostats find themselves rife with organised crime, separatist groups and other criminal organisations."
-	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_GUTTER)
 	economic_power = 0.9
 
 /singleton/cultural_info/culture/human/belter
@@ -60,7 +54,6 @@
 	pot owing to the sheer number of transient workers, hauler crews and government and corporate employees basing themselves around the great shipyards of Ceres. This has led to belter \
 	culture being mainly about embracing change, new people and new experiences, as well as a sense of pride in their work, as the reputation of Ceres shipbuilding is widely known across \
 	human space."
-	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_SPACER)
 	economic_power = 1
 
 /singleton/cultural_info/culture/human/plutonian
@@ -69,7 +62,6 @@
 	much of the planet's infrastructure being unstable or outright falling apart. This, coupled with rampant corruption and the large influence of criminal organisations across much of \
 	the planet has led to the people of Pluto having something of a seedy reputation, its citizens being viewed with disrepute. The people themselves, however, are usually \
 	just happy to get off the rock and to healthier locales. Unfortunately, despite the efforts of the wider Confederacy, many Plutonians tend to maintain criminal ties, even offworld."
-	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_GUTTER)
 	economic_power = 0.8
 
 /*/singleton/cultural_info/culture/human/earthling
@@ -89,7 +81,6 @@
 	This has afforded those from the system or planet a reputation as being a cut above the rest in technical matters, with those who attended the Ceti Institute of Technology \
 	being considered some of the best qualified technical specialists in humanity. Recently there has been a rising transhumanist element in Ceti society resulting in a large \
 	cybernetics culture; it is not uncommon to see many Cetites sporting some chrome."
-	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_SPACER)
 	economic_power = 1.1
 
 /singleton/cultural_info/culture/human/spacer_core
@@ -98,7 +89,6 @@
 	gateway installations or other facilities that occupy the vastness of space. Spacers near the core worlds are accustomed to life in the fast lane, constantly moving between \
 	places, meeting a myriad of people and experiencing many of the cultures and worlds close to humanity's home. As such, Spacers of the core systems tend to be busy, sociable and \
 	mobile, rarely satisfied with settled life. They almost universally know how to live and work in the void and take to such jobs more readily than their planet-bound counterparts."
-	secondary_langs = list(LANGUAGE_SPACER, LANGUAGE_SOL_COMMON)
 	economic_power = 1
 
 /singleton/cultural_info/culture/human/spacer_frontier
@@ -107,7 +97,6 @@
 	those who live so far from anything only look to their close family and friends rather than any larger group. Raised on one of the long haul freighters that move between frontier worlds delivering \
 	vital goods, a lonely outpost on the edge of a dreary backwater, such people are raised in small, confined environments with few others, and tend to be most familiar with older, reliable but outdated \
 	technology. An independent sort, people on the frontier are more likely to be isolationist and self-driven."
-	secondary_langs = list(LANGUAGE_SPACER, LANGUAGE_SIGN)
 	economic_power = 0.9
 
 /singleton/cultural_info/culture/human/orma
@@ -115,7 +104,6 @@
 	description =  "You are from the farthest extent of human settlement, the so-called 'Outer Rim.' As someone born and raised in one of the Outer Rim Miners Alliance's outposts, \
 	you are used to hardships. Indeed, ORMA outposts have long been a target for pirates, despite the widespread poverty of the area. People from ORMA are typically raised in small, confined environments with few others, and tend to be most familiar with older, reliable but outdated \
 	technology. An independent sort, they are more likely to be isolationist and self-driven."
-	secondary_langs = list(LANGUAGE_SPACER, LANGUAGE_SIGN)
 	economic_power = 0.8
 
 /*/singleton/cultural_info/culture/human/confederate
@@ -144,7 +132,6 @@
 	above-average education, and are generally wealthier than their equivalents in the Terran Confederacy. However, this doesn't apply to the poor in NT controlled space. \
 	The NanoTrasen lower class is much worse off than the TC lower class, and many struggle to get by working crushing hours at terrible jobs for minimal pay, \
 	due to the almost complete lack of labour regulation in NT space."
-	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_SIGN)
 	economic_power = 1.1
 
 /*/singleton/cultural_info/culture/human/graveworlder

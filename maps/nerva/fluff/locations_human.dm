@@ -17,8 +17,6 @@
 	distance = "1.5AU"
 	capital = "Olympus"
 	economic_power = 1.1
-	language = LANGUAGE_SOL_COMMON
-	secondary_langs = list(LANGUAGE_SIGN, LANGUAGE_GALCOM)
 	ruling_body = FACTION_SOL_CENTRAL
 
 /*/singleton/cultural_info/location/human/earth
@@ -53,8 +51,6 @@
 
 	capital = "Selene"
 	economic_power = 1.3
-	language = LANGUAGE_HUMAN_SELENIAN
-	secondary_langs = list(LANGUAGE_SIGN,LANGUAGE_SOL_COMMON)
 
 /singleton/cultural_info/location/human/venus
 	name = HOME_SYSTEM_VENUS
@@ -90,8 +86,6 @@
 	and some of the best engineers Humanity has to offer. Ceres sustained severe damage during the xeno push on Mars during the Galactic Crisis, but has rebounded quickly due to the demands of \
 	the Terran Civil War, becoming the main center of the Terran Navy's rebuilding project."
 	capital = "Government Zone, Ceres Station"
-	language = LANGUAGE_SPACER
-	secondary_langs = list(LANGUAGE_SIGN, LANGUAGE_SOL_COMMON, LANGUAGE_GUTTER)
 
 /singleton/cultural_info/location/human/pluto
 	name = HOME_SYSTEM_PLUTO
@@ -108,8 +102,6 @@
 	This, along with the economic downturn following the Galactic Crisis, has only exacerbated the crushing poverty on Pluto."
 	capital = "New Santa Domingo"
 	economic_power = 0.8
-	language = LANGUAGE_GUTTER
-	secondary_langs = list(LANGUAGE_SIGN, LANGUAGE_SOL_COMMON, LANGUAGE_SPACER)
 
 /singleton/cultural_info/location/human/cetiepsilon
 	name = HOME_SYSTEM_TAU_CETI
@@ -128,9 +120,7 @@
 	knows someone who died during the invasion, and they carry this collective trauma with them."
 	capital = "Verlize"
 	economic_power = 1.2
-	language = LANGUAGE_GALCOM
-	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_SIGN)
-
+	
 /singleton/cultural_info/location/human/eos
 	name = HOME_SYSTEM_HELIOS
 	description = "Eos, in the Helios system, is itself a small, hot, dense world. The world itself is of only marginal importance, though it supports a densely packed city, Surya, \
@@ -141,8 +131,6 @@
 	TC. This process was hindered during the Galactic Crisis, when the refueling stations were destroyed by xeno forces, although the planet was largely spared thanks to the timely arrival of an ANFOR fleet \
 	It has recovered rapidly since the end of the Galactic Crisis, though the memories of that event carry in the collective consciousness of those who survived it."
 	capital = "Surya"
-	language = LANGUAGE_SOL_COMMON
-	secondary_langs = list(LANGUAGE_SIGN, LANGUAGE_SPACER)
 	economic_power = 1.3
 	distance = "10 light years"
 
@@ -157,8 +145,6 @@
 	Despite this, the people of Terra are a proud and unbroken people who are heavily patriotic and tend to bring this with them wherever they go."
 	capital = "Ameranth"
 	ruling_body = FACTION_INDIE_CONFED
-	language = LANGUAGE_HUMAN_RUSSIAN
-	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_GALCOM)
 	distance = "22.5 light years."
 	economic_power = 0.9
 
@@ -179,8 +165,6 @@
 	Many Tersteners serve in the Defence Forces, and many gave their lives in the Galactic Crisis."
 	capital = "Tersten City"
 	economic_power = 1.0
-	language = LANGUAGE_GALCOM
-	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_SIGN)
 
 /singleton/cultural_info/location/human/lorriman
 	name = HOME_SYSTEM_LORRIMAN
@@ -197,7 +181,6 @@
 	A scientifically driven people, they have served many organisations loyally."
 	capital = "The Hub"
 	economic_power = 1.0
-	secondary_langs = list(LANGUAGE_SIGN)
 
 /singleton/cultural_info/location/human/cinu
 	name = HOME_SYSTEM_CINU
@@ -213,8 +196,6 @@
 	with many refusing to participate in the Defence Forces. Instead, they serve as peacekeepers and diplomats."
 	capital = "Al-Mular"
 	economic_power = 1.0
-	language = LANGUAGE_GALCOM
-	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_SIGN)
 
 /singleton/cultural_info/location/human/yuklid
 	name = HOME_SYSTEM_YUKLID
@@ -227,8 +208,6 @@
 	More recently, a spiritualist movement has developed on the planet, taking aspects of religious theory and the hippocratic oath."
 	capital = "Iyeegi"
 	economic_power = 0.9
-	language = LANGUAGE_GALCOM
-	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_SIGN)
 
 /singleton/cultural_info/location/human/lordania
 	name = HOME_SYSTEM_LORDANIA
@@ -243,8 +222,6 @@
 	and often see themselves as better. Most Lordanians are seen as untrustworthy, or selfish. As such, they are rarely seen within the Terran Defence Forces."
 	capital = "New Ares"
 	economic_power = 1.2
-	language = LANGUAGE_GALCOM
-	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_HUMAN_SELENIAN)
 
 /singleton/cultural_info/location/human/kingston
 	name = HOME_SYSTEM_KINGSTON
@@ -259,8 +236,6 @@
 	their Sol-born brothers, and are usually seen onboard most TC Vessels.  Growing up on a waterworld, most Kingstonians can sail a boat, something rare in the 26th Century."
 	capital = "New Havana"
 	economic_power = 1.1
-	language = LANGUAGE_SOL_COMMON
-	secondary_langs = list(LANGUAGE_SPACER, LANGUAGE_GALCOM)
 
 /singleton/cultural_info/location/human/gaia
 	name = HOME_SYSTEM_GAIA
@@ -272,8 +247,6 @@
 	once again.  They suffered hard twenty years ago, and fear they may suffer again."
 	capital = "New Venice"
 	economic_power = 0.7
-	language = LANGUAGE_SOL_COMMON
-	secondary_langs = list(LANGUAGE_HUMAN_RUSSIAN, LANGUAGE_GALCOM)
 
 /singleton/cultural_info/location/human/ryclies
 	name = HOME_SYSTEM_RYCLIES
@@ -296,8 +269,6 @@
 	Ryclians habour support for the UHA."
 	capital = "Ryclies City"
 	economic_power = 0.7
-	language = LANGUAGE_SOL_COMMON
-	secondary_langs = list(LANGUAGE_SPACER, LANGUAGE_GALCOM)
 
 /singleton/cultural_info/location/human/reade
 	name = HOME_SYSTEM_READE
@@ -308,8 +279,6 @@
 	capital = "New Reade City"
 	economic_power = 0.7
 	ruling_body = FACTION_ORMA
-	language = LANGUAGE_SPACER
-	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_GALCOM)
 
 /singleton/cultural_info/location/human/procyon
 	name = HOME_SYSTEM_PROCYON
@@ -322,5 +291,3 @@
 	capital = "Trasen City"
 	economic_power = 1.3
 	ruling_body = FACTION_NANOTRASEN
-	language = LANGUAGE_SOL_COMMON
-	secondary_langs = list(LANGUAGE_GALCOM)
