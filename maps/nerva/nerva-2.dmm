@@ -5468,7 +5468,8 @@
 /area/security/lockers)
 "ajQ" = (
 /obj/machinery/recharger/wallcharger{
-	pixel_x = 32
+	pixel_x = 23;
+	dir = 8
 	},
 /obj/effect/floor_decal/corner/black{
 	dir = 6;
@@ -7458,7 +7459,8 @@
 /obj/item/gun/energy/laser,
 /obj/item/gun/energy/laser,
 /obj/machinery/recharger/wallcharger{
-	pixel_x = 32
+	pixel_x = 23;
+	dir = 8
 	},
 /obj/item/gun/energy/gun,
 /turf/simulated/floor/tiled/techmaint,
@@ -8174,7 +8176,8 @@
 	autorun_program = /datum/computer_file/program/camera_monitor
 	},
 /obj/machinery/recharger/wallcharger{
-	pixel_x = 32
+	pixel_x = 23;
+	dir = 8
 	},
 /obj/effect/floor_decal/corner/black{
 	dir = 6;
@@ -9059,7 +9062,8 @@
 	dir = 8
 	},
 /obj/machinery/recharger/wallcharger{
-	pixel_x = 32
+	pixel_x = 23;
+	dir = 8
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/office)
@@ -9108,7 +9112,8 @@
 	anchored = 1
 	},
 /obj/machinery/recharger/wallcharger{
-	pixel_x = 32
+	pixel_x = 23;
+	dir = 8
 	},
 /obj/item/gun/projectile/hi2521pistol,
 /obj/item/gun/projectile/hi2521pistol,
@@ -30510,12 +30515,13 @@
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	frequency = 1379;
 	id_tag = "port_gun_airlock";
-	pixel_x = 25;
+	pixel_x = 23;
 	req_access = list("ACCESS_EXTERNAL");
 	tag_airpump = "port_gun_pump";
 	tag_chamber_sensor = "port_gun_sensor";
 	tag_exterior_door = "port_gun_outer";
-	tag_interior_door = "port_gun_inner"
+	tag_interior_door = "port_gun_inner";
+	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	id_tag = "port_gun_pump"
@@ -30538,11 +30544,12 @@
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	frequency = 1379;
 	id_tag = "starboardgun_airlock";
-	pixel_x = 29;
+	pixel_x = 23;
 	tag_airpump = "starboardgun_pump";
 	tag_chamber_sensor = "starboardgun_sensor";
 	tag_exterior_door = "starboardgun_outer";
-	tag_interior_door = "starboardgun_inner"
+	tag_interior_door = "starboardgun_inner";
+	dir = 8
 	},
 /obj/machinery/airlock_sensor{
 	frequency = 1379;

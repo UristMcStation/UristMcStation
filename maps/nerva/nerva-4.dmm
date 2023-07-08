@@ -3093,7 +3093,8 @@
 	tag_airpump = "solar_bridge_pump";
 	tag_chamber_sensor = "solar_bridge_sensor";
 	tag_exterior_door = "solar_bridge_outer";
-	tag_interior_door = "solar_bridge_inner"
+	tag_interior_door = "solar_bridge_inner";
+	layer = 4
 	},
 /obj/machinery/airlock_sensor{
 	frequency = 1379;
