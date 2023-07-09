@@ -77,7 +77,7 @@
 /area/turbolift/main_first_deck
 	name = "First Deck"
 	base_turf = /turf/simulated/open
-	lift_announce_str = "Arriving at First Deck: AI Core. Docking Port. Security Checkpoint."
+	lift_announce_str = "Arriving at First Deck: AI Core. Docking Port. Security Checkpoint. Bluspace Drive."
 
 /obj/nerva_lift_map_holder
 	name = "turbolift map placeholder"
