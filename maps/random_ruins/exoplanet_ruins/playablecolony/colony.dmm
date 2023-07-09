@@ -1779,6 +1779,8 @@
 /obj/item/reagent_containers/ivbag/blood/skrell/oneg,
 /obj/item/reagent_containers/ivbag/blood/unathi/oneg,
 /obj/item/reagent_containers/ivbag/blood/unathi/oneg,
+/obj/item/reagent_containers/ivbag/blood/teshari/oneg,
+/obj/item/reagent_containers/ivbag/blood/teshari/oneg,
 /turf/simulated/floor/tiled/freezer,
 /area/map_template/colony/surgery)
 "dR" = (

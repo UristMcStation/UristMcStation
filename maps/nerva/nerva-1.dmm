@@ -889,6 +889,8 @@
 /obj/item/reagent_containers/ivbag/blood/skrell/oneg,
 /obj/item/reagent_containers/ivbag/blood/unathi/oneg,
 /obj/item/reagent_containers/ivbag/blood/unathi/oneg,
+/obj/item/reagent_containers/ivbag/blood/teshari/oneg,
+/obj/item/reagent_containers/ivbag/blood/teshari/oneg,
 /obj/effect/catwalk_plated/white,
 /obj/structure/closet/secure_closet/medical_wall{
 	name = "Blood Locker";

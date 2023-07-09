@@ -435,6 +435,8 @@
 /obj/item/reagent_containers/ivbag/blood/skrell/oneg,
 /obj/item/reagent_containers/ivbag/blood/unathi/oneg,
 /obj/item/reagent_containers/ivbag/blood/unathi/oneg,
+/obj/item/reagent_containers/ivbag/blood/teshari/oneg,
+/obj/item/reagent_containers/ivbag/blood/teshari/oneg,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
 /area/map_template/colony2/ship)
