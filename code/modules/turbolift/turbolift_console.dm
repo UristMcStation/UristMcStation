@@ -57,10 +57,6 @@
 	var/datum/turbolift_floor/floor
 	mouse_opacity = 2 //No more eyestrain aiming at tiny pixels
 
-/obj/structure/lift/button/New()
-	..()
-	set_extension(src, /datum/extension/base_icon_state, /datum/extension/base_icon_state, icon_state)
-
 /obj/structure/lift/button/Destroy()
 	if(floor && floor.ext_panel == src)
 		floor.ext_panel = null
@@ -88,11 +84,10 @@
 	update_icon()
 
 /obj/structure/lift/button/on_update_icon()
-	var/datum/extension/base_icon_state/bis = get_extension(src, /datum/extension/base_icon_state)
 	if(light_up)
-		icon_state = "[bis.base_icon_state]_lit"
+		icon_state = "button_lit"
 	else
-		icon_state = bis.base_icon_state
+		icon_state = initial(icon_state)
 
 /obj/structure/lift/button/railing
 	icon_state = "railing_button"
