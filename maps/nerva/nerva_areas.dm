@@ -432,6 +432,12 @@
 	icon_state = "engineering_storage"
 	sound_env = SMALL_ENCLOSED
 
+/area/engineering/bluespace
+	name = "Bluespace Drive Containment"
+	icon_state = "engineering"
+	color = COLOR_BLUE_LIGHT
+	req_access = list(list(access_engine_equip, access_heads), access_engine, access_maint_tunnels)
+
 // Substations
 
 /area/engineering/substation

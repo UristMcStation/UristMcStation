@@ -5816,6 +5816,7 @@
 "kW" = (
 /obj/effect/floor_decal/corner/yellow/full,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/firecloset,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/first_deck_storage)
 "kX" = (
@@ -5942,28 +5943,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "le" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4;
-	icon_state = "intact-scrubbers"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4;
-	icon_state = "intact-supply";
-	tag = "icon-intact-supply (EAST)"
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	tag = ""
-	},
-/obj/machinery/light/small/red{
-	dir = 1;
-	icon_state = "firelight1"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/first_deck/central)
+/obj/machinery/bluespacedrive,
+/turf/simulated/floor/bluegrid,
+/area/engineering/bluespace)
 "lf" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -6194,16 +6176,31 @@
 /turf/simulated/floor/tiled/monotile,
 /area/hallway/centralfirst)
 "lz" = (
-/obj/structure/closet,
-/obj/item/contraband/poster,
-/obj/random/soap,
-/turf/simulated/floor/plating,
-/area/maintenance/first_deck/central)
-"lA" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Firefighting equipment";
-	req_access = list("ACCESS_MAINT")
+/obj/effect/wallframe_spawn/reinforced_phoron,
+/obj/machinery/door/blast/regular/open{
+	id_tag = "bsdwindow";
+	name = "Drive Containment";
+	dir = 4
 	},
+/turf/space,
+/area/engineering/bluespace)
+"lA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply";
+	tag = "icon-intact-supply (EAST)"
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	tag = ""
+	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "lB" = (
@@ -6614,18 +6611,32 @@
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
 "lX" = (
-/obj/structure/table/rack,
-/obj/random/suit,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "lY" = (
-/obj/item/stool/padded,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9;
+	icon_state = "intact"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "lZ" = (
-/obj/item/storage/firstaid/fire{
-	pixel_x = -2;
-	pixel_y = 4
+/obj/machinery/light/small/red{
+	dir = 1;
+	icon_state = "firelight1"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
@@ -6766,28 +6777,27 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "mt" = (
-/obj/structure/table/standard,
-/obj/item/device/t_scanner,
-/turf/simulated/floor/plating,
-/area/maintenance/first_deck/central)
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/engineering/bluespace)
 "mu" = (
-/obj/structure/closet,
-/obj/random/maintenance,
-/obj/machinery/light/small,
-/turf/simulated/floor/plating,
-/area/maintenance/first_deck/central)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/engineering/bluespace)
 "mv" = (
-/obj/structure/table/rack{
-	dir = 1
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = -24
 	},
-/obj/item/clothing/suit/fire/firefighter,
-/obj/item/tank/oxygen,
-/obj/item/clothing/mask/gas,
-/obj/item/extinguisher,
-/obj/item/clothing/head/hardhat/red,
-/obj/item/clothing/glasses/meson,
-/turf/simulated/floor/plating,
-/area/maintenance/first_deck/central)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers";
+	tag = "icon-intact-scrubbers (EAST)"
+	},
+/turf/simulated/floor/bluegrid,
+/area/engineering/bluespace)
 "mw" = (
 /obj/item/trash/cigbutt/rand,
 /obj/item/trash/cigbutt/rand,
@@ -6872,11 +6882,8 @@
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
 "mH" = (
-/obj/structure/table/rack,
-/obj/random/maintenance,
-/obj/random/maintenance,
-/turf/simulated/floor/plating,
-/area/maintenance/first_deck/central)
+/turf/simulated/floor/bluegrid,
+/area/engineering/bluespace)
 "mI" = (
 /obj/item/device/flashlight/lamp/green,
 /obj/structure/table/standard,
@@ -7141,22 +7148,16 @@
 "nc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4";
 	tag = "90Curve"
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/monotile,
 /area/hallway/centralfirst)
 "nd" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -7166,9 +7167,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
 "ne" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -7178,32 +7176,46 @@
 	icon_state = "4-8";
 	tag = ""
 	},
+/obj/effect/wallframe_spawn/reinforced_phoron,
+/obj/machinery/door/blast/regular/open{
+	id_tag = "bsdwindow";
+	name = "Drive Containment";
+	dir = 4
+	},
 /turf/simulated/floor/plating,
-/area/maintenance/first_deck/central)
+/area/engineering/bluespace)
 "nf" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
 	tag = ""
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/first_deck/central)
-"ng" = (
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
+/obj/machinery/power/apc{
+	name = "south bump";
+	pixel_y = -24
 	},
+/obj/structure/cable{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/bluegrid,
+/area/engineering/bluespace)
+"ng" = (
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/first_deck/central)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/bluegrid,
+/area/engineering/bluespace)
 "nh" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -7216,18 +7228,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "ni" = (
-/obj/machinery/door/airlock/hatch/maintenance,
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "4-8"
+/obj/machinery/alarm{
+	pixel_y = 23;
+	req_access = list(list("ACCESS_ENGINE_EQUIP","ACCESS_ATMOS"))
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4;
-	icon_state = "intact"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/first_deck/central)
+/turf/simulated/floor/bluegrid,
+/area/engineering/bluespace)
 "nj" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -7467,6 +7473,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/monotile,
 /area/hallway/centralfirst)
 "nF" = (
@@ -7478,31 +7485,29 @@
 /area/hallway/centralfirst)
 "nG" = (
 /turf/simulated/wall/r_wall/prepainted,
-/area/security/abandonedcheckpoint)
+/area/engineering/bluespace)
 "nH" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Security Maintenance";
-	req_access = list("ACCESS_SECURITY")
-	},
-/obj/structure/disposalpipe/segment,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
 	tag = ""
 	},
-/turf/simulated/floor/plating,
-/area/security/abandonedcheckpoint)
-"nI" = (
-/obj/machinery/door/airlock/hatch/maintenance,
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/machinery/door/airlock/highsecurity{
+	name = "Bluespace Drive"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/blast/regular{
+	id_tag = "bsd";
+	name = "Drive Containment"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
-/area/maintenance/first_deck/central)
+/area/engineering/bluespace)
+"nI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/bluegrid,
+/area/engineering/bluespace)
 "nJ" = (
 /turf/simulated/wall/false{
 	density = 1;
@@ -7639,36 +7644,53 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/catwalk_plated,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
 "nU" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/security/abandonedcheckpoint)
+/area/engineering/bluespace)
 "nV" = (
 /obj/structure/table/reinforced,
+/obj/item/device/radio/intercom{
+	pixel_y = 23
+	},
 /turf/simulated/floor/plating,
-/area/security/abandonedcheckpoint)
+/area/engineering/bluespace)
 "nW" = (
-/obj/structure/disposalpipe/segment,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
 	tag = ""
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
-/area/security/abandonedcheckpoint)
+/area/engineering/bluespace)
 "nX" = (
-/obj/machinery/constructable_frame/computerframe,
+/obj/machinery/computer/modular/preset/engineering,
+/obj/machinery/button/blast_door{
+	id_tag = "bsdwindow";
+	name = "Window Containment Doors";
+	pixel_x = -6;
+	pixel_y = 26
+	},
+/obj/machinery/button/blast_door{
+	id_tag = "bsd";
+	name = "Bluespace Drive Containment";
+	pixel_x = 6;
+	pixel_y = 26
+	},
 /turf/simulated/floor/plating,
-/area/security/abandonedcheckpoint)
+/area/engineering/bluespace)
 "nY" = (
 /turf/simulated/wall/r_wall/false{
 	icon_state = "rdebug"
 	},
-/area/security/abandonedcheckpoint)
+/area/engineering/bluespace)
 "nZ" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -7790,31 +7812,27 @@
 	icon_state = "map-scrubbers"
 	},
 /obj/effect/catwalk_plated,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
 "oi" = (
-/obj/structure/table/reinforced,
-/obj/machinery/door/firedoor,
+/obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
-/area/security/abandonedcheckpoint)
+/area/engineering/bluespace)
 "oj" = (
-/obj/structure/bed/chair/office/dark{
-	dir = 8;
-	icon_state = "officechair_preview";
-	tag = "icon-officechair_preview (WEST)"
-	},
 /turf/simulated/floor/plating,
-/area/security/abandonedcheckpoint)
+/area/engineering/bluespace)
 "ok" = (
-/obj/structure/disposalpipe/segment,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4";
 	tag = ""
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
-/area/security/abandonedcheckpoint)
+/area/engineering/bluespace)
 "ol" = (
 /obj/machinery/power/apc{
 	cell_type = /obj/item/cell/super;
@@ -7827,8 +7845,13 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
+/obj/structure/bed/chair/office/dark{
+	dir = 1;
+	icon_state = "officechair_preview";
+	tag = "icon-officechair_preview (WEST)"
+	},
 /turf/simulated/floor/plating,
-/area/security/abandonedcheckpoint)
+/area/engineering/bluespace)
 "om" = (
 /obj/machinery/door/airlock/hatch/maintenance,
 /turf/simulated/floor/plating,
@@ -7905,21 +7928,17 @@
 	icon_state = "map_vent_out"
 	},
 /turf/simulated/floor/plating,
-/area/security/abandonedcheckpoint)
+/area/engineering/bluespace)
 "ox" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6;
-	icon_state = "intact-scrubbers";
-	tag = "icon-intact-scrubbers (SOUTHEAST)"
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	icon_state = "intact-supply";
-	tag = "icon-intact-supply (SOUTHWEST)"
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4;
+	icon_state = "map-supply"
 	},
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
-/area/security/abandonedcheckpoint)
+/area/engineering/bluespace)
 "oy" = (
 /obj/structure/filingcabinet/filingcabinet,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -7932,7 +7951,7 @@
 	pixel_x = 24
 	},
 /turf/simulated/floor/plating,
-/area/security/abandonedcheckpoint)
+/area/engineering/bluespace)
 "oz" = (
 /obj/structure/closet,
 /turf/simulated/floor/plating,
@@ -8006,6 +8025,10 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled/monotile,
 /area/hallway/centralfirst)
 "oK" = (
@@ -8018,12 +8041,14 @@
 	icon_state = "intact-supply";
 	tag = "icon-intact-supply (EAST)"
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
 "oL" = (
-/obj/machinery/door/airlock/glass/security{
-	name = "Docking Checkpoint";
-	req_access = list("ACCESS_SECURITY")
+/obj/machinery/door/airlock/engineering{
+	name = "Bluespace Drive"
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -8035,8 +8060,11 @@
 	icon_state = "intact-supply";
 	tag = "icon-intact-supply (EAST)"
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
-/area/security/abandonedcheckpoint)
+/area/engineering/bluespace)
 "oM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4;
@@ -8047,12 +8075,15 @@
 	icon_state = "intact-supply";
 	tag = "icon-intact-supply (EAST)"
 	},
-/obj/machinery/camera/network/security{
-	c_tag = "Abandoned Checkpoint";
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Bluespace Drive Monitoring";
 	dir = 1
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
-/area/security/abandonedcheckpoint)
+/area/engineering/bluespace)
 "oN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9;
@@ -8064,12 +8095,11 @@
 	tag = "icon-intact-supply (NORTHWEST)"
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
+	dir = 4
 	},
-/obj/machinery/light_construct,
+/obj/machinery/light,
 /turf/simulated/floor/plating,
-/area/security/abandonedcheckpoint)
+/area/engineering/bluespace)
 "oO" = (
 /obj/machinery/disposal,
 /obj/machinery/firealarm{
@@ -8081,7 +8111,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/security/abandonedcheckpoint)
+/area/engineering/bluespace)
 "oP" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -8992,6 +9022,21 @@
 /obj/effect/shuttle_landmark/nerva/docking/north,
 /turf/space,
 /area/space)
+"xT" = (
+/turf/simulated/wall/prepainted,
+/area/engineering/bluespace)
+"AB" = (
+/obj/machinery/light,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers";
+	tag = "icon-intact-scrubbers (EAST)"
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/engineering/bluespace)
 "AM" = (
 /obj/structure/catwalk,
 /obj/structure/cable{
@@ -9023,6 +9068,16 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/security/topgun)
+"CP" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/bluegrid,
+/area/engineering/bluespace)
 "Fd" = (
 /obj/item/material/shard{
 	icon_state = "small"
@@ -9050,6 +9105,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afp)
+"KW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled/monotile,
+/area/hallway/centralfirst)
+"Rh" = (
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Bluespace Drive";
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/bluegrid,
+/area/engineering/bluespace)
 "Rn" = (
 /obj/effect/floor_decal/solarpanel,
 /obj/machinery/power/solar{
@@ -28595,7 +28664,7 @@ nc
 nE
 nT
 oh
-br
+KW
 oJ
 bg
 pe
@@ -28791,7 +28860,7 @@ kC
 lb
 bh
 aB
-ec
+aB
 dD
 nd
 nF
@@ -28991,10 +29060,10 @@ jM
 ko
 bi
 lc
-bi
-bi
-bi
-bi
+xT
+lz
+lz
+lz
 ne
 nG
 nU
@@ -29192,11 +29261,11 @@ bi
 bi
 bi
 bi
-ld
-dI
-dI
-dl
-dI
+lA
+xT
+ni
+mt
+mH
 nf
 nG
 nV
@@ -29394,10 +29463,10 @@ bE
 bI
 kp
 bE
-le
-lz
-lX
-ms
+ld
+xT
+mH
+mt
 mH
 ng
 nH
@@ -29597,11 +29666,11 @@ jN
 kq
 kD
 lf
-bE
-bE
-bE
-bE
-dI
+xT
+mt
+le
+mt
+AB
 nG
 nX
 ol
@@ -29799,11 +29868,11 @@ jO
 kr
 bE
 lg
-bE
-lY
+xT
+mH
 mt
-bE
-cm
+mH
+mv
 nG
 nY
 nG
@@ -30001,13 +30070,13 @@ jP
 ks
 bE
 lg
-lA
-dI
+xT
+Rh
 mu
-bE
-nh
 nI
-nZ
+CP
+nG
+nh
 nZ
 nZ
 oP
@@ -30203,13 +30272,13 @@ jQ
 bW
 bE
 lg
-bE
-lZ
-mv
-bE
-ni
-by
-ei
+xT
+nG
+nG
+xT
+nG
+nG
+lX
 by
 oz
 oQ
@@ -30409,9 +30478,9 @@ bE
 bE
 bE
 bE
-nj
-by
 dI
+dI
+lX
 by
 by
 by
@@ -30611,9 +30680,9 @@ bE
 ma
 dI
 bE
-nj
-by
+lZ
 dI
+lX
 dI
 oA
 dI
@@ -30813,9 +30882,9 @@ bE
 mb
 dI
 kv
-nj
-ei
-dI
+nh
+nZ
+lY
 by
 by
 dI
