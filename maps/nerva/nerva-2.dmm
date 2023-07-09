@@ -16638,6 +16638,7 @@
 "aCC" = (
 /obj/machinery/door/firedoor,
 /obj/structure/table/woodentable_reinforced/walnut,
+/obj/machinery/fabricator/micro/bartender,
 /turf/simulated/floor/wood/walnut,
 /area/civilian/bar)
 "aCE" = (

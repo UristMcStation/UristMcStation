@@ -471,7 +471,7 @@
 
 
 /obj/item/reagent_containers/food/drinks/bottle/prosecco
-	name = "2280 Vintage Prosecco."
+	name = "2280 Vintage Prosecco"
 	desc = "A delicious prosecco, ideal for long days at work. This one proudly advertises itself as 2280 Vintage. Must have been a special year."
 	icon_state = "prosecco"
 	center_of_mass = "x=16;y=4"
