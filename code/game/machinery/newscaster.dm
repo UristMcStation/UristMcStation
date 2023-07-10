@@ -928,7 +928,7 @@ var/global/list/obj/machinery/newscaster/allCasters = list() //Global list that 
 		user.remove_from_mob(src)
 
 		user.put_in_hands(S)
-		user << "<span class='notice'>You roll and fold the two newspapers together to create an impromptu weapon.</span>"
+		to_target(user, "<span class='notice'>You roll and fold the two newspapers together to create an impromptu weapon.</span>")
 		del(W)
 		del(src)
 		return

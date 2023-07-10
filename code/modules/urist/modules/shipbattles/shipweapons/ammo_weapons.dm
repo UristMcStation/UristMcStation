@@ -24,7 +24,7 @@
 		..()
 
 	else
-		user << "<span class='warning'>The [src.name] isn't loaded!</span>"
+		to_target(user, "<span class='warning'>The [src.name] isn't loaded!</span>")
 		return
 
 /obj/machinery/shipweapons/ammo/Charging()

@@ -48,7 +48,7 @@
 	for(var/atom/L in range(1, owner))
 		if(L == owner) continue
 		if (istype(L, /mob/living))
-			L << "<span class='warning'> You are enveloped by a soft green glow emanating from [owner].</span>"
+			to_target(L, "<span class='warning'> You are enveloped by a soft green glow emanating from [owner].</span>")
 		L.rad_act(5)
 	return
 
@@ -295,9 +295,9 @@
 				if (C == owner)
 					continue
 				if (src.variant == 2)
-					C << "<span class='warning'> [src.personalized_stink]</span>"
+					to_target(C, "<span class='warning'> [src.personalized_stink]</span>")
 				else
-					C << "<span class='warning'> [stinkString()]</span>"
+					to_target(C, "<span class='warning'> [stinkString()]</span>")
 */
 
 

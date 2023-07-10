@@ -24,7 +24,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(S)
-		user << "<span class='notice'>You fasten the glass shard to the top of the rod with the cable.</span>"
+		to_target(user, "<span class='notice'>You fasten the glass shard to the top of the rod with the cable.</span>")
 		qdel(I)
 		qdel(src)
 
@@ -35,7 +35,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(P)
-		user << "<span class='notice'>You fasten the wirecutters to the top of the rod with the cable, prongs outward.</span>"
+		to_target(user, "<span class='notice'>You fasten the wirecutters to the top of the rod with the cable, prongs outward.</span>")
 		qdel(I)
 		qdel(src)
 
@@ -48,7 +48,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(S)
-		user << "<span class='notice'>You fasten the two rods together tightly with the cable.</span>"
+		to_target(user, "<span class='notice'>You fasten the two rods together tightly with the cable.</span>")
 
 		qdel(src)
 
@@ -62,7 +62,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(W)
-		user << "<span class='notice'>You wrap the cable restraint around the top of the rod.</span>"
+		to_target(user, "<span class='notice'>You wrap the cable restraint around the top of the rod.</span>")
 
 		qdel(src)*/
 
@@ -133,7 +133,7 @@
 	edge = 1
 
 /*	suicide_act(mob/user)
-		viewers(user) << pick("<span class='danger'>[user] is slitting \his wrists with the [src]! It looks like \he's trying to commit suicide.</span>", \
+		viewers(user)to_target(, pick("<span class='danger'>[user] is slitting \his wrists with the [src]! It looks like \he's trying to commit suicide.</span>", \)
 							"<span class='danger'>[user] is slitting \his throat with the [src]! It looks like \he's trying to commit suicide.</span>")
 		return (BRUTELOSS)*/
 
@@ -145,7 +145,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(S)
-		user << "<span class='notice'>You carefully wrap the bedsheet around the shard to form a crude grip.</span>"
+		to_target(user, "<span class='notice'>You carefully wrap the bedsheet around the shard to form a crude grip.</span>")
 		qdel(I)
 		qdel(src)
 
@@ -192,7 +192,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(S)
-		user << "<span class='notice'>You jam the rods into the wooden bat.</span>"
+		to_target(user, "<span class='notice'>You jam the rods into the wooden bat.</span>")
 
 		qdel(src)
 
@@ -216,7 +216,7 @@
 	var/parentassembly = /obj/item/improvised/scissorsassembly
 
 	/*suicide_act(mob/user)
-		viewers(user) << pick("<span class='danger'>[user] is slitting \his wrists with the [src]! It looks like \he's trying to commit suicide.</span>", \
+		viewers(user)to_target(, pick("<span class='danger'>[user] is slitting \his wrists with the [src]! It looks like \he's trying to commit suicide.</span>", \)
 							"<span class='danger'>[user] is slitting \his throat with the [src]! It looks like \he's trying to commit suicide.</span>")
 		return (BRUTELOSS)*/
 
@@ -232,7 +232,7 @@
 
 
 		user.put_in_hands(N)
-		user << "<span class='notice'>You slide one knife into another, forming a loose pair of scissors</span>"
+		to_target(user, "<span class='notice'>You slide one knife into another, forming a loose pair of scissors</span>")
 
 		qdel(I)
 		qdel(src)
@@ -283,7 +283,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(S)
-		user << "<span class='notice'>You form the [src] around [W], creating a more lethal Millwall brick.</span>"
+		to_target(user, "<span class='notice'>You form the [src] around [W], creating a more lethal Millwall brick.</span>")
 		W.loc = S
 
 		qdel(src)
@@ -306,7 +306,7 @@
 		w.loc = (get_turf(src))
 	var/obj/item/improvised/mbrick/S = new /obj/item/improvised/mbrick
 	user.put_in_hands(S)
-	user << "<span class='notice'>You take the sharp object out of the Millwall brick..</span>"
+	to_target(user, "<span class='notice'>You take the sharp object out of the Millwall brick..</span>")
 	qdel(src)
 
 //wood shit

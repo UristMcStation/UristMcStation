@@ -144,7 +144,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		user.remove_from_mob(src)
 
 		user.put_in_hands(H)
-		user << "<span class='notice'>You strap a sheet of metal to the hazard vest. Now to tighten it in.</span>" //wut
+		to_target(user, "<span class='notice'>You strap a sheet of metal to the hazard vest. Now to tighten it in.</span>") //wut
 
 		qdel(src)
 		qdel(I)*/
@@ -246,7 +246,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/structure/filingcabinet/wood/attackby(var/obj/item/P, mob/user as mob)
 	if(istype(P, /obj/item/screwdriver))
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-		user << "<span class='notice'>You disassemble \the [src].</span>"
+		to_target(user, "<span class='notice'>You disassemble \the [src].</span>")
 		var/obj/item/stack/material/wood/S =  new /obj/item/stack/material/wood(src.loc)
 		S.amount = 2
 		for(var/obj/item/b in contents)
@@ -269,7 +269,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 /obj/item/table_parts/attack_self(mob/user as mob)
 	if(locate(/obj/structure/table) in user.loc)
-		user << "<span class='warning'>There is already a table here.</span>"
+		to_target(user, "<span class='warning'>There is already a table here.</span>")
 		return
 
 	else
@@ -305,7 +305,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/structure/table/rack/wood/attackby(var/obj/item/P, mob/user as mob)
 	if(istype(P, /obj/item/wrench))
 		playsound(src, 'sound/items/Deconstruct.ogg', 50, 1)
-		user << "<span class='notice'>You disassemble \the [src].</span>"
+		to_target(user, "<span class='notice'>You disassemble \the [src].</span>")
 		var/obj/item/stack/material/wood/S =  new /obj/item/stack/material/wood(src.loc)
 		S.amount = 1
 		qdel(src)

@@ -2039,13 +2039,13 @@
 	else if(href_list["create_new_poll"])
 
 		if(!href_list["polltype"])
-			usr << "Couldn't read poll type!"
+			to_target(usr, "Couldn't read poll type!")
 			return
 		if(!href_list["timelength"])
-			usr << "Couldn't read poll length!"
+			to_target(usr, "Couldn't read poll length!")
 			return
 		if(!href_list["question"])
-			usr << "Couldn't read poll question!"
+			to_target(usr, "Couldn't read poll question!")
 			return
 
 		var/polltype
@@ -2097,7 +2097,7 @@
 			if(href_list["descmed"])
 				descmed = sql_sanitize_text(href_list["descmed"])
 		else
-			usr << "Unrecognized polltype!"
+			to_target(usr, "Unrecognized polltype!")
 			return
 
 		create_new_poll(polltype,timelength,question,polloptions,adminonly,multilimit,maxval,minval,descmax,descmin,descmed)

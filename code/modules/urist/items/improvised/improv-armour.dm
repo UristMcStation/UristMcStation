@@ -45,7 +45,7 @@
 
 		user.remove_from_mob(src)
 		user.put_in_hands(H)
-		user << "<span class='notice'>You cut some holes in the hazard vest.</span>"
+		to_target(user, "<span class='notice'>You cut some holes in the hazard vest.</span>")
 
 		qdel(src)
 
@@ -59,7 +59,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(H)
-		user << "<span class='notice'>You wrap the cables through the holes in the hazard vest.</span>"
+		to_target(user, "<span class='notice'>You wrap the cables through the holes in the hazard vest.</span>")
 
 		qdel(src)
 
@@ -73,7 +73,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(H)
-		user << "<span class='notice'>You strap a sheet of metal to the hazard vest. Now to tighten it in.</span>"
+		to_target(user, "<span class='notice'>You strap a sheet of metal to the hazard vest. Now to tighten it in.</span>")
 
 		qdel(src)
 
@@ -87,6 +87,6 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(H)
-		user << "<span class='notice'>You tie the sheet of metal tightly to the hazard vest with the cable, forming a rudimentary armored vest.</span>"
+		to_target(user, "<span class='notice'>You tie the sheet of metal tightly to the hazard vest with the cable, forming a rudimentary armored vest.</span>")
 
 		qdel(src)

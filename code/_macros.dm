@@ -216,7 +216,7 @@
 
 
 /// Left-shift of INT by BITS
-#define SHIFTL(INT, BITS) ((INT) << (BITS))
+#define SHIFTL(INT, BITS) ((INT)to_target(, (BITS)))
 
 
 /// Convenience define for nth-bit flags, 0-indexed

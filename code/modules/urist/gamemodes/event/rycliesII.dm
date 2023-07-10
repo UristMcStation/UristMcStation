@@ -178,7 +178,7 @@
 		if("Cancel")
 			return
 		if("Yes")
-			world << "<FONT size = 3><span class='danger'> Mothership self-destruct sequence activated.</span></FONT>"
+			to_world("<FONT size = 3><span class='danger'> Mothership self-destruct sequence activated.</span></FONT>")
 			for(var/obj/effect/landmark/scom/bomb/B in landmarks_list)
 				B.incomprehensibleprocname()
 				sploded = 0

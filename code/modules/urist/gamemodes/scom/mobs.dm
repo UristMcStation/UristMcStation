@@ -3,17 +3,17 @@
 
 /*/mob/living/simple_animal/hostile/proc/HealBitches()
 	stop_automated_movement = 1
-//	world << "IM BEING CALLED"
+//	to_world("IM BEING CALLED")
 	if(!target_mob)
 		stance = STANCE_IDLE
-//		world << "FOUND YOUR ERROR"
+//		to_world("FOUND YOUR ERROR")
 	if(target_mob in ListTargets(10))
 		walk_to(src, target_mob, 1, move_to_delay)
-//		world << "MOVING SMOOTHLY"
+//		to_world("MOVING SMOOTHLY")
 	if(get_dist(src, target_mob) <= 1)	//heal bitches
 		target_mob.health = target_mob.health + 15
 		stance = STANCE_IDLE
-//		world << "HEALING BITCHES"
+//		to_world("HEALING BITCHES")
 		return 1
 
 /mob/living/simple_animal/hostile/proc/GetTheFuckOut()

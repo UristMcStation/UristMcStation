@@ -36,13 +36,13 @@
 	if(icon_state == "ANFOR-jumpsuit_shirt")
 		src.icon_state = "ANFOR-jumpsuit"
 		src.item_state = "ANFOR-jumpsuit"
-		usr << "<span class='notice'>You roll down the sleeves of your BDU.</span>"
+		to_target(usr, "<span class='notice'>You roll down the sleeves of your BDU.</span>")
 		usr.regenerate_icons()
 
 	else
 		src.icon_state = "ANFOR-jumpsuit_shirt"
 		src.item_state = "ANFOR-jumpsuit_shirt"
-		usr << "<span class='notice'>You roll up the sleeves of your BDU.</span>"
+		to_target(usr, "<span class='notice'>You roll up the sleeves of your BDU.</span>")
 		usr.regenerate_icons()
 
 /obj/item/clothing/head/helmet/urist/anfor
@@ -72,7 +72,7 @@
 	if(cigs)
 		cigs.loc = get_turf(src)
 		if(M.put_in_active_hand(cigs))
-			M << "<span class='notice'>You pull the [cigs] out of the helmet.</span>"
+			to_target(M, "<span class='notice'>You pull the [cigs] out of the helmet.</span>")
 			cigs = 0
 			src.icon_state = "m10_pbh"
 			M.regenerate_icons()
@@ -86,7 +86,7 @@
 		M.drop_item()
 		cigs = I
 		I.loc = src
-		M << "<span class='notice'>You slide the [I] into the band of the helmet.</span>"
+		to_target(M, "<span class='notice'>You slide the [I] into the band of the helmet.</span>")
 		src.icon_state = "m10_pbh_cig"
 		M.regenerate_icons()
 */
@@ -105,7 +105,7 @@
 	if(knife)
 		knife.loc = get_turf(src)
 		if(M.put_in_active_hand(knife))
-			M << "<span class='notice'>You pull the [knife] out of the jackboot.</span>"
+			to_target(M, "<span class='notice'>You pull the [knife] out of the jackboot.</span>")
 			knife = 0
 			src.icon_state = "jackboots"
 			M.regenerate_icons()
@@ -119,7 +119,7 @@
 		M.drop_item()
 		knife = I
 		I.loc = src
-		M << "<span class='notice'>You slide the [I] into of the jackboot.</span>"
+		to_target(M, "<span class='notice'>You slide the [I] into of the jackboot.</span>")
 		src.icon_state = "jackboots-knife"
 		M.regenerate_icons()
 
@@ -280,7 +280,7 @@
 		if((istype(I, /obj/item/grenade)))
 			launcher.load(I, user)
 		else if(istype(I, /obj/item/wrench))
-			user << "<span class='notice'>You remove the underslung grenade launcher from the A18.</span>"
+			to_target(user, "<span class='notice'>You remove the underslung grenade launcher from the A18.</span>")
 			gl_attach = 0
 			firemodes = null
 			firemodes = list(
@@ -317,7 +317,7 @@
 	else if(scoped)
 
 		if(istype(I, /obj/item/wrench))
-			user << "<span class='notice'>You remove the scope from the A18</span>"
+			to_target(user, "<span class='notice'>You remove the scope from the A18</span>")
 			scoped = 0
 			update_icon()
 			new /obj/item/gunattachment/scope/a18(user.loc)

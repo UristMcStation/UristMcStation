@@ -8,7 +8,7 @@
 
 /obj/structure/flora/tree/planet/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/carpentry/axe) || istype(I, /obj/item/material/twohanded/fireaxe))
-		user << "<span class='notice'>You chop [src] with [I].</span>"
+		to_target(user, "<span class='notice'>You chop [src] with [I].</span>")
 
 		playsound(src.loc, 'sound/urist/chopchop.ogg', 100, 1)
 
@@ -18,14 +18,14 @@
 		chops += 1
 
 		if(chops == 4 && size == 1)
-			user << "<span class='notice'>[src] comes crashing down!</span>"
+			to_target(user, "<span class='notice'>[src] comes crashing down!</span>")
 			playsound(src.loc, 'sound/urist/treefalling.ogg', 100, 1)
 			new /obj/structure/log(src.loc)
 
 			qdel(src)
 
 		else if(chops == 8)
-			user << "<span class='notice'>[src] comes crashing down!</span>"
+			to_target(user, "<span class='notice'>[src] comes crashing down!</span>")
 
 			sleep(5)
 
@@ -83,7 +83,7 @@
 
 /obj/structure/log/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/carpentry/saw))
-		user << "<span class='notice'>You saw the [src] with [I].</span>"
+		to_target(user, "<span class='notice'>You saw the [src] with [I].</span>")
 
 		if(do_after(user, 20))
 

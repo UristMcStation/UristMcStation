@@ -6,7 +6,7 @@
 
 /obj/machinery/computer/shuttle_control/assault/attack_hand(mob/user)
 	if(!readytogo)
-		user << "<span class='warning'>The shuttles will be ready to launch shortly.</span>"
+		to_target(user, "<span class='warning'>The shuttles will be ready to launch shortly.</span>")
 		return
 	else
 		..()
@@ -108,7 +108,7 @@
 	var/mob/living/carbon/human/M = user
 	if(!istype(M, /mob/living/carbon/human/lactera))
 //	if(M.species != "Xenomorph")
-		M << "<span class='warning'>The alien gun turns inert when you touch it.</span>"
+		to_target(M, "<span class='warning'>The alien gun turns inert when you touch it.</span>")
 		new inertstate(src.loc)
 		qdel(src)
 
@@ -119,7 +119,7 @@
 	var/mob/living/carbon/human/M = usr
 	if(!istype(M, /mob/living/carbon/human/lactera))
 //	if(M.species != /datum/species/xenos/lactera)
-		M << "<span class='warning'>The alien gun turns inert when you touch it.</span>"
+		to_target(M, "<span class='warning'>The alien gun turns inert when you touch it.</span>")
 		new inertstate(src.loc)
 		qdel(src)
 

@@ -262,7 +262,7 @@
 				M.throw_at(get_edge_target_turf(src,src.dir),rand(1,2), move_delay)
 				spawn(3)
 					if(!M.lying)
-						M << "<span class='notice'>You land on your feet!</span>"
+						to_target(M, "<span class='notice'>You land on your feet!</span>")
 
 			src.ex_act(2)
 

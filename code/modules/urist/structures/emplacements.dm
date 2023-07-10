@@ -85,7 +85,7 @@
 	if(ammo <= 0)
 		if(User)
 			playsound(src, empty_sound, 70, 1)
-			User << "This [src] is out of ammo!"
+			to_target(User, "This [src] is out of ammo!")
 
 		return
 	if(T && User && User.stat == CONSCIOUS && !User.stunned && !User.weakened)

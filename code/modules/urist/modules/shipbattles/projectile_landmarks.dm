@@ -41,7 +41,7 @@
 	P.launch(target)
 
 //	P.redirect(target_x, target_y, T)
-	//world << "\red \b Projectile fired."
+	//to_world("\red \b Projectile fired.")
 
 /obj/effect/urist/projectile_landmark/target
 	fire_type = 2

@@ -182,7 +182,7 @@ var/list/eventwarp3 = list()
 				W.registered_name = M.real_name
 				M.equip_to_slot_or_del(W, slot_wear_id)
 				M.loc = pick(eventwarp2)
-				M << ("<span class='warning'> You are the elite of the train. The last vestiges of a wealthy class rescued from a dying earth. However, there is discontent among the lower cars. While you leave the fighting to the guards, you know that if the lower cars discovered the secret of the engine, it would not end well for you.</span>")
+				to_target(M, ("<span class='warning'> You are the elite of the train. The last vestiges of a wealthy class rescued from a dying earth. However, there is discontent among the lower cars. While you leave the fighting to the guards, you know that if the lower cars discovered the secret of the engine, it would not end well for you.</span>"))
 			else if(M.gender == "female")
 				M.equip_to_slot_or_del(new /obj/item/clothing/under/dress/dress_orange(M), slot_w_uniform)
 				M.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(M), slot_shoes)
@@ -198,7 +198,7 @@ var/list/eventwarp3 = list()
 				W.registered_name = M.real_name
 				M.equip_to_slot_or_del(W, slot_wear_id)
 				M.loc = pick(eventwarp2)
-				M << ("<span class='warning'> You are the elite of the train. The last vestiges of a wealthy class rescued from a dying earth. However, there is discontent among the lower cars. While you leave the fighting to the guards, you know that if the lower cars discovered the secret of the engine, it would not end well for you.</span>")
+				to_target(M, ("<span class='warning'> You are the elite of the train. The last vestiges of a wealthy class rescued from a dying earth. However, there is discontent among the lower cars. While you leave the fighting to the guards, you know that if the lower cars discovered the secret of the engine, it would not end well for you.</span>"))
 
 		else if(M.job in list("Security Officer", "Warden"))
 			M.equip_to_slot_or_del(new /obj/item/clothing/under/det/black(M), slot_w_uniform)
@@ -220,7 +220,7 @@ var/list/eventwarp3 = list()
 			W.registered_name = M.real_name
 			M.equip_to_slot_or_del(W, slot_wear_id)
 			M.loc = pick(eventwarp3)
-			M << ("<span class='warning'> You are the guards of the train. Your goal is to keep the lower cars out of the upper cars, and protect the elite. However, while it pains you, you know that the secret of the engine requires the members of the lower cars in order to work. Thus, you must keep them alive unless there is no other option.</span>")
+			to_target(M, ("<span class='warning'> You are the guards of the train. Your goal is to keep the lower cars out of the upper cars, and protect the elite. However, while it pains you, you know that the secret of the engine requires the members of the lower cars in order to work. Thus, you must keep them alive unless there is no other option.</span>"))
 
 		else
 			M.equip_to_slot_or_del(new /obj/item/clothing/under/urist/dresden(M), slot_w_uniform)
@@ -236,7 +236,7 @@ var/list/eventwarp3 = list()
 			W.registered_name = M.real_name
 			M.equip_to_slot_or_del(W, slot_wear_id)
 			M.loc = pick(eventwarp1)
-			M << ("<span class='warning'> You are a member of the lower classes. The few (un)lucky souls to make it onboard the train before it left on its final, neverending journey. While you've managed to scrape out a living on the train, it is not a good life. Indeed, every few weeks it seems that some of your closest friends from the lower cars just disappear. On top of that, food stores are running low. However, you know that you can't beat the guards without working together with every single member of the lower cars. So, will you fight and die, or will you keep on surviving with the hope that you won't be taken away? It's your choice.</span>")
+			to_target(M, ("<span class='warning'> You are a member of the lower classes. The few (un)lucky souls to make it onboard the train before it left on its final, neverending journey. While you've managed to scrape out a living on the train, it is not a good life. Indeed, every few weeks it seems that some of your closest friends from the lower cars just disappear. On top of that, food stores are running low. However, you know that you can't beat the guards without working together with every single member of the lower cars. So, will you fight and die, or will you keep on surviving with the hope that you won't be taken away? It's your choice.</span>"))
 		M.regenerate_icons()
 
 
@@ -272,16 +272,16 @@ var/list/eventwarp3 = list()
 				if(M.client)
 					spawn(0)
 						if(M.buckled)
-							M << "<span class='warning'> Sudden deceleration presses you into your chair!</span>"
+							to_target(M, "<span class='warning'> Sudden deceleration presses you into your chair!</span>")
 							shake_camera(M, 3, 1)
 						else
-							M << "<span class='warning'> The floor lurches beneath you as the train comes to a sudden stop!</span>"
+							to_target(M, "<span class='warning'> The floor lurches beneath you as the train comes to a sudden stop!</span>")
 							shake_camera(M, 10, 1)
 				if(istype(M, /mob/living/carbon))
 					if(!M.buckled)
 						M.Weaken(3)
 
-			world << "<span class='danger'> The train has come to a stop. The lower cars have won this fight, and have brought an end to the tyranny of the upper cars. Was it the right decision? Only time will tell, as the survivors will have to work hard to survive in this cruel new world.</span>"
+			to_world("<span class='danger'> The train has come to a stop. The lower cars have won this fight, and have brought an end to the tyranny of the upper cars. Was it the right decision? Only time will tell, as the survivors will have to work hard to survive in this cruel new world.</span>")
 
 /turf/unsimulated/floor/uristturf/train/snow
 	name = "snow"
