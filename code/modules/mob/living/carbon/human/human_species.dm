@@ -21,7 +21,7 @@
 /mob/living/carbon/human/dummy/mannequin/InitializeHud()
 	return	// Mannequins don't get HUDs
 
-/mob/living/carbon/human/resomi/New(var/new_loc)
+/mob/living/carbon/human/resomi/New(new_loc)
 	head_hair_style = "Resomi Plumage"
 	..(new_loc, SPECIES_RESOMI)
 

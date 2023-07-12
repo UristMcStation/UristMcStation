@@ -16,7 +16,7 @@
 					Spread(T)
 	return
 
-/turf/simulated/mineral/ore/proc/Spread(var/turf/T)
+/turf/simulated/mineral/ore/proc/Spread(turf/T)
 	new src.type(T)
 
 /turf/simulated/mineral/ore/uranium

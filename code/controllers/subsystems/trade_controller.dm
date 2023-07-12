@@ -28,13 +28,13 @@ SUBSYSTEM_DEF(trade_controller)
 
 	. = ..()
 
-/datum/controller/subsystem/trade_controller/proc/get_trade_category(var/category)
+/datum/controller/subsystem/trade_controller/proc/get_trade_category(category)
 	return trade_categories_by_name[category]
 
-/datum/controller/subsystem/trade_controller/proc/get_trade_item(var/item_type)
+/datum/controller/subsystem/trade_controller/proc/get_trade_item(item_type)
 	return trade_items_by_type[item_type]
 
-/datum/controller/subsystem/trade_controller/proc/get_item_category(var/obj/O)
+/datum/controller/subsystem/trade_controller/proc/get_item_category(obj/O)
 	if(O.trader_category)
 		return O.trader_category
 

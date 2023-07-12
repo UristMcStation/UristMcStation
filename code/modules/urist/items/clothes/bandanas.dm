@@ -22,7 +22,7 @@
 	if(user.incapacitated())
 		return 0
 	if(!can_flip)
-		to_target(usr, "You try flipping up [src], but it is very uncomfortable and you look like a fool. You flip it back down.")
+		to_chat(usr, "You try flipping up [src], but it is very uncomfortable and you look like a fool. You flip it back down.")
 		return
 	if(src.is_flipped == 2)
 		src.icon_state = initial(icon_state)
@@ -30,11 +30,11 @@
 		permeability_coefficient = initial(permeability_coefficient)
 		obj_flags = initial(obj_flags)
 		flags_inv = initial(flags_inv)
-		to_target(usr, "You push down [src].")
+		to_chat(usr, "You push down [src].")
 		src.is_flipped = 1
 	else
 		src.icon_state += "_up"
-		to_target(usr, "You push up [src].")
+		to_chat(usr, "You push up [src].")
 		gas_transfer_coefficient = null
 		permeability_coefficient = null
 		obj_flags = null
@@ -69,7 +69,7 @@
 	if(user.incapacitated())
 		return 0
 	if(!can_roll)
-		to_target(usr, "You try rolling up [src], but it doesn't work!")
+		to_chat(usr, "You try rolling up [src], but it doesn't work!")
 		return
 	if(src.is_rolled == 2)
 		src.icon_state = initial(icon_state)
@@ -77,11 +77,11 @@
 		permeability_coefficient = initial(permeability_coefficient)
 		obj_flags = initial(obj_flags)
 		flags_inv = initial(flags_inv)
-		to_target(usr, "You unroll [src].")
+		to_chat(usr, "You unroll [src].")
 		src.is_rolled = 1
 	else
 		src.icon_state += "_roll"
-		to_target(usr, "You roll up [src].")
+		to_chat(usr, "You roll up [src].")
 		gas_transfer_coefficient = null
 		permeability_coefficient = null
 		obj_flags = null
@@ -219,7 +219,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
-		to_target(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
+		to_chat(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
 		qdel(src)*/
 
 //I fixed the bugs. I'll clean this up too when I get a chance.
@@ -235,7 +235,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
-		to_target(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
+		to_chat(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
 		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/blue/verb/toggle_bandana()
@@ -249,7 +249,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
-		to_target(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
+		to_chat(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
 		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/orange/verb/toggle_bandana()
@@ -263,7 +263,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
-		to_target(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
+		to_chat(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
 		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/red/verb/toggle_bandana()
@@ -277,7 +277,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
-		to_target(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
+		to_chat(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
 		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/purple/verb/toggle_bandana()
@@ -291,7 +291,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
-		to_target(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
+		to_chat(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
 		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/green/verb/toggle_bandana()
@@ -305,7 +305,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
-		to_target(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
+		to_chat(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
 		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/yellow/verb/toggle_bandana()
@@ -319,7 +319,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
-		to_target(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
+		to_chat(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
 		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/rainbow/verb/toggle_bandana()
@@ -333,7 +333,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
-		to_target(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
+		to_chat(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
 		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/brown/verb/toggle_bandana()
@@ -347,7 +347,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
-		to_target(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
+		to_chat(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
 		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/captain/verb/toggle_bandana()
@@ -361,7 +361,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
-		to_target(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
+		to_chat(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
 		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/hop/verb/toggle_bandana()
@@ -375,7 +375,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
-		to_target(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
+		to_chat(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
 		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/ce/verb/toggle_bandana()
@@ -389,7 +389,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
-		to_target(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
+		to_chat(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
 		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/hos/verb/toggle_bandana()
@@ -403,7 +403,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
-		to_target(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
+		to_chat(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
 		qdel(src)
 
 
@@ -418,7 +418,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
-		to_target(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
+		to_chat(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
 		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/cmo/verb/toggle_bandana()
@@ -432,7 +432,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
-		to_target(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
+		to_chat(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
 		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/rd/verb/toggle_bandana()
@@ -446,7 +446,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
-		to_target(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
+		to_chat(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
 		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/qm/verb/toggle_bandana()
@@ -460,7 +460,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
-		to_target(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
+		to_chat(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
 		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/centcom/verb/toggle_bandana()
@@ -474,7 +474,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
-		to_target(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
+		to_chat(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
 		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/syndie/verb/toggle_bandana()
@@ -488,7 +488,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
-		to_target(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
+		to_chat(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
 		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/cult/verb/toggle_bandana()
@@ -502,7 +502,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
-		to_target(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
+		to_chat(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
 		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/wiz/verb/toggle_bandana()
@@ -516,7 +516,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
-		to_target(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
+		to_chat(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
 		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/clown/verb/toggle_bandana()
@@ -530,7 +530,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
-		to_target(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
+		to_chat(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
 		qdel(src)
 
 /obj/item/clothing/mask/bandana/bedsheet/mime/verb/toggle_bandana()
@@ -544,6 +544,6 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(B)
-		to_target(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
+		to_chat(user, "<span class='notice'>You unfold the bandana back into a bedsheet.</span>")
 		qdel(src)
 */

@@ -8,14 +8,14 @@ var/global/const/NETWORK_ENGINE              = "Engine"
 var/global/const/NETWORK_ENGINEERING_OUTPOST = "Engineering Outpost"
 var/global/const/NETWORK_EXPLO  	          = "Exploration"
 
-/datum/map/proc/get_shared_network_access(var/network)
+/datum/map/proc/get_shared_network_access(network)
 	switch(network)
 		if(NETWORK_COMMAND)
 			return access_heads
 		if(NETWORK_ENGINE, NETWORK_ENGINEERING_OUTPOST)
 			return access_engine
 
-/datum/map/glloydstation/get_network_access(var/network)
+/datum/map/glloydstation/get_network_access(network)
 	switch(network)
 		if(NETWORK_RESEARCH_OUTPOST)
 			return access_research

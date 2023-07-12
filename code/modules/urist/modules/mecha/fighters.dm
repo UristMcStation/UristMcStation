@@ -3,7 +3,7 @@
 //	bound_width = 64
 //	bound_height = 64
 
-/*/mob/living/exosuit/premade/hoverpod/fighter/add_cell(var/obj/item/cell/infinite/C=null)
+/*/mob/living/exosuit/premade/hoverpod/fighter/add_cell(obj/item/cell/infinite/C=null)
 	if(C)
 		C.forceMove(src)
 		cell = C

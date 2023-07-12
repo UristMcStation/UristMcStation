@@ -63,7 +63,7 @@
 		security_state.stored_security_level = security_state.current_security_level
 		security_state.set_security_level(security_state.high_security_level)
 
-/obj/effect/overmap/visitable/ship/combat/proc/set_targets(var/new_target = null)
+/obj/effect/overmap/visitable/ship/combat/proc/set_targets(new_target = null)
 	if(!target)
 
 		for(var/obj/machinery/computer/combatcomputer/CC in SSmachines.machinery)//now we assign our targets to the combat computer (to show data)
@@ -139,7 +139,7 @@
 		if(OM.target == src)
 			OM.set_targets()
 
-/obj/effect/overmap/visitable/ship/combat/proc/Contact(var/mob/living/simple_animal/hostile/overmapship/L)
+/obj/effect/overmap/visitable/ship/combat/proc/Contact(mob/living/simple_animal/hostile/overmapship/L)
 	src.halt() //cancel our momentum
 	crossed = 1 //we're in combat now, so let's cancel out momentum
 	//now let's cancel the momentum of the mob
@@ -164,7 +164,7 @@
 		else
 			return
 
-/obj/effect/overmap/visitable/ship/combat/proc/intercept(var/obj/effect/overmap/visitable/ship/combat/S)
+/obj/effect/overmap/visitable/ship/combat/proc/intercept(obj/effect/overmap/visitable/ship/combat/S)
 	if(!S || !S.canfight || !canfight || S.pvp_cooldown || pvp_cooldown)	return	//If either ship can't fight, we don't
 
 	halt()	//Stop both ships
@@ -187,7 +187,7 @@
 	autoannounce("<b>Restabilizing engines - ETA [flee_timer] seconds</b>", "private")
 	OM.autoannounce("<b>[ship_name] engine restabilization in progress - ETA [flee_timer] seconds</b>", "private")
 
-/obj/effect/overmap/visitable/ship/combat/proc/cancel_restabilize_engines(var/announce = FALSE)
+/obj/effect/overmap/visitable/ship/combat/proc/cancel_restabilize_engines(announce = FALSE)
 	if(!fleeing)	return
 
 	fleeing = 0
@@ -206,7 +206,7 @@
 	spawn(60 SECONDS)
 		leave_pvp_combat(TRUE)
 
-/obj/effect/overmap/visitable/ship/combat/Process(var/wait)
+/obj/effect/overmap/visitable/ship/combat/Process(wait)
 	..()
 	if(fleeing == 1)
 		flee_timer = max(flee_timer - (wait / 10), 0)
@@ -221,7 +221,7 @@
 	if(pvp_cooldown)
 		pvp_cooldown = max(pvp_cooldown - (wait / 10), 0)
 
-/obj/effect/overmap/visitable/ship/combat/proc/enter_pvp_combat(var/attacker = FALSE)
+/obj/effect/overmap/visitable/ship/combat/proc/enter_pvp_combat(attacker = FALSE)
 	if(!target)	return
 	var/obj/effect/overmap/visitable/ship/combat/OM = target
 	incombat = 1
@@ -236,7 +236,7 @@
 		security_state.stored_security_level = security_state.current_security_level
 		security_state.set_security_level(security_state.high_security_level)
 
-/obj/effect/overmap/visitable/ship/combat/proc/leave_pvp_combat(var/fled = FALSE)
+/obj/effect/overmap/visitable/ship/combat/proc/leave_pvp_combat(fled = FALSE)
 	if(!can_escape && fled) return
 	if(!target)	return
 	var/obj/effect/overmap/visitable/ship/combat/T = target
@@ -259,7 +259,7 @@
 
 	T.leave_pvp_combat(!fled)	//Calls the other ship to leave. Won't loop back as target was cleared.
 
-/obj/effect/overmap/visitable/ship/combat/proc/autoannounce(var/message, var/channel)	//Moved all combat announcements to call this proc instead. In future, other player ships might have their own frequencies
+/obj/effect/overmap/visitable/ship/combat/proc/autoannounce(message, var/channel)	//Moved all combat announcements to call this proc instead. In future, other player ships might have their own frequencies
 	if(!message || !channel)
 		return
 	if(announcement_channel[channel])	//Stops any player ships without their own freq using the Nerva's, which would be wierd.

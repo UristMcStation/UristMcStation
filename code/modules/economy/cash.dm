@@ -103,7 +103,7 @@
 		else
 			return 0
 
-/obj/item/spacecash/bundle/proc/split_off(var/amount, var/mob/user)
+/obj/item/spacecash/bundle/proc/split_off(amount, var/mob/user)
 	amount = round(clamp(amount, 0, src.worth))
 	if(amount==0) return 0
 

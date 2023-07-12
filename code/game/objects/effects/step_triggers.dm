@@ -129,7 +129,7 @@
 		return INITIALIZE_HINT_QDEL
 	radio_connection = radio_controller.add_object(src, freq, filter)
 
-/obj/effect/step_trigger/radio/Trigger(var/atom/movable/A)
+/obj/effect/step_trigger/radio/Trigger(atom/movable/A)
 	var/datum/signal/S = new
 	S.data = newdata
 	radio_connection.post_signal(src, S, filter)

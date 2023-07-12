@@ -1,4 +1,4 @@
-/material/cloth/generate_recipes(var/reinforce_material)
+/material/cloth/generate_recipes(reinforce_material)
 	. = ..()
 	if(reinforce_material)	//recipies below don't support composite materials
 		return

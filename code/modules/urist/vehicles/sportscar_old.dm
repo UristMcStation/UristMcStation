@@ -6,7 +6,7 @@
 	desc = "A very luxurious vehicle."
 	icon = 'icons/urist/vehicles/sportscar.dmi'
 	icon_state = "sportscar"
-	emagged = 0
+	emagged = FALSE
 	health = 100
 	charge_use = 0
 	bound_width = 64

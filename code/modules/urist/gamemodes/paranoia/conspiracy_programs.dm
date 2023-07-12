@@ -8,7 +8,7 @@
 	origin_tech = list(TECH_POWER = 2, TECH_DATA = 4)
 	var/obj/item/conspiracyintel/stored_intel
 
-/obj/item/computer_hardware/intel_scanner/attackby(var/obj/item/W as obj, var/mob/user as mob)
+/obj/item/computer_hardware/intel_scanner/attackby(obj/item/W as obj, var/mob/user as mob)
 	if(..())
 		return 1
 	if(istype(W, /obj/item/conspiracyintel))

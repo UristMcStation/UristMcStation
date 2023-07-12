@@ -3,17 +3,17 @@
 
 /*/mob/living/simple_animal/hostile/proc/HealBitches()
 	stop_automated_movement = 1
-//	to_world("IM BEING CALLED")
+//	log_debug("IM BEING CALLED")
 	if(!target_mob)
 		stance = STANCE_IDLE
-//		to_world("FOUND YOUR ERROR")
+//		log_debug("FOUND YOUR ERROR")
 	if(target_mob in ListTargets(10))
 		walk_to(src, target_mob, 1, move_to_delay)
-//		to_world("MOVING SMOOTHLY")
+//		log_debug("MOVING SMOOTHLY")
 	if(get_dist(src, target_mob) <= 1)	//heal bitches
 		target_mob.health = target_mob.health + 15
 		stance = STANCE_IDLE
-//		to_world("HEALING BITCHES")
+//		log_debug("HEALING BITCHES")
 		return 1
 
 /mob/living/simple_animal/hostile/proc/GetTheFuckOut()
@@ -69,7 +69,7 @@
 /obj/item/natural_weapon/melee/meatbits/weak
 	force = 20
 
-/*/mob/living/simple_animal/hostile/scom/GiveTarget(var/new_target)
+/*/mob/living/simple_animal/hostile/scom/GiveTarget(new_target)
 	target = new_target
 	if(target != null)
 		if(isliving(target))

@@ -59,7 +59,7 @@
 	name = CULTURE_XENOPHAGE_Q
 	caste_name = "queen"
 
-/singleton/cultural_info/culture/hidden/xenophage/queen/get_random_name(var/mob/living/carbon/human/queen)
+/singleton/cultural_info/culture/hidden/xenophage/queen/get_random_name(mob/living/carbon/human/queen)
 	if(!istype(queen) || !alien_queen_exists(1, queen))
 		return "alien queen ([caste_number])"
 	else

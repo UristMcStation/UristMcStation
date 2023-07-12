@@ -16,7 +16,7 @@
 
 /obj/item/gun/projectile/colt/on_update_icon()
 	..()
-	if(ammo_magazine && ammo_magazine.stored_ammo.len)
+	if(ammo_magazine && length(ammo_magazine.stored_ammo))
 		icon_state = "[initial(icon_state)]"
 	else
 		icon_state = "[initial(icon_state)]-e"

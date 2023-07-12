@@ -8,7 +8,7 @@
 	ship = 1
 	life_span = 300
 
-/obj/item/projectile/ion/ship/on_hit(var/atom/target, var/blocked = 0)
+/obj/item/projectile/ion/ship/on_hit(atom/target, var/blocked = 0)
 	var/flicker_range = light_effect_range * 2 //16 for the base ion pulse
 	for(var/obj/machinery/light/L in range(flicker_range, target))
 		L.flicker(rand(5,15))
@@ -39,7 +39,7 @@
 	penetration_modifier = 1.5
 	shake_range = 6
 
-/obj/item/projectile/bullet/ship/cannon/on_impact(var/atom/A)
+/obj/item/projectile/bullet/ship/cannon/on_impact(atom/A)
 	if(isturf(A))
 		explosion(A, -1, 2, EX_ACT_LIGHT, 0, 0)
 
@@ -55,7 +55,7 @@
 	var/severity = 0
 	var/ex_range = 0
 
-/obj/item/projectile/bullet/ship/missile/on_hit(var/atom/target, var/blocked = 0)
+/obj/item/projectile/bullet/ship/missile/on_hit(atom/target, var/blocked = 0)
 	for(var/mob/M in range(shake_range, target))
 		if(!M.stat && !istype(M, /mob/living/silicon/ai))\
 			shake_camera(M, 3, 1)
@@ -67,7 +67,7 @@
 
 	return 1
 
-/obj/item/projectile/bullet/ship/missile/proc/missile_explosion(var/atom/target)
+/obj/item/projectile/bullet/ship/missile/proc/missile_explosion(atom/target)
 	var/location = (get_turf(target))
 
 	if (istype(target, /turf/simulated/wall) && wall_decon)
@@ -191,7 +191,7 @@
 	var/ex_range = 2
 	var/shake_range = 10
 
-/obj/item/projectile/beam/ship/on_hit(var/atom/target, var/blocked = 0)
+/obj/item/projectile/beam/ship/on_hit(atom/target, var/blocked = 0)
 	for(var/mob/M in range(shake_range, target))
 		if(!M.stat && !istype(M, /mob/living/silicon/ai))\
 			shake_camera(M, 3, 1)

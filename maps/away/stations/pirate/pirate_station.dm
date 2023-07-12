@@ -13,7 +13,7 @@
 	base_turf = /turf/simulated/open
 	icon_state = "yellow"
 
-/var/global/const/access_away_pirate_station = "ACCESS_AWAY_PIRATE_STATION"
+var/global/const/access_away_pirate_station = "ACCESS_AWAY_PIRATE_STATION"
 /datum/access/away_pirate_station
 	id = access_away_pirate_station
 	desc = "Pirate Station"

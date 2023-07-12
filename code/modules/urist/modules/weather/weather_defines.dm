@@ -8,7 +8,7 @@
 	color = null
 	alpha = 255
 	mouse_opacity = 2
-	anchored = 1
+	anchored = TRUE
 	layer = EFFECTS_LAYER
 //	plane = WEATHER_PLANE
 	var/weathertemp = 310.15 //Kelvin temperature, default is neutral to mobs
@@ -21,12 +21,12 @@
 		for(var/R in init_reagents) //TODO: secure this from non-reagent ID strings
 			reagents.add_reagent(R, 50, null, 1)
 
-/obj/weathertype/proc/GetWeatherEffect(var/turf/T) //handles specific effects of weather on... stuff
+/obj/weathertype/proc/GetWeatherEffect(turf/T) //handles specific effects of weather on... stuff
 	return 1
 
 /*hijacked from human/life.dm's handle_environment and simplified;
 all-purpose cold/hot weather helper for exposure effects, wear a hat */
-/obj/weathertype/proc/TemperatureEffect(var/mob/living/M)
+/obj/weathertype/proc/TemperatureEffect(mob/living/M)
 	//Body temperature adjusts depending on surrounding atmosphere based on your thermal protection (convection)
 	var/temp_adj = 0
 	if(weathertemp < M.bodytemperature)			//Place is colder than we are
@@ -50,7 +50,7 @@ all-purpose cold/hot weather helper for exposure effects, wear a hat */
 		if(H.bodytemperature <= H.species.cold_discomfort_level)
 			H.species.get_environment_discomfort(H, "cold")
 
-/obj/weathertype/proc/ReagentEffect(var/turf/T)
+/obj/weathertype/proc/ReagentEffect(turf/T)
 	if(reagents)
 		for(var/mob/M in T)
 			reagents.trans_to(M, WEATHER_ACTION_VOLUME, 1, 1)
@@ -66,7 +66,7 @@ all-purpose cold/hot weather helper for exposure effects, wear a hat */
 	color = null //fully supports colors, the null works but is very subtle
 	init_reagents = list("water")
 
-/obj/weathertype/rain/GetWeatherEffect(var/turf/T)
+/obj/weathertype/rain/GetWeatherEffect(turf/T)
 	..(T)
 	ReagentEffect(T)
 
@@ -90,7 +90,7 @@ all-purpose cold/hot weather helper for exposure effects, wear a hat */
 	icon_state = "bsnow"
 	weathertemp = 265.0 //mild winter day
 
-/obj/weathertype/snow/GetWeatherEffect(var/turf/T)
+/obj/weathertype/snow/GetWeatherEffect(turf/T)
 	..(T)
 	for(var/mob/living/M in T)
 		TemperatureEffect(M)
@@ -109,7 +109,7 @@ all-purpose cold/hot weather helper for exposure effects, wear a hat */
 	icon_state = "" //deliberately no icon
 	weathertemp = 265.0
 
-/obj/weathertype/wind/GetWeatherEffect(var/turf/T)
+/obj/weathertype/wind/GetWeatherEffect(turf/T)
 	..(T)
 	for(var/mob/living/M in T)
 		if(prob(5))
@@ -134,7 +134,7 @@ all-purpose cold/hot weather helper for exposure effects, wear a hat */
 	color = "#fff0c9"
 	alpha = 175
 
-/obj/weathertype/sandstorm/GetWeatherEffect(var/turf/T)
+/obj/weathertype/sandstorm/GetWeatherEffect(turf/T)
 	..(T)
 	for(var/mob/living/O in T)
 		var/damage = 5

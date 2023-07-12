@@ -1,10 +1,10 @@
-/mob/living/carbon/human/lactera/New(var/new_loc)
+/mob/living/carbon/human/lactera/New(new_loc)
 	head_hair_style = "Bald"
 	..(new_loc, "Lactera")
 
 	faction = "alien"
 
-/mob/living/carbon/human/lactera/bullet_act(var/obj/item/projectile/Proj)
+/mob/living/carbon/human/lactera/bullet_act(obj/item/projectile/Proj)
 	Proj.embed = 0
 
 	..()
@@ -178,12 +178,12 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/lactera)
 		)
 
-/datum/species/xenos/lactera/handle_death(var/mob/living/carbon/human/H) //Handles any species-specific death events (such as dionaea nymph spawns).
+/datum/species/xenos/lactera/handle_death(mob/living/carbon/human/H) //Handles any species-specific death events (such as dionaea nymph spawns).
 	var/image/flicker = image('icons/uristmob/scommobs.dmi',"fire")
 	flick(flicker, H)
 	spawn(5)
 		qdel(H)
 	return
 
-/datum/species/xenos/lactera/get_bodytype(var/mob/living/carbon/human/H)
+/datum/species/xenos/lactera/get_bodytype(mob/living/carbon/human/H)
 	return name

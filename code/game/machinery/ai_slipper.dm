@@ -2,7 +2,7 @@
 	name = "\improper AI Liquid Dispenser"
 	icon = 'icons/obj/assemblies/new_assemblies.dmi'
 	icon_state = "prox"
-	anchored = 1.0
+	anchored = TRUE
 	idle_power_usage = 10
 	var/uses = 20
 	var/disabled = 1
@@ -24,12 +24,12 @@
 	else
 		overlays = null
 
-/obj/machinery/ai_slipper/proc/setState(var/enabled, var/uses)
+/obj/machinery/ai_slipper/proc/setState(enabled, var/uses)
 	src.disabled = disabled
 	src.uses = uses
 	src.power_change()
 
-/obj/machinery/ai_slipper/attackby(obj/item/W, mob/user)
+/obj/machinery/ai_slipper/use_tool(obj/item/W, mob/user)
 	if(stat & (MACHINE_STAT_NOPOWER|MACHINE_STAT_EMPED))
 		return
 	if (istype(user, /mob/living/silicon))
@@ -47,6 +47,7 @@
 					interact(user)
 		else
 			to_chat(user, "<span class='warning'>Access denied.</span>")
+	..()
 
 /obj/machinery/ai_slipper/interface_interact(mob/user)
 	interact(user)

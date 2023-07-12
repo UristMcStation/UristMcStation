@@ -209,7 +209,7 @@
 	base_area = /area/spacestations/nanotrasenspace
 	base_turf = /turf/simulated/floor/reinforced
 
-/datum/shuttle/autodock/ferry/supply/drone/attempt_move(var/obj/effect/shuttle_landmark/destination)
+/datum/shuttle/autodock/ferry/supply/drone/attempt_move(obj/effect/shuttle_landmark/destination)
 	if(!destination)
 		return FALSE
 
@@ -575,7 +575,7 @@
 	landmark_tag = "nav_merc_dock"
 	docking_controller = "nuke_shuttle_dock_airlock"
 	base_turf = /turf/simulated/floor/reinforced/airless
-	base_area = /area/space/
+	base_area = /area/space
 
 /obj/effect/shuttle_landmark/merc/deck1
 	name = "Northeast of the First Deck"

@@ -66,11 +66,11 @@
 		if(damage["impale"])
 			var/turf/T = corpse.near_wall(dir,2)
 			var/obj/item/organ/external/E = corpse.organs_by_name[damage["impale"]]
-			if(T && E && E.wounds.len)
+			if(T && E && length(E.wounds))
 				var/obj/item/arrow/rod/R = new(corpse)
 				corpse.set_dir(GLOB.reverse_dir[dir])
 				corpse.loc = T
-				corpse.anchored = 1
+				corpse.anchored = TRUE
 				corpse.pinned += R
 				var/datum/wound/W = E.wounds[1]
 				W.embedded_objects += R

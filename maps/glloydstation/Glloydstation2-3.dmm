@@ -25,8 +25,7 @@
 /turf/space,
 /turf/simulated/shuttle/wall{
 	icon_state = "swall_c";
-	dir = 2;
-	layer = 2
+	dir = 2
 	},
 /area/derelict/ship)
 "af" = (
@@ -34,7 +33,6 @@
 	icon_state = "floor3"
 	},
 /turf/simulated/shuttle/wall{
-	tag = "icon-swall_c (WEST)";
 	icon_state = "swall_c";
 	dir = 8
 	},
@@ -59,7 +57,6 @@
 	icon_state = "floor3"
 	},
 /turf/simulated/shuttle/wall{
-	tag = "icon-swall_c (NORTH)";
 	icon_state = "swall_c";
 	dir = 1
 	},
@@ -108,7 +105,6 @@
 "ap" = (
 /turf/simulated/floor/plating,
 /turf/simulated/shuttle/wall{
-	tag = "icon-swall_c (WEST)";
 	icon_state = "swall_c";
 	dir = 8
 	},
@@ -136,8 +132,7 @@
 	},
 /turf/simulated/shuttle/wall{
 	icon_state = "swall_c";
-	dir = 2;
-	layer = 2
+	dir = 2
 	},
 /area/derelict/ship)
 "at" = (
@@ -249,7 +244,6 @@
 /area/derelict/ship)
 "aI" = (
 /obj/structure/shuttle/engine/propulsion{
-	tag = "icon-burst_l (EAST)";
 	icon_state = "burst_l";
 	dir = 4
 	},
@@ -427,8 +421,7 @@
 /turf/space,
 /turf/simulated/shuttle/wall{
 	icon_state = "swall_c";
-	dir = 2;
-	layer = 2
+	dir = 2
 	},
 /area/space)
 "be" = (
@@ -472,7 +465,6 @@
 	icon_state = "floor3"
 	},
 /turf/simulated/shuttle/wall{
-	tag = "icon-swall_c (WEST)";
 	icon_state = "swall_c";
 	dir = 8
 	},
@@ -487,7 +479,6 @@
 	icon_state = "floor3"
 	},
 /turf/simulated/shuttle/wall{
-	tag = "icon-swall_c (NORTH)";
 	icon_state = "swall_c";
 	dir = 1
 	},
@@ -533,7 +524,6 @@
 "br" = (
 /turf/space,
 /turf/simulated/shuttle/wall{
-	tag = "icon-swall_c (WEST)";
 	icon_state = "swall_c";
 	dir = 8
 	},
@@ -550,8 +540,7 @@
 	},
 /turf/simulated/shuttle/wall{
 	icon_state = "swall_c";
-	dir = 2;
-	layer = 2
+	dir = 2
 	},
 /area/space)
 "bu" = (
@@ -594,7 +583,6 @@
 "by" = (
 /turf/space,
 /turf/simulated/shuttle/wall{
-	tag = "icon-swall_c (NORTH)";
 	icon_state = "swall_c";
 	dir = 1
 	},
@@ -608,7 +596,6 @@
 "bA" = (
 /turf/space,
 /turf/simulated/shuttle/wall{
-	tag = "icon-swall_c (WEST)";
 	icon_state = "swall_c";
 	dir = 8
 	},
@@ -703,7 +690,6 @@
 "bL" = (
 /turf/simulated/floor/plating,
 /turf/simulated/shuttle/wall{
-	tag = "icon-swall_c (NORTH)";
 	icon_state = "swall_c";
 	dir = 1
 	},
@@ -711,7 +697,6 @@
 "bM" = (
 /turf/space,
 /turf/simulated/shuttle/wall{
-	tag = "icon-swall_c (NORTH)";
 	icon_state = "swall_c";
 	dir = 1
 	},
@@ -753,8 +738,7 @@
 /turf/simulated/floor/plating,
 /turf/simulated/shuttle/wall{
 	icon_state = "swall_c";
-	dir = 2;
-	layer = 2
+	dir = 2
 	},
 /area/derelict/ship)
 "bT" = (

@@ -220,7 +220,7 @@
 		owner.oxygen_alert = 0
 	return failed_breath
 
-/obj/item/organ/internal/lungs/proc/handle_failed_breath(var/complete_failure)
+/obj/item/organ/internal/lungs/proc/handle_failed_breath(complete_failure)
 	if(complete_failure) //If we never got any air to try and process we'll need to update our failure rate here.
 		breath_fail_ratio = clamp(0,(breath_fail_ratio + 1)/2,1)
 	if(prob(10) && !owner.nervous_system_failure())

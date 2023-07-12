@@ -3,7 +3,7 @@
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "fuel"
 	layer = BLOOD_LAYER
-	anchored = 1
+	anchored = TRUE
 	persistent = FALSE
 	var/amount = 1
 	cleanable_scent = "fuel"

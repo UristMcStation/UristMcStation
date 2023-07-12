@@ -203,7 +203,7 @@ var/global/const/HOLOPAD_MODE = RANGE_BASED
 			add_hologram(caller_id)
 		log_admin("[key_name(caller_id)] just established a holopad connection from [connected.loc.loc] to [src.loc.loc]")
 
-/obj/machinery/hologram/holopad/proc/end_call(var/ended = TRUE)
+/obj/machinery/hologram/holopad/proc/end_call(ended = TRUE)
 	if(ended && connected)
 		connected.end_call(FALSE)
 	else
@@ -310,7 +310,7 @@ var/global/const/HOLOPAD_MODE = RANGE_BASED
 			end_call()
 	return 1
 
-/obj/machinery/hologram/holopad/proc/move_hologram(mob/living/user, var/x, var/y, var/dir)
+/obj/machinery/hologram/holopad/proc/move_hologram(mob/living/user, x, var/y, var/dir)
 	if(masters[user])
 		if(isAI(user))
 			step_to(masters[user], user.eyeobj) // So it turns.
@@ -345,7 +345,7 @@ var/global/const/HOLOPAD_MODE = RANGE_BASED
 		var/obj/effect/overlay/hologram = masters[user]
 		hologram.dir = new_dir
 
-/obj/machinery/hologram/holopad/proc/set_pad_effects(var/on = TRUE)
+/obj/machinery/hologram/holopad/proc/set_pad_effects(on = TRUE)
 	if(on)
 		set_light(1, 0.1, 2)
 		update_use_power(POWER_USE_ACTIVE)

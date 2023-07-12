@@ -1,7 +1,7 @@
 /mob/living/carbon/human
 	var/obj/structure/emplacement/mounted
 
-/mob/living/carbon/human/ClickOn(var/atom/A, params)
+/mob/living/carbon/human/ClickOn(atom/A, params)
 	if(mounted)
 		if(mounted.loc == src.loc)
 			if(A && mounted.nextshot <= world.time && mounted.anchored)
@@ -28,8 +28,8 @@
 	var/mob/living/carbon/human/User
 	var/nextshot = 0
 	var/FIRETIME = 1 //tenths of seconds
-	density = 1
-	anchored = 0
+	density = TRUE
+	anchored = FALSE
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
 	health_max = 500
 
@@ -42,7 +42,7 @@
 	ammo = 25
 	ammomax = 25
 	FIRETIME = 250
-	anchored = 1
+	anchored = TRUE
 	ammo_type = /obj/item/missile
 	fire_sound = 'sound/effects/Explosion1.ogg'
 
@@ -81,11 +81,11 @@
 	..()
 	START_PROCESSING(SSobj, src)
 
-/obj/structure/emplacement/proc/shoot(var/turf/T)
+/obj/structure/emplacement/proc/shoot(turf/T)
 	if(ammo <= 0)
 		if(User)
 			playsound(src, empty_sound, 70, 1)
-			to_target(User, "This [src] is out of ammo!")
+			to_chat(User, "This [src] is out of ammo!")
 
 		return
 	if(T && User && User.stat == CONSCIOUS && !User.stunned && !User.weakened)
@@ -174,7 +174,7 @@
 				user.visible_message("<span class='notice'> \The [user] decides not to unbolt \the [src].</span>")
 				return
 			user.visible_message("<span class='notice'> \The [user] finishes unfastening \the [src]!</span>")
-			anchored = 0
+			anchored = FALSE
 			return
 		else
 			user.visible_message("<span class='notice'> \The [user] starts to bolt \the [src] to the plating...</span>")
@@ -182,7 +182,7 @@
 				user.visible_message("<span class='notice'> \The [user] decides not to bolt \the [src].</span>")
 				return
 			user.visible_message("<span class='notice'> \The [user] finishes fastening down \the [src]!</span>")
-			anchored = 1
+			anchored = TRUE
 			update_rows()
 			return
 	else if(Ammo)
@@ -207,7 +207,7 @@
 				user.visible_message("<span class='notice'> \The [user] decides not to unbolt \the [src].</span>")
 				return
 			user.visible_message("<span class='notice'> \The [user] finishes unfastening \the [src]!</span>")
-			anchored = 0
+			anchored = FALSE
 			return
 		else
 			user.visible_message("<span class='notice'> \The [user] starts to bolt \the [src] to the plating...</span>")
@@ -215,7 +215,7 @@
 				user.visible_message("<span class='notice'> \The [user] decides not to bolt \the [src].</span>")
 				return
 			user.visible_message("<span class='notice'> \The [user] finishes fastening down \the [src]!</span>")
-			anchored = 1
+			anchored = TRUE
 			update_rows()
 			return
 	else

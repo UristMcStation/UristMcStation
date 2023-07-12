@@ -1,4 +1,4 @@
-/var/global/const/access_morninglight = "ACCESS_MORNING_LIGHT" //850
+var/global/const/access_morninglight = "ACCESS_MORNING_LIGHT" //850
 /datum/access/morninglight
 	id = access_morninglight
 	desc = "Scavenger Crew"

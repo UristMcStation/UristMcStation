@@ -1,32 +1,28 @@
-var/list/datum/map_template/map_templates = list()
-var/list/datum/map_template/space_ruins_templates = list()
-var/list/datum/map_template/planet_templates = list()
-var/list/datum/map_template/underground_templates = list()
-var/list/datum/map_template/ship/ship_templates = list()
+var/global/list/datum/map_template/map_templates = list()
+var/global/list/datum/map_template/space_ruins_templates = list()
+var/global/list/datum/map_template/planet_templates = list()
+var/global/list/datum/map_template/underground_templates = list()
+var/global/list/datum/map_template/ship/ship_templates = list()
 
 /datum/controller/subsystem/mapping/proc/preloadOtherTemplates()
 	var/list/potentialSpaceRuins = generateMapList(filename = "config/spaceRuins.txt")
 	for(var/ruin in potentialSpaceRuins)
 		var/datum/map_template/T = new(list(ruin), ruin)
-		log_debug("[ruin]")
 		space_ruins_templates[T.name] = T
 
 	var/list/potentialPlanetTemplates = generateMapList(filename = "config/planetTemplates.txt")
 	for(var/ruin in potentialPlanetTemplates)
 		var/datum/map_template/T = new(list(ruin), ruin)
-		log_debug("[ruin]")
 		planet_templates[T.name] = T
 
 	var/list/potentialUndergroundTemplates = generateMapList(filename = "config/undergroundTemplates.txt")
 	for(var/ruin in potentialUndergroundTemplates)
 		var/datum/map_template/T = new(list(ruin), ruin)
-		log_debug("[ruin]")
 		underground_templates[T.name] = T
 
 	var/list/potentialShipTemplates = generateMapList(filename = "config/shipTemplates.txt")
 	for(var/ruin in potentialShipTemplates)
 		var/datum/map_template/ship/T = new(list(ruin), ruin)
-		log_debug("[ruin]")
 		ship_templates[T.name] = T
 		SSmapping.map_templates += T
 
@@ -69,15 +65,15 @@ var/list/datum/map_template/ship/ship_templates = list()
 		var/datum/map_template/T = potentialRuins[A]
 		if(!T.loaded)
 			possible_ruins += T
-//	to_world("<span class='boldannounce'>Loading ruins...</span>")
+//	report_progress(Loading ruins...")
 	if(!template && length(possible_ruins))
 		template = difflist(possible_ruins)
 	if(!template)
-//		to_world("<span class='boldannounce'>No ruins found.</span>")
+//		report_progress(No ruins found.")
 		return
 	template.load(get_turf(src),centered = TRUE)
 	template.loaded++
-//	to_world("<span class='boldannounce'>Ruins loaded.</span>")
+//	report_progress(Ruins loaded.")
 	QDEL_IN(src,0)
 
 /obj/effect/template_loader/underground/Load(list/potentialRuins = underground_templates, datum/map_template/template = null)
@@ -103,10 +99,10 @@ var/list/datum/map_template/ship/ship_templates = list()
 
 	for(var/A in potentialRuins)
 		var/datum/map_template/T = potentialRuins[A]
-//		to_world("<span class='boldannounce'>T = [T.name]</span>")
+//		log_debug("T = [T.name]")
 		if(T.name == src.mapfile)
 			template = T
-//	to_world("<span class='boldannounce'>Template = [template] Mapfile = [mapfile]</span>")
+//	log_debug(Template = [template] Mapfile = [mapfile]")
 	template.load(get_turf(src), centered = TRUE)
 //	template.loaded++
 
@@ -125,10 +121,10 @@ var/list/datum/map_template/ship/ship_templates = list()
 
 	for(var/A in potentialRuins)
 		var/datum/map_template/ship/T = potentialRuins[A]
-//		to_world("<span class='boldannounce'>T = [T.name]</span>")
+//		report_progress(T = [T.name]</span>")
 		if(T.name == src.mapfile)
 			template = T
-//	to_world("<span class='boldannounce'>Template = [template] Mapfile = [mapfile]</span>")
+//	report_progress(Template = [template] Mapfile = [mapfile]</span>")
 
 	if(template.load(get_turf(src), centered = TRUE))
 //	template.loaded++
@@ -140,7 +136,7 @@ var/list/datum/map_template/ship/ship_templates = list()
 	GLOB.SSmatrix.init_matrix_memory(src)
 	. = ..()
 
-/obj/effect/template_loader/matrix/Load(var/security_rating = LOW_SEC, datum/map_template/template = null)
+/obj/effect/template_loader/matrix/Load(security_rating = LOW_SEC, datum/map_template/template = null)
 	switch(security_rating)
 		if(LOW_SEC)
 			template = safepick(low_matrix_templates)
@@ -180,7 +176,7 @@ var/list/datum/map_template/ship/ship_templates = list()
 				var/tele_z = GLOB.using_map.overmap_ship.evac_z
 
 				do_teleport(W, locate(tele_x,tele_y,tele_z), 0)
-				to_target(W, "<span class='warning'>You teleport back to the ship!</span>")
+				to_chat(W, "<span class='warning'>You teleport back to the ship!</span>")
 
 			else
 				qdel(W)
@@ -191,7 +187,7 @@ var/list/datum/map_template/ship/ship_templates = list()
 			var/tele_z = GLOB.using_map.overmap_ship.evac_z
 
 			do_teleport(S, locate(tele_x,tele_y,tele_z), 0)
-			to_target(S, "<span class='warning'>You teleport back to the ship!</span>")
+			to_chat(S, "<span class='warning'>You teleport back to the ship!</span>")
 
 
 	var/list/atoms_to_initialise = list()

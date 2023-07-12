@@ -426,14 +426,14 @@
 	return
 
 /obj/item/reagent_containers/hypospray/fluff/asher_spock_1/attack_self(mob/user as mob)
-	user << "\blue You click \the [src] but get no reaction. Must be dead."
+	to_chat(user, "\blue You click \the [src] but get no reaction. Must be dead.")
 
 /obj/item/reagent_containers/hypospray/fluff/asher_spock_1/attack(mob/M as mob, mob/user as mob)
 	if (user.ckey != "nerezza") //Because this can end up in the wrong hands, let's make it useless for them!
-		user << "\blue You click \the [src] but get no reaction. Must be dead."
+		to_chat(user, "\blue You click \the [src] but get no reaction. Must be dead.")
 		return
 	if(!reagents.total_volume)
-		user << "\red \The [src] is empty."
+		to_chat(user, "\red \The [src] is empty.")
 		return
 	if (!( istype(M, /mob) ))
 		return
@@ -444,22 +444,22 @@
 				"\blue You press the disguised autoinjector against your skin and click the button. There's a sharp pain at the injection site that rapidly fades.", \
 				"You hear a rustle as someone moves nearby, then a sharp click.")
 		if (M != user && user.ckey == "nerezza") //Woah now, you better be careful partner
-			user << "\blue You don't want to contaminate the autoinjector."
+			to_chat(user, "\blue You don't want to contaminate the autoinjector.")
 			return
 		src.reagents.reaction(M, INGEST)
 		if(M.reagents)
 			var/trans = reagents.trans_to(M, amount_per_transfer_from_this)
-			user << "\blue [trans] units injected. [reagents.total_volume] units remaining in \the [src]."
+			to_chat(user, "\blue [trans] units injected. [reagents.total_volume] units remaining in \the [src].")
 	return
 
 /obj/item/reagent_containers/hypospray/fluff/asher_spock_1/examine(mob/user as mob)
 	..()
 	if(user.ckey != "nerezza") return //Only the owner knows how to examine the contents.
-	if(reagents && reagents.reagent_list.len)
+	if(reagents && length(reagents.reagent_list))
 		for(var/datum/reagent/R in reagents.reagent_list)
-			usr << "\blue You examine the penlight closely and see that it has [R.volume] units of [R.name] stored."
+			to_chat(usr, "\blue You examine the penlight closely and see that it has [R.volume] units of [R.name] stored.")
 	else
-		usr << "\blue You examine the penlight closely and see that it is currently empty."
+		to_chat(usr, "\blue You examine the penlight closely and see that it is currently empty.")
 
 //End strange penlight
 
@@ -518,66 +518,6 @@
 	new_icon_state = "earth"
 	allowed_types = list("ripley","firefighter")
 
-// Root hardsuit kit defines.
-// Icons for modified hardsuits need to be in the proper .dmis because suit cyclers may cock them up.
-/obj/item/device/kit/suit/fluff
-
-	name = "hardsuit modification kit"
-	desc = "A kit for modifying a hardsuit."
-	icon = 'icons/obj/custom_items.dmi'
-	icon_state = "salvage_kit"
-
-	var/new_name        // Modifier for new item name - '[new_name] hardsuit'.
-	var/new_helmet_desc // Sets helmet desc.
-	var/new_suit_desc   // Sets suit desc.
-	var/helmet_icon     // Sets helmet icon_state and item_state.
-	var/suit_icon       // Sets suit icon_state and item_state.
-	var/helmet_color    // Sets item_color.
-	var/uses = 2        // Uses before the kit deletes itself.
-	var/new_light_overlay
-
-/obj/item/clothing/head/helmet/space/void/attackby(var/obj/item/O as obj, mob/user as mob)
-	..()
-
-	if(istype(O,/obj/item/device/kit/suit/fluff))
-
-		var/obj/item/device/kit/suit/fluff/kit = O
-		name = "[kit.new_name] suit helmet"
-		desc = kit.new_helmet_desc
-		icon_state = kit.helmet_icon
-		item_state = kit.helmet_icon
-		item_color = kit.helmet_color
-
-		if(kit.new_light_overlay)
-			light_overlay = kit.new_light_overlay
-
-		user << "You set about modifying the helmet into [src]."
-		playsound(user.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-
-		kit.uses--
-		if(kit.uses<1)
-			user.drop_item()
-			del(O)
-
-/obj/item/clothing/suit/space/void/attackby(var/obj/item/O as obj, mob/user as mob)
-	..()
-
-	if(istype(O,/obj/item/device/kit/suit/fluff))
-
-		var/obj/item/device/kit/suit/fluff/kit = O
-		name = "[kit.new_name] voidsuit"
-		desc = kit.new_suit_desc
-		icon_state = kit.suit_icon
-		item_state = kit.suit_icon
-
-		user << "You set about modifying the suit into [src]."
-		playsound(user.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-
-		kit.uses--
-		if(kit.uses<1)
-			user.drop_item()
-			del(O)
-
 ///////// Salvage crew hardsuit - Cybele Petit - solaruin ///////////////
 /obj/item/device/kit/suit/fluff/salvage
 	name = "salvage hardsuit modification kit"
@@ -623,7 +563,7 @@
 	icon = 'icons/obj/custom_items.dmi'
 	icon_state = "hook_kit"
 
-/obj/item/kitchenknife/attackby(var/obj/item/O as obj, mob/user as mob)
+/obj/item/kitchenknife/attackby(obj/item/O as obj, mob/user as mob)
 	..()
 
 	if(istype(O,/obj/item/device/kit/weapon/fluff/hook))
@@ -633,7 +573,7 @@
 		icon_state = "hook_knife"
 		item_state = "hook_knife"
 
-/obj/item/butch/attackby(var/obj/item/O as obj, mob/user as mob)
+/obj/item/butch/attackby(obj/item/O as obj, mob/user as mob)
 	..()
 
 	if(istype(O,/obj/item/device/kit/weapon/fluff/hook))
@@ -936,10 +876,10 @@
 		switch(icon_state)
 			if("lombardi_jacket")
 				src.icon_state = "lombardi_jacket_open"
-				usr << "You unbutton the jacket."
+				to_chat(usr, "You unbutton the jacket.")
 			if("lombardi_jacket_open")
 				src.icon_state = "lombardi_jacket"
-				usr << "You button up the jacket."
+				to_chat(usr, "You button up the jacket.")
 		update_clothing_icon()
 
 //////////// Uniforms ////////////
@@ -1084,10 +1024,10 @@
 
 	if(src.icon_state == "jane_sid_suit_down")
 		src.item_color = "jane_sid_suit"
-		usr << "You zip up the [src]."
+		to_chat(usr, "You zip up the [src].")
 	else
 		src.item_color = "jane_sid_suit_down"
-		usr << "You unzip and roll down the [src]."
+		to_chat(usr, "You unzip and roll down the [src].")
 
 	src.icon_state = "[item_color]"
 	src.item_state = "[item_color]"
@@ -1220,16 +1160,16 @@
 
 /obj/item/clothing/accessory/fluff/konaa_hirano/attack_self(mob/user as mob)
 	if(held)
-		user << "You open [src] and [held] falls out."
+		to_chat(user, "You open [src] and [held] falls out.")
 		held.loc = get_turf(user)
 		src.held = null
 
-/obj/item/clothing/accessory/fluff/konaa_hirano/attackby(var/obj/item/O as obj, mob/user as mob)
+/obj/item/clothing/accessory/fluff/konaa_hirano/attackby(obj/item/O as obj, mob/user as mob)
 	if(istype(O,/obj/item/paper))
 		if(held)
-			usr << "[src] already has something inside it."
+			to_chat(usr, "[src] already has something inside it.")
 		else
-			usr << "You slip [O] into [src]."
+			to_chat(usr, "You slip [O] into [src].")
 			user.drop_item()
 			O.loc = src
 			src.held = O
@@ -1360,14 +1300,14 @@
 	icon = 'icons/obj/custom_items.dmi'
 	icon_state = "leamas-empty"
 
-/obj/item/gun/projectile/revolver/detective/fluff/callum_leamas/update_icon()
+/obj/item/gun/projectile/revolver/detective/fluff/callum_leamas/on_update_icon()
 	..()
 	if(length(loaded))
 		icon_state = "leamas-loaded"
 	else
 		icon_state = "leamas-empty"
 
-/obj/item/gun/projectile/revolver/detective/fluff/callum_leamas/load_ammo(var/obj/item/A, mob/user)
+/obj/item/gun/projectile/revolver/detective/fluff/callum_leamas/load_ammo(obj/item/A, mob/user)
 	if(istype(A, /obj/item/ammo_magazine))
 		flick("leamas-reloading",src)
 	..()

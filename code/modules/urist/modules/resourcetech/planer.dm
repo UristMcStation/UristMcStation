@@ -3,8 +3,8 @@
 	var/busy = 0
 	use_power = 1
 	idle_power_usage = 10
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE
 	icon = 'icons/urist/structures&machinery/machinery.dmi'
 
 /obj/machinery/carpentry/planer
@@ -14,7 +14,7 @@
 	active_power_usage = 1000
 
 
-/obj/machinery/carpentry/planer/attackby(var/obj/item/I, mob/user as mob)
+/obj/machinery/carpentry/planer/attackby(obj/item/I, mob/user as mob)
 
 	if(istype(I, /obj/item/wrench))
 		if(busy)
@@ -22,9 +22,9 @@
 
 		else
 			if(anchored)
-				anchored = 0
+				anchored = FALSE
 			else
-				anchored = 1
+				anchored = TRUE
 			playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
 			if(anchored)
 				user.visible_message("[user] secures [src] to the floor.", "You secure [src] to the floor.")
@@ -75,7 +75,7 @@
 	name = "unprocessed wooden planks"
 	singular_name = "unprocessed wood plank"
 
-/obj/item/stack/material/r_wood/attack_self(var/mob/user)
+/obj/item/stack/material/r_wood/attack_self(mob/user)
 	return
 
 /obj/machinery/carpentry/woodprocessor
@@ -84,7 +84,7 @@
 	icon_state = "paper"
 	active_power_usage = 800
 
-/obj/machinery/carpentry/woodprocessor/attackby(var/obj/item/I, mob/user as mob)
+/obj/machinery/carpentry/woodprocessor/attackby(obj/item/I, mob/user as mob)
 
 	if(istype(I, /obj/item/stack/material/wood) || istype(I, /obj/item/stack/material/r_wood))
 		if(busy)
@@ -108,9 +108,9 @@
 
 		else
 			if(anchored)
-				anchored = 0
+				anchored = FALSE
 			else
-				anchored = 1
+				anchored = TRUE
 			playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
 			if(anchored)
 				user.visible_message("[user] secures [src] to the floor.", "You secure [src] to the floor.")
@@ -130,7 +130,7 @@
 		t += "<A href='?src=\ref[src];on3=Paper'>Paper</A><br>"
 		t += "<A href='?src=\ref[src];on4=RollingPapers'>Rolling Papers</A><br>"
 
-		to_target(user, browse(t, "window=woodprocessor;size=300x300"))
+		show_browser(user, t, "window=woodprocessor;size=300x300")
 
 	else
 		to_chat(user, "<span class='notice'>There's no wood stored in the [src]!</span>")

@@ -5,18 +5,18 @@
 	desc = "The furnace wall, warm to the touch."
 	icon = 'icons/urist/king/furnace.dmi'
 	icon_state = "furnace"
-	density = 0
-	anchored = 1
+	density = FALSE
+	anchored = TRUE
 
 /obj/structure/blacksmithingfurnace/furnace
 	name = "furnace"
 	desc = "A pretty hot furnance. Be careful while using it."
 	icon = 'icons/urist/king/blacksmithing.dmi'
 	icon_state = "furnace"
-	density = 0
-	anchored = 1
+	density = FALSE
+	anchored = TRUE
 
-/obj/structure/blacksmithingfurnace/furnace/attackby(obj/item/W, mob/user, var/click_params)
+/obj/structure/blacksmithingfurnace/furnace/attackby(obj/item/W, mob/user, click_params)
 	if(istype(W, /obj/item/ore/iron))
 		user.drop_item(W)
 		playsound(loc, 'sound/urist/furnace.ogg', 100, 5, 5)
@@ -85,7 +85,7 @@
 
 /obj/item/stack/material/var/list/techniques = list()
 
-/obj/item/stack/material/proc/metal_technique(var/mob/user)
+/obj/item/stack/material/proc/metal_technique(mob/user)
 
 	var/technique = input("Select an item to forge..","Techniques") as null|anything in techniques
 
@@ -94,7 +94,7 @@
 		return
 
 	if(get_amount() < build_data["cost"])
-		to_target(user, "There is not enough material in this stack to make that.")
+		to_chat(user, "There is not enough material in this stack to make that.")
 		return
 
 	if(!do_after(user, 300, src))
@@ -171,7 +171,7 @@
 		qdel(src)
 
 
-/obj/item/ore/hot/attackby(obj/item/W, mob/user, var/click_params)
+/obj/item/ore/hot/attackby(obj/item/W, mob/user, click_params)
 	if((istype(W, /obj/item/hammer)) && (locate(/obj/structure/anvil) in loc))
 		if(!busy)
 			busy = 1
@@ -218,8 +218,8 @@
 	name = "anvil"
 	icon = 'icons/urist/king/blacksmithing.dmi'
 	icon_state = "anvil"
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 	var/busy = 0
 
 /obj/structure/anvil/attackby(obj/item/W, mob/user)

@@ -560,7 +560,7 @@
 	Consume(AM)
 
 
-/obj/machinery/power/supermatter/proc/Consume(mob/living/user, var/amount = 200)
+/obj/machinery/power/supermatter/proc/Consume(mob/living/user, amount = 200)
 	if(istype(user))
 		user.dust()
 		power += amount

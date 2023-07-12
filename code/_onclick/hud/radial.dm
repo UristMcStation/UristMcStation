@@ -240,7 +240,7 @@ GLOBAL_LIST_EMPTY(radial_menus)
 	setup_menu(use_tooltips)
 
 
-/datum/radial_menu/proc/extract_image(image/E, var/use_labels)
+/datum/radial_menu/proc/extract_image(image/E, use_labels)
 	var/mutable_appearance/MA = new /mutable_appearance(E)
 	if(MA)
 		MA.layer = HUD_ABOVE_ITEM_LAYER

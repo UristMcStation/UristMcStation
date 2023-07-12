@@ -1,4 +1,4 @@
-/var/global/BNews = null
+var/global/BNews = null
 
 /hook/startup/proc/updateBNews()
 	Get_BNews()
@@ -127,4 +127,3 @@
 
 		if(" ",null)
 			return
-

@@ -17,7 +17,7 @@
 /obj/item/Scissors/IsWirecutter()
 	return TRUE
 
-/obj/item/scissors/attackby(var/obj/item/I, mob/user as mob) //Seperation of the scissors
+/obj/item/scissors/attackby(obj/item/I, mob/user as mob) //Seperation of the scissors
 	if(istype(I, /obj/item/screwdriver))
 
 		var/obj/item/improvised/scissorknife/left_part = new childpart
@@ -35,7 +35,7 @@
 
 		user.put_in_hands(left_part)
 		user.put_in_hands(right_part)
-		to_target(user, "<span class='notice'>You seperate the parts of the [src]</span>")
+		to_chat(user, "<span class='notice'>You seperate the parts of the [src]</span>")
 
 		qdel(src)
 	..()
@@ -69,7 +69,7 @@
 	attack_verb = list("prods", "pokes", "nudges", "annoys")
 	parentscissor = /obj/item/scissors/craft
 
-/obj/item/improvised/scissorsassembly/attackby(var/obj/item/I, mob/user as mob) //Putting it together
+/obj/item/improvised/scissorsassembly/attackby(obj/item/I, mob/user as mob) //Putting it together
 	if(istype(I, /obj/item/screwdriver))
 
 		var/obj/item/scissors/N = new parentscissor
@@ -77,7 +77,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(N)
-		to_target(user, "<span class='notice'>You tighten the screw on the screwdriver assembley</span>")
+		to_chat(user, "<span class='notice'>You tighten the screw on the screwdriver assembley</span>")
 
 		qdel(src)
 	..()

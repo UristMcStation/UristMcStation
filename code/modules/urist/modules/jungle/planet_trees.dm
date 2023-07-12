@@ -6,9 +6,9 @@
 	var/chops = 0 //how many times it's been chopped. Gotta make them work for it!
 	var/size = 0
 
-/obj/structure/flora/tree/planet/attackby(var/obj/item/I, mob/user as mob)
+/obj/structure/flora/tree/planet/attackby(obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/carpentry/axe) || istype(I, /obj/item/material/twohanded/fireaxe))
-		to_target(user, "<span class='notice'>You chop [src] with [I].</span>")
+		to_chat(user, "<span class='notice'>You chop [src] with [I].</span>")
 
 		playsound(src.loc, 'sound/urist/chopchop.ogg', 100, 1)
 
@@ -18,14 +18,14 @@
 		chops += 1
 
 		if(chops == 4 && size == 1)
-			to_target(user, "<span class='notice'>[src] comes crashing down!</span>")
+			to_chat(user, "<span class='notice'>[src] comes crashing down!</span>")
 			playsound(src.loc, 'sound/urist/treefalling.ogg', 100, 1)
 			new /obj/structure/log(src.loc)
 
 			qdel(src)
 
 		else if(chops == 8)
-			to_target(user, "<span class='notice'>[src] comes crashing down!</span>")
+			to_chat(user, "<span class='notice'>[src] comes crashing down!</span>")
 
 			sleep(5)
 
@@ -78,12 +78,12 @@
 /obj/structure/log
 	icon = 'icons/urist/items/wood.dmi'
 	icon_state = "log"
-	density = 1
-	anchored = 0
+	density = TRUE
+	anchored = FALSE
 
-/obj/structure/log/attackby(var/obj/item/I, mob/user as mob)
+/obj/structure/log/attackby(obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/carpentry/saw))
-		to_target(user, "<span class='notice'>You saw the [src] with [I].</span>")
+		to_chat(user, "<span class='notice'>You saw the [src] with [I].</span>")
 
 		if(do_after(user, 20))
 

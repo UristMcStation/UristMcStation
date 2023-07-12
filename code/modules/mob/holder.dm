@@ -205,7 +205,7 @@ var/global/list/holder_mob_icon_cache = list()
 	var/list/generate_for_slots = list(slot_l_hand_str, slot_r_hand_str, slot_back_str)
 	slot_flags = SLOT_BACK
 
-/obj/item/holder/human/sync(var/mob/living/M)
+/obj/item/holder/human/sync(mob/living/M)
 	// Generate appropriate on-mob icons.
 	var/mob/living/carbon/human/owner = M
 	if(istype(owner) && owner.species)

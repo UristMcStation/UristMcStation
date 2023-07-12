@@ -337,7 +337,7 @@
 		pai.show_message(rendered, type)
 	..()
 
-/obj/item/device/paicard/attack_ghost(var/mob/observer/ghost/user)
+/obj/item/device/paicard/attack_ghost(mob/observer/ghost/user)
 	if(!user.MayRespawn(1))
 		return
 	if(jobban_isbanned(user, "pAI"))

@@ -29,8 +29,8 @@
 
 /turf/simulated/floor/is_plating()
 	return !flooring
-	
-/turf/simulated/floor/protects_atom(var/atom/A)
+
+/turf/simulated/floor/protects_atom(atom/A)
 	return (A.level <= 1 && !is_plating()) || ..()
 
 /turf/simulated/floor/protects_atom(atom/A)

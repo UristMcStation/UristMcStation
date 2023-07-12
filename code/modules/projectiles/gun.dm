@@ -583,7 +583,7 @@
 
 //I'm tired of trying to force guns to fire
 
-/obj/item/gun/proc/simple_fire(var/atom/target, var/mob/user)
+/obj/item/gun/proc/simple_fire(atom/target, var/mob/user)
 	if(target == user)
 		return
 

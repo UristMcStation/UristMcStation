@@ -55,9 +55,6 @@
 		return
 	..()
 
-	// -> storage/attackby() what with handle insertion, etc
-	..()
-
 /obj/item/storage/secure/attack_self(mob/user)
 	user.set_machine(src)
 	var/dat = text("<TT><B>[]</B><BR>\n\nLock Status: []",src, (locked ? "LOCKED" : "UNLOCKED"))
@@ -208,8 +205,8 @@
 	force = 8.0
 	w_class = ITEM_SIZE_NO_CONTAINER
 	max_w_class = ITEM_SIZE_HUGE
-	anchored = 1.0
-	density = 0
+	anchored = TRUE
+	density = FALSE
 	cant_hold = list(/obj/item/storage/secure/briefcase)
 	startswith = list(
 	/obj/item/gun/energy/taser = 1,
@@ -249,7 +246,7 @@
 		return
 	..()
 
-/obj/item/storage/secure/alert_safe/proc/check_arms(var/return_missing = FALSE)
+/obj/item/storage/secure/alert_safe/proc/check_arms(return_missing = FALSE)
 	if(return_missing)
 		var/list/wanted = list()
 		for(var/R in registered_gear)
@@ -264,7 +261,7 @@
 				return FALSE
 		return TRUE
 
-/obj/item/storage/secure/alert_safe/proc/alert_unlock(var/unlocked)
+/obj/item/storage/secure/alert_safe/proc/alert_unlock(unlocked)
 	alert_unlocked = unlocked
 	if(alert_unlocked)
 		spawn(2 SECONDS)
@@ -285,7 +282,7 @@
 		next_reminder = 60
 		START_PROCESSING(SSobj, src)
 
-/obj/item/storage/secure/alert_safe/Process(var/wait)	//Time to bug people until they lock the safe & return the weapons
+/obj/item/storage/secure/alert_safe/Process(wait)	//Time to bug people until they lock the safe & return the weapons
 	if(!secure)
 		secure = check_arms() && locked
 		if(secure)
@@ -310,7 +307,7 @@
 /obj/item/storage/secure/alert_safe/attack_self(mob/user as mob)
 	ui_interact(user)
 
-/obj/item/storage/secure/alert_safe/emag_act(var/remaining_charges, var/mob/user, var/feedback)
+/obj/item/storage/secure/alert_safe/emag_act(remaining_charges, var/mob/user, var/feedback)
 	if(..())
 		STOP_PROCESSING(SSobj, src)
 		GLOB.alert_locked -= src	//Remove it from the GLOB list so further alert changes have no effect
@@ -322,19 +319,19 @@
 		return 0
 	. = ..()
 
-/obj/item/storage/secure/alert_safe/handle_item_insertion(var/obj/item/W, var/prevent_warning = 0, var/NoUpdate = 0)
+/obj/item/storage/secure/alert_safe/handle_item_insertion(obj/item/W, var/prevent_warning = 0, var/NoUpdate = 0)
 	. = ..()
 	if(.)
 		if(W.type in registered_gear)
 			registered_gear[W.type]["current"]++
 
-/obj/item/storage/secure/alert_safe/remove_from_storage(obj/item/W as obj, atom/new_location, var/NoUpdate = 0)
+/obj/item/storage/secure/alert_safe/remove_from_storage(obj/item/W as obj, atom/new_location, NoUpdate = 0)
 	. = ..()
 	if(.)
 		if(W.type in registered_gear)
 			registered_gear[W.type]["current"]--
 
-/obj/item/storage/secure/alert_safe/ui_interact(mob/user, ui_key="main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/item/storage/secure/alert_safe/ui_interact(mob/user, ui_key="main", datum/nanoui/ui = null, var/force_open = 1)
 	user.set_machine(src)
 
 	var/data[0]
@@ -363,7 +360,7 @@
 		ui.open()
 		ui.set_auto_update(1)
 
-/obj/item/storage/secure/alert_safe/OnTopic(var/mob/user, var/list/href_list, state)
+/obj/item/storage/secure/alert_safe/OnTopic(mob/user, var/list/href_list, state)
 	if(..())
 		return 1
 	if(!allowed(user))

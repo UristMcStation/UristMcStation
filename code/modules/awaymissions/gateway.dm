@@ -3,8 +3,8 @@
 	desc = "A mysterious gateway built by unknown hands, it allows for faster than light travel to far-flung locations."
 	icon = 'icons/obj/machines/gateway.dmi'
 	icon_state = "off"
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 	var/active = 0
 
 
@@ -24,7 +24,7 @@
 
 //this is da important part wot makes things go
 /obj/machinery/gateway/centerstation
-	density = 1
+	density = TRUE
 	icon_state = "offcenter"
 
 	//warping vars
@@ -128,7 +128,7 @@
 			M.set_dir(SOUTH)
 			use_power_oneoff(5000)
 
-/obj/machinery/gateway/centerstation/attackby(obj/item/device/W as obj, mob/user as mob)
+/obj/machinery/gateway/centerstation/use_tool(obj/item/device/W as obj, mob/user as mob)
 	if(isMultitool(W))
 		to_chat(user, "The gate is already calibrated, there is no work for you to do here.")
 		return
@@ -137,7 +137,7 @@
 
 
 /obj/machinery/gateway/centeraway
-	density = 1
+	density = TRUE
 	icon_state = "offcenter"
 	use_power = POWER_USE_OFF
 	var/calibrated = 1
@@ -220,7 +220,7 @@
 	M.forceMove(get_step(stationgate.loc, SOUTH))
 	M.set_dir(SOUTH)
 
-/obj/machinery/gateway/centeraway/attackby(obj/item/device/W as obj, mob/user as mob)
+/obj/machinery/gateway/centeraway/use_tool(obj/item/device/W as obj, mob/user as mob)
 	if(isMultitool(W))
 		if(calibrated)
 			to_chat(user, "The gate is already calibrated, there is no work for you to do here.")

@@ -2,7 +2,7 @@
 	icon_state = "x3"
 	icon = 'icons/mob/screen1.dmi'
 	invisibility = 101
-	anchored = 1
+	anchored = TRUE
 	var/shipid = null
 	var/obj/effect/overmap/visitable/ship/combat/mothership = null
 //	var/fire_dir = 0
@@ -24,7 +24,7 @@
 /obj/effect/urist/projectile_landmark/ship
 	fire_type = 1
 
-/obj/effect/urist/projectile_landmark/ship/Fire(var/obj/projectile_type = null)
+/obj/effect/urist/projectile_landmark/ship/Fire(obj/projectile_type = null)
 
 	var/obj/item/projectile/P = new projectile_type
 
@@ -46,7 +46,7 @@
 /obj/effect/urist/projectile_landmark/target
 	fire_type = 2
 
-/obj/effect/urist/projectile_landmark/target/Fire(var/projectile_type)
+/obj/effect/urist/projectile_landmark/target/Fire(projectile_type)
 	var/obj/item/projectile/P = new projectile_type
 
 	var/target_x = 100 //set up values for enemy ships

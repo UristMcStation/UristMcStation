@@ -4,8 +4,8 @@
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "processor"
 	layer = 2.9
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 	var/broken = 0
 	var/processing = 0
 	use_power = 1
@@ -99,7 +99,7 @@
 			input = /mob/living/carbon/human/monkey
 			output = null
 
-/obj/machinery/processor/proc/select_recipe(var/X)
+/obj/machinery/processor/proc/select_recipe(X)
 	for (var/Type in typesof(/datum/food_processor_process) - /datum/food_processor_process - /datum/food_processor_process/mob)
 		var/datum/food_processor_process/P = new Type()
 		if (!istype(X, P.input))
@@ -107,12 +107,12 @@
 		return P
 	return 0
 
-/obj/machinery/processor/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/processor/attackby(obj/item/O as obj, var/mob/user as mob)
 	if(src.processing)
-		to_target(user, "<span class='warning'> The processor is in the process of processing.</span>")
+		to_chat(user, "<span class='warning'> The processor is in the process of processing.</span>")
 		return 1
-	if(src.contents.len > 0) //TODO: several items at once? several different items?
-		to_target(user, "<span class='warning'> Something is already in the processing chamber.</span>")
+	if(length(src.contents) > 0) //TODO: several items at once? several different items?
+		to_chat(user, "<span class='warning'> Something is already in the processing chamber.</span>")
 		return 1
 	var/what = O
 	if (istype(O, /obj/item/grab))
@@ -121,7 +121,7 @@
 
 	var/datum/food_processor_process/P = select_recipe(what)
 	if (!P)
-		to_target(user, "<span class='warning'> That probably won't blend.</span>")
+		to_chat(user, "<span class='warning'> That probably won't blend.</span>")
 		return 1
 	user.visible_message("[user] put [what] into [src].", \
 		"You put the [what] into [src].")
@@ -129,14 +129,14 @@
 	what:loc = src
 	return
 
-/obj/machinery/processor/attack_hand(var/mob/user as mob)
+/obj/machinery/processor/attack_hand(mob/user as mob)
 	if (src.stat != 0) //NOPOWER etc
 		return
 	if(src.processing)
-		to_target(user, "<span class='warning'> The processor is in the process of processing.</span>")
+		to_chat(user, "<span class='warning'> The processor is in the process of processing.</span>")
 		return 1
-	if(src.contents.len == 0)
-		to_target(user, "<span class='warning'> The processor is empty.</span>")
+	if(length(src.contents) == 0)
+		to_chat(user, "<span class='warning'> The processor is empty.</span>")
 		return 1
 	for(var/O in src.contents)
 		var/datum/food_processor_process/P = select_recipe(O)

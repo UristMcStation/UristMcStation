@@ -4,7 +4,7 @@
 	set category = "Fun"
 	set desc = "Warp all players to you."
 	if(!check_rights(R_FUN))
-		src <<"<span class='danger'> You do not have the required admin rights.</span>"
+		to_chat(src, "<span class='danger'> You do not have the required admin rights.</span>")
 		return
 
 	for(var/mob/living/M in GLOB.player_list)
@@ -13,7 +13,7 @@
 		log_admin("[key_name(src)] has warped all players to their location.")
 
 //Urist mass-callproc, call it by regular callproc. SUPER risky.
-/client/proc/mass_callproc(var/atom/A, var/procpath, var/strict_typing = 1)
+/client/proc/mass_callproc(atom/A, var/procpath, var/strict_typing = 1)
 	set category = "Debug"
 	set name = "ProcCall All"
 	set background = 1

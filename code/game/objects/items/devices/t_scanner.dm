@@ -193,7 +193,7 @@
 	standard_mode = !standard_mode
 	to_chat(usr, "<span class='notice'>You set the t-scanner to scan [standard_mode ? "through tiles below you" : "for missing tiles above you"]</span>")
 
-/obj/item/device/t_scanner/AltClick(var/mob/user)
+/obj/item/device/t_scanner/AltClick(mob/user)
 	if(!CanPhysicallyInteract(user))
 		return
 	switch_mode()

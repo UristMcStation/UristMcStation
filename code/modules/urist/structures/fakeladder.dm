@@ -24,7 +24,7 @@
 		update_icon()
 	..()
 
-/obj/structure/fakeladder/update_icon()
+/obj/structure/fakeladder/on_update_icon()
 	if(up && down)
 		icon_state = "ladder11"
 

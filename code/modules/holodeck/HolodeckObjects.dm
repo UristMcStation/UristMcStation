@@ -244,7 +244,7 @@
 	base_icon = "wooden_chair"
 	icon_state = "wooden_chair_preview"
 
-/obj/structure/bed/chair/holochair/wood/New(var/newloc)
+/obj/structure/bed/chair/holochair/wood/New(newloc)
 	..(newloc, MATERIAL_WOOD)
 
 /obj/item/holo

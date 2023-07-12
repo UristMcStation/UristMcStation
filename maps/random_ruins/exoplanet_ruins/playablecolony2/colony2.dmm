@@ -2339,7 +2339,6 @@
 /area/map_template/colony2/external)
 "SA" = (
 /obj/machinery/power/port_gen/pacman{
-	anchored = 1;
 	sheets = 25
 	},
 /obj/structure/cable{

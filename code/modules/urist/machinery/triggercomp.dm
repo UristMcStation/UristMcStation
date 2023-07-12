@@ -4,7 +4,7 @@
 	name = "Blast Door Computer" //let's just do blast doors for now all this does is condense buttons down so the warden/CE isn't shitting himself.
 	icon = 'icons/urist/structures&machinery/machinery.dmi'
 	icon_state = "trig"
-	density = 0
+	density = FALSE
 
 	var/id = null
 	var/id1 = null
@@ -57,10 +57,10 @@
 				t += "<A href='?src=\ref[src];on6=[id6]'>[id6]</A><br>"
 				t += "<A href='?src=\ref[src];on7=[id7]'>[id7]</A><br>"
 
-			to_target(user, browse(t, "window=computer;size=420x700"))
+			show_browser(user, t, "window=computer;size=420x700")
 
 	else
-		to_target(user, "<span class='warning'>Access denied.</span>")
+		to_chat(user, "<span class='warning'>Access denied.</span>")
 		return
 
 /obj/machinery/computer/trigger/blast/Topic(href, href_list) //come back to this

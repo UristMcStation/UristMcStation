@@ -11,7 +11,7 @@
 	mutation=M_SOBER
 
 /datum/dna/gene/basic/sober/New()
-	block=SOBERBLOCK
+	block=GLOB.SOBERBLOCK
 
 //WAS: /datum/bioEffect/psychic_resist
 /datum/dna/gene/basic/psychic_resist
@@ -23,7 +23,7 @@
 	mutation=M_PSY_RESIST
 
 /datum/dna/gene/basic/psychic_resist/New()
-		block=PSYRESISTBLOCK
+		block=GLOB.PSYRESISTBLOCK
 
 /////////////////////////
 // Stealth Enhancers
@@ -31,14 +31,14 @@
 
 /datum/dna/gene/basic/stealth
 
-/datum/dna/gene/basic/stealth/can_activate(var/mob/M, var/flags)
+/datum/dna/gene/basic/stealth/can_activate(mob/M, var/flags)
 	// Can only activate one of these at a time.
 	if(is_type_in_list(/datum/dna/gene/basic/stealth,M.active_genes))
 		testing("Cannot activate [type]: /datum/dna/gene/basic/stealth in M.active_genes.")
 		return 0
 	return ..(M,flags)
 
-/datum/dna/gene/basic/stealth/deactivate(var/mob/M)
+/datum/dna/gene/basic/stealth/deactivate(mob/M)
 	..(M)
 	M.alpha=255
 
@@ -50,9 +50,9 @@
 	deactivation_messages = list("You become fully visible.")
 
 /datum/dna/gene/basic/stealth/darkcloak/New()
-	block=SHADOWBLOCK
+	block=GLOB.SHADOWBLOCK
 
-/datum/dna/gene/basic/stealth/darkcloak/OnMobLife(var/mob/M)
+/datum/dna/gene/basic/stealth/darkcloak/OnMobLife(mob/M)
 
 	if(isturf(M.loc))
 		var/turf/T = M.loc
@@ -71,7 +71,7 @@
 	deactivation_messages = list("You feel oddly exposed.")
 
 	New()
-		block=CHAMELEONBLOCK
+		block=GLOB.CHAMELEONBLOCK
 
 	OnMobLife(var/mob/M)
 		if((world.time - M.last_movement) >= 30 && !M.stat && M.canmove && !M.restrained())
@@ -84,13 +84,13 @@
 /datum/dna/gene/basic/grant_spell
 	var/spell/spelltype //TODO: might need to convert it to a list later
 
-/datum/dna/gene/basic/grant_spell/activate(var/mob/M, var/connected, var/flags)
+/datum/dna/gene/basic/grant_spell/activate(mob/M, var/connected, var/flags)
 	..()
 	M.add_spell(src.spelltype, "genetic_spell_ready")
 	return 1
 
 
-/datum/dna/gene/basic/grant_spell/deactivate(var/mob/M, var/connected, var/flags)
+/datum/dna/gene/basic/grant_spell/deactivate(mob/M, var/connected, var/flags)
 	..()
 	M.remove_spell(src.spelltype)
 	return 1
@@ -98,12 +98,12 @@
 /datum/dna/gene/basic/grant_verb
 	var/verbtype
 
-/datum/dna/gene/basic/grant_verb/activate(var/mob/M, var/connected, var/flags)
+/datum/dna/gene/basic/grant_verb/activate(mob/M, var/connected, var/flags)
 	..()
 	M.verbs += verbtype
 	return 1
 
-/datum/dna/gene/basic/grant_verb/deactivate(var/mob/M, var/connected, var/flags)
+/datum/dna/gene/basic/grant_verb/deactivate(mob/M, var/connected, var/flags)
 	..()
 	M.verbs -= verbtype
 
@@ -118,7 +118,7 @@
 
 /datum/dna/gene/basic/grant_spell/cryo/New()
 	..()
-	block = CRYOBLOCK
+	block = GLOB.CRYOBLOCK
 
 /spell/targeted/cryokinesis
 	name = "Cryokinesis"
@@ -138,13 +138,13 @@
 
 /spell/targeted/cryokinesis/cast(list/targets)
 	if(!length(targets))
-		to_target(usr, "<span class='notice'>No target found in range.</span>")
+		to_chat(usr, "<span class='notice'>No target found in range.</span>")
 		return
 
 	var/mob/living/carbon/C = targets[1]
 
 	if(!iscarbon(C))
-		to_target(usr, "<span class='warning'> This will only work on normal organic beings.</span>")
+		to_chat(usr, "<span class='warning'> This will only work on normal organic beings.</span>")
 		return
 
 	if (MUTATION_COLD_RESISTANCE in C.mutations)
@@ -164,14 +164,14 @@
 	return
 
 /obj/effects/self_deleting
-	density = 0
+	density = FALSE
 	opacity = 0
-	anchored = 1
+	anchored = TRUE
 	icon = null
 	desc = ""
 	//layer = 15
 
-/obj/effects/self_deleting/New(var/atom/location, var/icon/I, var/duration = 20, var/oname = "something")
+/obj/effects/self_deleting/New(atom/location, var/icon/I, var/duration = 20, var/oname = "something")
 	..()
 	src.name = oname
 	loc=location
@@ -192,7 +192,7 @@
 
 /datum/dna/gene/basic/grant_spell/mattereater/New()
 	..()
-	block = EATBLOCK
+	block = GLOB.EATBLOCK
 
 /spell/targeted/eat
 	name = "Eat"
@@ -225,7 +225,7 @@
 
 	perform(targets)
 
-/spell/targeted/eat/proc/doHeal(var/mob/user)
+/spell/targeted/eat/proc/doHeal(mob/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H=user
 		for(var/name in H.organs_by_name)
@@ -241,7 +241,7 @@
 
 /spell/targeted/eat/cast(list/targets)
 	if(!length(targets))
-		to_target(usr, "<span class='notice'>No target found in range.</span>")
+		to_chat(usr, "<span class='notice'>No target found in range.</span>")
 		return
 
 	var/atom/movable/the_item = targets[1]
@@ -257,28 +257,28 @@
 		var/mob/living/carbon/human/H = the_item
 		var/obj/item/organ/external/limb = H.get_organ(usr.zone_sel.selecting)
 		if(!istype(limb))
-			to_target(usr, "<span class='warning'> You can't eat this part of them!</span>")
+			to_chat(usr, "<span class='warning'> You can't eat this part of them!</span>")
 //			revert_cast()
 			return 0
 		if(istype(limb,/obj/item/organ/external/head))
 			// Bullshit, but prevents being unable to clone someone.
-			to_target(usr, "<span class='warning'> You try to put \the [limb] in your mouth, but [t_his] ears tickle your throat!</span>")
+			to_chat(usr, "<span class='warning'> You try to put \the [limb] in your mouth, but [t_his] ears tickle your throat!</span>")
 //			revert_cast()
 			return 0
 		if(istype(limb,/obj/item/organ/external/chest))
 			// Bullshit, but prevents being able to instagib someone.
-			to_target(usr, "<span class='warning'> You try to put their [limb] in your mouth, but it's too big to fit!</span>")
+			to_chat(usr, "<span class='warning'> You try to put their [limb] in your mouth, but it's too big to fit!</span>")
 //			revert_cast()
 			return 0
 		usr.visible_message("<span class='danger'>[usr] begins stuffing [the_item]'s [limb.name] into [m_his] gaping maw!</span>")
 		var/oldloc = H.loc
 		if(!do_after(usr,H,EAT_MOB_DELAY))
-			to_target(usr, "<span class='warning'> You were interrupted before you could eat [the_item]!</span>")
+			to_chat(usr, "<span class='warning'> You were interrupted before you could eat [the_item]!</span>")
 		else
 			if(!limb || !H)
 				return
 			if(H.loc!=oldloc)
-				to_target(usr, "<span class='warning'> \The [limb] moved away from your mouth!</span>")
+				to_chat(usr, "<span class='warning'> \The [limb] moved away from your mouth!</span>")
 				return
 			usr.visible_message("<span class='warning'> [usr] [pick("chomps","bites")] off [the_item]'s [limb]!</span>")
 			playsound(usr.loc, 'sound/items/eatfood.ogg', 50, 0)
@@ -310,7 +310,7 @@
 
 /datum/dna/gene/basic/grant_spell/jumpy/New()
 	..()
-	block = JUMPBLOCK
+	block = GLOB.JUMPBLOCK
 
 /spell/targeted/leap
 	name = "Jump"
@@ -326,11 +326,11 @@
 	spell_flags = INCLUDEUSER
 
 /spell/targeted/leap/cast(list/targets)
-	if (istype(usr.loc,/mob/))
-		to_target(usr, "<span class='warning'> You can't jump right now!</span>")
+	if (istype(usr.loc,/mob))
+		to_chat(usr, "<span class='warning'> You can't jump right now!</span>")
 		return
 
-	if (istype(usr.loc,/turf/))
+	if (istype(usr.loc,/turf))
 		usr.visible_message("<span class='danger'>[usr.name] takes a huge leap!</span>")
 		playsound(usr.loc, 'sound/weapons/thudswoosh.ogg', 50, 1)
 		var/prevLayer = usr.layer
@@ -350,9 +350,9 @@
 
 		usr.layer = prevLayer
 
-	if (istype(usr.loc,/obj/))
+	if (istype(usr.loc,/obj))
 		var/obj/container = usr.loc
-		to_target(usr, "<span class='warning'> You leap and slam your head against the inside of [container]! Ouch!</span>")
+		to_chat(usr, "<span class='warning'> You leap and slam your head against the inside of [container]! Ouch!</span>")
 		usr.paralysis += 3
 		usr.weakened += 5
 		container.visible_message("<span class='danger'>[usr.loc]emits a loud thump and rattles a bit.</span>")
@@ -384,7 +384,7 @@
 
 	New()
 		..()
-		block = POLYMORPHBLOCK
+		block = GLOB.POLYMORPHBLOCK
 
 /spell/targeted/polymorph
 	name = "Polymorph"
@@ -401,7 +401,7 @@
 /spell/targeted/polymorph/cast(list/targets)
 	var/mob/living/M=targets[1]
 	if(!ishuman(M))
-		to_target(usr, "<span class='warning'> You can only change your appearance to that of another human.</span>")
+		to_chat(usr, "<span class='warning'> You can only change your appearance to that of another human.</span>")
 		return
 
 	if(!ishuman(usr)) return
@@ -430,32 +430,32 @@
 
 /datum/dna/gene/basic/grant_verb/empath/New()
 		..()
-		block = EMPATHBLOCK
+		block = GLOB.EMPATHBLOCK
 
-/proc/bioproc_empath(var/mob/living/carbon/M in range(7,usr))
+/proc/bioproc_empath(mob/living/carbon/M in range(7,usr))
 	set name = "Read Mind"
 	set desc = "Read the minds of others for information."
 	set category = "Mutant Abilities"
 
 	if(!iscarbon(M))
-		to_target(usr, "<span class='warning'> You may only use this on other organic beings.</span>")
+		to_chat(usr, "<span class='warning'> You may only use this on other organic beings.</span>")
 		return
 
 	if(usr.stat)
 		return
 
 	if (M_PSY_RESIST in M.mutations)
-		to_target(usr, "<span class='warning'> You can't see into [M.name]'s mind at all!</span>")
+		to_chat(usr, "<span class='warning'> You can't see into [M.name]'s mind at all!</span>")
 		return
 
 	if (M.stat == 2)
-		to_target(usr, "<span class='warning'> [M.name] is dead and cannot have their mind read.</span>")
+		to_chat(usr, "<span class='warning'> [M.name] is dead and cannot have their mind read.</span>")
 		return
 	if (M.health < 0)
-		to_target(usr, "<span class='warning'> [M.name] is dying, and their thoughts are too scrambled to read.</span>")
+		to_chat(usr, "<span class='warning'> [M.name] is dying, and their thoughts are too scrambled to read.</span>")
 		return
 
-	to_target(usr, "<span class='notice'> Mind Reading of <b>[M.name]:</b></span>")
+	to_chat(usr, "<span class='notice'> Mind Reading of <b>[M.name]:</b></span>")
 	var/pain_condition = M.health
 	// lower health means more pain
 	var/list/randomthoughts = list("what to have for lunch","the future","the past","money",
@@ -470,33 +470,33 @@
 
 	switch(pain_condition)
 		if (81 to INFINITY)
-			to_target(usr, "<span class='notice'> <b>Condition</b>: [M.name] feels good.</span>")
+			to_chat(usr, "<span class='notice'> <b>Condition</b>: [M.name] feels good.</span>")
 		if (61 to 80)
-			to_target(usr, "<span class='notice'> <b>Condition</b>: [M.name] is suffering mild pain.</span>")
+			to_chat(usr, "<span class='notice'> <b>Condition</b>: [M.name] is suffering mild pain.</span>")
 		if (41 to 60)
-			to_target(usr, "<span class='notice'> <b>Condition</b>: [M.name] is suffering significant pain.</span>")
+			to_chat(usr, "<span class='notice'> <b>Condition</b>: [M.name] is suffering significant pain.</span>")
 		if (21 to 40)
-			to_target(usr, "<span class='notice'> <b>Condition</b>: [M.name] is suffering severe pain.</span>")
+			to_chat(usr, "<span class='notice'> <b>Condition</b>: [M.name] is suffering severe pain.</span>")
 		else
-			to_target(usr, "<span class='notice'> <b>Condition</b>: [M.name] is suffering excruciating pain.</span>")
+			to_chat(usr, "<span class='notice'> <b>Condition</b>: [M.name] is suffering excruciating pain.</span>")
 			thoughts = "haunted by their own mortality"
 
 	switch(M.a_intent)
 		if ("help")
-			to_target(usr, "<span class='notice'> <b>Mood</b>: You sense benevolent thoughts from [M.name].</span>")
+			to_chat(usr, "<span class='notice'> <b>Mood</b>: You sense benevolent thoughts from [M.name].</span>")
 		if ("disarm")
-			to_target(usr, "<span class='notice'> <b>Mood</b>: You sense cautious thoughts from [M.name].</span>")
+			to_chat(usr, "<span class='notice'> <b>Mood</b>: You sense cautious thoughts from [M.name].</span>")
 		if ("grab")
-			to_target(usr, "<span class='notice'> <b>Mood</b>: You sense hostile thoughts from [M.name].</span>")
+			to_chat(usr, "<span class='notice'> <b>Mood</b>: You sense hostile thoughts from [M.name].</span>")
 		if ("harm")
-			to_target(usr, "<span class='notice'> <b>Mood</b>: You sense cruel thoughts from [M.name].</span>")
+			to_chat(usr, "<span class='notice'> <b>Mood</b>: You sense cruel thoughts from [M.name].</span>")
 			for(var/mob/living/L in view(7,M))
 				if (L == M)
 					continue
 				thoughts = "thinking about punching [L.name]"
 				break
 		else
-			to_target(usr, "<span class='notice'> <b>Mood</b>: You sense strange thoughts from [M.name].</span>")
+			to_chat(usr, "<span class='notice'> <b>Mood</b>: You sense strange thoughts from [M.name].</span>")
 
 	if (istype(M,/mob/living/carbon/human))
 		var/numbers[0]
@@ -505,13 +505,13 @@
 			numbers += H.mind.initial_account.account_number
 			numbers += H.mind.initial_account.remote_access_pin
 		if(length(numbers)>0)
-			to_target(usr, "<span class='notice'> <b>Numbers</b>: You sense the number[length(numbers)>1?"s":""] [english_list(numbers)] [length(numbers)>1?"are":"is"] important to [M.name].</span>")
-	to_target(usr, "<span class='notice'> <b>Thoughts</b>: [M.name] is currently [thoughts].</span>")
+			to_chat(usr, "<span class='notice'> <b>Numbers</b>: You sense the number[length(numbers)>1?")s":""] [english_list(numbers)] [length(numbers)>1?"are":"is"] important to [M.name].</span>")
+	to_chat(usr, "<span class='notice'> <b>Thoughts</b>: [M.name] is currently [thoughts].</span>")
 
 	if (/datum/dna/gene/basic/grant_verb/empath in M.active_genes)
-		to_target(M, "<span class='warning'> You sense [usr.name] reading your mind.</span>")
+		to_chat(M, "<span class='warning'> You sense [usr.name] reading your mind.</span>")
 	else if (prob(5) || M.mind.assigned_role=="Chaplain")
-		to_target(M, "<span class='warning'> You sense someone intruding upon your thoughts...</span>")
+		to_chat(M, "<span class='warning'> You sense someone intruding upon your thoughts...</span>")
 	return
 
 ////////////////////////////////////////////////////////////////////////
@@ -527,4 +527,4 @@
 
 	New()
 		..()
-		block = SUPERFARTBLOCK*/
+		block = GLOB.SUPERFARTBLOCK*/

@@ -1,4 +1,4 @@
-var/list/GPS_list = list()
+var/global/list/GPS_list = list()
 /obj/item/device/gps/goof
 	name = "global positioning system"
 	desc = "Helping lost spacemen find their way through the planets since 2016."

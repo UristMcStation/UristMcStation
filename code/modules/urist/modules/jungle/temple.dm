@@ -16,7 +16,7 @@
 
 /obj/structure/temple_falsewall
 	name = "temple wall"
-	anchored = 1
+	anchored = TRUE
 	icon = 'icons/urist/jungle/turfs.dmi'
 	icon_state = "templewall"
 	opacity = 1
@@ -28,10 +28,10 @@
 
 	if(density)
 		opening = 1
-		to_target(user, "<span class='notice'>You slide the heavy wall open.</span>")
+		to_chat(user, "<span class='notice'>You slide the heavy wall open.</span>")
 		flick("templewall_opening", src)
 		sleep(5)
-		density = 0
+		density = FALSE
 		opacity = 0
 		icon_state = "templewall_open"
 
@@ -230,7 +230,7 @@
 			var/obj/structure/closet/crate/secure/gear/C = new(src.loc)
 			var/num = rand(2,6)
 			for(var/i=0,i<num,i++)
-				var/spawn_type = pick(/obj/item/device/flashlight/flare, /obj/item/trash/candle, /obj/item/flame/candle/, /obj/item/storage/box/matches)
+				var/spawn_type = pick(/obj/item/device/flashlight/flare, /obj/item/trash/candle, /obj/item/flame/candle, /obj/item/storage/box/matches)
 				new spawn_type(C)
 		if("engineering")
 			var/obj/structure/closet/crate/secure/gear/C = new(src.loc)
@@ -294,14 +294,14 @@
 		T.desc = pick("There is a faint sheen of moisture over the top.","It looks a little unstable.","Something doesn't seem right.")
 	..()
 
-/obj/effect/step_trigger/trap/Trigger(var/atom/A)
+/obj/effect/step_trigger/trap/Trigger(atom/A)
 	var/mob/living/M = A
 	if(!istype(M))
 		return
 
 	switch(trap_type)
 		if("sawburst")
-			to_target(M, "<span class='danger'>A sawblade shoots out of the ground and strikes you!</span>")
+			to_chat(M, "<span class='danger'>A sawblade shoots out of the ground and strikes you!</span>")
 			M.apply_damage(rand(5,10), DAMAGE_BRUTE, DAMAGE_FLAG_SHARP, DAMAGE_FLAG_EDGE)
 
 			var/atom/myloc = src.loc
@@ -312,7 +312,7 @@
 				qdel(flicker)
 			//flick("sawblade",src)
 		if("poison_dart")
-			to_target(M, "<span class='danger'>You feel something small and sharp strike you!</span>")
+			to_chat(M, "<span class='danger'>You feel something small and sharp strike you!</span>")
 			M.apply_damage(rand(5,10), DAMAGE_TOXIN)
 
 			var/atom/myloc = src.loc
@@ -323,7 +323,7 @@
 				qdel(flicker)
 			//flick("dart[rand(1,3)]",src)
 		if("flame_burst")
-			to_target(M, "<span class='danger'>A jet of fire comes out of nowhere!</span>")
+			to_chat(M, "<span class='danger'>A jet of fire comes out of nowhere!</span>")
 			M.apply_damage(rand(5,10), DAMAGE_BURN)
 
 			var/atom/myloc = src.loc
@@ -347,9 +347,9 @@
 			myloc.overlays += flicker
 			var/turf/my_turf = get_turf(loc)
 			if(!my_turf.density)
-				my_turf.density = 1
+				my_turf.density = TRUE
 				spawn(8)
-					my_turf.density = 0
+					my_turf.density = FALSE
 			spawn(8)
 				myloc.overlays -= flicker
 				qdel(flicker)

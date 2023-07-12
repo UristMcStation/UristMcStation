@@ -23,18 +23,18 @@
 	if(inoperable())
 		return
 	for(var/datum/stored_items/I in item_records)
-		if(I.instances.len)
+		if(length(I.instances))
 			dry()
 			update_icon()
 
-/obj/machinery/smartfridge/tanningrack/update_icon()
+/obj/machinery/smartfridge/tanningrack/on_update_icon()
 	overlays.Cut()
 	if(inoperable())
 		icon_state = icon_off
 	else
 		icon_state = icon_on
 	for(var/datum/stored_items/I in item_records)
-		if(I.instances.len)
+		if(length(I.instances))
 			overlays += "drying_rack_filled"
 			if(!inoperable())
 				overlays += "drying_rack_drying"

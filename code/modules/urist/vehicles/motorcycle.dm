@@ -3,7 +3,7 @@
 	desc = "A fast and highly maneuverable vehicle."
 	icon = 'icons/urist/vehicles/uristvehicles.dmi'
 	icon_state = "motorcycle_4dir"
-	emagged = 0
+	emagged = FALSE
 	mob_offset_y = 6
 	load_offset_x = 0
 	health = 150
@@ -35,7 +35,7 @@
 	desc = "A fast and highly maneuverable vehicle."
 	icon = 'icons/urist/vehicles/uristvehicles.dmi'
 	icon_state = "motorcycle"
-	emagged = 1
+	emagged = TRUE
 	mob_offset_y = 6
 	load_offset_x = 0
 	health = 250
@@ -154,7 +154,7 @@
 	else
 		..()
 
-/obj/structure/vehicle_frame/motorcycle/update_icon()
+/obj/structure/vehicle_frame/motorcycle/on_update_icon()
 	icon_state = "bike_frame[buildstate]"
 
 /obj/vehicle/bike/motorcycle
@@ -212,7 +212,7 @@
 	..()
 	STOP_PROCESSING(SSobj, src)
 
-/*/obj/vehicle/bike/motorcycle/Move(var/turf/destination)
+/*/obj/vehicle/bike/motorcycle/Move(turf/destination)
 	if(kickstand) return
 	//these things like space, not turf. Dragging shouldn't weigh you down.
 	if(istype(destination,/turf/space) || pulledby)
@@ -226,7 +226,7 @@
 	moved = ..()
 	return moved*/
 
-/obj/vehicle/bike/motorcycle/Bump(var/atom/thing)
+/obj/vehicle/bike/motorcycle/Bump(atom/thing)
 
 	if(!istype(thing, /atom/movable))
 		return
@@ -262,7 +262,7 @@
 				M.throw_at(get_edge_target_turf(src,src.dir),rand(1,2), move_delay)
 				spawn(3)
 					if(!M.lying)
-						to_target(M, "<span class='notice'>You land on your feet!</span>")
+						to_chat(M, "<span class='notice'>You land on your feet!</span>")
 
 			src.ex_act(2)
 
@@ -278,7 +278,7 @@
 			M.Weaken(rand(5,10))
 			M.throw_at(get_edge_target_turf(src,get_dir(src,M)),rand(1,2), move_delay)
 
-/obj/vehicle/bike/motorcycle/RunOver(var/mob/living/carbon/human/H)
+/obj/vehicle/bike/motorcycle/RunOver(mob/living/carbon/human/H)
 	if(istype(load, /mob/living))
 		to_chat(load, "<span class='danger'>You run \the [H] down!</span>")
 		to_chat(H, "<span class='danger'>\The [load] runs you down!</span>")

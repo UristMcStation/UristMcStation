@@ -137,7 +137,7 @@
 	magazine_type = /obj/item/ammo_magazine/c10mm/TD10
 	allowed_magazines = list(/obj/item/ammo_magazine/c10mm/TD10)
 
-/obj/item/gun/projectile/td10_pistol/update_icon()
+/obj/item/gun/projectile/td10_pistol/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "pistol10mm"
@@ -169,7 +169,7 @@
 		list(mode_name="short bursts", 	burst=5, move_delay=6, fire_delay=null, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/gun/projectile/automatic/td10_smg/update_icon()
+/obj/item/gun/projectile/automatic/td10_smg/on_update_icon()
 	if(ammo_magazine)
 		icon_state = "smg10mm-fo"
 	else

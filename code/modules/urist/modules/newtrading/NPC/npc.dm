@@ -1,5 +1,5 @@
 /mob/living/simple_animal/passive/npc
-	anchored = 1
+	anchored = TRUE
 	name = "NPC"
 	desc = "npc"
 	var/npc_job_title
@@ -107,7 +107,7 @@
 	for(var/mob/living/simple_animal/hostile/scom/civ/combat/police/p in orange(7, holder))
 		p.ai_holder.hostile = TRUE
 
-/mob/living/simple_animal/passive/npc/proc/can_use(var/mob/M)
+/mob/living/simple_animal/passive/npc/proc/can_use(mob/M)
 	if(M.stat || M.restrained() || M.lying || !istype(M, /mob/living) || get_dist(M, src) > 1)
 		return 0
 	return 1

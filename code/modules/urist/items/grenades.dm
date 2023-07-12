@@ -77,7 +77,7 @@
 	for(var/mob/living/carbon/M in hearers(6, src.loc))
 		var/distance = get_dist(M, src.loc)
 		var/safety = 1
-		to_target(M, "<span class='warning'><font size='3'><b>You hear a tremendous bang!</font></b></span>")
+		to_chat(M, "<span class='warning'><font size='3'><b>You hear a tremendous bang!</font></b></span>")
 		if(ishuman(M))
 			if(M:is_on_ears(/obj/item/clothing/ears/earmuffs))
 				safety = 2
@@ -175,7 +175,7 @@
 
 		icon_state = "grenade"
 
-//Syndie mini-bomb from /tg/
+//Syndie mini-bomb from tg
 
 /obj/item/grenade/syndieminibomb
 	desc = "A syndicate manufactured explosive used to sow destruction and chaos"

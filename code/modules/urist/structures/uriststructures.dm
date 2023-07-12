@@ -111,7 +111,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "bed"
 	base_icon = "bed"
 
-/obj/structure/bed/nice/update_icon() //GLLOYDTODO: comeback to this
+/obj/structure/bed/nice/on_update_icon() //GLLOYDTODO: comeback to this
 	return
 
 ///obj/structure/bed/nice/New(var/newloc)
@@ -134,7 +134,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "poker_tableparts"
 	obj_flags = null
 
-/*/obj/item/table_parts/wood/attackby(var/obj/item/I, mob/user as mob)
+/*/obj/item/table_parts/wood/attackby(obj/item/I, mob/user as mob)
 	..()
 	if(istype(I, /obj/item/stack/tile/grass))
 		var/obj/item/stack/tile/grass/R = I
@@ -144,7 +144,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		user.remove_from_mob(src)
 
 		user.put_in_hands(H)
-		to_target(user, "<span class='notice'>You strap a sheet of metal to the hazard vest. Now to tighten it in.</span>") //wut
+		to_chat(user, "<span class='notice'>You strap a sheet of metal to the hazard vest. Now to tighten it in.</span>") //wut
 
 		qdel(src)
 		qdel(I)*/
@@ -154,7 +154,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/structure/bed/chair/urist
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 
-/obj/structure/bed/chair/urist/update_icon()
+/obj/structure/bed/chair/urist/on_update_icon()
 	return
 
 /obj/structure/bed/chair/urist/shuttle
@@ -208,7 +208,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/item/stool/urist
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 
-/obj/item/stool/urist/update_icon()
+/obj/item/stool/urist/on_update_icon()
 	return
 
 /obj/item/stool/urist/bar
@@ -243,10 +243,10 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "tallcabinet"
 
-/obj/structure/filingcabinet/wood/attackby(var/obj/item/P, mob/user as mob)
+/obj/structure/filingcabinet/wood/attackby(obj/item/P, mob/user as mob)
 	if(istype(P, /obj/item/screwdriver))
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-		to_target(user, "<span class='notice'>You disassemble \the [src].</span>")
+		to_chat(user, "<span class='notice'>You disassemble \the [src].</span>")
 		var/obj/item/stack/material/wood/S =  new /obj/item/stack/material/wood(src.loc)
 		S.amount = 2
 		for(var/obj/item/b in contents)
@@ -269,7 +269,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 /obj/item/table_parts/attack_self(mob/user as mob)
 	if(locate(/obj/structure/table) in user.loc)
-		to_target(user, "<span class='warning'>There is already a table here.</span>")
+		to_chat(user, "<span class='warning'>There is already a table here.</span>")
 		return
 
 	else
@@ -302,10 +302,10 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "rack"
 
-/obj/structure/table/rack/wood/attackby(var/obj/item/P, mob/user as mob)
+/obj/structure/table/rack/wood/attackby(obj/item/P, mob/user as mob)
 	if(istype(P, /obj/item/wrench))
 		playsound(src, 'sound/items/Deconstruct.ogg', 50, 1)
-		to_target(user, "<span class='notice'>You disassemble \the [src].</span>")
+		to_chat(user, "<span class='notice'>You disassemble \the [src].</span>")
 		var/obj/item/stack/material/wood/S =  new /obj/item/stack/material/wood(src.loc)
 		S.amount = 1
 		qdel(src)
@@ -352,7 +352,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 //	icon_state = "woodgrille"
 //	rodpath = /obj/item/stack/woodrods
 
-/*/obj/structure/grille/wood/update_icon()
+/*/obj/structure/grille/wood/on_update_icon()
 	update_onframe()
 
 	overlays.Cut()
@@ -367,8 +367,8 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	desc = "It's a shitty little improvised raft frame."
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "raft_frame0"
-	density = 0
-	anchored = 0
+	density = FALSE
+	anchored = FALSE
 	var/built = 0
 	var/buildstate = 0
 	layer = BELOW_OBJ_LAYER
@@ -431,10 +431,10 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		..()
 
 
-/obj/structure/raft/update_icon()
+/obj/structure/raft/on_update_icon()
 	icon_state = "raft_frame[buildstate]"
 
-/obj/structure/raft/proc/do_pulling_stuff(var/turf/T)
+/obj/structure/raft/proc/do_pulling_stuff(turf/T)
 	for(var/obj/item/O in src.loc)
 		O.loc = get_turf(T)
 
@@ -489,5 +489,5 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/structure/silicon_decoy
 	icon = 'icons/mob/AI.dmi'
 	icon_state = "ai"
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE

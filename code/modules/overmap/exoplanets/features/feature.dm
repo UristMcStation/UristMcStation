@@ -9,8 +9,8 @@
 	icon_state = "jaggy1"
 	plane = ABOVE_HUMAN_PLANE
 	layer = ABOVE_HUMAN_LAYER
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 	var/active = 0
 
 /obj/structure/monolith/Initialize()
@@ -24,7 +24,7 @@
 		if(istype(E))
 			desc += "\nThere are images on it: [E.get_engravings()]"
 
-/obj/structure/monolith/update_icon()
+/obj/structure/monolith/on_update_icon()
 	overlays.Cut()
 	if(active)
 		var/image/I = image(icon,"[icon_state]decor")
@@ -108,10 +108,10 @@
 		map[coors] = 4
 
 
-/datum/random_map/feature/monoliths/get_appropriate_path(var/value)
+/datum/random_map/feature/monoliths/get_appropriate_path(value)
 	return
 
-/datum/random_map/feature/monoliths/get_additional_spawns(var/value, var/turf/T)
+/datum/random_map/feature/monoliths/get_additional_spawns(value, var/turf/T)
 	switch(value)
 		if(6)
 			new /obj/machinery/artifact(T)

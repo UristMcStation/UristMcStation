@@ -35,7 +35,7 @@
 
 /*/datum/map/proc/setup_map()
 	var/lobby_track_type
-	if(lobby_tracks.len)
+	if(length(lobby_tracks))
 		lobby_track_type = pick(lobby_tracks)
 	else
 		lobby_track_type = pick(subtypesof(/music_track))
@@ -69,7 +69,7 @@
 			continue
 
 		sites_by_spawn_weight[site] = site.spawn_weight
-	while (away_site_budget > 0 && sites_by_spawn_weight.len)
+	while (away_site_budget > 0 && length(sites_by_spawn_weight))
 		var/datum/map_template/ruin/away_site/selected_site = pickweight(sites_by_spawn_weight)
 		if (!selected_site)
 			break
@@ -80,7 +80,7 @@
 		if (selected_site.load_new_z())
 			report_progress("Loaded away site [selected_site] in [(world.timeofday - starttime)/10] seconds!")
 			away_site_budget -= selected_site.cost
-	report_progress("Finished loading away sites, remaining budget [away_site_budget], remaining sites [sites_by_spawn_weight.len]")
+	report_progress("Finished loading away sites, remaining budget [away_site_budget], remaining sites [length(sites_by_spawn_weight)]")
 #endif
 
 /datum/map/proc/build_exoplanets()
@@ -93,7 +93,7 @@
 		new_planet.build_level()
 
 // Used to apply various post-compile procedural effects to the map.
-/datum/map/proc/refresh_mining_turfs(var/zlevel)
+/datum/map/proc/refresh_mining_turfs(zlevel)
 
 	set background = 1
 	set waitfor = 0
@@ -106,15 +106,15 @@
 		if(istype(M))
 			M.updateMineralOverlays()
 
-/datum/map/proc/get_network_access(var/network)
+/datum/map/proc/get_network_access(network)
 	return 0
 
 // By default transition randomly to another zlevel
-/datum/map/proc/get_transit_zlevel(var/current_z_level)
+/datum/map/proc/get_transit_zlevel(current_z_level)
 	var/list/candidates = GLOB.using_map.accessible_z_levels.Copy()
 	candidates.Remove(num2text(current_z_level))
 
-	if(!candidates.len)
+	if(!length(candidates))
 		return current_z_level
 	return text2num(pickweight(candidates))
 
@@ -131,8 +131,8 @@
 
 	for(var/loc_type in typesof(/datum/trade_destination) - /datum/trade_destination)
 		var/datum/trade_destination/D = new loc_type
-		weighted_randomevent_locations[D] = D.viable_random_events.len
-		weighted_mundaneevent_locations[D] = D.viable_mundane_events.len
+		weighted_randomevent_locations[D] = length(D.viable_random_events)
+		weighted_mundaneevent_locations[D] = length(D.viable_mundane_events)
 
 	if(!station_account)
 		station_account = create_account("[station_name()] Primary Account", starting_money)
@@ -147,7 +147,7 @@
 	department_accounts["Vendor"] = create_account("Vendor Account", 0)
 	vendor_account = department_accounts["Vendor"]
 
-/datum/map/proc/map_info(var/client/victim)
+/datum/map/proc/map_info(client/victim)
 	return
 
 /datum/map/proc/bolt_saferooms()
@@ -156,11 +156,11 @@
 /datum/map/proc/unbolt_saferooms()
 	return // overriden by torch
 
-/datum/map/proc/make_maint_all_access(var/radstorm = 0) // parameter used by torch
+/datum/map/proc/make_maint_all_access(radstorm = 0) // parameter used by torch
 	maint_all_access = 1
 	priority_announcement.Announce("The maintenance access requirement has been revoked on all maintenance airlocks.", "Attention!")
 
-/datum/map/proc/revoke_maint_all_access(var/radstorm = 0) // parameter used by torch
+/datum/map/proc/revoke_maint_all_access(radstorm = 0) // parameter used by torch
 	maint_all_access = 0
 	priority_announcement.Announce("The maintenance access requirement has been readded on all maintenance airlocks.", "Attention!")
 

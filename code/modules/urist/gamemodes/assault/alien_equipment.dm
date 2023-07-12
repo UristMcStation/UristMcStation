@@ -2,11 +2,11 @@
 
 /obj/machinery/computer/shuttle_control/assault
 	var/readytogo = 0
-	density = 0
+	density = FALSE
 
 /obj/machinery/computer/shuttle_control/assault/attack_hand(mob/user)
 	if(!readytogo)
-		to_target(user, "<span class='warning'>The shuttles will be ready to launch shortly.</span>")
+		to_chat(user, "<span class='warning'>The shuttles will be ready to launch shortly.</span>")
 		return
 	else
 		..()
@@ -42,7 +42,7 @@
 	self_recharge = 1
 	var/inertstate = /obj/item/scom/aliengun
 
-/obj/item/gun/energy/lactera/update_icon()
+/obj/item/gun/energy/lactera/on_update_icon()
 	..()
 	item_state = initial(item_state)
 	icon_state = initial(icon_state)
@@ -108,7 +108,7 @@
 	var/mob/living/carbon/human/M = user
 	if(!istype(M, /mob/living/carbon/human/lactera))
 //	if(M.species != "Xenomorph")
-		to_target(M, "<span class='warning'>The alien gun turns inert when you touch it.</span>")
+		to_chat(M, "<span class='warning'>The alien gun turns inert when you touch it.</span>")
 		new inertstate(src.loc)
 		qdel(src)
 
@@ -119,7 +119,7 @@
 	var/mob/living/carbon/human/M = usr
 	if(!istype(M, /mob/living/carbon/human/lactera))
 //	if(M.species != /datum/species/xenos/lactera)
-		to_target(M, "<span class='warning'>The alien gun turns inert when you touch it.</span>")
+		to_chat(M, "<span class='warning'>The alien gun turns inert when you touch it.</span>")
 		new inertstate(src.loc)
 		qdel(src)
 
@@ -145,7 +145,7 @@
 	icon_state = "plastic-explosive0"
 	item_state = "device"
 
-/obj/item/plastique/alienexplosive/explode(var/location)
+/obj/item/plastique/alienexplosive/explode(location)
 	if(!target)
 		target = get_atom_on_turf(src)
 	if(!target)
@@ -167,7 +167,7 @@
 		target.overlays -= image_overlay
 	qdel(src)
 
-/obj/item/plastique/alienexplosive/attackby(var/obj/item/I, var/mob/user)
+/obj/item/plastique/alienexplosive/attackby(obj/item/I, var/mob/user)
 	return
 
 /obj/item/clothing/under/lactera

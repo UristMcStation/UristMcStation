@@ -1,8 +1,8 @@
 /obj/machinery/computer/accounts
 	name = "account management console"
 	desc = "Used to administrate all aspects of financial accounts."
-	density = 1
-	anchored = 1.0
+	density = TRUE
+	anchored = TRUE
 	icon_keyboard = "id_key"
 	icon_screen = "comm_logs"
 	req_access = list(list(access_hop, access_captain))
@@ -74,7 +74,7 @@
 			to_chat(user, "<span class='notice'>Account details successfully transferred!</span>")
 			playsound(loc, 'sound/machines/chime.ogg', 30)
 
-/obj/machinery/computer/accounts/proc/get_auth(var/mob/user)
+/obj/machinery/computer/accounts/proc/get_auth(mob/user)
 	var/obj/item/card/id/auth_card = user.GetIdCard()
 	if(!auth_card)
 		return 0	//No ID
@@ -83,7 +83,7 @@
 	else
 		return 2	//ID but no access
 
-/obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, var/force_open = 1)
 
 	var/data[0]
 	data["state"] = display_state
@@ -213,7 +213,7 @@
 		ui.open()
 		ui.set_auto_update(0)
 
-/obj/machinery/computer/accounts/OnTopic(var/mob/user, var/list/href_list, state)
+/obj/machinery/computer/accounts/OnTopic(mob/user, var/list/href_list, state)
 	if(..())
 		return ..()
 
@@ -576,7 +576,7 @@
 
 	return TOPIC_NOACTION
 
-/obj/machinery/computer/accounts/proc/email_client(var/address, var/txt, var/sending = EMAIL_FINANCE)
+/obj/machinery/computer/accounts/proc/email_client(address, var/txt, var/sending = EMAIL_FINANCE)
 	if(!address || !txt)
 		return
 	var/datum/computer_file/data/email_account/server = ntnet_global.find_email_by_name(sending)
@@ -591,13 +591,13 @@
 	message.source = server.login
 	server.send_mail(address, message)
 
-/obj/machinery/computer/accounts/proc/addLog(var/action, var/details, var/obj/item/card/id/auth_card)
+/obj/machinery/computer/accounts/proc/addLog(action, var/details, var/obj/item/card/id/auth_card)
 	if(!details || !action || !auth_card)
 		return
 	var/log = "\[[stationdate2text()] [stationtime2text()]] - [auth_card.registered_name] ([auth_card.assignment]) - \[[action]]: [details]"
 	action_logs.Add(log)
 
-/obj/machinery/computer/accounts/proc/flag2text(var/bitflag)
+/obj/machinery/computer/accounts/proc/flag2text(bitflag)
 	if(!bitflag)
 		return null
 	if(bitflag & COM)

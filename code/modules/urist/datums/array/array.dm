@@ -40,7 +40,7 @@
 	*/
 
 
-/datum/array/proc/get(var/position=null)
+/datum/array/proc/get(position=null)
 	/*
 	Expects a string of comma-separated integers or ':' wildcards;
 	basically Python slice notation.
@@ -68,7 +68,7 @@
 				if((transpose+1)==length(indices))
 					var/list/flatlist = list()
 
-					for(var/c=1, c<=src.grid.len, c++)
+					for(var/c=1, c<=length(src.grid), c++)
 						var/list/flattened_col = src.grid[c]
 
 						if(isnull(flattened_col))
@@ -92,7 +92,7 @@
 
 			if(transpose)
 				var/list/transposelens = list()
-				for (var/col_ind=1, col_ind<=src.grid.len, col_ind++)
+				for (var/col_ind=1, col_ind<=length(src.grid), col_ind++)
 					var/list/currcol = src.grid[col_ind]
 					transposelens += currcol[num_idx]
 				lens = transposelens.Copy()
@@ -107,7 +107,7 @@
 	result += lens
 	return result
 
-/datum/array/proc/assign(var/position, var/value=null)
+/datum/array/proc/assign(position, var/value=null)
 	/*
 	Expects a string of comma-separated integers and a numeric value to set.
 
@@ -136,7 +136,7 @@
 	array[coords[1]][coords[2]] = value
 	return 1
 
-/datum/array/New(var/paramstring=null, var/as_json=null)
+/datum/array/New(paramstring=null, var/as_json=null)
 	var/from_json = 0
 
 	if(isnull(as_json))

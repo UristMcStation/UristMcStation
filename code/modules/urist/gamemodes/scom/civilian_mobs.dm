@@ -22,7 +22,7 @@
 	icon_living = icon_state
 	icon_dead = "[icon_state]_d"
 
-/*/mob/living/simple_animal/passive/scom/civ/civvie/GiveTarget(var/new_target)
+/*/mob/living/simple_animal/passive/scom/civ/civvie/GiveTarget(new_target)
 	target = new_target
 	if(target != null)
 		if(isliving(target))

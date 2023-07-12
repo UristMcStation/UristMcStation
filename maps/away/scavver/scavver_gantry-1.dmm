@@ -395,7 +395,6 @@
 "gA" = (
 /obj/machinery/light/spot,
 /obj/machinery/power/port_gen/pacman{
-	anchored = 1;
 	sheets = 25
 	},
 /obj/structure/cable{
@@ -2182,7 +2181,6 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/port_gen/pacman{
-	anchored = 1;
 	sheets = 25
 	},
 /obj/machinery/power/apc/super{

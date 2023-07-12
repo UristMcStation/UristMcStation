@@ -3,7 +3,7 @@
 	desc = "A fast and highly maneuverable vehicle."
 	icon = 'icons/urist/vehicles/uristvehicles.dmi'
 	icon_state = "4wheeler"
-	emagged = 0
+	emagged = FALSE
 	mob_offset_y = 6
 	load_offset_x = 0
 	health_max = 300

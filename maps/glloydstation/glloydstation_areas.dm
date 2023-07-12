@@ -385,7 +385,7 @@
 
 // Hallway
 
-/area/hallway/primary/
+/area/hallway/primary
 	sound_env = LARGE_ENCLOSED
 
 /area/hallway/primary/fore
@@ -504,7 +504,7 @@
 
 //Engineering
 
-/area/engineering/
+/area/engineering
 	name = "\improper Engineering"
 	icon_state = "engineering"
 	ambience = list('sound/ambience/ambisin1.ogg','sound/ambience/ambisin2.ogg','sound/ambience/ambisin3.ogg','sound/ambience/ambisin4.ogg')
@@ -939,7 +939,7 @@
 	name = "Medbay Maintenance"
 	icon_state = "maint_medbay"
 
-/area/hallway/primary/
+/area/hallway/primary
 	sound_env = LARGE_ENCLOSED
 
 /area/hallway/primary/fore
@@ -1457,7 +1457,7 @@
 	icon_state = "janitor"
 
 // Tcomm
-/area/tcommsat/
+/area/tcommsat
 	ambience = list('sound/ambience/ambisin2.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/ambigen10.ogg')
 
 /area/tcommsat/chamber

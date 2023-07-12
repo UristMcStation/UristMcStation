@@ -1,6 +1,6 @@
 // Thanks to Burger from Burgerstation for the foundation for this
 //further thanks to Nebula, where I ported this to Urist from
-var/list/floating_chat_colors = list()
+var/global/list/floating_chat_colors = list()
 
 /atom/movable
 	var/list/stored_chat_text

@@ -13,10 +13,10 @@
 	item_icons = DEF_URIST_INHANDS
 	icon = 'icons/urist/items/papercrafts.dmi'
 
-/obj/item/papercrafts/proc/fold(var/obj/item/papercrafts/N, var/foldText, mob/user as mob) //So i don't have to write this over and over again
+/obj/item/papercrafts/proc/fold(obj/item/papercrafts/N, var/foldText, mob/user as mob) //So i don't have to write this over and over again
 	user.remove_from_mob(src)
 	user.put_in_hands(N)
-	to_target(user, foldText)
+	to_chat(user, foldText)
 	qdel(src)
 	return
 
@@ -69,7 +69,7 @@
 	if(has_animate == 1) //If it has an animation
 		flick(animated_state, src)  // I JUST FOUND THIS PROC AND I AM HAPPY !!!!1!!!
 		playsound(src.loc, 'sound/effects/pageturn2.ogg', 50, 1) //Plays the paper shuffling sound
-		to_target(user, animated_message) //Send the animated message
+		to_chat(user, animated_message) //Send the animated message
 	else
 		return
 
@@ -113,7 +113,7 @@
 	foldable = /obj/item/papercrafts/square //Turns into a square paper when unfolded
 
 // Cutting of paper for papercrafts. Square paper is traditionally used in oragami.
-/obj/item/paper/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/paper/attackby(obj/item/I, mob/user as mob)
 	// Any type of scissor can be used on paper.
 	if(istype(I, /obj/item/scissors))
 		var/want = input("Choose what you want to make", "Your Choice", "Cancel") in list ("Cancel", "Paper Square", "Paper Hat")
@@ -124,13 +124,13 @@
 				var/obj/item/papercrafts/square/S = new /obj/item/papercrafts/square
 				user.remove_from_mob(src)
 				user.put_in_hands(S)
-				to_target(user, "<span class='notice'>You trim the paper into a square</span>")
+				to_chat(user, "<span class='notice'>You trim the paper into a square</span>")
 				qdel(src)
 			if("Paper Hat")
 				var/obj/item/clothing/head/urist/papercrown/C = new /obj/item/clothing/head/urist/papercrown
 				user.remove_from_mob(src)
 				user.put_in_hands(C)
-				to_target(user, "<span class='notice'>You make a paper crown</span>")
+				to_chat(user, "<span class='notice'>You make a paper crown</span>")
 				qdel(src)
 			else
 				return

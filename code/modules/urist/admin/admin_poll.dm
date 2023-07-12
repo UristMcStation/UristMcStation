@@ -5,7 +5,7 @@
 
 	establish_db_connection()
 	if(!dbcon.IsConnected())
-		to_target(usr, "<span class='warning'> Failed to establish database connection</span>")
+		to_chat(usr, "<span class='warning'> Failed to establish database connection</span>")
 		return
 
 	var/dat = "<html><head><title>Poll Panel</title></head>"
@@ -14,22 +14,22 @@
 	dat += "<br><a href='?_src_=holder;create_poll_panel=1'>Create Poll</A>"
 	dat += "<br><a href='?_src_=holder;manage_poll_panel=1'>Manage Polls</A>"
 	dat += "</body></html>"
-	to_target(usr, browse(dat, "window=adminpollpanel;size=200x150"))
+	show_browser(usr, dat, "window=adminpollpanel;size=200x150")
 	return
 
-/datum/admins/proc/view_poll_panel(var/pollid)
+/datum/admins/proc/view_poll_panel(pollid)
 	if(!check_rights(R_ADMIN,1))	return
 
 	establish_db_connection()
 	if(!dbcon.IsConnected())
-		to_target(usr, "<span class='warning'> Failed to establish database connection</span>")
+		to_chat(usr, "<span class='warning'> Failed to establish database connection</span>")
 		return
 
 	var/DBQuery/poll_query = dbcon.NewQuery("SELECT polltype,question FROM erro_poll_question WHERE id=[pollid];")
 	if(!poll_query.Execute())
-		to_target(usr, "Getting poll failed: [poll_query.ErrorMsg()]")
+		to_chat(usr, "Getting poll failed: [poll_query.ErrorMsg()]")
 		return
-	//to_target(usr, "SELECT polltype,question FROM erro_poll_question WHERE id=[pollid];")
+	//to_chat(usr, "SELECT polltype,question FROM erro_poll_question WHERE id=[pollid];")
 
 	var/polltype
 	var/pollquestion
@@ -46,18 +46,18 @@
 		dat += "<tr><td>Poll option:</td><td>Total:</td><td>ckeys:</td></tr>"
 
 		var/DBQuery/option_query = dbcon.NewQuery("SELECT id,text FROM erro_poll_option WHERE pollid=[pollid];")
-		//to_target(usr, "SELECT id,text FROM erro_poll_option WHERE pollid=[pollid];")
+		//to_chat(usr, "SELECT id,text FROM erro_poll_option WHERE pollid=[pollid];")
 		if(!option_query.Execute())
-			to_target(usr, "Getting options failed: [option_query.ErrorMsg()]")
+			to_chat(usr, "Getting options failed: [option_query.ErrorMsg()]")
 			return
 
 		while(option_query.NextRow())
 			polloptions += option_query.item[2]
 			var/pollvotes[0]
 			var/DBQuery/vote_query = dbcon.NewQuery("SELECT ckey FROM erro_poll_vote WHERE optionid=[option_query.item[1]];")
-			//to_target(usr, "SELECT ckey FROM erro_poll_vote WHERE optionid=[option_query.item[1]];")
+			//to_chat(usr, "SELECT ckey FROM erro_poll_vote WHERE optionid=[option_query.item[1]];")
 			if(!vote_query.Execute())
-				to_target(usr, "Getting votes failed: [vote_query.ErrorMsg()]")
+				to_chat(usr, "Getting votes failed: [vote_query.ErrorMsg()]")
 				return
 			while(vote_query.NextRow())
 				pollvotes += vote_query.item[1]
@@ -68,7 +68,7 @@
 			dat += "</td></tr>"
 
 		dat += "</table></body></html>"
-		to_target(usr, browse(dat, "window=viewpollpanel;size=500x500"))
+		show_browser(usr, dat, "window=viewpollpanel;size=500x500")
 	else if(polltype == "TEXT")
 
 
@@ -78,16 +78,16 @@
 		dat += "<tr><td>Poll response:</td><td>ckey:</td></tr>"
 
 		var/DBQuery/text_query = dbcon.NewQuery("SELECT ckey,replytext FROM erro_poll_textreply WHERE pollid=[pollid];")
-		//to_target(usr, "SELECT ckey,replytext FROM erro_poll_textreply WHERE pollid=[pollid];")
+		//to_chat(usr, "SELECT ckey,replytext FROM erro_poll_textreply WHERE pollid=[pollid];")
 		if(!text_query.Execute())
-			to_target(usr, "Getting text replies failed: [text_query.ErrorMsg()]")
+			to_chat(usr, "Getting text replies failed: [text_query.ErrorMsg()]")
 			return
 
 		while(text_query.NextRow())
 			dat += "<tr><td>[text_query.item[2]]</td><td>[text_query.item[1]]</td>"
 
 		dat += "</table></body></html>"
-		to_target(usr, browse(dat, "window=viewpollpanel;size=400x600"))
+		show_browser(usr, dat, "window=viewpollpanel;size=400x600")
 
 	else if(polltype == "NUMVAL")
 		var/polloptions[0]
@@ -100,9 +100,9 @@
 		dat += "<tr><td>Poll option:</td><td>Average rating:</td><td>Total votes:</td><td>ckeys:</td></tr>"
 
 		var/DBQuery/option_query = dbcon.NewQuery("SELECT id,text,minval,maxval FROM erro_poll_option WHERE pollid=[pollid];")
-		//to_target(usr, "SELECT id,text,minval,maxval FROM erro_poll_option WHERE pollid=[pollid];")
+		//to_chat(usr, "SELECT id,text,minval,maxval FROM erro_poll_option WHERE pollid=[pollid];")
 		if(!option_query.Execute())
-			to_target(usr, "Getting options failed: [option_query.ErrorMsg()]")
+			to_chat(usr, "Getting options failed: [option_query.ErrorMsg()]")
 			return
 
 		while(option_query.NextRow())
@@ -113,9 +113,9 @@
 			var/pollrating[0]
 			var/pollckey[0]
 			var/DBQuery/vote_query = dbcon.NewQuery("SELECT ckey,rating FROM erro_poll_vote WHERE optionid=[option_query.item[1]];")
-			//to_target(usr, "SELECT ckey FROM erro_poll_vote WHERE optionid=[option_query.item[1]];")
+			//to_chat(usr, "SELECT ckey FROM erro_poll_vote WHERE optionid=[option_query.item[1]];")
 			if(!vote_query.Execute())
-				to_target(usr, "Getting votes failed: [vote_query.ErrorMsg()]")
+				to_chat(usr, "Getting votes failed: [vote_query.ErrorMsg()]")
 				return
 			while(vote_query.NextRow())
 				pollckey += vote_query.item[1]
@@ -133,19 +133,19 @@
 			dat += "</td></tr>"
 
 		dat += "</table></body></html>"
-		to_target(usr, browse(dat, "window=viewpollpanel;size=400x600"))
+		show_browser(usr, dat, "window=viewpollpanel;size=400x600")
 
 /datum/admins/proc/manage_poll_panel()
 	if(!check_rights(R_ADMIN,1))	return
 
 	establish_db_connection()
 	if(!dbcon.IsConnected())
-		to_target(usr, "<span class='warning'> Failed to establish database connection</span>")
+		to_chat(usr, "<span class='warning'> Failed to establish database connection</span>")
 		return
 
 	var/DBQuery/poll_query = dbcon.NewQuery("SELECT * FROM erro_poll_question;")
 	if(!poll_query.Execute())
-		to_target(usr, "Getting polls failed: [poll_query.ErrorMsg()]")
+		to_chat(usr, "Getting polls failed: [poll_query.ErrorMsg()]")
 		return
 	var/pollid[0];
 	var/polltype[0];
@@ -182,9 +182,9 @@
 		if(polltype[i] != "TEXT")
 			dat += "<ul>"
 			var/DBQuery/option_query = dbcon.NewQuery("SELECT text FROM erro_poll_option WHERE pollid=[pollid[i]];")
-			//to_target(usr, "SELECT text FROM erro_poll_option WHERE pollid=[pollid[i]];")
+			//to_chat(usr, "SELECT text FROM erro_poll_option WHERE pollid=[pollid[i]];")
 			if(!option_query.Execute())
-				to_target(usr, "Getting options failed: [poll_query.ErrorMsg()]")
+				to_chat(usr, "Getting options failed: [poll_query.ErrorMsg()]")
 				return
 			while(option_query.NextRow())
 				dat += "<li>[option_query.item[1]]</li>"
@@ -193,7 +193,7 @@
 		dat += "</td><td><a href='?_src_=holder;remove_poll=[pollid[i]]'>X</a></td></tr>"
 
 	dat += "</table></body></html>"
-	to_target(usr, browse(dat, "window=managepollpanel;size=750x600"))
+	show_browser(usr, dat, "window=managepollpanel;size=750x600")
 	return
 
 /datum/admins/proc/create_poll_panel()
@@ -201,7 +201,7 @@
 
 	establish_db_connection()
 	if(!dbcon.IsConnected())
-		to_target(usr, "<span class='warning'> Failed to establish database connection</span>")
+		to_chat(usr, "<span class='warning'> Failed to establish database connection</span>")
 		return
 
 	//<input type='hidden' name='src' value='\ref[src]'>
@@ -315,37 +315,37 @@
 	dat += "</body>"
 	dat += "</html>"
 
-	to_target(usr, browse(dat, "window=admincreatepolls;size=600x650"))
+	show_browser(usr, dat, "window=admincreatepolls;size=600x650")
 	return
 
-/datum/admins/proc/remove_poll(var/pollid)
+/datum/admins/proc/remove_poll(pollid)
 	if(!check_rights(R_ADMIN,1))	return
 
 	establish_db_connection()
 	if(!dbcon.IsConnected())
-		to_target(usr, "<span class='warning'> Failed to establish database connection</span>")
+		to_chat(usr, "<span class='warning'> Failed to establish database connection</span>")
 		return
 
 	var/DBQuery/poll_query = dbcon.NewQuery("DELETE FROM erro_poll_question WHERE id=[pollid]")
 	if(!poll_query.Execute())
-		to_target(usr, "Removing poll failed: [poll_query.ErrorMsg()]")
+		to_chat(usr, "Removing poll failed: [poll_query.ErrorMsg()]")
 		return
-	//to_target(usr, "DELETE FROM erro_poll_question WHERE id=[pollid]")
+	//to_chat(usr, "DELETE FROM erro_poll_question WHERE id=[pollid]")
 	var/DBQuery/option_query = dbcon.NewQuery("DELETE FROM erro_poll_option WHERE pollid=[pollid]")
 	if(!option_query.Execute())
-		to_target(usr, "Removing options failed: [option_query.ErrorMsg()]")
+		to_chat(usr, "Removing options failed: [option_query.ErrorMsg()]")
 		return
-	//to_target(usr, "DELETE FROM erro_poll_option WHERE pollid=[pollid]")
+	//to_chat(usr, "DELETE FROM erro_poll_option WHERE pollid=[pollid]")
 	var/DBQuery/vote_query = dbcon.NewQuery("DELETE FROM erro_poll_vote WHERE pollid=[pollid]")
 	if(!vote_query.Execute())
-		to_target(usr, "Removing votes failed: [vote_query.ErrorMsg()]")
+		to_chat(usr, "Removing votes failed: [vote_query.ErrorMsg()]")
 		return
-	//to_target(usr, "DELETE FROM erro_poll_vote WHERE pollid=[pollid]")
+	//to_chat(usr, "DELETE FROM erro_poll_vote WHERE pollid=[pollid]")
 	var/DBQuery/text_query = dbcon.NewQuery("DELETE FROM erro_poll_textreply WHERE pollid=[pollid]")
 	if(!text_query.Execute())
-		to_target(usr, "Removing text replies failed: [text_query.ErrorMsg()]")
+		to_chat(usr, "Removing text replies failed: [text_query.ErrorMsg()]")
 		return
-	//to_target(usr, "DELETE FROM erro_poll_textreply WHERE pollid=[pollid]")
+	//to_chat(usr, "DELETE FROM erro_poll_textreply WHERE pollid=[pollid]")
 
 	log_admin("[key_name(usr)] has removed poll with id = [pollid].")
 	message_admins("[key_name(usr)] has removed poll with id = [pollid].", 1)
@@ -353,40 +353,40 @@
 	return
 
 
-/datum/admins/proc/create_new_poll(var/polltype,var/timelength,var/question,list/polloptions,var/adminonly,var/multilimit,var/maxval,var/minval,var/descmax,var/descmin,var/descmed)
+/datum/admins/proc/create_new_poll(polltype,var/timelength,var/question,list/polloptions,var/adminonly,var/multilimit,var/maxval,var/minval,var/descmax,var/descmin,var/descmed)
 
 	if(!check_rights(R_ADMIN,1))	return
 
 	establish_db_connection()
 	if(!dbcon.IsConnected())
-		to_target(usr, "<span class='warning'> Failed to establish database connection</span>")
+		to_chat(usr, "<span class='warning'> Failed to establish database connection</span>")
 		return
 
 	var/i
 	var/timestart = time2text(world.realtime,"YYYY-MM-DD hh:mm:ss")
 	var/timeend = time2text(world.realtime+timelength*36000,"YYYY-MM-DD hh:mm:ss")
 
-	to_target(usr, "Creating poll...")
-	to_target(usr, "Poll type: [polltype]")
-	to_target(usr, "Poll length: [timelength]")
-	to_target(usr, "Poll start: [timestart]")
-	to_target(usr, "Poll end: [timeend]")
-	to_target(usr, "Poll question: [question]")
+	to_chat(usr, "Creating poll...")
+	to_chat(usr, "Poll type: [polltype]")
+	to_chat(usr, "Poll length: [timelength]")
+	to_chat(usr, "Poll start: [timestart]")
+	to_chat(usr, "Poll end: [timeend]")
+	to_chat(usr, "Poll question: [question]")
 	if(polltype != "TEXT")
-		to_target(usr, "# of poll options: [length(polloptions)]")
+		to_chat(usr, "# of poll options: [length(polloptions)]")
 		for(i=1;i<=length(polloptions),i++)
-			to_target(usr, "Poll option [i]: [polloptions[i]]")
+			to_chat(usr, "Poll option [i]: [polloptions[i]]")
 
-	//to_target(usr, "INSERT INTO erro_poll_question VALUES (NULL,'[polltype]','[timestart]','[timeend]','[question]',[adminonly],[multilimit])")
+	//to_chat(usr, "INSERT INTO erro_poll_question VALUES (NULL,'[polltype]','[timestart]','[timeend]','[question]',[adminonly],[multilimit])")
 
 	var/DBQuery/poll_query = dbcon.NewQuery("INSERT INTO erro_poll_question VALUES (NULL,'[polltype]','[timestart]','[timeend]','[question]',[adminonly])")
 	if(!poll_query.Execute())
-		to_target(usr, "Adding poll failed: [poll_query.ErrorMsg()]")
+		to_chat(usr, "Adding poll failed: [poll_query.ErrorMsg()]")
 		return
-	//to_target(usr, "SELECT id FROM erro_poll_question WHERE starttime='[timestart]'")
+	//to_chat(usr, "SELECT id FROM erro_poll_question WHERE starttime='[timestart]'")
 	var/DBQuery/id_query = dbcon.NewQuery("SELECT id FROM erro_poll_question WHERE starttime='[timestart]'")
 	if(!id_query.Execute())
-		to_target(usr, "Finding poll id failed: [id_query.ErrorMsg()]")
+		to_chat(usr, "Finding poll id failed: [id_query.ErrorMsg()]")
 		return
 
 	var/id = 0
@@ -396,16 +396,16 @@
 		idfound++;
 
 	if(idfound == 0)
-		to_target(usr, "ID not found, failed to finish inserting poll into database!")
+		to_chat(usr, "ID not found, failed to finish inserting poll into database!")
 		return
 
 	if(polltype != "TEXT")
 		var/DBQuery/option_query
 		for(i=1;i<=length(polloptions),i++)
-			//to_target(usr, "INSERT INTO erro_poll_option VALUES (NULL,[id],'[polloptions[i]]',1,[minval],[maxval],'[descmin]','[descmed]','[descmax]')")
+			//to_chat(usr, "INSERT INTO erro_poll_option VALUES (NULL,[id],'[polloptions[i]]',1,[minval],[maxval],'[descmin]','[descmed]','[descmax]')")
 			option_query = dbcon.NewQuery("INSERT INTO erro_poll_option VALUES (NULL,[id],'[polloptions[i]]',1,[minval],[maxval],'[descmin]','[descmed]','[descmax]')")
 			if(!option_query.Execute())
-				to_target(usr, "Adding option failed: [option_query.ErrorMsg()]")
+				to_chat(usr, "Adding option failed: [option_query.ErrorMsg()]")
 				return
 	log_admin("[key_name(usr)] has created poll with id = [id].")
 	message_admins("[key_name(usr)] has created poll with id = [id].", 1)
@@ -417,5 +417,4 @@
 	set desc="Create and manage polls in the database"
 	if(holder)
 		holder.poll_panel()
-	SSstatistics.add_field_details("admin_verb","SPL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return

@@ -3,7 +3,7 @@ var/global/const/NETWORK_PRIMWYRM		= "Primary Deck"
 var/global/const/NETWORK_COMMAND		= "Command"
 var/global/const/NETWORK_HATCHLING		= "Hatchling"
 
-/datum/map/wyrm/get_network_access(var/network)
+/datum/map/wyrm/get_network_access(network)
 	switch(network)
 		if(NETWORK_COMMAND)
 			return access_heads

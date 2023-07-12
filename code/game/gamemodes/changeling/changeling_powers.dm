@@ -803,7 +803,7 @@ var/global/list/datum/absorbed_dna/hivemind_bank = list()
 	return 1
 
 //This is a generic proc that should be called by other ling weapon procs to equip them.
-/mob/proc/changeling_generic_weapon(var/weapon_type, var/make_sound = 1, var/cost = 20)
+/mob/proc/changeling_generic_weapon(weapon_type, var/make_sound = 1, var/cost = 20)
 	var/datum/changeling/changeling = changeling_power(cost,1,100)
 	if(!changeling)
 		return
@@ -814,7 +814,7 @@ var/global/list/datum/absorbed_dna/hivemind_bank = list()
 	var/mob/living/carbon/human/M = src
 
 	if(M.l_hand && M.r_hand) //Make sure our hands aren't full.
-		to_target(src, "<span class='warning'>Our hands are full.  Drop something first.</span>")
+		to_chat(src, "<span class='warning'>Our hands are full.  Drop something first.</span>")
 		return 0
 
 	var/obj/item/W = new weapon_type(src)
@@ -844,7 +844,7 @@ var/global/list/datum/absorbed_dna/hivemind_bank = list()
 	force = 35
 	sharp = 1
 	edge = 1
-	anchored = 1
+	anchored = TRUE
 	throwforce = 0 //Just to be on the safe side
 	throw_range = 0
 	throw_speed = 0

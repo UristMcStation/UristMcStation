@@ -56,11 +56,11 @@
 		updateUsrDialog()
 	else if(istype(P, /obj/item/screwdriver))
 		if (anchored)
-			to_target(user, "<span class='warning'>You can't see anywhere to unscrew that!</span>")
+			to_chat(user, "<span class='warning'>You can't see anywhere to unscrew that!</span>")
 			return
 		else
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-			to_target(user, "<span class='notice'>You disassemble \the [src].</span>")
+			to_chat(user, "<span class='notice'>You disassemble \the [src].</span>")
 			var/obj/item/stack/material/steel/S =  new /obj/item/stack/material/steel(src.loc)
 			S.amount = 2
 			for(var/obj/item/b in contents)

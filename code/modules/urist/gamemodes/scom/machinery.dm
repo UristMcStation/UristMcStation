@@ -12,8 +12,8 @@
 	desc = "Science!"
 	icon = 'icons/urist/structures&machinery/scomscience.dmi'
 	icon_state = "science"
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 	bound_width = 64
 	var/animation_state = "science_o"
 	var/list/machine_recipes
@@ -70,16 +70,16 @@
 
 	dat += "</table><hr>"
 
-	to_target(user, browse(dat, "window=autolathe"))
+	show_browser(user, dat, "window=autolathe")
 	onclose(user, "autolathe")
 
-/obj/machinery/scom/scomscience/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/scom/scomscience/attackby(obj/item/O as obj, var/mob/user as mob)
 	if (busy)
-		to_target(user, "<span class='notice'>\The [src] is busy. Please wait for completion of previous operation.</span>")
+		to_chat(user, "<span class='notice'>\The [src] is busy. Please wait for completion of previous operation.</span>")
 		return
 
 	if(!science_capable)
-		to_target(user, "<span class='notice'>\The [src] is not designed for deconstruction!.</span>")
+		to_chat(user, "<span class='notice'>\The [src] is not designed for deconstruction!.</span>")
 		return
 
 	if(O.scomtechlvl > scomtechlvl)
@@ -119,7 +119,7 @@
 	usr.set_machine(src)
 
 	if(busy)
-		to_target(usr, "<span class='notice'>The autolathe is busy. Please wait for completion of previous operation.</span>")
+		to_chat(usr, "<span class='notice'>The autolathe is busy. Please wait for completion of previous operation.</span>")
 		return
 
 	if(href_list["change_category"])
@@ -148,12 +148,12 @@
 
 
 		if(making.scomtechlvl > scomtechlvl)
-			to_target(usr, "<span class='notice'>You don't have the tech level for that!</span>")
+			to_chat(usr, "<span class='notice'>You don't have the tech level for that!</span>")
 			busy = 0
 			return
 
 		if(making.resources > scommoney)
-			to_target(usr, "<span class='notice'>You don't have the money for that!</span>")
+			to_chat(usr, "<span class='notice'>You don't have the money for that!</span>")
 			busy = 0
 			return
 
@@ -218,11 +218,11 @@
 	desc = "This allows you to choose your class as an S-COM operative"
 	icon = 'icons/urist/structures&machinery/machinery.dmi'
 	icon_state = "squad"
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE
 	var/list/already_picked = list() //stores mobs who used it to limit reuse
 
-/obj/machinery/scom/classchanger/attack_hand(var/mob/living/carbon/user)
+/obj/machinery/scom/classchanger/attack_hand(mob/living/carbon/user)
 	if(!(user in already_picked))
 		if(user.mind && isscom(user))
 			var/want = input("Which class would you like to be?", "Your Choice", "Cancel") in list ("Cancel", "Heavy", "Assault", "Medic", "Sniper")
@@ -299,20 +299,20 @@
 /obj/machinery/scom/teleporter1
 	icon_state = "tele1"
 	name = "teleporter"
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE
 
-/obj/machinery/scom/teleporter1/attack_hand(var/mob/living/carbon/A)
+/obj/machinery/scom/teleporter1/attack_hand(mob/living/carbon/A)
 	. = ..()
 	if(A)
 		handle_teleport(A)
 
-/obj/machinery/scom/teleporter1/Bumped(var/mob/living/carbon/A)
+/obj/machinery/scom/teleporter1/Bumped(mob/living/carbon/A)
 	if(A)
 		handle_teleport(A)
 	. = ..()
 
-/obj/machinery/scom/teleporter1/proc/handle_teleport(var/mob/living/carbon/A)
+/obj/machinery/scom/teleporter1/proc/handle_teleport(mob/living/carbon/A)
 	if(A)
 		var/obj/machinery/scom/teleporter2/destination = get_paired_destination()
 		if(destination)
@@ -327,7 +327,7 @@
 		destination = pick(all_destinations)
 	return destination
 
-/obj/machinery/scom/teleporter2/proc/teleport_to(var/atom/movable/A)
+/obj/machinery/scom/teleporter2/proc/teleport_to(atom/movable/A)
 	if(A && src.loc)
 		if(isturf(src.loc))
 			var/turf/destination = src.loc
@@ -339,13 +339,13 @@
 /obj/machinery/scom/teleporter2
 	icon_state = "tele1"
 	name = "teleporter"
-	anchored = 1
+	anchored = TRUE
 
 /obj/machinery/telecomms/relay/preset/scom1
 	id = "Centcom1 Relay"
 	hide = 1
 	toggled = 1
-	//anchored = 1
+	//anchored = TRUE
 	//use_power = 0
 	//idle_power_usage = 0
 	produces_heat = 0
@@ -355,7 +355,7 @@
 	id = "Centcom2 Relay"
 	hide = 1
 	toggled = 1
-	//anchored = 1
+	//anchored = TRUE
 	//use_power = 0
 	//idle_power_usage = 0
 	produces_heat = 0

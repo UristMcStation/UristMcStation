@@ -7,7 +7,7 @@
 /obj/machinery/computer/combatcomputer
 	name = "weapons control computer"
 	desc = "the control centre for the ship's weapons systems."
-	anchored = 1
+	anchored = TRUE
 	var/list/linkedweapons = list() //put the weapons in here on their init
 	var/shipid = null
 	var/target = null
@@ -66,7 +66,7 @@
 		S.linkedcomputer = null
 	. = ..()
 
-/obj/machinery/computer/combatcomputer/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/combatcomputer/attack_hand(mob/user as mob)
 	if(..())
 		user.unset_machine()
 		return
@@ -92,7 +92,7 @@
 
 	ui_interact(user)
 
-/obj/machinery/computer/combatcomputer/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/computer/combatcomputer/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, var/force_open = 1)
 	var/data[0]
 	var/list/weapons[0]
 	var/list/targetcomponents[0]

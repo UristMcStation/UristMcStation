@@ -977,7 +977,7 @@
 	overdose = 1
 	metabolism = 0.1
 
-/datum/reagent/tridezatane/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
+/datum/reagent/tridezatane/affect_blood(mob/living/carbon/human/M, var/alien, var/removed)
 	for(var/ID in M.virus2)
 		var/datum/disease2/disease/V = M.virus2[ID]
 		M.antibodies |= V.antigen
@@ -993,7 +993,7 @@
 	overdose = 10
 	metabolism = 0.1
 
-/datum/reagent/latrazine/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
+/datum/reagent/latrazine/affect_blood(mob/living/carbon/human/M, var/alien, var/removed)
 	var/obj/item/organ/external/E = pick(M.bad_external_organs)
 	if(E.status & ORGAN_BROKEN && prob(40))
 		E.status &= ~ORGAN_BROKEN

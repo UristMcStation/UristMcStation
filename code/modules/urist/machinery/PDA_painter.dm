@@ -3,13 +3,13 @@
 	desc = "A PDA painting machine. To use, simply insert your PDA and choose the desired preset paint scheme."
 	icon = 'icons/urist/structures&machinery/machinery.dmi'
 	icon_state = "pdapainter"
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 	var/obj/item/modular_computer/pda/storedpda = null
 	var/list/colorlist = list()
 
 
-/obj/machinery/pdapainter/update_icon()
+/obj/machinery/pdapainter/on_update_icon()
 	overlays.Cut()
 
 	if(stat & inoperable())
@@ -39,10 +39,10 @@
 		src.colorlist += D
 
 
-/obj/machinery/pdapainter/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/pdapainter/attackby(obj/item/O as obj, var/mob/user as mob)
 	if(istype(O, /obj/item/modular_computer/pda))
 		if(storedpda)
-			to_target(user, "There is already a PDA inside.")
+			to_chat(user, "There is already a PDA inside.")
 			return
 		else
 			var/obj/item/modular_computer/pda/P = usr.get_active_hand()
@@ -71,7 +71,7 @@
 		storedpda.desc = P.desc
 
 	else
-		to_target(user, "<span class='notice'>The [src] is empty.</span>")
+		to_chat(user, "<span class='notice'>The [src] is empty.</span>")
 
 
 /obj/machinery/pdapainter/verb/ejectpda()
@@ -84,7 +84,7 @@
 		storedpda = null
 		update_icon()
 	else
-		to_target(usr, "<span class='notice'>The [src] is empty.</span>")
+		to_chat(usr, "<span class='notice'>The [src] is empty.</span>")
 
 
 /obj/machinery/pdapainter/power_change()

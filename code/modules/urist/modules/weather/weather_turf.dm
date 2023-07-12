@@ -9,7 +9,7 @@
 	var/list/weather_overlays = list() //so we don't remove non-weather overlays by accident
 
 //Too much work to just tick it on manually
-/turf/proc/weather_enable(var/dynamic = 1)
+/turf/proc/weather_enable(dynamic = 1)
 	weather_enabled = 1
 	if(dynamic)
 		weather_dynamic = dynamic
@@ -66,14 +66,14 @@
 			WT.GetWeatherEffect(src)
 
 /* hook into game/turfs/turf.dm's Entered() */
-/turf/Entered(var/atom/O)
+/turf/Entered(atom/O)
 	. = ..()
 	if(weather_enabled)
 		if(!(weather_safe))
 			weather_activate()
 			weather_tracker += O
 
-/turf/Exited(var/atom/O)
+/turf/Exited(atom/O)
 	. = ..()
 	if(O in weather_tracker)
 		weather_tracker -= O

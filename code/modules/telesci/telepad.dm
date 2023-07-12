@@ -4,7 +4,7 @@
 	desc = "A bluespace telepad used for teleporting objects to and from a location."
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "pad-idle"
-	anchored = 1
+	anchored = TRUE
 	use_power = 1
 	idle_power_usage = 200
 	active_power_usage = 5000
@@ -14,33 +14,33 @@
 	desc = "A telepad used by the Rapid Crate Sender."
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "pad-idle"
-	anchored = 1
+	anchored = TRUE
 	use_power = 1
 	idle_power_usage = 20
 	active_power_usage = 500
 	var/stage = 0
-/obj/machinery/telepad_cargo/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/telepad_cargo/use_tool(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/wrench))
-		anchored = 0
+		anchored = FALSE
 		playsound(src, 'sound/items/Ratchet.ogg', 50, 1)
 		if(anchored)
-			anchored = 0
-			to_target(user, "<span class = 'caution'> The [src] can now be moved.</span>")
+			anchored = FALSE
+			to_chat(user, "<span class = 'caution'> The [src] can now be moved.</span>")
 		else if(!anchored)
-			anchored = 1
-			to_target(user, "<span class = 'caution'> The [src] is now secured.</span>")
+			anchored = TRUE
+			to_chat(user, "<span class = 'caution'> The [src] is now secured.</span>")
 	if(istype(W, /obj/item/screwdriver))
 		if(stage == 0)
 			playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
-			to_target(user, "<span class = 'caution'> You unscrew the telepad's tracking beacon.</span>")
+			to_chat(user, "<span class = 'caution'> You unscrew the telepad's tracking beacon.</span>")
 			stage = 1
 		else if(stage == 1)
 			playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
-			to_target(user, "<span class = 'caution'> You screw in the telepad's tracking beacon.</span>")
+			to_chat(user, "<span class = 'caution'> You screw in the telepad's tracking beacon.</span>")
 			stage = 0
 	if(istype(W, /obj/item/weldingtool) && stage == 1)
 		playsound(src, 'sound/items/Welder.ogg', 50, 1)
-		to_target(user, "<span class = 'caution'> You disassemble the telepad.</span>")
+		to_chat(user, "<span class = 'caution'> You disassemble the telepad.</span>")
 		new /obj/item/stack/material/steel(get_turf(src))
 		new /obj/item/stack/material/glass(get_turf(src))
 		qdel(src)
@@ -56,7 +56,7 @@
 
 /obj/item/device/telepad_beacon/attack_self(mob/user as mob)
 	if(user)
-		to_target(user, "<span class = 'caution'> Locked In</span>")
+		to_chat(user, "<span class = 'caution'> Locked In</span>")
 		new /obj/machinery/telepad_cargo(user.loc)
 		playsound(src, 'sound/effects/pop.ogg', 100, 1, 1)
 		qdel(src)
@@ -79,7 +79,7 @@
 	var/mode = 0
 	var/rand_x = 0
 	var/rand_y = 0
-	var/emagged = 0
+	var/emagged = FALSE
 	var/teleporting = 0
 
 /obj/item/rcs/New()
@@ -108,17 +108,18 @@
 		if(mode == 0)
 			mode = 1
 			playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
-			to_target(user, "<span class = 'caution'> The telepad locator has become uncalibrated.</span>")
+			to_chat(user, "<span class = 'caution'> The telepad locator has become uncalibrated.</span>")
 		else
 			mode = 0
 			playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
-			to_target(user, "<span class = 'caution'> You calibrate the telepad locator.</span>")
+			to_chat(user, "<span class = 'caution'> You calibrate the telepad locator.</span>")
 
-/obj/item/rcs/attackby(obj/item/W, mob/user)
-	if(istype(W,  /obj/item/card/emag) && emagged == 0)
-		emagged = 1
+/obj/item/rcs/emag_act(remaining_charges, mob/user)
+	if(!emagged)
+		emagged = TRUE
 		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
 		s.set_up(5, 1, src)
 		s.start()
-		to_target(user, "<span class = 'caution'> You emag the RCS. Click on it to toggle between modes.</span>")
+		to_chat(user, "<span class = 'caution'> You emag the RCS. Click on it to toggle between modes.</span>")
+	else
 		return

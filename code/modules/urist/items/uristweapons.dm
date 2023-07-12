@@ -31,11 +31,11 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	..()
 	if(istype(W, /obj/item/melee/energy/sword))
 		if(W == src)
-			to_target(user, "<span class='notice'>You try to attach the end of the energy sword to... itself. You're not very smart, are you?</span>")
+			to_chat(user, "<span class='notice'>You try to attach the end of the energy sword to... itself. You're not very smart, are you?</span>")
 			if(ishuman(user))
 				user.adjustBrainLoss(10)
 		else
-			to_target(user, "<span class='notice'>You attach the ends of the two energy swords, making a single double-bladed weapon! You're cool.</span>")
+			to_chat(user, "<span class='notice'>You attach the ends of the two energy swords, making a single double-bladed weapon! You're cool.</span>")
 			if(src.blade_color == "red")
 				if(istype(W, /obj/item/melee/energy/sword/blue))
 					new /obj/item/melee/energy/sword/dualsaber/purple(user.loc)

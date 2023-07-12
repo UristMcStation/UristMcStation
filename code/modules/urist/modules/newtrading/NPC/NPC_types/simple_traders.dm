@@ -40,10 +40,10 @@
 	glove_chance = 50
 	interact_screen = 2
 
-/mob/living/simple_animal/passive/npc/colonist/trader/crop_trader/get_trade_value(var/obj/O)
+/mob/living/simple_animal/passive/npc/colonist/trader/crop_trader/get_trade_value(obj/O)
 	. = get_value(O) * 25
 
-/mob/living/simple_animal/passive/npc/colonist/trader/crop_trader/player_sell(var/obj/O, var/mob/M, var/resell = 1)
+/mob/living/simple_animal/passive/npc/colonist/trader/crop_trader/player_sell(obj/O, var/mob/M, var/resell = 1)
 	return ..(O, M, 0)
 
 

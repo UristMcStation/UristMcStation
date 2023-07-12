@@ -61,7 +61,7 @@
 	U.hidden_uplink.uses = 40
 	return
 
-/obj/structure/closet/syndicate/resources/
+/obj/structure/closet/syndicate/resources
 	desc = "An old, dusty locker."
 
 /obj/structure/closet/syndicate/resources/New()

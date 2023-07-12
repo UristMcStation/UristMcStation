@@ -15,7 +15,7 @@
 	icon = 'icons/uristmob/simpleanimals.dmi'
 	icon_state = "synthcarp"
 
-/obj/item/synthcarp/attack_self(var/mob/user)
+/obj/item/synthcarp/attack_self(mob/user)
 	var/mob/living/simple_animal/hostile/commanded/synthcarp/SC = new(get_turf(src))
 	SC.master = user
 	visible_message("<span class = 'notice'>\icon[src] The [src] pings as it floats out of [user]'s hands.</span>", \

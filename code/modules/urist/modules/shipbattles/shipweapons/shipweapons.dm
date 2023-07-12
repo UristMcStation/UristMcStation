@@ -4,8 +4,8 @@
 	idle_power_usage = 10
 	active_power_usage = 1000
 	use_power = 1
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE
 	var/pass_shield = FALSE
 	var/shield_damage = 0
 	var/hull_damage = 0
@@ -78,10 +78,10 @@
 			switch(want)
 				if("Yes")
 					if(status == CHARGED) //just in case, we check again
-						to_target(user, "<span class='warning'>You fire the [src.name].</span>")
+						to_chat(user, "<span class='warning'>You fire the [src.name].</span>")
 						Fire()
 					else if(!status && CHARGED)
-						to_target(user, "<span class='warning'>The [src.name] needs to charge!</span>")
+						to_chat(user, "<span class='warning'>The [src.name] needs to charge!</span>")
 
 
 				if("Cancel")
@@ -89,13 +89,13 @@
 			return
 
 		else
-			to_target(user, "<span class='warning'>There is nothing to shoot at...</span>")
+			to_chat(user, "<span class='warning'>There is nothing to shoot at...</span>")
 
 	else if(!status && CHARGED)
-		to_target(user, "<span class='warning'>The [src.name] needs to charge!</span>")
+		to_chat(user, "<span class='warning'>The [src.name] needs to charge!</span>")
 
 	else if(!target)
-		to_target(user, "<span class='warning'>There is nothing to shoot at...</span>")
+		to_chat(user, "<span class='warning'>There is nothing to shoot at...</span>")
 
 
 /obj/machinery/shipweapons/proc/Fire() //this proc is a mess //next task is refactor this proc
@@ -237,7 +237,7 @@
 	else
 		return FALSE
 
-/obj/machinery/shipweapons/proc/HitComponents(var/targetship)
+/obj/machinery/shipweapons/proc/HitComponents(targetship)
 	var/mob/living/simple_animal/hostile/overmapship/OM = targetship
 
 //	for(var/datum/shipcomponents/SC in OM.components)
@@ -250,7 +250,7 @@
 		if(targetcomponent.health <= 0)
 			targetcomponent.BlowUp()
 
-/obj/machinery/shipweapons/proc/TargetedHit(var/targetship, var/hull_damage, var/oc = FALSE)
+/obj/machinery/shipweapons/proc/TargetedHit(targetship, var/hull_damage, var/oc = FALSE)
 	var/mob/living/simple_animal/hostile/overmapship/OM = targetship
 	if(!targeted_component.broken)
 		targeted_component.health -= (hull_damage * component_modifier_high) //we do more damage for aimed shots
@@ -261,7 +261,7 @@
 	if(!oc)	//Overcharged shields allow no hull damage
 		OM.health = max(OM.health - (hull_damage * 0.5), 0) //but we also do less damage to the hull in general if we're aiming at systems
 
-/obj/machinery/shipweapons/update_icon()
+/obj/machinery/shipweapons/on_update_icon()
 	..()
 	if(status & CHARGED)
 		icon_state = "[initial(icon_state)]-charged"
@@ -340,7 +340,7 @@
 		S.update_icon()
 		S.state = 4
 		S.shipid = src.shipid
-		S.anchored = 1
+		S.anchored = TRUE
 		S.external = src.external
 		S.pixel_x = src.pixel_x
 		S.pixel_y = src.pixel_y

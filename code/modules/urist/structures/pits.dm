@@ -4,8 +4,8 @@
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "pit1"
 //	blend_mode = BLEND_MULTIPLY
-	density = 0
-	anchored = 1
+	density = FALSE
+	anchored = TRUE
 	var/open = 1
 	var/punji = 0
 	var/animal_safe
@@ -50,7 +50,7 @@
 				user.regenerate_icons()
 	..()
 
-/obj/structure/pit/update_icon()
+/obj/structure/pit/on_update_icon()
 	icon_state = "pit[open]"
 //	if(istype(loc,/turf/simulated/floor/water) || istype(loc,/turf/simulated/floor/grass))
 //		icon_state="pit[open]mud"
@@ -69,7 +69,7 @@
 			M.Weaken(punji)
 
 
-/obj/structure/pit/attack_hand(var/mob/user as mob)
+/obj/structure/pit/attack_hand(mob/user as mob)
 	if(punji)
 		to_chat(user, "You yank out one of the sharpened sticks from the pit.")
 		new /obj/item/sharpwoodrod(src.loc)
@@ -90,7 +90,7 @@
 		A.forceMove(src.loc)
 	update_icon()
 
-/obj/structure/pit/proc/close(var/user)
+/obj/structure/pit/proc/close(user)
 	name = "mound"
 	desc = "Some things are better left buried."
 	open = 0
@@ -247,7 +247,7 @@
 	icon_state = "wood"
 	pixel_x = 15
 	pixel_y = 8
-	anchored = 1
+	anchored = TRUE
 	var/message = "Unknown."
 
 /obj/structure/gravemarker/cross
@@ -255,7 +255,7 @@
 
 /obj/structure/gravemarker/examine()
 	..()
-	to_target(usr, message)
+	to_chat(usr, message)
 
 /obj/structure/gravemarker/random/New()
 	generate()

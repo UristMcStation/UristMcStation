@@ -83,7 +83,7 @@
 	if(isrobot(loc) || istype(loc, /obj/item/rig_module) || istype(loc, /obj/item/mech_equipment))
 		return loc.get_cell()
 
-/obj/item/gun/energy/special_check(var/mob/user)
+/obj/item/gun/energy/special_check(mob/user)
 
 	if(!..())
 		return
@@ -94,7 +94,7 @@
 	return 1
 
 //To load a new power cell into the energy gun, if item A is a cell type and the gun is not self-recharging
-/obj/item/gun/energy/proc/load_ammo(var/obj/item/cell/AM, mob/user)
+/obj/item/gun/energy/proc/load_ammo(obj/item/cell/AM, mob/user)
 	if(self_recharge)
 		return
 	//only let's you load in power cells
@@ -147,7 +147,7 @@
 		return
 
 //to trigger loading cell
-/obj/item/gun/energy/attackby(var/obj/item/A as obj, mob/user as mob)
+/obj/item/gun/energy/use_tool(obj/item/A as obj, mob/user as mob)
 	if(isScrewdriver(A) && (!self_recharge))
 		if(!hatch_open)
 			hatch_open = 1

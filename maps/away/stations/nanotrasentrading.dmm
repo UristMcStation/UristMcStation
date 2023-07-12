@@ -162,8 +162,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	color = "#d2af6e";
 	dir = 8;
-	icon_state = "warningcorner";
-	tag = "icon-warningcorner (WEST)"
+	icon_state = "warningcorner"
 	},
 /obj/machinery/light{
 	dir = 1
@@ -214,8 +213,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	color = "#d2af6e";
 	dir = 8;
-	icon_state = "warningcorner";
-	tag = "icon-warningcorner (WEST)"
+	icon_state = "warningcorner"
 	},
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
@@ -294,7 +292,6 @@
 /area/spacestations/nanotrasenspace)
 "aM" = (
 /obj/structure/bed/chair/urist/bench/bench1/left{
-	tag = "icon-benchleft (WEST)";
 	icon_state = "benchleft";
 	dir = 8
 	},
@@ -358,7 +355,6 @@
 /area/spacestations/nanotrasenspace)
 "aX" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHWEST)";
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -372,7 +368,6 @@
 /area/spacestations/nanotrasenspace)
 "aY" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
-	tag = "icon-benchmid (WEST)";
 	icon_state = "benchmid";
 	dir = 8
 	},
@@ -395,7 +390,6 @@
 /area/spacestations/nanotrasenspace)
 "bc" = (
 /obj/structure/bed/chair/urist/shuttle{
-	tag = "icon-shuttlechair (WEST)";
 	icon_state = "shuttlechair";
 	dir = 8
 	},
@@ -454,12 +448,10 @@
 /area/spacestations/nanotrasenspace)
 "bk" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
-	tag = "icon-benchright (WEST)";
 	icon_state = "benchright";
 	dir = 8
 	},
 /mob/living/simple_animal/passive/npc/colonist/nanotrasen{
-	tag = "icon-body_m_s (WEST)";
 	icon_state = "body_m_s";
 	dir = 8
 	},
@@ -475,7 +467,6 @@
 /area/spacestations/nanotrasenspace)
 "bn" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
-	tag = "icon-benchright (WEST)";
 	icon_state = "benchright";
 	dir = 8
 	},
@@ -504,7 +495,6 @@
 /area/spacestations/nanotrasenspace)
 "br" = (
 /obj/structure/flora/pottedplant{
-	tag = "icon-plant-22";
 	icon_state = "plant-22"
 	},
 /obj/structure/sign/urist/ad/sign5{
@@ -514,7 +504,6 @@
 /area/spacestations/nanotrasenspace)
 "bs" = (
 /obj/structure/flora/pottedplant{
-	tag = "icon-plant-22";
 	icon_state = "plant-22"
 	},
 /turf/simulated/floor/tiled,
@@ -526,7 +515,6 @@
 "bu" = (
 /obj/machinery/light,
 /obj/structure/bed/chair/urist/bench/bench1/left{
-	tag = "icon-benchleft (NORTH)";
 	icon_state = "benchleft";
 	dir = 1
 	},
@@ -550,7 +538,6 @@
 /area/spacestations/nanotrasenspace)
 "bx" = (
 /obj/machinery/newscaster{
-	layer = 3.3;
 	pixel_x = 0;
 	pixel_y = -27
 	},
@@ -579,7 +566,6 @@
 	pixel_y = -32
 	},
 /obj/structure/bed/chair/urist/bench/bench1/right{
-	tag = "icon-benchright (NORTH)";
 	icon_state = "benchright";
 	dir = 1
 	},
@@ -594,7 +580,6 @@
 /area/spacestations/nanotrasenspace)
 "bF" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -623,7 +608,6 @@
 /area/spacestations/nanotrasenspace)
 "bJ" = (
 /obj/structure/bed/chair/urist/bench/bench1/left{
-	tag = "icon-benchleft (NORTH)";
 	icon_state = "benchleft";
 	dir = 1
 	},
@@ -631,7 +615,6 @@
 /area/spacestations/nanotrasenspace)
 "bK" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
-	tag = "icon-benchmid (NORTH)";
 	icon_state = "benchmid";
 	dir = 1
 	},
@@ -639,7 +622,6 @@
 /area/spacestations/nanotrasenspace)
 "bL" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
-	tag = "icon-benchright (NORTH)";
 	icon_state = "benchright";
 	dir = 1
 	},
@@ -647,7 +629,6 @@
 /area/spacestations/nanotrasenspace)
 "bM" = (
 /obj/structure/bed/chair/urist/bench/bench1/left{
-	tag = "icon-benchleft (EAST)";
 	icon_state = "benchleft";
 	dir = 4
 	},
@@ -668,12 +649,10 @@
 /area/spacestations/nanotrasenspace)
 "bQ" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
-	tag = "icon-benchmid (WEST)";
 	icon_state = "benchmid";
 	dir = 8
 	},
 /mob/living/simple_animal/passive/npc/colonist/nanotrasen{
-	tag = "icon-body_m_s (WEST)";
 	icon_state = "body_m_s";
 	dir = 8
 	},
@@ -681,7 +660,6 @@
 /area/spacestations/nanotrasenspace)
 "bR" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
-	tag = "icon-benchmid (WEST)";
 	icon_state = "benchmid";
 	dir = 8
 	},
@@ -695,7 +673,6 @@
 	dir = 1
 	},
 /obj/structure/flora/pottedplant/Nienplants/plant{
-	tag = "icon-ywflowers_3";
 	icon_state = "ywflowers_3"
 	},
 /turf/simulated/floor/grass,
@@ -705,7 +682,6 @@
 	dir = 1
 	},
 /obj/structure/flora/pottedplant/Nienplants/plant{
-	tag = "icon-ppflowers_3";
 	icon_state = "ppflowers_3"
 	},
 /turf/simulated/floor/grass,
@@ -715,7 +691,6 @@
 	dir = 4
 	},
 /obj/structure/bed/chair/urist/bench/bench1/left{
-	tag = "icon-benchleft (WEST)";
 	icon_state = "benchleft";
 	dir = 8
 	},
@@ -729,7 +704,6 @@
 /area/spacestations/nanotrasenspace)
 "bW" = (
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (NORTH)";
 	icon_state = "warning";
 	dir = 1
 	},
@@ -739,7 +713,6 @@
 /area/spacestations/nanotrasenspace)
 "bX" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
-	tag = "icon-benchmid (WEST)";
 	icon_state = "benchmid";
 	dir = 8
 	},
@@ -753,14 +726,12 @@
 /area/spacestations/nanotrasenspace)
 "bZ" = (
 /obj/structure/flora/pottedplant/Nienplants/plant{
-	tag = "icon-ppflowers_3";
 	icon_state = "ppflowers_3"
 	},
 /turf/simulated/floor/grass,
 /area/spacestations/nanotrasenspace)
 "ca" = (
 /obj/structure/flora/pottedplant/Nienplants/plant{
-	tag = "icon-sunnybush_3";
 	icon_state = "sunnybush_3"
 	},
 /turf/simulated/floor/grass,
@@ -791,7 +762,6 @@
 "cf" = (
 /obj/structure/window/reinforced,
 /obj/structure/flora/pottedplant/Nienplants/plant{
-	tag = "icon-ywflowers_3";
 	icon_state = "ywflowers_3"
 	},
 /turf/simulated/floor/grass,
@@ -799,7 +769,6 @@
 "cg" = (
 /obj/structure/window/reinforced,
 /obj/structure/flora/pottedplant/Nienplants/plant{
-	tag = "icon-ppflowers_3";
 	icon_state = "ppflowers_3"
 	},
 /turf/simulated/floor/grass,
@@ -832,7 +801,6 @@
 /area/spacestations/nanotrasenspace)
 "cn" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
-	tag = "icon-benchright (EAST)";
 	icon_state = "benchright";
 	dir = 4
 	},
@@ -850,7 +818,6 @@
 /area/spacestations/nanotrasenspace)
 "cq" = (
 /obj/structure/bed/chair/urist/bench/bench1/left{
-	tag = "icon-benchleft (NORTH)";
 	icon_state = "benchleft";
 	dir = 1
 	},
@@ -861,7 +828,6 @@
 /area/spacestations/nanotrasenspace)
 "cr" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
-	tag = "icon-benchmid (NORTH)";
 	icon_state = "benchmid";
 	dir = 1
 	},
@@ -880,7 +846,6 @@
 /area/spacestations/nanotrasenspace)
 "ct" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
-	tag = "icon-benchmid (NORTH)";
 	icon_state = "benchmid";
 	dir = 1
 	},
@@ -893,7 +858,6 @@
 /area/spacestations/nanotrasenspace)
 "cv" = (
 /obj/structure/bed/chair/wood{
-	tag = "icon-wooden_chair (EAST)";
 	icon_state = "wooden_chair";
 	dir = 4
 	},
@@ -901,7 +865,6 @@
 /area/spacestations/nanotrasenspace)
 "cw" = (
 /obj/structure/bed/chair/wood{
-	tag = "icon-wooden_chair (WEST)";
 	icon_state = "wooden_chair";
 	dir = 8
 	},
@@ -913,7 +876,6 @@
 /area/spacestations/nanotrasenspace)
 "cy" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
-	tag = "icon-benchmid (NORTH)";
 	icon_state = "benchmid";
 	dir = 1
 	},
@@ -924,12 +886,10 @@
 /area/spacestations/nanotrasenspace)
 "cz" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
-	tag = "icon-benchmid (NORTH)";
 	icon_state = "benchmid";
 	dir = 1
 	},
 /obj/machinery/newscaster{
-	layer = 3.3;
 	pixel_x = 0;
 	pixel_y = -27
 	},
@@ -937,7 +897,6 @@
 /area/spacestations/nanotrasenspace)
 "cA" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
-	tag = "icon-benchright (NORTH)";
 	icon_state = "benchright";
 	dir = 1
 	},
@@ -964,7 +923,6 @@
 /area/spacestations/nanotrasenspace)
 "cF" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
-	tag = "icon-benchright (NORTH)";
 	icon_state = "benchright";
 	dir = 1
 	},
@@ -983,7 +941,6 @@
 /area/spacestations/nanotrasenspace)
 "cH" = (
 /obj/structure/bed/chair/wood{
-	tag = "icon-wooden_chair_preview (NORTH)";
 	icon_state = "wooden_chair_preview";
 	dir = 1
 	},
@@ -1026,8 +983,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	color = "#d2af6e";
 	dir = 4;
-	icon_state = "warningcorner";
-	tag = "icon-warningcorner (EAST)"
+	icon_state = "warningcorner"
 	},
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
@@ -1045,7 +1001,6 @@
 /area/spacestations/nanotrasenspace)
 "cQ" = (
 /obj/structure/bed/chair/couch/left/black{
-	tag = "icon-couch_left (EAST)";
 	icon_state = "couch_left";
 	dir = 4
 	},
@@ -1053,7 +1008,6 @@
 /area/spacestations/nanotrasenspace)
 "cR" = (
 /obj/structure/bed/chair/couch/right/black{
-	tag = "icon-couch_right (WEST)";
 	icon_state = "couch_right";
 	dir = 8
 	},
@@ -1087,7 +1041,6 @@
 /area/spacestations/nanotrasenspace)
 "cV" = (
 /obj/structure/bed/chair/couch/middle/black{
-	tag = "icon-couch_middle (NORTHEAST)";
 	icon_state = "couch_middle";
 	dir = 5
 	},
@@ -1096,7 +1049,6 @@
 "cW" = (
 /obj/machinery/light,
 /obj/structure/bed/chair/couch/middle/black{
-	tag = "icon-couch_middle (NORTH)";
 	icon_state = "couch_middle";
 	dir = 1
 	},
@@ -1104,7 +1056,6 @@
 /area/spacestations/nanotrasenspace)
 "cX" = (
 /obj/structure/bed/chair/couch/right/black{
-	tag = "icon-couch_right (NORTH)";
 	icon_state = "couch_right";
 	dir = 1
 	},
@@ -1112,7 +1063,6 @@
 /area/spacestations/nanotrasenspace)
 "cY" = (
 /obj/structure/bed/chair/couch/left/black{
-	tag = "icon-couch_left (NORTH)";
 	icon_state = "couch_left";
 	dir = 1
 	},
@@ -1120,7 +1070,6 @@
 /area/spacestations/nanotrasenspace)
 "cZ" = (
 /obj/structure/bed/chair/couch/middle/black{
-	tag = "icon-couch_middle (NORTHWEST)";
 	icon_state = "couch_middle";
 	dir = 9
 	},
@@ -1135,8 +1084,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	color = "#d2af6e";
 	dir = 1;
-	icon_state = "warningcorner";
-	tag = "icon-warningcorner (NORTH)"
+	icon_state = "warningcorner"
 	},
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
@@ -1150,8 +1098,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	color = "#d2af6e";
 	dir = 4;
-	icon_state = "warningcorner";
-	tag = "icon-warningcorner (EAST)"
+	icon_state = "warningcorner"
 	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark{
@@ -1181,8 +1128,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	color = "#d2af6e";
 	dir = 1;
-	icon_state = "warningcorner";
-	tag = "icon-warningcorner (NORTH)"
+	icon_state = "warningcorner"
 	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark{
@@ -1241,7 +1187,6 @@
 /area/spacestations/nanotrasenspace)
 "do" = (
 /turf/unsimulated/floor/uristturf/rail{
-	tag = "icon-rail2";
 	icon_state = "rail2"
 	},
 /area/spacestations/nanotrasenspace)
@@ -1342,7 +1287,6 @@
 /area/spacestations/nanotrasenspace)
 "dE" = (
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (NORTH)";
 	icon_state = "warning";
 	dir = 1
 	},
@@ -1366,7 +1310,6 @@
 /area/spacestations/nanotrasenspace)
 "dH" = (
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (WEST)";
 	icon_state = "warning";
 	dir = 8
 	},
@@ -1444,7 +1387,6 @@
 /area/spacestations/nanotrasenspace)
 "eT" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -1454,7 +1396,6 @@
 /area/spacestations/nanotrasenspace)
 "eW" = (
 /obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -1465,12 +1406,10 @@
 /area/spacestations/nanotrasenspace)
 "fj" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHWEST)";
 	icon_state = "corner_white";
 	dir = 10
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -1478,7 +1417,6 @@
 /area/spacestations/nanotrasenspace)
 "fI" = (
 /obj/effect/floor_decal/corner/red/three_quarters{
-	tag = "icon-corner_white_three_quarters (EAST)";
 	icon_state = "corner_white_three_quarters";
 	dir = 4
 	},
@@ -1488,7 +1426,6 @@
 /area/spacestations/nanotrasenspace)
 "fN" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -1505,7 +1442,6 @@
 "gW" = (
 /obj/machinery/vending/coffee,
 /obj/effect/floor_decal/corner/blue/three_quarters{
-	tag = "icon-corner_white_three_quarters (NORTH)";
 	icon_state = "corner_white_three_quarters";
 	dir = 1
 	},
@@ -1523,7 +1459,6 @@
 /obj/item/modular_computer/laptop/preset/records,
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/red/three_quarters{
-	tag = "icon-corner_white_three_quarters (NORTH)";
 	icon_state = "corner_white_three_quarters";
 	dir = 1
 	},
@@ -1543,7 +1478,6 @@
 /area/spacestations/nanotrasenspace)
 "iD" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
-	tag = "icon-benchmid (EAST)";
 	icon_state = "benchmid";
 	dir = 4
 	},
@@ -1564,7 +1498,6 @@
 /area/spacestations/nanotrasenspace)
 "je" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -1574,7 +1507,6 @@
 /area/spacestations/nanotrasenspace)
 "jB" = (
 /obj/structure/flora/pottedplant{
-	tag = "icon-plant-22";
 	icon_state = "plant-22"
 	},
 /obj/machinery/light{
@@ -1589,7 +1521,6 @@
 	},
 /obj/item/modular_computer/laptop/preset/records,
 /obj/effect/floor_decal/corner/red/three_quarters{
-	tag = "icon-corner_white_three_quarters (NORTH)";
 	icon_state = "corner_white_three_quarters";
 	dir = 1
 	},
@@ -1602,7 +1533,6 @@
 "kz" = (
 /obj/structure/filingcabinet,
 /obj/effect/floor_decal/corner/red/three_quarters{
-	tag = "icon-corner_white_three_quarters (WEST)";
 	icon_state = "corner_white_three_quarters";
 	dir = 8
 	},
@@ -1619,7 +1549,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -1629,7 +1558,6 @@
 /area/spacestations/nanotrasenspace)
 "kP" = (
 /obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -1639,7 +1567,6 @@
 /area/spacestations/nanotrasenspace)
 "kR" = (
 /obj/effect/floor_decal/ntlogo{
-	tag = "icon-ntlogo (EAST)";
 	icon_state = "ntlogo";
 	dir = 4
 	},
@@ -1647,7 +1574,6 @@
 /area/spacestations/nanotrasenspace)
 "lh" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHWEST)";
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -1685,7 +1611,6 @@
 /area/spacestations/nanotrasenspace)
 "pc" = (
 /obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -1703,7 +1628,6 @@
 	opacity = 0
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -1713,7 +1637,6 @@
 /area/spacestations/nanotrasenspace)
 "pO" = (
 /obj/structure/flora/pottedplant{
-	tag = "icon-plant-22";
 	icon_state = "plant-22"
 	},
 /obj/machinery/light{
@@ -1736,7 +1659,6 @@
 /area/spacestations/nanotrasenspace)
 "qy" = (
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (NORTHWEST)";
 	icon_state = "warning";
 	dir = 9
 	},
@@ -1748,7 +1670,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (NORTHEAST)";
 	icon_state = "warning";
 	dir = 5
 	},
@@ -1770,7 +1691,6 @@
 /area/spacestations/nanotrasenspace)
 "sl" = (
 /obj/effect/floor_decal/ntlogo{
-	tag = "icon-ntlogo (EAST)";
 	icon_state = "ntlogo";
 	dir = 4
 	},
@@ -1790,12 +1710,10 @@
 /area/spacestations/nanotrasenspace)
 "ta" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -1804,7 +1722,6 @@
 "tw" = (
 /obj/effect/overmap/visitable/station/nanotrasentrading,
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -1823,12 +1740,10 @@
 /area/spacestations/nanotrasenspace)
 "uK" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHWEST)";
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -1848,7 +1763,6 @@
 	req_access = list("ACCESS_CENT_GENERAL")
 	},
 /obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (SOUTHWEST)";
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -1863,7 +1777,6 @@
 "vK" = (
 /obj/structure/filingcabinet,
 /obj/effect/floor_decal/corner/red/three_quarters{
-	tag = "icon-corner_white_three_quarters (WEST)";
 	icon_state = "corner_white_three_quarters";
 	dir = 8
 	},
@@ -1892,7 +1805,6 @@
 /area/spacestations/nanotrasenspace)
 "wu" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -1905,7 +1817,6 @@
 /area/spacestations/nanotrasenspace)
 "wF" = (
 /obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -1918,7 +1829,6 @@
 /area/spacestations/nanotrasenspace)
 "xb" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
-	tag = "icon-benchmid (EAST)";
 	icon_state = "benchmid";
 	dir = 4
 	},
@@ -1926,7 +1836,6 @@
 	pixel_x = -32
 	},
 /mob/living/simple_animal/passive/npc/colonist/highclass/nanotrasen{
-	tag = "icon-body_m_s (EAST)";
 	icon_state = "body_m_s";
 	dir = 4
 	},
@@ -1934,7 +1843,6 @@
 /area/spacestations/nanotrasenspace)
 "xd" = (
 /obj/effect/floor_decal/ntlogo{
-	tag = "icon-ntlogo (NORTH)";
 	icon_state = "ntlogo";
 	dir = 1
 	},
@@ -1951,7 +1859,6 @@
 /area/spacestations/nanotrasenspace)
 "xl" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -1961,12 +1868,10 @@
 /area/spacestations/nanotrasenspace)
 "xn" = (
 /obj/structure/flora/pottedplant{
-	tag = "icon-plant-22";
 	icon_state = "plant-22"
 	},
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/blue/three_quarters{
-	tag = "icon-corner_white_three_quarters (EAST)";
 	icon_state = "corner_white_three_quarters";
 	dir = 4
 	},
@@ -1981,7 +1886,6 @@
 	pixel_y = 0
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -1991,7 +1895,6 @@
 /area/spacestations/nanotrasenspace)
 "xu" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -2016,7 +1919,6 @@
 /area/spacestations/nanotrasenspace)
 "yr" = (
 /obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -2026,7 +1928,6 @@
 /area/spacestations/nanotrasenspace)
 "yH" = (
 /obj/effect/floor_decal/ntlogo{
-	tag = "icon-ntlogo (WEST)";
 	icon_state = "ntlogo";
 	dir = 8
 	},
@@ -2034,7 +1935,6 @@
 /area/spacestations/nanotrasenspace)
 "yU" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -2042,7 +1942,6 @@
 /area/spacestations/nanotrasenspace)
 "za" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -2061,7 +1960,6 @@
 /area/spacestations/nanotrasenspace)
 "zF" = (
 /obj/structure/bed/chair/armchair/black{
-	tag = "icon-armchair_preview (WEST)";
 	icon_state = "armchair_preview";
 	dir = 8
 	},
@@ -2080,7 +1978,6 @@
 /area/spacestations/nanotrasenspace)
 "AQ" = (
 /obj/structure/flora/pottedplant/Nienplants/plant{
-	tag = "icon-ppflowers_3";
 	icon_state = "ppflowers_3"
 	},
 /obj/machinery/light{
@@ -2107,17 +2004,14 @@
 /area/spacestations/nanotrasenspace)
 "Cn" = (
 /obj/structure/bed/chair/urist/bench/bench1/left{
-	tag = "icon-benchleft (WEST)";
 	icon_state = "benchleft";
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
 /mob/living/simple_animal/passive/npc/colonist/nanotrasen{
-	tag = "icon-body_m_s (WEST)";
 	icon_state = "body_m_s";
 	dir = 8
 	},
@@ -2127,7 +2021,6 @@
 /area/spacestations/nanotrasenspace)
 "Cp" = (
 /obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (SOUTHWEST)";
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -2143,7 +2036,6 @@
 /area/spacestations/nanotrasenspace)
 "CJ" = (
 /obj/structure/flora/pottedplant{
-	tag = "icon-plant-22";
 	icon_state = "plant-22"
 	},
 /obj/machinery/light,
@@ -2154,12 +2046,10 @@
 /area/spacestations/nanotrasenspace)
 "CV" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -2167,7 +2057,6 @@
 /area/spacestations/nanotrasenspace)
 "DM" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -2221,11 +2110,9 @@
 /area/spacestations/nanotrasenspace)
 "Hf" = (
 /obj/structure/flora/pottedplant{
-	tag = "icon-plant-22";
 	icon_state = "plant-22"
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -2251,7 +2138,6 @@
 /area/spacestations/nanotrasenspace)
 "Ji" = (
 /obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -2259,12 +2145,10 @@
 /area/spacestations/nanotrasenspace)
 "JY" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
-	tag = "icon-benchright (WEST)";
 	icon_state = "benchright";
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -2284,7 +2168,6 @@
 /obj/structure/window/reinforced,
 /obj/item/modular_computer/laptop/preset/records,
 /obj/effect/floor_decal/corner/red/three_quarters{
-	tag = "icon-corner_white_three_quarters (EAST)";
 	icon_state = "corner_white_three_quarters";
 	dir = 4
 	},
@@ -2292,7 +2175,6 @@
 /area/spacestations/nanotrasenspace)
 "Nf" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -2335,12 +2217,10 @@
 /area/spacestations/nanotrasenspace)
 "Ok" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
 /mob/living/simple_animal/passive/npc/colonist/contract/ntscientist{
-	tag = "icon-body_m_s (EAST)";
 	icon_state = "body_m_s";
 	dir = 4
 	},
@@ -2348,7 +2228,6 @@
 /area/spacestations/nanotrasenspace)
 "Op" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -2364,7 +2243,6 @@
 	req_access = list("ACCESS_CENT_GENERAL")
 	},
 /obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -2406,7 +2284,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/red/three_quarters{
-	tag = "icon-corner_white_three_quarters (WEST)";
 	icon_state = "corner_white_three_quarters";
 	dir = 8
 	},
@@ -2426,7 +2303,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -2443,7 +2319,6 @@
 /area/spacestations/nanotrasenspace)
 "QZ" = (
 /obj/effect/floor_decal/ntlogo{
-	tag = "icon-ntlogo (WEST)";
 	icon_state = "ntlogo";
 	dir = 8
 	},
@@ -2468,7 +2343,6 @@
 /area/spacestations/nanotrasenspace)
 "RN" = (
 /obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -2485,7 +2359,6 @@
 	opacity = 0
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHWEST)";
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -2495,7 +2368,6 @@
 /area/spacestations/nanotrasenspace)
 "Sq" = (
 /obj/effect/floor_decal/corner/blue/three_quarters{
-	tag = "icon-corner_white_three_quarters (EAST)";
 	icon_state = "corner_white_three_quarters";
 	dir = 4
 	},
@@ -2506,7 +2378,6 @@
 "SH" = (
 /obj/machinery/vending/cigarette,
 /obj/effect/floor_decal/corner/blue/three_quarters{
-	tag = "icon-corner_white_three_quarters (WEST)";
 	icon_state = "corner_white_three_quarters";
 	dir = 8
 	},
@@ -2524,7 +2395,6 @@
 /area/spacestations/nanotrasenspace)
 "Tk" = (
 /obj/effect/floor_decal/ntlogo{
-	tag = "icon-ntlogo (NORTH)";
 	icon_state = "ntlogo";
 	dir = 1
 	},
@@ -2532,7 +2402,6 @@
 /area/spacestations/nanotrasenspace)
 "Tq" = (
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (SOUTHEAST)";
 	icon_state = "warning";
 	dir = 6
 	},
@@ -2545,7 +2414,6 @@
 /area/spacestations/nanotrasenspace)
 "Vo" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHWEST)";
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -2553,12 +2421,10 @@
 /area/spacestations/nanotrasenspace)
 "Vx" = (
 /obj/structure/bed/chair/urist/bench/bench1/left{
-	tag = "icon-benchleft (EAST)";
 	icon_state = "benchleft";
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -2578,12 +2444,10 @@
 /area/spacestations/nanotrasenspace)
 "VO" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
-	tag = "icon-benchright (EAST)";
 	icon_state = "benchright";
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -2596,7 +2460,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -2608,7 +2471,6 @@
 /obj/item/modular_computer/laptop/preset/records,
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/red/three_quarters{
-	tag = "icon-corner_white_three_quarters (NORTH)";
 	icon_state = "corner_white_three_quarters";
 	dir = 1
 	},
@@ -2621,7 +2483,6 @@
 /obj/item/modular_computer/laptop/preset/records,
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/red/three_quarters{
-	tag = "icon-corner_white_three_quarters (EAST)";
 	icon_state = "corner_white_three_quarters";
 	dir = 4
 	},
@@ -2629,7 +2490,6 @@
 /area/spacestations/nanotrasenspace)
 "WN" = (
 /obj/effect/floor_decal/corner/red/three_quarters{
-	tag = "icon-corner_white_three_quarters (WEST)";
 	icon_state = "corner_white_three_quarters";
 	dir = 8
 	},
@@ -2639,11 +2499,9 @@
 /area/spacestations/nanotrasenspace)
 "WV" = (
 /obj/structure/flora/pottedplant{
-	tag = "icon-plant-22";
 	icon_state = "plant-22"
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -2656,7 +2514,6 @@
 /obj/structure/window/reinforced,
 /obj/item/modular_computer/laptop/preset/records,
 /obj/effect/floor_decal/corner/red/three_quarters{
-	tag = "icon-corner_white_three_quarters (EAST)";
 	icon_state = "corner_white_three_quarters";
 	dir = 4
 	},
@@ -2666,7 +2523,6 @@
 /area/spacestations/nanotrasenspace)
 "YH" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -2677,7 +2533,6 @@
 /area/spacestations/nanotrasenspace)
 "YJ" = (
 /obj/effect/floor_decal/corner/red/three_quarters{
-	tag = "icon-corner_white_three_quarters (NORTH)";
 	icon_state = "corner_white_three_quarters";
 	dir = 1
 	},
@@ -2696,7 +2551,6 @@
 /area/spacestations/nanotrasenspace)
 "Zl" = (
 /obj/structure/flora/pottedplant{
-	tag = "icon-plant-22";
 	icon_state = "plant-22"
 	},
 /obj/machinery/light,
@@ -2725,7 +2579,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (NORTH)";
 	icon_state = "warning";
 	dir = 1
 	},

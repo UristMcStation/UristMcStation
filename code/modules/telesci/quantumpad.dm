@@ -56,7 +56,7 @@
 	teleport_cooldown = initial(teleport_cooldown)
 	teleport_cooldown -= (E * 100)
 
-/obj/machinery/power/quantumpad/attackby(obj/item/I, mob/user, params)
+/obj/machinery/power/quantumpad/use_tool(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/device/multitool))
 		if(panel_open)
 			var/obj/item/device/multitool/M = I
@@ -73,7 +73,7 @@
 
 	return ..()
 
-/obj/machinery/power/quantumpad/update_icon()
+/obj/machinery/power/quantumpad/on_update_icon()
 	. = ..()
 
 	if(inoperable() || panel_open)

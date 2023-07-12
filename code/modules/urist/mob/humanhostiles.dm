@@ -148,7 +148,7 @@
 	attack_same = 0
 	ai_holder = /datum/ai_holder/simple_animal/humanoid/hostile
 
-/mob/living/simple_animal/hostile/urist/stalker/ntis/UnarmedAttack(var/atom/A, var/proximity)
+/mob/living/simple_animal/hostile/urist/stalker/ntis/UnarmedAttack(atom/A, var/proximity)
 	attack_sound = pick('sound/weapons/bladeslice.ogg','sound/weapons/genhit1.ogg','sound/weapons/genhit2.ogg','sound/weapons/punch2.ogg','sound/weapons/punch3.ogg','sound/weapons/smash.ogg')
 	. = ..()
 

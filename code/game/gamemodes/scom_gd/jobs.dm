@@ -1,5 +1,5 @@
 
-/datum/job/scom/equip(var/mob/living/carbon/human/H, var/alt_title, var/datum/mil_branch/branch)
+/datum/job/scom/equip(mob/living/carbon/human/H, var/alt_title, var/datum/mil_branch/branch)
 	..()
 	if(!H.mind)
 		return

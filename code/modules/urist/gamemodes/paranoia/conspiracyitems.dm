@@ -35,7 +35,7 @@
 	var/basedesc = "A file containing top-secret data."
 	var/faction = "Broken Code Initiative"
 
-/obj/item/conspiracyintel/New(loc = src.loc, var/presetconspiracy)
+/obj/item/conspiracyintel/New(loc = src.loc, presetconspiracy)
 	..()
 	if(presetconspiracy)
 		faction = presetconspiracy
@@ -107,7 +107,7 @@
 		else if(open)
 			close_computer()
 
-/obj/item/device/inteluplink/New(var/maker)
+/obj/item/device/inteluplink/New(maker)
 	..()
 	if(maker)
 		faction = maker
@@ -121,18 +121,18 @@
 		return
 
 	if(usr.stat || usr.restrained() || usr.lying || !istype(usr, /mob/living))
-		to_target(usr, "<span class='warning'>You can't do that.</span>")
+		to_chat(usr, "<span class='warning'>You can't do that.</span>")
 		return
 
 	if(!Adjacent(usr))
-		to_target(usr, "You can't reach it.")
+		to_chat(usr, "You can't reach it.")
 		return
 
 	if(!istype(loc,/turf))
-		to_target(usr, "[src] is too bulky!  You'll have to set it down.")
+		to_chat(usr, "[src] is too bulky!  You'll have to set it down.")
 		return
 
-	to_target(usr, "You open \the [src].")
+	to_chat(usr, "You open \the [src].")
 	open = 1
 	w_class = 4
 	update_icon()
@@ -146,23 +146,23 @@
 		return
 
 	if(usr.stat || usr.restrained() || usr.lying || !istype(usr, /mob/living))
-		to_target(usr, "<span class='warning'>You can't do that.</span>")
+		to_chat(usr, "<span class='warning'>You can't do that.</span>")
 		return
 
 	if(!Adjacent(usr))
-		to_target(usr, "You can't reach it.")
+		to_chat(usr, "You can't reach it.")
 		return
 
 	if(!istype(loc,/turf))
-		to_target(usr, "[src] is too bulky!  You'll have to set it down.")
+		to_chat(usr, "[src] is too bulky!  You'll have to set it down.")
 		return
 
-	to_target(usr, "You close \the [src].")
+	to_chat(usr, "You close \the [src].")
 	open = 0
 	w_class = 3
 	update_icon()
 
-/obj/item/device/inteluplink/update_icon()
+/obj/item/device/inteluplink/on_update_icon()
 	overlays.Cut()
 	if(open)
 		icon_state = "laptop"
@@ -180,16 +180,16 @@
 		icon_state = "adv-laptop-closed"
 		desc = "A clamshell portable computer. It is closed."
 
-/obj/item/device/inteluplink/attackby(var/obj/item/I,mob/user as mob)
+/obj/item/device/inteluplink/attackby(obj/item/I,mob/user as mob)
 	if(!open)
 		return
 	if(istype(I,/obj/item/conspiracyintel))
 		var/obj/item/conspiracyintel/C = I
 		if(cmptext(C.faction,faction))
-			to_target(user, "<span class='notice'>\The [C] you are trying to upload belongs to the faction you're trying to send it to.</span>")
+			to_chat(user, "<span class='notice'>\The [C] you are trying to upload belongs to the faction you're trying to send it to.</span>")
 			return
 		if(cmptext(C.faction,alliedf))
-			to_target(user, "<span class='notice'>\The [faction] does not need any more data on [C.faction].</span>")
+			to_chat(user, "<span class='notice'>\The [faction] does not need any more data on [C.faction].</span>")
 			return
 		if(!(C.upload_id))
 			C.upload_id = rand(1,9999) //should be more than enough to be unique
@@ -210,12 +210,12 @@
 				break
 			progress += uploadamount
 			if(progress == (round(progress, 10))) //kind of an odd method, but cuts down on the spam
-				to_target(user, "<span class='notice'>Upload progress at: [progress]%</span>")
+				to_chat(user, "<span class='notice'>Upload progress at: [progress]%</span>")
 			if(progress >= 100)
 				user.visible_message("<span class='notice'>\The [src] buzzes and shreds the [C] as a progress bar reaches completion.</span>","<span class='notice'>\The [src] buzzes and shreds the [C] as a progress bar reaches completion.</span>","<span class='notice'>You hear a buzz and the sound of utterly annihilated paper.</span>")
 				if(prob(50))
 					alliedf = C.faction
-					to_target(user, "<span class='notice'>A message from \the [faction] arrives: \"Thank you for your service. We will have no need for more data on [alliedf] for a while.\".</span>")
+					to_chat(user, "<span class='notice'>A message from \the [faction] arrives: \")Thank you for your service. We will have no need for more data on [alliedf] for a while.\".</span>")
 				uploading = 0
 				progress = 0
 				cached_progress = 0
@@ -230,7 +230,7 @@
 			cached_progress = progress
 			uploading = 0
 			update_icon()
-			to_target(user, "<span class='warning'>\The [src] displays an error message: Upload halted at [cached_progress]%.</span>")
+			to_chat(user, "<span class='warning'>\The [src] displays an error message: Upload halted at [cached_progress]%.</span>")
 	..()
 
 //a suit that looks like a black-haired human in a suit, for muh Reptilians and/or Thin Mints
@@ -261,7 +261,7 @@
 
 /obj/item/clothing/mask/chameleon/voice/fleshmask/Set_Voice(name as text)
 	if(usedonce)
-		to_target(usr, "<span class='notice'>The modulator in the [src] cannot be reset!</span>")
+		to_chat(usr, "<span class='notice'>The modulator in the [src] cannot be reset!</span>")
 		return
 	..()
 	usedonce = 1

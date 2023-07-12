@@ -53,7 +53,7 @@
 		P.name = initial(P.name)
 	pods.Cut()
 
-/obj/machinery/computer/cloning/proc/connect_pod(var/obj/machinery/clonepod/P)
+/obj/machinery/computer/cloning/proc/connect_pod(obj/machinery/clonepod/P)
 	if(P in pods)
 		return 0
 
@@ -65,7 +65,7 @@
 
 	return 1
 
-/obj/machinery/computer/cloning/proc/release_pod(var/obj/machinery/clonepod/P)
+/obj/machinery/computer/cloning/proc/release_pod(obj/machinery/clonepod/P)
 	if(!(P in pods))
 		return
 
@@ -89,7 +89,7 @@
 			P.connected = src
 			P.name = "[initial(P.name)] #[num++]"
 
-/obj/machinery/computer/cloning/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/computer/cloning/use_tool(obj/item/W as obj, mob/user as mob)
 	if (istype(W, /obj/item/disk/data)) //INSERT SOME DISKETTES
 		if (!src.diskette)
 			user.drop_item()
@@ -214,7 +214,7 @@
 			dat += "<b><a href='byond://?src=\ref[src];menu=3'>No</a></b>"
 
 
-	to_target(user, browse(dat, "window=cloning"))
+	show_browser(user, dat, "window=cloning")
 	onclose(user, "cloning")
 	return
 
@@ -426,7 +426,7 @@
 	scantemp = "Subject successfully scanned."
 
 //Find a specific record by key.
-/obj/machinery/computer/cloning/proc/find_record(var/find_key)
+/obj/machinery/computer/cloning/proc/find_record(find_key)
 	var/selected_record = null
 	for(var/datum/dna2/record/R in src.records)
 		if (R.ckey == find_key)

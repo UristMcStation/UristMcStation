@@ -287,7 +287,7 @@
 	update_nearby_tiles()
 	..()
 
-/obj/machinery/shieldwall/proc/strain_power(var/amount)
+/obj/machinery/shieldwall/proc/strain_power(amount)
 	if(!gen_primary || !gen_secondary)
 		return
 	var/d_amount = amount/2

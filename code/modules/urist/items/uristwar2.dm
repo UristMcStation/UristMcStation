@@ -107,7 +107,7 @@
 	wielded_item_state = "woodarifle-wielded"
 	max_shells = 10
 
-/obj/item/gun/projectile/g43/update_icon()
+/obj/item/gun/projectile/g43/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "g43"
@@ -147,7 +147,7 @@
 		list(mode_name="short bursts", 	burst=5, move_delay=6, fire_delay=null, one_hand_penalty = 6, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/gun/projectile/automatic/stg44/update_icon()
+/obj/item/gun/projectile/automatic/stg44/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "stg44"
@@ -196,7 +196,7 @@
 		list(mode_name="long bursts",	burst=8, fire_delay=null, move_delay=8, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/gun/projectile/automatic/mp40/update_icon()
+/obj/item/gun/projectile/automatic/mp40/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "mp40_stock"
@@ -229,7 +229,7 @@
 	magazine_type = /obj/item/ammo_magazine/pistol/p38
 	allowed_magazines = list(/obj/item/ammo_magazine/pistol/p38)
 
-/obj/item/gun/projectile/p38/update_icon()
+/obj/item/gun/projectile/p38/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "p38"
@@ -268,7 +268,7 @@
 		list(mode_name="long bursts",	burst=8, fire_delay=null, move_delay=8, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/gun/projectile/automatic/l6_saw/mg42/update_icon()
+/obj/item/gun/projectile/automatic/l6_saw/mg42/on_update_icon()
 //	..()
 	icon_state = "mg42[cover_open ? "open" : "closed"][ammo_magazine ? "" : "-empty"]"
 
@@ -407,7 +407,7 @@
 	wielded_item_state = "woodarifle-wielded"
 	max_shells = 10
 
-/obj/item/gun/projectile/svt40/update_icon()
+/obj/item/gun/projectile/svt40/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "svt40"
@@ -439,7 +439,7 @@
 		list(mode_name="long bursts",	burst=8, fire_delay=null, move_delay=8, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/gun/projectile/automatic/bar/update_icon()
+/obj/item/gun/projectile/automatic/bar/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "bar"
@@ -477,7 +477,7 @@
 		list(mode_name="long bursts",	burst=8, fire_delay=null, move_delay=8, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/gun/projectile/automatic/ppsh/update_icon()
+/obj/item/gun/projectile/automatic/ppsh/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "ppsh41"
@@ -510,7 +510,7 @@
 	magazine_type = /obj/item/ammo_magazine/pistol/tt33
 	allowed_magazines = list(/obj/item/ammo_magazine/pistol/tt33)
 
-/obj/item/gun/projectile/tt33/update_icon()
+/obj/item/gun/projectile/tt33/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "tt33"
@@ -571,7 +571,7 @@
 		list(mode_name="long bursts",	burst=8, move_delay=15, one_hand_penalty=9, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/gun/projectile/automatic/degtyaryov/update_icon()
+/obj/item/gun/projectile/automatic/degtyaryov/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "DT"

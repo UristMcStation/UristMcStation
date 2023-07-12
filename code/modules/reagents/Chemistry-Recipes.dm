@@ -500,7 +500,7 @@
 	maximum_temperature = -80 CELSIUS
 	mix_message = "The solution hardens."
 
-/datum/chemical_reaction/uraniumsolidification/on_reaction(var/datum/reagents/holder, var/created_volume, var/reaction_flags)
+/datum/chemical_reaction/uraniumsolidification/on_reaction(datum/reagents/holder, var/created_volume, var/reaction_flags)
 	..()
 	new /obj/item/stack/material/uranium(get_turf(holder.my_atom), created_volume)
 
@@ -512,7 +512,7 @@
 	maximum_temperature = -80 CELSIUS
 	mix_message = "The solution hardens."
 
-/datum/chemical_reaction/goldsolidification/on_reaction(var/datum/reagents/holder, var/created_volume, var/reaction_flags)
+/datum/chemical_reaction/goldsolidification/on_reaction(datum/reagents/holder, var/created_volume, var/reaction_flags)
 	..()
 	new /obj/item/stack/material/gold(get_turf(holder.my_atom), created_volume)
 
@@ -524,7 +524,7 @@
 	maximum_temperature = -80 CELSIUS
 	mix_message = "The solution hardens."
 
-/datum/chemical_reaction/silversolidification/on_reaction(var/datum/reagents/holder, var/created_volume, var/reaction_flags)
+/datum/chemical_reaction/silversolidification/on_reaction(datum/reagents/holder, var/created_volume, var/reaction_flags)
 	..()
 	new /obj/item/stack/material/silver(get_turf(holder.my_atom), created_volume)
 
@@ -536,7 +536,7 @@
 	maximum_temperature = -80 CELSIUS
 	mix_message = "The solution hardens."
 
-/datum/chemical_reaction/steelsolidification/on_reaction(var/datum/reagents/holder, var/created_volume, var/reaction_flags)
+/datum/chemical_reaction/steelsolidification/on_reaction(datum/reagents/holder, var/created_volume, var/reaction_flags)
 	..()
 	new /obj/item/stack/material/steel(get_turf(holder.my_atom), created_volume)
 
@@ -548,7 +548,7 @@
 	maximum_temperature = -80 CELSIUS
 	mix_message = "The solution hardens."
 
-/datum/chemical_reaction/mhydrogensolidification/on_reaction(var/datum/reagents/holder, var/created_volume, var/reaction_flags)
+/datum/chemical_reaction/mhydrogensolidification/on_reaction(datum/reagents/holder, var/created_volume, var/reaction_flags)
 	..()
 	new /obj/item/stack/material/mhydrogen(get_turf(holder.my_atom), created_volume)
 
@@ -561,7 +561,7 @@
 	maximum_temperature = -80 CELSIUS
 	mix_message = "The solution hardens."
 
-/datum/chemical_reaction/ironsolidification/on_reaction(var/datum/reagents/holder, var/created_volume, var/reaction_flags)
+/datum/chemical_reaction/ironsolidification/on_reaction(datum/reagents/holder, var/created_volume, var/reaction_flags)
 	..()
 	new /obj/item/stack/material/iron(get_turf(holder.my_atom), created_volume)
 
@@ -573,7 +573,7 @@
 	maximum_temperature = -80 CELSIUS
 	mix_message = "The solution hardens."
 
-/datum/chemical_reaction/aluminiumsolidification/on_reaction(var/datum/reagents/holder, var/created_volume, var/reaction_flags)
+/datum/chemical_reaction/aluminiumsolidification/on_reaction(datum/reagents/holder, var/created_volume, var/reaction_flags)
 	..()
 	new /obj/item/stack/material/aluminium(get_turf(holder.my_atom), created_volume)
 

@@ -2,7 +2,7 @@
 /obj/item/gun/projectile/shotgun
 	icon = 'icons/urist/items/shotguns.dmi'
 
-/obj/item/gun/projectile/shotgun/load_ammo(var/obj/item/A, mob/user)
+/obj/item/gun/projectile/shotgun/load_ammo(obj/item/A, mob/user)
 	if(istype(A, /obj/item/ammo_magazine))
 		. = TRUE
 		var/obj/item/ammo_magazine/AM = A
@@ -13,7 +13,7 @@
 			to_chat(user, "<span class='warning'>[src] is full!</span>")
 			return
 
-		var/obj/item/ammo_casing/C = AM.stored_ammo[AM.stored_ammo.len]
+		var/obj/item/ammo_casing/C = AM.stored_ammo[length(AM.stored_ammo)]
 		AM.stored_ammo -= C
 		loaded.Insert(1, C)
 		C.forceMove(src)

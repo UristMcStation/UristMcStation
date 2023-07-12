@@ -53,7 +53,7 @@ GLOBAL_LIST_INIT(mutation_color_matrices, list("[M_NOIR]"=COLMX_EXPRESSIONIST))
 	return CM
 
 
-/client/proc/_update_client_color_callback(var/list/color_to_apply)
+/client/proc/_update_client_color_callback(list/color_to_apply)
 	if(!src || !color_to_apply)
 		return
 
@@ -68,7 +68,7 @@ GLOBAL_LIST_INIT(mutation_color_matrices, list("[M_NOIR]"=COLMX_EXPRESSIONIST))
 			GLOB.bad_changing_color_ckeys["[src.ckey]"] = 1
 
 
-/mob/proc/update_color(var/time = 50,var/forceupdate = 0)
+/mob/proc/update_color(time = 50,var/forceupdate = 0)
 	if(!client || (client.updating_color && !forceupdate))
 		return
 

@@ -3,8 +3,8 @@
 
 /obj/machinery/icemachine
 	name = "\improper Cream-Master Deluxe"
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 	icon = 'icons/urist/kitchen.dmi'
 	icon_state = "icecream_vat"
 	use_power = 1
@@ -32,12 +32,12 @@
 /obj/machinery/icemachine/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/reagent_containers/glass))
 		if(beaker)
-			user << "<span class='notice'>A container is already inside [src].</span>"
+			to_chat(user, "<span class='notice'>A container is already inside [src].</span>")
 			return
 		beaker = I
 		user.drop_item()
 		I.loc = src
-		user << "<span class='notice'>You add [I] to [src]</span>"
+		to_chat(user, "<span class='notice'>You add [I] to [src]</span>")
 		updateUsrDialog()
 		return
 	if(istype(I, /obj/item/reagent_containers/food/snacks/icecream))
@@ -49,7 +49,7 @@
 			I.name += " with sprinkles"
 			I.desc += ". This also has sprinkles."
 		else
-			user << "<span class='notice'>This [I] already has sprinkles.</span>"
+			to_chat(user, "<span class='notice'>This [I] already has sprinkles.</span>")
 
 
 /obj/machinery/icemachine/proc/validexchange(reag)
@@ -57,7 +57,7 @@
 		return 1
 	else
 		if(reagents.total_volume < 500)
-			usr << "<span class='notice'>[src] vibrates for a moment, apparently accepting the unknown liquid.</span>"
+			to_chat(usr, "<span class='notice'>[src] vibrates for a moment, apparently accepting the unknown liquid.</span>")
 			playsound(loc, 'sound/machines/twobeep.ogg', 10, 1)
 		return 1
 
@@ -69,7 +69,7 @@
 	usr.set_machine(src)
 
 	if(href_list["close"])
-		usr << browse(null, "window=cream_master")
+		show_browser(usr, null, "window=cream_master")
 		usr.unset_machine()
 		return
 

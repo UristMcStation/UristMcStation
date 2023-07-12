@@ -1,15 +1,15 @@
 
 //Added by TGameCo
-//My first thing in ss13, based on the dresser we used in /tg/
+//My first thing in ss13, based on the dresser we used in tg
 //Note: The basics took me ~1 hour. The attack_hand proc took me the rest of the day...
 
-/obj/structure/dresser/
+/obj/structure/dresser
 	name = "Dresser"
 	desc = "A wooden closet full of undergarments."
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "dresser"
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 
 //Do the thing!
 
@@ -18,7 +18,7 @@
 	src.add_fingerprint(user)
 	var/mob/living/carbon/human/H = user
 	if(!ishuman(user) || (H.species && !(H.species.flags & HAS_UNDERWEAR)))
-		user << "<span class='warning'>Sadly there's nothing in here for you to wear.</span>"
+		to_chat(user, "<span class='warning'>Sadly there's nothing in here for you to wear.</span>")
 		return 0
 
 	var/utype = alert("Which section do you want to pick from?",,"Male underwear", "Female underwear", "Undershirts")

@@ -401,7 +401,6 @@
 /area/noctis/apm)
 "bc" = (
 /obj/effect/floor_decal/borderfloor{
-	tag = "icon-borderfloor_white (NORTH)";
 	icon_state = "borderfloor_white";
 	dir = 1
 	},
@@ -419,7 +418,6 @@
 /area/noctis/hards)
 "bd" = (
 /obj/effect/floor_decal/borderfloor{
-	tag = "icon-borderfloor_white (NORTH)";
 	icon_state = "borderfloor_white";
 	dir = 1
 	},
@@ -454,7 +452,6 @@
 /area/noctis/hards)
 "bf" = (
 /obj/effect/floor_decal/borderfloor{
-	tag = "icon-borderfloor_white (NORTH)";
 	icon_state = "borderfloor_white";
 	dir = 1
 	},
@@ -1853,7 +1850,6 @@
 /area/noctis/afth)
 "dG" = (
 /obj/effect/floor_decal/borderfloor{
-	tag = "icon-borderfloor_white (NORTH)";
 	icon_state = "borderfloor_white";
 	dir = 1
 	},
@@ -1873,7 +1869,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/borderfloor{
-	tag = "icon-borderfloor_white (NORTH)";
 	icon_state = "borderfloor_white";
 	dir = 1
 	},
@@ -1893,7 +1888,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/borderfloor{
-	tag = "icon-borderfloor_white (NORTH)";
 	icon_state = "borderfloor_white";
 	dir = 1
 	},
@@ -1905,7 +1899,6 @@
 /area/noctis/connect)
 "dJ" = (
 /obj/effect/floor_decal/borderfloor{
-	tag = "icon-borderfloor_white (NORTH)";
 	icon_state = "borderfloor_white";
 	dir = 1
 	},
@@ -2476,7 +2469,6 @@
 /area/noctis/lounge)
 "eG" = (
 /obj/effect/floor_decal/borderfloor{
-	tag = "icon-borderfloor_white (NORTH)";
 	icon_state = "borderfloor_white";
 	dir = 1
 	},
@@ -2920,8 +2912,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0;
-	tag = ""
+	pixel_y = 0
 	},
 /obj/structure/bed/chair/office/dark{
 	dir = 8

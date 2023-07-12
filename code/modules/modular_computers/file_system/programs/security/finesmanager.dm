@@ -25,7 +25,7 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 	var/datum/money_account/target
 	var/target_email
 
-/datum/nano_module/program/finesmanager/proc/get_auth(var/mob/user)
+/datum/nano_module/program/finesmanager/proc/get_auth(mob/user)
 	get_access(user)
 	if(!using_access)
 		return 0
@@ -36,7 +36,7 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 	else
 		return 1
 
-/datum/nano_module/program/finesmanager/proc/scan_id(var/mob/user)
+/datum/nano_module/program/finesmanager/proc/scan_id(mob/user)
 	var/obj/item/card/id/id
 	var/obj/item/stock_parts/computer/card_slot/card_slot = program.computer.get_component(PART_CARD)
 	if(card_slot)
@@ -62,7 +62,7 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 			display_state = 1
 			return TRUE
 
-/datum/nano_module/program/finesmanager/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
+/datum/nano_module/program/finesmanager/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
 	var/list/data = program.computer.initial_data()
 	var/obj/item/stock_parts/computer/card_slot/card_slot = program.computer.get_component(PART_CARD)
 

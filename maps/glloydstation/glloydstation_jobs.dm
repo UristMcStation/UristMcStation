@@ -63,7 +63,7 @@
 	outfit_type = /singleton/hierarchy/outfit/job/mime
 
 /* //This hasn't worked for a while,
-/datum/job/mime/equip(var/mob/living/carbon/human/H)
+/datum/job/mime/equip(mob/living/carbon/human/H)
 	. = ..()
 	if(.)
 		H.miming = 1
@@ -99,7 +99,7 @@
 	minimal_player_age = 10
 	outfit_type = /singleton/hierarchy/outfit/job/clown
 
-/datum/job/clown/equip(var/mob/living/carbon/human/H)
+/datum/job/clown/equip(mob/living/carbon/human/H)
 	. = ..()
 	if(.)
 		H.mutations.Add(MUTATION_CLUMSY)

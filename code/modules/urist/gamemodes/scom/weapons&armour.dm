@@ -52,7 +52,7 @@
 	one_hand_penalty = 8
 
 /obj/item/gun/energy/pulse_rifle/cannon/attack_self(mob/living/user as mob)
-	to_target(user, "<span class='warning'>[src.name] only has one setting.</span>")
+	to_chat(user, "<span class='warning'>[src.name] only has one setting.</span>")
 
 /obj/item/gun/energy/laser/pistol
 	item_icons = DEF_URIST_INHANDS
@@ -100,7 +100,7 @@
 	scoped_accuracy = 4 //increased accuracy over the LWAP because only one shot
 	scope_zoom = 2
 
-/obj/item/gun/projectile/sniper/update_icon()
+/obj/item/gun/projectile/sniper/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "SVD"

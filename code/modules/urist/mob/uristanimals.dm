@@ -36,7 +36,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	var/turns_since_scan = 0
 	var/mob/living/simple_animal/passive/mouse/movement_target
 
-//Space bats from /tg/
+//Space bats from tg
 
 /mob/living/simple_animal/hostile/retaliate/bat
 	name = "Space Bat"
@@ -138,7 +138,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	var/list/ban_excepted = list()
 
 //pretty basic random chem picker; blacklist overriden and picks from 1 to argument chem types
-/obj/item/venom_sac/proc/generate_venom(var/maxchems = 3)
+/obj/item/venom_sac/proc/generate_venom(maxchems = 3)
 	var/list/mix = list()
 	var/new_chem = null
 	var/max_chemtypes = rand(1, maxchems)

@@ -76,10 +76,10 @@
 		var/mob/living/carbon/human/H = M
 		if(user.zone_sel.selecting == "mouth")
 			if(!get_location_accessible(H, "mouth"))
-				to_target(user, "<span class='warning'>The mask is in the way.</span>")
+				to_chat(user, "<span class='warning'>The mask is in the way.</span>")
 				return
 			if(H.facial_hair_style == "Shaved")
-				to_target(user, "<span class='notice'>Already clean-shaven.</span>")
+				to_chat(user, "<span class='notice'>Already clean-shaven.</span>")
 				return
 			if(H == user) //shaving yourself
 				user.visible_message("<span class='notice'>[user] starts to shave their facial hair with \the [src].</span>", \
@@ -104,10 +104,10 @@
 						playsound(src.loc, 'sound/items/Welder2.ogg', 20, 1)
 		if(user.zone_sel.selecting == "head")
 			if(!get_location_accessible(H, "head"))
-				to_target(user, "<span class='warning'>The headgear is in the way.</span>")
+				to_chat(user, "<span class='warning'>The headgear is in the way.</span>")
 				return
 			if(H.head_hair_style == "Bald" || H.head_hair_style == "Balding Hair" || H.head_hair_style == "Skinhead")
-				to_target(user, "<span class='notice'>There is not enough hair left to shave...</span>")
+				to_chat(user, "<span class='notice'>There is not enough hair left to shave...</span>")
 				return
 			if(H == user) //shaving yourself
 				user.visible_message("<span class='warning'>[user] starts to shave their head with \the [src].</span>", \

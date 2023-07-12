@@ -59,7 +59,7 @@
 	return TRUE
 
 
-/obj/machinery/jukebox/attackby(obj/item/I, mob/user)
+/obj/machinery/jukebox/use_tool(obj/item/I, mob/user)
 	if (isWrench(I))
 		add_fingerprint(user)
 		wrench_floor_bolts(user, 0)

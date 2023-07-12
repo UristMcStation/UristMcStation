@@ -105,21 +105,21 @@
 		TAG_RELIGION =  RELIGION_OTHER
 	)
 
-/datum/species/xenos/get_bodytype(var/mob/living/carbon/H)
+/datum/species/xenos/get_bodytype(mob/living/carbon/H)
 	return "Xenophage"
 
-/datum/species/xenos/can_understand(var/mob/other)
+/datum/species/xenos/can_understand(mob/other)
 
 	if(istype(other,/mob/living/carbon/alien/larva))
 		return 1
 
 	return 0
 
-/datum/species/xenos/hug(var/mob/living/carbon/human/H,var/mob/living/target)
+/datum/species/xenos/hug(mob/living/carbon/human/H,var/mob/living/target)
 	H.visible_message("<span class='notice'>[H] caresses [target] with countless prickling, needle-like legs.</span>", \
 					"<span class='notice'>You caress [target] with countless prickling, needle-like legs.</span>")
 
-/datum/species/xenos/handle_post_spawn(var/mob/living/carbon/human/H)
+/datum/species/xenos/handle_post_spawn(mob/living/carbon/human/H)
 
 	if(H.mind)
 		H.mind.reset()
@@ -133,7 +133,7 @@
 		H.SetName(H.real_name)
 	..()
 
-/datum/species/xenos/handle_environment_special(var/mob/living/carbon/human/H)
+/datum/species/xenos/handle_environment_special(mob/living/carbon/human/H)
 
 	var/turf/T = H.loc
 	if(!T) return
@@ -150,7 +150,7 @@
 		started_healing["\ref[H]"] = null
 	..()
 
-/datum/species/xenos/proc/regenerate(var/mob/living/carbon/human/H)
+/datum/species/xenos/proc/regenerate(mob/living/carbon/human/H)
 
 	var/heal_rate = weeds_heal_rate
 	var/mend_prob = 10
@@ -236,7 +236,7 @@
 		/mob/living/carbon/human/proc/corrosive_acid
 		)
 
-/datum/species/xenos/drone/handle_post_spawn(var/mob/living/carbon/human/H)
+/datum/species/xenos/drone/handle_post_spawn(mob/living/carbon/human/H)
 
 	var/mob/living/carbon/human/A = H
 	if(!istype(A))

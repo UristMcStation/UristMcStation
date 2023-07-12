@@ -182,17 +182,17 @@
 		return 1
 	return 0
 
-/turf/simulated/wall/cult/New(var/newloc, var/reinforce = 0)
+/turf/simulated/wall/cult/New(newloc, var/reinforce = 0)
 	..(newloc, MATERIAL_CULT, reinforce ? MATERIAL_REINFORCED_CULT : null)
 
-/turf/simulated/wall/cult/reinf/New(var/newloc)
+/turf/simulated/wall/cult/reinf/New(newloc)
 	..(newloc, 1)
 
 /turf/simulated/wall/cult/dismantle_wall()
 	GLOB.cult.remove_cultiness(CULTINESS_PER_TURF)
 	..()
 
-/turf/simulated/wall/cult/can_join_with(var/turf/simulated/wall/W)
+/turf/simulated/wall/cult/can_join_with(turf/simulated/wall/W)
 	if(material && W.material && material.icon_base == W.material.icon_base)
 		return 1
 	else if(istype(W, /turf/simulated/wall))

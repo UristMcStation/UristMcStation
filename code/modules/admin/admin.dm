@@ -934,7 +934,6 @@ GLOBAL_VAR_INIT(skip_allow_lists, FALSE)
 	config.aliens_allowed = !config.aliens_allowed
 	log_admin("[key_name(usr)] toggled Aliens to [config.aliens_allowed].")
 	message_admins("[key_name_admin(usr)] toggled Aliens [config.aliens_allowed ? "on" : "off"].", 1)
-	SSstatistics.add_field_details("admin_verb","TA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/toggle_alien_eggs()
 	set category = "Server"
@@ -946,7 +945,6 @@ GLOBAL_VAR_INIT(skip_allow_lists, FALSE)
 	config.alien_eggs_allowed = !config.alien_eggs_allowed
 	log_admin("[key_name(usr)] toggled Alien Egg Laying to [config.alien_eggs_allowed].")
 	message_admins("[key_name_admin(usr)] toggled Alien Egg Laying [config.alien_eggs_allowed ? "on" : "off"].", 1)
-	SSstatistics.add_field_details("admin_verb","AEA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 
 /datum/admins/proc/delay()

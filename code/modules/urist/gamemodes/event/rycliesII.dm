@@ -126,8 +126,8 @@
 	name = "bluespace artillery control"
 	icon_state = "control_boxp1"
 	icon = 'icons/obj/machines/particle_accelerator2.dmi'
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 	var/artillery = 0
 	var/fire = 0
 
@@ -178,7 +178,7 @@
 		if("Cancel")
 			return
 		if("Yes")
-			to_world("<FONT size = 3><span class='danger'> Mothership self-destruct sequence activated.</span></FONT>")
+			to_world(FONT_LARGE(SPAN_DANGER("Mothership self-destruct sequence activated.")))
 			for(var/obj/effect/landmark/scom/bomb/B in landmarks_list)
 				B.incomprehensibleprocname()
 				sploded = 0
@@ -245,7 +245,7 @@
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
 
-/obj/item/gun/projectile/automatic/kh50/update_icon()
+/obj/item/gun/projectile/automatic/kh50/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "KH50"
@@ -316,11 +316,11 @@
 	desc = "Impenetrable field of energy, capable of blocking anything as long as it's active."
 	icon = 'icons/obj/machines/shielding.dmi'
 	icon_state = "shieldsparkles"
-	anchored = 1
+	anchored = TRUE
 	layer = 4.1		//just above mobs
-	density = 1
+	density = TRUE
 
-/obj/structure/scom/shieldwall/shieldwall1/Bumped(var/mob/living/exosuit/premade/hoverpod/fighter/M)
+/obj/structure/scom/shieldwall/shieldwall1/Bumped(mob/living/exosuit/premade/hoverpod/fighter/M)
 	M.x = src.x
 	M.y = src.y
 
@@ -329,11 +329,11 @@
 	desc = "Impenetrable field of energy, capable of blocking anything as long as it's active."
 	icon = 'icons/obj/machines/shielding.dmi'
 	icon_state = "shieldsparkles"
-	anchored = 1
+	anchored = TRUE
 	layer = 4.1		//just above mobs
-	density = 1
+	density = TRUE
 
-/obj/structure/scom/shieldwall/shieldwall2/Bumped(var/mob/living/exosuit/premade/hoverpod/fighter/M)
+/obj/structure/scom/shieldwall/shieldwall2/Bumped(mob/living/exosuit/premade/hoverpod/fighter/M)
 	M.x = src.x
 	M.y = src.y
 
@@ -356,5 +356,5 @@
 	desc = "A twisted X of steel designed to stop a tank in its tracks."
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "tanktrap"
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE

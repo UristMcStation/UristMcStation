@@ -10,7 +10,7 @@ var/global/const/NETWORK_ANTONINE     		= "Antonine"
 var/global/const/NETWORK_PRISON            = "Prison"
 var/global/const/NETWORK_EXPLO             = "Exploration"
 
-/datum/map/nerva/get_network_access(var/network)
+/datum/map/nerva/get_network_access(network)
 	if(network == NETWORK_COMMAND)
 		return access_heads
 	return ..()

@@ -45,15 +45,15 @@
 	//log_attack("<font color='red'>[user.name] ([user.ckey]) attacked [M.name] ([M.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)])</font>")
 
 	if (!(istype(user, /mob/living/carbon/human)) && SSticker.mode.name != "monkey")
-		to_target(user, "<span class='warning'> You don't have the dexterity to do this!</span>")
+		to_chat(user, "<span class='warning'> You don't have the dexterity to do this!</span>")
 		return
 	if(!chaplain)
-		to_target(user, "<span class='warning'> The book sizzles in your hands.</span>")
+		to_chat(user, "<span class='warning'> The book sizzles in your hands.</span>")
 		user.take_organ_damage(0,10)
 		return
 
 	if ((MUTATION_CLUMSY in user.mutations) && prob(50))
-		to_target(user, "<span class='warning'> The [src] slips out of your hand and hits your head.</span>")
+		to_chat(user, "<span class='warning'> The [src] slips out of your hand and hits your head.</span>")
 		user.take_organ_damage(10)
 		user.Paralyse(20)
 		return
@@ -63,17 +63,17 @@
 
 	if (M.stat !=2)
 		if(M.mind && (M.mind.assigned_role == "Chaplain"))
-			to_target(user, "<span class='warning'> You can't heal yourself!</span>")
+			to_chat(user, "<span class='warning'> You can't heal yourself!</span>")
 			return
 		/*if((M.mind in ticker.mode.cult) && (prob(20)))
-			to_target(M, "<span class='warning'> The power of [src.deity_name] clears your mind of heresy!</span>")
-			to_target(user, "<span class='warning'> You see how [M]'s eyes become clear, the cult no longer holds control over him!</span>")
+			to_chat(M, "<span class='warning'> The power of [src.deity_name] clears your mind of heresy!</span>")
+			to_chat(user, "<span class='warning'> You see how [M]'s eyes become clear, the cult no longer holds control over him!</span>")
 			ticker.mode.remove_cultist(M.mind)*/
 		if(istype(M, /mob/living/carbon/human) && prob(60))
 			bless(M)
 			for(var/mob/O in viewers(M, null))
 				O.show_message(text("<span class='danger'> [] heals [] with the power of [src.deity_name]!</span>", user, M), 1)
-			to_target(M, "<span class='warning'> May the power of [src.deity_name] compel you to be healed!</span>")
+			to_chat(M, "<span class='warning'> May the power of [src.deity_name] compel you to be healed!</span>")
 			playsound(src.loc, "punch", 25, 1, -1)
 		else
 			for(var/mob/O in viewers(M, null))

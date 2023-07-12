@@ -24,9 +24,9 @@
 
 /datum/dna/gene/disability/mute/New()
 	..()
-	block=MUTEBLOCK
+	block=GLOB.MUTEBLOCK
 
-/datum/dna/gene/disability/mute/OnSay(var/mob/M, var/message)
+/datum/dna/gene/disability/mute/OnSay(mob/M, var/message)
 	return ""
 
 ////////////////////////////////////////
@@ -41,18 +41,18 @@
 
 /datum/dna/gene/disability/radioactive/New()
 	..()
-	block=RADBLOCK
+	block=GLOB.RADBLOCK
 
-/datum/dna/gene/disability/radioactive/OnMobLife(var/mob/owner)
+/datum/dna/gene/disability/radioactive/OnMobLife(mob/owner)
 	owner.radiation = max(owner.radiation, 20)
 	for(var/atom/L in range(1, owner))
 		if(L == owner) continue
 		if (istype(L, /mob/living))
-			to_target(L, "<span class='warning'> You are enveloped by a soft green glow emanating from [owner].</span>")
+			to_chat(L, "<span class='warning'> You are enveloped by a soft green glow emanating from [owner].</span>")
 		L.rad_act(5)
 	return
 
-/datum/dna/gene/disability/radioactive/OnDrawUnderlays(var/mob/M,var/g,var/fat)
+/datum/dna/gene/disability/radioactive/OnDrawUnderlays(mob/M,var/g,var/fat)
 	return "rads[fat]_s"
 
 ////////////////////////////////////////
@@ -70,7 +70,7 @@
 
 /datum/dna/gene/disability/fat/New()
 	..()
-	block=FATBLOCK
+	block=GLOB.FATBLOCK
 
 /////////////////////////
 // SPEECH MANIPULATORS //
@@ -139,9 +139,9 @@
 
 /datum/dna/gene/disability/speech/chav/New()
 	..()
-	block=CHAVBLOCK
+	block=GLOB.CHAVBLOCK
 
-/datum/dna/gene/disability/speech/chav/OnSay(var/mob/M, var/message)
+/datum/dna/gene/disability/speech/chav/OnSay(mob/M, var/message)
 	// THIS ENTIRE THING BEGS FOR REGEX
 	message = replacetext(message,"dick","prat")
 	message = replacetext(message,"comdom","knob'ead")
@@ -183,9 +183,9 @@
 
 /datum/dna/gene/disability/speech/swedish/New()
 	..()
-	block=SWEDEBLOCK
+	block=GLOB.SWEDEBLOCK
 
-/datum/dna/gene/disability/speech/swedish/OnSay(var/mob/M, var/message)
+/datum/dna/gene/disability/speech/swedish/OnSay(mob/M, var/message)
 	// svedish
 	message = replacetext(message,"w","v")
 	if(prob(30))
@@ -267,9 +267,9 @@
 
 /datum/dna/gene/disability/horns/New()
 	..()
-	block=HORNSBLOCK
+	block=GLOB.HORNSBLOCK
 
-/datum/dna/gene/disability/horns/OnDrawUnderlays(var/mob/M,var/g,var/fat)
+/datum/dna/gene/disability/horns/OnDrawUnderlays(mob/M,var/g,var/fat)
 	return "horns_s"
 
 /* Stupid
@@ -360,7 +360,7 @@
 	set desc = "Transform yourself into a liquified state."
 	set category = "Mutant Abilities"
 
-	if (istype(usr,/mob/living/carbon/human/))
+	if (istype(usr,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = usr
 
 		H.visible_message("<span class='danger'>[H.name]'s flesh melts right off! Holy shit!</span>")
@@ -394,7 +394,7 @@
 
 /datum/dna/gene/disability/lisp/New()
 	..()
-	block=LISPBLOCK
+	block=GLOB.LISPBLOCK
 
-/datum/dna/gene/disability/lisp/OnSay(var/mob/M, var/message)
+/datum/dna/gene/disability/lisp/OnSay(mob/M, var/message)
 		return replacetext(message,"s","th")

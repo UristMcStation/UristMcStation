@@ -1058,7 +1058,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	popup.set_content(JOINTEXT(dat))
 	popup.open()
 
-/obj/machinery/computer/rdconsole/proc/GetCategoryDesigns(var/category)
+/obj/machinery/computer/rdconsole/proc/GetCategoryDesigns(category)
 	var/dat = ""
 	dat += "[category] Fabrication Submenu<BR><HR>"
 	for(var/datum/design/D in files.known_designs)

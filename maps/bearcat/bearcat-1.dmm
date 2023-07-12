@@ -271,7 +271,6 @@
 "aR" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/handrail{
-	tag = "icon-handrail (EAST)";
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -310,7 +309,6 @@
 /obj/random/accessory,
 /obj/item/reagent_containers/glass/paint/random,
 /obj/structure/handrail{
-	tag = "icon-handrail (WEST)";
 	icon_state = "handrail";
 	dir = 8
 	},
@@ -381,7 +379,6 @@
 	d2 = 2
 	},
 /obj/structure/handrail{
-	tag = "icon-handrail (EAST)";
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -390,7 +387,6 @@
 "bf" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 2;
-	layer = 2.4;
 	level = 2
 	},
 /turf/simulated/floor/tiled,
@@ -417,7 +413,6 @@
 	},
 /obj/random/closet,
 /obj/structure/handrail{
-	tag = "icon-handrail (WEST)";
 	icon_state = "handrail";
 	dir = 8
 	},
@@ -646,7 +641,6 @@
 "bG" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
-	layer = 2.4;
 	level = 2
 	},
 /obj/structure/holostool,
@@ -1137,7 +1131,6 @@
 "cJ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
-	layer = 2.4;
 	level = 2
 	},
 /obj/structure/foamedmetal,
@@ -1285,7 +1278,6 @@
 /obj/item/device/radio,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 2;
-	layer = 2.4;
 	level = 2
 	},
 /obj/item/storage/bag/trash,
@@ -1527,7 +1519,6 @@
 "dD" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
-	layer = 2.4;
 	level = 2
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
@@ -2078,7 +2069,6 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
-	layer = 2.4;
 	level = 2
 	},
 /turf/simulated/floor/plating,
@@ -2166,7 +2156,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
-	layer = 2.4;
 	level = 2
 	},
 /turf/simulated/floor/tiled/techfloor,
@@ -2418,8 +2407,7 @@
 "ob" = (
 /obj/structure/mopbucket,
 /obj/structure/table/rack{
-	dir = 8;
-	layer = 2.9
+	dir = 8
 	},
 /obj/item/storage/toolbox/mechanical,
 /obj/item/device/multitool{
@@ -2467,7 +2455,6 @@
 /area/ship/scrap/escape_star)
 "ql" = (
 /obj/structure/handrail{
-	tag = "icon-handrail (NORTH)";
 	icon_state = "handrail";
 	dir = 1
 	},
@@ -2487,7 +2474,6 @@
 /area/ship/scrap/maintenance/techstorage)
 "rP" = (
 /obj/structure/handrail{
-	tag = "icon-handrail (EAST)";
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -2675,7 +2661,6 @@
 "Db" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
-	layer = 2.4;
 	level = 2
 	},
 /obj/structure/holostool,
@@ -2827,7 +2812,6 @@
 "Lb" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
-	layer = 2.4;
 	level = 2
 	},
 /obj/item/storage/briefcase,
@@ -2930,7 +2914,6 @@
 "Sb" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
-	layer = 2.4;
 	level = 2
 	},
 /obj/structure/holostool,
@@ -3035,7 +3018,6 @@
 /area/ship/scrap/maintenance/techstorage)
 "XF" = (
 /obj/structure/handrail{
-	tag = "icon-handrail (WEST)";
 	icon_state = "handrail";
 	dir = 8
 	},

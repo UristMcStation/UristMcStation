@@ -96,15 +96,15 @@
 	icon = 'icons/obj/power.dmi'
 	icon_state = "bbox_on"
 	health_max = 300
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE
 
 /obj/structure/assaultshieldgen/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weldingtool))
 		var/obj/item/weldingtool/WT = W
 		if (WT.remove_fuel(0,user))
 			if(health_current >= health_max)
-				to_target(user, "<span class='warning'>The shield generator is fully repaired already!</span>")
+				to_chat(user, "<span class='warning'>The shield generator is fully repaired already!</span>")
 			else
 				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
 				user.visible_message("[user.name] starts to patch some dents on the shield generator.", \
@@ -115,7 +115,7 @@
 					health_current += 10
 
 		else
-			to_target(user, "<span class='warning'>You need more welding fuel to complete this task.</span>")
+			to_chat(user, "<span class='warning'>You need more welding fuel to complete this task.</span>")
 
 	else
 		switch(W.damtype)
@@ -154,7 +154,7 @@
 
 	return
 
-/obj/structure/assaultshieldgen/bullet_act(var/obj/item/projectile/Proj)
+/obj/structure/assaultshieldgen/bullet_act(obj/item/projectile/Proj)
 	health_current -= Proj.damage
 
 	if(health_current <= 0)

@@ -1,4 +1,4 @@
-//Improvised weaponry, some from /tg/, some by me
+//Improvised weaponry, some from tg, some by me
 
 //begin /tg/ weapons
 /*
@@ -15,7 +15,7 @@
 	w_class = 3
 	attack_verb = list("hit", "bludgeoned", "whacked", "bonked")
 
-/obj/item/wirerod/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/wirerod/attackby(obj/item/I, mob/user as mob)
 	..()
 	if(istype(I, /obj/item/shard))
 		var/obj/item/material/twohanded/spear/S = new /obj/item/material/twohanded/spear
@@ -24,7 +24,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(S)
-		to_target(user, "<span class='notice'>You fasten the glass shard to the top of the rod with the cable.</span>")
+		to_chat(user, "<span class='notice'>You fasten the glass shard to the top of the rod with the cable.</span>")
 		qdel(I)
 		qdel(src)
 
@@ -35,7 +35,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(P)
-		to_target(user, "<span class='notice'>You fasten the wirecutters to the top of the rod with the cable, prongs outward.</span>")
+		to_chat(user, "<span class='notice'>You fasten the wirecutters to the top of the rod with the cable, prongs outward.</span>")
 		qdel(I)
 		qdel(src)
 
@@ -48,11 +48,11 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(S)
-		to_target(user, "<span class='notice'>You fasten the two rods together tightly with the cable.</span>")
+		to_chat(user, "<span class='notice'>You fasten the two rods together tightly with the cable.</span>")
 
 		qdel(src)
 
-/obj/item/handcuffs/cable/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/handcuffs/cable/attackby(obj/item/I, mob/user as mob)
 	..()
 	if(istype(I, /obj/item/stack/rods))
 		var/obj/item/stack/rods/R = I
@@ -62,7 +62,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(W)
-		to_target(user, "<span class='notice'>You wrap the cable restraint around the top of the rod.</span>")
+		to_chat(user, "<span class='notice'>You wrap the cable restraint around the top of the rod.</span>")
 
 		qdel(src)*/
 
@@ -79,7 +79,7 @@
 	hitcost = 20
 	slot_flags = null
 
-/obj/item/melee/baton/cattleprod/update_icon()
+/obj/item/melee/baton/cattleprod/on_update_icon()
 	if(status)
 		icon_state = "stunprod_active"
 	else
@@ -106,7 +106,7 @@
 	//flags = NOSHIELD
 	attack_verb = list("attacked", "smashed", "bashed", "smacked", "beaten")
 
-/obj/item/material/twohanded/quarterstaff/update_icon()
+/obj/item/material/twohanded/quarterstaff/on_update_icon()
 	item_icons = DEF_URIST_INHANDS
 	icon = 'icons/urist/items/improvised.dmi'
 	icon_state = "qstaff[wielded]"
@@ -137,7 +137,7 @@
 							"<span class='danger'>[user] is slitting \his throat with the [src]! It looks like \he's trying to commit suicide.</span>")
 		return (BRUTELOSS)*/
 
-/obj/item/material/shard/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/material/shard/attackby(obj/item/I, mob/user as mob)
 	..()
 	if(istype(I, /obj/item/bedsheet))
 		var/obj/item/shiv/S = new /obj/item/shiv
@@ -145,7 +145,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(S)
-		to_target(user, "<span class='notice'>You carefully wrap the bedsheet around the shard to form a crude grip.</span>")
+		to_chat(user, "<span class='notice'>You carefully wrap the bedsheet around the shard to form a crude grip.</span>")
 		qdel(I)
 		qdel(src)
 
@@ -181,7 +181,7 @@
 	w_class = 3
 	item_icons = DEF_URIST_INHANDS
 
-/obj/item/baseballbat/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/baseballbat/attackby(obj/item/I, mob/user as mob)
 	..()
 	if(istype(I, /obj/item/stack/rods))
 		var/obj/item/stack/rods/R = I
@@ -192,7 +192,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(S)
-		to_target(user, "<span class='notice'>You jam the rods into the wooden bat.</span>")
+		to_chat(user, "<span class='notice'>You jam the rods into the wooden bat.</span>")
 
 		qdel(src)
 
@@ -220,7 +220,7 @@
 							"<span class='danger'>[user] is slitting \his throat with the [src]! It looks like \he's trying to commit suicide.</span>")
 		return (BRUTELOSS)*/
 
-/obj/item/improvised/scissorknife/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/improvised/scissorknife/attackby(obj/item/I, mob/user as mob)
 	..()
 	if((istype(I, /obj/item/improvised/scissorknife) && istype(src, I))) //If they're both scissor knives
 		var/obj/item/improvised/scissorsassembly/N = new src.parentassembly
@@ -232,7 +232,7 @@
 
 
 		user.put_in_hands(N)
-		to_target(user, "<span class='notice'>You slide one knife into another, forming a loose pair of scissors</span>")
+		to_chat(user, "<span class='notice'>You slide one knife into another, forming a loose pair of scissors</span>")
 
 		qdel(I)
 		qdel(src)
@@ -274,7 +274,7 @@
 
 	qdel(src)
 
-/obj/item/improvised/mbrick/attackby(var/obj/item/W, mob/user as mob)
+/obj/item/improvised/mbrick/attackby(obj/item/W, mob/user as mob)
 	..()
 	if(istype(W, /obj/item/material/shard) || istype(W, /obj/item/improvised/scissorknife))
 		var/obj/item/improvised/mbrick/sharp/S = new /obj/item/improvised/mbrick/sharp
@@ -283,7 +283,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(S)
-		to_target(user, "<span class='notice'>You form the [src] around [W], creating a more lethal Millwall brick.</span>")
+		to_chat(user, "<span class='notice'>You form the [src] around [W], creating a more lethal Millwall brick.</span>")
 		W.loc = S
 
 		qdel(src)
@@ -306,7 +306,7 @@
 		w.loc = (get_turf(src))
 	var/obj/item/improvised/mbrick/S = new /obj/item/improvised/mbrick
 	user.put_in_hands(S)
-	to_target(user, "<span class='notice'>You take the sharp object out of the Millwall brick..</span>")
+	to_chat(user, "<span class='notice'>You take the sharp object out of the Millwall brick..</span>")
 	qdel(src)
 
 //wood shit
@@ -330,7 +330,7 @@
 	default_material = "glass"
 	applies_material_colour = 0
 
-/obj/item/material/twohanded/woodspear/update_icon()
+/obj/item/material/twohanded/woodspear/on_update_icon()
 	item_state = "spearglass[wielded]"
 	return
 
@@ -351,7 +351,7 @@
 	default_material = "wood"
 	applies_material_colour = 0
 
-/obj/item/material/twohanded/woodquarterstaff/update_icon()
+/obj/item/material/twohanded/woodquarterstaff/on_update_icon()
 	item_state = "qstaff[wielded]"
 	return
 
@@ -372,7 +372,7 @@
 	default_material = "wood"
 	applies_material_colour = 0
 
-/obj/item/material/twohanded/imppoleaxe/update_icon()
+/obj/item/material/twohanded/imppoleaxe/on_update_icon()
 	item_state = "spearglass[wielded]"
 	return
 

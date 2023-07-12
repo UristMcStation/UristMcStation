@@ -1,5 +1,5 @@
-/var/global/list/scomscience_recipes
-/var/global/list/scomscience_categories
+var/global/list/scomscience_recipes
+var/global/list/scomscience_categories
 
 /proc/populate_scomscience_recipes()
 

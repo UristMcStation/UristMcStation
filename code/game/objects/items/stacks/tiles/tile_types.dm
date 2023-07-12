@@ -23,7 +23,7 @@
 	item_flags = 0
 	obj_flags = 0
 
-/obj/item/stack/tile/attackby(var/obj/item/I as obj, var/mob/user as mob)
+/obj/item/stack/tile/attackby(obj/item/I as obj, var/mob/user as mob)
 	if(is_sharp(I) && throwforce < 20)
 		to_chat(user, "<span class = 'notice'>You begin to sharpen \the [src] with \the [I].</span>")
 		if(do_after(user, 30, src))

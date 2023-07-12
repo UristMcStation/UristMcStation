@@ -15,8 +15,11 @@
 	var/list/datum/stack_recipe/recipes
 	var/singular_name
 	var/plural_name
+	/// String. The stack's base icon state. Used when the amount is 2 or lower.
 	var/base_state
+	/// String. The stack's icon state when amount is greater than 2.
 	var/plural_icon_state
+	/// String. The stack's icon state at the maximum amount.
 	var/max_icon_state
 	var/amount = 1
 	var/max_amount //also see stack recipes initialisation, param "max_res_amount" must be equal to this max_amount
@@ -50,9 +53,9 @@
 	. = ..()
 	if(distance <= 1)
 		if(!uses_charge)
-			to_chat(user, "There [src.amount == 1 ? "is" : "are"] [src.amount] [src.singular_name]\s in the stack.")
+			to_chat(user, "There [amount == 1 ? "is 1 [singular_name]" : "are [amount] [plural_name]"] in the stack.")
 		else
-			to_chat(user, "There is enough charge for [get_amount()].")
+			to_chat(user, "There is enough charge for [get_amount() == 1 ? "1 [singular_name]" : "[amount] [plural_name]"].")
 
 /obj/item/stack/attack_self(mob/user as mob)
 	list_recipes(user)
@@ -132,6 +135,7 @@
 
 	if (use(required))
 		var/atom/O = recipe.spawn_result(user, user.loc, produced)
+		// Stack recipes will delete the created item if it merges with a stack already in hand.
 		if (!QDELETED(O))
 			O.add_fingerprint(user)
 			user.put_in_hands(O)
@@ -178,9 +182,6 @@
 	if(!uses_charge)
 		amount -= used
 		if (amount <= 0)
-			var/obj/item/storage/ST = src.loc	//Let's check if it's in storage and remove any references to the object so it can be qdel'd
-			if(istype(ST))
-				ST.remove_from_storage(src,ST.get_loc_turf())
 			qdel(src) //should be safe to qdel immediately since if someone is still using this stack it will persist for a little while longer
 		else
 			update_icon()
@@ -238,7 +239,7 @@
 	if (!amount)
 		return null
 
-	var/transfer = max(min(round(tamount), src.amount, initial(max_amount)), 0)
+	var/transfer = max(min(tamount, src.amount, initial(max_amount)), 0)
 
 	var/orig_amount = src.amount
 	if (transfer && src.use(transfer))
@@ -294,18 +295,18 @@
 			continue
 		var/transfer = src.transfer_to(item)
 		if (transfer)
-			to_chat(user, SPAN_NOTICE("You add a new [item.singular_name] to the stack. It now contains [item.amount] [item.singular_name]\s."))
+			to_chat(user, SPAN_NOTICE("You add a new [item.singular_name] to the stack. It now contains [item.get_exact_name(item.amount)]."))
 		if(!amount)
 			break
 
 /obj/item/stack/get_storage_cost()	//Scales storage cost to stack size
 	. = ..()
 	if (amount < max_amount)
-		. = Ceil(. * amount / max_amount)
+		. = ceil(. * amount / max_amount)
 
 /obj/item/stack/attack_hand(mob/user as mob)
 	if (user.get_inactive_hand() == src)
-		var/N = input("How many stacks of [src] would you like to split off?", "Split stacks", 1) as num|null
+		var/N = input("How many [plural_name] of \the [src] would you like to split off?", "Split stacks", 1) as num|null
 		if(N)
 			var/obj/item/stack/F = src.split(N)
 			if (F)
@@ -333,6 +334,49 @@
 				src.interact(usr)
 	else
 		return ..()
+
+
+/**
+ * Returns a string forming a basic name of the stack. By default, this is `name`.
+ *
+ * Has no parameters.
+ */
+/obj/item/stack/proc/get_stack_name()
+	return name
+
+
+/**
+ * Generates a name usable in messages without a specific number attached, i.e. `a sheet of paper` or `some paper sheets`.
+ *
+ * **Parameters**:
+ * - `plural` (Boolean, default `(src.amount == 1)`) - Whether the message uses `plural_name` or `singular_name`, and the proper grammatical rules.
+ *
+ * Returns string.
+ */
+/obj/item/stack/proc/get_vague_name(plural)
+	if (isnull(plural))
+		plural = (src.amount == 1)
+	if (plural)
+		return "some [get_stack_name()] [plural_name]"
+	else
+		return "\a [singular_name] of [get_stack_name()]"
+
+
+/**
+ * Generates a name usable in messages with a specific number attached, i.e. `1 sheet of paper` or `5 paper sheets`.
+ *
+ * **Parameters**:
+ * - `amount` (Integer, default `src.amount`) - The number of items for the message. Also determines whether `plural_name` or `singular_name` are used.
+ *
+ * Returns string.
+ */
+/obj/item/stack/proc/get_exact_name(amount)
+	if (isnull(amount))
+		amount = src.amount
+	if (amount == 1)
+		return "[amount] [singular_name] of [get_stack_name()]"
+	return "[amount] [get_stack_name()] [plural_name]"
+
 
 /*
  * Recipe datum

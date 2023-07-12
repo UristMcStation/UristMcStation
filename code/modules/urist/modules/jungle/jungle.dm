@@ -128,7 +128,7 @@
 
 
 /obj/machinery/jungle_controller/initialize()
-	world << "<span class='danger'> Setting up jungle, this may take a bleeding eternity...</span>"
+	report_progress("Setting up jungle, this may take a bleeding eternity...")
 
 	//crash dat shuttle
 /*	var/area/start_location = locate(/area/jungle/crash_ship_source)
@@ -268,7 +268,7 @@
 			cur_turf = get_step(cur_turf, cur_dir)
 
 			//if we're not a jungle turf, get back to what we were doing
-			if(!istype(cur_turf, /turf/simulated/floor/planet/jungle/))
+			if(!istype(cur_turf, /turf/simulated/floor/planet/jungle))
 				cur_dir = get_dir(cur_turf, target_turf)
 				cur_turf = get_step(cur_turf, cur_dir)
 				continue

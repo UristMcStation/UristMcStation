@@ -542,7 +542,7 @@
 	return manhattan_dist * ((currentPathweight+targetPathweight)/2)
 
 //NORTH, SOUTH, EAST, WEST, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST + Traversal up and down stairs
-/turf/proc/AllDirTurfsWithAccessWithZ(var/obj/item/card/id/ID)
+/turf/proc/AllDirTurfsWithAccessWithZ(obj/item/card/id/ID)
 	var/L[] = new()
 
 	for(var/d in GLOB.alldirs)
@@ -562,7 +562,7 @@
 	return L
 
 //NORTH, SOUTH, EAST, WEST + Traversal up and down stairs
-/turf/proc/CardinalTurfsWithAccessWithZ(var/obj/item/card/id/ID)
+/turf/proc/CardinalTurfsWithAccessWithZ(obj/item/card/id/ID)
 	var/L[] = new()
 
 	for(var/d in GLOB.cardinal)
@@ -582,7 +582,7 @@
 	return L
 
 //Checks for directional blockages at the base of the stairs leading up, open space above, and that nothing is blocking the exit point. Returns 1 on fail
-/proc/LinkBlockedAbove(var/turf/lower, var/turf/simulated/open/upper, var/dir)
+/proc/LinkBlockedAbove(turf/lower, var/turf/simulated/open/upper, var/dir)
 	if(!istype(upper))
 		return 1
 

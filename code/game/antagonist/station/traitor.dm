@@ -79,7 +79,7 @@ GLOBAL_DATUM_INIT(traitors, /datum/antagonist/traitor, new)
 	reset_antag_selection()
 
 
-/datum/antagonist/traitor/draft_antagonist(var/datum/mind/player)
+/datum/antagonist/traitor/draft_antagonist(datum/mind/player)
 	. = ..()
 	if(. && (player.assigned_role == "AI"))
 		player.assigned_role = GLOB.malf.role_text

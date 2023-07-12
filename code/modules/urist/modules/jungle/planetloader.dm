@@ -7,7 +7,7 @@ proc/createPlanetOutpost()
 //		return
 
 	var/list/potentialPlanetOutposts = list()
-	world << "\red \b Searching for away missions..."
+	report_progress("Searching for away missions...")
 	var/list/Lines = file2list("maps/PlanetOutposts/fileList.txt") //leaving this in, because maybe I'll want randomized planets in the future.
 	if(!length(Lines))	return //										You know what they say, variety is the spice of life. :D
 	for (var/t in Lines)
@@ -39,13 +39,13 @@ proc/createPlanetOutpost()
 
 
 	if(length(potentialPlanetOutposts))
-		world << "\red \b loading Planetary Outpost..."
+		report_progress("Loading Planetary Outpost...")
 
 		var/map = pick(potentialPlanetOutposts)
 		var/file = file(map)
 		if(isfile(file))
 			GLOB.maploader.load_map(file)
-			world.log << "planet outpost loaded: [map]"
+			to_world_log("planet outpost loaded: [map]")
 
 			for(var/x = 1 to world.maxx)
 				for(var/y = 1 to world.maxy)
@@ -55,8 +55,8 @@ proc/createPlanetOutpost()
 //				continue
 //		sleep(-1)
 
-		world << "\red \b Planetary Outpost loaded."
+		report_progress("Planetary Outpost loaded.")
 
 	else
-		world << "\red \b No Planetary Outpost loaded."
+		report_progress("No Planetary Outpost loaded.")
 		return

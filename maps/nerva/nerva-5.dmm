@@ -3443,7 +3443,6 @@
 /area/rescue_base/start)
 "gC" = (
 /obj/machinery/vending/wallmed1{
-	layer = 3.3;
 	name = "Emergency NanoMed";
 	pixel_x = 28;
 	pixel_y = 0;
@@ -4122,8 +4121,7 @@
 "iy" = (
 /obj/machinery/light/small/red{
 	dir = 1;
-	icon_state = "firelight1";
-	tag = "icon-firelight1 (NORTH)"
+	icon_state = "firelight1"
 	},
 /obj/structure/window/reinforced{
 	dir = 8
@@ -4142,8 +4140,7 @@
 "iB" = (
 /obj/machinery/light/small/red{
 	dir = 1;
-	icon_state = "firelight1";
-	tag = "icon-firelight1 (NORTH)"
+	icon_state = "firelight1"
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -4237,8 +4234,7 @@
 "iP" = (
 /obj/machinery/light/small/red{
 	dir = 8;
-	icon_state = "firelight1";
-	tag = "icon-firelight1 (WEST)"
+	icon_state = "firelight1"
 	},
 /obj/random/junk,
 /turf/simulated/floor/tiled/dark,
@@ -4553,8 +4549,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (SOUTHWEST)"
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/cable{
@@ -4732,8 +4727,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (SOUTHEAST)"
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -4749,8 +4743,7 @@
 "jP" = (
 /obj/effect/decal/cleanable/blood{
 	dir = 5;
-	icon_state = "bloodsquare";
-	tag = "icon-bloodsquare (NORTHEAST)"
+	icon_state = "bloodsquare"
 	},
 /turf/simulated/floor/plating,
 /area/fightclub)
@@ -4786,8 +4779,7 @@
 /obj/machinery/light/chromatic{
 	dir = 4;
 	icon_state = "tube1";
-	id_tag = "cagebar";
-	tag = "icon-tube1 (EAST)"
+	id_tag = "cagebar"
 	},
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/tiled/dark,
@@ -4946,16 +4938,14 @@
 "kj" = (
 /obj/machinery/light/small/red{
 	dir = 8;
-	icon_state = "firelight1";
-	tag = "icon-firelight1 (WEST)"
+	icon_state = "firelight1"
 	},
 /turf/simulated/floor/plating,
 /area/fightclub)
 "kk" = (
 /obj/machinery/light/small/red{
 	dir = 4;
-	icon_state = "firelight1";
-	tag = "icon-firelight1 (EAST)"
+	icon_state = "firelight1"
 	},
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/plating,
@@ -4984,8 +4974,7 @@
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 10;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (SOUTHWEST)"
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_thunderdomecourt)
@@ -5256,8 +5245,7 @@
 "lc" = (
 /obj/machinery/light/small/red{
 	dir = 8;
-	icon_state = "firelight1";
-	tag = "icon-firelight1 (WEST)"
+	icon_state = "firelight1"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/fightclub)
@@ -5296,13 +5284,11 @@
 "lj" = (
 /obj/structure/bed/chair/holochair{
 	dir = 4;
-	icon_state = "chair_preview";
-	tag = "icon-chair_preview (EAST)"
+	icon_state = "chair_preview"
 	},
 /obj/effect/floor_decal/chapel{
 	dir = 1;
-	icon_state = "chapel";
-	tag = "icon-chapel (NORTH)"
+	icon_state = "chapel"
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
@@ -5375,8 +5361,7 @@
 "lw" = (
 /obj/machinery/light/small/red{
 	dir = 4;
-	icon_state = "firelight1";
-	tag = "icon-firelight1 (EAST)"
+	icon_state = "firelight1"
 	},
 /turf/simulated/floor/plating,
 /area/fightclub)
@@ -5393,26 +5378,22 @@
 "lA" = (
 /obj/structure/bed/chair/holochair{
 	dir = 4;
-	icon_state = "chair_preview";
-	tag = "icon-chair_preview (EAST)"
+	icon_state = "chair_preview"
 	},
 /obj/effect/floor_decal/chapel{
 	dir = 8;
-	icon_state = "chapel";
-	tag = "icon-chapel (WEST)"
+	icon_state = "chapel"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10;
-	icon_state = "spline_fancy";
-	tag = "icon-spline_fancy (SOUTHWEST)"
+	icon_state = "spline_fancy"
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
 "lB" = (
 /obj/structure/bed/chair/holochair{
 	dir = 4;
-	icon_state = "chair_preview";
-	tag = "icon-chair_preview (EAST)"
+	icon_state = "chair_preview"
 	},
 /obj/effect/floor_decal/chapel,
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -5572,8 +5553,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (SOUTHEAST)"
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -5604,8 +5584,7 @@
 /obj/machinery/light/chromatic{
 	dir = 4;
 	icon_state = "tube1";
-	id_tag = "cagebar";
-	tag = "icon-tube1 (EAST)"
+	id_tag = "cagebar"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/fightclub)
@@ -5751,8 +5730,7 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (NORTHEAST)"
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1;
@@ -5781,8 +5759,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1;
-	icon_state = "warningcorner";
-	tag = "icon-warningcorner (NORTH)"
+	icon_state = "warningcorner"
 	},
 /obj/structure/cable,
 /obj/structure/cable{
@@ -5814,44 +5791,37 @@
 "mC" = (
 /obj/structure/bed/chair/holochair{
 	dir = 4;
-	icon_state = "chair_preview";
-	tag = "icon-chair_preview (EAST)"
+	icon_state = "chair_preview"
 	},
 /obj/effect/floor_decal/chapel{
 	dir = 1;
-	icon_state = "chapel";
-	tag = "icon-chapel (NORTH)"
+	icon_state = "chapel"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9;
-	icon_state = "spline_fancy";
-	tag = "icon-spline_fancy (NORTHWEST)"
+	icon_state = "spline_fancy"
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
 "mD" = (
 /obj/structure/bed/chair/holochair{
 	dir = 4;
-	icon_state = "chair_preview";
-	tag = "icon-chair_preview (EAST)"
+	icon_state = "chair_preview"
 	},
 /obj/effect/floor_decal/chapel{
 	dir = 4;
-	icon_state = "chapel";
-	tag = "icon-chapel (EAST)"
+	icon_state = "chapel"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1;
-	icon_state = "spline_fancy";
-	tag = "icon-spline_fancy (NORTH)"
+	icon_state = "spline_fancy"
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
 "mF" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5;
-	icon_state = "spline_fancy";
-	tag = "icon-spline_fancy (NORTHEAST)"
+	icon_state = "spline_fancy"
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
@@ -5948,8 +5918,7 @@
 "mX" = (
 /obj/machinery/light/small/red{
 	dir = 8;
-	icon_state = "firelight1";
-	tag = "icon-firelight1 (WEST)"
+	icon_state = "firelight1"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1;
@@ -5964,24 +5933,21 @@
 	},
 /obj/effect/decal/cleanable/blood{
 	dir = 9;
-	icon_state = "bloodsquare";
-	tag = "icon-bloodsquare (NORTHWEST)"
+	icon_state = "bloodsquare"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/fightclub)
 "mZ" = (
 /obj/effect/floor_decal/corner/fadeblue/three_quarters{
 	dir = 8;
-	icon_state = "corner_white_three_quarters";
-	tag = "icon-corner_white_three_quarters (WEST)"
+	icon_state = "corner_white_three_quarters"
 	},
 /turf/simulated/floor/tiled/white,
 /area/fightclub)
 "na" = (
 /obj/effect/floor_decal/corner/fadeblue{
 	dir = 5;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (NORTHEAST)"
+	icon_state = "corner_white"
 	},
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/tiled/white,
@@ -5989,8 +5955,7 @@
 "nb" = (
 /obj/effect/floor_decal/corner/fadeblue{
 	dir = 5;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (NORTHEAST)"
+	icon_state = "corner_white"
 	},
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/blood/drip,
@@ -6036,13 +6001,11 @@
 "ni" = (
 /obj/structure/bed/chair/holochair{
 	dir = 4;
-	icon_state = "chair_preview";
-	tag = "icon-chair_preview (EAST)"
+	icon_state = "chair_preview"
 	},
 /obj/effect/floor_decal/chapel{
 	dir = 8;
-	icon_state = "chapel";
-	tag = "icon-chapel (WEST)"
+	icon_state = "chapel"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -6052,16 +6015,14 @@
 "nj" = (
 /obj/structure/bed/chair/holochair{
 	dir = 4;
-	icon_state = "chair_preview";
-	tag = "icon-chair_preview (EAST)"
+	icon_state = "chair_preview"
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
 "nk" = (
 /obj/structure/bed/chair/holochair{
 	dir = 4;
-	icon_state = "chair_preview";
-	tag = "icon-chair_preview (EAST)"
+	icon_state = "chair_preview"
 	},
 /obj/effect/floor_decal/chapel,
 /turf/simulated/floor/holofloor/tiled/dark,
@@ -6132,8 +6093,7 @@
 "nw" = (
 /obj/machinery/light/small/red{
 	dir = 4;
-	icon_state = "firelight1";
-	tag = "icon-firelight1 (EAST)"
+	icon_state = "firelight1"
 	},
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled/dark,
@@ -6141,8 +6101,7 @@
 "nx" = (
 /obj/effect/decal/cleanable/blood{
 	dir = 9;
-	icon_state = "bloodsquare";
-	tag = "icon-bloodsquare (NORTHWEST)"
+	icon_state = "bloodsquare"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/fightclub)
@@ -6162,8 +6121,7 @@
 "nB" = (
 /obj/effect/floor_decal/corner/fadeblue{
 	dir = 9;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (NORTHWEST)"
+	icon_state = "corner_white"
 	},
 /obj/random/junk,
 /turf/simulated/floor/tiled/white,
@@ -6223,7 +6181,6 @@
 /area/tdome/tdomeobserve)
 "nK" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (WEST)";
 	icon_state = "test";
 	dir = 8
 	},
@@ -6383,8 +6340,7 @@
 "ok" = (
 /turf/simulated/floor/holofloor/beach/water{
 	dir = 4;
-	icon_state = "beach";
-	tag = "icon-beach (NORTH)"
+	icon_state = "beach"
 	},
 /area/holodeck/source_beach)
 "ol" = (
@@ -6392,7 +6348,6 @@
 /area/holodeck/source_beach)
 "oo" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (NORTH)";
 	icon_state = "test";
 	dir = 1
 	},
@@ -6845,12 +6800,10 @@
 "po" = (
 /obj/effect/floor_decal/water_edge,
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (NORTHEAST)";
 	icon_state = "test";
 	dir = 5
 	},
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (NORTH)";
 	icon_state = "test";
 	dir = 1
 	},
@@ -6910,7 +6863,6 @@
 "pu" = (
 /obj/effect/forcefield{
 	desc = "You can't get in. Heh.";
-	layer = 1;
 	name = "Blocker"
 	},
 /obj/effect/wingrille_spawn/reinforced/crescent,
@@ -6921,7 +6873,6 @@
 "pv" = (
 /obj/effect/forcefield{
 	desc = "You can't get in. Heh.";
-	layer = 1;
 	name = "Blocker"
 	},
 /obj/structure/disposalpipe/segment,
@@ -7118,8 +7069,7 @@
 "pZ" = (
 /obj/structure/bed/chair/shuttle{
 	dir = 8;
-	icon_state = "shuttle_chair_preview";
-	tag = "icon-shuttle_chair_preview (WEST)"
+	icon_state = "shuttle_chair_preview"
 	},
 /turf/simulated/floor/shuttle/red,
 /area/map_template/skipjack_station/start)
@@ -7195,8 +7145,7 @@
 "qh" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1";
-	tag = "icon-tube1 (NORTH)"
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled,
 /area/acting/stage)
@@ -7290,8 +7239,7 @@
 "qs" = (
 /turf/simulated/floor/holofloor/beach/water{
 	dir = 8;
-	icon_state = "beachcorner";
-	tag = "icon-beachcorner (EAST)"
+	icon_state = "beachcorner"
 	},
 /area/holodeck/source_beach)
 "qt" = (
@@ -7396,8 +7344,7 @@
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 10;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (SOUTHWEST)"
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_thunderdomecourt)
@@ -7584,8 +7531,7 @@
 /area/tdome/tdome2)
 "rc" = (
 /turf/unsimulated/floor{
-	icon_state = "bcircuit";
-	tag = "icon-bcircuit"
+	icon_state = "bcircuit"
 	},
 /area/tdome)
 "rd" = (
@@ -7594,8 +7540,7 @@
 	name = "Thunderdome Flash"
 	},
 /turf/unsimulated/floor{
-	icon_state = "bcircuit";
-	tag = "icon-bcircuit"
+	icon_state = "bcircuit"
 	},
 /area/tdome)
 "re" = (
@@ -7735,8 +7680,7 @@
 "rC" = (
 /obj/machinery/atmospherics/pipe/vent,
 /turf/unsimulated/floor{
-	icon_state = "bcircuit";
-	tag = "icon-bcircuit"
+	icon_state = "bcircuit"
 	},
 /area/tdome)
 "rD" = (
@@ -7745,8 +7689,7 @@
 	invisibility = 101
 	},
 /turf/unsimulated/floor{
-	icon_state = "bcircuit";
-	tag = "icon-bcircuit"
+	icon_state = "bcircuit"
 	},
 /area/tdome)
 "rE" = (
@@ -7814,8 +7757,7 @@
 "rN" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5;
-	icon_state = "intact";
-	tag = "icon-intact (NORTHEAST)"
+	icon_state = "intact"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -7832,8 +7774,7 @@
 "rP" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 9;
-	icon_state = "intact";
-	tag = "icon-intact (NORTHWEST)"
+	icon_state = "intact"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -7846,13 +7787,11 @@
 /obj/structure/holostool,
 /obj/effect/floor_decal/corner/black/border{
 	dir = 1;
-	icon_state = "bordercolor";
-	tag = "icon-bordercolor (NORTH)"
+	icon_state = "bordercolor"
 	},
 /obj/effect/floor_decal/corner/black/border{
 	dir = 8;
-	icon_state = "bordercolor";
-	tag = "icon-bordercolor (WEST)"
+	icon_state = "bordercolor"
 	},
 /turf/simulated/floor/holofloor/tiled/old_tile,
 /area/holodeck/source_gym)
@@ -8045,7 +7984,6 @@
 "sI" = (
 /obj/effect/floor_decal/water_edge,
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test2";
 	icon_state = "test2";
 	dir = 2
 	},
@@ -8178,8 +8116,7 @@
 /obj/structure/holostool,
 /obj/effect/floor_decal/corner/black/border{
 	dir = 4;
-	icon_state = "bordercolor";
-	tag = "icon-bordercolor (EAST)"
+	icon_state = "bordercolor"
 	},
 /turf/simulated/floor/holofloor/tiled/old_tile,
 /area/holodeck/source_gym)
@@ -8358,7 +8295,6 @@
 "tG" = (
 /obj/effect/forcefield{
 	desc = "You can't get in. Heh.";
-	layer = 1;
 	name = "Blocker"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible,
@@ -8397,7 +8333,6 @@
 /area/tdome)
 "tL" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (SOUTHWEST)";
 	icon_state = "test";
 	dir = 10
 	},
@@ -8456,13 +8391,11 @@
 /obj/structure/shuttle/engine/propulsion/burst/right{
 	dir = 1;
 	icon_state = "burst_r";
-	name = "propulsion";
-	tag = "icon-burst_r (NORTH)"
+	name = "propulsion"
 	},
 /turf/simulated/shuttle/wall{
 	dir = 2;
-	icon_state = "swall";
-	tag = "icon-swall2"
+	icon_state = "swall"
 	},
 /area/shuttle/transport1/centcom)
 "tX" = (
@@ -8788,16 +8721,14 @@
 /obj/effect/floor_decal/corner/black/border,
 /obj/effect/floor_decal/corner/black/border{
 	dir = 8;
-	icon_state = "bordercolor";
-	tag = "icon-bordercolor (WEST)"
+	icon_state = "bordercolor"
 	},
 /turf/simulated/floor/holofloor/tiled/old_tile,
 /area/holodeck/source_gym)
 "vi" = (
 /obj/effect/floor_decal/corner/black/border{
 	dir = 1;
-	icon_state = "bordercolor";
-	tag = "icon-bordercolor (NORTH)"
+	icon_state = "bordercolor"
 	},
 /turf/simulated/floor/holofloor/tiled/old_tile,
 /area/holodeck/source_gym)
@@ -8832,8 +8763,7 @@
 "vp" = (
 /obj/structure/bed/chair/shuttle{
 	dir = 4;
-	icon_state = "shuttle_chair_preview";
-	tag = "icon-shuttle_chair_preview (EAST)"
+	icon_state = "shuttle_chair_preview"
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/transport1/centcom)
@@ -8877,7 +8807,6 @@
 /area/acting/backstage)
 "vw" = (
 /obj/machinery/newscaster{
-	layer = 3.3;
 	pixel_x = 0;
 	pixel_y = -27
 	},
@@ -9130,8 +9059,7 @@
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
 	dir = 9;
-	icon_state = "gravsnow_corner";
-	tag = "icon-gravsnow_corner (NORTHWEST)"
+	icon_state = "gravsnow_corner"
 	},
 /area/map_template/syndicate_mothership)
 "wb" = (
@@ -9154,8 +9082,7 @@
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
 	dir = 5;
-	icon_state = "gravsnow_corner";
-	tag = "icon-gravsnow_corner (NORTHEAST)"
+	icon_state = "gravsnow_corner"
 	},
 /area/map_template/syndicate_mothership)
 "wg" = (
@@ -9186,8 +9113,7 @@
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
 	dir = 8;
-	icon_state = "gravsnow_corner";
-	tag = "icon-gravsnow_corner (WEST)"
+	icon_state = "gravsnow_corner"
 	},
 /area/map_template/syndicate_mothership)
 "wn" = (
@@ -9221,8 +9147,7 @@
 "ws" = (
 /obj/structure/bed/chair/shuttle{
 	dir = 4;
-	icon_state = "shuttle_chair_preview";
-	tag = "icon-shuttle_chair_preview (EAST)"
+	icon_state = "shuttle_chair_preview"
 	},
 /obj/machinery/light{
 	dir = 8
@@ -9252,8 +9177,7 @@
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
 	dir = 6;
-	icon_state = "gravsnow_corner";
-	tag = "icon-gravsnow_corner (SOUTHEAST)"
+	icon_state = "gravsnow_corner"
 	},
 /area/map_template/syndicate_mothership)
 "wx" = (
@@ -9296,8 +9220,7 @@
 "wC" = (
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
-	icon_state = "shutter1";
-	tag = "icon-shutter1"
+	icon_state = "shutter1"
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -9331,8 +9254,7 @@
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
 	dir = 6;
-	icon_state = "gravsnow_corner";
-	tag = "icon-gravsnow_corner (SOUTHEAST)"
+	icon_state = "gravsnow_corner"
 	},
 /area/map_template/syndicate_mothership)
 "wI" = (
@@ -9348,8 +9270,7 @@
 "wJ" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1";
-	tag = "icon-tube1 (NORTH)"
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -9359,8 +9280,7 @@
 "wL" = (
 /obj/structure/shuttle/engine/propulsion{
 	dir = 4;
-	icon_state = "propulsion";
-	tag = "icon-propulsion (EAST)"
+	icon_state = "propulsion"
 	},
 /obj/structure/window/reinforced{
 	dir = 8
@@ -9371,8 +9291,7 @@
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
 	dir = 4;
-	icon_state = "gravsnow_corner";
-	tag = "icon-gravsnow_corner (EAST)"
+	icon_state = "gravsnow_corner"
 	},
 /area/map_template/syndicate_mothership)
 "wN" = (
@@ -9828,31 +9747,27 @@
 /obj/structure/flora/tree/pine,
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
-	icon_state = "gravsnow_corner";
-	tag = "icon-gravsnow_corner"
+	icon_state = "gravsnow_corner"
 	},
 /area/map_template/syndicate_mothership)
 "xT" = (
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
-	icon_state = "gravsnow_corner";
-	tag = "icon-gravsnow_corner"
+	icon_state = "gravsnow_corner"
 	},
 /area/map_template/syndicate_mothership)
 "xU" = (
 /obj/structure/flora/grass/both,
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
-	icon_state = "gravsnow_corner";
-	tag = "icon-gravsnow_corner"
+	icon_state = "gravsnow_corner"
 	},
 /area/map_template/syndicate_mothership)
 "xV" = (
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
 	dir = 4;
-	icon_state = "gravsnow_surround";
-	tag = "icon-gravsnow_surround (EAST)"
+	icon_state = "gravsnow_surround"
 	},
 /area/map_template/syndicate_mothership)
 "xW" = (
@@ -10120,8 +10035,7 @@
 "yC" = (
 /turf/unsimulated/floor{
 	icon_state = "cult";
-	name = "plating";
-	tag = "icon-cult"
+	name = "plating"
 	},
 /area/map_template/syndicate_mothership)
 "yD" = (
@@ -10130,8 +10044,7 @@
 	},
 /turf/unsimulated/floor{
 	icon_state = "cult";
-	name = "plating";
-	tag = "icon-cult"
+	name = "plating"
 	},
 /area/map_template/syndicate_mothership)
 "yE" = (
@@ -10140,16 +10053,14 @@
 	},
 /turf/unsimulated/floor{
 	icon_state = "cult";
-	name = "plating";
-	tag = "icon-cult"
+	name = "plating"
 	},
 /area/map_template/syndicate_mothership)
 "yF" = (
 /obj/machinery/vending/snack,
 /turf/unsimulated/floor{
 	icon_state = "cult";
-	name = "plating";
-	tag = "icon-cult"
+	name = "plating"
 	},
 /area/map_template/syndicate_mothership)
 "yG" = (
@@ -10308,8 +10219,7 @@
 /obj/structure/bed/chair/comfy/black,
 /turf/unsimulated/floor{
 	icon_state = "cult";
-	name = "plating";
-	tag = "icon-cult"
+	name = "plating"
 	},
 /area/map_template/syndicate_mothership)
 "zb" = (
@@ -10358,8 +10268,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6;
-	icon_state = "intact-scrubbers";
-	tag = "icon-intact-scrubbers (SOUTHEAST)"
+	icon_state = "intact-scrubbers"
 	},
 /turf/simulated/floor/carpet,
 /area/merchant_station)
@@ -10513,8 +10422,7 @@
 	},
 /turf/unsimulated/floor{
 	icon_state = "cult";
-	name = "plating";
-	tag = "icon-cult"
+	name = "plating"
 	},
 /area/map_template/syndicate_mothership)
 "zw" = (
@@ -10524,8 +10432,7 @@
 	},
 /turf/unsimulated/floor{
 	icon_state = "cult";
-	name = "plating";
-	tag = "icon-cult"
+	name = "plating"
 	},
 /area/map_template/syndicate_mothership)
 "zx" = (
@@ -10539,8 +10446,7 @@
 	},
 /turf/unsimulated/floor{
 	icon_state = "cult";
-	name = "plating";
-	tag = "icon-cult"
+	name = "plating"
 	},
 /area/map_template/syndicate_mothership)
 "zy" = (
@@ -10549,8 +10455,7 @@
 	},
 /turf/unsimulated/floor{
 	icon_state = "cult";
-	name = "plating";
-	tag = "icon-cult"
+	name = "plating"
 	},
 /area/map_template/syndicate_mothership)
 "zz" = (
@@ -10559,8 +10464,7 @@
 	},
 /turf/unsimulated/floor{
 	icon_state = "cult";
-	name = "plating";
-	tag = "icon-cult"
+	name = "plating"
 	},
 /area/map_template/syndicate_mothership)
 "zA" = (
@@ -10580,16 +10484,14 @@
 /obj/structure/undies_wardrobe,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4;
-	icon_state = "map_vent_out";
-	tag = "icon-map_vent_out (EAST)"
+	icon_state = "map_vent_out"
 	},
 /turf/simulated/floor/carpet,
 /area/merchant_station)
 "zC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10;
-	icon_state = "intact-supply";
-	tag = "icon-intact-supply (SOUTHWEST)"
+	icon_state = "intact-supply"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/carpet,
@@ -10616,8 +10518,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6;
-	icon_state = "intact-scrubbers";
-	tag = "icon-intact-scrubbers (SOUTHEAST)"
+	icon_state = "intact-scrubbers"
 	},
 /turf/simulated/floor/carpet/blue,
 /area/merchant_station)
@@ -10650,8 +10551,7 @@
 "zK" = (
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "spiderling";
-	name = "dead spider";
-	tag = "icon-spiderling"
+	name = "dead spider"
 	},
 /turf/simulated/floor/asteroid,
 /area/merchant_station)
@@ -10885,16 +10785,14 @@
 	},
 /turf/unsimulated/floor{
 	icon_state = "cult";
-	name = "plating";
-	tag = "icon-cult"
+	name = "plating"
 	},
 /area/map_template/syndicate_mothership)
 "An" = (
 /obj/machinery/vending/cola,
 /turf/unsimulated/floor{
 	icon_state = "cult";
-	name = "plating";
-	tag = "icon-cult"
+	name = "plating"
 	},
 /area/map_template/syndicate_mothership)
 "Ao" = (
@@ -11101,8 +10999,7 @@
 /obj/machinery/vending/cigarette,
 /turf/unsimulated/floor{
 	icon_state = "cult";
-	name = "plating";
-	tag = "icon-cult"
+	name = "plating"
 	},
 /area/map_template/syndicate_mothership)
 "AS" = (
@@ -11132,12 +11029,10 @@
 /obj/structure/table/reinforced,
 /obj/item/storage/firstaid/toxin,
 /obj/item/storage/firstaid/o2{
-	layer = 2.8;
 	pixel_x = 4;
 	pixel_y = 6
 	},
 /obj/item/storage/firstaid/fire{
-	layer = 2.9;
 	pixel_x = 2;
 	pixel_y = 3
 	},
@@ -11181,8 +11076,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6;
-	icon_state = "intact-supply";
-	tag = "icon-intact-supply (SOUTHEAST)"
+	icon_state = "intact-supply"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/carpet/blue,
@@ -11256,8 +11150,7 @@
 "Bi" = (
 /obj/effect/floor_decal/corner/paleblue/three_quarters{
 	dir = 4;
-	icon_state = "corner_white_three_quarters";
-	tag = "icon-corner_white_three_quarters (EAST)"
+	icon_state = "corner_white_three_quarters"
 	},
 /obj/machinery/light{
 	dir = 4
@@ -11419,8 +11312,7 @@
 "By" = (
 /turf/unsimulated/wall/fakeglass{
 	dir = 10;
-	icon_state = "fakewindows";
-	tag = "icon-fakewindows (SOUTHWEST)"
+	icon_state = "fakewindows"
 	},
 /area/map_template/syndicate_mothership)
 "Bz" = (
@@ -11533,13 +11425,11 @@
 "BN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5;
-	icon_state = "intact-scrubbers";
-	tag = "icon-intact-scrubbers (NORTHEAST)"
+	icon_state = "intact-scrubbers"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5;
-	icon_state = "intact-supply";
-	tag = "icon-intact-supply (NORTHEAST)"
+	icon_state = "intact-supply"
 	},
 /turf/simulated/floor/wood,
 /area/merchant_station)
@@ -11569,8 +11459,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4;
-	icon_state = "intact-scrubbers";
-	tag = "icon-intact-scrubbers (EAST)"
+	icon_state = "intact-scrubbers"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -11583,8 +11472,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9;
-	icon_state = "intact-supply";
-	tag = "icon-intact-supply (NORTHWEST)"
+	icon_state = "intact-supply"
 	},
 /turf/simulated/floor/carpet/blue,
 /area/merchant_station)
@@ -11608,8 +11496,7 @@
 "BU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6;
-	icon_state = "intact-scrubbers";
-	tag = "icon-intact-scrubbers (SOUTHEAST)"
+	icon_state = "intact-scrubbers"
 	},
 /mob/living/simple_animal/tindalos{
 	name = "Eddy"
@@ -11766,8 +11653,7 @@
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
 	dir = 1;
-	icon_state = "gravsnow_corner";
-	tag = "icon-gravsnow_corner (NORTH)"
+	icon_state = "gravsnow_corner"
 	},
 /area/map_template/syndicate_mothership)
 "Cp" = (
@@ -12413,13 +12299,11 @@
 "DR" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4;
-	icon_state = "map-scrubbers";
-	tag = "icon-map-scrubbers (EAST)"
+	icon_state = "map-scrubbers"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4;
-	icon_state = "map-supply";
-	tag = "icon-map-supply (EAST)"
+	icon_state = "map-supply"
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)
@@ -12511,8 +12395,7 @@
 /obj/machinery/light/small,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4;
-	icon_state = "map_scrubber_on";
-	tag = "icon-map_scrubber_on (EAST)"
+	icon_state = "map_scrubber_on"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/merchant_station)
@@ -12561,13 +12444,11 @@
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
 	dir = 4;
-	icon_state = "gravsnow_corner";
-	tag = "icon-gravsnow_corner (EAST)"
+	icon_state = "gravsnow_corner"
 	},
 /turf/unsimulated/floor/snow{
 	dir = 8;
-	icon_state = "gravsnow_corner";
-	tag = "icon-gravsnow_corner (WEST)"
+	icon_state = "gravsnow_corner"
 	},
 /area/map_template/syndicate_mothership)
 "Eh" = (
@@ -12899,8 +12780,7 @@
 "ET" = (
 /obj/effect/floor_decal/corner/paleblue/three_quarters{
 	dir = 4;
-	icon_state = "corner_white_three_quarters";
-	tag = "icon-corner_white_three_quarters (EAST)"
+	icon_state = "corner_white_three_quarters"
 	},
 /obj/structure/window/reinforced{
 	dir = 1;
@@ -12993,8 +12873,7 @@
 "Fc" = (
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
-	icon_state = "gravsnow_surround";
-	tag = "icon-gravsnow_surround"
+	icon_state = "gravsnow_surround"
 	},
 /area/map_template/syndicate_mothership)
 "Fd" = (
@@ -13072,8 +12951,7 @@
 /obj/structure/shuttle/engine/propulsion/burst/right{
 	dir = 4;
 	icon_state = "burst_r";
-	name = "propulsion";
-	tag = "icon-burst_r (EAST)"
+	name = "propulsion"
 	},
 /turf/space,
 /area/shuttle/merchant/home)
@@ -13147,8 +13025,7 @@
 "Fs" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9;
-	icon_state = "intact-supply";
-	tag = "icon-intact-supply (NORTHWEST)"
+	icon_state = "intact-supply"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -13291,8 +13168,7 @@
 "FK" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
-	icon_state = "map_vent_out";
-	tag = "icon-map_vent_out (NORTH)"
+	icon_state = "map_vent_out"
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)
@@ -13418,8 +13294,7 @@
 "FZ" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1;
-	icon_state = "map";
-	tag = "icon-manifold (NORTH)"
+	icon_state = "map"
 	},
 /obj/machinery/airlock_sensor{
 	frequency = 1331;
@@ -14188,8 +14063,7 @@
 "HN" = (
 /obj/effect/floor_decal/industrial/loading{
 	dir = 8;
-	icon_state = "loadingarea";
-	tag = "icon-loadingarea (WEST)"
+	icon_state = "loadingarea"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5;
@@ -14220,8 +14094,7 @@
 "HQ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4;
-	icon_state = "map";
-	tag = "icon-manifold-f (EAST)"
+	icon_state = "map"
 	},
 /obj/machinery/airlock_sensor{
 	frequency = 1380;
@@ -14336,8 +14209,7 @@
 	id_tag = "syndieflash";
 	name = "Flasher";
 	pixel_x = 27;
-	pixel_y = 0;
-	tag = "permflash"
+	pixel_y = 0
 	},
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
@@ -14366,8 +14238,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5;
-	icon_state = "intact";
-	tag = "icon-intact (NORTHEAST)"
+	icon_state = "intact"
 	},
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
@@ -15065,8 +14936,7 @@
 /obj/structure/shuttle/engine/propulsion/burst/left{
 	dir = 4;
 	icon_state = "burst_l";
-	name = "propulsion";
-	tag = "icon-burst_l (EAST)"
+	name = "propulsion"
 	},
 /turf/space,
 /area/shuttle/merchant/home)
@@ -16291,8 +16161,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5;
-	icon_state = "intact";
-	tag = "icon-intact (NORTHEAST)"
+	icon_state = "intact"
 	},
 /turf/simulated/floor/airless,
 /area/merchant_station)
@@ -16388,8 +16257,7 @@
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 9;
-	icon_state = "intact";
-	tag = "icon-intact (NORTHWEST)"
+	icon_state = "intact"
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station)
@@ -16580,8 +16448,7 @@
 "MW" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5;
-	icon_state = "intact";
-	tag = "icon-intact (NORTHEAST)"
+	icon_state = "intact"
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station)
@@ -16599,8 +16466,7 @@
 "MY" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 9;
-	icon_state = "intact";
-	tag = "icon-intact (NORTHWEST)"
+	icon_state = "intact"
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station)
@@ -16721,16 +16587,14 @@
 "No" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
 	dir = 1;
-	icon_state = "map";
-	tag = "icon-map (NORTH)"
+	icon_state = "map"
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "Np" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
 	dir = 1;
-	icon_state = "map";
-	tag = "icon-map (NORTH)"
+	icon_state = "map"
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station)
@@ -16778,8 +16642,7 @@
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
 	dir = 1;
-	icon_state = "gravsnow_surround";
-	tag = "icon-gravsnow_surround (NORTH)"
+	icon_state = "gravsnow_surround"
 	},
 /area/map_template/syndicate_mothership)
 "Ny" = (
@@ -16811,8 +16674,7 @@
 "ND" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 9;
-	icon_state = "intact";
-	tag = "icon-intact (NORTHWEST)"
+	icon_state = "intact"
 	},
 /obj/machinery/portable_atmospherics/canister/nitrogen,
 /obj/item/tank/nitrogen,
@@ -16823,8 +16685,7 @@
 /obj/machinery/atmospherics/unary/tank/air{
 	dir = 1;
 	icon_state = "air_map";
-	start_pressure = 740.5;
-	tag = "icon-air_map (NORTH)"
+	start_pressure = 740.5
 	},
 /obj/machinery/light/small,
 /turf/simulated/floor/plating,
@@ -16833,8 +16694,7 @@
 /obj/machinery/atmospherics/unary/tank/air{
 	dir = 1;
 	icon_state = "air_map";
-	start_pressure = 740.5;
-	tag = "icon-air_map (NORTH)"
+	start_pressure = 740.5
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station)
@@ -16872,30 +16732,25 @@
 /area/space)
 "NM" = (
 /turf/unsimulated/floor/snow{
-	icon_state = "permafrost";
-	tag = "icon-permafrost"
+	icon_state = "permafrost"
 	},
 /turf/unsimulated/floor/snow{
 	dir = 8;
-	icon_state = "gravsnow_corner";
-	tag = "icon-gravsnow_corner (WEST)"
+	icon_state = "gravsnow_corner"
 	},
 /area/map_template/syndicate_mothership)
 "NN" = (
 /turf/unsimulated/floor/snow{
-	icon_state = "permafrost";
-	tag = "icon-permafrost"
+	icon_state = "permafrost"
 	},
 /area/map_template/syndicate_mothership)
 "NO" = (
 /turf/unsimulated/floor/snow{
-	icon_state = "permafrost";
-	tag = "icon-permafrost"
+	icon_state = "permafrost"
 	},
 /turf/unsimulated/floor/snow{
 	dir = 4;
-	icon_state = "gravsnow_corner";
-	tag = "icon-gravsnow_corner (EAST)"
+	icon_state = "gravsnow_corner"
 	},
 /area/map_template/syndicate_mothership)
 "NP" = (
@@ -16908,8 +16763,7 @@
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
 	dir = 10;
-	icon_state = "gravsnow_corner";
-	tag = "icon-gravsnow_corner (SOUTHWEST)"
+	icon_state = "gravsnow_corner"
 	},
 /area/map_template/syndicate_mothership)
 "NR" = (
@@ -16927,8 +16781,7 @@
 "NT" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 8;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (WEST)"
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 1
@@ -16953,7 +16806,6 @@
 /area/holodeck/source_thunderdomecourt)
 "Oa" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (SOUTHWEST)";
 	icon_state = "test";
 	dir = 10
 	},
@@ -16970,14 +16822,12 @@
 /area/holodeck/source_ocean)
 "Op" = (
 /turf/simulated/floor/holofloor/beach/water{
-	icon_state = "desert3";
-	tag = "icon-desert3"
+	icon_state = "desert3"
 	},
 /area/holodeck/source_beach)
 "Os" = (
 /turf/simulated/floor/holofloor/beach/water{
-	icon_state = "desert2";
-	tag = "icon-desert2"
+	icon_state = "desert2"
 	},
 /area/holodeck/source_beach)
 "Ow" = (
@@ -16988,8 +16838,7 @@
 "Ox" = (
 /obj/machinery/door/window/holowindoor{
 	dir = 4;
-	icon_state = "left";
-	tag = "icon-left (EAST)"
+	icon_state = "left"
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_thunderdomecourt)
@@ -17016,8 +16865,7 @@
 "OG" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1;
-	icon_state = "spline_fancy";
-	tag = "icon-spline_fancy (NORTH)"
+	icon_state = "spline_fancy"
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
@@ -17047,8 +16895,7 @@
 	},
 /obj/structure/bed/chair/holochair{
 	dir = 4;
-	icon_state = "chair_preview";
-	tag = "icon-chair_preview (EAST)"
+	icon_state = "chair_preview"
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
@@ -17073,8 +16920,7 @@
 /area/holodeck/source_desert)
 "OV" = (
 /turf/simulated/floor/holofloor/beach/water{
-	icon_state = "desert5";
-	tag = "icon-desert5"
+	icon_state = "desert5"
 	},
 /area/holodeck/source_beach)
 "OY" = (
@@ -17135,8 +16981,7 @@
 "Pn" = (
 /obj/effect/floor_decal/corner/black/border{
 	dir = 8;
-	icon_state = "bordercolor";
-	tag = "icon-bordercolor (WEST)"
+	icon_state = "bordercolor"
 	},
 /turf/simulated/floor/holofloor/tiled/old_tile,
 /area/holodeck/source_gym)
@@ -17155,8 +17000,7 @@
 /obj/structure/bed/chair/holochair/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1;
-	icon_state = "spline_fancy";
-	tag = "icon-spline_fancy (NORTH)"
+	icon_state = "spline_fancy"
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_cafe)
@@ -17166,16 +17010,14 @@
 	},
 /obj/machinery/door/window/holowindoor{
 	dir = 8;
-	icon_state = "left";
-	tag = "icon-left (WEST)"
+	icon_state = "left"
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_thunderdomecourt)
 "PM" = (
 /turf/simulated/floor/holofloor/beach/water{
 	dir = 1;
-	icon_state = "beach";
-	tag = "icon-beach (NORTH)"
+	icon_state = "beach"
 	},
 /area/holodeck/source_beach)
 "PQ" = (
@@ -17235,18 +17077,15 @@
 "Qi" = (
 /obj/structure/bed/chair/holochair{
 	dir = 4;
-	icon_state = "chair_preview";
-	tag = "icon-chair_preview (EAST)"
+	icon_state = "chair_preview"
 	},
 /obj/effect/floor_decal/chapel{
 	dir = 1;
-	icon_state = "chapel";
-	tag = "icon-chapel (NORTH)"
+	icon_state = "chapel"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1;
-	icon_state = "spline_fancy";
-	tag = "icon-spline_fancy (NORTH)"
+	icon_state = "spline_fancy"
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
@@ -17267,13 +17106,11 @@
 "Qu" = (
 /obj/structure/bed/chair/holochair{
 	dir = 4;
-	icon_state = "chair_preview";
-	tag = "icon-chair_preview (EAST)"
+	icon_state = "chair_preview"
 	},
 /obj/effect/floor_decal/chapel{
 	dir = 1;
-	icon_state = "chapel";
-	tag = "icon-chapel (NORTH)"
+	icon_state = "chapel"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -17283,8 +17120,7 @@
 "Qw" = (
 /obj/item/inflatable_duck,
 /turf/simulated/floor/holofloor/beach/water{
-	icon_state = "desert3";
-	tag = "icon-desert3"
+	icon_state = "desert3"
 	},
 /area/holodeck/source_beach)
 "Qy" = (
@@ -17297,8 +17133,7 @@
 	},
 /obj/machinery/door/window/holowindoor{
 	dir = 4;
-	icon_state = "left";
-	tag = "icon-left (EAST)"
+	icon_state = "left"
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_boxingcourt)
@@ -17382,8 +17217,7 @@
 "RA" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9;
-	icon_state = "spline_fancy";
-	tag = "icon-spline_fancy (NORTHWEST)"
+	icon_state = "spline_fancy"
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_cafe)
@@ -17433,21 +17267,18 @@
 "Sn" = (
 /obj/structure/bed/chair/holochair{
 	dir = 4;
-	icon_state = "chair_preview";
-	tag = "icon-chair_preview (EAST)"
+	icon_state = "chair_preview"
 	},
 /obj/effect/floor_decal/chapel{
 	dir = 4;
-	icon_state = "chapel";
-	tag = "icon-chapel (EAST)"
+	icon_state = "chapel"
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
 "Su" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4;
-	icon_state = "spline_fancy_corner";
-	tag = "icon-spline_fancy_corner (EAST)"
+	icon_state = "spline_fancy_corner"
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
@@ -17601,16 +17432,14 @@
 "TZ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1;
-	icon_state = "warning";
-	tag = "icon-warning (NORTH)"
+	icon_state = "warning"
 	},
 /turf/simulated/floor/plating,
 /area/centcom)
 "Ub" = (
 /obj/item/beach_ball,
 /turf/simulated/floor/holofloor/beach/water{
-	icon_state = "desert1";
-	tag = "icon-desert1"
+	icon_state = "desert1"
 	},
 /area/holodeck/source_beach)
 "Ue" = (
@@ -17647,7 +17476,6 @@
 /area/holodeck/source_thunderdomecourt)
 "Uw" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (NORTHWEST)";
 	icon_state = "test";
 	dir = 9
 	},
@@ -17674,21 +17502,18 @@
 "UF" = (
 /obj/machinery/computer/shuttle_control/transport_shuttle{
 	dir = 1;
-	icon_state = "computer";
-	tag = "icon-computer (NORTH)"
+	icon_state = "computer"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/transport1/centcom)
 "UG" = (
 /obj/structure/bed/chair/holochair{
 	dir = 4;
-	icon_state = "chair_preview";
-	tag = "icon-chair_preview (EAST)"
+	icon_state = "chair_preview"
 	},
 /obj/effect/floor_decal/chapel{
 	dir = 8;
-	icon_state = "chapel";
-	tag = "icon-chapel (WEST)"
+	icon_state = "chapel"
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/holofloor/tiled/dark,
@@ -17705,8 +17530,7 @@
 "UK" = (
 /obj/structure/bed/chair/shuttle{
 	dir = 8;
-	icon_state = "shuttle_chair_preview";
-	tag = "icon-shuttle_chair_preview (WEST)"
+	icon_state = "shuttle_chair_preview"
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/transport1/centcom)
@@ -17746,8 +17570,7 @@
 "Vj" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5;
-	icon_state = "spline_fancy";
-	tag = "icon-spline_fancy (NORTHEAST)"
+	icon_state = "spline_fancy"
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_cafe)
@@ -17758,8 +17581,7 @@
 "Vr" = (
 /obj/structure/bed/chair/holochair{
 	dir = 4;
-	icon_state = "chair_preview";
-	tag = "icon-chair_preview (EAST)"
+	icon_state = "chair_preview"
 	},
 /obj/effect/floor_decal/carpet{
 	dir = 8
@@ -17772,8 +17594,7 @@
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 10;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (SOUTHWEST)"
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_thunderdomecourt)
@@ -17797,24 +17618,20 @@
 /obj/structure/holostool,
 /obj/effect/floor_decal/corner/black/border{
 	dir = 4;
-	icon_state = "bordercolor";
-	tag = "icon-bordercolor (EAST)"
+	icon_state = "bordercolor"
 	},
 /obj/effect/floor_decal/corner/black/border{
 	dir = 1;
-	icon_state = "bordercolor";
-	tag = "icon-bordercolor (NORTH)"
+	icon_state = "bordercolor"
 	},
 /turf/simulated/floor/holofloor/tiled/old_tile,
 /area/holodeck/source_gym)
 "VT" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (NORTH)";
 	icon_state = "test";
 	dir = 1
 	},
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (EAST)";
 	icon_state = "test";
 	dir = 4
 	},
@@ -17842,7 +17659,6 @@
 /area/holodeck/source_rainycafe)
 "Wd" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (NORTHEAST)";
 	icon_state = "test";
 	dir = 5
 	},
@@ -17862,7 +17678,6 @@
 /area/shuttle/transport1/centcom)
 "Wv" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test2 (EAST)";
 	icon_state = "test2";
 	dir = 4
 	},
@@ -17872,13 +17687,11 @@
 "Wz" = (
 /obj/structure/bed/chair/holochair{
 	dir = 4;
-	icon_state = "chair_preview";
-	tag = "icon-chair_preview (EAST)"
+	icon_state = "chair_preview"
 	},
 /obj/effect/floor_decal/chapel{
 	dir = 8;
-	icon_state = "chapel";
-	tag = "icon-chapel (WEST)"
+	icon_state = "chapel"
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
@@ -17902,8 +17715,7 @@
 "WF" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4;
-	icon_state = "spline_fancy";
-	tag = "icon-spline_fancy (EAST)"
+	icon_state = "spline_fancy"
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
@@ -17917,8 +17729,7 @@
 "WM" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8;
-	icon_state = "spline_fancy_corner";
-	tag = "icon-spline_fancy_corner (WEST)"
+	icon_state = "spline_fancy_corner"
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
@@ -17932,7 +17743,6 @@
 /area/holodeck/source_plaza)
 "WR" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test (EAST)";
 	icon_state = "test";
 	dir = 4
 	},
@@ -17946,8 +17756,7 @@
 "WV" = (
 /obj/item/clothing/glasses/sunglasses,
 /turf/simulated/floor/holofloor/beach/water{
-	icon_state = "desert4";
-	tag = "icon-desert4"
+	icon_state = "desert4"
 	},
 /area/holodeck/source_beach)
 "Xc" = (
@@ -17984,8 +17793,7 @@
 /obj/effect/floor_decal/corner/black/border,
 /obj/effect/floor_decal/corner/black/border{
 	dir = 4;
-	icon_state = "bordercolor";
-	tag = "icon-bordercolor (EAST)"
+	icon_state = "bordercolor"
 	},
 /turf/simulated/floor/holofloor/tiled/old_tile,
 /area/holodeck/source_gym)
@@ -18059,8 +17867,7 @@
 "XN" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 10;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (SOUTHWEST)"
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_basketball)
@@ -18095,7 +17902,6 @@
 /area/holodeck/source_meetinghall)
 "Yj" = (
 /obj/effect/floor_decal/water_edge{
-	tag = "icon-test2 (NORTH)";
 	icon_state = "test2";
 	dir = 1
 	},
@@ -18112,13 +17918,11 @@
 /obj/structure/shuttle/engine/propulsion/burst/left{
 	dir = 1;
 	icon_state = "burst_l";
-	name = "propulsion";
-	tag = "icon-burst_l (NORTH)"
+	name = "propulsion"
 	},
 /turf/simulated/shuttle/wall{
 	dir = 2;
-	icon_state = "swall";
-	tag = "icon-swall2"
+	icon_state = "swall"
 	},
 /area/shuttle/transport1/centcom)
 "Yz" = (
@@ -18137,8 +17941,7 @@
 	},
 /obj/machinery/door/window/holowindoor{
 	dir = 8;
-	icon_state = "left";
-	tag = "icon-left (WEST)"
+	icon_state = "left"
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_thunderdomecourt)
@@ -18165,8 +17968,7 @@
 "YW" = (
 /obj/effect/floor_decal/corner/black/border{
 	dir = 4;
-	icon_state = "bordercolor";
-	tag = "icon-bordercolor (EAST)"
+	icon_state = "bordercolor"
 	},
 /turf/simulated/floor/holofloor/tiled/old_tile,
 /area/holodeck/source_gym)
@@ -18178,16 +17980,14 @@
 "YZ" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1;
-	icon_state = "spline_fancy_corner";
-	tag = "icon-spline_fancy_corner (NORTH)"
+	icon_state = "spline_fancy_corner"
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
 "Zc" = (
 /obj/structure/bed/chair/shuttle{
 	dir = 8;
-	icon_state = "shuttle_chair_preview";
-	tag = "icon-shuttle_chair_preview (WEST)"
+	icon_state = "shuttle_chair_preview"
 	},
 /obj/machinery/light{
 	dir = 4
@@ -18215,8 +18015,7 @@
 "Zi" = (
 /obj/structure/bed/chair/holochair{
 	dir = 4;
-	icon_state = "chair_preview";
-	tag = "icon-chair_preview (EAST)"
+	icon_state = "chair_preview"
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
@@ -18239,16 +18038,14 @@
 /obj/structure/holostool,
 /obj/effect/floor_decal/corner/black/border{
 	dir = 8;
-	icon_state = "bordercolor";
-	tag = "icon-bordercolor (WEST)"
+	icon_state = "bordercolor"
 	},
 /turf/simulated/floor/holofloor/tiled/old_tile,
 /area/holodeck/source_gym)
 "ZB" = (
 /obj/structure/bed/chair/holochair{
 	dir = 4;
-	icon_state = "chair_preview";
-	tag = "icon-chair_preview (EAST)"
+	icon_state = "chair_preview"
 	},
 /obj/effect/floor_decal/carpet{
 	dir = 8
@@ -18274,8 +18071,7 @@
 /area/holodeck/source_plaza)
 "ZF" = (
 /turf/simulated/floor/holofloor/beach/water{
-	icon_state = "desert1";
-	tag = "icon-desert1"
+	icon_state = "desert1"
 	},
 /area/holodeck/source_beach)
 "ZP" = (

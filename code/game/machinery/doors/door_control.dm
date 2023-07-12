@@ -11,7 +11,7 @@
 				2=Network Access
 	*/
 
-	anchored = 1.0
+	anchored = TRUE
 	idle_power_usage = 2
 	active_power_usage = 4
 
@@ -21,10 +21,8 @@
 	else
 		to_chat(user, "Error, no route to host.")
 
-/obj/machinery/button/remote/attackby(obj/item/W, mob/user as mob)
-	return src.attack_hand(user)
 
-/obj/machinery/button/remote/emag_act(var/remaining_charges, var/mob/user)
+/obj/machinery/button/remote/emag_act(remaining_charges, var/mob/user)
 	if(length(req_access))
 		req_access.Cut()
 		playsound(src.loc, "sparks", 100, 1)

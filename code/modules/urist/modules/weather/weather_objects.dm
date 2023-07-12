@@ -9,7 +9,7 @@
 	icon_state = "splash" //mapping indicator only!
 
 	layer = 5
-	anchored = 1 //prevents weather from being /draggable/
+	anchored = TRUE //prevents weather from being /draggable/
 	mouse_opacity = 0 //doesn't need to be clickable and is less of an annoyance for players
 	var/weather_safe = 0 //1 makes it aesthetic-only
 	var/list/active_weathers = list()
@@ -64,7 +64,7 @@
 			return 1
 	return 0
 
-/obj/effect/weather/update_icon()
+/obj/effect/weather/on_update_icon()
 	..()
 	update_weather_icon()
 

@@ -17,15 +17,15 @@
 
 /obj/item/stamp/hop
 	name = "\improper Head of Personnel's rubber stamp"
-	icon_state = "stamp-hop"
+	icon_state = "stamp-xo"
 
 /obj/item/stamp/hos
 	name = "\improper Head of Security's rubber stamp"
-	icon_state = "stamp-hos"
+	icon_state = "stamp-cos"
 
 /obj/item/stamp/ward
 	name = "\improper Warden's rubber stamp"
-	icon_state = "stamp-ward"
+	icon_state = "stamp-brig"
 
 /obj/item/stamp/ce
 	name = "chief engineer's rubber stamp"

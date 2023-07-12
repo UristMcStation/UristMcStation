@@ -6,8 +6,8 @@
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "portal"
 	var/block_pirate_teleport = TRUE
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 	layer = 3.1
 
 /obj/structure/boarding/shipportal/Bumped(atom/movable/M as mob|obj)
@@ -41,7 +41,7 @@
 	var/tele_z = GLOB.using_map.overmap_ship.evac_z
 
 	do_teleport(M, locate(tele_x,tele_y,tele_z), 0)
-	to_target(M, "<span class='warning'>You teleport back to the ship!</span>")
+	to_chat(M, "<span class='warning'>You teleport back to the ship!</span>")
 
 /obj/effect/step_trigger/teleporter/urist/nerva
 	teleport_x = 89
@@ -49,9 +49,9 @@
 	teleport_z = 1
 
 /obj/structure/boarding/shipportal/shipside
-    var/source_x
-    var/source_y
-    var/source_z
+	var/source_x
+	var/source_y
+	var/source_z
 
 /obj/structure/boarding/shipportal/shipside/Initialize()
 	for(var/obj/structure/boarding/shipportal/sp)
@@ -72,7 +72,7 @@
 			return
 
 	do_teleport(M, locate(source_x,source_y,source_z), 0)
-	to_target(M, "<span class='warning'>You teleport to the attacking ship!</span>")
+	to_chat(M, "<span class='warning'>You teleport to the attacking ship!</span>")
 
 //self destruct for boarding
 
@@ -81,8 +81,8 @@
 	name = "self destruct mechanism"
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "bus"
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE
 	var/shipid = null
 
 /obj/structure/boarding/self_destruct/ex_act()

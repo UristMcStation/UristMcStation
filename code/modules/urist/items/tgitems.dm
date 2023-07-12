@@ -121,9 +121,9 @@ Please only put items here that don't have a huge definition - Glloyd											
 	desc = "You should run now"
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "rift"
-	density = 1
+	density = TRUE
 	unacidable = 1
-	anchored = 1.0
+	anchored = TRUE
 	var/spawn_type = /obj/singularity/narsie/wizard
 
 /obj/effect/rend/New()
@@ -312,14 +312,14 @@ Please only put items here that don't have a huge definition - Glloyd											
 	level = 1
 	cant_hold = list(/obj/item/storage/backpack/satchel/flat) //muh recursive backpacks
 
-/obj/item/storage/backpack/satchel/flat/hide(var/intact)
+/obj/item/storage/backpack/satchel/flat/hide(intact)
 	if(intact)
 		invisibility = 101
-		anchored = 1 //otherwise you can start pulling, cover it, and drag around an invisible backpack.
+		anchored = TRUE //otherwise you can start pulling, cover it, and drag around an invisible backpack.
 		icon_state = "[initial(icon_state)]2"
 	else
 		invisibility = initial(invisibility)
-		anchored = 0
+		anchored = FALSE
 		icon_state = initial(icon_state)
 
 /obj/item/storage/backpack/satchel/flat/New()
@@ -360,7 +360,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	startswith = list(/obj/item/paper/cig/fancy/nt = 10)
 
 
-/obj/item/storage/fancy/rollingpapers/update_icon()
+/obj/item/storage/fancy/rollingpapers/on_update_icon()
 	overlays.Cut()
 	if(!length(contents))
 		overlays += "[icon_state]_empty"

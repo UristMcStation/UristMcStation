@@ -9,8 +9,8 @@
 	icon_state = pick("capacitor", "micro_laser", "micro_mani", "matter_bin", "scan_module")
 
 /obj/structure/scom
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE
 
 /obj/structure/scom/science //a generic holder for science shit
 	name = "alien technology"
@@ -26,7 +26,7 @@
 	S.scommoney = scommoney
 
 	user.put_in_hands(S)
-	to_target(user, "<span class='notice'>You salvage some usable objects from the alien technology.</span>")
+	to_chat(user, "<span class='notice'>You salvage some usable objects from the alien technology.</span>")
 	qdel(src)
 	return
 
@@ -65,7 +65,7 @@
 	icon = 'icons/urist/items/old_bay_custom_items.dmi'
 	icon_state = "royce_kit"
 
-/obj/item/scom/borgmodkit/attack(var/mob/living/silicon/robot/R)
+/obj/item/scom/borgmodkit/attack(mob/living/silicon/robot/R)
 //	R/var/module_sprites[0]
 	R.module = new /obj/item/robot_module/security/combat/(src)
 	R.modtype = "Combat"

@@ -133,7 +133,7 @@ the sprite and make my own projectile -Glloyd*/
 	magazine_type = /obj/item/ammo_magazine/pistol
 	auto_eject = 1
 
-/obj/item/gun/projectile/silenced/knight/update_icon()
+/obj/item/gun/projectile/silenced/knight/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "knight45"
@@ -142,20 +142,21 @@ the sprite and make my own projectile -Glloyd*/
 
 ///// Deckard .44 - old Bay custom item rip for UMcS Blueshields
 /obj/item/gun/projectile/revolver/detective/deckard
+	icon = 'icons/urist/items/revolvers.dmi'
 	item_icons = DEF_URIST_INHANDS
 	name = "Deckard .38" //changed from .44 for internal consistency - it takes .38 bullets
 	desc = "A custom autorevolver chambered in .38 Special issued to high-ranking specialists, based on the obsoleted Detective Special forensics issue models. For some reason, the caliber feels like it should be bigger..."
 	//what do you know, it was restored-ish in revolver.dm
 	icon_state = "deckard-empty"
 
-/obj/item/gun/projectile/revolver/detective/deckard/update_icon()
+/obj/item/gun/projectile/revolver/detective/deckard/on_update_icon()
 	..()
 	if(length(loaded))
 		icon_state = "deckard-loaded"
 	else
 		icon_state = "deckard-empty"
 
-/obj/item/gun/projectile/revolver/detective/deckard/load_ammo(var/obj/item/A, mob/user)
+/obj/item/gun/projectile/revolver/detective/deckard/load_ammo(obj/item/A, mob/user)
 	if(istype(A, /obj/item/ammo_magazine))
 		flick("deckard-reloading",src)
 	..()
@@ -187,8 +188,8 @@ the sprite and make my own projectile -Glloyd*/
 	wielded_item_state = "genericLMG-wielded"
 	caliber = CALIBER_RIFLE_MILITARY
 
-/obj/item/gun/projectile/automatic/l6_saw/m60/update_icon()
-	icon_state = "M60[cover_open ? "open" : "closed"][ammo_magazine ? round(ammo_magazine.stored_ammo.len, 15) : "-empty"]"
+/obj/item/gun/projectile/automatic/l6_saw/m60/on_update_icon()
+	icon_state = "M60[cover_open ? "open" : "closed"][ammo_magazine ? round(length(ammo_magazine.stored_ammo), 15) : "-empty"]"
 
 /obj/item/ammo_magazine/box/rifle/military/m60
 	name = "M60 magazine box (7.62mm)"
@@ -212,7 +213,7 @@ the sprite and make my own projectile -Glloyd*/
 	caliber = CALIBER_RIFLE_MILITARY
 	origin_tech = "combat=6;materials=1;syndicate=2"
 	slot_flags = SLOT_BACK
-	ammo_type = "/obj/item/ammo_casing/rifle/military"
+	ammo_type = /obj/item/ammo_casing/rifle/military
 	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/rifle/military/m14
@@ -224,7 +225,7 @@ the sprite and make my own projectile -Glloyd*/
 		list(mode_name="long bursts",	burst=8, fire_delay=null, move_delay=8, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/gun/projectile/automatic/m14/update_icon()
+/obj/item/gun/projectile/automatic/m14/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "M14"
@@ -267,7 +268,7 @@ the sprite and make my own projectile -Glloyd*/
 		list(mode_name="short bursts", 	burst=5, move_delay=6, fire_delay=null, one_hand_penalty = 6, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/gun/projectile/automatic/m16/update_icon()
+/obj/item/gun/projectile/automatic/m16/on_update_icon()
 	..()
 	if(icon_state == "M16-GL")
 		icon_state = (ammo_magazine)? "M16-GL" : "M16-GL-empty"
@@ -317,9 +318,9 @@ the sprite and make my own projectile -Glloyd*/
 /obj/item/gun/projectile/automatic/m16/gl/examine(mob/user)
 	..()
 	if(launcher.chambered)
-		to_target(user, "\The [launcher] has \a [launcher.chambered] loaded.")
+		to_chat(user, "\The [launcher] has \a [launcher.chambered] loaded.")
 	else
-		to_target(user, "\The [launcher] is empty.")
+		to_chat(user, "\The [launcher] is empty.")
 
 /obj/item/ammo_magazine/rifle/m16
 	name = "M16 magazine (5.56mm)"
@@ -358,7 +359,7 @@ the sprite and make my own projectile -Glloyd*/
 		list(mode_name="long bursts",	burst=8, fire_delay=null, move_delay=8, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/gun/projectile/automatic/m3/update_icon()
+/obj/item/gun/projectile/automatic/m3/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "M3"
@@ -393,7 +394,7 @@ the sprite and make my own projectile -Glloyd*/
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/pistol/bhp
 
-/obj/item/gun/projectile/bhp9mm/update_icon()
+/obj/item/gun/projectile/bhp9mm/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "brownhp"
@@ -444,7 +445,7 @@ the sprite and make my own projectile -Glloyd*/
 /obj/item/gun/projectile/manualcycle
 	var/bolt_open = 0
 
-/obj/item/gun/projectile/manualcycle/update_icon()
+/obj/item/gun/projectile/manualcycle/on_update_icon()
 	..()
 	if(bolt_open)
 		icon_state = "[initial(icon_state)]_alt"
@@ -456,30 +457,30 @@ the sprite and make my own projectile -Glloyd*/
 	bolt_open = !bolt_open
 	if(bolt_open)
 		if(chambered)
-			to_target(user, "<span class='notice'>You work the bolt open, ejecting [chambered]!</span>")
+			to_chat(user, "<span class='notice'>You work the bolt open, ejecting [chambered]!</span>")
 			chambered.loc = get_turf(src)
 			loaded -= chambered
 			chambered = null
 		else
-			to_target(user, "<span class='notice'>You work the bolt open.</span>")
+			to_chat(user, "<span class='notice'>You work the bolt open.</span>")
 	else
-		to_target(user, "<span class='notice'>You work the bolt closed.</span>")
+		to_chat(user, "<span class='notice'>You work the bolt closed.</span>")
 		bolt_open = 0
 	add_fingerprint(user)
 	update_icon()
 
 /obj/item/gun/projectile/manualcycle/special_check(mob/user)
 	if(bolt_open)
-		to_target(user, "<span class='warning'>You can't fire [src] while the bolt is open!</span>")
+		to_chat(user, "<span class='warning'>You can't fire [src] while the bolt is open!</span>")
 		return 0
 	return ..()
 
-/obj/item/gun/projectile/manualcycle/load_ammo(var/obj/item/A, mob/user)
+/obj/item/gun/projectile/manualcycle/load_ammo(obj/item/A, mob/user)
 	if(!bolt_open)
 		return
 	..()
 
-/obj/item/gun/projectile/manualcycle/unload_ammo(mob/user, var/allow_dump=1)
+/obj/item/gun/projectile/manualcycle/unload_ammo(mob/user, allow_dump=1)
 	if(!bolt_open)
 		return
 	..()
@@ -543,21 +544,21 @@ the sprite and make my own projectile -Glloyd*/
 	item_state = "sawnshotgun"
 	var/buildstate = 0
 
-/obj/item/imprifleframe/update_icon()
+/obj/item/imprifleframe/on_update_icon()
 	icon_state = "308boltframe[buildstate]"
 
 /obj/item/imprifleframe/examine(mob/user)
 	..(user)
 	switch(buildstate)
-		if(1) to_target(user, "It has an unfinished pipe barrel in place on the wooden furniture.")
-		if(2) to_target(user, "It has an unfinished pipe barrel wired in place.")
-		if(3) to_target(user, "It has an unfinished reinforced pipe barrel wired in place.")
-		if(4) to_target(user, "It has a reinforced pipe barrel secured on the wooden furniture.")
-		if(5) to_target(user, "It has an unsecured reciever in place.")
-		if(6) to_target(user, "It has a secured reciever in place.")
-		if(7) to_target(user, "It has an unfinished pipe bolt in place.")
-		if(8) to_target(user, "It has a finished unsecured pipe bolt in place.")
-		if(9) to_target(user, "It has a finished secured bolt in place.")
+		if(1) to_chat(user, "It has an unfinished pipe barrel in place on the wooden furniture.")
+		if(2) to_chat(user, "It has an unfinished pipe barrel wired in place.")
+		if(3) to_chat(user, "It has an unfinished reinforced pipe barrel wired in place.")
+		if(4) to_chat(user, "It has a reinforced pipe barrel secured on the wooden furniture.")
+		if(5) to_chat(user, "It has an unsecured reciever in place.")
+		if(6) to_chat(user, "It has a secured reciever in place.")
+		if(7) to_chat(user, "It has an unfinished pipe bolt in place.")
+		if(8) to_chat(user, "It has a finished unsecured pipe bolt in place.")
+		if(9) to_chat(user, "It has a finished secured bolt in place.")
 
 /obj/item/imprifleframe/attackby(obj/item/W as obj, mob/user as mob)
 	switch(buildstate)
@@ -577,7 +578,7 @@ the sprite and make my own projectile -Glloyd*/
 			if(istype(W,/obj/item/pipe))
 				user.drop_from_inventory(W)
 				qdel(W)
-				to_target(user, "<span class='notice'>You place the piping on the stock.</span>")
+				to_chat(user, "<span class='notice'>You place the piping on the stock.</span>")
 				buildstate++
 				update_icon()
 			return
@@ -585,15 +586,15 @@ the sprite and make my own projectile -Glloyd*/
 			if(istype(W,/obj/item/stack/cable_coil))
 				var/obj/item/stack/cable_coil/C = W
 				if(C.use(10))
-					to_target(user, "<span class='notice'>You secure the barrel to the wooden furniture with wire.</span>")
+					to_chat(user, "<span class='notice'>You secure the barrel to the wooden furniture with wire.</span>")
 					buildstate++
 					update_icon()
 				else
-					to_target(user, "<span class='notice'>You need at least ten segments of cable coil to complete this task.</span>")
+					to_chat(user, "<span class='notice'>You need at least ten segments of cable coil to complete this task.</span>")
 			return
 		if(2)
 			if(istype(W,/obj/item/screwdriver))
-				to_target(user, "<span class='notice'>You further secure the barrel to the wooden furniture.</span>")
+				to_chat(user, "<span class='notice'>You further secure the barrel to the wooden furniture.</span>")
 				buildstate++
 				playsound(src.loc, 'sound/items/Screwdriver2.ogg', 100, 1)
 			return
@@ -601,15 +602,15 @@ the sprite and make my own projectile -Glloyd*/
 			if(istype(W,/obj/item/stack/material) && W.get_material_name() == "plasteel")
 				var/obj/item/stack/material/P = W
 				if(P.use(5))
-					to_target(user, "<span class='notice'>You reinforce the barrel with plasteel.</span>")
+					to_chat(user, "<span class='notice'>You reinforce the barrel with plasteel.</span>")
 					buildstate++
 					playsound(src.loc, 'sound/items/Deconstruct.ogg', 100, 1)
 				else
-					to_target(user, "<span class='notice'>You need at least five plasteel sheets to complete this task.</span>")
+					to_chat(user, "<span class='notice'>You need at least five plasteel sheets to complete this task.</span>")
 			return
 		if(4)
 			if(istype(W,/obj/item/wrench))
-				to_target(user, "<span class='notice'>You secure the reinforced barrel.</span>")
+				to_chat(user, "<span class='notice'>You secure the reinforced barrel.</span>")
 				buildstate++
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 			return
@@ -617,16 +618,16 @@ the sprite and make my own projectile -Glloyd*/
 			if(istype(W,/obj/item/stack/material) && W.get_material_name() == DEFAULT_WALL_MATERIAL)
 				var/obj/item/stack/material/P = W
 				if(P.use(10))
-					to_target(user, "<span class='notice'>You assemble and install a metal reciever onto the frame</span>")
+					to_chat(user, "<span class='notice'>You assemble and install a metal reciever onto the frame</span>")
 					buildstate++
 					update_icon()
 					playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
 			else
-				to_target(user, "<span class='notice'>You need at least ten steel sheets to complete this task.</span>")
+				to_chat(user, "<span class='notice'>You need at least ten steel sheets to complete this task.</span>")
 			return
 		if(6)
 			if(istype(W,/obj/item/screwdriver))
-				to_target(user, "<span class='notice'>You secure the metal reciever.</span>")
+				to_chat(user, "<span class='notice'>You secure the metal reciever.</span>")
 				buildstate++
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 			return
@@ -634,7 +635,7 @@ the sprite and make my own projectile -Glloyd*/
 			if(istype(W,/obj/item/pipe))
 				user.drop_from_inventory(W)
 				qdel(W)
-				to_target(user, "<span class='notice'>You install a bolt on the frame.</span>")
+				to_chat(user, "<span class='notice'>You install a bolt on the frame.</span>")
 				buildstate++
 				playsound(src.loc, 'sound/items/syringeproj.ogg', 100, 1)
 				update_icon()
@@ -643,11 +644,11 @@ the sprite and make my own projectile -Glloyd*/
 			if(istype(W,/obj/item/stack/material/rods))
 				var/obj/item/stack/material/rods/R = W
 				if(R.use(3))
-					to_target(user, "<span class='notice'>You attach the rods to the bolt.</span>")
+					to_chat(user, "<span class='notice'>You attach the rods to the bolt.</span>")
 					buildstate++
 					playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 				else
-					to_target(user, "<span class='notice'>You need at least 3 rods to complete this task.</span>")
+					to_chat(user, "<span class='notice'>You need at least 3 rods to complete this task.</span>")
 			return
 		if(9)
 			if(istype(W,/obj/item/weldingtool))
@@ -655,13 +656,13 @@ the sprite and make my own projectile -Glloyd*/
 				if(T.remove_fuel(5,user))
 					if(!src || !T.isOn()) return
 					playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
-				to_target(user, "<span class='notice'>You secure the improvised rifle's various parts.</span>")
+				to_chat(user, "<span class='notice'>You secure the improvised rifle's various parts.</span>")
 				var/obj/item/gun/projectile/manualcycle/imprifle/emptymag = new /obj/item/gun/projectile/manualcycle/imprifle(get_turf(src))
 				emptymag.loaded = list()
 				qdel(src)
 				return
 			if(istype(W,/obj/item/circular_saw))
-				to_target(user, "<span class='notice'>You saw the barrel on the unfinished improvised rifle down.</span>")
+				to_chat(user, "<span class='notice'>You saw the barrel on the unfinished improvised rifle down.</span>")
 				new /obj/item/imprifleframe/imprifleframesawn(get_turf(src))
 				playsound(src.loc, 'sound/weapons/circsawhit.ogg', 100, 1)
 				qdel(src)
@@ -674,7 +675,7 @@ the sprite and make my own projectile -Glloyd*/
 			if(T.remove_fuel(5,user))
 				if(!src || !T.isOn()) return
 				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
-			to_target(user, "<span class='notice'>You secure the improvised rifle's various parts.</span>")
+			to_chat(user, "<span class='notice'>You secure the improvised rifle's various parts.</span>")
 			var/obj/item/gun/projectile/manualcycle/imprifle/impriflesawn/emptymag = new /obj/item/gun/projectile/manualcycle/imprifle/impriflesawn(get_turf(src))
 			emptymag.loaded = list()
 			qdel(src)
@@ -690,7 +691,7 @@ the sprite and make my own projectile -Glloyd*/
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 1)
 	handle_casings = CYCLE_CASINGS
 	max_shells = 4
-	ammo_type = /obj/item/ammo_casing/shotgun/
+	ammo_type = /obj/item/ammo_casing/shotgun
 
 
 /obj/item/gun/projectile/revolver/shotrevolver/consume_next_projectile()
@@ -699,7 +700,7 @@ the sprite and make my own projectile -Glloyd*/
 		return
 	return ..()
 
-/obj/item/gun/projectile/revolver/shotrevolver/load_ammo(var/obj/item/A, mob/user)
+/obj/item/gun/projectile/revolver/shotrevolver/load_ammo(obj/item/A, mob/user)
 	chamber_offset = 0
 	return ..()
 */
@@ -725,7 +726,7 @@ the sprite and make my own projectile -Glloyd*/
 //	jam_chance = 5
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 /*
-/obj/item/gun/projectile/
+/obj/item/gun/projectile
 	name = ""
 	desc = ""
 	icon = 'icons/urist/items/guns.dmi'
@@ -749,7 +750,7 @@ the sprite and make my own projectile -Glloyd*/
 	caliber = CALIBER_RIFLE_MILITARY
 	origin_tech = "combat=4;materials=1;syndicate=1"
 	slot_flags = SLOT_BACK
-	ammo_type = "/obj/item/ammo_casing/rifle/military"
+	ammo_type = /obj/item/ammo_casing/rifle/military
 	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/rifle/military/spaceak
@@ -762,9 +763,9 @@ the sprite and make my own projectile -Glloyd*/
 		list(mode_name="long bursts",	burst=8, fire_delay=null, move_delay=8, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/gun/projectile/automatic/spaceak/update_icon()
+/obj/item/gun/projectile/automatic/spaceak/on_update_icon()
 	..()
-	if(ammo_magazine && ammo_magazine.stored_ammo.len)
+	if(ammo_magazine && length(ammo_magazine.stored_ammo))
 		icon_state = "sexyrifle"
 	else
 		icon_state = "sexyrifle_empty"
@@ -802,9 +803,9 @@ the sprite and make my own projectile -Glloyd*/
 		list(mode_name="short bursts", 	burst=5, move_delay=6, fire_delay=null, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/gun/projectile/automatic/hi2521smg/update_icon()
+/obj/item/gun/projectile/automatic/hi2521smg/on_update_icon()
 	..()
-	if(ammo_magazine && ammo_magazine.stored_ammo.len)
+	if(ammo_magazine && length(ammo_magazine.stored_ammo))
 		icon_state = "combatSMG"
 	else
 		icon_state = "combatSMG_empty"
@@ -837,7 +838,7 @@ the sprite and make my own projectile -Glloyd*/
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	ammo_type = /obj/item/ammo_casing/pistol
 
-/obj/item/gun/projectile/revolver/coltsaa/update_icon()
+/obj/item/gun/projectile/revolver/coltsaa/on_update_icon()
 	..()
 	if(length(loaded))
 		icon_state = "antiquerevolver"
@@ -873,7 +874,7 @@ the sprite and make my own projectile -Glloyd*/
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	ammo_type = /obj/item/ammo_casing/pistol
 
-/obj/item/gun/projectile/revolver/hi2521r/update_icon()
+/obj/item/gun/projectile/revolver/hi2521r/on_update_icon()
 	..()
 	if(length(loaded))
 		icon_state = "combatrevolver"
@@ -896,12 +897,12 @@ the sprite and make my own projectile -Glloyd*/
 	magazine_type = /obj/item/ammo_magazine/hi2521pistol9mm
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 
-/obj/item/gun/projectile/hi2521pistol/update_icon()
+/obj/item/gun/projectile/hi2521pistol/on_update_icon()
 	..()
 	if(ammo_magazine)
-		icon_state = "crewpistol-[round(ammo_magazine.stored_ammo.len, 2)]"
-		item_state = "crewpistol-[round(ammo_magazine.stored_ammo.len, 2)]"
-		wielded_item_state = "crewpistol-[round(ammo_magazine.stored_ammo.len, 2)]"
+		icon_state = "crewpistol-[round(length(ammo_magazine.stored_ammo), 2)]"
+		item_state = "crewpistol-[round(length(ammo_magazine.stored_ammo), 2)]"
+		wielded_item_state = "crewpistol-[round(length(ammo_magazine.stored_ammo), 2)]"
 	else
 		icon_state = "crewpistol-empty"
 		item_state = "crewpistol-0"

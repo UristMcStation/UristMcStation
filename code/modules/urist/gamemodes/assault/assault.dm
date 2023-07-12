@@ -3,8 +3,9 @@ var/global/gamemode_endstate = 0
 var/global/remaininggens = 6
 
 /datum/game_mode/assault
-	name = "assault"
+	name = "Assault"
 	config_tag = "assault"
+	round_description = "Nyx has been threatened by the ongoing Galactic Crisis, and a large lactera strike force stands ready to assault Urist McStation. As a member of the station, it's your job to defend the station's shield generator against the strike force until all lactera are defeated. For those who late-join, you will be lactera, whose goal is to destroy the shield generator, or wipe out all the station's crew. This is a team gamemode, work with your team to accomplish your goal."
 	required_players = 1 //15
 	var/humansurvivors = 0
 	var/aliensurvivors = 0
@@ -13,13 +14,8 @@ var/global/remaininggens = 6
 	var/maptype = 0 //0 = station, 1 = planet
 	var/defencearea = "the station"
 
-/datum/game_mode/assault/announce()
-	to_world("<B>The current game mode is - Assault!</B>")
-	to_world("<B>Nyx has been threatened by the ongoing Galactic Crisis, and a large lactera strike force stands ready to assault Urist McStation. As a member of the station, it's your job to defend the station's shield generator against the strike force until all lactera are defeated. For those who late-join, you will be lactera, whose goal is to destroy the shield generator, or wipe out all the station's crew. This is a team gamemode, work with your team to accomplish your goal.</B>")
-
-
 /datum/game_mode/assault/pre_setup()
-	to_world("<span class='warning'> Setting up Assault, this may take a minute or two.</span>")
+	report_progress("Setting up Assault, this may take a minute or two.")
 	if(maptype == 1)
 		defencearea = "the planet"
 	return 1
@@ -86,7 +82,7 @@ var/global/remaininggens = 6
 				M.loc = H.loc
 //				qdel(H)
 
-			to_target(M, "<span class='warning'>You are an ANFOR (Allied Naval Forces) marine, part of a joint Nanotrasen/Terran Confederacy task force sent here to defend the station at all costs. It is your job to rally the remaining crewmembers and to stave off the impending attack. Good luck soldier.</span>")
+			to_chat(M, "<span class='warning'>You are an ANFOR (Allied Naval Forces) marine, part of a joint Nanotrasen/Terran Confederacy task force sent here to defend the station at all costs. It is your job to rally the remaining crewmembers and to stave off the impending attack. Good luck soldier.</span>")
 
 	//		else
 	//			return
@@ -137,36 +133,21 @@ var/global/remaininggens = 6
 /datum/game_mode/assault/declare_completion()
 	if(sploded == 0)
 		if(gamemode_endstate == 1)
-			SSstatistics.add_field_details("round_end_result","alien major victory - station crew eliminated")
-			to_world("<span class='danger'> <FONT size = 4>Alien major victory!</font></span>")
-			to_world("<span class='danger'> <FONT size = 3>The aliens have successfully wiped out the station crew and will make short work of the rest of Nyx!</font></span>")
+			to_world(FONT_LARGE("<B>Alien major victory!</B>"))
+			to_world("<B>The aliens have successfully wiped out the station crew and will make short work of the rest of Nyx!</B>")
 		else if(gamemode_endstate == 2)
-			SSstatistics.add_field_details("round_end_result","station major victory - lactera strike force eradicated")
-			to_world("<span class='danger'> <FONT size = 4>Station major victory!</FONT></span>")
-			to_world("<span class='danger'> <FONT size = 3>The station has managed to kill all of the invading lactera strike force, giving ANFOR a secure location in Nyx to defend against the alien threat.</FONT></span>")
+			to_world(FONT_LARGE("<B>Station major victory!</B>"))
+			to_world("The station has managed to kill all of the invading lactera strike force, giving ANFOR a secure location in Nyx to defend against the alien threat.")
 		else if(gamemode_endstate == 3)
-			SSstatistics.add_field_details("round_end_result","alien major victory - the station shield generators have been destroyed.")
-			to_world("<span class='danger'> <FONT size = 3>Alien major victory.</FONT></span>")
-			to_world("<span class='danger'> <FONT size = 3>The station's shield generators have been destroyed! The alien battlecruisers will make short work of the station now.</FONT></span>")
+			to_world(FONT_LARGE("<B>Alien major victory.</B>"))
+			to_world("The station's shield generators have been destroyed! The alien battlecruisers will make short work of the station now.")
 		else if(gamemode_endstate == 4)
-			SSstatistics.add_field_details("round_end_result","draw - the station has been nuked")
-			to_world("<span class='danger'> <FONT size = 3>Draw.</FONT></span>")
-			to_world("<span class='danger'> <FONT size = 3>The station has blown by a nuclear fission device... there are no winners!</FONT></span>")
-
-	..()
-
+			to_world(FONT_LARGE("<B>Draw.</B>"))
+			to_world("The station has blown by a nuclear fission device... there are no winners!")
 	sploded = 1
 
-	spawn(5)
-		to_world("<span class='notice'> Rebooting in fourty five seconds.</span>")
-
-		spawn(450)
-			if(!SSticker.delay_end)
-				world.Reboot()
-			else
-				to_world("<span class='notice'> <B>An admin has delayed the round end</B></span>")
-
-	return 1
+	..()
+	return
 
 /obj/effect/landmark/assault/marinespawn
 	name = "marinespawn"
@@ -177,14 +158,14 @@ var/global/remaininggens = 6
 	invisibility = 101
 
 
-/*/mob/new_player/proc/AssaultRobotLateJoin(var/mob/living/silicon/L)
+/*/mob/new_player/proc/AssaultRobotLateJoin(mob/living/silicon/L)
 	if(L.mind.assigned_role == "Cyborg")
 		L.loc = pick(scomspawn3)
 		for(var/obj/item/cell/cell in L)
 			cell.maxcharge = INFINITY
 			cell.charge = INFINITY*/
 
-/mob/new_player/proc/AssaultLateJoin(var/mob/living/L)
+/mob/new_player/proc/AssaultLateJoin(mob/living/L)
 	if(remaininglactera <= 0)
 		for(var/obj/effect/landmark/assault/lacteraspawn/S in landmarks_list)
 			var/mob/observer/H = new /mob/observer(S.loc)
@@ -205,7 +186,7 @@ var/global/remaininggens = 6
 				H.equip_to_slot_or_del(new /obj/item/gun/energy/lactera/a3(H), slot_r_hand)
 				H.equip_to_slot_or_del(new /obj/item/clothing/glasses/night(H), slot_glasses)
 
-				to_target(H, "<B>You are a lactera officer. Born in a laboratory and raised for the sole purpose of killing, you are a creature genetically modified to be an ideal soldier. You do not feel pain, you do not need to breathe and your feet are implanted with a magnetic traction system. You are a slave to your hivemind, and must lead your fellow lactera to destroy the humans and their shield generator.</B>")
+				to_chat(H, "<B>You are a lactera officer. Born in a laboratory and raised for the sole purpose of killing, you are a creature genetically modified to be an ideal soldier. You do not feel pain, you do not need to breathe and your feet are implanted with a magnetic traction system. You are a slave to your hivemind, and must lead your fellow lactera to destroy the humans and their shield generator.</B>")
 
 			else
 				H.equip_to_slot_or_del(new /obj/item/clothing/under/lactera(H), slot_w_uniform)
@@ -217,7 +198,7 @@ var/global/remaininggens = 6
 				H.equip_to_slot_or_del(new /obj/item/gun/energy/lactera/a2(H), slot_r_hand)
 				H.equip_to_slot_or_del(new /obj/item/clothing/glasses/night(H), slot_glasses)
 
-				to_target(H, "<B>You are a lactera soldier. Born in a laboratory and raised for the sole purpose of killing, you are a creature genetically modified to be an ideal soldier. You do not feel pain, you do not need to breathe and your feet are implanted with a magnetic traction system. You are a slave to your hivemind, and must work with your fellow lactera to destroy the humans and their shield generator.</B>")
+				to_chat(H, "<B>You are a lactera soldier. Born in a laboratory and raised for the sole purpose of killing, you are a creature genetically modified to be an ideal soldier. You do not feel pain, you do not need to breathe and your feet are implanted with a magnetic traction system. You are a slave to your hivemind, and must work with your fellow lactera to destroy the humans and their shield generator.</B>")
 
 			remaininglactera -= 1
 

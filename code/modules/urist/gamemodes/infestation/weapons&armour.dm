@@ -36,13 +36,13 @@
 	if(icon_state == "ANFOR-jumpsuit_shirt")
 		src.icon_state = "ANFOR-jumpsuit"
 		src.item_state = "ANFOR-jumpsuit"
-		to_target(usr, "<span class='notice'>You roll down the sleeves of your BDU.</span>")
+		to_chat(usr, "<span class='notice'>You roll down the sleeves of your BDU.</span>")
 		usr.regenerate_icons()
 
 	else
 		src.icon_state = "ANFOR-jumpsuit_shirt"
 		src.item_state = "ANFOR-jumpsuit_shirt"
-		to_target(usr, "<span class='notice'>You roll up the sleeves of your BDU.</span>")
+		to_chat(usr, "<span class='notice'>You roll up the sleeves of your BDU.</span>")
 		usr.regenerate_icons()
 
 /obj/item/clothing/head/helmet/urist/anfor
@@ -68,11 +68,11 @@
 //	var/obj/item/storage/fancy/cigarettes/cigs
 
 /*
-/obj/item/clothing/head/helmet/urist/anfor/attack_hand(var/mob/living/M)
+/obj/item/clothing/head/helmet/urist/anfor/attack_hand(mob/living/M)
 	if(cigs)
 		cigs.loc = get_turf(src)
 		if(M.put_in_active_hand(cigs))
-			to_target(M, "<span class='notice'>You pull the [cigs] out of the helmet.</span>")
+			to_chat(M, "<span class='notice'>You pull the [cigs] out of the helmet.</span>")
 			cigs = 0
 			src.icon_state = "m10_pbh"
 			M.regenerate_icons()
@@ -80,13 +80,13 @@
 
 	..()
 
-/obj/item/clothing/head/helmet/urist/anfor/attackby(var/obj/item/I, var/mob/living/M)
+/obj/item/clothing/head/helmet/urist/anfor/attackby(obj/item/I, var/mob/living/M)
 	if(istype(I, /obj/item/storage/fancy/cigarettes))
 		if(cigs)	return
 		M.drop_item()
 		cigs = I
 		I.loc = src
-		to_target(M, "<span class='notice'>You slide the [I] into the band of the helmet.</span>")
+		to_chat(M, "<span class='notice'>You slide the [I] into the band of the helmet.</span>")
 		src.icon_state = "m10_pbh_cig"
 		M.regenerate_icons()
 */
@@ -101,11 +101,11 @@
 	siemens_coefficient = 0.7
 	var/obj/item/material/knife/combat/knife
 
-/obj/item/clothing/shoes/urist/anforjackboots/attack_hand(var/mob/living/M)
+/obj/item/clothing/shoes/urist/anforjackboots/attack_hand(mob/living/M)
 	if(knife)
 		knife.loc = get_turf(src)
 		if(M.put_in_active_hand(knife))
-			to_target(M, "<span class='notice'>You pull the [knife] out of the jackboot.</span>")
+			to_chat(M, "<span class='notice'>You pull the [knife] out of the jackboot.</span>")
 			knife = 0
 			src.icon_state = "jackboots"
 			M.regenerate_icons()
@@ -113,13 +113,13 @@
 
 	..()
 
-/obj/item/clothing/shoes/urist/anforjackboots/attackby(var/obj/item/I, var/mob/living/M)
+/obj/item/clothing/shoes/urist/anforjackboots/attackby(obj/item/I, var/mob/living/M)
 	if(istype(I, /obj/item/material/knife/combat))
 		if(knife)	return
 		M.drop_item()
 		knife = I
 		I.loc = src
-		to_target(M, "<span class='notice'>You slide the [I] into of the jackboot.</span>")
+		to_chat(M, "<span class='notice'>You slide the [I] into of the jackboot.</span>")
 		src.icon_state = "jackboots-knife"
 		M.regenerate_icons()
 
@@ -182,7 +182,7 @@
 		list(mode_name="short bursts", burst=5, fire_delay=null, move_delay=6, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/gun/projectile/automatic/a22/update_icon()
+/obj/item/gun/projectile/automatic/a22/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "ANFOR-rifle"
@@ -247,7 +247,7 @@
 
 	toggle_scope(usr, 2.0)
 */
-/obj/item/gun/projectile/a18/update_icon()
+/obj/item/gun/projectile/a18/on_update_icon()
 	..()
 /*
 	if(gl_attach)
@@ -280,7 +280,7 @@
 		if((istype(I, /obj/item/grenade)))
 			launcher.load(I, user)
 		else if(istype(I, /obj/item/wrench))
-			to_target(user, "<span class='notice'>You remove the underslung grenade launcher from the A18.</span>")
+			to_chat(user, "<span class='notice'>You remove the underslung grenade launcher from the A18.</span>")
 			gl_attach = 0
 			firemodes = null
 			firemodes = list(
@@ -317,7 +317,7 @@
 	else if(scoped)
 
 		if(istype(I, /obj/item/wrench))
-			to_target(user, "<span class='notice'>You remove the scope from the A18</span>")
+			to_chat(user, "<span class='notice'>You remove the scope from the A18</span>")
 			scoped = 0
 			update_icon()
 			new /obj/item/gunattachment/scope/a18(user.loc)
@@ -399,7 +399,7 @@
 		list(mode_name="short bursts", 	burst=5, move_delay=6, fire_delay=null, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/gun/projectile/automatic/asmg/update_icon()
+/obj/item/gun/projectile/automatic/asmg/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "ANFOR-SMG"

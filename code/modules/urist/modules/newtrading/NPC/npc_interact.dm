@@ -6,7 +6,7 @@
 
 	attack_hand(usr)
 
-/mob/living/simple_animal/passive/npc/attack_hand(var/mob/living/user)
+/mob/living/simple_animal/passive/npc/attack_hand(mob/living/user)
 	if(user && istype(user) && can_use(user))
 
 		if(interacting_mob && !can_use(interacting_mob))
@@ -25,7 +25,7 @@
 			interacting_mob = user
 			ui_interact(user)
 
-/mob/living/simple_animal/passive/npc/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/mob/living/simple_animal/passive/npc/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, var/force_open = 1)
 
 	if(!can_use(user))
 		close_ui(ui)
@@ -102,7 +102,7 @@
 		ui.open()
 		ui.set_auto_update(1)
 
-/mob/living/simple_animal/passive/npc/proc/close_ui(var/datum/nanoui/ui = null)
+/mob/living/simple_animal/passive/npc/proc/close_ui(datum/nanoui/ui = null)
 	if(ui)
 		ui.close()
 	interacting_mob = null
@@ -142,7 +142,7 @@
 	if(href_list["close"])
 		close_ui()
 
-/mob/living/simple_animal/passive/npc/proc/handle_question(var/mob/living/carbon/user)
+/mob/living/simple_animal/passive/npc/proc/handle_question(mob/living/carbon/user)
 	for(var/trigger in src.speech_triggers)
 
 		var/datum/npc_speech_trigger/S = new trigger

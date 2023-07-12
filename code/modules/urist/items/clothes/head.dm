@@ -158,7 +158,7 @@ to avoid worrying about the sprites -Glloyd*/
 	set category = "Object"
 	set desc = "Show those scum who's boss."
 
-	to_target(usr, "You tip your fedora.")
+	to_chat(usr, "You tip your fedora.")
 	usr.visible_message("[usr] tips \his fedora.")
 
 /obj/item/clothing/head/urist/fez
@@ -256,7 +256,7 @@ to avoid worrying about the sprites -Glloyd*/
 	user.remove_from_mob(src)
 
 	user.put_in_hands(H)
-	to_target(user, "<span class='notice'>You unfold the bandana into a hazardvest.</span>")
+	to_chat(user, "<span class='notice'>You unfold the bandana into a hazardvest.</span>")
 	qdel(src)
 
 /obj/item/clothing/suit/storage/hazardvest/verb/toggle_bandana()
@@ -273,7 +273,7 @@ to avoid worrying about the sprites -Glloyd*/
 
 	user.remove_from_mob(src)
 	user.put_in_hands(H)
-	to_target(user, "<span class='notice'>You fold the hazardvest into a bandana.</span>")
+	to_chat(user, "<span class='notice'>You fold the hazardvest into a bandana.</span>")
 	qdel(src)
 
 //Fallout hats

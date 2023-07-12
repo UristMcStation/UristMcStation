@@ -834,9 +834,7 @@
 	icon_state = "0-8"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/power/generator{
-	anchored = 1
-	},
+/obj/machinery/power/generator,
 /turf/simulated/floor/airless,
 /area/scavver/yachtup)
 "ht" = (
@@ -1121,7 +1119,6 @@
 	dir = 1
 	},
 /obj/machinery/power/port_gen/pacman{
-	anchored = 1;
 	sheets = 25
 	},
 /turf/simulated/floor/tiled/dark/monotile,
@@ -1487,7 +1484,6 @@
 	dir = 4
 	},
 /obj/machinery/power/port_gen/pacman{
-	anchored = 1;
 	sheets = 25
 	},
 /obj/structure/cable{
@@ -2885,7 +2881,6 @@
 "vP" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/binary/circulator{
-	anchored = 1;
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -3672,7 +3667,6 @@
 "Df" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/binary/circulator{
-	anchored = 1;
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -3732,7 +3726,6 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/port_gen/pacman{
-	anchored = 1;
 	sheets = 25
 	},
 /turf/simulated/floor/tiled/white/monotile{
@@ -4151,7 +4144,6 @@
 /area/scavver/yachtup)
 "Ib" = (
 /obj/machinery/power/port_gen/pacman{
-	anchored = 1;
 	sheets = 25
 	},
 /obj/structure/cable{

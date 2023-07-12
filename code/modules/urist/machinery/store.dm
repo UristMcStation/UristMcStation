@@ -25,10 +25,10 @@ var/global/datum/store/centcomm_store=new
 	var/obj/machinery/computer/account_database/linked_db
 
 /datum/store/New()
-	for(var/itempath in typesof(/datum/storeitem) - /datum/storeitem/)
+	for(var/itempath in typesof(/datum/storeitem) - /datum/storeitem)
 		items += new itempath()
 
-/datum/store/proc/charge(var/datum/mind/mind,var/amount,var/datum/storeitem/item)
+/datum/store/proc/charge(datum/mind/mind,var/amount,var/datum/storeitem/item)
 	if(!mind.initial_account)
 		//testing("No initial_account")
 		return 0
@@ -52,7 +52,7 @@ var/global/datum/store/centcomm_store=new
 			linked_db = DB
 			break
 
-/datum/store/proc/PlaceOrder(var/mob/living/usr, var/itemID)
+/datum/store/proc/PlaceOrder(mob/living/usr, var/itemID)
 	// Get our item, first.
 	var/datum/storeitem/item = items[itemID]
 	if(!item)
@@ -70,7 +70,7 @@ var/global/datum/store/centcomm_store=new
 	name = "Merchandise Computer"
 	icon_screen = "comm_logs"
 	light_color = "#00b000"
-	// circuit ="/obj/item/stock_parts/circuitboard/merch"
+	// circuit = /obj/item/stock_parts/circuitboard/merch
 
 /obj/item/stock_parts/circuitboard/merch
 	name = "\improper Merchandise Computer Circuitboard"
@@ -185,7 +185,7 @@ td.cost.toomuch {
 	</table>
 	</body>
 </html>"}
-	to_target(user, browse(dat, "window=merch"))
+	show_browser(user, dat, "window=merch")
 	onclose(user, "merch")
 	return
 
@@ -205,13 +205,13 @@ td.cost.toomuch {
 			updateUsrDialog()
 			return
 		if(!centcomm_store.PlaceOrder(usr,itemID))
-			to_target(usr, "<span class='warning'> Unable to charge your account.</span>")
+			to_chat(usr, "<span class='warning'> Unable to charge your account.</span>")
 		else
-			to_target(usr, "<span class='notice'> You've successfully purchased the item.  It should be in your hands or on the floor.</span>")
+			to_chat(usr, "<span class='notice'> You've successfully purchased the item.  It should be in your hands or on the floor.</span>")
 	src.updateUsrDialog()
 	return
 
-/*/obj/machinery/computer/merch/update_icon()
+/*/obj/machinery/computer/merch/on_update_icon()
 
 	if(stat & BROKEN)
 		icon_state = "comm_logs0"

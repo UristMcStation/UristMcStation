@@ -64,7 +64,7 @@
 	..()
 	newVars["master"] = holder
 
-/spell/aoe_turf/conjure/summon/resomi/take_charge(mob/user = user, var/skipcharge)
+/spell/aoe_turf/conjure/summon/resomi/take_charge(mob/user = user, skipcharge)
 	. = ..()
 	var/mob/living/carbon/human/H = user
 	if(H && H.shock_stage >= 30)

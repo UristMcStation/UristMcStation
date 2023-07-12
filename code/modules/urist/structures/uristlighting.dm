@@ -113,7 +113,7 @@
 	name = "sun"
 	desc = "You really shouldn't be seeing this."
 	invisibility = 101
-	anchored = 1
+	anchored = TRUE
 	light_color = "#fcfcb6"
 	light_max_bright = 1
 	light_outer_range = 127

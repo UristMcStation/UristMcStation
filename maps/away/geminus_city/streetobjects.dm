@@ -110,7 +110,7 @@
 	base_state = "inv"
 //	brightness_range = 8
 
-/obj/structure/grille/smallfence/
+/obj/structure/grille/smallfence
 	icon = 'maps/away/geminus_city/citymap_icons/structures.dmi'
 	name = "small fence"
 	icon_state = "fence"
@@ -127,8 +127,8 @@
 	desc = "A billboard"
 	icon = 'maps/away/geminus_city/citymap_icons/billboards.dmi'
 	icon_state = "billboard"
-	density = 0
-	anchored = 1
+	density = FALSE
+	anchored = TRUE
 	use_power = POWER_USE_ACTIVE
 	idle_power_usage = 2
 	active_power_usage = 20

@@ -29,7 +29,7 @@
 	if(points_per_unit && amount)
 		rep_points = (points_per_unit * amount)
 
-/datum/contract/proc/Complete(var/number = 0)
+/datum/contract/proc/Complete(number = 0)
 	completed += number
 	if(completed >= amount)
 		SSfactions.update_reputation(faction, rep_points)

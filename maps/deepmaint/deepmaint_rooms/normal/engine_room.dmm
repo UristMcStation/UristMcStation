@@ -289,9 +289,7 @@
 	icon_state = "0-8"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/power/generator{
-	anchored = 1
-	},
+/obj/machinery/power/generator,
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
@@ -329,7 +327,6 @@
 "EV" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/binary/circulator{
-	anchored = 1;
 	dir = 8
 	},
 /turf/simulated/floor/tiled/techfloor{
@@ -472,7 +469,6 @@
 "Pd" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/binary/circulator{
-	anchored = 1;
 	dir = 4
 	},
 /turf/simulated/floor/tiled/techfloor{

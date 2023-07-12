@@ -107,10 +107,10 @@ mob/living/simple_animal/hostile/Initialize()
 	Target = PickTarget(Targets)
 	return Target //We now have a target
 
-/mob/living/simple_animal/hostile/proc/Found(var/atom/A)//This is here as a potential override to pick a specific target if available
+/mob/living/simple_animal/hostile/proc/Found(atom/A)//This is here as a potential override to pick a specific target if available
 	return
 
-/mob/living/simple_animal/hostile/proc/PickTarget(var/list/Targets)//Step 3, pick amongst the possible, attackable targets
+/mob/living/simple_animal/hostile/proc/PickTarget(list/Targets)//Step 3, pick amongst the possible, attackable targets
 
 	if(target != null)//If we already have a target, but are told to pick again, calculate the lowest distance between all possible, and pick from the lowest distance targets
 		for(var/atom/A in Targets)
@@ -126,7 +126,7 @@ mob/living/simple_animal/hostile/Initialize()
 
 	return chosen_target
 
-/mob/living/simple_animal/hostile/proc/CanAttack(var/atom/the_target)//Can we actually attack a possible target?
+/mob/living/simple_animal/hostile/proc/CanAttack(atom/the_target)//Can we actually attack a possible target?
 	if(see_invisible < the_target.invisibility)//Target's invisible to us, forget it
 		return 0
 
@@ -155,7 +155,7 @@ mob/living/simple_animal/hostile/Initialize()
 					return 1
 	return 0
 
-/mob/living/simple_animal/hostile/proc/GiveTarget(var/new_target)//Step 4, give us our selected target
+/mob/living/simple_animal/hostile/proc/GiveTarget(new_target)//Step 4, give us our selected target
 	target = new_target
 	if(target != null)
 		Aggro()
@@ -201,14 +201,14 @@ mob/living/simple_animal/hostile/Initialize()
 	LostTarget()
 	return
 
-/mob/living/simple_animal/hostile/proc/Goto(var/atom/target, var/delay, var/minimum_distance)
+/mob/living/simple_animal/hostile/proc/Goto(atom/target, var/delay, var/minimum_distance)
 	if(get_dist(src, target.loc) > minimum_distance)
 		if(step_towards(src, target)) //weird but necessary so they try to bump openable obstacles
 			walk_to(src, target, minimum_distance, delay)
 		else
 			DestroySurroundings(directions=list(get_dir(src,target)))
 
-/mob/living/simple_animal/hostile/adjustBruteLoss(var/damage)
+/mob/living/simple_animal/hostile/adjustBruteLoss(damage)
 	..(damage)
 	if(!stat && search_objects < 3)//Not unconscious, and we don't ignore mobs
 		if(search_objects)//Turn off item searching and ignore whatever item we were looking at, we're more concerned with fight or flight
@@ -275,7 +275,7 @@ mob/living/simple_animal/hostile/Initialize()
 	..(gibbed, deathmessage, show_dead_message)
 	walk(src, 0)
 
-/mob/living/simple_animal/hostile/proc/OpenFire(var/atom/the_target)
+/mob/living/simple_animal/hostile/proc/OpenFire(atom/the_target)
 
 	var/atom/target = the_target
 	var/atom/targloc = target.loc
@@ -303,7 +303,7 @@ mob/living/simple_animal/hostile/Initialize()
 	ranged_cooldown = ranged_cooldown_cap
 	return
 
-/mob/living/simple_animal/hostile/proc/Shoot(var/atom/target, var/start, var/user, var/bullet = 0)
+/mob/living/simple_animal/hostile/proc/Shoot(atom/target, var/start, var/user, var/bullet = 0)
 	if(target == start)
 		return
 
@@ -315,7 +315,7 @@ mob/living/simple_animal/hostile/Initialize()
 			var/def_zone = get_exposed_defense_zone(target)
 			A.launch(target, def_zone)
 
-/mob/living/simple_animal/hostile/proc/DestroySurroundings(var/forced=0, var/list/directions=null, var/special_attacktext=null)
+/mob/living/simple_animal/hostile/proc/DestroySurroundings(forced=0, var/list/directions=null, var/special_attacktext=null)
 	if(environment_smash && (forced || prob(break_stuff_probability)))
 		var/attackmsg = special_attacktext || src.attacktext
 
@@ -365,7 +365,7 @@ mob/living/simple_animal/hostile/Initialize()
 					return
 	return
 
-/mob/living/simple_animal/hostile/proc/pry_door(var/mob/user, var/delay, var/obj/machinery/door/pesky_door)
+/mob/living/simple_animal/hostile/proc/pry_door(mob/user, var/delay, var/obj/machinery/door/pesky_door)
 	visible_message("<span class='warning'>\The [user] begins [pry_desc] at \the [pesky_door]!</span>")
 	stop_automation = TRUE
 	if(do_after(user, delay, pesky_door))
@@ -385,7 +385,7 @@ mob/living/simple_animal/hostile/Initialize()
 
 	return
 
-/mob/living/simple_animal/hostile/proc/FindHidden(var/atom/hidden_target)
+/mob/living/simple_animal/hostile/proc/FindHidden(atom/hidden_target)
 	if(istype(target.loc, /obj/structure/closet) || istype(target.loc, /obj/machinery/disposal) || istype(target.loc, /obj/machinery/sleeper))
 		return 1
 	else
@@ -432,7 +432,7 @@ mob/living/simple_animal/hostile/Initialize()
 				horde()*/
 
 /* Lets player-controlled ranged SAs shoot. Finally. */
-/mob/living/simple_animal/hostile/RangedAttack(var/atom/A)
+/mob/living/simple_animal/hostile/RangedAttack(atom/A)
 	if(ranged)
 		var/targloc = A.loc
 		if(ranged_cooldown <= 0)

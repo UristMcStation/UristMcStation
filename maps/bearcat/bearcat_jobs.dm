@@ -8,7 +8,7 @@
 	supervisors = "the Merchant Code and your conscience"
 	outfit_type = /singleton/hierarchy/outfit/job/bearcat/captain
 
-/datum/job/captain/equip(var/mob/living/carbon/human/H)
+/datum/job/captain/equip(mob/living/carbon/human/H)
 	. = ..()
 	if(H.client)
 		H.client.verbs += /client/proc/rename_ship
@@ -96,7 +96,7 @@
 // OUTFITS
 #define BEARCAT_OUTFIT_JOB_NAME(job_name) ("Bearcat - Job - " + job_name)
 
-/singleton/hierarchy/outfit/job/bearcat/
+/singleton/hierarchy/outfit/job/bearcat
 	hierarchy_type = /singleton/hierarchy/outfit/job/bearcat
 	pda_type = /obj/item/modular_computer/pda
 	pda_slot = slot_l_store
@@ -112,7 +112,7 @@
 	id_types = list(/obj/item/card/id/gold)
 
 
-/singleton/hierarchy/outfit/job/bearcat/captain/post_equip(var/mob/living/carbon/human/H)
+/singleton/hierarchy/outfit/job/bearcat/captain/post_equip(mob/living/carbon/human/H)
 	..()
 	var/obj/item/clothing/uniform = H.w_uniform
 	if(uniform)

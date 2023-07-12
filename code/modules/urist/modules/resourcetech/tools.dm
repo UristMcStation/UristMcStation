@@ -84,7 +84,7 @@
 		update_icon()
 		new /obj/item/gunattachment/scope/huntrifle(user.loc)
 
-/obj/item/gun/projectile/manualcycle/hunterrifle/update_icon()
+/obj/item/gun/projectile/manualcycle/hunterrifle/on_update_icon()
 	if(scoped)
 		if(bolt_open)
 			icon_state = "scopedhuntrifle_alt"

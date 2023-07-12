@@ -57,7 +57,6 @@
 /area/planet/abandoned_colony)
 "ak" = (
 /obj/structure/hygiene/shower{
-	tag = "icon-shower (WEST)";
 	icon_state = "shower";
 	dir = 8;
 	pixel_x = 5
@@ -70,9 +69,7 @@
 "am" = (
 /turf/simulated/floor/fixed/uristturf/geminus{
 	color = "#cccccc";
-	icon_state = "square_grey";
-	tag = "icon-tiled1"
-	},
+	icon_state = "square_grey"	},
 /area/planet/abandoned_colony)
 "an" = (
 /obj/structure/hygiene/sink{
@@ -107,24 +104,20 @@
 "as" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "at" = (
 /obj/machinery/light/colored{
-	tag = "icon-yellow1 (NORTH)";
 	icon_state = "yellow1";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "au" = (
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -132,7 +125,6 @@
 /obj/structure/table/steel,
 /obj/item/storage/belt/utility,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-redyellowfull";
 	icon_state = "redyellowfull"
 	},
 /area/planet/abandoned_colony)
@@ -145,12 +137,10 @@
 	},
 /obj/item/clothing/head/soft,
 /obj/machinery/light/colored{
-	tag = "icon-yellow1 (NORTH)";
 	icon_state = "yellow1";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-redyellowfull";
 	icon_state = "redyellowfull"
 	},
 /area/planet/abandoned_colony)
@@ -163,7 +153,6 @@
 	},
 /obj/item/hand_labeler,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-redyellowfull";
 	icon_state = "redyellowfull"
 	},
 /area/planet/abandoned_colony)
@@ -171,13 +160,11 @@
 /obj/structure/table/steel,
 /obj/machinery/cell_charger,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-redyellowfull";
 	icon_state = "redyellowfull"
 	},
 /area/planet/abandoned_colony)
 "az" = (
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-redyellowfull";
 	icon_state = "redyellowfull"
 	},
 /area/planet/abandoned_colony)
@@ -196,7 +183,6 @@
 	eftpos_name = "Cargo Bay EFTPOS scanner"
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-redyellowfull";
 	icon_state = "redyellowfull"
 	},
 /area/planet/abandoned_colony)
@@ -235,8 +221,7 @@
 /obj/random/trash,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	color = "#cccccc";
-	icon_state = "square_grey";
-	tag = "icon-tiled1"
+	icon_state = "square_grey"
 	},
 /area/planet/abandoned_colony)
 "aJ" = (
@@ -256,14 +241,12 @@
 "aM" = (
 /obj/machinery/door/airlock,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-techfloor_white";
 	icon_state = "techfloor_white"
 	},
 /area/planet/abandoned_colony)
 "aN" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-redyellowfull";
 	icon_state = "redyellowfull"
 	},
 /area/planet/abandoned_colony)
@@ -293,7 +276,6 @@
 /area/planet/abandoned_colony)
 "aT" = (
 /obj/machinery/light/colored{
-	tag = "icon-yellow1 (EAST)";
 	icon_state = "yellow1";
 	dir = 4
 	},
@@ -302,7 +284,6 @@
 	name = "ammunition crate"
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -312,20 +293,17 @@
 	name = "ammunition crate"
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "aV" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "aW" = (
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (NORTHWEST)";
 	icon_state = "warning";
 	dir = 9
 	},
@@ -333,7 +311,6 @@
 /area/planet/abandoned_colony)
 "aX" = (
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (NORTH)";
 	icon_state = "warning";
 	dir = 1
 	},
@@ -341,7 +318,6 @@
 /area/planet/abandoned_colony)
 "aY" = (
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (NORTHEAST)";
 	icon_state = "warning";
 	dir = 5
 	},
@@ -361,7 +337,6 @@
 /area/planet/abandoned_colony)
 "bb" = (
 /obj/machinery/light/colored/green{
-	tag = "icon-green1 (NORTH)";
 	icon_state = "green1";
 	dir = 1
 	},
@@ -390,7 +365,6 @@
 "bg" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -408,7 +382,6 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-redyellowfull";
 	icon_state = "redyellowfull"
 	},
 /area/planet/abandoned_colony)
@@ -418,7 +391,6 @@
 	name = "cargo service switch"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (WEST)";
 	icon_state = "warning";
 	dir = 8
 	},
@@ -433,7 +405,6 @@
 /area/planet/abandoned_colony)
 "bl" = (
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (EAST)";
 	icon_state = "warning";
 	dir = 4
 	},
@@ -446,7 +417,6 @@
 	pixel_y = -5
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-redyellowfull";
 	icon_state = "redyellowfull"
 	},
 /area/planet/abandoned_colony)
@@ -468,8 +438,7 @@
 /obj/random/junk,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	color = "#cccccc";
-	icon_state = "square_grey";
-	tag = "icon-tiled1"
+	icon_state = "square_grey"
 	},
 /area/planet/abandoned_colony)
 "br" = (
@@ -478,12 +447,10 @@
 /area/planet/abandoned_colony)
 "bs" = (
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (NORTH)";
 	icon_state = "warning";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -493,14 +460,12 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "bu" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-redyellowfull";
 	icon_state = "redyellowfull"
 	},
 /area/planet/abandoned_colony)
@@ -508,7 +473,6 @@
 /obj/machinery/door/window/southleft,
 /obj/structure/table/reinforced,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-redyellowfull";
 	icon_state = "redyellowfull"
 	},
 /area/planet/abandoned_colony)
@@ -581,19 +545,16 @@
 /area/planet/abandoned_colony)
 "bI" = (
 /obj/machinery/light/colored{
-	tag = "icon-yellow1 (EAST)";
 	icon_state = "yellow1";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-redyellowfull";
 	icon_state = "redyellowfull"
 	},
 /area/planet/abandoned_colony)
 "bJ" = (
 /obj/machinery/door/airlock,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -603,18 +564,15 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "bL" = (
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
 /obj/effect/floor_decal/corner/pink{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -622,7 +580,6 @@
 /area/planet/abandoned_colony)
 "bM" = (
 /obj/effect/floor_decal/corner/pink{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -631,7 +588,6 @@
 "bN" = (
 /obj/effect/floor_decal/industrial/loading,
 /obj/effect/floor_decal/corner/pink{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -639,12 +595,10 @@
 /area/planet/abandoned_colony)
 "bO" = (
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
 /obj/effect/floor_decal/corner/pink{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -676,7 +630,6 @@
 /obj/item/storage/bag/plasticbag,
 /obj/item/storage/bag/plasticbag,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -684,7 +637,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -694,18 +646,15 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "bW" = (
 /obj/machinery/light/colored{
-	tag = "icon-yellow1 (WEST)";
 	icon_state = "yellow1";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -715,7 +664,6 @@
 	icon_state = "innermiddle"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedvertical";
 	icon_state = "dottedvertical"
 	},
 /area/planet/abandoned_colony)
@@ -725,12 +673,10 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/colored{
-	tag = "icon-yellow1 (EAST)";
 	icon_state = "yellow1";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -747,14 +693,12 @@
 /area/planet/abandoned_colony)
 "cb" = (
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-techfloor_white";
 	icon_state = "techfloor_white"
 	},
 /area/planet/abandoned_colony)
 "cc" = (
 /obj/machinery/door/blast/shutters,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -764,7 +708,6 @@
 /area/planet/abandoned_colony)
 "ce" = (
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (SOUTHWEST)";
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -772,7 +715,6 @@
 /area/planet/abandoned_colony)
 "cf" = (
 /obj/effect/floor_decal/corner/beige/three_quarters{
-	tag = "icon-corner_white_three_quarters (WEST)";
 	icon_state = "corner_white_three_quarters";
 	dir = 8
 	},
@@ -780,7 +722,6 @@
 /area/planet/abandoned_colony)
 "cg" = (
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -788,7 +729,6 @@
 /area/planet/abandoned_colony)
 "ch" = (
 /obj/effect/floor_decal/corner/beige/three_quarters{
-	tag = "icon-corner_white_three_quarters (NORTH)";
 	icon_state = "corner_white_three_quarters";
 	dir = 1
 	},
@@ -796,7 +736,6 @@
 /area/planet/abandoned_colony)
 "ci" = (
 /obj/effect/floor_decal/corner/beige/three_quarters{
-	tag = "icon-corner_white_three_quarters (EAST)";
 	icon_state = "corner_white_three_quarters";
 	dir = 4
 	},
@@ -810,8 +749,7 @@
 /obj/machinery/door/airlock/glass,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	color = "#cccccc";
-	icon_state = "square_grey";
-	tag = "icon-tiled1"
+	icon_state = "square_grey"
 	},
 /area/planet/abandoned_colony)
 "cl" = (
@@ -822,8 +760,7 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	color = "#cccccc";
-	icon_state = "square_grey";
-	tag = "icon-tiled1"
+	icon_state = "square_grey"
 	},
 /area/planet/abandoned_colony)
 "cn" = (
@@ -838,14 +775,12 @@
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	color = "#cccccc";
-	icon_state = "square_grey";
-	tag = "icon-tiled1"
+	icon_state = "square_grey"
 	},
 /area/planet/abandoned_colony)
 "cp" = (
 /obj/machinery/light/street,
 /turf/simulated/floor/pavement{
-	tag = "icon-pavement (WEST)";
 	icon_state = "pavement";
 	dir = 8
 	},
@@ -855,12 +790,10 @@
 /area/planet/abandoned_colony)
 "cr" = (
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
 /obj/machinery/light/colored{
-	tag = "icon-yellow1 (WEST)";
 	icon_state = "yellow1";
 	dir = 8
 	},
@@ -868,12 +801,10 @@
 /area/planet/abandoned_colony)
 "cs" = (
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
 /obj/machinery/light/colored{
-	tag = "icon-yellow1 (EAST)";
 	icon_state = "yellow1";
 	dir = 4
 	},
@@ -891,8 +822,7 @@
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	color = "#cccccc";
-	icon_state = "square_grey";
-	tag = "icon-tiled1"
+	icon_state = "square_grey"
 	},
 /area/planet/abandoned_colony)
 "cw" = (
@@ -911,7 +841,6 @@
 /area/planet/abandoned_colony)
 "cz" = (
 /turf/unsimulated/wall/urist/other{
-	tag = "icon-3,15 (NORTHWEST)";
 	icon_state = "3,15";
 	dir = 9
 	},
@@ -935,7 +864,6 @@
 /area/planet/abandoned_colony)
 "cE" = (
 /turf/unsimulated/wall/urist/other{
-	tag = "icon-3,15";
 	icon_state = "3,15";
 	dir = 2
 	},
@@ -955,8 +883,7 @@
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	color = "#cccccc";
-	icon_state = "square_grey";
-	tag = "icon-tiled1"
+	icon_state = "square_grey"
 	},
 /area/planet/abandoned_colony)
 "cI" = (
@@ -966,14 +893,12 @@
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "cJ" = (
 /obj/machinery/vending/boozeomat,
 /obj/machinery/light/colored/green{
-	tag = "icon-green1 (NORTH)";
 	icon_state = "green1";
 	dir = 1
 	},
@@ -981,24 +906,20 @@
 /area/planet/abandoned_colony)
 "cK" = (
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "tiles1";
-	tag = "icon-freezerfloor"
+	icon_state = "tiles1"
 	},
 /area/planet/abandoned_colony)
 "cL" = (
 /obj/machinery/light/colored/green{
-	tag = "icon-green1 (NORTH)";
 	icon_state = "green1";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "tiles1";
-	tag = "icon-freezerfloor"
+	icon_state = "tiles1"
 	},
 /area/planet/abandoned_colony)
 "cM" = (
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-outertile";
 	icon_state = "outertile"
 	},
 /area/planet/abandoned_colony)
@@ -1006,8 +927,7 @@
 /mob/living/simple_animal/hostile/scom/husk,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	color = "#cccccc";
-	icon_state = "square_grey";
-	tag = "icon-tiled1"
+	icon_state = "square_grey"
 	},
 /area/planet/abandoned_colony)
 "cO" = (
@@ -1017,15 +937,13 @@
 "cP" = (
 /obj/machinery/door/airlock,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "cQ" = (
 /obj/machinery/light/floor,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "tiles1";
-	tag = "icon-freezerfloor"
+	icon_state = "tiles1"
 	},
 /area/planet/abandoned_colony)
 "cR" = (
@@ -1035,8 +953,7 @@
 "cS" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "tiles1";
-	tag = "icon-freezerfloor"
+	icon_state = "tiles1"
 	},
 /area/planet/abandoned_colony)
 "cT" = (
@@ -1056,8 +973,7 @@
 /obj/effect/urist/spawn_bomb/abandoned,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	color = "#cccccc";
-	icon_state = "square_grey";
-	tag = "icon-tiled1"
+	icon_state = "square_grey"
 	},
 /area/planet/abandoned_colony)
 "cW" = (
@@ -1142,13 +1058,11 @@
 /area/planet/abandoned_colony)
 "di" = (
 /obj/machinery/light/colored{
-	tag = "icon-yellow1 (EAST)";
 	icon_state = "yellow1";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "tiles1";
-	tag = "icon-freezerfloor"
+	icon_state = "tiles1"
 	},
 /area/planet/abandoned_colony)
 "dj" = (
@@ -1160,7 +1074,6 @@
 "dk" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-dark";
 	icon_state = "dark"
 	},
 /area/planet/abandoned_colony)
@@ -1179,16 +1092,14 @@
 "dn" = (
 /obj/machinery/light/colored/green,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "tiles1";
-	tag = "icon-freezerfloor"
+	icon_state = "tiles1"
 	},
 /area/planet/abandoned_colony)
 "do" = (
 /obj/machinery/jukebox,
 /obj/machinery/light/overhead_blue,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "tiles1";
-	tag = "icon-freezerfloor"
+	icon_state = "tiles1"
 	},
 /area/planet/abandoned_colony)
 "dp" = (
@@ -1231,7 +1142,6 @@
 "dv" = (
 /obj/machinery/door/airlock/multi_tile/glass,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -1254,14 +1164,12 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "dA" = (
 /obj/item/stool/bar/padded,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -1272,7 +1180,6 @@
 	},
 /obj/item/stool/bar/padded,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -1305,14 +1212,12 @@
 	},
 /obj/structure/reagent_dispensers/beerkeg,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "dH" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -1323,13 +1228,11 @@
 /area/planet/abandoned_colony)
 "dJ" = (
 /obj/machinery/light/colored{
-	tag = "icon-yellow1 (WEST)";
 	icon_state = "yellow1";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "tiles1";
-	tag = "icon-freezerfloor"
+	icon_state = "tiles1"
 	},
 /area/planet/abandoned_colony)
 "dK" = (
@@ -1340,8 +1243,7 @@
 /obj/machinery/door/airlock,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	color = "#cccccc";
-	icon_state = "square_grey";
-	tag = "icon-tiled1"
+	icon_state = "square_grey"
 	},
 /area/planet/abandoned_colony)
 "dM" = (
@@ -1349,7 +1251,6 @@
 	name = "Bar Backroom"
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -1392,22 +1293,19 @@
 /obj/structure/table/standard,
 /obj/machinery/door/blast/shutters,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "dT" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "dU" = (
 /obj/structure/reagent_dispensers/beerkeg,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "dV" = (
@@ -1416,14 +1314,12 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "dW" = (
 /obj/structure/closet/chefcloset,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -1435,7 +1331,6 @@
 /obj/item/clothing/under/sl_suit,
 /obj/item/clothing/under/waiter,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -1449,14 +1344,12 @@
 /obj/machinery/vending/boozeomat,
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "ea" = (
 /obj/machinery/smartfridge/drinks,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -1523,8 +1416,7 @@
 /area/planet/abandoned_colony)
 "el" = (
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "em" = (
@@ -1534,13 +1426,11 @@
 	},
 /obj/structure/kitchenspike,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "en" = (
 /obj/structure/bed/chair/couch/left{
-	tag = "icon-couch_left (NORTH)";
 	icon_state = "couch_left";
 	dir = 1
 	},
@@ -1548,7 +1438,6 @@
 /area/planet/abandoned_colony)
 "eo" = (
 /obj/structure/bed/chair/couch/right{
-	tag = "icon-couch_right (NORTH)";
 	icon_state = "couch_right";
 	dir = 1
 	},
@@ -1568,8 +1457,7 @@
 	pixel_y = 8
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "er" = (
@@ -1599,21 +1487,18 @@
 "ev" = (
 /obj/machinery/cooker/fryer,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "ew" = (
 /obj/structure/table/reinforced,
 /obj/machinery/microwave,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "ex" = (
 /obj/structure/cryofeed{
-	tag = "icon-cryo_rear (EAST)";
 	icon_state = "cryo_rear";
 	dir = 4
 	},
@@ -1622,7 +1507,6 @@
 "ey" = (
 /obj/random/ammo_magazine_smug,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -1632,7 +1516,6 @@
 "eA" = (
 /obj/random/ammo,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -1646,13 +1529,11 @@
 	icon_state = "innermiddle"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-doublehorizontal";
 	icon_state = "doublehorizontal"
 	},
 /area/planet/abandoned_colony)
 "eD" = (
 /obj/machinery/light/colored{
-	tag = "icon-yellow1 (NORTH)";
 	icon_state = "yellow1";
 	dir = 1
 	},
@@ -1660,8 +1541,7 @@
 	desc = "An inert man-sized pod for entering suspended animation.";
 	dir = 4;
 	icon_state = "body_scanner_1";
-	name = "inert cryogenic freezer";
-	tag = "icon-cryo_rear (EAST)"
+	name = "inert cryogenic freezer"
 	},
 /turf/simulated/floor/lino,
 /area/planet/abandoned_colony)
@@ -1678,8 +1558,7 @@
 	name = "Kitchen"
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "eG" = (
@@ -1691,8 +1570,7 @@
 "eH" = (
 /obj/structure/table/woodentable/walnut,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "eI" = (
@@ -1741,7 +1619,6 @@
 "eP" = (
 /mob/living/simple_animal/hostile/scom/lactera/leader,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -1758,7 +1635,6 @@
 /obj/item/reagent_containers/food/drinks/bottle/goldschlager,
 /obj/structure/table/woodentable/walnut,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -1790,7 +1666,6 @@
 /obj/structure/table/woodentable/walnut,
 /obj/machinery/chemical_dispenser/bar_alc/full,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -1815,7 +1690,6 @@
 /obj/machinery/chemical_dispenser/bar_coffee/full,
 /obj/machinery/light/colored/orange,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -1842,7 +1716,6 @@
 /obj/machinery/chemical_dispenser/bar_soft/full,
 /obj/structure/table/woodentable/walnut,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -1851,7 +1724,6 @@
 /obj/structure/table/woodentable/walnut,
 /obj/machinery/reagentgrinder,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -1878,21 +1750,18 @@
 "fl" = (
 /obj/structure/bed/chair/couch/left,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-bar";
 	icon_state = "bar"
 	},
 /area/planet/abandoned_colony)
 "fm" = (
 /obj/structure/bed/chair/couch/middle,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-bar";
 	icon_state = "bar"
 	},
 /area/planet/abandoned_colony)
 "fn" = (
 /obj/structure/bed/chair/couch/right,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-bar";
 	icon_state = "bar"
 	},
 /area/planet/abandoned_colony)
@@ -1907,32 +1776,27 @@
 /area/planet/abandoned_colony)
 "fq" = (
 /obj/machinery/light/colored{
-	tag = "icon-yellow1 (NORTH)";
 	icon_state = "yellow1";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-bar";
 	icon_state = "bar"
 	},
 /area/planet/abandoned_colony)
 "fr" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-bar";
 	icon_state = "bar"
 	},
 /area/planet/abandoned_colony)
 "fs" = (
 /mob/living/simple_animal/hostile/scom/lactera/light,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-redyellowfull";
 	icon_state = "redyellowfull"
 	},
 /area/planet/abandoned_colony)
 "ft" = (
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-bar";
 	icon_state = "bar"
 	},
 /area/planet/abandoned_colony)
@@ -2016,7 +1880,6 @@
 "fH" = (
 /obj/machinery/light/colored,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-bar";
 	icon_state = "bar"
 	},
 /area/planet/abandoned_colony)
@@ -2061,7 +1924,6 @@
 "fP" = (
 /obj/structure/hygiene/toilet,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-whiteblue (WEST)";
 	icon_state = "whiteblue";
 	dir = 8
 	},
@@ -2077,7 +1939,6 @@
 "fS" = (
 /obj/structure/hygiene/toilet,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-whitered (WEST)";
 	icon_state = "whitered";
 	dir = 8
 	},
@@ -2107,28 +1968,24 @@
 /area/planet/abandoned_colony)
 "fX" = (
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-whiteblue (WEST)";
 	icon_state = "whiteblue";
 	dir = 8
 	},
 /area/planet/abandoned_colony)
 "fY" = (
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-whiteblue (EAST)";
 	icon_state = "whiteblue";
 	dir = 4
 	},
 /area/planet/abandoned_colony)
 "fZ" = (
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-whitered (WEST)";
 	icon_state = "whitered";
 	dir = 8
 	},
 /area/planet/abandoned_colony)
 "ga" = (
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-whitered (EAST)";
 	icon_state = "whitered";
 	dir = 4
 	},
@@ -2144,7 +2001,6 @@
 "gd" = (
 /obj/machinery/vending/cigarette,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-bar";
 	icon_state = "bar"
 	},
 /area/planet/abandoned_colony)
@@ -2156,14 +2012,12 @@
 "gf" = (
 /obj/machinery/vending/coffee,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-bar";
 	icon_state = "bar"
 	},
 /area/planet/abandoned_colony)
 "gg" = (
 /obj/machinery/vending/snack,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-bar";
 	icon_state = "bar"
 	},
 /area/planet/abandoned_colony)
@@ -2187,7 +2041,6 @@
 	pixel_y = 2
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-whiteblue (WEST)";
 	icon_state = "whiteblue";
 	dir = 8
 	},
@@ -2197,11 +2050,8 @@
 /turf/simulated/floor/tiled/white,
 /area/planet/abandoned_colony)
 "gl" = (
-/obj/structure/closet/crate/bin{
-	anchored = 1
-	},
+/obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-whiteblue (EAST)";
 	icon_state = "whiteblue";
 	dir = 4
 	},
@@ -2214,17 +2064,13 @@
 	pixel_y = 2
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-whitered (WEST)";
 	icon_state = "whitered";
 	dir = 8
 	},
 /area/planet/abandoned_colony)
 "gn" = (
-/obj/structure/closet/crate/bin{
-	anchored = 1
-	},
+/obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-whitered (EAST)";
 	icon_state = "whitered";
 	dir = 4
 	},
@@ -2261,7 +2107,6 @@
 /area/planet/abandoned_colony)
 "gs" = (
 /obj/machinery/light/colored{
-	tag = "icon-yellow1 (NORTH)";
 	icon_state = "yellow1";
 	dir = 1
 	},
@@ -2276,7 +2121,6 @@
 /area/planet/abandoned_colony)
 "gu" = (
 /obj/machinery/light/colored{
-	tag = "icon-yellow1 (NORTH)";
 	icon_state = "yellow1";
 	dir = 1
 	},
@@ -2294,14 +2138,12 @@
 	},
 /turf/simulated/floor/fixed/uristturf/geminus{
 	color = "#cccccc";
-	icon_state = "square_grey";
-	tag = "icon-tiled1"
+	icon_state = "square_grey"
 	},
 /area/planet/abandoned_colony)
 "gx" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -2317,7 +2159,6 @@
 /area/planet/abandoned_colony)
 "gz" = (
 /obj/machinery/light/small/red{
-	tag = "icon-firelight1";
 	icon_state = "firelight1";
 	dir = 2
 	},
@@ -2325,25 +2166,21 @@
 /area/planet/abandoned_colony)
 "gA" = (
 /obj/machinery/light/colored{
-	tag = "icon-yellow1 (NORTH)";
 	icon_state = "yellow1";
 	dir = 1
 	},
 /obj/structure/table/woodentable/walnut,
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-06";
-	pixel_y = 10;
-	tag = "icon-plant-06"
+	pixel_y = 10
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-bar";
 	icon_state = "bar"
 	},
 /area/planet/abandoned_colony)
 "gB" = (
 /obj/machinery/seed_extractor,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -2372,41 +2209,35 @@
 "gD" = (
 /obj/machinery/cooker/grill,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "gE" = (
 /obj/machinery/chemical_dispenser/full,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "gF" = (
 /obj/machinery/chem_master,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "gG" = (
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-06";
-	pixel_y = 10;
-	tag = "icon-plant-06"
+	pixel_y = 10
 	},
 /obj/structure/table/woodentable/walnut,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-bar";
 	icon_state = "bar"
 	},
 /area/planet/abandoned_colony)
 "gH" = (
 /obj/machinery/smartfridge/drinks,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "gI" = (
@@ -2414,22 +2245,19 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "gJ" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "gK" = (
 /obj/item/stool,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -2437,11 +2265,9 @@
 /obj/structure/table/woodentable/walnut,
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-06";
-	pixel_y = 10;
-	tag = "icon-plant-06"
+	pixel_y = 10
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-bar";
 	icon_state = "bar"
 	},
 /area/planet/abandoned_colony)
@@ -2467,8 +2293,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "gR" = (
@@ -2482,8 +2307,7 @@
 	name = "Bar Backroom"
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "gT" = (
@@ -2492,7 +2316,6 @@
 	},
 /obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -2501,18 +2324,15 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "gV" = (
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (WEST)";
 	icon_state = "warning";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -2525,15 +2345,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "gY" = (
 /obj/machinery/atmospherics/unary/tank/nitrous_oxide,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "gZ" = (
@@ -2543,8 +2361,7 @@
 /obj/item/reagent_containers/syringe/steroid,
 /obj/item/reagent_containers/syringe/steroid,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "ha" = (
@@ -2552,8 +2369,7 @@
 /obj/item/clothing/suit/surgicalapron,
 /obj/item/clothing/suit/surgicalapron,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "hb" = (
@@ -2566,15 +2382,13 @@
 /obj/item/clothing/mask/gas/half,
 /obj/item/clothing/mask/gas/half,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "hc" = (
 /obj/item/stool/bar/padded,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "hd" = (
@@ -2585,8 +2399,7 @@
 /obj/item/clothing/under/sl_suit,
 /obj/item/clothing/under/waiter,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "he" = (
@@ -2595,7 +2408,6 @@
 	},
 /obj/structure/closet/crate/hydroponics/prespawned,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -2605,7 +2417,6 @@
 	},
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -2613,14 +2424,12 @@
 /obj/structure/table/rack,
 /obj/random/contraband,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "hh" = (
 /obj/machinery/door/unpowered/simple/wood,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -2628,8 +2437,7 @@
 /obj/structure/table/standard,
 /obj/item/storage/box/donkpocket_mixed,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "hj" = (
@@ -2638,16 +2446,14 @@
 	id = "barwindow"
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "hk" = (
 /obj/structure/table/standard,
 /obj/random/smokes,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "hl" = (
@@ -2656,7 +2462,6 @@
 	},
 /obj/structure/closet/crate/freezer,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -2683,26 +2488,22 @@
 	},
 /obj/item/reagent_containers/syringe/steroid,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "hn" = (
 /obj/machinery/light/small,
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (WEST)";
 	icon_state = "warning";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "ho" = (
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -2720,7 +2521,6 @@
 	name = "Gun Store Shutters"
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -2734,7 +2534,6 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -2746,8 +2545,7 @@
 "ht" = (
 /obj/machinery/vending/cigarette,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "hu" = (
@@ -2757,7 +2555,6 @@
 "hv" = (
 /obj/machinery/vending/coffee,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -2771,7 +2568,6 @@
 /obj/item/flame/lighter/zippo,
 /obj/random/smokes,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -2783,7 +2579,6 @@
 /obj/random/projectile,
 /obj/random/contraband,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -2792,8 +2587,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "hz" = (
@@ -2805,7 +2599,6 @@
 "hA" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -2813,7 +2606,6 @@
 /obj/item/soap/random,
 /obj/structure/table/woodentable/walnut,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-whiteblue (EAST)";
 	icon_state = "whiteblue";
 	dir = 4
 	},
@@ -2821,8 +2613,7 @@
 "hC" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "hD" = (
@@ -2858,7 +2649,6 @@
 "hI" = (
 /obj/random/junk,
 /obj/structure/sign/neon/open{
-	layer = 3;
 	pixel_y = -32
 	},
 /turf/simulated/floor/pavement/empty,
@@ -2889,7 +2679,6 @@
 /obj/item/soap,
 /obj/structure/table/woodentable/walnut,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-whitered (EAST)";
 	icon_state = "whitered";
 	dir = 4
 	},
@@ -2905,7 +2694,6 @@
 "hP" = (
 /obj/item/stool/bar,
 /obj/machinery/light/colored/purple{
-	tag = "icon-purple1 (WEST)";
 	icon_state = "purple1";
 	dir = 8
 	},
@@ -2915,11 +2703,9 @@
 /obj/structure/table/woodentable/walnut,
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-21";
-	pixel_y = 10;
-	tag = "icon-plant-21"
+	pixel_y = 10
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-bar";
 	icon_state = "bar"
 	},
 /area/planet/abandoned_colony)
@@ -2927,11 +2713,9 @@
 /obj/structure/table/woodentable/walnut,
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-20";
-	pixel_y = 10;
-	tag = "icon-plant-22"
+	pixel_y = 10
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-bar";
 	icon_state = "bar"
 	},
 /area/planet/abandoned_colony)
@@ -2947,7 +2731,6 @@
 /obj/structure/table/woodentable/walnut,
 /obj/machinery/door/blast/shutters,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -2972,13 +2755,11 @@
 /obj/item/seeds/poppyseed,
 /obj/item/seeds/poppyseed,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "hX" = (
 /obj/structure/hygiene/shower{
-	tag = "icon-shower (WEST)";
 	icon_state = "shower";
 	dir = 8;
 	pixel_x = 5
@@ -2988,7 +2769,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -3037,35 +2817,29 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/grey{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "ie" = (
 /obj/effect/floor_decal/corner/grey{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "if" = (
 /obj/machinery/cooker/fryer,
 /obj/effect/floor_decal/corner/grey{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -3083,21 +2857,18 @@
 	pixel_y = 2
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "ii" = (
 /obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "ij" = (
 /obj/machinery/smartfridge/drying_rack,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -3107,7 +2878,6 @@
 	pixel_y = 8
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -3124,7 +2894,6 @@
 /obj/structure/table/woodentable/walnut,
 /obj/random/ammo,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -3137,7 +2906,6 @@
 /area/planet/abandoned_colony)
 "ip" = (
 /obj/machinery/light/colored{
-	tag = "icon-yellow1 (NORTH)";
 	icon_state = "yellow1";
 	dir = 1
 	},
@@ -3237,7 +3005,6 @@
 /area/planet/abandoned_colony)
 "iC" = (
 /obj/structure/bed/chair/office/light{
-	tag = "icon-officechair_white_preview (EAST)";
 	icon_state = "officechair_white_preview";
 	dir = 4
 	},
@@ -3275,7 +3042,6 @@
 /obj/item/weedkiller,
 /obj/item/reagent_containers/spray/plantbgone,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -3296,8 +3062,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb{
 	dir = 8;
-	icon_state = "cobweb1";
-	tag = "icon-cobweb1 (WEST)"
+	icon_state = "cobweb1"
 	},
 /turf/simulated/floor/plating,
 /area/planet/abandoned_colony)
@@ -3338,32 +3103,27 @@
 "iQ" = (
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-redyellowfull";
 	icon_state = "redyellowfull"
 	},
 /area/planet/abandoned_colony)
 "iR" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-redyellowfull";
 	icon_state = "redyellowfull"
 	},
 /area/planet/abandoned_colony)
 "iS" = (
 /obj/machinery/light_construct/small{
-	tag = "icon-bulb-construct-stage1 (NORTH)";
 	icon_state = "bulb-construct-stage1";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-redyellowfull";
 	icon_state = "redyellowfull"
 	},
 /area/planet/abandoned_colony)
 "iT" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-redyellowfull";
 	icon_state = "redyellowfull"
 	},
 /area/planet/abandoned_colony)
@@ -3371,8 +3131,7 @@
 /obj/structure/table/woodentable/walnut,
 /obj/machinery/chemical_dispenser/bar_alc/full,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "iV" = (
@@ -3390,13 +3149,11 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "iW" = (
 /obj/machinery/light_construct/small{
-	tag = "icon-bulb-construct-stage1 (NORTH)";
 	icon_state = "bulb-construct-stage1";
 	dir = 1
 	},
@@ -3413,7 +3170,6 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -3455,7 +3211,6 @@
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-redyellowfull";
 	icon_state = "redyellowfull"
 	},
 /area/planet/abandoned_colony)
@@ -3467,7 +3222,6 @@
 /obj/structure/table/woodentable/walnut,
 /obj/machinery/reagentgrinder,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -3487,7 +3241,6 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -3499,14 +3252,12 @@
 	desc = "An inert man-sized pod for entering suspended animation.";
 	dir = 8;
 	icon_state = "body_scanner_1";
-	name = "inert cryogenic freezer";
-	tag = "icon-cryo_rear (EAST)"
+	name = "inert cryogenic freezer"
 	},
 /turf/simulated/floor/lino,
 /area/planet/abandoned_colony)
 "jl" = (
 /obj/machinery/light_construct/small{
-	tag = "icon-bulb-construct-stage1 (EAST)";
 	icon_state = "bulb-construct-stage1";
 	dir = 4
 	},
@@ -3516,7 +3267,6 @@
 /area/planet/abandoned_colony)
 "jm" = (
 /obj/machinery/light_construct/small{
-	tag = "icon-bulb-construct-stage1 (WEST)";
 	icon_state = "bulb-construct-stage1";
 	dir = 8
 	},
@@ -3531,7 +3281,6 @@
 "jo" = (
 /obj/structure/table/woodentable/walnut,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -3565,14 +3314,12 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "jt" = (
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-bar";
 	icon_state = "bar"
 	},
 /area/planet/abandoned_colony)
@@ -3581,13 +3328,11 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-bar";
 	icon_state = "bar"
 	},
 /area/planet/abandoned_colony)
 "jv" = (
 /obj/machinery/light_construct/small{
-	tag = "icon-bulb-construct-stage1 (NORTH)";
 	icon_state = "bulb-construct-stage1";
 	dir = 1
 	},
@@ -3604,12 +3349,10 @@
 /area/planet/abandoned_colony)
 "jy" = (
 /obj/structure/bed/chair/office/light{
-	tag = "icon-officechair_white_preview (EAST)";
 	icon_state = "officechair_white_preview";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-bar";
 	icon_state = "bar"
 	},
 /area/planet/abandoned_colony)
@@ -3628,7 +3371,6 @@
 /area/planet/abandoned_colony)
 "jB" = (
 /obj/machinery/light_construct/small{
-	tag = "icon-bulb-construct-stage1 (WEST)";
 	icon_state = "bulb-construct-stage1";
 	dir = 8
 	},
@@ -3753,7 +3495,6 @@
 "jZ" = (
 /mob/living/simple_animal/hostile/scom/lactera/medium,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-redyellowfull";
 	icon_state = "redyellowfull"
 	},
 /area/planet/abandoned_colony)
@@ -3776,8 +3517,7 @@
 /obj/effect/dummy/spell_jaunt,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	color = "#cccccc";
-	icon_state = "square_grey";
-	tag = "icon-tiled1"
+	icon_state = "square_grey"
 	},
 /area/planet/abandoned_colony)
 "ke" = (
@@ -3885,7 +3625,6 @@
 "kz" = (
 /obj/item/contraband/poster,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -3942,7 +3681,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -3951,15 +3689,13 @@
 	dir = 1;
 	icon_state = "sink";
 	pixel_x = 0;
-	pixel_y = 20;
-	tag = "icon-sink (NORTH)"
+	pixel_y = 20
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/planet/abandoned_colony)
 "kL" = (
 /obj/random/toolbox,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -3969,63 +3705,53 @@
 /area/planet/abandoned_colony)
 "kN" = (
 /turf/unsimulated/wall/urist/other{
-	tag = "icon-3,15 (SOUTHEAST)";
 	icon_state = "3,15";
 	dir = 6
 	},
 /area/planet/abandoned_colony)
 "kO" = (
 /turf/unsimulated/wall/urist/other{
-	tag = "icon-3,15 (EAST)";
 	icon_state = "3,15";
 	dir = 4
 	},
 /area/planet/abandoned_colony)
 "kP" = (
 /turf/unsimulated/wall/urist/other{
-	tag = "icon-4,14";
 	icon_state = "4,14"
 	},
 /area/planet/abandoned_colony)
 "kQ" = (
 /turf/unsimulated/wall/urist/other/see{
-	tag = "icon-0,14";
 	icon_state = "0,14"
 	},
 /area/planet/abandoned_colony)
 "kR" = (
 /turf/unsimulated/floor/uristturf/other/scom{
-	tag = "icon-0,15";
 	icon_state = "0,15"
 	},
 /area/planet/abandoned_colony)
 "kS" = (
 /turf/unsimulated/floor/uristturf/other/scom{
-	tag = "icon-0,15.1";
 	icon_state = "0,15.1"
 	},
 /area/planet/abandoned_colony)
 "kT" = (
 /turf/unsimulated/floor/uristturf/other/scom{
-	tag = "icon-1,15";
 	icon_state = "1,15"
 	},
 /area/planet/abandoned_colony)
 "kU" = (
 /turf/unsimulated/wall/urist/other/see{
-	tag = "icon-1,14";
 	icon_state = "1,14"
 	},
 /area/planet/abandoned_colony)
 "kV" = (
 /turf/unsimulated/wall/urist/other{
-	tag = "icon-5,14";
 	icon_state = "5,14"
 	},
 /area/planet/abandoned_colony)
 "kW" = (
 /turf/unsimulated/wall/urist/other{
-	tag = "icon-3,15 (WEST)";
 	icon_state = "3,15";
 	dir = 8
 	},
@@ -4033,64 +3759,53 @@
 "kX" = (
 /obj/structure/scom/science{
 	icon_state = "2,11";
-	scommoney = 500;
-	tag = "icon-2,11"
+	scommoney = 500
 	},
 /turf/unsimulated/wall/urist/other/see{
-	tag = "icon-2,11";
 	icon_state = "2,11"
 	},
 /area/planet/abandoned_colony)
 "kY" = (
 /turf/unsimulated/floor/uristturf/other/scom{
-	tag = "icon-0,13";
 	icon_state = "0,13"
 	},
 /area/planet/abandoned_colony)
 "kZ" = (
 /turf/unsimulated/floor/uristturf/other/scom{
-	tag = "icon-1,13";
 	icon_state = "1,13"
 	},
 /area/planet/abandoned_colony)
 "la" = (
 /obj/structure/scom/science{
 	icon_state = "0,12";
-	scommoney = 500;
-	tag = "icon-0,12"
+	scommoney = 500
 	},
 /turf/unsimulated/wall/urist/other/see{
-	tag = "icon-0,12";
 	icon_state = "0,12"
 	},
 /area/planet/abandoned_colony)
 "lb" = (
 /turf/unsimulated/wall/urist/other/see{
-	tag = "icon-0,11";
 	icon_state = "0,11"
 	},
 /area/planet/abandoned_colony)
 "lc" = (
 /turf/unsimulated/wall/urist/other/see{
-	tag = "icon-2,13";
 	icon_state = "2,13"
 	},
 /area/planet/abandoned_colony)
 "ld" = (
 /turf/unsimulated/wall/urist/other/see{
-	tag = "icon-3,13";
 	icon_state = "3,13"
 	},
 /area/planet/abandoned_colony)
 "le" = (
 /turf/unsimulated/wall/urist/other/see{
-	tag = "icon-1,10";
 	icon_state = "1,10"
 	},
 /area/planet/abandoned_colony)
 "lf" = (
 /turf/simulated/floor/pavement{
-	tag = "icon-pave_invert_corner (NORTH)";
 	icon_state = "pave_invert_corner";
 	dir = 4
 	},
@@ -4100,14 +3815,12 @@
 /area/planet/abandoned_colony)
 "lh" = (
 /turf/simulated/floor/pavement{
-	tag = "icon-pave_invert_corner (NORTH)";
 	icon_state = "pave_invert_corner";
 	dir = 2
 	},
 /area/planet/abandoned_colony)
 "li" = (
 /turf/simulated/floor/pavement{
-	tag = "icon-pavement (EAST)";
 	icon_state = "pavement";
 	dir = 4
 	},
@@ -4122,13 +3835,11 @@
 	icon_state = "innermiddle"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedvertical";
 	icon_state = "dottedvertical"
 	},
 /area/planet/abandoned_colony)
 "ll" = (
 /turf/simulated/floor/pavement{
-	tag = "icon-pavement (WEST)";
 	icon_state = "pavement";
 	dir = 8
 	},
@@ -4144,7 +3855,6 @@
 	icon_state = "verticalinnermain2"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedverticaldegraded";
 	icon_state = "dottedverticaldegraded"
 	},
 /area/planet/abandoned_colony)
@@ -4154,7 +3864,6 @@
 /area/planet/abandoned_colony)
 "lp" = (
 /turf/simulated/floor/pavement/corner{
-	tag = "icon-pave_corner (EAST)";
 	icon_state = "pave_corner";
 	dir = 4
 	},
@@ -4165,13 +3874,11 @@
 	icon_state = "innermiddle"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-doublehorizontal";
 	icon_state = "doublehorizontal"
 	},
 /area/planet/abandoned_colony)
 "lr" = (
 /turf/unsimulated/wall/urist/other/see{
-	tag = "icon-2,12";
 	icon_state = "2,12"
 	},
 /area/planet/abandoned_colony)
@@ -4184,55 +3891,47 @@
 /area/planet/abandoned_colony)
 "lt" = (
 /turf/unsimulated/wall/urist/other{
-	tag = "icon-3,15 (NORTHEAST)";
 	icon_state = "3,15";
 	dir = 5
 	},
 /area/planet/abandoned_colony)
 "lu" = (
 /turf/unsimulated/wall/urist/other{
-	tag = "icon-3,15 (NORTH)";
 	icon_state = "3,15";
 	dir = 1
 	},
 /area/planet/abandoned_colony)
 "lv" = (
 /turf/unsimulated/wall/urist/other{
-	tag = "icon-123456 (WEST)";
 	icon_state = "123456";
 	dir = 8
 	},
 /area/planet/abandoned_colony)
 "lw" = (
 /turf/unsimulated/floor/uristturf/other/scom{
-	tag = "icon-2,14";
 	icon_state = "2,14"
 	},
 /area/planet/abandoned_colony)
 "lx" = (
 /turf/unsimulated/floor/uristturf/other/scom{
-	tag = "icon-2,14 (SOUTHEAST)";
 	icon_state = "2,14";
 	dir = 6
 	},
 /area/planet/abandoned_colony)
 "ly" = (
 /turf/unsimulated/floor/uristturf/other/scom{
-	tag = "icon-2,14 (NORTH)";
 	icon_state = "2,14";
 	dir = 1
 	},
 /area/planet/abandoned_colony)
 "lz" = (
 /turf/unsimulated/wall/urist/other{
-	tag = "icon-3,15 (SOUTHWEST)";
 	icon_state = "3,15";
 	dir = 10
 	},
 /area/planet/abandoned_colony)
 "lA" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontalinnermain1";
 	icon_state = "horizontalinnermain1"
 	},
 /area/planet/abandoned_colony)
@@ -4241,27 +3940,23 @@
 	icon_state = "innermiddle"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedverticaldegraded";
 	icon_state = "dottedverticaldegraded"
 	},
 /area/planet/abandoned_colony)
 "lC" = (
 /turf/simulated/floor/pavement/corner{
-	tag = "icon-pave_corner (WEST)";
 	icon_state = "pave_corner";
 	dir = 8
 	},
 /area/planet/abandoned_colony)
 "lD" = (
 /turf/simulated/floor/pavement/corner{
-	tag = "icon-pave_corner (NORTH)";
 	icon_state = "pave_corner";
 	dir = 1
 	},
 /area/planet/abandoned_colony)
 "lE" = (
 /obj/machinery/light/small/red{
-	tag = "icon-firelight1 (EAST)";
 	icon_state = "firelight1";
 	dir = 4
 	},
@@ -4269,11 +3964,9 @@
 /area/planet/abandoned_colony)
 "lF" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontalinnermain1";
 	icon_state = "horizontalinnermain1"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedverticaldegraded";
 	icon_state = "dottedverticaldegraded"
 	},
 /area/planet/abandoned_colony)
@@ -4282,14 +3975,12 @@
 	icon_state = "verticalinnermain2"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedverticalcorroded";
 	icon_state = "dottedverticalcorroded"
 	},
 /area/planet/abandoned_colony)
 "lH" = (
 /obj/machinery/light/street,
 /turf/simulated/floor/pavement{
-	tag = "icon-pavement (EAST)";
 	icon_state = "pavement";
 	dir = 4
 	},
@@ -4301,7 +3992,6 @@
 /area/planet/abandoned_colony)
 "lJ" = (
 /turf/simulated/floor/pavement{
-	tag = "icon-pave_invert_corner (NORTH)";
 	icon_state = "pave_invert_corner";
 	dir = 1
 	},
@@ -4309,13 +3999,11 @@
 "lK" = (
 /turf/simulated/floor/pavement{
 	dir = 1;
-	icon_state = "pavement";
-	tag = "icon-pavement (EAST)"
+	icon_state = "pavement"
 	},
 /area/planet/abandoned_colony)
 "lL" = (
 /turf/simulated/floor/pavement{
-	tag = "icon-pave_invert_corner (NORTH)";
 	icon_state = "pave_invert_corner";
 	dir = 8
 	},
@@ -4345,7 +4033,6 @@
 /area/planet/abandoned_colony)
 "lQ" = (
 /obj/machinery/light/colored/green{
-	tag = "icon-green1 (NORTH)";
 	icon_state = "green1";
 	dir = 1
 	},
@@ -4374,7 +4061,6 @@
 /area/planet/abandoned_colony)
 "lU" = (
 /obj/machinery/light/colored/green{
-	tag = "icon-green1 (NORTH)";
 	icon_state = "green1";
 	dir = 1
 	},
@@ -4402,7 +4088,6 @@
 /area/planet/abandoned_colony)
 "lY" = (
 /obj/machinery/light/colored/green{
-	tag = "icon-green1 (EAST)";
 	icon_state = "green1";
 	dir = 4
 	},
@@ -4414,7 +4099,6 @@
 /area/planet/abandoned_colony)
 "ma" = (
 /obj/machinery/light/colored/green{
-	tag = "icon-green1 (WEST)";
 	icon_state = "green1";
 	dir = 8
 	},
@@ -4423,7 +4107,6 @@
 "mb" = (
 /obj/item/remains/human,
 /obj/machinery/light/colored/green{
-	tag = "icon-green1 (NORTH)";
 	icon_state = "green1";
 	dir = 1
 	},
@@ -4438,7 +4121,6 @@
 /obj/machinery/light/coldtint,
 /mob/living/simple_animal/hostile/scom/forgotten,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -4476,7 +4158,6 @@
 /area/planet/abandoned_colony)
 "mk" = (
 /obj/machinery/light/colored/green{
-	tag = "icon-green1 (WEST)";
 	icon_state = "green1";
 	dir = 8
 	},
@@ -4488,8 +4169,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "mm" = (
@@ -4501,18 +4181,15 @@
 	dir = 8;
 	icon_state = "closed";
 	name = "Apartments 1";
-	pixel_x = 0;
-	tag = "icon-closed (WEST)"
+	pixel_x = 0
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "mo" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontalinnermain1";
 	icon_state = "horizontalinnermain1"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-doublehorizontal";
 	icon_state = "doublehorizontal"
 	},
 /area/planet/abandoned_colony)
@@ -4545,7 +4222,6 @@
 /area/planet/abandoned_colony)
 "mu" = (
 /obj/machinery/light/colored/green{
-	tag = "icon-green1 (EAST)";
 	icon_state = "green1";
 	dir = 4
 	},
@@ -4586,11 +4262,9 @@
 /area/planet/abandoned_colony)
 "mA" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontalinnermain1";
 	icon_state = "horizontalinnermain1"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedverticalcorroded";
 	icon_state = "dottedverticalcorroded"
 	},
 /area/planet/abandoned_colony)
@@ -4599,7 +4273,6 @@
 	icon_state = "innermaincornerinner"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedverticalcorroded";
 	icon_state = "dottedverticalcorroded"
 	},
 /area/planet/abandoned_colony)
@@ -4615,7 +4288,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedverticalcorroded";
 	icon_state = "dottedverticalcorroded"
 	},
 /area/planet/abandoned_colony)
@@ -4659,8 +4331,7 @@
 	pixel_y = 8
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "mJ" = (
@@ -4697,13 +4368,11 @@
 "mO" = (
 /turf/simulated/floor/pavement{
 	dir = 8;
-	icon_state = "pavement";
-	tag = "icon-pavement (EAST)"
+	icon_state = "pavement"
 	},
 /area/planet/abandoned_colony)
 "mP" = (
 /obj/structure/hygiene/toilet{
-	tag = "icon-toilet00 (NORTH)";
 	icon_state = "toilet00";
 	dir = 1
 	},
@@ -4711,7 +4380,6 @@
 /area/planet/abandoned_colony)
 "mQ" = (
 /turf/simulated/floor/pavement{
-	tag = "icon-pavement (NORTH)";
 	icon_state = "pavement";
 	dir = 1
 	},
@@ -4721,8 +4389,7 @@
 	dir = 8;
 	icon_state = "closed";
 	name = "Apartments 2";
-	pixel_x = 0;
-	tag = "icon-closed (WEST)"
+	pixel_x = 0
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
@@ -4739,7 +4406,6 @@
 	icon_state = "innermiddle"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedverticalcorroded";
 	icon_state = "dottedverticalcorroded"
 	},
 /area/planet/abandoned_colony)
@@ -4783,7 +4449,6 @@
 /area/planet/abandoned_colony)
 "nc" = (
 /obj/machinery/light/colored/blue{
-	tag = "icon-blue1 (NORTH)";
 	icon_state = "blue1";
 	dir = 1
 	},
@@ -4822,7 +4487,6 @@
 /area/planet/abandoned_colony)
 "nj" = (
 /obj/effect/floor_decal/corner/brown/three_quarters{
-	tag = "icon-corner_white_three_quarters (WEST)";
 	icon_state = "corner_white_three_quarters";
 	dir = 8
 	},
@@ -4830,7 +4494,6 @@
 /area/planet/abandoned_colony)
 "nk" = (
 /obj/effect/floor_decal/corner/brown{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -4838,7 +4501,6 @@
 /area/planet/abandoned_colony)
 "nl" = (
 /obj/effect/floor_decal/corner/brown/three_quarters{
-	tag = "icon-corner_white_three_quarters (NORTH)";
 	icon_state = "corner_white_three_quarters";
 	dir = 1
 	},
@@ -4851,7 +4513,6 @@
 /area/planet/abandoned_colony)
 "nn" = (
 /obj/effect/floor_decal/corner/brown{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -4876,7 +4537,6 @@
 /area/planet/abandoned_colony)
 "nr" = (
 /obj/effect/floor_decal/corner/brown{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -4902,11 +4562,9 @@
 /area/planet/abandoned_colony)
 "nw" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontalinnermain1";
 	icon_state = "horizontalinnermain1"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-doublehorizontaldegraded";
 	icon_state = "doublehorizontaldegraded"
 	},
 /area/planet/abandoned_colony)
@@ -4920,7 +4578,6 @@
 	icon_state = "innermiddle"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-doublehorizontal";
 	icon_state = "doublehorizontal"
 	},
 /area/planet/abandoned_colony)
@@ -4968,21 +4625,17 @@
 /area/space)
 "nI" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontalinnermain1";
 	icon_state = "horizontalinnermain1"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-doublehorizontalleft";
 	icon_state = "doublehorizontalleft"
 	},
 /area/planet/abandoned_colony)
 "nJ" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontalinnermain1";
 	icon_state = "horizontalinnermain1"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-doublehorizontalcorroded";
 	icon_state = "doublehorizontalcorroded"
 	},
 /area/planet/abandoned_colony)
@@ -4997,7 +4650,6 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -5006,7 +4658,6 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -5017,7 +4668,6 @@
 	name = "Grocery Store"
 	},
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -5025,7 +4675,6 @@
 "nO" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -5045,7 +4694,6 @@
 /obj/item/storage/bag/plasticbag,
 /obj/item/storage/bag/plasticbag,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -5053,7 +4701,6 @@
 "nS" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -5063,7 +4710,6 @@
 /obj/structure/table/standard,
 /obj/item/device/eftpos,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -5074,7 +4720,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -5091,7 +4736,6 @@
 /area/planet/abandoned_colony)
 "nW" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
-	tag = "icon-benchright (WEST)";
 	icon_state = "benchright";
 	dir = 8
 	},
@@ -5108,7 +4752,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -5117,7 +4760,6 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/table/standard,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -5128,14 +4770,12 @@
 	dir = 4
 	},
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
 /area/planet/abandoned_colony)
 "oa" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
-	tag = "icon-benchmid (WEST)";
 	icon_state = "benchmid";
 	dir = 8
 	},
@@ -5145,7 +4785,6 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/table/standard,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -5156,14 +4795,12 @@
 /obj/item/storage/pill_bottle/antidexafen,
 /obj/item/storage/pill_bottle/antidexafen,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
 /area/planet/abandoned_colony)
 "od" = (
 /obj/structure/bed/chair/urist/bench/bench1/left{
-	tag = "icon-benchleft (WEST)";
 	icon_state = "benchleft";
 	dir = 8
 	},
@@ -5175,7 +4812,6 @@
 /obj/item/storage/box/glowsticks,
 /obj/item/storage/box/glowsticks,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -5186,7 +4822,6 @@
 /obj/item/storage/pill_bottle/paracetamol,
 /obj/item/storage/pill_bottle/paracetamol,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -5199,7 +4834,6 @@
 /obj/item/reagent_containers/food/snacks/grown,
 /obj/item/reagent_containers/food/snacks/grown,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -5210,7 +4844,6 @@
 /obj/item/storage/box/mixedglasses,
 /obj/item/storage/box/mixedglasses,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -5220,7 +4853,6 @@
 /obj/structure/table/rack,
 /obj/item/storage/fancy/smokable/jerichos,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -5232,7 +4864,6 @@
 /obj/item/storage/box/donut,
 /obj/item/storage/box/donut,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -5247,7 +4878,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -5258,7 +4888,6 @@
 /obj/item/reagent_containers/food/snacks/baguette,
 /obj/item/reagent_containers/food/snacks/baguette,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -5269,7 +4898,6 @@
 /obj/item/storage/box/gloves,
 /obj/item/storage/box/gloves,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -5283,7 +4911,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -5291,14 +4918,12 @@
 "oo" = (
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "op" = (
 /obj/structure/largecrate,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -5306,7 +4931,6 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/table/rack,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -5317,7 +4941,6 @@
 /obj/item/cell/standard,
 /obj/item/cell/standard,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -5330,7 +4953,6 @@
 /obj/item/storage/fancy/egg_box,
 /obj/item/storage/fancy/egg_box,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -5342,7 +4964,6 @@
 /obj/item/storage/box/matches,
 /obj/item/storage/box/matches,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -5353,7 +4974,6 @@
 /obj/item/storage/box/mousetraps,
 /obj/item/storage/box/mousetraps,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -5367,7 +4987,6 @@
 /obj/item/reagent_containers/food/snacks/grown,
 /obj/item/reagent_containers/food/snacks/grown,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -5379,7 +4998,6 @@
 /obj/item/reagent_containers/food/snacks/grown/potato,
 /obj/item/reagent_containers/food/snacks/grown/potato,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -5393,7 +5011,6 @@
 /obj/item/reagent_containers/food/snacks/grown,
 /obj/machinery/light,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -5404,7 +5021,6 @@
 /obj/item/tape_roll,
 /obj/item/tape_roll,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -5414,7 +5030,6 @@
 /obj/structure/table/rack,
 /obj/item/weedkiller,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -5425,7 +5040,6 @@
 /obj/item/weedkiller,
 /obj/item/weedkiller,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -5436,13 +5050,11 @@
 /area/planet/abandoned_colony)
 "oC" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontalinnermain2left";
 	icon_state = "horizontalinnermain2left"
 	},
 /area/planet/abandoned_colony)
 "oD" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontalinnermain2right";
 	icon_state = "horizontalinnermain2right"
 	},
 /area/planet/abandoned_colony)
@@ -5451,7 +5063,6 @@
 	icon_state = "innermiddle"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedhorizontal";
 	icon_state = "dottedhorizontal"
 	},
 /area/planet/abandoned_colony)
@@ -5460,17 +5071,14 @@
 	icon_state = "innermiddle"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedhorizontaldegraded";
 	icon_state = "dottedhorizontaldegraded"
 	},
 /area/planet/abandoned_colony)
 "oG" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontalinnermain2left";
 	icon_state = "horizontalinnermain2left"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedhorizontalcorroded";
 	icon_state = "dottedhorizontalcorroded"
 	},
 /area/planet/abandoned_colony)
@@ -5479,7 +5087,6 @@
 	icon_state = "verticalinnermain2"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedhorizontalcorroded";
 	icon_state = "dottedhorizontalcorroded"
 	},
 /area/planet/abandoned_colony)
@@ -5490,11 +5097,9 @@
 /area/planet/abandoned_colony)
 "oJ" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontalinnermain2right";
 	icon_state = "horizontalinnermain2right"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedhorizontalcorroded";
 	icon_state = "dottedhorizontalcorroded"
 	},
 /area/planet/abandoned_colony)
@@ -5503,7 +5108,6 @@
 	icon_state = "innermiddle"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedhorizontalcorroded";
 	icon_state = "dottedhorizontalcorroded"
 	},
 /area/planet/abandoned_colony)
@@ -5521,11 +5125,9 @@
 /area/planet/abandoned_colony)
 "oN" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontalinnermain1";
 	icon_state = "horizontalinnermain1"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedhorizontalcorroded (NORTH)";
 	icon_state = "dottedhorizontalcorroded";
 	dir = 1
 	},
@@ -5535,7 +5137,6 @@
 	icon_state = "innermiddle"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-dottedhorizontaldegraded (NORTH)";
 	icon_state = "dottedhorizontaldegraded";
 	dir = 1
 	},
@@ -5556,8 +5157,7 @@
 	},
 /turf/simulated/floor/fixed/uristturf/geminus{
 	color = "#cccccc";
-	icon_state = "square_grey";
-	tag = "icon-tiled1"
+	icon_state = "square_grey"
 	},
 /area/planet/abandoned_colony)
 "oS" = (
@@ -5575,19 +5175,16 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/grey{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "oV" = (
 /obj/machinery/cooker/fryer,
 /obj/effect/floor_decal/corner/grey{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -5596,7 +5193,6 @@
 	pixel_y = 8
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -5605,8 +5201,7 @@
 /obj/random/junk,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	color = "#cccccc";
-	icon_state = "square_grey";
-	tag = "icon-tiled1"
+	icon_state = "square_grey"
 	},
 /area/planet/abandoned_colony)
 "oX" = (
@@ -5638,8 +5233,7 @@
 /obj/machinery/light/street,
 /turf/simulated/floor/pavement{
 	dir = 1;
-	icon_state = "pavement";
-	tag = "icon-pavement (EAST)"
+	icon_state = "pavement"
 	},
 /area/planet/abandoned_colony)
 "pd" = (
@@ -5656,7 +5250,6 @@
 /area/planet/abandoned_colony)
 "pf" = (
 /obj/machinery/light/colored{
-	tag = "icon-yellow1 (NORTH)";
 	icon_state = "yellow1";
 	dir = 1
 	},
@@ -5686,7 +5279,6 @@
 /area/planet/abandoned_colony)
 "pk" = (
 /obj/machinery/light/colored{
-	tag = "icon-yellow1 (NORTH)";
 	icon_state = "yellow1";
 	dir = 1
 	},
@@ -5694,7 +5286,6 @@
 /area/planet/abandoned_colony)
 "pl" = (
 /obj/machinery/door/morgue{
-	tag = "icon-door1";
 	icon_state = "door1";
 	dir = 2
 	},
@@ -5725,7 +5316,6 @@
 /area/planet/abandoned_colony)
 "pq" = (
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (NORTH)";
 	icon_state = "chapel";
 	dir = 1
 	},
@@ -5733,7 +5323,6 @@
 /area/planet/abandoned_colony)
 "pr" = (
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (EAST)";
 	icon_state = "chapel";
 	dir = 4
 	},
@@ -5741,7 +5330,6 @@
 /area/planet/abandoned_colony)
 "ps" = (
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (WEST)";
 	icon_state = "chapel";
 	dir = 8
 	},
@@ -5773,13 +5361,11 @@
 	},
 /obj/machinery/light/coldtint,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "py" = (
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (EAST)";
 	icon_state = "chapel";
 	dir = 4
 	},
@@ -5788,7 +5374,6 @@
 /area/planet/abandoned_colony)
 "pz" = (
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (NORTH)";
 	icon_state = "chapel";
 	dir = 1
 	},
@@ -5798,7 +5383,6 @@
 "pA" = (
 /obj/item/stool/bar,
 /obj/machinery/light/colored{
-	tag = "icon-yellow1 (WEST)";
 	icon_state = "yellow1";
 	dir = 8
 	},
@@ -5824,8 +5408,7 @@
 /obj/machinery/door/unpowered/simple/wood,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	color = "#cccccc";
-	icon_state = "square_grey";
-	tag = "icon-tiled1"
+	icon_state = "square_grey"
 	},
 /area/planet/abandoned_colony)
 "pG" = (
@@ -5847,7 +5430,6 @@
 "pK" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -5860,7 +5442,6 @@
 "pM" = (
 /obj/machinery/light/street,
 /turf/simulated/floor/pavement/corner{
-	tag = "icon-pave_corner (EAST)";
 	icon_state = "pave_corner";
 	dir = 4
 	},
@@ -5872,20 +5453,17 @@
 "pO" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small/red{
-	tag = "icon-firelight1";
 	icon_state = "firelight1";
 	dir = 2
 	},
 /turf/simulated/floor/fixed/uristturf/geminus{
 	color = "#cccccc";
-	icon_state = "square_grey";
-	tag = "icon-tiled1"
+	icon_state = "square_grey"
 	},
 /area/planet/abandoned_colony)
 "pP" = (
 /obj/structure/table/woodentable/walnut,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-redyellowfull";
 	icon_state = "redyellowfull"
 	},
 /area/planet/abandoned_colony)
@@ -5968,7 +5546,6 @@
 "qc" = (
 /obj/machinery/door/airlock/glass,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -5979,8 +5556,7 @@
 	},
 /turf/simulated/floor/fixed/uristturf/geminus{
 	color = "#cccccc";
-	icon_state = "square_grey";
-	tag = "icon-tiled1"
+	icon_state = "square_grey"
 	},
 /area/planet/abandoned_colony)
 "qe" = (
@@ -5989,11 +5565,9 @@
 /area/planet/abandoned_colony)
 "qf" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-horizontalinnermain1";
 	icon_state = "horizontalinnermain1"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-doublehorizontal";
 	icon_state = "doubleverticalcorroded"
 	},
 /area/planet/abandoned_colony)
@@ -6002,7 +5576,6 @@
 	icon_state = "innermiddle"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-doublehorizontal";
 	icon_state = "doubleverticaldegraded"
 	},
 /area/planet/abandoned_colony)
@@ -6011,14 +5584,12 @@
 	icon_state = "innermiddle"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	tag = "icon-doublehorizontal";
 	icon_state = "doublevertical"
 	},
 /area/planet/abandoned_colony)
 "qi" = (
 /mob/living/simple_animal/hostile/scom/lactera/light,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -6027,14 +5598,12 @@
 	desc = "An inert man-sized pod for entering suspended animation.";
 	dir = 4;
 	icon_state = "body_scanner_1";
-	name = "inert cryogenic freezer";
-	tag = "icon-cryo_rear (EAST)"
+	name = "inert cryogenic freezer"
 	},
 /turf/simulated/floor/lino,
 /area/planet/abandoned_colony)
 "qk" = (
 /obj/machinery/light/colored{
-	tag = "icon-yellow1 (NORTH)";
 	icon_state = "yellow1";
 	dir = 1
 	},
@@ -6042,8 +5611,7 @@
 	desc = "An inert man-sized pod for entering suspended animation.";
 	dir = 8;
 	icon_state = "body_scanner_1";
-	name = "inert cryogenic freezer";
-	tag = "icon-cryo_rear (EAST)"
+	name = "inert cryogenic freezer"
 	},
 /turf/simulated/floor/lino,
 /area/planet/abandoned_colony)
@@ -6090,7 +5658,6 @@
 "qq" = (
 /obj/structure/table/woodentable/walnut,
 /obj/machinery/door/window/eastleft{
-	tag = "icon-left";
 	icon_state = "left";
 	dir = 2
 	},
@@ -6099,7 +5666,6 @@
 /area/planet/abandoned_colony)
 "qr" = (
 /obj/machinery/atmospherics/unary/tank/air{
-	tag = "icon-air_map (WEST)";
 	icon_state = "air_map";
 	dir = 4
 	},
@@ -6150,7 +5716,6 @@
 "qv" = (
 /obj/machinery/light/street,
 /turf/simulated/floor/pavement{
-	tag = "icon-pave_invert_corner (NORTH)";
 	icon_state = "pave_invert_corner";
 	dir = 2
 	},
@@ -6186,8 +5751,7 @@
 "qz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 10;
-	icon_state = "intact";
-	tag = "icon-intact-f (SOUTHWEST)"
+	icon_state = "intact"
 	},
 /obj/machinery/meter,
 /turf/simulated/floor/plating,
@@ -6214,8 +5778,7 @@
 /obj/machinery/light/street,
 /turf/simulated/floor/pavement{
 	dir = 8;
-	icon_state = "pavement";
-	tag = "icon-pavement (EAST)"
+	icon_state = "pavement"
 	},
 /area/planet/abandoned_colony)
 "qE" = (
@@ -6225,7 +5788,6 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -6250,7 +5812,6 @@
 "qH" = (
 /mob/living/simple_animal/hostile/scom/lactera/light,
 /turf/unsimulated/floor/uristturf/other/scom{
-	tag = "icon-0,15.1";
 	icon_state = "0,15.1"
 	},
 /area/planet/abandoned_colony)
@@ -6332,7 +5893,6 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -6510,16 +6070,14 @@
 "rl" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 4;
-	icon_state = "nozzle";
-	tag = "icon-nozzle (EAST)"
+	icon_state = "nozzle"
 	},
 /turf/simulated/floor/plating/airless,
 /area/morninglight/cargo)
 "rm" = (
 /obj/structure/shuttle/engine/heater{
 	dir = 8;
-	icon_state = "heater";
-	tag = "icon-heater (WEST)"
+	icon_state = "heater"
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -6547,7 +6105,6 @@
 "ro" = (
 /mob/living/simple_animal/hostile/scom/lactera/medium,
 /turf/unsimulated/floor/uristturf/other/scom{
-	tag = "icon-0,15.1";
 	icon_state = "0,15.1"
 	},
 /area/planet/abandoned_colony)
@@ -6600,8 +6157,7 @@
 "rt" = (
 /obj/machinery/atmospherics/binary/passive_gate/on{
 	dir = 4;
-	icon_state = "map_on";
-	tag = "icon-map_on (EAST)"
+	icon_state = "map_on"
 	},
 /obj/machinery/vending/wallmed1{
 	pixel_y = 32
@@ -6629,15 +6185,13 @@
 	},
 /mob/living/simple_animal/hostile/scom/forgotten,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "rw" = (
 /obj/structure/shuttle/engine/heater{
 	dir = 8;
-	icon_state = "heater";
-	tag = "icon-heater (WEST)"
+	icon_state = "heater"
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -6659,7 +6213,6 @@
 	pixel_x = -24
 	},
 /obj/effect/floor_decal/corner/yellow{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -6673,7 +6226,6 @@
 	pixel_y = 16
 	},
 /obj/effect/floor_decal/corner/yellow{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -6687,7 +6239,6 @@
 	name = "blobstart"
 	},
 /obj/effect/floor_decal/corner/yellow{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -6699,7 +6250,6 @@
 	},
 /obj/structure/curtain/open/shower{
 	color = "#ffa500";
-	layer = 3.3
 	},
 /obj/structure/hygiene/shower,
 /obj/machinery/door/window/northleft{
@@ -6714,7 +6264,6 @@
 	},
 /obj/structure/curtain/open/shower{
 	color = "#ffa500";
-	layer = 3.3
 	},
 /obj/structure/hygiene/shower,
 /obj/machinery/door/window/northleft{
@@ -6752,7 +6301,6 @@
 	pixel_y = 32
 	},
 /obj/effect/floor_decal/corner/orange{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -6804,7 +6352,6 @@
 /obj/item/reagent_containers/food/drinks/bottle/vodka,
 /obj/item/stack/material/tritium/ten,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -6842,7 +6389,6 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -6853,7 +6399,6 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -6937,7 +6482,6 @@
 "rY" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/effect/floor_decal/corner/yellow{
-	tag = "icon-corner_white (SOUTHWEST)";
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -6956,7 +6500,6 @@
 /obj/item/storage/toolbox/electrical,
 /obj/item/storage/toolbox/mechanical,
 /obj/effect/floor_decal/corner/yellow{
-	tag = "icon-corner_white (SOUTHWEST)";
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -6975,13 +6518,11 @@
 /area/morninglight/entrance)
 "sc" = (
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (NORTH)";
 	icon_state = "chapel";
 	dir = 1
 	},
 /obj/item/stool/padded,
 /obj/machinery/light/colored{
-	tag = "icon-yellow1 (WEST)";
 	icon_state = "yellow1";
 	dir = 8
 	},
@@ -6990,7 +6531,6 @@
 "sd" = (
 /obj/effect/urist/spawn_bomb/abandoned,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-bar";
 	icon_state = "bar"
 	},
 /area/planet/abandoned_colony)
@@ -7059,8 +6599,7 @@
 	dir = 1;
 	icon_state = "alarm0";
 	pixel_y = -24;
-	req_access = list("ACCESS_MORNING_LIGHT");
-	tag = "icon-alarm0 (NORTH)"
+	req_access = list("ACCESS_MORNING_LIGHT")
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/morninglight/main)
@@ -7072,7 +6611,6 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -7166,8 +6704,7 @@
 "su" = (
 /obj/machinery/atmospherics/binary/passive_gate/on{
 	dir = 8;
-	icon_state = "map_on";
-	tag = "icon-map_on (WEST)"
+	icon_state = "map_on"
 	},
 /obj/effect/floor_decal/rust,
 /turf/simulated/floor/tiled/dark,
@@ -7211,7 +6748,6 @@
 	},
 /mob/living/simple_animal/hostile/scom/forgotten,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -7231,7 +6767,6 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -7325,7 +6860,6 @@
 "sJ" = (
 /mob/living/simple_animal/hostile/scom/lactera/medic,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -7395,7 +6929,6 @@
 /area/morninglight/main)
 "sQ" = (
 /obj/structure/crematorium{
-	tag = "icon-crema1 (WEST)";
 	icon_state = "crema1";
 	dir = 4
 	},
@@ -7447,15 +6980,13 @@
 "sV" = (
 /obj/effect/urist/spawn_bomb/abandoned,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "sW" = (
 /obj/effect/floor_decal/corner/lightgrey{
 	dir = 6;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (SOUTHEAST)"
+	icon_state = "corner_white"
 	},
 /obj/machinery/computer/shuttle_control/explore/morninglight{
 	icon_state = "computer";
@@ -7499,7 +7030,6 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -7510,7 +7040,6 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -7629,13 +7158,11 @@
 /area/morninglight/entrance)
 "tk" = (
 /obj/effect/floor_decal/chapel{
-	tag = "icon-chapel (EAST)";
 	icon_state = "chapel";
 	dir = 4
 	},
 /obj/item/stool/padded,
 /obj/machinery/light/colored{
-	tag = "icon-yellow1 (EAST)";
 	icon_state = "yellow1";
 	dir = 4
 	},
@@ -7655,13 +7182,11 @@
 /area/planet/abandoned_colony)
 "tn" = (
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (NORTH)";
 	icon_state = "warning";
 	dir = 1
 	},
 /mob/living/simple_animal/hostile/scom/lactera/light,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -7778,8 +7303,7 @@
 /mob/living/simple_animal/hostile/scom/husk,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	color = "#cccccc";
-	icon_state = "square_grey";
-	tag = "icon-tiled1"
+	icon_state = "square_grey"
 	},
 /area/planet/abandoned_colony)
 "tC" = (
@@ -7824,7 +7348,6 @@
 	amount = 12
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -7849,8 +7372,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9;
-	icon_state = "intact-scrubbers";
-	tag = "icon-intact-scrubbers (NORTHWEST)"
+	icon_state = "intact-scrubbers"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9;
@@ -7868,8 +7390,7 @@
 "tK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9;
-	icon_state = "intact-scrubbers";
-	tag = "icon-intact-scrubbers (NORTHWEST)"
+	icon_state = "intact-scrubbers"
 	},
 /obj/machinery/atmospherics/binary/pump{
 	dir = 1
@@ -7895,7 +7416,6 @@
 /area/morninglight/main)
 "tN" = (
 /obj/effect/floor_decal/corner/lightgrey{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -8112,12 +7632,10 @@
 /obj/random/drinkbottle,
 /obj/random/drinkbottle,
 /obj/machinery/light_construct/small{
-	tag = "icon-bulb-construct-stage1 (EAST)";
 	icon_state = "bulb-construct-stage1";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-redyellowfull";
 	icon_state = "redyellowfull"
 	},
 /area/planet/abandoned_colony)
@@ -8192,8 +7710,7 @@
 	dir = 1;
 	icon_state = "alarm0";
 	pixel_y = -24;
-	req_access = list("ACCESS_MORNING_LIGHT");
-	tag = "icon-alarm0 (NORTH)"
+	req_access = list("ACCESS_MORNING_LIGHT")
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -8247,7 +7764,6 @@
 "un" = (
 /obj/machinery/door/airlock/engineering,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -8278,8 +7794,7 @@
 	dir = 1;
 	icon_state = "alarm0";
 	pixel_y = -24;
-	req_access = list("ACCESS_MORNING_LIGHT");
-	tag = "icon-alarm0 (NORTH)"
+	req_access = list("ACCESS_MORNING_LIGHT")
 	},
 /obj/machinery/atmospherics/unary/tank/hydrogen,
 /turf/simulated/floor/plating,
@@ -8291,7 +7806,6 @@
 /obj/item/reagent_containers/food/drinks/bottle/vodka,
 /obj/item/stack/material/tritium/ten,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -8305,8 +7819,7 @@
 	dir = 1;
 	icon_state = "alarm0";
 	pixel_y = -24;
-	req_access = list("ACCESS_MORNING_LIGHT");
-	tag = "icon-alarm0 (NORTH)"
+	req_access = list("ACCESS_MORNING_LIGHT")
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -8328,7 +7841,6 @@
 "ut" = (
 /obj/structure/closet/toolcloset,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -8337,7 +7849,6 @@
 	req_access = newlist()
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -8349,7 +7860,6 @@
 "uw" = (
 /obj/structure/closet/firecloset,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -8361,15 +7871,13 @@
 /obj/structure/table/standard,
 /obj/random/drinkbottle,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "tiles1";
-	tag = "icon-freezerfloor"
+	icon_state = "tiles1"
 	},
 /area/planet/abandoned_colony)
 "uz" = (
 /mob/living/simple_animal/hostile/scom/husk,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "tiles1";
-	tag = "icon-freezerfloor"
+	icon_state = "tiles1"
 	},
 /area/planet/abandoned_colony)
 "uA" = (
@@ -8380,8 +7888,7 @@
 /obj/machinery/light/overhead_blue,
 /mob/living/simple_animal/hostile/scom/husk,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "tiles1";
-	tag = "icon-freezerfloor"
+	icon_state = "tiles1"
 	},
 /area/planet/abandoned_colony)
 "uC" = (
@@ -8393,7 +7900,6 @@
 "uD" = (
 /mob/living/simple_animal/hostile/scom/husk,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -8458,7 +7964,6 @@
 /obj/structure/table/woodentable/walnut,
 /obj/random/drinkbottle,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-redyellowfull";
 	icon_state = "redyellowfull"
 	},
 /area/planet/abandoned_colony)
@@ -8491,7 +7996,6 @@
 	icon_state = "map_vent_out"
 	},
 /obj/effect/floor_decal/corner/lightgrey{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -8511,8 +8015,7 @@
 	},
 /obj/effect/floor_decal/corner/lightgrey{
 	dir = 6;
-	icon_state = "corner_white";
-	tag = "icon-corner_white (SOUTHEAST)"
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/main)
@@ -8532,8 +8035,7 @@
 "uU" = (
 /mob/living/simple_animal/hostile/scom/husk,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "uV" = (
@@ -8604,8 +8106,7 @@
 "vf" = (
 /mob/living/simple_animal/hostile/scom/forgotten,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black";
-	tag = "icon-tiled1"
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "vg" = (
@@ -8616,7 +8117,6 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /mob/living/simple_animal/hostile/scom/husk,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	tag = "icon-cafeteria";
 	icon_state = "cafeteria";
 	dir = 2
 	},
@@ -8640,8 +8140,7 @@
 	dir = 8;
 	icon_state = "computer";
 	name = "Atmospheric Sensors";
-	id_tag = list("morninglight_out");
-	tag = "icon-computer (WEST)"
+	id_tag = list("morninglight_out")
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -8686,7 +8185,6 @@
 /obj/random/ammo,
 /obj/random/ammo,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -8711,7 +8209,6 @@
 "vq" = (
 /mob/living/simple_animal/hostile/scom/husk,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-bar";
 	icon_state = "bar"
 	},
 /area/planet/abandoned_colony)
@@ -8793,8 +8290,7 @@
 "vE" = (
 /obj/structure/shuttle/engine/heater{
 	dir = 8;
-	icon_state = "heater";
-	tag = "icon-heater (WEST)"
+	icon_state = "heater"
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -8807,13 +8303,11 @@
 "vF" = (
 /obj/structure/table/standard,
 /obj/machinery/door/window/southright{
-	tag = "icon-right (EAST)";
 	icon_state = "right";
 	dir = 4
 	},
 /obj/random/ammo,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-bar";
 	icon_state = "bar"
 	},
 /area/planet/abandoned_colony)
@@ -8865,7 +8359,6 @@
 "vL" = (
 /mob/living/simple_animal/hostile/scom/forgotten,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-old_tile_black_dirt";
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
@@ -8886,7 +8379,6 @@
 /obj/structure/table/woodentable/walnut,
 /obj/random/smokes,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	tag = "icon-redyellowfull";
 	icon_state = "redyellowfull"
 	},
 /area/planet/abandoned_colony)
@@ -8970,8 +8462,7 @@
 	},
 /obj/structure/handrail{
 	dir = 4;
-	icon_state = "handrail";
-	tag = "icon-handrail (EAST)"
+	icon_state = "handrail"
 	},
 /obj/item/storage/toolbox/mechanical{
 	pixel_x = -2;
@@ -9066,8 +8557,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9;
-	icon_state = "intact-scrubbers";
-	tag = "icon-intact-scrubbers (NORTHWEST)"
+	icon_state = "intact-scrubbers"
 	},
 /turf/simulated/floor/carpet,
 /area/morninglight/dorms)
@@ -9112,8 +8602,7 @@
 "wu" = (
 /obj/structure/handrail{
 	dir = 8;
-	icon_state = "handrail";
-	tag = "icon-handrail (WEST)"
+	icon_state = "handrail"
 	},
 /turf/simulated/floor/carpet,
 /area/morninglight/dorms)
@@ -9144,7 +8633,6 @@
 /area/planet/abandoned_colony)
 "wy" = (
 /obj/machinery/light_construct/small{
-	tag = "icon-bulb-construct-stage1 (EAST)";
 	icon_state = "bulb-construct-stage1";
 	dir = 4
 	},
@@ -9162,7 +8650,6 @@
 /area/planet/abandoned_colony)
 "wA" = (
 /obj/machinery/light/colored/orange{
-	tag = "icon-orange1 (EAST)";
 	icon_state = "orange1";
 	dir = 4
 	},
@@ -9234,7 +8721,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/corner/lightgrey{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -9296,7 +8782,6 @@
 "wV" = (
 /obj/item/storage/backpack/weldpack,
 /obj/effect/floor_decal/corner/yellow{
-	tag = "icon-corner_white (SOUTHWEST)";
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -9397,7 +8882,6 @@
 /area/morninglight/engineering)
 "xo" = (
 /obj/machinery/light/colored/orange{
-	tag = "icon-orange1 (EAST)";
 	icon_state = "orange1";
 	dir = 4
 	},

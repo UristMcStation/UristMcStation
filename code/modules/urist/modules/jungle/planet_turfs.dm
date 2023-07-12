@@ -103,7 +103,7 @@
 	return
 
 /turf/simulated/floor/planet/border
-	density = 1
+	density = TRUE
 	opacity = 1
 	icon = 'icons/urist/turf/scomturfs.dmi'
 	icon_state = "border"
@@ -121,7 +121,7 @@
 	else
 		..()
 
-/turf/simulated/floor/planet/attackby(var/obj/item/I as obj, mob/user as mob)
+/turf/simulated/floor/planet/attackby(obj/item/I as obj, mob/user as mob)
 	if(istype(I, /obj/item/shovel))
 		if(!farmed) //todo; add a way to remove the soil
 			user.visible_message("<span class='notice'>[user] starts to dig up some soil and prepare the ground for planting.</span>", \
@@ -278,7 +278,7 @@
 		/mob/living/simple_animal/huntable/monkey
 		)
 
-/turf/simulated/floor/planet/jungle/proc/Spread(var/probability, var/prob_loss = 50)
+/turf/simulated/floor/planet/jungle/proc/Spread(probability, var/prob_loss = 50)
 	if(probability <= 0)
 		return
 
@@ -350,7 +350,7 @@
 	plants_spawn_chance = 0
 	animal_spawn_chance = 0
 	misc_plant_spawn_chance = 0
-	density = 1
+	density = TRUE
 	opacity = 1
 	name = "cliffside wall"
 	desc = "A massive wall of natural rock. No point in trying to mine it, try underground."
@@ -422,7 +422,7 @@
 	. = ..()
 	fishleft = rand(1,6)
 
-/turf/simulated/floor/planet/jungle/water/attackby(var/obj/item/I, mob/user as mob)
+/turf/simulated/floor/planet/jungle/water/attackby(obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/fishingrod))
 		if(bridge)
 			to_chat(user, "<span class='notice'>There's a bridge here, try fishing somewhere else.</span>")
@@ -475,7 +475,7 @@
 			src.overlays -= image('icons/urist/jungle/turfs.dmi', "exclamation", layer=2.1)
 			fishleft -= 1
 			fishing = 0
-			to_target(user, "<span class='notice'>You yank on your line, pulling up [F]!</span>")
+			to_chat(user, "<span class='notice'>You yank on your line, pulling up [F]!</span>")
 
 		else if(!fishleft && !bridge)
 			to_chat(user, "<span class='notice'>You've fished too much in this area, try fishing somewhere else.</span>")
@@ -603,7 +603,7 @@
 
 /turf/simulated/floor/planet/jungle/water/deep
 	plants_spawn_chance = 0
-	density = 1
+	density = TRUE
 	misc_plant_spawn_chance = 0 //too deep for reeds
 	icon_state = "deepnew"
 //	icon_spawn_state = "deepnew"
@@ -614,7 +614,7 @@
 
 	else ..()
 
-/turf/simulated/floor/planet/jungle/water/deep/attackby(var/obj/item/I, mob/user as mob)
+/turf/simulated/floor/planet/jungle/water/deep/attackby(obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/paddle))
 		if(!bridge)
 			for(var/obj/structure/raft/R in user.loc)
@@ -652,7 +652,7 @@
 /turf/simulated/floor/planet/jungle/temple_wall //again, what the fuck
 	name = "temple wall"
 	desc = ""
-	density = 1
+	density = TRUE
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "phoron0"
 	mineral = "phoron"
@@ -674,7 +674,7 @@
 	terrain_type = null
 	footstep_type = /singleton/footsteps/asteroid
 
-/turf/simulated/floor/planet/jungle/clear/underground/weather_enable(var/override = 0)
+/turf/simulated/floor/planet/jungle/clear/underground/weather_enable(override = 0)
 	if(override)
 		..()
 

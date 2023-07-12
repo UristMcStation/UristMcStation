@@ -44,7 +44,7 @@
 					if(!(leadermob.equip_to_storage(intel)))
 						leadermob.put_in_hands(intel)
 					anydropped++
-				to_target(leadermob, "<span class='notice'><b>Intel drop!</b></span>")
+				to_chat(leadermob, "<span class='notice'><b>Intel drop!</b></span>")
 		else
 			spawnedany = 0 //only one per faction should spawn, if there's more than one laptop
 			for(var/obj/item/device/inteluplink/IU in world)

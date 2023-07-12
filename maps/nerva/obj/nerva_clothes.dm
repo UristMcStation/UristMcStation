@@ -216,7 +216,7 @@
 		to_chat(usr, "You shift the cloak around.")
 		update_clothing_icon()
 
-/obj/item/clothing/suit/storage/hooded/seccloak/update_icon()
+/obj/item/clothing/suit/storage/hooded/seccloak/on_update_icon()
 	icon_state = "seccloak[state]"
 	item_state = "seccloak[state]"
 

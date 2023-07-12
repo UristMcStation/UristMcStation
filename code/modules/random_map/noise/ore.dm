@@ -61,7 +61,7 @@
 			var/tmp_cell
 			TRANSLATE_AND_VERIFY_COORD(x, y)
 
-/datum/random_map/noise/ore/proc/generate_tile(var/turf/simulated/T, var/tmp_cell = null)
+/datum/random_map/noise/ore/proc/generate_tile(turf/simulated/T, var/tmp_cell = null)
 	if(!istype(T) || !T.has_resources)
 		return
 	T.resources = list()

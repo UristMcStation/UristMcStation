@@ -589,7 +589,6 @@
 /area/outpost/research/eva)
 "bP" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
@@ -623,7 +622,6 @@
 	pressure_checks = 1
 	},
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -656,17 +654,14 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -678,12 +673,10 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -699,12 +692,10 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -726,12 +717,10 @@
 	},
 /obj/effect/floor_decal/corner/beige,
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -744,12 +733,10 @@
 "cd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -763,7 +750,6 @@
 	pixel_y = 24
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -771,7 +757,6 @@
 /area/outpost/research/eva)
 "cf" = (
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -786,7 +771,6 @@
 /area/outpost/research/eva)
 "cg" = (
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -796,12 +780,10 @@
 "ch" = (
 /obj/structure/closet/excavation,
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -814,7 +796,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/beige,
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -835,7 +816,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -861,7 +841,6 @@
 	pixel_x = 24
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -873,12 +852,10 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -904,7 +881,6 @@
 	},
 /obj/effect/floor_decal/corner/beige,
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -930,11 +906,9 @@
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 8;
-	icon_state = "1-8";
-	tag = ""
+	icon_state = "1-8"
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -945,7 +919,6 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -954,7 +927,6 @@
 "cu" = (
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -969,12 +941,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -986,12 +956,10 @@
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
-	icon_state = "1-2";
-	tag = ""
+	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/corner/beige,
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -1016,12 +984,10 @@
 /area/outpost/research/eva)
 "cy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -1030,8 +996,7 @@
 "cz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10;
-	icon_state = "intact";
-	tag = "icon-intact-f (SOUTHWEST)"
+	icon_state = "intact"
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/research/eva)
@@ -1040,7 +1005,6 @@
 /obj/item/storage/box/samplebags,
 /obj/item/pickaxe,
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_x = 32;
 	pixel_y = 0
 	},
@@ -1048,7 +1012,6 @@
 /obj/item/device/measuring_tape,
 /obj/item/stack/flag/yellow,
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -1057,12 +1020,10 @@
 "cB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -1074,7 +1035,6 @@
 /obj/machinery/suspension_gen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -1084,7 +1044,6 @@
 "cD" = (
 /obj/effect/floor_decal/corner/beige,
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -1096,17 +1055,14 @@
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
-	icon_state = "1-2";
-	tag = ""
+	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/corner/beige,
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -1138,11 +1094,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4;
-	icon_state = "map";
-	tag = "icon-manifold-f (EAST)"
+	icon_state = "map"
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -1156,12 +1110,10 @@
 /obj/item/device/measuring_tape,
 /obj/item/stack/flag/green,
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -1263,7 +1215,6 @@
 	id_tag = "research_pump"
 	},
 /obj/effect/floor_decal/corner/mauve/three_quarters{
-	tag = "icon-corner_white_three_quarters (WEST)";
 	icon_state = "corner_white_three_quarters";
 	dir = 8
 	},
@@ -1272,7 +1223,6 @@
 "cR" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -1285,7 +1235,6 @@
 	},
 /obj/structure/closet/walllocker/emerglocker/east,
 /obj/effect/floor_decal/corner/mauve/three_quarters{
-	tag = "icon-corner_white_three_quarters (NORTH)";
 	icon_state = "corner_white_three_quarters";
 	dir = 1
 	},
@@ -1367,7 +1316,6 @@
 	id_tag = "research_pump"
 	},
 /obj/effect/floor_decal/corner/mauve/three_quarters{
-	tag = "icon-corner_white_three_quarters (EAST)";
 	icon_state = "corner_white_three_quarters";
 	dir = 4
 	},
@@ -1517,7 +1465,6 @@
 /area/mine/unexplored)
 "dy" = (
 /obj/machinery/light{
-	tag = "icon-tube1 (NORTH)";
 	icon_state = "tube1";
 	dir = 1
 	},
@@ -1537,7 +1484,6 @@
 /area/mine/explored)
 "dB" = (
 /obj/machinery/light{
-	tag = "icon-tube1 (NORTH)";
 	icon_state = "tube1";
 	dir = 1
 	},
@@ -1631,7 +1577,6 @@
 /obj/item/clothing/head/helmet/space/void/mining,
 /obj/item/device/scanner/mining,
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -1644,7 +1589,6 @@
 /obj/item/clothing/head/helmet/space/void/mining/cold,
 /obj/item/device/scanner/mining,
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -1653,7 +1597,6 @@
 "dT" = (
 /obj/machinery/suit_cycler/mining,
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -1679,7 +1622,6 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -1712,7 +1654,6 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -1740,7 +1681,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -1749,7 +1689,6 @@
 "eb" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -1762,7 +1701,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -1777,7 +1715,6 @@
 	},
 /obj/effect/floor_decal/corner/beige,
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -1788,7 +1725,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -1810,7 +1746,6 @@
 /area/outpost/mining_main/eva)
 "ej" = (
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_x = 0;
 	pixel_y = 32
 	},
@@ -1833,12 +1768,10 @@
 /area/outpost/mining_main/eva)
 "em" = (
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -1852,7 +1785,6 @@
 /area/outpost/mining_main/eva)
 "en" = (
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (NORTH)";
 	icon_state = "warning";
 	dir = 1
 	},
@@ -1863,7 +1795,6 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (NORTH)";
 	icon_state = "warning";
 	dir = 1
 	},
@@ -1874,7 +1805,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (NORTH)";
 	icon_state = "warning";
 	dir = 1
 	},
@@ -1895,7 +1825,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -1932,8 +1861,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1;
-	icon_state = "map";
-	tag = "icon-manifold-f (NORTH)"
+	icon_state = "map"
 	},
 /obj/effect/floor_decal/corner/beige,
 /turf/simulated/floor/tiled,
@@ -1950,7 +1878,6 @@
 	req_access = list("ACCESS_MINING_EVA")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -1968,12 +1895,10 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -1981,7 +1906,6 @@
 /area/outpost/mining_main/eva)
 "ex" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -2002,7 +1926,6 @@
 	pixel_y = 25
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -2026,7 +1949,6 @@
 	name = "Mining External Access"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -2049,8 +1971,7 @@
 "eB" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4;
-	icon_state = "map";
-	tag = "icon-manifold-f (EAST)"
+	icon_state = "map"
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -2082,8 +2003,7 @@
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 8;
-	icon_state = "2-8";
-	tag = ""
+	icon_state = "2-8"
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -2098,7 +2018,6 @@
 "eE" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -2107,7 +2026,6 @@
 "eF" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -2115,12 +2033,10 @@
 /area/outpost/mining_main/eva)
 "eH" = (
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -2129,7 +2045,6 @@
 "eI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -2140,8 +2055,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0;
-	tag = ""
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
@@ -2163,7 +2077,6 @@
 	},
 /obj/effect/floor_decal/corner/beige,
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -2214,15 +2127,13 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0;
-	tag = ""
+	pixel_y = 0
 	},
 /turf/simulated/floor/plating,
 /area/mine/explored)
 "eT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -2239,8 +2150,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0;
-	tag = ""
+	pixel_y = 0
 	},
 /obj/effect/floor_decal/corner/beige,
 /turf/simulated/floor/tiled,
@@ -2260,8 +2170,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0;
-	tag = ""
+	pixel_y = 0
 	},
 /obj/machinery/camera/network/mining{
 	c_tag = "Mining Airlock External";

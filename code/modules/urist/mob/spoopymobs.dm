@@ -57,10 +57,10 @@
 		"Your tongue swells up and turns black."
 	)
 
-/datum/reagent/xenomicrobes/uristzombie/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/xenomicrobes/uristzombie/affect_touch(mob/living/carbon/M, var/alien, var/removed)
 	affect_blood(M, alien, removed * 0.5)
 
-/datum/reagent/xenomicrobes/uristzombie/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/xenomicrobes/uristzombie/affect_blood(mob/living/carbon/M, var/alien, var/removed)
 	if (istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
 		var/true_dose = H.chem_doses[type] + volume
@@ -181,7 +181,7 @@
 			src.desc += "\n \n It seems to have dropped everything it had." //shitty hack for now
 		update_icons()
 
-/mob/living/simple_animal/hostile/urist/zombie/ghostize(var/can_reenter_corpse=1)
+/mob/living/simple_animal/hostile/urist/zombie/ghostize(can_reenter_corpse=1)
 	return ..(max(1, can_reenter_corpse)) // always re-enterable
 
 /mob/living/simple_animal/hostile/urist/zombie/proc/deathregen()
@@ -211,7 +211,7 @@
 	regen = 1
 	plague = 1
 
-/mob/living/simple_animal/hostile/urist/zombie/UnarmedAttack(var/atom/A, var/proximity)
+/mob/living/simple_animal/hostile/urist/zombie/UnarmedAttack(atom/A, var/proximity)
 	. = ..()
 
 	if(plague)
@@ -232,7 +232,7 @@
 	return
 
 // do excuse the weird naming convention, but Bay *already* broke this proc once so I'm not taking chances.
-/mob/living/simple_animal/hostile/urist/zombie/proc/uZombieInfect(var/mob/living/infectee)
+/mob/living/simple_animal/hostile/urist/zombie/proc/uZombieInfect(mob/living/infectee)
 	if(!src || src.stat)
 		return
 
@@ -255,7 +255,7 @@
 			victim.uZombify(src.regen, src.plague, src.maxHealth)
 
 
-/mob/living/carbon/human/proc/uZombify(var/regens=0, var/infects=0, var/transformation_msgs, var/time=60, var/hitpoints=40)
+/mob/living/carbon/human/proc/uZombify(regens=0, var/infects=0, var/transformation_msgs, var/time=60, var/hitpoints=40)
 	if(!src)
 		return
 
@@ -267,7 +267,7 @@
 	addtimer(new Callback(src, /mob/living/carbon/human/proc/uZombifyInstant, regens, infects, hitpoints), time SECONDS, TIMER_STOPPABLE)
 
 
-/mob/living/carbon/human/proc/uZombifyInstant(var/regens = 0, var/infects = 0, var/hitpoints = 40) //I swear officer, that Animalize() proc fell out the back of a truck.
+/mob/living/carbon/human/proc/uZombifyInstant(regens = 0, var/infects = 0, var/hitpoints = 40) //I swear officer, that Animalize() proc fell out the back of a truck.
 	if(!src)
 		return
 
@@ -350,7 +350,7 @@
 	return
 
 
-/mob/living/simple_animal/hostile/scom/civ/proc/uZombify(var/regens = 0, var/infects = 0, var/hitpoints = 40)
+/mob/living/simple_animal/hostile/scom/civ/proc/uZombify(regens = 0, var/infects = 0, var/hitpoints = 40)
 	var/mobpath = /mob/living/simple_animal/hostile/urist/zombie/plague
 	var/mob/living/simple_animal/hostile/urist/zombie/new_mob = new mobpath(src.loc)
 
@@ -565,7 +565,7 @@
 	..()
 	GetNewStalkee()
 
-/mob/living/simple_animal/hostile/urist/stalker/proc/GetNewStalkee(var/mindplease = 1)
+/mob/living/simple_animal/hostile/urist/stalker/proc/GetNewStalkee(mindplease = 1)
 	var/attempts = 3
 	while(!(stalkee))
 		stalkee = pick(GLOB.player_list)
@@ -581,7 +581,7 @@
 		if(attempts <= 0) //infinite loop prevention in case there are no
 			break
 
-/mob/living/simple_animal/hostile/urist/stalker/Found(var/atom/A)
+/mob/living/simple_animal/hostile/urist/stalker/Found(atom/A)
 	if(A == stalkee)
 		return 1
 	return 0
@@ -642,13 +642,13 @@
 							FL.flicker(3)
 	return
 
-/mob/living/simple_animal/hostile/urist/stalker/proc/HandleTeleFX(var/atom/fxloc)
+/mob/living/simple_animal/hostile/urist/stalker/proc/HandleTeleFX(atom/fxloc)
 	if(tele_effect)
 		var/datum/effect/effect/system/fx_instance = new tele_effect()
 		fx_instance.set_up(3, 0, fxloc)
 		fx_instance.start()
 
-/mob/living/simple_animal/hostile/urist/stalker/UnarmedAttack(var/atom/A, var/proximity)
+/mob/living/simple_animal/hostile/urist/stalker/UnarmedAttack(atom/A, var/proximity)
 	..()
 	if(!client && caution) //run awaaaay!
 		HuntingTeleport()

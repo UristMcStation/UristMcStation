@@ -6,8 +6,8 @@
 	var/orig = "oven"
 	var/production_meth = "cooking"
 	layer = 2.9
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 	use_power = 1
 	var/grown_only = 0
 	idle_power_usage = 5
@@ -19,13 +19,13 @@
 
 /obj/machinery/cooking/attackby(obj/item/I, mob/user)
 	if(on)
-		to_target(user, "The machine is already running.")
+		to_chat(user, "The machine is already running.")
 		return
-	if(!istype(I,/obj/item/reagent_containers/food/snacks/))
-		to_target(user, "That isn't food.")
+	if(!istype(I,/obj/item/reagent_containers/food/snacks))
+		to_chat(user, "That isn't food.")
 		return
-	if(!istype(I,/obj/item/reagent_containers/food/snacks/grown/) && grown_only)
-		to_target(user, "You can only still grown items.")
+	if(!istype(I,/obj/item/reagent_containers/food/snacks/grown) && grown_only)
+		to_chat(user, "You can only still grown items.")
 		return
 	else
 		var/obj/item/reagent_containers/food/snacks/F = I
@@ -34,7 +34,7 @@
 		if(!C)
 			return
 		else
-			to_target(user, "You put [F] into [src] for [production_meth].")
+			to_chat(user, "You put [F] into [src] for [production_meth].")
 			user.drop_item()
 			F.loc = src
 			on = TRUE
@@ -91,7 +91,7 @@
 /obj/machinery/cooking/still/updatefood()
 	for(var/U in food_choices)
 		food_choices.Remove(U)
-	for(var/U in typesof(/obj/item/reagent_containers/food/drinks/bottle/customizable/)-(/obj/item/reagent_containers/food/drinks/bottle/customizable/))
+	for(var/U in typesof(/obj/item/reagent_containers/food/drinks/bottle/customizable)-(/obj/item/reagent_containers/food/drinks/bottle/customizable))
 		var/obj/item/reagent_containers/food/drinks/bottle/customizable/V = new U
 		src.food_choices += V
 	return

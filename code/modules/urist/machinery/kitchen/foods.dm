@@ -299,11 +299,11 @@
 	basename = "burger"
 
 /obj/item/reagent_containers/food/snacks/customizable/attackby(obj/item/W as obj, mob/user as mob)
-	if(src.contents.len > ingredient_limit)
-		to_target(user, "<span class='warning'>If you put anything else in or on [src] it's going to make a mess.</span>")
+	if(length(src.contents) > ingredient_limit)
+		to_chat(user, "<span class='warning'>If you put anything else in or on [src] it's going to make a mess.</span>")
 		return
 	else if(istype(W,/obj/item/reagent_containers/food/snacks))
-		to_target(user, "<span class='notice'> You add [W] to [src].</span>")
+		to_chat(user, "<span class='notice'> You add [W] to [src].</span>")
 		var/obj/item/reagent_containers/F = W
 		F.reagents.trans_to(src, F.reagents.total_volume)
 		user.drop_item()
@@ -380,7 +380,7 @@
 	..()
 	var/whatsinside = pick(ingredients)
 
-	to_target(usr, "<span class='notice'> You think you can see [whatsinside] in there.</span>")
+	to_chat(usr, "<span class='notice'> You think you can see [whatsinside] in there.</span>")
 
 //cereals
 
@@ -486,11 +486,11 @@
 	boozetype = /datum/reagent/ethanol/ale
 
 /obj/item/reagent_containers/food/drinks/bottle/customizable/attackby(obj/item/W as obj, mob/user as mob)
-	if(src.contents.len > ingredient_limit)
-		to_target(user, "<span class='warning'>If you put anything else in or on [src] it's going to make a mess.</span>")
+	if(length(src.contents) > ingredient_limit)
+		to_chat(user, "<span class='warning'>If you put anything else in or on [src] it's going to make a mess.</span>")
 		return
 	else if(istype(W,/obj/item/reagent_containers/food/snacks))
-		to_target(user, "<span class='notice'> You add [W] to [src].</span>")
+		to_chat(user, "<span class='notice'> You add [W] to [src].</span>")
 		var/obj/item/reagent_containers/F = W
 		F.reagents.trans_to(src, F.reagents.total_volume)
 		user.drop_item()
@@ -557,9 +557,9 @@
 	..()
 	var/whatsinside = pick(ingredients)
 
-	to_target(usr, "<span class='notice'> You think you can see fermented chunks of \a [whatsinside] in there.</span>")
+	to_chat(usr, "<span class='notice'> You think you can see fermented chunks of \a [whatsinside] in there.</span>")
 
-/obj/item/reagent_containers/food/drinks/bottle/customizable/proc/ferment(var/boozetype)
+/obj/item/reagent_containers/food/drinks/bottle/customizable/proc/ferment(boozetype)
 	if(!(boozetype))
 		boozetype = /datum/reagent/ethanol/hooch
 	var/datum/reagents/R = src.reagents

@@ -91,7 +91,7 @@ var/global/list/event_last_fired = list()
 	//moved this to proc/check_event()
 	/*var/chance = possibleEvents[picked_event]
 	var/base_chance = 0.4
-	switch(GLOB.player_list.len)
+	switch(length(GLOB.player_list))
 		if(5 to 10)
 			base_chance = 0.6
 		if(11 to 15)
