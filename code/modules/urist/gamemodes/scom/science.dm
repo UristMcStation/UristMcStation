@@ -26,7 +26,7 @@
 	S.scommoney = scommoney
 
 	user.put_in_hands(S)
-	user << "<span class='notice'>You salvage some usable objects from the alien technology.</span>"
+	to_target(user, "<span class='notice'>You salvage some usable objects from the alien technology.</span>")
 	qdel(src)
 	return
 

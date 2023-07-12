@@ -59,24 +59,24 @@ var/datum/antagonist/agent/agents
 	var/datum/antagonist/agent/conspiracy = M.get_mob_conspiracy(src)
 
 	if(!conspiracy)
-		src << "<span class='warning'>Something's wrong. You belong to too many conspiracies at once!</span>"
+		to_target(src, "<span class='warning'>Something's wrong. You belong to too many conspiracies at once!</span>")
 		return
 	else if (conspiracy == -1)
-		src << "<span class='warning'>Something's wrong. You don't seem to be in a conspiracy!</span>"
+		to_target(src, "<span class='warning'>Something's wrong. You don't seem to be in a conspiracy!</span>")
 
 	var/converteval = is_other_conspiracy(M.mind)
 	if(converteval == -1)
-		src << "<span class='warning'>[M] is already an agent of your conspiracy!</span>"
+		to_target(src, "<span class='warning'>[M] is already an agent of your conspiracy!</span>")
 	else if(converteval)
 		var/choice = alert(M,"Asked by [src]: Do you want to abandon your current conspiracy?","Abandon the current conspiracy?","No!","Yes!")
 		if(choice == "Yes!")
-			src << "<span class='notice'>You convince [M] to abandon the cause of other conspiracies!</span>"
+			to_target(src, "<span class='notice'>You convince [M] to abandon the cause of other conspiracies!</span>")
 			strip_all_other_conspiracies(M.mind,conspiracy)
 		else
-			src << "<span class='warning'>[M] refuses to abandon their cause!"
+			to_target(src, "<span class='warning'>[M] refuses to abandon their cause!")
 			return
 	else
-		src << "span class='warning'>Something's wrong, yell at the coders!</span>"
+		to_target(src, "span class='warning'>Something's wrong, yell at the coders!</span>")
 		return
 
 	convert_to_faction(M.mind, conspiracy)
@@ -120,27 +120,27 @@ var/datum/antagonist/agent/agents
 		R = locate(/obj/item/device/radio) in agent_mob.contents
 		if(!R)
 			R = locate(/obj/item/modular_computer/pda) in agent_mob.contents
-			agent_mob << "Could not locate a Radio, installing in PDA instead!"
+			to_target(agent_mob, "Could not locate a Radio, installing in PDA instead!")
 		if (!R)
-			agent_mob << "Unfortunately, neither a radio or a PDA relay could be installed."
+			to_target(agent_mob, "Unfortunately, neither a radio or a PDA relay could be installed.")
 	else if(priority_order[1] == "PDA")
 		R = locate(/obj/item/modular_computer/pda) in agent_mob.contents
 		if(!R)
 			R = locate(/obj/item/device/radio) in agent_mob.contents
-			agent_mob << "Could not locate a PDA, installing into a Radio instead!"
+			to_target(agent_mob, "Could not locate a PDA, installing into a Radio instead!")
 		if(!R)
-			agent_mob << "Unfortunately, neither a radio or a PDA relay could be installed."
+			to_target(agent_mob, "Unfortunately, neither a radio or a PDA relay could be installed.")
 	else if(priority_order[1] == "None")
-		agent_mob << "You have elected to not have an AntagCorp portable teleportation relay installed!"
+		to_target(agent_mob, "You have elected to not have an AntagCorp portable teleportation relay installed!")
 		R = null
 	else
-		agent_mob << "You have not selected a location for your relay in the antagonist options! Defaulting to PDA!"
+		to_target(agent_mob, "You have not selected a location for your relay in the antagonist options! Defaulting to PDA!")
 		R = locate(/obj/item/modular_computer/pda) in agent_mob.contents
 		if (!R)
 			R = locate(/obj/item/device/radio) in agent_mob.contents
-			agent_mob << "Could not locate a PDA, installing into a Radio instead!"
+			to_target(agent_mob, "Could not locate a PDA, installing into a Radio instead!")
 		if (!R)
-			agent_mob << "Unfortunately, neither a radio or a PDA relay could be installed."
+			to_target(agent_mob, "Unfortunately, neither a radio or a PDA relay could be installed.")
 
 	if(!R)
 		return
@@ -160,7 +160,7 @@ var/datum/antagonist/agent/agents
 		var/obj/item/device/uplink/T = new(R, agent_mob.mind)
 		target_radio.hidden_uplink = T
 		target_radio.traitor_frequency = freq
-		agent_mob << "A portable object teleportation relay has been installed in your [R.name] [loc]. Simply dial the frequency [format_frequency(freq)] to unlock its hidden features."
+		to_target(agent_mob, "A portable object teleportation relay has been installed in your [R.name] [loc]. Simply dial the frequency [format_frequency(freq)] to unlock its hidden features.")
 		agent_mob.mind.edit_memory("<B>Radio Freq:</B> [format_frequency(freq)] ([R.name] [loc]).")
 
 	else if (istype(R, /obj/item/modular_computer/pda))

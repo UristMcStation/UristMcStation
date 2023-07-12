@@ -24,9 +24,9 @@ var/const/SAFETY_COOLDOWN = 100
 /obj/machinery/recycler/examine()
 	set src in view()
 	..()
-	usr << "The power light is [(stat & MACHINE_STAT_NOPOWER) ? "off" : "on"]."
-	usr << "The safety-mode light is [safety_mode ? "on" : "off"]."
-	usr << "The safety-sensors status light is [emagged ? "off" : "on"]."
+	to_target(usr, "The power light is [(stat & MACHINE_STAT_NOPOWER) ? "off" : "on"].")
+	to_target(usr, "The safety-mode light is [safety_mode ? "on" : "off"].")
+	to_target(usr, "The safety-sensors status light is [emagged ? "off" : "on"].")
 
 /obj/machinery/recycler/power_change()
 	..()
@@ -43,7 +43,7 @@ var/const/SAFETY_COOLDOWN = 100
 	else if(istype(I, /obj/item/screwdriver) && emagged)
 		emagged = 0
 		update_icon()
-		user << "<span class='notice'>You reset the crusher to its default factory settings.</span>"
+		to_target(user, "<span class='notice'>You reset the crusher to its default factory settings.</span>")
 	else
 		..()
 		return

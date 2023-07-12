@@ -34,7 +34,7 @@
 
 /obj/item/fish/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/material/knife/kitchen))
-		user << (SPAN_NOTICE("You chop up the fish into wonderful fish fillet."))
+		to_target(user, (SPAN_NOTICE("You chop up the fish into wonderful fish fillet.")))
 		new /obj/item/reagent_containers/food/snacks/fishmeat(user.loc)
 		qdel(src)
 

@@ -5,16 +5,16 @@
 
 /*/obj/machinery/computer/shuttle_control/scom/attack_hand(mob/user as mob)
 	if(fuckoff)
-		user << "<span class='notice'>You're not on a mission yet!!</span>"
+		to_target(user, "<span class='notice'>You're not on a mission yet!!</span>")
 		return
 	else
 		for(var/mob/living/simple_animal/hostile/M in world)
 			if(!M.stat)
-				user << "<span class='notice'>There are still aliens left alive!</span>"
+				to_target(user, "<span class='notice'>There are still aliens left alive!</span>")
 				return
 		for(var/mob/living/carbon/human/H in /area/scom/mission)
 			if(H.stat)
-				user << "<span class='notice'>There are still S-COM operatives in the mission area!</span>"
+				to_target(user, "<span class='notice'>There are still S-COM operatives in the mission area!</span>")
 				return
 
 
@@ -30,7 +30,7 @@
 
 /obj/machinery/scom/shuttle_control/attack_hand(mob/user as mob)
 	if(fuckoff)
-		user << "<span class='notice'>You're not on a mission yet!</span>"
+		to_target(user, "<span class='notice'>You're not on a mission yet!</span>")
 		return
 	else
 		for(var/datum/shuttle/autodock/ferry/scom/s1/C in SSshuttle.process_shuttles)
@@ -41,14 +41,14 @@
 
 				for(var/mob/living/simple_animal/hostile/M in GLOB.simple_mob_list)
 					if(!M.stat && M.faction != "neutral")
-						user << "<span class='notice'>There are still aliens left alive!</span>"
+						to_target(user, "<span class='notice'>There are still aliens left alive!</span>")
 						return
 					else
 						break
 
 				for(var/mob/living/carbon/human/H in GLOB.player_list)
 					if(!H.stat && H.z != SCOM_ZLEVEL)
-						user << "<span class='notice'>There are still S-COM operatives in the mission area!</span>"
+						to_target(user, "<span class='notice'>There are still S-COM operatives in the mission area!</span>")
 						return
 					else
 						C.launch()

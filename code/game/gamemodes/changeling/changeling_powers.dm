@@ -814,7 +814,7 @@ var/global/list/datum/absorbed_dna/hivemind_bank = list()
 	var/mob/living/carbon/human/M = src
 
 	if(M.l_hand && M.r_hand) //Make sure our hands aren't full.
-		src << "<span class='warning'>Our hands are full.  Drop something first.</span>"
+		to_target(src, "<span class='warning'>Our hands are full.  Drop something first.</span>")
 		return 0
 
 	var/obj/item/W = new weapon_type(src)

@@ -19,13 +19,13 @@
 
 /obj/machinery/cooking/attackby(obj/item/I, mob/user)
 	if(on)
-		user << "The machine is already running."
+		to_target(user, "The machine is already running.")
 		return
 	if(!istype(I,/obj/item/reagent_containers/food/snacks/))
-		user << "That isn't food."
+		to_target(user, "That isn't food.")
 		return
 	if(!istype(I,/obj/item/reagent_containers/food/snacks/grown/) && grown_only)
-		user << "You can only still grown items."
+		to_target(user, "You can only still grown items.")
 		return
 	else
 		var/obj/item/reagent_containers/food/snacks/F = I
@@ -34,7 +34,7 @@
 		if(!C)
 			return
 		else
-			user << "You put [F] into [src] for [production_meth]."
+			to_target(user, "You put [F] into [src] for [production_meth].")
 			user.drop_item()
 			F.loc = src
 			on = TRUE

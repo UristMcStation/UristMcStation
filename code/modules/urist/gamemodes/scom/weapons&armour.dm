@@ -52,7 +52,7 @@
 	one_hand_penalty = 8
 
 /obj/item/gun/energy/pulse_rifle/cannon/attack_self(mob/living/user as mob)
-	user << "<span class='warning'>[src.name] only has one setting.</span>"
+	to_target(user, "<span class='warning'>[src.name] only has one setting.</span>")
 
 /obj/item/gun/energy/laser/pistol
 	item_icons = DEF_URIST_INHANDS

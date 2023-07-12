@@ -8,7 +8,7 @@
 		return
 
 	var/list/potentialEventMap = list()
-	world << "<span class='danger'> Searching for Event Map...</span>"
+	to_world("<span class='danger'> Searching for Event Map...</span>")
 	var/list/Lines = file2list("maps/EventMaps/fileList.txt")
 	if(!length(Lines))	return
 	for (var/t in Lines)
@@ -38,23 +38,23 @@
 
 
 	if(length(potentialEventMap))
-		world << "<span class='danger'> Loading EventMap...</span>"
+		to_world("<span class='danger'> Loading EventMap...</span>")
 
 		var/eventmap = input(src,"Which event map to load?") as null|anything in potentialEventMap
 		var/file = file(eventmap)
 //		var/file = file(mappath) //leaving it in as the basis to a future port to a .dm file-based map loading, instead of the other way round
 
 		if(eventmap == null)
-			world << "<span class='danger'> Event Map loading aborted</span>"
+			to_world("<span class='danger'> Event Map loading aborted</span>")
 			return
 
 		if(isfile(file))
 			GLOB.maploader.load_map(file)
-			world << "<span class='danger'> Event Map loaded.</span>"
+			to_world("<span class='danger'> Event Map loaded.</span>")
 
 		else
-			src << "<span class='warning'> Event Map couldn't be loaded properly. Yell at the coders.</span>"
+			to_target(src, "<span class='warning'> Event Map couldn't be loaded properly. Yell at the coders.</span>")
 
 	else
-		world << "<span class='danger'> Event Map not found.</span>"
+		to_world("<span class='danger'> Event Map not found.</span>")
 		return

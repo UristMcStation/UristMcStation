@@ -24,7 +24,7 @@
 		var/dat = {"<B>Slot Machine</B><BR>
 		<HR><BR>
 		<B>Please wait!</B><BR>"}
-		user << browse(dat, "window=slotmachine;size=450x500")
+		to_target(user, browse(dat, "window=slotmachine;size=450x500"))
 		onclose(user, "slotmachine")
 	else
 		var/dat = {"<B>Slot Machine</B><BR>
@@ -35,7 +35,7 @@
 		[src.plays] players have tried their luck today!<BR>
 		<HR><BR>
 		<A href='?src=\ref[src];ops=1'>Play!<BR>"}
-		user << browse(dat, "window=slotmachine;size=400x500")
+		to_target(user, browse(dat, "window=slotmachine;size=400x500"))
 		onclose(user, "slotmachine")
 
 /obj/machinery/slot_machine/Topic(href, href_list)
@@ -43,17 +43,17 @@
 		var/operation = text2num(href_list["ops"])
 		if(operation == 1) // Play
 /*			if (src.working == 1)
-				usr << "<span class='warning'> You need to wait until the machine stops spinning!</span>"
+				to_target(usr, "<span class='warning'> You need to wait until the machine stops spinning!</span>")
 				return */
 			if (balance < 5)
-				usr << "<span class='warning'> Insufficient money to play!</span>"
+				to_target(usr, "<span class='warning'> Insufficient money to play!</span>")
 				return
 			usr.mind.initial_account.money -= 5
 			src.money += 5
 			src.plays += 1
 			src.working = 1
 			src.icon_state = "slots-on"
-			usr << "Let's roll!"
+			to_target(usr, "Let's roll!")
 			var/roll = rand(1,10000)
 			spawn(100)
 				if (roll == 1)
@@ -73,11 +73,11 @@
 					usr.mind.initial_account.money += 500
 					src.money -= 500
 				else if (roll > 100 && roll <= 1000)
-					usr << "<span class='notice'> You win a free game!</span>"
+					to_target(usr, "<span class='notice'> You win a free game!</span>")
 					usr.mind.initial_account.money += 5
 					src.money -= 5
 				else
-					usr << "<span class='warning'> No luck!</span>"
+					to_target(usr, "<span class='warning'> No luck!</span>")
 				src.working = 0
 				src.icon_state = "slots-off"
 	src.add_fingerprint(usr)

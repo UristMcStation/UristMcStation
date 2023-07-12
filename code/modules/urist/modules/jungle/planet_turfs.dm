@@ -282,7 +282,7 @@
 	if(probability <= 0)
 		return
 
-	//world << "<span class='notice'> Spread([probability])</span>"
+	//to_world("<span class='notice'> Spread([probability])</span>")
 	for(var/turf/simulated/floor/planet/jungle/J in orange(1, src))
 		if(!J.bushspawnchance)
 			continue
@@ -475,7 +475,7 @@
 			src.overlays -= image('icons/urist/jungle/turfs.dmi', "exclamation", layer=2.1)
 			fishleft -= 1
 			fishing = 0
-			user << "<span class='notice'>You yank on your line, pulling up [F]!</span>"
+			to_target(user, "<span class='notice'>You yank on your line, pulling up [F]!</span>")
 
 		else if(!fishleft && !bridge)
 			to_chat(user, "<span class='notice'>You've fished too much in this area, try fishing somewhere else.</span>")

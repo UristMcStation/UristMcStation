@@ -37,7 +37,7 @@
 	t += "<A href='?src=\ref[src];on2=Testloop2'>TestLoop2</A><br>"
 	t += "<A href='?src=\ref[src];on3=Testloop3'>TestLoop3</A><br>"
 
-	user << browse(t, "window=turntable;size=420x700")
+	to_target(user, browse(t, "window=turntable;size=420x700"))
 
 
 /obj/machinery/party/turntable/Topic(href, href_list)
@@ -66,7 +66,7 @@
 			L.turnoff()
 		var/area/main_area = get_area(src)
 		for(var/mob/living/M in mobs_in_area(main_area))
-			M << sound(null, channel = 1)
+			to_target(M, sound(null, channel = 1))
 
 			main_area.forced_ambience = null
 
@@ -81,8 +81,8 @@
 	S.environment = 0
 	//for(var/mob/M in world)
 	//	if(M.loc.loc == src.loc.loc && M.music == 0)
-	//		world << "Found the song..."
-	//		M << S
+	//		to_world("Found the song...")
+	//		to_target(M, S)
 	//		M.music = 1
 	var/area/A = src.loc.loc
 

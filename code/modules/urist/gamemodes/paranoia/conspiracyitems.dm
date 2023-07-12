@@ -121,18 +121,18 @@
 		return
 
 	if(usr.stat || usr.restrained() || usr.lying || !istype(usr, /mob/living))
-		usr << "<span class='warning'>You can't do that.</span>"
+		to_target(usr, "<span class='warning'>You can't do that.</span>")
 		return
 
 	if(!Adjacent(usr))
-		usr << "You can't reach it."
+		to_target(usr, "You can't reach it.")
 		return
 
 	if(!istype(loc,/turf))
-		usr << "[src] is too bulky!  You'll have to set it down."
+		to_target(usr, "[src] is too bulky!  You'll have to set it down.")
 		return
 
-	usr << "You open \the [src]."
+	to_target(usr, "You open \the [src].")
 	open = 1
 	w_class = 4
 	update_icon()
@@ -146,18 +146,18 @@
 		return
 
 	if(usr.stat || usr.restrained() || usr.lying || !istype(usr, /mob/living))
-		usr << "<span class='warning'>You can't do that.</span>"
+		to_target(usr, "<span class='warning'>You can't do that.</span>")
 		return
 
 	if(!Adjacent(usr))
-		usr << "You can't reach it."
+		to_target(usr, "You can't reach it.")
 		return
 
 	if(!istype(loc,/turf))
-		usr << "[src] is too bulky!  You'll have to set it down."
+		to_target(usr, "[src] is too bulky!  You'll have to set it down.")
 		return
 
-	usr << "You close \the [src]."
+	to_target(usr, "You close \the [src].")
 	open = 0
 	w_class = 3
 	update_icon()
@@ -186,10 +186,10 @@
 	if(istype(I,/obj/item/conspiracyintel))
 		var/obj/item/conspiracyintel/C = I
 		if(cmptext(C.faction,faction))
-			user << "<span class='notice'>\The [C] you are trying to upload belongs to the faction you're trying to send it to.</span>"
+			to_target(user, "<span class='notice'>\The [C] you are trying to upload belongs to the faction you're trying to send it to.</span>")
 			return
 		if(cmptext(C.faction,alliedf))
-			user << "<span class='notice'>\The [faction] does not need any more data on [C.faction].</span>"
+			to_target(user, "<span class='notice'>\The [faction] does not need any more data on [C.faction].</span>")
 			return
 		if(!(C.upload_id))
 			C.upload_id = rand(1,9999) //should be more than enough to be unique
@@ -210,12 +210,12 @@
 				break
 			progress += uploadamount
 			if(progress == (round(progress, 10))) //kind of an odd method, but cuts down on the spam
-				user << "<span class='notice'>Upload progress at: [progress]%</span>"
+				to_target(user, "<span class='notice'>Upload progress at: [progress]%</span>")
 			if(progress >= 100)
 				user.visible_message("<span class='notice'>\The [src] buzzes and shreds the [C] as a progress bar reaches completion.</span>","<span class='notice'>\The [src] buzzes and shreds the [C] as a progress bar reaches completion.</span>","<span class='notice'>You hear a buzz and the sound of utterly annihilated paper.</span>")
 				if(prob(50))
 					alliedf = C.faction
-					user << "<span class='notice'>A message from \the [faction] arrives: \"Thank you for your service. We will have no need for more data on [alliedf] for a while.\".</span>"
+					to_target(user, "<span class='notice'>A message from \the [faction] arrives: \"Thank you for your service. We will have no need for more data on [alliedf] for a while.\".</span>")
 				uploading = 0
 				progress = 0
 				cached_progress = 0
@@ -230,7 +230,7 @@
 			cached_progress = progress
 			uploading = 0
 			update_icon()
-			user << "<span class='warning'>\The [src] displays an error message: Upload halted at [cached_progress]%.</span>"
+			to_target(user, "<span class='warning'>\The [src] displays an error message: Upload halted at [cached_progress]%.</span>")
 	..()
 
 //a suit that looks like a black-haired human in a suit, for muh Reptilians and/or Thin Mints
@@ -261,7 +261,7 @@
 
 /obj/item/clothing/mask/chameleon/voice/fleshmask/Set_Voice(name as text)
 	if(usedonce)
-		usr << "<span class='notice'>The modulator in the [src] cannot be reset!</span>"
+		to_target(usr, "<span class='notice'>The modulator in the [src] cannot be reset!</span>")
 		return
 	..()
 	usedonce = 1
