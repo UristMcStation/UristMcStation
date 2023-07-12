@@ -185,7 +185,7 @@ td.cost.toomuch {
 	</table>
 	</body>
 </html>"}
-	user << browse(dat, "window=merch")
+	to_target(user, browse(dat, "window=merch"))
 	onclose(user, "merch")
 	return
 
@@ -205,9 +205,9 @@ td.cost.toomuch {
 			updateUsrDialog()
 			return
 		if(!centcomm_store.PlaceOrder(usr,itemID))
-			usr << "<span class='warning'> Unable to charge your account.</span>"
+			to_target(usr, "<span class='warning'> Unable to charge your account.</span>")
 		else
-			usr << "<span class='notice'> You've successfully purchased the item.  It should be in your hands or on the floor.</span>"
+			to_target(usr, "<span class='notice'> You've successfully purchased the item.  It should be in your hands or on the floor.</span>")
 	src.updateUsrDialog()
 	return
 

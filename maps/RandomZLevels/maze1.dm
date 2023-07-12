@@ -15,7 +15,7 @@
 
 	if(density)
 		opening = 1
-		user << "<span class='notice'>You slide the heavy wall open.</span>"
+		to_target(user, "<span class='notice'>You slide the heavy wall open.</span>")
 		flick("riveted_opening", src)
 		sleep(5)
 		density = 0
@@ -35,7 +35,7 @@
 
 /obj/structure/maze/diamond/attack_hand(mob/user as mob)
 
-	user << "<span class='notice'>[src] disappears and you feel yourself getting sucked away!</span>"
+	to_target(user, "<span class='notice'>[src] disappears and you feel yourself getting sucked away!</span>")
 
 	if(teleport_x && teleport_y) // && teleport_z)
 
@@ -96,7 +96,7 @@
 
 /obj/structure/maze/director/attack_hand(mob/user as mob)
 
-	user << "<span class='notice'>The Director collapses to the ground, armour tumbling on the floor. As the dust settles, you think you hear a faint voice whisper 'thank you...'</span>"
+	to_target(user, "<span class='notice'>The Director collapses to the ground, armour tumbling on the floor. As the dust settles, you think you hear a faint voice whisper 'thank you...'</span>")
 	new /obj/item/clothing/suit/space/director(src.loc)
 	new /obj/item/clothing/head/urist/director(src.loc)
 	qdel(src)

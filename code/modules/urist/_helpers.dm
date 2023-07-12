@@ -54,11 +54,11 @@
 	Color = uppertext(Color) //just in case
 
 	if(!(findtext(Color, "#", 1, 2)))
-		world.log << "Please use a # before hex color values for hex2rgb."
+		world.to_target(log, "Please use a # before hex color values for hex2rgb.")
 		return
 
 	if(!(ishex(Color, 2, 9)))
-		world.log << "Value for hex2rgb contains non-hexadecimal characters."
+		world.to_target(log, "Value for hex2rgb contains non-hexadecimal characters.")
 		return
 
 	switch(length(Color))
@@ -73,7 +73,7 @@
 			ColorB = (hex2num(copytext(Color, 6, 8)))
 			ColorA = 255
 		else //I cannot be bothered to code handling trunctation just yet.
-			world.log << "Please use a full #RRGGBB(AA) format for hex2rgb"
+			world.to_target(log, "Please use a full #RRGGBB(AA) format for hex2rgb")
 
 	var/list/rgbcolors = list(ColorR, ColorG, ColorB, ColorA)
 	return rgbcolors

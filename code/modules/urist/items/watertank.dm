@@ -31,7 +31,7 @@
 		var/list/L = list("left hand" = slot_l_hand,"right hand" = slot_r_hand)
 		if(!user.equip_in_one_of_slots(noz, L))
 			on = 0
-			user << "<span class='notice'>You need a free hand to hold the mister!</span>"
+			to_target(user, "<span class='notice'>You need a free hand to hold the mister!</span>")
 	else
 		//Remove from their hands and put back "into" the tank
 		remove_noz(user)
@@ -85,6 +85,6 @@
 		return
 
 /obj/item/reagent_containers/glass/mister/dropped(mob/user as mob)
-	user << "<span class='notice'>The mister snaps back onto the watertank!</span>"
+	to_target(user, "<span class='notice'>The mister snaps back onto the watertank!</span>")
 	tank.on = 0
 	qdel(src)

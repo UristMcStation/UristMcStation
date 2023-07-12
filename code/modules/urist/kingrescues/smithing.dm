@@ -94,7 +94,7 @@
 		return
 
 	if(get_amount() < build_data["cost"])
-		user << "There is not enough material in this stack to make that."
+		to_target(user, "There is not enough material in this stack to make that.")
 		return
 
 	if(!do_after(user, 300, src))

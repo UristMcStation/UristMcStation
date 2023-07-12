@@ -35,7 +35,7 @@
 
 		user.put_in_hands(left_part)
 		user.put_in_hands(right_part)
-		user << "<span class='notice'>You seperate the parts of the [src]</span>"
+		to_target(user, "<span class='notice'>You seperate the parts of the [src]</span>")
 
 		qdel(src)
 	..()
@@ -77,7 +77,7 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(N)
-		user << "<span class='notice'>You tighten the screw on the screwdriver assembley</span>"
+		to_target(user, "<span class='notice'>You tighten the screw on the screwdriver assembley</span>")
 
 		qdel(src)
 	..()

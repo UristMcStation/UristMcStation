@@ -130,7 +130,7 @@
 		t += "<A href='?src=\ref[src];on3=Paper'>Paper</A><br>"
 		t += "<A href='?src=\ref[src];on4=RollingPapers'>Rolling Papers</A><br>"
 
-		user << browse(t, "window=woodprocessor;size=300x300")
+		to_target(user, browse(t, "window=woodprocessor;size=300x300"))
 
 	else
 		to_chat(user, "<span class='notice'>There's no wood stored in the [src]!</span>")

@@ -3,7 +3,7 @@
 /datum/game_mode/scom/proc/ScomTime() //this handles the vast majority of setup for SCOM. Warping, dressing and shuttles for differentiating between pop
 	for(var/mob/living/carbon/human/M in GLOB.player_list)//yeah, using other code is nice. if urist doesn't die, i'll condense them all into one proc probably.
 		HandleScomJoinFor(M)
-		world << ("<span class='danger'> Your first task is to secure a Nanotrasen transit station in the Nyx system. The fate of humanity rests in your hands. Good luck!</span>")
+		to_world(("<span class='danger'> Your first task is to secure a Nanotrasen transit station in the Nyx system. The fate of humanity rests in your hands. Good luck!</span>"))
 
 
 /datum/game_mode/scom/proc/ScomRobotTime() //have to break up the proc because BYOND
@@ -48,13 +48,13 @@
 	L.delete_inventory(TRUE)
 	if(station_job == "Captain")
 		L.loc = pick(scomspawn1)
-		L << ("<span class='notice'> You are the Commander of the S-COM forces. You are expected to control all local aspects of your S-COL base, research, medical, supply and tactical. You should not attend combat missions yourself, unless you have no other option. Your goal is to ensure the project runs smoothly. You report only to the Council and its members. Good luck, the fate of the galaxy rests on your frail shoulders.</span>")
+		to_target(L, ("<span class='notice'> You are the Commander of the S-COM forces. You are expected to control all local aspects of your S-COL base, research, medical, supply and tactical. You should not attend combat missions yourself, unless you have no other option. Your goal is to ensure the project runs smoothly. You report only to the Council and its members. Good luck, the fate of the galaxy rests on your frail shoulders.</span>"))
 		GLOB.scommies.add_antagonist(L.mind, 1, 1, 1, 0, 1)
 		GLOB.scommies.update_antag_mob(L.mind, 1, RANK_COMMAND)
 		GLOB.scommies.equip(L, RANK_COMMAND, 0)
 	else if(station_job in list("Research Director", "Scientist"))
 		L.loc = pick(scomspawn2)
-		L << ("<span class='notice'> You are the Researcher. It is your job to bother the operatives to bring back whatever they can recover from their missions. You will use this, along with the provided facilities to advance the cause of science. It is your job to provide the soldiers with new equipment to match the rising alien threat. It is also your duty to heal any returning injured soldiers. You report to the Commander, good luck.</span>")
+		to_target(L, ("<span class='notice'> You are the Researcher. It is your job to bother the operatives to bring back whatever they can recover from their missions. You will use this, along with the provided facilities to advance the cause of science. It is your job to provide the soldiers with new equipment to match the rising alien threat. It is also your duty to heal any returning injured soldiers. You report to the Commander, good luck.</span>"))
 		GLOB.scommies.add_antagonist(L.mind, 1, 1, 1, 0, 1)
 		GLOB.scommies.update_antag_mob(L.mind, 1, RANK_SUPPORT)
 		GLOB.scommies.equip(L, RANK_SUPPORT, 0)
@@ -80,13 +80,13 @@
 				W.assignment = "S-COM Psionic Operative"
 				W.registered_name = L.real_name
 			L.loc = pick(scomspawn3)
-			M << ("<span class='warning'> You are the psionic operative. Handpicked from members of the Wizards Federation, you will use your advanced psionic powers to aid your fellow soldiers, and to fight the enemy. However, the Wizards Federation has a poor sense of humour, and there are many clowns among your ranks. Either way, try not using guns, it won't end well for you. You report to the commander.</span>")
+			to_target(M, ("<span class='warning'> You are the psionic operative. Handpicked from members of the Wizards Federation, you will use your advanced psionic powers to aid your fellow soldiers, and to fight the enemy. However, the Wizards Federation has a poor sense of humour, and there are many clowns among your ranks. Either way, try not using guns, it won't end well for you. You report to the commander.</span>"))
 */
 
 	else if(station_job in list("Head of Personnel", "Head of Security", "Chief Engineer", "Chief Medical Officer"))
 		L.loc = pick(scomspawn1)
 		//teamnum = GLOB.scommies.teamnames.Find(squadpick, 1, 4)
-		L << ("<span class='warning'> You are leading squad [squadpick]</span>")
+		to_target(L, ("<span class='warning'> You are leading squad [squadpick]</span>"))
 			//if(station_job == "Head of Personnel")
 			//	W.access += access_cent_general
 			//if(station_job == "Head of Security")
@@ -95,15 +95,15 @@
 			//	W.access += access_cent_specops
 			//if(station_job == "Chief Medical Officer")
 			//	W.access += access_cent_medical //keeping this for reference later when I CBA to restore access
-		L << ("<span class='notice'> You are the heart of the S-COM project: the squad leaders. Divided into four squads, you are the last and greatest line of defence against the alien menace. You report to the commander. Good luck soldier, the fate of the galaxy rests on your frail shoulders.</span>")
+		to_target(L, ("<span class='notice'> You are the heart of the S-COM project: the squad leaders. Divided into four squads, you are the last and greatest line of defence against the alien menace. You report to the commander. Good luck soldier, the fate of the galaxy rests on your frail shoulders.</span>"))
 		GLOB.scommies.add_antagonist(L.mind, 1, 1, 1, 0, 1)
 		GLOB.scommies.update_antag_mob(L.mind, 1, RANK_OFFICER)
 		GLOB.scommies.equip(L, RANK_OFFICER, squadpick)
 	else
 		L.loc = pick(scomspawn3)
 		//teamnum = GLOB.scommies.teamnames.Find(squadpick, 1, 4)
-		L << ("<span class='warning'> You are in squad [squadpick]</span>")
-		L << ("<span class='notice'> You are the backbone of the S-COM project. The operatives. Divided into four classes (Combat Medic, Assault, Heavy, Sniper), you are the last and greatest line of defence against the alien menace. You report to your squad leaders and then to the commander. Good luck soldier, the fate of the galaxy rests on your frail shoulders.</span>")
+		to_target(L, ("<span class='warning'> You are in squad [squadpick]</span>"))
+		to_target(L, ("<span class='notice'> You are the backbone of the S-COM project. The operatives. Divided into four classes (Combat Medic, Assault, Heavy, Sniper), you are the last and greatest line of defence against the alien menace. You report to your squad leaders and then to the commander. Good luck soldier, the fate of the galaxy rests on your frail shoulders.</span>"))
 		GLOB.scommies.add_antagonist(L.mind, 1, 1, 1, 0, 1)
 		GLOB.scommies.update_antag_mob(L.mind, 1, RANK_SOLDIER)
 		GLOB.scommies.equip(L, RANK_SOLDIER, squadpick)
@@ -113,22 +113,22 @@
 /datum/game_mode/scom/proc/LoadScom()
 
 	if(!scommapsloaded)
-		world << "\red \b Loading S-COM Maps..."
+		to_world("\red \b Loading S-COM Maps...")
 
 		var/file = file("maps/GamemodeMaps/missions2.dmm")
 		if(isfile(file))
 			GLOB.maploader.load_map(file)
 
-			world << "<span class='warning'> Initializing S-COM map objects...</span>"
+			to_world("<span class='warning'> Initializing S-COM map objects...</span>")
 
 			for(var/area/scom/mission/scom_area in world)
 				for(var/atom/movable/object in scom_area)
 					if(!QDELETED(object) && !(object.atom_flags & ATOM_FLAG_INITIALIZED))
 						object.Initialize()
 
-			world.log << "S-COM Maps loaded."
+			world.to_target(log, "S-COM Maps loaded.")
 
-		world << "\red \b S-COM Maps loaded."
+		to_world("\red \b S-COM Maps loaded.")
 
 		scommapsloaded = 1
 	else

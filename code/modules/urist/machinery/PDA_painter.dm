@@ -42,7 +42,7 @@
 /obj/machinery/pdapainter/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if(istype(O, /obj/item/modular_computer/pda))
 		if(storedpda)
-			user << "There is already a PDA inside."
+			to_target(user, "There is already a PDA inside.")
 			return
 		else
 			var/obj/item/modular_computer/pda/P = usr.get_active_hand()
@@ -71,7 +71,7 @@
 		storedpda.desc = P.desc
 
 	else
-		user << "<span class='notice'>The [src] is empty.</span>"
+		to_target(user, "<span class='notice'>The [src] is empty.</span>")
 
 
 /obj/machinery/pdapainter/verb/ejectpda()
@@ -84,7 +84,7 @@
 		storedpda = null
 		update_icon()
 	else
-		usr << "<span class='notice'>The [src] is empty.</span>"
+		to_target(usr, "<span class='notice'>The [src] is empty.</span>")
 
 
 /obj/machinery/pdapainter/power_change()

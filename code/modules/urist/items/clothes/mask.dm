@@ -34,7 +34,7 @@
 		var/obj/item/clothing/head/urist/paperflower/F = new /obj/item/clothing/head/urist/paperflower
 		user.remove_from_mob(src)
 		user.put_in_hands(F)
-		user << "<span class='notice'>You snip the stem off the flower.</span>"
+		to_target(user, "<span class='notice'>You snip the stem off the flower.</span>")
 		del src
 	..()
 

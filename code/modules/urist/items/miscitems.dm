@@ -177,15 +177,15 @@
 
 	else if(!in_use)
 		if(get_amount() < 2)
-			user << "<span class='warning'>You need at least two wood shafts to do this.</span>"
+			to_target(user, "<span class='warning'>You need at least two wood shafts to do this.</span>")
 			return
-		user << "<span class='notice'>Assembling grille...</span>"
+		to_target(user, "<span class='notice'>Assembling grille...</span>")
 		in_use = 1
 		if (!do_after(usr, 10))
 			in_use = 0
 			return
 		var/obj/structure/grille/wood/F = new /obj/structure/grille/wood/ ( usr.loc )
-		user << "<span class='notice'>You assemble a wooden grille</span>"
+		to_target(user, "<span class='notice'>You assemble a wooden grille</span>")
 		in_use = 0
 		F.add_fingerprint(usr)
 		use(2)
@@ -241,32 +241,32 @@
 				return
 			if("Spear")
 				finished = new /obj/item/material/twohanded/woodspear(get_turf(user), tmp_shard.material.name)
-				user << "<span class='notice'>You fasten \the [I] to the top of the shaft with the cable.</span>"
+				to_target(user, "<span class='notice'>You fasten \the [I] to the top of the shaft with the cable.</span>")
 			if("Makeshift Arrow")
 				finished = new /obj/item/arrow/improv (get_turf(user), tmp_shard.material.name)
-				user << "<span class='notice'>You fasten \the [I] to the top of the shaft with the cable.</span>"
+				to_target(user, "<span class='notice'>You fasten \the [I] to the top of the shaft with the cable.</span>")
 
 	else if(istype(I, /obj/item/stack/cable_coil))
 		var/obj/item/stack/cable_coil/R = I
 		if (R.use(1))
 			finished = new /obj/item/fishingrod/improvised(get_turf(user))
-			user << "<span class='notice'>You tie in the length of cable, forming an improvised fishing rod.</span>"
+			to_target(user, "<span class='notice'>You tie in the length of cable, forming an improvised fishing rod.</span>")
 
 	/*else if(istype(I, /obj/item/stack/woodrods))
 		var/obj/item/stack/woodrods/R = I
 		if (R.use(1))
 			finished = new /obj/item/material/twohanded/woodquarterstaff(get_turf(user))
-			user << "<span class='notice'>You fasten the two rods together tightly with the cable.</span>"*/
+			to_target(user, "<span class='notice'>You fasten the two rods together tightly with the cable.</span>"*/)
 
 	else if(istype(I, /obj/item/stack/material/steel))
 		var/obj/item/stack/material/steel/R = I
 		if (R.use(1))
 			finished = new /obj/item/shovel/improvised(get_turf(user))
-			user << "<span class='notice'>You fasten the metal sheet to the shaft, forming an improvised shovel.</span>"
+			to_target(user, "<span class='notice'>You fasten the metal sheet to the shaft, forming an improvised shovel.</span>")
 
 	else if(istype(I, /obj/item/material/hatchet))
 		finished = new /obj/item/material/twohanded/imppoleaxe(get_turf(user))
-		user << "<span class='notice'>You fasten the hatchet to the shaft, forming an improvised poleaxe.</span>"
+		to_target(user, "<span class='notice'>You fasten the hatchet to the shaft, forming an improvised poleaxe.</span>")
 
 	if(finished)
 		user.drop_from_inventory(src)
@@ -367,7 +367,7 @@
 
 /obj/item/shovel/improvised/afterattack(mob/user as mob)
 	if(prob(5))
-		user << "<span class='notice'>The shovel falls apart in your hands!</span>"
+		to_target(user, "<span class='notice'>The shovel falls apart in your hands!</span>")
 //		new /obj/item/material/woodwirerod(user.loc)
 		qdel(src)
 
