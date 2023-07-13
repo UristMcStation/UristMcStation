@@ -137,6 +137,7 @@
 	name = "drying rack"
 	desc = "A machine for drying plants."
 	icon_state = "drying_rack"
+	construct_state = /singleton/machine_construction/default/panel_closed
 
 /obj/machinery/smartfridge/drying_rack/accept_check(obj/item/O as obj)
 	if(istype(O, /obj/item/reagent_containers/food/snacks))

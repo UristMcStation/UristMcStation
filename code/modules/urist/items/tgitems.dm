@@ -37,7 +37,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 
 		"}
 
-//technically /vg/, but not warrenting its own .dm
+//technically /vg/ but not warrenting its own .dm
 
 /obj/item/book/manual/security_space_law/urist
 	name = "Corporate Regulations"
@@ -289,14 +289,12 @@ Please only put items here that don't have a huge definition - Glloyd											
 	desc = "Shady Jim's super slim packets! Watch the fat burn away, guaranteed!"
 	icon_state = "shadyjimpacket"
 	item_state = "shadyjimpacket"
+	startswith = list(
+		/obj/item/clothing/mask/smokable/cigarette/urist/shady = 6
+	)
 
-/obj/item/storage/fancy/cigarettes/urist/shadyjim/New()
-	..()
-	for(var/i = 1 to storage_slots)
-		reagents.add_reagent(/datum/reagent/lipozine,4)
-		reagents.add_reagent(/datum/reagent/ammonia,2)
-		reagents.add_reagent(/datum/reagent/toxin/plantbgone,1)
-		reagents.add_reagent(/datum/reagent/toxin,1.5)
+/obj/item/clothing/mask/smokable/cigarette/urist/shady
+	filling = list(/datum/reagent/lipozine = 4, /datum/reagent/ammonia = 2, /datum/reagent/toxin/plantbgone = 1, /datum/reagent/toxin = 1.5)
 
 // Smuggler's satchel from /tg/.
 

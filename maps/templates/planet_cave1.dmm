@@ -1,12 +1,12 @@
-"a" = (/turf/simulated/floor/planet/jungle/templatethick,/area/planet/jungle)
-"b" = (/turf/simulated/floor/planet/jungle/rock,/area/planet/jungle)
-"c" = (/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/jungle)
-"d" = (/obj/effect/spider,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/jungle)
-"e" = (/obj/random/loot,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/jungle)
-"f" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/jungle)
-"g" = (/obj/random/maintenance/clean,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/jungle)
-"h" = (/obj/random/loot,/obj/structure/closet/crate,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/jungle)
-"i" = (/obj/effect/spider,/obj/effect/decal/cleanable/cobweb,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/jungle)
+"a" = (/turf/simulated/floor/planet/jungle/templatethick,/area/planet/jungle/away)
+"b" = (/turf/simulated/floor/planet/jungle/rock,/area/planet/jungle/away)
+"c" = (/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/jungle/away)
+"d" = (/obj/effect/spider,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/jungle/away)
+"e" = (/obj/random/loot,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/jungle/away)
+"f" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/jungle/away)
+"g" = (/obj/random/maintenance/clean,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/jungle/away)
+"h" = (/obj/random/loot,/obj/structure/closet/crate,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/jungle/away)
+"i" = (/obj/effect/spider,/obj/effect/decal/cleanable/cobweb,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/jungle/away)
 
 (1,1,1) = {"
 aaaaaaabbbbaaaa

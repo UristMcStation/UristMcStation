@@ -139,7 +139,7 @@
 	attack_verb = list("beautifully slices", "artistically cuts", "smoothly stabs", "quickly jabs")
 	childpart = /obj/item/improvised/scissorknife/barber
 
-// This used to be standard office scissors, but I moved those down to the root scissors/
+// This used to be standard office scissors, but I moved those down to the root scissors
 // Plastic Craft scissors, like those used by schoolchildren.
 /obj/item/scissors/craft
 	name = "Craft Scissors"
@@ -148,7 +148,7 @@
 	item_state = "scissors_craft"
 	attack_verb = list("prods", "pokes", "nudges", "annoys")
 	force = 0 // Use the scissors of a child, recieve the strength of a child
-	matter = null // Remove the metal matter inherited from scissors/
+	matter = null // Remove the metal matter inherited from scissors
 	sharp = 0 // It's a child's scissors, it's more likely to tear the paper than cut it
 	edge = 0
 	childpart = /obj/item/improvised/scissorknife/craft

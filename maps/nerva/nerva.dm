@@ -82,6 +82,14 @@
 	#include "../../code/datums/music_tracks/dilbert.dm"
 	#include "../../code/datums/music_tracks/space_oddity.dm"*/
 
+	//keep your clothing hacks to yourself
+	#include "../torch/items/clothing/solgov-accessory.dm"
+	#include "../torch/items/clothing/solgov-armor.dm"
+	#include "../torch/items/clothing/solgov-feet.dm"
+	#include "../torch/items/clothing/solgov-head.dm"
+	#include "../torch/items/clothing/solgov-suit.dm"
+	#include "../torch/items/clothing/solgov-under.dm"
+
 	#define using_map_DATUM /datum/map/nerva
 	#define URISTCODE 1
 

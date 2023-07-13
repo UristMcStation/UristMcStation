@@ -196,6 +196,7 @@ function run_code_tests {
     find_code_deps
     setup_python3
     shopt -s globstar
+    chmod +x test/check-paths.sh
     run_test_fail "maps contain no step_[xy]" "grep 'step_[xy]' maps/**/*.dmm"
     run_test_fail "maps contain no layer adjustments" "grep 'layer = ' maps/**/*.dmm"
     run_test_fail "maps contain no plane adjustments" "grep 'plane = ' maps/**/*.dmm"

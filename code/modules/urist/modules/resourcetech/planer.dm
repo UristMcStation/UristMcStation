@@ -12,6 +12,7 @@
 	desc = "A machine used for processing unprocessed wood. Just shove your rough wood into the slot and let the machine do the rest." //honk
 	icon_state = "planer"
 	active_power_usage = 1000
+	construct_state = /singleton/machine_construction/default/panel_closed
 
 
 /obj/machinery/carpentry/planer/attackby(obj/item/I, mob/user as mob)
@@ -83,6 +84,7 @@
 	desc = "A machine used for processing wood into cardboard or paper."
 	icon_state = "paper"
 	active_power_usage = 800
+	construct_state = /singleton/machine_construction/default/panel_closed
 
 /obj/machinery/carpentry/woodprocessor/attackby(obj/item/I, mob/user as mob)
 

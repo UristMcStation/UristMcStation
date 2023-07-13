@@ -21,7 +21,7 @@
 	for(var/area/A in world)
 		if(!A.z)
 			continue
-		if(!isPlayerLevel(A.z))
+		if(isNotStationLevel(A.z))
 			continue
 		area_test_count++
 		var/area_good = 1
@@ -458,6 +458,8 @@
 		num2text(WEST)  = list(list(EAST,  list(NORTH, EAST)), list(SOUTH, list(SOUTH, EAST))))
 
 	for(var/obj/structure/disposalpipe/segment/D in world)
+		if(!(D.z in GLOB.using_map.station_levels))
+			continue //artistic liberty over testing
 		if(D.icon_state == "pipe-s")
 			if(!(D.dir == SOUTH || D.dir == EAST))
 				log_bad("Following disposal pipe has an invalid direction set: [log_info_line(D)]")

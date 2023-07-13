@@ -2290,7 +2290,6 @@
 "gk" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/storage/belt/utility,
 /obj/item/clothing/suit/storage/hazardvest,

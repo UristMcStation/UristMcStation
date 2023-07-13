@@ -8,6 +8,7 @@ var/global/list/rad_collectors = list()
 	icon_state = "ca"
 	anchored = FALSE
 	density = TRUE
+	construct_state = /singleton/machine_construction/default/panel_closed
 	//req_access = list(access_engine_equip)
 	var/obj/item/tank/phoron/P = null
 

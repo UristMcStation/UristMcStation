@@ -11,6 +11,7 @@
 	desc = "A machine for tanning hides."
 	icon = 'icons/urist/structures&machinery/machinery.dmi'
 	icon_state = "drying_rack"
+	construct_state = /singleton/machine_construction/default/panel_closed
 	var/icon_on = "drying_rack_on"
 	var/icon_off = "drying_rack"
 

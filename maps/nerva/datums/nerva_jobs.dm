@@ -249,7 +249,7 @@
 	outfit_type = /singleton/hierarchy/outfit/job/medical/psychiatrist/nerva
 	alt_titles = list(
 	"Psychiatrist" = /singleton/hierarchy/outfit/job/medical/psychiatrist/nerva,
-	"Psychologist" = /singleton/hierarchy/outfit/job/medical/psychiatrist/psychologist/nerva)
+	"Psychologist" = /singleton/hierarchy/outfit/job/medical/psychiatrist/nerva_psychologist)
 
 //sec
 

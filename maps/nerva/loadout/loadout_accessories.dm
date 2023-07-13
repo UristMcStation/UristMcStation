@@ -44,18 +44,8 @@
 	allowed_roles = list(/datum/job/qm, /datum/job/cargo_tech)
 
 /datum/gear/storage/pouches
-	display_name = "drop pouches selection"
-	path = /obj/item/clothing/accessory/storage
 	allowed_roles = COMMAND_ROLES
 	cost = 3
-
-/datum/gear/storage/pouches/New()
-	..()
-	var/pouches = list()
-	pouches += /obj/item/clothing/accessory/storage/black_drop
-	pouches += /obj/item/clothing/accessory/storage/brown_drop
-	pouches += /obj/item/clothing/accessory/storage/white_drop
-	gear_tweaks += new/datum/gear_tweak/path/specified_types_list(pouches)
 
 /datum/gear/accessory/badge
 	display_name = "badge selection"

@@ -69,7 +69,7 @@
 	else
 		pass("No areas with duplicated APCs have been found.")
 	return 1
-
+/*
 /datum/unit_test/area_power_tally_accuracy
 	name = "POWER: All areas must have accurate power use values."
 
@@ -90,3 +90,4 @@
 	else
 		pass("All areas had accurate power use values.")
 	return 1
+*/

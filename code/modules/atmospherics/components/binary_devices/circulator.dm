@@ -7,6 +7,8 @@
 	icon = 'icons/obj/power.dmi'
 	icon_state = "circ-unassembled"
 	anchored = FALSE
+	construct_state = /singleton/machine_construction/default/panel_closed
+	maximum_component_parts = list(/obj/item/stock_parts = 16)
 
 	var/kinetic_efficiency = 0.04 //combined kinetic and kinetic-to-electric efficiency
 	var/volume_ratio = 0.2

@@ -22,7 +22,7 @@
 	speech_chance = 2
 
 	warning_low_pressure = 50
-	hazard_low_pressure = -1
+	hazard_low_pressure = 20
 
 	body_temperature = null
 

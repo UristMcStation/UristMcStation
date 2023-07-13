@@ -24,7 +24,7 @@ var/global/list/datum/map_template/ship/ship_templates = list()
 	for(var/ruin in potentialShipTemplates)
 		var/datum/map_template/ship/T = new(list(ruin), ruin)
 		ship_templates[T.name] = T
-		SSmapping.map_templates += T
+		SSmapping.map_templates[T.name] = T
 
 /obj/effect/template_loader
 	name = "random ruin"
@@ -121,10 +121,10 @@ var/global/list/datum/map_template/ship/ship_templates = list()
 
 	for(var/A in potentialRuins)
 		var/datum/map_template/ship/T = potentialRuins[A]
-//		report_progress(T = [T.name]</span>")
+//		report_progress("<span>T = [T.name]</span>")
 		if(T.name == src.mapfile)
 			template = T
-//	report_progress(Template = [template] Mapfile = [mapfile]</span>")
+//	report_progress("<span>Template = [template] Mapfile = [mapfile]</span>")
 
 	if(template.load(get_turf(src), centered = TRUE))
 //	template.loaded++

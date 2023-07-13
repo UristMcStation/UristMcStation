@@ -763,12 +763,6 @@ Note that amputating the affected organ does in fact remove the infection from t
 			qdel(W)
 			continue
 
-		if(!W.is_surgical())
-			if(W.damage_type == DAMAGE_BURN)
-				burn_dam += W.damage
-			else
-				brute_dam += W.damage
-
 		if(bleeds && W.bleeding() && (H && H.should_have_organ(BP_HEART)))
 			W.bleed_timer--
 			status |= ORGAN_BLEEDING

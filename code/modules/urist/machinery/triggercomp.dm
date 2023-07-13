@@ -15,11 +15,9 @@
 	var/id6 = null
 	var/id7 = null
 
-/*	circuit = /obj/item/stock_parts/circuitboard/merch
-
-/obj/item/stock_parts/circuitboard/trigger/blast
+/obj/item/stock_parts/circuitboard/blast_comp
 	name = "\improper Blast Door Computer Circuitboard"
-	build_path = /obj/machinery/computer/trigger/blast*/
+	build_path = /obj/machinery/computer/trigger/blast
 
 /obj/machinery/computer/trigger/attackby(obj/O, mob/user)
 	return

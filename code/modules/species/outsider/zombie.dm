@@ -238,7 +238,7 @@ GLOBAL_LIST_INIT(zombie_species, list(\
 	name = LANGUAGE_ZOMBIE
 	desc = "A crude form of feral communication utilized by the shuffling horrors. The living only hear guttural wails of agony."
 	colour = "cult"
-	key = "a"
+	key = "m"
 	speech_verb = "growls"
 	exclaim_verb = "wails"
 	partial_understanding = list(

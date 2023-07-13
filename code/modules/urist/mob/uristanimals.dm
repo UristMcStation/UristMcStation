@@ -88,6 +88,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	voice_name = "unidentifiable voice"
 	speak_emote = list("chitters")
 	bone_material = null
+	bone_amount = 0
 
 //TGC: Turtle, art+code by me, nothing revolutionary here.
 

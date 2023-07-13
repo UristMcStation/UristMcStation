@@ -9,6 +9,7 @@
 	density = TRUE
 	active_power_usage = 100 KILOWATTS
 	obj_flags = OBJ_FLAG_ROTATABLE
+	construct_state = /singleton/machine_construction/default/panel_closed
 
 	/// Access required to lock or unlock the emitter. Separate variable to prevent `req_access` from blocking use of the emitter while unlocked.
 	var/list/req_lock_access = list(access_engine_equip)

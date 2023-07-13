@@ -31,9 +31,6 @@
 /turf/simulated/floor/reinforced,
 /area/map_template/ecprobe/engineering)
 "bB" = (
-/obj/structure/sign/ecplaque{
-	pixel_x = -32
-	},
 /obj/machinery/light/small/red{
 	dir = 8
 	},
@@ -539,7 +536,7 @@
 /area/map_template/ecprobe/solarsp)
 "Hu" = (
 /obj/machinery/computer/ship/helm{
-	req_access = list(list("ACCESS_EXPLO_HELM"));
+	req_access = list();
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/blue/border{
@@ -742,7 +739,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/item/disk/astrodata,
+/obj/item/disk,
 /obj/item/paper/ecprobelog,
 /obj/machinery/computer/dummy{
 	name = "ship intelligence control console"
@@ -752,7 +749,7 @@
 "QE" = (
 /obj/machinery/computer/shuttle_control{
 	dir = 8;
-	req_access = list("ACCESS_TORCH_PETROV_HELM");
+	req_access = list();
 	shuttle_tag = "Petrov"
 	},
 /obj/effect/floor_decal/corner/blue/border{

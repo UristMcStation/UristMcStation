@@ -116,5 +116,9 @@
 	build_path = /obj/machinery/computer/guestpass
 
 /obj/item/stock_parts/circuitboard/combat_computer
-	name = T_BOARD("combat computer")
+	name = T_BOARD("unrecognized combat computer")
+	build_path = /obj/machinery/computer/combatcomputer
+
+/obj/item/stock_parts/circuitboard/combat_computer/nerva
+	name = T_BOARD("ICS Nerva combat computer")
 	build_path = /obj/machinery/computer/combatcomputer/nerva

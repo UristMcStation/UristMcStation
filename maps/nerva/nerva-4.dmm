@@ -30,8 +30,7 @@
 	icon_state = "closed";
 	id_tag = "merchant_shuttle_station_exterior";
 	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list("ACCESS_EXTERNAL")
+	name = "Docking Port Airlock"
 	},
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
@@ -41,8 +40,7 @@
 	icon_state = "closed";
 	id_tag = "merchant_shuttle_station_exterior";
 	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list("ACCESS_EXTERNAL")
+	name = "Docking Port Airlock"
 	},
 /obj/machinery/shield_diffuser,
 /turf/simulated/floor/plating,
@@ -87,8 +85,7 @@
 	icon_state = "closed";
 	id_tag = "merchant_shuttle_station_interior";
 	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list("ACCESS_EXTERNAL")
+	name = "Docking Port Airlock"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5;
@@ -102,8 +99,7 @@
 	icon_state = "closed";
 	id_tag = "merchant_shuttle_station_interior";
 	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list("ACCESS_EXTERNAL")
+	name = "Docking Port Airlock"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4;
@@ -247,8 +243,7 @@
 	icon_state = "closed";
 	id_tag = "security_inner3";
 	locked = 1;
-	name = "External Access";
-	req_access = list("ACCESS_EXTERNAL")
+	name = "External Access"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
@@ -292,8 +287,7 @@
 	icon_state = "closed";
 	id_tag = "security_outer3";
 	locked = 1;
-	name = "External Access";
-	req_access = list("ACCESS_ENGINEERING","ACCESS_EXTERNAL")
+	name = "External Access"
 	},
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
@@ -447,8 +441,7 @@
 	icon_state = "closed";
 	id_tag = "security_inner3";
 	locked = 1;
-	name = "External Access";
-	req_access = list("ACCESS_EXTERNAL")
+	name = "External Access"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4;
@@ -531,9 +524,7 @@
 /turf/simulated/wall/prepainted,
 /area/hallway/centralfirst)
 "bj" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
@@ -592,9 +583,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
 "bt" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4;
 	icon_state = "intact"
@@ -911,9 +900,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afp)
 "cf" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /obj/structure/catwalk,
 /obj/structure/cable{
 	d1 = 4;
@@ -1012,8 +999,7 @@
 /area/maintenance/first_deck/afp)
 "cq" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Firefighting equipment";
-	req_access = list("ACCESS_MAINT")
+	name = "Firefighting equipment"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afp)
@@ -1022,8 +1008,7 @@
 /area/security/dockingcheckpoint)
 "cs" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Security Maintenance";
-	req_access = list("ACCESS_SECURITY")
+	name = "Security Maintenance"
 	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable{
@@ -1407,9 +1392,7 @@
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
 "dk" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /obj/item/taperoll/engineering/applied,
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
@@ -1497,8 +1480,7 @@
 	icon_state = "closed";
 	id_tag = "security_outer";
 	locked = 1;
-	name = "External Access";
-	req_access = list("ACCESS_ENGINEERING","ACCESS_EXTERNAL")
+	name = "External Access"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fp)
@@ -1547,8 +1529,7 @@
 	icon_state = "closed";
 	id_tag = "security_inner";
 	locked = 1;
-	name = "External Access";
-	req_access = list("ACCESS_EXTERNAL")
+	name = "External Access"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fp)
@@ -1849,8 +1830,7 @@
 /area/security/dockingcheckpoint)
 "ea" = (
 /obj/machinery/door/airlock/glass/security{
-	name = "Docking Checkpoint";
-	req_access = list("ACCESS_SECURITY")
+	name = "Docking Checkpoint"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4;
@@ -2118,8 +2098,7 @@
 	name = "Bridge Outer Lockdown"
 	},
 /obj/machinery/door/airlock/maintenance{
-	name = "Bridge Maintenance";
-	req_access = list(list("ACCESS_BRIDGE","ACCESS_GUNNERY"))
+	name = "Bridge Maintenance"
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -2161,9 +2140,7 @@
 /turf/simulated/wall/r_wall/prepainted,
 /area/hallway/centralfirst)
 "eI" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /obj/structure/disposalpipe/segment,
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/manifold/hidden{
@@ -2319,8 +2296,7 @@
 	icon_state = "closed";
 	id_tag = "nuke_shuttle_dock_inner";
 	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list("ACCESS_EXTERNAL")
+	name = "Docking Port Airlock"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
@@ -2434,9 +2410,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
 "fj" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4;
@@ -2674,8 +2648,7 @@
 	icon_state = "closed";
 	id_tag = "nuke_shuttle_dock_inner";
 	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list("ACCESS_EXTERNAL")
+	name = "Docking Port Airlock"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
@@ -2905,8 +2878,7 @@
 /obj/machinery/door/airlock/engineering{
 	icon_state = "closed";
 	locked = 0;
-	name = "Main Solar Access";
-	req_access = list("ACCESS_ENGINEERING")
+	name = "Main Solar Access"
 	},
 /obj/structure/catwalk,
 /obj/structure/cable/yellow{
@@ -2987,8 +2959,7 @@
 	icon_state = "closed";
 	id_tag = "solar_bridge_inner";
 	locked = 1;
-	name = "Engineering External Access";
-	req_access = list("ACCESS_ENGINE_EQUIP","ACCESS_EXTERNAL")
+	name = "Engineering External Access"
 	},
 /obj/effect/floor_decal/techfloor,
 /obj/effect/floor_decal/techfloor{
@@ -3044,8 +3015,7 @@
 	icon_state = "closed";
 	id_tag = "solar_bridge_outer";
 	locked = 1;
-	name = "Engineering External Access";
-	req_access = list("ACCESS_ENGINE_EQUIP","ACCESS_EXTERNAL")
+	name = "Engineering External Access"
 	},
 /obj/effect/floor_decal/techfloor,
 /obj/effect/floor_decal/techfloor{
@@ -3108,8 +3078,7 @@
 /area/command/aicore)
 "gq" = (
 /obj/machinery/door/airlock/command{
-	name = "First Deck Gun Bay";
-	req_access = list(list("ACCESS_BRIDGE","ACCESS_GUNNERY"))
+	name = "First Deck Gun Bay"
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/reinforced,
@@ -3145,8 +3114,7 @@
 	icon_state = "closed";
 	id_tag = "nuke_shuttle_dock_outer";
 	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list("ACCESS_EXTERNAL")
+	name = "Docking Port Airlock"
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -3204,9 +3172,7 @@
 /turf/simulated/wall/prepainted,
 /area/civilian/first_deck_lobby)
 "gC" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
 "gD" = (
@@ -3328,8 +3294,7 @@
 /obj/machinery/door/airlock/highsecurity{
 	icon_state = "closed";
 	locked = 1;
-	name = "AI Core Access";
-	req_access = list("ACCESS_AI_UPLOAD")
+	name = "AI Core Access"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/aicore)
@@ -3417,9 +3382,7 @@
 /turf/simulated/floor/tiled,
 /area/civilian/first_deck_lobby)
 "hd" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /turf/simulated/floor/plating,
 /area/civilian/first_deck_lobby)
 "he" = (
@@ -3457,7 +3420,7 @@
 	},
 /obj/structure/railing/mapped{
 	dir = 8;
-	icon_state = "railing0"
+	icon_state = "railing0-1"
 	},
 /turf/simulated/open,
 /area/hallway/centralfirst)
@@ -3476,8 +3439,7 @@
 /obj/machinery/door/airlock/engineering{
 	icon_state = "closed";
 	locked = 0;
-	name = "First Deck Atmospherics Closet";
-	req_access = list("ACCESS_ATMOS")
+	name = "First Deck Atmospherics Closet"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/catwalk,
@@ -3571,17 +3533,6 @@
 	},
 /turf/simulated/floor/bluegrid,
 /area/command/aicore)
-"hv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10;
-	icon_state = "intact-scrubbers"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	icon_state = "intact-supply"
-	},
-/turf/simulated/floor/bluegrid,
-/area/command/aicore)
 "hw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -3660,7 +3611,7 @@
 "hD" = (
 /obj/structure/railing/mapped{
 	dir = 8;
-	icon_state = "railing0"
+	icon_state = "railing0-1"
 	},
 /obj/structure/railing/mapped,
 /obj/structure/sign/directions/evac{
@@ -3761,8 +3712,7 @@
 	icon_state = "closed";
 	id_tag = "security_inner2";
 	locked = 1;
-	name = "External Access";
-	req_access = list("ACCESS_EXTERNAL")
+	name = "External Access"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
@@ -3825,8 +3775,7 @@
 	icon_state = "closed";
 	id_tag = "security_outer2";
 	locked = 1;
-	name = "External Access";
-	req_access = list("ACCESS_ENGINEERING","ACCESS_EXTERNAL")
+	name = "External Access"
 	},
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -4100,8 +4049,7 @@
 /obj/machinery/door/airlock/engineering{
 	icon_state = "closed";
 	locked = 0;
-	name = "First Deck Atmospherics Closet";
-	req_access = list("ACCESS_ATMOS")
+	name = "First Deck Atmospherics Closet"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
@@ -4384,8 +4332,7 @@
 /area/command/aicore)
 "iK" = (
 /obj/machinery/door/airlock/vault/bolted{
-	name = "AI Core Backup Access";
-	req_access = list("ACCESS_AI_UPLOAD")
+	name = "AI Core Backup Access"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4425,8 +4372,7 @@
 /obj/machinery/door/airlock/highsecurity{
 	icon_state = "closed";
 	locked = 0;
-	name = "AI Core Access";
-	req_access = list("ACCESS_AI_UPLOAD")
+	name = "AI Core Access"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4510,9 +4456,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
 "iX" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
@@ -4714,8 +4658,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/command{
-	name = "First Deck Gun Bay";
-	req_access = list(list("ACCESS_BRIDGE","ACCESS_GUNNERY"))
+	name = "First Deck Gun Bay"
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/reinforced,
@@ -4776,21 +4719,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
-"jy" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/first_deck/central)
 "jz" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -4849,22 +4777,6 @@
 	},
 /turf/simulated/floor/bluegrid,
 /area/command/aicore)
-"jG" = (
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9;
-	icon_state = "intact-scrubbers"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	icon_state = "intact-supply"
-	},
-/turf/simulated/floor/bluegrid,
-/area/command/aicore)
 "jH" = (
 /obj/machinery/power/apc{
 	dir = 8;
@@ -4889,9 +4801,7 @@
 /turf/simulated/floor/reinforced,
 /area/security/topgun)
 "jJ" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /obj/structure/catwalk,
 /obj/structure/cable{
 	d1 = 1;
@@ -5239,9 +5149,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
 "kl" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -5440,9 +5348,7 @@
 "kD" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
 	d1 = 1;
@@ -5736,9 +5642,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
 "lc" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4;
@@ -5903,8 +5807,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/command{
-	name = "First Deck Gun Bay";
-	req_access = list(list("ACCESS_BRIDGE","ACCESS_GUNNERY"))
+	name = "First Deck Gun Bay"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -6263,7 +6166,6 @@
 	},
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering Maintenance";
-	req_access = list("ACCESS_ENGINEERING");
 	secured_wires = 1
 	},
 /turf/simulated/floor/plating,
@@ -6371,8 +6273,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/engineering{
-	name = "Engineering Access";
-	req_access = list("ACCESS_ENGINEERING")
+	name = "Engineering Access"
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -6640,8 +6541,7 @@
 /area/engineering/substation/first_deck)
 "mF" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Fourth Deck Substation";
-	req_access = list("ACCESS_ENGINEERING")
+	name = "Fourth Deck Substation"
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -6663,6 +6563,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /obj/effect/catwalk_plated,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
 "mH" = (
@@ -6714,8 +6617,7 @@
 /area/maintenance/first_deck/fs)
 "mP" = (
 /obj/machinery/atmospherics/unary/tank/air{
-	dir = 8;
-	icon_state = "air_map"
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fs)
@@ -6797,8 +6699,7 @@
 	name = "Bridge Outer Lockdown"
 	},
 /obj/machinery/door/airlock/maintenance{
-	name = "Bridge Maintenance";
-	req_access = list(list("ACCESS_BRIDGE","ACCESS_GUNNERY"))
+	name = "Bridge Maintenance"
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -6910,9 +6811,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
 "nb" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
 "nc" = (
@@ -6935,9 +6834,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
 "ne" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -6952,27 +6848,17 @@
 /turf/simulated/floor/plating,
 /area/engineering/bluespace)
 "nf" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/power/apc{
 	name = "south bump";
 	pixel_y = -24
 	},
 /obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
+	d2 = 8;
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/bluegrid,
 /area/engineering/bluespace)
 "ng" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
@@ -7245,11 +7131,6 @@
 /turf/simulated/wall/r_wall/prepainted,
 /area/engineering/bluespace)
 "nH" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/door/airlock/highsecurity{
 	name = "Bluespace Drive"
 	},
@@ -7276,8 +7157,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /obj/machinery/meter,
 /obj/machinery/door/airlock/maintenance{
-	name = "Air Supply Maintenance";
-	req_access = list("ACCESS_ATMOS")
+	name = "Air Supply Maintenance"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fs)
@@ -7355,8 +7235,7 @@
 /area/maintenance/first_deck/afs)
 "nQ" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Fourth Deck Substation";
-	req_access = list("ACCESS_ENGINEERING")
+	name = "Fourth Deck Substation"
 	},
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -7386,10 +7265,6 @@
 /obj/machinery/power/breakerbox/activated{
 	RCon_tag = "First Deck Bypass"
 	},
-/obj/structure/cable/yellow{
-	d2 = 8;
-	icon_state = "0-8"
-	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/first_deck)
 "nT" = (
@@ -7416,11 +7291,6 @@
 /turf/simulated/floor/plating,
 /area/engineering/bluespace)
 "nW" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
@@ -7570,28 +7440,7 @@
 "oj" = (
 /turf/simulated/floor/plating,
 /area/engineering/bluespace)
-"ok" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/plating,
-/area/engineering/bluespace)
 "ol" = (
-/obj/machinery/power/apc{
-	cell_type = /obj/item/cell/super;
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24;
-	pixel_y = 0
-	},
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
 /obj/structure/bed/chair/office/dark{
 	dir = 1;
 	icon_state = "officechair_preview"
@@ -7966,7 +7815,7 @@
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 8;
-	icon_state = "railing0"
+	icon_state = "railing0-1"
 	},
 /turf/simulated/open,
 /area/maintenance/first_deck/central)
@@ -7977,7 +7826,7 @@
 "pi" = (
 /obj/structure/railing/mapped{
 	dir = 4;
-	icon_state = "railing0"
+	icon_state = "railing0-1"
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/open,
@@ -8081,8 +7930,7 @@
 	icon_state = "closed";
 	id_tag = "aft_solar_outer";
 	locked = 1;
-	name = "Engineering External Access";
-	req_access = list("ACCESS_ENGINEERING","ACCESS_EXTERNAL")
+	name = "Engineering External Access"
 	},
 /obj/structure/cable/orange{
 	d1 = 4;
@@ -8136,8 +7984,7 @@
 	icon_state = "closed";
 	id_tag = "aft_solar_inner";
 	locked = 1;
-	name = "Engineering External Access";
-	req_access = list("ACCESS_EXTERNAL")
+	name = "Engineering External Access"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
@@ -8210,8 +8057,7 @@
 /area/maintenance/aftsolar)
 "px" = (
 /obj/machinery/door/airlock/engineering{
-	name = "Aft Auxiliary Solar Access";
-	req_access = list("ACCESS_ENGINEERING")
+	name = "Aft Auxiliary Solar Access"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -8258,11 +8104,11 @@
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 8;
-	icon_state = "railing0"
+	icon_state = "railing0-1"
 	},
 /obj/structure/railing/mapped{
 	dir = 1;
-	icon_state = "railing0"
+	icon_state = "railing0-1"
 	},
 /turf/simulated/open,
 /area/maintenance/first_deck/afs)
@@ -8270,7 +8116,7 @@
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 1;
-	icon_state = "railing0"
+	icon_state = "railing0-1"
 	},
 /turf/simulated/open,
 /area/maintenance/first_deck/afs)
@@ -8278,11 +8124,11 @@
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 1;
-	icon_state = "railing0"
+	icon_state = "railing0-1"
 	},
 /obj/structure/railing/mapped{
 	dir = 4;
-	icon_state = "railing0"
+	icon_state = "railing0-1"
 	},
 /turf/simulated/open,
 /area/maintenance/first_deck/afs)
@@ -8526,9 +8372,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
 "qb" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 4;
@@ -8561,9 +8405,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
 "qe" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 4;
@@ -8631,8 +8473,7 @@
 	icon_state = "closed";
 	id_tag = "skipjack_shuttle_dock_inner";
 	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list("ACCESS_EXTERNAL")
+	name = "Docking Port Airlock"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8;
@@ -8646,8 +8487,7 @@
 	icon_state = "closed";
 	id_tag = "skipjack_shuttle_dock_inner";
 	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list("ACCESS_EXTERNAL")
+	name = "Docking Port Airlock"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10;
@@ -8713,8 +8553,7 @@
 	icon_state = "closed";
 	id_tag = "skipjack_shuttle_dock_outer";
 	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list("ACCESS_EXTERNAL")
+	name = "Docking Port Airlock"
 	},
 /obj/machinery/shield_diffuser,
 /turf/simulated/floor/plating,
@@ -28579,7 +28418,7 @@ lb
 bh
 aB
 aB
-dD
+jw
 nd
 nF
 aB
@@ -29189,7 +29028,7 @@ mH
 ng
 nH
 nW
-ok
+nW
 ox
 oN
 nG
@@ -29379,7 +29218,7 @@ gG
 gG
 il
 iZ
-jy
+kD
 jN
 kq
 kD
@@ -38465,11 +38304,11 @@ eB
 eB
 eB
 eB
-hv
+fA
 hU
 iJ
 jk
-jG
+kR
 eB
 eB
 eB

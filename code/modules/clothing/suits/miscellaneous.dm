@@ -453,6 +453,7 @@
 /obj/item/clothing/suit/poncho/roles/science/nanotrasen
 	name = "\improper NanoTrasen poncho"
 	desc = "A simple, comfortable cloak without sleeves. This one is white with a few red stripes, colors of NanoTrasen. Go NanoTrasen!"
+	icon = 'icons/obj/clothing/obj_suit.dmi'
 	icon_state = "sciponcho_nt"
 
 /obj/item/clothing/suit/poncho/roles/cargo

@@ -34,7 +34,8 @@
 		/material/steel =     25000,
 		/material/aluminium = 25000,
 		/material/glass =     12500,
-		/material/plastic =   12500
+		/material/plastic =   12500,
+		/material/wood =      12500
 	)
 
 	var/show_category = "All"

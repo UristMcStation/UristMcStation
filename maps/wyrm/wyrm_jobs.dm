@@ -31,7 +31,7 @@
 	alt_titles = list("Chemist" = /singleton/hierarchy/outfit/job/medical/doctor/chemist,
 		"Surgeon" = /singleton/hierarchy/outfit/job/medical/doctor/surgeon,
 		"Emergency Physician" = /singleton/hierarchy/outfit/job/medical/doctor/emergency_physician,
-		"Psychologist" = /singleton/hierarchy/outfit/job/medical/psychiatrist/psychologist
+		"Psychologist" = /singleton/hierarchy/outfit/job/medical/psychiatrist
 		)
 
 /datum/job/scientist

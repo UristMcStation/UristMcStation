@@ -69,8 +69,7 @@
 	icon_state = "closed";
 	id_tag = "solar_tool_outer";
 	locked = 1;
-	name = "Engineering External Access";
-	req_access = list("ACCESS_ENGINEERING","ACCESS_EXTERNAL")
+	name = "Engineering External Access"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
@@ -106,8 +105,7 @@
 	icon_state = "closed";
 	id_tag = "solar_tool_inner";
 	locked = 1;
-	name = "Engineering External Access";
-	req_access = list("ACCESS_EXTERNAL")
+	name = "Engineering External Access"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/plating,
@@ -476,6 +474,10 @@
 /area/maintenance/second_deck/afp)
 "br" = (
 /obj/machinery/cryopod,
+/obj/machinery/computer/cryopod{
+	pixel_x = 32
+	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
 /area/security/prison)
 "bs" = (
@@ -642,7 +644,6 @@
 "bJ" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Secure Storage";
-	req_access = list("ACCESS_CHIEF_ENGINEER");
 	secured_wires = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -695,7 +696,7 @@
 "bP" = (
 /obj/structure/railing/mapped{
 	dir = 8;
-	icon_state = "railing0"
+	icon_state = "railing0-1"
 	},
 /obj/machinery/light{
 	dir = 1
@@ -737,7 +738,6 @@
 "bV" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Fuel Bay";
-	req_access = list("ACCESS_CONSTRUCTION");
 	secured_wires = 1
 	},
 /obj/machinery/door/firedoor,
@@ -770,7 +770,6 @@
 "bX" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Tech Storage";
-	req_access = list("ACCESS_TECH_STORAGE");
 	secured_wires = 1
 	},
 /obj/machinery/door/firedoor,
@@ -858,9 +857,7 @@
 /turf/simulated/wall/prepainted,
 /area/civilian/cryo2)
 "cd" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /turf/simulated/floor/plating,
 /area/civilian/cryo2)
 "ce" = (
@@ -993,7 +990,6 @@
 "ct" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Fuel Bay";
-	req_access = list("ACCESS_CONSTRUCTION");
 	secured_wires = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
@@ -1046,7 +1042,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
 	name = "Tech Storage";
-	req_access = list("ACCESS_TECH_STORAGE");
 	secured_wires = 1
 	},
 /turf/simulated/floor/plating,
@@ -1205,8 +1200,7 @@
 	opacity = 0
 	},
 /obj/machinery/door/airlock/security{
-	name = "Prison";
-	req_access = list("ACCESS_BRIG")
+	name = "Prison"
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/techmaint,
@@ -1474,8 +1468,7 @@
 	icon_state = "closed";
 	id_tag = null;
 	locked = 1;
-	name = "Observatory";
-	req_access = list("ACCESS_ENGINE_EQUIP")
+	name = "Observatory"
 	},
 /turf/simulated/floor/plating,
 /area/hallway/aft/second_deck)
@@ -1484,8 +1477,7 @@
 	icon_state = "closed";
 	id_tag = null;
 	locked = 1;
-	name = "Observatory";
-	req_access = list("ACCESS_ENGINE_EQUIP")
+	name = "Observatory"
 	},
 /obj/machinery/door/firedoor,
 /obj/item/taperoll/engineering/applied,
@@ -1778,8 +1770,7 @@
 "dX" = (
 /obj/machinery/door/airlock/external{
 	locked = 1;
-	name = "External Airlock";
-	req_access = list("ACCESS_EXTERNAL")
+	name = "External Airlock"
 	},
 /obj/item/taperoll/engineering/applied,
 /turf/simulated/floor/plating,
@@ -1810,8 +1801,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /obj/machinery/meter,
 /obj/machinery/door/airlock/maintenance{
-	name = "Air Supply Maintenance";
-	req_access = list("ACCESS_ATMOS")
+	name = "Air Supply Maintenance"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fp)
@@ -2040,18 +2030,14 @@
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/cryo2)
 "eB" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
 "eC" = (
 /turf/simulated/floor/plating,
 /area/hallway/aft/second_deck)
 "eD" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fp)
 "eE" = (
@@ -2063,9 +2049,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fp)
 "eG" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /turf/simulated/floor/plating,
 /area/logistics/auxtool)
 "eQ" = (
@@ -2128,7 +2112,6 @@
 "eY" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering Maintenance";
-	req_access = list("ACCESS_ENGINEERING");
 	secured_wires = 1
 	},
 /obj/structure/cable{
@@ -2148,7 +2131,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
 	name = "Tech Storage";
-	req_access = list("ACCESS_TECH_STORAGE");
 	secured_wires = 1
 	},
 /obj/structure/cable{
@@ -2160,9 +2142,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/techstorage)
 "fb" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
@@ -2214,9 +2194,7 @@
 /turf/simulated/floor/plating,
 /area/logistics/auxtool)
 "fq" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -2381,8 +2359,7 @@
 /area/engineering/break_room)
 "fC" = (
 /obj/machinery/door/airlock/engineering{
-	name = "Engineering Access";
-	req_access = list("ACCESS_ENGINEERING")
+	name = "Engineering Access"
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/yellow{
@@ -3289,8 +3266,7 @@
 /area/engineering/break_room)
 "gF" = (
 /obj/machinery/door/airlock/engineering{
-	name = "Engineering Access";
-	req_access = list("ACCESS_ENGINEERING")
+	name = "Engineering Access"
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/yellow{
@@ -3688,9 +3664,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/aft/second_deck)
 "hE" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /turf/simulated/floor/plating,
 /area/hallway/aft/second_deck)
 "hF" = (
@@ -3748,8 +3722,7 @@
 "hO" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
-	name = "Officers Dorms";
-	req_access = list("ACCESS_BRIDGE")
+	name = "Officers Dorms"
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -3764,8 +3737,7 @@
 "hP" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
-	name = "Officers Dorms";
-	req_access = list("ACCESS_BRIDGE")
+	name = "Officers Dorms"
 	},
 /turf/simulated/floor/plating,
 /area/command/headquarters)
@@ -3794,8 +3766,7 @@
 "hT" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
-	name = "Teleport Access";
-	req_access = list("ACCESS_TELEPORTER")
+	name = "Teleport Access"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -4111,7 +4082,7 @@
 "iJ" = (
 /obj/structure/railing/mapped{
 	dir = 4;
-	icon_state = "railing0"
+	icon_state = "railing0-1"
 	},
 /obj/machinery/ai_status_display{
 	pixel_x = -32;
@@ -4164,8 +4135,7 @@
 /area/command/teleporter)
 "iP" = (
 /obj/machinery/door/airlock/command{
-	name = "Captain's Quarters";
-	req_access = list("ACCESS_CAPTAIN")
+	name = "Captain's Quarters"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -4321,8 +4291,7 @@
 /area/engineering/fdengine)
 "jd" = (
 /obj/machinery/door/airlock/glass/command{
-	name = "Chief Engineer";
-	req_access = list("ACCESS_CHIEF_ENGINEER")
+	name = "Chief Engineer"
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -4479,8 +4448,7 @@
 "jw" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security{
-	name = "Head of Security";
-	req_access = list("ACCESS_HEAD_OF_SECURITY")
+	name = "Head of Security"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4512,8 +4480,7 @@
 "jz" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
-	name = "Chief Engineer";
-	req_access = list("ACCESS_CHIEF_ENGINEER")
+	name = "Chief Engineer"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4549,7 +4516,7 @@
 "jC" = (
 /obj/structure/railing/mapped{
 	dir = 4;
-	icon_state = "railing0"
+	icon_state = "railing0-1"
 	},
 /obj/structure/railing/mapped,
 /obj/structure/sign/directions/security{
@@ -4612,8 +4579,7 @@
 /area/command/teleporter)
 "jI" = (
 /obj/machinery/door/airlock/command{
-	name = "Captain's Office";
-	req_access = list("ACCESS_CAPTAIN")
+	name = "Captain's Office"
 	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5243,8 +5209,7 @@
 /area/engineering/break_room)
 "kV" = (
 /obj/machinery/door/airlock/engineering{
-	name = "Engineering Access";
-	req_access = list("ACCESS_ENGINEERING")
+	name = "Engineering Access"
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -5739,8 +5704,7 @@
 "lO" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
-	name = "Thrusters Access";
-	req_access = list("ACCESS_ENGINEERING")
+	name = "Thrusters Access"
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/fdengine)
@@ -5836,14 +5800,12 @@
 	},
 /obj/structure/railing/mapped{
 	dir = 8;
-	icon_state = "railing0"
+	icon_state = "railing0-1"
 	},
 /turf/simulated/open,
 /area/hallway/aft/second_deck)
 "lY" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -6215,8 +6177,7 @@
 	pixel_x = 0
 	},
 /obj/machinery/door/airlock/engineering{
-	name = "Thrusters Access";
-	req_access = list("ACCESS_ENGINEERING")
+	name = "Thrusters Access"
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/fdengine)
@@ -6238,7 +6199,7 @@
 "mJ" = (
 /obj/structure/railing/mapped{
 	dir = 4;
-	icon_state = "railing0"
+	icon_state = "railing0-1"
 	},
 /turf/simulated/open,
 /area/engineering/break_room)
@@ -6300,9 +6261,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /turf/simulated/floor/plating,
 /area/hallway/aft/second_deck)
 "mR" = (
@@ -6329,7 +6288,7 @@
 "mS" = (
 /obj/structure/railing/mapped{
 	dir = 8;
-	icon_state = "railing0"
+	icon_state = "railing0-1"
 	},
 /obj/structure/sign/directions/medical{
 	pixel_x = 32
@@ -6483,8 +6442,7 @@
 "nm" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/medical{
-	name = "Chief Medical Officer";
-	req_access = list("ACCESS_CHIEF_MEDICAL_OFFICER")
+	name = "Chief Medical Officer"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -6497,8 +6455,7 @@
 "nn" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
-	name = "Second Officer";
-	req_access = list("ACCESS_HEAD_OF_PERSONNEL")
+	name = "Second Officer"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -6532,11 +6489,11 @@
 "nq" = (
 /obj/structure/railing/mapped{
 	dir = 4;
-	icon_state = "railing0"
+	icon_state = "railing0-1"
 	},
 /obj/structure/railing/mapped{
 	dir = 1;
-	icon_state = "railing0"
+	icon_state = "railing0-1"
 	},
 /turf/simulated/open,
 /area/hallway/fore/second_deck)
@@ -7058,7 +7015,6 @@
 	},
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering Maintenance";
-	req_access = list("ACCESS_ENGINEERING");
 	secured_wires = 1
 	},
 /obj/structure/catwalk,
@@ -7132,8 +7088,7 @@
 	icon_state = "intact-supply"
 	},
 /obj/machinery/door/airlock/engineering{
-	name = "Engineering Access";
-	req_access = list("ACCESS_ENGINEERING")
+	name = "Engineering Access"
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
@@ -7171,8 +7126,7 @@
 	icon_state = "intact-supply"
 	},
 /obj/machinery/door/airlock/engineering{
-	name = "Engineering Access";
-	req_access = list("ACCESS_ENGINEERING")
+	name = "Engineering Access"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
@@ -7275,9 +7229,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/aft/second_deck)
 "oM" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -7322,8 +7274,7 @@
 "oR" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
-	name = "Officers Dorms";
-	req_access = list("ACCESS_BRIDGE")
+	name = "Officers Dorms"
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -7337,8 +7288,7 @@
 "oS" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
-	name = "Officers Dorms";
-	req_access = list("ACCESS_BRIDGE")
+	name = "Officers Dorms"
 	},
 /turf/simulated/floor/carpet,
 /area/command/headquarters)
@@ -7370,8 +7320,7 @@
 "oV" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
-	name = "Teleport Access";
-	req_access = list("ACCESS_TELEPORTER")
+	name = "Teleport Access"
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -7509,8 +7458,7 @@
 "pl" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
-	name = "Engineering Access";
-	req_access = list("ACCESS_ENGINEERING")
+	name = "Engineering Access"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmospherics)
@@ -7531,8 +7479,7 @@
 "po" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
-	name = "Engineering Access";
-	req_access = list("ACCESS_ENGINEERING")
+	name = "Engineering Access"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -7571,8 +7518,7 @@
 /area/engineering/break_room)
 "pt" = (
 /obj/machinery/door/airlock/engineering{
-	name = "Engineering Access";
-	req_access = list("ACCESS_ENGINEERING")
+	name = "Engineering Access"
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/yellow{
@@ -7922,8 +7868,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
-	name = "Bridge";
-	req_access = list("ACCESS_BRIDGE")
+	name = "Bridge"
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
@@ -8012,8 +7957,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
-	name = "First Officer's Quarters";
-	req_access = list("ACCESS_FIRST_OFFICER")
+	name = "First Officer's Quarters"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -8457,18 +8401,12 @@
 "qY" = (
 /obj/structure/railing/mapped{
 	dir = 1;
-	icon_state = "railing0"
+	icon_state = "railing0-1"
 	},
 /obj/machinery/camera/network/command{
 	c_tag = "Captain's Office Staircase";
 	dir = 1;
 	icon_state = "camera"
-	},
-/obj/machinery/door/blast/regular/open{
-	dir = 8;
-	icon_state = "pdoor0";
-	id_tag = "bridgelock";
-	name = "Bridge Lockdown"
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
@@ -8480,13 +8418,7 @@
 "qZ" = (
 /obj/structure/railing/mapped{
 	dir = 1;
-	icon_state = "railing0"
-	},
-/obj/machinery/door/blast/regular/open{
-	dir = 8;
-	icon_state = "pdoor0";
-	id_tag = "bridgelock";
-	name = "Bridge Lockdown"
+	icon_state = "railing0-1"
 	},
 /turf/simulated/open,
 /area/command/bridge)
@@ -8592,7 +8524,6 @@
 	},
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering Maintenance";
-	req_access = list("ACCESS_ENGINEERING");
 	secured_wires = 1
 	},
 /turf/simulated/floor/plating,
@@ -8638,9 +8569,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
 "rk" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
@@ -8677,9 +8606,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/civilian/personal)
 "rq" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -8713,9 +8640,7 @@
 /turf/simulated/wall/prepainted,
 /area/maintenance/second_deck/fs)
 "rv" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
@@ -8783,9 +8708,7 @@
 /turf/simulated/floor/tiled,
 /area/logistics/primtool)
 "rD" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
 	d1 = 1;
@@ -9132,9 +9055,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
 "sj" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -9194,9 +9115,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/aft/second_deck)
 "sm" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -9493,10 +9412,6 @@
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmospherics)
-"sM" = (
-/obj/machinery/telecomms/relay/preset/seconddeck,
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/afs)
 "sN" = (
 /obj/structure/catwalk,
 /obj/structure/disposalpipe/segment{
@@ -9787,8 +9702,7 @@
 	},
 /obj/machinery/door/airlock/external/escapepod{
 	id_tag = "escape_pod_1_berth_hatch";
-	name = "Escape Pod One";
-	req_access = list("ACCESS_EXTERNAL")
+	name = "Escape Pod One"
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/second_deck/fs)
@@ -9813,9 +9727,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
 "tr" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -9995,9 +9907,7 @@
 /turf/simulated/floor/plating,
 /area/logistics/primtool)
 "tz" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -10081,8 +9991,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/atmos{
-	name = "Atmospherics";
-	req_access = list("ACCESS_ATMOS")
+	name = "Atmospherics"
 	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/blast/regular{
@@ -11240,7 +11149,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/atmos{
 	name = "Atmospherics Maintenance";
-	req_access = list("ACCESS_ATMOS");
 	secured_wires = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -11767,8 +11675,7 @@
 	icon_state = "closed";
 	id_tag = "exti2_inner";
 	locked = 1;
-	name = "External Access";
-	req_access = list("ACCESS_EXTERNAL")
+	name = "External Access"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
@@ -11908,9 +11815,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
 "xC" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/catwalk,
@@ -11931,9 +11836,7 @@
 /area/civilian/bath)
 "xE" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -12256,8 +12159,7 @@
 	icon_state = "closed";
 	id_tag = "exti2_outer";
 	locked = 1;
-	name = "External Access";
-	req_access = list("ACCESS_ENGINEERING","ACCESS_EXTERNAL")
+	name = "External Access"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
@@ -12567,7 +12469,6 @@
 "yJ" = (
 /obj/machinery/door/airlock/atmos{
 	name = "Atmospherics Maintenance";
-	req_access = list("ACCESS_ATMOS");
 	secured_wires = 1
 	},
 /obj/machinery/door/firedoor,
@@ -13177,8 +13078,7 @@
 /area/chapel/office)
 "Ax" = (
 /obj/machinery/door/airlock/engineering{
-	name = "Atmospherics Substation";
-	req_access = list("ACCESS_ENGINEERING")
+	name = "Atmospherics Substation"
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -13410,9 +13310,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/logistics/auxtool)
 "BU" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /obj/structure/catwalk,
 /obj/structure/cable{
 	d1 = 1;
@@ -13725,8 +13623,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/engineering{
-	name = "Atmospherics Substation";
-	req_access = list("ACCESS_ENGINEERING")
+	name = "Atmospherics Substation"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/atmos)
@@ -13832,8 +13729,7 @@
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock{
-	name = "Counselor's Office";
-	req_access = list("ACCESS_PSYCHIATRIST")
+	name = "Counselor's Office"
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -14489,8 +14385,7 @@
 /area/civilian/entertainer)
 "IF" = (
 /obj/machinery/door/airlock/command{
-	name = "Captain's Office";
-	req_access = list("ACCESS_CAPTAIN")
+	name = "Captain's Office"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -14559,7 +14454,7 @@
 /obj/item/device/radio/intercom{
 	dir = 8;
 	icon_state = "intercom";
-	pixel_x = 28
+	pixel_x = 23
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
@@ -14949,8 +14844,7 @@
 /area/civilian/personal)
 "Lh" = (
 /obj/machinery/door/airlock{
-	name = "Chapel Morgue";
-	req_access = list("ACCESS_CHAPEL_STORAGE")
+	name = "Chapel Morgue"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	icon_state = "intact-supply";
@@ -15045,8 +14939,7 @@
 /area/civilian/lounge)
 "LD" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Second Deck Substation";
-	req_access = list("ACCESS_ENGINEERING")
+	name = "Second Deck Substation"
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -15078,8 +14971,7 @@
 /area/logistics/auxtool)
 "LO" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Security Maintenance";
-	req_access = list("ACCESS_SECURITY")
+	name = "Security Maintenance"
 	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable{
@@ -15217,8 +15109,7 @@
 /area/chapel)
 "Mu" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Chapel Maintenance";
-	req_access = list("ACCESS_CHAPEL_STORAGE")
+	name = "Chapel Maintenance"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -15442,7 +15333,7 @@
 "Nu" = (
 /obj/structure/railing/mapped{
 	dir = 8;
-	icon_state = "railing0"
+	icon_state = "railing0-1"
 	},
 /turf/simulated/open,
 /area/security/prison)
@@ -15480,8 +15371,7 @@
 /area/civilian/lounge)
 "NO" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Second Deck Substation";
-	req_access = list("ACCESS_ENGINEERING")
+	name = "Second Deck Substation"
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -15527,11 +15417,9 @@
 	dir = 8;
 	icon_state = "map-supply"
 	},
-/obj/structure/disposalpipe/sortjunction{
+/obj/structure/disposalpipe/junction{
 	dir = 1;
-	icon_state = "pipe-j1s";
-	name = "Docking Checkpoint";
-	sort_type = "Docking Checkpoint"
+	icon_state = "pipe-j1"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
@@ -15557,8 +15445,7 @@
 	},
 /obj/machinery/door/airlock{
 	id_tag = "Dorm8";
-	name = "Entertainer's Room";
-	req_access = list("ACCESS_THEATRE")
+	name = "Entertainer's Room"
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -15651,8 +15538,7 @@
 /area/maintenance/second_deck/fs)
 "Ou" = (
 /obj/machinery/door/airlock/glass{
-	name = "Chapel Office";
-	req_access = list("ACCESS_CHAPEL_STORAGE")
+	name = "Chapel Office"
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -15664,9 +15550,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/chapel)
 "Ov" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable{
@@ -15924,9 +15808,7 @@
 /turf/simulated/floor/carpet,
 /area/chapel)
 "PS" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_THEATRE")
-	},
+/obj/machinery/door/airlock/maintenance,
 /turf/simulated/floor/plating,
 /area/civilian/entertainer)
 "PT" = (
@@ -16105,9 +15987,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/chapel/office)
 "QE" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_MAINT")
-	},
+/obj/machinery/door/airlock/maintenance,
 /obj/structure/barricade/wooden/crude,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
@@ -17339,9 +17219,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/fore/second_deck)
 "XW" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list("ACCESS_CHAPEL_STORAGE")
-	},
+/obj/machinery/door/airlock/maintenance,
 /turf/simulated/floor/plating,
 /area/civilian/counselor)
 "Ya" = (
@@ -33355,7 +33233,7 @@ pm
 eZ
 ri
 rL
-sM
+qh
 rK
 uq
 vh

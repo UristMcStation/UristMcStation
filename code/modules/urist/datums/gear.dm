@@ -134,7 +134,3 @@
 	display_name = "welding goggles, superior"
 	path = /obj/item/clothing/glasses/welding/superior
 	allowed_roles = list(/datum/job/chief_engineer)
-
-/datum/gear/eyes/security/goggles
-	display_name = "Security HUD Goggles"
-	path = /obj/item/clothing/glasses/hud/security/prot
