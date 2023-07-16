@@ -2686,7 +2686,7 @@
 /obj/machinery/door/airlock/hatch{
 	name = "Cockpit";
 	autoset_access = 0;
-	req_access = list("Trajan Helm")
+	req_access = list("ACCESS_TRAJAN_HELM")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
