@@ -26,4 +26,4 @@
 
 /singleton/prefix/custom_emote
 	name = "Emote, custom"
-	default_key = "/"
+	default_key = "*"

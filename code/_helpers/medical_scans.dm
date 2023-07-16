@@ -315,9 +315,9 @@
 				row += "<span style='font-weight: bold; color: [COLOR_MEDICAL_BRUTE]'>Damaged</span><br>"
 			if(E["burn_dam"])
 				row += "<span style='font-weight: bold; color: [COLOR_MEDICAL_BURN]'>Burned</span></td>"
-				row += "<td>"
-				row += "<span>[english_list(E["scan_results"], nothing_text="&nbsp;")]</span>"
-				row += "</td>"
+			row += "<td>"
+			row += "<span>[english_list(E["scan_results"], nothing_text="&nbsp;")]</span>"
+			row += "</td>"
 		row += "</tr>"
 		subdat += JOINTEXT(row)
 	dat += subdat

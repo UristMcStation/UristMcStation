@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/urist
 	name = "gunman"
-	desc = "Armed and dangerous."
+	desc = "Don't spawn me. Tell staff if you see me."
 	icon = 'icons/uristmob/simpleanimals.dmi'
 	icon_state = "gunman"
 	icon_living = "gunman"
@@ -23,16 +23,15 @@
 	unsuitable_atmos_damage = 15
 	faction = "neutral"
 	status_flags = CANPUSH
-	projectiletype = /obj/item/projectile/bullet
 	projectilesound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
-	casingtype = /obj/item/ammo_casing/pistol/small
 	move_to_delay = 4
 	attack_sound = 'sound/weapons/punch3.ogg'
-	projectiletype = /obj/item/projectile/bullet/pistol
 	ai_holder = /datum/ai_holder/simple_animal/humanoid/hostile
 
 /mob/living/simple_animal/hostile/urist/gunman //mostly redundant, for ease of spawning
 	faction = "syndicate"
+	projectiletype = /obj/item/projectile/bullet/pistol
+	casingtype = /obj/item/ammo_casing/pistol
 
 /mob/living/simple_animal/hostile/urist/commando //literally a clone of syndies with my speed tweaks and NT faction, adminfuckery purposes
 	faction = "NTIS"
@@ -60,6 +59,8 @@
 	rapid = 2
 	maxHealth = 150
 	health = 150
+	projectiletype = /obj/item/projectile/bullet/pistol
+	casingtype = /obj/item/ammo_casing/pistol
 	projectilesound = 'sound/urist/suppshot.ogg'
 
 /mob/living/simple_animal/hostile/urist/ANTAG
@@ -74,6 +75,7 @@
 	health = 130
 	projectilesound = 'sound/weapons/gunshot/gunshot3.ogg'
 	projectiletype = /obj/item/projectile/bullet/rifle
+	casingtype = /obj/item/ammo_casing/rifle
 
 /mob/living/simple_animal/hostile/urist/skrellterrorist
 	icon_state = "skrellorist"
@@ -147,6 +149,9 @@
 	attack_sound = 'sound/weapons/punch3.ogg' //overridden in AttackTarget!
 	attack_same = 0
 	ai_holder = /datum/ai_holder/simple_animal/humanoid/hostile
+	projectiletype = /obj/item/projectile/bullet/pistol/strong/revolver
+	natural_weapon = /obj/item/material/armblade/wrist
+	casingtype = /obj/item/ammo_casing/pistol/magnum
 
 /mob/living/simple_animal/hostile/urist/stalker/ntis/UnarmedAttack(atom/A, var/proximity)
 	attack_sound = pick('sound/weapons/bladeslice.ogg','sound/weapons/genhit1.ogg','sound/weapons/genhit2.ogg','sound/weapons/punch2.ogg','sound/weapons/punch3.ogg','sound/weapons/smash.ogg')
@@ -177,6 +182,7 @@
 	casingtype = /obj/item/ammo_casing/rifle/used
 	projectilesound = 'sound/weapons/gunshot/gunshot2.ogg'
 	projectiletype = /obj/item/projectile/bullet/rifle/military
+	casingtype = /obj/item/ammo_casing/rifle/military
 	maxHealth = 150
 	health = 150
 	corpse = /obj/effect/landmark/corpse/terran/marine
@@ -241,6 +247,7 @@
 	casingtype = /obj/item/ammo_casing/rifle/used
 	projectilesound = 'sound/weapons/gunshot/gunshot2.ogg'
 	projectiletype = /obj/item/projectile/bullet/rifle/military
+	casingtype = /obj/item/projectile/bullet/rifle/military
 	maxHealth = 225
 	health = 225
 	min_gas = null
@@ -277,6 +284,8 @@
 	ai_holder = /datum/ai_holder/simple_animal/humanoid/hostile
 	projectilesound = 'sound/weapons/gunshot/gunshot3.ogg'
 	projectiletype = /obj/item/projectile/bullet/rifle
+	casingtype = /obj/item/projectile/bullet/rifle/military
+
 
 /mob/living/simple_animal/hostile/urist/rebel/event
 	faction = "rebels"

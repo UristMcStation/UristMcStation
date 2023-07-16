@@ -2585,7 +2585,7 @@
 /obj/item/device/radio/intercom{
 	dir = 8;
 	icon_state = "intercom";
-	pixel_x = 28
+	pixel_x = 22
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/armoury)
@@ -2680,11 +2680,12 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/treatment)
 "afH" = (
-/obj/structure/table/standard,
+/obj/structure/table/rack,
 /obj/item/defibrillator/loaded,
 /obj/effect/floor_decal/corner/pink{
 	dir = 10
 	},
+/obj/item/auto_cpr,
 /obj/item/auto_cpr,
 /turf/simulated/floor/tiled/white,
 /area/medical/treatment)
@@ -6757,7 +6758,6 @@
 "amw" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Secure Storage";
-
 	secured_wires = 1
 	},
 /obj/machinery/door/firedoor,
@@ -6780,7 +6780,6 @@
 "amx" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Secure Storage";
-
 	secured_wires = 1
 	},
 /obj/machinery/door/firedoor,
@@ -8572,6 +8571,7 @@
 /obj/item/stack/material/phoron{
 	amount = 5
 	},
+/obj/item/reagent_containers/glass/beaker/large,
 /turf/simulated/floor/tiled/white,
 /area/medical/chemistry)
 "apJ" = (
@@ -8736,7 +8736,7 @@
 /obj/item/device/radio/intercom{
 	dir = 8;
 	icon_state = "intercom";
-	pixel_x = 28
+	pixel_x = 22
 	},
 /obj/machinery/alarm{
 	dir = 1;
@@ -13761,7 +13761,7 @@
 /obj/item/device/radio/intercom{
 	dir = 8;
 	icon_state = "intercom";
-	pixel_x = 28
+	pixel_x = 22
 	},
 /obj/machinery/light{
 	dir = 4
@@ -14664,7 +14664,7 @@
 /obj/item/device/radio/intercom{
 	dir = 8;
 	icon_state = "intercom";
-	pixel_x = 28
+	pixel_x = 22
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/lobby)
@@ -18633,7 +18633,7 @@
 /obj/item/device/radio/intercom{
 	dir = 8;
 	icon_state = "intercom";
-	pixel_x = 28
+	pixel_x = 22
 	},
 /obj/effect/floor_decal/corner/fadeblue{
 	dir = 6;
@@ -20515,7 +20515,7 @@
 /obj/item/device/radio/intercom{
 	dir = 8;
 	icon_state = "intercom";
-	pixel_x = 28
+	pixel_x = 22
 	},
 /obj/machinery/pdapainter,
 /obj/machinery/newscaster/security_unit{
@@ -25594,7 +25594,7 @@
 /obj/item/device/radio/intercom{
 	dir = 8;
 	icon_state = "intercom";
-	pixel_x = 28
+	pixel_x = 22
 	},
 /obj/effect/floor_decal/corner/black/border{
 	dir = 4;
@@ -25771,9 +25771,8 @@
 	department = "Nanotrasen Scientists"
 	},
 /obj/structure/table/standard,
-/obj/machinery/firealarm{
-	dir = 2;
-	pixel_y = 24
+/obj/item/storage/secure/alert_safe{
+	pixel_y = 38
 	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/qm)
@@ -26815,6 +26814,10 @@
 	id = "qmofficetint";
 	dir = 1
 	},
+/obj/machinery/firealarm{
+	dir = 8;
+	pixel_x = -24
+	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/qm)
 "aVm" = (
@@ -26843,9 +26846,6 @@
 	dir = 10
 	},
 /obj/machinery/light,
-/obj/item/storage/secure/alert_safe{
-	pixel_y = -32
-	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/qm)
 "aVo" = (
@@ -29707,7 +29707,7 @@
 /obj/item/device/radio/intercom{
 	dir = 8;
 	icon_state = "intercom";
-	pixel_x = 28
+	pixel_x = 22
 	},
 /turf/simulated/floor/wood/walnut,
 /area/civilian/bar)
@@ -30401,6 +30401,7 @@
 /obj/machinery/newscaster{
 	pixel_y = -28
 	},
+/obj/item/reagent_containers/glass/beaker/large,
 /turf/simulated/floor/tiled/white,
 /area/civilian/kitchen)
 "uSe" = (

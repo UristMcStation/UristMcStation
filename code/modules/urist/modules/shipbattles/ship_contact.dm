@@ -18,6 +18,7 @@
 	var/shipid = "nerva"
 
 /datum/nano_module/ship_contact/New()
+	..()
 	for(var/obj/machinery/computer/combatcomputer/comp in SSmachines.machinery)
 		if(comp.shipid == src.shipid)
 			CC = comp

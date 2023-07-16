@@ -134,6 +134,7 @@
 	name = "Glass Airlock"
 	damage_hitsound = 'sound/effects/Glasshit.ogg'
 	glass = TRUE
+	opacity = FALSE
 
 /obj/machinery/door/airlock/multi_tile/glass/command
 	door_color = COLOR_COMMAND_BLUE

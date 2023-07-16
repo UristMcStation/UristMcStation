@@ -20,6 +20,13 @@
 	one_hand_penalty = 2
 	bulk = 3
 
+/obj/item/gun/projectile/revolver/on_update_icon()
+	..()
+	if(length(loaded))
+		icon_state = "[initial(icon_state)]-loaded"
+	else
+		icon_state = "[initial(icon_state)]-empty"
+
 /obj/item/gun/projectile/revolver/AltClick()
 	if(CanPhysicallyInteract(usr))
 		spin_cylinder()

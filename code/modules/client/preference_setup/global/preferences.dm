@@ -290,7 +290,7 @@ var/global/list/_client_preferences_by_type
 			winset(C, "browseroutput", "is-visible=false")
 
 /datum/client_preference/notify_ghost_trap
-	description = "Notify when ghost-trap roles are available."
+	description = "Notify when ghost-trap roles are available"
 	key = "GHOST_TRAP"
 	options = list(GLOB.PREF_YES, GLOB.PREF_NO)
 	default_value = GLOB.PREF_YES
@@ -299,6 +299,7 @@ var/global/list/_client_preferences_by_type
 	description ="Floating chat messages"
 	key = "FLOATING_CHAT"
 	options = list(GLOB.PREF_SHOW, GLOB.PREF_HIDE)
+	default_value = GLOB.PREF_SHOW
 
 /********************
 * General Staff Preferences *

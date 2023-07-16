@@ -317,6 +317,8 @@ var/global/list/channel_to_radio_key = new
 	else
 		log_say("[name]/[key] : [message]")
 
+	invoke_async(src, /atom/movable/proc/animate_chat, message, speaking, italics, speech_bubble_recipients, whisper_floating, 3 SECONDS)
+
 	if (length(speech_bubble_recipients))
 		var/speech_intent = say_test(message)
 		var/image/speech_bubble = image('icons/mob/talk.dmi', src, "h[speech_intent]")

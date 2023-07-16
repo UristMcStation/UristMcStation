@@ -2415,7 +2415,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/hatch{
-	name = "Shuttle Power"
+	name = "Shuttle Power";
+	autoset_access = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2683,7 +2684,9 @@
 /area/exploration_shuttle/main)
 "fp" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Cockpit"
+	name = "Cockpit";
+	autoset_access = 0;
+	req_access = list("Trajan Helm")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -3591,7 +3594,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/hatch{
-	name = "Shuttle Atmospherics"
+	name = "Shuttle Atmospherics";
+	autoset_access = 0
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -4540,7 +4544,7 @@
 	},
 /obj/item/device/radio/intercom/locked/ai_private{
 	dir = 8;
-	pixel_x = 28
+	pixel_x = 24
 	},
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/techmaint,
@@ -4591,7 +4595,9 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	autoset_access = 0
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4;
 	icon_state = "intact-scrubbers"
@@ -4925,7 +4931,7 @@
 	dir = 2;
 	name = "Station Intercom (Command)";
 	pixel_x = 0;
-	pixel_y = 28
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/command/bottom_hallway)
@@ -5109,7 +5115,9 @@
 /turf/simulated/floor/tiled,
 /area/exploration_shuttle/main)
 "jO" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	autoset_access = 0
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/exploration_shuttle/cargo)
@@ -5708,7 +5716,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1331;
 	id_tag = "trajan_shuttle_inner";
-	name = "Trajan External Access"
+	name = "Trajan External Access";
+	autoset_access = 0
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/exploration_shuttle/main)
@@ -5716,7 +5725,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1331;
 	id_tag = "trajan_shuttle_inner";
-	name = "Trajan External Access"
+	name = "Trajan External Access";
+	autoset_access = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark/monotile,
@@ -6017,7 +6027,8 @@
 	density = 1;
 	frequency = 1331;
 	id_tag = "trajan_shuttle_outer";
-	name = "Trajan External Access"
+	name = "Trajan External Access";
+	autoset_access = 0
 	},
 /obj/machinery/shield_diffuser,
 /obj/machinery/atmospherics/pipe/manifold/hidden{
@@ -6580,7 +6591,8 @@
 	density = 1;
 	frequency = 1331;
 	id_tag = "trajan_shuttle_outer";
-	name = "Trajan External Access"
+	name = "Trajan External Access";
+	autoset_access = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5;
@@ -8030,7 +8042,7 @@
 	dir = 2;
 	name = "Station Intercom (Command)";
 	pixel_x = 0;
-	pixel_y = 28
+	pixel_y = 24
 	},
 /obj/structure/cable{
 	d1 = 2;
@@ -9056,7 +9068,7 @@
 /obj/item/device/radio/intercom{
 	dir = 1;
 	name = "Station Intercom (General)";
-	pixel_y = -29
+	pixel_y = -30
 	},
 /obj/item/reagent_containers/spray/cleaner,
 /turf/simulated/floor/tiled/freezer,
@@ -15209,6 +15221,7 @@
 	dir = 9;
 	icon_state = "corner_white"
 	},
+/obj/item/reagent_containers/glass/beaker/large,
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemlab)
 "Bp" = (
@@ -16045,6 +16058,7 @@
 /obj/machinery/reagentgrinder{
 	pixel_y = 4
 	},
+/obj/item/reagent_containers/glass/beaker/large,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
 "CR" = (
@@ -19677,7 +19691,7 @@
 	},
 /obj/item/device/radio/intercom/locked/ai_private{
 	dir = 8;
-	pixel_x = 28
+	pixel_x = 24
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/command/aiupload)
@@ -20310,7 +20324,7 @@
 	dir = 2;
 	name = "Station Intercom (Command)";
 	pixel_x = 0;
-	pixel_y = 28
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/command/weapons_command)

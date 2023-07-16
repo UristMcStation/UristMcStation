@@ -17643,6 +17643,13 @@
 /obj/machinery/door/window/holowindoor,
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_rainycafe)
+"UX" = (
+/obj/item/reagent_containers/glass/beaker/large,
+/turf/unsimulated/floor{
+	icon_state = "plating";
+	name = "plating"
+	},
+/area/acting/backstage)
 "UZ" = (
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_rainycafe)
@@ -26822,7 +26829,7 @@ nD
 in
 nY
 oR
-oU
+UX
 nY
 qg
 qg

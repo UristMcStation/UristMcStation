@@ -102,6 +102,7 @@
 			usr.put_in_hands(result)
 		else
 			return 0
+	..()
 
 /obj/item/spacecash/bundle/proc/split_off(amount, var/mob/user)
 	amount = round(clamp(amount, 0, src.worth))
