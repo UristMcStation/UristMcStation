@@ -460,3 +460,15 @@
 	matter = list(MATERIAL_STEEL = 600)
 	max_ammo = 7
 	multiple_sprites = 1
+
+/obj/item/ammo_magazine/22lr
+	name = "magazine (.22LR)"
+	desc = "A commonly used 10-round magazine used for .22LR pistol platforms."
+	icon = 'icons/urist/items/ammo.dmi' // PLACEHOLDER.
+	icon_state = "9x19p" //PLACEHOLDER.
+	caliber = ".22LR"
+	mag_type = MAGAZINE
+	matter = list(MATERIAL_STEEL = 500, MATERIAL_PLASTIC = 300)
+	max_ammo = 10
+	multiple_sprites = 1
+

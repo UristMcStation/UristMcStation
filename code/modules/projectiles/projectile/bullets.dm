@@ -172,6 +172,11 @@
 	embed = 0
 	distance_falloff = 2
 
+/obj/item/projectile/bullet/pistol/22lr
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	damage = 15
+	distance_fallout = 4
+
 /* shotgun projectiles */
 
 /obj/item/projectile/bullet/shotgun
