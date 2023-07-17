@@ -97,12 +97,12 @@ var/global/list/ai_verbs_default = list(
 	var/last_failed_malf_message = null
 	var/last_failed_malf_title = null
 
-	var/datum/ai_icon/selected_sprite			// The selected icon set
+	var/singleton/ai_icon/selected_sprite			// The selected icon set
 	var/carded
 
 	var/multitool_mode = 0
 
-	var/default_ai_icon = /datum/ai_icon/blue
+	var/default_ai_icon = /singleton/ai_icon/blue
 	var/static/list/custom_ai_icons_by_ckey_and_name
 
 /mob/living/silicon/ai/proc/add_ai_verbs()
@@ -223,7 +223,7 @@ var/global/list/ai_verbs_default = list(
 		to_chat(src, "<b>These laws may be changed by other players or by other random events.</b>")
 
 	job = "AI"
-	setup_icon()
+	update_icon()
 	eyeobj.possess(src)
 
 /mob/living/silicon/ai/Destroy()
@@ -243,43 +243,6 @@ var/global/list/ai_verbs_default = list(
 
 	. = ..()
 
-/mob/living/silicon/ai/proc/setup_icon()
-	if(LAZYACCESS(custom_ai_icons_by_ckey_and_name, "[ckey][real_name]"))
-		return
-	var/list/custom_icons = list()
-	LAZYSET(custom_ai_icons_by_ckey_and_name, "[ckey][real_name]", custom_icons)
-
-	var/file = file2text(CUSTOM_ITEM_SYNTH_CONFIG)
-	var/lines = splittext(file, "\n")
-
-	var/custom_index = 1
-	var/custom_icon_states = icon_states(CUSTOM_ITEM_SYNTH)
-
-	for(var/line in lines)
-	// split & clean up
-		var/list/Entry = splittext(line, ":")
-		for(var/i = 1 to length(Entry))
-			Entry[i] = trim(Entry[i])
-
-		if(length(Entry) < 2)
-			continue
-		if(length(Entry) == 2) // This is to handle legacy entries
-			Entry[LIST_PRE_INC(Entry)] = Entry[1]
-
-		if(Entry[1] == src.ckey && Entry[2] == src.real_name)
-			var/alive_icon_state = "[Entry[3]]-ai"
-			var/dead_icon_state = "[Entry[3]]-ai-crash"
-
-			if(!(alive_icon_state in custom_icon_states))
-				to_chat(src, SPAN_WARNING("Custom display entry found but the icon state '[alive_icon_state]' is missing!"))
-				continue
-
-			if(!(dead_icon_state in custom_icon_states))
-				dead_icon_state = ""
-
-			selected_sprite = new/datum/ai_icon("Custom Icon [custom_index++]", alive_icon_state, dead_icon_state, COLOR_WHITE, CUSTOM_ITEM_SYNTH)
-			custom_icons += selected_sprite
-	update_icon()
 
 /mob/living/silicon/ai/pointed(atom/A as mob|obj|turf in view())
 	set popup_menu = 0
@@ -292,7 +255,7 @@ var/global/list/ai_verbs_default = list(
 	if(eyeobj)
 		eyeobj.SetName("[pickedName] (AI Eye)")
 
-	setup_icon()
+	update_icon()
 
 /mob/living/silicon/ai/proc/pick_icon()
 	set category = "Silicon Commands"
@@ -305,12 +268,11 @@ var/global/list/ai_verbs_default = list(
 		selected_sprite = new_sprite
 
 	update_icon()
-
 /mob/living/silicon/ai/proc/available_icons()
 	. = list()
-	var/all_ai_icons = GET_SINGLETON_SUBTYPE_MAP(/datum/ai_icon)
+	var/all_ai_icons = GET_SINGLETON_SUBTYPE_MAP(/singleton/ai_icon)
 	for(var/ai_icon_type in all_ai_icons)
-		var/datum/ai_icon/ai_icon = all_ai_icons[ai_icon_type]
+		var/singleton/ai_icon/ai_icon = all_ai_icons[ai_icon_type]
 		if(ai_icon.may_used_by_ai(src))
 			dd_insertObjectList(., ai_icon)
 
@@ -732,7 +694,7 @@ var/global/list/ai_verbs_default = list(
 
 /mob/living/silicon/ai/on_update_icon()
 	if(!selected_sprite || !(selected_sprite in available_icons()))
-		selected_sprite = new default_ai_icon()
+		selected_sprite = GET_SINGLETON(default_ai_icon)
 
 	icon = selected_sprite.icon
 	if(stat == DEAD)

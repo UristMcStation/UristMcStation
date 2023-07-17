@@ -62,7 +62,7 @@
 	wielded_item_state = "mateba"
 	caliber = CALIBER_PISTOL_MAGNUM
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	ammo_type = /obj/item/ammo_casing/a50
+	ammo_type = /obj/item/ammo_casing/pistol/magnum
 
 /obj/item/gun/projectile/revolver/medium
 	name = "revolver"
