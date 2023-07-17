@@ -5,7 +5,7 @@
 	var/mob/living/silicon/ai/controlling_ai
 	var/obj/item/device/radio/drone_silicon_radio
 
-/mob/living/silicon/robot/drone/attack_ai(var/mob/living/silicon/ai/user)
+/mob/living/silicon/robot/drone/attack_ai(mob/living/silicon/ai/user)
 
 	if(!istype(user) || controlling_ai || !config.allow_drone_spawn)
 		return
@@ -20,7 +20,7 @@
 
 	assume_control(user)
 
-/mob/living/silicon/robot/drone/proc/assume_control(var/mob/living/silicon/ai/user)
+/mob/living/silicon/robot/drone/proc/assume_control(mob/living/silicon/ai/user)
 	user.controlling_drone = src
 	controlling_ai = user
 	verbs += /mob/living/silicon/robot/drone/proc/release_ai_control_verb
@@ -44,7 +44,7 @@
 	updatename()
 	to_chat(src, "<span class='notice'><b>You have shunted your primary control loop into \a [initial(name)].</b> Use the <b>Release Control</b> verb to return to your core.</span>")
 
-/obj/machinery/drone_fabricator/attack_ai(var/mob/living/silicon/ai/user)
+/obj/machinery/drone_fabricator/attack_ai(mob/living/silicon/ai/user)
 
 	if(!istype(user) || user.controlling_drone || !config.allow_drone_spawn)
 		return
@@ -92,7 +92,7 @@
 
 	release_ai_control("Remote session terminated.")
 
-/mob/living/silicon/robot/drone/proc/release_ai_control(var/message = "Connection terminated.")
+/mob/living/silicon/robot/drone/proc/release_ai_control(message = "Connection terminated.")
 
 	if(controlling_ai)
 		if(mind)

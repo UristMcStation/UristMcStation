@@ -409,7 +409,7 @@ var/global/list/mob_hat_cache = list()
 			drones++
 	return drones >= config.max_maint_drones
 
-/mob/living/silicon/robot/drone/show_laws(var/everyone = 0)
+/mob/living/silicon/robot/drone/show_laws(everyone = 0)
 	if(!controlling_ai)
 		return..()
 	to_chat(src, "<b>Obey these laws:</b>")
