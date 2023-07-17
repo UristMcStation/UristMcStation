@@ -4951,7 +4951,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/maintenance{
-	name = "Security Maintenance"
+	name = "Security Maintenance";
+	autoset_access = 0;
+	req_access = list("ACCESS_SECURITY")
 	},
 /turf/simulated/floor/plating,
 /area/security/brig)
@@ -5278,7 +5280,9 @@
 /area/security/office)
 "ajM" = (
 /obj/machinery/door/airlock/security{
-	name = "Security Office"
+	name = "Security Office";
+	autoset_access = 0;
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4;
@@ -5797,7 +5801,9 @@
 /area/security/checkpoint)
 "akP" = (
 /obj/machinery/door/airlock/glass/security{
-	name = "Brig Checkpoint"
+	name = "Brig Checkpoint";
+	autoset_access = 0;
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -6910,7 +6916,8 @@
 	base_state = "left";
 	dir = 4;
 	icon_state = "left";
-	name = "Medical Reception"
+	name = "Medical Reception";
+	autoset_access = 0
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -7877,9 +7884,6 @@
 /obj/machinery/door/window/brigdoor/eastleft{
 	name = "Brig Entrance"
 	},
-/obj/machinery/door/window/brigdoor/westright{
-	name = "Brig Entrance"
-	},
 /obj/machinery/door/firedoor,
 /obj/item/paper_bin,
 /obj/item/pen,
@@ -8317,7 +8321,8 @@
 	base_state = "right";
 	dir = 4;
 	icon_state = "right";
-	name = "Medical Reception"
+	name = "Medical Reception";
+	autoset_access = 0
 	},
 /obj/item/folder/white,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -9499,10 +9504,6 @@
 	dir = 1;
 	name = "Brig Entrance"
 	},
-/obj/machinery/door/window/brigdoor/westright{
-	dir = 2;
-	name = "Brig Entrance"
-	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
 	d1 = 1;
@@ -9540,7 +9541,9 @@
 /area/security/checkpoint)
 "arh" = (
 /obj/machinery/door/airlock/security{
-	name = "Security Office"
+	name = "Security Office";
+	autoset_access = 0;
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/effect/floor_decal/corner/red/full,
 /obj/structure/disposalpipe/segment,
@@ -19902,7 +19905,6 @@
 "aJn" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/brigdoor/westright,
-/obj/machinery/door/window/eastleft,
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
 	icon_state = "shutter1";
@@ -19933,7 +19935,6 @@
 "aJp" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/window/westleft,
 /obj/machinery/door/window/brigdoor/eastleft,
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
@@ -27855,7 +27856,9 @@
 /area/security/portgun)
 "eyp" = (
 /obj/machinery/door/airlock/security{
-	name = "Security Office"
+	name = "Security Office";
+	autoset_access = 0;
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/techmaint,
@@ -28662,7 +28665,6 @@
 /obj/machinery/door/window/brigdoor/southleft,
 /obj/machinery/door/firedoor,
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/northleft,
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
 	icon_state = "shutter1";
@@ -28774,7 +28776,9 @@
 	icon_state = "intact-scrubbers"
 	},
 /obj/machinery/door/airlock/security{
-	name = "Security Office"
+	name = "Security Office";
+	autoset_access = 0;
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/effect/floor_decal/corner/black/border,
 /obj/machinery/door/firedoor,
@@ -29726,7 +29730,9 @@
 /area/security/checkpoint)
 "qsA" = (
 /obj/machinery/door/airlock/glass/security{
-	name = "Security"
+	name = "Security";
+	autoset_access = 0;
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -30473,7 +30479,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/glass/security{
-	name = "Security"
+	name = "Security";
+	autoset_access = 0;
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 6;
@@ -30655,7 +30663,6 @@
 	pixel_y = 4
 	},
 /obj/item/folder/yellow,
-/obj/machinery/door/window/northleft,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/window/brigdoor/southleft,
 /obj/effect/floor_decal/corner/beige/full,

@@ -175,7 +175,7 @@
 			for(var/obj/effect/urist/triggers/ai_defender_landmark/A in GLOB.trigger_landmarks)
 				A.spawn_mobs()
 
-			communicate(/singleton/communication_channel/dsay, GLOB.global_announcer, "<b>Ghosts can now join as a hostile boarder using the verb under the IC tab. You have one minute to join.</b>", /singleton/dsay_communication/direct)
+			communicate(/singleton/communication_channel/dsay, GLOB.global_announcer, "<b>Ghosts can now join as a defender against ICS Nerva boarding using the verb under the IC tab. You have one minute to join.</b>", /singleton/dsay_communication/direct)
 
 			spawn(1 MINUTE)
 				boarders_amount = 0 //after a minute we null out the amount of boarders so noone joins mid boarding action.

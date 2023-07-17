@@ -15537,9 +15537,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
 "Ou" = (
-/obj/machinery/door/airlock/glass{
-	name = "Chapel Office"
-	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
 	d1 = 1;
@@ -15547,7 +15544,10 @@
 	icon_state = "1-2";
 	pixel_y = 0
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/door/airlock/chaplain{
+	name = "Chapel Office"
+	},
+/turf/space,
 /area/chapel)
 "Ov" = (
 /obj/machinery/door/airlock/maintenance,

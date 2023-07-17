@@ -48,6 +48,7 @@
 	ai_holder = /datum/ai_holder/simple_animal/humanoid/police
 	faction = "nanotrasen"
 	ranged = 1
+	maxHealth = 50
 	attack_delay = 1.5 SECONDS
 	projectiletype = /obj/item/projectile/bullet/pistol
 	weapon1 = /obj/item/gun/projectile/pistol/sec/lethal

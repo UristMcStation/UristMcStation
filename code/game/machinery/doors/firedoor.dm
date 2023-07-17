@@ -143,6 +143,9 @@
 			return TRUE
 	return FALSE
 
+/obj/machinery/door/attack_ai(mob/user as mob)
+	return src.attack_hand(user)
+
 /obj/machinery/door/firedoor/attack_hand(mob/user)
 	add_fingerprint(user)
 	if(operating)

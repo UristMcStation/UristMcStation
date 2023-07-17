@@ -83,6 +83,7 @@
 	desc = "The HelTek Optimus, best known as the standard-issue sidearm for the Terran Navy. Uses 10mm rounds."
 	magazine_type = /obj/item/ammo_magazine/pistol/double
 	allowed_magazines = /obj/item/ammo_magazine/pistol/double
+	icon = 'packs/faction_iccgn/weapons.dmi'
 	icon_state = "optimus"
 	item_state = "secgundark"
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2, TECH_ESOTERIC = 8)
@@ -91,7 +92,7 @@
 	fire_delay = 7.5
 
 /obj/item/gun/projectile/pistol/magnum_pistol
-	name = ".50 magnum pistol"
+	name = "magnum pistol"
 	desc = "The HelTek Magnus, a robust Terran handgun that uses high-caliber ammo."
 	icon = 'icons/obj/guns/magnum_pistol.dmi'
 	icon_state = "magnum"

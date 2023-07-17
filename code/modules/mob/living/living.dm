@@ -135,7 +135,7 @@ default behaviour is:
 		spawn(0)
 			..()
 			var/saved_dir = AM.dir
-			if ((confused || (MUTATION_CLUMSY in mutations)) && !MOVING_DELIBERATELY(src))
+			if (confused && !MOVING_DELIBERATELY(src))
 				AM.slam_into(src)
 			if (!istype(AM, /atom/movable) || AM.anchored)
 				return

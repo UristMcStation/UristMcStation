@@ -17,7 +17,6 @@
 	natural_weapon = /obj/item/natural_weapon/punch
 	attacktext = "punched"
 	a_intent = "harm"
-	ranged = 1
 	min_gas = list("oxygen" = 5)
 	max_gas = null
 	unsuitable_atmos_damage = 15
@@ -56,6 +55,7 @@
 	name = "\improper NTIS Agent"
 	desc = "A spook from the Internal Security department. You suddenly get an unpleasant sensation that you <I>'know too much'</I>."
 	faction = "NTIS" //NTIS is intended as NT Deathsquad affiliation
+	ranged = 1
 	rapid = 2
 	maxHealth = 150
 	health = 150
@@ -70,6 +70,7 @@
 	desc = "A member of a covert cell of a terrorist paramilitary collaborating with aliens to further their own goals, and a snappy dresser."
 	casingtype = /obj/item/ammo_casing/rifle/military
 	faction = "alien"
+	ranged = 1
 	rapid = 0
 	maxHealth = 130
 	health = 130
@@ -83,6 +84,7 @@
 	icon_dead = "skrelloristdead"
 	name = "\improper Skrellian terrorist"
 	desc = "An anti-human, Skrell-isolationist insurgent."
+	ranged = 1
 	casingtype = /obj/item/ammo_casing/pistol
 	faction = "skrellt"
 	rapid = 2

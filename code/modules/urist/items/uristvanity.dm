@@ -4,6 +4,16 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //vanity lighters, stolen from the custom items.//WHY. WHYYYYY -scrdest
 
+/obj/item/flame/lighter/zippo/vanity/on_update_icon()
+	var/datum/extension/base_icon_state/bis = get_extension(src, /datum/extension/base_icon_state)
+
+	if(lit)
+		icon_state = "[bis.base_icon_state]_open"
+		item_state = "[bis.base_icon_state]_open"
+	else
+		icon_state = "[bis.base_icon_state]"
+		item_state = "[bis.base_icon_state]"
+
 /obj/item/flame/lighter/zippo/vanity/blue
 	name = "blue zippo"
 	desc = "A zippo lighter made of some blue metal."

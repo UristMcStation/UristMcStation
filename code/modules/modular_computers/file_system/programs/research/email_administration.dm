@@ -21,7 +21,8 @@
 
 /datum/nano_module/program/email_administration/proc/get_ntos()
 	var/datum/extension/interactive/ntos/os = get_extension(nano_host(), /datum/extension/interactive/ntos)
-	if(!istype(os))
+	var/mob/living/silicon/ai/aiplayer = usr
+	if(!istype(os) && !aiplayer?.mind.assigned_role == "AI")
 		error = "Error accessing system. Are you using a functional and NTOSv2-compliant device?"
 		return
 	return os
@@ -82,7 +83,8 @@
 		return TOPIC_HANDLED
 
 	var/datum/extension/interactive/ntos/os = get_ntos()
-	if(!os)
+	var/mob/living/silicon/ai/aiplayer = usr
+	if(!os && !aiplayer?.mind.assigned_role == "AI")
 		return TOPIC_HANDLED
 
 	// High security - can only be operated when the user has an ID with access on them.
