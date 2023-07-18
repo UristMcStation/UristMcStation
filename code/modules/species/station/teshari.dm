@@ -79,7 +79,7 @@
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest),
 		BP_GROIN =  list("path" = /obj/item/organ/external/groin),
-		BP_HEAD =   list("path" = /obj/item/organ/external/head/teshari),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head),
 		BP_L_ARM =  list("path" = /obj/item/organ/external/arm),
 		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right),
 		BP_L_LEG =  list("path" = /obj/item/organ/external/leg),
@@ -97,7 +97,7 @@
 		BP_LIVER =    /obj/item/organ/internal/liver/teshari,
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/teshari,
 		BP_BRAIN =    /obj/item/organ/internal/brain,
-		BP_EYES =     /obj/item/organ/internal/eyes
+		BP_EYES =     /obj/item/organ/internal/eyes/teshari
 		)
 
 	unarmed_types = list(
@@ -112,18 +112,3 @@
 		/datum/mob_descriptor/height = -4,
 		/datum/mob_descriptor/build = -4
 		)
-
-/obj/item/organ/external/foot/teshari
-	body_hair = "feathers"
-/obj/item/organ/external/foot/right/teshari
-	body_hair = "feathers"
-/obj/item/organ/external/hand/teshari
-	body_hair = "feathers"
-/obj/item/organ/external/hand/right/teshari
-	body_hair = "feathers"
-/obj/item/organ/external/head/teshari
-	draw_eyes = TRUE
-/obj/item/organ/internal/kidneys/teshari
-	parent_organ = BP_CHEST
-/obj/item/organ/internal/liver/teshari
-	parent_organ = BP_CHEST
