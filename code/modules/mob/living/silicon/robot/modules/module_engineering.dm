@@ -18,7 +18,14 @@
 		"Basic" = "Engineering",
 		"Antique" = "engineerrobot",
 		"Landmate" = "landmate",
-		"Landmate - Treaded" = "engiborg+tread"
+		"Landmate - Treaded" = "engiborg+tread",
+		"Drone" = "drone-engineer",
+		"Ravensdale" = "ravensdale-Engineering",
+		"Advanced-Drone" = "Advanced-Drone-Engineering",
+		"Wiredroid" = "Wiredroid-Engineering",
+		"Worm" = "Worm-Engineering",
+		"Spider" = "Spider-Engineering",
+		"Eyebot" = "Eyebot-engineering"
 	)
 	no_slip = 1
 	equipment = list(

@@ -4,7 +4,13 @@
 	sprites = list(
 		"Basic" = "robot_old",
 		"Android" = "droid",
-		"Default" = "robot"
+		"Default" = "robot",
+		"Drone" = "drone-standard",
+		"Advanced-Drone" = "Advanced-Drone-Standard",
+		"Wiredroid" = "Wiredroid-Standard",
+		"Worm" = "Worm-Standard",
+		"Spider" = "Spider-Standard",
+		"Eyebot" = "Eyebot-standard"
 	)
 	equipment = list(
 		/obj/item/device/flash,

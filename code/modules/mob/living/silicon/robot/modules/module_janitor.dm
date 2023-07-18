@@ -7,7 +7,14 @@
 	sprites = list(
 		"Basic" = "JanBot2",
 		"Mopbot"  = "janitorrobot",
-		"Mop Gear Rex" = "mopgearrex"
+		"Mop Gear Rex" = "mopgearrex",
+		"Drone" = "drone-janitor",
+		"Ravensdale" = "ravensdale-Janitor",
+		"Advanced-Drone" = "Advanced-Drone-Janitor",
+		"Wiredroid" = "Wiredroid-Janitor",
+		"Worm" = "Worm-Janitor",
+		"Spider" = "Spider-Janitor",
+		"Eyebot" = "Eyebot-janitor"
 	)
 	equipment = list(
 		/obj/item/device/flash,

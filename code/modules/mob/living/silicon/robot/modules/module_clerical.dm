@@ -18,7 +18,15 @@
 		"Kent" = "toiletbot",
 		"Bro" = "Brobot",
 		"Rich" = "maximillion",
-		"Default" = "Service2"
+		"Default" = "Service2",
+		"Drone - Service" = "drone-service",
+		"Drone - Hydro" = "drone-hydro",
+		"Ravensdale" = "ravensdale-Service",
+		"Advanced-Drone" = "Advanced-Drone-Service",
+		"Wiredroid" = "Wiredroid-Service",
+		"Worm" = "Worm-Service",
+		"Spider" = "Spider-Clerical",
+		"Eyebot" = "Eyebot-service"
 	)
 	equipment = list(
 		/obj/item/device/flash,
@@ -77,10 +85,17 @@
 	)
 	sprites = list(
 		"Waitress" = "Service",
-		"Kent" =     "toiletbot",
-		"Bro" =      "Brobot",
-		"Rich" =     "maximillion",
-		"Default" =  "Service2"
+		"Kent" = "toiletbot",
+		"Bro" = "Brobot",
+		"Rich" = "maximillion",
+		"Default" = "Service2",
+		"Drone" = "drone-service",
+		"Ravensdale" = "ravensdale-Service",
+		"Advanced-Drone" = "Advanced-Drone-Service",
+		"Wiredroid" = "Wiredroid-Service",
+		"Worm" = "Worm-Service",
+		"Spider" = "Spider-Clerical",
+		"Eyebot" = "Eyebot-service"
 	)
 	equipment = list(
 		/obj/item/device/flash,

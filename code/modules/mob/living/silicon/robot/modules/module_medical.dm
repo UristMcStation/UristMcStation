@@ -11,6 +11,23 @@
 	)
 	can_be_pushed = 0
 
+	sprites = list(
+		"Basic" = "Medbot",
+		"Standard" = "surgeon",
+		"Advanced Droid" = "droid-medical",
+		"Needles" = "medicalrobot",
+		"Drone" = "drone-medical",
+		"Drone - Surgery" = "drone-surgery",
+		"Drone - Chemistry" = "drone-chemistry",
+		"Ravensdale" = "ravensdale-Medical",
+		"Advanced-Drone" = "Advanced-Drone-Medical",
+		"Wiredroid" = "Wiredroid-Medical",
+		"Worm" = "Worm-Crisis",
+		"Spider" = "Spider-Crisis",
+		"Spider - Surgery" = "Spider-Surgeon",
+		"Eyebot" = "Eyebot-crisis",
+		)
+
 /obj/item/robot_module/medical/build_equipment()
 	. = ..()
 	equipment += new /obj/item/robot_rack/roller_bed(src, 1)
@@ -18,12 +35,6 @@
 /obj/item/robot_module/medical/surgeon
 	name = "surgeon robot module"
 	display_name = "Surgeon"
-	sprites = list(
-		"Basic" = "Medbot",
-		"Standard" = "surgeon",
-		"Advanced Droid" = "droid-medical",
-		"Needles" = "medicalrobot"
-		)
 	equipment = list(
 		/obj/item/device/flash,
 		/obj/item/borg/sight/hud/med,
@@ -94,12 +105,6 @@
 /obj/item/robot_module/medical/crisis
 	name = "crisis robot module"
 	display_name = "Crisis"
-	sprites = list(
-		"Basic" = "Medbot",
-		"Standard" = "surgeon",
-		"Advanced Droid" = "droid-medical",
-		"Needles" = "medicalrobot"
-	)
 	equipment = list(
 		/obj/item/crowbar,
 		/obj/item/device/flash,

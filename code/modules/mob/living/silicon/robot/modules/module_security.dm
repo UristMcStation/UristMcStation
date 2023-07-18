@@ -43,7 +43,13 @@
 		"Black Knight" = "securityrobot",
 		"Bloodhound" = "bloodhound",
 		"Bloodhound - Treaded" = "secborg+tread",
-		"Tridroid" = "orb-security"
+		"Drone" = "drone-sec",
+		"Ravensdale" = "ravensdale-Security",
+		"Advanced-Drone" = "Advanced-Drone-Security",
+		"Wiredroid" = "Wiredroid-Security",
+		"Worm" = "Worm-Security",
+		"Spider" = "Spider-Security",
+		"Eyebot" = "Eyebot-security"
 	)
 	equipment = list(
 		/obj/item/device/flash,
@@ -65,7 +71,9 @@
 	crisis_locked = TRUE
 	hide_on_manifest = TRUE
 	sprites = list(
-		"Combat Android" = "droid-combat"
+		"Combat Android" = "droid-combat",
+		"Ravensdale" = "ravensdale-Combat",
+		"Spider" = "Spider-Combat"
 	)
 	equipment = list(
 		/obj/item/device/flash,

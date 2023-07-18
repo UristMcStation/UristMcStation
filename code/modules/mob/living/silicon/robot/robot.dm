@@ -3,7 +3,7 @@
 /mob/living/silicon/robot
 	name = "Cyborg"
 	real_name = "Cyborg"
-	icon = 'icons/mob/robots.dmi'
+	icon = 'icons/uristmob/robots.dmi'
 	icon_state = "robot"
 	maxHealth = 300
 	health = 300
@@ -1103,31 +1103,31 @@
 
 	return
 
-/mob/living/silicon/robot/proc/choose_icon(triesleft, list/module_sprites)
+/mob/living/silicon/robot/proc/choose_icon(list/module_sprites)
 	set waitfor = 0
 	if(!length(module_sprites))
 		to_chat(src, "Something is badly wrong with the sprite selection. Harass a coder.")
 		return
 
 	icon_selected = 0
-	src.icon_selection_tries = triesleft
 	if(length(module_sprites) == 1 || !client)
 		if(!(icontype in module_sprites))
 			icontype = module_sprites[1]
 	else
-		icontype = input("Select an icon! [triesleft ? "You have [triesleft] more chance\s." : "This is your last try."]", "Robot Icon", icontype, null) in module_sprites
+		var/list/options = list()
+		for(var/i in module_sprites)
+			var/image/radial_button = image(icon = src.icon, icon_state = module_sprites[i])
+			radial_button.overlays.Add(image(icon = src.icon, icon_state = "eyes-[module_sprites[i]]"))
+			options[i] = radial_button
+		icontype = show_radial_menu(src, src, options, radius = 42, tooltips = TRUE)
+
+	if(!icontype)
+		return
+
 	icon_state = module_sprites[icontype]
 	update_icon()
 
-	if (length(module_sprites) > 1 && triesleft >= 1 && client)
-		icon_selection_tries--
-		var/choice = input("Look at your icon - is this what you want?") in list("Yes","No")
-		if(choice=="No")
-			choose_icon(icon_selection_tries, module_sprites)
-			return
-
 	icon_selected = TRUE
-	icon_selection_tries = 0
 	to_chat(src, "Your icon has been set. You now require a module reset to change it.")
 
 /mob/living/silicon/robot/proc/sensor_mode() //Medical/Security HUD controller for borgs
