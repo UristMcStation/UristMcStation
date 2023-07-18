@@ -141,7 +141,7 @@
 		//check client/X is an admin and isn't the sender or recipient
 		if(X == C || X == src)
 			continue
-		if(X.key != key && X.key != C.key && (X.holder.rights & R_ADMIN|R_MOD))
+		if(X.key != key && X.key != C.key && (X.holder.rights & R_ADMIN|R_MOD|R_MENTOR))
 			to_chat(X, "[SPAN_CLASS("pm", "[SPAN_CLASS("other", create_text_tag("pm_other", "PM:", X) + " [SPAN_CLASS("name", key_name(src, X, 0, ticket))] to [SPAN_CLASS("name", key_name(C, X, 0, ticket))] (<a href='?_src_=holder;take_ticket=\ref[ticket]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='?src=\ref[usr];close_ticket=\ref[ticket]'>CLOSE</a>): [SPAN_CLASS("message linkify", msg)]")]")]")
 
 /client/proc/cmd_admin_irc_pm(sender)
@@ -169,5 +169,5 @@
 	for(var/client/X as anything in GLOB.admins)
 		if(X == src)
 			continue
-		if(X.holder.rights & R_ADMIN|R_MOD)
+		if(X.holder.rights & R_ADMIN|R_MOD|R_MENTOR)
 			to_chat(X, "[SPAN_CLASS("pm", "[SPAN_CLASS("other", create_text_tag("pm_other", "PM:", X) + " [SPAN_CLASS("name", key_name(src, X, 0))] to [SPAN_CLASS("name", sender)]: [SPAN_CLASS("message linkify", msg)]")]")]")

@@ -1315,7 +1315,7 @@
 		show_player_panel(M)
 
 	else if(href_list["adminplayerobservejump"])
-		if(!check_rights(R_MOD|R_ADMIN))	return
+		if(!check_rights(R_MOD|R_ADMIN|R_MENTOR))	return
 
 		var/mob/M = locate(href_list["adminplayerobservejump"])
 		var/client/C = usr.client
@@ -1328,7 +1328,7 @@
 		C.jumptomob(M)
 
 	else if(href_list["adminplayerobservefollow"])
-		if(!check_rights(R_MOD|R_ADMIN))
+		if(!check_rights(R_MOD|R_ADMIN|R_MENTOR))
 			return
 
 		var/mob/M = locate(href_list["adminplayerobservefollow"])
@@ -1353,7 +1353,7 @@
 		if(ismob(M))
 			var/take_msg = SPAN_NOTICE("<b>[key_name(usr.client)]</b> is attending to <b>[key_name(M)]'s</b> message.")
 			for(var/client/X as anything in GLOB.admins)
-				if((R_ADMIN|R_MOD) & X.holder.rights)
+				if((R_ADMIN|R_MOD|R_MENTOR) & X.holder.rights)
 					to_chat(X, take_msg)
 			to_chat(M, SPAN_NOTICE("<b>Your message is being attended to by [usr.client]. Thanks for your patience!</b>"))
 		else
