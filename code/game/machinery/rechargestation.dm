@@ -26,6 +26,8 @@
 	var/weld_power_use = 2300	// power used per point of brute damage repaired. 2.3 kW ~ about the same power usage of a handheld arc welder
 	var/wire_power_use = 500	// power used per point of burn damage repaired.
 
+	var/exiting_hysteresis		// to keep your robots from instantly exiting the charger
+
 /obj/machinery/recharge_station/Initialize()
 	. = ..()
 	update_icon()
@@ -98,7 +100,8 @@
 /obj/machinery/recharge_station/relaymove(mob/user as mob)
 	if(user.stat)
 		return
-	go_out()
+	if(world.time > exiting_hysteresis)
+		go_out()
 
 /obj/machinery/recharge_station/emp_act(severity)
 	if(occupant)
@@ -183,6 +186,7 @@
 	M.forceMove(src)
 	occupant = M
 	update_icon()
+	exiting_hysteresis = world.time + 1 SECOND
 	return 1
 
 /obj/machinery/recharge_station/proc/hascell(mob/M)
