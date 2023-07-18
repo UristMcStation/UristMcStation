@@ -2673,6 +2673,7 @@
 #include "code\modules\organs\internal\species\promethean.dm"
 #include "code\modules\organs\internal\species\skrell.dm"
 #include "code\modules\organs\internal\species\starborn.dm"
+#include "code\modules\organs\internal\species\teshari.dm"
 #include "code\modules\organs\internal\species\unathi.dm"
 #include "code\modules\organs\internal\species\vox.dm"
 #include "code\modules\organs\internal\species\xenophage.dm"
