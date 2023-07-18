@@ -4282,9 +4282,9 @@
 /obj/machinery/power/smes/buildable{
 	charge = 5e+006;
 	input_attempt = 1;
-	input_level = 125000;
+	input_level = 250000;
 	output_attempt = 1;
-	output_level = 100000
+	output_level = 250000
 	},
 /obj/structure/cable/cyan,
 /turf/simulated/floor/tiled/dark,

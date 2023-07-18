@@ -80,7 +80,7 @@
 		new/datum/atom_creator/weighted(list(/obj/item/clothing/accessory/storage/brown_vest = 70, /obj/item/clothing/accessory/storage/webbing = 30)),
 		new/datum/atom_creator/weighted(list(/obj/item/storage/backpack/industrial, /obj/item/storage/backpack/satchel/eng)),
 		new/datum/atom_creator/simple(/obj/item/storage/backpack/dufflebag/eng, 50),
-		/obj/item/clothing/suit/fire/firefighter,
+		/obj/item/storage/backpack/dufflebag/firefighter,
 		/obj/item/device/flashlight,
 		/obj/item/extinguisher,
 		/obj/item/device/radio/headset/headset_eng,

@@ -191,6 +191,7 @@
 
 /area/civilian/counselor
 	name = "\improper Counselor's Office"
+	req_access = list(access_psychiatrist)
 
 /area/civilian/entertainer
 	name = "\improper Entertainer's Room"
