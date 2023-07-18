@@ -1612,7 +1612,7 @@ GLOBAL_VAR_INIT(skip_allow_lists, FALSE)
 	rcvdcopy = destination.copy(P, FALSE)
 	rcvdcopy.forceMove(null) //hopefully this shouldn't cause trouble
 	GLOB.adminfaxes += rcvdcopy
-	var/success = send_fax_loop(P, P.department, P.origin)
+	var/success = send_fax_loop(P, destination.department, P.origin)
 
 	if (success)
 		to_chat(src.owner, SPAN_NOTICE("Message reply to transmitted successfully."))
@@ -1622,10 +1622,10 @@ GLOBAL_VAR_INIT(skip_allow_lists, FALSE)
 				if((R_INVESTIGATE) & C.holder.rights)
 					to_chat(C, SPAN_CLASS("log_message", "[SPAN_CLASS("prefix", "FAX LOG:")][key_name_admin(src.owner)] replied to a fax message from [key_name_admin(P.sender)] (<a href='?_src_=holder;AdminFaxView=\ref[rcvdcopy]'>VIEW</a>)"))
 		else
-			log_admin("[key_name(src.owner)] has sent a fax message to [P.department]")
+			log_admin("[key_name(src.owner)] has sent a fax message to [destination.department]")
 			for(var/client/C as anything in GLOB.admins)
 				if((R_INVESTIGATE) & C.holder.rights)
-					to_chat(C, SPAN_CLASS("log_message", "[SPAN_CLASS("prefix", "FAX LOG:")][key_name_admin(src.owner)] has sent a fax message to [P.department] (<a href='?_src_=holder;AdminFaxView=\ref[rcvdcopy]'>VIEW</a>)"))
+					to_chat(C, SPAN_CLASS("log_message", "[SPAN_CLASS("prefix", "FAX LOG:")][key_name_admin(src.owner)] has sent a fax message to [destination.department] (<a href='?_src_=holder;AdminFaxView=\ref[rcvdcopy]'>VIEW</a>)"))
 	else
 		to_chat(src.owner, SPAN_WARNING("Message reply failed."))
 

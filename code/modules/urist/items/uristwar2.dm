@@ -374,7 +374,7 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 
 /obj/item/ammo_magazine/rifle/military/stripper
-	name = "stripper clip (7.62mm)"
+	name = "stripper clip"
 	icon_state = "stripper"
 	max_ammo = 5
 	multiple_sprites = 1
@@ -382,7 +382,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 1500)
 
 /obj/item/ammo_magazine/rifle/military/svt40mag
-	name = "SVT-40 magazine (7.62mm)"
+	name = "SVT-40 magazine"
 	icon_state = "svtmag"
 	max_ammo = 10
 
@@ -448,7 +448,7 @@
 	return
 
 /obj/item/ammo_magazine/rifle/military/barmag
-	name = "BAR magazine (30-06)" //shhhh
+	name = "BAR magazine" //shhhh
 	icon_state = "bar_mag"
 	ammo_type = /obj/item/ammo_casing/rifle/military
 	max_ammo = 20
@@ -486,7 +486,7 @@
 	return
 
 /obj/item/ammo_magazine/pistol/ppsh
-	name = "PPSh-41 drum magazine (7.62x25mm)" //7.62x25 is close enough to 9mm actually, so fuck it
+	name = "PPSh-41 drum magazine" //7.62x25 is close enough to 9mm actually, so fuck it
 	icon_state = "ppsh_drum"
 	icon = 'icons/urist/items/guns.dmi'
 	mag_type = MAGAZINE
@@ -520,7 +520,7 @@
 
 /obj/item/ammo_magazine/pistol/tt33
 	icon = 'icons/urist/items/guns.dmi'
-	name = "TT-33 magazine (7.62x25mm)"
+	name = "TT-33 magazine"
 	icon_state = "tt33mag"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/pistol/small
@@ -542,7 +542,7 @@
 	ammo_type = /obj/item/ammo_casing/rifle/military
 
 /obj/item/ammo_magazine/r762
-	name = "speed loader (7.62mm)"
+	name = "speed loader"
 	icon_state = "T38"
 	caliber = CALIBER_RIFLE_MILITARY
 	ammo_type = /obj/item/ammo_casing/rifle/military
@@ -580,7 +580,7 @@
 	return
 
 /obj/item/ammo_magazine/rifle/military/degtyaryov
-	name = "Degtyaryov pan magazine (7.62mm)"
+	name = "Degtyaryov pan magazine"
 	icon_state = "DTmag"
 	icon = 'icons/urist/items/guns.dmi'
 	mag_type = MAGAZINE
