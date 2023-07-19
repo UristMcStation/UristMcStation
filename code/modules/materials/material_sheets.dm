@@ -139,6 +139,15 @@
 			to_chat(user,SPAN_NOTICE("You recover some [reinf_material.use_name] from the [src]."))
 			reinf_material.place_sheet(get_turf(user), 1)
 			return
+	else if(istype(W, /obj/item/hammer/smithing))
+		if(techniques)
+			var/obj/structure/anvil/A = locate() in src.loc
+			if(A)
+				if(!A.busy)
+					A.busy = 1
+					metal_technique(user, W, src)
+					A.busy = 0
+					return
 	return ..()
 
 /obj/item/stack/material/on_update_icon()
