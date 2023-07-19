@@ -98,6 +98,12 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	build_path = /obj/item/stock_parts/circuitboard/telecomms/holopad
 	sort_string = "URSTM"
 
+/datum/design/circuit/longrangeholopad
+	name = "long-range holopad"
+	id = "lrholopad"
+	build_path = /obj/item/stock_parts/circuitboard/telecomms/holopad/longrange
+	sort_string = "URSTN"
+
 /datum/design/circuit/combat_comp
 	name = "unrecognized combat computer"
 	id = "combatcomp"

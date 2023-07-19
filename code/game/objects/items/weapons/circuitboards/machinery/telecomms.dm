@@ -82,3 +82,14 @@
 							/obj/item/stock_parts/subspace/amplifier = 1,
 							/obj/item/stock_parts/subspace/filter = 1,
 							/obj/item/stock_parts/subspace/treatment = 1)
+
+/obj/item/stock_parts/circuitboard/telecomms/holopad/longrange
+	name = T_BOARD("long-range holopad circuit")
+	build_path = /obj/machinery/hologram/holopad/longrange
+	origin_tech = list(TECH_BLUESPACE = 5, TECH_ENGINEERING = 5)
+	req_components = list(
+							/obj/item/stock_parts/manipulator/nano = 2,
+							/obj/item/stock_parts/subspace/amplifier = 1,
+							/obj/item/stock_parts/subspace/filter = 1,
+							/obj/item/stock_parts/subspace/transmitter = 1,
+							/obj/item/stock_parts/subspace/crystal = 1)
