@@ -68,6 +68,8 @@ var/global/const/HOLOPAD_MODE = RANGE_BASED
 
 	construct_state = /singleton/machine_construction/default/panel_closed
 
+	var/list/linked_pdas
+
 /obj/machinery/hologram/holopad/New()
 	..()
 	desc = "It's a floor-mounted device for projecting holographic images. Its ID is '[loc.loc]'"
@@ -182,6 +184,12 @@ var/global/const/HOLOPAD_MODE = RANGE_BASED
 		targetpad.caller_id = user //This marks you as the caller
 		targetpad.audible_message("<b>\The [connected]</b> announces, \"Incoming communications request from [connected.connected.loc.loc].\"")
 		to_chat(user, SPAN_NOTICE("Trying to establish a connection to the holopad in [connected.loc.loc]... Please await confirmation from recipient."))
+	// Notify any linked PDAs
+	if (LAZYLEN(targetpad.linked_pdas))
+		for (var/obj/item/modular_computer/pda/pda as anything in targetpad.linked_pdas)
+			if (!AreConnectedZLevels(get_z(targetpad), get_z(pda)))
+				continue
+			pda.receive_notification("Call at [targetpad.loc.loc] holopad.")
 	else
 		targetpad.audible_message("<b>\The [connected]</b> announces, \"Incoming holo-conference request from [connected.connected.loc.loc].\"")
 		visible_message(user, SPAN_NOTICE("Trying to establish a connection to the holopad in [connected.loc.loc]... Please await confirmation from recipient."))
@@ -262,6 +270,33 @@ var/global/const/HOLOPAD_MODE = RANGE_BASED
 			to_chat(user, "<span class='danger'>ERROR:</span> Unable to project hologram.")
 	else if(isliving(user))
 		create_holo(user)
+
+/obj/machinery/hologram/holopad/use_tool(obj/item/O, mob/user)
+	if (istype(O, /obj/item/modular_computer/pda))
+		if (LAZYISIN(linked_pdas, O))
+			unlink_pda(O)
+			to_chat(user, SPAN_NOTICE("You remove \the [O] from \the [src]'s notifications list."))
+			return TRUE
+		link_pda(O)
+		to_chat(user, SPAN_NOTICE("You add \the [O] to \the [src]'s notifications list. It will now be pinged whenever a call is received."))
+		return TRUE
+
+	..()
+
+/**
+ * Proc to link/unlink PDAs
+ */
+
+/obj/machinery/hologram/holopad/proc/link_pda(obj/item/modular_computer/pda/pda)
+	if (!istype(pda))
+		return
+	LAZYADD(linked_pdas, pda)
+	GLOB.destroyed_event.register(pda, src, .proc/unlink_pda)
+
+
+/obj/machinery/hologram/holopad/proc/unlink_pda(obj/item/modular_computer/pda/pda)
+	LAZYREMOVE(linked_pdas, pda)
+	GLOB.destroyed_event.unregister(pda, src, .proc/unlink_pda)
 
 /obj/machinery/hologram/holopad/proc/create_holo(mob/living/user, isAI = FALSE, turf/T = loc)
 	var/obj/effect/overlay/hologram = new(T)//Spawn a blank effect at the location.
@@ -509,6 +544,11 @@ var/global/const/HOLOPAD_MODE = RANGE_BASED
 	for(var/mob/living/master in masters)
 		remove_holo(master)
 	end_call()
+	if (LAZYLEN(linked_pdas))
+		for (var/obj/item/modular_computer/pda/pda as anything in linked_pdas)
+			unlink_pda(pda)
+		linked_pdas = null
+
 	return ..()
 
 /*
