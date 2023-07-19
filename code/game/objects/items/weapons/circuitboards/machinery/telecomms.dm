@@ -91,5 +91,4 @@
 							/obj/item/stock_parts/manipulator/nano = 2,
 							/obj/item/stock_parts/subspace/amplifier = 1,
 							/obj/item/stock_parts/subspace/filter = 1,
-							/obj/item/stock_parts/subspace/transmitter = 1,
-							/obj/item/stock_parts/subspace/crystal = 1)
+							/obj/item/stock_parts/subspace/transmitter = 1)
