@@ -110,16 +110,18 @@
 
 	src.worth -= amount
 	src.update_icon()
-	if (amount in list(1000,500,200,100,50,20,1))
+	if(!worth)
+		user.drop_from_inventory(src)
+	if(amount in list(1000,500,200,100,50,20,1))
 		var/cashtype = text2path("/obj/item/spacecash/bundle/c[amount]")
-		var/obj/cash = new cashtype (usr.loc)
-		usr.put_in_hands(cash)
+		var/obj/cash = new cashtype (user.loc)
+		. = cash
 	else
-		var/obj/item/spacecash/bundle/bundle = new (usr.loc)
+		var/obj/item/spacecash/bundle/bundle = new (user.loc)
 		bundle.worth = amount
 		bundle.update_icon()
-		usr.put_in_hands(bundle)
-	if (!worth)
+		. = bundle
+	if(!worth)
 		qdel(src)
 
 /obj/item/spacecash/bundle/c1

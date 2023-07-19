@@ -85,8 +85,7 @@ SUBSYSTEM_DEF(supply)
 
 	if(GLOB.using_map.using_new_cargo)
 		if(amount)
-			var/datum/transaction/T = new("[GLOB.using_map.station_name]", "Trading Revenue", amount, "[GLOB.using_map.trading_faction.name] Automated Trading System")
-			station_account.add_transaction(T)
+			station_account.deposit(amount, "Trading Revenue", "[GLOB.using_map.trading_faction.name] Automated Trading System")
 			var/repamount = GLOB.using_map.new_cargo_inflation * GLOB.using_map.new_cargo_inflation
 			if(amount >= repamount)
 				SSfactions.update_reputation(GLOB.using_map.trading_faction, 2)
