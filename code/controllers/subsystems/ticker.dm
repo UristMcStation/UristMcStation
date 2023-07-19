@@ -575,5 +575,5 @@ Helpers
 	var/welcome_sound = GLOB.using_map.welcome_sound
 	if (islist(welcome_sound))
 		welcome_sound = pick(welcome_sound)
-	sound_to(world, sound(welcome_sound, volume = 35))
+	sound_to(world, sound(welcome_sound, volume = 15))
 	return TRUE
