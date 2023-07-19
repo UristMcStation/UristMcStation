@@ -87,10 +87,16 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	sort_string = "URSTK"
 
 /datum/design/circuit/merch_comp
-	name = "merchendise computer"
+	name = "merchandise computer"
 	id = "merch"
 	build_path = /obj/item/stock_parts/circuitboard/merch
 	sort_string = "URSTL"
+
+/datum/design/circuit/holopad
+	name = "holopad"
+	id = "holopad"
+	build_path = /obj/item/stock_parts/circuitboard/telecomms/holopad
+	sort_string = "URSTM"
 
 /datum/design/circuit/combat_comp
 	name = "unrecognized combat computer"

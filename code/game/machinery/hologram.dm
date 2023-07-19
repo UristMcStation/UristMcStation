@@ -66,19 +66,11 @@ var/global/const/HOLOPAD_MODE = RANGE_BASED
 
 	var/allow_ai = TRUE
 
+	construct_state = /singleton/machine_construction/default/panel_closed
+
 /obj/machinery/hologram/holopad/New()
 	..()
 	desc = "It's a floor-mounted device for projecting holographic images. Its ID is '[loc.loc]'"
-
-/obj/machinery/hologram/holopad/power_change()
-	. = ..()
-	if(stat)
-		for(var/mob/M in masters)
-			remove_holo(M)
-		end_call()
-		update_use_power(POWER_USE_OFF)
-	else
-		update_use_power(POWER_USE_IDLE)
 
 /obj/machinery/hologram/holopad/examine(mob/user)
 	. = ..()
