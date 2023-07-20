@@ -4235,10 +4235,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
-"aiW" = (
-/obj/machinery/hologram/holopad,
-/turf/simulated/floor/carpet,
-/area/hallway/secondary/entry)
 "aiX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/floor_decal/urist/uristlogo{
@@ -23501,7 +23497,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/urist/uristlogo{
-	icon_state = "4,0"
+	icon_state = "2,0"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
@@ -39968,7 +39964,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/urist/uristlogo{
-	icon_state = "2,0"
+	icon_state = "4,0"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
@@ -69121,16 +69117,6 @@
 /obj/effect/landmark/intelspawn,
 /turf/simulated/floor/plating,
 /area/constructionsite)
-"cLd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
-	dir = 4
-	},
-/obj/effect/floor_decal/urist/uristlogo{
-	icon_state = "1,0"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry)
 "cLe" = (
 /obj/machinery/conveyor{
 	dir = 1;
@@ -82997,11 +82983,9 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "ijG" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/carpet,
-/area/bridge/meeting_hall)
+/area/hallway/secondary/entry)
 "iBw" = (
 /obj/structure/catwalk,
 /turf/simulated/floor/plating/airless,
@@ -83709,6 +83693,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/fore)
+"wMV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	icon_state = "intact";
+	dir = 4
+	},
+/obj/effect/floor_decal/urist/uristlogo{
+	icon_state = "1,0"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry)
 "xew" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
@@ -109055,7 +109049,7 @@ acx
 acx
 ahZ
 dVV
-cLd
+wMV
 aaS
 alv
 alv
@@ -109312,7 +109306,7 @@ agH
 ahj
 aia
 aiV
-bDd
+aXv
 aaS
 alw
 amy
@@ -109573,7 +109567,7 @@ kPn
 aaS
 alx
 amz
-aiW
+ijG
 ant
 apv
 afn
@@ -109826,7 +109820,7 @@ acx
 acx
 ahZ
 sDs
-aXv
+bDd
 aaS
 aly
 aly
@@ -117036,7 +117030,7 @@ aaa
 avJ
 axn
 aox
-ijG
+axj
 aBc
 aBc
 azX
