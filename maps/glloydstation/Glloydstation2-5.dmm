@@ -1210,7 +1210,7 @@
 	pixel_y = 0;
 	tag_chamber_sensor = "research_sensor"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	dir = 4;
 	id_tag = "research_pump"
 	},
@@ -1229,7 +1229,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/research/eva)
 "cS" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	dir = 8;
 	id_tag = "research_pump"
 	},
@@ -1295,7 +1295,7 @@
 	pixel_x = -25;
 	pixel_y = 0
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	dir = 4;
 	id_tag = "research_pump"
 	},
@@ -1311,7 +1311,7 @@
 /area/outpost/research/eva)
 "da" = (
 /obj/structure/ore_box,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	dir = 8;
 	id_tag = "research_pump"
 	},
@@ -1752,16 +1752,14 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2;
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	id_tag = "mining_east_pump"
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "ek" = (
 /obj/structure/closet/emcloset,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2;
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	id_tag = "mining_east_pump"
 	},
 /turf/simulated/floor/tiled,
@@ -2101,9 +2099,9 @@
 	pixel_y = -25;
 	tag_chamber_sensor = "mining_east_sensor"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	id_tag = "mining_east_pump"
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+	id_tag = "mining_east_pump";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
@@ -2115,9 +2113,9 @@
 	pixel_x = 0;
 	pixel_y = -25
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	id_tag = "mining_east_pump"
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+	id_tag = "mining_east_pump";
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,

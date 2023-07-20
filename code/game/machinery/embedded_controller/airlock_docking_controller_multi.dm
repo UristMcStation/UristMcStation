@@ -6,6 +6,8 @@
 	var/child_tags_txt
 	var/child_names_txt
 	var/list/child_names = list()
+	radio_filter = RADIO_AIRLOCK
+
 
 /obj/machinery/embedded_controller/radio/docking_port_multi/Initialize()
 	. = ..()
@@ -51,7 +53,7 @@
 
 /obj/machinery/embedded_controller/radio/airlock/docking_port_multi/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, datum/nanoui/master_ui = null, datum/topic_state/state = GLOB.default_state)
 	var/data[0]
-	var/datum/computer/file/embedded_program/airlock/multi_docking/airlock_program
+	var/datum/computer/file/embedded_program/airlock/multi_docking/airlock_program = program
 
 	data = list(
 		"chamber_pressure" = round(airlock_program.memory["chamber_sensor_pressure"]),

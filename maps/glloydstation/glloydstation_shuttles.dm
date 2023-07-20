@@ -257,9 +257,7 @@
 
 /datum/shuttle/autodock/ferry/centcom_arrivals/proc/AnnounceArrival()
 	if (GAME_STATE >= RUNLEVEL_GAME)
-		var/obj/item/device/radio/intercom/a = new /obj/item/device/radio/intercom(null)
-		a.autosay("The Arrivals Shuttle has docked with the Station.", "Arrivals Announcement Computer")
-		qdel(a)
+		GLOB.global_announcer.autosay("The Arrivals Shuttle has docked with the Station.", "Arrivals Announcement Computer", "Common")
 
 
 /datum/shuttle/autodock/ferry/centcom_arrivals/arrived()

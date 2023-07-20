@@ -8024,7 +8024,7 @@
 	tag_exterior_door = "outpost_planet_dock_outer";
 	tag_interior_door = "outpost_planet_dock_inner"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 8;
 	id_tag = "outpost_planet_dock_pump"
 	},
@@ -8208,7 +8208,7 @@
 	pixel_x = 25;
 	pixel_y = 0
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 8;
 	id_tag = "outpost_planet_dock_pump"
 	},
@@ -8462,9 +8462,7 @@
 /obj/machinery/door/airlock/glass{
 	name = "Cleaning Supplies"
 	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/outpost/mining_main/hallway)
 "sm" = (
 /obj/effect/floor_decal/corner/beige{
@@ -11186,9 +11184,9 @@
 	pixel_x = 0;
 	pixel_y = -25
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	id_tag = "mining_outpost_pump"
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
+	id_tag = "mining_outpost_pump";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/outpost/mining_main/refinery)
@@ -12008,7 +12006,7 @@
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "zK" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 4;
 	id_tag = "secdock_pump"
 	},
@@ -12054,7 +12052,7 @@
 	pixel_x = 25;
 	pixel_y = 0
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 8;
 	id_tag = "edock_pump"
 	},
@@ -12156,7 +12154,7 @@
 	tag_exterior_door = "edock_outer";
 	tag_interior_door = "edock_inner"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 8;
 	id_tag = "edock_pump"
 	},

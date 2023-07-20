@@ -13,6 +13,9 @@
 						/datum/job/blueshield, /datum/job/mime, /datum/job/clown, /datum/job/merchant
 						)
 
+/datum/job
+	required_language = LANGUAGE_GALCOM
+
 //Resource Technician et al
 
 /datum/job/mining

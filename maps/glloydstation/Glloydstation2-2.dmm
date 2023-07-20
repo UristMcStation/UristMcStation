@@ -10128,7 +10128,7 @@
 /turf/simulated/floor/shuttle/blue,
 /area/shuttle/escape/centcom)
 "axW" = (
-/obj/machinery/computer/station_alert/all,
+/obj/machinery/computer/modular/preset/engineering,
 /turf/simulated/floor/shuttle/blue,
 /area/shuttle/escape/centcom)
 "axX" = (
@@ -10158,7 +10158,7 @@
 /obj/item/device/radio/intercom{
 	dir = 8;
 	name = "Station Intercom (General)";
-	pixel_x = 31
+	pixel_x = 22
 	},
 /obj/structure/bed/chair/urist/shuttle,
 /turf/simulated/floor/shuttle/white,
@@ -10627,7 +10627,7 @@
 /obj/item/device/radio/intercom{
 	dir = 8;
 	name = "Station Intercom (General)";
-	pixel_x = 31
+	pixel_x = 22
 	},
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape/centcom)
@@ -11272,7 +11272,9 @@
 	name = "Escape Airlock";
 	req_access = list("ACCESS_BRIG")
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
 /area/centcom/holding)
 "aAX" = (
 /obj/structure/bed/chair/comfy/brown{
@@ -11295,9 +11297,6 @@
 	icon_state = "fakewindows2";
 	dir = 1
 	},
-/area/centcom/holding)
-"aBa" = (
-/turf/simulated/floor/tiled/dark,
 /area/centcom/holding)
 "aBb" = (
 /obj/structure/table/woodentable/walnut{
@@ -11516,10 +11515,11 @@
 	frequency = 1380;
 	id_tag = "centcom_dock";
 	name = "docking port controller";
-	pixel_x = 25;
+	pixel_x = 22;
 	pixel_y = 0;
 	req_access = list("ACCESS_EXTERNAL");
-	tag_door = "centcom_dock_airlock"
+	tag_door = "centcom_dock_airlock";
+	dir = 8
 	},
 /obj/structure/bed/chair/urist/bench/bench1/mid{
 	icon_state = "benchmid";
@@ -13697,17 +13697,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/shuttle/blue,
 /area/supply/dock)
-"aGK" = (
-/obj/machinery/door/airlock/centcom{
-	name = "Transit Checkpoint";
-	opacity = 1;
-	req_access = list("ACCESS_CENT_CAPTAIN")
-	},
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
-	},
-/area/centcom/transit)
 "aGM" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Transit Checkpoint";
@@ -14414,7 +14403,6 @@
 /area/space)
 "aID" = (
 /obj/effect/wallframe_spawn/reinforced/titanium,
-/obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/shuttle/arrivals/centcom)
 "aIF" = (
@@ -15146,11 +15134,6 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/centcom/transit)
-"aKI" = (
-/obj/effect/wallframe_spawn/reinforced/titanium,
-/obj/structure/grille,
-/turf/space,
 /area/centcom/transit)
 "aKL" = (
 /obj/structure/closet/crate,
@@ -67786,7 +67769,7 @@ azG
 azG
 aAL
 aAW
-aBa
+azl
 aAW
 aBp
 azl
@@ -70637,7 +70620,7 @@ aae
 aFU
 aNe
 aNe
-aGK
+aGM
 aNe
 aNe
 aNe
@@ -75531,7 +75514,7 @@ aHC
 aHC
 aHC
 aHC
-aKI
+aNd
 aLo
 aLo
 aLo
@@ -75543,7 +75526,7 @@ aLo
 aLo
 aLo
 aLo
-aKI
+aNd
 aHC
 aHC
 aHC
@@ -75788,7 +75771,7 @@ aHC
 aHC
 aHC
 aHC
-aKI
+aNd
 aLp
 aMd
 aMd
@@ -75800,7 +75783,7 @@ aMd
 aMd
 aMd
 aNB
-aKI
+aNd
 aHC
 aHC
 aHC
