@@ -36,6 +36,7 @@
 	#include "loadout/loadout_general.dm"
 	#include "loadout/loadout_suit.dm"
 	#include "loadout/loadout_uniform.dm"
+	#include "loadout/loadout_utility.dm"
 	#include "loadout/loadout_xeno.dm"
 	#include "loadout/~defines.dm"
 

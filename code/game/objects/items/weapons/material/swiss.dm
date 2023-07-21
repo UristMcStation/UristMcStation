@@ -21,7 +21,7 @@
 
 	var/active_tool = SWISSKNF_CLOSED
 	var/tools = list(SWISSKNF_LBLADE, SWISSKNF_CLIFTER, SWISSKNF_COPENER)
-	var/can_use_tools = FALSE
+	var/can_use_tools = TRUE
 	var/sharp_tools = list(SWISSKNF_LBLADE, SWISSKNF_SBLADE, SWISSKNF_GBLADE, SWISSKNF_WBLADE)
 
 /obj/item/material/knife/folding/swiss/attack_self(mob/user)
@@ -77,6 +77,8 @@
 		siemens_coefficient = initial(siemens_coefficient)
 	if(active_tool == SWISSKNF_CLOSED)
 		w_class = initial(w_class)
+	else if(active_tool == SWISSKNF_WBLADE)
+		w_class = ITEM_SIZE_SMALL
 	else
 		w_class = ITEM_SIZE_NORMAL
 
@@ -91,13 +93,13 @@
 			overlays += blood_overlay
 
 /obj/item/material/knife/folding/swiss/IsCrowbar()
-	return active_tool == SWISSKNF_CROWBAR && can_use_tools
+	return active_tool == SWISSKNF_CROWBAR
 
 /obj/item/material/knife/folding/swiss/IsScrewdriver()
-	return (active_tool == SWISSKNF_CLIFTER || active_tool == SWISSKNF_COPENER) && can_use_tools
+	return (active_tool == SWISSKNF_CLIFTER || active_tool == SWISSKNF_COPENER)
 
 /obj/item/material/knife/folding/swiss/IsWirecutter()
-	return active_tool == SWISSKNF_WCUTTER && can_use_tools
+	return active_tool == SWISSKNF_WCUTTER
 
 /obj/item/material/knife/folding/swiss/IsHatchet()
 	return active_tool == SWISSKNF_WBLADE

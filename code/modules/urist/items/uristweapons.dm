@@ -312,3 +312,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
 	add_fingerprint(user)
 	return TRUE
+
+//nerva knife needed to not be called master at arms
+/obj/item/material/knife/folding/swiss/sec/nerva
+	name = "security officer's combi-knife"
