@@ -577,7 +577,7 @@
 	icon_state = "map_vent_out"
 	},
 /obj/item/stock_parts/circuitboard/helm,
-/obj/item/stock_parts/circuitboard/combat_computer,
+/obj/item/stock_parts/circuitboard/combat_computer/nerva,
 /obj/item/stock_parts/circuitboard/account_manager,
 /turf/simulated/floor/plating,
 /area/engineering/stech)

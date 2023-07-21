@@ -8418,7 +8418,9 @@
 /area/civilian/freezer)
 "pC" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Kitchen Maintenance"
+	name = "Kitchen Maintenance";
+	autoset_access = 0;
+	req_access = list("ACCESS_KITCHEN")
 	},
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -9048,7 +9050,9 @@
 /area/logistics/genprep)
 "qB" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Kitchen Maintenance"
+	name = "Kitchen Maintenance";
+	autoset_access = 0;
+	req_access = list("ACCESS_KITCHEN")
 	},
 /obj/structure/catwalk,
 /obj/structure/cable{
@@ -20671,6 +20675,20 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/fuel,
 /turf/simulated/wall/titanium,
 /area/exploration_shuttle/cargo)
+"Oj" = (
+/obj/machinery/door/airlock/maintenance{
+	name = "Kitchen Maintenance";
+	autoset_access = 0;
+	req_access = list("ACCESS_KITCHEN")
+	},
+/obj/structure/catwalk,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/civilian/freezer)
 "Om" = (
 /obj/machinery/light/small{
 	dir = 1;
@@ -49656,7 +49674,7 @@ kd
 kT
 lI
 mI
-qB
+Oj
 oB
 pv
 nE

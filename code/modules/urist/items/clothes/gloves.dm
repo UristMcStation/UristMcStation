@@ -15,7 +15,7 @@ icon_override sprites go to 'icons/uristmob/gloves.dmi' Items should go to cloth
 	desc = "A pair of leather gloves worn by engineers. These gloves protect against hurting one's hands while working, and have the added benefits of being insulated against electric shock, as well as being heat resistant. A cloth liner inside also provides cold resistance."
 	name = "leather work gloves" //not OP. Corai said so ;)
 	icon_state = "leather" //although, they're second only to swat gloves and combat gloves, although only combat are insulated as well.
-	item_state = "leather"
+	item_state = "lightbrowngloves"
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
 	cold_protection = HANDS

@@ -41,8 +41,6 @@
 	icon = 'icons/obj/guns/shotguns.dmi'
 	icon_state = "shotgun"
 	item_state = "shotgun"
-	item_icons = DEF_URIST_INHANDS
-	item_icons = URIST_ALL_ONMOBS
 	wielded_item_state = "shotgun-wielded"
 	max_shells = 4
 	w_class = ITEM_SIZE_HUGE
@@ -57,7 +55,6 @@
 	one_hand_penalty = 8
 	bulk = 6
 	var/recentpump = 0 // to prevent spammage
-	wielded_item_state = "shotgun-wielded"
 	load_sound = 'sound/weapons/guns/interaction/shotgun_instert.ogg'
 
 /obj/item/gun/projectile/shotgun/on_update_icon()
@@ -180,9 +177,9 @@
 /obj/item/gun/projectile/shotgun/pump/combat
 	name = "combat shotgun"
 	desc = "Built for close quarters combat, the Hephaestus Industries KS-40 is widely regarded as a weapon of choice for repelling boarders."
+	icon = 'icons/obj/guns/shotguns.dmi'
 	icon_state = "cshotgun"
 	item_state = "cshotgun"
-	item_icons = URIST_ALL_ONMOBS
 	wielded_item_state = "cshotgun-wielded"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
 	max_shells = 7 //match the ammo box capacity, also it can hold a round in the chamber anyways, for a total of 8.
@@ -218,7 +215,6 @@
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 1)
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
 	one_hand_penalty = 8
-	wielded_item_state = "gun_wielded"
 
 	burst_delay = 0
 	firemodes = list(

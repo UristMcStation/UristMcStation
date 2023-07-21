@@ -4656,8 +4656,7 @@
 	pixel_y = -23;
 	name = "Infirmary Entrance Control";
 	id_tag = "MedbayFoyer";
-	desc = "A remote control switch for the medbay foyer.";
-	req_access = list("ACCESS_MEDICAL")
+	desc = "A remote control switch for the medbay foyer."
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/hallway)
@@ -15432,7 +15431,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/landmark/start{
-	name = "Cook"
+	name = "Chef"
 	},
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
