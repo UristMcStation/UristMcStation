@@ -173,7 +173,7 @@
 		/obj/item/device/flash,
 		/obj/item/device/megaphone,
 		/obj/item/melee/baton/loaded,
-		/obj/item/gun/energy/gun/secure,
+		/obj/item/gunbox,
 		/obj/item/clothing/accessory/storage/holster/thigh,
 		/obj/item/melee/telebaton,
 		/obj/item/reagent_containers/spray/pepper,
