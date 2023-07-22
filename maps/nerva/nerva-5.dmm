@@ -17208,6 +17208,10 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/holofloor/concrete,
 /area/holodeck/source_plaza)
+"Qt" = (
+/turf/unsimulated/wall,
+/turf/simulated/wall/r_titanium,
+/area/acting/backstage)
 "Qu" = (
 /obj/structure/bed/chair/holochair{
 	dir = 4;
@@ -22992,17 +22996,17 @@ in
 nY
 oz
 oU
-nY
-nY
-nY
-nY
-nY
+Qt
+Qt
+Qt
+Qt
+Qt
 pK
-nY
-nY
-nY
-nY
-nY
+Qt
+Qt
+Qt
+Qt
+Qt
 oU
 oA
 nY
@@ -23194,7 +23198,7 @@ in
 nY
 oA
 oU
-nY
+Qt
 qg
 qg
 qY
@@ -23204,7 +23208,7 @@ qg
 qY
 qg
 qg
-nY
+Qt
 oU
 vx
 nY
@@ -23396,7 +23400,7 @@ in
 nY
 oB
 oU
-nY
+Qt
 qg
 qg
 qg
@@ -23406,7 +23410,7 @@ qg
 qg
 qg
 qg
-nY
+Qt
 oU
 oC
 nY
@@ -23598,7 +23602,7 @@ in
 nY
 oC
 oU
-nY
+Qt
 qg
 qg
 qg
@@ -23608,7 +23612,7 @@ qg
 qg
 qg
 qg
-nY
+Qt
 oU
 oD
 nY
@@ -23800,7 +23804,7 @@ in
 nY
 oD
 pr
-nY
+Qt
 qg
 qg
 qg
@@ -23810,7 +23814,7 @@ qg
 qg
 qg
 qg
-nY
+Qt
 vc
 oB
 nY
@@ -24002,7 +24006,7 @@ in
 nY
 oB
 oU
-nY
+Qt
 qg
 qg
 qg
@@ -24012,7 +24016,7 @@ qg
 qg
 qg
 qg
-nY
+Qt
 oU
 oE
 nY
@@ -24204,7 +24208,7 @@ in
 nY
 oE
 oU
-nY
+Qt
 qh
 qg
 qg
@@ -24214,7 +24218,7 @@ qg
 qg
 qg
 ud
-nY
+Qt
 oU
 oF
 nY
@@ -24406,7 +24410,7 @@ in
 nY
 oF
 oU
-nY
+Qt
 qg
 qg
 qg
@@ -24416,7 +24420,7 @@ qg
 qg
 qg
 qg
-nY
+Qt
 oU
 oG
 nY
@@ -24608,7 +24612,7 @@ in
 nY
 oG
 oU
-nY
+Qt
 qg
 qg
 qg
@@ -24618,7 +24622,7 @@ qg
 qg
 qg
 qg
-nY
+Qt
 oU
 oH
 nY
@@ -24810,7 +24814,7 @@ in
 nY
 oH
 oU
-nY
+Qt
 qg
 qg
 qg
@@ -24820,7 +24824,7 @@ qg
 qg
 qg
 qg
-nY
+Qt
 oU
 oI
 nY
@@ -25214,7 +25218,7 @@ in
 nY
 oJ
 oU
-nY
+Qt
 qg
 qg
 qg
@@ -25224,7 +25228,7 @@ qg
 qg
 qg
 qg
-nY
+Qt
 oU
 oK
 nY
@@ -25416,7 +25420,7 @@ in
 nY
 oK
 oU
-nY
+Qt
 qg
 qg
 qg
@@ -25426,7 +25430,7 @@ qg
 qg
 qg
 qg
-nY
+Qt
 oU
 oL
 nY
@@ -25618,7 +25622,7 @@ in
 nY
 oL
 oU
-nY
+Qt
 qg
 qg
 qg
@@ -25628,7 +25632,7 @@ qg
 qg
 qg
 qg
-nY
+Qt
 oU
 oM
 nY
@@ -25820,7 +25824,7 @@ in
 nY
 oM
 oU
-nY
+Qt
 qg
 qg
 qg
@@ -25830,7 +25834,7 @@ qg
 qg
 qg
 qg
-nY
+Qt
 oU
 oN
 nY
@@ -26022,7 +26026,7 @@ in
 nY
 oN
 oU
-nY
+Qt
 qh
 qg
 qg
@@ -26032,7 +26036,7 @@ qg
 qg
 qg
 ud
-nY
+Qt
 oU
 vy
 nY
@@ -26224,7 +26228,7 @@ in
 nY
 oO
 oU
-nY
+Qt
 qg
 qg
 qg
@@ -26234,7 +26238,7 @@ qg
 qg
 qg
 qg
-nY
+Qt
 oU
 vz
 nY
@@ -26426,7 +26430,7 @@ in
 nY
 oP
 pr
-nY
+Qt
 qg
 qg
 qg
@@ -26436,7 +26440,7 @@ qg
 qg
 qg
 qg
-nY
+Qt
 vc
 vA
 nY
@@ -26628,7 +26632,7 @@ in
 nY
 oQ
 oU
-nY
+Qt
 qg
 qg
 qg
@@ -26638,7 +26642,7 @@ qg
 qg
 qg
 qg
-nY
+Qt
 oU
 oU
 nY
@@ -26830,7 +26834,7 @@ in
 nY
 oR
 UX
-nY
+Qt
 qg
 qg
 qg
@@ -26840,7 +26844,7 @@ qg
 qg
 qg
 qg
-nY
+Qt
 oU
 oS
 nY
@@ -27032,7 +27036,7 @@ in
 nY
 oS
 oU
-nY
+Qt
 qg
 qg
 qZ
@@ -27042,7 +27046,7 @@ qg
 qZ
 qg
 qg
-nY
+Qt
 oU
 oT
 nY
@@ -27234,17 +27238,17 @@ ig
 nY
 oT
 oU
-nY
-nY
-nY
-nY
-nY
+Qt
+Qt
+Qt
+Qt
+Qt
 pK
-nY
-nY
-nY
-nY
-nY
+Qt
+Qt
+Qt
+Qt
+Qt
 oU
 oz
 nY
