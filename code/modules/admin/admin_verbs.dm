@@ -313,6 +313,23 @@ var/global/list/admin_verbs_mod = list(
 	/datum/admins/proc/paralyze_mob // right-click paralyze ,
 )
 
+var/global/list/admin_verbs_mentor = list(
+	/client/proc/cmd_admin_pm_context,
+	/client/proc/cmd_admin_pm_panel,
+	/client/proc/admin_ghost,
+	/client/proc/cmd_admin_direct_narrate,
+	/client/proc/cmd_admin_check_contents,
+	/client/proc/cmd_mod_say,
+	/client/proc/dsay,
+	/client/proc/debug_variables,
+	/datum/admins/proc/show_player_info,
+	/datum/admins/proc/show_player_panel,
+	/client/proc/player_panel,
+	/client/proc/check_antagonists,
+	/client/proc/jumptomob,
+	/client/proc/jumptokey
+)
+
 /client/proc/add_admin_verbs()
 	if(holder)
 		verbs += admin_verbs_default
@@ -332,6 +349,7 @@ var/global/list/admin_verbs_mod = list(
 		if(holder.rights & R_SOUNDS)		verbs += admin_verbs_sounds
 		if(holder.rights & R_SPAWN)			verbs += admin_verbs_spawn
 		if(holder.rights & R_MOD)			verbs += admin_verbs_mod
+		if(holder.rights & R_MENTOR)		verbs += admin_verbs_mentor
 
 /client/proc/remove_admin_verbs()
 	verbs.Remove(
