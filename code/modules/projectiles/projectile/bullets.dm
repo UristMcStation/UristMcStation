@@ -163,6 +163,10 @@
 	embed = 0
 	sharp = 0
 
+/obj/item/projectile/bullet/r22lr //22 Long Rifle (For Rifles and Pistols)
+	damage = 15
+	distance_falloff = 5
+
 //4mm. Tiny, very low damage, does not embed, but has very high penetration. Only to be used for the experimental SMG.
 /obj/item/projectile/bullet/c4mm
 	fire_sound = 'sound/weapons/gunshot/gunshot_4mm.ogg'
@@ -171,11 +175,6 @@
 	armor_penetration = 70
 	embed = 0
 	distance_falloff = 2
-
-/obj/item/projectile/bullet/pistol/22lr
-	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
-	damage = 15
-	distance_fallout = 4
 
 /* shotgun projectiles */
 

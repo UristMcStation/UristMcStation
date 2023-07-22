@@ -287,8 +287,8 @@
 	projectile_type  = /obj/item/projectile/ion
 	matter = list(MATERIAL_STEEL = 260, MATERIAL_URANIUM = 200)
 
-/obj/item/ammo_casing/22lr
-	name = ".22 LR round"
-	desc = "A .22LR bullet casing."
-	caliber = ".22LR"
-	projectile_type = /obj/item/projectile/bullet/pistol/22lr
+/obj/item/ammo_casing/r22lr
+	name = ".22LR round"
+	desc = "A .22LR round"
+	caliber = "22lr"
+	projectile_type = /obj/item/projectile/bullet/r22lr
