@@ -62,11 +62,11 @@
 	maxHealth = 75
 	health = 75
 	harm_intent_damage = 5
-	natural_weapon = /obj/item/natural_weapon/melee/meatbits/weak
+	natural_weapon = /obj/item/natural_weapon/claws/medium //stay away
 	diesnormally = 1
 	ai_holder = /datum/ai_holder/simple_animal/melee/meat
 
-/obj/item/natural_weapon/melee/meatbits/weak
+/obj/item/natural_weapon/claws/medium
 	force = 20
 
 /*/mob/living/simple_animal/hostile/scom/GiveTarget(new_target)
@@ -100,8 +100,12 @@
 	ranged = 1
 	projectilesound = 'sound/weapons/laser.ogg'
 	weapon1 = /obj/item/scom/aliengun/a1
-	ai_holder = /datum/ai_holder/simple_animal/humanoid/hostile
+	ai_holder = /datum/ai_holder/simple_animal/humanoid/hostile/lactera
 	attack_delay = 1.5 SECONDS
+	ranged_attack_delay = 1.5 SECONDS
+
+/datum/ai_holder/simple_animal/humanoid/hostile/lactera
+	speak_chance = 0
 
 /mob/living/simple_animal/hostile/scom/lactera/light
 	will_flee = 1
@@ -218,10 +222,17 @@
 	natural_weapon = /obj/item/natural_weapon/bite/strong
 	projectiletype = /obj/item/projectile/energy/scom/forgotten
 	ai_holder = /datum/ai_holder/simple_animal/ranged/aggressive/forgotten
-	attack_delay = 2 SECONDS
+	//attack_delay = 2 SECONDS
+	needs_reload = TRUE
+	reload_time = 2 SECONDS
+	reload_sound = null
 
 /datum/ai_holder/simple_animal/ranged/aggressive/forgotten
+	pointblank = FALSE
 	aggro_sound = 'sound/hallucinations/screech.ogg'
+
+/datum/ai_holder/simple_animal/ranged/aggressive/forgotten/closest_distance()
+	return 1
 
 /mob/living/simple_animal/hostile/scom/forgotten/death()
 	..()

@@ -21,9 +21,15 @@
 												/obj/structure/wall_frame,
 												/obj/structure/railing)
 
+	var/aggro_sound = null //what sound, if any, do we play when aggroing
+	var/yelled = FALSE //have we played an aggro sound already?
+
 // This does the actual attacking.
 /datum/ai_holder/proc/engage_target()
 	ai_log("engage_target() : Entering.", AI_LOG_DEBUG)
+	if(aggro_sound && yelled == 0)
+		playsound(holder, aggro_sound, 50, 1)
+		yelled = 1
 
 	// Can we still see them?
 	if (!target || !can_attack(target))
