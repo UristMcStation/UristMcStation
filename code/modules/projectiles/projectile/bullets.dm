@@ -167,6 +167,11 @@
 	damage = 15
 	distance_falloff = 5
 
+/obj/item/projectile/bullet/r22lr/r22hp // 22 Hollow Point.
+	damage = 28
+	armor_penetration = 10
+	distance_falloff = 5
+
 //4mm. Tiny, very low damage, does not embed, but has very high penetration. Only to be used for the experimental SMG.
 /obj/item/projectile/bullet/c4mm
 	fire_sound = 'sound/weapons/gunshot/gunshot_4mm.ogg'
