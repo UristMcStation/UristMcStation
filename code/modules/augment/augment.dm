@@ -115,9 +115,9 @@
 		organ_tag = null
 		return 1
 	parent_organ = parent.organ_tag
-	if (found == AUGMENT_ARMOR)
+	if (found & AUGMENT_ARMOR)
 		organ_tag = "[parent_organ]_aug_armor"
-	if (found == AUGMENT_FLUFF)
+	else if (found & AUGMENT_FLUFF)
 		organ_tag = "[parent_organ]_aug_fluff"
 	else
 		organ_tag = "[parent_organ]_aug"

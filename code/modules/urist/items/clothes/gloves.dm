@@ -16,6 +16,7 @@ icon_override sprites go to 'icons/uristmob/gloves.dmi' Items should go to cloth
 	name = "leather work gloves" //not OP. Corai said so ;)
 	icon_state = "leather" //although, they're second only to swat gloves and combat gloves, although only combat are insulated as well.
 	item_state = "lightbrowngloves"
+	item_icons = null
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
 	cold_protection = HANDS

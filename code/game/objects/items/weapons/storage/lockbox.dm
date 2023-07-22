@@ -65,10 +65,11 @@
 		visible_message(visual_feedback, audible_feedback)
 	return TRUE
 
-/obj/item/storage/lockbox/MouseDrop(over_object, src_location, over_location)
+/obj/item/storage/lockbox/open()
 	if (locked)
-		src.add_fingerprint(usr)
-		return
+		return 0
+
+	. = ..()
 
 /obj/item/storage/lockbox/loyalty
 	name = "lockbox of loyalty implants"
