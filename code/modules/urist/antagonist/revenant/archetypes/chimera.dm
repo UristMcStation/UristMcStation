@@ -27,7 +27,7 @@
 		to_chat(src,SPAN_WARNING("Your hands are full.  Drop something first."))
 		return 0
 
-	var/obj/item/weapon/W = new weapon_type(src)
+	var/obj/item/W = new weapon_type(src)
 	src.put_in_hands(W)
 
 	// The way Cost works for BSRs is that we increase their Total Distortion
@@ -47,7 +47,7 @@
 	set category = "Anomalous Powers"
 	set desc = "*Painfully* fleshcraft your arm into a vicious blade. Reality won't like this one bit."
 
-	if(bsrevenant_generic_weapon(/obj/item/weapon/melee/arm_blade))
+	if(bsrevenant_generic_weapon(/obj/item/melee/arm_blade))
 		return
 
 	return

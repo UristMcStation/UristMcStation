@@ -96,7 +96,6 @@
 		revenant.total_distortion += BSR_DISTORTION_GROWTH_OVER_MINUTES(5, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
 		to_chat(src, SPAN_NOTICE("You feel the grip of reality on you loosen..."))
 
-	SSstatistics.add_field_details("bsrevenant_powers","UNS")
 	return 1
 
 

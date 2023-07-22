@@ -187,7 +187,6 @@ Proc needs to be fixed, it fails to locate a dest
 
 	src.verbs -= /mob/proc/bsrevenant_digitalcamo
 	spawn(5)	src.verbs += /mob/proc/bsrevenant_digitalcamo
-	SSstatistics.add_field_details("bsrevenant_powers","CAM")
 	return 1
 
 

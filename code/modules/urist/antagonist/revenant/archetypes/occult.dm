@@ -124,7 +124,7 @@
 		return
 
 	if(do_after(src, 10))
-		pay_for_rune(5)
+		src.remove_blood_simple(5)
 
 		if(locate(/obj/effect/rune) in T)
 			return
