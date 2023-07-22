@@ -28,6 +28,9 @@
 /obj/machinery/button/attackby(obj/item/W, mob/user as mob)
 	return attack_hand(user)
 
+/obj/machinery/button/attack_ai(mob/user as mob)
+	return attack_hand(user)
+
 /obj/machinery/button/interface_interact(user)
 	if(!CanInteract(user, DefaultTopicState()))
 		return FALSE
