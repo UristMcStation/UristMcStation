@@ -692,7 +692,7 @@
 	/// Sound file to play when the light is turned on.
 	var/sound_on
 	/// Whether or not to randomly select a lighting color from `random_tone_options` on init.
-	var/random_tone = TRUE
+	var/random_tone = FALSE
 	/// List of colors to pick from on init if `random_tone` is set.
 	var/list/random_tone_options = LIGHT_STANDARD_COLORS
 

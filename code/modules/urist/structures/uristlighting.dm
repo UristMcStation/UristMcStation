@@ -35,6 +35,7 @@
 	name = "light tube (tinted)"
 	desc = "A replacement light tube."
 	b_colour = "#f0008c" //PANK. Shouldn't show up normally, so it's a telltale color something's wrong.
+	random_tone = FALSE
 
 /obj/item/light/tube/tinted/coldtint
 	name = "light tube (cold-light)"
