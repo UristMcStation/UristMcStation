@@ -33,7 +33,7 @@
 	contract_type = /datum/contract/nanotrasen/anomaly
 
 /obj/item/paper/contract/nanotrasen/piratehunt
-	contract_type = /datum/contract/shiphunt/pirate
+	contract_type = /datum/contract/shiphunt
 
 /obj/item/paper/contract/nanotrasen/alienhunt
 	contract_type = /datum/contract/shiphunt/alien

@@ -73,21 +73,23 @@
 	var/oldmoney = money
 	money = (amount * oldmoney)
 
+	..()
+
 	if(!desc)
 		desc = "This sector is plagued by [neg_faction.factionid]s, [faction.name] needs the [GLOB.using_map.station_name] to hunt down and destroy [amount] [neg_faction.name] ships in this sector."
 
-	..()
 
 	if(!neg_rep_points)
 		neg_rep_points -= rep_points
 
 //money values are very much in flux
 
-/datum/contract/shiphunt/pirate
+/datum/contract/shiphunt
 	name = "Pirate Ship Hunt Contract"
 	neg_faction = /datum/factions/pirate
 	points_per_unit = 3
 	money = 4000
+	faction = /datum/factions/nanotrasen
 
 /datum/contract/shiphunt/alien
 	name = "Lactera Ship Hunt Contract"
@@ -105,3 +107,4 @@
 	rep_points = 10
 	amount = 1
 	money = 20000
+	faction = /datum/factions/nanotrasen
