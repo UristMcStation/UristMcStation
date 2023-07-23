@@ -460,36 +460,3 @@
 	matter = list(MATERIAL_STEEL = 600)
 	max_ammo = 7
 	multiple_sprites = 1
-
-/obj/item/ammo_magazine/r22lr/pistol
-	name = "pistol magazine (.22LR)"
-	desc = "A speed loader for revolvers."
-	icon = 'icons/urist/items/ammo.dmi'
-	icon_state = "9mmds"
-	mag_type = MAGAZINE
-	ammo_type = /obj/item/projectile/bullet/r22lr
-	matter = list(MATERIAL_STEEL = 900)
-	caliber = "22LR"
-	max_ammo = 10
-
-/obj/item/ammo_magazine/r22lr/riflesmall
-	name = "rifle magazine (.22LR)"
-	desc = "A small 10 round rifle magazine for .22LR based rifles."
-	icon = 'icons/urist/items/ammo.dmi'
-	icon_state = "9mmds"
-	mag_type = MAGAZINE
-	ammo_type = /obj/item/projectile/bullet/r22lr
-	matter = list(MATERIAL_STEEL = 900)
-	caliber = "22LR"
-	max_ammo = 10
-
-/obj/item/ammo_magazine/r22lr/riflesporting
-	name = "sporting rifle magazine (.22LR)"
-	desc = "A sporting magazine designed for .22LR based rifles"
-	icon = 'icons/urist/items/ammo.dmi'
-	icon_state = "9mmds"
-	mag_type = MAGAZINE
-	ammo_type = /obj/item/projectile/bullet/r22lr
-	matter = list(MATERIAL_STEEL = 900)
-	caliber = "22LR"
-	max_ammo = 20

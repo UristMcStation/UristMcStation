@@ -26,6 +26,12 @@
 	item_cost = 20
 	path = /obj/item/weapon/storage/box/syndie_kit/g9mm
 
+/datum/uplink_item/item/visible_weapons/hush22
+	name = "Hush .22 Assassin Pistol"
+	desc = "An integrally surpressed .22 assassin pistol with hollow point rounds."
+	item_cost = 30
+	path = /obj/item/weapon/gun/projectile/hush22
+
 /datum/uplink_item/item/badassery/money_cannon
 	name = "Modified Money Cannon"
 	item_cost = 48

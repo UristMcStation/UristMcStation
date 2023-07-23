@@ -920,3 +920,84 @@ the sprite and make my own projectile -Glloyd*/
 	ammo_type = /obj/item/ammo_casing/c9mm
 	max_ammo = 10
 	multiple_sprites = 1
+
+/obj/item/weapon/gun/projectile/sportingrifle // Aways, Etc.
+	item_icons = DEF_URIST_INHANDS
+	name = ".22 sporting rifle"
+	desc = "A lightweight sporting rifle, usually for shooting clay pigeons, or for hunting small game. This is a antiquated design that's remained the same for years."
+	icon = 'icons/urist/items/guns.dmi' // Replace
+	icon_state = "crewpistol" // Replace
+	item_state = "crewpistol" // Replace
+	w_class = 3
+	caliber = "22LR"
+	load_method = MAGAZINE
+	origin_tech = list(TECH_COMBAT = 1)
+	magazine_type = /obj/item/ammo_magazine/r22lr/rifle
+	allowed_magazines = /obj/item/ammo_magazine/r22lr/rifle
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg' // Replace
+	one_hand_penalty = 3
+
+	firemodes = list(
+		list(mode_name="semiauto", burst=1, fire_delay=0, one_hand_penalty = 1, move_delay=null, burst_accuracy=null, dispersion=null),
+		list(mode_name="2-round bursts", burst=2, move_delay=6, fire_delay=null, one_hand_penalty = 2, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 0.6)),
+	)
+
+/obj/item/weapon/gun/projectile/hush22
+	item_icons = DEF_URIST_INHANDS
+	name = "hush .22 special"
+	desc = "An integrally surpressed covert pistol, chambered in .22 hollow point. The logo and identifying markers have been manually filed away. "
+	icon = 'icons/urist/items/guns.dmi'
+	icon_state = "crewpistol" // Replace
+	item_state = "crewpistol" // Replace
+	w_class = 1
+	caliber = "22HR"
+	load_method = MAGAZINE
+	origin_tech = list(TECH_COMBAT = 3, TECH_ILLEGAL = 2)
+	magazine_type = /obj/item/ammo_magazine/r22lr/pistol/hollowpoint
+	allowed_magazines = /obj/item/ammo_magazine/r22lr/pistol
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	one_hand_penalty = 3
+
+/obj/item/ammo_magazine/r22lr/pistol
+	name = "pistol magazine (.22LR)"
+	desc = "A .22LR magazine for a pistol."
+	icon = 'icons/urist/items/ammo.dmi'
+	icon_state = "9mmds" // Replace
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/projectile/bullet/r22lr
+	matter = list(MATERIAL_STEEL = 900)
+	caliber = "22LR"
+	max_ammo = 10
+
+/obj/item/ammo_magazine/r22lr/pistol/hollowpoint
+	name = "pistol magazine (.22HP)"
+	desc = "A .22HP magazine for a pistol."
+	icon = 'icons/urist/items/ammo.dmi'
+	icon_state = "9mmds" // Replace
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/projectile/bullet/r22lr
+	matter = list(MATERIAL_STEEL = 900)
+	caliber = "22HP"
+	max_ammo = 10
+
+/obj/item/ammo_magazine/r22lr/rifle
+	name = "rifle magazine (.22LR)"
+	desc = "A small 10 round rifle magazine for .22LR based rifles."
+	icon = 'icons/urist/items/ammo.dmi'
+	icon_state = "9mmds" // Replace
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/projectile/bullet/r22lr
+	matter = list(MATERIAL_STEEL = 900)
+	caliber = "22LR"
+	max_ammo = 10
+
+/obj/item/ammo_magazine/r22lr/rifle/riflesporting
+	name = "sporting rifle magazine (.22LR)"
+	desc = "A sporting magazine designed for .22LR based rifles"
+	icon = 'icons/urist/items/ammo.dmi'
+	icon_state = "9mmds" // Replace
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/projectile/bullet/r22lr
+	matter = list(MATERIAL_STEEL = 900)
+	caliber = "22LR"
+	max_ammo = 20

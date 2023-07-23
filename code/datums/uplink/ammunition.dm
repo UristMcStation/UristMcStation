@@ -114,3 +114,8 @@
 	desc = "Single 12-Gauge shotgun slug designed to combat rampant synthetics threats."
 	item_cost = 1
 	path = /obj/item/ammo_casing/shotgun/emp
+
+/datum/uplink_item/item/ammo/p10mm_emp
+	name = ".22 pistol magazine (Hollow Point)"
+	item_cost = 6
+	path = /obj/item/ammo_magazine/r22lr/pistol/hollowpoint

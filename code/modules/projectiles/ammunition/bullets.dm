@@ -290,11 +290,11 @@
 /obj/item/ammo_casing/r22lr
 	name = ".22LR round"
 	desc = "A .22LR round"
-	caliber = "22lr"
+	caliber = "22LR"
 	projectile_type = /obj/item/projectile/bullet/r22lr
 
 /obj/item/ammo_casing/r22lr
-	name = ".22hp round"
+	name = ".22HP round"
 	desc = "A .22 hollow point round"
-	caliber = "22hp"
+	caliber = "22HP"
 	projectile_type = /obj/item/projectile/bullet/r22lr/r22hp
