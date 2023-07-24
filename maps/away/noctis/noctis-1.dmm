@@ -824,7 +824,7 @@
 /obj/item/device/radio/intercom{
 	icon_state = "intercom";
 	dir = 1;
-	pixel_y = -30
+	pixel_y = -28
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/hards)
@@ -4240,7 +4240,7 @@
 "hH" = (
 /obj/structure/table/standard,
 /obj/item/device/radio/intercom{
-	pixel_y = 30
+	pixel_y = 24
 	},
 /obj/item/stack/material/cloth{
 	amount = 30
@@ -4616,7 +4616,7 @@
 /obj/item/device/radio/intercom{
 	icon_state = "intercom";
 	dir = 1;
-	pixel_y = -29
+	pixel_y = -28
 	},
 /obj/structure/cable/blue{
 	d1 = 4;

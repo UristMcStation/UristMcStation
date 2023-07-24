@@ -2611,7 +2611,7 @@
 /obj/item/device/radio/intercom{
 	icon_state = "intercom";
 	dir = 1;
-	pixel_y = -30
+	pixel_y = -28
 	},
 /turf/simulated/open,
 /area/noctis/combint)
@@ -3061,7 +3061,7 @@
 /obj/item/device/radio/intercom{
 	icon_state = "intercom";
 	dir = 1;
-	pixel_y = -29
+	pixel_y = -28
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/noctis/bridge)
@@ -3741,7 +3741,7 @@
 /obj/item/device/radio/intercom{
 	icon_state = "intercom";
 	dir = 1;
-	pixel_y = -29
+	pixel_y = -28
 	},
 /obj/effect/floor_decal/rust,
 /obj/machinery/atmospherics/unary/vent_pump/on{

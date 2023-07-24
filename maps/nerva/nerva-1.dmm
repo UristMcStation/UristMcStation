@@ -3132,7 +3132,7 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	pixel_x = -21
+	pixel_x = -22
 	},
 /turf/simulated/floor/tiled,
 /area/antonine_hangar/start)
@@ -3909,7 +3909,7 @@
 /obj/item/device/radio/intercom{
 	dir = 1;
 	name = "Station Intercom (General)";
-	pixel_y = -30
+	pixel_y = -28
 	},
 /obj/machinery/camera/network/trajan{
 	c_tag = "Trajan Atmospherics";
@@ -4035,7 +4035,7 @@
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod{
 	frequency = 1380;
 	id_tag = "escape_pod_2";
-	pixel_x = -25;
+	pixel_x = -22;
 	pixel_y = 0;
 	tag_door = "escape_pod_2_hatch";
 	dir = 4
@@ -4050,7 +4050,7 @@
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod{
 	frequency = 1380;
 	id_tag = "escape_pod_3";
-	pixel_x = 25;
+	pixel_x = 22;
 	pixel_y = 0;
 	tag_door = "escape_pod_3_hatch";
 	dir = 8
@@ -4246,7 +4246,7 @@
 "il" = (
 /obj/item/device/radio/intercom{
 	dir = 8;
-	pixel_x = 25
+	pixel_x = 22
 	},
 /obj/structure/bed/chair/urist/shuttle{
 	dir = 8;
@@ -4545,7 +4545,7 @@
 	},
 /obj/item/device/radio/intercom/locked/ai_private{
 	dir = 8;
-	pixel_x = 24
+	pixel_x = 22
 	},
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/techmaint,
@@ -6143,7 +6143,7 @@
 	dir = 2;
 	listening = 1;
 	name = "Station Intercom (General)";
-	pixel_y = 28
+	pixel_y = 24
 	},
 /obj/machinery/camera/network/fourth_deck{
 	c_tag = "General Expedition Prep Port"
@@ -6253,7 +6253,7 @@
 	frequency = 1380;
 	id_tag = "escape_pod_2_berth";
 	pixel_x = -25;
-	pixel_y = 28;
+	pixel_y = 24;
 	tag_door = "escape_pod_2_berth_hatch"
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -6299,7 +6299,7 @@
 	frequency = 1380;
 	id_tag = "escape_pod_3_berth";
 	pixel_x = -25;
-	pixel_y = 28;
+	pixel_y = 24;
 	tag_door = "escape_pod_3_berth_hatch"
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -6320,7 +6320,7 @@
 	dir = 2;
 	listening = 1;
 	name = "Station Intercom (General)";
-	pixel_y = 28
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/centralfourth)
@@ -6649,7 +6649,7 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	pixel_y = -30
+	pixel_y = -28
 	},
 /obj/structure/handrail{
 	dir = 1;
@@ -8010,7 +8010,7 @@
 "oJ" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
-	pixel_x = -21
+	pixel_x = -22
 	},
 /obj/effect/floor_decal/techfloor{
 	dir = 8;
@@ -8197,7 +8197,7 @@
 	dir = 2;
 	listening = 1;
 	name = "Station Intercom (General)";
-	pixel_y = 28
+	pixel_y = 24
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
@@ -9048,20 +9048,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/genprep)
-"qB" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Kitchen Maintenance";
-	autoset_access = 0;
-	req_access = list("ACCESS_KITCHEN")
-	},
-/obj/structure/catwalk,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/civilian/freezer)
 "qC" = (
 /obj/structure/closet{
 	name = "spare parts"
@@ -9076,7 +9062,7 @@
 /obj/item/device/radio/intercom{
 	dir = 1;
 	name = "Station Intercom (General)";
-	pixel_y = -30
+	pixel_y = -28
 	},
 /obj/item/reagent_containers/spray/cleaner,
 /turf/simulated/floor/tiled/freezer,
@@ -14007,8 +13993,9 @@
 /obj/machinery/button/windowtint{
 	id_tag = "seniorscientint";
 	pixel_x = -6;
-	pixel_y = -24;
-	range = 4
+	pixel_y = -22;
+	range = 4;
+	dir = 1
 	},
 /obj/item/clothing/glasses/science,
 /obj/machinery/firealarm{
@@ -14960,7 +14947,7 @@
 "AK" = (
 /obj/structure/table/standard,
 /obj/item/device/radio/intercom{
-	pixel_y = 22
+	pixel_y = 24
 	},
 /obj/machinery/reagentgrinder,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -17043,7 +17030,7 @@
 	dir = 2;
 	listening = 1;
 	name = "Station Intercom (General)";
-	pixel_y = 28
+	pixel_y = 24
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
@@ -17496,7 +17483,7 @@
 	dir = 4;
 	frequency = 1459;
 	name = "Station Intercom (General)";
-	pixel_x = -28
+	pixel_x = -22
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
@@ -18781,7 +18768,7 @@
 	cycle_to_external_air = 1;
 	frequency = 1380;
 	id_tag = "hadrian_shuttle";
-	pixel_x = -24;
+	pixel_x = -22;
 	pixel_y = 0;
 	tag_exterior_sensor = "hadrian_shuttle_sensor_external";
 	dir = 4;
@@ -19699,7 +19686,7 @@
 	},
 /obj/item/device/radio/intercom/locked/ai_private{
 	dir = 8;
-	pixel_x = 24
+	pixel_x = 22
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/command/aiupload)
@@ -20108,7 +20095,7 @@
 	dir = 4;
 	listening = 1;
 	name = "Station Intercom (General)";
-	pixel_x = -25
+	pixel_x = -22
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/medical/extstorage)
@@ -21507,7 +21494,7 @@
 /obj/item/device/radio/intercom{
 	dir = 1;
 	name = "Station Intercom (General)";
-	pixel_y = -30
+	pixel_y = -28
 	},
 /turf/simulated/floor/tiled,
 /area/exploration_shuttle/cockpit)
@@ -22684,7 +22671,7 @@
 	dir = 2;
 	listening = 1;
 	name = "Station Intercom (General)";
-	pixel_y = 28
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/storage)
@@ -49879,7 +49866,7 @@ mJ
 nE
 oC
 pw
-qB
+Oj
 rK
 sk
 tM
