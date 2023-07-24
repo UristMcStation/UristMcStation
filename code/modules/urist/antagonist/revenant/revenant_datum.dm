@@ -119,6 +119,30 @@
 	src.callbacks = list()
 	src.unlocked_powers = list()
 	src.mob_ref = weakref(M)
+
+	// Config stuff:
+
+	if(!isnull(config?.bluespace_revenant_distortion_rate))
+		src._distortion_per_tick = config.bluespace_revenant_distortion_rate
+
+	if(!isnull(config?.bluespace_revenant_tickrate))
+		src._tick_delay = max(1, config.bluespace_revenant_tickrate)  // sleep delay, in deciseconds
+
+	if(!isnull(config?.bluespace_revenant_radius_three_distortion_threshold))
+		src._threshold_threetile = max(0, config.bluespace_revenant_radius_three_distortion_threshold)
+
+	if(!isnull(config?.bluespace_revenant_radius_five_distortion_threshold))
+		src._threshold_threetile = max(0, config.bluespace_revenant_radius_five_distortion_threshold)
+
+	if(!isnull(config?.bluespace_revenant_radius_seven_distortion_threshold))
+		src._threshold_threetile = max(0, config.bluespace_revenant_radius_seven_distortion_threshold)
+
+	if(!isnull(config?.bluespace_revenant_radius_zlevel_spread_enabled))
+		// this is a boolean - if we try to process > 3 z-levels, this will be way too heavy
+		src.distortion_radius_z = clamp(config.bluespace_revenant_radius_zlevel_spread_enabled, 0, 1)
+
+	// Aaaand off we go!
+
 	src.start_ticker()
 	src.RebuildPhenomena(M, flavors_override, powers_override, hungers_override)
 
