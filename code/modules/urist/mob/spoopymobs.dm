@@ -22,9 +22,13 @@
 	var/regen = 0 //if true, they won't stay down, but revive after a delay
 	var/regen_delay = 90 //delay for regen revive
 	ai_holder = /datum/ai_holder/simple_animal/melee/zombie
+	say_list_type = /datum/say_list/monster_generic
 
 /datum/ai_holder/simple_animal/melee/zombie
 	vision_range = 3 // fairly easy to evade a single one
+	can_breakthrough = TRUE
+	violent_breakthrough = TRUE
+	destructive = TRUE
 
 /datum/reagent/xenomicrobes/uristzombie
 	metabolism = REM
@@ -368,6 +372,7 @@
 		qdel(src)
 	return
 
+
 /mob/living/simple_animal/hostile/urist/vampire
 	name = "vampire"
 	desc = "A bloodthirsty undead abomination."
@@ -386,6 +391,12 @@
 	minbodytemp = 0
 	ranged = 0
 	simplify_dead_icon = 1
+	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/melee_slippery
+
+	natural_armor = list(
+		melee = ARMOR_MELEE_RESISTANT
+	)
+
 
 /mob/living/simple_animal/hostile/urist/vampire/New()
 	var/danglybits = pick(0, 1) //random gender
@@ -411,10 +422,17 @@
 	resistance = 10 //but not much to hit either unless you use a heavy object
 	ranged = 0
 	attacktext = "stabbed"
-	natural_weapon = /obj/item/natural_weapon/claws
+	natural_weapon = /obj/item/material/twohanded/spear
 	min_gas = null
 	max_gas = null
 	minbodytemp = 0
+	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/melee_generic
+	say_list_type = /datum/say_list/monster_generic
+
+	natural_armor = list(
+		bullet = ARMOR_BALLISTIC_RESISTANT,
+		melee = ARMOR_MELEE_SMALL
+	)
 
 //not-faceless that split on death into weaker clones
 /mob/living/simple_animal/hostile/urist/amorph
@@ -429,6 +447,8 @@
 	health = 200
 	ranged = 0
 	move_to_delay = 7
+	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/melee_generic
+	say_list_type = /datum/say_list/monster_generic
 
 /mob/living/simple_animal/hostile/urist/amorph/death() //splits into two
 	var/nextgen = (1 + src.generation)
@@ -453,13 +473,15 @@
 	faction = "biohorror"
 	icon_state = "hybrid"
 	icon_living = "hybrid"
+	icon_dead = "hybrid_dead"
 	maxHealth = 80
 	health = 80
 	ranged = 0
 	natural_weapon = /obj/item/natural_weapon/claws
 	attacktext = "hacked"
 	attack_sound = 'sound/weapons/slice.ogg'
-	ai_holder = /datum/ai_holder/simple_animal
+	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/melee_generic
+	say_list_type = /datum/say_list/monster_generic
 
 /mob/living/simple_animal/hostile/urist/mutant/Life()
 	if(IsInRange(src.health, 1, (maxHealth - 1)))
@@ -471,24 +493,27 @@
 	desc = "Despite physical and mental degradation, he can still operate a shotgun."
 	icon_state = "mutant_ranged"
 	icon_living = "mutant_ranged"
+	icon_dead = "mutant_dead"
 	ranged = 1
 	projectilesound = 'sound/weapons/gunshot/shotgun.ogg'
 	projectiletype = /obj/item/projectile/bullet/pellet/shotgun //check balance
 	attacktext = "kicked"
 	attack_sound = 'sound/weapons/genhit3.ogg'
-	ai_holder = /datum/ai_holder/simple_animal/ranged
+	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/ranged_generic
 
 
 /mob/living/simple_animal/hostile/urist/mutant/melee
 	desc = "Homicidal, tough bastard wielding a heavy axe."
 	icon_state = "mutant_melee"
 	icon_living = "mutant_melee"
+	icon_dead = "mutant_dead"
 	environment_smash = 2
 	ranged = 0
 	natural_weapon = /obj/item/material/hatchet
 	resistance = 5
 	attacktext = "hacked"
 	attack_sound = 'sound/weapons/slice.ogg'
+	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/melee_generic
 
 /mob/living/simple_animal/hostile/urist/mutant/hybrid
 	name = "Xenohybrid"
@@ -497,9 +522,12 @@
 	maxHealth = 120
 	health = 120
 	ranged = 0
+	movement_cooldown = 2
 	natural_weapon = /obj/item/natural_weapon/claws
 	attacktext = "slashed"
 	attack_sound = 'sound/weapons/rapidslice.ogg'
+	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/melee_slippery
+	say_list_type = /datum/say_list/monster_generic
 
 //A surreal alien with a massive mouth for a face, sprite by Nienhaus
 /mob/living/simple_animal/hostile/urist/devourer
@@ -517,7 +545,18 @@
 	fire_desc = "spits"
 	projectiletype = /obj/item/projectile/energy/neurotoxin
 	projectilesound = 'sound/weapons/bite.ogg'
-	ai_holder = /datum/ai_holder/simple_animal/ranged
+	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/melee_slippery
+	say_list_type = /datum/say_list/monster_generic
+
+
+/obj/item/projectile/energy/fireball
+	name = "fireball"
+	icon_state = "fireball"
+	fire_sound = 'sound/effects/squelch1.ogg'
+	damage_type = DAMAGE_BURN
+	damage = 20
+	agony = 10
+
 
 //even more blatant...
 /mob/living/simple_animal/hostile/urist/imp
@@ -530,126 +569,10 @@
 	ranged = 1
 	maxHealth = 75
 	health = 75
-	projectiletype = /obj/item/projectile/energy/phoron
-	projectilesound = 'sound/effects/squelch1.ogg'
+	projectiletype = /obj/item/projectile/energy/fireball
 	natural_weapon = /obj/item/natural_weapon/bite
 	attacktext = "slashed"
 	attack_sound = 'sound/weapons/rapidslice.ogg'
-	ai_holder = /datum/ai_holder/simple_animal/ranged
+	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/ranged_generic
+	say_list_type = /datum/say_list/monster_generic
 
-
-//TOUGH bastard, teleports around to follow a victim (random if none, varedit to set)
-/*/mob/living/simple_animal/hostile/urist/stalker
-	name = "psycho"
-	desc = "Implacable killer."
-	icon_state = "psycho"
-	icon_living = "psycho"
-	environment_smash = 1
-	maxHealth = 500
-	health = 500
-	resistance = 6
-	ranged = 0
-	move_to_delay = 6
-	natural_weapon = /obj/item/material/knife/kitchen
-	attacktext = "slashed"
-	attack_sound = 'sound/weapons/rapidslice.ogg'
-	attack_same = 1
-	var/caution = 1 //hit and run if low on health
-	var/mob/stalkee //who he stalks
-	var/flickerlights = 0 //for more fun - can fuck with lights around the victim to get a TP zone.
-	var/datum/effect/effect/system/tele_effect = null //something to spawn when teleporting/disappearing, presumably effects
-	ai_holder = /datum/ai_holder/simple_animal/melee/evasive/stalker
-
-/datum/ai_holder/simple_animal/melee/evasive/stalker
-/mob/living/simple_animal/hostile/urist/stalker/New()
-	..()
-	GetNewStalkee()
-
-/mob/living/simple_animal/hostile/urist/stalker/proc/GetNewStalkee(mindplease = 1)
-	var/attempts = 3
-	while(!(stalkee))
-		stalkee = pick(GLOB.player_list)
-		attempts--
-		var/recheck = 0
-		if(stalkee)
-			if(!(isliving(stalkee))) //for some reason new_players *were* being picked
-				recheck = 1
-			if((!(stalkee.mind)) && mindplease) //not much fun if they can't fight back
-				recheck = 1
-		if(recheck) //ugly but prevents trying to read a property of a null without parenthesis cancer
-			stalkee = null
-		if(attempts <= 0) //infinite loop prevention in case there are no
-			break
-
-/mob/living/simple_animal/hostile/urist/stalker/Found(atom/A)
-	if(A == stalkee)
-		return 1
-	return 0
-
-/mob/living/simple_animal/hostile/urist/stalker/Life()
-	if(..())
-		if(stalkee)
-			if(stalkee.stat == DEAD)
-				GetNewStalkee()
-			else if(stance == STANCE_IDLE)
-				if(!client && prob(25))
-					HuntingTeleport()
-		else
-			GetNewStalkee()
-
-/mob/living/simple_animal/hostile/urist/stalker/death()
-	if(tele_effect)
-		HandleTeleFX(src.loc)
-	..(0, "disappears!")
-	qdel(src)
-
-/mob/living/simple_animal/hostile/urist/stalker/LostTarget()
-	..()
-	if(!client)
-		if(prob(25))
-			HuntingTeleport()
-
-/mob/living/simple_animal/hostile/urist/stalker/proc/HuntingTeleport()
-	var/list/destinations = new/list()
-
-	for(var/turf/T in range(5, stalkee))
-		if(istype(T,/turf/space)) continue
-		if(T.density) continue
-		if(T in range(src, 9)) continue //so they don't teleport pointlessly while in range
-		if(shadow_check(T, 1))
-			destinations += T
-
-	if(length(destinations))
-		var/turf/picked = pick(destinations)
-
-		if(!picked || !isturf(picked))
-			return
-
-		if(tele_effect)
-			HandleTeleFX(src.loc)
-			HandleTeleFX(picked)
-
-		src.forceMove(picked)
-
-	if(flickerlights)
-		if(stalkee)
-			if(isturf(stalkee.loc))
-				var/turf/stalkeeturf = stalkee.loc
-				for(var/datum/light_source/LS in stalkeeturf.affecting_lights)
-					if(istype(LS.source_atom, /obj/machinery/light))
-						var/obj/machinery/light/FL = LS.source_atom
-						if(prob(10))
-							FL.flicker(3)
-	return
-
-/mob/living/simple_animal/hostile/urist/stalker/proc/HandleTeleFX(atom/fxloc)
-	if(tele_effect)
-		var/datum/effect/effect/system/fx_instance = new tele_effect()
-		fx_instance.set_up(3, 0, fxloc)
-		fx_instance.start()
-
-/mob/living/simple_animal/hostile/urist/stalker/UnarmedAttack(atom/A, var/proximity)
-	..()
-	if(!client && caution) //run awaaaay!
-		HuntingTeleport()
-*/
