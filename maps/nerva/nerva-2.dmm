@@ -6968,7 +6968,7 @@
 "amP" = (
 /obj/machinery/button/windowtint{
 	pixel_x = -20;
-	pixel_y = 36;
+	pixel_y = 34;
 	pixel_z = 0;
 	id = "exam_windows"
 	},
