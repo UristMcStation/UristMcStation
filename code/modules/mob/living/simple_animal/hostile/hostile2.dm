@@ -1,5 +1,5 @@
 /*
-// This are the leftovers of Urist's port of slightly better AI (from /vg/, I think)
+// This are the leftovers of Urist's port of slightly better AI (from /vg/ I think)
 // This should be strictly inferior to Polaris AI from Bay, but is kept unincluded for reference for now.
 // Do NOT include this, there's a good chance this won't work.
 //
@@ -460,4 +460,3 @@ mob/living/simple_animal/hostile/Initialize()
 		stance = STANCE_ATTACK
 	else
 		stance = STANCE_IDLE
-*/

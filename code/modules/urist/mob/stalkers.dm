@@ -171,7 +171,7 @@
 */
 
 
-/mob/living/simple_animal/hostile/urist/stalker/proc/SwitchNaturalWeapons(var/probability = 100)
+/mob/living/simple_animal/hostile/urist/stalker/proc/SwitchNaturalWeapons(probability = 100)
 	// Fanciness: will switch natural weapons!
 	var/safe_proba = clamp(probability || 25, 0, 100)
 

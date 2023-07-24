@@ -39,8 +39,8 @@
 	ranged = 1
 	//icon = 'icons/urist/uristicons.dmi'
 	icon = 'icons/mob/simple_animal/nightmaremonsters.dmi'
-	icon_state = "baby_necro"
-	icon_dead = "b_necro_l"
+	icon_state = "lesser_ling"
+	icon_dead = ""
 	health = 20
 	maxHealth = 20
 	//projectilesound = 'sound/weapons/Gunshot_light.ogg' //if this was supposed to be ranged, it wasn't anyway
