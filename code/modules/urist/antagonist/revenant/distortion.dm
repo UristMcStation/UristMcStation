@@ -19,9 +19,14 @@
 	// Distortion increase *per tick_time*
 	var/_distortion_per_tick = BSR_DEFAULT_DISTORTION_PER_TICK
 
+	// Thresholds
+	var/_threshold_threetile = BSR_THRESHOLD_RADIUS_THREETILES
+	var/_threshold_fivetile = BSR_THRESHOLD_RADIUS_FIVETILES
+	var/_threshold_seventile = BSR_THRESHOLD_RADIUS_SEVENTILES
+
 	// Effective radius to spread Distortion to; 0 means 'current pos only' on any of the XYZ axes.
 	var/distortion_radius_xy = 1 // 2D radius
-	var/distortion_radius_z = 0 // across Z-levels
+	var/distortion_radius_z = 1 // across Z-levels
 
 	// Effectively, power level accumulated. Unlocks powers. Increases over time.
 	var/total_distortion = 0
@@ -77,6 +82,8 @@
 
 
 /datum/bluespace_revenant/proc/SpreadDistortion(var/ticks = 1)
+	set waitfor = FALSE
+
 	if(isnull(src.mob_ref))
 		BSR_DEBUG_LOG("BSR: SpreadDistortion ERROR: mob_ref [src.mob_ref] is null!")
 		return
@@ -114,24 +121,32 @@
 	src.last_tick_distortion_tiles = 0
 	src.last_tick_distortion_total = 0
 
-	spawn(0)
-		// Fork off so we don't block stuff if this takes a while.
+	for(var/turf/simulated/T in block(startTurf, endTurf))
+		// Don't block stuff if this takes a while.
+		sleep(-1)
 
-		for(var/turf/simulated/T in block(startTurf, endTurf))
-			// Let's only do simulated turfs for now - potentially less work & won't mess up eventey bits
-			if(!istype(T))
-				BSR_DEBUG_LOG("BSR: Block item [T] is not a valid sim turf")
-				continue
+		// Let's only do simulated turfs for now - potentially less work & won't mess up eventey bits
+		if(!istype(T))
+			BSR_DEBUG_LOG("BSR: Block item [T] is not a valid sim turf")
+			continue
 
-			var/manhattan_dist = (abs(T.x - src_turf.x) + abs(T.y - src_turf.y))
-			if(manhattan_dist > safe_distortion_radius_xy)
-				continue
+		if(!(isStationLevel(T.z) || src_turf.z == T.z))
+			// To prevent weird transmission between z-levels that are NOT meant to be actually adjacent in Euclidean space
+			// We'll still spread Distortion while we're actually ON these levels though.
+			continue
 
-			BSR_DEBUG_LOG("BSR: SpreadDistortion processing turf [T], adding [total_per_turf_distortion] Distortion")
-			T.reality_distortion += total_per_turf_distortion
-			src.HandleDistortionFX(T)
+		var/manhattan_dist = (abs(T.x - src_turf.x) + abs(T.y - src_turf.y))
+		if(distortion_radius_z)
+			manhattan_dist = manhattan_dist + abs(T.z - src_turf.z)
 
-			src.last_tick_distortion_tiles++
-			src.last_tick_distortion_total += T.reality_distortion
+		if(manhattan_dist > safe_distortion_radius_xy)
+			continue
+
+		BSR_DEBUG_LOG("BSR: SpreadDistortion processing turf [T], adding [total_per_turf_distortion] Distortion")
+		T.reality_distortion += total_per_turf_distortion
+		src.HandleDistortionFX(T)
+
+		src.last_tick_distortion_tiles++
+		src.last_tick_distortion_total += T.reality_distortion
 
 	return

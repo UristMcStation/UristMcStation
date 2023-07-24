@@ -443,6 +443,32 @@
 
 	var/static/run_empty_levels = FALSE
 
+	# ifdef INCLUDE_URIST_CODE
+	/* --- BLUESPACE REVENANT STUFF --- */
+
+	// Baseline rate of Distortion increase per tick for Bluespace Revenants
+	var/static/bluespace_revenant_distortion_rate = 100
+
+	// Deciseconds between Bluespace Revenant ticker ticks
+	var/static/bluespace_revenant_tickrate = 50
+
+	// NOTE: keep in mind the above two interact - halving the tickrate is *roughly* equivalent to doubling the Distortion Rate
+	//       from the POV of the total Distortion spread. It's not exactly equivalent - because the smaller the tickrate, the
+	//       more responsive the Distortion system will be, but it will also drain more resources to run.
+
+	// Amount of Distortion accumulated to trigger the first radius increase (1 -> 3 tiles across)
+	var/static/bluespace_revenant_radius_three_distortion_threshold = 12000 // 10 mins with 100/50 rates above
+
+	// Amount of Distortion accumulated to trigger the second radius increase (3 -> 5 tiles across)
+	var/static/bluespace_revenant_radius_five_distortion_threshold = 36000 // 30 mins with 100/50 rates above
+
+	// Amount of Distortion accumulated to trigger the third radius increase (5 -> 7 tiles across)
+	var/static/bluespace_revenant_radius_seven_distortion_threshold = 98000 // 90 mins with 100/50 rates above
+
+	// Can Distortion spread across adjacent station z-levels? NOTE: more CPU-heavy!
+	var/static/bluespace_revenant_radius_zlevel_spread_enabled = TRUE
+	# endif
+
 
 /datum/configuration/New()
 	load_config()
@@ -914,6 +940,29 @@
 				maximum_mushrooms = value
 			if ("use_loyalty_implants")
 				use_loyalty_implants = TRUE
+
+			# ifdef INCLUDE_URIST_CODE
+
+			if ("bluespace_revenant_distortion_rate")
+				bluespace_revenant_distortion_rate = text2num(value)
+
+			if ("bluespace_revenant_tickrate")
+				bluespace_revenant_tickrate = min(1, text2num(value))
+
+			if ("bluespace_revenant_radius_three_distortion_threshold")
+				bluespace_revenant_radius_three_distortion_threshold = max(0, text2num(value))
+
+			if ("bluespace_revenant_radius_five_distortion_threshold")
+				bluespace_revenant_radius_five_distortion_threshold = max(0, text2num(value))
+
+			if ("bluespace_revenant_radius_seven_distortion_threshold")
+				bluespace_revenant_radius_seven_distortion_threshold = max(0, text2num(value))
+
+			if ("bluespace_revenant_radius_zlevel_spread_enabled")
+				bluespace_revenant_radius_zlevel_spread_enabled = clamp(text2num(value), FALSE, TRUE)
+
+			# endif
+
 			else
 				log_misc("Unknown setting in config/game_options.txt: '[name]'")
 

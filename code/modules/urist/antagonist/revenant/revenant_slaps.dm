@@ -214,3 +214,40 @@ var/list/revenant_slaps = (typesof(/datum/power/revenant/bs_slap) - /datum/power
 	return TRUE
 
 
+
+/* Oops, brain scramblies, turn into a zombie */
+/datum/power/revenant/bs_slap/zombify
+	name = "Zombification"
+	flavor_tags = list(
+		BSR_FLAVOR_CULTIST,
+		BSR_FLAVOR_VAMPIRE,
+		BSR_FLAVOR_DEMONIC,
+		BSR_FLAVOR_OCCULT,
+		BSR_FLAVOR_DARK,
+		BSR_FLAVOR_DENTIST,
+		BSR_FLAVOR_BLOOD
+	)
+	warning_message = "Your mind and body alike start to crumble under the strain of Distortion... You'd better satisfy your Hunger fast!"
+	slap_message = "You have neglected your Hunger for too long! Your flesh and mind decay under the uncanny influence, stripping you of all but the most base, bestial insticts!"
+
+
+/datum/power/revenant/bs_slap/raisehell/Slap(var/mob/M)
+	if(!istype(M))
+		return FALSE
+
+	var/turf/T = get_turf(M)
+	if(!istype(T))
+		return FALSE
+
+	var/mob/living/carbon/human/H = M
+	if(isnull(H))
+		// We'll gib non-humanoids so that they don't get a free pass
+		M.gib()
+		log_and_message_admins("[M] has been gibbed through zombification due to neglecting his Bluespace Revenant Distortion *as a non-humanoid*!")
+		return TRUE
+
+	H.zombify()
+	log_and_message_admins("[M] has turned into a zombie due to neglecting his Bluespace Revenant Distortion!")
+
+	return TRUE
+
