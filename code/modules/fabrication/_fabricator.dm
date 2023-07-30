@@ -78,6 +78,11 @@
 				var/datum/reagent/reg = mat
 				stored_substances_to_names[mat] = initial(reg.name)
 
+/obj/machinery/fabricator/CanUseTopic(mob/user, datum/topic_state/state, href_list = list())
+	if (isAI(user))
+		return STATUS_INTERACTIVE
+	. = ..()
+
 /obj/machinery/fabricator/state_transition(singleton/machine_construction/default/new_state)
 	. = ..()
 	if(istype(new_state))
