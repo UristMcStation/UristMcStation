@@ -115,6 +115,7 @@
 
 						var/singleton/hierarchy/outfit/defender_outfit = outfit_by_type(D.defender_outfit)
 						defender_outfit.equip(M)
+						M.add_language(LANGUAGE_GALCOM)
 
 						M.update_icon()
 
