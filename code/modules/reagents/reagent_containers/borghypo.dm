@@ -24,7 +24,7 @@
 	reagent_ids = list(/datum/reagent/inaprovaline, /datum/reagent/bicaridine, /datum/reagent/dexalin, /datum/reagent/tramadol)
 
 /obj/item/reagent_containers/borghypo/crisis
-	reagent_ids = list(/datum/reagent/inaprovaline, /datum/reagent/dylovene, /datum/reagent/dexalin, /datum/reagent/tramadol, /datum/reagent/adrenaline)
+	reagent_ids = list(/datum/reagent/inaprovaline, /datum/reagent/bicaridine, /datum/reagent/dylovene, /datum/reagent/dexalin, /datum/reagent/tramadol, /datum/reagent/adrenaline)
 
 /obj/item/reagent_containers/borghypo/Initialize()
 	. = ..()
