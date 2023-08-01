@@ -300,7 +300,7 @@
 //Spess Jason Bourne
 
 // Might be too havy to do here
-/mob/living/simple_animal/hostile/urist/stalker/ntis/get_natural_weapon()
+/mob/living/simple_animal/hostile/urist/stalker/hitman/get_natural_weapon()
 	src.SwitchNaturalWeapons()
 	. = ..()
 
@@ -309,13 +309,16 @@
 	fire_sound = 'sound/urist/suppshot.ogg'
 
 
-/mob/living/simple_animal/hostile/urist/stalker/ntis
-	icon_state = "agent"
-	icon_living = "agent"
-	icon_dead = "agent_dead"
-	name = "\improper NTIS Assassin"
-	desc = "A spook from the Internal Security department. You suddenly get an unpleasant sensation that you 'know too much'."
-	faction = "NTIS"
+/mob/living/simple_animal/hostile/urist/stalker/hitman
+	// Base class for a ranged stalker. Effectively a boss monster!
+
+	name = "\improper Black Ops specialist"
+	desc = "A highly-trained, augmented assassin. You've clearly REALLY pissed *someone* off."
+
+	icon_state = "skrellagent"
+	icon_living = "skrellagent"
+	icon_dead = "skrellagent_dead"
+
 	ranged = 1
 	rapid = 0
 	shot_time = 4
@@ -342,10 +345,77 @@
 	say_list_type = /datum/say_list/professional
 
 	// Stalker stuff
+	natural_weapon_arsenal = list(/obj/item/natural_weapon/martial_arts)
+
+/* VARIANTS */
+
+/mob/living/simple_animal/hostile/urist/stalker/hitman/ntis
+	name = "\improper NTIS Assassin"
+	desc = "A spook from the Internal Security department. You suddenly get an unpleasant sensation that you 'know too much'."
+	faction = "NTIS"
+
+	icon_state = "agent"
+	icon_living = "agent"
+	icon_dead = "agent_dead"
+
 	natural_weapon_arsenal = list(/obj/item/material/armblade/wrist/stalker, /obj/item/natural_weapon/martial_arts)
 
-/*
-/mob/living/simple_animal/hostile/urist/stalker/ntis/UnarmedAttack(atom/A, var/proximity)
-	attack_sound = pick('sound/weapons/bladeslice.ogg','sound/weapons/genhit1.ogg','sound/weapons/genhit2.ogg','sound/weapons/punch2.ogg','sound/weapons/punch3.ogg','sound/weapons/smash.ogg')
-	. = ..()
-*/
+
+
+/mob/living/simple_animal/hostile/urist/stalker/hitman/antag
+	name = "\improper ANTAG infiltrator"
+	desc = "A shifty pro-alien quisling, made into a killing machine using black-market genemods and bionics."
+	faction = "alien"
+
+	icon_state = "ANTAG_light"
+	icon_living = "ANTAG_light"
+	icon_dead = "ANTAG_light_dead"
+
+	natural_weapon_arsenal = list(/obj/item/natural_weapon/martial_arts)
+
+
+
+/mob/living/simple_animal/hostile/urist/stalker/hitman/blackops
+	icon_state = "blackop_human"
+	icon_living = "blackop_human"
+	icon_dead = "blackop_human_dead"
+
+	faction = "gunman"
+	ranged = 1
+	rapid = 2
+	shot_time = 1
+
+	natural_weapon = /obj/item/natural_weapon/martial_arts
+
+	projectile_accuracy = -3 // to compensate for rapid-fire
+	projectile_dispersion = 2
+
+	// Reloads
+	reload_max = 15  // modelled after Steyr TMP
+
+	natural_weapon_arsenal = list(/obj/item/material/hatchet/machete/steel/stalker, /obj/item/natural_weapon/martial_arts)
+
+
+/mob/living/simple_animal/hostile/urist/stalker/hitman/skrell
+	name = "\improper Skrellian specialist"
+	desc = "An elite Special Forces operative of Skrellian separatists."
+	faction = "skrellt"
+
+	icon_state = "blackop_skrell"
+	icon_living = "blackop_skrell"
+	icon_dead = "blackop_skrell_dead"
+
+	faction = "skrellt"
+	ranged = 1
+	rapid = 4
+	shot_time = 1
+
+	natural_weapon = /obj/item/natural_weapon/martial_arts
+
+	projectile_accuracy = -4 // to compensate for rapid-fire and b/c Skrellorists are a bit of a meme
+	projectile_dispersion = 2
+
+	// Reloads
+	reload_max = 25  // OG Uzi; extra capacity to compensate for poor aim
+
+	natural_weapon_arsenal = list(/obj/item/material/hatchet/machete/steel/stalker, /obj/item/natural_weapon/martial_arts)

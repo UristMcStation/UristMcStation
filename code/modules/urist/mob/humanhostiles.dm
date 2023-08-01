@@ -96,6 +96,15 @@
 	needs_reload = TRUE // most will
 	casingtype = null // DO NOT CHANGE THIS - it spams the map with trash!
 
+	/* These are usually for PvE purposes in crowds.
+	// Because of Baymed, gunshots can be fatal VERY quickly,
+	// or worse - trap you in Pain Dimension, unable to even deadchat with observers,
+	// Which Ain't Much Fun. So, most of these guys will be -horribly- inaccurate.
+	// (i.e. big chance the bullet whiffs even if it would be on the same tile as you).
+	// Override this for enemies that are meant to be big *solo* threats.
+	*/
+	projectile_accuracy = -10
+
 	// Capabilities
 	can_pry = TRUE
 
@@ -174,7 +183,6 @@
 	reload_max = 6  // classic six-shooter
 
 	// It's a mook - attended Imperial Stormtroopers Marksmanship Academy
-	projectile_accuracy = -5
 	projectile_dispersion  = 2
 
 	natural_armor = list(
@@ -204,8 +212,8 @@
 	// Reloads
 	reload_max = 30  // generic SMG
 
-	// Accurate, but sprays a bit
-	projectile_accuracy = 0
+	// Sprays a bit, but more accurate than usual - since, well, commandos.
+	projectile_accuracy = -5
 	projectile_dispersion  = 1
 
 	// AI spec
@@ -223,19 +231,24 @@
 	faction = "NTIS" //NTIS is intended as NT Deathsquad affiliation
 	icon_state = "agent"
 	icon_living = "agent"
-	icon_dead = "agentdead"
+	icon_dead = "agent_dead"
 	name = "\improper NTIS Agent"
 	desc = "A spook from the Internal Security department. You suddenly get an unpleasant sensation that you <I>'know too much'</I>."
 
 	ranged = 1
-	rapid = 2
+	rapid = 0
+	shot_time = 4
 	movement_cooldown = 3
 
 	maxHealth = 150
 	health = 150
 
 	projectiletype = /obj/item/projectile/bullet/pistol/holdout/silenced
-	natural_weapon = /obj/item/natural_weapon/punch
+	natural_weapon = /obj/item/material/armblade/wrist/stalker
+
+	// Fairly accurate, trained pros
+	projectile_accuracy = -2
+	projectile_dispersion  = 0
 
 	// Reloads
 	reload_max = 15  // modelled after beretta m9
@@ -271,6 +284,10 @@
 	// Reloads
 	reload_max = 30  // modelled after H&K G36C because XCOM
 
+	// Better than usual at aiming, professionals
+	projectile_accuracy = -4
+	projectile_dispersion  = 1
+
 	natural_armor = list(
 		bullet = ARMOR_BALLISTIC_PISTOL,
 		laser = ARMOR_LASER_HANDGUNS,
@@ -299,7 +316,7 @@
 	reload_max = 20  // modelled after FN FAL arbitrarily and for variety
 
 	// Fairly unprofessional - spray and pray
-	projectile_accuracy = -1
+	projectile_accuracy = -12
 	projectile_dispersion  = 2
 	shot_time = 1
 
@@ -349,7 +366,6 @@
 	reload_max = 6  // classic six-shooter
 
 	// It's a mook - attended Imperial Stormtroopers Marksmanship Academy
-	projectile_accuracy = -5
 	projectile_dispersion  = 2
 
 	natural_armor = list(
@@ -625,6 +641,7 @@
 	name = "Holo Lab hostile mob"
 	desc = "You shouldn't see me, report this to an admin if you do!"
 	icon = 'icons/uristmob/simpleanimals.dmi'
+	icon_living = "holonaut"
 	icon_dead = "holonaut_dead"
 	faction = "holonaut"
 	response_help = "holds tightly"
@@ -647,6 +664,7 @@
 	name = "\improper flickering figure"
 	desc = "A once humanoid figure, flickering uncontrollably in and out of existence."
 	icon_state = "holonaut_1"
+	icon_living = "holonaut_1"
 	icon_dead = "holonaut_dead"
 	health = 100 // Less strong, as he isn't wearing anything.
 	ranged = 0
@@ -657,6 +675,7 @@
 	name = "\improper distorted holonaut"
 	desc = "A distorted flickering humanoid, wearing a spacesuit. The limbs inside the suit seem to struggle to move."
 	icon_state = "holonaut_2"
+	icon_living = "holonaut_2"
 	icon_dead = "holonaut_dead"
 	health = 150
 	resistance = 15 //
@@ -668,9 +687,184 @@
 	name = "\improper gesticulating Holonaut"
 	desc = "A humanoid gesticulating wildly, wearing a orange spacesuit. The limbs inside seems to animate wildly, as if something were crawling inside it. It looks full of energy!"
 	icon_state = "holonaut_3"
+	icon_living = "holonaut_3"
 	icon_dead = "holonaut_dead"
 	health = 50 // Weak, but dangerous up close.
 	resistance = 20
 	ranged = 0
 	natural_weapon = /obj/item/natural_weapon/claws/strong
 	attacktext = "rends"
+
+
+/* Light infantry variants */
+
+
+/mob/living/simple_animal/hostile/urist/recon
+	// Basically an NTIS Agent, except generic and with an SMG.
+	// Fast, hit-and-run type enemy.
+
+	name = "infiltrator"
+	desc = "A mercenary covert ops specialist. "
+
+	icon_state = "blackop_human"
+	icon_living = "blackop_human"
+	icon_dead = "blackop_human_dead"
+
+	natural_weapon = /obj/item/material/hatchet/machete/steel/stalker
+	movement_cooldown = 2
+
+	// Gun stuff
+	projectiletype = /obj/item/projectile/bullet/flechette
+	rapid = 3
+
+	// Reloads
+	reload_max = 15  // modelled after Steyr TMP
+
+	// Less spray to indicate competency, but still low acc
+	projectile_dispersion  = 1
+
+	natural_armor = list(
+		bullet = ARMOR_BALLISTIC_MINOR,
+		melee = ARMOR_MELEE_MINOR
+	)
+
+	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/melee_slippery
+
+
+/mob/living/simple_animal/hostile/urist/recon/merc
+	faction = "gunman"
+
+
+/mob/living/simple_animal/hostile/urist/recon/skrell
+	name = "\improper Skrellian saboteur"
+	desc = "A veteran Skrell fighter who developed some skills in the subtler arts of insurgency."
+	faction = "skrellt"
+
+	icon_state = "blackop_skrell"
+	icon_living = "blackop_skrell"
+	icon_dead = "blackop_skrell_dead"
+
+	// AI spec
+	say_list_type = /datum/say_list/fanatic
+
+
+/mob/living/simple_animal/hostile/urist/recon/quisling
+	name = "\improper ANTAG sleeper"
+	desc = "A shifty pro-alien spy, ordered by his handlers to take direct action."
+	faction = "alien"
+
+	icon_state = "ANTAG_light"
+	icon_living = "ANTAG_light"
+	icon_dead = "ANTAG_light_dead"
+
+	// Gun stuff
+	projectiletype = /obj/item/projectile/bullet/pistol/holdout
+	rapid = 0
+
+	// Reloads
+	reload_max = 15  // m9
+
+	// AI spec
+	say_list_type = /datum/say_list/fanatic
+
+
+/mob/living/simple_animal/hostile/urist/recon/unathi
+	name = "\improper Unathi raider"
+	desc = "A big angry Unathi raider with a big angry machete. Lizard gang!"
+	faction = "syndicate"
+
+	icon_state = "unathi_raider"
+	icon_living = "unathi_raider"
+	icon_dead = "unathi_raider_dead"
+
+	// Gun stuff
+	projectiletype = /obj/item/projectile/bullet/pistol/holdout
+	rapid = 0
+
+	// Reloads
+	reload_max = 7  // m1911
+
+
+/* Heavy Gunner variants */
+
+/datum/ai_holder/simple_animal/urist_humanoid/ranged_suppressive
+	/* Variant meant for slow, suppressive-fire, 'turret' AIs. */
+	run_if_this_close = 1
+
+	threaten = FALSE // Less talking, more shooting.
+	firing_lanes = TRUE //Avoid shooting allies
+	conserve_ammo = FALSE // Has many boolets to spare!
+	stand_ground = TRUE // Stationary, redeploys on request only
+
+	wander = FALSE // Don't redeploy unprompted.
+	returns_home = TRUE
+	use_astar = TRUE //Path smartly
+	home_low_priority = TRUE //Following/helping is more important
+
+
+/mob/living/simple_animal/hostile/urist/gunner
+	// Base class for A Big Dude With An LMG
+	icon_state = "mgman_human"
+	icon_living = "mgman_human"
+	icon_dead = "mgman_human_dead"
+	name = "\improper Heavy Gunner"
+	desc = "This one lugs around a *BIG* gun."
+	faction = "gunman"
+	maxHealth = 150
+	health = 150
+
+	movement_cooldown = 20 // VERRY slow.
+
+	// AI spec
+	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/ranged_suppressive
+
+	// Reloads
+	needs_reload = TRUE
+	reload_max = 180  // BIG gun.
+	reload_time = 15 SECONDS
+	reload_sound = 'sound/weapons/handcuffs.ogg'
+
+	// Fires for the threat, not for the damage
+	ranged = 1
+	rapid = 9
+	projectile_accuracy = -20
+	projectile_dispersion  = 2
+	shot_time = 1
+	ranged_attack_delay = 10
+	projectilesound = 'sound/weapons/gunshot/gunshot_4mm.ogg'
+	projectiletype = /obj/item/projectile/bullet/pistol // yes, on purpose
+
+	natural_armor = list(
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR,
+		melee = ARMOR_MELEE_SMALL
+	)
+
+
+/mob/living/simple_animal/hostile/urist/gunner/merc
+	faction = "syndicate"
+
+
+/mob/living/simple_animal/hostile/urist/gunner/ANTAG
+	name = "\improper ANTAG Heavy Operative"
+	desc = "A member of a covert cell of a terrorist paramilitary collaborating with aliens to further their own goals. This one's dress sense is less snappy and more thud-ey due to the heavy LMG he's carrying."
+	faction = "alien"
+
+	// AI spec
+	say_list_type = /datum/say_list/fanatic
+
+
+/mob/living/simple_animal/hostile/urist/gunner/skrellmgterrorist
+	// Skrellorist, but with a suppressive-fire LMG
+	icon_state = "mgman_skrell"
+	icon_living = "mgman_skrell"
+	icon_dead = "mgman_skrell_dead"
+
+	name = "\improper Skrellian terrorist"
+	desc = "An anti-human, Skrell-isolationist insurgent. This one lugs around a *BIG* gun."
+	faction = "skrellt"
+
+	// AI spec
+	say_list_type = /datum/say_list/fanatic
+
+
