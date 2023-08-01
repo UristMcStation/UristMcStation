@@ -20,6 +20,9 @@ var/global/list/limb_icon_cache = list()
 	if(BP_IS_ROBOTIC(src) && !(human.species.appearance_flags & SPECIES_APPEARANCE_HAS_BASE_SKIN_COLOURS))
 		var/datum/robolimb/franchise = all_robolimbs[model]
 		if(!(franchise && franchise.skintone))
+			if(synth_color)
+				s_col = rgb2num(synth_color)
+				s_col_blend = ICON_MULTIPLY
 			return
 	if(species && human.species && species.name != human.species.name)
 		return
@@ -196,7 +199,7 @@ var/global/list/robot_hud_colours = list("#ffffff","#cccccc","#aaaaaa","#888888"
 		else
 			applying.Blend(rgb(-skin_tone,  -skin_tone,  -skin_tone), ICON_SUBTRACT)
 		icon_cache_key += "_tone_[skin_tone]"
-	if(species.appearance_flags & SPECIES_APPEARANCE_HAS_SKIN_COLOR)
+	if((species.appearance_flags & SPECIES_APPEARANCE_HAS_SKIN_COLOR) || synth_color)
 		if(s_col && length(s_col) >= 3)
 			applying.Blend(rgb(s_col[1], s_col[2], s_col[3]), s_col_blend)
 			icon_cache_key += "_color_[s_col[1]]_[s_col[2]]_[s_col[3]]_[s_col_blend]"

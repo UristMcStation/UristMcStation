@@ -277,6 +277,11 @@
 				O.robotize(rlimb_data[name])
 			else
 				O.robotize()
+			if(name in rlimb_color)
+				O.synth_color = rlimb_color[name]
+			else
+				O.synth_color = null
+				O.s_col = null
 		else //normal organ
 			O.force_icon = initial(O.force_icon)
 			O.SetName(initial(O.name))
