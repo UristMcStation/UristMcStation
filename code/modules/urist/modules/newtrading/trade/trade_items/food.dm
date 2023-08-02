@@ -116,7 +116,7 @@
 
 /datum/trade_item/refreshments/hamburger
 	name = "hamburger"
-	item_type = /obj/item/reagent_containers/food/snacks/hamburger
+	item_type = /obj/item/reagent_containers/food/snacks/plainburger
 	category = "refreshments"
 	quantity = 30
 	value = 12
