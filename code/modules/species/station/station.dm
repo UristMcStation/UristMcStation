@@ -151,7 +151,7 @@
 	darksight_tint = DARKTINT_MODERATE
 
 	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED
-	appearance_flags = SPECIES_APPEARANCE_HAS_HAIR_COLOR | SPECIES_APPEARANCE_HAS_STATIC_HAIR | SPECIES_APPEARANCE_HAS_LIPS | SPECIES_APPEARANCE_HAS_UNDERWEAR | SPECIES_APPEARANCE_HAS_SKIN_COLOR
+	appearance_flags = SPECIES_APPEARANCE_HAS_STATIC_HAIR | SPECIES_APPEARANCE_HAS_LIPS | SPECIES_APPEARANCE_HAS_UNDERWEAR | SPECIES_APPEARANCE_HAS_SKIN_COLOR
 
 	flesh_color = "#8cd7a3"
 	blood_color = "#1d2cbf"
@@ -266,6 +266,11 @@
 		if(H.encumbrance() < 2)
 			return TRUE
 	return FALSE
+
+/datum/species/skrell/handle_limbs_setup(mob/living/carbon/human/H)
+	. = ..()
+	var/skin_rgb = rgb2num(H.skin_color)
+	H.change_hair_color(skin_rgb[1], skin_rgb[2], skin_rgb[3])
 
 /datum/species/diona
 	name = SPECIES_DIONA
