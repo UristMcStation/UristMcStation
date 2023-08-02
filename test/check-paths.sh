@@ -50,7 +50,7 @@ exactly 0 "anchored = 0/1" 'anchored\s*=\s*\d' -P
 exactly 2 "density = 0/1" 'density\s*=\s*\d' -P
 exactly 0 "emagged = 0/1" 'emagged\s*=\s*\d' -P
 exactly 0 "simulated = 0/1" 'simulated\s*=\s*\d' -P
-exactly 165 "var/ in proc arguments" '(^/[^/].+/.+?\(.*?)var/' -P
+exactly 164 "var/ in proc arguments" '(^/[^/].+/.+?\(.*?)var/' -P
 exactly 0 "tmp/ vars" 'var.*/tmp/' -P
 exactly 6 "uses of .len" '\.len\b' -P
 # With the potential exception of << if you increase any of these numbers you're probably doing it wrong

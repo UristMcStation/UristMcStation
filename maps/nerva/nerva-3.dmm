@@ -1200,7 +1200,9 @@
 	opacity = 0
 	},
 /obj/machinery/door/airlock/security{
-	name = "Prison"
+	name = "Prison";
+	autoset_access = 0;
+	req_access = list("ACCESS_SECURITY")
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/techmaint,
@@ -1250,7 +1252,7 @@
 	dir = 2;
 	listening = 1;
 	name = "Station Intercom (General)";
-	pixel_y = 28
+	pixel_y = 24
 	},
 /obj/random/medical/lite,
 /obj/random/toolbox,
@@ -1941,7 +1943,7 @@
 /obj/item/device/radio/intercom{
 	dir = 4;
 	name = "Station Intercom (General)";
-	pixel_x = -28
+	pixel_x = -22
 	},
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/black/three_quarters,
@@ -2423,7 +2425,7 @@
 	dir = 2;
 	listening = 1;
 	name = "Station Intercom (General)";
-	pixel_y = 28
+	pixel_y = 24
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -2606,7 +2608,7 @@
 	dir = 2;
 	listening = 1;
 	name = "Station Intercom (General)";
-	pixel_y = 28
+	pixel_y = 24
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -2830,7 +2832,7 @@
 	dir = 2;
 	listening = 1;
 	name = "Station Intercom (General)";
-	pixel_y = 28
+	pixel_y = 24
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6;
@@ -3084,7 +3086,7 @@
 	dir = 2;
 	listening = 1;
 	name = "Station Intercom (General)";
-	pixel_y = 28
+	pixel_y = 24
 	},
 /turf/simulated/floor/plating,
 /area/hallway/fore/second_deck)
@@ -3897,7 +3899,7 @@
 	dir = 6
 	},
 /obj/machinery/light_switch{
-	pixel_x = 28;
+	pixel_x = 22;
 	pixel_y = 0;
 	dir = 8
 	},
@@ -4046,7 +4048,7 @@
 /obj/structure/table/woodentable/walnut,
 /obj/item/device/synthesized_instrument/violin,
 /obj/machinery/light_switch{
-	pixel_x = 28;
+	pixel_x = 22;
 	pixel_y = 0;
 	dir = 8
 	},
@@ -4204,7 +4206,7 @@
 /area/command/captain)
 "iU" = (
 /obj/machinery/light_switch{
-	pixel_y = -25;
+	pixel_y = -20;
 	dir = 1
 	},
 /obj/machinery/hologram/holopad,
@@ -4559,7 +4561,7 @@
 	dir = 4;
 	frequency = 1459;
 	name = "Station Intercom (General)";
-	pixel_x = -28
+	pixel_x = -22
 	},
 /obj/machinery/camera/network/command{
 	c_tag = "Teleporter Room";
@@ -5547,7 +5549,7 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 8;
-	pixel_x = 28
+	pixel_x = 22
 	},
 /turf/simulated/floor/plating,
 /area/hallway/fore/second_deck)
@@ -5842,7 +5844,7 @@
 	dir = 8
 	},
 /obj/machinery/light_switch{
-	pixel_x = 28;
+	pixel_x = 22;
 	pixel_y = 0;
 	dir = 8
 	},
@@ -5860,7 +5862,7 @@
 /obj/item/device/radio/intercom{
 	dir = 4;
 	name = "Station Intercom (General)";
-	pixel_x = -28
+	pixel_x = -22
 	},
 /obj/structure/bookcase,
 /turf/simulated/floor/plating,
@@ -5896,7 +5898,7 @@
 	dir = 4;
 	frequency = 1459;
 	name = "Station Intercom (General)";
-	pixel_x = -28
+	pixel_x = -22
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -5967,7 +5969,7 @@
 /obj/item/device/radio/intercom{
 	dir = 4;
 	name = "Station Intercom (Command)";
-	pixel_x = -28
+	pixel_x = -22
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6;
@@ -6021,7 +6023,7 @@
 /obj/machinery/light_switch{
 	on = 1;
 	pixel_x = 10;
-	pixel_y = -25;
+	pixel_y = -23;
 	dir = 1
 	},
 /turf/simulated/floor/wood/walnut,
@@ -6386,7 +6388,7 @@
 /obj/item/device/radio/intercom{
 	dir = 4;
 	name = "Station Intercom (General)";
-	pixel_x = -28
+	pixel_x = -22
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/second_deck)
@@ -7593,7 +7595,7 @@
 	dir = 2;
 	listening = 1;
 	name = "Station Intercom (General)";
-	pixel_y = 28
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/second_deck)
@@ -7638,7 +7640,7 @@
 	dir = 2;
 	listening = 1;
 	name = "Station Intercom (General)";
-	pixel_y = 28
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/second_deck)
@@ -8445,7 +8447,7 @@
 "rc" = (
 /obj/machinery/light_switch{
 	dir = 8;
-	pixel_x = 25;
+	pixel_x = 20;
 	pixel_y = 0
 	},
 /obj/structure/undies_wardrobe,
@@ -8947,7 +8949,7 @@
 "sb" = (
 /obj/machinery/vending/urist/beltdispenser,
 /obj/machinery/light_switch{
-	pixel_x = 24;
+	pixel_x = 20;
 	pixel_y = 0;
 	dir = 8
 	},
@@ -8979,7 +8981,7 @@
 	icon_state = "pipe-t"
 	},
 /obj/machinery/light_switch{
-	pixel_x = 28;
+	pixel_x = 22;
 	pixel_y = 0;
 	dir = 8
 	},
@@ -9286,7 +9288,7 @@
 /obj/item/device/radio/intercom{
 	dir = 4;
 	name = "Station Intercom (General)";
-	pixel_x = -28
+	pixel_x = -22
 	},
 /turf/simulated/floor/plating,
 /area/logistics/primtool)
@@ -10246,7 +10248,7 @@
 	dir = 8;
 	name = "Air to Supply"
 	},
-/obj/machinery/light{
+/obj/machinery/light/spot{
 	dir = 1
 	},
 /obj/machinery/alarm{
@@ -10323,7 +10325,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
 "uu" = (
-/obj/machinery/light{
+/obj/machinery/light/spot{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -10488,7 +10490,7 @@
 	dir = 2;
 	listening = 1;
 	name = "Station Intercom (General)";
-	pixel_y = 28
+	pixel_y = 24
 	},
 /obj/machinery/firealarm{
 	dir = 8;
@@ -10602,7 +10604,7 @@
 	icon_state = "camera"
 	},
 /obj/machinery/light_switch{
-	pixel_y = -25;
+	pixel_y = -22;
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -10981,9 +10983,8 @@
 	dir = 4;
 	icon_state = "corner_white"
 	},
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
+/obj/machinery/light/spot{
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 2;
@@ -11060,7 +11061,7 @@
 /obj/item/device/radio/intercom{
 	dir = 8;
 	icon_state = "intercom";
-	pixel_x = 28
+	pixel_x = 22
 	},
 /obj/machinery/light{
 	dir = 4
@@ -11349,8 +11350,9 @@
 /area/civilian/bath)
 "wB" = (
 /obj/machinery/light_switch{
-	pixel_x = 28;
-	pixel_y = 0
+	pixel_x = 22;
+	pixel_y = 0;
+	dir = 8
 	},
 /obj/item/clothing/mask/plunger,
 /obj/structure/cable{
@@ -11518,10 +11520,6 @@
 	icon_state = "intact"
 	},
 /obj/machinery/meter,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
-	},
 /obj/structure/cable/cyan{
 	d1 = 1;
 	d2 = 2;
@@ -11804,9 +11802,8 @@
 	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/white,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
+/obj/machinery/light/spot{
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 2;
@@ -12149,7 +12146,8 @@
 /obj/structure/table/steel,
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod{
 	id_tag = "escape_pod_1";
-	tag_door = "escape_pod_1_hatch"
+	tag_door = "escape_pod_1_hatch";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/escape_pod1/station)
@@ -12498,7 +12496,7 @@
 	},
 /obj/machinery/light_switch{
 	pixel_x = -6;
-	pixel_y = -24;
+	pixel_y = -22;
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -12567,7 +12565,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/light,
+/obj/machinery/light/spot,
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
 "yP" = (
@@ -12912,7 +12910,7 @@
 /area/engineering/atmospherics)
 "zH" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light,
+/obj/machinery/light/spot,
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
@@ -13031,7 +13029,8 @@
 /obj/machinery/light_switch{
 	on = 1;
 	pixel_x = 10;
-	pixel_y = -25
+	pixel_y = -22;
+	dir = 1
 	},
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk{
@@ -13117,7 +13116,8 @@
 /area/hallway/aft/second_deck)
 "AB" = (
 /obj/machinery/door/airlock/glass{
-	name = "Prison Observatory"
+	name = "Prison Observatory";
+	autoset_access = 0
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -13391,7 +13391,7 @@
 /obj/machinery/light_switch{
 	dir = 4;
 	on = 1;
-	pixel_x = -25
+	pixel_x = -22
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4;
@@ -13683,7 +13683,8 @@
 /area/maintenance/second_deck/afs)
 "Eg" = (
 /obj/machinery/door/airlock/glass{
-	name = "Prison Dorms"
+	name = "Prison Dorms";
+	autoset_access = 0
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -13742,7 +13743,8 @@
 /area/civilian/counselor)
 "Eu" = (
 /obj/machinery/door/airlock{
-	name = "Prison Bathroom"
+	name = "Prison Bathroom";
+	autoset_access = 0
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -13916,7 +13918,7 @@
 /obj/item/device/radio/intercom{
 	dir = 4;
 	name = "Station Intercom (General)";
-	pixel_x = -28
+	pixel_x = -22
 	},
 /obj/item/storage/candle_box{
 	pixel_x = -2;
@@ -14341,7 +14343,7 @@
 "If" = (
 /obj/item/device/radio/intercom{
 	dir = 2;
-	pixel_y = 27
+	pixel_y = 24
 	},
 /turf/simulated/floor/carpet,
 /area/civilian/counselor)
@@ -14454,7 +14456,7 @@
 /obj/item/device/radio/intercom{
 	dir = 8;
 	icon_state = "intercom";
-	pixel_x = 23
+	pixel_x = 22
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
@@ -14600,7 +14602,7 @@
 	dir = 2;
 	listening = 1;
 	name = "Station Intercom (General)";
-	pixel_y = 28
+	pixel_y = 24
 	},
 /obj/machinery/camera/network/second_deck{
 	c_tag = "Journalists Office"
@@ -15547,7 +15549,7 @@
 /obj/machinery/door/airlock/chaplain{
 	name = "Chapel Office"
 	},
-/turf/space,
+/turf/simulated/floor/wood/walnut,
 /area/chapel)
 "Ov" = (
 /obj/machinery/door/airlock/maintenance,
@@ -15772,7 +15774,7 @@
 /obj/machinery/button/windowtint{
 	dir = 8;
 	icon_state = "light0";
-	pixel_x = 24;
+	pixel_x = 22;
 	range = 5;
 	id = "chaplain"
 	},
@@ -15921,7 +15923,7 @@
 /obj/item/device/radio/intercom{
 	dir = 4;
 	icon_state = "intercom";
-	pixel_x = -23
+	pixel_x = -22
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/carpet,
@@ -16208,7 +16210,8 @@
 /area/maintenance/second_deck/fp)
 "RK" = (
 /obj/machinery/door/airlock/glass{
-	name = "Prison Hydroponics"
+	name = "Prison Hydroponics";
+	autoset_access = 0
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -16525,7 +16528,8 @@
 /area/logistics/auxtool)
 "Up" = (
 /obj/machinery/door/airlock/glass{
-	name = "Prison Dorms"
+	name = "Prison Dorms";
+	autoset_access = 0
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -16658,7 +16662,7 @@
 	},
 /obj/machinery/button/windowtint{
 	pixel_x = 20;
-	pixel_y = 25;
+	pixel_y = 26;
 	id = "psych"
 	},
 /obj/effect/landmark/start{
@@ -17198,7 +17202,7 @@
 /obj/item/device/radio/intercom{
 	dir = 8;
 	icon_state = "intercom";
-	pixel_x = 28
+	pixel_x = 22
 	},
 /turf/simulated/floor/tiled/dark,
 /area/chapel/office)

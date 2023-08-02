@@ -1,4 +1,12 @@
-/*/mob/living/simple_animal/hostile
+/*
+// This are the leftovers of Urist's port of slightly better AI (from /vg/ I think)
+// This should be strictly inferior to Polaris AI from Bay, but is kept unincluded for reference for now.
+// Do NOT include this, there's a good chance this won't work.
+//
+// The above applies as of July 2023; if this is still unincluded by Jan 2024, feel free to delete the file.
+*/
+
+/mob/living/simple_animal/hostile
 	faction = "hostile"
 	mouse_opacity = 2 //This makes it easier to hit hostile mobs, you only need to click on their tile, and is set back to 1 when they die
 	stop_automated_movement_when_pulled = 0
@@ -452,4 +460,3 @@ mob/living/simple_animal/hostile/Initialize()
 		stance = STANCE_ATTACK
 	else
 		stance = STANCE_IDLE
-*/

@@ -143,7 +143,7 @@
 			return TRUE
 	return FALSE
 
-/obj/machinery/door/attack_ai(mob/user as mob)
+/obj/machinery/door/firedoor/attack_ai(mob/user as mob)
 	return src.attack_hand(user)
 
 /obj/machinery/door/firedoor/attack_hand(mob/user)

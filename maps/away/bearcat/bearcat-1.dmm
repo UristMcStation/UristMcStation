@@ -1459,7 +1459,7 @@
 	},
 /obj/machinery/organ_printer/robot/mapped,
 /obj/item/device/radio/intercom/map_preset/bearcat{
-	pixel_y = 22
+	pixel_y = 24
 	},
 /turf/simulated/floor,
 /area/ship/scrap/broken1)
@@ -2610,7 +2610,8 @@
 /obj/item/tape_roll,
 /obj/structure/table/standard,
 /obj/item/device/radio/intercom/map_preset/bearcat{
-	pixel_y = -32
+	pixel_y = -28;
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/ship/scrap/maintenance/storage)

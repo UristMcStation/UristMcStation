@@ -234,6 +234,8 @@
 	var/obj/item/organ/internal/eyes/E = src.internal_organs_by_name[species.vision_organ]
 	if(!E)
 		return
+	if(isSynthetic())
+		return
 	var/safety = eyecheck()
 	switch(safety)
 		if(FLASH_PROTECTION_MODERATE)
@@ -242,7 +244,7 @@
 			if(E.damage > 12)
 				eye_blurry += rand(3,6)
 		if(FLASH_PROTECTION_MINOR)
-			to_chat(src, SPAN_WARNING("Your eyes stings!"))
+			to_chat(src, SPAN_WARNING("Your eyes sting!"))
 			E.damage += rand(1, 4)
 			if(E.damage > 10)
 				eye_blurry += rand(3,6)

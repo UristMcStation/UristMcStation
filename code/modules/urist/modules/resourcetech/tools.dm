@@ -29,6 +29,9 @@
 	w_class = 3 //changing to 3 because why not
 	matter = list(DEFAULT_WALL_MATERIAL = 2000, "wood" = 1000)
 
+/obj/item/carpentry/axe/IsHatchet() //without this we can't cut down exoplanet trees
+	return TRUE
+
 //hunter stuff
 
 //huntergun

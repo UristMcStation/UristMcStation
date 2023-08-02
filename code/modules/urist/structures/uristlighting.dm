@@ -49,9 +49,21 @@
 /obj/machinery/light/warmtint
 	light_type = /obj/item/light/tube/tinted/warmtint
 
+//spotlight version of the above for a larger area
+/obj/machinery/light/spot/warmtint
+	light_type = /obj/item/light/tube/large/tinted/warmtint
+
 /obj/item/light/tube/tinted/warmtint
 	name = "light tube (incandescent)"
 	desc = "A replacement light tube. This one emits amber low-Kelvin light."
+	icon_state = "ltube"
+	base_state = "ltube"
+	item_state = "c_tube"
+	b_colour = "#e09d37"
+
+/obj/item/light/tube/large/tinted/warmtint
+	name = "large light tube (incandescent)"
+	desc = "A replacement light tube. This one emits a lot of amber low-Kelvin light."
 	icon_state = "ltube"
 	base_state = "ltube"
 	item_state = "c_tube"

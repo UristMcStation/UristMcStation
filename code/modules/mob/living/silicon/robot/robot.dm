@@ -523,7 +523,7 @@
 			SPAN_NOTICE("\The [user] starts repairing some of the electronics in \the [src] with some [cable.plural_name] of \a [cable]."),
 			SPAN_NOTICE("You start repairing some of the electronics in \the [src] with some [cable.plural_name] of \the [cable]."),
 		)
-		if (!do_after(user, 1 SECOND, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check())
+		if (!do_after(user, 1 SECOND, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, tool))
 			return TRUE
 		if (!wiresexposed)
 			USE_FEEDBACK_FAILURE("\The [src]'s wires must be exposed to repair electronics damage.")
@@ -810,7 +810,7 @@
 			SPAN_NOTICE("\The [user] starts repairing some of the dents on \the [src] with \a [tool]."),
 			SPAN_NOTICE("You start repairing some of the dents on \the [src] with \the [tool]."),
 		)
-		if (!do_after(user, 1 SECOND, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check())
+		if (!do_after(user, 1 SECOND, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, tool))
 			return TRUE
 		if (!getBruteLoss())
 			USE_FEEDBACK_FAILURE("\The [src] has no physical damage to repair.")

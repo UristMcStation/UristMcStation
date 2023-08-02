@@ -9734,7 +9734,7 @@
 "xL" = (
 /obj/item/device/radio/intercom/syndicate{
 	dir = 8;
-	pixel_x = 24
+	pixel_x = 22
 	},
 /turf/simulated/floor/carpet,
 /area/map_template/wizard_station)
@@ -9788,7 +9788,7 @@
 	},
 /obj/item/device/radio/intercom/syndicate{
 	dir = 8;
-	pixel_x = 24
+	pixel_x = 22
 	},
 /turf/unsimulated/floor{
 	dir = 2;
@@ -10777,7 +10777,7 @@
 "Ac" = (
 /obj/item/device/radio/intercom/syndicate{
 	dir = 8;
-	pixel_x = 24
+	pixel_x = 22
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -10800,7 +10800,7 @@
 "Af" = (
 /obj/item/device/radio/intercom/syndicate{
 	dir = 4;
-	pixel_x = -24
+	pixel_x = -22
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -11084,7 +11084,7 @@
 "AU" = (
 /obj/item/device/radio/intercom{
 	dir = 2;
-	pixel_y = 22
+	pixel_y = 24
 	},
 /obj/structure/table/reinforced,
 /obj/item/storage/firstaid/toxin,
@@ -11279,7 +11279,7 @@
 /obj/machinery/chemical_dispenser/bar_soft/full,
 /obj/item/device/radio/intercom/syndicate{
 	dir = 8;
-	pixel_x = 24
+	pixel_x = 22
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -12865,7 +12865,7 @@
 "EU" = (
 /obj/item/device/radio/intercom/syndicate{
 	dir = 1;
-	pixel_y = -30
+	pixel_y = -28
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -13268,7 +13268,7 @@
 /area/map_template/wizard_station)
 "FO" = (
 /obj/item/device/radio/intercom/syndicate{
-	pixel_y = 23
+	pixel_y = 24
 	},
 /turf/unsimulated/floor{
 	icon_state = "cult";
@@ -13287,7 +13287,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner,
 /obj/item/device/radio/intercom/syndicate{
 	dir = 4;
-	pixel_x = -24
+	pixel_x = -22
 	},
 /turf/unsimulated/floor{
 	dir = 2;
@@ -14403,7 +14403,7 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
-	pixel_y = -30
+	pixel_y = -28
 	},
 /obj/machinery/light/small{
 	dir = 4;
@@ -16387,7 +16387,7 @@
 	},
 /obj/item/device/radio/intercom/syndicate{
 	dir = 4;
-	pixel_x = -24
+	pixel_x = -22
 	},
 /obj/machinery/cell_charger,
 /obj/item/screwdriver,

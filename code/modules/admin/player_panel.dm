@@ -103,7 +103,7 @@
 
 						var pass = 1;
 
-						for(var j = 0; j < length(locked_tabs)gth; j++){
+						for(var j = 0; j < locked_tabs.length; j++){
 							if(locked_tabs\[j\]==id){
 								pass = 0;
 								break;

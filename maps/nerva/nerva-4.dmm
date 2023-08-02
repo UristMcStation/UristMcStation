@@ -75,7 +75,7 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 8;
-	pixel_x = 21
+	pixel_x = 22
 	},
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
@@ -751,7 +751,7 @@
 /obj/item/device/radio/intercom{
 	dir = 4;
 	name = "Station Intercom (General)";
-	pixel_x = -28
+	pixel_x = -22
 	},
 /obj/effect/catwalk_plated,
 /turf/simulated/floor/plating,
@@ -1184,7 +1184,7 @@
 /obj/item/device/radio/intercom{
 	dir = 4;
 	name = "Station Intercom (General)";
-	pixel_x = -28
+	pixel_x = -22
 	},
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
@@ -1993,7 +1993,7 @@
 /obj/item/device/radio/intercom{
 	dir = 4;
 	name = "Station Intercom (General)";
-	pixel_x = -28
+	pixel_x = -22
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/dockingcheckpoint)
@@ -2268,7 +2268,7 @@
 	pixel_y = 24
 	},
 /obj/item/device/radio/intercom{
-	pixel_y = 23
+	pixel_y = 24
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9;
@@ -2317,7 +2317,7 @@
 	dir = 2;
 	listening = 1;
 	name = "Station Intercom (General)";
-	pixel_y = 28
+	pixel_y = 24
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -2500,7 +2500,7 @@
 	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak=4)
 	},
 /obj/item/device/radio/intercom{
-	pixel_y = 23
+	pixel_y = 24
 	},
 /obj/machinery/camera/network/engineering{
 	c_tag = "Solar Control - Main";
@@ -3089,7 +3089,7 @@
 	dir = 2;
 	listening = 1;
 	name = "Station Intercom (General)";
-	pixel_y = 28
+	pixel_y = 24
 	},
 /turf/simulated/floor/reinforced,
 /area/security/topgun)
@@ -3486,7 +3486,7 @@
 "hq" = (
 /obj/item/device/radio/intercom/locked/ai_private{
 	dir = 4;
-	pixel_x = -28
+	pixel_x = -22
 	},
 /obj/machinery/light{
 	dir = 8;
@@ -4235,7 +4235,7 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
-	pixel_x = -28
+	pixel_x = -22
 	},
 /obj/item/device/radio/intercom/custom{
 	pixel_y = 28
@@ -4796,7 +4796,7 @@
 	dir = 2;
 	listening = 1;
 	name = "Station Intercom (General)";
-	pixel_y = 28
+	pixel_y = 24
 	},
 /turf/simulated/floor/reinforced,
 /area/security/topgun)
@@ -6421,7 +6421,7 @@
 /obj/item/device/radio/intercom{
 	dir = 4;
 	name = "Station Intercom (General)";
-	pixel_x = -28
+	pixel_x = -22
 	},
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -7286,7 +7286,7 @@
 "nV" = (
 /obj/structure/table/reinforced,
 /obj/item/device/radio/intercom{
-	pixel_y = 23
+	pixel_y = 24
 	},
 /turf/simulated/floor/plating,
 /area/engineering/bluespace)
@@ -7782,7 +7782,7 @@
 	pixel_y = 0
 	},
 /obj/item/device/radio/intercom{
-	pixel_y = 23
+	pixel_y = 24
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/aftsolar)
@@ -8543,7 +8543,7 @@
 	},
 /obj/item/device/radio/intercom{
 	dir = 8;
-	pixel_x = 21
+	pixel_x = 22
 	},
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
@@ -8647,7 +8647,7 @@
 /obj/item/device/radio/intercom{
 	dir = 4;
 	name = "Station Intercom (General)";
-	pixel_x = -28
+	pixel_x = -22
 	},
 /obj/effect/catwalk_plated,
 /obj/machinery/navbeacon{

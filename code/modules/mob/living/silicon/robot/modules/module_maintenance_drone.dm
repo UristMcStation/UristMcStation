@@ -42,7 +42,7 @@
 	synths = list(
 		/datum/matter_synth/metal =   25000,
 		/datum/matter_synth/glass =   25000,
-		/datum/matter_synth/wood =    2000,
+		/datum/matter_synth/wood =    25000,
 		/datum/matter_synth/plastic = 1000,
 		/datum/matter_synth/wire =    30
 	)

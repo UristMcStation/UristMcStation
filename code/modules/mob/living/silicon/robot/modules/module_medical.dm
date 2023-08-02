@@ -33,13 +33,12 @@
 	equipment += new /obj/item/robot_rack/roller_bed(src, 1)
 
 /obj/item/robot_module/medical/surgeon
-	name = "surgeon robot module"
-	display_name = "Surgeon"
+	name = "medical robot module"
+	display_name = "Medical"
 	equipment = list(
 		/obj/item/device/flash,
 		/obj/item/borg/sight/hud/med,
 		/obj/item/device/scanner/health,
-		/obj/item/reagent_containers/borghypo/surgeon,
 		/obj/item/scalpel/manager,
 		/obj/item/hemostat,
 		/obj/item/retractor,
@@ -55,12 +54,23 @@
 		/obj/item/crowbar,
 		/obj/item/stack/nanopaste,
 		/obj/item/stack/medical/advanced/bruise_pack,
+		/obj/item/stack/medical/advanced/ointment,
 		/obj/item/reagent_containers/dropper,
 		/obj/item/reagent_containers/spray/cleaner/drone,
-		/obj/item/reagent_containers/spray/sterilizine
+		/obj/item/reagent_containers/spray/sterilizine,
+		/obj/item/device/scanner/reagent/adv,
+		/obj/item/robot_rack/body_bag,
+		/obj/item/reagent_containers/borghypo/crisis,
+		/obj/item/robot_rack/bottle,
+		/obj/item/reagent_containers/dropper/industrial,
+		/obj/item/gripper/chemistry,
+		/obj/item/extinguisher/mini,
+		/obj/item/taperoll/medical,
+		/obj/item/inflatable_dispenser/robot,
+		/obj/item/stack/medical/splint
 	)
 	synths = list(
-		/datum/matter_synth/medicine = 10000,
+		/datum/matter_synth/medicine = 15000,
 	)
 	emag = /obj/item/reagent_containers/spray
 	skills = list(
@@ -68,14 +78,17 @@
 		SKILL_MEDICAL     = SKILL_EXPERT,
 		SKILL_CHEMISTRY   = SKILL_ADEPT,
 		SKILL_BUREAUCRACY = SKILL_ADEPT,
-		SKILL_DEVICES     = SKILL_EXPERT
+		SKILL_DEVICES     = SKILL_EXPERT,
+		SKILL_EVA         = SKILL_EXPERT
 	)
 
 /obj/item/robot_module/medical/surgeon/finalize_equipment()
 	. = ..()
 	for(var/thing in list(
 		 /obj/item/stack/nanopaste,
-		 /obj/item/stack/medical/advanced/bruise_pack
+		 /obj/item/stack/medical/advanced/ointment,
+		 /obj/item/stack/medical/advanced/bruise_pack,
+		 /obj/item/stack/medical/splint
 		))
 		var/obj/item/stack/medical/stack = locate(thing) in equipment
 		stack.uses_charge = 1
@@ -91,17 +104,26 @@
 	var/datum/matter_synth/medicine/medicine = locate() in synths
 	for(var/thing in list(
 		 /obj/item/stack/nanopaste,
-		 /obj/item/stack/medical/advanced/bruise_pack
+		 /obj/item/stack/medical/advanced/ointment,
+		 /obj/item/stack/medical/advanced/bruise_pack,
+		 /obj/item/stack/medical/splint
 		))
 		var/obj/item/stack/medical/stack = locate(thing) in equipment
 		stack.synths = list(medicine)
 
 /obj/item/robot_module/medical/surgeon/respawn_consumable(mob/living/silicon/robot/R, amount)
+	var/obj/item/reagent_containers/syringe/S = locate() in equipment
+	if(S.mode == 2)
+		S.reagents.clear_reagents()
+		S.mode = initial(S.mode)
+		S.desc = initial(S.desc)
+		S.update_icon()
 	if(emag)
 		var/obj/item/reagent_containers/spray/PS = emag
 		PS.reagents.add_reagent(/datum/reagent/acid/polyacid, 2 * amount)
 	..()
 
+/* unincluded as the medical module has all of this
 /obj/item/robot_module/medical/crisis
 	name = "crisis robot module"
 	display_name = "Crisis"
@@ -176,3 +198,4 @@
 		var/obj/item/reagent_containers/spray/PS = emag
 		PS.reagents.add_reagent(/datum/reagent/acid/polyacid, 2 * amount)
 	..()
+*/

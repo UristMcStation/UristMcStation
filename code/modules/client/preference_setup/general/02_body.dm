@@ -12,6 +12,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	var/skin_tone = 0
 	var/skin_color = "#000000"
 	var/base_skin = ""
+	var/list/rlimb_color = list()
 	var/list/body_markings = list()
 	var/list/body_descriptors = list()
 
@@ -55,6 +56,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	pref.rlimb_data = R.read("rlimb_data")
 	pref.body_markings = R.read("body_markings")
 	pref.body_descriptors = R.read("body_descriptors")
+	pref.rlimb_color = R.read("rlimb_color")
 
 
 /datum/category_item/player_setup_item/physical/body/save_character(datum/pref_record_writer/W)
@@ -75,7 +77,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	W.write("rlimb_data", pref.rlimb_data)
 	W.write("body_markings", pref.body_markings)
 	W.write("body_descriptors", pref.body_descriptors)
-
+	W.write("rlimb_color", pref.rlimb_color)
 
 /datum/category_item/player_setup_item/physical/body/sanitize_character()
 	pref.head_hair_color = sanitize_hexcolor(pref.head_hair_color)
@@ -85,6 +87,9 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	pref.head_hair_style		= sanitize_inlist(pref.head_hair_style, GLOB.hair_styles_list, initial(pref.head_hair_style))
 	pref.facial_hair_style		= sanitize_inlist(pref.facial_hair_style, GLOB.facial_hair_styles_list, initial(pref.facial_hair_style))
 	pref.b_type			= sanitize_text(pref.b_type, initial(pref.b_type))
+
+	for(var/limb in pref.rlimb_color)
+		pref.rlimb_color[limb] = sanitize_hexcolor(pref.rlimb_color[limb])
 
 	if(!pref.species || !(pref.species in playable_species))
 		pref.species = SPECIES_HUMAN
@@ -102,6 +107,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	pref.disabilities	= sanitize_integer(pref.disabilities, 0, 65535, initial(pref.disabilities))
 	if(!istype(pref.organ_data)) pref.organ_data = list()
 	if(!istype(pref.rlimb_data)) pref.rlimb_data = list()
+	if(!istype(pref.rlimb_color)) pref.rlimb_color = list()
 	if(!istype(pref.body_markings))
 		pref.body_markings = list()
 	else
@@ -213,7 +219,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				var/datum/robolimb/limb = basic_robolimb
 				if (pref.rlimb_data[name] && all_robolimbs[pref.rlimb_data[name]])
 					limb = all_robolimbs[pref.rlimb_data[name]]
-				alt_organs += "[limb.company] [organ_name] prosthesis"
+				var/color = pref.rlimb_color[name]
+				. += "<br> [limb.company] [organ_name] prosthesis [VBTN("rlimb_color", name, "Color")] [COLOR_PREVIEW(color)]"
 			if ("assisted")
 				switch (organ_name)
 					if (BP_HEART) alt_organs += "Pacemaker-assisted [organ_name]"
@@ -222,7 +229,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					if (BP_BRAIN) alt_organs += "Machine-interface [organ_name]"
 					else alt_organs += "Mechanically assisted [organ_name]"
 	if (!length(alt_organs))
-		alt_organs += "(No differences from baseline)"
+		alt_organs += "(Standard internal anatomy)"
 	. += "<br />[alt_organs.Join(", ")]"
 	. = jointext(., null)
 
@@ -440,6 +447,16 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			pref.body_markings[M] = "[mark_color]"
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
+	else if (href_list["rlimb_color"])
+		var/R = href_list["rlimb_color"]
+		var/new_rlimb_color = input(user, "Choose the [R] color: ", CHARACTER_PREFERENCE_INPUT_TITLE, pref.rlimb_color[R]) as color|null
+		if(CanUseTopic(user))
+			if(new_rlimb_color)
+				pref.rlimb_color[R] = "[new_rlimb_color]"
+			else
+				pref.rlimb_color.Remove(R)
+			return TOPIC_REFRESH_UPDATE_PREVIEW
+
 	else if(href_list["reset_limbs"])
 		reset_limbs()
 		return TOPIC_REFRESH_UPDATE_PREVIEW
@@ -512,21 +529,26 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					for(var/other_limb in (BP_ALL_LIMBS - BP_CHEST))
 						pref.organ_data[other_limb] = null
 						pref.rlimb_data[other_limb] = null
+						pref.rlimb_color.Remove(other_limb)
 						for(var/internal_organ in list(BP_HEART,BP_EYES,BP_LUNGS,BP_LIVER,BP_KIDNEYS,BP_STOMACH,BP_BRAIN))
 							pref.organ_data[internal_organ] = null
 				pref.organ_data[limb] = null
 				pref.rlimb_data[limb] = null
+				pref.rlimb_color.Remove(limb)
 				if(third_limb)
 					pref.organ_data[third_limb] = null
 					pref.rlimb_data[third_limb] = null
+					pref.rlimb_color.Remove(third_limb)
 			if("Amputated")
 				if(limb == BP_CHEST)
 					return
 				pref.organ_data[limb] = "amputated"
 				pref.rlimb_data[limb] = null
+				pref.rlimb_color.Remove(limb)
 				if(second_limb)
 					pref.organ_data[second_limb] = "amputated"
 					pref.rlimb_data[second_limb] = null
+					pref.rlimb_color.Remove(second_limb)
 
 			if("Prosthesis")
 				var/datum/species/temp_species = pref.species ? all_species[pref.species] : all_species[SPECIES_HUMAN]
@@ -621,6 +643,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 /datum/category_item/player_setup_item/physical/body/proc/reset_limbs()
 	pref.organ_data.Cut()
 	pref.rlimb_data.Cut()
+	pref.rlimb_color.Cut()
 
 /datum/category_item/player_setup_item/proc/ResetAllHair()
 	ResetHair()

@@ -51,7 +51,7 @@
 	if(prob(boarding_failure_chance))
 		for(var/obj/machinery/power/shield_generator/S in SSmachines.machinery) //Calculate our failure chance.
 			if(S.z in mastership.target_ship.map_z)
-				S.current_energy -= S.max_energy * 0.15 //knock a little power off the shields, we're knocking at the damn door.
+				S.current_energy -= S.max_energy * 0.05 //knock a little power off the shields, we're knocking at the damn door.
 				if(S.hacked) //if it's hacked, the engineers get a small surprise
 					var/EMP_turf = get_turf(S)
 					empulse(EMP_turf, 0, 2, 0)
