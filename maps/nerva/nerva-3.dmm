@@ -8447,7 +8447,7 @@
 "rc" = (
 /obj/machinery/light_switch{
 	dir = 8;
-	pixel_x = 25;
+	pixel_x = 20;
 	pixel_y = 0
 	},
 /obj/structure/undies_wardrobe,
@@ -8949,7 +8949,7 @@
 "sb" = (
 /obj/machinery/vending/urist/beltdispenser,
 /obj/machinery/light_switch{
-	pixel_x = 24;
+	pixel_x = 20;
 	pixel_y = 0;
 	dir = 8
 	},
@@ -10248,7 +10248,7 @@
 	dir = 8;
 	name = "Air to Supply"
 	},
-/obj/machinery/light{
+/obj/machinery/light/spot{
 	dir = 1
 	},
 /obj/machinery/alarm{
@@ -10325,7 +10325,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
 "uu" = (
-/obj/machinery/light{
+/obj/machinery/light/spot{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -10983,9 +10983,8 @@
 	dir = 4;
 	icon_state = "corner_white"
 	},
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
+/obj/machinery/light/spot{
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 2;
@@ -11521,10 +11520,6 @@
 	icon_state = "intact"
 	},
 /obj/machinery/meter,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
-	},
 /obj/structure/cable/cyan{
 	d1 = 1;
 	d2 = 2;
@@ -11807,9 +11802,8 @@
 	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/white,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
+/obj/machinery/light/spot{
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 2;
@@ -12571,7 +12565,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/light,
+/obj/machinery/light/spot,
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
 "yP" = (
@@ -12916,7 +12910,7 @@
 /area/engineering/atmospherics)
 "zH" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light,
+/obj/machinery/light/spot,
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)

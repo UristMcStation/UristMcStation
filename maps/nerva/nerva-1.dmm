@@ -495,7 +495,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/light{
+/obj/machinery/light/spot{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -524,7 +524,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/light{
+/obj/machinery/light/spot{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -592,7 +592,7 @@
 	dir = 4;
 	icon_state = "intact-scrubbers"
 	},
-/obj/machinery/light{
+/obj/machinery/light/spot{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1116,7 +1116,7 @@
 /area/maintenance/fourth_deck/afp)
 "cE" = (
 /obj/effect/catwalk_plated/dark,
-/obj/machinery/light{
+/obj/machinery/light/spot{
 	dir = 8
 	},
 /obj/structure/cable{
@@ -2595,7 +2595,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/light{
+/obj/machinery/light/spot{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -5146,7 +5146,7 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/logistics/hangar)
 "jU" = (
-/obj/machinery/light,
+/obj/machinery/light/spot,
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk{
 	dir = 1
@@ -6102,7 +6102,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/exploration_shuttle/cargo)
 "lC" = (
-/obj/machinery/light{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/monotile,
@@ -9002,7 +9002,7 @@
 	dir = 8;
 	id_tag = null
 	},
-/obj/machinery/light{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/monotile,
@@ -9590,7 +9590,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/light,
+/obj/machinery/light/spot,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/logistics/hangar)
 "rt" = (
@@ -9623,7 +9623,7 @@
 /area/logistics/hangar)
 "rv" = (
 /obj/machinery/hologram/holopad,
-/obj/machinery/light,
+/obj/machinery/light/spot,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
@@ -9674,7 +9674,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/light,
+/obj/machinery/light/spot,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -12138,7 +12138,7 @@
 	icon_state = "techfloor_corners"
 	},
 /obj/machinery/light_switch{
-	pixel_x = 26;
+	pixel_x = 20;
 	pixel_y = 24;
 	dir = 8
 	},
@@ -19553,7 +19553,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "Jh" = (
-/obj/machinery/light{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /obj/effect/catwalk_plated/dark,
@@ -21775,7 +21775,7 @@
 /turf/simulated/wall/r_wall/prepainted,
 /area/command/weapons_command)
 "SF" = (
-/obj/machinery/light{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /obj/effect/catwalk_plated/dark,
@@ -21813,7 +21813,7 @@
 /turf/simulated/wall/titanium,
 /area/hadrian/storage)
 "SQ" = (
-/obj/machinery/light{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /obj/effect/catwalk_plated/dark,
