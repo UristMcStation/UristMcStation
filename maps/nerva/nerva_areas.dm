@@ -191,6 +191,7 @@
 
 /area/civilian/counselor
 	name = "\improper Counselor's Office"
+	req_access = list(access_psychiatrist)
 
 /area/civilian/entertainer
 	name = "\improper Entertainer's Room"
@@ -432,6 +433,12 @@
 	icon_state = "engineering_storage"
 	sound_env = SMALL_ENCLOSED
 
+/area/engineering/bluespace
+	name = "Bluespace Drive Containment"
+	icon_state = "engineering"
+	color = COLOR_BLUE_LIGHT
+	req_access = list(list(access_engine_equip, access_heads), access_engine, access_maint_tunnels)
+
 // Substations
 
 /area/engineering/substation
@@ -544,7 +551,7 @@
 
 /area/medical/cloning
 	name = "\improper Cloning Bay"
-	req_access = list(access_genetics)
+	req_access = list(access_medical)
 
 /area/medical/extstorage
 	name = "\improper Medbay Extra Storage"
@@ -963,7 +970,7 @@
 /area/merchant_station
 	name = "\improper Merchant Station"
 
-/area/syndicate_mothership/raider_base
+/area/map_template/syndicate_mothership/raider_base
 	name = "\improper Raider Base"
 
 /area/deity_spawn

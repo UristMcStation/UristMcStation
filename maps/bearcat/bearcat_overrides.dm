@@ -11,7 +11,7 @@
 /turf/simulated/floor/tiled
 	name = "deck"
 
-/decl/flooring/tiling
+/singleton/flooring/tiling
 	name = "deck"
 
 /turf/simulated/wall/r_wall/hull

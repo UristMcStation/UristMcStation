@@ -143,12 +143,12 @@
 /*| Double Signs
    ----------------------------------------------*/
 
-/obj/structure/sign/double/city/
+/obj/structure/sign/double/city
 	desc = "A sign."
 	pixel_y = 32
 	icon = 'maps/away/geminus_city/citymap_icons/signs.dmi'
 
-/obj/structure/sign/double/city/gamecenter/
+/obj/structure/sign/double/city/gamecenter
 	name = "Game Center"
 	desc = "A flashing sign which reads 'Game Center'."
 	light_color = "#ffa851" //orange
@@ -268,7 +268,7 @@
 /*| Normal Signs
    ----------------------------------------------*/
 
-/obj/structure/sign/city/
+/obj/structure/sign/city
 	desc = "A sign."
 	icon = 'maps/away/geminus_city/citymap_icons/signs.dmi'
 

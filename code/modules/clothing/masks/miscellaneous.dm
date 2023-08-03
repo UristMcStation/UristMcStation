@@ -32,19 +32,18 @@
 	desc = "A sterile mask designed to help prevent the spread of diseases."
 	icon_state = "sterile"
 	item_state = "sterile"
-	w_class = ITEM_SIZE_SMALL
+	w_class = ITEM_SIZE_TINY
 	body_parts_covered = FACE
-	item_flags = ITEM_FLAG_FLEXIBLEMATERIAL
+	item_flags = ITEM_FLAG_FLEXIBLEMATERIAL | ITEM_FLAG_WASHER_ALLOWED
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.01
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 0)
+	armor = list(
+		bio = ARMOR_BIO_RESISTANT
+		)
 	down_gas_transfer_coefficient = 1
 	down_body_parts_covered = null
 	down_icon_state = "steriledown"
 	pull_mask = 1
-	sprite_sheets = list(
-		SPECIES_RESOMI = 'icons/mob/species/resomi/masks.dmi'
-		)
 
 /obj/item/clothing/mask/fakemoustache
 	name = "fake moustache"
@@ -60,6 +59,7 @@
 	desc = "For the Swimming Savant."
 	icon_state = "snorkel"
 	item_state = "snorkel"
+	item_flags = null
 	flags_inv = HIDEFACE
 	body_parts_covered = 0
 
@@ -71,7 +71,7 @@
 	icon_state = "blueneckscarf"
 	item_state = "blueneckscarf"
 	body_parts_covered = FACE
-	item_flags = ITEM_FLAG_FLEXIBLEMATERIAL
+	item_flags = ITEM_FLAG_FLEXIBLEMATERIAL | ITEM_FLAG_WASHER_ALLOWED
 	w_class = ITEM_SIZE_SMALL
 	gas_transfer_coefficient = 0.90
 
@@ -81,7 +81,7 @@
 	icon_state = "redwhite_scarf"
 	item_state = "redwhite_scarf"
 	body_parts_covered = FACE
-	item_flags = ITEM_FLAG_FLEXIBLEMATERIAL
+	item_flags = ITEM_FLAG_FLEXIBLEMATERIAL | ITEM_FLAG_WASHER_ALLOWED
 	w_class = ITEM_SIZE_SMALL
 	gas_transfer_coefficient = 0.90
 
@@ -91,7 +91,7 @@
 	icon_state = "green_scarf"
 	item_state = "green_scarf"
 	body_parts_covered = FACE
-	item_flags = ITEM_FLAG_THICKMATERIAL
+	item_flags = ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_WASHER_ALLOWED
 	w_class = ITEM_SIZE_SMALL
 	gas_transfer_coefficient = 0.90
 
@@ -101,7 +101,7 @@
 	icon_state = "ninja_scarf"
 	item_state = "ninja_scarf"
 	body_parts_covered = FACE
-	item_flags = ITEM_FLAG_THICKMATERIAL
+	item_flags = ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_WASHER_ALLOWED
 	w_class = ITEM_SIZE_SMALL
 	gas_transfer_coefficient = 0.90
 	siemens_coefficient = 0
@@ -139,6 +139,7 @@
 	icon_state = "s-ninja"
 	item_state = "s-ninja"
 	flags_inv = HIDEFACE
+	item_flags = null
 	body_parts_covered = FACE|EYES
 	action_button_name = "Toggle MUI"
 	origin_tech = list(TECH_DATA = 5, TECH_ENGINEERING = 5)
@@ -158,36 +159,36 @@
 		eye = null
 	..()
 
-/obj/item/clothing/mask/ai/attack_self(var/mob/user)
+/obj/item/clothing/mask/ai/attack_self(mob/user)
 	if(user.incapacitated())
 		return
 	active = !active
-	to_chat(user, "<span class='notice'>You [active ? "" : "dis"]engage \the [src].</span>")
+	to_chat(user, SPAN_NOTICE("You [active ? "" : "dis"]engage \the [src]."))
 	if(active)
 		engage_mask(user)
 	else
 		disengage_mask(user)
 
-/obj/item/clothing/mask/ai/equipped(var/mob/user, var/slot)
+/obj/item/clothing/mask/ai/equipped(mob/user, slot)
 	..(user, slot)
 	engage_mask(user)
 
-/obj/item/clothing/mask/ai/dropped(var/mob/user)
+/obj/item/clothing/mask/ai/dropped(mob/user)
 	..()
 	disengage_mask(user)
 
-/obj/item/clothing/mask/ai/proc/engage_mask(var/mob/user)
+/obj/item/clothing/mask/ai/proc/engage_mask(mob/user)
 	if(!active)
 		return
 	if(user.get_equipped_item(slot_wear_mask) != src)
 		return
 
 	eye.possess(user)
-	to_chat(eye.owner, "<span class='notice'>You feel disorented for a moment as your mind connects to the camera network.</span>")
+	to_chat(eye.owner, SPAN_NOTICE("You feel disorented for a moment as your mind connects to the camera network."))
 
-/obj/item/clothing/mask/ai/proc/disengage_mask(var/mob/user)
+/obj/item/clothing/mask/ai/proc/disengage_mask(mob/user)
 	if(user == eye.owner)
-		to_chat(eye.owner, "<span class='notice'>You feel disorented for a moment as your mind disconnects from the camera network.</span>")
+		to_chat(eye.owner, SPAN_NOTICE("You feel disorented for a moment as your mind disconnects from the camera network."))
 		eye.release(eye.owner)
 		eye.forceMove(src)
 
@@ -234,7 +235,7 @@
 	visible_name = species
 	var/datum/species/S = all_species[species]
 	if(istype(S))
-		var/decl/cultural_info/C = SSculture.get_culture(S.default_cultural_info[TAG_CULTURE])
+		var/singleton/cultural_info/C = SSculture.get_culture(S.default_cultural_info[TAG_CULTURE])
 		if(istype(C))
 			visible_name = C.get_random_name(pick(MALE,FEMALE))
 
@@ -272,20 +273,27 @@
 	body_parts_covered = FACE
 	icon_state = "bandblack"
 	item_state = "bandblack"
-	item_flags = ITEM_FLAG_FLEXIBLEMATERIAL
+	item_flags = ITEM_FLAG_FLEXIBLEMATERIAL | ITEM_FLAG_WASHER_ALLOWED
 	w_class = ITEM_SIZE_SMALL
 
-/obj/item/clothing/mask/bandana/equipped(var/mob/user, var/slot)
+/obj/item/clothing/mask/bandana/equipped(mob/user, slot)
 	switch(slot)
 		if(slot_wear_mask) //Mask is the default for all the settings
 			flags_inv = initial(flags_inv)
 			body_parts_covered = initial(body_parts_covered)
 			icon_state = initial(icon_state)
+			sprite_sheets = list(
+				SPECIES_VOX = 'icons/mob/species/vox/onmob_mask_vox.dmi',
+				SPECIES_UNATHI = 'icons/mob/species/unathi/onmob_mask_unathi.dmi'
+				)
 		if(slot_head)
 			flags_inv = 0
 			body_parts_covered = HEAD
 			icon_state = "[initial(icon_state)]_up"
-			sprite_sheets = list()
+			sprite_sheets = list(
+				SPECIES_VOX = 'icons/mob/species/vox/onmob_head_vox.dmi',
+				SPECIES_UNATHI = 'icons/mob/species/unathi/onmob_head_unathi.dmi'
+				)
 
 	return ..()
 
@@ -334,4 +342,3 @@
 	desc = "A fine black bandana with nanotech lining and a skull emblem. Can be worn on the head or face."
 	icon_state = "bandskull"
 	item_state = "bandskull"
-

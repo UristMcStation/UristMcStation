@@ -59,3 +59,21 @@
 /datum/gear/shoes/sandal
 	display_name = "wooden sandals"
 	path = /obj/item/clothing/shoes/sandal
+
+/datum/gear/shoes/heels
+	display_name = "high heels, colour select"
+	path = /obj/item/clothing/shoes/heels
+	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/shoes/foamclog
+	display_name = "foam clogs"
+	path = /obj/item/clothing/shoes/foamclog
+	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/shoes/flipflobster
+	display_name = "flip flobsters"
+	path = /obj/item/clothing/shoes/flipflobster
+
+/datum/gear/shoes/slippers
+	display_name = "bunny slippers"
+	path = /obj/item/clothing/shoes/slippers

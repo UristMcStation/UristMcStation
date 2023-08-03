@@ -1,5 +1,10 @@
 /datum/species/starlight
 	name = "Starlight Base"
+
+	meat_type = null
+	bone_material = null
+	skin_material = null
+
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest/unbreakable),
 		BP_GROIN =  list("path" = /obj/item/organ/external/groin/unbreakable),
@@ -22,13 +27,13 @@
 		TAG_CULTURE = CULTURE_STARLIGHT
 	)
 
-/datum/species/starlight/handle_death_check(var/mob/living/carbon/human/H)
+/datum/species/starlight/handle_death_check(mob/living/carbon/human/H)
 	if(H.health == 0)
 		return TRUE
 	return FALSE
 
-/datum/species/starlight/handle_death(var/mob/living/carbon/human/H)
-	addtimer(CALLBACK(H,/mob/proc/dust),0)
+/datum/species/starlight/handle_death(mob/living/carbon/human/H)
+	addtimer(new Callback(H,/mob/proc/dust),0)
 
 /datum/species/starlight/starborn
 	name = "Starborn"
@@ -75,7 +80,7 @@
 		/obj/aura/starborn
 		)
 
-/datum/species/starlight/starborn/handle_death(var/mob/living/carbon/human/H)
+/datum/species/starlight/starborn/handle_death(mob/living/carbon/human/H)
 	..()
 	var/turf/T = get_turf(H)
 	new/obj/effect/decal/cleanable/liquid_fuel(T, 20, TRUE)
@@ -103,8 +108,8 @@
 	radiation_mod = 0
 	species_flags = SPECIES_FLAG_NO_MINOR_CUT | SPECIES_FLAG_NO_SCAN | SPECIES_FLAG_NO_SLIP | SPECIES_FLAG_NO_POISON | SPECIES_FLAG_NO_EMBED | SPECIES_FLAG_NO_TANGLE
 
-	override_limb_types = list(BP_HEAD = /obj/item/organ/external/head/unbreakable/blueforged)
+	override_organ_types = list(BP_EYES = /obj/item/organ/internal/eyes/blueforged)
 
-/datum/species/starlight/blueforged/handle_death(var/mob/living/carbon/human/H)
+/datum/species/starlight/blueforged/handle_death(mob/living/carbon/human/H)
 	..()
 	new /obj/effect/temporary(get_turf(H),11, 'icons/mob/mob.dmi', "liquify")

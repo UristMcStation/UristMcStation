@@ -22,6 +22,6 @@
 
 /datum/stack_recipe/scrapshield
 	title = "scrap metal shield"
-	result_type = /obj/item/weapon/shield/riot/scrapper
+	result_type = /obj/item/shield/riot/scrapper
 	req_amount = 10
 	time = 50

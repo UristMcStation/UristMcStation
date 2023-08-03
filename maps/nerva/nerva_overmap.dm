@@ -1,4 +1,4 @@
-/obj/effect/overmap/ship/combat/nerva
+/obj/effect/overmap/visitable/ship/combat/nerva
 	name = "ICS Nerva"
 	ship_name = "ICS Nerva"
 	classification = "large class vessel"	//???
@@ -46,18 +46,18 @@
 		"hostile"
 	)
 
-/obj/effect/overmap/ship/combat/nerva/Initialize()
+/obj/effect/overmap/visitable/ship/combat/nerva/Initialize()
 	GLOB.using_map.overmap_ship = src
 
 	.=..()
 
-/obj/effect/overmap/ship/landable/trajan
+/obj/effect/overmap/visitable/ship/landable/trajan
 	name = "Trajan"
 	shuttle = "Trajan"
 	fore_dir = NORTH
 	vessel_mass = 1500
 
-/obj/effect/overmap/ship/landable/hadrian
+/obj/effect/overmap/visitable/ship/landable/hadrian
 	name = "Hadrian"
 	shuttle = "Hadrian"
 	fore_dir = EAST

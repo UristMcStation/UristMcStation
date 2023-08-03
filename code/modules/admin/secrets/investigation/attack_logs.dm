@@ -6,7 +6,7 @@
 	..()
 	filters_per_client = list()
 
-/datum/admin_secret_item/investigation/attack_logs/execute(var/mob/user)
+/datum/admin_secret_item/investigation/attack_logs/execute(mob/user)
 	. = ..()
 	if(!.)
 		return
@@ -16,7 +16,7 @@
 	dat += " | <a href='?src=\ref[src];reset=1'>Reset</a>"
 	dat += "<HR>"
 	dat += "<table border='1' style='width:100%;border-collapse:collapse;'>"
-	dat += "<tr><th style='text-align:left;'>Time</th><th style='text-align:left;'>Attacker</th><th style='text-align:left;'>Intent</th><th style='text-align:left;'>Victim</th></tr>"
+	dat += "<tr><th style='text-align:left;'>Time</th><th style='text-align:left;'>Attacker</th><th style='text-align:left;'>Intent</th><th style='text-align:left;'>Zone Sel</th><th style='text-align:left;'>Victim</th></tr>"
 
 	for(var/log in attack_log_repository.attack_logs_)
 		var/datum/attack_log/al = log
@@ -32,13 +32,15 @@
 
 		dat += "<td>[al.intent]</td>"
 
+		dat += "<td>[al.zone_sel]</td>"
+
 		if(al.victim)
 			dat += "<td>[al.victim.key_name(check_if_offline = FALSE)] <a HREF='?_src_=holder;adminplayeropts=[al.victim.ref]'>PP</a></td>"
 		else
 			dat += "<td></td>"
 
 		dat += "</tr>"
-		dat += "<tr><td colspan=4>[al.message]"
+		dat += "<tr><td colspan=5>[al.message]"
 		if(al.location)
 			dat += " <a HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[al.location.x];Y=[al.location.y];Z=[al.location.z]'>JMP</a>"
 		dat += "</td></tr>"
@@ -60,7 +62,7 @@
 	if(.)
 		execute(usr)
 
-/datum/admin_secret_item/investigation/attack_logs/proc/get_user_filters(var/mob/user)
+/datum/admin_secret_item/investigation/attack_logs/proc/get_user_filters(mob/user)
 	if(!user.client)
 		return list()
 
@@ -81,7 +83,7 @@
 		. += af.get_html()
 	. = jointext(.," | ")
 
-/datum/admin_secret_item/investigation/attack_logs/proc/filter_log(user, var/datum/attack_log/al)
+/datum/admin_secret_item/investigation/attack_logs/proc/filter_log(user, datum/attack_log/al)
 	for(var/filter in get_user_filters(user))
 		var/attack_filter/af = filter
 		if(af.filter_attack(al))
@@ -97,7 +99,7 @@
 	var/category = /attack_filter
 	var/datum/admin_secret_item/investigation/attack_logs/holder
 
-/attack_filter/New(var/holder)
+/attack_filter/New(holder)
 	..()
 	src.holder = holder
 
@@ -114,7 +116,7 @@
 /attack_filter/proc/reset()
 	return
 
-/attack_filter/proc/filter_attack(var/datum/attack_log/al)
+/attack_filter/proc/filter_attack(datum/attack_log/al)
 	return FALSE
 
 /attack_filter/proc/OnTopic(href_list)
@@ -130,9 +132,9 @@
 	. = list()
 	. += "Must have clients: "
 	if(filter_missing_clients)
-		. += "<span class='linkOn'>Yes</span><a href='?src=\ref[src];no=1'>No</a>"
+		. += "[SPAN_CLASS("linkOn", "Yes")]<a href='?src=\ref[src];no=1'>No</a>"
 	else
-		. += "<a href='?src=\ref[src];yes=1'>Yes</a><span class='linkOn'>No</span>"
+		. += "<a href='?src=\ref[src];yes=1'>Yes</a>[SPAN_CLASS("linkOn", "No")]"
 	. = jointext(.,null)
 
 /attack_filter/no_client/OnTopic(href_list)
@@ -146,7 +148,7 @@
 /attack_filter/no_client/reset()
 	filter_missing_clients = initial(filter_missing_clients)
 
-/attack_filter/no_client/filter_attack(var/datum/attack_log/al)
+/attack_filter/no_client/filter_attack(datum/attack_log/al)
 	if(!filter_missing_clients)
 		return FALSE
 	if(al.attacker && al.attacker.client.ckey == NO_CLIENT_CKEY)
@@ -192,7 +194,7 @@
 	. = sortList(.)
 	. += "*ANY*"
 
-/attack_filter/must_be_given_ckey/filter_attack(var/datum/attack_log/al)
+/attack_filter/must_be_given_ckey/filter_attack(datum/attack_log/al)
 	if(!ckey_filter)
 		return FALSE
 	if(check_attacker && al.attacker && al.attacker.client.ckey == ckey_filter)

@@ -4,8 +4,8 @@
 	icon = 'icons/urist/kitchen.dmi'
 	icon_state = "fryer_off"
 	layer = 2.9
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 	use_power = 1
 	idle_power_usage = 5
 	var/on = FALSE	//Is it deep frying already?
@@ -14,20 +14,20 @@
 /obj/machinery/deepfryer/examine()
 	..()
 	if(frying)
-		usr << "You can make out [frying] in the oil."
+		to_chat(usr, "You can make out [frying] in the oil.")
 
 /obj/machinery/deepfryer/attackby(obj/item/I, mob/user)
 	if(on)
-		user << "<span class='notice'>[src] is still active!</span>"
+		to_chat(user, "<span class='notice'>[src] is still active!</span>")
 		return
-	if(!istype(I, /obj/item/weapon/reagent_containers/food/snacks/))
-		user << "<span class='warning'>Budget cuts won't let you put that in there.</span>"
+	if(!istype(I, /obj/item/reagent_containers/food/snacks))
+		to_chat(user, "<span class='warning'>Budget cuts won't let you put that in there.</span>")
 		return
-	if(istype(I, /obj/item/weapon/reagent_containers/food/snacks/deepfryholder))
-		user << "<span class='userdanger'>You cannot doublefry.</span>"
+	if(istype(I, /obj/item/reagent_containers/food/snacks/deepfryholder))
+		to_chat(user, "<span class='userdanger'>You cannot doublefry.</span>")
 		return
 	else
-		user << "<span class='notice'>You put [I] into [src].</span>"
+		to_chat(user, "<span class='notice'>You put [I] into [src].</span>")
 		on = TRUE
 		user.drop_item()
 		frying = I
@@ -36,9 +36,9 @@
 		sleep(200)
 
 		if(frying && frying.loc == src)
-			var/obj/item/weapon/reagent_containers/food/snacks/deepfryholder/S = new(get_turf(src))
-			if(istype(frying, /obj/item/weapon/reagent_containers/))
-				var/obj/item/weapon/reagent_containers/food = frying
+			var/obj/item/reagent_containers/food/snacks/deepfryholder/S = new(get_turf(src))
+			if(istype(frying, /obj/item/reagent_containers))
+				var/obj/item/reagent_containers/food = frying
 				food.reagents.trans_to(S, food.reagents.total_volume)
 			S.color = "#ffad33"
 			S.icon = frying.icon
@@ -55,7 +55,7 @@
 
 /obj/machinery/deepfryer/attack_hand(mob/user)
 	if(on && frying)
-		user << "<span class='notice'>You pull [frying] from [src]! It looks like you were just in time!</span>"
+		to_chat(user, "<span class='notice'>You pull [frying] from [src]! It looks like you were just in time!</span>")
 		user.put_in_hands(frying)
 		frying = null
 		return

@@ -18,6 +18,6 @@
 	glass_desc = "A glass of pilk, an unholy combination of milk and cola. There's a special place in hell for people who mix this drink."
 	glass_special = list(DRINK_FIZZ)
 
-/datum/reagent/drink/pilk/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/drink/pilk/affect_ingest(mob/living/carbon/M, var/alien, var/removed)
 	..()
 	M.adjustBrainLoss(0.1)

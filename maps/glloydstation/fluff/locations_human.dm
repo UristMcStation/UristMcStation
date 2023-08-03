@@ -1,4 +1,4 @@
-/decl/cultural_info/location/human
+/singleton/cultural_info/location/human
 	name = HOME_SYSTEM_MARS
 	description = "Terraformed during the 22nd century, Mars is the capital of the Terran Confederacy, the largest and most populous human faction. \
 	The day to day business of conducting the Confederacy is orchestrated from here, and in addition to its obvious political value, \
@@ -13,11 +13,9 @@
 	distance = "1.5AU"
 	capital = "Olympus"
 	economic_power = 1.1
-	language = LANGUAGE_SOL_COMMON
-	secondary_langs = list(LANGUAGE_SIGN, LANGUAGE_GALCOM)
 	ruling_body = FACTION_SOL_CENTRAL
 
-/*/decl/cultural_info/location/human/earth
+/*/singleton/cultural_info/location/human/earth
 	name = HOME_SYSTEM_EARTH
 	description = "Earth, home of humankind, has long been in a state of recovery following centuries of pollution and exploitation. Today, much of \
 	the Earth exists as a nature reserve, dedicated to preserving the history of humanity. The humans that remain live mostly in large urban zones \
@@ -26,12 +24,12 @@
 	Earth are among the wealthier humans on average, though they are still comparable with those of Mars. Remarkably average, the people of Earth are \
 	much as they have been for hundreds of years, and are generally content with their lot in life. From a variety of ancient cultures, the people of \
 	Earth are as diverse as they have always been."
-	secondary_langs = list(LANGUAGE_SIGN, LANGUAGE_LUNAR)
+	secondary_langs = list(LANGUAGE_SIGN, LANGUAGE_HUMAN_SELENIAN)
 	distance = "1AU"
 	capital = "Geneva"
 	economic_power = 1.2*/
 
-/decl/cultural_info/location/human/luna
+/singleton/cultural_info/location/human/luna
 	name = HOME_SYSTEM_LUNA
 	distance = "1AU"
 	description = "Luna stands at a strange position in the Terran Confederacy. Officially, Luna is not a part of the Confederacy; it was privately purchased, \
@@ -49,10 +47,8 @@
 
 	capital = "Selene"
 	economic_power = 1.3
-	language = LANGUAGE_LUNAR
-	secondary_langs = list(LANGUAGE_SIGN,LANGUAGE_SOL_COMMON)
 
-/decl/cultural_info/location/human/venus
+/singleton/cultural_info/location/human/venus
 	name = HOME_SYSTEM_VENUS
 	distance = "0.7AU"
 	description = "Venus, in the Sol System, is a planet which has a largely unsustainable surface atmosphere. \
@@ -72,7 +68,7 @@
 	capital = "Selenia"
 	economic_power = 1.4
 
-/decl/cultural_info/location/human/ceres
+/singleton/cultural_info/location/human/ceres
 	name = HOME_SYSTEM_CERES
 	distance = "2.7AU"
 	description = "Ceres station, officially the Ceres Mining and Habitation Outpost is historically a significant mining facility for humanity. However \
@@ -83,10 +79,8 @@
 	employed in shipbuilding, manufacturing, vessel services and hospitality. Belters generally regard themselves as adaptive, proud members of the Terran Confederacy \
 	and some of the best engineers Humanity has to offer."
 	capital = "Government Zone, Ceres Station"
-	language = LANGUAGE_SPACER
-	secondary_langs = list(LANGUAGE_SIGN, LANGUAGE_SOL_COMMON, LANGUAGE_GUTTER)
 
-/decl/cultural_info/location/human/pluto
+/singleton/cultural_info/location/human/pluto
 	name = HOME_SYSTEM_PLUTO
 	distance = "45AU"
 	description = "Pluto is a small dwarf planet in the Sol system. Pluto has a fairly small population compared \
@@ -99,10 +93,8 @@
 	manage to escape rarely wish to return, though often possess a looser set of morales as a result of their time on the planet."
 	capital = "New Santa Domingo"
 	economic_power = 0.8
-	language = LANGUAGE_GUTTER
-	secondary_langs = list(LANGUAGE_SIGN, LANGUAGE_SOL_COMMON, LANGUAGE_SPACER)
 
-/decl/cultural_info/location/human/cetiepsilon
+/singleton/cultural_info/location/human/cetiepsilon
 	name = HOME_SYSTEM_TAU_CETI
 	distance = "11.9 light years"
 	description = "Ceti Epsilon, the only habitable planet in the Tau Ceti system, is home to its largest population centre. \
@@ -110,14 +102,12 @@
 	in the wider Terran Confederacy, the planet attracted many to its glittering neon lights and easy to get lost in streets. The bright point of \
 	the planet is the Ceti Institute of Technology, is one of the foremost institutions of its type in the TC. \
 	br><br>The people of Ceti Epsilon are some of the most, well, average in the TC. Being from a largely built up world with a focus on \
-	the cutting edge, most Episoloners are tech-savvy, at the very least and are usually well educated, with a focus on the sciences. The people \
+	the cutting edge, most Epsiloners are tech-savvy, at the very least and are usually well educated, with a focus on the sciences. The people \
 	of Ceti Episilon have developed a reputation for being some of the best and brightest that the Confederacy has to offer."
 	capital = "Verlize"
 	economic_power = 1.2
-	language = LANGUAGE_GALCOM
-	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_SIGN)
 
-/decl/cultural_info/location/human/eos
+/singleton/cultural_info/location/human/eos
 	name = HOME_SYSTEM_HELIOS
 	description = "Eos, in the Helios system, is itself a small, hot, dense world. The world itself is of only marginal importance, though it supports a densely packed city, Surya, \
 	which has become known for its banking services. Of more import is the system itself, Helios, and what orbits Eos: The Helios refueling stations and dockyards. This is one of the largest \
@@ -126,12 +116,10 @@
 	This fact alone is what has allowed the Helios system and Eos as a whole to weather multiple economic recessions and has allowed Eos to establish itself as a premier commercial centre of the wider \
 	TC."
 	capital = "Surya"
-	language = LANGUAGE_SOL_COMMON
-	secondary_langs = list(LANGUAGE_SIGN, LANGUAGE_SPACER)
 	economic_power = 1.3
 	distance = "10 light years"
 /*
-/decl/cultural_info/location/human/terra
+/singleton/cultural_info/location/human/terra
 	name = HOME_SYSTEM_TERRA
 	description = "Terra, in the Gilgamesh system. This Terra is not the planet Earth as some may be lead to believe. No, Terra is the birthplace of the breakaway United Human Alliance, and the capital of that \
 	particular faction. Known as New Earth until the UHA took control, Terra is one of the many affiliated planets in the UHA and the one that is perhaps the most important. Terra, much like most of the UHA, is isolationist, with a minimal \
@@ -142,13 +130,13 @@
 	Despite this, the people of Terra are a proud and unbroken people who are heavily patriotic and tend to bring this with them wherever they go."
 	capital = "Ameranth"
 	ruling_body = FACTION_TERRAN_CONFED
-	language = LANGUAGE_INDEPENDENT
+	language = LANGUAGE_HUMAN_RUSSIAN
 	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_GALCOM)
 	distance = "22.5 light years."
 	economic_power = 0.9
 */
 
-/decl/cultural_info/location/human/tersten
+/singleton/cultural_info/location/human/tersten
 	name = HOME_SYSTEM_TERSTEN
 	distance = "52 light years"
 	description = "Tersten is a large plains world in the Gavil system.  With vast mountain ranges, prairie, mesas, forests and deserts, it is a diverse planet. \
@@ -165,13 +153,11 @@
 	Many Tersteners serve in the Defence Forces, and many gave their lives in the Unathi Wars."
 	capital = "Tersten City"
 	economic_power = 1.0
-	language = LANGUAGE_GALCOM
-	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_SIGN)
 
-/decl/cultural_info/location/human/lorriman
+/singleton/cultural_info/location/human/lorriman
 	name = HOME_SYSTEM_LORRIMAN
 	distance = "44 light years"
-	description = "Lorriman is an arctic planet in the Gessshire system.  It is a frozen wasteland with winds reaching 200mph, with an average temperature is -50°C. \
+	description = "Lorriman is an arctic planet in the Gessshire system.  It is a frozen wasteland with winds reaching 200mph, with an average temperature is -50ï¿½C. \
 	Because of this, the planet's cities are either domed or built into mountains. Its economy is built around a technological backbone, providing the technology \
 	and the people skilled to use them.  Its infrastructure is developed enough to support mass transit across the planet. Its capital city is called The Hub, a massive domed structure \
 	that serves both as a spaceport, administrative hub, and habitation zone. It remains the only place on the planet accessible to non-Lorrimanians. \
@@ -182,9 +168,8 @@
 	A scientifically driven people, they have served many organisations loyally."
 	capital = "The Hub"
 	economic_power = 1.0
-	secondary_langs = list(LANGUAGE_SIGN)
 
-/decl/cultural_info/location/human/cinu
+/singleton/cultural_info/location/human/cinu
 	name = HOME_SYSTEM_CINU
 	distance = "48 light years"
 	description = "Cinu is an occupied desert planet, located in the Lucinaer system. \
@@ -197,10 +182,8 @@
 	with many refusing to participate in the Defence Forces. Instead, they serve as peacekeepers and diplomats."
 	capital = "Al-Mular"
 	economic_power = 1.0
-	language = LANGUAGE_GALCOM
-	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_SIGN)
 
-/decl/cultural_info/location/human/yuklid
+/singleton/cultural_info/location/human/yuklid
 	name = HOME_SYSTEM_YUKLID
 	distance = "42 light years"
 	description = "Yuklid V is an occupied jungle world in the Yuklid system.  It is home to large medical facilities and corporate holdings, serving as home to this region of space's medical academia. \
@@ -211,10 +194,8 @@
 	More recently, a spiritualist movement has developed on the planet, taking aspects of religious theory and the hippocratic oath."
 	capital = "Iyeegi"
 	economic_power = 0.9
-	language = LANGUAGE_GALCOM
-	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_SIGN)
 
-/decl/cultural_info/location/human/lordania
+/singleton/cultural_info/location/human/lordania
 	name = HOME_SYSTEM_LORDANIA
 	distance = "40 light years"
 	description = "Lordania is a heavily developed plains world in the Lordania system.  The planet has developed five large mega-cities, connected by various suburban developments. \
@@ -227,10 +208,8 @@
 	and often see themselves as better. Most Lordanians are seen as untrustworthy, or selfish. As such, they are rarely seen within the Terran Defence Forces."
 	capital = "New Ares"
 	economic_power = 1.2
-	language = LANGUAGE_GALCOM
-	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_LUNAR)
 
-/decl/cultural_info/location/human/kingston
+/singleton/cultural_info/location/human/kingston
 	name = HOME_SYSTEM_KINGSTON
 	distance = "40 light years"
 	description = "Kingston is an occupied ocean world made of various archipelagos, within the Lordania system. The planet's surface is 90% water, and much of the population live around the equator. \
@@ -242,19 +221,15 @@
 	their Sol-born brothers, and are usually seen onboard most TC Vessels.  Growing up on a waterworld, most Kingstonians can sail a boat, something rare in the 26th Century."
 	capital = "New Havana"
 	economic_power = 1.1
-	language = LANGUAGE_SOL_COMMON
-	secondary_langs = list(LANGUAGE_SPACER, LANGUAGE_GALCOM)
 
-/decl/cultural_info/location/human/gaia
+/singleton/cultural_info/location/human/gaia
 	name = HOME_SYSTEM_GAIA
 	distance = "14 light years"
 	description = "Gaia is the sole planet in the Galilei system, and a noted agricultural world."
 	capital = "New Venice"
 	economic_power = 0.7
-	language = LANGUAGE_SOL_COMMON
-	secondary_langs = list(LANGUAGE_INDEPENDENT, LANGUAGE_GALCOM)
 
-/decl/cultural_info/location/human/ryclies
+/singleton/cultural_info/location/human/ryclies
 	name = HOME_SYSTEM_RYCLIES
 	distance = "12 light years"
 	description = "The Ryclies system is one of the Terran Confederacy's core systems. The system is a binary star system, orbited by four planets and numerous artificial constructs. Chief among these planets is \
@@ -267,10 +242,8 @@
 	a point of pride for many Ryclians."
 	capital = "Ryclies City"
 	economic_power = 0.7
-	language = LANGUAGE_SOL_COMMON
-	secondary_langs = list(LANGUAGE_SPACER, LANGUAGE_GALCOM)
 
-/decl/cultural_info/location/human/reade
+/singleton/cultural_info/location/human/reade
 	name = HOME_SYSTEM_READE
 	distance = "114 light years"
 	description = "Reade III, the headquarters of the The Outer Rim Miners Alliance. A cold planet circling a weak star in the Outer Rim, the governing body of the ORMA \
@@ -278,10 +251,8 @@
 	capital = "New Reade City"
 	economic_power = 0.7
 	ruling_body = FACTION_ORMA
-	language = LANGUAGE_SPACER
-	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_GALCOM)
 
-/decl/cultural_info/location/human/procyon
+/singleton/cultural_info/location/human/procyon
 	name = HOME_SYSTEM_PROCYON
 	distance = "11.46 light years"
 	description = "Located in the eponymous Procyon system (also known as Alpha Canis Minoris), Procyon is the chief planet of NanoTrasen, and is home to the NanoTrasen \
@@ -291,5 +262,3 @@
 	capital = "Trasen City"
 	economic_power = 1.3
 	ruling_body = FACTION_NANOTRASEN
-	language = LANGUAGE_SOL_COMMON
-	secondary_langs = list(LANGUAGE_GALCOM)

@@ -22,12 +22,12 @@
 	activation_message   = "You feel unable to express yourself at all."
 	deactivation_message = "You feel able to speak freely again."
 
-	New()
-		..()
-		block=MUTEBLOCK
+/datum/dna/gene/disability/mute/New()
+	..()
+	block=GLOB.MUTEBLOCK
 
-	OnSay(var/mob/M, var/message)
-		return ""
+/datum/dna/gene/disability/mute/OnSay(mob/M, var/message)
+	return ""
 
 ////////////////////////////////////////
 // Harmful to others as well as self
@@ -39,21 +39,21 @@
 	activation_message = "You feel a strange sickness permeate your whole body."
 	deactivation_message = "You no longer feel awful and sick all over."
 
-	New()
-		..()
-		block=RADBLOCK
+/datum/dna/gene/disability/radioactive/New()
+	..()
+	block=GLOB.RADBLOCK
 
-	OnMobLife(var/mob/owner)
-		owner.radiation = max(owner.radiation, 20)
-		for(var/atom/L in range(1, owner))
-			if(L == owner) continue
-			if (istype(L, /mob/living))
-				L << "<span class='warning'> You are enveloped by a soft green glow emanating from [owner].</span>"
-			L.rad_act(5)
-		return
+/datum/dna/gene/disability/radioactive/OnMobLife(mob/owner)
+	owner.radiation = max(owner.radiation, 20)
+	for(var/atom/L in range(1, owner))
+		if(L == owner) continue
+		if (istype(L, /mob/living))
+			to_chat(L, "<span class='warning'> You are enveloped by a soft green glow emanating from [owner].</span>")
+		L.rad_act(5)
+	return
 
-	OnDrawUnderlays(var/mob/M,var/g,var/fat)
-		return "rads[fat]_s"
+/datum/dna/gene/disability/radioactive/OnDrawUnderlays(mob/M,var/g,var/fat)
+	return "rads[fat]_s"
 
 ////////////////////////////////////////
 // Other disabilities
@@ -68,9 +68,9 @@
 
 	mutation = M_OBESITY
 
-	New()
-		..()
-		block=FATBLOCK
+/datum/dna/gene/disability/fat/New()
+	..()
+	block=GLOB.FATBLOCK
 
 /////////////////////////
 // SPEECH MANIPULATORS //
@@ -137,42 +137,42 @@
 	activation_message = "Ye feel like a reet prat like, innit?"
 	deactivation_message = "You no longer feel like being rude and sassy."
 
-	New()
-		..()
-		block=CHAVBLOCK
+/datum/dna/gene/disability/speech/chav/New()
+	..()
+	block=GLOB.CHAVBLOCK
 
-	OnSay(var/mob/M, var/message)
-		// THIS ENTIRE THING BEGS FOR REGEX
-		message = replacetext(message,"dick","prat")
-		message = replacetext(message,"comdom","knob'ead")
-		message = replacetext(message,"looking at","gawpin' at")
-		message = replacetext(message,"great","bangin'")
-		message = replacetext(message,"man","mate")
-		message = replacetext(message,"friend",pick("mate","bruv","bledrin"))
-		message = replacetext(message,"what","wot")
-		message = replacetext(message,"drink","wet")
-		message = replacetext(message,"get","giz")
-		message = replacetext(message,"what","wot")
-		message = replacetext(message,"no thanks","wuddent fukken do one")
-		message = replacetext(message,"i don't know","wot mate")
-		message = replacetext(message,"no","naw")
-		message = replacetext(message,"robust","chin")
-		message = replacetext(message," hi ","how what how")
-		message = replacetext(message,"hello","sup bruv")
-		message = replacetext(message,"kill","bang")
-		message = replacetext(message,"murder","bang")
-		message = replacetext(message,"windows","windies")
-		message = replacetext(message,"window","windy")
-		message = replacetext(message,"break","do")
-		message = replacetext(message,"your","yer")
-		message = replacetext(message,"security","coppers")
-		message = replacetext(message,"stab","cut")
-		message = replacetext(message,"excuse me","you wot mate")
-		message = replacetext(message,"my mom", "me mam")
-		message = replacetext(message,"i swear","swer on me mam")
-		message = replacetext(message,"right","reet")
-		message = replacetext(message,"isn't it","innit")
-		return message
+/datum/dna/gene/disability/speech/chav/OnSay(mob/M, var/message)
+	// THIS ENTIRE THING BEGS FOR REGEX
+	message = replacetext(message,"dick","prat")
+	message = replacetext(message,"comdom","knob'ead")
+	message = replacetext(message,"looking at","gawpin' at")
+	message = replacetext(message,"great","bangin'")
+	message = replacetext(message,"man","mate")
+	message = replacetext(message,"friend",pick("mate","bruv","bledrin"))
+	message = replacetext(message,"what","wot")
+	message = replacetext(message,"drink","wet")
+	message = replacetext(message,"get","giz")
+	message = replacetext(message,"what","wot")
+	message = replacetext(message,"no thanks","wuddent fukken do one")
+	message = replacetext(message,"i don't know","wot mate")
+	message = replacetext(message,"no","naw")
+	message = replacetext(message,"robust","chin")
+	message = replacetext(message," hi ","how what how")
+	message = replacetext(message,"hello","sup bruv")
+	message = replacetext(message,"kill","bang")
+	message = replacetext(message,"murder","bang")
+	message = replacetext(message,"windows","windies")
+	message = replacetext(message,"window","windy")
+	message = replacetext(message,"break","do")
+	message = replacetext(message,"your","yer")
+	message = replacetext(message,"security","coppers")
+	message = replacetext(message,"stab","cut")
+	message = replacetext(message,"excuse me","you wot mate")
+	message = replacetext(message,"my mom", "me mam")
+	message = replacetext(message,"i swear","swer on me mam")
+	message = replacetext(message,"right","reet")
+	message = replacetext(message,"isn't it","innit")
+	return message
 
 // WAS: /datum/bioEffect/swedish
 /datum/dna/gene/disability/speech/swedish
@@ -181,18 +181,19 @@
 	activation_message = "You feel Swedish, however that works."
 	deactivation_message = "The feeling of Swedishness passes."
 
-	New()
-		..()
-		block=SWEDEBLOCK
+/datum/dna/gene/disability/speech/swedish/New()
+	..()
+	block=GLOB.SWEDEBLOCK
 
-	OnSay(var/mob/M, var/message)
-		// svedish
-		message = replacetext(message,"w","v")
-		if(prob(30))
-			message += " Bork[pick("",", bork",", bork, bork")]!"
-		return message
+/datum/dna/gene/disability/speech/swedish/OnSay(mob/M, var/message)
+	// svedish
+	message = replacetext(message,"w","v")
+	if(prob(30))
+		message += " Bork[pick("",", bork",", bork, bork")]!"
+	return message
 
 // WAS: /datum/bioEffect/unintelligable
+/*
 /datum/dna/gene/disability/unintelligable
 	name = "Unintelligable"
 	desc = "Heavily corrupts the part of the brain responsible for forming spoken sentences."
@@ -215,7 +216,7 @@
 
 		var/list/words = splittext(message," ")
 		var/list/rearranged = list()
-		for(var/i=1;i<=words.len;i++)
+		for(var/i=1;i<=length(words);i++)
 			var/cword = pick(words)
 			words.Remove(cword)
 			var/suffix = copytext(cword,length(cword)-1,length(cword))
@@ -224,7 +225,7 @@
 				suffix = copytext(cword,length(cword)-1,length(cword)  )
 			if(length(cword))
 				rearranged += cword
-		return "[prefix][uppertext(dd_list2text(rearranged," "))]!!"
+		return "[prefix][uppertext(dd_list2text(rearranged," "))]!!"*/
 
 /*// WAS: /datum/bioEffect/toxic_farts
 /datum/dna/gene/disability/toxic_farts // NO -- Glloyd
@@ -264,12 +265,12 @@
 	activation_message = "A pair of horns erupt from your head."
 	deactivation_message = "Your horns crumble away into nothing."
 
-	New()
-		..()
-		block=HORNSBLOCK
+/datum/dna/gene/disability/horns/New()
+	..()
+	block=GLOB.HORNSBLOCK
 
-	OnDrawUnderlays(var/mob/M,var/g,var/fat)
-		return "horns_s"
+/datum/dna/gene/disability/horns/OnDrawUnderlays(mob/M,var/g,var/fat)
+	return "horns_s"
 
 /* Stupid
 /datum/bioEffect/stinky
@@ -294,9 +295,9 @@
 				if (C == owner)
 					continue
 				if (src.variant == 2)
-					C << "<span class='warning'> [src.personalized_stink]</span>"
+					to_target(C, "<span class='warning'> [src.personalized_stink]</span>")
 				else
-					C << "<span class='warning'> [stinkString()]</span>"
+					to_target(C, "<span class='warning'> [stinkString()]</span>")
 */
 
 
@@ -359,7 +360,7 @@
 	set desc = "Transform yourself into a liquified state."
 	set category = "Mutant Abilities"
 
-	if (istype(usr,/mob/living/carbon/human/))
+	if (istype(usr,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = usr
 
 		H.visible_message("<span class='danger'>[H.name]'s flesh melts right off! Holy shit!</span>")
@@ -391,9 +392,9 @@
 	activation_message = "Thomething doethn't feel right."
 	deactivation_message = "You now feel able to pronounce consonants."
 
-	New()
-		..()
-		block=LISPBLOCK
+/datum/dna/gene/disability/lisp/New()
+	..()
+	block=GLOB.LISPBLOCK
 
-	OnSay(var/mob/M, var/message)
+/datum/dna/gene/disability/lisp/OnSay(mob/M, var/message)
 		return replacetext(message,"s","th")

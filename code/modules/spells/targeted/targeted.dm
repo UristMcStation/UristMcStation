@@ -22,6 +22,7 @@ Targeted spells have two useful flags: INCLUDEUSER and SELECTABLE. These are exp
 	var/amt_dam_brute = 0
 	var/amt_dam_oxy = 0
 	var/amt_dam_tox = 0
+	var/amt_dam_robo = 0
 	var/amt_brain = 0
 	var/amt_radiation = 0
 	var/amt_blood = 0 //Positive numbers to add blood
@@ -42,7 +43,7 @@ Targeted spells have two useful flags: INCLUDEUSER and SELECTABLE. These are exp
 
 	if(max_targets == 0) //unlimited
 		if(range == -2)
-			targets = GLOB.living_mob_list_
+			targets = GLOB.alive_mobs
 		else
 			for(var/mob/living/target in view_or_range(range, holder, selection_type))
 				targets += target
@@ -54,7 +55,7 @@ Targeted spells have two useful flags: INCLUDEUSER and SELECTABLE. These are exp
 			var/list/possible_targets = list()
 			var/list/starting_targets
 			if(range == -2)
-				starting_targets = GLOB.living_mob_list_
+				starting_targets = GLOB.alive_mobs
 			else
 				starting_targets = view_or_range(range, holder, selection_type)
 
@@ -65,13 +66,13 @@ Targeted spells have two useful flags: INCLUDEUSER and SELECTABLE. These are exp
 					continue
 				if((spell_flags & NONONFACTION) && user.faction != M.faction)
 					continue
-				if(compatible_mobs && compatible_mobs.len)
+				if(compatible_mobs && length(compatible_mobs))
 					if(!is_type_in_list(M, compatible_mobs)) continue
-				if(compatible_mobs && compatible_mobs.len && !is_type_in_list(M, compatible_mobs))
+				if(compatible_mobs && length(compatible_mobs) && !is_type_in_list(M, compatible_mobs))
 					continue
 				possible_targets += M
 
-			if(possible_targets.len)
+			if(length(possible_targets))
 				if(spell_flags & SELECTABLE) //if we are allowed to choose. see setup.dm for details
 					var/mob/temp_target = input(user, "Choose the target for the spell.", "Targeting") as null|mob in possible_targets
 					if(temp_target)
@@ -86,7 +87,7 @@ Targeted spells have two useful flags: INCLUDEUSER and SELECTABLE. These are exp
 		var/list/starting_targets
 
 		if(range == -2)
-			starting_targets = GLOB.living_mob_list_
+			starting_targets = GLOB.alive_mobs
 		else
 			starting_targets = view_or_range(range, holder, selection_type)
 
@@ -99,7 +100,7 @@ Targeted spells have two useful flags: INCLUDEUSER and SELECTABLE. These are exp
 
 		if(spell_flags & SELECTABLE)
 			for(var/i = 1; i<=max_targets, i++)
-				if(!possible_targets.len)
+				if(!length(possible_targets))
 					break
 				var/mob/M = input(user, "Choose the target for the spell.", "Targeting") as null|mob in possible_targets
 				if(!M)
@@ -111,7 +112,7 @@ Targeted spells have two useful flags: INCLUDEUSER and SELECTABLE. These are exp
 				possible_targets -= M
 		else
 			for(var/i=1,i<=max_targets,i++)
-				if(!possible_targets.len)
+				if(!length(possible_targets))
 					break
 				if(target_ignore_prev)
 					var/target = pick(possible_targets)
@@ -123,14 +124,14 @@ Targeted spells have two useful flags: INCLUDEUSER and SELECTABLE. These are exp
 	if(!(spell_flags & INCLUDEUSER) && (user in targets))
 		targets -= user
 
-	if(compatible_mobs && compatible_mobs.len)
+	if(compatible_mobs && length(compatible_mobs))
 		for(var/mob/living/target in targets) //filters out all the non-compatible mobs
 			if(!is_type_in_list(target, compatible_mobs))
 				targets -= target
 
 	return targets
 
-/spell/targeted/cast(var/list/targets, mob/user)
+/spell/targeted/cast(list/targets, mob/user)
 	for(var/mob/living/target in targets)
 		if(range >= 0)
 			if(!(target in view_or_range(range, holder, selection_type))) //filter at time of casting
@@ -145,9 +146,13 @@ Targeted spells have two useful flags: INCLUDEUSER and SELECTABLE. These are exp
 	target.adjustOxyLoss(amt_dam_oxy)
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
-		for(var/obj/item/organ/external/affecting in H.organs)
+		for(var/obj/item/organ/internal/affecting in H.internal_organs)
 			if(affecting && istype(affecting))
 				affecting.heal_damage(amt_organ, amt_organ)
+		for(var/obj/item/organ/external/affecting in H.organs)
+			if(affecting && istype(affecting))
+				var/dam = BP_IS_ROBOTIC(affecting) ? -amt_dam_robo : amt_organ
+				affecting.heal_damage(dam, dam, robo_repair = BP_IS_ROBOTIC(affecting))
 		H.vessel.add_reagent(/datum/reagent/blood,amt_blood)
 		H.adjustBrainLoss(amt_brain)
 		H.radiation += min(H.radiation, amt_radiation)

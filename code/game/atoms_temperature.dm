@@ -1,28 +1,26 @@
 #define MIN_TEMPERATURE_COEFFICIENT 1
 #define MAX_TEMPERATURE_COEFFICIENT 10
 
-/atom
-	var/temperature = T20C
-	var/temperature_coefficient = MAX_TEMPERATURE_COEFFICIENT
+/// Float. The atom's current temperature.
+/atom/var/temperature = T20C
+/// Float. Multiplier used to determine how much temperature can change/transfer to this atom when a temperature change proc is called. See `ProcessAtomTemperature()` and `/obj/proc/HandleObjectHeating()`. Should be a value between `MIN_TEMPERATURE_COEFFICIENT` and `MAX_TEMPERATURE_COEFFICIENT`.
+/atom/var/temperature_coefficient = MAX_TEMPERATURE_COEFFICIENT
 
-/atom/movable/Entered(var/atom/movable/atom, var/atom/old_loc)
+/atom/movable/Entered(atom/movable/atom, atom/old_loc)
 	. = ..()
 	QUEUE_TEMPERATURE_ATOMS(atom)
 
-/obj
-	temperature_coefficient = null
+/obj/temperature_coefficient = null
 
-/mob
-	temperature_coefficient = null
+/mob/temperature_coefficient = null
 
-/turf
-	temperature_coefficient = MIN_TEMPERATURE_COEFFICIENT
+/turf/temperature_coefficient = MIN_TEMPERATURE_COEFFICIENT
 
 /obj/Initialize()
 	. = ..()
-	temperature_coefficient = isnull(temperature_coefficient) ? Clamp(MAX_TEMPERATURE_COEFFICIENT - w_class, MIN_TEMPERATURE_COEFFICIENT, MAX_TEMPERATURE_COEFFICIENT) : temperature_coefficient
+	temperature_coefficient = isnull(temperature_coefficient) ? clamp(MAX_TEMPERATURE_COEFFICIENT - w_class, MIN_TEMPERATURE_COEFFICIENT, MAX_TEMPERATURE_COEFFICIENT) : temperature_coefficient
 
-/obj/proc/HandleObjectHeating(var/obj/item/heated_by, var/mob/user, var/adjust_temp)
+/obj/proc/HandleObjectHeating(obj/item/heated_by, mob/user, adjust_temp)
 	if(ATOM_IS_TEMPERATURE_SENSITIVE(src))
 		visible_message(SPAN_NOTICE("\The [user] carefully heats \the [src] with \the [heated_by]."))
 		var/diff_temp = (adjust_temp - temperature)
@@ -32,8 +30,13 @@
 
 /mob/Initialize()
 	. = ..()
-	temperature_coefficient = isnull(temperature_coefficient) ? Clamp(MAX_TEMPERATURE_COEFFICIENT - Floor(mob_size/4), MIN_TEMPERATURE_COEFFICIENT, MAX_TEMPERATURE_COEFFICIENT) : temperature_coefficient
+	temperature_coefficient = isnull(temperature_coefficient) ? clamp(MAX_TEMPERATURE_COEFFICIENT - Floor(mob_size/4), MIN_TEMPERATURE_COEFFICIENT, MAX_TEMPERATURE_COEFFICIENT) : temperature_coefficient
 
+/**
+ * Temperature subsystem process.
+ *
+ * Returns void or `PROCESS_KILL`.
+ */
 /atom/proc/ProcessAtomTemperature()
 
 	// Get our location temperature if possible.

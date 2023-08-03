@@ -64,11 +64,11 @@
 /area/spacestations/nanotrasenspace)
 "ak" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/paper_bin{
+/obj/item/paper_bin{
 	pixel_x = 1;
 	pixel_y = 9
 	},
-/obj/item/weapon/pen,
+/obj/item/pen,
 /obj/machinery/door/window/westleft{
 	name = "Transit Desk"
 	},
@@ -84,7 +84,7 @@
 /obj/structure/sign/urist/nt{
 	pixel_x = 32
 	},
-/obj/item/modular_computer/console/preset/command{
+/obj/machinery/computer/modular/preset/cardslot/command{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -110,7 +110,7 @@
 	d2 = 2
 	},
 /obj/machinery/power/apc/high{
-	cell_type = /obj/item/weapon/cell/infinite;
+	cell_type = /obj/item/cell/infinite;
 	dir = 8;
 	name = "west bump";
 	pixel_x = -24
@@ -162,8 +162,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	color = "#d2af6e";
 	dir = 8;
-	icon_state = "warningcorner";
-	tag = "icon-warningcorner (WEST)"
+	icon_state = "warningcorner"
 	},
 /obj/machinery/light{
 	dir = 1
@@ -214,15 +213,14 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	color = "#d2af6e";
 	dir = 8;
-	icon_state = "warningcorner";
-	tag = "icon-warningcorner (WEST)"
+	icon_state = "warningcorner"
 	},
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
 "aC" = (
-/obj/item/modular_computer/console/preset/command{
+/obj/machinery/computer/modular/preset/cardslot/command{
 	dir = 8
 	},
 /obj/structure/sign/urist/nt{
@@ -239,7 +237,6 @@
 	},
 /area/spacestations/nanotrasenspace)
 "aE" = (
-/turf/simulated/floor/tiled/dark,
 /turf/unsimulated/wall{
 	desc = "That looks like it doesn't open easily.";
 	icon = 'icons/obj/machines/shielding.dmi';
@@ -295,7 +292,6 @@
 /area/spacestations/nanotrasenspace)
 "aM" = (
 /obj/structure/bed/chair/urist/bench/bench1/left{
-	tag = "icon-benchleft (WEST)";
 	icon_state = "benchleft";
 	dir = 8
 	},
@@ -312,7 +308,7 @@
 /area/spacestations/nanotrasenspace)
 "aO" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/shuttle/white,
 /area/spacestations/nanotrasenspace)
 "aP" = (
@@ -344,7 +340,7 @@
 /area/spacestations/nanotrasenspace)
 "aV" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/regular{
+/obj/item/storage/firstaid/regular{
 	pixel_x = 2;
 	pixel_y = 3
 	},
@@ -359,7 +355,6 @@
 /area/spacestations/nanotrasenspace)
 "aX" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHWEST)";
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -373,7 +368,6 @@
 /area/spacestations/nanotrasenspace)
 "aY" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
-	tag = "icon-benchmid (WEST)";
 	icon_state = "benchmid";
 	dir = 8
 	},
@@ -396,7 +390,6 @@
 /area/spacestations/nanotrasenspace)
 "bc" = (
 /obj/structure/bed/chair/urist/shuttle{
-	tag = "icon-shuttlechair (WEST)";
 	icon_state = "shuttlechair";
 	dir = 8
 	},
@@ -422,7 +415,7 @@
 	pixel_x = 11;
 	pixel_y = 0
 	},
-/obj/item/weapon/storage/mirror{
+/obj/item/storage/mirror{
 	pixel_x = 28;
 	pixel_y = -2
 	},
@@ -455,12 +448,10 @@
 /area/spacestations/nanotrasenspace)
 "bk" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
-	tag = "icon-benchright (WEST)";
 	icon_state = "benchright";
 	dir = 8
 	},
-/mob/living/simple_animal/hostile/npc/colonist/nanotrasen{
-	tag = "icon-body_m_s (WEST)";
+/mob/living/simple_animal/passive/npc/colonist/nanotrasen{
 	icon_state = "body_m_s";
 	dir = 8
 	},
@@ -476,7 +467,6 @@
 /area/spacestations/nanotrasenspace)
 "bn" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
-	tag = "icon-benchright (WEST)";
 	icon_state = "benchright";
 	dir = 8
 	},
@@ -505,7 +495,6 @@
 /area/spacestations/nanotrasenspace)
 "br" = (
 /obj/structure/flora/pottedplant{
-	tag = "icon-plant-22";
 	icon_state = "plant-22"
 	},
 /obj/structure/sign/urist/ad/sign5{
@@ -515,7 +504,6 @@
 /area/spacestations/nanotrasenspace)
 "bs" = (
 /obj/structure/flora/pottedplant{
-	tag = "icon-plant-22";
 	icon_state = "plant-22"
 	},
 /turf/simulated/floor/tiled,
@@ -527,7 +515,6 @@
 "bu" = (
 /obj/machinery/light,
 /obj/structure/bed/chair/urist/bench/bench1/left{
-	tag = "icon-benchleft (NORTH)";
 	icon_state = "benchleft";
 	dir = 1
 	},
@@ -551,7 +538,6 @@
 /area/spacestations/nanotrasenspace)
 "bx" = (
 /obj/machinery/newscaster{
-	layer = 3.3;
 	pixel_x = 0;
 	pixel_y = -27
 	},
@@ -580,7 +566,6 @@
 	pixel_y = -32
 	},
 /obj/structure/bed/chair/urist/bench/bench1/right{
-	tag = "icon-benchright (NORTH)";
 	icon_state = "benchright";
 	dir = 1
 	},
@@ -595,7 +580,6 @@
 /area/spacestations/nanotrasenspace)
 "bF" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -624,7 +608,6 @@
 /area/spacestations/nanotrasenspace)
 "bJ" = (
 /obj/structure/bed/chair/urist/bench/bench1/left{
-	tag = "icon-benchleft (NORTH)";
 	icon_state = "benchleft";
 	dir = 1
 	},
@@ -632,7 +615,6 @@
 /area/spacestations/nanotrasenspace)
 "bK" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
-	tag = "icon-benchmid (NORTH)";
 	icon_state = "benchmid";
 	dir = 1
 	},
@@ -640,7 +622,6 @@
 /area/spacestations/nanotrasenspace)
 "bL" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
-	tag = "icon-benchright (NORTH)";
 	icon_state = "benchright";
 	dir = 1
 	},
@@ -648,7 +629,6 @@
 /area/spacestations/nanotrasenspace)
 "bM" = (
 /obj/structure/bed/chair/urist/bench/bench1/left{
-	tag = "icon-benchleft (EAST)";
 	icon_state = "benchleft";
 	dir = 4
 	},
@@ -669,12 +649,10 @@
 /area/spacestations/nanotrasenspace)
 "bQ" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
-	tag = "icon-benchmid (WEST)";
 	icon_state = "benchmid";
 	dir = 8
 	},
-/mob/living/simple_animal/hostile/npc/colonist/nanotrasen{
-	tag = "icon-body_m_s (WEST)";
+/mob/living/simple_animal/passive/npc/colonist/nanotrasen{
 	icon_state = "body_m_s";
 	dir = 8
 	},
@@ -682,7 +660,6 @@
 /area/spacestations/nanotrasenspace)
 "bR" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
-	tag = "icon-benchmid (WEST)";
 	icon_state = "benchmid";
 	dir = 8
 	},
@@ -696,7 +673,6 @@
 	dir = 1
 	},
 /obj/structure/flora/pottedplant/Nienplants/plant{
-	tag = "icon-ywflowers_3";
 	icon_state = "ywflowers_3"
 	},
 /turf/simulated/floor/grass,
@@ -706,7 +682,6 @@
 	dir = 1
 	},
 /obj/structure/flora/pottedplant/Nienplants/plant{
-	tag = "icon-ppflowers_3";
 	icon_state = "ppflowers_3"
 	},
 /turf/simulated/floor/grass,
@@ -716,7 +691,6 @@
 	dir = 4
 	},
 /obj/structure/bed/chair/urist/bench/bench1/left{
-	tag = "icon-benchleft (WEST)";
 	icon_state = "benchleft";
 	dir = 8
 	},
@@ -730,7 +704,6 @@
 /area/spacestations/nanotrasenspace)
 "bW" = (
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (NORTH)";
 	icon_state = "warning";
 	dir = 1
 	},
@@ -740,7 +713,6 @@
 /area/spacestations/nanotrasenspace)
 "bX" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
-	tag = "icon-benchmid (WEST)";
 	icon_state = "benchmid";
 	dir = 8
 	},
@@ -754,14 +726,12 @@
 /area/spacestations/nanotrasenspace)
 "bZ" = (
 /obj/structure/flora/pottedplant/Nienplants/plant{
-	tag = "icon-ppflowers_3";
 	icon_state = "ppflowers_3"
 	},
 /turf/simulated/floor/grass,
 /area/spacestations/nanotrasenspace)
 "ca" = (
 /obj/structure/flora/pottedplant/Nienplants/plant{
-	tag = "icon-sunnybush_3";
 	icon_state = "sunnybush_3"
 	},
 /turf/simulated/floor/grass,
@@ -792,7 +762,6 @@
 "cf" = (
 /obj/structure/window/reinforced,
 /obj/structure/flora/pottedplant/Nienplants/plant{
-	tag = "icon-ywflowers_3";
 	icon_state = "ywflowers_3"
 	},
 /turf/simulated/floor/grass,
@@ -800,13 +769,12 @@
 "cg" = (
 /obj/structure/window/reinforced,
 /obj/structure/flora/pottedplant/Nienplants/plant{
-	tag = "icon-ppflowers_3";
 	icon_state = "ppflowers_3"
 	},
 /turf/simulated/floor/grass,
 /area/spacestations/nanotrasenspace)
 "ch" = (
-/obj/item/weapon/stool/bar/padded,
+/obj/item/stool/bar/padded,
 /turf/simulated/floor/wood,
 /area/spacestations/nanotrasenspace)
 "ci" = (
@@ -820,9 +788,7 @@
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "ck" = (
-/mob/living/simple_animal/hostile/npc/colonist/labourer/nanotrasen{
-	wander = 1
-	},
+/mob/living/simple_animal/passive/npc/colonist/labourer/nanotrasen,
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "cl" = (
@@ -835,7 +801,6 @@
 /area/spacestations/nanotrasenspace)
 "cn" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
-	tag = "icon-benchright (EAST)";
 	icon_state = "benchright";
 	dir = 4
 	},
@@ -853,7 +818,6 @@
 /area/spacestations/nanotrasenspace)
 "cq" = (
 /obj/structure/bed/chair/urist/bench/bench1/left{
-	tag = "icon-benchleft (NORTH)";
 	icon_state = "benchleft";
 	dir = 1
 	},
@@ -864,7 +828,6 @@
 /area/spacestations/nanotrasenspace)
 "cr" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
-	tag = "icon-benchmid (NORTH)";
 	icon_state = "benchmid";
 	dir = 1
 	},
@@ -883,7 +846,6 @@
 /area/spacestations/nanotrasenspace)
 "ct" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
-	tag = "icon-benchmid (NORTH)";
 	icon_state = "benchmid";
 	dir = 1
 	},
@@ -896,7 +858,6 @@
 /area/spacestations/nanotrasenspace)
 "cv" = (
 /obj/structure/bed/chair/wood{
-	tag = "icon-wooden_chair (EAST)";
 	icon_state = "wooden_chair";
 	dir = 4
 	},
@@ -904,7 +865,6 @@
 /area/spacestations/nanotrasenspace)
 "cw" = (
 /obj/structure/bed/chair/wood{
-	tag = "icon-wooden_chair (WEST)";
 	icon_state = "wooden_chair";
 	dir = 8
 	},
@@ -916,7 +876,6 @@
 /area/spacestations/nanotrasenspace)
 "cy" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
-	tag = "icon-benchmid (NORTH)";
 	icon_state = "benchmid";
 	dir = 1
 	},
@@ -927,12 +886,10 @@
 /area/spacestations/nanotrasenspace)
 "cz" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
-	tag = "icon-benchmid (NORTH)";
 	icon_state = "benchmid";
 	dir = 1
 	},
 /obj/machinery/newscaster{
-	layer = 3.3;
 	pixel_x = 0;
 	pixel_y = -27
 	},
@@ -940,7 +897,6 @@
 /area/spacestations/nanotrasenspace)
 "cA" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
-	tag = "icon-benchright (NORTH)";
 	icon_state = "benchright";
 	dir = 1
 	},
@@ -967,7 +923,6 @@
 /area/spacestations/nanotrasenspace)
 "cF" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
-	tag = "icon-benchright (NORTH)";
 	icon_state = "benchright";
 	dir = 1
 	},
@@ -986,7 +941,6 @@
 /area/spacestations/nanotrasenspace)
 "cH" = (
 /obj/structure/bed/chair/wood{
-	tag = "icon-wooden_chair_preview (NORTH)";
 	icon_state = "wooden_chair_preview";
 	dir = 1
 	},
@@ -1018,19 +972,18 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /turf/simulated/floor/plating,
 /area/spacestations/nanotrasenspace)
 "cN" = (
-/mob/living/simple_animal/hostile/npc/colonist/trader/crop_trader,
+/mob/living/simple_animal/passive/npc/colonist/trader/crop_trader,
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "cO" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	color = "#d2af6e";
 	dir = 4;
-	icon_state = "warningcorner";
-	tag = "icon-warningcorner (EAST)"
+	icon_state = "warningcorner"
 	},
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
@@ -1048,7 +1001,6 @@
 /area/spacestations/nanotrasenspace)
 "cQ" = (
 /obj/structure/bed/chair/couch/left/black{
-	tag = "icon-couch_left (EAST)";
 	icon_state = "couch_left";
 	dir = 4
 	},
@@ -1056,7 +1008,6 @@
 /area/spacestations/nanotrasenspace)
 "cR" = (
 /obj/structure/bed/chair/couch/right/black{
-	tag = "icon-couch_right (WEST)";
 	icon_state = "couch_right";
 	dir = 8
 	},
@@ -1090,7 +1041,6 @@
 /area/spacestations/nanotrasenspace)
 "cV" = (
 /obj/structure/bed/chair/couch/middle/black{
-	tag = "icon-couch_middle (NORTHEAST)";
 	icon_state = "couch_middle";
 	dir = 5
 	},
@@ -1099,7 +1049,6 @@
 "cW" = (
 /obj/machinery/light,
 /obj/structure/bed/chair/couch/middle/black{
-	tag = "icon-couch_middle (NORTH)";
 	icon_state = "couch_middle";
 	dir = 1
 	},
@@ -1107,7 +1056,6 @@
 /area/spacestations/nanotrasenspace)
 "cX" = (
 /obj/structure/bed/chair/couch/right/black{
-	tag = "icon-couch_right (NORTH)";
 	icon_state = "couch_right";
 	dir = 1
 	},
@@ -1115,7 +1063,6 @@
 /area/spacestations/nanotrasenspace)
 "cY" = (
 /obj/structure/bed/chair/couch/left/black{
-	tag = "icon-couch_left (NORTH)";
 	icon_state = "couch_left";
 	dir = 1
 	},
@@ -1123,7 +1070,6 @@
 /area/spacestations/nanotrasenspace)
 "cZ" = (
 /obj/structure/bed/chair/couch/middle/black{
-	tag = "icon-couch_middle (NORTHWEST)";
 	icon_state = "couch_middle";
 	dir = 9
 	},
@@ -1138,8 +1084,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	color = "#d2af6e";
 	dir = 1;
-	icon_state = "warningcorner";
-	tag = "icon-warningcorner (NORTH)"
+	icon_state = "warningcorner"
 	},
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
@@ -1153,8 +1098,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	color = "#d2af6e";
 	dir = 4;
-	icon_state = "warningcorner";
-	tag = "icon-warningcorner (EAST)"
+	icon_state = "warningcorner"
 	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark{
@@ -1184,8 +1128,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	color = "#d2af6e";
 	dir = 1;
-	icon_state = "warningcorner";
-	tag = "icon-warningcorner (NORTH)"
+	icon_state = "warningcorner"
 	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark{
@@ -1239,12 +1182,11 @@
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "dn" = (
-/mob/living/simple_animal/hostile/npc/colonist/trader/tool_trader,
+/mob/living/simple_animal/passive/npc/colonist/trader/tool_trader,
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "do" = (
 /turf/unsimulated/floor/uristturf/rail{
-	tag = "icon-rail2";
 	icon_state = "rail2"
 	},
 /area/spacestations/nanotrasenspace)
@@ -1264,7 +1206,7 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	icon_state = "pdoor1";
-	id = "supplyshuttledoors";
+	id_tag = "supplyshuttledoors";
 	name = "Supply Shuttle";
 	p_open = 0
 	},
@@ -1286,9 +1228,9 @@
 	dir = 1
 	},
 /obj/item/clothing/suit/fire/firefighter,
-/obj/item/weapon/tank/oxygen,
+/obj/item/tank/oxygen,
 /obj/item/clothing/mask/gas,
-/obj/item/weapon/extinguisher,
+/obj/item/extinguisher,
 /obj/item/clothing/head/hardhat/red,
 /obj/item/clothing/glasses/meson,
 /turf/simulated/floor/plating,
@@ -1306,7 +1248,7 @@
 /turf/simulated/wall/r_wall/hull,
 /area/spacestations/nanotrasenspace)
 "dz" = (
-/obj/item/weapon/storage/firstaid/fire{
+/obj/item/storage/firstaid/fire{
 	pixel_x = -2;
 	pixel_y = 4
 	},
@@ -1345,7 +1287,6 @@
 /area/spacestations/nanotrasenspace)
 "dE" = (
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (NORTH)";
 	icon_state = "warning";
 	dir = 1
 	},
@@ -1369,7 +1310,6 @@
 /area/spacestations/nanotrasenspace)
 "dH" = (
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (WEST)";
 	icon_state = "warning";
 	dir = 8
 	},
@@ -1414,19 +1354,19 @@
 	},
 /area/spacestations/nanotrasenspace)
 "dO" = (
-/obj/item/weapon/stool/padded,
-/mob/living/simple_animal/hostile/npc/colonist/trader/organsmuggler,
+/obj/item/stool/padded,
+/mob/living/simple_animal/passive/npc/colonist/trader/organsmuggler,
 /turf/simulated/floor/plating{
 	color = "#bbbbbb"
 	},
 /area/spacestations/nanotrasenspace)
 "dP" = (
-/obj/item/modular_computer/console/preset/supply/magic,
+/obj/machinery/computer/modular/preset/supply_public/magic,
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "dQ" = (
 /obj/machinery/light,
-/obj/item/modular_computer/console/preset/supply/magic,
+/obj/machinery/computer/modular/preset/supply_public/magic,
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "dR" = (
@@ -1447,7 +1387,6 @@
 /area/spacestations/nanotrasenspace)
 "eT" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -1457,23 +1396,20 @@
 /area/spacestations/nanotrasenspace)
 "eW" = (
 /obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
-/mob/living/simple_animal/hostile/npc/colonist/contract/nthos,
+/mob/living/simple_animal/passive/npc/colonist/contract/nthos,
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
 "fj" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHWEST)";
 	icon_state = "corner_white";
 	dir = 10
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -1481,7 +1417,6 @@
 /area/spacestations/nanotrasenspace)
 "fI" = (
 /obj/effect/floor_decal/corner/red/three_quarters{
-	tag = "icon-corner_white_three_quarters (EAST)";
 	icon_state = "corner_white_three_quarters";
 	dir = 4
 	},
@@ -1491,7 +1426,6 @@
 /area/spacestations/nanotrasenspace)
 "fN" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -1508,7 +1442,6 @@
 "gW" = (
 /obj/machinery/vending/coffee,
 /obj/effect/floor_decal/corner/blue/three_quarters{
-	tag = "icon-corner_white_three_quarters (NORTH)";
 	icon_state = "corner_white_three_quarters";
 	dir = 1
 	},
@@ -1526,7 +1459,6 @@
 /obj/item/modular_computer/laptop/preset/records,
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/red/three_quarters{
-	tag = "icon-corner_white_three_quarters (NORTH)";
 	icon_state = "corner_white_three_quarters";
 	dir = 1
 	},
@@ -1541,12 +1473,11 @@
 	},
 /area/spacestations/nanotrasenspace)
 "hM" = (
-/mob/living/simple_animal/hostile/npc/colonist/trader/atmos_trader,
+/mob/living/simple_animal/passive/npc/colonist/trader/atmos_trader,
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "iD" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
-	tag = "icon-benchmid (EAST)";
 	icon_state = "benchmid";
 	dir = 4
 	},
@@ -1567,7 +1498,6 @@
 /area/spacestations/nanotrasenspace)
 "je" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -1577,7 +1507,6 @@
 /area/spacestations/nanotrasenspace)
 "jB" = (
 /obj/structure/flora/pottedplant{
-	tag = "icon-plant-22";
 	icon_state = "plant-22"
 	},
 /obj/machinery/light{
@@ -1592,20 +1521,18 @@
 	},
 /obj/item/modular_computer/laptop/preset/records,
 /obj/effect/floor_decal/corner/red/three_quarters{
-	tag = "icon-corner_white_three_quarters (NORTH)";
 	icon_state = "corner_white_three_quarters";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "ky" = (
-/mob/living/simple_animal/hostile/npc/colonist/trader/bartender_trader,
+/mob/living/simple_animal/passive/npc/colonist/trader/bartender_trader,
 /turf/simulated/floor/wood,
 /area/spacestations/nanotrasenspace)
 "kz" = (
 /obj/structure/filingcabinet,
 /obj/effect/floor_decal/corner/red/three_quarters{
-	tag = "icon-corner_white_three_quarters (WEST)";
 	icon_state = "corner_white_three_quarters";
 	dir = 8
 	},
@@ -1622,7 +1549,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -1632,7 +1558,6 @@
 /area/spacestations/nanotrasenspace)
 "kP" = (
 /obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -1642,7 +1567,6 @@
 /area/spacestations/nanotrasenspace)
 "kR" = (
 /obj/effect/floor_decal/ntlogo{
-	tag = "icon-ntlogo (EAST)";
 	icon_state = "ntlogo";
 	dir = 4
 	},
@@ -1650,7 +1574,6 @@
 /area/spacestations/nanotrasenspace)
 "lh" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHWEST)";
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -1683,12 +1606,11 @@
 /area/spacestations/nanotrasenspace)
 "oQ" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/reagent_containers/food/condiment/small/peppermill,
+/obj/item/reagent_containers/food/condiment/small/peppermill,
 /turf/simulated/floor/wood,
 /area/spacestations/nanotrasenspace)
 "pc" = (
 /obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -1701,12 +1623,11 @@
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
-	id = null;
+	id_tag = null;
 	name = "transit blast door";
 	opacity = 0
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -1716,7 +1637,6 @@
 /area/spacestations/nanotrasenspace)
 "pO" = (
 /obj/structure/flora/pottedplant{
-	tag = "icon-plant-22";
 	icon_state = "plant-22"
 	},
 /obj/machinery/light{
@@ -1727,11 +1647,11 @@
 "pY" = (
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced,
-/obj/item/weapon/paper_bin{
+/obj/item/paper_bin{
 	pixel_x = 1;
 	pixel_y = 9
 	},
-/obj/item/weapon/pen,
+/obj/item/pen,
 /obj/effect/floor_decal/corner/red/three_quarters,
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
@@ -1739,7 +1659,6 @@
 /area/spacestations/nanotrasenspace)
 "qy" = (
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (NORTHWEST)";
 	icon_state = "warning";
 	dir = 9
 	},
@@ -1747,11 +1666,10 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/spacestations/nanotrasenspace)
 "qN" = (
-/obj/machinery/teleport/hub{
+/obj/machinery/tele_pad{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (NORTHEAST)";
 	icon_state = "warning";
 	dir = 5
 	},
@@ -1773,7 +1691,6 @@
 /area/spacestations/nanotrasenspace)
 "sl" = (
 /obj/effect/floor_decal/ntlogo{
-	tag = "icon-ntlogo (EAST)";
 	icon_state = "ntlogo";
 	dir = 4
 	},
@@ -1793,21 +1710,18 @@
 /area/spacestations/nanotrasenspace)
 "ta" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
 /turf/simulated/floor/tiled/old_tile,
 /area/spacestations/nanotrasenspace)
 "tw" = (
-/obj/effect/overmap/sector/station/nanotrasentrading,
+/obj/effect/overmap/visitable/station/nanotrasentrading,
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -1826,12 +1740,10 @@
 /area/spacestations/nanotrasenspace)
 "uK" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHWEST)";
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -1845,13 +1757,12 @@
 /area/spacestations/nanotrasenspace)
 "vs" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/folder,
+/obj/item/folder,
 /obj/machinery/door/window/southleft{
 	name = "Transit Checkpoint";
 	req_access = list("ACCESS_CENT_GENERAL")
 	},
 /obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (SOUTHWEST)";
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -1866,7 +1777,6 @@
 "vK" = (
 /obj/structure/filingcabinet,
 /obj/effect/floor_decal/corner/red/three_quarters{
-	tag = "icon-corner_white_three_quarters (WEST)";
 	icon_state = "corner_white_three_quarters";
 	dir = 8
 	},
@@ -1876,11 +1786,11 @@
 /area/spacestations/nanotrasenspace)
 "vT" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/paper_bin{
+/obj/item/paper_bin{
 	pixel_x = 1;
 	pixel_y = 9
 	},
-/obj/item/weapon/pen,
+/obj/item/pen,
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/corner/red/three_quarters,
 /turf/simulated/floor/tiled/dark,
@@ -1890,12 +1800,11 @@
 	dir = 8
 	},
 /obj/structure/table/woodentable,
-/obj/item/weapon/reagent_containers/food/condiment/barbecue,
+/obj/item/reagent_containers/food/condiment/barbecue,
 /turf/simulated/floor/wood,
 /area/spacestations/nanotrasenspace)
 "wu" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -1908,7 +1817,6 @@
 /area/spacestations/nanotrasenspace)
 "wF" = (
 /obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -1921,15 +1829,13 @@
 /area/spacestations/nanotrasenspace)
 "xb" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
-	tag = "icon-benchmid (EAST)";
 	icon_state = "benchmid";
 	dir = 4
 	},
 /obj/structure/sign/urist/transitmap{
 	pixel_x = -32
 	},
-/mob/living/simple_animal/hostile/npc/colonist/highclass/nanotrasen{
-	tag = "icon-body_m_s (EAST)";
+/mob/living/simple_animal/passive/npc/colonist/highclass/nanotrasen{
 	icon_state = "body_m_s";
 	dir = 4
 	},
@@ -1937,7 +1843,6 @@
 /area/spacestations/nanotrasenspace)
 "xd" = (
 /obj/effect/floor_decal/ntlogo{
-	tag = "icon-ntlogo (NORTH)";
 	icon_state = "ntlogo";
 	dir = 1
 	},
@@ -1949,12 +1854,11 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/mob/living/simple_animal/hostile/npc/colonist/contract/ntchef,
+/mob/living/simple_animal/passive/npc/colonist/contract/ntchef,
 /turf/simulated/floor/wood,
 /area/spacestations/nanotrasenspace)
 "xl" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -1964,12 +1868,10 @@
 /area/spacestations/nanotrasenspace)
 "xn" = (
 /obj/structure/flora/pottedplant{
-	tag = "icon-plant-22";
 	icon_state = "plant-22"
 	},
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/blue/three_quarters{
-	tag = "icon-corner_white_three_quarters (EAST)";
 	icon_state = "corner_white_three_quarters";
 	dir = 4
 	},
@@ -1984,7 +1886,6 @@
 	pixel_y = 0
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -1994,7 +1895,6 @@
 /area/spacestations/nanotrasenspace)
 "xu" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -2019,7 +1919,6 @@
 /area/spacestations/nanotrasenspace)
 "yr" = (
 /obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -2029,7 +1928,6 @@
 /area/spacestations/nanotrasenspace)
 "yH" = (
 /obj/effect/floor_decal/ntlogo{
-	tag = "icon-ntlogo (WEST)";
 	icon_state = "ntlogo";
 	dir = 8
 	},
@@ -2037,7 +1935,6 @@
 /area/spacestations/nanotrasenspace)
 "yU" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -2045,7 +1942,6 @@
 /area/spacestations/nanotrasenspace)
 "za" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -2057,14 +1953,13 @@
 	name = "Transit Checkpoint";
 	req_access = list("ACCESS_CENT_GENERAL")
 	},
-/obj/item/weapon/folder,
+/obj/item/folder,
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
 "zF" = (
 /obj/structure/bed/chair/armchair/black{
-	tag = "icon-armchair_preview (WEST)";
 	icon_state = "armchair_preview";
 	dir = 8
 	},
@@ -2083,7 +1978,6 @@
 /area/spacestations/nanotrasenspace)
 "AQ" = (
 /obj/structure/flora/pottedplant/Nienplants/plant{
-	tag = "icon-ppflowers_3";
 	icon_state = "ppflowers_3"
 	},
 /obj/machinery/light{
@@ -2110,17 +2004,14 @@
 /area/spacestations/nanotrasenspace)
 "Cn" = (
 /obj/structure/bed/chair/urist/bench/bench1/left{
-	tag = "icon-benchleft (WEST)";
 	icon_state = "benchleft";
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
-/mob/living/simple_animal/hostile/npc/colonist/nanotrasen{
-	tag = "icon-body_m_s (WEST)";
+/mob/living/simple_animal/passive/npc/colonist/nanotrasen{
 	icon_state = "body_m_s";
 	dir = 8
 	},
@@ -2130,7 +2021,6 @@
 /area/spacestations/nanotrasenspace)
 "Cp" = (
 /obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (SOUTHWEST)";
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -2146,7 +2036,6 @@
 /area/spacestations/nanotrasenspace)
 "CJ" = (
 /obj/structure/flora/pottedplant{
-	tag = "icon-plant-22";
 	icon_state = "plant-22"
 	},
 /obj/machinery/light,
@@ -2157,12 +2046,10 @@
 /area/spacestations/nanotrasenspace)
 "CV" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -2170,7 +2057,6 @@
 /area/spacestations/nanotrasenspace)
 "DM" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -2190,7 +2076,7 @@
 /area/spacestations/nanotrasenspace)
 "EU" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/material/ashtray/plastic,
+/obj/item/material/ashtray/plastic,
 /turf/simulated/floor/wood,
 /area/spacestations/nanotrasenspace)
 "EW" = (
@@ -2207,6 +2093,12 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
+"Ga" = (
+/obj/machinery/door/blast/regular{
+	name = "Secure Access"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
 "Gm" = (
 /obj/effect/floor_decal/industrial/warning{
 	color = "#d2af6e";
@@ -2218,11 +2110,9 @@
 /area/spacestations/nanotrasenspace)
 "Hf" = (
 /obj/structure/flora/pottedplant{
-	tag = "icon-plant-22";
 	icon_state = "plant-22"
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -2248,7 +2138,6 @@
 /area/spacestations/nanotrasenspace)
 "Ji" = (
 /obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -2256,12 +2145,10 @@
 /area/spacestations/nanotrasenspace)
 "JY" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
-	tag = "icon-benchright (WEST)";
 	icon_state = "benchright";
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -2270,21 +2157,17 @@
 	},
 /area/spacestations/nanotrasenspace)
 "Kd" = (
-/turf/unsimulated/wall{
-	tag = "icon-pdoor1 (EAST)";
-	name = "Secure Access";
-	desc = "That looks like it doesn't open easily.";
-	icon = 'icons/obj/doors/rapid_pdoor.dmi';
-	icon_state = "pdoor1";
-	dir = 4
+/obj/machinery/door/blast/regular{
+	dir = 4;
+	name = "Secure Access"
 	},
+/turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "LM" = (
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced,
 /obj/item/modular_computer/laptop/preset/records,
 /obj/effect/floor_decal/corner/red/three_quarters{
-	tag = "icon-corner_white_three_quarters (EAST)";
 	icon_state = "corner_white_three_quarters";
 	dir = 4
 	},
@@ -2292,7 +2175,6 @@
 /area/spacestations/nanotrasenspace)
 "Nf" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -2335,12 +2217,10 @@
 /area/spacestations/nanotrasenspace)
 "Ok" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
-/mob/living/simple_animal/hostile/npc/colonist/contract/ntscientist{
-	tag = "icon-body_m_s (EAST)";
+/mob/living/simple_animal/passive/npc/colonist/contract/ntscientist{
 	icon_state = "body_m_s";
 	dir = 4
 	},
@@ -2348,7 +2228,6 @@
 /area/spacestations/nanotrasenspace)
 "Op" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -2358,13 +2237,12 @@
 /area/spacestations/nanotrasenspace)
 "OE" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/folder,
+/obj/item/folder,
 /obj/machinery/door/window/northleft{
 	name = "Transit Checkpoint";
 	req_access = list("ACCESS_CENT_GENERAL")
 	},
 /obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -2397,16 +2275,15 @@
 /area/spacestations/nanotrasenspace)
 "Pz" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/paper_bin{
+/obj/item/paper_bin{
 	pixel_x = 1;
 	pixel_y = 9
 	},
-/obj/item/weapon/pen,
+/obj/item/pen,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/red/three_quarters{
-	tag = "icon-corner_white_three_quarters (WEST)";
 	icon_state = "corner_white_three_quarters";
 	dir = 8
 	},
@@ -2426,7 +2303,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -2443,7 +2319,6 @@
 /area/spacestations/nanotrasenspace)
 "QZ" = (
 /obj/effect/floor_decal/ntlogo{
-	tag = "icon-ntlogo (WEST)";
 	icon_state = "ntlogo";
 	dir = 8
 	},
@@ -2452,12 +2327,10 @@
 	},
 /area/spacestations/nanotrasenspace)
 "Rl" = (
-/obj/machinery/teleport/station{
-	dir = 1
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/machinery/tele_projector,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/spacestations/nanotrasenspace)
 "Rq" = (
@@ -2470,7 +2343,6 @@
 /area/spacestations/nanotrasenspace)
 "RN" = (
 /obj/effect/floor_decal/corner/red{
-	tag = "icon-corner_white (SOUTHEAST)";
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -2482,12 +2354,11 @@
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
-	id = null;
+	id_tag = null;
 	name = "transit blast door";
 	opacity = 0
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHWEST)";
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -2497,7 +2368,6 @@
 /area/spacestations/nanotrasenspace)
 "Sq" = (
 /obj/effect/floor_decal/corner/blue/three_quarters{
-	tag = "icon-corner_white_three_quarters (EAST)";
 	icon_state = "corner_white_three_quarters";
 	dir = 4
 	},
@@ -2508,7 +2378,6 @@
 "SH" = (
 /obj/machinery/vending/cigarette,
 /obj/effect/floor_decal/corner/blue/three_quarters{
-	tag = "icon-corner_white_three_quarters (WEST)";
 	icon_state = "corner_white_three_quarters";
 	dir = 8
 	},
@@ -2526,7 +2395,6 @@
 /area/spacestations/nanotrasenspace)
 "Tk" = (
 /obj/effect/floor_decal/ntlogo{
-	tag = "icon-ntlogo (NORTH)";
 	icon_state = "ntlogo";
 	dir = 1
 	},
@@ -2534,7 +2402,6 @@
 /area/spacestations/nanotrasenspace)
 "Tq" = (
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (SOUTHEAST)";
 	icon_state = "warning";
 	dir = 6
 	},
@@ -2542,12 +2409,11 @@
 /area/spacestations/nanotrasenspace)
 "TZ" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/reagent_containers/food/condiment/small/saltshaker,
+/obj/item/reagent_containers/food/condiment/small/saltshaker,
 /turf/simulated/floor/wood,
 /area/spacestations/nanotrasenspace)
 "Vo" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (SOUTHWEST)";
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -2555,12 +2421,10 @@
 /area/spacestations/nanotrasenspace)
 "Vx" = (
 /obj/structure/bed/chair/urist/bench/bench1/left{
-	tag = "icon-benchleft (EAST)";
 	icon_state = "benchleft";
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -2580,12 +2444,10 @@
 /area/spacestations/nanotrasenspace)
 "VO" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
-	tag = "icon-benchright (EAST)";
 	icon_state = "benchright";
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -2598,7 +2460,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -2610,17 +2471,18 @@
 /obj/item/modular_computer/laptop/preset/records,
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/red/three_quarters{
-	tag = "icon-corner_white_three_quarters (NORTH)";
 	icon_state = "corner_white_three_quarters";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
+"WJ" = (
+/turf/unsimulated/floor/steel,
+/area/spacestations/nanotrasenspace)
 "WK" = (
 /obj/item/modular_computer/laptop/preset/records,
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/red/three_quarters{
-	tag = "icon-corner_white_three_quarters (EAST)";
 	icon_state = "corner_white_three_quarters";
 	dir = 4
 	},
@@ -2628,7 +2490,6 @@
 /area/spacestations/nanotrasenspace)
 "WN" = (
 /obj/effect/floor_decal/corner/red/three_quarters{
-	tag = "icon-corner_white_three_quarters (WEST)";
 	icon_state = "corner_white_three_quarters";
 	dir = 8
 	},
@@ -2638,11 +2499,9 @@
 /area/spacestations/nanotrasenspace)
 "WV" = (
 /obj/structure/flora/pottedplant{
-	tag = "icon-plant-22";
 	icon_state = "plant-22"
 	},
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -2655,7 +2514,6 @@
 /obj/structure/window/reinforced,
 /obj/item/modular_computer/laptop/preset/records,
 /obj/effect/floor_decal/corner/red/three_quarters{
-	tag = "icon-corner_white_three_quarters (EAST)";
 	icon_state = "corner_white_three_quarters";
 	dir = 4
 	},
@@ -2665,7 +2523,6 @@
 /area/spacestations/nanotrasenspace)
 "YH" = (
 /obj/effect/floor_decal/corner/blue{
-	tag = "icon-corner_white (NORTHWEST)";
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -2676,7 +2533,6 @@
 /area/spacestations/nanotrasenspace)
 "YJ" = (
 /obj/effect/floor_decal/corner/red/three_quarters{
-	tag = "icon-corner_white_three_quarters (NORTH)";
 	icon_state = "corner_white_three_quarters";
 	dir = 1
 	},
@@ -2695,7 +2551,6 @@
 /area/spacestations/nanotrasenspace)
 "Zl" = (
 /obj/structure/flora/pottedplant{
-	tag = "icon-plant-22";
 	icon_state = "plant-22"
 	},
 /obj/machinery/light,
@@ -2724,7 +2579,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (NORTH)";
 	icon_state = "warning";
 	dir = 1
 	},
@@ -4786,7 +4640,7 @@ aa
 (26,1,1) = {"
 ab
 ad
-ae
+Ga
 af
 aj
 af
@@ -5418,7 +5272,7 @@ ad
 ad
 dj
 ad
-az
+ad
 az
 ad
 Ii
@@ -5533,11 +5387,11 @@ ai
 ad
 ap
 aw
-ae
+Ga
 aE
-af
-af
-af
+WJ
+WJ
+WJ
 ad
 ad
 ad
@@ -5615,11 +5469,11 @@ ai
 ad
 af
 af
-ae
+Ga
 aE
-af
-af
-af
+WJ
+WJ
+WJ
 ad
 kz
 VJ
@@ -5697,12 +5551,12 @@ ai
 ad
 aq
 af
-ae
+Ga
 aE
-af
-af
-af
-bG
+WJ
+WJ
+WJ
+Ga
 Ji
 bj
 vs
@@ -5720,7 +5574,7 @@ aL
 OE
 cJ
 Cp
-bG
+Ga
 ad
 ad
 ad
@@ -5781,9 +5635,9 @@ ad
 ad
 ad
 ai
-af
-af
-af
+WJ
+WJ
+WJ
 ad
 Ws
 PJ
@@ -6608,7 +6462,7 @@ ad
 ad
 ad
 ad
-bG
+Ga
 xl
 lh
 bp

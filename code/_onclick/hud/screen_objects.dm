@@ -11,9 +11,9 @@
 	icon = 'icons/mob/screen1.dmi'
 	plane = HUD_PLANE
 	layer = HUD_BASE_LAYER
-	appearance_flags = NO_CLIENT_COLOR
-	unacidable = 1
-	var/obj/master = null	//A reference to the object in the slot. Grabs or items, generally.
+	appearance_flags = DEFAULT_APPEARANCE_FLAGS | NO_CLIENT_COLOR
+	unacidable = TRUE
+	var/obj/master = null    //A reference to the object in the slot. Grabs or items, generally.
 	var/globalscreen = FALSE //Global screens are not qdeled when the holding mob is destroyed.
 	appearance_flags = NO_CLIENT_COLOR
 
@@ -39,8 +39,8 @@
 
 /obj/screen/close/Click()
 	if(master)
-		if(istype(master, /obj/item/weapon/storage))
-			var/obj/item/weapon/storage/S = master
+		if(istype(master, /obj/item/storage))
+			var/obj/item/storage/S = master
 			S.close(usr)
 	return 1
 
@@ -74,8 +74,6 @@
 	if(!usr.canClick())
 		return 1
 	if(usr.stat || usr.paralysis || usr.stunned || usr.weakened)
-		return 1
-	if (istype(usr.loc,/obj/mecha)) // stops inventory actions in a mech
 		return 1
 	if(master)
 		var/obj/item/I = usr.get_active_hand()
@@ -152,7 +150,11 @@
 /obj/screen/zone_sel/proc/set_selected_zone(bodypart)
 	var/old_selecting = selecting
 	selecting = bodypart
-	if(old_selecting != selecting)
+	var/mob/living/carbon/human/user = usr
+	if (istype(user) && (old_selecting == BP_MOUTH || selecting == BP_MOUTH) && user.aiming && user.aiming.active && user.aiming.aiming_at == user)
+		var/obj/aiming_overlay/AO = user.aiming
+		AO.aim_at(user, user.aiming.aiming_with, TRUE)
+	if (old_selecting != selecting)
 		update_icon()
 		return TRUE
 
@@ -167,7 +169,7 @@
 	screen_loc = ui_acti
 	var/intent = I_HELP
 
-/obj/screen/intent/Click(var/location, var/control, var/params)
+/obj/screen/intent/Click(location, control, params)
 	var/list/P = params2list(params)
 	var/icon_x = text2num(P["icon-x"])
 	var/icon_y = text2num(P["icon-y"])
@@ -199,8 +201,6 @@
 			usr.hud_used.hidden_inventory_update()
 
 		if("equip")
-			if (istype(usr.loc,/obj/mecha)) // stops inventory actions in a mech
-				return 1
 			if(ishuman(usr))
 				var/mob/living/carbon/human/H = usr
 				H.quick_equip()
@@ -210,11 +210,6 @@
 				var/mob/living/L = usr
 				L.resist()
 
-		if("mov_intent")
-			var/move_intent_type = next_in_list(usr.move_intent.type, usr.move_intents)
-			usr.move_intent = decls_repository.get_decl(move_intent_type)
-			usr.hud_used.move_intent.icon_state = usr.move_intent.hud_icon_state
-
 		if("Reset Machine")
 			usr.unset_machine()
 		if("internal")
@@ -222,10 +217,7 @@
 				var/mob/living/carbon/C = usr
 				if(!C.stat && !C.stunned && !C.paralysis && !C.restrained())
 					if(C.internal)
-						C.internal = null
-						to_chat(C, "<span class='notice'>No longer running on internals.</span>")
-						if(C.internals)
-							C.internals.icon_state = "internal0"
+						C.set_internals(null)
 					else
 
 						var/no_mask
@@ -235,12 +227,12 @@
 								no_mask = 1
 
 						if(no_mask)
-							to_chat(C, "<span class='notice'>You are not wearing a suitable mask or helmet.</span>")
+							to_chat(C, SPAN_NOTICE("You are not wearing a suitable mask or helmet."))
 							return 1
 						else
 							var/list/nicename = null
 							var/list/tankcheck = null
-							var/breathes = "oxygen"    //default, we'll check later
+							var/breathes = GAS_OXYGEN    //default, we'll check later
 							var/list/contents = list()
 							var/from = "on"
 
@@ -254,20 +246,20 @@
 								tankcheck = list(C.r_hand, C.l_hand, C.back)
 
 							// Rigs are a fucking pain since they keep an air tank in nullspace.
-							if(istype(C.back,/obj/item/weapon/rig))
-								var/obj/item/weapon/rig/rig = C.back
+							if(istype(C.back,/obj/item/rig))
+								var/obj/item/rig/rig = C.back
 								if(rig.air_supply)
 									from = "in"
 									nicename |= "hardsuit"
 									tankcheck |= rig.air_supply
 
-							for(var/i=1, i<tankcheck.len+1, ++i)
-								if(istype(tankcheck[i], /obj/item/weapon/tank))
-									var/obj/item/weapon/tank/t = tankcheck[i]
+							for(var/i=1, i<length(tankcheck)+1, ++i)
+								if(istype(tankcheck[i], /obj/item/tank))
+									var/obj/item/tank/t = tankcheck[i]
 									if (!isnull(t.manipulated_by) && t.manipulated_by != C.real_name && findtext(t.desc,breathes))
 										contents.Add(t.air_contents.total_moles)	//Someone messed with the tank and put unknown gasses
 										continue					//in it, so we're going to believe the tank is what it says it is
-									if(t.air_contents.gas[breathes] && !t.air_contents.gas["phoron"])
+									if(t.air_contents.gas[breathes] && !t.air_contents.gas[GAS_PHORON])
 										contents.Add(t.air_contents.gas[breathes])
 									else
 										contents.Add(0)
@@ -279,7 +271,7 @@
 
 							var/best = 0
 							var/bestcontents = 0
-							for(var/i=1, i <  contents.len + 1 , ++i)
+							for(var/i=1, i <  length(contents) + 1 , ++i)
 								if(!contents[i])
 									continue
 								if(contents[i] > bestcontents)
@@ -290,16 +282,15 @@
 							//We've determined the best container now we set it as our internals
 
 							if(best)
-								to_chat(C, "<span class='notice'>You are now running on internals from [tankcheck[best]] [from] your [nicename[best]].</span>")
-								playsound(usr, 'sound/effects/internals.ogg', 50, 0)
-								C.internal = tankcheck[best]
+								C.set_internals(tankcheck[best], "\the [tankcheck[best]] [from] your [nicename[best]]")
 
-
-							if(C.internal)
-								if(C.internals)
-									C.internals.icon_state = "internal1"
-							else
-								to_chat(C, "<span class='notice'>You don't have \a [breathes] tank.</span>")
+							if(!C.internal)
+								// Finally, check for an internal air system.
+								// We use this as an absolute last resort, so we don't include it in the above logic
+								// There's no need to check that the gas contents are safe, because its internal logic always make sure it is
+								var/obj/item/organ/internal/augment/active/internal_air_system/IAS = locate() in C.internal_organs
+								if (!IAS?.activate())
+									to_chat(C, SPAN_WARNING("You don't have \a [breathes] tank."))
 		if("act_intent")
 			usr.a_intent_change("right")
 
@@ -366,8 +357,6 @@
 	if(!usr.canClick())
 		return 1
 	if(usr.incapacitated())
-		return 1
-	if (istype(usr.loc,/obj/mecha)) // stops inventory actions in a mech
 		return 1
 	switch(name)
 		if("r_hand")

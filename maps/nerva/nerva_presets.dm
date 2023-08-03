@@ -1,16 +1,16 @@
-var/const/NETWORK_FIRST_DECK		= "First Deck" //new top
-var/const/NETWORK_SECOND_DECK		= "Second Deck" //top central, old top
-var/const/NETWORK_THIRD_DECK		= "Third Deck" //bottom central, old central
-var/const/NETWORK_FOURTH_DECK		= "Fourth Deck" //bottom
-var/const/NETWORK_COMMAND			= "Command"
-var/const/NETWORK_CARGO				= "Cargo"
-var/const/NETWORK_TRAJAN     		= "Trajan"
-var/const/NETWORK_HADRIAN     		= "Hadrian"
-var/const/NETWORK_ANTONINE     		= "Antonine"
-var/const/NETWORK_PRISON            = "Prison"
-var/const/NETWORK_EXPLO             = "Exploration"
+var/global/const/NETWORK_FIRST_DECK		= "First Deck" //new top
+var/global/const/NETWORK_SECOND_DECK		= "Second Deck" //top central, old top
+var/global/const/NETWORK_THIRD_DECK		= "Third Deck" //bottom central, old central
+var/global/const/NETWORK_FOURTH_DECK		= "Fourth Deck" //bottom
+var/global/const/NETWORK_COMMAND			= "Command"
+var/global/const/NETWORK_CARGO				= "Cargo"
+var/global/const/NETWORK_TRAJAN     		= "Trajan"
+var/global/const/NETWORK_HADRIAN     		= "Hadrian"
+var/global/const/NETWORK_ANTONINE     		= "Antonine"
+var/global/const/NETWORK_PRISON            = "Prison"
+var/global/const/NETWORK_EXPLO             = "Exploration"
 
-/datum/map/nerva/get_network_access(var/network)
+/datum/map/nerva/get_network_access(network)
 	if(network == NETWORK_COMMAND)
 		return access_heads
 	return ..()
@@ -31,7 +31,6 @@ var/const/NETWORK_EXPLO             = "Exploration"
 		NETWORK_HADRIAN,
 		NETWORK_ANTONINE,
 		NETWORK_MINE,
-		NETWORK_ROBOTS,
 		NETWORK_SECURITY,
 		NETWORK_PRISON,
 		NETWORK_ALARM_ATMOS,
@@ -101,18 +100,21 @@ var/const/NETWORK_EXPLO             = "Exploration"
 /obj/machinery/camera/xray/command //for the bridge
 	network = list(NETWORK_COMMAND)
 
-/obj/machinery/power/smes/buildable/preset/nerva/shuttle/configure_and_install_coils()
-	component_parts += new /obj/item/weapon/smes_coil/super_io(src)
-	component_parts += new /obj/item/weapon/smes_coil/super_capacity(src)
+/obj/machinery/power/smes/buildable/preset/nerva/shuttle
+	uncreated_component_parts = list(
+	/obj/item/stock_parts/smes_coil/super_io = 1,
+	/obj/item/stock_parts/smes_coil/super_capacity = 1
+	)
 	_input_maxed = TRUE
 	_output_maxed = TRUE
 	_input_on = TRUE
 	_output_on = TRUE
 	_fully_charged = TRUE
 
-/obj/machinery/power/smes/buildable/preset/nerva/hangar/configure_and_install_coils()
-	component_parts += new /obj/item/weapon/smes_coil/super_io(src)
-	component_parts += new /obj/item/weapon/smes_coil/super_io(src)
+/obj/machinery/power/smes/buildable/preset/nerva/hangar
+	uncreated_component_parts = list(
+	/obj/item/stock_parts/smes_coil/super_io = 2,
+	)
 	_input_maxed = TRUE
 	_output_maxed = TRUE
 	_input_on = TRUE

@@ -1,8 +1,10 @@
 SUBSYSTEM_DEF(goals)
 	name = "Goals"
-	init_order = SS_INIT_MISC_LATE
-	flags = SS_NO_FIRE
-	var/list/global_personal_goals = list(
+	init_order = SS_INIT_GOALS
+	wait = 1 SECOND
+
+	/// A list of available personal ambition goals.
+	var/static/list/datum/goal/global_personal_goals = list(
 		/datum/goal/achievement/specific_object/food,
 		/datum/goal/achievement/specific_object/drink,
 		/datum/goal/achievement/specific_object/pet,
@@ -15,34 +17,55 @@ SUBSYSTEM_DEF(goals)
 		/datum/goal/movement/walk/eva,
 		/datum/goal/clean,
 		/datum/goal/money,
-		/datum/goal/sickness
+		/datum/goal/weights,
+		/datum/goal/punchingbag
 	)
-	var/list/departments = list()
-	var/list/ambitions =   list()
 
-/datum/controller/subsystem/goals/Initialize()
-	for(var/dtype in GLOB.using_map.departments)
-		var/datum/department/dept = dtype
-		var/dept_flag = initial(dept.flag)
-		if(dept_flag)
-			departments["[dept_flag]"] = new dtype
-	for(var/thing in departments)
-		var/datum/department/dept = departments[thing]
-		dept.Initialize()
-	. = ..()
+	/// A (flag = instance) map of departments.
+	var/static/list/departments = list()
 
-/datum/controller/subsystem/goals/proc/update_department_goal(var/department_flag, var/goal_type, var/progress)
-	var/datum/department/dept = departments["[department_flag]"]
-	if(dept)
-		dept.update_progress(goal_type, progress)
+	/// A (ref = instance) map of personal ambition goals.
+	var/static/list/ambitions = list()
+
+	/// A list of goals pending initialization.
+	var/static/list/datum/goal/pending_goals = list()
+
+
+/datum/controller/subsystem/goals/Initialize(start_uptime)
+	var/list/all_depts
+	if (length(GLOB.using_map.departments))
+		all_depts = GLOB.using_map.departments
+	else
+		all_depts = subtypesof(/datum/department)
+	for (var/datum/department/department as anything in all_depts)
+		var/flag = initial(department.flag)
+		if (flag)
+			departments["[flag]"] = new department
+	for (var/flag in departments)
+		var/datum/department/department = departments[flag]
+		department.Initialize()
+
+
+/datum/controller/subsystem/goals/fire(resumed, no_mc_tick)
+	for (var/datum/goal/goal as anything in pending_goals)
+		if (goal.try_initialize())
+			pending_goals -= goal
+	if (!length(pending_goals))
+		suspend()
+
+
+/datum/controller/subsystem/goals/proc/update_department_goal(flag, type, progress)
+	var/datum/department/department = departments["[flag]"]
+	if (department)
+		department.update_progress(type, progress)
+
 
 /datum/controller/subsystem/goals/proc/get_roundend_summary()
-	. = list()
-	for(var/thing in departments)
-		var/datum/department/dept = departments[thing]
-		. += "<b>[dept.name] had the following shift goals:</b>"
-		. += dept.summarize_goals(show_success = TRUE)
-	if(LAZYLEN(.))
-		. = "<br>[jointext(., "<br>")]"
-	else
-		. = "<br><b>There were no departmental goals this round.</b>"
+	var/list/result = list()
+	for (var/flag in departments)
+		var/datum/department/department = departments[flag]
+		result += "<b>[department.name] had the following shift goals:</b>"
+		result += department.summarize_goals(show_success = TRUE)
+	if (length(result))
+		return "<br>[jointext(result, "<br>")]"
+	return "<br><b>There were no departmental goals this round.</b>"

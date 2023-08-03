@@ -3,8 +3,10 @@
 	desc = "The compressor stage of a gas turbine generator."
 	icon = 'icons/obj/pipes.dmi'
 	icon_state = "compressor"
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE
+	machine_name = "turbine control console"
+	machine_desc = "Used to monitor, operate, and configure a connected gas turbine."
 	var/obj/machinery/power/turbine/turbine
 	var/datum/gas_mixture/gas_contained
 	var/turf/simulated/inturf
@@ -19,8 +21,8 @@
 	desc = "A gas turbine used for backup power generation."
 	icon = 'icons/obj/pipes.dmi'
 	icon_state = "turbine"
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE
 	var/obj/machinery/compressor/compressor
 	var/turf/simulated/outturf
 	var/lastgen
@@ -31,12 +33,10 @@
 	icon = 'icons/obj/computer.dmi'
 	icon_keyboard = "tech_key"
 	icon_screen = "turbinecomp"
-	circuit = /obj/item/weapon/circuitboard/turbine_control
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE
 	var/obj/machinery/compressor/compressor
 	var/list/obj/machinery/door/blast/doors
-	var/id = 0
 	var/door_status = 0
 
 // the inlet stage of the gas turbine electricity generator
@@ -66,7 +66,7 @@
 	if(!starter)
 		return
 	overlays.Cut()
-	if(stat & BROKEN)
+	if(MACHINE_IS_BROKEN(src))
 		return
 	rpm = 0.9* rpm + 0.1 * rpmtarget
 	var/datum/gas_mixture/environment = inturf.return_air()
@@ -78,7 +78,7 @@
 	rpm = max(0, rpm - (rpm*rpm)/COMPFRICTION)
 
 
-	if(starter && !(stat & NOPOWER))
+	if(starter && is_powered())
 		use_power_oneoff(2800)
 		if(rpm<1000)
 			rpmtarget = 1000
@@ -123,7 +123,7 @@
 	if(!compressor.starter)
 		return
 	overlays.Cut()
-	if(stat & BROKEN)
+	if(MACHINE_IS_BROKEN(src))
 		return
 	lastgen = ((compressor.rpm / TURBGENQ)**TURBGENG) *TURBGENQ
 
@@ -150,9 +150,9 @@
 
 /obj/machinery/power/turbine/interact(mob/user)
 
-	if ( (get_dist(src, user) > 1 ) || (stat & (NOPOWER|BROKEN)) && (!istype(user, /mob/living/silicon/ai)) )
+	if ( (get_dist(src, user) > 1 ) || (inoperable()) && (!istype(user, /mob/living/silicon/ai)) )
 		user.machine = null
-		user << browse(null, "window=turbine")
+		close_browser(user, "window=turbine")
 		return
 
 	user.machine = src
@@ -168,12 +168,12 @@
 	t += "</PRE><HR><A href='?src=\ref[src];close=1'>Close</A>"
 
 	t += "</TT>"
-	user << browse(t, "window=turbine")
+	show_browser(user, t, "window=turbine")
 	onclose(user, "turbine")
 
 	return
 
-/obj/machinery/power/turbine/CanUseTopic(var/mob/user, href_list)
+/obj/machinery/power/turbine/CanUseTopic(mob/user, href_list)
 	if(!user.IsAdvancedToolUser())
 		to_chat(user, FEEDBACK_YOU_LACK_DEXTERITY)
 		return min(..(), STATUS_UPDATE)
@@ -181,7 +181,7 @@
 
 /obj/machinery/power/turbine/OnTopic(user, href_list)
 	if(href_list["close"])
-		usr << browse(null, "window=turbine")
+		close_browser(usr, "window=turbine")
 		return TOPIC_HANDLED
 
 	if(href_list["str"])
@@ -200,11 +200,11 @@
 /obj/machinery/computer/turbine_computer/Initialize()
 	. = ..()
 	for(var/obj/machinery/compressor/C in SSmachines.machinery)
-		if(id == C.comp_id)
+		if(id_tag == C.comp_id)
 			compressor = C
 	doors = new /list()
 	for(var/obj/machinery/door/blast/P in SSmachines.machinery)
-		if(P.id == id)
+		if(P.id_tag == id_tag)
 			doors += P
 
 /obj/machinery/computer/turbine_computer/Destroy()
@@ -212,7 +212,11 @@
 	compressor = null
 	return ..()
 
-/obj/machinery/computer/turbine_computer/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/turbine_computer/interface_interact(mob/user)
+	interact(user)
+	return TRUE
+
+/obj/machinery/computer/turbine_computer/interact(mob/user)
 	user.machine = src
 	var/dat
 	if(src.compressor)
@@ -228,9 +232,9 @@
 		\n<BR>
 		\n"}
 	else
-		dat += "<span class='danger'>No compatible attached compressor found.</span>"
+		dat += SPAN_DANGER("No compatible attached compressor found.")
 
-	user << browse(dat, "window=computer;size=400x500")
+	show_browser(user, dat, "window=computer;size=400x500")
 	onclose(user, "computer")
 	return
 
@@ -255,12 +259,8 @@
 					door_status = 0
 		. = TOPIC_REFRESH
 	else if( href_list["close"] )
-		user << browse(null, "window=computer")
+		close_browser(user, "window=computer")
 		return TOPIC_HANDLED
 
 	if(. == TOPIC_REFRESH)
 		interact(user)
-
-/obj/machinery/computer/turbine_computer/Process()
-	src.updateDialog()
-	return

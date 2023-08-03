@@ -1,31 +1,33 @@
 /obj/structure/fitness
 	icon = 'icons/obj/stationobjs.dmi'
-	anchored = 1
+	anchored = TRUE
 	var/being_used = 0
 
 /obj/structure/fitness/punchingbag
 	name = "punching bag"
 	desc = "A punching bag."
 	icon_state = "punchingbag"
-	density = 1
+	density = TRUE
 	var/list/hit_message = list("hit", "punch", "kick", "robust")
 
-/obj/structure/fitness/punchingbag/attack_hand(var/mob/living/carbon/human/user)
+/obj/structure/fitness/punchingbag/attack_hand(mob/living/carbon/human/user)
 	if(!istype(user))
 		..()
 		return
 	var/synth = user.isSynthetic()
 	if(!synth && user.nutrition < 20)
-		to_chat(user, "<span class='warning'>You need more energy to use the punching bag. Go eat something.</span>")
+		to_chat(user, SPAN_WARNING("You need more energy to use the punching bag. Go eat something."))
 	else
 		if(user.a_intent == I_HURT)
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			flick("[icon_state]_hit", src)
 			playsound(src.loc, 'sound/effects/woodhit.ogg', 25, 1, -1)
 			user.do_attack_animation(src)
+			user.update_personal_goal(/datum/goal/punchingbag, 1)
 			if(!synth)
-				user.nutrition = user.nutrition - 5
-			to_chat(user, "<span class='warning'>You [pick(hit_message)] \the [src].</span>")
+				user.adjust_nutrition(-(5 * DEFAULT_HUNGER_FACTOR))
+				user.adjust_hydration(-(5 * DEFAULT_THIRST_FACTOR))
+			to_chat(user, SPAN_WARNING("You [pick(hit_message)] \the [src]."))
 
 /obj/structure/fitness/weightlifter
 	name = "weightlifting machine"
@@ -34,36 +36,33 @@
 	var/weight = 1
 	var/list/qualifiers = list("with ease", "without any trouble", "with great effort")
 
-/obj/structure/fitness/weightlifter/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/fitness/weightlifter/attackby(obj/item/W as obj, mob/user as mob)
 	if(isWrench(W))
 		playsound(src.loc, 'sound/items/Deconstruct.ogg', 75, 1)
-		weight = ((weight) % qualifiers.len) + 1
+		weight = ((weight) % length(qualifiers)) + 1
 		to_chat(user, "You set the machine's weight level to [weight].")
 
-/obj/structure/fitness/weightlifter/attack_hand(var/mob/living/carbon/human/user)
+/obj/structure/fitness/weightlifter/attack_hand(mob/living/carbon/human/user)
 	if(!istype(user))
 		return
 	var/synth = user.isSynthetic()
 	if(user.loc != src.loc)
-		to_chat(user, "<span class='warning'>You must be on the weight machine to use it.</span>")
+		to_chat(user, SPAN_WARNING("You must be on the weight machine to use it."))
 		return
 	if(!synth && user.nutrition < 50)
-		to_chat(user, "<span class='warning'>You need more energy to lift weights. Go eat something.</span>")
+		to_chat(user, SPAN_WARNING("You need more energy to lift weights. Go eat something."))
 		return
 	if(being_used)
-		to_chat(user, "<span class='warning'>The weight machine is already in use by somebody else.</span>")
+		to_chat(user, SPAN_WARNING("The weight machine is already in use by somebody else."))
 		return
 	else
 		being_used = 1
 		playsound(src.loc, 'sound/effects/weightlifter.ogg', 50, 1)
 		user.set_dir(SOUTH)
 		flick("[icon_state]_[weight]", src)
-		if(do_after(user, 20 + (weight * 10)))
+		if(do_after(user, (2 + weight) SECONDS, src, DO_DEFAULT | DO_BOTH_UNIQUE_ACT))
 			playsound(src.loc, 'sound/effects/weightdrop.ogg', 25, 1)
 			if(!synth)
 				user.nutrition -= weight * 10
 			to_chat(user, "<span class='notice'>You lift the weights [qualifiers[weight]].</span>")
-			being_used = 0
-		else
-			to_chat(user, "<span class='notice'>Against your previous judgement, perhaps working out is not for you.</span>")
-			being_used = 0
+		being_used = FALSE

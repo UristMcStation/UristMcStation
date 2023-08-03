@@ -1,10 +1,10 @@
-/obj/machinery/computer/cloning
+/*/obj/machinery/computer/cloning
 	name = "cloning control console"
 	icon = 'icons/obj/computer.dmi'
 	icon_keyboard = "med_key"
 	icon_screen = "dna"
 	light_color = "#315ab4"
-	circuit = /obj/item/weapon/circuitboard/cloning
+	circuit = /obj/item/stock_parts/circuitboard/cloning
 	req_access = list(access_heads) //Only used for record deletion right now.
 	var/obj/machinery/dna_scannernew/scanner = null //Linked scanner. For scanning.
 	var/list/pods = list() //Linked cloning pods.
@@ -13,7 +13,7 @@
 	var/menu = 1 //Which menu screen to display
 	var/list/records = list()
 	var/datum/dna2/record/active_record = null
-	var/obj/item/weapon/disk/data/diskette = null //Mostly so the geneticist can steal everything.
+	var/obj/item/disk/data/diskette = null //Mostly so the geneticist can steal everything.
 	var/loading = 0 // Nice loading text
 
 /obj/machinery/computer/cloning/Initialize()
@@ -53,7 +53,7 @@
 		P.name = initial(P.name)
 	pods.Cut()
 
-/obj/machinery/computer/cloning/proc/connect_pod(var/obj/machinery/clonepod/P)
+/obj/machinery/computer/cloning/proc/connect_pod(obj/machinery/clonepod/P)
 	if(P in pods)
 		return 0
 
@@ -65,7 +65,7 @@
 
 	return 1
 
-/obj/machinery/computer/cloning/proc/release_pod(var/obj/machinery/clonepod/P)
+/obj/machinery/computer/cloning/proc/release_pod(obj/machinery/clonepod/P)
 	if(!(P in pods))
 		return
 
@@ -76,7 +76,7 @@
 	return 1
 
 /obj/machinery/computer/cloning/proc/rename_pods()
-	for(var/i = 1 to pods.len)
+	for(var/i = 1 to length(pods))
 		var/atom/P = pods[i]
 		P.name = "[initial(P.name)] #[i]"
 
@@ -89,8 +89,8 @@
 			P.connected = src
 			P.name = "[initial(P.name)] #[num++]"
 
-/obj/machinery/computer/cloning/attackby(obj/item/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/weapon/disk/data)) //INSERT SOME DISKETTES
+/obj/machinery/computer/cloning/use_tool(obj/item/W as obj, mob/user as mob)
+	if (istype(W, /obj/item/disk/data)) //INSERT SOME DISKETTES
 		if (!src.diskette)
 			user.drop_item()
 			W.forceMove(src)
@@ -109,7 +109,7 @@
 	user.set_machine(src)
 	add_fingerprint(user)
 
-	if(stat & (BROKEN|NOPOWER))
+	if(stat & (inoperable()))
 		return
 
 	updatemodules()
@@ -128,8 +128,8 @@
 				dat += " <font color=red>DNA scanner not found.</font><br>"
 			else
 				dat += " <font color=green>DNA scanner found.</font><br>"
-			if (pods.len)
-				dat += " <font color=green>[pods.len] cloning vat\s found.</font><br>"
+			if (length(pods))
+				dat += " <font color=green>[length(pods)] cloning vat\s found.</font><br>"
 			else
 				dat += " <font color=red>No cloning vats found.</font><br>"
 
@@ -153,7 +153,7 @@
 
 				dat += "Lock status: <a href='byond://?src=\ref[src];lock=1'>[src.scanner.locked ? "Locked" : "Unlocked"]</a><br>"
 
-			if (pods.len)
+			if (length(pods))
 				for (var/obj/machinery/clonepod/pod in pods)
 					dat += "[pod] biomass: <i>[pod.biomass]</i><br>"
 
@@ -179,7 +179,7 @@
 			else
 				dat += {"<br><font size=1><a href='byond://?src=\ref[src];del_rec=1'>Delete Record</a></font><br>
 					<b>Name:</b> [src.active_record.dna.real_name]<br>"}
-				var/obj/item/weapon/implant/health/H = null
+				var/obj/item/implant/health/H = null
 				if(src.active_record.implant)
 					H=locate(src.active_record.implant)
 
@@ -201,7 +201,7 @@
 				dat += {"<b>UI:</b> [src.active_record.dna.uni_identity]<br>
 				<b>SE:</b> [src.active_record.dna.struc_enzymes]<br><br>"}
 
-				if(pods.len)
+				if(length(pods))
 					dat += {"<a href='byond://?src=\ref[src];clone=\ref[src.active_record]'>Clone</a><br>"}
 
 		if(4)
@@ -214,7 +214,7 @@
 			dat += "<b><a href='byond://?src=\ref[src];menu=3'>No</a></b>"
 
 
-	user << browse(dat, "window=cloning")
+	show_browser(user, dat, "window=cloning")
 	onclose(user, "cloning")
 	return
 
@@ -265,7 +265,7 @@
 			src.menu = 4
 
 		else if (src.menu == 4)
-			var/obj/item/weapon/card/id/C = usr.get_active_hand()
+			var/obj/item/card/id/C = usr.get_active_hand()
 			if (istype(C)||istype(C, /obj/item/modular_computer/pda))
 				if(src.check_access(C))
 					src.records.Remove(src.active_record)
@@ -323,11 +323,11 @@
 		//Look for that player! They better be dead!
 		if(istype(C))
 			//Can't clone without someone to clone.  Or a pod.  Or if the pod is busy. Or full of gibs.
-			if(!pods.len)
+			if(!length(pods))
 				temp = "Error: No clone pods detected."
 			else
 				var/obj/machinery/clonepod/pod = pods[1]
-				if (pods.len > 1)
+				if (length(pods) > 1)
 					pod = input(usr,"Select a cloning pod to use", "Pod selection") as anything in pods
 				if(pod.occupant)
 					temp = "Error: Clonepod is currently occupied."
@@ -410,9 +410,9 @@
 	R.flavor=subject.flavor_texts.Copy()
 
 	//Add an implant if needed
-	var/obj/item/weapon/implant/health/imp = locate(/obj/item/weapon/implant/health, subject)
+	var/obj/item/implant/health/imp = locate(/obj/item/implant/health, subject)
 	if (isnull(imp))
-		imp = new /obj/item/weapon/implant/health(subject)
+		imp = new /obj/item/implant/health(subject)
 		imp.implanted = subject
 		R.implant = "\ref[imp]"
 	//Update it if needed
@@ -426,10 +426,11 @@
 	scantemp = "Subject successfully scanned."
 
 //Find a specific record by key.
-/obj/machinery/computer/cloning/proc/find_record(var/find_key)
+/obj/machinery/computer/cloning/proc/find_record(find_key)
 	var/selected_record = null
 	for(var/datum/dna2/record/R in src.records)
 		if (R.ckey == find_key)
 			selected_record = R
 			break
 			return selected_record
+*/

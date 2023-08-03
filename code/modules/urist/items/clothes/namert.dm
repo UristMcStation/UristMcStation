@@ -54,7 +54,7 @@
 	heat_protection = FEET
 	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
 
-/obj/item/weapon/storage/belt/urist/nam
+/obj/item/storage/belt/urist/nam
 	name = "jungle camo belt"
 	desc = "A belt styled with jungle camouflage. Can hold security gear like handcuffs and flashes."
 	icon_state = "nambelt"
@@ -63,30 +63,30 @@
 	max_w_class = 3
 	max_storage_space = 28
 	can_hold = list(
-		/obj/item/weapon/grenade,
-		/obj/item/weapon/reagent_containers/spray/pepper,
-		/obj/item/weapon/handcuffs,
+		/obj/item/grenade,
+		/obj/item/reagent_containers/spray/pepper,
+		/obj/item/handcuffs,
 		/obj/item/device/flash,
 		/obj/item/clothing/glasses,
 		/obj/item/ammo_casing/shotgun,
 		/obj/item/ammo_magazine,
-		/obj/item/weapon/reagent_containers/food/snacks/donut/,
-		/obj/item/weapon/melee/baton,
-		/obj/item/weapon/gun/energy/taser,
-		/obj/item/weapon/flame/lighter,
+		/obj/item/reagent_containers/food/snacks/donut,
+		/obj/item/melee/baton,
+		/obj/item/gun/energy/taser,
+		/obj/item/flame/lighter,
 		/obj/item/clothing/glasses/hud/security,
 		/obj/item/device/flashlight,
 		/obj/item/modular_computer/pda,
 		/obj/item/device/radio/headset,
 		/obj/item/device/hailer,
 		/obj/item/device/megaphone,
-		/obj/item/weapon/melee,
-		/obj/item/weapon/gun/projectile/bhp9mm,
-		/obj/item/weapon/gun/projectile/sec,
+		/obj/item/melee,
+		/obj/item/gun/projectile/bhp9mm,
+		/obj/item/gun/projectile/pistol/sec,
 		/obj/item/taperoll/police
 		)
 
-/obj/item/weapon/storage/backpack/urist/nam
+/obj/item/storage/backpack/urist/nam
 	name = "jungle camo backpack"
 	desc = "A backpack styled with jungle camouflage."
 	icon_state = "nambackpack"

@@ -1,4 +1,4 @@
-/material/leather/generate_recipes(var/reinforce_material)
+/material/leather/generate_recipes(reinforce_material)
 	. = ..()
 	if(reinforce_material)	//recipies below don't support composite materials
 		return
@@ -56,19 +56,19 @@
 
 /datum/stack_recipe/toolbelt
 	title = "tool belt"
-	result_type = /obj/item/weapon/storage/belt/utility
+	result_type = /obj/item/storage/belt/utility
 	req_amount = 3
 	time = 45
 
 /datum/stack_recipe/briefcase
 	title = "briefcase"
-	result_type = /obj/item/weapon/storage/briefcase
+	result_type = /obj/item/storage/briefcase
 	req_amount = 1
 	time = 30
 
 /datum/stack_recipe/wallet
 	title = "leather wallet"
-	result_type = /obj/item/weapon/storage/wallet/leather
+	result_type = /obj/item/storage/wallet/leather
 	req_amount = 1
 	time = 30
 

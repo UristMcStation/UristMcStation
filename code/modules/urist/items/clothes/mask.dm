@@ -29,12 +29,12 @@
 	icon_state = "paperflower"
 	slot_flags = SLOT_MASK
 
-/obj/item/clothing/mask/flower/attackby(var/obj/item/I, mob/user as mob)
-	if(istype(I, /obj/item/weapon/scissors))
+/obj/item/clothing/mask/flower/attackby(obj/item/I, mob/user as mob)
+	if(istype(I, /obj/item/scissors))
 		var/obj/item/clothing/head/urist/paperflower/F = new /obj/item/clothing/head/urist/paperflower
 		user.remove_from_mob(src)
 		user.put_in_hands(F)
-		user << "<span class='notice'>You snip the stem off the flower.</span>"
+		to_chat(user, "<span class='notice'>You snip the stem off the flower.</span>")
 		del src
 	..()
 
@@ -101,7 +101,7 @@
 	slot_flags = SLOT_MASK
 	flags_inv = HIDEFACE
 
-/obj/item/clothing/mask/urist/bandana/leather/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/clothing/mask/urist/bandana/leather/attackby(obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/stack/material/glass))
 		var/obj/item/stack/material/glass/G = I
 		G.use(1)

@@ -11,34 +11,33 @@
 
 /datum/design/item/powercell/AssembleDesignDesc()
 	if(build_path)
-		var/obj/item/weapon/cell/C = build_path
+		var/obj/item/cell/C = build_path
 		desc = "Allows the construction of power cells that can hold [initial(C.maxcharge)] units of energy."
 
 /datum/design/item/powercell/Fabricate()
-	var/obj/item/weapon/cell/C = ..()
+	var/obj/item/cell/C = ..()
 	C.charge = 0 //shouldn't produce power out of thin air.
-	C.update_icon()
 	return C
 
 /datum/design/item/powercell/basic
 	name = "basic"
 	id = "basic_cell"
 	req_tech = list(TECH_POWER = 1)
-	build_path = /obj/item/weapon/cell
+	build_path = /obj/item/cell/standard
 	sort_string = "DAAAA"
 
 /datum/design/item/powercell/high
 	name = "high-capacity"
 	id = "high_cell"
 	req_tech = list(TECH_POWER = 2)
-	build_path = /obj/item/weapon/cell/high
+	build_path = /obj/item/cell/high
 	sort_string = "DAAAB"
 
 /datum/design/item/powercell/super
 	name = "super-capacity"
 	id = "super_cell"
 	req_tech = list(TECH_POWER = 3, TECH_MATERIAL = 2)
-	build_path = /obj/item/weapon/cell/super
+	build_path = /obj/item/cell/super
 	sort_string = "DAAAC"
 
 /datum/design/item/powercell/hyper
@@ -46,7 +45,7 @@
 	id = "hyper_cell"
 	req_tech = list(TECH_POWER = 5, TECH_MATERIAL = 4)
 	materials = list(MATERIAL_STEEL = 400, MATERIAL_GOLD = 150, MATERIAL_SILVER = 150, MATERIAL_GLASS = 70, MATERIAL_ALUMINIUM = 25)
-	build_path = /obj/item/weapon/cell/hyper
+	build_path = /obj/item/cell/hyper
 	sort_string = "DAAAD"
 
 /datum/design/item/powercell/device/standard
@@ -54,7 +53,7 @@
 	id = "device_cell_standard"
 	req_tech = list(TECH_POWER = 1)
 	materials = list(MATERIAL_STEEL = 70, MATERIAL_GLASS = 5)
-	build_path = /obj/item/weapon/cell/device/standard
+	build_path = /obj/item/cell/device/standard
 	sort_string = "DAAAE"
 
 /datum/design/item/powercell/device/high
@@ -63,14 +62,5 @@
 	id = "device_cell_high"
 	req_tech = list(TECH_POWER = 2)
 	materials = list(MATERIAL_STEEL = 70, MATERIAL_GLASS = 6)
-	build_path = /obj/item/weapon/cell/device/high
+	build_path = /obj/item/cell/device/high
 	sort_string = "DAAAF"
-
-/datum/design/item/powercell/device/premium
-	name = "premium-capacity"
-	build_type = PROTOLATHE | MECHFAB
-	id = "device_cell_premium"
-	req_tech = list(TECH_POWER = 3)
-	materials = list(MATERIAL_STEEL = 70, MATERIAL_GLASS = 7)
-	build_path = /obj/item/weapon/cell/device/premium
-	sort_string = "DAAAH"

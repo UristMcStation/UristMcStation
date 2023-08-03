@@ -11,7 +11,7 @@
 	icon = 'icons/urist/items/effects.dmi'
 	icon_state = "turntable"
 //	var/playing = 0
-	anchored = 1
+	anchored = TRUE
 	var/track = null
 
 /obj/machinery/party/mixer
@@ -19,7 +19,7 @@
 	desc = "A mixing board for mixing music"
 	icon = 'icons/urist/items/effects.dmi'
 	icon_state = "mixer"
-	anchored = 1
+	anchored = TRUE
 
 
 /obj/machinery/party/turntable/New()
@@ -37,7 +37,7 @@
 	t += "<A href='?src=\ref[src];on2=Testloop2'>TestLoop2</A><br>"
 	t += "<A href='?src=\ref[src];on3=Testloop3'>TestLoop3</A><br>"
 
-	user << browse(t, "window=turntable;size=420x700")
+	show_browser(user, t, "window=turntable;size=420x700")
 
 
 /obj/machinery/party/turntable/Topic(href, href_list)
@@ -66,7 +66,7 @@
 			L.turnoff()
 		var/area/main_area = get_area(src)
 		for(var/mob/living/M in mobs_in_area(main_area))
-			M << sound(null, channel = 1)
+			sound_to(M, sound(null, channel = 1))
 
 			main_area.forced_ambience = null
 
@@ -81,8 +81,8 @@
 	S.environment = 0
 	//for(var/mob/M in world)
 	//	if(M.loc.loc == src.loc.loc && M.music == 0)
-	//		world << "Found the song..."
-	//		M << S
+	//		log_debug("Found the song...")
+	//		to_target(M, S)
 	//		M.music = 1
 	var/area/A = src.loc.loc
 
@@ -106,7 +106,7 @@
 	desc = "A laser machine that shoots lasers."
 	icon = 'icons/urist/items/effects.dmi'
 	icon_state = "lasermachine"
-	anchored = 1
+	anchored = TRUE
 	var/mirrored = 0
 
 /obj/effects/laser
@@ -114,7 +114,7 @@
 	desc = "A laser..."
 	icon = 'icons/urist/items/effects.dmi'
 	icon_state = "laserred1"
-	anchored = 1
+	anchored = TRUE
 	layer = 4
 
 /obj/item/lasermachine/New()

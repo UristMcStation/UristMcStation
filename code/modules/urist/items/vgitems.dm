@@ -8,7 +8,7 @@
 	icon_state = "noisemaker"
 	item_state = "radio"
 	siemens_coefficient = 1
-	var/tmp/spam_flag = 0 // Prevents sound spamming.
+	var/spam_flag = 0 // Prevents sound spamming.
 	var/selected_sound = "sound/items/bikehorn.ogg"
 	var/shiftpitch = 1
 	var/volume = 50

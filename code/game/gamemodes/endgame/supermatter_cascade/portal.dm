@@ -27,23 +27,23 @@
 			M.see_rift(src)
 	eat()
 
-/obj/singularity/narsie/large/exit/acquire(var/mob/food)
+/obj/singularity/narsie/large/exit/acquire(mob/food)
 	return
 
 /obj/singularity/narsie/large/exit/consume(const/atom/A)
 	if(!(A.singuloCanEat()))
 		return 0
 
-	if (istype(A, /mob/living/))
+	if (istype(A, /mob/living))
 		var/mob/living/L = A
-		if(L.buckled && istype(L.buckled,/obj/structure/bed/))
+		if(L.buckled && istype(L.buckled,/obj/structure/bed))
 			var/turf/O = L.buckled
 			do_teleport(O, pick(endgame_safespawns))
 			L.forceMove(O.loc)
 		else
 			do_teleport(L, pick(endgame_safespawns)) //dead-on precision
 
-	else if (istype(A, /obj/mecha/))
+	else if (istype(A, /obj/mecha))
 		do_teleport(A, pick(endgame_safespawns)) //dead-on precision
 
 	else if (isturf(A))
@@ -75,7 +75,7 @@
 	//thou shall always be able to see the rift
 	var/image/riftimage = null
 
-/mob/proc/see_rift(var/obj/singularity/narsie/large/exit/R)
+/mob/proc/see_rift(obj/singularity/narsie/large/exit/R)
 	var/turf/T_mob = get_turf(src)
 	if((R.z == T_mob.z) && (get_dist(R,T_mob) <= (R.consume_range+10)) && !(R in view(T_mob)))
 		if(!riftimage)
@@ -88,7 +88,7 @@
 		riftimage.pixel_y = new_y
 		riftimage.loc = T_mob
 
-		src << riftimage
+		image_to (src, riftimage)
 
 	else
 		QDEL_NULL(riftimage)

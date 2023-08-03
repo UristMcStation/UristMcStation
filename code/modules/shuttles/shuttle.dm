@@ -12,6 +12,7 @@
 	var/flags = 0
 	var/process_state = IDLE_STATE //Used with SHUTTLE_FLAGS_PROCESS, as well as to store current state.
 	var/category = /datum/shuttle
+	var/multiz = 0	//how many multiz levels, starts at 0
 
 	var/ceiling_type = /turf/unsimulated/floor/shuttle_ceiling
 
@@ -28,7 +29,7 @@
 	var/mothershuttle //tag of mothershuttle
 	var/motherdock    //tag of mothershuttle landmark, defaults to starting location
 
-/datum/shuttle/New(_name, var/obj/effect/shuttle_landmark/initial_location)
+/datum/shuttle/New(_name, obj/effect/shuttle_landmark/initial_location)
 	..()
 	if(_name)
 		src.name = _name
@@ -73,7 +74,7 @@
 
 	. = ..()
 
-/datum/shuttle/proc/short_jump(var/obj/effect/shuttle_landmark/destination)
+/datum/shuttle/proc/short_jump(obj/effect/shuttle_landmark/destination)
 	if(moving_status != SHUTTLE_IDLE) return
 
 	moving_status = SHUTTLE_WARMUP
@@ -81,7 +82,7 @@
 		playsound(current_location, sound_takeoff, 100, 20, 0.2)
 	spawn(warmup_time*10)
 		if (moving_status == SHUTTLE_IDLE)
-			return FALSE	//someone cancelled the launch
+			return //someone cancelled the launch
 
 		if(!fuel_check()) //fuel error (probably out of fuel) occured, so cancel the launch
 			var/datum/shuttle/autodock/S = src
@@ -93,7 +94,7 @@
 		attempt_move(destination)
 		moving_status = SHUTTLE_IDLE
 
-/datum/shuttle/proc/long_jump(var/obj/effect/shuttle_landmark/destination, var/obj/effect/shuttle_landmark/interim, var/travel_time)
+/datum/shuttle/proc/long_jump(obj/effect/shuttle_landmark/destination, obj/effect/shuttle_landmark/interim, travel_time)
 	if(moving_status != SHUTTLE_IDLE) return
 
 	var/obj/effect/shuttle_landmark/start_location = current_location
@@ -101,6 +102,13 @@
 	moving_status = SHUTTLE_WARMUP
 	if(sound_takeoff)
 		playsound(current_location, sound_takeoff, 100, 20, 0.2)
+		if (!istype(start_location.base_area, /area/space))
+			var/area/A = get_area(start_location)
+
+			for (var/mob/M in GLOB.player_list)
+				if (M.client && M.z == A.z && !istype(get_turf(M), /turf/space) && !(get_area(M) in src.shuttle_area))
+					to_chat(M, SPAN_NOTICE("The rumble of engines are heard as a shuttle lifts off."))
+
 	spawn(warmup_time*10)
 		if(moving_status == SHUTTLE_IDLE)
 			return	//someone cancelled the launch
@@ -119,6 +127,13 @@
 				if(!fwooshed && (arrive_time - world.time) < 100)
 					fwooshed = 1
 					playsound(destination, sound_landing, 100, 0, 7)
+					if (!istype(destination.base_area, /area/space))
+						var/area/A = get_area(destination)
+
+						for (var/mob/M in GLOB.player_list)
+							if (M.client && M.z == A.z && !istype(get_turf(M), /turf/space) && !(get_area(M) in src.shuttle_area))
+								to_chat(M, SPAN_NOTICE("The rumble of a shuttle's engines fill the area as a ship manuevers in for a landing."))
+
 				sleep(5)
 			if(!attempt_move(destination))
 				attempt_move(start_location) //try to go back to where we started. If that fails, I guess we're stuck in the interim location
@@ -128,33 +143,45 @@
 /datum/shuttle/proc/fuel_check()
 	return 1 //fuel check should always pass in non-overmap shuttles (they have magic engines)
 
-/datum/shuttle/proc/attempt_move(var/obj/effect/shuttle_landmark/destination)
+/*****************
+* Shuttle Moved Handling * (Observer Pattern Implementation: Shuttle Moved)
+* Shuttle Pre Move Handling * (Observer Pattern Implementation: Shuttle Pre Move)
+*****************/
+
+/datum/shuttle/proc/attempt_move(obj/effect/shuttle_landmark/destination)
 	if(current_location == destination)
 		return FALSE
 
 	if(!destination.is_valid(src))
+		return FALSE
+	if(current_location.cannot_depart(src))
 		return FALSE
 	testing("[src] moving to [destination]. Areas are [english_list(shuttle_area)]")
 	var/list/translation = list()
 	for(var/area/A in shuttle_area)
 		testing("Moving [A]")
 		translation += get_turf_translation(get_turf(current_location), get_turf(destination), A.contents)
+	var/old_location = current_location
+	GLOB.shuttle_pre_move_event.raise_event(src, old_location, destination)
 	shuttle_moved(destination, translation)
+	GLOB.shuttle_moved_event.raise_event(src, old_location, destination)
+	destination.shuttle_arrived(src)
+	// + BANDAID
+	// /obj/machinery/proc/area_changed and /proc/translate_turfs cause problems with power cost duplication.
+	var/list/area/retally_areas
+	if (isarea(shuttle_area))
+		retally_areas = list(shuttle_area)
+	else if (islist(shuttle_area))
+		retally_areas = shuttle_area
+	for (var/area/area as anything in retally_areas)
+		area.retally_power()
+	// - BANDAID
 	return TRUE
-
-/*****************
-* Shuttle Moved Handling * (Observer Pattern Implementation: Shuttle Moved)
-*****************/
-/datum/shuttle/attempt_move()
-	var/obj/effect/shuttle_landmark/old_location = current_location
-	. = ..()
-	if(.) // If not moved, returns FALSE.
-		GLOB.shuttle_moved_event.raise_event(src, old_location, current_location)
 
 //just moves the shuttle from A to B, if it can be moved
 //A note to anyone overriding move in a subtype. shuttle_moved() must absolutely not, under any circumstances, fail to move the shuttle.
 //If you want to conditionally cancel shuttle launches, that logic must go in short_jump(), long_jump() or attempt_move()
-/datum/shuttle/proc/shuttle_moved(var/obj/effect/shuttle_landmark/destination, var/list/turf_translation)
+/datum/shuttle/proc/shuttle_moved(obj/effect/shuttle_landmark/destination, list/turf_translation)
 
 //	log_debug("move_shuttle() called for [shuttle_tag] leaving [origin] en route to [destination].")
 //	log_degug("area_coming_from: [origin]")
@@ -174,11 +201,7 @@
 			for(var/atom/movable/AM in dst_turf)
 				if(!AM.simulated)
 					continue
-				if(isliving(AM))
-					var/mob/living/bug = AM
-					bug.gib()
-				else
-					qdel(AM) //it just gets atomized I guess? TODO throw it into space somewhere, prevents people from using shuttles as an atom-smasher
+				AM.shuttle_land_on()
 	var/list/powernets = list()
 	for(var/area/A in shuttle_area)
 		// if there was a zlevel above our origin, erase our ceiling now we're leaving
@@ -192,12 +215,12 @@
 				spawn(0)
 					if(istype(M, /mob/living/carbon))
 						if(M.buckled)
-							to_chat(M, "<span class='warning'>Sudden acceleration presses you into your chair!</span>")
+							to_chat(M, SPAN_WARNING("Sudden acceleration presses you into your chair!"))
 							shake_camera(M, 3, 1)
 						else
-							to_chat(M, "<span class='warning'>The floor lurches beneath you!</span>")
+							to_chat(M, SPAN_WARNING("The floor lurches beneath you!"))
 							shake_camera(M, 10, 1)
-							M.visible_message("<span class='warning'>[M.name] is tossed around by the sudden acceleration!</span>")
+							M.visible_message(SPAN_WARNING("[M.name] is tossed around by the sudden acceleration!"))
 							M.throw_at_random(FALSE, 4, 1)
 
 		for(var/obj/structure/cable/C in A)
@@ -237,6 +260,13 @@
 				mothership.shuttle_area |= shuttle_area
 			else
 				mothership.shuttle_area -= shuttle_area
+
+/// Handler for shuttles landing on atoms. Called by `shuttle_moved()`.
+/atom/movable/proc/shuttle_land_on()
+	qdel(src)
+
+/mob/living/shuttle_land_on()
+	gib()
 
 //returns 1 if the shuttle has a valid arrive time
 /datum/shuttle/proc/has_arrive_time()

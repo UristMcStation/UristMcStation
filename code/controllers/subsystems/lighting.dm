@@ -1,4 +1,4 @@
-/var/lighting_overlays_initialised = FALSE
+var/global/lighting_overlays_initialised = FALSE
 
 SUBSYSTEM_DEF(lighting)
 	name = "Lighting"
@@ -28,28 +28,38 @@ SUBSYSTEM_DEF(lighting)
 	var/list/overlay_queue = list() // lighting overlays queued for update.
 	var/oq_idex = 1
 
-	var/tmp/processed_lights = 0
-	var/tmp/processed_corners = 0
-	var/tmp/processed_overlays = 0
+	var/processed_lights = 0
+	var/processed_corners = 0
+	var/processed_overlays = 0
 
-/datum/controller/subsystem/lighting/stat_entry()
-	var/list/out = list("Queued:{L:[light_queue.len] C:[corner_queue.len] O:[overlay_queue.len]}")
-	for (var/stype in stats_lists)
-		out += "[stype] updates: [jointext(stats_lists[stype], " | ")]"
+/datum/controller/subsystem/lighting/UpdateStat(time)
+	if (PreventUpdateStat(time))
+		return ..()
+	..({"\
+		Queues: \
+		Source [length(light_queue)] \
+		Corner [length(corner_queue)] \
+		Overlay [length(overlay_queue)]\n\
+		Source Updates [length(stats_lists["Source"])]\n\
+		Corner Updates [length(stats_lists["Corner"])]\n\
+		Overlay Updates [length(stats_lists["Overlay"])]\
+	"})
 
-	..(out.Join("\n"))
 
-/datum/controller/subsystem/lighting/Initialize()
+/datum/controller/subsystem/lighting/Initialize(start_uptime)
 	InitializeTurfs()
 	lighting_overlays_initialised = TRUE
 	fire(FALSE, TRUE)
-	..()
+
 
 // It's safe to pass a list of non-turfs to this list - it'll only check turfs.
 /datum/controller/subsystem/lighting/proc/InitializeTurfs(list/targets)
 	for (var/turf/T in (targets || world))
 		if (T.dynamic_lighting && T.loc:dynamic_lighting)
 			T.lighting_build_overlay()
+
+		// If this isn't here, BYOND will set-background us.
+		CHECK_TICK
 
 /datum/controller/subsystem/lighting/fire(resumed = FALSE, no_mc_tick = FALSE)
 	if (!resumed)
@@ -72,15 +82,15 @@ SUBSYSTEM_DEF(lighting)
 
 				var/list/stats_list = stats_lists[stat_name]
 				stats_list.Insert(1, stat_sum)
-				if(stats_list.len > stat_updates_to_keep)
-					stats_list.Cut(stats_list.len)
+				if(length(stats_list) > stat_updates_to_keep)
+					stats_list.Cut(length(stats_list))
 
 	MC_SPLIT_TICK_INIT(3)
 	if (!no_mc_tick)
 		MC_SPLIT_TICK
 
 	// Sources.
-	while (lq_idex <= light_queue.len)
+	while (lq_idex <= length(light_queue))
 		var/datum/light_source/L = light_queue[lq_idex]
 		lq_idex += 1
 
@@ -111,7 +121,7 @@ SUBSYSTEM_DEF(lighting)
 		MC_SPLIT_TICK
 
 	// Corners.
-	while (cq_idex <= corner_queue.len)
+	while (cq_idex <= length(corner_queue))
 		var/datum/lighting_corner/C = corner_queue[cq_idex]
 		cq_idex += 1
 
@@ -134,7 +144,7 @@ SUBSYSTEM_DEF(lighting)
 		MC_SPLIT_TICK
 
 	// Objects.
-	while (oq_idex <= overlay_queue.len)
+	while (oq_idex <= length(overlay_queue))
 		var/atom/movable/lighting_overlay/O = overlay_queue[oq_idex]
 		oq_idex += 1
 

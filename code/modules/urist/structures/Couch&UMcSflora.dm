@@ -7,19 +7,19 @@
 	var/image/armrest = null
 	var/couchpart = 0 //0 = middle, 1 = left, 2 = right
 
-/obj/structure/bed/chair/couch/update_icon()
+/obj/structure/bed/chair/couch/on_update_icon()
 	return
 
-/obj/structure/bed/chair/couch/New(var/newloc,var/newmaterial)
+/obj/structure/bed/chair/couch/New(newloc,var/newmaterial)
 //	..(newloc,"steel","black")
 
 	if(couchpart == 1)
 		armrest = image("icons/urist/structures&machinery/Nienplants&Couch.dmi", "armrest_left")
-		armrest.plane = ABOVE_HUMAN_PLANE
+		armrest.plane = ABOVE_HUMAN_LAYER
 		armrest.layer = ABOVE_HUMAN_LAYER
 	else if(couchpart == 2)
 		armrest = image("icons/urist/structures&machinery/Nienplants&Couch.dmi", "armrest_right")
-		armrest.plane = ABOVE_HUMAN_PLANE
+		armrest.plane = ABOVE_HUMAN_LAYER
 		armrest.layer = ABOVE_HUMAN_LAYER
 
 	..()
@@ -84,13 +84,13 @@
 	color = rgb(255,113,0)
 
 
-/obj/structure/bed/chair/couch/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/wrench))
+/obj/structure/bed/chair/couch/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/wrench))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 		new /obj/item/stack/material/steel(src.loc)
 		qdel(src)
-	if(istype(W, /obj/item/weapon/chair_painter))
-		var/obj/item/weapon/chair_painter/C = W
+	if(istype(W, /obj/item/chair_painter))
+		var/obj/item/chair_painter/C = W
 		color = rgb(C.red,C.green,C.blue)
 	else
 		..()
@@ -103,7 +103,7 @@
 	name = "Pot"
 	icon = 'icons/urist/structures&machinery/Nienplants&Couch.dmi'
 	icon_state = "pot"
-	anchored = 1
+	anchored = TRUE
 
 /obj/structure/flora/pottedplant/Nienplants/daisies
 	name = "Daisies"
@@ -142,11 +142,11 @@
 	name = "tree"
 	icon = 'icons/urist/structures&machinery/Glloydtrees.dmi'
 	icon_state = "tree"
-	anchored = 1
+	anchored = TRUE
 	layer = 9
 
-/obj/structure/flora/pottedplant/Nienplants/Glloydtree/attackby(var/obj/item/I, mob/user as mob)
-	if(istype(I, /obj/item/weapon/carpentry/axe))
+/obj/structure/flora/pottedplant/Nienplants/Glloydtree/attackby(obj/item/I, mob/user as mob)
+	if(istype(I, /obj/item/carpentry/axe))
 		to_chat(user, "<span class='notice'>Your axe bounces off the tree! Holy shit, is it metal? Cheapass Nanotrasen corporate bastards.</span>")
 		return
 
@@ -155,5 +155,4 @@
 	name = "bush"
 	icon = 'icons/obj/flora/ausflora.dmi'
 	icon_state = "firstbush_1"
-	anchored = 1
-
+	anchored = TRUE

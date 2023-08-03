@@ -43,7 +43,7 @@ All /tg/ clothing will now go here, to prevent cluttering uristclothes.dm -Glloy
 	icon_state = "roman_boots"
 	item_state = "roman_boots"
 
-/obj/item/weapon/shield/riot/roman
+/obj/item/shield/riot/roman
 	item_icons = URIST_ALL_ONMOBS
 	name = "roman shield"
 	icon = 'icons/urist/items/tgitems.dmi'

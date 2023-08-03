@@ -4,10 +4,9 @@
 	var/alarm_delay = 100 // Don't forget, there's another 10 seconds in queueAlarm()
 	movable_flags = MOVABLE_FLAG_PROXMOVE
 
-/obj/machinery/camera/internal_process()
-	..()
+/obj/machinery/camera/proc/internal_process()
 	// motion camera event loop
-	if (stat & (EMPED|NOPOWER))
+	if (GET_FLAGS(stat, MACHINE_STAT_EMPED) || !is_powered())
 		return
 	if(!isMotion())
 		. = PROCESS_KILL
@@ -25,7 +24,7 @@
 				// If they aren't in range, lose the target.
 				lostTarget(target)
 
-/obj/machinery/camera/proc/newTarget(var/mob/target)
+/obj/machinery/camera/proc/newTarget(mob/target)
 	if (istype(target, /mob/living/silicon/ai)) return 0
 	if (detectTime == 0)
 		detectTime = world.time // start the clock
@@ -33,25 +32,25 @@
 		motionTargets += target
 	return 1
 
-/obj/machinery/camera/proc/lostTarget(var/mob/target)
+/obj/machinery/camera/proc/lostTarget(mob/target)
 	if (target in motionTargets)
 		motionTargets -= target
-	if (motionTargets.len == 0)
+	if (length(motionTargets) == 0)
 		cancelAlarm()
 
 /obj/machinery/camera/proc/cancelAlarm()
-	if (!status || (stat & NOPOWER))
+	if (!status || (!is_powered()))
 		return 0
 	if (detectTime == -1)
-		motion_alarm.clearAlarm(loc, src)
+		GLOB.motion_alarm.clearAlarm(loc, src)
 	detectTime = 0
 	return 1
 
 /obj/machinery/camera/proc/triggerAlarm()
-	if (!status || (stat & NOPOWER))
+	if (!status || (!is_powered()))
 		return 0
 	if (!detectTime) return 0
-	motion_alarm.triggerAlarm(loc, src)
+	GLOB.motion_alarm.triggerAlarm(loc, src)
 	detectTime = -1
 	return 1
 

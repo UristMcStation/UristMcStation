@@ -1,10 +1,10 @@
 /obj/effect/landmark
 	name = "landmark"
-	icon = 'icons/mob/screen1.dmi'
+	icon = 'icons/effects/landmarks.dmi'
 	icon_state = "x2"
-	anchored = 1.0
-	unacidable = 1
-	simulated = 0
+	anchored = TRUE
+	unacidable = TRUE
+	simulated = FALSE
 	invisibility = 101
 	var/can_copy = FALSE //If set, will allow the landmark to be copied via the area.copy_contents_to() proc. (For holodeck mob spawns)
 	var/delete_me = 0
@@ -120,7 +120,7 @@
 	name = "start"
 	icon = 'icons/mob/screen1.dmi'
 	icon_state = "x"
-	anchored = 1.0
+	anchored = TRUE
 	invisibility = 101
 
 /obj/effect/landmark/start/New()
@@ -130,9 +130,9 @@
 
 //Costume spawner landmarks
 /obj/effect/landmark/costume/New() //costume spawner, selects a random subclass and disappears
-
+	SHOULD_CALL_PARENT(FALSE) // TODO: Replace this entire set of New() overrides with Initialize() and qdel hints
 	var/list/options = typesof(/obj/effect/landmark/costume)
-	var/PICK= options[rand(1,options.len)]
+	var/PICK= options[rand(1,length(options))]
 	new PICK(src.loc)
 	delete_me = 1
 
@@ -145,7 +145,7 @@
 	new /obj/item/clothing/gloves/chameleon(src.loc)
 	new /obj/item/clothing/suit/chameleon(src.loc)
 	new /obj/item/clothing/head/chameleon(src.loc)
-	new /obj/item/weapon/storage/backpack/chameleon(src.loc)
+	new /obj/item/storage/backpack/chameleon(src.loc)
 	delete_me = 1
 
 /obj/effect/landmark/costume/gladiator/New()
@@ -157,7 +157,7 @@
 	new /obj/item/clothing/under/gimmick/rank/captain/suit(src.loc)
 	new /obj/item/clothing/head/flatcap(src.loc)
 	new /obj/item/clothing/suit/storage/toggle/labcoat/mad(src.loc)
-	new /obj/item/clothing/glasses/gglasses(src.loc)
+	new /obj/item/clothing/glasses/green(src.loc)
 	delete_me = 1
 
 /obj/effect/landmark/costume/elpresidente/New()
@@ -176,11 +176,11 @@
 	new /obj/item/clothing/under/blackskirt(src.loc)
 	var/CHOICE = pick( /obj/item/clothing/head/beret , /obj/item/clothing/head/rabbitears )
 	new CHOICE(src.loc)
-	new /obj/item/clothing/glasses/sunglasses/blindfold(src.loc)
+	new /obj/item/clothing/glasses/blindfold(src.loc)
 	delete_me = 1
 
 /obj/effect/landmark/costume/butler/New()
-	new /obj/item/clothing/accessory/wcoat(src.loc)
+	new /obj/item/clothing/accessory/waistcoat/black(src.loc)
 	new /obj/item/clothing/under/suit_jacket(src.loc)
 	new /obj/item/clothing/head/that(src.loc)
 	delete_me = 1
@@ -194,12 +194,12 @@
 	delete_me = 1
 
 /obj/effect/landmark/costume/prig/New()
-	new /obj/item/clothing/accessory/wcoat(src.loc)
+	new /obj/item/clothing/accessory/waistcoat/black(src.loc)
 	new /obj/item/clothing/glasses/monocle(src.loc)
 	var/CHOICE= pick( /obj/item/clothing/head/bowler, /obj/item/clothing/head/that)
 	new CHOICE(src.loc)
 	new /obj/item/clothing/shoes/black(src.loc)
-	new /obj/item/weapon/cane(src.loc)
+	new /obj/item/cane(src.loc)
 	new /obj/item/clothing/under/sl_suit(src.loc)
 	new /obj/item/clothing/mask/fakemoustache(src.loc)
 	delete_me = 1
@@ -252,13 +252,13 @@
 /obj/effect/landmark/costume/cutewitch/New()
 	new /obj/item/clothing/under/sundress(src.loc)
 	new /obj/item/clothing/head/witchwig(src.loc)
-	new /obj/item/weapon/staff/broom(src.loc)
+	new /obj/item/staff/broom(src.loc)
 	delete_me = 1
 
 /obj/effect/landmark/costume/fakewizard/New()
 	new /obj/item/clothing/suit/wizrobe/fake(src.loc)
 	new /obj/item/clothing/head/wizard/fake(src.loc)
-	new /obj/item/weapon/staff/(src.loc)
+	new /obj/item/staff/(src.loc)
 	delete_me = 1
 
 /obj/effect/landmark/costume/sexyclown/New()
@@ -294,32 +294,3 @@
 	GLOB.ruin_landmarks -= src
 	ruin_template = null
 	. = ..()
-
-/obj/effect/landmark/random_gen
-	var/generation_width
-	var/generation_height
-	var/seed
-	delete_me = TRUE
-
-/obj/effect/landmark/random_gen/asteroid/Initialize()
-	. = ..()
-
-	if (!config.generate_map)
-		return
-
-	var/min_x = 1
-	var/min_y = 1
-	var/max_x = world.maxx
-	var/max_y = world.maxy
-
-	if (generation_width)
-		min_x = max(src.x, min_x)
-		max_x = min(src.x + generation_width, max_x)
-	if (generation_height)
-		min_y = max(src.y, min_y)
-		max_y = min(src.y + generation_height, max_y)
-
-	new /datum/random_map/automata/cave_system(seed, min_x, min_y, src.z, max_x, max_y)
-	new /datum/random_map/noise/ore(seed, min_x, min_y, src.z, max_x, max_y)
-
-	GLOB.using_map.refresh_mining_turfs(src.z)

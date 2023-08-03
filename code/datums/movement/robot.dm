@@ -3,9 +3,9 @@
 *********/
 /datum/movement_handler/robot
 	expected_host_type = /mob/living/silicon/robot
-	var/mob/living/silicon/robot/robot
+	VAR_PROTECTED/mob/living/silicon/robot/robot
 
-/datum/movement_handler/robot/New(var/host)
+/datum/movement_handler/robot/New(host)
 	..()
 	src.robot = host
 
@@ -16,7 +16,7 @@
 // Use power while moving.
 /datum/movement_handler/robot/use_power/DoMove()
 	var/datum/robot_component/actuator/A = robot.get_component("actuator")
-	if(!robot.cell_use_power(A.active_usage))
+	if(!robot.cell_use_power(A.active_usage * robot.power_efficiency))
 		return MOVEMENT_HANDLED
 
 /datum/movement_handler/robot/use_power/MayMove()

@@ -6,9 +6,9 @@
 	var/chops = 0 //how many times it's been chopped. Gotta make them work for it!
 	var/size = 0
 
-/obj/structure/flora/tree/planet/attackby(var/obj/item/I, mob/user as mob)
-	if(istype(I, /obj/item/weapon/carpentry/axe) || istype(I, /obj/item/weapon/material/twohanded/fireaxe))
-		user << "<span class='notice'>You chop [src] with [I].</span>"
+/obj/structure/flora/tree/planet/attackby(obj/item/I, mob/user as mob)
+	if(istype(I, /obj/item/carpentry/axe) || istype(I, /obj/item/material/twohanded/fireaxe))
+		to_chat(user, "<span class='notice'>You chop [src] with [I].</span>")
 
 		playsound(src.loc, 'sound/urist/chopchop.ogg', 100, 1)
 
@@ -18,14 +18,14 @@
 		chops += 1
 
 		if(chops == 4 && size == 1)
-			user << "<span class='notice'>[src] comes crashing down!</span>"
+			to_chat(user, "<span class='notice'>[src] comes crashing down!</span>")
 			playsound(src.loc, 'sound/urist/treefalling.ogg', 100, 1)
 			new /obj/structure/log(src.loc)
 
 			qdel(src)
 
 		else if(chops == 8)
-			user << "<span class='notice'>[src] comes crashing down!</span>"
+			to_chat(user, "<span class='notice'>[src] comes crashing down!</span>")
 
 			sleep(5)
 
@@ -60,6 +60,7 @@
 
 /obj/structure/flora/tree/planet/jungle/large/New()
 	icon_state = "tree[rand(1,4)]"
+	..()
 
 /obj/structure/flora/tree/planet/jungle/small
 	name = "jungle tree"
@@ -70,18 +71,19 @@
 
 /obj/structure/flora/tree/planet/jungle/small/New()
 	icon_state = "tree[rand(1,10)]"
+	..()
 
 //logs
 
 /obj/structure/log
 	icon = 'icons/urist/items/wood.dmi'
 	icon_state = "log"
-	density = 1
-	anchored = 0
+	density = TRUE
+	anchored = FALSE
 
-/obj/structure/log/attackby(var/obj/item/I, mob/user as mob)
-	if(istype(I, /obj/item/weapon/carpentry/saw))
-		user << "<span class='notice'>You saw the [src] with [I].</span>"
+/obj/structure/log/attackby(obj/item/I, mob/user as mob)
+	if(istype(I, /obj/item/carpentry/saw))
+		to_chat(user, "<span class='notice'>You saw the [src] with [I].</span>")
 
 		if(do_after(user, 20))
 

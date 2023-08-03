@@ -14,7 +14,7 @@
 	..()
 	return
 
-/obj/item/assembly/shock_kit/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/assembly/shock_kit/attackby(obj/item/W as obj, mob/user as mob)
 	if(isWrench(W) && !status)
 		part1.dropInto(loc)
 		part2.dropInto(loc)
@@ -26,7 +26,7 @@
 		return
 	if(isScrewdriver(W))
 		status = !status
-		to_chat(user, "<span class='notice'>[src] is now [status ? "secured" : "unsecured"]!</span>")
+		to_chat(user, SPAN_NOTICE("[src] is now [status ? "secured" : "unsecured"]!"))
 	add_fingerprint(user)
 	return
 

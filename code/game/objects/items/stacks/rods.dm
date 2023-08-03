@@ -3,14 +3,16 @@
 	desc = "Some rods. Can be used for building, or something."
 	singular_name = "rod"
 	plural_name = "rods"
-	icon_state = "single-rod"
-	plural_icon_state = "rods"
+	icon_state = "rod"
+	plural_icon_state = "rod-mult"
+	max_icon_state = "rod-max"
 	w_class = ITEM_SIZE_LARGE
 	attack_cooldown = 21
 	melee_accuracy_bonus = -20
 	throw_speed = 5
 	throw_range = 20
 	max_amount = 100
+	base_parry_chance = 15
 	attack_verb = list("hit", "bludgeoned", "whacked")
 	lock_picking_level = 3
 	matter_multiplier = 0.5
@@ -40,17 +42,23 @@
 
 /obj/item/stack/material/rods/attackby(obj/item/W as obj, mob/user as mob)
 	if(isWelder(W))
-		var/obj/item/weapon/weldingtool/WT = W
+		var/obj/item/weldingtool/WT = W
 
-		if(get_amount() < 2)
-			to_chat(user, "<span class='warning'>You need at least two rods to do this.</span>")
+		if(material.ignition_point)
+			to_chat(user, SPAN_WARNING("You can't weld this material into sheets."))
+			return
+
+		if(!can_use(2))
+			to_chat(user, SPAN_WARNING("You need at least two rods to do this."))
 			return
 
 		if(WT.remove_fuel(0,user))
-			var/obj/item/stack/material/steel/new_item = new(usr.loc)
+			var/obj/item/stack/material/new_item = material.place_sheet(usr.loc)
 			new_item.add_to_stacks(usr)
-			for (var/mob/M in viewers(src))
-				M.show_message("<span class='notice'>[src] is shaped into metal by [user.name] with the weldingtool.</span>", 3, "<span class='notice'>You hear welding.</span>", 2)
+			user.visible_message(
+				SPAN_NOTICE("\The [user] welds \the [src] into \a [material.sheet_singular_name]."),
+				SPAN_NOTICE("You weld \the [src] into \a [material.sheet_singular_name].")
+				)
 			var/obj/item/stack/material/rods/R = src
 			src = null
 			var/replace = (user.get_inactive_hand()==R)
@@ -58,17 +66,6 @@
 			if (!R && replace)
 				user.put_in_hands(new_item)
 		return
-
-	if (istype(W, /obj/item/weapon/tape_roll))
-		var/obj/item/stack/medical/splint/ghetto/new_splint = new(user.loc)
-		new_splint.dropInto(loc)
-		new_splint.add_fingerprint(user)
-
-		user.visible_message("<span class='notice'>\The [user] constructs \a [new_splint] out of a [singular_name].</span>", \
-				"<span class='notice'>You use make \a [new_splint] out of a [singular_name].</span>")
-		src.use(1)
-		return
-
 	..()
 
 /obj/item/stack/material/rods/attack_self(mob/user as mob)
@@ -77,34 +74,3 @@
 	if(!istype(user.loc,/turf)) return 0
 
 	place_grille(user, user.loc, src)
-
-/obj/item/stack/material/rods/use()
-	. = ..()
-	update_icon()
-
-/obj/item/stack/material/rods/add()
-	. = ..()
-	update_icon()
-
-/obj/item/stack/material/rods/verb/place_above()
-	set name = "Construct Lattice Above"
-	set category = "Object"
-
-	if (usr.stat || usr.restrained() || usr.incapacitated()) return
-
-	var/turf/target = get_turf(locate(src.loc.x,src.loc.y,src.loc.z+1))
-	
-	if(!target || !AreConnectedZLevels(src.loc.z,target.z))
-		to_chat(usr, "<span class='warning'>There's nothing above you.</span>")
-		return
-	
-	if(isopenspace(target))
-		if(locate(/obj/structure/lattice, target))
-			to_chat(usr, "<span class='warning'>There's already a lattice in that location.</span>")
-			return
-		target.attackby(src, src.loc)
-		playsound(usr, 'sound/weapons/Genhit.ogg', 50, 1)
-	else
-		to_chat(usr, "<span class='warning'>There's no empty space above you.</span>")
-		return
-	

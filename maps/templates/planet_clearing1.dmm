@@ -1,9 +1,9 @@
-"a" = (/turf/simulated/floor/planet/jungle/templatethick,/area/planet/jungle)
-"b" = (/turf/simulated/floor/planet/jungle/path,/area/planet/jungle)
-"c" = (/turf/simulated/floor/planet/jungle/clear,/area/planet/jungle)
-"d" = (/obj/structure/flora/tree/planet/jungle/small{pixel_x = 0},/turf/simulated/floor/planet/jungle/clear,/area/planet/jungle)
-"e" = (/obj/item/remains{pixel_x = 16; pixel_y = 8},/turf/simulated/floor/planet/jungle/clear,/area/planet/jungle)
-"f" = (/obj/item/ammo_casing/c357{pixel_x = -4; pixel_y = 5},/obj/item/ammo_casing/c357{pixel_x = 9; pixel_y = 7},/obj/item/ammo_casing/c357,/turf/simulated/floor/planet/jungle/clear,/area/planet/jungle)
+"a" = (/turf/simulated/floor/planet/jungle/templatethick,/area/planet/jungle/away)
+"b" = (/turf/simulated/floor/planet/jungle/path,/area/planet/jungle/away)
+"c" = (/turf/simulated/floor/planet/jungle/clear,/area/planet/jungle/away)
+"d" = (/obj/structure/flora/tree/planet/jungle/small{pixel_x = 0},/turf/simulated/floor/planet/jungle/clear,/area/planet/jungle/away)
+"e" = (/obj/item/remains{pixel_x = 16; pixel_y = 8},/turf/simulated/floor/planet/jungle/clear,/area/planet/jungle/away)
+"f" = (/obj/item/ammo_casing/pistol/magnum{pixel_x = -4; pixel_y = 5},/obj/item/ammo_casing/pistol/magnum{pixel_x = 9; pixel_y = 7},/obj/item/ammo_casing/pistol/magnum,/turf/simulated/floor/planet/jungle/clear,/area/planet/jungle/away)
 
 (1,1,1) = {"
 aaaaaaaaaa

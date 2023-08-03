@@ -24,7 +24,7 @@ to avoid worrying about the sprites -Glloyd*/
 
 //emergency suit hood
 
-/obj/item/clothing/head/urist/emergencyhood
+/*/obj/item/clothing/head/urist/emergencyhood
 	name = "emergency hood"
 	desc = "A bulky hood meant to be used in emergencies only. It doesn't look too safe, and has some strange gray stains inside..."
 	icon = 'icons/urist/items/clothes/head.dmi'
@@ -33,7 +33,7 @@ to avoid worrying about the sprites -Glloyd*/
 	armor = list(melee = 5, bullet = 0, laser = 0,energy = 0, bomb = 5, bio = 50, rad = 25)
 	obj_flags = ITEM_FLAG_STOPPRESSUREDAMAGE
 	cold_protection = HEAD
-	species_restricted = list("exclude","Vox",SPECIES_RESOMI)
+	species_restricted = list("exclude","Vox",SPECIES_RESOMI)*/
 
 //armored biosuit hood
 
@@ -158,7 +158,7 @@ to avoid worrying about the sprites -Glloyd*/
 	set category = "Object"
 	set desc = "Show those scum who's boss."
 
-	usr << "You tip your fedora."
+	to_chat(usr, "You tip your fedora.")
 	usr.visible_message("[usr] tips \his fedora.")
 
 /obj/item/clothing/head/urist/fez
@@ -256,7 +256,7 @@ to avoid worrying about the sprites -Glloyd*/
 	user.remove_from_mob(src)
 
 	user.put_in_hands(H)
-	user << "<span class='notice'>You unfold the bandana into a hazardvest.</span>"
+	to_chat(user, "<span class='notice'>You unfold the bandana into a hazardvest.</span>")
 	qdel(src)
 
 /obj/item/clothing/suit/storage/hazardvest/verb/toggle_bandana()
@@ -273,7 +273,7 @@ to avoid worrying about the sprites -Glloyd*/
 
 	user.remove_from_mob(src)
 	user.put_in_hands(H)
-	user << "<span class='notice'>You fold the hazardvest into a bandana.</span>"
+	to_chat(user, "<span class='notice'>You fold the hazardvest into a bandana.</span>")
 	qdel(src)
 
 //Fallout hats
@@ -464,3 +464,87 @@ to avoid worrying about the sprites -Glloyd*/
 	icon_state = "risingsun"
 	item_state = "risingsun"
 	armor = list (melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+
+//rescued colored spacesuits from bay. too nice to let go
+
+//Green syndicate space suit
+/obj/item/clothing/head/urist/helmet/space/syndicate/green
+	name = "green space helmet"
+	icon_state = "syndicate-helm-green"
+	item_state = "syndicate-helm-green"
+	item_icons = URIST_ALL_ONMOBS
+
+
+
+//Dark green syndicate space suit
+/obj/item/clothing/head/urist/helmet/space/syndicate/green/dark
+	name = "dark green space helmet"
+	icon_state = "syndicate-helm-green-dark"
+	item_icons = URIST_ALL_ONMOBS
+	item_state_slots = list(
+		slot_l_hand_str = "syndicate-helm-green-dark",
+		slot_r_hand_str = "syndicate-helm-green-dark",
+	)
+
+//Orange syndicate space suit
+/obj/item/clothing/head/urist/helmet/space/syndicate/orange
+	name = "orange space helmet"
+	icon_state = "syndicate-helm-orange"
+	item_state = "syndicate-helm-orange"
+	item_icons = URIST_ALL_ONMOBS
+
+
+//Blue syndicate space suit
+/obj/item/clothing/head/urist/helmet/space/syndicate/blue
+	name = "blue space helmet"
+	icon_state = "syndicate-helm-blue"
+	item_state = "syndicate-helm-blue"
+	item_icons = URIST_ALL_ONMOBS
+
+
+//Black-green syndicate space suit
+/obj/item/clothing/head/urist/helmet/space/syndicate/black/green
+	name = "black and green space helmet"
+	icon_state = "syndicate-helm-black-green"
+	item_state = "syndicate-helm-black-green"
+	item_icons = URIST_ALL_ONMOBS
+
+
+//Black-blue syndicate space suit
+/obj/item/clothing/head/urist/helmet/space/syndicate/black/blue
+	name = "black and blue space helmet"
+	icon_state = "syndicate-helm-black-blue"
+	item_state = "syndicate-helm-black-blue"
+	item_icons = URIST_ALL_ONMOBS
+
+
+//Black medical syndicate space suit
+/obj/item/clothing/head/urist/helmet/space/syndicate/black/med
+	name = "black medical space helmet"
+	icon_state = "syndicate-helm-black-med"
+	item_state_slots = list(slot_head_str = "syndicate-helm-black-med")
+	item_icons = URIST_ALL_ONMOBS
+
+
+//Black-orange syndicate space suit
+/obj/item/clothing/head/urist/helmet/space/syndicate/black/orange
+	name = "black and orange space helmet"
+	icon_state = "syndicate-helm-black-orange"
+	item_state_slots = list(slot_head_str = "syndicate-helm-black-orange")
+	item_icons = URIST_ALL_ONMOBS
+
+
+//Black-red syndicate space suit
+/obj/item/clothing/head/urist/helmet/space/syndicate/black/red
+	name = "black and red space helmet"
+	icon_state = "syndicate-helm-black-red"
+	item_state = "syndicate-helm-black-red"
+	item_icons = URIST_ALL_ONMOBS
+
+
+//Black with yellow/red engineering syndicate space suit
+/obj/item/clothing/head/urist/helmet/space/syndicate/black/engie
+	name = "black engineering space helmet"
+	icon_state = "syndicate-helm-black-engie"
+	item_state_slots = list(slot_head_str = "syndicate-helm-black-engie")
+	item_icons = URIST_ALL_ONMOBS

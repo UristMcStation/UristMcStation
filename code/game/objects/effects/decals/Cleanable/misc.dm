@@ -12,8 +12,8 @@
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "ash"
 
-/obj/effect/decal/cleanable/ash/attack_hand(var/mob/user)
-	to_chat(user, "<span class='notice'>[src] sifts through your fingers.</span>")
+/obj/effect/decal/cleanable/ash/attack_hand(mob/user)
+	to_chat(user, SPAN_NOTICE("[src] sifts through your fingers."))
 	var/turf/simulated/floor/F = get_turf(src)
 	if (istype(F))
 		F.dirt += 4
@@ -21,7 +21,7 @@
 
 /obj/effect/decal/cleanable/greenglow/Initialize()
 	. = ..()
-	addtimer(CALLBACK(src, /datum/proc/qdel_self), 2 MINUTES)
+	QDEL_IN(src, 2 MINUTES)
 
 /obj/effect/decal/cleanable/dirt
 	name = "dirt"
@@ -53,7 +53,6 @@
 /obj/effect/decal/cleanable/cobweb
 	name = "cobweb"
 	desc = "Somebody should remove that."
-	plane = ABOVE_HUMAN_PLANE
 	layer = ABOVE_HUMAN_LAYER
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "cobweb1"
@@ -69,7 +68,6 @@
 /obj/effect/decal/cleanable/cobweb2
 	name = "cobweb"
 	desc = "Somebody should remove that."
-	plane = ABOVE_HUMAN_PLANE
 	layer = ABOVE_HUMAN_LAYER
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "cobweb2"
@@ -83,7 +81,18 @@
 	icon_state = "vomit_1"
 	persistent = TRUE
 	generic_filth = TRUE
-	var/list/viruses = list()
+
+/obj/effect/decal/cleanable/vomit/New()
+	random_icon_states = icon_states(icon)
+	..()
+	atom_flags |= ATOM_FLAG_OPEN_CONTAINER
+	create_reagents(30, src)
+	if(prob(75))
+		SetTransform(rotation = pick(90, 180, 270))
+
+/obj/effect/decal/cleanable/vomit/on_update_icon()
+	. = ..()
+	color = reagents.get_color()
 
 /obj/effect/decal/cleanable/vomit/New()
 	random_icon_states = icon_states(icon)

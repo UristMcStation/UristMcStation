@@ -4,7 +4,7 @@
 
 //////////////////////////BUILDABORGS///////////////////////////////
 
-var/datum/antagonist/agent/buildaborg/buildaborgs
+var/global/datum/antagonist/agent/buildaborg/buildaborgs
 /datum/antagonist/agent/buildaborg/New()
 	..()
 	buildaborgs = src
@@ -19,7 +19,7 @@ var/datum/antagonist/agent/buildaborg/buildaborgs
 
 //////////////////////////FREEMESONS//////////////////////////////////
 
-var/datum/antagonist/agent/freemesonry/freemesons
+var/global/datum/antagonist/agent/freemesonry/freemesons
 /datum/antagonist/agent/freemesonry/New()
 	..()
 	freemesons = src
@@ -34,7 +34,7 @@ var/datum/antagonist/agent/freemesonry/freemesons
 
 /////////////////////////MEN IN GREY/////////////////////////////////
 
-var/datum/antagonist/agent/meningrey/MIGs
+var/global/datum/antagonist/agent/meningrey/MIGs
 /datum/antagonist/agent/meningrey/New()
 	..()
 	MIGs = src
@@ -49,7 +49,7 @@ var/datum/antagonist/agent/meningrey/MIGs
 
 /////////////////////////ALIUMINATI//////////////////////////////////
 
-var/datum/antagonist/agent/aliuminati/aliuminatis
+var/global/datum/antagonist/agent/aliuminati/aliuminatis
 /datum/antagonist/agent/aliuminati/New()
 	..()
 	buildaborgs = src

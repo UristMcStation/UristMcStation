@@ -7,16 +7,16 @@
 	path = /obj/item/clothing/under/solgov/utility
 
 /datum/gear/uniform/shortjumpskirt
-	allowed_roles = RESTRICTED_ROLES
+	allowed_roles = CASUAL_ROLES
 
 /datum/gear/uniform/blackjumpshorts
-	allowed_roles = RESTRICTED_ROLES
+	allowed_roles = CASUAL_ROLES
 
 /datum/gear/uniform/roboticist_skirt
 	allowed_roles = list(/datum/job/roboticist)
 
 /datum/gear/uniform/suit
-	allowed_roles = FORMAL_ROLES
+	allowed_roles = SEMIANDFORMAL_ROLES
 
 /datum/gear/uniform/scrubs
 	allowed_roles = STERILE_ROLES
@@ -32,10 +32,10 @@
 	allowed_roles = FORMAL_ROLES
 
 /datum/gear/uniform/skirt
-	allowed_roles = FORMAL_ROLES
+	allowed_roles = SEMIANDFORMAL_ROLES
 
 /datum/gear/uniform/skirt_c
-	allowed_roles = FORMAL_ROLES
+	allowed_roles = SEMIANDFORMAL_ROLES
 
 /datum/gear/uniform/skirt_c/dress
 	allowed_roles = FORMAL_ROLES
@@ -44,26 +44,25 @@
 	allowed_roles = SEMIFORMAL_ROLES
 
 /datum/gear/uniform/formal_pants
-	allowed_roles = FORMAL_ROLES
+	allowed_roles = SEMIANDFORMAL_ROLES
 
 /datum/gear/uniform/formal_pants/custom
-	allowed_roles = FORMAL_ROLES
+	allowed_roles = SEMIANDFORMAL_ROLES
 
 /datum/gear/uniform/formal_pants/baggycustom
-	allowed_roles = FORMAL_ROLES
+	allowed_roles = SEMIANDFORMAL_ROLES
 
 /datum/gear/uniform/shorts
-	allowed_roles = RESTRICTED_ROLES
-	flags = GEAR_HAS_TYPE_SELECTION
+	allowed_roles = CASUAL_ROLES
 
 /datum/gear/uniform/shorts/custom
-	allowed_roles = FORMAL_ROLES
+	allowed_roles = CASUAL_ROLES
 
 /datum/gear/uniform/turtleneck
-	allowed_roles = FORMAL_ROLES
+	allowed_roles = SEMIFORMAL_ROLES
 
 /datum/gear/tactical/tacticool
-	allowed_roles = RESTRICTED_ROLES
+	allowed_roles = CASUAL_ROLES
 
 /datum/gear/uniform/sterile
 	allowed_roles = MEDICAL_ROLES
@@ -81,4 +80,4 @@
 	allowed_roles = list(/datum/job/liaison)
 
 /datum/gear/uniform/corp_exec_jacket
-	allowed_roles = list(/datum/job/liaison, /datum/job/bodyguard)
+	allowed_roles = list(/datum/job/liaison)

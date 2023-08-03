@@ -3,9 +3,9 @@
 
 /obj/effect/submap_landmark/joinable_submap/abandoned_colony
 	name = "ICS Morning Light"
-	archetype = /decl/submap_archetype/abandoned_colony
+	archetype = /singleton/submap_archetype/abandoned_colony
 
-/decl/submap_archetype/abandoned_colony
+/singleton/submap_archetype/abandoned_colony
 	descriptor = "abandoned colony"
 	map = "abandoned colony"
 	crew_jobs = list(
@@ -18,7 +18,7 @@
 	luminosity = 0
 	lightswitch = 1
 
-/obj/effect/overmap/sector/abandoned_colony
+/obj/effect/overmap/visitable/abandoned_colony
 	name = "abandoned colony"
 	desc = "A former Terran Confederation colony, evacuated during the Galactic Crisis. It is now a 'Graveworld', one of the many broken monuments to the billions of dead and displaced across the galaxy. However, sensors are detecting signs of life on the surface."
 	icon_state = "globe"
@@ -33,7 +33,7 @@
 		"ICS Morning Light" = list("nav_morninglight")
 		)
 
-/obj/effect/overmap/sector/abandoned_colony/Initialize() //make it spawn a lactera ship
+/obj/effect/overmap/visitable/abandoned_colony/Initialize() //make it spawn a lactera ship
 	.=..()
 	name = "[generate_planet_name()], \a [name]"
 	new /mob/living/simple_animal/hostile/overmapship/alien/small(get_turf(src))
@@ -58,11 +58,14 @@
 	accessibility_weight = 10
 //	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED //temporary
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/morninglight)
-	cost = 1
+	spawn_cost = 1
 
-/obj/machinery/power/smes/buildable/preset/morning_light/configure_and_install_coils()
-	component_parts += new /obj/item/weapon/smes_coil/super_io(src)
-	component_parts += new /obj/item/weapon/smes_coil/super_capacity(src)
+/obj/machinery/power/smes/buildable/preset/morning_light/Initialize()
+	. = ..()
+	uncreated_component_parts = list(
+	/obj/item/stock_parts/smes_coil/super_io = 1,
+	/obj/item/stock_parts/smes_coil/super_capacity = 1,
+	)
 	_input_maxed = TRUE
 	_output_maxed = TRUE
 	_input_on = TRUE

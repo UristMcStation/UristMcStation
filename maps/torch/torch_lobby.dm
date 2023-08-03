@@ -1,19 +1,25 @@
 /datum/map/torch
-	lobby_icon = 'maps/torch/icons/lobby.dmi'
-	lobby_screens = list("title","title2","title3")
+	lobby_screens = list('maps/torch/lobby/ship.gif','maps/torch/lobby/hullside.gif','maps/torch/lobby/torchlogo.gif')
 	lobby_tracks = list(
-		/music_track/chasing_time,
-		/music_track/torch,
-		/music_track/human,
-		/music_track/marhaba,
-		/music_track/treacherous_voyage,
-		/music_track/comet_haley,
-		/music_track/lysendraa,
-		/music_track/lasers,
-		/music_track/martiancowboy,
-		/music_track/monument,
-		/music_track/asfarasitgets,
-		/music_track/eighties,
-		/music_track/torn,
-		/music_track/nebula
+		/singleton/audio/track/chasing_time,
+		/singleton/audio/track/torch,
+		/singleton/audio/track/human,
+		/singleton/audio/track/marhaba,
+		/singleton/audio/track/treacherous_voyage,
+		/singleton/audio/track/comet_haley,
+		/singleton/audio/track/lysendraa,
+		/singleton/audio/track/lasers,
+		/singleton/audio/track/martiancowboy,
+		/singleton/audio/track/monument,
+		/singleton/audio/track/asfarasitgets,
+		/singleton/audio/track/eighties,
+		/singleton/audio/track/torn,
+		/singleton/audio/track/nebula,
+		/singleton/audio/track/epicintro2015,
+		/singleton/audio/track/epicintro2017,
+		/singleton/audio/track/hull_rupture,
+		/singleton/audio/track/on_the_rocks,
+		/singleton/audio/track/rimward_cruise,
+		/singleton/audio/track/misanthropic_corridors,
+		/singleton/audio/track/voidsent
 	)

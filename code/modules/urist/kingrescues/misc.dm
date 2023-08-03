@@ -3,8 +3,8 @@
 	desc = "A fairly pretty landscape. Signed by the great Galavant."
 	icon = 'icons/urist/king/misc.dmi'
 	icon_state = "landscape"
-	anchored = 1
-	density = 0
+	anchored = TRUE
+	density = FALSE
 
 /obj/structure/painting/colour
 	name = "colours painting"
@@ -13,7 +13,7 @@
 
 //BOOKS
 
-/obj/item/weapon/book/manual/betting
+/obj/item/book/manual/betting
 	name = "The Book of Betting"
 	icon = 'icons/urist/king/misc.dmi'
 	icon_state = "bettingbook"

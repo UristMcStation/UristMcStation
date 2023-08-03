@@ -3,19 +3,18 @@
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "white_electricity_constant"
 	color = "#33cc33"
-	plane = ABOVE_HUMAN_PLANE
 	layer = MOB_LAYER
 
-/obj/aura/starborn/bullet_act(var/obj/item/projectile/P, var/def_zone)
-	if(P.damage_type == BURN)
-		user.visible_message("<span class='warning'>\The [P] seems to only make \the [user] stronger.</span>")
-		user.adjustBruteLoss(-P.damage)
+/obj/aura/starborn/aura_check_bullet(obj/item/projectile/proj, def_zone)
+	if (proj.damage_type == DAMAGE_BURN)
+		user.visible_message(SPAN_WARNING("\The [proj] seems to only make \the [user] stronger."))
+		user.adjustBruteLoss(-proj.damage)
 		return AURA_FALSE
-	return 0
+	return EMPTY_BITFIELD
 
-/obj/aura/starborn/attackby(var/obj/item/I, var/mob/i_user)
-	if(I.damtype == "fire")
-		to_chat(i_user, "<span class='warning'>\The [I] seems to only feed into \the [user]'s flames.</span>")
-		user.adjustBruteLoss(-I.force)
+/obj/aura/starborn/aura_check_weapon(obj/item/weapon, mob/attacker, click_params)
+	if (weapon.damtype == DAMAGE_BURN)
+		user.visible_message(SPAN_WARNING("\The [weapon] seems to only feed into \the [user]'s flames."))
+		user.adjustBruteLoss(-weapon.force)
 		return AURA_FALSE
-	return 0
+	return EMPTY_BITFIELD

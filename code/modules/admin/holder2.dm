@@ -2,7 +2,7 @@
 #define STEALTH_MANUAL 1
 #define STEALTH_AUTO 2
 
-var/list/admin_datums = list()
+var/global/list/admin_datums = list()
 
 /datum/admins
 	var/rank         = "Temporary Admin"
@@ -30,6 +30,8 @@ var/list/admin_datums = list()
 	rank = initial_rank
 	rights = initial_rights
 	admin_datums[ckey] = src
+	if (rights & R_DEBUG)
+		world.SetConfig("APP/admin", ckey, "role=admin")
 
 /datum/admins/proc/associate(client/C)
 	if(istype(C))
@@ -61,32 +63,27 @@ if rights_required == 0, then it simply checks if they are an admin.
 if it doesn't return 1 and show_msg=1 it will prints a message explaining why the check has failed
 generally it would be used like so:
 
-proc/admin_proc()
+/proc/admin_proc()
 	if(!check_rights(R_ADMIN)) return
 	to_chat(usr, "you have enough rights!")
 
 NOTE: It checks usr by default. Supply the "user" argument if you wish to check for a specific mob.
 */
-/proc/check_rights(rights_required, show_msg=1, var/client/C = usr)
-	if(ismob(C))
-		var/mob/M = C
-		C = M.client
-	if(!C)
+/proc/check_rights(rights_required, show_msg = TRUE, client/C = usr)
+	C = resolve_client(C)
+	if (!C)
 		return FALSE
-	if(!C.holder)
-		if(show_msg)
-			to_chat(C, "<span class='warning'>Error: You are not an admin.</span>")
+	if (!C.holder)
+		if (show_msg)
+			to_chat(C, SPAN_WARNING("You are not a staff member."))
 		return FALSE
-
-	if(rights_required)
-		if(rights_required & C.holder.rights)
+	if (rights_required)
+		if (rights_required & C.holder.rights)
 			return TRUE
-		else
-			if(show_msg)
-				to_chat(C, "<span class='warning'>Error: You do not have sufficient rights to do that. You require one of the following flags:[rights2text(rights_required," ")].</span>")
-			return FALSE
-	else
-		return TRUE
+		if (show_msg)
+			to_chat(C, SPAN_WARNING("You lack the rights to do that. You need one of: [rights2text(rights_required," ")]"))
+		return FALSE
+	return TRUE
 
 //probably a bit iffy - will hopefully figure out a better solution
 /proc/check_if_greater_rights_than(client/other)
@@ -97,7 +94,7 @@ NOTE: It checks usr by default. Supply the "user" argument if you wish to check 
 			if(usr.client.holder.rights != other.holder.rights)
 				if( (usr.client.holder.rights & other.holder.rights) == other.holder.rights )
 					return 1	//we have all the rights they have and more
-		to_chat(usr, "<font color='red'>Error: Cannot proceed. They have more or equal rights to us.</font>")
+		to_chat(usr, SPAN_COLOR("red", "Error: Cannot proceed. They have more or equal rights to us."))
 	return 0
 
 /client/proc/deadmin()
@@ -119,11 +116,12 @@ NOTE: It checks usr by default. Supply the "user" argument if you wish to check 
 	if(!holder)
 		return FALSE
 
+	var/auto_stealth = (inactivity >= world.time) || (config.autostealth && (inactivity >= MinutesToTicks(config.autostealth)))
 	// If someone has been AFK since round-start or longer, stealth them
 	// BYOND keeps track of inactivity between rounds as long as it's not a full stop/start.
-	if(holder.stealthy_ == STEALTH_OFF && ((inactivity >= world.time) || (config.autostealth && inactivity >= MinutesToTicks(config.autostealth))))
+	if(holder.stealthy_ == STEALTH_OFF && auto_stealth)
 		holder.stealthy_ = STEALTH_AUTO
-	else if(holder.stealthy_ == STEALTH_AUTO && inactivity < world.time)
+	else if(holder.stealthy_ == STEALTH_AUTO && !auto_stealth)
 		// And if someone has been set to auto-stealth and returns, unstealth them
 		holder.stealthy_ = STEALTH_OFF
 	return holder.stealthy_
@@ -136,16 +134,15 @@ NOTE: It checks usr by default. Supply the "user" argument if you wish to check 
 	set name = "Stealth Mode"
 
 	if(!holder)
-		to_chat(src, "<span class='warning'>Error: You are not an admin.</span>")
+		to_chat(src, SPAN_WARNING("Error: You are not an admin."))
 		return
 
 	holder.stealthy_ = holder.stealthy_ == STEALTH_OFF ? STEALTH_MANUAL : STEALTH_OFF
 	if(holder.stealthy_)
-		to_chat(src, "<span class='notice'>You are now stealthed.</span>")
+		to_chat(src, SPAN_NOTICE("You are now stealthed."))
 	else
-		to_chat(src, "<span class='notice'>You are no longer stealthed.</span>")
+		to_chat(src, SPAN_NOTICE("You are no longer stealthed."))
 	log_and_message_admins("has turned stealth mode [holder.stealthy_ ? "ON" : "OFF"]")
-	SSstatistics.add_field_details("admin_verb","SM") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 #undef STEALTH_OFF
 #undef STEALTH_MANUAL

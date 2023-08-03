@@ -23,7 +23,7 @@
 	malf_process()
 
 	if(APU_power && (hardware_integrity() < 50))
-		to_chat(src, "<span class='notice'><b>APU GENERATOR FAILURE! (System Damaged)</b></span>")
+		to_chat(src, SPAN_NOTICE("<b>APU GENERATOR FAILURE! (System Damaged)</b>"))
 		stop_apu(1)
 
 	// We aren't shut down, and we lack external power. Try to fix it using the restoration routine.
@@ -40,7 +40,6 @@
 	handle_confused()
 	update_sight()
 
-	process_queued_alarms()
 	handle_regular_hud_updates()
 	switch(src.sensor_mode)
 		if (SEC_HUD)

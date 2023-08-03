@@ -1,82 +1,64 @@
-//Please use mob or src (not usr) in these procs. This way they can be called in the same fashion as procs.
-/client/verb/wiki()
-	set name = "Wiki"
-	set desc = "Visit the wiki."
-	set hidden = 1
-	if( config.wikiurl )
-		if(alert("This will open the wiki in your browser. Are you sure?",,"Yes","No")=="No")
+/client/proc/link_url(url, name, skip_confirmation)
+	if (!url)
+		to_chat(src, SPAN_WARNING("The server configuration does not include \a [name] URL."))
+		return
+	if (!skip_confirmation)
+		var/cancel = alert("You will open [url]. Are you sure?", "Visit [name]", "Yes", "No") != "Yes"
+		if (cancel)
 			return
-		send_link(src, config.wikiurl)
-	else
-		to_chat(src, "<span class='warning'>The wiki URL is not set in the server configuration.</span>")
-	return
+	send_link(src, url)
 
-/client/verb/github()
-	set name = "GitHub"
-	set desc = "Visit the GitHub repository."
-	set hidden = 1
-	if( config.githuburl )
-		if(alert("This will open GitHub in your browser. Are you sure?",,"Yes","No")=="No")
-			return
-		send_link(src, config.githuburl)
-	else
-		to_chat(src, "<span class='warning'>The github URL is not set in the server configuration.</span>")
-	return
 
-/client/verb/bugreport()
-	set name = "Bug Report"
-	set desc = "Visit the GitHub repository to report an issue or bug."
-	set hidden = 1
-	if( config.issuereporturl )
-		if(alert("This will open GitHub in your browser. Are you sure?",,"Yes","No")=="No")
-			return
-		send_link(src, config.issuereporturl)
-	else
-		to_chat(src, "<span class='warning'>The issue report URL is not set in the server configuration.</span>")
-	return
+/client/verb/link_wiki()
+	set name = "link wiki"
+	set hidden = TRUE
+	link_url(config.wiki_url, "Wiki", TRUE)
 
-/client/verb/forum()
-	set name = "Forum"
-	set desc = "Visit the Discord server."
-	set hidden = 1
-	if( config.forumurl )
-		if(alert("This will open the Discord server in your browser. Are you sure?",,"Yes","No")=="No")
-			return
-		send_link(src, config.forumurl)
-	else
-		to_chat(src, "<span class='warning'>The forum URL is not set in the server configuration.</span>")
-	return
+/client/verb/link_source()
+	set name = "link source"
+	set hidden = TRUE
+	link_url(config.source_url, "Source", TRUE)
 
-#define RULES_FILE "config/rules.html"
-/client/verb/rules()
-	set name = "Rules"
-	set desc = "Show Server Rules."
-	set hidden = 1
-	show_browser(src, file(RULES_FILE), "window=rules;size=480x320")
-#undef RULES_FILE
 
-#define LORE_FILE "config/lore.html"
-/client/verb/lore_splash()
-	set name = "Lore"
-	set desc = "Links to the beginner Lore wiki."
-	set hidden = 1
-	show_browser(src, file(LORE_FILE), "window=lore;size=480x320")
-#undef LORE_FILE
+/client/verb/link_issue()
+	set name = "link issue"
+	set hidden = TRUE
+	link_url(config.issue_url, "Issue", TRUE)
+
+
+/client/verb/link_forum()
+	set name = "link forum"
+	set hidden = TRUE
+	link_url(config.forum_url, "Forum", TRUE)
+
+
+/client/verb/link_rules()
+	set name = "link rules"
+	set hidden = TRUE
+	link_url(config.rules_url, "Rules", TRUE)
+
+
+/client/verb/link_lore()
+	set name = "link lore"
+	set hidden = TRUE
+	link_url(config.lore_url, "Lore", TRUE)
+
+/client/verb/link_discord()
+	set name = "link discord"
+	set hidden = TRUE
+	link_url(config.discord_url, "Discord", TRUE)
 
 /client/verb/hotkeys_help()
 	set name = "Hotkeys Help"
 	set category = "OOC"
 
-	var/admin = {"<font color='purple'>
-Admin:
+	var/admin = SPAN_COLOR("purple", {"Admin:
 \tF5 = Aghost (admin-ghost)
 \tF6 = player-panel-new
 \tF7 = admin-pm
-\tF8 = Invisimin
-</font>"}
+\tF8 = Invisimin"})
 
-	var/hotkey_mode = {"<font color='purple'>
-Hotkey-Mode: (hotkey-mode must be on)
+	var/hotkey_mode = SPAN_COLOR("purple", {"Hotkey-Mode: (hotkey-mode must be on)
 \tTAB = toggle hotkey-mode
 \ta = left
 \ts = down
@@ -97,11 +79,9 @@ Hotkey-Mode: (hotkey-mode must be on)
 \t1 = help-intent
 \t2 = disarm-intent
 \t3 = grab-intent
-\t4 = harm-intent
-</font>"}
+\t4 = harm-intent"})
 
-	var/other = {"<font color='purple'>
-Any-Mode: (hotkey doesn't need to be on)
+	var/other = SPAN_COLOR("purple", {"Any-Mode: (hotkey doesn't need to be on)
 \tCtrl+a = left
 \tCtrl+s = down
 \tCtrl+d = right
@@ -130,11 +110,9 @@ Any-Mode: (hotkey doesn't need to be on)
 \tCtrl + Click = drag
 \tShift + Click = examine
 \tAlt + Click = show entities on turf
-\tCtrl + Alt + Click = interact with certain items
-</font>"}
+\tCtrl + Alt + Click = interact with certain items"})
 
-	var/robot_hotkey_mode = {"<font color='purple'>
-Hotkey-Mode: (hotkey-mode must be on)
+	var/robot_hotkey_mode = SPAN_COLOR("purple", {"Hotkey-Mode: (hotkey-mode must be on)
 \tTAB = toggle hotkey-mode
 \ta = left
 \ts = down
@@ -150,11 +128,9 @@ Hotkey-Mode: (hotkey-mode must be on)
 \t2 = activate module 2
 \t3 = activate module 3
 \t4 = toggle intents
-\t5 = emote
-</font>"}
+\t5 = emote"})
 
-	var/robot_other = {"<font color='purple'>
-Any-Mode: (hotkey doesn't need to be on)
+	var/robot_other = SPAN_COLOR("purple", {"Any-Mode: (hotkey doesn't need to be on)
 \tCtrl+a = left
 \tCtrl+s = down
 \tCtrl+d = right
@@ -179,8 +155,7 @@ Any-Mode: (hotkey doesn't need to be on)
 \tCtrl + Click = drag or bolt doors
 \tShift + Click = examine or open doors
 \tAlt + Click = show entities on turf
-\tCtrl + Alt + Click = electrify doors
-</font>"}
+\tCtrl + Alt + Click = electrify doors"})
 
 	if(isrobot(src.mob))
 		to_chat(src, robot_hotkey_mode)

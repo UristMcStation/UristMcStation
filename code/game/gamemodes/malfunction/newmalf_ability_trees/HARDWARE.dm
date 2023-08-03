@@ -41,7 +41,7 @@
 		if(!user || !user.bombing_core)
 			return
 		to_chat(user, "** [timer] **")
-	explosion(user.loc, 3,6,12,24)
+	explosion(user.loc, 21)
 	qdel(user)
 
 
@@ -119,7 +119,7 @@
 	to_chat(user, "Self-destructing in 5 minutes. Use this command again to abort.")
 	user.bombing_station = 1
 
-	var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
+	var/singleton/security_state/security_state = GET_SINGLETON(GLOB.using_map.security_state)
 	security_state.set_security_level(security_state.severe_security_level, TRUE)
 	radio.autosay("Self destruct sequence has been activated. Self-destructing in 5 minutes.", "Self-Destruct Control")
 
@@ -139,5 +139,3 @@
 		timer--
 
 	SetUniversalState(/datum/universal_state/nuclear_explosion/malf, arguments=list(user)) //TODO: find the station nuclear device and use that
-
-

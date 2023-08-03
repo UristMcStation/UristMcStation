@@ -1,105 +1,72 @@
-#ifndef T_BOARD
-#error T_BOARD macro is not defined but we need it!
-#endif
-
-/obj/item/weapon/circuitboard/sleeper
-	name = T_BOARD("sleeper")
-	build_path = /obj/machinery/sleeper
+/obj/item/stock_parts/circuitboard/optable
+	name = T_BOARD("operating table")
+	build_path = /obj/machinery/optable
 	board_type = "machine"
 	origin_tech = list(TECH_BIO = 3)
 	req_components = list(
-							/obj/item/weapon/stock_parts/matter_bin = 1,
-							/obj/item/weapon/stock_parts/manipulator = 2,
-							/obj/item/weapon/reagent_containers/syringe = 1,
-							/obj/item/stack/material/glass/reinforced = 5)
+		/obj/item/stock_parts/scanning_module = 1,
+		/obj/item/stock_parts/manipulator = 2,
+		/obj/item/stock_parts/capacitor  = 1)
+	additional_spawn_components = list(
+		/obj/item/stock_parts/power/apc/buildable = 1
+	)
 
-/obj/item/weapon/circuitboard/scanner_console
-	name = T_BOARD("body scanner console")
-	build_path = /obj/machinery/body_scanconsole
-	board_type = "machine"
-	origin_tech = list(TECH_DATA = 3, TECH_BIO = 2)
-	req_components = list(
-							/obj/item/weapon/stock_parts/console_screen = 1,
-							/obj/item/stack/cable_coil = 5,
-							/obj/item/stack/material/glass = 2)
-
-/obj/item/weapon/circuitboard/body_scanner
+/obj/item/stock_parts/circuitboard/bodyscanner
 	name = T_BOARD("body scanner")
 	build_path = /obj/machinery/bodyscanner
 	board_type = "machine"
 	origin_tech = list(TECH_BIO = 4, TECH_MAGNETIC = 2)
 	req_components = list(
-							/obj/item/weapon/stock_parts/capacitor = 1,
-							/obj/item/weapon/stock_parts/scanning_module/phasic = 3,
-							/obj/item/stack/cable_coil = 5,
-							/obj/item/stack/material/glass/reinforced = 5)
+		/obj/item/stock_parts/scanning_module = 2,
+		/obj/item/stock_parts/manipulator = 2,
+		/obj/item/stock_parts/console_screen = 1)
+	additional_spawn_components = list(
+		/obj/item/stock_parts/power/apc/buildable = 1
+	)
 
-/obj/item/weapon/circuitboard/diseaseanalyser
-	name = T_BOARD("disease analyzer")
-	build_path = /obj/machinery/disease2/diseaseanalyser
+/obj/item/stock_parts/circuitboard/body_scanconsole
+	name = T_BOARD("body scanner console")
+	build_path = /obj/machinery/body_scanconsole
 	board_type = "machine"
 	origin_tech = list(TECH_DATA = 3, TECH_BIO = 2)
 	req_components = list(
-							/obj/item/weapon/stock_parts/console_screen = 1,
-							/obj/item/weapon/stock_parts/manipulator = 1,
-							/obj/item/stack/cable_coil = 5)
+		/obj/item/stock_parts/console_screen = 1)
+	additional_spawn_components = list(
+		/obj/item/stock_parts/keyboard = 1,
+		/obj/item/stock_parts/power/apc/buildable = 1
+	)
 
-/obj/item/weapon/circuitboard/antibodyanalyser
-	name = T_BOARD("antibody analyzer")
-	build_path = /obj/machinery/disease2/antibodyanalyser
+/obj/item/stock_parts/circuitboard/body_scanconsole/display
+	name = T_BOARD("body scanner display")
+	build_path = /obj/machinery/body_scan_display
+	origin_tech = list(TECH_BIO = 2, TECH_DATA = 2)
+
+/obj/item/stock_parts/circuitboard/sleeper
+	name = T_BOARD("sleeper")
+	build_path = /obj/machinery/sleeper
 	board_type = "machine"
-	origin_tech = list(TECH_DATA = 3, TECH_BIO = 2)
-	req_components = list(
-							/obj/item/weapon/stock_parts/console_screen = 1,
-							/obj/item/weapon/stock_parts/manipulator = 1,
-							/obj/item/stack/cable_coil = 5)
+	origin_tech = list(TECH_ENGINEERING = 3, TECH_BIO = 5, TECH_DATA = 3)
+	req_components = list (
+		/obj/item/stock_parts/scanning_module = 1,
+		/obj/item/stock_parts/manipulator = 2,
+		/obj/item/reagent_containers/syringe = 2)
+	additional_spawn_components = list(
+		/obj/item/stock_parts/console_screen = 1,
+		/obj/item/stock_parts/keyboard = 1,
+		/obj/item/stock_parts/power/apc/buildable = 1
+	)
 
-/obj/item/weapon/circuitboard/incubator
-	name = T_BOARD("pathogenic incubator")
-	build_path = /obj/machinery/disease2/incubator
-	board_type = "machine"
-	origin_tech = list(TECH_MAGNETIC = 3, TECH_BIO = 3)
-	req_components = list(
-							/obj/item/weapon/stock_parts/matter_bin = 1,
-							/obj/item/weapon/stock_parts/micro_laser = 1,
-							/obj/item/stack/material/glass/reinforced = 2)
-
-/obj/item/weapon/circuitboard/centrifuge
-	name = T_BOARD("isolation centrifuge")
-	build_path = /obj/machinery/disease2/centrifuge
-	board_type = "machine"
-	origin_tech = list(TECH_BIO = 4)
-	req_components = list(
-							/obj/item/weapon/stock_parts/micro_laser = 2,
-							/obj/item/stack/cable_coil = 5,
-							/obj/item/stack/material/glass = 5)
-
-/obj/item/weapon/circuitboard/isolater
-	name = T_BOARD("pathogenic isolater")
-	build_path = /obj/machinery/disease2/isolator
-	board_type = "machine"
-	origin_tech = list(TECH_DATA = 1, TECH_BIO = 3)
-	req_components = list(
-							/obj/item/weapon/stock_parts/console_screen = 1,
-							/obj/item/weapon/stock_parts/manipulator = 2)
-
-obj/item/weapon/circuitboard/cryo_cell
+/obj/item/stock_parts/circuitboard/cryo_cell
 	name = T_BOARD("cryo cell")
 	build_path = /obj/machinery/atmospherics/unary/cryo_cell
 	board_type = "machine"
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_BIO = 6, TECH_DATA = 3)
 	req_components = list (
-							/obj/item/weapon/stock_parts/scanning_module = 1,
-							/obj/item/weapon/stock_parts/manipulator = 2,
-							/obj/item/weapon/stock_parts/console_screen = 1,
-							/obj/item/pipe = 1)
-
-/obj/item/weapon/circuitboard/optable
-	name = T_BOARD("operating table")
-	build_path = /obj/machinery/optable
-	board_type = "machine"
-	origin_tech = list(TECH_ENGINEERING = 1, TECH_BIO = 3, TECH_DATA = 3)
-	req_components = list(
-							/obj/item/weapon/stock_parts/scanning_module = 1,
-							/obj/item/weapon/stock_parts/manipulator = 2,
-							/obj/item/weapon/stock_parts/capacitor  = 1)
+		/obj/item/stock_parts/scanning_module = 1,
+		/obj/item/stock_parts/manipulator = 2,
+		/obj/item/pipe = 1)
+	additional_spawn_components = list(
+		/obj/item/stock_parts/console_screen = 1,
+		/obj/item/stock_parts/keyboard = 1,
+		/obj/item/stock_parts/power/apc/buildable = 1
+	)

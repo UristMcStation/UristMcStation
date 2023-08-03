@@ -4,7 +4,7 @@
 	w_class = ITEM_SIZE_LARGE
 	icon = 'icons/obj/suitcooler.dmi'
 	icon_state = "suitcooler0"
-	item_state = "coolingpack"			// beautiful codersprites until someone makes a prettier one.
+	item_state = "coolingpack"
 	slot_flags = SLOT_BACK
 
 	//copied from tank.dm
@@ -20,7 +20,7 @@
 
 	var/on = 0								//is it turned on?
 	var/cover_open = 0						//is the cover open?
-	var/obj/item/weapon/cell/cell
+	var/obj/item/cell/cell
 	var/max_cooling = 12					// in degrees per second - probably don't need to mess with heat capacity here
 	var/charge_consumption = 2 KILOWATTS	// energy usage at full power
 	var/thermostat = T20C
@@ -31,7 +31,7 @@
 /obj/item/device/suit_cooling_unit/Initialize()
 	. = ..()
 	START_PROCESSING(SSobj, src)
-	cell = new/obj/item/weapon/cell/high()		// 10K rated cell.
+	cell = new/obj/item/cell/high()		// 10K rated cell.
 	cell.forceMove(src)
 
 /obj/item/device/suit_cooling_unit/Destroy()
@@ -80,12 +80,12 @@
 	on = 1
 	update_icon()
 
-/obj/item/device/suit_cooling_unit/proc/turn_off(var/failed)
+/obj/item/device/suit_cooling_unit/proc/turn_off(failed)
 	if(failed) visible_message("\The [src] clicks and whines as it powers down.")
 	on = 0
 	update_icon()
 
-/obj/item/device/suit_cooling_unit/attack_self(var/mob/user)
+/obj/item/device/suit_cooling_unit/attack_self(mob/user)
 	if(cover_open && cell)
 		if(ishuman(user))
 			user.put_in_hands(cell)
@@ -102,14 +102,14 @@
 
 	toggle(user)
 
-/obj/item/device/suit_cooling_unit/proc/toggle(var/mob/user)
+/obj/item/device/suit_cooling_unit/proc/toggle(mob/user)
 	if(on)
 		turn_off()
 	else
 		turn_on()
-	to_chat(user, "<span class='notice'>You switch \the [src] [on ? "on" : "off"].</span>")
+	to_chat(user, SPAN_NOTICE("You switch \the [src] [on ? "on" : "off"]."))
 
-/obj/item/device/suit_cooling_unit/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/device/suit_cooling_unit/attackby(obj/item/W as obj, mob/user as mob)
 	if(isScrewdriver(W))
 		if(cover_open)
 			cover_open = 0
@@ -117,10 +117,11 @@
 		else
 			cover_open = 1
 			to_chat(user, "You unscrew the panel.")
+		playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
 		update_icon()
 		return
 
-	if (istype(W, /obj/item/weapon/cell))
+	if (istype(W, /obj/item/cell))
 		if(cover_open)
 			if(cell)
 				to_chat(user, "There is a [cell] already installed here.")
@@ -163,8 +164,9 @@
 			overlays.Add("battery-5")
 
 
-/obj/item/device/suit_cooling_unit/examine(mob/user)
-	if(!..(user, 1))
+/obj/item/device/suit_cooling_unit/examine(mob/user, distance)
+	. = ..()
+	if(distance >= 1)
 		return
 
 	if (on)

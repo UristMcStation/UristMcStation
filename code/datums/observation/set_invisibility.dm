@@ -8,9 +8,9 @@
 //			/old_invisibility: invisibility before the change
 //			/new_invisibility: invisibility after the change
 
-GLOBAL_DATUM_INIT(invisibility_set_event, /decl/observ/invisibility_set, new)
+GLOBAL_DATUM_INIT(invisibility_set_event, /singleton/observ/invisibility_set, new)
 
-/decl/observ/invisibility_set
+/singleton/observ/invisibility_set
 	name = "Invisibility Set"
 	expected_type = /atom
 
@@ -18,9 +18,14 @@ GLOBAL_DATUM_INIT(invisibility_set_event, /decl/observ/invisibility_set, new)
 * Invisibility Set Handling *
 *****************************/
 
-/atom/proc/set_invisibility(var/new_invisibility = 0)
+/**
+ * Sets the atom's invisibility and raises the invisibility set event.
+ *
+ * **Parameters**:
+ * - `new_invisibility` integer (Default `0`) - The new invisibility to set.
+ */
+/atom/proc/set_invisibility(new_invisibility = 0)
 	var/old_invisibility = invisibility
 	if(old_invisibility != new_invisibility)
 		invisibility = new_invisibility
 		GLOB.invisibility_set_event.raise_event(src, old_invisibility, new_invisibility)
-

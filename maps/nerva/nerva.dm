@@ -1,4 +1,4 @@
-#if !defined(USING_MAP_DATUM)
+#if !defined(using_map_DATUM)
 
 	#include "nerva_announcements.dm"
 	#include "nerva_areas.dm"
@@ -13,6 +13,8 @@
 	#include "datums/nerva_outfits.dm"
 	#include "datums/nerva_supplypacks.dm"
 	#include "datums/nerva_objectives.dm"
+	#include "datums/nerva_reports.dm"
+
 	#include "obj/nerva_ids.dm"
 	#include "obj/nerva_closets.dm"
 	#include "obj/nerva_machinery.dm"
@@ -26,13 +28,17 @@
 	#include "fluff/species_overrides.dm"
 	#include "fluff/alien_fluff.dm"
 
+	#include "loadout/_defines.dm"
 	#include "loadout/loadout_accessories.dm"
 	#include "loadout/loadout_eyes.dm"
 	#include "loadout/loadout_hands.dm"
 	#include "loadout/loadout_head.dm"
+	#include "loadout/loadout_general.dm"
 	#include "loadout/loadout_suit.dm"
 	#include "loadout/loadout_uniform.dm"
+	#include "loadout/loadout_utility.dm"
 	#include "loadout/loadout_xeno.dm"
+	#include "loadout/~defines.dm"
 
 	#include "nerva-1.dmm"
 	#include "nerva-2.dmm"
@@ -57,21 +63,35 @@
 	#include "../away/lar_maria/lar_maria.dm"
 	#include "../away/stations/nerva_stations.dm"
 	#include "../away/stations/pirate/pirate_station.dm"
-	#include "../away/unishi/unishi.dm"
 	#include "../away/voxship/voxship.dm"
 	#include "../away/glloyd_jungle/glloyd_jungle.dm"
 	#include "../away/destroyed_colony/destroyed_colony.dm"
 	#include "../away/noctis/noctis.dm"
 	#include "../away/abandoned_colony/abandoned_colony.dm"
+	#include "../away/meatstation/meatstation.dm"
+	#include "../away/miningstation/miningstation.dm"
+	#include "../away/mininghome/mininghome.dm"
+	#include "../away/scavver/scavver_gantry.dm"
+	#include "../away/geminus_city/road_and_pavements.dm"
+	#include "../away/geminus_city/signs.dm"
+	#include "../away/geminus_city/streetobjects.dm"
 
-	#include "../../code/datums/music_tracks/chasing_time.dm"
+	/*#include "../../code/datums/music_tracks/chasing_time.dm"
 	#include "../../code/datums/music_tracks/absconditus.dm"
 	#include "../../code/datums/music_tracks/clouds_of_fire.dm"
 	#include "../../code/datums/music_tracks/endless_space.dm"
 	#include "../../code/datums/music_tracks/dilbert.dm"
-	#include "../../code/datums/music_tracks/space_oddity.dm"
+	#include "../../code/datums/music_tracks/space_oddity.dm"*/
 
-	#define USING_MAP_DATUM /datum/map/nerva
+	//keep your clothing hacks to yourself
+	#include "../torch/items/clothing/solgov-accessory.dm"
+	#include "../torch/items/clothing/solgov-armor.dm"
+	#include "../torch/items/clothing/solgov-feet.dm"
+	#include "../torch/items/clothing/solgov-head.dm"
+	#include "../torch/items/clothing/solgov-suit.dm"
+	#include "../torch/items/clothing/solgov-under.dm"
+
+	#define using_map_DATUM /datum/map/nerva
 	#define URISTCODE 1
 
 #elif !defined(MAP_OVERRIDE)

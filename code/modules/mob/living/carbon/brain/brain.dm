@@ -20,7 +20,7 @@
 		ghostize()		//Ghostize checks for key so nothing else is necessary.
 	. = ..()
 
-/mob/living/carbon/brain/say_understands(var/other)//Goddamn is this hackish, but this say code is so odd
+/mob/living/carbon/brain/say_understands(other)//Goddamn is this hackish, but this say code is so odd
 	if (istype(other, /mob/living/silicon/ai))
 		if(!(container && istype(container, /obj/item/device/mmi)))
 			return 0
@@ -43,7 +43,7 @@
 	return ..()
 
 /mob/living/carbon/brain/UpdateLyingBuckledAndVerbStatus()
-	if(in_contents_of(/obj/mecha) || istype(loc, /obj/item/device/mmi))
+	if(istype(loc, /obj/item/device/mmi))
 		use_me = 1
 
 /mob/living/carbon/brain/isSynthetic()
@@ -54,4 +54,3 @@
 
 /mob/living/carbon/brain/check_has_mouth()
 	return 0
-

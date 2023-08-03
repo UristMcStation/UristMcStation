@@ -13,7 +13,7 @@
 		A.process()
 		check_alarm_cleared(A)
 
-/datum/alarm_handler/proc/triggerAlarm(var/atom/origin, var/atom/source, var/duration = 0, var/severity = 1)
+/datum/alarm_handler/proc/triggerAlarm(atom/origin, atom/source, duration = 0, severity = 1)
 	var/new_alarm
 	//Proper origin and source mandatory
 	if(!(origin && source))
@@ -38,7 +38,7 @@
 
 	return new_alarm
 
-/datum/alarm_handler/proc/clearAlarm(var/atom/origin, var/source)
+/datum/alarm_handler/proc/clearAlarm(atom/origin, source)
 	//Proper origin and source mandatory
 	if(!(origin && source))
 		return
@@ -50,38 +50,38 @@
 		return check_alarm_cleared(existing)
 
 // Returns alarms in connected z levels to z_level. If none is given, returns all.
-/datum/alarm_handler/proc/alarms(var/z_level)
+/datum/alarm_handler/proc/alarms(z_level)
 	if(z_level)
 		. = list()
 		for(var/z in GetConnectedZlevels(z_level))
-			. += alarms_by_z["[z]"] || list()
+			. += SANITIZE_LIST(alarms_by_z["[z]"])
 	else
 		return alarms
 
 // Returns major alarms in connected z levels to z_level. If none is given, returns all.
-/datum/alarm_handler/proc/major_alarms(var/z_level)
+/datum/alarm_handler/proc/major_alarms(z_level)
 	return alarms(z_level)
 
-/datum/alarm_handler/proc/has_major_alarms(var/z_level)
+/datum/alarm_handler/proc/has_major_alarms(z_level)
 	return !!length(major_alarms(z_level))
 
 // Returns minor alarms in connected z levels to z_level. If none is given, returns all.
-/datum/alarm_handler/proc/minor_alarms(var/z_level)
+/datum/alarm_handler/proc/minor_alarms(z_level)
 	return alarms(z_level)
 
-/datum/alarm_handler/proc/has_minor_alarms(var/z_level)
+/datum/alarm_handler/proc/has_minor_alarms(z_level)
 	return !!length(minor_alarms(z_level))
 
-/datum/alarm_handler/proc/check_alarm_cleared(var/datum/alarm/alarm)
-	if ((alarm.end_time && world.time > alarm.end_time) || !alarm.sources.len)
+/datum/alarm_handler/proc/check_alarm_cleared(datum/alarm/alarm)
+	if ((alarm.end_time && world.time > alarm.end_time) || !length(alarm.sources))
 		alarms -= alarm
 		alarms_assoc -= alarm.origin
-		alarms_by_z["[alarm.alarm_z()]"] -= alarm
+		LAZYREMOVE(alarms_by_z["[alarm.alarm_z()]"], alarm)
 		on_alarm_change(alarm, ALARM_CLEARED)
 		return 1
 	return 0
 
-/datum/alarm_handler/proc/on_alarm_change(var/datum/alarm/alarm, var/was_raised)
+/datum/alarm_handler/proc/on_alarm_change(datum/alarm/alarm, was_raised)
 	for(var/obj/machinery/camera/C in alarm.cameras())
 		if(was_raised)
 			C.add_network(category)
@@ -89,7 +89,7 @@
 			C.remove_network(category)
 	notify_listeners(alarm, was_raised)
 
-/datum/alarm_handler/proc/get_alarm_severity_for_origin(var/atom/origin)
+/datum/alarm_handler/proc/get_alarm_severity_for_origin(atom/origin)
 	if(!origin)
 		return
 
@@ -100,31 +100,24 @@
 
 	return existing.max_severity()
 
+/**
+ * Retrieves the 'origin' point for any alarms the atom declares. For turfs, this will be the area. For any other
+ * atom, this is itself.
+ *
+ * Returns instance of `/atom`.
+ */
 /atom/proc/get_alarm_origin()
 	return src
 
 /turf/get_alarm_origin()
 	return get_area(src)
 
-/datum/alarm_handler/proc/register_alarm(var/object, var/procName)
+/datum/alarm_handler/proc/register_alarm(object, procName)
 	listeners[object] = procName
 
-/datum/alarm_handler/proc/unregister_alarm(var/object)
+/datum/alarm_handler/proc/unregister_alarm(object)
 	listeners -= object
 
-/datum/alarm_handler/proc/notify_listeners(var/datum/alarm/alarm, var/was_raised)
+/datum/alarm_handler/proc/notify_listeners(alarm, was_raised)
 	for(var/listener in listeners)
-		var/z = null
-
-		var/atom/atom_listener = listener
-		var/datum/nano_module/module = listener
-
-		if(istype(atom_listener))
-			z = atom_listener.z
-		else if(istype(module))
-			var/atom/host = module.host
-			if(host && istype(host))
-				z = host.z
-
-		if(!z || AreConnectedZLevels(z, alarm.alarm_z()))
-			call(listener, listeners[listener])(src, alarm, was_raised)
+		call(listener, listeners[listener])(src, alarm, was_raised)

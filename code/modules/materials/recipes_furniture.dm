@@ -119,7 +119,6 @@ ARMCHAIR(yellow)
 	result_type = /obj/machinery/door/unpowered/simple
 	req_amount = 10
 	time = 50
-	send_material_data = 0
 
 /datum/stack_recipe/furniture/barricade
 	title = "barricade"
@@ -129,16 +128,26 @@ ARMCHAIR(yellow)
 
 /datum/stack_recipe/furniture/stool
 	title = "stool"
-	result_type = /obj/item/weapon/stool
+	result_type = /obj/item/stool
 
 /datum/stack_recipe/furniture/bar_stool
 	title = "bar stool"
-	result_type = /obj/item/weapon/stool/bar
+	result_type = /obj/item/stool/bar
 
 /datum/stack_recipe/furniture/bed
 	title = "bed"
 	result_type = /obj/structure/bed
 	req_amount = 2
+
+/datum/stack_recipe/furniture/pew
+	title = "pew, right"
+	result_type = /obj/structure/bed/chair/pew
+	req_amount = 4
+
+/datum/stack_recipe/furniture/pew_left
+	title = "pew, left"
+	result_type = /obj/structure/bed/chair/pew/left
+	req_amount = 4
 
 /datum/stack_recipe/furniture/table_frame
 	title = "table frame"
@@ -148,6 +157,7 @@ ARMCHAIR(yellow)
 /datum/stack_recipe/furniture/rack
 	title = "rack"
 	result_type = /obj/structure/table/rack
+	send_material_data = FALSE
 
 /datum/stack_recipe/furniture/closet
 	title = "closet"
@@ -162,9 +172,16 @@ ARMCHAIR(yellow)
 	time = 10
 	send_material_data = 0
 
+/datum/stack_recipe/furniture/tank
+	title = "Pressure Tank"
+	result_type = /obj/item/pipe/tank
+	req_amount = 30
+	time = 20
+	send_material_data = 0
+
 /datum/stack_recipe/furniture/computerframe
 	title = "computer frame"
-	result_type = /obj/structure/computerframe
+	result_type = /obj/machinery/constructable_frame/computerframe
 	req_amount = 5
 	time = 25
 
@@ -243,11 +260,23 @@ ARMCHAIR(yellow)
 	req_amount = 5
 	time = 15
 
+/datum/stack_recipe/furniture/coffin/wooden
+	title = "coffin"
+	result_type = /obj/structure/closet/coffin/wooden
+	req_amount = 5
+	time = 15
+
 /datum/stack_recipe/furniture/bookcase
 	title = "book shelf"
 	result_type = /obj/structure/bookcase
 	req_amount = 5
 	time = 15
+
+/datum/stack_recipe/furniture/truss
+	title = "truss"
+	result_type = /obj/structure/kitchenspike/improvised
+	req_amount = 10
+	time = 20
 
 /datum/stack_recipe/furniture/planting_bed
 	title = "planting bed"
@@ -268,7 +297,7 @@ ARMCHAIR(yellow)
 	if(.)
 		for(var/obj/structure/window/check_window in user.loc)
 			if(check_window.is_fulltile())
-				to_chat(user, "<span class='warning'>There is already a fll-tile window here!</span>")
+				to_chat(user, SPAN_WARNING("There is already a full-tile window here!"))
 				return FALSE
 
 /datum/stack_recipe/furniture/fullwindow/spawn_result(mob/user, location, amount)
@@ -286,7 +315,7 @@ ARMCHAIR(yellow)
 	if(.)
 		for(var/obj/structure/window/check_window in user.loc)
 			if(check_window.dir == user.dir)
-				to_chat(user, "<span class='warning'>There is already a window facing that direction here!</span>")
+				to_chat(user, SPAN_WARNING("There is already a window facing that direction here!"))
 				return FALSE
 
 /datum/stack_recipe/furniture/borderwindow/spawn_result(mob/user, location, amount)
@@ -303,7 +332,7 @@ ARMCHAIR(yellow)
 	. = ..()
 	if(.)
 		if(locate(/obj/machinery/door/window) in user.loc)
-			to_chat(user, "<span class='warning'>There is already a windoor here!</span>")
+			to_chat(user, SPAN_WARNING("There is already a windoor here!"))
 			return FALSE
 
 /datum/stack_recipe/furniture/windoor/spawn_result(mob/user, location, amount)

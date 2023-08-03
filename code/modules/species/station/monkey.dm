@@ -26,7 +26,7 @@
 	unarmed_types = list(/datum/unarmed_attack/bite, /datum/unarmed_attack/claws, /datum/unarmed_attack/punch)
 	inherent_verbs = list(/mob/living/proc/ventcrawl)
 	hud_type = /datum/hud_data/monkey
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/monkey
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/monkey
 
 	rarity_value = 0.1
 	total_health = 150
@@ -40,7 +40,7 @@
 	push_flags = MONKEY|SLIME|SIMPLE_ANIMAL|ALIEN
 
 	pass_flags = PASS_FLAG_TABLE
-	holder_type = /obj/item/weapon/holder
+	holder_type = /obj/item/holder
 	override_limb_types = list(BP_HEAD = /obj/item/organ/external/head/no_eyes)
 
 	descriptors = list(
@@ -54,6 +54,11 @@
 		TAG_FACTION =   FACTION_TEST_SUBJECTS
 	)
 
+	ingest_amount = 6
+
+	var/list/no_touchie = list(/obj/item/mirror,
+							   /obj/item/storage/mirror)
+
 /datum/species/monkey/New()
 	equip_adjust = list(
 		slot_l_hand_str = list("[NORTH]" = list("x" = 1, "y" = 3), "[EAST]" = list("x" = -3, "y" = 2), "[SOUTH]" = list("x" = -1, "y" = 3), "[WEST]" = list("x" = 3, "y" = 2)),
@@ -64,26 +69,34 @@
 	)
 	..()
 
-/datum/species/monkey/handle_npc(var/mob/living/carbon/human/H)
+/datum/species/monkey/handle_npc(mob/living/carbon/human/H)
 	if(H.stat != CONSCIOUS)
 		return
 	if(prob(33) && isturf(H.loc) && !H.pulledby) //won't move if being pulled
-		H.SelfMove(pick(GLOB.cardinal))
+		var/dir = pick(GLOB.cardinal)
+		var/turf/T = get_step(get_turf(H), dir)
+		if(T && (T.pathweight < INFINITY))
+			H.SelfMove(dir)
 
 	var/obj/held = H.get_active_hand()
 	if(held && prob(1))
 		var/turf/T = get_random_turf_in_range(H, 7, 2)
 		if(T)
-			H.throw_item(T)
+			if(istype(held, /obj/item/gun) && prob(80))
+				var/obj/item/gun/G = held
+				G.Fire(T, H)
+			else
+				H.throw_item(T)
 		else
 			H.unequip_item()
 	if(!held && !H.restrained() && prob(5))
 		var/list/touchables = list()
-		for(var/obj/O in range(1,H))
-			if(O.simulated && O.Adjacent(H))
+		for(var/obj/O in range(1,get_turf(H)))
+			if(O.simulated && O.Adjacent(H) && !is_type_in_list(O, no_touchie))
 				touchables += O
-		var/obj/touchy = pick(touchables)
-		touchy.attack_hand(H)
+		if(length(touchables))
+			var/obj/touchy = pick(touchables)
+			touchy.attack_hand(H)
 
 	if(prob(1))
 		H.emote(pick("scratch","jump","roll","tail"))
@@ -100,7 +113,7 @@
 	if(!H.restrained() && H.lying && H.shock_stage >= 60 && prob(3))
 		H.custom_emote("thrashes in agony")
 
-/datum/species/monkey/handle_post_spawn(var/mob/living/carbon/human/H)
+/datum/species/monkey/handle_post_spawn(mob/living/carbon/human/H)
 	..()
 	H.item_state = lowertext(name)
 
@@ -132,7 +145,6 @@
 	greater_form = SPECIES_SKRELL
 	flesh_color = "#8cd7a3"
 	blood_color = "#1d2cbf"
-	reagent_tag = IS_SKRELL
 	tail = null
 	force_cultural_info = list(
 		TAG_CULTURE =   CULTURE_NEARA,
@@ -153,10 +165,14 @@
 	greater_form = SPECIES_UNATHI
 	flesh_color = "#34af10"
 	base_color = "#066000"
-	reagent_tag = IS_UNATHI
 	force_cultural_info = list(
 		TAG_CULTURE =   CULTURE_STOK,
 		TAG_HOMEWORLD = HOME_SYSTEM_STATELESS,
 		TAG_FACTION =   FACTION_TEST_SUBJECTS
 	)
 
+	traits = list(
+		/singleton/trait/boon/filtered_blood = TRAIT_LEVEL_EXISTS,
+		/singleton/trait/boon/cast_iron_stomach = TRAIT_LEVEL_EXISTS,
+		/singleton/trait/malus/sugar = TRAIT_LEVEL_MAJOR
+	)

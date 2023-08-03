@@ -1,6 +1,6 @@
 // Thanks to Burger from Burgerstation for the foundation for this
 //further thanks to Nebula, where I ported this to Urist from
-var/list/floating_chat_colors = list()
+var/global/list/floating_chat_colors = list()
 
 /atom/movable
 	var/list/stored_chat_text
@@ -63,14 +63,14 @@ var/list/floating_chat_colors = list()
 
 	style = "font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: [size]px; [style]"
 	I.maptext = "<center><span style=\"[style]\">[message]</span></center>"
-	animate(I, 1, alpha = 255, pixel_y = 16)
+	animate(I, 1, alpha = 255, pixel_y = 24)
 
 	for(var/image/old in holder.stored_chat_text)
 		animate(old, 2, pixel_y = old.pixel_y + 8)
 	LAZYADD(holder.stored_chat_text, I)
 
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/remove_floating_text, holder, I), duration)
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/remove_images_from_clients, I, show_to), duration + 2)
+	addtimer(new Callback(GLOBAL_PROC, .proc/remove_floating_text, holder, I), duration)
+	addtimer(new Callback(GLOBAL_PROC, .proc/remove_images_from_clients, I, show_to), duration + 2)
 
 	return I
 

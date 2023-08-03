@@ -4,6 +4,7 @@
 #define ALL_GASIDS gas_data.gases
 
 /datum/unit_test/atmos_machinery
+	template = /datum/unit_test/atmos_machinery
 	var/list/test_cases = list()
 
 /datum/unit_test/atmos_machinery/proc/create_gas_mixes(gas_mix_data)
@@ -14,7 +15,7 @@
 		var/datum/gas_mixture/gas_mix = new (CELL_VOLUME, mix_data["temperature"])
 
 		var/list/initial_gas = mix_data["initial_gas"]
-		if(initial_gas.len)
+		if(length(initial_gas))
 			var/list/gas_args = list()
 			for(var/gasid in initial_gas)
 				gas_args += gasid
@@ -24,7 +25,7 @@
 		gas_mixes[mix_name] = gas_mix
 	return gas_mixes
 
-/datum/unit_test/atmos_machinery/proc/gas_amount_changes(var/list/before_gas_mixes, var/list/after_gas_mixes)
+/datum/unit_test/atmos_machinery/proc/gas_amount_changes(list/before_gas_mixes, list/after_gas_mixes)
 	var/list/result = list()
 	for(var/mix_name in before_gas_mixes & after_gas_mixes)
 		var/change = list()
@@ -40,7 +41,7 @@
 
 	return result
 
-/datum/unit_test/atmos_machinery/proc/check_moles_conserved(var/case_name, var/list/before_gas_mixes, var/list/after_gas_mixes)
+/datum/unit_test/atmos_machinery/proc/check_moles_conserved(case_name, list/before_gas_mixes, list/after_gas_mixes)
 	var/failed = FALSE
 	for(var/gasid in gas_data.gases)
 		var/before = 0
@@ -61,25 +62,26 @@
 		pass("[case_name]: conserved moles of each gas ID.")
 
 /datum/unit_test/atmos_machinery/conserve_moles
+	template = /datum/unit_test/atmos_machinery/conserve_moles
 	test_cases = list(
 		uphill = list(
 			source = list(
 				initial_gas = list(
-					"oxygen"         = 5,
-					"nitrogen"       = 10,
-					"carbon_dioxide" = 5,
-					"phoron"         = 10,
-					"sleeping_agent" = 5,
+					GAS_OXYGEN         = 5,
+					GAS_NITROGEN       = 10,
+					GAS_CO2 = 5,
+					GAS_PHORON         = 10,
+					GAS_N2O = 5,
 				),
 				temperature = T20C - 5,
 			),
 			sink = list(
 				initial_gas = list(
-					"oxygen"         = 10,
-					"nitrogen"       = 20,
-					"carbon_dioxide" = 10,
-					"phoron"         = 20,
-					"sleeping_agent" = 10,
+					GAS_OXYGEN         = 10,
+					GAS_NITROGEN       = 20,
+					GAS_CO2 = 10,
+					GAS_PHORON         = 20,
+					GAS_N2O = 10,
 				),
 				temperature = T20C + 5,
 			)
@@ -87,21 +89,21 @@
 		downhill = list(
 			source = list(
 				initial_gas = list(
-					"oxygen"         = 10,
-					"nitrogen"       = 20,
-					"carbon_dioxide" = 10,
-					"phoron"         = 20,
-					"sleeping_agent" = 10,
+					GAS_OXYGEN         = 10,
+					GAS_NITROGEN       = 20,
+					GAS_CO2 = 10,
+					GAS_PHORON         = 20,
+					GAS_N2O = 10,
 				),
 				temperature = T20C + 5,
 			),
 			sink = list(
 				initial_gas = list(
-					"oxygen"         = 5,
-					"nitrogen"       = 10,
-					"carbon_dioxide" = 5,
-					"phoron"         = 10,
-					"sleeping_agent" = 5,
+					GAS_OXYGEN         = 5,
+					GAS_NITROGEN       = 10,
+					GAS_CO2 = 5,
+					GAS_PHORON         = 10,
+					GAS_N2O = 5,
 				),
 				temperature = T20C - 5,
 			),
@@ -109,21 +111,21 @@
 		flat = list(
 			source = list(
 				initial_gas = list(
-					"oxygen"         = 10,
-					"nitrogen"       = 20,
-					"carbon_dioxide" = 10,
-					"phoron"         = 20,
-					"sleeping_agent" = 10,
+					GAS_OXYGEN         = 10,
+					GAS_NITROGEN       = 20,
+					GAS_CO2 = 10,
+					GAS_PHORON         = 20,
+					GAS_N2O = 10,
 				),
 				temperature = T20C,
 			),
 			sink = list(
 				initial_gas = list(
-					"oxygen"         = 10,
-					"nitrogen"       = 20,
-					"carbon_dioxide" = 10,
-					"phoron"         = 20,
-					"sleeping_agent" = 10,
+					GAS_OXYGEN         = 10,
+					GAS_NITROGEN       = 20,
+					GAS_CO2 = 10,
+					GAS_PHORON         = 20,
+					GAS_N2O = 10,
 				),
 				temperature = T20C,
 			),
@@ -131,11 +133,11 @@
 		vacuum_sink = list(
 			source = list(
 				initial_gas = list(
-					"oxygen"         = 10,
-					"nitrogen"       = 20,
-					"carbon_dioxide" = 10,
-					"phoron"         = 20,
-					"sleeping_agent" = 10,
+					GAS_OXYGEN         = 10,
+					GAS_NITROGEN       = 20,
+					GAS_CO2 = 10,
+					GAS_PHORON         = 20,
+					GAS_N2O = 10,
 				),
 				temperature = T20C,
 			),
@@ -151,11 +153,11 @@
 			),
 			sink = list(
 				initial_gas = list(
-					"oxygen"         = 10,
-					"nitrogen"       = 20,
-					"carbon_dioxide" = 10,
-					"phoron"         = 20,
-					"sleeping_agent" = 10,
+					GAS_OXYGEN         = 10,
+					GAS_NITROGEN       = 20,
+					GAS_CO2 = 10,
+					GAS_PHORON         = 20,
+					GAS_N2O = 10,
 				),
 				temperature = T20C,
 			),
@@ -258,12 +260,59 @@
 		var/list/mix_sources = list()
 		for(var/gasid in ALL_GASIDS)
 			var/datum/gas_mixture/mix_source = after_gas_mixes["sink"]
-			mix_sources[mix_source] = 1.0/gas_data.gases.len //doesn't work as a macro for some reason
+			mix_sources[mix_source] = 1.0/length(gas_data.gases) //doesn't work as a macro for some reason
 
 		mix_gas(null, mix_sources, after_gas_mixes["sink"], null, INFINITY)
 
 		check_moles_conserved(case_name, before_gas_mixes, after_gas_mixes)
 
+	return 1
+
+/datum/unit_test/pipes_shall_belong_to_unique_pipelines
+	name = "ATMOS MACHINERY: all pipes shall belong to a unique pipeline"
+
+/datum/unit_test/pipes_shall_belong_to_unique_pipelines/start_test()
+	var/list/checked_pipes = list()
+	var/list/bad_pipelines = list()
+	for(var/datum/pipeline/P)
+		for(var/thing in P.members)
+			var/obj/machinery/atmospherics/pipe/pipe = thing
+			if(!checked_pipes[thing])
+				checked_pipes[thing] = P
+				continue
+			LAZYDISTINCTADD(bad_pipelines[P], pipe)
+			LAZYDISTINCTADD(bad_pipelines[checked_pipes[thing]], pipe) // Missed it the first time; thought it was good.
+
+	if(length(bad_pipelines))
+		for(var/datum/pipeline/badboy in bad_pipelines)
+			var/info = list()
+			for(var/bad_pipe in bad_pipelines[badboy])
+				info += log_info_line(bad_pipe)
+			log_bad("A pipeline with overlapping members contained the following overlapping pipes: [english_list(info)]")
+		fail("Some pipes were in multiple pipelines at once.")
+	else
+		pass("All pipes belonged to a unique pipeline.")
+	return 1
+
+/datum/unit_test/atmos_machinery_shall_not_have_conflicting_connections
+	name = "ATMOS MACHINERY: all mapped atmos machinery shall not have more than one connection of each type per dir."
+
+/datum/unit_test/atmos_machinery_shall_not_have_conflicting_connections/start_test()
+	var/fail = FALSE
+	for(var/obj/machinery/atmospherics/machine in SSmachines.machinery)
+		for(var/obj/machinery/atmospherics/M in machine.loc)
+			if(M == machine)
+				continue
+			if(!machine.check_connect_types(M, machine))
+				continue
+			if(M.initialize_directions & machine.initialize_directions)
+				log_bad("[log_info_line(machine)] has conflicting connections.")
+				fail = TRUE
+
+	if(fail)
+		fail("Some pipes had conflicting connections.")
+	else
+		pass("All pipes were mapped properly.")
 	return 1
 
 #undef ALL_GASIDS

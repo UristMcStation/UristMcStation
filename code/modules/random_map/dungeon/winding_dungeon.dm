@@ -8,7 +8,7 @@
 
  *THINGS TO KNOW
  *ARTIFACT_TURF_CHAR is used for room walls, used primarily for code used for corridors.
- *ARTIFACT_TURF is used to mark gaps in walls for rooms - this is checked so that we dont have three corridors in a row. This isn't done for corridors so that we can have branching paths.
+ *ARTIFACT_TURF is used to mark gaps in walls for rooms - this is checked so that we don't have three corridors in a row. This isn't done for corridors so that we can have branching paths.
  *Rooms will generate a room_theme, a datum that points to a few different types to generate the room with.
  *room_themes will also generate stuff inside. This is a random_room datum.
 
@@ -60,23 +60,23 @@
 	limit_x = 50
 	limit_y = 50
 
-/datum/random_map/winding_dungeon/New(var/seed, var/tx, var/ty, var/tz, var/tlx, var/tly, var/do_not_apply, var/do_not_announce, var/list/variable_list)
+/datum/random_map/winding_dungeon/New(seed, tx, ty, tz, tlx, tly, do_not_apply, do_not_announce, list/variable_list)
 	for(var/variable in variable_list)
 		if(variable in src.vars)
 			src.vars[variable] = variable_list[variable]
 	..()
 
-/datum/random_map/winding_dungeon/proc/logging(var/text)
+/datum/random_map/winding_dungeon/proc/logging(text)
 	if(log)
 		log_world(text)
 
-/datum/random_map/winding_dungeon/proc/get_appropriate_list(var/list/common, var/list/uncommon, var/list/rare, var/x, var/y)
+/datum/random_map/winding_dungeon/proc/get_appropriate_list(list/common, list/uncommon, list/rare, x, y)
 	var/distance = sqrt((x - round(first_room_x+first_room_width/2)) ** 2 + (y - round(first_room_y+first_room_height/2)) ** 2)
 	if(prob(distance))
-		if(prob(distance/100) && rare && rare.len)
+		if(prob(distance/100) && rare && length(rare))
 			logging("Returning rare list.")
 			return rare
-		else if(uncommon && uncommon.len)
+		else if(uncommon && length(uncommon))
 			logging("Returning uncommon list.")
 			return uncommon
 	logging("Returning common list.")
@@ -84,7 +84,7 @@
 
 
 /datum/random_map/winding_dungeon/apply_to_map()
-	logging("You have [rooms.len] # of rooms")
+	logging("You have [length(rooms)] # of rooms")
 	for(var/datum/room/R in rooms)
 		if(!priority_process)
 			sleep(-1)
@@ -93,13 +93,13 @@
 	var/num_of_loot = round(limit_x * limit_y * loot_multiplier)
 	logging("Attempting to add [num_of_loot] # of loot")
 	var/sanity = 0
-	if((loot_common && loot_common.len) || (loot_uncommon && loot_uncommon.len) || (loot_rare && loot_rare.len)) //no monsters no problem
-		while(rooms.len && num_of_loot > 0)
+	if((loot_common && length(loot_common)) || (loot_uncommon && length(loot_uncommon)) || (loot_rare && length(loot_rare))) //no monsters no problem
+		while(length(rooms) && num_of_loot > 0)
 			if(!priority_process)
 				sleep(-1)
 			var/datum/room/R = pick(rooms)
 			var/list/loot_list = get_appropriate_list(loot_common, loot_uncommon, loot_rare, round(R.x+R.width/2), round(R.y+R.height/2))
-			if(!loot_list || !loot_list.len || R.add_loot(origin_x,origin_y,origin_z,pickweight(loot_list)))
+			if(!loot_list || !length(loot_list) || R.add_loot(origin_x,origin_y,origin_z,pickweight(loot_list)))
 				num_of_loot--
 				sanity -= 10 //we hahve success so more tries
 				continue
@@ -112,7 +112,7 @@
 		rooms -= R
 		qdel(R)
 
-	if((!monsters_common || !monsters_common.len) && (!monsters_uncommon || !monsters_uncommon.len) && (!monsters_rare || !monsters_rare.len)) //no monsters no problem
+	if((!monsters_common || !length(monsters_common)) && (!monsters_uncommon || !length(monsters_uncommon)) && (!monsters_rare || !length(monsters_rare))) //no monsters no problem
 		logging("No monster lists detected. Not spawning monsters.")
 		return
 
@@ -122,14 +122,14 @@
 	while(num_of_monsters > 0)
 		if(!priority_process)
 			sleep(-1)
-		if(!monster_available || !monster_available.len)
+		if(!monster_available || !length(monster_available))
 			logging("There are no available turfs left.")
 			num_of_monsters = 0
 			continue
 		var/turf/T = pick(monster_available)
 		monster_available -= T
 		var/list/monster_list = get_appropriate_list(monsters_common, monsters_uncommon, monsters_rare, T.x, T.y)
-		if(monster_list && monster_list.len)
+		if(monster_list && length(monster_list))
 			var/type = pickweight(monster_list)
 			logging("Generating a monster of type [type] at position ([T.x],[T.y],[origin_z])")
 			var/mob/M = new type(T)
@@ -141,7 +141,7 @@
 
 	monster_available = null //Get rid of all the references
 
-/datum/random_map/winding_dungeon/apply_to_turf(var/x, var/y)
+/datum/random_map/winding_dungeon/apply_to_turf(x, y)
 	. = ..()
 	var/turf/T = locate((origin_x-1)+x,(origin_y-1)+y,origin_z)
 	if(T && !T.density)
@@ -190,12 +190,12 @@
 		var/height = 1 //height of room.
 		var/isRoom = 1 //whether we are a room or not
 		for(var/testing = 0, testing < 1000, testing++)
-			if(open_positions.len)
+			if(length(open_positions))
 				var/list/coords = splittext(pick(open_positions), ":") //pop a coord from the list.
 				newx = text2num(coords[1])
 				newy = text2num(coords[2])
 				open_positions -= "[newx]:[newy]"
-				logging("Picked coords ([newx],[newy]) from open_positions. Removing it. (length: [open_positions.len])")
+				logging("Picked coords ([newx],[newy]) from open_positions. Removing it. (length: [length(open_positions)])")
 			else
 				newx = rand(1,limit_x)
 				newy = rand(1,limit_y)
@@ -259,7 +259,7 @@
 
 			break
 
-		if(sanity < 1000) //If we haven't looped through /everything/
+		if(sanity < 1000) //If we haven't looped through everything
 			logging("Carving out stuff.")
 			var/wall_char = (isRoom ? ARTIFACT_TURF_CHAR : CORRIDOR_TURF_CHAR)
 			if(!carve_area(round(newx+xmod),round(newy+ymod),width,height,FLOOR_CHAR,wall_char)) //something went bad
@@ -281,7 +281,7 @@
 	logging("Map completed. Loops: [sanity], [currentFeatures] out of [num_of_features] created.")
 	open_positions.Cut()
 
-/datum/random_map/winding_dungeon/proc/carve_area(var/truex,var/truey,var/width,var/height,var/char, var/wall_char)
+/datum/random_map/winding_dungeon/proc/carve_area(truex,truey,width,height,char, wall_char)
 	for(var/mode = 0, mode <= 1, mode++)
 		for(var/ytemp = truey, ytemp < truey + height, ytemp++)
 			if(!mode && (ytemp < 0 || ytemp > limit_y))
@@ -300,12 +300,12 @@
 						map[get_map_cell(xtemp,ytemp)] = wall_char
 						if(!("[xtemp]:[ytemp]" in open_positions))
 							open_positions += "[xtemp]:[ytemp]"
-							logging("Adding \"[xtemp]:[ytemp]\" to open_positions (length: [open_positions.len])")
+							logging("Adding \"[xtemp]:[ytemp]\" to open_positions (length: [length(open_positions)])")
 					else
 						map[get_map_cell(xtemp,ytemp)] = char
 	return 1
 
-/datum/random_map/winding_dungeon/proc/create_room_features(var/rox,var/roy,var/width,var/height)
+/datum/random_map/winding_dungeon/proc/create_room_features(rox,roy,width,height)
 	var/list/room_list = get_appropriate_list(room_theme_common, room_theme_uncommon, room_theme_rare, round(rox+width/2), round(roy+height/2))
 	var/theme_type = pickweight(room_list)
 	if(!theme_type)
@@ -317,11 +317,11 @@
 	rooms += R
 	return 1
 
-/datum/random_map/winding_dungeon/proc/add_loot(var/xorigin,var/yorigin,var/zorigin,var/type)
+/datum/random_map/winding_dungeon/proc/add_loot(xorigin,yorigin,zorigin,type)
 	var/datum/room/room = pick(rooms)
 	return room.add_loot(type)
 
-/datum/random_map/winding_dungeon/get_appropriate_path(var/value)
+/datum/random_map/winding_dungeon/get_appropriate_path(value)
 	switch(value)
 		if(WALL_CHAR)
 			return wall_type
@@ -332,7 +332,7 @@
 		else
 			return floor_type
 
-/datum/random_map/winding_dungeon/get_map_char(var/value)
+/datum/random_map/winding_dungeon/get_map_char(value)
 	. = ..(value)
 	switch(value)
 		if(BORDER_CHAR)

@@ -14,7 +14,7 @@
 		skillset = null
 	. = ..()
 
-//Clamps the buff amounts so that the target stays between SKILL_MIN and SKILL_MAX in all skills.
+//clamps the buff amounts so that the target stays between SKILL_MIN and SKILL_MAX in all skills.
 /datum/skill_buff/proc/tailor_buff(mob/target)
 	if(!buffs)
 		return
@@ -22,7 +22,7 @@
 	for(var/skill_type in temp_buffs)
 		var/has_now = target.get_skill_value(skill_type)
 		var/current_buff = buffs[skill_type]
-		var/new_buff = Clamp(has_now + current_buff, SKILL_MIN, SKILL_MAX) - has_now
+		var/new_buff = clamp(has_now + current_buff, SKILL_MIN, SKILL_MAX) - has_now
 		new_buff ? (buffs[skill_type] = new_buff) : (buffs -= skill_type)
 	return length(buffs)
 
@@ -71,7 +71,7 @@
 	buff.skillset = skillset
 	skillset.on_levels_change()
 	if(duration)
-		addtimer(CALLBACK(buff, /datum/skill_buff/proc/remove), duration)
+		addtimer(new Callback(buff, /datum/skill_buff/proc/remove), duration)
 	return buff
 
 //Takes a buff type or datum; typing is false here.

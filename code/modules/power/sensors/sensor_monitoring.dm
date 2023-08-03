@@ -10,11 +10,12 @@
 	icon_keyboard = "power_key"
 	icon_screen = "power"
 	light_color = "#ffcc33"
+	machine_name = "power monitoring console"
+	machine_desc = "Allows for a detailed and thorough readout of the area's power generation and consumption, listed by area."
 
 	//computer stuff
-	density = 1
-	anchored = 1.0
-	circuit = /obj/item/weapon/circuitboard/powermonitor
+	density = TRUE
+	anchored = TRUE
 	var/alerting = 0
 	idle_power_usage = 300
 	active_power_usage = 300
@@ -29,10 +30,10 @@
 
 // Updates icon of this computer according to current status.
 /obj/machinery/computer/power_monitor/on_update_icon()
-	if(stat & BROKEN)
+	if(MACHINE_IS_BROKEN(src))
 		icon_state = "powerb"
 		return
-	if(stat & NOPOWER)
+	if(!is_powered())
 		icon_state = "power0"
 		return
 	if(alerting)
@@ -46,15 +47,12 @@
 	power_monitor = new(src)
 
 // On user click opens the UI of this computer.
-/obj/machinery/computer/power_monitor/attack_hand(mob/user)
-	add_fingerprint(user)
-
-	if(stat & (BROKEN|NOPOWER))
-		return
+/obj/machinery/computer/power_monitor/interface_interact(mob/user)
 	ui_interact(user)
+	return TRUE
 
 // Uses dark magic to operate the NanoUI of this computer.
-/obj/machinery/computer/power_monitor/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/computer/power_monitor/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1)
 	power_monitor.ui_interact(user, ui_key, ui, force_open)
 
 

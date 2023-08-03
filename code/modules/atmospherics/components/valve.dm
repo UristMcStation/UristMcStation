@@ -5,9 +5,10 @@
 	name = "manual valve"
 	desc = "A pipe valve."
 
-	level = 1
+	level = ATOM_LEVEL_UNDER_TILE
 	dir = SOUTH
 	initialize_directions = SOUTH|NORTH
+	layer = ABOVE_CATWALK_LAYER
 
 	var/open = 0
 	var/openDuringInit = 0
@@ -15,6 +16,12 @@
 
 	var/datum/pipe_network/network_node1
 	var/datum/pipe_network/network_node2
+
+	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_SUPPLY|CONNECT_TYPE_SCRUBBER|CONNECT_TYPE_FUEL
+	connect_dir_type = SOUTH | NORTH
+	pipe_class = PIPE_CLASS_BINARY
+	rotate_class = PIPE_ROTATE_TWODIR
+	build_icon_state = "mvalve"
 
 /obj/machinery/atmospherics/valve/open
 	open = 1
@@ -35,16 +42,8 @@
 		add_underlay(T, node1, get_dir(src, node1), node1 ? node1.icon_connect_type : "")
 		add_underlay(T, node2, get_dir(src, node2), node2 ? node2.icon_connect_type : "")
 
-/obj/machinery/atmospherics/valve/hide(var/i)
+/obj/machinery/atmospherics/valve/hide(i)
 	update_underlays()
-
-/obj/machinery/atmospherics/valve/Initialize()
-	switch(dir)
-		if(NORTH, SOUTH)
-			initialize_directions = NORTH|SOUTH
-		if(EAST, WEST)
-			initialize_directions = EAST|WEST
-	. = ..()
 
 /obj/machinery/atmospherics/valve/network_expand(datum/pipe_network/new_network, obj/machinery/atmospherics/pipe/reference)
 	if(reference == node1)
@@ -99,6 +98,9 @@
 	else if(network_node2)
 		network_node2.update = 1
 
+	if (usr)
+		visible_message(SPAN_WARNING("\The [usr] opens \the [src]."), range = 5)
+
 	return 1
 
 /obj/machinery/atmospherics/valve/proc/close()
@@ -115,25 +117,22 @@
 
 	build_network()
 
+	if (usr)
+		visible_message(SPAN_WARNING("\The [usr] closes \the [src]."), range = 5)
+
 	return 1
 
-/obj/machinery/atmospherics/valve/proc/normalize_dir()
-	if(dir==3)
-		set_dir(1)
-	else if(dir==12)
-		set_dir(4)
+/obj/machinery/atmospherics/valve/proc/toggle()
+	return open ? close() : open()
 
-/obj/machinery/atmospherics/valve/attack_ai(mob/user as mob)
-	return
+/obj/machinery/atmospherics/valve/physical_attack_hand(mob/user)
+	user_toggle()
+	return TRUE
 
-/obj/machinery/atmospherics/valve/attack_hand(mob/user as mob)
-	src.add_fingerprint(usr)
+/obj/machinery/atmospherics/valve/proc/user_toggle()
 	update_icon(1)
 	sleep(10)
-	if (src.open)
-		src.close()
-	else
-		src.open()
+	toggle()
 
 /obj/machinery/atmospherics/valve/Process()
 	..()
@@ -141,8 +140,6 @@
 
 /obj/machinery/atmospherics/valve/atmos_init()
 	..()
-	normalize_dir()
-
 	var/node1_dir
 	var/node2_dir
 
@@ -202,7 +199,7 @@
 
 	return 1
 
-/obj/machinery/atmospherics/valve/return_network_air(datum/network/reference)
+/obj/machinery/atmospherics/valve/return_network_air(datum/pipe_network/reference)
 	return null
 
 /obj/machinery/atmospherics/valve/disconnect(obj/machinery/atmospherics/reference)
@@ -218,25 +215,80 @@
 
 	return null
 
+/obj/machinery/atmospherics/valve/attackby(obj/item/W as obj, mob/user as mob)
+	if (!istype(W, /obj/item/wrench))
+		return ..()
+	var/datum/gas_mixture/int_air = return_air()
+	var/datum/gas_mixture/env_air = loc.return_air()
+	if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
+		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it is too exerted due to internal pressure."))
+		add_fingerprint(user)
+		return 1
+	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+	to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
+	if (do_after(user, 4 SECONDS, src, DO_REPAIR_CONSTRUCT))
+		user.visible_message( \
+			SPAN_NOTICE("\The [user] unfastens \the [src]."), \
+			SPAN_NOTICE("You have unfastened \the [src]."), \
+			"You hear a ratchet.")
+		new /obj/item/pipe(loc, src)
+		qdel(src)
+
+/obj/machinery/atmospherics/valve/examine(mob/user)
+	. = ..()
+	to_chat(user, "It is [open ? "open" : "closed"].")
+
+/singleton/public_access/public_variable/valve_open
+	expected_type = /obj/machinery/atmospherics/valve
+	name = "valve open"
+	desc = "Whether or not the valve is open."
+	can_write = FALSE
+	has_updates = FALSE
+
+/singleton/public_access/public_variable/valve_open/access_var(obj/machinery/atmospherics/valve/valve)
+	return valve.open
+
+/singleton/public_access/public_method/open_valve
+	name = "open valve"
+	desc = "Sets the valve to open."
+	call_proc = /obj/machinery/atmospherics/valve/proc/open
+
+/singleton/public_access/public_method/close_valve
+	name = "open valve"
+	desc = "Sets the valve to open."
+	call_proc = /obj/machinery/atmospherics/valve/proc/close
+
+/singleton/public_access/public_method/toggle_valve
+	name = "toggle valve"
+	desc = "Toggles whether the valve is open or closed."
+	call_proc = /obj/machinery/atmospherics/valve/proc/toggle
+
 /obj/machinery/atmospherics/valve/digital		// can be controlled by AI
 	name = "digital valve"
 	desc = "A digitally controlled valve."
 	icon = 'icons/atmos/digital_valve.dmi'
+	uncreated_component_parts = list(
+		/obj/item/stock_parts/radio/receiver,
+		/obj/item/stock_parts/power/apc
+	)
+	public_variables = list(/singleton/public_access/public_variable/valve_open)
+	public_methods = list(
+		/singleton/public_access/public_method/open_valve,
+		/singleton/public_access/public_method/close_valve,
+		/singleton/public_access/public_method/toggle_valve
+	)
+	stock_part_presets = list(/singleton/stock_part_preset/radio/receiver/valve = 1)
 
-	var/frequency = 0
-	var/id = null
-	var/datum/radio_frequency/radio_connection
+	build_icon_state = "dvalve"
 
-/obj/machinery/atmospherics/valve/digital/attack_ai(mob/user as mob)
-	return src.attack_hand(user)
+/obj/machinery/atmospherics/valve/digital/interface_interact(mob/user)
+	if(!CanInteract(user, DefaultTopicState()))
+		return FALSE
+	user_toggle()
+	return TRUE
 
-/obj/machinery/atmospherics/valve/digital/attack_hand(mob/user as mob)
-	if(!powered())
-		return
-	if(!src.allowed(user))
-		to_chat(user, "<span class='warning'>Access denied.</span>")
-		return
-	..()
+/obj/machinery/atmospherics/valve/digital/physical_attack_hand(mob/user)
+	return FALSE
 
 /obj/machinery/atmospherics/valve/digital/open
 	open = 1
@@ -247,56 +299,11 @@
 	if(!powered())
 		icon_state = "valve[open]nopower"
 
-/obj/machinery/atmospherics/valve/digital/proc/set_frequency(new_frequency)
-	radio_controller.remove_object(src, frequency)
-	frequency = new_frequency
-	if(frequency)
-		radio_connection = radio_controller.add_object(src, frequency, RADIO_ATMOSIA)
-
-/obj/machinery/atmospherics/valve/digital/Initialize()
-	. = ..()
-	if(frequency)
-		set_frequency(frequency)
-
-/obj/machinery/atmospherics/valve/digital/receive_signal(datum/signal/signal)
-	if(!signal.data["tag"] || signal.data["tag"] != id)
-		return 0
-
-	switch(signal.data["command"])
-		if("valve_open")
-			if(!open)
-				open()
-
-		if("valve_close")
-			if(open)
-				close()
-
-		if("valve_toggle")
-			if(open)
-				close()
-			else
-				open()
-
-
-/obj/machinery/atmospherics/valve/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if (!istype(W, /obj/item/weapon/wrench))
-		return ..()
-	var/datum/gas_mixture/int_air = return_air()
-	var/datum/gas_mixture/env_air = loc.return_air()
-	if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
-		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>")
-		add_fingerprint(user)
-		return 1
-	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
-	if (do_after(user, 40, src))
-		user.visible_message( \
-			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
-			"<span class='notice'>You have unfastened \the [src].</span>", \
-			"You hear a ratchet.")
-		new /obj/item/pipe(loc, make_from=src)
-		qdel(src)
-
-/obj/machinery/atmospherics/valve/examine(mob/user)
-	. = ..()
-	to_chat(user, "It is [open ? "open" : "closed"].")
+/singleton/stock_part_preset/radio/receiver/valve
+	frequency = FUEL_FREQ
+	filter = RADIO_ATMOSIA
+	receive_and_call = list(
+		"valve_open" = /singleton/public_access/public_method/open_valve,
+		"valve_close" = /singleton/public_access/public_method/close_valve,
+		"valve_toggle" = /singleton/public_access/public_method/toggle_valve
+	)

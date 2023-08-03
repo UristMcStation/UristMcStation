@@ -1,29 +1,29 @@
 //i know this isn't machinery. Shut up.
 
-/obj/item/weapon/reagent_containers/food/snacks/bun/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/weapon/reagent_containers/food/snacks))
-		var/obj/item/weapon/reagent_containers/food/snacks/customizable/burger/S = new(get_turf(user))
+/obj/item/reagent_containers/food/snacks/bun/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(W,/obj/item/reagent_containers/food/snacks))
+		var/obj/item/reagent_containers/food/snacks/customizable/burger/S = new(get_turf(user))
 		S.attackby(W,user)
 		qdel(src)
 	..()
 
-/obj/item/weapon/reagent_containers/food/snacks/sliceable/flatdough/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/weapon/reagent_containers/food/snacks))
-		var/obj/item/weapon/reagent_containers/food/snacks/customizable/pizza/S = new(get_turf(user))
+/obj/item/reagent_containers/food/snacks/sliceable/flatdough/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(W,/obj/item/reagent_containers/food/snacks))
+		var/obj/item/reagent_containers/food/snacks/customizable/pizza/S = new(get_turf(user))
 		S.attackby(W,user)
 		qdel(src)
 	..()
 
-/obj/item/weapon/reagent_containers/food/snacks/boiledspagetti/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/reagent_containers/food/snacks/boiledspagetti/attackby(obj/item/W as obj, mob/user as mob)
 
-	if(istype(W,/obj/item/weapon/reagent_containers/food/snacks))
-		var/obj/item/weapon/reagent_containers/food/snacks/customizable/pasta/S = new(get_turf(user))
+	if(istype(W,/obj/item/reagent_containers/food/snacks))
+		var/obj/item/reagent_containers/food/snacks/customizable/pasta/S = new(get_turf(user))
 		S.attackby(W,user)
 		qdel(src)
 
 /obj/item/trash/plate/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/weapon/reagent_containers/food/snacks))
-		var/obj/item/weapon/reagent_containers/food/snacks/customizable/fullycustom/S = new(get_turf(user))
+	if(istype(W,/obj/item/reagent_containers/food/snacks))
+		var/obj/item/reagent_containers/food/snacks/customizable/fullycustom/S = new(get_turf(user))
 		S.attackby(W,user)
 		qdel(src)
 
@@ -35,13 +35,13 @@
 
 /obj/item/trash/bowl/attackby(obj/item/W as obj, mob/user as mob)
 
-	if(istype(W,/obj/item/weapon/material/shard) || istype(W,/obj/item/weapon/reagent_containers/food/snacks))
-		var/obj/item/weapon/reagent_containers/food/snacks/customizable/soup/S = new(get_turf(user))
+	if(istype(W,/obj/item/material/shard) || istype(W,/obj/item/reagent_containers/food/snacks))
+		var/obj/item/reagent_containers/food/snacks/customizable/soup/S = new(get_turf(user))
 		S.attackby(W,user)
 		qdel(src)
 	..()
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable //leaving BS12's sandwich in it's own thing, but leaving this here because meh. lazy.
+/obj/item/reagent_containers/food/snacks/customizable //leaving BS12's sandwich in it's own thing, but leaving this here because meh. lazy.
 	name = "sandwich"
 	desc = "A sandwich! A timeless classic."
 	icon = 'icons/urist/kitchen.dmi'
@@ -59,11 +59,11 @@
 
 	var/list/ingredients = list()
 
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/nutriment, 8)
+/obj/item/reagent_containers/food/snacks/customizable/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 8)
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable/pizza
+/obj/item/reagent_containers/food/snacks/customizable/pizza
 	name = "personal pizza"
 	desc = "A personalized pan pizza meant for only one person."
 	icon_state = "personal_pizza"
@@ -72,7 +72,7 @@
 	add_overlays = 0
 	top = 0
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable/pasta
+/obj/item/reagent_containers/food/snacks/customizable/pasta
 	name = "spagetti"
 	desc = "Noodles. With stuff. Delicious."
 	icon_state = "pasta_bot"
@@ -81,7 +81,7 @@
 	add_overlays = 0
 	top = 0
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable/cook/bread
+/obj/item/reagent_containers/food/snacks/customizable/cook/bread
 	name = "bread"
 	desc = "Tasty bread."
 	icon_state = "breadcustom"
@@ -90,7 +90,7 @@
 	add_overlays = 0
 	top = 0
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable/cook/pie
+/obj/item/reagent_containers/food/snacks/customizable/cook/pie
 	name = "pie"
 	desc = "Tasty pie."
 	icon_state = "piecustom"
@@ -99,7 +99,7 @@
 	add_overlays = 0
 	top = 0
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable/cook/cake
+/obj/item/reagent_containers/food/snacks/customizable/cook/cake
 	name = "cake"
 	desc = "A popular band."
 	icon_state = "cakecustom"
@@ -108,7 +108,7 @@
 	add_overlays = 0
 	top = 0
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable/cook/jelly
+/obj/item/reagent_containers/food/snacks/customizable/cook/jelly
 	name = "jelly"
 	desc = "Totally jelly."
 	icon_state = "jellycustom"
@@ -117,7 +117,7 @@
 	add_overlays = 0
 	top = 0
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable/cook/donkpocket
+/obj/item/reagent_containers/food/snacks/customizable/cook/donkpocket
 	name = "donk pocket"
 	desc = "You wanna put a bangin-Oh nevermind."
 	icon_state = "donkcustom"
@@ -126,7 +126,7 @@
 	add_overlays = 0
 	top = 0
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable/cook/kebab
+/obj/item/reagent_containers/food/snacks/customizable/cook/kebab
 	name = "kebab"
 	desc = "Kebab or Kabab?"
 	icon_state = "kababcustom"
@@ -135,7 +135,7 @@
 	add_overlays = 0
 	top = 0
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable/cook/salad
+/obj/item/reagent_containers/food/snacks/customizable/cook/salad
 	name = "salad"
 	desc = "Very tasty."
 	icon_state = "saladcustom"
@@ -144,7 +144,7 @@
 	add_overlays = 0
 	top = 0
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable/cook/waffles
+/obj/item/reagent_containers/food/snacks/customizable/cook/waffles
 	name = "waffles"
 	desc = "Made with love."
 	icon_state = "wafflecustom"
@@ -153,7 +153,7 @@
 	add_overlays = 0
 	top = 0
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable/candy/cookie
+/obj/item/reagent_containers/food/snacks/customizable/candy/cookie
 	name = "cookie"
 	desc = "COOKIE!!1!"
 	icon_state = "cookiecustom"
@@ -162,7 +162,7 @@
 	add_overlays = 0
 	top = 0
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable/candy/cotton
+/obj/item/reagent_containers/food/snacks/customizable/candy/cotton
 	name = "flavored cotton candy"
 	desc = "Who can take a sunrise, sprinkle it with dew,"
 	icon_state = "cottoncandycustom"
@@ -171,7 +171,7 @@
 	add_overlays = 0
 	top = 0
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable/candy/gummybear
+/obj/item/reagent_containers/food/snacks/customizable/candy/gummybear
 	name = "flavored gummy bear"
 	desc = "Cover it in chocolate and a miracle or two,"
 	icon_state = "gummybearcustom"
@@ -180,7 +180,7 @@
 	add_overlays = 0
 	top = 0
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable/candy/gummyworm
+/obj/item/reagent_containers/food/snacks/customizable/candy/gummyworm
 	name = "flavored giant gummy worm"
 	desc = "The Candy Man can 'cause he mixes it with love,"
 	icon_state = "gummywormcustom"
@@ -189,7 +189,7 @@
 	add_overlays = 0
 	top = 0
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable/candy/jellybean
+/obj/item/reagent_containers/food/snacks/customizable/candy/jellybean
 	name = "flavored jelly bean"
 	desc = "And makes the world taste good."
 	icon_state = "jellybeancustom"
@@ -198,7 +198,7 @@
 	add_overlays = 0
 	top = 0
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable/candy/jawbreaker
+/obj/item/reagent_containers/food/snacks/customizable/candy/jawbreaker
 	name = "flavored jawbreaker"
 	desc = "Who can take a rainbow, Wrap it in a sigh,"
 	icon_state = "jawbreakercustom"
@@ -207,7 +207,7 @@
 	add_overlays = 0
 	top = 0
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable/candy/candycane
+/obj/item/reagent_containers/food/snacks/customizable/candy/candycane
 	name = "flavored candy cane"
 	desc = "Soak it in the sun and make strawberry-lemon pie,"
 	icon_state = "candycanecustom"
@@ -216,7 +216,7 @@
 	add_overlays = 0
 	top = 0
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable/candy/gum
+/obj/item/reagent_containers/food/snacks/customizable/candy/gum
 	name = "flavored gum"
 	desc = "The Candy Man can 'cause he mixes it with love and makes the world taste good. And the world tastes good 'cause the Candy Man thinks it should..."
 	icon_state = "gumcustom"
@@ -225,7 +225,7 @@
 	add_overlays = 0
 	top = 0
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable/candy/donut
+/obj/item/reagent_containers/food/snacks/customizable/candy/donut
 	name = "filled donut"
 	desc = "Donut eat this!" // kill me
 	icon_state = "donutcustom"
@@ -234,7 +234,7 @@
 	add_overlays = 0
 	top = 0
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable/candy/bar
+/obj/item/reagent_containers/food/snacks/customizable/candy/bar
 	name = "flavored chocolate bar"
 	desc = "Made in a factory downtown."
 	icon_state = "barcustom"
@@ -243,7 +243,7 @@
 	add_overlays = 0
 	top = 0
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable/candy/sucker
+/obj/item/reagent_containers/food/snacks/customizable/candy/sucker
 	name = "flavored sucker"
 	desc = "Suck suck suck."
 	icon_state = "suckercustom"
@@ -252,7 +252,7 @@
 	add_overlays = 0
 	top = 0
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable/candy/cash
+/obj/item/reagent_containers/food/snacks/customizable/candy/cash
 	name = "flavored chocolate cash"
 	desc = "I got piles!"
 	icon_state = "cashcustom"
@@ -261,7 +261,7 @@
 	add_overlays = 0
 	top = 0
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable/candy/coin
+/obj/item/reagent_containers/food/snacks/customizable/candy/coin
 	name = "flavored chocolate coin"
 	desc = "Clink, clink, clink."
 	icon_state = "coincustom"
@@ -270,7 +270,7 @@
 	add_overlays = 0
 	top = 0
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable/fullycustom // In the event you fuckers find something I forgot to add a customizable food for.
+/obj/item/reagent_containers/food/snacks/customizable/fullycustom // In the event you fuckers find something I forgot to add a customizable food for.
 	name = "on a plate"
 	desc = "A unique dish."
 	icon_state = "fullycustom"
@@ -281,7 +281,7 @@
 	ingredient_limit = 20
 	fullycustom = 1
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable/soup
+/obj/item/reagent_containers/food/snacks/customizable/soup
 	name = "soup"
 	desc = "A bowl with liquid and... stuff in it."
 	icon_state = "soup"
@@ -291,20 +291,20 @@
 	trash = /obj/item/trash/bowl
 	top = 0
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable/burger
+/obj/item/reagent_containers/food/snacks/customizable/burger
 	name = "burger bun"
 	desc = "A bun for a burger. Delicious."
 	icon_state = "burger"
 	baseicon = "burger"
 	basename = "burger"
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable/attackby(obj/item/W as obj, mob/user as mob)
-	if(src.contents.len > ingredient_limit)
-		user << "<span class='warning'>If you put anything else in or on [src] it's going to make a mess.</span>"
+/obj/item/reagent_containers/food/snacks/customizable/attackby(obj/item/W as obj, mob/user as mob)
+	if(length(src.contents) > ingredient_limit)
+		to_chat(user, "<span class='warning'>If you put anything else in or on [src] it's going to make a mess.</span>")
 		return
-	else if(istype(W,/obj/item/weapon/reagent_containers/food/snacks))
-		user << "<span class='notice'> You add [W] to [src].</span>"
-		var/obj/item/weapon/reagent_containers/F = W
+	else if(istype(W,/obj/item/reagent_containers/food/snacks))
+		to_chat(user, "<span class='notice'> You add [W] to [src].</span>")
+		var/obj/item/reagent_containers/F = W
 		F.reagents.trans_to(src, F.reagents.total_volume)
 		user.drop_item()
 		W.loc = src
@@ -313,18 +313,18 @@
 		return
 	..()
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable/proc/update()
+/obj/item/reagent_containers/food/snacks/customizable/proc/update()
 	var/fullname = "" //We need to build this from the contents of the var.
 	var/i = 0
 
 	overlays.Cut()
 
-	for(var/obj/item/weapon/reagent_containers/food/snacks/O in ingredients)
+	for(var/obj/item/reagent_containers/food/snacks/O in ingredients)
 
 		i++
 		if(i == 1)
 			fullname += "[O.name]"
-		else if(i == ingredients.len)
+		else if(i == length(ingredients))
 			fullname += " and [O.name]"
 		else
 			fullname += ", [O.name]"
@@ -364,85 +364,40 @@
 	if(top)
 		var/image/T = new(src.icon, "[baseicon]_top")
 		T.pixel_x = pick(list(-1,0,1))
-		T.pixel_y = (ingredients.len * 2)+1
+		T.pixel_y = (length(ingredients) * 2)+1
 		overlays += T
 
 	name = lowertext("[fullname] [basename]")
 	if(length(name) > 80) name = "[pick(list("absurd","colossal","enormous","ridiculous","massive","oversized","cardiac-arresting","pipe-clogging","edible but sickening","sickening","gargantuan","mega","belly-burster","chest-burster"))] [basename]"
-	w_class = ceil(Clamp((ingredients.len/2),1,3))
+	w_class = ceil(clamp((length(ingredients)/2),1,3))
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable/Destroy()
+/obj/item/reagent_containers/food/snacks/customizable/Destroy()
 	for(var/obj/item/O in ingredients)
 		qdel(O)
 	..()
 
-/obj/item/weapon/reagent_containers/food/snacks/customizable/examine()
+/obj/item/reagent_containers/food/snacks/customizable/examine()
 	..()
 	var/whatsinside = pick(ingredients)
 
-	usr << "<span class='notice'> You think you can see [whatsinside] in there.</span>"
-
-////////////////////////////////ICE CREAM///////////////////////////////////
-/obj/item/weapon/reagent_containers/food/snacks/icecream
-	name = "ice cream"
-	desc = "Delicious ice cream."
-	icon = 'icons/urist/kitchen.dmi'
-	icon_state = "icecream_cone"
-
-/obj/item/weapon/reagent_containers/food/snacks/icecream/New()
-	..()
-	reagents.add_reagent(/datum/reagent/nutriment, 1)
-	reagents.add_reagent(/datum/reagent/sugar,1)
-	bitesize = 1
-	update_icon()
-
-/obj/item/weapon/reagent_containers/food/snacks/icecream/update_icon()
-	overlays.Cut()
-	var/image/filling = image('icons/urist/kitchen.dmi', src, "icecream_color") //GLLEEEEEEERD!
-	filling.icon += reagents.get_color()
-	overlays += filling
-
-/obj/item/weapon/reagent_containers/food/snacks/icecream/icecreamcone
-	name = "ice cream cone"
-	desc = "Delicious ice cream."
-	icon_state = "icecream_cone"
-	volume = 500
-
-/obj/item/weapon/reagent_containers/food/snacks/icecream/icecreamcone/New()
-	..()
-	reagents.add_reagent(/datum/reagent/nutriment, 2)
-	reagents.add_reagent(/datum/reagent/sugar,6)
-	reagents.add_reagent(/datum/reagent/drink/ice,2)
-	bitesize = 3
-
-/obj/item/weapon/reagent_containers/food/snacks/icecream/icecreamcup
-	name = "chocolate ice cream cone"
-	desc = "Delicious ice cream."
-	icon_state = "icecream_cup"
-	volume = 500
-
-/obj/item/weapon/reagent_containers/food/snacks/icecream/icecreamcup/New()
-	..()
-	reagents.add_reagent(/datum/reagent/nutriment, 4)
-	reagents.add_reagent(/datum/reagent/sugar,8)
-	reagents.add_reagent(/datum/reagent/drink/ice,2)
-	bitesize = 6
+	to_chat(usr, "<span class='notice'> You think you can see [whatsinside] in there.</span>")
 
 //cereals
 
-/obj/item/weapon/reagent_containers/food/snacks/cereal
+/obj/item/reagent_containers/food/snacks/cereal
 	name = "box of cereal"
 	desc = "A box of cereal."
 	icon = 'icons/urist/kitchen.dmi'
 	icon_state = "cereal_box"
 	bitesize = 2
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/nutriment, 30)
+
+/obj/item/reagent_containers/food/snacks/cereal/New()
+	..()
+	reagents.add_reagent(/datum/reagent/nutriment, 30)
 
 //deepfryer shit
-
-/obj/item/weapon/reagent_containers/food/snacks/deepfryholder
+/*
+/obj/item/reagent_containers/food/snacks/deepfryholder
 	name = "Deep Fried Foods Holder Obj"
 	desc = "If you can see this description the code for the deep fryer fucked up."
 	icon = 'icons/urist/kitchen.dmi'
@@ -451,13 +406,13 @@
 	deepfried = 1
 	New()
 		..()
-		reagents.add_reagent(/datum/reagent/nutriment, 30)
+		reagents.add_reagent(/datum/reagent/nutriment, 30)*/
 
 //////////////
 //STILL SHIT//
 //////////////
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/customizable // Shamelessly stolen from original customizables, so that I can easily use the oven code.
+/obj/item/reagent_containers/food/drinks/bottle/customizable // Shamelessly stolen from original customizables, so that I can easily use the oven code.
 	name = "Customizable Drink"
 	desc = "If you can see this, tell a coder."
 	icon = 'icons/urist/kitchen.dmi'
@@ -474,13 +429,13 @@
 
 	var/list/ingredients = list()
 
-	New()
-		..()
-		src.reagents.add_reagent(boozetype, 20)
-		ferment(boozetype)
+/obj/item/reagent_containers/food/drinks/bottle/customizable/New()
+	..()
+	src.reagents.add_reagent(boozetype, 20)
+	ferment(boozetype)
 
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/wine
+/obj/item/reagent_containers/food/drinks/bottle/customizable/wine
 	name = "wine bottle"
 	desc = "Tasty."
 	icon_state = "winecustom"
@@ -490,7 +445,7 @@
 	top = 0
 	boozetype = /datum/reagent/ethanol/wine
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/whiskey
+/obj/item/reagent_containers/food/drinks/bottle/customizable/whiskey
 	name = "whiskey bottle"
 	desc = "Tasty."
 	icon_state = "whiskeycustom"
@@ -500,7 +455,7 @@
 	top = 0
 	boozetype = /datum/reagent/ethanol/whiskey
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/vermouth
+/obj/item/reagent_containers/food/drinks/bottle/customizable/vermouth
 	name = "vermouth bottle"
 	desc = "Tasty."
 	icon_state = "vermouthcustom"
@@ -510,7 +465,7 @@
 	top = 0
 	boozetype = /datum/reagent/ethanol/vermouth
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/vodka
+/obj/item/reagent_containers/food/drinks/bottle/customizable/vodka
 	name = "vodka"
 	desc = "Tasty."
 	icon_state = "vodkacustom"
@@ -520,7 +475,7 @@
 	top = 0
 	boozetype = /datum/reagent/ethanol/vodka
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/ale
+/obj/item/reagent_containers/food/drinks/bottle/customizable/ale
 	name = "ale"
 	desc = "Strike the asteroid!"
 	icon_state = "alecustom"
@@ -530,13 +485,13 @@
 	top = 0
 	boozetype = /datum/reagent/ethanol/ale
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/attackby(obj/item/W as obj, mob/user as mob)
-	if(src.contents.len > ingredient_limit)
-		user << "<span class='warning'>If you put anything else in or on [src] it's going to make a mess.</span>"
+/obj/item/reagent_containers/food/drinks/bottle/customizable/attackby(obj/item/W as obj, mob/user as mob)
+	if(length(src.contents) > ingredient_limit)
+		to_chat(user, "<span class='warning'>If you put anything else in or on [src] it's going to make a mess.</span>")
 		return
-	else if(istype(W,/obj/item/weapon/reagent_containers/food/snacks))
-		user << "<span class='notice'> You add [W] to [src].</span>"
-		var/obj/item/weapon/reagent_containers/F = W
+	else if(istype(W,/obj/item/reagent_containers/food/snacks))
+		to_chat(user, "<span class='notice'> You add [W] to [src].</span>")
+		var/obj/item/reagent_containers/F = W
 		F.reagents.trans_to(src, F.reagents.total_volume)
 		user.drop_item()
 		W.loc = src
@@ -545,18 +500,18 @@
 		return
 	..()
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/proc/update()
+/obj/item/reagent_containers/food/drinks/bottle/customizable/proc/update()
 	var/fullname = "" //We need to build this from the contents of the var.
 	var/i = 0
 
 	overlays.Cut()
 
-	for(var/obj/item/weapon/reagent_containers/food/snacks/O in ingredients)
+	for(var/obj/item/reagent_containers/food/snacks/O in ingredients)
 
 		i++
 		if(i == 1)
 			fullname += "[O.name]"
-		else if(i == ingredients.len)
+		else if(i == length(ingredients))
 			fullname += " and [O.name]"
 		else
 			fullname += ", [O.name]"
@@ -593,18 +548,18 @@
 	if(src.reagents)
 		ferment(src.boozetype)
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/Destroy()
+/obj/item/reagent_containers/food/drinks/bottle/customizable/Destroy()
 	for(var/obj/item/O in ingredients)
 		qdel(O)
 	..()
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/examine()
+/obj/item/reagent_containers/food/drinks/bottle/customizable/examine()
 	..()
 	var/whatsinside = pick(ingredients)
 
-	usr << "<span class='notice'> You think you can see fermented chunks of \a [whatsinside] in there.</span>"
+	to_chat(usr, "<span class='notice'> You think you can see fermented chunks of \a [whatsinside] in there.</span>")
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/proc/ferment(var/boozetype)
+/obj/item/reagent_containers/food/drinks/bottle/customizable/proc/ferment(boozetype)
 	if(!(boozetype))
 		boozetype = /datum/reagent/ethanol/hooch
 	var/datum/reagents/R = src.reagents

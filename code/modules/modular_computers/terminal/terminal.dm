@@ -1,12 +1,12 @@
-// System for a shitty terminal emulator.
+/// System for a shitty terminal emulator.
 /datum/terminal
 	var/name = "Terminal"
 	var/datum/browser/panel
 	var/list/history = list()
-	var/list/history_max_length = 20
-	var/obj/item/modular_computer/computer
+	var/list/history_max_length = 50
+	var/datum/extension/interactive/ntos/computer
 
-/datum/terminal/New(mob/user, obj/item/modular_computer/computer)
+/datum/terminal/New(mob/user, datum/extension/interactive/ntos/computer)
 	..()
 	src.computer = computer
 	if(user && can_use(user))
@@ -26,9 +26,9 @@
 /datum/terminal/proc/can_use(mob/user)
 	if(!user)
 		return FALSE
-	if(!CanInteractWith(user, computer, GLOB.default_state))
+	if(!computer || !computer.on)
 		return FALSE
-	if(!computer || !computer.enabled)
+	if(!CanInteractWith(user, computer, GLOB.default_state))
 		return FALSE
 	return TRUE
 
@@ -47,33 +47,34 @@
 		return panel.user
 
 /datum/terminal/proc/show_terminal(mob/user)
-	panel = new(user, "terminal-\ref[computer]", name, 500, 460, src)
+	panel = new(user, "terminal-\ref[computer]", name, 800, 600, src)
 	update_content()
 	panel.open()
 
 /datum/terminal/proc/update_content()
 	var/list/content = history.Copy()
-	content += "<form action='byond://'><input type='hidden' name='src' value='\ref[src]'>> <input type='text' size='40' name='input' autofocus><input type='submit' value='Enter'></form>"
+	content += "<form action='byond://'><input type='hidden' name='src' value='\ref[src]'> <input type='text' size='40' name='input' autofocus><input type='submit' value='Enter'></form>"
+	content += "<i>type `man` for a list of available commands.</i>"
 	panel.set_content(jointext(content, "<br>"))
 
 /datum/terminal/Topic(href, href_list)
 	if(..())
-		return 1
+		return TOPIC_HANDLED
 	if(!can_use(usr) || href_list["close"])
 		qdel(src)
-		return 1
+		return TOPIC_HANDLED
 	if(href_list["input"])
 		var/input = sanitize(href_list["input"])
 		history += "> [input]"
 		var/output = parse(input, usr)
 		if(QDELETED(src)) // Check for exit.
-			return 1
+			return TOPIC_HANDLED
 		history += output
 		if(length(history) > history_max_length)
 			history.Cut(1, length(history) - history_max_length + 1)
 		update_content()
 		panel.update()
-		return 1
+		return TOPIC_HANDLED
 
 /datum/terminal/proc/parse(text, mob/user)
 	for(var/datum/terminal_command/command in GLOB.terminal_commands)

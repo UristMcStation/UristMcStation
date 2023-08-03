@@ -1,6 +1,6 @@
 /datum/wires/rig
 	random = 1
-	holder_type = /obj/item/weapon/rig
+	holder_type = /obj/item/rig
 	wire_count = 5
 
 #define RIG_SECURITY 1
@@ -15,9 +15,9 @@
  * Interface lock can be pulsed to toggle whether or not the interface can be accessed.
  */
 
-/datum/wires/rig/UpdateCut(var/index, var/mended)
+/datum/wires/rig/UpdateCut(index, mended)
 
-	var/obj/item/weapon/rig/rig = holder
+	var/obj/item/rig/rig = holder
 	switch(index)
 		if(RIG_SECURITY)
 			if(mended)
@@ -26,9 +26,9 @@
 			rig.electrified = mended ? 0 : -1
 			rig.shock(usr,100)
 
-/datum/wires/rig/UpdatePulsed(var/index)
+/datum/wires/rig/UpdatePulsed(index)
 
-	var/obj/item/weapon/rig/rig = holder
+	var/obj/item/rig/rig = holder
 	switch(index)
 		if(RIG_SECURITY)
 			rig.security_check_enabled = !rig.security_check_enabled
@@ -37,6 +37,8 @@
 			rig.ai_override_enabled = !rig.ai_override_enabled
 			rig.visible_message("A small red light on [rig] [rig.ai_override_enabled?"goes dead":"flickers on"].")
 		if(RIG_SYSTEM_CONTROL)
+			if (rig.offline)
+				rig.visible_message("\The [rig] sparks, damaging its delicate control systems.")
 			rig.malfunctioning += 10
 			if(rig.malfunction_delay <= 0)
 				rig.malfunction_delay = 20
@@ -49,8 +51,8 @@
 				rig.electrified = 30
 			rig.shock(usr,100)
 
-/datum/wires/rig/CanUse(var/mob/living/L)
-	var/obj/item/weapon/rig/rig = holder
+/datum/wires/rig/CanUse(mob/living/L)
+	var/obj/item/rig/rig = holder
 	if(rig.p_open)
 		return 1
 	return 0

@@ -1,20 +1,20 @@
-/mob/living/simple_animal/hostile/npc/teshari
+/mob/living/simple_animal/passive/npc/teshari
 	name = "teshari"
 	desc = "A teshari who decided to try their luck amongst the stars."
 	icon = 'code/modules/urist/modules/newtrading/NPC/npc.dmi'
 	icon_state = "Teshari_m"
-	emote_hear = list("coughs","sneezes","sniffs","clears their throat","whistles tunelessly","sighs deeply","yawns", "chirps")
-	emote_see = list("shifts from side to side.","scratches their arm.","flaps their wings casually.","stares at at the ground aimlessly.","looks bored.","places their hands in their pockets.","stares at you with a blank expression.","scratches their muzzle.")
-
-	speak_chance = 2
 
 	species_type = /datum/species/teshari
-
-	speak = list("Man, I could go for a meatpizza...", "Have you ever been to Qerr'balak? It's... Nice. It still bears the scars of the Galactic Crisis though.", "Wow, it's warm... I could take a nap.", "Someone was trying to pet me earlier so I bit their hand.",\
-	"Fastest way to a Teshari's heart is through their stomach. We eat more than our stature would suggest.", "I see a lot of ship-board Teshari adults acting like children to drum up sympathy. We're pack hunters, not pets.")
+	say_list_type = /datum/say_list/teshari
 	speech_triggers = list(/datum/npc_speech_trigger/teshari/teshari, /datum/npc_speech_trigger/teshari/skrell, /datum/npc_speech_trigger/teshari/qerrbalak)
 
-/mob/living/simple_animal/hostile/npc/teshari/New()
+/datum/say_list/teshari
+	emote_hear = list("coughs","sneezes","sniffs","clears their throat","whistles tunelessly","sighs deeply","yawns", "chirps")
+	emote_see = list("shifts from side to side.","scratches their arm.","flaps their wings casually.","stares at at the ground aimlessly.","looks bored.","places their hands in their pockets.","stares at you with a blank expression.","scratches their muzzle.")
+	speak = list("Man, I could go for a meatpizza...", "Have you ever been to Qerr'balak? It's... Nice. It still bears the scars of the Galactic Crisis though.", "Wow, it's warm... I could take a nap.", "Someone was trying to pet me earlier so I bit their hand.",\
+	"Fastest way to a Teshari's heart is through their stomach. We eat more than our stature would suggest.", "I see a lot of ship-board Teshari adults acting like children to drum up sympathy. We're pack hunters, not pets.")
+
+/mob/living/simple_animal/passive/npc/teshari/New()
 	desc = "This is [src]. [initial(desc)]."
 	..()
 

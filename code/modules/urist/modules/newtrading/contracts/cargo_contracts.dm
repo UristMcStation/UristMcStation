@@ -63,32 +63,32 @@
 //robotics
 
 /datum/contract/cargo/robotics/durandparts
-	name = "Durand Parts Delivery Contract"
-	wanted_types = list(/obj/item/mecha_parts/part/durand_torso, /obj/item/mecha_parts/part/durand_left_arm, /obj/item/mecha_parts/part/durand_left_leg, /obj/item/mecha_parts/part/durand_right_arm, /obj/item/mecha_parts/part/durand_right_leg, /obj/item/mecha_parts/part/durand_head)
+	name = "Heavy Mech Parts Delivery Contract"
+	wanted_types = list(/obj/item/mech_component/chassis/heavy, /obj/item/mech_component/manipulators/heavy, /obj/item/mech_component/propulsion/heavy, /obj/item/mech_component/sensors/heavy)
 	money = 850
 	rep_points = 2
 
 /datum/contract/cargo/robotics/durandparts/New()
 	amount = rand(3,6)
-	desc = "Pirates hit our last shipment of high-tech mech parts, and NanoTrasen Security Forces are worried about future attacks. We need the [GLOB.using_map.station_name] to ship [amount] Durand parts at the nearest trading station, as soon as possible. Any parts will do, legs, arms, whatever, we're desparate."
+	desc = "Pirates hit our last shipment of high-tech mech parts, and NanoTrasen Security Forces are worried about future attacks. We need the [GLOB.using_map.station_name] to ship [amount] heavy mech parts at the nearest trading station, as soon as possible. Any parts will do, legs, arms, whatever, we're desparate."
 	..()
 
 /datum/contract/cargo/robotics/lasercannon
 	name = "Mecha Laser Cannon Delivery Contract"
-	wanted_types = list(/obj/item/mecha_parts/mecha_equipment/weapon/energy/laser/heavy)
+	wanted_types = list(/obj/item/gun/energy/lasercannon/mounted/mech)
 	money = 750
 	rep_points = 2
 
 /datum/contract/cargo/robotics/lasercannon/New()
 	amount = rand(2,4)
-	desc = "Pirates hit our last shipment of high-tech mech parts, and NanoTrasen Security Forces are worried about future attacks. We need the [GLOB.using_map.station_name] to ship [amount] CH-LC \"Solaris\" laser cannons at the nearest trading station, as soon as possible."
+	desc = "Pirates hit our last shipment of high-tech mech parts, and NanoTrasen Security Forces are worried about future attacks. We need the [GLOB.using_map.station_name] to ship [amount] CH-PS \"Immolator\" laser cannons at the nearest trading station, as soon as possible."
 	..()
 
 //chef
 
 /datum/contract/cargo/kitchen/aesirsalad
 	name = "Aesir Salad Delivery Contract"
-	wanted_types = list(/obj/item/weapon/reagent_containers/food/snacks/aesirsalad)
+	wanted_types = list(/obj/item/reagent_containers/food/snacks/aesirsalad)
 	money = 350
 
 /datum/contract/cargo/kitchen/aesirsalad/New()
@@ -98,7 +98,7 @@
 
 /datum/contract/cargo/kitchen/dionaroast
 	name = "Diona Roast Delivery Contract"
-	wanted_types = list(/obj/item/weapon/reagent_containers/food/snacks/dionaroast)
+	wanted_types = list(/obj/item/reagent_containers/food/snacks/dionaroast)
 	money = 260
 
 /datum/contract/cargo/kitchen/dionaroast/New()
@@ -108,7 +108,7 @@
 
 /datum/contract/cargo/kitchen/cubancarp
 	name = "Cuban Carp Delivery Contract"
-	wanted_types = list(/obj/item/weapon/reagent_containers/food/snacks/cubancarp)
+	wanted_types = list(/obj/item/reagent_containers/food/snacks/cubancarp)
 	money = 280
 
 /datum/contract/cargo/kitchen/cubancarp/New()
@@ -118,7 +118,7 @@
 
 /datum/contract/cargo/kitchen/coldchili
 	name = "Cold Chili Delivery Contract"
-	wanted_types = list(/obj/item/weapon/reagent_containers/food/snacks/coldchili)
+	wanted_types = list(/obj/item/reagent_containers/food/snacks/coldchili)
 	money = 240
 
 /datum/contract/cargo/kitchen/coldchili/New()
@@ -130,7 +130,7 @@
 
 /datum/contract/cargo/eswords
 	name = "Energy Sword Delivery Contract"
-	wanted_types = list(/obj/item/weapon/melee/energy/sword, /obj/item/weapon/melee/energy/sword/pirate)
+	wanted_types = list(/obj/item/melee/energy/sword, /obj/item/melee/energy/sword/pirate)
 	money = 950
 	rep_points = 2
 

@@ -99,7 +99,7 @@
 
 	updatehealth()
 
-/mob/living/carbon/harvester/instantiate_hud(var/datum/hud/HUD)
+/mob/living/carbon/harvester/instantiate_hud(datum/hud/HUD)
 	HUD.infestharvester_hud()
 
 /datum/hud/proc/infestharvester_hud()
@@ -124,7 +124,7 @@
 
 	mymob.zone_sel = new /obj/screen/zone_sel()
 	mymob.zone_sel.icon = 'icons/mob/screen1_construct.dmi'
-	mymob.zone_sel.overlays.len = 0
+	length(mymob.zone_sel.overlays) = 0
 	mymob.zone_sel.overlays += image('icons/mob/zone_sel.dmi', "[mymob.zone_sel.selecting]")
 
 	mymob.client.screen = null
@@ -263,7 +263,7 @@
 	return 1
 
 
-/mob/living/carbon/harvester/UnarmedAttack(var/atom/A, var/proximity)
+/mob/living/carbon/harvester/UnarmedAttack(atom/A, var/proximity)
 
 	if(!..())
 		return 0
@@ -273,7 +273,7 @@
 		M.visible_message("<span class='danger'>[src] has drained the life from [M]!</span>", "<span class='danger'>[src] has drained the life from you!</span>")
 		M.adjustFireLoss(10)
 		if(src.maxHealth >= 200 || src.health >= 200)
-			src << "<span class='danger'>You cannot absorb any more life!</span>"
+			to_chat(src, "<span class='danger'>You cannot absorb any more life!</span>")
 			return
 
 		else if(src.maxHealth <= 195)
@@ -301,7 +301,7 @@
 		C.Stun(8)
 		C.Weaken(8)
 		C.stuttering = 20
-		C << "<span class='warning'> You are blinded by [M.current.name]'s glare.</span>"
+		to_chat(C,"<span class='warning'> You are blinded by [M.current.name]'s glare.</span>")
 
 /mob/living/carbon/harvester/proc/harvester_cloak()
 	set category = "Harvester"
@@ -311,14 +311,14 @@
 		iscloaking = 0
 	else if(!iscloaking)
 		iscloaking = 1
-	src << "<span class='notice'> You will now be [iscloaking ? "hidden" : "seen"] in darkness.</span>"
+	to_chat(src, "<span class='notice'> You will now be [iscloaking ? ")hidden" : "seen"] in darkness.</span>"
 
 /mob/living/carbon/harvester/proc/harvester_turn()
 	set category = "Harvester"
 	set name = "Create Husk"
 	set desc = "Turns a human corpse into a deadly Husk at the cost of some of your health."
 	if(maxHealth <= 124) //not enough health to give //add mahealth and heath to the status panel. gamey, but the whole mode's gamey af
-		src << "<span class='notice'>You do not have enough strength to turn that corpse into a husk.</span>"
+		to_chat(src, "<span class='notice'>You do not have enough strength to turn that corpse into a husk.</span>")
 		return
 
 	else
@@ -330,4 +330,4 @@
 				src.maxHealth -= 50 //mess with this
 				if(src.health >= src.maxHealth) //gotta make the health match up. if it's lower, we don't do shit.
 					src.health = src.maxHealth
-				src << "<span class='warning'> You reach out with tendrils of darkness, turning what was once a human being with hopes and dreams into a mindless husk, slaved to the alien hivemind. However, you feel much weaker.</span>"
+				to_chat(src, "<span class='warning'> You reach out with tendrils of darkness, turning what was once a human being with hopes and dreams into a mindless husk, slaved to the alien hivemind. However, you feel much weaker.</span>")

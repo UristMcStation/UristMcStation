@@ -6,20 +6,22 @@
 	var/child_tags_txt
 	var/child_names_txt
 	var/list/child_names = list()
+	radio_filter = RADIO_AIRLOCK
+
 
 /obj/machinery/embedded_controller/radio/docking_port_multi/Initialize()
 	. = ..()
 	var/list/names = splittext(child_names_txt, ";")
 	var/list/tags = splittext(child_tags_txt, ";")
-	if (names.len == tags.len)
-		for (var/i = 1; i <= tags.len; i++)
+	if (length(names) == length(tags))
+		for (var/i = 1; i <= length(tags); i++)
 			child_names[tags[i]] = names[i]
 
-/obj/machinery/embedded_controller/radio/docking_port_multi/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/nano_ui/master_ui = null, var/datum/topic_state/state = GLOB.default_state)
+/obj/machinery/embedded_controller/radio/docking_port_multi/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, datum/nanoui/master_ui = null, datum/topic_state/state = GLOB.default_state)
 	var/data[0]
 	var/datum/computer/file/embedded_program/docking/multi/docking_program = program
 
-	var/list/airlocks[child_names.len]
+	var/list/airlocks[length(child_names)]
 	var/i = 1
 	for (var/child_tag in child_names)
 		airlocks[i++] = list("name"=child_names[child_tag], "override_enabled"=(docking_program.children_override[child_tag] == "enabled"))
@@ -49,9 +51,9 @@
 	var/master_tag	//for mapping
 	tag_secure = 1
 
-/obj/machinery/embedded_controller/radio/airlock/docking_port_multi/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/nano_ui/master_ui = null, var/datum/topic_state/state = GLOB.default_state)
+/obj/machinery/embedded_controller/radio/airlock/docking_port_multi/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, datum/nanoui/master_ui = null, datum/topic_state/state = GLOB.default_state)
 	var/data[0]
-	var/datum/computer/file/embedded_program/airlock/multi_docking/airlock_program
+	var/datum/computer/file/embedded_program/airlock/multi_docking/airlock_program = program
 
 	data = list(
 		"chamber_pressure" = round(airlock_program.memory["chamber_sensor_pressure"]),

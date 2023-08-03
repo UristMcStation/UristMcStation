@@ -5,49 +5,48 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //Plasma pistol
 
-datum/design/plasmapistol
+/datum/design/plasmapistol
 	name = "Phoron Pistol"
 	desc = "Weaponized phoron... Scary."
 	id = "plasmapistol"
 	req_tech = list("combat" = 4, "materials" = 4, "plasmatech" = 4, "magnets" = 2)
 	build_type = PROTOLATHE
 	materials = list("$silver" = 1000, "$metal" = 4000, "$uranium" = 1000, "$glass" = 500, "$gold" = 500, "$plasma" = 500)
-	build_path = /obj/item/weapon/gun/energy/plasmapistol
+	build_path = /obj/item/gun/energy/plasmapistol
 	sort_string = "URSTA"
 
 /datum/design/circuit/tanningrack
 	name = "tanning rack"
 	id = "tanning rack"
 	req_tech = list(TECH_BIO = 1, TECH_ENGINEERING = 1)
-	build_path = /obj/item/weapon/circuitboard/tanningrack
+	build_path = /obj/item/stock_parts/circuitboard/tanningrack
 	sort_string = "URSTB"
 
 /datum/design/circuit/carpentryplaner
 	name = "wood processor"
 	id = "wood processor"
 	req_tech = list(TECH_ENGINEERING = 1)
-	build_path = /obj/item/weapon/circuitboard/carpentryplaner
+	build_path = /obj/item/stock_parts/circuitboard/carpentryplaner
 	sort_string = "URSTC"
 
 /datum/design/circuit/woodprocessor
 	name = "pulp and paper processor"
 	id = "pulp and paper processor"
 	req_tech = list(TECH_ENGINEERING = 1)
-	build_path = /obj/item/weapon/circuitboard/woodprocessor
+	build_path = /obj/item/stock_parts/circuitboard/woodprocessor
 	sort_string = "URSTD"
 
 /datum/design/circuit/drying_rack
 	name = "drying rack"
 	id = "drying rack"
 	req_tech = list(TECH_BIO = 1, TECH_ENGINEERING = 1)
-	build_path = /obj/item/weapon/circuitboard/drying_rack
+	build_path = /obj/item/stock_parts/circuitboard/drying_rack
 	sort_string = "URSTE"
 
-/datum/design/circuit/washing_machine
-	name = "washing machine"
-	id = "washing machine"
-	req_tech = list(TECH_ENGINEERING = 1)
-	build_path = /obj/item/weapon/circuitboard/washing_machine
+/datum/design/circuit/account_manager
+	name = "account manager"
+	id = "accountmanager"
+	build_path = /obj/item/stock_parts/circuitboard/account_manager
 	sort_string = "URSTF"
 
 /datum/design/item/stock_part/BRPED
@@ -56,7 +55,7 @@ datum/design/plasmapistol
 	id = "bs_rped"
 	req_tech = list(TECH_ENGINEERING = 3, TECH_MATERIAL = 3, TECH_BLUESPACE = 3)
 	materials = list(MATERIAL_STEEL = 15000, MATERIAL_GLASS = 5000, MATERIAL_SILVER = 2500)
-	build_path = /obj/item/weapon/storage/part_replacer/bluespace
+	build_path = /obj/item/storage/part_replacer/bluespace
 	sort_string = "CBAAB"
 
 /datum/design/item/powercell/bluespace
@@ -64,8 +63,60 @@ datum/design/plasmapistol
 	id = "bluespace_cell"
 	req_tech = list(TECH_POWER = 7, TECH_MATERIAL = 6, TECH_BLUESPACE = 4) //The power tech a Hyper Cell will give, Material and Bluespace Tech requirements of the BoH
 	materials = list(MATERIAL_STEEL = 700, MATERIAL_GOLD = 250, MATERIAL_SILVER = 250, MATERIAL_GLASS = 100, MATERIAL_PHORON = 100)
-	build_path = /obj/item/weapon/cell/bluespace
+	build_path = /obj/item/cell/bluespace
 	sort_string = "URSTG"
+
+/datum/design/circuit/reagent_sublimator
+	name = "reagent sublimator"
+	id = "reagent_sub"
+	req_tech = list(TECH_ENGINEERING = 3, TECH_BIO = 2)
+	build_path = /obj/item/stock_parts/circuitboard/sublimator
+	sort_string = "URSTI"
+
+/datum/design/circuit/blast_door_comp
+	name = "blast door computer"
+	id = "blastcomp"
+	build_path = /obj/item/stock_parts/circuitboard/blast_comp
+	sort_string = "URSTJ"
+
+/datum/design/circuit/bioprinter
+	name = "bioprinter"
+	id = "bioprinter"
+	req_tech = list(TECH_BIO = 3)
+	build_path = /obj/item/stock_parts/circuitboard/bioprinter
+	sort_string = "URSTK"
+
+/datum/design/circuit/merch_comp
+	name = "merchandise computer"
+	id = "merch"
+	build_path = /obj/item/stock_parts/circuitboard/merch
+	sort_string = "URSTL"
+
+/datum/design/circuit/holopad
+	name = "holopad"
+	id = "holopad"
+	build_path = /obj/item/stock_parts/circuitboard/telecomms/holopad
+	sort_string = "URSTM"
+
+/datum/design/circuit/longrangeholopad
+	name = "long-range holopad"
+	id = "lrholopad"
+	build_path = /obj/item/stock_parts/circuitboard/telecomms/holopad/longrange
+	sort_string = "URSTN"
+
+/datum/design/circuit/combat_comp
+	name = "unrecognized combat computer"
+	id = "combatcomp"
+	req_tech = list(TECH_ESOTERIC = 9) //just meeting travis reqs...
+	build_path = /obj/item/stock_parts/circuitboard/combat_computer
+	sort_string = "URSTX"
+
+/datum/design/circuit/nerva_combat_comp
+	name = "ICS Nerva combat computer"
+	id = "nervacombatcomp"
+	req_tech = list(TECH_ESOTERIC = 9) //just meeting travis reqs...
+	build_path = /obj/item/stock_parts/circuitboard/combat_computer/nerva
+	sort_string = "URSTY"
 
 //shipweapon stuff
 

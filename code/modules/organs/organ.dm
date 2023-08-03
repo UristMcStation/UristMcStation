@@ -1,4 +1,4 @@
-var/list/organ_cache = list()
+var/global/list/organ_cache = list()
 
 /obj/item/organ
 	name = "organ"
@@ -28,6 +28,10 @@ var/list/organ_cache = list()
 
 	var/death_time
 
+	// Bioprinter stats
+	var/can_be_printed = TRUE
+	var/print_cost
+
 /obj/item/organ/Destroy()
 	owner = null
 	dna = null
@@ -36,7 +40,7 @@ var/list/organ_cache = list()
 /obj/item/organ/proc/refresh_action_button()
 	return action
 
-/obj/item/organ/attack_self(var/mob/user)
+/obj/item/organ/attack_self(mob/user)
 	return (owner && loc == owner && owner == user)
 
 /obj/item/organ/proc/update_health()
@@ -46,7 +50,7 @@ var/list/organ_cache = list()
 	return (damage >= min_broken_damage || (status & ORGAN_CUT_AWAY) || (status & ORGAN_BROKEN))
 
 //Second argument may be a dna datum; if null will be set to holder's dna.
-/obj/item/organ/New(var/mob/living/carbon/holder, var/datum/dna/given_dna)
+/obj/item/organ/New(mob/living/carbon/holder, datum/dna/given_dna)
 	..(holder)
 	if(!istype(given_dna))
 		given_dna = null
@@ -58,7 +62,6 @@ var/list/organ_cache = list()
 
 	if(istype(holder))
 		owner = holder
-		w_class = max(w_class + mob_size_difference(holder.mob_size, MOB_MEDIUM), 1) //smaller mobs have smaller organs.
 		if(!given_dna && holder.dna)
 			given_dna = holder.dna
 		else
@@ -68,13 +71,14 @@ var/list/organ_cache = list()
 		set_dna(given_dna)
 	if (!species)
 		species = all_species[SPECIES_HUMAN]
+	species.resize_organ(src)
 
 	create_reagents(5 * (w_class-1)**2)
 	reagents.add_reagent(/datum/reagent/nutriment/protein, reagents.maximum_volume)
 
 	update_icon()
 
-/obj/item/organ/proc/set_dna(var/datum/dna/new_dna)
+/obj/item/organ/proc/set_dna(datum/dna/new_dna)
 	if(new_dna)
 		dna = new_dna.Clone()
 		if(!blood_DNA)
@@ -101,12 +105,19 @@ var/list/organ_cache = list()
 	//dead already, no need for more processing
 	if(status & ORGAN_DEAD)
 		return
-	// Don't process if we're in a freezer, an MMI or a stasis bag.or a freezer or something I dunno
-	if(is_preserved())
+
+	//check if we've hit max_damage
+	if(damage >= max_damage)
+		die()
 		return
+
 	//Process infections
 	if (BP_IS_ROBOTIC(src) || (owner && owner.species && (owner.species.species_flags & SPECIES_FLAG_IS_PLANT)))
 		germ_level = 0
+		return
+
+	// Don't process if we're in a freezer, an MMI or a stasis bag.or a freezer or something I dunno
+	if(is_preserved())
 		return
 
 	if(!owner && reagents)
@@ -128,40 +139,44 @@ var/list/organ_cache = list()
 		handle_rejection()
 		handle_germ_effects()
 
-	//check if we've hit max_damage
-	if(damage >= max_damage)
-		die()
-
 /obj/item/organ/proc/is_preserved()
 	if(istype(loc,/obj/item/organ))
 		var/obj/item/organ/O = loc
 		return O.is_preserved()
 	else
-		return (istype(loc,/obj/item/device/mmi) || istype(loc,/obj/structure/closet/body_bag/cryobag) || istype(loc,/obj/structure/closet/crate/freezer) || istype(loc,/obj/item/weapon/storage/box/freezer))
+		return (istype(loc,/obj/item/device/mmi) || istype(loc,/obj/structure/closet/body_bag/cryobag) || istype(loc,/obj/structure/closet/crate/freezer) || istype(loc,/obj/item/storage/box/freezer))
 
 /obj/item/organ/examine(mob/user)
 	. = ..(user)
 	show_decay_status(user)
 
 /obj/item/organ/proc/show_decay_status(mob/user)
-	if(status & ORGAN_DEAD)
-		to_chat(user, "<span class='notice'>The decay has set into \the [src].</span>")
+	if(BP_IS_ROBOTIC(src))
+		if(status & ORGAN_DEAD)
+			to_chat(user, SPAN_NOTICE("\The [src] looks completely spent."))
+	else
+		if(status & ORGAN_DEAD)
+			to_chat(user, SPAN_NOTICE("The decay has set into \the [src]."))
 
 /obj/item/organ/proc/handle_germ_effects()
 	//** Handle the effects of infections
+	var/virus_immunity = owner.virus_immunity() //reduces the amount of times we need to call this proc
 	var/antibiotics = owner.reagents.get_reagent_amount(/datum/reagent/spaceacillin)
 
-	if (germ_level > 0 && germ_level < INFECTION_LEVEL_ONE/2 && prob(owner.virus_immunity()*0.3))
+	if (germ_level > 0 && germ_level < INFECTION_LEVEL_ONE/2 && prob(virus_immunity*0.3))
 		germ_level--
 
 	if (germ_level >= INFECTION_LEVEL_ONE/2)
-		//aiming for germ level to go from ambient to INFECTION_LEVEL_TWO in an average of 15 minutes
+		//aiming for germ level to go from ambient to INFECTION_LEVEL_TWO in an average of 15 minutes, when immunity is full.
 		if(antibiotics < 5 && prob(round(germ_level/6 * owner.immunity_weakness() * 0.01)))
-			germ_level++
+			if(virus_immunity > 0)
+				germ_level += clamp(round(1/virus_immunity), 1, 10) // Immunity starts at 100. This doubles infection rate at 50% immunity. Rounded to nearest whole.
+			else // Will only trigger if immunity has hit zero. Once it does, 10x infection rate.
+				germ_level += 10
 
 	if(germ_level >= INFECTION_LEVEL_ONE)
 		var/fever_temperature = (owner.species.heat_level_1 - owner.species.body_temperature - 5)* min(germ_level/INFECTION_LEVEL_TWO, 1) + owner.species.body_temperature
-		owner.bodytemperature += between(0, (fever_temperature - T20C)/BODYTEMP_COLD_DIVISOR + 1, fever_temperature - owner.bodytemperature)
+		owner.bodytemperature += clamp((fever_temperature - T20C)/BODYTEMP_COLD_DIVISOR + 1, 0, fever_temperature - owner.bodytemperature)
 
 	if (germ_level >= INFECTION_LEVEL_TWO)
 		var/obj/item/organ/external/parent = owner.get_organ(parent_organ)
@@ -203,9 +218,9 @@ var/list/organ_cache = list()
 /obj/item/organ/proc/remove_rejuv()
 	qdel(src)
 
-/obj/item/organ/proc/rejuvenate(var/ignore_prosthetic_prefs)
+/obj/item/organ/proc/rejuvenate(ignore_prosthetic_prefs)
 	damage = 0
-	status = 0
+	status = initial(status)
 	if(!ignore_prosthetic_prefs && owner && owner.client && owner.client.prefs && owner.client.prefs.real_name == owner.real_name)
 		var/status = owner.client.prefs.organ_data[organ_tag]
 		if(status == "assisted")
@@ -234,11 +249,12 @@ var/list/organ_cache = list()
 		germ_level -= 2
 	germ_level = max(0, germ_level)
 
-/obj/item/organ/proc/take_general_damage(var/amount, var/silent = FALSE)
+/obj/item/organ/proc/take_general_damage(amount, silent = FALSE)
 	CRASH("Not Implemented")
 
 /obj/item/organ/proc/heal_damage(amount)
-	damage = between(0, damage - round(amount, 0.1), max_damage)
+	if (can_recover())
+		damage = clamp(damage - round(amount, 0.1), 0, max_damage)
 
 
 /obj/item/organ/proc/robotize() //Being used to make robutt hearts, etc
@@ -254,7 +270,7 @@ var/list/organ_cache = list()
  *
  *  Also, Observer Pattern Implementation: Dismembered Handling occurs here.
  */
-/obj/item/organ/proc/removed(var/mob/living/user, var/drop_organ=1)
+/obj/item/organ/proc/removed(mob/living/user, drop_organ=1)
 
 	if(!istype(owner))
 		return
@@ -279,7 +295,7 @@ var/list/organ_cache = list()
 
 	owner = null
 
-/obj/item/organ/proc/replaced(var/mob/living/carbon/human/target, var/obj/item/organ/external/affected)
+/obj/item/organ/proc/replaced(mob/living/carbon/human/target, obj/item/organ/external/affected)
 	owner = target
 	action_button_name = initial(action_button_name)
 	forceMove(owner) //just in case
@@ -287,17 +303,17 @@ var/list/organ_cache = list()
 		set_dna(owner.dna)
 	return 1
 
-/obj/item/organ/attack(var/mob/target, var/mob/user)
+/obj/item/organ/attack(mob/target, mob/user)
 
 	if(status & ORGAN_ROBOTIC || !istype(target) || !istype(user) || (user != target && user.a_intent == I_HELP))
 		return ..()
 
 	if(alert("Do you really want to use this organ as food? It will be useless for anything else afterwards.",,"Ew, no.","Bon appetit!") == "Ew, no.")
-		to_chat(user, "<span class='notice'>You successfully repress your cannibalistic tendencies.</span>")
+		to_chat(user, SPAN_NOTICE("You successfully repress your cannibalistic tendencies."))
 		return
 	if(QDELETED(src) || loc != user || !user.unEquip(src))
 		return
-	var/obj/item/weapon/reagent_containers/food/snacks/organ/O = new(get_turf(src))
+	var/obj/item/reagent_containers/food/snacks/organ/O = new(get_turf(src))
 	O.SetName(name)
 	O.appearance = src
 	if(reagents && reagents.total_volume)
@@ -316,59 +332,65 @@ var/list/organ_cache = list()
 /obj/item/organ/proc/can_recover()
 	return (max_damage > 0) && !(status & ORGAN_DEAD) || death_time >= world.time - ORGAN_RECOVERY_THRESHOLD
 
-/obj/item/organ/proc/get_scan_results(var/tag = FALSE)
+/obj/item/organ/proc/get_scan_results(tag = FALSE)
 	. = list()
 	if(BP_IS_CRYSTAL(src))
-		. += tag ? "<span class='average'>Crystalline</span>" : "Crystalline"
+		. += tag ? "<span style='font-weight: bold; color: [COLOR_MEDICAL_CRYSTAL]'>Crystalline</span>" : "Crystalline"
 	else if(BP_IS_ASSISTED(src))
-		. += tag ? "<span class='average'>Assisted</span>" : "Assisted"
+		. += tag ? "<span style='font-weight: bold; color: [COLOR_MEDICAL_ROBOTIC]'>Assisted</span>" : "Assisted"
 	else if(BP_IS_ROBOTIC(src))
-		. += tag ? "<span class='average'>Mechanical</span>" : "Mechanical"
+		. += tag ? "<span style='font-weight: bold; color: [COLOR_MEDICAL_ROBOTIC]'>Mechanical</span>" : "Mechanical"
 	if(status & ORGAN_CUT_AWAY)
-		. += tag ? "<span class='bad'>Severed</span>" : "Severed"
+		. += tag ? "<span style='font-weight: bold; color: [COLOR_MEDICAL_INTERNAL]'>Severed</span>" : "Severed"
 	if(status & ORGAN_MUTATED)
-		. += tag ? "<span class='bad'>Genetic Deformation</span>" : "Genetic Deformation"
+		. += tag ? "<span style='font-weight: bold; color: [COLOR_MEDICAL_RADIATION]'>Genetic Deformation</span>" : "Genetic Deformation"
 	if(status & ORGAN_DEAD)
-		if(can_recover())
-			. += tag ? "<span class='bad'>Decaying</span>" : "Decaying"
+		if(BP_IS_ROBOTIC(src))
+			if(can_recover())
+				. += tag ? "<span style='font-weight: bold; color: [COLOR_MEDICAL_INTERNAL_DANGER]'>Failing</span>" : "Failing"
+			else
+				. += tag ? "<span style='font-weight: bold; color: [COLOR_MEDICAL_NECROTIC]'>Irreparably Damaged</span>" : "Irreperably Damaged"
 		else
-			. += tag ? "<span style='color:#999999'>Necrotic</span>" : "Necrotic"
+			if(can_recover())
+				. += tag ? "<span style='font-weight: bold; color: [COLOR_MEDICAL_INTERNAL_DANGER]'>Decaying</span>" : "Decaying"
+			else
+				. += tag ? "<span style='font-weight: bold; color: [COLOR_MEDICAL_NECROTIC]'>Necrotic</span>" : "Necrotic"
 	if(BP_IS_BRITTLE(src))
-		. += tag ? "<span class='bad'>Brittle</span>" : "Brittle"
+		. += tag ? "<span style='font-weight: bold; color: [COLOR_MEDICAL_CRYSTAL]'>Brittle</span>" : "Brittle"
 
+	var/germ_message
 	switch (germ_level)
 		if (INFECTION_LEVEL_ONE to INFECTION_LEVEL_ONE + ((INFECTION_LEVEL_TWO - INFECTION_LEVEL_ONE) / 3))
-			. +=  "Mild Infection"
+			germ_message =  "Mild Infection"
 		if (INFECTION_LEVEL_ONE + ((INFECTION_LEVEL_TWO - INFECTION_LEVEL_ONE) / 3) to INFECTION_LEVEL_ONE + (2 * (INFECTION_LEVEL_TWO - INFECTION_LEVEL_ONE) / 3))
-			. +=  "Mild Infection+"
+			germ_message =  "Mild Infection+"
 		if (INFECTION_LEVEL_ONE + (2 * (INFECTION_LEVEL_TWO - INFECTION_LEVEL_ONE) / 3) to INFECTION_LEVEL_TWO)
-			. +=  "Mild Infection++"
+			germ_message =  "Mild Infection++"
 		if (INFECTION_LEVEL_TWO to INFECTION_LEVEL_TWO + ((INFECTION_LEVEL_THREE - INFECTION_LEVEL_THREE) / 3))
-			if(tag)
-				. += "<span class='average'>Acute Infection</span>"
-			else
-				. +=  "Acute Infection"
+			germ_message =  "Acute Infection"
 		if (INFECTION_LEVEL_TWO + ((INFECTION_LEVEL_THREE - INFECTION_LEVEL_THREE) / 3) to INFECTION_LEVEL_TWO + (2 * (INFECTION_LEVEL_THREE - INFECTION_LEVEL_TWO) / 3))
-			if(tag)
-				. += "<span class='average'>Acute Infection+</span>"
-			else
-				. +=  "Acute Infection+"
+			germ_message =  "Acute Infection+"
 		if (INFECTION_LEVEL_TWO + (2 * (INFECTION_LEVEL_THREE - INFECTION_LEVEL_TWO) / 3) to INFECTION_LEVEL_THREE)
-			if(tag)
-				. += "<span class='average'>Acute Infection++</span>"
-			else
-				. +=  "Acute Infection++"
+			germ_message =  "Acute Infection++"
 		if (INFECTION_LEVEL_THREE to INFINITY)
-			if(tag)
-				. += "<span class='bad'>Septic</span>"
-			else
-				. +=  "Septic"
+			germ_message =  "Septic"
+	if (germ_message)
+		. += tag ? "<span style='font-weight: bold; color: [COLOR_MEDICAL_TOXIN]'>[germ_message]</span>" : germ_message
 	if(rejecting)
 		if(tag)
-			. += "<span class='bad'>Genetic Rejection</span>"
-		else
-			. += "Genetic Rejection"
+			. += tag ? "<span style='font-weight: bold; color: [COLOR_MEDICAL_INTERNAL]'>Genetic Rejection</span>" : "Genetic Rejection"
 
 //used by stethoscope
 /obj/item/organ/proc/listen()
+	return
+
+/obj/item/organ/proc/get_mechanical_assisted_descriptor()
+	return "mechanically-assisted [name]"
+
+
+/**
+* Pre-surgery modification of the organ if it has status|ORGAN_CONFIGURE
+* Halts surgery if the return value is truthy
+*/
+/obj/item/organ/proc/surgery_configure(mob/living/user, mob/living/carbon/human/target, obj/item/organ/parent, obj/item/tool, singleton/surgery_step/action)
 	return

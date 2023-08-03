@@ -29,6 +29,12 @@
 	associated_paths = list(/obj/machinery/optable)
 	mechanics_text = "Click your target with Grab intent, then click on the table with an empty hand, to place them on it.<br>Click on table after that to enable knockout function."
 
+/datum/codex_entry/vitals_monitor
+	associated_paths = list(/obj/machinery/vitals_monitor)
+	mechanics_text = "Click and drag the vitals monitor onto your target to attach them. Doing the same action again will detatch them.<br>\
+	Click and drag the vitals monitor onto an operating table to connect it to the table. This will forward all patient info from the OR table to the vitals monitor.<br>\
+	The vitals monitor will continue reporting information as long as whatever it is attached to remains adjacent to it."
+
 /datum/codex_entry/operating
 	associated_paths = list(/obj/machinery/computer/operating)
 	mechanics_text = "This console gives information on the status of the patient on the adjacent operating table, notably their consciousness."
@@ -72,9 +78,8 @@
 	You can use a health analyzer to scan the occupant's vitals without opening the bag by clicking the occupied bag with the analyzer."
 
 /datum/codex_entry/autopump
-	associated_paths = list(/obj/item/auto_cpr/)
+	associated_paths = list(/obj/item/auto_cpr)
 	mechanics_text = "This automatic pump will help a patient whose heart is stopped, much like CPR, when put in the patient's suit slot.<br>\
 	<br>\
-	There are several things to keep in mind when using it. First off, you need Basic Medicine AND Anatomy skills to align it properly, otherwise it'll hurt patient. \
 	It will only provide some circulation, you need to fix blood volume and oxygen supply issues for it to be useful. \
-	It performs worse than manual CPR by a skilled user and will NOT restart the heart. It's advantage is automatic nature.<br>"
+	It performs worse than manual CPR and will NOT restart the heart. It's advantage is its automatic nature.<br>"

@@ -29,7 +29,7 @@
 	if(points_per_unit && amount)
 		rep_points = (points_per_unit * amount)
 
-/datum/contract/proc/Complete(var/number = 0)
+/datum/contract/proc/Complete(number = 0)
 	completed += number
 	if(completed >= amount)
 		SSfactions.update_reputation(faction, rep_points)
@@ -38,7 +38,7 @@
 			SSfactions.update_reputation(neg_faction, neg_rep_points)
 
 		var/datum/transaction/T = new("[GLOB.using_map.station_name]", "Contract Completion", money, "[faction.name]")
-		station_account.do_transaction(T)
+		station_account.add_transaction(T)
 		GLOB.using_map.completed_contracts += 1
 		GLOB.using_map.contract_money += src.money
 		GLOB.using_map.contracts -= src
@@ -73,21 +73,23 @@
 	var/oldmoney = money
 	money = (amount * oldmoney)
 
+	..()
+
 	if(!desc)
 		desc = "This sector is plagued by [neg_faction.factionid]s, [faction.name] needs the [GLOB.using_map.station_name] to hunt down and destroy [amount] [neg_faction.name] ships in this sector."
 
-	..()
 
 	if(!neg_rep_points)
 		neg_rep_points -= rep_points
 
 //money values are very much in flux
 
-/datum/contract/shiphunt/pirate
+/datum/contract/shiphunt
 	name = "Pirate Ship Hunt Contract"
 	neg_faction = /datum/factions/pirate
 	points_per_unit = 3
 	money = 4000
+	faction = /datum/factions/nanotrasen
 
 /datum/contract/shiphunt/alien
 	name = "Lactera Ship Hunt Contract"
@@ -105,3 +107,4 @@
 	rep_points = 10
 	amount = 1
 	money = 20000
+	faction = /datum/factions/nanotrasen

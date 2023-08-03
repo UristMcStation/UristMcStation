@@ -13,12 +13,14 @@
 		explosion_resistance = material.explosion_resistance
 	if(reinf_material && reinf_material.explosion_resistance > explosion_resistance)
 		explosion_resistance = reinf_material.explosion_resistance
+	// Base material `explosion_resistance` is `5`, so a value of `5 `should result in a wall resist value of `1`.
+	set_damage_resistance(DAMAGE_EXPLODE, explosion_resistance ? 5 / explosion_resistance : 1)
 
 	if(reinf_material)
-		SetName("reinforced [material.display_name] [initial(name)]")
+		SetName("reinforced [material.display_name] [material.wall_name]")
 		desc = "It seems to be a section of hull reinforced with [reinf_material.display_name] and plated with [material.display_name]."
 	else
-		SetName("[material.display_name] [initial(name)]")
+		SetName("[material.display_name] [material.wall_name]")
 		desc = "It seems to be a section of hull plated with [material.display_name]."
 
 	set_opacity(material.opacity >= 0.5)
@@ -26,9 +28,10 @@
 	SSradiation.resistance_cache.Remove(src)
 	update_connections(1)
 	update_icon()
+	calculate_damage_data()
 
 
-/turf/simulated/wall/proc/set_material(var/material/newmaterial, var/material/newrmaterial)
+/turf/simulated/wall/proc/set_material(material/newmaterial, material/newrmaterial)
 	material = newmaterial
 	reinf_material = newrmaterial
 	update_material()
@@ -43,15 +46,7 @@
 	if(!damage_overlays[1]) //list hasn't been populated; note that it is always of fixed length, so we must check for membership.
 		generate_overlays()
 
-	// This line apparently causes runtimes during initialization.
-	// As we don't know why, or how to resolve this, I'm blocking runtime recording until after init.
-	try
-		overlays.Cut()
-	catch(var/exception/e)
-		if(e && GAME_STATE < RUNLEVEL_GAME)
-			queue_icon_update()
-			return
-		throw e
+	overlays.Cut()
 
 	var/image/I
 	var/base_color = paint_color ? paint_color : material.icon_colour
@@ -62,11 +57,11 @@
 		return
 
 	for(var/i = 1 to 4)
-		I = image('icons/turf/wall_masks.dmi', "[material.icon_base][wall_connections[i]]", dir = 1<<(i-1))
+		I = image('icons/turf/wall_masks.dmi', "[material.icon_base][wall_connections[i]]", dir = SHIFTL(1, i - 1))
 		I.color = base_color
 		overlays += I
 		if(other_connections[i] != "0")
-			I = image('icons/turf/wall_masks.dmi', "[material.icon_base]_other[wall_connections[i]]", dir = 1<<(i-1))
+			I = image('icons/turf/wall_masks.dmi', "[material.icon_base]_other[wall_connections[i]]", dir = SHIFTL(1, i - 1))
 			I.color = base_color
 			overlays += I
 
@@ -80,39 +75,36 @@
 			if("[reinf_material.icon_reinf]0" in icon_states('icons/turf/wall_masks.dmi'))
 				// Directional icon
 				for(var/i = 1 to 4)
-					I = image('icons/turf/wall_masks.dmi', "[reinf_material.icon_reinf][wall_connections[i]]", dir = 1<<(i-1))
+					I = image('icons/turf/wall_masks.dmi', "[reinf_material.icon_reinf][wall_connections[i]]", dir = SHIFTL(1, i - 1))
 					I.color = reinf_color
 					overlays += I
 			else
 				I = image('icons/turf/wall_masks.dmi', reinf_material.icon_reinf)
 				I.color = reinf_color
 				overlays += I
-
+	var/image/texture = material.get_wall_texture()
+	if(texture)
+		overlays += texture
 	if(stripe_color)
 		for(var/i = 1 to 4)
 			if(other_connections[i] != "0")
-				I = image('icons/turf/wall_masks.dmi', "stripe_other[wall_connections[i]]", dir = 1<<(i-1))
+				I = image('icons/turf/wall_masks.dmi', "stripe_other[wall_connections[i]]", dir = SHIFTL(1, i - 1))
 			else
-				I = image('icons/turf/wall_masks.dmi', "stripe[wall_connections[i]]", dir = 1<<(i-1))
+				I = image('icons/turf/wall_masks.dmi', "stripe[wall_connections[i]]", dir = SHIFTL(1, i - 1))
 			I.color = stripe_color
 			overlays += I
 
-	if(damage != 0)
-		var/integrity = material.integrity
-		if(reinf_material)
-			integrity += reinf_material.integrity
-
-		var/overlay = round(damage / integrity * damage_overlays.len) + 1
-		if(overlay > damage_overlays.len)
-			overlay = damage_overlays.len
+	if(get_damage_value() != 0)
+		var/overlay = round((get_damage_percentage() / 100) * length(damage_overlays)) + 1
+		overlay = clamp(overlay, 1, length(damage_overlays))
 
 		overlays += damage_overlays[overlay]
 	return
 
 /turf/simulated/wall/proc/generate_overlays()
-	var/alpha_inc = 256 / damage_overlays.len
+	var/alpha_inc = 256 / length(damage_overlays)
 
-	for(var/i = 1; i <= damage_overlays.len; i++)
+	for(var/i = 1; i <= length(damage_overlays); i++)
 		var/image/img = image(icon = 'icons/turf/walls.dmi', icon_state = "overlay_damage")
 		img.blend_mode = BLEND_MULTIPLY
 		img.alpha = (i * alpha_inc) - 1
@@ -160,7 +152,7 @@
 	wall_connections = dirs_to_corner_states(wall_dirs)
 	other_connections = dirs_to_corner_states(other_dirs)
 
-/turf/simulated/wall/proc/can_join_with(var/turf/simulated/wall/W)
+/turf/simulated/wall/proc/can_join_with(turf/simulated/wall/W)
 	if(material && W.material && material.icon_base == W.material.icon_base)
 		if((reinf_material && W.reinf_material) || (!reinf_material && !W.reinf_material))
 			return 1

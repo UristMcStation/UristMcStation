@@ -2,10 +2,12 @@
 	name = "\improper Canister: \[CAUTION\]"
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "yellow"
-	density = 1
-	var/health = 100.0
+	density = TRUE
+	health_max = 100
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	w_class = ITEM_SIZE_GARGANTUAN
+	construct_state = null
+	health_resistances = DAMAGE_RESIST_PHYSICAL
 
 	var/valve_open = 0
 	var/release_pressure = ONE_ATMOSPHERE
@@ -17,8 +19,11 @@
 	var/temperature_resistance = 1000 + T0C
 	volume = 1000
 	interact_offline = 1 // Allows this to be used when not in powered area.
-	var/release_log = ""
-	var/update_flag = 0
+
+	var/const/CANISTER_PRESSURE_EMPTY = ONE_ATMOSPHERE
+	var/const/CANISTER_PRESSURE_LOW = 5 * ONE_ATMOSPHERE
+	var/const/CANISTER_PRESSURE_MID = 15 * ONE_ATMOSPHERE
+	var/const/CANISTER_PRESSURE_HIGH = 30 * ONE_ATMOSPHERE
 
 /obj/machinery/portable_atmospherics/canister/drain_power()
 	return -1
@@ -76,10 +81,10 @@
 	canister_color = "grey"
 	can_label = 0
 
-/obj/machinery/portable_atmospherics/canister/chlorine
-	name = "\improper Canister \[Chlorine\]"
-	icon_state = "chlorine"
-	canister_color = "chlorine"
+/obj/machinery/portable_atmospherics/canister/boron
+	name = "\improper Canister \[Boron\]"
+	icon_state = "lightblue"
+	canister_color = "lightblue"
 	can_label = 0
 
 /obj/machinery/portable_atmospherics/canister/air/airlock
@@ -119,94 +124,45 @@
 	canister_type = /obj/machinery/portable_atmospherics/canister/hydrogen
 
 
-
-
-/obj/machinery/portable_atmospherics/canister/proc/check_change()
-	var/old_flag = update_flag
-	update_flag = 0
-	if(holding)
-		update_flag |= 1
-	if(connected_port)
-		update_flag |= 2
-
-	var/tank_pressure = return_pressure()
-	if(tank_pressure < 10)
-		update_flag |= 4
-	else if(tank_pressure < ONE_ATMOSPHERE)
-		update_flag |= 8
-	else if(tank_pressure < 15*ONE_ATMOSPHERE)
-		update_flag |= 16
-	else
-		update_flag |= 32
-
-	if(update_flag == old_flag)
-		return 1
-	else
-		return 0
-
 /obj/machinery/portable_atmospherics/canister/on_update_icon()
-/*
-update_flag
-1 = holding
-2 = connected_port
-4 = tank_pressure < 10
-8 = tank_pressure < ONE_ATMOS
-16 = tank_pressure < 15*ONE_ATMOS
-32 = tank_pressure go boom.
-*/
-
-	if (src.destroyed)
+	if (destroyed)
 		overlays.Cut()
-		src.icon_state = text("[]-1", src.canister_color)
+		icon_state = "[canister_color]-1"
 		return
 
-	if(icon_state != "[canister_color]")
+	if (icon_state != "[canister_color]")
 		icon_state = "[canister_color]"
-
-	if(check_change()) //Returns 1 if no change needed to icons.
-		return
 
 	overlays.Cut()
 
-	if(update_flag & 1)
+	if (holding)
 		overlays += "can-open"
-	if(update_flag & 2)
+	if (connected_port)
 		overlays += "can-connector"
-	if(update_flag & 4)
+
+	var/tank_pressure = return_pressure()
+	if (tank_pressure <= CANISTER_PRESSURE_EMPTY)
 		overlays += "can-o0"
-	if(update_flag & 8)
+	else if (tank_pressure <= CANISTER_PRESSURE_LOW)
 		overlays += "can-o1"
-	else if(update_flag & 16)
+	else if (tank_pressure <= CANISTER_PRESSURE_MID)
 		overlays += "can-o2"
-	else if(update_flag & 32)
-		overlays += "can-o3"
-	return
-
-/obj/machinery/portable_atmospherics/canister/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
-	if(exposed_temperature > temperature_resistance)
-		health -= 5
-		healthcheck()
-
-/obj/machinery/portable_atmospherics/canister/proc/healthcheck()
-	if(destroyed)
-		return 1
-
-	if (src.health <= 10)
-		var/atom/location = src.loc
-		location.assume_air(air_contents)
-
-		src.destroyed = 1
-		playsound(src.loc, 'sound/effects/spray.ogg', 10, 1, -3)
-		src.set_density(0)
-		update_icon()
-
-		if (src.holding)
-			src.holding.dropInto(loc)
-			src.holding = null
-
-		return 1
 	else
-		return 1
+		overlays += "can-o3"
+
+/obj/machinery/portable_atmospherics/canister/get_material_melting_point()
+	return temperature_resistance
+
+/obj/machinery/portable_atmospherics/canister/on_death()
+	var/atom/location = loc
+	location.assume_air(air_contents)
+	destroyed = TRUE
+	playsound(src, 'sound/effects/spray.ogg', 10, TRUE, -3)
+	set_density(FALSE)
+	if (holding)
+		holding.dropInto(loc)
+		holding = null
+	..()
 
 /obj/machinery/portable_atmospherics/canister/Process()
 	if (destroyed)
@@ -253,22 +209,8 @@ update_flag
 		return GM.return_pressure()
 	return 0
 
-/obj/machinery/portable_atmospherics/canister/bullet_act(var/obj/item/projectile/Proj)
-	if(!(Proj.damage_type == BRUTE || Proj.damage_type == BURN))
-		return
-
-	if(Proj.damage)
-		src.health -= round(Proj.damage / 2)
-		healthcheck()
-	..()
-
-/obj/machinery/portable_atmospherics/canister/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if(!isWrench(W) && !istype(W, /obj/item/weapon/tank) && !istype(W, /obj/item/device/analyzer) && !istype(W, /obj/item/modular_computer/pda))
-		visible_message("<span class='warning'>\The [user] hits \the [src] with \a [W]!</span>")
-		src.health -= W.force
-		healthcheck()
-
-	if(istype(user, /mob/living/silicon/robot) && istype(W, /obj/item/weapon/tank/jetpack))
+/obj/machinery/portable_atmospherics/canister/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(user, /mob/living/silicon/robot) && istype(W, /obj/item/tank/jetpack))
 		var/datum/gas_mixture/thejetpack = W:air_contents
 		var/env_pressure = thejetpack.return_pressure()
 		var/pressure_delta = min(10*ONE_ATMOSPHERE - env_pressure, (air_contents.return_pressure() - env_pressure)/2)
@@ -279,19 +221,17 @@ update_flag
 			var/datum/gas_mixture/removed = air_contents.remove(transfer_moles)
 			thejetpack.merge(removed)
 			to_chat(user, "You pulse-pressurize your jetpack from the tank.")
-		return
+		return TRUE
 
-	..()
+	. = ..()
 
 	SSnano.update_uis(src) // Update all NanoUIs attached to src
 
-/obj/machinery/portable_atmospherics/canister/attack_ai(var/mob/user as mob)
-	return //No.
-
-/obj/machinery/portable_atmospherics/canister/attack_hand(var/mob/user as mob)
+/obj/machinery/portable_atmospherics/canister/interface_interact(mob/user)
 	ui_interact(user)
+	return TRUE
 
-/obj/machinery/portable_atmospherics/canister/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/portable_atmospherics/canister/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1)
 	// this is the data which will be sent to the ui
 	var/data[0]
 	data["name"] = name
@@ -314,18 +254,10 @@ update_flag
 		ui.open()
 		ui.set_auto_update(1)
 
-/obj/machinery/portable_atmospherics/canister/OnTopic(var/mob/user, href_list, state)
+/obj/machinery/portable_atmospherics/canister/OnTopic(mob/user, href_list, state)
 	if(href_list["toggle"])
-		if (valve_open)
-			if (holding)
-				release_log += "Valve was <b>closed</b> by [user] ([user.ckey]), stopping the transfer into the [holding]<br>"
-			else
-				release_log += "Valve was <b>closed</b> by [user] ([user.ckey]), stopping the transfer into the <font color='red'><b>air</b></font><br>"
-		else
-			if (holding)
-				release_log += "Valve was <b>opened</b> by [user] ([user.ckey]), starting the transfer into the [holding]<br>"
-			else
-				release_log += "Valve was <b>opened</b> by [user] ([user.ckey]), starting the transfer into the <font color='red'><b>air</b></font><br>"
+		if (!valve_open)
+			if(!holding)
 				log_open()
 		valve_open = !valve_open
 		. = TOPIC_REFRESH
@@ -335,8 +267,7 @@ update_flag
 			return TOPIC_HANDLED
 		if (valve_open)
 			valve_open = 0
-			release_log += "Valve was <b>closed</b> by [user] ([user.ckey]), stopping the transfer into the [holding]<br>"
-		if(istype(holding, /obj/item/weapon/tank))
+		if(istype(holding, /obj/item/tank))
 			holding.manipulated_by = user.real_name
 		holding.dropInto(loc)
 		holding = null
@@ -380,20 +311,20 @@ update_flag
 /obj/machinery/portable_atmospherics/canister/phoron/New()
 	..()
 
-	src.air_contents.adjust_gas("phoron", MolesForPressure())
+	src.air_contents.adjust_gas(GAS_PHORON, MolesForPressure())
 	src.update_icon()
 	return 1
 
 /obj/machinery/portable_atmospherics/canister/oxygen/New()
 	..()
 
-	src.air_contents.adjust_gas("oxygen", MolesForPressure())
+	src.air_contents.adjust_gas(GAS_OXYGEN, MolesForPressure())
 	src.update_icon()
 	return 1
 
 /obj/machinery/portable_atmospherics/canister/hydrogen/New()
 	..()
-	src.air_contents.adjust_gas("hydrogen", MolesForPressure())
+	src.air_contents.adjust_gas(GAS_HYDROGEN, MolesForPressure())
 	src.update_icon()
 	return 1
 
@@ -406,14 +337,14 @@ update_flag
 /obj/machinery/portable_atmospherics/canister/sleeping_agent/New()
 	..()
 
-	air_contents.adjust_gas("sleeping_agent", MolesForPressure())
+	air_contents.adjust_gas(GAS_N2O, MolesForPressure())
 	src.update_icon()
 	return 1
 
 //Dirty way to fill room with gas. However it is a bit easier to do than creating some floor/engine/n2o -rastaf0
 /obj/machinery/portable_atmospherics/canister/sleeping_agent/roomfiller/New()
 	..()
-	air_contents.gas["sleeping_agent"] = 9*4000
+	air_contents.gas[GAS_N2O] = 9*4000
 	spawn(10)
 		var/turf/simulated/location = src.loc
 		if (istype(src.loc))
@@ -425,7 +356,7 @@ update_flag
 
 /obj/machinery/portable_atmospherics/canister/nitrogen/New()
 	..()
-	src.air_contents.adjust_gas("nitrogen", MolesForPressure())
+	src.air_contents.adjust_gas(GAS_NITROGEN, MolesForPressure())
 	src.update_icon()
 	return 1
 
@@ -437,7 +368,7 @@ update_flag
 
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide/New()
 	..()
-	src.air_contents.adjust_gas("carbon_dioxide", MolesForPressure())
+	src.air_contents.adjust_gas(GAS_CO2, MolesForPressure())
 	src.update_icon()
 	return 1
 
@@ -445,35 +376,39 @@ update_flag
 /obj/machinery/portable_atmospherics/canister/air/New()
 	..()
 	var/list/air_mix = StandardAirMix()
-	src.air_contents.adjust_multi("oxygen", air_mix["oxygen"], "nitrogen", air_mix["nitrogen"])
+	src.air_contents.adjust_multi(GAS_OXYGEN, air_mix[GAS_OXYGEN], GAS_NITROGEN, air_mix[GAS_NITROGEN])
 
 	src.update_icon()
 	return 1
 
-
+/obj/machinery/portable_atmospherics/canister/boron/New()
+	..()
+	src.air_contents.adjust_gas(GAS_BORON, MolesForPressure())
+	src.update_icon()
+	return 1
 
 // Special types used for engine setup admin verb, they contain double amount of that of normal canister.
 /obj/machinery/portable_atmospherics/canister/nitrogen/engine_setup/New()
 	..()
-	src.air_contents.adjust_gas("nitrogen", MolesForPressure())
+	src.air_contents.adjust_gas(GAS_NITROGEN, MolesForPressure())
 	src.update_icon()
 	return 1
 
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide/engine_setup/New()
 	..()
-	src.air_contents.adjust_gas("carbon_dioxide", MolesForPressure())
+	src.air_contents.adjust_gas(GAS_CO2, MolesForPressure())
 	src.update_icon()
 	return 1
 
 /obj/machinery/portable_atmospherics/canister/phoron/engine_setup/New()
 	..()
-	src.air_contents.adjust_gas("phoron", MolesForPressure())
+	src.air_contents.adjust_gas(GAS_PHORON, MolesForPressure())
 	src.update_icon()
 	return 1
 
 /obj/machinery/portable_atmospherics/canister/hydrogen/engine_setup/New()
 	..()
-	src.air_contents.adjust_gas("hydrogen", MolesForPressure())
+	src.air_contents.adjust_gas(GAS_HYDROGEN, MolesForPressure())
 	src.update_icon()
 
 // Spawn debug tanks.
@@ -485,7 +420,7 @@ update_flag
 
 /obj/machinery/portable_atmospherics/canister/helium/New()
 	..()
-	air_contents.adjust_gas("helium", MolesForPressure())
+	air_contents.adjust_gas(GAS_HELIUM, MolesForPressure())
 	update_icon()
 
 /obj/machinery/portable_atmospherics/canister/methyl_bromide
@@ -496,17 +431,17 @@ update_flag
 
 /obj/machinery/portable_atmospherics/canister/methyl_bromide/New()
 	..()
-	air_contents.adjust_gas("methyl_bromide", MolesForPressure())
+	air_contents.adjust_gas(GAS_METHYL_BROMIDE, MolesForPressure())
 	update_icon()
 
 /obj/machinery/portable_atmospherics/canister/chlorine
 	name = "\improper Canister \[Cl\]"
-	icon_state = "black"
-	canister_color = "black"
+	icon_state = "lightyellow"
+	canister_color = "lightyellow"
 	can_label = 0
 
 /obj/machinery/portable_atmospherics/canister/chlorine/New()
 	..()
-	air_contents.adjust_gas("chlorine", MolesForPressure())
+	air_contents.adjust_gas(GAS_CHLORINE, MolesForPressure())
 	update_icon()
 // End debug tanks.

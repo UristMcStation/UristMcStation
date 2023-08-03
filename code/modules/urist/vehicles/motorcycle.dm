@@ -3,7 +3,7 @@
 	desc = "A fast and highly maneuverable vehicle."
 	icon = 'icons/urist/vehicles/uristvehicles.dmi'
 	icon_state = "motorcycle_4dir"
-	emagged = 0
+	emagged = FALSE
 	mob_offset_y = 6
 	load_offset_x = 0
 	health = 150
@@ -35,7 +35,7 @@
 	desc = "A fast and highly maneuverable vehicle."
 	icon = 'icons/urist/vehicles/uristvehicles.dmi'
 	icon_state = "motorcycle"
-	emagged = 1
+	emagged = TRUE
 	mob_offset_y = 6
 	load_offset_x = 0
 	health = 250
@@ -85,9 +85,9 @@
 					to_chat(user, "<span class='notice'>You need at least three rods to complete this task.</span>")
 				return
 
-	else if(istype(W,/obj/item/weapon/weldingtool))
+	else if(istype(W,/obj/item/weldingtool))
 		if(buildstate == 1)
-			var/obj/item/weapon/weldingtool/T = W
+			var/obj/item/weldingtool/T = W
 			if(T.remove_fuel(0,user))
 				if(!src || !T.isOn()) return
 				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
@@ -112,7 +112,7 @@
 			qdel(W)
 			return
 
-	else if(istype(W,/obj/item/weapon/wrench))
+	else if(istype(W,/obj/item/wrench))
 		if(buildstate == 4)
 			to_chat(user, "<span class='notice'>You secure the tires into the motorcycle frame.</span>")
 			buildstate++
@@ -135,7 +135,7 @@
 			qdel(W)
 			return
 
-	else if(istype(W,/obj/item/weapon/screwdriver))
+	else if(istype(W,/obj/item/screwdriver))
 		if(buildstate == 6)
 			to_chat(user, "<span class='notice'>You secure the transmission into the frame.</span>")
 			buildstate++
@@ -154,7 +154,7 @@
 	else
 		..()
 
-/obj/structure/vehicle_frame/motorcycle/update_icon()
+/obj/structure/vehicle_frame/motorcycle/on_update_icon()
 	icon_state = "bike_frame[buildstate]"
 
 /obj/vehicle/bike/motorcycle
@@ -212,7 +212,7 @@
 	..()
 	STOP_PROCESSING(SSobj, src)
 
-/*/obj/vehicle/bike/motorcycle/Move(var/turf/destination)
+/*/obj/vehicle/bike/motorcycle/Move(turf/destination)
 	if(kickstand) return
 	//these things like space, not turf. Dragging shouldn't weigh you down.
 	if(istype(destination,/turf/space) || pulledby)
@@ -226,7 +226,7 @@
 	moved = ..()
 	return moved*/
 
-/obj/vehicle/bike/motorcycle/Bump(var/atom/thing)
+/obj/vehicle/bike/motorcycle/Bump(atom/thing)
 
 	if(!istype(thing, /atom/movable))
 		return
@@ -262,7 +262,7 @@
 				M.throw_at(get_edge_target_turf(src,src.dir),rand(1,2), move_delay)
 				spawn(3)
 					if(!M.lying)
-						M << "<span class='notice'>You land on your feet!</span>"
+						to_chat(M, "<span class='notice'>You land on your feet!</span>")
 
 			src.ex_act(2)
 
@@ -278,7 +278,7 @@
 			M.Weaken(rand(5,10))
 			M.throw_at(get_edge_target_turf(src,get_dir(src,M)),rand(1,2), move_delay)
 
-/obj/vehicle/bike/motorcycle/RunOver(var/mob/living/carbon/human/H)
+/obj/vehicle/bike/motorcycle/RunOver(mob/living/carbon/human/H)
 	if(istype(load, /mob/living))
 		to_chat(load, "<span class='danger'>You run \the [H] down!</span>")
 		to_chat(H, "<span class='danger'>\The [load] runs you down!</span>")
@@ -287,7 +287,7 @@
 	if(istype(H))
 		var/list/parts = list(HEAD, UPPER_TORSO, LOWER_TORSO, ARMS, LEGS)
 		for(var/i = 0, i < rand(1,3), i++)
-			H.apply_damage((rand(1,5)), BRUTE, pick(parts))
+			H.apply_damage((rand(1,5)), DAMAGE_BRUTE, pick(parts))
 
 
 /obj/vehicle/bike/motorcycle/Process()
@@ -303,9 +303,9 @@
 	collision_cooldown = 0
 
 /obj/vehicle/bike/motorcycle/electric
-	engine_type = /obj/item/weapon/engine/electric
+	engine_type = /obj/item/engine/electric
 	prefilled = 1
 
 /obj/vehicle/bike/motorcycle/thermal
-	engine_type = /obj/item/weapon/engine/thermal
+	engine_type = /obj/item/engine/thermal
 	prefilled = 1

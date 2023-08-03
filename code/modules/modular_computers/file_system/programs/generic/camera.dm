@@ -1,5 +1,6 @@
 // Returns which access is relevant to passed network. Used by the program.
-/proc/get_camera_access(var/network)
+// A return value of 0 indicates no access reqirement
+/proc/get_camera_access(network)
 	if(!network)
 		return 0
 	. = GLOB.using_map.get_network_access(network)
@@ -31,8 +32,9 @@
 	program_menu_icon = "search"
 	extended_desc = "This program allows remote access to the camera system. Some camera networks may have additional access requirements."
 	size = 12
-	available_on_ntnet = 1
-	requires_ntnet = 1
+	available_on_ntnet = TRUE
+	requires_ntnet = FALSE
+	category = PROG_MONITOR
 
 /datum/nano_module/camera_monitor
 	name = "Camera Monitoring program"
@@ -73,10 +75,10 @@
 	user.reset_view(current_camera)
 
 // Intended to be overriden by subtypes to manually add non-station networks to the list.
-/datum/nano_module/camera_monitor/proc/modify_networks_list(var/list/networks)
+/datum/nano_module/camera_monitor/proc/modify_networks_list(list/networks)
 	return networks
 
-/datum/nano_module/camera_monitor/proc/can_access_network(var/mob/user, var/network_access)
+/datum/nano_module/camera_monitor/proc/can_access_network(mob/user, network_access)
 	// No access passed, or 0 which is considered no access requirement. Allow it.
 	if(!network_access)
 		return 1
@@ -89,11 +91,15 @@
 
 	if(href_list["switch_camera"])
 		var/obj/machinery/camera/C = locate(href_list["switch_camera"]) in cameranet.cameras
+		var/datum/extension/interactive/ntos/os = get_extension(nano_host(), /datum/extension/interactive/ntos)
 		if(!C)
 			return
 		if(!(current_network in C.network))
 			return
 		if(!AreConnectedZLevels(get_z(C), get_z(host)) && !(get_z(C) in GLOB.using_map.admin_levels))
+			to_chat(usr, "Unable to establish a connection.")
+			return
+		if (!os?.get_ntnet_status() && !C.is_helmet_cam)
 			to_chat(usr, "Unable to establish a connection.")
 			return
 
@@ -113,7 +119,7 @@
 		usr.reset_view(current_camera)
 		return 1
 
-/datum/nano_module/camera_monitor/proc/switch_to_camera(var/mob/user, var/obj/machinery/camera/C)
+/datum/nano_module/camera_monitor/proc/switch_to_camera(mob/user, obj/machinery/camera/C)
 	//don't need to check if the camera works for AI because the AI jumps to the camera location and doesn't actually look through cameras.
 	if(isAI(user))
 		var/mob/living/silicon/ai/A = user
@@ -128,7 +134,7 @@
 	set_current(C)
 	return 1
 
-/datum/nano_module/camera_monitor/proc/set_current(var/obj/machinery/camera/C)
+/datum/nano_module/camera_monitor/proc/set_current(obj/machinery/camera/C)
 	if(current_camera == C)
 		return
 
@@ -148,7 +154,7 @@
 			L.tracking_cancelled()
 	current_camera = null
 
-/datum/nano_module/camera_monitor/check_eye(var/mob/user as mob)
+/datum/nano_module/camera_monitor/check_eye(mob/user as mob)
 	if(!current_camera)
 		return 0
 	var/viewflag = current_camera.check_eye(user)
@@ -164,14 +170,14 @@
 	extended_desc = "This program allows remote access to the camera system. Some camera networks may have additional access requirements. This version has an integrated database with additional encrypted keys."
 	size = 14
 	nanomodule_path = /datum/nano_module/camera_monitor/ert
-	available_on_ntnet = 0
+	available_on_ntnet = FALSE
 
 /datum/nano_module/camera_monitor/ert
 	name = "Advanced Camera Monitoring Program"
 	available_to_ai = FALSE
 
 // The ERT variant has access to ERT and crescent cams, but still checks for accesses. ERT members should be able to use it.
-/datum/nano_module/camera_monitor/ert/modify_networks_list(var/list/networks)
+/datum/nano_module/camera_monitor/ert/modify_networks_list(list/networks)
 	..()
 	networks.Add(list(list("tag" = NETWORK_ERT, "has_access" = 1)))
 	networks.Add(list(list("tag" = NETWORK_CRESCENT, "has_access" = 1)))

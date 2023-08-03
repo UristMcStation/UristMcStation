@@ -15,11 +15,11 @@
 
 //Variant crystals, in case you want to spawn/map those directly.
 /obj/machinery/crystal_static
-	name = "\improper Crystal"
+	name = "Crystal"
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "crystal"
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE
 	var/crystal_color = "#5fff47"
 	var/collected
 
@@ -40,7 +40,7 @@
 	icon_state = "crystal4"
 	crystal_color = "#66d9ff"
 
-/obj/machinery/crystal_static/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/crystal_static/use_tool(obj/item/O as obj, var/mob/user as mob)
 	if(is_sharp(O))
 		if(collected <= 0)
 			if(do_after(user, 3 SECONDS))
@@ -63,7 +63,7 @@
 	icon_state = "shardlarge"
 	origin_tech = list(TECH_MATERIAL = 6, TECH_POWER = 3, TECH_ELECTROMAGNETIC = 7)
 
-/obj/item/research_crystal/New(var/turf/T, var/crystal_color)
+/obj/item/research_crystal/New(turf/T, var/crystal_color)
 	..(T)
 	color = crystal_color
 	icon_state = pick("shardlarge","shardmedium","shardsmall")

@@ -6,5 +6,5 @@
 	spawn_parts =	list(/obj/item/part/computer/storage/hdd/big,/obj/item/part/computer/storage/removable,/obj/item/part/computer/networking/cameras)
 	New(var/L,var/built=0)
 		if(!built && !battery)
-			battery = new /obj/item/weapon/cell/high(src)
+			battery = new /obj/item/cell/high(src)
 		..(L,built)

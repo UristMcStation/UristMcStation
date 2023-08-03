@@ -12,7 +12,7 @@
 	var/vocal = 1
 
 	//Healing vars
-	var/obj/item/weapon/reagent_containers/glass/reagent_glass = null //Can be set to draw from this for reagents.
+	var/obj/item/reagent_containers/glass/reagent_glass = null //Can be set to draw from this for reagents.
 	var/injection_amount = 15 //How much reagent do we inject at a time?
 	var/heal_threshold = 10 //Start healing when they have this much damage in a category
 	var/use_beaker = 0 //Use reagents in beaker instead of default treatment agents.
@@ -20,7 +20,6 @@
 	var/treatment_oxy = /datum/reagent/tricordrazine
 	var/treatment_fire = /datum/reagent/tricordrazine
 	var/treatment_tox = /datum/reagent/tricordrazine
-	var/treatment_virus = /datum/reagent/spaceacillin
 	var/treatment_emag = /datum/reagent/toxin
 	var/declare_treatment = 0 //When attempting to treat a patient, should it notify everyone wearing medhuds?
 
@@ -43,7 +42,7 @@
 				last_newpatient_speak = world.time
 			break
 
-/mob/living/bot/medbot/UnarmedAttack(var/mob/living/carbon/human/H, var/proximity)
+/mob/living/bot/medbot/UnarmedAttack(mob/living/carbon/human/H, proximity)
 	if(!..())
 		return
 
@@ -70,18 +69,18 @@
 		return
 
 	icon_state = "medibots"
-	visible_message("<span class='warning'>[src] is trying to inject [H]!</span>")
+	visible_message(SPAN_WARNING("[src] is trying to inject [H]!"))
 	if(declare_treatment)
 		var/area/location = get_area(src)
 		broadcast_medical_hud_message("[src] is treating <b>[H]</b> in <b>[location]</b>", src)
 	busy = 1
 	update_icons()
-	if(do_mob(src, H, 30))
+	if(do_after(src, 3 SECONDS, H, DO_DEFAULT | DO_USER_UNIQUE_ACT | DO_PUBLIC_PROGRESS))
 		if(t == 1)
 			reagent_glass.reagents.trans_to_mob(H, injection_amount, CHEM_BLOOD)
 		else
 			H.reagents.add_reagent(t, injection_amount)
-		visible_message("<span class='warning'>[src] injects [H] with the syringe!</span>")
+		visible_message(SPAN_WARNING("[src] injects [H] with the syringe!"))
 	busy = 0
 	update_icons()
 
@@ -94,22 +93,46 @@
 	else
 		icon_state = "medibot[on]"
 
-/mob/living/bot/medbot/attackby(var/obj/item/O, var/mob/user)
-	if(istype(O, /obj/item/weapon/reagent_containers/glass))
-		if(locked)
-			to_chat(user, "<span class='notice'>You cannot insert a beaker because the panel is locked.</span>")
-			return
-		if(!isnull(reagent_glass))
-			to_chat(user, "<span class='notice'>There is already a beaker loaded.</span>")
-			return
 
-		if(!user.unEquip(O, src))
-			return
-		reagent_glass = O
-		to_chat(user, "<span class='notice'>You insert [O].</span>")
-		return
-	else
-		..()
+/mob/living/bot/medbot/get_construction_info()
+	return list(
+		"Add a robotic <b>Left Arm</b> or <b>Right Arm</b> to a <b>First-Aid Kit</b>.",
+		"Add a <b>Health Analyzer</b>.",
+		"Add a <b>Proximity Sensor</b> to complete the medbot."
+	)
+
+
+/mob/living/bot/medbot/get_interactions_info()
+	. = ..()
+	.["Beaker"] = "<p>Installs the beaker into \the [initial(name)]. If installed, it will use the contents of the beaker for injections instead of tricordrazine. Only one beaker can be installed at a time. The access panel must be unlocked.</p>"
+
+
+/mob/living/bot/medbot/get_antag_interactions_info()
+	. = ..()
+	.[CODEX_INTERACTION_EMAG] += "<p>Causes \the [initial(name)] to synthesize and inject toxins instead of tricordrazine. It will also try to inject any mob in sight except the one who emagged it, regardless of injury state.</p>"
+
+
+/mob/living/bot/medbot/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Beaker - Inserts a beaker
+	if (istype(tool, /obj/item/reagent_containers/glass))
+		if (locked)
+			USE_FEEDBACK_FAILURE("\The [src]'s access panel must be open before you can insert a beaker.")
+			return TRUE
+		if (reagent_glass)
+			USE_FEEDBACK_FAILURE("\The [src] already has \a [reagent_glass] installed.")
+			return TRUE
+		if (!user.unEquip(tool, src))
+			FEEDBACK_UNEQUIP_FAILURE(user, tool)
+			return TRUE
+		reagent_glass = tool
+		user.visible_message(
+			SPAN_NOTICE("\The [user] installs \a [tool] into \the [src]."),
+			SPAN_NOTICE("You install \the [tool] into \the [src].")
+		)
+		return TRUE
+
+	return ..()
+
 
 /mob/living/bot/medbot/GetInteractTitle()
 	. = "<head><title>Medibot v1.0 controls</title></head>"
@@ -150,18 +173,18 @@
 		if(2)
 			. += "ERROROROROROR-----"
 
-/mob/living/bot/medbot/ProcessCommand(var/mob/user, var/command, var/href_list)
+/mob/living/bot/medbot/ProcessCommand(mob/user, command, href_list)
 	..()
 	if(CanAccessPanel(user))
 		switch(command)
 			if("adj_threshold")
 				if(!locked || issilicon(user))
 					var/adjust_num = text2num(href_list["amount"])
-					heal_threshold = Clamp(heal_threshold + adjust_num, 5, 75)
+					heal_threshold = clamp(heal_threshold + adjust_num, 5, 75)
 			if("adj_inject")
 				if(!locked || issilicon(user))
 					var/adjust_num = text2num(href_list["amount"])
-					injection_amount = Clamp(injection_amount + adjust_num, 5, 15)
+					injection_amount = clamp(injection_amount + adjust_num, 5, 15)
 			if("use_beaker")
 				if(!locked || issilicon(user))
 					use_beaker = !use_beaker
@@ -171,7 +194,7 @@
 						reagent_glass.dropInto(src.loc)
 						reagent_glass = null
 					else
-						to_chat(user, "<span class='notice'>You cannot eject the beaker because the panel is locked.</span>")
+						to_chat(user, SPAN_NOTICE("You cannot eject the beaker because the panel is locked."))
 			if("togglevoice")
 				if(!locked || issilicon(user))
 					vocal = !vocal
@@ -185,29 +208,29 @@
 				if(emagged < 2)
 					emagged = !emagged
 
-/mob/living/bot/medbot/emag_act(var/remaining_uses, var/mob/user)
+/mob/living/bot/medbot/emag_act(remaining_uses, mob/user)
 	. = ..()
 	if(!emagged)
 		if(user)
-			to_chat(user, "<span class='warning'>You short out [src]'s reagent synthesis circuits.</span>")
+			to_chat(user, SPAN_WARNING("You short out [src]'s reagent synthesis circuits."))
 			ignore_list |= user
-		visible_message("<span class='warning'>[src] buzzes oddly!</span>")
+		visible_message(SPAN_WARNING("[src] buzzes oddly!"))
 		flick("medibot_spark", src)
 		target = null
 		busy = 0
-		emagged = 1
+		emagged = TRUE
 		on = 1
 		update_icons()
 		. = 1
 
 /mob/living/bot/medbot/explode()
 	on = 0
-	visible_message("<span class='danger'>[src] blows apart!</span>")
+	visible_message(SPAN_DANGER("[src] blows apart!"))
 	var/turf/Tsec = get_turf(src)
 
-	new /obj/item/weapon/storage/firstaid(Tsec)
+	new /obj/item/storage/firstaid(Tsec)
 	new /obj/item/device/assembly/prox_sensor(Tsec)
-	new /obj/item/device/healthanalyzer(Tsec)
+	new /obj/item/device/scanner/health(Tsec)
 	if (prob(50))
 		new /obj/item/robot_parts/l_arm(Tsec)
 
@@ -221,7 +244,7 @@
 	qdel(src)
 	return
 
-/mob/living/bot/medbot/confirmTarget(var/mob/living/carbon/human/H)
+/mob/living/bot/medbot/confirmTarget(mob/living/carbon/human/H)
 	if(!..())
 		return 0
 
@@ -249,67 +272,3 @@
 
 	if((H.getToxLoss() >= heal_threshold) && (!H.reagents.has_reagent(treatment_tox)))
 		return treatment_tox
-
-/* Construction */
-
-/obj/item/weapon/storage/firstaid/attackby(var/obj/item/robot_parts/S, mob/user as mob)
-	if ((!istype(S, /obj/item/robot_parts/l_arm)) && (!istype(S, /obj/item/robot_parts/r_arm)))
-		..()
-		return
-
-	if(contents.len >= 1)
-		to_chat(user, "<span class='notice'>You need to empty [src] out first.</span>")
-		return
-
-	var/obj/item/weapon/firstaid_arm_assembly/A = new /obj/item/weapon/firstaid_arm_assembly
-
-	A.skin = icon_state
-	qdel(S)
-	user.put_in_hands(A)
-	to_chat(user, "<span class='notice'>You add the robot arm to the first aid kit.</span>")
-	qdel(src)
-
-/obj/item/weapon/firstaid_arm_assembly
-	name = "first aid/robot arm assembly"
-	desc = "A first aid kit with a robot arm permanently grafted to it."
-	icon = 'icons/mob/bot/medibot.dmi'
-	icon_state = "firstaid_arm"
-	var/build_step = 0
-	var/created_name = "Medibot" //To preserve the name if it's a unique medbot I guess
-	var/skin = null //Same as medbot, set to tox or ointment for the respective kits.
-	w_class = ITEM_SIZE_NORMAL
-
-/obj/item/weapon/firstaid_arm_assembly/Initialize()
-	. = ..()
-	if(skin != "firstaid")//Let's not add any unnecessary overlays.
-		overlays += image('icons/mob/bot/medibot_skins.dmi', "kit_skin_[src.skin]")
-
-/obj/item/weapon/firstaid_arm_assembly/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	..()
-	if(istype(W, /obj/item/weapon/pen))
-		var/t = sanitizeSafe(input(user, "Enter new robot name", name, created_name), MAX_NAME_LEN)
-		if(!t)
-			return
-		if(!in_range(src, usr) && loc != usr)
-			return
-		created_name = t
-	else
-		switch(build_step)
-			if(0)
-				if(istype(W, /obj/item/device/healthanalyzer))
-					qdel(W)
-					build_step++
-					to_chat(user, "<span class='notice'>You add the health sensor to [src].</span>")
-					SetName("First aid/robot arm/health analyzer assembly")
-					overlays += image('icons/mob/bot/medibot.dmi', "na_scanner")
-
-			if(1)
-				if(isprox(W))
-					qdel(W)
-					to_chat(user, "<span class='notice'>You complete the Medibot! Beep boop.</span>")
-					var/turf/T = get_turf(src)
-					var/mob/living/bot/medbot/S = new /mob/living/bot/medbot(T)
-					S.skin = skin
-					S.SetName(created_name)
-					S.update_icons() // apply the skin
-					qdel(src)

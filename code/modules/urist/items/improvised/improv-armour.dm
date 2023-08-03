@@ -32,10 +32,10 @@
 	item_state = "hazard"
 	armor = list(melee = 27, bullet = 12, laser = 5, energy = 0, bomb = 5, bio = 0, rad = 0)//roughly half as effective as sec armour
 
-/obj/item/clothing/suit/storage/hazardvest/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/clothing/suit/storage/hazardvest/attackby(obj/item/I, mob/user as mob)
 	..()
-	if(istype(I, /obj/item/weapon/wirecutters))
-		for(var/obj/item/weapon/storage/internal/O in contents)
+	if(istype(I, /obj/item/wirecutters))
+		for(var/obj/item/storage/internal/O in contents)
 			var/turf/T = get_turf(src)
 			for(var/obj/item/Z in O.contents)
 				O.remove_from_storage(Z, T)
@@ -45,11 +45,11 @@
 
 		user.remove_from_mob(src)
 		user.put_in_hands(H)
-		user << "<span class='notice'>You cut some holes in the hazard vest.</span>"
+		to_chat(user, "<span class='notice'>You cut some holes in the hazard vest.</span>")
 
 		qdel(src)
 
-/obj/item/improv/hazardvest/step1/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/improv/hazardvest/step1/attackby(obj/item/I, mob/user as mob)
 	..()
 	if(istype(I, /obj/item/stack/cable_coil))
 		var/obj/item/stack/cable_coil/R = I
@@ -59,11 +59,11 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(H)
-		user << "<span class='notice'>You wrap the cables through the holes in the hazard vest.</span>"
+		to_chat(user, "<span class='notice'>You wrap the cables through the holes in the hazard vest.</span>")
 
 		qdel(src)
 
-/obj/item/improv/hazardvest/step2/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/improv/hazardvest/step2/attackby(obj/item/I, mob/user as mob)
 	..()
 	if(istype(I, /obj/item/stack/material/steel))
 		var/obj/item/stack/material/steel/R = I
@@ -73,11 +73,11 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(H)
-		user << "<span class='notice'>You strap a sheet of metal to the hazard vest. Now to tighten it in.</span>"
+		to_chat(user, "<span class='notice'>You strap a sheet of metal to the hazard vest. Now to tighten it in.</span>")
 
 		qdel(src)
 
-/obj/item/improv/hazardvest/step3/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/improv/hazardvest/step3/attackby(obj/item/I, mob/user as mob)
 	..()
 	if(istype(I, /obj/item/stack/cable_coil))
 		var/obj/item/stack/cable_coil/R = I
@@ -87,7 +87,6 @@
 		user.remove_from_mob(src)
 
 		user.put_in_hands(H)
-		user << "<span class='notice'>You tie the sheet of metal tightly to the hazard vest with the cable, forming a rudimentary armored vest.</span>"
+		to_chat(user, "<span class='notice'>You tie the sheet of metal tightly to the hazard vest with the cable, forming a rudimentary armored vest.</span>")
 
 		qdel(src)
-

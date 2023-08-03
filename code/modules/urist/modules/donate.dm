@@ -8,6 +8,6 @@
 
 	if(alert("This will open the donate link in your browser. Are you sure?",,"Yes","No")=="No")
 		return
-	src << link(DONATE)
+	send_link(src, DONATE)
 	return
 #undef DONATE

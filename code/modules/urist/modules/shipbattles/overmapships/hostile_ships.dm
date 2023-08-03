@@ -1,5 +1,4 @@
 /mob/living/simple_animal/hostile/overmapship/pirate
-	wander = 1 //temporary
 	color = "#660000"
 	hiddenfaction = /datum/factions/pirate
 	aggressive = 1
@@ -60,7 +59,6 @@
 	.=..()
 
 /mob/living/simple_animal/hostile/overmapship/alien
-	wander = 1
 	color = "#660000"
 	hiddenfaction = /datum/factions/alien
 	aggressive = 1
@@ -122,7 +120,6 @@
 /mob/living/simple_animal/hostile/overmapship/hivebot
 	ship_category = "unknown freighter"
 	aggressive = 1
-	wander = 1
 	color = "#f65026" //a reddish orange
 	can_board = FALSE //i've got some things in mind for this
 	shields = 1100 //the intention for the map is a freighter or something taken over by drones/hivebots. Are hivebots the end result of a successful drone uprising? idk, but it'll be a neat away.

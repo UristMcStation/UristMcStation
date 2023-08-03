@@ -1,6 +1,6 @@
 /datum/species/teshari
 	name = SPECIES_RESOMI
-	name_plural = "Tesharii"
+	name_plural = "Teshari"
 	description = "A race of feathered raptors who developed alongside the Skrell, inhabiting \
 	the polar tundral regions outside of Skrell territory. Extremely fragile, they developed \
 	hunting skills that emphasized taking out their prey without themselves getting hit. They \
@@ -14,7 +14,6 @@
 	base_color = "#001144"
 	tail = "resomitail"
 	tail_hair = "feathers"
-	reagent_tag = IS_RESOMI
 
 
 	icobase = 'icons/mob/human_races/species/teshari/body.dmi'
@@ -26,21 +25,21 @@
 
 	darksight_range = 6
 	darksight_tint = DARKTINT_GOOD
-	slowdown = -0.08
+	slowdown = -0.1
 	total_health = 150
 	brute_mod = 1.25
 	burn_mod =  1.25
 	metabolism_mod = 2.0
 	mob_size = MOB_SMALL
 	strength = STR_HIGH
-	holder_type = /obj/item/weapon/holder/human
+	holder_type = /obj/item/holder/human
 	light_sensitive = 6
 	gluttonous = GLUT_TINY
 	blood_volume = 400
 	hunger_factor = 0.2
 
 	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED
-	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_COLOR | HAS_EYE_COLOR
+	appearance_flags = SPECIES_APPEARANCE_HAS_HAIR_COLOR | SPECIES_APPEARANCE_HAS_SKIN_COLOR | SPECIES_APPEARANCE_HAS_EYE_COLOR
 	bump_flag = MONKEY
 	swap_flags = MONKEY|SLIME|SIMPLE_ANIMAL
 	push_flags = MONKEY|SLIME|SIMPLE_ANIMAL|ALIEN
@@ -80,7 +79,7 @@
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest),
 		BP_GROIN =  list("path" = /obj/item/organ/external/groin),
-		BP_HEAD =   list("path" = /obj/item/organ/external/head/teshari),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head),
 		BP_L_ARM =  list("path" = /obj/item/organ/external/arm),
 		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right),
 		BP_L_LEG =  list("path" = /obj/item/organ/external/leg),
@@ -98,7 +97,7 @@
 		BP_LIVER =    /obj/item/organ/internal/liver/teshari,
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/teshari,
 		BP_BRAIN =    /obj/item/organ/internal/brain,
-		BP_EYES =     /obj/item/organ/internal/eyes
+		BP_EYES =     /obj/item/organ/internal/eyes/teshari
 		)
 
 	unarmed_types = list(
@@ -113,18 +112,3 @@
 		/datum/mob_descriptor/height = -4,
 		/datum/mob_descriptor/build = -4
 		)
-
-/obj/item/organ/external/foot/teshari
-	body_hair = "feathers"
-/obj/item/organ/external/foot/right/teshari
-	body_hair = "feathers"
-/obj/item/organ/external/hand/teshari
-	body_hair = "feathers"
-/obj/item/organ/external/hand/right/teshari
-	body_hair = "feathers"
-/obj/item/organ/external/head/teshari
-	eye_icon_location = 'icons/mob/human_races/species/teshari/eyes.dmi'
-/obj/item/organ/internal/kidneys/teshari
-	parent_organ = BP_CHEST
-/obj/item/organ/internal/liver/teshari
-	parent_organ = BP_CHEST

@@ -11,7 +11,7 @@
 	company_name  = "NanoTrasen"
 	company_short = "NT"
 
-	lobby_icon = 'maps/glloydstation/glloydstation_lobby.dmi'
+	current_lobby_screen = 'maps/glloydstation/glloydstation_lobby.dmi'
 
 	station_levels = list(1)
 	admin_levels = list(2)
@@ -42,17 +42,17 @@
 	date_offset = 535 //i need to fix the function for this
 
 	objective_items = list(
-		"the captain's antique laser gun" = /obj/item/weapon/gun/energy/captain,
+		"the captain's antique laser gun" = /obj/item/gun/energy/captain,
 		"a bluespace rift generator" = /obj/item/integrated_circuit/manipulation/bluespace_rift,
 		"a captain's jumpsuit" = /obj/item/clothing/under/rank/captain,
-		"a functional AI" = /obj/item/weapon/aicard,
+		"a functional AI" = /obj/item/aicard,
 		"the NSS Urist blueprints" = /obj/item/blueprints,
-		"a piece of corgi meat" = /obj/item/weapon/reagent_containers/food/snacks/meat/corgi,
+		"a piece of corgi meat" = /obj/item/reagent_containers/food/snacks/meat/corgi,
 		"a research director's jumpsuit" = /obj/item/clothing/under/rank/research_director,
 		"a chief engineer's jumpsuit" = /obj/item/clothing/under/rank/chief_engineer,
 		"a head of security's jumpsuit" = /obj/item/clothing/under/rank/head_of_security,
 		"a head of personnel's jumpsuit" = /obj/item/clothing/under/rank/head_of_personnel,
-		"the captain's pinpointer" = /obj/item/weapon/pinpointer
+		"the captain's pinpointer" = /obj/item/pinpointer
 		)
 
 /datum/map/glloydstation/perform_map_generation()
@@ -60,14 +60,14 @@
 	new /datum/random_map/noise/ore(null, 1, 1, 5, 64, 64)         // Create the mining ore distribution map.
 	return 1
 
-/obj/effect/overmap/sector/urist
+/obj/effect/overmap/visitable/urist
 	name = "NSS Urist"
 	desc = "Starbase records report: NT owned, unknown crew status."
 	base = TRUE
 	start_x = 11
 	start_y = 12
 
-/obj/effect/overmap/sector/uristplanet
+/obj/effect/overmap/visitable/uristplanet
 	name = "Nyx Phi III"
 	desc = "Geneseeded world detected, possible intelligent life detected."
 	base = TRUE

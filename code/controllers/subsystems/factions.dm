@@ -20,9 +20,9 @@ SUBSYSTEM_DEF(factions)
 
 	. = ..()
 
-/datum/controller/subsystem/factions/proc/update_reputation(var/datum/factions/faction, var/rep = 0) //call this on stuff that would incur a relationship boost or hit
+/datum/controller/subsystem/factions/proc/update_reputation(datum/factions/faction, var/rep = 0) //call this on stuff that would incur a relationship boost or hit
 	faction.reputation += rep
-	faction.reputation = Clamp(faction.reputation, -100, 100)
+	faction.reputation = clamp(faction.reputation, -100, 100)
 
 	if(faction.reputation < 0 && !faction.hostile) //maybe cap things at 100? idk
 		faction.hostile = TRUE
@@ -34,7 +34,7 @@ SUBSYSTEM_DEF(factions)
 		hostile_factions.Remove(faction)
 		update_mob_faction(faction, FALSE)
 
-/datum/controller/subsystem/factions/proc/update_mob_faction(var/datum/factions/faction, var/is_hostile)
+/datum/controller/subsystem/factions/proc/update_mob_faction(datum/factions/faction, var/is_hostile)
 	for(var/mob/living/simple_animal/hostile/M in GLOB.simple_mob_list)
 		if(M.hiddenfaction == faction)
 			if(is_hostile)

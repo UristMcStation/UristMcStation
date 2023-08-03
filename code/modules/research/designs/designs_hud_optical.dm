@@ -1,6 +1,5 @@
 /datum/design/item/hud
 	materials = list(MATERIAL_ALUMINIUM = 50, MATERIAL_GLASS = 50)
-	category = TOOL_DESIGNS
 
 /datum/design/item/hud/AssembleDesignName()
 	..()

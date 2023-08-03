@@ -4,16 +4,16 @@
 	force = 1
 	var/emulating = "Crowbar"
 
-/obj/item/psychic_power/tinker/iscrowbar()
+/obj/item/psychic_power/tinker/IsCrowbar()
 	return emulating == "Crowbar"
 
-/obj/item/psychic_power/tinker/iswrench()
+/obj/item/psychic_power/tinker/IsWrench()
 	return emulating == "Wrench"
 
-/obj/item/psychic_power/tinker/isscrewdriver()
+/obj/item/psychic_power/tinker/IsScrewdriver()
 	return emulating == "Screwdriver"
 
-/obj/item/psychic_power/tinker/iswirecutter()
+/obj/item/psychic_power/tinker/IsWirecutter()
 	return emulating == "Wirecutters"
 
 /obj/item/psychic_power/tinker/attack_self()
@@ -35,5 +35,5 @@
 
 	emulating = choice
 	name = "psychokinetic [lowertext(emulating)]"
-	to_chat(owner, "<span class='notice'>You begin emulating \a [lowertext(emulating)].</span>")
+	to_chat(owner, SPAN_NOTICE("You begin emulating \a [lowertext(emulating)]."))
 	sound_to(owner, 'sound/effects/psi/power_fabrication.ogg')

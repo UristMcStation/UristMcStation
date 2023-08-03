@@ -2,16 +2,22 @@
 	Global associative list for caching humanoid icons.
 	Index format m or f, followed by a string of 0 and 1 to represent bodyparts followed by husk fat hulk skeleton 1 or 0.
 	TODO: Proper documentation
-	icon_key is [species.race_key][g][husk][fat][hulk][skeleton][s_tone]
+	icon_key is [species.race_key][g][husk][fat][hulk][skeleton][skin_tone]
 */
 var/global/list/human_icon_cache = list()
-var/global/list/tail_icon_cache = list() //key is [species.race_key][r_skin][g_skin][b_skin]
+var/global/list/tail_icon_cache = list() //key is [species.race_key][skin_color]
 var/global/list/light_overlay_cache = list()
+GLOBAL_LIST_EMPTY(overlay_icon_cache)
+GLOBAL_LIST_EMPTY(species_icon_template_cache)
 
-/proc/overlay_image(icon,icon_state,color,flags)
+/proc/overlay_image(icon, icon_state, color, flags, plane, layer)
 	var/image/ret = image(icon,icon_state)
+	if(plane)
+		ret.plane = plane
+	if(layer)
+		ret.layer = layer
 	ret.color = color
-	ret.appearance_flags = flags
+	ret.appearance_flags = DEFAULT_APPEARANCE_FLAGS | flags
 	return ret
 
 	///////////////////////
@@ -152,60 +158,107 @@ Please contact me on #coderbus IRC. ~Carn x
 	overlays.Cut()
 
 	var/list/overlays_to_apply = list()
-	if (icon_update)
 
-		var/list/visible_overlays
-		if(is_cloaked())
-			icon = 'icons/mob/human.dmi'
-			icon_state = "blank"
-			visible_overlays = list(overlays_standing[HO_R_HAND_LAYER], overlays_standing[HO_L_HAND_LAYER])
-		else
-			icon = stand_icon
-			icon_state = null
-			visible_overlays = overlays_standing
+	var/list/visible_overlays
+	if(is_cloaked())
+		icon = 'icons/mob/human.dmi'
+		icon_state = "blank"
+		visible_overlays = list(overlays_standing[HO_R_HAND_LAYER], overlays_standing[HO_L_HAND_LAYER])
+	else
+		icon = stand_icon
+		icon_state = null
+		visible_overlays = overlays_standing
 
-		var/matrix/M = matrix()
-		if(lying && (species.prone_overlay_offset[1] || species.prone_overlay_offset[2]))
-			M.Translate(species.prone_overlay_offset[1], species.prone_overlay_offset[2])
-
-		for(var/i = 1 to LAZYLEN(visible_overlays))
-			var/entry = visible_overlays[i]
-			if(istype(entry, /image))
-				var/image/overlay = entry
+	for(var/i = 1 to LAZYLEN(visible_overlays))
+		var/entry = visible_overlays[i]
+		if(istype(entry, /image))
+			var/image/overlay = entry
+			if(i != HO_DAMAGE_LAYER)
+				overlay.transform = get_lying_offset(overlay)
+			overlays_to_apply += overlay
+		else if(istype(entry, /list))
+			for(var/image/overlay in entry)
 				if(i != HO_DAMAGE_LAYER)
-					overlay.transform = M
+					overlay.transform = get_lying_offset(overlay)
 				overlays_to_apply += overlay
-			else if(istype(entry, /list))
-				for(var/image/overlay in entry)
-					if(i != HO_DAMAGE_LAYER)
-						overlay.transform = M
-					overlays_to_apply += overlay
 
-		var/obj/item/organ/external/head/head = organs_by_name[BP_HEAD]
-		if(istype(head) && !head.is_stump())
-			var/image/I = head.get_eye_overlay()
-			if(I) overlays_to_apply += I
+	var/obj/item/organ/external/head/head = organs_by_name[BP_HEAD]
+	if(istype(head) && !head.is_stump())
+		var/image/I = head.get_eye_overlay()
+		if(I) overlays_to_apply += I
 
 	if(auras)
 		overlays_to_apply += auras
 
 	overlays = overlays_to_apply
+	var/list/scale = get_scale()
+	animate(
+		src,
+		transform = matrix().Update(
+			scale_x = scale[1],
+			scale_y = scale[2],
+			rotation = lying ? 90 : 0,
+			offset_y = lying ? -6 - default_pixel_z : 16 * (scale[2] - 1)
+		),
+		time = ANIM_LYING_TIME
+	)
 
-	var/matrix/M = matrix()
-	if(lying)
-		M.Turn(90)
-		M.Scale(size_multiplier)
-		M.Translate(1,-6)
-	else
-		M.Scale(size_multiplier)
-		M.Translate(0, 16*(size_multiplier-1))
-	animate(src, transform = M, time = ANIM_LYING_TIME)
+
+/mob/living/carbon/human/proc/get_scale()
+	var/height_modifier = 0
+	var/height_descriptor = LAZYACCESS(descriptors, "height")
+	if (height_descriptor)
+		var/datum/mob_descriptor/height/H = species.descriptors["height"]
+		if (H)
+			var/list/scale_effect = H.scale_effect[species.name]
+			if (length(scale_effect))
+				height_modifier = 0.01 * scale_effect[height_descriptor]
+	var/build_modifier = 0
+	var/build_descriptor = LAZYACCESS(descriptors, "build")
+	if (build_descriptor)
+		var/datum/mob_descriptor/build/B = species.descriptors["build"]
+		if (B)
+			var/list/scale_effect = B.scale_effect[species.name]
+			if (length(scale_effect))
+				build_modifier = 0.01 * scale_effect[build_descriptor]
+	return list(
+		(1 + build_modifier) * (tf_scale_x || 1),
+		(1 + height_modifier) * (tf_scale_y || 1)
+	)
 
 var/global/list/damage_icon_parts = list()
 
+/mob/living/carbon/human/proc/get_lying_offset(image/I)
+	if(!lying)
+		return matrix()
+
+	var/overlay_key = "[I.icon][I.icon_state]"
+	if(!GLOB.overlay_icon_cache[overlay_key])
+		GLOB.overlay_icon_cache[overlay_key] = new/icon(icon = I.icon, icon_state = I.icon_state)
+
+	var/icon/species_key = "[species.get_race_key(src)]"
+	if(species.icon_template)
+		if(!GLOB.species_icon_template_cache[species_key])
+			GLOB.species_icon_template_cache[species_key] = new/icon(icon = species.icon_template, icon_state = "")
+	else
+		species_key = "icons/mob/human.dmiblank"
+		if(!GLOB.species_icon_template_cache[species_key])
+			GLOB.species_icon_template_cache[species_key] = new/icon(icon = 'icons/mob/human.dmi', icon_state = "blank")
+
+	var/icon/icon_template = GLOB.species_icon_template_cache[species_key]
+	var/icon/overlay = GLOB.overlay_icon_cache[overlay_key]
+
+	var/x_offset = Ceil(0.5*(icon_template.Width() - (overlay.Width() || 32)))
+	var/y_offset = Ceil(0.5*(icon_template.Height() - (overlay.Height() || 32)))
+
+	return matrix().Update(
+		offset_x = x_offset - y_offset,
+		offset_y = -(x_offset + y_offset)
+	)
+
 //DAMAGE OVERLAYS
 //constructs damage icon for each organ from mask * damage field and saves it in our overlays_ lists
-/mob/living/carbon/human/UpdateDamageIcon(var/update_icons=1)
+/mob/living/carbon/human/UpdateDamageIcon(update_icons=1)
 	// first check whether something actually changed about damage appearance
 	var/damage_appearance = ""
 
@@ -251,7 +304,7 @@ var/global/list/damage_icon_parts = list()
 	if(update_icons)
 		queue_icon_update()
 
-/mob/living/carbon/human/proc/update_bandages(var/update_icons=1)
+/mob/living/carbon/human/proc/update_bandages(update_icons=1)
 	var/bandage_icon = species.bandages_icon
 	if(!bandage_icon)
 		return
@@ -269,7 +322,7 @@ var/global/list/damage_icon_parts = list()
 		queue_icon_update()
 
 //BASE MOB SPRITE
-/mob/living/carbon/human/proc/update_body(var/update_icons=1)
+/mob/living/carbon/human/proc/update_body(update_icons=1)
 	var/husk_color_mod = rgb(96,88,80)
 	var/hulk_color_mod = rgb(48,224,40)
 
@@ -290,9 +343,9 @@ var/global/list/damage_icon_parts = list()
 	if(gender == FEMALE)
 		g = "female"
 
-	var/icon_key = "[species.get_race_key(src)][g][s_tone][r_skin][g_skin][b_skin]"
-	if(lip_style)
-		icon_key += "[lip_style]"
+	var/icon_key = "[species.get_race_key(src)][g][skin_tone][skin_color]"
+	if(makeup_style)
+		icon_key += "[makeup_style]"
 	else
 		icon_key += "nolips"
 	var/obj/item/organ/internal/eyes/eyes = internal_organs_by_name[species.vision_organ ? species.vision_organ : BP_EYES]
@@ -306,22 +359,26 @@ var/global/list/damage_icon_parts = list()
 		if(isnull(part) || part.is_stump())
 			icon_key += "0"
 			continue
-		for(var/M in part.markings)
-			icon_key += "[M][part.markings[M]["color"]]"
+		for (var/E in part.markings)
+			var/datum/sprite_accessory/marking/M = E
+			var/color = part.markings[E]
+			icon_key += "[M.name][color]"
 		if(part)
 			icon_key += "[part.species.get_race_key(part.owner)]"
 			icon_key += "[part.dna.GetUIState(DNA_UI_GENDER)]"
-			icon_key += "[part.s_tone]"
-			icon_key += "[part.s_base]"
-			if(part.s_col && part.s_col.len >= 3)
+			icon_key += "[part.skin_tone]"
+			icon_key += "[part.base_skin]"
+			if(part.s_col && length(part.s_col) >= 3)
 				icon_key += "[rgb(part.s_col[1],part.s_col[2],part.s_col[3])]"
 				icon_key += "[part.s_col_blend]"
-			if(part.body_hair && part.h_col && part.h_col.len >= 3)
+			if(part.body_hair && part.h_col && length(part.h_col) >= 3)
 				icon_key += "[rgb(part.h_col[1],part.h_col[2],part.h_col[3])]"
 			else
 				icon_key += "#000000"
-			for(var/M in part.markings)
-				icon_key += "[M][part.markings[M]["color"]]"
+			for(var/E in part.markings)
+				var/datum/sprite_accessory/marking/M = E
+				var/color = part.markings[E]
+				icon_key += "[M.name][color]"
 		if(BP_IS_ROBOTIC(part))
 			icon_key += "2[part.model ? "-[part.model]": ""]"
 		else if(part.status & ORGAN_DEAD)
@@ -374,9 +431,11 @@ var/global/list/damage_icon_parts = list()
 			var/husk_icon = species.get_husk_icon(src)
 			if(husk_icon)
 				var/icon/mask = new(base_icon)
+				var/blood = species.get_blood_colour(src)
 				var/icon/husk_over = new(species.husk_icon,"")
 				mask.MapColors(0,0,0,1, 0,0,0,1, 0,0,0,1, 0,0,0,1, 0,0,0,0)
 				husk_over.Blend(mask, ICON_ADD)
+				husk_over.Blend(blood, ICON_MULTIPLY)
 				base_icon.Blend(husk_over, ICON_OVERLAY)
 
 		human_icon_cache[icon_key] = base_icon
@@ -392,13 +451,15 @@ var/global/list/damage_icon_parts = list()
 
 //UNDERWEAR OVERLAY
 
-/mob/living/carbon/human/proc/update_underwear(var/update_icons=1)
+/mob/living/carbon/human/proc/update_underwear(update_icons=1)
 	overlays_standing[HO_UNDERWEAR_LAYER] = list()
 	for(var/entry in worn_underwear)
 		var/obj/item/underwear/UW = entry
+		if (!UW || !UW.icon) // Avoid runtimes for nude underwear types
+			continue
 
 		var/image/I = image(icon = UW.icon, icon_state = UW.icon_state)
-		I.appearance_flags = RESET_COLOR
+		I.appearance_flags = DEFAULT_APPEARANCE_FLAGS | RESET_COLOR
 		I.color = UW.color
 
 		overlays_standing[HO_UNDERWEAR_LAYER] += I
@@ -407,7 +468,7 @@ var/global/list/damage_icon_parts = list()
 		queue_icon_update()
 
 //HAIR OVERLAY
-/mob/living/carbon/human/proc/update_hair(var/update_icons=1)
+/mob/living/carbon/human/proc/update_hair(update_icons=1)
 	//Reset our hair
 	overlays_standing[HO_HAIR_LAYER]	= null
 
@@ -428,12 +489,12 @@ var/global/list/damage_icon_parts = list()
 	if(update_icons)
 		queue_icon_update()
 
-/mob/living/carbon/human/proc/update_skin(var/update_icons=1)
+/mob/living/carbon/human/proc/update_skin(update_icons=1)
 	overlays_standing[HO_SKIN_LAYER] = species.update_skin(src)
 	if(update_icons)
 		queue_icon_update()
 
-/mob/living/carbon/human/update_mutations(var/update_icons=1)
+/mob/living/carbon/human/update_mutations(update_icons=1)
 	var/fat
 	if(MUTATION_FAT in mutations)
 		fat = "fat"
@@ -499,7 +560,7 @@ var/global/list/damage_icon_parts = list()
 /* --------------------------------------- */
 //vvvvvv UPDATE_INV PROCS vvvvvv
 
-/mob/living/carbon/human/update_inv_w_uniform(var/update_icons=1)
+/mob/living/carbon/human/update_inv_w_uniform(update_icons=1)
 	if(istype(w_uniform, /obj/item/clothing/under) && !(wear_suit && wear_suit.flags_inv & HIDEJUMPSUIT))
 		overlays_standing[HO_UNIFORM_LAYER]	= w_uniform.get_mob_overlay(src,slot_w_uniform_str)
 	else
@@ -508,7 +569,7 @@ var/global/list/damage_icon_parts = list()
 	if(update_icons)
 		queue_icon_update()
 
-/mob/living/carbon/human/update_inv_wear_id(var/update_icons=1)
+/mob/living/carbon/human/update_inv_wear_id(update_icons=1)
 	var/image/id_overlay
 	if(wear_id && istype(w_uniform, /obj/item/clothing/under))
 		var/obj/item/clothing/under/U = w_uniform
@@ -517,13 +578,13 @@ var/global/list/damage_icon_parts = list()
 
 	overlays_standing[HO_ID_LAYER]	= id_overlay
 
-	BITSET(hud_updateflag, ID_HUD)
-	BITSET(hud_updateflag, WANTED_HUD)
+	SET_BIT(hud_updateflag, ID_HUD)
+	SET_BIT(hud_updateflag, WANTED_HUD)
 
 	if(update_icons)
 		queue_icon_update()
 
-/mob/living/carbon/human/update_inv_gloves(var/update_icons=1)
+/mob/living/carbon/human/update_inv_gloves(update_icons=1)
 	if(gloves && !(wear_suit && wear_suit.flags_inv & HIDEGLOVES))
 		overlays_standing[HO_GLOVES_LAYER]	= gloves.get_mob_overlay(src,slot_gloves_str)
 	else
@@ -535,7 +596,7 @@ var/global/list/damage_icon_parts = list()
 	if(update_icons)
 		queue_icon_update()
 
-/mob/living/carbon/human/update_inv_glasses(var/update_icons=1)
+/mob/living/carbon/human/update_inv_glasses(update_icons=1)
 	if(glasses)
 		overlays_standing[glasses.use_alt_layer ? HO_GOGGLES_LAYER : HO_GLASSES_LAYER] = glasses.get_mob_overlay(src,slot_glasses_str)
 		overlays_standing[glasses.use_alt_layer ? HO_GLASSES_LAYER : HO_GOGGLES_LAYER] = null
@@ -545,7 +606,7 @@ var/global/list/damage_icon_parts = list()
 	if(update_icons)
 		queue_icon_update()
 
-/mob/living/carbon/human/update_inv_ears(var/update_icons=1)
+/mob/living/carbon/human/update_inv_ears(update_icons=1)
 	overlays_standing[HO_EARS_LAYER] = null
 	if( (head && (head.flags_inv & (BLOCKHAIR | BLOCKHEADHAIR))) || (wear_mask && (wear_mask.flags_inv & (BLOCKHAIR | BLOCKHEADHAIR))))
 		if(update_icons)
@@ -566,7 +627,7 @@ var/global/list/damage_icon_parts = list()
 	if(update_icons)
 		queue_icon_update()
 
-/mob/living/carbon/human/update_inv_shoes(var/update_icons=1)
+/mob/living/carbon/human/update_inv_shoes(update_icons=1)
 	if(shoes && !((wear_suit && wear_suit.flags_inv & HIDESHOES) || (w_uniform && w_uniform.flags_inv & HIDESHOES)))
 		overlays_standing[HO_SHOES_LAYER] = shoes.get_mob_overlay(src,slot_shoes_str)
 	else
@@ -578,7 +639,7 @@ var/global/list/damage_icon_parts = list()
 	if(update_icons)
 		queue_icon_update()
 
-/mob/living/carbon/human/update_inv_s_store(var/update_icons=1)
+/mob/living/carbon/human/update_inv_s_store(update_icons=1)
 	if(s_store)
 		overlays_standing[HO_SUIT_STORE_LAYER]	= s_store.get_mob_overlay(src,slot_s_store_str)
 	else
@@ -586,7 +647,7 @@ var/global/list/damage_icon_parts = list()
 	if(update_icons)
 		queue_icon_update()
 
-/mob/living/carbon/human/update_inv_head(var/update_icons=1)
+/mob/living/carbon/human/update_inv_head(update_icons=1)
 	if(head)
 		overlays_standing[HO_HEAD_LAYER] = head.get_mob_overlay(src,slot_head_str)
 	else
@@ -594,7 +655,7 @@ var/global/list/damage_icon_parts = list()
 	if(update_icons)
 		queue_icon_update()
 
-/mob/living/carbon/human/update_inv_belt(var/update_icons=1)
+/mob/living/carbon/human/update_inv_belt(update_icons=1)
 	if(belt)
 		overlays_standing[belt.use_alt_layer ? HO_BELT_LAYER_ALT : HO_BELT_LAYER] = belt.get_mob_overlay(src,slot_belt_str)
 		overlays_standing[belt.use_alt_layer ? HO_BELT_LAYER : HO_BELT_LAYER_ALT] = null
@@ -604,7 +665,7 @@ var/global/list/damage_icon_parts = list()
 	if(update_icons)
 		queue_icon_update()
 
-/mob/living/carbon/human/update_inv_wear_suit(var/update_icons=1)
+/mob/living/carbon/human/update_inv_wear_suit(update_icons=1)
 
 	if(wear_suit)
 		overlays_standing[HO_SUIT_LAYER]	= wear_suit.get_mob_overlay(src,slot_wear_suit_str)
@@ -621,11 +682,11 @@ var/global/list/damage_icon_parts = list()
 	if(update_icons)
 		queue_icon_update()
 
-/mob/living/carbon/human/update_inv_pockets(var/update_icons=1)
+/mob/living/carbon/human/update_inv_pockets(update_icons=1)
 	if(update_icons)
 		queue_icon_update()
 
-/mob/living/carbon/human/update_inv_wear_mask(var/update_icons=1)
+/mob/living/carbon/human/update_inv_wear_mask(update_icons=1)
 	if( wear_mask && ( istype(wear_mask, /obj/item/clothing/mask) || istype(wear_mask, /obj/item/clothing/accessory) ) && !(head && head.flags_inv & HIDEMASK))
 		overlays_standing[HO_FACEMASK_LAYER]	= wear_mask.get_mob_overlay(src,slot_wear_mask_str)
 	else
@@ -633,7 +694,7 @@ var/global/list/damage_icon_parts = list()
 	if(update_icons)
 		queue_icon_update()
 
-/mob/living/carbon/human/update_inv_back(var/update_icons=1)
+/mob/living/carbon/human/update_inv_back(update_icons=1)
 	if(back)
 		overlays_standing[HO_BACK_LAYER] = back.get_mob_overlay(src,slot_back_str)
 	else
@@ -649,7 +710,7 @@ var/global/list/damage_icon_parts = list()
 		if(hud_used)
 			hud_used.hidden_inventory_update() 	//Updates the screenloc of the items on the 'other' inventory bar
 
-/mob/living/carbon/human/update_inv_handcuffed(var/update_icons=1)
+/mob/living/carbon/human/update_inv_handcuffed(update_icons=1)
 	if(handcuffed)
 		overlays_standing[HO_HANDCUFF_LAYER] = handcuffed.get_mob_overlay(src,slot_handcuffed_str)
 	else
@@ -657,7 +718,7 @@ var/global/list/damage_icon_parts = list()
 	if(update_icons)
 		queue_icon_update()
 
-/mob/living/carbon/human/update_inv_r_hand(var/update_icons=1)
+/mob/living/carbon/human/update_inv_r_hand(update_icons=1)
 	if(r_hand)
 		var/image/standing = r_hand.get_mob_overlay(src,slot_r_hand_str)
 		if(standing)
@@ -671,7 +732,7 @@ var/global/list/damage_icon_parts = list()
 	if(update_icons)
 		queue_icon_update()
 
-/mob/living/carbon/human/update_inv_l_hand(var/update_icons=1)
+/mob/living/carbon/human/update_inv_l_hand(update_icons=1)
 	if(l_hand)
 		var/image/standing = l_hand.get_mob_overlay(src,slot_l_hand_str)
 		if(standing)
@@ -685,7 +746,7 @@ var/global/list/damage_icon_parts = list()
 	if(update_icons)
 		queue_icon_update()
 
-/mob/living/carbon/human/proc/update_tail_showing(var/update_icons=1)
+/mob/living/carbon/human/proc/update_tail_showing(update_icons=1)
 	overlays_standing[HO_TAIL_LAYER] = null
 
 	var/species_tail = species.get_tail(src)
@@ -699,26 +760,26 @@ var/global/list/damage_icon_parts = list()
 		queue_icon_update()
 
 /mob/living/carbon/human/proc/get_tail_icon()
-	var/icon_key = "[species.get_race_key(src)][r_skin][g_skin][b_skin][r_hair][g_hair][b_hair]"
+	var/icon_key = "[species.get_race_key(src)][skin_color][head_hair_color]"
 	var/icon/tail_icon = tail_icon_cache[icon_key]
 	if(!tail_icon)
 		//generate a new one
 		var/species_tail_anim = species.get_tail_animation(src)
 		if(!species_tail_anim) species_tail_anim = 'icons/effects/species.dmi'
 		tail_icon = new/icon(species_tail_anim)
-		tail_icon.Blend(rgb(r_skin, g_skin, b_skin), species.tail_blend)
+		tail_icon.Blend(skin_color, species.tail_blend)
 		// The following will not work with animated tails.
 		var/use_species_tail = species.get_tail_hair(src)
 		if(use_species_tail)
 			var/icon/hair_icon = icon('icons/effects/species.dmi', "[species.get_tail(src)]_[use_species_tail]")
-			hair_icon.Blend(rgb(r_hair, g_hair, b_hair), ICON_ADD)
+			hair_icon.Blend(head_hair_color, ICON_ADD)
 			tail_icon.Blend(hair_icon, ICON_OVERLAY)
 		tail_icon_cache[icon_key] = tail_icon
 
 	return tail_icon
 
 
-/mob/living/carbon/human/proc/set_tail_state(var/t_state)
+/mob/living/carbon/human/proc/set_tail_state(t_state)
 	var/image/tail_overlay = overlays_standing[HO_TAIL_LAYER]
 
 	if(tail_overlay && species.get_tail_animation(src))
@@ -728,7 +789,7 @@ var/global/list/damage_icon_parts = list()
 
 //Not really once, since BYOND can't do that.
 //Update this if the ability to flick() images or make looping animation start at the first frame is ever added.
-/mob/living/carbon/human/proc/animate_tail_once(var/update_icons=1)
+/mob/living/carbon/human/proc/animate_tail_once(update_icons=1)
 	var/t_state = "[species.get_tail(src)]_once"
 
 	var/image/tail_overlay = overlays_standing[HO_TAIL_LAYER]
@@ -745,19 +806,19 @@ var/global/list/damage_icon_parts = list()
 	if(update_icons)
 		queue_icon_update()
 
-/mob/living/carbon/human/proc/animate_tail_start(var/update_icons=1)
+/mob/living/carbon/human/proc/animate_tail_start(update_icons=1)
 	set_tail_state("[species.get_tail(src)]_slow[rand(0,9)]")
 
 	if(update_icons)
 		queue_icon_update()
 
-/mob/living/carbon/human/proc/animate_tail_fast(var/update_icons=1)
+/mob/living/carbon/human/proc/animate_tail_fast(update_icons=1)
 	set_tail_state("[species.get_tail(src)]_loop[rand(0,9)]")
 
 	if(update_icons)
 		queue_icon_update()
 
-/mob/living/carbon/human/proc/animate_tail_reset(var/update_icons=1)
+/mob/living/carbon/human/proc/animate_tail_reset(update_icons=1)
 	if(stat != DEAD)
 		set_tail_state("[species.get_tail(src)]_idle[rand(0,9)]")
 	else
@@ -766,7 +827,7 @@ var/global/list/damage_icon_parts = list()
 	if(update_icons)
 		queue_icon_update()
 
-/mob/living/carbon/human/proc/animate_tail_stop(var/update_icons=1)
+/mob/living/carbon/human/proc/animate_tail_stop(update_icons=1)
 	set_tail_state("[species.get_tail(src)]_static")
 
 	if(update_icons)
@@ -775,7 +836,7 @@ var/global/list/damage_icon_parts = list()
 
 //Adds a collar overlay above the helmet layer if the suit has one
 //	Suit needs an identically named sprite in icons/mob/collar.dmi
-/mob/living/carbon/human/proc/update_collar(var/update_icons=1)
+/mob/living/carbon/human/proc/update_collar(update_icons=1)
 	if(istype(wear_suit,/obj/item/clothing/suit))
 		var/obj/item/clothing/suit/S = wear_suit
 		overlays_standing[HO_COLLAR_LAYER]	= S.get_collar()
@@ -786,7 +847,7 @@ var/global/list/damage_icon_parts = list()
 		queue_icon_update()
 
 
-/mob/living/carbon/human/update_fire(var/update_icons=1)
+/mob/living/carbon/human/update_fire(update_icons=1)
 	overlays_standing[HO_FIRE_LAYER] = null
 	if(on_fire)
 		var/image/standing = overlay_image('icons/mob/OnFire.dmi', "Standing", RESET_COLOR)
@@ -794,7 +855,7 @@ var/global/list/damage_icon_parts = list()
 	if(update_icons)
 		queue_icon_update()
 
-/mob/living/carbon/human/proc/update_surgery(var/update_icons=1)
+/mob/living/carbon/human/proc/update_surgery(update_icons=1)
 	overlays_standing[HO_SURGERY_LAYER] = null
 	var/image/total = new
 	for(var/obj/item/organ/external/E in organs)
@@ -824,7 +885,7 @@ var/global/list/damage_icon_parts = list()
 			LAZYADD(overlays_to_add, image(icon = surgery_icon, icon_state = overlay_state, layer = -HO_SURGERY_LAYER))
 		total.overlays |= overlays_to_add
 
-	total.appearance_flags = RESET_COLOR
+	total.appearance_flags = DEFAULT_APPEARANCE_FLAGS | RESET_COLOR
 	overlays_standing[HO_SURGERY_LAYER] = total
 	if(update_icons)
 		queue_icon_update()

@@ -12,7 +12,7 @@
 		return
 
 	if(nutrition < get_starve_nutrition()) // If a slime is starving, it starts losing its friends
-		if(Friends.len > 0 && prob(1))
+		if(length(Friends) > 0 && prob(1))
 			var/mob/nofriend = pick(Friends)
 			if(nofriend && Friends[nofriend])
 				Friends[nofriend] -= 1
@@ -23,8 +23,7 @@
 
 	handle_targets()
 	if (!AIproc)
-		spawn()
-			handle_AI()
+		addtimer(new Callback(src, .proc/handle_AI), 0)
 	handle_speech_and_mood()
 
 /mob/living/carbon/slime/proc/handle_targets()
@@ -52,7 +51,7 @@
 				if(AssessTarget(L))
 					targets += L // Possible target found!
 
-			if(targets.len > 0)
+			if(length(targets) > 0)
 				if(attacked || rabid || hungry == 2)
 					Target = targets[1] // I am attacked and am fighting back or so hungry I don't even care
 				else
@@ -89,7 +88,7 @@
 			else if(isturf(loc) && prob(33))
 				SelfMove(pick(GLOB.cardinal))
 
-/mob/living/carbon/slime/proc/AssessTarget(var/mob/living/M)
+/mob/living/carbon/slime/proc/AssessTarget(mob/living/M)
 	if(isslime(M)) // Ignore other slimes
 		return 0
 
@@ -180,9 +179,8 @@
 			UnarmedAttack(frenemy)
 
 	var/sleeptime = max(movement_delay(), 5) + addedDelay // Maximum one action per half a second
-	spawn (sleeptime)
-		handle_AI()
-	return
+	addtimer(new Callback(src, .proc/handle_AI), sleeptime)
+
 
 /mob/living/carbon/slime/proc/UpdateFace()
 	var/newmood = ""
@@ -211,7 +209,7 @@
 
 	//Speech understanding starts here
 	var/to_say
-	if (speech_buffer.len > 0)
+	if (length(speech_buffer) > 0)
 		var/who = speech_buffer[1] // Who said it?
 		var/phrase = speech_buffer[2] // What did they say?
 		if ((findtext(phrase, num2text(number)) || findtext(phrase, "slimes"))) // Talking to us
@@ -347,7 +345,7 @@
 					phrases += "[M]... feed me..."
 			say (pick(phrases))
 
-/mob/living/carbon/slime/proc/will_hunt(var/hunger) // Check for being stopped from feeding and chasing
+/mob/living/carbon/slime/proc/will_hunt(hunger) // Check for being stopped from feeding and chasing
 	if (hunger == 2 || rabid || attacked) return 1
 	if (Leader) return 0
 	if (holding_still) return 0

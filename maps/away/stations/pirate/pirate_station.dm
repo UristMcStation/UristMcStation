@@ -13,19 +13,20 @@
 	base_turf = /turf/simulated/open
 	icon_state = "yellow"
 
-/var/const/access_away_pirate_station = "ACCESS_AWAY_PIRATE_STATION"
+var/global/const/access_away_pirate_station = "ACCESS_AWAY_PIRATE_STATION"
 /datum/access/away_pirate_station
 	id = access_away_pirate_station
 	desc = "Pirate Station"
-	region = ACCESS_TYPE_NONE
+	access_type = ACCESS_TYPE_NONE
+	region = ACCESS_REGION_NONE
 
-/obj/effect/overmap/sector/station/hostile/pirate
+/obj/effect/overmap/visitable/station/hostile/pirate
 	name = "large asteroid"
 	desc = "Sensor array detects a large asteroid."
 	icon = 'icons/obj/overmap.dmi'
 	icon_state = "meteor4"
 	faction = /datum/factions/pirate
-	color = "#cc5474"
+	color = "#a08444"
 	station_holder = /mob/living/simple_animal/hostile/overmapship/station_holder/pirate
 	total_ships = 2
 	remaining_ships = 4
@@ -43,7 +44,7 @@
 	id = "awaysite_piratestation"
 	description = "A hidden pirate station, tucked away on an asteroid."
 	suffixes = list("stations/pirate/pirate_station-1.dmm", "stations/pirate/pirate_station-2.dmm")
-	cost = 0
+	spawn_cost = 0
 	accessibility_weight = 10
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
@@ -76,7 +77,7 @@
 	base_area = /area/spacestations/pirate/exterior
 	base_turf = /turf/simulated/open
 
-/obj/effect/overmap/sector/station/hostile/pirate/update_visible()
+/obj/effect/overmap/visitable/station/hostile/pirate/update_visible()
 	if(!known)
 		known = 1
 		icon = 'icons/urist/misc/overmap.dmi'

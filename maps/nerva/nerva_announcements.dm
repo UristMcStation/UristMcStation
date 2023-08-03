@@ -12,7 +12,7 @@
 	grid_check_message = "Abnormal activity detected in the %STATION_NAME%'s power network. As a precaution, the %STATION_NAME%'s power must be shut down for an indefinite duration."
 	grid_check_sound = sound('sound/AI/torch/poweroff.ogg', volume = 45)
 
-	grid_restored_message = "Ship power to the %STATION_NAME% will be restored at this time"
+	grid_restored_message = "Ship power to the %STATION_NAME% will be restored at this time."
 	grid_restored_sound = sound('sound/AI/torch/poweron.ogg', volume = 45)
 
 	meteor_detected_sound = sound('sound/AI/torch/meteors.ogg', volume = 45)
@@ -32,7 +32,7 @@
 	electrical_storm_moderate_sound = sound('sound/AI/torch/electricalstormmoderate.ogg', volume = 45)
 	electrical_storm_major_sound = sound('sound/AI/torch/electricalstormmajor.ogg', volume = 45)
 
-/datum/map/nerva/level_x_biohazard_sound(var/bio_level)
+/datum/map/nerva/level_x_biohazard_sound(bio_level)
 	switch(bio_level)
 		if(7)
 			return sound('sound/AI/torch/outbreak7.ogg', volume = 45)

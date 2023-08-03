@@ -11,16 +11,17 @@ var/global/onmission = 0
 
 var/global/scom_lowpop_scale = 0
 
-var/list/scomspawn1 = list()
-var/list/scomspawn2 = list()
-var/list/scomspawn3 = list()
+var/global/list/scomspawn1 = list()
+var/global/list/scomspawn2 = list()
+var/global/list/scomspawn3 = list()
 
 var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of different gamemodes. Honestly, this should be a helper var.
 
 
 /datum/game_mode/scom //the joke is that 90% of this stuff is handled by other procs
-	name = "scom"
+	name = "S-COM"
 	config_tag = "scom"
+	round_description = "In response to the current galactic crisis, the major powers have banded together to form a group opposed to the alien menace. As a member of that elite force, it is your job to save the galaxy. No pressure."
 	required_players = 1 //lowpop mode ahoy //if you see this on master, I fucked up, should be 2 -scr
 	votable = 0
 	var/declared = 0
@@ -30,12 +31,8 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 	auto_recall_shuttle = 1
 	ert_disabled = 1
 
-/datum/game_mode/scom/announce() //guys, are my comments informative yet?
-	world << "<B>The current game mode is - S-COM!</B>"
-	world << "<B>In response to the current galactic crisis, the major powers have banded together to form a group opposed to the alien menace. As a member of that elite force, it is your job to save the galaxy. No pressure.</B>"
-
 /datum/game_mode/scom/pre_setup() //this is where we decide difficulty. Over 18, mob spawns are increased. Over 26, mob spawns are increased again. Once again, if Urist grows/doesn't die, I'll balance this better for larger amounts of players.
-	world << "<span class='danger'> Setting up S-COM, please be patient. This may take a minute or two.</span>"
+	report_progress("Setting up S-COM, please be patient. This may take a minute or two.")
 
 	for(var/mob/living/L in SSmobs.mob_list) //get rid of Ian and all the other mobs. we don't need them around.
 		qdel(L)
@@ -48,7 +45,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 	for(var/mob/new_player/player in GLOB.player_list)
 		if((player.client)&&(player.ready))
 			SCOMplayerC++
-	//world << "<span class='danger'> [SCOMplayerC] players counted.</span>"
+	//to_world("<span class='danger'> [SCOMplayerC] players counted.</span>")
 
 	update_dyndifficulty()
 
@@ -80,9 +77,9 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 		scom_lowpop_scale = 1
 
 /datum/game_mode/scom/post_setup()
-	world << "<span class='danger'> Setting up science...</span>"
+	report_progress("Setting up science...")
 	populate_scomscience_recipes()
-	world << "<span class='danger'> Spawning players...</span>"
+	report_progress("Spawning players...")
 	ScomTime()
 	ScomRobotTime()
 
@@ -115,14 +112,14 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 				sploded = 1
 
 	if(onmission == 1)
-//		world << "<span class='warning'> onmission</span>"
+//		log_debug("onmission")
 		aliencount = 0
 		for(var/mob/living/simple_animal/hostile/M in GLOB.simple_mob_list)
 			if(M.health > 0 && M.faction != "neutral")
 				aliencount += 1
-//				world << "<span class='warning'> aliens: [aliencount]</span>"
+//				log_debug("aliens: [aliencount]")
 		if (aliencount == 0 && declared == 0)
-//			world << "<span class='warning'> count 0</span>"
+//			log_debug("count 0")
 			command_announcement.Announce("Good job soldiers. We'll be launching the shuttles in two minutes, make sure to grab as much alien technology as you can. Any soldiers left behind will be bluespaced back to the base.", "S-COM Mission Command")
 			declared = 2
 			if(config.SCOM_dynamic_difficulty)
@@ -134,24 +131,19 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 						declared = 0
 
 
-datum/game_mode/scom/declare_completion() //failure states removed pending a rewrite
+/datum/game_mode/scom/declare_completion() //failure states removed pending a rewrite
 	if(sploded == 2)
 		declared = 1
-		world << "<FONT size = 3><B>Major S-COM victory!</B></FONT>"
-		world << "<B>The alien presence in Nyx has been eradicated!</B>"
+		to_world(FONT_LARGE("<B>Major S-COM victory!</B>"))
+		to_world("<B>The alien presence in Nyx has been eradicated!</B>")
 	if(sploded == 3)
 		declared = 1
-		world << "<FONT size = 3><B>Major Alien victory!</B></FONT>"
-		world << "<B>The S-COM presence in Nyx has been eradicated!</B>"
+		to_world(FONT_LARGE("<B>Major Alien victory!</B>"))
+		to_world("<B>The S-COM presence in Nyx has been eradicated!</B>")
 
-	world << "<span class='notice'> Rebooting in one minute.</span>"
 	..()
 
-	sleep(600)
-	if(!SSticker.delay_end)
-		world.Reboot()
-	else
-		world << "<span class='notice'> <B>An admin has delayed the round end</B></span>"
+	return
 
 
 
@@ -160,8 +152,8 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 	icon = 'icons/urist/turf/scomturfs.dmi'
 	icon_state = "9,8"
 	var/fuckitall = 0
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE
 
 /obj/structure/scom/fuckitall/ex_act()
 	return
@@ -172,7 +164,7 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 		if("Cancel")
 			return
 		if("Yes")
-			world << "<FONT size = 3><span class='danger'> Mothership self-destruct sequence activated. Three minutes until detonation.</span></FONT>"
+			to_world(FONT_LARGE(SPAN_DANGER("Mothership self-destruct sequence activated. Three minutes until detonation.")))
 			sploded = 1
 			command_announcement.Announce("We're launching the shuttles in two minutes and fourty five seconds. I don't think we need to say it twice, get the fuck out of there.", "S-COM Mission Command")
 			spawn(1650)
@@ -183,10 +175,10 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 						if(M.z != 2 && !M.stat)
 							explosion(M.loc, 2, 4, 6, 6)
 		//				M.apply_damage(rand(1000,2000), BRUTE) //KILL THEM ALL
-		//				M << ("<span class='warning'> The explosion tears you apart!</span>")
+		//				to_target(M, ("<span class='warning'> The explosion tears you apart!</span>"))
 		//				M.gib()
 		//			sleep(2000)
-					world << "<span class='danger'> The mothership has been destroyed!</span>"
+					to_world(SPAN_DANGER("The mothership has been destroyed!"))
 					sleep(50)
 					sploded = 2
 
@@ -209,7 +201,7 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 	set category = "Fun"
 	set desc = "Delay the S-COM Missions for some fun."
 	if(!check_rights(R_FUN))
-		src <<"<span class='danger'> You do not have the required admin rights.</span>"
+		to_chat(src, "<span class='danger'> You do not have the required admin rights.</span>")
 		return
 
 	for(var/datum/shuttle/autodock/ferry/scom/s1/C in SSshuttle.process_shuttles)
@@ -230,12 +222,12 @@ datum/game_mode/scom/declare_completion() //failure states removed pending a rew
 	set category = "Fun"
 	set desc = "Make SCOM use DynDifficulty again or disable it."
 	if(!check_rights(R_FUN))
-		src <<"<span class='danger'> You do not have the required admin rights.</span>"
+		to_chat(src, "<span class='danger'> You do not have the required admin rights.</span>")
 		return
 
 	if(config.SCOM_dynamic_difficulty == 1)
 		config.SCOM_dynamic_difficulty = 0
-		src <<"<span class='danger'> Dynamic Difficulty disabled.</span>"
+		to_chat(src, "<span class='danger'> Dynamic Difficulty disabled.</span>")
 	else
 		config.SCOM_dynamic_difficulty = 1
-		src <<"<span class='danger'> Dynamic Difficulty enabled.</span>"
+		to_chat(src, "<span class='danger'> Dynamic Difficulty enabled.</span>")

@@ -1,6 +1,6 @@
-/decl/hierarchy/supply_pack
+/singleton/hierarchy/supply_pack
 	name = "Supply Packs"
-	hierarchy_type = /decl/hierarchy/supply_pack
+	hierarchy_type = /singleton/hierarchy/supply_pack
 	var/list/contains = list()
 	var/manifest = ""
 	var/cost = null
@@ -10,17 +10,18 @@
 	var/hidden = 0
 	var/contraband = 0
 	var/num_contained = 0 //number of items picked to be contained in a randomised crate
-	var/supply_method = /decl/supply_method
-	var/decl/security_level/security_level
+	var/supply_method = /singleton/supply_method
+	var/singleton/security_level/security_level
+
 	var/newcargocost = null //to raise prices if necessary to avoid exploitable situations
 
 //Is run once on init for non-base-category supplypacks.
-/decl/hierarchy/supply_pack/proc/setup()
+/singleton/hierarchy/supply_pack/proc/setup()
 	if(!num_contained)
 		for(var/entry in contains)
 			num_contained += max(1, contains[entry])
 
-	var/decl/supply_method/sm = get_supply_method(supply_method)
+	var/singleton/supply_method/sm = get_supply_method(supply_method)
 	manifest = sm.setup_manifest(src)
 
 	if(GLOB.using_map.using_new_cargo)
@@ -29,13 +30,13 @@
 		else
 			cost = (cost * GLOB.using_map.new_cargo_inflation) //this needs balancing
 
-/decl/hierarchy/supply_pack/proc/sec_available()
+/singleton/hierarchy/supply_pack/proc/sec_available()
 	if(isnull(security_level))
 		return TRUE
-	var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
+	var/singleton/security_state/security_state = GET_SINGLETON(GLOB.using_map.security_state)
 	switch(security_level)
 		if(SUPPLY_SECURITY_ELEVATED)
-			if(security_state.all_security_levels.len > 1)
+			if(length(security_state.all_security_levels) > 1)
 				security_level = security_state.all_security_levels[2]
 			else
 				security_level = security_state.high_security_level
@@ -45,8 +46,8 @@
 		return TRUE
 	return security_state.current_security_level_is_same_or_higher_than(security_level)
 
-/decl/hierarchy/supply_pack/proc/spawn_contents(var/location)
-	var/decl/supply_method/sm = get_supply_method(supply_method)
+/singleton/hierarchy/supply_pack/proc/spawn_contents(location)
+	var/singleton/supply_method/sm = get_supply_method(supply_method)
 	return sm.spawn_contents(src, location)
 
 /*
@@ -58,8 +59,8 @@
 //NEW NOTE: Do NOT set the price of any crates below 7 points. Doing so allows infinite points.
 */
 
-var/list/supply_methods_
-/proc/get_supply_method(var/method_type)
+var/global/list/supply_methods_
+/proc/get_supply_method(method_type)
 	if(!supply_methods_)
 		supply_methods_ = list()
 	. = supply_methods_[method_type]
@@ -67,7 +68,7 @@ var/list/supply_methods_
 		. = new method_type()
 		supply_methods_[method_type] = .
 
-/decl/supply_method/proc/spawn_contents(var/decl/hierarchy/supply_pack/sp, var/location)
+/singleton/supply_method/proc/spawn_contents(singleton/hierarchy/supply_pack/sp, location)
 	if(!sp || !location)
 		return
 	. = list()
@@ -75,7 +76,7 @@ var/list/supply_methods_
 		for(var/i = 1 to max(1, sp.contains[entry]))
 			dd_insertObjectList(.,new entry(location))
 
-/decl/supply_method/proc/setup_manifest(var/decl/hierarchy/supply_pack/sp)
+/singleton/supply_method/proc/setup_manifest(singleton/hierarchy/supply_pack/sp)
 	. = list()
 	. += "<ul>"
 	for(var/path in sp.contains)
@@ -86,7 +87,7 @@ var/list/supply_methods_
 	. += "</ul>"
 	. = jointext(.,null)
 
-/decl/supply_method/randomized/spawn_contents(var/decl/hierarchy/supply_pack/sp, var/location)
+/singleton/supply_method/randomized/spawn_contents(singleton/hierarchy/supply_pack/sp, location)
 	if(!sp || !location)
 		return
 	. = list()
@@ -94,5 +95,5 @@ var/list/supply_methods_
 		var/picked = pick(sp.contains)
 		. += new picked(location)
 
-/decl/supply_method/randomized/setup_manifest(var/decl/hierarchy/supply_pack/sp)
+/singleton/supply_method/randomized/setup_manifest(singleton/hierarchy/supply_pack/sp)
 	return "Contains any [sp.num_contained] of:" + ..()

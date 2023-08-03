@@ -17,18 +17,18 @@
 	else
 		return FALSE
 
-/obj/item/auto_cpr/attack(mob/living/carbon/human/M, mob/living/user, var/target_zone)
+/obj/item/auto_cpr/attack(mob/living/carbon/human/M, mob/living/user, target_zone)
 	if(istype(M) && user.a_intent == I_HELP)
 		if(M.wear_suit)
 			to_chat(user, SPAN_WARNING("Their [M.wear_suit] is in the way, remove it first!"))
 			return 1
 		user.visible_message(SPAN_NOTICE("[user] starts fitting [src] onto the [M]'s chest."))
 
-		if(!do_mob(user, M, 2 SECONDS))
+		if(!do_after(user, 2 SECONDS, M, DO_EQUIP))
 			return
-			
+
 		if(user.unEquip(src))
-			if(!M.equip_to_slot_if_possible(src, slot_wear_suit, del_on_fail=0, disable_warning=1, redraw_mob=1))
+			if(!M.equip_to_slot_if_possible(src, slot_wear_suit, TRYEQUIP_REDRAW | TRYEQUIP_SILENT))
 				user.put_in_active_hand(src)
 			return 1
 	else

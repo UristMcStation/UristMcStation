@@ -4,7 +4,7 @@
 	icon = 'icons/urist/turf/uristturf.dmi'
 	icon_state = "tramfloor"
 	var/obj/tram/tram_controller/controller
-	anchored = 1
+	anchored = TRUE
 	layer = TURF_LAYER + 0.2
 
 /obj/tram/floor/proc/spread_floors()

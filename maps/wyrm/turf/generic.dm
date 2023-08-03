@@ -10,7 +10,7 @@
 	icon = 'icons/urist/turf/walls.dmi'
 	icon_state = "wood0"
 
-/turf/simulated/wall/wood/New(var/newloc)
+/turf/simulated/wall/wood/New(newloc)
 	..(newloc,"wood")
 
 /turf/simulated/floor/plating/airless

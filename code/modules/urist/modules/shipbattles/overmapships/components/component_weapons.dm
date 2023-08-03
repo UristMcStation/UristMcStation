@@ -16,13 +16,13 @@
 	if(ready && !broken)
 		Fire()
 
-/datum/shipcomponents/weapons/proc/Fire(var/obj/effect/urist/projectile_landmark/ship/map_landmark) //now infinitely less hacky and broken
+/datum/shipcomponents/weapons/proc/Fire(obj/effect/urist/projectile_landmark/ship/map_landmark) //now infinitely less hacky and broken
 	if(broken) //check one more time, just in case. doing it this way can stop burst fire mid burst
 		return
 
 	else
 		if(!map_landmark)
-			var/obj/effect/overmap/ship/combat/T = mastership.target_ship
+			var/obj/effect/overmap/visitable/ship/combat/T = mastership.target_ship
 			map_landmark = pick(T.landmarks)
 
 		if(burst)

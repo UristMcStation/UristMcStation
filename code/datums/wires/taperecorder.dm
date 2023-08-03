@@ -2,9 +2,9 @@
 	holder_type = /obj/item/device/taperecorder
 	wire_count = 1
 
-var/const/TAPE_WIRE_TOGGLE = 1
+var/global/const/TAPE_WIRE_TOGGLE = 1
 
-/datum/wires/taperecorder/UpdatePulsed(var/index)
+/datum/wires/taperecorder/UpdatePulsed(index)
 	var/obj/item/device/taperecorder/T = holder
 	if(T.recording || T.playing)
 		T.stop()

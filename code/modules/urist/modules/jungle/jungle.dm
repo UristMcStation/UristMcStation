@@ -56,7 +56,6 @@
 	//loop over the walls in the temple and make them a random pre-chosen mineral (null is a stand in for phoron, which the walls already are)
 	//treat phoron slightly differently because it's the default wall type
 	var/mineral = pick("uranium","sandstone","gold","iron","silver","diamond","clown","phoron")
-	//world << "init [mineral]"
 	var/area/my_area = get_area(src)
 	var/list/temple_turfs = get_area_turfs(my_area.type)
 
@@ -83,13 +82,11 @@
 			T.icon_state = replacetext(T.icon_state, "phoron", mineral)
 
 		/*for(var/obj/effect/landmark/falsewall_spawner/F in T.contents)
-			//world << "falsewall_spawner found in wall"
 			var/obj/structure/temple_falsewall/fwall = new(F.loc)
 			fwall.mineral = mineral
 			qdel(F)
 
 		for(var/obj/effect/landmark/door_spawner/D in T.contents)
-			//world << "door_spawner found in wall"
 			T = new /turf/unsimulated/floor(T.loc)
 			T.icon_state = "dark"
 			var/spawn_type = text2path("/obj/machinery/door/airlock/[door_mineral]")
@@ -128,7 +125,7 @@
 
 
 /obj/machinery/jungle_controller/initialize()
-	world << "<span class='danger'> Setting up jungle, this may take a bleeding eternity...</span>"
+	report_progress("Setting up jungle, this may take a bleeding eternity...")
 
 	//crash dat shuttle
 /*	var/area/start_location = locate(/area/jungle/crash_ship_source)
@@ -268,7 +265,7 @@
 			cur_turf = get_step(cur_turf, cur_dir)
 
 			//if we're not a jungle turf, get back to what we were doing
-			if(!istype(cur_turf, /turf/simulated/floor/planet/jungle/))
+			if(!istype(cur_turf, /turf/simulated/floor/planet/jungle))
 				cur_dir = get_dir(cur_turf, target_turf)
 				cur_turf = get_step(cur_turf, cur_dir)
 				continue

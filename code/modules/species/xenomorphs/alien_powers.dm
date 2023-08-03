@@ -1,5 +1,5 @@
-/proc/alien_queen_exists(var/ignore_self,var/mob/living/carbon/human/self)
-	for(var/mob/living/carbon/human/Q in GLOB.living_mob_list_)
+/proc/alien_queen_exists(ignore_self,var/mob/living/carbon/human/self)
+	for(var/mob/living/carbon/human/Q in GLOB.alive_mobs)
 		if(self && ignore_self && self == Q)
 			continue
 		if(Q.species.name != "Xenophage Queen")
@@ -9,7 +9,7 @@
 		return 1
 	return 0
 
-/mob/living/carbon/human/proc/gain_plasma(var/amount)
+/mob/living/carbon/human/proc/gain_plasma(amount)
 
 	var/obj/item/organ/internal/xeno/plasmavessel/I = internal_organs_by_name[BP_PLASMA]
 	if(!istype(I)) return
@@ -18,7 +18,7 @@
 		I.stored_plasma += amount
 	I.stored_plasma = max(0,min(I.stored_plasma,I.max_plasma))
 
-/mob/living/carbon/human/proc/check_alien_ability(var/cost,var/needs_foundation,var/needs_organ)
+/mob/living/carbon/human/proc/check_alien_ability(cost,var/needs_foundation,var/needs_organ)
 
 	var/obj/item/organ/internal/xeno/plasmavessel/P = internal_organs_by_name[BP_PLASMA]
 	if(!istype(P))
@@ -129,7 +129,7 @@
 	set desc = "Drench an object in acid, destroying it over time."
 	set category = "Abilities"
 
-	if(!O in oview(1))
+	if((!O) in oview(1))
 		to_chat(src, "<span class='alium'>[O] is too far away.</span>")
 		return
 
@@ -200,7 +200,7 @@
 			new /obj/structure/bed/nest(loc)
 	return
 
-mob/living/carbon/human/proc/xeno_infest(mob/living/carbon/human/M as mob in oview())
+/mob/living/carbon/human/proc/xeno_infest(mob/living/carbon/human/M as mob in oview())
 	set name = "Infest (500)"
 	set desc = "Link a victim to the hivemind."
 	set category = "Abilities"
@@ -224,7 +224,7 @@ mob/living/carbon/human/proc/xeno_infest(mob/living/carbon/human/M as mob in ovi
 
 	src.visible_message("<span class='danger'>\The [src] crouches over \the [M], extending a hideous protuberance from its head!</span>")
 
-	if(!do_mob(src, M, 150))
+	if(!do_after(src, 150, M))
 		return
 
 	if(!M || !M.Adjacent(src))

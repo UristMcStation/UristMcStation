@@ -1,6 +1,3 @@
-/datum/design/item/tool
-	category = TOOL_DESIGNS
-
 /datum/design/item/tool/AssembleDesignName()
 	..()
 	name = "Tool design ([item_name])"
@@ -20,16 +17,16 @@
 	id = "brace"
 	req_tech = list(TECH_ENGINEERING = 3, TECH_MATERIAL = 2)
 	materials = list(MATERIAL_STEEL = 2000, MATERIAL_GLASS = 50)
-	build_path = /obj/item/weapon/airlock_brace
+	build_path = /obj/item/airlock_brace
 	sort_string = "VAGAC"
 
-/datum/design/item/tool/brace_jack
+/datum/design/item/tool/jack
 	name = "maintenance jack"
 	desc = "A special maintenance tool that can be used to remove airlock braces."
 	id = "bracejack"
 	req_tech = list(TECH_ENGINEERING = 3, TECH_MATERIAL = 2)
 	materials = list(MATERIAL_STEEL = 120)
-	build_path = /obj/item/weapon/crowbar/brace_jack
+	build_path = /obj/item/material/twohanded/jack
 	sort_string = "VAGAD"
 
 /datum/design/item/tool/clamp
@@ -49,18 +46,13 @@
 	materials = list(MATERIAL_STEEL = 2000, MATERIAL_GLASS = 100)
 	build_path = /obj/item/inducer
 
-/datum/design/item/tool/inducer/Fabricate()
-	var/obj/item/inducer/I = ..()
-	QDEL_NULL(I.cell)
-	return I
-
 /datum/design/item/tool/price_scanner
 	name = "price scanner"
 	desc = "Using an up-to-date database of various costs and prices, this device estimates the market price of an item up to 0.001% accuracy."
 	id = "price_scanner"
 	req_tech = list(TECH_MATERIAL = 6, TECH_MAGNET = 4)
 	materials = list(MATERIAL_STEEL = 3000, MATERIAL_GLASS = 3000, MATERIAL_SILVER = 250)
-	build_path = /obj/item/device/price_scanner
+	build_path = /obj/item/device/scanner/price
 	sort_string = "VAGAF"
 
 /datum/design/item/tool/experimental_welder
@@ -69,17 +61,26 @@
 	id = "experimental_welder"
 	req_tech = list(TECH_ENGINEERING = 5, TECH_PHORON = 4)
 	materials = list(MATERIAL_STEEL = 120, MATERIAL_GLASS = 50)
-	build_path = /obj/item/weapon/weldingtool/experimental
+	build_path = /obj/item/weldingtool/experimental
 	sort_string = "VAGAG"
 
 /datum/design/item/tool/shield_diffuser
 	name = "portable shield diffuser"
 	desc = "A small handheld device designed to disrupt energy barriers."
 	id = "portable_shield_diffuser"
-	req_tech = list(TECH_MAGNET = 5, TECH_POWER = 5, TECH_ILLEGAL = 2)
+	req_tech = list(TECH_MAGNET = 5, TECH_POWER = 5, TECH_ESOTERIC = 2)
 	materials = list(MATERIAL_STEEL = 5000, MATERIAL_GLASS = 5000, MATERIAL_GOLD = 2000, MATERIAL_SILVER = 2000)
-	build_path = /obj/item/weapon/shield_diffuser
+	build_path = /obj/item/shield_diffuser
 	sort_string = "VAGAH"
+
+/datum/design/item/tool/rpd
+	name = "rapid piping device"
+	desc = "A compacted and complicated device, that relies on compressed matter to dispense piping on the move."
+	id = "rpd"
+	req_tech = list(TECH_ENGINEERING = 6, TECH_MATERIAL = 6)
+	materials = list(MATERIAL_STEEL = 15000, MATERIAL_GLASS = 10000, MATERIAL_SILVER = 2000)
+	build_path = /obj/item/rpd
+	sort_string = "VAGAI"
 
 /datum/design/item/tool/oxycandle
 	name = "oxycandle"
@@ -89,13 +90,13 @@
 	materials = list(MATERIAL_STEEL = 3000)
 	chemicals = list(/datum/reagent/sodiumchloride = 20, /datum/reagent/acetone = 20)
 	build_path = /obj/item/device/oxycandle
-	sort_string = "VAGAI"
+	sort_string = "VAGAJ"
 
 /datum/design/item/tool/arc_welder
-	name = "arc welder"
-	desc = "A man-portable arc welding tool."
+	name = "arc welding tool"
+	desc = "a portable welder that uses an internal powercell instead of welding fuel."
 	id = "arc_welder"
-	req_tech = list(TECH_ENGINEERING = 6, TECH_POWER = 8)
-	materials = list(MATERIAL_STEEL = 120, MATERIAL_GLASS = 50)
-	build_path = /obj/item/weapon/weldingtool/electric
-	sort_string = "VAGAJ"
+	req_tech = list(TECH_ENGINEERING = 3, TECH_POWER = 4)
+	materials = list(MATERIAL_STEEL = 6000, MATERIAL_GLASS = 6000, MATERIAL_ALUMINIUM = 4000, MATERIAL_PHORON = 4000)
+	build_path = /obj/item/weldingtool/electric
+	sort_string = "VAGAK"

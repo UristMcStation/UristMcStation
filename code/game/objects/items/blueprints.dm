@@ -1,72 +1,86 @@
-#define ROOM_ERR_SPACE 0
-#define ROOM_ERR_TOOLARGE 1
-#define BORDER_NONE 0
-#define BORDER_SPACE 1
-#define BORDER_BETWEEN 2
-#define BORDER_2NDTILE 3
-
 /obj/item/blueprints
 	name = "blueprints"
-	desc = "Blueprints for building a station. There is a \"Classified\" stamp and several coffee stains on it."
+	desc = "Blueprints..."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "blueprints"
 	attack_verb = list("attacked", "bapped", "hit")
+	var/const/AREA_ERRNONE = 0
+	var/const/AREA_STATION = 1
+	var/const/AREA_SPACE =   2
+	var/const/AREA_SPECIAL = 3
 
-/obj/item/blueprints/New()
-	..()
-	desc = "Blueprints of the [station_name()]. There is a \"Classified\" stamp and several coffee stains on it."
+	var/const/BORDER_ERROR = 0
+	var/const/BORDER_NONE = 1
+	var/const/BORDER_BETWEEN =   2
+	var/const/BORDER_2NDTILE = 3
+	var/const/BORDER_SPACE = 4
+
+	var/const/ROOM_ERR_LOLWAT = 0
+	var/const/ROOM_ERR_SPACE = -1
+	var/const/ROOM_ERR_TOOLARGE = -2
+
+/obj/item/blueprints/Initialize()
+	. = ..()
+	desc = "Blueprints of \the [station_name()]. There is a \"Classified\" stamp and several coffee stains on it."
 
 /obj/item/blueprints/attack_self(mob/M as mob)
-	if(!istype(M,/mob/living/carbon/human))
+	if (!istype(M,/mob/living/carbon/human))
 		to_chat(M, "This stack of blue paper means nothing to you.")//monkeys cannot into projecting
-		return
 
+		return
 	interact()
-	return
 
-/obj/item/blueprints/Topic(href, href_list)
-	..()
-	if ((usr.restrained() || usr.stat || usr.get_active_hand() != src))
-		return
-	if (!href_list["action"])
-		return
+/obj/item/blueprints/DefaultTopicState()
+	return GLOB.physical_state
 
+/obj/item/blueprints/OnTopic(user, href_list)
 	switch(href_list["action"])
-		if("create_area")
+		if ("create_area")
+			if (get_area_type()!=AREA_SPACE)
+				interact()
+				return
 			create_area()
 		if ("edit_area")
+			if (get_area_type()!=AREA_STATION)
+				interact()
+				return
 			edit_area()
-		if("merge_area")
-			merge_area()
-		if("add_to_area")
-			add_to_area()
-		if ("remove_area")
+		if ("delete_area")
+			//skip the sanity checking, delete_area() does it anyway
 			delete_area()
 
-/obj/item/blueprints/interact() //test
-	var/area/A = getArea(usr)
-	var/text = "<HTML><head><title>[src]</title></head><BODY>"
-	text += "<p>According to the blueprints, you are now in <b>[A.name]</b>.</p>"
-	if(!istype(A, /area/turbolift))
-		text += "<br>" + (CheckArea(A) ? "<a href='?src=\ref[src];action=create_area'>Create Area</a>" : "Create Area - An area already exists here")
-		text += "<br>" + (CheckArea(A) ? "Modify Area - You can't edit this area!" : "<a href='?src=\ref[src];action=edit_area'>Modify Area</a>")
-		text += "<br>" + (CheckArea(A) ? "Merge Areas - You can't combine this area!" : A.apc ? "Merge Areas - The APC must be removed first" : getAdjacentAreas() ? "<a href='?src=\ref[src];action=merge_area'>Merge Areas</a>" : "Merge Areas - There are no valid areas to merge with")
-		text += "<br>" + (CheckArea(A) ? "Add to Area - You can't add to this area!" : A.apc ? "Add to Area - The APC must be removed first" : getAdjacentAreas(1) ? "<a href='?src=\ref[src];action=add_to_area'>Add to Area</a>" : "Add to Area - There are no valid areas to add tiles from")
-		text += "<br>" + (CheckArea(A) ? "Remove Area - You can't remove this area!" : A.apc ? "Remove Area - The APC must be removed first" : "<a href='?src=\ref[src];action=remove_area'>Remove Area</a>")
-	else
-		text += "You may not touch turbolifts"
-		text += "</BODY></HTML>"
-	usr << browse(text, "window=blueprints")
-	onclose(usr, "blueprints")
+/obj/item/blueprints/proc/get_header()
+	return "<h2>[station_name()] blueprints</h2><small>Property of [GLOB.using_map.company_name]. For heads of staff only. Store in high-secure storage.</small><hr>"
 
-/obj/item/blueprints/proc/CheckArea(var/area/A)
-	if(isspace(A) || isplanet(A))
-		return 1
+/obj/item/blueprints/interact()
+	var/area/A = get_area(src)
+	var/list/dat =  list(get_header())
 
-/obj/item/blueprints/proc/getArea(var/o)
-	var/turf/T = get_turf(o)
-	var/area/A = T.loc
-	return A
+	switch (get_area_type(A))
+		if (AREA_SPACE)
+			dat += "According \the [src], you are now <b>outside the facility</b>."
+			dat += "<a href='?src=\ref[src];action=create_area'>Mark this place as new area.</a>"
+		if (AREA_STATION)
+			dat += "According \the [src], you are now in <b>\"[A.name]\"</b>."
+			dat += "You may <a href='?src=\ref[src];action=edit_area'> move an amendment</a> to the drawing."
+			if (A.apc)
+				dat += "You can't erase this area, because it has an APC.</p>"
+			else
+				dat += "You <a href='?src=\ref[src];action=delete_area'>erase a part of it</a>.</p>"
+		else
+			dat += "This place isn't noted on \the [src]."
+	var/datum/browser/popup = new(usr, "blueprints", name, 290, 300)
+	popup.set_content(jointext(dat, "<br>"))
+	popup.open()
+
+/obj/item/blueprints/proc/get_area_type(area/A = get_area(src))
+	if(istype(A, /area/space))
+		return AREA_SPACE
+
+	if(A.z in GLOB.using_map.station_levels)
+		return AREA_STATION
+
+	return AREA_SPECIAL
 
 /obj/item/blueprints/proc/create_area()
 //	log_debug("create_area")
@@ -75,133 +89,58 @@
 	if(!istype(res,/list))
 		switch(res)
 			if(ROOM_ERR_SPACE)
-				to_chat(usr, "<span class='warning'>The new area must be completely airtight!</span>")
+				to_chat(usr, SPAN_WARNING("The new area must be completely airtight!"))
 				return
 			if(ROOM_ERR_TOOLARGE)
-				to_chat(usr, "<span class='warning'>The new area too large!</span>")
+				to_chat(usr, SPAN_WARNING("The new area too large!"))
 				return
 			else
-				to_chat(usr, "<span class='warning'>Error! Please notify administration!</span>")
+				to_chat(usr, SPAN_WARNING("Error! Please notify administration!"))
 				return
 	var/list/turf/turfs = res
 	var/str = sanitizeSafe(input("New area name:","Blueprint Editing", ""), MAX_NAME_LEN)
 	if(!str || !length(str)) //cancel
 		return
 	if(length(str) > 50)
-		to_chat(usr, "<span class='warning'>Name too long.</span>")
+		to_chat(usr, SPAN_WARNING("Name too long."))
 		return
 	var/area/A = new
 	A.SetName(str)
-	//var/ma
-	//ma = A.master ? "[A.master]" : "(null)"
-//	log_debug(create_area: <br>A.name=[A.name]<br>A.tag=[A.tag]<br>A.master=[ma]")
-
 	A.power_equip = 0
 	A.power_light = 0
 	A.power_environ = 0
 	A.always_unpowered = 0
-	move_turfs_to_area(turfs, A)
-
+	for(var/T in turfs)
+		ChangeArea(T, A)
 	A.always_unpowered = 0
-
-	spawn(5)
-		//ma = A.master ? "[A.master]" : "(null)"
-//		log_debug)create_area(5): <br>A.name=[A.name]<br>A.tag=[A.tag]<br>A.master=[ma]")
-
-		interact()
-	return
-
-
-/obj/item/blueprints/proc/move_turfs_to_area(var/list/turf/turfs, var/area/A)
-	A.contents.Add(turfs)
+	interact()
 
 /obj/item/blueprints/proc/edit_area()
-	var/area/A = getArea(usr)
-//	log_debug(edit_area")
+	var/area/A = get_area(src)
 
-	var/prevname = "[A.name]"
+	var/prevname = A.name
 	var/str = sanitizeSafe(input("New area name:","Blueprint Editing", prevname), MAX_NAME_LEN)
 	if(!str || !length(str) || str==prevname) //cancel
 		return
 	if(length(str) > 50)
-		to_chat(usr, "<span class='warning'>Text too long.</span>")
+		to_chat(usr, SPAN_WARNING("Text too long."))
 		return
 	set_area_machinery_title(A,str,prevname)
 	A.SetName(str)
-	to_chat(usr, "<span class='notice'>You set the area '[prevname]' title to '[str]'.</span>")
+	to_chat(usr, SPAN_NOTICE("You set the area '[prevname]' title to '[str]'."))
 	interact()
-	return
-
-/obj/item/blueprints/proc/merge_area()
-	var/area/A = getArea(usr)
-	var/list/areas = getAdjacentAreas()
-	if(areas)
-		var/area/oldArea = input("Choose area to merge into [A.name]", "Area") as null|anything in areas
-		if(!oldArea)
-			interact()
-			return
-		for(var/turf/T in oldArea.contents)
-			move_turfs_to_area(T, A)
-		to_chat(usr, "<span class='notice'>You merge [oldArea.name] into [A.name]</span>")
-		deleteArea(oldArea)
-	else
-		to_chat(usr, "<span class='notice'>No valid areas could be found. Make sure they don't have an APC.</span>")
-	interact()
-	return
-
-/obj/item/blueprints/proc/add_to_area()
-	var/area/A = getArea(usr)
-	var/list/turfs = list()
-	for(var/dir in GLOB.cardinal)
-		var/turf/T = get_step(usr, dir)
-		var/area/area = getArea(T)
-		if(area && !area.apc && area != A && !istype(area, /area/turbolift))
-			turfs["[dir2text(dir)]"] = T
-	var/turf/T = turfs[input("Choose turf to merge into [A.name]", "Area") as null|anything in turfs]
-	if(!T)
-		interact()
-		return
-	var/area/ar = T.loc
-	move_turfs_to_area(T, A)
-	if(!ar.contents.len)
-		deleteArea(ar)
-	interact()
-	return
-
-/obj/item/blueprints/proc/getAdjacentAreas(var/n = 0)
-	var/area/A = getArea(usr)
-	var/list/areas = list()
-	for(var/dir in GLOB.cardinal)
-		var/turf/T = get_step(usr, dir)
-		var/area/area = getArea(T)
-		if(area && !area.apc && area != A && !istype(area, /area/turbolift))
-			if(n || !isspace(area) || !isplanet(area))
-				areas.Add(area)
-	if(!areas.len)
-		return 0
-	else
-		return areas
 
 /obj/item/blueprints/proc/delete_area()
-	var/area/A = getArea(usr)
-	if (isspace(A) || isplanet(A) || A.apc) //let's just check this one last time, just in case
+	var/area/A = get_area(src)
+	if (get_area_type(A)!=AREA_STATION || A.apc) //let's just check this one last time, just in case
 		interact()
 		return
-	to_chat(usr, "<span class='notice'>You scrub [A.name] off the blueprint.</span>")
+	to_chat(usr, SPAN_NOTICE("You scrub [A.name] off the blueprint."))
 	log_and_message_admins("deleted area [A.name] via station blueprints.")
-	deleteArea(A)
+	qdel(A)
 	interact()
 
-/obj/item/blueprints/proc/deleteArea(var/area/A)
-	var/area/newArea = locate(world.area)
-	for(var/turf/T in A.contents)
-		move_turfs_to_area(T, newArea)
-	spawn(10)
-		A.contents.Cut()
-		qdel(A)
-
-
-/obj/item/blueprints/proc/set_area_machinery_title(var/area/A,var/title,var/oldtitle)
+/obj/item/blueprints/proc/set_area_machinery_title(area/A,title,oldtitle)
 	if (!oldtitle) // or replacetext goes to infinite loop
 		return
 
@@ -217,20 +156,17 @@
 		M.SetName(replacetext(M.name,oldtitle,title))
 	//TODO: much much more. Unnamed airlocks, cameras, etc.
 
-/obj/item/blueprints/proc/check_tile_is_border(var/turf/T2,var/dir)
+/obj/item/blueprints/proc/check_tile_is_border(turf/T2,dir)
 	if (istype(T2, /turf/space))
 		return BORDER_SPACE //omg hull breach we all going to die here
 	if (istype(T2, /turf/simulated/shuttle))
 		return BORDER_SPACE
-	if(istype(T2, /turf/simulated/floor/planet))
-		return BORDER_SPACE
-	if (!isspace(T2.loc) || !isplanet(T2.loc))
+	if (get_area_type(T2.loc)!=AREA_SPACE)
 		return BORDER_BETWEEN
 	if (istype(T2, /turf/simulated/wall))
 		return BORDER_2NDTILE
 	if (!istype(T2, /turf/simulated))
 		return BORDER_BETWEEN
-
 
 	for (var/obj/structure/window/W in T2)
 		if(turn(dir,180) == W.dir)
@@ -245,12 +181,12 @@
 
 	return BORDER_NONE
 
-/obj/item/blueprints/proc/detect_room(var/turf/first)
+/obj/item/blueprints/proc/detect_room(turf/first)
 	var/list/turf/found = new
 	var/list/turf/pending = list(first)
-	while(pending.len)
-	//	if (found.len+pending.len > 300)
-	//		return ROOM_ERR_TOOLARGE
+	while(length(pending))
+		if (length(found)+length(pending) > 300)
+			return ROOM_ERR_TOOLARGE
 		var/turf/T = pending[1] //why byond havent list::pop()?
 		pending -= T
 		for (var/dir in GLOB.cardinal)
@@ -279,3 +215,28 @@
 					return ROOM_ERR_SPACE
 		found+=T
 	return found
+
+//For use on exoplanets
+/obj/item/blueprints/outpost
+	name = "outpost blueprints"
+	icon_state = "blueprints2"
+
+/obj/item/blueprints/outpost/Initialize()
+	. = ..()
+	desc = "Blueprints for the daring souls wanting to establish a planetary outpost. Has some sketchy looking stains and what appears to be bite holes."
+
+/obj/item/blueprints/outpost/get_header()
+	return "<h2>Exoplanetary outpost blueprints</h2><small>Property of [GLOB.using_map.company_name].</small><hr>"
+
+/obj/item/blueprints/outpost/check_tile_is_border(turf/T2,dir)
+	if (istype(T2, /turf/simulated/floor/exoplanet))
+		return BORDER_SPACE
+	. = ..()
+
+/obj/item/blueprints/outpost/get_area_type(area/A = get_area(src))
+	if(istype(A, /area/exoplanet))
+		return AREA_SPACE
+	var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+	if(istype(E))
+		return AREA_STATION
+	return AREA_SPECIAL

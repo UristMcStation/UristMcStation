@@ -1,14 +1,14 @@
 //Contains the rapid construction device.
 
-/obj/item/weapon/rcd
+/obj/item/rcd
 	name = "rapid construction device"
 	desc = "Small, portable, and far, far heavier than it looks, this gun-shaped device has a port into which one may insert compressed matter cartridges."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "rcd"
 	item_state = "rcd"
 	opacity = 0
-	density = 0
-	anchored = 0.0
+	density = FALSE
+	anchored = FALSE
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	force = 10.0
@@ -23,7 +23,7 @@
 	var/max_stored_matter = 120
 
 	var/work_id = 0
-	var/decl/hierarchy/rcd_mode/work_mode
+	var/singleton/hierarchy/rcd_mode/work_mode
 	var/static/list/work_modes
 
 	var/canRwall = 0
@@ -31,102 +31,76 @@
 
 	var/crafting = FALSE //Rapid Crossbow Device memes
 
-/obj/item/weapon/rcd/Initialize()
+/obj/item/rcd/Initialize()
 	. = ..()
 
 	if(!work_modes)
-		var/decl/hierarchy/h = decls_repository.get_decl(/decl/hierarchy/rcd_mode)
+		var/singleton/hierarchy/h = GET_SINGLETON(/singleton/hierarchy/rcd_mode)
 		work_modes = h.children
 	work_mode = work_modes[1]
 
-/obj/item/weapon/rcd/attack()
+/obj/item/rcd/attack()
 	return 0
 
-/obj/item/weapon/rcd/proc/can_use(var/mob/user,var/turf/T)
+/obj/item/rcd/proc/can_use(mob/user,turf/T)
 	return (user.Adjacent(T) && user.get_active_hand() == src && !user.incapacitated())
 
-/obj/item/weapon/rcd/examine(var/user)
+/obj/item/rcd/examine(mob/user)
 	. = ..()
-	if(src.type == /obj/item/weapon/rcd && loc == user)
+	if(src.type == /obj/item/rcd && loc == user)
 		to_chat(user, "The current mode is '[work_mode]'")
 		to_chat(user, "It currently holds [stored_matter]/[max_stored_matter] matter-units.")
 
-/obj/item/weapon/rcd/New()
+/obj/item/rcd/New()
 	..()
 	src.spark_system = new /datum/effect/effect/system/spark_spread
 	spark_system.set_up(5, 0, src)
 	spark_system.attach(src)
 	update_icon()	//Initializes the ammo counter
 
-/obj/item/weapon/rcd/Destroy()
+/obj/item/rcd/Destroy()
 	qdel(spark_system)
 	spark_system = null
 	return ..()
 
-/obj/item/weapon/rcd/attackby(obj/item/weapon/W, mob/user)
+/obj/item/rcd/attackby(obj/item/W, mob/user)
 
-	if(istype(W, /obj/item/weapon/rcd_ammo))
-		var/obj/item/weapon/rcd_ammo/cartridge = W
-		if((stored_matter + cartridge.remaining) > max_stored_matter)
-			to_chat(user, "<span class='notice'>The RCD can't hold that many additional matter-units.</span>")
+	if(istype(W, /obj/item/rcd_ammo))
+		var/obj/item/rcd_ammo/cartridge = W
+		if(stored_matter >= max_stored_matter)
+			to_chat(user, SPAN_NOTICE("The RCD is at maximum capacity."))
 			return
-		stored_matter += cartridge.remaining
-		qdel(W)
+		var/matter_exchange = min(cartridge.remaining,max_stored_matter - stored_matter)
+		stored_matter += matter_exchange
+		cartridge.remaining -= matter_exchange
+		if(cartridge.remaining <= 0)
+			qdel(W)
+		cartridge.matter = list(MATERIAL_STEEL = 500 * cartridge.remaining,MATERIAL_GLASS = 250 * cartridge.remaining)
 		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>The RCD now holds [stored_matter]/[max_stored_matter] matter-units.</span>")
+		to_chat(user, SPAN_NOTICE("The RCD now holds [stored_matter]/[max_stored_matter] matter-units."))
 		update_icon()
 		return
-
-	//Rapid Crossbow Device crafting memes
 
 	if(isScrewdriver(W))
 		crafting = !crafting
 		if(!crafting)
-			to_chat(user, "<span class='notice'>You reassemble the RCD</span>")
+			to_chat(user, SPAN_NOTICE("You reassemble the RCD"))
 		else
-			to_chat(user, "<span class='notice'>The RCD can now be modified.</span>")
+			to_chat(user, SPAN_NOTICE("The RCD can now be modified."))
 		src.add_fingerprint(user)
 		return
 
-	if((crafting) && (istype(W,/obj/item/weapon/crossbowframe)))
-		var/obj/item/weapon/crossbowframe/F = W
-		if(F.buildstate == 5)
-			if(!user.unEquip(src))
-				return
-			qdel(F)
-			var/obj/item/weapon/gun/launcher/crossbow/rapidcrossbowdevice/CB = new(get_turf(user))
-			forceMove(CB)
-			CB.stored_matter = src.stored_matter
-			add_fingerprint(user)
-			return
-		else
-			to_chat(user, "<span class='notice'>You need to fully assemble the crossbow frame first!</span>")
-			return
 	..()
 
-/obj/item/weapon/rcd/attack_self(mob/user)
-	..()
+/obj/item/rcd/attack_self(mob/user)
 	//Change the mode
-	work_mode = null
+	work_id++
+	work_mode = next_in_list(work_mode, work_modes)
+	to_chat(user, SPAN_NOTICE("Changed mode to '[work_mode]'"))
+	playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
+	if(prob(20)) src.spark_system.start()
 
-	var/list/choices = list()
-
-	if(LAZYLEN(work_modes))
-		for(var/decl/hierarchy/rcd_mode/D in work_modes)
-			var/image/radial_button = image(icon = D.radial_icon, icon_state = D.radial_icon_state)
-			radial_button.name = "[D.name]"
-			choices[D] = radial_button
-
- 		work_mode = show_radial_menu(user, src, choices, radius = 42, require_near = TRUE, tooltips = TRUE)
-
-	if(work_mode)
-		work_id++
-		to_chat(user, "<span class='notice'>Changed mode to '[work_mode]'</span>")
-		playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
-		if(prob(20))
-			src.spark_system.start()
-
-/obj/item/weapon/rcd/afterattack(atom/A, mob/user, proximity)
+/obj/item/rcd/afterattack(atom/A, mob/user, proximity)
 	if(!proximity) return
 	if(disabled && !isrobot(user))
 		return 0
@@ -135,25 +109,25 @@
 	work_id++
 	work_mode.do_work(src, A, user)
 
-/obj/item/weapon/rcd/proc/useResource(var/amount, var/mob/user)
+/obj/item/rcd/proc/useResource(amount, mob/user)
 	if(stored_matter < amount)
 		return 0
 	stored_matter -= amount
 	queue_icon_update()	//Updates the ammo counter if ammo is succesfully used
 	return 1
 
-/obj/item/weapon/rcd/on_update_icon()	//For the fancy "ammo" counter
+/obj/item/rcd/on_update_icon()	//For the fancy "ammo" counter
 	overlays.Cut()
 	var/ratio = 0
 	ratio = stored_matter / max_stored_matter
 	ratio = max(round(ratio, 0.10) * 100, 10)
-	overlays += "[icon_state]-[ratio]"
+	overlays += "rcd-[ratio]"
 
-/obj/item/weapon/rcd/proc/lowAmmo(var/mob/user)	//Kludge to make it animate when out of ammo, but I guess you can make it blow up when it's out of ammo or something
-	to_chat(user, "<span class='warning'>The \'Low Ammo\' light on the device blinks yellow.</span>")
+/obj/item/rcd/proc/lowAmmo(mob/user)	//Kludge to make it animate when out of ammo, but I guess you can make it blow up when it's out of ammo or something
+	to_chat(user, SPAN_WARNING("The \'Low Ammo\' light on the device blinks yellow."))
 	flick("[icon_state]-empty", src)
 
-/obj/item/weapon/rcd_ammo
+/obj/item/rcd_ammo
 	name = "compressed matter cartridge"
 	desc = "A highly-compressed matter cartridge usable in rapid construction (and deconstruction) devices, such as railguns."
 	icon = 'icons/obj/ammo.dmi'
@@ -164,12 +138,12 @@
 	matter = list(MATERIAL_STEEL = 15000,MATERIAL_GLASS = 7500)
 	var/remaining = 30
 
-/obj/item/weapon/rcd_ammo/examine(var/mob/user)
-	. = ..(user,1)
-	if(.)
-		to_chat(user, "<span class='notice'>It has [remaining] unit\s of matter left.</span>")
+/obj/item/rcd_ammo/examine(mob/user, distance)
+	. = ..()
+	if(distance <= 1)
+		to_chat(user, SPAN_NOTICE("It has [remaining] unit\s of matter left."))
 
-/obj/item/weapon/rcd_ammo/large
+/obj/item/rcd_ammo/large
 	name = "high-capacity matter cartridge"
 	desc = "Do not ingest."
 	icon_state = "rcdlarge"
@@ -177,10 +151,11 @@
 	remaining = 120
 	origin_tech = list(TECH_MATERIAL = 4)
 
-/obj/item/weapon/rcd/borg
+/obj/item/rcd/borg
 	canRwall = 1
+	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_NO_TOOLS
 
-/obj/item/weapon/rcd/borg/useResource(var/amount, var/mob/user)
+/obj/item/rcd/borg/useResource(amount, mob/user)
 	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user
 		if(R.cell)
@@ -190,30 +165,30 @@
 				return 1
 	return 0
 
-/obj/item/weapon/rcd/borg/attackby()
-	return
-
-/obj/item/weapon/rcd/borg/can_use(var/mob/user,var/turf/T)
+/obj/item/rcd/borg/can_use(mob/user,turf/T)
 	return (user.Adjacent(T) && !user.incapacitated())
 
 
-/obj/item/weapon/rcd/mounted/useResource(var/amount, var/mob/user)
-	var/cost = amount*70 //Arbitary number that hopefully gives it as many uses as a plain RCD.
+/obj/item/rcd/mounted
+	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_NO_TOOLS
+
+/obj/item/rcd/mounted/useResource(amount, mob/user)
+	var/cost = amount*20 // About 5 deconstructions of walls on a standard cell (1k), less if it involves airlocks.
+	var/obj/item/cell/cell
 	if(istype(loc,/obj/item/rig_module))
 		var/obj/item/rig_module/module = loc
 		if(module.holder && module.holder.cell)
-			if(module.holder.cell.charge >= cost)
-				module.holder.cell.use(cost)
-				return 1
+			cell = module.holder.cell
+	else if(loc) cell = loc.get_cell()
+	if(cell && cell.charge >= cost)
+		cell.use(cost)
+		return 1
 	return 0
 
-/obj/item/weapon/rcd/mounted/attackby()
-	return
-
-/obj/item/weapon/rcd/mounted/can_use(var/mob/user,var/turf/T)
+/obj/item/rcd/mounted/can_use(mob/user,turf/T)
 	return (user.Adjacent(T) && !user.incapacitated())
 
-/obj/item/weapon/rcd/shipwright
+/obj/item/rcd/shipwright
 	name = "shipwright RCD"
 	desc = "Small, portable, and far, far heavier than it looks, this gun-shaped device has a port into which one may insert compressed matter cartridges. This is an advanced variant that can deconstruct reinforced walls."
 	item_icons = DEF_URIST_INHANDS
@@ -222,8 +197,8 @@
 	item_state = "rcd"
 	canRwall = TRUE
 
-/decl/hierarchy/rcd_mode
-	hierarchy_type = /decl/hierarchy/rcd_mode
+/singleton/hierarchy/rcd_mode
+	hierarchy_type = /singleton/hierarchy/rcd_mode
 	var/cost
 	var/delay
 	var/handles_type
@@ -231,9 +206,9 @@
 	var/radial_icon = 'icons/screen/radial.dmi'
 	var/radial_icon_state
 
-/decl/hierarchy/rcd_mode/proc/do_work(var/obj/item/weapon/rcd/rcd, var/atom/target, var/user)
+/singleton/hierarchy/rcd_mode/proc/do_work(obj/item/rcd/rcd, atom/target, user)
 	for(var/child in children)
-		var/decl/hierarchy/rcd_mode/rcdm = child
+		var/singleton/hierarchy/rcd_mode/rcdm = child
 		if(!rcdm.can_handle_work(rcd, target))
 			continue
 		if(!rcd.useResource(rcdm.cost, user))
@@ -245,7 +220,7 @@
 
 		if(rcdm.delay)
 			var/work_id = rcd.work_id
-			if(!(do_after(user, rcdm.delay, target) && work_id == rcd.work_id && rcd.can_use(user, target) && rcdm.can_handle_work(rcd, target)))
+			if(!(do_after(user, rcdm.delay, target, DO_PUBLIC_UNIQUE) && work_id == rcd.work_id && rcd.can_use(user, target) && rcdm.can_handle_work(rcd, target)))
 				return FALSE
 
 		rcdm.do_handle_work(target)
@@ -254,95 +229,178 @@
 
 	return FALSE
 
-/decl/hierarchy/rcd_mode/proc/can_handle_work(var/obj/item/weapon/rcd/rcd, var/atom/target)
-	return istype(target, handles_type)
+/singleton/hierarchy/rcd_mode/proc/can_handle_work(obj/item/rcd/rcd, atom/target)
+	var/area/A = get_area(get_turf(target))
+	return istype(target, handles_type) && A.can_modify_area()
 
-/decl/hierarchy/rcd_mode/proc/do_handle_work(var/atom/target)
+/singleton/hierarchy/rcd_mode/proc/do_handle_work(atom/target)
 	var/result = get_work_result(target)
 	if(ispath(result,/turf))
 		var/turf/T = target
-		T.ChangeTurf(result)
+		T.ChangeTurf(result, keep_air = TRUE)
 	else if(result)
 		new result(target)
 	else
 		qdel(target)
 
-/decl/hierarchy/rcd_mode/proc/get_work_result(var/atom/target)
+/singleton/hierarchy/rcd_mode/proc/get_work_result(atom/target)
 	return work_type
 
-/decl/hierarchy/rcd_mode/proc/work_message(var/atom/target, var/mob/user, var/rcd)
+/singleton/hierarchy/rcd_mode/proc/work_message(atom/target, mob/user, rcd)
 	var/message
 	if(work_type)
 		var/atom/work = work_type
-		message = "<span class='notice'>You begin constructing \a [initial(work.name)].</span>"
+		message = SPAN_NOTICE("You begin constructing \a [initial(work.name)].")
 	else
-		message = "<span class='notice'>You begin construction.</span>"
-	user.visible_message("<span class='notice'>\The [user] uses \a [rcd] to construct something.</span>", message)
+		message = SPAN_NOTICE("You begin construction.")
+	user.visible_message(SPAN_NOTICE("\The [user] uses \a [rcd] to construct something."), message)
 
 /*
 	Airlock construction
 */
-/decl/hierarchy/rcd_mode/airlock
+/singleton/hierarchy/rcd_mode/airlock
 	name = "Airlock"
-	radial_icon_state = "airlock"
-/decl/hierarchy/rcd_mode/airlock/basic
+
+/singleton/hierarchy/rcd_mode/airlock/basic
 	cost = 10
 	delay = 5 SECONDS
 	handles_type = /turf/simulated/floor
 	work_type = /obj/machinery/door/airlock
 
-/decl/hierarchy/rcd_mode/airlock/basic/can_handle_work(var/rcd, var/turf/target)
+/singleton/hierarchy/rcd_mode/airlock/basic/can_handle_work(rcd, turf/target)
 	return ..() && !target.contains_dense_objects() && !(locate(/obj/machinery/door/airlock) in target)
 
 /*
 	Floor and Wall construction
 */
-/decl/hierarchy/rcd_mode/floor_and_walls
+/singleton/hierarchy/rcd_mode/floor_and_walls
 	name = "Floor & Walls"
 	radial_icon_state = "wallfloor"
 
-/decl/hierarchy/rcd_mode/floor_and_walls/base_turf
+/singleton/hierarchy/rcd_mode/floor_and_walls/base_turf
 	cost = 1
 	delay = 2 SECONDS
-	work_type = /turf/simulated/floor/airless
+	work_type = /turf/simulated/floor/plating
 
-/decl/hierarchy/rcd_mode/floor_and_walls/base_turf/can_handle_work(var/rcd, var/turf/target)
-	return istype(target) && (isspace(target) || istype(target, get_base_turf_by_area(target)))
+/singleton/hierarchy/rcd_mode/floor_and_walls/base_turf/can_handle_work(rcd, turf/target)
+	var/area/A = get_area(target)
+	return istype(target) && (isspaceturf(target) || isopenspace(target) || istype(target, get_base_turf_by_area(target))) && A.can_modify_area()
 
-/decl/hierarchy/rcd_mode/floor_and_walls/floor_turf
+/singleton/hierarchy/rcd_mode/floor_and_walls/floor_turf
 	cost = 3
 	delay = 2 SECONDS
 	handles_type = /turf/simulated/floor
 	work_type = /turf/simulated/wall
 
 /*
+	Low wall construction
+*/
+
+/singleton/hierarchy/rcd_mode/wall_frame
+	name = "Low Walls"
+
+/singleton/hierarchy/rcd_mode/wall_frame/steel
+	cost = 1
+	delay = 2 SECONDS
+	handles_type = /turf/simulated/floor
+	work_type = /obj/structure/wall_frame
+
+/singleton/hierarchy/rcd_mode/wall_frame/steel/can_handle_work(rcd, turf/target)
+	return ..() && !target.contains_dense_objects() && !(locate(/obj/structure/wall_frame) in target)
+
+
+/*
+	Machine and Computer frame construction
+*/
+
+/singleton/hierarchy/rcd_mode/machine_frame
+	name = "Machine frames"
+
+/singleton/hierarchy/rcd_mode/machine_frame/basic
+	cost = 1
+	delay = 2 SECONDS
+	handles_type = /turf/simulated/floor
+	work_type = /obj/machinery/constructable_frame/machine_frame/deconstruct
+
+/singleton/hierarchy/rcd_mode/machine_frame/basic/can_handle_work(rcd, turf/target)
+	return ..() && !target.contains_dense_objects() && !(locate(/obj/machinery) in target)
+
+/singleton/hierarchy/rcd_mode/computer_frame
+	name = "Computer frames"
+
+/singleton/hierarchy/rcd_mode/computer_frame/basic
+	cost = 1
+	delay = 2 SECONDS
+	handles_type = /turf/simulated/floor
+	work_type = /obj/machinery/constructable_frame/computerframe/deconstruct
+
+/singleton/hierarchy/rcd_mode/computer_frame/basic/can_handle_work(rcd, turf/target)
+	return ..() && !target.contains_dense_objects() && !(locate(/obj/machinery) in target)
+
+/*
 	Deconstruction
 */
-/decl/hierarchy/rcd_mode/deconstruction
+/singleton/hierarchy/rcd_mode/deconstruction
 	name = "Deconstruction"
 	radial_icon_state = "delete"
 
-/decl/hierarchy/rcd_mode/deconstruction/work_message(var/atom/target, var/mob/user, var/rcd)
-	user.visible_message("<span class='warning'>\The [user] is using \a [rcd] to deconstruct \the [target]!</span>", "<span class='warning'>You are deconstructing \the [target]!</span>")
+/singleton/hierarchy/rcd_mode/deconstruction/work_message(atom/target, mob/user, rcd)
+	user.visible_message(SPAN_WARNING("\The [user] is using \a [rcd] to deconstruct \the [target]!"), SPAN_WARNING("You are deconstructing \the [target]!"))
 
-/decl/hierarchy/rcd_mode/deconstruction/airlock
+/singleton/hierarchy/rcd_mode/deconstruction/airlock
 	cost = 30
 	delay = 5 SECONDS
 	handles_type = /obj/machinery/door/airlock
 
-/decl/hierarchy/rcd_mode/deconstruction/floor
+/singleton/hierarchy/rcd_mode/deconstruction/airlock_assembly
+	cost = 4
+	delay = 2 SECONDS
+	handles_type = /obj/structure/door_assembly
+
+/singleton/hierarchy/rcd_mode/deconstruction/firedoor_assembly
+	cost = 4
+	delay = 2 SECONDS
+	handles_type = /obj/structure/firedoor_assembly
+
+/singleton/hierarchy/rcd_mode/deconstruction/floor
 	cost = 9
 	delay = 2 SECONDS
 	handles_type = /turf/simulated/floor
 
-/decl/hierarchy/rcd_mode/deconstruction/floor/get_work_result(var/target)
+/singleton/hierarchy/rcd_mode/deconstruction/floor/get_work_result(target)
 	return get_base_turf_by_area(target)
 
-/decl/hierarchy/rcd_mode/deconstruction/wall
+/singleton/hierarchy/rcd_mode/deconstruction/wall
 	cost = 9
 	delay = 2 SECONDS
 	handles_type = /turf/simulated/wall
 	work_type = /turf/simulated/floor
 
-/decl/hierarchy/rcd_mode/deconstruction/wall/can_handle_work(var/obj/item/weapon/rcd/rcd, var/turf/simulated/wall/target)
+/singleton/hierarchy/rcd_mode/deconstruction/wall/can_handle_work(obj/item/rcd/rcd, turf/simulated/wall/target)
 	return ..() && (rcd.canRwall || !target.reinf_material)
+
+/singleton/hierarchy/rcd_mode/deconstruction/wall_frame
+	cost = 4
+	delay = 2 SECONDS
+	handles_type = /obj/structure/wall_frame
+
+/singleton/hierarchy/rcd_mode/deconstruction/wall_frame/can_handle_work(obj/item/rcd/rcd, obj/structure/wall_frame/target)
+	. = ..()
+	if (.)
+		var/turf/T = get_turf(target)
+		var/area/A = get_area(T)
+		if ((locate(/obj/structure/window) in T) || (locate(/obj/structure/grille) in T) || !A.can_modify_area())
+			return FALSE
+
+/singleton/hierarchy/rcd_mode/deconstruction/window
+	cost = 4
+	delay = 2 SECONDS
+	handles_type = /obj/structure/window
+
+/singleton/hierarchy/rcd_mode/deconstruction/window/can_handle_work(obj/item/rcd/rcd, obj/structure/window/target)
+	return ..() && (rcd.canRwall || !target.reinf_material)
+
+/singleton/hierarchy/rcd_mode/deconstruction/grille
+	cost = 2
+	delay = 1 SECOND
+	handles_type = /obj/structure/grille

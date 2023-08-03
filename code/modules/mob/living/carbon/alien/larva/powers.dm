@@ -1,4 +1,4 @@
-/mob/living/carbon/alien/larva/proc/check_can_infest(var/mob/living/M)
+/mob/living/carbon/alien/larva/proc/check_can_infest(mob/living/M)
 	if(!src)
 		return 0
 	if(!istype(loc, /turf))
@@ -33,7 +33,7 @@
 		if(src.Adjacent(H) && H.lying)
 			choices += H
 
-	if(!choices.len)
+	if(!length(choices))
 		to_chat(src, "<span class='danger'>There are no viable hosts within range.</span>")
 		return
 
@@ -51,7 +51,7 @@
 
 	var/obj/item/organ/external/E = pick(H.organs)
 	to_chat(src, "<span class='danger'>You burrow deeply into \the [H]'s [E.name]!</span>")
-	var/obj/item/weapon/holder/holder = new (loc)
+	var/obj/item/holder/holder = new (loc)
 	src.forceMove(holder)
 	holder.SetName(src.name)
 	E.embed(holder,0,"\The [src] burrows deeply into \the [H]'s [E.name]!")
@@ -93,7 +93,7 @@
 	if(!istype(H))
 		to_chat(src, "You are not inside a host.")
 		return
-	var/obj/item/weapon/holder/holder = loc
+	var/obj/item/holder/holder = loc
 	var/obj/item/organ/external/affected
 	if(istype(holder))
 		for(var/obj/item/organ/external/organ in H.organs) //Grab the organ holding the implant.

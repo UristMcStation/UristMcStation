@@ -6,7 +6,6 @@
 	shields = 800
 	maxHealth = 800
 	health = 800
-	wander = 1
 	aggressive = 1
 
 /mob/living/simple_animal/hostile/overmapship/debug/New() //light shield for now to mess with some debug stuff
@@ -25,7 +24,6 @@
 
 /mob/living/simple_animal/hostile/overmapship/nanotrasen
 	color = "#4286f4"
-	wander = 1 //temporary
 	hiddenfaction = /datum/factions/nanotrasen
 
 /mob/living/simple_animal/hostile/overmapship/nanotrasen/ntmerchant

@@ -2,10 +2,10 @@
 //list that, when the nymph dies, transfers the controler's mind
 //to the next nymph in the list.
 
-/mob/living/carbon/alien/diona/proc/set_next_nymph(var/mob/living/carbon/alien/diona/D)
+/mob/living/carbon/alien/diona/proc/set_next_nymph(mob/living/carbon/alien/diona/D)
 	next_nymph = D
 
-/mob/living/carbon/alien/diona/proc/set_previous_nymph(var/mob/living/carbon/alien/diona/D)
+/mob/living/carbon/alien/diona/proc/set_previous_nymph(mob/living/carbon/alien/diona/D)
 	previous_nymph = D
 // When there are only two nymphs left in a list and one is to be removed,
 // call this to null it out.
@@ -41,7 +41,7 @@
 
 	var/obj/structure/diona_gestalt/gestalt = loc
 	if(istype(gestalt))
-		gestalt.shed_nymph(src, TRUE, FALSE)
+		gestalt.shed_atom(src, TRUE, FALSE)
 
 	if(holding_item)
 		unEquip(holding_item)
@@ -57,4 +57,4 @@
 /mob/living/carbon/alien/diona/Destroy()
 	if (previous_nymph || next_nymph)
 		remove_from_list()
-	..()
+	return ..()

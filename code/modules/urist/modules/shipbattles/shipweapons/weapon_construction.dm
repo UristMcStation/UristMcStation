@@ -7,8 +7,9 @@
 	desc = "A mounting for a powerful ship-to-ship weapon."
 	icon = 'icons/urist/structures&machinery/64x64machinery.dmi'
 	icon_state = "hardpoint"
-	anchored = 1
-	density = 0
+	anchored = TRUE
+	density = FALSE
+	layer = BELOW_OBJ_LAYER
 	var/attached = FALSE
 
 /obj/structure/shipweapons/hardpoint/ex_act()
@@ -33,8 +34,8 @@
 	desc = "It's a ship-to-ship weapon assembly. Wrench it into a hardpoint to make it functional, or just chuck it out an airlock at an enemy vessel and see how far that gets you."
 	icon = 'icons/urist/structures&machinery/64x64machinery.dmi'
 	icon_state = "cannon_con"
-	anchored = 0
-	density = 1
+	anchored = FALSE
+	density = TRUE
 	var/state = 0
 	var/weapon_type = null
 	pixel_y = -18
@@ -53,7 +54,7 @@
 					src.shipid = H.shipid
 					playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 					to_chat(user, "You wrench the weapon into place on the hardpoint.")
-					anchored = 1
+					anchored = TRUE
 					state = 1
 					desc = "It's a ship-to-ship weapon assembly. It is missing external sheeting."
 					update_icon()
@@ -75,7 +76,7 @@
 				H.attached = FALSE
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 				to_chat(user, "You unattach the assembly from its place.")
-				anchored = 0
+				anchored = FALSE
 				state = 0
 				animate(src, pixel_x = initial(pixel_x), pixel_y = initial(pixel_y), 3, 1, LINEAR_EASING)
 				desc = initial(desc)
@@ -87,7 +88,7 @@
 
 			if(isWelder(W))
 
-				var/obj/item/weapon/weldingtool/F = W
+				var/obj/item/weldingtool/F = W
 				if(F.isOn())
 					if(F.remove_fuel(0,user))
 						playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
@@ -121,7 +122,7 @@
 
 			else if(isWelder(W))
 
-				var/obj/item/weapon/weldingtool/F = W
+				var/obj/item/weldingtool/F = W
 				if(F.isOn())
 					if(F.remove_fuel(0,user))
 						playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
@@ -151,7 +152,7 @@
 				update_icon()
 				return
 
-/obj/structure/shipweapons/incomplete_weapon/update_icon()
+/obj/structure/shipweapons/incomplete_weapon/on_update_icon()
 	..()
 	icon_state = "[initial(icon_state)][state]"
 
@@ -171,6 +172,7 @@
 	external = TRUE
 	icon = 'icons/urist/structures&machinery/64x32machinery.dmi'
 	pixel_y = 0
+	var/list/origin_tech = list()
 
 /obj/structure/shipweapons/incomplete_weapon/external/light_autocannon
 	icon_state = "cannon-con"
@@ -178,7 +180,7 @@
 	weapon_type = /obj/machinery/shipweapons/ammo/autocannon/light
 	pixel_x = -12
 
-/obj/structure/shipweapons/incomplete_weapon/external/light_autocannon/update_icon()
+/obj/structure/shipweapons/incomplete_weapon/external/light_autocannon/on_update_icon()
 	if(!state)
 		icon_state = "[initial(icon_state)]"
 

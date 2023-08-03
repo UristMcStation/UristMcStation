@@ -1,7 +1,7 @@
 /obj/tram/tram_controller
 	name = ""
 	desc = "tram controller"
-	anchored = 1
+	anchored = TRUE
 
 	var/list/tram_floors = list()
 	var/list/tram_walls = list()
@@ -104,7 +104,7 @@
 /obj/tram/tram_controller/proc/init_walls()
 	var/turf/T = get_turf(src)
 	if(!T)	return
-	if(!tram_floors.len)	return
+	if(!length(tram_floors))	return
 	var/obj/tram/floor/TTW = locate(/obj/tram/wall) in T //Find and link wall on controller turf
 	if(istype(TTW))	add_wall(TTW)
 	for(var/obj/tram/floor/TF in tram_floors)
@@ -127,7 +127,7 @@
 			if(!(src in tram))
 				tram += src
 
-/obj/tram/tram_controller/proc/check_validity(var/atom/movable/AM)
+/obj/tram/tram_controller/proc/check_validity(atom/movable/AM)
 	if(!AM)	return 0
 	if(is_type_in_list(AM, blacklist))	return 0
 	if(AM.anchored)
@@ -143,37 +143,37 @@
 //SYNC PROCS
 //These procs are used for un/linking floors, walls, and control pads to the central tram controller
 
-/obj/tram/tram_controller/proc/add_floor(var/obj/tram/floor/TF)
+/obj/tram/tram_controller/proc/add_floor(obj/tram/floor/TF)
 	if(!istype(TF))	return
 	if(TF in tram_floors)	return
 	tram_floors += TF
 	TF.controller = src
 
-/obj/tram/tram_controller/proc/remove_floor(var/obj/tram/floor/TF)
+/obj/tram/tram_controller/proc/remove_floor(obj/tram/floor/TF)
 	if(!istype(TF))	return
 	if(TF in tram_floors)
 		tram_floors -= TF
 	TF.controller = null
 
-/obj/tram/tram_controller/proc/add_wall(var/obj/tram/wall/TW)
+/obj/tram/tram_controller/proc/add_wall(obj/tram/wall/TW)
 	if(!istype(TW))	return
 	if(TW in tram_walls)	return
 	tram_walls += TW
 	TW.controller = src
 
-/obj/tram/tram_controller/proc/remove_wall(var/obj/tram/wall/TW)
+/obj/tram/tram_controller/proc/remove_wall(obj/tram/wall/TW)
 	if(!istype(TW))	return
 	if(TW in tram_walls)
 		tram_walls -= TW
 	TW.controller = null
 
-/obj/tram/tram_controller/proc/add_controller(var/obj/tram/controlpad/CCT)
+/obj/tram/tram_controller/proc/add_controller(obj/tram/controlpad/CCT)
 	if(!istype(CCT))	return
 	if(CCT in controllers)	return
 	controllers += CCT
 	CCT.tram_linked = src
 
-/obj/tram/tram_controller/proc/remove_controller(var/obj/tram/controlpad/CCT)
+/obj/tram/tram_controller/proc/remove_controller(obj/tram/controlpad/CCT)
 	if(!istype(CCT))	return
 	if(CCT in controllers)
 		controllers -= CCT
@@ -210,7 +210,7 @@
 							collisions += cdir
 	collide_list = collisions
 
-/obj/tram/tram_controller/proc/handle_move(var/dir)
+/obj/tram/tram_controller/proc/handle_move(dir)
 	gen_collision() //Look for collisions
 	if(dir in collide_list) //Prevent moving if there are collisions in that direction
 		return 0
@@ -242,7 +242,7 @@
 /obj/tram/meteorhit()
 	del(src)
 
-/obj/tram/bullet_act(var/obj/item/projectile/proj)
+/obj/tram/bullet_act(obj/item/projectile/proj)
 	if(prob(proj.damage))
 		del(src)
 	..()

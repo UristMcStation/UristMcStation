@@ -1,4 +1,4 @@
-/material/cloth/generate_recipes(var/reinforce_material)
+/material/cloth/generate_recipes(reinforce_material)
 	. = ..()
 	if(reinforce_material)	//recipies below don't support composite materials
 		return
@@ -30,13 +30,13 @@
 
 /datum/stack_recipe/rag
 	title = "rag"
-	result_type = /obj/item/weapon/reagent_containers/glass/rag
+	result_type = /obj/item/reagent_containers/glass/rag
 	req_amount = 1
 	time = 5
 
 /datum/stack_recipe/bedsheet
 	title = "bedsheet"
-	result_type = /obj/item/weapon/bedsheet
+	result_type = /obj/item/bedsheet
 	req_amount = 3
 	time = 15
 

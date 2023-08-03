@@ -21,7 +21,7 @@
 /datum/shipcomponents/proc/DoActivate()
 	return
 
-/datum/shipcomponents/proc/GetInitial(var/initial_thing)
+/datum/shipcomponents/proc/GetInitial(initial_thing)
 	return initial(initial_thing)
 
 //shields
@@ -219,4 +219,3 @@
 	name = "advanced alien point defence systems"
 	intercept_chance = 25
 	health = 250
-

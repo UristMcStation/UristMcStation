@@ -17,10 +17,10 @@
 	sheet_singular_name = "brick"
 	sheet_plural_name = "bricks"
 	conductive = 0
-	construction_difficulty = 1
+	construction_difficulty = MATERIAL_NORMAL_DIY
 	hidden_from_codex = TRUE
 
-/material/cult/place_dismantled_girder(var/turf/target)
+/material/cult/place_dismantled_girder(turf/target)
 	new /obj/structure/girder/cult(target)
 
 /material/cult/reinf
@@ -39,7 +39,7 @@
 	stack_type = null
 	hidden_from_codex = TRUE
 
-/material/resin/can_open_material_door(var/mob/living/user)
+/material/resin/can_open_material_door(mob/living/user)
 	var/mob/living/carbon/M = user
 	if(istype(M) && locate(/obj/item/organ/internal/xeno/hivenode) in M.internal_organs)
 		return 1

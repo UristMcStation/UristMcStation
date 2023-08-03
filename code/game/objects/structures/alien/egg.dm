@@ -4,8 +4,8 @@
 	desc = "It looks like a weird egg."
 	name = "egg"
 	icon_state = "egg_growing"
-	density = 0
-	anchored = 1
+	density = FALSE
+	anchored = TRUE
 	var/progress = 0
 
 /obj/structure/alien/egg/Initialize()
@@ -16,7 +16,7 @@
 	STOP_PROCESSING(SSobj, src)
 	. = ..()
 
-/obj/structure/alien/egg/CanUseTopic(var/mob/user)
+/obj/structure/alien/egg/CanUseTopic(mob/user)
 	return isghost(user) ? STATUS_INTERACTIVE : STATUS_CLOSE
 
 /obj/structure/alien/egg/Topic(href, href_list)
@@ -29,7 +29,7 @@
 /obj/structure/alien/egg/Process()
 	progress++
 	if(progress >= MAX_PROGRESS)
-		for(var/mob/observer/ghost/O in GLOB.ghost_mob_list)
+		for(var/mob/observer/ghost/O in GLOB.ghost_mobs)
 			if(O.client && O.client.prefs && (MODE_XENOMORPH in O.client.prefs.be_special_role))
 				to_chat(O, "<span class='notice'>An alien is ready to hatch! ([ghost_follow_link(src, O)]) (<a href='byond://?src=\ref[src];spawn=1'>spawn</a>)</span>")
 		STOP_PROCESSING(SSobj, src)
@@ -43,7 +43,7 @@
 	else
 		icon_state = "egg"
 
-/obj/structure/alien/egg/attack_ghost(var/mob/observer/ghost/user)
+/obj/structure/alien/egg/attack_ghost(mob/observer/ghost/user)
 	if(progress == -1) //Egg has been hatched.
 		return
 

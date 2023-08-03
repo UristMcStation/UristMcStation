@@ -3,7 +3,7 @@
 	name = "arrival shuttle console"
 	shuttle_tag = "Arrivals"
 	//req_access =
-	//circuit = /obj/item/weapon/circuitboard/
+	//circuit = /obj/item/stock_parts/circuitboard
 
 /datum/shuttle/ferry/arrivals
 	name = "Arrivals"

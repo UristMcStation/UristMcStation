@@ -16,7 +16,7 @@
 	welded_file = 'icons/obj/doors/double/welded.dmi'
 	emag_file = 'icons/obj/doors/double/emag.dmi'
 	width = 2
-	appearance_flags = 0
+	appearance_flags = DEFAULT_APPEARANCE_FLAGS
 	opacity = 1
 	assembly_type = /obj/structure/door_assembly/multi_tile
 
@@ -47,7 +47,7 @@
 	else
 		set_dir(SOUTH)
 
-/obj/machinery/door/airlock/multi_tile/update_connections(var/propagate = 0)
+/obj/machinery/door/airlock/multi_tile/update_connections(propagate = 0)
 	var/dirs = 0
 
 	for(var/direction in GLOB.cardinal)
@@ -132,7 +132,9 @@
 
 /obj/machinery/door/airlock/multi_tile/glass
 	name = "Glass Airlock"
-	glass = 1
+	damage_hitsound = 'sound/effects/Glasshit.ogg'
+	glass = TRUE
+	opacity = FALSE
 
 /obj/machinery/door/airlock/multi_tile/glass/command
 	door_color = COLOR_COMMAND_BLUE

@@ -34,3 +34,11 @@
 	icon_state = "aviators"
 	item_state = "aviators"
 	name = "aviator sunglasses"
+
+//march 2023 baymerge rescue
+/obj/item/clothing/glasses/gglasses
+	name = "green glasses"
+	desc = "Forest green glasses, like the kind you'd wear when hatching a nasty scheme."
+	icon_state = "gglasses"
+	item_state = "gglasses"
+	body_parts_covered = 0

@@ -43,4 +43,4 @@ slot_l_ear_str = 'icons/uristmob/l_ear.dmi', slot_r_ear_str = 'icons/uristmob/l_
 
 //macro
 
-#define isstorage(A)	istype(A, /obj/item/weapon/storage)
+#define isstorage(A)	istype(A, /obj/item/storage)

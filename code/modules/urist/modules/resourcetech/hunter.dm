@@ -11,10 +11,11 @@
 	desc = "A machine for tanning hides."
 	icon = 'icons/urist/structures&machinery/machinery.dmi'
 	icon_state = "drying_rack"
-	icon_on = "drying_rack_on"
-	icon_off = "drying_rack"
+	construct_state = /singleton/machine_construction/default/panel_closed
+	var/icon_on = "drying_rack_on"
+	var/icon_off = "drying_rack"
 
-/obj/machinery/smartfridge/tanningrack/accept_check(var/obj/item/O as obj)
+/obj/machinery/smartfridge/tanningrack/accept_check(obj/item/O as obj)
 	if(istype(O, /obj/item/stack/hide/hairless))
 		return 1
 
@@ -23,18 +24,18 @@
 	if(inoperable())
 		return
 	for(var/datum/stored_items/I in item_records)
-		if(I.instances.len)
+		if(length(I.instances))
 			dry()
 			update_icon()
 
-/obj/machinery/smartfridge/tanningrack/update_icon()
+/obj/machinery/smartfridge/tanningrack/on_update_icon()
 	overlays.Cut()
 	if(inoperable())
 		icon_state = icon_off
 	else
 		icon_state = icon_on
 	for(var/datum/stored_items/I in item_records)
-		if(I.instances.len)
+		if(length(I.instances))
 			overlays += "drying_rack_filled"
 			if(!inoperable())
 				overlays += "drying_rack_drying"
@@ -55,24 +56,6 @@
 			else
 				S.dried += 1
 
-/obj/machinery/smartfridge/tanningrack/New()
-	..()
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/tanningrack(src)
-	component_parts += new /obj/item/stack/material/wood(src, 4)
-	component_parts += new /obj/item/weapon/stock_parts/scanning_module(src)
-	component_parts += new /obj/item/weapon/stock_parts/console_screen(src)
-	component_parts += new /obj/item/stack/cable_coil(src, 5)
-
-/obj/machinery/smartfridge/tanningrack/attackby(var/obj/item/I, mob/user as mob)
-	if(default_deconstruction_screwdriver(user, I))
-		return
-	if(default_deconstruction_crowbar(user, I))
-		return
-	if(default_part_replacement(user, I))
-		return
-
-	..()
 
 //hide
 
@@ -87,7 +70,7 @@
 //step two is dehairing. We actually soak it first, then dehair it, then put it on our magical tanning rack.
 //we're skipping curing and going straight to soaking. Skipping liming and going straight to dehairing, and skipping all the stages with the chemicals and just going straight to our tanning rack.
 
-/obj/item/stack/hide/wet/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/stack/hide/wet/attackby(obj/item/W as obj, mob/user as mob)
 	if(is_sharp(W))
 		if(!busy)
 		//visible message on mobs is defined as visible_message(var/message, var/self_message, var/blind_message)
@@ -132,9 +115,9 @@
 		new/datum/stack_recipe("waist holster", /obj/item/clothing/accessory/storage/holster/waist, 2, time = 40), \
 		new/datum/stack_recipe("armpit holster", /obj/item/clothing/accessory/storage/holster/armpit, 2, time = 40), \
 		))
-	recipes += new/datum/stack_recipe("tool belt", /obj/item/weapon/storage/belt/utility, 3, time = 45)
-	recipes += new/datum/stack_recipe("briefcase", /obj/item/weapon/storage/briefcase, 1, time = 30)
-	recipes += new/datum/stack_recipe("wallet", /obj/item/weapon/storage/wallet/leather, 1, time = 30)
+	recipes += new/datum/stack_recipe("tool belt", /obj/item/storage/belt/utility, 3, time = 45)
+	recipes += new/datum/stack_recipe("briefcase", /obj/item/storage/briefcase, 1, time = 30)
+	recipes += new/datum/stack_recipe("wallet", /obj/item/storage/wallet/leather, 1, time = 30)
 	recipes += new/datum/stack_recipe("knife harness", /obj/item/clothing/accessory/storage/knifeharness, 1, time = 30)
 	recipes += new/datum/stack_recipe("eyepatch", /obj/item/clothing/glasses/eyepatch, 1, time = 30)
 	recipes += new/datum/stack_recipe("botanist leather gloves", /obj/item/clothing/gloves/botanic_leather, 2, time = 40)

@@ -1,4 +1,4 @@
-/client/proc/color_transition(var/color_to=null, var/time=10) // call with no parametres to reset to default.
+/client/proc/color_transition(color_to=null, var/time=10) // call with no parametres to reset to default.
 	var/datum/array/cached = src.cached_colormatrix
 	var/datum/array/target_array = color_to || DEFAULT_COLOR_MATRIX
 
@@ -21,8 +21,8 @@
 //			/list/old_matrix: client.color before the change
 //			/list/new_matrix: client.color after the change
 
-GLOBAL_DATUM_INIT(colormatrix_set_event, /decl/observ/colormatrix_set, new)
+GLOBAL_DATUM_INIT(colormatrix_set_event, /singleton/observ/colormatrix_set, new)
 
-/decl/observ/colormatrix_set
+/singleton/observ/colormatrix_set
 	name = "Client Color Set"
 	expected_type = /client

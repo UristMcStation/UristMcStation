@@ -36,13 +36,10 @@
 	light_falloff_curve = 0.5
 
 /turf/simulated/floor/pavement/lighting/Initialize()
-	light_color = SSskybox.BGcolor
+	light_color = SSskybox.background_color
 
 	. = ..()
 
-/turf/simulated/floor/asteroid/planet
-	initial_gas = list("oxygen" = MOLES_O2STANDARD, "nitrogen" = MOLES_N2STANDARD)
-	temperature = 293.15
 
 /turf/simulated/floor/fixed/uristturf/geminus
 	name = "floor"

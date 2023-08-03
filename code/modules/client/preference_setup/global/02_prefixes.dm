@@ -9,26 +9,26 @@
 
 /datum/category_item/player_setup_item/player_global/prefixes/New()
 	..()
-	SETUP_SUBTYPE_DECLS_BY_NAME(/decl/prefix, prefix_by_name)
+	SETUP_SUBTYPE_SINGLETONS_BY_NAME(/singleton/prefix, prefix_by_name)
 
-/datum/category_item/player_setup_item/player_global/prefixes/load_preferences(var/savefile/S)
+/datum/category_item/player_setup_item/player_global/prefixes/load_preferences(datum/pref_record_reader/R)
 	var/list/prefix_keys_by_name
-	from_file(S["prefix_keys"], prefix_keys_by_name)
+	prefix_keys_by_name = R.read("prefix_keys")
 
 	if(istype(prefix_keys_by_name))
 		pref.prefix_keys_by_type = list()
 		for(var/prefix_name in prefix_keys_by_name)
-			var/decl/prefix/prefix_instance = prefix_by_name[prefix_name]
+			var/singleton/prefix/prefix_instance = prefix_by_name[prefix_name]
 			if(prefix_instance)
 				pref.prefix_keys_by_type[prefix_instance.type] = prefix_keys_by_name[prefix_name]
 
-/datum/category_item/player_setup_item/player_global/prefixes/save_preferences(var/savefile/S)
+/datum/category_item/player_setup_item/player_global/prefixes/save_preferences(datum/pref_record_writer/W)
 	var/list/prefix_keys_by_name = list()
 	for(var/prefix_type in pref.prefix_keys_by_type)
-		var/decl/prefix/prefix_instance = decls_repository.get_decl(prefix_type)
+		var/singleton/prefix/prefix_instance = GET_SINGLETON(prefix_type)
 		prefix_keys_by_name[prefix_instance.name] = pref.prefix_keys_by_type[prefix_type]
 
-	to_file(S["prefix_keys"], prefix_keys_by_name)
+	W.write("prefix_keys", prefix_keys_by_name)
 
 /datum/category_item/player_setup_item/player_global/prefixes/sanitize_preferences()
 	if(!istype(pref.prefix_keys_by_type))
@@ -36,7 +36,7 @@
 
 	// Setup the default keys for any prefix without one
 	for(var/prefix_name in prefix_by_name)
-		var/decl/prefix/prefix_instance = prefix_by_name[prefix_name]
+		var/singleton/prefix/prefix_instance = prefix_by_name[prefix_name]
 		if(!(prefix_instance.type in pref.prefix_keys_by_type))
 			pref.prefix_keys_by_type[prefix_instance.type] = prefix_instance.default_key
 
@@ -44,17 +44,17 @@
 	// In case of overlap, all affected prefixes are given their default key
 	reset_duplicate_keys()
 
-/datum/category_item/player_setup_item/player_global/prefixes/content(var/mob/user)
+/datum/category_item/player_setup_item/player_global/prefixes/content(mob/user)
 	. += "<b>Prefix Keys:</b><br>"
 	. += "<table>"
 	for(var/prefix_name in prefix_by_name)
-		var/decl/prefix/prefix_instance = prefix_by_name[prefix_name]
+		var/singleton/prefix/prefix_instance = prefix_by_name[prefix_name]
 		var/current_prefix = pref.prefix_keys_by_type[prefix_instance.type]
 
 		. += "<tr><td>[prefix_instance.name]</td><td>[pref.prefix_keys_by_type[prefix_instance.type]]</td><td>"
 
 		if(prefix_instance.is_locked)
-			. += "<span class='linkOff'>Change</span>"
+			. += SPAN_CLASS("linkOff", "Change")
 		else
 
 			. += "<a href='?src=\ref[src];change_prefix=\ref[prefix_instance]'>Change</a>"
@@ -62,15 +62,15 @@
 		. += "</td><td>"
 
 		if(prefix_instance.is_locked || current_prefix == prefix_instance.default_key)
-			. += "<span class='linkOff'>Reset</span>"
+			. += SPAN_CLASS("linkOff", "Reset")
 		else
 			. += "<a href='?src=\ref[src];reset_prefix=\ref[prefix_instance]'>Reset</a>"
 		. += "</td></tr>"
 	. += "</table>"
 
-/datum/category_item/player_setup_item/player_global/prefixes/OnTopic(var/href, var/list/href_list, var/mob/user)
+/datum/category_item/player_setup_item/player_global/prefixes/OnTopic(href, list/href_list, mob/user)
 	if(href_list["change_prefix"])
-		var/decl/prefix/prefix_instance = locate(href_list["change_prefix"])
+		var/singleton/prefix/prefix_instance = locate(href_list["change_prefix"])
 		if(!istype(prefix_instance) || prefix_instance.is_locked)
 			return TOPIC_NOACTION
 
@@ -100,7 +100,7 @@
 						continue
 					var/prefix_key = pref.prefix_keys_by_type[prefix_type]
 					if(prefix_key == new_key)
-						var/decl/prefix/pi = decls_repository.get_decl(prefix_type)
+						var/singleton/prefix/pi = GET_SINGLETON(prefix_type)
 						pref.prefix_keys_by_type[pi.type] = pi.default_key
 				// Then we reset any and all duplicates
 				reset_duplicate_keys()
@@ -113,7 +113,7 @@
 		while(TRUE)
 
 	else if(href_list["reset_prefix"])
-		var/decl/prefix/prefix_instance = locate(href_list["reset_prefix"])
+		var/singleton/prefix/prefix_instance = locate(href_list["reset_prefix"])
 		if(!istype(prefix_instance))
 			return TOPIC_NOACTION
 		pref.prefix_keys_by_type[prefix_instance.type] = prefix_instance.default_key
@@ -131,13 +131,13 @@
 
 	for(var/prefix_key in prefixes_by_key)
 		var/list/prefix_types = prefixes_by_key[prefix_key]
-		if(prefix_types.len > 1)
+		if(length(prefix_types) > 1)
 			for(var/prefix_type in prefix_types)
-				var/decl/prefix/prefix_instance = decls_repository.get_decl(prefix_type)
+				var/singleton/prefix/prefix_instance = GET_SINGLETON(prefix_type)
 				pref.prefix_keys_by_type[prefix_instance.type] = prefix_instance.default_key
 
-/mob/proc/get_prefix_key(var/prefix_type)
+/mob/proc/get_prefix_key(prefix_type)
 	if(client && client.prefs)
 		return client.prefs.prefix_keys_by_type[prefix_type]
-	var/decl/prefix/prefix_instance = decls_repository.get_decl(prefix_type)
+	var/singleton/prefix/prefix_instance = GET_SINGLETON(prefix_type)
 	return prefix_instance.default_key

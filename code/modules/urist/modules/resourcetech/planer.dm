@@ -3,8 +3,8 @@
 	var/busy = 0
 	use_power = 1
 	idle_power_usage = 10
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE
 	icon = 'icons/urist/structures&machinery/machinery.dmi'
 
 /obj/machinery/carpentry/planer
@@ -12,31 +12,20 @@
 	desc = "A machine used for processing unprocessed wood. Just shove your rough wood into the slot and let the machine do the rest." //honk
 	icon_state = "planer"
 	active_power_usage = 1000
+	construct_state = /singleton/machine_construction/default/panel_closed
 
-/obj/machinery/carpentry/planer/New()
-	..()
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/carpentryplaner(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/stack/cable_coil(src, 2)
 
-/obj/machinery/carpentry/planer/attackby(var/obj/item/I, mob/user as mob)
-	if(default_deconstruction_screwdriver(user, I))
-		return
-	if(default_deconstruction_crowbar(user, I))
-		return
-	if(default_part_replacement(user, I))
-		return
+/obj/machinery/carpentry/planer/attackby(obj/item/I, mob/user as mob)
 
-	if(istype(I, /obj/item/weapon/wrench))
+	if(istype(I, /obj/item/wrench))
 		if(busy)
 			to_chat(user, "<span class='warning'>Can not do that while [src] is in use.</span>")
 
 		else
 			if(anchored)
-				anchored = 0
+				anchored = FALSE
 			else
-				anchored = 1
+				anchored = TRUE
 			playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
 			if(anchored)
 				user.visible_message("[user] secures [src] to the floor.", "You secure [src] to the floor.")
@@ -87,7 +76,7 @@
 	name = "unprocessed wooden planks"
 	singular_name = "unprocessed wood plank"
 
-/obj/item/stack/material/r_wood/attack_self(var/mob/user)
+/obj/item/stack/material/r_wood/attack_self(mob/user)
 	return
 
 /obj/machinery/carpentry/woodprocessor
@@ -95,14 +84,9 @@
 	desc = "A machine used for processing wood into cardboard or paper."
 	icon_state = "paper"
 	active_power_usage = 800
+	construct_state = /singleton/machine_construction/default/panel_closed
 
-/obj/machinery/carpentry/woodprocessor/attackby(var/obj/item/I, mob/user as mob)
-	if(default_deconstruction_screwdriver(user, I))
-		return
-	if(default_deconstruction_crowbar(user, I))
-		return
-	if(default_part_replacement(user, I))
-		return
+/obj/machinery/carpentry/woodprocessor/attackby(obj/item/I, mob/user as mob)
 
 	if(istype(I, /obj/item/stack/material/wood) || istype(I, /obj/item/stack/material/r_wood))
 		if(busy)
@@ -120,15 +104,15 @@
 				busy = 0
 				update_use_power(1)
 
-	if(istype(I, /obj/item/weapon/wrench))
+	if(istype(I, /obj/item/wrench))
 		if(busy)
 			to_chat(user, "<span class='warning'>Can not do that while [src] is in use.</span>")
 
 		else
 			if(anchored)
-				anchored = 0
+				anchored = FALSE
 			else
-				anchored = 1
+				anchored = TRUE
 			playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
 			if(anchored)
 				user.visible_message("[user] secures [src] to the floor.", "You secure [src] to the floor.")
@@ -148,7 +132,7 @@
 		t += "<A href='?src=\ref[src];on3=Paper'>Paper</A><br>"
 		t += "<A href='?src=\ref[src];on4=RollingPapers'>Rolling Papers</A><br>"
 
-		user << browse(t, "window=woodprocessor;size=300x300")
+		show_browser(user, t, "window=woodprocessor;size=300x300")
 
 	else
 		to_chat(user, "<span class='notice'>There's no wood stored in the [src]!</span>")
@@ -179,12 +163,12 @@
 					return
 
 			if( href_list["on3"] )
-				new /obj/item/weapon/paper(get_turf(src))
+				new /obj/item/paper(get_turf(src))
 				sheets -= 1
 				return
 
 			if( href_list["on4"] )
-				new /obj/item/weapon/storage/fancy/rollingpapers(get_turf(src))
+				new /obj/item/storage/fancy/rollingpapers(get_turf(src))
 				sheets -= 1
 				return
 		else
@@ -197,12 +181,3 @@
 	var/obj/item/stack/material/wood/W = new /obj/item/stack/material/wood(src.loc)
 	W.amount = sheets
 	..()
-
-/obj/machinery/carpentry/woodprocessor/New()
-	..()
-	component_parts = list()
-	component_parts += new /obj/item/weapon/circuitboard/woodprocessor(src)
-	component_parts += new /obj/item/weapon/stock_parts/manipulator(src)
-	component_parts += new /obj/item/weapon/stock_parts/matter_bin(src)
-	component_parts += new /obj/item/weapon/stock_parts/console_screen(src)
-	component_parts += new /obj/item/stack/cable_coil(src, 5)
