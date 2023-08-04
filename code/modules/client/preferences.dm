@@ -87,10 +87,10 @@
 		throw E
 
 /datum/preferences/proc/migrate_legacy_preferences()
-	// We make some assumptions here:
-	// - all relevant savefiles were version 17, which covers anything saved from 2018+
-	// - legacy saves were only made on the "torch" map
-	// - a maximum of 40 slots were used
+	//bay says only torch saves are valid
+	//i say :fuckbay:
+
+	var/mapfile = GLOB.using_map.path
 
 	var/legacy_pref_path = get_path(client.ckey, "preferences", "sav")
 	if(!fexists(legacy_pref_path))
@@ -106,15 +106,15 @@
 	player_setup.load_preferences(savefile_reader)
 	var/orig_slot = default_slot
 
-	S.cd = "/torch"
+	S.cd = "/[mapfile]"
 	for(var/slot = 1 to 40)
 		if(!S.dir.Find("character[slot]"))
 			continue
-		S.cd = "/torch/character[slot]"
+		S.cd = "/[mapfile]/character[slot]"
 		default_slot = slot
 		player_setup.load_character(savefile_reader)
-		save_character(override_key="character_torch_[slot]")
-		S.cd = "/torch"
+		save_character(override_key="character_[mapfile]_[slot]")
+		S.cd = "/[mapfile]"
 	S.cd = "/"
 
 	default_slot = orig_slot
