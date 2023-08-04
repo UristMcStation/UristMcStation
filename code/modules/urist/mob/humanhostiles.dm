@@ -19,7 +19,14 @@
 	dying_threshold = 0.1
 	flee_when_outmatched = FALSE // for now, 'cause it's buggy
 	lose_target_timeout = 20 SECONDS
+
 	var/run_if_this_close = 3
+	var/melee_hitnrun_prob = null  // probability of hit-and-run; null <=> 0 <=> disabled
+	var/melee_slippery = FALSE  // robust sideways dodging on melee
+	var/ranged_slippery = FALSE  // robust random dodging on ranged
+	var/aggressive_charge_to = null  // keep closing in to this distance, if not null
+	var/aggro_healthperc_threshold = 0.5 // if health is below this fraction of maxHealth, ignore aggro logic
+	var/prefer_cover_proba = 50 // %; how much to favor being in cover over having a clear shot
 
 
 /datum/ai_holder/simple_animal/urist_humanoid/flee_from_target()
@@ -29,38 +36,127 @@
 	if(target && can_attack(target))
 		engage_target()
 
+
 // Duplicated from /datum/ai_holder/simple_animal/humanoid/hostile
 /datum/ai_holder/simple_animal/urist_humanoid/post_melee_attack(atom/A)
+	if(melee_slippery)
+		if(holder.Adjacent(A))
+			if(prob(clamp((melee_hitnrun_prob || 0), 0, 100)))
+				// Hit and Run
+				holder.IMove(get_step_away(holder, A))
+
+			else
+				holder.IMove(get_step(holder, pick(GLOB.alldirs - get_dir(A, holder))))
+
+			holder.face_atom(A)
+			return
+
 	holder.IMove(get_step(holder, pick(GLOB.alldirs)))
 	holder.face_atom(A)
 
+
 /datum/ai_holder/simple_animal/urist_humanoid/post_ranged_attack(atom/A)
-	//Pick a random turf to step into
-	var/turf/T = get_step(holder, pick(GLOB.alldirs))
-	if(check_trajectory(A, T)) // Can we even hit them from there?
-		holder.IMove(T)
+
+	if(!isnull(aggressive_charge_to) && (get_dist(holder, A) > aggressive_charge_to) && ((holder.health / holder.getMaxHealth()) > aggro_healthperc_threshold))
+		// Aggro mobs keep closing in. Priority over running away!
+		holder.IMove(get_step_to(holder, A, aggressive_charge_to))
 		holder.face_atom(A)
+		return
 
 	if(get_dist(holder, A) < run_if_this_close)
+		// Bravely run away
 		holder.IMove(get_step_away(holder, A))
 		holder.face_atom(A)
+		return
+
+	if(ranged_slippery)
+		//Pick a random turf to step into
+		var/turf/T = null
+
+		for(var/cand_dir in GLOB.alldirs)
+			T = get_step(holder, cand_dir)
+
+			if(prob(prefer_cover_proba))
+				if(!check_trajectory(T, A))
+					// cover, acceptable
+					break
+
+			else
+				if(check_trajectory(A, T))
+					// we can hit 'em, acceptable
+					break
+
+		if(!isnull(T))
+			holder.IMove(T)
+			holder.face_atom(A)
+
+		return
 
 
+/*
+** Ranged - pretty basic, prefers range, kites
+*/
+/datum/ai_holder/simple_animal/urist_humanoid/ranged_generic
+	run_if_this_close = 3
+	ranged_slippery = TRUE
+	prefer_cover_proba = 50
+
+
+/datum/ai_holder/simple_animal/urist_humanoid/ranged_skittish
+	// strongly prefers not to be hit
+	run_if_this_close = 5
+	ranged_slippery = TRUE
+	prefer_cover_proba = 90
+
+
+/datum/ai_holder/simple_animal/urist_humanoid/ranged_fearless
+	// unflinching, but not dumb
+	run_if_this_close = 2
+	ranged_slippery = TRUE
+	prefer_cover_proba = 0
+
+
+/*
+** Melee - even if they have a ranged attack, they still prefer to close in
+*/
 /datum/ai_holder/simple_animal/urist_humanoid/melee_generic
 	run_if_this_close = 1
+	melee_slippery = FALSE
+	aggressive_charge_to = 1
+	prefer_cover_proba = 0
+	aggro_healthperc_threshold = 0
 
 
 /datum/ai_holder/simple_animal/urist_humanoid/melee_slippery
 	run_if_this_close = 1
+	melee_slippery = TRUE // a bit dodgey
+	aggressive_charge_to = 1
+	prefer_cover_proba = 0
+	aggro_healthperc_threshold = 0
 
-/datum/ai_holder/simple_animal/urist_humanoid/melee_slippery/post_melee_attack(atom/A)
-	if(holder.Adjacent(A))
-		holder.IMove(get_step(holder, pick(GLOB.alldirs - get_dir(A, holder))))
-		holder.face_atom(A)
+
+/*
+// Melee or Ranged, equally good - shoot, get close, stab, get away.
+*/
+/datum/ai_holder/simple_animal/urist_humanoid/hybrid_aggro
+	// Prefers melee
+	melee_slippery = TRUE
+	ranged_slippery = TRUE
+	run_if_this_close = 1
+	melee_hitnrun_prob = 10
+	aggressive_charge_to = 1
+	prefer_cover_proba = 5
 
 
-/datum/ai_holder/simple_animal/urist_humanoid/ranged_generic
-	run_if_this_close = 3
+/datum/ai_holder/simple_animal/urist_humanoid/hybrid_slippery
+	// Prefers disengaging
+	melee_slippery = TRUE
+	ranged_slippery = TRUE
+	run_if_this_close = 1
+	melee_hitnrun_prob = 80
+	aggressive_charge_to = 1
+	prefer_cover_proba = 70
+
 
 
 /mob/living/simple_animal/hostile/urist
@@ -125,10 +221,35 @@
 
 	// AI
 	faction = "gunman"
-	ai_holder = /datum/ai_holder/simple_animal/humanoid/hostile
+	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/ranged_generic
 
 	// Custom
 	var/shot_time = 1
+
+
+/mob/living/simple_animal/hostile/urist/proc/ShootCore(atom/A)
+	set waitfor = FALSE
+
+	// The next two lines are Urist - just wrapping the original with a loop
+	var/shotsleft = max(0, (src.rapid || 0)) + 1  // if we're calling this, the mob can shoot, so we should do a minimum of one shot.
+	var/shottime = max(1, (src.shot_time || 1))
+
+	while (shotsleft --> 0)
+		// Everything below is Bay's, just indented
+		if(needs_reload)
+			if(reload_count >= reload_max)
+				try_reload()
+				return FALSE
+
+		shoot(A)
+
+		if(casingtype)
+			var/obj/item/ammo_casing/b = new casingtype(loc)
+			b.expend()
+
+		sleep(shottime)  // hence the waitfor = FALSE
+
+	return
 
 
 /mob/living/simple_animal/hostile/urist/shoot_target(atom/A)
@@ -144,23 +265,10 @@
 		ranged_pre_animation(A)
 		handle_attack_delay(A, ranged_attack_delay) // This will sleep this proc for a bit, which is why waitfor is false.
 
-	// The next two lines are Urist - just wrapping the original with a loop
-	var/shotsleft = max(0, (src.rapid || 0)) + 1  // if we're calling this, the mob can shoot, so we should do a minimum of one shot.
-	var/shottime = max(1, (src.shot_time || 1))
+	visible_message("<span class='danger'><b>\The [src]</b> fires at \the [A]!</span>")
 
-	while (shotsleft --> 0)
-		// Everything below is Bay's, just indented
-		if(needs_reload)
-			if(reload_count >= reload_max)
-				try_reload()
-				return FALSE
-
-		visible_message("<span class='danger'><b>\The [src]</b> fires at \the [A]!</span>")
-		shoot(A)
-		if(casingtype)
-			new casingtype(loc)
-
-		sleep(shottime)
+	// The core shooting logic replaced with this call to support sleep()s better
+	src.ShootCore(A)
 
 	if(ranged_attack_delay)
 		ranged_post_animation(A)
@@ -199,10 +307,12 @@
 	rapid = 2
 
 	icon = 'icons/mob/simple_animal/animal.dmi'
-	icon_state = "syndicateranged"
-	icon_living = "syndicateranged"
+	icon_state = "fleetrifleman"
+	icon_living = "fleetrifleman"
+	icon_dead = "fleetassault_dead" // placeholder ;_;
 	icon_gib = "syndicate_gib"
 
+	natural_weapon = /obj/item/natural_weapon/martial_arts
 	projectilesound = 'sound/weapons/gunshot/gunshot_smg.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol
 
@@ -217,48 +327,12 @@
 	projectile_dispersion  = 1
 
 	// AI spec
-	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/ranged_generic
+	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/ranged_skittish
 	say_list_type = /datum/say_list/professional
 
 	natural_armor = list(
 		bullet = ARMOR_BALLISTIC_PISTOL,
 		laser = ARMOR_LASER_HANDGUNS,
-		melee = ARMOR_MELEE_SMALL
-	)
-
-
-/mob/living/simple_animal/hostile/urist/ntagent
-	faction = "NTIS" //NTIS is intended as NT Deathsquad affiliation
-	icon_state = "agent"
-	icon_living = "agent"
-	icon_dead = "agent_dead"
-	name = "\improper NTIS Agent"
-	desc = "A spook from the Internal Security department. You suddenly get an unpleasant sensation that you <I>'know too much'</I>."
-
-	ranged = 1
-	rapid = 0
-	shot_time = 4
-	movement_cooldown = 3
-
-	maxHealth = 150
-	health = 150
-
-	projectiletype = /obj/item/projectile/bullet/pistol/holdout/silenced
-	natural_weapon = /obj/item/material/armblade/wrist/stalker
-
-	// Fairly accurate, trained pros
-	projectile_accuracy = -2
-	projectile_dispersion  = 0
-
-	// Reloads
-	reload_max = 15  // modelled after beretta m9
-
-	// AI spec
-	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/ranged_generic
-	say_list_type = /datum/say_list/professional
-
-	natural_armor = list(
-		bullet = ARMOR_BALLISTIC_PISTOL,
 		melee = ARMOR_MELEE_SMALL
 	)
 
@@ -278,7 +352,7 @@
 	projectiletype = /obj/item/projectile/bullet/rifle
 
 	// AI spec
-	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/ranged_generic
+	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/ranged_skittish
 	say_list_type = /datum/say_list/professional
 
 	// Reloads
@@ -394,7 +468,7 @@
 	see_invisible = SEE_INVISIBLE_LEVEL_TWO
 
 	// AI spec
-	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/melee_generic
+	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/melee_slippery
 	say_list_type = /datum/say_list/fanatic
 
 	natural_armor = list(
@@ -728,7 +802,42 @@
 		melee = ARMOR_MELEE_MINOR
 	)
 
-	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/melee_slippery
+	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/hybrid_slippery
+
+
+/mob/living/simple_animal/hostile/urist/recon/ntagent
+	faction = "NTIS" //NTIS is intended as NT Deathsquad affiliation
+	icon_state = "agent"
+	icon_living = "agent"
+	icon_dead = "agent_dead"
+	name = "\improper NTIS Agent"
+	desc = "A spook from the Internal Security department. You suddenly get an unpleasant sensation that you <I>'know too much'</I>."
+
+	ranged = 1
+	rapid = 0
+	shot_time = 4
+	movement_cooldown = 3
+
+	maxHealth = 150
+	health = 150
+
+	projectiletype = /obj/item/projectile/bullet/pistol/holdout/silenced
+	natural_weapon = /obj/item/material/armblade/wrist/stalker
+
+	// Fairly accurate, trained pros
+	projectile_accuracy = -2
+	projectile_dispersion  = 0
+
+	// Reloads
+	reload_max = 15  // modelled after beretta m9
+
+	// AI spec
+	say_list_type = /datum/say_list/professional
+
+	natural_armor = list(
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		melee = ARMOR_MELEE_SMALL
+	)
 
 
 /mob/living/simple_animal/hostile/urist/recon/merc
@@ -800,6 +909,12 @@
 	returns_home = TRUE
 	use_astar = TRUE //Path smartly
 	home_low_priority = TRUE //Following/helping is more important
+
+	aggressive_charge_to = null
+	aggro_healthperc_threshold = 1
+	melee_slippery = FALSE  // no move
+	ranged_slippery = FALSE  // no run
+	prefer_cover_proba = 0 // look away
 
 
 /mob/living/simple_animal/hostile/urist/gunner
