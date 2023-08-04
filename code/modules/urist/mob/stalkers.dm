@@ -29,7 +29,14 @@
 	pointblank = FALSE // Use your fancy melee
 	dying_threshold = 0.1
 	lose_target_timeout = 60 SECONDS
-	run_if_this_close = 1
+
+	run_if_this_close = 0
+	melee_hitnrun_prob = 5
+	melee_slippery = TRUE
+	ranged_slippery = TRUE
+	aggressive_charge_to = 1
+	aggro_healthperc_threshold = 0.35
+	prefer_cover_proba = 10
 
 
 //TOUGH bastard, teleports around to follow a victim (random if none, varedit to set)
