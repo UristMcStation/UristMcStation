@@ -45,15 +45,3 @@
 	display_name = "uniform, field (Security)"
 	path = /obj/item/clothing/under/urist/nerva/secfield
 	allowed_roles = list(/datum/job/officer,/datum/job/hos,/datum/job/warden)
-
-/datum/gear/uniform/corp_overalls
-	allowed_roles = list(/datum/job/scientist, /datum/job/seniorscientist)
-
-/datum/gear/uniform/corp_flight
-	allowed_roles = list(/datum/job/hop, /datum/job/qm, /datum/job/cargo_tech)
-
-/datum/gear/uniform/corp_exec
-	allowed_roles = list(/datum/job/seniorscientist)
-
-/datum/gear/uniform/corp_exec_jacket
-	allowed_roles = list(/datum/job/seniorscientist)
