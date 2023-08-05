@@ -127,6 +127,7 @@
 	return list(
 		/obj/item/clothing/suit/urist/armor/nerva/sec,
 		/obj/item/clothing/head/helmet,
+		/obj/item/clothing/accessory/armor_plate/medium,
 		/obj/item/device/radio/headset/nerva_sec,
 		/obj/item/clothing/under/urist/nerva/secregular,
 		/obj/item/clothing/under/urist/nerva/secfield,
