@@ -14997,12 +14997,11 @@
 	pixel_y = 22;
 	req_access = list("ACCESS_CAPTAIN")
 	},
-/obj/machinery/button/remote/airlock{
+/obj/machinery/button/alternate/door/bolts{
 	id_tag = "bridgesafedoor";
 	name = "safe room door-control";
 	pixel_x = -6;
 	pixel_y = 22;
-	specialfunctions = 4
 	},
 /turf/simulated/floor/wood/walnut,
 /area/command/captain)

@@ -1168,8 +1168,7 @@
 /area/medical/treatment)
 "acR" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1;
-	level = 2
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/treatment)
@@ -1793,8 +1792,7 @@
 /area/medical/treatment)
 "aee" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 2;
-	level = 2
+	dir = 2
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/treatment)
@@ -1860,7 +1858,7 @@
 	},
 /obj/item/device/radio/intercom/entertainment{
 	dir = 8;
-	pixel_x = 28
+	pixel_x = 22
 	},
 /obj/item/bedsheet/medical,
 /obj/effect/floor_decal/corner/pink{
@@ -1883,8 +1881,7 @@
 "aen" = (
 /obj/machinery/light/small,
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4;
-	level = 2
+	dir = 4
 	},
 /obj/machinery/light_switch{
 	pixel_x = 6;
@@ -2796,8 +2793,7 @@
 /obj/item/paper_bin,
 /obj/item/pen/red,
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4;
-	level = 2
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 1
@@ -5435,7 +5431,9 @@
 /area/hallway/commandport)
 "ajV" = (
 /obj/machinery/door/airlock/command{
-	name = "Port Gun Bay"
+	name = "Port Gun Bay";
+	autoset_access = 0;
+	req_access = list("ACCESS_GUNNERY")
 	},
 /obj/effect/floor_decal/corner/fadeblue{
 	dir = 5;
@@ -5993,7 +5991,9 @@
 	icon_state = "corner_white"
 	},
 /obj/machinery/door/airlock/command{
-	name = "Port Gun Bay"
+	name = "Port Gun Bay";
+	autoset_access = 0;
+	req_access = list("ACCESS_GUNNERY")
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -11590,7 +11590,9 @@
 /obj/machinery/door/airlock/multi_tile/glass/command{
 	dir = 8;
 	icon_state = "closed";
-	name = "Bridge"
+	name = "Bridge";
+	autoset_access = 0;
+	req_access = list("ACCESS_GUNNERY")
 	},
 /obj/effect/floor_decal/corner/fadeblue/full,
 /turf/simulated/floor/tiled/dark,
@@ -18113,7 +18115,9 @@
 /obj/machinery/door/airlock/multi_tile/glass/command{
 	dir = 8;
 	icon_state = "closed";
-	name = "Bridge"
+	name = "Bridge";
+	autoset_access = 0;
+	req_access = list("ACCESS_GUNNERY")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandstarboard)
@@ -21926,7 +21930,9 @@
 /area/hallway/commandstarboard)
 "aMM" = (
 /obj/machinery/door/airlock/command{
-	name = "Starboard Gun Bay"
+	name = "Starboard Gun Bay";
+	req_access = list("ACCESS_GUNNERY");
+	autoset_access = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -22960,7 +22966,9 @@
 /area/hallway/commandstarboard)
 "aOe" = (
 /obj/machinery/door/airlock/command{
-	name = "Starboard Gun Bay"
+	name = "Starboard Gun Bay";
+	autoset_access = 0;
+	req_access = list("ACCESS_GUNNERY")
 	},
 /obj/effect/floor_decal/corner/fadeblue{
 	dir = 10;
@@ -30657,7 +30665,6 @@
 	},
 /obj/item/folder/yellow,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/window/brigdoor/southleft,
 /obj/effect/floor_decal/corner/beige/full,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/mailing)
