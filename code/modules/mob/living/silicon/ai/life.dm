@@ -40,6 +40,7 @@
 	handle_confused()
 	update_sight()
 
+	process_queued_alarms()
 	handle_regular_hud_updates()
 	switch(src.sensor_mode)
 		if (SEC_HUD)

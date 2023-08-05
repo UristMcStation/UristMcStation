@@ -17,6 +17,7 @@
 		update_items()
 	if (src.stat != DEAD) //still using power
 		use_power()
+		process_queued_alarms()
 	UpdateLyingBuckledAndVerbStatus()
 
 /mob/living/silicon/robot/proc/clamp_values()
