@@ -220,7 +220,7 @@ macro "borghotkeymode"
 		command = ".me"
 	elem
 		name = "F5"
-		command = "msay"
+		command = "aghost"
 	elem
 		name = "F6"
 		command = "Player-Panel"
@@ -230,6 +230,9 @@ macro "borghotkeymode"
 	elem
 		name = "F8"
 		command = "Invisimin"
+	elem
+		name = "F10"
+		command = "msay"
 	elem
 		name = "F12"
 		command = "F12"
@@ -417,7 +420,7 @@ macro "macro"
 		command = ".me"
 	elem
 		name = "F5"
-		command = "msay"
+		command = "aghost"
 	elem
 		name = "F6"
 		command = "Player-Panel"
@@ -427,6 +430,9 @@ macro "macro"
 	elem
 		name = "F8"
 		command = "Invisimin"
+	elem
+		name = "F10"
+		command = "msay"
 	elem
 		name = "F12"
 		command = "F12"
@@ -665,7 +671,7 @@ macro "hotkeymode"
 		command = ".me"
 	elem
 		name = "F5"
-		command = "msay"
+		command = "aghost"
 	elem
 		name = "F6"
 		command = "Player-Panel"
@@ -675,6 +681,9 @@ macro "hotkeymode"
 	elem
 		name = "F8"
 		command = "Invisimin"
+	elem
+		name = "F10"
+		command = "msay"
 	elem
 		name = "F12"
 		command = "F12"
@@ -856,7 +865,7 @@ macro "borgmacro"
 		command = ".me"
 	elem
 		name = "F5"
-		command = "msay"
+		command = "aghost"
 	elem
 		name = "F6"
 		command = "Player-Panel"
@@ -866,6 +875,9 @@ macro "borgmacro"
 	elem
 		name = "F8"
 		command = "Invisimin"
+	elem
+		name = "F10"
+		command = "msay"
 	elem
 		name = "F12"
 		command = "F12"
