@@ -11,7 +11,7 @@
 	construct_state = /singleton/machine_construction/default/panel_closed
 	maximum_component_parts = list(/obj/item/stock_parts = 16)
 
-	var/max_power = 500000
+	var/max_power = 1500000
 	var/thermal_efficiency = 0.65
 
 	var/obj/machinery/atmospherics/binary/circulator/circ1
