@@ -84,7 +84,8 @@
 	skull_type = /obj/item/pen/fancy/quill
 
 /mob/living/simple_animal/hostile/retaliate/goose/doctor
-	name = "\improper Dr. Anatidae"
+	name = "Dr. Anatidae"
+	real_name = "Dr. Anatidae"
 	desc = "A large waterfowl, known for its beauty and quick temper when provoked. This one has a nametag, 'Dr. Anatidae'. What an odd Pet.."
 	icon_state = "goose_labcoat"
 	icon_living = "goose_labcoat"
