@@ -37,10 +37,10 @@
 	name = "excavation voidsuit helmet"
 	desc = "A sophisticated voidsuit helmet, capable of protecting the wearer from many exotic alien energies."
 	icon_state = "rig0-excavation"
-	item_state = "excavation_helm"
+	item_state = "excavation-helm"
 	item_state_slots = list(
-		slot_l_hand_str = "excavation_helm",
-		slot_r_hand_str = "excavation_helm",
+		slot_l_hand_str = "excavation-helm",
+		slot_r_hand_str = "excavation-helm",
 	)
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
