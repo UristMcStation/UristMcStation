@@ -90,9 +90,6 @@ ERROR_SILENCE_TIME 6000
 ## How long to wait between messaging admins about occurrences of a unique error
 ERROR_MSG_DELAY 50
 
-## sql switching
-SQL_ENABLED
-
 ## disconnect players who did nothing during the set amount of minutes
 # KICK_INACTIVE 10
 
