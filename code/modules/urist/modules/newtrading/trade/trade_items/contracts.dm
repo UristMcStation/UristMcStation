@@ -52,9 +52,9 @@
 //robotics
 
 
-/datum/trade_item/contract/ntsec/durandparts
-	name = "Durand Parts Delivery Contract"
-	item_type = /obj/item/paper/contract/nanotrasen/cargo/robotics/durandparts
+/datum/trade_item/contract/ntsec/heavymechparts
+	name = "Heavy Mech Parts Delivery Contract"
+	item_type = /obj/item/paper/contract/nanotrasen/cargo/robotics/heavymechparts
 	category = "ntseccontract"
 
 /datum/trade_item/contract/ntsec/lasercannon
