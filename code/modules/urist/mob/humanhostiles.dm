@@ -415,7 +415,7 @@
 	health = 100
 	resistance = 4 //including padding
 	faction = "NTIS"
-	natural_weapon = /obj/item/melee/baton
+	natural_weapon = /obj/item/melee/classic_baton
 	natural_armor = list(
 		bullet = ARMOR_BALLISTIC_PISTOL,
 		laser = ARMOR_LASER_SMALL,
