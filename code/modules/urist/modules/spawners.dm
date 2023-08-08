@@ -98,7 +98,7 @@
 	return T
 
 
-/atom/movable/uspawner/proc/SpawnMob(var/turf/T)
+/atom/movable/uspawner/proc/SpawnMob(turf/T)
 	if(isnull(T) || T.is_wall() || T.density)
 		return
 
@@ -107,7 +107,7 @@
 	return M
 
 
-/atom/movable/uspawner/proc/FinalizeMob(var/mob/living/simple_animal/target)
+/atom/movable/uspawner/proc/FinalizeMob(mob/living/simple_animal/target)
 	var/mob/living/simple_animal/M = target
 
 	if(isnull(M))
@@ -131,7 +131,7 @@
 	return M
 
 
-/atom/movable/uspawner/proc/ApplySpawnEffects(var/turf/T)
+/atom/movable/uspawner/proc/ApplySpawnEffects(turf/T)
 	if(isnull(T))
 		return
 
