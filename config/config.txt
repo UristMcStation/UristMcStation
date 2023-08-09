@@ -42,6 +42,9 @@ LOG_ADMIN
 ## log client access (logon/logoff)
 LOG_ACCESS
 
+## When not set, staff with R_MOD and shared IPs do not cause warnings.
+# WARN_IF_STAFF_SAME_IP
+
 ## log game actions (start of round, results, etc.)
 LOG_GAME
 
@@ -184,10 +187,12 @@ VOTE_DELAY 6000
 ## time period (deciseconds) which voting session will last (default 1 minute)
 VOTE_PERIOD 600
 
-## autovote initial delay (deciseconds) before first automatic transfer vote call (default 180 minutes)
+## autovote initial delay in minutes before first automatic transfer vote call (default 120)
+# using seven semicolon (;) separated values allows for different weekday-based values
 VOTE_AUTOTRANSFER_INITIAL 120
 
-##autovote delay (deciseconds) before sequential automatic transfer votes are called (default 30 minutes)
+##autovote delay in minutes before sequential automatic transfer votes are called (default 30)
+# using seven semicolon (;) separated values allows for different weekday-based values
 VOTE_AUTOTRANSFER_INTERVAL 60
 
 ## Time left (seconds) before round start when automatic gamemote vote is called (default 100).
@@ -253,20 +258,37 @@ GUEST_BAN
 ## Uncomment to delist the server from the hub when no admins are present
 #DELIST_WHEN_NO_ADMINS
 
-## forum address
-FORUMURL https://discord.gg/0oRsdvoS1DDd5Rv0
-
 ## Wiki address
-WIKIURL https://bay.ss13.me/en/Guides
+## Where your server's documentation lives
+WIKI_URL https://bay.ss13.me/en/Guides
 
-## GitHub address
-GITHUBURL https://github.com/UristMcStation/UristMcStation
+## Rules address
+## Where your server's rules can be found
+RULES_URL rules.html
 
-## GitHub new issue link
-ISSUEREPORTURL https://github.com/UristMcStation/UristMcStation/issues/new
+## Lore address
+## Where your server's scintillating background material can be read
+# LORE_URL https://example.com
 
-## Ban appeals URL - usually for a forum or wherever people should go to contact your admins.
-#BANAPPEALS http://uristmcstation.com/forum/viewforum.php?f=10
+## Forum address
+## Where your users can go to chat in the old fashion
+FORUM_URL https://discord.gg/0oRsdvoS1DDd5Rv0
+
+## Source address
+## Where your users can go to stick their fingers in the code
+SOURCE_URL https://github.com/UristMcStation/UristMcStation
+
+## GitHub new issue address
+## Where your users can go to complain about problems with the code
+ISSUE_URL https://github.com/UristMcStation/UristMcStation/issues/new
+
+## Discord address
+## Where your users can go to complain at each other in real time
+DISCORD_URL https://discord.gg/0oRsdvoS1DDd5Rv0
+
+## Ban appeals URL
+## Where your users can go to tell you they've changed
+BANAPPEALS https://discord.gg/0oRsdvoS1DDd5Rv0
 
 ## Max number of players allowed. 0 for unlimited
 #PLAYER_LIMIT 0
@@ -292,7 +314,7 @@ ALLOW_HOLIDAYS
 ALLOW_BNEWS
 
 ##Defines the ticklag for the world.  0.9 is the normal one, 0.5 is smoother.
-TICKLAG 0.7
+TICKLAG 0.333333
 
 ## Set SSinitialization tick limit (default: 98)
 #TICK_LIMIT_MC_INIT 98
