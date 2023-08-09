@@ -1267,7 +1267,7 @@ window "rpane"
 		button-type = pushbox
 	elem "donate"
 		type = BUTTON
-		pos = 600,-4
+		pos = 660,-4
 		size = 60x20
 		anchor1 = none
 		anchor2 = none
