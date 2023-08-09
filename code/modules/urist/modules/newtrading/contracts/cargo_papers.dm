@@ -17,8 +17,8 @@
 
 //robotics
 
-/obj/item/paper/contract/nanotrasen/cargo/robotics/durandparts
-	contract_type = /datum/contract/cargo/robotics/durandparts
+/obj/item/paper/contract/nanotrasen/cargo/robotics/heavymechparts
+	contract_type = /datum/contract/cargo/robotics/heavymechparts
 
 /obj/item/paper/contract/nanotrasen/cargo/robotics/lasercannon
 	contract_type = /datum/contract/cargo/robotics/lasercannon

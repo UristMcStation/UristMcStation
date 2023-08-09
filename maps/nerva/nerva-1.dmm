@@ -13291,7 +13291,9 @@
 /area/maintenance/fourth_deck/central)
 "xU" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Cargo Bay Maintenance"
+	name = "Cargo Bay Maintenance";
+	autoset_access = 0;
+	req_access = list(list("ACCESS_CARGO","ACCESS_XENOBIO"))
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -13370,7 +13372,9 @@
 /area/logistics/advwork)
 "xZ" = (
 /obj/machinery/door/airlock/research{
-	name = "Advanced Fabrication Workshop"
+	name = "Advanced Fabrication Workshop";
+	autoset_access = 0;
+	req_access = list(list("ACCESS_CARGO","ACCESS_XENOBIO"))
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -13527,7 +13531,6 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/eastleft,
 /obj/machinery/door/window/brigdoor/westright,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/fabwork)
@@ -21963,7 +21966,9 @@
 /area/command/bottom_hallway)
 "TA" = (
 /obj/machinery/door/airlock/glass/mining{
-	name = "Cargo Workshop"
+	name = "Cargo Workshop";
+	autoset_access = 0;
+	req_access = list(list("ACCESS_CARGO","ACCESS_XENOBIO"))
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
