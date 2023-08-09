@@ -20,5 +20,5 @@
 # A more fully populated example is provided below.
 # Note that the final entry will be truncated to 255 bytes long by BYOND.
 
-<b>$SERVER</b> - Beginner friendly MRP set on a spaceship; playing <b>$MODE</b> on <b>$STATION</b> with $ACTIVES of $PLAYERS alive
+<b>$SERVER</b> &#8212; Beginner friendly MRP set on a spaceship; playing <b>$MODE</b> on <b>$STATION</b> with $ACTIVES of $PLAYERS alive
 [<a href="$DISCORD">Discord</a>]
