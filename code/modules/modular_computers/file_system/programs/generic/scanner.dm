@@ -19,14 +19,17 @@
 	var/scan_file_type = /datum/computer_file/data/text
 	var/list/metadata_buffer = list()
 	var/paper_type
+	/// Whether the scan output is to be posted to the user's chat/scanner window
+	var/post_output = FALSE
 
 /datum/computer_file/program/scanner/proc/connect_scanner()
 	if(!computer)
 		return FALSE
 	var/obj/item/stock_parts/computer/scanner/scanner = computer.get_component(PART_SCANNER)
-	if(scanner && istype(src, scanner.driver_type))
+	if(istype(src, scanner?.driver_type))
 		using_scanner = TRUE
 		scanner.driver = src
+		post_output = scanner.default_post_action
 		return TRUE
 	return FALSE
 
@@ -88,6 +91,10 @@
 			to_chat(usr, "Scan save failed.")
 		return TOPIC_HANDLED
 
+	if(href_list["output"])
+		src.post_output = text2num(href_list["output"])
+		return TOPIC_HANDLED
+
 	if(.)
 		SSnano.update_uis(NM)
 
@@ -105,6 +112,7 @@
 		data["scanner_enabled"] = scanner.enabled
 		data["can_view_scan"] = scanner.can_view_scan
 		data["can_save_scan"] = (scanner.can_save_scan && prog.data_buffer)
+	data["post_output"] = prog.post_output
 	data["using_scanner"] = prog.using_scanner
 	data["check_scanning"] = prog.check_scanning()
 	data["data_buffer"] = digitalPencode2html(prog.data_buffer)
