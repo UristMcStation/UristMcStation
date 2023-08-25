@@ -17,14 +17,22 @@
 	if(!air_contents)
 		to_chat(user, SPAN_WARNING("Your [name] flashes a red light as it fails to analyze \the [A]."))
 		return
-	scan_data = atmosanalyzer_scan(A, air_contents)
-	show_menu(user)
 
-/proc/atmosanalyzer_scan(atom/target, datum/gas_mixture/mixture)
+	var/post_to_window = user.client?.get_preference_value(/datum/client_preference/scan_results_in_window) == GLOB.PREF_YES
+
+	scan_data = atmosanalyzer_scan(A, air_contents, !post_to_window)
+
+	if (post_to_window)
+		show_menu(user)
+		return
+
+	to_chat(user, "<hr>[scan_data]<hr>")
+
+/proc/atmosanalyzer_scan(atom/target, datum/gas_mixture/mixture, var/legacy = FALSE)
 	var/text_summary = ""
 	var/text_details = ""
-	. = ""
-	. += "<h1>Results of the analysis of \the [target]:</h1>"
+	. = legacy ? SPAN_NOTICE("Results of the analysis of \the [target]:\n") : "<h1>Results of the analysis of \the [target]:</h1>"
+
 	if (!mixture)
 		mixture = target.return_air()
 
@@ -32,21 +40,30 @@
 		var/pressure = mixture.return_pressure()
 		var/total_moles = mixture.total_moles
 
-		text_summary += "<h2>Summary:</h2><ul>"
-		text_summary += "<li>Pressure: [round(pressure, 0.01)] kPa</li>"
-		text_summary += "<li>Total Moles: [round(total_moles, 0.01)]</li>"
-		text_summary += "<li>Volume: [mixture.volume]L</li>"
-		text_summary += "<li>Temperature: [round(mixture.temperature-T0C)]&deg;C ([round(mixture.temperature)]K)</li>"
+		if (legacy)
+			text_summary += abs(pressure - ONE_ATMOSPHERE) < 10 ? SPAN_NOTICE("Pressure: [round(pressure, 0.01)] kPa\n") : SPAN_WARNING("Pressure: [round(pressure, 0.01)] kPa\n")
+			text_summary += SPAN_NOTICE("Volume: [mixture.volume]L\n")
+			text_summary += SPAN_NOTICE("Temperature: [round(mixture.temperature-T0C)]&deg;C ([round(mixture.temperature)]K)\n")
+		else
+			text_summary += "<h2>Summary:</h2><ul>"
+			text_summary += "<li>Pressure: [round(pressure, 0.01)] kPa</li>"
+			text_summary += "<li>Total Moles: [round(total_moles, 0.01)]</li>"
+			text_summary += "<li>Volume: [mixture.volume]L</li>"
+			text_summary += "<li>Temperature: [round(mixture.temperature-T0C)]&deg;C ([round(mixture.temperature)]K)</li>"
 
 		var/list/summary_gasses = list()
 
 		if (total_moles > 0 && length(mixture.gas))
-			text_details += "<h2>Gas Details:</h2><dl>"
+			if(!legacy)
+				text_details += "<h2>Gas Details:</h2><dl>"
+
 			for(var/mix in mixture.gas)
 				var/percentage = round(mixture.gas[mix]/total_moles * 100, 0.01)
 				if(!percentage)
 					continue
 				summary_gasses += "[percentage]% [gas_data.name[mix]]"
+				if(legacy)
+					continue
 				text_details += "<dt>[gas_data.name[mix]]</dt><dd><ul>"
 				text_details += "<li>Percentage: [percentage]%</li>"
 				text_details += "<li>Moles: [round(mixture.gas[mix], 0.01)]</li>"
@@ -67,7 +84,7 @@
 			text_details += "</dl>"
 
 		if (length(summary_gasses))
-			text_summary += "<li>Composition: [english_list(summary_gasses)]</li>"
+			text_summary += legacy ? SPAN_NOTICE("Composition: [english_list(summary_gasses)]") : "<li>Composition: [english_list(summary_gasses)]</li>"
 		text_summary += "</ul>"
 		. += "[text_summary][text_details]"
 

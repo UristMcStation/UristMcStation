@@ -301,6 +301,12 @@ var/global/list/_client_preferences_by_type
 	options = list(GLOB.PREF_SHOW, GLOB.PREF_HIDE)
 	default_value = GLOB.PREF_SHOW
 
+/datum/client_preference/scan_results_in_window
+	description = "Display scanner results in window"
+	key = "SCAN_RESULTS_WINDOWED"
+	options = list(GLOB.PREF_YES, GLOB.PREF_NO)
+	default_value = GLOB.PREF_YES
+
 /********************
 * General Staff Preferences *
 ********************/
