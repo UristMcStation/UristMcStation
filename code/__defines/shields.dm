@@ -3,12 +3,12 @@
 #define SHIELD_DAMTYPE_HEAT 3		// Heat damage - Lasers, fire
 
 #define ENERGY_PER_HP (40 KILOWATTS)// Base amount energy that will be deducted from the generator's internal reserve per 1 HP of damage taken
-#define ENERGY_UPKEEP_PER_TILE (3 KILOWATTS)	// Base upkeep per tile protected. Multiplied by various enabled shield modes. Without them the field does literally nothing.
+#define ENERGY_UPKEEP_PER_TILE (0.2 KILOWATTS)	// Base upkeep per tile protected. Multiplied by various enabled shield modes. Without them the field does literally nothing.
 #define ENERGY_UPKEEP_IDLE 40                  // Base upkeep when idle; modified by other factors.
 
-#define MINOR_BREACH_THRESHOLD 99
-#define MAJOR_BREACH_THRESHOLD 50
-#define CRITICAL_BREACH_THRESHOLD 25
+#define MINOR_BREACH_THRESHOLD 50
+#define MAJOR_BREACH_THRESHOLD 25
+#define CRITICAL_BREACH_THRESHOLD 10
 
 // This shield model is slightly inspired by Sins of a Solar Empire series. In short, shields are designed to analyze what hits them, and adapt themselves against that type of damage.
 // This means shields will become increasingly effective against things like emitters - as they will adapt to heat damage, however they will be vulnerable to brute and EM damage.
