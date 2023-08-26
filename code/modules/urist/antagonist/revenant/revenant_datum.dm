@@ -111,7 +111,6 @@
 
 
 /datum/bluespace_revenant/proc/Init(var/mob/M, var/list/flavors_override = null, var/list/powers_override = null, var/list/hungers_override = null)
-	. = ..()
 
 	// Make sure this exists; will only do any work if it wasn't set up already
 	initialize_powerinstances()

@@ -268,7 +268,7 @@
 	var/current_time = world.time
 
 	var/obj/effect/gateway/hole = new(T)
-	hole.density = 0
+	hole.density = FALSE
 
 	QDEL_IN(hole, 30 SECONDS)
 

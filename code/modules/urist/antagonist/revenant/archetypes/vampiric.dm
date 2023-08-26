@@ -169,7 +169,7 @@
 		return
 
 	var/obj/effect/gateway/hole = new(T)
-	hole.density = 0
+	hole.density = FALSE
 
 	QDEL_IN(hole, 30 SECONDS)
 
@@ -204,7 +204,7 @@
 	src.visible_message(SPAN_WARNING("\The [src] yanks \his hand back sharply, leaving a portal behind!"))
 
 	var/obj/effect/gateway/hole = new(T)
-	hole.density = 0
+	hole.density = FALSE
 
 	QDEL_IN(hole, 30 SECONDS)
 
