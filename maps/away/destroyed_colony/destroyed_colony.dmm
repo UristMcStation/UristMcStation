@@ -501,7 +501,7 @@
 "jG" = (/obj/structure/bed/chair{dir = 1},/turf/simulated/floor/carpet,/area/planet/destroyed_colony)
 "jH" = (/obj/structure/table/woodentable,/obj/random/cash,/turf/simulated/floor/carpet,/area/planet/destroyed_colony)
 "jI" = (/obj/structure/hygiene/toilet{icon_state = "toilet00"; dir = 1},/turf/simulated/floor/tiled/freezer,/area/planet/destroyed_colony)
-"jJ" = (/obj/effect/overmap/visitable/destroyed_colony,/turf/simulated/floor/planet/ariddirt/low,/area/planet/destroyed_colony)
+"jJ" = (/obj/effect/overmap/visitable/sector/planetoid/destroyed_colony,/turf/simulated/floor/planet/ariddirt/low,/area/planet/destroyed_colony)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

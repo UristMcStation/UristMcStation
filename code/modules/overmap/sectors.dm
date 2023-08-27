@@ -27,7 +27,6 @@
 
 	var/hidden = FALSE //hidden for the purposes of tooltips. currently only used for the pirate station to avoid cheese
 
-
 /obj/effect/overmap/visitable/Initialize()
 	. = ..()
 	if(. == INITIALIZE_HINT_QDEL)
@@ -129,6 +128,10 @@
 	icon_state = "sector"
 	anchored = TRUE
 
+	//used by exoplanets and awaymap planetoids
+	var/surface_color = null
+	var/water_color = null
+	var/image/skybox_image
 
 /obj/effect/overmap/visitable/sector/Initialize()
 	. = ..()
@@ -147,6 +150,9 @@
 // Because of the way these are spawned, they will potentially have their invisibility adjusted by the turfs they are mapped on
 // prior to being moved to the overmap. This blocks that. Use set_invisibility to adjust invisibility as needed instead.
 /obj/effect/overmap/visitable/sector/hide()
+
+/obj/effect/overmap/visitable/proc/generate_planet_image()
+	return
 
 /proc/build_overmap()
 	if(!GLOB.using_map.use_overmap)

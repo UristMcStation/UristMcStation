@@ -27,9 +27,9 @@ GLOBAL_VAR(planet_repopulation_disabled)
 	var/list/rock_colors = list(COLOR_ASTEROID_ROCK)
 	var/list/plant_colors = list("RANDOM")
 	var/grass_color
-	var/surface_color = COLOR_ASTEROID_ROCK
-	var/water_color = "#436499"
-	var/image/skybox_image
+	surface_color = COLOR_ASTEROID_ROCK
+	water_color = "#436499"
+//	var/image/skybox_image
 
 	var/list/actors = list() //things that appear in engravings on xenoarch finds.
 	var/list/species = list() //list of names to use for simple animals

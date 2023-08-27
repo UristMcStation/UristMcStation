@@ -3394,6 +3394,7 @@
 #include "code\modules\urist\modules\jungle\planet_plants.dm"
 #include "code\modules\urist\modules\jungle\planet_trees.dm"
 #include "code\modules\urist\modules\jungle\planet_turfs.dm"
+#include "code\modules\urist\modules\jungle\planetoid.dm"
 #include "code\modules\urist\modules\jungle\scrap.dm"
 #include "code\modules\urist\modules\jungle\temple.dm"
 #include "code\modules\urist\modules\materials\recipes_cloth.dm"

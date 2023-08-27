@@ -1,6 +1,6 @@
 //quality code theft
 #include "blueriver_areas.dm"
-/obj/effect/overmap/visitable/sector/arcticplanet
+/obj/effect/overmap/visitable/sector/planetoid/arcticplanet
 	name = "arctic planetoid"
 	desc = "Sensor array detects an arctic planet with a small vessel on the planet's surface. Scans further indicate strange energy emissions from below the planet's surface."
 	in_space = FALSE
@@ -12,9 +12,9 @@
 		"nav_blueriv_antag"
 	)
 
-/obj/effect/overmap/visitable/sector/arcticplanet/New(nloc, max_x, max_y)
-	name = "[generate_planet_name()], \a [name]"
-	..()
+///obj/effect/overmap/visitable/sector/arcticplanet/New(nloc, max_x, max_y)
+//	name = "[generate_planet_name()], \a [name]"
+//	..()
 
 /datum/map_template/ruin/away_site/blueriver
 	name = "Bluespace River"

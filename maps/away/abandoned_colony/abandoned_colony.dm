@@ -18,13 +18,12 @@
 	luminosity = 0
 	lightswitch = 1
 
-/obj/effect/overmap/visitable/abandoned_colony
+/obj/effect/overmap/visitable/sector/planetoid/abandoned_colony
 	name = "abandoned colony"
 	desc = "A former Terran Confederation colony, evacuated during the Galactic Crisis. It is now a 'Graveworld', one of the many broken monuments to the billions of dead and displaced across the galaxy. However, sensors are detecting signs of life on the surface."
 	icon_state = "globe"
 	color = "#7f8274"
-	known = 0
-	in_space = 0
+	known = FALSE
 	initial_generic_waypoints = list(
 		"nav_abandoned_colony_1",
 		"nav_abandoned_colony_2"
@@ -35,7 +34,7 @@
 
 /obj/effect/overmap/visitable/abandoned_colony/Initialize() //make it spawn a lactera ship
 	.=..()
-	name = "[generate_planet_name()], \a [name]"
+//	name = "[generate_planet_name()], \a [name]"
 	new /mob/living/simple_animal/hostile/overmapship/alien/small(get_turf(src))
 
 /obj/effect/shuttle_landmark/nav_abandoned_colony/nav1
