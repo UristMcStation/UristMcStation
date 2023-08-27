@@ -1750,10 +1750,12 @@
 /area/antonine_hangar/start)
 "dF" = (
 /obj/machinery/door/airlock/external{
+	autoset_access = 0;
 	density = 1;
 	frequency = 1331;
 	id_tag = "antonine_shuttle_outer";
-	name = "Antonine External Access"
+	name = "Antonine External Access";
+	req_access = list("ACCESS_TRAJAN_HELM")
 	},
 /obj/machinery/shield_diffuser,
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -2130,10 +2132,12 @@
 /area/logistics/hangar)
 "en" = (
 /obj/machinery/door/airlock/external{
+	autoset_access = 0;
 	density = 1;
 	frequency = 1331;
 	id_tag = "antonine_shuttle_outer";
-	name = "Antonine External Access"
+	name = "Antonine External Access";
+	req_access = list("ACCESS_TRAJAN_HELM")
 	},
 /obj/machinery/shield_diffuser,
 /turf/simulated/floor/tiled/dark/monotile,
@@ -2475,9 +2479,12 @@
 "eX" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/machinery/door/airlock/external{
+	autoset_access = 0;
+	density = 1;
 	frequency = 1331;
-	id_tag = "antonine_shuttle_inner";
-	name = "Antonine External Access"
+	id_tag = "antonine_shuttle_outer";
+	name = "Antonine External Access";
+	req_access = list("ACCESS_TRAJAN_HELM")
 	},
 /obj/structure/cable{
 	d1 = 1;
