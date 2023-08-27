@@ -46,13 +46,16 @@
 
 	spawn(0)
 		while (src && src._ticker_active)
+			# ifdef BSR_DEBUGGING_ENABLED
 			if(!(src._tick_delay))
-				to_world_log("BSR: [src] ticker killed - tick delay became null!")
+				BSR_DEBUG_LOG("BSR: [src] ticker killed - tick delay became null!")
+				break
+			# endif
 
 			var/is_alive = src.Tick(1)
 
 			if(!is_alive)
-				to_world_log("BSR: [src] ticker killed - Tick returned FALSE.")
+				BSR_DEBUG_LOG("BSR: [src] ticker killed - Tick returned FALSE.")
 				break
 
 			// prevent runaway tickers in case someone VVs irresponsibly

@@ -5,7 +5,7 @@
 	var/distortion_threshold = 0
 
 
-var/list/revenant_powers = (typesof(/datum/power/revenant/bs_power) - /datum/power/revenant/bs_power)
+var/list/global/revenant_powers = (typesof(/datum/power/revenant/bs_power) - /datum/power/revenant/bs_power)
 
 
 /datum/bluespace_revenant/proc/get_powers_by_tag() // -> assoc list<flavor : power type>

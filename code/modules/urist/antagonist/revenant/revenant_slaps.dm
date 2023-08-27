@@ -28,7 +28,7 @@
 	return
 
 
-var/list/revenant_slaps = (typesof(/datum/power/revenant/bs_slap) - /datum/power/revenant/bs_slap)
+var/list/global/revenant_slaps = (typesof(/datum/power/revenant/bs_slap) - /datum/power/revenant/bs_slap)
 
 
 /datum/bluespace_revenant/proc/get_slaps_by_tag() // -> assoc list<flavor : power type>

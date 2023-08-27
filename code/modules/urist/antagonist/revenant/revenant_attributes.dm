@@ -100,8 +100,10 @@
 		// some secondary ones. We prefer the last pick, because mults are easier.
 		flavor_weight *= weight_log_base
 
+	# ifdef BSR_DEBUGGING_ENABLED
 	if(flavors.len < safe_amt)
-		to_world_log("WARNING: Bluespace Revenant exhausted all choices before picking the requested amount. Proceeding with the smaller amount available!")
+		BSR_DEBUG_LOG("WARNING: Bluespace Revenant exhausted all choices before picking the requested amount. Proceeding with the smaller amount available!")
+	# endif
 
 	// Fallback/extra spice - if we have no other choice, pick any power
 	flavors[BSR_FLAVOR_GENERIC] = 1
@@ -112,11 +114,11 @@
 	// This is a generic helper used by Power/Hunger/Distortions procgen
 
 	if(isnull(options_callable))
-		to_world_log("BLUESPACE REVENANT: ERROR - select_bsrevenant_attributes called without an options callable!")
+		BSR_DEBUG_LOG("BLUESPACE REVENANT: ERROR - select_bsrevenant_attributes called without an options callable!")
 		return
 
 	if(isnull(count) || count < 0)
-		to_world_log("BLUESPACE REVENANT: ERROR - select_bsrevenant_attributes called with an invalid count arg: [count]!")
+		BSR_DEBUG_LOG("BLUESPACE REVENANT: ERROR - select_bsrevenant_attributes called with an invalid count arg: [count]!")
 		return
 
 	var/list/true_flavors = flavors_override
@@ -141,11 +143,11 @@
 		sleep(-1)
 
 		if(!(power_options?.len))
-			to_world_log("BLUESPACE REVENANT: No power options, aborting [identifier] selection!")
+			BSR_DEBUG_LOG("BLUESPACE REVENANT: No power options, aborting [identifier] selection!")
 			break
 
 		if(attempts++ >= max_attempts)
-			to_world_log("BLUESPACE REVENANT: Exceeded max tries ([attempts] out of [max_attempts]), aborting [identifier] selection!")
+			BSR_DEBUG_LOG("BLUESPACE REVENANT: Exceeded max tries ([attempts] out of [max_attempts]), aborting [identifier] selection!")
 			break
 
 		pickable_powers.Cut() // we're reusing the same list object a bunch for efficiency
@@ -153,17 +155,17 @@
 		var/rolled_flavor = sample_with_weights(true_flavors)
 
 		if(isnull(rolled_flavor))
-			to_world_log("BLUESPACE REVENANT: Flavor is null. Falling back to generic flavor...")
+			BSR_DEBUG_LOG("BLUESPACE REVENANT: Flavor is null. Falling back to generic flavor...")
 			rolled_flavor = BSR_FLAVOR_GENERIC
 
 		if(isnull(rolled_flavor))
-			to_world_log("BLUESPACE REVENANT: Flavor is null. This should never happen, aborting [identifier] selection!")
+			BSR_DEBUG_LOG("BLUESPACE REVENANT: Flavor is null. This should never happen, aborting [identifier] selection!")
 			break
 
 		var/list/flavor_powers = power_options[rolled_flavor]
 
 		if(isnull(flavor_powers) && abort_on_flv_miss)
-			to_world_log("BLUESPACE REVENANT: Flavor [rolled_flavor] does not correspond to a valid option in [power_options] ([power_options?.len]). This should never happen, aborting [identifier] selection!")
+			BSR_DEBUG_LOG("BLUESPACE REVENANT: Flavor [rolled_flavor] does not correspond to a valid option in [power_options] ([power_options?.len]). This should never happen, aborting [identifier] selection!")
 			break
 
 		for(var/datum/power/revenant/FP in flavor_powers)
@@ -217,7 +219,7 @@
 		return
 
 	if(Thepower in src.unlocked_powers)
-		to_world_log("Attempted to unlock an already unlocked Bluespace Revenant [identifier] `[Thepower]` for [M]")
+		BSR_DEBUG_LOG("Attempted to unlock an already unlocked Bluespace Revenant [identifier] `[Thepower]` for [M]")
 		return
 
 	src.unlocked_powers += Thepower
@@ -227,5 +229,5 @@
 	if(remake_verbs)
 		M.current.make_bsrevenant()
 
-	to_world_log("Unlocked [identifier] `[Thepower]` for mind [M] ([M?.current || "no mob"])")
+	BSR_DEBUG_LOG("Unlocked [identifier] `[Thepower]` for mind [M] ([M?.current || "no mob"])")
 	return

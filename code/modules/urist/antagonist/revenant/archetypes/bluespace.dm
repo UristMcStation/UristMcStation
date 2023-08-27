@@ -32,13 +32,13 @@
 	var/AposX = A.x
 
 	if(isnull(AposX))
-		to_world_log("BSR: Spatial Instability - AposX is null")
+		BSR_DEBUG_LOG("BSR: Spatial Instability - AposX is null")
 		return
 
 	var/AposY = A.y
 
 	if(isnull(AposY))
-		to_world_log("BSR: Spatial Instability - AposY is null")
+		BSR_DEBUG_LOG("BSR: Spatial Instability - AposY is null")
 		return
 
 	var/turf/T = null
