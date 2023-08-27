@@ -38,3 +38,4 @@
 	uniform = /obj/item/clothing/under/rank/atmospheric_technician
 	belt = /obj/item/storage/belt/utility/atmostech
 	pda_type = /obj/item/modular_computer/pda/engineering
+	id_types = list(/obj/item/card/id/engineering)
