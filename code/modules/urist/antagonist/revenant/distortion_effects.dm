@@ -6,7 +6,7 @@
 	verbpath = null // we'll use Apply() for most cases; keeping this for stuff affecting BsRev (adding callbacks etc.)
 
 
-var/list/global/revenant_distortions = (typesof(/datum/power/revenant/distortion) - /datum/power/revenant/distortion)
+var/global/list/revenant_distortions = (typesof(/datum/power/revenant/distortion) - /datum/power/revenant/distortion)
 
 
 /datum/power/revenant/distortion/proc/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)

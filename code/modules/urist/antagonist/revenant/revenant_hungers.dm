@@ -1,7 +1,7 @@
 /datum/power/revenant/bs_hunger
 	/* This is abusing /datum/power and /datum/power/revenant as parents, since these will share a lot of functionality */
 
-var/list/global/revenant_hungers = (typesof(/datum/power/revenant/bs_hunger) - /datum/power/revenant/bs_hunger)
+var/global/list/revenant_hungers = (typesof(/datum/power/revenant/bs_hunger) - /datum/power/revenant/bs_hunger)
 
 
 /datum/bluespace_revenant/proc/get_hungers_by_tag() // -> assoc list<flavor : hunger type>
