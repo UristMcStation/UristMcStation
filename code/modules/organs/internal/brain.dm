@@ -147,8 +147,12 @@
 		handle_damage_effects()
 
 		// Brain damage from low oxygenation or lack of blood.
+		# ifdef INCLUDE_URIST_CODE
+		// Undeath means no pulse; fsr current code messed with the brain because of that
+		if(owner.should_have_organ(BP_HEART) && !(owner.urist_status_flags & STATUS_UNDEAD))
+		# else
 		if(owner.should_have_organ(BP_HEART))
-
+		# endif
 			// No heart? You are going to have a very bad time. Not 100% lethal because heart transplants should be a thing.
 			var/blood_volume = owner.get_blood_oxygenation()
 			if(blood_volume < BLOOD_VOLUME_SURVIVE)
