@@ -173,7 +173,7 @@ var/list/revenant_slaps = (typesof(/datum/power/revenant/bs_slap) - /datum/power
 
 	animate(M, alpha=0, time=fadetime)
 
-	addtimer(CALLBACK(null, /proc/qdel, M), fadetime)
+	QDEL_IN(M, fadetime)
 
 	return TRUE
 
