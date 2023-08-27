@@ -151,7 +151,7 @@
 // prior to being moved to the overmap. This blocks that. Use set_invisibility to adjust invisibility as needed instead.
 /obj/effect/overmap/visitable/sector/hide()
 
-/obj/effect/overmap/visitable/proc/generate_planet_image()
+/obj/effect/overmap/visitable/sector/proc/generate_planet_image()
 	return
 
 /proc/build_overmap()
