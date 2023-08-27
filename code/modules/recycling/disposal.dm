@@ -612,10 +612,19 @@ GLOBAL_LIST_EMPTY(diversion_junctions)
 		for(var/atom/movable/AM in H)
 			AM.forceMove(src.loc)
 			AM.pipe_eject(dir)
-			// Drones keep smashing windows from being fired out of chutes.
-			if(!istype(AM,/mob/living/silicon/robot/drone))
+			if(unwrap && istype(AM, /obj/structure/bigDelivery))
+				var/obj/structure/bigDelivery/O = AM
+				var/atom/movable/C = O.wrapped
+				qdel(O)
 				spawn(5)
-					AM.throw_at(target, 3, 1)
+					C.throw_at(target, 1, 1)
+
+			else
+				// Drones keep smashing windows from being fired out of chutes.
+				if(!istype(AM,/mob/living/silicon/robot/drone))
+					spawn(5)
+						AM.throw_at(target, 3, 1)
+
 		H.vent_gas(src.loc)
 		qdel(H)
 
