@@ -23,6 +23,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 /datum/ai_holder/simple_animal/passive/fox
 	speak_chance = 1
+
 /datum/say_list/fox
 	speak = list("Ack-Ack","Ack-Ack-Ack-Ackawoooo","Purr","Awoo","Tchoff")
 	emote_hear = list("howls","barks")
@@ -170,6 +171,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		create_reagents(chem_type_amt * 10)
 	generate_venom(chem_type_amt)
 
+
 /mob/living/simple_animal/hostile/retaliate/goose/doctor/urist
 	name = "\improper Dr. Anser"
 	desc = "A large waterfowl, known for its beauty and quick temper when provoked. This one has a nametag, 'Dr. Anser'. What an odd pet.."
@@ -200,6 +202,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /datum/say_list/mutated_rat
 	speak = list("squeaks")
 	emote_see = list("skitters")
+
 /mob/living/simple_animal/hostile/mutated_corpse_rat
 	name = "large corpse rat"
 	desc = "a large, rotund rat that is clearly well fed, its teeth look unusually dangerous."
@@ -222,3 +225,50 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 /datum/say_list/mutated_corpse_rat
 	speak = list("squeaks")
+
+
+/* By the laws of universal balance, the concept of catgirls must imply their categorical dual - a cat with human ears.
+** Hostile to crew, since they are a mirror image of a normally protagonist-friendly stereotype.
+** Well, that, and to Strongly Discourage people from getting Ideas.
+*/
+/mob/living/simple_animal/hostile/girlcat
+	name = "girlcat"
+	desc = "A strange creature resembling a housecat with disturbingly humanoid earlobes and a cold, malicious gleam in its eyes."
+
+	// Icons
+	icon = 'icons/uristmob/simpleanimals.dmi'
+	icon_state = "girlcat"
+	icon_living = "girlcat"
+	icon_dead = "girlcat_dead"
+
+	// Health
+	maxHealth = 50
+	health = 50
+	bleed_colour = "#06065c"
+	min_gas = null
+	max_gas = null
+	minbodytemp = 0
+
+	// Combat
+	natural_weapon = /obj/item/natural_weapon/claws/weak
+	melee_attack_delay = 10 // pounce - big windup
+	speed = 0.5
+	movement_cooldown = 1  // *Sanic speed*
+	move_to_delay = 3
+	break_stuff_probability = 25
+	pry_desc = "clawing"
+	grab_resist = 80 // slippery
+
+	// AI
+	mob_class = MOB_CLASS_DEMONIC
+	faction = "girlcat"  // absolutely hostile to all life
+	ai_holder = /datum/ai_holder/simple_animal/melee/evasive
+	say_list_type = /datum/say_list/girlcat
+
+/datum/say_list/girlcat
+	/* By the same logic, girlcat speech is a mirror of catgirl tropes...
+	** Should be read as basically reversed audio. Added bonus: is clearly uncanny bullshit.
+	*/
+	speak = list("~!aaaaayN", "?weoM", "~wUw!~", "?prrrrM?", "rrrrruP...")
+	emote_hear = list("weoms", "wems")
+	emote_see = list("shakes their head", "shivers")
