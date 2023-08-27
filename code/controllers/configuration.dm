@@ -944,10 +944,10 @@
 			# ifdef INCLUDE_URIST_CODE
 
 			if ("bluespace_revenant_distortion_rate")
-				bluespace_revenant_distortion_rate = text2num(value)
+				bluespace_revenant_distortion_rate = max(0, text2num(value))
 
 			if ("bluespace_revenant_tickrate")
-				bluespace_revenant_tickrate = min(1, text2num(value))
+				bluespace_revenant_tickrate = max(1, text2num(value))
 
 			if ("bluespace_revenant_radius_three_distortion_threshold")
 				bluespace_revenant_radius_three_distortion_threshold = max(0, text2num(value))
