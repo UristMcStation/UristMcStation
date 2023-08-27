@@ -24695,7 +24695,9 @@
 /turf/simulated/floor/tiled/monotile,
 /area/logistics/uppercargo)
 "aRh" = (
-/obj/vehicle/train/cargo/engine,
+/obj/vehicle/train/cargo/engine{
+	dir = 2
+	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/oil,
@@ -30824,7 +30826,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass/mining{
-	name = "Delivery Office"
+	name = "Delivery Office";
+	autoset_access = 0;
+	req_access = list("ACCESS_SORTING")
 	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/mailing)
@@ -51614,7 +51618,7 @@ aGu
 aOH
 vDQ
 aPV
-aRf
+aRh
 aSg
 aRi
 aRi
@@ -52220,7 +52224,7 @@ aMj
 aNw
 aOK
 aPY
-aRh
+aRf
 aSi
 aTi
 aUc

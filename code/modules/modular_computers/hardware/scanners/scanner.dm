@@ -18,6 +18,8 @@
 	var/can_view_scan = TRUE
 	/// Whether the scan output can be saved to disk.
 	var/can_save_scan = TRUE
+	/// Whether by default this scanner will output results to chat/window
+	var/default_post_action = FALSE
 
 /obj/item/stock_parts/computer/scanner/Destroy()
 	do_before_uninstall()

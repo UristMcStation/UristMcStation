@@ -62,13 +62,13 @@
 
 //robotics
 
-/datum/contract/cargo/robotics/durandparts
+/datum/contract/cargo/robotics/heavymechparts
 	name = "Heavy Mech Parts Delivery Contract"
 	wanted_types = list(/obj/item/mech_component/chassis/heavy, /obj/item/mech_component/manipulators/heavy, /obj/item/mech_component/propulsion/heavy, /obj/item/mech_component/sensors/heavy)
 	money = 850
 	rep_points = 2
 
-/datum/contract/cargo/robotics/durandparts/New()
+/datum/contract/cargo/robotics/heavymechparts/New()
 	amount = rand(3,6)
 	desc = "Pirates hit our last shipment of high-tech mech parts, and NanoTrasen Security Forces are worried about future attacks. We need the [GLOB.using_map.station_name] to ship [amount] heavy mech parts at the nearest trading station, as soon as possible. Any parts will do, legs, arms, whatever, we're desparate."
 	..()

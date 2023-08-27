@@ -241,6 +241,9 @@
 	else if (src.density)
 		flick(text("[]deny", src.base_state), src)
 
+/obj/machinery/door/window/attack_ai(mob/user as mob)
+	return src.attack_hand(user)
+
 /obj/machinery/door/window/create_electronics(electronics_type = /obj/item/airlock_electronics)
 	electronics = ..()
 	return electronics

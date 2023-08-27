@@ -17,6 +17,11 @@
 /obj/item/device/scanner/health/scan(atom/A, mob/user)
 	scan_data = medical_scan_action(A, user, src, mode)
 	playsound(src, 'sound/effects/fastbeep.ogg', 20)
+	if (user.client?.get_preference_value(/datum/client_preference/scan_results_in_window) == GLOB.PREF_YES)
+		show_menu(user)
+		return
+
+	to_chat(user, "<hr>[scan_data]<hr>")
 
 /proc/medical_scan_action(atom/target, mob/living/user, obj/scanner, verbose)
 	if (!user.IsAdvancedToolUser())
@@ -57,9 +62,6 @@
 		return
 
 	. = medical_scan_results(scan_subject, verbose)
-	to_chat(user, "<hr>")
-	to_chat(user, .)
-	to_chat(user, "<hr>")
 
 /proc/medical_scan_results(mob/living/carbon/human/H, verbose)
 	. = list()
