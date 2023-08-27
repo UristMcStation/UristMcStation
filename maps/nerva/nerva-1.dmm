@@ -2302,7 +2302,7 @@
 	input_tag = "d4_port_chamber_in";
 	name = "Chamber Gas Control";
 	output_tag = "d4_port_chamber_out";
-	sensor_tag = list("d4_port_chamber_sensor"="Combustion Chamber")
+	sensor_tag = list("d4_port_chamber_sensor" = "Combustion Chamber")
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/bdportengine)
@@ -7077,7 +7077,7 @@
 	dir = 4
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Deck 4 Cargo");
+	codes = list("patrol" = 1, "next_patrol" = "Deck 4 Cargo");
 	location = "Deck 4 Escape"
 	},
 /turf/simulated/floor/plating,
@@ -11666,7 +11666,7 @@
 	input_tag = "d4_starboard_chamber_in";
 	name = "Chamber Gas Control";
 	output_tag = "d4_starboard_chamber_out";
-	sensor_tag = list("d4_starboard_chamber_sensor"="Combustion Chamber")
+	sensor_tag = list("d4_starboard_chamber_sensor" = "Combustion Chamber")
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/bdstarengine)
@@ -13370,7 +13370,9 @@
 /area/logistics/advwork)
 "xZ" = (
 /obj/machinery/door/airlock/research{
-	name = "Advanced Fabrication Workshop"
+	autoset_access = 0;
+	name = "Advanced Fabrication Workshop";
+	req_access = list(list("ACCESS_CARGO","ACCESS_XENOBIO"))
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -13544,7 +13546,7 @@
 	dir = 4
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Deck 3 Aft Port");
+	codes = list("patrol" = 1, "next_patrol" = "Deck 3 Aft Port");
 	location = "Deck 4 Cargo"
 	},
 /turf/simulated/floor/plating,
@@ -21635,7 +21637,7 @@
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/computer/modular/preset/aislot/research{
 	dir = 8;
-	default_software = list(/datum/computer_file/program/ntnetmonitor,/datum/computer_file/program/nttransfer,/datum/computer_file/program/camera_monitor,/datum/computer_file/program/aidiag,/datum/computer_file/program/email_client,/datum/computer_file/program/wordprocessor,datum/computer_file/program/reports)
+	default_software = list(/datum/computer_file/program/ntnetmonitor,/datum/computer_file/program/nttransfer,/datum/computer_file/program/camera_monitor,/datum/computer_file/program/aidiag,/datum/computer_file/program/email_client,/datum/computer_file/program/wordprocessor,/datum/computer_file/program/reports)
 	},
 /turf/simulated/floor/tiled/white,
 /area/command/seniorntoffice)
@@ -21963,7 +21965,9 @@
 /area/command/bottom_hallway)
 "TA" = (
 /obj/machinery/door/airlock/glass/mining{
-	name = "Cargo Workshop"
+	autoset_access = 0;
+	name = "Cargo Workshop";
+	req_access = list(list("ACCESS_CARGO","ACCESS_XENOBIO"))
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,

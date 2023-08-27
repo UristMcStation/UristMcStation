@@ -7,7 +7,6 @@
 	icon_state = "shuttlered"
 	base_turf = /turf/simulated/floor/plating
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
-	req_access = list(access_expedition)
 
 /area/exploration_shuttle/cockpit
 	name = "\improper Trajan - Cockpit"
@@ -15,9 +14,11 @@
 
 /area/exploration_shuttle/atmos
 	name = "\improper Trajan - Atmos Compartment"
+	req_access = list(access_expedition_shuttle_helm)
 
 /area/exploration_shuttle/power
 	name = "\improper Trajan - Power Compartment"
+	req_access = list(access_expedition_shuttle_helm)
 
 /area/exploration_shuttle/main
 	name = "\improper Trajan - Main Compartment"
@@ -114,7 +115,7 @@
 	requires_power = 1
 	dynamic_lighting = 1
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
-	req_access = list(access_expedition)
+	req_access = list(access_expedition_shuttle_helm)
 
 /obj/machinery/computer/shuttle_control/explore/antonine
 	name = "Antonine control console"

@@ -285,26 +285,32 @@
 /area/security/portgun
 	name = "\improper Port Gunnery Room"
 	icon_state = "LP"
+	req_access = list(list(access_bridge, access_gunnery))
 
 /area/security/portexternalgun
 	name = "\improper Port External Gun Bay"
 	icon_state = "LP"
+	req_access = list(list(access_bridge, access_gunnery))
 
 /area/security/starboardgun
 	name = "\improper Starboard Gunnery Room"
 	icon_state = "LP"
+	req_access = list(list(access_bridge, access_gunnery))
 
 /area/security/starboardexternalgun
 	name = "\improper Starboard External Gun Bay"
 	icon_state = "LP"
+	req_access = list(list(access_bridge, access_gunnery))
 
 /area/security/bottomgun
 	name = "\improper Fourth Deck Gunnery Room"
 	icon_state = "LP"
+	req_access = list(list(access_bridge, access_gunnery))
 
 /area/security/topgun
 	name = "\improper First Deck Gunnery Room"
 	icon_state = "LP"
+	req_access = list(list(access_bridge, access_gunnery))
 
 //////////////////////////////////////
 //			SCIENCE					//
