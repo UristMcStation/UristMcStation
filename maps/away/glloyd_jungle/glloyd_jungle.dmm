@@ -2482,7 +2482,7 @@
 /turf/simulated/floor/planet/jungle,
 /area/planet/jungle/away)
 "gH" = (
-/obj/effect/overmap/visitable/glloyd_jungle,
+/obj/effect/overmap/visitable/sector/planetoid/glloyd_jungle,
 /turf/simulated/floor/planet/jungle,
 /area/planet/jungle/away)
 "gI" = (

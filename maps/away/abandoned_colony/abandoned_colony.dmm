@@ -5953,7 +5953,7 @@
 /turf/simulated/floor/plating,
 /area/planet/abandoned_colony)
 "qY" = (
-/obj/effect/overmap/visitable/abandoned_colony,
+/obj/effect/overmap/visitable/sector/planetoid/abandoned_colony,
 /turf/simulated/floor/fixed/destroyedroad{
 	icon_state = "innermiddle"
 	},

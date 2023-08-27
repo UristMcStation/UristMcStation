@@ -39,6 +39,15 @@ var/global/const/access_away_pirate_station = "ACCESS_AWAY_PIRATE_STATION"
 		"nav_piratestation_3"
 		)
 
+/obj/effect/overmap/visitable/station/hostile/pirate/generate_skybox()
+	return overlay_image('icons/skybox/rockbox.dmi', "rockbox", COLOR_ASTEROID_ROCK, RESET_COLOR)
+
+/obj/effect/overmap/visitable/station/hostile/pirate/get_skybox_representation()
+	var/image/res = overlay_image('icons/skybox/rockbox.dmi', "rockbox", COLOR_ASTEROID_ROCK, RESET_COLOR)
+	res.blend_mode = BLEND_OVERLAY
+	res.SetTransform(scale = 0.3)
+	return res
+
 /datum/map_template/ruin/away_site/piratestation
 	name = "Pirate Station"
 	id = "awaysite_piratestation"

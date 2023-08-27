@@ -1,31 +1,45 @@
-/obj/effect/overmap/visitable/sector/exoplanet/get_skybox_representation()
+/obj/effect/overmap/visitable/sector/planetoid
+	name = "a generic planetoid"
+	in_space = FALSE //can't spacewalk to a planet
+
+	var/static_name = null // if we don't want to generate a name
+	var/atmo_color = COLOR_WHITE //do we have atmos, and if so, what color are the clouds
+	var/has_rings = FALSE //do we have rings?
+
+
+/obj/effect/overmap/visitable/sector/planetoid/New(nloc, max_x, max_y)
+	if(!static_name)
+		name = "[generate_planet_name()], \a [name]"
+
+	..()
+
+/obj/effect/overmap/visitable/sector/planetoid/Initialize()
+	. = ..()
+
+	generate_planet_image()
+
+/obj/effect/overmap/visitable/sector/planetoid/get_skybox_representation()
 	return skybox_image
 
-/obj/effect/overmap/visitable/sector/exoplanet/proc/get_base_image()
-	var/image/base = image('icons/skybox/planet.dmi', "base")
-	base.color = get_surface_color()
-	return base
+/obj/effect/overmap/visitable/sector/planetoid/generate_planet_image()
+	if(!surface_color)
+		surface_color = color
 
-/obj/effect/overmap/visitable/sector/exoplanet/generate_planet_image()
+	var/image/base = image('icons/skybox/planet.dmi', "base")
+	base.color = surface_color
+
 	skybox_image = image('icons/skybox/planet.dmi', "")
 
-	skybox_image.overlays += get_base_image()
+	skybox_image.overlays += base
 
-	for (var/datum/exoplanet_theme/theme in themes)
-		skybox_image.overlays += theme.get_planet_image_extra()
-
-	if (water_color) //TODO: move water levels out of randommap into exoplanet
+	if (water_color)
 		var/image/water = image('icons/skybox/planet.dmi', "water")
 		water.color = water_color
 		water.appearance_flags = DEFAULT_APPEARANCE_FLAGS | PIXEL_SCALE
 		water.SetTransform(rotation = rand(0, 360))
 		skybox_image.overlays += water
 
-	if (atmosphere && atmosphere.return_pressure() > SOUND_MINIMUM_PRESSURE)
-
-		var/atmo_color = get_atmosphere_color()
-		if (!atmo_color)
-			atmo_color = COLOR_WHITE
+	if (atmo_color)
 
 		var/image/clouds = image('icons/skybox/planet.dmi', "weak_clouds")
 
@@ -45,7 +59,7 @@
 	var/image/light = image('icons/skybox/planet.dmi', "lightrim")
 	skybox_image.overlays += light
 
-	if (prob(20))
+	if (has_rings)
 		var/image/rings = image('icons/skybox/planet_rings.dmi')
 		rings.icon_state = pick("sparse", "dense")
 		rings.color = pick("#f0fcff", "#dcc4ad", "#d1dcad", "#adb8dc")
