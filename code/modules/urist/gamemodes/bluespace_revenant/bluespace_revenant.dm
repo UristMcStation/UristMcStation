@@ -10,7 +10,8 @@
 		try to survive!"
 
 	config_tag = "bsrevenant"
-	required_players = 1 // revert to 2 after testing
+	required_players = 2 // revert to 2 after testing
 	required_enemies = 1
 	end_on_antag_death = FALSE
 	antag_scaling_coeff = 7
+	votable = 0
