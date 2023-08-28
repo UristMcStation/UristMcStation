@@ -768,7 +768,7 @@ to avoid worrying about the sprites -Glloyd*/
 	icon_state = "winged_greathelm"
 	item_state = "winged_greathelm"
 
-/obj/item/clothing/head/urist/historic/armor/morion_helmet
+/obj/item/clothing/head/urist/historic/armor/morion
 	name = "morion helmet"
 	desc = "a helmet of a conqueror."
 	icon_state = "morion_helmet"
