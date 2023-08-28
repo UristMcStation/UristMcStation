@@ -491,3 +491,10 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "ai"
 	anchored = TRUE
 	density = TRUE
+
+/obj/structure/hygiene/sink/well
+	name = "well"
+	desc = "a stone well built atop an aquifer."
+	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon_state = "well1"
+	clogged = -0
