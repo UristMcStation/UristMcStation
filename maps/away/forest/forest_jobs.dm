@@ -1,5 +1,5 @@
 /decl/hierarchy/outfit/job/forest_settler
-	name = "Graveworld Scavenger"
+	name = "Pioneer"
 	uniform = /obj/item/clothing/under/frontier
 	shoes = /obj/item/clothing/shoes/dutyboots
 	suit = /obj/item/clothing/suit/storage/hooded/wintercoat/solgov/army
