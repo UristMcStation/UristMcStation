@@ -912,7 +912,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/security/prison)
 "co" = (
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/machinery/atmospherics/unary/vent_pump/tank{
 	dir = 4;
 	external_pressure_bound = 0;
 	external_pressure_bound_default = 0;
@@ -1366,7 +1366,8 @@
 	input_tag = "fuel_in";
 	name = "Fuel Supply Control";
 	output_tag = "fuel_out";
-	sensor_tag = list("fuel_sensor"="Tank")
+	sensor_tag = "fuel_sensor"
+	sensor_name = "Fuel Tank"
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
@@ -3576,7 +3577,7 @@
 /turf/simulated/floor/reinforced,
 /area/engineering/fdengine)
 "hu" = (
-/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos/tank{
 	id_tag = "d2_c_chamber_out";
 	internal_pressure_bound = 35000;
 	internal_pressure_bound_default = 35000
@@ -3828,7 +3829,7 @@
 	pixel_x = -24
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos/tank{
 	dir = 4;
 	id_tag = "d2_c_chamber_out";
 	internal_pressure_bound = 35000;
@@ -5076,7 +5077,8 @@
 	input_tag = "d2_c_chamber_in";
 	name = "Chamber Gas Control";
 	output_tag = "d2_c_chamber_out";
-	sensor_tag = list("d2_c_chamber_sensor"="Combustion Chamber")
+	sensor_tag = "d2_c_chamber_sensor"
+	sensor_name = "Combustion Chamber"
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/fdengine)
@@ -10355,7 +10357,8 @@
 	input_tag = "co2_in";
 	name = "Carbon Dioxide Supply Control";
 	output_tag = "co2_out";
-	sensor_tag = list("co2_sensor"="Tank")
+	sensor_tag = "co2_sensor"
+	sensor_name = "Carbon Dioxide Tank"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 2;
@@ -10754,7 +10757,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmospherics)
 "vo" = (
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/machinery/atmospherics/unary/vent_pump/tank{
 	dir = 8;
 	external_pressure_bound = 0;
 	external_pressure_bound_default = 0;
@@ -11259,7 +11262,8 @@
 	input_tag = "h2_in";
 	name = "Hydrogen Supply Control";
 	output_tag = "h2_out";
-	sensor_tag = list("tox_sensor"="Tank")
+	sensor_tag = "h2_sensor"
+	sensor_name = "Hydrogen Tank"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 2;
@@ -11574,7 +11578,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
 "xd" = (
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/machinery/atmospherics/unary/vent_pump/tank{
 	dir = 8;
 	external_pressure_bound = 0;
 	external_pressure_bound_default = 0;
@@ -11589,7 +11593,7 @@
 	use_power = 1
 	},
 /obj/machinery/air_sensor{
-	id_tag = "tox_sensor"
+	id_tag = "h2_sensor"
 	},
 /turf/simulated/floor/reinforced/hydrogen,
 /area/engineering/atmospherics)
@@ -11709,7 +11713,8 @@
 	input_tag = "n2_in";
 	name = "Nitrogen Supply Control";
 	output_tag = "n2_out";
-	sensor_tag = list("n2_sensor"="Tank")
+	sensor_tag = "n2_sensor"
+	sensor_name = "Nitrogen Tank"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
@@ -11888,7 +11893,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
 "xJ" = (
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/machinery/atmospherics/unary/vent_pump/tank{
 	dir = 4;
 	external_pressure_bound = 0;
 	external_pressure_bound_default = 0;
@@ -12022,7 +12027,8 @@
 	input_tag = "n2o_in";
 	name = "Nitrous Oxide Supply Control";
 	output_tag = "n2o_out";
-	sensor_tag = list("n2o_sensor"="Tank")
+	sensor_tag = "n2o_sensor"
+	sensor_name = "Nitrous Oxide Tank"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 2;
@@ -12267,7 +12273,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
 "yv" = (
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/machinery/atmospherics/unary/vent_pump/tank{
 	dir = 8;
 	external_pressure_bound = 0;
 	external_pressure_bound_default = 0;
@@ -12533,7 +12539,8 @@
 	input_tag = "o2_in";
 	name = "Oxygen Supply Control";
 	output_tag = "o2_out";
-	sensor_tag = list("o2_sensor"="Tank")
+	sensor_tag = "o2_sensor"
+	sensor_name = "Oxygen Tank"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmospherics)
@@ -12860,7 +12867,7 @@
 /turf/simulated/floor/reinforced/oxygen,
 /area/engineering/atmospherics)
 "zC" = (
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/machinery/atmospherics/unary/vent_pump/tank{
 	dir = 1;
 	external_pressure_bound = 0;
 	external_pressure_bound_default = 0;

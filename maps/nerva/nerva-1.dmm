@@ -2306,7 +2306,8 @@
 	input_tag = "d4_port_chamber_in";
 	name = "Chamber Gas Control";
 	output_tag = "d4_port_chamber_out";
-	sensor_tag = list("d4_port_chamber_sensor"="Combustion Chamber")
+	sensor_tag = "d4_port_chamber_sensor"
+	sensor_name = "Combustion Chamber"
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/bdportengine)
@@ -3168,7 +3169,7 @@
 /turf/simulated/floor/tiled,
 /area/antonine_hangar/start)
 "ge" = (
-/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos/tank{
 	dir = 4;
 	id_tag = "d4_port_chamber_out";
 	internal_pressure_bound = 35000;
@@ -3422,7 +3423,7 @@
 /turf/simulated/floor/reinforced,
 /area/engineering/bdportengine)
 "gI" = (
-/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos/tank{
 	dir = 1;
 	id_tag = "d4_port_chamber_out";
 	internal_pressure_bound = 35000;
@@ -9985,7 +9986,7 @@
 /area/engineering/bdstarengine)
 "rW" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos/tank{
 	id_tag = "d4_starboard_chamber_out";
 	internal_pressure_bound = 35000;
 	internal_pressure_bound_default = 35000
@@ -10284,7 +10285,7 @@
 	pixel_x = -24
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos/tank{
 	dir = 4;
 	id_tag = "d4_starboard_chamber_out";
 	internal_pressure_bound = 35000;
@@ -11673,7 +11674,8 @@
 	input_tag = "d4_starboard_chamber_in";
 	name = "Chamber Gas Control";
 	output_tag = "d4_starboard_chamber_out";
-	sensor_tag = list("d4_starboard_chamber_sensor"="Combustion Chamber")
+	sensor_tag = "d4_starboard_chamber_sensor"
+	sensor_name = "Combustion Chamber"
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/bdstarengine)
@@ -18752,7 +18754,8 @@
 	dir = 2;
 	icon_state = "computer";
 	name = "Atmospheric Sensors";
-	sensor_tag = list("hadrian_out")
+	sensor_tag = "hadrian_out"
+	sensor_name = "External Atmosphere"
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/hadrian/storage)
@@ -21499,7 +21502,8 @@
 	dir = 1;
 	icon_state = "computer";
 	name = "Atmospheric Sensors";
-	sensor_tag = list("trajan_out")
+	sensor_tag = "trajan_out"
+	sensor_name = "External Atmosphere"
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;

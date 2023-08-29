@@ -86,6 +86,7 @@
 		data["frequency"] = "[frequency/10].0"
 	data["input_tag"] = input_tag
 	data["output_tag"] = output_tag
+	data["sensor_name"] = sensor_name
 	data["sensor_tag"] = sensor_tag
 
 	if(input_info)
