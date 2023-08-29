@@ -21297,7 +21297,7 @@
 	name = "Engine Cooling Control";
 	output_tag = "cooling_out";
 	pressure_setting = 100;
-	sensor_tag = "engine_sensor"
+	sensor_tag = "engine_sensor";
 	sensor_name = "Engine Core"
 	},
 /obj/machinery/button/blast_door{

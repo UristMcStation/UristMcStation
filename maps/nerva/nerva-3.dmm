@@ -1366,7 +1366,7 @@
 	input_tag = "fuel_in";
 	name = "Fuel Supply Control";
 	output_tag = "fuel_out";
-	sensor_tag = "fuel_sensor"
+	sensor_tag = "fuel_sensor";
 	sensor_name = "Fuel Tank"
 	},
 /obj/item/device/radio/intercom{
@@ -5077,7 +5077,7 @@
 	input_tag = "d2_c_chamber_in";
 	name = "Chamber Gas Control";
 	output_tag = "d2_c_chamber_out";
-	sensor_tag = "d2_c_chamber_sensor"
+	sensor_tag = "d2_c_chamber_sensor";
 	sensor_name = "Combustion Chamber"
 	},
 /turf/simulated/floor/reinforced,
@@ -10357,7 +10357,7 @@
 	input_tag = "co2_in";
 	name = "Carbon Dioxide Supply Control";
 	output_tag = "co2_out";
-	sensor_tag = "co2_sensor"
+	sensor_tag = "co2_sensor";
 	sensor_name = "Carbon Dioxide Tank"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
@@ -11262,7 +11262,7 @@
 	input_tag = "h2_in";
 	name = "Hydrogen Supply Control";
 	output_tag = "h2_out";
-	sensor_tag = "h2_sensor"
+	sensor_tag = "h2_sensor";
 	sensor_name = "Hydrogen Tank"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
@@ -11713,7 +11713,7 @@
 	input_tag = "n2_in";
 	name = "Nitrogen Supply Control";
 	output_tag = "n2_out";
-	sensor_tag = "n2_sensor"
+	sensor_tag = "n2_sensor";
 	sensor_name = "Nitrogen Tank"
 	},
 /turf/simulated/floor/tiled,
@@ -12027,7 +12027,7 @@
 	input_tag = "n2o_in";
 	name = "Nitrous Oxide Supply Control";
 	output_tag = "n2o_out";
-	sensor_tag = "n2o_sensor"
+	sensor_tag = "n2o_sensor";
 	sensor_name = "Nitrous Oxide Tank"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
@@ -12539,7 +12539,7 @@
 	input_tag = "o2_in";
 	name = "Oxygen Supply Control";
 	output_tag = "o2_out";
-	sensor_tag = "o2_sensor"
+	sensor_tag = "o2_sensor";
 	sensor_name = "Oxygen Tank"
 	},
 /turf/simulated/floor/tiled,

@@ -11674,7 +11674,7 @@
 	input_tag = "d4_starboard_chamber_in";
 	name = "Chamber Gas Control";
 	output_tag = "d4_starboard_chamber_out";
-	sensor_tag = "d4_starboard_chamber_sensor"
+	sensor_tag = "d4_starboard_chamber_sensor";
 	sensor_name = "Combustion Chamber"
 	},
 /turf/simulated/floor/reinforced,
@@ -18754,7 +18754,7 @@
 	dir = 2;
 	icon_state = "computer";
 	name = "Atmospheric Sensors";
-	sensor_tag = "hadrian_out"
+	sensor_tag = "hadrian_out";
 	sensor_name = "External Atmosphere"
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
@@ -21502,7 +21502,7 @@
 	dir = 1;
 	icon_state = "computer";
 	name = "Atmospheric Sensors";
-	sensor_tag = "trajan_out"
+	sensor_tag = "trajan_out";
 	sensor_name = "External Atmosphere"
 	},
 /obj/item/device/radio/intercom{
