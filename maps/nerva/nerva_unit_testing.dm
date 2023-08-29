@@ -3,9 +3,9 @@
 
 	apc_test_exempt_areas = list(
 		/area/space = NO_SCRUBBER|NO_VENT|NO_APC,
-		/area/engineering/bdstarengine = NO_SCRUBBER,
-		/area/engineering/bdportengine = NO_SCRUBBER,
-		/area/engineering/fdengine = NO_SCRUBBER,
+		/area/engineering/bdstarengine = NO_SCRUBBER|NO_VENT,
+		/area/engineering/bdportengine = NO_SCRUBBER|NO_VENT,
+		/area/engineering/fdengine = NO_SCRUBBER|NO_VENT,
 		/area/shuttle/escape_pod1/station = NO_SCRUBBER|NO_VENT,
 		/area/shuttle/escape_pod2/station = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/shuttle/escape_pod3/station = NO_SCRUBBER|NO_VENT|NO_APC,
