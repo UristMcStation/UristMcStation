@@ -12839,12 +12839,6 @@
 	pixel_x = -26
 	},
 /obj/machinery/jukebox/old,
-/turf/simulated/floor/wood/walnut,
-/area/civilian/bar)
-"awd" = (
-/obj/machinery/light/spot/warmtint{
-	dir = 1
-	},
 /obj/item/device/radio/intercom{
 	broadcasting = 0;
 	dir = 2;
@@ -12854,9 +12848,18 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/civilian/bar)
+"awd" = (
+/obj/structure/hygiene/sink/kitchen{
+	pixel_y = 22
+	},
+/turf/simulated/floor/wood/walnut,
+/area/civilian/bar)
 "awe" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/window/eastleft,
+/obj/machinery/light/spot/warmtint{
+	dir = 1
+	},
 /turf/simulated/floor/wood/walnut,
 /area/civilian/bar)
 "awf" = (
@@ -13958,8 +13961,9 @@
 /turf/simulated/floor/wood/walnut,
 /area/civilian/bar)
 "ayz" = (
-/obj/structure/table/woodentable_reinforced/walnut,
-/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
 /turf/simulated/floor/wood/walnut,
 /area/civilian/bar)
 "ayA" = (
@@ -14993,10 +14997,8 @@
 /area/civilian/kitchen)
 "aAq" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/wood/walnut,
 /area/civilian/bar)
 "aAr" = (
@@ -15513,39 +15515,38 @@
 /turf/simulated/floor/tiled/white,
 /area/civilian/kitchen)
 "aBu" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/machinery/disposal,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/disposalpipe/trunk{
 	dir = 4
 	},
+/obj/structure/window/reinforced,
 /turf/simulated/floor/wood/walnut,
 /area/civilian/bar)
 "aBv" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4;
-	icon_state = "intact-supply"
-	},
-/obj/item/storage/box/donkpocket_mixed{
-	pixel_x = 3;
-	pixel_y = 3
-	},
 /obj/structure/table/woodentable_reinforced/walnut,
+/obj/machinery/fabricator/micro/bartender,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/wood/walnut,
 /area/civilian/bar)
 "aBw" = (
 /obj/item/stool/bar/padded,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4;
-	icon_state = "intact-supply"
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/wood/walnut,
 /area/civilian/bar)
 "aBx" = (
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4;
-	icon_state = "map-supply"
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood/walnut,
 /area/civilian/bar)
 "aBy" = (
@@ -16150,28 +16151,31 @@
 /turf/simulated/floor/tiled/white,
 /area/civilian/kitchen)
 "aCA" = (
-/obj/machinery/vending/boozeomat,
-/obj/machinery/firealarm{
-	dir = 8;
-	pixel_x = -24
-	},
-/turf/simulated/floor/tiled,
+/obj/structure/stairs/west,
+/turf/simulated/floor/wood/walnut,
 /area/civilian/bar)
 "aCB" = (
-/obj/machinery/light/spot/warmtint,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/item/storage/box/donkpocket_mixed{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/structure/table/woodentable_reinforced/walnut,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/wood/walnut,
 /area/civilian/bar)
 "aCC" = (
-/obj/machinery/door/firedoor,
-/obj/structure/table/woodentable_reinforced/walnut,
-/obj/machinery/fabricator/micro/bartender,
+/obj/item/stool/bar/padded,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
 /turf/simulated/floor/wood/walnut,
 /area/civilian/bar)
 "aCE" = (
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood/walnut,
@@ -27466,6 +27470,12 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/checkpoint)
+"bBU" = (
+/obj/structure/table/woodentable_reinforced/walnut,
+/obj/item/material/ashtray/bronze,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/wood/walnut,
+/area/civilian/bar)
 "bEf" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
@@ -28314,11 +28324,6 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/civilian/holodeck)
 "fXH" = (
-/obj/machinery/disposal,
-/obj/structure/disposalpipe/trunk{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/newscaster{
 	pixel_y = -28
 	},
@@ -28902,12 +28907,13 @@
 /turf/simulated/floor/plating,
 /area/security/portexternalgun)
 "jWR" = (
-/obj/structure/hygiene/sink{
+/obj/machinery/vending/boozeomat,
+/obj/machinery/firealarm{
 	dir = 8;
-	icon_state = "sink";
-	pixel_x = -11
+	pixel_x = -24
 	},
-/turf/simulated/floor/wood/walnut,
+/obj/structure/window/reinforced,
+/turf/simulated/floor/tiled,
 /area/civilian/bar)
 "kaf" = (
 /obj/structure/cable{
@@ -29882,6 +29888,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/security/checkpoint)
+"pPB" = (
+/obj/machinery/light/spot/warmtint,
+/turf/simulated/floor/wood/walnut,
+/area/civilian/bar)
 "pSC" = (
 /obj/machinery/light,
 /obj/structure/cable{
@@ -57892,9 +57902,9 @@ awd
 axp
 awh
 awh
-awh
+ayz
 aBu
-aCB
+awh
 auO
 aEi
 aFu
@@ -58093,10 +58103,10 @@ auO
 awe
 axq
 xiK
-ayz
-xiK
+bBU
+aCB
 aBv
-aCC
+pPB
 auO
 atC
 aFA
@@ -58296,7 +58306,7 @@ awf
 axr
 ayA
 ayA
-ayA
+aCC
 aBw
 fXH
 auO
