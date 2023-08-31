@@ -111,6 +111,22 @@
 	sound_env = SMALL_ENCLOSED
 	area_flags = AREA_FLAG_ION_SHIELDED
 
+/area/command/ce_dorm
+	name = "\improper Chief Engineer Dorm"
+	req_access = list(access_ce)
+
+/area/command/cos_dorm
+	name = "\improper Chief Security Dorm"
+	req_access = list(access_hos)
+
+/area/command/cmo_dorm
+	name = "\improper Chief Medical Dorm"
+	req_access = list(access_cmo)
+
+/area/command/so_dorm
+	name = "\improper Second Officers Dorm"
+	req_access = list(access_hop)
+
 //////////////////////////////////////
 //			CIVILIAN				//
 //////////////////////////////////////
