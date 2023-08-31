@@ -32,9 +32,6 @@
 	ambience = list()
 	sound_env = MEDIUM_SOFTFLOOR
 
-/area/command/headquarters
-	name = "\improper Officers' Quarters"
-
 /area/command/fo
 	name = "\improper First Officer's Office"
 	req_access = list(access_fo)
