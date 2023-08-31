@@ -1,7 +1,10 @@
 /datum/map
-	var/const/NO_APC = 1
-	var/const/NO_VENT = 2
-	var/const/NO_SCRUBBER = 4
+	var/const/NO_APC = 			0x01
+	var/const/NO_VENT = 		0x02
+	var/const/NO_SCRUBBER = 	0x04
+	var/const/NO_AIR_ALARM = 	0x08
+	var/const/NO_FIRE_ALARM =	0x10
+	var/const/EXEMPT_ALL =		0xFF
 
 	// Unit test vars
 	var/list/apc_test_exempt_areas = list(

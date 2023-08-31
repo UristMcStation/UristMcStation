@@ -25,7 +25,7 @@ SUBSYSTEM_DEF(unit_tests)
 	log_unit_test("Initializing Unit Testing")
 
 	// Load Map Templates
-	load_map_templates()
+	// load_map_templates() //TODO: Come back to this when OOM can be tackled.
 
 	//
 	//Start the Round.
