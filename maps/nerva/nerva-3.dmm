@@ -3802,8 +3802,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/command{
-	name = "Chief of Security Dorm"
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -4127,17 +4129,13 @@
 "iC" = (
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-22"
+/obj/structure/flora/pottedplant{
+	icon_state = "plant-22"
 	},
 /turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "iE" = (
 /obj/structure/table/woodentable/walnut,
-/obj/item/device/synthesized_instrument/violin,
-/obj/machinery/light_switch{
-	dir = 8;
-	pixel_x = 22;
-	pixel_y = 0
-	},
 /obj/machinery/recharger,
 /turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
@@ -5817,11 +5815,6 @@
 /obj/machinery/light_switch{
 	dir = 1;
 	pixel_y = -20
-	},
-/turf/simulated/floor/carpet,
-/area/command/headquarters)
-"mi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	},
 /turf/simulated/floor/carpet,
 /area/command/headquarters)
@@ -7522,11 +7515,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4;
 	icon_state = "intact-scrubbers"
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -41705,8 +41693,6 @@ gS
 Xd
 BX
 jp
-me
-Xd
 me
 Xd
 ne
