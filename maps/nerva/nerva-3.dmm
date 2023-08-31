@@ -2090,7 +2090,7 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/carpet,
-/area/command/headquarters)
+/area/command/cmo_dorm)
 "eQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/catwalk,
@@ -3813,7 +3813,7 @@
 	name = "Chief of Security Dorm"
 	},
 /turf/simulated/floor/plating,
-/area/command/headquarters)
+/area/command/cos_dorm)
 "hN" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -4491,7 +4491,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet,
-/area/command/headquarters)
+/area/command/cos_dorm)
 "jr" = (
 /obj/structure/bookcase,
 /obj/item/book/manual/chemistry_recipes,
@@ -4512,7 +4512,7 @@
 	pixel_x = -22
 	},
 /turf/simulated/floor/carpet,
-/area/command/headquarters)
+/area/command/ce_dorm)
 "jv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4814,7 +4814,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/carpet,
-/area/command/headquarters)
+/area/command/ce_dorm)
 "kh" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/machinery/light_switch{
@@ -4822,7 +4822,7 @@
 	pixel_y = -20
 	},
 /turf/simulated/floor/carpet,
-/area/command/headquarters)
+/area/command/ce_dorm)
 "ki" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4837,7 +4837,7 @@
 	pixel_x = 22
 	},
 /turf/simulated/floor/carpet,
-/area/command/headquarters)
+/area/command/cos_dorm)
 "kj" = (
 /obj/machinery/light{
 	dir = 1;
@@ -5817,7 +5817,7 @@
 	pixel_y = -20
 	},
 /turf/simulated/floor/carpet,
-/area/command/headquarters)
+/area/command/cos_dorm)
 "mi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4;
@@ -6315,14 +6315,14 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet,
-/area/command/headquarters)
+/area/command/cmo_dorm)
 "ne" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/machinery/light_switch{
 	pixel_y = 28
 	},
 /turf/simulated/floor/carpet,
-/area/command/headquarters)
+/area/command/cmo_dorm)
 "ng" = (
 /obj/item/stack/material/wood/walnut/ten,
 /turf/simulated/floor/plating,
@@ -6681,7 +6681,7 @@
 	pixel_x = -22
 	},
 /turf/simulated/floor/carpet,
-/area/command/headquarters)
+/area/command/so_dorm)
 "od" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood/walnut,
@@ -7130,7 +7130,7 @@
 	name = "Chief Engineer Dorm"
 	},
 /turf/simulated/floor/plating,
-/area/command/headquarters)
+/area/command/ce_dorm)
 "oT" = (
 /obj/structure/sign/deck/second{
 	dir = 4;
@@ -7572,7 +7572,7 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/carpet,
-/area/command/headquarters)
+/area/command/ce_dorm)
 "pT" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/paper_bin{
@@ -13042,7 +13042,7 @@
 	icon_state = "map_scrubber_on"
 	},
 /turf/simulated/floor/carpet,
-/area/command/headquarters)
+/area/command/ce_dorm)
 "Bc" = (
 /obj/effect/floor_decal/chapel,
 /obj/item/stool,
@@ -13077,7 +13077,7 @@
 	pixel_x = -22
 	},
 /turf/simulated/floor/carpet,
-/area/command/headquarters)
+/area/command/ce_dorm)
 "Bt" = (
 /turf/simulated/wall/false{
 	density = 1;
@@ -13207,7 +13207,7 @@
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/carpet,
-/area/command/headquarters)
+/area/command/cos_dorm)
 "BZ" = (
 /turf/simulated/wall/prepainted,
 /area/civilian/counselor)
@@ -13282,11 +13282,12 @@
 /turf/simulated/floor/wood/walnut,
 /area/civilian/counselor)
 "Cx" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/fuel{
-	dir = 4
+/obj/structure/closet/secure_closet/personal,
+/obj/machinery/light_switch{
+	pixel_y = 28
 	},
-/turf/simulated/floor/reinforced/airless,
-/area/engineering/fdengine)
+/turf/simulated/floor/carpet,
+/area/command/so_dorm)
 "Cz" = (
 /obj/machinery/power/apc{
 	cell_type = /obj/item/cell/high;
@@ -13927,7 +13928,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet,
-/area/command/headquarters)
+/area/command/cos_dorm)
 "Ge" = (
 /obj/structure/window/reinforced,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -14241,7 +14242,7 @@
 	icon_state = "map_scrubber_on"
 	},
 /turf/simulated/floor/carpet,
-/area/command/headquarters)
+/area/command/so_dorm)
 "HJ" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
@@ -14322,6 +14323,9 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/command/captain)
+"Ii" = (
+/turf/simulated/wall/prepainted,
+/area/command/ce_dorm)
 "Io" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -14711,7 +14715,7 @@
 	pixel_y = -22
 	},
 /turf/simulated/floor/carpet,
-/area/command/headquarters)
+/area/command/cmo_dorm)
 "KG" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
@@ -14939,7 +14943,7 @@
 	name = "Chief Medical Officer Dorm"
 	},
 /turf/simulated/floor/carpet,
-/area/command/headquarters)
+/area/command/cmo_dorm)
 "LD" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Second Deck Substation"
@@ -16346,7 +16350,7 @@
 	pixel_y = 1
 	},
 /turf/simulated/floor/carpet,
-/area/command/headquarters)
+/area/command/so_dorm)
 "RW" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
@@ -16437,7 +16441,7 @@
 	pixel_y = 1
 	},
 /turf/simulated/floor/carpet,
-/area/command/headquarters)
+/area/command/cmo_dorm)
 "ST" = (
 /obj/structure/hygiene/shower{
 	dir = 8;
@@ -16474,7 +16478,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/carpet,
-/area/command/headquarters)
+/area/command/cos_dorm)
 "Tl" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/plating,
@@ -16581,7 +16585,7 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/carpet,
-/area/command/headquarters)
+/area/command/cmo_dorm)
 "Ub" = (
 /obj/machinery/vending/tool,
 /turf/simulated/floor/tiled,
@@ -16840,6 +16844,9 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
+"VD" = (
+/turf/simulated/wall/prepainted,
+/area/command/cmo_dorm)
 "VK" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -16877,6 +16884,9 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
+"VV" = (
+/turf/simulated/wall/prepainted,
+/area/command/so_dorm)
 "VX" = (
 /obj/machinery/vending/urist/autodrobe,
 /turf/simulated/floor/plating,
@@ -17133,10 +17143,10 @@
 	pixel_y = -22
 	},
 /turf/simulated/floor/carpet,
-/area/command/headquarters)
+/area/command/so_dorm)
 "Xd" = (
 /turf/simulated/wall/prepainted,
-/area/command/headquarters)
+/area/command/cos_dorm)
 "Xf" = (
 /turf/simulated/wall/r_wall/prepainted,
 /area/chapel/office)
@@ -17624,7 +17634,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/carpet,
-/area/command/headquarters)
+/area/command/so_dorm)
 "Zi" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10
@@ -17749,7 +17759,7 @@
 	name = "Second Officers Dorm"
 	},
 /turf/simulated/floor/carpet,
-/area/command/headquarters)
+/area/command/so_dorm)
 "ZZ" = (
 /turf/simulated/wall/prepainted,
 /area/chapel/office)
@@ -41492,11 +41502,11 @@ Xd
 Xd
 Xd
 Xd
-Xd
-Xd
-Xd
-Xd
-Xd
+VD
+VD
+VD
+VD
+VD
 Uf
 LA
 ru
@@ -41694,11 +41704,11 @@ Xd
 BX
 jp
 me
-Xd
+VD
 ne
 nd
 KD
-Xd
+VD
 WA
 WK
 ru
@@ -41896,7 +41906,7 @@ hL
 ki
 Tc
 Gc
-Xd
+VD
 SK
 eN
 Ua
@@ -42098,11 +42108,11 @@ Xd
 Xd
 Xd
 Xd
-Xd
-Xd
-Xd
-Xd
-Xd
+VD
+VD
+VD
+VD
+VD
 ON
 qJ
 ru
@@ -42300,7 +42310,7 @@ oS
 js
 kg
 Bs
-Xd
+VV
 RU
 Zh
 nW
@@ -42498,15 +42508,15 @@ eD
 fi
 gd
 gZ
-Xd
+Ii
 pR
 Bb
 kh
-Xd
-ne
+VV
+Cx
 HC
 Xc
-Xd
+VV
 pJ
 rw
 ru
@@ -42700,15 +42710,15 @@ cR
 fj
 gi
 hP
-Xd
-Xd
-Xd
-Xd
-Xd
-Xd
-Xd
-Xd
-Xd
+Ii
+Ii
+Ii
+Ii
+VV
+VV
+VV
+VV
+VV
 Hn
 qM
 ry
