@@ -25,7 +25,12 @@ SUBSYSTEM_DEF(unit_tests)
 	log_unit_test("Initializing Unit Testing")
 
 	// Load Map Templates
+	#ifdef MAP_TEST_TEMPLATES
+	log_unit_test("Loading map templates...")
 	load_map_templates()
+	#else
+	log_unit_test("Skipping map templates")
+	#endif
 
 	//
 	//Start the Round.
