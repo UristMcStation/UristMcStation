@@ -8,6 +8,8 @@
 	#include "example-2.dmm"
 	#include "example-3.dmm"
 
+	#include "../standard_cultures.dm"
+
 	#define using_map_DATUM /datum/map/example
 
 #elif !defined(MAP_OVERRIDE)
