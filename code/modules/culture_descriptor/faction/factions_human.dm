@@ -25,7 +25,7 @@
 	Bachelor degree and go through a lengthy training process before being assigned to a warship. \
 	Recently Sol-made IPCs were also permitted to enlist, provided they agree to install a law shackle."
 
-/*
+
 /singleton/cultural_info/faction/torchco
 	name = FACTION_CORPORATE
 	description = "The Expeditionary Corps Organisation is a government-owned, publically traded limited liability company assembled from the corporate \
@@ -62,7 +62,7 @@
 	While not military, it was modelled in a naval style, with employees having ranks and uniforms. \
 	Any SCG citizen of age (18 and older) with no outstanding SCG-wide warrants can sign up for a 2-year contract. \
 	Officer candidates are required to have at least a bachelor's degree in a relevant field (astrogation, engineering, xenoarcheology, etc)."
-*/
+
 
 /singleton/cultural_info/faction/police
 	name = FACTION_SPACECOPS
