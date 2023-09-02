@@ -134,13 +134,13 @@
 	icon_state = "pine_[rand(4,6)]"
 	..()
 
-/obj/structure/flora/tree/planet/temperate/snowy
+/obj/structure/flora/tree/planet/snowy
 	name = "pine tree"
 	desc = "It's a tree. Useful for combustion and/or construction."
 	icon = 'icons/obj/flora/pinetrees.dmi'
 	icon_state = "pine_1"
 	size = 1
 
-/obj/structure/flora/tree/planet/temperate/snowy/New()
+/obj/structure/flora/tree/planet/snowy/New()
 	icon_state = "pine_[rand(1,3)]"
 	..()

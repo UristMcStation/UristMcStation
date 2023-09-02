@@ -1,4 +1,4 @@
-/decl/hierarchy/outfit/job/forest_settler
+/singleton/hierarchy/outfit/job/forest_settler
 	name = "Pioneer"
 	uniform = /obj/item/clothing/under/frontier
 	shoes = /obj/item/clothing/shoes/dutyboots
@@ -11,7 +11,7 @@
 	title = "Terrestrial Pioneer"
 	supervisors = "your chosen diety if they can hear you out here."
 	total_positions = 4
-	outfit_type = /decl/hierarchy/outfit/job/forest_settler
+	outfit_type = /singleton/hierarchy/outfit/job/forest_settler
 	info = "Bordom of space life or desire to get away from the bustle of city life, \
 			you are now out in the frontier in a boreal forest valley. \
 			However it isn't as easy as the books and holovids made it look, \

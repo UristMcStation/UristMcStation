@@ -1,7 +1,7 @@
 "a" = (/turf/space,/area/planet/forest/upper)
 "b" = (/turf/simulated/floor/planet/jungle/rock,/area/planet/forest/upper)
 "c" = (/turf/simulated/open,/area/planet/forest/upper)
-"d" = (/obj/structure/closet,/obj/item/gun/projectile/manualcycle/hunterrifle/scoped,/obj/item/gun/projectile/manualcycle/hunterrifle/scoped,/obj/item/material/knife/hunting,/obj/item/material/knife/hunting,/turf/simulated/floor/wood,/area/planet/forest/cabin1/attic)
+"d" = (/turf/simulated/floor,/area/planet/forest/cabin2/attic)
 "e" = (/turf/simulated/wall/wood,/area/planet/forest/cabin1/attic)
 "f" = (/obj/effect/wingrille_spawn/reinforced/full,/turf/simulated/floor/wood,/area/planet/forest/cabin1/attic)
 "g" = (/turf/simulated/floor/wood,/area/planet/forest/cabin1/attic)
@@ -15,17 +15,16 @@
 "o" = (/turf/simulated/open/skylight,/area/planet/forest/cabin1/attic)
 "p" = (/obj/item/remains/human,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/upper)
 "q" = (/obj/structure/closet,/obj/random/accessory,/obj/random/clothing,/obj/random/clothing,/obj/random/handgun,/obj/random/ammo,/obj/random/ammo,/obj/item/clothing/suit/urist/sweater/blue/heart,/turf/simulated/floor/wood,/area/planet/forest/cabin1/attic)
-"r" = (/mob/living/simple_animal/passive/opossum,/turf/simulated/floor/wood,/area/planet/forest/cabin1/attic)
 "t" = (/turf/simulated/open/skylight,/area/planet/forest/cabin2/attic)
 "u" = (/obj/structure/ironing_board/fancy,/turf/simulated/floor/wood{tag = "icon-wood_broken5"; icon_state = "wood_broken5"},/area/planet/forest/cabin1/attic)
 "v" = (/turf/simulated/open/skylight,/area/planet/forest/upper)
-"w" = (/obj/structure/table/rack/wood,/obj/item/reagent_containers/spray/sterilizine,/obj/item/material/knife,/obj/item/stack/cable_coil/blue,/obj/item/crowbar/red,/obj/item/flame/lighter/cyan,/obj/item/material/hatchet,/obj/item/tape_roll,/obj/item/wrench,/obj/item/reagent_containers/glass/beaker/painkiller,/obj/item/reagent_containers/glass/beaker/painkiller,/obj/item/reagent_containers/pill/peridaxon,/obj/item/reagent_containers/pill/peridaxon,/obj/item/reagent_containers/pill/peridaxon,/turf/simulated/floor/wood,/area/planet/forest/cabin1/attic)
+"w" = (/obj/structure/table/rack/wood,/obj/item/reagent_containers/spray/sterilizine,/obj/item/material/knife,/obj/item/stack/cable_coil/blue,/obj/item/crowbar/red,/obj/item/storage/fancy/cigarettes/killthroat,/obj/item/flame/lighter/cyan,/obj/item/material/hatchet,/obj/item/tape_roll,/obj/item/wrench,/obj/item/reagent_containers/glass/beaker/painkiller,/obj/item/reagent_containers/glass/beaker/painkiller,/obj/item/reagent_containers/pill/peridaxon,/obj/item/reagent_containers/pill/peridaxon,/obj/item/reagent_containers/pill/peridaxon,/turf/simulated/floor/wood,/area/planet/forest/cabin1/attic)
 "y" = (/obj/effect/spider/stickyweb,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/upper)
 "z" = (/turf/simulated/mineral/random,/area/planet/forest/upper)
 "A" = (/obj/structure/bed,/obj/effect/submap_landmark/spawnpoint/forest_settler,/turf/simulated/floor/wood,/area/planet/forest/cabin1/attic)
 "E" = (/obj/structure/table/rack/wood,/obj/item/storage/firstaid/adv,/obj/item/storage/firstaid,/obj/item/storage/firstaid/toxin,/turf/simulated/floor/wood,/area/planet/forest/cabin1/attic)
 "F" = (/obj/item/clothing/head/urist/historic/armor/valkyrie,/obj/item/clothing/suit/urist/armor/historic/chain/early_chainmail,/obj/item/material/sword,/obj/random/treasure,/obj/random/treasure,/obj/item/clothing/shoes/jackboots/medievalboots,/obj/item/clothing/under/urist/historic/leather_tunic,/obj/item/remains/human,/obj/structure/closet/coffin/urist/stonecoffin,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/upper)
-"H" = (/turf/simulated/floor,/area/planet/forest/cabin2/attic)
+"H" = (/mob/living/simple_animal/opossum,/turf/simulated/floor,/area/planet/forest/cabin2/attic)
 "J" = (/obj/structure/closet,/obj/random/accessory,/obj/random/clothing,/obj/random/clothing,/obj/random/handgun,/obj/random/ammo,/obj/random/ammo,/obj/item/clothing/suit/urist/sweater/pink,/turf/simulated/floor/wood,/area/planet/forest/cabin1/attic)
 "K" = (/turf/simulated/open,/area/planet/forest/cabin1/attic)
 "L" = (/obj/structure/closet,/obj/random/accessory,/obj/random/clothing,/obj/random/clothing,/obj/random/clothing,/obj/random/handgun,/obj/random/ammo,/obj/random/ammo,/obj/item/clothing/suit/urist/sweater/mint,/turf/simulated/floor/wood,/area/planet/forest/cabin1/attic)
@@ -33,6 +32,7 @@
 "N" = (/mob/living/simple_animal/hostile/urist/skeleton/ancient,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/upper)
 "P" = (/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/upper)
 "Q" = (/turf/simulated/floor/planet/jungle/rock/underground,/area/planet/forest/upper)
+"R" = (/obj/structure/closet,/obj/item/gun/projectile/manualcycle/hunterrifle/scoped,/obj/item/gun/projectile/manualcycle/hunterrifle/scoped,/obj/item/material/knife/hunting,/obj/item/material/knife/hunting,/obj/item/ammo_magazine/a762mm/stripper,/obj/item/ammo_magazine/a762mm/stripper,/obj/item/ammo_magazine/a762mm/stripper,/obj/item/ammo_magazine/a762mm/stripper,/obj/item/ammo_magazine/a762mm/stripper,/obj/item/ammo_magazine/a762mm/stripper,/turf/simulated/floor/wood,/area/planet/forest/cabin1/attic)
 "Y" = (/obj/random/trash,/turf/simulated/floor/wood,/area/planet/forest/cabin1/attic)
 "Z" = (/obj/machinery/light_switch{pixel_x = -32; pixel_y = 24},/turf/simulated/floor/wood,/area/planet/forest/cabin1/attic)
 
@@ -42,7 +42,7 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbaaa
 aaaQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbaaa
-aaaQQmmmPPPPPPPPNPPmmmmmmmmmPPPQbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbaaa
+aaaQQmmmPPPPPPPPNPPmmmmmPPPPPPPQbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbaaa
 aaaQQmmmPPmyPmmmPPPbbmmmmmmQPPPQbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbaaa
 aaaQQPPPmPPPmmmmPPPbbvvvvvvQPPPQvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvbbbbaaa
 aaaQQPPpPPlPMPmmPPbbvvvvvvvQPNPQvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvbbbbaaa
@@ -95,8 +95,8 @@ aaabbbbvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvttttttttttt
 aaabbbbvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvttttttttttttttttttvvvvvvbbbbaaa
 aaabbbbvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvttttttttttttttttttvvvvvvbbbbaaa
 aaabbbbvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvttttttttttttttttttvvvvvvbbbbaaa
-aaabbbbvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvtttttttHHHttttttttvvvvvvbbbbaaa
-aaabbbbvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvtttttttHHHttttttttvvvvvvbbbbaaa
+aaabbbbvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvtttttttdddttttttttvvvvvvbbbbaaa
+aaabbbbvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvtttttttHddttttttttvvvvvvbbbbaaa
 aaabbbbvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvttttttttttttttttttvvvvvvbbbbaaa
 aaabbbbvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvttttttttttttttttttvvvvvvbbbbaaa
 aaabbbbvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvttttttttttttttttttvvvvvvbbbbaaa
@@ -120,9 +120,9 @@ aaabbbbvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvoooeeff
 aaabbbbvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvooofguwqJEZgLeoooooobbbbaaa
 aaabbbbvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvooofgggggggggeoooooobbbbaaa
 aaabbbbvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvooofggggYigYgeoooooobbbbaaa
-aaabbbbvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvooofgiYggghgdeoooooobbbbaaa
+aaabbbbvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvooofgiYggghgReoooooobbbbaaa
 aaabbbbvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvooofgggigggggeoooooobbbbaaa
-aaabbbbvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvooofjgngAirggeoooooobbbbaaa
+aaabbbbvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvooofjgngAigggeoooooobbbbaaa
 aaabbbbvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvooofgggghgYggeoooooobbbbaaa
 aaabbbbvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvooofggAgAggKKeoooooobbbbaaa
 aaabbbbvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvoooeeeeeeeeeeeoooooobbbbaaa

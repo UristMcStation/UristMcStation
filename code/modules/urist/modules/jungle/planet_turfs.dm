@@ -775,8 +775,8 @@
 	terrain_type = "grass"
 
 /turf/simulated/floor/planet/temperate/Initialize()
-    . = ..()
-    icon_state = "browngrass[rand(0,4)]"
+	. = ..()
+	icon_state = "browngrass[rand(0,4)]"
 
 ///turf/simulated/floor/planet/temperate/grass need to get more sprites for asteroid style tiling, not important ATM
 //	icon = 'icons/turf/floors.dmi'
@@ -799,10 +799,10 @@
 	light_color = "#ffffff"
 
 /turf/simulated/floor/planet/dirt/temperate/Initialize()
-    . = ..()
-    icon_state = "dirt-rough[rand(0,4)]"
+	. = ..()
+	icon_state = "dirt-rough[rand(0,4)]"
 
-/turf/simulated/floor/planet/border/
+/obj/effect/floor_decal/planet/border
 	temperature = 283.15 //10C
 	name = "forest floor"
 	desc = "Patchy bits of moss, grass, dirt, and leaves"
@@ -813,23 +813,17 @@
 	light_falloff_curve = 0.5
 	light_color = "#ffffff"
 
-/turf/simulated/floor/planet/border/grasstodirt
+/obj/effect/floor_decal/planet/border/grasstodirt
 	icon_state = "grasstodirt_new"
-	icon_spawn_state = "grasstodirt_new"
 
-/turf/simulated/floor/planet/border/dirttograss
+/obj/effect/floor_decal/planet/border/dirttograss
 	icon_state = "dirttograss_new"
-	icon_spawn_state = "dirttograss_new"
 
-/turf/simulated/floor/planet/border/grasstosnow
+/obj/effect/floor_decal/planet/border/grasstosnow
 	icon_state = "grasstosnow"
-	icon_spawn_state = "grasstosnow"
-	temperature = 275.15 //2C
 
-/turf/simulated/floor/planet/border/snowtograss
+/obj/effect/floor_decal/planet/border/snowtograss
 	icon_state = "snowtograss"
-	icon_spawn_state = "snowtograss"
-	temperature = 275.15 //2C
 
 /turf/simulated/floor/planet/snow
 	temperature = 273.15 //0C
@@ -856,6 +850,7 @@
 	//	/mob/living/simple_animal/hostile/huntable/wolf/white,
 	)
 
+
 /turf/simulated/floor/planet/snow/Initialize()
-    . = ..()
-    icon_state = "snow[rand(0,12)]"
+	. = ..()
+	icon_state = "snow[rand(0,12)]"

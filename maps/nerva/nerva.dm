@@ -66,6 +66,8 @@
 	#include "../away/stations/pirate/pirate_station.dm"
 	#include "../away/voxship/voxship.dm"
 	#include "../away/glloyd_jungle/glloyd_jungle.dm"
+	#include "../away/forest/forest.dm"
+	#include "../away/forest/forest_jobs.dm"
 	#include "../away/destroyed_colony/destroyed_colony.dm"
 	#include "../away/noctis/noctis.dm"
 	#include "../away/abandoned_colony/abandoned_colony.dm"

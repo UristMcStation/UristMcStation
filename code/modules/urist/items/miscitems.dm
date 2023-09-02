@@ -703,33 +703,21 @@
 	desc = "A picture of a young squire."
 	icon_state = "squire"
 
-/obj/item/treasure/plush
+/obj/item/toy/plushie/loot
 	name = "old cartoon doll"
 	desc = "A cute doll of an old cartoon from early in the millennium."
 	icon_state = "rareplush1"
 
-/obj/item/treasure/plush/pink
+/obj/item/toy/plushie/loot/pink
 	icon_state = "rareplush2"
 
-/obj/item/treasure/plush/blue
+/obj/item/toy/plushie/loot/blue
 	icon_state = "rareplush3"
 
-/obj/item/treasure/plush/scug
+/obj/item/toy/plushie/loot/scug
 	name = "slugcat plush"
 	desc = "A cute doll based off a sleeping slugcat."
 	icon_state = "scugplush"
-
-//i dont want to make them a toy subtype to keep the loot seperate from toys
-/obj/item/treasure/plush/attack_self(mob/user as mob)
-	if(user.a_intent == I_HELP)
-		user.visible_message("<span class='notice'><b>\The [user]</b> hugs [src]!</span>","<span class='notice'>You hug [src]!</span>")
-	else if (user.a_intent == I_HURT)
-		user.visible_message("<span class='warning'><b>\The [user]</b> punches [src]!</span>","<span class='warning'>You punch [src]!</span>")
-	else if (user.a_intent == I_GRAB)
-		user.visible_message("<span class='warning'><b>\The [user]</b> attempts to strangle [src]!</span>","<span class='warning'>You attempt to strangle [src]!</span>")
-	else
-		user.visible_message("<span class='notice'><b>\The [user]</b> pokes the [src].</span>","<span class='notice'>You poke the [src].</span>")
-
 
 /obj/random/treasure
 	name = "random treasure"
@@ -758,10 +746,10 @@
 	icon_state = "gift3"
 
 /obj/random/treasure/plush/spawn_choices()
-	return list(/obj/item/treasure/plush,
-				/obj/item/treasure/plush/pink,
-				/obj/item/treasure/plush/blue,
-				/obj/item/treasure/plush/scug)
+	return list(/obj/item/toy/plushie/loot,
+				/obj/item/toy/plushie/loot/pink,
+				/obj/item/toy/plushie/loot/blue,
+				/obj/item/toy/plushie/loot/scug)
 
 /obj/random/treasure/portrait
 	name = "random treasure portrait"

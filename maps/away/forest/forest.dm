@@ -60,19 +60,19 @@
 	name = "\improper abandoned corridor"
 	icon_state = "forest"
 
-/obj/effect/overmap/sector/caraway_forest //FOR THE LOVE OF ALL THAT IS GOOD IN THE WORLD PLACE THIS ON THE LOWEST Z LEVEL SO IT SPAWNS ON THE OVERMAP INSTEAD OF WONDERING WHY IT DOESNT WORK FOR A WEEK!!!
+/obj/effect/overmap/visitable/sector/planetoid/caraway_forest //FOR THE LOVE OF ALL THAT IS GOOD IN THE WORLD PLACE THIS ON THE LOWEST Z LEVEL SO IT SPAWNS ON THE OVERMAP INSTEAD OF WONDERING WHY IT DOESNT WORK FOR A WEEK!!!
 	name = "temperate planetoid"
 	desc = "Scanner report shows a derelict comm bouy in orbit; recovered data shows little info beyond a breathable atmosphere. Sensors pick up a degraded signal from an area in the northern hemisphere."
 	icon_state = "globe"
-	known = 0
-	in_space = 0
+	known = FALSE
+	in_space = FALSE
 	color = "#035e15"
 	initial_generic_waypoints = list(
 		"nav_caraway_forest_1",
 		"nav_caraway_forest_2"
 		)
 
-/obj/effect/overmap/sector/caraway_forest/New(nloc, max_x, max_y)
+/obj/effect/overmap/visitable/sector/planetoid/caraway_forest/New(nloc, max_x, max_y)
 	name = "[generate_planet_name()], \a [name]"
 	..()
 
@@ -90,15 +90,26 @@
 	description = "3z level planet with cave, forest surface, and 2 story buildings."
 	suffixes = list("forest/forest1.dmm", "forest/forest2.dmm", "forest/forest3.dmm")
 	accessibility_weight = 11
-	generate_mining_by_z = 3
+	generate_mining_by_z = list(1,2,3)
+
+/datum/random_map/automata/cave_system/planet
+    floor_type = /turf/simulated/floor/asteroid/planet
+
+/datum/map_template/ruin/away_site/caraway_forest/after_load(z)
+    for(var/i in generate_mining_by_z)
+        var/current_z = z + i - 1
+        new /datum/random_map/automata/cave_system/planet(null, 1, 1, current_z, world.maxx, world.maxy)
+        new /datum/random_map/noise/ore(null, 1, 1, current_z, world.maxx, world.maxy)
+        GLOB.using_map.refresh_mining_turfs(current_z)
 
 /obj/effect/submap_landmark/joinable_submap/caraway_forest
 	name = "Boreal Forest"
-	archetype = /decl/submap_archetype/caraway_forest
+	archetype = /singleton/submap_archetype/caraway_forest
 
-/decl/submap_archetype/caraway_forest
+/singleton/submap_archetype/caraway_forest
 	descriptor = "boreal forest"
 	map = "boreal forest"
 	crew_jobs = list(
 		/datum/job/submap/forest_settler
+
 	)

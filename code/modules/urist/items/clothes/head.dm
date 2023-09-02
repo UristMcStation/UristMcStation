@@ -671,11 +671,11 @@ to avoid worrying about the sprites -Glloyd*/
 	icon_state = "gold_crown_diamond"
 	item_state = "gold_crown_diamond"
 
-/obj/item/clothing/head/urist/historic/crown/pharoah
-	name = "pharoah headdress"
+/obj/item/clothing/head/urist/historic/crown/pharaoh
+	name = "pharaoh headdress"
 	desc = "an ancient gilded cloth headdress for a living god."
-	icon_state = "pharoah_headdress"
-	item_state = "pharoah_headdress"
+	icon_state = "pharaoh_headdress"
+	item_state = "pharaoh_headdress"
 	flags_inv = HIDEEARS|BLOCKHEADHAIR
 
 /obj/item/clothing/head/urist/historic/armor

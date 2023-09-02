@@ -786,13 +786,11 @@ the sprite and make my own projectile -Glloyd*/
 	item_state = "goldspaceak"
 	wielded_item_state = "goldspaceak-wielded"
 
-/obj/item/gun/projectile/automatic/spaceak/gold/update_icon()
-	..()
-	if(ammo_magazine && ammo_magazine.stored_ammo.len)
+/obj/item/gun/projectile/automatic/spaceak/gold/on_update_icon()
+	if(ammo_magazine?.stored_ammo.len)
 		icon_state = "goldspaceak"
 	else
 		icon_state = "goldspaceak-empty"
-	return
 
 /obj/item/gun/projectile/automatic/hi2521smg
 	item_icons = DEF_URIST_INHANDS

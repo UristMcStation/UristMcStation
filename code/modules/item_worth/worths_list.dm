@@ -18,7 +18,7 @@ var/global/list/worths = list(
 					/obj/item/reagent_containers/glass = -60,
 					/obj/item/reagent_containers = -1,
 //GUNS,
-					/obj/item/gun/energy/taser/old = 1000, //antiques
+					/obj/item/gun/energy/taser/old = 1000,
 					/obj/item/gun/energy/laser/old = 6000,
 					/obj/item/gun/energy/laser/practice = 500,
 					/obj/item/gun/energy/laser/dogan = 1900,
@@ -27,7 +27,6 @@ var/global/list/worths = list(
 					/obj/item/gun/energy/captain = 2500,
 					/obj/item/gun/energy/lasercannon = 4100,
 					/obj/item/gun/energy/xray = 2900,
-
 					/obj/item/gun/energy/sniperrifle = 5400,
 					/obj/item/gun/energy/lasertag = 10,
 					/obj/item/gun/energy/gun/nuclear = 2800,
@@ -414,7 +413,7 @@ var/global/list/worths = list(
 					/obj/item/clothing/suit/infilsuit = 250,
 					/obj/item/clothing/suit/straight_jacket/overseercloak = 100,
 //HEADS,
-					/obj/item/clothing/head/urist/pelt = 500, //rare pelts on the frontier
+					/obj/item/clothing/head/urist/pelt = 500,
 					/obj/item/clothing/head/urist/historic/crown/gold = 2000,
 					/obj/item/clothing/head/urist/historic/crown/gold/diamond = 3000,
 					/obj/item/clothing/head/urist/historic/crown/silver = 1500,
@@ -522,7 +521,7 @@ var/global/list/worths = list(
 					/obj/item/organ = 400,
 //ITEMS,
 					/obj/item/toy/figure = 100,
-					/obj/item/treasure/plush = 750,
+					/obj/item/toy/plushie/loot = 750,
 					/obj/item/treasure/portrait = 1250,
 					/obj/item/treasure/gem/prism = 750,
 					/obj/item/treasure/gem = 500,
