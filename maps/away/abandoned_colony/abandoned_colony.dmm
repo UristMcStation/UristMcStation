@@ -69,7 +69,7 @@
 "am" = (
 /turf/simulated/floor/fixed/uristturf/geminus{
 	color = "#cccccc";
-	icon_state = "square_grey"	},
+	icon_state = "square_grey"
 	},
 /area/planet/abandoned_colony)
 "an" = (
