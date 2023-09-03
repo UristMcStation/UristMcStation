@@ -90,6 +90,7 @@
 	description = "3z level planet with cave, forest surface, and 2 story buildings."
 	suffixes = list("forest/forest1.dmm", "forest/forest2.dmm", "forest/forest3.dmm")
 	accessibility_weight = 11
+	spawn_cost = 1
 	generate_mining_by_z = list(1,2,3)
 
 /datum/random_map/automata/cave_system/planet
