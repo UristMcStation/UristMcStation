@@ -66,6 +66,7 @@
 	desc = "A refrigerated storage unit for slime extracts."
 	icon_contents = "slime"
 	req_access = list(access_research)
+	construct_state = null
 
 /obj/machinery/smartfridge/secure/extract/accept_check(obj/item/O as obj)
 	if(istype(O,/obj/item/slime_extract))
@@ -77,6 +78,7 @@
 	desc = "A refrigerated storage unit for storing medicine and chemicals."
 	icon_contents = "chem"
 	req_access = list(list(access_medical,access_chemistry))
+	construct_state = null
 
 /obj/machinery/smartfridge/secure/medbay/accept_check(obj/item/O as obj)
 	if(istype(O,/obj/item/reagent_containers/glass))
@@ -92,6 +94,7 @@
 	desc = "A refrigerated storage unit for storing viral material."
 	req_access = list(access_virology)
 	icon_contents = "chem"
+	construct_state = null
 
 /obj/machinery/smartfridge/secure/virology/accept_check(obj/item/O as obj)
 	if(istype(O,/obj/item/reagent_containers/glass/beaker/vial))
