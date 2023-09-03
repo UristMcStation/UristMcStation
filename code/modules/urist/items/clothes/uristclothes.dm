@@ -1585,20 +1585,12 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 //civ13 top layer, coats and armor
 
 /obj/item/clothing/suit/urist/armor/historic/full
-	name = "Bronze Armor"
-	desc = "Provides protection."
-	icon_state = "suit_bronze"
-	item_state = "suit_bronze"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	w_class = 4
 	item_flags = ITEM_FLAG_THICKMATERIAL
 	armor = list(melee = 55, bullet = 20, laser = 20, energy = 10, bomb = 5, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/urist/armor/historic/chestplate
-	name = "Bronze Armor"
-	desc = "Provides protection."
-	icon_state = "suit_bronze"
-	item_state = "suit_bronze"
 	body_parts_covered = UPPER_TORSO
 	w_class = 3
 	item_flags = ITEM_FLAG_THICKMATERIAL

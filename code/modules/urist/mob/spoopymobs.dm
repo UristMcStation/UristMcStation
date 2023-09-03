@@ -600,7 +600,7 @@
 	projectilesound = 'sound/magic/fireball.ogg'
 	harm_intent_damage = 0
 	needs_reload = TRUE
-	reload_time = 2 SECONDS
+	reload_time = 1.5 SECONDS
 	reload_sound = null
 
 
@@ -629,12 +629,16 @@
 	damage = 15
 	damage_type = DAMAGE_BURN
 
+/obj/item/projectile/energy/holy/strong
+	damage = 25
+
 /mob/living/simple_animal/hostile/urist/angel/angry
 	name = "\improper angel"
 	icon_state = "angel-angry"
 	icon_living = "angel-angry"
 	maxHealth = 150
 	health = 150
+	projectiletype = /obj/item/projectile/energy/holy/strong
 
 
 /mob/living/simple_animal/hostile/urist/angel/bronze
@@ -643,6 +647,7 @@
 	icon_living = "bronze-angel"
 	maxHealth = 200
 	health = 200
+	projectiletype = /obj/item/projectile/energy/holy/strong
 
 //skeletons
 

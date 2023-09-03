@@ -93,14 +93,14 @@
 	generate_mining_by_z = list(1,2,3)
 
 /datum/random_map/automata/cave_system/planet
-    floor_type = /turf/simulated/floor/asteroid/planet
+	floor_type = /turf/simulated/floor/asteroid/planet
 
 /datum/map_template/ruin/away_site/caraway_forest/after_load(z)
-    for(var/i in generate_mining_by_z)
-        var/current_z = z + i - 1
-        new /datum/random_map/automata/cave_system/planet(null, 1, 1, current_z, world.maxx, world.maxy)
-        new /datum/random_map/noise/ore(null, 1, 1, current_z, world.maxx, world.maxy)
-        GLOB.using_map.refresh_mining_turfs(current_z)
+	for(var/i in generate_mining_by_z)
+		var/current_z = z + i - 1
+		new /datum/random_map/automata/cave_system/planet(null, 1, 1, current_z, world.maxx, world.maxy)
+		new /datum/random_map/noise/ore(null, 1, 1, current_z, world.maxx, world.maxy)
+		GLOB.using_map.refresh_mining_turfs(current_z)
 
 /obj/effect/submap_landmark/joinable_submap/caraway_forest
 	name = "Boreal Forest"

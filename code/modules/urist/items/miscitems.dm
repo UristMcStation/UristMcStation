@@ -706,6 +706,7 @@
 /obj/item/toy/plushie/loot
 	name = "old cartoon doll"
 	desc = "A cute doll of an old cartoon from early in the millennium."
+	icon = 'icons/urist/items/misc.dmi'
 	icon_state = "rareplush1"
 
 /obj/item/toy/plushie/loot/pink
