@@ -44,3 +44,4 @@
 	icon_state = "tower"
 	bounds = "96;96"
 	id = "Relay-PSR"
+	construct_state = null
