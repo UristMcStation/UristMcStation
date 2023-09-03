@@ -7,15 +7,17 @@
 	invisibility = 101
 	var/spawn_time_high = 2400
 	var/spawn_time_low = 1200
+	var/crosstrigger = FALSE
 
 /obj/effect/landmark/animal_spawner/New()
-	if(!spawn_type)
-		var/new_type = pick(typesof(/obj/effect/landmark/animal_spawner) - /obj/effect/landmark/animal_spawner)
-		new new_type(get_turf(src))
-		qdel(src)
+	if(!crosstrigger)
+		if(!spawn_type)
+			var/new_type = pick(typesof(/obj/effect/landmark/animal_spawner) - /obj/effect/landmark/animal_spawner)
+			new new_type(get_turf(src))
+			qdel(src)
 
-	START_PROCESSING(SSobj, src)
-	spawned_animal = new spawn_type(get_turf(src))
+		START_PROCESSING(SSobj, src)
+		spawned_animal = new spawn_type(get_turf(src))
 	..()
 
 /obj/effect/landmark/animal_spawner/Process()
@@ -48,24 +50,18 @@
 
 /obj/effect/landmark/animal_spawner/random
 	var/spawn_list
-	var/crosstrigger = 0
 	var/x_offset = 0
 	var/y_offset = 0
 
 /obj/effect/landmark/animal_spawner/random/New()
-	if(crosstrigger)
-		return
-
-	else
-		START_PROCESSING(SSobj, src)
-		spawn_type = pick(spawn_list)
-		spawned_animal = new spawn_type(get_turf(src))
+	spawn_type = pick(spawn_list)
 	..()
 
 /obj/effect/landmark/animal_spawner/random/Process()
 	//if any of our animals are killed, spawn new ones
 	if(!spawned_animal || spawned_animal.stat == DEAD)
-		spawn_type = pick(spawn_list)
+		if(!spawn_type)
+			spawn_type = pick(spawn_list)
 		spawned_animal = new spawn_type(src)
 		//after a random timeout, and in a random position (6-30 seconds)
 		spawn(rand(spawn_time_low,spawn_time_high))
