@@ -90,6 +90,7 @@
 #include "code\__defines\ZAS.dm"
 #include "code\__defines\zmimic.dm"
 #include "code\__defines\urist\_colormatrix_defines.dm"
+#include "code\__defines\urist\maths.dm"
 #include "code\_global_vars\configuration.dm"
 #include "code\_global_vars\edible.dm"
 #include "code\_global_vars\logging.dm"
