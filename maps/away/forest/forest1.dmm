@@ -4,7 +4,7 @@
 "ad" = (/obj/structure/disposalpipe/segment,/turf/simulated/floor,/area/planet/forest/cave/engie)
 "ae" = (/obj/structure/bed/padded,/obj/item/bedsheet/blue,/turf/simulated/floor/wood/mahogany,/area/planet/forest/cave/dorms)
 "af" = (/obj/effect/decal/cleanable/filth,/turf/simulated/floor,/area/planet/forest/cave/dorms)
-"ag" = (/obj/machinery/light{dir = 8},/obj/machinery/light{dir = 8},/obj/structure/cable/blue{icon_state = "2-5"},/obj/effect/decal/cleanable/filth,/turf/simulated/floor/tiled,/area/planet/forest/cave/kitchen)pharaoh
+"ag" = (/obj/machinery/light{dir = 8},/obj/machinery/light{dir = 8},/obj/structure/cable/blue{icon_state = "2-5"},/obj/effect/decal/cleanable/filth,/turf/simulated/floor/tiled,/area/planet/forest/cave/kitchen)
 "ah" = (/obj/structure/table/standard,/mob/living/simple_animal/hostile/giant_spider,/turf/simulated/floor,/area/planet/forest/cave/engie)
 "ai" = (/turf/space,/area/planet/forest/cave)
 "aj" = (/turf/simulated/floor/planet/jungle/rock/underground,/area/planet/forest/cave)
