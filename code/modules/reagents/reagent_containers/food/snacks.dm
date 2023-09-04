@@ -1038,7 +1038,7 @@
 /obj/item/reagent_containers/food/snacks/plainsteak
 	name = "plain steak"
 	desc = "A piece of unseasoned cooked meat."
-	icon_state = "meatsteak"
+	icon_state = "meatstake"
 	slice_path = /obj/item/reagent_containers/food/snacks/cutlet
 	slices_num = 3
 	filling_color = "#7a3d11"
