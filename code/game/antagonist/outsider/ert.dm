@@ -26,6 +26,8 @@ GLOBAL_DATUM_INIT(ert, /datum/antagonist/ert, new)
 
 	var/reason = ""
 
+	required_language = LANGUAGE_GALCOM
+
 /datum/antagonist/ert/create_default(mob/source)
 	var/mob/living/carbon/human/M = ..()
 	if(istype(M)) M.age = rand(25,45)
