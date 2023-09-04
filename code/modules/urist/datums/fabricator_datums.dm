@@ -90,8 +90,8 @@
 	hidden = 1
 	category = "Arms and Ammunition"
 
-/datum/fabricator_recipe/magazine_762_stripper
-	name = "hunting rifle ammo (7.62mm)"
+/datum/fabricator_recipe/magazine_556_stripper
+	name = "hunting rifle ammo (5.56mm)"
 	path = /obj/item/ammo_magazine/rifle/military/stripper
 	category = "Arms and Ammunition"
 
