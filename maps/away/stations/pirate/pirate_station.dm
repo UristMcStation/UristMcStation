@@ -56,6 +56,7 @@ var/global/const/access_away_pirate_station = "ACCESS_AWAY_PIRATE_STATION"
 	spawn_cost = 0
 	accessibility_weight = 10
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+	generate_mining_by_z = 1
 
 /obj/effect/shuttle_landmark/nav_piratestation
 	special = TRUE
