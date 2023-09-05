@@ -16,6 +16,8 @@ GLOBAL_DATUM_INIT(paramounts, /datum/antagonist/paramount, new)
 	id_type = /obj/item/card/id/syndicate
 	faction = "paramount"
 
+	required_language = LANGUAGE_GALCOM
+
 /datum/antagonist/paramount/equip(mob/living/carbon/human/player)
 
 	if(!..())

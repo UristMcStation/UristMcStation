@@ -27,6 +27,8 @@ GLOBAL_DATUM_INIT(foundation_agents, /datum/antagonist/foundation, new)
 	faction = "foundation"
 	id_type = /obj/item/card/id/foundation
 
+	required_language = LANGUAGE_GALCOM
+
 /datum/antagonist/foundation/equip(mob/living/carbon/human/player)
 
 	if(!..())

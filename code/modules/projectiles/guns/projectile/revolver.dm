@@ -66,6 +66,7 @@
 
 /obj/item/gun/projectile/revolver/medium
 	name = "revolver"
+	icon = 'icons/obj/guns/revolvers.dmi'
 	icon_state = "medium"
 	safety_icon = "medium_safety"
 	caliber = CALIBER_PISTOL
@@ -78,6 +79,7 @@
 /obj/item/gun/projectile/revolver/holdout
 	name = "holdout revolver"
 	desc = "The al-Maliki & Mosley Partner is a concealed-carry revolver made for people who do not trust automatic pistols any more than the people they're dealing with."
+	icon = 'icons/obj/guns/revolvers.dmi'
 	icon_state = "holdout"
 	item_state = "pen"
 	caliber = CALIBER_PISTOL_SMALL
@@ -108,7 +110,6 @@
 /obj/item/gun/projectile/revolver/webley
 	name = "service revolver"
 	desc = "The A&M W4. A rugged top break revolver produced by al-Maliki & Mosley. Based on the Webley model, with modern improvements. Uses magnum ammo."
-	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "webley"
 	item_state = "webley"
 	item_icons = URIST_ALL_ONMOBS

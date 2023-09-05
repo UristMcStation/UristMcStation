@@ -19,6 +19,8 @@ GLOBAL_DATUM_INIT(deathsquad, /datum/antagonist/deathsquad, new)
 
 	var/deployed = 0
 
+	required_language = LANGUAGE_GALCOM
+
 /datum/antagonist/deathsquad/attempt_spawn()
 	if(..())
 		deployed = 1
