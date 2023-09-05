@@ -69,7 +69,8 @@
 "am" = (
 /turf/simulated/floor/fixed/uristturf/geminus{
 	color = "#cccccc";
-	icon_state = "square_grey"	},
+	icon_state = "square_grey"
+	},
 /area/planet/abandoned_colony)
 "an" = (
 /obj/structure/hygiene/sink{
@@ -283,6 +284,10 @@
 /obj/structure/closet/crate{
 	name = "ammunition crate"
 	},
+/obj/random/biggun,
+/obj/random/ammo,
+/obj/random/ammo,
+/obj/item/grenade/frag,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
 	},
@@ -292,6 +297,10 @@
 /obj/structure/closet/crate{
 	name = "ammunition crate"
 	},
+/obj/random/biggun,
+/obj/random/ammo,
+/obj/random/ammo,
+/obj/random/ammo,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
 	},
@@ -2540,6 +2549,7 @@
 "hs" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/flame/candle,
+/obj/item/clothing/ears/earring/dangle/diamond,
 /turf/simulated/floor/wood/walnut,
 /area/planet/abandoned_colony)
 "ht" = (
@@ -2739,6 +2749,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/random/smokes,
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "hW" = (
@@ -4784,6 +4795,7 @@
 "ob" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/table/standard,
+/obj/item/reagent_containers/food/snacks/canned/beef,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	icon_state = "cafeteria";
 	dir = 2
@@ -4833,6 +4845,8 @@
 /obj/item/reagent_containers/food/snacks/grown,
 /obj/item/reagent_containers/food/snacks/grown,
 /obj/item/reagent_containers/food/snacks/grown,
+/obj/item/reagent_containers/food/snacks/canned/spinach,
+/obj/item/reagent_containers/food/snacks/canned/spinach,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	icon_state = "cafeteria";
 	dir = 2
@@ -4930,6 +4944,7 @@
 "oq" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/table/rack,
+/obj/item/reagent_containers/food/snacks/canned/beans,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	icon_state = "cafeteria";
 	dir = 2
@@ -5370,6 +5385,7 @@
 	dir = 4
 	},
 /obj/item/stool/padded,
+/obj/random/trash,
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "pz" = (
@@ -5666,10 +5682,18 @@
 /area/planet/abandoned_colony)
 "qr" = (
 /obj/machinery/atmospherics/unary/tank/air{
-	icon_state = "air_map";
+	icon_state = "air";
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/unary/tank/air{
+	icon_state = "air";
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/tank/air{
+	icon_state = "air";
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/morninglight/atmos)
 "qs" = (
@@ -6249,7 +6273,7 @@
 	dir = 4
 	},
 /obj/structure/curtain/open/shower{
-	color = "#ffa500";
+	color = "#ffa500"
 	},
 /obj/structure/hygiene/shower,
 /obj/machinery/door/window/northleft{
@@ -6263,7 +6287,7 @@
 	dir = 8
 	},
 /obj/structure/curtain/open/shower{
-	color = "#ffa500";
+	color = "#ffa500"
 	},
 /obj/structure/hygiene/shower,
 /obj/machinery/door/window/northleft{
@@ -8890,6 +8914,256 @@
 	},
 /turf/simulated/floor/tiled/techfloor/airless,
 /area/morninglight/engineering)
+"xZ" = (
+/obj/structure/closet/secure_closet,
+/obj/item/clothing/accessory/neckerchief,
+/turf/simulated/floor/tiled/dark,
+/area/planet/abandoned_colony)
+"Aw" = (
+/obj/random/trash,
+/turf/simulated/floor/tiled/dark,
+/area/planet/abandoned_colony)
+"AW" = (
+/obj/structure/table/rack,
+/obj/random/accessory,
+/obj/random/suit,
+/obj/random/shoes,
+/turf/simulated/floor/tiled/dark,
+/area/planet/abandoned_colony)
+"BD" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/random/shoes,
+/turf/simulated/floor/tiled/dark,
+/area/planet/abandoned_colony)
+"Cg" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/largecrate/animal/crab,
+/turf/simulated/floor/tiled/uristturf/geminus{
+	icon_state = "old_tile_black_dirt"
+	},
+/area/planet/abandoned_colony)
+"CP" = (
+/obj/random/junk,
+/turf/simulated/floor/pavement{
+	dir = 1;
+	icon_state = "pavement"
+	},
+/area/planet/abandoned_colony)
+"DS" = (
+/obj/structure/table/woodentable/walnut,
+/obj/item/reagent_containers/food/snacks/canned/caviar,
+/turf/simulated/floor/carpet,
+/area/planet/abandoned_colony)
+"FZ" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate{
+	name = "ammunition crate"
+	},
+/obj/random/loot,
+/obj/random/loot,
+/turf/simulated/floor/tiled/uristturf/geminus{
+	icon_state = "old_tile_black_dirt"
+	},
+/area/planet/abandoned_colony)
+"GP" = (
+/obj/random/junk,
+/turf/simulated/floor/fixed/destroyedroad{
+	icon_state = "horizontalinnermain1"
+	},
+/area/planet/abandoned_colony)
+"Ja" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/obj/random/lilgun,
+/turf/simulated/floor/tiled/uristturf/geminus{
+	icon_state = "old_tile_black_dirt"
+	},
+/area/planet/abandoned_colony)
+"Kx" = (
+/obj/random/junk,
+/turf/simulated/floor/lino,
+/area/planet/abandoned_colony)
+"KV" = (
+/obj/random/junk,
+/obj/random/junk,
+/turf/simulated/floor/fixed/uristturf/geminus{
+	color = "#cccccc";
+	icon_state = "square_grey"
+	},
+/area/planet/abandoned_colony)
+"Lo" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/solar,
+/turf/simulated/floor/tiled/uristturf/geminus{
+	icon_state = "old_tile_black_dirt"
+	},
+/area/planet/abandoned_colony)
+"Ly" = (
+/obj/structure/closet/secure_closet,
+/obj/machinery/light/colored/green,
+/obj/random/clothing,
+/turf/simulated/floor/tiled/dark,
+/area/planet/abandoned_colony)
+"Mg" = (
+/obj/random/junk,
+/turf/simulated/floor/fixed/destroyedroad{
+	icon_state = "innermiddle"
+	},
+/turf/simulated/floor/fixed/destroyedroad{
+	icon_state = "dottedhorizontalcorroded"
+	},
+/area/planet/abandoned_colony)
+"Nk" = (
+/obj/random/junk,
+/turf/simulated/floor/wood/walnut,
+/area/planet/abandoned_colony)
+"Nv" = (
+/obj/random/loot,
+/turf/simulated/floor/fixed/destroyedroad{
+	icon_state = "innermiddle"
+	},
+/turf/simulated/floor/fixed/destroyedroad{
+	icon_state = "dottedhorizontaldegraded"
+	},
+/area/planet/abandoned_colony)
+"NS" = (
+/obj/structure/closet/secure_closet,
+/obj/random/backpack,
+/turf/simulated/floor/tiled/dark,
+/area/planet/abandoned_colony)
+"OM" = (
+/obj/structure/closet/secure_closet,
+/obj/random/clothing,
+/obj/random/clothing,
+/obj/item/clothing/accessory/corptie,
+/turf/simulated/floor/tiled/dark,
+/area/planet/abandoned_colony)
+"Pq" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/solar_assembly,
+/turf/simulated/floor/tiled/uristturf/geminus{
+	icon_state = "old_tile_black_dirt"
+	},
+/area/planet/abandoned_colony)
+"PF" = (
+/obj/structure/closet,
+/obj/random/gloves,
+/obj/random/glasses,
+/turf/simulated/floor/tiled/dark,
+/area/planet/abandoned_colony)
+"PG" = (
+/obj/random/trash,
+/turf/simulated/floor/carpet,
+/area/planet/abandoned_colony)
+"Qf" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/obj/random/action_figure,
+/obj/random/cash,
+/obj/random/cash,
+/turf/simulated/floor/tiled/uristturf/geminus{
+	icon_state = "old_tile_black_dirt"
+	},
+/area/planet/abandoned_colony)
+"QG" = (
+/obj/random/junk,
+/turf/simulated/floor/fixed/destroyedroad{
+	icon_state = "horizontalinnermain1"
+	},
+/turf/simulated/floor/fixed/destroyedroad{
+	icon_state = "dottedverticaldegraded"
+	},
+/area/planet/abandoned_colony)
+"QI" = (
+/obj/random/junk,
+/turf/simulated/floor/fixed/destroyedroad{
+	icon_state = "verticalinnermain2"
+	},
+/area/planet/abandoned_colony)
+"QN" = (
+/obj/structure/closet,
+/obj/random/accessory,
+/turf/simulated/floor/tiled/dark,
+/area/planet/abandoned_colony)
+"Ra" = (
+/obj/structure/closet,
+/obj/random/accessory,
+/obj/random/gloves,
+/turf/simulated/floor/tiled/dark,
+/area/planet/abandoned_colony)
+"Rt" = (
+/obj/random/junk,
+/turf/simulated/floor/pavement{
+	icon_state = "pavement";
+	dir = 8
+	},
+/area/planet/abandoned_colony)
+"Te" = (
+/obj/item/clothing/ears/earring/stud/gold,
+/turf/simulated/floor/tiled/dark,
+/area/planet/abandoned_colony)
+"VS" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate{
+	name = "ammunition crate"
+	},
+/obj/random/energy,
+/turf/simulated/floor/tiled/uristturf/geminus{
+	icon_state = "old_tile_black_dirt"
+	},
+/area/planet/abandoned_colony)
+"Wt" = (
+/obj/random/junk,
+/turf/simulated/floor/fixed/destroyedroad{
+	icon_state = "innermiddle"
+	},
+/area/planet/abandoned_colony)
+"WU" = (
+/obj/machinery/light/colored/green{
+	icon_state = "green1";
+	dir = 8
+	},
+/obj/item/clothing/accessory/bowtie/ugly,
+/turf/simulated/floor/tiled/dark,
+/area/planet/abandoned_colony)
+"XM" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/random/shoes,
+/turf/simulated/floor/tiled/dark,
+/area/planet/abandoned_colony)
+"YC" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/obj/item/storage/firstaid/adv,
+/turf/simulated/floor/tiled/uristturf/geminus{
+	icon_state = "old_tile_black_dirt"
+	},
+/area/planet/abandoned_colony)
+"YR" = (
+/obj/random/clothing,
+/turf/simulated/floor/tiled,
+/area/planet/abandoned_colony)
+"Zh" = (
+/obj/structure/table/woodentable/walnut,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/item/clothing/accessory/necklace,
+/turf/simulated/floor/tiled/dark,
+/area/planet/abandoned_colony)
+"Zy" = (
+/obj/machinery/light/small{
+	dir = 4;
+	pixel_y = 8
+	},
+/obj/random/junk,
+/obj/random/junk,
+/turf/simulated/floor/pavement/empty,
+/area/planet/abandoned_colony)
 
 (1,1,1) = {"
 aa
@@ -9862,7 +10136,7 @@ am
 am
 am
 am
-am
+KV
 am
 cm
 cm
@@ -9964,8 +10238,8 @@ al
 al
 am
 al
-al
-ph
+aQ
+Zy
 cl
 al
 al
@@ -10973,7 +11247,7 @@ mT
 al
 eh
 gy
-eh
+Nk
 gW
 ac
 ft
@@ -11588,7 +11862,7 @@ fn
 ez
 ez
 ez
-ez
+Kx
 ez
 ez
 hR
@@ -13359,7 +13633,7 @@ lI
 mC
 mE
 lI
-lA
+GP
 lA
 lI
 lI
@@ -13459,7 +13733,7 @@ ll
 ll
 cp
 ll
-ll
+Rt
 ll
 ll
 ll
@@ -13653,7 +13927,7 @@ ac
 ac
 lg
 lj
-oF
+Nv
 lj
 lK
 am
@@ -13790,13 +14064,13 @@ aa
 (49,1,1) = {"
 aa
 ac
-as
+Lo
 au
 aT
 au
 as
 au
-bU
+Qf
 ac
 am
 to
@@ -13892,13 +14166,13 @@ aa
 (50,1,1) = {"
 aa
 ac
-as
+Pq
 au
 aU
 au
 as
 au
-bU
+YC
 cc
 am
 lg
@@ -13994,13 +14268,13 @@ aa
 (51,1,1) = {"
 aa
 ac
+Cg
+au
+FZ
+au
 as
 au
-aU
-au
-as
-au
-bU
+Ja
 cc
 am
 lg
@@ -14021,7 +14295,7 @@ ac
 ac
 ac
 rH
-rH
+YR
 ac
 ah
 ah
@@ -14098,7 +14372,7 @@ aa
 ac
 as
 au
-aU
+VS
 au
 as
 au
@@ -14233,7 +14507,7 @@ rH
 ah
 ah
 rH
-ah
+be
 ah
 ac
 ms
@@ -14645,7 +14919,7 @@ aq
 aq
 ac
 ac
-aE
+xZ
 ah
 ah
 lN
@@ -15072,7 +15346,7 @@ lA
 lA
 lI
 lI
-lI
+QI
 lA
 lA
 lA
@@ -15173,7 +15447,7 @@ lF
 lG
 lG
 lG
-lF
+QG
 lF
 lF
 lG
@@ -15989,7 +16263,7 @@ ah
 ah
 cA
 bR
-bR
+PG
 bR
 bR
 bR
@@ -16095,7 +16369,7 @@ bR
 bR
 bR
 bR
-bR
+PG
 pF
 am
 am
@@ -16166,7 +16440,7 @@ mb
 rH
 ac
 ah
-ah
+be
 rH
 pu
 ah
@@ -16359,7 +16633,7 @@ aG
 ac
 ah
 pu
-bz
+AW
 ac
 am
 al
@@ -16393,7 +16667,7 @@ ac
 rH
 rH
 ac
-ah
+Aw
 ah
 ah
 pr
@@ -16509,7 +16783,7 @@ ac
 am
 lg
 lA
-oK
+Mg
 lj
 lK
 am
@@ -16555,7 +16829,7 @@ ah
 ac
 eh
 cA
-cA
+DS
 bH
 ac
 ac
@@ -16763,7 +17037,7 @@ cA
 bR
 ac
 lT
-aG
+Ly
 ac
 ah
 ah
@@ -17021,7 +17295,7 @@ lg
 lj
 oE
 lj
-lK
+CP
 am
 am
 wm
@@ -17579,7 +17853,7 @@ ei
 bH
 ac
 lS
-aG
+Ly
 ac
 ah
 ah
@@ -17597,7 +17871,7 @@ ah
 ah
 rH
 ah
-ah
+be
 rH
 ah
 ah
@@ -17616,7 +17890,7 @@ gb
 ah
 ah
 ac
-hT
+Ra
 jG
 ac
 al
@@ -17716,7 +17990,7 @@ cu
 cu
 ac
 ah
-ah
+be
 ac
 is
 ah
@@ -17817,7 +18091,7 @@ ac
 ac
 ac
 ac
-ig
+BD
 ah
 ac
 ac
@@ -17936,7 +18210,7 @@ ac
 ac
 am
 lg
-lj
+Wt
 oE
 lj
 lK
@@ -17997,7 +18271,7 @@ am
 al
 lN
 lT
-ma
+WU
 ah
 ah
 ac
@@ -18018,7 +18292,7 @@ lN
 al
 am
 ac
-hT
+PF
 ah
 gb
 ah
@@ -18100,7 +18374,7 @@ al
 lN
 ah
 ah
-aE
+NS
 ac
 ac
 aq
@@ -18113,7 +18387,7 @@ aq
 aq
 ac
 ac
-aE
+OM
 ah
 ah
 lN
@@ -18194,7 +18468,7 @@ aj
 aL
 aO
 ah
-ah
+Te
 ah
 ac
 am
@@ -18222,12 +18496,12 @@ ac
 al
 am
 ac
-hV
+Zh
 oY
 ac
+be
 ah
-ah
-fD
+XM
 ah
 ah
 ac
@@ -18324,7 +18598,7 @@ aq
 al
 am
 ac
-hT
+QN
 ah
 gb
 ah
@@ -18515,7 +18789,7 @@ al
 al
 al
 am
-am
+aI
 al
 al
 al
