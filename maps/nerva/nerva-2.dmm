@@ -13526,6 +13526,13 @@
 	req_access = list("ACCESS_BRIDGE")
 	},
 /obj/machinery/button/blast_door{
+	id_tag = "MainExpeditionPrep";
+	name = "Expedition Prep Blast Doors";
+	pixel_x = 5;
+	pixel_y = 5;
+	req_access = list("ACCESS_EXPEDITION")
+	},
+/obj/machinery/button/blast_door{
 	id_tag = "bridgeview";
 	name = "Bridge Viewport Blast Doors";
 	pixel_x = -5;
@@ -13535,7 +13542,7 @@
 /obj/machinery/button/blast_door{
 	id_tag = "bridgeoutlock";
 	name = "Bridge Outer Lockdown";
-	pixel_x = 0;
+	pixel_x = -5;
 	pixel_y = 5;
 	req_access = list("ACCESS_BRIDGE")
 	},
