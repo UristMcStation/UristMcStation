@@ -134,6 +134,24 @@
 	TLV["temperature"] =	list(T0C-26, T0C, T0C+30, T0C+40) // K
 	target_temperature = T0C+10
 
+/obj/machinery/alarm/telecoms
+	breach_pressure = ONE_ATMOSPHERE*0.1
+
+/obj/machinery/alarm/telecoms/Initialize()
+	. = ..()
+	TLV[GAS_OXYGEN] = list(-1, -1, 5, 10)
+	TLV[GAS_NITROGEN] = list(96, 98, -1, -1)
+	TLV["temperature"] = list(-120,-100, 100, 120)
+	TLV["pressure"] = list(ONE_ATMOSPHERE*0.15, ONE_ATMOSPHERE*0.20, ONE_ATMOSPHERE*0.80, ONE_ATMOSPHERE*1.20)
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/alarm/telecoms/LateInitialize()
+	for(var/device_id in alarm_area.air_scrub_names)
+		send_signal(device_id, list("set_power"= 1, "set_scrub_gas" = list(GAS_OXYGEN = 1, GAS_NITROGEN = 1), "set_scrubbing"= SCRUBBER_SCRUB))
+
+/obj/machinery/alarm/telecoms/handle_heating_cooling(datum/gas_mixture/environment)
+	return
+
 /obj/machinery/alarm/Destroy()
 	unregister_radio(src, frequency)
 	return ..()

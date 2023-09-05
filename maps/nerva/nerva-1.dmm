@@ -309,6 +309,7 @@
 /area/maintenance/fourth_deck/fp)
 "aP" = (
 /obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/logistics/hangar)
 "aQ" = (
@@ -447,6 +448,7 @@
 	},
 /obj/machinery/door/airlock/maintenance,
 /obj/structure/catwalk,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/medical/extstorage)
 "bg" = (
@@ -769,6 +771,7 @@
 	pixel_y = 12
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
 	frequency = 1379;
 	id_tag = "solar_tool_airlock3";
 	pixel_x = 20;
@@ -776,8 +779,7 @@
 	tag_airpump = "solar_tool_pump3";
 	tag_chamber_sensor = "solar_tool_sensor3";
 	tag_exterior_door = "solar_tool_outer3";
-	tag_interior_door = "solar_tool_inner3";
-	dir = 8
+	tag_interior_door = "solar_tool_inner3"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	id_tag = "solar_tool_pump3"
@@ -907,8 +909,8 @@
 	icon_state = "intact-scrubbers"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 9
+	dir = 9;
+	icon_state = "intact-supply"
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
@@ -1724,8 +1726,8 @@
 /area/logistics/hangar)
 "dE" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/shuttle{
-	id_tag = "antonine_shuttle_pump_out_external";
-	dir = 4
+	dir = 4;
+	id_tag = "antonine_shuttle_pump_out_external"
 	},
 /obj/machinery/airlock_sensor{
 	command = "cycle_exterior";
@@ -2152,13 +2154,13 @@
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	cycle_to_external_air = 1;
+	dir = 1;
 	frequency = 1331;
 	id_tag = "antonine_shuttle";
 	pixel_x = 0;
 	pixel_y = -24;
 	req_access = list("ACCESS_TRAJAN_HELM");
-	tag_exterior_sensor = "antonine_shuttle_sensor_external";
-	dir = 1
+	tag_exterior_sensor = "antonine_shuttle_sensor_external"
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/antonine_hangar/start)
@@ -2306,8 +2308,8 @@
 	input_tag = "d4_port_chamber_in";
 	name = "Chamber Gas Control";
 	output_tag = "d4_port_chamber_out";
+	sensor_name = "Combustion Chamber";
 	sensor_tag = "d4_port_chamber_sensor"
-	sensor_name = "Combustion Chamber"
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/bdportengine)
@@ -2411,6 +2413,7 @@
 	},
 /obj/machinery/door/airlock/maintenance,
 /obj/structure/catwalk,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/logistics/hangar)
 "eS" = (
@@ -2420,8 +2423,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/hatch{
-	name = "Shuttle Power";
-	autoset_access = 0
+	autoset_access = 0;
+	name = "Shuttle Power"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2438,8 +2441,8 @@
 	icon_state = "handrail"
 	},
 /obj/machinery/recharger/wallcharger{
-	pixel_x = -22;
-	dir = 4
+	dir = 4;
+	pixel_x = -22
 	},
 /obj/structure/cable/cyan{
 	d1 = 2;
@@ -2692,8 +2695,8 @@
 /area/exploration_shuttle/main)
 "fp" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Cockpit";
 	autoset_access = 0;
+	name = "Cockpit";
 	req_access = list("ACCESS_TRAJAN_HELM")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2879,7 +2882,7 @@
 	use_power = 1
 	},
 /obj/effect/floor_decal/industrial/outline/blue,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/bdportengine)
 "fF" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2890,14 +2893,14 @@
 	injecting = 1;
 	use_power = 1
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/bdportengine)
 "fG" = (
 /obj/machinery/air_sensor{
 	id_tag = "d4_port_chamber_sensor"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/bdportengine)
 "fH" = (
 /obj/effect/paint/silver,
@@ -3180,7 +3183,7 @@
 	pixel_x = -24
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/bdportengine)
 "gf" = (
 /obj/structure/closet/crate/freezer/rations,
@@ -3430,7 +3433,7 @@
 	internal_pressure_bound_default = 35000
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/bdportengine)
 "gJ" = (
 /obj/machinery/status_display{
@@ -3602,8 +3605,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/hatch{
-	name = "Shuttle Atmospherics";
-	autoset_access = 0
+	autoset_access = 0;
+	name = "Shuttle Atmospherics"
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -4041,12 +4044,12 @@
 	icon_state = "shuttlechair"
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod{
+	dir = 4;
 	frequency = 1380;
 	id_tag = "escape_pod_2";
 	pixel_x = -22;
 	pixel_y = 0;
-	tag_door = "escape_pod_2_hatch";
-	dir = 4
+	tag_door = "escape_pod_2_hatch"
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/shuttle/escape_pod2/station)
@@ -4056,12 +4059,12 @@
 	icon_state = "shuttlechair"
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod{
+	dir = 8;
 	frequency = 1380;
 	id_tag = "escape_pod_3";
 	pixel_x = 22;
 	pixel_y = 0;
-	tag_door = "escape_pod_3_hatch";
-	dir = 8
+	tag_door = "escape_pod_3_hatch"
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/shuttle/escape_pod3/station)
@@ -4139,6 +4142,7 @@
 /area/security/breakroom)
 "hZ" = (
 /obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/security/breakroom)
 "ia" = (
@@ -4291,14 +4295,14 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/recharger/wallcharger{
+	dir = 8;
 	pixel_x = 22;
-	pixel_y = -10;
-	dir = 8
+	pixel_y = -10
 	},
 /obj/machinery/recharger/wallcharger{
+	dir = 8;
 	pixel_x = 22;
-	pixel_y = 8;
-	dir = 8
+	pixel_y = 8
 	},
 /obj/structure/handrail{
 	dir = 8
@@ -4963,6 +4967,7 @@
 	icon_state = "4-8";
 	pixel_x = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/command/bottom_hallway)
 "jA" = (
@@ -5260,9 +5265,9 @@
 /area/maintenance/fourth_deck/fp)
 "kc" = (
 /obj/machinery/computer/modular/preset/security{
+	autorun_program = /datum/computer_file/program/records;
 	dir = 4;
-	icon_state = "console";
-	autorun_program = /datum/computer_file/program/records
+	icon_state = "console"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
@@ -5517,9 +5522,9 @@
 	icon_state = "warning"
 	},
 /obj/machinery/computer/modular/preset/nervacommand{
+	autorun_program = /datum/computer_file/program/comm;
 	dir = 8;
-	icon_state = "console";
-	autorun_program = /datum/computer_file/program/comm
+	icon_state = "console"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10;
@@ -5660,6 +5665,7 @@
 /area/command/aiupload)
 "kG" = (
 /obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/afp)
 "kH" = (
@@ -5683,13 +5689,13 @@
 	},
 /obj/structure/sign/directions/urist/trajan{
 	dir = 4;
-	pixel_y = -8;
-	pixel_x = -32
+	pixel_x = -32;
+	pixel_y = -8
 	},
 /obj/structure/sign/directions/urist/antonine{
 	dir = 4;
-	pixel_y = 8;
-	pixel_x = -32
+	pixel_x = -32;
+	pixel_y = 8
 	},
 /turf/simulated/floor/plating,
 /area/logistics/hangar)
@@ -5724,19 +5730,19 @@
 /area/exploration_shuttle/main)
 "kJ" = (
 /obj/machinery/door/airlock/external{
+	autoset_access = 0;
 	frequency = 1331;
 	id_tag = "trajan_shuttle_inner";
-	name = "Trajan External Access";
-	autoset_access = 0
+	name = "Trajan External Access"
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/exploration_shuttle/main)
 "kK" = (
 /obj/machinery/door/airlock/external{
+	autoset_access = 0;
 	frequency = 1331;
 	id_tag = "trajan_shuttle_inner";
-	name = "Trajan External Access";
-	autoset_access = 0
+	name = "Trajan External Access"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark/monotile,
@@ -5843,8 +5849,8 @@
 /obj/item/device/camera_film,
 /obj/item/device/taperecorder,
 /obj/machinery/light_switch{
-	pixel_x = 22;
-	dir = 8
+	dir = 8;
+	pixel_x = 22
 	},
 /turf/simulated/floor/wood/walnut,
 /area/security/forensics)
@@ -5852,12 +5858,13 @@
 /obj/machinery/door/airlock/maintenance,
 /obj/structure/catwalk,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/security/breakroom)
 "kY" = (
 /obj/machinery/light_switch{
-	pixel_x = -22;
-	dir = 4
+	dir = 4;
+	pixel_x = -22
 	},
 /obj/structure/closet/secure_closet/personal,
 /obj/effect/floor_decal/corner/red/three_quarters,
@@ -5966,6 +5973,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/catwalk,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/centralfourth)
 "ll" = (
@@ -6035,11 +6043,11 @@
 /area/exploration_shuttle/main)
 "lw" = (
 /obj/machinery/door/airlock/external{
+	autoset_access = 0;
 	density = 1;
 	frequency = 1331;
 	id_tag = "trajan_shuttle_outer";
-	name = "Trajan External Access";
-	autoset_access = 0
+	name = "Trajan External Access"
 	},
 /obj/machinery/shield_diffuser,
 /obj/machinery/atmospherics/pipe/manifold/hidden{
@@ -6173,6 +6181,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/security/forensics)
 "lJ" = (
@@ -6599,11 +6608,11 @@
 /area/exploration_shuttle/main)
 "mr" = (
 /obj/machinery/door/airlock/external{
+	autoset_access = 0;
 	density = 1;
 	frequency = 1331;
 	id_tag = "trajan_shuttle_outer";
-	name = "Trajan External Access";
-	autoset_access = 0
+	name = "Trajan External Access"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5;
@@ -6636,8 +6645,8 @@
 	icon_state = "handrail"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/shuttle{
-	id_tag = "trajan_shuttle_pump";
-	dir = 1
+	dir = 1;
+	id_tag = "trajan_shuttle_pump"
 	},
 /obj/machinery/airlock_sensor{
 	frequency = 1331;
@@ -6652,8 +6661,8 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/shuttle{
-	id_tag = "trajan_shuttle_pump";
-	dir = 1
+	dir = 1;
+	id_tag = "trajan_shuttle_pump"
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
@@ -6904,8 +6913,8 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/computer/modular/preset/engineering{
-	dir = 1;
-	autorun_program = /datum/computer_file/program/alarm_monitor
+	autorun_program = /datum/computer_file/program/alarm_monitor;
+	dir = 1
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/command/weapons_command)
@@ -7014,6 +7023,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/centralfourth)
 "nb" = (
@@ -8107,6 +8117,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
+/obj/machinery/firealarm{
+	pixel_y = 24
+	},
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "oS" = (
@@ -8426,8 +8439,8 @@
 /area/civilian/freezer)
 "pC" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Kitchen Maintenance";
 	autoset_access = 0;
+	name = "Kitchen Maintenance";
 	req_access = list("ACCESS_KITCHEN")
 	},
 /obj/structure/catwalk,
@@ -8441,6 +8454,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/civilian/freezer)
 "pD" = (
@@ -8550,6 +8564,7 @@
 /area/engineering/bdstarengine)
 "pN" = (
 /obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "pO" = (
@@ -9380,6 +9395,11 @@
 	},
 /obj/item/extinguisher,
 /obj/item/wrench,
+/obj/machinery/firealarm{
+	dir = 8;
+	pixel_x = -24;
+	pixel_y = 6
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/hangercheckpoint)
 "rb" = (
@@ -9991,7 +10011,7 @@
 	internal_pressure_bound = 35000;
 	internal_pressure_bound_default = 35000
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/bdstarengine)
 "rX" = (
 /obj/structure/plasticflaps/mining,
@@ -10006,6 +10026,7 @@
 /obj/machinery/door/airlock/maintenance{
 	name = "Security Maintenance"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/security/hangercheckpoint)
 "rZ" = (
@@ -10027,6 +10048,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/catwalk,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/centralfourth)
 "sc" = (
@@ -10040,6 +10062,7 @@
 	},
 /obj/structure/catwalk,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/logistics/hangar)
 "sd" = (
@@ -10291,7 +10314,7 @@
 	internal_pressure_bound = 35000;
 	internal_pressure_bound_default = 35000
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/bdstarengine)
 "sz" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
@@ -10831,7 +10854,7 @@
 	injecting = 1;
 	use_power = 1
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/bdstarengine)
 "tr" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -10841,14 +10864,14 @@
 	injecting = 1;
 	use_power = 1
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/bdstarengine)
 "ts" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /obj/machinery/air_sensor{
 	id_tag = "d4_starboard_chamber_sensor"
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/bdstarengine)
 "tt" = (
 /turf/simulated/wall/prepainted,
@@ -10991,6 +11014,7 @@
 	name = "Cargo Bay Maintenance"
 	},
 /obj/structure/catwalk,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/logistics/fabwork)
 "tH" = (
@@ -11075,6 +11099,7 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/catwalk,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora)
 "tO" = (
@@ -11674,8 +11699,8 @@
 	input_tag = "d4_starboard_chamber_in";
 	name = "Chamber Gas Control";
 	output_tag = "d4_starboard_chamber_out";
-	sensor_tag = "d4_starboard_chamber_sensor";
-	sensor_name = "Combustion Chamber"
+	sensor_name = "Combustion Chamber";
+	sensor_tag = "d4_starboard_chamber_sensor"
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/bdstarengine)
@@ -12147,9 +12172,9 @@
 	icon_state = "techfloor_corners"
 	},
 /obj/machinery/light_switch{
+	dir = 8;
 	pixel_x = 20;
-	pixel_y = 24;
-	dir = 8
+	pixel_y = 24
 	},
 /obj/structure/cable{
 	d1 = 2;
@@ -12177,6 +12202,7 @@
 	icon_state = "4-8";
 	pixel_x = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/command/safe_room)
 "vY" = (
@@ -12505,8 +12531,8 @@
 "wF" = (
 /obj/effect/floor_decal/corner/orange/full,
 /obj/machinery/door/airlock/external/escapepod{
-	name = "Escape Pod Three";
-	id_tag = "escape_pod_3_berth_hatch"
+	id_tag = "escape_pod_3_berth_hatch";
+	name = "Escape Pod Three"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/centralfourth)
@@ -13300,8 +13326,8 @@
 /area/maintenance/fourth_deck/central)
 "xU" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Cargo Bay Maintenance";
 	autoset_access = 0;
+	name = "Cargo Bay Maintenance";
 	req_access = list(list("ACCESS_CARGO","ACCESS_XENOBIO"))
 	},
 /obj/structure/cable{
@@ -13312,6 +13338,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/logistics/advwork)
 "xV" = (
@@ -13381,8 +13408,8 @@
 /area/logistics/advwork)
 "xZ" = (
 /obj/machinery/door/airlock/research{
-	name = "Advanced Fabrication Workshop";
 	autoset_access = 0;
+	name = "Advanced Fabrication Workshop";
 	req_access = list(list("ACCESS_CARGO","ACCESS_XENOBIO"))
 	},
 /obj/structure/cable{
@@ -14003,11 +14030,11 @@
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/item/hand_labeler,
 /obj/machinery/button/windowtint{
+	dir = 1;
 	id_tag = "seniorscientint";
 	pixel_x = -6;
 	pixel_y = -22;
-	range = 4;
-	dir = 1
+	range = 4
 	},
 /obj/item/clothing/glasses/science,
 /obj/machinery/firealarm{
@@ -15016,6 +15043,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora)
 "AR" = (
@@ -15993,8 +16021,8 @@
 	icon_state = "edge"
 	},
 /obj/machinery/power/emitter{
-	state = 2;
-	dir = 1
+	dir = 1;
+	state = 2
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/rnd/xenobiology/xenoflora)
@@ -16914,6 +16942,10 @@
 /area/maintenance/fourth_deck/disposals)
 "Em" = (
 /obj/machinery/light/small,
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = -24
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/disposals)
 "En" = (
@@ -17284,6 +17316,7 @@
 	name = "Disposal Access"
 	},
 /obj/structure/catwalk,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/disposals)
 "EN" = (
@@ -17312,9 +17345,9 @@
 	req_access = list("ACCESS_MAINT")
 	},
 /obj/machinery/button/mass_driver{
+	id_tag = "trash";
 	pixel_x = 26;
-	pixel_y = -6;
-	id_tag = "trash"
+	pixel_y = -6
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
@@ -17894,6 +17927,7 @@
 	},
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/logistics/lowercargo)
 "FQ" = (
@@ -18427,10 +18461,10 @@
 /obj/machinery/access_button/airlock_exterior{
 	frequency = 1380;
 	master_tag = "hadrian_shuttle_outer";
-	pixel_x = -25;
 	name = "Hadrian exterior access button";
-	req_access = list("ACCESS_XENOBIO");
-	pixel_y = 10
+	pixel_x = -25;
+	pixel_y = 10;
+	req_access = list("ACCESS_XENOBIO")
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
 	dir = 8;
@@ -18754,8 +18788,8 @@
 	dir = 2;
 	icon_state = "computer";
 	name = "Atmospheric Sensors";
-	sensor_tag = "hadrian_out";
-	sensor_name = "External Atmosphere"
+	sensor_name = "External Atmosphere";
+	sensor_tag = "hadrian_out"
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/hadrian/storage)
@@ -18779,13 +18813,13 @@
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	cycle_to_external_air = 1;
+	dir = 4;
 	frequency = 1380;
 	id_tag = "hadrian_shuttle";
 	pixel_x = -22;
 	pixel_y = 0;
-	tag_exterior_sensor = "hadrian_shuttle_sensor_external";
-	dir = 4;
-	tag_chamber_sensor = "hadrian_shuttle_sensor"
+	tag_chamber_sensor = "hadrian_shuttle_sensor";
+	tag_exterior_sensor = "hadrian_shuttle_sensor_external"
 	},
 /obj/machinery/airlock_sensor{
 	frequency = 1380;
@@ -20254,6 +20288,7 @@
 /area/medical/extstorage)
 "LC" = (
 /obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/medical/extstorage)
 "LF" = (
@@ -20281,6 +20316,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
+"LI" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/fuel{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/engineering/bdstarengine)
 "LK" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -20488,6 +20529,12 @@
 /obj/structure/closet/crate,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/afs)
+"MR" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/fuel{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/engineering/bdportengine)
 "MY" = (
 /obj/effect/paint_stripe/paleblue,
 /turf/simulated/wall/prepainted,
@@ -20559,8 +20606,8 @@
 	},
 /obj/structure/sign/directions/urist/antonine{
 	dir = 8;
-	pixel_y = 8;
-	pixel_x = 32
+	pixel_x = 32;
+	pixel_y = 8
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/logistics/hangar)
@@ -20677,8 +20724,8 @@
 /area/exploration_shuttle/cargo)
 "Oj" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Kitchen Maintenance";
 	autoset_access = 0;
+	name = "Kitchen Maintenance";
 	req_access = list("ACCESS_KITCHEN")
 	},
 /obj/structure/catwalk,
@@ -20687,6 +20734,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/civilian/freezer)
 "Om" = (
@@ -20976,6 +21024,7 @@
 	name = "Cargo Bay Maintenance"
 	},
 /obj/structure/catwalk,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/logistics/lockers)
 "PC" = (
@@ -21239,6 +21288,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
 "QD" = (
@@ -21253,6 +21303,7 @@
 /obj/machinery/door/airlock/glass/research{
 	name = "Isolation Room 2"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "QH" = (
@@ -21502,8 +21553,8 @@
 	dir = 1;
 	icon_state = "computer";
 	name = "Atmospheric Sensors";
-	sensor_tag = "trajan_out";
-	sensor_name = "External Atmosphere"
+	sensor_name = "External Atmosphere";
+	sensor_tag = "trajan_out"
 	},
 /obj/item/device/radio/intercom{
 	dir = 1;
@@ -21648,8 +21699,8 @@
 "RT" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/computer/modular/preset/aislot/research{
-	dir = 8;
-	default_software = list(/datum/computer_file/program/ntnetmonitor,/datum/computer_file/program/nttransfer,/datum/computer_file/program/camera_monitor,/datum/computer_file/program/aidiag,/datum/computer_file/program/email_client,/datum/computer_file/program/wordprocessor,datum/computer_file/program/reports)
+	default_software = list(/datum/computer_file/program/ntnetmonitor,/datum/computer_file/program/nttransfer,/datum/computer_file/program/camera_monitor,/datum/computer_file/program/aidiag,/datum/computer_file/program/email_client,/datum/computer_file/program/wordprocessor,datum/computer_file/program/reports);
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/command/seniorntoffice)
@@ -21977,8 +22028,8 @@
 /area/command/bottom_hallway)
 "TA" = (
 /obj/machinery/door/airlock/glass/mining{
-	name = "Cargo Workshop";
 	autoset_access = 0;
+	name = "Cargo Workshop";
 	req_access = list(list("ACCESS_CARGO","ACCESS_XENOBIO"))
 	},
 /obj/machinery/door/firedoor,
@@ -22428,6 +22479,7 @@
 	dir = 4
 	},
 /obj/effect/catwalk_plated/dark,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/logistics/hangar)
 "VP" = (
@@ -22837,8 +22889,8 @@
 /obj/structure/bed/chair/padded/blue,
 /obj/machinery/button/alternate/door/bolts{
 	id_tag = "bridgesafedoor";
-	pixel_y = 33;
-	name = "safe room door-control"
+	name = "safe room door-control";
+	pixel_y = 33
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/command/safe_room)
@@ -23506,6 +23558,7 @@
 	name = "Xenobiology Lockdown";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
 "ZW" = (
@@ -37143,7 +37196,7 @@ dT
 eD
 UX
 fG
-cm
+MR
 gI
 hk
 aa
@@ -37159,7 +37212,7 @@ aa
 aa
 qS
 rW
-sw
+LI
 ts
 ub
 vg

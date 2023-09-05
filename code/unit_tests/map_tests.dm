@@ -11,7 +11,7 @@
 
 
 /datum/unit_test/apc_area_test
-	name = "MAP: Area Test APC / Scrubbers / Vents"
+	name = "MAP: Area Test APC / Scrubbers / Vents / Alarms"
 
 
 /datum/unit_test/apc_area_test/start_test()
@@ -25,7 +25,7 @@
 			continue
 		area_test_count++
 		var/area_good = 1
-		var/bad_msg = "--------------- [A.name]([A.type])"
+		var/bad_msg = "--------------- [log_info_line(A)]"
 
 		var/exemptions = get_exemptions(A)
 		if(!A.apc && !(exemptions & GLOB.using_map.NO_APC))
@@ -49,13 +49,29 @@
 			log_bad("[bad_msg] is not supposed to have an air vent.")
 			area_good = 0
 
+		var/obj/machinery/alarm/test_air_alarm = locate(/obj/machinery/alarm, A)
+		if(!test_air_alarm && !(exemptions & GLOB.using_map.NO_AIR_ALARM))
+			log_bad("[bad_msg] lacks an air alarm")
+			area_good = 0
+		else if(test_air_alarm && (exemptions & GLOB.using_map.NO_AIR_ALARM))
+			log_bad("[bad_msg] is not supposed to have an air alarm")
+			area_good = 0
+
+		var/obj/machinery/firealarm/test_fire_alarm = locate(/obj/machinery/firealarm, A)
+		if(!test_fire_alarm && !(exemptions & GLOB.using_map.NO_FIRE_ALARM))
+			log_bad("[bad_msg] lacks a fire alarm")
+			area_good = 0
+		else if(test_fire_alarm && (exemptions & GLOB.using_map.NO_FIRE_ALARM))
+			log_bad("[bad_msg] is not suppoed to have a fire alarm")
+			area_good = 0
+
 		if(!area_good)
 			bad_areas.Add(A)
 
 	if(length(bad_areas))
-		fail("\[[length(bad_areas)]/[area_test_count]\]Some areas did not have the expected APC/vent/scrubber setup.")
+		fail("\[[length(bad_areas)]/[area_test_count]\]Some areas did not have the expected APC/vent/scrubber/alarm setup.")
 	else
-		pass("All \[[area_test_count]\] areas contained APCs, air scrubbers, and air vents.")
+		pass("All \[[area_test_count]\] areas contained APCs, air scrubbers, air vents, air alarms, and fire alarms.")
 
 	return 1
 
@@ -858,6 +874,47 @@
 	else
 		pass("All doors are on appropriate turfs")
 	return TRUE
+
+/datum/unit_test/airlocks_shall_have_shutters
+	name = "MAP: Airlocks shall have emergency shutters"
+
+/datum/unit_test/airlocks_shall_have_shutters/start_test()
+	var/tested_airlocks = 0
+	var/bad_airlocks = 0
+	var/exempt_airlocks = 0
+	for(var/obj/machinery/door/airlock/A in world)
+		if(QDELETED(A) || !A.z || isNotStationLevel(A.z))
+			continue
+
+		if(istype(A, /obj/machinery/door/airlock/external) || istype(A, /obj/machinery/door/airlock/lift) || is_exempt(A))
+			exempt_airlocks++
+			continue
+
+		var/is_bad_airlock = FALSE
+		tested_airlocks++
+		for(var/turf/T in A.locs)
+			if(!locate(/obj/machinery/door/firedoor, T))
+				is_bad_airlock = TRUE
+				log_bad("Airlock [A] is mising an emergency shutter at [log_info_line(T)]")
+
+		if(is_bad_airlock)
+			bad_airlocks++
+
+	if(bad_airlocks)
+		fail("\[[bad_airlocks]/[tested_airlocks]\]([exempt_airlocks] Skipped) Some airlocks did not have an emergency shutter")
+	else
+		pass("\[[tested_airlocks]\]([exempt_airlocks] Skipped) All airlocks have emergency shutters")
+	return TRUE
+
+/datum/unit_test/airlocks_shall_have_shutters/proc/is_exempt(airlock)
+	var/area/A = get_area(airlock)
+	for(var/i = length(GLOB.using_map.apc_test_exempt_areas); i>0; i--)
+		var/exempt_type = GLOB.using_map.apc_test_exempt_areas[i]
+		if(istype(A, exempt_type))
+			var/exemptions = GLOB.using_map.apc_test_exempt_areas[exempt_type]
+			if (exemptions & (GLOB.using_map.NO_FIRE_ALARM | GLOB.using_map.NO_AIR_ALARM))
+				return TRUE
+			return FALSE
 
 #undef SUCCESS
 #undef FAILURE

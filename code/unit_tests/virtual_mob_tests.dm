@@ -105,7 +105,7 @@
 	QDEL_NULL(mob_two)
 	QDEL_NULL(mob_three)
 	//I hate unit tests conflicting with unit tests
-	GLOB.using_map.apc_test_exempt_areas |= list(/area/test_area/powered_non_dynamic_lighting = 7, /area/test_area/requires_power_non_dynamic_lighting = 7, /area/test_area/powered_dynamic_lighting = 7, /area/test_area/requires_power_dynamic_lighting = 7)
+	GLOB.using_map.apc_test_exempt_areas |= list(/area/test_area/powered_non_dynamic_lighting = GLOB.using_map.EXEMPT_ALL, /area/test_area/requires_power_non_dynamic_lighting = GLOB.using_map.EXEMPT_ALL, /area/test_area/powered_dynamic_lighting = GLOB.using_map.EXEMPT_ALL, /area/test_area/requires_power_dynamic_lighting = GLOB.using_map.EXEMPT_ALL)
 
 /obj/effect/landmark/virtual_spawn/one
 /obj/effect/landmark/virtual_spawn/two

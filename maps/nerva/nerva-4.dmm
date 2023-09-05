@@ -128,6 +128,7 @@
 /area/hallway/centralfirst)
 "au" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
 	display_name = "Port Dock A";
 	frequency = 1380;
 	id_tag = "merchant_shuttle_station_dock";
@@ -135,8 +136,7 @@
 	tag_airpump = "merchant_shuttle_station_pump";
 	tag_chamber_sensor = "merchant_shuttle_station_sensor";
 	tag_exterior_door = "merchant_shuttle_station_exterior";
-	tag_interior_door = "merchant_shuttle_station_interior";
-	dir = 8
+	tag_interior_door = "merchant_shuttle_station_interior"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/floor_decal/industrial/warning{
@@ -526,6 +526,7 @@
 "bj" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
 "bk" = (
@@ -1016,6 +1017,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/security/dockingcheckpoint)
 "ct" = (
@@ -1354,6 +1356,7 @@
 	icon_state = "4-8"
 	},
 /obj/item/taperoll/engineering/applied,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
 "dg" = (
@@ -1394,6 +1397,7 @@
 "dk" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/item/taperoll/engineering/applied,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
 "dl" = (
@@ -1772,6 +1776,10 @@
 	dir = 1;
 	luminosity = 2
 	},
+/obj/machinery/firealarm{
+	dir = 2;
+	pixel_y = 24
+	},
 /turf/simulated/floor/plating,
 /area/civilian/first_emergency_storage)
 "dW" = (
@@ -2147,6 +2155,7 @@
 	dir = 4;
 	icon_state = "map"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afp)
 "eJ" = (
@@ -2162,6 +2171,7 @@
 	pixel_y = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/civilian/first_emergency_storage)
 "eK" = (
@@ -2419,6 +2429,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "fk" = (
@@ -2518,6 +2529,10 @@
 	},
 /obj/machinery/light/small{
 	dir = 1
+	},
+/obj/machinery/firealarm{
+	dir = 2;
+	pixel_y = 24
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/mainsolar)
@@ -3082,7 +3097,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/reinforced,
-/area/maintenance/first_deck/fore)
+/area/security/topgun)
 "gr" = (
 /obj/item/device/radio/intercom{
 	broadcasting = 0;
@@ -3173,6 +3188,7 @@
 /area/civilian/first_deck_lobby)
 "gC" = (
 /obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
 "gD" = (
@@ -3296,6 +3312,7 @@
 	locked = 1;
 	name = "AI Core Access"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/command/aicore)
 "gT" = (
@@ -3383,6 +3400,7 @@
 /area/civilian/first_deck_lobby)
 "hd" = (
 /obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/civilian/first_deck_lobby)
 "he" = (
@@ -3445,6 +3463,7 @@
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/first_deck_atmos)
 "hm" = (
@@ -3583,6 +3602,11 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8;
 	id_tag = null
+	},
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = 24;
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled,
 /area/civilian/first_deck_lobby)
@@ -4060,6 +4084,7 @@
 	icon_state = "4-8";
 	pixel_y = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/first_deck_atmos)
 "io" = (
@@ -4341,6 +4366,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/techmaint,
 /area/command/aicore)
 "iL" = (
@@ -4380,6 +4406,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/techmaint,
 /area/command/aicore)
 "iO" = (
@@ -4458,6 +4485,7 @@
 "iX" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/structure/catwalk,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "iY" = (
@@ -4812,6 +4840,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/civilian/first_deck_lobby)
 "jK" = (
@@ -5153,6 +5182,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
 "km" = (
@@ -5657,6 +5687,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "ld" = (
@@ -5813,7 +5844,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/reinforced,
-/area/maintenance/first_deck/fore)
+/area/security/topgun)
 "ls" = (
 /obj/machinery/camera/network/first_deck{
 	c_tag = "First Deck Aft Starboard Maintenance APC";
@@ -5901,10 +5932,11 @@
 "lz" = (
 /obj/effect/wallframe_spawn/reinforced_phoron,
 /obj/machinery/door/blast/regular/open{
+	dir = 4;
 	id_tag = "bsdwindow";
-	name = "Drive Containment";
-	dir = 4
+	name = "Drive Containment"
 	},
+/obj/machinery/door/firedoor,
 /turf/space,
 /area/engineering/bluespace)
 "lA" = (
@@ -6168,6 +6200,7 @@
 	name = "Engineering Maintenance";
 	secured_wires = 1
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/first_deck_storage)
 "lR" = (
@@ -6812,6 +6845,7 @@
 /area/maintenance/first_deck/afs)
 "nb" = (
 /obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
 "nc" = (
@@ -6841,10 +6875,11 @@
 	},
 /obj/effect/wallframe_spawn/reinforced_phoron,
 /obj/machinery/door/blast/regular/open{
+	dir = 4;
 	id_tag = "bsdwindow";
-	name = "Drive Containment";
-	dir = 4
+	name = "Drive Containment"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/bluespace)
 "nf" = (
@@ -7140,6 +7175,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/bluespace)
 "nI" = (
@@ -7433,10 +7469,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
-"oi" = (
-/obj/effect/wallframe_spawn/reinforced,
-/turf/simulated/floor/plating,
-/area/engineering/bluespace)
 "oj" = (
 /turf/simulated/floor/plating,
 /area/engineering/bluespace)
@@ -7770,6 +7802,10 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
+/obj/machinery/firealarm{
+	dir = 2;
+	pixel_y = 24
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/aftsolar)
 "pb" = (
@@ -8068,6 +8104,7 @@
 	d2 = 4;
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/aftsolar)
 "py" = (
@@ -8379,6 +8416,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/catwalk,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afs)
 "qc" = (
@@ -8415,6 +8453,7 @@
 	dir = 4;
 	icon_state = "intact"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "qf" = (
@@ -8440,6 +8479,7 @@
 /area/hallway/centralfirst)
 "qj" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
 	display_name = "Starboard Dock";
 	frequency = 1380;
 	id_tag = "skipjack_shuttle_dock_airlock";
@@ -8447,8 +8487,7 @@
 	tag_airpump = "skipjack_shuttle_dock_pump";
 	tag_chamber_sensor = "skipjack_shuttle_dock_sensor";
 	tag_exterior_door = "skipjack_shuttle_dock_outer";
-	tag_interior_door = "skipjack_shuttle_dock_inner";
-	dir = 8
+	tag_interior_door = "skipjack_shuttle_dock_inner"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
@@ -28624,7 +28663,7 @@ lz
 ne
 nG
 nU
-oi
+nU
 nU
 oL
 nG
@@ -39514,17 +39553,17 @@ cC
 eE
 cC
 fC
-cU
-cU
-cU
-cU
-cU
-cU
-cU
-cU
-cU
-cU
-cU
+ib
+ib
+ib
+ib
+ib
+ib
+ib
+ib
+ib
+ib
+ib
 lM
 cU
 cU
@@ -39917,8 +39956,8 @@ cU
 cU
 cU
 cU
-cU
-cU
+ib
+ib
 gY
 hx
 ia
@@ -39928,7 +39967,7 @@ iQ
 kg
 hx
 gY
-cU
+ib
 cU
 cU
 cU
