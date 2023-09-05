@@ -19,7 +19,7 @@ GLOBAL_DATUM_INIT(mercs, /datum/antagonist/mercenary, new)
 
 	faction = "mercenary"
 
-	base_to_load = /datum/map_template/ruin/antag_spawn/mercenary
+//	base_to_load = /datum/map_template/ruin/antag_spawn/mercenary
 
 /datum/antagonist/mercenary/create_global_objectives()
 	if(!..())
