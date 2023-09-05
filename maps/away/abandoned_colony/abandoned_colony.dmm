@@ -5664,17 +5664,9 @@
 "qr" = (
 /obj/machinery/atmospherics/unary/tank/air{
 	dir = 4;
-	icon_state = "air_map"
+	icon_state = "air"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/unary/tank/air{
-	icon_state = "air";
-	dir = 4
-	},
-/obj/machinery/atmospherics/unary/tank/air{
-	icon_state = "air";
-	dir = 4
-	},
 /turf/simulated/floor/plating,
 /area/morninglight/atmos)
 "qs" = (
@@ -9074,8 +9066,8 @@
 "Rt" = (
 /obj/random/junk,
 /turf/simulated/floor/pavement{
-	icon_state = "pavement";
-	dir = 8
+	dir = 8;
+	icon_state = "pavement"
 	},
 /area/planet/abandoned_colony)
 "Te" = (
@@ -9100,8 +9092,8 @@
 /area/planet/abandoned_colony)
 "WU" = (
 /obj/machinery/light/colored/green{
-	icon_state = "green1";
-	dir = 8
+	dir = 8;
+	icon_state = "green1"
 	},
 /obj/item/clothing/accessory/bowtie/ugly,
 /turf/simulated/floor/tiled/dark,
@@ -13704,33 +13696,33 @@ lj
 oE
 lj
 lC
-ll
-ll
-ll
-ll
-ll
-cp
-ll
+mO
+mO
+mO
+mO
+mO
+qD
+mO
 Rt
-ll
-ll
-ll
-ll
-cp
-ll
-ll
-ll
-ll
-ll
-ll
-ll
-ll
-ll
-ll
-ll
-ll
-cp
-ll
+mO
+mO
+mO
+mO
+qD
+mO
+mO
+mO
+mO
+mO
+mO
+mO
+mO
+mO
+mO
+mO
+mO
+qD
+mO
 aa
 "}
 (46,1,1) = {"
