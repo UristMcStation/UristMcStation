@@ -19,7 +19,7 @@ GLOBAL_DATUM_INIT(raiders, /datum/antagonist/raider, new)
 	id_type = /obj/item/card/id/syndicate
 
 	faction = "pirate"
-	base_to_load = /datum/map_template/ruin/antag_spawn/heist
+//	base_to_load = /datum/map_template/ruin/antag_spawn/heist
 
 	required_language = LANGUAGE_GALCOM
 

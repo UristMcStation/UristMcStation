@@ -16,7 +16,7 @@ GLOBAL_DATUM_INIT(wizards, /datum/antagonist/wizard, new)
 	min_player_age = 18
 
 	faction = "wizard"
-	base_to_load = /datum/map_template/ruin/antag_spawn/wizard
+//	base_to_load = /datum/map_template/ruin/antag_spawn/wizard
 
 	required_language = LANGUAGE_GALCOM
 

@@ -18,7 +18,7 @@ GLOBAL_DATUM_INIT(ninjas, /datum/antagonist/ninja, new)
 	id_type = /obj/item/card/id/syndicate
 
 	faction = "ninja"
-	base_to_load = /datum/map_template/ruin/antag_spawn/ninja
+//	base_to_load = /datum/map_template/ruin/antag_spawn/ninja
 
 	required_language = LANGUAGE_GALCOM
 

@@ -16,7 +16,7 @@ GLOBAL_DATUM_INIT(vox_raiders, /datum/antagonist/vox, new)
 
 	id_type = /obj/item/card/id/syndicate
 
-	base_to_load = /datum/map_template/ruin/antag_spawn/vox_raider
+//	base_to_load = /datum/map_template/ruin/antag_spawn/vox_raider
 
 	required_language = LANGUAGE_GALCOM
 
