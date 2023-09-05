@@ -3637,7 +3637,6 @@
 #include "maps\deepmaint\deepmaint_rooms\core\_core_rooms.dm"
 #include "maps\deepmaint\deepmaint_rooms\normal\_normal_rooms.dm"
 #include "maps\glloydstation\glloydstation_define.dm"
-#include "maps\nerva\loadout\loadout_clothing.dm"
 #include "maps\RandomZLevels\maze1.dm"
 #include "maps\torch\torch_define.dm"
 #include "maps\wyrm\items\smcult.dm"
