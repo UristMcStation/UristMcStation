@@ -6,6 +6,7 @@
 	#include "nerva_holodecks.dm"
 	#include "nerva_presets.dm"
 	#include "nerva_overmap.dm"
+	#include "nerva_setup.dm"
 	#include "nerva_shuttles.dm"
 	#include "nerva_unit_testing.dm"
 	#include "datums/nerva_jobs.dm"
@@ -72,9 +73,6 @@
 	#include "../away/miningstation/miningstation.dm"
 	#include "../away/mininghome/mininghome.dm"
 	#include "../away/scavver/scavver_gantry.dm"
-	#include "../away/geminus_city/road_and_pavements.dm"
-	#include "../away/geminus_city/signs.dm"
-	#include "../away/geminus_city/streetobjects.dm"
 
 	/*#include "../../code/datums/music_tracks/chasing_time.dm"
 	#include "../../code/datums/music_tracks/absconditus.dm"

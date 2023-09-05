@@ -12,6 +12,8 @@
 	active_power_usage = 100
 	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_NO_REACT
 	obj_flags = OBJ_FLAG_ANCHORABLE | OBJ_FLAG_ROTATABLE
+	construct_state = /singleton/machine_construction/default/panel_closed
+	maximum_component_parts = list(/obj/item/stock_parts = 13)
 	var/static/max_n_of_items = 999 // Sorry but the BYOND infinite loop detector doesn't look things over 1000.
 	var/icon_base = "fridge_sci"
 	var/icon_contents = "chem"
@@ -64,6 +66,7 @@
 	desc = "A refrigerated storage unit for slime extracts."
 	icon_contents = "slime"
 	req_access = list(access_research)
+	construct_state = null
 
 /obj/machinery/smartfridge/secure/extract/accept_check(obj/item/O as obj)
 	if(istype(O,/obj/item/slime_extract))
@@ -75,6 +78,7 @@
 	desc = "A refrigerated storage unit for storing medicine and chemicals."
 	icon_contents = "chem"
 	req_access = list(list(access_medical,access_chemistry))
+	construct_state = null
 
 /obj/machinery/smartfridge/secure/medbay/accept_check(obj/item/O as obj)
 	if(istype(O,/obj/item/reagent_containers/glass))
@@ -90,6 +94,7 @@
 	desc = "A refrigerated storage unit for storing viral material."
 	req_access = list(access_virology)
 	icon_contents = "chem"
+	construct_state = null
 
 /obj/machinery/smartfridge/secure/virology/accept_check(obj/item/O as obj)
 	if(istype(O,/obj/item/reagent_containers/glass/beaker/vial))
@@ -100,6 +105,7 @@
 	name = "\improper Smart Chemical Storage"
 	desc = "A refrigerated storage unit for medicine and chemical storage."
 	icon_contents = "chem"
+	construct_state = null
 
 /obj/machinery/smartfridge/chemistry/accept_check(obj/item/O as obj)
 	if(istype(O,/obj/item/storage/pill_bottle) || istype(O,/obj/item/reagent_containers))
@@ -117,6 +123,7 @@
 	icon_state = "fridge_dark"
 	icon_base = "fridge_dark"
 	icon_contents = "drink"
+	construct_state = null
 
 /obj/machinery/smartfridge/drinks/accept_check(obj/item/O as obj)
 	if(istype(O,/obj/item/reagent_containers/glass) || istype(O,/obj/item/reagent_containers/food/drinks) || istype(O,/obj/item/reagent_containers/food/condiment))
@@ -128,6 +135,7 @@
 	icon_state = "fridge_food"
 	icon_state = "fridge_food"
 	icon_contents = "food"
+	construct_state = null
 
 /obj/machinery/smartfridge/foods/accept_check(obj/item/O as obj)
 	if(istype(O,/obj/item/reagent_containers/food/snacks) || istype(O,/obj/item/material/kitchen/utensil))

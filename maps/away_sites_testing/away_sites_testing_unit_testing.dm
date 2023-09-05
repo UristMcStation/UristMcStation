@@ -1,11 +1,7 @@
-/datum/map/example
-	// Unit test exemptions
+/datum/map/away_sites_testing
 	apc_test_exempt_areas = list(
 		/area/space = EXEMPT_ALL,
-		/area/shuttle/escape = EXEMPT_ALL,
-		/area/constructionsite = NO_AIR_ALARM|NO_FIRE_ALARM,
-		/area/medical/surgery = NO_AIR_ALARM|NO_FIRE_ALARM,
-		/area/maintenance/fsmaint2 = NO_AIR_ALARM|NO_FIRE_ALARM
+		/area/shuttle/escape = EXEMPT_ALL
 	)
 
 	area_usage_test_exempted_areas = list(
@@ -13,37 +9,42 @@
 		/area/rnd/xenobiology/cell_2,
 		/area/rnd/xenobiology/cell_3,
 		/area/rnd/xenobiology/cell_4,
+		/area/medical,
 		/area/chapel,
 		/area/hallway,
+		/area/shuttle,
+		/area/shuttle/specops,
 		/area/supply,
-		/area/beach,
+		/area/maintenance,
 		/area/engineering,
+		/area/overmap,
 		/area/turbolift,
 		/area/template_noop,
-		/area/overmap,
+		/area/awaymission,
 		/area/infestation,
 		/area/boarding_ship,
-		/area/ship,
-		/area/syndicate_elite_squad
+		/area/beach,
+		/area/syndicate_elite_squad,
+		/area/awaymission/maze
 	)
 
 	area_usage_test_exempted_root_areas = list(
 		/area/shuttle/naval1,
-		/area/shuttle/scom,
 		/area/shuttle/train,
 		/area/shuttle/event1,
 		/area/shuttle/event2,
 		/area/shuttle/assault,
 		/area/shuttle/infestation,
+		/area/shuttle/scom,
+		/area/awaymission/train,
+		/area/icarus,
 		/area/centcom,
 		/area/security,
 		/area/rnd,
-		/area/shuttle,
-		/area/exoplanet,
-		/area/awaymission,
+		/area/shuttle/specops,
+		/area/shuttle/syndicate_elite,
+		/area/shuttle/escape,
 		/area/scom,
-		/area/planet,
-		/area/jungleoutpost,
 		/area/map_template,
-		/area/icarus
-	)
+		/area/exoplanet
+		)

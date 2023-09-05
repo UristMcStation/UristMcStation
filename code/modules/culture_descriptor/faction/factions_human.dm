@@ -25,7 +25,7 @@
 	Bachelor degree and go through a lengthy training process before being assigned to a warship. \
 	Recently Sol-made IPCs were also permitted to enlist, provided they agree to install a law shackle."
 
-/*
+
 /singleton/cultural_info/faction/torchco
 	name = FACTION_CORPORATE
 	description = "The Expeditionary Corps Organisation is a government-owned, publically traded limited liability company assembled from the corporate \
@@ -38,20 +38,6 @@
 	reluctant to harpoon their own project."
 	economic_power = 1.2
 
-
-/singleton/cultural_info/faction/gcc
-	name = FACTION_INDIE_CONFED
-	description = "The Independent Colonial Confederation of Gilgamesh, commonly referred to as the Gilgamesh Colonial Confederation (GCC), is a regional power in human space,\
-	bordered by the Sol Central Government towards the galactic centre. The capital of the Confederation is the city of Ameranth on the planet of Terra \
-	in the Gilgamesh system. Externally heavily militant and isolationist, the GCC, internally, is heavily libertarian, with \
-	a strong focus on independent planetary government with the GCC itself only handling defence, foreign relations and some intergalactic trade. \
-	Increasingly anti non-human, the GCC is in a cold war with the Sol Central Government following  the Gaia Conflict, a large \
-	scale conflict between the SCG and GCC that saw a great deal of death and destruction. In Sol space \"Indies\" as they are known are \
-	heavily mistrusted and in some instances, met with downright hostility. Today the GCC continues to be an economic powerhouse following \
-	a period of steady economic recovery, with most of its exports being manufactured goods, primarily armaments."
-	economic_power = 0.9
-
-
 /singleton/cultural_info/faction/remote
 	name = FACTION_EXPEDITIONARY
 	description = "The Expeditionary Corps is an SCG agency tasked with exploration of uncharted space and worlds, \
@@ -62,7 +48,7 @@
 	While not military, it was modelled in a naval style, with employees having ranks and uniforms. \
 	Any SCG citizen of age (18 and older) with no outstanding SCG-wide warrants can sign up for a 2-year contract. \
 	Officer candidates are required to have at least a bachelor's degree in a relevant field (astrogation, engineering, xenoarcheology, etc)."
-*/
+
 
 /singleton/cultural_info/faction/police
 	name = FACTION_SPACECOPS

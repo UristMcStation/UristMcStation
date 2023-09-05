@@ -11,11 +11,14 @@
 	requires_power = 0
 	dynamic_lighting = 0
 
+//Currently unused code. Uncomment if/when needed
+/*
 /area/awaymission/snowventure
 	name = "\improper Snowy Plains"
 
 /area/awaymission/acerdemy
 	name = "\improper Institutional Acadamy"
+*/
 
 /area/awaymission/maze
 	name = "\improper Maze"

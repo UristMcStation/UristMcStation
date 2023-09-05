@@ -73,8 +73,6 @@
 
 	area_usage_test_exempted_areas = list(
 		/area/awaymission,
-		/area/awaymission/acerdemy,
-		/area/awaymission/snowventure,
 		/area/awaymission/maze,
 		/area/awaymission/train,
 		/area/awaymission/train/snow,
