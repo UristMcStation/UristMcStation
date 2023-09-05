@@ -11,6 +11,7 @@
 	#include "../away/bearcat/bearcat.dm"
 	#include "../away/lost_supply_base/lost_supply_base.dm"
 	#include "../away/smugglers/smugglers.dm"
+	#include "../away/glloyd_jungle/glloyd_jungle.dm"
 	#include "../away/casino/casino.dm"
 	#include "../away/magshield/magshield.dm"
 	#include "../away/slavers/slavers_base.dm"
