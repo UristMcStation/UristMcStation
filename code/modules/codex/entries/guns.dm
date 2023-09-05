@@ -30,8 +30,8 @@
 	if(one_hand_penalty)
 		traits += "It's best fired with two-handed grip."
 
-	if(has_safety)
-		traits += "It has a safety switch. Control-Click it to toggle safety."
+	//if(has_safety)
+	//	traits += "It has a safety switch. Control-Click it to toggle safety."
 
 	if(is_secure_gun())
 		traits += "It's fitted with secure registration chip. Swipe ID on it to register."

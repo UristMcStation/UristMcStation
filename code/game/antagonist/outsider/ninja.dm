@@ -20,6 +20,8 @@ GLOBAL_DATUM_INIT(ninjas, /datum/antagonist/ninja, new)
 	faction = "ninja"
 	base_to_load = /datum/map_template/ruin/antag_spawn/ninja
 
+	required_language = LANGUAGE_GALCOM
+
 /datum/antagonist/ninja/create_objectives(datum/mind/ninja)
 
 	if(!..())

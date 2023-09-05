@@ -21,6 +21,8 @@ GLOBAL_DATUM_INIT(raiders, /datum/antagonist/raider, new)
 	faction = "pirate"
 	base_to_load = /datum/map_template/ruin/antag_spawn/heist
 
+	required_language = LANGUAGE_GALCOM
+
 	var/list/raider_uniforms = list(
 		/obj/item/clothing/under/soviet,
 		/obj/item/clothing/under/pirate,

@@ -56,6 +56,7 @@
 //	accuracy = -1
 //	jam_chance = 5
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
+	screen_shake = 1
 
 	var/scoped = 0
 

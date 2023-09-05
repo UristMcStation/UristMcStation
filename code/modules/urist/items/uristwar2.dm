@@ -344,7 +344,7 @@
 	name = "Red Army overcoat"
 	desc = "An overcaot worn by Soviet soldiers."
 	icon_state = "ru_rmcoat"
-	item_state = "det_suit"
+	item_state = "ru_rmcoat"
 	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	allowed = list(/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/grenade)
