@@ -1,4 +1,9 @@
 /datum/map/away_sites_testing
+	apc_test_exempt_areas = list(
+		/area/space = EXEMPT_ALL,
+		/area/shuttle/escape = EXEMPT_ALL
+	)
+
 	area_usage_test_exempted_areas = list(
 		/area/rnd/xenobiology/cell_1,
 		/area/rnd/xenobiology/cell_2,
