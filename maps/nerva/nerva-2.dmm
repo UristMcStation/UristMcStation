@@ -13460,7 +13460,7 @@
 	name = "Expedition Prep Blast Doors";
 	pixel_x = 5;
 	pixel_y = 5;
-	req_access = list("ACCESS_BRIDGE")
+	req_access = list("ACCESS_EXPEDITION")
 	},
 /obj/machinery/button/blast_door{
 	id_tag = "bridgeview";
