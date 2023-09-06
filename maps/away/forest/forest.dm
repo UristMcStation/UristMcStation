@@ -1,4 +1,4 @@
-//#include "forest_jobs.dm"
+#include "forest_jobs.dm"
 
 /area/planet/forest
 	name = "\improper forest"

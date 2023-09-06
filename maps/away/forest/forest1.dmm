@@ -41,8 +41,8 @@
 "aO" = (/obj/machinery/atmospherics/unary/vent_pump/on,/obj/structure/coatrack,/turf/simulated/floor/wood/mahogany,/area/planet/forest/cave/hall)
 "aP" = (/obj/effect/wingrille_spawn/reinforced/full,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
 "aQ" = (/turf/simulated/floor,/area/planet/forest/cave/hall)
-"aR" = (/obj/machinery/disposal,/obj/structure/disposalpipe/trunk,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)/obj/effect/floor_decal/corner/paleblue{dir = 5; icon_state = "corner_white"}
-"aS" = (/obj/structure/table/standard,/obj/item/storage/firstaid/surgery,,/obj/effect/floor_decal/corner/paleblue{dir = 9},/turf/simulated/floor/tiled/white,/area/planet/forest/cave/med)
+"aR" = (/obj/machinery/disposal,/obj/structure/disposalpipe/trunk,/obj/effect/floor_decal/corner/paleblue{dir = 5; icon_state = "corner_white"},/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
+"aS" = (/obj/structure/table/standard,/obj/item/storage/firstaid/surgery,/obj/effect/floor_decal/corner/paleblue{dir = 9},/turf/simulated/floor/tiled/white,/area/planet/forest/cave/med)
 "aT" = (/obj/structure/table/standard,/obj/item/storage/firstaid/adv,/obj/effect/floor_decal/corner/paleblue{dir = 5; icon_state = "corner_white"},/turf/simulated/floor,/area/planet/forest/cave/med)
 "aU" = (/obj/machinery/light{dir = 1},/obj/effect/floor_decal/corner/paleblue{dir = 5; icon_state = "corner_white"},/obj/machinery/vending/wallmed1{pixel_y = 32},/turf/simulated/floor/tiled/white,/area/planet/forest/cave/med)
 "aV" = (/obj/structure/window/basic{dir = 4; icon_state = "window"},/obj/structure/table/standard,/obj/item/tank/anesthetic,/obj/item/clothing/mask/breath/anesthetic,/obj/effect/floor_decal/corner/paleblue{dir = 5; icon_state = "corner_white"},/turf/simulated/floor/tiled/white,/area/planet/forest/cave/med)
@@ -126,7 +126,7 @@
 "cv" = (/obj/random/trash,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
 "cw" = (/obj/machinery/light{dir = 8},/obj/effect/floor_decal/corner/paleblue{dir = 9},/obj/machinery/alarm{dir = 4; icon_state = "alarm0"; pixel_x = -22; pixel_y = 0},/turf/simulated/floor/tiled/white,/area/planet/forest/cave/med)
 "cx" = (/obj/structure/bed/chair/office/light,/turf/simulated/floor,/area/planet/forest/cave/med)
-"cy" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 4; icon_state = "map_vent_out"},/mob/living/simple_animal/hostile/giant_spider,/obj/structure/cable/blue{dir = 4; icon_state = "1-10"},/turf/simulated/floor/tiled/white,/area/planet/forest/cave/med)
+"cy" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 4; icon_state = "map_vent_out"},/obj/structure/cable/blue{dir = 4; icon_state = "1-10"},/mob/living/simple_animal/hostile/giant_spider,/turf/simulated/floor/tiled/white,/area/planet/forest/cave/med)
 "cz" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 10},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 6},/obj/effect/decal/cleanable/filth,/turf/simulated/floor/tiled/white,/area/planet/forest/cave/med)
 "cA" = (/obj/effect/floor_decal/rust/mono/medium,/obj/structure/cable/blue{icon_state = "6-9"},/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
 "cB" = (/obj/machinery/portable_atmospherics/canister/oxygen/prechilled,/obj/machinery/atmospherics/portables_connector{dir = 1},/obj/effect/floor_decal/corner/paleblue{dir = 6},/turf/simulated/floor/tiled/white,/area/planet/forest/cave/med)
@@ -245,7 +245,7 @@
 "eK" = (/obj/structure/cable/blue{icon_state = "5-8"},/obj/structure/disposalpipe/segment{dir = 4},/turf/simulated/floor,/area/planet/forest/cave/engie)
 "eL" = (/obj/structure/cable/blue{icon_state = "0-5"},/obj/structure/disposalpipe/segment{dir = 4},/obj/machinery/power/terminal{dir = 1},/turf/simulated/floor,/area/planet/forest/cave/engie)
 "eM" = (/obj/structure/disposalpipe/segment{dir = 2; icon_state = "pipe-c"},/turf/simulated/floor,/area/planet/forest/cave/engie)
-"eN" = (/obj/item/cell,/turf/simulated/floor,/area/planet/forest/cave/engie)
+"eN" = (/turf/simulated/floor,/area/planet/forest/cave/engie)
 "eO" = (/obj/structure/closet,/obj/random/accessory,/obj/random/cash,/obj/random/cash,/obj/random/clothing,/obj/random/clothing,/turf/simulated/floor/wood/mahogany,/area/planet/forest/cave/dorms)
 "eP" = (/obj/structure/closet,/obj/random/accessory,/obj/random/clothing,/turf/simulated/floor/wood/mahogany,/area/planet/forest/cave/dorms)
 "eQ" = (/obj/structure/closet,/obj/item/lipstick/random,/obj/random/accessory,/obj/random/advdevice,/obj/random/advdevice,/obj/random/clothing,/obj/random/hat,/turf/simulated/floor/wood/mahogany,/area/planet/forest/cave/dorms)
@@ -596,22 +596,21 @@
 "lx" = (/obj/item/trash/cigbutt,/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "ly" = (/obj/structure/table/standard,/obj/item/reagent_containers/food/drinks/bottle/vodka,/obj/item/reagent_containers/food/drinks/bottle/vodka,/obj/item/storage/fancy/cigarettes/urist/carp,/obj/item/flame/lighter/zippo/vanity/red,/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "lz" = (/obj/machinery/door/unpowered/simple/ebony,/turf/simulated/floor/wood/ebony,/area/planet/forest/cave)
-"lA" = (/obj/structure/bed/chair/wood/mahogany,/mob/living/simple_animal/hostile/urist/vampire{!INVALID_VAR! = 0; faction = "unholy"; health = 25},/turf/simulated/floor/wood/ebony,/area/planet/forest/cave)
+"lA" = (/obj/structure/bed/chair/wood/mahogany,/mob/living/simple_animal/hostile/urist/vampire{faction = "unholy"; health = 25},/turf/simulated/floor/wood/ebony,/area/planet/forest/cave)
 "lB" = (/turf/simulated/floor/wood/ebony,/area/planet/forest/cave)
 "lC" = (/obj/structure/bed/chair/wood/mahogany,/turf/simulated/floor/wood/ebony,/area/planet/forest/cave)
 "lD" = (/obj/item/device/flashlight/lantern,/turf/simulated/floor/wood/ebony,/area/planet/forest/cave)
 "lE" = (/obj/item/reagent_containers/food/drinks/bottle/specialwhiskey,/turf/simulated/floor,/area/planet/forest/cave)
 "lF" = (/obj/structure/bed/chair/wood/mahogany{dir = 8; icon_state = "wooden_chair_preview"},/turf/simulated/floor/wood/ebony,/area/planet/forest/cave)
 "lG" = (/obj/structure/cult/talisman,/obj/item/reagent_containers/food/drinks/bottle/premiumwine,/turf/simulated/floor/wood/ebony,/area/planet/forest/cave)
-"lH" = (/mob/living/simple_animal/hostile/urist/angel/angry{!INVALID_VAR! = 0; faction = "unholy"},/turf/simulated/floor/wood/ebony,/area/planet/forest/cave)
-"lI" = (/obj/structure/bed/chair/wood/mahogany{dir = 8; icon_state = "wooden_chair_preview"},/mob/living/simple_animal/hostile/urist/vampire{!INVALID_VAR! = 0; faction = "unholy"; health = 25},/turf/simulated/floor/wood/ebony,/area/planet/forest/cave)
+"lH" = (/mob/living/simple_animal/hostile/urist/angel/angry{faction = "unholy"},/turf/simulated/floor/wood/ebony,/area/planet/forest/cave)
+"lI" = (/obj/structure/bed/chair/wood/mahogany{dir = 8; icon_state = "wooden_chair_preview"},/mob/living/simple_animal/hostile/urist/vampire{faction = "unholy"; health = 25},/turf/simulated/floor/wood/ebony,/area/planet/forest/cave)
 "lJ" = (/turf/simulated/mineral/random/high_chance/planet,/area/planet/forest/cave)
 "lK" = (/obj/random/trash,/turf/unsimulated/mask,/area/planet/forest/cave)
 "lL" = (/obj/item/reagent_containers/food/drinks/bottle/whiskey,/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "lM" = (/obj/structure/ladder/up,/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "lN" = (/obj/item/device/flashlight/lamp/floodlamp,/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "lO" = (/turf/simulated/floor/planet/jungle/rock,/area/planet/forest/cave)
-"lP" = (/obj/effect/template_loader/planet{!INVALID_VAR! = 100},/turf/space,/area/planet/forest/cave)
 
 (1,1,1) = {"
 aiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiai
@@ -713,5 +712,5 @@ aiaiaiajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajaj
 aiaiaiajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajajaiaiai
 aiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiai
 aiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiai
-lPaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiai
+aiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiai
 "}

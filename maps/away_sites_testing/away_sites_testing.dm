@@ -11,6 +11,7 @@
 	#include "../away/bearcat/bearcat.dm"
 	#include "../away/lost_supply_base/lost_supply_base.dm"
 	#include "../away/smugglers/smugglers.dm"
+	#include "../away/forest/forest.dm"
 	#include "../away/glloyd_jungle/glloyd_jungle.dm"
 	#include "../away/casino/casino.dm"
 	#include "../away/magshield/magshield.dm"
@@ -25,6 +26,7 @@
 	#include "../away/scavver/scavver_gantry.dm"
 	#include "../away/voxship/voxship.dm"
 	#include "../standard_cultures.dm"
+
 
 	#define using_map_DATUM /datum/map/away_sites_testing
 
