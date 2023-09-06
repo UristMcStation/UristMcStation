@@ -27,10 +27,10 @@
 "aM" = (/obj/structure/fence/post,/turf/simulated/floor/planet/temperate,/area/planet/forest/cabin1)
 "aN" = (/turf/simulated/floor/wood,/area/planet/forest/cabin1)
 "aO" = (/turf/simulated/floor/wood{icon_state = "wood_broken5"},/area/planet/forest/cabin1)
-"aP" = (/obj/structure/table/woodentable/mahogany,/turf/space,/area/planet/forest/cabin1)
+"aP" = (/obj/structure/fence/door,/turf/simulated/floor/planet/temperate,/area/planet/forest/cabin1)
 "aQ" = (/obj/structure/fence/door{icon_state = "door_closed"; dir = 8},/turf/simulated/floor/planet/temperate,/area/planet/forest/cabin1)
 "aR" = (/obj/machinery/door/unpowered/simple/wood,/turf/simulated/floor/wood,/area/planet/forest/cabin1)
-"aS" = (/obj/structure/table/woodentable/mahogany,/obj/item/gun/projectile/shotgun/pump,/turf/space,/area/planet/forest/cabin1)
+"aS" = (/obj/structure/table/woodentable/mahogany,/obj/item/gun/projectile/shotgun/pump,/turf/simulated/floor/wood,/area/planet/forest/cabin1)
 "aT" = (/obj/machinery/door/unpowered/simple/wood,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cabin1)
 "aU" = (/turf/simulated/mineral/random{mined_turf = /turf/simulated/floor/planet/jungle/clear/underground},/area/planet/forest/cabin1)
 "aV" = (/obj/structure/fence/cut/large{icon_state = "straight_cut3"; dir = 8},/turf/simulated/floor/planet/temperate,/area/planet/forest/cabin1)
@@ -60,7 +60,6 @@
 "bw" = (/obj/structure/flora/ausbushes/ppflowers,/turf/simulated/floor/planet/temperate,/area/planet/forest)
 "bx" = (/mob/living/simple_animal/hostile/urist/skeleton/ancient{faction = "hostile"},/turf/simulated/floor/planet/snow,/area/planet/forest)
 "by" = (/obj/structure/flora/tree/dead,/turf/simulated/floor/planet/snow,/area/planet/forest)
-"bz" = (/mob/living/simple_animal/hostile/huntable/wolf{dir = 8},/turf/simulated/floor/planet/temperate,/area/planet/forest)
 "bB" = (/obj/structure/flora/grass/green,/turf/simulated/floor/planet/snow,/area/planet/forest)
 "bC" = (/mob/living/simple_animal/hostile/huntable/wolf{dir = 4},/turf/simulated/floor/planet/temperate,/area/planet/forest)
 "bD" = (/mob/living/simple_animal/hostile/huntable/wolf/white{dir = 4},/turf/simulated/floor/planet/snow,/area/planet/forest)
@@ -101,7 +100,7 @@
 "cu" = (/obj/effect/floor_decal/water_edge{icon_state = "test2"; dir = 4},/turf/simulated/floor/planet/jungle/water,/area/planet/forest)
 "cv" = (/obj/effect/floor_decal/water_edge{icon_state = "test2"; dir = 1},/obj/effect/floor_decal/water_edge{icon_state = "test2"; dir = 8},/turf/simulated/floor/planet/jungle/water,/area/planet/forest)
 "cw" = (/obj/effect/floor_decal/water_edge{icon_state = "test"; dir = 9},/obj/effect/floor_decal/water_edge{icon_state = "test"; dir = 10},/turf/simulated/floor/planet/jungle/water,/area/planet/forest)
-"cx" = (/obj/machinery/power/apc{dir = 1; name = "north bump"; pixel_y = 24; req_access = list("")},/turf/simulated/floor,/area/planet/forest/cabin2)
+"cx" = (/obj/machinery/power/apc{dir = 1; name = "north bump"; pixel_y = 24},/turf/simulated/floor,/area/planet/forest/cabin2)
 "cy" = (/obj/machinery/light_switch{pixel_x = -32; pixel_y = 24},/turf/simulated/floor,/area/planet/forest/cabin2)
 "cz" = (/obj/effect/floor_decal/water_edge{icon_state = "test2"; dir = 4},/obj/structure/flora/reeds,/turf/simulated/floor/planet/jungle/water,/area/planet/forest)
 "cA" = (/obj/effect/floor_decal/water_edge{icon_state = "test2"; dir = 8},/turf/simulated/floor/planet/jungle/water,/area/planet/forest)
@@ -122,7 +121,7 @@
 "cT" = (/mob/living/simple_animal/passive/opossum,/turf/simulated/floor/planet/temperate,/area/planet/forest/cabin1)
 "cU" = (/obj/structure/table/rack,/obj/item/reagent_containers/glass/bucket,/obj/item/reagent_containers/glass/bucket,/obj/item/seeds/potatoseed,/obj/item/seeds/potatoseed,/obj/item/seeds/potatoseed,/obj/item/seeds/onionseed,/obj/item/seeds/onionseed,/obj/item/seeds/onionseed,/obj/item/seeds/carrotseed,/obj/item/seeds/carrotseed,/obj/item/seeds/carrotseed,/turf/simulated/floor/planet/temperate,/area/planet/forest/cabin1)
 "cV" = (/mob/living/simple_animal/hostile/huntable/bear/black,/turf/simulated/floor/planet/temperate,/area/planet/forest)
-"cW" = (/obj/machinery/light_switch{pixel_x = -32; pixel_y = 24},/obj/machinery/power/apc{dir = 1; name = "north bump"; pixel_y = 24; req_access = list("")},/turf/simulated/floor/wood{icon_state = "wood_broken5"},/area/planet/forest/cabin1)
+"cW" = (/obj/machinery/light_switch{pixel_x = -32; pixel_y = 24},/obj/machinery/power/apc{dir = 1; name = "north bump"; pixel_y = 24},/turf/simulated/floor/wood{icon_state = "wood_broken5"},/area/planet/forest/cabin1)
 "cX" = (/obj/structure/closet/secure_closet/freezer/fridge,/obj/effect/floor_decal/corner/black/diagonal,/turf/simulated/floor/tiled/white,/area/planet/forest/cabin1)
 "cY" = (/obj/structure/table/woodentable/mahogany,/obj/effect/floor_decal/corner/black/diagonal,/obj/item/material/kitchen/rollingpin,/obj/item/reagent_containers/glass/rag,/turf/simulated/floor/tiled/white,/area/planet/forest/cabin1)
 "cZ" = (/obj/structure/table/woodentable/mahogany,/obj/machinery/microwave,/obj/effect/floor_decal/corner/black/diagonal,/turf/simulated/floor/tiled/white,/area/planet/forest/cabin1)
@@ -153,7 +152,7 @@
 "dy" = (/obj/structure/bed/chair/wood/maple{dir = 1},/turf/simulated/floor/wood{icon_state = "wood_broken5"},/area/planet/forest/cabin1)
 "dz" = (/obj/structure/bed/chair/wood/maple{dir = 1},/turf/simulated/floor/wood,/area/planet/forest/cabin1)
 "dA" = (/obj/machinery/light_construct,/turf/simulated/floor/wood,/area/planet/forest/cabin1)
-"dB" = (/obj/structure/ladder,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest/cabin1)
+"dB" = (/turf/simulated/open,/area/planet/forest/cabin1)
 "dC" = (/obj/machinery/door/unpowered/simple/wood,/turf/simulated/floor/tiled/white,/area/planet/forest/cabin1)
 "dD" = (/mob/living/simple_animal/hostile/huntable/deer{dir = 4},/turf/simulated/floor/planet/temperate,/area/planet/forest)
 "dE" = (/obj/structure/hygiene/toilet{dir = 1},/turf/simulated/floor/tiled/white,/area/planet/forest/cabin1)
@@ -185,7 +184,7 @@ aaaaaaabababbbbbbbbbaGbbbbaGbbaGaGbbabapapapapapapapababaGbmbmababapapapapapapap
 aaaaaaabababbbbbbbaGbjaGabaGabbibiababapapapapapapapababaGbbababapapapapapapapapabababbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbfbsbsbcbcbrbcbcbcbfbcbcbcbcblbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcabababaaaaaa
 aaaaaaabababbbbbbbaGaGaGaGaGabbibiabapapapapapapapabapabaGaGabababapapapapapapapabababbcbcbcbcbcbcbcbcbcbcbcbcbcbcbfbcbcbcbcbcbcbsbsbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcavahbcbcbcbfbcbcbcblbcbcabababaaaaaa
 aaaaaaabababbbbbbbbbbbbbbbbbabapapabapapapapapapapabapababbuabababapapapapapapapabababbcbcbcbcblbcbcanbcbcbcbcbfbcbcbcbcbfbcbcbcbcbcbcagbcbcbcbcbcbvbcbcbcbwbcbfbcbcakaxbcbcbcbcbcbcbcblbcbcabababaaaaaa
-aaaaaaababababababababababababapapapbxapapapapapapapapababaGabapabapapbyapapapapabababbcbcbcbcbcbcbcanbcbcbcbcbcbcbcbcbcbcbcbcbzbcbcbcbcbcbcbcbrbcbcbrbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcabababaaaaaa
+aaaaaaababababababababababababapapapbxapapapapapapapapababaGabapabapapbyapapapapabababbcbcbcbcbcbcbcanbcbcbcbcbcbcbcbcbcbcbcbcbnbcbcbcbcbcbcbcbrbcbcbrbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcabababaaaaaa
 aaaaaaabababababababbBapabapapapViapapapapapapapapapapababapapapapapapapapapapapabababbcbcbcbcbcbcbcbcbcbcbcbcbcbcagbcbcbcbcbcbfbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcabababaaaaaa
 aaaaaaababababababapapapapbxapapapapapapapapbBapapapapapapapapViapapapapapapapapabababbcbcbcbcbcbcbdbcbcbcbcbcbCbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbfbcbcbcbcbcbcbcabababaaaaaa
 aaaaaaababababapapapapapapapapapapapapapapapapapapapapapapViapapapapapapapapapapabababbcbcbcbcbcbcbfbcbcbcbcbcbfbcbcbcbcbcbcbcbcbcbcbcbcbfbcbcbcbfbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcabababaaaaaa
@@ -244,7 +243,7 @@ aaaaaaababababbcbcbcbcbcbcbcbcblbcbcbcbcbcbcbcbcbcbcbcbcbcbcblbcaiadadadadadadad
 aaaaaaababababbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcaiadadadadadadadadadadadadajbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcanbcbcbcbcabababaaaaaa
 aaaaaaababababbcbcbcbEbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcaiadadadadadadadadadadadadajbcbcbcbcbcbcbcbSbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcabababaaaaaa
 aaaaaaababababbccLbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcaiadadadadadadadadadadadadajbcbcbcbcanbcbcbcbcbcbcbcbcbcbcanbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcabababaaaaaa
-aaaaaaababababbcbcbcbcbcbcbcbcKIbcbcbcbfbcbcbcbcbcanbcbLbcbcbcbcaiadadadadadadadadadadadadajbcbcbcbcbfbcbcbcbcbcbcbfbcbcbcbcbcbcbLbcbcbcbcbcaHaIaIaVaIaIaIaIaIaIaIaIaIaIaIaIaVaIaIaIaIaIaIaIabababaaaaaa
+aaaaaaababababbcbcbcbcbcbcbcbcKIbcbcbcbfbcbcbcbcbcanbcbLbcbcbcbcaiadadadadadadadadadadadadajbcbcbcbcbfbcbcbcbcbcbcbfbcbcbcbcbcbcbLbcbcbcbcbcaHaIaIaVaIaIaIaIaIaPaIaIaIaIaIaIaVaIaIaIaIaIaIaIabababaaaaaa
 aaaaaaababababbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbSbcbcbcbcbcbcbcbcbcaiadadadadadadadadadadadadajbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcaMcMcMcMcMcMcMcMcNcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMabababaaaaaa
 aaaaaaababababbcbcbcbcbcbcbcbcbcbcanbcbcbcbcbcbcbcbcbcbcbcbcbcbcaiadadadadadadadadadadadadajbcbcbcbcbcbcbcbcbcbcbcbcbcbfbcbcbcbcbcbcbcbcbcbcaMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMabababaaaaaa
 aaaaaaababababbcbcbcbcbdbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcaiadadadadadadadadadadadadajbcbcbcbcbcbcbcbfbcavahbcbcbcbcbcbcbcbfbcbcbcbcbcaMcMbacMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcMcNcMcMcMabababaaaaaa
@@ -256,9 +255,9 @@ aaaaaaababababbcbcbcbcbcbcbcbfbcbcbcbcbSbcbcbcbcbcbcbcbcbEbcbcbcaiadadadadadadad
 aaaaaaababababbcbcbcbcbcbcbcbcbcbcbcblblbcbcbcbcbcbcbcbcbcbcbcbcaiadadadadadadadadadadadadajbcbcbcbcbcbcbcbcbcbcbSbcbcbcbcbcbfbcbcbcbcbcbcbcaQcMcNcMaNaNaRaOaNdmaOaOaNaNaOaNaLdfdndndndndodfabababaaaaaa
 aaaaaaababababbcbcbcbcbcbcdpbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcaiadadadadadadadadadadadadajbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcKIbcaMcMcMcMaNaNaLaNdqdqdqaOaOdmaOaNaTdndndndndndndfabababaaaaaa
 aaaaaaababababbcbcbcbEbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcaiadadadadadadadadadadadadajbcbcbcbcbcbcblbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcaMcMcMcMcMaNaKaNdrdsaSaOdcaOaOdcaLdfdndndndtdndfabababaaaaaa
-aaaaaaababababbcbcbcbcbcbcbcbcbcbcanbcbcbcbcbcbcbcbcbcbcbcbcbcbcaiadadadadadadadadadadadadajbcbcbcbcbcbcbcbcbcbcbcbcbcbfbcbcbcbEbcbcbcbcbcbcaMcMcMcMcMcSaKdcdrduaPaOdmaOaNdvaLdfdwdndtdndndfabababaaaaaa
+aaaaaaababababbcbcbcbcbcbcbcbcbcbcanbcbcbcbcbcbcbcbcbcbcbcbcbcbcaiadadadadadadadadadadadadajbcbcbcbcbcbcbcbcbcbcbcbcbcbfbcbcbcbEbcbcbcbcbcbcaMcMcMcMcMcSaKdcdrduduaOdmaOaNdvaLdfdwdndtdndndfabababaaaaaa
 aaaaaaababababbcbcbcbcbcdxbcbcbcbcbHbcbcbcbcbcbcbcbcbcbcbcbcbcbcaiadadadadadadadadadadadadajbcbcbcbcbfbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcaMcMcMcMcMcSaKdcdydydzdAaNaLaYaYaLdfdndndndBdndfabababaaaaaa
-aaaaaaababababbcbcbcbcbcbfbcbcbcbcbcbcbcbcbcbcbcbcbwbcblblbcbcbcaiadadadadadadadadadadadadajbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbwbcbcbcbcbcbcaMcMcMcMcMcMaLaLaLaLaLaLdCaLaLaLaLdfaUaUdndndndfabababaaaaaa
+aaaaaaababababbcbcbcbcbcbfbcbcbcbcbcbcbcbcbcbcbcbcbwbcblblbcbcbcaiadadadadadadadadadadadadajbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbwbcbcbcbcbcbcaMcMcMcMcMcMaLaLaLaLaLaLdCaLaLaLaLdfaUaUdndBdndfabababaaaaaa
 aaaaaaababababbcbcbcbcbcbcbcbcdDbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcakalalalalalalalalalalalalaxbcbcbcbcbcbcbcbcbcbfbcbcbcanbcbcbcbcbcbcbcbcbcbcaXcMcMcMcMcMcMcMdfdfdfaLdEaLdfdfdfdfaUaUaUdndndfabababaaaaaa
 aaaaaaababababbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbSbSbcbSbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbSbcbcbcbcbcbcbcbcbcblbfbcbcbcbcbcbcbcaMcMcMcMcNcMcMcMdfdfdfaLaLaLdfdfdfaUaUaUaUaUaUdfabababaaaaaa
 aaaaaaababababbcbcbcbcbcbcbcbcbcbcbcbcbfbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbcbfbcbcbcbcbcbcbcbcbcbcbcbcbcaMcMcMcMcMcMcMcMdfdfdfdfdfdfdfdfdfaUaUaUaUaUaUdfabababaaaaaa

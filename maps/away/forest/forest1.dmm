@@ -245,14 +245,14 @@
 "eK" = (/obj/structure/cable/blue{icon_state = "5-8"},/obj/structure/disposalpipe/segment{dir = 4},/turf/simulated/floor,/area/planet/forest/cave/engie)
 "eL" = (/obj/structure/cable/blue{icon_state = "0-5"},/obj/structure/disposalpipe/segment{dir = 4},/obj/machinery/power/terminal{dir = 1},/turf/simulated/floor,/area/planet/forest/cave/engie)
 "eM" = (/obj/structure/disposalpipe/segment{dir = 2; icon_state = "pipe-c"},/turf/simulated/floor,/area/planet/forest/cave/engie)
-"eN" = (/turf/simulated/floor,/area/planet/forest/cave/engie)
+"eN" = (/turf/simulated/floor/tiled,/area/planet/forest/cave/dorms)
 "eO" = (/obj/structure/closet,/obj/random/accessory,/obj/random/cash,/obj/random/cash,/obj/random/clothing,/obj/random/clothing,/turf/simulated/floor/wood/mahogany,/area/planet/forest/cave/dorms)
 "eP" = (/obj/structure/closet,/obj/random/accessory,/obj/random/clothing,/turf/simulated/floor/wood/mahogany,/area/planet/forest/cave/dorms)
 "eQ" = (/obj/structure/closet,/obj/item/lipstick/random,/obj/random/accessory,/obj/random/advdevice,/obj/random/advdevice,/obj/random/clothing,/obj/random/hat,/turf/simulated/floor/wood/mahogany,/area/planet/forest/cave/dorms)
 "eR" = (/obj/structure/closet,/obj/random/accessory,/obj/random/action_figure,/obj/random/clothing,/obj/effect/spider/stickyweb,/turf/simulated/floor,/area/planet/forest/cave/dorms)
 "eS" = (/obj/structure/closet,/obj/random/accessory,/obj/random/contraband,/obj/random/clothing,/obj/effect/spider/stickyweb,/turf/simulated/floor/wood/mahogany,/area/planet/forest/cave/dorms)
-"eT" = (/obj/effect/floor_decal/rust,/obj/effect/spider/stickyweb,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
-"eU" = (/obj/structure/cable/blue{icon_state = "1-2"},/obj/structure/cable/blue{icon_state = "5-10"},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/effect/spider/stickyweb,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
+"eT" = (/obj/effect/floor_decal/rust,/obj/effect/spider/stickyweb,/turf/simulated/floor/tiled,/area/planet/forest/cave/dorms)
+"eU" = (/obj/structure/cable/blue{icon_state = "1-2"},/obj/structure/cable/blue{icon_state = "5-10"},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/effect/spider/stickyweb,/turf/simulated/floor/tiled,/area/planet/forest/cave/dorms)
 "eV" = (/obj/effect/spider/stickyweb,/turf/simulated/wall,/area/planet/forest/cave/dorms)
 "eW" = (/obj/effect/spider/stickyweb,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
 "eX" = (/obj/machinery/disposal,/obj/structure/disposalpipe/trunk{dir = 4},/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
@@ -273,8 +273,8 @@
 "fm" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/effect/spider/stickyweb,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 6; icon_state = "intact-scrubbers"},/turf/simulated/floor/carpet/blue2,/area/planet/forest/cave/dorms)
 "fn" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/effect/spider/stickyweb,/turf/simulated/floor/wood/mahogany,/area/planet/forest/cave/dorms)
 "fo" = (/obj/machinery/door/unpowered/simple/wood,/obj/structure/cable/blue{icon_state = "4-10"},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/effect/spider/stickyweb,/turf/simulated/floor/tiled,/area/planet/forest/cave/dorms)
-"fp" = (/obj/structure/cable/blue{icon_state = "5-8"},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/effect/floor_decal/rust,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
-"fq" = (/obj/structure/cable/blue{icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 9; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 9},/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
+"fp" = (/obj/structure/cable/blue{icon_state = "5-8"},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/effect/floor_decal/rust,/turf/simulated/floor/tiled,/area/planet/forest/cave/dorms)
+"fq" = (/obj/structure/cable/blue{icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 9; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 9},/turf/simulated/floor/tiled,/area/planet/forest/cave/dorms)
 "fr" = (/obj/random/trash,/turf/simulated/wall,/area/planet/forest/cave/dorms)
 "fs" = (/obj/structure/bed/padded,/obj/item/bedsheet/purple,/turf/simulated/floor/wood/mahogany,/area/planet/forest/cave/dorms)
 "ft" = (/obj/machinery/light/small{dir = 1; luminosity = 2},/turf/simulated/floor/wood/mahogany,/area/planet/forest/cave/dorms)
@@ -297,7 +297,7 @@
 "fK" = (/turf/simulated/floor,/area/planet/forest/cave/dorms)
 "fL" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 1; icon_state = "map_scrubber_on"},/obj/effect/spider/stickyweb,/obj/effect/decal/cleanable/filth,/turf/simulated/floor/carpet/blue2,/area/planet/forest/cave/dorms)
 "fM" = (/obj/machinery/power/apc{dir = 4; name = "east bump"; pixel_x = 24},/obj/structure/cable/blue{icon_state = "0-5"},/obj/effect/spider/stickyweb,/turf/simulated/floor/wood/mahogany,/area/planet/forest/cave/dorms)
-"fN" = (/obj/structure/cable/blue{icon_state = "1-2"},/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
+"fN" = (/obj/structure/cable/blue{icon_state = "1-2"},/turf/simulated/floor/tiled,/area/planet/forest/cave/dorms)
 "fO" = (/obj/machinery/alarm{dir = 4; icon_state = "alarm0"; pixel_x = -22; pixel_y = 0},/turf/simulated/floor/wood/mahogany,/area/planet/forest/cave/dorms)
 "fP" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 4; icon_state = "map_scrubber_on"},/obj/effect/floor_decal/rust/mono/medium,/obj/effect/decal/cleanable/filth,/turf/simulated/floor,/area/planet/forest/cave/dorms)
 "fQ" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 10},/turf/simulated/floor/carpet/blue2,/area/planet/forest/cave/dorms)
@@ -318,8 +318,8 @@
 "gf" = (/obj/machinery/light,/obj/structure/bed/padded,/obj/item/bedsheet/brown,/turf/simulated/floor/wood/mahogany,/area/planet/forest/cave/dorms)
 "gg" = (/obj/structure/bed/padded,/obj/effect/spider/stickyweb,/obj/item/bedsheet/orange,/turf/simulated/floor/wood/mahogany,/area/planet/forest/cave/dorms)
 "gh" = (/obj/structure/bed/padded,/obj/effect/spider/stickyweb,/obj/item/bedsheet/orange,/obj/item/bedsheet/orange,/turf/simulated/floor/wood/mahogany,/area/planet/forest/cave/dorms)
-"gi" = (/obj/machinery/alarm{dir = 4; icon_state = "alarm0"; pixel_x = -22; pixel_y = 0},/obj/random/trash,/obj/effect/spider/stickyweb,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
-"gj" = (/obj/structure/cable/blue{icon_state = "1-10"},/obj/effect/spider/stickyweb,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
+"gi" = (/obj/machinery/alarm{dir = 4; icon_state = "alarm0"; pixel_x = -22; pixel_y = 0},/obj/random/trash,/obj/effect/spider/stickyweb,/turf/simulated/floor/tiled,/area/planet/forest/cave/dorms)
+"gj" = (/obj/structure/cable/blue{icon_state = "1-10"},/obj/effect/spider/stickyweb,/turf/simulated/floor/tiled,/area/planet/forest/cave/dorms)
 "gk" = (/obj/structure/closet/cabinet,/obj/item/haircomb/random,/obj/random/accessory,/obj/random/clothing,/turf/simulated/floor/wood/mahogany,/area/planet/forest/cave/dorms)
 "gl" = (/obj/structure/table/woodentable_reinforced,/obj/item/flame/lighter/zippo/random,/obj/item/haircomb/random,/obj/random/toy,/obj/machinery/light_switch{pixel_x = 5; pixel_y = -27},/turf/simulated/floor,/area/planet/forest/cave/dorms)
 "gm" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 6},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/turf/simulated/floor/wood/mahogany,/area/planet/forest/cave/dorms)
@@ -344,7 +344,7 @@
 "gF" = (/obj/structure/table/woodentable/ebony,/obj/machinery/light/small{dir = 1; luminosity = 2},/obj/item/device/radio/off/old,/obj/item/paper_bin,/turf/simulated/floor/carpet/purple,/area/planet/forest/cave/lab)
 "gG" = (/obj/structure/table/woodentable/ebony,/obj/machinery/photocopier/faxmachine{department = "???"},/obj/effect/decal/cleanable/cobweb{dir = 8; icon_state = "cobweb1"},/turf/simulated/floor/carpet/purple,/area/planet/forest/cave/lab)
 "gH" = (/obj/structure/sign/urist/deptsigns/sci{dir = 4; pixel_y = -1},/obj/structure/sign/urist/deptsigns/eng{dir = 4; pixel_y = -7},/obj/structure/sign/urist/deptsigns/sec{dir = 1; pixel_y = 11},/obj/structure/sign/urist/deptsigns/med{dir = 1; pixel_y = 5},/turf/simulated/wall,/area/planet/forest/cave/dorms)
-"gI" = (/obj/structure/cable/blue{icon_state = "5-6"},/obj/effect/floor_decal/rust,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
+"gI" = (/obj/structure/cable/blue{icon_state = "5-6"},/obj/effect/floor_decal/rust,/turf/simulated/floor/tiled,/area/planet/forest/cave/dorms)
 "gJ" = (/obj/machinery/door/unpowered/simple/wood,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled,/area/planet/forest/cave/dorms)
 "gK" = (/obj/effect/floor_decal/rust,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
 "gL" = (/obj/machinery/atmospherics/unary/vent_scrubber/on,/turf/simulated/floor,/area/planet/forest/cave/hall)
@@ -381,7 +381,7 @@
 "hq" = (/obj/structure/disposalpipe/segment{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/turf/simulated/floor,/area/planet/forest/cave/hall)
 "hr" = (/obj/machinery/light{dir = 1},/obj/structure/cable/blue{icon_state = "4-8"},/obj/structure/disposalpipe/segment{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
 "hs" = (/obj/structure/cable/blue{icon_state = "4-8"},/obj/structure/disposalpipe/junction{dir = 4; icon_state = "pipe-j1"},/obj/machinery/atmospherics/pipe/manifold/hidden/supply{dir = 1; icon_state = "map-supply"},/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{dir = 1; icon_state = "map-scrubbers"},/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
-"ht" = (/obj/structure/cable/blue{icon_state = "4-8"},/obj/structure/cable/blue{icon_state = "4-8"},/obj/structure/disposalpipe/segment{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
+"ht" = (/obj/structure/cable/blue{icon_state = "4-8"},/obj/structure/disposalpipe/segment{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,/turf/simulated/floor/tiled,/area/planet/forest/cave/hall)
 "hu" = (/obj/structure/cable/blue{icon_state = "4-8"},/obj/structure/disposalpipe/segment{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/turf/simulated/floor/tiled,/area/planet/forest/cave/kitchen)
 "hv" = (/obj/structure/disposalpipe/segment{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/structure/cable/blue{icon_state = "1-8"},/obj/random/junk,/turf/simulated/floor/tiled,/area/planet/forest/cave/kitchen)
 "hw" = (/obj/structure/disposalpipe/segment{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/structure/cable/blue{icon_state = "1-6"},/turf/simulated/floor/tiled,/area/planet/forest/cave/kitchen)
@@ -440,7 +440,7 @@
 "ix" = (/obj/effect/floor_decal/corner/purple/three_quarters{dir = 8; icon_state = "corner_white_three_quarters"},/obj/machinery/alarm{pixel_y = 24},/turf/simulated/floor/tiled/white,/area/planet/forest/cave/lab)
 "iy" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/light_switch{pixel_x = 26; pixel_y = 24},/turf/simulated/floor/tiled/white,/area/planet/forest/cave/lab)
 "iz" = (/obj/effect/floor_decal/corner/purple/half{dir = 1},/obj/effect/decal/cleanable/blood,/turf/simulated/floor/tiled/white,/area/planet/forest/cave/lab)
-"iA" = (/obj/effect/floor_decal/corner/purple/half{dir = 1},/obj/machinery/computer/cloning/old,/turf/simulated/floor/tiled/white,/area/planet/forest/cave/lab)
+"iA" = (/obj/effect/floor_decal/corner/purple/half{dir = 1},/obj/random/junk,/turf/simulated/floor/tiled/white,/area/planet/forest/cave/lab)
 "iB" = (/turf/simulated/floor/tiled,/area/planet/forest/cave/lobby)
 "iC" = (/obj/machinery/disposal,/obj/structure/disposalpipe/trunk{dir = 4},/turf/simulated/floor,/area/planet/forest/cave/lobby)
 "iD" = (/obj/structure/flora/pottedplant/orientaltree,/obj/machinery/light{dir = 1},/obj/structure/disposalpipe/segment{dir = 4},/turf/simulated/floor/tiled,/area/planet/forest/cave/lobby)
@@ -502,7 +502,7 @@
 "jH" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 5},/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 1; icon_state = "map_scrubber_on"},/obj/effect/decal/cleanable/blood,/turf/simulated/floor,/area/planet/forest/cave/lab)
 "jI" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/effect/decal/cleanable/blood,/turf/simulated/floor,/area/planet/forest/cave/lab)
 "jJ" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/effect/decal/cleanable/blood,/turf/simulated/floor/tiled/white,/area/planet/forest/cave/lab)
-"jK" = (/obj/effect/decal/cleanable/blood,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 9},/turf/simulated/floor/tiled/white,/area/planet/forest/cave/lab)
+"jK" = (/obj/effect/decal/cleanable/blood,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 9},/obj/item/remains/xeno,/turf/simulated/floor/tiled/white,/area/planet/forest/cave/lab)
 "jL" = (/obj/structure/table/woodentable_reinforced,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled,/area/planet/forest/cave/lobby)
 "jM" = (/obj/structure/table/woodentable_reinforced,/turf/simulated/floor/tiled,/area/planet/forest/cave/lobby)
 "jN" = (/obj/structure/table/woodentable_reinforced,/obj/item/pen,/obj/item/pen/blue,/turf/simulated/floor/tiled,/area/planet/forest/cave/lobby)
@@ -544,7 +544,7 @@
 "kx" = (/mob/living/simple_animal/hostile/giant_spider,/turf/simulated/floor,/area/planet/forest/cave/kitchen)
 "ky" = (/obj/machinery/door/airlock/freezer{name = "Kitchen Cold Room"; req_access = list("")},/turf/simulated/floor/tiled/white,/area/planet/forest/cave/kitchen)
 "kz" = (/obj/structure/table/standard,/turf/simulated/floor/tiled/white,/area/planet/forest/cave/kitchen)
-"kA" = (/obj/structure/table/standard,/obj/machinery/computer/rdconsole/old{req_access = list("")},/obj/effect/floor_decal/corner/purple/half{dir = 8},/turf/simulated/floor/tiled/white,/area/planet/forest/cave/lab)
+"kA" = (/obj/structure/table/standard,/obj/machinery/computer/rdconsole/old,/obj/effect/floor_decal/corner/purple/half{dir = 8},/turf/simulated/floor/tiled/white,/area/planet/forest/cave/lab)
 "kB" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 1; icon_state = "map_scrubber_on"},/turf/simulated/floor/tiled/white,/area/planet/forest/cave/lab)
 "kC" = (/obj/machinery/r_n_d/protolathe,/obj/effect/floor_decal/corner/purple/half{dir = 4},/turf/simulated/floor/tiled/white,/area/planet/forest/cave/lab)
 "kD" = (/obj/structure/grille/broken,/obj/item/material/shard{icon_state = "medium"},/obj/item/material/shard{icon_state = "small"},/turf/simulated/floor/tiled,/area/planet/forest/cave/lobby)
@@ -608,9 +608,12 @@
 "lJ" = (/turf/simulated/mineral/random/high_chance/planet,/area/planet/forest/cave)
 "lK" = (/obj/random/trash,/turf/unsimulated/mask,/area/planet/forest/cave)
 "lL" = (/obj/item/reagent_containers/food/drinks/bottle/whiskey,/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
-"lM" = (/obj/structure/ladder/up,/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
+"lM" = (/obj/structure/stairs/wood{dir = 1},/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "lN" = (/obj/item/device/flashlight/lamp/floodlamp,/turf/simulated/floor/asteroid/planet,/area/planet/forest/cave)
 "lO" = (/turf/simulated/floor/planet/jungle/rock,/area/planet/forest/cave)
+"Mm" = (/obj/effect/floor_decal/corner/purple/three_quarters{dir = 4; icon_state = "corner_white_three_quarters"},/obj/random/junk,/turf/simulated/floor/tiled/white,/area/planet/forest/cave/lab)
+"NZ" = (/obj/effect/floor_decal/corner/purple/half{dir = 4},/obj/item/remains/xeno,/turf/simulated/floor/tiled/white,/area/planet/forest/cave/lab)
+"OB" = (/obj/effect/spider/stickyweb,/turf/simulated/floor/tiled,/area/planet/forest/cave/dorms)
 
 (1,1,1) = {"
 aiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiaiai
@@ -653,18 +656,18 @@ aiaiaiajajajajakakalakalakakakakakakakakakakakakakakakakalaEaHcrcrcrcrcsctaHcucv
 aiaiaiajajajajakakalakalakakakakakakakakakakakakakakalalalaEaHcNcOcPaPcscQaHcRcScTaIcUcVcWcXcYcZaIdabAdbdcdddedfdgbfcIdhdidjdkadbkbkbkbkcMbkaJaEalalalakakakakakakakalakakakakakakakakakalakajajajaiaiai
 aiaiaiajajajajakakalakalalalalalakakakakakakakakakakalalalaEaHdldmdndodpdqdrdsaHlpaIaIaIdudvaIaIaIaJaJaJdwaJaJaJaJaJdxdydzdjdAdBbkbkbkdCdDdCaJaEalalalakakakakakakakalakakakakakakakakakalakajajajaiaiai
 aiaiaiajajajajakakalakalavakakakakakakakakakakakakakalaEaEaEaHdEbNdFdGdHdIdJdKdLdMdLdNdOdNdPdQdNdRdSdTdUdVdWdWdWdXaJcKdYdZcIdkeaebecedeeefegaJaEalalalakakakakakakalalalalakakakakakakakalakajajajaiaiai
-aiaiaiajajajajakakalakalakakakakakakakakakakakakakakalaEeheheheieieieicsejekelemeneyepeqereseteueveyeyewexeyezeAeBeCeDeEeFeGeHeIeJeKeLeMeNcIaJaEalalalakakakakakalalakakalakakakakakakalalakajajajaiaiai
+aiaiaiajajajajakakalakalakakakakakakakakakakakakakakalaEeheheheieieieicsejekelemeneyepeqereseteueveyeyewexeyezeAeBeCeDeEeFeGeHeIeJeKeLeMcIcIaJaEalalalakakakakakalalakakalakakakakakakalalakajajajaiaiai
 aiaiaiajajajajakakalakalakakakakakakakakakakakakakakalaEeheOePeQeReSeieTeUeieieieieieieVeWeWeWeXeYeZeZfafbfccsfdfeaJfffgcKdjcIfhdjcIcKadfifjaJaEalalalakakakakakalakakakalakakakakakakalalakajajajaiaiai
 aiaiaiajajajajakakalakalakakakakakakakakakakakakakakalaEehfkafflfmfnfofpfqfrfsftfsfufveifwfxfyfyfyfyfyfyfyfyfyfzfAaJfBcKfCahfDfEfFfGfGadcIfHaJaEalalalakakakakakapakakakalakakakakakakalakakajajajaiaiai
-aiaiaiajajajajakakalakalakakakakakakakakakakakakakakalaEehfIfJfKfLfMeicsfNeifOfPfQfRfSeiaQcsfyfTfUfVfWfXfTfYfyfZgagbgbgbgbgbgbgbgbgbgbgcgdgbgbgbalalalakakakakakalakalalalakakakakakakalakakajajajaiaiai
+aiaiaiajajajajakakalakalakakakakakakakakakakakakakakalaEehfIfJfKfLfMeieNfNeifOfPfQfRfSeiaQcsfyfTfUfVfWfXfTfYfyfZgagbgbgbgbgbgbgbgbgbgbgcgdgbgbgbalalalakakakakakalakalalalakakakakakakalakakajajajaiaiai
 aiaiaiajajajajakakalakalakakakakakakakakakakakakakakalaEehaegegfgggheigigjeigkglgmgngoeicscsfyfVgpgqgrgsgtfVfygugvgwgxgygzgAgBgAgCgDgbgEgFgGgbgbalalalakakakakakalalalakakakakakakakalalakakajajajaiaiai
-aiaiaiajajajajakakalalalakakakakakakakakakakakakakakalaEeheheheieieigHgIeWeieieigJeieieigKgLfyaggMgNgOgPgQgRfygSgTgUgVgWgXgYeohagZachbhchdhegbgbalalalakakakakakakalalakakakakakakakalakakakajajajaiaiai
+aiaiaiajajajajakakalalalakakakakakakakakakakakakakakalaEeheheheieieigHgIOBeieieigJeieieigKgLfyaggMgNgOgPgQgRfygSgTgUgVgWgXgYeohagZachbhchdhegbgbalalalakakakakakakalalakakakakakakakalakakakajajajaiaiai
 aiaiaiajajajajakakalalakakakakakakakakakakakakakakakaEaEcvcscshfhghhhihjhkhlhmhnhohphqhrhshthuhvhwhxhyhzhAhBhChDhEgwhFhGhHhIhJhKhLhMgbhNhOhPgbgbalalalakakakakakakalalalakakakakakalalakakakajajajaiaiai
 aiaiaiajajajajakakalalakakakakakakakakakakakakakakakaEaEcsfxcshQhRhShThUhVeWhWhXdtaQhYfxbRcsfyfThZiaaaibgOicfydtidgbgbgbiegbgbgbifgbgbgbgbgbgbgbalalalakakakakakakakakalalakakakakalakakakakajajajaiaiai
 aiaiaiajajajajakakalalakakakakakakakakakakakakakakakaEigigihihiiigijikigihihiligigfyfyfyimfyfyfVinioipiqirisfydtitgbiugCiviwgbixiyizgCiAgCgDgbgbalalalakakakakakakakakakalalakakakalakakakakajajajaiaiai
-aiaiaiajajajajakakaqalakakakakakakakakakakakakakakakaligiBiCiDiEiFiGiHiIiJiKiLiMigiNiOiNiPiQfyiRiSiTfTiUfTiVfyiWiXgbiYiZhLjagbjbjcjdjejfjgjhgbgbalalalakakakakakakakakakakalalakalalakakakakajajajaiaiai
+aiaiaiajajajajakakaqalakakakakakakakakakakakakakakakaligiBiCiDiEiFiGiHiIiJiKiLiMigiNiOiNiPiQfyiRiSiTfTiUfTiVfyiWiXgbiYiZhLjagbjbjcjdjejfjgNZgbgbalalalakakakakakakakakakakalalakalalakakakakajajajaiaiai
 aiaiaiajajajajakalalakakakakakakakakakakakakakakakakaligjijjjkjljmjniBjojpiBjqjrjsfTjtjujvjwfyfyfyfyjxfyjyjzfyjAcsjBjCjDjEjFgbjGjHjIjJjJjKjhgbgbalalalakakakakakakakakakakakalalalakakakakakajajajaiaiai
-aiaiaiajajajajakalalakakakakakakakakakakakakakakakakalihjqjLjMjMjNjOjqjPjQjmjRjqjsfTjSjTjUfTfyjVjWfyiSjXjYjZfycsbQjBkakbkckdgbjdkekfkgjejfhMgbgbalalalakakakakakakakakakakakalalakakakakakakajajajaiaiai
+aiaiaiajajajajakalalakakakakakakakakakakakakakakakakalihjqjLjMjMjNjOjqjPjQjmjRjqjsfTjSjTjUfTfyjVjWfyiSjXjYjZfycsbQjBkakbkckdgbjdkekfkgjejfMmgbgbalalalakakakakakakakakakakakalalakakakakakakajajajaiaiai
 aiaiaiajajajajakavalakakakakakakakakakakakakakakakakalihkhkikjkkklkmknkokpkqkrksigktfykufykvfykwkxkyiSjYiSkzfycsdtjBkAkBjdkCgbgbgbgbgbgbgbgbgbgbalalalakakakakakakakalalalalalakakakakakakakajajajaiaiai
 aiaiaiajajajajakalalakakakakakakakakakakakakakakakakbLkDkEkFkGkHkEkIkJjqiBkKkLkMigkNfykNfykOfykPkQfykRkSkzkTfydtaQgbkUkVkWkXgbgbgbgbgbgbgbgbgbgbalalalakakakakakakalalalakakakakakakakakakakajajajaiaiai
 aiaiaiajajajajakalalakakakakakakakakakakakakakakakakaligiBkYkZlaiBlbiBkZiBkEiBiBiglclclclclclclclclclclclclclcaHaHgbgbgbgbgbgbaEalalalalalalalalalalalakakakakakakalakakakakakakakakakakakakajajajaiaiai
@@ -699,10 +702,10 @@ aiaiaiajajajajakakalakakakakakakalakakakakakakakakalakakakalalalalakakakakakakak
 aiaiaiajajajajakakalakakakakakakalalalalakakakakakalakakakakakakalakakakakakakakakakakalakakakakakakakalalakakakakalalakakakakalalaqalalalalakakakalakalakakakakaklJakalakakakalalabababababajajajaiaiai
 aiaiaiajajajajakakalakakakakakakalapalalakakakakakalakakakakakakakakakakakakakakakakakakakakakakakakakakalalalakalalakakakakalalalalalalakalakakakalakalakakakakakakalalalalakalababababababajajajaiaiai
 aiaiaiajajajajakakalakakakakakakalalalalakakakakakalakakakakakakakakakakakakakakakakakakakakakakakakakakakakalalalakakakakalalakakakakakakalakakakalakalakakakakalalalalalalalalababababababajajajaiaiai
-aiaiaiajajajajakakalakakakakakakakakakakakakakakakalakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakalakakakakalalakakakakakakalalalalalalalalalalalalabababababalababablLalalabajajajaiaiai
+aiaiaiajajajajakakalakakakakakakakakakakakakakakakalakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakalakakakakalalakakakakakakalalalalalalalalalalalalabababababalababablLanalabajajajaiaiai
 aiaiaiajajajajakakalalakakakakakakakakakakakakakalalalalakalalalalalakakakakakakakakakakakakakakakakakakakakakakakakakakakakalakakakalakakakakakakakalakakakakakakakakakababalabababallMalabajajajaiaiai
-aiaiaiajajajajakakakalalakakakakakakakakakakalalalalalalalalalalalalalalalalalalalalalalalalalakakakakakakakakakakakakakakalalakakakalakakakakakakakalakakakakakakakakakabalalabababalallNabajajajaiaiai
-aiaiaiajajajajakakakakalalalalalalalalalalalalalalakamalalalalalalalalalalalalakakakakakakakalalalalakakakakakakakakakakalalakakakakalakakakakakakalalakakakakakakakakakabalababababababababajajajaiaiai
+aiaiaiajajajajakakakalalakakakakakakakakakakalalalalalalalalalalalalalalalalalalalalalalalalalakakakakakakakakakakakakakakalalakakakalakakakakakakakalakakakakakakakakakabalalabababallMlNabajajajaiaiai
+aiaiaiajajajajakakakakalalalalalalalalalalalalalalakamalalalalalalalalalalalalakakakakakakakalalalalakakakakakakakakakakalalakakakakalakakakakakakalalakakakakakakakakakabalababababalalalabajajajaiaiai
 aiaiaiajajajajakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakalalalakakakakakakakakakalalalalalakakakakalalalakakakakakalakakakakakalalakakakakakakakakakakalalababababababablOajajajaiaiai
 aiaiaiajajajajakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakalalalalalalakakakakakakalalakalalalalalakakakakakakakakababalalabababababababablOajajajaiaiai
 aiaiaiajajajajakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakakalalalakakakakakakakakakakakakabababababababababababablOajajajaiaiai
