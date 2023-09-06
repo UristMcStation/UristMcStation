@@ -854,3 +854,14 @@
 /turf/simulated/floor/planet/snow/Initialize()
 	. = ..()
 	icon_state = "snow[rand(0,12)]"
+
+
+/turf/simulated/open/skylight/planet
+	light_max_bright = 0.3
+	light_inner_range = 0.5
+	light_outer_range = 1.0
+	light_color = "#ffffff"
+
+/turf/simulated/open/skylight/planet/Initialize()
+	light_color = SSskybox.background_color
+	. = ..()

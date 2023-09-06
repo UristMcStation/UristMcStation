@@ -112,5 +112,4 @@
 	map = "boreal forest"
 	crew_jobs = list(
 		/datum/job/submap/forest_settler
-
-	)
+		)
