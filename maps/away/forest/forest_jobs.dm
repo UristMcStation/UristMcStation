@@ -2,7 +2,7 @@
 	name = "Pioneer"
 	uniform = /obj/item/clothing/under/frontier
 	shoes = /obj/item/clothing/shoes/dutyboots
-	suit = /obj/item/clothing/suit/storage/hooded/wintercoat/solgov/army
+	suit = /obj/item/clothing/suit/storage/toggle/hoodie/smw
 	gloves = /obj/item/clothing/gloves/urist/leather
 	back = /obj/item/storage/backpack/rucksack/tan
 	backpack_contents = list(/obj/item/device/flashlight/trainlantern = 1, /obj/item/storage/firstaid/regular = 1)
