@@ -602,7 +602,7 @@
 /obj/item/treasure/tape/tape3
 	icon_state = "tape6"
 
-/obj/item/material/coin/challenge/loot
+/obj/item/material/coin/challenge/loot/copper
 	name = "\improper old copper coin"
 	desc = "A copper coin stamped with the image of a sailing ship."
 	icon = 'icons/urist/items/misc.dmi'
