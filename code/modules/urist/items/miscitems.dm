@@ -607,7 +607,8 @@
 	desc = "A copper coin stamped with the image of a sailing ship."
 	icon = 'icons/urist/items/misc.dmi'
 	icon_state = "oldcoin4"
-
+	default_material = MATERIAL_COPPER
+	
 /obj/item/material/coin/challenge/loot/plat
 	name = "\improper old platinum coin"
 	desc = "A platinum coin stamped with the image of a king."
