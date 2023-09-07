@@ -38,6 +38,46 @@
 	. += new/datum/stack_recipe/welder_apron(src)
 	. += new/datum/stack_recipe/leather_mask(src)
 
+
+
+/material/skin/goat/generate_recipes(reinforce_material)
+	. = ..()
+	if(reinforce_material)	//recipies below don't support composite materials
+		return
+
+	. += new/datum/stack_recipe/goatpelt(src)
+	. += new/datum/stack_recipe/sheeppelt(src)
+////////////////////////////////COMMENTING OUT UNTILL GLLOYD ADJUSTS BUTCHERING. SAVE!!!!//////////////////////////////////
+//material/skin/fur/generate_recipes(reinforce_material)
+//	. = ..()
+//	if(reinforce_material)	//recipies below don't support composite materials
+//		return
+//
+//	. += new/datum/stack_recipe/brownbearpelt(src)
+
+//material/skin/fur/grey/generate_recipes(reinforce_material)
+//	. = ..()
+//	if(reinforce_material)	//recipies below don't support composite materials
+//		return
+
+//	. += new/datum/stack_recipe/graywolfpelt(src)
+
+///material/skin/fur/white/generate_recipes(reinforce_material)
+//	. = ..()
+//	if(reinforce_material)	//recipies below don't support composite materials
+//		return
+
+//	. += new/datum/stack_recipe/whitewolfpelt(src)
+//	. += new/datum/stack_recipe/whitebearpelt(src)
+
+//material/skin/fur/black/generate_recipes(reinforce_material)
+//	. = ..()
+//	if(reinforce_material)	//recipies below don't support composite materials
+//		return
+
+//	. += new/datum/stack_recipe/pantherpelt(src)
+//	. += new/datum/stack_recipe/blackbearpelt(src)
+
 /datum/stack_recipe/holster
 	req_amount = 2
 	time = 40
@@ -206,4 +246,16 @@
 	title = "leather mask"
 	result_type = /obj/item/clothing/mask/urist/bandana/leather
 	req_amount = 1
+	time = 30
+
+/datum/stack_recipe/goatpelt
+	title = "goat pelt"
+	result_type = /obj/item/clothing/head/urist/pelt/goat
+	req_amount = 8
+	time = 30
+
+/datum/stack_recipe/sheeppelt
+	title = "sheep pelt"
+	result_type = /obj/item/clothing/head/urist/pelt/sheep
+	req_amount = 8
 	time = 30

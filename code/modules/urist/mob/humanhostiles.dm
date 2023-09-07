@@ -981,5 +981,3 @@
 
 	// AI spec
 	say_list_type = /datum/say_list/fanatic
-
-

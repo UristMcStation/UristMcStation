@@ -777,6 +777,20 @@ the sprite and make my own projectile -Glloyd*/
 	icon_state = "sexyrifle-mag"
 	max_ammo = 30
 
+/obj/item/gun/projectile/automatic/spaceak/gold
+	item_icons = DEF_URIST_INHANDS
+	name = "\improper Gold Plated U2442 Assault Rifle"
+	desc = "A bullpup assault rifle loosely based on the AK-47. Originally manufactured by the USSSR, the design has since become popular among pirates and traders for its affordability, reliability and ease of use. This one has been in the hands of someone with incredibly tacky tastes."
+	icon = 'icons/urist/items/guns.dmi'
+	icon_state = "goldspaceak"
+	item_state = "goldspaceak"
+	wielded_item_state = "goldspaceak-wielded"
+
+/obj/item/gun/projectile/automatic/spaceak/gold/on_update_icon()
+	if(ammo_magazine?.stored_ammo.len)
+		icon_state = "goldspaceak"
+	else
+		icon_state = "goldspaceak-empty"
 
 /obj/item/gun/projectile/automatic/hi2521smg
 	item_icons = DEF_URIST_INHANDS
@@ -919,3 +933,16 @@ the sprite and make my own projectile -Glloyd*/
 	ammo_type = /obj/item/ammo_casing/pistol/small
 	max_ammo = 10
 	multiple_sprites = 1
+
+/obj/item/gun/energy/taser/old
+	name = "antique taser"
+	desc = "An old model taser. They don't make 'em like they used to"
+	icon = 'icons/urist/items/guns.dmi'
+	icon_state = "taser"
+	max_shots = 8
+
+/obj/item/gun/energy/laser/old
+	name = "vintage laser carbine"
+	desc = "a pre-Crisis model laser carbine formerly deployed broadly by human forces."
+	icon = 'icons/urist/items/guns.dmi'
+	icon_state = "oldlaser"

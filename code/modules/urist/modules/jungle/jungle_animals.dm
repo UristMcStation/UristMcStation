@@ -481,3 +481,81 @@
 	bone_amount = 10
 	skin_amount = 15
 	skin_material = MATERIAL_SKIN_FUR
+
+//from civ13
+
+/mob/living/simple_animal/hostile/huntable/panther/cougar
+	name = "cougar"
+	desc = "a large brown cat with a white belly and jaw."
+	icon_state = "cougar"
+	icon_living = "cougar"
+	icon_dead = "cougar_dead"
+	icon_gib = "cougar_dead"
+
+/mob/living/simple_animal/hostile/huntable/bear/grey
+	desc = "A big scary bear, probably best to stay away"
+	icon_state = "greybear"
+	icon_living = "greybear"
+	icon_dead = "greybear_dead"
+	icon_gib = "greybear_dead"
+
+/mob/living/simple_animal/hostile/huntable/bear/black
+	desc = "A big scary black bear, probably best to stay away"
+	icon_state = "blackbear"
+	icon_living = "blackbear"
+	icon_dead = "blackbear_dead"
+	icon_gib = "blackbear_dead"
+
+/mob/living/simple_animal/hostile/huntable/bear/polar
+	desc = "A big scary polar bear, probably best to stay away"
+	icon_state = "polarbear"
+	icon_living = "polarbear"
+	icon_dead = "polarbear_dead"
+	icon_gib = "polarbear_dead"
+	skin_material = MATERIAL_SKIN_FUR_WHITE
+
+/mob/living/simple_animal/hostile/huntable/bear/light
+	desc = "A big scary bear, probably best to stay away"
+	icon_state = "blondebear"
+	icon_living = "blondebear"
+	icon_dead = "blondebear_dead"
+	icon_gib = "blondebear_dead"
+
+/mob/living/simple_animal/hostile/huntable/bear/dark
+	desc = "A big scary brown bear, probably best to stay away"
+	icon_state = "darkbrownbear"
+	icon_living = "darkbrownbear"
+	icon_dead = "darkbrownbear_dead"
+	icon_gib = "darkbrownbear_dead"
+
+//wolf
+
+/mob/living/simple_animal/hostile/huntable/wolf
+	name = "wolf"
+	desc = "A mean looking wolf"
+	icon = 'icons/uristmob/simpleanimals.dmi'
+	icon_state = "greywolf"
+	icon_living = "greywolf_dead"
+	icon_dead = "greywolf_dead"
+	icon_gib = "greywolf_dead"
+	turns_per_move = 6
+	response_help = "pets the"
+	response_disarm = "gently pushes aside the"
+	response_harm = "hits the"
+	maxHealth = 70
+	health = 70
+	natural_weapon = /obj/item/natural_weapon/bite
+	meat_amount = 4
+	bone_amount = 5
+	skin_amount = 6
+	skin_material = MATERIAL_SKIN_FUR_GRAY
+
+
+
+/mob/living/simple_animal/hostile/huntable/wolf/white
+	icon_state = "whitewolf"
+	icon_living = "whitewolf_dead"
+	icon_dead = "whitewolf_dead"
+	icon_gib = "whitewolf_dead"
+	hide = 0
+	skin_material = MATERIAL_SKIN_FUR_WHITE
