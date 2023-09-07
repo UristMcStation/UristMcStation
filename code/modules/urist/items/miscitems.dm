@@ -613,7 +613,8 @@
 	desc = "A platinum coin stamped with the image of a king."
 	icon = 'icons/urist/items/misc.dmi'
 	icon_state = "oldcoin1"
-
+	default_material = MATERIAL_PLATINUM
+	
 /obj/item/material/coin/challenge/loot/gold
 	name = "\improper old gold coin"
 	desc = "A gold coin stamped with the image of a castle."
