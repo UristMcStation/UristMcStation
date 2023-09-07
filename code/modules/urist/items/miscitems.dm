@@ -626,7 +626,8 @@
 	desc = "A silver coin stamped with the image of a dragon."
 	icon = 'icons/urist/items/misc.dmi'
 	icon_state = "oldcoin3"
-
+	default_material = MATERIAL_SILVER
+	
 /obj/item/treasure/gem
 	name = "astonishing amethyst"
 	desc = "An amethyst crystal with the deepest purple."
