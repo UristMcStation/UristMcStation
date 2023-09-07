@@ -12,11 +12,11 @@
 	supervisors = "your chosen diety if they can hear you out here."
 	total_positions = 4
 	outfit_type = /singleton/hierarchy/outfit/job/forest_settler
-	info = "Bordom of space life or desire to get away from the bustle of city life, \
-			you are now out in the frontier in a boreal forest valley. \
+	info = "Whether the boredom of space life or a desire to get away from the bustle of city life, \
+			you are now out on the frontier of human settlement, in a boreal forest valley of a relatively temperate planet. \
 			However it isn't as easy as the books and holovids made it look, \
-			especially not with the local geneseeded fauna. \
-			What ever happens out here at the fringe is between you and your god."
+			especially not with the local geneseeded fauna. Still, it can't be worse than the Graveworlds or the Crisis refugee camps.\
+			Either way, whatever happens out here at the fringe is between you and your god."
 
 /obj/effect/submap_landmark/spawnpoint/forest_settler
 	name = "Terrestrial Pioneer"
