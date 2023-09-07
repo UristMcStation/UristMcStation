@@ -26,7 +26,7 @@
 
 	var/terrain_type = null //used for defining footstep sounds
 
-	var/spawn_scrap = FALSE
+	var/spawn_scrap = 0
 
 	var/planet_light = TRUE //do we use the fancy planet lighting
 
