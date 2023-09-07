@@ -26,7 +26,7 @@
 
 	var/terrain_type = null //used for defining footstep sounds
 
-	var/spawn_scrap = 0 //do we spawn scrap piles?
+	var/spawn_scrap = FALSE
 
 	var/planet_light = TRUE //do we use the fancy planet lighting
 
@@ -755,7 +755,7 @@
 //temperate forest turfs
 
 /turf/simulated/floor/planet/temperate
-	temperature = 283.15 //10C
+	temperature = T0C+10
 	animal_spawn_chance = 0
 	plants_spawn_chance = 0
 	small_trees_chance = 0

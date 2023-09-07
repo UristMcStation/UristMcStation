@@ -582,8 +582,6 @@
 /mob/living/simple_animal/hostile/urist/angel
 	name = "\improper angel"
 	desc = "A suposedly divine being known to bring the wrath of their diety."
-	//hostile = TRUE
-	//intelligence_level = AI_NORMAL
 	response_help = "tries to poke"
 	response_disarm = "tries to shove"
 	response_harm = "tries to hit"

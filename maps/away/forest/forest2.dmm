@@ -44,7 +44,7 @@
 "bd" = (/mob/living/simple_animal/hostile/huntable/wolf,/turf/simulated/floor/planet/temperate,/area/planet/forest)
 "be" = (/obj/structure/ladder/up,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest)
 "bf" = (/obj/structure/flora/tree/planet/temperate,/turf/simulated/floor/planet/temperate,/area/planet/forest)
-"bg" = (/obj/item/remains/human,/obj/item/treasure/coin,/obj/item/treasure/coin,/obj/item/treasure/coin,/obj/item/treasure/coin,/obj/random/treasure,/obj/random/treasure,/obj/random/treasure,/obj/random/treasure,/obj/structure/closet/coffin/urist/stonecoffin,/turf/simulated/floor/wood/ebony,/area/planet/forest)
+"bg" = (/obj/item/remains/human,/obj/random/treasure,/obj/random/treasure,/obj/random/treasure,/obj/random/treasure,/obj/structure/closet/coffin/urist/stonecoffin,/obj/item/material/coin/challenge/loot/gold,/turf/simulated/floor/wood/ebony,/area/planet/forest)
 "bh" = (/turf/simulated/floor/wood/ebony,/area/planet/forest)
 "bi" = (/turf/simulated/mineral/planet{mined_turf = /turf/simulated/floor/planet/jungle/clear/underground},/area/planet/forest)
 "bj" = (/mob/living/simple_animal/hostile/urist/skeleton/ancient,/turf/simulated/floor/planet/jungle/clear/underground,/area/planet/forest)

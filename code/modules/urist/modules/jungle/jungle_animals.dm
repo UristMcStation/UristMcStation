@@ -512,6 +512,7 @@
 	icon_living = "polarbear"
 	icon_dead = "polarbear_dead"
 	icon_gib = "polarbear_dead"
+	skin_material = MATERIAL_SKIN_FUR_WHITE
 
 /mob/living/simple_animal/hostile/huntable/bear/light
 	desc = "A big scary bear, probably best to stay away"
@@ -544,6 +545,10 @@
 	maxHealth = 70
 	health = 70
 	natural_weapon = /obj/item/natural_weapon/bite
+	meat_amount = 4
+	bone_amount = 5
+	skin_amount = 6
+	skin_material = MATERIAL_SKIN_FUR_GRAY
 
 
 
@@ -553,3 +558,4 @@
 	icon_dead = "whitewolf_dead"
 	icon_gib = "whitewolf_dead"
 	hide = 0
+	skin_material = MATERIAL_SKIN_FUR_WHITE

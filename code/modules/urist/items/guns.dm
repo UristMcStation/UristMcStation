@@ -946,11 +946,3 @@ the sprite and make my own projectile -Glloyd*/
 	desc = "a pre-Crisis model laser carbine formerly deployed broadly by human forces."
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "oldlaser"
-
-
-//WHY DONT YOU WORK WHY ARE YOU USING THE NEW ICON AND NOT THE ONE I STATED
-//obj/item/gun/energy/gun/old
-//	name = "retro energy gun"
-//	desc = "A former favorite of security forces in human space, replaced during the Crisis."
-//	icon = 'icons/urist/items/guns.dmi'
-//	icon_state = "oldenergystun100"

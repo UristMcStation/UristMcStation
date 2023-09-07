@@ -602,24 +602,28 @@
 /obj/item/treasure/tape/tape3
 	icon_state = "tape6"
 
-/obj/item/treasure/coin
+/obj/item/material/coin/challenge/loot
 	name = "\improper old copper coin"
 	desc = "A copper coin stamped with the image of a sailing ship."
+	icon = 'icons/urist/items/misc.dmi'
 	icon_state = "oldcoin4"
 
-/obj/item/treasure/coin/platinum
+/obj/item/material/coin/challenge/loot/plat
 	name = "\improper old platinum coin"
 	desc = "A platinum coin stamped with the image of a king."
+	icon = 'icons/urist/items/misc.dmi'
 	icon_state = "oldcoin1"
 
-/obj/item/treasure/coin/gold
+/obj/item/material/coin/challenge/loot/gold
 	name = "\improper old gold coin"
 	desc = "A gold coin stamped with the image of a castle."
+	icon = 'icons/urist/items/misc.dmi'
 	icon_state = "oldcoin2"
 
-/obj/item/treasure/coin/silver
+/obj/item/material/coin/challenge/loot/silver
 	name = "\improper old silver coin"
 	desc = "A silver coin stamped with the image of a dragon."
+	icon = 'icons/urist/items/misc.dmi'
 	icon_state = "oldcoin3"
 
 /obj/item/treasure/gem
@@ -727,9 +731,9 @@
 	icon_state = "gift3"
 
 /obj/random/treasure/spawn_choices()
-	return list(/obj/item/treasure/coin,
-				/obj/item/treasure/coin/silver,
-				/obj/item/treasure/coin/gold,
+	return list(/obj/item/material/coin/challenge/loot,
+				/obj/item/material/coin/challenge/loot/silver,
+				/obj/item/material/coin/challenge/loot/gold,
 				/obj/item/treasure/gem/pearl,
 				/obj/item/treasure/gem/sapphire,
 				/obj/item/treasure/gem/ruby ,
