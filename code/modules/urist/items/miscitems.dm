@@ -732,7 +732,7 @@
 	icon_state = "gift3"
 
 /obj/random/treasure/spawn_choices()
-	return list(/obj/item/material/coin/challenge/loot,
+	return list(/obj/item/material/coin/challenge/loot/copper,
 				/obj/item/material/coin/challenge/loot/silver,
 				/obj/item/material/coin/challenge/loot/gold,
 				/obj/item/treasure/gem/pearl,
