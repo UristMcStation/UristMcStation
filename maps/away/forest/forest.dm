@@ -49,7 +49,7 @@
 	icon_state = "kitchen"
 
 /area/planet/forest/cave/lab
-	name = "\improper abanonded lab"
+	name = "\improper abandoned lab"
 	icon_state = "lab"
 
 /area/planet/forest/cave/engie
@@ -89,7 +89,6 @@
 	id = "awaysite_caraway_forest"
 	description = "3z level planet with cave, forest surface, and 2 story buildings."
 	suffixes = list("forest/forest1.dmm", "forest/forest2.dmm", "forest/forest3.dmm")
-	accessibility_weight = 11
 	spawn_cost = 1
 	generate_mining_by_z = list(1,2,3)
 
@@ -108,8 +107,8 @@
 	archetype = /singleton/submap_archetype/caraway_forest
 
 /singleton/submap_archetype/caraway_forest
-	descriptor = "boreal forest"
-	map = "boreal forest"
+	descriptor = "Frontier Settlement"
+	map = "Boreal Forest"
 	crew_jobs = list(
 		/datum/job/submap/forest_settler
 		)
