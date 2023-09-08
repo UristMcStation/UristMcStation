@@ -1955,6 +1955,11 @@
 "ed" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/book/manual/supermatter_engine,
+/obj/machinery/status_display{
+	density = 0;
+	pixel_x = 0;
+	pixel_y = 32
+	},
 /turf/simulated/floor/plating,
 /area/civilian/lounge)
 "ee" = (
@@ -3380,6 +3385,11 @@
 	dir = 1;
 	icon_state = "map-scrubbers"
 	},
+/obj/machinery/camera/network/second_deck{
+	c_tag = "Second Deck Port Hallway - Fore";
+	dir = 2;
+	icon_state = "camera"
+	},
 /turf/simulated/floor/plating,
 /area/hallway/fore/second_deck)
 "gl" = (
@@ -3753,15 +3763,10 @@
 /turf/simulated/floor/plating,
 /area/hallway/fore/second_deck)
 "gT" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
+/obj/machinery/atmospherics/valve/shutoff/supply{
+	dir = 8;
+	icon_state = "map_vclamp0"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/hallway/fore/second_deck)
 "gU" = (
@@ -3812,18 +3817,6 @@
 /obj/item/book/manual/security_space_law/nervaspacelaw,
 /turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
-"hf" = (
-/obj/machinery/light,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/obj/machinery/camera/network/second_deck{
-	c_tag = "Second Deck Port Hallway - Fore";
-	dir = 1;
-	icon_state = "camera"
-	},
-/turf/simulated/floor/plating,
-/area/hallway/fore/second_deck)
 "hg" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -5932,14 +5925,6 @@
 /obj/item/stack/material/wood/walnut/ten,
 /turf/simulated/floor/plating,
 /area/civilian/lounge)
-"lp" = (
-/obj/machinery/light,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1;
-	icon_state = "map_vent_out"
-	},
-/turf/simulated/floor/plating,
-/area/hallway/fore/second_deck)
 "ls" = (
 /turf/simulated/wall/prepainted,
 /area/hallway/fore/second_deck)
@@ -7877,37 +7862,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/second_deck)
-"pR" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6;
-	icon_state = "intact-scrubbers"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	icon_state = "intact-supply"
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/fore/second_deck)
-"pT" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/camera/network/second_deck{
-	c_tag = "Second Deck Starboard Hallway - Fore";
-	dir = 2;
-	icon_state = "camera"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/fore/second_deck)
 "pU" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -8535,17 +8489,12 @@
 /turf/simulated/floor/tiled,
 /area/hallway/fore/second_deck)
 "qS" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4;
-	icon_state = "map-supply"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	icon_state = "intact-supply"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/second_deck)
@@ -9801,6 +9750,30 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
+"tg" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/catwalk,
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1;
+	icon_state = "map-supply"
+	},
+/turf/simulated/floor/plating,
+/area/hallway/fore/second_deck)
 "th" = (
 /obj/structure/table/rack,
 /obj/random/junk,
@@ -13308,6 +13281,26 @@
 "AE" = (
 /turf/simulated/wall/r_wall/prepainted,
 /area/security/prison)
+"AN" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1;
+	icon_state = "map-supply"
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/hallway/fore/second_deck)
 "AP" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -13326,21 +13319,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/second_deck)
-"AQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9;
-	icon_state = "intact-scrubbers"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/camera/network/second_deck{
-	c_tag = "Second Deck Starboard Hallway - Library";
-	dir = 1;
-	icon_state = "camera"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/fore/second_deck)
 "AS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -13387,6 +13365,14 @@
 /obj/item/stool,
 /turf/simulated/floor/tiled/dark,
 /area/chapel)
+"Bd" = (
+/obj/machinery/light,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	icon_state = "map_vent_out"
+	},
+/turf/simulated/floor/plating,
+/area/hallway/fore/second_deck)
 "Bh" = (
 /obj/structure/catwalk,
 /obj/structure/cable{
@@ -13622,6 +13608,24 @@
 /obj/structure/lattice,
 /turf/simulated/open,
 /area/hallway/fore/second_deck)
+"CL" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4;
+	icon_state = "map-supply"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/fore/second_deck)
 "CO" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/item/material/minihoe,
@@ -13652,12 +13656,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
-"CT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/fore/second_deck)
 "CU" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -13874,24 +13872,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
-"Ee" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4;
-	icon_state = "map-supply"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/fore/second_deck)
 "Eg" = (
 /obj/machinery/door/airlock/glass{
 	autoset_access = 0;
@@ -14141,30 +14121,6 @@
 /obj/structure/ladder/up,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
-"Fy" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
-	},
-/obj/structure/catwalk,
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
-	},
-/turf/simulated/floor/plating,
-/area/hallway/fore/second_deck)
 "Fz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10;
@@ -14206,6 +14162,21 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/aft/second_deck)
+"FK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9;
+	icon_state = "intact-scrubbers"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/camera/network/second_deck{
+	c_tag = "Second Deck Starboard Hallway - Library";
+	dir = 1;
+	icon_state = "camera"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/fore/second_deck)
 "FN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -14509,21 +14480,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/chapel)
-"HC" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4;
-	icon_state = "intact-scrubbers"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/fore/second_deck)
 "HJ" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
@@ -14711,30 +14667,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/chapel)
-"IY" = (
-/obj/structure/catwalk,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4;
-	icon_state = "intact-scrubbers"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/camera/network/second_deck{
-	c_tag = "Second Deck Port Hallway - Library";
-	dir = 2;
-	icon_state = "camera"
-	},
-/turf/simulated/floor/plating,
-/area/hallway/fore/second_deck)
 "IZ" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -14834,6 +14766,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
+"Jt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5;
+	icon_state = "intact-supply"
+	},
+/turf/simulated/floor/plating,
+/area/hallway/fore/second_deck)
 "Jv" = (
 /obj/machinery/light{
 	dir = 1
@@ -14923,6 +14862,10 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
+/obj/machinery/status_display{
+	density = 0;
+	pixel_y = -30
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/second_deck)
 "Kd" = (
@@ -14943,25 +14886,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
-"Kh" = (
-/obj/structure/catwalk,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4;
-	icon_state = "intact-scrubbers"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/turf/simulated/floor/plating,
-/area/hallway/fore/second_deck)
 "Kk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -14981,13 +14905,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/civilian/entertainer)
-"Ks" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5;
-	icon_state = "intact-supply"
-	},
-/turf/simulated/floor/plating,
-/area/hallway/fore/second_deck)
 "Kw" = (
 /obj/machinery/door/blast/regular{
 	dir = 2;
@@ -15013,6 +14930,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
+"KD" = (
+/obj/machinery/light,
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/fore/second_deck)
 "KG" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
@@ -15169,6 +15094,21 @@
 	},
 /turf/simulated/floor/carpet,
 /area/chapel)
+"Lp" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/fore/second_deck)
 "Ls" = (
 /obj/item/device/flashlight/lamp/lava/pink{
 	on = 1
@@ -15510,6 +15450,7 @@
 	dir = 4;
 	icon_state = "intact-scrubbers"
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/hallway/fore/second_deck)
 "MW" = (
@@ -15530,6 +15471,14 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/aft/second_deck)
+"MY" = (
+/obj/machinery/camera/network/second_deck{
+	c_tag = "Second Deck Starboard Hallway - Fore";
+	dir = 2;
+	icon_state = "camera"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/fore/second_deck)
 "MZ" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -15629,24 +15578,12 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/hallway/aft/second_deck)
-"NN" = (
-/obj/structure/catwalk,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
+"NJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4;
+	dir = 10;
 	icon_state = "intact-scrubbers"
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/hallway/fore/second_deck)
 "NO" = (
 /obj/machinery/door/airlock/maintenance{
@@ -15714,26 +15651,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/aft/second_deck)
-"NX" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4;
-	icon_state = "intact-scrubbers"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
-	},
-/obj/structure/catwalk,
-/turf/simulated/floor/plating,
-/area/hallway/fore/second_deck)
 "NY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4;
@@ -15789,6 +15706,25 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
+"Oj" = (
+/obj/structure/catwalk,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/hallway/fore/second_deck)
 "Ok" = (
 /obj/random/junk,
 /obj/structure/disposalpipe/segment,
@@ -15966,6 +15902,11 @@
 	},
 /obj/machinery/camera/network/second_deck{
 	c_tag = "Second Deck Fore Hallway - Port"
+	},
+/obj/machinery/status_display{
+	density = 0;
+	pixel_x = 0;
+	pixel_y = 32
 	},
 /turf/simulated/floor/plating,
 /area/hallway/fore/second_deck)
@@ -16237,22 +16178,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/second_deck)
-"Qs" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4;
-	icon_state = "intact-scrubbers"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4;
-	icon_state = "intact-supply"
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/fore/second_deck)
 "Qv" = (
 /obj/effect/floor_decal/chapel{
 	dir = 8;
@@ -16409,6 +16334,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/civilian/entertainer)
+"QS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/fore/second_deck)
 "QV" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood/walnut,
@@ -16493,20 +16432,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/substation/second_deck)
-"Rw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/fore/second_deck)
 "RB" = (
 /obj/structure/lattice,
 /turf/simulated/open,
@@ -16573,6 +16498,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/aft/second_deck)
+"RQ" = (
+/obj/item/device/radio/intercom{
+	dir = 1;
+	name = "Station Intercom (General)";
+	pixel_y = -28
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/fore/second_deck)
 "RR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -16595,6 +16531,30 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/chapel)
+"RV" = (
+/obj/structure/catwalk,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/camera/network/second_deck{
+	c_tag = "Second Deck Port Hallway - Library";
+	dir = 2;
+	icon_state = "camera"
+	},
+/turf/simulated/floor/plating,
+/area/hallway/fore/second_deck)
 "RW" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
@@ -16690,23 +16650,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
-"Tc" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8";
-	pixel_x = 0
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9;
-	icon_state = "intact-scrubbers"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	icon_state = "intact-supply"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/fore/second_deck)
 "Tl" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/plating,
@@ -17042,6 +16985,28 @@
 /obj/structure/inflatable/door,
 /turf/simulated/floor/plating,
 /area/hallway/aft/second_deck)
+"VD" = (
+/obj/structure/catwalk,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/hallway/fore/second_deck)
 "VK" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -17054,14 +17019,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/second_deck)
-"VL" = (
-/obj/machinery/light,
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/fore/second_deck)
 "VN" = (
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/reinforced,
@@ -17076,6 +17033,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/civilian/entertainer)
+"VT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/fore/second_deck)
 "VX" = (
 /obj/machinery/vending/urist/autodrobe,
 /turf/simulated/floor/plating,
@@ -17223,20 +17186,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
-"WK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/fore/second_deck)
 "WL" = (
 /turf/simulated/floor/carpet,
 /area/civilian/counselor)
@@ -17407,17 +17356,6 @@
 /obj/random/clown,
 /turf/simulated/floor/plating,
 /area/civilian/entertainer)
-"Xs" = (
-/obj/item/device/radio/intercom{
-	dir = 1;
-	name = "Station Intercom (General)";
-	pixel_y = -28
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/fore/second_deck)
 "Xt" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/cobweb{
@@ -17439,6 +17377,22 @@
 /obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/reinforced,
 /area/security/prison)
+"Xz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/fore/second_deck)
 "XF" = (
 /obj/machinery/light,
 /obj/item/caution/cone,
@@ -17827,6 +17781,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/prison)
+"Zo" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/hallway/fore/second_deck)
 "Zr" = (
 /obj/item/caution/cone,
 /turf/simulated/floor/plating,
@@ -17877,13 +17843,6 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/security/prison)
-"ZL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10;
-	icon_state = "intact-scrubbers"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/fore/second_deck)
 "ZP" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -17900,14 +17859,6 @@
 /obj/structure/table/rack,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
-"ZV" = (
-/obj/machinery/light,
-/obj/machinery/atmospherics/valve/shutoff/supply{
-	dir = 8;
-	icon_state = "map_vclamp0"
-	},
-/turf/simulated/floor/plating,
-/area/hallway/fore/second_deck)
 "ZW" = (
 /obj/random/tool,
 /turf/simulated/floor/plating,
@@ -42052,8 +42003,8 @@ PS
 cR
 cR
 eb
-Fy
-gT
+tg
+Zo
 bp
 dK
 eO
@@ -42063,8 +42014,8 @@ iD
 jr
 kf
 kq
-Rw
-CT
+QS
+VT
 rv
 so
 tm
@@ -42265,7 +42216,7 @@ hN
 hN
 hN
 hN
-Qs
+Xz
 qJ
 ru
 sp
@@ -42457,7 +42408,7 @@ bs
 cR
 fi
 gc
-gT
+Zo
 bu
 dS
 eP
@@ -42467,7 +42418,7 @@ iE
 js
 kg
 ky
-Ee
+CL
 qK
 ru
 sq
@@ -42860,8 +42811,8 @@ ah
 dW
 cR
 fj
-NX
-lp
+AN
+Bd
 by
 by
 by
@@ -42871,7 +42822,7 @@ hO
 hO
 hO
 hO
-HC
+Lp
 qM
 ry
 sr
@@ -43062,8 +43013,8 @@ ah
 dX
 cR
 fk
-Kh
-Ks
+Oj
+Jt
 hJ
 ea
 fd
@@ -43073,7 +43024,7 @@ iG
 ju
 kj
 hJ
-ZL
+NJ
 qN
 rx
 ss
@@ -43265,7 +43216,7 @@ dW
 cR
 fj
 ga
-ZV
+gT
 hJ
 ec
 ix
@@ -43275,7 +43226,7 @@ iH
 jv
 jv
 hJ
-pK
+iK
 Sg
 ry
 sr
@@ -43466,7 +43417,7 @@ ah
 bs
 eF
 fi
-NN
+VD
 gU
 hJ
 ed
@@ -43680,7 +43631,7 @@ iz
 ix
 bA
 pM
-AQ
+FK
 ru
 sq
 sI
@@ -43882,7 +43833,7 @@ ix
 ix
 bA
 iK
-Xs
+RQ
 ru
 st
 tq
@@ -44084,7 +44035,7 @@ jx
 kk
 kA
 pN
-VL
+KD
 rz
 rz
 tr
@@ -44274,7 +44225,7 @@ dp
 AE
 cR
 fi
-IY
+RV
 gZ
 bA
 MI
@@ -44891,7 +44842,7 @@ jj
 jA
 hJ
 hJ
-pR
+iK
 qS
 rB
 sx
@@ -45093,7 +45044,7 @@ jq
 jB
 kn
 hJ
-WK
+pK
 qT
 rA
 sy
@@ -45284,8 +45235,8 @@ du
 AE
 cR
 fi
-gi
-hd
+ge
+gZ
 bA
 eK
 fm
@@ -45295,7 +45246,7 @@ jl
 jG
 ko
 hJ
-Tc
+iK
 qT
 rC
 sy
@@ -45487,7 +45438,7 @@ AE
 cR
 fi
 ge
-gZ
+gX
 hJ
 eL
 eL
@@ -45497,7 +45448,7 @@ eL
 eL
 eL
 hJ
-iK
+MY
 qT
 rA
 sz
@@ -45689,7 +45640,7 @@ AE
 cR
 fi
 gk
-hf
+gY
 bA
 eL
 eL
@@ -45699,7 +45650,7 @@ eL
 eL
 eL
 bA
-pT
+pM
 qO
 rA
 sA
@@ -46104,7 +46055,7 @@ eL
 km
 hJ
 iK
-iK
+qJ
 rz
 rz
 tz
