@@ -323,7 +323,7 @@
 	icon_state = "intact"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Deck 1 Starboard Docks");
+	codes = list("patrol" = 1, "next_patrol" = "Deck 1 Starboard Docks");
 	location = "Deck 1 Port Docks"
 	},
 /turf/simulated/floor/plating,
@@ -2508,7 +2508,7 @@
 	RCon_tag = "Solar - Main";
 	capacity = 1e+007;
 	charge = 0;
-	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak=4)
+	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak = 4)
 	},
 /obj/item/device/radio/intercom{
 	pixel_y = 24
@@ -3211,6 +3211,7 @@
 	pixel_x = 28;
 	pixel_y = 0
 	},
+/obj/effect/floor_decal/corner/gold/border,
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
 "gF" = (
@@ -8690,7 +8691,7 @@
 	},
 /obj/effect/catwalk_plated,
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Deck 4 Escape");
+	codes = list("patrol" = 1, "next_patrol" = "Deck 4 Escape");
 	location = "Deck 1 Starboard Docks"
 	},
 /turf/simulated/floor/plating,
