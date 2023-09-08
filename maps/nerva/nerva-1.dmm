@@ -20393,6 +20393,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/centralfourth)
+"LO" = (
+/obj/effect/floor_decal/corner/white{
+	dir = 1;
+	icon_state = "corner_white"
+	},
+/obj/structure/extinguisher_cabinet{
+	dir = 4;
+	icon_state = "extinguisher_closed";
+	pixel_y = 28
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/centralfourth)
 "LP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4;
@@ -41723,7 +41735,7 @@ Yf
 Zm
 iM
 iM
-me
+LO
 np
 od
 pf
