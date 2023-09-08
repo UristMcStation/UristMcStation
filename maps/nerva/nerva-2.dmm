@@ -775,6 +775,20 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/medical/morgue)
+"abW" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -26
+	},
+/obj/machinery/jukebox/old,
+/obj/item/device/radio/intercom{
+	broadcasting = 0;
+	dir = 2;
+	listening = 1;
+	name = "Station Intercom (General)";
+	pixel_y = 24
+	},
+/turf/simulated/floor/wood/walnut,
+/area/civilian/bar)
 "abX" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Air Supply Maintenance"
@@ -823,6 +837,12 @@
 /obj/random/glasses,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afp)
+"ace" = (
+/obj/structure/hygiene/sink/kitchen{
+	pixel_y = 22
+	},
+/turf/simulated/floor/wood/walnut,
+/area/civilian/bar)
 "acf" = (
 /obj/item/trash/cigbutt/rand,
 /turf/simulated/floor/plating,
@@ -2170,6 +2190,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fp)
+"aeL" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/window/eastleft,
+/obj/machinery/light/spot/warmtint{
+	dir = 1
+	},
+/turf/simulated/floor/wood/walnut,
+/area/civilian/bar)
 "aeM" = (
 /obj/structure/table/standard,
 /obj/item/device/t_scanner,
@@ -2495,6 +2523,12 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/interrogation)
+"afn" = (
+/obj/structure/table/woodentable_reinforced/walnut,
+/obj/item/material/ashtray/bronze,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/wood/walnut,
+/area/civilian/bar)
 "afo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/camera/network/security{
@@ -3156,6 +3190,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fp)
+"agr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/item/storage/box/donkpocket_mixed{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/structure/table/woodentable_reinforced/walnut,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/wood/walnut,
+/area/civilian/bar)
 "ags" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -3273,6 +3320,12 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/medical/treatment)
+"agC" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/turf/simulated/floor/wood/walnut,
+/area/civilian/bar)
 "agD" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -3377,14 +3430,49 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/techmaint,
 /area/security/interrogation)
+"agN" = (
+/obj/machinery/vending/boozeomat,
+/obj/machinery/firealarm{
+	dir = 8;
+	pixel_x = -24
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/tiled,
+/area/civilian/bar)
 "agO" = (
 /obj/machinery/door_timer/cell_1,
 /turf/simulated/wall/r_wall/prepainted,
 /area/security/brig)
+"agP" = (
+/obj/machinery/disposal,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/wood/walnut,
+/area/civilian/bar)
+"agQ" = (
+/obj/structure/table/woodentable_reinforced/walnut,
+/obj/machinery/fabricator/micro/bartender,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/wood/walnut,
+/area/civilian/bar)
 "agR" = (
 /obj/machinery/door_timer/cell_2,
 /turf/simulated/wall/r_wall/prepainted,
 /area/security/brig)
+"agS" = (
+/obj/item/stool/bar/padded,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/wood/walnut,
+/area/civilian/bar)
 "agT" = (
 /obj/machinery/door_timer/cell_3,
 /turf/simulated/wall/r_wall/prepainted,
@@ -3465,6 +3553,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fp)
+"ahc" = (
+/obj/structure/stairs/west,
+/turf/simulated/floor/wood/walnut,
+/area/civilian/bar)
 "ahd" = (
 /turf/simulated/wall/r_wall/prepainted,
 /area/security/portgun)
@@ -4296,6 +4388,17 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/office)
+"aim" = (
+/obj/machinery/newscaster{
+	pixel_y = -28
+	},
+/turf/simulated/floor/wood/walnut,
+/area/civilian/bar)
+"ain" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/wood/walnut,
+/area/civilian/bar)
 "air" = (
 /obj/effect/paint_stripe/blue,
 /turf/simulated/wall/r_wall/prepainted,
@@ -7741,7 +7844,7 @@
 	},
 /obj/machinery/tele_beacon,
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Deck 3 Port Central");
+	codes = list("patrol" = 1, "next_patrol" = "Deck 3 Port Central");
 	location = "Medbay"
 	},
 /turf/simulated/floor/tiled/white,
@@ -11152,7 +11255,7 @@
 	output_attempt = 1;
 	output_level = 100000;
 	outputting = 2;
-	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak=4)
+	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak = 4)
 	},
 /obj/effect/engine_setup/smes,
 /obj/machinery/light{
@@ -11359,7 +11462,7 @@
 	},
 /obj/effect/floor_decal/corner/lightgrey,
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Medbay");
+	codes = list("patrol" = 1, "next_patrol" = "Medbay");
 	location = "Deck 3 Aft Port"
 	},
 /turf/simulated/floor/tiled,
@@ -11975,7 +12078,7 @@
 	output_attempt = 1;
 	output_level = 100000;
 	outputting = 2;
-	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak=4)
+	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak = 4)
 	},
 /obj/structure/sign/warning/secure_area{
 	desc = "A warning sign which reads 'HIGH VOLTAGE'";
@@ -12458,7 +12561,7 @@
 	output_attempt = 1;
 	output_level = 100000;
 	outputting = 2;
-	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak=4)
+	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak = 4)
 	},
 /obj/structure/cable/yellow,
 /obj/structure/cable/yellow{
@@ -12834,31 +12937,6 @@
 /obj/structure/reagent_dispensers/beerkeg,
 /turf/simulated/floor/tiled/white,
 /area/civilian/kitchen)
-"awc" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -26
-	},
-/obj/machinery/jukebox/old,
-/turf/simulated/floor/wood/walnut,
-/area/civilian/bar)
-"awd" = (
-/obj/machinery/light/spot/warmtint{
-	dir = 1
-	},
-/obj/item/device/radio/intercom{
-	broadcasting = 0;
-	dir = 2;
-	listening = 1;
-	name = "Station Intercom (General)";
-	pixel_y = 24
-	},
-/turf/simulated/floor/wood/walnut,
-/area/civilian/bar)
-"awe" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/window/eastleft,
-/turf/simulated/floor/wood/walnut,
-/area/civilian/bar)
 "awf" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -13091,7 +13169,7 @@
 	output_attempt = 1;
 	output_level = 100000;
 	outputting = 2;
-	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak=4)
+	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak = 4)
 	},
 /obj/structure/cable/yellow,
 /turf/simulated/floor/tiled/dark,
@@ -13957,11 +14035,6 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/civilian/bar)
-"ayz" = (
-/obj/structure/table/woodentable_reinforced/walnut,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/wood/walnut,
-/area/civilian/bar)
 "ayA" = (
 /obj/item/stool/bar/padded,
 /turf/simulated/floor/wood/walnut,
@@ -14326,7 +14399,7 @@
 	icon_state = "pipe-c"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Security");
+	codes = list("patrol" = 1, "next_patrol" = "Security");
 	location = "Hydroponics"
 	},
 /turf/simulated/floor/tiled,
@@ -14418,7 +14491,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Bridge Starboard");
+	codes = list("patrol" = 1, "next_patrol" = "Bridge Starboard");
 	location = "Bar"
 	},
 /turf/simulated/floor/wood/walnut,
@@ -14991,14 +15064,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian/kitchen)
-"aAq" = (
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/wood/walnut,
-/area/civilian/bar)
 "aAr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4;
@@ -15518,33 +15583,11 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/civilian/bar)
-"aBv" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4;
-	icon_state = "intact-supply"
-	},
-/obj/item/storage/box/donkpocket_mixed{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/structure/table/woodentable_reinforced/walnut,
-/turf/simulated/floor/wood/walnut,
-/area/civilian/bar)
 "aBw" = (
 /obj/item/stool/bar/padded,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4;
 	icon_state = "intact-supply"
-	},
-/turf/simulated/floor/wood/walnut,
-/area/civilian/bar)
-"aBx" = (
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4;
-	icon_state = "map-supply"
 	},
 /turf/simulated/floor/wood/walnut,
 /area/civilian/bar)
@@ -16149,22 +16192,8 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian/kitchen)
-"aCA" = (
-/obj/machinery/vending/boozeomat,
-/obj/machinery/firealarm{
-	dir = 8;
-	pixel_x = -24
-	},
-/turf/simulated/floor/tiled,
-/area/civilian/bar)
 "aCB" = (
 /obj/machinery/light/spot/warmtint,
-/turf/simulated/floor/wood/walnut,
-/area/civilian/bar)
-"aCC" = (
-/obj/machinery/door/firedoor,
-/obj/structure/table/woodentable_reinforced/walnut,
-/obj/machinery/fabricator/micro/bartender,
 /turf/simulated/floor/wood/walnut,
 /area/civilian/bar)
 "aCE" = (
@@ -16843,7 +16872,7 @@
 	sort_type = "Disposals"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Deck 2 Aft Port");
+	codes = list("patrol" = 1, "next_patrol" = "Deck 2 Aft Port");
 	location = "Deck 3 Aft Starboard"
 	},
 /turf/simulated/floor/tiled,
@@ -18172,7 +18201,7 @@
 	icon_state = "corner_white_three_quarters"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Personnel");
+	codes = list("patrol" = 1, "next_patrol" = "Personnel");
 	location = "Bridge Starboard"
 	},
 /turf/simulated/floor/tiled,
@@ -20019,7 +20048,7 @@
 	icon_state = "bordercolor"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="EVA");
+	codes = list("patrol" = 1, "next_patrol" = "EVA");
 	location = "Personnel"
 	},
 /turf/simulated/floor/tiled,
@@ -24888,7 +24917,7 @@
 	icon_state = "2-8"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Mailing Office");
+	codes = list("patrol" = 1, "next_patrol" = "Mailing Office");
 	location = "Deck 3 Cargo"
 	},
 /turf/simulated/floor/tiled,
@@ -27976,7 +28005,7 @@
 	icon_state = "corner_white"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Bridge Port");
+	codes = list("patrol" = 1, "next_patrol" = "Bridge Port");
 	location = "Security"
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -28056,7 +28085,7 @@
 	icon_state = "intact-scrubbers"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Deck 3 Aft Starboard");
+	codes = list("patrol" = 1, "next_patrol" = "Deck 3 Aft Starboard");
 	location = "Mailing Office"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -28313,17 +28342,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/civilian/holodeck)
-"fXH" = (
-/obj/machinery/disposal,
-/obj/structure/disposalpipe/trunk{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/newscaster{
-	pixel_y = -28
-	},
-/turf/simulated/floor/wood/walnut,
-/area/civilian/bar)
 "fXL" = (
 /obj/machinery/tele_beacon,
 /turf/simulated/floor/tiled/dark,
@@ -28482,7 +28500,7 @@
 	icon_state = "corner_white_three_quarters"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Bar");
+	codes = list("patrol" = 1, "next_patrol" = "Bar");
 	location = "Bridge Port"
 	},
 /obj/structure/disposalpipe/segment{
@@ -28517,7 +28535,7 @@
 	dir = 5
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Hydroponics");
+	codes = list("patrol" = 1, "next_patrol" = "Hydroponics");
 	location = "Deck 3 Port Central"
 	},
 /turf/simulated/floor/tiled,
@@ -28901,14 +28919,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/security/portexternalgun)
-"jWR" = (
-/obj/structure/hygiene/sink{
-	dir = 8;
-	icon_state = "sink";
-	pixel_x = -11
-	},
-/turf/simulated/floor/wood/walnut,
-/area/civilian/bar)
 "kaf" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -30546,7 +30556,7 @@
 	dir = 10
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Deck 3 Cargo");
+	codes = list("patrol" = 1, "next_patrol" = "Deck 3 Cargo");
 	location = "EVA"
 	},
 /turf/simulated/floor/tiled,
@@ -57686,13 +57696,13 @@ bFA
 asl
 atM
 auO
-awc
+abW
 awh
 ayy
 azv
 awh
-jWR
-aCA
+agN
+ahc
 auO
 aEh
 aFy
@@ -57888,13 +57898,13 @@ bFA
 asl
 atG
 auO
-awd
+ace
 axp
 awh
 awh
-awh
 aBu
-aCB
+agP
+awh
 auO
 aEi
 aFu
@@ -58090,13 +58100,13 @@ bFA
 iFY
 atC
 auO
-awe
+aeL
 axq
 xiK
-ayz
-xiK
-aBv
-aCC
+afn
+agr
+agQ
+aCB
 auO
 atC
 aFA
@@ -58296,9 +58306,9 @@ awf
 axr
 ayA
 ayA
-ayA
 aBw
-fXH
+agS
+aim
 auO
 atC
 aFy
@@ -58498,9 +58508,9 @@ awg
 axs
 ayB
 azw
-aAq
-aBx
+agC
 aCE
+ain
 aDh
 aEj
 aFB
