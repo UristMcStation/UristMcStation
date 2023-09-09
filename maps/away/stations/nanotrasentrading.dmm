@@ -1720,7 +1720,7 @@
 /turf/simulated/floor/tiled/old_tile,
 /area/spacestations/nanotrasenspace)
 "tw" = (
-/obj/effect/overmap/visitable/station/nanotrasentrading,
+/obj/effect/overmap/visitable/sector/station/nanotrasentrading,
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 6
