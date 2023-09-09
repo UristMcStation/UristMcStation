@@ -78,7 +78,7 @@
 	..()
 
 /datum/goal/punchingbag/update_strings()
-	description = "Need to hit something really bad? Maybe you shoud hit the punching bag in the gym."
+	description = "Need to hit something really bad? Maybe you should hit the punching bag in the gym."
 
 /datum/goal/punchingbag/check_success()
 	return (hits >= need_hits)

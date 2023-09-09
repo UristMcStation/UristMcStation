@@ -53,3 +53,12 @@
 /proc/do_teleport(atom/movable/target, atom/destination, precision = 0, type = /singleton/teleport/sparks)
 	var/singleton/teleport/tele = GET_SINGLETON(type)
 	tele.teleport(target, destination, precision)
+
+
+/// Teleport an object randomly within a set of connected zlevels
+/proc/do_unstable_teleport_safe(atom/movable/target, list/zlevels = GLOB.using_map.station_levels)
+	var/turf/T = pick_area_turf_in_connected_z_levels(
+		list(/proc/is_not_space_area),
+		list(/proc/not_turf_contains_dense_objects, /proc/IsTurfAtmosSafe),
+		zlevels[1])
+	do_teleport(target, T)
