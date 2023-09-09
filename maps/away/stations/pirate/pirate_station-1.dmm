@@ -129,14 +129,6 @@
 /obj/random/trash,
 /turf/simulated/floor/plating,
 /area/spacestations/pirate/station)
-"aH" = (
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 25;
-	pixel_y = 0
-	},
-/turf/simulated/floor/plating,
-/area/spacestations/pirate/station)
 "aI" = (
 /obj/machinery/door/airlock/engineering{
 	icon_state = "closed";
@@ -300,14 +292,6 @@
 /turf/simulated/wall,
 /area/spacestations/pirate/station)
 "bn" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1379;
-	icon_state = "door_locked";
-	id_tag = "robotics_solar_inner";
-	locked = 1;
-	name = "Engineering External Access";
-	req_access = list("ACCESS_EXTERNAL")
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/tiled,
 /area/spacestations/pirate/station)
@@ -1263,15 +1247,6 @@
 /obj/effect/urist/triggers/away_ai_landmark/pirate,
 /turf/simulated/floor/tiled/steel_grid,
 /area/spacestations/pirate/station)
-"dT" = (
-/obj/random/closet,
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 25;
-	pixel_y = 0
-	},
-/turf/simulated/floor/tiled/steel_grid,
-/area/spacestations/pirate/station)
 "dU" = (
 /obj/structure/table/steel,
 /obj/item/spacecash/bundle/c1000,
@@ -1343,9 +1318,6 @@
 /obj/random/closet,
 /turf/simulated/floor/tiled/steel_grid,
 /area/spacestations/pirate/station)
-"ec" = (
-/turf/simulated/floor/tiled/dark,
-/area/spacestations/pirate/station)
 "ed" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
@@ -1357,10 +1329,6 @@
 "ef" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/powercell,
-/turf/simulated/floor/tiled/dark,
-/area/spacestations/pirate/station)
-"eg" = (
-/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/pirate/station)
 "eh" = (
@@ -1432,6 +1400,7 @@
 /obj/random/projectile,
 /obj/random/projectile,
 /obj/random/handgun,
+/obj/random/biggun,
 /turf/simulated/floor/tiled/steel_grid,
 /area/spacestations/pirate/station)
 "eq" = (
@@ -1457,6 +1426,7 @@
 /obj/random/projectile,
 /obj/random/handgun,
 /obj/random/projectile,
+/obj/random/energy,
 /turf/simulated/floor/tiled/steel_grid,
 /area/spacestations/pirate/station)
 "et" = (
@@ -1537,7 +1507,18 @@
 /turf/simulated/floor,
 /area/spacestations/pirate/station)
 "eE" = (
-/obj/structure/closet/crate,
+/obj/structure/bed/nice,
+/obj/machinery/power/apc{
+	cell_type = /obj/item/cell/infinite;
+	dir = 2;
+	name = "south bump";
+	operating = 1;
+	pixel_y = -24
+	},
+/obj/structure/cable{
+	icon_state = "0-4";
+	d2 = 4
+	},
 /turf/simulated/floor,
 /area/spacestations/pirate/station)
 "eF" = (
@@ -1653,6 +1634,72 @@
 "eW" = (
 /obj/effect/landmark/scom/bomb/boarding/pirate_station,
 /turf/simulated/wall,
+/area/spacestations/pirate/station)
+"gS" = (
+/obj/random/junk,
+/turf/simulated/floor/plating,
+/area/spacestations/pirate/station)
+"iu" = (
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/pirate/station)
+"pz" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/random/medical,
+/obj/structure/table/rack,
+/obj/random/medical,
+/obj/random/firstaid,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/pirate/station)
+"sh" = (
+/obj/machinery/light,
+/obj/random/junk,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/pirate/station)
+"yg" = (
+/obj/item/stack/tile/floor,
+/turf/simulated/floor/plating,
+/area/spacestations/pirate/station)
+"AI" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/loot,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/pirate/station)
+"Ir" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor,
+/area/spacestations/pirate/station)
+"Mf" = (
+/obj/structure/closet/crate,
+/obj/random/contraband,
+/obj/random/loot,
+/turf/simulated/floor,
+/area/spacestations/pirate/station)
+"RR" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "16-0"
+	},
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor,
+/area/spacestations/pirate/station)
+"Ui" = (
+/obj/structure/table/rack,
+/obj/random/toolbox,
+/turf/simulated/floor/plating,
+/area/spacestations/pirate/station)
+"Yc" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/largecrate,
+/obj/random/projectile,
+/obj/random/ammo,
+/obj/random/ammo_magazine_smug,
+/obj/random/energy,
+/turf/simulated/floor/tiled/dark,
 /area/spacestations/pirate/station)
 
 (1,1,1) = {"
@@ -5100,8 +5147,8 @@ au
 ax
 aE
 au
-au
-au
+ax
+Ir
 au
 ae
 ae
@@ -5199,12 +5246,12 @@ eV
 ea
 dR
 aI
-ax
-ax
+bd
+Mf
 au
-ae
-ae
-ae
+aE
+eG
+au
 ae
 ee
 ee
@@ -5302,11 +5349,11 @@ dR
 eq
 au
 ax
-eE
+ax
 au
-ae
-ae
-ae
+ax
+au
+au
 ae
 ee
 ee
@@ -5406,8 +5453,8 @@ au
 aE
 eE
 au
-ae
-ae
+bd
+au
 ae
 ae
 ee
@@ -5501,15 +5548,15 @@ eS
 db
 au
 dE
-dT
+eb
 eb
 es
 au
 ax
-ex
+RR
 au
-ae
-ae
+ax
+au
 ae
 ae
 ee
@@ -5610,8 +5657,8 @@ au
 cJ
 eF
 au
-ae
-ae
+ax
+au
 ae
 ae
 ee
@@ -5710,10 +5757,10 @@ ax
 ax
 bd
 ax
-eG
+ax
+aE
+ax
 au
-ae
-ae
 ae
 ae
 ee
@@ -5814,8 +5861,8 @@ au
 au
 au
 au
-ae
-ae
+au
+au
 ae
 ae
 ee
@@ -5910,9 +5957,9 @@ de
 do
 dF
 dU
-ec
+de
+pz
 au
-ae
 ae
 ae
 ae
@@ -6009,12 +6056,12 @@ cn
 eP
 cn
 df
-aF
+yg
 aF
 aA
 ed
+iu
 au
-ae
 ae
 ae
 ae
@@ -6113,10 +6160,10 @@ cU
 dg
 dp
 dG
-dh
+AI
 ef
+Ui
 au
-ae
 ae
 ae
 ae
@@ -6200,7 +6247,7 @@ au
 av
 au
 aC
-aH
+aF
 aN
 aU
 au
@@ -6215,10 +6262,10 @@ cV
 dh
 dq
 dH
-aF
-eg
+gS
+yg
+sh
 au
-ae
 ae
 ae
 ae
@@ -6319,8 +6366,8 @@ eU
 aF
 aA
 eh
+de
 au
-ae
 ae
 ae
 ae
@@ -6421,8 +6468,8 @@ dr
 dI
 dV
 ei
+Yc
 au
-ae
 ae
 ae
 ae
@@ -6524,7 +6571,7 @@ au
 au
 au
 au
-ae
+au
 ae
 ae
 ae

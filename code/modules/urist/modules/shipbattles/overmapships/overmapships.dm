@@ -19,7 +19,7 @@
 	var/incombat = 0
 	var/aggressive = 0 //will always attack
 	var/obj/effect/overmap/visitable/ship/combat/target_ship
-	var/obj/effect/overmap/visitable/station/home_station
+	var/obj/effect/overmap/visitable/sector/station/home_station
 	min_gas = null
 	max_gas = null
 	minbodytemp = 0
