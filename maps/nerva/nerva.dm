@@ -5,6 +5,7 @@
 	#include "nerva_elevators.dm"
 	#include "nerva_holodecks.dm"
 	#include "nerva_presets.dm"
+	#include "nerva_procs.dm"
 	#include "nerva_overmap.dm"
 	#include "nerva_setup.dm"
 	#include "nerva_shuttles.dm"
