@@ -157,9 +157,6 @@
 			if (target_down)
 				target_down = pick(other_ladders)
 
-	if(target_down && target_up)
-		var/direction = alert(M,"Do you want to go up or down?", "Ladder", "Up", "Down", "Cancel")
-
 	if(!target_up && !target_down)
 		to_chat(M, SPAN_WARNING("\The [src] does not seem to lead anywhere."))
 

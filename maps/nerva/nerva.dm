@@ -16,6 +16,8 @@
 	#include "datums/nerva_objectives.dm"
 	#include "datums/nerva_reports.dm"
 
+	#include "../event/placeholders/placeholders.dm"
+
 	#include "obj/nerva_ids.dm"
 	#include "obj/nerva_closets.dm"
 	#include "obj/nerva_machinery.dm"
