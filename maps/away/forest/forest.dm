@@ -89,8 +89,9 @@
 	id = "awaysite_caraway_forest"
 	description = "3z level planet with cave, forest surface, and 2 story buildings."
 	suffixes = list("forest/forest1.dmm", "forest/forest2.dmm", "forest/forest3.dmm")
-	spawn_cost = 1
+	spawn_cost = 2
 	generate_mining_by_z = list(1,2,3)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /datum/random_map/automata/cave_system/planet
 	floor_type = /turf/simulated/floor/asteroid/planet
