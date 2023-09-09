@@ -102,3 +102,10 @@
 		to_world("<b>T<font color='red'>[SSpayment_controller.total_paid]</font></b> was paid to the crew of the <b>[station_name]</b> in hourly salary payments today.")
 		to_world("The crew of the <b>[station_name]</b> completed <b>[completed_contracts]</b> contracts today, earning <b>T[contract_money]</b>.")
 		to_world("In addition <b>[destroyed_ships]</b> hostile ships were destroyed by the crew of the <b>[station_name]</b> today.")
+
+/datum/map/nerva/ship_jump()
+	for(var/obj/effect/overmap/visitable/ship/combat/nerva/nerva)
+		new /obj/effect/ftl (get_turf(nerva))
+		qdel(nerva)
+		animate(nerva, time = 0.5 SECONDS)
+		animate(alpha = 0, time = 0.5 SECONDS)
