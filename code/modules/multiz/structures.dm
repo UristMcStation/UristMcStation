@@ -29,7 +29,7 @@
 	var/static/list/radial_options = list("up" = radial_ladder_up, "down" = radial_ladder_down)
 
 	///Chance for a person climbing the ladder to be teleported to a random other ladder while bluespace affected.
-	var/displacement_chance = 30
+	var/displacement_chance = 15
 
 
 /obj/structure/ladder/Initialize()
@@ -115,6 +115,13 @@
 	var/obj/structure/ladder/target_ladder = getTargetLadder(M)
 	if(!target_ladder)
 		return
+	if (bluespace_affected && prob(displacement_chance))
+		var/list/obj/structure/ladder/other_ladders= list()
+		var/list/zlevels = GetConnectedZlevels(z)
+		for (var/obj/structure/ladder/ladder)
+			if (src != ladder && (ladder.z in zlevels))
+				other_ladders += ladder
+		target_ladder = pick(other_ladders)
 	if(!M.Move(get_turf(src)))
 		to_chat(M, SPAN_NOTICE("You fail to reach \the [src]."))
 		return
@@ -245,7 +252,7 @@
 	var/bluespace_affected = FALSE
 
 	/// Chance of a user being displaced to a random set of stairs while its bluespace affected.
-	var/displacement_chance = 30
+	var/displacement_chance = 15
 
 
 /obj/structure/stairs/Initialize()
