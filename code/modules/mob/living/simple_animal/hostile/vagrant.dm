@@ -12,9 +12,9 @@
 	speed = 5
 	turns_per_move = 4
 	move_to_delay = 4
-	response_help = "pets the"
-	response_disarm = "gently pushes aside the"
-	response_harm = "hits the"
+	response_help = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm = "hits"
 	break_stuff_probability = 0
 	faction = "vagrant"
 	harm_intent_damage = 3

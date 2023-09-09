@@ -5,9 +5,9 @@
 	icon_state = "carp"
 	icon_gib = "carp_gib"
 	turns_per_move = 3
-	response_help = "pets the"
-	response_disarm = "gently pushes aside the"
-	response_harm = "hits the"
+	response_help = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm = "hits"
 	speed = 2
 	maxHealth = 50
 	health = 50

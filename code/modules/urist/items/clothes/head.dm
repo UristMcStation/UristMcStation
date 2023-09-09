@@ -9,7 +9,7 @@ to avoid worrying about the sprites -Glloyd*/
 /obj/item/clothing/head/urist
 	item_icons = URIST_ALL_ONMOBS
 	icon = 'icons/urist/items/clothes/head.dmi'
-	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristHead.dmi')
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/head.dmi')
 
 //sci rig helmet
 
@@ -20,7 +20,7 @@ to avoid worrying about the sprites -Glloyd*/
 	item_state = "medical_helm"
 	//item_color = "medical"
 	armor = list(melee = 10, bullet = 5, laser = 5,energy = 5, bomb = 60, bio = 100, rad = 30)
-	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristHead.dmi')
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/head.dmi')
 
 //emergency suit hood
 
@@ -46,7 +46,7 @@ to avoid worrying about the sprites -Glloyd*/
 	permeability_coefficient = 0.01
 	armor = list(melee = 20, bullet = 10, laser = 25, energy = 10, bomb = 25, bio = 100, rad = 20)
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES
-	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristHead.dmi')
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/head.dmi')
 
 
 //naval space suit helmet
@@ -73,7 +73,7 @@ to avoid worrying about the sprites -Glloyd*/
 //TC trader hat
 
 /obj/item/clothing/head/urist/terran
-	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristHead.dmi')
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/head.dmi')
 
 /obj/item/clothing/head/urist/terran/trader
 	name = "Terran Confederacy trader's hat"
@@ -128,7 +128,7 @@ to avoid worrying about the sprites -Glloyd*/
 	icon_state = "princess_bow"
 	//item_color = "princess_bow"
 	item_state = "princess_bow"
-	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristHead.dmi')
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/head.dmi')
 
 //fixing hats
 
@@ -452,7 +452,7 @@ to avoid worrying about the sprites -Glloyd*/
 	flags_inv = HIDEEARS | BLOCKHAIR
 	min_cold_protection_temperature = 243.15
 	armor = list(melee = 15, bullet = 5, laser = 10, energy = 5, bomb = 0, bio = 0, rad = 0)
-	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristHead.dmi')
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/head.dmi')
 
 // Headbands
 
