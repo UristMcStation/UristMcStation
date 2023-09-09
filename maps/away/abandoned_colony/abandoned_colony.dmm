@@ -3842,6 +3842,13 @@
 	icon_state = "dottedvertical"
 	},
 /area/planet/abandoned_colony)
+"ll" = (
+/obj/random/trash,
+/turf/simulated/floor/pavement{
+	dir = 8;
+	icon_state = "pavement"
+	},
+/area/planet/abandoned_colony)
 "lm" = (
 /turf/simulated/floor/fixed/destroyedroad,
 /turf/simulated/floor/fixed/destroyedroad{
@@ -3992,6 +3999,12 @@
 /turf/simulated/floor/pavement{
 	dir = 1;
 	icon_state = "pave_invert_corner"
+	},
+/area/planet/abandoned_colony)
+"lK" = (
+/turf/simulated/floor/pavement{
+	dir = 1;
+	icon_state = "pavement"
 	},
 /area/planet/abandoned_colony)
 "lL" = (
@@ -4369,12 +4382,6 @@
 	icon_state = "toilet00"
 	},
 /turf/simulated/floor/tiled/freezer,
-/area/planet/abandoned_colony)
-"mQ" = (
-/turf/simulated/floor/pavement{
-	dir = 1;
-	icon_state = "pavement"
-	},
 /area/planet/abandoned_colony)
 "mR" = (
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -8889,6 +8896,12 @@
 /obj/item/clothing/accessory/neckerchief,
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
+"yX" = (
+/obj/random/trash,
+/turf/simulated/floor/fixed/destroyedroad{
+	icon_state = "innermiddle"
+	},
+/area/planet/abandoned_colony)
 "Aw" = (
 /obj/random/trash,
 /turf/simulated/floor/tiled/dark,
@@ -8943,12 +8956,30 @@
 	icon_state = "horizontalinnermain1"
 	},
 /area/planet/abandoned_colony)
+"HX" = (
+/obj/random/trash,
+/turf/simulated/floor/fixed/destroyedroad{
+	icon_state = "horizontalinnermain1"
+	},
+/turf/simulated/floor/fixed/destroyedroad{
+	icon_state = "dottedverticaldegraded"
+	},
+/area/planet/abandoned_colony)
 "Ja" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
 /obj/random/lilgun,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
+	},
+/area/planet/abandoned_colony)
+"JO" = (
+/obj/random/junk,
+/turf/simulated/floor/fixed/destroyedroad{
+	icon_state = "verticalinnermain2"
+	},
+/turf/simulated/floor/fixed/destroyedroad{
+	icon_state = "dottedverticalcorroded"
 	},
 /area/planet/abandoned_colony)
 "Kx" = (
@@ -8988,15 +9019,6 @@
 "Nk" = (
 /obj/random/junk,
 /turf/simulated/floor/wood/walnut,
-/area/planet/abandoned_colony)
-"Nv" = (
-/obj/random/loot,
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "innermiddle"
-	},
-/turf/simulated/floor/fixed/destroyedroad{
-	icon_state = "dottedhorizontaldegraded"
-	},
 /area/planet/abandoned_colony)
 "NS" = (
 /obj/structure/closet/secure_closet,
@@ -9070,9 +9092,24 @@
 	icon_state = "pavement"
 	},
 /area/planet/abandoned_colony)
+"RC" = (
+/obj/random/trash,
+/turf/simulated/floor/fixed/destroyedroad{
+	icon_state = "verticalinnermain2"
+	},
+/area/planet/abandoned_colony)
 "Te" = (
 /obj/item/clothing/ears/earring/stud/gold,
 /turf/simulated/floor/tiled/dark,
+/area/planet/abandoned_colony)
+"UZ" = (
+/obj/random/junk,
+/turf/simulated/floor/fixed/destroyedroad{
+	icon_state = "horizontalinnermain2left"
+	},
+/turf/simulated/floor/fixed/destroyedroad{
+	icon_state = "dottedhorizontalcorroded"
+	},
 /area/planet/abandoned_colony)
 "VS" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -9097,6 +9134,15 @@
 	},
 /obj/item/clothing/accessory/bowtie/ugly,
 /turf/simulated/floor/tiled/dark,
+/area/planet/abandoned_colony)
+"Xw" = (
+/obj/random/trash,
+/turf/simulated/floor/fixed/destroyedroad{
+	icon_state = "innermiddle"
+	},
+/turf/simulated/floor/fixed/destroyedroad{
+	icon_state = "dottedhorizontal"
+	},
 /area/planet/abandoned_colony)
 "XM" = (
 /obj/machinery/light/small{
@@ -13269,7 +13315,7 @@ li
 lH
 li
 li
-am
+aI
 am
 li
 li
@@ -13357,7 +13403,7 @@ tA
 lj
 lj
 lj
-lj
+yX
 lA
 lj
 lj
@@ -13385,7 +13431,7 @@ lA
 lj
 lj
 lM
-lj
+Wt
 lj
 lj
 lj
@@ -13401,7 +13447,7 @@ lI
 lI
 lI
 lI
-lI
+RC
 lA
 lA
 lA
@@ -13493,8 +13539,8 @@ qY
 lj
 lF
 lG
-lF
-lG
+HX
+JO
 lG
 mA
 lG
@@ -13662,7 +13708,7 @@ mO
 mO
 mO
 mO
-mO
+ll
 qD
 mO
 mO
@@ -13797,7 +13843,7 @@ lg
 lj
 oE
 lj
-mQ
+lK
 am
 am
 am
@@ -13851,7 +13897,7 @@ lj
 lj
 lj
 lj
-mQ
+lK
 al
 al
 aq
@@ -13897,9 +13943,9 @@ ac
 ac
 lg
 lj
-Nv
+oF
 lj
-mQ
+lK
 am
 al
 al
@@ -13953,7 +13999,7 @@ lj
 lj
 lj
 lj
-mQ
+lK
 al
 ac
 lN
@@ -13999,9 +14045,9 @@ au
 cc
 lg
 lj
-oG
+UZ
 lA
-mQ
+lK
 am
 al
 wi
@@ -14055,7 +14101,7 @@ lj
 lj
 lj
 lj
-mQ
+lK
 al
 lN
 rH
@@ -14103,7 +14149,7 @@ lg
 oC
 oH
 lI
-mQ
+lK
 am
 al
 wi
@@ -14157,7 +14203,7 @@ lj
 lj
 lj
 lj
-mQ
+lK
 al
 lN
 rH
@@ -14205,7 +14251,7 @@ lg
 lI
 oI
 oP
-mQ
+lK
 am
 al
 wi
@@ -14259,7 +14305,7 @@ lj
 lq
 lj
 lm
-mQ
+lK
 al
 ac
 ac
@@ -14307,7 +14353,7 @@ lg
 lI
 mC
 mE
-mQ
+lK
 am
 al
 wi
@@ -14361,7 +14407,7 @@ lj
 lq
 lj
 lm
-mQ
+lK
 al
 ac
 lR
@@ -14409,7 +14455,7 @@ lg
 oD
 oH
 lI
-mQ
+lK
 am
 al
 wi
@@ -14463,7 +14509,7 @@ lj
 lq
 lj
 lm
-mQ
+lK
 al
 ac
 lU
@@ -14511,7 +14557,7 @@ lg
 lA
 oJ
 oD
-mQ
+lK
 am
 al
 wi
@@ -14565,7 +14611,7 @@ lj
 lq
 lj
 lm
-mQ
+lK
 al
 ac
 aH
@@ -14613,7 +14659,7 @@ lg
 lj
 oF
 lA
-mQ
+lK
 am
 al
 wi
@@ -14715,7 +14761,7 @@ lg
 lj
 oF
 lj
-mQ
+lK
 am
 al
 wi
@@ -14817,7 +14863,7 @@ lg
 lj
 oF
 lA
-mQ
+lK
 am
 bZ
 wi
@@ -14872,7 +14918,7 @@ lj
 lj
 lj
 lj
-mQ
+lK
 lN
 ah
 ah
@@ -14919,7 +14965,7 @@ lg
 lj
 oK
 lj
-mQ
+lK
 am
 al
 wi
@@ -14974,7 +15020,7 @@ kO
 kO
 kO
 lt
-mQ
+lK
 ac
 lN
 lN
@@ -15021,7 +15067,7 @@ lg
 lj
 oL
 lj
-mQ
+lK
 am
 al
 wi
@@ -15076,7 +15122,7 @@ kX
 lb
 lb
 lu
-mQ
+lK
 al
 al
 al
@@ -15123,7 +15169,7 @@ lg
 lj
 oK
 lj
-mQ
+lK
 am
 al
 wi
@@ -15327,7 +15373,7 @@ lj
 lj
 lI
 lj
-mQ
+lK
 am
 al
 wi
@@ -15429,7 +15475,7 @@ lj
 lj
 lj
 lj
-mQ
+lK
 am
 al
 wi
@@ -15508,7 +15554,7 @@ lj
 lj
 lj
 lj
-lj
+yX
 lj
 lj
 lj
@@ -15531,7 +15577,7 @@ lj
 lj
 oM
 lj
-mQ
+lK
 am
 al
 wi
@@ -15688,7 +15734,7 @@ la
 le
 lr
 lu
-mQ
+lK
 al
 al
 bZ
@@ -15711,7 +15757,7 @@ al
 al
 al
 al
-al
+bZ
 al
 al
 al
@@ -15735,7 +15781,7 @@ lg
 lj
 oE
 lj
-mQ
+lK
 am
 al
 wi
@@ -15790,7 +15836,7 @@ kW
 kW
 kW
 lz
-mQ
+lK
 ac
 lO
 lO
@@ -15837,7 +15883,7 @@ lg
 lj
 oE
 lj
-mQ
+lK
 am
 al
 wi
@@ -15892,7 +15938,7 @@ lj
 lj
 lj
 lj
-mQ
+lK
 lO
 ah
 ah
@@ -15913,7 +15959,7 @@ aE
 ah
 ah
 lO
-al
+bZ
 am
 ac
 ac
@@ -15939,7 +15985,7 @@ lg
 lj
 oE
 lj
-mQ
+lK
 am
 al
 wi
@@ -16041,7 +16087,7 @@ lg
 lj
 oE
 lj
-mQ
+lK
 am
 al
 wi
@@ -16143,7 +16189,7 @@ lg
 lj
 oE
 lj
-mQ
+lK
 am
 al
 wi
@@ -16245,7 +16291,7 @@ lg
 lj
 oF
 lj
-mQ
+lK
 am
 al
 wi
@@ -16347,8 +16393,8 @@ lg
 lj
 oH
 lA
-mQ
-am
+lK
+aI
 al
 wi
 ah
@@ -16551,7 +16597,7 @@ lg
 lA
 oH
 lA
-mQ
+lK
 am
 al
 wi
@@ -16653,7 +16699,7 @@ lg
 lI
 lM
 lA
-mQ
+lK
 am
 al
 wi
@@ -16755,7 +16801,7 @@ lg
 lA
 Mg
 lj
-mQ
+lK
 am
 al
 wi
@@ -16857,7 +16903,7 @@ lg
 lj
 oF
 lj
-mQ
+lK
 am
 al
 wi
@@ -16959,7 +17005,7 @@ lg
 lj
 oO
 lj
-mQ
+lK
 am
 am
 wm
@@ -17058,10 +17104,10 @@ rH
 pK
 am
 lg
-lj
+yX
 oE
 lj
-mQ
+lK
 am
 am
 ah
@@ -17367,7 +17413,7 @@ lg
 lj
 oE
 lA
-mQ
+lK
 am
 am
 ah
@@ -17469,7 +17515,7 @@ lg
 lA
 oE
 lj
-mQ
+lK
 am
 al
 wi
@@ -17569,9 +17615,9 @@ ab
 am
 lg
 lj
-oE
+Xw
 lj
-mQ
+lK
 am
 al
 wi
@@ -17673,7 +17719,7 @@ lg
 lj
 oE
 lj
-mQ
+lK
 am
 al
 wi
@@ -18081,7 +18127,7 @@ lg
 lj
 oE
 lA
-mQ
+lK
 am
 al
 wi
@@ -18183,7 +18229,7 @@ lg
 Wt
 oE
 lj
-mQ
+lK
 am
 al
 wi
@@ -18285,8 +18331,8 @@ lg
 lj
 oF
 lj
-mQ
-am
+lK
+aI
 al
 wi
 jj
@@ -18387,7 +18433,7 @@ lg
 lj
 oG
 oC
-mQ
+lK
 am
 al
 wi
@@ -18489,7 +18535,7 @@ lg
 oC
 oH
 lI
-mQ
+lK
 am
 al
 wi
@@ -18591,7 +18637,7 @@ lg
 lI
 oI
 oP
-mQ
+lK
 am
 al
 wi
@@ -18693,7 +18739,7 @@ lg
 lI
 mC
 mE
-mQ
+lK
 am
 al
 wi
@@ -18795,7 +18841,7 @@ lg
 oD
 oH
 lI
-mQ
+lK
 am
 al
 wi
@@ -18897,7 +18943,7 @@ lg
 lj
 oJ
 oD
-mQ
+lK
 am
 al
 wi
@@ -19101,7 +19147,7 @@ lj
 lj
 lj
 lj
-mQ
+lK
 am
 al
 wi
@@ -19203,7 +19249,7 @@ lk
 lj
 lj
 lj
-mQ
+lK
 am
 al
 wi
