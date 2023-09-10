@@ -45,11 +45,11 @@
 //mining shuttle stuff
 /datum/shuttle/autodock/ferry/ntminingshuttle
 	name = "Nanotrasen Mining"
-	location = 0
-	warmup_time = 10
+	warmup_time = 1 SECOND
 	shuttle_area = /area/spacestations/ntminingshuttle/start
 	waypoint_station = "nav_ntmining_start"
 	waypoint_offsite = "nav_ntmining_end"
+	defer_initialisation = TRUE
 
 /obj/machinery/computer/shuttle_control/ntminingshuttle
 	name = "mining shuttle console"
