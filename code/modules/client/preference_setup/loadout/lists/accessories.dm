@@ -37,45 +37,14 @@
 	ties["striped tie"] = /obj/item/clothing/accessory/long
 	gear_tweaks += new/datum/gear_tweak/path(ties)
 
-
-/datum/gear/accessory/locket
-	display_name = "locket"
-	path = /obj/item/clothing/accessory/locket
-
-
-/datum/gear/accessory/necklace
-	display_name = "necklace, colour select"
-	path = /obj/item/clothing/accessory/necklace
-	flags = GEAR_HAS_COLOR_SELECTION
-
-
 /datum/gear/accessory/bowtie
 	display_name = "bowtie, horrible"
 	path = /obj/item/clothing/accessory/bowtie/ugly
-
 
 /datum/gear/accessory/bowtie/color
 	display_name = "bowtie, colour select"
 	path = /obj/item/clothing/accessory/bowtie/color
 	flags = GEAR_HAS_COLOR_SELECTION
-
-
-/datum/gear/accessory/ntaward
-	display_name = "corporate award selection"
-	description = "A medal or ribbon awarded to corporate personnel for significant accomplishments."
-	path = /obj/item/clothing/accessory/medal
-	cost = 8
-	flags = GEAR_HAS_NO_CUSTOMIZATION
-
-
-/datum/gear/accessory/ntaward/New()
-	..()
-	var/ntawards = list()
-	ntawards["sciences medal"] = /obj/item/clothing/accessory/medal/bronze/nanotrasen
-	ntawards["distinguished service"] = /obj/item/clothing/accessory/medal/silver/nanotrasen
-	ntawards["command medal"] = /obj/item/clothing/accessory/medal/gold/nanotrasen
-	gear_tweaks += new/datum/gear_tweak/path(ntawards)
-
 
 /datum/gear/accessory/armband_security
 	display_name = "security armband"
@@ -127,11 +96,6 @@
 */
 
 
-/datum/gear/accessory/ftu_pin
-	display_name = "Free Trade Union pin"
-	path = /obj/item/clothing/accessory/ftu_pin
-	flags = GEAR_HAS_NO_CUSTOMIZATION
-
 
 /datum/gear/accessory/chaplain
 	display_name = "chaplain insignia"
@@ -155,21 +119,6 @@
 	options["Jainism"] = /obj/item/clothing/accessory/chaplain/jainism
 	options["Taoism"] = /obj/item/clothing/accessory/chaplain/taoism
 	gear_tweaks += new/datum/gear_tweak/path (options)
-
-
-/datum/gear/accessory/bracelet
-	display_name = "bracelet, color select"
-	path = /obj/item/clothing/accessory/bracelet
-	cost = 1
-	flags = GEAR_HAS_COLOR_SELECTION
-
-
-/datum/gear/accessory/wristwatch
-	display_name = "wrist watch selection"
-	path = /obj/item/clothing/accessory/wristwatches
-	cost = 1
-	flags = GEAR_HAS_TYPE_SELECTION
-
 
 /datum/gear/accessory/pronouns
 	display_name = "pronoun badge selection"

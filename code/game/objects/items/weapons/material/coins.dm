@@ -220,30 +220,6 @@
 		/obj/item/material/coin/wood = 2
 	)
 
-
-/datum/gear/trinket/coin
-	display_name = "coin selection"
-	path = /obj/item/material/coin
-	cost = 2
-
-
-/datum/gear/trinket/coin/New()
-	..()
-	var/list/options = list()
-	options["coin, aluminium"] = /obj/item/material/coin/aluminium
-	options["coin, bronze"] = /obj/item/material/coin/bronze
-	options["coin, copper"] = /obj/item/material/coin/copper
-	options["coin, electrum"] = /obj/item/material/coin/electrum
-	options["coin, gold"] = /obj/item/material/coin/gold
-	options["coin, iron"] = /obj/item/material/coin/iron
-	options["coin, plastic"] = /obj/item/material/coin/plastic
-	options["coin, platinum"] = /obj/item/material/coin/platinum
-	options["coin, silver"] = /obj/item/material/coin/silver
-	options["coin, steel"] = /obj/item/material/coin/steel
-	options["coin, wood"] = /obj/item/material/coin/wood
-	gear_tweaks += new /datum/gear_tweak/path (options)
-
-
 /// Create a new random simple coin at loc and return it.
 /proc/new_simple_coin(loc)
 	var/static/list/simple_coins = subtypesof(/obj/item/material/coin) - typesof(/obj/item/material/coin/challenge)
