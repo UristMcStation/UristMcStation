@@ -529,7 +529,8 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "north bump";
-	pixel_y = 24
+	pixel_y = 24;
+	locked = 0
 	},
 /turf/simulated/floor,
 /area/planet/forest/cabin2)
@@ -648,7 +649,8 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "north bump";
-	pixel_y = 24
+	pixel_y = 24;
+	locked = 0
 	},
 /turf/simulated/floor/wood{
 	icon_state = "wood_broken5"
