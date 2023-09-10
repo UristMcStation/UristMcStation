@@ -467,6 +467,18 @@
 
 	// Can Distortion spread across adjacent station z-levels? NOTE: more CPU-heavy!
 	var/static/bluespace_revenant_radius_zlevel_spread_enabled = TRUE
+
+	// For Equivalent Exchange Hunger: how much does suppression grow per unit of wealth consumed?
+	var/static/bluespace_revenant_wealtheater_suppression_factor = 3
+
+	// For Catabolic Stabilization Hunger: how much does suppression grow per unit of nutrition consumed?
+	var/static/bluespace_revenant_hongry_suppression_factor = 30
+
+	// For Rune Wards Hunger: how much does suppression grow per rune, in fractions of normal growth per decisecond
+	var/static/bluespace_revenant_runewards_suppression_per_ward_factor = 0.2
+
+	// For Rune Wards Hunger: discourages stockpiling/spamming; no more than this much suppression per tick will happen, so more runes is not necessarily more good
+	var/static/bluespace_revenant_runewards_max_suppression_coeff = 2
 	# endif
 
 
@@ -960,6 +972,18 @@
 
 			if ("bluespace_revenant_radius_zlevel_spread_enabled")
 				bluespace_revenant_radius_zlevel_spread_enabled = clamp(text2num(value), FALSE, TRUE)
+
+			if ("bluespace_revenant_wealtheater_suppression_factor")
+				bluespace_revenant_wealtheater_suppression_factor = max(0, text2num(value))
+
+			if ("bluespace_revenant_hongry_suppression_factor")
+				bluespace_revenant_hongry_suppression_factor = max(0, text2num(value))
+
+			if ("bluespace_revenant_runewards_suppression_per_ward_factor")
+				bluespace_revenant_runewards_max_suppression_coeff = max(0, text2num(value))
+
+			if ("bluespace_revenant_runewards_max_suppression_coeff")
+				bluespace_revenant_runewards_max_suppression_coeff = max(0, text2num(value))
 
 			# endif
 

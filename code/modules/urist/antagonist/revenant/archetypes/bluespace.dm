@@ -407,7 +407,8 @@ Proc needs to be fixed, it fails to locate a dest
 		return
 
 	// Since this is a more stealthable Hunger, this should be fairly inefficient
-	var/suppression_per_unit = BSR_DISTORTION_GROWTH_OVER_DECISECONDS(1, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
+	var/suppression_factor = (config?.bluespace_revenant_wealtheater_suppression_factor || 3)
+	var/suppression_per_unit = BSR_DISTORTION_GROWTH_OVER_DECISECONDS(suppression_factor, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
 
 	var/removed = FALSE
 	var/added_suppression = 0
