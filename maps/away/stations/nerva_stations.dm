@@ -41,6 +41,8 @@
 	spawn_cost = 0
 	accessibility_weight = 10
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+	area_usage_test_exempted_root_areas = list(/area/spacestations/ntminingshuttle/start)
+	area_usage_test_exempted_areas = list(/area/spacestations/ntminingshuttle/start)
 
 //mining shuttle
 /area/spacestations/ntminingshuttle/start
