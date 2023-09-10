@@ -4,6 +4,11 @@
 /area/spacestations/nanotrasenspace
 	name = "NanoTrasen Space Station"
 
+//nt station shuttle area
+/area/ntminingshuttle/start
+	name = "\improper Mining Shuttle"
+	icon_state = "shuttle"
+
 //access
 
 var/global/const/access_away_trading_station = "ACCESS_AWAY_TRADING_STATION"

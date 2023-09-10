@@ -42,6 +42,16 @@
 	accessibility_weight = 10
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
+/obj/effect/shuttle_landmark/ntminingshuttle
+	name = "NT Mining Shuttle Landing Zone"
+	landmark_tag = "nav_ntmining_end"
+
+/obj/effect/shuttle_landmark/ntminingshuttle/start
+	name = "Mining Shuttle Dock"
+	landmark_tag = "nav_ntmining_start"
+	docking_controller = "ntminingshuttle"
+	base_turf = /turf/simulated/floor/plating
+
 //nt mining outpost
 /*
 /obj/effect/overmap/visitable/sector/station/nanotrasenmining
