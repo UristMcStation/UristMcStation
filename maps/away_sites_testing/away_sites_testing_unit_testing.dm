@@ -46,5 +46,6 @@
 		/area/shuttle/escape,
 		/area/scom,
 		/area/map_template,
-		/area/exoplanet
+		/area/exoplanet,
+		/area/spacestations/ntminingshuttle/start
 		)
