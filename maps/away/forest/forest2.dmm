@@ -14,17 +14,18 @@
 /area/planet/forest)
 "ae" = (
 /obj/structure/table/rack,
-/obj/random/tech_supply,
-/obj/random/tech_supply,
-/obj/random/tech_supply,
-/obj/random/tech_supply,
-/obj/random/tech_supply,
-/obj/random/tech_supply,
 /obj/item/storage/toolbox/mechanical,
 /obj/item/storage/toolbox/electrical,
 /obj/item/storage/toolbox/mechanical,
 /obj/item/stock_parts/keyboard,
 /obj/item/stack/cable_coil/random,
+/obj/item/stack/cable_coil/random,
+/obj/item/stack/cable_coil/random,
+/obj/item/stack/cable_coil/random,
+/obj/item/stock_parts/keyboard,
+/obj/item/stock_parts/keyboard,
+/obj/item/stock_parts/keyboard,
+/obj/item/stock_parts/console_screen,
 /turf/simulated/floor/planet/jungle/clear/underground,
 /area/planet/forest/cabin1)
 "af" = (
@@ -248,6 +249,7 @@
 /obj/random/treasure,
 /obj/structure/closet/coffin/urist/stonecoffin,
 /obj/item/material/coin/challenge/loot/gold,
+/obj/item/clothing/head/urist/pelt/bear/white,
 /turf/simulated/floor/wood/ebony,
 /area/planet/forest)
 "bh" = (
@@ -632,7 +634,6 @@
 /obj/item/seeds/carrotseed,
 /obj/item/seeds/carrotseed,
 /obj/item/seeds/carrotseed,
-/obj/item/storage/plants,
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest/cabin1)
 "cV" = (
@@ -656,6 +657,7 @@
 "cX" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
 /obj/effect/floor_decal/corner/black/diagonal,
+/obj/item/reagent_containers/food/condiment/salt,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cabin1)
 "cY" = (
@@ -674,6 +676,7 @@
 "da" = (
 /obj/item/carpentry/axe,
 /obj/item/carpentry/axe,
+/obj/item/storage/plants,
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest/cabin1)
 "db" = (
@@ -699,6 +702,8 @@
 /obj/item/seeds/towermycelium,
 /obj/item/seeds/towermycelium,
 /obj/item/device/scanner/plant,
+/obj/item/seeds/peppercornseed,
+/obj/item/seeds/peppercornseed,
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest/cabin1)
 "dc" = (
@@ -891,6 +896,7 @@
 /obj/structure/hygiene/toilet{
 	dir = 1
 	},
+/mob/living/simple_animal/passive/opossum,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cabin1)
 "dR" = (
@@ -945,6 +951,10 @@
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/planet/jungle/clear/underground,
 /area/planet/forest/cabin1)
+"Fg" = (
+/obj/machinery/chem_master,
+/turf/simulated/floor/planet/temperate,
+/area/planet/forest)
 "FB" = (
 /obj/effect/floor_decal/planet/border/grasstodirt{
 	dir = 10
@@ -988,6 +998,11 @@
 /obj/structure/flora/tree/planet/snowy,
 /turf/simulated/floor/planet/snow,
 /area/planet/forest)
+"Zy" = (
+/obj/item/stock_parts/power/apc/buildable,
+/obj/item/stock_parts/power/apc/buildable,
+/turf/simulated/floor/planet/jungle/clear/underground,
+/area/planet/forest/cabin1)
 
 (1,1,1) = {"
 aa
@@ -5691,7 +5706,7 @@ ab
 ab
 ab
 ab
-bc
+Fg
 bc
 bs
 bc
@@ -10357,7 +10372,7 @@ df
 ae
 dn
 dn
-dt
+Zy
 dn
 dB
 dB

@@ -4055,9 +4055,6 @@
 /obj/effect/floor_decal/rust,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/lobby)
-"js" = (
-/turf/simulated/wall,
-/area/planet/forest/cave/lobby)
 "jt" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4;
@@ -4708,6 +4705,9 @@
 /area/planet/forest/cave)
 "lm" = (
 /obj/structure/closet/crate/secure/boobytrapped/weapon,
+/obj/item/gun/projectile/automatic/battlerifle,
+/obj/item/ammo_magazine/mil_rifle/heavy,
+/obj/item/ammo_magazine/mil_rifle/heavy,
 /turf/simulated/floor,
 /area/planet/forest/cave)
 "ln" = (
@@ -4856,6 +4856,10 @@
 /obj/item/material/shard,
 /turf/simulated/floor/tiled/dark,
 /area/planet/forest/cave/engie)
+"sr" = (
+/obj/item/clothing/glasses/eyepatch/hud/meson,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
 "tC" = (
 /obj/item/storage/ore,
 /turf/simulated/floor/asteroid/planet,
@@ -9033,8 +9037,8 @@ ho
 dt
 ig
 ig
-js
-js
+ig
+ig
 ig
 ig
 ig
@@ -13149,7 +13153,7 @@ ak
 ak
 ak
 al
-al
+sr
 ak
 ak
 ak
@@ -13760,7 +13764,7 @@ ak
 ak
 ak
 ak
-al
+sr
 al
 al
 al
