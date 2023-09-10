@@ -48,7 +48,6 @@
 	location = 0
 	warmup_time = 10
 	shuttle_area = /area/spacestations/ntminingshuttle/start
-	current_location = "nav_ntmining_start"
 	waypoint_station = "nav_ntmining_start"
 	waypoint_offsite = "nav_ntmining_end"
 
