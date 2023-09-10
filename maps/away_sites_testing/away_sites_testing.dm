@@ -6,7 +6,6 @@
 
 	#include "../away/empty.dmm"
 	#include "../away/mining/mining.dm"
-	#include "../away/stations/nerva_stations.dm"
 	#include "../away/abandoned_colony/abandoned_colony.dm"
 	#include "../away/derelict/derelict.dm"
 	#include "../away/bearcat/bearcat.dm"
