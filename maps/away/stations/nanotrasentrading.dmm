@@ -979,7 +979,7 @@
 /obj/structure/sign/urist/nt,
 /obj/effect/paint/sun,
 /turf/simulated/wall/titanium,
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "cO" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	color = "#d2af6e";
@@ -1362,7 +1362,7 @@
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "eT" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -1493,7 +1493,7 @@
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "je" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -1534,7 +1534,7 @@
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "km" = (
 /obj/structure/table/steel_reinforced,
 /obj/item/storage/firstaid/empty,
@@ -1542,7 +1542,7 @@
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "ky" = (
 /mob/living/simple_animal/passive/npc/colonist/trader/bartender_trader,
 /turf/simulated/floor/wood,
@@ -1566,7 +1566,7 @@
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "kP" = (
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
@@ -1608,7 +1608,7 @@
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "lN" = (
 /obj/effect/floor_decal/corner/red,
 /turf/simulated/floor/tiled/dark{
@@ -1627,7 +1627,7 @@
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "mt" = (
 /obj/structure/shuttle/engine/heater,
 /obj/structure/window/reinforced{
@@ -1636,7 +1636,7 @@
 /turf/simulated/floor/plating{
 	color = "#bbbbbb"
 	},
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "mQ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
@@ -1650,7 +1650,7 @@
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "nX" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -1676,7 +1676,7 @@
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "oQ" = (
 /obj/structure/table/woodentable,
 /obj/item/reagent_containers/food/condiment/small/peppermill,
@@ -1753,7 +1753,7 @@
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "qN" = (
 /obj/machinery/tele_pad{
 	dir = 1
@@ -1774,7 +1774,7 @@
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "rt" = (
 /obj/machinery/vending/cigarette,
 /obj/machinery/light{
@@ -1830,7 +1830,7 @@
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "tL" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -1841,7 +1841,7 @@
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "uk" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -1862,7 +1862,7 @@
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "uK" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -2076,7 +2076,7 @@
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "yH" = (
 /obj/effect/floor_decal/ntlogo{
 	icon_state = "ntlogo";
@@ -2145,13 +2145,13 @@
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "Bd" = (
 /obj/machinery/power/terminal,
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "Bv" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -2208,7 +2208,7 @@
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "CC" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -2225,7 +2225,7 @@
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "CJ" = (
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-22"
@@ -2258,7 +2258,7 @@
 "Dz" = (
 /obj/effect/paint/sun,
 /turf/simulated/wall/titanium,
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "DM" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -2315,7 +2315,7 @@
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "Ga" = (
 /obj/machinery/door/blast/regular{
 	name = "Secure Access"
@@ -2397,7 +2397,7 @@
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "Lj" = (
 /obj/machinery/conveyor{
 	id = "ntshuttlemain";
@@ -2407,7 +2407,7 @@
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "LM" = (
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced,
@@ -2423,7 +2423,7 @@
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "Nf" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -2472,7 +2472,7 @@
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "NR" = (
 /obj/machinery/vending/snack,
 /obj/machinery/light{
@@ -2612,7 +2612,7 @@
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "QZ" = (
 /obj/effect/floor_decal/ntlogo{
 	icon_state = "ntlogo";
@@ -2694,7 +2694,7 @@
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "SR" = (
 /obj/item/device/radio/intercom{
 	dir = 1;
@@ -2735,7 +2735,7 @@
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "TZ" = (
 /obj/structure/table/woodentable,
 /obj/item/reagent_containers/food/condiment/small/saltshaker,
@@ -2750,7 +2750,7 @@
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "Vo" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -2763,7 +2763,7 @@
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "Vx" = (
 /obj/structure/bed/chair/urist/bench/bench1/left{
 	icon_state = "benchleft";
@@ -2926,7 +2926,7 @@
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
-/area/ntminingshuttle/start)
+/area/spacestations/ntminingshuttle/start)
 "ZL" = (
 /obj/machinery/light{
 	dir = 1

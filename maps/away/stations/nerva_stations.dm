@@ -43,19 +43,12 @@
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 //mining shuttle stuff
-
-/area/ntminingshuttle
-	name = "Nanotrasen Mining Shuttle"
-	icon_state = "shuttle"
-	requires_power = 0
-	dynamic_lighting = 1
-	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
-
 /datum/shuttle/autodock/ferry/ntminingshuttle
 	name = "Nanotrasen Mining"
 	location = 0
 	warmup_time = 10
-	shuttle_area = /area/ntminingshuttle/start
+	shuttle_area = /area/spacestations/ntminingshuttle/start
+	current_location = "nav_ntmining_start"
 	waypoint_station = "nav_ntmining_start"
 	waypoint_offsite = "nav_ntmining_end"
 
