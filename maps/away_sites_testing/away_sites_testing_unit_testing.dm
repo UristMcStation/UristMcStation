@@ -25,8 +25,7 @@
 		/area/boarding_ship,
 		/area/beach,
 		/area/syndicate_elite_squad,
-		/area/awaymission/maze,
-		/area/spacestations/ntminingshuttle/start
+		/area/awaymission/maze
 	)
 
 	area_usage_test_exempted_root_areas = list(
@@ -47,6 +46,5 @@
 		/area/shuttle/escape,
 		/area/scom,
 		/area/map_template,
-		/area/exoplanet,
-		/area/spacestations/ntminingshuttle/start
+		/area/exoplanet
 		)
