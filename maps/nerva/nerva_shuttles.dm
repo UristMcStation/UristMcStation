@@ -455,6 +455,38 @@
 	shuttle_tag = "Rescue"
 
 
+//NT mining shuttle
+
+/area/ntminingshuttle
+	name = "Nanotrasen Mining Shuttle"
+	icon_state = "shuttle"
+	requires_power = 0
+	dynamic_lighting = 1
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
+
+/datum/shuttle/autodock/ferry/rescue_base
+	name = "Asteroid Mining Point"
+	location = 0
+	warmup_time = 10
+	shuttle_area = /area/ntminingshuttle/start
+	waypoint_station = "nav_ntmining_start"
+	waypoint_offsite = "nav_ntmining_end"
+
+/area/ntminingshuttle/start
+	name = "\improper Mining Shuttle"
+	icon_state = "shuttle"
+
+/obj/effect/shuttle_landmark/ntminingshuttle/start
+	name = "Mining Shuttle Dock"
+	landmark_tag = "nav_ntmining_start"
+	docking_controller = "ntminingshuttle"
+	base_turf = /turf/simulated/floor/plating
+	//base_area = /area/ntminingshuttle/start
+
+/obj/machinery/computer/shuttle_control/ntminingshuttle
+	name = "mining shuttle console"
+	shuttle_tag = "Asteroid Mining Point"
+
 //ANTAGS
 
 
@@ -752,3 +784,7 @@
 	name = "Aft Docking Airlock"
 	landmark_tag = "nerva_west_dock"
 	docking_controller = "nerva_docking_west"
+
+/obj/effect/shuttle_landmark/ntminingshuttle
+	name = "NT Mining Shuttle Landing Zone"
+	landmark_tag = "nav_ntmining_end"
