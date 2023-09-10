@@ -454,28 +454,6 @@
 	name = "rescue shuttle console"
 	shuttle_tag = "Rescue"
 
-
-//NT mining shuttle
-
-/area/ntminingshuttle
-	name = "Nanotrasen Mining Shuttle"
-	icon_state = "shuttle"
-	requires_power = 0
-	dynamic_lighting = 1
-	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
-
-/datum/shuttle/autodock/ferry/ntminingshuttle
-	name = "Nanotrasen Mining"
-	location = 0
-	warmup_time = 10
-	shuttle_area = /area/ntminingshuttle/start
-	waypoint_station = "nav_ntmining_start"
-	waypoint_offsite = "nav_ntmining_end"
-
-/obj/machinery/computer/shuttle_control/ntminingshuttle
-	name = "mining shuttle console"
-	shuttle_tag = "Nanotrasen Mining"
-
 //ANTAGS
 
 
