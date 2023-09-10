@@ -1141,6 +1141,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/spacestations/nanotrasenspace)
+"dl" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/device/radio/intercom{
+	dir = 1;
+	name = "Station Intercom (General)";
+	pixel_y = -29
+	},
+/obj/structure/closet/crate,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
 "dm" = (
 /obj/machinery/light{
 	dir = 4
@@ -1417,10 +1427,6 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
-"hj" = (
-/mob/living/simple_animal/passive/npc/colonist/trader/crop_trader,
-/turf/simulated/floor/tiled/dark,
-/area/spacestations/nanotrasenspace)
 "hn" = (
 /obj/effect/shuttle_landmark/nav_nanotrasentrading,
 /turf/simulated/floor/plating{
@@ -1446,16 +1452,6 @@
 /area/spacestations/nanotrasenspace)
 "hM" = (
 /mob/living/simple_animal/passive/npc/colonist/trader/atmos_trader,
-/turf/simulated/floor/tiled/dark,
-/area/spacestations/nanotrasenspace)
-"hP" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/device/radio/intercom{
-	dir = 1;
-	name = "Station Intercom (General)";
-	pixel_y = -29
-	},
-/obj/structure/closet/crate,
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "iD" = (
@@ -1641,6 +1637,11 @@
 	color = "#bbbbbb"
 	},
 /area/ntminingshuttle/start)
+"mQ" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
 "nm" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5;
@@ -1655,14 +1656,6 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark/monotile,
-/area/spacestations/nanotrasenspace)
-"op" = (
-/obj/effect/floor_decal/corner/blue{
-	icon_state = "corner_white";
-	dir = 10
-	},
-/obj/structure/table/reinforced,
-/turf/simulated/floor/tiled/old_tile,
 /area/spacestations/nanotrasenspace)
 "oq" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1970,6 +1963,10 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
+"wT" = (
+/mob/living/simple_animal/passive/npc/colonist/trader/crop_trader,
+/turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
 "xb" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
 	icon_state = "benchmid";
@@ -2086,11 +2083,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/old_tile,
-/area/spacestations/nanotrasenspace)
-"yL" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate,
-/turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "yU" = (
 /obj/effect/floor_decal/corner/blue{
@@ -2244,6 +2236,14 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
+"CK" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/old_tile,
+/area/spacestations/nanotrasenspace)
 "CV" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -2385,6 +2385,12 @@
 	name = "Secure Access"
 	},
 /turf/simulated/floor/tiled/dark,
+/area/spacestations/nanotrasenspace)
+"KC" = (
+/turf/simulated/wall/r_wall/hull,
+/turf/simulated/floor/plating{
+	color = "#bbbbbb"
+	},
 /area/spacestations/nanotrasenspace)
 "KR" = (
 /obj/machinery/mining/brace,
@@ -2846,12 +2852,6 @@
 	},
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
-	},
-/area/spacestations/nanotrasenspace)
-"Xe" = (
-/turf/simulated/wall/r_wall/hull,
-/turf/simulated/floor/plating{
-	color = "#bbbbbb"
 	},
 /area/spacestations/nanotrasenspace)
 "XC" = (
@@ -4124,7 +4124,7 @@ bF
 za
 Tk
 yg
-op
+CK
 ad
 az
 ad
@@ -4618,14 +4618,14 @@ dh
 af
 af
 PV
-yL
+mQ
 ad
 cL
 cS
 af
 af
 PV
-yL
+mQ
 ad
 ad
 ad
@@ -4699,15 +4699,15 @@ dn
 af
 af
 af
-yL
-yL
+mQ
+mQ
 ad
 cL
 af
 af
 af
-yL
-yL
+mQ
+mQ
 ad
 ad
 ad
@@ -4781,15 +4781,15 @@ hM
 af
 af
 af
-yL
-hP
+mQ
+dl
 ad
-hj
+wT
 af
 af
 af
-yL
-hP
+mQ
+dl
 ad
 ad
 ad
@@ -4863,15 +4863,15 @@ cL
 cL
 af
 af
-yL
-yL
+mQ
+mQ
 ad
 cL
 cL
 af
 af
-yL
-yL
+mQ
+mQ
 ad
 ci
 SH
@@ -5600,14 +5600,14 @@ ad
 ad
 ad
 ad
-Xe
+KC
 ad
 ad
 ad
 ad
 ad
 ad
-bp
+ad
 ad
 ad
 ad
