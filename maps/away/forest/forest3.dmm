@@ -73,10 +73,15 @@
 /obj/random/accessory,
 /obj/random/clothing,
 /obj/random/clothing,
-/obj/random/handgun,
-/obj/random/ammo,
-/obj/random/ammo,
 /obj/item/clothing/suit/urist/sweater/blue/heart,
+/obj/item/gun/projectile/pistol/optimus,
+/obj/item/gun/projectile/pistol/optimus,
+/obj/item/ammo_magazine/pistol/double,
+/obj/item/ammo_magazine/pistol/double,
+/obj/item/ammo_magazine/pistol/double,
+/obj/item/ammo_magazine/pistol/double,
+/obj/item/ammo_magazine/pistol/double,
+/obj/item/ammo_magazine/pistol/double,
 /turf/simulated/floor/wood,
 /area/planet/forest/cabin1/attic)
 "r" = (
@@ -87,7 +92,7 @@
 /turf/simulated/open/skylight,
 /area/planet/forest/cabin2/attic)
 "u" = (
-/obj/structure/ironing_board/fancy,
+/obj/structure/roller_bed,
 /turf/simulated/floor/wood{
 	icon_state = "wood_broken5"
 	},
@@ -98,18 +103,13 @@
 "w" = (
 /obj/structure/table/rack/wood,
 /obj/item/reagent_containers/spray/sterilizine,
-/obj/item/material/knife,
-/obj/item/stack/cable_coil/blue,
-/obj/item/crowbar/red,
 /obj/item/flame/lighter/cyan,
-/obj/item/material/hatchet,
-/obj/item/tape_roll,
-/obj/item/wrench,
 /obj/item/reagent_containers/glass/beaker/painkiller,
 /obj/item/reagent_containers/glass/beaker/painkiller,
 /obj/item/reagent_containers/pill/peridaxon,
 /obj/item/reagent_containers/pill/peridaxon,
 /obj/item/reagent_containers/pill/peridaxon,
+/obj/item/storage/firstaid/surgery,
 /turf/simulated/floor/wood,
 /area/planet/forest/cabin1/attic)
 "y" = (
@@ -154,10 +154,11 @@
 /obj/random/accessory,
 /obj/random/clothing,
 /obj/random/clothing,
-/obj/random/handgun,
-/obj/random/ammo,
-/obj/random/ammo,
 /obj/item/clothing/suit/urist/sweater/pink,
+/obj/item/gun/projectile/pistol/optimus,
+/obj/item/ammo_magazine/pistol/double,
+/obj/item/ammo_magazine/pistol/double,
+/obj/item/ammo_magazine/pistol/double,
 /turf/simulated/floor/wood,
 /area/planet/forest/cabin1/attic)
 "K" = (
@@ -169,10 +170,10 @@
 /obj/random/clothing,
 /obj/random/clothing,
 /obj/random/clothing,
-/obj/random/handgun,
-/obj/random/ammo,
-/obj/random/ammo,
 /obj/item/clothing/suit/urist/sweater/mint,
+/obj/item/gun/projectile/pistol/optimus,
+/obj/item/ammo_magazine/pistol/double,
+/obj/item/ammo_magazine/pistol/double,
 /turf/simulated/floor/wood,
 /area/planet/forest/cabin1/attic)
 "M" = (

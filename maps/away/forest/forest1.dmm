@@ -1628,7 +1628,6 @@
 	},
 /obj/random/trash,
 /obj/effect/spider/stickyweb,
-/mob/living/simple_animal/hostile/giant_spider/spitter,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "ek" = (
@@ -3630,7 +3629,6 @@
 	icon_state = "small"
 	},
 /obj/effect/spider/stickyweb,
-/mob/living/simple_animal/hostile/giant_spider/guard,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/lobby)
 "ij" = (
@@ -4858,6 +4856,10 @@
 /obj/item/material/shard,
 /turf/simulated/floor/tiled/dark,
 /area/planet/forest/cave/engie)
+"tC" = (
+/obj/item/storage/ore,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
 "Hn" = (
 /obj/structure/grille/broken,
 /obj/item/material/shard,
@@ -4891,6 +4893,14 @@
 /obj/effect/spider/stickyweb,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/dorms)
+"WS" = (
+/obj/item/device/multitool,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"Zk" = (
+/obj/structure/ore_box,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
 
 (1,1,1) = {"
 ai
@@ -14264,7 +14274,7 @@ ab
 an
 lM
 lM
-al
+WS
 ab
 ab
 ab
@@ -14363,8 +14373,8 @@ ab
 ab
 ab
 ab
-al
-al
+Zk
+tC
 lN
 al
 ab
