@@ -185,9 +185,11 @@
 /turf/simulated/floor/planet/jungle/clear/underground,
 /area/planet/forest/cabin1)
 "aU" = (
-/turf/simulated/mineral/random{
-	mined_turf = /turf/simulated/floor/planet/jungle/clear/underground
+/obj/machinery/mineral/processing_unit{
+	input_turf = 4;
+	output_turf = 8
 	},
+/turf/simulated/floor/planet/jungle/clear/underground,
 /area/planet/forest/cabin1)
 "aV" = (
 /obj/structure/fence/cut/large{
@@ -630,6 +632,7 @@
 /obj/item/seeds/carrotseed,
 /obj/item/seeds/carrotseed,
 /obj/item/seeds/carrotseed,
+/obj/item/storage/plants,
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest/cabin1)
 "cV" = (
@@ -695,6 +698,7 @@
 /obj/item/carpentry/saw,
 /obj/item/seeds/towermycelium,
 /obj/item/seeds/towermycelium,
+/obj/item/device/scanner/plant,
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest/cabin1)
 "dc" = (
@@ -707,7 +711,7 @@
 "de" = (
 /obj/structure/table/woodentable/mahogany,
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/item/material/knife,
+/obj/item/material/knife/kitchen,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cabin1)
 "df" = (
@@ -731,6 +735,8 @@
 /obj/item/clothing/mask/plunger,
 /obj/item/device/flashlight/trainlantern,
 /obj/item/device/flashlight/trainlantern,
+/obj/item/cell/standard,
+/obj/item/cell/standard,
 /turf/simulated/floor/planet/jungle/clear/underground,
 /area/planet/forest/cabin1)
 "di" = (
@@ -738,6 +744,7 @@
 /obj/item/shovel,
 /obj/item/shovel/spade,
 /obj/item/device/flashlight/trainlantern,
+/obj/item/cell/standard,
 /turf/simulated/floor/planet/jungle/clear/underground,
 /area/planet/forest/cabin1)
 "dj" = (
@@ -753,6 +760,28 @@
 /obj/item/device/radio/off/old,
 /obj/item/device/radio/off/old,
 /obj/item/stock_parts/console_screen,
+/obj/item/stock_parts/power/apc/buildable,
+/obj/item/stock_parts/power/apc/buildable,
+/obj/item/stock_parts/micro_laser,
+/obj/item/stock_parts/micro_laser,
+/obj/item/stock_parts/micro_laser,
+/obj/item/stock_parts/micro_laser,
+/obj/item/stock_parts/micro_laser,
+/obj/item/stock_parts/micro_laser,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/circuitboard/batteryrack,
 /turf/simulated/floor/planet/jungle/clear/underground,
 /area/planet/forest/cabin1)
 "dl" = (
@@ -761,8 +790,9 @@
 /obj/item/stack/material/glass/fifty,
 /obj/item/stack/material/phoron/ten,
 /obj/item/stack/material/phoron/ten,
-/obj/item/stack/material/plastic/ten,
-/obj/item/stack/material/aluminium/ten,
+/obj/item/stack/material/phoron/ten,
+/obj/item/stack/material/aluminium/fifty,
+/obj/item/stack/material/plastic/fifty,
 /turf/simulated/floor/planet/jungle/clear/underground,
 /area/planet/forest/cabin1)
 "dm" = (
@@ -863,6 +893,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cabin1)
+"dR" = (
+/obj/structure/closet/crate/solar,
+/turf/simulated/floor/planet/jungle/clear/underground,
+/area/planet/forest/cabin1)
 "iG" = (
 /obj/structure/scrap,
 /obj/effect/floor_decal/planet/border/grasstodirt{
@@ -870,6 +904,21 @@
 	},
 /turf/simulated/floor/planet/dirt/temperate,
 /area/planet/forest)
+"kk" = (
+/obj/structure/kitchenspike,
+/turf/simulated/floor/planet/temperate,
+/area/planet/forest/cabin1)
+"lr" = (
+/obj/structure/closet/crate/solar_assembly,
+/turf/simulated/floor/planet/jungle/clear/underground,
+/area/planet/forest/cabin1)
+"nz" = (
+/obj/machinery/recharge_station,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cabin1)
+"oQ" = (
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cabin1)
 "tO" = (
 /obj/structure/scrap,
 /obj/effect/floor_decal/planet/border/grasstodirt{
@@ -892,6 +941,10 @@
 	},
 /turf/simulated/floor/planet/dirt/temperate,
 /area/planet/forest)
+"BN" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/planet/jungle/clear/underground,
+/area/planet/forest/cabin1)
 "FB" = (
 /obj/effect/floor_decal/planet/border/grasstodirt{
 	dir = 10
@@ -922,6 +975,11 @@
 	},
 /turf/simulated/floor/planet/dirt/temperate,
 /area/planet/forest)
+"Ty" = (
+/obj/machinery/computer/mining,
+/obj/structure/table/steel_reinforced,
+/turf/simulated/floor,
+/area/planet/forest/cabin1)
 "TG" = (
 /obj/effect/floor_decal/planet/border/grasstodirt,
 /turf/simulated/floor/planet/dirt/temperate,
@@ -1810,7 +1868,7 @@ bc
 bc
 bc
 bc
-bc
+br
 bc
 cg
 bc
@@ -1819,8 +1877,8 @@ bc
 bc
 bc
 bc
-bc
-bc
+br
+br
 cL
 bc
 bc
@@ -2035,7 +2093,7 @@ bc
 bc
 bc
 bc
-bc
+br
 bc
 bE
 bc
@@ -2337,7 +2395,7 @@ bc
 bc
 bc
 bc
-bc
+br
 bc
 bc
 bc
@@ -2410,7 +2468,7 @@ bc
 bc
 bc
 bc
-bc
+br
 bc
 bc
 bc
@@ -2533,7 +2591,7 @@ bE
 bE
 bc
 bl
-bc
+br
 bc
 bc
 KI
@@ -2619,7 +2677,7 @@ bc
 bc
 bc
 bc
-bc
+br
 bc
 bc
 bc
@@ -2948,7 +3006,7 @@ bf
 bc
 bc
 bc
-bc
+br
 bc
 bc
 bc
@@ -3228,7 +3286,7 @@ bc
 bc
 bc
 bc
-bc
+br
 bc
 bc
 bc
@@ -4351,7 +4409,7 @@ bc
 bS
 bc
 bc
-bc
+br
 bc
 bc
 bc
@@ -5817,7 +5875,7 @@ bc
 bc
 bc
 bc
-bc
+br
 bc
 bc
 ab
@@ -6109,7 +6167,7 @@ an
 bf
 bc
 bc
-bc
+br
 bc
 bc
 bc
@@ -6216,7 +6274,7 @@ bc
 bc
 bc
 bc
-bc
+br
 bc
 bc
 bc
@@ -6316,7 +6374,7 @@ bE
 bc
 bl
 bc
-bc
+br
 bc
 bc
 bc
@@ -6424,7 +6482,7 @@ bc
 bc
 bc
 bc
-bc
+br
 bc
 bc
 bc
@@ -8569,7 +8627,7 @@ cM
 cM
 cM
 cM
-cM
+kk
 cN
 cM
 df
@@ -8591,7 +8649,7 @@ ab
 ab
 bc
 bc
-bc
+br
 bc
 an
 bc
@@ -8837,7 +8895,7 @@ bc
 bc
 bc
 bc
-bc
+br
 bc
 bc
 ca
@@ -8900,7 +8958,7 @@ bc
 an
 bc
 bc
-bc
+br
 bc
 bc
 bc
@@ -9178,12 +9236,12 @@ dc
 aO
 dq
 aS
-du
+aS
 dz
 aL
-df
-df
-df
+aL
+aL
+aL
 df
 ab
 ab
@@ -9283,9 +9341,9 @@ aO
 aO
 dA
 aL
+oQ
+dE
 aL
-aL
-df
 df
 ab
 ab
@@ -9385,9 +9443,9 @@ dc
 dm
 aN
 dC
-dE
+oQ
+nz
 aL
-df
 df
 ab
 ab
@@ -9406,7 +9464,7 @@ ab
 ab
 ab
 bc
-bc
+br
 bc
 bK
 bc
@@ -9414,7 +9472,7 @@ bc
 ah
 ax
 bc
-bc
+br
 bc
 bc
 bc
@@ -9489,7 +9547,7 @@ aL
 aL
 aL
 aL
-df
+aL
 df
 ab
 ab
@@ -9613,7 +9671,7 @@ bc
 bc
 bc
 bc
-bc
+br
 bc
 bc
 bc
@@ -9712,7 +9770,7 @@ ab
 ab
 ab
 bc
-bc
+br
 bc
 bc
 bc
@@ -9896,8 +9954,8 @@ df
 df
 df
 df
-aU
-aU
+df
+df
 df
 ab
 ab
@@ -9996,10 +10054,10 @@ dn
 dn
 dw
 am
-aU
-aU
-aU
-aU
+dR
+lr
+dn
+dn
 df
 ab
 ab
@@ -10098,10 +10156,10 @@ dn
 dn
 dn
 dn
-aU
-aU
-aU
-aU
+dn
+dn
+dn
+dn
 df
 ab
 ab
@@ -10201,9 +10259,9 @@ dn
 dt
 dn
 dn
-aU
-aU
-aU
+dn
+dn
+dn
 df
 ab
 ab
@@ -10304,7 +10362,7 @@ dn
 dB
 dB
 dn
-aU
+Ty
 aU
 df
 ab
@@ -10400,14 +10458,14 @@ df
 df
 dl
 do
+BN
 dn
 dn
 dn
 dn
 dn
 dn
-aU
-aU
+dn
 df
 ab
 ab

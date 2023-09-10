@@ -581,7 +581,7 @@
 
 /mob/living/simple_animal/hostile/urist/angel
 	name = "\improper angel"
-	desc = "A suposedly divine being known to bring the wrath of their diety."
+	desc = "A supposedly divine being known to bring the wrath of their deity."
 	response_help = "tries to poke"
 	response_disarm = "tries to shove"
 	response_harm = "tries to hit"
@@ -591,14 +591,14 @@
 	icon_living = "bluespace-angel"
 	icon_dead = ""
 	faction = "divine"
-	maxHealth = 100
-	health = 100
+	maxHealth = 50
+	health = 50
 	natural_weapon = /obj/item/natural_weapon/angel
 	projectiletype = /obj/item/projectile/energy/holy
 	projectilesound = 'sound/magic/fireball.ogg'
 	harm_intent_damage = 0
 	needs_reload = TRUE
-	reload_time = 1.5 SECONDS
+	reload_time = 2.5 SECONDS
 	reload_sound = null
 
 
@@ -634,8 +634,8 @@
 	name = "\improper angel"
 	icon_state = "angel-angry"
 	icon_living = "angel-angry"
-	maxHealth = 150
-	health = 150
+	maxHealth = 75
+	health = 75
 	projectiletype = /obj/item/projectile/energy/holy/strong
 
 
