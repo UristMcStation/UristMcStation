@@ -72,10 +72,6 @@
 		"nav_caraway_forest_2"
 		)
 
-/obj/effect/overmap/visitable/sector/planetoid/caraway_forest/New(nloc, max_x, max_y)
-	name = "[generate_planet_name()], \a [name]"
-	..()
-
 /obj/effect/shuttle_landmark/automatic/nav_caraway_forest/nav1
 	name = "Valley Landing Zone #1"
 	landmark_tag = "nav_caraway_forest_1"
