@@ -247,6 +247,17 @@
 
 //mining shuttle stuff
 
+/area/spacestations/ntminingshuttle
+	name = "Nanotrasen Mining Shuttle"
+	icon_state = "shuttle"
+	requires_power = 0
+	dynamic_lighting = 1
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
+
+/area/spacestations/ntminingshuttle/start
+	name = "\improper Mining Shuttle"
+	icon_state = "shuttle"
+
 /datum/shuttle/autodock/ferry/ntminingshuttle
 	name = "Nanotrasen Mining"
 	warmup_time = 1 SECOND
