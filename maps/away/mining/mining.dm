@@ -44,6 +44,8 @@
 	area_usage_test_exempted_areas = list(/area/djstation)
 	area_coherency_test_exempt_areas =  list(/area/mine/explored, /area/mine/unexplored)
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+	shuttles_to_initialise = list(/datum/shuttle/autodock/ferry/ntminingshuttle)
+
 
 /obj/effect/shuttle_landmark/cluster/nav1
 	name = "Asteroid Navpoint #1"
@@ -242,3 +244,38 @@
 	icon = 'icons/turf/flooring/cult.dmi'
 	icon_state = "cult_g"
 	color = "#c9ae5e"
+
+//mining shuttle stuff
+
+/area/spacestations/ntminingshuttle
+	name = "Nanotrasen Mining Shuttle"
+	icon_state = "shuttle"
+	requires_power = 0
+	dynamic_lighting = 1
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
+
+/area/spacestations/ntminingshuttle/start
+	name = "\improper Mining Shuttle"
+	icon_state = "shuttle"
+
+/datum/shuttle/autodock/ferry/ntminingshuttle
+	name = "Nanotrasen Mining"
+	warmup_time = 1 SECOND
+	shuttle_area = /area/spacestations/ntminingshuttle/start
+	waypoint_station = "nav_ntmining_start"
+	waypoint_offsite = "nav_ntmining_end"
+	defer_initialisation = TRUE
+
+/obj/machinery/computer/shuttle_control/ntminingshuttle
+	name = "mining shuttle console"
+	shuttle_tag = "Nanotrasen Mining"
+
+/obj/effect/shuttle_landmark/ntminingshuttle
+	name = "NT Mining Shuttle Landing Zone"
+	landmark_tag = "nav_ntmining_end"
+
+/obj/effect/shuttle_landmark/ntminingshuttle/start
+	name = "Mining Shuttle Dock"
+	landmark_tag = "nav_ntmining_start"
+	docking_controller = "ntminingshuttle"
+	base_turf = /turf/simulated/floor/plating
