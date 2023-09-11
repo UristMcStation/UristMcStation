@@ -23,6 +23,7 @@
 	/obj/item/stock_parts/computer/card_slot
 		)
 	default_software = list(
+	/datum/computer_file/program/reports,
 	/datum/computer_file/program/chatclient,
 	/datum/computer_file/program/card_mod,
 	/datum/computer_file/program/comm,
@@ -33,6 +34,8 @@
 	/datum/computer_file/program/wordprocessor
 	)
 
+	autorun_program = /datum/computer_file/program/card_mod
+
 /obj/machinery/computer/modular/preset/nerva_fo
 	uncreated_component_parts = list(
 	/obj/item/stock_parts/power/apc,
@@ -40,6 +43,7 @@
 	/obj/item/stock_parts/computer/card_slot
 		)
 	default_software = list(
+	/datum/computer_file/program/reports,
 	/datum/computer_file/program/chatclient,
 	/datum/computer_file/program/comm,
 	/datum/computer_file/program/contract_database,
@@ -82,6 +86,7 @@
 		/obj/item/stock_parts/computer/nano_printer,
 		)
 	default_software = list(
+	/datum/computer_file/program/reports,
 	/datum/computer_file/program/chatclient,
 	/datum/computer_file/program/nttransfer,
 	/datum/computer_file/program/newscast,
@@ -119,6 +124,7 @@
 		/obj/item/stock_parts/computer/nano_printer,
 		)
 	default_software = list(
+	/datum/computer_file/program/reports,
 	/datum/computer_file/program/contract_database,
 	/datum/computer_file/program/supply,
 	/datum/computer_file/program/docking,

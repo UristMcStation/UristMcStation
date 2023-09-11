@@ -5273,6 +5273,7 @@
 	icon_state = "corner_white"
 	},
 /obj/machinery/computer/modular/preset/nervasec{
+	autorun_program = /datum/computer_file/program/records;
 	icon_state = "computer";
 	dir = 4
 	},
