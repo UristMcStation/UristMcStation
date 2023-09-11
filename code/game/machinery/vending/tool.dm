@@ -16,12 +16,13 @@
 		/obj/item/screwdriver = 5,
 		/obj/item/device/flashlight/flare/glowstick = 3,
 		/obj/item/device/flashlight/flare/glowstick/red = 3,
-		/obj/item/tape_roll = 8
+		/obj/item/tape_roll = 8,
+		/obj/item/clothing/gloves/insulated/cheap = 1
 	)
 	contraband = list(
 		/obj/item/weldingtool/hugetank = 2,
 		/obj/item/clothing/gloves/insulated = 1
 	)
 	premium = list(
-		/obj/item/clothing/gloves/insulated/cheap = 2
+		/obj/item/clothing/gloves/insulated = 1
 	)
