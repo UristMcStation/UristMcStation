@@ -29,7 +29,7 @@
 
 /mob/verb/test_wfc_rebuild_data()
 	generate_wfc_map()
-	usr << "Map data rebuilt"
+	to_chat(usr, "Map data rebuilt")
 	return
 
 
@@ -48,7 +48,7 @@
 			generate_wfc_map(ruleset)
 			generate_from_wfc_file(mapname, overwrite_all = FALSE, zlevel = zlevel)
 			generate_from_wfc_file(mapname, overwrite_all = FALSE, zlevel = (zlevel + 1))
-			usr << "Regenerating in 20s"
+			to_chat(usr, "Regenerating in 20s")
 			sleep(200)
-			usr << "Regenerating!"
+			to_chat(usr, "Regenerating!")
 	return

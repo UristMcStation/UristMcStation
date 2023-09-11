@@ -164,23 +164,23 @@
 /mob/verb/test_frac_parents(inp as text)
 	set category = "Fractal Coords Debug"
 	var/result = fractal_parents_str(inp)
-	usr << result
+	to_chat(usr, result)
 
 
 /mob/verb/test_frac_children(inp as text)
 	set category = "Fractal Coords Debug"
 	var/list/result = fractal_children_str(inp)
-	usr << json_encode(result)
+	to_chat(usr, json_encode(result))
 
 
 /mob/verb/test_frac_bothways(inp as text)
 	set category = "Fractal Coords Debug"
 	var/true_inp = ((!inp) ? "1/2,3,4" : inp)
-	usr << true_inp
+	to_chat(usr, true_inp)
 
 	var/result_par = fractal_parents_str(true_inp)
-	usr << result_par
+	to_chat(usr, result_par)
 
 	var/list/result_chi = fractal_children_str(result_par)
-	usr << json_encode(result_chi)
+	to_chat(usr, json_encode(result_chi))
 */
