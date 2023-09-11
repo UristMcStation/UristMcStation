@@ -23,16 +23,13 @@
 	if(!istype(trg, /atom/movable))
 		return FALSE
 
-	var/tries = 3
+	var/tries = 1
 	var/success = FALSE
 
 	var/list/predicates = list(/proc/is_station_turf, /proc/not_turf_contains_dense_objects)
 
 	while(tries --> 0)
 		var/turf/T = pick_area_turf(/area/maintenance, predicates)
-
-		if(isnull(T))
-			T = pick_area_turf(/area/civilian, predicates)
 
 		if(isnull(T))
 			continue

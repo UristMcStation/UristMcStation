@@ -11,8 +11,6 @@
 	// Note: this is VERY similar to the logic for teleporter callbacks to return players to the station
 	// However, ATM it's hard to create shared code due to subtle differences in the logic here vs there.
 	var/turf/T = pick_area_turf(/area/maintenance, list(/proc/is_station_turf, /proc/not_turf_contains_dense_objects))
-	if(isnull(T))
-		T = pick_area_turf(/area/civilian, list(/proc/is_station_turf, /proc/not_turf_contains_dense_objects))
 
 	if(isnull(T))
 		return FALSE
