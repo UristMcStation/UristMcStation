@@ -1143,7 +1143,6 @@
 /obj/effect/floor_decal/corner/red/three_quarters{
 	dir = 1
 	},
-/obj/machinery/computer/modular/preset/security,
 /obj/machinery/power/apc{
 	cell_type = /obj/item/cell/high;
 	dir = 1;
@@ -1155,6 +1154,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
+/obj/machinery/computer/modular/preset/nervasec,
 /turf/simulated/floor/tiled/techmaint,
 /area/security/dockingcheckpoint)
 "cI" = (

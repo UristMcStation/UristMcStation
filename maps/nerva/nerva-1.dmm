@@ -5268,14 +5268,13 @@
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fp)
 "kc" = (
-/obj/machinery/computer/modular/preset/security{
-	autorun_program = /datum/computer_file/program/records;
-	dir = 4;
-	icon_state = "console"
-	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9;
 	icon_state = "corner_white"
+	},
+/obj/machinery/computer/modular/preset/nervasec{
+	icon_state = "computer";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics)
@@ -12908,12 +12907,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/logistics/fabwork)
 "xl" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6;
+	icon_state = "intact-scrubbers"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/fabwork)
@@ -12927,16 +12929,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/logistics/fabwork)
 "xn" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/effect/floor_decal/corner/yellow{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/logistics/fabwork)
-"xo" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
@@ -12947,6 +12939,20 @@
 	convdir = 1;
 	id = "smelt"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	icon_state = "intact-supply"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/logistics/fabwork)
+"xo" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/computer/modular/preset/nervasupply,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/fabwork)
 "xp" = (
@@ -15537,7 +15543,6 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/closet/firecloset,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
@@ -17086,6 +17091,7 @@
 	dir = 2;
 	pixel_y = 24
 	},
+/obj/structure/closet/firecloset,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/lockers)
 "Ex" = (
@@ -20279,10 +20285,6 @@
 /turf/simulated/floor/tiled/white,
 /area/hadrian/main)
 "Ls" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4;
-	icon_state = "intact-scrubbers"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4;
 	icon_state = "intact-supply"
@@ -20301,6 +20303,10 @@
 	},
 /obj/effect/landmark{
 	name = "lightsout"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1;
+	icon_state = "map-scrubbers"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/fabwork)
@@ -20647,6 +20653,18 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora)
+"Nz" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/logistics/fabwork)
 "NB" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -21713,6 +21731,19 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
+"RG" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4;
+	icon_state = "map_vent_out"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/logistics/fabwork)
 "RI" = (
 /obj/machinery/computer/ship/engines,
 /turf/simulated/floor/tiled/techfloor/grid,
@@ -22691,10 +22722,6 @@
 	dir = 4;
 	icon_state = "intact-supply"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1;
-	icon_state = "map-scrubbers"
-	},
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -22706,6 +22733,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "warning"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/fabwork)
@@ -44171,7 +44202,7 @@ tC
 Se
 vx
 sT
-xm
+Nz
 Kr
 yc
 SX
@@ -44377,7 +44408,7 @@ xm
 Kr
 yd
 Ls
-zP
+zQ
 AA
 Se
 BS
@@ -44579,7 +44610,7 @@ xm
 Kr
 ye
 Wm
-zQ
+zP
 AB
 Se
 BT
@@ -44979,7 +45010,7 @@ tG
 Se
 vB
 wp
-xm
+RG
 Kr
 yf
 Yx
