@@ -23,6 +23,11 @@
 	if(!istype(trg, /atom/movable))
 		return FALSE
 
+	#ifdef UNIT_TEST
+	// skip for unit-tests since they have no valid areas for this
+	return TRUE
+	#endif
+
 	var/tries = 1
 	var/success = FALSE
 
