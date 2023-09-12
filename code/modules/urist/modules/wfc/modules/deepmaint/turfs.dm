@@ -1,3 +1,11 @@
+/turf/deepmaint/nullspace
+	name = ""
+	parent_type = DEEPMAINT_TURF_BASE
+
+	icon = 'icons/urist/turf/nothingness.dmi'
+	icon_state = "black"
+
+
 /turf/deepmaint/plating
 	name = "floor"
 	parent_type = DEEPMAINT_TURF_BASE
@@ -7,15 +15,29 @@
 
 	wfc_overwritable = TRUE
 
+	// Delay between exiting a turf and teleporting
+	var/wfc_teleporter_delay = 1
+
 	// Probability of a teleporter to another variant
-	var/wfc_teleproba_deepmaint = 0
+	var/wfc_telespawn_proba_deepmaint = 0
+
+	// Probability of the variant teleporter *triggering*
+	var/wfc_teleproba_deepmaint = 60
 
 	// Probability of a teleporter back to station
-	var/wfc_teleproba_station = 0
+	var/wfc_telespawn_proba_station = 20
+
+	// Probability of the station teleporter *triggering*
+	var/wfc_teleproba_station = 1
 
 	// Switches to enable spawning additional tile objects
 	var/wfc_spawn_door = FALSE
 	var/wfc_spawn_lights = FALSE
+
+	// Tracking flag to see if a turf has a teleporter
+	// Set to TRUE if the TP should be enabled for this
+	var/wfc_has_stationexit = FALSE
+	var/wfc_has_variantlink = FALSE
 
 
 /turf/deepmaint/plating/New(var/atom/loc)
@@ -24,13 +46,11 @@
 	if(isnull(associated_wfc_overwritables))
 		associated_wfc_overwritables = list()
 
-	if(!isnull(src.wfc_teleproba_deepmaint) && prob(src.wfc_teleproba_deepmaint))
-		var/obj/wfc_step_trigger/deepmaint_teleport/tele = new(src)
-		associated_wfc_overwritables.Add(tele)
+	if(!isnull(src.wfc_telespawn_proba_deepmaint) && prob(src.wfc_telespawn_proba_deepmaint))
+		src.wfc_has_variantlink = TRUE
 
-	if(!isnull(src.wfc_teleproba_station) && prob(src.wfc_teleproba_station))
-		var/obj/wfc_step_trigger/deepmaint_exit/exit = new(src)
-		associated_wfc_overwritables.Add(exit)
+	if(!isnull(src.wfc_telespawn_proba_station) && prob(src.wfc_telespawn_proba_station))
+		src.wfc_has_stationexit = TRUE
 
 	if(src.wfc_spawn_door)
 		DEEPMAINT_DOOR_TYPEVAR(DD) = new(loc)
@@ -41,18 +61,33 @@
 		associated_wfc_overwritables.Add(light)
 
 
+/turf/deepmaint/plating/Uncrossed(atom/movable/Obj)
+	. = ..(Obj)
+
+	spawn(src.wfc_teleporter_delay)
+		var/teleported = FALSE
+
+		if(!teleported && src.wfc_has_stationexit)
+			teleported = deepmaint_conditional_stationyeet(Obj, tele_proba = src.wfc_teleproba_station)
+
+		if(!teleported && src.wfc_has_variantlink)
+			teleported = deepmaint_conditional_yeet(Obj, tele_proba = src.wfc_teleproba_deepmaint)
+
+	return
+
+
 /turf/deepmaint/plating/lights
 	wfc_spawn_lights = TRUE
 
 
 /turf/deepmaint/plating/ztele
-	wfc_teleproba_deepmaint = 10
+	wfc_telespawn_proba_deepmaint = 10
 
 
 /turf/deepmaint/plating/door
 	wfc_spawn_door = TRUE
-	wfc_teleproba_deepmaint = 60
-	wfc_teleproba_station = 10
+	wfc_telespawn_proba_deepmaint = 60
+	wfc_telespawn_proba_station = 10
 
 
 

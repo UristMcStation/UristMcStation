@@ -1,6 +1,6 @@
 "a" = (/turf/deepmaint/wall/border,/area/map_template/deepmaint_wfc/beta)
 "b" = (/turf/deepmaint/wall/border,/area/map_template/deepmaint_wfc/gamma)
-"c" = (/turf/space,/area)
+"c" = (/turf/deepmaint/nullspace,/area)
 "d" = (/turf/procgen/wfc,/area/map_template/deepmaint_wfc/beta)
 "e" = (/turf/procgen/wfc,/area/map_template/deepmaint_wfc/gamma)
 "f" = (/turf/deepmaint/wall/border,/area/map_template/deepmaint_wfc/alpha)

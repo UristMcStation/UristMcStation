@@ -19,7 +19,7 @@
 #endif
 
 #include "core\calllib.dm"
-#include "core\debug.dm"
+//#include "core\debug.dm"
 #include "core\prefabs.dm"
 #include "core\turf.dm"
 #include "core\maptricks.dm"

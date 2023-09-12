@@ -19,9 +19,11 @@
 
 #define DEEPMAINT_WALL_OPACITY 0
 
-#define DEEPMAINT_LIGHT /obj/deepmaint_wall_light
+#define DEEPMAINT_LIGHT /obj/effect/deepmaint_light
 
-# define qdel_from_weakref(x) del(x)
+#define DEEPMAINT_TELEPORTABLE_MOBTYPE /mob
+
+#define qdel_from_weakref(x) del(x)
 
 # else
 
@@ -32,7 +34,9 @@
 
 #define DEEPMAINT_WALL_OPACITY 1
 
-#define DEEPMAINT_LIGHT /obj/machinery/floor_light/mapped_on
+#define DEEPMAINT_LIGHT /obj/effect/deepmaint_light
+
+#define DEEPMAINT_TELEPORTABLE_MOBTYPE /mob/living
 
 # define qdel_from_weakref(x) qdel(x)
 
