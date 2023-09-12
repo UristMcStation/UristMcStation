@@ -519,12 +519,9 @@
 	skin_amount = 6
 	skin_material = MATERIAL_SKIN_FUR_GRAY
 
-
-
 /mob/living/simple_animal/hostile/huntable/wolf/white
 	icon_state = "whitewolf"
 	icon_living = "whitewolf_dead"
 	icon_dead = "whitewolf_dead"
 	icon_gib = "whitewolf_dead"
-	hide = 0
 	skin_material = MATERIAL_SKIN_FUR_WHITE
