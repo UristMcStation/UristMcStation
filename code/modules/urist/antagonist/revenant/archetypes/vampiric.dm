@@ -372,7 +372,7 @@
 
 /* FANGS - gives mobs a new unarmed attack that requires head and ignores restraints. */
 /datum/unarmed_attack/bsrevenant_vampbite
-	attack_verb = list("bit", "sank their fangs in")
+	attack_verb = list("bit", "sank /his fangs in")
 	attack_sound = 'sound/weapons/bite.ogg'
 	shredding = 0
 	sharp = 1

@@ -97,8 +97,8 @@
 
 
 
-/* Simple heal. Does NOT regrow limbs. */
-/mob/proc/bsrevenant_minor_heal()
+/* Big heal. */
+/mob/proc/bsrevenant_incremental_regen()
 	set name = "Fleshmend"
 	set category = "Anomalous Powers"
 	set desc = "Unnatural regeneration. Revive on death, heal wounds/bloodloss otherwise."
@@ -177,7 +177,7 @@
 			var/tox_dmg = L.getToxLoss()
 			if(tox_dmg)
 				L.adjustToxLoss(-tox_dmg)
-				to_chat(L, SPAN_NOTICE("You purge absorbed toxins from your cells (though not your bloodstream)!"))
+				to_chat(L, SPAN_NOTICE("You purge necrotic tissue from your system."))
 
 				if(valid_revenant)
 					revenant.total_distortion += BSR_DISTORTION_GROWTH_OVER_SECONDS(tox_dmg, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
@@ -202,7 +202,7 @@
 	return !pending
 
 
-/datum/power/revenant/bs_power/minorheal
+/datum/power/revenant/bs_power/fleshmend
 	flavor_tags = list(
 		BSR_FLAVOR_CHIMERA,
 		BSR_FLAVOR_VAMPIRE,
@@ -213,7 +213,7 @@
 	activate_message = "<span class='notice'>You have an uncanny healing factor. You can heal minor damage and even stop bleeding - all at the low low price of just a little bit of damage to the local laws of physics.</span>"
 	name = "Fleshmend"
 	isVerb = TRUE
-	verbpath = /mob/proc/bsrevenant_minor_heal
+	verbpath = /mob/proc/bsrevenant_incremental_regen
 	distortion_threshold = 24000 // 20 mins
 
 
