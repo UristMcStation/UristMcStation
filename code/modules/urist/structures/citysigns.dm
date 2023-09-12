@@ -10,7 +10,7 @@
 
 /obj/structure/sign/neon
 	desc = "A glowing sign."
-	icon = 'maps/away/geminus_city/citymap_icons/signs.dmi'
+	icon = 'icons/urist/citymap_icons/signs.dmi'
 //	light_range = 4
 //	light_power = 2
 
@@ -58,6 +58,11 @@
 	name = "inn"
 	icon_state = "inn"
 	light_color = "#f070ff"  //deeper hot pink
+
+/obj/structure/sign/neon/inn_alt
+	name = "inn"
+	icon_state = "inn_alt"
+	light_color = "#39ffa4" //teal
 
 /obj/structure/sign/neon/cafe
 	name = "cafe"
@@ -146,7 +151,7 @@
 /obj/structure/sign/double/city
 	desc = "A sign."
 	pixel_y = 32
-	icon = 'maps/away/geminus_city/citymap_icons/signs.dmi'
+	icon = 'icons/urist/citymap_icons/signs.dmi'
 
 /obj/structure/sign/double/city/gamecenter
 	name = "Game Center"
@@ -270,7 +275,7 @@
 
 /obj/structure/sign/city
 	desc = "A sign."
-	icon = 'maps/away/geminus_city/citymap_icons/signs.dmi'
+	icon = 'icons/urist/citymap_icons/signs.dmi'
 
 /obj/structure/sign/city/rent
 	name = "Rent sign"
@@ -286,3 +291,8 @@
 	name = "\improper techshop"
 	desc = "A sign which reads 'tech shop'."
 	icon_state = "techshop"
+
+/obj/structure/sign/city/forsale
+	name = "For Sale sign"
+	icon_state = "forsale"
+	desc = "A sign that says 'For Sale' on it."
