@@ -148,7 +148,12 @@
 	hardness = MATERIAL_SOFT
 	weight = 5
 	explosion_resistance = 1
-	var/tans_to = MATERIAL_LEATHER_GENERIC
+	var/tans_to = null
+	var/scrapes_to = MATERIAL_HIDE_GENERIC //no more soaking, but we are still scraping this thing damnit
+
+/material/skin/hide
+	name = MATERIAL_HIDE_GENERIC
+	tans_to = MATERIAL_LEATHER_GENERIC
 
 /material/skin/lizard
 	name = MATERIAL_SKIN_LIZARD
@@ -170,6 +175,7 @@
 	name = MATERIAL_SKIN_FUR
 	icon_colour = "#7a726d"
 	tans_to = MATERIAL_LEATHER_FUR
+	scrapes_to = MATERIAL_HIDE_GENERIC
 
 /material/skin/fur/gray
 	name = MATERIAL_SKIN_FUR_GRAY
@@ -204,6 +210,7 @@
 /material/skin/fish
 	name = MATERIAL_SKIN_FISH
 	icon_colour = COLOR_BOTTLE_GREEN
+	scrapes_to = null
 
 /material/skin/fish/purple
 	name = MATERIAL_SKIN_FISH_PURPLE
@@ -212,6 +219,7 @@
 /material/skin/feathers
 	name = MATERIAL_SKIN_FEATHERS
 	icon_colour = COLOR_SILVER
+	tans_to = null
 
 /material/skin/feathers/purple
 	name = MATERIAL_SKIN_FEATHERS_PURPLE
@@ -265,7 +273,6 @@
 	weight = 10
 
 /material/leather
-	name = MATERIAL_LEATHER_GENERIC
 	icon_colour = "#5c4831"
 	stack_origin_tech = list(TECH_MATERIAL = 2)
 	flags = MATERIAL_PADDING
@@ -279,6 +286,10 @@
 	integrity = 50
 	hardness = MATERIAL_FLEXIBLE
 	weight = 10
+
+/material/leather/generic
+	name = MATERIAL_LEATHER_GENERIC
+	stack_type = /obj/item/stack/material/leather
 
 /material/leather/lizard
 	name = MATERIAL_LEATHER_LIZARD

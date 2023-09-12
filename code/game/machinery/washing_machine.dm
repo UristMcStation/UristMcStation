@@ -89,7 +89,7 @@
 					addtimer(new Callback(C, /obj/item/clothing/proc/change_smell), detergent.smell_clean_time, TIMER_UNIQUE | TIMER_OVERRIDE)
 	QDEL_NULL(detergent)
 
-	//Tanning!
+/*	//Tanning!
 	for(var/obj/item/stack/hairlesshide/HH in contents)
 		var/obj/item/stack/wetleather/WL = new(src)
 		WL.amount = HH.amount
@@ -98,7 +98,7 @@
 	for(var/obj/item/stack/hide/animalhide/AH in contents)
 		var/obj/item/stack/hide/wet/WL = new(src)
 		WL.amount = AH.amount
-		qdel(AH)
+		qdel(AH)*/
 
 	update_use_power(POWER_USE_IDLE)
 	if(locate(/mob/living) in src)

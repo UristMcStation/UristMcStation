@@ -15,13 +15,6 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	build_path = /obj/item/gun/energy/plasmapistol
 	sort_string = "URSTA"
 
-/datum/design/circuit/tanningrack
-	name = "tanning rack"
-	id = "tanning rack"
-	req_tech = list(TECH_BIO = 1, TECH_ENGINEERING = 1)
-	build_path = /obj/item/stock_parts/circuitboard/tanningrack
-	sort_string = "URSTB"
-
 /datum/design/circuit/carpentryplaner
 	name = "wood processor"
 	id = "wood processor"

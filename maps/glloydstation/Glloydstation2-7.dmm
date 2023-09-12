@@ -8067,7 +8067,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/smartfridge/tanningrack,
+/obj/machinery/smartfridge/drying_rack,
 /turf/simulated/floor/wood/walnut,
 /area/outpost/mining_main/refinery)
 "rj" = (

@@ -16,6 +16,7 @@
 	sharp = TRUE
 	edge = TRUE
 	item_flags = ITEM_FLAG_CAN_HIDE_IN_SHOES
+	var/butchery_efficiency = 2 //how much do we multiply mob_size by in determining butchery time. lower is faster.
 
 /obj/item/material/knife/attack(mob/living/carbon/M, mob/living/carbon/user, target_zone)
 	if(!istype(M))
@@ -62,6 +63,7 @@
 	icon_state = "kitchenknife"
 	desc = "A general purpose chef's knife made by SpaceCook Incorporated. Guaranteed to stay sharp for years to come."
 	applies_material_name = FALSE
+	butchery_efficiency = 1
 
 /obj/item/material/knife/kitchen/cleaver
 	name = "butcher's cleaver"
@@ -111,6 +113,7 @@
 	max_force = 10
 	force_multiplier = 0.2
 	w_class = ITEM_SIZE_SMALL
+	butchery_efficiency = 4
 
 /obj/item/material/knife/utility/lightweight
 	name = "lightweight utility knife"

@@ -245,22 +245,37 @@
 
 // Harvest an animal's delicious byproducts
 /mob/living/simple_animal/proc/harvest(mob/user, amount)
-	var/actual_meat_amount = round(max(1,(meat_amount / 2) + amount / 2))
-	user.visible_message(SPAN_DANGER("\The [user] chops up \the [src]!"))
-	if(meat_type && actual_meat_amount > 0 && (stat == DEAD))
-		for(var/i=0;i<actual_meat_amount;i++)
-			var/obj/item/meat = new meat_type(get_turf(src))
-			meat.SetName("[src.name] [meat.name]")
-			if(can_bleed)
-				var/obj/effect/decal/cleanable/blood/splatter/splat = new(get_turf(src))
-				splat.basecolor = bleed_colour
-				splat.update_icon()
-			qdel(src)
+	if(stat == DEAD)
+		var/actual_meat_amount = round(max(1,(meat_amount / 2) + amount / 2))
+		var/actual_skin_amount = round(max(1,(skin_amount / 2) + amount / 2))
+		if(meat_type && actual_meat_amount > 0)
+			user.visible_message(SPAN_DANGER("\The [user] chops up \the [src]!"))
+			for(var/i=0;i<actual_meat_amount;i++)
+				var/obj/item/meat = new meat_type(get_turf(src))
+				meat.SetName("[src.name] [meat.name]")
+				if(can_bleed)
+					var/obj/effect/decal/cleanable/blood/splatter/splat = new(get_turf(src))
+					splat.basecolor = bleed_colour
+					splat.update_icon()
+
+		if(skin_material && actual_skin_amount > 0)
+			var/material/M = SSmaterials.get_material_by_name(skin_material)
+			new M.stack_type(get_turf(src), actual_skin_amount, skin_material)
+
+		if(bone_amount)
+			harvest_bones()
+
+		qdel(src)
 
 /mob/living/simple_animal/proc/subtract_meat(mob/user)
 	meat_amount--
 	if(meat_amount <= 0)
 		to_chat(user, SPAN_NOTICE("\The [src] carcass is ruined beyond use."))
+
+/mob/living/simple_animal/proc/subtract_hide(mob/user)
+	skin_amount--
+	if(skin_amount <= 0)
+		to_chat(user, SPAN_NOTICE("No more useful hide can be extracted from \the [src]."))
 
 /mob/living/simple_animal/bullet_impact_visuals(obj/item/projectile/P, def_zone)
 	..()

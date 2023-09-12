@@ -295,12 +295,12 @@
 	on_floor = 1
 	send_material_data = 1
 
-/datum/stack_recipe/toolbelt
+/*/datum/stack_recipe/toolbelt
 	title = "tool belt"
 	result_type = /obj/item/storage/belt/utility
 	req_amount = 5
 	difficulty = 2
-	time = 15
+	time = 15*/
 
 /datum/stack_recipe/pockets
 	title = "pockets"
@@ -314,7 +314,7 @@
 	result_type = /obj/item/clothing/accessory/storage/webbing_large
 	req_amount = 7
 	difficulty = 3
-	time = 20
+	time = 30
 
 /datum/stack_recipe/bandolier
 	title = "bandolier"
@@ -323,24 +323,24 @@
 	difficulty = 3
 	time = 20
 
-/datum/stack_recipe/holster
+/*/datum/stack_recipe/holster
 	title = "holster"
 	result_type = /obj/item/clothing/accessory/storage/holster
 	req_amount = 5
 	difficulty = 2
-	time = 15
+	time = 15*/
 
 /datum/stack_recipe/holster_machete
 	title = "machete sheath"
 	result_type = /obj/item/clothing/accessory/storage/holster/machete
 	req_amount = 5
 	difficulty = 2
-	time = 15
+	time = 25
 
 /datum/stack_recipe/holster_knife
 	title = "knife sheath"
 	result_type = /obj/item/clothing/accessory/storage/holster/knife
 	req_amount = 2
 	difficulty = 1
-	time = 5
+	time = 15
 

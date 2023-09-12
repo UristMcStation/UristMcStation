@@ -47,7 +47,7 @@
 		return list()
 	return ..()
 
-/obj/machinery/smartfridge/proc/accept_check(obj/item/O as obj)
+/obj/machinery/smartfridge/proc/accept_check(obj/item/O as obj, mob/user as mob)
 	if(istype(O,/obj/item/reagent_containers/food/snacks/grown) || istype(O,/obj/item/seeds) || istype(O,/obj/item/shellfish))
 		return 1
 	return 0
@@ -147,14 +147,17 @@
 	icon_state = "drying_rack"
 	construct_state = /singleton/machine_construction/default/panel_closed
 
-/obj/machinery/smartfridge/drying_rack/accept_check(obj/item/O as obj)
+/obj/machinery/smartfridge/drying_rack/accept_check(obj/item/O as obj, mob/user as mob)
 	if(istype(O, /obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/S = O
 		return S.dried_type
 	else if(istype(O, /obj/item/stack/material))
 		var/obj/item/stack/material/mat = O
 		var/material/skin/skin_mat = mat.material
-		return istype(skin_mat)
+		if(!skin_mat.tans_to)
+			to_chat(user, SPAN_NOTICE("\The [mat] is currently incapable of being tanned. It may need further processing with a knife."))
+		else
+			return istype(skin_mat)
 	return 0
 
 /obj/machinery/smartfridge/drying_rack/Process()
@@ -284,7 +287,7 @@
 		to_chat(user, SPAN_NOTICE("\The [src] is unpowered and useless."))
 		return
 
-	if(accept_check(O))
+	if(accept_check(O, user))
 		if(!user.unEquip(O))
 			return
 		stock_item(O)
@@ -295,7 +298,7 @@
 		var/obj/item/storage/bag/P = O
 		var/plants_loaded = 0
 		for(var/obj/G in P.contents)
-			if(accept_check(G) && P.remove_from_storage(G, src, 1))
+			if(accept_check(G, user) && P.remove_from_storage(G, src, 1))
 				plants_loaded++
 				stock_item(G)
 		P.finish_bulk_removal()

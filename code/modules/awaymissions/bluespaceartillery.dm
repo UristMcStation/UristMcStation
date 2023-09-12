@@ -13,7 +13,7 @@
 
 /obj/structure/artilleryplaceholder
 	name = "artillery"
-	icon = 'icons/obj/machines/artillery.dmi'
+	icon = 'icons/urist/structures&machinery/artillery.dmi'
 	anchored = TRUE
 	density = TRUE
 	desc = "The ship's old bluespace artillery cannon. Looks inoperative."

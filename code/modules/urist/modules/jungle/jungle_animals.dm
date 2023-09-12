@@ -106,34 +106,6 @@
 
 //huntable animals
 
-/mob/living/simple_animal/hostile/huntable
-	var/hide = 0
-
-/mob/living/simple_animal/hostile/huntable/harvest(mob/user)
-	if (do_after(user, 60, src))
-		to_chat(user, "<span class='notice'>You gut and skin [src], getting some usable meat and hide.</span>")
-		for(var/i, i<=meat_amount, i++)
-			new meat_type(src.loc)
-		var/obj/item/stack/hide/animalhide/AH = new /obj/item/stack/hide/animalhide(src.loc)
-		AH.amount = hide
-		new /obj/effect/decal/cleanable/blood/splatter(get_turf(src))
-//		new /obj/effect/gibspawner/generic(src.loc)
-	qdel(src)
-
-/mob/living/simple_animal/huntable
-	var/hide = 0
-
-/mob/living/simple_animal/huntable/harvest(mob/user)
-	if (do_after(user, 60, src))
-		to_chat(user, "<span class='notice'>You gut and skin [src], getting some usable meat and hide.</span>")
-		for(var/i, i<=meat_amount, i++)
-			new meat_type(src.loc)
-		var/obj/item/stack/hide/animalhide/AH = new /obj/item/stack/hide/animalhide(src.loc)
-		AH.amount = hide
-		new /obj/effect/decal/cleanable/blood/splatter(get_turf(src))
-//		new /obj/effect/gibspawner/generic(src.loc)
-	qdel(src)
-
 //to prevent spam from monkeys being half killed
 
 /mob/living/simple_animal/huntable/monkey/New()
@@ -203,8 +175,6 @@
 	natural_weapon = /obj/item/natural_weapon/claws
 	attacktext = "slashed"
 	attack_sound = 'sound/weapons/bite.ogg'
-	meat_amount = 2
-	hide = 4
 
 	ai_holder = /datum/ai_holder/simple_animal/melee/hit_and_run/panther //cloaking taken from spider lurkers. should cloak, attack, run, repeat basically
 /// Lower = Harder to see.
@@ -424,8 +394,7 @@
 	natural_weapon = /obj/item/natural_weapon/bite
 	attacktext = "gored" //antlers
 	attack_sound = 'sound/weapons/bite.ogg'
-	var/chase_time = 100
-	hide = 4
+//	var/chase_time = 100
 	meat_amount = 4
 	bone_amount = 10
 	skin_amount = 8
@@ -550,12 +519,9 @@
 	skin_amount = 6
 	skin_material = MATERIAL_SKIN_FUR_GRAY
 
-
-
 /mob/living/simple_animal/hostile/huntable/wolf/white
 	icon_state = "whitewolf"
 	icon_living = "whitewolf_dead"
 	icon_dead = "whitewolf_dead"
 	icon_gib = "whitewolf_dead"
-	hide = 0
 	skin_material = MATERIAL_SKIN_FUR_WHITE

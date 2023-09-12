@@ -1,13 +1,20 @@
-/material/leather/generate_recipes(reinforce_material)
+/material/leather/generic/generate_recipes(reinforce_material)
 	. = ..()
 	if(reinforce_material)	//recipies below don't support composite materials
 		return
 
 	. += new/datum/stack_recipe_list("holsters", list(
+		new/datum/stack_recipe/holster/generic(src),
 		new/datum/stack_recipe/holster/hip(src),
 		new/datum/stack_recipe/holster/waist(src),
-		new/datum/stack_recipe/holster/armpit(src)
+		new/datum/stack_recipe/holster/armpit(src),
+		new/datum/stack_recipe/holster(src),
+		new/datum/stack_recipe/holster_machete(src),
+		new/datum/stack_recipe/holster_knife(src)
 		))
+	. += new/datum/stack_recipe/pockets(src)
+	. += new/datum/stack_recipe/large_webbing(src)
+	. += new/datum/stack_recipe/bandolier(src)
 	. += new/datum/stack_recipe/toolbelt(src)
 	. += new/datum/stack_recipe/briefcase(src)
 	. += new/datum/stack_recipe/wallet(src)
@@ -79,8 +86,14 @@
 //	. += new/datum/stack_recipe/blackbearpelt(src)
 
 /datum/stack_recipe/holster
-	req_amount = 2
+	req_amount = 4
 	time = 40
+	difficulty = 2
+	apply_material_name = 1
+
+/datum/stack_recipe/holster/generic
+	title = "holster"
+	result_type = /obj/item/clothing/accessory/storage/holster
 
 /datum/stack_recipe/holster/hip
 	title = "hip holster"
@@ -97,7 +110,8 @@
 /datum/stack_recipe/toolbelt
 	title = "tool belt"
 	result_type = /obj/item/storage/belt/utility
-	req_amount = 3
+	difficulty = 2
+	req_amount = 5
 	time = 45
 
 /datum/stack_recipe/briefcase
@@ -111,6 +125,7 @@
 	result_type = /obj/item/storage/wallet/leather
 	req_amount = 1
 	time = 30
+	apply_material_name = 0
 
 /datum/stack_recipe/knifeharness
 	title = "knife harness"
@@ -129,18 +144,21 @@
 	result_type = /obj/item/clothing/gloves/botanic_leather
 	req_amount = 2
 	time = 40
+	apply_material_name = 0
 
 /datum/stack_recipe/leather_work_gloves
 	title = "leather work gloves"
 	result_type = /obj/item/clothing/gloves/urist/leather
 	req_amount = 3
 	time = 45
+	apply_material_name = 0
 
 /datum/stack_recipe/leather_shoes
 	title = "leather shoes"
 	result_type = /obj/item/clothing/shoes/leather
 	req_amount = 2
 	time = 30
+	apply_material_name = 0
 
 /datum/stack_recipe/jungle_boots
 	title = "jungle boots"
@@ -159,6 +177,7 @@
 	result_type = /obj/item/clothing/shoes/urist/leather
 	req_amount = 4
 	time = 45
+	apply_material_name = 0
 
 /datum/stack_recipe/cowboy_hat
 	title = "cowboy hat"
@@ -173,89 +192,106 @@
 	time = 25
 
 /datum/stack_recipe/coat
-	req_amount = 4
+	req_amount = 5
 	time = 45
+	difficulty = 3
 
 /datum/stack_recipe/coat/duster
 	title = "duster"
 	result_type = /obj/item/clothing/suit/storage/urist/coat/duster
-	req_amount = 5
+	req_amount = 6
 	time = 50
 
 /datum/stack_recipe/coat/leather
 	title = "leather coat"
 	result_type = /obj/item/clothing/suit/storage/urist/coat/leather
-	req_amount = 5
+	req_amount = 6
 	time = 50
+	apply_material_name = 0
 
 /datum/stack_recipe/coat/black_leather
 	title = "black leather jacket"
 	result_type = /obj/item/clothing/suit/coat/jacket/leather
+	apply_material_name = 0
 
 /datum/stack_recipe/coat/alt_black_leather
 	title = "alternate black leather jacket"
 	result_type = /obj/item/clothing/suit/storage/leather_jacket
+	apply_material_name = 0
 
 /datum/stack_recipe/coat/nt_black_leather
 	title = "NanoTrasen black leather jacket"
 	result_type = /obj/item/clothing/suit/storage/leather_jacket/nanotrasen
+	apply_material_name = 0
 
 /datum/stack_recipe/coat/leather_trenchcoat
 	title = "leather trenchcoat"
 	result_type = /obj/item/clothing/suit/leathercoat
+	apply_material_name = 0
 
 /datum/stack_recipe/coat/brown_jacket
 	title = "brown leather jacket"
 	result_type = /obj/item/clothing/suit/storage/toggle/brown_jacket
+	apply_material_name = 0
 
 /datum/stack_recipe/coat/nt_brown_jacket
 	title = "NanoTrasen brown leather jacket"
 	result_type = /obj/item/clothing/suit/storage/toggle/brown_jacket/nanotrasen
+	apply_material_name = 0
 
 /datum/stack_recipe/leather_sandsuit
 	title = "leather protective suit"
 	result_type = /obj/item/clothing/suit/storage/hooded/sandsuit
-	req_amount = 7
+	req_amount = 8
+	difficulty = 3
 	time = 60
+	apply_material_name = 0
 
 /datum/stack_recipe/leather_pants
 	title = "leather pants"
 	result_type = /obj/item/clothing/under/pants/urist/leatherpants
-	req_amount = 2
+	req_amount = 4
+	difficulty = 2
 	time = 35
+	apply_material_name = 0
 
 /datum/stack_recipe/leather_overalls
 	title = "leather overalls"
 	result_type = /obj/item/clothing/suit/storage/urist/overalls/leather
-	req_amount = 3
+	req_amount = 4
+	difficulty = 2
 	time = 40
+	apply_material_name = 0
 
 /datum/stack_recipe/factory_apron
 	title = "factory worker's apron"
 	result_type = /obj/item/clothing/suit/storage/urist/apron
-	req_amount = 3
+	req_amount = 4
 	time = 40
+	apply_material_name = 0
 
 /datum/stack_recipe/welder_apron
 	title = "welder apron"
 	result_type = /obj/item/clothing/suit/urist/welderapron
-	req_amount = 2
+	req_amount = 3
 	time = 35
+	apply_material_name = 0
 
 /datum/stack_recipe/leather_mask
 	title = "leather mask"
 	result_type = /obj/item/clothing/mask/urist/bandana/leather
 	req_amount = 1
 	time = 30
+	apply_material_name = 0
 
-/datum/stack_recipe/goatpelt
-	title = "goat pelt"
-	result_type = /obj/item/clothing/head/urist/pelt/goat
-	req_amount = 8
-	time = 30
-
-/datum/stack_recipe/sheeppelt
-	title = "sheep pelt"
-	result_type = /obj/item/clothing/head/urist/pelt/sheep
-	req_amount = 8
-	time = 30
+/material/leather/lizard/generate_recipes(reinforce_material)
+	. = ..()
+	if(reinforce_material)	//recipes below don't support composite materials
+		return
+	. += new/datum/stack_recipe/toolbelt(src)
+	. += new/datum/stack_recipe/pockets(src)
+	. += new/datum/stack_recipe/large_webbing(src)
+	. += new/datum/stack_recipe/bandolier(src)
+	. += new/datum/stack_recipe/holster(src)
+	. += new/datum/stack_recipe/holster_machete(src)
+	. += new/datum/stack_recipe/holster_knife(src)

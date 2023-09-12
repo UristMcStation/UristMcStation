@@ -84,6 +84,7 @@
 #define MATERIAL_SKIN_FEATHERS_BROWN     "brown feathers"
 #define MATERIAL_SKIN_FEATHERS_RED       "red feathers"
 #define MATERIAL_SKIN_FEATHERS_BLACK     "black feathers"
+#define MATERIAL_HIDE_GENERIC			 "scraped hide"
 
 #define MATERIAL_BONE_GENERIC            "bone"
 #define MATERIAL_BONE_CARTILAGE          "cartilage"

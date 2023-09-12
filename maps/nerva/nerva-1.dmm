@@ -14965,7 +14965,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/logistics/fabwork)
 "AF" = (
-/obj/machinery/smartfridge/tanningrack,
+/obj/machinery/smartfridge/drying_rack,
 /obj/effect/floor_decal/corner/yellow/three_quarters{
 	dir = 4;
 	icon_state = "corner_white_three_quarters"

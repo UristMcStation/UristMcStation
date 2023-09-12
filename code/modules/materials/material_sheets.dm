@@ -139,15 +139,26 @@
 			to_chat(user,SPAN_NOTICE("You recover some [reinf_material.use_name] from the [src]."))
 			reinf_material.place_sheet(get_turf(user), 1)
 			return
-	else if(istype(W, /obj/item/hammer/smithing))
-		if(techniques)
-			var/obj/structure/anvil/A = locate() in src.loc
-			if(A)
-				if(!A.busy)
-					A.busy = 1
-					metal_technique(user, W, src)
-					A.busy = 0
-					return
+	else if(istype(W, /obj/item))
+		if(istype(W, /obj/item/hammer/smithing))
+			if(techniques)
+				var/obj/structure/anvil/A = locate() in src.loc
+				if(A)
+					if(!A.busy)
+						A.busy = 1
+						metal_technique(user, W, src)
+						A.busy = 0
+						return
+
+		else if(W.edge && W.sharp) //refine this check
+			if(istype(material, /material/skin))
+				var/material/skin/skin_mat = material
+				if(skin_mat.scrapes_to)
+					var/material/hide_mat = SSmaterials.get_material_by_name(skin_mat.scrapes_to)
+					to_chat(user,SPAN_NOTICE("You start scraping the hair  and fat off \the [src]."))
+					if(do_after(user,1 SECOND) && use(1))
+						hide_mat.place_sheet(get_turf(user), 1)
+						return
 	return ..()
 
 /obj/item/stack/material/on_update_icon()
