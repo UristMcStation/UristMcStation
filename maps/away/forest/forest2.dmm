@@ -26,6 +26,7 @@
 /obj/item/stock_parts/keyboard,
 /obj/item/stock_parts/keyboard,
 /obj/item/stock_parts/console_screen,
+/obj/item/stack/cable_coil/random,
 /turf/simulated/floor/planet/jungle/clear/underground,
 /area/planet/forest/cabin1)
 "af" = (
@@ -760,8 +761,6 @@
 /obj/item/stock_parts/circuitboard/autolathe,
 /obj/item/stock_parts/circuitboard/carpentryplaner,
 /obj/item/stock_parts/circuitboard/woodprocessor,
-/obj/item/stock_parts/circuitboard/mining_processor,
-/obj/item/stock_parts/circuitboard/mineral_processing,
 /obj/item/device/radio/off/old,
 /obj/item/device/radio/off/old,
 /obj/item/device/radio/off/old,
@@ -905,12 +904,21 @@
 /obj/structure/closet/crate/solar,
 /turf/simulated/floor/planet/jungle/clear/underground,
 /area/planet/forest/cabin1)
+"dV" = (
+/obj/item/stock_parts/power/apc/buildable,
+/obj/item/stock_parts/power/apc/buildable,
+/turf/simulated/floor/planet/jungle/clear/underground,
+/area/planet/forest/cabin1)
 "iG" = (
 /obj/structure/scrap,
 /obj/effect/floor_decal/planet/border/grasstodirt{
 	dir = 8
 	},
 /turf/simulated/floor/planet/dirt/temperate,
+/area/planet/forest)
+"jc" = (
+/obj/machinery/chem_master,
+/turf/simulated/floor/planet/temperate,
 /area/planet/forest)
 "kk" = (
 /obj/structure/kitchenspike,
@@ -949,14 +957,24 @@
 	},
 /turf/simulated/floor/planet/dirt/temperate,
 /area/planet/forest)
+"vE" = (
+/obj/structure/closet/crate,
+/obj/item/clothing/head/hardhat/EMS,
+/obj/item/clothing/head/hardhat/dblue,
+/obj/item/clothing/head/hardhat,
+/obj/item/clothing/head/hardhat,
+/obj/item/clothing/head/hardhat/orange,
+/obj/item/clothing/suit/storage/hazardvest,
+/obj/item/clothing/suit/storage/hazardvest,
+/obj/item/clothing/suit/storage/hazardvest,
+/obj/item/clothing/suit/storage/hazardvest,
+/obj/item/clothing/suit/storage/hazardvest,
+/turf/simulated/floor/planet/jungle/clear/underground,
+/area/planet/forest/cabin1)
 "BN" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/planet/jungle/clear/underground,
 /area/planet/forest/cabin1)
-"Fg" = (
-/obj/machinery/chem_master,
-/turf/simulated/floor/planet/temperate,
-/area/planet/forest)
 "FB" = (
 /obj/effect/floor_decal/planet/border/grasstodirt{
 	dir = 10
@@ -1000,11 +1018,6 @@
 /obj/structure/flora/tree/planet/snowy,
 /turf/simulated/floor/planet/snow,
 /area/planet/forest)
-"Zy" = (
-/obj/item/stock_parts/power/apc/buildable,
-/obj/item/stock_parts/power/apc/buildable,
-/turf/simulated/floor/planet/jungle/clear/underground,
-/area/planet/forest/cabin1)
 
 (1,1,1) = {"
 aa
@@ -5708,7 +5721,7 @@ ab
 ab
 ab
 ab
-Fg
+jc
 bc
 bs
 bc
@@ -10374,7 +10387,7 @@ df
 ae
 dn
 dn
-Zy
+dV
 dn
 dB
 dB
@@ -10476,7 +10489,7 @@ df
 dl
 do
 BN
-dn
+vE
 dn
 dn
 dn

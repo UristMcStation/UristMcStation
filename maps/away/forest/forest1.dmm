@@ -113,6 +113,7 @@
 /obj/item/urist/blade/bronzedagger,
 /obj/structure/closet/coffin/urist/stonecoffin,
 /obj/item/material/coin/challenge/loot,
+/obj/item/clothing/head/urist/historic/armor/medieval3,
 /turf/simulated/floor/asteroid/planet,
 /area/planet/forest/cave)
 "au" = (
@@ -150,6 +151,7 @@
 /obj/item/remains/human,
 /obj/item/clothing/suit/urist/armor/historic/chestplate/iron_chestplate,
 /obj/structure/closet/coffin/urist/stonecoffin,
+/obj/item/clothing/head/urist/historic/armor/medieval2,
 /turf/simulated/floor/asteroid/planet,
 /area/planet/forest/cave)
 "aA" = (
@@ -157,6 +159,7 @@
 /obj/item/clothing/head/urist/historic/armor/medieval1,
 /obj/structure/closet/coffin/urist/stonecoffin,
 /obj/item/material/coin/challenge/loot/silver,
+/obj/item/clothing/suit/urist/armor/historic/chestplate/bronze_chestplate,
 /turf/simulated/floor/asteroid/planet,
 /area/planet/forest/cave)
 "aB" = (
@@ -515,6 +518,7 @@
 /area/planet/forest/cave/engie)
 "bE" = (
 /obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/circuitboard/floodlight,
 /turf/simulated/floor/tiled/dark,
 /area/planet/forest/cave/engie)
 "bF" = (
@@ -924,6 +928,7 @@
 /area/planet/forest/cave/engie)
 "cH" = (
 /obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/circuitboard/floodlight,
 /turf/simulated/floor/tiled/dark,
 /area/planet/forest/cave/engie)
 "cI" = (
@@ -1058,6 +1063,7 @@
 /obj/structure/cable/blue{
 	dir = 4
 	},
+/obj/item/stock_parts/circuitboard/bioprinter,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/med)
 "da" = (
@@ -1102,6 +1108,7 @@
 /obj/item/stock_parts/circuitboard/pacman/super,
 /obj/item/stock_parts/circuitboard/woodprocessor,
 /obj/item/stock_parts/power/battery,
+/obj/item/stock_parts/circuitboard/washer,
 /turf/simulated/floor/tiled/dark,
 /area/planet/forest/cave/engie)
 "df" = (
@@ -1131,6 +1138,7 @@
 /obj/item/stock_parts/power/apc,
 /obj/item/stock_parts/power/apc,
 /obj/item/stock_parts/power/battery,
+/obj/item/stock_parts/circuitboard/arcade/battle,
 /turf/simulated/floor/tiled/dark,
 /area/planet/forest/cave/engie)
 "dh" = (
@@ -2304,16 +2312,6 @@
 /obj/structure/closet/secure_closet/engineering_electrical,
 /turf/simulated/floor,
 /area/planet/forest/cave/engie)
-"fI" = (
-/obj/machinery/alarm{
-	dir = 4;
-	icon_state = "alarm0";
-	pixel_x = -22;
-	pixel_y = 0
-	},
-/mob/living/simple_animal/hostile/giant_spider/nurse,
-/turf/simulated/floor/wood/mahogany,
-/area/planet/forest/cave/dorms)
 "fJ" = (
 /obj/random/trash,
 /obj/effect/decal/cleanable/filth,
@@ -2954,9 +2952,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/item/card/id/science/head,
+/obj/item/card/id/science/head{
+	access = list("ACCESS_RESEARCH")
+	},
 /obj/item/paper,
 /obj/item/toy/plushie/loot,
+/obj/item/pen/department/sci,
+/obj/item/pen/multi,
 /turf/simulated/floor/carpet/purple,
 /area/planet/forest/cave/lab)
 "he" = (
@@ -4467,6 +4469,10 @@
 /area/planet/forest/cave/kitchen)
 "kw" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
+/obj/item/shellfish/clam,
+/obj/item/shellfish/clam,
+/obj/item/shellfish/clam,
+/obj/item/shellfish/clam,
 /turf/simulated/floor/tiled/freezer,
 /area/planet/forest/cave/kitchen)
 "kx" = (
@@ -4481,6 +4487,7 @@
 /area/planet/forest/cave/kitchen)
 "kz" = (
 /obj/structure/table/standard,
+/obj/machinery/reagent_temperature/cooler,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/kitchen)
 "kA" = (
@@ -4581,6 +4588,17 @@
 "kP" = (
 /obj/machinery/light/small,
 /obj/structure/closet/secure_closet/freezer/meat,
+/obj/item/shellfish/crab,
+/obj/item/shellfish/crab,
+/obj/item/shellfish/crab,
+/obj/item/shellfish/crab,
+/obj/item/shellfish/shrimp,
+/obj/item/shellfish/shrimp,
+/obj/item/shellfish/shrimp,
+/obj/item/shellfish/shrimp,
+/obj/item/shellfish/shrimp,
+/obj/item/shellfish/shrimp,
+/obj/item/shellfish/shrimp,
 /turf/simulated/floor,
 /area/planet/forest/cave/kitchen)
 "kQ" = (
@@ -4856,12 +4874,50 @@
 /obj/item/material/shard,
 /turf/simulated/floor/tiled/dark,
 /area/planet/forest/cave/engie)
-"sr" = (
-/obj/item/clothing/glasses/eyepatch/hud/meson,
-/turf/simulated/floor/asteroid/planet,
-/area/planet/forest/cave)
+"sT" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
 "tC" = (
 /obj/item/storage/ore,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"yv" = (
+/obj/structure/closet/crate/secure,
+/obj/item/stock_parts/matter_bin/adv,
+/obj/item/stock_parts/matter_bin/adv,
+/obj/item/stock_parts/matter_bin/adv,
+/obj/item/stock_parts/matter_bin/adv,
+/obj/item/stock_parts/matter_bin/adv,
+/obj/item/stock_parts/micro_laser/high,
+/obj/item/stock_parts/micro_laser/high,
+/obj/item/stock_parts/micro_laser/high,
+/obj/item/stock_parts/micro_laser/high,
+/obj/item/stock_parts/micro_laser/high,
+/obj/item/stock_parts/manipulator/nano,
+/obj/item/stock_parts/manipulator/nano,
+/obj/item/stock_parts/manipulator/nano,
+/obj/item/stock_parts/manipulator/nano,
+/obj/item/stock_parts/manipulator/nano,
+/obj/item/stock_parts/circuitboard/body_scanconsole,
+/obj/item/stock_parts/capacitor/adv,
+/obj/item/stock_parts/capacitor/adv,
+/obj/item/stock_parts/capacitor/adv,
+/obj/item/stock_parts/capacitor/adv,
+/obj/item/stock_parts/capacitor/adv,
+/obj/item/stock_parts/capacitor/adv,
+/obj/item/stock_parts/scanning_module/adv,
+/obj/item/stock_parts/scanning_module/adv,
+/obj/item/stock_parts/scanning_module/adv,
+/obj/item/stock_parts/scanning_module/adv,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"Ae" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/turf/simulated/floor,
+/area/planet/forest/cave/hall)
+"DH" = (
+/obj/item/clothing/glasses/eyepatch/hud/meson,
 /turf/simulated/floor/asteroid/planet,
 /area/planet/forest/cave)
 "Hn" = (
@@ -4893,14 +4949,51 @@
 /obj/item/remains/xeno,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
+"Oy" = (
+/obj/effect/decal/remains,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
 "OB" = (
 /obj/effect/spider/stickyweb,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/dorms)
+"PL" = (
+/obj/item/stock_parts/circuitboard/arcade/orion_trail,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"Qr" = (
+/obj/effect/decal/cleanable/filth,
+/obj/machinery/portable_atmospherics/hydroponics,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"Sz" = (
+/obj/effect/floor_decal/corner/purple/three_quarters{
+	dir = 1;
+	icon_state = "corner_white_three_quarters"
+	},
+/obj/structure/largecrate/animal/cow,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"SG" = (
+/obj/item/pickaxe/jackhammer,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"Tu" = (
+/obj/effect/floor_decal/corner/purple/half{
+	dir = 1
+	},
+/obj/structure/largecrate/animal/chick,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
 "WS" = (
 /obj/item/device/multitool,
 /turf/simulated/floor/asteroid/planet,
 /area/planet/forest/cave)
+"Xl" = (
+/obj/structure/table/standard,
+/obj/machinery/reagent_temperature,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/kitchen)
 "Zk" = (
 /obj/structure/ore_box,
 /turf/simulated/floor/asteroid/planet,
@@ -6562,7 +6655,7 @@ al
 ak
 ak
 al
-al
+SG
 al
 ak
 ak
@@ -6827,7 +6920,7 @@ ak
 ak
 ak
 al
-al
+Oy
 al
 ak
 ak
@@ -7908,7 +8001,7 @@ aE
 eh
 eO
 fk
-fI
+fO
 ae
 eh
 cs
@@ -10044,7 +10137,7 @@ aZ
 bA
 ca
 cD
-bA
+yv
 aJ
 dT
 ey
@@ -10245,7 +10338,7 @@ al
 aE
 aJ
 ba
-bA
+PL
 cc
 cF
 dc
@@ -10264,7 +10357,7 @@ fT
 jy
 jY
 iS
-kz
+Xl
 lc
 aE
 al
@@ -10569,8 +10662,8 @@ dt
 iW
 jA
 cs
-cs
-dt
+sT
+Qr
 aH
 aE
 al
@@ -10671,8 +10764,8 @@ it
 iX
 cs
 bQ
-dt
-aQ
+Qr
+Ae
 aH
 aE
 al
@@ -10804,7 +10897,7 @@ ak
 ak
 ak
 ak
-al
+Oy
 al
 ak
 ak
@@ -11891,7 +11984,7 @@ gF
 hd
 hO
 gb
-gC
+Tu
 jg
 jK
 jf
@@ -11993,7 +12086,7 @@ gG
 he
 hP
 gb
-gD
+Sz
 NZ
 jh
 Mm
@@ -13153,7 +13246,7 @@ ak
 ak
 ak
 al
-sr
+DH
 ak
 ak
 ak
@@ -13703,6 +13796,7 @@ ak
 ak
 al
 ak
+Oy
 al
 al
 al
@@ -13712,7 +13806,6 @@ al
 al
 al
 al
-al
 ak
 ak
 ak
@@ -13739,20 +13832,6 @@ ak
 ak
 al
 al
-ak
-ak
-al
-al
-al
-ak
-ak
-ak
-ak
-ak
-ak
-ak
-al
-ak
 ak
 ak
 al
@@ -13764,7 +13843,21 @@ ak
 ak
 ak
 ak
-sr
+ak
+al
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+DH
 al
 al
 al
@@ -14233,7 +14326,7 @@ al
 al
 al
 al
-al
+Oy
 ak
 ak
 ak
