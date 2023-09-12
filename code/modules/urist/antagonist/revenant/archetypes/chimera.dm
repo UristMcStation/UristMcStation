@@ -124,7 +124,7 @@
 
 				// Short-circuit to a return; because reviving is more distortey
 				if(valid_revenant)
-					revenant.total_distortion += BSR_DISTORTION_GROWTH_OVER_SECONDS(1500, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
+					revenant.total_distortion += BSR_DISTORTION_GROWTH_OVER_SECONDS(6000, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
 					return TRUE
 
 		for(var/obj/item/organ/external/E in H.bad_external_organs)
@@ -158,7 +158,7 @@
 				to_chat(L, SPAN_NOTICE("Your brain itches as you knit its wounds shut."))
 
 				if(valid_revenant)
-					revenant.total_distortion += BSR_DISTORTION_GROWTH_OVER_SECONDS(brain_dmg*3, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
+					revenant.total_distortion += BSR_DISTORTION_GROWTH_OVER_SECONDS(brain_dmg*30, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
 					return FALSE
 
 		// Clone
@@ -169,7 +169,7 @@
 				to_chat(L, SPAN_NOTICE("You feel your genome rearranging. Somehow."))
 
 				if(valid_revenant)
-					revenant.total_distortion += BSR_DISTORTION_GROWTH_OVER_SECONDS(clone_dmg, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
+					revenant.total_distortion += BSR_DISTORTION_GROWTH_OVER_SECONDS(clone_dmg*10, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
 					return FALSE
 
 		// Tox
@@ -180,7 +180,7 @@
 				to_chat(L, SPAN_NOTICE("You purge necrotic tissue from your system."))
 
 				if(valid_revenant)
-					revenant.total_distortion += BSR_DISTORTION_GROWTH_OVER_SECONDS(tox_dmg, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
+					revenant.total_distortion += BSR_DISTORTION_GROWTH_OVER_SECONDS(tox_dmg*25, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
 					return FALSE
 
 		// Brute
@@ -191,7 +191,7 @@
 				to_chat(L, SPAN_NOTICE("You knit your wounds shut."))
 
 				if(valid_revenant)
-					revenant.total_distortion += BSR_DISTORTION_GROWTH_OVER_SECONDS(brute_dmg, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
+					revenant.total_distortion += BSR_DISTORTION_GROWTH_OVER_SECONDS(brute_dmg*10, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
 					return FALSE
 
 		// Fire left off on purpose
