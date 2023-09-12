@@ -28,19 +28,19 @@ exactly 2 "/atom text paths" '"/atom'
 exactly 2 "/area text paths" '"/area'
 exactly 2 "/datum text paths" '"/datum'
 exactly 2 "/mob text paths" '"/mob'
-exactly 12 "/obj text paths" '"/obj'
+exactly 10 "/obj text paths" '"/obj'
 exactly 8 "/turf text paths" '"/turf'
 exactly 139 "to_world uses" '\sto_world\('
 exactly 0 "globals with leading /" '^/var' -P
 exactly 0 "globals without global sugar" '^var/(?!global/)' -P
 exactly 0 "apparent paths with trailing /" '\w/[,\)\n]' -P
-exactly 56 "to_world_log uses" '\sto_world_log\('
+exactly 55 "to_world_log uses" '\sto_world_log\('
 exactly 0 "world<< uses" 'world<<|world[[:space:]]<<'
 exactly 0 "world.log<< uses" 'world.log<<|world.log[[:space:]]<<'
 exactly 2 "<< uses" '(?<!<)<<(?!<)' -P
 exactly 2 ">> uses" '(?<!>)>>(?!>)' -P
 exactly 0 "incorrect indentations" '^( {4,})' -P
-exactly 28 "text2path uses" 'text2path'
+exactly 26 "text2path uses" 'text2path'
 exactly 3 "update_icon() override" '/update_icon\((.*)\)'  -P
 exactly 5 "goto use" 'goto '
 exactly 1 "NOOP match" 'NOOP'
