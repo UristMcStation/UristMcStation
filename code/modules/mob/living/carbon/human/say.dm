@@ -23,7 +23,7 @@
 	var/snowflake_speak = (speaking && (speaking.flags & (NONVERBAL|SIGNLANG))) || (vox && vox.is_usable() && vox.assists_languages[speaking])
 	if(!isSynthetic() && need_breathe() && failed_last_breath && !snowflake_speak)
 		var/obj/item/organ/internal/lungs/L = internal_organs_by_name[species.breathing_organ]
-		if(!L || L.breath_fail_ratio > 0.9)
+		if(!L || L.breath_fail_ratio > 0.6)
 			if(L && world.time < L.last_successful_breath + 2 MINUTES) //if we're in grace suffocation period, give it up for last words
 				to_chat(src, SPAN_WARNING("You use your remaining air to say something!"))
 				L.last_successful_breath = world.time - 2 MINUTES
@@ -31,10 +31,10 @@
 
 			to_chat(src, SPAN_WARNING("You don't have enough air[L ? " in [L]" : ""] to make a sound!"))
 			return
-		else if(L.breath_fail_ratio > 0.7)
+		else if(L.breath_fail_ratio > 0.3)
 			whisper_say(length(message) > 5 ? stars(message) : message, speaking)
 			return
-		else if(L.breath_fail_ratio > 0.4 && length(message) > 10)
+		else if(L.breath_fail_ratio > 0.15 && length(message) > 10)
 			whisper_say(message, speaking)
 			return
 	return ..(message, speaking = speaking, whispering = whispering)
