@@ -72,30 +72,33 @@
 
 /mob/living/simple_animal/use_tool(obj/item/tool, mob/user, list/click_params)
 	// Butcher's Cleaver - Butcher dead mob
-	if (istype(tool, /obj/item/material/knife/kitchen/cleaver))
+	if (istype(tool, /obj/item/material/knife) && tool.edge && tool.sharp)
+		var/obj/item/material/knife/K = tool
+
 		if (stat != DEAD)
 			USE_FEEDBACK_FAILURE("\The [src] must be dead before you can butcher \him.")
 			return TRUE
-		if (!meat_type || !meat_amount)
+		if (!meat_type && !meat_amount || !skin_material && !skin_amount)
 			USE_FEEDBACK_FAILURE("\The [src] can't be butchered.")
 			return TRUE
-		var/turf/turf = get_turf(src)
-		if (!locate(/obj/structure/table, turf))
-			USE_FEEDBACK_FAILURE("You need to place \the [src] on a table to butcher \him.")
-			return TRUE
-		var/time_to_butcher = mob_size
+//		var/turf/turf = get_turf(src)
+//		if (!locate(/obj/structure/table, turf))
+//			USE_FEEDBACK_FAILURE("You need to place \the [src] on a table to butcher \him.")
+//			return TRUE
+		var/time_to_butcher = (mob_size * K.butchery_efficiency) * 2
 		user.visible_message(
-			SPAN_WARNING("\The [user] begins butchering \the [src]'s corpse with \a [tool]."),
-			SPAN_WARNING("You begin \the [src]'s corpse with \the [tool].")
+			SPAN_WARNING("\The [user] begins processing \the [src]'s corpse with \a [K]."),
+			SPAN_WARNING("You begin to process \the [src]'s corpse with \the [K].")
 		)
-		if (!do_after(user, time_to_butcher, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, tool))
-			USE_FEEDBACK_FAILURE("Some of \the [src]'s meat is ruined.")
+		if (!do_after(user, time_to_butcher, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, K))
+			USE_FEEDBACK_FAILURE("Some of \the [src]'s meat and hide is ruined.") //you have to work pretty hard to fuck up the bones
 			subtract_meat(user)
+			subtract_hide(user)
 			return TRUE
 		harvest(user, 4)
 		user.visible_message(
-			SPAN_WARNING("\The [user] harvests some meat from \the [src] with \a [tool]."),
-			SPAN_WARNING("You harvest some meat from \the [src] with \the [tool].")
+			SPAN_WARNING("\The [user] harvests some meat and hide from \the [src] with \a [K]."),
+			SPAN_WARNING("You harvest some meat and hide from \the [src] with \the [K].")
 		)
 		return TRUE
 

@@ -115,7 +115,7 @@
 			var/fed_in = 0
 			overlays.Cut()
 			for (var/obj/item/carried in carrying)
-				if (fridge.accept_check(carried))
+				if (fridge.accept_check(carried, user))
 					carried.dropInto(fridge)
 					fridge.stock_item(carried)
 					LAZYREMOVE(carrying, carried)

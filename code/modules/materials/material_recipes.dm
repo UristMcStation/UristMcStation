@@ -179,7 +179,7 @@
 		return
 	. += new/datum/stack_recipe/grenade(src)
 
-/material/leather/generate_recipes(reinforce_material)
+/*/material/leather/generate_recipes(reinforce_material)
 	. = ..()
 	if(reinforce_material)	//recipes below don't support composite materials
 		return
@@ -189,4 +189,4 @@
 	. += new/datum/stack_recipe/bandolier(src)
 	. += new/datum/stack_recipe/holster(src)
 	. += new/datum/stack_recipe/holster_machete(src)
-	. += new/datum/stack_recipe/holster_knife(src)
+	. += new/datum/stack_recipe/holster_knife(src)*/

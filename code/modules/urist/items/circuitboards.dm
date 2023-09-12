@@ -2,17 +2,6 @@
 #error T_BOARD macro is not defined but we need it!
 #endif
 
-/obj/item/stock_parts/circuitboard/tanningrack
-	name = T_BOARD("tanning rack")
-	build_path = /obj/machinery/smartfridge/tanningrack
-	board_type = "machine"
-	origin_tech = list(TECH_BIO = 1, TECH_ENGINEERING = 1)
-	req_components = list(
-							/obj/item/stock_parts/scanning_module = 1,
-							/obj/item/stack/material/wood = 4,
-							/obj/item/stack/cable_coil = 5,
-							/obj/item/stock_parts/console_screen = 1)
-
 /obj/item/stock_parts/circuitboard/carpentryplaner
 	name = T_BOARD("wood processor")
 	build_path = /obj/machinery/carpentry/planer

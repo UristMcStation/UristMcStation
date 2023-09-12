@@ -486,8 +486,13 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "woodenbarricade-snow-old"
 	health_max = 75
 
+//here's another random barricade
+/obj/structure/barricade/spike/metal
+	material = MATERIAL_STEEL
+
 /obj/structure/silicon_decoy
 	icon = 'icons/mob/AI.dmi'
 	icon_state = "ai"
 	anchored = TRUE
 	density = TRUE
+

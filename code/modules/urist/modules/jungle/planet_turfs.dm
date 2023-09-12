@@ -563,7 +563,7 @@
 
 				bridge = 0
 
-	else if(istype(I, /obj/item/stack/hide/animalhide))
+/*	else if(istype(I, /obj/item/stack/hide/animalhide))
 		to_chat(user, "<span class='notice'>You immerse the hide in the water.</span>")
 		if (do_after(user, 30, src))
 			var/obj/item/stack/hide/animalhide/AH = I
@@ -572,6 +572,7 @@
 			user.remove_from_mob(AH)
 			user.put_in_hands(WL)
 			qdel(AH)
+*/
 
 	var/obj/item/reagent_containers/RG = I
 	if (istype(RG) && RG.is_open_container())
