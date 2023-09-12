@@ -6,7 +6,7 @@
 	name =  "\improper Salvage Gantry"
 	id = "awaysite_gantry"
 	description = "Salvage Gantry turned Ship"
-	suffixes = list("scavver/scavver_gantry-1.dmm","scavver/scavver_gantry-2.dmm")
+	suffixes = list("scavver_gantry/scavver_gantry-1.dmm","scavver_gantry/scavver_gantry-2.dmm")
 	spawn_cost = 1
 	player_cost = 4
 	accessibility_weight = 10
@@ -98,7 +98,7 @@
 	install_system(new /obj/item/mech_equipment/ionjets(src), HARDPOINT_BACK)
 
 /area/scavver
-	icon = 'maps/away/scavver/scavver_gantry_sprites.dmi'
+	icon = 'maps/away/scavver_gantry/scavver_gantry_sprites.dmi'
 
 /area/scavver/gantry/up1
 	name = "\improper Upper Salvage Gantry Arm"

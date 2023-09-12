@@ -188,6 +188,8 @@
 	var/bad_tests = 0
 
 	for(var/obj/structure/closet/C in world)
+		if (istype(C, /obj/structure/closet/crate/secure/loot))	//Loot closets can spew out some silly amounts of large stuff that'll never fit back inside. Ignore these.
+			continue
 		if(!C.opened && isPlayerLevel(C.z))
 			var/total_content_size = 0
 			for(var/atom/movable/AM in C.contents)
@@ -212,6 +214,8 @@
 	var/bad_tests = 0
 
 	for(var/obj/structure/closet/C in world)
+		if (istype(C, /obj/structure/closet/crate/secure/loot))	//Loot closets can spew out some silly amounts of large stuff that'll never fit back inside. Ignore these.
+			continue
 		if(!C.opened && isPlayerLevel(C.z))
 			var/contents_pre_open = C.contents.Copy()
 			C.dump_contents()
@@ -394,12 +398,12 @@
 
 	for(var/obj/machinery/cryopod/C in SSmachines.machinery)
 		if(!C.control_computer)
-			log_bad("[get_area(C)] lacks a cryopod control computer while holding a cryopod.")
+			log_bad("[log_info_line(get_area(C))] lacks a cryopod control computer while holding a cryopod.")
 			pass = FALSE
 
 	for(var/obj/machinery/computer/cryopod/C in SSmachines.machinery)
 		if(!(locate(/obj/machinery/cryopod) in get_area(C)))
-			log_bad("[get_area(C)] lacks a cryopod while holding a control computer.")
+			log_bad("[log_info_line(get_area(C))] lacks a cryopod while holding a control computer.")
 			pass = FALSE
 
 	if(pass)
