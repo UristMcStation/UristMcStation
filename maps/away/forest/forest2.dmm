@@ -14,16 +14,18 @@
 /area/planet/forest)
 "ae" = (
 /obj/structure/table/rack,
-/obj/random/tech_supply,
-/obj/random/tech_supply,
-/obj/random/tech_supply,
-/obj/random/tech_supply,
-/obj/random/tech_supply,
-/obj/random/tech_supply,
 /obj/item/storage/toolbox/mechanical,
 /obj/item/storage/toolbox/electrical,
 /obj/item/storage/toolbox/mechanical,
 /obj/item/stock_parts/keyboard,
+/obj/item/stack/cable_coil/random,
+/obj/item/stack/cable_coil/random,
+/obj/item/stack/cable_coil/random,
+/obj/item/stack/cable_coil/random,
+/obj/item/stock_parts/keyboard,
+/obj/item/stock_parts/keyboard,
+/obj/item/stock_parts/keyboard,
+/obj/item/stock_parts/console_screen,
 /obj/item/stack/cable_coil/random,
 /turf/simulated/floor/planet/jungle/clear/underground,
 /area/planet/forest/cabin1)
@@ -248,6 +250,7 @@
 /obj/random/treasure,
 /obj/structure/closet/coffin/urist/stonecoffin,
 /obj/item/material/coin/challenge/loot/gold,
+/obj/item/clothing/head/urist/pelt/bear/white,
 /turf/simulated/floor/wood/ebony,
 /area/planet/forest)
 "bh" = (
@@ -527,7 +530,8 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "north bump";
-	pixel_y = 24
+	pixel_y = 24;
+	locked = 0
 	},
 /turf/simulated/floor,
 /area/planet/forest/cabin2)
@@ -632,7 +636,6 @@
 /obj/item/seeds/carrotseed,
 /obj/item/seeds/carrotseed,
 /obj/item/seeds/carrotseed,
-/obj/item/storage/plants,
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest/cabin1)
 "cV" = (
@@ -647,7 +650,8 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "north bump";
-	pixel_y = 24
+	pixel_y = 24;
+	locked = 0
 	},
 /turf/simulated/floor/wood{
 	icon_state = "wood_broken5"
@@ -656,6 +660,7 @@
 "cX" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
 /obj/effect/floor_decal/corner/black/diagonal,
+/obj/item/reagent_containers/food/condiment/salt,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cabin1)
 "cY" = (
@@ -674,6 +679,7 @@
 "da" = (
 /obj/item/carpentry/axe,
 /obj/item/carpentry/axe,
+/obj/item/storage/plants,
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest/cabin1)
 "db" = (
@@ -699,6 +705,8 @@
 /obj/item/seeds/towermycelium,
 /obj/item/seeds/towermycelium,
 /obj/item/device/scanner/plant,
+/obj/item/seeds/peppercornseed,
+/obj/item/seeds/peppercornseed,
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest/cabin1)
 "dc" = (
@@ -753,8 +761,6 @@
 /obj/item/stock_parts/circuitboard/autolathe,
 /obj/item/stock_parts/circuitboard/carpentryplaner,
 /obj/item/stock_parts/circuitboard/woodprocessor,
-/obj/item/stock_parts/circuitboard/mining_processor,
-/obj/item/stock_parts/circuitboard/mineral_processing,
 /obj/item/device/radio/off/old,
 /obj/item/device/radio/off/old,
 /obj/item/device/radio/off/old,
@@ -891,10 +897,16 @@
 /obj/structure/hygiene/toilet{
 	dir = 1
 	},
+/mob/living/simple_animal/passive/opossum,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cabin1)
 "dR" = (
 /obj/structure/closet/crate/solar,
+/turf/simulated/floor/planet/jungle/clear/underground,
+/area/planet/forest/cabin1)
+"dV" = (
+/obj/item/stock_parts/power/apc/buildable,
+/obj/item/stock_parts/power/apc/buildable,
 /turf/simulated/floor/planet/jungle/clear/underground,
 /area/planet/forest/cabin1)
 "iG" = (
@@ -903,6 +915,10 @@
 	dir = 8
 	},
 /turf/simulated/floor/planet/dirt/temperate,
+/area/planet/forest)
+"jc" = (
+/obj/machinery/chem_master,
+/turf/simulated/floor/planet/temperate,
 /area/planet/forest)
 "kk" = (
 /obj/structure/kitchenspike,
@@ -941,6 +957,20 @@
 	},
 /turf/simulated/floor/planet/dirt/temperate,
 /area/planet/forest)
+"vE" = (
+/obj/structure/closet/crate,
+/obj/item/clothing/head/hardhat/EMS,
+/obj/item/clothing/head/hardhat/dblue,
+/obj/item/clothing/head/hardhat,
+/obj/item/clothing/head/hardhat,
+/obj/item/clothing/head/hardhat/orange,
+/obj/item/clothing/suit/storage/hazardvest,
+/obj/item/clothing/suit/storage/hazardvest,
+/obj/item/clothing/suit/storage/hazardvest,
+/obj/item/clothing/suit/storage/hazardvest,
+/obj/item/clothing/suit/storage/hazardvest,
+/turf/simulated/floor/planet/jungle/clear/underground,
+/area/planet/forest/cabin1)
 "BN" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/planet/jungle/clear/underground,
@@ -5691,7 +5721,7 @@ ab
 ab
 ab
 ab
-bc
+jc
 bc
 bs
 bc
@@ -10357,7 +10387,7 @@ df
 ae
 dn
 dn
-dt
+dV
 dn
 dB
 dB
@@ -10459,7 +10489,7 @@ df
 dl
 do
 BN
-dn
+vE
 dn
 dn
 dn

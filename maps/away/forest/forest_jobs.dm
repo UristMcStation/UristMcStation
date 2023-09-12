@@ -9,7 +9,7 @@
 
 /datum/job/submap/forest_settler
 	title = "Terrestrial Pioneer"
-	supervisors = "your chosen diety if they can hear you out here."
+	supervisors = "your chosen deity if they can hear you out here."
 	total_positions = 4
 	outfit_type = /singleton/hierarchy/outfit/job/forest_settler
 	info = "Whether the boredom of space life or a desire to get away from the bustle of city life, \
