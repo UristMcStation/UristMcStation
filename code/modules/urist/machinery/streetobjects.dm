@@ -152,7 +152,6 @@
 							"movie1",
 							"movie2",
 							"blank",
-							"gentrified",
 							"legalcoke",
 							"pollux",
 							"vacay",
