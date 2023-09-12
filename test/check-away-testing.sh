@@ -40,20 +40,20 @@ function find_code {
 find_code
 msg "checking away_sites_testing.dm ..."
 for dir in maps/away/*/; do
-    ((TOTAL++))
-    name="$(basename "$dir")"
-    if [[ " ${EXCLUDE[*]} " =~ " ${name} " ]]; then
-	    ((SKIPPED++))
-	    continue
-	fi
-	eval "grep -q '#include \"../away/$name/$name.dm\"' maps/away_sites_testing/away_sites_testing.dm"
-    ret=$?
-    if [[ ret -eq 1 ]]; then
-        msg_bad "could not find $name in away_sites_testing.dm"
-        ((FAILED++))
-    fi
+  ((TOTAL++))
+  name="$(basename "$dir")"
+  if [[ " ${EXCLUDE[*]} " =~ " ${name} " ]]; then
+    ((SKIPPED++))
+    continue
+  fi
+  eval "grep -q '#include \"../away/$name/$name.dm\"' maps/away_sites_testing/away_sites_testing.dm"
+  ret=$?
+  if [[ ret -eq 1 ]]; then
+    msg_bad "could not find $name in away_sites_testing.dm"
+    ((FAILED++))
+  fi
 done
 if [[ $FAILED -ne 0 ]]; then
-    err "[$FAILED/$TOTAL]($SKIPPED Skipped) away maps not found in away_sites_testing.dm"
+  err "[$FAILED/$TOTAL]($SKIPPED Skipped) away maps not found in away_sites_testing.dm"
 else msg_good "[$TOTAL]($SKIPPED Skipped) away maps included in away_sites_testing.dm"
 fi
