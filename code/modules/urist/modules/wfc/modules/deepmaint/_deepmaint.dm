@@ -6,4 +6,3 @@
 #include "turfs.dm"
 #include "generation.dm"
 #include "admins.dm"
-//#include "event.dm"

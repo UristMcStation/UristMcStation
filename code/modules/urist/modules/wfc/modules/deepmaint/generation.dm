@@ -14,7 +14,6 @@
 
 /area/map_template/deepmaint_wfc/proc/generate_deepmaint(var/ruleset = "deepmaint.json", var/mapname = "genmap.json")
 	if(!GLOB.wfc_deepmaint_zlevels_by_instance)
-		to_world_log("No Deepmaint Z-levels registered!")
 		return FALSE
 
 	var/min_z = null
