@@ -1,7 +1,7 @@
 /turf/simulated/floor/road
 	name = "Road"
 	desc = "It's a road"
-	icon = 'maps/away/geminus_city/citymap_icons/roads.dmi'
+	icon = 'icons/urist/citymap_icons/roads.dmi'
 	icon_state = "road"
 
 /turf/simulated/floor/road/empty
@@ -16,7 +16,7 @@
 /turf/simulated/floor/pavement
 	name = "Pavement"
 	desc = "It's a pavement"
-	icon = 'maps/away/geminus_city/citymap_icons/pavement.dmi'
+	icon = 'icons/urist/citymap_icons/pavement.dmi'
 	icon_state = "pavement"
 
 /turf/simulated/floor/pavement/empty
@@ -43,7 +43,7 @@
 
 /turf/simulated/floor/fixed/uristturf/geminus
 	name = "floor"
-	icon = 'maps/away/geminus_city/citymap_icons/floors.dmi'
+	icon = 'icons/urist/citymap_icons/floors.dmi'
 
 /turf/simulated/floor/tiled/uristturf/geminus
-	icon = 'maps/away/geminus_city/citymap_icons/floors.dmi'
+	icon = 'icons/urist/citymap_icons/floors.dmi'

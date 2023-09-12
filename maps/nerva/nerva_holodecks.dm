@@ -133,12 +133,12 @@
 	name = "Pavement"
 	desc = "It's pavement, they've even simulated all the dry gum!"
 	base_desc = "It's pavement, they've even simulated all the dry gum!"
-	icon = 'maps/away/geminus_city/citymap_icons/pavement.dmi'
+	icon = 'icons/urist/citymap_icons/pavement.dmi'
 	icon_state = "pavement"
 
 /turf/simulated/floor/holofloor/urist/pavement_empty
 	name = "Pavement"
 	desc = "It's pavement, they've even simulated all the dry gum!"
 	base_desc = "It's pavement, they've even simulated all the dry gum!"
-	icon = 'maps/away/geminus_city/citymap_icons/pavement.dmi'
+	icon = 'icons/urist/citymap_icons/pavement.dmi'
 	icon_state = "pave_empty"

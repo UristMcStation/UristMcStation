@@ -2,7 +2,7 @@
 
 /obj/machinery/light/colored
 	name = "light fixture"
-	icon = 'maps/away/geminus_city/citymap_icons/coloredlights.dmi'
+	icon = 'icons/urist/citymap_icons/coloredlights.dmi'
 	base_state = "yellow"		// base description and icon_state
 	icon_state = "yellow1"
 	desc = "A lighting fixture."
@@ -84,7 +84,7 @@
 //	brightness_color = "#a0a080"
 
 /obj/machinery/light/overhead_blue
-	icon = 'maps/away/geminus_city/citymap_icons/floorlights.dmi'
+	icon = 'icons/urist/citymap_icons/floorlights.dmi'
 	icon_state = "inv1"
 	base_state = "inv"
 //	brightness_range = 10
@@ -93,7 +93,7 @@
 
 /obj/machinery/light/street
 	name = "street lamp"
-	icon = 'maps/away/geminus_city/citymap_icons/street.dmi'
+	icon = 'icons/urist/citymap_icons/street.dmi'
 	icon_state = "streetlamp1"
 	base_state = "streetlamp"
 	desc = "A street lighting fixture."
@@ -105,18 +105,18 @@
 	return
 
 /obj/machinery/light/invis
-	icon = 'maps/away/geminus_city/citymap_icons/floorlights.dmi'
+	icon = 'icons/urist/citymap_icons/floorlights.dmi'
 	icon_state = "inv1"
 	base_state = "inv"
 //	brightness_range = 8
 
 /obj/structure/grille/smallfence
-	icon = 'maps/away/geminus_city/citymap_icons/structures.dmi'
+	icon = 'icons/urist/citymap_icons/structures.dmi'
 	name = "small fence"
 	icon_state = "fence"
 
 /obj/structure/grille/frame
-	icon = 'maps/away/geminus_city/citymap_icons/structures.dmi'
+	icon = 'icons/urist/citymap_icons/structures.dmi'
 	name = "frame"
 	icon_state = "frame"
 
@@ -125,7 +125,7 @@
 /obj/machinery/billboard
 	name = "billboard"
 	desc = "A billboard"
-	icon = 'maps/away/geminus_city/citymap_icons/billboards.dmi'
+	icon = 'icons/urist/citymap_icons/billboards.dmi'
 	icon_state = "billboard"
 	density = FALSE
 	anchored = TRUE
@@ -142,11 +142,40 @@
 	var/default_light_inner_range = 1
 	var/default_light_outer_range = 4
 	var/default_light_colour = "#ebf7fe"  //white blue
+	var/ads = list(			"ssl",
+							"ntbuilding",
+							"keeptidy",
+							"smoke",
+							"tunguska",
+							"vets",
+							"fitness",
+							"movie1",
+							"movie2",
+							"blank",
+							"gentrified",
+							"legalcoke",
+							"pollux",
+							"vacay",
+							"atluscity",
+							"sunstar",
+							"speedweed",
+							"golf",
+							"chonkers")
+	var/current_ad
+
+/obj/machinery/billboard/update_icon()
+	overlays.Cut()
+
+	if(!current_ad)
+		overlays += pick(ads)
+	else
+		overlays += current_ad
 
 /obj/machinery/billboard/Initialize()
 	.=..()
-	if(icon_state == "billboard")
-		icon_state = pick("ssl","ntbuilding","keeptidy","smoke","rent","vets","tunguska")
+	icon_state = "[initial(icon_state)][rand(1,4)]"
+
+	update_icon()
 
 	on = powered()
 
