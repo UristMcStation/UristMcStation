@@ -189,9 +189,9 @@
 		return
 	var/obj/item/organ/internal/lungs/lungs = victim.internal_organs_by_name[BP_LUNGS]
 	if(istype(lungs) && !(victim.status_flags & FAKEDEATH))
-		if(lungs.breath_fail_ratio < 0.3)
+		if(lungs.breath_fail_ratio < 0.1)
 			overlays += image(icon, icon_state = "breathing_normal")
-		else if(lungs.breath_fail_ratio < 1)
+		else if(lungs.breath_fail_ratio < 0.25)
 			overlays += image(icon, icon_state = "breathing_shallow")
 			if(read_alerts)
 				alerts[LUNGS_ALERT] = "Abnormal breathing detected!"

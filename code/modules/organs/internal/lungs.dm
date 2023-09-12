@@ -149,7 +149,7 @@
 
 	var/safe_pressure_min = min_breath_pressure // Minimum safe partial pressure of breathable gas in kPa
 	// Lung damage increases the minimum safe pressure.
-	safe_pressure_min = safe_pressure_min ** (1 + damage/max_damage)
+	safe_pressure_min = safe_pressure_min ** (1 + (damage/max_damage)/1.5) - 2 * owner.chem_effects[CE_STABLE]
 
 	if(!forced && owner.chem_effects[CE_BREATHLOSS] && !owner.chem_effects[CE_STABLE]) //opiates are bad mmkay
 		safe_pressure_min *= 1 + rand(1,4) * owner.chem_effects[CE_BREATHLOSS]
@@ -201,7 +201,8 @@
 
 	// Were we able to breathe?
 	var/failed_breath = failed_inhale || failed_exhale
-	if(!failed_breath)
+
+	if(((oxygen_deprivation / species.total_health) >= breath_fail_ratio))
 		last_successful_breath = world.time
 		owner.adjustOxyLoss(-5 * inhale_efficiency)
 		if(!BP_IS_ROBOTIC(src) && species.breathing_sound && is_below_sound_pressure(get_turf(owner)))
@@ -226,7 +227,7 @@
 	if(prob(10) && !owner.nervous_system_failure())
 		if(!owner.is_asystole())
 			if(active_breathing)
-				if(breath_fail_ratio > 0.5)
+				if(breath_fail_ratio > 0.15)
 					owner.visible_message(
 					"<B>\The [owner]</B> gasps for air!",
 					"<span class='danger'>You try to take a breath and fail!</span>",
@@ -241,8 +242,9 @@
 		else
 			owner.emote(pick("shiver","twitch"))
 
-	if(damage || owner.chem_effects[CE_BREATHLOSS] || world.time > last_successful_breath + 2 MINUTES)
-		owner.adjustOxyLoss(HUMAN_MAX_OXYLOSS*breath_fail_ratio)
+	// Oxygen saturation can only go down by how badly you're failing to breathe
+	if(((oxygen_deprivation / species.total_health) < breath_fail_ratio) || owner.chem_effects[CE_BREATHLOSS] || world.time > last_successful_breath + 2 MINUTES)
+		owner.adjustOxyLoss(HUMAN_MAX_OXYLOSS)
 
 	owner.oxygen_alert = max(owner.oxygen_alert, 2)
 	last_int_pressure = 0
