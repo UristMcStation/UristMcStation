@@ -84,6 +84,7 @@
 	cost = 20
 	containername = "osmium carbide plasteel sheets crate"
 
+/*
 /singleton/hierarchy/supply_pack/materials/phoron10
 	name = "10 phoron sheets"
 	contains = list(/obj/item/stack/material/phoron/ten)
@@ -118,7 +119,7 @@
 	cost = 20
 	containername = "diamond sheets crate"
 	newcargocost = 100
-
+*/
 //wood zone
 /singleton/hierarchy/supply_pack/materials/wood50
 	name = "50 wooden planks"

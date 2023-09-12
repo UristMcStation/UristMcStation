@@ -149,3 +149,15 @@
 	amount = rand(2,4)
 	desc = "A specialist in Lactera technology has recently arrived in this sector. The problem is that she has nothing to research. NanoTrasen needs the [GLOB.using_map.station_name] to deliver us [amount] Lactera energy weapons, of any type."
 	..()
+
+//mining
+
+/datum/contract/cargo/ore
+	name = "Phoron Ore Delivery Contract"
+	wanted_types = list(/obj/item/ore/phoron)
+	money = 100
+
+/datum/contract/cargo/ore/New()
+	amount = rand(10,30)
+	desc = "There's always money in phoron. Mine [amount] units of ore and sell it to Nanotrasen for processing."
+	..()

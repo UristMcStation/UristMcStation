@@ -34,11 +34,13 @@
 "ap" = (
 /obj/structure/table/glass,
 /obj/random/maintenance,
+/obj/item/stock_parts/keyboard,
 /turf/simulated/floor/airless,
 /area/djstation)
 "aq" = (
 /obj/structure/table/glass,
 /obj/random/maintenance,
+/obj/item/stock_parts/console_screen,
 /turf/simulated/floor/tiled/airless,
 /area/djstation)
 "ar" = (
@@ -57,19 +59,21 @@
 /turf/simulated/floor/airless,
 /area/djstation)
 "aw" = (
-/obj/random/closet,
 /obj/random/loot,
+/obj/item/stock_parts/circuitboard/teleporter,
+/obj/structure/table/glass,
 /turf/simulated/floor/tiled/airless,
 /area/djstation)
 "ax" = (
 /obj/random/junk,
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	id_tag = "lp_north_airlock";
-	pixel_x = 24;
+	pixel_x = 22;
 	tag_airpump = "lp_north_pump";
 	tag_chamber_sensor = "lp_north_sensor";
 	tag_exterior_door = "lp_north_outer";
-	tag_interior_door = "lp_north_inner"
+	tag_interior_door = "lp_north_inner";
+	dir = 8
 	},
 /turf/simulated/floor/airless,
 /area/djstation)
@@ -180,6 +184,16 @@
 /area/djstation)
 "aY" = (
 /obj/random/closet,
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24
+	},
+/obj/structure/cable{
+	d1 = 0;
+	d2 = 8;
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/airless,
 /area/djstation)
 "aZ" = (
@@ -233,6 +247,18 @@
 /obj/effect/shuttle_landmark/cluster/nav2,
 /turf/space,
 /area/space)
+"fh" = (
+/obj/structure/table/steel,
+/obj/random/maintenance,
+/obj/item/stack/material/tritium/ten,
+/obj/item/stack/material/tritium/ten,
+/obj/random/tech_supply,
+/obj/random/tool,
+/obj/item/storage/belt/utility/full,
+/obj/item/device/radio,
+/obj/item/device/spaceflare,
+/turf/simulated/floor/tiled/airless,
+/area/djstation)
 "gb" = (
 /obj/effect/shuttle_landmark/cluster/nav3,
 /turf/space,
@@ -253,6 +279,11 @@
 	},
 /turf/simulated/floor/asteroid,
 /area/mine/explored)
+"jY" = (
+/obj/machinery/power/smes/buildable,
+/obj/structure/cable,
+/turf/simulated/floor/tiled/airless,
+/area/djstation)
 "kb" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
@@ -292,9 +323,25 @@
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/airless,
 /area/djstation)
+"pA" = (
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/airless,
+/area/djstation)
 "qb" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/djstation)
+"qH" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/airless,
 /area/djstation)
@@ -312,6 +359,15 @@
 	master_tag = "lp_north_airlock";
 	name = "interior access button";
 	pixel_y = 24
+	},
+/turf/simulated/floor/airless,
+/area/djstation)
+"sx" = (
+/obj/machinery/power/port_gen/pacman/mrs{
+	anchored = 1
+	},
+/obj/structure/cable/orange{
+	dir = 1
 	},
 /turf/simulated/floor/airless,
 /area/djstation)
@@ -394,6 +450,13 @@
 	},
 /turf/simulated/floor/tiled/airless,
 /area/djstation)
+"Ar" = (
+/obj/structure/cable/orange,
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/djstation)
 "Db" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/airless,
@@ -403,6 +466,23 @@
 	dir = 1
 	},
 /turf/simulated/floor/airless,
+/area/djstation)
+"Il" = (
+/obj/structure/cable,
+/obj/machinery/power/terminal,
+/turf/simulated/floor/airless,
+/area/djstation)
+"SY" = (
+/obj/effect/shuttle_landmark/ntminingshuttle,
+/turf/space,
+/area/space)
+"Ua" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/airless,
 /area/djstation)
 
 (1,1,1) = {"
@@ -23193,7 +23273,7 @@ aX
 aZ
 ba
 bb
-aX
+fh
 aj
 ab
 ab
@@ -23397,9 +23477,9 @@ ar
 as
 ar
 aj
-ab
-ab
-ab
+aj
+aj
+aj
 ab
 ab
 ab
@@ -23598,9 +23678,9 @@ ar
 aO
 ar
 ar
-aj
-aj
-aj
+at
+sx
+Ar
 aj
 ab
 ab
@@ -23795,14 +23875,14 @@ ar
 ar
 ar
 aK
-ar
-ar
-at
-ar
-at
-ar
-ar
-aI
+pA
+Ua
+qH
+Ua
+qH
+Ua
+Il
+jY
 aj
 ab
 ab
@@ -27395,7 +27475,7 @@ aa
 aa
 aa
 aa
-aa
+SY
 aa
 aa
 aa
