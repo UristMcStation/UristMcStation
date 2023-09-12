@@ -5,6 +5,8 @@
 	name = "asteroid cluster"
 	desc = "Large group of asteroids. Mineral content detected."
 	icon_state = "sector"
+	start_x = 4
+	start_y = 5
 	initial_generic_waypoints = list(
 		"nav_cluster_1",
 		"nav_cluster_2",
@@ -32,7 +34,7 @@
 	id = "awaysite_mining_asteroid"
 	description = "A medium-sized asteroid full of minerals."
 	suffixes = list("mining/mining-asteroid.dmm")
-	spawn_cost = 1
+	spawn_cost = 0
 	accessibility_weight = 10
 	generate_mining_by_z = 1
 	apc_test_exempt_areas = list(
