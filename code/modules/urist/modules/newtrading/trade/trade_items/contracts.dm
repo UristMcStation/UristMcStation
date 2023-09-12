@@ -32,6 +32,11 @@
 	item_type = /obj/item/paper/contract/nanotrasen/cargo/slime/mixed
 	category = "ntsciencecontract"
 
+/datum/trade_item/contract/ntscience/phoronmining
+	name = "Phoron Ore Delivery Contract"
+	item_type = /obj/item/paper/contract/nanotrasen/cargo/ore
+	category = "ntsciencecontract"
+
 //shiphunt
 
 /datum/trade_item/contract/ntsec/ntalienhunt

@@ -152,7 +152,6 @@
 							"movie1",
 							"movie2",
 							"blank",
-							"gentrified",
 							"legalcoke",
 							"pollux",
 							"vacay",
@@ -163,7 +162,8 @@
 							"chonkers")
 	var/current_ad
 
-/obj/machinery/billboard/update_icon()
+/obj/machinery/billboard/on_update_icon()
+	..()
 	overlays.Cut()
 
 	if(!current_ad)

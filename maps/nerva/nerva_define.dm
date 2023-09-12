@@ -52,7 +52,7 @@
 
 	num_exoplanets = 1
 
-	away_site_budget = 4
+	away_site_budget = 5
 	min_offmap_players = 0
 
 	date_offset = 560

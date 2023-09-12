@@ -245,3 +245,27 @@
 		/obj/item/storage/firstaid/rad,
 		/obj/item/storage/firstaid/toxin,
 		/obj/item/storage/med_pouch/radiation = 2)
+
+/singleton/closet_appearance/urist/sarcophagus
+	decals = null
+	extra_decals = null
+	base_icon = 'icons/urist/obj/sarcophagus.dmi' //uses the icon_states base, open, interior, lock / light / sparks (if possible), welded
+	color = "#ffffff"
+
+/obj/structure/closet/coffin/urist/sarcophagus
+	name = "sarcophagus"
+	desc = "It's a burial receptacle for the dearly departed."
+	closet_appearance = /singleton/closet_appearance/urist/sarcophagus
+	storage_types = CLOSET_STORAGE_MOBS
+
+/singleton/closet_appearance/urist/stonecoffin
+	decals = null
+	extra_decals = null
+	base_icon = 'icons/urist/obj/stonecoffin.dmi'
+	color = "#ffffff"
+
+/obj/structure/closet/coffin/urist/stonecoffin
+	name = "stone coffin"
+	desc = "It's a burial receptacle for the dearly departed."
+	closet_appearance = /singleton/closet_appearance/urist/stonecoffin
+	storage_types = CLOSET_STORAGE_MOBS

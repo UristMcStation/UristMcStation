@@ -212,6 +212,11 @@
 				do_butchery_step(user, CARCASS_EMPTY,   "butchering")
 		busy = FALSE
 
+/obj/structure/kitchenspike/improvised/attackby(obj/item/W as obj, mob/user as mob)
+	if(isWrench(W))
+		user.visible_message("/The [user] destroys the truss.", "You destroy the truss.")
+		qdel(src)
+
 #undef CARCASS_EMPTY
 #undef CARCASS_FRESH
 #undef CARCASS_SKINNED

@@ -570,9 +570,97 @@
 	maxHealth = 75
 	health = 75
 	projectiletype = /obj/item/projectile/energy/fireball
+
 	natural_weapon = /obj/item/natural_weapon/bite
 	attacktext = "slashed"
 	attack_sound = 'sound/weapons/rapidslice.ogg'
 	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/ranged_generic
 	say_list_type = /datum/say_list/monster_generic
 
+//Angels, old testament style
+
+/mob/living/simple_animal/hostile/urist/angel
+	name = "\improper angel"
+	desc = "A supposedly divine being known to bring the wrath of their deity."
+	response_help = "tries to poke"
+	response_disarm = "tries to shove"
+	response_harm = "tries to hit"
+	attacktext = "smites down"
+	icon= 'icons/uristmob/simpleanimals.dmi'
+	icon_state = "bluespace-angel"
+	icon_living = "bluespace-angel"
+	icon_dead = ""
+	faction = "divine"
+	maxHealth = 50
+	health = 50
+	natural_weapon = /obj/item/natural_weapon/angel
+	projectiletype = /obj/item/projectile/energy/holy
+	projectilesound = 'sound/magic/fireball.ogg'
+	harm_intent_damage = 0
+	needs_reload = TRUE
+	reload_time = 2.5 SECONDS
+	reload_sound = null
+
+
+/obj/item/natural_weapon/angel
+	name = "holy aura"
+	hitsound = 'sound/weapons/slash.ogg'
+	attack_verb = list("smited")
+	damtype = DAMAGE_BURN
+	force = 15
+
+/mob/living/simple_animal/hostile/urist/angel/death()
+	..()
+	visible_message("<span class='danger'>The [src.name] wails and disappears!</span>")
+	playsound(src.loc, 'sound/effects/angel-reveal.ogg', 50, 1)
+	flick("forgotten_die", src)
+	//sleep(4)
+	qdel(src)
+	return
+
+/obj/item/projectile/energy/holy
+	name = "holy fire"
+	icon = 'icons/obj/projectiles.dmi'
+	icon_state = "fireball"
+	fire_sound = 'sound/magic/fireball.ogg'
+	pass_flags = PASS_FLAG_TABLE | PASS_FLAG_GLASS | PASS_FLAG_GRILLE
+	damage = 15
+	damage_type = DAMAGE_BURN
+
+/obj/item/projectile/energy/holy/strong
+	damage = 25
+
+/mob/living/simple_animal/hostile/urist/angel/angry
+	name = "\improper angel"
+	icon_state = "angel-angry"
+	icon_living = "angel-angry"
+	maxHealth = 75
+	health = 75
+	projectiletype = /obj/item/projectile/energy/holy/strong
+
+
+/mob/living/simple_animal/hostile/urist/angel/bronze
+	name = "\improper angel"
+	icon_state = "bronze-angel"
+	icon_living = "bronze-angel"
+	maxHealth = 200
+	health = 200
+	projectiletype = /obj/item/projectile/energy/holy/strong
+
+//skeletons
+
+/mob/living/simple_animal/hostile/urist/skeleton/ancient
+	name = "ancient skeleton"
+	desc = "an ancient risen corpse."
+	icon= 'icons/uristmob/simpleanimals.dmi'
+	icon_state = "draugr1"
+	icon_living = "draugr1"
+	icon_dead = "skeleton_dead"
+	var/body_color
+
+/mob/living/simple_animal/hostile/urist/skeleton/ancient/New()
+	..()
+	if(!body_color)
+		body_color = pick( list("1","2","3","4","5","6") )
+	icon_state = "draugr[body_color]"
+	icon_living = "draugr[body_color]"

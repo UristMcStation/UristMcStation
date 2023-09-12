@@ -44,3 +44,8 @@
 
 /obj/item/paper/contract/nanotrasen/cargo/alienguns
 	contract_type = /datum/contract/cargo/alienguns
+
+//ore
+
+/obj/item/paper/contract/nanotrasen/cargo/ore
+	contract_type = /datum/contract/cargo/ore

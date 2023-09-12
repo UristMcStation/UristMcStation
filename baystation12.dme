@@ -3423,6 +3423,7 @@
 #include "code\modules\urist\modules\materials\recipes_cloth.dm"
 #include "code\modules\urist\modules\materials\recipes_iron.dm"
 #include "code\modules\urist\modules\materials\recipes_leather.dm"
+#include "code\modules\urist\modules\materials\recipes_skin.dm"
 #include "code\modules\urist\modules\materials\recipes_steel-plasteel.dm"
 #include "code\modules\urist\modules\materials\recipes_wood.dm"
 #include "code\modules\urist\modules\mecha\cvrt.dm"

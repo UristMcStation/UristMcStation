@@ -15,3 +15,14 @@
 	for(var/obj/structure/curtain/D in world)
 		if(D.id == src.id_tag)
 			D.toggle()
+
+//old comp sprite stuff
+/obj/machinery/computer/rdconsole/old
+	name = "research computer"
+	desc = "A stationary computer."
+	icon = 'icons/urist/structures&machinery/machinery.dmi'
+	icon_state = "1980_computer_on"
+
+/obj/structure/stairs/wood
+	icon = 'icons/urist/structures&machinery/civStairs.dmi'
+	icon_state = "wood2_stairs"

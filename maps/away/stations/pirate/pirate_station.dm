@@ -7,7 +7,12 @@
 	icon_state = "yellow"
 
 /area/spacestations/pirate/station
-	name = "Pirate Station"
+	name = "Pirate Station - Lower Level"
+
+/area/spacestations/pirate/station/upper
+	name = "Pirate Station - Upper Level"
+	base_turf = /turf/simulated/open
+	icon_state = "red"
 
 /area/spacestations/pirate/exterior
 	base_turf = /turf/simulated/open
@@ -20,7 +25,7 @@ var/global/const/access_away_pirate_station = "ACCESS_AWAY_PIRATE_STATION"
 	access_type = ACCESS_TYPE_NONE
 	region = ACCESS_REGION_NONE
 
-/obj/effect/overmap/visitable/station/hostile/pirate
+/obj/effect/overmap/visitable/sector/station/hostile/pirate
 	name = "large asteroid"
 	desc = "Sensor array detects a large asteroid."
 	icon = 'icons/obj/overmap.dmi'
@@ -30,6 +35,8 @@ var/global/const/access_away_pirate_station = "ACCESS_AWAY_PIRATE_STATION"
 	station_holder = /mob/living/simple_animal/hostile/overmapship/station_holder/pirate
 	total_ships = 2
 	remaining_ships = 4
+	layer = ABOVE_LIGHTING_LAYER
+	plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	hidden = TRUE
 	spawn_ships = TRUE
 	spawn_types = list(/mob/living/simple_animal/hostile/overmapship/pirate/small, /mob/living/simple_animal/hostile/overmapship/pirate/med)
@@ -39,10 +46,10 @@ var/global/const/access_away_pirate_station = "ACCESS_AWAY_PIRATE_STATION"
 		"nav_piratestation_3"
 		)
 
-/obj/effect/overmap/visitable/station/hostile/pirate/generate_skybox()
+/obj/effect/overmap/visitable/sector/station/hostile/pirate/generate_skybox()
 	return overlay_image('icons/skybox/rockbox.dmi', "rockbox", COLOR_ASTEROID_ROCK, RESET_COLOR)
 
-/obj/effect/overmap/visitable/station/hostile/pirate/get_skybox_representation()
+/obj/effect/overmap/visitable/sector/station/hostile/pirate/get_skybox_representation()
 	var/image/res = overlay_image('icons/skybox/rockbox.dmi', "rockbox", COLOR_ASTEROID_ROCK, RESET_COLOR)
 	res.blend_mode = BLEND_OVERLAY
 	res.SetTransform(scale = 0.3)
@@ -56,7 +63,7 @@ var/global/const/access_away_pirate_station = "ACCESS_AWAY_PIRATE_STATION"
 	spawn_cost = 0
 	accessibility_weight = 10
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
-	generate_mining_by_z = 1
+	generate_mining_by_z = list(1,2)
 
 /obj/effect/shuttle_landmark/nav_piratestation
 	special = TRUE
@@ -87,10 +94,10 @@ var/global/const/access_away_pirate_station = "ACCESS_AWAY_PIRATE_STATION"
 	base_area = /area/spacestations/pirate/exterior
 	base_turf = /turf/simulated/open
 
-/obj/effect/overmap/visitable/station/hostile/pirate/update_visible()
-	if(!known)
-		known = 1
+/obj/effect/overmap/visitable/sector/station/hostile/pirate/update_visible()
+	if(hidden)
 		icon = 'icons/urist/misc/overmap.dmi'
 		icon_state = "station_asteroid_0"
 		color = "#660000"
-		hidden = TRUE
+		hidden = FALSE
+		make_known(TRUE)

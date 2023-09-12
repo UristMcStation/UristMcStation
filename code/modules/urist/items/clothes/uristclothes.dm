@@ -12,7 +12,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 /obj/item/clothing/under/urist
 	item_icons = URIST_ALL_ONMOBS
 	icon = 'icons/urist/items/clothes/clothes.dmi'
-	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristUniform.dmi')
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uniform.dmi')
 
 //this is important EXPLICITLY for all the dresses -Vakothu
 /obj/item/clothing/under/urist/dress
@@ -26,7 +26,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_icons = URIST_ALL_ONMOBS
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	species_restricted = list("exclude","Lactera") //no more lactera wearing armour
-	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristSuit.dmi')
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/suit.dmi')
 
 /obj/item/clothing/suit/armor/species_restricted = list("exclude","Lactera") //no more lactera wearing armour
 
@@ -42,6 +42,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "Scirig"
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/storage/box/monkeycubes,/obj/item/aicard,/obj/item/device/paicard)
 	armor = list(melee = 10, bullet = 5, laser = 10,energy = 5, bomb = 60, bio = 100, rad = 30)
+	species_restricted = list(SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_IPC, SPECIES_RESOMI)
 
 /obj/item/clothing/suit/space/void/science/New()
 	..()
@@ -86,7 +87,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	permeability_coefficient = 0.01
 	allowed = list(/obj/item/tank,/obj/item/pen,/obj/item/device/flashlight/pen)
 	armor = list(melee = 20, bullet = 15, laser = 25, energy = 10, bomb = 25, bio = 100, rad = 20)
-	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristSuit.dmi')
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/suit.dmi')
 
 /obj/item/clothing/suit/bio_suit/asec/New()
 	..()
@@ -196,10 +197,10 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 //Terran Confederacy Trader outfit
 
 /obj/item/clothing/under/urist/terran //why was this a weirdass path
-	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristUniform.dmi')
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uniform.dmi')
 
 /obj/item/clothing/suit/urist/terran
-	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristSuit.dmi')
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/suit.dmi')
 
 /obj/item/clothing/under/urist/terran/trader
 	name = "Terran Confederacy trader's outfit"
@@ -220,7 +221,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 /obj/item/clothing/suit/wizrobe/urist
 	item_icons = URIST_ALL_ONMOBS
 	icon = 'icons/urist/items/clothes/clothes.dmi'
-	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristSuit.dmi')
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/suit.dmi')
 
 /obj/item/clothing/suit/wizrobe/urist/necro
 	name = "necromancer's robes"
@@ -331,7 +332,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "sakura_hokkaido_kimono"
 	//item_color = "sakura_hokkaido_kimono"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristUniform.dmi')
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uniform.dmi')
 
 //Super hero/villain stuff
 
@@ -409,7 +410,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	//item_color = "captainfemaleformal"
 	item_state = "captainfemaleformal"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristUniform.dmi')
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uniform.dmi')
 
 //hooonk bs12
 
@@ -422,7 +423,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "aeneasrinil"
 	//icon_open = "aeneasrinil_open"
 	//icon_closed = "aeneasrinil"
-	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristSuit.dmi')
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/suit.dmi')
 
 //for the carpenter
 
@@ -437,7 +438,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 /obj/item/clothing/suit/storage/toggle/urist
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	item_icons = URIST_ALL_ONMOBS
-	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristSuit.dmi')
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/suit.dmi')
 
 /obj/item/clothing/suit/storage/toggle/urist/coat
 	name = "coat"
@@ -447,17 +448,16 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "blackcoat"
 	//icon_open = "blackcoat_open"
 	//icon_closed = "blackcoat_closed"
-	item_state = "blackcoat"
 	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
 	min_cold_protection_temperature = 253.15
-	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristSuit.dmi')
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/suit.dmi')
 
 /obj/item/clothing/suit/storage/urist
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	item_icons = URIST_ALL_ONMOBS
-	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristSuit.dmi')
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/suit.dmi')
 
 /obj/item/clothing/suit/storage/urist/coat
 	name = "nontogglecoat"
@@ -465,7 +465,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	item_icons = URIST_ALL_ONMOBS
 	icon_state = "blackcoat"
-	item_state = "charcoal_suit"
 	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
@@ -474,7 +473,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A warm wool coat in navy blue. Perfect for looking nice in Space Winter."
 	icon = 'icons/urist/items/clothes/clothes.dmi'
 	icon_state = "navycoat"
-	item_state = "navy_suit"
 
 /obj/item/clothing/suit/storage/toggle/urist/coat/charcoat
 	name = "charcoal coat"
@@ -495,7 +493,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "burgundy coat"
 	desc = "A warm wool coat in burgundy. Perfect for looking nice in Space Winter."
 	icon_state = "burgcoat"
-	item_state = "burgundy_suit"
 
 /obj/item/clothing/suit/storage/urist/coat/tajcoat
 	name = "tajaran fur coat"
@@ -506,7 +503,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "Journalist's coat"
 	desc = "A durable brown double-breasted coat. Keeps you warm while you expose corporate corruption."
 	icon_state = "browncoat" //non-togglable
-	item_state = "browncoat"
 
 /obj/item/clothing/under/urist/dresden
 	name = "black pullover"
@@ -529,7 +525,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "work shirt"
 	desc = "A grubby work shirt worn by a janitor."
 	icon_state = "janicoat"
-	item_state = "janicoat"
 
 //Kawaii as fuck maid outfit
 
@@ -537,7 +532,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "maid uniform"
 	desc = "A tidy maid unform for cleaning."
 	icon_state = "janimaid"
-	item_state = "janimaid"
 
 //Barber
 
@@ -729,7 +723,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon = 'icons/urist/items/old_bay_custom_items.dmi'
 	item_icons = list("slot_suit" = 'icons/mob/onmob/onmob_suit.dmi')
 	icon_state = "deus_blueshield"
-	item_state = "deus_blueshield"
 	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_C)
 
 //more pants
@@ -794,7 +787,6 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	name = "Warden's black jacket"
 	desc = "A black armoured jacket worn by a Warden of a security force."
 	icon_state = "warden_jacket"
-	item_state = "armor"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	blood_overlay_type = "armorblood"
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
@@ -1160,7 +1152,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "sandsuit"
 	name = "leather protective suit"
 	desc = "A full-body suit meant to protect against the elements."
-	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/uristSuit.dmi')
+	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/suit.dmi')
 	allowed = list(/obj/item/gun,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/tank,/obj/item/melee/energy/sword,/obj/item/device/flashlight,/obj/item/device/radio)
 
 /obj/item/clothing/under/urist/cowboy
@@ -1427,10 +1419,324 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon_state = "asset_protection_rig"
 
 // rescued resomi coat
-/obj/item/clothing/suit/storage/toggle/urist/Resomicoat
- 	name = "small coat"
- 	desc = "A coat that seems too small to fit a human."
- 	icon_state = "resomicoat"
- 	item_state = "resomicoat"
- 	body_parts_covered = UPPER_TORSO|ARMS|LOWER_TORSO|LEGS
- 	species_restricted = list(SPECIES_RESOMI)
+/obj/item/clothing/suit/storage/toggle/urist/resomicoat
+	name = "small coat"
+	desc = "A coat that seems too small to fit a human."
+	icon_state = "resomicoat"
+	body_parts_covered = UPPER_TORSO|ARMS|LOWER_TORSO|LEGS
+	species_restricted = list(SPECIES_RESOMI)
+
+//fuck them lizards
+
+/obj/item/clothing/shoes/urist/unathiboots
+	name = "unathi skin boots"
+	desc = "a fancy pair of boots made from very large reptile."
+	icon_state = "unathiboots"
+	item_state = "unathiboots"
+
+/obj/item/clothing/shoes/urist/unathiboots/green
+	icon_state = "unathiboots_green"
+	item_state = "unathiboots_green"
+
+//civ13 clothing
+
+/obj/item/clothing/under/urist/historic
+	name = "yellow tunic"
+	desc = "a simple yellow tunic."
+	icon_state = "yellow_tunic"
+	item_state = "yellow_tunic"
+
+/obj/item/clothing/under/urist/historic/blue_tunic
+	name = "blue tunic"
+	desc = "a simple blue tunic."
+	icon_state = "blue_tunic"
+	item_state = "blue_tunic"
+
+/obj/item/clothing/under/urist/historic/red_tunic
+	name = "red tunic"
+	desc = "a simple red tunic."
+	icon_state = "red_tunic"
+	item_state = "red_tunic"
+
+/obj/item/clothing/under/urist/historic/green_tunic
+	name = "green tunic"
+	desc = "a simple green tunic."
+	icon_state = "green_tunic"
+	item_state = "green_tunic"
+
+/obj/item/clothing/under/urist/historic/white_tunic
+	name = "white tunic"
+	desc = "a simple white tunic."
+	icon_state = "white_tunic"
+	item_state = "white_tunic"
+
+/obj/item/clothing/under/urist/historic/leather_tunic
+	name = "leather tunic"
+	desc = "a plain leather tunic."
+	icon_state = "leather_tunic"
+	item_state = "leather_tunic"
+
+/obj/item/clothing/under/urist/historic/red_tunic2
+	name = "red tunic2"
+	desc = "a simple red and yellow tunic."
+	icon_state = "red_tunic2"
+	item_state = "red_tunic2"
+
+/obj/item/clothing/under/urist/historic/blue_tunic2
+	name = "blue_tunic2"
+	desc = "a simple blue and white tunic."
+	icon_state = "blue_tunic2"
+	item_state = "blue_tunic2"
+
+/obj/item/clothing/under/urist/historic/pirate1
+	name = "common clothes"
+	desc = "a pair of trousers and a black striped shirt."
+	icon_state = "pirate1"
+	item_state = "pirate1"
+
+/obj/item/clothing/under/urist/historic/pirate2
+	name = "common clothes"
+	desc = "a pair of trousers and a red striped shirt."
+	icon_state = "pirate2"
+	item_state = "pirate2"
+
+/obj/item/clothing/under/urist/historic/pirate3
+	name = "common clothes"
+	desc = "a pair of trousers and a blue striped shirt."
+	icon_state = "pirate3"
+	item_state = "pirate3"
+
+/obj/item/clothing/under/urist/historic/pirate4
+	name = "common clothes"
+	desc = "a pair of trousers and a shirt."
+	icon_state = "pirate4"
+	item_state = "pirate4"
+
+/obj/item/clothing/under/urist/historic/pirate5
+	name = "common clothes"
+	desc = "a pair of trousers and a shirt."
+	icon_state = "pirate5"
+	item_state = "pirate5"
+
+/obj/item/clothing/under/urist/historic/roman
+	name = "roman tunic"
+	desc = "a red tunic with a rope belt."
+	icon_state = "roman"
+	item_state = "roman"
+
+/obj/item/clothing/under/urist/historic/steppe_wool
+	name = "wool clothes"
+	desc = "a wool shirt and pair oftrousers."
+	icon_state = "steppe_wool_tunic"
+	item_state = "steppe_wool_tunic"
+
+/obj/item/clothing/under/urist/historic/dressg
+	name = "dress"
+	desc = "a green dress with an apron."
+	icon_state = "dressg"
+	item_state = "dressg"
+
+/obj/item/clothing/under/urist/historic/dressr
+	name = "dress"
+	desc = "a red dress with an apron."
+	icon_state = "dressr"
+	item_state = "dressr"
+
+/obj/item/clothing/under/urist/historic/dressbl
+	name = "dress"
+	desc = "a blue dress with an apron."
+	icon_state = "dressbl"
+	item_state = "dressbl"
+
+/obj/item/clothing/under/urist/historic/dressbr
+	name = "dress"
+	desc = "a brown dress with an apron."
+	icon_state = "dressbr"
+	item_state = "dressbr"
+
+/obj/item/clothing/under/urist/historic/merchant_suit
+	name = "merchant_suit"
+	desc = "a fancy set of clothes for a fancy person."
+	icon_state = "merchant_suit"
+	item_state = "merchant_suit"
+
+/obj/item/clothing/under/urist/historic/mummy
+	name = "mummy wraps"
+	desc = "linen wraps for a burial"
+	icon_state = "mummy"
+	item_state = "mummy"
+	flags_inv = HIDEEARS|BLOCKHEADHAIR
+
+/obj/item/clothing/under/urist/historic/sheriff
+	name = "sheriff uniform"
+	desc = "a small town copper."
+	icon_state = "sd_sheriff"
+	item_state = "sd_sheriff"
+
+//civ13 top layer, coats and armor
+
+/obj/item/clothing/suit/urist/armor/historic/full
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
+	w_class = 4
+	item_flags = ITEM_FLAG_THICKMATERIAL
+	armor = list(melee = 55, bullet = 20, laser = 20, energy = 10, bomb = 5, bio = 0, rad = 0)
+
+/obj/item/clothing/suit/urist/armor/historic/chestplate
+	body_parts_covered = UPPER_TORSO
+	w_class = 3
+	item_flags = ITEM_FLAG_THICKMATERIAL
+	armor = list(melee = 45, bullet = 15, laser = 15, energy = 2, bomb = 5, bio = 0, rad = 0)
+
+/obj/item/clothing/suit/urist/armor/historic/chain
+	name = "Bronze Armor"
+	desc = "Provides protection."
+	icon_state = "suit_bronze"
+	item_state = "suit_bronze"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	w_class = 3
+	item_flags = ITEM_FLAG_THICKMATERIAL
+	armor = list(melee = 35, bullet = -10, laser = 10, energy = 2, bomb = 5, bio = 0, rad = 0) //-10, its old chainmail, its giving you extra shrapnel
+
+/obj/item/clothing/suit/urist/historic/piratejacket1
+	name = "black jacket"
+	desc = "an open black jacket."
+	icon_state = "piratejacket1"
+	item_state = "piratejacket1"
+
+/obj/item/clothing/suit/urist/historic/piratejacket2
+	name = "brown jacket"
+	desc = "an open brown jacket."
+	icon_state = "piratejacket2"
+	item_state = "piratejacket2"
+
+/obj/item/clothing/suit/urist/historic/piratejacket3
+	name = "blue vest"
+	desc = "a blue vest that can no longer be buttoned up."
+	icon_state = "piratejacket3"
+	item_state = "piratejacket3"
+
+/obj/item/clothing/suit/urist/historic/piratejacket4
+	name = "brown vest"
+	desc = "a brown vest that can no longer be buttoned up."
+	icon_state = "piratejacket4"
+	item_state = "piratejacket4"
+
+/obj/item/clothing/suit/urist/historic/piratejacket5
+	name = "red jacket"
+	desc = "an open red jacket."
+	icon_state = "piratejacket5"
+	item_state = "piratejacket5"
+
+/obj/item/clothing/suit/urist/historic/bluevest
+	name = "blue vest"
+	desc = "a closed blue vest."
+	icon_state = "bluevest"
+	item_state = "bluevest"
+
+/obj/item/clothing/suit/urist/historic/blackvest
+	name = "black vest"
+	desc = "a closed black."
+	icon_state = "blackvest"
+	item_state = "blackvest"
+
+/obj/item/clothing/suit/urist/historic/olivevest
+	name = "olive vest"
+	desc = "a closed olive vest."
+	icon_state = "olivevest"
+	item_state = "olivevest"
+
+/obj/item/clothing/suit/urist/armor/historic/full/knight_yellow
+	name = "yellow armor suit"
+	desc = "a set of armor painted yellow."
+	icon_state = "knight_yellow"
+	item_state = "knight_yellow"
+
+/obj/item/clothing/suit/urist/armor/historic/full/knight_green
+	name = "green armor suit"
+	desc = "a set of armor painted green."
+	icon_state = "knight_green"
+	item_state = "knight_green"
+
+/obj/item/clothing/suit/urist/armor/historic/full/knight_red
+	name = "red armor suit"
+	desc = "a set of armor painted red."
+	icon_state = "knight_red"
+	item_state = "knight_red"
+
+/obj/item/clothing/suit/urist/armor/historic/full/knight_blue
+	name = "blue armor suit"
+	desc = "a set of armor painted blue."
+	icon_state = "knight_blue"
+//	item_state = "knight_blue"
+
+/obj/item/clothing/suit/urist/armor/historic/full/knight_blue2
+	name = "blue armor suit"
+	desc = "a set of armor painted blue."
+	icon_state = "knight_blue2"
+	item_state = "knight_blue2"
+
+/obj/item/clothing/suit/urist/armor/historic/full/knight_simple
+	name = "plain armor suit"
+	desc = "simple unadorned knights armor."
+	icon_state = "knight_simple"
+	item_state = "knight_simple"
+
+/obj/item/clothing/suit/urist/armor/historic/full/knight_templar
+	name = "templar armor"
+	desc = "Non nobis, Domine, non nobis, sed Nomini tuo da gloriam."
+	icon_state = "knight_templar"
+	item_state = "knight_templar"
+
+/obj/item/clothing/suit/urist/armor/historic/chestplate/bronze_chestplate
+	name = "bronze chestplate"
+	desc = "a simple bronze chestplate."
+	icon_state = "bronze_chestplate"
+	item_state = "bronze_chestplate"
+
+/obj/item/clothing/suit/urist/armor/historic/chestplate/iron_chestplate
+	name = "iron chestplate"
+	desc = "a simple iron chestplate."
+	icon_state = "iron_chestplate"
+	item_state = "iron_chestplate"
+
+/obj/item/clothing/suit/urist/armor/historic/chestplate/scale_plate
+	name = "scaled plate"
+	desc = "a chestplate made from strips of iron."
+	icon_state = "scale_plate"
+	item_state = "scale_plate"
+
+/obj/item/clothing/suit/urist/armor/historic/chestplate/egyptian_lamellar
+	name = "lamellar armor"
+	desc = "a chestplate made from strips of old iron."
+	icon_state = "egyptian_lamellar"
+	item_state = "egyptian_lamellar"
+
+/obj/item/clothing/suit/urist/armor/historic/chestplate/iron_chestplater
+	name = "iron chestplate"
+	desc = "a chestplate with a red cape."
+	icon_state = "iron_chestplater"
+	item_state = "iron_chestplater"
+
+/obj/item/clothing/suit/urist/armor/historic/chestplate/iron_chestplateb
+	name = "iron chestplate"
+	desc = "a chestplate with a blue cape."
+	icon_state = "iron_chestplateb"
+	item_state = "iron_chestplateb"
+
+/obj/item/clothing/suit/urist/armor/historic/chain/scaled_armor
+	name = "scale armor"
+	desc = "a chainmail tunic made from bronze scales."
+	icon_state = "scaled_armor"
+	item_state = "scaled_armor"
+
+/obj/item/clothing/suit/urist/armor/historic/chain/early_chainmail
+	name = "early chainmail"
+	desc = "an ancient set of chainmail."
+	icon_state = "early_chainmail"
+	item_state = "early_chainmail"
+
+/obj/item/clothing/suit/urist/armor/historic/chain/chainmail
+	name = "chainmail tunic"
+	desc = "a set of armor made from interlocked chains."
+	icon_state = "chainmail"
+	item_state = "chainmail"

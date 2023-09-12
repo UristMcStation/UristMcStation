@@ -5,6 +5,7 @@
 	#include "nerva_elevators.dm"
 	#include "nerva_holodecks.dm"
 	#include "nerva_presets.dm"
+	#include "nerva_procs.dm"
 	#include "nerva_overmap.dm"
 	#include "nerva_setup.dm"
 	#include "nerva_shuttles.dm"
@@ -15,6 +16,8 @@
 	#include "datums/nerva_supplypacks.dm"
 	#include "datums/nerva_objectives.dm"
 	#include "datums/nerva_reports.dm"
+
+	#include "../event/placeholders/placeholders.dm"
 
 	#include "obj/nerva_ids.dm"
 	#include "obj/nerva_closets.dm"
@@ -66,6 +69,7 @@
 	#include "../away/stations/pirate/pirate_station.dm"
 	#include "../away/voxship/voxship.dm"
 	#include "../away/glloyd_jungle/glloyd_jungle.dm"
+	#include "../away/forest/forest.dm"
 	#include "../away/destroyed_colony/destroyed_colony.dm"
 	#include "../away/noctis/noctis.dm"
 	#include "../away/abandoned_colony/abandoned_colony.dm"

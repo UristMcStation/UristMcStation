@@ -454,7 +454,6 @@
 	name = "rescue shuttle console"
 	shuttle_tag = "Rescue"
 
-
 //ANTAGS
 
 

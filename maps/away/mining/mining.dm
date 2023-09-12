@@ -5,6 +5,8 @@
 	name = "asteroid cluster"
 	desc = "Large group of asteroids. Mineral content detected."
 	icon_state = "sector"
+	start_x = 4
+	start_y = 5
 	initial_generic_waypoints = list(
 		"nav_cluster_1",
 		"nav_cluster_2",
@@ -32,7 +34,7 @@
 	id = "awaysite_mining_asteroid"
 	description = "A medium-sized asteroid full of minerals."
 	suffixes = list("mining/mining-asteroid.dmm")
-	spawn_cost = 1
+	spawn_cost = 0
 	accessibility_weight = 10
 	generate_mining_by_z = 1
 	apc_test_exempt_areas = list(
@@ -40,9 +42,12 @@
 		/area/mine/explored = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/mine/unexplored = NO_SCRUBBER|NO_VENT|NO_APC
 	)
-	area_usage_test_exempted_root_areas = list(/area/mine)
+	area_usage_test_exempted_root_areas = list(/area/mine, /area/spacestations)
 	area_usage_test_exempted_areas = list(/area/djstation)
 	area_coherency_test_exempt_areas =  list(/area/mine/explored, /area/mine/unexplored)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+	shuttles_to_initialise = list(/datum/shuttle/autodock/ferry/ntminingshuttle)
+
 
 /obj/effect/shuttle_landmark/cluster/nav1
 	name = "Asteroid Navpoint #1"
@@ -241,3 +246,43 @@
 	icon = 'icons/turf/flooring/cult.dmi'
 	icon_state = "cult_g"
 	color = "#c9ae5e"
+
+//mining shuttle stuff
+
+/area/spacestations/ntminingshuttle
+	name = "Nanotrasen Mining Shuttle"
+	icon_state = "shuttle"
+	requires_power = 0
+	dynamic_lighting = 1
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
+
+/area/spacestations/ntminingshuttle/start
+	name = "\improper Mining Shuttle"
+	icon_state = "shuttle"
+
+/datum/shuttle/autodock/ferry/ntminingshuttle
+	name = "Nanotrasen Mining"
+	warmup_time = 1 SECOND
+	shuttle_area = /area/spacestations/ntminingshuttle/start
+	waypoint_station = "nav_ntmining_start"
+	waypoint_offsite = "nav_ntmining_end"
+	defer_initialisation = TRUE
+
+/datum/shuttle/autodock/ferry/ntminingshuttle/New()
+	if(GLOB.using_map.name != "Nerva")
+		location = 1
+	. = ..()
+
+/obj/machinery/computer/shuttle_control/ntminingshuttle
+	name = "mining shuttle console"
+	shuttle_tag = "Nanotrasen Mining"
+
+/obj/effect/shuttle_landmark/ntminingshuttle
+	name = "NT Mining Shuttle Landing Zone"
+	landmark_tag = "nav_ntmining_end"
+
+/obj/effect/shuttle_landmark/ntminingshuttle/start
+	name = "Mining Shuttle Dock"
+	landmark_tag = "nav_ntmining_start"
+	docking_controller = "ntminingshuttle"
+	base_turf = /turf/simulated/floor/plating
