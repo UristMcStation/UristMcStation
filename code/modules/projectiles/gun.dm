@@ -388,7 +388,7 @@
 	var/disp_mod = dispersion[min(burst, length(dispersion))]
 	var/stood_still = last_handled
 	//Not keeping gun active will throw off aim (for non-Masters)
-	stood_still = max(user.l_move_time, last_handled)
+	stood_still = min(user.l_move_time, last_handled)
 
 	stood_still = max(0,round((world.time - stood_still)/10) - 1)
 	if(stood_still)
@@ -404,10 +404,6 @@
 	if(dual_wield)
 		acc_mod -= dual_wield_penalty/2
 		disp_mod += dual_wield_penalty*0.5
-
-	if(burst > 1)
-		acc_mod -= 1
-		disp_mod += 0.5
 
 	//accuracy bonus from aiming
 	if (aim_targets && (target in aim_targets))

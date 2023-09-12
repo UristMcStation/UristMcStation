@@ -210,16 +210,6 @@
 	. += move_intent.move_delay
 	. += encumbrance() * (2)
 
-	if(pulling)
-		if(istype(pulling, /obj))
-			var/obj/O = pulling
-			. += clamp(O.w_class, 0, ITEM_SIZE_GARGANTUAN) / 5
-		else if(istype(pulling, /mob))
-			var/mob/M = pulling
-			. += max(0, M.mob_size) / MOB_MEDIUM
-		else
-			. += 1
-
 /mob/proc/encumbrance()
 	. = 0
 	if(pulling)
