@@ -131,7 +131,7 @@
 /area/icarus/vessel)
 "aG" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/overmap/visitable/icarus,
+/obj/effect/overmap/visitable/sector/planetoid/icarus,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel)
 "aH" = (
