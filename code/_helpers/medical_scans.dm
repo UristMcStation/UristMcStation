@@ -320,9 +320,9 @@
 			if(E["brute_dam"] + E["burn_dam"] == 0)
 				row += "None</td>"
 			if(E["brute_dam"])
-				row += "<span style='font-weight: bold; color: [COLOR_MEDICAL_BRUTE]'>Damaged</span><br>"
+				row += "<span style='font-weight: bold; color: [COLOR_MEDICAL_BRUTE]'>[get_severity(E["brute_dam"])] trauma ([E["brute_dam"]])</span><br>"
 			if(E["burn_dam"])
-				row += "<span style='font-weight: bold; color: [COLOR_MEDICAL_BURN]'>Burned</span></td>"
+				row += "<span style='font-weight: bold; color: [COLOR_MEDICAL_BURN]'>[get_severity(E["burn_dam"])] burns ([E["burn_dam"]])</span></td>"
 			row += "<td>"
 			row += "<span>[english_list(E["scan_results"], nothing_text="&nbsp;")]</span>"
 			row += "</td>"
