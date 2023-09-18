@@ -4,7 +4,7 @@
 	icon_state = "sun"
 	item_state = "sunglasses"
 	darkness_view = -1
-	flash_protection = FLASH_PROTECTION_MINOR
+	flash_protection = FLASH_PROTECTION_MODERATE
 
 
 /obj/item/clothing/glasses/sunglasses/prescription
