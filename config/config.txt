@@ -264,7 +264,7 @@ WIKI_URL https://bay.ss13.me/en/Guides
 
 ## Rules address
 ## Where your server's rules can be found
-RULES_URL rules.html
+RULES_URL https://uristmcstation.github.io/rules.html
 
 ## Lore address
 ## Where your server's scintillating background material can be read
