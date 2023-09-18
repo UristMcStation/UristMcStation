@@ -810,6 +810,7 @@ the sprite and make my own projectile -Glloyd*/
 	allowed_magazines = /obj/item/ammo_magazine/hi2521smg9mm
 	one_hand_penalty = 3
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	jam_chance = 0
 
 	firemodes = list(
 		list(mode_name="semiauto", burst=1, fire_delay=0, one_hand_penalty = 1, move_delay=null, burst_accuracy=null, dispersion=null),
