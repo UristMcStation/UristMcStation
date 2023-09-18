@@ -11754,14 +11754,12 @@
 	id_tag = "bridgeoutlock";
 	name = "Bridge Outer Lockdown"
 	},
+/obj/effect/floor_decal/corner/fadeblue/full,
 /obj/machinery/door/airlock/multi_tile/glass/command{
-	autoset_access = 0;
 	dir = 8;
 	icon_state = "closed";
-	name = "Bridge";
-	req_access = list("ACCESS_GUNNERY")
+	name = "Bridge"
 	},
-/obj/effect/floor_decal/corner/fadeblue/full,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandport)
 "atS" = (
@@ -18326,11 +18324,9 @@
 	name = "Bridge Outer Lockdown"
 	},
 /obj/machinery/door/airlock/multi_tile/glass/command{
-	autoset_access = 0;
 	dir = 8;
 	icon_state = "closed";
-	name = "Bridge";
-	req_access = list("ACCESS_GUNNERY")
+	name = "Bridge"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/commandstarboard)
@@ -31568,9 +31564,6 @@
 /area/hallway/commandoffices)
 "xGO" = (
 /obj/effect/floor_decal/corner/beige/full,
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
-	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass/mining{
 	autoset_access = 0;
