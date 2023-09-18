@@ -816,7 +816,7 @@
 /area/hallway/commandstarboard
 	name = "\improper Command Starboard Hallway"
 	icon_state = "hallS"
-	req_access = list(access_bridge)
+	req_access = list(list(access_bridge, access_gunnery))
 
 //bottom/fourth deck
 

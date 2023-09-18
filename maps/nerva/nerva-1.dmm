@@ -20654,18 +20654,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora)
-"Nz" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/logistics/fabwork)
 "NB" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -20788,6 +20776,19 @@
 	},
 /turf/simulated/floor/greengrid,
 /area/command/aiupload)
+"Of" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4;
+	icon_state = "map_vent_out"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/logistics/fabwork)
 "Oh" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -21228,6 +21229,18 @@
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/command/aiupload)
+"PY" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/logistics/fabwork)
 "Qc" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -21319,17 +21332,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
-"Qu" = (
-/obj/machinery/vending/cola{
-	dir = 8
-	},
-/obj/machinery/newscaster{
-	hitstaken = 1;
-	pixel_x = 28;
-	pixel_y = 0
-	},
-/turf/simulated/floor/tiled,
-/area/space)
 "Qv" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -21732,19 +21734,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
-"RG" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4;
-	icon_state = "map_vent_out"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/logistics/fabwork)
 "RI" = (
 /obj/machinery/computer/ship/engines,
 /turf/simulated/floor/tiled/techfloor/grid,
@@ -44023,7 +44012,7 @@ yF
 nT
 aa
 aa
-Qu
+aa
 aa
 aa
 aa
@@ -44203,7 +44192,7 @@ tC
 Se
 vx
 sT
-Nz
+PY
 Kr
 yc
 SX
@@ -45011,7 +45000,7 @@ tG
 Se
 vB
 wp
-RG
+Of
 Kr
 yf
 Yx
