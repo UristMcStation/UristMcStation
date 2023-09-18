@@ -162,8 +162,12 @@
 	if(isnull(src.trackers))
 		src.trackers = list()
 
-	var/suppression_per_ward = BSR_DISTORTION_GROWTH_OVER_DECISECONDS(0.2 * BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
-	var/const/max_suppression_coeff = 1.25 // Discourage stockpiling/spamming
+	var/suppression_per_ward_factor = (config?.bluespace_revenant_runewards_suppression_per_ward_factor || 0.2)
+	var/suppression_per_ward = BSR_DISTORTION_GROWTH_OVER_DECISECONDS(suppression_per_ward_factor * BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
+
+	// Discourages stockpiling/spamming; no more than this much suppression per tick will happen, so more runes is not necessarily more good
+	var/max_suppression_coeff = (config?.bluespace_revenant_runewards_max_suppression_coeff || 2)
+
 	var/active_wards = 0
 	var/expiring_wards = 0
 

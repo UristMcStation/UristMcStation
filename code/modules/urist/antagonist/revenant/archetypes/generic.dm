@@ -72,12 +72,10 @@
 	set name = "Unnatural Recovery"
 	set desc = "Removes all stuns"
 
+	BSR_ABORT_IF_DEAD_PRESET(src)
+
 	var/mob/living/carbon/human/C = src
 	if(!istype(C))
-		return
-
-	if(C.stat == DEAD)
-		to_chat(src, SPAN_NOTICE("A bit too late for that now, don't you think?"))
 		return
 
 	// Ling pasta :^)
@@ -101,7 +99,11 @@
 
 /datum/power/revenant/bs_power/unstun
 	flavor_tags = list(
-		BSR_FLAVOR_GENERIC
+		BSR_FLAVOR_CHIMERA,
+		BSR_FLAVOR_VAMPIRE,
+		BSR_FLAVOR_GENERIC,
+		BSR_FLAVOR_FLESH,
+		BSR_FLAVOR_SCIFI
 	)
 	activate_message = ("<span class='notice'>Even when stunned, you can force your body to move normally - at the cost of significant reality slippage.</span>")
 	name = "Unstun"

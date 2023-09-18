@@ -97,60 +97,112 @@
 
 
 
-/* Simple heal. Does NOT regrow limbs. */
-/mob/proc/bsrevenant_minor_heal()
+/* Big heal. */
+/mob/proc/bsrevenant_incremental_regen()
 	set name = "Fleshmend"
 	set category = "Anomalous Powers"
-	set desc = "Heal minor damage, stop bleeding. Use multiple times per each wound."
-
-	BSR_ABORT_IF_DEAD_PRESET(src)
+	set desc = "Unnatural regeneration. Revive on death, heal wounds/bloodloss otherwise."
 
 	// if TRUE, we're still waiting for a handler
 	var/pending = TRUE
 
+	var/datum/bluespace_revenant/revenant = src?.mind?.bluespace_revenant
+	var/valid_revenant = istype(revenant)
+
 	var/mob/living/carbon/human/H = src
 
 	if(istype(H))
+		// First things first - if they are dead, revive
 		if(pending)
-			for(var/obj/item/organ/I in H.internal_organs)
-				if(I.damage >= 5)
-					I.damage = max(I.damage - 5, 0)
-					to_chat(H, SPAN_NOTICE("Your [I.name] itches as you knit its wounds shut."))
-					pending = FALSE
-					break
+			if(H.stat == DEAD)
+				H.adjustOxyLoss(-rand(15,20))
+				H.basic_revival()
+				H.visible_message(SPAN_NOTICE("\The [H] shudders violently!"))
+
+				to_chat(H, SPAN_NOTICE("You have revived yourself."))
+				to_chat(H, SPAN_WARNING("By reviving, you have significantly violated the laws of reality!"))
+
+				// Short-circuit to a return; because reviving is more distortey
+				if(valid_revenant)
+					revenant.total_distortion += BSR_DISTORTION_GROWTH_OVER_SECONDS(6000, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
+					return TRUE
 
 		for(var/obj/item/organ/external/E in H.bad_external_organs)
 			if(!pending)
 				break
 
-			if((E.status & ORGAN_ARTERY_CUT))
-				to_chat(H, SPAN_NOTICE("You mend the torn artery in your [E.name], stemming the worst of the bleeding."))
-				E.status &= ~ORGAN_ARTERY_CUT
+			if(prob(70))
+				continue
+
+			E.rejuvenate()
+			to_chat(H, SPAN_NOTICE("Your [E.name] itches as you knit its wounds shut."))
+			pending = FALSE
+			break
+
+		if(pending && prob(20))
+			if(H.should_have_organ(BP_HEART) && H.vessel.total_volume < H.species.blood_volume)
+				to_chat(H, SPAN_NOTICE("Your veins seem to swell back with unnaturally restored blood."))
+				H.vessel.add_reagent(/datum/reagent/blood, H.species.blood_volume - H.vessel.total_volume)
+				// Not using restore_blood() because it would double-check the same vars we already checked
+				// H.restore_blood()
 				pending = FALSE
-				break
 
-			for(var/datum/wound/W in E.wounds)
-				if(W.bleeding())
-					W.bleed_timer = 0
-					E.status &= ~ORGAN_BLEEDING
-					to_chat(H, SPAN_NOTICE("You knit together severed veins, stemming the bleeding from your [E.name]."))
-					pending = FALSE
-					break
+	var/mob/living/L = src
 
-			if(E.damage >= 5)
-				to_chat(H, SPAN_NOTICE("Your [E.name] itches as you knit its wounds shut."))
-				pending = FALSE
-				break
+	if(istype(L))
+		// Brain
+		if(pending)
+			var/brain_dmg = L.getBrainLoss()
+			if(brain_dmg)
+				L.adjustBrainLoss(-brain_dmg)
+				to_chat(L, SPAN_NOTICE("Your brain itches as you knit its wounds shut."))
 
-	if(!pending)
-		var/datum/bluespace_revenant/revenant = src?.mind?.bluespace_revenant
-		if(istype(revenant))
-			revenant.total_distortion += BSR_DISTORTION_GROWTH_OVER_SECONDS(30, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
+				if(valid_revenant)
+					revenant.total_distortion += BSR_DISTORTION_GROWTH_OVER_SECONDS(brain_dmg*30, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
+					return FALSE
+
+		// Clone
+		if(pending)
+			var/clone_dmg = L.getCloneLoss()
+			if(clone_dmg)
+				L.adjustCloneLoss(-clone_dmg)
+				to_chat(L, SPAN_NOTICE("You feel your genome rearranging. Somehow."))
+
+				if(valid_revenant)
+					revenant.total_distortion += BSR_DISTORTION_GROWTH_OVER_SECONDS(clone_dmg*10, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
+					return FALSE
+
+		// Tox
+		if(pending)
+			var/tox_dmg = L.getToxLoss()
+			if(tox_dmg)
+				L.adjustToxLoss(-tox_dmg)
+				to_chat(L, SPAN_NOTICE("You purge necrotic tissue from your system."))
+
+				if(valid_revenant)
+					revenant.total_distortion += BSR_DISTORTION_GROWTH_OVER_SECONDS(tox_dmg*25, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
+					return FALSE
+
+		// Brute
+		if(pending)
+			var/brute_dmg = L.getBruteLoss()
+			if(brute_dmg)
+				L.adjustBruteLoss(-brute_dmg)
+				to_chat(L, SPAN_NOTICE("You knit your wounds shut."))
+
+				if(valid_revenant)
+					revenant.total_distortion += BSR_DISTORTION_GROWTH_OVER_SECONDS(brute_dmg*10, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
+					return FALSE
+
+		// Fire left off on purpose
+
+	if(!pending && valid_revenant)
+		revenant.total_distortion += BSR_DISTORTION_GROWTH_OVER_SECONDS(300, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
 
 	return !pending
 
 
-/datum/power/revenant/bs_power/minorheal
+/datum/power/revenant/bs_power/fleshmend
 	flavor_tags = list(
 		BSR_FLAVOR_CHIMERA,
 		BSR_FLAVOR_VAMPIRE,
@@ -161,7 +213,7 @@
 	activate_message = "<span class='notice'>You have an uncanny healing factor. You can heal minor damage and even stop bleeding - all at the low low price of just a little bit of damage to the local laws of physics.</span>"
 	name = "Fleshmend"
 	isVerb = TRUE
-	verbpath = /mob/proc/bsrevenant_minor_heal
+	verbpath = /mob/proc/bsrevenant_incremental_regen
 	distortion_threshold = 24000 // 20 mins
 
 
@@ -180,7 +232,8 @@
 		return
 
 	// Since this is a more stealthable Hunger, this should be fairly inefficient
-	var/suppression_per_unit = BSR_DISTORTION_GROWTH_OVER_DECISECONDS(10, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
+	var/suppression_factor = (config?.bluespace_revenant_hongry_suppression_factor || 30)
+	var/suppression_per_unit = BSR_DISTORTION_GROWTH_OVER_DECISECONDS(suppression_factor, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
 
 	var/removed = FALSE
 	var/added_suppression = 0

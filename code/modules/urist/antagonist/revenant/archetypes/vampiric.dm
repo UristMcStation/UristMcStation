@@ -372,7 +372,7 @@
 
 /* FANGS - gives mobs a new unarmed attack that requires head and ignores restraints. */
 /datum/unarmed_attack/bsrevenant_vampbite
-	attack_verb = list("bit", "sank his fangs in")
+	attack_verb = list("bit", "sank /his fangs in")
 	attack_sound = 'sound/weapons/bite.ogg'
 	shredding = 0
 	sharp = 1
@@ -385,10 +385,6 @@
 	if(!istype(user))
 		return 0
 
-	if(prob(50))
-		// Hack to stop the mobs from ALWAYS biting
-		return 0
-
 	if(user.is_muzzled())
 		return 0
 
@@ -398,6 +394,21 @@
 		return 1
 
 	return 0
+
+
+/datum/unarmed_attack/bsrevenant_vampbite/apply_effects(mob/living/carbon/human/user, mob/living/carbon/human/target, attack_damage, zone)
+	if(target.stat == DEAD)
+		return
+
+	var/armour = target.get_blocked_ratio(zone, DAMAGE_BRUTE, damage = attack_damage)
+
+	if(zone == BP_HEAD && armour < 1 && target.should_have_organ(BP_HEART) && target.vessel.total_volume >= 10)
+		target.apply_effect(5, EFFECT_PAIN, 0)
+		target.visible_message(SPAN_DANGER("[user] sucks on [target]'s neck!"), SPAN_DANGER("You feel your blood getting drained from your body!"))
+		target.vessel.trans_to_mob(user, 10, CHEM_INGEST)
+
+	else
+		. = ..(user, target, attack_damage, zone)
 
 
 /mob/proc/bsrevenant_mutate_fangs()
@@ -424,9 +435,8 @@
 		to_chat(src, "Something has gone wrong with modifying your species; please notify an admin/coder!")
 		return
 
-	// Insert as first to prioritize it
-	curr_species.unarmed_types?.Insert(1, /datum/unarmed_attack/bsrevenant_vampbite)
-	curr_species.unarmed_attacks?.Insert(1, new /datum/unarmed_attack/bsrevenant_vampbite())
+	curr_species.unarmed_types?.Add(/datum/unarmed_attack/bsrevenant_vampbite)
+	curr_species.unarmed_attacks?.Add(new /datum/unarmed_attack/bsrevenant_vampbite())
 
 	H.species = curr_species
 	return TRUE
@@ -442,7 +452,7 @@
 		BSR_FLAVOR_OCCULT,
 		BSR_FLAVOR_DEMONIC
 	)
-	activate_message = "<span class='notice'>You notice your teeth becoming longer, sharper, and thicker. </span>"
+	activate_message = "<span class='notice'>You notice your teeth becoming longer, sharper, and thicker. Aim at humanoids' heads to suck their blood.</span>"
 	name = "Fangs"
 	isVerb = FALSE
 	verbpath = /mob/proc/bsrevenant_mutate_fangs
