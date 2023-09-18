@@ -608,28 +608,28 @@
 	icon = 'icons/urist/items/misc.dmi'
 	icon_state = "oldcoin4"
 	default_material = MATERIAL_COPPER
-	
+
 /obj/item/material/coin/challenge/loot/plat
 	name = "\improper old platinum coin"
 	desc = "A platinum coin stamped with the image of a king."
 	icon = 'icons/urist/items/misc.dmi'
 	icon_state = "oldcoin1"
 	default_material = MATERIAL_PLATINUM
-	
+
 /obj/item/material/coin/challenge/loot/gold
 	name = "\improper old gold coin"
 	desc = "A gold coin stamped with the image of a castle."
 	icon = 'icons/urist/items/misc.dmi'
 	icon_state = "oldcoin2"
 	default_material = MATERIAL_GOLD
-	
+
 /obj/item/material/coin/challenge/loot/silver
 	name = "\improper old silver coin"
 	desc = "A silver coin stamped with the image of a dragon."
 	icon = 'icons/urist/items/misc.dmi'
 	icon_state = "oldcoin3"
 	default_material = MATERIAL_SILVER
-	
+
 /obj/item/treasure/gem
 	name = "astonishing amethyst"
 	desc = "An amethyst crystal with the deepest purple."
@@ -766,9 +766,78 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "gift3"
 
-/obj/random/treasure/plush/spawn_choices()
+/obj/random/treasure/portrait/spawn_choices()
 	return list(/obj/item/treasure/portrait,
 				/obj/item/treasure/portrait/queen,
 				/obj/item/treasure/portrait/knight,
 				/obj/item/treasure/portrait/jester,
 				/obj/item/treasure/portrait/squire)
+
+/obj/random/cuteanimal
+	name = "random cute animal"
+	desc = "This is a random cute animal."
+	icon = 'icons/mob/simple_animal/critter.dmi'
+	icon_state = "lizard"
+
+/obj/random/cuteanimal/spawn_choices()
+	return list(/mob/living/simple_animal/passive/corgi/puppy,
+				/mob/living/simple_animal/passive/cat/kitten,
+				/mob/living/simple_animal/passive/lizard
+				)
+
+/obj/random/pen
+	name = "random pen"
+	desc = "This is a random pen."
+	icon = 'icons/obj/bureaucracy.dmi'
+	icon_state = "pen"
+
+/obj/random/pen/spawn_choices()
+	return list(/obj/item/pen,
+				/obj/item/pen/blue,
+				/obj/item/pen/red,
+				/obj/item/pen/fancy,
+				/obj/item/pen/fancy/quill,
+				/obj/item/pen/green,
+				/obj/item/pen/multi,
+				/obj/item/pen/retractable
+				)
+
+/obj/random/utensil
+	name = "random utensil"
+	desc = "This is a random utensil."
+	icon = 'icons/obj/kitchen.dmi'
+	icon_state = "fork"
+
+/obj/random/utensil/spawn_choices()
+	return list(/obj/item/material/kitchen/utensil/fork,
+				/obj/item/material/kitchen/utensil/spoon,
+				/obj/item/material/kitchen/utensil/spork
+				)
+
+/obj/random/officetoy
+	name = "random office toy"
+	desc = "This is a random toy for eggheads."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "fan"
+
+/obj/random/officetoy/spawn_choices()
+	return list(/obj/item/toy/desk/fan,
+				/obj/item/toy/desk/officetoy,
+				/obj/item/toy/desk/dippingbird,
+				/obj/item/toy/desk/newtoncradle
+				)
+
+/obj/random/dice
+	name = "random dice"
+	desc = "These are random dice."
+	icon = 'icons/obj/dice.dmi'
+	icon_state = "d66"
+
+/obj/random/dice/spawn_choices()
+	return list(/obj/item/dice,
+				/obj/item/dice/d10,
+				/obj/item/dice/d100,
+				/obj/item/dice/d12,
+				/obj/item/dice/d4,
+				/obj/item/dice/d8
+				)
