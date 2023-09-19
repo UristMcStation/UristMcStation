@@ -664,3 +664,11 @@
 		body_color = pick( list("1","2","3","4","5","6") )
 	icon_state = "draugr[body_color]"
 	icon_living = "draugr[body_color]"
+
+/mob/living/simple_animal/hostile/urist/skeleton/ancient/ranged
+	projectiletype = /obj/item/projectile/energy/dart
+	projectilesound = 'sound/urist/gotabone.ogg'
+	harm_intent_damage = 0
+	needs_reload = TRUE
+	reload_time = 2.5 SECONDS
+	reload_sound = null

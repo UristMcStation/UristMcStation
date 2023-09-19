@@ -142,8 +142,8 @@
 /obj/random/treasure,
 /obj/item/clothing/shoes/jackboots/medievalboots,
 /obj/item/clothing/under/urist/historic/leather_tunic,
-/obj/item/remains/human,
 /obj/structure/closet/coffin/urist/stonecoffin,
+/mob/living/simple_animal/hostile/urist/skeleton/ancient/ranged,
 /turf/simulated/floor/planet/jungle/clear/underground,
 /area/planet/forest/upper)
 "H" = (
