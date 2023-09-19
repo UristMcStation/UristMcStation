@@ -3254,6 +3254,7 @@
 #include "code\modules\turbolift\turbolift_turfs.dm"
 #include "code\modules\urist\_helpers.dm"
 #include "code\modules\urist\random.dm"
+#include "code\modules\urist\spells.dm"
 #include "code\modules\urist\_maps\templates.dm"
 #include "code\modules\urist\admin\admin_poll.dm"
 #include "code\modules\urist\admin\verbs.dm"
