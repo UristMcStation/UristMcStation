@@ -7620,6 +7620,13 @@
 "oj" = (
 /turf/simulated/floor/plating,
 /area/engineering/bluespace)
+"ok" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/machinery/ship_map,
+/turf/simulated/floor/tiled,
+/area/hallway/centralfirst)
 "ol" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 1;
@@ -8791,10 +8798,13 @@
 	},
 /turf/space,
 /area/space)
-"ut" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+"ue" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8;
+	id_tag = null
+	},
 /obj/effect/floor_decal/corner/lightgrey{
-	dir = 4;
+	dir = 6;
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
@@ -8805,21 +8815,18 @@
 	},
 /turf/space,
 /area/space)
-"vu" = (
-/obj/effect/floor_decal/borderfloor{
-	dir = 4;
-	icon_state = "borderfloor_white"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/centralfirst)
 "wD" = (
 /obj/effect/shuttle_landmark/nerva/docking/north,
 /turf/space,
 /area/space)
-"xe" = (
-/obj/effect/overmap/visitable/ship/combat/nerva,
-/turf/simulated/wall/r_wall/prepainted,
-/area/security/topgun)
+"yT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/floor_decal/corner/lightgrey{
+	dir = 4;
+	icon_state = "corner_white"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/centralfirst)
 "AB" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -8870,35 +8877,6 @@
 	},
 /turf/simulated/floor/bluegrid,
 /area/engineering/bluespace)
-"Ei" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8;
-	icon_state = "map_vent_out"
-	},
-/obj/effect/floor_decal/corner/lightgrey{
-	dir = 6;
-	icon_state = "corner_white"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/centralfirst)
-"Et" = (
-/obj/effect/floor_decal/urist/nervalogo{
-	dir = 1;
-	icon_state = "nerva3"
-	},
-/obj/effect/floor_decal/corner/lightgrey{
-	dir = 6;
-	icon_state = "corner_white"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/centralfirst)
-"ET" = (
-/obj/effect/floor_decal/corner/lightgrey{
-	dir = 6;
-	icon_state = "corner_white"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/centralfirst)
 "Fd" = (
 /obj/item/material/shard{
 	icon_state = "small"
@@ -8920,14 +8898,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
-"Id" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8;
-	id_tag = null
-	},
-/obj/effect/floor_decal/corner/lightgrey{
-	dir = 6;
-	icon_state = "corner_white"
+"Hj" = (
+/obj/effect/floor_decal/borderfloor{
+	dir = 4;
+	icon_state = "borderfloor_white"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
@@ -8942,6 +8916,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/monotile,
+/area/hallway/centralfirst)
+"Og" = (
+/obj/effect/floor_decal/corner/lightgrey{
+	dir = 9;
+	icon_state = "corner_white"
+	},
+/turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
 "Rh" = (
 /obj/machinery/camera/network/engineering{
@@ -8967,9 +8948,9 @@
 /obj/effect/shuttle_landmark/nerva/docking/south,
 /turf/space,
 /area/space)
-"Tq" = (
+"Ts" = (
 /obj/effect/floor_decal/corner/lightgrey{
-	dir = 5;
+	dir = 6;
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
@@ -8988,41 +8969,41 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/solar/auxaft)
-"TU" = (
+"Xf" = (
+/obj/structure/shipweapons/hardpoint/nerva,
+/turf/simulated/floor/reinforced,
+/area/security/topgun)
+"Ym" = (
 /obj/effect/floor_decal/corner/lightgrey{
 	dir = 5;
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
-"Vo" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/borderfloor{
+/area/hallway/centralfirst)
+"YL" = (
+/obj/effect/floor_decal/urist/nervalogo{
 	dir = 1;
-	icon_state = "borderfloor_white"
+	icon_state = "nerva3"
 	},
-/turf/simulated/floor/tiled,
-/area/space)
-"VY" = (
 /obj/effect/floor_decal/corner/lightgrey{
-	dir = 9;
+	dir = 6;
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
-"Xf" = (
-/obj/structure/shipweapons/hardpoint/nerva,
-/turf/simulated/floor/reinforced,
+"YT" = (
+/obj/effect/overmap/visitable/ship/combat/nerva,
+/turf/simulated/wall/r_wall/prepainted,
 /area/security/topgun)
-"XP" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 5
+"Zf" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8;
+	icon_state = "map_vent_out"
 	},
-/obj/machinery/ship_map,
+/obj/effect/floor_decal/corner/lightgrey{
+	dir = 6;
+	icon_state = "corner_white"
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
 
@@ -27506,7 +27487,7 @@ cr
 cr
 cr
 cr
-XP
+ok
 fN
 gB
 hd
@@ -28501,8 +28482,8 @@ ai
 al
 ao
 at
-VY
-VY
+Og
+Og
 aO
 bg
 br
@@ -28704,7 +28685,7 @@ am
 ap
 au
 aC
-ut
+yT
 aP
 bh
 bs
@@ -28716,12 +28697,12 @@ cK
 de
 dD
 ec
-ET
+Ts
 bh
 fi
 fT
-ET
-Et
+Ts
+YL
 hC
 ii
 iW
@@ -28731,14 +28712,14 @@ kn
 kC
 lb
 bh
-ET
-ET
-Ei
+Ts
+Ts
+Zf
 nd
 nF
-ET
-Id
-ET
+Ts
+ue
+Ts
 oK
 bh
 pf
@@ -28906,7 +28887,7 @@ qk
 qk
 qk
 qk
-Tq
+Ym
 aQ
 bi
 bt
@@ -28926,7 +28907,7 @@ gE
 hi
 hD
 ij
-vu
+Hj
 jx
 jM
 ko
@@ -29108,7 +29089,7 @@ aa
 aa
 aa
 as
-Tq
+Ym
 aR
 bi
 bu
@@ -29711,7 +29692,7 @@ aa
 aa
 aa
 aa
-TU
+aa
 aa
 qk
 aF
@@ -29913,10 +29894,10 @@ aa
 aa
 aa
 aa
-Vo
+aa
 aa
 qk
-Tq
+Ym
 aV
 bi
 bu
@@ -40036,7 +40017,7 @@ gX
 hw
 hZ
 iP
-xe
+YT
 jH
 kf
 kx
