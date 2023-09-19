@@ -2839,6 +2839,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/rotating_alarm/security_alarm,
 /turf/simulated/floor/plating,
 /area/hallway/aft/second_deck)
 "fJ" = (
@@ -3486,6 +3487,10 @@
 "gp" = (
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk,
+/obj/machinery/rotating_alarm/security_alarm{
+	icon_state = "code green";
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/hallway/fore/second_deck)
 "gq" = (
@@ -5146,6 +5151,10 @@
 /obj/effect/floor_decal/corner/yellow/full,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/disposalpipe/trunk,
+/obj/machinery/rotating_alarm/supermatter{
+	icon_state = "alarm";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
 "jQ" = (
@@ -8433,6 +8442,10 @@
 	},
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/outline/orange,
+/obj/machinery/rotating_alarm/supermatter{
+	icon_state = "alarm";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
 "qs" = (
@@ -8521,6 +8534,10 @@
 /obj/effect/floor_decal/corner/lightgrey{
 	dir = 10;
 	icon_state = "corner_white"
+	},
+/obj/machinery/rotating_alarm/security_alarm{
+	icon_state = "code green";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/second_deck)
@@ -8842,6 +8859,10 @@
 /obj/effect/floor_decal/corner/lightgrey{
 	dir = 10;
 	icon_state = "corner_white"
+	},
+/obj/machinery/rotating_alarm/security_alarm{
+	icon_state = "code green";
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/second_deck)
@@ -14344,6 +14365,13 @@
 /obj/structure/ladder/updown,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fp)
+"Ey" = (
+/obj/machinery/rotating_alarm/security_alarm{
+	icon_state = "code green";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/hallway/fore/second_deck)
 "Ez" = (
 /obj/machinery/light/small/red{
 	dir = 4;
@@ -14545,6 +14573,14 @@
 	},
 /turf/simulated/floor/carpet,
 /area/chapel)
+"Fv" = (
+/obj/effect/floor_decal/corner/lightgrey{
+	dir = 5;
+	icon_state = "corner_white"
+	},
+/obj/machinery/rotating_alarm/security_alarm,
+/turf/simulated/floor/tiled,
+/area/hallway/fore/second_deck)
 "Fx" = (
 /obj/structure/ladder/up,
 /turf/simulated/floor/plating,
@@ -15283,6 +15319,17 @@
 /obj/random/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
+"Jl" = (
+/obj/effect/floor_decal/corner/lightgrey{
+	dir = 10;
+	icon_state = "corner_white"
+	},
+/obj/machinery/rotating_alarm/security_alarm{
+	icon_state = "code green";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/aft/second_deck)
 "Jm" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -15306,6 +15353,14 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/chapel)
+"JE" = (
+/obj/effect/floor_decal/corner/lightgrey{
+	dir = 5;
+	icon_state = "corner_white"
+	},
+/obj/machinery/rotating_alarm/security_alarm,
+/turf/simulated/floor/tiled,
+/area/hallway/aft/second_deck)
 "JG" = (
 /obj/item/device/radio/intercom{
 	broadcasting = 0;
@@ -16839,6 +16894,12 @@
 /obj/item/clothing/accessory/badge/press,
 /turf/simulated/floor/wood/walnut,
 /area/civilian/journalist)
+"Qx" = (
+/obj/machinery/ship_map{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/hallway/aft/second_deck)
 "Qz" = (
 /obj/structure/flora/pottedplant/unusual,
 /obj/machinery/alarm{
@@ -17731,6 +17792,7 @@
 	dir = 5;
 	icon_state = "corner_white"
 	},
+/obj/machinery/rotating_alarm/security_alarm,
 /turf/simulated/floor/tiled,
 /area/hallway/fore/second_deck)
 "VX" = (
@@ -39316,7 +39378,7 @@ dN
 ey
 fe
 fO
-eC
+Qx
 hH
 io
 jk
@@ -40326,7 +40388,7 @@ aX
 bB
 eB
 fJ
-Az
+Jl
 hH
 ip
 jk
@@ -40336,7 +40398,7 @@ ma
 ma
 nO
 hH
-EZ
+JE
 qE
 rr
 CU
@@ -42952,7 +43014,7 @@ dV
 eE
 fi
 gb
-gZ
+Ey
 be
 be
 be
@@ -46790,7 +46852,7 @@ AE
 cR
 fi
 ge
-gZ
+Ey
 hJ
 eM
 eL
@@ -46800,7 +46862,7 @@ eL
 eL
 km
 hJ
-PQ
+Fv
 qJ
 rz
 rz

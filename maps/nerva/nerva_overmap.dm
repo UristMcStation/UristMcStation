@@ -14,6 +14,7 @@
 	evac_x = 143
 	evac_y = 97
 	evac_z = 3
+	base = TRUE
 
 	initial_generic_waypoints = list(
 		"nerva_north_dock",

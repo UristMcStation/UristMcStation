@@ -11,6 +11,7 @@
 /area/command
 	icon_state = "head_quarters"
 	req_access = list(access_bridge)
+	holomap_color = HOLOMAP_AREACOLOR_COMMAND
 
 /area/command/bridge
 	name = "\improper ICS Nerva Bridge"
@@ -133,6 +134,7 @@
 
 /area/civilian
 	icon_state = "green"
+	holomap_color = HOLOMAP_AREACOLOR_CREW
 
 /area/civilian/observatory
 	name = "\improper Starboard Observatory"
@@ -492,6 +494,8 @@
 
 /area/solar
 	req_access = list(access_maint_tunnels)
+	area_flags = AREA_FLAG_EXTERNAL
+	has_gravity = FALSE
 
 /area/solar/main
 	name = "\improper Main Solar Array"
@@ -505,11 +509,13 @@
 	name = "\improper Solar Maintenance - Main"
 	icon_state = "SolarcontrolS"
 	sound_env = SMALL_ENCLOSED
+	holomap_color = HOLOMAP_AREACOLOR_AIRLOCK
 
 /area/maintenance/aftsolar
 	name = "\improper Solar Maintenance - Aft Auxiliary"
 	icon_state = "SolarcontrolA"
 	sound_env = SMALL_ENCLOSED
+	holomap_color = HOLOMAP_AREACOLOR_AIRLOCK
 
 //////////////////////////////////////
 //			MEDICAL					//
@@ -587,6 +593,7 @@
 /area/logistics
 	icon_state = "yellow"
 	req_access = list(access_cargo)
+	holomap_color = HOLOMAP_AREACOLOR_CARGO
 
 /area/logistics/qm
 	name = "\improper Quartermaster's Office"
@@ -635,6 +642,7 @@
 	name = "\improper General Expedition Prep"
 	icon_state = "exploration"
 	req_access = list(access_expedition)
+	holomap_color = HOLOMAP_AREACOLOR_EXPLORATION
 
 /area/logistics/robotics
 	name = "\improper Robotics Lab"
@@ -649,6 +657,7 @@
 /area/logistics/hangar
 	name = "\improper Hangar"
 	req_access = list()
+	holomap_color = HOLOMAP_AREACOLOR_EXPLORATION
 
 /area/supply/dock
 	name = "Supply Shuttle"
@@ -839,6 +848,7 @@
 	dynamic_lighting = 0
 	requires_power = 0
 	sound_env = LARGE_ENCLOSED
+	holomap_color = HOLOMAP_AREACOLOR_CREW
 
 /area/holodeck/source_battle_arena
 	name = "\improper Holodeck - Battle Arena"
