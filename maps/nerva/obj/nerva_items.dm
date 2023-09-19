@@ -106,23 +106,23 @@
 
 /obj/item/stamp/nt
 	name = "\improper NanoTrasen rubber stamp"
-	icon_state = "stamp-intaff"
+	icon_state = "stamp-rd"
 
 /obj/item/stamp/seniornt
 	name = "\improper Senior Researcher's rubber stamp"
-	icon_state = "stamp-intaff"
+	icon_state = "stamp-rd"
 
 /obj/item/stamp/fo
 	name = "\improper First Officer's rubber stamp"
-	icon_state = "stamp-hop"
+	icon_state = "stamp-xo"
 
 /obj/item/stamp/so
 	name = "\improper Second Officer's rubber stamp"
-	icon_state = "stamp-hop"
+	icon_state = "stamp-xo"
 
 /obj/item/stamp/cos
 	name = "\improper Chief of Security's rubber stamp"
-	icon_state = "stamp-hos"
+	icon_state = "stamp-cos"
 
 //paint
 
