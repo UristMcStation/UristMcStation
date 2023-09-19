@@ -8,12 +8,19 @@
 	density = TRUE
 	var/static/list/amount_of_underwear_by_id_card
 
-/obj/structure/undies_wardrobe/attackby(obj/item/underwear/underwear, mob/user)
-	if(istype(underwear))
-		if(!user.unEquip(underwear))
+/obj/structure/undies_wardrobe/attackby(obj/item/I, mob/user)
+
+	if(isWrench(I))
+		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+		var/obj/item/stack/material/wood/S = new /obj/item/stack/material/wood(src.loc)
+		S.amount = 5
+		qdel(src)
+
+	if(istype(I, /obj/item/underwear))
+		if(!user.unEquip(I))
 			return
-		qdel(underwear)
-		user.visible_message(SPAN_NOTICE("\The [user] inserts \their [underwear.name] into \the [src]."), SPAN_NOTICE("You insert your [underwear.name] into \the [src]."))
+		qdel(I)
+		user.visible_message(SPAN_NOTICE("\The [user] inserts \their [I.name] into \the [src]."), SPAN_NOTICE("You insert your [I.name] into \the [src]."))
 
 		var/id = user.GetIdCard()
 		var/message
