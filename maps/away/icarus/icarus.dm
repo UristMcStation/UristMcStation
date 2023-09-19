@@ -1,6 +1,6 @@
 #include "icarus_areas.dm"
 
-/obj/effect/overmap/visitable/icarus
+/obj/effect/overmap/visitable/sector/planetoid/icarus
 	name = "forest planetoid"
 	desc = "Sensors detect anomalous radiation area with the presence of artificial structures."
 	icon_state = "globe"
@@ -11,7 +11,7 @@
 		"nav_icarus_antag"
 	)
 
-/obj/effect/overmap/visitable/icarus/New(nloc, max_x, max_y)
+/obj/effect/overmap/visitable/sector/planetoid/icarus/New(nloc, max_x, max_y)
 	name = "[generate_planet_name()], \a [name]"
 	..()
 
@@ -41,7 +41,8 @@
 	description = "The crashlanding site of the SEV Icarus."
 	suffixes = list("icarus/icarus-1.dmm", "icarus/icarus-2.dmm")
 	spawn_cost = 2
-	generate_mining_by_z = 1
+	generate_mining_by_z = list(1,2)
+	area_coherency_test_exempt_areas = list(/area/icarus/open)
 
 /obj/effect/shuttle_landmark/nav_icarus/nav1
 	name = "Planetary Navpoint #1"

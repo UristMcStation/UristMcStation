@@ -60,7 +60,7 @@
 	#include "../away/casino/casino.dm"
 	#include "../away/yacht/yacht.dm"
 	#include "../away/blueriver/blueriver.dm"
-	#include "../away/slavers/slavers_base.dm"
+	#include "../away/slavers_base/slavers_base.dm"
 	#include "../away/mobius_rift/mobius_rift.dm"
 	#include "../away/icarus/icarus.dm"
 	#include "../away/errant_pisces/errant_pisces.dm"
@@ -76,7 +76,7 @@
 	#include "../away/meatstation/meatstation.dm"
 	#include "../away/miningstation/miningstation.dm"
 	#include "../away/mininghome/mininghome.dm"
-	#include "../away/scavver/scavver_gantry.dm"
+	#include "../away/scavver_gantry/scavver_gantry.dm"
 
 	/*#include "../../code/datums/music_tracks/chasing_time.dm"
 	#include "../../code/datums/music_tracks/absconditus.dm"
@@ -86,10 +86,10 @@
 	#include "../../code/datums/music_tracks/space_oddity.dm"*/
 
 	//keep your clothing hacks to yourself
-	#include "../torch/items/clothing/solgov-accessory.dm"
+	// #include "../torch/items/clothing/solgov-accessory.dm"	These don't seem to actually be used, but are causing issues with double-importing
 	#include "../torch/items/clothing/solgov-armor.dm"
 	#include "../torch/items/clothing/solgov-feet.dm"
-	#include "../torch/items/clothing/solgov-head.dm"
+	// #include "../torch/items/clothing/solgov-head.dm"
 	#include "../torch/items/clothing/solgov-suit.dm"
 	#include "../torch/items/clothing/solgov-under.dm"
 

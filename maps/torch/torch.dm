@@ -168,7 +168,7 @@
 	#include "../away/casino/casino.dm"
 	#include "../away/yacht/yacht.dm"
 	#include "../away/blueriver/blueriver.dm"
-	#include "../away/slavers/slavers_base.dm"
+	#include "../away/slavers_base/slavers_base.dm"
 	#include "../away/mobius_rift/mobius_rift.dm"
 	#include "../away/errant_pisces/errant_pisces.dm"
 	#include "../away/lar_maria/lar_maria.dm"
@@ -177,7 +177,7 @@
 	#include "../away/meatstation/meatstation.dm"
 	#include "../away/miningstation/miningstation.dm"
 	#include "../away/mininghome/mininghome.dm"
-	#include "../away/scavver/scavver_gantry.dm"
+	#include "../away/scavver_gantry/scavver_gantry.dm"
 
 	#include "../event/iccgn_ship/icgnv_hound.dm"
 	#include "../event/sfv_arbiter/sfv_arbiter.dm"

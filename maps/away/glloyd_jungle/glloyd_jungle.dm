@@ -1,5 +1,3 @@
-/area/planet/jungle/away
-
 /area/jungleoutpost/comms
 	name = "\improper Jungle Outpost Comms"
 

@@ -13,6 +13,8 @@
 	name = "jungle"
 	base_turf = /turf/simulated/floor/planet/jungle/clear/grass1
 
+/area/planet/jungle/away
+
 //Unused code
 /*
 /area/planet/jungle/explored

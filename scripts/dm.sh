@@ -36,6 +36,8 @@ for var; do
     elif [[ $var == -M* ]]; then
         sed -i '1s/^/#define MAP_OVERRIDE\n/' $dmepath.mdme
         sed -i 's!#include "maps\\_map_include.dm"!#include "maps\\'$arg'\\'$arg'.dm"!' $dmepath.mdme
+    elif [[ $var == -T ]]; then
+        sed -i '1s/^/#define MAP_TEST_TEMPLATES\n/' $dmepath.mdme
     fi
 done
 

@@ -1,6 +1,8 @@
 #include "noctis_areas.dm"
 #include "noctis_jobs.dm"
 #include "noctis_shuttle.dm"
+#include "../../torch/items/clothing/solgov-accessory.dm"
+#include "../../torch/items/clothing/solgov-head.dm"
 
 /obj/effect/submap_landmark/joinable_submap/noctis
 	name = "UXO Noctis"
@@ -21,6 +23,7 @@
 	spawn_cost = 1
 	player_cost = 0
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/raptor)
+	area_coherency_test_exempt_areas = list(/area/noctis/exteriorl)
 
 /obj/effect/overmap/visitable/ship/noctis
 	classification = "exploration corvette"
@@ -112,3 +115,7 @@
 	facial_styles_per_species = list(SPECIES_HUMAN = list("5 O'clock Shadow"))
 	corpse_outfits = list(/singleton/hierarchy/outfit/freightercap)
 	damage = list(BP_HEAD = 27, BP_CHEST = 53, "impale" = BP_CHEST)
+
+/obj/machinery/computer/shuttle_control/explore/lanius
+	name = "Aura Control Console"
+	shuttle_tag = "Aura"
