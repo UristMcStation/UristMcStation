@@ -2965,6 +2965,7 @@
 /obj/structure/bed/chair/office/comfy/beige{
 	dir = 8
 	},
+/mob/living/simple_animal/hostile/giant_spider/lurker,
 /turf/simulated/floor,
 /area/planet/forest/cave/lab)
 "hf" = (

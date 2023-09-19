@@ -661,6 +661,7 @@
 /obj/structure/closet/secure_closet/freezer/fridge,
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/item/reagent_containers/food/condiment/salt,
+/obj/item/storage/box/condimentbottles,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cabin1)
 "cY" = (
@@ -917,7 +918,8 @@
 /turf/simulated/floor/planet/dirt/temperate,
 /area/planet/forest)
 "jc" = (
-/obj/machinery/chem_master,
+/obj/structure/scrap/large,
+/obj/item/stock_parts/capacitor,
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest)
 "kk" = (
@@ -926,6 +928,10 @@
 /area/planet/forest/cabin1)
 "lr" = (
 /obj/structure/closet/crate/solar_assembly,
+/turf/simulated/floor/planet/jungle/clear/underground,
+/area/planet/forest/cabin1)
+"lX" = (
+/obj/machinery/chem_master,
 /turf/simulated/floor/planet/jungle/clear/underground,
 /area/planet/forest/cabin1)
 "nz" = (
@@ -1018,6 +1024,15 @@
 /obj/structure/flora/tree/planet/snowy,
 /turf/simulated/floor/planet/snow,
 /area/planet/forest)
+"Vo" = (
+/obj/structure/scrap,
+/obj/item/stock_parts/capacitor,
+/turf/simulated/floor/planet/temperate,
+/area/planet/forest)
+"VC" = (
+/obj/machinery/smartfridge/drying_rack,
+/turf/simulated/floor/planet/temperate,
+/area/planet/forest/cabin1)
 
 (1,1,1) = {"
 aa
@@ -4941,7 +4956,7 @@ ab
 ab
 ab
 ab
-br
+Vo
 bc
 bc
 bc
@@ -5721,7 +5736,7 @@ ab
 ab
 ab
 ab
-jc
+bc
 bc
 bs
 bc
@@ -5753,7 +5768,7 @@ bc
 bc
 bc
 bc
-ag
+jc
 bc
 ah
 iG
@@ -8679,7 +8694,7 @@ ab
 ab
 bc
 bc
-br
+Vo
 bc
 an
 bc
@@ -9360,7 +9375,7 @@ aI
 cM
 cM
 cM
-cM
+VC
 aL
 aO
 aO
@@ -10087,7 +10102,7 @@ am
 dR
 lr
 dn
-dn
+lX
 df
 ab
 ab
