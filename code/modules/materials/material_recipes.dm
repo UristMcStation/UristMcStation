@@ -140,6 +140,16 @@
 	. += new/datum/stack_recipe/shield(src)
 	. += new/datum/stack_recipe/furniture/truss(src)
 
+	. += new/datum/stack_recipe/imprifleframe(src)
+	. += new/datum/stack_recipe/flintlockstock
+	. += new/datum/stack_recipe/furniture/undies_wardrobe(src)
+	. += new/datum/stack_recipe/furniture/cabinet(src)
+	. += new/datum/stack_recipe/furniture/coatrack(src)
+	. += new/datum/stack_recipe/furniture/woodfilingcabinet(src)
+	. += new/datum/stack_recipe/furniture/woodrack(src)
+	. += new/datum/stack_recipe/furniture/raft(src)
+	. += new/datum/stack_recipe/paddle(src)
+
 /material/wood/mahogany/generate_recipes(reinforce_material)
 	. = ..()
 	if(reinforce_material)
