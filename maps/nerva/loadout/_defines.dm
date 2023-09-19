@@ -14,7 +14,7 @@
 #define ENGINEERING_ROLES list(/datum/job/chief_engineer, /datum/job/engineer)
 
 //For members of Engineering, Cargo, and Research
-#define TECHNICAL_ROLES list(/datum/job/senior_engineer, /datum/job/engineer, /datum/job/roboticist, /datum/job/qm, /datum/job/cargo_tech, /datum/job/merchant, /datum/job/seniorscientist, /datum/job/scientist, /datum/job/chief_engineer)
+#define TECHNICAL_ROLES list(/datum/job/chief_engineer, /datum/job/engineer, /datum/job/roboticist, /datum/job/qm, /datum/job/cargo_tech, /datum/job/merchant, /datum/job/seniorscientist, /datum/job/scientist)
 
 //For members of the security department
 #define SECURITY_ROLES list(/datum/job/hos, /datum/job/officer)

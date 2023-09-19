@@ -7,7 +7,7 @@
 /datum/gear/head/beret/bsec
 	display_name = "beret, navy (officer)"
 	path = /obj/item/clothing/head/beret/sec/navy/officer
-	allowed_roles = list(/datum/job/officer,/datum/job/hos,/datum/job/warden)
+	allowed_roles = SECURITY_ROLES
 
 /datum/gear/head/beret/bsec_warden
 	display_name = "beret, navy (warden)"
@@ -22,7 +22,7 @@
 /datum/gear/head/beret/eng
 	display_name = "beret, engineering"
 	path = /obj/item/clothing/head/beret/engineering
-	allowed_roles = list(/datum/job/engineer,/datum/job/chief_engineer)
+	allowed_roles = ENGINEERING_ROLES
 
 /datum/gear/head/beret/purp
 	display_name = "beret, purple"
@@ -31,17 +31,17 @@
 /datum/gear/head/beret/sec
 	display_name = "beret, red (security)"
 	path = /obj/item/clothing/head/beret/sec
-	allowed_roles = list(/datum/job/officer,/datum/job/hos,/datum/job/warden)
+	allowed_roles = SECURITY_ROLES
 
 /datum/gear/head/seccap
 	display_name = "cap, security"
 	path = /obj/item/clothing/head/soft/sec
-	allowed_roles = list(/datum/job/officer,/datum/job/hos,/datum/job/warden, /datum/job/detective)
+	allowed_roles = SECURITY_ROLES
 
 /datum/gear/head/seccap/corp
 	display_name = "cap, corporate security"
 	path = /obj/item/clothing/head/soft/sec/corp
-	allowed_roles = list(/datum/job/officer,/datum/job/hos,/datum/job/warden, /datum/job/detective)
+	allowed_roles = SECURITY_ROLES
 
 /datum/gear/head/welding
-	allowed_roles = list(/datum/job/roboticist,/datum/job/engineer,/datum/job/chief_engineer)
+	allowed_roles = TECHNICAL_ROLES
