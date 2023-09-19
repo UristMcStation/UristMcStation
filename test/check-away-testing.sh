@@ -2,7 +2,7 @@ FAILED=0
 TOTAL=0
 SKIPPED=0
 
-EXCLUDE=("stations" "geminus_city")
+EXCLUDE=("stations")
 
 function msg {
     echo -e "\t\e[34mtest\e[0m: $*"

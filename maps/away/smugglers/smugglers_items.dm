@@ -1,5 +1,5 @@
 /obj/item/paper/smug_1
-	name = "suspicios note"
+	name = "suspicious note"
 	info = "This one goes to Nyx, Tranist station 3, dock 14. Ask Dr. Jensen.<BR> <b>Ask no less than 4000 thalers!</b>"
 
 /obj/item/paper/smug_2
