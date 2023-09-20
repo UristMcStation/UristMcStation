@@ -6,7 +6,7 @@
 	set name = "Generate DeepmaintRooms"
 
 	if(!GLOB.wfc_deepmaint_zlevels_by_instance)
-		log_and_message_admins("- no Deepmaint Z-levels registered!")
+		log_and_message_admins("- failed to generate Deepmaint - no Deepmaint Z-levels registered!")
 		return
 
 	for(var/area/map_template/deepmaint_wfc/deepmaint_area in GLOB.wfc_deepmaint_zlevels_by_instance)
@@ -23,7 +23,7 @@
 	set name = "Send to DeepmaintRooms"
 
 	if(!GLOB.wfc_deepmaint_zlevels_by_instance)
-		log_and_message_admins("tried to throw into Deepmaint, but no Deepmaint Z-levels are currently registered!")
+		log_and_message_admins("tried to throw [M] into Deepmaint, but no Deepmaint Z-levels are currently registered!")
 		return
 
 	var/atom/movable/target = M

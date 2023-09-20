@@ -16,16 +16,10 @@
 
 
 /proc/WfcChangeTurf(var/turf/trg, var/new_type)
-	if(isnull(new_type))
+	if(!isturf(new_type))
 		return
 
-	if(!ispath(new_type))
-		return
-
-	if(!ispath(new_type, /turf))
-		return
-
-	if(!isnull(trg?.associated_wfc_overwritables))
+	if(!isnull(trg.associated_wfc_overwritables))
 		for(var/overwritten in trg.associated_wfc_overwritables)
 			qdel_from_weakref(overwritten)
 

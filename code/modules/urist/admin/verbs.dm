@@ -9,10 +9,10 @@
 		return
 
 	for(var/mob/living/M in GLOB.player_list)
-		M.loc = get_turf(usr)
-		message_admins("[key_name(usr)] has warped all players to their location.")
-		log_admin("[key_name(src)] has warped all players to their location.")
+		M.forceMove(get_turf(usr))
 		sleep(-1)
+
+	log_and_message_admins(" has warped all players to their location.")
 
 
 //Urist mass-callproc, call it by regular callproc. SUPER risky.

@@ -1,14 +1,11 @@
 
 /proc/deepmaint_yeet_trg(var/atom/movable/trg, var/xoffset = 1, var/yoffset = 1)
-	if(!istype(trg, /atom/movable))
+	if(!ismovable(trg))
+		// This would be silly
 		return FALSE
 
 	if(isnull(trg.loc))
 		// No un-qdel-ing by accident!
-		return
-
-	if(istype(trg, /turf) || istype(trg, /area))
-		// This would be silly
 		return
 
 	if(ismob(trg) && !istype(trg, DEEPMAINT_TELEPORTABLE_MOBTYPE))
@@ -32,18 +29,15 @@
 
 
 /proc/deepmaint_send_trg(var/atom/movable/trg)
-	if(!istype(trg, /atom/movable))
+	if(!ismovable(trg))
+		// This would be silly
 		return FALSE
 
 	if(isnull(trg.loc))
 		// No un-qdel-ing by accident!
 		return
 
-	if(istype(trg, /turf) || istype(trg, /area))
-		// This would be silly
-		return
-
-	if(istype(trg, /mob) && !istype(trg, DEEPMAINT_TELEPORTABLE_MOBTYPE))
+	if(ismob(trg) && !istype(trg, DEEPMAINT_TELEPORTABLE_MOBTYPE))
 		// Don't teleport AI eyes, ghosts, irate admins...
 		return
 
@@ -66,18 +60,15 @@
 
 
 /proc/deepmaint_return_trg(var/atom/movable/trg)
-	if(!istype(trg, /atom/movable))
+	if(!ismovable(trg))
+		// This would be silly
 		return FALSE
 
 	if(isnull(trg.loc))
 		// No un-qdel-ing by accident!
 		return
 
-	if(istype(trg, /turf) || istype(trg, /area))
-		// This would be silly
-		return
-
-	if(istype(trg, /mob) && !istype(trg, DEEPMAINT_TELEPORTABLE_MOBTYPE))
+	if(ismob(trg) && !istype(trg, DEEPMAINT_TELEPORTABLE_MOBTYPE))
 		// Don't teleport AI eyes, ghosts, irate admins...
 		return
 
