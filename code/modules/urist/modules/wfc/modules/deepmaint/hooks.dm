@@ -26,6 +26,6 @@
 
 	else
 		H.forceMove(T)
-		H.visible_message("[H] materializes on [T], seemingly out of thin air.")
+		H.visible_message("[H] materializes on \the [T], seemingly out of thin air.")
 
 	return TRUE

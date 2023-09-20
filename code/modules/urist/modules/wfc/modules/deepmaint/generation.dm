@@ -41,7 +41,7 @@
 		while(TRUE)
 			deepmaint_rebuild_mapfile(ruleset)
 			deepmaint_from_mapfile(mapname, overwrite_all = FALSE, zlevel = zlevel)
-			to_chat(world, "Regenerating in 20s")
+			log_debug("Deepmaint - Regenerating in 20s")
 			sleep(_sleeptime)
-			to_chat(world, "Regenerating!")
+			log_debug("Deepmaint - Regenerating!")
 	return

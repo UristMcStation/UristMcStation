@@ -11,7 +11,7 @@
 		// This would be silly
 		return
 
-	if(istype(trg, /mob) && !istype(trg, DEEPMAINT_TELEPORTABLE_MOBTYPE))
+	if(ismob(trg) && !istype(trg, DEEPMAINT_TELEPORTABLE_MOBTYPE))
 		// Don't teleport AI eyes, ghosts, irate admins...
 		return
 

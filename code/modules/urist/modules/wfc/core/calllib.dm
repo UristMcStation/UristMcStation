@@ -24,6 +24,7 @@
 
 /proc/generate_from_wfc_file(var/mapname = "genmap.json", var/overwrite_all = FALSE, var/zlevel = 1, var/xvariants = DEEPMAINT_VARIANT_REPEATS_X, var/yvariants = DEEPMAINT_VARIANT_REPEATS_Y)
 	if(!fexists(mapname))
+		log_debug("Deepmaint - Could not find map file: [mapname]")
 		to_chat(usr, "Map no generatey ):")
 		return
 
