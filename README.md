@@ -4,7 +4,7 @@ Urist McStation's BS12 branch. [![Build Status](https://github.com/UristMcStatio
 
 # baystation12
 
-[Website](http://www.prevess.com/) - [Code](http://github.com/UristMcStation/UristMcStation/) - [IRC](http://baystation12.net/forums/viewtopic.php?f=12&t=5088)
+[Website](https://uristmcstation.github.io) - [Code](http://github.com/UristMcStation/UristMcStation/) - [IRC](http://baystation12.net/forums/viewtopic.php?f=12&t=5088)
 
 ---
 
