@@ -611,9 +611,39 @@ to avoid worrying about the sprites -Glloyd*/
 
 /obj/item/clothing/head/urist/pelt/goat
 	name = "goat pelt"
-	desc = "a pelt from a goat"
+	desc = "a pelt from a goat."
 	icon_state = "goatpelt"
 	item_state = "goatpelt"
+
+/obj/item/clothing/head/urist/pelt/lizard
+	name = "lizard pelt"
+	desc = "a skin from a lizard."
+	icon_state = "lizardpelt"
+	item_state = "lizardpelt"
+
+/obj/item/clothing/head/urist/pelt/gator
+	name = "gator pelt"
+	desc = "a rough gator skin."
+	icon_state = "gatorpelt"
+	item_state = "gatorpelt"
+
+/obj/item/clothing/head/urist/pelt/fox
+	name = "fox pelt"
+	desc = "a pelt from a fox with a striking color."
+	icon_state = "foxpelt"
+	item_state = "foxpelt"
+
+/obj/item/clothing/head/urist/pelt/whitefox
+	name = "fox pelt"
+	desc = "a soft pelt from a white fox."
+	icon_state = "whitefoxpelt"
+	item_state = "whitefoxpelt"
+
+/obj/item/clothing/head/urist/pelt/lion
+	name = "lion pelt"
+	desc = "a majestic lion pelt."
+	icon_state = "lionpelt"
+	item_state = "lionpelt"
 
 //historic helms
 

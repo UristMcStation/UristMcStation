@@ -94,3 +94,60 @@
 				else
 					to_chat(user, "<span class='warning'>\The [src] is used up, but there are more wounds to treat on \the [affecting.name].</span>")
 			use(used)
+
+/obj/item/loom
+	name = "table loom"
+	desc = "A loom small enought to only take up a table instead of the whole floor."
+	icon = 'icons/urist/items/wood.dmi'
+	icon_state = "loom"
+
+/datum/reagent/cottonfiber
+	name = "cotton fiber"
+	description = "A mass of cotton fibers."
+	taste_description = "cotton"
+	reagent_state = SOLID
+	color = "#ffffff"
+
+/datum/seed/cotton
+	name = "cotton"
+	seed_name = "cotton"
+	display_name = "cotton plant"
+	chems = list(/datum/reagent/cottonfiber = list(6,1))
+
+/datum/seed/cotton/New()
+	..()
+	set_trait(TRAIT_MATURATION,1)
+	set_trait(TRAIT_PRODUCTION,1)
+	set_trait(TRAIT_YIELD,7)
+	set_trait(TRAIT_POTENCY,10)
+//	set_trait(TRAIT_PRODUCT_ICON,"cotton")
+	set_trait(TRAIT_PRODUCT_ICON,"potato")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#ffffff")
+	set_trait(TRAIT_PLANT_ICON,"bush2")
+	set_trait(TRAIT_WATER_CONSUMPTION, 6)
+
+/obj/item/seeds/cotton
+	seed_type = "cotton"
+
+/// True when this atom can be used as a loom.
+/atom/proc/IsLoom()
+	return FALSE
+
+/// Defines the base loom as useable as a loom.
+/obj/item/loom/IsLoom()
+	return TRUE
+
+/// True when A exists and can be used as a loom.
+#define isLoom(A) (A?.IsLoom())
+
+/obj/item/reagent_containers/food/snacks/grown/attackby(obj/item/W, mob/user)
+
+	if(seed)
+		if(seed.chems)
+			if(isLoom(W))
+				if(!isnull(seed.chems[/datum/reagent/cottonfiber]))
+					user.visible_message(SPAN_NOTICE("\The [user] weaves the cotton into cloth \the [src]."))
+					new /obj/item/stack/material/cloth(user.loc)
+					qdel(src)
+					return
+	..()
