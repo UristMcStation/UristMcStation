@@ -301,6 +301,10 @@
 	attacktext = "bitten"
 	attack_sound = 'sound/weapons/bite.ogg'
 	ai_holder = /datum/ai_holder/simple_animal/melee/snek
+	meat_amount = 2
+	bone_amount = 1
+	skin_amount = 2
+	skin_material =	MATERIAL_SKIN_LIZARD
 
 /datum/ai_holder/simple_animal/melee/snek
 	vision_range = 5 //balancing snakes so they don't slither all the way across the plains to kill you.
@@ -460,6 +464,7 @@
 	icon_living = "cougar"
 	icon_dead = "cougar_dead"
 	icon_gib = "cougar_dead"
+	skin_material = MATERIAL_SKIN_FUR
 
 /mob/living/simple_animal/hostile/huntable/bear/grey
 	desc = "A big scary bear, probably best to stay away"
@@ -467,6 +472,7 @@
 	icon_living = "greybear"
 	icon_dead = "greybear_dead"
 	icon_gib = "greybear_dead"
+	skin_material = MATERIAL_SKIN_FUR_BLACK
 
 /mob/living/simple_animal/hostile/huntable/bear/black
 	desc = "A big scary black bear, probably best to stay away"
@@ -474,6 +480,7 @@
 	icon_living = "blackbear"
 	icon_dead = "blackbear_dead"
 	icon_gib = "blackbear_dead"
+	skin_material = MATERIAL_SKIN_FUR_BLACK
 
 /mob/living/simple_animal/hostile/huntable/bear/polar
 	desc = "A big scary polar bear, probably best to stay away"
@@ -514,9 +521,9 @@
 	maxHealth = 70
 	health = 70
 	natural_weapon = /obj/item/natural_weapon/bite
-	meat_amount = 4
+	meat_amount = 5
 	bone_amount = 5
-	skin_amount = 6
+	skin_amount = 8
 	skin_material = MATERIAL_SKIN_FUR_GRAY
 
 /mob/living/simple_animal/hostile/huntable/wolf/white
