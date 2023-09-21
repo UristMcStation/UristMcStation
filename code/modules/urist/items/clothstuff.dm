@@ -128,25 +128,12 @@
 /obj/item/seeds/cotton
 	seed_type = "cotton"
 
-/// True when this atom can be used as a loom.
-/atom/proc/IsLoom()
-	return FALSE
-
-/// Defines the base loom as useable as a loom.
-/obj/item/loom/IsLoom()
-	return TRUE
-
-/// True when A exists and can be used as a loom.
-#define isLoom(A) (A?.IsLoom())
-
 /obj/item/reagent_containers/food/snacks/grown/attackby(obj/item/W, mob/user)
-
-	if(seed)
-		if(seed.chems)
-			if(isLoom(W))
-				if(!isnull(seed.chems[/datum/reagent/cottonfiber]))
-					user.visible_message(SPAN_NOTICE("\The [user] weaves the cotton into cloth \the [src]."))
-					new /obj/item/stack/material/cloth(user.loc)
-					qdel(src)
-					return
+	if(seed?.chems)
+		if(istype(W, /obj/item/loom))
+			if(!isnull(seed.chems[/datum/reagent/cottonfiber]))
+				user.visible_message(SPAN_NOTICE("\The [user] weaves the cotton into cloth \the [src]."))
+				new /obj/item/stack/material/cloth(user.loc)
+				qdel(src)
+				return
 	..()
