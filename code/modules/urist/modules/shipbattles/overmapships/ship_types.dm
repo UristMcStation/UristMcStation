@@ -20,6 +20,27 @@
 
 	..()
 
+
+/mob/living/simple_animal/hostile/overmapship/debug/missile
+//	shipdatum = /datum/ships/debug
+	shields = 800
+	maxHealth = 800
+	health = 800
+	aggressive = 1
+
+/mob/living/simple_animal/hostile/overmapship/debug/missile/New() //light shield for now to mess with some debug stuff
+	components = list(
+		new /datum/shipcomponents/shield/light,
+		new /datum/shipcomponents/weapons/smallmissile/battery,
+		new /datum/shipcomponents/weapons/bigmissile,
+		new /datum/shipcomponents/weapons/heavy_cannon,
+		new /datum/shipcomponents/weapons/mininuke,
+		new /datum/shipcomponents/weapons/smallmissile/battery,
+		new /datum/shipcomponents/engines/standard
+	)
+
+	..()
+
 //nanotrasen
 
 /mob/living/simple_animal/hostile/overmapship/nanotrasen

@@ -49,120 +49,123 @@
 //	explosion(A, -1, 0, 2)
 //	..()
 
-/obj/item/projectile/bullet/ship/missile
+/obj/effect/meteor/shipmissile
+	meteordrop = null
+	ismissile = TRUE
+	dropamt = 0
+	icon = 'icons/urist/items/ship_projectiles.dmi'
+	hits = 1
+	var/ex_range
 	var/wall_decon = FALSE
-	var/ex_dist = 0
-	var/severity = 0
-	var/ex_range = 0
 
-/obj/item/projectile/bullet/ship/missile/on_hit(atom/target, var/blocked = 0)
-	for(var/mob/M in range(shake_range, target))
-		if(!M.stat && !istype(M, /mob/living/silicon/ai))\
-			shake_camera(M, 3, 1)
+/obj/effect/meteor/shipmissile/meteor_effect()
+	..()
+	explosion(src.loc, ex_range, hitpwr, adminlog = 0, turf_breaker = wall_decon)
 
-	for(var/obj/machinery/light/L in range(ex_dist, target))
-		L.flicker(rand(5,15))
+//missiles
 
-	missile_explosion(target)
-
-	return 1
-
-/obj/item/projectile/bullet/ship/missile/proc/missile_explosion(atom/target)
-	var/location = (get_turf(target))
-
-	if (istype(target, /turf/simulated/wall) && wall_decon)
-		var/turf/simulated/wall/W = target
-
-		W.dismantle_wall(1)
-
-	explosion(location, ex_range, severity, 0, 0)
-
-/obj/item/projectile/bullet/ship/missile/smallmissile
+/obj/effect/meteor/shipmissile/smallmissile
 	name = "small missile"
-	icon = 'icons/urist/items/ship_projectiles.dmi'
 	icon_state= "smallmissile"
-	damage = 10
+	shield_damage_override = 10
 	shake_range = 15
-	severity = EX_ACT_HEAVY
+	hitpwr = EX_ACT_LIGHT
 	ex_range = 8
-	ex_dist = 12
+	flicker_range = 12
 
-/obj/item/projectile/bullet/ship/missile/smallalienmissile
+/obj/effect/meteor/shipmissile/smallalienmissile
 	name = "small alien missile"
-	icon = 'icons/urist/items/ship_projectiles.dmi'
 	icon_state= "smallalienmissile"
 	wall_decon = TRUE
-	damage = 100
+	shield_damage_override = 100
 	shake_range = 20
-	severity = EX_ACT_HEAVY
+	hitpwr = EX_ACT_HEAVY
 	ex_range = 11
-	ex_dist = 15
+	flicker_range = 15
 
-/obj/item/projectile/bullet/ship/missile/bigmissile
+/obj/effect/meteor/shipmissile/bigmissile
 	name = "big missile"
 	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
 	icon_state= "bigmissile"
-	damage = 10
+	shield_damage_override = 10
 	shake_range = 25
 	wall_decon = TRUE
-	severity = EX_ACT_DEVASTATING
-	ex_range = 11
-	ex_dist = 15
+	hitpwr = EX_ACT_HEAVY
+	ex_range = 12
+	flicker_range = 15
 
-/obj/item/projectile/bullet/ship/missile/bigalienmissile
+/obj/effect/meteor/shipmissile/bigalienmissile
 	name = "big alien missile"
 	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
 	icon_state= "bigalienmissile"
-	damage = 150
+	shield_damage_override = 150
 	shake_range = 30
 	wall_decon = TRUE
-	severity = EX_ACT_DEVASTATING
+	hitpwr = EX_ACT_DEVASTATING
 	ex_range = 11
-	ex_dist = 15
+	flicker_range = 15
 
-/obj/item/projectile/bullet/ship/missile/smalltorpedo
+//torpedoes
+
+/obj/effect/meteor/shipmissile/smalltorpedo
 	name = "small torpedo"
-	icon = 'icons/urist/items/ship_projectiles.dmi'
 	icon_state= "smalltorpedo"
-	damage = 10
+	shield_damage_override = 10
 	shake_range = 20
 	wall_decon = TRUE
-	severity = EX_ACT_HEAVY
+	hitpwr = EX_ACT_HEAVY
 	ex_range = 15
-	ex_dist = 20
+	flicker_range = 20
 
-/obj/item/projectile/bullet/ship/missile/bigtorpedo
+/obj/effect/meteor/shipmissile/bigtorpedo
 	name = "big torpedo"
 	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
 	icon_state= "bigtorpedo"
-	damage = 10
+	shield_damage_override = 10
 	shake_range = 30
 	wall_decon = TRUE
-	severity = EX_ACT_DEVASTATING
+	hitpwr = EX_ACT_DEVASTATING
 	ex_range = 20
-	ex_dist = 25
+	flicker_range = 25
 
-/obj/item/projectile/bullet/ship/missile/alientorpedo
+/obj/effect/meteor/shipmissile/alientorpedo
 	name = "alien torpedo"
 	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
 	icon_state= "alientorpedo"
-	damage = 150
+	shield_damage_override = 150
 	shake_range = 25
 	wall_decon = TRUE
-	severity = EX_ACT_DEVASTATING
+	hitpwr = EX_ACT_DEVASTATING
 	ex_range = 20
-	ex_dist = 25
+	flicker_range = 25
 
-/obj/item/projectile/bullet/ship/missile/bigalientorpedo
+/obj/effect/meteor/shipmissile/bigalientorpedo
 	name = "alien torpedo"
 	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
 	icon_state= "alientorpedo"
-	damage = 200
+	shield_damage_override = 200
 	shake_range = 30
 	wall_decon = TRUE
-	severity = EX_ACT_DEVASTATING
+	hitpwr = EX_ACT_DEVASTATING
 	ex_range = 25
-	ex_dist = 30
+	flicker_range = 30
+
+//misc "missiles"
+/obj/effect/meteor/shipmissile/mininuke
+	name = "mininuke"
+	icon_state = "minibomb-nuke"
+	shield_damage_override = 10
+	shake_range = 20
+	wall_decon = TRUE
+	hitpwr = EX_ACT_DEVASTATING
+	ex_range = 6
+	flicker_range = 30
+
+/obj/effect/meteor/shipmissile/mininuke/meteor_effect()
+	..()
+	new /obj/effect/decal/cleanable/greenglow(get_turf(src))
+	SSradiation.radiate(src, 50)
+
 
 //beam weapons
 

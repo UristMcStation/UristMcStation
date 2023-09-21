@@ -140,11 +140,17 @@ var/global/list/meteors_cataclysm = list(\
 	var/meteordrop = /obj/item/ore/iron
 	var/dropamt = 1
 	var/ismissile //missiles don't spin
-
+	var/shield_damage_override //override the calculation for shield damage. for shipcombat
 	var/move_count = 0
+	var/flicker_range //do we flicker lights? if so, in what range
+	var/shake_range //override Bay's calculation for shake range
 
 /obj/effect/meteor/proc/get_shield_damage()
-	return max(((max(hits, 2)) * (heavy + 1) * rand(30, 60)) / hitpwr , 0)
+	if(shield_damage_override)
+		return shield_damage_override
+
+	else
+		return max(((max(hits, 2)) * (heavy + 1) * rand(30, 60)) / hitpwr , 0)
 
 /obj/effect/meteor/New()
 	..()
@@ -208,7 +214,7 @@ var/global/list/meteors_cataclysm = list(\
 
 /obj/effect/meteor/use_tool(obj/item/tool, mob/user, list/click_params)
 	// Pickaxe - Delete meteor
-	if (istype(tool, /obj/item/pickaxe))
+	if (istype(tool, /obj/item/pickaxe) && !ismissile)
 		user.visible_message(
 			SPAN_WARNING("\The [user] hits \the [src] with \a [tool], breaking it apart!"),
 			SPAN_WARNING("You hit \the [src] with \the [tool], breaking it apart!")
@@ -225,12 +231,23 @@ var/global/list/meteors_cataclysm = list(\
 		O.throw_at(dest, 5, 10)
 
 /obj/effect/meteor/proc/meteor_effect()
-	for(var/mob/M in GLOB.player_list)
-		var/turf/T = get_turf(M)
-		if(!T || T.z != src.z)
-			continue
-		var/dist = get_dist(M.loc, src.loc)
-		shake_camera(M, dist > 20 ? 3 : 5, dist > 20 ? 1 : 3)
+	if(flicker_range)
+		for(var/obj/machinery/light/L in range(flicker_range, src))
+			L.flicker(rand(5,15))
+
+	if(shake_range)
+		for(var/mob/M in range(shake_range, src))
+			if(!M.stat && M.client && !istype(M, /mob/living/silicon/ai))\
+				shake_camera(M, 3, 1)
+
+	else
+		for(var/mob/M in GLOB.player_list) //this is an insane way of doing this bay
+			var/turf/T = get_turf(M)
+			if(!T || T.z != src.z)
+				continue
+			var/dist = get_dist(M.loc, src.loc)
+			shake_camera(M, dist > 20 ? 3 : 5, dist > 20 ? 1 : 3)
+
 
 
 ///////////////////////
@@ -411,7 +428,7 @@ var/global/list/meteors_cataclysm = list(\
 	explosion(loc, 7, adminlog = 0, shaped = get_dir(src, dest), turf_breaker = TRUE)
 
 
-/obj/effect/meteor/supermatter/missile/sabot_round
+/obj/effect/meteor/supermatter/missile/sabot_round //why is this a child of supermatter meteors when it inherits nothing from its parent. bay is so fucking stupid it makes my head hurt.
 	name = "Sabot Round"
 	desc = "A warhead that penetrates the hull and detonates to send a secondary warhead further in before exploding for massive damage."
 	icon = 'icons/obj/missile.dmi'
@@ -422,7 +439,7 @@ var/global/list/meteors_cataclysm = list(\
 	hits = 6
 
 /obj/effect/meteor/supermatter/missile/sabot_round/meteor_effect()
-	explosion(loc, 5, EX_ACT_LIGHT, 0, shaped = TRUE, turf_breaker = TRUE)
+	explosion(loc, 5, EX_ACT_LIGHT, adminlog = 0, shaped = TRUE, turf_breaker = TRUE)
 	var/obj/effect/meteor/supermatter/missile/sabot_secondary_round/M = new(get_turf(src))
 	M.dest = dest
 	spawn(0)
@@ -439,4 +456,4 @@ var/global/list/meteors_cataclysm = list(\
 	hits = 4
 
 /obj/effect/meteor/supermatter/missile/sabot_secondary_round/meteor_effect()
-	explosion(loc, 6, shaped = get_dir(src, dest), turf_breaker = TRUE)
+	explosion(loc, 6, adminlog = 0, shaped = get_dir(src, dest), turf_breaker = TRUE)

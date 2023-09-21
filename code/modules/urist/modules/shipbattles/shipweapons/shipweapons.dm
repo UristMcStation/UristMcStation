@@ -18,7 +18,7 @@
 	var/component_hit = 0 //chance to hit components
 	var/component_modifier_low = 0.2 //component damage modifier for untargeted shots
 	var/component_modifier_high = 0.5 //component damage modifier for targeted shots
-	var/obj/item/projectile/projectile_type
+	var/projectile_type
 	var/fire_anim = 0
 	var/fire_sound = null
 	var/obj/effect/overmap/visitable/ship/combat/homeship = null
@@ -273,13 +273,41 @@
 		icon_state = "[initial(icon_state)]-empty"
 
 /obj/machinery/shipweapons/proc/MapFire()
-	if(istype(target, /obj/effect/overmap/visitable/ship/combat))
-		var/obj/effect/overmap/visitable/ship/combat/T = target
-		var/obj/effect/urist/projectile_landmark/ship/P = pick(T.landmarks)
-		P.Fire(projectile_type)
+	if(projectile_type)
+		if(istype(target, /obj/effect/overmap/visitable/ship/combat))
+			HandlePvpFire()
+
+		else
+			var/obj/effect/urist/projectile_landmark/target/P = pick(GLOB.target_projectile_landmarks) //i'll come back to this to get rid of landmarks for ai ships
+			P.Fire(projectile_type)
+
+/obj/machinery/shipweapons/proc/HandlePvpFire() //come back to this to add handling for burst fire
+	var/obj/effect/overmap/visitable/ship/combat/target_ship = target
+	var/target_x = rand(target_ship.target_x_bounds[1],target_ship.target_x_bounds[2])
+	var/target_y = rand(target_ship.target_y_bounds[1],target_ship.target_y_bounds[2])
+	var/target_z = pick(target_ship.target_zs)
+	var/target_edge = pick(target_ship.target_dirs)
+
+	if(!target_edge)
+		target_edge = pick(GLOB.cardinal)
+
+	var/turf/start_turf = spaceDebrisStartLoc(target_edge, target_z)
+	var/turf/target_turf = locate(target_x, target_y, target_z)
+
+	var/atom/movable/projectile = new projectile_type(start_turf)
+
+	if(istype(projectile, /obj/item/projectile))
+		var/obj/item/projectile/P = projectile
+		P.launch(target_turf) //projectiles have their own special proc
+
+	else if(istype(projectile, /obj/effect/meteor))
+		var/obj/effect/meteor/M = projectile
+		M.dest = target_turf
+		spawn(0)
+			walk_towards(M, M.dest, 3) //meteors do their own thing too
+
 	else
-		var/obj/effect/urist/projectile_landmark/target/P = pick(GLOB.target_projectile_landmarks)
-		P.Fire(projectile_type)
+		projectile.throw_at(target_turf) //anything else just uses the default throw proc.
 
 /obj/machinery/shipweapons/proc/ConnectWeapons()
 	if(!linkedcomputer)
