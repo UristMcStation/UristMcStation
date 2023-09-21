@@ -5,9 +5,7 @@
 	. += new/datum/stack_recipe/sheeppelt(src)
 
 /material/skin/fur/generate_recipes(reinforce_material)
-	. = ..()
-	if(reinforce_material)	//recipies below don't support composite materials
-		return
+	. = ..(reinforce_material)
 
 	. += new/datum/stack_recipe/brownbearpelt(src)
 	. += new/datum/stack_recipe/bisonpelt(src)
@@ -16,41 +14,31 @@
 	. += new/datum/stack_recipe/foxpelt(src)
 
 /material/skin/fur/grey/generate_recipes(reinforce_material)
-	. = ..()
-	if(reinforce_material)	//recipies below don't support composite materials
-		return
+	. = ..(reinforce_material)
 
 	. += new/datum/stack_recipe/graywolfpelt(src)
 
 /material/skin/fur/white/generate_recipes(reinforce_material)
-	. = ..()
-	if(reinforce_material)	//recipies below don't support composite materials
-		return
+	. = ..(reinforce_material)
 
 	. += new/datum/stack_recipe/whitewolfpelt(src)
 	. += new/datum/stack_recipe/whitebearpelt(src)
 	. += new/datum/stack_recipe/whitefoxpelt(src)
 
 /material/skin/fur/black/generate_recipes(reinforce_material)
-	. = ..()
-	if(reinforce_material)	//recipies below don't support composite materials
-		return
+	. = ..(reinforce_material)
 
 	. += new/datum/stack_recipe/pantherpelt(src)
 	. += new/datum/stack_recipe/blackbearpelt(src)
 
 /material/skin/lizard/generate_recipes(reinforce_material)
-	. = ..()
-	if(reinforce_material)	//recipies below don't support composite materials
-		return
+	. = ..(reinforce_material)
 
 	. += new/datum/stack_recipe/gatorpelt(src)
 	. += new/datum/stack_recipe/lizardpelt(src)
 
 /material/skin/lizard/generate_recipes(reinforce_material)
-	. = ..()
-	if(reinforce_material)	//recipies below don't support composite materials
-		return
+	. = ..(reinforce_material)
 
 	. += new/datum/stack_recipe/gatorpelt(src)
 	. += new/datum/stack_recipe/lizardpelt(src)
