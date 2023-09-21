@@ -116,7 +116,7 @@
 
 /datum/seed/cotton/New()
 	..()
-	set_trait(TRAIT_MATURATION,1)
+	set_trait(TRAIT_MATURATION,10)
 	set_trait(TRAIT_PRODUCTION,1)
 	set_trait(TRAIT_YIELD,7)
 	set_trait(TRAIT_POTENCY,10)
