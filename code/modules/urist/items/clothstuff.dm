@@ -97,7 +97,7 @@
 
 /obj/item/loom
 	name = "table loom"
-	desc = "A loom small enought to only take up a table instead of the whole floor."
+	desc = "A loom small enough to only take up a table instead of the whole floor."
 	icon = 'icons/urist/items/wood.dmi'
 	icon_state = "loom"
 
