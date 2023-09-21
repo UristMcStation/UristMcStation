@@ -275,7 +275,7 @@
 /obj/machinery/shipweapons/proc/MapFire()
 	if(!projectile_type)
 		return
-		
+
 	if(istype(target, /obj/effect/overmap/visitable/ship/combat))
 		HandlePvpFire()
 
@@ -296,20 +296,7 @@
 	var/turf/start_turf = spaceDebrisStartLoc(target_edge, target_z)
 	var/turf/target_turf = locate(target_x, target_y, target_z)
 
-	var/atom/movable/projectile = new projectile_type(start_turf)
-
-	if(istype(projectile, /obj/item/projectile))
-		var/obj/item/projectile/P = projectile
-		P.launch(target_turf) //projectiles have their own special proc
-
-	else if(istype(projectile, /obj/effect/meteor))
-		var/obj/effect/meteor/M = projectile
-		M.dest = target_turf
-		spawn(0)
-			walk_towards(M, M.dest, 3) //meteors do their own thing too
-
-	else
-		projectile.throw_at(target_turf) //anything else just uses the default throw proc.
+	launch_atom(projectile_type, start_turf, target_turf)
 
 /obj/machinery/shipweapons/proc/ConnectWeapons()
 	if(!linkedcomputer)

@@ -24,37 +24,34 @@
 	if(!target)
 		return
 
-	else
-//		var/obj/effect/overmap/visitable/ship/combat/T = mastership.target_ship
+	if(!start_turf)
+		if(!target_z)
+			target_z = pick(target.target_zs)
 
-		if(!start_turf)
-			if(!target_z)
-				target_z = pick(target.target_zs)
+		if(!target_edge)
+			if(target.target_dirs)
+				target_edge = pick(target.target_dirs)
+			else
+				target_edge = pick(GLOB.cardinal)
 
-			if(!target_edge)
-				if(target.target_dirs)
-					target_edge = pick(target.target_dirs)
-				else
-					target_edge = pick(GLOB.cardinal)
+		start_turf = spaceDebrisStartLoc(target_edge, target_z)
 
-			start_turf = spaceDebrisStartLoc(target_edge, target_z)
+	if(!target_turf && target_z)
+		target_turf = locate_target(target_z)
 
-		if(!target_turf && target_z)
-			target_turf = locate_target(target_z)
+	if(start_turf && target_turf)
+		ready = FALSE
+		if(shot_number < salvo)
+			shot_number ++
+			launch_atom(projectile_type, start_turf, target_turf)
 
-		if(start_turf && target_turf)
-			ready = FALSE
-			if(shot_number < salvo)
-				shot_number ++
-				launch_projectile(start_turf, target_turf)
-
-				if(shot_number >= salvo)
-					spawn(firedelay)
-						shot_number = 0
-						ready = TRUE
-				else
-					spawn(salvo_delay)
-						Fire(start_turf, target_turf) //doing this so we fire from the same spot. this gets us sustained fire on parts of the ship instead of the random scatter we had in the distant past.
+			if(shot_number >= salvo)
+				spawn(firedelay)
+					shot_number = 0
+					ready = TRUE
+			else
+				spawn(salvo_delay)
+					Fire(start_turf, target_turf) //doing this so we fire from the same spot. this gets us sustained fire on parts of the ship instead of the random scatter we had in the distant past.
 
 //		GLOB.global_announcer.autosay("<b>The attacking [mastership.ship_category] has fired a [src.name] at the [mastership.target_ship.name]. Brace for impact.</b>", "[mastership.target_ship.name] Automated Defence Computer", "Combat")
 
@@ -70,21 +67,6 @@
 	var/turf/target = locate(target_x, target_y, target_z)
 
 	return target
-
-/datum/shipcomponents/weapons/proc/launch_projectile(var/turf/start_turf, var/turf/target_turf)
-	var/atom/movable/projectile = new projectile_type(start_turf)
-	if(istype(projectile, /obj/item/projectile))
-		var/obj/item/projectile/P = projectile
-		P.launch(target_turf) //projectiles have their own special proc
-
-	else if(istype(projectile, /obj/effect/meteor))
-		var/obj/effect/meteor/M = projectile
-		M.dest = target_turf
-		spawn(0)
-			walk_towards(M, M.dest, 3) //meteors do their own thing too
-
-	else
-		projectile.throw_at(target_turf) //anything else just uses the default throw proc. this potentially allows for ship weapons that do things like throw mobs. clown cannon anyone?
 
 //ion
 
