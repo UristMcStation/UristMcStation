@@ -1,7 +1,5 @@
 /material/skin/goat/generate_recipes(reinforce_material)
-	. = ..()
-	if(reinforce_material)	//recipies below don't support composite materials
-		return
+	. = ..(reinforce_material)
 
 	. += new/datum/stack_recipe/goatpelt(src)
 	. += new/datum/stack_recipe/sheeppelt(src)
