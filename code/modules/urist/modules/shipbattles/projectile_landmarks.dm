@@ -46,14 +46,11 @@
 /obj/effect/urist/projectile_landmark/target
 	fire_type = 2
 
-/obj/effect/urist/projectile_landmark/target/Fire(projectile_type)
-	if(istype(projectile_type, /obj/item/projectile))
+/obj/effect/urist/projectile_landmark/target/Fire(var/projectile_type)
 
-		var/obj/item/projectile/P = new projectile_type
+	if(ispath(projectile_type))
 
-		var/target_x = 100 //set up values for enemy ships
-		var/target_y = 100
-		var/turf/T = get_turf(src)
+		var/turf/start_turf = get_turf(src)
+		var/turf/target_turf = locate(100, 100, src.z) //set up values for enemy ships //or just get rid of this whole thing
 
-		P.loc = (get_turf(src.loc))
-		P.launch(target_x, target_y, T)
+		launch_atom(projectile_type, start_turf, target_turf)

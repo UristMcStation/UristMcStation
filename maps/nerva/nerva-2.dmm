@@ -28922,6 +28922,10 @@
 /obj/effect/paint_stripe/blue,
 /turf/simulated/wall/r_wall/prepainted,
 /area/command/eva)
+"hSY" = (
+/obj/machinery/tele_beacon,
+/turf/simulated/floor/wood/walnut,
+/area/civilian/bar)
 "hVy" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -29258,10 +29262,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/security/portexternalgun)
-"jWI" = (
-/obj/machinery/hologram/holopad,
-/turf/simulated/floor/carpet,
-/area/rnd/office)
 "jXr" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
@@ -29306,10 +29306,6 @@
 /obj/machinery/tele_beacon,
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/cryo1)
-"kgm" = (
-/obj/machinery/tele_beacon,
-/turf/simulated/floor/wood/walnut,
-/area/civilian/bar)
 "kil" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -29970,6 +29966,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fs)
+"nmq" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/structure/cable,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id_tag = "bridgeview";
+	name = "Bridge Viewport Door"
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/cable{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/plating,
+/area/command/bridge)
 "nnc" = (
 /obj/machinery/airlock_sensor{
 	frequency = 1379;
@@ -30041,6 +30052,10 @@
 /obj/machinery/space_heater,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fp)
+"nNc" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/carpet,
+/area/rnd/office)
 "nUv" = (
 /obj/structure/bed/chair/comfy/black{
 	dir = 8
@@ -30110,6 +30125,16 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/security/evidence)
+"ord" = (
+/obj/structure/catwalk,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "oxV" = (
 /obj/machinery/rotating_alarm/supermatter{
 	icon_state = "alarm";
@@ -30447,22 +30472,6 @@
 /obj/structure/filingcabinet/chestdrawer,
 /turf/simulated/floor/plating,
 /area/civilian/abandonedoffice)
-"qzV" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/structure/cable,
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	id_tag = "bridgeview";
-	name = "Bridge Viewport Door"
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 0;
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/plating,
-/area/command/bridge)
 "qBa" = (
 /obj/effect/paint_stripe/paleblue,
 /turf/simulated/wall/prepainted,
@@ -30560,6 +30569,16 @@
 /obj/item/storage/box,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/mailing)
+"roe" = (
+/obj/structure/catwalk,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "rxg" = (
 /obj/structure/catwalk,
 /turf/simulated/floor/plating/airless,
@@ -30745,6 +30764,25 @@
 /obj/effect/paint_stripe/paleblue,
 /turf/simulated/wall/r_wall/prepainted,
 /area/medical/chemistry)
+"sFQ" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2";
+	pixel_y = 1
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id_tag = "bridgeview";
+	name = "Bridge Viewport Door"
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/cable{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/plating,
+/area/command/bridge)
 "sGn" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -30837,16 +30875,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/mailing)
-"sZL" = (
-/obj/structure/catwalk,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/space)
 "sZY" = (
 /obj/structure/shipweapons/hardpoint/external/nerva,
 /turf/space,
@@ -30954,19 +30982,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/logistics/uppercargo)
-"tIK" = (
-/obj/structure/catwalk,
-/obj/structure/cable{
-	d1 = 0;
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/machinery/power/terminal{
-	dir = 8
-	},
-/obj/machinery/pointdefense,
-/turf/simulated/floor/plating,
-/area/space)
 "tRU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4;
@@ -31373,16 +31388,6 @@
 /obj/structure/shipweapons/hardpoint/external/nerva,
 /turf/space,
 /area/security/portexternalgun)
-"vJH" = (
-/obj/structure/catwalk,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_y = 0
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/space)
 "vLb" = (
 /obj/structure/sign/neon/bar_alt{
 	pixel_y = 32
@@ -31563,25 +31568,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fs)
-"wFH" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 1
-	},
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	id_tag = "bridgeview";
-	name = "Bridge Viewport Door"
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/plating,
-/area/command/bridge)
 "wGS" = (
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
@@ -31593,6 +31579,19 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/logistics/robotics)
+"wIn" = (
+/obj/structure/catwalk,
+/obj/structure/cable{
+	d1 = 0;
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/terminal{
+	dir = 8
+	},
+/obj/machinery/pointdefense,
+/turf/simulated/floor/plating,
+/area/space)
 "wKA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
@@ -55391,7 +55390,7 @@ aFp
 aGB
 aHL
 aIY
-jWI
+nNc
 aLk
 aMt
 mOC
@@ -59421,7 +59420,7 @@ auQ
 awh
 axt
 ayC
-kgm
+hSY
 aAr
 axt
 awh
@@ -63658,7 +63657,7 @@ acc
 acc
 acc
 emJ
-wFH
+sFQ
 avd
 awA
 emJ
@@ -63668,7 +63667,7 @@ acc
 emJ
 aud
 avd
-qzV
+nmq
 emJ
 acc
 acc
@@ -63860,7 +63859,7 @@ akb
 akb
 acc
 acc
-vJH
+roe
 acc
 acc
 acc
@@ -63870,7 +63869,7 @@ acc
 acc
 acc
 acc
-sZL
+ord
 acc
 acc
 akb
@@ -64062,7 +64061,7 @@ aaa
 aaa
 aaa
 aaa
-tIK
+wIn
 aaa
 aaa
 aaa
@@ -64072,7 +64071,7 @@ aaa
 aaa
 aaa
 aaa
-tIK
+wIn
 aaa
 aaa
 aaa
