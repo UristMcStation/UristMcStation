@@ -142,15 +142,14 @@ var/global/list/meteors_cataclysm = list(\
 	var/ismissile //missiles don't spin
 	var/shield_damage_override //override the calculation for shield damage. for shipcombat
 	var/move_count = 0
-	var/flicker_range //do we flicker lights? if so, in what range
-	var/shake_range //override Bay's calculation for shake range
+	var/flicker_range = 0 //do we flicker lights? if so, in what range
+	var/shake_range = 0 //override Bay's calculation for shake range
 
 /obj/effect/meteor/proc/get_shield_damage()
 	if(shield_damage_override)
 		return shield_damage_override
 
-	else
-		return max(((max(hits, 2)) * (heavy + 1) * rand(30, 60)) / hitpwr , 0)
+	return max(((max(hits, 2)) * (heavy + 1) * rand(30, 60)) / hitpwr , 0)
 
 /obj/effect/meteor/New()
 	..()
@@ -243,7 +242,7 @@ var/global/list/meteors_cataclysm = list(\
 	else
 		for(var/mob/M in GLOB.player_list) //this is an insane way of doing this bay
 			var/turf/T = get_turf(M)
-			if(!T || T.z != src.z)
+			if(T?.z != src.z)
 				continue
 			var/dist = get_dist(M.loc, src.loc)
 			shake_camera(M, dist > 20 ? 3 : 5, dist > 20 ? 1 : 3)

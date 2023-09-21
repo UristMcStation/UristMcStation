@@ -18,7 +18,7 @@
 	var/component_hit = 0 //chance to hit components
 	var/component_modifier_low = 0.2 //component damage modifier for untargeted shots
 	var/component_modifier_high = 0.5 //component damage modifier for targeted shots
-	var/projectile_type
+	var/atom/movable/projectile_type
 	var/fire_anim = 0
 	var/fire_sound = null
 	var/obj/effect/overmap/visitable/ship/combat/homeship = null
@@ -273,23 +273,25 @@
 		icon_state = "[initial(icon_state)]-empty"
 
 /obj/machinery/shipweapons/proc/MapFire()
-	if(projectile_type)
-		if(istype(target, /obj/effect/overmap/visitable/ship/combat))
-			HandlePvpFire()
+	if(!projectile_type)
+		return
+		
+	if(istype(target, /obj/effect/overmap/visitable/ship/combat))
+		HandlePvpFire()
 
-		else
-			var/obj/effect/urist/projectile_landmark/target/P = pick(GLOB.target_projectile_landmarks) //i'll come back to this to get rid of landmarks for ai ships
-			P.Fire(projectile_type)
+	else
+		var/obj/effect/urist/projectile_landmark/target/P = pick(GLOB.target_projectile_landmarks) //i'll come back to this to get rid of landmarks for ai ships
+		P.Fire(projectile_type)
 
 /obj/machinery/shipweapons/proc/HandlePvpFire() //come back to this to add handling for burst fire
 	var/obj/effect/overmap/visitable/ship/combat/target_ship = target
+	if(!target_ship)
+		return
+
 	var/target_x = rand(target_ship.target_x_bounds[1],target_ship.target_x_bounds[2])
 	var/target_y = rand(target_ship.target_y_bounds[1],target_ship.target_y_bounds[2])
 	var/target_z = pick(target_ship.target_zs)
-	var/target_edge = pick(target_ship.target_dirs)
-
-	if(!target_edge)
-		target_edge = pick(GLOB.cardinal)
+	var/target_edge = pick(target_ship.target_dirs) || pick(GLOB.cardinal)
 
 	var/turf/start_turf = spaceDebrisStartLoc(target_edge, target_z)
 	var/turf/target_turf = locate(target_x, target_y, target_z)

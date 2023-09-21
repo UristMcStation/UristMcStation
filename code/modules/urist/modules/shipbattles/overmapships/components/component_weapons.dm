@@ -9,7 +9,7 @@
 	var/shot_number = 0 //how much have we fired in this salvo?
 	var/salvo_delay = 5 //how long between shots in a salvo
 	var/ready = TRUE
-	var/projectile_type
+	var/atom/movable/projectile_type
 	var/obj/machinery/shipweapons/weapon_type = /obj/machinery/shipweapons/beam/lightlaser
 
 /datum/shipcomponents/weapons/DoActivate()
@@ -20,16 +20,20 @@
 	if(broken || !projectile_type) //check one more time, just in case. doing it this way can stop salvo fire mid salvo
 		return
 
+	var/obj/effect/overmap/visitable/ship/combat/target = mastership?.target_ship
+	if(!target)
+		return
+
 	else
 //		var/obj/effect/overmap/visitable/ship/combat/T = mastership.target_ship
 
 		if(!start_turf)
 			if(!target_z)
-				target_z = pick(mastership.target_ship.target_zs)
+				target_z = pick(target.target_zs)
 
 			if(!target_edge)
-				if(mastership.target_ship.target_dirs)
-					target_edge = pick(mastership.target_ship.target_dirs)
+				if(target.target_dirs)
+					target_edge = pick(target.target_dirs)
 				else
 					target_edge = pick(GLOB.cardinal)
 
