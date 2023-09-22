@@ -47,5 +47,10 @@
 		/area/scom,
 		/area/map_template,
 		/area/exoplanet,
-		/area/spacestations
+		/area/spacestations,
+		/area/map_template/deepmaint_wfc,
+		/area/map_template/deepmaint_wfc/alpha,
+		/area/map_template/deepmaint_wfc/beta,
+		/area/map_template/deepmaint_wfc/gamma,
+		/area/map_template/deepmaint_wfc/delta
 		)

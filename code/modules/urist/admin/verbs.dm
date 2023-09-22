@@ -8,11 +8,13 @@
 		to_chat(src, "<span class='danger'> You do not have the required admin rights.</span>")
 		return
 
+	log_and_message_admins(" has warped all players to their location.")
+
 	for(var/mob/living/M in GLOB.player_list)
 		M.forceMove(get_turf(usr))
 		sleep(-1)
 
-	log_and_message_admins(" has warped all players to their location.")
+	return
 
 
 //Urist mass-callproc, call it by regular callproc. SUPER risky.
@@ -34,9 +36,11 @@
 	for(var/atom/target in world.contents) //this will be really friggin slow, what did you expect
 		sleep(-1)
 		if((strict_typing && (target.type == affecting_type)) || (!strict_typing && (istype(target, affecting_type))))
+			log_admin("[key_name(src)] called [procpath]() on all [strict_typing ? "objects with type [target.type]" : "subtypes of [target.type]"] with [length(subargs) ? "the arguments [list2params(subargs)]" : "no arguments"].")
 			if(hascall(target, procpath))
-				log_admin("[key_name(src)] called [procpath]() on all [strict_typing ? "objects with type [target.type]" : "subtypes of [target.type]"] with [length(subargs) ? "the arguments [list2params(subargs)]" : "no arguments"].")
 				call(target, procpath)(arglist(subargs))
+
+	return
 
 
 /client/proc/consul_mode()
