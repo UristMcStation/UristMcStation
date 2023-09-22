@@ -121,7 +121,7 @@
 	set_trait(TRAIT_YIELD,8)
 	set_trait(TRAIT_POTENCY,10)
 	set_trait(TRAIT_PRODUCT_ICON,"cotton")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#ffffff")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#f0f0f0")
 	set_trait(TRAIT_PLANT_ICON,"bush2")
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
 
