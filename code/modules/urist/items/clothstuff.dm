@@ -106,7 +106,7 @@
 	description = "A mass of cotton fibers."
 	taste_description = "cotton"
 	reagent_state = SOLID
-	color = "#ffffff"
+	color = "#f0f0f0"
 
 /datum/seed/cotton
 	name = "cotton"
