@@ -279,9 +279,10 @@
 	if(istype(target, /obj/effect/overmap/visitable/ship/combat))
 		HandlePvpFire()
 
-	else
-		var/obj/effect/urist/projectile_landmark/target/P = pick(GLOB.target_projectile_landmarks) //i'll come back to this to get rid of landmarks for ai ships
-		P.Fire(projectile_type)
+	else if(istype(target, /mob/living/simple_animal/hostile/overmapship))
+		var/mob/living/simple_animal/hostile/overmapship/target_ship = target
+		if(target_ship.boarding && target_ship.map_spawned)
+			homeship.pve_mapfire(projectile_type)
 
 /obj/machinery/shipweapons/proc/HandlePvpFire() //come back to this to add handling for burst fire
 	var/obj/effect/overmap/visitable/ship/combat/target_ship = target

@@ -22442,7 +22442,9 @@
 /area/rnd/xenobiology/xenoflora)
 "Ss" = (
 /obj/effect/floor_decal/techfloor,
-/obj/machinery/pointdefense_control,
+/obj/machinery/pointdefense_control{
+	initial_id_tag = "nerva_primary_pd"
+	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/command/weapons_command)
 "Su" = (

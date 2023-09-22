@@ -3466,7 +3466,6 @@
 #include "code\modules\urist\modules\resourcetech\planer.dm"
 #include "code\modules\urist\modules\resourcetech\tools.dm"
 #include "code\modules\urist\modules\shipbattles\combatcomputer.dm"
-#include "code\modules\urist\modules\shipbattles\projectile_landmarks.dm"
 #include "code\modules\urist\modules\shipbattles\ship_contact.dm"
 #include "code\modules\urist\modules\shipbattles\ship_landmarks.dm"
 #include "code\modules\urist\modules\shipbattles\ship_overmaps.dm"

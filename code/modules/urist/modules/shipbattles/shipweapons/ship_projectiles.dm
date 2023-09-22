@@ -41,7 +41,7 @@
 
 /obj/item/projectile/bullet/ship/cannon/on_impact(atom/A)
 	if(isturf(A))
-		explosion(A, -1, 2, EX_ACT_LIGHT, 0, 0)
+		explosion(A, -1, 2, EX_ACT_LIGHT, adminlog = 0, 0)
 
 	..()
 

@@ -44,21 +44,15 @@
 		if(shot_number < salvo)
 			shot_number ++
 			launch_atom(projectile_type, start_turf, target_turf)
-
+//			message_admins("An enemy ship has fired a [projectile_type] at the ship targeting <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target_turf.x];Y=[target_turf.y];Z=[target_turf.z]'>(JMP)</a>.", 1)
 			if(shot_number >= salvo)
 				spawn(firedelay)
 					shot_number = 0
 					ready = TRUE
 			else
 				spawn(salvo_delay)
-					Fire(start_turf, target_turf) //doing this so we fire from the same spot. this gets us sustained fire on parts of the ship instead of the random scatter we had in the distant past.
-
-//		GLOB.global_announcer.autosay("<b>The attacking [mastership.ship_category] has fired a [src.name] at the [mastership.target_ship.name]. Brace for impact.</b>", "[mastership.target_ship.name] Automated Defence Computer", "Combat")
-
-//		src.announce_fire
-
-///datum/shipcomponents/weapons/proc/announce_fire()
-//	GLOB.global_announcer.autosay("<b>The attacking [mastership.ship_category] has fired a [src.name] at the ICS Nerva. Brace for impact.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Common")
+					Fire(start_turf, null, target_edge, target_z) //doing this so we fire from the same spot at different targets.
+																//this gets us sustained fire on parts of the ship instead of a straight line of rockets, or the random scatter we had in the distant past.
 
 /datum/shipcomponents/weapons/proc/locate_target(var/target_z)
 	var/target_x = rand(mastership.target_ship.target_x_bounds[1],mastership.target_ship.target_x_bounds[2])

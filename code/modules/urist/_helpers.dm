@@ -387,9 +387,9 @@
 
 //for throwing things from one turf to another
 
-/proc/launch_atom(var/atom/movable/projectile, var/turf/start_turf, var/turf/target_turf)
-	if(ispath(projectile))
-		new projectile(start_turf)
+/proc/launch_atom(var/projectile_type, var/turf/start_turf, var/turf/target_turf)
+	if(ispath(projectile_type))
+		var/atom/movable/projectile = new projectile_type(start_turf)
 		if(istype(projectile, /obj/item/projectile))
 			var/obj/item/projectile/P = projectile
 			P.launch(target_turf) //projectiles have their own special proc

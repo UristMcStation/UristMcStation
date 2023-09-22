@@ -31589,7 +31589,9 @@
 /obj/machinery/power/terminal{
 	dir = 8
 	},
-/obj/machinery/pointdefense,
+/obj/machinery/pointdefense{
+	initial_id_tag = "nerva_primary_pd"
+	},
 /turf/simulated/floor/plating,
 /area/space)
 "wKA" = (

@@ -41,11 +41,6 @@
 	for(var/obj/machinery/shipweapons/SW in SSmachines.machinery)
 		if(SW.shipid == src.shipid)
 			SW.homeship = src
-	for(var/obj/effect/urist/projectile_landmark/ship/L in GLOB.ship_projectile_landmarks)
-		if(shipid == L.shipid)
-			landmarks += L
-			L.mothership = src
-
 	.=..()
 
 /obj/effect/overmap/visitable/ship/combat/proc/enter_combat()
@@ -274,3 +269,6 @@
 /obj/effect/overmap/visitable/ship/combat/proc/assign_target_zs() //this is a proc so it can be overridden by non-nerva ships. restricting zs from being hit for awaymaps is a little more complicated because they don't have set z-levels, but can be done here if you get creative.
 	if(!target_zs)
 		target_zs = map_z
+
+/obj/effect/overmap/visitable/ship/combat/proc/pve_mapfire(var/projectile_type)
+	return
