@@ -16,7 +16,6 @@
 	. += new/datum/stack_recipe/scarf(src)
 
 	. += new/datum/stack_recipe/mummy(src)
-	. += new/datum/stack_recipe/cloak(src)
 //now with space magic dye included
 	. += new/datum/stack_recipe_list("jumpsuits", list(
 		new/datum/stack_recipe/jumpsuit/white(src),
@@ -145,12 +144,6 @@
 /datum/stack_recipe/mummy
 	title = "mummy wraps"
 	result_type = /obj/item/clothing/under/urist/historic/mummy
-	req_amount = 8
-	time = 10
-
-/datum/stack_recipe/cloak
-	title = "black cape"
-	result_type = /obj/item/clothing/head/urist/historic/light/cape
 	req_amount = 8
 	time = 10
 
