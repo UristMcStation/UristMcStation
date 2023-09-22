@@ -675,11 +675,11 @@ to avoid worrying about the sprites -Glloyd*/
 
 /obj/item/clothing/head/urist/historic/light/cape/med
 	name = "light blue cape"
-	color = "#7FC5FF"
+	color = "#7fc5ff"
 
 /obj/item/clothing/head/urist/historic/light/cape/eng
 	name = "saffron yellow cape"
-	color = "#FCC92F"
+	color = "#fcc92f"
 
 /obj/item/clothing/head/urist/historic/light/cape/sci
 	name = "mauveine cape"
@@ -699,11 +699,11 @@ to avoid worrying about the sprites -Glloyd*/
 
 /obj/item/clothing/head/urist/historic/light/cape/crimson
 	name = "crimson cape"
-	color = "#DC143C"
+	color = "#dc143c"
 
 /obj/item/clothing/head/urist/historic/light/cape/orange
 	name = "alder orange cape"
-	color = "#D35930"
+	color = "#d35930"
 
 /obj/item/clothing/head/urist/historic/light/cape/rose
 	name = "rose cape"
