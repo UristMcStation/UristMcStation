@@ -25,7 +25,11 @@
 		/area/boarding_ship,
 		/area/beach,
 		/area/syndicate_elite_squad,
-		/area/awaymission/maze
+		/area/awaymission/maze,
+		/area/map_template/deepmaint_wfc/alpha,
+		/area/map_template/deepmaint_wfc/beta,
+		/area/map_template/deepmaint_wfc/gamma,
+		/area/map_template/deepmaint_wfc/delta
 	)
 
 	area_usage_test_exempted_root_areas = list(
@@ -48,9 +52,5 @@
 		/area/map_template,
 		/area/exoplanet,
 		/area/spacestations,
-		/area/map_template/deepmaint_wfc,
-		/area/map_template/deepmaint_wfc/alpha,
-		/area/map_template/deepmaint_wfc/beta,
-		/area/map_template/deepmaint_wfc/gamma,
-		/area/map_template/deepmaint_wfc/delta
+		/area/map_template/deepmaint_wfc
 		)
