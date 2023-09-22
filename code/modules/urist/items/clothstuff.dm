@@ -132,7 +132,7 @@
 	if(seed?.chems)
 		if(istype(W, /obj/item/loom))
 			if(!isnull(seed.chems[/datum/reagent/cottonfiber]))
-				user.visible_message(SPAN_NOTICE("\The [user] weaves the cotton into cloth \the [src]."))
+				user.visible_message(SPAN_NOTICE("\The [user] weaves \the [src] into cotton cloth"))
 				new /obj/item/stack/material/cloth(user.loc)
 				qdel(src)
 				return
