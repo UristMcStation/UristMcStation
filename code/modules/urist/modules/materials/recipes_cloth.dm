@@ -59,6 +59,23 @@
 		new/datum/stack_recipe/shirt/tank(src)
 	))
 
+	. += new/datum/stack_recipe_list("capes", list(
+		new/datum/stack_recipe/cape/black(src),
+		new/datum/stack_recipe/cape/grey(src),
+		new/datum/stack_recipe/cape/sec(src),
+		new/datum/stack_recipe/cape/command(src),
+		new/datum/stack_recipe/cape/med(src),
+		new/datum/stack_recipe/cape/eng(src),
+		new/datum/stack_recipe/cape/sci(src),
+		new/datum/stack_recipe/cape/cargo(src),
+		new/datum/stack_recipe/cape/green(src),
+		new/datum/stack_recipe/cape/indigo(src),
+		new/datum/stack_recipe/cape/crimson(src),
+		new/datum/stack_recipe/cape/orange(src),
+		new/datum/stack_recipe/cape/rose(src),
+	))
+
+
 /datum/stack_recipe/makeshiftbandage
 	title = "makeshift bandage"
 	result_type = /obj/item/stack/medical/bruise_pack/makeshift_bandage
@@ -271,3 +288,60 @@
 /datum/stack_recipe/shirt/tank
 	title = "sleeveless shirt"
 	result_type = /obj/item/clothing/under/urist/historic/pirate5
+
+
+/datum/stack_recipe/cape
+	req_amount = 6
+	time = 20
+
+/datum/stack_recipe/cape/black
+	title = "black cape"
+	result_type = /obj/item/clothing/head/urist/historic/light/cape
+
+/datum/stack_recipe/cape/grey
+	title = "grey cape"
+	result_type = /obj/item/clothing/head/urist/historic/light/cape
+
+/datum/stack_recipe/cape/sec
+	title = "cochineal red cape"
+	result_type = /obj/item/clothing/head/urist/historic/light/cape/sec
+
+/datum/stack_recipe/cape/command
+	title = "woad blue cape"
+	result_type = /obj/item/clothing/head/urist/historic/light/cape/command
+
+/datum/stack_recipe/cape/med
+	title = "light blue cape"
+	result_type = /obj/item/clothing/head/urist/historic/light/cape/med
+
+/datum/stack_recipe/cape/eng
+	title = "saffron yellow cape"
+	result_type = /obj/item/clothing/head/urist/historic/light/cape/eng
+
+/datum/stack_recipe/cape/sci
+	title = "mauveine cape"
+	result_type = /obj/item/clothing/head/urist/historic/light/cape/sci
+
+/datum/stack_recipe/cape/cargo
+	title = "catechu brown cape"
+	result_type = /obj/item/clothing/head/urist/historic/light/cape/cargo
+
+/datum/stack_recipe/cape/green
+	title = "lincoln green cape"
+	result_type = /obj/item/clothing/head/urist/historic/light/cape/green
+
+/datum/stack_recipe/cape/indigo
+	title = "indigo cape"
+	result_type = /obj/item/clothing/head/urist/historic/light/cape/indigo
+
+/datum/stack_recipe/cape/crimson
+	title = "crimson cape"
+	result_type = /obj/item/clothing/head/urist/historic/light/cape/crimson
+
+/datum/stack_recipe/cape/orange
+	title = "alder orange cape"
+	result_type = /obj/item/clothing/head/urist/historic/light/cape/orange
+
+/datum/stack_recipe/cape/rose
+	title = "rose cape"
+	result_type = /obj/item/clothing/head/urist/historic/light/cape/rose

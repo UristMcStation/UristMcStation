@@ -636,6 +636,10 @@
 /obj/item/seeds/carrotseed,
 /obj/item/seeds/carrotseed,
 /obj/item/seeds/carrotseed,
+/obj/item/seeds/cotton,
+/obj/item/seeds/cotton,
+/obj/item/seeds/cotton,
+/obj/item/seeds/cotton,
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest/cabin1)
 "cV" = (
@@ -669,6 +673,7 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/item/material/kitchen/rollingpin,
 /obj/item/reagent_containers/glass/rag,
+/obj/item/reagent_containers/food/condiment/enzyme,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cabin1)
 "cZ" = (
