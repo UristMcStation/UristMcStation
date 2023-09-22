@@ -15,6 +15,8 @@
 	evac_y = 97
 	evac_z = 3
 	base = TRUE
+	target_zs = list(1,2,3)
+	target_dirs = list(NORTH, SOUTH, EAST)
 
 	initial_generic_waypoints = list(
 		"nerva_north_dock",
@@ -63,3 +65,9 @@
 	shuttle = "Hadrian"
 	fore_dir = EAST
 	vessel_mass = 1000
+
+/obj/effect/overmap/visitable/ship/combat/nerva/pve_mapfire(projectile_type)
+	if(ispath(projectile_type))
+		var/turf/start_turf = spaceDebrisStartLoc(pick(GLOB.cardinal), 6)
+		var/turf/target_turf = locate(100, 100, 6) //set up values for enemy ships
+		launch_atom(projectile_type, start_turf, target_turf)

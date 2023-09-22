@@ -384,3 +384,21 @@
 		if(light_amt < max_light)
 			return 1
 	return 0
+
+//for throwing things from one turf to another
+
+/proc/launch_atom(var/projectile_type, var/turf/start_turf, var/turf/target_turf)
+	if(ispath(projectile_type))
+		var/atom/movable/projectile = new projectile_type(start_turf)
+		if(istype(projectile, /obj/item/projectile))
+			var/obj/item/projectile/P = projectile
+			P.launch(target_turf) //projectiles have their own special proc
+
+		else if(istype(projectile, /obj/effect/meteor))
+			var/obj/effect/meteor/M = projectile
+			M.dest = target_turf
+			spawn(0)
+				walk_towards(M, M.dest, 3) //meteors do their own thing too
+
+		else
+			projectile.throw_at(target_turf) //anything else just uses the default throw proc. this potentially allows for ship weapons that do things like throw mobs. clown cannon anyone?

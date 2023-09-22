@@ -8809,12 +8809,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
-"uv" = (
-/obj/effect/urist/projectile_landmark/ship{
-	shipid = "nerva"
-	},
-/turf/space,
-/area/space)
 "wD" = (
 /obj/effect/shuttle_landmark/nerva/docking/north,
 /turf/space,
@@ -47483,19 +47477,19 @@ aa
 aa
 aa
 aa
-uv
-uv
-uv
-uv
 aa
 aa
 aa
 aa
 aa
-uv
-uv
-uv
-uv
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa

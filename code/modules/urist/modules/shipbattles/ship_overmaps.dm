@@ -17,6 +17,8 @@
 	var/can_escape = TRUE
 	var/dam_announced = 0
 	var/pvp_cooldown = 0
+	var/list/target_dirs //what directions can we be shot from. this is to mimic the effect of the old landmark system that mostly prevented hits on the SM.  if this is empty it will use GLOB.cardinal
+	var/list/target_zs //what zs can be hit in ship combat. this is mainly here to prevent the top deck getting hit on nerva.
 
 	var/evac_x = 0
 	var/evac_y = 0
@@ -39,13 +41,12 @@
 	for(var/obj/machinery/shipweapons/SW in SSmachines.machinery)
 		if(SW.shipid == src.shipid)
 			SW.homeship = src
-	for(var/obj/effect/urist/projectile_landmark/ship/L in GLOB.ship_projectile_landmarks)
-		if(shipid == L.shipid)
-			landmarks += L
-			L.mothership = src
 	.=..()
 
 /obj/effect/overmap/visitable/ship/combat/proc/enter_combat()
+	if(!target_zs)
+		assign_target_zs()
+
 	src.incombat = 1
 	target.incombat = 1
 	autoannounce("<b>A hostile [target.ship_category] has engaged the [ship_name]</b>", "public")	//Because it's weird to be told there's a ship -after- you've been shot at
@@ -264,3 +265,10 @@
 		return
 	if(announcement_channel[channel])	//Stops any player ships without their own freq using the Nerva's, which would be wierd.
 		GLOB.global_announcer.autosay(message, "[ship_name] Automated Defence Computer", announcement_channel[channel]) //Current presets are "public" - Common on Nerva, "private" - Command on Nerva, and "technical" - Engineering on Nerva. Defined on overmap ship.
+
+/obj/effect/overmap/visitable/ship/combat/proc/assign_target_zs() //this is a proc so it can be overridden by non-nerva ships. restricting zs from being hit for awaymaps is a little more complicated because they don't have set z-levels, but can be done here if you get creative.
+	if(!target_zs)
+		target_zs = map_z
+
+/obj/effect/overmap/visitable/ship/combat/proc/pve_mapfire(var/projectile_type)
+	return

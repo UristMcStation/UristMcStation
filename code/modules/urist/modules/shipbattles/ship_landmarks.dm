@@ -48,7 +48,7 @@
 	spawn_type = list(/mob/living/simple_animal/hostile/urist/rebel)
 
 /obj/effect/urist/triggers/ai_defender_landmark/lactera
-	spawn_type = list(,/mob/living/simple_animal/hostile/scom/lactera/medium, /mob/living/simple_animal/hostile/scom/lactera/light)
+	spawn_type = list(/mob/living/simple_animal/hostile/scom/lactera/medium, /mob/living/simple_animal/hostile/scom/lactera/light)
 
 /obj/effect/urist/triggers/ai_defender_landmark/lactera/heavy
 	spawn_type = list(/mob/living/simple_animal/hostile/scom/lactera/heavy)
