@@ -68,6 +68,6 @@
 
 /obj/effect/overmap/visitable/ship/combat/nerva/pve_mapfire(projectile_type)
 	if(ispath(projectile_type))
-		var/turf/start_turf = spaceDebrisStartLoc(pick(GLOB.cardinal), src.z)
-		var/turf/target_turf = locate(100, 100, src.z) //set up values for enemy ships
+		var/turf/start_turf = spaceDebrisStartLoc(pick(GLOB.cardinal), 6)
+		var/turf/target_turf = locate(100, 100, 6) //set up values for enemy ships
 		launch_atom(projectile_type, start_turf, target_turf)
