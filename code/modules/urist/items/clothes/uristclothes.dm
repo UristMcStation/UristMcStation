@@ -1475,15 +1475,16 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "a plain leather tunic."
 	icon_state = "leather_tunic"
 	item_state = "leather_tunic"
+	armor = list(melee = 10, bullet = 0, laser = 5, energy = 5, bomb = 0, bio = 0, rad = 0)//halved from sandsuit, removed bullet armor. made of leather
 
 /obj/item/clothing/under/urist/historic/red_tunic2
-	name = "red tunic2"
+	name = "red and yellow"
 	desc = "a simple red and yellow tunic."
 	icon_state = "red_tunic2"
 	item_state = "red_tunic2"
 
 /obj/item/clothing/under/urist/historic/blue_tunic2
-	name = "blue_tunic2"
+	name = "blue and white"
 	desc = "a simple blue and white tunic."
 	icon_state = "blue_tunic2"
 	item_state = "blue_tunic2"
@@ -1520,7 +1521,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 
 /obj/item/clothing/under/urist/historic/roman
 	name = "roman tunic"
-	desc = "a red tunic with a rope belt."
+	desc = "a short red tunic with a rope belt."
 	icon_state = "roman"
 	item_state = "roman"
 

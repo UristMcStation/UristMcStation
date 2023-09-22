@@ -44,6 +44,7 @@
 	. += new/datum/stack_recipe/factory_apron(src)
 	. += new/datum/stack_recipe/welder_apron(src)
 	. += new/datum/stack_recipe/leather_mask(src)
+	. += new/datum/stack_recipe/leather_tunic(src)
 
 
 /datum/stack_recipe/holster
@@ -243,6 +244,14 @@
 	result_type = /obj/item/clothing/mask/urist/bandana/leather
 	req_amount = 1
 	time = 30
+	apply_material_name = 0
+
+/datum/stack_recipe/leather_tunic
+	title = "leather tunic"
+	result_type = /obj/item/clothing/under/urist/historic/leather_tunic
+	req_amount = 8
+	difficulty = 1
+	time = 20
 	apply_material_name = 0
 
 /material/leather/lizard/generate_recipes(reinforce_material)

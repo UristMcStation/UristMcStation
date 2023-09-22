@@ -118,7 +118,7 @@
 	..()
 	set_trait(TRAIT_MATURATION,10)
 	set_trait(TRAIT_PRODUCTION,1)
-	set_trait(TRAIT_YIELD,7)
+	set_trait(TRAIT_YIELD,8)
 	set_trait(TRAIT_POTENCY,10)
 	set_trait(TRAIT_PRODUCT_ICON,"cotton")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#ffffff")
