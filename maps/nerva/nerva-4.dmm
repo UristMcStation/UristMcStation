@@ -339,8 +339,8 @@
 	dir = 6
 	},
 /obj/machinery/rotating_alarm/security_alarm{
-	icon_state = "code green";
-	dir = 4
+	dir = 4;
+	icon_state = "code green"
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/hallway/centralfirst)
@@ -704,9 +704,6 @@
 /obj/structure/cable{
 	d2 = 8;
 	icon_state = "0-8"
-	},
-/obj/machinery/camera/network/first_deck{
-	c_tag = "First Deck Aft Port Maintenance APC"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afp)
@@ -1248,8 +1245,8 @@
 	icon_state = "corner_white"
 	},
 /obj/machinery/rotating_alarm/security_alarm{
-	icon_state = "code green";
-	dir = 8
+	dir = 8;
+	icon_state = "code green"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
@@ -1872,9 +1869,6 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 27;
 	pixel_y = 1
-	},
-/obj/machinery/camera/network/first_deck{
-	c_tag = "First Deck Emergency Storage"
 	},
 /turf/simulated/floor/plating,
 /area/civilian/first_emergency_storage)
@@ -4136,8 +4130,8 @@
 	pixel_x = 30
 	},
 /obj/effect/floor_decal/corner/lightgrey/three_quarters{
-	icon_state = "corner_white_three_quarters";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white_three_quarters"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
@@ -5023,9 +5017,6 @@
 	dir = 4;
 	icon_state = "intact-supply"
 	},
-/obj/machinery/camera/network/first_deck{
-	c_tag = "First Deck Central Maintenance APC"
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "jP" = (
@@ -5343,8 +5334,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/lightgrey/three_quarters{
-	icon_state = "corner_white_three_quarters";
-	dir = 4
+	dir = 4;
+	icon_state = "corner_white_three_quarters"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
@@ -5982,10 +5973,6 @@
 /turf/simulated/floor/reinforced,
 /area/security/topgun)
 "ls" = (
-/obj/machinery/camera/network/first_deck{
-	c_tag = "First Deck Aft Starboard Maintenance APC";
-	dir = 4
-	},
 /obj/random/firstaid,
 /obj/structure/table/rack,
 /turf/simulated/floor/plating,
@@ -6629,8 +6616,8 @@
 /obj/structure/disposalpipe/segment,
 /obj/effect/catwalk_plated,
 /obj/machinery/rotating_alarm/security_alarm{
-	icon_state = "code green";
-	dir = 4
+	dir = 4;
+	icon_state = "code green"
 	},
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
@@ -8485,8 +8472,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/catwalk_plated,
 /obj/machinery/rotating_alarm/security_alarm{
-	icon_state = "code green";
-	dir = 4
+	dir = 4;
+	icon_state = "code green"
 	},
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
