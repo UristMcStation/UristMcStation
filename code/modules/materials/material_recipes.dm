@@ -39,8 +39,6 @@
 		. += new/datum/stack_recipe/furniture/stool(src)
 		. += new/datum/stack_recipe/furniture/bar_stool(src)
 		. += new/datum/stack_recipe/furniture/bed(src)
-		. += new/datum/stack_recipe/furniture/pew(src)
-		. += new/datum/stack_recipe/furniture/pew_left(src)
 		. += new/datum/stack_recipe/furniture/chair(src) //NOTE: the wood material has it's own special chair recipe
 		. += new/datum/stack_recipe_list("padded [display_name] chairs", create_recipe_list(/datum/stack_recipe/furniture/chair/padded))
 		. += new/datum/stack_recipe/lock(src)
@@ -62,39 +60,45 @@
 	. = ..()
 	if(reinforce_material)	//recipes below don't support composite materials
 		return
-	. += new/datum/stack_recipe_list("office chairs",list(
-		new/datum/stack_recipe/furniture/chair/office/dark(src),
-		new/datum/stack_recipe/furniture/chair/office/light(src)
-		))
-	. += new/datum/stack_recipe_list("comfy office chairs", create_recipe_list(/datum/stack_recipe/furniture/chair/office/comfy))
-	. += new/datum/stack_recipe_list("comfy chairs", create_recipe_list(/datum/stack_recipe/furniture/chair/comfy))
-	. += new/datum/stack_recipe_list("armchairs", create_recipe_list(/datum/stack_recipe/furniture/chair/arm))
 	. += new/datum/stack_recipe/key(src)
-	. += new/datum/stack_recipe/furniture/table_frame(src)
-	. += new/datum/stack_recipe/furniture/rack(src)
-	. += new/datum/stack_recipe/furniture/closet(src)
 	. += new/datum/stack_recipe/furniture/canister(src)
 	. += new/datum/stack_recipe/furniture/tank(src)
 	. += new/datum/stack_recipe/cannon(src)
-	. += create_recipe_list(/datum/stack_recipe/tile/metal)
-	. += new/datum/stack_recipe/furniture/computerframe(src)
+	. += new/datum/stack_recipe/grenade(src)
 	. += new/datum/stack_recipe/furniture/girder(src)
+	. += new/datum/stack_recipe/furniture/computerframe(src)
 	. += new/datum/stack_recipe/furniture/machine(src)
 	. += new/datum/stack_recipe/furniture/turret(src)
 	. += new/datum/stack_recipe_list("airlock assemblies", create_recipe_list(/datum/stack_recipe/furniture/door_assembly))
-	. += new/datum/stack_recipe/grenade(src)
-	. += new/datum/stack_recipe/light(src)
-	. += new/datum/stack_recipe/light_small(src)
-	. += new/datum/stack_recipe/light_large(src)
-	. += new/datum/stack_recipe/light_switch(src)
-	. += new/datum/stack_recipe/light_switch/windowtint(src)
-	. += new/datum/stack_recipe/apc(src)
-	. += new/datum/stack_recipe/air_alarm(src)
-	. += new/datum/stack_recipe/fire_alarm(src)
-	. += new/datum/stack_recipe/intercom(src)
-	. += new/datum/stack_recipe/supermatter_alarm(src)
+	. += new/datum/stack_recipe_list("alarms and frames", list(
+		new/datum/stack_recipe/apc(src),
+		new/datum/stack_recipe/air_alarm(src),
+		new/datum/stack_recipe/fire_alarm(src),
+		new/datum/stack_recipe/intercom(src),
+		new/datum/stack_recipe/supermatter_alarm(src)
+	))
+	. += new/datum/stack_recipe_list("armchairs", create_recipe_list(/datum/stack_recipe/furniture/chair/arm))
+	. += new/datum/stack_recipe_list("comfy chairs", create_recipe_list(/datum/stack_recipe/furniture/chair/comfy))
+	. += new/datum/stack_recipe_list("comfy office chairs", create_recipe_list(/datum/stack_recipe/furniture/chair/office/comfy))
+	. += new/datum/stack_recipe_list("office chairs",create_recipe_list(
+		new/datum/stack_recipe/furniture/chair/office/dark(src),
+		new/datum/stack_recipe/furniture/chair/office/light(src)
+	))
+	. += new/datum/stack_recipe_list("floor tiles", create_recipe_list(/datum/stack_recipe/tile/metal))
+	. += new/datum/stack_recipe_list("furniture", list(
+		new/datum/stack_recipe/furniture/table_frame(src),
+		new/datum/stack_recipe/furniture/rack(src),
+		new/datum/stack_recipe/furniture/closet(src),
+		new/datum/stack_recipe/furniture/coffin(src)
+	))
+	. += new/datum/stack_recipe_list("lighting", list(
+		new/datum/stack_recipe/light(src),
+		new/datum/stack_recipe/light_small(src),
+		new/datum/stack_recipe/light_large(src),
+		new/datum/stack_recipe/light_switch(src),
+		new/datum/stack_recipe/light_switch/windowtint(src)
+	))
 	. += new/datum/stack_recipe_list("modular computer frames", create_recipe_list(/datum/stack_recipe/computer))
-	. += new/datum/stack_recipe/furniture/coffin(src)
 
 /material/plasteel/generate_recipes(reinforce_material)
 	. = ..()
@@ -130,6 +134,8 @@
 	. += new/datum/stack_recipe/tile/wood(src)
 	. += create_recipe_list(/datum/stack_recipe/furniture/chair/wood)
 	. += new/datum/stack_recipe/furniture/coffin/wooden(src)
+	. += new/datum/stack_recipe/furniture/pew(src)
+	. += new/datum/stack_recipe/furniture/pew_left(src)//moved here bc they only make wood pews, other materials dont exist.
 	. += new/datum/stack_recipe/beehive_assembly(src)
 	. += new/datum/stack_recipe/beehive_frame(src)
 	. += new/datum/stack_recipe/furniture/bookcase(src)
