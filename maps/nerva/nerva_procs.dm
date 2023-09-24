@@ -8,4 +8,4 @@
 /datum/map/nerva/setup_economy()
 	..()
 	if (!nanotrasen_account)
-		nanotrasen_account = create_account("Nanotrasen Company Expense Card", "Nanotrasen Representative", 0, ACCOUNT_TYPE_DEPARTMENT)
+		nanotrasen_account = create_account("Nanotrasen Company Expense Card", "Nanotrasen Representative", rand(11000,44000), ACCOUNT_TYPE_DEPARTMENT)
