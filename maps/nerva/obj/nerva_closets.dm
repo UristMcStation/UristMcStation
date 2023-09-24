@@ -250,7 +250,8 @@
 		/obj/item/device/flash,
 		/obj/item/material/clipboard,
 		/obj/item/clothing/suit/storage/toggle/labcoat/science/nanotrasen,
-		/obj/item/storage/backpack/satchel/leather
+		/obj/item/storage/backpack/satchel/leather,
+		/obj/item/storage/lockbox/nanotrasen_account
 	)
 
 /obj/structure/closet/secure_closet/nervaquartermaster

@@ -13,5 +13,6 @@
 		"a second officer's jumpsuit" = /obj/item/clothing/under/urist/nerva/soregular,
 		"the captain's pinpointer" = /obj/item/pinpointer,
 		"the station account card" = /obj/item/card/id/station_account,
-		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof
+		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof,
+		"the Nanotrasen account card" = /obj/item/card/id/station_account/nanotrasen
 		)

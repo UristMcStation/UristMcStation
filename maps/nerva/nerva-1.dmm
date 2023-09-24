@@ -13347,7 +13347,7 @@
 /obj/structure/table/rack,
 /obj/machinery/keycard_auth{
 	pixel_x = -25;
-	pixel_y = 0
+	pixel_y = -15
 	},
 /turf/simulated/floor/tiled/white,
 /area/command/seniorntoffice)
@@ -13993,6 +13993,10 @@
 	dir = 8
 	},
 /obj/structure/flora/pottedplant/smelly,
+/obj/machinery/atm{
+	pixel_x = -28;
+	pixel_y = 35
+	},
 /obj/machinery/requests_console{
 	pixel_x = -32
 	},

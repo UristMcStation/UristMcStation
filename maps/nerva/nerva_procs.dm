@@ -4,3 +4,8 @@
 		qdel(nerva)
 		animate(nerva, time = 0.5 SECONDS)
 		animate(alpha = 0, time = 0.5 SECONDS)
+
+/datum/map/nerva/setup_economy()
+	..()
+	if (!nanotrasen_account)
+		nanotrasen_account = create_account("Nanotrasen Company Expense Card", "Nanotrasen Representative", 0, ACCOUNT_TYPE_DEPARTMENT)
