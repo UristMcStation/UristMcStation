@@ -30,6 +30,7 @@
 	color = "#666666"
 	vessel_mass = 4000
 	burn_delay = 2 SECONDS
+	fore_dir = EAST
 	initial_restricted_waypoints = list(
 		"Raptor" = list("nav_noctis_raptor")
 	)
