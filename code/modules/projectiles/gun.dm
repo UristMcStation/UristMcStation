@@ -538,7 +538,7 @@
 			screen_shake = round(screen_shake*zoom_amount+1) //screen shake is worse when looking through a scope
 
 //make sure accuracy and screen_shake are reset regardless of how the item is unzoomed.
-/obj/item/gun/zoom()
+/obj/item/gun/unzoom()
 	..()
 	if(!zoom)
 		accuracy = initial(accuracy)
