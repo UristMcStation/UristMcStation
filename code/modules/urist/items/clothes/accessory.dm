@@ -28,7 +28,7 @@
 
 /obj/item/clothing/accessory/urist/croptop/pink
 	name = "\improper pink croptop"
-	desc = "A cute pink stripped cropped shirt."
+	desc = "A cute pink striped cropped shirt."
 	icon_state = "croptop_pink"
 
 /obj/item/clothing/accessory/urist/croptop/tropical
