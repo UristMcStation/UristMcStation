@@ -13628,7 +13628,7 @@
 	},
 /obj/structure/flora/pottedplant/smelly,
 /obj/machinery/atm{
-	pixel_x = -28
+	pixel_x = -28;
 	pixel_y = 35
 	},
 /obj/machinery/requests_console{
