@@ -169,6 +169,38 @@
 			C.associated_account_number = station_account.account_number
 	..()
 
+//Nanotrasen account card and accompanying box for chief egghead
+/obj/item/card/id/station_account/nanotrasen
+	name = "Nanotrasen account card"
+	desc = "A company banking card with access to the local Nanotrasen budget, for job-related expenses."
+	item_state = "silver_id"
+	detail_color = COLOR_INDIGO
+	var/nanotrasen_money
+
+/obj/item/storage/lockbox/nanotrasen_account
+	name = "Nanotrasen account card lockbox"
+	desc = "A locked box used to store Nanotrasen's company card."
+	icon = 'icons/urist/items/tgitems.dmi'
+	icon_state = "medalbox+l"
+	item_state = "syringe_kit"
+	w_class = 3
+	max_w_class = 2
+	storage_slots = 7
+	icon_locked = "medalbox+l"
+	icon_closed = "medalbox"
+	icon_broken = "medalbox+b"
+	var/linked = FALSE
+	req_access = list(access_seniornt)
+	startswith = list(/obj/item/card/id/station_account/nanotrasen)
+
+/obj/item/storage/lockbox/nanotrasen_account/open(mob/user)
+	if(!linked)
+		linked = TRUE
+		for(var/obj/item/card/id/station_account/nanotrasen/N)
+			N.associated_account_number = nanotrasen_account.account_number
+			nanotrasen_account.money = rand(11000,44000)
+	..()
+
 //ammo boxes
 
 /obj/item/storage/box/nervaammo
