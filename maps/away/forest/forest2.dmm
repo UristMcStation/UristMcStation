@@ -926,6 +926,12 @@
 /obj/structure/kitchenspike,
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest/cabin1)
+"lb" = (
+/obj/structure/bed/chair/office/comfy/green{
+	dir = 1
+	},
+/turf/simulated/floor/wood/maple,
+/area/planet/forest)
 "lr" = (
 /obj/structure/closet/crate/solar_assembly,
 /turf/simulated/floor/planet/jungle/clear/underground,
@@ -938,6 +944,9 @@
 /obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cabin1)
+"nE" = (
+/turf/simulated/wall/wood,
+/area/planet/forest)
 "oQ" = (
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cabin1)
@@ -977,6 +986,10 @@
 /obj/item/clothing/suit/storage/hazardvest,
 /turf/simulated/floor/planet/jungle/clear/underground,
 /area/planet/forest/cabin1)
+"zD" = (
+/obj/structure/bed/nice,
+/turf/simulated/floor/wood/maple,
+/area/planet/forest)
 "BN" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/planet/jungle/clear/underground,
@@ -992,6 +1005,10 @@
 /obj/effect/floor_decal/planet/border/dirttograss{
 	dir = 10
 	},
+/turf/simulated/floor/planet/temperate,
+/area/planet/forest)
+"JL" = (
+/obj/machinery/radio_beacon,
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest)
 "KI" = (
@@ -1011,6 +1028,12 @@
 	},
 /turf/simulated/floor/planet/dirt/temperate,
 /area/planet/forest)
+"Ss" = (
+/obj/structure/table/woodentable/walnut,
+/obj/item/reagent_containers/food/drinks/bottle/small/beer,
+/obj/item/reagent_containers/food/drinks/bottle/small/ale,
+/turf/simulated/floor/planet/temperate,
+/area/planet/forest)
 "Ty" = (
 /obj/machinery/computer/mining,
 /obj/structure/table/steel_reinforced,
@@ -1024,6 +1047,9 @@
 /obj/structure/flora/tree/planet/snowy,
 /turf/simulated/floor/planet/snow,
 /area/planet/forest)
+"Vm" = (
+/turf/simulated/floor/plating,
+/area/planet/forest)
 "Vo" = (
 /obj/structure/scrap,
 /obj/item/stock_parts/capacitor,
@@ -1033,6 +1059,9 @@
 /obj/machinery/smartfridge/drying_rack,
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest/cabin1)
+"Ws" = (
+/turf/simulated/floor/wood/maple,
+/area/planet/forest)
 
 (1,1,1) = {"
 aa
@@ -1897,9 +1926,9 @@ ab
 ab
 ab
 ab
-ab
-ab
-bc
+nE
+Ws
+nE
 bc
 ab
 ab
@@ -1999,11 +2028,11 @@ ab
 ab
 ab
 ab
-bc
-bS
-bc
-bc
-bc
+Vm
+Vm
+Vm
+lb
+nE
 bc
 bc
 bc
@@ -2101,11 +2130,11 @@ ab
 ab
 ab
 ab
-bc
-bc
-bc
-bc
-bc
+nE
+zD
+Ws
+Ss
+Vm
 bc
 bc
 bc
@@ -2203,13 +2232,13 @@ ab
 ab
 ab
 ab
+nE
+JL
+Vm
+Vm
 bc
 bc
 bc
-bc
-bc
-bc
-bf
 bc
 bc
 bS
@@ -2305,10 +2334,10 @@ ab
 ab
 ab
 ab
-ab
+nE
 bc
 bc
-bc
+nE
 bc
 bc
 bc
@@ -2412,7 +2441,7 @@ bc
 bc
 bc
 bc
-bc
+Vm
 bc
 bc
 bc
