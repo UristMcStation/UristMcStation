@@ -161,7 +161,7 @@
 	desc = "A special suit that protects against hazardous, cold, low pressure environments. Has thermal shielding."
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
 	icon_state = "cryo-atmos"
-	item_state = "atmo_coldsuit"
+	item_state = "cryo-atmos"
 	item_icons = URIST_ALL_ONMOBS
 
 //Mining
