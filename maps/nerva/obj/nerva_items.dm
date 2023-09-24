@@ -165,7 +165,7 @@
 /obj/item/storage/lockbox/station_account/open(mob/user)
 	if(!linked)
 		linked = TRUE
-		for(var/obj/item/card/id/station_account/C)
+		for(var/obj/item/card/id/station_account/C in contents)
 			C.associated_account_number = station_account.account_number
 	..()
 
@@ -175,7 +175,6 @@
 	desc = "A company banking card with access to the local Nanotrasen budget, for job-related expenses."
 	item_state = "silver_id"
 	detail_color = COLOR_INDIGO
-	var/nanotrasen_money
 
 /obj/item/storage/lockbox/nanotrasen_account
 	name = "Nanotrasen account card lockbox"
@@ -196,9 +195,8 @@
 /obj/item/storage/lockbox/nanotrasen_account/open(mob/user)
 	if(!linked)
 		linked = TRUE
-		for(var/obj/item/card/id/station_account/nanotrasen/N)
+		for(var/obj/item/card/id/station_account/nanotrasen/N in contents)
 			N.associated_account_number = nanotrasen_account.account_number
-			nanotrasen_account.money = rand(11000,44000)
 	..()
 
 //ammo boxes
