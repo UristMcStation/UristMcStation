@@ -22,10 +22,11 @@
 			to_chat(user, SPAN_WARNING("Access denied!"))
 		else if ((locked = !locked))
 			to_chat(user, SPAN_NOTICE("You lock \the [src]!"))
+			icon_state = icon_locked
 			close_all()
 		else
 			icon_state = icon_closed
-			to_chat(user, SPAN_NOTICE("You lock \the [src]!"))
+			to_chat(user, SPAN_NOTICE("You unlock \the [src]!"))
 		return
 	else if (!broken && istype(I, /obj/item/melee/energy/blade))
 		var/success = emag_act(INFINITY, user, I, null, "You hear metal being sliced and sparks flying.")
