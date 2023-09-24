@@ -12,7 +12,6 @@
 	title = "Terrestrial Pioneer"
 	supervisors = "your chosen deity if they can hear you out here."
 	total_positions = 4
-	whitelisted_species = list(SPECIES_HUMAN,SPECIES_IPC,SPECIES_SPACER,SPECIES_RESOMI,SPECIES_GRAVWORLDER,SPECIES_VATGROWN,SPECIES_SKRELL,SPECIES_MULE)
 	outfit_type = /singleton/hierarchy/outfit/job/forest_settler
 	info = "Whether the boredom of space life or a desire to get away from the bustle of city life, \
 			you are now out on the frontier of human settlement, in a boreal forest valley of a relatively temperate planet. \
