@@ -433,8 +433,8 @@
 	desc = "Filters liquids by list of desired or unwanted reagents."
 	icon_state = "reagent_filter"
 	extended_desc = "This is a filter which will move liquids from the source to its target. \
-	If the amount in the fourth pin is positive, it will move all reagents except those in the unwanted list. \
-	If the amount in the fourth pin is negative, it will only move the reagents in the wanted list. \
+	If the amount in the third pin is positive, it will move all reagents except those in the unwanted list. \
+	If the amount in the third pin is negative, it will only move the reagents in the wanted list. \
 	The third pin determines how many reagents are moved per pulse, between 0 and 50. Amount is given for each separate reagent."
 
 	complexity = 8
