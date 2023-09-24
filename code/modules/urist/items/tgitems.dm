@@ -373,8 +373,8 @@ Please only put items here that don't have a huge definition - Glloyd											
 	storage_slots = 91 //400 originally but that many item slots makes the screen go screwy
 	max_storage_space = 200 //800 orginally, lowered with storage slots
 
-/*/obj/item/storage/part_replacer/bluespace/afterattack(obj/machinery/T, mob/living/user, adjacent, params) //horrible stupid mess i made to get it to work with how bay does stuff
+/obj/item/storage/part_replacer/bluespace/afterattack(obj/machinery/T, mob/living/user, adjacent, params) //horrible stupid mess i made to get it to work with how bay does stuff
 	if(!istype(T))
 		return ..()
-	T.default_part_replacement(user, src, 1)
-	return ..()*/
+	T.part_replacement(user, src)
+	return ..()

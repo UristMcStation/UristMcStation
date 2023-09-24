@@ -34,6 +34,7 @@
 	icon = 'icons/urist/items/improvised.dmi'
 	icon_state = "makemask"
 	item_state = "makemask"
+	item_icons = URIST_ALL_ONMOBS
 	w_class = ITEM_SIZE_SMALL
 	body_parts_covered = FACE
 	item_flags = ITEM_FLAG_FLEXIBLEMATERIAL
@@ -42,7 +43,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 30, rad = 0)
 	down_gas_transfer_coefficient = 1
 	down_body_parts_covered = null
-	down_icon_state = "steriledown"
+	down_icon_state = "makemaskdown"
 	pull_mask = 1
 
 /obj/item/stack/medical/bruise_pack/makeshift_bandage

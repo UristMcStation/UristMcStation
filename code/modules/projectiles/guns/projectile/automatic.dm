@@ -143,7 +143,7 @@
 		wielded_item_state = "arifle-wielded-empty"
 
 /obj/item/gun/projectile/automatic/wt550
-	name = "10mm submachine gun"
+	name = "9mm submachine gun"
 	desc = "The WT-550 Saber is a cheap self-defense weapon, mass-produced by Ward-Takahashi for paramilitary and private use."
 	icon = 'icons/obj/guns/sec_smg.dmi'
 	icon_state = "smg"
@@ -156,8 +156,8 @@
 	slot_flags = SLOT_BELT
 	ammo_type = /obj/item/ammo_casing/pistol/small
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/pistol/rubber
-	allowed_magazines = /obj/item/ammo_magazine/pistol
+	magazine_type = /obj/item/ammo_magazine/smg_top/rubber
+	allowed_magazines = /obj/item/ammo_magazine/smg_top
 	accuracy_power = 7
 	one_hand_penalty = 3
 

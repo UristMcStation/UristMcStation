@@ -81,7 +81,7 @@
 	desc = "The al-Maliki & Mosley Partner is a concealed-carry revolver made for people who do not trust automatic pistols any more than the people they're dealing with."
 	icon = 'icons/obj/guns/revolvers.dmi'
 	icon_state = "holdout"
-	item_state = "pen"
+	item_state = "revolver"
 	caliber = CALIBER_PISTOL_SMALL
 	ammo_type = /obj/item/ammo_casing/pistol/small
 	w_class = ITEM_SIZE_SMALL
@@ -89,6 +89,10 @@
 	one_hand_penalty = 0
 	bulk = 0
 	fire_delay = 7
+
+/obj/item/gun/projectile/revolver/holdout/on_update_icon()
+	. = ..()
+	icon_state = "[initial(icon_state)]"
 
 /obj/item/gun/projectile/revolver/capgun
 	name = "cap gun"
