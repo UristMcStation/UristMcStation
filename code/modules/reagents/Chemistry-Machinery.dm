@@ -13,6 +13,7 @@
 	name = "\improper ChemMaster 3000"
 	desc = "This large machine uses a complex filtration system to split, merge, condense, or bottle up any kind of chemical, for all your medicinal* needs."
 	density = TRUE
+	obj_flags = OBJ_FLAG_ANCHORABLE
 	anchored = TRUE
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "mixer0"
@@ -79,6 +80,9 @@
 			return
 		loaded_pill_bottle = B
 		to_chat(user, "You add the pill bottle into the dispenser slot!")
+
+	else
+		return ..()
 
 /obj/machinery/chem_master/proc/eject_beaker(mob/user)
 	if(!beaker)
