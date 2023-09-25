@@ -100,7 +100,7 @@
 	economic_power = 24
 
 /datum/job/captain/get_description_blurb()
-	return "You are the Captain and owner of the ICS Nerva. You are the top dog. Your backstory and destiny is your own to decide, however, you are ultimately responsible for all that happens onboard. Your job is to make sure the that Nerva survives its time in this sector, and turns a profit for you. Delegate to your First Officer, the Second Officer, and your department heads to effectively manage the ship, and listen to and trust their expertise. It might be the difference between life and death. Oh, and watch out for pirates. The ICS Nerva only has a small complement of weapons at first, which can be upgraded at certain stations in the sector. Good luck."
+	return "You are the Captain and owner of the ICS Nerva. You are the top dog. Your backstory and destiny is your own to decide, however, you are ultimately responsible for all that happens onboard. Your job is to make sure the that Nerva survives its time in this sector, and turns a profit for you. Delegate to your First Officer, the Second Officer, and your department heads to effectively manage the ship, and listen to and trust their expertise. It might be the difference between life and death. Oh, and watch out for pirates. The ICS Nerva only has a small complement of weapons at first, which can be upgraded either by your supply team, or by purchasing/salvaging additional weaponry. Good luck."
 
 /datum/job/hop
 	minimal_player_age = 3
@@ -118,7 +118,7 @@
 			            access_expedition_shuttle_helm, access_expedition, access_gunnery)
 
 /datum/job/hop/get_description_blurb()
-	return "You are the Second Officer, third in command, after the First Officer and the Captain. As the Second Officer, it is your job to oversee personnel issues, which includes managing ID cards and access, delegating crew grievances, and ensuring the proper upkeep and operation of the ship's recreational and mess facilities. Thus, you are the direct supervisor for the janitorial staff, as well as the culinary and hydroponics staff. As Second Officer, in cases where there is no First Officer present, it is also your job to to pilot the ICS Nerva, and organize awaymissions."
+	return "You are the Second Officer, third in command, after the First Officer and the Captain. As the Second Officer, it is your job to oversee personnel issues, which includes managing ID cards and access, delegating crew grievances, and ensuring the proper upkeep and operation of the ship's recreational and mess facilities. Thus, you are the direct supervisor for the janitorial staff, as well as the culinary and hydroponics staff. As Second Officer, in cases where there is no First Officer present, it is also your job to to pilot the ICS Nerva, and organize awaymissions in coordination with the Quartermaster."
 
 /datum/job/seniorscientist
 	minimal_player_age = 2
@@ -192,7 +192,7 @@
 	access_RC_announce, access_keycard_auth, access_heads, access_eva, access_bridge, access_hydroponics, access_gunnery, access_expedition)
 
 /datum/job/qm/get_description_blurb()
-	return	"You are the Quartermaster. As the Quartermaster, it is your job to oversee and delegate your Supply Staff, which may include managing research & development, exporting and importing goods, sending teams to away missions, salvaging and mining, and arming the ICS Nerva if attacks occur. As Quartermaster, it is your job to organize away missions with the First Officer and prevent the supply crew from manufacturing dangerous arms without direct permission."
+	return	"You are the Quartermaster. As the Quartermaster, it is your job to oversee and delegate your Supply Staff, which may include managing research & development, exporting and importing goods, sending teams to away missions, salvaging and mining, and arming the ICS Nerva if attacks occur. As Quartermaster, it is also your job to organize away missions with the First Officer and prevent the supply crew from manufacturing dangerous arms without direct permission."
 
 /datum/job/cargo_tech
 	minimal_player_age = 0
@@ -222,7 +222,7 @@
 			access_expedition_shuttle_helm, access_expedition, access_gunnery)
 
 /datum/job/cmo/get_description_blurb()
-	return	"You are the Chief Medical Officer onboard the ICS Nerva. As Chief Medical Officer, it is your job to oversee your medical staff and ensure they successfully treat all injured crew, provide surgery for injured crew, produce and mandate chemicals used for medicine and ensure all deceased crew are relaced. Thus, you are the direct supervisor for medical staff, and may be held responsible for their malpractice. As Chief Medical Officer, it is also your job to delegate the medical team to respond to injured crew in specific areas, send medical doctors to away missions to provide medical care and to cure any biological contaminant that may come onboard. You answer directly to the Captain and the First Officer."
+	return	"You are the Chief Medical Officer onboard the ICS Nerva. As Chief Medical Officer, it is your job to oversee your medical staff and ensure they successfully treat all injured crew, provide surgery for injured crew, produce and mandate chemicals used for medicine and ensure all deceased crew are properly taken care of, and cloned if possible. Thus, you are the direct supervisor for medical staff, and may be held responsible for their malpractice. As Chief Medical Officer, it is also your job to delegate the medical team to respond to injured crew in specific areas, send medical doctors to away missions to provide medical care and to cure any biological contaminant that may come onboard. You answer directly to the Captain and the First Officer."
 
 /datum/job/doctor
 	minimal_player_age = 0
@@ -232,7 +232,7 @@
 		"Emergency Physician" = /singleton/hierarchy/outfit/job/medical/doctor/emergency_physician
 		)
 /datum/job/doctor/get_description_blurb()
-	return	"You are a doctor on board the ICS Nerva, as a Doctor, it is your job to ensure all crew remain healthy, this may involve scanning patients in the bodyscanners to find internal injuries, perform medical surgery to fix ailments, produce beneficial medicine to assist the crew and provide for and seek out critically injured crew. As a Medical Doctor, ensure that you follow surgical procedures correctly to avoid malpractice, and to remind crew to set their suit sensors to maximum. You may be requested to accompany Away Missions, or other expeditions to ensure away-team safety. You answer directly to the Chief Medical Officer. If any paitent dies, remember to always remove the neural lace of the deceased crewmember and replace their body using the cloner and attach the new lace to revive them."
+	return	"You are a doctor on board the ICS Nerva, as a Doctor, it is your job to ensure all crew remain healthy, this may involve scanning patients in the bodyscanners to find internal injuries, perform medical surgery to fix ailments, produce beneficial medicine to assist the crew and provide for and seek out critically injured crew. As a Medical Doctor, ensure that you follow surgical procedures correctly to avoid malpractice, and to remind crew to set their suit sensors to maximum. You may be requested to accompany Away Missions, or other expeditions to ensure away-team safety. You answer directly to the Chief Medical Officer. If any paitient dies, remember to always remove the neural lace of the deceased crewmember and replace their body using the cloner and attach the new lace to revive them."
 
 /datum/job/psychiatrist
 	title = "Counselor"
