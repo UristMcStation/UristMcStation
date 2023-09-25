@@ -10,13 +10,15 @@
 	icon_state = "tramfloor"
 
 	wfc_overwritable = TRUE
+	parent_type = DEEPMAINT_TURF_BASE
 
 
 /turf/procgen/wfc
 
 
 /proc/WfcChangeTurf(var/turf/trg, var/new_type)
-	if(!isturf(new_type))
+	// This cannot be an isturf() because that only works on instances, not paths!
+	if(!ispath(new_type, /turf))
 		return
 
 	if(!isnull(trg.associated_wfc_overwritables))

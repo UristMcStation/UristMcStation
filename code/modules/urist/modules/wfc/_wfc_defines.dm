@@ -1,5 +1,3 @@
-# define STEP_TRIGGER_INVISIBILITY 101
-
 #define DEEPMAINT_WALL_ICON 'icons/urist/turf/walls.dmi'
 #define DEEPMAINT_WALL_ICONSTATE_BASE "arust"
 #define DEEPMAINT_WALL_ICONSTATE_DYNAMIC(FromVar) "arust[FromVar]"
@@ -11,6 +9,8 @@
 
 
 # ifdef STUB_OUT_SS13
+
+# define STEP_TRIGGER_INVISIBILITY 45
 
 #define DEEPMAINT_DOOR_TYPEVAR(V) var/obj/cover/autodoor/V
 #define WFC_MATH_FLOOR(x) FLOOR(x)
@@ -26,6 +26,8 @@
 #define qdel_from_weakref(x) del(x)
 
 # else
+
+# define STEP_TRIGGER_INVISIBILITY INVISIBILITY_LEVEL_TWO
 
 #define DEEPMAINT_DOOR_TYPEVAR(V) var/obj/machinery/door/airlock/maintenance/V
 #define WFC_MATH_FLOOR(x) floor(x)

@@ -1,5 +1,8 @@
 
 /obj/wfc_step_trigger
+	icon = 'icons/misc/mark.dmi'
+	icon_state = "x3"
+
 	var/step_include_trigger_obj = TRUE
 	var/step_callback = null
 	var/list/step_callback_args = null

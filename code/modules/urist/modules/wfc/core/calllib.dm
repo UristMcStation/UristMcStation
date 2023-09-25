@@ -19,13 +19,17 @@
 
 /proc/generate_wfc_map(var/rules_json = "deepmaint.json")
 	call("ss13_wfc.dll", "from_ruleset")(rules_json)
-	return
+
+	if(!fexists("genmap.json"))
+		log_debug("Deepmaint - failed to generate in the DLL.")
+		return FALSE
+
+	return TRUE
 
 
 /proc/generate_from_wfc_file(var/mapname = "genmap.json", var/overwrite_all = FALSE, var/zlevel = 1, var/xvariants = DEEPMAINT_VARIANT_REPEATS_X, var/yvariants = DEEPMAINT_VARIANT_REPEATS_Y)
 	if(!fexists(mapname))
 		log_debug("Deepmaint - Could not find map file: [mapname]")
-		to_chat(usr, "Map no generatey ):")
 		return
 
 	var/fh = file(mapname)
@@ -89,12 +93,13 @@
 						if(turf_type && child_turf && (overwrite_all || child_turf.wfc_overwritable))
 							WFC_CHANGE_TURF(child_turf, turf_type)
 
-	return
+	return TRUE
 
 
 /proc/generate_wfc_map_full(var/rules_json = "deepmaint.json", var/overwrite_all = FALSE, var/zlevel = 1)
 	var/mapname = "genmap.json"
-	generate_wfc_map(rules_json)
-	generate_from_wfc_file(mapname, overwrite_all = FALSE, zlevel = zlevel)
-	return
+	var/status = TRUE // abusing short-circuiting
+	status = status && generate_wfc_map(rules_json)
+	status = status && generate_from_wfc_file(mapname, overwrite_all = FALSE, zlevel = zlevel)
+	return status
 

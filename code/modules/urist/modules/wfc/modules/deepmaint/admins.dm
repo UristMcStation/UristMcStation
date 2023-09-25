@@ -10,9 +10,12 @@
 		return
 
 	for(var/area/map_template/deepmaint_wfc/deepmaint_area in GLOB.wfc_deepmaint_zlevels_by_instance)
-		deepmaint_area.generate_deepmaint("deepmaint.json", "genmap.json")
-		log_and_message_admins("has generated a DeepmaintRooms map.")
-		break
+		var/success = deepmaint_area.generate_deepmaint("deepmaint.json", "genmap.json")
+		if(success)
+			log_and_message_admins("has generated a DeepmaintRooms map.")
+			break
+		else
+			log_and_message_admins("has unsuccessfully attempted to generate a DeepmaintRooms map.")
 
 	return
 
@@ -30,7 +33,10 @@
 	if(isnull(target))
 		return
 
-	deepmaint_send_trg(target)
-	log_and_message_admins("has thrown [target] into DeepmaintRooms.")
+	var/success = deepmaint_send_trg(target)
+	if(success)
+		log_and_message_admins("has thrown [target] into DeepmaintRooms.")
+	else
+		log_and_message_admins("has tried to throw [target] into DeepmaintRooms, but failed!")
 
 	return

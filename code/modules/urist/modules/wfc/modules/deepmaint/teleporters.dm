@@ -52,6 +52,11 @@
 		if(isnull(T))
 			continue
 
+		var/mob/M = trg
+		if(istype(M))
+			M.Stun(1)
+			M.flash_eyes(intensity = FLASH_PROTECTION_MAJOR * 10, override_blindness_check = TRUE, affect_silicon = TRUE, visual = FALSE, type = /obj/screen/fullscreen/blackout)
+
 		success = trg.forceMove(T)
 		if(success)
 			break
@@ -75,13 +80,23 @@
 	var/tries = 1
 	var/success = FALSE
 
-	var/list/predicates = list(/proc/is_station_turf, /proc/not_turf_contains_dense_objects)
+	var/list/predicates = list(/proc/is_station_turf, /proc/not_turf_contains_dense_objects, /proc/IsTurfAtmosSafe)
 
 	while(tries --> 0)
-		var/turf/T = pick_area_turf(/area/maintenance, predicates)
+		var/area/location = pick_area(list(/proc/is_not_space_area, /proc/is_station_area, /proc/is_maint_area))
+
+		if(isnull(location))
+			continue
+
+		var/turf/T = pick_area_turf(location, predicates)
 
 		if(isnull(T))
 			continue
+
+		var/mob/M = trg
+		if(istype(M))
+			M.Stun(1)
+			M.flash_eyes(intensity = FLASH_PROTECTION_MAJOR * 10, override_blindness_check = TRUE, affect_silicon = TRUE, visual = FALSE, type = /obj/screen/fullscreen/blackout)
 
 		success = trg.forceMove(T)
 		if(success)
@@ -127,8 +142,10 @@
 
 
 /obj/wfc_step_trigger/deepmaint_entrance
+	icon_state = "rdn"
 	step_callback = /proc/deepmaint_conditional_send
 
 
 /obj/wfc_step_trigger/deepmaint_exit
+	icon_state = "rup"
 	step_callback = /proc/deepmaint_conditional_stationyeet
