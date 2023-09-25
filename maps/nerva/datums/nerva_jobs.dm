@@ -86,7 +86,7 @@
 			            access_medical, access_medical_equip, access_morgue,
 						access_chemistry, access_virology, access_cmo, access_surgery,
 						access_robotics, access_research, access_armory, access_hos,
-						access_tox, access_tox_storage, access_xenobiology, access_xenoarch, access_psychiatrist, access_seniornt, access_gunnery
+						access_tox, access_tox_storage, access_xenobiology, access_xenoarch, access_psychiatrist, access_gunnery
 						)
 
 
