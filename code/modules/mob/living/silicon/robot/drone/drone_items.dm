@@ -159,7 +159,9 @@
 		/obj/item/forensics,
 		/obj/item/photo,
 		/obj/item/paper,
-		/obj/item/paper_bundle
+		/obj/item/paper_bundle,
+		/obj/item/folder,
+		/obj/item/device/camera_film
 	)
 
 /obj/item/gripper/no_use //Used when you want to hold and put items in other things, but not able to 'use' the item
