@@ -105,7 +105,7 @@
 			else
 				to_chat(user, SPAN_NOTICE("[src] does not need a repair."))
 		else
-			to_chat(user, SPAN_NOTICE("Unable to repair while [src] is off.</span>"))
+			to_chat(user, SPAN_NOTICE("Unable to repair while [src] is off."))
 	else
 		..()
 
