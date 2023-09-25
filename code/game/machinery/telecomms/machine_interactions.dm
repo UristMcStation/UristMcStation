@@ -381,7 +381,6 @@
 	else
 		src.listening_levels = GLOB.using_map.contact_levels
 		return 1
-	return 0
 
 // RELAY
 
