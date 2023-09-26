@@ -2,7 +2,7 @@
 	name = "broken macninery"
 	desc = "Broken beyond repair, but looks like you can still salvage something from this if you had a prying implement."
 	icon = 'icons/urist/obj/salvageable.dmi'
-	density = 1
+	density = TRUE
 	anchored = 1
 	var/list/salvageable_parts = list()
 
