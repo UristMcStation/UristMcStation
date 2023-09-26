@@ -3,7 +3,7 @@
 	desc = "Broken beyond repair, but looks like you can still salvage something from this if you had a prying implement."
 	icon = 'icons/urist/obj/salvageable.dmi'
 	density = TRUE
-	anchored = 1
+	anchored = TRUE
 	var/list/salvageable_parts = list()
 
 /obj/structure/salvageable/proc/dismantle()
