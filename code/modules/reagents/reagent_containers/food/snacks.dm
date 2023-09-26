@@ -117,13 +117,14 @@
 				playsound(M, pick(eat_sound), rand(10, 50), 1)
 			if(reagents.total_volume)
 				var/obj/item/organ/internal/cell/potato = C.internal_organs_by_name[BP_CELL]
+				var/mob/living/carbon/human/H = M
 				if(reagents.total_volume > bitesize)
 					reagents.trans_to_mob(M, bitesize, CHEM_INGEST)
-					if(potato)
+					if(potato && H.isFBP())
 						potato.cell.give((reagents.get_reagent_amount(/datum/reagent/nutriment) / reagents.total_volume) * bitesize * ENERGY_PER_NUTRIMENT)
 				else
 					reagents.trans_to_mob(M, reagents.total_volume, CHEM_INGEST)
-					if(potato)
+					if(potato && H.isFBP())
 						potato.cell.give(reagents.get_reagent_amount(/datum/reagent/nutriment) * ENERGY_PER_NUTRIMENT)
 				bitecount++
 				OnConsume(M, user)
