@@ -86,12 +86,12 @@
 			            access_medical, access_medical_equip, access_morgue,
 						access_chemistry, access_virology, access_cmo, access_surgery,
 						access_robotics, access_research, access_armory, access_hos,
-						access_tox, access_tox_storage, access_xenobiology, access_xenoarch, access_psychiatrist, access_seniornt, access_gunnery
+						access_tox, access_tox_storage, access_xenobiology, access_xenoarch, access_psychiatrist, access_gunnery
 						)
 
 
 /datum/job/firstofficer/get_description_blurb()
-	return "You are the First Officer, and second in command of the ICS Nerva. As the clear second in command of the ship, your job is to work with the captain to run the ship, and take charge of navigation according to the captain's orders. If there is no second officer, your job is also to oversee personnel issues and organize away missions. In the event of combat, your job is to work with the Chief of Security to coordinate the ship's defence."
+	return "You are the First Officer, and second in command of the ICS Nerva. As the clear second in command of the ship, your job is to work with the captain to run the ship, and take charge of navigation according to the captain's orders. You are also in charge of organizing and executing away missions, in coordination with the Quartermaster. If there is no second officer, your job is also to oversee personnel issues. In the event of combat, your job is to work with the Chief of Security to coordinate the ship's defence."
 
 /datum/job/captain
 	supervisors = "yourself, as you are the owner of this ship and the sole arbiter of its destiny. However, be careful not to anger NanoTrasen and the other factions that have set up outposts in this sector, or your own staff for that matter. It could lead to your undoing"
@@ -100,7 +100,7 @@
 	economic_power = 24
 
 /datum/job/captain/get_description_blurb()
-	return "You are the Captain and owner of the ICS Nerva. You are the top dog. Your backstory and destiny is your own to decide, however, you are ultimately responsible for all that happens onboard. Your job is to make sure the that Nerva survives its time in this sector, and turns a profit for you. Delegate to your First Officer, the Second Officer, and your department heads to effectively manage the ship, and listen to and trust their expertise. It might be the difference between life and death. Oh, and watch out for pirates. The ICS Nerva only has a small complement of weapons at first, which can be upgraded at certain stations in the sector. Good luck."
+	return "You are the Captain and owner of the ICS Nerva. You are the top dog. Your backstory and destiny is your own to decide, however, you are ultimately responsible for all that happens onboard. Your job is to make sure the that Nerva survives its time in this sector, and turns a profit for you. Delegate to your First Officer, the Second Officer, and your department heads to effectively manage the ship, and listen to and trust their expertise. It might be the difference between life and death. Oh, and watch out for pirates. The ICS Nerva only has a small complement of weapons at first, which can be upgraded either by your supply team, or by purchasing/salvaging additional weaponry. Good luck."
 
 /datum/job/hop
 	minimal_player_age = 3
@@ -118,7 +118,7 @@
 			            access_expedition_shuttle_helm, access_expedition, access_gunnery)
 
 /datum/job/hop/get_description_blurb()
-	return "You are the Second Officer, third in command, after the First Officer and the Captain. As the Second Officer, it is your job to oversee personnel issues, which includes managing access, delegating crew grievances, and ensuring the proper upkeep and operation of the ship's recreational and mess facilities. Thus, you are the direct supervisor for the janitorial staff, as well as the culinary and hydroponics staff. As Second Officer, it is also your job to organize and lead away missions, and in cases where there is no First Officer present, to pilot the ICS Nerva."
+	return "You are the Second Officer, third in command, after the First Officer and the Captain. As the Second Officer, it is your job to oversee personnel issues, which includes managing ID cards and access, delegating crew grievances, and ensuring the proper upkeep and operation of the ship's recreational and mess facilities. Thus, you are the direct supervisor for the janitorial staff, as well as the culinary and hydroponics staff. As Second Officer, in cases where there is no First Officer present, it is also your job to pilot the ICS Nerva, and organize away missions in coordination with the Quartermaster."
 
 /datum/job/seniorscientist
 	minimal_player_age = 2
@@ -130,7 +130,7 @@
 	req_admin_notify = 1
 	economic_power = 15
 	title = "Senior Scientist"
-	supervisors = "the captain and nanotrasen central command."
+	supervisors = "NanoTrasen Central Command and the captain."
 	hud_icon = "hudseniorscientist"
 	outfit_type = /singleton/hierarchy/outfit/job/nerva/seniorscientist
 	access = list(access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch, access_expedition, access_network, access_seniornt,
@@ -138,7 +138,7 @@
 								access_library, access_research, access_heads_vault, access_RC_announce, access_gateway, access_expedition_shuttle_helm, access_expedition, access_teleporter)
 
 /datum/job/seniorscientist/get_description_blurb()
-	return "You are a well-respected Senior Scientist working for Nanotrasen's interests. It is your job to manage your science team to ensure that Nanotrasen's research advances. You answer directly to the Captain and Nanotrasen Central Command, which you can fax directly."
+	return "You are a well-respected Senior Scientist working for NanoTrasen aboard the ICS Nerva. The captain has leased space to NanoTrasen for research purposes, in exchange for a nice payout and access to NanoTrasen research contracts. It is your job to manage your science team to ensure that NanoTrasen's research advances. Thus, you answer to NanoTrasen Central Command, which you can fax directly, and not the captain of the ship. However, you are expected to respect the wishes of the captain or ranking officer with regards to the ship as a whole, and to follow their instructions during emergency situations."
 
 //eng
 
@@ -192,7 +192,7 @@
 	access_RC_announce, access_keycard_auth, access_heads, access_eva, access_bridge, access_hydroponics, access_gunnery, access_expedition)
 
 /datum/job/qm/get_description_blurb()
-	return	"You are the Quartermaster. As the Quartermaster, it is your job to oversee and delegate your Supply Staff, which may include managing research & development, exporting and importing goods, sending teams to away missions, salvaging and mining, and arming the ICS Nerva if attacks occur. As Quartermaster, it is your job to organize away missions with the Second Officer and prevent the supply crew from manufacturing dangerous arms without direct permission."
+	return	"You are the Quartermaster. As the Quartermaster, it is your job to oversee and delegate your Supply Staff, which may include managing research & development, exporting and importing goods, sending teams to away missions, salvaging and mining, and arming the ICS Nerva if attacks occur. As Quartermaster, it is also your job to organize away missions with the First Officer and prevent the supply crew from manufacturing dangerous arms without direct permission."
 
 /datum/job/cargo_tech
 	minimal_player_age = 0
@@ -222,7 +222,7 @@
 			access_expedition_shuttle_helm, access_expedition, access_gunnery)
 
 /datum/job/cmo/get_description_blurb()
-	return	"You are the Chief Medical Officer onboard the ICS Nerva. As Chief Medical Officer, it is your job to oversee your medical staff and ensure they successfully treat all injured crew, provide surgery for injured crew, produce and mandate chemicals used for medicine and ensure all deceased crew are relaced. Thus, you are the direct supervisor for medical staff, and may be held responsible for their malpractice. As Chief Medical Officer, it is also your job to delegate the medical team to respond to injured crew in specific areas, send medical doctors to away missions to provide medical care and to cure any biological contaminant that may come onboard. You answer directly to the Captain and the First Officer."
+	return	"You are the Chief Medical Officer onboard the ICS Nerva. As Chief Medical Officer, it is your job to oversee your medical staff and ensure they successfully treat all injured crew, provide surgery for injured crew, produce and mandate chemicals used for medicine and ensure all deceased crew are properly taken care of, and cloned if possible. Thus, you are the direct supervisor for medical staff, and may be held responsible for their malpractice. As Chief Medical Officer, it is also your job to delegate the medical team to respond to injured crew in specific areas, send medical doctors to away missions to provide medical care and to cure any biological contaminant that may come onboard. You answer directly to the Captain and the First Officer."
 
 /datum/job/doctor
 	minimal_player_age = 0
@@ -232,7 +232,7 @@
 		"Emergency Physician" = /singleton/hierarchy/outfit/job/medical/doctor/emergency_physician
 		)
 /datum/job/doctor/get_description_blurb()
-	return	"You are a doctor on board the ICS Nerva, as a Doctor, it is your job to ensure all crew remain healthy, this may involve scanning patients in the bodyscanners to find internal injuries, perform medical surgery to fix ailments, produce beneficial medicine to assist the crew and provide for and seek out critically injured crew. As a Medical Doctor, ensure that you follow surgical procedures correctly to avoid malpractice, and to remind crew to set their suit sensors to maximum. You may be requested to accompany Away Missions, or other expeditions to ensure away-team safety. You answer directly to the Chief Medical Officer. If any paitent dies, remember to always remove the neural lace of the deceased crewmember and replace their body using the cloner and attach the new lace to revive them."
+	return	"You are a doctor on board the ICS Nerva, as a Doctor, it is your job to ensure all crew remain healthy, this may involve scanning patients in the bodyscanners to find internal injuries, perform medical surgery to fix ailments, produce beneficial medicine to assist the crew and provide for and seek out critically injured crew. As a Medical Doctor, ensure that you follow surgical procedures correctly to avoid malpractice, and to remind crew to set their suit sensors to maximum. You may be requested to accompany Away Missions, or other expeditions to ensure away-team safety. You answer directly to the Chief Medical Officer. If any patient dies, remember to always remove the neural lace of the deceased crewmember and replace their body using the cloner and attach the new lace to revive them."
 
 /datum/job/psychiatrist
 	title = "Counselor"
@@ -284,7 +284,7 @@
 	minimal_player_age = 0
 	title = "NanoTrasen Scientist"
 	alt_titles = list("NanoTrasen Xenobiologist", "NanoTrasen Anomalist", "NanoTrasen Xenobotanist")
-	supervisors = "NanoTrasen Central Command and the captain."
+	supervisors = "the senior scientist and NanoTrasen Central Command."
 	total_positions = 3
 	spawn_positions = 3
 	hud_icon = "hudscientist"
@@ -292,11 +292,12 @@
 	access = list(access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch, access_expedition, access_network, access_maint_tunnels)
 
 /datum/job/scientist/get_description_blurb()
-	return	"You are a NanoTrasen scientist, working aboard the ICS Nerva under contract. The captain has provided space on the ship for you to do research, in exchange for a nice payout from NanoTrasen, and access to NanoTrasen research contracts. This unique arrangement is owing to NanoTrasen's weak position in the outer sectors. Thus, you are not fully part of the Nerva's crew, and answer to NanoTrasen Central Command above all else. However, while on the ship, you are expected to answer to the captain or the ranking officer."
+	return	"You are a NanoTrasen scientist, working aboard the ICS Nerva under contract. The captain has provided space on the ship for you to do research, in exchange for a nice payout from NanoTrasen, and access to NanoTrasen research contracts. This unique arrangement is owing to NanoTrasen's weak position in the outer sectors. Thus, you are not fully part of the Nerva's crew, and answer to NanoTrasen Central Command above all else. However, while on the ship, you are expected to answer to the senior scientist, while also respecting the wishes of the captain or the ranking officer, particularly in emergency situations."
 
 //misc
 
 /datum/job/assistant
+	supervisors = "the second officer."
 	alt_titles = list(
 	"Technical Assistant","Medical Intern","Cargo Assistant",
 	"Botanist" = /singleton/hierarchy/outfit/job/service/gardener,
