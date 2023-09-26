@@ -14,6 +14,7 @@ SUBSYSTEM_DEF(aifast)
 	..({"\
 		Active AI: [length(ai_holders)] \
 		Run Empty Levels: [config.run_empty_levels ? "Y" : "N"]\
+		Run Empty Levels strictness: [config.run_empty_levels_throttled_perc]%\
 	"})
 
 
@@ -22,6 +23,7 @@ SUBSYSTEM_DEF(aifast)
 		queue = ai_holders.Copy()
 		if (!length(queue))
 			return
+	var/throttle_on_empty = prob(config.run_empty_levels_throttled_perc) // Urist edit!
 	var/cut_until = 1
 	for (var/datum/ai_holder/ai as anything in queue)
 		++cut_until
@@ -29,7 +31,9 @@ SUBSYSTEM_DEF(aifast)
 			continue
 		if (!ai.holder)
 			continue
-		if (!config.run_empty_levels && !SSpresence.population(get_z(ai.holder)))
+		//if (!config.run_empty_levels && !SSpresence.population(get_z(ai.holder)))
+		//	continue
+		if (!config.run_empty_levels && !SSpresence.population(get_z(ai.holder)) && throttle_on_empty) // Urist edit!
 			continue
 		ai.handle_tactics()
 		if (no_mc_tick)

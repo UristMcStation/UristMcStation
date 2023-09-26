@@ -14,6 +14,7 @@ SUBSYSTEM_DEF(mobs)
 	..({"\
 		Mobs: [length(mob_list)] \
 		Run Empty Levels: [config.run_empty_levels ? "Y" : "N"]\
+		Run Empty Levels strictness: [config.run_empty_levels_throttled_perc]%\
 	"})
 
 
@@ -24,12 +25,15 @@ SUBSYSTEM_DEF(mobs)
 /datum/controller/subsystem/mobs/fire(resume, no_mc_tick)
 	if (!resume)
 		queue = mob_list.Copy()
+	var/throttle_on_empty = prob(config.run_empty_levels_throttled_perc) // Urist edit!
 	var/cut_until = 1
 	for (var/mob/mob as anything in queue)
 		++cut_until
 		if (QDELETED(mob))
 			continue
-		if (!config.run_empty_levels && !SSpresence.population(get_z(mob)))
+		//if (!config.run_empty_levels && !SSpresence.population(get_z(mob)))
+		//	continue
+		if (!config.run_empty_levels && !SSpresence.population(get_z(mob)) && throttle_on_empty) // Urist edit!
 			continue
 		mob.Life()
 		if (no_mc_tick)

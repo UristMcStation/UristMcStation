@@ -444,6 +444,19 @@
 	var/static/run_empty_levels = FALSE
 
 	# ifdef INCLUDE_URIST_CODE
+
+	// Note: this only applies if run_empty_levels is FALSE
+	// Effectively, it makes it behave as if TRUE (100-x)% of time.
+	// At 0, it effectively overrides run_empty_levels to TRUE!!!
+	//
+	// Using this means you get a balance of CPU savings vs simulation fidelity.
+	//
+	// At the default 100, AI is too dumb to chase players up z-levels if there's no
+	// other players there, which is a dumb exploit, and pre-spawned corpses won't
+	// die/fall down holes/etc. properly either.
+	var/static/run_empty_levels_throttled_perc = 100
+
+
 	/* --- BLUESPACE REVENANT STUFF --- */
 
 	// Baseline rate of Distortion increase per tick for Bluespace Revenants
@@ -902,6 +915,8 @@
 				warn_autoban_duration = max(1, text2num(value))
 			if ("run_empty_levels")
 				run_empty_levels = TRUE
+			if ("run_empty_levels_throttled_perc")
+				run_empty_levels_throttled_perc = clamp(text2num(value), 0, 100)
 			if ("warn_if_staff_same_ip")
 				warn_if_staff_same_ip = TRUE
 			else
