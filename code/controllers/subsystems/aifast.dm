@@ -23,18 +23,29 @@ SUBSYSTEM_DEF(aifast)
 		queue = ai_holders.Copy()
 		if (!length(queue))
 			return
-	var/throttle_on_empty = prob(config.run_empty_levels_throttled_perc) // Urist edit!
 	var/cut_until = 1
+	#ifdef INCLUDE_URIST_CODE
+	var/throttle_on_empty = prob(config.run_empty_levels_throttled_perc) // Urist edit!
+	#endif
 	for (var/datum/ai_holder/ai as anything in queue)
 		++cut_until
 		if (QDELETED(ai) || ai.busy)
 			continue
 		if (!ai.holder)
 			continue
-		//if (!config.run_empty_levels && !SSpresence.population(get_z(ai.holder)))
-		//	continue
-		if (!config.run_empty_levels && !SSpresence.population(get_z(ai.holder)) && throttle_on_empty) // Urist edit!
+		#ifndef INCLUDE_URIST_CODE
+		if (!config.run_empty_levels && !SSpresence.population(get_z(ai.holder)))
 			continue
+		#else
+		// Allow 'leaky' processing of empty, activated z-levels
+		if (!config.run_empty_levels)
+			var/holder_z = get_z(ai.holder)
+			var/zlevel_has_pop = SSpresence.population(holder_z)
+			if(!zlevel_has_pop)
+				var/zlevel_had_pop = SSpresence.population_from_cache(holder_z)
+				if(!zlevel_had_pop || (zlevel_had_pop && throttle_on_empty))
+					continue
+		#endif
 		ai.handle_tactics()
 		if (no_mc_tick)
 			CHECK_TICK
