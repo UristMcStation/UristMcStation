@@ -1,3 +1,5 @@
+#define ENERGY_PER_NUTRIMENT 30
+
 /obj/item/reagent_containers/food/snacks
 	name = "snack"
 	desc = "Yummy!"
@@ -114,10 +116,15 @@
 			if(eat_sound)
 				playsound(M, pick(eat_sound), rand(10, 50), 1)
 			if(reagents.total_volume)
+				var/obj/item/organ/internal/cell/potato = C.internal_organs_by_name[BP_CELL]
 				if(reagents.total_volume > bitesize)
 					reagents.trans_to_mob(M, bitesize, CHEM_INGEST)
+					if(potato)
+						potato.cell.give((reagents.get_reagent_amount(/datum/reagent/nutriment) / reagents.total_volume) * bitesize * ENERGY_PER_NUTRIMENT)
 				else
 					reagents.trans_to_mob(M, reagents.total_volume, CHEM_INGEST)
+					if(potato)
+						potato.cell.give(reagents.get_reagent_amount(/datum/reagent/nutriment) * ENERGY_PER_NUTRIMENT)
 				bitecount++
 				OnConsume(M, user)
 			return 1
@@ -4146,3 +4153,5 @@
 	name = "taco"
 	desc = "Interestingly, the shell has gone soft and the contents have gone stale."
 	icon_state = "ancient_taco"
+
+#undef ENERGY_PER_NUTRIMENT
