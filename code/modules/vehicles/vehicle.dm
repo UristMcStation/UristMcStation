@@ -80,44 +80,55 @@
 	health = clamp(health, 0, maxhealth)
 	healthcheck()
 
-/obj/vehicle/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/hand_labeler))
+/obj/vehicle/use_tool(obj/item/T, mob/user, list/click_params)
+	if(istype(T, /obj/item/hand_labeler))
 		return
-	if(isScrewdriver(W))
+	if(isScrewdriver(T))
 		if(!locked)
 			open = !open
 			update_icon()
-			to_chat(user, "<span class='notice'>Maintenance panel is now [open ? "opened" : "closed"].</span>")
-	else if(isCrowbar(W) && cell && open)
+			to_chat(user, SPAN_NOTICE("Maintenance panel is now [open ? "opened" : "closed"]."))
+	else if(isCrowbar(T) && cell && open)
 		remove_cell(user)
-
-	else if(istype(W, /obj/item/cell) && !cell && open)
-		insert_cell(W, user)
-	else if(isWelder(W))
-		var/obj/item/weldingtool/T = W
-		if(T.welding)
+	else if(istype(T, /obj/item/cell) && !cell && open)
+		insert_cell(T, user)
+	else if(isWelder(T))
+		var/obj/item/weldingtool/welder = T
+		if(welder.welding)
 			if(health < maxhealth)
 				if(open)
 					adjust_health(10)
 					user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-					user.visible_message("<span class='warning'>\The [user] repairs \the [src]!</span>","<span class='notice'>You repair \the [src]!</span>")
+					user.visible_message(SPAN_WARNING("\The [user] repairs \the [src]!"), SPAN_NOTICE("You repair \the [src]!"))
 				else
-					to_chat(user, "<span class='notice'>Unable to repair with the maintenance panel closed.</span>")
+					to_chat(user, SPAN_NOTICE("Unable to repair with the maintenance panel closed."))
 			else
-				to_chat(user, "<span class='notice'>[src] does not need a repair.</span>")
+				to_chat(user, SPAN_NOTICE("[src] does not need a repair."))
 		else
-			to_chat(user, "<span class='notice'>Unable to repair while [src] is off.</span>")
-	else if(hasvar(W,"force") && hasvar(W,"damtype"))
-		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		switch(W.damtype)
-			if("fire")
-				adjust_health(-W.force * fire_dam_coeff)
-			if("brute")
-				adjust_health(-W.force * brute_dam_coeff)
-		..()
-		healthcheck()
+			to_chat(user, SPAN_NOTICE("Unable to repair while [src] is off."))
 	else
 		..()
+
+/obj/vehicle/use_weapon(obj/item/weapon, mob/user, list/click_params)
+	user.setClickCooldown(user.get_attack_speed(weapon))
+	user.do_attack_animation(src)
+	playsound(src, weapon.hitsound, 50, TRUE)
+	if (!weapon.force || !(weapon.damtype == DAMAGE_BRUTE || weapon.damtype == DAMAGE_BURN))
+		user.visible_message(
+			SPAN_WARNING("\The [user] tries to attack \the [src] with \a [weapon], but it bounces off!"),
+			SPAN_WARNING("You try to attack \the [src] with \the [weapon], but it bounces off!")
+		)
+		return TRUE
+	user.visible_message(
+		SPAN_DANGER("\The [user] hits \the [src] with \a [weapon]!"),
+		SPAN_DANGER("You hit \the [src] with \the [weapon]!")
+	)
+	switch (weapon.damtype)
+		if (DAMAGE_BURN)
+			adjust_health(-weapon.force * fire_dam_coeff)
+		if (DAMAGE_BRUTE)
+			adjust_health(-weapon.force * brute_dam_coeff)
+	return ..()
 
 /obj/vehicle/bullet_act(obj/item/projectile/Proj)
 	adjust_health(-Proj.get_structure_damage())
