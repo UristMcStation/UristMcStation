@@ -4,7 +4,7 @@
 	icon = 'icons/urist/obj/salvageable.dmi'
 	density = 1
 	anchored = 1
-	var/salvageable_parts = list()
+	var/list/salvageable_parts = list()
 
 /obj/structure/salvageable/proc/dismantle()
 	new /obj/machinery/constructable_frame/machine_frame (src.loc)
