@@ -29,7 +29,6 @@
 	value = 30
 //	trader_weight = 1
 
-/datum/trade_item/tool/screwdriver
 	name = "screwdriver"
 	item_type = /obj/item/screwdriver
 	category = "tools"
