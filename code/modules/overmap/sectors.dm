@@ -26,6 +26,7 @@
 	var/list/place_near_main
 
 	var/hidden = FALSE //hidden for the purposes of tooltips. currently only used for the pirate station to avoid cheese
+	var/list/assigned_contracts = list() //what contracts do we assign on spawning. can be any /datum/contract
 
 /obj/effect/overmap/visitable/Initialize()
 	. = ..()
@@ -62,6 +63,9 @@
 
 	LAZYADD(SSshuttle.sectors_to_initialize, src) //Queued for further init. Will populate the waypoint lists; waypoints not spawned yet will be added in as they spawn.
 	SSshuttle.clear_init_queue()
+
+	if(assigned_contracts.len)
+		generate_away_contracts()
 
 //This is called later in the init order by SSshuttle to populate sector objects. Importantly for subtypes, shuttles will be created by then.
 /obj/effect/overmap/visitable/proc/populate_sector_objects()
@@ -122,13 +126,17 @@
 /obj/effect/overmap/visitable/proc/generate_skybox()
 	return
 
+/obj/effect/overmap/visitable/proc/generate_away_contracts()
+	for(var/C in assigned_contracts)
+		if(ispath(C, /datum/contract))
+			var/datum/contract/contract = new C
+			GLOB.using_map.contracts += contract
+
 /obj/effect/overmap/visitable/sector
 	name = "generic sector"
 	desc = "Sector with some stuff in it."
 	icon_state = "sector"
 	anchored = TRUE
-
-	var/list/assigned_contracts = list() //what contracts do we assign on spawning. can be any /datum/contract
 
 	//used by exoplanets and awaymap planetoids
 	var/surface_color = null
@@ -140,9 +148,6 @@
 
 	if(known)
 		update_known_connections(TRUE)
-
-	if(assigned_contracts.len)
-		generate_away_contracts()
 
 /obj/effect/overmap/visitable/sector/update_known_connections(notify = FALSE)
 	. = ..()
@@ -180,9 +185,3 @@
 
 	testing("Overmap build complete.")
 	return 1
-
-/obj/effect/overmap/visitable/sector/proc/generate_away_contracts()
-	for(var/C in assigned_contracts)
-		if(ispath(C, /datum/contract))
-			var/datum/contract/contract = new C
-			GLOB.using_map.contracts += contract
