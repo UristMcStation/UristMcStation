@@ -155,6 +155,7 @@
 	. += new/datum/stack_recipe/furniture/woodrack(src)
 	. += new/datum/stack_recipe/furniture/raft(src)
 	. += new/datum/stack_recipe/paddle(src)
+	. += new/datum/stack_recipe/loom(src)
 
 /material/wood/mahogany/generate_recipes(reinforce_material)
 	. = ..()
