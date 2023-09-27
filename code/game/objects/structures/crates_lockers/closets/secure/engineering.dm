@@ -15,6 +15,7 @@
 		/obj/item/clothing/gloves/insulated,
 		/obj/item/clothing/shoes/brown,
 		/obj/item/device/radio/headset/heads/ce,
+		/obj/item/device/radio/headset/heads/ce/alt,
 		/obj/item/storage/toolbox/mechanical,
 		/obj/item/clothing/suit/storage/hazardvest,
 		/obj/item/clothing/mask/gas,
@@ -64,6 +65,7 @@
 		new/datum/atom_creator/simple(/obj/item/storage/backpack/dufflebag/eng, 50),
 		/obj/item/storage/toolbox/mechanical,
 		/obj/item/device/radio/headset/headset_eng,
+		/obj/item/device/radio/headset/headset_eng/alt,
 		/obj/item/clothing/suit/storage/hazardvest,
 		/obj/item/clothing/mask/gas,
 		/obj/item/clothing/glasses/meson,
@@ -84,6 +86,7 @@
 		/obj/item/device/flashlight,
 		/obj/item/extinguisher,
 		/obj/item/device/radio/headset/headset_eng,
+		/obj/item/device/radio/headset/headset_eng/alt,
 		/obj/item/clothing/suit/storage/hazardvest,
 		/obj/item/clothing/mask/gas,
 		/obj/item/taperoll/atmos
