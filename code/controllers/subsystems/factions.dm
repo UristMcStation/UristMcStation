@@ -14,9 +14,7 @@ SUBSYSTEM_DEF(factions)
 				hostile_factions.Add(F)
 
 	if(GLOB.using_map.trading_faction)
-		for(var/datum/factions/F in factions)
-			if(F.type == GLOB.using_map.trading_faction)
-				GLOB.using_map.trading_faction = F
+		GLOB.using_map.trading_faction = get_faction_by_type(GLOB.using_map.trading_faction)
 
 	. = ..()
 
@@ -42,3 +40,8 @@ SUBSYSTEM_DEF(factions)
 
 			else
 				M.faction = "neutral"
+
+/datum/controller/subsystem/factions/proc/get_faction_by_type(var/faction)
+	for(var/datum/factions/F in factions)
+		if(F.type == faction)
+			return F

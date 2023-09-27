@@ -54,7 +54,7 @@
 	glove_chance = 100
 
 	angryprob = 0
-	npc_item_amount = 7
+	npc_item_amount = 4
 	randomize_value = 0
 	randomize_quantity = 0
 	no_resell = 1

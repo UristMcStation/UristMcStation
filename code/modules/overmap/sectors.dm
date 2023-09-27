@@ -128,6 +128,8 @@
 	icon_state = "sector"
 	anchored = TRUE
 
+	var/list/assigned_contracts = list() //what contracts do we assign on spawning. can be any /datum/contract
+
 	//used by exoplanets and awaymap planetoids
 	var/surface_color = null
 	var/water_color = null
@@ -139,6 +141,8 @@
 	if(known)
 		update_known_connections(TRUE)
 
+	if(assigned_contracts.len)
+		generate_away_contracts()
 
 /obj/effect/overmap/visitable/sector/update_known_connections(notify = FALSE)
 	. = ..()
@@ -176,3 +180,9 @@
 
 	testing("Overmap build complete.")
 	return 1
+
+/obj/effect/overmap/visitable/sector/proc/generate_away_contracts()
+	for(var/C in assigned_contracts)
+		if(ispath(C, /datum/contract))
+			var/datum/contract/contract = new C
+			GLOB.using_map.contracts += contract
