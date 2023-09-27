@@ -135,7 +135,7 @@
 		var/obj/item/reagent_containers/food/snacks/grown/plant = W
 		if(plant.seed?.chems)
 			if(!isnull(plant.seed.chems[/datum/reagent/cottonfiber]))
-				user.visible_message(SPAN_NOTICE("\The [user] weaves \the [src] into cotton cloth"))
+				user.visible_message(SPAN_NOTICE("\The [user] weaves \the [plant] into cotton cloth"), SPAN_NOTICE("You weave \the [plant] into cotton cloth"))
 				new /obj/item/stack/material/cloth(user.loc)
 				qdel(plant)
 				return
