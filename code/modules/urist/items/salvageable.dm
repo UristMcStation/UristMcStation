@@ -2,9 +2,9 @@
 	name = "broken macninery"
 	desc = "Broken beyond repair, but looks like you can still salvage something from this if you had a prying implement."
 	icon = 'icons/urist/obj/salvageable.dmi'
-	density = 1
-	anchored = 1
-	var/salvageable_parts = list()
+	density = TRUE
+	anchored = TRUE
+	var/list/salvageable_parts = list()
 
 /obj/structure/salvageable/proc/dismantle()
 	new /obj/machinery/constructable_frame/machine_frame (src.loc)
