@@ -7823,7 +7823,7 @@
 	},
 /obj/machinery/tele_beacon,
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "Deck 3 Port Central");
+	codes = list("patrol"=1,"next_patrol"="Deck 3 Port Central");
 	location = "Medbay"
 	},
 /turf/simulated/floor/tiled/white,
@@ -11257,7 +11257,7 @@
 	output_attempt = 1;
 	output_level = 100000;
 	outputting = 2;
-	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak = 4)
+	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak=4)
 	},
 /obj/effect/engine_setup/smes,
 /obj/machinery/light{
@@ -11467,7 +11467,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "Medbay");
+	codes = list("patrol"=1,"next_patrol"="Medbay");
 	location = "Deck 3 Aft Port"
 	},
 /obj/structure/disposalpipe/segment{
@@ -12089,7 +12089,7 @@
 	output_attempt = 1;
 	output_level = 100000;
 	outputting = 2;
-	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak = 4)
+	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak=4)
 	},
 /obj/structure/sign/warning/secure_area{
 	desc = "A warning sign which reads 'HIGH VOLTAGE'";
@@ -12572,7 +12572,7 @@
 	output_attempt = 1;
 	output_level = 100000;
 	outputting = 2;
-	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak = 4)
+	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak=4)
 	},
 /obj/structure/cable/yellow,
 /obj/structure/cable/yellow{
@@ -13200,7 +13200,7 @@
 	output_attempt = 1;
 	output_level = 100000;
 	outputting = 2;
-	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak = 4)
+	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak=4)
 	},
 /obj/structure/cable/yellow,
 /turf/simulated/floor/tiled/dark,
@@ -14450,7 +14450,7 @@
 	icon_state = "pipe-c"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "Security");
+	codes = list("patrol"=1,"next_patrol"="Security");
 	location = "Hydroponics"
 	},
 /turf/simulated/floor/tiled,
@@ -14546,7 +14546,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "Bridge Starboard");
+	codes = list("patrol"=1,"next_patrol"="Bridge Starboard");
 	location = "Bar"
 	},
 /turf/simulated/floor/wood/walnut,
@@ -16944,7 +16944,7 @@
 	sort_type = "Disposals"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "Deck 2 Aft Port");
+	codes = list("patrol"=1,"next_patrol"="Deck 2 Aft Port");
 	location = "Deck 3 Aft Starboard"
 	},
 /obj/structure/cable{
@@ -18351,7 +18351,7 @@
 	icon_state = "corner_white_three_quarters"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "Personnel");
+	codes = list("patrol"=1,"next_patrol"="Personnel");
 	location = "Bridge Starboard"
 	},
 /turf/simulated/floor/tiled,
@@ -20200,7 +20200,7 @@
 	icon_state = "bordercolor"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "EVA");
+	codes = list("patrol"=1,"next_patrol"="EVA");
 	location = "Personnel"
 	},
 /turf/simulated/floor/tiled,
@@ -25078,7 +25078,7 @@
 	icon_state = "2-8"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "Mailing Office");
+	codes = list("patrol"=1,"next_patrol"="Mailing Office");
 	location = "Deck 3 Cargo"
 	},
 /turf/simulated/floor/tiled,
@@ -25928,9 +25928,6 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/command/bodyguard)
 "aSN" = (
-/obj/structure/closet/secure_closet/blueshield{
-	name = "Bodyguard Locker"
-	},
 /obj/random/plushie,
 /obj/item/clothing/under/bodyguard,
 /obj/item/device/radio/intercom{
@@ -25944,6 +25941,7 @@
 	},
 /obj/effect/floor_decal/corner/black/border,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/secure_closet/nerva_guard,
 /turf/simulated/floor/tiled/techmaint,
 /area/command/bodyguard)
 "aSO" = (
@@ -28228,7 +28226,7 @@
 	icon_state = "corner_white"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "Bridge Port");
+	codes = list("patrol"=1,"next_patrol"="Bridge Port");
 	location = "Security"
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -28315,7 +28313,7 @@
 	icon_state = "intact-scrubbers"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "Deck 3 Aft Starboard");
+	codes = list("patrol"=1,"next_patrol"="Deck 3 Aft Starboard");
 	location = "Mailing Office"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -28819,7 +28817,7 @@
 	icon_state = "corner_white_three_quarters"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "Bar");
+	codes = list("patrol"=1,"next_patrol"="Bar");
 	location = "Bridge Port"
 	},
 /obj/structure/disposalpipe/segment{
@@ -28854,7 +28852,7 @@
 	dir = 5
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "Hydroponics");
+	codes = list("patrol"=1,"next_patrol"="Hydroponics");
 	location = "Deck 3 Port Central"
 	},
 /turf/simulated/floor/tiled,
@@ -31156,7 +31154,7 @@
 	dir = 10
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol" = 1, "next_patrol" = "Deck 3 Cargo");
+	codes = list("patrol"=1,"next_patrol"="Deck 3 Cargo");
 	location = "EVA"
 	},
 /turf/simulated/floor/tiled,
