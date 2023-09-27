@@ -60,8 +60,6 @@
 	new /obj/item/grenade/flashbang(src)
 	new /obj/item/melee/baton/loaded(src)
 	new /obj/item/gun/energy/taser(src)
-	new /obj/item/device/radio/headset/nerva_guard(src)
-	new /obj/item/device/radio/headset/nerva_guard/alt(src)
 	new /obj/item/clothing/accessory/storage/black_vest(src)
 	new /obj/item/clothing/accessory/storage/holster/waist(src)
 	new /obj/item/clothing/glasses/sunglasses(src)

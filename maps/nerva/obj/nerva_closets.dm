@@ -26,6 +26,7 @@
 		/obj/item/tank/jetpack/oxygen,
 		/obj/item/clothing/mask/gas,
 		/obj/item/device/radio/headset/heads/nerva_cap,
+		/obj/item/device/radio/headset/heads/nerva_cap/alt,
 		/obj/item/clothing/head/urist/beret/nervacap,
 		/obj/item/clothing/under/urist/nerva/capregular,
 		/obj/item/clothing/under/urist/nerva/capformal,
@@ -280,3 +281,40 @@
 		/obj/item/clothing/glasses/meson,
 		/obj/item/clothing/head/soft,
 	)
+
+/singleton/closet_appearance/secure_closet/nerva_guard
+	color = "#4f637d"
+	decals = list(
+		"lower_holes",
+		"upper_holes"
+	)
+	extra_decals = list(
+		"stripe_vertical_mid_partial" = COLOR_BLUE,
+	)
+
+/obj/structure/closet/secure_closet/nerva_guard
+	name = "bodyguard's locker"
+	req_access = list(access_blueshield)
+	closet_appearence = /singleton/closet_appearance/secure_closet/nerva_guard
+
+/obj/structure/closet/secure_closet/nervaguard/New()
+	..()
+	sleep(2)
+	new	/obj/item/storage/firstaid/adv(src)
+	new /obj/item/storage/belt/holster/security(src)
+	new /obj/item/storage/belt/security(src)
+	new /obj/item/device/radio/headset/nerva_guard(src)
+	new /obj/item/device/radio/headset/nerva_guard/alt(src)
+	new /obj/item/grenade/flashbang(src)
+	new /obj/item/melee/baton/loaded(src)
+	new /obj/item/gun/energy/taser(src)
+	new /obj/item/clothing/accessory/storage/black_vest(src)
+	new /obj/item/clothing/accessory/storage/holster/waist(src)
+	new /obj/item/clothing/glasses/sunglasses(src)
+	new /obj/item/clothing/under/rank/centcom(src)
+	new /obj/item/device/flash(src)
+	new /obj/item/handcuffs(src)
+	new /obj/item/clothing/suit/storage/urist/coat/blueshield(src)
+	new /obj/item/clothing/suit/armor/pcarrier(src)
+	new /obj/item/clothing/accessory/armor_plate/medium(src)
+	return

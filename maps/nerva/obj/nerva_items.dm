@@ -122,7 +122,7 @@
 	ks1type = /obj/item/device/encryptionkey/nerva/senior
 
 /obj/item/device/radio/headset/nerva_guard
-	name = "bodyguard's bowman radio headset"
+	name = "bodyguard's radio headset"
 	desc = "This is used by the captain's escort."
 	icon_state = "com_headset"
 	item_state = "headset"
