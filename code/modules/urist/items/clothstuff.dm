@@ -100,6 +100,7 @@
 	desc = "A loom small enough to only take up a table instead of the whole floor."
 	icon = 'icons/urist/items/wood.dmi'
 	icon_state = "loom"
+	w_class = 4 //a table loom is small only by comparison to a floor loom.
 
 /datum/reagent/cottonfiber
 	name = "cotton fiber"
@@ -128,12 +129,13 @@
 /obj/item/seeds/cotton
 	seed_type = "cotton"
 
-/obj/item/reagent_containers/food/snacks/grown/attackby(obj/item/W, mob/user)
-	if(seed?.chems)
-		if(istype(W, /obj/item/loom))
-			if(!isnull(seed.chems[/datum/reagent/cottonfiber]))
-				user.visible_message(SPAN_NOTICE("\The [user] weaves \the [src] into cotton cloth"))
-				new /obj/item/stack/material/cloth(user.loc)
-				qdel(src)
-				return
-	..()
+/obj/item/loom/attackby(obj/item/W, mob/user)
+    if(istype(W, /obj/item/reagent_containers/food/snacks/grown))
+        var/obj/item/reagent_containers/food/snacks/grown/plant = W
+        if(plant.seed?.chems)
+            if(!isnull(plant.seed.chems[/datum/reagent/cottonfiber]))
+                user.visible_message(SPAN_NOTICE("\The [user] weaves \the [src] into cotton cloth"))
+                new /obj/item/stack/material/cloth(user.loc)
+                qdel(plant)
+                return
+    ..()
