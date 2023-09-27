@@ -130,12 +130,12 @@
 	seed_type = "cotton"
 
 /obj/item/loom/attackby(obj/item/W, mob/user)
-    if(istype(W, /obj/item/reagent_containers/food/snacks/grown))
-        var/obj/item/reagent_containers/food/snacks/grown/plant = W
-        if(plant.seed?.chems)
-            if(!isnull(plant.seed.chems[/datum/reagent/cottonfiber]))
-                user.visible_message(SPAN_NOTICE("\The [user] weaves \the [src] into cotton cloth"))
-                new /obj/item/stack/material/cloth(user.loc)
-                qdel(plant)
-                return
-    ..()
+	if(istype(W, /obj/item/reagent_containers/food/snacks/grown))
+		var/obj/item/reagent_containers/food/snacks/grown/plant = W
+		if(plant.seed?.chems)
+			if(!isnull(plant.seed.chems[/datum/reagent/cottonfiber]))
+				user.visible_message(SPAN_NOTICE("\The [user] weaves \the [src] into cotton cloth"))
+				new /obj/item/stack/material/cloth(user.loc)
+				qdel(plant)
+				return
+	..()
