@@ -1,5 +1,4 @@
 /datum/trade_item/stock_parts
-	category = "components"
 	quantity = 8
 	trader_weight = 1
 	value = 160
