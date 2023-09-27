@@ -12,7 +12,7 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 	var/list/known_sectors = list()
 	var/dx		//desitnation
 	var/dy		//coordinates
-	var/speedlimit = 1/(20 SECONDS) //top speed for autopilot, 5
+	var/speedlimit = 1/(10 SECONDS) //top speed for autopilot, 5
 	var/accellimit = 0.001 //manual limiter for acceleration
 	/// The mob currently operating the helm - The last one to click one of the movement buttons and be on the overmap screen. Set to `null` for autopilot or when the mob isn't in range.
 	var/mob/current_operator
@@ -210,9 +210,9 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 			speedlimit = round(clamp(newlimit, 0, linked.max_autopilot * 1000), 0.1) * 0.001
 
 	if (href_list["accellimit"])
-		var/newlimit = input("Input new acceleration limit (0 ~ 10)", "Acceleration limit", accellimit * 1000) as num|null
+		var/newlimit = input("Input new acceleration limit (0 ~ 20)", "Acceleration limit", accellimit * 1000) as num|null
 		if (!isnull(newlimit))
-			accellimit = round(clamp(newlimit, 0, 10)) * 0.001
+			accellimit = round(clamp(newlimit, 0, 20)) * 0.001
 
 	if (href_list["move"])
 		var/ndir = text2num(href_list["move"])
