@@ -209,32 +209,29 @@ Please only put items here that don't have a huge definition - Glloyd											
 	new /obj/item/clothing/accessory/medal/gold/nanotrasen(src)
 
 
-/obj/item/grenade/chem_grenade/teargas
-	name = "teargas grenade"
-	desc = "Used for nonlethal riot control. Contents under pressure. Do not directly inhale contents."
-	path = 1
-	stage = 2
+///obj/item/grenade/chem_grenade/teargas
+//	name = "teargas grenade"
+//	desc = "Used for nonlethal riot control. Contents under pressure. Do not directly inhale contents."
+//	path = 1
+//	stage = 2
 
-/obj/item/grenade/chem_grenade/teargas/New()
-	..()
-	var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
-	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
+//obj/item/grenade/chem_grenade/teargas/Initialize()
+//	..()
+//	var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
+//	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
+//	B1.reagents.add_reagent(/datum/reagent/capsaicin, 25)
+//	B1.reagents.add_reagent(/datum/reagent/potassium, 25)
+//	B2.reagents.add_reagent(/datum/reagent/phosphorus, 25)
+//	B2.reagents.add_reagent(/datum/reagent/sugar, 25)
+//	detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
+//	beakers += B1
+//	beakers += B2
+//	icon_state = "grenade"
 
-	B1.reagents.add_reagent(/datum/reagent/capsaicin, 25)
-	B1.reagents.add_reagent(/datum/reagent/potassium, 25)
-	B2.reagents.add_reagent(/datum/reagent/phosphorus, 25)
-	B2.reagents.add_reagent(/datum/reagent/sugar, 25)
-
-	detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
-
-	beakers += B1
-	beakers += B2
-	icon_state = "grenade"
-
-/obj/item/storage/box/teargas
-	name = "box of tear gas grenades (WARNING)"
-	desc = "<B>WARNING: These devices are extremely dangerous and can cause blindness and skin irritation.</B>"
-	icon_state = "flashbang"
+///obj/item/storage/box/teargas
+//	name = "box of tear gas grenades (WARNING)"
+//	desc = "<B>WARNING: These devices are extremely dangerous and can cause blindness and skin irritation.</B>"
+//	icon_state = "flashbang"
 
 //TG cigarettes
 /obj/item/storage/fancy/cigarettes/urist

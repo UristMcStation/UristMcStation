@@ -269,26 +269,25 @@
 	icon_state = initial(icon_state) +"_locked"
 
 
-///obj/item/grenade/chem_grenade/teargas
-//	name = "tear gas grenade"
-//	desc = "Concentrated Capsaicin. Contents under pressure. Use with caution."
-//	stage = 2
-//	path = 1
+/obj/item/grenade/chem_grenade/teargas
+	name = "tear gas grenade"
+	desc = "Concentrated Capsaicin. Contents under pressure. Use with caution."
+	stage = 2
+	path = 1
 
 
-///obj/item/grenade/chem_grenade/teargas/Initialize()
-//	. = ..()
-//	var/obj/item/reagent_containers/glass/beaker/large/B1 = new(src)
-//	var/obj/item/reagent_containers/glass/beaker/large/B2 = new(src)
-//	B1.reagents.add_reagent(/datum/reagent/phosphorus, 40)
-//	B1.reagents.add_reagent(/datum/reagent/potassium, 40)
-//	B1.reagents.add_reagent(/datum/reagent/capsaicin/condensed, 40)
-//	B2.reagents.add_reagent(/datum/reagent/sugar, 40)
-//	B2.reagents.add_reagent(/datum/reagent/capsaicin/condensed, 80)
-//	detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
-//	beakers += B1
-//	beakers += B2
-//	icon_state = initial(icon_state) +"_locked"
+/obj/item/grenade/chem_grenade/teargas/Initialize()
+	. = ..()
+	var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
+	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
+	B1.reagents.add_reagent(/datum/reagent/capsaicin, 30)
+	B1.reagents.add_reagent(/datum/reagent/potassium, 30)
+	B2.reagents.add_reagent(/datum/reagent/phosphorus, 30)
+	B2.reagents.add_reagent(/datum/reagent/sugar, 30)
+	detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
+	beakers += B1
+	beakers += B2
+	icon_state = initial(icon_state) +"_locked"
 
 
 /obj/item/grenade/chem_grenade/water
