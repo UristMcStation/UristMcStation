@@ -27,7 +27,8 @@
 	name = "ICS Morning Light"
 	shuttle = "ICS Morning Light"
 	fore_dir = EAST
-	vessel_mass = 1500
+	vessel_mass = 850
+	vessel_size = SHIP_SIZE_SMALL
 
 /area/morninglight
 	name = "\improper ICS Morning Light"

@@ -3,7 +3,7 @@
 	ship_name = "ICS Nerva"
 	classification = "large class vessel"	//???
 	shipid = "nerva"
-	vessel_mass = 20000 //bigger than wyrm, smaller than torch //:fuckbay:
+	vessel_mass = 25000 //bigger than wyrm, smaller than torch //:fuckbay:
 	fore_dir = EAST
 	start_x = 6
 	start_y = 7
@@ -58,13 +58,15 @@
 	name = "Trajan"
 	shuttle = "Trajan"
 	fore_dir = NORTH
-	vessel_mass = 1500
+	vessel_mass = 1000
+	vessel_size = SHIP_SIZE_SMALL
 
 /obj/effect/overmap/visitable/ship/landable/hadrian
 	name = "Hadrian"
 	shuttle = "Hadrian"
 	fore_dir = EAST
-	vessel_mass = 1000
+	vessel_mass = 750
+	vessel_size = SHIP_SIZE_TINY
 
 /obj/effect/overmap/visitable/ship/combat/nerva/pve_mapfire(projectile_type)
 	if(ispath(projectile_type))
