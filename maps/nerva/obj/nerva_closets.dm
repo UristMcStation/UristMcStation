@@ -297,7 +297,7 @@
 	req_access = list(access_blueshield)
 	closet_appearence = /singleton/closet_appearance/secure_closet/nerva_guard
 
-/obj/structure/closet/secure_closet/nervaguard/New()
+/obj/structure/closet/secure_closet/nerva_guard/New()
 	..()
 	sleep(2)
 	new	/obj/item/storage/firstaid/adv(src)
