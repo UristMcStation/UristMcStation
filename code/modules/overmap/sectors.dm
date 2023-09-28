@@ -64,7 +64,7 @@
 	LAZYADD(SSshuttle.sectors_to_initialize, src) //Queued for further init. Will populate the waypoint lists; waypoints not spawned yet will be added in as they spawn.
 	SSshuttle.clear_init_queue()
 
-	if(assigned_contracts.len)
+	if(assigned_contracts.len && GLOB.using_map.using_new_cargo)
 		generate_away_contracts()
 
 //This is called later in the init order by SSshuttle to populate sector objects. Importantly for subtypes, shuttles will be created by then.
