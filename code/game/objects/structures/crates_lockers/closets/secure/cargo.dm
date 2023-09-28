@@ -10,6 +10,7 @@
 		/obj/item/clothing/under/rank/cargotech,
 		/obj/item/clothing/shoes/black,
 		/obj/item/device/radio/headset/headset_cargo,
+		/obj/item/device/radio/headset/headset_cargo/alt,
 		/obj/item/clothing/gloves/thick,
 		/obj/item/storage/belt/general,
 		/obj/item/clothing/head/soft
@@ -27,6 +28,7 @@
 		/obj/item/clothing/under/rank/cargotech,
 		/obj/item/clothing/shoes/brown,
 		/obj/item/device/radio/headset/headset_cargo,
+		/obj/item/device/radio/headset/headset_cargo/alt,
 		/obj/item/clothing/gloves/thick,
 		/obj/item/clothing/suit/fire/firefighter,
 		/obj/item/tank/oxygen_emergency,

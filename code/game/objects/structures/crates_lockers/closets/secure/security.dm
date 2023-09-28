@@ -15,6 +15,7 @@
 		/obj/item/clothing/head/helmet,
 		/obj/item/clothing/shoes/brown,
 		/obj/item/device/radio/headset/heads/captain,
+		/obj/item/device/radio/headset/heads/captain/alt,
 		/obj/item/clothing/gloves/captain,
 		/obj/item/gun/energy/gun,
 		/obj/item/clothing/suit/armor/captain,

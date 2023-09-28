@@ -2,7 +2,7 @@
 	name = OUTFIT_JOB_NAME("Bodyguard") //done
 	uniform = /obj/item/clothing/under/bodyguard
 	suit = /obj/item/clothing/suit/armor/pcarrier/deus_blueshield
-	l_ear = /obj/item/device/radio/headset/heads/hop
+	l_ear = /obj/item/device/radio/headset/nerva_guard
 	shoes = /obj/item/clothing/shoes/jackboots
 	id_types = list(/obj/item/card/id/bodyguard)
 	pda_type = /obj/item/modular_computer/pda/heads/hop
