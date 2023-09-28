@@ -40,6 +40,7 @@ var/global/const/access_away_pirate_station = "ACCESS_AWAY_PIRATE_STATION"
 	hidden = TRUE
 	spawn_ships = TRUE
 	spawn_types = list(/mob/living/simple_animal/hostile/overmapship/pirate/small, /mob/living/simple_animal/hostile/overmapship/pirate/med)
+	assigned_contracts = list(/datum/contract/shiphunt/pirate, /datum/contract/station_destroy/pirate)
 	initial_generic_waypoints = list(
 		"nav_piratestation_1",
 		"nav_piratestation_2",
@@ -101,3 +102,20 @@ var/global/const/access_away_pirate_station = "ACCESS_AWAY_PIRATE_STATION"
 		color = "#660000"
 		hidden = FALSE
 		make_known(TRUE)
+
+//money values are very much in flux
+
+/datum/contract/shiphunt/pirate
+	name = "Pirate Ship Hunt Contract"
+	neg_faction = /datum/factions/pirate
+	points_per_unit = 3
+	money = 4000
+
+//station destroy
+
+/datum/contract/station_destroy/pirate
+	name = "Pirate Hideout Destruction Contract"
+	desc = "This sector is plagued by pirates, who have set up a base somewhere in the asteroid fields. We need you to hunt down their hideout and destroy it for good. You can probably find more details regarding its location onboard the pirates' vessels."
+	neg_faction = /datum/factions/pirate
+	rep_points = 10
+	money = 30000
