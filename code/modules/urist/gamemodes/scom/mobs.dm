@@ -245,6 +245,9 @@
 
 /mob/living/simple_animal/hostile/scom/forgotten/awaymap //slightly less brtual
 	projectiletype = /obj/item/projectile/energy/scom/forgotten/awaymap
+	maxHealth = 225
+	health = 225
+	reload_time = 6 SECONDS
 
 /mob/living/simple_animal/hostile/alien/ravager
 	name = "alien ravager"
