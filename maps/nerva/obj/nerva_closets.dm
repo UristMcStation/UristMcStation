@@ -282,9 +282,20 @@
 		/obj/item/clothing/head/soft,
 	)
 
+/singleton/closet_appearance/secure_closet/nerva_guard
+	color = "#4f637d"
+	decals = list(
+		"lower_holes",
+		"upper_holes"
+	)
+	extra_decals = list(
+		"stripe_vertical_mid_partial" = COLOR_BLUE,
+	)
+
 /obj/structure/closet/secure_closet/nerva_guard
 	name = "bodyguard's locker"
 	req_access = list(access_blueshield)
+	closet_appearence = /singleton/closet_appearance/secure_closet/nerva_guard
 
 /obj/structure/closet/secure_closet/nerva_guard/New()
 	..()
