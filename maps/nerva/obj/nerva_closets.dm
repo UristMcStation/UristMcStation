@@ -295,7 +295,7 @@
 /obj/structure/closet/secure_closet/nerva_guard
 	name = "bodyguard's locker"
 	req_access = list(access_blueshield)
-	closet_appearence = /singleton/closet_appearance/secure_closet/nerva_guard
+	closet_appearance = /singleton/closet_appearance/secure_closet/nerva_guard
 
 /obj/structure/closet/secure_closet/nerva_guard/New()
 	..()
