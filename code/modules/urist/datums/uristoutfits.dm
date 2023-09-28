@@ -30,6 +30,24 @@
 	//	randmutg(M) //3 random good mutations on top (hopefully) of cold resistance
 	//M.update_mutations() //otherwise weirdness occurs
 
+
+/decl/hierarchy/outfit/ANTAGlite
+	// Unlike ANTAG, doesn't have weapons
+	name = "ANTAG Operative (lite)"
+	uniform = /obj/item/clothing/under/urist/suit_jacket/black{ starting_accessories=list(/obj/item/clothing/accessory/wcoat, /obj/item/clothing/accessory/red) }
+	shoes = /obj/item/clothing/shoes/laceup
+	gloves = /obj/item/clothing/gloves/thick
+	l_ear = /obj/item/device/radio/headset
+	glasses = /obj/item/clothing/glasses/sunglasses
+	mask = /obj/item/clothing/mask/urist/bandana/bedsheet/red
+
+	id_slot = slot_wear_id
+	id_type = /obj/item/weapon/card/id/syndicate/station_access
+	pda_slot = slot_belt
+	pda_type = /obj/item/modular_computer/pda/heads
+	id_pda_assignment = "ANTAG Operative"
+
+
 /decl/hierarchy/outfit/ANFOR
 	name = "ANFOR Marine"
 	uniform = /obj/item/clothing/under/urist/anfor

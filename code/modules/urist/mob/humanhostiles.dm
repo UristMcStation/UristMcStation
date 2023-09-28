@@ -74,6 +74,7 @@
 /mob/living/simple_animal/hostile/urist/ANTAG
 	icon_state = "ANTAG"
 	icon_living = "ANTAG"
+	icon_dead = "ANTAG_dead"
 	name = "\improper ANTAG Operative"
 	desc = "A member of a covert cell of a terrorist paramilitary collaborating with aliens to further their own goals, and a snappy dresser."
 	casingtype = /obj/item/ammo_casing/a762

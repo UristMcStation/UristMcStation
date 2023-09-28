@@ -47,8 +47,9 @@ mob/living/simple_animal/hostile/Initialize()
 
 
 /mob/living/simple_animal/hostile/Life()
-
 	. = ..()
+	if(health <= 0 && stat != DEAD)
+		death()
 	if(!.)
 		walk(src, 0)
 		return 0
@@ -57,6 +58,12 @@ mob/living/simple_animal/hostile/Initialize()
 	if(client)
 		walk(src, 0)
 		return 0
+	if(attachments)
+		var/ai_id = attachments[ATTACHMENT_CONTROLLER_BACKREF]
+		var/my_ai = GLOB.global_goai_registry[ai_id]
+		if(my_ai)
+			// we're driven by an AI
+			return 0
 	if(!stat)
 		switch(stance)
 			if(HOSTILE_STANCE_IDLE)
