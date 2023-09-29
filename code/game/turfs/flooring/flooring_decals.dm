@@ -966,6 +966,19 @@ var/global/list/floor_decals = list()
 /obj/effect/floor_decal/industrial/warning/fulltile
 	icon_state = "stripefulltile"
 
+/obj/effect/floor_decal/industrial/danger
+	name = "hazard stripes"
+	icon_state = "danger"
+
+/obj/effect/floor_decal/industrial/danger/corner
+	icon_state = "dangercorner"
+
+/obj/effect/floor_decal/industrial/danger/full
+	icon_state = "dangerfull"
+
+/obj/effect/floor_decal/industrial/danger/cee
+	icon_state = "dangercee"
+
 /obj/effect/floor_decal/industrial/custodial
 	name = "custodial stripes"
 	icon_state = "stripe"
