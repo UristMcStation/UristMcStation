@@ -133,7 +133,7 @@ SUBSYSTEM_DEF(worths_test)
 		var/list/reinforced_recipes = list()
 
 		var/mat_name = lowertext(mat.name)
-		log_worths_test("-- [mat_name]: [length(base_recipes)] recipie\s")
+		log_worths_test("-- [mat_name]: [length(base_recipes)] recipe\s")
 
 		for(var/material/reinf_mat in SSmaterials.materials)
 			if(istype(reinf_mat, /material/placeholder))
@@ -144,7 +144,7 @@ SUBSYSTEM_DEF(worths_test)
 			if(!length(recipes))
 				continue
 
-			log_worths_test("-- [mat_name] (Reinforced - [lowertext(reinf_mat.name)]): [length(recipes)] recipie\s")
+			log_worths_test("-- [mat_name] (Reinforced - [lowertext(reinf_mat.name)]): [length(recipes)] recipe\s")
 
 			reinforced_recipes[lowertext(reinf_mat.name)] = recipes
 
