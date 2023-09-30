@@ -80,7 +80,7 @@
 	. += new/datum/stack_recipe_list("armchairs", create_recipe_list(/datum/stack_recipe/furniture/chair/arm))
 	. += new/datum/stack_recipe_list("comfy chairs", create_recipe_list(/datum/stack_recipe/furniture/chair/comfy))
 	. += new/datum/stack_recipe_list("comfy office chairs", create_recipe_list(/datum/stack_recipe/furniture/chair/office/comfy))
-	. += new/datum/stack_recipe_list("office chairs",create_recipe_list(
+	. += new/datum/stack_recipe_list("office chairs", list(
 		new/datum/stack_recipe/furniture/chair/office/dark(src),
 		new/datum/stack_recipe/furniture/chair/office/light(src)
 	))
