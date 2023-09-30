@@ -129,29 +129,29 @@ SUBSYSTEM_DEF(worths_test)
 
 		log_worths_test("**** [uppertext(mat.name)] ****")
 
-		var/list/base_recipies = mat.dump_recipies()
-		var/list/reinforced_recipies = list()
+		var/list/base_recipes = mat.dump_recipes()
+		var/list/reinforced_recipes = list()
 
 		var/mat_name = lowertext(mat.name)
-		log_worths_test("-- [mat_name]: [length(base_recipies)] recipie\s")
+		log_worths_test("-- [mat_name]: [length(base_recipes)] recipie\s")
 
 		for(var/material/reinf_mat in SSmaterials.materials)
 			if(istype(reinf_mat, /material/placeholder))
 				continue
 
-			var/list/recipies = mat.dump_recipies(reinf_mat)
+			var/list/recipes = mat.dump_recipes(reinf_mat)
 
-			if(!length(recipies))
+			if(!length(recipes))
 				continue
 
-			log_worths_test("-- [mat_name] (Reinforced - [lowertext(reinf_mat.name)]): [length(recipies)] recipie\s")
+			log_worths_test("-- [mat_name] (Reinforced - [lowertext(reinf_mat.name)]): [length(recipes)] recipie\s")
 
-			reinforced_recipies[lowertext(reinf_mat.name)] = recipies
+			reinforced_recipes[lowertext(reinf_mat.name)] = recipes
 
 		src.processed_materials[mat.type] = list(
 			"id" = mat_name,
-			"base recipies" = base_recipies,
-			"reinforced recipies" = reinforced_recipies
+			"base recipes" = base_recipes,
+			"reinforced recipes" = reinforced_recipes
 		)
 
 		if(MC_TICK_CHECK)
@@ -243,7 +243,7 @@ SUBSYSTEM_DEF(worths_test)
 		if(5)
 			stage++
 			log_worths_test("[length(src.material_queue)] material\s readied")
-			log_worths_test("----==== Collecting material recipies ====----")
+			log_worths_test("----==== Collecting material recipes ====----")
 		if(6)
 			process_materials()
 		if(7)
