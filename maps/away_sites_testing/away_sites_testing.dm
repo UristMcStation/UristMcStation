@@ -1,11 +1,11 @@
-#if !defined(using_map_DATUM)
+#if !defined(using_map_DATUM) || defined(DEBUG_GENERATE_WORTHS)
 	#include "away_sites_testing_lobby.dm"
 	#include "../standard_cultures.dm"
 
+	#ifndef DEBUG_GENERATE_WORTHS
 	#include "blank.dmm"
 	#include "../away/empty.dmm"
-
-	#ifndef MAP_TEST_TEMPLATES
+	#endif
 
 	#include "away_sites_testing_unit_testing.dm"
 
@@ -37,15 +37,9 @@
 	#include "../away/voxship/voxship.dm"
 	#include "../away/yacht/yacht.dm"
 
-	#else
-	//All files needed for template testing go here
-	#include "template_testing_unit_testing.dm"
-	#include "../away/mining/mining_areas.dm"
-	#include "../away/smugglers/smugglers_items.dm"
-	#endif
-
-
+	#ifndef DEBUG_GENERATE_WORTHS
 	#define using_map_DATUM /datum/map/away_sites_testing
+	#endif
 
 #elif !defined(MAP_OVERRIDE)
 

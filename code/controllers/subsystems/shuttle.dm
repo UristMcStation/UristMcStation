@@ -32,6 +32,9 @@ SUBSYSTEM_DEF(shuttle)
 	block_queue = FALSE
 	clear_init_queue()
 
+#ifdef DEBUG_GENERATE_WORTHS
+/datum/controller/subsystem/shuttle/flags = SS_NO_INIT | SS_NO_FIRE
+#endif
 
 /datum/controller/subsystem/shuttle/fire(resumed = FALSE)
 	if (!resumed)

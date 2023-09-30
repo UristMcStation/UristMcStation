@@ -36,7 +36,7 @@ SUBSYSTEM_DEF(presence)
 	queue.Cut()
 
 
-#ifndef UNIT_TEST
+#if !defined(UNIT_TEST) && !defined(DEBUG_GENERATE_WORTHS)
 
 /datum/controller/subsystem/presence/flags = SS_NO_INIT
 

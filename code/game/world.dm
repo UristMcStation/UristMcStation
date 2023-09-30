@@ -85,7 +85,7 @@ GLOBAL_VAR(href_logfile)
 	return
 
 
-#ifndef UNIT_TEST
+#if !defined(UNIT_TEST) && !defined(DEBUG_GENERATE_WORTHS)
 /hook/startup/proc/set_visibility()
 	world.update_hub_visibility(config.hub_visible)
 #endif

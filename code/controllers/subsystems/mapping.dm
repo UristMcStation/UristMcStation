@@ -14,6 +14,9 @@ SUBSYSTEM_DEF(mapping)
 /datum/controller/subsystem/mapping/UpdateStat(time)
 	return
 
+#ifdef DEBUG_GENERATE_WORTHS
+/datum/controller/subsystem/mapping/flags = SS_NO_INIT | SS_NO_FIRE
+#endif
 
 /datum/controller/subsystem/mapping/Initialize(start_uptime)
 	// Load templates and build away sites.
