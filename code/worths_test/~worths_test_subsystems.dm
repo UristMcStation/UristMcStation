@@ -150,8 +150,8 @@ SUBSYSTEM_DEF(worths_test)
 
 		src.processed_materials[mat.type] = list(
 			"id" = mat_name,
-			"base recipes" = base_recipes,
-			"reinforced recipes" = reinforced_recipes
+			"base_recipes" = base_recipes,
+			"reinforced_recipes" = reinforced_recipes
 		)
 
 		if(MC_TICK_CHECK)
