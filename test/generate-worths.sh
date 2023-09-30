@@ -59,6 +59,8 @@ if [[ "$CI" == "true" ]]; then
     source ~/BYOND-${BYOND_MAJOR}.${BYOND_MINOR}/byond/bin/byondsetup
 fi
 
+msg "Selected map include is '${MAP_PATH}'"
+
 if [[ "$MAP_PATH" == "all" ]]; then
     eval "scripts/dm.sh -W'$ALL_MAPS' baystation12.dme"
 elif [[ "$MAP_PATH" != "none" ]]; then

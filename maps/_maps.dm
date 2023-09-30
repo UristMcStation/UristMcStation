@@ -9,7 +9,9 @@
 
 #include "example\example_define.dm" // Always included because tests. May be fixable later.
 
+#ifndef DEBUG_GENERATE_WORTHS
 #include "using.dm"
+#endif
 
 GLOBAL_DATUM_INIT(using_map, /datum/map, new using_map_DATUM)
 
