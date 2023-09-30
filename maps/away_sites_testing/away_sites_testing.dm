@@ -5,7 +5,6 @@
 	#include "blank.dmm"
 	#include "../away/empty.dmm"
 
-	#ifndef MAP_TEST_TEMPLATES
 
 	#include "away_sites_testing_unit_testing.dm"
 
@@ -36,13 +35,6 @@
 	#include "../away/scavver_gantry/scavver_gantry.dm"
 	#include "../away/voxship/voxship.dm"
 	#include "../away/yacht/yacht.dm"
-
-	#else
-	//All files needed for template testing go here
-	#include "template_testing_unit_testing.dm"
-	#include "../away/mining/mining_areas.dm"
-	#include "../away/smugglers/smugglers_items.dm"
-	#endif
 
 
 	#define using_map_DATUM /datum/map/away_sites_testing
