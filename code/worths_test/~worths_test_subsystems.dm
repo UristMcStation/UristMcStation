@@ -150,6 +150,7 @@ SUBSYSTEM_DEF(worths_test)
 
 		src.processed_materials[mat.type] = list(
 			"id" = mat_name,
+			"units_per_sheet" = mat.units_per_sheet,
 			"base_recipes" = base_recipes,
 			"reinforced_recipes" = reinforced_recipes
 		)

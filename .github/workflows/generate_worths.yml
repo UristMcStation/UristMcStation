@@ -36,7 +36,7 @@ jobs:
         if: ${{ success() && !env.ACT }}
         uses: actions/upload-artifact@v3
         with:
-          name: Worths Lists [${{ inputs.map }}]
+          name: Worths Lists (${{ inputs.map }}) - [${{ github.repository_owner }} - ${{ github.ref_name }}]
           path: |
             objects_worth.json
             materials_worth.json
