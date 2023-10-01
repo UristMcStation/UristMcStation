@@ -77,8 +77,6 @@
 	#include "../away/noctis/noctis.dm"
 	#include "../away/abandoned_colony/abandoned_colony.dm"
 	#include "../away/meatstation/meatstation.dm"
-	#include "../away/miningstation/miningstation.dm"
-	#include "../away/mininghome/mininghome.dm"
 	#include "../away/scavver_gantry/scavver_gantry.dm"
 
 	/*#include "../../code/datums/music_tracks/chasing_time.dm"
