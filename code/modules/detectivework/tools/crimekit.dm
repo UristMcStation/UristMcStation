@@ -44,5 +44,5 @@
 		/obj/item/taperoll,
 		/obj/item/device/camera_film,
 		/datum/uplink_item/item/tools/ductape,
-		/obj/item/reagent_containers/food/drinks/flask/
+		/obj/item/reagent_containers/food/drinks/flask
 		)
