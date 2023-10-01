@@ -139,7 +139,7 @@
 	if(!damage_amt)
 		return FALSE
 
-	var/organ_damage_threshold = 10
+	var/organ_damage_threshold = 5
 	if(damage_flags & DAMAGE_FLAG_SHARP)
 		organ_damage_threshold *= 0.5
 	if(laser)
@@ -153,7 +153,6 @@
 	for(var/obj/item/organ/internal/I in internal_organs)
 		if(I.damage < I.max_damage)
 			victims[I] = I.relative_size
-			organ_hit_chance += I.relative_size
 
 	//No damageable organs
 	if(!length(victims))
