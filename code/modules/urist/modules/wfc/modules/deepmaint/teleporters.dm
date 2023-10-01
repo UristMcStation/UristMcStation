@@ -55,7 +55,13 @@
 		var/mob/M = trg
 		if(istype(M))
 			M.Stun(1)
-			M.flash_eyes(intensity = FLASH_PROTECTION_MAJOR * 10, override_blindness_check = TRUE, affect_silicon = TRUE, visual = FALSE, type = /obj/screen/fullscreen/blackout)
+			M.flash_eyes(
+				intensity = FLASH_PROTECTION_MAJOR * 10, 
+				override_blindness_check = TRUE,
+				affect_silicon = TRUE,
+				visual = FALSE,
+				type = /obj/screen/fullscreen/blackout
+			)
 
 		success = trg.forceMove(T)
 		if(success)

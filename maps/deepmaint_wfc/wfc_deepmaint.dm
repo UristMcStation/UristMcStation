@@ -20,6 +20,6 @@
 /datum/map_template/ruin/deepmaint_wfc
 	name = "Maintrooms"
 	id = "deepmaint_wfc"
-	description = "Somewhere inbetween. How did we get here? How do we leave?"
+	description = "Somewhere in-between. How did we get here? How do we leave?"
 	suffixes = list("maps/deepmaint_wfc/wfcdeepmaint-1.dmm")
 

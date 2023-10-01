@@ -26,7 +26,7 @@
 	set name = "Send to DeepmaintRooms"
 
 	if(!GLOB.wfc_deepmaint_zlevels_by_instance)
-		log_and_message_admins("tried to throw [M] into Deepmaint, but no Deepmaint Z-levels are currently registered!")
+		log_and_message_admins("tried to throw \a [M] into Deepmaint, but no Deepmaint Z-levels are currently registered!")
 		return
 
 	var/atom/movable/target = M
