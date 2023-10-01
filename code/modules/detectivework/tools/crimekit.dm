@@ -40,5 +40,9 @@
 		/obj/item/storage/csi_markers,
 		/obj/item/device/scanner,
 		/obj/item/modular_computer/tablet,
-		/obj/item/evidencebag
+		/obj/item/evidencebag,
+		/obj/item/taperoll,
+		/obj/item/device/camera_film,
+		/datum/uplink_item/item/tools/ductape,
+		/obj/item/reagent_containers/food/drinks/flask/
 		)
