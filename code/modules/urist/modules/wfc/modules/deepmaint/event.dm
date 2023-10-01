@@ -5,7 +5,7 @@
 	var/list/spawned_teleporters
 
 
-/datum/event/gravity/setup()
+/datum/event/backrooms_deepmaint/setup()
 	endWhen = rand(600, 6000)
 
 /datum/event/backrooms_deepmaint/proc/create_outbound_teleporters()
