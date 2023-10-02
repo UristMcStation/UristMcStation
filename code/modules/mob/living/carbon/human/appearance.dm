@@ -177,7 +177,7 @@
 			continue
 		if(length(blacklist) && (current_species_name in blacklist))
 			continue
-		if(antag && !(current_species_name in antag.valid_species))
+		if(!(current_species_name in antag?.valid_species))
 			continue
 
 		valid_species += current_species_name
