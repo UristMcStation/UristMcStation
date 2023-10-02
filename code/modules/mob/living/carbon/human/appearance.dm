@@ -12,8 +12,11 @@
 	if(!(new_species in all_species))
 		return
 
-	set_species(new_species)
-	var/datum/antagonist/antag = mind && player_is_antag(mind)
+	var/datum/antagonist/antag = get_antag_data(mind?.special_role)
+	if(!(new_species in antag.valid_species))
+		return
+	else
+		set_species(new_species)
 	if (antag && antag.required_language)
 		add_language(antag.required_language)
 		set_default_language(all_languages[antag.required_language])
@@ -160,6 +163,8 @@
 
 /mob/living/carbon/human/proc/generate_valid_species(check_whitelist = 1, list/whitelist = list(), list/blacklist = list())
 	var/list/valid_species = new()
+	var/datum/antagonist/antag = get_antag_data(mind?.special_role)
+
 	for(var/current_species_name in all_species)
 		var/datum/species/current_species = all_species[current_species_name]
 
@@ -171,6 +176,8 @@
 		if(length(whitelist) && !(current_species_name in whitelist))
 			continue
 		if(length(blacklist) && (current_species_name in blacklist))
+			continue
+		if(antag && !(current_species_name in antag.valid_species))
 			continue
 
 		valid_species += current_species_name
