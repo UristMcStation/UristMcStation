@@ -1,5 +1,5 @@
 /obj/item/device/uplink_service/declumsifier
-    service_label = "Declumsifier"
+	service_label = "Declumsifier"
 
 /obj/item/device/uplink_service/declumsifier/enable(mob/user = usr)
 	usr.mutations.Remove(MUTATION_CLUMSY)
