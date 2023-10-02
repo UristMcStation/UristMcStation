@@ -326,15 +326,6 @@ var/global/list/mining_floors = list()
 	if(istype(N))
 		N.overlay_detail = "asteroid[rand(0,9)]"
 		N.updateMineralOverlays(1)
-		if(!N.has_resources || length(resources))
-			return
-		for(var/i in random_maps)
-			var/datum/random_map/noise/ore/orenoise = random_maps[i]
-			if(!istype(orenoise))
-				continue
-			if(orenoise.origin_z == N.z)
-				orenoise.generate_tile(N)
-				break
 
 /turf/simulated/mineral/proc/excavate_find(prob_clean = 0, datum/find/F)
 
@@ -360,9 +351,6 @@ var/global/list/mining_floors = list()
 
 
 /turf/simulated/mineral/proc/artifact_debris(severity = 0)
-	//cael's patented random limited drop componentized loot system!
-	//sky's patented not-fucking-retarded overhaul!
-
 	//Give a random amount of loot from 1 to 3 or 5, varying on severity.
 	for(var/j in 1 to rand(1, 3 + max(min(severity, 1), 0) * 2))
 		switch(rand(1,7))
@@ -433,8 +421,6 @@ var/global/list/mining_floors = list()
 	var/overlay_detail
 	has_resources = 1
 
-	var/mapped = FALSE
-
 /turf/simulated/floor/asteroid/Initialize()
 	. = ..()
 	if (!mining_floors["[src.z]"])
@@ -442,8 +428,6 @@ var/global/list/mining_floors = list()
 	mining_floors["[src.z]"] += src
 	if(prob(20))
 		overlay_detail = "asteroid[rand(0,9)]"
-	if(mapped)
-		updateMineralOverlays()
 
 /turf/simulated/floor/asteroid/Destroy()
 	if (mining_floors["[src.z]"])
@@ -531,18 +515,16 @@ var/global/list/mining_floors = list()
 
 	overlays.Cut()
 
-	for(var/direction in GLOB.cardinal)
-		var/turf/T = get_step(src, direction)
+	var/list/step_overlays = list("n" = NORTH, "s" = SOUTH, "e" = EAST, "w" = WEST)
+	for(var/direction in step_overlays)
 
-		if(istype(T, /turf/space) || istype(T, /turf/simulated/open))
-			var/image/aster_edge = image('icons/turf/flooring/asteroid.dmi', "asteroid_edges", dir = direction)
+		if(istype(get_step(src, step_overlays[direction]), /turf/space))
+			var/image/aster_edge = image('icons/turf/flooring/asteroid.dmi', "asteroid_edges", dir = step_overlays[direction])
 			aster_edge.turf_decal_layerise()
-			if(istype(T, /turf/simulated/open))
-				aster_edge.layer = MOB_LAYER + 1
 			overlays += aster_edge
 
-		if(istype(T, /turf/simulated/mineral))
-			var/image/rock_wall = image('icons/turf/walls.dmi', "rock_side", dir = direction)
+		if(istype(get_step(src, step_overlays[direction]), /turf/simulated/mineral))
+			var/image/rock_wall = image('icons/turf/walls.dmi', "rock_side", dir = step_overlays[direction])
 			rock_wall.turf_decal_layerise()
 			overlays += rock_wall
 
@@ -553,9 +535,11 @@ var/global/list/mining_floors = list()
 		overlays |= floor_decal
 
 	if(update_neighbors)
-		for(var/direction in GLOB.alldirs)
-			var/turf/simulated/floor/asteroid/A = get_step(src, direction)
-			if(istype(A))
+		var/list/all_step_directions = list(NORTH,NORTHEAST,EAST,SOUTHEAST,SOUTH,SOUTHWEST,WEST,NORTHWEST)
+		for(var/direction in all_step_directions)
+			var/turf/simulated/floor/asteroid/A
+			if(istype(get_step(src, direction), /turf/simulated/floor/asteroid))
+				A = get_step(src, direction)
 				A.updateMineralOverlays()
 
 /turf/simulated/floor/asteroid/Entered(atom/movable/M as mob|obj)
