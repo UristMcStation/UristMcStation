@@ -3331,6 +3331,7 @@
 #include "code\modules\urist\items\circuitboards.dm"
 #include "code\modules\urist\items\clothstuff.dm"
 #include "code\modules\urist\items\corpse_landmarks.dm"
+#include "code\modules\urist\items\declumsifier.dm"
 #include "code\modules\urist\items\fishing.dm"
 #include "code\modules\urist\items\food.dm"
 #include "code\modules\urist\items\grenades.dm"
