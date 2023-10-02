@@ -11,6 +11,9 @@
 	if(is_type_in_list(player.assigned_job, blacklisted_jobs))
 		return "Player's assigned job ([player.assigned_job]) is blacklisted from this antagonist role."
 
+	if(!(player.current.client.prefs.species in valid_species))
+		return "Player's assigned species is blacklisted from this antagonist role."
+
 	if(!ignore_role)
 		if(player.current && player.current.client)
 			var/client/C = player.current.client

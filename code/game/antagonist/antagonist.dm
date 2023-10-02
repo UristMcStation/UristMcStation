@@ -56,7 +56,7 @@
 	var/datum/language/required_language = null
 
 	// Used for setting appearance.
-	var/list/valid_species =       list(SPECIES_UNATHI,SPECIES_SKRELL,SPECIES_HUMAN,SPECIES_VOX)
+	var/list/valid_species =       list(SPECIES_UNATHI,SPECIES_SKRELL,SPECIES_HUMAN,SPECIES_VATGROWN,SPECIES_SPACER,SPECIES_GRAVWORLDER,SPECIES_TRITONIAN,SPECIES_MULE,SPECIES_YEOSA,SPECIES_IPC,SPECIES_RESOMI,SPECIES_VOX)
 	var/min_player_age = 14
 
 	// Runtime vars.

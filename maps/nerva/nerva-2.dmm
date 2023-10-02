@@ -2192,7 +2192,10 @@
 /area/maintenance/third_deck/fp)
 "aeL" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/window/eastleft,
+/obj/machinery/door/window/eastleft{
+	autoset_access = 0;
+	req_access = list("ACCESS_KITCHEN")
+	},
 /obj/machinery/light/spot/warmtint{
 	dir = 1
 	},
@@ -28080,10 +28083,10 @@
 "dSr" = (
 /obj/machinery/button/blast_door{
 	id_tag = "evaentranceshutters";
-	name = "Robotics Shutters";
+	name = "EVA Entrance Shutters";
 	pixel_x = -26;
 	pixel_y = 26;
-	req_access = list("ACCESS_ROBOTICS")
+	req_access = list("ACCESS_EVA")
 	},
 /obj/effect/floor_decal/corner/fadeblue{
 	dir = 9;
@@ -30106,6 +30109,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/third_deck)
+"oft" = (
+/obj/effect/paint_stripe/paleblue,
+/obj/machinery/door/window/eastleft{
+	autoset_access = 0;
+	req_access = list("ACCESS_KITCHEN")
+	},
+/turf/simulated/wall/prepainted,
+/area/medical/morgue)
 "ogN" = (
 /obj/effect/floor_decal/corner/black/border{
 	dir = 8;
@@ -54353,7 +54364,7 @@ abU
 abU
 abU
 abU
-abU
+oft
 abU
 abU
 ahM
