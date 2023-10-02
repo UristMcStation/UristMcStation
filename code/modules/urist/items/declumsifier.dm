@@ -5,7 +5,7 @@
 	usr.mutations.Remove(MUTATION_CLUMSY)
 	. = ..()
 
-/obj/item/device/uplink_service/attack_self(mob/user)
+/obj/item/device/uplink_service/declumsifier/attack_self(mob/user)
 	if(state != AWAITING_ACTIVATION)
 		to_chat(user, SPAN_WARNING("\The [src] won't activate again."))
 		return
