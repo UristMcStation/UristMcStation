@@ -42,7 +42,7 @@
 		/area/mine/explored = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/mine/unexplored = NO_SCRUBBER|NO_VENT|NO_APC
 	)
-	area_usage_test_exempted_root_areas = list(/area/mine, /area/spacestations)
+	area_usage_test_exempted_root_areas = list(/area/mine)
 	area_usage_test_exempted_areas = list(/area/djstation)
 	area_coherency_test_exempt_areas =  list(/area/mine/explored, /area/mine/unexplored)
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
