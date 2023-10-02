@@ -3500,6 +3500,7 @@
 #include "code\modules\urist\structures\fakeladder.dm"
 #include "code\modules\urist\structures\fence.dm"
 #include "code\modules\urist\structures\pits.dm"
+#include "code\modules\urist\structures\signs.dm"
 #include "code\modules\urist\structures\uristlighting.dm"
 #include "code\modules\urist\structures\uriststructures.dm"
 #include "code\modules\urist\vehicles\fourwheel.dm"
