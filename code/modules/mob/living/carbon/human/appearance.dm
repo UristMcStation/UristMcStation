@@ -13,10 +13,9 @@
 		return
 
 	var/datum/antagonist/antag = get_antag_data(mind?.special_role)
-	if(!(new_species in antag.valid_species))
+	if(!(new_species in antag?.valid_species))
 		return
-	else
-		set_species(new_species)
+	set_species(new_species)
 	if (antag && antag.required_language)
 		add_language(antag.required_language)
 		set_default_language(all_languages[antag.required_language])
