@@ -4,6 +4,7 @@
 /datum/power/revenant/distortion
 	isVerb = FALSE // for convenience, as most won't be
 	verbpath = null // we'll use Apply() for most cases; keeping this for stuff affecting BsRev (adding callbacks etc.)
+	var/distortion_threshold = 0 // here, this means the *unsuppressed* Distortion required to make this effect triggerable
 
 
 var/global/list/revenant_distortions = (typesof(/datum/power/revenant/distortion) - /datum/power/revenant/distortion)
@@ -56,11 +57,11 @@ var/global/list/revenant_distortions = (typesof(/datum/power/revenant/distortion
 		return FALSE
 
 	// Maximum %chance of triggering a Distortion PER TURF - so, this should be fairly low
-	var/const/max_chance_per_turf = BSR_DEFAULT_MAXPERC_PER_TURF
+	var/max_chance_per_turf = config?.bluespace_revenant_distortion_max_chance_per_turf || BSR_DEFAULT_MAXPERC_PER_TURF
 
 	// The point where the odds will be max_chance_per_turf * 0.5
 	// Note this DOES NOT hold linearly; e.g. if x=100 => 50%, x=200 => ...66%!
-	var/const/halfway_point = BSR_DEFAULT_HALFWAY_PER_TURF
+	var/halfway_point = config?.bluespace_revenant_distortion_maxchance_halfway_point || BSR_DEFAULT_HALFWAY_PER_TURF
 
 	// This funny-looking formula is not random; this is an additive smoother calibrated to return %odds.
 	// This gives us a nice, smooth function that rises steadily to a maximum without ever quite reaching it
@@ -115,11 +116,23 @@ var/global/list/revenant_distortions = (typesof(/datum/power/revenant/distortion
 		return
 
 	var/datum/power/revenant/distortion/distEff = null
-	var/tries = 0
+	var/tries = 5
 
-	while(!istype(distEff) && tries++ < 3)
-		distEff = pick(src.distortions)
+	var/effective_distortion = src.get_effective_distortion()
+	var/list/available_distortions = src.distortions.Copy()
 
-	. = distEff.Apply(A, src)
+	while(tries --> 0 && !istype(distEff))
+		distEff = pick(available_distortions)
+
+		// handle thresholds
+		if(isnull(distEff))
+			available_distortions.Remove(distEff)
+			continue
+
+		if(effective_distortion < distEff.distortion_threshold)
+			available_distortions.Remove(distEff)
+			continue
+
+	. = distEff?.Apply(A, src)
 	return
 

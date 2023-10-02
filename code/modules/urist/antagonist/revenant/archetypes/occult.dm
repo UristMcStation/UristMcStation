@@ -311,6 +311,7 @@
 		BSR_FLAVOR_GENERIC
 	)
 	name = "DISTORTION - Veil Tear"
+	distortion_threshold = 36000 // 30 mins
 
 
 /datum/power/revenant/distortion/veil_tear/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
@@ -418,6 +419,7 @@
 		BSR_FLAVOR_VAMPIRE
 	)
 	name = "DISTORTION - Haunters"
+	distortion_threshold = 24000 // 20 mins
 
 
 /datum/power/revenant/distortion/haunters/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
