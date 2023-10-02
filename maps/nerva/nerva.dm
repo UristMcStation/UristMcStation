@@ -54,7 +54,7 @@
 	#include "nerva-6.dmm"
 	#endif
 
-	#include "../away/mining/mining.dm"
+//	#include "../away/mining/mining.dm"
 //	#include "../away/derelict/derelict.dm"
 	#include "../away/bearcat/bearcat.dm"
 	#include "../away/lost_supply_base/lost_supply_base.dm"

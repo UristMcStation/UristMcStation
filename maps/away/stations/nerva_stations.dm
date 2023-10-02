@@ -1,4 +1,5 @@
 #include "station_areas.dm"
+#include "../mining/mining_areas.dm"
 
 /obj/effect/overmap/visitable/sector/station/nanotrasentrading
 	name = "NanoTrasen trading station"
@@ -37,10 +38,12 @@
 	name = "NanoTrasen trading station"
 	id = "awaysite_nanotrasentrading"
 	description = "A NanoTrasen trading station, dock here to trade with its many merchants."
-	suffixes = list("stations/nanotrasentrading.dmm")
+	suffixes = list("stations/nanotrasentrading-1.dmm", "stations/nanotrasentrading-2.dmm")
 	spawn_cost = 0
 	accessibility_weight = 10
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+	generate_mining_by_z = 2
+	shuttles_to_initialise = list(/datum/shuttle/autodock/ferry/ntminingshuttle)
 
 //nt mining outpost
 /*
