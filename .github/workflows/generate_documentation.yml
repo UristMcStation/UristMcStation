@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@24cb9080177205b6e8c946b17badbe402adc938f
+        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608
       - name: paths-filter
         uses: dorny/paths-filter@4512585405083f25c027a35db413c2b3b9006d50
         id: filter
@@ -37,11 +37,11 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: true
     steps:
-      - uses: actions/checkout@24cb9080177205b6e8c946b17badbe402adc938f
+      - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608
       - name: Setup Cache
-        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8
+        uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84
         with:
-          path: $HOME/spaceman_dmm/$SPACEMAN_DMM_VERSION
+          path: ~/spaceman_dmm/${{ env.SPACEMAN_DMM_VERSION }}
           key: ${{ runner.os }}-spacemandmm-${{ env.SPACEMAN_DMM_VERSION }}
       - name: Install dmdoc
         run:  scripts/install-spaceman-dmm.sh dmdoc
@@ -49,7 +49,7 @@ jobs:
         run: |
           ~/dmdoc
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@ba1486788b0490a235422264426c45848eac35c6
+        uses: JamesIves/github-pages-deploy-action@a1ea191d508feb8485aceba848389d49f80ca2dc
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages

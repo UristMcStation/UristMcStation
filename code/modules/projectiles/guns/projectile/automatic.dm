@@ -160,6 +160,7 @@
 	allowed_magazines = /obj/item/ammo_magazine/smg_top
 	accuracy_power = 7
 	one_hand_penalty = 3
+	jam_chance = 0
 
 	//machine pistol, like SMG but easier to one-hand with
 	firemodes = list(

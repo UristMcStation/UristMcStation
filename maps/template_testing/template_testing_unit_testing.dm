@@ -1,4 +1,4 @@
-/datum/map/away_sites_testing
+/datum/map/template_testing
 	area_usage_test_exempted_areas = list(
 		/area/shuttle/assault/a1/base,
 		/area/chapel,

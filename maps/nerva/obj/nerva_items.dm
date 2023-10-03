@@ -16,11 +16,25 @@
 	item_state = "headset"
 	ks1type = /obj/item/device/encryptionkey/nerva/nt
 
+/obj/item/device/radio/headset/nervananotrasen/alt
+	name = "nanotrasen bowman headset"
+	desc = "A larger headset for corporate drones."
+	icon_state = "nt_headset_alt"
+	item_state = "nt_headset_alt"
+	ks1type = /obj/item/device/encryptionkey/nerva/nt
+
 /obj/item/device/radio/headset/heads/secondofficer
 	name = "second officer's headset"
 	desc = "The headset of the ICS Nerva's second officer."
 	icon_state = "com_headset"
 	item_state = "headset"
+	ks1type = /obj/item/device/encryptionkey/nerva/so
+
+/obj/item/device/radio/headset/heads/secondofficer/alt
+	name = "second officer's bowman headset"
+	desc = "The more comfortable headset of the ICS Nerva's second officer."
+	icon_state = "com_headset_alt"
+	item_state = "com_headset_alt"
 	ks1type = /obj/item/device/encryptionkey/nerva/so
 
 /obj/item/device/radio/headset/heads/firstofficer
@@ -30,11 +44,25 @@
 	item_state = "headset"
 	ks1type = /obj/item/device/encryptionkey/nerva/cap
 
+/obj/item/device/radio/headset/heads/firstofficer/alt
+	name = "first officer's bowman headset"
+	desc = "The thicker headset of the ICS Nerva's first officer."
+	icon_state = "com_headset_alt"
+	item_state = "com_headset_alt"
+	ks1type = /obj/item/device/encryptionkey/nerva/cap
+
 /obj/item/device/radio/headset/heads/nerva_cap
 	name = "captain's headset"
 	desc = "The headset of the ICS Nerva's captain."
 	icon_state = "com_headset"
 	item_state = "headset"
+	ks1type = /obj/item/device/encryptionkey/nerva/cap
+
+/obj/item/device/radio/headset/heads/nerva_cap/alt
+	name = "captain's bowman headset"
+	desc = "The fortified headset of the ICS Nerva's captain."
+	icon_state = "com_headset_alt"
+	item_state = "com_headset_alt"
 	ks1type = /obj/item/device/encryptionkey/nerva/cap
 
 /obj/item/device/radio/headset/heads/nerva_cos
@@ -44,11 +72,25 @@
 	item_state = "headset"
 	ks1type = /obj/item/device/encryptionkey/nerva/cos
 
+/obj/item/device/radio/headset/heads/nerva_cos/alt
+	name = "chief of security's bowman headset"
+	desc = "The bigger headset of the man who protects your worthless lives."
+	icon_state = "com_headset_alt"
+	item_state = "com_headset_alt"
+	ks1type = /obj/item/device/encryptionkey/nerva/cos
+
 /obj/item/device/radio/headset/heads/nerva_qm
 	name = "quartermaster's headset"
 	desc = "The headset of the ICS Nerva's quartermaster."
 	icon_state = "com_headset"
 	item_state = "headset"
+	ks1type = /obj/item/device/encryptionkey/nerva/qm
+
+/obj/item/device/radio/headset/heads/nerva_qm/alt
+	name = "quartermaster's bowman headset"
+	desc = "The more robust headset of the ICS Nerva's quartermaster."
+	icon_state = "com_headset_alt"
+	item_state = "com_headset_alt"
 	ks1type = /obj/item/device/encryptionkey/nerva/qm
 
 /obj/item/device/radio/headset/nerva_sec
@@ -58,12 +100,40 @@
 	item_state = "headset"
 	ks1type = /obj/item/device/encryptionkey/nerva/sec
 
+/obj/item/device/radio/headset/nerva_sec/alt
+	name = "security bowman radio headset"
+	desc = "This is used by your elite security force to look more tactical."
+	icon_state = "sec_headset_alt"
+	item_state = "sec_headset_alt"
+	ks1type = /obj/item/device/encryptionkey/nerva/sec
+
 /obj/item/device/radio/headset/heads/nerva_senior
 	name = "senior scientist headset"
-	desc = "The headset of the Nerva's Senior Scientist."
+	desc = "The headset of the ICS Nerva's Senior Scientist."
 	icon_state = "nt_headset"
 	item_state = "headset"
 	ks1type = /obj/item/device/encryptionkey/nerva/senior
+
+/obj/item/device/radio/headset/heads/nerva_senior/alt
+	name = "senior scientist bowman headset"
+	desc = "The bigger headset of the ICS Nerva's Senior Scientist."
+	icon_state = "nt_headset_alt"
+	item_state = "nt_headset_alt"
+	ks1type = /obj/item/device/encryptionkey/nerva/senior
+
+/obj/item/device/radio/headset/nerva_guard
+	name = "bodyguard's radio headset"
+	desc = "This is used by the captain's escort."
+	icon_state = "com_headset"
+	item_state = "headset"
+	ks1type = /obj/item/device/encryptionkey/nerva/guard
+
+/obj/item/device/radio/headset/nerva_guard/alt
+	name = "bodyguard's bowman radio headset"
+	desc = "This is used by the captain's escort to look more operator."
+	icon_state = "com_headset_alt"
+	item_state = "com_headset_alt"
+	ks1type = /obj/item/device/encryptionkey/nerva/guard
 
 //encryption keys
 
@@ -75,22 +145,22 @@
 /obj/item/device/encryptionkey/nerva/so
 	name = "second officer's encryption key"
 	icon_state = "hop_cypherkey"
-	channels = list("Command" = 1, "Service" = 1, "Supply" = 1, "Security" = 0, "Combat" = 0)
+	channels = list("Command" = 1, "Service" = 1, "Supply" = 1, "Security" = 0, "Combat" = 0, "Hailing" = 1)
 
 /obj/item/device/encryptionkey/nerva/qm
 	name = "quartermaster's encryption key"
 	icon_state = "hop_cypherkey"
-	channels = list("Supply" = 1, "Service" = 1, "Command" = 1)
+	channels = list("Supply" = 1, "Service" = 1, "Command" = 1, "Hailing" = 1)
 
 /obj/item/device/encryptionkey/nerva/cap
 	name = "captain's encryption key"
 	icon_state = "cap_cypherkey"
-	channels = list("Command" = 1, "Security" = 1, "Engineering" = 0, "Science" = 0, "Medical" = 0, "Supply" = 0, "Service" = 0, "Combat" = 0)
+	channels = list("Command" = 1, "Security" = 1, "Engineering" = 0, "Science" = 0, "Medical" = 0, "Supply" = 0, "Service" = 0, "Combat" = 0, "Hailing" = 1)
 
 /obj/item/device/encryptionkey/nerva/cos
 	name = "chief of security's encryption key"
 	icon_state = "hos_cypherkey"
-	channels = list("Security" = 1, "Command" = 1, "Combat" = 0)
+	channels = list("Security" = 1, "Command" = 1, "Combat" = 0, "Hailing" = 1)
 
 /obj/item/device/encryptionkey/nerva/sec
 	name = "security radio encryption key"
@@ -101,6 +171,11 @@
 	name = "senior nanotrasen encryption key"
 	icon_state = "rd_cypherkey"
 	channels = list("Command" = 1, "Science" = 1)
+
+/obj/item/device/encryptionkey/nerva/guard
+	name = "bodyguard radio encryption key"
+	icon_state = "com_cypherkey"
+	channels = list("Command" = 1, "Security" = 1)
 
 //stamps
 

@@ -564,21 +564,21 @@ to avoid worrying about the sprites -Glloyd*/
 
 /obj/item/clothing/head/urist/pelt/bisonhat
 	name = "bison fur hat"
-	desc = "a proper hat made from bison fur"
+	desc = "A proper hat made from bison fur"
 	icon_state = "bison_fur_hat"
 	item_state = "bison_fur_hat"
 
 
 /obj/item/clothing/head/urist/pelt/bear
 	name = "bear pelt"
-	desc = "a heavy bear pelt"
+	desc = "A heavy bear pelt"
 	icon_state = "bearpelt"
 	item_state = "bearpelt"
 	armor = list (melee = 10, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
 
 /obj/item/clothing/head/urist/pelt/bear/white
 	name = "polar bear pelt"
-	desc = "a heavy white bear pelt."
+	desc = "A heavy white bear pelt."
 	icon_state = "whitebearpelt"
 	item_state = "whitebearpelt"
 
@@ -588,7 +588,7 @@ to avoid worrying about the sprites -Glloyd*/
 
 /obj/item/clothing/head/urist/pelt/wolf
 	name = "wolf pelt"
-	desc = "a warm wolf pelt."
+	desc = "A warm wolf pelt."
 	icon_state = "wolfpelt"
 	item_state = "wolfpelt"
 
@@ -599,75 +599,158 @@ to avoid worrying about the sprites -Glloyd*/
 
 /obj/item/clothing/head/urist/pelt/panther
 	name = "panther pelt"
-	desc = "a luxurious black cat pelt."
+	desc = "A luxurious black cat pelt."
 	icon_state = "pantherpelt"
 	item_state = "pantherpelt"
 
 /obj/item/clothing/head/urist/pelt/sheep
 	name = "sheep pelt"
-	desc = "a soft pelt from a sheep. Baaaa."
+	desc = "A soft pelt from a sheep. Baaaa."
 	icon_state = "sheeppelt"
 	item_state = "sheeppelt"
 
 /obj/item/clothing/head/urist/pelt/goat
 	name = "goat pelt"
-	desc = "a pelt from a goat"
+	desc = "A pelt from a goat."
 	icon_state = "goatpelt"
 	item_state = "goatpelt"
+
+/obj/item/clothing/head/urist/pelt/lizard
+	name = "lizard pelt"
+	desc = "A skin from a lizard."
+	icon_state = "lizardpelt"
+	item_state = "lizardpelt"
+
+/obj/item/clothing/head/urist/pelt/gator
+	name = "gator pelt"
+	desc = "A rough gator skin."
+	icon_state = "gatorpelt"
+	item_state = "gatorpelt"
+
+/obj/item/clothing/head/urist/pelt/fox
+	name = "fox pelt"
+	desc = "A pelt from a fox with a striking color."
+	icon_state = "foxpelt"
+	item_state = "foxpelt"
+
+/obj/item/clothing/head/urist/pelt/whitefox
+	name = "fox pelt"
+	desc = "A soft pelt from a white fox."
+	icon_state = "whitefoxpelt"
+	item_state = "whitefoxpelt"
+
+/obj/item/clothing/head/urist/pelt/lion
+	name = "lion pelt"
+	desc = "A majestic lion pelt."
+	icon_state = "lionpelt"
+	item_state = "lionpelt"
 
 //historic helms
 
 
-/obj/item/clothing/head/urist/historic/light/cape
+/obj/item/clothing/head/urist/historic/light/blackcape
 	name = "black cape"
-	desc = "a black cape that will surely keep the rain off you."
+	desc = "A black cape that will surely keep the rain off you."
 	icon_state = "black_cape"
 	item_state = "black_cape"
 	flags_inv = HIDEEARS|BLOCKHEADHAIR
 	min_cold_protection_temperature = 263.15
 
+//greyscale for coloring sprite made by Vak <3
+/obj/item/clothing/head/urist/historic/light/cape
+	name = "grey cape"
+	desc = "A cape that will surely keep the rain off you."
+	icon_state = "grey_cape"
+	item_state = "grey_cape"
+	flags_inv = HIDEEARS|BLOCKHEADHAIR
+	min_cold_protection_temperature = 263.15
+
+/obj/item/clothing/head/urist/historic/light/cape/sec
+	name = "cochineal red cape"
+	color = "#881e00"
+
+/obj/item/clothing/head/urist/historic/light/cape/command
+	name = "woad blue cape"
+	color = "#597fb9"
+
+/obj/item/clothing/head/urist/historic/light/cape/med
+	name = "light blue cape"
+	color = "#7fc5ff"
+
+/obj/item/clothing/head/urist/historic/light/cape/eng
+	name = "saffron yellow cape"
+	color = "#fcc92f"
+
+/obj/item/clothing/head/urist/historic/light/cape/sci
+	name = "mauveine cape"
+	color = "#7b1283"
+
+/obj/item/clothing/head/urist/historic/light/cape/cargo
+	name = "catechu brown cape"
+	color = "#9b7434"
+
+/obj/item/clothing/head/urist/historic/light/cape/green
+	name = "lincoln green cape"
+	color = "#195905"
+
+/obj/item/clothing/head/urist/historic/light/cape/indigo
+	name = "indigo cape"
+	color = "#091f92"
+
+/obj/item/clothing/head/urist/historic/light/cape/crimson
+	name = "crimson cape"
+	color = "#dc143c"
+
+/obj/item/clothing/head/urist/historic/light/cape/orange
+	name = "alder orange cape"
+	color = "#d35930"
+
+/obj/item/clothing/head/urist/historic/light/cape/rose
+	name = "rose cape"
+	color = "#de4d79"
+
 /obj/item/clothing/head/urist/historic/light/egyptian/black
 	name = "headdress"
-	desc = "a headdress meant to protect your head from the sun."
+	desc = "A headdress meant to protect your head from the sun."
 	icon_state = "egyptian_headdress_black"
 	item_state = "egyptian_headdress_black"
 	flags_inv = HIDEEARS|BLOCKHEADHAIR
 
 /obj/item/clothing/head/urist/historic/light/egyptian/blue
 	name = "headdress"
-	desc = "a headdress meant to protect your head from the sun."
+	desc = "A headdress meant to protect your head from the sun."
 	icon_state = "egyptian_headdress_blue"
 	item_state = "egyptian_headdress_blue"
 	flags_inv = HIDEEARS|BLOCKHEADHAIR
 
 /obj/item/clothing/head/urist/historic/light/egyptian/red
 	name = "headdress"
-	desc = "a headdress meant to protect your head from the sun."
+	desc = "A headdress meant to protect your head from the sun."
 	icon_state = "egyptian_headdress_red"
 	item_state = "egyptian_headdress_red"
 	flags_inv = HIDEEARS|BLOCKHEADHAIR
 
 /obj/item/clothing/head/urist/historic/crown/silver
 	name = "silver crown"
-	desc = "a beautiful silver crown."
+	desc = "A beautiful silver crown."
 	icon_state = "silver_crown"
 	item_state = "silver_crown"
 
 /obj/item/clothing/head/urist/historic/crown/silver/diamond
 	name = "silver crown"
-	desc = "a beautiful silver crown. This one has a diamond set in it."
+	desc = "A beautiful silver crown. This one has a diamond set in it."
 	icon_state = "silver_crown_diamond"
 	item_state = "silver_crown_diamond"
 
 /obj/item/clothing/head/urist/historic/crown/gold
 	name = "gold crown"
-	desc = "a beautiful golden crown."
+	desc = "A beautiful golden crown."
 	icon_state = "gold_crown"
 	item_state = "gold_crown"
 
 /obj/item/clothing/head/urist/historic/crown/gold/diamond
 	name = "gold crown"
-	desc = "a beautiful golden crown. This one has a diamond set in it"
+	desc = "A beautiful golden crown. This one has a diamond set in it"
 	icon_state = "gold_crown_diamond"
 	item_state = "gold_crown_diamond"
 
@@ -686,114 +769,114 @@ to avoid worrying about the sprites -Glloyd*/
 
 /obj/item/clothing/head/urist/historic/armor/goldenhelmet
 	name = "golden helmet"
-	desc = "a gilded helmet likely meant for someone important."
+	desc = "A gilded helmet likely meant for someone important."
 	icon_state = "goldenhelmet"
 	item_state = "goldenhelmet"
 
 /obj/item/clothing/head/urist/historic/armor/greek
 	name = "greek helmet"
-	desc = "a helmet worn by ancient spear fighters."
+	desc = "A helmet worn by ancient spear fighters."
 	icon_state = "greek"
 	item_state = "greek"
 
 /obj/item/clothing/head/urist/historic/armor/medieval1
 	name = "medieval helmet"
-	desc = "a plain helmet made for men at arms."
+	desc = "A plain helmet made for men at arms."
 	icon_state = "medieval_helmet1"
 	item_state = "medieval_helmet1"
 
 /obj/item/clothing/head/urist/historic/armor/medieval2
 	name = "medieval helmet"
-	desc = "a plain helmet made for men at arms."
+	desc = "A plain helmet made for men at arms."
 	icon_state = "medieval_helmet2"
 	item_state = "medieval_helmet2"
 
 /obj/item/clothing/head/urist/historic/armor/medieval3
 	name = "medieval helmet"
-	desc = "a plain helmet made for men at arms."
+	desc = "A plain helmet made for men at arms."
 	icon_state = "medieval_helmet3"
 	item_state = "medieval_helmet3"
 
 /obj/item/clothing/head/urist/historic/armor/knight_simple
 	name = "knight helmet"
-	desc = "a simple unadorned helm for a humble knight"
+	desc = "A simple unadorned helm for a humble knight"
 	icon_state = "knight_simple"
 	item_state = "knight_simple"
 
 /obj/item/clothing/head/urist/historic/armor/coif
 	name = "coif"
-	desc = "a simple chain hood."
+	desc = "A simple chain hood."
 	icon_state = "coif"
 	item_state = "coif"
 
 /obj/item/clothing/head/urist/historic/armor/coif_helmet
 	name = "coif helmet"
-	desc = "a chain hood worn under a helmet."
+	desc = "A chain hood worn under a helmet."
 	icon_state = "coif_helmet"
 	item_state = "coif_helmet"
 
 /obj/item/clothing/head/urist/historic/armor/viking
 	name = "viking helm"
-	desc = "a helm for a sea faring raider."
+	desc = "A helm for a sea faring raider."
 	icon_state = "new_viking"
 	item_state = "new_viking"
 
 /obj/item/clothing/head/urist/historic/armor/vikingking
 	name = "gilded viking helm"
-	desc = "a golded helm worn by a raider king."
+	desc = "A golded helm worn by a raider king."
 	icon_state = "viking_king"
 	item_state = "viking_king"
 
 /obj/item/clothing/head/urist/historic/armor/barbarian
 	name = "horned helm"
-	desc = "a fantastical helmet, this one looks quite durable."
+	desc = "A fantastical helmet, this one looks quite durable."
 	icon_state = "barbarian"
 	item_state = "barbarian"
 
 /obj/item/clothing/head/urist/historic/armor/valkyrie_queen
 	name = "gilded valkyrie helm"
-	desc = "a golden winged helmet for a raider queen."
+	desc = "A golden winged helmet for a raider queen."
 	icon_state = "valkyrie_queen"
 	item_state = "valkyrie_queen"
 
 /obj/item/clothing/head/urist/historic/armor/valkyrie
 	name = "valkyrie helm"
-	desc = "a winged helmet for a shield maiden."
+	desc = "A winged helmet for a shield maiden."
 	icon_state = "valkyrie"
 	item_state = "valkyrie"
 
 /obj/item/clothing/head/urist/historic/armor/winged_greathelm
 	name = "winged greathelm"
-	desc = "a knights helm with wings. A slayer of tree lovers."
+	desc = "A knights helm with wings. A slayer of tree lovers."
 	icon_state = "winged_greathelm"
 	item_state = "winged_greathelm"
 
 /obj/item/clothing/head/urist/historic/armor/morion
 	name = "morion helmet"
-	desc = "a helmet of a conqueror."
+	desc = "A helmet of a conqueror."
 	icon_state = "morion_helmet"
 	item_state = "morion_helmet"
 
 /obj/item/clothing/head/urist/historic/armor/burg_sallet
 	name = "sallet"
-	desc = "a helm with a visor."
+	desc = "A helm with a visor."
 	icon_state = "burg_sallet"
 	item_state = "burg_sallet"
 
 /obj/item/clothing/head/urist/historic/armor/italian_sallet
 	name = "sallet"
-	desc = "a helm with a visor, this one smells like garlic."
+	desc = "A helm with a visor, this one smells like garlic."
 	icon_state = "italian_sallet"
 	item_state = "italian_sallet"
 
 /obj/item/clothing/head/urist/historic/armor/german_sallet
 	name = "sallet"
-	desc = "a helm with a visor, this one smells like sausage."
+	desc = "A helm with a visor, this one smells like sausage."
 	icon_state = "german_sallet"
 	item_state = "german_sallet"
 
 /obj/item/clothing/head/urist/historic/armor/bascinet_hounskull
 	name = "bacinet"
-	desc = "a helmet with a pointy visor."
+	desc = "A helmet with a pointy visor."
 	icon_state = "bascinet_hounskull"
 	item_state = "bascinet_hounskull"

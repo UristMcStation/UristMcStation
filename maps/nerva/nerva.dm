@@ -1,4 +1,4 @@
-#if !defined(using_map_DATUM)
+#if !defined(using_map_DATUM) || defined(DEBUG_GENERATE_WORTHS)
 
 	#include "nerva_announcements.dm"
 	#include "nerva_areas.dm"
@@ -45,12 +45,14 @@
 	#include "loadout/loadout_xeno.dm"
 	#include "loadout/~defines.dm"
 
+	#ifndef DEBUG_GENERATE_WORTHS
 	#include "nerva-1.dmm"
 	#include "nerva-2.dmm"
 	#include "nerva-3.dmm"
 	#include "nerva-4.dmm"
 	#include "nerva-5.dmm"
 	#include "nerva-6.dmm"
+	#endif
 
 	#include "../away/mining/mining.dm"
 //	#include "../away/derelict/derelict.dm"
@@ -75,8 +77,6 @@
 	#include "../away/noctis/noctis.dm"
 	#include "../away/abandoned_colony/abandoned_colony.dm"
 	#include "../away/meatstation/meatstation.dm"
-	#include "../away/miningstation/miningstation.dm"
-	#include "../away/mininghome/mininghome.dm"
 	#include "../away/scavver_gantry/scavver_gantry.dm"
 
 	/*#include "../../code/datums/music_tracks/chasing_time.dm"
@@ -94,7 +94,10 @@
 	#include "../torch/items/clothing/solgov-suit.dm"
 	#include "../torch/items/clothing/solgov-under.dm"
 
+	#ifndef DEBUG_GENERATE_WORTHS
 	#define using_map_DATUM /datum/map/nerva
+	#endif
+
 	#define URISTCODE 1
 
 #elif !defined(MAP_OVERRIDE)

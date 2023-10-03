@@ -69,11 +69,11 @@ var/global/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 
 //Projected acceleration based on information from engines
 /obj/effect/overmap/visitable/ship/proc/get_acceleration()
-	return round(get_total_thrust()/get_vessel_mass(), SHIP_MOVE_RESOLUTION)
+	return round(2 * (get_total_thrust()/get_vessel_mass()), SHIP_MOVE_RESOLUTION)
 
 //Does actual burn and returns the resulting acceleration
 /obj/effect/overmap/visitable/ship/proc/get_burn_acceleration()
-	return round(burn() / get_vessel_mass(), SHIP_MOVE_RESOLUTION)
+	return round(2 * (burn() / get_vessel_mass()), SHIP_MOVE_RESOLUTION)
 
 /obj/effect/overmap/visitable/ship/proc/get_vessel_mass()
 	. = vessel_mass

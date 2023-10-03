@@ -4124,7 +4124,7 @@
 "md" = (
 /obj/effect/floor_decal/rust,
 /obj/machinery/light/coldtint,
-/mob/living/simple_animal/hostile/scom/forgotten,
+/mob/living/simple_animal/hostile/scom/forgotten/awaymap,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
 	},
@@ -5677,7 +5677,7 @@
 /turf/simulated/floor/plating,
 /area/morninglight/atmos)
 "qs" = (
-/mob/living/simple_animal/hostile/scom/forgotten,
+/mob/living/simple_animal/hostile/scom/forgotten/awaymap,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/planet/abandoned_colony)
 "qt" = (
@@ -6187,7 +6187,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/mob/living/simple_animal/hostile/scom/forgotten,
+/mob/living/simple_animal/hostile/scom/forgotten/awaymap,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
 	},
@@ -6750,7 +6750,7 @@
 	icon_state = "shower";
 	pixel_x = 0
 	},
-/mob/living/simple_animal/hostile/scom/forgotten,
+/mob/living/simple_animal/hostile/scom/forgotten/awaymap,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
 	},
@@ -8104,7 +8104,7 @@
 /turf/simulated/floor/lino,
 /area/planet/abandoned_colony)
 "vf" = (
-/mob/living/simple_animal/hostile/scom/forgotten,
+/mob/living/simple_animal/hostile/scom/forgotten/awaymap,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "square_black"
 	},
@@ -8307,7 +8307,7 @@
 	},
 /area/planet/abandoned_colony)
 "vG" = (
-/mob/living/simple_animal/hostile/scom/forgotten,
+/mob/living/simple_animal/hostile/scom/forgotten/awaymap,
 /turf/simulated/floor/lino,
 /area/planet/abandoned_colony)
 "vH" = (
@@ -8342,15 +8342,15 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/engineering)
 "vJ" = (
-/mob/living/simple_animal/hostile/scom/forgotten,
+/mob/living/simple_animal/hostile/scom/forgotten/awaymap,
 /turf/simulated/floor/wood/walnut,
 /area/planet/abandoned_colony)
 "vK" = (
-/mob/living/simple_animal/hostile/scom/forgotten,
+/mob/living/simple_animal/hostile/scom/forgotten/awaymap,
 /turf/simulated/floor/pavement/empty,
 /area/planet/abandoned_colony)
 "vL" = (
-/mob/living/simple_animal/hostile/scom/forgotten,
+/mob/living/simple_animal/hostile/scom/forgotten/awaymap,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
 	},
@@ -8401,7 +8401,7 @@
 "vR" = (
 /obj/item/reagent_containers/syringe/drugs,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/scom/forgotten,
+/mob/living/simple_animal/hostile/scom/forgotten/awaymap,
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "vS" = (
@@ -8629,7 +8629,7 @@
 	dir = 4;
 	icon_state = "bulb-construct-stage1"
 	},
-/mob/living/simple_animal/hostile/scom/forgotten,
+/mob/living/simple_animal/hostile/scom/forgotten/awaymap,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "tiled"
 	},
@@ -8857,7 +8857,7 @@
 	},
 /area/planet/abandoned_colony)
 "xi" = (
-/mob/living/simple_animal/hostile/scom/forgotten,
+/mob/living/simple_animal/hostile/scom/forgotten/awaymap,
 /turf/simulated/floor/plating,
 /area/planet/abandoned_colony)
 "xj" = (

@@ -5,9 +5,10 @@
 
 /obj/effect/effect/smoke/chill_mist
 	name = "fog"
+	layer = ABOVE_HUMAN_LAYER
 	opacity = 0
-	alpha = 64
-	time_to_live = 1000
+	alpha = 32
+	time_to_live = 1500
 
 
 /obj/effect/effect/smoke/chill_mist/affect(var/mob/living/carbon/M)
@@ -17,7 +18,7 @@
 	if(!istype(M))
 		return 0
 
-	if(prob(20))
+	if(prob(10))
 		// This is always cold enough to be uncomfortable for any species that
 		// has a preference; otherwise 5 Celsius, because barely above freezing.
 		var/mist_temp = ((M?.species?.cold_level_1 || 273) + 5)
@@ -39,7 +40,46 @@
 	smoke_type = /obj/effect/effect/smoke/chill_mist
 
 
-/datum/power/revenant/distortion/fogweaver
+/datum/power/revenant/distortion/fog_cold
+	flavor_tags = list(
+		BSR_FLAVOR_OCCULT,
+		BSR_FLAVOR_CULTIST,
+		BSR_FLAVOR_DEMONIC,
+		BSR_FLAVOR_VAMPIRE,
+		BSR_FLAVOR_GENERIC
+	)
+	name = "DISTORTION: Chill Fog"
+
+
+/datum/power/revenant/distortion/fog_cold/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+	if(isnull(A) || !istype(A))
+		return
+
+	var/turf/T = get_turf(A)
+	if(!istype(T))
+		return
+
+	// There's a reason behind this varname and it's horrible. --scr
+	var/datum/effect/effect/system/smoke_spread/chill_mist/funfog = new()
+	funfog.set_up(5, 0, T)
+	funfog.start()
+
+	return TRUE
+
+
+/obj/effect/effect/smoke/spoopyfog
+	name = "fog"
+	layer = ABOVE_HUMAN_LAYER
+	opacity = 0
+	alpha = 32
+	time_to_live = 3000
+
+
+/datum/effect/effect/system/smoke_spread/spoopyfog
+	smoke_type = /obj/effect/effect/smoke/spoopyfog
+
+
+/datum/power/revenant/distortion/fog_plain
 	flavor_tags = list(
 		BSR_FLAVOR_OCCULT,
 		BSR_FLAVOR_CULTIST,
@@ -50,7 +90,7 @@
 	name = "DISTORTION: Fogweaver"
 
 
-/datum/power/revenant/distortion/fogweaver/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/fog_plain/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
 	if(isnull(A) || !istype(A))
 		return
 
@@ -59,7 +99,8 @@
 		return
 
 	// There's a reason behind this varname and it's horrible. --scr
-	var/datum/effect/effect/system/smoke_spread/chill_mist/funfog = new()
+	var/datum/effect/effect/system/smoke_spread/spoopyfog/funfog = new()
+	funfog.attach(T)
 	funfog.set_up(5, 0, T)
 	funfog.start()
 

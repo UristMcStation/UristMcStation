@@ -57,4 +57,4 @@
 		welcome_text += "<hr>"
 
 	post_comm_message("ICS Nerva Sensor Readings", welcome_text)
-	minor_announcement.Announce(message = "New [GLOB.using_map.company_name] Update available at all communication consoles.")
+	minor_announcement.Announce(message = "New [GLOB.using_map.company_name] Update available at all communication consoles. Posted contracts for this sector have also been downloaded to [GLOB.using_map.full_name] computer systems.")

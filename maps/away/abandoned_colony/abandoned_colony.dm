@@ -24,6 +24,7 @@
 	icon_state = "globe"
 	color = "#7f8274"
 	known = FALSE
+	assigned_contracts = list(/datum/contract/shiphunt/graveworld_alien)
 	initial_generic_waypoints = list(
 		"nav_abandoned_colony_1",
 		"nav_abandoned_colony_2"
@@ -70,3 +71,11 @@
 	_input_on = TRUE
 	_output_on = TRUE
 	_fully_charged = TRUE
+
+/datum/contract/shiphunt/graveworld_alien
+	name = "Lactera Ship Hunt Contract"
+	desc = "A lactera ship has been spotted in the local sector near a Graveworld. It's been harrassing local shipping traffic and needs to be eliminated. There's a good reward in it for you if you can get it done."
+	neg_faction = /datum/factions/alien
+	rep_points = 7
+	amount = 1
+	money = 8500

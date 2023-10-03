@@ -15,7 +15,7 @@ Repo:
 Map:
 - '**/*.dmm'
 
-Sprites:
+Icons:
 - '**/*.dmi'
 
 Sound:
@@ -24,4 +24,16 @@ Sound:
 - '**/*.mp3'
 
 Config Update:
-- config/example/**/*
+- config/**/*
+
+Awaymaps:
+- maps/away/**/*
+
+Nerva:
+- maps/nerva/**/*
+
+Glloydstation:
+- maps/glloydstation/**/*
+
+Wyrm:
+- maps/wyrm/**/*

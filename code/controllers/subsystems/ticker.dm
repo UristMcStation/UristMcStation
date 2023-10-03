@@ -117,7 +117,7 @@ SUBSYSTEM_DEF(ticker)
 		return
 
 	if(!bypass_gamemode_vote && (pregame_timeleft <= config.vote_autogamemode_timeleft SECONDS) && !gamemode_vote_results)
-#ifndef UNIT_TEST
+#if !defined(UNIT_TEST) && !defined(DEBUG_GENERATE_WORTHS)
 		var/list/lobby = lobby_players()
 		if (!length(lobby))
 			pregame_timeleft = config.vote_period + 60 SECONDS
@@ -130,7 +130,7 @@ SUBSYSTEM_DEF(ticker)
 			SSvote.initiate_vote(/datum/vote/gamemode, automatic = 1)
 
 /datum/controller/subsystem/ticker/proc/setup_tick()
-#ifndef UNIT_TEST
+#if !defined(UNIT_TEST) && !defined(DEBUG_GENERATE_WORTHS)
 	if (!start_ASAP)
 		var/list/ready = ready_players()
 		if (!length(ready))

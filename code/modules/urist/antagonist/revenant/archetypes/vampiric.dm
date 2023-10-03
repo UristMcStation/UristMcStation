@@ -13,7 +13,7 @@
 /mob/proc/revenant_bloodconsume_bloodstr_burn()
 	set category = "Anomalous Powers"
 	set name = "Sacrifice Blood"
-	set desc = "Sacrifice your own blood (10% per use) to suppress your Distortion."
+	set desc = "Sacrifice your own blood (20% per use) to suppress your Distortion."
 
 	BSR_ABORT_IF_DEAD_PRESET(src)
 
@@ -25,10 +25,9 @@
 		return
 
 	// We have to assume the defaults are in play for this since we cannot look up the actual BSR datum - and arguably we shouldn't.
-	// 10 mins for 10% blood volume - I guess it's fair? Will balance later as we go vOv.
-	var/suppression_per_bloodsip = BSR_DISTORTION_GROWTH_OVER_MINUTES(10, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
+	var/suppression_per_bloodsip = config?.bluespace_revenant_bloodburner_suppression_factor || BSR_DISTORTION_GROWTH_OVER_SECONDS(30, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
 
-	var/bloodsip_size = 10
+	var/bloodsip_size = 20
 	var/removed = FALSE
 	var/added_suppression = 0
 
@@ -47,7 +46,7 @@
 			to_chat(src, msg)
 
 	else
-		L.adjustBruteLoss(10)
+		L.adjustBruteLoss(20)
 		to_chat(src, msg)
 
 	if(isbsrevenant(src))
@@ -82,7 +81,7 @@
 
 	// We have to assume the defaults are in play for this since we cannot look up the actual BSR datum - and arguably we shouldn't.
 	// 3 mins per a half-pint glass of pure blood; ~1 hrs per a whole human - but you'd need to *drink* it all, poison effects and all.
-	var/suppression_per_bloodsip = BSR_DISTORTION_GROWTH_OVER_SECONDS(30, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
+	var/suppression_per_bloodsip = config?.bluespace_revenant_bloodthirsty_suppression_factor || BSR_DISTORTION_GROWTH_OVER_SECONDS(30, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
 	var/bloodsip_size = 5
 
 	var/removed = FALSE
@@ -114,6 +113,23 @@
 	return removed
 
 
+/datum/power/revenant/bs_hunger/bloodburner
+	flavor_tags = list(
+		/*
+		// currently disabled
+		BSR_FLAVOR_VAMPIRE,
+		BSR_FLAVOR_DEMONIC,
+		BSR_FLAVOR_OCCULT,
+		BSR_FLAVOR_DEATH,
+		BSR_FLAVOR_GENERIC
+		*/
+	)
+	activate_message = "<span class='notice'>Whatever made you this way demands blood sacrifices from you. You can burn off your own blood (or take damage if you don't have blood) to stabilize your Distortion gain.</span>"
+	name = "Bloodburner"
+	isVerb = TRUE
+	verbpath = /mob/proc/revenant_bloodconsume_bloodstr_burn
+
+
 /datum/power/revenant/bs_hunger/bloodthirsty
 	flavor_tags = list(
 		BSR_FLAVOR_VAMPIRE,
@@ -122,7 +138,7 @@
 		BSR_FLAVOR_DEATH,
 		BSR_FLAVOR_GENERIC
 	)
-	activate_message = ("<span class='notice'>You've developed an unnatural thirst for humanoid blood. With an effort of will, you can digest any blood you drink to stabilize your Distortion gain.</span>")
+	activate_message = "<span class='notice'>You've developed an unnatural thirst for humanoid blood. With an effort of will, you can digest any blood you drink to stabilize your Distortion gain.</span>"
 	name = "Bloodthirsty"
 	isVerb = TRUE
 	verbpath = /mob/proc/revenant_bloodconsume_stomach
@@ -145,11 +161,11 @@
 		BSR_FLAVOR_DEATH,
 		BSR_FLAVOR_GENERIC
 	)
-	activate_message = ("<span class='warning'>Something's very wrong... You seem to have lost all vital signs - but somehow it doesn't seem to be much of a problem to you!</span>")
+	activate_message = "<span class='warning'>Something's very wrong... You seem to have lost all vital signs - but somehow it doesn't seem to be much of a problem to you!</span>"
 	name = "Undead"
 	isVerb = FALSE
 	verbpath = /mob/proc/revenant_undeadify
-	distortion_threshold = 30000
+	distortion_threshold = 24000 // 20 mins
 
 
 /datum/power/revenant/distortion/bats
@@ -158,6 +174,7 @@
 		BSR_FLAVOR_DARK
 	)
 	name = "DISTORTION - Bats!"
+	distortion_threshold = 54000 // 45 mins
 
 
 /datum/power/revenant/distortion/bats/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
@@ -174,8 +191,9 @@
 	QDEL_IN(hole, 30 SECONDS)
 
 	spawn(rand(1, 10 SECONDS))
-		var/mob/living/simple_animal/hostile/scarybat/bat = new (T)
-		bat.visible_message(SPAN_WARNING("\A [bat] escapes from the portal!"))
+		if(prob(10))
+			var/mob/living/simple_animal/hostile/scarybat/bat = new (T)
+			bat.visible_message(SPAN_WARNING("\A [bat] escapes from the portal!"))
 
 	return TRUE
 
@@ -216,7 +234,10 @@
 			owner = src
 
 		var/mob/living/simple_animal/hostile/scarybat/bat = new(T, owner)
-		bat.visible_message(SPAN_WARNING("\A [bat] escapes from the portal!"))
+		if(owner)
+			bat.visible_message(SPAN_WARNING("\A [bat] escapes from the portal!"))
+		else
+			bat.visible_message(SPAN_WARNING("A particularly angry-looking [bat] escapes from the portal!"))
 
 	var/datum/bluespace_revenant/revenant = src.mind?.bluespace_revenant
 	if(istype(revenant))
@@ -232,10 +253,10 @@
 		BSR_FLAVOR_DARK
 	)
 	name = "Summon Bats"
-	activate_message = ("<span class='notice'>You sense creatures of the night everywhere around you, just waiting for someone to reach out and invite them to this reality.</span>")
+	activate_message = "<span class='notice'>You sense creatures of the night everywhere around you, just waiting for someone to reach out and invite them to this reality.</span>"
 	isVerb = TRUE
 	verbpath = /mob/proc/bsrevenant_summon_bats
-	distortion_threshold = 18000 // 15 mins
+	distortion_threshold = 36000 // 30 mins
 
 
 /mob/proc/bsrevenant_turn_another()
@@ -367,17 +388,17 @@
 	activate_message = ("<span class='notice'>Whatever it is you are, it's *infectious*. By biting the neck of another humanoid, you could transform half of your Distortion and transform them into one of your own kind.</span>")
 	isVerb = TRUE
 	verbpath = /mob/proc/bsrevenant_turn_another
-	distortion_threshold = 72000 // 60 mins
+	distortion_threshold = 54000 // 45 mins
 
 
 /* FANGS - gives mobs a new unarmed attack that requires head and ignores restraints. */
 /datum/unarmed_attack/bsrevenant_vampbite
-	attack_verb = list("bit", "sank /his fangs in")
+	attack_verb = list("bit", "sank their fangs in")  // macros don't work here fsr
 	attack_sound = 'sound/weapons/bite.ogg'
 	shredding = 0
 	sharp = 1
 	edge = 1
-	attack_name = "sharp bite"
+	attack_name = "vampire bite"
 
 
 /datum/unarmed_attack/bsrevenant_vampbite/is_usable(var/mob/living/carbon/human/user, var/mob/target, var/zone)
@@ -385,7 +406,14 @@
 	if(!istype(user))
 		return 0
 
+	if(zone != BP_HEAD)
+		return 0
+
 	if(user.is_muzzled())
+		return 0
+
+	if(prob(10))
+		// Hack to still allow stomps
 		return 0
 
 	var/obj/item/organ/external/E = user.organs_by_name[BP_HEAD]
@@ -406,6 +434,7 @@
 		target.apply_effect(5, EFFECT_PAIN, 0)
 		target.visible_message(SPAN_DANGER("[user] sucks on [target]'s neck!"), SPAN_DANGER("You feel your blood getting drained from your body!"))
 		target.vessel.trans_to_mob(user, 10, CHEM_INGEST)
+		target.vessel.trans_to_mob(user, 5, CHEM_BLOOD, copy=TRUE)
 
 	else
 		. = ..(user, target, attack_damage, zone)
@@ -435,8 +464,9 @@
 		to_chat(src, "Something has gone wrong with modifying your species; please notify an admin/coder!")
 		return
 
-	curr_species.unarmed_types?.Add(/datum/unarmed_attack/bsrevenant_vampbite)
-	curr_species.unarmed_attacks?.Add(new /datum/unarmed_attack/bsrevenant_vampbite())
+	// Insert as first to prioritize it
+	curr_species.unarmed_types?.Insert(1, /datum/unarmed_attack/bsrevenant_vampbite)
+	curr_species.unarmed_attacks?.Insert(1, new /datum/unarmed_attack/bsrevenant_vampbite())
 
 	H.species = curr_species
 	return TRUE
@@ -456,4 +486,5 @@
 	name = "Fangs"
 	isVerb = FALSE
 	verbpath = /mob/proc/bsrevenant_mutate_fangs
-	distortion_threshold = 12000 // 10 mins
+	distortion_threshold = 6000 // 5 mins
+

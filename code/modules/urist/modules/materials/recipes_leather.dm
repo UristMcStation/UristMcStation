@@ -44,46 +44,8 @@
 	. += new/datum/stack_recipe/factory_apron(src)
 	. += new/datum/stack_recipe/welder_apron(src)
 	. += new/datum/stack_recipe/leather_mask(src)
+	. += new/datum/stack_recipe/leather_tunic(src)
 
-
-
-/material/skin/goat/generate_recipes(reinforce_material)
-	. = ..()
-	if(reinforce_material)	//recipies below don't support composite materials
-		return
-
-	. += new/datum/stack_recipe/goatpelt(src)
-	. += new/datum/stack_recipe/sheeppelt(src)
-////////////////////////////////COMMENTING OUT UNTILL GLLOYD ADJUSTS BUTCHERING. SAVE!!!!//////////////////////////////////
-//material/skin/fur/generate_recipes(reinforce_material)
-//	. = ..()
-//	if(reinforce_material)	//recipies below don't support composite materials
-//		return
-//
-//	. += new/datum/stack_recipe/brownbearpelt(src)
-
-//material/skin/fur/grey/generate_recipes(reinforce_material)
-//	. = ..()
-//	if(reinforce_material)	//recipies below don't support composite materials
-//		return
-
-//	. += new/datum/stack_recipe/graywolfpelt(src)
-
-///material/skin/fur/white/generate_recipes(reinforce_material)
-//	. = ..()
-//	if(reinforce_material)	//recipies below don't support composite materials
-//		return
-
-//	. += new/datum/stack_recipe/whitewolfpelt(src)
-//	. += new/datum/stack_recipe/whitebearpelt(src)
-
-//material/skin/fur/black/generate_recipes(reinforce_material)
-//	. = ..()
-//	if(reinforce_material)	//recipies below don't support composite materials
-//		return
-
-//	. += new/datum/stack_recipe/pantherpelt(src)
-//	. += new/datum/stack_recipe/blackbearpelt(src)
 
 /datum/stack_recipe/holster
 	req_amount = 4
@@ -282,6 +244,14 @@
 	result_type = /obj/item/clothing/mask/urist/bandana/leather
 	req_amount = 1
 	time = 30
+	apply_material_name = 0
+
+/datum/stack_recipe/leather_tunic
+	title = "leather tunic"
+	result_type = /obj/item/clothing/under/urist/historic/leather_tunic
+	req_amount = 8
+	difficulty = 1
+	time = 20
 	apply_material_name = 0
 
 /material/leather/lizard/generate_recipes(reinforce_material)

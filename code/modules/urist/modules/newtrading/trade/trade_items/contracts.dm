@@ -37,9 +37,9 @@
 	item_type = /obj/item/paper/contract/nanotrasen/cargo/ore
 	category = "ntsciencecontract"
 
-//shiphunt
+//shiphunt //moved to awaymap init
 
-/datum/trade_item/contract/ntsec/ntalienhunt
+/*/datum/trade_item/contract/ntsec/ntalienhunt
 	name = "Lactera Ship Hunt Contract"
 	item_type = /obj/item/paper/contract/nanotrasen/alienhunt
 	category = "ntseccontract"
@@ -52,7 +52,7 @@
 /datum/trade_item/contract/ntsec/ntpiratestation
 	name = "Pirate Hideout Destruction Contract"
 	item_type = /obj/item/paper/contract/nanotrasen/piratestation
-	category = "ntseccontract"
+	category = "ntseccontract"*/
 
 //robotics
 

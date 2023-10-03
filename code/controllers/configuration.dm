@@ -469,6 +469,15 @@
 	//       from the POV of the total Distortion spread. It's not exactly equivalent - because the smaller the tickrate, the
 	//       more responsive the Distortion system will be, but it will also drain more resources to run.
 
+	// Probability of triggering a BSR Distortion for a tile depends on the current level of 'irradiation'.
+	// This represents the turf-level value that corresponds to 50% of max_chance_per_turf of triggering.
+	var/static/bluespace_revenant_distortion_maxchance_halfway_point = 500
+
+	// Cutoff max value for the probability of applying a BSR Distortion effect on an affected turf
+	// The actual runtime value is governed by a formula (using the maxchance_halfway_point),
+	// but will NEVER go higher than this.
+	var/static/bluespace_revenant_distortion_max_chance_per_turf = 8
+
 	// Amount of Distortion accumulated to trigger the first radius increase (1 -> 3 tiles across)
 	var/static/bluespace_revenant_radius_three_distortion_threshold = 12000 // 10 mins with 100/50 rates above
 
@@ -482,7 +491,7 @@
 	var/static/bluespace_revenant_radius_zlevel_spread_enabled = TRUE
 
 	// For Equivalent Exchange Hunger: how much does suppression grow per unit of wealth consumed?
-	var/static/bluespace_revenant_wealtheater_suppression_factor = 3
+	var/static/bluespace_revenant_wealtheater_suppression_factor = 1
 
 	// For Catabolic Stabilization Hunger: how much does suppression grow per unit of nutrition consumed?
 	var/static/bluespace_revenant_hongry_suppression_factor = 30
@@ -492,6 +501,12 @@
 
 	// For Rune Wards Hunger: discourages stockpiling/spamming; no more than this much suppression per tick will happen, so more runes is not necessarily more good
 	var/static/bluespace_revenant_runewards_max_suppression_coeff = 2
+
+	// For Bloodburner Hunger: how much does suppression grow per unit of blood/brute burned?
+	var/static/bluespace_revenant_bloodburner_suppression_factor = 300
+
+	// For Bloodthirsty Hunger: how much does suppression grow per sip of blood consumed?
+	var/static/bluespace_revenant_bloodthirsty_suppression_factor = 600
 	# endif
 
 
@@ -976,6 +991,12 @@
 			if ("bluespace_revenant_tickrate")
 				bluespace_revenant_tickrate = max(1, text2num(value))
 
+			if ("bluespace_revenant_distortion_max_chance_per_turf")
+				bluespace_revenant_tickrate = max(1, text2num(value))
+
+			if("bluespace_revenant_distortion_maxchance_halfway_point")
+				bluespace_revenant_distortion_maxchance_halfway_point = max(0, text2num(value))
+
 			if ("bluespace_revenant_radius_three_distortion_threshold")
 				bluespace_revenant_radius_three_distortion_threshold = max(0, text2num(value))
 
@@ -999,6 +1020,12 @@
 
 			if ("bluespace_revenant_runewards_max_suppression_coeff")
 				bluespace_revenant_runewards_max_suppression_coeff = max(0, text2num(value))
+
+			if ("bluespace_revenant_bloodburner_suppression_factor")
+				bluespace_revenant_bloodburner_suppression_factor = max(0, text2num(value))
+
+			if ("bluespace_revenant_runewards_max_suppression_coeff")
+				bluespace_revenant_bloodthirsty_suppression_factor = max(0, text2num(value))
 
 			# endif
 

@@ -1,3 +1,4 @@
+
 /singleton/hierarchy/outfit/job/forest_settler
 	name = "Pioneer"
 	uniform = /obj/item/clothing/under/frontier

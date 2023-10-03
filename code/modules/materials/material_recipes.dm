@@ -80,11 +80,10 @@
 	. += new/datum/stack_recipe_list("armchairs", create_recipe_list(/datum/stack_recipe/furniture/chair/arm))
 	. += new/datum/stack_recipe_list("comfy chairs", create_recipe_list(/datum/stack_recipe/furniture/chair/comfy))
 	. += new/datum/stack_recipe_list("comfy office chairs", create_recipe_list(/datum/stack_recipe/furniture/chair/office/comfy))
-	. += new/datum/stack_recipe_list("office chairs",create_recipe_list(
+	. += new/datum/stack_recipe_list("office chairs", list(
 		new/datum/stack_recipe/furniture/chair/office/dark(src),
 		new/datum/stack_recipe/furniture/chair/office/light(src)
 	))
-	. += new/datum/stack_recipe_list("floor tiles", create_recipe_list(/datum/stack_recipe/tile/metal))
 	. += new/datum/stack_recipe_list("furniture", list(
 		new/datum/stack_recipe/furniture/table_frame(src),
 		new/datum/stack_recipe/furniture/rack(src),
@@ -99,6 +98,7 @@
 		new/datum/stack_recipe/light_switch/windowtint(src)
 	))
 	. += new/datum/stack_recipe_list("modular computer frames", create_recipe_list(/datum/stack_recipe/computer))
+	. += create_recipe_list(/datum/stack_recipe/tile/metal)
 
 /material/plasteel/generate_recipes(reinforce_material)
 	. = ..()
@@ -155,6 +155,7 @@
 	. += new/datum/stack_recipe/furniture/woodrack(src)
 	. += new/datum/stack_recipe/furniture/raft(src)
 	. += new/datum/stack_recipe/paddle(src)
+	. += new/datum/stack_recipe/loom(src)
 
 /material/wood/mahogany/generate_recipes(reinforce_material)
 	. = ..()

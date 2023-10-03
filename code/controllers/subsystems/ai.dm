@@ -55,7 +55,7 @@ SUBSYSTEM_DEF(ai)
 	queue.Cut()
 
 
-#ifdef UNIT_TEST
+#if defined(UNIT_TEST) || defined(DEBUG_GENERATE_WORTHS)
 /datum/controller/subsystem/ai/flags = SS_NO_INIT | SS_NO_FIRE
 #else
 /datum/controller/subsystem/ai/flags = SS_NO_INIT

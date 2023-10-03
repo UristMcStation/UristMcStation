@@ -95,3 +95,48 @@
 				else
 					to_chat(user, "<span class='warning'>\The [src] is used up, but there are more wounds to treat on \the [affecting.name].</span>")
 			use(used)
+
+/obj/item/loom
+	name = "table loom"
+	desc = "A loom small enough to only take up a table instead of the whole floor."
+	icon = 'icons/urist/items/wood.dmi'
+	icon_state = "loom"
+	w_class = 4 //a table loom is small only by comparison to a floor loom.
+
+/datum/reagent/cottonfiber
+	name = "cotton fiber"
+	description = "A mass of cotton fibers."
+	taste_description = "cotton"
+	reagent_state = SOLID
+	color = "#f0f0f0"
+
+/datum/seed/cotton
+	name = "cotton"
+	seed_name = "cotton"
+	display_name = "cotton plant"
+	chems = list(/datum/reagent/cottonfiber = list(6,1))
+
+/datum/seed/cotton/New()
+	..()
+	set_trait(TRAIT_MATURATION,10)
+	set_trait(TRAIT_PRODUCTION,1)
+	set_trait(TRAIT_YIELD,8)
+	set_trait(TRAIT_POTENCY,10)
+	set_trait(TRAIT_PRODUCT_ICON,"cotton")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#f0f0f0")
+	set_trait(TRAIT_PLANT_ICON,"bush2")
+	set_trait(TRAIT_WATER_CONSUMPTION, 6)
+
+/obj/item/seeds/cotton
+	seed_type = "cotton"
+
+/obj/item/loom/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/reagent_containers/food/snacks/grown))
+		var/obj/item/reagent_containers/food/snacks/grown/plant = W
+		if(plant.seed?.chems)
+			if(!isnull(plant.seed.chems[/datum/reagent/cottonfiber]))
+				user.visible_message(SPAN_NOTICE("\The [user] weaves \the [plant] into cotton cloth"), SPAN_NOTICE("You weave \the [plant] into cotton cloth"))
+				new /obj/item/stack/material/cloth(user.loc)
+				qdel(plant)
+				return
+	..()

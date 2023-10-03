@@ -58,6 +58,12 @@
 	req_amount = 5
 	time = 40
 
+/datum/stack_recipe/loom
+	title = "table loom"
+	result_type = /obj/item/loom
+	req_amount = 5
+	time = 40
+
 /*/datum/stack_recipe/woodrod
 	title = "wood rod"
 	result_type = /obj/item/stack/woodrods
