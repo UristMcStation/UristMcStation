@@ -228,6 +228,8 @@
 	var/severity = EX_ACT_LIGHT
 	var/ex_range = 9
 
+//I promise the literal explosions won't cause issues in production
+#ifndef UNIT_TEST
 /obj/effect/spawner/bomb_simulator/Initialize()
 	..()
 	return INITIALIZE_HINT_LATELOAD
@@ -235,3 +237,4 @@
 /obj/effect/spawner/bomb_simulator/LateInitialize()
 	. = ..()
 	explosion(loc, ex_range, severity, adminlog = FALSE)
+#endif
