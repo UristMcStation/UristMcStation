@@ -32,11 +32,9 @@
 			to_chat(src, SPAN_WARNING("You don't have enough air[L ? " in [L]" : ""] to make a sound!"))
 			return
 		else if(L.breath_fail_ratio > 0.3)
-			whisper_say(length(message) > 5 ? stars(message) : message, speaking)
-			return
+			return ..(length(message) > 5 ? stars(message) : message, speaking, whispering = TRUE)
 		else if(L.breath_fail_ratio > 0.15 && length(message) > 10)
-			whisper_say(message, speaking)
-			return
+			return ..(message, speaking, whispering = TRUE)
 	return ..(message, speaking = speaking, whispering = whispering)
 
 
