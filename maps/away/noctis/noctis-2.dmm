@@ -900,7 +900,7 @@
 /area/noctis/fpm)
 "bU" = (
 /obj/effect/spawner/bomb_simulator{
-	ex_range = 6;
+	ex_range = 3;
 	severity = 3
 	},
 /turf/space,
