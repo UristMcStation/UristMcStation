@@ -139,11 +139,11 @@
 	if(!damage_amt)
 		return FALSE
 
-	var/organ_damage_threshold = 5
+	var/organ_damage_threshold = 10
 	if(damage_flags & DAMAGE_FLAG_SHARP)
-		organ_damage_threshold *= 0.5
+		organ_damage_threshold *= 0.75
 	if(laser)
-		organ_damage_threshold *= 2
+		organ_damage_threshold *= 1.5
 
 	if(!(cur_damage + damage_amt >= max_damage) && !(damage_amt >= organ_damage_threshold))
 		return FALSE
@@ -158,7 +158,7 @@
 	if(!length(victims))
 		return FALSE
 
-	organ_hit_chance += 5 * damage_amt/organ_damage_threshold
+	organ_hit_chance += 10 * (damage_amt/organ_damage_threshold) * (cur_damage/max_damage)
 
 	if(encased && !(status & ORGAN_BROKEN)) //ribs protect
 		organ_hit_chance *= 0.6
