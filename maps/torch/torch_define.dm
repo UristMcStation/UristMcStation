@@ -23,6 +23,7 @@
 	boss_short    = "Command"
 	company_name  = "Sol Central Government"
 	company_short = "SolGov"
+	ert_context = "Fifth Fleet"
 
 	map_admin_faxes = list(
 		"Expeditionary Corps Command",
