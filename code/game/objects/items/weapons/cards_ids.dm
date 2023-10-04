@@ -157,9 +157,9 @@
 	origin_tech = list(TECH_MAGNET = 2, TECH_ESOTERIC = 2)
 	var/uses = 18
 
-/obj/item/card/emag/New()
+/obj/item/card/emag/Initialize()
+	. = ..()
 	uses = rand(18, 24)
-	..()
 
 var/global/const/NO_EMAG_ACT = -50
 
