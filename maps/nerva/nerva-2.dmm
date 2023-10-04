@@ -720,7 +720,7 @@
 /obj/item/device/radio/intercom{
 	pixel_y = 24
 	},
-/obj/machinery/organ_printer/robot/mapped,
+/obj/random/plushie,
 /turf/simulated/floor/tiled/white,
 /area/medical/locker)
 "abP" = (
@@ -19250,12 +19250,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/logistics/mechbay)
 "aHz" = (
-/obj/structure/table/rack,
-/obj/item/stack/material/steel/fifty,
-/obj/item/stack/material/steel/fifty,
-/obj/item/stack/material/glass/fifty,
-/obj/item/stack/material/glass/fifty,
-/obj/item/stack/material/plasteel/fifty,
 /obj/machinery/firealarm{
 	pixel_y = 24
 	},
@@ -19263,9 +19257,8 @@
 	dir = 6;
 	icon_state = "corner_white"
 	},
-/obj/item/stack/material/aluminium/fifty,
-/obj/item/stack/material/plastic/fifty,
 /obj/effect/floor_decal/floordetail/tiled,
+/obj/machinery/organ_printer/robot/mapped,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/mechbay)
 "aHA" = (
@@ -19286,6 +19279,7 @@
 	pixel_y = 26;
 	req_access = list("ACCESS_ROBOTICS")
 	},
+/obj/item/stack/nanopaste,
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/robotics)
 "aHB" = (
@@ -21859,6 +21853,14 @@
 	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/floordetail/tiled,
+/obj/structure/table/rack,
+/obj/item/stack/material/steel/fifty,
+/obj/item/stack/material/steel/fifty,
+/obj/item/stack/material/glass/fifty,
+/obj/item/stack/material/glass/fifty,
+/obj/item/stack/material/plasteel/fifty,
+/obj/item/stack/material/aluminium/fifty,
+/obj/item/stack/material/plastic/fifty,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/mechbay)
 "aMi" = (
