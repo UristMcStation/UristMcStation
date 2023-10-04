@@ -421,7 +421,7 @@ the sprite and make my own projectile -Glloyd*/
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "M60closed75"
 	item_state = "M60closed"
-	caliber = "12g"
+	caliber = CALIBER_SHOTGUN
 	max_shells = 75
 	allowed_magazines = list(/obj/item/ammo_magazine/shotmachinegun)
 	magazine_type = /obj/item/ammo_magazine/shotmachinegun
@@ -435,7 +435,7 @@ the sprite and make my own projectile -Glloyd*/
 		)
 
 /obj/item/ammo_magazine/shotmachinegun
-	caliber = "12g"
+	caliber = CALIBER_SHOTGUN
 	ammo_type = /obj/item/ammo_casing/shotgun
 	initial_ammo = 75
 	matter = list(DEFAULT_WALL_MATERIAL = 1200)
