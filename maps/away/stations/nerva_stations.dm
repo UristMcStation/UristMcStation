@@ -3,7 +3,7 @@
 
 /obj/effect/overmap/visitable/sector/station/nanotrasentrading
 	name = "NanoTrasen trading station"
-	desc = "A NanoTrasen trading station, dock here to trade with its many merchants."
+	desc = "A NanoTrasen trading station, dock here to trade with its many merchants and mine for resources via an on-station shuttle."
 	faction = /datum/factions/nanotrasen
 	spawn_ships = FALSE
 	start_x = 6
@@ -37,7 +37,7 @@
 /datum/map_template/ruin/away_site/nanotrasentrading
 	name = "NanoTrasen trading station"
 	id = "awaysite_nanotrasentrading"
-	description = "A NanoTrasen trading station, dock here to trade with its many merchants."
+	description = "A NanoTrasen trading station, dock here to trade with its many merchants and mine for resources via an on-station shuttle."
 	suffixes = list("stations/nanotrasentrading-1.dmm", "stations/nanotrasentrading-2.dmm")
 	spawn_cost = 0
 	accessibility_weight = 10
