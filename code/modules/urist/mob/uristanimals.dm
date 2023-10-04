@@ -272,3 +272,29 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	speak = list("~!aaaaayN", "?weoM", "~wUw!~", "?prrrrM?", "rrrrruP...")
 	emote_hear = list("weoms", "wems")
 	emote_see = list("shakes their head", "shivers")
+
+/mob/living/simple_animal/hostile/man_eater
+	name = "maneating plant"
+	desc = "A large green plant, IT HUNGERS!"
+	icon = 'icons/uristmob/simpleanimals.dmi'
+	icon_state = "maneater"
+	icon_living = "maneater"
+	icon_dead = "maneater_dead"
+	speak_emote = list("shouts")
+	response_help = "hungrily hugs"
+	response_disarm = "swipes"
+	response_harm = "chomps"
+	health = 200
+	maxHealth = 250
+	natural_weapon = /obj/item/natural_weapon/bite/immense
+	pass_flags = PASS_FLAG_TABLE
+	faction = "maneater"
+	attacktext = "chomps"
+	say_list_type = /datum/say_list/man_eater
+	ai_holder = /datum/ai_holder/simple_animal/man_eater
+
+/datum/say_list/man_eater
+	speak = list("BEWARE, I LIVE!","RUN COWARD!", "I HUNGER!", "RAAAAAAAAAAARGH!!")
+/datum/ai_holder/simple_animal/man_eater
+	speak_chance = 5
+	aggro_sound = list('sound/urist/maneater_01.ogg', 'sound/urist/maneater_02.ogg', 'sound/urist/maneater_03.ogg', 'sound/urist/maneater_04.ogg')

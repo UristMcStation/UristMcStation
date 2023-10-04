@@ -53,3 +53,9 @@
 	item_cost = 36 // Lowered, for traitors.
 	antag_costs = list(MODE_MERCENARY = 48)
 	path = /obj/item/storage/firstaid/combat
+
+/datum/uplink_item/item/medical/zombiebottle
+	name = "Unknown Serum"
+	desc = "A bottle containing some sort of unknown crimson red serum, I hope you know what you are doing with it."
+	item_cost = 150 // Collaborate, or we have endless zombie rounds
+	path = /obj/item/reagent_containers/glass/bottle/unknownreagent
