@@ -73,15 +73,16 @@ GLOBAL_LIST_INIT(mutation_color_matrices, list("[M_NOIR]"=COLMX_EXPRESSIONIST))
 		return
 
 	var/datum/array/colormatrix = get_screen_color()
-	if(!colormatrix)
-		return
 
-	var/list/color_to_apply = colormatrix.get()
+	var/list/color_to_apply = colormatrix?.get()
 	if(!client.cached_colormatrix)
 		client.cached_colormatrix = DEFAULT_COLOR_MATRIX
-	var/list/difference = difflist(client.cached_colormatrix.get(), color_to_apply)
 
-	if(!istype(difference) || length(difference) > 0)
+	var/list/difference = null
+	if(client.cached_colormatrix && color_to_apply)
+		difference = difflist(client.cached_colormatrix.get(), color_to_apply)
+
+	if(isnull(client.cached_colormatrix) || (istype(difference) && length(difference) > 0))
 		client.updating_color = 1
 		if(forceupdate)
 			time = 0
