@@ -313,6 +313,9 @@ Turf and target are seperate in case you want to teleport some distance from a t
 			return
 
 		fully_replace_character_name(newname)
+		var/datum/computer_file/report/crew_record/CR = get_crewmember_record(name)
+		if(CR)
+			CR.set_formal_name(newname)
 
 //Picks a string of symbols to display as the law number for hacked or ion laws
 /proc/ionnum()
