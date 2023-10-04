@@ -1,7 +1,7 @@
 /obj/effect/mine
 	name = "Mine"
 	desc = "I Better stay away from that thing."
-	density = TRUE
+	density = FALSE
 	anchored = TRUE
 	layer = OBJ_LAYER
 	icon = 'icons/obj/weapons/other.dmi'
@@ -22,7 +22,7 @@
 
 	if(triggered) return
 
-	if(istype(M, /mob/living/carbon/human))
+	if(istype(M, /mob/living))
 		for(var/mob/O in viewers(world.view, src.loc))
 			to_chat(O, SPAN_WARNING("\The [M] triggered the [icon2html(src, O)] [src]"))
 		triggered = 1

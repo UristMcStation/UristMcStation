@@ -85,7 +85,7 @@
 	item_state = "drill_hat"
 	armor = list(melee = 15, bullet = 5, laser = 15, energy = 10, bomb = 5, bio = 0, rad = 0)
 
-/obj/item/clothing/head/helmet/urist/terran/tdfhelmet
+/obj/item/clothing/head/helmet/urist/terran/tdfrangerhelmet
 	name = "Defence Force Ranger helmet"
 	desc = "A standard issue Terran Defence Force Ranger combat helmet. It's relatively strong, and covers the whole face."
 	icon_state = "ranger"

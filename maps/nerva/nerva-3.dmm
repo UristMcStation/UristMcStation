@@ -13509,7 +13509,7 @@
 /obj/random/smokes,
 /obj/random/smokes,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/vehicle_part/random,
+/obj/random/vehicle_part,
 /obj/effect/decal/cleanable/cobweb{
 	icon_state = "stickyweb2"
 	},
