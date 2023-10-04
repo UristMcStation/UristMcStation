@@ -472,6 +472,10 @@
 /obj/machinery/power/terminal,
 /turf/simulated/floor/airless,
 /area/djstation)
+"SY" = (
+/obj/effect/shuttle_landmark/ntminingshuttle,
+/turf/space,
+/area/space)
 "Ua" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -27471,7 +27475,7 @@ aa
 aa
 aa
 aa
-aa
+SY
 aa
 aa
 aa

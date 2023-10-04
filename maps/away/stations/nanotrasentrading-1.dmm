@@ -904,8 +904,10 @@
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "cB" = (
-/obj/machinery/atm,
-/turf/simulated/wall/r_wall/hull,
+/obj/machinery/atm{
+	pixel_x = 32
+	},
+/turf/simulated/floor/wood,
 /area/spacestations/nanotrasenspace)
 "cC" = (
 /obj/machinery/space_heater,
@@ -1677,6 +1679,16 @@
 	color = "#cccccc"
 	},
 /area/spacestations/ntminingshuttle/start)
+"oI" = (
+/obj/structure/bed/chair/urist/bench/bench1/left{
+	icon_state = "benchleft";
+	dir = 1
+	},
+/obj/machinery/atm{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
 "oQ" = (
 /obj/structure/table/woodentable,
 /obj/item/reagent_containers/food/condiment/small/peppermill,
@@ -2338,6 +2350,9 @@
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 6
+	},
+/obj/machinery/atm{
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
@@ -3874,7 +3889,7 @@ bN
 bN
 bN
 bN
-bN
+cB
 cI
 cR
 cZ
@@ -3956,7 +3971,7 @@ ci
 bN
 bq
 ci
-cB
+ad
 ad
 ad
 ad
@@ -5367,7 +5382,7 @@ kE
 ad
 ad
 ad
-cB
+ad
 dw
 dy
 ad
@@ -5431,8 +5446,8 @@ aL
 aL
 xl
 lh
-bJ
-cB
+oI
+ad
 Dz
 ma
 ov
