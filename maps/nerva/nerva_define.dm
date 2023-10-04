@@ -26,7 +26,7 @@
 	boss_short    = "AAS"
 	company_name  = "Automated Announcement Systems"
 	company_short = "AAS"
-	ert_context = "NanoTrasen"
+	ert_context = "The Emergency Response Team works for Asset Protection; your job is to protect NanoTrasen's ass-ets. There is a severe emergency on the ICS Nerva and you are tasked to go and fix the problem.\nYou should first gear up and discuss a plan with your team. More members may be joining, don't move out before you're ready."
 
 	map_admin_faxes = list("NanoTrasen Central Office", "Terran Confederacy Sector Headquarters", "United Human Alliance Outpost")
 

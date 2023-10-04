@@ -22,7 +22,7 @@
 
 /spell/targeted/equip_item/dyrnwyn/summon_item(new_type)
 	var/obj/item/W = new new_type (null, material)
-	W.SetName("\proper Dyrnwyn")
+	W.SetName("Dyrnwyn")
 	W.damtype = DAMAGE_BURN
 	W.hitsound = 'sound/items/welder2.ogg'
 	W.slowdown_per_slot[slot_l_hand] = 0.25
