@@ -55,8 +55,8 @@ var/global/list/mining_floors = list()
 /turf/simulated/mineral/can_build_cable()
 	return !density
 
-/turf/simulated/mineral/is_plating()
-	return 1
+/turf/simulated/mineral/is_wall()
+	return TRUE
 
 /turf/simulated/mineral/on_update_icon(update_neighbors)
 	if(!istype(mineral))
@@ -77,6 +77,8 @@ var/global/list/mining_floors = list()
 			rock_side.turf_decal_layerise()
 			if(istype(turf_to_check, /turf/simulated/open))
 				rock_side.layer = MOB_LAYER + 1
+			else
+				rock_side.layer = ABOVE_OBJ_LAYER // the rocks should be above the shadows they cast as walls
 			switch(direction)
 				if(NORTH)
 					rock_side.pixel_y += world.icon_size
@@ -522,11 +524,6 @@ var/global/list/mining_floors = list()
 			var/image/aster_edge = image('icons/turf/flooring/asteroid.dmi', "asteroid_edges", dir = step_overlays[direction])
 			aster_edge.turf_decal_layerise()
 			overlays += aster_edge
-
-		if(istype(get_step(src, step_overlays[direction]), /turf/simulated/mineral))
-			var/image/rock_wall = image('icons/turf/walls.dmi', "rock_side", dir = step_overlays[direction])
-			rock_wall.turf_decal_layerise()
-			overlays += rock_wall
 
 	//todo cache
 	if(overlay_detail)
