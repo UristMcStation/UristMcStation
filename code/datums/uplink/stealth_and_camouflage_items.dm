@@ -37,7 +37,7 @@
 /datum/uplink_item/item/stealth_items/spy
 	name = "Bug Kit"
 	desc = "For when you want to conduct voyeurism from afar. Comes with 6 bugs to plant, and a monitoring device to pair them with."
-	item_cost = 8
+	item_cost = 6
 	path = /obj/item/storage/box/syndie_kit/spy
 
 /datum/uplink_item/item/stealth_items/id

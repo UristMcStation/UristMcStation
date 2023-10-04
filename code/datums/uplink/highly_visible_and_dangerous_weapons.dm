@@ -13,7 +13,7 @@
 /datum/uplink_item/item/visible_weapons/shuriken
 	name = "Box of shurikens"
 	desc = "A small box with six shuriken, notably dangerous."
-	item_cost = 18
+	item_cost = 16
 	path = /obj/item/storage/box/syndie_kit/shuriken
 
 /datum/uplink_item/item/visible_weapons/dartgun
@@ -32,7 +32,7 @@
 /datum/uplink_item/item/visible_weapons/pikecube
 	name = "Pike Cube"
 	desc = "While it looks like a normal monkey cube, the animal produced is, instead, a space pike. \ Note: The space pike does not like you."
-	item_cost = 44
+	item_cost = 36
 	path = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/pikecube
 
 /datum/uplink_item/item/visible_weapons/katana
@@ -154,7 +154,7 @@
 /datum/uplink_item/item/visible_weapons/sawnoff
 	name = "Sawnoff Shotgun"
 	desc = "A shortened double-barrel shotgun, able to fire either one, or both, barrels at once."
-	item_cost = 45
+	item_cost = 40
 	path = /obj/item/gun/projectile/shotgun/doublebarrel/sawn
 
 /datum/uplink_item/item/visible_weapons/deagle
