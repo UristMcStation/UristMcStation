@@ -49,3 +49,7 @@
 		/area/exoplanet,
 		/area/spacestations
 		)
+
+	area_coherency_test_exempt_areas = list(
+		/area/planet/destroyed_colony/transmitter
+		)
