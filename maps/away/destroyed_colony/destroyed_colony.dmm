@@ -3288,7 +3288,6 @@
 /area/planet/destroyed_colony)
 "lb" = (
 /obj/structure/bed/chair{
-	tag = "icon-chair_preview (EAST)";
 	icon_state = "chair_preview";
 	dir = 4
 	},
@@ -3313,7 +3312,6 @@
 /area/planet/destroyed_colony)
 "lf" = (
 /obj/structure/bed/chair{
-	tag = "icon-chair_preview (WEST)";
 	icon_state = "chair_preview";
 	dir = 8
 	},
@@ -4848,7 +4846,6 @@
 /area/planet/destroyed_colony)
 "qo" = (
 /obj/structure/bed/chair{
-	tag = "icon-chair_preview (EAST)";
 	icon_state = "chair_preview";
 	dir = 4
 	},
@@ -4856,7 +4853,6 @@
 /area/planet/destroyed_colony)
 "qp" = (
 /obj/structure/bed/chair{
-	tag = "icon-chair_preview (WEST)";
 	icon_state = "chair_preview";
 	dir = 8
 	},

@@ -3,6 +3,7 @@
 	base_turf = /turf/simulated/floor/planet/ariddirt/clear
 
 /area/planet/destroyed_colony/transmitter
+	name = "\improper Destroyed Colony - Transmitter"
 
 /obj/effect/overmap/visitable/sector/planetoid/destroyed_colony
 	name = "destroyed colony"
@@ -57,3 +58,9 @@
 	..()
 	for(var/datum/contract/destroyed_colony/contract in GLOB.using_map.contracts)
 		contract.Complete(1)
+
+/obj/machinery/radio_beacon/destroyed_colony/Destroy()
+	for(var/datum/contract/destroyed_colony/contract in GLOB.using_map.contracts)
+		contract.Complete(1)
+
+	.=..()
