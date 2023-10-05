@@ -9,9 +9,9 @@
 	invocation = "Anrhydeddu Fi!"
 	invocation_type = SpI_SHOUT
 	spell_flags = INCLUDEUSER
-	range = -1
+	range = 0
 	level_max = list(Sp_TOTAL = 1, Sp_SPEED = 0, Sp_POWER = 1)
-	duration = 300 //30 seconds
+	duration = 30 SECONDS
 	max_targets = 1
 	equipped_summons = list("active hand" = /obj/item/material/sword)
 	delete_old = 0
@@ -22,7 +22,7 @@
 
 /spell/targeted/equip_item/dyrnwyn/summon_item(new_type)
 	var/obj/item/W = new new_type (null, material)
-	W.SetName("\improper Dyrnwyn")
+	W.SetName("Dyrnwyn")
 	W.damtype = DAMAGE_BURN
 	W.hitsound = 'sound/items/welder2.ogg'
 	W.slowdown_per_slot[slot_l_hand] = 0.25

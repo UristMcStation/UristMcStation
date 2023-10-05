@@ -15,6 +15,8 @@
 /obj/structure/table/rack/Initialize()
 	auto_align()
 	. = ..()
+	if(painted_color)
+		color = painted_color
 
 /obj/structure/table/rack/update_connections()
 	return
@@ -34,3 +36,9 @@
 
 /obj/structure/table/rack/dark
 	color = COLOR_GRAY40
+	painted_color = COLOR_GRAY40
+
+/obj/structure/table/rack/steel
+	color = COLOR_STEEL
+	painted_color = COLOR_STEEL
+	material = MATERIAL_STEEL

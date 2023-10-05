@@ -720,7 +720,7 @@
 /obj/item/device/radio/intercom{
 	pixel_y = 24
 	},
-/obj/machinery/organ_printer/robot/mapped,
+/obj/random/plushie,
 /turf/simulated/floor/tiled/white,
 /area/medical/locker)
 "abP" = (
@@ -2192,7 +2192,10 @@
 /area/maintenance/third_deck/fp)
 "aeL" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/window/eastleft,
+/obj/machinery/door/window/eastleft{
+	autoset_access = 0;
+	req_access = list("ACCESS_KITCHEN")
+	},
 /obj/machinery/light/spot/warmtint{
 	dir = 1
 	},
@@ -19250,12 +19253,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/logistics/mechbay)
 "aHz" = (
-/obj/structure/table/rack,
-/obj/item/stack/material/steel/fifty,
-/obj/item/stack/material/steel/fifty,
-/obj/item/stack/material/glass/fifty,
-/obj/item/stack/material/glass/fifty,
-/obj/item/stack/material/plasteel/fifty,
 /obj/machinery/firealarm{
 	pixel_y = 24
 	},
@@ -19263,9 +19260,8 @@
 	dir = 6;
 	icon_state = "corner_white"
 	},
-/obj/item/stack/material/aluminium/fifty,
-/obj/item/stack/material/plastic/fifty,
 /obj/effect/floor_decal/floordetail/tiled,
+/obj/machinery/organ_printer/robot/mapped,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/mechbay)
 "aHA" = (
@@ -19286,6 +19282,7 @@
 	pixel_y = 26;
 	req_access = list("ACCESS_ROBOTICS")
 	},
+/obj/item/stack/nanopaste,
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/robotics)
 "aHB" = (
@@ -21859,6 +21856,14 @@
 	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/floordetail/tiled,
+/obj/structure/table/rack,
+/obj/item/stack/material/steel/fifty,
+/obj/item/stack/material/steel/fifty,
+/obj/item/stack/material/glass/fifty,
+/obj/item/stack/material/glass/fifty,
+/obj/item/stack/material/plasteel/fifty,
+/obj/item/stack/material/aluminium/fifty,
+/obj/item/stack/material/plastic/fifty,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/mechbay)
 "aMi" = (
@@ -28080,10 +28085,10 @@
 "dSr" = (
 /obj/machinery/button/blast_door{
 	id_tag = "evaentranceshutters";
-	name = "Robotics Shutters";
+	name = "EVA Entrance Shutters";
 	pixel_x = -26;
 	pixel_y = 26;
-	req_access = list("ACCESS_ROBOTICS")
+	req_access = list("ACCESS_EVA")
 	},
 /obj/effect/floor_decal/corner/fadeblue{
 	dir = 9;
@@ -30106,6 +30111,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/third_deck)
+"oft" = (
+/obj/effect/paint_stripe/paleblue,
+/obj/machinery/door/window/eastleft{
+	autoset_access = 0;
+	req_access = list("ACCESS_KITCHEN")
+	},
+/turf/simulated/wall/prepainted,
+/area/medical/morgue)
 "ogN" = (
 /obj/effect/floor_decal/corner/black/border{
 	dir = 8;
@@ -54353,7 +54366,7 @@ abU
 abU
 abU
 abU
-abU
+oft
 abU
 abU
 ahM

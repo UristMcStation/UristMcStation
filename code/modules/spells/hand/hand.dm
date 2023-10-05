@@ -25,7 +25,7 @@
 	if(user.get_active_hand())
 		to_chat(user, SPAN_WARNING("You need an empty hand to cast this spell."))
 		return FALSE
-	current_hand = new(src)
+	current_hand = new(src,src)
 	if(!user.put_in_active_hand(current_hand))
 		QDEL_NULL(current_hand)
 		return FALSE
@@ -36,7 +36,8 @@
 		QDEL_NULL(current_hand)
 
 /spell/hand/Destroy()
-	qdel(current_hand)
+	if(!QDELETED(current_hand))
+		QDEL_NULL(current_hand)
 	. = ..()
 
 /spell/hand/proc/valid_target(atom/a,mob/user) //we use separate procs for our target checking for the hand spells.
@@ -64,7 +65,8 @@
 	if(..())
 		casts--
 		to_chat(holder, SPAN_NOTICE("The [name] spell has [casts] out of [max_casts] charges left"))
-		cancel_hand()
+		if(!casts)
+			cancel_hand()
 		return TRUE
 	return FALSE
 

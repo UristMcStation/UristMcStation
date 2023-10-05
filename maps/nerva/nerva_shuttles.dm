@@ -32,7 +32,7 @@
 
 /datum/shuttle/autodock/overmap/exploration_shuttle
 	name = "Trajan"
-	move_time = 90
+	move_time = 30
 	shuttle_area = list(/area/exploration_shuttle/cockpit, /area/exploration_shuttle/atmos, /area/exploration_shuttle/power, /area/exploration_shuttle/main, /area/exploration_shuttle/cargo)
 	dock_target = "calypso_shuttle"
 	current_location = "nav_hangar_trajan"
@@ -73,7 +73,7 @@
 /datum/shuttle/autodock/overmap/antonine
 	name = "Antonine"
 	warmup_time = 5
-	move_time = 30
+	move_time = 15
 	shuttle_area = /area/antonine_hangar/start
 	dock_target ="antonine_shuttle"
 	current_location = "nav_hangar_antonine"
@@ -128,7 +128,7 @@
 /datum/shuttle/autodock/overmap/hadrian
 	name = "Hadrian"
 	warmup_time = 5
-	move_time = 70
+	move_time = 15
 	shuttle_area = list(/area/hadrian/storage, /area/hadrian/main)
 	dock_target ="hadrian_shuttle"
 	current_location = "nav_hangar_hadrian"

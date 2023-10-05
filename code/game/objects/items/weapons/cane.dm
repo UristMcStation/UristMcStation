@@ -86,7 +86,7 @@
 /obj/item/gun/projectile/shotgun/cane/on_update_icon()
 	return
 
-/obj/item/gun/projectile/shotgun/cane/Fire(atom/target, mob/living/user, clickparams, pointblank, reflex, dual_wield=0)
+/*/obj/item/gun/projectile/shotgun/cane/Fire(atom/target, mob/living/user, clickparams, pointblank, reflex, dual_wield=0)
 	if (safety_state)
 		to_chat(user, SPAN_WARNING("You can't fire \the [src] without readying it!"))
 		return
@@ -104,3 +104,4 @@
 /obj/item/gun/projectile/shotgun/cane/get_antag_interactions_info()
 	. = ..()
 	.["CTRL+CLICK"] = "<p>Toggles the concealed trigger, acting in place of a safety.</p>"
+*/

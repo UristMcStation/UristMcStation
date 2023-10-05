@@ -168,6 +168,12 @@ var/global/list/image/splatter_cache=list()
 	scent_intensity = /singleton/scent_intensity/strong
 	scent_range = 3
 
+/obj/effect/decal/cleanable/blood/splatter/human
+	random_icon_states = null
+	icon = 'icons/effects/bloodspatter.dmi'
+	icon_state = "splatter1"
+	color = COLOR_BLOOD_HUMAN
+
 /obj/effect/decal/cleanable/blood/drip
 	name = "drips of blood"
 	desc = "Drips and drops of blood."

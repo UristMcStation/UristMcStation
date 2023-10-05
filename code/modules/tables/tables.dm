@@ -23,6 +23,7 @@
 	// Convert if/when you can easily get stacks of these.
 	var/carpeted = 0
 
+	var/painted_color // I swear everything w/ a material is designed to hate mappers
 	connections = list("nw0", "ne0", "sw0", "se0")
 
 /obj/structure/table/New()
@@ -344,7 +345,10 @@
 		if(material)
 			for(var/i = 1 to 4)
 				I = image(icon, "[material.table_icon_base]_[connections[i]]", dir = SHIFTL(1, i - 1))
-				if(material.icon_colour) I.color = material.icon_colour
+				if(painted_color)
+					I.color = painted_color
+				else if(material.icon_colour)
+					I.color = material.icon_colour
 				I.alpha = 255 * material.opacity
 				overlays += I
 
@@ -352,7 +356,10 @@
 		if(reinforced)
 			for(var/i = 1 to 4)
 				I = image(icon, "[reinforced.table_reinf]_[connections[i]]", dir = SHIFTL(1, i - 1))
-				I.color = reinforced.icon_colour
+				if(painted_color)
+					I.color = painted_color
+				else
+					I.color = reinforced.icon_colour
 				I.alpha = 255 * reinforced.opacity
 				overlays += I
 
@@ -381,7 +388,10 @@
 		icon_state = "flip[type]"
 		if(material)
 			var/image/I = image(icon, "[material.table_icon_base]_flip[type]")
-			I.color = material.icon_colour
+			if(painted_color)
+				I.color = painted_color
+			else
+				I.color = material.icon_colour
 			I.alpha = 255 * material.opacity
 			overlays += I
 			name = "[material.display_name] table"
@@ -390,7 +400,10 @@
 
 		if(reinforced)
 			var/image/I = image(icon, "[reinforced.table_reinf]_flip[type]")
-			I.color = reinforced.icon_colour
+			if(painted_color)
+				I.color = painted_color
+			else
+				I.color = reinforced.icon_colour
 			I.alpha = 255 * reinforced.opacity
 			overlays += I
 

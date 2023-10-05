@@ -23,6 +23,7 @@
 	boss_short    = "Command"
 	company_name  = "Sol Central Government"
 	company_short = "SolGov"
+	ert_context = "You are part of a Fifth Fleet Quick Reaction Force. There is a severe emergency on the Torch and you are tasked to fix the problem.\nYou should first gear up and discuss a plan with your team. More members may be joining, so don't move out before you're all ready. You might receive further instruction from a superior in person or through holocomms soon."
 
 	map_admin_faxes = list(
 		"Expeditionary Corps Command",

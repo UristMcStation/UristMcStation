@@ -304,7 +304,7 @@
 /turf/simulated/floor/reinforced,
 /area/space)
 "aM" = (
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /turf/simulated/floor/reinforced,
 /area/space)
 "aN" = (
@@ -1106,8 +1106,7 @@
 /area/noctis/atmos)
 "cr" = (
 /obj/machinery/atmospherics/unary/tank/air{
-	dir = 1;
-	icon_state = "air_map"
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline,
 /turf/simulated/floor/plating,
@@ -1401,7 +1400,7 @@
 /turf/simulated/floor/plating,
 /area/space)
 "dk" = (
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8;
 	icon_state = "warning_dust"
@@ -1429,7 +1428,7 @@
 /turf/simulated/wall/titanium,
 /area/noctis/combint)
 "do" = (
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 4;
@@ -1814,7 +1813,7 @@
 	icon_state = "intercom";
 	pixel_x = 22
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	id_tag = "pirate_con_vent"
 	},
 /turf/simulated/floor/plating,
@@ -2117,6 +2116,10 @@
 	req_access = list("ACCESS_NOCTIS")
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6;
+	icon_state = "intact-scrubbers"
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/extconn)
 "eL" = (
@@ -2710,10 +2713,6 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5;
-	icon_state = "intact-scrubbers"
-	},
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/extconn)
 "fO" = (
@@ -2723,10 +2722,6 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/rust,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10;
-	icon_state = "intact-scrubbers"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/blue{
 	d1 = 2;
@@ -2734,6 +2729,7 @@
 	icon_state = "2-8"
 	},
 /obj/effect/decal/cleanable/blood/xeno,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/extconn)
 "fP" = (
@@ -4166,6 +4162,10 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10;
+	icon_state = "intact-scrubbers"
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/extconn)
 "iF" = (
@@ -4173,10 +4173,6 @@
 	d1 = 2;
 	d2 = 8;
 	icon_state = "2-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10;
-	icon_state = "intact-scrubbers"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9;
@@ -4192,17 +4188,20 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/extconn)
 "iG" = (
 /obj/effect/floor_decal/rust,
 /obj/machinery/atmospherics/valve/shutoff/supply,
-/obj/effect/catwalk_plated/dark,
 /obj/structure/cable/blue{
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/machinery/atmospherics/valve/shutoff/scrubbers,
 /turf/simulated/floor/plating,
 /area/noctis/extconn)
 "iH" = (
@@ -4299,10 +4298,9 @@
 /turf/simulated/open,
 /area/space)
 "iO" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	icon_state = "map_vent";
-	id_tag = "pirate_con_vent"
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+	id_tag = "pirate_con_vent";
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/noctis/extconn)
@@ -4464,15 +4462,6 @@
 /obj/structure/grille,
 /turf/simulated/open,
 /area/space)
-"MM" = (
-/obj/effect/paint/silver,
-/obj/structure/cable/blue{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/wall/titanium,
-/area/noctis/ocabin)
 "NI" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1;
@@ -10013,7 +10002,7 @@ iC
 iC
 iC
 dK
-MM
+gA
 iH
 gA
 hZ

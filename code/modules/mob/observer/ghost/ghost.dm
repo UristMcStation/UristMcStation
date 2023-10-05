@@ -293,6 +293,14 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(!fh.show_entry()) return
 	start_following(fh.followed_instance)
 
+/mob/observer/ghost/verb/follow_player(mob/living/player in GLOB.living_players)
+	set category = "Ghost"
+	set name = "Follow Player"
+	set desc = "Follow and haunt an active player."
+
+	if(player)
+		start_following(player)
+
 /mob/observer/ghost/proc/ghost_to_turf(turf/target_turf)
 	if(check_is_holy_turf(target_turf))
 		to_chat(src, SPAN_WARNING("The target location is holy grounds!"))

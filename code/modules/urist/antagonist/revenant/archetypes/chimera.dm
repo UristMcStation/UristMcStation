@@ -210,7 +210,7 @@
 		BSR_FLAVOR_FLESH,
 		BSR_FLAVOR_SCIFI,
 	)
-	activate_message = "<span class='notice'>You have an uncanny healing factor. You can heal minor damage and even stop bleeding - all at the low low price of just a little bit of damage to the local laws of physics.</span>"
+	activate_message = "<span class='notice'>You have an uncanny healing factor. You can replenish your blood and regenerate organs - all at the low low price of just a little bit of damage to the local laws of physics.</span>"
 	name = "Fleshmend"
 	isVerb = TRUE
 	verbpath = /mob/proc/bsrevenant_incremental_regen
@@ -331,6 +331,7 @@
 		BSR_FLAVOR_PLAGUE
 	)
 	name = "DISTORTION - Bloody Mess"
+	distortion_threshold = 24000 // 20 mins
 
 
 /datum/power/revenant/distortion/bloodymess/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)

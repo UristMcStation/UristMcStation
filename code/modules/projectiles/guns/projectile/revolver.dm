@@ -66,9 +66,8 @@
 
 /obj/item/gun/projectile/revolver/medium
 	name = "revolver"
-	icon = 'icons/obj/guns/revolvers.dmi'
-	icon_state = "medium"
-	safety_icon = "medium_safety"
+	icon_state = "detective"
+	safety_icon = "detective_safety"
 	caliber = CALIBER_PISTOL
 	ammo_type = /obj/item/ammo_casing/pistol
 	desc = "The Lumoco Arms' Solid is a rugged revolver for people who don't keep their guns well-maintained."

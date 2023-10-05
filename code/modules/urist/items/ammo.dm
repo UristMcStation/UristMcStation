@@ -1,67 +1,57 @@
 /obj/item/ammo_magazine/pistol/rubber
-	name = "magazine (10mm, rubber)"
 	ammo_type = /obj/item/ammo_casing/pistol/rubber
 
 /obj/item/ammo_magazine/pistol/flash
-	name = "magazine (10mm, flash)"
 	ammo_type = /obj/item/ammo_casing/pistol/flash
 
 /obj/item/ammo_magazine/rifle/military/rubber
-	name = "magazine (7.62mm, rubber)"
 	ammo_type = /obj/item/ammo_casing/rifle/military/rubber
 
 /obj/item/ammo_magazine/rifle/military/flash
-	name = "magazine (7.62mm, flash)"
 	ammo_type = /obj/item/ammo_casing/rifle/military/flash
 
 /obj/item/ammo_magazine/rifle/rubber
-	name = "magazine (5.56mm, rubber)"
-	ammo_type = /obj/item/projectile/bullet/rifle/rubber
+	ammo_type = /obj/item/ammo_casing/rifle/rubber
 
 /obj/item/ammo_magazine/rifle/flash
-	name = "magazine (5.56mm, flash)"
 	ammo_type = /obj/item/ammo_casing/rifle/flash
 
 /obj/item/ammo_casing/pistol/rubber
-	desc = "A 10mm rubber bullet casing."
+	desc = "A rubber bullet casing."
 	projectile_type = /obj/item/projectile/bullet/pistol/rubber
 
 /obj/item/ammo_casing/pistol/flash
-	desc = "A 10mm flash shell casing."
+	desc = "A flash shell casing."
 	projectile_type = /obj/item/projectile/energy/flash
 
 /obj/item/ammo_casing/rifle/flash
-	desc = "A 7.62mm flash shell casing."
+	desc = "A flash shell casing."
 	projectile_type = /obj/item/projectile/energy/flash
 
 /obj/item/ammo_casing/rifle/rubber
-	desc = "A 7.62mm rubber bullet casing."
+	desc = "A rubber bullet casing."
 	projectile_type = /obj/item/projectile/bullet/rifle/rubber
 
 /obj/item/ammo_casing/rifle/military/flash
-	desc = "A 5.56mm flash shell casing."
+	desc = "A flash shell casing."
 	projectile_type = /obj/item/projectile/energy/flash
 
 /obj/item/ammo_casing/rifle/military/rubber
-	desc = "A 5.56mm rubber bullet casing."
+	desc = "A rubber bullet casing."
 	projectile_type = /obj/item/projectile/bullet/rifle/military/rubber
 
-/obj/item/ammo_magazine/pistol/rubber
-	ammo_type = /obj/item/ammo_casing/pistol/small/rubber
-
 /obj/item/ammo_magazine/hi2521smg9mm/rubber
-	name = "HI-2521-SMG magazine (9mm, rubber)"
+	name = "HI-2521-SMG magazine (rubber)"
 	ammo_type = /obj/item/ammo_casing/pistol/small/rubber
 
 /obj/item/ammo_magazine/a50
-	name = "magazine (.50)"
 	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "50ae"
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
 	caliber = CALIBER_PISTOL_MAGNUM
 	matter = list(MATERIAL_STEEL = 1680)
-	ammo_type = /obj/item/ammo_casing/a50
+	ammo_type = /obj/item/ammo_casing/pistol/magnum
 	max_ammo = 7
 	multiple_sprites = 1
 
@@ -69,12 +59,11 @@
 	initial_ammo = 0
 
 /obj/item/ammo_magazine/a75
-	name = "ammo magazine (20mm)"
 	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "20mm"
 	mag_type = MAGAZINE
-	caliber = CALIBER_PISTOL_MAGNUM
-	ammo_type = /obj/item/ammo_casing/a75
+	caliber = CALIBER_GYROJET
+	ammo_type = /obj/item/ammo_casing/gyrojet
 	multiple_sprites = 1
 	max_ammo = 4
 
@@ -163,8 +152,7 @@
 	initial_ammo = 0
 
 /obj/item/ammo_casing/a75
-	desc = "A 20mm bullet casing."
-	caliber = "75"
+	caliber = CALIBER_GYROJET
 	projectile_type = /obj/item/projectile/bullet/gyro
 	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "lcasing"

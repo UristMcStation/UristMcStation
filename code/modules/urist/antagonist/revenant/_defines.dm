@@ -27,6 +27,7 @@
 # define BSR_FLAVOR_VAMPIRE "vampire"
 // You know who to blame for this...
 # define BSR_FLAVOR_DENTIST "dentist"
+// note for the future: Psi flavour
 
 # define BSR_ALL_FLAVORS_LIST list(BSR_FLAVOR_BLUESPACE, BSR_FLAVOR_CHIMERA, BSR_FLAVOR_OCCULT, BSR_FLAVOR_DEMONIC, BSR_FLAVOR_VAMPIRE)
 
@@ -34,8 +35,8 @@
 # define TRACKER_KEY_WARDS "wards"
 
 // const-ey things
-# define BSR_DEFAULT_MAXPERC_PER_TURF 10
-# define BSR_DEFAULT_HALFWAY_PER_TURF 200
+# define BSR_DEFAULT_MAXPERC_PER_TURF 5
+# define BSR_DEFAULT_HALFWAY_PER_TURF 500
 # define BSR_DEFAULT_DISTORTION_PER_TICK 100
 # define BSR_DEFAULT_DECISECONDS_PER_TICK 50 // 5 seconds
 

@@ -127,6 +127,8 @@
 			if(direct == DOWN && !HasBelow(z))
 				return FALSE
 			setLoc(step)
+			if(direct == UP || direct == DOWN)	//without this, AI will go up/down multiple zs at a time when fast
+				break
 
 	cooldown = world.time + 5
 	if(acceleration)

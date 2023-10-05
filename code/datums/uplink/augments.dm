@@ -10,14 +10,14 @@
 	desc = "This flexible air sack housed in your torso slowly fills with safe air as you breathe, and can be used as a low-capacity internals source if nothing else is available. \
 	It will automatically filter out the safest air for your species. It has been configured to be undetectable on body scanners. \
 	NOTE: This augment is incompatible with synthetic biologies."
-	item_cost = 24
+	item_cost = 20
 	path = /obj/item/device/augment_implanter/internal_air_system
 
 /datum/uplink_item/item/augment/aug_adaptive_binoculars
 	name = "Adaptive Binoculars CBM (head)"
 	desc = "A pair of ultrathin lenses can be deployed or retracted at will from your eye sockets. They have powerful zoom capabilities, allowing you to see into the distance. \
 	They have been configured to be undetectable on body scanners."
-	item_cost = 30
+	item_cost = 16
 	path = /obj/item/device/augment_implanter/adaptive_binoculars
 
 /datum/uplink_item/item/augment/aug_iatric_monitor
@@ -25,7 +25,7 @@
 	desc = "A small computer system attached to the brain stem that monitors your life signs. It has been configured to be undetectable on body scanners. \
 	It can be activated to gain a simple readout of your current physical state that can be understood regardless of your medical skill. \
 	NOTE: This augment is incompatible with synthetic biologies."
-	item_cost = 20
+	item_cost = 12
 	path = /obj/item/device/augment_implanter/iatric_monitor
 
 /datum/uplink_item/item/augment/aug_wrist_blade

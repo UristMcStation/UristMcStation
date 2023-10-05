@@ -10,6 +10,7 @@
 	boss_short    = "Centcomm"
 	company_name  = "NanoTrasen"
 	company_short = "NT"
+	ert_context = "NanoTrasen"
 
 	current_lobby_screen = 'maps/glloydstation/glloydstation_lobby.dmi'
 

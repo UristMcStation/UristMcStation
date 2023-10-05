@@ -33,6 +33,8 @@
 /turf/simulated/floor/planet/update_air_properties() //No, you can't flood the jungle with phoron silly.
 	return
 
+/turf/simulated/floor/planet/can_engrave()
+	return FALSE
 
 /turf/simulated/floor/planet/Initialize()
 	var/bushes = FALSE

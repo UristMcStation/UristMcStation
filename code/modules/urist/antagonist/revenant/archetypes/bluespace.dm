@@ -278,6 +278,7 @@ Proc needs to be fixed, it fails to locate a dest
 		BSR_FLAVOR_BLUESPACE
 	)
 	name = "DISTORTION: Techbane"
+	distortion_threshold = 24000
 
 
 /datum/power/revenant/distortion/techbane/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
@@ -384,11 +385,16 @@ Proc needs to be fixed, it fails to locate a dest
 	// We need to do this a funny way or we can EAT OUR OWN ORGANS :^)
 	var/list/searchspace = (orange(1) + (get_turf(src))?.contents)
 	var/list/targets = list()
+	var/list/value_lookup = list()
 
 	for(var/obj/O in searchspace)
-		var/datum/trade_item/tradable = SStrade_controller?.trade_items_by_type?[O.type]
-		if(istype(tradable) && tradable.value > 0)
+		if(O.anchored)
+			continue
+
+		var/tradeval = O.Value()
+		if(tradeval)
 			targets.Add(O)
+			value_lookup[O] = tradeval
 
 	if(!(targets.len))
 		to_chat(src, SPAN_NOTICE("No valuable items nearby."))
@@ -401,18 +407,18 @@ Proc needs to be fixed, it fails to locate a dest
 	if(!istype(target))
 		target = input("Select target:", "Target") as null|anything in targets
 
-	var/datum/trade_item/trade_data = SStrade_controller?.trade_items_by_type?[target.type]
-	if(!istype(trade_data))
-		to_chat(src, SPAN_DANGER("Something's gone wrong with the trade controller lookup - please notify coders/admins!"))
+	var/trade_value = value_lookup[target]
+	if(isnull(trade_value))
+		to_chat(src, SPAN_DANGER("Something's gone wrong with the trade value lookup - please notify coders/admins!"))
 		return
 
 	// Since this is a more stealthable Hunger, this should be fairly inefficient
-	var/suppression_factor = (config?.bluespace_revenant_wealtheater_suppression_factor || 3)
+	var/suppression_factor = (config?.bluespace_revenant_wealtheater_suppression_factor || 1)
 	var/suppression_per_unit = BSR_DISTORTION_GROWTH_OVER_DECISECONDS(suppression_factor, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK)
 
 	var/removed = FALSE
 	var/added_suppression = 0
-	var/available_amt = trade_data.value
+	var/available_amt = trade_value
 	var/consume_amt = max(0, available_amt)
 
 	if(consume_amt > 0)
@@ -451,7 +457,7 @@ Proc needs to be fixed, it fails to locate a dest
 		BSR_FLAVOR_DENTIST,
 		BSR_FLAVOR_GENERIC
 	)
-	activate_message = ("<span class='notice'>You hunger for wealth. Literally. You can consume valuables in exchange for stabilizing you in reality. Somehow, this bypasses your stomach.</span>")
+	activate_message = "<span class='notice'>You hunger for wealth. Literally. You can consume valuables in exchange for stabilizing you in reality. Somehow, this bypasses your stomach.</span>"
 	name = "Equivalent Exchange"
 	isVerb = TRUE
 	verbpath = /mob/proc/revenant_goldeater
