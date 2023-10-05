@@ -46,6 +46,9 @@
 /datum/trade_category/organs
 	name = "organs"
 
+/datum/trade_category/stock_parts
+	name = "components"
+
 //contracts
 
 /datum/trade_category/ntsciencecontract
@@ -62,4 +65,3 @@
 
 /datum/trade_category/ntkitchencontract
 	name = "ntkitchencontract"
-
