@@ -113,7 +113,7 @@
 		p.ai_holder.react_to_attack(attacker)
 
 /mob/living/simple_animal/passive/npc/proc/can_use(mob/M)
-	if(M.stat || M.restrained() || M.lying || !istype(M, /mob/living) || get_dist(M, src) > 1)
+	if(!istype(M, /mob/living) || M.stat || M.restrained() || M.lying || get_dist(M, src) > 1)
 		return 0
 	return 1
 

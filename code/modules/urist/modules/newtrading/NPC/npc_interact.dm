@@ -12,7 +12,7 @@
 		interacting_mob = null
 		return
 
-	if(!(user && istype(user) && can_use(user)))
+	if(!can_use(user))
 		return
 
 	if(interacting_mob && !can_use(interacting_mob))
