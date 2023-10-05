@@ -2951,6 +2951,10 @@
 "ux" = (
 /obj/structure/table/steel_reinforced/dark,
 /obj/item/material/kitchen/utensil/spork/silver,
+/obj/machinery/light/coldtint{
+	dir = 8;
+	icon_state = "tube_map"
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/crystaldrugs/bacchus/dorms)
 "uB" = (
@@ -3079,6 +3083,10 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/docking)
+"vt" = (
+/obj/effect/away_variety_loader/crystaldrugs,
+/turf/space,
+/area/space)
 "vA" = (
 /obj/item/stool/wood,
 /turf/simulated/floor/wood/maple,
@@ -5278,10 +5286,6 @@
 "KQ" = (
 /obj/structure/table/steel_reinforced/dark,
 /obj/item/reagent_containers/food/snacks/slice/pumpkinpie,
-/obj/machinery/light/coldtint{
-	dir = 8;
-	icon_state = "tube_map"
-	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/crystaldrugs/bacchus/dorms)
 "KT" = (
@@ -6124,10 +6128,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
-"QF" = (
-/obj/effect/away_variety_loader/crystaldrugs,
-/turf/space,
-/area/space)
 "QO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -7548,7 +7548,7 @@ nU
 nU
 nU
 nU
-QF
+vt
 "}
 (2,1,1) = {"
 nU
