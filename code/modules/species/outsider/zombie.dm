@@ -114,16 +114,21 @@ GLOBAL_LIST_INIT(zombie_species, list(\
 	H.move_intent.move_delay = 6
 	H.stat = CONSCIOUS
 
+	/*
+	// WTF Bay, why did you decide to DELETE items from zombified people instead of dropping???
 	if (H.wear_id)
 		qdel(H.wear_id)
 	if (H.gloves)
 		qdel(H.gloves)
+	*/
 	if (H.head)
-		qdel(H.head) //Remove helmet so headshots aren't impossible
+		H.remove_from_mob(H.head) //Remove helmet so headshots aren't impossible
+	/*
 	if (H.glasses)
 		qdel(H.glasses)
+	*/
 	if (H.wear_mask)
-		qdel(H.wear_mask)
+		H.remove_from_mob(H.wear_mask) //Remove mask so that we can bite
 	..()
 
 /datum/species/zombie/handle_environment_special(mob/living/carbon/human/H)
@@ -345,6 +350,8 @@ GLOBAL_LIST_INIT(zombie_species, list(\
 		M.bodytemperature += 7.5
 		if (prob(3))
 			to_chat(M, SPAN_WARNING(FONT_NORMAL(pick(GLOB.zombie_messages["stage1"]))))
+		if (M.getBrainLoss() < 20)
+			M.adjustBrainLoss(rand(1, 2))
 
 	if (true_dose >= 90)
 		M.add_chemical_effect(CE_MIND, -2)
