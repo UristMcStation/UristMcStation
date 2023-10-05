@@ -1576,10 +1576,6 @@
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
-"kQ" = (
-/mob/living/simple_animal/passive/npc/colonist/trader/components_trader,
-/turf/simulated/floor/tiled,
-/area/spacestations/nanotrasenspace)
 "kR" = (
 /obj/effect/floor_decal/ntlogo{
 	icon_state = "ntlogo";
@@ -2617,13 +2613,6 @@
 	color = "#cccccc"
 	},
 /area/spacestations/ntminingshuttle/start)
-"QO" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/mob/living/simple_animal/passive/npc/colonist/trader/components_trader,
-/turf/simulated/floor/tiled,
-/area/spacestations/nanotrasenspace)
 "QZ" = (
 /obj/effect/floor_decal/ntlogo{
 	icon_state = "ntlogo";
@@ -6419,11 +6408,11 @@ ad
 pO
 xl
 lh
-kQ
-kQ
-QO
-kQ
-kQ
+aL
+aL
+dm
+aL
+aL
 xl
 lh
 pO
