@@ -97,6 +97,11 @@
 			)
 			return
 
+	if(istype(victim, /mob/living/simple_animal))
+		var/mob/living/simple_animal/animal = victim
+		if(animal.can_escape)
+			return
+
 	victim.visible_message(
 		SPAN_DANGER("Tendrils lash out from \the [src] and drag \the [victim] in!"),
 		SPAN_DANGER("Tendrils lash out from \the [src] and drag you in!"))

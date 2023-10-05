@@ -220,11 +220,18 @@
 	icon = 'icons/urist/items/vehicle_parts.dmi'
 	w_class = 3
 
-/obj/item/vehicle_part/random/Initialize()
-	. = ..()
-	var/part = pick(/obj/item/vehicle_part/battery, /obj/item/vehicle_part/transmission, /obj/item/engine/thermal, /obj/item/engine/electric, /obj/item/vehicle_part/tire)
-	new part(src.loc)
-	return INITIALIZE_HINT_QDEL
+/obj/random/vehicle_part
+	name = "vehicle part"
+	desc = "This is a random vehicle part."
+	icon = 'icons/urist/items/vehicle_parts.dmi'
+	icon_state = "plating"
+
+/obj/random/vehicle_part/spawn_choices()
+	return list(/obj/item/vehicle_part/battery,
+				/obj/item/vehicle_part/transmission,
+				/obj/item/engine/thermal,
+				/obj/item/engine/electric,
+				/obj/item/vehicle_part/tire)
 
 /obj/item/vehicle_part/battery
 	name = "battery"

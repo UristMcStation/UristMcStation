@@ -26,7 +26,7 @@
 	status_flags = CANPUSH
 	minbodytemp = 0
 	heat_damage_per_tick = 20
-	can_escape = 1
+	can_escape = TRUE
 
 
 /mob/living/simple_animal/hostile/alien/drone
@@ -36,7 +36,6 @@
 	icon_dead = "aliend_dead"
 	health = 60
 	natural_weapon = /obj/item/natural_weapon/claws
-	can_escape = 0
 
 /mob/living/simple_animal/hostile/alien/sentinel
 	name = "alien sentinel"
@@ -48,8 +47,6 @@
 	ranged = 1
 	projectiletype = /obj/item/projectile/neurotox
 	projectilesound = 'sound/weapons/pierce.ogg'
-	can_escape = 0
-
 
 /mob/living/simple_animal/hostile/alien/queen
 	name = "alien queen"

@@ -44,9 +44,7 @@
 	icon_state = "necro_s"
 	icon_living = "necro_s"
 	icon_dead = "necro_d"
-	var/will_help = 0
-	var/can_heal = 0
-	var/will_flee = 0
+	can_escape = TRUE
 
 /*/mob/living/simple_animal/hostile/scom/death(gibbed, deathmessage, show_dead_message)
 	if(diesnormally)
@@ -95,7 +93,6 @@
 			return*/
 
 /mob/living/simple_animal/hostile/scom/lactera
-	will_help = 1
 	natural_weapon = /obj/item/natural_weapon/claws
 	ranged = 1
 	projectilesound = 'sound/weapons/laser.ogg'
@@ -108,7 +105,6 @@
 	speak_chance = 0
 
 /mob/living/simple_animal/hostile/scom/lactera/light
-	will_flee = 1
 	maxHealth = 60
 	health = 60
 	icon_state = "xeno-troop"
@@ -165,7 +161,6 @@
 	rapid = 1
 
 /mob/living/simple_animal/hostile/scom/lactera/medic
-	can_heal = 1
 	icon_state = "xeno-medic"
 	name = "Lactera Medic"
 	projectiletype = /obj/item/projectile/beam/scom/alien1

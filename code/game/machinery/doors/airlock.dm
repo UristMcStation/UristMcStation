@@ -348,6 +348,7 @@
 	airlock_type = "centcomm"
 	name = "\improper Airlock"
 	icon = 'icons/obj/doors/centcomm/door.dmi'
+	icon_state = "closed"
 	fill_file = 'icons/obj/doors/centcomm/fill_steel.dmi'
 
 /obj/machinery/door/airlock/highsecurity
