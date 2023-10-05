@@ -7,23 +7,29 @@
 	attack_hand(usr)
 
 /mob/living/simple_animal/passive/npc/attack_hand(mob/living/user)
-	if(user && istype(user) && can_use(user))
+	if(src.stat != CONSCIOUS)
+		to_chat(user, "[src] doesn't look like he's in any shape to trade right now...")
+		interacting_mob = null
+		return
 
-		if(interacting_mob && !can_use(interacting_mob))
-			interacting_mob = null
+	if(!can_use(user))
+		return
 
-		if(interacting_mob && interacting_mob != user)
-			to_chat(user, "[src] is already dealing with [interacting_mob]!")
+	if(interacting_mob && !can_use(interacting_mob))
+		interacting_mob = null
 
-		else
-			current_greeting_index = rand(1, length(greetings))
-			say(greetings[current_greeting_index])
-			ai_holder.speak_chance = 0
+	if(interacting_mob && interacting_mob != user)
+		to_chat(user, "[src] is already dealing with [interacting_mob]!")
+		return
 
-			add_fingerprint(user)
-			user.set_machine(src)
-			interacting_mob = user
-			ui_interact(user)
+	current_greeting_index = rand(1, length(greetings))
+	say(greetings[current_greeting_index])
+	ai_holder.speak_chance = 0
+
+	add_fingerprint(user)
+	user.set_machine(src)
+	interacting_mob = user
+	ui_interact(user)
 
 /mob/living/simple_animal/passive/npc/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, var/force_open = 1)
 
