@@ -56,6 +56,7 @@
 
 /datum/ai_holder/simple_animal/humanoid/police
 	hostile = FALSE
+	retaliate = TRUE
 	pointblank = TRUE
 
 /datum/say_list/police
