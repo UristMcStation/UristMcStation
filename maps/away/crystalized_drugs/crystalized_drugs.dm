@@ -61,3 +61,7 @@
 
 /area/crystaldrugs/bacchus/engine
 	name = "\improper ITV Bacchus Engine Compartment"
+
+/obj/effect/away_variety_loader/crystaldrugs
+	weighted_templates = list('crystalized_drugs_active.dmm','crystalized_drugs_psycho.dmm')
+	away_name = "Crystalized Drugs"
