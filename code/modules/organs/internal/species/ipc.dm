@@ -14,9 +14,9 @@
 	throw_range = 5
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 4, TECH_BLUESPACE = 2, TECH_DATA = 4)
 	attack_verb = list("attacked", "slapped", "whacked")
-	max_damage = 90
-	min_bruised_damage = 30
-	min_broken_damage = 60
+	max_damage = 40
+	min_bruised_damage = 10
+	min_broken_damage = 30
 	relative_size = 60
 
 	var/mob/living/silicon/sil_brainmob/brainmob = null
@@ -281,15 +281,11 @@
 
 /obj/item/organ/internal/posibrain/die()
 	damage = max_damage
-	status |= ORGAN_DEAD
+	status |= ORGAN_BROKEN
 	STOP_PROCESSING(SSobj, src)
 	death_time = world.time
-	var/mob/self = owner || brainmob
-	if (self && self.mind)
-		self.visible_message("\The [self] unceremoniously falls lifeless.")
-		var/mob/observer/ghost/G = self.ghostize(FALSE)
-		if (G) // In case of aghosts or keyless mobs
-			G.timeofdeath = world.time
+	if((status & ORGAN_BROKEN) && dead_icon)
+		icon_state = dead_icon
 
 /*
 	This is for law stuff directly. This is how a human mob will be able to communicate with the posi_brainmob in the
