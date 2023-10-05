@@ -336,7 +336,7 @@
 
 /obj/structure/salvageable/console_os
 	name = "pristine console"
-	desc = "Despite being in pristine condition this console doesn't respond to anything, but looks like you can still salvage something from this."
+	desc = "Despite being in pristine condition this console doesn't respond to anything, but it looks like you can still salvage something from this."
 	icon_state = "os_console"
 	salvageable_parts = list(
 		/obj/item/stack/cable_coil{amount = 5} = 90,
