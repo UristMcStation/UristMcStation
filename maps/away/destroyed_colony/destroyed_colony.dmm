@@ -5095,6 +5095,17 @@
 	icon_state = "horizontalinnermain1"
 	},
 /area/planet/destroyed_colony)
+"rc" = (
+/obj/machinery/power/apc{
+	cell_type = /obj/item/cell/infinite;
+	dir = 1;
+	name = "north bump";
+	pixel_x = 0;
+	pixel_y = 24;
+	req_access = list("ACCESS_CENT_SPECOPS")
+	},
+/turf/simulated/floor/plating,
+/area/planet/destroyed_colony/transmitter)
 "rd" = (
 /obj/structure/table/rack,
 /obj/item/clothing/head/helmet/urist/terran/tdfhelmet,
@@ -5166,14 +5177,6 @@
 	},
 /area/planet/destroyed_colony)
 "rp" = (
-/obj/machinery/power/apc{
-	cell_type = /obj/item/cell/infinite;
-	dir = 1;
-	name = "north bump";
-	pixel_x = 0;
-	pixel_y = 24;
-	req_access = list("ACCESS_MERCHANT")
-	},
 /turf/simulated/floor/plating,
 /area/planet/destroyed_colony/transmitter)
 "rq" = (
@@ -5189,14 +5192,6 @@
 /area/planet/destroyed_colony)
 
 (1,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -5441,14 +5436,6 @@ aK
 aK
 jJ
 aa
-aa
-aa
-aa
-aa
-rn
-rn
-rn
-aa
 "}
 (3,1,1) = {"
 aa
@@ -5571,14 +5558,6 @@ aK
 aK
 aK
 aK
-aa
-aa
-aa
-aa
-aa
-rn
-rp
-rn
 aa
 "}
 (4,1,1) = {"
@@ -5703,14 +5682,6 @@ lg
 lg
 lg
 aa
-aa
-aa
-aa
-aa
-rn
-rn
-rn
-aa
 "}
 (5,1,1) = {"
 aa
@@ -5833,14 +5804,6 @@ lh
 lh
 lh
 lh
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (6,1,1) = {"
@@ -5965,14 +5928,6 @@ aK
 aK
 aK
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (7,1,1) = {"
 aa
@@ -6096,14 +6051,6 @@ iz
 iz
 iz
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (8,1,1) = {"
 aa
@@ -6222,18 +6169,10 @@ iz
 iz
 iz
 iz
-iz
-iz
-iz
-iz
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+rn
+rn
+rn
+rn
 aa
 "}
 (9,1,1) = {"
@@ -6353,18 +6292,10 @@ iP
 iP
 iP
 iP
-iz
-iP
+rn
+rc
 rl
-iz
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+rn
 aa
 "}
 (10,1,1) = {"
@@ -6484,18 +6415,10 @@ iP
 iP
 js
 iP
-iz
-iP
-iP
-iz
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+rn
+rp
+rp
+rn
 aa
 "}
 (11,1,1) = {"
@@ -6620,14 +6543,6 @@ kb
 iz
 iz
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (12,1,1) = {"
 aa
@@ -6750,14 +6665,6 @@ jR
 iP
 iP
 iz
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (13,1,1) = {"
@@ -6882,14 +6789,6 @@ iP
 iP
 iz
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (14,1,1) = {"
 aa
@@ -7012,14 +6911,6 @@ iP
 jV
 iP
 iz
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (15,1,1) = {"
@@ -7144,14 +7035,6 @@ iP
 iP
 iz
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (16,1,1) = {"
 aa
@@ -7274,14 +7157,6 @@ js
 ju
 iP
 iz
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (17,1,1) = {"
@@ -7406,14 +7281,6 @@ iP
 iP
 iz
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (18,1,1) = {"
 aa
@@ -7536,14 +7403,6 @@ aW
 jl
 jl
 iz
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (19,1,1) = {"
@@ -7668,14 +7527,6 @@ bE
 bE
 iz
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (20,1,1) = {"
 aa
@@ -7798,14 +7649,6 @@ bE
 jS
 bE
 iz
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (21,1,1) = {"
@@ -7930,14 +7773,6 @@ iz
 iz
 iz
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (22,1,1) = {"
 aa
@@ -8060,14 +7895,6 @@ bE
 mm
 jF
 iz
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (23,1,1) = {"
@@ -8192,14 +8019,6 @@ jv
 bE
 iz
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (24,1,1) = {"
 aa
@@ -8322,14 +8141,6 @@ bN
 fh
 lR
 iz
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (25,1,1) = {"
@@ -8454,14 +8265,6 @@ od
 oh
 iz
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (26,1,1) = {"
 aa
@@ -8584,14 +8387,6 @@ bE
 jw
 bE
 iz
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (27,1,1) = {"
@@ -8716,14 +8511,6 @@ bE
 jv
 iz
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (28,1,1) = {"
 aa
@@ -8846,14 +8633,6 @@ co
 oe
 oi
 iz
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (29,1,1) = {"
@@ -8978,14 +8757,6 @@ bN
 bE
 iz
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (30,1,1) = {"
 aa
@@ -9108,14 +8879,6 @@ fj
 fj
 fj
 iz
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (31,1,1) = {"
@@ -9240,14 +9003,6 @@ aS
 iz
 iz
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (32,1,1) = {"
 aa
@@ -9370,14 +9125,6 @@ bE
 fj
 bG
 bu
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (33,1,1) = {"
@@ -9502,14 +9249,6 @@ fh
 bG
 bu
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (34,1,1) = {"
 aa
@@ -9632,14 +9371,6 @@ bE
 fh
 nd
 bu
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (35,1,1) = {"
@@ -9764,14 +9495,6 @@ fh
 bG
 bu
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (36,1,1) = {"
 aa
@@ -9894,14 +9617,6 @@ bE
 fj
 bG
 bu
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (37,1,1) = {"
@@ -10026,14 +9741,6 @@ aS
 iz
 bu
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (38,1,1) = {"
 aa
@@ -10156,14 +9863,6 @@ jl
 jl
 iz
 bu
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (39,1,1) = {"
@@ -10288,14 +9987,6 @@ jl
 iz
 bu
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (40,1,1) = {"
 aa
@@ -10418,14 +10109,6 @@ jA
 jl
 iz
 bu
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (41,1,1) = {"
@@ -10550,14 +10233,6 @@ jl
 iz
 bu
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (42,1,1) = {"
 aa
@@ -10680,14 +10355,6 @@ js
 jl
 iz
 bu
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (43,1,1) = {"
@@ -10812,14 +10479,6 @@ jl
 iz
 bu
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (44,1,1) = {"
 aa
@@ -10942,14 +10601,6 @@ iP
 jl
 iz
 bu
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (45,1,1) = {"
@@ -11074,14 +10725,6 @@ jl
 iz
 bu
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (46,1,1) = {"
 aa
@@ -11204,14 +10847,6 @@ jl
 jl
 iz
 bu
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (47,1,1) = {"
@@ -11336,14 +10971,6 @@ iz
 iz
 bu
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (48,1,1) = {"
 aa
@@ -11466,14 +11093,6 @@ bE
 bE
 iz
 bu
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (49,1,1) = {"
@@ -11598,14 +11217,6 @@ bE
 iz
 bu
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (50,1,1) = {"
 aa
@@ -11728,14 +11339,6 @@ bE
 bE
 iz
 bu
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (51,1,1) = {"
@@ -11860,14 +11463,6 @@ of
 iz
 bu
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (52,1,1) = {"
 aa
@@ -11990,14 +11585,6 @@ qQ
 og
 iz
 bu
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (53,1,1) = {"
@@ -12122,14 +11709,6 @@ og
 iz
 bu
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (54,1,1) = {"
 aa
@@ -12252,14 +11831,6 @@ rh
 og
 iz
 bu
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (55,1,1) = {"
@@ -12384,14 +11955,6 @@ og
 iz
 bu
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (56,1,1) = {"
 aa
@@ -12514,14 +12077,6 @@ ri
 og
 iz
 bu
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (57,1,1) = {"
@@ -12646,14 +12201,6 @@ rj
 iz
 bu
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (58,1,1) = {"
 aa
@@ -12776,14 +12323,6 @@ iP
 rk
 iz
 bu
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (59,1,1) = {"
@@ -12908,14 +12447,6 @@ iz
 iz
 fL
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (60,1,1) = {"
 aa
@@ -13038,14 +12569,6 @@ ad
 aE
 gZ
 gw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (61,1,1) = {"
@@ -13170,14 +12693,6 @@ ni
 ha
 hi
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (62,1,1) = {"
 aa
@@ -13300,14 +12815,6 @@ af
 ad
 ad
 qI
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (63,1,1) = {"
@@ -13432,14 +12939,6 @@ af
 ni
 bs
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (64,1,1) = {"
 aa
@@ -13562,14 +13061,6 @@ af
 af
 ad
 hj
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (65,1,1) = {"
@@ -13694,14 +13185,6 @@ ad
 ad
 bs
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (66,1,1) = {"
 aa
@@ -13824,14 +13307,6 @@ ad
 ad
 ad
 bs
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (67,1,1) = {"
@@ -13956,14 +13431,6 @@ af
 ad
 bs
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (68,1,1) = {"
 aa
@@ -14086,14 +13553,6 @@ ad
 af
 ad
 bs
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (69,1,1) = {"
@@ -14218,14 +13677,6 @@ am
 ad
 bs
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (70,1,1) = {"
 aa
@@ -14348,14 +13799,6 @@ ad
 ad
 ad
 bs
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (71,1,1) = {"
@@ -14480,14 +13923,6 @@ ad
 ad
 bs
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (72,1,1) = {"
 aa
@@ -14610,14 +14045,6 @@ ad
 gF
 ad
 bs
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (73,1,1) = {"
@@ -14742,14 +14169,6 @@ ad
 hb
 oz
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (74,1,1) = {"
 aa
@@ -14872,14 +14291,6 @@ ad
 aD
 hc
 gw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (75,1,1) = {"
@@ -15004,14 +14415,6 @@ bs
 gw
 gw
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (76,1,1) = {"
 aa
@@ -15134,14 +14537,6 @@ ad
 bs
 gw
 gw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (77,1,1) = {"
@@ -15266,14 +14661,6 @@ bs
 oA
 gw
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (78,1,1) = {"
 aa
@@ -15396,14 +14783,6 @@ ae
 bs
 gw
 gw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (79,1,1) = {"
@@ -15528,14 +14907,6 @@ bs
 py
 gw
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (80,1,1) = {"
 aa
@@ -15658,14 +15029,6 @@ ad
 bs
 gw
 gw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (81,1,1) = {"
@@ -15790,14 +15153,6 @@ bs
 gX
 gX
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (82,1,1) = {"
 aa
@@ -15920,14 +15275,6 @@ ad
 eE
 gx
 gx
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (83,1,1) = {"
@@ -16052,14 +15399,6 @@ eF
 dj
 dr
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (84,1,1) = {"
 aa
@@ -16182,14 +15521,6 @@ ae
 eF
 dk
 ds
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (85,1,1) = {"
@@ -16314,14 +15645,6 @@ rm
 gx
 gx
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (86,1,1) = {"
 aa
@@ -16444,14 +15767,6 @@ ad
 bs
 gX
 gX
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (87,1,1) = {"
@@ -16576,14 +15891,6 @@ bs
 gw
 kd
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (88,1,1) = {"
 aa
@@ -16706,14 +16013,6 @@ ad
 bs
 gw
 gw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (89,1,1) = {"
@@ -16838,14 +16137,6 @@ bs
 gw
 gw
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (90,1,1) = {"
 aa
@@ -16968,14 +16259,6 @@ ad
 bs
 gw
 gw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 "}
 (91,1,1) = {"
@@ -17100,24 +16383,8 @@ bs
 gw
 gw
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 "}
 (92,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 aa
