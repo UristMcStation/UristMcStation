@@ -44,6 +44,10 @@ var/global/const/access_drug_smuggler = "ACCESS_DRUG_SMUGGLER"
 	else
 		to_chat(user, SPAN_WARNING("Invalid code!"))
 
+/obj/item/storage/pill_bottle/latrazine
+	name = "unmarked pill bottle"
+	startswith = list(/obj/item/reagent_containers/pill/latrazine = 10, /obj/item/reagent_containers/pill/happy = 4)
+
 /obj/structure/closet/smuggler
 	name = "suspicious locker"
 	desc = "Rusty, greasy old locker, smelling of cigarettes and cheap alcohol."
