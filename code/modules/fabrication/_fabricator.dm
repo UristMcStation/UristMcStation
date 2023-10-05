@@ -36,6 +36,11 @@
 		/material/glass =     12500,
 		/material/plastic =   12500,
 		/material/wood =      12500
+		/material/plasteel = 6000,
+		/material/silver = 6000,
+		/material/gold = 6000,
+		/material/uranium = 6000,
+		/material/diamond = 6000
 	)
 
 	var/show_category = "All"
