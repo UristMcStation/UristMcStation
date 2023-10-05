@@ -1,0 +1,24 @@
+# Docs - https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema
+name: Request Feature
+description: Submit a feature request
+labels: ["Request"]
+
+body:
+  - type: textarea
+    id: issue
+    attributes:
+      label: Describe the problem you're trying to solve
+      placeholder: Geese are kinda boring and not as threatening as they should be
+    validations:
+      required: true
+  - type: textarea
+    id: feature
+    attributes:
+      label: Describe the solution you'd like to see
+      description: |
+        Please provide a solution to the problem you've raised; going into as much detail as possible, and explaining your reasoning.
+
+        If you do not have a solution, you should [submit feedback](https://github.com/UristMcStation/UristMcStation/issues/new/choose) instead.
+      placeholder: Give geese the ability to hold guns.
+    validations:
+      required: true
