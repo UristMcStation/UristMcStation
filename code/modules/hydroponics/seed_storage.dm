@@ -48,6 +48,7 @@
 		/obj/item/seeds/coconutseed = 15,
 		/obj/item/seeds/coffeeseed = 15,
 		/obj/item/seeds/cornseed = 15,
+		/obj/item/seeds/cotton = 15,
 		/obj/item/seeds/crab = 5,
 		/obj/item/seeds/replicapod = 15,
 		/obj/item/seeds/eggplantseed = 15,

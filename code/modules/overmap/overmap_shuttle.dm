@@ -46,13 +46,6 @@
 	var/distance_mod = get_dist(waypoint_sector(current_location),waypoint_sector(next_location))
 	return move_time * (1 + distance_mod)
 
-/datum/shuttle/autodock/overmap/process_launch()
-	if(prob(10))
-		var/places = get_possible_destinations()
-		var/place = pick(places)
-		set_destination(places[place])
-	..()
-
 /datum/shuttle/autodock/overmap/proc/set_destination(obj/effect/shuttle_landmark/A)
 	if(A != current_location)
 		next_location = A

@@ -608,6 +608,7 @@
 	icon = 'icons/urist/items/misc.dmi'
 	icon_state = "oldcoin4"
 	default_material = MATERIAL_COPPER
+	applies_material_name = FALSE
 
 /obj/item/material/coin/challenge/loot/plat
 	name = "\improper old platinum coin"
@@ -615,6 +616,7 @@
 	icon = 'icons/urist/items/misc.dmi'
 	icon_state = "oldcoin1"
 	default_material = MATERIAL_PLATINUM
+	applies_material_name = FALSE
 
 /obj/item/material/coin/challenge/loot/gold
 	name = "\improper old gold coin"
@@ -622,6 +624,7 @@
 	icon = 'icons/urist/items/misc.dmi'
 	icon_state = "oldcoin2"
 	default_material = MATERIAL_GOLD
+	applies_material_name = FALSE
 
 /obj/item/material/coin/challenge/loot/silver
 	name = "\improper old silver coin"
@@ -629,6 +632,7 @@
 	icon = 'icons/urist/items/misc.dmi'
 	icon_state = "oldcoin3"
 	default_material = MATERIAL_SILVER
+	applies_material_name = FALSE
 
 /obj/item/treasure/gem
 	name = "astonishing amethyst"

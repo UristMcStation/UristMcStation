@@ -26,7 +26,8 @@
 		/obj/item/device/scanner/reagent,
 		/obj/item/reagent_containers/spray/luminol,
 		/obj/item/device/uv_light,
-		/obj/item/crowbar
+		/obj/item/crowbar,
+		/obj/item/device/camera
 	)
 	emag = /obj/item/gun/energy/laser/mounted
 	skills = list(

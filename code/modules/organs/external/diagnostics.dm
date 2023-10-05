@@ -182,7 +182,9 @@
 /singleton/diagnostic_sign/proc/manifested_in(obj/item/organ/external/victim)
 
 /singleton/diagnostic_sign/proc/get_description(mob/user)
-	descriptor += "<small><a href='?src=\ref[src];show_diagnostic_hint=1'>(?)</a></small>"
+	. = descriptor
+	. += "<small><a href='?src=\ref[src];show_diagnostic_hint=1'>(?)</a></small>"
+	return
 
 /singleton/diagnostic_sign/Topic(href, list/href_list)
 	. = ..()

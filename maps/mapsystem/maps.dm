@@ -59,6 +59,7 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	var/company_name  = "BadMan"
 	var/company_short = "BM"
 	var/system_name = "Uncharted System"
+	var/ert_context = "Nerds"
 
 	var/list/map_admin_faxes = list()
 
@@ -351,7 +352,7 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 
 
 /datum/map/proc/build_away_sites()
-#ifdef UNIT_TEST
+#if defined(UNIT_TEST) || defined(DEBUG_GENERATE_WORTHS)
 	report_progress("Unit testing, so not loading away sites")
 	return // don't build away sites during unit testing
 #else

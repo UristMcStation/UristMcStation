@@ -123,7 +123,7 @@
 
 	for(var/turf/simulated/T in block(startTurf, endTurf))
 		// Don't block stuff if this takes a while.
-		sleep(-1)
+		sleep(0)
 
 		// Let's only do simulated turfs for now - potentially less work & won't mess up eventey bits
 		if(!istype(T))

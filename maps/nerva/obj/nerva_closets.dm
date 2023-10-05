@@ -26,6 +26,7 @@
 		/obj/item/tank/jetpack/oxygen,
 		/obj/item/clothing/mask/gas,
 		/obj/item/device/radio/headset/heads/nerva_cap,
+		/obj/item/device/radio/headset/heads/nerva_cap/alt,
 		/obj/item/clothing/head/urist/beret/nervacap,
 		/obj/item/clothing/under/urist/nerva/capregular,
 		/obj/item/clothing/under/urist/nerva/capformal,
@@ -67,6 +68,7 @@
 		/obj/item/clothing/suit/armor/pcarrier/medium/nerva,
 		/obj/item/clothing/head/helmet,
 		/obj/item/device/radio/headset/heads/firstofficer,
+		/obj/item/device/radio/headset/heads/firstofficer/alt,
 		/obj/item/clothing/accessory/storage/holster/thigh,
 		/obj/item/clothing/under/urist/nerva/foregular,
 		/obj/item/clothing/head/urist/beret/nervafo,
@@ -107,6 +109,7 @@
 		/obj/item/clothing/suit/armor/pcarrier/light,
 		/obj/item/clothing/head/helmet,
 		/obj/item/device/radio/headset/heads/secondofficer,
+		/obj/item/device/radio/headset/heads/secondofficer/alt,
 		/obj/item/device/flash,
 		/obj/item/storage/box/large/ids,
 		/obj/item/storage/box/PDAs,
@@ -129,6 +132,7 @@
 		/obj/item/clothing/head/helmet,
 		/obj/item/clothing/accessory/armor_plate/medium,
 		/obj/item/device/radio/headset/nerva_sec,
+		/obj/item/device/radio/headset/nerva_sec/alt,
 		/obj/item/clothing/under/urist/nerva/secregular,
 		/obj/item/clothing/under/urist/nerva/secfield,
 		/obj/item/clothing/suit/storage/hooded/seccloak,
@@ -165,6 +169,7 @@
 		/obj/item/clothing/head/HoS/dermal,
 		/obj/item/clothing/head/helmet,
 		/obj/item/device/radio/headset/heads/nerva_cos,
+		/obj/item/device/radio/headset/heads/nerva_cos/alt,
 		/obj/item/clothing/suit/storage/hooded/seccloak,
 		/obj/item/clothing/glasses/hud/security/prot,
 		/obj/item/taperoll/police,
@@ -203,6 +208,7 @@
 		/obj/item/clothing/suit/storage/toggle/urist/science,
 		/obj/item/clothing/shoes/white,
 		/obj/item/device/radio/headset/nervananotrasen,
+		/obj/item/device/radio/headset/nervananotrasen/alt,
 		/obj/item/clothing/mask/gas,
 		/obj/item/material/clipboard,
 		/obj/item/folder,
@@ -246,6 +252,7 @@
 		/obj/item/clothing/shoes/leather,
 		/obj/item/clothing/gloves/latex,
 		/obj/item/device/radio/headset/heads/nerva_senior,
+		/obj/item/device/radio/headset/heads/nerva_senior/alt,
 		/obj/item/clothing/mask/gas,
 		/obj/item/device/flash,
 		/obj/item/material/clipboard,
@@ -266,6 +273,7 @@
 		/obj/item/clothing/under/urist/nerva/qm,
 		/obj/item/clothing/shoes/brown,
 		/obj/item/device/radio/headset/heads/nerva_qm,
+		/obj/item/device/radio/headset/heads/nerva_qm/alt,
 		/obj/item/clothing/gloves/thick,
 		/obj/item/clothing/suit/fire/firefighter,
 		/obj/item/tank/oxygen_emergency,
@@ -273,3 +281,40 @@
 		/obj/item/clothing/glasses/meson,
 		/obj/item/clothing/head/soft,
 	)
+
+/singleton/closet_appearance/secure_closet/nerva_guard
+	color = "#4f637d"
+	decals = list(
+		"lower_holes",
+		"upper_holes"
+	)
+	extra_decals = list(
+		"stripe_vertical_mid_partial" = COLOR_BLUE,
+	)
+
+/obj/structure/closet/secure_closet/nerva_guard
+	name = "bodyguard's locker"
+	req_access = list(access_blueshield)
+	closet_appearance = /singleton/closet_appearance/secure_closet/nerva_guard
+
+/obj/structure/closet/secure_closet/nerva_guard/New()
+	..()
+	sleep(2)
+	new	/obj/item/storage/firstaid/adv(src)
+	new /obj/item/storage/belt/holster/security(src)
+	new /obj/item/storage/belt/security(src)
+	new /obj/item/device/radio/headset/nerva_guard(src)
+	new /obj/item/device/radio/headset/nerva_guard/alt(src)
+	new /obj/item/grenade/flashbang(src)
+	new /obj/item/melee/baton/loaded(src)
+	new /obj/item/gun/energy/taser(src)
+	new /obj/item/clothing/accessory/storage/black_vest(src)
+	new /obj/item/clothing/accessory/storage/holster/waist(src)
+	new /obj/item/clothing/glasses/sunglasses(src)
+	new /obj/item/clothing/under/rank/centcom(src)
+	new /obj/item/device/flash(src)
+	new /obj/item/handcuffs(src)
+	new /obj/item/clothing/suit/storage/urist/coat/blueshield(src)
+	new /obj/item/clothing/suit/armor/pcarrier(src)
+	new /obj/item/clothing/accessory/armor_plate/medium(src)
+	return

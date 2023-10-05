@@ -74,14 +74,14 @@
 		if(I_HELP)
 			if(MUTATION_FERAL in M.mutations)
 				return 0
-			
+
 			# ifdef INCLUDE_URIST_CODE
 			if(urist_status_flags & STATUS_UNDEAD)
 				return 0
 			# endif
-			
+
 			if(H != src && istype(H) && (is_asystole() || (status_flags & FAKEDEATH) || failed_last_breath) && !(H.zone_sel.selecting == BP_R_ARM || H.zone_sel.selecting == BP_L_ARM))
-				
+
 				if (!cpr_time)
 					return 0
 
@@ -108,10 +108,10 @@
 						resuscitate()
 
 				if(!H.check_has_mouth())
-					to_chat(H, SPAN_WARNING("You don't have a mouth, you cannot do mouth-to-mouth resuscitation!"))
+					to_chat(H, SPAN_WARNING("You've done chest compressions, but you don't have a mouth to do mouth-to-mouth resuscitation!"))
 					return
 				if(!check_has_mouth())
-					to_chat(H, SPAN_WARNING("They don't have a mouth, you cannot do mouth-to-mouth resuscitation!"))
+					to_chat(H, SPAN_WARNING("You've done chest compressions, but they don't have a mouth to do mouth-to-mouth resuscitation!"))
 					return
 				if((H.head && (H.head.body_parts_covered & FACE)) || (H.wear_mask && (H.wear_mask.body_parts_covered & FACE)))
 					to_chat(H, SPAN_WARNING("You need to remove your mouth covering for mouth-to-mouth resuscitation!"))

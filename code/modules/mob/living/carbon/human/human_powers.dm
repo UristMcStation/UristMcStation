@@ -114,3 +114,23 @@
 		return
 	var/list/rgb = rgb2num(new_skin)
 	change_skin_color(rgb[1], rgb[2], rgb[3])
+
+//fbp verbs
+
+/mob/living/carbon/human/proc/eject_mmi()
+	set name = "Eject MMI"
+	set desc = "Eject your MMI from its prosthetic housing."
+	set category = "Abilities"
+	set src = usr
+	if(ishuman(usr))
+		eject_my_mmi(usr)
+
+/mob/living/carbon/human/proc/eject_my_mmi()
+	var/obj/item/organ/internal/mmi_holder/internalmmi = internal_organs_by_name[BP_BRAIN]
+	var/input = alert(usr, "Are you sure you want to eject your MMI?", "Safety Check", "Yes", "No")
+	if(input != "Yes")
+		return
+	internalmmi.removed()
+	internalmmi.transfer_and_delete()
+	usr.visible_message(SPAN_NOTICE("\The [usr] opens up, ejecting \his MMI."), SPAN_NOTICE("You eject your MMI."))
+	usr.verbs -= /mob/living/carbon/human/proc/eject_mmi

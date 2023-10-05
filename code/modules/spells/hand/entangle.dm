@@ -11,13 +11,13 @@
 	max_casts = 1
 
 	level_max = list(Sp_TOTAL = 2, Sp_SPEED = 2, Sp_POWER = 2)
-	cooldown_min = 300
-	duration = 30
+	cooldown_min = 30 SECONDS
+	duration = 3 SECONDS
 	compatible_targets = list(/mob)
 
 	hud_state = "wiz_entangle"
 	cast_sound = 'sound/magic/staff_door.ogg'
-	show_message = " points towards the ground, causing plants to erupt"
+	show_message = " points towards the ground, causing plants to erupt!"
 	var/datum/seed/seed
 
 /spell/hand/charges/entangle/New()
