@@ -23,6 +23,25 @@
 	interact_screen = 2
 
 
+//components trader
+
+/mob/living/simple_animal/passive/npc/colonist/trader/components_trader
+	name = "Components Trader"
+	npc_job_title = "Components Trader"
+	desc = "A human from one of Earth's diverse cultures. They are a trader who buys and sells machine parts for cash"
+	trade_categories_by_name = list("components")
+	suits = list(\
+		/obj/item/clothing/suit/apron/overalls\
+	)
+	jumpsuits = list(\
+		/obj/item/clothing/under/rank/miner,\
+		/obj/item/clothing/under/overalls\
+		)
+	hat_chance = 50
+	glove_chance = 50
+	interact_screen = 2
+
+
 //crop trader
 
 /mob/living/simple_animal/passive/npc/colonist/trader/crop_trader
