@@ -135,3 +135,25 @@
 	desc = "A card issued to the station's mime."
 	icon_state = "mime"
 	job_access_type = /datum/job/mime
+
+/singleton/hierarchy/outfit/job/glloydstation/ert
+	name = OUTFIT_JOB_NAME("ERT - Glloydstation")
+	uniform = /obj/item/clothing/under/syndicate/combat
+	head = /obj/item/clothing/head/beret/centcom/officer
+	gloves = /obj/item/clothing/gloves/thick
+	id_types = list(/obj/item/card/id/centcom/ERT)
+	pda_type = /obj/item/modular_computer/pda/ert
+	l_ear = /obj/item/device/radio/headset/ert
+	shoes = /obj/item/clothing/shoes/dutyboots
+
+/singleton/hierarchy/outfit/job/glloydstation/ert/leader
+	name = OUTFIT_JOB_NAME("ERT Leader - Glloydstation")
+	uniform = /obj/item/clothing/under/rank/centcom
+	head = /obj/item/clothing/head/beret/centcom/captain
+
+/singleton/hierarchy/outfit/job/glloydstation/ert/suit
+	name = OUTFIT_JOB_NAME("ERT Heavy - Glloydstation")
+	back = /obj/item/rig/ert/assetprotection
+	flags = OUTFIT_RESET_EQUIPMENT | OUTFIT_ADJUSTMENT_SKIP_BACKPACK
+	head = null
+	gloves = null

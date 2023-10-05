@@ -108,7 +108,7 @@
 		icon_state = "SVD-empty"
 
 /obj/item/ammo_magazine/rifle/military
-	name = "magazine (7.62mm)"
+	name = "rifle magazine"
 	icon_state = "7.62mm"
 	icon = 'icons/urist/items/guns.dmi'
 	origin_tech = "combat=2"
@@ -117,26 +117,16 @@
 	caliber = CALIBER_RIFLE_MILITARY
 
 /obj/item/ammo_magazine/rifle/military/sniper
-	name = "magazine (7.62mm)"
-	icon_state = "7.62mm"
-	icon = 'icons/urist/items/guns.dmi'
-	origin_tech = "combat=2"
-	ammo_type = /obj/item/ammo_casing/rifle/military/sniper
+	name = "ten-round rifle magazine"
+	ammo_type = /obj/item/ammo_casing/rifle/military
 	max_ammo = 10
-	mag_type = MAGAZINE
 	multiple_sprites = 1
-	caliber = CALIBER_RIFLE_MILITARY
 
 /obj/item/ammo_magazine/rifle/military/sniper/empty
-	name = "magazine (7.62mm)"
-	icon_state = "7.62mm"
-	icon = 'icons/urist/items/guns.dmi'
-	ammo_type = /obj/item/ammo_casing/rifle/military/sniper
-	mag_type = MAGAZINE
 	initial_ammo = 0
 
 /obj/item/ammo_casing/rifle/military/sniper
-	desc = "A 7.62mm bullet casing."
+	desc = "A military rifle bullet casing."
 	caliber = CALIBER_RIFLE_MILITARY
 	projectile_type = /obj/item/projectile/bullet/rifle/sniper
 

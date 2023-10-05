@@ -135,7 +135,7 @@
 	invocation = "Poli'crakata!"
 	invocation_type = SpI_SHOUT
 	spell_flags = INCLUDEUSER
-	range = -1
+	range = 0
 	duration = 150
 	charge_max = 600
 	cooldown_min = 300
@@ -151,7 +151,7 @@
 	invocation = "mutters something dark and twisted as their form begins to twist..."
 	invocation_type = SpI_EMOTE
 	spell_flags = INCLUDEUSER
-	range = -1
+	range = 0
 	duration = 150
 	charge_max = 1200
 	cooldown_min = 600
@@ -190,7 +190,7 @@
 	drop_items = 0
 	invocation_type = SpI_EMOTE
 	invocation = "'s body dissipates into a pale mass of light, then reshapes!"
-	range = -1
+	range = 0
 	spell_flags = INCLUDEUSER
 	duration = 0
 	charge_max = 2 MINUTES

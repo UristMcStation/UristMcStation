@@ -12,6 +12,7 @@
 	#include "nerva_unit_testing.dm"
 	#include "datums/nerva_jobs.dm"
 	#include "datums/nerva_access_datums.dm"
+	#include "datums/nerva_antagonism.dm"
 	#include "datums/nerva_outfits.dm"
 	#include "datums/nerva_supplypacks.dm"
 	#include "datums/nerva_objectives.dm"
