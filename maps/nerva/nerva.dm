@@ -59,7 +59,7 @@
 //	#include "../away/derelict/derelict.dm"
 	#include "../away/bearcat/bearcat.dm"
 	#include "../away/lost_supply_base/lost_supply_base.dm"
-	#include "../away/smugglers/smugglers.dm"
+	#include "../away/crystalized_drugs/crystalized_drugs.dm"
 	#include "../away/magshield/magshield.dm"
 	#include "../away/casino/casino.dm"
 	#include "../away/yacht/yacht.dm"
