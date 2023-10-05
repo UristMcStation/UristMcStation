@@ -209,12 +209,14 @@
 
 /turf/simulated/floor/tiled/white
 	name = "white floor"
-	icon_state = "white"
+	icon_state = "tiled_light"
+	color = COLOR_OFF_WHITE
 	initial_flooring = /singleton/flooring/tiling/white
 
 /turf/simulated/floor/tiled/white/monotile
 	name = "floor"
 	icon_state = "monotile_light"
+	color = COLOR_OFF_WHITE
 	initial_flooring = /singleton/flooring/tiling/mono/white
 
 /turf/simulated/floor/tiled/monofloor
