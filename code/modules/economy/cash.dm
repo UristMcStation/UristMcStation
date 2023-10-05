@@ -51,6 +51,7 @@
 	icon_state = "spacecash1"
 	desc = "They are worth 0 Thalers."
 	worth = 0
+	var/mapped = FALSE
 
 /obj/item/spacecash/bundle/Initialize()
 	. = ..()
@@ -74,14 +75,15 @@
 	overlays.Cut()
 	var/list/images = src.getMoneyImages()
 
-	for(var/A in images)
-		var/image/banknote = image('icons/obj/items.dmi', A)
-		banknote.SetTransform(
-			rotation = pick(-45, -27.5, 0, 0, 0, 0, 0, 0, 0, 27.5, 45),
-			offset_x = rand(-6, 6),
-			offset_y = rand(-4, 8)
-		)
-		src.overlays += banknote
+	if(!mapped)
+		for(var/A in images)
+			var/image/banknote = image('icons/obj/items.dmi', A)
+			banknote.SetTransform(
+				rotation = pick(-45, -27.5, 0, 0, 0, 0, 0, 0, 0, 27.5, 45),
+				offset_x = rand(-6, 6),
+				offset_y = rand(-4, 8)
+			)
+			src.overlays += banknote
 
 	src.desc = "They are worth [worth] [GLOB.using_map.local_currency_name]."
 	if(worth in denominations)

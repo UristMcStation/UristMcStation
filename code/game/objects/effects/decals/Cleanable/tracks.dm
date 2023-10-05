@@ -160,6 +160,10 @@ var/global/list/image/fluidtrack_cache=list()
 	coming_state = "human1"
 	going_state  = "human2"
 
+/obj/effect/decal/cleanable/blood/tracks/footprints/human
+	color = COLOR_BLOOD_HUMAN
+	icon_state = "human1"
+
 /obj/effect/decal/cleanable/blood/tracks/footprints/reversed
 	coming_state = "human2"
 	going_state = "human1"
@@ -209,3 +213,7 @@ var/global/list/image/fluidtrack_cache=list()
 	drydesc = "A dried trail left by someone crawling."
 	coming_state = "trail1"
 	going_state  = "trail2"
+
+/obj/effect/decal/cleanable/blood/tracks/body/human
+	color = COLOR_BLOOD_HUMAN
+	icon_state = "trail1"

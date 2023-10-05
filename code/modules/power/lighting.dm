@@ -216,6 +216,9 @@
 /obj/machinery/light/small/d_green
 	light_type = /obj/item/light/bulb/d_green
 
+/obj/machinery/light/d_green
+	light_type = /obj/item/light/tube/d_green
+
 /obj/machinery/light/spot
 	name = "spotlight"
 	desc = "A more robust socket for light tubes that demand more power."
@@ -623,8 +626,15 @@
 		set_mode(null)
 
 /obj/item/light/bulb/d_green
-	color = "#4b734b"
-	b_colour = "#4b734b"
+	color = "#3b703b"
+	b_colour = "#3b703b"
+
+/obj/item/light/tube/d_green
+	color = "#3b703b"
+	b_colour = "#3b703b"
+	b_max_bright = 0.75
+	b_inner_range = 0.5
+	b_outer_range = 6
 
 /obj/machinery/light/navigation
 	name = "navigation light"
