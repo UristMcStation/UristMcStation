@@ -51,7 +51,9 @@
 
 /obj/machinery/radio_beacon/destroyed_colony/Initialize()
 	.=..()
+	return INITIALIZE_HINT_LATELOAD
 
+/obj/machinery/radio_beacon/destroyed_colony/LateInitialize()
 	activate_distress()
 
 /obj/machinery/radio_beacon/destroyed_colony/deactivate()

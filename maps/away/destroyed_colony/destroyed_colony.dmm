@@ -4509,12 +4509,9 @@
 	icon_state = "crateopen";
 	opened = 1
 	},
-/obj/random/ore,
 /obj/structure/largecrate,
-/obj/random/ore,
 /obj/random/material,
 /obj/random/material,
-/obj/random/ore,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "pi" = (
