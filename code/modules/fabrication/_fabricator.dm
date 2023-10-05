@@ -35,7 +35,7 @@
 		/material/aluminium = 25000,
 		/material/glass =     12500,
 		/material/plastic =   12500,
-		/material/wood =      12500
+		/material/wood =      12500,
 		/material/plasteel = 6000,
 		/material/silver = 6000,
 		/material/gold = 6000,
