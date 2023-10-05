@@ -129,7 +129,9 @@ var/global/list/admin_verbs_fun = list(
 	/client/proc/cmd_admin_simulate_distant_explosion,
 	/datum/admins/proc/ai_hologram_set,
 	/client/proc/bombard_zlevel,
-	/client/proc/rename_shuttle
+	/client/proc/rename_shuttle,
+	/datum/admins/proc/generate_deepmaint,
+	/datum/admins/proc/throw_into_deepmaint
 	)
 
 var/global/list/admin_verbs_spawn = list(
