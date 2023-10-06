@@ -160,10 +160,6 @@ var/global/list/image/fluidtrack_cache=list()
 	coming_state = "human1"
 	going_state  = "human2"
 
-/obj/effect/decal/cleanable/blood/tracks/footprints/human
-	color = COLOR_BLOOD_HUMAN
-	icon_state = "human1"
-
 /obj/effect/decal/cleanable/blood/tracks/footprints/reversed
 	coming_state = "human2"
 	going_state = "human1"
@@ -214,6 +210,34 @@ var/global/list/image/fluidtrack_cache=list()
 	coming_state = "trail1"
 	going_state  = "trail2"
 
-/obj/effect/decal/cleanable/blood/tracks/body/human
+/obj/effect/decal/cleanable/blood/tracks/fake
+	var/coming_dir = 0
+	var/going_dir = 1
+
+	var/coming_dir_2 = 2
+	var/going_dir_2 = 0
+
+/obj/effect/decal/cleanable/blood/tracks/fake/Initialize(mapload)
+	. = ..()
+	icon_state = null
+	var/datum/dna/new_dna = new()
+	AddTracks(list(new_dna), coming_dir, going_dir, color)
+	AddTracks(list(new_dna), coming_dir_2, going_dir_2, color)
+
+/obj/effect/decal/cleanable/blood/tracks/fake/body
 	color = COLOR_BLOOD_HUMAN
 	icon_state = "trail1"
+	coming_state = "trail1"
+	going_state  = "trail2"
+	blood_size = -1
+
+/obj/effect/decal/cleanable/blood/tracks/fake/footprints
+	name = "wet footprints"
+	dryname = "dried footprints"
+	desc = "They look like still wet tracks left by footwear."
+	drydesc = "They look like dried tracks left by footwear."
+	coming_state = "human1"
+	going_state  = "human2"
+	color = COLOR_BLOOD_HUMAN
+	icon_state = "human1"
+	blood_size = -1

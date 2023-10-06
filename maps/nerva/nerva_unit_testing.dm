@@ -47,9 +47,6 @@
 		/area/exoplanet/desert   = EXEMPT_ALL,
 		/area/exoplanet/grass    = EXEMPT_ALL,
 		/area/exoplanet/snow     = EXEMPT_ALL,
-		/area/smugglers/base = NO_SCRUBBER,
-		/area/smugglers/dorms = NO_SCRUBBER|NO_VENT,
-		/area/smugglers/office = NO_SCRUBBER|NO_VENT,
 		/area/bluespaceriver/underground = EXEMPT_ALL,
 		/area/bluespaceriver/ground = EXEMPT_ALL,
 		/area/casino/casino_cutter = NO_SCRUBBER|NO_VENT,
@@ -105,7 +102,6 @@
 		/area/magshield,
 		/area/mine,
 		/area/ship,
-		/area/smugglers,
 		/area/slavers_base,
 		/area/yacht,
 		/area/bluespaceriver,
@@ -133,7 +129,8 @@
 		/area/noctis,
 		/area/jungleoutpost,
 		/area/voxship,
-		/area/morninglight
+		/area/morninglight,
+		/area/crystaldrugs
 	)
 
 	area_coherency_test_exempt_areas = list(
