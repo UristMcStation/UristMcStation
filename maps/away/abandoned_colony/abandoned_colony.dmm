@@ -4212,6 +4212,7 @@
 /obj/structure/table/standard,
 /obj/random/drinkbottle,
 /obj/random/drinkbottle,
+/obj/random/treasure/plush,
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "ms" = (
@@ -8894,6 +8895,7 @@
 "xZ" = (
 /obj/structure/closet/secure_closet,
 /obj/item/clothing/accessory/neckerchief,
+/obj/item/clothing/under/schoolgirl,
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "yX" = (
@@ -9048,6 +9050,12 @@
 "PG" = (
 /obj/random/trash,
 /turf/simulated/floor/carpet,
+/area/planet/abandoned_colony)
+"PL" = (
+/obj/structure/bed,
+/obj/item/bedsheet/blue,
+/obj/random/treasure/plush,
+/turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "Qf" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -14835,7 +14843,7 @@ ac
 ah
 ah
 ma
-lT
+PL
 lN
 al
 ac

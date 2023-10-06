@@ -727,6 +727,12 @@
 /obj/item/toy/plushie/loot/blue
 	icon_state = "rareplush3"
 
+/obj/item/toy/plushie/loot/neet
+	icon_state = "rareplush4"
+
+/obj/item/toy/plushie/loot/goat
+	icon_state = "goat"
+
 /obj/item/toy/plushie/loot/scug
 	name = "slugcat plush"
 	desc = "A cute doll based off a sleeping slugcat."
@@ -762,6 +768,8 @@
 	return list(/obj/item/toy/plushie/loot,
 				/obj/item/toy/plushie/loot/pink,
 				/obj/item/toy/plushie/loot/blue,
+				/obj/item/toy/plushie/loot/neet,
+				/obj/item/toy/plushie/loot/goat,
 				/obj/item/toy/plushie/loot/scug)
 
 /obj/random/treasure/portrait
