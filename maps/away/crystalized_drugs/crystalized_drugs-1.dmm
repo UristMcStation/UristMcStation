@@ -152,7 +152,7 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "bf" = (
-/obj/machinery/suit_storage_unit/pilot,
+/obj/machinery/suit_storage_unit/retro,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/crystaldrugs/bacchus/dorms)
 "bg" = (
@@ -3219,11 +3219,11 @@
 /obj/item/reagent_containers/chem_disp_cartridge/silicon,
 /obj/item/reagent_containers/chem_disp_cartridge/hydrazine,
 /obj/item/reagent_containers/chem_disp_cartridge/hydrazine,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/secure/biohazard{
-	req_access = list("ACCESS_VEYMED");
+	req_access = list("ACCESS_CENT_MEDBAY");
 	name = "\improper Vey-Med chemical supplies cart"
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel_grid,
 /area/crystaldrugs/factory)
 "wq" = (
@@ -6905,11 +6905,11 @@
 /obj/item/reagent_containers/chem_disp_cartridge/mercury,
 /obj/item/reagent_containers/chem_disp_cartridge/mercury,
 /obj/item/reagent_containers/chem_disp_cartridge/lithium,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/secure/biohazard{
-	req_access = list("ACCESS_VEYMED");
+	req_access = list("ACCESS_CENT_MEDBAY");
 	name = "\improper Vey-Med chemical supplies cart"
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel_grid,
 /area/crystaldrugs/factory)
 "VX" = (
