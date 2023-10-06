@@ -1,5 +1,5 @@
 /datum/antagonist/ert
-	leader_welcome_text = "As leader of the Emergency Response Team, you answer only to [GLOB.using_map.company_name], and have authority to override the Captain where it is necessary to achieve your mission goals. It is recommended that you attempt to cooperate with the captain where possible, however."
+	leader_welcome_text = "As leader of the Emergency Response Team, you answer only to NanoTrasen Central Command, and have authority to override the Captain where it is necessary to achieve your mission goals. It is recommended that you attempt to cooperate with the captain where possible, however."
 
 /datum/antagonist/ert/equip(mob/living/carbon/human/player)
 
