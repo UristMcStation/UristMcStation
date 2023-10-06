@@ -129,7 +129,8 @@
 		/area/noctis,
 		/area/jungleoutpost,
 		/area/voxship,
-		/area/morninglight
+		/area/morninglight,
+		/area/crystaldrugs
 	)
 
 	area_coherency_test_exempt_areas = list(
