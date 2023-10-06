@@ -11,7 +11,8 @@
 	player_cost = 0
 	generate_mining_by_z = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/bacchus)
-
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+	
 /obj/effect/overmap/visitable/sector/drug_lab
 	name = "bluespace wake traces"
 	desc = "Initial sector readings reported numerous bluespace wake traces from within this sector. Sensor reports indicate asteroids with abnormal refraction indexes are detected along with energy spikes."
