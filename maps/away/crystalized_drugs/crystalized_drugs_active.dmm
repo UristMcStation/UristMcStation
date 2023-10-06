@@ -120,7 +120,7 @@
 /area/template_noop)
 "K" = (
 /obj/structure/closet/crate/secure/boobytrapped/weapon{
-	req_access = list("NULL")
+	req_access = list("ACCESS_CENT_MEDBAY")
 	},
 /obj/random/energy,
 /obj/item/cell/device/premium,
