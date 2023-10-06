@@ -528,33 +528,6 @@
 /obj/machinery/door/airlock,
 /turf/simulated/floor/wood,
 /area/planet/destroyed_colony)
-"bU" = (
-/turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
-	},
-/area/planet/destroyed_colony)
-"bV" = (
-/obj/structure/table/standard,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
-	},
-/area/planet/destroyed_colony)
-"bW" = (
-/obj/item/ammo_casing/rifle/used,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
-	},
-/area/planet/destroyed_colony)
-"bX" = (
-/obj/structure/table/standard/flipped/e,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
-	},
-/area/planet/destroyed_colony)
 "bY" = (
 /obj/machinery/light_switch{
 	dir = 2;
@@ -568,22 +541,6 @@
 /obj/effect/mine/frag,
 /turf/simulated/floor/fixed/destroyedroad/planet{
 	icon_state = "horizontaloutermain0"
-	},
-/area/planet/destroyed_colony)
-"ca" = (
-/obj/structure/table/standard/flipped/w,
-/obj/item/ammo_casing/rifle/used,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
-	},
-/area/planet/destroyed_colony)
-"cb" = (
-/obj/structure/table/standard,
-/obj/item/gun/projectile/td10_pistol,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
 	},
 /area/planet/destroyed_colony)
 "cc" = (
@@ -635,10 +592,7 @@
 /obj/item/ammo_casing/rifle/used,
 /obj/item/ammo_casing/rifle/used,
 /obj/item/ammo_casing/rifle/used,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "ck" = (
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -647,10 +601,7 @@
 	name = "Apartments 1";
 	pixel_x = 0
 	},
-/turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "cl" = (
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -659,27 +610,13 @@
 	name = "Apartments 2";
 	pixel_x = 0
 	},
-/turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "cm" = (
 /obj/structure/table/standard/flipped/w,
 /obj/item/ammo_casing/rifle/used,
 /obj/item/ammo_casing/rifle/used,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
-	},
-/area/planet/destroyed_colony)
-"cn" = (
-/obj/item/remains/human,
-/obj/item/ammo_casing/rifle/used,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
-	},
+/turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "co" = (
 /obj/item/remains/human,
@@ -1045,13 +982,6 @@
 /obj/structure/table/standard,
 /obj/random/smokes,
 /turf/simulated/floor/tiled,
-/area/planet/destroyed_colony)
-"dy" = (
-/obj/random/junk,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
-	},
 /area/planet/destroyed_colony)
 "dz" = (
 /obj/structure/table/rack,
@@ -1545,7 +1475,7 @@
 	},
 /area/planet/destroyed_colony)
 "ff" = (
-/obj/machinery/constructable_frame/computerframe,
+/obj/structure/salvageable/computer_os,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "fg" = (
@@ -3518,13 +3448,6 @@
 /obj/random/material,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
-"lP" = (
-/obj/effect/urist/spawn_bomb,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
-	},
-/area/planet/destroyed_colony)
 "lQ" = (
 /obj/structure/hygiene/sink{
 	dir = 4;
@@ -5190,6 +5113,30 @@
 	icon_state = "verticalinnermain2bottom"
 	},
 /area/planet/destroyed_colony)
+"tX" = (
+/obj/structure/salvageable/autolathe,
+/turf/simulated/floor/tiled/dark,
+/area/planet/destroyed_colony)
+"Ki" = (
+/obj/structure/salvageable/computer_os,
+/turf/simulated/floor/tiled,
+/area/planet/destroyed_colony)
+"Ul" = (
+/obj/structure/salvageable/console_broken_os{
+	icon_state = "os_console_broken";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/planet/destroyed_colony)
+"Vv" = (
+/obj/structure/salvageable/computer,
+/turf/simulated/floor/lino,
+/area/planet/destroyed_colony)
+"WJ" = (
+/obj/structure/table/woodentable,
+/obj/structure/salvageable/personal,
+/turf/simulated/floor/carpet,
+/area/planet/destroyed_colony)
 
 (1,1,1) = {"
 aa
@@ -5835,7 +5782,7 @@ aK
 aK
 aK
 aS
-bw
+mB
 bI
 bO
 aS
@@ -6405,7 +6352,7 @@ iD
 ra
 iX
 qS
-bE
+iv
 bE
 iz
 jl
@@ -7560,8 +7507,8 @@ aS
 bE
 bE
 aV
-bU
-lP
+bE
+jj
 aV
 bE
 bE
@@ -7683,8 +7630,8 @@ aS
 bE
 bE
 aV
-bU
-bU
+bE
+bE
 aV
 bE
 bE
@@ -7806,8 +7753,8 @@ aS
 aS
 aS
 bo
-bV
-bV
+fh
+fh
 cp
 aS
 aS
@@ -7929,7 +7876,7 @@ aS
 bE
 bE
 aV
-bW
+bN
 cj
 cq
 bE
@@ -8052,8 +7999,8 @@ aS
 bE
 bE
 bQ
-bX
-bX
+fK
+fK
 cr
 bN
 bE
@@ -8175,8 +8122,8 @@ aS
 bE
 bE
 aV
-bU
-bU
+bE
+bE
 aV
 bE
 bE
@@ -8298,8 +8245,8 @@ bD
 bE
 bE
 aV
-bU
-bU
+bE
+bE
 aV
 bE
 bE
@@ -8421,8 +8368,8 @@ aS
 bE
 bE
 bS
-bU
-bU
+bE
+bE
 bS
 bE
 bE
@@ -8544,7 +8491,7 @@ aS
 bF
 bF
 aS
-bU
+bE
 ck
 aS
 bF
@@ -9245,7 +9192,7 @@ aS
 kf
 bE
 gg
-fh
+Ul
 bG
 bu
 aa
@@ -9491,7 +9438,7 @@ aS
 fj
 bE
 gg
-fh
+Ul
 bG
 bu
 aa
@@ -10020,7 +9967,7 @@ aS
 bG
 bG
 aS
-bU
+bE
 cl
 aS
 bG
@@ -10143,8 +10090,8 @@ aS
 bE
 bN
 bR
-bU
-bU
+bE
+bE
 bR
 bE
 bE
@@ -10266,8 +10213,8 @@ bD
 bE
 bE
 aV
-dy
-bU
+jk
+bE
 dP
 bE
 bE
@@ -10389,8 +10336,8 @@ aS
 bH
 bH
 aV
-bU
-bU
+bE
+bE
 aV
 cv
 bH
@@ -10512,7 +10459,7 @@ aS
 jx
 bN
 aV
-ca
+cv
 cm
 aV
 bN
@@ -10635,8 +10582,8 @@ aS
 bE
 bE
 aV
-bU
-cn
+bE
+cA
 aV
 bN
 bN
@@ -10751,15 +10698,15 @@ aK
 aK
 aU
 fO
-aV
+bq
 bt
 bp
 aS
 aS
 aS
 bo
-cb
-bV
+fi
+fh
 cp
 aS
 aS
@@ -10873,16 +10820,16 @@ aK
 aK
 aK
 aU
-aV
-bq
+Ki
+lY
 aV
 by
 aS
 bE
 bE
 aV
-bU
-bU
+bE
+bE
 aV
 bE
 bE
@@ -11004,8 +10951,8 @@ aS
 bE
 bE
 aV
-bU
-bU
+bE
+bE
 fO
 bE
 bE
@@ -11090,7 +11037,7 @@ bE
 bE
 bE
 bE
-bE
+tX
 iz
 bu
 aa
@@ -12783,7 +12730,7 @@ bE
 bE
 aS
 bw
-iV
+WJ
 kn
 iL
 aS
@@ -16250,7 +16197,7 @@ aS
 nH
 nH
 nH
-bL
+Vv
 bG
 lq
 jB

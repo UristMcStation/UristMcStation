@@ -2289,7 +2289,7 @@
 /area/jungleoutpost/engi)
 "gk" = (
 /obj/structure/table/rack{
-	dir = 8;
+	dir = 8
 	},
 /obj/item/storage/belt/utility,
 /obj/item/clothing/suit/storage/hazardvest,
@@ -3257,7 +3257,7 @@
 /obj/machinery/power/smes/buildable{
 	capacity = 1e+007;
 	charge = 0;
-	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak=2);
+	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak = 2);
 	input_attempt = 1;
 	input_level = 500000;
 	inputting = 1;
@@ -3313,6 +3313,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/structure/salvageable/data_os,
 /turf/simulated/floor/plating,
 /area/jungleoutpost/engi)
 "iy" = (
@@ -3504,6 +3505,27 @@
 "iR" = (
 /turf/simulated/floor/planet/jungle/clear,
 /area/space)
+"re" = (
+/obj/effect/floor_decal/corner/paleblue/full,
+/obj/structure/salvageable/machine_os,
+/turf/simulated/floor/tiled/white,
+/area/jungleoutpost/medbay)
+"vT" = (
+/obj/structure/salvageable/console_broken_os,
+/turf/simulated/floor/plating,
+/area/jungleoutpost/engi)
+"Lm" = (
+/obj/structure/salvageable/console_broken_os{
+	icon_state = "os_console_broken";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/jungleoutpost/medbay)
+"Ol" = (
+/obj/effect/floor_decal/corner/paleblue/full,
+/obj/structure/salvageable/machine,
+/turf/simulated/floor/tiled/white,
+/area/jungleoutpost/medbay)
 
 (1,1,1) = {"
 aa
@@ -8479,7 +8501,7 @@ ek
 ch
 ch
 fs
-fY
+Ol
 fT
 gK
 fh
@@ -8664,7 +8686,7 @@ el
 eM
 ff
 fs
-fY
+Ol
 fT
 gK
 fh
@@ -9034,7 +9056,7 @@ en
 eM
 ff
 fs
-fY
+re
 fT
 gK
 fh
@@ -9776,7 +9798,7 @@ aE
 fi
 gb
 iM
-fT
+Lm
 fk
 fk
 fk
@@ -9963,7 +9985,7 @@ gc
 iN
 gO
 fk
-hA
+vT
 hV
 by
 by
