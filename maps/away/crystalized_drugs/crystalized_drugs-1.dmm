@@ -189,13 +189,14 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/crystaldrugs/vault)
 "bu" = (
-/obj/machinery/door/airlock/multi_tile{
-	name = "\improper Mineral Processing"
-	},
 /obj/structure/cable/blue{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock{
+	name = "\improper Mineral Processing";
+	door_color = "#5d6978"
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/crystaldrugs/exterior)
@@ -261,7 +262,6 @@
 /area/crystaldrugs/armory)
 "bV" = (
 /obj/effect/floor_decal/techfloor,
-/obj/machinery/light/coldtint,
 /obj/effect/floor_decal/rust,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -537,6 +537,9 @@
 	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/light/small/red{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/old_cargo/gray,
 /area/crystaldrugs/loading)
 "dv" = (
@@ -584,7 +587,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating/airless,
-/area/crystaldrugs/asteroid)
+/area/crystaldrugs/mining)
 "dH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
@@ -746,7 +749,8 @@
 /area/crystaldrugs/hallway2)
 "eV" = (
 /obj/machinery/door/airlock/glass/civilian{
-	name = "\improper Botany"
+	name = "\improper Botany";
+	door_color = "#5d6978"
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -910,7 +914,6 @@
 /area/crystaldrugs/dorms)
 "fZ" = (
 /obj/effect/floor_decal/industrial/outline/orange,
-/obj/structure/closet/crate/plastic,
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/docking)
 "gc" = (
@@ -950,6 +953,11 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock{
+	name = "\improper Dormitory";
+	door_color = "#5d6978";
+	stripe_color = "#b7f27d"
 	},
 /turf/simulated/floor/tiled/old_cargo/beige,
 /area/crystaldrugs/dorms)
@@ -1399,7 +1407,9 @@
 /area/crystaldrugs/chem_lab)
 "jZ" = (
 /obj/machinery/door/airlock{
-	name = "manager's office"
+	name = "manager's office";
+	door_color = "#5d6978";
+	stripe_color = "#5ca1cc"
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1417,7 +1427,6 @@
 /area/crystaldrugs/manager)
 "kb" = (
 /obj/effect/floor_decal/industrial/outline/orange,
-/obj/structure/closet/crate/plastic,
 /obj/effect/floor_decal/techfloor/corner{
 	dir = 4
 	},
@@ -1439,10 +1448,6 @@
 	},
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/manager)
-"ke" = (
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/old_cargo/beige,
-/area/crystaldrugs/hallway)
 "kh" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -1619,6 +1624,10 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/exterior)
 "lC" = (
+/obj/machinery/door/airlock{
+	name = "\improper Mineral Processing";
+	door_color = "#5d6978"
+	},
 /turf/simulated/floor/tiled/monotile,
 /area/crystaldrugs/exterior)
 "lE" = (
@@ -2095,7 +2104,9 @@
 	dir = 8
 	},
 /obj/machinery/door/airlock{
-	name = "chemistry lab"
+	name = "chemistry lab";
+	door_color = "#5c636b";
+	stripe_color = "#cc6600"
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2129,7 +2140,9 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/bacchus/engine)
 "pr" = (
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	door_color = "#5c636b"
+	},
 /obj/effect/floor_decal/techfloor{
 	dir = 4
 	},
@@ -2199,8 +2212,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/multi_tile{
-	name = "\improper Docking Area"
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "\improper Docking Area";
+	door_color = "#5c636b"
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/crystaldrugs/docking)
@@ -2428,16 +2442,16 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/hallway2)
 "rb" = (
-/obj/machinery/door/airlock/multi_tile{
-	dir = 8;
-	icon_state = "closed";
-	name = "\improper Dormitory"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/machinery/door/airlock{
+	name = "\improper Dormitory";
+	door_color = "#5d6978";
+	stripe_color = "#b7f27d"
 	},
 /turf/simulated/floor/tiled/old_cargo/beige,
 /area/crystaldrugs/dorms)
@@ -3056,7 +3070,7 @@
 	dir = 4;
 	id_tag = "bacchusbridge"
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/plating,
 /area/crystaldrugs/bacchus)
 "vn" = (
 /obj/effect/floor_decal/borderfloorbeige,
@@ -3084,7 +3098,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/docking)
 "vt" = (
-/obj/effect/away_variety_loader/crystaldrugs,
+/obj/effect/landmark/map_load_mark/crystal_drugs,
 /turf/space,
 /area/space)
 "vA" = (
@@ -3207,7 +3221,7 @@
 /obj/item/reagent_containers/chem_disp_cartridge/hydrazine,
 /obj/structure/closet/crate/secure/biohazard{
 	req_access = list("ACCESS_VEYMED");
-	name = "\improperVey-Med chemical supplies cart"
+	name = "\improper Vey-Med chemical supplies cart"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel_grid,
@@ -3416,12 +3430,8 @@
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 8
 	},
-/obj/item/modular_computer/tablet/lease/preset/command,
-/obj/effect/computer_file_creator{
-	file_name = "EML:from_emilia";
-	file_info = "Hey Carter! Hope you're still holding out up there.[br]Hope the Trade Union isn't working you too hard. I've been hearing some worrying stories about them, but nothing from your sector. I'm sure it's just a bad manager out there.[br]Anyway, can't wait to see you home again soon![br]Love, Emilia";
-	name = "eml1"
-	},
+/obj/item/modular_computer/tablet/preset/custom_loadout/cheap,
+/obj/effect/computer_file_creator/crystal_drugs_eml,
 /turf/simulated/floor/wood/walnut,
 /area/crystaldrugs/bacchus/dorms)
 "xC" = (
@@ -3563,7 +3573,9 @@
 /turf/simulated/floor/tiled/old_tile/gray,
 /area/crystaldrugs/chem_lab)
 "yR" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	stripe_color = "#ffbf00"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -3774,16 +3786,17 @@
 /turf/simulated/floor/tiled/old_cargo/gray,
 /area/crystaldrugs/chem_lab)
 "Ai" = (
-/obj/machinery/door/airlock/multi_tile{
-	dir = 8;
-	icon_state = "closed";
-	name = "\improper Starboard Hallway"
-	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/blue{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "\improper Starboard Hallway";
+	door_color = "#5d6978";
+	dir = 8;
+	icon_state = "closed"
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/crystaldrugs/factory)
@@ -3815,14 +3828,15 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/factory)
 "As" = (
-/obj/machinery/door/airlock/multi_tile{
-	name = "\improper Mining Operations"
-	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/blue{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "\improper Mining Operations";
+	door_color = "#5d6978"
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/crystaldrugs/mining)
@@ -4146,7 +4160,7 @@
 /obj/machinery/door/blast/shutters/open{
 	id_tag = "bacchusbridge"
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/plating,
 /area/crystaldrugs/bacchus)
 "Dc" = (
 /obj/structure/table/steel_reinforced/dark,
@@ -4256,7 +4270,9 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock{
-	name = "chemistry dropoff"
+	name = "chemistry dropoff";
+	door_color = "#5c636b";
+	stripe_color = "#cc6600"
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/techfloor/grid,
@@ -4342,9 +4358,6 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "Et" = (
-/obj/machinery/light/small/red{
-	dir = 4
-	},
 /obj/effect/floor_decal/borderfloor{
 	dir = 1
 	},
@@ -4462,10 +4475,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/crystaldrugs/bacchus)
 "Fc" = (
-/obj/machinery/door/airlock/multi_tile{
-	name = "manager's office"
-	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock{
+	name = "manager's office";
+	door_color = "#5d6978";
+	stripe_color = "#5ca1cc"
+	},
 /turf/simulated/floor/tiled/old_cargo/beige,
 /area/crystaldrugs/hallway)
 "Ff" = (
@@ -4622,17 +4637,9 @@
 /obj/machinery/computer/modular/preset/dock{
 	dir = 4
 	},
-/obj/effect/computer_file_creator{
-	file_name = "delete_after_reading";
-	file_info = "This week's vault code: 0451[br]Delete this file after opening.";
-	name = "door code"
-	},
-/obj/effect/computer_file_creator{
-	file_name = "veymed_receipt";
-	file_info = "Order #97f2b[br]Thank you for conducting business with Vey-Med Chemical Supply.[br]Your pickup location is: Nyx-sector NT Trading Station ID#522[br]If this is your first time purchasing, please meet with a Vey-Med representative to verify your identity for an access keycard.";
-	name = "veymed receipt"
-	},
 /obj/structure/disposalpipe/segment/bent,
+/obj/effect/computer_file_creator/crystal_drugs_dc,
+/obj/effect/computer_file_creator/crystal_drugs_receipt,
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/manager)
 "Gj" = (
@@ -5196,7 +5203,9 @@
 /area/crystaldrugs/hallway2)
 "Kb" = (
 /obj/machinery/door/airlock{
-	name = "\improper Armory"
+	name = "\improper Armory";
+	door_color = "#5d6978";
+	stripe_color = "#9d2300"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5523,6 +5532,9 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/light/d_green{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/hallway)
 "Mv" = (
@@ -5839,19 +5851,12 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/docking)
-"Of" = (
-/obj/effect/floor_decal/industrial/outline/orange,
-/obj/structure/closet/crate/plastic,
-/obj/effect/floor_decal/rust,
-/turf/simulated/floor/tiled/techmaint,
-/area/crystaldrugs/docking)
 "Og" = (
-/obj/item/modular_computer/tablet/preset,
 /obj/structure/table/standard,
+/obj/item/modular_computer/tablet/preset/custom_loadout/cheap,
 /turf/simulated/floor/tiled/old_tile/gray,
 /area/crystaldrugs/chem_lab)
 "Ok" = (
-/obj/machinery/door/airlock,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -5863,6 +5868,10 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock{
+	name = "\improper Botany";
+	door_color = "#5d6978"
 	},
 /turf/simulated/floor/tiled/old_cargo/beige,
 /area/crystaldrugs/hallway2)
@@ -6298,14 +6307,6 @@
 /obj/structure/lattice,
 /turf/space,
 /area/space)
-"RH" = (
-/obj/effect/wallframe_spawn/reinforced/titanium,
-/obj/effect/paint/vox,
-/obj/machinery/door/blast/shutters/open{
-	id_tag = "bacchusview"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/crystaldrugs/bacchus/dorms)
 "RJ" = (
 /obj/effect/paint/vox,
 /turf/simulated/wall/titanium,
@@ -6535,7 +6536,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock{
-	name = "\improper Factory Alpha"
+	name = "\improper Factory Alpha";
+	door_color = "#5d6978"
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -6611,17 +6613,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/old_cargo/gray,
 /area/crystaldrugs/chem_lab)
-"TN" = (
-/obj/effect/floor_decal/techfloor{
-	dir = 8
-	},
-/obj/machinery/door/airlock/multi_tile{
-	name = "\improper Docking Area"
-	},
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/crystaldrugs/docking)
 "TP" = (
 /obj/structure/boulder,
 /turf/simulated/floor/asteroid,
@@ -6747,7 +6738,9 @@
 /turf/simulated/floor/tiled/old_tile/gray,
 /area/crystaldrugs/bacchus/engine)
 "Uy" = (
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	door_color = "#5d6978"
+	},
 /obj/item/airlock_brace,
 /obj/structure/cable/blue{
 	d1 = 1;
@@ -6914,7 +6907,7 @@
 /obj/item/reagent_containers/chem_disp_cartridge/lithium,
 /obj/structure/closet/crate/secure/biohazard{
 	req_access = list("ACCESS_VEYMED");
-	name = "\improperVey-Med chemical supplies cart"
+	name = "\improper Vey-Med chemical supplies cart"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel_grid,
@@ -7183,7 +7176,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating/airless,
-/area/crystaldrugs/asteroid)
+/area/crystaldrugs/mining)
 "Yw" = (
 /obj/structure/research_crystal/orange,
 /turf/simulated/floor/asteroid,
@@ -7201,7 +7194,6 @@
 /area/crystaldrugs/vault)
 "YH" = (
 /obj/effect/floor_decal/industrial/outline/orange,
-/obj/structure/closet/crate/plastic,
 /obj/effect/floor_decal/techfloor/corner{
 	dir = 1
 	},
@@ -7356,13 +7348,16 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/vault)
 "ZN" = (
-/obj/machinery/door/airlock,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/cap/hidden/scrubbers{
 	dir = 8
+	},
+/obj/machinery/door/airlock{
+	name = "\improper Botany";
+	door_color = "#5d6978"
 	},
 /turf/simulated/floor/tiled/old_cargo/beige,
 /area/crystaldrugs/hallway2)
@@ -14862,7 +14857,7 @@ zs
 zs
 zs
 JN
-bC
+UY
 CJ
 TE
 FJ
@@ -15118,7 +15113,7 @@ DJ
 Eg
 kL
 wK
-TN
+pI
 ta
 cH
 dD
@@ -15133,7 +15128,7 @@ KQ
 io
 OX
 gf
-RH
+AG
 nU
 nU
 nU
@@ -15503,7 +15498,7 @@ TE
 qL
 co
 YH
-Of
+iV
 TE
 nU
 Kn
@@ -15630,7 +15625,7 @@ TE
 Oa
 kb
 iV
-Of
+iV
 TE
 nU
 Kn
@@ -16380,7 +16375,7 @@ dK
 fy
 CS
 HR
-ke
+Fc
 hP
 jh
 Aq
@@ -16640,7 +16635,7 @@ kl
 cz
 Rd
 Rd
-bC
+UY
 bV
 TE
 TA
@@ -16767,7 +16762,7 @@ Tl
 EK
 gY
 Rd
-UY
+bC
 hr
 Lu
 Lu
