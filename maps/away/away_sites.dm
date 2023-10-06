@@ -15,14 +15,4 @@
 		new /datum/random_map/automata/cave_system(null, 1, 1, z + generate_mining_by_z - 1, world.maxx, world.maxy)
 		new /datum/random_map/noise/ore(null, 1, 1, z + generate_mining_by_z - 1, world.maxx, world.maxy)
 		GLOB.using_map.refresh_mining_turfs(z + generate_mining_by_z - 1)
-
-/obj/effect/away_variety_loader
-	var/list/weighted_templates
-	var/away_name
-
-/obj/effect/away_variety_loader/Initialize()
-	. = ..()
-	var/dmm_file = pickweight(weighted_templates)
-	var/datum/map_template/template = new(list(dmm_file),away_name)
-	template.load(get_turf(src))
-	QDEL_IN(src,0)
+	..()

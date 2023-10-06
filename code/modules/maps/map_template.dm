@@ -179,7 +179,7 @@
 		if(LAZYLEN(mark.templates))
 			var/template = pick(mark.templates)
 			var/datum/map_template/M = new template()
-			M.load(get_turf(mark), TRUE)
+			M.load(get_turf(mark), mark.load_centered)
 			qdel(mark)
 	LAZYCLEARLIST(subtemplates_to_spawn)
 

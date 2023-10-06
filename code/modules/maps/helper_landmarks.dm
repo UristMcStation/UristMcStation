@@ -2,6 +2,7 @@
 /obj/effect/landmark/map_load_mark
 	name = "map loader landmark"
 	var/list/templates	//list of template types to pick from
+	var/load_centered = TRUE
 
 //Throw things in the area around randomly
 /obj/effect/landmark/carnage_mark
