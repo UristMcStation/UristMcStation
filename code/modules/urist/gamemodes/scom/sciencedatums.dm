@@ -30,7 +30,7 @@ var/global/list/scomscience_categories
 
 /datum/scomscience/recipe/bsniper
 	name = "projectile sniper"
-	path = /obj/item/gun/projectile/sniper
+	path = /obj/item/gun/projectile/svd
 	category = "Sniper"
 	scomtechlvl = 0
 	resources = 100

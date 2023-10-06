@@ -75,7 +75,7 @@
 	projectile_type = /obj/item/projectile/beam //maybe change this
 	one_hand_penalty = 4
 
-/obj/item/gun/projectile/sniper
+/obj/item/gun/projectile/svd
 	item_icons = DEF_URIST_INHANDS
 	name = "semi automatic sniper"
 	desc = "A powerful semi automatic sniper, perfect for long-range warfare."
@@ -100,7 +100,7 @@
 	scoped_accuracy = 4 //increased accuracy over the LWAP because only one shot
 	scope_zoom = 2
 
-/obj/item/gun/projectile/sniper/on_update_icon()
+/obj/item/gun/projectile/svd/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "SVD"
