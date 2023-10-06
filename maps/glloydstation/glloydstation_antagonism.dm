@@ -6,7 +6,7 @@
 	if(!..())
 		return 0
 
-	var/singleton/hierarchy/outfit/ert_outfit = outfit_by_type((player.mind == leader) ? /singleton/hierarchy/outfit/job/nerva/ert/leader : /singleton/hierarchy/outfit/job/nerva/ert)
+	var/singleton/hierarchy/outfit/ert_outfit = outfit_by_type((player.mind == leader) ? /singleton/hierarchy/outfit/job/glloydstation/ert/leader : /singleton/hierarchy/outfit/job/glloydstation/ert)
 	ert_outfit.equip(player)
 
 	return 1
