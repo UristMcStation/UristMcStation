@@ -9,6 +9,7 @@
 	suffixes = list("crystalized_drugs/crystalized_drugs-1.dmm")
 	spawn_cost = 1
 	player_cost = 0
+	generate_mining_by_z = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/bacchus)
 
 /obj/effect/overmap/visitable/sector/drug_lab
