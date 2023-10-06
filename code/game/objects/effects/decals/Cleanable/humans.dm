@@ -173,6 +173,7 @@ var/global/list/image/splatter_cache=list()
 	icon = 'icons/effects/bloodspatter.dmi'
 	icon_state = "splatter1"
 	color = COLOR_BLOOD_HUMAN
+	blood_size = BLOOD_SIZE_NO_MERGE
 
 /obj/effect/decal/cleanable/blood/drip
 	name = "drips of blood"
