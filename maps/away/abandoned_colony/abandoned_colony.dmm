@@ -274,7 +274,7 @@
 "aS" = (
 /obj/structure/bed/chair/urist/bench/bench1/right,
 /turf/simulated/floor/tiled/dark,
-/area/planet/abandoned_colony)
+/area/space)
 "aT" = (
 /obj/machinery/light/colored{
 	dir = 4;
@@ -557,6 +557,10 @@
 	dir = 4;
 	icon_state = "yellow1"
 	},
+/obj/structure/salvageable/console_broken_os{
+	icon_state = "os_console_broken";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "redyellowfull"
 	},
@@ -611,6 +615,7 @@
 	dir = 5;
 	icon_state = "corner_white"
 	},
+/obj/structure/salvageable/console_broken_os,
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "bP" = (
@@ -1356,25 +1361,14 @@
 	},
 /area/planet/abandoned_colony)
 "eb" = (
-/obj/structure/table/woodentable/walnut,
 /obj/structure/window/reinforced{
-	dir = 8
+	dir = 1
 	},
 /obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/planet/abandoned_colony)
-"ec" = (
-/obj/structure/table/woodentable/walnut,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/planet/abandoned_colony)
+/area/space)
 "ed" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Courthouse";
@@ -1963,11 +1957,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "fW" = (
+/obj/structure/table/woodentable,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/random/officetoy,
 /turf/simulated/floor/tiled/dark,
-/area/planet/abandoned_colony)
+/area/space)
 "fX" = (
 /turf/simulated/floor/tiled/uristturf/geminus{
 	dir = 8;
@@ -3077,15 +3076,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
-"iM" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/planet/abandoned_colony)
 "iN" = (
 /obj/structure/sign/neon/sale{
 	pixel_y = -32
@@ -3323,6 +3313,7 @@
 /area/planet/abandoned_colony)
 "jt" = (
 /obj/effect/decal/cleanable/cobweb,
+/obj/structure/salvageable/console_broken_os,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "bar"
 	},
@@ -7907,6 +7898,10 @@
 /area/planet/abandoned_colony)
 "uE" = (
 /obj/random/trash,
+/obj/structure/bed/chair/office{
+	icon_state = "officechair_preview";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "uF" = (
@@ -8554,6 +8549,12 @@
 	},
 /turf/simulated/floor/carpet,
 /area/morninglight/dorms)
+"wl" = (
+/obj/structure/salvageable/machine,
+/turf/simulated/floor/tiled/uristturf/geminus{
+	icon_state = "redyellowfull"
+	},
+/area/planet/abandoned_colony)
 "wm" = (
 /obj/machinery/door/airlock/multi_tile,
 /turf/simulated/floor/tiled/dark,
@@ -8621,6 +8622,10 @@
 /obj/machinery/constructable_frame/computerframe{
 	dir = 1;
 	icon_state = "0"
+	},
+/obj/structure/salvageable/console_broken_os{
+	icon_state = "os_console_broken";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
@@ -8864,6 +8869,10 @@
 /obj/machinery/portable_atmospherics/canister/hydrogen/engine_setup,
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
+"xl" = (
+/obj/machinery/papershredder,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "xm" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -8891,11 +8900,26 @@
 	},
 /turf/simulated/floor/tiled/techfloor/airless,
 /area/morninglight/engineering)
+"xW" = (
+/obj/structure/salvageable/machine_os,
+/turf/simulated/floor/tiled,
+/area/planet/abandoned_colony)
 "xZ" = (
 /obj/structure/closet/secure_closet,
 /obj/item/clothing/accessory/neckerchief,
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
+"yA" = (
+/obj/structure/table/woodentable,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/item/material/ashtray/plastic,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "yX" = (
 /obj/random/trash,
 /turf/simulated/floor/fixed/destroyedroad{
@@ -8927,6 +8951,13 @@
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
+"Ch" = (
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Co" = (
+/obj/structure/salvageable/data,
+/turf/simulated/floor/plating,
+/area/planet/abandoned_colony)
 "CP" = (
 /obj/random/junk,
 /turf/simulated/floor/pavement{
@@ -8937,6 +8968,21 @@
 "DS" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/reagent_containers/food/snacks/canned/caviar,
+/turf/simulated/floor/carpet,
+/area/planet/abandoned_colony)
+"Fe" = (
+/obj/structure/salvageable/machine,
+/turf/simulated/floor/tiled/uristturf/geminus{
+	icon_state = "old_tile_black_dirt"
+	},
+/area/planet/abandoned_colony)
+"FA" = (
+/obj/structure/filingcabinet/filingcabinet,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"FQ" = (
+/obj/structure/table/woodentable/walnut,
+/obj/structure/salvageable/personal,
 /turf/simulated/floor/carpet,
 /area/planet/abandoned_colony)
 "FZ" = (
@@ -8956,6 +9002,10 @@
 	icon_state = "horizontalinnermain1"
 	},
 /area/planet/abandoned_colony)
+"GW" = (
+/obj/structure/salvageable/machine,
+/turf/simulated/floor/tiled/dark,
+/area/planet/abandoned_colony)
 "HX" = (
 /obj/random/trash,
 /turf/simulated/floor/fixed/destroyedroad{
@@ -8965,6 +9015,12 @@
 	icon_state = "dottedverticaldegraded"
 	},
 /area/planet/abandoned_colony)
+"Io" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "Ja" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
@@ -9032,6 +9088,17 @@
 /obj/item/clothing/accessory/corptie,
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
+"OS" = (
+/obj/structure/bed/chair/urist/bench/bench1/left,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Pi" = (
+/obj/structure/salvageable/console_broken_os{
+	icon_state = "os_console_broken";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/planet/abandoned_colony)
 "Pq" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/solar_assembly,
@@ -9079,6 +9146,16 @@
 /obj/random/accessory,
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
+"QQ" = (
+/turf/simulated/wall,
+/area/space)
+"QS" = (
+/obj/structure/salvageable/console_broken_os{
+	icon_state = "os_console_broken";
+	dir = 4
+	},
+/turf/simulated/floor/lino,
+/area/planet/abandoned_colony)
 "Ra" = (
 /obj/structure/closet,
 /obj/random/accessory,
@@ -9098,9 +9175,28 @@
 	icon_state = "verticalinnermain2"
 	},
 /area/planet/abandoned_colony)
+"RM" = (
+/obj/structure/salvageable/console_broken_os{
+	icon_state = "os_console_broken";
+	dir = 8
+	},
+/turf/simulated/floor/lino,
+/area/planet/abandoned_colony)
+"RZ" = (
+/obj/structure/salvageable/computer_os,
+/turf/simulated/floor/tiled,
+/area/planet/abandoned_colony)
+"Td" = (
+/obj/structure/table/woodentable,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "Te" = (
 /obj/item/clothing/ears/earring/stud/gold,
 /turf/simulated/floor/tiled/dark,
+/area/planet/abandoned_colony)
+"TM" = (
+/obj/structure/salvageable/machine,
+/turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "UZ" = (
 /obj/random/junk,
@@ -9135,6 +9231,13 @@
 /obj/item/clothing/accessory/bowtie/ugly,
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
+"Xu" = (
+/obj/structure/bed/chair/office{
+	icon_state = "officechair_preview";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/planet/abandoned_colony)
 "Xw" = (
 /obj/random/trash,
 /turf/simulated/floor/fixed/destroyedroad{
@@ -9144,6 +9247,16 @@
 	icon_state = "dottedhorizontal"
 	},
 /area/planet/abandoned_colony)
+"XC" = (
+/obj/structure/salvageable/autolathe,
+/turf/simulated/floor/tiled/uristturf/geminus{
+	icon_state = "old_tile_black_dirt"
+	},
+/area/planet/abandoned_colony)
+"XF" = (
+/obj/machinery/photocopier,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "XM" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -9163,6 +9276,10 @@
 /obj/random/clothing,
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
+"YU" = (
+/obj/structure/bed/chair,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "Zh" = (
 /obj/structure/table/woodentable/walnut,
 /obj/machinery/light/small{
@@ -9840,7 +9957,7 @@ ac
 fE
 fJ
 fO
-ah
+GW
 ac
 go
 am
@@ -11565,7 +11682,7 @@ ac
 ex
 ex
 ex
-ez
+QS
 ez
 ac
 gA
@@ -11614,9 +11731,9 @@ ac
 cl
 pO
 ac
-rH
-rH
-rH
+TM
+TM
+ms
 kf
 kf
 kf
@@ -12460,7 +12577,7 @@ am
 al
 ac
 ac
-au
+Fe
 ey
 au
 eA
@@ -12687,7 +12804,7 @@ ac
 eB
 eB
 eB
-ez
+RM
 ez
 ac
 gL
@@ -14692,7 +14809,7 @@ aa
 (55,1,1) = {"
 aa
 ac
-au
+XC
 au
 sJ
 bg
@@ -14794,7 +14911,7 @@ aa
 (56,1,1) = {"
 aa
 ac
-au
+XC
 au
 au
 bK
@@ -15406,7 +15523,7 @@ aa
 (62,1,1) = {"
 aa
 ac
-az
+wl
 aN
 aW
 bj
@@ -15508,7 +15625,7 @@ aa
 (63,1,1) = {"
 aa
 ac
-az
+wl
 az
 aX
 bk
@@ -16072,7 +16189,7 @@ fo
 iB
 ac
 ah
-ah
+sf
 ah
 pq
 ps
@@ -16655,7 +16772,7 @@ am
 al
 lO
 rH
-rH
+lZ
 rH
 mf
 ac
@@ -16685,7 +16802,7 @@ rH
 ac
 Aw
 ah
-ah
+sf
 pr
 pt
 pw
@@ -16756,8 +16873,8 @@ ad
 am
 al
 lO
-rH
-lZ
+RZ
+Xu
 rH
 me
 ac
@@ -16823,7 +16940,7 @@ wS
 ah
 xg
 ah
-ah
+sf
 ah
 ah
 ah
@@ -16928,7 +17045,7 @@ ah
 ah
 xo
 ah
-ah
+sf
 ah
 wi
 aa
@@ -17317,7 +17434,7 @@ am
 wm
 ah
 ah
-ah
+sf
 ah
 ah
 ah
@@ -17354,7 +17471,7 @@ ah
 ah
 ac
 eh
-cA
+FQ
 ef
 bH
 ac
@@ -17426,7 +17543,7 @@ ah
 ah
 ah
 ah
-ah
+sf
 ah
 ah
 ah
@@ -17436,7 +17553,7 @@ rH
 ac
 ac
 ac
-rH
+xW
 rH
 wA
 sa
@@ -17529,7 +17646,7 @@ wi
 rH
 wA
 rH
-rH
+Pi
 ah
 ah
 ac
@@ -17572,7 +17689,7 @@ ac
 am
 al
 lN
-rH
+RZ
 uE
 rH
 me
@@ -17581,7 +17698,7 @@ ah
 ah
 rH
 ah
-ah
+sf
 rH
 ah
 ah
@@ -17650,12 +17767,12 @@ aa
 (84,1,1) = {"
 aa
 ac
-ah
-ah
-ah
-dy
+FA
+Ch
+Td
+yA
 eb
-iM
+ah
 ah
 ah
 ac
@@ -17752,12 +17869,12 @@ aa
 (85,1,1) = {"
 aa
 ac
+xl
+Ch
+YU
+Td
+eb
 ah
-ah
-ah
-fV
-dy
-iM
 ah
 ah
 ac
@@ -17854,12 +17971,12 @@ aa
 (86,1,1) = {"
 aa
 ac
-ah
-ah
-ah
+XF
+Ch
+Io
 fW
-ec
-iM
+eb
+ah
 ah
 ah
 ac
@@ -17889,7 +18006,7 @@ rH
 ah
 be
 rH
-ah
+sf
 ah
 ac
 lQ
@@ -17903,7 +18020,7 @@ co
 cv
 oW
 gb
-ah
+sf
 ah
 ac
 Ra
@@ -17956,11 +18073,11 @@ aa
 (87,1,1) = {"
 aa
 ac
-ac
-ac
-ac
-ah
-ah
+QQ
+QQ
+QQ
+QQ
+Ch
 ah
 ah
 ah
@@ -17986,7 +18103,7 @@ rH
 uT
 ac
 ah
-ah
+sf
 rH
 ah
 ah
@@ -18059,10 +18176,10 @@ aa
 aa
 ac
 aS
-ah
+Ch
 aS
-ah
-ah
+Ch
+aS
 ah
 ah
 ah
@@ -18160,11 +18277,11 @@ aa
 (89,1,1) = {"
 aa
 jF
-br
-ah
-br
-ah
-ah
+OS
+Ch
+OS
+Ch
+OS
 pu
 ah
 ah
@@ -18192,7 +18309,7 @@ ac
 ah
 ah
 mu
-ah
+sf
 ah
 mu
 ah
@@ -18262,11 +18379,11 @@ aa
 (90,1,1) = {"
 aa
 jF
-ah
-ah
-ah
-ah
-ah
+Ch
+Ch
+Ch
+Ch
+Ch
 ah
 ah
 ah
@@ -18312,7 +18429,7 @@ PF
 ah
 gb
 ah
-ah
+sf
 ac
 it
 iC
@@ -18323,7 +18440,7 @@ al
 ac
 pB
 jj
-jj
+kA
 pG
 ac
 am
@@ -18365,9 +18482,9 @@ aa
 aa
 jF
 aS
-ah
+Ch
 aS
-ah
+Ch
 aS
 ah
 ah
@@ -18426,7 +18543,7 @@ ac
 pB
 jj
 jj
-kA
+Co
 ac
 am
 lg
@@ -18619,7 +18736,7 @@ ah
 gb
 ah
 ah
-ah
+sf
 pu
 ah
 ac
