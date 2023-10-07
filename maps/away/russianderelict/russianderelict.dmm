@@ -177,7 +177,10 @@
 /turf/simulated/floor/plating/airless,
 /area/djstation)
 "ay" = (
-/obj/machinery/power/smes/buildable,
+/obj/machinery/power/smes/buildable{
+	outputting = 2;
+	output_attempt = 1
+	},
 /turf/simulated/floor/plating,
 /area/djstation)
 "az" = (
@@ -378,7 +381,7 @@
 	dir = 0;
 	name = "Worn-out APC";
 	pixel_y = -24;
-	cell_type = /obj/item/cell/standard/empty
+	cell_type = /obj/item/cell/hyper
 	},
 /turf/simulated/floor/plating,
 /area/djstation)
@@ -769,6 +772,7 @@
 "cj" = (
 /obj/structure/bed/nice,
 /obj/item/bedsheet,
+/mob/living/simple_animal/hostile/giant_spider/webslinger,
 /turf/simulated/floor/wood/walnut,
 /area/djstation)
 "ck" = (
@@ -4206,6 +4210,7 @@
 /area/russianderelict/hallway/primary)
 "lg" = (
 /obj/structure/bed/chair,
+/mob/living/simple_animal/hostile/giant_spider/phorogenic,
 /turf/simulated/floor/tiled,
 /area/djstation)
 "li" = (
@@ -7116,7 +7121,6 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/telecomms/relay/preset/ruskie,
 /obj/structure/cable,
 /turf/simulated/floor/plating,
 /area/djstation)
@@ -8018,6 +8022,10 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge)
+"ND" = (
+/mob/living/simple_animal/hostile/giant_spider,
+/turf/simulated/floor/tiled,
+/area/djstation)
 "NG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -8691,6 +8699,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/mob/living/simple_animal/hostile/giant_spider/frost,
 /turf/simulated/floor/plating,
 /area/djstation)
 "Sk" = (
@@ -17343,7 +17352,7 @@ ab
 aa
 ao
 aX
-aX
+ND
 bt
 ao
 ak
