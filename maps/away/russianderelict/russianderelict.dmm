@@ -1517,6 +1517,10 @@
 	},
 /turf/simulated/floor,
 /area/russianderelict/bridge/access)
+"ek" = (
+/obj/machinery/door/firedoor/autoset,
+/turf/simulated/floor/tiled,
+/area/russianderelict/bridge/ai_upload)
 "el" = (
 /obj/effect/wallframe_spawn/reinforced/no_grille,
 /obj/structure/cable{
@@ -1910,17 +1914,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/access)
-"fi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/item/material/shard{
-	pixel_x = 7;
-	pixel_y = -5
-	},
-/turf/simulated/floor/tiled/airless,
-/area/russianderelict/hallway/primary)
 "fj" = (
 /turf/simulated/floor/wood/mahogany,
 /area/russianderelict/medical/chapel)
@@ -1965,7 +1958,8 @@
 "fq" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Tech Storage";
-	req_access = list("ACCESS_TECH_STORAGE")
+	req_access = list("ACCESS_TECH_STORAGE");
+	autoset_access = 0
 	},
 /obj/machinery/door/firedoor/autoset,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2392,7 +2386,8 @@
 "gJ" = (
 /obj/machinery/door/airlock/medical{
 	name = "Morgue";
-	req_access = list("ACCESS_MORGUE")
+	req_access = list("ACCESS_MORGUE");
+	autoset_access = 0
 	},
 /obj/machinery/door/firedoor/autoset,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2900,7 +2895,8 @@
 "ia" = (
 /obj/machinery/door/firedoor/autoset,
 /obj/machinery/door/airlock/glass/medical{
-	name = "Med-Sci"
+	name = "Med-Sci";
+	autoset_access = 0
 	},
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/medical)
@@ -3267,7 +3263,8 @@
 "iW" = (
 /obj/machinery/door/airlock/security{
 	name = "Security";
-	req_access = list("ACCESS_SECURITY")
+	req_access = list("ACCESS_SECURITY");
+	autoset_access = 0
 	},
 /obj/machinery/door/firedoor/autoset,
 /obj/structure/cable{
@@ -3478,7 +3475,8 @@
 	},
 /obj/machinery/door/airlock/security{
 	name = "Security";
-	req_access = list("ACCESS_SECURITY")
+	req_access = list("ACCESS_SECURITY");
+	autoset_access = 0
 	},
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/security)
@@ -3599,11 +3597,6 @@
 	},
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/secondary)
-"jQ" = (
-/obj/machinery/door/airlock/highsecurity,
-/obj/machinery/door/firedoor/autoset,
-/turf/simulated/floor/tiled,
-/area/russianderelict/bridge/ai_upload)
 "jR" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -3629,7 +3622,8 @@
 "jV" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Aux Storage";
-	req_access = list("ACCESS_TECH_STORAGE")
+	req_access = list("ACCESS_TECH_STORAGE");
+	autoset_access = 0
 	},
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/tiled/airless,
@@ -4303,7 +4297,8 @@
 "lU" = (
 /obj/machinery/door/airlock/medical{
 	name = "Morgue";
-	req_access = list("ACCESS_MORGUE")
+	req_access = list("ACCESS_MORGUE");
+	autoset_access = 0
 	},
 /obj/machinery/door/firedoor/autoset,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4583,10 +4578,6 @@
 /obj/effect/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
-"nU" = (
-/obj/machinery/door/firedoor/autoset,
-/turf/simulated/floor/tiled,
-/area/russianderelict/bridge/ai_upload)
 "nW" = (
 /obj/structure/table/standard,
 /obj/item/device/multitool,
@@ -4671,7 +4662,8 @@
 "ou" = (
 /obj/machinery/door/airlock/security{
 	name = "Security";
-	req_access = list("ACCESS_SECURITY")
+	req_access = list("ACCESS_SECURITY");
+	autoset_access = 0
 	},
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating/airless,
@@ -5049,7 +5041,8 @@
 "ru" = (
 /obj/machinery/door/airlock/medical{
 	name = "Morgue";
-	req_access = list("ACCESS_MORGUE")
+	req_access = list("ACCESS_MORGUE");
+	autoset_access = 0
 	},
 /obj/machinery/door/firedoor/autoset,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5125,7 +5118,8 @@
 "sa" = (
 /obj/machinery/door/airlock/security{
 	name = "Security";
-	req_access = list("ACCESS_SECURITY")
+	req_access = list("ACCESS_SECURITY");
+	autoset_access = 0
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -5232,7 +5226,8 @@
 "sJ" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Atmospherics Access";
-	req_access = list("ACCESS_ATMOS")
+	req_access = list("ACCESS_ATMOS");
+	autoset_access = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -6588,7 +6583,8 @@
 "DP" = (
 /obj/machinery/door/airlock/security{
 	name = "Security";
-	req_access = list("ACCESS_SECURITY")
+	req_access = list("ACCESS_SECURITY");
+	autoset_access = 0
 	},
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/security)
@@ -7853,7 +7849,8 @@
 /area/russianderelict/singularity_engine)
 "MN" = (
 /obj/machinery/door/airlock/glass/medical{
-	name = "Med-Sci"
+	name = "Med-Sci";
+	autoset_access = 0
 	},
 /turf/simulated/floor/tiled/white/airless,
 /area/russianderelict/medical)
@@ -8033,7 +8030,8 @@
 "Oa" = (
 /obj/machinery/door/airlock/security{
 	name = "Security";
-	req_access = list("ACCESS_SECURITY")
+	req_access = list("ACCESS_SECURITY");
+	autoset_access = 0
 	},
 /obj/machinery/door/firedoor/autoset,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -8453,7 +8451,8 @@
 /area/russianderelict/hallway/primary)
 "QU" = (
 /obj/machinery/door/airlock/glass/medical{
-	name = "Med-Sci"
+	name = "Med-Sci";
+	autoset_access = 0
 	},
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/medical)
@@ -8817,6 +8816,11 @@
 /obj/effect/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/bridge/ai_upload)
+"TW" = (
+/obj/machinery/door/airlock/highsecurity,
+/obj/machinery/door/firedoor/autoset,
+/turf/simulated/floor/tiled,
+/area/russianderelict/bridge/ai_upload)
 "TX" = (
 /obj/effect/landmark/scorcher/certain,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -9103,6 +9107,17 @@
 	},
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/arrival)
+"Wa" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/item/material/shard{
+	pixel_x = 7;
+	pixel_y = -5
+	},
+/turf/simulated/floor/tiled/airless,
+/area/russianderelict/hallway/primary)
 "Wb" = (
 /obj/structure/sign/warning/caution,
 /turf/simulated/wall/prepainted,
@@ -25592,7 +25607,7 @@ hl
 hl
 Dl
 Il
-fi
+Wa
 jb
 fx
 fT
@@ -26887,7 +26902,7 @@ aa
 Kv
 ft
 ft
-jQ
+TW
 Vn
 Kv
 bQ
@@ -27464,7 +27479,7 @@ BQ
 Ky
 Kv
 Kv
-jQ
+TW
 Kv
 Kv
 Kv
@@ -27663,7 +27678,7 @@ ft
 ft
 ft
 ft
-nU
+ek
 ft
 RZ
 Kv
@@ -28042,7 +28057,7 @@ bQ
 Kv
 ca
 ft
-nU
+ek
 ft
 ft
 ft
@@ -28431,7 +28446,7 @@ ft
 ft
 ft
 ft
-nU
+ek
 ft
 ca
 Kv
@@ -28810,7 +28825,7 @@ bQ
 Kv
 ca
 ft
-nU
+ek
 ft
 ft
 ft
@@ -29198,7 +29213,7 @@ ft
 ft
 ft
 ft
-nU
+ek
 BM
 ft
 ca
