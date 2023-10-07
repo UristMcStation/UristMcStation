@@ -12,6 +12,7 @@
 	#include "../away/lost_supply_base/lost_supply_base.dm"
 	#include "../away/smugglers/smugglers.dm"
 	#include "../away/forest/forest.dm"
+	#include "../away/russianderelict/russianderelict.dm"
 	#include "../away/glloyd_jungle/glloyd_jungle.dm"
 	#include "../away/casino/casino.dm"
 	#include "../away/magshield/magshield.dm"
