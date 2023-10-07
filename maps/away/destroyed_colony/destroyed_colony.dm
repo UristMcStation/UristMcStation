@@ -50,7 +50,7 @@
 
 /datum/contract/destroyed_colony
 	name = "Distress Signal Investigation Contract"
-	desc = "A distress signal has been detected on a nearby graveworld. All ships sent to investigate haven't been heard from since. The situation on the planet's surface is unknown, long range scans only detect the ruins of a colony that was destroyed during the Galactic Crisis. We need you to investigate the signal, and disable it if it is fradulent. Good luck, and be safe, graveworlds can be home to all sorts of dangers"
+	desc = "A distress signal has been detected on a nearby graveworld. All ships sent to investigate haven't been heard from since. The situation on the planet's surface is unknown, long range scans only detect the ruins of a colony that was destroyed during the Galactic Crisis. We need you to investigate the signal, and disable it if it is fradulent. Good luck, and be safe, graveworlds can be home to all sorts of dangers."
 	rep_points = 5
 	money = 10000
 	amount = 1
