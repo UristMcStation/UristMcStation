@@ -49,7 +49,7 @@ SUBSYSTEM_DEF(unit_tests)
 			report_progress("Skipping template '[map_template]' ([map_template.type]): Is an Away Site")
 			continue
 
-		if (istype(map_template, /datum/map_template/deepmaint_template))
+		if (istype(map_template, /datum/map_template/deepmaint_template) || istype(map_template, /datum/map_template/ruin/deepmaint_wfc))
 			report_progress("Skipping template '[map_template]' ([map_template.type]): Is a Deepmaint submap.")
 			continue
 
