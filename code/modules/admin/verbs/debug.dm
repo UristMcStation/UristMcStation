@@ -254,16 +254,18 @@
 	for(var/areatype in areas_without_camera)
 		log_debug("* [areatype]")
 
-/client/proc/cmd_admin_dress()
+/client/proc/cmd_admin_dress(var/mob/living/carbon/human/H in GLOB.human_mobs)
 	set category = "Fun"
 	set name = "Select equipment"
 
 	if(!check_rights(R_FUN))
 		return
 
-	var/mob/living/carbon/human/H = input("Select mob.", "Select equipment.") as null|anything in GLOB.human_mobs
+
 	if(!H)
-		return
+		H = input("Select mob.", "Select equipment.") as null|anything in GLOB.human_mobs
+		if(!H)
+			return
 
 	var/singleton/hierarchy/outfit/outfit = input("Select outfit.", "Select equipment.") as null|anything in outfits()
 	if(!outfit)
