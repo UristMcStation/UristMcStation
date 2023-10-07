@@ -475,7 +475,8 @@
 /area/djstation)
 "bh" = (
 /obj/machinery/door/airlock/external{
-	name = "Ruskie DJ Station"
+	name = "Ruskie DJ Station";
+	autoset_access = 0
 	},
 /turf/simulated/floor/tiled,
 /area/djstation)
@@ -640,7 +641,8 @@
 /area/djstation)
 "bO" = (
 /obj/machinery/door/airlock/external{
-	name = "Ruskie DJ Station"
+	name = "Ruskie DJ Station";
+	autoset_access = 0
 	},
 /turf/simulated/floor/plating,
 /area/djstation)
@@ -704,13 +706,15 @@
 /area/russianderelict/bridge/ai_upload)
 "cb" = (
 /obj/machinery/door/airlock/external{
-	name = "Air Bridge Access"
+	name = "Air Bridge Access";
+	autoset_access = 0
 	},
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/solar_control)
 "cc" = (
 /obj/machinery/door/airlock/external{
-	name = "External Engineering"
+	name = "External Engineering";
+	autoset_access = 0
 	},
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/solar_control)
@@ -937,7 +941,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/external{
-	name = "External Engineering"
+	name = "External Engineering";
+	autoset_access = 0
 	},
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/solar_control)
@@ -1457,7 +1462,8 @@
 "ed" = (
 /obj/machinery/door/window/eastleft{
 	name = "Heads of Staff";
-	req_access = list("ACCESS_BRIDGE")
+	req_access = list("ACCESS_BRIDGE");
+	autoset_access = 0
 	},
 /obj/machinery/door/firedoor/autoset,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1905,10 +1911,16 @@
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/access)
 "fi" = (
-/obj/machinery/door/airlock/highsecurity,
-/obj/machinery/door/firedoor/autoset,
-/turf/simulated/floor/tiled,
-/area/russianderelict/bridge/ai_upload)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/item/material/shard{
+	pixel_x = 7;
+	pixel_y = -5
+	},
+/turf/simulated/floor/tiled/airless,
+/area/russianderelict/hallway/primary)
 "fj" = (
 /turf/simulated/floor/wood/mahogany,
 /area/russianderelict/medical/chapel)
@@ -2906,7 +2918,8 @@
 /obj/machinery/door/firedoor/autoset,
 /obj/machinery/door/airlock/research{
 	name = "Toxins Research";
-	req_access = list("ACCESS_TOXINS")
+	req_access = list("ACCESS_TOXINS");
+	autoset_access = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2933,7 +2946,8 @@
 	},
 /obj/machinery/door/airlock/research{
 	name = "Toxins Research";
-	req_access = list("ACCESS_TOXINS")
+	req_access = list("ACCESS_TOXINS");
+	autoset_access = 0
 	},
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/tiled/airless,
@@ -2968,7 +2982,8 @@
 /area/space)
 "ij" = (
 /obj/machinery/door/airlock/external{
-	name = "Arrival Airlock"
+	name = "Arrival Airlock";
+	autoset_access = 0
 	},
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/arrival)
@@ -3014,7 +3029,8 @@
 	},
 /obj/machinery/door/airlock/research{
 	name = "Toxins Research";
-	req_access = list("ACCESS_TOXINS")
+	req_access = list("ACCESS_TOXINS");
+	autoset_access = 0
 	},
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/tiled/airless,
@@ -3504,10 +3520,12 @@
 "jH" = (
 /obj/structure/table/standard,
 /obj/machinery/door/window/southleft{
-	dir = 4
+	dir = 4;
+	autoset_access = 0
 	},
 /obj/machinery/door/window/southleft{
-	dir = 8
+	dir = 8;
+	autoset_access = 0
 	},
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/science)
@@ -3532,7 +3550,8 @@
 /area/space)
 "jK" = (
 /obj/machinery/door/airlock/external{
-	name = "Escape Airlock"
+	name = "Escape Airlock";
+	autoset_access = 0
 	},
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/arrival)
@@ -3580,6 +3599,11 @@
 	},
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/secondary)
+"jQ" = (
+/obj/machinery/door/airlock/highsecurity,
+/obj/machinery/door/firedoor/autoset,
+/turf/simulated/floor/tiled,
+/area/russianderelict/bridge/ai_upload)
 "jR" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -3732,7 +3756,8 @@
 /area/solar/derelict_aft)
 "kk" = (
 /obj/machinery/door/airlock/external{
-	name = "Escape Airlock"
+	name = "Escape Airlock";
+	autoset_access = 0
 	},
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/hallway/secondary)
@@ -3983,7 +4008,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/external{
-	name = "Aft Solar Airlock"
+	name = "Aft Solar Airlock";
+	autoset_access = 0
 	},
 /turf/simulated/floor/tiled/airless,
 /area/solar/derelict_aft)
@@ -4557,6 +4583,10 @@
 /obj/effect/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
+"nU" = (
+/obj/machinery/door/firedoor/autoset,
+/turf/simulated/floor/tiled,
+/area/russianderelict/bridge/ai_upload)
 "nW" = (
 /obj/structure/table/standard,
 /obj/item/device/multitool,
@@ -4696,7 +4726,8 @@
 /area/russianderelict/medical/chapel)
 "oP" = (
 /obj/machinery/door/window/southleft{
-	dir = 8
+	dir = 8;
+	autoset_access = 0
 	},
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/ai_upload)
@@ -4779,7 +4810,8 @@
 /area/russianderelict/hallway/secondary)
 "pH" = (
 /obj/machinery/door/window/southleft{
-	dir = 8
+	dir = 8;
+	autoset_access = 0
 	},
 /obj/machinery/door/firedoor/autoset,
 /obj/effect/decal/cleanable/dirt,
@@ -5192,7 +5224,8 @@
 /area/russianderelict/hallway/primary)
 "sE" = (
 /obj/machinery/door/airlock/external{
-	name = "Air Bridge Access"
+	name = "Air Bridge Access";
+	autoset_access = 0
 	},
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/ai_upload)
@@ -5233,7 +5266,8 @@
 /area/russianderelict/bridge/ai_upload)
 "sT" = (
 /obj/machinery/door/window/southleft{
-	dir = 4
+	dir = 4;
+	autoset_access = 0
 	},
 /obj/machinery/door/firedoor/autoset,
 /obj/effect/landmark/scorcher/certain,
@@ -5456,7 +5490,8 @@
 /area/russianderelict/singularity_engine)
 "uL" = (
 /obj/machinery/door/window/southleft{
-	dir = 4
+	dir = 4;
+	autoset_access = 0
 	},
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/tiled,
@@ -5920,7 +5955,9 @@
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge)
 "xV" = (
-/obj/machinery/door/airlock/highsecurity,
+/obj/machinery/door/airlock/highsecurity{
+	autoset_access = 0
+	},
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -7141,7 +7178,8 @@
 /obj/structure/table/standard,
 /obj/machinery/door/window/southleft,
 /obj/machinery/door/window/southleft{
-	dir = 1
+	dir = 1;
+	autoset_access = 0
 	},
 /obj/machinery/door/firedoor/autoset,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -7151,7 +7189,8 @@
 /obj/machinery/door/firedoor/autoset,
 /obj/machinery/door/airlock/research{
 	name = "Toxins Research";
-	req_access = list("ACCESS_TOXINS")
+	req_access = list("ACCESS_TOXINS");
+	autoset_access = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -7232,10 +7271,6 @@
 "IM" = (
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/science)
-"IN" = (
-/obj/machinery/door/firedoor/autoset,
-/turf/simulated/floor/tiled,
-/area/russianderelict/bridge/ai_upload)
 "IQ" = (
 /obj/item/stack/material/rods,
 /obj/effect/landmark/scorcher/certain,
@@ -7465,7 +7500,9 @@
 /turf/simulated/floor/plating,
 /area/space)
 "KA" = (
-/obj/machinery/door/airlock/vault,
+/obj/machinery/door/airlock/vault{
+	autoset_access = 0
+	},
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -8035,7 +8072,8 @@
 "Om" = (
 /obj/machinery/door/airlock/hatch{
 	locked = 1;
-	id_tag = "derelict_toxins"
+	id_tag = "derelict_toxins";
+	autoset_access = 0
 	},
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating/airless,
@@ -8205,7 +8243,8 @@
 /area/russianderelict/bridge/access)
 "Pu" = (
 /obj/machinery/door/window/southleft{
-	dir = 8
+	dir = 8;
+	autoset_access = 0
 	},
 /obj/machinery/door/firedoor/autoset,
 /obj/effect/decal/cleanable/dirt,
@@ -8421,9 +8460,12 @@
 "QV" = (
 /obj/structure/table/standard,
 /obj/machinery/door/window/southleft{
-	dir = 1
+	dir = 1;
+	autoset_access = 0
 	},
-/obj/machinery/door/window/southleft,
+/obj/machinery/door/window/southleft{
+	autoset_access = 0
+	},
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/hallway/primary)
@@ -9056,7 +9098,8 @@
 "VZ" = (
 /obj/machinery/door/airlock/hatch{
 	locked = 1;
-	id_tag = "derelict_toxins"
+	id_tag = "derelict_toxins";
+	autoset_access = 0
 	},
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/arrival)
@@ -25549,7 +25592,7 @@ hl
 hl
 Dl
 Il
-rF
+fi
 jb
 fx
 fT
@@ -26844,7 +26887,7 @@ aa
 Kv
 ft
 ft
-fi
+jQ
 Vn
 Kv
 bQ
@@ -27421,7 +27464,7 @@ BQ
 Ky
 Kv
 Kv
-fi
+jQ
 Kv
 Kv
 Kv
@@ -27620,7 +27663,7 @@ ft
 ft
 ft
 ft
-IN
+nU
 ft
 RZ
 Kv
@@ -27999,7 +28042,7 @@ bQ
 Kv
 ca
 ft
-IN
+nU
 ft
 ft
 ft
@@ -28388,7 +28431,7 @@ ft
 ft
 ft
 ft
-IN
+nU
 ft
 ca
 Kv
@@ -28767,7 +28810,7 @@ bQ
 Kv
 ca
 ft
-IN
+nU
 ft
 ft
 ft
@@ -29155,7 +29198,7 @@ ft
 ft
 ft
 ft
-IN
+nU
 BM
 ft
 ca
