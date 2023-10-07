@@ -371,6 +371,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/access)
 "aQ" = (
@@ -676,6 +677,7 @@
 	req_access = list("ACCESS_ENGINEERING");
 	autoset_access = 0
 	},
+/obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/solar_control)
 "bX" = (
@@ -1156,6 +1158,7 @@
 /area/russianderelict/armory)
 "dd" = (
 /obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/armory)
 "de" = (
@@ -1448,6 +1451,7 @@
 /obj/structure/window/basic{
 	dir = 8
 	},
+/obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/arrival)
 "ed" = (
@@ -1900,6 +1904,11 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/access)
+"fi" = (
+/obj/machinery/door/airlock/highsecurity,
+/obj/machinery/door/firedoor/autoset,
+/turf/simulated/floor/tiled,
+/area/russianderelict/bridge/ai_upload)
 "fj" = (
 /turf/simulated/floor/wood/mahogany,
 /area/russianderelict/medical/chapel)
@@ -3272,6 +3281,7 @@
 /area/russianderelict/arrival)
 "ja" = (
 /obj/structure/table/standard,
+/obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "jb" = (
@@ -3357,6 +3367,7 @@
 /obj/structure/window/basic{
 	dir = 8
 	},
+/obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/arrival)
 "jo" = (
@@ -3440,6 +3451,7 @@
 	dir = 5;
 	health_max = 1e+007
 	},
+/obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/arrival)
 "jA" = (
@@ -4196,6 +4208,7 @@
 	},
 /obj/effect/wallframe_spawn/reinforced/no_grille,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/armory)
 "lo" = (
@@ -5445,6 +5458,7 @@
 /obj/machinery/door/window/southleft{
 	dir = 4
 	},
+/obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/ai_upload)
 "uM" = (
@@ -5641,6 +5655,7 @@
 /area/russianderelict/medical/chapel)
 "wh" = (
 /obj/structure/table,
+/obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "wk" = (
@@ -5911,6 +5926,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/ai_upload)
 "xX" = (
@@ -6484,6 +6500,7 @@
 "Dh" = (
 /obj/effect/wallframe_spawn/reinforced/no_grille,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/armory)
 "Dj" = (
@@ -6909,6 +6926,7 @@
 	name = "E.V.A.";
 	req_access = list("ACCESS_EVA")
 	},
+/obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/tiled,
 /area/russianderelict/armory)
 "GI" = (
@@ -7216,8 +7234,8 @@
 /area/russianderelict/science)
 "IN" = (
 /obj/machinery/door/firedoor/autoset,
-/turf/simulated/wall/r_wall/prepainted,
-/area/russianderelict/security)
+/turf/simulated/floor/tiled,
+/area/russianderelict/bridge/ai_upload)
 "IQ" = (
 /obj/item/stack/material/rods,
 /obj/effect/landmark/scorcher/certain,
@@ -7453,6 +7471,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/vault)
 "KJ" = (
@@ -8431,6 +8450,7 @@
 "Re" = (
 /obj/structure/table/standard,
 /obj/effect/landmark/scorcher/certain,
+/obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "Ri" = (
@@ -8641,7 +8661,7 @@
 "SO" = (
 /obj/structure/lattice,
 /obj/machinery/door/firedoor/autoset,
-/turf/space,
+/turf/simulated/floor/plating/airless,
 /area/russianderelict/security)
 "SP" = (
 /obj/structure/cable{
@@ -9094,6 +9114,7 @@
 /area/russianderelict/security)
 "Wk" = (
 /obj/structure/door_assembly,
+/obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/hallway/primary)
 "Wn" = (
@@ -26823,7 +26844,7 @@ aa
 Kv
 ft
 ft
-fI
+fi
 Vn
 Kv
 bQ
@@ -27400,7 +27421,7 @@ BQ
 Ky
 Kv
 Kv
-fI
+fi
 Kv
 Kv
 Kv
@@ -27599,7 +27620,7 @@ ft
 ft
 ft
 ft
-ft
+IN
 ft
 RZ
 Kv
@@ -27978,7 +27999,7 @@ bQ
 Kv
 ca
 ft
-ft
+IN
 ft
 ft
 ft
@@ -28367,7 +28388,7 @@ ft
 ft
 ft
 ft
-ft
+IN
 ft
 ca
 Kv
@@ -28746,7 +28767,7 @@ bQ
 Kv
 ca
 ft
-ft
+IN
 ft
 ft
 ft
@@ -29134,7 +29155,7 @@ ft
 ft
 ft
 ft
-ft
+IN
 BM
 ft
 ca
@@ -30727,8 +30748,8 @@ WP
 OB
 Zt
 Zt
-IN
-IN
+ze
+ze
 jB
 kc
 jT
