@@ -105,11 +105,6 @@
 		/obj/item/welder_tank = 3
 	)
 
-/obj/item/stack/material/titanium
-	name = "titanium"
-	icon_state = "sheet-shiny"
-	default_type = "titanium"
-
 //corpses
 /obj/effect/landmark/corpse/noctiscaptain
 	hair_styles_per_species = list(SPECIES_HUMAN = list("Buzzcut 2"))
