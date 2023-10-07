@@ -2464,7 +2464,8 @@
 /obj/machinery/door/morgue{
 	dir = 2;
 	name = "coffin storage";
-	req_access = list("ACCESS_CHAPEL_STORAGE")
+	req_access = list("ACCESS_CHAPEL_STORAGE");
+	autoset_access = 0
 	},
 /obj/structure/cable{
 	d1 = 2;
@@ -6969,7 +6970,8 @@
 "GH" = (
 /obj/machinery/door/airlock/command{
 	name = "E.V.A.";
-	req_access = list("ACCESS_EVA")
+	req_access = list("ACCESS_EVA");
+	autoset_access = 0
 	},
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/tiled,
