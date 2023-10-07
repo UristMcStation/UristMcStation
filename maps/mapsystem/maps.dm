@@ -125,6 +125,8 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 
 	var/game_year
 
+	var/has_skybox_image = FALSE //for maps that don't use the overmap to have a unique skybox image generated. Will need the associated proc get_skybox_image() to be configured properly as well.
+
 	var/list/available_cultural_info = list(
 		TAG_HOMEWORLD = list(
 			HOME_SYSTEM_MARS,
@@ -238,7 +240,8 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	if(!LAZYLEN(planet_size))
 		planet_size = list(world.maxx, world.maxy)
 	current_lobby_screen = pick(lobby_screens)
-	game_year = text2num(time2text(world.timeofday, "YYYY")) + DEFAULT_GAME_YEAR_OFFSET
+	if(!game_year)
+		game_year = text2num(time2text(world.timeofday, "YYYY")) + DEFAULT_GAME_YEAR_OFFSET
 
 
 /datum/map/proc/get_lobby_track(banned)
@@ -598,5 +601,8 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 		desc += "There were <b>no survivors</b>, <b>[data["offship_players"]] off-ship player(s)</b>, (<b>[data["ghosts"]] ghosts</b>)."
 
 	return desc
+
+/datum/map/proc/get_skybox_image()
+	return
 
 #undef DEFAULT_GAME_YEAR_OFFSET

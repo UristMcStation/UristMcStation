@@ -7,6 +7,7 @@
 	#include "glloydstation_holodecks.dm"
 	#include "glloydstation_jobs.dm"
 	#include "glloydstation_presets.dm"
+	#include "glloydstation_setup.dm"
 	#include "arrivals.dm"
 	#include "simple_shuttles.dm"
 
