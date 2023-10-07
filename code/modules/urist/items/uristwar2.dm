@@ -342,7 +342,7 @@
 
 /obj/item/clothing/suit/urist/wwii/soviet
 	name = "Red Army overcoat"
-	desc = "An overcaot worn by Soviet soldiers."
+	desc = "An overcoat worn by Soviet soldiers."
 	icon_state = "ru_rmcoat"
 	item_state = "ru_rmcoat"
 	blood_overlay_type = "coatblood"

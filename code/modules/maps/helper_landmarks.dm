@@ -74,3 +74,13 @@
 	if(shuttle_datum)
 		GLOB.shuttle_moved_event.unregister(shuttle_datum, src, .proc/delete_everything)
 	. = ..()
+
+/obj/effect/landmark/scorcher/certain	//for guaranteed scorchings
+	name = "fire"
+	icon_state = "fire"
+
+/obj/effect/landmark/scorcher/certain/Initialize()
+	var/turf/simulated/floor/T = get_turf(src)
+	if(istype(T))
+		T.burn_tile()
+	. = ..()
