@@ -89,7 +89,7 @@
 	id = "awaysite_russian_derelict"
 	description = "An old research station."
 	suffixes = list("russianderelict/russianderelict.dmm")
-	spawn_cost = 0
+	spawn_cost = 1
 	area_usage_test_exempted_root_areas = list(/area/russianderelict)
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
