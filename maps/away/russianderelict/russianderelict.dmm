@@ -366,7 +366,8 @@
 "aP" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Starboard Solar Access";
-	req_access = list("ACCESS_ENGINEERING")
+	req_access = list("ACCESS_ENGINEERING");
+	autoset_access = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -672,7 +673,8 @@
 "bW" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Turbine Maintenance";
-	req_access = list("ACCESS_ENGINEERING")
+	req_access = list("ACCESS_ENGINEERING");
+	autoset_access = 0
 	},
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/solar_control)
@@ -1111,20 +1113,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/russianderelict/armory)
-"cY" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "Worn-out APC";
-	pixel_y = 24;
-	cell_type = /obj/item/cell/standard/empty
-	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor/tiled/dark,
-/area/russianderelict/medical/chapel)
 "cZ" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -1260,7 +1248,8 @@
 "dv" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering Access";
-	req_access = list("ACCESS_ENGINEERING")
+	req_access = list("ACCESS_ENGINEERING");
+	autoset_access = 0
 	},
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/tiled/airless,
@@ -1518,17 +1507,6 @@
 	},
 /turf/simulated/floor,
 /area/russianderelict/bridge/access)
-"ek" = (
-/obj/effect/floor_decal/chapel,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/dark,
-/area/russianderelict/medical/chapel)
 "el" = (
 /obj/effect/wallframe_spawn/reinforced/no_grille,
 /obj/structure/cable{
@@ -1922,11 +1900,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/access)
-"fi" = (
-/obj/effect/wallframe_spawn/reinforced/no_grille,
-/obj/machinery/door/firedoor/autoset,
-/turf/space,
-/area/russianderelict/medical/chapel)
 "fj" = (
 /turf/simulated/floor/wood/mahogany,
 /area/russianderelict/medical/chapel)
@@ -2852,16 +2825,6 @@
 /obj/random/tool,
 /obj/random/tool,
 /obj/structure/table/rack,
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "Worn-out APC";
-	pixel_y = 24;
-	cell_type = /obj/item/cell/standard/empty
-	},
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/arrival)
 "hU" = (
@@ -3057,11 +3020,6 @@
 /area/russianderelict/arrival)
 "is" = (
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/cable{
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
@@ -3069,11 +3027,6 @@
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/arrival)
 "it" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
 /obj/structure/sign/warning/nosmoking_burned,
 /turf/simulated/wall/prepainted,
 /area/russianderelict/arrival)
@@ -3149,13 +3102,6 @@
 /turf/simulated/floor/plating/airless,
 /area/space)
 "iC" = (
-/obj/structure/cable,
-/obj/machinery/power/apc{
-	dir = 0;
-	name = "Worn-out APC";
-	pixel_y = -24;
-	cell_type = /obj/item/cell/standard/empty
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -3426,11 +3372,6 @@
 /obj/item/material/shard{
 	icon_state = "small"
 	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/structure/grille/broken,
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/tiled/airless,
@@ -3627,15 +3568,6 @@
 	},
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/secondary)
-"jQ" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor/tiled/dark,
-/area/russianderelict/medical/chapel)
 "jR" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -3774,7 +3706,8 @@
 /area/russianderelict/bridge/ai_upload)
 "kj" = (
 /obj/machinery/door/airlock/engineering{
-	name = "Aft Solar Access"
+	name = "Aft Solar Access";
+	autoset_access = 0
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -3862,7 +3795,8 @@
 /area/solar/derelict_aft)
 "kt" = (
 /obj/machinery/door/airlock/engineering{
-	name = "Aft Solar Access"
+	name = "Aft Solar Access";
+	autoset_access = 0
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -4313,11 +4247,6 @@
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/bridge/ai_upload)
 "lK" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -4522,9 +4451,7 @@
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/hallway/primary)
 "nx" = (
-/obj/machinery/constructable_frame/computerframe{
-	anchored = 1
-	},
+/obj/machinery/constructable_frame/computerframe,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/science)
@@ -4617,16 +4544,6 @@
 /obj/effect/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
-"nU" = (
-/obj/effect/floor_decal/chapel,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/dark,
-/area/russianderelict/medical/chapel)
 "nW" = (
 /obj/structure/table/standard,
 /obj/item/device/multitool,
@@ -5226,12 +5143,6 @@
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/medical)
 "sv" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_y = 0
-	},
 /obj/machinery/firealarm{
 	dir = 2;
 	pixel_y = 25
@@ -5720,11 +5631,6 @@
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/access)
 "we" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
@@ -6428,11 +6334,6 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/bridge/ai_upload)
 "Ci" = (
@@ -6446,11 +6347,6 @@
 	icon_state = "1-2"
 	},
 /obj/structure/grille/broken,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/security)
@@ -6601,7 +6497,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor/autoset,
-/turf/space,
+/turf/simulated/floor/plating/airless,
 /area/russianderelict/atmospherics)
 "Dl" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -6648,6 +6544,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/access)
+"DV" = (
+/mob/living/simple_animal/hostile/giant_spider,
+/turf/simulated/floor/tiled,
+/area/djstation)
 "DW" = (
 /obj/structure/closet/firecloset,
 /turf/simulated/floor/tiled,
@@ -6667,11 +6567,6 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "Ee" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
@@ -6710,11 +6605,6 @@
 /obj/effect/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/security)
-"Ew" = (
-/obj/effect/wallframe_spawn/reinforced/no_grille,
-/obj/machinery/door/firedoor/autoset,
-/turf/space,
-/area/russianderelict/atmospherics)
 "EB" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -7122,6 +7012,7 @@
 	icon_state = "1-8"
 	},
 /obj/structure/cable,
+/obj/machinery/radio_beacon,
 /turf/simulated/floor/plating,
 /area/djstation)
 "Hi" = (
@@ -7244,7 +7135,6 @@
 	name = "Toxins Research";
 	req_access = list("ACCESS_TOXINS")
 	},
-/obj/item/stack/cable_coil/cut,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/airless,
@@ -8022,10 +7912,6 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge)
-"ND" = (
-/mob/living/simple_animal/hostile/giant_spider,
-/turf/simulated/floor/tiled,
-/area/djstation)
 "NG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -8098,7 +7984,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/space,
+/turf/simulated/floor/plating/airless,
 /area/russianderelict/security)
 "Oc" = (
 /obj/structure/table/standard,
@@ -8216,11 +8102,6 @@
 /area/russianderelict/hallway/secondary)
 "OU" = (
 /obj/machinery/light/small,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/russianderelict/medical/chapel)
 "OV" = (
@@ -8874,21 +8755,6 @@
 /obj/effect/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/bridge/ai_upload)
-"TW" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4;
-	icon_state = "intact-scrubbers"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/wood/mahogany,
-/area/russianderelict/medical/chapel)
 "TX" = (
 /obj/effect/landmark/scorcher/certain,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -8953,10 +8819,6 @@
 	},
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/atmospherics)
-"Uv" = (
-/obj/structure/cable,
-/turf/simulated/floor/tiled/dark,
-/area/russianderelict/medical/chapel)
 "Ux" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -9178,19 +9040,6 @@
 	},
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/arrival)
-"Wa" = (
-/obj/effect/floor_decal/chapel{
-	dir = 4;
-	icon_state = "chapel"
-	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/dark,
-/area/russianderelict/medical/chapel)
 "Wb" = (
 /obj/structure/sign/warning/caution,
 /turf/simulated/wall/prepainted,
@@ -9617,7 +9466,7 @@
 	req_access = list("ACCESS_ATMOS")
 	},
 /obj/machinery/door/firedoor/autoset,
-/turf/space,
+/turf/simulated/floor/plating/airless,
 /area/russianderelict/hallway/primary)
 "ZX" = (
 /obj/structure/cable{
@@ -17352,7 +17201,7 @@ ab
 aa
 ao
 aX
-ND
+DV
 bt
 ao
 ak
@@ -22977,9 +22826,9 @@ aa
 aa
 aa
 gm
-cY
-jQ
-jQ
+pv
+pv
+pv
 OU
 gm
 XM
@@ -23168,7 +23017,7 @@ aa
 aa
 aa
 aa
-fi
+WE
 uu
 Qb
 fj
@@ -23360,7 +23209,7 @@ aa
 aa
 aa
 aa
-fi
+WE
 zW
 uM
 fj
@@ -23552,16 +23401,16 @@ aa
 aa
 aa
 aa
-fi
+WE
 fj
 Rp
 UT
 mt
 gS
 tF
-ek
-Wa
-nU
+pU
+rj
+pU
 rj
 pU
 PI
@@ -23744,7 +23593,7 @@ aa
 aa
 aa
 aa
-fi
+WE
 fj
 sn
 gm
@@ -23938,7 +23787,7 @@ aa
 aa
 gm
 ap
-TW
+sn
 gm
 pv
 gT
@@ -24517,9 +24366,9 @@ VV
 wW
 gm
 Ee
-jQ
-jQ
-Uv
+pv
+pv
+pv
 gm
 xF
 gm
@@ -30105,9 +29954,9 @@ nP
 nu
 nP
 hV
-Ew
+or
 Dk
-Ew
+or
 hV
 Cp
 hV
