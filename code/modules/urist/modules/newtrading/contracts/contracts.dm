@@ -42,7 +42,7 @@
 		if(neg_faction && neg_rep_points)
 			SSfactions.update_reputation(neg_faction, neg_rep_points)
 
-		var/datum/transaction/T = new("[GLOB.using_map.station_name]", "[name] Completion", money, "[faction.name]")
+		var/datum/transaction/T = new("[GLOB.using_map.station_name]", "Contract Completion", money, "[faction.name] contract completion")
 		GLOB.global_announcer.autosay("<b>The [name] has been completed. [money]Th has been deposited into the station account by [faction.name].</b>", "[GLOB.using_map.station_name] Automated Account System", "Command")
 		station_account.add_transaction(T)
 		GLOB.using_map.completed_contracts += 1
