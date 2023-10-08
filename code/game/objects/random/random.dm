@@ -1414,8 +1414,20 @@ var/global/list/multi_point_spawns
 	name = "randomly spawned cola"
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "cola"
-	spawn_object = /obj/item/reagent_containers/food/drinks/cans/cola
 
+/obj/random/single/cola/spawn_choices()
+	return list(/obj/item/reagent_containers/food/drinks/cans/cola,
+			/obj/item/reagent_containers/food/drinks/cans/cola_diet,
+			/obj/item/reagent_containers/food/drinks/cans/rootbeer,
+			/obj/item/reagent_containers/food/drinks/cans/cola_apple,
+			/obj/item/reagent_containers/food/drinks/cans/cola_orange,
+			/obj/item/reagent_containers/food/drinks/cans/cola_grape,
+			/obj/item/reagent_containers/food/drinks/cans/cola_lemonlime,
+			/obj/item/reagent_containers/food/drinks/cans/cola_strawberry,
+			/obj/item/reagent_containers/food/drinks/cans/cola_pork,
+			/obj/item/reagent_containers/food/drinks/cans/vanillacola,
+			/obj/item/reagent_containers/food/drinks/cans/coffeecola
+			)
 
 /* Place holders */
 /obj/random/rare

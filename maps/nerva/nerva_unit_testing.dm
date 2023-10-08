@@ -91,7 +91,9 @@
 		/area/security/abandonedcheckpoint,
 		/area/skipjack_station,
 		/area/medical/cloning,
-		/area/medical/virology
+		/area/medical/virology,
+		/area/solar/derelict_aft,
+		/area/solar/derelict_starboard
 		)
 
 	area_usage_test_exempted_root_areas = list(

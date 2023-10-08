@@ -23,6 +23,7 @@
 	#include "../away/smugglers/smugglers.dm"
 	#include "../away/crystalized_drugs/crystalized_drugs.dm"
 	#include "../away/forest/forest.dm"
+	#include "../away/russianderelict/russianderelict.dm"
 	#include "../away/glloyd_jungle/glloyd_jungle.dm"
 	#include "../away/casino/casino.dm"
 	#include "../away/magshield/magshield.dm"
