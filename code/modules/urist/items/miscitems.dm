@@ -853,3 +853,22 @@
 				/obj/item/dice/d4,
 				/obj/item/dice/d8
 				)
+
+/obj/item/bodyguardkit
+	name = "bodyguard plate carrier kit"
+	desc = "A secure box containing a plate carrier."
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "excavation"
+	var/list/armor_options = list(
+		"Classic - Blue Security Armor" = /obj/item/clothing/suit/armor/pcarrier/deus_blueshield,
+		"Modern - Plate Carrier" = /obj/item/clothing/suit/armor/pcarrier
+	)
+
+/obj/item/bodyguardkit/attack_self(mob/user)
+	var/choice = input(user, "What is your choice?") as null|anything in armor_options
+	if (choice && user.use_sanity_check(src))
+		var/new_armor_path = armor_options[choice]
+		var/obj/item/new_armor = new new_armor_path(user.loc)
+		user.drop_from_inventory(src)
+		to_chat(user, SPAN_NOTICE("You take \the [new_armor] out of \the [src]. Remember to put an armor plate in!"))
+		qdel(src)

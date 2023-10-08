@@ -397,6 +397,8 @@
 		if(mind.assigned_role == "Clown")				//give them a clownname if they are a clown
 			new_character.real_name = pick(GLOB.clown_names)	//I hate this being here of all places but unfortunately dna is based on real_name!
 			new_character.rename_self("clown")
+		if(mind.assigned_role == "Mime")
+			new_character.rename_self("mime")
 		mind.original = new_character
 		if(client.prefs.memory)
 			mind.StoreMemory(client.prefs.memory)

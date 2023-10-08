@@ -1,7 +1,6 @@
 /singleton/hierarchy/outfit/job/bodyguard
 	name = OUTFIT_JOB_NAME("Bodyguard") //done
 	uniform = /obj/item/clothing/under/bodyguard
-	suit = /obj/item/clothing/suit/armor/pcarrier/deus_blueshield
 	l_ear = /obj/item/device/radio/headset/nerva_guard
 	shoes = /obj/item/clothing/shoes/jackboots
 	id_types = list(/obj/item/card/id/bodyguard)
@@ -20,6 +19,7 @@
 	mask = /obj/item/clothing/mask/gas/mime
 	gloves = /obj/item/clothing/gloves/white
 	shoes = /obj/item/clothing/shoes/black
+	backpack_contents = list(/obj/item/reagent_containers/food/drinks/bottle/bottleofnothing = 1, /obj/item/pen/crayon/mime = 1)
 	pda_type = /obj/item/modular_computer/pda/mime
 	id_types = list(/obj/item/card/id/civilian/mime)
 

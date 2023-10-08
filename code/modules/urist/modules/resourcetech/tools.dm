@@ -66,7 +66,7 @@
 	if(istype(I, /obj/item/gunattachment/scope/huntrifle) && !scoped)
 		to_chat(user, "<span class='notice'>You attach the scope to the rifle.</span>")
 		scoped = 1
-		scoped_accuracy = 6
+		scoped_accuracy = 9
 		scope_zoom = 2
 		verbs += /obj/item/gun/proc/scope
 		icon_state = "scopedhuntrifle"
@@ -107,7 +107,7 @@
 	wielded_item_state = "scopedhuntrifle2"
 	icon_state = "scopedhuntrifle"
 	item_state = "scopedhuntrifle"
-	scoped_accuracy = 6
+	scoped_accuracy = 9
 	scope_zoom = 2
 
 /obj/item/gunattachment/scope/huntrifle

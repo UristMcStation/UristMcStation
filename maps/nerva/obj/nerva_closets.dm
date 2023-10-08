@@ -315,6 +315,6 @@
 	new /obj/item/device/flash(src)
 	new /obj/item/handcuffs(src)
 	new /obj/item/clothing/suit/storage/urist/coat/blueshield(src)
-	new /obj/item/clothing/suit/armor/pcarrier(src)
+	new /obj/item/bodyguardkit(src)
 	new /obj/item/clothing/accessory/armor_plate/medium(src)
 	return
