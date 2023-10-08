@@ -1,7 +1,6 @@
 /datum
 	var/gc_destroyed //Time when this object was destroyed.
 	var/is_processing = FALSE
-	var/list/active_timers  //for SStimer
 
 #ifdef TESTING
 	var/running_find_references
@@ -19,16 +18,8 @@
 	weakref = null // Clear this reference to ensure it's kept for as brief duration as possible.
 
 	SSnano && SSnano.close_uis(src)
-
-	var/list/timers = active_timers
-	active_timers = null
-	for(var/datum/timedevent/timer as anything in timers)
-		if (timer.spent)
-			continue
-		qdel(timer)
-
-	if(extensions)
-		for(var/expansion_key in extensions)
+	if (extensions)
+		for (var/expansion_key in extensions)
 			var/list/extension = extensions[expansion_key]
 			if(islist(extension))
 				extension.Cut()
