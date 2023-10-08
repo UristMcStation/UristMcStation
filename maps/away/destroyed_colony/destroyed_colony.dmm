@@ -2882,10 +2882,6 @@
 /obj/structure/barricade/wooden/crude,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
-"jV" = (
-/obj/structure/alien/node,
-/turf/simulated/floor/plating,
-/area/planet/destroyed_colony)
 "jW" = (
 /turf/simulated/floor/pavement/lighting/corner,
 /area/planet/destroyed_colony)
@@ -3193,6 +3189,7 @@
 "kX" = (
 /obj/structure/table/standard,
 /obj/structure/window/basic,
+/obj/random/cash,
 /obj/random/cash,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
@@ -4102,7 +4099,7 @@
 	},
 /area/planet/destroyed_colony)
 "oc" = (
-/mob/living/exosuit/premade/powerloader/old,
+/obj/item/mech_component/sensors/powerloader,
 /turf/simulated/floor/plating,
 /area/planet/destroyed_colony)
 "od" = (
@@ -4595,6 +4592,7 @@
 	dir = 8
 	},
 /obj/random/cash,
+/obj/random/cash,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "pK" = (
@@ -4730,8 +4728,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "qi" = (
-/obj/machinery/constructable_frame/computerframe{
-	icon_state = "unwired";
+/obj/structure/salvageable/console_broken_os{
+	icon_state = "os_console_broken";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4936,6 +4934,8 @@
 /obj/item/ammo_magazine/c10mm/TD10,
 /obj/item/ammo_magazine/c10mm/TD10,
 /obj/item/ammo_magazine/c10mm/TD10,
+/obj/random/ammo,
+/obj/random/ammo,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "qP" = (
@@ -5055,11 +5055,6 @@
 	dir = 1
 	},
 /area/planet/destroyed_colony)
-"rh" = (
-/obj/random/vehicle_part,
-/mob/living/exosuit/premade/powerloader/old,
-/turf/simulated/floor/plating,
-/area/planet/destroyed_colony)
 "ri" = (
 /obj/effect/mine/frag,
 /turf/simulated/floor/plating,
@@ -5113,29 +5108,86 @@
 	icon_state = "verticalinnermain2bottom"
 	},
 /area/planet/destroyed_colony)
-"tX" = (
-/obj/structure/salvageable/autolathe,
+"uS" = (
+/obj/item/vehicle_part/tire,
+/turf/simulated/floor/plating,
+/area/planet/destroyed_colony)
+"uX" = (
+/obj/structure/table/standard,
+/obj/random/ammo,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
-"Ki" = (
+"xR" = (
+/obj/structure/mech_wreckage,
+/turf/simulated/floor/plating,
+/area/planet/destroyed_colony)
+"yX" = (
+/obj/structure/salvageable/computer,
+/turf/simulated/floor/lino,
+/area/planet/destroyed_colony)
+"Aa" = (
+/obj/structure/closet/secure_closet/courtroom,
+/obj/random/smokes,
+/turf/simulated/floor/carpet,
+/area/planet/destroyed_colony)
+"BE" = (
+/obj/random/ammo,
+/turf/simulated/floor/tiled/dark,
+/area/planet/destroyed_colony)
+"BK" = (
+/obj/random/biggun,
+/turf/simulated/floor/tiled,
+/area/planet/destroyed_colony)
+"Dp" = (
 /obj/structure/salvageable/computer_os,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
-"Ul" = (
+"HS" = (
+/obj/structure/table/woodentable,
+/obj/structure/salvageable/personal,
+/turf/simulated/floor/carpet,
+/area/planet/destroyed_colony)
+"LB" = (
+/obj/structure/closet/secure_closet,
+/obj/random/cash,
+/obj/random/cash,
+/turf/simulated/floor/tiled/dark,
+/area/planet/destroyed_colony)
+"Ox" = (
+/obj/structure/closet/secure_closet/courtroom,
+/obj/random/cash,
+/turf/simulated/floor/carpet,
+/area/planet/destroyed_colony)
+"OL" = (
+/obj/item/ammo_casing/rifle/used,
+/obj/random/ammo,
+/turf/simulated/floor/tiled,
+/area/planet/destroyed_colony)
+"OX" = (
+/obj/structure/table/rack,
+/obj/item/mech_equipment/clamp,
+/obj/item/mech_component/chassis/combat,
+/turf/simulated/floor/tiled/dark,
+/area/planet/destroyed_colony)
+"PL" = (
+/obj/structure/salvageable/autolathe,
+/turf/simulated/floor/tiled/dark,
+/area/planet/destroyed_colony)
+"Rh" = (
 /obj/structure/salvageable/console_broken_os{
 	icon_state = "os_console_broken";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
-"Vv" = (
-/obj/structure/salvageable/computer,
-/turf/simulated/floor/lino,
+"Rp" = (
+/obj/structure/closet/cabinet,
+/obj/random/cash,
+/turf/simulated/floor/wood,
 /area/planet/destroyed_colony)
-"WJ" = (
-/obj/structure/table/woodentable,
-/obj/structure/salvageable/personal,
-/turf/simulated/floor/carpet,
+"SB" = (
+/obj/random/cash,
+/turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 
 (1,1,1) = {"
@@ -6482,7 +6534,7 @@ jl
 iP
 dK
 iP
-jV
+iP
 iP
 jR
 iz
@@ -6597,7 +6649,7 @@ iz
 iN
 bE
 bE
-bE
+BE
 bE
 bE
 fF
@@ -6722,7 +6774,7 @@ bE
 bE
 bE
 bE
-bE
+BE
 iz
 jl
 iP
@@ -6855,7 +6907,7 @@ iP
 iP
 dK
 iP
-jV
+iP
 iP
 iz
 aa
@@ -7200,7 +7252,7 @@ bE
 bE
 bE
 bE
-bE
+SB
 bE
 pa
 aS
@@ -7321,7 +7373,7 @@ bE
 bN
 nK
 bE
-bE
+SB
 qn
 qr
 qv
@@ -7463,7 +7515,7 @@ kL
 iz
 iz
 bE
-bE
+BE
 bE
 bE
 bE
@@ -7928,7 +7980,7 @@ kO
 aV
 kX
 aV
-bo
+by
 bo
 bG
 bE
@@ -8543,7 +8595,7 @@ kR
 bo
 kY
 kR
-bo
+ps
 kY
 aS
 km
@@ -9192,7 +9244,7 @@ aS
 kf
 bE
 gg
-Ul
+Rh
 bG
 bu
 aa
@@ -9432,13 +9484,13 @@ bE
 jQ
 bN
 fh
-bE
+BE
 bE
 aS
 fj
 bE
 gg
-Ul
+Rh
 bG
 bu
 aa
@@ -10295,7 +10347,7 @@ hS
 iJ
 jl
 iP
-jV
+iP
 iP
 iP
 js
@@ -10418,7 +10470,7 @@ iJ
 aS
 jl
 jq
-js
+iP
 ju
 jq
 iP
@@ -10543,7 +10595,7 @@ jl
 iP
 iP
 iP
-jV
+iP
 iP
 jl
 iz
@@ -10737,7 +10789,7 @@ ad
 ad
 bs
 gw
-hs
+fF
 bE
 gn
 bE
@@ -10820,7 +10872,7 @@ aK
 aK
 aK
 aU
-Ki
+Dp
 lY
 aV
 by
@@ -10983,7 +11035,7 @@ fe
 gs
 bs
 gw
-hs
+fF
 bE
 hH
 bE
@@ -11032,12 +11084,12 @@ iz
 qK
 bE
 bE
-dB
+OX
 bE
 bE
 bE
 bE
-tX
+PL
 iz
 bu
 aa
@@ -11774,7 +11826,7 @@ nZ
 of
 nY
 iP
-rh
+qW
 og
 iz
 bu
@@ -11892,11 +11944,11 @@ bE
 fF
 bE
 nY
-iP
-iP
+xR
+uS
 og
 nY
-iP
+uS
 iP
 og
 iz
@@ -12117,7 +12169,7 @@ aS
 bw
 iV
 iV
-iL
+Aa
 aS
 pT
 kL
@@ -12555,7 +12607,7 @@ ab
 aK
 bP
 kB
-cM
+LB
 cW
 bE
 jk
@@ -12579,7 +12631,7 @@ cq
 aV
 gI
 gJ
-cq
+OL
 aS
 bE
 gm
@@ -12697,7 +12749,7 @@ fv
 bE
 fR
 bE
-fh
+uX
 aV
 gt
 aV
@@ -12730,7 +12782,7 @@ bE
 bE
 aS
 bw
-WJ
+HS
 kn
 iL
 aS
@@ -12822,7 +12874,7 @@ bE
 gg
 gp
 aV
-aV
+BK
 fO
 bn
 aV
@@ -13347,7 +13399,7 @@ aS
 bw
 cs
 jC
-iL
+Ox
 aS
 kL
 kL
@@ -13434,7 +13486,7 @@ bE
 bE
 bE
 bE
-bE
+BE
 bE
 bE
 gC
@@ -14093,7 +14145,7 @@ aS
 kw
 aS
 ms
-mH
+Rp
 aS
 mJ
 mG
@@ -16197,7 +16249,7 @@ aS
 nH
 nH
 nH
-Vv
+yX
 bG
 lq
 jB

@@ -12,12 +12,23 @@
 	generate_mining_by_z = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/bacchus)
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
-	
+
 /obj/effect/overmap/visitable/sector/drug_lab
 	name = "bluespace wake traces"
 	desc = "Initial sector readings reported numerous bluespace wake traces from within this sector. Sensor reports indicate asteroids with abnormal refraction indexes are detected along with energy spikes."
 	icon_state = "object"
 	known = FALSE
+
+/obj/effect/overmap/visitable/sector/drug_lab/generate_skybox()
+	var/image/res = overlay_image('icons/skybox/rockbox.dmi', "rockbox", COLOR_ASTEROID_ROCK, RESET_COLOR)
+	res.blend_mode = BLEND_OVERLAY
+	return res
+
+/obj/effect/overmap/visitable/sector/drug_lab/get_skybox_representation()
+	var/image/res = overlay_image('icons/skybox/rockbox.dmi', "rockbox", COLOR_ASTEROID_ROCK, RESET_COLOR)
+	res.blend_mode = BLEND_OVERLAY
+	res.SetTransform(scale = 0.5)
+	return res
 
 /obj/effect/overmap/visitable/ship/landable/bacchus
 	name = "ITV Bacchus"
