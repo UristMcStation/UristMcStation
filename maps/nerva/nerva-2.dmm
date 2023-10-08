@@ -13333,6 +13333,10 @@
 	dir = 1;
 	icon_state = "nerva2"
 	},
+/obj/structure/noticeboard{
+	dir = 4;
+	pixel_x = -31
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/third_deck)
 "awS" = (
@@ -13582,6 +13586,10 @@
 "axB" = (
 /obj/machinery/vending/snack{
 	dir = 8
+	},
+/obj/structure/noticeboard{
+	dir = 8;
+	pixel_x = 30
 	},
 /turf/simulated/floor/wood/walnut,
 /area/command/meeting)
@@ -27966,9 +27974,6 @@
 	icon_state = "4-8";
 	pixel_x = 0
 	},
-/obj/structure/noticeboard{
-	pixel_y = 32
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -29542,6 +29547,13 @@
 /obj/machinery/reagent_temperature/cooler,
 /turf/simulated/floor/tiled/white,
 /area/civilian/kitchen)
+"lbf" = (
+/obj/structure/noticeboard{
+	pixel_y = 32;
+	name = "menu board"
+	},
+/turf/simulated/floor/wood/walnut,
+/area/civilian/bar)
 "lfC" = (
 /obj/structure/catwalk,
 /obj/machinery/light/small{
@@ -30901,6 +30913,17 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/lockers)
+"tcV" = (
+/obj/effect/floor_decal/corner/fadeblue{
+	dir = 6;
+	icon_state = "corner_white"
+	},
+/obj/structure/noticeboard{
+	dir = 8;
+	pixel_x = 30
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/fore/third_deck)
 "teR" = (
 /obj/structure/disposaloutlet{
 	dir = 4
@@ -31769,6 +31792,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/third_deck)
+"xvI" = (
+/obj/effect/floor_decal/corner/black/full,
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/structure/noticeboard{
+	dir = 4;
+	pixel_x = -31
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/security/entrance)
 "xyC" = (
 /obj/effect/floor_decal/corner/fadeblue{
 	dir = 10;
@@ -56191,7 +56225,7 @@ ajt
 vUy
 alU
 and
-and
+xvI
 aoz
 apN
 arb
@@ -59429,8 +59463,8 @@ apZ
 tfp
 ast
 atD
-auQ
-awh
+auO
+lbf
 axt
 ayC
 hSY
@@ -60847,7 +60881,7 @@ eJz
 vGr
 fGH
 fGH
-fGH
+tcV
 fGH
 fGH
 mcq
@@ -61049,7 +61083,7 @@ auU
 auU
 axx
 axx
-axx
+auU
 axx
 axx
 auU

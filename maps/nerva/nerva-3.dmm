@@ -1961,9 +1961,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "ef" = (
-/obj/structure/flora/pottedplant{
-	icon_state = "plant-22"
-	},
+/obj/machinery/vending/cigarette,
 /turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "eg" = (
@@ -2245,9 +2243,9 @@
 /turf/simulated/floor/plating,
 /area/logistics/auxtool)
 "eH" = (
-/obj/machinery/vending/cigarette,
-/obj/machinery/light_switch{
-	pixel_y = 24
+/obj/structure/noticeboard{
+	pixel_y = 32;
+	name = "menu board"
 	},
 /turf/simulated/floor/plating,
 /area/civilian/lounge)
@@ -2272,6 +2270,10 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/vending/coffee,
+/obj/machinery/light_switch{
+	pixel_y = 33;
+	pixel_x = -11
+	},
 /turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "eK" = (
@@ -16617,6 +16619,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/second_deck)
+"Pu" = (
+/obj/structure/flora/pottedplant{
+	icon_state = "plant-22"
+	},
+/turf/simulated/floor/plating,
+/area/civilian/lounge)
 "PA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4;
@@ -44648,7 +44656,7 @@ iz
 kh
 iI
 ix
-ix
+Pu
 bA
 PQ
 WG
