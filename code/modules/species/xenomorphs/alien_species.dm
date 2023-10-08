@@ -164,7 +164,7 @@
 		heal_rate = weeds_heal_rate / 3
 		mend_prob = 1
 
-	if(!H.resting || !started_healing["\ref[H]"])
+	if(!H.lying || !started_healing["\ref[H]"])
 		started_healing["\ref[H]"] = world.time
 	if(world.time - started_healing["\ref[H]"] > accelerated_healing_threshold)
 		heal_rate *= 1.5
@@ -176,7 +176,12 @@
 			I.damage = max(I.damage - heal_rate, 0)
 			if (prob(5))
 				to_chat(H, "<span class='alium'>You feel a soothing sensation within your [I.parent_organ]...</span>")
-			return 1
+			if(!istype(I, /obj/item/organ/internal/brain)) // regeneration will get stuck forever if we only heal the brain
+				return 1
+
+	// if our heart gave out it's hopefully healed above and otherwise fine
+	if(prob(mend_prob))
+		H.resuscitate()
 
 	//next mend broken bones, approx 10 ticks each
 	for(var/obj/item/organ/external/E in H.bad_external_organs)
