@@ -7790,7 +7790,9 @@
 	pixel_y = -24;
 	req_access = list("ACCESS_MORNING_LIGHT")
 	},
-/obj/machinery/atmospherics/unary/tank/hydrogen,
+/obj/machinery/atmospherics/unary/tank/hydrogen{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/morninglight/engineering)
 "uq" = (
@@ -8562,7 +8564,9 @@
 /area/planet/abandoned_colony)
 "wp" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/unary/tank/hydrogen,
+/obj/machinery/atmospherics/unary/tank/hydrogen{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/morninglight/engineering)
 "wr" = (
