@@ -117,8 +117,8 @@
 /obj/effect/floor_decal/borderfloorbeige{
 	dir = 1
 	},
-/mob/living/bot/farmbot,
 /obj/machinery/atmospherics/pipe/manifold/hidden,
+/mob/living/bot/farmbot,
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/botany)
 "aI" = (
@@ -126,7 +126,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/asteroid{
-	initial_gas = list("oxygen"=21.8366,"nitrogen"=82.1472)
+	initial_gas = list("oxygen" = 21.8366, "nitrogen" = 82.1472)
 	},
 /area/crystaldrugs/hallway)
 "aT" = (
@@ -351,6 +351,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/hologram/holopad/longrange/remoteship,
 /turf/simulated/floor/tiled/dark,
 /area/crystaldrugs/bacchus)
 "ck" = (
@@ -2037,7 +2038,7 @@
 	},
 /obj/structure/inflatable/wall,
 /turf/simulated/floor/asteroid{
-	initial_gas = list("oxygen"=21.8366,"nitrogen"=82.1472)
+	initial_gas = list("oxygen" = 21.8366, "nitrogen" = 82.1472)
 	},
 /area/crystaldrugs/exterior)
 "ow" = (
@@ -2301,7 +2302,7 @@
 /area/crystaldrugs/docking)
 "qp" = (
 /turf/simulated/floor/asteroid{
-	initial_gas = list("oxygen"=21.8366,"nitrogen"=82.1472)
+	initial_gas = list("oxygen" = 21.8366, "nitrogen" = 82.1472)
 	},
 /area/crystaldrugs/hallway)
 "qq" = (
@@ -2370,8 +2371,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/crystaldrugs/bacchus/dorms)
 "qC" = (
-/mob/living/exosuit/premade/powerloader,
 /obj/machinery/mech_recharger,
+/mob/living/exosuit/premade/powerloader,
 /turf/simulated/floor/tiled/old_cargo/gray,
 /area/crystaldrugs/loading)
 "qE" = (
@@ -3883,6 +3884,7 @@
 	pixel_y = 12;
 	master_tag = "crystaldrug"
 	},
+/obj/effect/shuttle_landmark/bacchus,
 /turf/simulated/floor/plating,
 /area/crystaldrugs/bacchus/cargo)
 "AJ" = (
@@ -4133,7 +4135,7 @@
 "CK" = (
 /obj/structure/inflatable/wall,
 /turf/simulated/floor/asteroid{
-	initial_gas = list("oxygen"=21.8366,"nitrogen"=82.1472)
+	initial_gas = list("oxygen" = 21.8366, "nitrogen" = 82.1472)
 	},
 /area/crystaldrugs/exterior)
 "CS" = (
@@ -4701,7 +4703,7 @@
 /area/crystaldrugs/bacchus/engine)
 "GJ" = (
 /turf/simulated/floor/asteroid{
-	initial_gas = list("oxygen"=21.8366,"nitrogen"=82.1472)
+	initial_gas = list("oxygen" = 21.8366, "nitrogen" = 82.1472)
 	},
 /area/crystaldrugs/exterior)
 "GK" = (
@@ -4724,7 +4726,7 @@
 	id_tag = "drugvaultext"
 	},
 /turf/simulated/floor/asteroid{
-	initial_gas = list("oxygen"=21.8366,"nitrogen"=82.1472)
+	initial_gas = list("oxygen" = 21.8366, "nitrogen" = 82.1472)
 	},
 /area/crystaldrugs/vault)
 "Hk" = (
@@ -5417,7 +5419,6 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/effect/shuttle_landmark/bacchus,
 /obj/effect/overmap/visitable/ship/landable/bacchus,
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/bacchus/cargo)
@@ -5545,7 +5546,7 @@
 "Ms" = (
 /obj/random/contraband,
 /turf/simulated/floor/asteroid{
-	initial_gas = list("oxygen"=21.8366,"nitrogen"=82.1472)
+	initial_gas = list("oxygen" = 21.8366, "nitrogen" = 82.1472)
 	},
 /area/crystaldrugs/hallway)
 "Mt" = (
