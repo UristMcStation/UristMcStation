@@ -9,6 +9,10 @@
 	return TRUE
 	#endif
 
+	var/area/map_template/deepmaint_wfc/deepmaint_area = get_area(deadman)
+	if(!istype(deepmaint_area))
+		return TRUE
+
 	// check area
 	// if deepmaint, move to station maint
 	// if gibbed, spawn gibspawner
