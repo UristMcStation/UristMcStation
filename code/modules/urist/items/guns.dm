@@ -754,7 +754,8 @@ the sprite and make my own projectile -Glloyd*/
 	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/rifle/military/spaceak
-	one_hand_penalty = 4
+	allowed_magazines = list(/obj/item/ammo_magazine/rifle/military/spaceak)
+	one_hand_penalty = 6
 	wielded_item_state = "sexyrifle-wielded"
 
 	firemodes = list(
