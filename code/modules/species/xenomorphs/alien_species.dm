@@ -41,10 +41,15 @@
 	cold_level_2 = -1
 	cold_level_3 = -1
 
-	species_flags = SPECIES_FLAG_NO_SCAN | SPECIES_FLAG_NO_PAIN | SPECIES_FLAG_NO_SLIP | SPECIES_FLAG_NO_POISON | SPECIES_FLAG_NO_EMBED | SPECIES_FLAG_NO_TANGLE
+	species_flags = SPECIES_FLAG_NO_MINOR_CUT | SPECIES_FLAG_NO_SCAN | SPECIES_FLAG_NO_PAIN | SPECIES_FLAG_NO_SLIP | SPECIES_FLAG_NO_POISON | SPECIES_FLAG_NO_EMBED | SPECIES_FLAG_NO_TANGLE
 	appearance_flags = SPECIES_APPEARANCE_HAS_EYE_COLOR | SPECIES_APPEARANCE_HAS_SKIN_COLOR
 
 	spawn_flags = SPECIES_IS_RESTRICTED
+
+	darksight_range = 7
+	darksight_tint = "#bbbbbb" // effectively night vision except you can tell which areas are dark
+
+	move_trail = /obj/effect/decal/cleanable/blood/tracks/body
 
 	blood_color = "#05ee05"
 	flesh_color = "#282846"
@@ -121,6 +126,7 @@
 
 /datum/species/xenos/handle_post_spawn(mob/living/carbon/human/H)
 
+	H.faction = "alien"
 	if(H.mind)
 		H.mind.reset()
 		H.mind.assigned_role = "Alien"
