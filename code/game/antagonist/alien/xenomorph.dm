@@ -13,7 +13,7 @@ GLOBAL_DATUM_INIT(xenomorphs, /datum/antagonist/xenos, new)
 	faction_descriptor = "Hive"
 	faction_welcome = "Your will is ripped away as your humanity merges with the xenomorph overmind. You are now \
 		a thrall to the queen and her brood. Obey their instructions without question. Serve the hive."
-	faction = "xenophage"
+	faction = "alien"
 	faction_indicator = "hudalien"
 
 	hard_cap = 5
