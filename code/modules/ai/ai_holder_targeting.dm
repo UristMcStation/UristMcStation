@@ -122,23 +122,24 @@
 
 			if (L.status_flags & NOTARGET)
 				return FALSE
+
+		else if (istype(the_target, /mob/living/exosuit))	//Exosuits are living??? This check needs to go in here now
+			var/mob/living/exosuit/M = the_target
+			var/will_attack = FALSE
+			for (var/mob/pilot in M.pilots)
+				will_attack =  will_attack || can_attack(pilot)
+			return length(M.pilots) ? will_attack : destructive // Empty mechs are 'neutral'.
+
 		if (L.stat)
 			if (L.stat == DEAD && !handle_corpse) // Leave dead things alone
 				return FALSE
 			if (L.stat == UNCONSCIOUS)	// Do we have mauling? Yes? Then maul people who are sleeping but not SSD
-				if (mauling)
-					return TRUE
-				else
-					return FALSE
+				return mauling
+
 		if (holder.IIsAlly(L))
 			return FALSE
 		return TRUE
 
-	if (istype(the_target, /mob/living/exosuit))
-		var/mob/living/exosuit/M = the_target
-		for (var/mob/pilot in M.pilots)
-			return can_attack(pilot)
-		return destructive // Empty mechs are 'neutral'.
 
 	if (istype(the_target, /obj/machinery/porta_turret))
 		var/obj/machinery/porta_turret/P = the_target
