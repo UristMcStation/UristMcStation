@@ -168,7 +168,7 @@
 					playsound(loc, mag_insert_sound, 75, 1)
 					update_icon()
 					AM.update_icon()
-					if(!istype(AM, magazine_type))
+					if(jam_chance && !istype(AM, magazine_type))
 						jam_chance += 10
 					return
 				ammo_magazine = AM
