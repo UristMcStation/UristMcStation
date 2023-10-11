@@ -7,6 +7,7 @@
 	language = LANGUAGE_XENOPHAGE_GLOBAL
 	maxHealth = 25
 	health = 25
+	faction = "alien"
 
 	var/adult_form = /mob/living/carbon/human
 	var/amount_grown = 0
