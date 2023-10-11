@@ -328,6 +328,15 @@ var/global/list/mining_floors = list()
 	if(istype(N))
 		N.overlay_detail = "asteroid[rand(0,9)]"
 		N.updateMineralOverlays(1)
+		if(!N.has_resources || length(N.resources))
+			return
+		for(var/i in random_maps)
+			var/datum/random_map/noise/ore/orenoise = random_maps[i]
+			if(!istype(orenoise))
+				continue
+			if(orenoise.origin_z == N.z)
+				orenoise.generate_tile(N)
+				break
 
 /turf/simulated/mineral/proc/excavate_find(prob_clean = 0, datum/find/F)
 
@@ -517,11 +526,9 @@ var/global/list/mining_floors = list()
 
 	overlays.Cut()
 
-	var/list/step_overlays = list("n" = NORTH, "s" = SOUTH, "e" = EAST, "w" = WEST)
-	for(var/direction in step_overlays)
-
-		if(istype(get_step(src, step_overlays[direction]), /turf/space))
-			var/image/aster_edge = image('icons/turf/flooring/asteroid.dmi', "asteroid_edges", dir = step_overlays[direction])
+	for(var/direction in GLOB.cardinal)
+		if(istype(get_step(src, direction), /turf/space))
+			var/image/aster_edge = image('icons/turf/flooring/asteroid.dmi', "asteroid_edges", dir = direction)
 			aster_edge.turf_decal_layerise()
 			overlays += aster_edge
 
@@ -532,11 +539,9 @@ var/global/list/mining_floors = list()
 		overlays |= floor_decal
 
 	if(update_neighbors)
-		var/list/all_step_directions = list(NORTH,NORTHEAST,EAST,SOUTHEAST,SOUTH,SOUTHWEST,WEST,NORTHWEST)
-		for(var/direction in all_step_directions)
-			var/turf/simulated/floor/asteroid/A
-			if(istype(get_step(src, direction), /turf/simulated/floor/asteroid))
-				A = get_step(src, direction)
+		for(var/direction in GLOB.alldirs)
+			var/turf/simulated/floor/asteroid/A = get_step(src, direction)
+			if(istype(A))
 				A.updateMineralOverlays()
 
 /turf/simulated/floor/asteroid/Entered(atom/movable/M as mob|obj)
