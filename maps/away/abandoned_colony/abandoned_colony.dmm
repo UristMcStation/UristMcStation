@@ -8010,12 +8010,12 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/main)
 "uR" = (
-/obj/machinery/computer/ship/sensors{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/lightgrey{
 	dir = 6;
 	icon_state = "corner_white"
+	},
+/obj/machinery/computer/ship/sensors{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/main)
@@ -16435,9 +16435,9 @@ jj
 jj
 jj
 qn
-sW
-tP
 uR
+tP
+sW
 qn
 jj
 jj

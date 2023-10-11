@@ -13333,10 +13333,6 @@
 	dir = 1;
 	icon_state = "nerva2"
 	},
-/obj/structure/noticeboard{
-	dir = 4;
-	pixel_x = -31
-	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/third_deck)
 "awS" = (
