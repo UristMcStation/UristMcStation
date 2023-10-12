@@ -90,15 +90,16 @@
 		/obj/item/trash/material/metal = 60,
 		/obj/item/stock_parts/capacitor = 60,
 		/obj/item/stock_parts/scanning_module = 40,
-		/obj/item/stock_parts/capacitor/adv = 30,
+		/obj/item/stock_parts/capacitor/adv = 30
 	)
+
 /obj/structure/salvageable/machine/television/Initialize()
 	. = ..()
 	icon_state = "TV[rand(0,1)]"
 
 /obj/structure/salvageable/machine/radio
 	name = "broken radio"
-	icon_state = "TV0"
+	icon_state = "radio"
 	salvageable_parts = list(
 		/obj/item/stock_parts/console_screen = 80,
 		/obj/item/stack/cable_coil{amount = 5} = 90,
@@ -107,7 +108,7 @@
 		/obj/item/trash/material/metal = 60,
 		/obj/item/stock_parts/capacitor = 60,
 		/obj/item/stock_parts/scanning_module = 40,
-		/obj/item/stock_parts/capacitor/adv = 30,
+		/obj/item/stock_parts/capacitor/adv = 30
 	)
 
 /obj/structure/salvageable/computer
