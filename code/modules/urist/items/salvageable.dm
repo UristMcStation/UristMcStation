@@ -59,6 +59,57 @@
 	. = ..()
 	icon_state = "machine[rand(0,6)]"
 
+/obj/structure/salvageable/machine/stove
+	name = "broken range"
+	icon_state = "stove0"
+	salvageable_parts = list(
+		/obj/item/stack/cable_coil{amount = 5} = 80,
+		/obj/item/trash/material/circuit = 60,
+		/obj/item/trash/material/metal = 60,
+		/obj/item/stock_parts/capacitor = 40,
+		/obj/item/stock_parts/micro_laser = 40,
+		/obj/item/stock_parts/micro_laser = 40,
+		/obj/item/stock_parts/matter_bin = 40,
+		/obj/item/stock_parts/matter_bin = 40,
+		/obj/item/stock_parts/capacitor/adv = 20,
+		/obj/item/stock_parts/micro_laser/high = 20
+	)
+
+/obj/structure/salvageable/machine/stove/Initialize()
+	. = ..()
+	icon_state = "stove[rand(0,1)]"
+
+/obj/structure/salvageable/machine/television
+	name = "broken television"
+	icon_state = "TV0"
+	salvageable_parts = list(
+		/obj/item/stock_parts/console_screen = 80,
+		/obj/item/stack/cable_coil{amount = 5} = 90,
+		/obj/item/stack/material/glass{amount = 5} = 90,
+		/obj/item/trash/material/circuit = 60,
+		/obj/item/trash/material/metal = 60,
+		/obj/item/stock_parts/capacitor = 60,
+		/obj/item/stock_parts/scanning_module = 40,
+		/obj/item/stock_parts/capacitor/adv = 30,
+	)
+/obj/structure/salvageable/machine/television/Initialize()
+	. = ..()
+	icon_state = "TV[rand(0,1)]"
+
+/obj/structure/salvageable/machine/radio
+	name = "broken radio"
+	icon_state = "TV0"
+	salvageable_parts = list(
+		/obj/item/stock_parts/console_screen = 80,
+		/obj/item/stack/cable_coil{amount = 5} = 90,
+		/obj/item/stack/material/glass{amount = 5} = 90,
+		/obj/item/trash/material/circuit = 60,
+		/obj/item/trash/material/metal = 60,
+		/obj/item/stock_parts/capacitor = 60,
+		/obj/item/stock_parts/scanning_module = 40,
+		/obj/item/stock_parts/capacitor/adv = 30,
+	)
+
 /obj/structure/salvageable/computer
 	name = "broken computer"
 	icon_state = "computer0"
