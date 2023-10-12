@@ -928,8 +928,8 @@
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest)
 "jB" = (
-/obj/structure/salvageable/machine/radio,
 /obj/structure/table/woodentable/walnut,
+/obj/structure/salvageable/radio,
 /turf/simulated/floor/wood/maple,
 /area/planet/forest)
 "kk" = (
@@ -1022,7 +1022,7 @@
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest)
 "JV" = (
-/obj/structure/salvageable/machine/stove,
+/obj/structure/salvageable/stove,
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest)
 "KI" = (
@@ -1049,7 +1049,7 @@
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest)
 "Tk" = (
-/obj/structure/salvageable/machine/television,
+/obj/structure/salvageable/television,
 /turf/simulated/floor/plating,
 /area/planet/forest)
 "Ty" = (
@@ -2254,7 +2254,7 @@ nE
 JL
 Vm
 Vm
-bc
+JV
 bc
 bc
 bc
@@ -2356,7 +2356,7 @@ nE
 bc
 bc
 nE
-JV
+bc
 bc
 bc
 bc

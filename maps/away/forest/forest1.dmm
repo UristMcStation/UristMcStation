@@ -991,7 +991,7 @@
 "cS" = (
 /obj/effect/decal/cleanable/filth,
 /obj/structure/table/woodentable_reinforced,
-/obj/structure/salvageable/machine/radio,
+/obj/structure/salvageable/radio,
 /turf/simulated/floor,
 /area/planet/forest/cave/hall)
 "cT" = (
@@ -4311,6 +4311,7 @@
 /obj/effect/floor_decal/corner/purple/half{
 	dir = 8
 	},
+/obj/structure/salvageable/personal,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "kb" = (
@@ -4890,8 +4891,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/forest/cave/engie)
 "qP" = (
-/obj/structure/salvageable/machine/television,
 /obj/structure/table/standard,
+/obj/structure/salvageable/television,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/kitchen)
 "sT" = (

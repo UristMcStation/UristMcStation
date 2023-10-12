@@ -2453,6 +2453,7 @@
 "hk" = (
 /obj/structure/table/standard,
 /obj/random/smokes,
+/obj/structure/salvageable/register,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "square_black"
 	},
@@ -4750,6 +4751,7 @@
 "nY" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/table/standard,
+/obj/structure/salvageable/register,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	dir = 2;
 	icon_state = "cafeteria"
@@ -5217,6 +5219,7 @@
 "pa" = (
 /obj/structure/table/woodentable/walnut,
 /obj/random/drinkbottle,
+/obj/structure/salvageable/register,
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "pb" = (
@@ -8943,6 +8946,13 @@
 /obj/random/shoes,
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
+"Bl" = (
+/obj/structure/table/standard,
+/obj/structure/salvageable/register,
+/turf/simulated/floor/tiled/uristturf/geminus{
+	icon_state = "tiles1"
+	},
+/area/planet/abandoned_colony)
 "BD" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -10251,7 +10261,7 @@ ac
 ac
 cq
 cq
-cS
+Bl
 cK
 cK
 cM
