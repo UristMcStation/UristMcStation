@@ -82,6 +82,7 @@
 	name = "\proper космическая-станция-13"
 	desc = "Sensors detect an orbital station with an unusual profile and no life signs."
 	icon_state = "object"
+	assigned_contracts = list(/datum/contract/russianderelict)
 	known = FALSE
 
 /datum/map_template/ruin/away_site/russianderelict
@@ -221,6 +222,12 @@
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "art_bru"
 
+/obj/item/gun/projectile/automatic/spaceak/empty
+	magazine_type = null
+
+/obj/item/gun/projectile/automatic/c20r/empty
+	magazine_type = null
+
 /obj/random/single/russiancola/spawn_choices()
 	return list(
 		/obj/item/reagent_containers/food/drinks/cans/syndicolax,
@@ -239,7 +246,7 @@
 
 /obj/structure/sign/russianplaque/examine(mob/user)
 	if(user.can_speak(all_languages[LANGUAGE_HUMAN_RUSSIAN]))
-		to_chat(user, "That's a commemorative plaque. It reads:\n \
+		to_chat(user, "That's a commemorative plaque in Pan-Slavic. It reads:\n \
 		'Space Station 13'\n \
 		'Developer-Class Outpost'\n \
 		'Station commissioned on 12/30/2322'\n \
@@ -252,3 +259,23 @@
 
 /obj/effect/floor_decal/urist/russian
 	icon_state = "derelict1"
+
+//contract
+
+/datum/contract/russianderelict
+	name = "Derelict Repower Contract"
+	desc = "As the frontier is reclaimed, so are its derelicts. Restore power to this station by setting up the singularity. We'll find a use for it."
+	rep_points = 3
+	money = 10000
+	amount = 1
+
+/obj/machinery/the_singularitygen/russianderelict
+
+/obj/machinery/the_singularitygen/russianderelict/Process()
+	var/turf/T = get_turf(src)
+	if(src.energy >= 200)
+		new /obj/singularity/(T, 50)
+		for(var/datum/contract/russianderelict/contract in GLOB.using_map.contracts)
+			if (locate(/obj/machinery/containment_field) in orange(30, src))	//you will not be paid for turning on the singulo without containment
+				contract.Complete(1)
+		if(src) qdel(src)
