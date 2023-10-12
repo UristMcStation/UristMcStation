@@ -1,6 +1,6 @@
 /spell/targeted/projectile/dumbfire/passage
 	name = "Passage"
-	desc = "throw a spell towards an area and teleport to it."
+	desc = "Throw a spell towards an area and teleport to it."
 	feedback = "PA"
 	proj_type = /obj/item/projectile/spell_projectile/passage
 
