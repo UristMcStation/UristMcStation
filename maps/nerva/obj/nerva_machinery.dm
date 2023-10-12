@@ -25,3 +25,6 @@
 	mask = /obj/item/clothing/mask/breath
 	req_access = list()
 	islocked = 1
+// Research Specific Air Alarms
+/obj/machinery/alarm/nervasci
+	req_access = list(list(access_xenobiology, access_atmospherics, access_engine_equip))

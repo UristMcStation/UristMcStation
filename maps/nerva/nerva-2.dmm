@@ -19369,13 +19369,12 @@
 /turf/simulated/floor/wood/walnut,
 /area/rnd/office)
 "aHN" = (
-/obj/machinery/firealarm{
-	dir = 4;
-	pixel_x = 24
-	},
 /obj/machinery/computer/modular/preset/nervasci{
-	dir = 8;
 	icon_state = "console"
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 0;
+	pixel_y = 28
 	},
 /turf/simulated/floor/wood/walnut,
 /area/rnd/office)
@@ -20058,11 +20057,11 @@
 	name = "Station Intercom (General)";
 	pixel_x = 22
 	},
-/obj/structure/table/woodentable/walnut,
-/obj/item/folder/nt,
-/obj/item/pen,
-/obj/item/paper_bin,
-/turf/simulated/floor/wood/walnut,
+/obj/structure/railing/mapped{
+	dir = 8;
+	icon_state = "railing0-1"
+	},
+/turf/simulated/open,
 /area/rnd/office)
 "aJb" = (
 /obj/effect/floor_decal/corner/fadeblue/full,
@@ -20596,26 +20595,17 @@
 /turf/simulated/floor/tiled,
 /area/hallway/central/third_deck)
 "aKd" = (
-/obj/machinery/light_switch{
-	dir = 4;
-	pixel_x = -22
-	},
 /obj/structure/table/woodentable/walnut,
 /obj/item/paper_bin,
 /obj/item/pen,
 /turf/simulated/floor/wood/walnut,
 /area/rnd/office)
 "aKe" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 26
-	},
-/obj/machinery/photocopier,
-/obj/machinery/camera/network/research{
-	c_tag = "Nanotrasen Office";
+/obj/structure/railing/mapped{
 	dir = 8;
-	icon_state = "camera"
+	icon_state = "railing0-1"
 	},
-/turf/simulated/floor/wood/walnut,
+/turf/simulated/open,
 /area/rnd/office)
 "aKf" = (
 /obj/structure/table/rack,
@@ -21966,6 +21956,11 @@
 	},
 /obj/structure/cable,
 /obj/structure/filingcabinet/chestdrawer,
+/obj/machinery/camera/network/research{
+	c_tag = "Research Chemistry Lab";
+	dir = 1;
+	icon_state = "camera"
+	},
 /turf/simulated/floor/wood/walnut,
 /area/rnd/office)
 "aMr" = (
@@ -21980,20 +21975,14 @@
 /turf/simulated/floor/wood/walnut,
 /area/rnd/office)
 "aMs" = (
-/obj/structure/railing/mapped{
-	dir = 1;
-	icon_state = "railing0-1"
+/obj/machinery/photocopier,
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = 24
 	},
-/obj/structure/sign/urist/nt{
-	pixel_y = -32
-	},
-/turf/simulated/open,
+/turf/simulated/floor/wood/walnut,
 /area/rnd/office)
 "aMt" = (
-/obj/structure/railing/mapped{
-	dir = 1;
-	icon_state = "railing0-1"
-	},
 /obj/machinery/light,
 /obj/machinery/button/blast_door{
 	id_tag = "xenoshitonlock";
@@ -22002,7 +21991,7 @@
 	pixel_y = -24;
 	req_access = list("ACCESS_RESEARCH")
 	},
-/turf/simulated/open,
+/turf/simulated/floor/wood/walnut,
 /area/rnd/office)
 "aMu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -28086,30 +28075,6 @@
 /obj/item/clothing/accessory/armband,
 /turf/simulated/floor/tiled/techmaint,
 /area/security/lockers)
-"eik" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4;
-	icon_state = "intact-scrubbers"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4;
-	icon_state = "intact-supply"
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_y = 0
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/sign/science_2{
-	pixel_x = 32;
-	pixel_y = -32
-	},
-/turf/simulated/floor/wood/walnut,
-/area/rnd/office)
 "elg" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/vending/dinnerware,
@@ -54791,7 +54756,7 @@ auH
 aEa
 aFo
 ksl
-aHJ
+aHN
 aIX
 aKd
 aHJ
@@ -55602,7 +55567,7 @@ aGC
 aHM
 aIY
 aIY
-eik
+aLk
 aMs
 mOC
 aOV
@@ -55801,7 +55766,7 @@ kjM
 wpN
 aFp
 aGB
-aHN
+aKe
 aJa
 aKe
 aLk
