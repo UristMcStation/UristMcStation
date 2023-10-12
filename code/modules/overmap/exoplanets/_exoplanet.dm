@@ -4,6 +4,7 @@ GLOBAL_VAR(planet_repopulation_disabled)
 	name = "exoplanet"
 	icon_state = "globe"
 	in_space = FALSE
+	is_planet = TRUE
 	var/area/planetary_area
 	var/list/seeds = list()
 	var/list/fauna_types = list()		// possible types of mobs to spawn
