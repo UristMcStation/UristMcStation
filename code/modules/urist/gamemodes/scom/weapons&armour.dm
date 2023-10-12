@@ -222,7 +222,7 @@
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/grenade_launcher,
-		/obj/item/rig_module/mounted/egun,
+		/obj/item/rig_module/mounted/energy/egun,
 		)
 
 /obj/item/rig/ert/scomlead
@@ -230,9 +230,9 @@
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/maneuvering_jets,
-		/obj/item/rig_module/mounted/egun,
+		/obj/item/rig_module/mounted/energy/egun,
 		/obj/item/rig_module/device/healthscanner,
-		/obj/item/rig_module/mounted/energy_blade
+		/obj/item/rig_module/mounted/energy/energy_blade
 		)
 
 /obj/item/clothing/suit/urist/armor
@@ -258,8 +258,8 @@
 	initial_modules = list(
 		/obj/item/rig_module/grenade_launcher,
 		/obj/item/rig_module/stealth_field,
-		/obj/item/rig_module/mounted/energy_blade,
-		/obj/item/rig_module/mounted/egun
+		/obj/item/rig_module/mounted/energy/energy_blade,
+		/obj/item/rig_module/mounted/energy/egun
 		)
 
 	allowed = list(/obj/item/storage/backpack,/obj/item/device/flashlight, /obj/item/tank, /obj/item/device/t_scanner, /obj/item/rcd, /obj/item/crowbar, \
@@ -276,7 +276,7 @@
 
 	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 30, rad = 30)
 	initial_modules = list(
-		/obj/item/rig_module/mounted/energy_blade,
+		/obj/item/rig_module/mounted/energy/energy_blade,
 		/obj/item/rig_module/stealth_field
 		)
 

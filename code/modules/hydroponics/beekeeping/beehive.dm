@@ -229,7 +229,7 @@
 /obj/item/bee_smoker
 	name = "bee smoker"
 	desc = "A device used to calm down bees before harvesting honey."
-	icon = 'icons/obj/batterer.dmi'
+	icon = 'icons/obj/tools/batterer.dmi'
 	icon_state = "batterer"
 	w_class = ITEM_SIZE_SMALL
 
