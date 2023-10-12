@@ -463,7 +463,6 @@
 //Ninja Shuttle.
 /datum/shuttle/autodock/multi/antag/ninja
 	name = "Tremulous Intent"
-	defer_initialisation = FALSE
 	warmup_time = 0
 	destination_tags = list(
 		"nav_ninja_deck1",
@@ -491,7 +490,7 @@
 
 
 /obj/effect/shuttle_landmark/ninja/start
-	name = "Clan Dojo"
+	name = "Operations Bunker"
 	landmark_tag = "nav_ninja_start"
 
 /obj/effect/shuttle_landmark/ninja/internim
