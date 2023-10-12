@@ -173,8 +173,8 @@ var/global/solar_gen_rate = 1500
 	// On planets, we take fewer steps because the light is mostly up
 	// Also, many planets barely have any spots with enough clear space around
 	if(GLOB.using_map.use_overmap)
-		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
-		if(istype(E))
+		var/obj/effect/overmap/visitable/sector/E = map_sectors["[z]"]
+		if(istype(E) && E.is_planet)
 			steps = 5
 
 	for(var/i = 1 to steps)

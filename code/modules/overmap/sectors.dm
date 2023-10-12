@@ -138,6 +138,8 @@
 	icon_state = "sector"
 	anchored = TRUE
 
+	var/is_planet = FALSE //are we a planet for the purposes of solar occlusion
+
 	//used by exoplanets and awaymap planetoids
 	var/surface_color = null
 	var/water_color = null
