@@ -246,7 +246,7 @@
 
 /obj/structure/sign/russianplaque/examine(mob/user)
 	if(user.can_speak(all_languages[LANGUAGE_HUMAN_RUSSIAN]))
-		to_chat(user, "That's a commemorative plaque. It reads:\n \
+		to_chat(user, "That's a commemorative plaque in Pan-Slavic. It reads:\n \
 		'Space Station 13'\n \
 		'Developer-Class Outpost'\n \
 		'Station commissioned on 12/30/2322'\n \
@@ -264,29 +264,18 @@
 
 /datum/contract/russianderelict
 	name = "Derelict Repower Contract"
-	desc = "Restore power to this station by setting up the singularity."
+	desc = "As the frontier is reclaimed, so are its derelicts. Restore power to this station by setting up the singularity. We'll find a use for it."
 	rep_points = 3
 	money = 10000
 	amount = 1
 
 /obj/machinery/the_singularitygen/russianderelict
-	var/contract_enabled = FALSE
-
-/obj/machinery/the_singularitygen/russianderelict/Initialize()
-	.=..()
-	return INITIALIZE_HINT_LATELOAD
-
-/obj/machinery/the_singularitygen/russianderelict/LateInitialize()
-	if(!contract_enabled && GLOB.using_map.use_overmap)
-		contract_enabled = TRUE
 
 /obj/machinery/the_singularitygen/russianderelict/Process()
 	var/turf/T = get_turf(src)
 	if(src.energy >= 200)
 		new /obj/singularity/(T, 50)
-		if(contract_enabled)
-			for(var/datum/contract/russianderelict/contract in GLOB.using_map.contracts)
-				if (locate(/obj/machinery/containment_field) in orange(30, src))	//you will not be paid for turning on the singulo without containment
-					contract.Complete(1)
-					contract_enabled = FALSE
+		for(var/datum/contract/russianderelict/contract in GLOB.using_map.contracts)
+			if (locate(/obj/machinery/containment_field) in orange(30, src))	//you will not be paid for turning on the singulo without containment
+				contract.Complete(1)
 		if(src) qdel(src)
