@@ -41,3 +41,10 @@
 	item_cost = 20
 	path = /obj/item/storage/box/syndie_kit/imp_imprinting
 	antag_roles = list(MODE_TRAITOR)
+
+/datum/uplink_item/item/implants/adrenaline_implant
+	name = "Adrenaline Implant"
+	desc = "An implant containing a single-use cocktail of tramadol, adrenaline and hyperzine. Perfect for \
+	anyone who wants to run, shoot and live."
+	item_cost = 20
+	path = /obj/item/storage/box/syndie_kit/adrenaline

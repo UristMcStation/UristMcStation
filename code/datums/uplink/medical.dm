@@ -54,8 +54,8 @@
 	antag_costs = list(MODE_MERCENARY = 48)
 	path = /obj/item/storage/firstaid/combat
 
-/datum/uplink_item/item/medical/zombiebottle
-	name = "Unknown Serum"
-	desc = "A syringe with a vile looking crimson red solution. Injecting it into some poor bystander should help you discover what it does."
-	item_cost = 32 // MORE BRAINS!
-	path = /obj/item/reagent_containers/syringe/zombie //Repaths to Zomble Syringe
+/datum/uplink_item/item/medical/declumsifier
+	name = "De-Clumsy Device"
+	desc = "A single-use device that removes the Clumsy mutation when activated."
+	item_cost = 16
+	path = /obj/item/device/uplink_service/declumsifier
