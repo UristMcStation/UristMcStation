@@ -614,6 +614,7 @@
 
 /datum/shuttle/autodock/multi/antag/skipjack
 	name = "Skipjack"
+	defer_initialisation = FALSE
 	warmup_time = 0
 	destination_tags = list(
 		"nav_skipjack_deck1",
@@ -637,7 +638,7 @@
 	dock_target = "skipjack_shuttle"
 	current_location = "nav_skipjack_start"
 	landmark_transition = "nav_skipjack_transition"
-	announcer = "SEV Torch Sensor Array"
+	announcer = "ICS Nerva Sensor Array"
 	home_waypoint = "nav_skipjack_start"
 	arrival_message = "Attention, vessel detected entering vessel proximity."
 	departure_message = "Attention, vessel detected leaving vessel proximity."
@@ -652,7 +653,7 @@
 	landmark_tag = "nav_skipjack_transition"
 
 /obj/effect/shuttle_landmark/skipjack/deck1
-	name = "Northwest of the Fourth First Deck"
+	name = "Northwest of the First Deck"
 	landmark_tag = "nav_skipjack_deck1"
 
 /obj/effect/shuttle_landmark/skipjack/deck2
