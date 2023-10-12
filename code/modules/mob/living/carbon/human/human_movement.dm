@@ -70,6 +70,15 @@
 	if(mRun in mutations)
 		tally = 0
 
+	if(!src.isSynthetic())
+		switch(src.nutrition)
+			if(150 to 250)					tally += 0.2	//quite hungry
+			if(0 to 150)					tally += 0.4	//starving
+
+		switch(src.hydration)
+			if(150 to 250)					tally += 0.2
+			if(0 to 150)					tally += 0.4
+
 	return tally
 
 /mob/living/carbon/human/size_strength_mod()
