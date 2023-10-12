@@ -149,6 +149,10 @@
 		/obj/item/stock_parts/capacitor/adv = 30
 	)
 
+/obj/structure/salvageable/radio/Initialize()
+	. = ..()
+	icon_state = "radio[rand(0,1)]"
+
 /obj/structure/salvageable/computer
 	name = "broken computer"
 	icon_state = "computer0"
