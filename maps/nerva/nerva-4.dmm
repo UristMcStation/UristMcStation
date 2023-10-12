@@ -339,8 +339,8 @@
 	dir = 6
 	},
 /obj/machinery/rotating_alarm/security_alarm{
-	dir = 4;
-	icon_state = "code green"
+	icon_state = "code green";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/hallway/centralfirst)
@@ -1245,8 +1245,8 @@
 	icon_state = "corner_white"
 	},
 /obj/machinery/rotating_alarm/security_alarm{
-	dir = 8;
-	icon_state = "code green"
+	icon_state = "code green";
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
@@ -4130,8 +4130,8 @@
 	pixel_x = 30
 	},
 /obj/effect/floor_decal/corner/lightgrey/three_quarters{
-	dir = 1;
-	icon_state = "corner_white_three_quarters"
+	icon_state = "corner_white_three_quarters";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
@@ -5334,8 +5334,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/lightgrey/three_quarters{
-	dir = 4;
-	icon_state = "corner_white_three_quarters"
+	icon_state = "corner_white_three_quarters";
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
@@ -6616,8 +6616,8 @@
 /obj/structure/disposalpipe/segment,
 /obj/effect/catwalk_plated,
 /obj/machinery/rotating_alarm/security_alarm{
-	dir = 4;
-	icon_state = "code green"
+	icon_state = "code green";
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
@@ -8472,8 +8472,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/catwalk_plated,
 /obj/machinery/rotating_alarm/security_alarm{
-	dir = 4;
-	icon_state = "code green"
+	icon_state = "code green";
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
