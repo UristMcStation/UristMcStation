@@ -1165,8 +1165,8 @@
 	},
 /obj/machinery/power/smes/buildable/preset/nerva/shuttle,
 /obj/effect/floor_decal/techfloor{
-	dir = 5;
-	icon_state = "techfloor_edges"
+	icon_state = "techfloor_edges";
+	dir = 5
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/exploration_shuttle/power)
@@ -2693,12 +2693,12 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/blue{
-	dir = 8;
-	icon_state = "spline_plain"
+	icon_state = "spline_plain";
+	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/blue{
-	dir = 10;
-	icon_state = "spline_plain"
+	icon_state = "spline_plain";
+	dir = 10
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -3166,8 +3166,8 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/plain/blue{
-	dir = 8;
-	icon_state = "spline_plain"
+	icon_state = "spline_plain";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/exploration_shuttle/main)
@@ -3204,12 +3204,12 @@
 /obj/structure/table/steel_reinforced,
 /obj/item/bodybag/cryobag,
 /obj/effect/floor_decal/spline/plain/paleblue{
-	dir = 9;
-	icon_state = "spline_plain"
+	icon_state = "spline_plain";
+	dir = 9
 	},
 /obj/effect/floor_decal/spline/plain/paleblue{
-	dir = 4;
-	icon_state = "spline_plain"
+	icon_state = "spline_plain";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/exploration_shuttle/main)
@@ -3348,8 +3348,8 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/plain/blue{
-	dir = 8;
-	icon_state = "spline_plain"
+	icon_state = "spline_plain";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/exploration_shuttle/main)
@@ -3366,12 +3366,12 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/plain/paleblue{
-	dir = 6;
-	icon_state = "spline_plain"
+	icon_state = "spline_plain";
+	dir = 6
 	},
 /obj/effect/floor_decal/spline/plain/paleblue{
-	dir = 8;
-	icon_state = "spline_plain"
+	icon_state = "spline_plain";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/exploration_shuttle/main)
@@ -3433,8 +3433,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/techfloor{
-	dir = 5;
-	icon_state = "techfloor_edges"
+	icon_state = "techfloor_edges";
+	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor/grid,
@@ -3645,8 +3645,8 @@
 	icon_state = "camera"
 	},
 /obj/effect/floor_decal/spline/plain/blue{
-	dir = 8;
-	icon_state = "spline_plain"
+	icon_state = "spline_plain";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/exploration_shuttle/main)
@@ -3986,8 +3986,8 @@
 	pixel_x = -25
 	},
 /obj/effect/floor_decal/spline/plain/blue{
-	dir = 8;
-	icon_state = "spline_plain"
+	icon_state = "spline_plain";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/exploration_shuttle/main)
@@ -4428,8 +4428,8 @@
 "iq" = (
 /obj/structure/handrail,
 /obj/effect/floor_decal/spline/plain/black{
-	dir = 9;
-	icon_state = "spline_plain"
+	icon_state = "spline_plain";
+	dir = 9
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/exploration_shuttle/cargo)
@@ -4438,8 +4438,8 @@
 	pixel_y = 24
 	},
 /obj/effect/floor_decal/spline/plain/black{
-	dir = 1;
-	icon_state = "spline_plain"
+	icon_state = "spline_plain";
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techmaint,
@@ -4449,8 +4449,8 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/plain/black{
-	dir = 1;
-	icon_state = "spline_plain"
+	icon_state = "spline_plain";
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techmaint,
@@ -4469,8 +4469,8 @@
 	pixel_y = 24
 	},
 /obj/effect/floor_decal/spline/plain/black{
-	dir = 1;
-	icon_state = "spline_plain"
+	icon_state = "spline_plain";
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techmaint,
@@ -4480,8 +4480,8 @@
 /obj/item/material/knife/kitchen/cleaver,
 /obj/item/beartrap,
 /obj/effect/floor_decal/spline/plain/black{
-	dir = 5;
-	icon_state = "spline_plain"
+	icon_state = "spline_plain";
+	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techmaint,
@@ -4771,8 +4771,8 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/plain/black{
-	dir = 8;
-	icon_state = "spline_plain"
+	icon_state = "spline_plain";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/exploration_shuttle/cargo)
@@ -4808,8 +4808,8 @@
 /obj/item/roller_bed,
 /obj/item/roller_bed,
 /obj/effect/floor_decal/spline/plain/black{
-	dir = 4;
-	icon_state = "spline_plain"
+	icon_state = "spline_plain";
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techmaint,
@@ -5287,8 +5287,8 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/spline/plain/black{
-	dir = 8;
-	icon_state = "spline_plain"
+	icon_state = "spline_plain";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/exploration_shuttle/cargo)
@@ -5422,8 +5422,8 @@
 	},
 /obj/machinery/computer/modular/preset/nervasec{
 	autorun_program = /datum/computer_file/program/records;
-	dir = 4;
-	icon_state = "computer"
+	icon_state = "computer";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/old_tile,
 /area/security/forensics)
@@ -5913,8 +5913,8 @@
 	id = "Trajanmain"
 	},
 /obj/effect/floor_decal/spline/plain/black{
-	dir = 8;
-	icon_state = "spline_plain"
+	icon_state = "spline_plain";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/exploration_shuttle/cargo)
@@ -5936,8 +5936,8 @@
 	icon_state = "handrail"
 	},
 /obj/effect/floor_decal/spline/plain/black{
-	dir = 4;
-	icon_state = "spline_plain"
+	icon_state = "spline_plain";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/exploration_shuttle/cargo)
@@ -6169,8 +6169,8 @@
 	dir = 1
 	},
 /obj/machinery/rotating_alarm/security_alarm{
-	dir = 4;
-	icon_state = "code green"
+	icon_state = "code green";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/centralfourth)
@@ -6279,8 +6279,8 @@
 	id = "Trajanmain"
 	},
 /obj/effect/floor_decal/spline/plain/black{
-	dir = 8;
-	icon_state = "spline_plain"
+	icon_state = "spline_plain";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/exploration_shuttle/cargo)
@@ -6291,8 +6291,8 @@
 	},
 /obj/machinery/conveyor,
 /obj/effect/floor_decal/spline/plain/black{
-	dir = 4;
-	icon_state = "spline_plain"
+	icon_state = "spline_plain";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/exploration_shuttle/cargo)
@@ -6342,8 +6342,8 @@
 	c_tag = "General Expedition Prep Port"
 	},
 /obj/effect/floor_decal/techfloor{
-	dir = 5;
-	icon_state = "techfloor_edges"
+	icon_state = "techfloor_edges";
+	dir = 5
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/logistics/genprep)
@@ -6866,8 +6866,8 @@
 	id = "Trajanmain"
 	},
 /obj/effect/floor_decal/spline/plain/black{
-	dir = 10;
-	icon_state = "spline_plain"
+	icon_state = "spline_plain";
+	dir = 10
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/exploration_shuttle/cargo)
@@ -6901,8 +6901,8 @@
 	},
 /obj/structure/disposalpipe/trunk,
 /obj/effect/floor_decal/spline/plain/black{
-	dir = 6;
-	icon_state = "spline_plain"
+	icon_state = "spline_plain";
+	dir = 6
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/techmaint,
@@ -7318,8 +7318,8 @@
 	icon_state = "camera"
 	},
 /obj/machinery/rotating_alarm/security_alarm{
-	dir = 1;
-	icon_state = "code green"
+	icon_state = "code green";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/hallway/centralfourth)
@@ -8405,8 +8405,8 @@
 	id_tag = null
 	},
 /obj/effect/floor_decal/techfloor/corner{
-	dir = 8;
-	icon_state = "techfloor_corners"
+	icon_state = "techfloor_corners";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/engineering/drone_fabrication)
@@ -8604,8 +8604,8 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/techfloor/corner{
-	dir = 8;
-	icon_state = "techfloor_corners"
+	icon_state = "techfloor_corners";
+	dir = 8
 	},
 /obj/effect/floor_decal/techfloor{
 	dir = 4;
@@ -8858,8 +8858,8 @@
 	icon_state = "pipe-c"
 	},
 /obj/effect/floor_decal/techfloor{
-	dir = 5;
-	icon_state = "techfloor_edges"
+	icon_state = "techfloor_edges";
+	dir = 5
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/engineering/drone_fabrication)
@@ -9014,8 +9014,8 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/gold/border{
-	dir = 1;
-	icon_state = "bordercolor"
+	icon_state = "bordercolor";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/centralfourth)
@@ -11045,8 +11045,8 @@
 	pixel_y = 24
 	},
 /obj/effect/floor_decal/spline/plain/blue{
-	dir = 9;
-	icon_state = "spline_plain"
+	icon_state = "spline_plain";
+	dir = 9
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -11709,8 +11709,8 @@
 	},
 /obj/effect/catwalk_plated/dark,
 /obj/machinery/rotating_alarm/security_alarm{
-	dir = 4;
-	icon_state = "code green"
+	icon_state = "code green";
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/logistics/hangar)
@@ -12503,8 +12503,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/rotating_alarm/security_alarm{
-	dir = 4;
-	icon_state = "code green"
+	icon_state = "code green";
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/logistics/hangar)
@@ -18814,8 +18814,8 @@
 "GV" = (
 /obj/machinery/mining/drill,
 /obj/effect/floor_decal/spline/plain/yellow{
-	dir = 4;
-	icon_state = "spline_plain"
+	icon_state = "spline_plain";
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/techmaint,
@@ -20020,8 +20020,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/rotating_alarm/security_alarm{
-	dir = 8;
-	icon_state = "code green"
+	icon_state = "code green";
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/logistics/hangar)
@@ -20825,8 +20825,8 @@
 /area/medical/extstorage)
 "LS" = (
 /obj/effect/floor_decal/spline/plain/black{
-	dir = 4;
-	icon_state = "spline_plain"
+	icon_state = "spline_plain";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/exploration_shuttle/cargo)
@@ -20918,8 +20918,8 @@
 "Mk" = (
 /obj/machinery/mining/brace,
 /obj/effect/floor_decal/spline/plain/yellow{
-	dir = 4;
-	icon_state = "spline_plain"
+	icon_state = "spline_plain";
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techmaint,
@@ -23642,8 +23642,8 @@
 "Yb" = (
 /obj/machinery/mining/brace,
 /obj/effect/floor_decal/spline/plain/yellow{
-	dir = 6;
-	icon_state = "spline_plain"
+	icon_state = "spline_plain";
+	dir = 6
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techmaint,
@@ -24003,8 +24003,8 @@
 /area/command/bottom_hallway)
 "Zg" = (
 /obj/machinery/atmospherics/valve/open{
-	dir = 8;
-	icon_state = "map_valve1"
+	icon_state = "map_valve1";
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fp)
