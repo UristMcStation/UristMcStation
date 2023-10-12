@@ -9,7 +9,6 @@
 /datum/shuttle/autodock/multi/antag/ninja
 	name = "Tremulous Intent"
 	warmup_time = 0
-	shuttle_area = /area/ninja_dojo/start
 	current_location = "nav_ninja_start"
 	landmark_transition = "nav_ninja_transition"
 	announcer = "Proximity Sensor Array"
