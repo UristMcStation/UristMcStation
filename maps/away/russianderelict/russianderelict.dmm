@@ -725,7 +725,7 @@
 /area/space)
 "ce" = (
 /obj/machinery/door/firedoor/autoset,
-/obj/machinery/door/airlock/hatch/maintenance/bolted,
+/obj/machinery/door/airlock/hatch/maintenance,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -1208,6 +1208,10 @@
 	dir = 4;
 	icon_state = "intact-scrubbers"
 	},
+/obj/machinery/door/firedoor{
+	dir = 8;
+	name = "Firelock West"
+	},
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/access)
 "dm" = (
@@ -1236,14 +1240,14 @@
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/access)
 "dq" = (
-/obj/structure/cable{
-	icon_state = "0-2";
-	d2 = 2
-	},
-/obj/structure/cable,
 /obj/effect/wallframe_spawn/reinforced/no_grille,
 /obj/machinery/door/firedoor/autoset,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/bridge/access)
 "dr" = (
@@ -1498,18 +1502,8 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/security)
 "ei" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/item/stack/cable_coil/cut,
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/access)
 "ej" = (
@@ -3679,16 +3673,12 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/secondary)
 "kb" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1;
 	icon_state = "map-supply"
 	},
-/turf/simulated/floor/tiled/airless,
+/obj/item/stack/cable_coil/cut,
+/turf/simulated/floor/plating/airless,
 /area/russianderelict/hallway/secondary)
 "kc" = (
 /obj/structure/cable{
@@ -4370,6 +4360,10 @@
 /obj/item/stack/material/rods,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/bridge/ai_upload)
+"mk" = (
+/obj/machinery/power/rad_collector,
+/turf/simulated/floor/plating/airless,
+/area/russianderelict/singularity_engine)
 "mm" = (
 /obj/item/device/electronic_assembly/drone/medbot,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -4697,6 +4691,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/arrival)
+"oB" = (
+/obj/structure/dispenser/phoron,
+/turf/simulated/floor/plating/airless,
+/area/russianderelict/singularity_engine)
 "oD" = (
 /obj/structure/vending_refill,
 /turf/simulated/floor/tiled,
@@ -4776,6 +4774,11 @@
 /obj/item/table_parts,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/security)
+"pl" = (
+/obj/effect/landmark/scorcher/certain,
+/obj/machinery/power/rad_collector,
+/turf/simulated/floor/tiled/airless,
+/area/russianderelict/singularity_engine)
 "pn" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -4798,6 +4801,10 @@
 "pv" = (
 /turf/simulated/floor/tiled/dark,
 /area/russianderelict/medical/chapel)
+"pB" = (
+/obj/structure/closet/crate/secure/large/reinforced/singulo,
+/turf/simulated/floor/plating/airless,
+/area/russianderelict/singularity_engine)
 "pC" = (
 /obj/effect/landmark/scorcher/certain,
 /obj/effect/decal/cleanable/dirt,
@@ -4949,7 +4956,7 @@
 /obj/effect/decal/cleanable/blood{
 	name = "dried blood"
 	},
-/obj/item/gun/projectile/automatic/c20r,
+/obj/item/gun/projectile/automatic/c20r/empty,
 /obj/item/ammo_magazine/smg/empty,
 /turf/simulated/floor/tiled/airless,
 /area/solar/derelict_aft)
@@ -5027,6 +5034,10 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
+"rq" = (
+/obj/machinery/particle_accelerator/control_box,
+/turf/simulated/floor/plating/airless,
+/area/russianderelict/singularity_engine)
 "rr" = (
 /obj/machinery/recharge_station,
 /obj/structure/cable{
@@ -5634,21 +5645,6 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/atmospherics)
-"vG" = (
-/obj/machinery/door/firedoor{
-	dir = 8;
-	name = "Firelock West"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4;
-	icon_state = "intact-scrubbers"
-	},
-/obj/effect/floor_decal/rust,
-/turf/simulated/floor/tiled,
-/area/russianderelict/bridge/access)
 "vQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -6848,18 +6844,6 @@
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/access)
 "Gb" = (
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/structure/cable{
-	icon_state = "0-2";
-	d2 = 2
-	},
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -6868,6 +6852,16 @@
 	icon_state = "intact-scrubbers"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "Gc" = (
@@ -7081,7 +7075,6 @@
 /turf/simulated/floor/plating,
 /area/djstation)
 "Hi" = (
-/obj/item/stack/cable_coil/cut,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -7534,6 +7527,15 @@
 /obj/effect/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
+"KQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/russianderelict/bridge/access)
 "KR" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -8732,7 +8734,7 @@
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/medical)
 "SX" = (
-/obj/machinery/the_singularitygen,
+/obj/machinery/the_singularitygen/russianderelict,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/singularity_engine)
 "SZ" = (
@@ -9190,7 +9192,7 @@
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/hallway/primary)
 "Wn" = (
-/obj/item/gun/projectile/automatic/spaceak,
+/obj/item/gun/projectile/automatic/spaceak/empty,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -27697,7 +27699,7 @@ ek
 ft
 RZ
 Kv
-dH
+pB
 dH
 dn
 dn
@@ -28657,7 +28659,7 @@ Kv
 IG
 Kv
 Kv
-dH
+oB
 dH
 dH
 dv
@@ -29237,7 +29239,7 @@ dT
 dH
 dn
 dn
-dH
+mk
 dR
 dH
 bx
@@ -29429,7 +29431,7 @@ dT
 dT
 dn
 dn
-bx
+pl
 bx
 bx
 bx
@@ -29621,7 +29623,7 @@ dT
 dT
 dn
 dn
-bx
+pl
 bx
 bx
 bx
@@ -29813,7 +29815,7 @@ dT
 dT
 dn
 dn
-bx
+pl
 bx
 bx
 Ls
@@ -30199,7 +30201,7 @@ ft
 dn
 dn
 dT
-dH
+rq
 iV
 Aj
 lb
@@ -33464,7 +33466,7 @@ dG
 dG
 dp
 zA
-vg
+ei
 vg
 xX
 xX
@@ -33652,11 +33654,11 @@ ln
 co
 Vp
 dq
-UV
+KQ
 Hi
 dU
 oT
-ei
+UV
 fk
 LO
 eP
@@ -34226,7 +34228,7 @@ da
 dc
 cO
 cK
-vG
+Rb
 cK
 do
 do

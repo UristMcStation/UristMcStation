@@ -773,7 +773,7 @@ the sprite and make my own projectile -Glloyd*/
 	return
 
 /obj/item/ammo_magazine/rifle/military/spaceak
-	name = "U2442 magazine box (7.62mm)"
+	name = "U2442 magazine box"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "sexyrifle-mag"
 	max_ammo = 30
