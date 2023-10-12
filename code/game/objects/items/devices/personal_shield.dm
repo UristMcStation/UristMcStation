@@ -202,6 +202,7 @@
 
 /obj/item/rig_module/personal_shield/Initialize()
 	. = ..()
+	var/obj/item/rig/holder = loc
 	if (holder.cell)
 		currently_stored_power = holder.cell.use(max_stored_power)
 

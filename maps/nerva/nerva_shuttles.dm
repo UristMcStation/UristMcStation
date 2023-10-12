@@ -462,7 +462,8 @@
 
 //Ninja Shuttle.
 /datum/shuttle/autodock/multi/antag/ninja
-	name = "Ninja"
+	name = "Tremulous Intent"
+	defer_initialisation = FALSE
 	warmup_time = 0
 	destination_tags = list(
 		"nav_ninja_deck1",
@@ -515,18 +516,19 @@
 
 // Ninja areas
 /area/ninja_dojo
-	name = "\improper Ninja Base"
+	name = "\improper Operative Base"
 	icon_state = "green"
 	requires_power = 0
 	dynamic_lighting = 1
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
+	req_access = list(access_syndicate)
 
 /area/ninja_dojo/dojo
-	name = "\improper Clan Dojo"
+	name = "\improper Operations Bunker"
 	dynamic_lighting = 0
 
 /area/ninja_dojo/start
-	name = "\improper Clan Dojo"
+	name = "\improper Operations Bunker"
 	icon_state = "shuttlered"
 	base_turf = /turf/simulated/floor/plating
 

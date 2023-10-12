@@ -8,7 +8,6 @@
 
 /datum/shuttle/autodock/multi/antag/ninja
 	name = "Tremulous Intent"
-	defer_initialisation = TRUE
 	warmup_time = 0
 	shuttle_area = /area/map_template/ninja_dojo/start
 	current_location = "nav_ninja_start"
