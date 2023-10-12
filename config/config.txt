@@ -546,6 +546,10 @@ ALLOW_DRONE_SPAWN
 ## Max amount of maintenance drones that can spawn. Default is 5
 #MAX_MAINT_DRONES 5
 
+## Uncomment to enable FoV cones (globally; you can force it on for individuals with VV)
+#ENABLE_FOV_CONES
+
+
 ## 
 ## Bluespace Revenant antag balance stuff:
 ## 
@@ -598,3 +602,4 @@ ACT_INTERVAL 0.1
 
 ## Uncomment this to modify the number of actions permitted per interval before being kicked for spam.
 MAX_ACTS_PER_INTERVAL 200
+
