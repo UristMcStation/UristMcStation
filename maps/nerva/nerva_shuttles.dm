@@ -461,7 +461,7 @@
 
 
 //Ninja Shuttle.
-/datum/shuttle/autodock/multi/antag/ninja
+/datum/shuttle/autodock/multi/antag/nervaninja
 	name = "Tremulous Intent"
 	warmup_time = 0
 	destination_tags = list(
@@ -612,9 +612,8 @@
 
 //Skipjack
 
-/datum/shuttle/autodock/multi/antag/skipjack
+/datum/shuttle/autodock/multi/antag/nervaskipjack
 	name = "Skipjack"
-	defer_initialisation = FALSE
 	warmup_time = 0
 	destination_tags = list(
 		"nav_skipjack_deck1",
