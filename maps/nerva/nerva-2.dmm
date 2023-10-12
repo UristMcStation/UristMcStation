@@ -13333,10 +13333,6 @@
 	dir = 1;
 	icon_state = "nerva2"
 	},
-/obj/structure/noticeboard{
-	dir = 4;
-	pixel_x = -31
-	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/third_deck)
 "awS" = (
@@ -28287,6 +28283,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/third_deck)
+"euF" = (
+/obj/structure/noticeboard{
+	pixel_y = 32;
+	name = "menu board"
+	},
+/turf/simulated/floor/wood/walnut,
+/area/civilian/bar)
 "eyp" = (
 /obj/machinery/door/airlock/security{
 	autoset_access = 0;
@@ -29547,13 +29550,6 @@
 /obj/machinery/reagent_temperature/cooler,
 /turf/simulated/floor/tiled/white,
 /area/civilian/kitchen)
-"lbf" = (
-/obj/structure/noticeboard{
-	pixel_y = 32;
-	name = "menu board"
-	},
-/turf/simulated/floor/wood/walnut,
-/area/civilian/bar)
 "lfC" = (
 /obj/structure/catwalk,
 /obj/machinery/light/small{
@@ -29662,6 +29658,17 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating/airless,
 /area/maintenance/third_deck/fp)
+"lTy" = (
+/obj/effect/floor_decal/corner/fadeblue{
+	dir = 6;
+	icon_state = "corner_white"
+	},
+/obj/structure/noticeboard{
+	dir = 8;
+	pixel_x = 30
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/fore/third_deck)
 "lWD" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
@@ -30700,6 +30707,17 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/brig)
+"skx" = (
+/obj/effect/floor_decal/corner/black/full,
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/structure/noticeboard{
+	dir = 4;
+	pixel_x = -31
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/security/entrance)
 "smN" = (
 /obj/effect/floor_decal/corner/black/bordercorner{
 	dir = 4;
@@ -30913,17 +30931,6 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/lockers)
-"tcV" = (
-/obj/effect/floor_decal/corner/fadeblue{
-	dir = 6;
-	icon_state = "corner_white"
-	},
-/obj/structure/noticeboard{
-	dir = 8;
-	pixel_x = 30
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/fore/third_deck)
 "teR" = (
 /obj/structure/disposaloutlet{
 	dir = 4
@@ -31792,17 +31799,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/third_deck)
-"xvI" = (
-/obj/effect/floor_decal/corner/black/full,
-/obj/structure/bed/chair{
-	dir = 4
-	},
-/obj/structure/noticeboard{
-	dir = 4;
-	pixel_x = -31
-	},
-/turf/simulated/floor/tiled/techmaint,
-/area/security/entrance)
 "xyC" = (
 /obj/effect/floor_decal/corner/fadeblue{
 	dir = 10;
@@ -56225,7 +56221,7 @@ ajt
 vUy
 alU
 and
-xvI
+skx
 aoz
 apN
 arb
@@ -59464,7 +59460,7 @@ tfp
 ast
 atD
 auO
-lbf
+euF
 axt
 ayC
 hSY
@@ -60881,7 +60877,7 @@ eJz
 vGr
 fGH
 fGH
-tcV
+lTy
 fGH
 fGH
 mcq
