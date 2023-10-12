@@ -485,6 +485,7 @@
 	current_location = "nav_ninja_start"
 	landmark_transition = "nav_ninja_transition"
 	announcer = "ICS Nerva Sensor Array"
+	home_waypoint = "nav_ninja_start"
 	arrival_message = "Attention, anomalous sensor reading detected entering vessel proximity."
 	departure_message = "Attention, anomalous sensor reading detected leaving vessel proximity."
 
@@ -518,7 +519,7 @@
 	name = "\improper Operative Base"
 	icon_state = "green"
 	requires_power = 0
-	dynamic_lighting = 1
+	dynamic_lighting = TRUE
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
 	req_access = list(access_syndicate)
 
