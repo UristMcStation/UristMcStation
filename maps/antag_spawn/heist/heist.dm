@@ -8,7 +8,7 @@
 
 /datum/shuttle/autodock/multi/antag/skipjack
 	name = "Skipjack"
-	defer_initialisation = FALSE
+	defer_initialisation = TRUE
 	warmup_time = 0
 	shuttle_area =  /area/map_template/skipjack_station/start
 	dock_target = "skipjack_shuttle"

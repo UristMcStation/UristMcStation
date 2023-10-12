@@ -8,7 +8,7 @@
 
 /datum/shuttle/autodock/multi/antag/ninja
 	name = "Tremulous Intent"
-	defer_initialisation = FALSE
+	defer_initialisation = TRUE
 	warmup_time = 0
 	current_location = "nav_ninja_start"
 	landmark_transition = "nav_ninja_transition"
