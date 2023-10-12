@@ -145,7 +145,7 @@ GLOBAL_DATUM_INIT(ninjas, /datum/antagonist/ninja, new)
 		if(17)
 			directive += "Your interest group has recently begun recruiting outsiders. Consider suitable candidates and assess their behavior amongst the crew."
 		if(18)
-			directive += "A cyborg liberation group has expressed interest in our serves. Prove your interest group is merciful towards law-bound synthetics."
+			directive += "A cyborg liberation group has expressed interest in our services. Prove your interest group is merciful towards law-bound synthetics."
 		else
 			directive += "There are no special supplemental instructions at this time."
 	return directive
