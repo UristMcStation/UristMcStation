@@ -185,6 +185,7 @@
 /obj/item/clothing/head/bandana/orange //themij: Taryn Kifer
 	name = "orange bandana"
 	desc = "An orange piece of cloth, worn on the head."
+	icon = 'icons/urist/items/clothes/head.dmi'
 	icon_state = "orange_bandana"
 
 /obj/item/clothing/head/bowler
