@@ -494,6 +494,10 @@
 
 	// For Bloodthirsty Hunger: how much does suppression grow per sip of blood consumed?
 	var/static/bluespace_revenant_bloodthirsty_suppression_factor = 600
+
+	// Enables FoVs
+	var/static/enable_fov_cones = FALSE
+
 	# endif
 
 
@@ -1012,7 +1016,10 @@
 			if ("bluespace_revenant_runewards_max_suppression_coeff")
 				bluespace_revenant_bloodthirsty_suppression_factor = max(0, text2num(value))
 
-			# endif
+			if ("enable_fov_cones")
+				enable_fov_cones = TRUE
+
+			#endif
 
 			else
 				log_misc("Unknown setting in config/game_options.txt: '[name]'")
