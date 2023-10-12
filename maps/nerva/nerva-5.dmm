@@ -14366,6 +14366,10 @@
 	icon_state = "dark"
 	},
 /area/map_template/syndicate_mothership)
+"Ip" = (
+/obj/machinery/computer/cryopod,
+/turf/simulated/wall/prepainted,
+/area/ninja_dojo/dojo)
 "Iq" = (
 /obj/structure/table/reinforced,
 /obj/item/paper_bin{
@@ -37824,7 +37828,7 @@ wl
 wl
 wl
 wl
-Ey
+Ip
 zr
 yd
 FP
