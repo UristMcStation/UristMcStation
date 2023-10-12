@@ -57,5 +57,5 @@
 /datum/uplink_item/item/medical/zombiebottle
 	name = "Unknown Serum"
 	desc = "A bottle containing some sort of unknown crimson red serum, I hope you know what you are doing with it."
-	item_cost = 150 // Collaborate, or we have endless zombie rounds
+	item_cost = 32 // MORE BRAINS!
 	path = /obj/item/reagent_containers/glass/bottle/unknownreagent

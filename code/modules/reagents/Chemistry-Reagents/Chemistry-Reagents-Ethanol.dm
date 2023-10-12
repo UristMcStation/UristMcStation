@@ -1565,6 +1565,6 @@
 	description = "Pure 100% distilled plump helmet ethanol"
 	taste_description = "liquid fire, plump helmets"
 	color = "#b31978"
-	strength = 200
+	strength = 5 // STRIKE THE MEDBAY!
 	glass_name = "urist's"
 	glass_desc = "It smells like pure grain alcohol, and has small clumps of plump helmet floating in it."

@@ -54,15 +54,3 @@
 	name = "Maneater Seeds"
 	desc = "A pack of maneater seeds. You probably don't want to be around these when they are ready."
 	icon_state = "fillthis in"
-
-/obj/item/reagent_containers/glass/bottle/unknownreagent
-	name = "Unknown Reagent."
-	desc = "Containers a strange crimson red substance..."
-	icon = 'icons/obj/chemical.dmi'
-	icon_state = "bottle-4"
-
-
-/obj/item/reagent_containers/glass/bottle/unknownreagent/New()
-	..()
-	reagents.add_reagent(/datum/reagent/zombie, 5)
-	update_icon()
