@@ -4802,7 +4802,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/russianderelict/medical/chapel)
 "pB" = (
-/obj/structure/closet/crate/secure/large/reinforced/singulo,
+/obj/structure/closet/crate/large{
+	opened = 1
+	},
+/obj/structure/particle_accelerator/end_cap,
+/obj/structure/particle_accelerator/fuel_chamber,
+/obj/structure/particle_accelerator/particle_emitter/center,
+/obj/structure/particle_accelerator/particle_emitter/left,
+/obj/structure/particle_accelerator/particle_emitter/right,
+/obj/structure/particle_accelerator/power_box,
+/obj/machinery/particle_accelerator/control_box,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/singularity_engine)
 "pC" = (
@@ -5034,10 +5043,6 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
-"rq" = (
-/obj/machinery/particle_accelerator/control_box,
-/turf/simulated/floor/plating/airless,
-/area/russianderelict/singularity_engine)
 "rr" = (
 /obj/machinery/recharge_station,
 /obj/structure/cable{
@@ -30201,7 +30206,7 @@ ft
 dn
 dn
 dT
-rq
+dH
 iV
 Aj
 lb
