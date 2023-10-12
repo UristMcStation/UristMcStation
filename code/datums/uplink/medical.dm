@@ -56,6 +56,6 @@
 
 /datum/uplink_item/item/medical/zombiebottle
 	name = "Unknown Serum"
-	desc = "A bottle containing some sort of unknown crimson red serum, I hope you know what you are doing with it."
+	desc = "A syringe with a vile looking crimson red solution. Injecting it into some poor bystander should help you discover what it does."
 	item_cost = 32 // MORE BRAINS!
-	path = /obj/item/reagent_containers/glass/bottle/unknownreagent
+	path = /obj/item/reagent_containers/syringe/zombie //Repaths to Zomble Syringe
