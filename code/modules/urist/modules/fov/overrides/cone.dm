@@ -111,13 +111,15 @@
 			I = image("split", M)
 			I.mouse_opacity = 0
 			I.override = 1
-			src.client.images += I
-			src.client.hidden_atoms += I
-			src.client.hidden_mobs += M
 			if(LAZYISIN(M.grabbed_by, src))//If we're pulling them we don't want them to be invisible.
 				I.override = 0
+			
+			if(src.client)
+				src.client.images += I
+				src.client.hidden_atoms += I
+				src.client.hidden_mobs += M
 
-			M.in_vision_cones[src.client] = 1
+				M.in_vision_cones[src.client] = 1
 
 		for(var/obj/item/O in items_in_cone(src, global.flip_dir[dir], 10))
 			sleep(0)
