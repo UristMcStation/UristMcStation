@@ -67,4 +67,4 @@
 
 	summon_amt++
 
-	return "You now summon [summon_amt] mirages per spellcast."
+	return "You now summon [summon_amt] carps per spellcast."
