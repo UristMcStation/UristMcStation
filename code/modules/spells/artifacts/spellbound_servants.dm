@@ -102,6 +102,7 @@
 			H.mutations |= mNobreath
 			H.mutations |= MUTATION_SPACERES
 			familiar_type = /mob/living/simple_animal/hostile/carp/pike
+			spells += = /spell/aoe_turf/conjure/mirage
 		if("Mouse")
 			H.verbs |= /mob/living/proc/ventcrawl
 			familiar_type = /mob/living/simple_animal/passive/mouse
@@ -145,7 +146,8 @@
 				)
 
 /datum/spellbound_type/servant/fiend/equip_servant(mob/living/carbon/human/H)
-	if(H.gender == MALE)
+	var/outfit_gender = input(H, "Which outfit would you like?") in list("Masculine","Feminine")
+	if(outfit_gender == "Masculine")
 		equipment = list(/obj/item/clothing/under/lawyer/fiendsuit = slot_w_uniform,
 						/obj/item/clothing/shoes/dress/devilshoes = slot_shoes)
 		spells += /spell/toggle_armor/fiend
@@ -164,7 +166,8 @@
 				/spell/targeted/genetic/blind/hysteria)
 
 /datum/spellbound_type/servant/infiltrator/equip_servant(mob/living/carbon/human/H)
-	if(H.gender == MALE)
+	var/outfit_gender = input(H, "Which outfit would you like?") in list("Masculine","Feminine")
+	if(outfit_gender == "Masculine")
 		equipment = list(/obj/item/clothing/under/lawyer/infil = slot_w_uniform,
 						/obj/item/clothing/shoes/dress/infilshoes = slot_shoes)
 		spells += /spell/toggle_armor/infiltrator
@@ -190,6 +193,9 @@
 /datum/spellbound_type/servant/overseer/equip_servant(mob/living/carbon/human/H)
 	..()
 	H.add_aura(new /obj/aura/regenerating(H))
+	for(var/spell/S in H.mind.learned_spells)
+		S.spell_flags |= NO_SOMATIC
+		S.cast_delay = 0
 
 /obj/effect/cleanable/spellbound
 	name = "strange rune"
@@ -219,7 +225,7 @@
 	return STATUS_INTERACTIVE
 
 /obj/effect/cleanable/spellbound/OnTopic(mob/user, href_list, state)
-	if(href_list["master"])
+	if(href_list["master"] && !QDELETED(src))
 		var/mob/master = locate(href_list["master"])
 		stype.spawn_servant(get_turf(src),master,user)
 		qdel(src)

@@ -6,7 +6,7 @@
 	l_hand = /obj/item/staff
 	r_hand = /obj/item/spellbook
 	back = /obj/item/storage/backpack
-	backpack_contents = list(/obj/item/storage/box = 1)
+	backpack_contents = list(/obj/item/storage/box = 1, /obj/item/summoning_stone = 1)
 	hierarchy_type = /singleton/hierarchy/outfit/wizard
 	flags = OUTFIT_HAS_BACKPACK|OUTFIT_RESET_EQUIPMENT
 

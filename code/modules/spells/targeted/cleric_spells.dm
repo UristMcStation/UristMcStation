@@ -179,7 +179,7 @@
 		effect = new /obj/effect/rift(T)
 		effect.color = "f0e68c"
 		L.forceMove(effect)
-		var/time = (L.getBruteLoss() + L.getFireLoss()) * 20
+		var/time = min((L.getBruteLoss() + L.getFireLoss()) * 20, 5 MINUTES)
 		L.status_flags &= GODMODE
 		to_chat(L,SPAN_NOTICE("You will be in stasis for [time/10] second\s."))
 		addtimer(new Callback(src,.proc/cancel_rift),time)
@@ -199,7 +199,7 @@
 
 /obj/effect/rift
 	name = "rift"
-	desc = "a tear in space and time."
+	desc = "A tear in space and time."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "rift"
 	unacidable = TRUE

@@ -13,6 +13,7 @@
 	max_pressure_protection = FIRESUIT_MAX_PRESSURE
 	min_pressure_protection = 0
 	flags_inv = HIDEEARS | BLOCKHAIR
+	canremove = FALSE
 
 /obj/item/clothing/suit/straight_jacket/overseercloak
 	name = "grim cloak"
@@ -29,6 +30,7 @@
 	max_pressure_protection = FIRESUIT_MAX_PRESSURE
 	min_pressure_protection = 0
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
+	canremove = FALSE
 
 /obj/item/clothing/under/grimhoodie
 	name = "black hoodie"
