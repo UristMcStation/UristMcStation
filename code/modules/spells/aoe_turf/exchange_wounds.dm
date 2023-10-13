@@ -28,16 +28,11 @@
 			if(L.faction != user.faction)
 				continue
 			new /obj/effect/temporary(get_turf(L),10,'icons/effects/effects.dmi',"green_sparkles")
-			if(L.getBruteLoss() > 5)
-				L.adjustBruteLoss(-5)
-				user.adjustBruteLoss(2)
-				amt_healed += 5
-			if(L.getFireLoss() > 5)
-				L.adjustFireLoss(-5)
-				user.adjustFireLoss(2)
-				amt_healed += 5
-
-/spell/aoe_turf/exchange_wounds/check_valid_targets()
-	if(amt_healed > heal_max)
-		return FALSE
-	return ..()
+			if(L.getBruteLoss() > 10)
+				L.adjustBruteLoss(-10)
+				user.adjustBruteLoss(10)
+				amt_healed += 10
+			if(L.getFireLoss() > 10)
+				L.adjustFireLoss(-10)
+				user.adjustFireLoss(10)
+				amt_healed += 10
