@@ -4178,6 +4178,7 @@
 /obj/structure/table/standard,
 /obj/random/smokes,
 /obj/random/cash,
+/obj/structure/salvageable/register,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "square_black"
 	},

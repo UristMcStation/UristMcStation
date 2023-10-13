@@ -59,6 +59,100 @@
 	. = ..()
 	icon_state = "machine[rand(0,6)]"
 
+/obj/structure/salvageable/register
+	name = "broken cash register"
+	icon_state = "cash_register"
+	salvageable_parts = list(
+		/obj/item/spacecash/bundle/c10 = 80,
+		/obj/item/spacecash/bundle/c10 = 80,
+		/obj/item/spacecash/bundle/c10 = 80,
+		/obj/item/spacecash/bundle/c10 = 80,
+		/obj/item/spacecash/bundle/c20 = 80,
+		/obj/item/spacecash/bundle/c20 = 80,
+		/obj/item/spacecash/bundle/c20 = 80,
+		/obj/item/spacecash/bundle/c20 = 80,
+		/obj/item/spacecash/bundle/c20 = 80,
+		/obj/item/spacecash/bundle/c20 = 80,
+		/obj/item/spacecash/bundle/c20 = 80,
+		/obj/item/spacecash/bundle/c20 = 80,
+		/obj/item/spacecash/bundle/c50 = 50,
+		/obj/item/spacecash/bundle/c50 = 50,
+		/obj/item/spacecash/bundle/c50 = 50,
+		/obj/item/spacecash/bundle/c50 = 50,
+		/obj/item/spacecash/bundle/c100 = 30,
+		/obj/item/spacecash/bundle/c100 = 30,
+		/obj/item/spacecash/bundle/c100 = 30,
+		/obj/item/spacecash/bundle/c100 = 30,
+		/obj/item/spacecash/bundle/c100 = 30,
+		/obj/item/spacecash/bundle/c200 = 25,
+		/obj/item/spacecash/bundle/c200 = 25,
+		/obj/item/spacecash/bundle/c200 = 25,
+		/obj/item/spacecash/bundle/c500 = 15,
+		/obj/item/spacecash/bundle/c500 = 15,
+		/obj/item/spacecash/bundle/c500 = 15,
+		/obj/item/spacecash/bundle/c1000 = 10,
+		/obj/item/spacecash/bundle/c1000 = 2,
+		/obj/item/spacecash/bundle/c1000 = 2
+
+	)
+
+
+/obj/structure/salvageable/stove
+	name = "broken range"
+	icon_state = "stove0"
+	salvageable_parts = list(
+		/obj/item/stack/cable_coil{amount = 5} = 80,
+		/obj/item/trash/material/circuit = 60,
+		/obj/item/trash/material/metal = 60,
+		/obj/item/stock_parts/capacitor = 40,
+		/obj/item/stock_parts/micro_laser = 40,
+		/obj/item/stock_parts/micro_laser = 40,
+		/obj/item/stock_parts/matter_bin = 40,
+		/obj/item/stock_parts/matter_bin = 40,
+		/obj/item/stock_parts/capacitor/adv = 20,
+		/obj/item/stock_parts/micro_laser/high = 20
+	)
+
+/obj/structure/salvageable/stove/Initialize()
+	. = ..()
+	icon_state = "stove[rand(0,1)]"
+
+/obj/structure/salvageable/television
+	name = "broken television"
+	icon_state = "TV0"
+	salvageable_parts = list(
+		/obj/item/stock_parts/console_screen = 80,
+		/obj/item/stack/cable_coil{amount = 5} = 90,
+		/obj/item/stack/material/glass{amount = 5} = 90,
+		/obj/item/trash/material/circuit = 60,
+		/obj/item/trash/material/metal = 60,
+		/obj/item/stock_parts/capacitor = 60,
+		/obj/item/stock_parts/scanning_module = 40,
+		/obj/item/stock_parts/capacitor/adv = 30
+	)
+
+/obj/structure/salvageable/television/Initialize()
+	. = ..()
+	icon_state = "TV[rand(0,1)]"
+
+/obj/structure/salvageable/radio
+	name = "broken radio"
+	icon_state = "radio"
+	salvageable_parts = list(
+		/obj/item/stock_parts/console_screen = 80,
+		/obj/item/stack/cable_coil{amount = 5} = 90,
+		/obj/item/stack/material/glass{amount = 5} = 90,
+		/obj/item/trash/material/circuit = 60,
+		/obj/item/trash/material/metal = 60,
+		/obj/item/stock_parts/capacitor = 60,
+		/obj/item/stock_parts/scanning_module = 40,
+		/obj/item/stock_parts/capacitor/adv = 30
+	)
+
+/obj/structure/salvageable/radio/Initialize()
+	. = ..()
+	icon_state = "radio[rand(0,1)]"
+
 /obj/structure/salvageable/computer
 	name = "broken computer"
 	icon_state = "computer0"
