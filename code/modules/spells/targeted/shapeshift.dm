@@ -82,6 +82,7 @@
 	else
 		transformer.key = target.key
 	playsound(get_turf(target), revert_sound, 50, 1)
+	charge_counter = 0
 	transformer.forceMove(get_turf(target))
 	remove_target(target)
 	qdel(target)
@@ -152,9 +153,9 @@
 	invocation_type = SpI_EMOTE
 	spell_flags = INCLUDEUSER
 	range = 0
-	duration = 150
+	duration = 15 SECONDS
 	charge_max = 1200
-	cooldown_min = 600
+	cooldown_min = 60 SECONDS
 
 	drop_items = 0
 	share_damage = 0
@@ -172,15 +173,14 @@
 	switch(spell_levels[Sp_POWER])
 		if(1)
 			duration *= 2
-			return "You will now stay corrupted for [duration/10] seconds."
+			possible_transformations = list(/mob/living/simple_animal/hostile/faithless/strong)
+			return "Your form is stronger and will stay corrupted for [duration/10] seconds."
 		if(2)
-			newVars = list("name" = "\proper corruption incarnate",
-						"melee_damage_upper" = 25,
-						"resistance" = 6,
-						"health" = 125,
-						"maxHealth" = 125)
+			possible_transformations = list(/mob/living/simple_animal/hostile/incarnate)
 			duration = 0
-			return "You revel in the corruption. There is no turning back."
+			charge_counter = 3000
+			charge_max = 3000
+			return "You revel in the corruption. There is no turning back. Corrupted Form will last until destroyed, but you are as powerful as a juggernaut."
 
 /spell/targeted/shapeshift/familiar
 	name = "Transform"
@@ -197,3 +197,23 @@
 	toggle = 1
 
 	hud_state = "wiz_carp"
+
+/mob/living/simple_animal/hostile/incarnate
+	name = "\proper corruption incarnate"
+	real_name = "\proper corruption incarnate"
+	desc = "A possessed suit of armour driven by incomprehensible power."
+	icon = 'icons/mob/mob.dmi'
+	icon_state = "behemoth"
+	icon_living = "behemoth"
+	maxHealth = 300
+	health = 300
+	speak_emote = list("rumbles")
+	response_harm = "harmlessly punches"
+	harm_intent_damage = 0
+	natural_weapon = /obj/item/natural_weapon/juggernaut
+	mob_size = MOB_LARGE
+	speed = 3
+	environment_smash = 2
+	status_flags = 0
+	resistance = 10
+	can_escape = TRUE
