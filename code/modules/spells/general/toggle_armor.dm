@@ -114,7 +114,7 @@
 /spell/toggle_armor/overseer
 	name = "Toggle Armor (Overseer)"
 	invocation_type = SpI_EMOTE
-	invocation = " is enveloped in shadows, form shifting rapidly"
+	invocation = " is enveloped in shadows, their form shifting rapidly"
 	armor_pieces = list(/obj/item/clothing/head/overseerhood = slot_head,
 						/obj/item/clothing/suit/straight_jacket/overseercloak = slot_wear_suit
 						)
