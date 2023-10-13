@@ -165,6 +165,16 @@
 	item_icons = URIST_ALL_ONMOBS
 
 //Mining
+/obj/item/clothing/head/helmet/space/void/mining/old_nt
+	desc = "A vintage helmet designed for miners on NanoTrasen stations."
+	icon = 'icons/urist/restored/hats.dmi'
+	item_icons = URIST_ALL_ONMOBS
+
+/obj/item/clothing/suit/space/void/mining/old_nt
+	desc = "A vintage suit designed for miners on NanoTrasen stations."
+	icon = 'icons/urist/restored/suits.dmi'
+	item_icons = URIST_ALL_ONMOBS
+
 /obj/item/clothing/head/helmet/space/void/mining/cold
 	name = "mining cryo hardsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, cold, low pressure environment. Has reinforced plating."
