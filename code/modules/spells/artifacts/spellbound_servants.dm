@@ -28,8 +28,7 @@
 /datum/spellbound_type/proc/equip_servant(mob/living/carbon/human/H)
 	for(var/stype in spells)
 		var/spell/S = new stype()
-		if(S.spell_flags & NEEDSCLOTHES)
-			S.spell_flags &= ~NEEDSCLOTHES
+		S.spell_flags &= ~NEEDSCLOTHES
 		H.add_spell(S)
 	. = list()
 	for(var/etype in equipment)
@@ -58,12 +57,14 @@
 
 /datum/spellbound_type/apprentice/set_antag(datum/mind/M, mob/master)
 	GLOB.wizards.add_antagonist_mind(M,1,ANTAG_APPRENTICE,"<b>You are an apprentice-type Servant! You're just an ordinary Wizard-To-Be, with no special abilities, but do not need robes to cast spells. Follow your teacher's orders!</b>")
+	M.current?.faction = master.faction
 
 /datum/spellbound_type/servant
 	var/spiel = "You don't do anything in particular."
 
 /datum/spellbound_type/servant/set_antag(datum/mind/M, mob/master)
 	GLOB.wizards.add_antagonist_mind(M,1,ANTAG_SERVANT, "<b>You are a [name]-type Servant!</b> [spiel]")
+	M.current?.faction = master.faction
 
 /datum/spellbound_type/servant/caretaker
 	name = "Caretaker"
@@ -97,18 +98,28 @@
 
 /datum/spellbound_type/servant/familiar/modify_servant(list/equipment, mob/living/carbon/human/H)
 	var/familiar_type
-	switch(input(H,"Choose your desired animal form:", "Form") as anything in list("Space Pike", "Mouse", "Cat", "Bear"))
+	switch(input(H,"Choose your desired animal form:", "Form") as anything in list("Space Pike", "Possum", "Cat", "Bear"))
 		if("Space Pike")
 			H.mutations |= mNobreath
 			H.mutations |= MUTATION_SPACERES
 			familiar_type = /mob/living/simple_animal/hostile/carp/pike
-			spells += = /spell/aoe_turf/conjure/mirage
-		if("Mouse")
-			H.verbs |= /mob/living/proc/ventcrawl
-			familiar_type = /mob/living/simple_animal/passive/mouse
+			var/spell/aoe_turf/conjure/mirage/M = new()
+			H.add_spell(M)
+			M.spell_flags &= ~NEEDSCLOTHES
+		if("Possum")
+			familiar_type = /mob/living/simple_animal/passive/opossum
+			var/spell/aoe_turf/conjure/summonrandomstuff/srs = new()
+			H.add_spell(srs)
 		if("Cat")
 			H.mutations |= mRun
-			familiar_type = /mob/living/simple_animal/passive/cat
+			familiar_type = /mob/living/simple_animal/passive/cat/fluff/bones
+			var/spell/targeted/exhude_pleasantness/ep = new()
+			var/spell/aoe_turf/knock/k = new()
+			var/spell/invisibility/i = new()
+			H.add_spell(ep)
+			H.add_spell(k)
+			H.add_spell(i)
+			i.spell_flags &= ~NEEDSCLOTHES
 		if("Bear")
 			var/obj/item/clothing/under/under = locate() in equipment
 			var/obj/item/clothing/head/head = locate() in equipment
@@ -130,6 +141,10 @@
 					energy = ARMOR_ENERGY_MINOR
 					)
 			familiar_type = /mob/living/simple_animal/hostile/bear
+			var/spell/aoe_turf/exchange_wounds/ew = new()
+			H.add_spell(ew)
+			H.add_aura(new /obj/aura/regenerating/human(H))
+
 	var/spell/targeted/shapeshift/familiar/F = new()
 	F.possible_transformations = list(familiar_type)
 	H.add_spell(F)
@@ -266,21 +281,6 @@
 
 /obj/item/summoning_stone/proc/use_type(type, mob/user)
 	new /obj/effect/cleanable/spellbound(get_turf(src),type)
-	if(prob(20))
-		var/list/base_areas = maintlocs //Have to do it this way as its a macro
-		var/list/pareas = base_areas.Copy()
-		while(length(pareas))
-			var/a = pick(pareas)
-			var/area/picked_area = pareas[a]
-			pareas -= a
-			var/list/turfs = get_area_turfs(picked_area)
-			for(var/t in turfs)
-				var/turf/T = t
-				if(T.density)
-					turfs -= T
-			if(length(turfs))
-				src.visible_message(SPAN_NOTICE("\The [src] vanishes!"))
-				src.forceMove(pick(turfs))
 	show_browser(user, null, "window=summoning")
 	qdel(src)
 

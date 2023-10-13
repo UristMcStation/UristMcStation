@@ -24,6 +24,9 @@
 /spell/targeted/shapeshift/cast(list/targets, mob/user)
 	for(var/m in targets)
 		var/mob/living/M = m
+		if (M in transformed_dudes)
+			stop_transformation(M)
+			return
 		if(M.stat == DEAD)
 			to_chat(user, "[name] can only transform living targets.")
 			continue
@@ -41,7 +44,7 @@
 		for(var/l in M.languages)
 			var/datum/language/L = l
 			trans.add_language(L.name)
-
+		trans.faction = M.faction
 		trans.SetName("[trans.name] ([M])")
 		if(istype(M,/mob/living/carbon/human) && drop_items)
 			for(var/obj/item/I in M.contents)
@@ -52,6 +55,7 @@
 			trans.key = M.key
 		new /obj/effect/temporary(get_turf(M), 5, 'icons/effects/effects.dmi', "summoning")
 
+		charge_counter = charge_max
 		M.forceMove(trans) //move inside the new dude to hide him.
 		M.status_flags |= GODMODE //don't want him to die or breathe or do ANYTHING
 		transformed_dudes[trans] = M
@@ -84,6 +88,9 @@
 	playsound(get_turf(target), revert_sound, 50, 1)
 	charge_counter = 0
 	transformer.forceMove(get_turf(target))
+	GLOB.death_event.unregister(target,src,/spell/targeted/shapeshift/proc/stop_transformation)
+	GLOB.destroyed_event.unregister(target,src,/spell/targeted/shapeshift/proc/stop_transformation)
+	GLOB.destroyed_event.unregister(transformer, src, /spell/targeted/shapeshift/proc/destroyed_transformer)
 	remove_target(target)
 	qdel(target)
 	return TRUE
@@ -197,6 +204,11 @@
 	toggle = 1
 
 	hud_state = "wiz_carp"
+
+/spell/targeted/shapeshift/familiar/cast(list/targets, mob/user)
+    ..()
+    for(var/mob/living/L in transformed_dudes)
+        L.can_enter_vent_with += /mob/living/carbon/human
 
 /mob/living/simple_animal/hostile/incarnate
 	name = "\proper corruption incarnate"
