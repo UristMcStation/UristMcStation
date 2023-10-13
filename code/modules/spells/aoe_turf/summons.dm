@@ -54,7 +54,7 @@
 	cast_sound = 'sound/magic/summon_carp.ogg'
 
 	duration = 60 SECONDS
-	cooldown_min = 60 SECONDS
+
 	level_max = list(Sp_TOTAL = 3, Sp_SPEED = 0, Sp_POWER = 3)
 
 	summon_type = list(/mob/living/simple_animal/hostile/carp)
