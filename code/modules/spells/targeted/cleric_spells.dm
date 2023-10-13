@@ -32,10 +32,6 @@
 	amt_dam_robo -= 7
 	return "[src] will now heal more."
 
-/spell/targeted/heal_target/quicken_spell()
-	..()
-	return "Cure Light Wounds now recharges twice as quickly."
-
 /spell/targeted/heal_target/tower
 	charge_max = 2
 
