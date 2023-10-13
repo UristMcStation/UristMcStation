@@ -78,7 +78,7 @@
 /spell/toggle_armor/fiend
 	name = "Toggle Armor (Fiend)"
 	invocation_type = SpI_EMOTE
-	invocation = "snaps theirfingers, and their clothes begin to shift and change"
+	invocation = "snaps their fingers, and their clothes begin to shift and change"
 	armor_pieces = list(/obj/item/clothing/head/fiendhood = slot_head,
 						/obj/item/clothing/suit/fiendcowl = slot_wear_suit
 						)
