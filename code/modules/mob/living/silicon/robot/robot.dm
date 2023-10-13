@@ -847,8 +847,12 @@
 		if(H.a_intent == I_HELP && H.zone_sel.selecting == BP_HEAD)
 			H.visible_message("[H] pats [name] on their head.")
 			return
-		if(H.species.can_shred(H))
-			attack_generic(H, rand(30,50), "slashed")
+
+		if(H.species.can_shred(H) || (MUTATION_FERAL in H.mutations))
+			attack_generic(H, rand(10,20), "slashed")
+			playsound(loc, 'sound/weapons/bite.ogg', 50, 1)
+			if (prob(20))
+				playsound(loc, 'sound/effects/sparks1.ogg', 50, 1)
 			return
 
 	if(opened && !wiresexposed && (!istype(user, /mob/living/silicon)))
