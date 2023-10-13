@@ -1741,3 +1741,16 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A set of armor made from interlocked chains."
 	icon_state = "chainmail"
 	item_state = "chainmail"
+
+//rescued bandanas
+/obj/item/clothing/head/urist/bandana/green
+	name = "green bandana"
+	desc = "It's a green bandana with some fine nanotech lining."
+	icon_state = "greenbandana"
+	item_state = "greenbandana"
+
+/obj/item/clothing/head/urist/bandana/orange
+	name = "orange bandana"
+	desc = "An orange piece of cloth, worn on the head."
+	icon_state = "orange_bandana"
+	item_state = "orange_bandana"

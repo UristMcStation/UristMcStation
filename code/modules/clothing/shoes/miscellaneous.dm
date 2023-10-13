@@ -55,6 +55,7 @@
 /obj/item/clothing/shoes/jungleboots
 	name = "jungle boots"
 	desc = "A pair of durable brown boots. Waterproofed for use planetside."
+	icon = 'icons/urist/items/clothes/shoes.dmi'
 	icon_state = "jungle"
 	force = 3
 	armor = list(
@@ -70,6 +71,7 @@
 /obj/item/clothing/shoes/desertboots
 	name = "desert boots"
 	desc = "A pair of durable tan boots. Designed for use in hot climates."
+	icon = 'icons/urist/items/clothes/shoes.dmi'
 	icon_state = "desert"
 	force = 3
 	armor = list(
