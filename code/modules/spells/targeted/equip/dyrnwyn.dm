@@ -34,7 +34,7 @@
 		return 0
 
 	material = MATERIAL_PLASTEEL
-	return "Dyrnwyn has been made pure: it is now made of plasteel."
+	return "Dyrnwyn has been refined: it is now made of plasteel."
 
 /spell/targeted/equip_item/dyrnwyn/tower
 	charge_max = 1
