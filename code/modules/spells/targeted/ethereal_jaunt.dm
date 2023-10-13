@@ -3,14 +3,14 @@
 	desc = "This spell creates your ethereal form, temporarily making you invisible and able to pass through walls."
 	feedback = "EJ"
 	school = "transmutation"
-	charge_max = 30 SECONDS
+	charge_max = 40 SECONDS
 	spell_flags = Z2NOCAST | NEEDSCLOTHES | INCLUDEUSER
 	invocation = "none"
 	invocation_type = SpI_NONE
 	range = 0
 	max_targets = 1
 	level_max = list(Sp_TOTAL = 4, Sp_SPEED = 4, Sp_POWER = 3)
-	cooldown_min = 10 SECONDS //50 deciseconds reduction per rank
+	cooldown_min = 30 SECONDS //2.5 seconds reduction per rank
 	duration = 5 SECONDS
 
 	hud_state = "wiz_jaunt"
@@ -114,6 +114,8 @@
 /obj/effect/dummy/spell_jaunt/relaymove(mob/user, direction)
 	if (!canmove || reappearing) return
 	var/turf/newLoc = get_step(src, direction)
+	if (direction == UP || direction == DOWN)
+		to_chat(user, SPAN_WARNING("You cannot go that way."))
 	if (!newLoc)
 		to_chat(user, SPAN_WARNING("You cannot go that way."))
 	else if (!(newLoc.turf_flags & TURF_FLAG_NOJAUNT))
@@ -125,6 +127,9 @@
 		to_chat(user, SPAN_WARNING("Some strange aura is blocking the way!"))
 	canmove = 0
 	addtimer(new Callback(src, .proc/allow_move), 2)
+
+/obj/effect/dummy/spell_jaunt/onDropInto(atom/movable/AM)	//no dropping things while jaunting
+	return
 
 /obj/effect/dummy/spell_jaunt/proc/allow_move()
 	canmove = TRUE

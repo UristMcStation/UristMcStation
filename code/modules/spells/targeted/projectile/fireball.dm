@@ -56,12 +56,9 @@
 	name = "Firebolt"
 	desc = "A quick-casted fireball. Burns the user, and their enemies, but is much faster to shoot."
 	feedback = "FO"
-	charge_type = Sp_HOLDVAR
+	charge_type = Sp_RECHARGE
 	invocation = "Ignus!"
-	holder_var_type = "fireloss"
-	holder_var_amount = 10
-	amt_dam_brute = 10
-	amt_dam_fire = 15
+	charge_max = 1.5 SECONDS
 	explosion_radius = 1
 	explosion_max_power = EX_ACT_LIGHT
 	hud_state = "firebolt"

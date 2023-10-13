@@ -34,7 +34,8 @@
 		/obj/item/clothing/gloves/insulated/cheap,
 		/obj/random/drinkbottle,
 		/obj/item/caution,
-		/obj/item/stool/urist/bar
+		/obj/item/stool/urist/bar,
+		/obj/item/paper
 		)
 	summon_amt = 5
 	range = 3

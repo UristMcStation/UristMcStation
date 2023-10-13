@@ -5,7 +5,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
 		bullet = ARMOR_BALLISTIC_AP,
-		laser = ARMOR_LASER_HANDGUNS,
+		laser = ARMOR_LASER_RIFLES,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_RESISTANT,
 		bio = ARMOR_BIO_MINOR
@@ -13,14 +13,15 @@
 
 /obj/item/clothing/suit/champarmor
 	name = "champion's armor"
-	desc = "A mighty suit of silver and gold armor, with a gleaming blue crystal inlaid into its left gaunlet."
+	desc = "A mighty suit of silver and gold armor, with a gleaming blue crystal inlaid into its left gauntlet."
 	icon_state = "champarmor"
+	item_icons = URIST_ALL_ONMOBS
 	siemens_coefficient = 0.5
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
 		bullet = ARMOR_BALLISTIC_AP,
-		laser = ARMOR_LASER_HANDGUNS,
+		laser = ARMOR_LASER_RIFLES,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_RESISTANT,
 		bio = ARMOR_BIO_MINOR

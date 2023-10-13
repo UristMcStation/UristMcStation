@@ -44,7 +44,7 @@ var/global/list/ghost_traps
 			to_chat(candidate, "This occupation request is no longer valid.")
 		return FALSE
 
-	if(target.key)
+	if(target?.key)
 		if (feedback)
 			to_chat(candidate, "The target is already occupied.")
 		return FALSE
