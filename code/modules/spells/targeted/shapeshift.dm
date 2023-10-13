@@ -205,9 +205,9 @@
 	hud_state = "wiz_carp"
 
 /spell/targeted/shapeshift/familiar/cast(list/targets, mob/user)
-    ..()
-    for(var/mob/living/L in transformed_dudes)
-        L.can_enter_vent_with += /mob/living/carbon/human
+	..()
+	for(var/mob/living/L in transformed_dudes)
+		L.can_enter_vent_with += /mob/living/carbon/human
 
 /mob/living/simple_animal/hostile/incarnate
 	name = "\proper corruption incarnate"
