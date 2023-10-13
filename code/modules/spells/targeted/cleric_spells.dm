@@ -32,6 +32,10 @@
 	amt_dam_robo -= 7
 	return "[src] will now heal more."
 
+/spell/targeted/heal_target/quicken_spell()
+	..()
+	return "Cure Light Wounds now recharges twice as quickly."
+
 /spell/targeted/heal_target/tower
 	charge_max = 2
 
@@ -120,13 +124,13 @@
 
 /spell/targeted/heal_target/sacrifice
 	name = "Sacrifice"
-	desc = "This spell heals immensily. For a price. Does not require wizard garb."
+	desc = "This spell heals immensely. For a price. Does not require wizard garb."
 	feedback = "SF"
 	spell_flags = SELECTABLE
 	invocation = "Ei'Nath Borv Di'Nath!"
 	charge_type = Sp_HOLDVAR
 	holder_var_type = "fireloss"
-	holder_var_amount = 100
+	holder_var_amount = 200
 	level_max = list(Sp_TOTAL = 1, Sp_SPEED = 0, Sp_POWER = 1)
 
 	amt_dam_brute = -1000
