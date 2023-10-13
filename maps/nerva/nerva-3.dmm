@@ -418,15 +418,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
-"bi" = (
-/obj/machinery/camera/network/second_deck{
-	c_tag = "Second Deck Aft Port Maintenance APC";
-	dir = 8;
-	icon_state = "camera"
-	},
-/obj/structure/ladder/updown,
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/afp)
 "bj" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -5434,20 +5425,6 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/command/teleporter)
-"ks" = (
-/obj/structure/catwalk,
-/obj/machinery/camera/network/second_deck{
-	c_tag = "Second Deck Fore Starboard Maintenance APC";
-	dir = 8;
-	icon_state = "camera"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/fs)
 "kt" = (
 /obj/machinery/firealarm{
 	dir = 4;
@@ -7422,9 +7399,6 @@
 	icon_state = "intact-supply"
 	},
 /obj/structure/catwalk,
-/obj/machinery/camera/network/engineering{
-	c_tag = "Atmospherics Hallway"
-	},
 /turf/simulated/floor/plating,
 /area/engineering/break_room)
 "oC" = (
@@ -9312,10 +9286,6 @@
 	d2 = 4;
 	icon_state = "2-8"
 	},
-/obj/machinery/camera/network/engineering{
-	c_tag = "Second Deck Telecommunications Relay";
-	pixel_x = 16
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
 "rO" = (
@@ -10880,11 +10850,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8;
 	icon_state = "map-supply"
-	},
-/obj/machinery/camera/network/second_deck{
-	c_tag = "Bathrooms";
-	dir = 4;
-	icon_state = "camera"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4;
@@ -12805,11 +12770,6 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
-	},
-/obj/machinery/camera/network/second_deck{
-	c_tag = "Second Deck Aft Starboard Maintenance APC";
-	dir = 4;
-	icon_state = "camera"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
@@ -15682,11 +15642,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/chapel/office)
 "Lj" = (
-/obj/machinery/camera/network/second_deck{
-	c_tag = "Second Deck Fore Port Maintenance APC";
-	dir = 2;
-	icon_state = "camera"
-	},
 /obj/structure/table/rack{
 	dir = 8
 	},
@@ -17079,10 +17034,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/chapel/office)
 "Rc" = (
-/obj/machinery/camera/network/second_deck{
-	c_tag = "Second Deck Emergency Storage";
-	dir = 4
-	},
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -27;
 	pixel_y = 1
@@ -17870,10 +17821,6 @@
 /area/security/prison)
 "Wo" = (
 /obj/item/stack/material/rods/ten,
-/obj/machinery/camera/network/second_deck{
-	c_tag = "Auxiliary Storage";
-	dir = 4
-	},
 /turf/simulated/floor/plating,
 /area/logistics/auxtool)
 "Ws" = (
@@ -36154,7 +36101,7 @@ ao
 as
 aw
 aO
-bi
+aM
 bd
 bI
 bX
@@ -49313,7 +49260,7 @@ uj
 sG
 Kg
 sG
-ks
+Ow
 tC
 sI
 sI

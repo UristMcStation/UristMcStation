@@ -44,10 +44,6 @@
 /turf/simulated/floor/tiled/freezer,
 /area/medical/extstorage)
 "aj" = (
-/obj/machinery/camera/network/medbay{
-	c_tag = "Virology";
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10;
 	icon_state = "intact-scrubbers"
@@ -213,10 +209,6 @@
 "aA" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
-	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Cloning";
-	dir = 8
 	},
 /obj/structure/bed/nice,
 /obj/item/bedsheet/medical,
@@ -7088,9 +7080,6 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/machinery/camera/network/fourth_deck{
-	c_tag = "Fourth Deck Fore Port Maintenance APC"
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fp)
 "mP" = (
@@ -8204,9 +8193,6 @@
 	dir = 8;
 	icon_state = "deck-4";
 	pixel_x = 32
-	},
-/obj/machinery/camera/network/fourth_deck{
-	c_tag = "Kitchen Staircase"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 2;
@@ -11280,11 +11266,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/camera/network/fourth_deck{
-	c_tag = "Central Maintenance APC";
-	dir = 1;
-	icon_state = "camera"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
@@ -12955,9 +12936,6 @@
 "wL" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/camera/network/research{
-	c_tag = "Xenoflora Gas Storage"
-	},
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora)
 "wM" = (
@@ -13681,11 +13659,6 @@
 	d1 = 0;
 	d2 = 8;
 	icon_state = "0-8"
-	},
-/obj/machinery/camera/network/fourth_deck{
-	c_tag = "Fourth Deck Aft Starboard Maintenance APC";
-	dir = 1;
-	icon_state = "camera"
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
@@ -15108,11 +15081,6 @@
 /area/maintenance/fourth_deck/fs)
 "Al" = (
 /obj/structure/reagent_dispensers/fueltank,
-/obj/machinery/camera/network/fourth_deck{
-	c_tag = "Fourth Deck Fore Starboard Maintenance APC";
-	dir = 1;
-	icon_state = "camera"
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
 "Am" = (
@@ -17494,9 +17462,6 @@
 /obj/item/clothing/suit/storage/hooded/wintercoat/miner,
 /obj/item/device/scanner/mining,
 /obj/item/clothing/accessory/armband/cargo,
-/obj/machinery/camera/network/cargo{
-	c_tag = "Cargo Lockers"
-	},
 /obj/item/device/radio/intercom{
 	broadcasting = 0;
 	dir = 2;
@@ -22296,11 +22261,6 @@
 /turf/simulated/floor/plating,
 /area/rnd/storage)
 "RP" = (
-/obj/machinery/camera/network/fourth_deck{
-	c_tag = "Kitchen Freezer";
-	dir = 1;
-	icon_state = "camera"
-	},
 /obj/machinery/vending/dinnerware,
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/freezer)

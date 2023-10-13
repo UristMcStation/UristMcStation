@@ -505,10 +505,6 @@
 /area/maintenance/third_deck/centp)
 "abr" = (
 /obj/machinery/light/small/red,
-/obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck Central Port Maintenance APC";
-	dir = 1
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/centp)
 "abs" = (
@@ -3175,10 +3171,6 @@
 	name = "north bump";
 	pixel_y = 24
 	},
-/obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck Fore Port Maintenance APC";
-	dir = 4
-	},
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2"
@@ -4631,10 +4623,6 @@
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
-	},
-/obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck Aft Port Maintenance APC";
-	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afp)
@@ -19115,9 +19103,6 @@
 	dir = 10;
 	icon_state = "intact-supply"
 	},
-/obj/machinery/camera/network/engineering{
-	c_tag = "Pipe Access"
-	},
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 4;
@@ -22590,21 +22575,21 @@
 /turf/simulated/floor/tiled/white/server,
 /area/engineering/tcomms)
 "aNp" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck Aft Starboard Maintenance APC";
+/obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 4
 	},
+/obj/structure/catwalk,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/obj/structure/disposalpipe/segment,
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck Aft Port Maintenance APC";
+	dir = 1
+	},
 /turf/simulated/floor/plating,
-/area/maintenance/third_deck/afs)
+/area/maintenance/third_deck/afp)
 "aNq" = (
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/plating,
@@ -23671,9 +23656,6 @@
 /turf/simulated/floor/carpet,
 /area/rnd/dorms)
 "aOS" = (
-/obj/machinery/camera/network/research{
-	c_tag = "Research Dormitory"
-	},
 /turf/simulated/floor/carpet,
 /area/rnd/dorms)
 "aOT" = (
@@ -24459,10 +24441,6 @@
 /obj/structure/closet/crate,
 /obj/random/maintenance/clean,
 /obj/item/extinguisher,
-/obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck Central Starboard Maintenance APC";
-	dir = 4
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/cents)
 "aQk" = (
@@ -24687,18 +24665,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/techmaint,
 /area/command/bodyguard)
-"aQC" = (
-/obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck Fore Starboard Maintenance APC";
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/fs)
 "aQD" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -47125,7 +47091,7 @@ aaj
 ads
 aao
 aaj
-afC
+aNp
 agx
 ahi
 aiE
@@ -49982,7 +49948,7 @@ aGn
 aGn
 aKR
 aLX
-aNp
+aOy
 aOy
 aOy
 aOy
@@ -61700,7 +61666,7 @@ aLB
 aMJ
 aOa
 aKy
-aQC
+ltj
 aRL
 aSO
 aRL
