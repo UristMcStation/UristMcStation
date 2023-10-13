@@ -72,6 +72,9 @@ var/global/list/ventcrawl_machinery = list(
 			return FALSE
 	return TRUE
 
+/mob/living/simple_animal/ventcrawl_carry()
+	return TRUE
+
 /mob/living/AltClickOn(atom/A)
 	if(is_type_in_list(A,ventcrawl_machinery))
 		handle_ventcrawl(A)

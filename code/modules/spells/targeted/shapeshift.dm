@@ -18,15 +18,12 @@
 	var/revert_sound = 'sound/magic/charge.ogg' //the sound that plays when something gets turned back.
 	var/share_damage = 1 //do we want the damage we take from our new form to move onto our real one? (Only counts for finite duration)
 	var/drop_items = 1 //do we want to drop all our items when we transform?
-	var/toggle = 0 //Can we toggle this?
+	var/toggle = TRUE //Can we toggle this?
 	var/list/transformed_dudes = list() //Who we transformed. Transformed = Transformation. Both mobs.
 
 /spell/targeted/shapeshift/cast(list/targets, mob/user)
 	for(var/m in targets)
 		var/mob/living/M = m
-		if (M in transformed_dudes)
-			stop_transformation(M)
-			return
 		if(M.stat == DEAD)
 			to_chat(user, "[name] can only transform living targets.")
 			continue
@@ -34,6 +31,8 @@
 			M.buckled.unbuckle_mob()
 		if(toggle && length(transformed_dudes) && stop_transformation(M))
 			continue
+		else if(!toggle && (M in transformed_dudes))
+			continue // double polymorph will cause bugs
 		var/new_mob = pick(possible_transformations)
 
 		var/mob/living/trans = new new_mob(get_turf(M))
@@ -110,6 +109,7 @@
 	possible_transformations = list(/mob/living/simple_animal/passive/lizard,/mob/living/simple_animal/passive/mouse,/mob/living/simple_animal/passive/corgi)
 
 	share_damage = 0
+	toggle = FALSE
 	invocation = "Yo'balada!"
 	invocation_type = SpI_SHOUT
 	spell_flags = NEEDSCLOTHES | SELECTABLE
@@ -185,8 +185,8 @@
 		if(2)
 			possible_transformations = list(/mob/living/simple_animal/hostile/incarnate)
 			duration = 0
-			charge_counter = 3000
-			charge_max = 3000
+			charge_counter = 5 MINUTES
+			charge_max = 5 MINUTES
 			return "You revel in the corruption. There is no turning back. Corrupted Form will last until destroyed, but you are as powerful as a juggernaut."
 
 /spell/targeted/shapeshift/familiar
@@ -201,7 +201,6 @@
 	spell_flags = INCLUDEUSER
 	duration = 0
 	charge_max = 2 MINUTES
-	toggle = 1
 
 	hud_state = "wiz_carp"
 
