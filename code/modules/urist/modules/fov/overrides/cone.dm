@@ -63,7 +63,7 @@
 
 	if((src.force_fov == FALSE) || !(config.enable_fov_cones || src.force_fov))
 		var/delay_cleanup = 10
-		for(var/image/HI in src.client.hidden_atoms)
+		for(var/image/HI in (src.client?.hidden_atoms || list()))
 			sleep(0)
 			HI.override = 0
 			spawn(delay_cleanup)
