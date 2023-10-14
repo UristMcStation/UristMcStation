@@ -37,7 +37,6 @@
 	suffixes = list("destroyed_colony/destroyed_colony.dmm")
 	accessibility_weight = 10
 	spawn_cost = 1
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 //contract stuff
 
