@@ -335,7 +335,7 @@ var/global/list/mining_floors = list()
 			if(!istype(orenoise))
 				continue
 			if(orenoise.origin_z == N.z)
-				orenoise.generate_tile(N)
+				orenoise.generate_map_tile(N)
 				break
 
 /turf/simulated/mineral/proc/excavate_find(prob_clean = 0, datum/find/F)

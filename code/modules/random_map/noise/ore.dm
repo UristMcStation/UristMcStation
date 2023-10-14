@@ -47,6 +47,9 @@
 	var/tx = ((origin_x-1)+x)*chunk_size
 	var/ty = ((origin_y-1)+y)*chunk_size
 
+	var/tmp_cell
+	TRANSLATE_AND_VERIFY_COORD(x,y)
+
 	for(var/i=0,i<chunk_size,i++)
 		for(var/j=0,j<chunk_size,j++)
 			var/turf/simulated/T = locate(tx+j, ty+i, origin_z)
@@ -55,18 +58,24 @@
 			if(!priority_process)
 				CHECK_TICK
 
-			generate_tile(T)
+			generate_tile(T, tmp_cell)
 
-/datum/random_map/noise/ore/proc/generate_tile(var/turf/simulated/T)
+/datum/random_map/noise/ore/proc/generate_map_tile(var/turf/simulated/T)
 	if(!istype(T) || !T.has_resources)
 		return
 
+	var/tx = round(((origin_x-1)+T.x)/chunk_size)
+	var/ty = round(((origin_y-1)+T.y)/chunk_size)
+
+	var/tmp_cell
+	TRANSLATE_AND_VERIFY_COORD(tx,ty)
+
+	generate_tile(T, tmp_cell)
+
+/datum/random_map/noise/ore/proc/generate_tile(var/turf/simulated/T, var/tmp_cell)
 	T.resources = list()
 	T.resources[MATERIAL_SAND] = rand(3,5)
 	T.resources[MATERIAL_GRAPHITE] = rand(3,5)
-
-	var/tmp_cell
-	TRANSLATE_AND_VERIFY_COORD(T.x, T.y)
 
 	if(isnull(tmp_cell))
 		return
