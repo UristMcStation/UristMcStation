@@ -204,7 +204,7 @@ var/global/list/revenant_slaps = (typesof(/datum/power/revenant/bs_slap) - /datu
 	M.Stun(100)
 	M.Weaken(100)
 
-	log_and_message_admins("[M] has summoned Nar'Sie due to neglecting his Bluespace Revenant Distortion!")
+	log_and_message_admins("has summoned Nar'Sie due to neglecting his Bluespace Revenant Distortion!", M)
 	var/obj/singularity/narsie/large/narnar = new(T)
 
 	if(!istype(narnar))
@@ -242,11 +242,10 @@ var/global/list/revenant_slaps = (typesof(/datum/power/revenant/bs_slap) - /datu
 	if(isnull(H))
 		// We'll gib non-humanoids so that they don't get a free pass
 		M.gib()
-		log_and_message_admins("[M] has been gibbed through zombification due to neglecting his Bluespace Revenant Distortion *as a non-humanoid*!")
+		log_and_message_admins("has been gibbed through zombification due to neglecting his Bluespace Revenant Distortion *as a non-humanoid*!", M)
 		return TRUE
 
 	H.zombify()
-	log_and_message_admins("[M] has turned into a zombie due to neglecting his Bluespace Revenant Distortion!")
+	log_and_message_admins("has turned into a zombie due to neglecting his Bluespace Revenant Distortion!", M)
 
 	return TRUE
-

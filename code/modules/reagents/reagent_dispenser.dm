@@ -230,9 +230,9 @@
 			var/turf/turf = get_turf(src)
 			if(turf)
 				var/area/area = turf.loc || "*unknown area*"
-				log_and_message_admins("[key_name_admin(Proj.firer)] shot a fuel tank in \the [area].")
+				log_and_message_admins("shot a fuel tank in \the [area].", Proj.firer)
 			else
-				log_and_message_admins("shot a fuel tank outside the world.")
+				log_and_message_admins("shot a fuel tank outside the world.", Proj.firer)
 
 		if(!istype(Proj ,/obj/item/projectile/beam/lastertag) && !istype(Proj ,/obj/item/projectile/beam/practice) )
 			explode()

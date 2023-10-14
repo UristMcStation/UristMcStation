@@ -939,7 +939,7 @@ Ccomp's first proc.
 			mob.AdjustWeakened(2)
 			mob.AdjustStunned(2)
 			++floored
-	log_and_message_admins("[key_name_admin(user)] simulated a distant explosion, affecting [affected] players and flooring [floored] on levels [levels.Join(", ")].")
+	log_and_message_admins("simulated a distant explosion, affecting [affected] players and flooring [floored] on levels [levels.Join(", ")].", user)
 
 
 /client/proc/bombard_zlevel()
