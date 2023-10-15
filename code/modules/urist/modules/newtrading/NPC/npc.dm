@@ -156,3 +156,6 @@
 	M.Turn(90)
 	M.Translate(1,-6)
 	src.transform = M
+
+/mob/living/simple_animal/passive/npc/say(var/message, var/language = LANGUAGE_GALCOM)
+	..(message, language)

@@ -228,14 +228,16 @@
 	..()
 	updatehealth()
 
-/mob/living/simple_animal/say(message)
+/mob/living/simple_animal/say(message, var/language)
 	var/verb = "says"
 	if(length(speak_emote))
 		verb = pick(speak_emote)
 
 	message = sanitize(message)
 
-	..(message, species_language, verb)
+	language = all_languages[language] || species_language
+
+	..(message, language, verb)
 
 /mob/living/simple_animal/get_speech_ending(verb, ending)
 	return verb
