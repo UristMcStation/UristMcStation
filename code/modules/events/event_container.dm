@@ -176,7 +176,7 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Drone Uprising",						/datum/event/rogue_maint_drones,		25,		list(ASSIGNMENT_ENGINEER = 30)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Supermatter Power Surge",				/datum/event/power_surge,				100,	list(ASSIGNMENT_ENGINEER = 10)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Bluespace Drive Instability",			/datum/event/bsd_instability,			50),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "DeepmaintRooms",						/datum/event/backrooms_deepmaint,		50),
+		// new /datum/event_meta(EVENT_LEVEL_MODERATE, "DeepmaintRooms",						/datum/event/backrooms_deepmaint,		50),
 	)
 
 /datum/event_container/major
@@ -191,7 +191,7 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Drone Revolution",				/datum/event/rogue_maint_drones,	0,	list(ASSIGNMENT_ENGINEER = 10,ASSIGNMENT_MEDICAL = 10,ASSIGNMENT_SECURITY = 10)),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Spider Infestation",				/datum/event/spider_infestation, 	0,	list(ASSIGNMENT_SECURITY = 10), 1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Bluespace Drive Instability",		/datum/event/bsd_instability,		0,	null, 1),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "DeepmaintRooms",					/datum/event/backrooms_deepmaint,	0,	null, 1),
+		// new /datum/event_meta(EVENT_LEVEL_MAJOR, "DeepmaintRooms",					/datum/event/backrooms_deepmaint,	0,	null, 1),
 	)
 
 /datum/event_container/exo
