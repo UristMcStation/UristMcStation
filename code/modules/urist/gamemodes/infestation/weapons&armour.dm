@@ -196,7 +196,7 @@
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "ANFOR-riflemag"
 	mag_type = MAGAZINE
-	caliber = CALIBER_RIFLE
+	caliber = CALIBER_RIFLE_MILITARY
 	origin_tech = "combat=2"
 	matter = list(DEFAULT_WALL_MATERIAL = 3500)
 	ammo_type = /obj/item/ammo_casing/rifle
