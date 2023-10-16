@@ -478,7 +478,7 @@
 					crystals = input("Amount of telecrystals for [key]","Operative uplink", crystals) as null|num
 					if (!isnull(crystals) && !QDELETED(suplink))
 						suplink.uses = crystals
-						log_and_message_admins("set the telecrystals for [key] to [crystals]")
+						log_and_message_admins("set the telecrystals for [key_name(src)] to [crystals]")
 
 	else if (href_list["obj_announce"])
 		var/obj_count = 1
