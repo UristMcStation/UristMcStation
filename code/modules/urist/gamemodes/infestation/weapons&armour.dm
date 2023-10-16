@@ -167,11 +167,12 @@
 	item_state = "ANFOR-rifle"
 	w_class = 4
 	force = 10
-	caliber = CALIBER_RIFLE
+	caliber = CALIBER_RIFLE_MILITARY
 	origin_tech = "combat=6;materials=1;syndicate=4"
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/rifle/a22
+	allowed_magazines = /obj/item/ammo_magazine/rifle/a22
 	one_hand_penalty = 5
 	fire_sound = 'sound/weapons/gunshot/gunshot2.ogg'
 	wielded_item_state = "ANFOR-rifle-wielded"
@@ -191,7 +192,7 @@
 	return
 
 /obj/item/ammo_magazine/rifle/a22
-	name = "A22 magazine (5.56mm)"
+	name = "A22 magazine"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "ANFOR-riflemag"
 	mag_type = MAGAZINE
