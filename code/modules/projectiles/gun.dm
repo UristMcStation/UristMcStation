@@ -115,6 +115,10 @@
 	if(scope_zoom)
 		verbs += /obj/item/gun/proc/scope
 
+	if(length(firemodes))
+		var/datum/firemode/new_mode = firemodes[sel_mode]
+		new_mode.apply_to(src)
+
 /obj/item/gun/update_twohanding()
 	if(one_hand_penalty)
 		update_icon() // In case item_state is set somewhere else.
