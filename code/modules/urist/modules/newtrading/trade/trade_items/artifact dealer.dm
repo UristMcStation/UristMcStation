@@ -140,7 +140,7 @@
 	category = "artifacts"
 	item_type = /obj/item/toy/plushie/loot/scug
 	value = 750
-/*
+
 /datum/trade_item/artifacts/goatplush
 	name = "cartoon doll"
 	category = "artifacts"
@@ -152,4 +152,3 @@
 	category = "artifacts"
 	item_type = /obj/item/toy/plushie/loot/neet
 	value = 750
-*/
