@@ -173,7 +173,7 @@
 			fire_colour = R.fire_colour
 
 	if(power < REQUIRED_POWER_TO_FIRE_FLAMETHROWER)
-		audible_message(SPAN_DANGER("The [src] sputters."))
+		audible_message(SPAN_DANGER("\The [src] sputters."))
 		playsound(src, 'sound/weapons/guns/flamethrower_empty.ogg', 50, TRUE, -3)
 		return
 	playsound(src, pick('sound/weapons/guns/flamethrower1.ogg','sound/weapons/guns/flamethrower2.ogg','sound/weapons/guns/flamethrower3.ogg' ), 50, TRUE, -3)
