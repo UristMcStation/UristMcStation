@@ -652,7 +652,7 @@
 	dir = 4;
 	icon_state = "intact"
 	},
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -688,7 +688,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -1807,7 +1807,7 @@
 /area/maintenance/first_deck/fp)
 "dR" = (
 /obj/structure/ladder,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 4;
 	icon_state = "firelight1"
 	},
@@ -2028,7 +2028,7 @@
 /area/maintenance/first_deck/fp)
 "en" = (
 /obj/structure/catwalk,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -2536,7 +2536,7 @@
 	dir = 10;
 	icon_state = "intact-supply"
 	},
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -2560,7 +2560,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "fp" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -2926,7 +2926,7 @@
 /area/maintenance/first_deck/central)
 "fY" = (
 /obj/structure/catwalk,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -3793,7 +3793,7 @@
 	icon_state = "map"
 	},
 /obj/structure/catwalk,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -4010,7 +4010,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 4;
 	icon_state = "firelight1"
 	},
@@ -5033,7 +5033,7 @@
 /area/maintenance/first_deck/central)
 "jQ" = (
 /obj/structure/reagent_dispensers/watertank,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -5084,7 +5084,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/catwalk,
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -5989,7 +5989,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 4;
 	icon_state = "firelight1"
 	},
@@ -6227,7 +6227,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5;
 	icon_state = "intact-scrubbers"
@@ -6483,7 +6483,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "lZ" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -6516,7 +6516,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 4;
 	icon_state = "firelight1"
 	},
@@ -6737,7 +6737,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "mJ" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -6833,7 +6833,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fs)
 "mT" = (
@@ -7250,7 +7250,7 @@
 /obj/machinery/power/terminal{
 	dir = 4
 	},
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -7382,7 +7382,7 @@
 	pixel_y = 4
 	},
 /obj/item/device/radio,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -7665,7 +7665,7 @@
 	},
 /obj/random/toolbox,
 /obj/random/tool,
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fs)
 "ot" = (
@@ -8427,7 +8427,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/aftsolar)
 "pM" = (
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 4;
@@ -8500,7 +8500,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 4;
 	icon_state = "firelight1"
 	},
@@ -8522,7 +8522,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/catwalk,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 4;
 	icon_state = "firelight1"
 	},
