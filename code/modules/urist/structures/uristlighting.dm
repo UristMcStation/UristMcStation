@@ -6,24 +6,16 @@
 ///////////////////////////////////////////////////////////////////////////
 
 //spoopy red maint lights, Alien-style
-/obj/machinery/light/small/red
+/obj/machinery/light/small/red/maintenance
 	icon_state = "firelight1"
-	construct_type = /obj/machinery/light/small
 	active_power_usage = 2
 	name = "Maintenance light fixture"
 	desc = "A small, low-power lighting fixture used for maintenance lighting."
-	light_type = /obj/item/light/bulb/red
+	light_type = /obj/item/light/bulb/red/maintenance
 
-/obj/machinery/light/small/red/New()
-	..()
-	icon_state = "firelight1"
-
-/obj/item/light/bulb/red
+/obj/item/light/bulb/red/maintenance
 	name = "light bulb (maintenance)"
 	desc = "A replacement light bulb. This one has a red filter and is designed for usage in Maintenance."
-	icon_state = "flight"
-	base_state = "flight"
-	item_state = "contvapour"
 	b_outer_range = 6
 	b_colour = "#b12525"
 
