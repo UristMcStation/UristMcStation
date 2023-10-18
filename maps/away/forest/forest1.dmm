@@ -558,10 +558,6 @@
 /area/planet/forest/cave/engie)
 "bK" = (
 /obj/machinery/power/port_gen/pacman/super/potato,
-/obj/structure/cable{
-	dir = 4;
-	icon_state = "0-8"
-	},
 /turf/simulated/floor,
 /area/planet/forest/cave/engie)
 "bL" = (
@@ -663,6 +659,7 @@
 "bZ" = (
 /obj/structure/table/standard,
 /obj/item/storage/toolbox/mechanical,
+/obj/machinery/fabricator/micro,
 /turf/simulated/floor/tiled/dark,
 /area/planet/forest/cave/engie)
 "ca" = (
@@ -774,41 +771,6 @@
 	icon_state = "pipe-j2"
 	},
 /obj/structure/salvageable/autolathe,
-/turf/simulated/floor,
-/area/planet/forest/cave/engie)
-"co" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor,
-/area/planet/forest/cave/engie)
-"cp" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor,
-/area/planet/forest/cave/engie)
-"cq" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
 /turf/simulated/floor,
 /area/planet/forest/cave/engie)
 "cr" = (
@@ -955,6 +917,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/item/stack/cable_coil/blue,
 /turf/simulated/floor,
 /area/planet/forest/cave/engie)
 "cN" = (
@@ -11838,7 +11801,7 @@ aE
 aJ
 bk
 bK
-co
+cI
 cL
 bk
 bk
@@ -11940,7 +11903,7 @@ aE
 aJ
 bk
 bK
-cp
+cI
 cL
 bk
 dC
@@ -12042,8 +12005,8 @@ aE
 aJ
 bk
 bK
-cq
-cM
+cI
+cI
 cM
 dD
 ef
