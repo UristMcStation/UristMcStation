@@ -110,6 +110,7 @@
 	category = "components"
 	item_type = /obj/item/cell/standard
 	quantity = 5
+
 /datum/trade_item/stock_parts/cell_high
 	name = "high capacity power cell"
 	category = "components"
