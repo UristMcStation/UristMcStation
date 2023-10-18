@@ -2479,6 +2479,7 @@
 	pixel_x = 5;
 	pixel_y = -27
 	},
+/obj/item/treasure/tape,
 /turf/simulated/floor,
 /area/planet/forest/cave/dorms)
 "gm" = (
@@ -4109,7 +4110,7 @@
 /obj/effect/floor_decal/corner/purple/half{
 	dir = 8
 	},
-/obj/item/treasure/tape/tape3,
+/obj/item/treasure/tape,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "jD" = (
@@ -4130,6 +4131,7 @@
 /obj/effect/floor_decal/corner/purple/half{
 	dir = 4
 	},
+/obj/item/treasure/tape,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "jG" = (
@@ -4302,8 +4304,8 @@
 /area/planet/forest/cave/lab)
 "ke" = (
 /obj/structure/table/standard,
-/obj/item/treasure/tape/tape2,
 /obj/item/material/knife/hook,
+/obj/item/treasure/tape,
 /turf/simulated/floor,
 /area/planet/forest/cave/lab)
 "kf" = (
