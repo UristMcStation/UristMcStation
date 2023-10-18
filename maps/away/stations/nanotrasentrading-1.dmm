@@ -1537,6 +1537,11 @@
 	color = "#cccccc"
 	},
 /area/spacestations/ntminingshuttle/start)
+"kf" = (
+/obj/structure/bed/chair/wood,
+/mob/living/simple_animal/passive/npc/colonist/trader/artifact_dealer,
+/turf/simulated/floor/wood,
+/area/spacestations/nanotrasenspace)
 "km" = (
 /obj/structure/table/steel_reinforced,
 /obj/item/storage/firstaid/empty,
@@ -1939,6 +1944,10 @@
 /obj/structure/table/woodentable,
 /obj/item/reagent_containers/food/condiment/barbecue,
 /turf/simulated/floor/wood,
+/area/spacestations/nanotrasenspace)
+"wa" = (
+/mob/living/simple_animal/passive/npc/colonist/trader/components_trader,
+/turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "wu" = (
 /obj/effect/floor_decal/corner/blue{
@@ -3316,7 +3325,7 @@ bN
 bN
 bN
 bN
-cp
+kf
 oQ
 cW
 ad
@@ -4717,7 +4726,7 @@ af
 mQ
 mQ
 ad
-cL
+wa
 af
 af
 af
