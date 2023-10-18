@@ -184,3 +184,122 @@
 		/obj/item/clothing/mask/breath/medical,\
 		/obj/item/clothing/mask/surgical)
 	mask_chance = 50
+
+//clothing traders
+
+/mob/living/simple_animal/passive/npc/colonist/trader/casual_clothes
+	name = "Casual Clothes Trader"
+	npc_job_title = "Casual Clothes Trader"
+	desc = "A human from one of Earth's diverse cultures. They are a trader who sells regular clothes."
+	trade_categories_by_name = list("casual clothes")
+	jumpsuits = list(\
+		/obj/item/clothing/under/urist/casual/suspenders,\
+		/obj/item/clothing/under/blazer,\
+		/obj/item/clothing/under/det,\
+		/obj/item/clothing/under/urist/casual/plaid
+		)
+	shoes = list(\
+		/obj/item/clothing/shoes/dress)
+	interact_screen = 2
+	npc_item_amount = 15
+
+/mob/living/simple_animal/passive/npc/colonist/trader/formal_clothes
+	name = "Formal Clothes Trader"
+	npc_job_title = "Formal Clothes Trader"
+	desc = "A human from one of Earth's diverse cultures. They are a trader who sells fancy clothes."
+	trade_categories_by_name = list("formal clothes")
+	jumpsuits = list(\
+		/obj/item/clothing/under/urist/casual/suspenders,\
+		/obj/item/clothing/under/urist/casual/plaid
+		)
+	shoes = list(\
+		/obj/item/clothing/shoes/dress)
+	hat_chance = 0
+	interact_screen = 2
+	npc_item_amount = 12
+
+/mob/living/simple_animal/passive/npc/colonist/trader/accessories
+	name = "Accessories Trader"
+	npc_job_title = "Accessories Trader"
+	desc = "A human from one of Earth's diverse cultures. They are a trader who sells accessories."
+	trade_categories_by_name = list("accessories")
+	jumpsuits = list(\
+		/obj/item/clothing/under/urist/casual/suspenders,\
+		/obj/item/clothing/under/blazer,\
+		/obj/item/clothing/under/det,\
+		/obj/item/clothing/under/urist/casual/plaid
+		)
+	shoes = list(\
+		/obj/item/clothing/shoes/dress)
+	hat_chance = 0
+	interact_screen = 2
+	npc_item_amount = 18
+
+/mob/living/simple_animal/passive/npc/colonist/trader/hats
+	name = "Hat Trader"
+	npc_job_title = "Hat Trader"
+	desc = "A human from one of Earth's diverse cultures. They are a trader who sells hats."
+	trade_categories_by_name = list("hats")
+	jumpsuits = list(\
+		/obj/item/clothing/under/urist/casual/suspenders,\
+		/obj/item/clothing/under/blazer,\
+		/obj/item/clothing/under/det,\
+		/obj/item/clothing/under/urist/casual/plaid
+		)
+	shoes = list(\
+		/obj/item/clothing/shoes/dress)
+	hat_chance = 0
+	interact_screen = 2
+	npc_item_amount = 17
+
+/mob/living/simple_animal/passive/npc/colonist/trader/coats
+	name = "Coat Trader"
+	npc_job_title = "Coat Trader"
+	desc = "A human from one of Earth's diverse cultures. They are a trader who sells coats."
+	trade_categories_by_name = list("coats")
+	jumpsuits = list(\
+		/obj/item/clothing/under/urist/casual/suspenders,\
+		/obj/item/clothing/under/blazer,\
+		/obj/item/clothing/under/det,\
+		/obj/item/clothing/under/urist/casual/plaid
+		)
+	shoes = list(\
+		/obj/item/clothing/shoes/dress)
+	hat_chance = 0
+	interact_screen = 2
+	npc_item_amount = 24
+
+/mob/living/simple_animal/passive/npc/colonist/trader/shoes
+	name = "Shoe Trader"
+	npc_job_title = "Shoe Trader"
+	desc = "A human from one of Earth's diverse cultures. They are a trader who sells shoes."
+	trade_categories_by_name = list("shoes")
+	jumpsuits = list(\
+		/obj/item/clothing/under/urist/casual/suspenders,\
+		/obj/item/clothing/under/blazer,\
+		/obj/item/clothing/under/det,\
+		/obj/item/clothing/under/urist/casual/plaid
+		)
+	shoes = list(\
+		/obj/item/clothing/shoes/dress)
+	hat_chance = 0
+	interact_screen = 2
+	npc_item_amount = 16
+
+//aftifact dealer
+/mob/living/simple_animal/passive/npc/colonist/trader/artifact_dealer
+	name = "Artifact Dealer"
+	npc_job_title = "Artifact Dealer"
+	desc = "A human from one of Earth's diverse cultures. They are a trader who buys rare artifacts of all sorts."
+	trade_categories_by_name = list("artifacts")
+	jumpsuits = list(\
+		/obj/item/clothing/under/urist/casual/suspenders,\
+		/obj/item/clothing/under/blazer,\
+		/obj/item/clothing/under/det,\
+		/obj/item/clothing/under/urist/casual/plaid
+		)
+	shoes = list(\
+		/obj/item/clothing/shoes/dress)
+	hat_chance = 0
+	interact_screen = 2
+	npc_item_amount = 0

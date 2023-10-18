@@ -49,6 +49,27 @@
 /datum/trade_category/stock_parts
 	name = "components"
 
+/datum/trade_category/casualclothes
+	name = "casual clothes"
+
+/datum/trade_category/formalclothes
+	name = "formal clothes"
+
+/datum/trade_category/accessories
+	name = "accessories"
+
+/datum/trade_category/shoes
+	name = "shoes"
+
+/datum/trade_category/hats
+	name = "hats"
+
+/datum/trade_category/coats
+	name = "coats"
+
+/datum/trade_category/artifacts
+	name = "artifacts"
+
 //contracts
 
 /datum/trade_category/ntsciencecontract
