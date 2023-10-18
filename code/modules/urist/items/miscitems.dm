@@ -596,11 +596,9 @@
 	desc = "An old holotape cassette. Could be someone's mixtape or have valuable data."
 	icon_state = "tape1"
 
-/obj/item/treasure/tape/tape2
-	icon_state = "tape5"
-
-/obj/item/treasure/tape/tape3
-	icon_state = "tape6"
+/obj/item/treasure/tape/Initialize()
+	. = ..()
+	icon_state = "tape[rand(0,6)]"
 
 /obj/item/material/coin/challenge/loot/copper
 	name = "\improper old copper coin"
