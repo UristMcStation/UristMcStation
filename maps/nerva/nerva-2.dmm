@@ -504,7 +504,7 @@
 /turf/simulated/wall/prepainted,
 /area/maintenance/third_deck/centp)
 "abr" = (
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/centp)
 "abs" = (
@@ -539,7 +539,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/centp)
 "abv" = (
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -853,7 +853,7 @@
 /area/maintenance/third_deck/afp)
 "ach" = (
 /obj/structure/closet/firecloset,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -1119,7 +1119,7 @@
 	dir = 9;
 	icon_state = "intact-supply"
 	},
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fp)
 "acJ" = (
@@ -3162,7 +3162,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/security/armoury)
 "ago" = (
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fp)
 "agp" = (
@@ -3298,7 +3298,7 @@
 "agz" = (
 /obj/structure/lattice,
 /obj/structure/disposalpipe/down,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -5595,7 +5595,7 @@
 /obj/machinery/power/terminal{
 	dir = 4
 	},
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -6825,7 +6825,7 @@
 /area/maintenance/third_deck/afp)
 "ams" = (
 /obj/structure/closet/emcloset,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -6850,7 +6850,7 @@
 "amv" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /obj/structure/catwalk,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -7749,7 +7749,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/locker)
 "aoc" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -21701,7 +21701,7 @@
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -24447,7 +24447,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/catwalk,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 4;
 	icon_state = "firelight1"
 	},
@@ -25280,7 +25280,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fs)
 "aRM" = (
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fs)
 "aRN" = (
@@ -26355,7 +26355,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afs)
 "aTJ" = (
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -26679,7 +26679,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/cmo)
 "aUr" = (
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
@@ -30503,7 +30503,7 @@
 /turf/simulated/floor/plating,
 /area/security/portexternalgun)
 "qGN" = (
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -31174,7 +31174,7 @@
 /area/logistics/mailing)
 "uzq" = (
 /obj/random/trash,
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afp)
 "uBC" = (
@@ -31644,7 +31644,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/security/checkpoint)
 "wSn" = (
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/structure/disposalpipe/segment{
 	dir = 8;
 	icon_state = "pipe-c"
