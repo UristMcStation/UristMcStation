@@ -92,8 +92,6 @@
 	suffixes = list("russianderelict/russianderelict.dmm")
 	spawn_cost = 1
 	area_usage_test_exempted_root_areas = list(/area/russianderelict)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
-
 
 /obj/effect/shuttle_landmark/automatic/nav_russian_derelict/nav1
 	name = "Derelict Landing Zone #1"
