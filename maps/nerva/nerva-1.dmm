@@ -1639,6 +1639,8 @@
 	dir = 9;
 	icon_state = "techfloor_edges"
 	},
+/obj/item/device/gps,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/exploration_shuttle/power)
 "dv" = (
@@ -4029,6 +4031,8 @@
 	dir = 4
 	},
 /obj/item/device/radio,
+/obj/item/device/gps,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled,
 /area/exploration_shuttle/main)
 "hx" = (
