@@ -448,18 +448,18 @@
 
 /// cloning DRM disks. The now is future.
 /obj/item/disk/cloning_charge
-	name = "Cloning verification disk (one charge)"
+	name = "cloning verification disk (one charge)"
 	desc = "A disk that is required for the cloning process. Thanks to NanoTrasen's monopoly on cloning technology, all cloning requires an expensive verification disk to add 'verification charges' to a cloning machine, that are used upon cloning. This disk has one charge."
 	icon = 'icons/obj/cloning.dmi'
 	icon_state = "datadisk1"
 	var/charges = 1
 
 /obj/item/disk/cloning_charge/two
-	name = "Cloning verification disk (two charges)"
+	name = "cloning verification disk (two charges)"
 	desc = "A disk that is required for the cloning process. Thanks to NanoTrasen's monopoly on cloning technology, all cloning requires an expensive verification disk to add 'verification charges' to a cloning machine, that are used upon cloning. This disk has two charges."
 	charges = 2
 
 /obj/item/disk/cloning_charge/five
-	name = "Cloning verification disk (five charges)"
+	name = "cloning verification disk (five charges)"
 	desc = "A disk that is required for the cloning process. Thanks to NanoTrasen's monopoly on cloning technology, all cloning requires an expensive verification disk to add 'verification charges' to a cloning machine, that are used upon cloning. This disk has five charges."
 	charges = 5

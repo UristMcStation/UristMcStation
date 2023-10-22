@@ -67,7 +67,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	pref.body_markings = R.read("body_markings")
 	pref.body_descriptors = R.read("body_descriptors")
 	pref.rlimb_color = R.read("rlimb_color")
-	pref.has_cortical_stack = R.read("had_cortical_stack")
+	pref.has_cortical_stack = R.read("has_cortical_stack")
 
 /datum/category_item/player_setup_item/physical/body/save_character(datum/pref_record_writer/W)
 	W.write("species", pref.species)

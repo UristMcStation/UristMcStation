@@ -98,7 +98,8 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /singleton/hierarchy/supply_pack/medical/cloning_charge_1
 	name = "Cloning Verification Disk (1 charge)"
 	contains = list(/obj/item/disk/cloning_charge)
-	cost = 200
+	cost = 100
+	newcargocost = 200
 	containertype = /obj/structure/closet/crate/secure
 	containername = "cloning verification disk crate"
 	access = access_medical_equip
@@ -106,7 +107,8 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /singleton/hierarchy/supply_pack/medical/cloning_charge_2
 	name = "Cloning Verification Disk (2 charges)"
 	contains = list(/obj/item/disk/cloning_charge/two)
-	cost = 380 //5% discount
+	cost = 200
+	newcargocost = 380 //5% discount
 	containertype = /obj/structure/closet/crate/secure
 	containername = "cloning verification disk crate"
 	access = access_medical_equip
@@ -114,7 +116,8 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /singleton/hierarchy/supply_pack/medical/cloning_charge_5
 	name = "Cloning Verification Disk (5 charges)"
 	contains = list(/obj/item/disk/cloning_charge/five)
-	cost = 900 //10% discount. not just cloning DRM but cloning microtransactions.
+	cost = 500
+	newcargocost = 900 //10% discount. not just cloning DRM but cloning microtransactions.
 	containertype = /obj/structure/closet/crate/secure
 	containername = "cloning verification disk crate"
 	access = access_medical_equip
