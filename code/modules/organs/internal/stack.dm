@@ -76,9 +76,9 @@
 	if(owner.mind && owner.ckey) //Someone is already in this body!
 		if(owner.mind == backup) // Oh, it's the same mind in the backup. Someone must've spammed the 'Start Procedure' button in a panic.
 			return
-		owner.visible_message("<span class='danger'>\The [owner] spasms violently!</span>")
+		owner.visible_message(SPAN_DANGER("\The [owner] spasms violently!"))
 		if(!invasive && prob(66))
-			to_chat(owner, "<span class='danger'>You fight off the invading tendrils of another mind, holding onto your own body!</span>")
+			to_chat(owner, SPAN_DANGER("You fight off the invading tendrils of another mind, holding onto your own body!"))
 			return
 		owner.ghostize() // Remove the previous owner to avoid their client getting reset.
 	//owner.dna.real_name = backup.name
@@ -90,5 +90,5 @@
 	if(default_language) 
 		owner.default_language = default_language
 	owner.languages = languages.Copy()
-	to_chat(owner, "<span class='notice'>Consciousness slowly creeps over you as your new body awakens.</span>")
-	to_chat(owner, "<span class='warning'>All memories from 5 minutes before your death to the moment you died have been lost.</span>")
+	to_chat(owner, SPAN_NOTICE("Consciousness slowly creeps over you as your new body awakens."))
+	to_chat(owner, SPAN_WARNING("All memories from 5 minutes before your death to the moment you died have been lost."))
