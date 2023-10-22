@@ -107,7 +107,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		pref.species = SPECIES_HUMAN
 	var/datum/species/mob_species = all_species[pref.species]
 
-	if(mob_species && mob_species.spawn_flags & SPECIES_FLAG_NO_LACE)
+	if(mob_species?.spawn_flags & SPECIES_FLAG_NO_LACE)
 		pref.has_cortical_stack = FALSE
 
 	pref.gender = sanitize_inlist(pref.gender, mob_species.genders, pick(mob_species.genders))

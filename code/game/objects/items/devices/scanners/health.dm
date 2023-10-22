@@ -115,7 +115,7 @@
 		dat += SPAN_CLASS("scan_warning", "[b]Time of Death:[endb] [time2text(worldtime2stationtime(H.timeofdeath), "hh:mm")]")
 
 	if (H.internal_organs_by_name[BP_STACK])
-		dat += "<span class='scan_notice'>Subject has a neural lace implant.</span>"
+		dat += SPAN_NOTICE("Subject has a neural lace implant.")
 
 	// Pulse rate.
 	var/pulse_result = "normal"

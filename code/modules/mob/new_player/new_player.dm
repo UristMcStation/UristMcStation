@@ -413,7 +413,7 @@
 		new_character.disabilities |= NEARSIGHTED
 
 	// Give them their cortical stack if we're using them.
-	if(config && config.use_cortical_stacks && client && client.prefs.has_cortical_stack /*&& new_character.should_have_organ(BP_BRAIN)*/)
+	if(config?.use_cortical_stacks && client?.prefs.has_cortical_stack /*&& new_character.should_have_organ(BP_BRAIN)*/)
 		new_character.create_stack()
 
 	// Do the initial caching of the player's body icons.

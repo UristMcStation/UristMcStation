@@ -101,7 +101,7 @@
 	else if (istype(W, /obj/item/disk/cloning_charge))
 		var/obj/item/disk/cloning_charge/disk = W
 		charges += disk.charges
-		user.visible_message("[user] loads a cloning verification disk into the console, which whirrs and hums as it scans the disk, destroying it in the process.", "You insert a cloning verification disk into the console, which whirrs and hums as it scans the disk, destroying it in the process. [disk.charges] charges have been added to /the [src].")
+		user.visible_message("[user] loads \an [disk] into \the [src], which whirrs and hums as it scans the disk, destroying it in the process.", "You insert \an [disk] into \the [src], which whirrs and hums as it scans the disk, destroying it in the process. [disk.charges] charge\s have been added the system.")
 		qdel(disk)
 
 	else
