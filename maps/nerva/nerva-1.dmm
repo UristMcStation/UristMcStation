@@ -1639,6 +1639,8 @@
 	dir = 9;
 	icon_state = "techfloor_edges"
 	},
+/obj/item/device/gps,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/exploration_shuttle/power)
 "dv" = (
@@ -1978,7 +1980,7 @@
 /area/maintenance/fourth_deck/afp)
 "dY" = (
 /obj/random/junk,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -2014,7 +2016,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/afp)
 "eb" = (
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/machinery/space_heater,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/afp)
@@ -2387,7 +2389,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -3062,7 +3064,7 @@
 	dir = 4;
 	icon_state = "intact-supply"
 	},
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -4029,6 +4031,8 @@
 	dir = 4
 	},
 /obj/item/device/radio,
+/obj/item/device/gps,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled,
 /area/exploration_shuttle/main)
 "hx" = (
@@ -4137,7 +4141,7 @@
 	dir = 4;
 	icon_state = "intact-supply"
 	},
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -5247,7 +5251,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/command/aiupload)
 "jL" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 4;
 	icon_state = "firelight1"
 	},
@@ -5963,7 +5967,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/catwalk,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -6098,7 +6102,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 4;
 	icon_state = "firelight1"
 	},
@@ -7027,7 +7031,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fp)
 "mL" = (
@@ -7707,7 +7711,7 @@
 /obj/random/bomb_supply,
 /obj/random/tool,
 /obj/random/tech_supply,
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fp)
 "nJ" = (
@@ -11248,7 +11252,7 @@
 /area/maintenance/fourth_deck/central)
 "tB" = (
 /obj/structure/closet/firecloset,
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/central)
 "tC" = (
@@ -11308,7 +11312,7 @@
 	dir = 4;
 	icon_state = "intact-scrubbers"
 	},
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/central)
@@ -11582,7 +11586,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -11890,7 +11894,7 @@
 /obj/machinery/computer/modular/preset/medical{
 	autorun_program = /datum/computer_file/program/suit_sensors
 	},
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -12070,7 +12074,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -15109,7 +15113,7 @@
 /area/maintenance/fourth_deck/fs)
 "Ap" = (
 /obj/structure/catwalk,
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -15167,7 +15171,7 @@
 	pixel_y = 4
 	},
 /obj/item/device/radio,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -16820,7 +16824,7 @@
 	dir = 1;
 	id = "garbage"
 	},
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 4;
 	icon_state = "firelight1"
 	},
@@ -16848,7 +16852,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -17783,7 +17787,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 4;
@@ -18279,7 +18283,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -18418,7 +18422,7 @@
 /obj/machinery/mass_driver{
 	id_tag = "trash"
 	},
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 4;
 	icon_state = "firelight1"
 	},
@@ -19124,7 +19128,7 @@
 "HB" = (
 /obj/structure/table/rack,
 /obj/effect/landmark/costume,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -20166,7 +20170,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -20352,7 +20356,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/afs)
@@ -20394,7 +20398,7 @@
 /area/rnd/xenobiology/xenoflora)
 "Kt" = (
 /obj/structure/closet/crate/internals,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -20821,7 +20825,7 @@
 	icon_state = "intact-supply"
 	},
 /obj/structure/catwalk,
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/afp)
 "LR" = (
@@ -21810,7 +21814,7 @@
 	dir = 4;
 	icon_state = "intact-scrubbers"
 	},
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/structure/catwalk,
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -23264,7 +23268,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -23425,7 +23429,7 @@
 /turf/simulated/floor/tiled/old_tile,
 /area/command/aiupload)
 "WY" = (
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/structure/table/rack,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
@@ -23797,7 +23801,7 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/logistics/fabwork)
 "YF" = (
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/structure/table/rack,
 /obj/random/snack,
 /obj/random/tech_supply,
@@ -23823,7 +23827,7 @@
 	autorun_program = /datum/computer_file/program/alarm_monitor;
 	dir = 1
 	},
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6;
 	icon_state = "warning"

@@ -1,0 +1,23 @@
+name: Enforce Labels
+
+on:
+  pull_request:
+    types: [synchronize, opened, labeled, unlabeled]
+
+jobs:
+  check-labels:
+    name: Enforce Blocking Labels
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enforce Do Not Merge
+        if: contains(github.event.pull_request.labels.*.name, 'Do Not Merge')
+        run: |
+          echo "Pull request is labeled DNM"
+          echo "The DNM label must be removed before this PR can be merged"
+          exit 1
+      - name: Enforce Play Testing
+        if: success() && (contains(github.event.pull_request.labels.*.name, 'Playtest Required') && !contains(github.event.pull_request.labels.*.name, 'Playtest Passed'))
+        run: |
+          echo "Pull request is labeled as requiring a playtest and has not been marked as passed"
+          echo "The Playtest Passed label must be added, or the Playtest label removed before this PR can be merged"
+          exit 1

@@ -277,7 +277,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -1442,7 +1442,7 @@
 	pixel_y = 0
 	},
 /obj/structure/catwalk,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -2344,7 +2344,7 @@
 	icon_state = "4-8";
 	pixel_y = 0
 	},
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fp)
@@ -2379,7 +2379,7 @@
 	pixel_y = 0
 	},
 /obj/structure/catwalk,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 4;
 	icon_state = "firelight1"
 	},
@@ -5655,7 +5655,7 @@
 	pixel_y = 0
 	},
 /obj/structure/catwalk,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -6772,7 +6772,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/central)
 "mX" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -7271,7 +7271,7 @@
 	dir = 6
 	},
 /obj/structure/catwalk,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -8994,7 +8994,7 @@
 	icon_state = "map-supply"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 4;
 	icon_state = "firelight1"
 	},
@@ -9483,7 +9483,7 @@
 	icon_state = "intact-supply"
 	},
 /obj/structure/catwalk,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -9631,7 +9631,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -9829,7 +9829,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
 "sF" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -9919,7 +9919,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -9977,7 +9977,7 @@
 /area/maintenance/second_deck/afs)
 "sT" = (
 /obj/structure/catwalk,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 4;
 	icon_state = "firelight1"
 	},
@@ -12801,7 +12801,7 @@
 	dir = 4
 	},
 /obj/structure/catwalk,
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -12924,7 +12924,7 @@
 	dir = 4
 	},
 /obj/structure/catwalk,
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
 "yJ" = (
@@ -14329,7 +14329,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/fore/second_deck)
 "Ez" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 4;
 	icon_state = "firelight1"
 	},
@@ -14958,7 +14958,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/chapel)
 "HA" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -15019,7 +15019,7 @@
 /area/security/boardarmoury)
 "Ia" = (
 /obj/structure/catwalk,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -15394,7 +15394,7 @@
 /area/chapel)
 "Ka" = (
 /obj/machinery/power/terminal,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -15436,7 +15436,7 @@
 /area/logistics/primtool)
 "Kg" = (
 /obj/structure/catwalk,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -15980,7 +15980,7 @@
 /area/civilian/journalist)
 "MH" = (
 /obj/structure/closet/emcloset,
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fp)
 "MI" = (
@@ -16183,7 +16183,7 @@
 /area/civilian/counselor)
 "NT" = (
 /obj/structure/closet/emcloset,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -17317,7 +17317,7 @@
 /area/civilian/personal)
 "Ty" = (
 /obj/random/junk,
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
 "TA" = (
@@ -17584,7 +17584,7 @@
 /turf/simulated/floor/carpet,
 /area/civilian/counselor)
 "US" = (
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
 "UT" = (
@@ -17974,7 +17974,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -18096,7 +18096,7 @@
 /obj/structure/curtain/open/bed,
 /obj/item/bedsheet/clown,
 /obj/item/storage/backpack/duffel/duffel_clown,
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/effect/landmark/start{
 	name = "Clown"
 	},
