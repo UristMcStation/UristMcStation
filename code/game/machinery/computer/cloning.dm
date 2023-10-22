@@ -1,10 +1,9 @@
-/*/obj/machinery/computer/cloning
+/obj/machinery/computer/cloning
 	name = "cloning control console"
 	icon = 'icons/obj/computer.dmi'
 	icon_keyboard = "med_key"
 	icon_screen = "dna"
 	light_color = "#315ab4"
-	circuit = /obj/item/stock_parts/circuitboard/cloning
 	req_access = list(access_heads) //Only used for record deletion right now.
 	var/obj/machinery/dna_scannernew/scanner = null //Linked scanner. For scanning.
 	var/list/pods = list() //Linked cloning pods.
@@ -15,10 +14,11 @@
 	var/datum/dna2/record/active_record = null
 	var/obj/item/disk/data/diskette = null //Mostly so the geneticist can steal everything.
 	var/loading = 0 // Nice loading text
+	var/charges = 0 // how many times can we clone
 
 /obj/machinery/computer/cloning/Initialize()
 	. = ..()
-	set_extension(src, /datum/extension/interactive/multitool, /datum/extension/interactive/multitool/cryo, list(/proc/is_operable))
+	set_extension(src, /datum/extension/interactive/multitool)
 	updatemodules()
 
 /obj/machinery/computer/cloning/Destroy()
@@ -98,6 +98,12 @@
 			to_chat(user, "You insert \the [W].")
 			src.updateUsrDialog()
 			return
+	else if (istype(W, /obj/item/disk/cloning_charge))
+		var/obj/item/disk/cloning_charge/disk = W
+		charges += disk.charges
+		user.visible_message("[user] loads a cloning verification disk into the console, which whirrs and hums as it scans the disk, destroying it in the process.", "You insert a cloning verification disk into the console, which whirrs and hums as it scans the disk, destroying it in the process. [disk.charges] charges have been added to /the [src].")
+		qdel(disk)
+
 	else
 		..()
 	return
@@ -156,6 +162,8 @@
 			if (length(pods))
 				for (var/obj/machinery/clonepod/pod in pods)
 					dat += "[pod] biomass: <i>[pod.biomass]</i><br>"
+
+			dat += "Verification Charges: [charges]"
 
 			// Database
 			dat += "<h4>Database Functions</h4>"
@@ -335,8 +343,10 @@
 					temp = "Error: Not enough biomass."
 				else if(pod.mess)
 					temp = "Error: Clonepod malfunction."
-				else if(!config.revival_cloning)
-					temp = "Error: Unable to initiate cloning cycle."
+				else if(!charges)
+					temp = "Error: No remaining verification charges."
+//				else if(!config.revival_cloning)
+//					temp = "Error: Unable to initiate cloning cycle."
 				else
 					var/cloning
 					if(config.use_cortical_stacks)
@@ -351,6 +361,7 @@
 							cloning = 1
 					if(cloning)
 						temp = "Initiating cloning cycle..."
+						charges--
 						if(!config.use_cortical_stacks)
 							records.Remove(C)
 						qdel(C)
@@ -388,9 +399,9 @@
 		if(subject.isSynthetic())
 			scantemp = "Error: Subject is not organic."
 			return
-	if (MUTATION_NOCLONE in subject.mutations)
-		scantemp = "Error: Major genetic degradation."
-		return
+//	if (MUTATION_NOCLONE in subject.mutations)
+//		scantemp = "Error: Major genetic degradation."
+//		return
 	if (subject.species && subject.species.species_flags & SPECIES_FLAG_NO_SCAN)
 		scantemp = "Error: Incompatible species."
 		return
@@ -433,4 +444,22 @@
 			selected_record = R
 			break
 			return selected_record
-*/
+
+
+/// cloning DRM disks. The now is future.
+/obj/item/disk/cloning_charge
+	name = "Cloning verification disk (one charge)"
+	desc = "A disk that is required for the cloning process. Thanks to NanoTrasen's monopoly on cloning technology, all cloning requires an expensive verification disk to add 'verification charges' to a cloning machine, that are used upon cloning. This disk has one charge."
+	icon = 'icons/obj/cloning.dmi'
+	icon_state = "datadisk1"
+	var/charges = 1
+
+/obj/item/disk/cloning_charge/two
+	name = "Cloning verification disk (two charges)"
+	desc = "A disk that is required for the cloning process. Thanks to NanoTrasen's monopoly on cloning technology, all cloning requires an expensive verification disk to add 'verification charges' to a cloning machine, that are used upon cloning. This disk has two charges."
+	charges = 2
+
+/obj/item/disk/cloning_charge/five
+	name = "Cloning verification disk (five charges)"
+	desc = "A disk that is required for the cloning process. Thanks to NanoTrasen's monopoly on cloning technology, all cloning requires an expensive verification disk to add 'verification charges' to a cloning machine, that are used upon cloning. This disk has five charges."
+	charges = 5

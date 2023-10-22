@@ -443,6 +443,9 @@
 
 	var/static/run_empty_levels = FALSE
 
+	/// Are we allowed to use laces?
+	var/static/use_cortical_stacks = FALSE
+
 	# ifdef INCLUDE_URIST_CODE
 	/* --- BLUESPACE REVENANT STUFF --- */
 
@@ -494,6 +497,7 @@
 
 	// For Bloodthirsty Hunger: how much does suppression grow per sip of blood consumed?
 	var/static/bluespace_revenant_bloodthirsty_suppression_factor = 600
+
 	# endif
 
 
@@ -919,6 +923,8 @@
 				run_empty_levels = TRUE
 			if ("warn_if_staff_same_ip")
 				warn_if_staff_same_ip = TRUE
+			if ("use_cortical_stacks")
+				use_cortical_stacks = TRUE
 			else
 				log_misc("Unknown setting in config/config.txt: '[name]'")
 

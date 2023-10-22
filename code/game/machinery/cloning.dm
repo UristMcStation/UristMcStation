@@ -1,4 +1,3 @@
-/*
 //Cloning revival method.
 //The pod handles the actual cloning while the computer manages the clone profiles
 
@@ -14,6 +13,7 @@
 	icon = 'icons/obj/cloning.dmi'
 	icon_state = "pod_0"
 	req_access = list(access_medical) //For premature unlocking.
+	construct_state = /singleton/machine_construction/default/panel_closed
 	var/mob/living/occupant
 	var/heal_level = 20 // The clone is released once its health reaches this percentage.
 	var/heal_rate = 1
@@ -23,10 +23,6 @@
 	var/attempting = 0 //One clone attempt at a time thanks
 	var/eject_wait = 0 //Don't eject them as soon as they are created fuckkk
 	var/biomass = CLONE_BIOMASS * 3
-
-/obj/machinery/clonepod/Initialize()
-	. = ..()
-	build_default_parts(/obj/item/stock_parts/circuitboard/clonepod)
 
 /obj/machinery/clonepod/New()
 	set_extension(src, /datum/extension/interactive/multitool, /datum/extension/interactive/multitool/store)
@@ -139,7 +135,7 @@
 	if(occupant.getCloneLoss() == 0) // Rare case, but theoretically possible
 		return 100
 
-	return between(0, 100 * ((occupant.maxHealth/2 - occupant.getCloneLoss()) / (heal_level / (occupant.maxHealth/2 / 100))), 100)
+	return clamp(100, 0 * ((occupant.maxHealth/2 - occupant.getCloneLoss()) / (heal_level / (occupant.maxHealth/2 / 100))), 100)
 
 //Grow clones to maturity then kick them out.  FREELOADERS
 /obj/machinery/clonepod/Process()
@@ -191,16 +187,15 @@
 
 	return
 
+/obj/machinery/clonepod/components_are_accessible(path)
+	return isnull(occupant) && ..()
+
+/obj/machinery/clonepod/cannot_transition_to(state_path)
+	if(occupant)
+		return SPAN_NOTICE("\The [src] is currently occupied.")
+
 //Let's unlock this early I guess.  Might be too early, needs tweaking.
 /obj/machinery/clonepod/use_tool(obj/item/W as obj, mob/user as mob)
-	if(isnull(occupant))
-		if(default_deconstruction_screwdriver(user, W))
-			return
-		if(default_deconstruction_crowbar(user, W))
-			return
-		if(default_part_replacement(user, W))
-			return
-
 	var/id = W.GetIdCard()
 	if(id)
 		if(!check_access(id))
@@ -384,31 +379,31 @@
 	name = "data disk - 'God Emperor of Mankind'"
 	read_only = 1
 
-	New()
-		..()
-		initializeDisk()
-		buf.types=DNA2_BUF_UE|DNA2_BUF_UI
-		//data = "066000033000000000AF00330660FF4DB002690"
-		//data = "0C80C80C80C80C80C8000000000000161FBDDEF" - Farmer Jeff
-		buf.dna.real_name="God Emperor of Mankind"
-		buf.dna.unique_enzymes = md5(buf.dna.real_name)
-		buf.dna.UI=list(0x066,0x000,0x033,0x000,0x000,0x000,0xAF0,0x033,0x066,0x0FF,0x4DB,0x002,0x690)
-		//buf.dna.UI=list(0x0C8,0x0C8,0x0C8,0x0C8,0x0C8,0x0C8,0x000,0x000,0x000,0x000,0x161,0xFBD,0xDEF) // Farmer Jeff
-		buf.dna.UpdateUI()
+/obj/item/disk/data/demo/New()
+	..()
+	initializeDisk()
+	buf.types=DNA2_BUF_UE|DNA2_BUF_UI
+	//data = "066000033000000000AF00330660FF4DB002690"
+	//data = "0C80C80C80C80C80C8000000000000161FBDDEF" - Farmer Jeff
+	buf.dna.real_name="God Emperor of Mankind"
+	buf.dna.unique_enzymes = md5(buf.dna.real_name)
+	buf.dna.UI=list(0x066,0x000,0x033,0x000,0x000,0x000,0xAF0,0x033,0x066,0x0FF,0x4DB,0x002,0x690)
+	//buf.dna.UI=list(0x0C8,0x0C8,0x0C8,0x0C8,0x0C8,0x0C8,0x000,0x000,0x000,0x000,0x161,0xFBD,0xDEF) // Farmer Jeff
+	buf.dna.UpdateUI()
 
 /obj/item/disk/data/monkey
 	name = "data disk - 'Mr. Muggles'"
 	read_only = 1
 
-	New()
-		..()
-		initializeDisk()
-		buf.types=DNA2_BUF_SE
-		var/list/new_SE=list(0x098,0x3E8,0x403,0x44C,0x39F,0x4B0,0x59D,0x514,0x5FC,0x578,0x5DC,0x640,0x6A4)
-		for(var/i=length(new_SE);i<=DNA_SE_LENGTH;i++)
-			new_SE += rand(1,1024)
-		buf.dna.SE=new_SE
-		buf.dna.SetSEValueRange(GLOB.MONKEYBLOCK,0xDAC, 0xFFF)
+/obj/item/disk/data/monkey/New()
+	..()
+	initializeDisk()
+	buf.types=DNA2_BUF_SE
+	var/list/new_SE=list(0x098,0x3E8,0x403,0x44C,0x39F,0x4B0,0x59D,0x514,0x5FC,0x578,0x5DC,0x640,0x6A4)
+	for(var/i=length(new_SE);i<=DNA_SE_LENGTH;i++)
+		new_SE += rand(1,1024)
+	buf.dna.SE=new_SE
+	buf.dna.SetSEValueRange(GLOB.MONKEYBLOCK,0xDAC, 0xFFF)
 
 /obj/item/disk/data/New()
 	..()
@@ -478,9 +473,9 @@
 
 //Used for new human mobs created by cloning/goleming/etc.
 /mob/living/carbon/human/proc/set_cloned_appearance()
-	f_style = "Shaved"
+	facial_hair_style = "Shaved"
 	if(dna.species == SPECIES_HUMAN) //no more xenos losing ears/tentacles
 		head_hair_style = pick("Bedhead", "Bedhead 2", "Bedhead 3")
 	QDEL_NULL_LIST(worn_underwear)
 	worn_underwear = list()
-	regenerate_icons()*/
+	regenerate_icons()

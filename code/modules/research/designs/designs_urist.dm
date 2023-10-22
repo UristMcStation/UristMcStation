@@ -191,3 +191,12 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	materials = list(MATERIAL_STEEL = 2000, MATERIAL_PLASTIC = 500, MATERIAL_URANIUM = 200)
 	build_path = /obj/structure/shipammo/heavy_autocannon/he
 	sort_string = "SHPWG"
+
+// laces
+
+/datum/design/item/biostorage/neural_lace
+	id = "neural lace"
+	req_tech = list(TECH_BIO = 4, TECH_MATERIAL = 4, TECH_MAGNET = 2, TECH_DATA = 3)
+	materials = list (MATERIAL_STEEL = 10000, MATERIAL_GLASS = 7500, MATERIAL_SILVER = 1000, MATERIAL_GOLD = 1000, MATERIAL_PHORON = 200)
+	build_path = /obj/item/organ/internal/stack
+	sort_string = "VACBA"

@@ -10,7 +10,7 @@
 #define SPECIES_FLAG_NO_BLOCK              FLAG(8)  // Unable to block or defend itself from attackers.
 #define SPECIES_FLAG_NEED_DIRECT_ABSORB    FLAG(9)  // This species can only have their DNA taken by direct absorption.
 #define SPECIES_FLAG_LOW_GRAV_ADAPTED      FLAG(10) // This species is used to lower than standard gravity, affecting stamina in high-grav
-
+#define SPECIES_FLAG_NO_LACE               FLAG(11) // This species can't use laces
 
 // Species spawn flags
 #define SPECIES_IS_WHITELISTED                FLAG(0)  // Must be whitelisted to play.
