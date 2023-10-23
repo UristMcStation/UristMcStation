@@ -159,12 +159,11 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	. += "<br />[VTBTN("disabilities", NEARSIGHTED, pref.disabilities & NEARSIGHTED ? "Yes" : "No", "Glasses")]"
 
 	if(config.use_cortical_stacks)
-		. += "<br />Neural lace: "
+		. += "<br />Neural lace"
 		if(mob_species.spawn_flags & SPECIES_FLAG_NO_LACE)
-			. += "incompatible."
+			. += ": incompatible"
 		else
-			. += pref.has_cortical_stack ? "present." : "<b>not present.</b>"
-			. += "<br />[TBTN("has_cortical_stack",  pref.has_cortical_stack, "toggle")]"
+			. += "[TBTN("has_cortical_stack", pref.has_cortical_stack ? "present" : "<b>not present</b>", ": ")]"
 
 	if (length(pref.body_descriptors))
 		for (var/entry in pref.body_descriptors)

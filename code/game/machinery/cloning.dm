@@ -5,6 +5,17 @@
 
 #define CLONE_BIOMASS 150
 
+/obj/item/stock_parts/circuitboard/clonepod
+	name = T_BOARD("cloning pod")
+	build_path = /obj/machinery/clonepod
+	board_type = "machine"
+	origin_tech = list(TECH_ENGINEERING = 2, TECH_BIO = 4, TECH_DATA = 4)
+	req_components = list (
+		/obj/item/stock_parts/scanning_module = 2,
+		/obj/item/stock_parts/manipulator = 2,
+		/obj/item/stock_parts/console_screen = 1
+	)
+
 /obj/machinery/clonepod
 	name = "cloning pod"
 	desc = "An electronically-lockable pod for growing organic tissue."
@@ -17,11 +28,11 @@
 	var/mob/living/occupant
 	var/heal_level = 20 // The clone is released once its health reaches this percentage.
 	var/heal_rate = 1
-	var/locked = 0
+	var/locked = FALSE
 	var/obj/machinery/computer/cloning/connected = null //So we remember the connected clone machine.
-	var/mess = 0 //Need to clean out it if it's full of exploded clone.
-	var/attempting = 0 //One clone attempt at a time thanks
-	var/eject_wait = 0 //Don't eject them as soon as they are created fuckkk
+	var/mess = FALSE //Need to clean out it if it's full of exploded clone.
+	var/attempting = FALSE //One clone attempt at a time thanks
+	var/eject_wait = FALSE //Don't eject them as soon as they are created fuckkk
 	var/biomass = CLONE_BIOMASS * 3
 
 /obj/machinery/clonepod/New()
@@ -60,27 +71,27 @@
 //Start growing a human clone in the pod!
 /obj/machinery/clonepod/proc/growclone(datum/dna2/record/R)
 	if(mess || attempting)
-		return 0
+		return FALSE
 	var/datum/mind/clonemind
 
 	if(!config.use_cortical_stacks)
 		clonemind = locate(R.mind)
 		if(!istype(clonemind, /datum/mind))	//not a mind
-			return 0
+			return FALSE
 	else
 		for(var/mob/observer/ghost/G in GLOB.player_list)
 			if(G.ckey == R.ckey)
 				if(G.can_reenter_corpse)
 					break
 				else
-					return 0
+					return FALSE
 
-	attempting = 1 //One at a time!!
-	locked = 1
+	attempting = TRUE //One at a time!!
+	locked = TRUE
 
-	eject_wait = 1
+	eject_wait = TRUE
 	spawn(30)
-		eject_wait = 0
+		eject_wait = FALSE
 
 	var/mob/living/carbon/human/H = new /mob/living/carbon/human(src, R.dna.species)
 	occupant = H
@@ -125,8 +136,8 @@
 	for(var/datum/language/L in R.languages)
 		H.add_language(L.name)
 	H.flavor_texts = R.flavor.Copy()
-	attempting = 0
-	return 1
+	attempting = FALSE
+	return TRUE
 
 /obj/machinery/clonepod/proc/GetCloneReadiness() // Returns a number between 0 and 100
 	if(!occupant)
@@ -142,13 +153,13 @@
 
 	if(stat & MACHINE_STAT_NOPOWER) //Autoeject if power is lost
 		if(occupant)
-			locked = 0
+			locked = FALSE
 			go_out()
 		return
 
 	if((occupant) && (occupant.loc == src))
 		if((occupant.stat == DEAD))  //Autoeject corpses
-			locked = 0
+			locked = FALSE
 			go_out()
 			connected_message("Clone Rejected: Deceased.")
 			return
@@ -157,7 +168,7 @@
 			playsound(src.loc, 'sound/machines/ding.ogg', 50, 1)
 			src.audible_message("\The [src] signals that the cloning process is complete.")
 			connected_message("Cloning Process Complete.")
-			locked = 0
+			locked = FALSE
 			go_out()
 			return
 
@@ -182,7 +193,7 @@
 	else if((!occupant) || (occupant.loc != src))
 		occupant = null
 		if(locked)
-			locked = 0
+			locked = FALSE
 		return
 
 	return
@@ -199,25 +210,25 @@
 	var/id = W.GetIdCard()
 	if(id)
 		if(!check_access(id))
-			to_chat(user, "<span class='warning'>Access Denied.</span>")
+			to_chat(user, SPAN_NOTICE("Access Denied."))
 			return
 		if((!locked) || (isnull(occupant)))
 			return
 		if((occupant.health < -20) && (occupant.stat != 2))
-			to_chat(user, "<span class='warning'>Access Refused.</span>")
+			to_chat(user, SPAN_WARNING("Access Refused."))
 			return
 		else
-			locked = 0
+			locked = FALSE
 			to_chat(user, "System unlocked.")
 	else if(istype(W, /obj/item/reagent_containers/food/snacks/meat))
-		to_chat(user, "<span class='notice'>\The [src] processes \the [W].</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] processes \the [W]."))
 		biomass += 50
 		user.drop_item()
 		qdel(W)
 		return
 	else if(istype(W, /obj/item/wrench))
 		if(locked && (anchored || occupant))
-			to_chat(user, "<span class='warning'>Can not do that while [src] is in use.</span>")
+			to_chat(user, SPAN_WARNING("Can not do that while [src] is in use."))
 		else
 			if(anchored)
 				anchored = FALSE
@@ -237,20 +248,20 @@
 	if(isnull(occupant))
 		return NO_EMAG_ACT
 	to_chat(user, "You force an emergency ejection.")
-	locked = 0
+	locked = FALSE
 	go_out()
-	return 1
+	return TRUE
 
 //Put messages in the connected computer's temp var for display.
 /obj/machinery/clonepod/proc/connected_message(message)
 	if((isnull(connected)) || (!istype(connected, /obj/machinery/computer/cloning)))
-		return 0
+		return FALSE
 	if(!message)
-		return 0
+		return FALSE
 
 	connected.temp = "[name] : [message]"
 	connected.updateUsrDialog()
-	return 1
+	return TRUE
 
 /obj/machinery/clonepod/verb/eject()
 	set name = "Eject Cloner"
@@ -268,7 +279,7 @@
 		return
 
 	if(mess) //Clean that mess and dump those gibs!
-		mess = 0
+		mess = FALSE
 		gibs(loc)
 		update_icon()
 		return
@@ -280,7 +291,7 @@
 		occupant.client.eye = occupant.client.mob
 		occupant.client.perspective = MOB_PERSPECTIVE
 	occupant.forceMove(loc)
-	eject_wait = 0 //If it's still set somehow.
+	eject_wait = FALSE //If it's still set somehow.
 	domutcheck(occupant) //Waiting until they're out before possible transforming.
 	occupant = null
 
@@ -291,7 +302,7 @@
 /obj/machinery/clonepod/proc/malfunction()
 	if(occupant)
 		connected_message("Critical Error!")
-		mess = 1
+		mess = TRUE
 		update_icon()
 		occupant.ghostize()
 		spawn(5)
@@ -369,7 +380,7 @@
 	item_state = "card-id"
 	w_class = ITEM_SIZE_SMALL
 	var/datum/dna2/record/buf = null
-	var/read_only = 0 //Well,it's still a floppy disk
+	var/read_only = FALSE //Well,it's still a floppy disk
 
 /obj/item/disk/data/proc/initializeDisk()
 	buf = new
@@ -377,7 +388,7 @@
 
 /obj/item/disk/data/demo
 	name = "data disk - 'God Emperor of Mankind'"
-	read_only = 1
+	read_only = TRUE
 
 /obj/item/disk/data/demo/New()
 	..()
@@ -393,7 +404,7 @@
 
 /obj/item/disk/data/monkey
 	name = "data disk - 'Mr. Muggles'"
-	read_only = 1
+	read_only = TRUE
 
 /obj/item/disk/data/monkey/New()
 	..()

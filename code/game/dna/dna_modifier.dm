@@ -36,8 +36,20 @@
 	return ser
 
 /////////////////////////// DNA MACHINES
+/obj/item/stock_parts/circuitboard/clonescanner
+	name = T_BOARD("cloning scanner")
+	build_path = /obj/machinery/dna_scannernew
+	board_type = "machine"
+	origin_tech = list(TECH_DATA = 3, TECH_BIO = 3)
+	req_components = list(
+		/obj/item/stock_parts/scanning_module = 1,
+		/obj/item/stock_parts/manipulator = 1,
+		/obj/item/stock_parts/micro_laser = 1,
+		/obj/item/stock_parts/console_screen = 1)
+
+
 /obj/machinery/dna_scannernew
-	name = "\improper DNA modifier"
+	name = "\improper DNA scanner"
 	desc = "It scans DNA structures."
 	icon = 'icons/obj/Cryogenic2.dmi'
 	icon_state = "scanner_0"
@@ -47,7 +59,7 @@
 	idle_power_usage = 50
 	active_power_usage = 300
 	interact_offline = 1
-	var/locked = 0
+	var/locked = FALSE
 	var/mob/living/carbon/occupant = null
 	var/obj/item/reagent_containers/glass/beaker = null
 	var/opened = 0
@@ -74,7 +86,7 @@
 /obj/machinery/dna_scannernew/proc/eject_occupant()
 	src.go_out()
 	for(var/atom/movable/O in contents)
-		if(!(O in component_parts))
+		if(!(O in component_parts) && O != occupant)
 			O.forceMove(loc)
 	if(!occupant)
 		for(var/mob/M in src)//Failsafe so you can get mobs out
@@ -175,10 +187,10 @@
 	return
 
 /obj/machinery/dna_scannernew/proc/go_out()
-	if ((!( src.occupant ) || src.locked))
+	if (!src.occupant)
 		return
 	src.occupant.reset_view(null)
-	src.occupant.loc = src.loc
+	src.occupant.loc = get_turf(src)
 	src.occupant = null
 	src.icon_state = "scanner_0"
 	return
