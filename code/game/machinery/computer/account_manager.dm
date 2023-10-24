@@ -132,42 +132,44 @@
 			var/list/departments = list()
 			var/totalpayroll = 0
 			for(var/mob/living/carbon/human/H in GLOB.living_players)
-				if(H.mind)
-					if(H.mind.initial_account && H.mind.assigned_role)
-						if(H.mind.assigned_role == "Captain" && GLOB.using_map.name == "Nerva")
-							continue	//We don't pay the captain
-						var/datum/job/job = SSjobs.titles_to_datums[H.mind.assigned_role]
-						var/dept = H.mind.manual_department || (job ? flag2text(job.department_flag) : "Misc")	//We use flags so command staff show under command payroll, rather than their department
-						if(dept == "Science" && GLOB.using_map.name == "Nerva")
-							continue	//We don't pay NT scientists
-						var/pay = H.mind.get_pay()
-						var/list/member = list()
-						member.Add(list(list(
-							"name" = H.real_name,
-							"job" = H.mind.assigned_role,
-							"pay" = pay,
-							"suspended" = H.mind.pay_suspended,
-							"ref" = "\ref[H.mind]"
-						)))
-						if(H.mind.pay_suspended)
-							pay = 0
-						var/found = FALSE
-						for(var/i in departments)	//NanoUI hates working with keyed tables, so we have to do it this way...
-							if(i["name"] == dept)
-								var/list/e = i["members"]
-								e.Add(member)
-								i["totalpay"] += pay
-								found = TRUE
-								break
-						if(!found)
-							var/list/depart = list()
-							depart.Add(list(list(
-								"name" = dept,
-								"members" = member,
-								"totalpay" = pay
-							)))
-							departments.Add(depart)
-						totalpayroll += pay
+				if(!H.mind?.initial_account || !H.mind.assigned_role)
+					continue
+
+				if(H.mind.assigned_role == "Captain" && GLOB.using_map.name == "Nerva")
+					continue	//We don't pay the captain
+
+				var/datum/job/job = SSjobs.titles_to_datums[H.mind.assigned_role]
+				var/dept = H.mind.manual_department || (job ? flag2text(job.department_flag) : "Misc")	//We use flags so command staff show under command payroll, rather than their department
+				if(dept == "Science" && GLOB.using_map.name == "Nerva")
+					continue	//We don't pay NT scientists
+				var/pay = H.mind.get_pay()
+				var/list/member = list()
+				member.Add(list(list(
+					"name" = H.real_name,
+					"job" = H.mind.assigned_role,
+					"pay" = pay,
+					"suspended" = H.mind.pay_suspended,
+					"ref" = "\ref[H.mind]"
+				)))
+				if(H.mind.pay_suspended)
+					pay = 0
+				var/found = FALSE
+				for(var/i in departments)	//NanoUI hates working with keyed tables, so we have to do it this way...
+					if(i["name"] == dept)
+						var/list/e = i["members"]
+						e.Add(member)
+						i["totalpay"] += pay
+						found = TRUE
+						break
+				if(!found)
+					var/list/depart = list()
+					depart.Add(list(list(
+						"name" = dept,
+						"members" = member,
+						"totalpay" = pay
+					)))
+					departments.Add(depart)
+				totalpayroll += pay
 
 			data["departments"] = departments
 			data["totalpay"] = totalpayroll
@@ -269,26 +271,10 @@
 				var/author = sanitizeName(input("Who issued the fine?", "Fine Author", auth_card.registered_name) as text)	//The person processing the fine may not be the same one issuing it
 				if(!author)
 					return TOPIC_NOACTION
-				if(focused_account.money - amount < 0)	//We can't fine someone into a negative balance!
-					alert("Insufficient account funds (Amount short: [amount - focused_account.money] Th)", "Unable to Fine")
-					return TOPIC_NOACTION
 
-				var/datum/transaction/fine = new()
-				var/datum/transaction/deposit = new()
-				fine.target = "[station_account.owner_name] (via [auth_card.registered_name])"
-				fine.purpose = "Fine Issued (Ref. #[fineNum])"
-				fine.amount = -amount
-				fine.date = stationdate2text()
-				fine.time = stationtime2text()
-				fine.source = machine_id
-				deposit.target = "[focused_account.owner_name] (via [auth_card.registered_name])"
-				deposit.purpose = "Fine Revenue (Ref. #[fineNum])"
-				deposit.amount = amount
-				deposit.date = stationdate2text()
-				deposit.time = stationtime2text()
-				deposit.source = machine_id
-				focused_account.add_transaction(fine)
-				station_account.add_transaction(deposit)
+				if(!focused_account.transfer(station_account, amount, "Fine Issued (Ref. #[fineNum])"))
+					alert("Cannot process money transfer. Ensure both accounts are not suspended and have the required funds", "Unable to Fine")
+					return TOPIC_NOACTION
 
 				//For those pencil-pushers. Forms to sign and file!
 				var/text = "<center><font size = \"2\">[GLOB.using_map.station_name] Disciplinary Committee</font></center><br><hr><br>"
@@ -377,26 +363,10 @@
 					dept_account = station_account
 				else
 					dept_account = department_accounts[dept]
-				if(amount > dept_account.money)	//The funds have to actually exist!
-					alert("[dept_account.owner_name] does not have enough funds!", "Payout Error")
-					return TOPIC_NOACTION
-				var/datum/transaction/T_employee = new()
-				var/datum/transaction/T_department = new()
 
-				T_employee.target = "[dept_account.owner_name] (via [auth_card.registered_name])"
-				T_employee.purpose = "Bonus Pay from [author]"
-				T_employee.amount = amount
-				T_employee.date = stationdate2text()
-				T_employee.time = stationtime2text()
-				T_employee.source = machine_id
-				T_department.target = "[focused_account.owner_name] (via [auth_card.registered_name])"
-				T_department.purpose = "Bonus Pay from [author]"
-				T_department.amount = -amount
-				T_department.date = stationdate2text()
-				T_department.time = stationtime2text()
-				T_department.source = machine_id
-				focused_account.add_transaction(T_employee)
-				dept_account.add_transaction(T_department)
+				if(!dept_account.transfer(focused_account, amount, "Bonus Pay from [author]"))
+					alert("Cannot process money transfer. Ensure both accounts are not suspended and have the required funds", "Unable to Pay Bonus")
+					return TOPIC_NOACTION
 
 				if(target_mind.initial_email_login["login"])
 					var/message = "[target_mind.name],\n\n<b>Congratulations!</b> You have been awarded a bonus of <b>[amount] Th</b> from the [dept_account.owner_name] on behalf of [author]. Keep up the continued hard work!"
@@ -516,7 +486,7 @@
 						alert("Missing field: [i]","Account Creation Error")
 						return TOPIC_NOACTION
 				var/datum/mind/M = locate(temp_account_items["owner_ref"])
-				if(!M || !istype(M))
+				if(!istype(M))
 					return TOPIC_NOACTION
 
 				var/datum/job/job = SSjobs.titles_to_datums[temp_account_items["jobtitle"]]
@@ -528,13 +498,15 @@
 				M.assigned_role = temp_account_items["jobtitle"]
 				M.manual_pay_rate = temp_account_items["pay"]
 				ntnet_global.create_email(M.current, temp_account_items["email"], "freemail.net")
-				var/datum/money_account/acc = create_account(M.current.real_name, 0)
+				var/datum/money_account/acc = create_account("[M.current.real_name]'s account", M.current.real_name, 0)
 				var/datum/transaction/singular/T = new(acc, machine_id, 0, "Account creation")
 				acc.transaction_log[1] = T
 				M.initial_account = acc
 
 				//More paperwork! This time for pins and account info. Only the crewmember should know this, so we'll put it in an envelope with a seal
 				var/obj/item/folder/envelope/P = new /obj/item/folder/envelope(src.loc)
+				P.name = "envelope - Account Details: [acc.owner_name] (CONFIDENTIAL)"
+				P.desc += "\nA large red label on the front reads \"CONFIDENTIAL - For account holder eyes only\""
 				var/obj/item/paper/R = new /obj/item/paper(P)
 
 				R.SetName("Account information: [acc.owner_name]")

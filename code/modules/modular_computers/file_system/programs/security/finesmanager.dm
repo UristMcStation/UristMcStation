@@ -230,27 +230,9 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 				var/reason = fine_data["reason"]
 				var/fineNum = GLOB.all_fines["fineNum"]
 
-				if(target.money - amount < 0)
-					alert("Insufficient account funds (Amount short: [amount - target.money] Th)", "Unable to Fine")
+				if(!target.transfer(station_account, amount, "Fine Issued (Ref. #[fineNum])"))
+					alert("Cannot process money transfer. Ensure both accounts are not suspended and have the required funds", "Unable to Fine")
 					return TOPIC_NOACTION
-
-				var/datum/transaction/fine = new()
-				var/datum/transaction/deposit = new()
-
-				fine.target = "[station_account.owner_name] (via [auth_card.registered_name])"
-				fine.purpose = "Fine Issued (Ref. #[fineNum])"
-				fine.amount = -amount
-				fine.date = stationdate2text()
-				fine.time = stationtime2text()
-				fine.source = "Fines Manager"
-				deposit.target = "[target.owner_name] (via [auth_card.registered_name])"
-				deposit.purpose = "Fine Revenue (Ref. #[fineNum])"
-				deposit.amount = amount
-				deposit.date = stationdate2text()
-				deposit.time = stationtime2text()
-				deposit.source = "Fines Manager"
-				target.add_transaction(fine)
-				station_account.add_transaction(deposit)
 
 				var/main = "<center><font size = \"2\">[GLOB.using_map.station_name] Disciplinary Committee</font></center><br><hr><br>"
 				main += "<b>Issued to:</b> [target.owner_name]<br>"
