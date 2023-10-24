@@ -78,24 +78,34 @@
 	pixel_y = 25
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/table/rack,
+/obj/item/reagent_containers/spray/cleaner,
+/obj/item/disk/cloning_charge,
 /turf/simulated/floor/tiled/white,
-/area/medical/extstorage)
+/area/medical/cloning)
 "an" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
 	},
-/obj/item/frame/apc,
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled/white,
-/area/medical/extstorage)
+/area/medical/cloning)
 "ao" = (
 /obj/effect/floor_decal/corner/lime/three_quarters{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/bed/nice,
-/obj/item/bedsheet/medical,
+/obj/machinery/dna_scannernew,
 /turf/simulated/floor/tiled/white,
-/area/medical/extstorage)
+/area/medical/cloning)
 "ap" = (
 /turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/fourth_deck/afp)
@@ -174,7 +184,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
-/area/medical/extstorage)
+/area/medical/cloning)
 "ay" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -189,7 +199,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/extstorage)
+/area/medical/cloning)
 "az" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -204,16 +214,23 @@
 	icon_state = "2-8"
 	},
 /obj/effect/catwalk_plated/white,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
-/area/medical/extstorage)
+/area/medical/cloning)
 "aA" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
 	},
-/obj/structure/bed/nice,
-/obj/item/bedsheet/medical,
+/obj/machinery/computer/cloning{
+	icon_state = "computer";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
-/area/medical/extstorage)
+/area/medical/cloning)
 "aB" = (
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/afp)
@@ -271,7 +288,7 @@
 	icon_state = "map_vent_out"
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/extstorage)
+/area/medical/cloning)
 "aM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -282,7 +299,7 @@
 	},
 /obj/effect/catwalk_plated/white,
 /turf/simulated/floor/plating,
-/area/medical/extstorage)
+/area/medical/cloning)
 "aN" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
@@ -292,10 +309,9 @@
 	dir = 4;
 	pixel_x = 24
 	},
-/obj/structure/bed/nice,
-/obj/item/bedsheet/medical,
+/obj/machinery/clonepod,
 /turf/simulated/floor/tiled/white,
-/area/medical/extstorage)
+/area/medical/cloning)
 "aO" = (
 /turf/simulated/wall/prepainted,
 /area/maintenance/fourth_deck/fp)
@@ -379,8 +395,11 @@
 /area/medical/extstorage)
 "bc" = (
 /obj/effect/floor_decal/corner/lime/three_quarters,
+/obj/machinery/sleeper{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
-/area/medical/extstorage)
+/area/medical/cloning)
 "bd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5;
@@ -404,7 +423,7 @@
 	pixel_y = -22
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/extstorage)
+/area/medical/cloning)
 "be" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4;
@@ -423,7 +442,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/extstorage)
+/area/medical/cloning)
 "bf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4;
@@ -442,7 +461,7 @@
 /obj/structure/catwalk,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/medical/extstorage)
+/area/medical/cloning)
 "bg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -23071,6 +23090,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora)
+"VB" = (
+/turf/simulated/wall/r_wall/prepainted,
+/area/medical/cloning)
 "VF" = (
 /obj/effect/floor_decal/corner/purple/three_quarters,
 /obj/structure/table/standard,
@@ -43111,12 +43133,12 @@ aa
 aa
 aa
 aa
-af
-af
-af
+VB
+VB
+VB
 ax
-af
-af
+VB
+VB
 af
 bU
 cA
@@ -43313,8 +43335,8 @@ aa
 aa
 aa
 aa
-af
-af
+VB
+VB
 am
 ay
 aL
@@ -43515,8 +43537,8 @@ aa
 aa
 aa
 aa
-af
-af
+VB
+VB
 an
 az
 aM
@@ -43717,8 +43739,8 @@ aa
 aa
 aa
 aa
-af
-af
+VB
+VB
 ao
 aA
 aN
@@ -43919,11 +43941,11 @@ aa
 aa
 aa
 aa
-af
-af
-af
-af
-af
+VB
+VB
+VB
+VB
+VB
 bf
 ap
 bX
