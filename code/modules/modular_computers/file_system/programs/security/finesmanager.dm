@@ -70,7 +70,7 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 	data["state"] = display_state
 	data["auth"] = get_auth(user)
 	data["has_target"] = !isnull(target)
-	data["have_id_slot"] = !!card_slot
+	data["has_cardslot"] = !!card_slot
 
 	if(card_slot)
 		data["id"] = !isnull(card_slot.stored_card)
