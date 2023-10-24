@@ -529,7 +529,7 @@
 				M.manual_pay_rate = temp_account_items["pay"]
 				ntnet_global.create_email(M.current, temp_account_items["email"], "freemail.net")
 				var/datum/money_account/acc = create_account(M.current.real_name, 0)
-				var/datum/transaction/singular/T = new(TRUE, acc, machine_id, 0, "Account creation")
+				var/datum/transaction/singular/T = new(acc, machine_id, 0, "Account creation")
 				acc.transaction_log[1] = T
 				M.initial_account = acc
 
