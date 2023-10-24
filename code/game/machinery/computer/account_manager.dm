@@ -184,9 +184,9 @@
 			for(var/datum/transaction/T in focused_account.transaction_log)
 				var/list/transaction = list()
 				transaction.Add(list(list(
-					"target_name" = T.get_target_name(),
+					"target_name" = focused_account.get_transaction_ledger(T),
 					"purpose" = T.purpose,
-					"amount" = T.amount,
+					"amount" = focused_account.get_transaction_amount(T),
 					"date" = T.date,
 					"time" = T.time
 				)))
