@@ -30,12 +30,12 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	build_path = /obj/item/stock_parts/circuitboard/woodprocessor
 	sort_string = "URSTD"
 
-/*/datum/design/circuit/drying_rack
+/datum/design/circuit/drying_rack
 	name = "drying rack"
 	id = "drying rack"
 	req_tech = list(TECH_BIO = 1, TECH_ENGINEERING = 1)
 	build_path = /obj/item/stock_parts/circuitboard/drying_rack
-	sort_string = "URSTE" */
+	sort_string = "URSTE"
 
 /datum/design/circuit/account_manager
 	name = "account manager"
