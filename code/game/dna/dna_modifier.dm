@@ -59,6 +59,7 @@
 	idle_power_usage = 50
 	active_power_usage = 300
 	interact_offline = 1
+	construct_state = /singleton/machine_construction/default/panel_closed
 	var/locked = FALSE
 	var/mob/living/carbon/occupant = null
 	var/obj/item/reagent_containers/glass/beaker = null

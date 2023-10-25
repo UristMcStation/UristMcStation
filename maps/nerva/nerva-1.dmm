@@ -56,7 +56,7 @@
 /area/medical/extstorage)
 "ak" = (
 /obj/machinery/camera/network/medbay{
-	c_tag = "Virology Staircase"
+	c_tag = "Medbay Lower Staircase"
 	},
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/white,
@@ -180,7 +180,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/medical{
-	name = "Medical Breakroom"
+	name = "Cloning Bay"
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
@@ -227,6 +227,10 @@
 	},
 /obj/machinery/computer/cloning{
 	icon_state = "computer";
+	dir = 8
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Cloning Bay";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -20162,6 +20166,9 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/command/safe_room)
+"JC" = (
+/turf/simulated/wall/r_wall/prepainted,
+/area/medical/cloning)
 "JF" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5;
@@ -23090,9 +23097,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora)
-"VB" = (
-/turf/simulated/wall/r_wall/prepainted,
-/area/medical/cloning)
 "VF" = (
 /obj/effect/floor_decal/corner/purple/three_quarters,
 /obj/structure/table/standard,
@@ -43133,12 +43137,12 @@ aa
 aa
 aa
 aa
-VB
-VB
-VB
+JC
+JC
+JC
 ax
-VB
-VB
+JC
+JC
 af
 bU
 cA
@@ -43335,8 +43339,8 @@ aa
 aa
 aa
 aa
-VB
-VB
+JC
+JC
 am
 ay
 aL
@@ -43537,8 +43541,8 @@ aa
 aa
 aa
 aa
-VB
-VB
+JC
+JC
 an
 az
 aM
@@ -43739,8 +43743,8 @@ aa
 aa
 aa
 aa
-VB
-VB
+JC
+JC
 ao
 aA
 aN
@@ -43941,11 +43945,11 @@ aa
 aa
 aa
 aa
-VB
-VB
-VB
-VB
-VB
+JC
+JC
+JC
+JC
+JC
 bf
 ap
 bX

@@ -15,6 +15,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	build_path = /obj/item/gun/energy/plasmapistol
 	sort_string = "URSTA"
 
+// circuits
 /datum/design/circuit/carpentryplaner
 	name = "wood processor"
 	id = "wood processor"
@@ -29,12 +30,12 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	build_path = /obj/item/stock_parts/circuitboard/woodprocessor
 	sort_string = "URSTD"
 
-/datum/design/circuit/drying_rack
+/*/datum/design/circuit/drying_rack
 	name = "drying rack"
 	id = "drying rack"
 	req_tech = list(TECH_BIO = 1, TECH_ENGINEERING = 1)
 	build_path = /obj/item/stock_parts/circuitboard/drying_rack
-	sort_string = "URSTE"
+	sort_string = "URSTE" */
 
 /datum/design/circuit/account_manager
 	name = "account manager"
@@ -110,6 +111,27 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	req_tech = list(TECH_ESOTERIC = 9) //just meeting travis reqs...
 	build_path = /obj/item/stock_parts/circuitboard/combat_computer/nerva
 	sort_string = "URSTY"
+
+/datum/design/circuit/dnascanner
+	name = "cloning scanner"
+	id = "dnascanner"
+	req_tech = list(TECH_DATA = 3, TECH_BIO = 3)
+	build_path = /obj/item/stock_parts/circuitboard/clonescanner
+	sort_string = "URSCA"
+
+/datum/design/circuit/cloningpod
+	name = "cloning pod"
+	id = "cloningpod"
+	req_tech = list(TECH_ENGINEERING = 2, TECH_BIO = 4, TECH_DATA = 4)
+	build_path = /obj/item/stock_parts/circuitboard/clonepod
+	sort_string = "URSCB"
+
+/datum/design/circuit/cloning_computer
+	name = "cloning control console"
+	id = "cloning_computer"
+	req_tech = list(TECH_DATA = 3, TECH_BIO = 3)
+	build_path = /obj/item/stock_parts/circuitboard/cloning_computer
+	sort_string = "URSCC"
 
 //shipweapon stuff
 
