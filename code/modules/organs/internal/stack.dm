@@ -46,8 +46,8 @@
 
 /obj/item/organ/internal/stack/New()
 	..()
-	do_backup()
 	robotize()
+	addtimer(new Callback(src, .proc/do_backup), 2 SECONDS)
 
 /obj/item/organ/internal/stack/proc/backup_inviable()
 	return 	(!istype(backup) || backup == owner.mind || backup.current?.stat != DEAD)
@@ -87,7 +87,7 @@
 	//The above three lines were commented out for
 	backup.active = 1
 	backup.transfer_to(owner)
-	if(default_language) 
+	if(default_language)
 		owner.default_language = default_language
 	owner.languages = languages.Copy()
 	to_chat(owner, SPAN_NOTICE("Consciousness slowly creeps over you as your new body awakens."))
