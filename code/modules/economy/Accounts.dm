@@ -39,6 +39,33 @@
 	var/datum/transaction/T = new(src, to_account, amount, purpose)
 	return T.perform()
 
+/datum/money_account/proc/is_credit(var/datum/transaction/T)
+	if(!istype(T))
+		return
+
+	if(istype(T, /datum/transaction/singular))
+		var/datum/transaction/singular/ST = T
+		return ST.is_deposit()
+	else
+		return (T.target == src && T.amount >= 0) || (T.source == src && T.amount <= 0)
+
+/datum/money_account/proc/get_transaction_amount(var/datum/transaction/T)
+	if(!istype(T))
+		return
+
+	return is_credit(T) ? abs(T.amount) : abs(T.amount)*-1
+
+/datum/money_account/proc/get_transaction_ledger(var/datum/transaction/T)
+	if(!istype(T))
+		return
+
+	if(istype(T, /datum/transaction/singular))
+		return T.target
+
+	if(is_credit(T))
+		return T.source == src ? T.target.account_name : T.source.account_name
+	else
+		return T.target == src ? T.source.account_name : T.target.account_name
 
 /proc/create_account(account_name = "Default account name", owner_name, starting_funds = 0, account_type = ACCOUNT_TYPE_PERSONAL, obj/machinery/computer/account_database/source_db)
 
