@@ -47,7 +47,8 @@ SUBSYSTEM_DEF(payment_controller)
 		"NanoTrasen would like to remind contracted staff that failure to meet expectations during your annual performance review, can and will result in contract termination (termination fees applicable)",
 		"Staff are reminded that termination of the employment contract will incur a fee of 38.9% of your agreed annual salary for each year you have been employed by NanoTrasen, retrospectively adjusted for current inflation rates",
 		"NanoTrasen reserves the right to reimburse lost productivity caused by staff absence from the workplace for any reason (such as sickness), automatically from staff salary payment(s) until the lost sum is recovered in its entirety",
-		"Staff are once again reminded that comfort breaks are indeed on personal time, and as such will be docked from your pay entitlement"
+		"Staff are once again reminded that comfort breaks are indeed on personal time, and as such will be docked from your pay entitlement",
+		"NanoTrasen staff are reminded that payment processing fees are automatically deducted from your hourly pay entitlement, along with the mandatory convenience fees for the automatic deduction of the aforementioned processing fees"
 	)
 
 	var/payment_modifier = 5 //economic_power * this number = pay. tweak this number!
