@@ -41,9 +41,9 @@ SUBSYSTEM_DEF(payment_controller)
 	//Don't forget our coporate overlords!
 	var/list/nanotrasen_nags = list(
 		"NanoTrasen staff are reminded that salaries cannot be re-negotiated once employment has commenced",
-		"NanoTrasen would like to remind staff that the Intellectual Property rights of any inventions and/or concepts created during your employment with NanoTrasen are waved in their entirety to NanoTrasen",
+		"NanoTrasen would like to remind staff that the Intellectual Property rights of any inventions and/or concepts created during your employment with NanoTrasen are waived in their entirety to NanoTrasen",
 		"Staff are reminded that unionizing is in direct violation of your employment contract. Dissatisfied staff are to book an appointment with a NanoTrasen Productivity and Morale Advisor, who will arrange an appointment with you within the next 895 working day(s)",
-		"NanoTrasen staff are reminded that minimising overhead and wastage to NanoTrasen is of paramount importance, as well as everyone's joint responsibility",
+		"NanoTrasen staff are reminded that minimising overhead and wastage is of paramount importance to NanoTrasen, and is everyone's joint responsibility",
 		"NanoTrasen would like to remind contracted staff that failure to meet expectations during your annual performance review, can and will result in contract termination (termination fees applicable)",
 		"Staff are reminded that termination of the employment contract will incur a fee of 38.9% of your agreed annual salary for each year you have been employed by NanoTrasen, retrospectively adjusted for current inflation rates",
 		"NanoTrasen reserves the right to reimburse lost productivity caused by staff absence from the workplace for any reason (such as sickness), automatically from staff salary payment(s) until the lost sum is recovered in its entirety",
