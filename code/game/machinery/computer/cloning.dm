@@ -1,11 +1,11 @@
-/*/obj/machinery/computer/cloning
+/obj/machinery/computer/cloning
 	name = "cloning control console"
+	desc = "A console used for controlling a cloning pod and a DNA scanner. Owing to NanoTrasen's monopoly on cloning software and technology, the computer requires 'cloning verification disks' to be inserted before cloning can take place."
 	icon = 'icons/obj/computer.dmi'
 	icon_keyboard = "med_key"
 	icon_screen = "dna"
 	light_color = "#315ab4"
-	circuit = /obj/item/stock_parts/circuitboard/cloning
-	req_access = list(access_heads) //Only used for record deletion right now.
+	req_access = list(access_medical_equip) //Only used for record deletion right now.
 	var/obj/machinery/dna_scannernew/scanner = null //Linked scanner. For scanning.
 	var/list/pods = list() //Linked cloning pods.
 	var/temp = ""
@@ -14,11 +14,12 @@
 	var/list/records = list()
 	var/datum/dna2/record/active_record = null
 	var/obj/item/disk/data/diskette = null //Mostly so the geneticist can steal everything.
-	var/loading = 0 // Nice loading text
+	var/loading = FALSE // Nice loading text
+	var/charges = 0 // how many times can we clone
 
 /obj/machinery/computer/cloning/Initialize()
-	. = ..()
-	set_extension(src, /datum/extension/interactive/multitool, /datum/extension/interactive/multitool/cryo, list(/proc/is_operable))
+	.=..()
+	set_extension(src, /datum/extension/interactive/multitool)
 	updatemodules()
 
 /obj/machinery/computer/cloning/Destroy()
@@ -55,7 +56,7 @@
 
 /obj/machinery/computer/cloning/proc/connect_pod(obj/machinery/clonepod/P)
 	if(P in pods)
-		return 0
+		return FALSE
 
 	if(P.connected)
 		P.connected.release_pod(P)
@@ -63,7 +64,7 @@
 	pods += P
 	rename_pods()
 
-	return 1
+	return TRUE
 
 /obj/machinery/computer/cloning/proc/release_pod(obj/machinery/clonepod/P)
 	if(!(P in pods))
@@ -73,7 +74,7 @@
 	P.name = initial(P.name)
 	pods -= P
 	rename_pods()
-	return 1
+	return TRUE
 
 /obj/machinery/computer/cloning/proc/rename_pods()
 	for(var/i = 1 to length(pods))
@@ -98,17 +99,21 @@
 			to_chat(user, "You insert \the [W].")
 			src.updateUsrDialog()
 			return
+	else if (istype(W, /obj/item/disk/cloning_charge))
+		var/obj/item/disk/cloning_charge/disk = W
+		charges += disk.charges
+		user.visible_message("[user] loads \an [disk] into \the [src], which whirrs and hums as it scans the disk, destroying it in the process.", "You insert \an [disk] into \the [src], which whirrs and hums as it scans the disk, destroying it in the process. [disk.charges] charge\s have been added the system.")
+		qdel(disk)
+
 	else
 		..()
 	return
 
-/obj/machinery/computer/cloning/attack_ai(mob/user as mob)
-	return attack_hand(user)
+/obj/machinery/computer/cloning/interface_interact(mob/user)
+	interact(user)
+	return TRUE
 
-/obj/machinery/computer/cloning/attack_hand(mob/user as mob)
-	user.set_machine(src)
-	add_fingerprint(user)
-
+/obj/machinery/computer/cloning/interact(mob/user)
 	if(stat & (inoperable()))
 		return
 
@@ -151,11 +156,13 @@
 				else
 					scantemp = "Scanner unoccupied"
 
-				dat += "Lock status: <a href='byond://?src=\ref[src];lock=1'>[src.scanner.locked ? "Locked" : "Unlocked"]</a><br>"
+//				dat += "Lock status: <a href='byond://?src=\ref[src];lock=1'>[src.scanner.locked ? "Locked" : "Unlocked"]</a><br>"
 
 			if (length(pods))
 				for (var/obj/machinery/clonepod/pod in pods)
 					dat += "[pod] biomass: <i>[pod.biomass]</i><br>"
+
+			dat += "Verification Charges: [charges]"
 
 			// Database
 			dat += "<h4>Database Functions</h4>"
@@ -220,7 +227,7 @@
 
 /obj/machinery/computer/cloning/Topic(href, href_list)
 	if(..())
-		return 1
+		return
 
 	if(loading)
 		return
@@ -228,22 +235,24 @@
 	if ((href_list["scan"]) && (!isnull(src.scanner)))
 		scantemp = ""
 
-		loading = 1
+		loading = TRUE
 		src.updateUsrDialog()
 
 		spawn(20)
 			src.scan_mob(src.scanner.occupant)
 
-			loading = 0
+			loading = FALSE
 			src.updateUsrDialog()
 
 
-		//No locking an open scanner.
+/*		//No locking an open scanner.
 	else if ((href_list["lock"]) && (!isnull(src.scanner)))
 		if ((!src.scanner.locked) && (src.scanner.occupant))
-			src.scanner.locked = 1
+			src.scanner.locked = TRUE
+			src.updateUsrDialog()
 		else
-			src.scanner.locked = 0
+			src.scanner.locked = FALSE
+			src.updateUsrDialog()*/
 
 	else if (href_list["view_rec"])
 		src.active_record = locate(href_list["view_rec"])
@@ -251,11 +260,14 @@
 			if ((isnull(src.active_record.ckey)))
 				qdel(src.active_record)
 				src.temp = "ERROR: Record Corrupt"
+				src.updateUsrDialog()
 			else
 				src.menu = 3
+				src.updateUsrDialog()
 		else
 			src.active_record = null
 			src.temp = "Record missing."
+			src.updateUsrDialog()
 
 	else if (href_list["del_rec"])
 		if ((!src.active_record) || (src.menu < 3))
@@ -263,7 +275,7 @@
 		if (src.menu == 3) //If we are viewing a record, confirm deletion
 			src.temp = "Delete record?"
 			src.menu = 4
-
+			src.updateUsrDialog()
 		else if (src.menu == 4)
 			var/obj/item/card/id/C = usr.get_active_hand()
 			if (istype(C)||istype(C, /obj/item/modular_computer/pda))
@@ -272,8 +284,10 @@
 					qdel(src.active_record)
 					src.temp = "Record deleted."
 					src.menu = 2
+					src.updateUsrDialog()
 				else
 					src.temp = "Access Denied."
+					src.updateUsrDialog()
 
 	else if (href_list["disk"]) //Load or eject.
 		switch(href_list["disk"])
@@ -295,6 +309,7 @@
 				if (!isnull(src.diskette))
 					src.diskette.dropInto(loc)
 					src.diskette = null
+					src.updateUsrDialog()
 
 	else if (href_list["save_disk"]) //Save to disk!
 		if ((isnull(src.diskette)) || (src.diskette.read_only) || (isnull(src.active_record)))
@@ -317,57 +332,70 @@
 
 	else if (href_list["refresh"])
 		src.updateUsrDialog()
+		temp = ""
 
 	else if (href_list["clone"])
 		var/datum/dna2/record/C = locate(href_list["clone"])
 		//Look for that player! They better be dead!
 		if(istype(C))
+			temp = ""
 			//Can't clone without someone to clone.  Or a pod.  Or if the pod is busy. Or full of gibs.
 			if(!length(pods))
 				temp = "Error: No clone pods detected."
+				src.updateUsrDialog()
 			else
 				var/obj/machinery/clonepod/pod = pods[1]
 				if (length(pods) > 1)
 					pod = input(usr,"Select a cloning pod to use", "Pod selection") as anything in pods
+					src.updateUsrDialog()
 				if(pod.occupant)
 					temp = "Error: Clonepod is currently occupied."
+					src.updateUsrDialog()
 				else if(pod.biomass < CLONE_BIOMASS)
 					temp = "Error: Not enough biomass."
+					src.updateUsrDialog()
 				else if(pod.mess)
 					temp = "Error: Clonepod malfunction."
-				else if(!config.revival_cloning)
-					temp = "Error: Unable to initiate cloning cycle."
+					src.updateUsrDialog()
+				else if(!charges)
+					temp = "Error: No remaining verification charges."
+					src.updateUsrDialog()
+//				else if(!config.revival_cloning)
+//					temp = "Error: Unable to initiate cloning cycle."
 				else
 					var/cloning
 					if(config.use_cortical_stacks)
-						cloning = 1
+						cloning = TRUE
 						pod.growclone(C)
+						src.updateUsrDialog()
 					else
 						var/mob/selected = find_dead_player("[C.ckey]")
 						sound_to(selected, 'sound/machines/chime.ogg')//probably not the best sound but I think it's reasonable
 
 						var/answer = alert(selected,"Do you want to return to life?","Cloning","Yes","No")
 						if(answer == "Yes" && pod.growclone(C))
-							cloning = 1
+							cloning = TRUE
+							src.updateUsrDialog()
 					if(cloning)
 						temp = "Initiating cloning cycle..."
+						charges--
 						if(!config.use_cortical_stacks)
 							records.Remove(C)
 						qdel(C)
 						menu = 1
+						src.updateUsrDialog()
 					else
 						temp = "Initiating cloning cycle...<br>Error: Post-initialisation failed. Cloning cycle aborted."
-
+					src.updateUsrDialog()
 
 		else
 			temp = "Error: Data corruption."
 
 	else if (href_list["menu"])
 		src.menu = text2num(href_list["menu"])
+		src.updateUsrDialog()
 
 	src.add_fingerprint(usr)
-	src.updateUsrDialog()
-	return
 
 /obj/machinery/computer/cloning/proc/scan_mob(mob/living/carbon/human/subject as mob)
 	if ((isnull(subject)) || (!(ishuman(subject))) || (!subject.dna))
@@ -388,9 +416,9 @@
 		if(subject.isSynthetic())
 			scantemp = "Error: Subject is not organic."
 			return
-	if (MUTATION_NOCLONE in subject.mutations)
-		scantemp = "Error: Major genetic degradation."
-		return
+//	if (MUTATION_NOCLONE in subject.mutations)
+//		scantemp = "Error: Major genetic degradation."
+//		return
 	if (subject.species && subject.species.species_flags & SPECIES_FLAG_NO_SCAN)
 		scantemp = "Error: Incompatible species."
 		return
@@ -433,4 +461,22 @@
 			selected_record = R
 			break
 			return selected_record
-*/
+
+
+/// cloning DRM disks. The now is future.
+/obj/item/disk/cloning_charge
+	name = "cloning verification disk (one charge)"
+	desc = "A disk that is required for the cloning process. Thanks to NanoTrasen's monopoly on cloning technology, all cloning requires an expensive verification disk to add 'verification charges' to a cloning machine, that are used upon cloning. This disk has one charge."
+	icon = 'icons/obj/cloning.dmi'
+	icon_state = "datadisk1"
+	var/charges = 1
+
+/obj/item/disk/cloning_charge/two
+	name = "cloning verification disk (two charges)"
+	desc = "A disk that is required for the cloning process. Thanks to NanoTrasen's monopoly on cloning technology, all cloning requires an expensive verification disk to add 'verification charges' to a cloning machine, that are used upon cloning. This disk has two charges."
+	charges = 2
+
+/obj/item/disk/cloning_charge/five
+	name = "cloning verification disk (five charges)"
+	desc = "A disk that is required for the cloning process. Thanks to NanoTrasen's monopoly on cloning technology, all cloning requires an expensive verification disk to add 'verification charges' to a cloning machine, that are used upon cloning. This disk has five charges."
+	charges = 5

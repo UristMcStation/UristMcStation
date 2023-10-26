@@ -90,7 +90,6 @@
 		/area/rnd/xenobiology/cell_4,
 		/area/security/abandonedcheckpoint,
 		/area/skipjack_station,
-		/area/medical/cloning,
 		/area/medical/virology,
 		/area/solar/derelict_aft,
 		/area/solar/derelict_starboard

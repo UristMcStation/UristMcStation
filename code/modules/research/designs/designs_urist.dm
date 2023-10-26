@@ -15,6 +15,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	build_path = /obj/item/gun/energy/plasmapistol
 	sort_string = "URSTA"
 
+// circuits
 /datum/design/circuit/carpentryplaner
 	name = "wood processor"
 	id = "wood processor"
@@ -111,6 +112,27 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	build_path = /obj/item/stock_parts/circuitboard/combat_computer/nerva
 	sort_string = "URSTY"
 
+/datum/design/circuit/dnascanner
+	name = "cloning scanner"
+	id = "dnascanner"
+	req_tech = list(TECH_DATA = 3, TECH_BIO = 3)
+	build_path = /obj/item/stock_parts/circuitboard/clonescanner
+	sort_string = "URSCA"
+
+/datum/design/circuit/cloningpod
+	name = "cloning pod"
+	id = "cloningpod"
+	req_tech = list(TECH_ENGINEERING = 2, TECH_BIO = 4, TECH_DATA = 4)
+	build_path = /obj/item/stock_parts/circuitboard/clonepod
+	sort_string = "URSCB"
+
+/datum/design/circuit/cloning_computer
+	name = "cloning control console"
+	id = "cloning_computer"
+	req_tech = list(TECH_DATA = 3, TECH_BIO = 3)
+	build_path = /obj/item/stock_parts/circuitboard/cloning_computer
+	sort_string = "URSCC"
+
 //shipweapon stuff
 
 /datum/design/item/shipweapons
@@ -191,3 +213,12 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	materials = list(MATERIAL_STEEL = 2000, MATERIAL_PLASTIC = 500, MATERIAL_URANIUM = 200)
 	build_path = /obj/structure/shipammo/heavy_autocannon/he
 	sort_string = "SHPWG"
+
+// laces
+
+/datum/design/item/biostorage/neural_lace
+	id = "neural lace"
+	req_tech = list(TECH_BIO = 4, TECH_MATERIAL = 4, TECH_MAGNET = 2, TECH_DATA = 3)
+	materials = list (MATERIAL_STEEL = 10000, MATERIAL_GLASS = 7500, MATERIAL_SILVER = 1000, MATERIAL_GOLD = 1000, MATERIAL_PHORON = 200)
+	build_path = /obj/item/organ/internal/stack
+	sort_string = "VACBA"

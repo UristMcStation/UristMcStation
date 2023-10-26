@@ -22,7 +22,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	var/list/organ_data
 	var/list/rlimb_data
 	var/disabilities = 0
-
+	var/has_cortical_stack = FALSE
 
 /datum/category_item/player_setup_item/physical/body
 	name = "Body"
@@ -67,7 +67,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	pref.body_markings = R.read("body_markings")
 	pref.body_descriptors = R.read("body_descriptors")
 	pref.rlimb_color = R.read("rlimb_color")
-
+	pref.has_cortical_stack = R.read("has_cortical_stack")
 
 /datum/category_item/player_setup_item/physical/body/save_character(datum/pref_record_writer/W)
 	W.write("species", pref.species)
@@ -89,6 +89,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	W.write("body_markings", pref.body_markings)
 	W.write("body_descriptors", pref.body_descriptors)
 	W.write("rlimb_color", pref.rlimb_color)
+	W.write("has_cortical_stack", pref.has_cortical_stack)
 
 /datum/category_item/player_setup_item/physical/body/sanitize_character()
 	pref.head_hair_color = sanitize_hexcolor(pref.head_hair_color)
@@ -105,6 +106,9 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	if(!pref.species || !(pref.species in playable_species))
 		pref.species = SPECIES_HUMAN
 	var/datum/species/mob_species = all_species[pref.species]
+
+	if(mob_species?.spawn_flags & SPECIES_FLAG_NO_LACE)
+		pref.has_cortical_stack = FALSE
 
 	pref.gender = sanitize_inlist(pref.gender, mob_species.genders, pick(mob_species.genders))
 	pref.pronouns = sanitize_inlist(pref.pronouns, mob_species.pronouns, pick(mob_species.pronouns))
@@ -153,6 +157,13 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	. += "<br />[TBTN("age", pref.age, "Age")]"
 	. += "<br />[TBTN("blood_type", pref.b_type, "Blood Type")]"
 	. += "<br />[VTBTN("disabilities", NEARSIGHTED, pref.disabilities & NEARSIGHTED ? "Yes" : "No", "Glasses")]"
+
+	if(config.use_cortical_stacks)
+		. += "<br />Neural lace"
+		if(mob_species.spawn_flags & SPECIES_FLAG_NO_LACE)
+			. += ": incompatible"
+		else
+			. += "[TBTN("has_cortical_stack", pref.has_cortical_stack ? "present" : "<b>not present</b>", ": ")]"
 
 	if (length(pref.body_descriptors))
 		for (var/entry in pref.body_descriptors)
@@ -293,6 +304,10 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				if(choice && mob_species.descriptors[desc_id]) // Check in case they sneakily changed species.
 					pref.body_descriptors[desc_id] = descriptor.chargen_value_descriptors[choice]
 					return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["has_cortical_stack"])
+		pref.has_cortical_stack = !pref.has_cortical_stack
+		return TOPIC_REFRESH
 
 	else if(href_list["blood_type"])
 		var/new_b_type = input(user, "Choose your character's blood-type:", CHARACTER_PREFERENCE_INPUT_TITLE) as null|anything in valid_bloodtypes

@@ -1241,6 +1241,9 @@
 	if(client)
 		Login()
 
+	if(config?.use_cortical_stacks && client?.prefs.has_cortical_stack)
+		create_stack()
+
 	full_prosthetic = null
 
 	var/update_lang
