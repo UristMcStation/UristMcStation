@@ -4,7 +4,7 @@
 	. += new/datum/stack_recipe/goatpelt(src)
 	. += new/datum/stack_recipe/sheeppelt(src)
 
-/material/skin/fur/generate_recipes(reinforce_material)
+/material/skin/fur/brown/generate_recipes(reinforce_material)
 	. = ..(reinforce_material)
 
 	. += new/datum/stack_recipe/brownbearpelt(src)
@@ -13,7 +13,7 @@
 	. += new/datum/stack_recipe/lionpelt(src)
 	. += new/datum/stack_recipe/foxpelt(src)
 
-/material/skin/fur/grey/generate_recipes(reinforce_material)
+/material/skin/fur/gray/generate_recipes(reinforce_material)
 	. = ..(reinforce_material)
 
 	. += new/datum/stack_recipe/graywolfpelt(src)
