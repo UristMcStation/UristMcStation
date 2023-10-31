@@ -298,6 +298,7 @@
 
 /datum/job/assistant
 	supervisors = "the second officer."
+	access = list(access_maint_tunnels)
 	alt_titles = list(
 	"Technical Assistant","Medical Intern","Cargo Assistant",
 	"Botanist" = /singleton/hierarchy/outfit/job/service/gardener,
