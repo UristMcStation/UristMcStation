@@ -7418,8 +7418,8 @@
 	icon_state = "pipe-c"
 	},
 /obj/machinery/rotating_alarm/security_alarm{
-	icon_state = "code green";
-	dir = 4
+	dir = 4;
+	icon_state = "code green"
 	},
 /turf/simulated/floor/plating,
 /area/hallway/commandport)
@@ -7814,7 +7814,7 @@
 	},
 /obj/machinery/tele_beacon,
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Deck 3 Port Central");
+	codes = list("patrol" = 1, "next_patrol" = "Deck 3 Port Central");
 	location = "Medbay"
 	},
 /turf/simulated/floor/tiled/white,
@@ -8078,8 +8078,8 @@
 	},
 /obj/machinery/computer/modular/preset/nervasec{
 	autorun_program = /datum/computer_file/program/camera_monitor;
-	icon_state = "computer";
-	dir = 8
+	dir = 8;
+	icon_state = "computer"
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/office)
@@ -11248,7 +11248,7 @@
 	output_attempt = 1;
 	output_level = 100000;
 	outputting = 2;
-	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak=4)
+	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak = 4)
 	},
 /obj/effect/engine_setup/smes,
 /obj/machinery/light{
@@ -11303,8 +11303,8 @@
 	pixel_y = -28
 	},
 /obj/machinery/rotating_alarm/supermatter{
-	icon_state = "alarm";
-	dir = 4
+	dir = 4;
+	icon_state = "alarm"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/tool)
@@ -11458,7 +11458,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Medbay");
+	codes = list("patrol" = 1, "next_patrol" = "Medbay");
 	location = "Deck 3 Aft Port"
 	},
 /obj/structure/disposalpipe/segment{
@@ -11705,8 +11705,8 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/darkgrey{
-	icon_state = "corner_white";
-	dir = 10
+	dir = 10;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/third_deck)
@@ -12080,7 +12080,7 @@
 	output_attempt = 1;
 	output_level = 100000;
 	outputting = 2;
-	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak=4)
+	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak = 4)
 	},
 /obj/structure/sign/warning/secure_area{
 	desc = "A warning sign which reads 'HIGH VOLTAGE'";
@@ -12271,8 +12271,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/rotating_alarm/security_alarm{
-	icon_state = "code green";
-	dir = 4
+	dir = 4;
+	icon_state = "code green"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/central/third_deck)
@@ -12563,7 +12563,7 @@
 	output_attempt = 1;
 	output_level = 100000;
 	outputting = 2;
-	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak=4)
+	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak = 4)
 	},
 /obj/structure/cable/yellow,
 /obj/structure/cable/yellow{
@@ -12610,8 +12610,8 @@
 	dir = 4
 	},
 /obj/machinery/rotating_alarm/supermatter{
-	icon_state = "alarm";
-	dir = 4
+	dir = 4;
+	icon_state = "alarm"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/lobby)
@@ -12772,12 +12772,12 @@
 	},
 /obj/effect/floor_decal/corner/lightgrey/three_quarters,
 /obj/machinery/vending/coffee{
-	icon_state = "coffee";
-	dir = 1
+	dir = 1;
+	icon_state = "coffee"
 	},
 /obj/effect/floor_decal/corner/b_green{
-	icon_state = "corner_white";
-	dir = 4
+	dir = 4;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/third_deck)
@@ -13191,7 +13191,7 @@
 	output_attempt = 1;
 	output_level = 100000;
 	outputting = 2;
-	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak=4)
+	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak = 4)
 	},
 /obj/structure/cable/yellow,
 /turf/simulated/floor/tiled/dark,
@@ -14123,12 +14123,12 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/lightgrey/three_quarters{
-	icon_state = "corner_white_three_quarters";
-	dir = 8
+	dir = 8;
+	icon_state = "corner_white_three_quarters"
 	},
 /obj/effect/floor_decal/corner/gold/border{
-	icon_state = "bordercolor";
-	dir = 1
+	dir = 1;
+	icon_state = "bordercolor"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/third_deck)
@@ -14445,7 +14445,7 @@
 	icon_state = "pipe-c"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Security");
+	codes = list("patrol" = 1, "next_patrol" = "Security");
 	location = "Hydroponics"
 	},
 /turf/simulated/floor/tiled,
@@ -14541,7 +14541,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Bridge Starboard");
+	codes = list("patrol" = 1, "next_patrol" = "Bridge Starboard");
 	location = "Bar"
 	},
 /turf/simulated/floor/wood/walnut,
@@ -16000,8 +16000,8 @@
 	pixel_y = 24
 	},
 /obj/effect/floor_decal/corner/lightgrey/three_quarters{
-	icon_state = "corner_white_three_quarters";
-	dir = 8
+	dir = 8;
+	icon_state = "corner_white_three_quarters"
 	},
 /obj/machinery/vending/whitedragon,
 /obj/effect/floor_decal/corner/b_green,
@@ -16058,8 +16058,8 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/gold/border{
-	icon_state = "bordercolor";
-	dir = 1
+	dir = 1;
+	icon_state = "bordercolor"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/third_deck)
@@ -16469,8 +16469,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/rotating_alarm/supermatter{
-	icon_state = "alarm";
-	dir = 8
+	dir = 8;
+	icon_state = "alarm"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine)
@@ -16580,8 +16580,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/rotating_alarm/security_alarm{
-	icon_state = "code green";
-	dir = 4
+	dir = 4;
+	icon_state = "code green"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/central/third_deck)
@@ -16680,8 +16680,8 @@
 	},
 /obj/machinery/computer/modular/preset/cardslot/nerva_cos{
 	autorun_program = /datum/computer_file/program/camera_monitor;
-	icon_state = "computer";
-	dir = 8
+	dir = 8;
+	icon_state = "computer"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
@@ -16939,7 +16939,7 @@
 	sort_type = "Disposals"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Deck 2 Aft Port");
+	codes = list("patrol" = 1, "next_patrol" = "Deck 2 Aft Port");
 	location = "Deck 3 Aft Starboard"
 	},
 /obj/structure/cable{
@@ -17198,8 +17198,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/darkgrey{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/third_deck)
@@ -17516,8 +17516,8 @@
 	dir = 9
 	},
 /obj/machinery/rotating_alarm/supermatter{
-	icon_state = "alarm";
-	dir = 4
+	dir = 4;
+	icon_state = "alarm"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/genstorage)
@@ -17628,8 +17628,8 @@
 	icon_state = "intact-scrubbers"
 	},
 /obj/machinery/rotating_alarm/security_alarm{
-	icon_state = "code green";
-	dir = 1
+	dir = 1;
+	icon_state = "code green"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/third_deck)
@@ -17845,8 +17845,8 @@
 	dir = 4
 	},
 /obj/machinery/rotating_alarm/security_alarm{
-	icon_state = "code green";
-	dir = 1
+	dir = 1;
+	icon_state = "code green"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/central/third_deck)
@@ -18094,8 +18094,8 @@
 	pixel_y = 0
 	},
 /obj/machinery/rotating_alarm/security_alarm{
-	icon_state = "code green";
-	dir = 1
+	dir = 1;
+	icon_state = "code green"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/third_deck)
@@ -18212,8 +18212,8 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/rotating_alarm/security_alarm{
-	icon_state = "code green";
-	dir = 1
+	dir = 1;
+	icon_state = "code green"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/third_deck)
@@ -18346,7 +18346,7 @@
 	icon_state = "corner_white_three_quarters"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Personnel");
+	codes = list("patrol" = 1, "next_patrol" = "Personnel");
 	location = "Bridge Starboard"
 	},
 /turf/simulated/floor/tiled,
@@ -18490,8 +18490,8 @@
 	},
 /obj/machinery/computer/modular/preset/nerva_qm{
 	autorun_program = /datum/computer_file/program/reports;
-	icon_state = "computer";
-	dir = 1
+	dir = 1;
+	icon_state = "computer"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
@@ -18518,8 +18518,8 @@
 	level = 2
 	},
 /obj/machinery/rotating_alarm/supermatter{
-	icon_state = "alarm";
-	dir = 4
+	dir = 4;
+	icon_state = "alarm"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine)
@@ -19353,13 +19353,6 @@
 /obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/wood/walnut,
 /area/rnd/office)
-"aHL" = (
-/obj/structure/table/woodentable/walnut,
-/obj/machinery/photocopier/faxmachine{
-	department = "Nanotrasen Scientists"
-	},
-/turf/simulated/floor/wood/walnut,
-/area/rnd/office)
 "aHM" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 1
@@ -20099,8 +20092,8 @@
 /area/command/eva)
 "aJf" = (
 /obj/machinery/computer/modular/preset/cardslot/nerva_cos{
-	icon_state = "computer";
-	dir = 1
+	dir = 1;
+	icon_state = "computer"
 	},
 /turf/simulated/floor/carpet,
 /area/security/cosoffice)
@@ -20110,16 +20103,6 @@
 /obj/item/pen,
 /obj/item/book/manual/security_space_law/nervaspacelaw,
 /obj/item/stamp/hos,
-/turf/simulated/floor/carpet,
-/area/security/cosoffice)
-"aJh" = (
-/obj/structure/table/woodentable/walnut,
-/obj/item/paper_bin,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/carpet,
 /area/security/cosoffice)
 "aJi" = (
@@ -20186,7 +20169,7 @@
 	icon_state = "bordercolor"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="EVA");
+	codes = list("patrol" = 1, "next_patrol" = "EVA");
 	location = "Personnel"
 	},
 /turf/simulated/floor/tiled,
@@ -20796,8 +20779,8 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/rotating_alarm/security_alarm{
-	icon_state = "code green";
-	dir = 4
+	dir = 4;
+	icon_state = "code green"
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/hallway/commandstarboard)
@@ -20903,8 +20886,8 @@
 	},
 /obj/item/reagent_containers/spray/cleaner,
 /obj/machinery/rotating_alarm/supermatter{
-	icon_state = "alarm";
-	dir = 4
+	dir = 4;
+	icon_state = "alarm"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/genstorage)
@@ -24732,8 +24715,8 @@
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/yellow/three_quarters,
 /obj/machinery/rotating_alarm/supermatter{
-	icon_state = "alarm";
-	dir = 4
+	dir = 4;
+	icon_state = "alarm"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/smmon)
@@ -25053,7 +25036,7 @@
 	icon_state = "2-8"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Mailing Office");
+	codes = list("patrol" = 1, "next_patrol" = "Mailing Office");
 	location = "Deck 3 Cargo"
 	},
 /turf/simulated/floor/tiled,
@@ -25178,19 +25161,6 @@
 /obj/item/storage/belt/medical,
 /obj/item/storage/fancy/vials,
 /obj/item/storage/fancy/vials,
-/turf/simulated/floor/tiled/white,
-/area/medical/cmo)
-"aRD" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal{
-	dir = 4;
-	icon_state = "corner_white_diagonal"
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_y = 0
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/cmo)
 "aRE" = (
@@ -26087,19 +26057,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afs)
-"aTc" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 5
-	},
-/obj/machinery/photocopier/faxmachine{
-	department = "Nanotrasen Scientists"
-	},
-/obj/structure/table/standard,
-/obj/item/storage/secure/alert_safe{
-	pixel_y = 38
-	},
-/turf/simulated/floor/tiled/dark,
-/area/logistics/qm)
 "aTd" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
@@ -26779,8 +26736,8 @@
 /area/logistics/qm)
 "aUB" = (
 /obj/machinery/computer/modular/preset/nerva_qm{
-	icon_state = "computer";
-	dir = 8
+	dir = 8;
+	icon_state = "computer"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/qm)
@@ -27628,8 +27585,8 @@
 	icon_state = "corner_white"
 	},
 /obj/machinery/computer/modular/preset/nervasec{
-	icon_state = "computer";
-	dir = 8
+	dir = 8;
+	icon_state = "computer"
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/checkpoint)
@@ -27828,8 +27785,8 @@
 /area/maintenance/third_deck/fp)
 "cSX" = (
 /obj/effect/floor_decal/corner/b_green{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/third_deck)
@@ -27840,8 +27797,8 @@
 "cUF" = (
 /obj/effect/floor_decal/corner/lightgrey,
 /obj/effect/floor_decal/corner/b_green{
-	icon_state = "corner_white";
-	dir = 8
+	dir = 8;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/third_deck)
@@ -27996,12 +27953,12 @@
 	icon_state = "corner_white"
 	},
 /obj/machinery/vending/cola{
-	icon_state = "Cola_Machine";
-	dir = 1
+	dir = 1;
+	icon_state = "Cola_Machine"
 	},
 /obj/effect/floor_decal/corner/b_green{
-	icon_state = "corner_white";
-	dir = 5
+	dir = 5;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/third_deck)
@@ -28198,7 +28155,7 @@
 	icon_state = "corner_white"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Bridge Port");
+	codes = list("patrol" = 1, "next_patrol" = "Bridge Port");
 	location = "Security"
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -28244,15 +28201,15 @@
 /area/security/portgun)
 "etW" = (
 /obj/effect/floor_decal/corner/b_green{
-	icon_state = "corner_white";
-	dir = 10
+	dir = 10;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/third_deck)
 "euF" = (
 /obj/structure/noticeboard{
-	pixel_y = 32;
-	name = "menu board"
+	name = "menu board";
+	pixel_y = 32
 	},
 /turf/simulated/floor/wood/walnut,
 /area/civilian/bar)
@@ -28292,7 +28249,7 @@
 	icon_state = "intact-scrubbers"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Deck 3 Aft Starboard");
+	codes = list("patrol" = 1, "next_patrol" = "Deck 3 Aft Starboard");
 	location = "Mailing Office"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -28301,19 +28258,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/mailing)
-"eGp" = (
-/obj/machinery/alarm{
-	dir = 8;
-	icon_state = "alarm0";
-	pixel_x = 22
-	},
-/obj/effect/decal/cleanable/cobweb{
-	dir = 1;
-	icon_state = "cobweb1"
-	},
-/obj/structure/table/woodentable/walnut,
-/turf/simulated/floor/plating,
-/area/civilian/abandonedoffice)
 "eIr" = (
 /obj/machinery/door/airlock/research{
 	name = "Research Dorms"
@@ -28493,8 +28437,8 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/b_green{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/third_deck)
@@ -28675,19 +28619,19 @@
 	pixel_y = 25
 	},
 /obj/effect/floor_decal/corner/lightgrey/three_quarters{
-	icon_state = "corner_white_three_quarters";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white_three_quarters"
 	},
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk,
 /obj/effect/floor_decal/corner/b_green{
-	icon_state = "corner_white";
-	dir = 8
+	dir = 8;
+	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/rotating_alarm/security_alarm{
-	icon_state = "code green";
-	dir = 8
+	dir = 8;
+	icon_state = "code green"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/third_deck)
@@ -28796,7 +28740,7 @@
 	icon_state = "corner_white_three_quarters"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Bar");
+	codes = list("patrol" = 1, "next_patrol" = "Bar");
 	location = "Bridge Port"
 	},
 /obj/structure/disposalpipe/segment{
@@ -28831,7 +28775,7 @@
 	dir = 5
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Hydroponics");
+	codes = list("patrol" = 1, "next_patrol" = "Hydroponics");
 	location = "Deck 3 Port Central"
 	},
 /turf/simulated/floor/tiled,
@@ -28895,6 +28839,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/logistics/mailing)
+"hMT" = (
+/obj/structure/table/woodentable/walnut,
+/obj/item/paper_bin,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/photocopier/faxmachine{
+	department = "Chief of Security"
+	},
+/turf/simulated/floor/carpet,
+/area/security/cosoffice)
 "hNR" = (
 /obj/effect/paint_stripe/blue,
 /turf/simulated/wall/r_wall/prepainted,
@@ -29556,6 +29513,13 @@
 /obj/item/folder/white,
 /turf/simulated/floor/tiled/white,
 /area/medical/cmo)
+"lri" = (
+/obj/structure/table/woodentable/walnut,
+/obj/machinery/photocopier/faxmachine{
+	department = "NanoTrasen Nerva Scientists"
+	},
+/turf/simulated/floor/wood/walnut,
+/area/rnd/office)
 "ltj" = (
 /obj/structure/cable{
 	d1 = 2;
@@ -29645,8 +29609,8 @@
 	icon_state = "corner_white"
 	},
 /obj/machinery/rotating_alarm/security_alarm{
-	icon_state = "code green";
-	dir = 1
+	dir = 1;
+	icon_state = "code green"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/third_deck)
@@ -29697,20 +29661,20 @@
 	pixel_y = -24
 	},
 /obj/effect/floor_decal/corner/lightgrey/three_quarters{
-	icon_state = "corner_white_three_quarters";
-	dir = 4
+	dir = 4;
+	icon_state = "corner_white_three_quarters"
 	},
 /obj/machinery/vending/snack{
-	icon_state = "snack";
-	dir = 1
+	dir = 1;
+	icon_state = "snack"
 	},
 /obj/effect/floor_decal/corner/b_green{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white"
 	},
 /obj/machinery/rotating_alarm/security_alarm{
-	icon_state = "code green";
-	dir = 8
+	dir = 8;
+	icon_state = "code green"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/third_deck)
@@ -30133,8 +30097,8 @@
 /area/space)
 "oxV" = (
 /obj/machinery/rotating_alarm/supermatter{
-	icon_state = "alarm";
-	dir = 4
+	dir = 4;
+	icon_state = "alarm"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine)
@@ -30191,8 +30155,8 @@
 /area/hallway/aft/third_deck)
 "oHH" = (
 /obj/effect/floor_decal/corner/darkgrey{
-	icon_state = "corner_white";
-	dir = 9
+	dir = 9;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/third_deck)
@@ -31024,6 +30988,19 @@
 /obj/effect/paint_stripe/beige,
 /turf/simulated/wall/prepainted,
 /area/maintenance/third_deck/afs)
+"tZj" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/machinery/photocopier/faxmachine{
+	department = "Quartermaster"
+	},
+/obj/structure/table/standard,
+/obj/item/storage/secure/alert_safe{
+	pixel_y = 38
+	},
+/turf/simulated/floor/tiled/dark,
+/area/logistics/qm)
 "uaA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -31163,7 +31140,7 @@
 	dir = 10
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Deck 3 Cargo");
+	codes = list("patrol" = 1, "next_patrol" = "Deck 3 Cargo");
 	location = "EVA"
 	},
 /turf/simulated/floor/tiled,
@@ -31296,6 +31273,23 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
+"vdj" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal{
+	dir = 4;
+	icon_state = "corner_white_diagonal"
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/machinery/photocopier/faxmachine{
+	department = "Chief Medical Officer"
+	},
+/obj/structure/table/glass,
+/turf/simulated/floor/tiled/white,
+/area/medical/cmo)
 "vey" = (
 /obj/machinery/door/airlock/research{
 	name = "Robotics"
@@ -31429,8 +31423,8 @@
 	},
 /obj/machinery/vending/sol,
 /obj/effect/floor_decal/corner/b_green{
-	icon_state = "corner_white";
-	dir = 10
+	dir = 10;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/third_deck)
@@ -31448,8 +31442,8 @@
 	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/corner/b_green{
-	icon_state = "corner_white";
-	dir = 4
+	dir = 4;
+	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/third_deck)
@@ -31705,6 +31699,22 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/security/boardarmoury)
+"xdK" = (
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 22
+	},
+/obj/effect/decal/cleanable/cobweb{
+	dir = 1;
+	icon_state = "cobweb1"
+	},
+/obj/structure/table/woodentable/walnut,
+/obj/machinery/photocopier/faxmachine{
+	department = "Abandoned Office"
+	},
+/turf/simulated/floor/plating,
+/area/civilian/abandonedoffice)
 "xfr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -51570,7 +51580,7 @@ oDe
 aPQ
 jIp
 aSd
-aTc
+tZj
 aTW
 aUB
 aUY
@@ -55397,7 +55407,7 @@ kjM
 wpN
 aFp
 aGB
-aHL
+lri
 aIY
 nNc
 aLk
@@ -55610,7 +55620,7 @@ aQi
 bqm
 aSr
 aTp
-eGp
+xdK
 aNz
 aUN
 jEQ
@@ -58226,7 +58236,7 @@ aEg
 aFy
 aGK
 aHW
-aJh
+hMT
 aKj
 aLt
 aMz
@@ -59243,7 +59253,7 @@ aGL
 aNN
 aPb
 aQu
-aRD
+vdj
 aSG
 aTz
 aUo

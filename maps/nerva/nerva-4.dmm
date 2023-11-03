@@ -339,8 +339,8 @@
 	dir = 6
 	},
 /obj/machinery/rotating_alarm/security_alarm{
-	icon_state = "code green";
-	dir = 4
+	dir = 4;
+	icon_state = "code green"
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/hallway/centralfirst)
@@ -1245,8 +1245,8 @@
 	icon_state = "corner_white"
 	},
 /obj/machinery/rotating_alarm/security_alarm{
-	icon_state = "code green";
-	dir = 8
+	dir = 8;
+	icon_state = "code green"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
@@ -2092,12 +2092,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	icon_state = "map_vent_out"
-	},
-/turf/simulated/floor/tiled/techmaint,
-/area/security/dockingcheckpoint)
-"et" = (
-/obj/effect/floor_decal/corner/red/three_quarters{
-	dir = 4
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/dockingcheckpoint)
@@ -4130,8 +4124,8 @@
 	pixel_x = 30
 	},
 /obj/effect/floor_decal/corner/lightgrey/three_quarters{
-	icon_state = "corner_white_three_quarters";
-	dir = 1
+	dir = 1;
+	icon_state = "corner_white_three_quarters"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
@@ -5334,8 +5328,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/lightgrey/three_quarters{
-	icon_state = "corner_white_three_quarters";
-	dir = 4
+	dir = 4;
+	icon_state = "corner_white_three_quarters"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
@@ -6616,8 +6610,8 @@
 /obj/structure/disposalpipe/segment,
 /obj/effect/catwalk_plated,
 /obj/machinery/rotating_alarm/security_alarm{
-	icon_state = "code green";
-	dir = 4
+	dir = 4;
+	icon_state = "code green"
 	},
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
@@ -8472,8 +8466,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/catwalk_plated,
 /obj/machinery/rotating_alarm/security_alarm{
-	icon_state = "code green";
-	dir = 4
+	dir = 4;
+	icon_state = "code green"
 	},
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
@@ -8905,6 +8899,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
+"PQ" = (
+/obj/effect/floor_decal/corner/red/three_quarters{
+	dir = 4
+	},
+/obj/structure/table/reinforced,
+/obj/machinery/photocopier/faxmachine{
+	department = "Docking Customs"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/security/dockingcheckpoint)
 "Rh" = (
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Bluespace Drive";
@@ -28072,7 +28076,7 @@ cH
 db
 dB
 dZ
-et
+PQ
 cI
 ff
 fQ
