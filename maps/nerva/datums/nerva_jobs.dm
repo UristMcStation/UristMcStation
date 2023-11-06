@@ -1,7 +1,7 @@
 /datum/map/nerva
 	allowed_jobs = list(/datum/job/captain, /datum/job/firstofficer, /datum/job/hop, /datum/job/seniorscientist, /datum/job/blueshield,
 						/datum/job/chef, /datum/job/janitor, /datum/job/assistant,
-						/datum/job/qm, /datum/job/cargo_tech,
+						/datum/job/qm, /datum/job/cargo_tech, /datum/job/roboticist,
 						/datum/job/chief_engineer, /datum/job/engineer,
 						/datum/job/hos, /datum/job/officer,
 						/datum/job/cmo, /datum/job/doctor, /datum/job/psychiatrist,
@@ -222,7 +222,7 @@
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot,
 	access_robotics, access_research, access_prim_tool)
 
-/datum/job/cargo_tech/get_description_blurb()
+/datum/job/roboticist/get_description_blurb()
 	return	"You are a robotics specialist, part of the Supply Department on the ICS Nerva. Unlike the rest of the Supply department, you are not expected to participate in away-missions, although you are free to do so if authorized. Instead, it is your job to handle all things Robotics, be that production of exosuits for departmental needs, replacement of articifial limbs, production of cyborgs and FPBs, and the transferral of MMIs to robotic bodies. As such, although you report directly to the Quartermaster, you will likely also work closely with the medical department to ensure the robotic preservation of deceased crew."
 
 
