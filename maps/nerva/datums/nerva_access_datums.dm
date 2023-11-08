@@ -73,3 +73,9 @@ var/global/const/access_gunnery = "ACCESS_GUNNERY"
 
 /datum/access/pilot
 	region = ACCESS_REGION_NONE
+
+var/global/const/access_prim_tool = "ACCESS_GENERAL_STORAGE"
+/datum/access/prim_tool
+	id = access_prim_tool
+	desc = "General Storage"
+	region = ACCESS_REGION_GENERAL

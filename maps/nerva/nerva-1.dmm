@@ -13931,6 +13931,9 @@
 /obj/structure/bed/chair/office/dark{
 	dir = 4
 	},
+/obj/effect/landmark/start{
+	name = "Supply Technician"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/fabwork)
 "yi" = (
