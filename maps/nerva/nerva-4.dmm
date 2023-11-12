@@ -3084,7 +3084,6 @@
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	frequency = 1379;
 	id_tag = "solar_bridge_airlock";
-	pixel_x = 2;
 	pixel_y = 24;
 	req_access = list("ACCESS_EXTERNAL");
 	tag_airpump = "solar_bridge_pump";
@@ -3095,8 +3094,7 @@
 /obj/machinery/airlock_sensor{
 	frequency = 1379;
 	id_tag = "solar_bridge_sensor";
-	pixel_x = -12;
-	pixel_y = 24
+	pixel_y = -24
 	},
 /obj/effect/floor_decal/techfloor,
 /obj/effect/floor_decal/techfloor{
@@ -8139,7 +8137,7 @@
 	frequency = 1379;
 	id_tag = "aft_solar_airlock";
 	pixel_x = 0;
-	pixel_y = 18;
+	pixel_y = 25;
 	req_access = list("ACCESS_EXTERNAL");
 	tag_airpump = "aft_solar_pump";
 	tag_chamber_sensor = "aft_solar_sensor";
@@ -8149,8 +8147,7 @@
 /obj/machinery/airlock_sensor{
 	frequency = 1379;
 	id_tag = "aft_solar_sensor";
-	pixel_x = 12;
-	pixel_y = -25
+	pixel_y = -24
 	},
 /obj/structure/cable/orange{
 	d1 = 4;
@@ -8785,6 +8782,10 @@
 	},
 /turf/space,
 /area/space)
+"rV" = (
+/turf/simulated/wall/r_wall/prepainted,
+/turf/simulated/floor/plating,
+/area/maintenance/aftsolar)
 "ue" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8;
@@ -25874,11 +25875,11 @@ ar
 ar
 ar
 oG
-oT
+rV
 oT
 pt
 oT
-oT
+rV
 ar
 ar
 ar
