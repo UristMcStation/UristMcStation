@@ -1,3 +1,6 @@
+/obj/machinery/door //i simply refuse
+	autoset_access = FALSE
+
 /datum/map/glloydstation/get_map_info()
 	. = list()
 	. +=  "You're aboard the <b>NSS Urist</b>, a top of the line NanoTrasen scientific space station, orbiting a geneseeded world on the frontier of human settlement."
@@ -41,7 +44,10 @@
 
 	return skybox_image
 
+/datum/random_map/automata/cave_system/glloydplanet
+	floor_type = /turf/simulated/floor/asteroid/glloydplanet
+
 /datum/map/glloydstation/perform_map_generation()
-	new /datum/random_map/automata/cave_system(null, 1, 1, 5, 255, 255) // Create the mining Z-level.
+	new /datum/random_map/automata/cave_system/glloydplanet(null, 1, 1, 5, 255, 255) // Create the mining Z-level.
 	new /datum/random_map/noise/ore(null, 1, 1, 5, 64, 64)         // Create the mining ore distribution map.
 	return 1
