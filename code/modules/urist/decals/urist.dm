@@ -10,11 +10,17 @@
 /obj/effect/paint/green_grey
 	color = "#8daf6a"
 
+/obj/effect/paint/red_deep
+	color = COLOR_DEEP_RED
+
+/obj/effect/paint_stripe/red_deep
+	color = COLOR_DEEP_RED
+
 //less washed out red
 
 /obj/effect/floor_decal/corner/red_deep
 	name = "red corner"
-	color = "#a80707"
+	color = COLOR_DEEP_RED
 
 /obj/effect/floor_decal/corner/red_deep/diagonal
 	icon_state = "corner_white_diagonal"
@@ -131,7 +137,7 @@ TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/red)
 
 /// deep red trimlines
 /obj/effect/floor_decal/trimline/red_deep
-	color = "#a80707"
+	color = COLOR_DEEP_RED
 
 TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/red_deep)S
 

@@ -83,7 +83,7 @@
 #define COLOR_DIAMOND          "#d8d4ea"
 #define COLOR_VOX			   "#244238"
 #define COLOR_HULL             "#436b8e"
-
+#define COLOR_DEEP_RED         "#a80707"
 
 #define	PIPE_COLOR_GREY        "#808080"
 #define	PIPE_COLOR_RED         "#ff0000"
