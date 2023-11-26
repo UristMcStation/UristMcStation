@@ -89,7 +89,7 @@
 	l_ear = /obj/item/device/radio/headset/headset_cargo
 	shoes = /obj/item/clothing/shoes/black
 	belt = /obj/item/storage/belt/robotics/full
-	id_types = list(/obj/item/card/id/cargo)
+	id_types = list(/obj/item/card/id/science/roboticist)
 	pda_slot = slot_r_store
 	pda_type = /obj/item/modular_computer/pda/roboticist
 
