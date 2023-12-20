@@ -617,8 +617,11 @@
 			stat("Distribution Pressure", internal.distribute_pressure)
 
 	var/obj/item/organ/internal/cell/potato = internal_organs_by_name[BP_CELL]
+	var/obj/item/organ/internal/cooling_system/coolant = internal_organs_by_name[BP_COOLING]
 	if(potato && potato.cell)
 		stat("Battery charge:", "[potato.get_charge()]/[potato.cell.maxcharge]")
+		stat("Operating temperature:", "[round(bodytemperature-T0C)]&deg;C")
+		stat("Coolant remaining:","[coolant.get_coolant_remaining()]/[coolant.refrigerant_max]")
 
 	if(back && istype(back,/obj/item/rig))
 		var/obj/item/rig/suit = back
