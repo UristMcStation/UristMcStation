@@ -59,6 +59,17 @@
 		if(!owner.lying && !owner.buckled)
 			to_chat(owner, SPAN_WARNING("You don't have enough energy to function!"))
 		owner.Paralyse(3)
+		if(owner.species.name == SPECIES_IPC)
+			owner.species.passive_temp_gain = 0
+	if(owner.species.name == SPECIES_IPC)
+		var/obj/item/organ/internal/cooling_system/Cooling = owner.internal_organs_by_name[BP_COOLING]
+		if(!(owner.internal_organs_by_name[BP_COOLING]))
+			if(owner.bodytemperature > 1220) //1220 Kelvin it's around 950C. That's a HEAT_DAMAGE_LEVEL_2 for Synths
+				owner.species.passive_temp_gain = 0
+			else
+				owner.species.passive_temp_gain = 30
+		else
+			owner.species.passive_temp_gain = Cooling.get_tempgain()
 	if(percent() < 10 && prob(1))
 		to_chat(owner, SPAN_WARNING("Your internal battery beeps an alert code, it is low on charge!"))
 
