@@ -86,6 +86,7 @@
 				to_chat(user, SPAN_COLOR("red", "ERROR - Brain not present"))
 
 			to_chat(user, "<hr>")
+			to_chat(user, SPAN_NOTICE("Operating temperature: [round(H.bodytemperature-T0C)]&deg;C"))
 
 			to_chat(user, SPAN_NOTICE("External prosthetics:"))
 
