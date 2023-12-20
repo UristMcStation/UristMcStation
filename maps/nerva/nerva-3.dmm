@@ -6801,6 +6801,9 @@
 /area/civilian/dorms)
 "na" = (
 /obj/structure/bed/chair/wood/walnut,
+/obj/effect/landmark/start{
+	name = "Passenger"
+	},
 /turf/simulated/floor/carpet/blue2,
 /area/civilian/dorms)
 "nb" = (
@@ -14985,6 +14988,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/chapel)
+"HC" = (
+/obj/effect/landmark/start{
+	name = "Passenger"
+	},
+/turf/simulated/floor/wood/walnut,
+/area/civilian/dorms)
 "HJ" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
@@ -39346,7 +39355,7 @@ fO
 Qx
 hH
 io
-jk
+HC
 kb
 kZ
 lY
@@ -40558,7 +40567,7 @@ fS
 gO
 hH
 iq
-jk
+HC
 jk
 WF
 ma

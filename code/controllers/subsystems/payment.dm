@@ -108,9 +108,12 @@ SUBSYSTEM_DEF(payment_controller)
 			message.title = "[GLOB.using_map.station_name] Automated Payroll System"
 
 			if(!H.mind.pay_suspended)
-				message.stored_data = "[H.real_name],\n\n<b>[economic_modifier] Th</b> has been deposited into your account following hourly payroll payouts.\nThank you for your continued hard work.\n\n<i>This message is brought to you by [sponsor] - [this_slogan]</i>"
-			else
-				message.stored_data = "[H.real_name],\n\nAs your wages have been suspended, your payout has not been processed. Please direct all complaints to your payroll administrator."
+				if(H.mind.role_alt_title == "Passenger")
+					message.stored_data = "[H.real_name],\n\n<b>Your account has been adjusted by [economic_modifier] Th</b> as part of the hourly passenger fee.\nThank you for travelling with us.\n\n<i>This message is brought to you by [sponsor] - [this_slogan]</i>"
+				else if(!H.mind.pay_suspended)
+					message.stored_data = "[H.real_name],\n\n<b>[economic_modifier] Th</b> has been deposited into your account following hourly payroll payouts.\nThank you for your continued hard work.\n\n<i>This message is brought to you by [sponsor] - [this_slogan]</i>"
+				else
+					message.stored_data = "[H.real_name],\n\nAs your wages have been suspended, your payout has not been processed. Please direct all complaints to your payroll administrator."
 
 			message.source = server.login
 			server.send_mail(H.mind.initial_email_login["login"], message)
