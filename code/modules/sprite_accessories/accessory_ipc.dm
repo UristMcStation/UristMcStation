@@ -386,7 +386,7 @@
 
 /datum/sprite_accessory/hair/ipc/ipc_bald
 	name = "None"
-	icon_state = "ipc_null"
+	icon_state = "null"
 	do_coloration = FALSE
 
 /datum/sprite_accessory/hair/ipc/ipc_antennae
