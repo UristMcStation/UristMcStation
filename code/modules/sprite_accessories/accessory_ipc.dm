@@ -1,8 +1,6 @@
 /datum/sprite_accessory/marking/ipc
 	icon = 'icons/mob/human_races/species/ipc/markings.dmi'
 	species_allowed = list(SPECIES_IPC)
-	gender = NEUTER
-	do_coloration = TRUE
 
 /datum/sprite_accessory/marking/ipc/head
 	body_parts = list(BP_HEAD)
@@ -246,10 +244,6 @@
 	gender = NEUTER
 	do_coloration = FALSE
 
-/datum/sprite_accessory/facial_hair/ipc/none
-	name = "None"
-	icon_state = "ipc_null"
-
 /datum/sprite_accessory/facial_hair/ipc/off
 	name = "Off"
 	icon_state = "ipc_blank"
@@ -390,9 +384,10 @@
 	gender = NEUTER
 	do_coloration = FALSE
 
-/datum/sprite_accessory/hair/ipc/none
+/datum/sprite_accessory/hair/ipc/ipc_bald
 	name = "None"
-	icon_state = "ipc_null"
+	icon_state = ""
+	do_coloration = FALSE
 
 /datum/sprite_accessory/hair/ipc/ipc_antennae
 	name = "Antennae"
