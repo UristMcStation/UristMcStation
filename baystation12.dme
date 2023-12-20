@@ -2669,6 +2669,7 @@
 #include "code\modules\organs\internal\species\adherent.dm"
 #include "code\modules\organs\internal\species\blueforged.dm"
 #include "code\modules\organs\internal\species\borer.dm"
+#include "code\modules\organs\internal\species\cooling_system.dm"
 #include "code\modules\organs\internal\species\diona.dm"
 #include "code\modules\organs\internal\species\fbp.dm"
 #include "code\modules\organs\internal\species\gills.dm"
