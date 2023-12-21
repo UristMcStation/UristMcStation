@@ -1,3 +1,5 @@
+#define PASSENGER_FEE 50
+
 SUBSYSTEM_DEF(payment_controller)
 	name = "Payment"
 	wait = 15 SECONDS
@@ -54,6 +56,7 @@ SUBSYSTEM_DEF(payment_controller)
 	var/payment_modifier = 5 //economic_power * this number = pay. tweak this number!
 	var/moneybuffer = 0 //how much money are we removing from the nerva's account?
 	var/total_paid = 0 //how much money have we paid out in total
+	var/list/penniless_passengers //names of passengers who can't pay passenger fees
 
 /datum/controller/subsystem/payment_controller/fire()
 	if (TimeUntilPayday() > 0)
@@ -64,14 +67,16 @@ SUBSYSTEM_DEF(payment_controller)
 	if(station_account.money <= 0) //we can go into debt, a bit, but then we can't pay people anymore.
 		GLOB.global_announcer.autosay("<b>Hourly salary payments have been not been processed due to a lack of funds. Please direct all criticism towards the Captain.</b>", "[GLOB.using_map.station_name] Automated Payroll System", "Common")
 		return
-
 	var/newbrand = pick(brand) //this is a dumb meme
+	penniless_passengers = list()
 	PayPeople(newbrand)
 	GLOB.global_announcer.autosay("<b>Hourly salary payments have been processed and deposited into your accounts. Thank you for your service to the [GLOB.using_map.station_name]. This message is brought to you by [newbrand]: make sure to buy [newbrand] at your nearest vending machine.</b>", "[GLOB.using_map.station_name] Automated Payroll System", "Common")
 	total_paid += moneybuffer
 	var/datum/transaction/singular/T = new(station_account, "Automated Payroll Deposits", -moneybuffer, "[GLOB.using_map.station_name] Automated Payroll System")
 	T.perform()
-	GLOB.global_announcer.autosay("<b>[moneybuffer]Th has been removed from the [GLOB.using_map.station_name]'s main account due to automated payroll services.</b>", "[GLOB.using_map.station_name] Automated Payroll System", "Command")
+	GLOB.global_announcer.autosay("<b>[max(0,moneybuffer)]Th has been removed from the [GLOB.using_map.station_name]'s main account due to automated payroll services.</b>", "[GLOB.using_map.station_name] Automated Payroll System", "Command")
+	if(length(penniless_passengers))
+		GLOB.global_announcer.autosay("The following passengers have failed to pay for transport: [english_list(penniless_passengers)].", "[GLOB.using_map.station_name] Automated Fee System", "Command")
 	moneybuffer = 0
 
 /datum/controller/subsystem/payment_controller/proc/TimeUntilPayday()
@@ -85,7 +90,9 @@ SUBSYSTEM_DEF(payment_controller)
 	for(var/mob/living/carbon/H in GLOB.living_players) //we don't pay dead people
 		if(!H.mind?.assigned_role || !H.mind?.initial_account) //this excludes stowaways and other non-crew roles including derelict ships
 			continue
-
+		if(H.mind.assigned_role == "Passenger" && H.mind.initial_account.money < PASSENGER_FEE) //name and shame passengers for not paying
+			penniless_passengers += H.mind.name
+			continue
 		if(H.mind.assigned_role == "Captain" && GLOB.using_map.name == "Nerva") //todo, make a map var for captain ownership if we have other ship maps in a similar situation (never)
 			continue
 
@@ -108,7 +115,7 @@ SUBSYSTEM_DEF(payment_controller)
 			message.title = "[GLOB.using_map.station_name] Automated Payroll System"
 
 			if(!H.mind.pay_suspended)
-				if(H.mind.role_alt_title == "Passenger")
+				if(H.mind.assigned_role == "Passenger")
 					message.stored_data = "[H.real_name],\n\n<b>Your account has been adjusted by [economic_modifier] Th</b> as part of the hourly passenger fee.\nThank you for travelling with us.\n\n<i>This message is brought to you by [sponsor] - [this_slogan]</i>"
 				else if(!H.mind.pay_suspended)
 					message.stored_data = "[H.real_name],\n\n<b>[economic_modifier] Th</b> has been deposited into your account following hourly payroll payouts.\nThank you for your continued hard work.\n\n<i>This message is brought to you by [sponsor] - [this_slogan]</i>"

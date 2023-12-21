@@ -460,6 +460,6 @@
 	outfit_type = /singleton/hierarchy/outfit/job/nerva/passenger
 
 /datum/job/passenger/equip(mob/living/carbon/human/H)
-	if (H?.mind?.role_alt_title == "Passenger")
-		H.mind.manual_pay_rate = -50
+	if (H?.mind?.assigned_role == "Passenger")
+		H.mind.manual_pay_rate = -PASSENGER_FEE
 	. = ..()
