@@ -87,3 +87,12 @@
 	icon_state = "horns_frills_short"
 	name = "Horn Biomods (Short Frills)"
 
+//Urist Specific 
+/datum/sprite_accessory/marking/human/horns/ram/small
+	icon = 'icons/mob/human_races/species/human/urist_bodymods.dmi'
+	icon_state = "horns_ram_small"
+	name = "Horn Biomods (Small Ram)"
+	disallows = list(
+		/datum/sprite_accessory/marking/human/horns,
+		/datum/sprite_accessory/marking/human/ears
+	)
