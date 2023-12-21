@@ -49,13 +49,10 @@ SUBSYSTEM_DEF(presence)
 	return levels["[level]"] || 0
 	#else
 	// Urist edit - caching levels that HAD pop at some point
-	var/raw_pop = levels["[level]"]
-	var/pop = raw_pop
-	if(raw_pop)
-		activated_levels["[level]"] = raw_pop
-	else
-		pop = 0
-	return pop
+	var/pop = levels["[level]"]
+	if(pop)
+		activated_levels["[level]"] = pop
+	return pop || 0
 	#endif
 
 #ifdef INCLUDE_URIST_CODE

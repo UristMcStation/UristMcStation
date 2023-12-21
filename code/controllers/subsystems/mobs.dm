@@ -43,7 +43,7 @@ SUBSYSTEM_DEF(mobs)
 			var/zlevel_has_pop = SSpresence.population(holder_z)
 			if(!zlevel_has_pop)
 				var/zlevel_had_pop = SSpresence.population_from_cache(holder_z)
-				if(!zlevel_had_pop || (zlevel_had_pop && throttle_on_empty))
+				if(!zlevel_had_pop || throttle_on_empty)
 					continue
 		#endif
 		mob.Life()
