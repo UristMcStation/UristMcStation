@@ -454,6 +454,8 @@
 	bone_amount = 10
 	skin_amount = 15
 	skin_material = MATERIAL_SKIN_FUR
+	pixel_x = -32
+	default_pixel_x = -32
 
 //from civ13
 
