@@ -631,7 +631,7 @@
 
 		if(stolen_item && C.unEquip(stolen_item, src))
 			held_item = stolen_item
-			visible_message("[src] grabs [held_item] out of [C]'s hand!", SPAN_WARNING("You snag [held_item] out of [C]'s hand!"), "You hear the sounds of wings flapping furiously.")
+			visible_message("[src] grabs \the [held_item] out of [C]'s hand!", SPAN_WARNING("You snag \the [held_item] out of [C]'s hand!"), "You hear the sounds of wings flapping furiously.")
 			return held_item
 
 	to_chat(src, SPAN_WARNING("There is nothing of interest to take."))
