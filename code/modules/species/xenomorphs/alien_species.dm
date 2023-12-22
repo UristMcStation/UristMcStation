@@ -396,3 +396,6 @@
 		"storage1" =     list("loc" = ui_storage1,  "name" = "Left Pocket",  "slot" = slot_l_store,   "state" = "pocket"),
 		"storage2" =     list("loc" = ui_storage2,  "name" = "Right Pocket", "slot" = slot_r_store,   "state" = "pocket"),
 		)
+
+/datum/species/xenos/can_shred(mob/living/carbon/human/H, ignore_intent, ignore_antag)
+	return TRUE
