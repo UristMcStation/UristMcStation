@@ -55,7 +55,7 @@ Obviously, requires DNA2.
 /spell/targeted/hulk
 	name = "Hulk Out"
 	panel = "Mutant Powers"
-	range = -1
+	range = 0
 	spell_flags = INCLUDEUSER
 
 	charge_type = "recharge"

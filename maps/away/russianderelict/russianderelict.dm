@@ -79,7 +79,7 @@
 	icon_state = "atmos"
 
 /obj/effect/overmap/visitable/sector/russianderelict
-	name = "\proper космическая-станция-13"
+	name = "\proper Kosmonaut Station 13"
 	desc = "Sensors detect an orbital station with an unusual profile and no life signs."
 	icon_state = "object"
 	assigned_contracts = list(/datum/contract/russianderelict)
