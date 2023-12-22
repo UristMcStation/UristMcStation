@@ -670,7 +670,7 @@
 			held_item = null
 			return 1
 
-	to_chat(src, "You drop [held_item].")
+	to_chat(src, "You drop \the [held_item].")
 
 	held_item.dropInto(loc)
 	held_item = null
