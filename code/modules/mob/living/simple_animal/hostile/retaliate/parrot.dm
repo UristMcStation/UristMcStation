@@ -603,7 +603,7 @@
 
 			held_item = I
 			I.forceMove(src)
-			visible_message("[src] grabs [held_item]!", SPAN_NOTICE("You grab [held_item]!"), "You hear the sounds of wings flapping furiously.")
+			visible_message("[src] grabs \the [held_item]!", SPAN_NOTICE("You grab \the [held_item]!"), "You hear the sounds of wings flapping furiously.")
 			return held_item
 
 	to_chat(src, SPAN_WARNING("There is nothing of interest to take."))
