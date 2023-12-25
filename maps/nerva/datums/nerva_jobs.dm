@@ -458,8 +458,3 @@
 	spawn_positions = -1
 	economic_power = 2
 	outfit_type = /singleton/hierarchy/outfit/job/nerva/passenger
-
-/datum/job/passenger/equip(mob/living/carbon/human/H)
-	if (H?.mind?.assigned_role == "Passenger")
-		H.mind.manual_pay_rate = -PASSENGER_FEE
-	. = ..()
