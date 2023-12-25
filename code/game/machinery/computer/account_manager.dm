@@ -431,6 +431,7 @@
 				return TOPIC_REFRESH
 			if("passenger_rate")
 				SSpayment_controller.passenger_fee = input(user, "Input desired passenger rate:", "Passenger Rate", SSpayment_controller.passenger_fee) as num
+				return TOPIC_REFRESH
 
 		return TOPIC_NOACTION
 
