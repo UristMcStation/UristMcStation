@@ -9,7 +9,7 @@
 	integrity = 10
 	icon_base = "solid"
 	icon_reinf = "reinf_over"
-	icon_colour = "#FFFFFF"
+	icon_colour = COLOR_WHITE
 	hardness = MATERIAL_SOFT
 	weight = 1
 	brute_armor = 1
