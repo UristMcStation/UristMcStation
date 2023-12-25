@@ -40,16 +40,19 @@
 	title = "snowman"
 	result_type = /obj/structure/snowman
 	time = 15
+	req_amount = 5
 	apply_material_name = FALSE
 
 /datum/stack_recipe/snowborg
 	title = "snow robot"
 	result_type = /obj/structure/snowman/borg
 	time = 10
+	req_amount = 5
 	apply_material_name = FALSE
 
 /datum/stack_recipe/snowspider
 	title = "snow spider"
 	result_type = /obj/structure/snowman/spider
 	time = 20
+	req_amount = 10
 	apply_material_name = FALSE
