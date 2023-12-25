@@ -847,6 +847,7 @@
 	light_color = "#ffffff"
 	bushspawnchance = 0 //let's try it, why not
 	terrain_type = "grass"
+	has_snow = TRUE
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/deer,
 	//	/mob/living/simple_animal/hostile/huntable/bear/polar,
