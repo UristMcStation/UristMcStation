@@ -75,11 +75,13 @@ SUBSYSTEM_DEF(payment_controller)
 	var/datum/transaction/singular/T = new(station_account, "Automated Payroll Deposits", -moneybuffer, "[GLOB.using_map.station_name] Automated Payroll System")
 	T.perform()
 	GLOB.global_announcer.autosay("<b>[max(0,moneybuffer)]Th has been removed from the [GLOB.using_map.station_name]'s main account due to automated payroll services.</b>", "[GLOB.using_map.station_name] Automated Payroll System", "Command")
+
 	if(!(passenger_count == length(penniless_passengers)))
 		var/paying_passengers = passenger_count - length(penniless_passengers)
 		GLOB.global_announcer.autosay("<b>[paying_passengers] passenger[paying_passengers > 1 ? "s have" : " has"] paid [(passenger_fee*paying_passengers)]Th to the [GLOB.using_map.station_name]'s main account.</b>", "[GLOB.using_map.station_name] Automated Payroll System", "Command")
 	if(length(penniless_passengers))
 		GLOB.global_announcer.autosay("The following passengers have failed to pay for transport: [english_list(penniless_passengers)].", "[GLOB.using_map.station_name] Automated Fee System", "Command")
+
 	moneybuffer = 0
 	passenger_count = 0
 
