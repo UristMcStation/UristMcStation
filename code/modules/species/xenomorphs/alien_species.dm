@@ -41,10 +41,15 @@
 	cold_level_2 = -1
 	cold_level_3 = -1
 
-	species_flags = SPECIES_FLAG_NO_SCAN | SPECIES_FLAG_NO_PAIN | SPECIES_FLAG_NO_SLIP | SPECIES_FLAG_NO_POISON | SPECIES_FLAG_NO_EMBED | SPECIES_FLAG_NO_TANGLE
+	species_flags = SPECIES_FLAG_NO_MINOR_CUT | SPECIES_FLAG_NO_SCAN | SPECIES_FLAG_NO_PAIN | SPECIES_FLAG_NO_SLIP | SPECIES_FLAG_NO_POISON | SPECIES_FLAG_NO_EMBED | SPECIES_FLAG_NO_TANGLE
 	appearance_flags = SPECIES_APPEARANCE_HAS_EYE_COLOR | SPECIES_APPEARANCE_HAS_SKIN_COLOR
 
 	spawn_flags = SPECIES_IS_RESTRICTED
+
+	darksight_range = 7
+	darksight_tint = "#bbbbbb" // effectively night vision except you can tell which areas are dark
+
+	move_trail = /obj/effect/decal/cleanable/blood/tracks/body
 
 	blood_color = "#05ee05"
 	flesh_color = "#282846"
@@ -121,6 +126,7 @@
 
 /datum/species/xenos/handle_post_spawn(mob/living/carbon/human/H)
 
+	H.faction = "alien"
 	if(H.mind)
 		H.mind.reset()
 		H.mind.assigned_role = "Alien"
@@ -158,7 +164,7 @@
 		heal_rate = weeds_heal_rate / 3
 		mend_prob = 1
 
-	if(!H.resting || !started_healing["\ref[H]"])
+	if(!H.lying || !started_healing["\ref[H]"])
 		started_healing["\ref[H]"] = world.time
 	if(world.time - started_healing["\ref[H]"] > accelerated_healing_threshold)
 		heal_rate *= 1.5
@@ -170,7 +176,12 @@
 			I.damage = max(I.damage - heal_rate, 0)
 			if (prob(5))
 				to_chat(H, "<span class='alium'>You feel a soothing sensation within your [I.parent_organ]...</span>")
-			return 1
+			if(!istype(I, /obj/item/organ/internal/brain)) // regeneration will get stuck forever if we only heal the brain
+				return 1
+
+	// if our heart gave out it's hopefully healed above and otherwise fine
+	if(prob(mend_prob))
+		H.resuscitate()
 
 	//next mend broken bones, approx 10 ticks each
 	for(var/obj/item/organ/external/E in H.bad_external_organs)
@@ -385,3 +396,6 @@
 		"storage1" =     list("loc" = ui_storage1,  "name" = "Left Pocket",  "slot" = slot_l_store,   "state" = "pocket"),
 		"storage2" =     list("loc" = ui_storage2,  "name" = "Right Pocket", "slot" = slot_r_store,   "state" = "pocket"),
 		)
+
+/datum/species/xenos/can_shred(mob/living/carbon/human/H, ignore_intent, ignore_antag)
+	return TRUE

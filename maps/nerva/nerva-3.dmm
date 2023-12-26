@@ -277,7 +277,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -416,15 +416,6 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/afp)
-"bi" = (
-/obj/machinery/camera/network/second_deck{
-	c_tag = "Second Deck Aft Port Maintenance APC";
-	dir = 8;
-	icon_state = "camera"
-	},
-/obj/structure/ladder/updown,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
 "bj" = (
@@ -1451,7 +1442,7 @@
 	pixel_y = 0
 	},
 /obj/structure/catwalk,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -1961,9 +1952,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "ef" = (
-/obj/structure/flora/pottedplant{
-	icon_state = "plant-22"
-	},
+/obj/machinery/vending/cigarette,
 /turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "eg" = (
@@ -2245,9 +2234,9 @@
 /turf/simulated/floor/plating,
 /area/logistics/auxtool)
 "eH" = (
-/obj/machinery/vending/cigarette,
-/obj/machinery/light_switch{
-	pixel_y = 24
+/obj/structure/noticeboard{
+	pixel_y = 32;
+	name = "menu board"
 	},
 /turf/simulated/floor/plating,
 /area/civilian/lounge)
@@ -2272,6 +2261,10 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/vending/coffee,
+/obj/machinery/light_switch{
+	pixel_y = 33;
+	pixel_x = -11
+	},
 /turf/simulated/floor/wood/walnut,
 /area/civilian/lounge)
 "eK" = (
@@ -2351,7 +2344,7 @@
 	icon_state = "4-8";
 	pixel_y = 0
 	},
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fp)
@@ -2386,7 +2379,7 @@
 	pixel_y = 0
 	},
 /obj/structure/catwalk,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 4;
 	icon_state = "firelight1"
 	},
@@ -5432,20 +5425,6 @@
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/command/teleporter)
-"ks" = (
-/obj/structure/catwalk,
-/obj/machinery/camera/network/second_deck{
-	c_tag = "Second Deck Fore Starboard Maintenance APC";
-	dir = 8;
-	icon_state = "camera"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/fs)
 "kt" = (
 /obj/machinery/firealarm{
 	dir = 4;
@@ -5676,7 +5655,7 @@
 	pixel_y = 0
 	},
 /obj/structure/catwalk,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -6793,7 +6772,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/central)
 "mX" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -7292,7 +7271,7 @@
 	dir = 6
 	},
 /obj/structure/catwalk,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -7420,9 +7399,6 @@
 	icon_state = "intact-supply"
 	},
 /obj/structure/catwalk,
-/obj/machinery/camera/network/engineering{
-	c_tag = "Atmospherics Hallway"
-	},
 /turf/simulated/floor/plating,
 /area/engineering/break_room)
 "oC" = (
@@ -9018,7 +8994,7 @@
 	icon_state = "map-supply"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 4;
 	icon_state = "firelight1"
 	},
@@ -9310,10 +9286,6 @@
 	d2 = 4;
 	icon_state = "2-8"
 	},
-/obj/machinery/camera/network/engineering{
-	c_tag = "Second Deck Telecommunications Relay";
-	pixel_x = 16
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
 "rO" = (
@@ -9511,7 +9483,7 @@
 	icon_state = "intact-supply"
 	},
 /obj/structure/catwalk,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -9659,7 +9631,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -9857,7 +9829,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
 "sF" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -9947,7 +9919,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -10005,7 +9977,7 @@
 /area/maintenance/second_deck/afs)
 "sT" = (
 /obj/structure/catwalk,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 4;
 	icon_state = "firelight1"
 	},
@@ -10878,11 +10850,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8;
 	icon_state = "map-supply"
-	},
-/obj/machinery/camera/network/second_deck{
-	c_tag = "Bathrooms";
-	dir = 4;
-	icon_state = "camera"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4;
@@ -12804,11 +12771,6 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/camera/network/second_deck{
-	c_tag = "Second Deck Aft Starboard Maintenance APC";
-	dir = 4;
-	icon_state = "camera"
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
 "yx" = (
@@ -12839,7 +12801,7 @@
 	dir = 4
 	},
 /obj/structure/catwalk,
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -12962,7 +12924,7 @@
 	dir = 4
 	},
 /obj/structure/catwalk,
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
 "yJ" = (
@@ -13509,7 +13471,7 @@
 /obj/random/smokes,
 /obj/random/smokes,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/vehicle_part/random,
+/obj/random/vehicle_part,
 /obj/effect/decal/cleanable/cobweb{
 	icon_state = "stickyweb2"
 	},
@@ -14367,7 +14329,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/fore/second_deck)
 "Ez" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 4;
 	icon_state = "firelight1"
 	},
@@ -14996,7 +14958,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/chapel)
 "HA" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -15057,7 +15019,7 @@
 /area/security/boardarmoury)
 "Ia" = (
 /obj/structure/catwalk,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -15432,7 +15394,7 @@
 /area/chapel)
 "Ka" = (
 /obj/machinery/power/terminal,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -15474,7 +15436,7 @@
 /area/logistics/primtool)
 "Kg" = (
 /obj/structure/catwalk,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -15680,11 +15642,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/chapel/office)
 "Lj" = (
-/obj/machinery/camera/network/second_deck{
-	c_tag = "Second Deck Fore Port Maintenance APC";
-	dir = 2;
-	icon_state = "camera"
-	},
 /obj/structure/table/rack{
 	dir = 8
 	},
@@ -16023,7 +15980,7 @@
 /area/civilian/journalist)
 "MH" = (
 /obj/structure/closet/emcloset,
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fp)
 "MI" = (
@@ -16226,7 +16183,7 @@
 /area/civilian/counselor)
 "NT" = (
 /obj/structure/closet/emcloset,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -16617,6 +16574,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/second_deck)
+"Pu" = (
+/obj/structure/flora/pottedplant{
+	icon_state = "plant-22"
+	},
+/turf/simulated/floor/plating,
+/area/civilian/lounge)
 "PA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4;
@@ -17071,10 +17034,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/chapel/office)
 "Rc" = (
-/obj/machinery/camera/network/second_deck{
-	c_tag = "Second Deck Emergency Storage";
-	dir = 4
-	},
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -27;
 	pixel_y = 1
@@ -17358,7 +17317,7 @@
 /area/civilian/personal)
 "Ty" = (
 /obj/random/junk,
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
 "TA" = (
@@ -17625,7 +17584,7 @@
 /turf/simulated/floor/carpet,
 /area/civilian/counselor)
 "US" = (
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
 "UT" = (
@@ -17862,10 +17821,6 @@
 /area/security/prison)
 "Wo" = (
 /obj/item/stack/material/rods/ten,
-/obj/machinery/camera/network/second_deck{
-	c_tag = "Auxiliary Storage";
-	dir = 4
-	},
 /turf/simulated/floor/plating,
 /area/logistics/auxtool)
 "Ws" = (
@@ -18019,7 +17974,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -18141,7 +18096,7 @@
 /obj/structure/curtain/open/bed,
 /obj/item/bedsheet/clown,
 /obj/item/storage/backpack/duffel/duffel_clown,
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/effect/landmark/start{
 	name = "Clown"
 	},
@@ -36146,7 +36101,7 @@ ao
 as
 aw
 aO
-bi
+aM
 bd
 bI
 bX
@@ -44648,7 +44603,7 @@ iz
 kh
 iI
 ix
-ix
+Pu
 bA
 PQ
 WG
@@ -49305,7 +49260,7 @@ uj
 sG
 Kg
 sG
-ks
+Ow
 tC
 sI
 sI

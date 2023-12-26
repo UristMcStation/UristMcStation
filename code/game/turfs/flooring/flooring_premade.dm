@@ -190,12 +190,14 @@
 
 /turf/simulated/floor/tiled/dark
 	name = "dark floor"
-	icon_state = "dark"
+	icon_state = "tiled"
+	color = COLOR_DARK_GRAY
 	initial_flooring = /singleton/flooring/tiling/dark
 
 /turf/simulated/floor/tiled/dark/monotile
 	name = "floor"
-	icon_state = "monotiledark"
+	icon_state = "monotile"
+	color = COLOR_DARK_GRAY
 	initial_flooring = /singleton/flooring/tiling/mono/dark
 
 /turf/simulated/floor/tiled/dark/airless
@@ -207,12 +209,14 @@
 
 /turf/simulated/floor/tiled/white
 	name = "white floor"
-	icon_state = "white"
+	icon_state = "tiled_light"
+	color = COLOR_OFF_WHITE
 	initial_flooring = /singleton/flooring/tiling/white
 
 /turf/simulated/floor/tiled/white/monotile
 	name = "floor"
 	icon_state = "monotile_light"
+	color = COLOR_OFF_WHITE
 	initial_flooring = /singleton/flooring/tiling/mono/white
 
 /turf/simulated/floor/tiled/monofloor
@@ -256,17 +260,20 @@
 
 /turf/simulated/floor/tiled/monotile
 	name = "floor"
-	icon_state = "steel_monotile"
+	icon_state = "monotile"
+	color = COLOR_GUNMETAL
 	initial_flooring = /singleton/flooring/tiling/mono
 
 /turf/simulated/floor/tiled/steel_grid
 	name = "floor"
-	icon_state = "steel_grid"
+	icon_state = "grid"
+	color = COLOR_GUNMETAL
 	initial_flooring = /singleton/flooring/tiling/new_tile/steel_grid
 
 /turf/simulated/floor/tiled/steel_ridged
 	name = "floor"
-	icon_state = "steel_ridged"
+	icon_state = "ridged"
+	color = COLOR_GUNMETAL
 	initial_flooring = /singleton/flooring/tiling/new_tile/steel_ridged
 
 /turf/simulated/floor/tiled/old_tile

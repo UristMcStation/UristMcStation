@@ -5,6 +5,7 @@
 /singleton/cultural_info/culture/human
 	name = CULTURE_HUMAN
 	description = "You are from one of various planetary cultures of humankind."
+	// default_language = LANGUAGE_GALCOM
 	secondary_langs = list(
 		LANGUAGE_GALCOM,
 		LANGUAGE_SOL_COMMON,

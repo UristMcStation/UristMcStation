@@ -44,9 +44,7 @@
 	icon_state = "necro_s"
 	icon_living = "necro_s"
 	icon_dead = "necro_d"
-	var/will_help = 0
-	var/can_heal = 0
-	var/will_flee = 0
+	can_escape = TRUE
 
 /*/mob/living/simple_animal/hostile/scom/death(gibbed, deathmessage, show_dead_message)
 	if(diesnormally)
@@ -95,7 +93,6 @@
 			return*/
 
 /mob/living/simple_animal/hostile/scom/lactera
-	will_help = 1
 	natural_weapon = /obj/item/natural_weapon/claws
 	ranged = 1
 	projectilesound = 'sound/weapons/laser.ogg'
@@ -103,12 +100,11 @@
 	ai_holder = /datum/ai_holder/simple_animal/humanoid/hostile/lactera
 	attack_delay = 1.5 SECONDS
 	ranged_attack_delay = 1.5 SECONDS
-
+	see_in_dark = 7
 /datum/ai_holder/simple_animal/humanoid/hostile/lactera
 	speak_chance = 0
 
 /mob/living/simple_animal/hostile/scom/lactera/light
-	will_flee = 1
 	maxHealth = 60
 	health = 60
 	icon_state = "xeno-troop"
@@ -165,7 +161,6 @@
 	rapid = 1
 
 /mob/living/simple_animal/hostile/scom/lactera/medic
-	can_heal = 1
 	icon_state = "xeno-medic"
 	name = "Lactera Medic"
 	projectiletype = /obj/item/projectile/beam/scom/alien1
@@ -182,6 +177,7 @@
 	maxHealth = 600
 	health = 600
 	icon_living = "allophylus"
+	see_in_dark = 10
 
 /mob/living/simple_animal/hostile/scom/harvester
 	name = "Harvester"
@@ -197,6 +193,7 @@
 	health = 150
 	harm_intent_damage = 0
 	natural_weapon = /obj/item/natural_weapon/harvester
+	see_in_dark = 10
 
 /obj/item/natural_weapon/harvester
 	force = 35
@@ -226,6 +223,7 @@
 	needs_reload = TRUE
 	reload_time = 2 SECONDS
 	reload_sound = null
+	see_in_dark = 7
 
 /datum/ai_holder/simple_animal/ranged/aggressive/forgotten
 	pointblank = FALSE
@@ -256,9 +254,18 @@
 	icon_state = "ravager"
 	icon_living = "ravager"
 	icon_dead = "ravager_dead"
-	maxHealth = 70
-	health = 70
+	maxHealth = 75
+	health = 75
 	natural_weapon = /obj/item/natural_weapon/giant
+	speed = -3
+	move_to_delay = 1
+	natural_armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet	= ARMOR_BALLISTIC_PISTOL,
+		energy = ARMOR_ENERGY_SHIELDED,
+		laser = ARMOR_LASER_HEAVY,
+		bomb = ARMOR_BOMB_SHIELDED
+	)
 
 /obj/item/projectile/beam/scom
 	icon = 'icons/urist/items/guns.dmi'

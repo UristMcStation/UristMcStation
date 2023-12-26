@@ -21381,8 +21381,8 @@
 /obj/structure/closet/cabinet{
 	name = "gun cabinet"
 	},
-/obj/item/gun/projectile/sniper,
-/obj/item/gun/projectile/sniper,
+/obj/item/gun/projectile/svd,
+/obj/item/gun/projectile/svd,
 /obj/item/gun/projectile/shotgun/pump/combat,
 /obj/item/gun/projectile/shotgun/pump/combat,
 /obj/item/gun/projectile/automatic/c20r,

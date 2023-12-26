@@ -7,13 +7,13 @@
 /datum/uplink_item/item/services/fake_ion_storm
 	name = "Ion Storm Announcement"
 	desc = "A single-use device, that when activated, fakes an announcement, so people think all their electronic readings are wrong."
-	item_cost = 8
+	item_cost = 6
 	path = /obj/item/device/uplink_service/fake_ion_storm
 
 /datum/uplink_item/item/services/suit_sensor_garble
 	name = "Complete Suit Sensor Jamming"
 	desc = "A single-use device, that when activated, garbles all suit sensor data for 10 minutes."
-	item_cost = 16
+	item_cost = 12
 	path = /obj/item/device/uplink_service/jamming/garble
 
 /datum/uplink_item/item/services/fake_rad_storm
@@ -37,7 +37,7 @@
 /datum/uplink_item/item/services/suit_sensor_shutdown
 	name = "Complete Suit Sensor Shutdown"
 	desc = "A single-use device, that when activated, completely disables all suit sensors for 10 minutes."
-	item_cost = 40
+	item_cost = 32
 	path = /obj/item/device/uplink_service/jamming
 
 /***************

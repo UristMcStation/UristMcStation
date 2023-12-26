@@ -1,6 +1,6 @@
 /datum/map/nerva
 	name = "Nerva"
-	full_name = "ICS Nerva"
+	full_name = "\improper ICS Nerva"
 	path = "nerva"
 
 	lobby_screens = list('maps/nerva/nerva_lobby.dmi')
@@ -19,13 +19,14 @@
 	allowed_spawns = list("Cryogenic Storage", "Secondary Cryogenic Storage", "Cyborg Storage")
 	default_spawn = "Cryogenic Storage"
 
-	station_name  = "ICS Nerva"
-	station_short = "Nerva"
+	station_name  = "\improper ICS Nerva"
+	station_short = "\improper Nerva"
 	dock_name     = "TBD"
 	boss_name     = "Automated Announcement Systems"
 	boss_short    = "AAS"
 	company_name  = "Automated Announcement Systems"
 	company_short = "AAS"
+	ert_context = "The Emergency Response Team works for Asset Protection; your job is to protect NanoTrasen's ass-ets. There is a severe emergency on the ICS Nerva and you are tasked to go and fix the problem.\nYou should first gear up and discuss a plan with your team. More members may be joining, don't move out before you're ready."
 
 	map_admin_faxes = list("NanoTrasen Central Office", "Terran Confederacy Sector Headquarters", "United Human Alliance Outpost")
 

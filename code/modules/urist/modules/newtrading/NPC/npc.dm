@@ -104,11 +104,16 @@
 
 /datum/ai_holder/simple_animal/passive/nowandering/react_to_attack(atom/movable/attacker)
 	. = ..()
+
+	if(!attacker)
+		return
+
 	for(var/mob/living/simple_animal/hostile/scom/civ/combat/police/p in orange(7, holder))
-		p.ai_holder.hostile = TRUE
+		p.ai_holder.add_attacker(attacker)
+		p.ai_holder.react_to_attack(attacker)
 
 /mob/living/simple_animal/passive/npc/proc/can_use(mob/M)
-	if(M.stat || M.restrained() || M.lying || !istype(M, /mob/living) || get_dist(M, src) > 1)
+	if(!istype(M, /mob/living) || M.stat || M.restrained() || M.lying || get_dist(M, src) > 1)
 		return 0
 	return 1
 
@@ -151,3 +156,6 @@
 	M.Turn(90)
 	M.Translate(1,-6)
 	src.transform = M
+
+/mob/living/simple_animal/passive/npc/say(var/message, var/language = LANGUAGE_GALCOM)
+	..(message, language)

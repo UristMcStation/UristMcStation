@@ -10,8 +10,9 @@
 	boss_short    = "Centcomm"
 	company_name  = "NanoTrasen"
 	company_short = "NT"
-
-	current_lobby_screen = 'maps/glloydstation/glloydstation_lobby.dmi'
+	ert_context = "NanoTrasen"
+	lobby_screens = list('maps/glloydstation/glloydstation_lobby.png')
+	current_lobby_screen = 'maps/glloydstation/glloydstation_lobby.png'
 
 	station_levels = list(1)
 	admin_levels = list(2)
@@ -37,9 +38,11 @@
 	evac_controller_type = /datum/evacuation_controller/shuttle
 	allowed_spawns = list("Cryogenic Storage", "Cyborg Storage", "Arrivals Shuttle")
 
+	has_skybox_image = TRUE
+
 	blacklisted_programs = list(/datum/computer_file/program/deck_management,/datum/computer_file/program/docking)
 
-	date_offset = 535 //i need to fix the function for this
+	game_year = 2556 //forever trapped in time
 
 	objective_items = list(
 		"the captain's antique laser gun" = /obj/item/gun/energy/captain,
@@ -54,11 +57,6 @@
 		"a head of personnel's jumpsuit" = /obj/item/clothing/under/rank/head_of_personnel,
 		"the captain's pinpointer" = /obj/item/pinpointer
 		)
-
-/datum/map/glloydstation/perform_map_generation()
-	new /datum/random_map/automata/cave_system(null, 1, 1, 5, 255, 255) // Create the mining Z-level.
-	new /datum/random_map/noise/ore(null, 1, 1, 5, 64, 64)         // Create the mining ore distribution map.
-	return 1
 
 /obj/effect/overmap/visitable/urist
 	name = "NSS Urist"

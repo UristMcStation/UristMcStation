@@ -606,7 +606,7 @@
 
 /area/logistics/primtool
 	name = "\improper General Storage"
-	req_access = list()
+	req_access = list(access_prim_tool)
 
 /area/logistics/auxtool
 	name = "\improper Auxiliary Storage"

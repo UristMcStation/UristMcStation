@@ -762,7 +762,7 @@ GLOBAL_VAR_INIT(skip_allow_lists, FALSE)
 		return
 	GLOB.skip_allow_lists = !GLOB.skip_allow_lists
 	var/outcome = GLOB.skip_allow_lists ? "disabled" : "enabled"
-	log_and_message_admins("[key_name(usr)] [outcome] allow lists.")
+	log_and_message_admins("[outcome] allow lists.")
 
 
 /datum/admins/proc/toggleooc()
@@ -909,7 +909,7 @@ GLOBAL_VAR_INIT(skip_allow_lists, FALSE)
 		to_world("<B>New players may no longer enter the game.</B>")
 	else
 		to_world("<B>New players may now enter the game.</B>")
-	log_and_message_admins("[key_name_admin(usr)] toggled new player game entering.")
+	log_and_message_admins("toggled new player game entering.")
 	world.update_status()
 
 /datum/admins/proc/toggleaban()

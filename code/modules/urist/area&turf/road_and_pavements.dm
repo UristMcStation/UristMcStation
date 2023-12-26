@@ -40,6 +40,12 @@
 
 	. = ..()
 
+/turf/simulated/floor/pavement/lighting/empty
+	icon_state = "pave_empty"
+	dir = 2
+
+/turf/simulated/floor/pavement/lighting/corner
+	icon_state = "pave_corner"
 
 /turf/simulated/floor/fixed/uristturf/geminus
 	name = "floor"

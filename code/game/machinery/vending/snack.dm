@@ -32,7 +32,8 @@
 		/obj/item/reagent_containers/food/snacks/no_raisin = 1,
 		/obj/item/reagent_containers/food/snacks/spacetwinkie = 1,
 		/obj/item/reagent_containers/food/snacks/cheesiehonkers = 1,
-		/obj/item/reagent_containers/food/snacks/tastybread = 2
+		/obj/item/reagent_containers/food/snacks/tastybread = 2,
+		/obj/item/reagent_containers/food/snacks/bird = 2,
 	)
 	products = list(
 		/obj/item/clothing/mask/chewable/candy/lolli = 8,
@@ -45,7 +46,8 @@
 		/obj/item/reagent_containers/food/snacks/no_raisin = 6,
 		/obj/item/reagent_containers/food/snacks/spacetwinkie = 6,
 		/obj/item/reagent_containers/food/snacks/cheesiehonkers = 6,
-		/obj/item/reagent_containers/food/snacks/tastybread = 6
+		/obj/item/reagent_containers/food/snacks/tastybread = 6,
+		/obj/item/reagent_containers/food/snacks/bird = 6
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/snacks/syndicake = 6,

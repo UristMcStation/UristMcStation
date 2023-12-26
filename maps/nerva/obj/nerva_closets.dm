@@ -315,6 +315,62 @@
 	new /obj/item/device/flash(src)
 	new /obj/item/handcuffs(src)
 	new /obj/item/clothing/suit/storage/urist/coat/blueshield(src)
-	new /obj/item/clothing/suit/armor/pcarrier(src)
+	new /obj/item/bodyguardkit(src)
 	new /obj/item/clothing/accessory/armor_plate/medium(src)
 	return
+
+//closets for ninja because only the hardsuits spawn otherwise?
+/obj/structure/closet/crate/ninja/sol
+	name = "sol equipment crate"
+	desc = "A tactical equipment crate."
+
+/obj/structure/closet/crate/ninja/sol/WillContain()
+	return list(
+		/obj/item/rig/light/ninja/sol,
+		/obj/item/gun/projectile/pistol/m22f,
+		/obj/item/ammo_magazine/pistol/double = 2,
+		/obj/item/clothing/under/syndicate,
+		/obj/item/clothing/shoes/swat
+	)
+
+/obj/structure/closet/crate/ninja/gcc
+	name = "gcc equipment crate"
+	desc = "A heavy equipment crate."
+
+/obj/structure/closet/crate/ninja/gcc/WillContain()
+	return list(
+		/obj/item/rig/light/ninja/gcc,
+		/obj/item/gun/projectile/pistol/optimus,
+		/obj/item/ammo_magazine/pistol/double = 2,
+		/obj/item/ammo_magazine/box/minigun = 2,
+		/obj/item/clothing/under/syndicate,
+		/obj/item/clothing/shoes/swat
+	)
+
+/obj/structure/closet/crate/ninja/corpo
+	name = "corporate equipment crate"
+	desc = "A patented equipment crate."
+
+/obj/structure/closet/crate/ninja/corpo/WillContain()
+	return list(
+		/obj/item/rig/light/ninja/corpo,
+		/obj/item/gun/energy/gun,
+		/obj/item/inducer,
+		/obj/item/clothing/under/rank/security/corp,
+		/obj/item/clothing/shoes/swat,
+		/obj/item/clothing/accessory/badge/holo
+	)
+
+/obj/structure/closet/crate/ninja/merc
+	name = "mercenary equipment crate"
+	desc = "A traitorous equipment crate."
+
+/obj/structure/closet/crate/ninja/merc/WillContain()
+	return list(
+		/obj/item/rig/merc/ninja,
+		/obj/item/gun/projectile/revolver/medium,
+		/obj/item/ammo_magazine/speedloader = 2,
+		/obj/item/clothing/under/syndicate/combat,
+		/obj/item/clothing/shoes/swat,
+		/obj/item/clothing/mask/gas/syndicate
+	)

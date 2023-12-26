@@ -10,14 +10,14 @@
 	unacidable = TRUE
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_SMALL,
+		bullet = ARMOR_BALLISTIC_RESISTANT,
+		laser = ARMOR_LASER_HANDGUNS,
+		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SMALL
 		)
-	siemens_coefficient = 0.7
+	siemens_coefficient = 0.4
 	sprite_sheets_obj = null
 	wizard_garb = TRUE
 
@@ -29,14 +29,14 @@
 	unacidable = TRUE
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_SMALL,
+		bullet = ARMOR_BALLISTIC_RESISTANT,
+		laser = ARMOR_LASER_HANDGUNS,
+		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SMALL
 		)
-	siemens_coefficient = 0.7
+	siemens_coefficient = 0.4
 	sprite_sheets_obj = null
 	wizard_garb = TRUE
 	flags_inv = HIDESHOES|HIDEJUMPSUIT|HIDETAIL //For gloves.

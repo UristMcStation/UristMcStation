@@ -172,16 +172,20 @@
 	brute_armor = 2
 
 /material/skin/fur
-	name = MATERIAL_SKIN_FUR
 	icon_colour = "#7a726d"
 	tans_to = MATERIAL_LEATHER_FUR
 	scrapes_to = MATERIAL_HIDE_GENERIC
+
+/material/skin/fur/brown
+	name = MATERIAL_SKIN_FUR
+	icon_colour = "#5b4128"
 
 /material/skin/fur/gray
 	name = MATERIAL_SKIN_FUR_GRAY
 
 /material/skin/fur/white
 	name = MATERIAL_SKIN_FUR_WHITE
+	icon_colour = "#c1bab3"
 
 /material/skin/fur/orange
 	name = MATERIAL_SKIN_FUR_ORANGE

@@ -1,5 +1,5 @@
 /mob/living/carbon/human/get_acrobatics_multiplier(singleton/maneuver/attempting_maneuver)
-	. = ..() * 0.5
+	. = ..()
 
 	//Perhaps one day this should grab logic from organs directly
 	var/obj/item/organ/internal/augment/boost/muscle/aug = internal_organs_by_name["[BP_R_LEG]_aug"]

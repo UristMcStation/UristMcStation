@@ -122,3 +122,8 @@
 /obj/item/stock_parts/circuitboard/combat_computer/nerva
 	name = T_BOARD("ICS Nerva combat computer")
 	build_path = /obj/machinery/computer/combatcomputer/nerva
+
+/obj/item/stock_parts/circuitboard/cloning_computer
+	name = T_BOARD("cloning control console")
+	build_path = /obj/machinery/computer/cloning
+	origin_tech = list(TECH_DATA = 3, TECH_BIO = 3,)

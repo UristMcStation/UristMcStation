@@ -504,11 +504,7 @@
 /turf/simulated/wall/prepainted,
 /area/maintenance/third_deck/centp)
 "abr" = (
-/obj/machinery/light/small/red,
-/obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck Central Port Maintenance APC";
-	dir = 1
-	},
+/obj/machinery/light/small/red/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/centp)
 "abs" = (
@@ -543,7 +539,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/centp)
 "abv" = (
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -720,7 +716,7 @@
 /obj/item/device/radio/intercom{
 	pixel_y = 24
 	},
-/obj/machinery/organ_printer/robot/mapped,
+/obj/random/plushie,
 /turf/simulated/floor/tiled/white,
 /area/medical/locker)
 "abP" = (
@@ -857,7 +853,7 @@
 /area/maintenance/third_deck/afp)
 "ach" = (
 /obj/structure/closet/firecloset,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -1123,7 +1119,7 @@
 	dir = 9;
 	icon_state = "intact-supply"
 	},
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fp)
 "acJ" = (
@@ -3166,7 +3162,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/security/armoury)
 "ago" = (
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fp)
 "agp" = (
@@ -3174,10 +3170,6 @@
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24
-	},
-/obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck Fore Port Maintenance APC";
-	dir = 4
 	},
 /obj/structure/cable{
 	d2 = 2;
@@ -3306,7 +3298,7 @@
 "agz" = (
 /obj/structure/lattice,
 /obj/structure/disposalpipe/down,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -4632,10 +4624,6 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck Aft Port Maintenance APC";
-	dir = 1
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afp)
 "aiM" = (
@@ -5607,7 +5595,7 @@
 /obj/machinery/power/terminal{
 	dir = 4
 	},
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -6837,7 +6825,7 @@
 /area/maintenance/third_deck/afp)
 "ams" = (
 /obj/structure/closet/emcloset,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -6862,7 +6850,7 @@
 "amv" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /obj/structure/catwalk,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -7761,7 +7749,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/locker)
 "aoc" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -7826,7 +7814,7 @@
 	},
 /obj/machinery/tele_beacon,
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Deck 3 Port Central");
+	codes = list("patrol" = 1, "next_patrol" = "Deck 3 Port Central");
 	location = "Medbay"
 	},
 /turf/simulated/floor/tiled/white,
@@ -11260,7 +11248,7 @@
 	output_attempt = 1;
 	output_level = 100000;
 	outputting = 2;
-	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak=4)
+	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak = 4)
 	},
 /obj/effect/engine_setup/smes,
 /obj/machinery/light{
@@ -11470,7 +11458,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Medbay");
+	codes = list("patrol" = 1, "next_patrol" = "Medbay");
 	location = "Deck 3 Aft Port"
 	},
 /obj/structure/disposalpipe/segment{
@@ -12092,7 +12080,7 @@
 	output_attempt = 1;
 	output_level = 100000;
 	outputting = 2;
-	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak=4)
+	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak = 4)
 	},
 /obj/structure/sign/warning/secure_area{
 	desc = "A warning sign which reads 'HIGH VOLTAGE'";
@@ -12575,7 +12563,7 @@
 	output_attempt = 1;
 	output_level = 100000;
 	outputting = 2;
-	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak=4)
+	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak = 4)
 	},
 /obj/structure/cable/yellow,
 /obj/structure/cable/yellow{
@@ -13203,7 +13191,7 @@
 	output_attempt = 1;
 	output_level = 100000;
 	outputting = 2;
-	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak=4)
+	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak = 4)
 	},
 /obj/structure/cable/yellow,
 /turf/simulated/floor/tiled/dark,
@@ -13582,6 +13570,10 @@
 "axB" = (
 /obj/machinery/vending/snack{
 	dir = 8
+	},
+/obj/structure/noticeboard{
+	dir = 8;
+	pixel_x = 30
 	},
 /turf/simulated/floor/wood/walnut,
 /area/command/meeting)
@@ -14453,7 +14445,7 @@
 	icon_state = "pipe-c"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Security");
+	codes = list("patrol" = 1, "next_patrol" = "Security");
 	location = "Hydroponics"
 	},
 /turf/simulated/floor/tiled,
@@ -14549,7 +14541,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Bridge Starboard");
+	codes = list("patrol" = 1, "next_patrol" = "Bridge Starboard");
 	location = "Bar"
 	},
 /turf/simulated/floor/wood/walnut,
@@ -16947,7 +16939,7 @@
 	sort_type = "Disposals"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Deck 2 Aft Port");
+	codes = list("patrol" = 1, "next_patrol" = "Deck 2 Aft Port");
 	location = "Deck 3 Aft Starboard"
 	},
 /obj/structure/cable{
@@ -18354,7 +18346,7 @@
 	icon_state = "corner_white_three_quarters"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Personnel");
+	codes = list("patrol" = 1, "next_patrol" = "Personnel");
 	location = "Bridge Starboard"
 	},
 /turf/simulated/floor/tiled,
@@ -19111,9 +19103,6 @@
 	dir = 10;
 	icon_state = "intact-supply"
 	},
-/obj/machinery/camera/network/engineering{
-	c_tag = "Pipe Access"
-	},
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 4;
@@ -19253,12 +19242,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/logistics/mechbay)
 "aHz" = (
-/obj/structure/table/rack,
-/obj/item/stack/material/steel/fifty,
-/obj/item/stack/material/steel/fifty,
-/obj/item/stack/material/glass/fifty,
-/obj/item/stack/material/glass/fifty,
-/obj/item/stack/material/plasteel/fifty,
 /obj/machinery/firealarm{
 	pixel_y = 24
 	},
@@ -19266,9 +19249,8 @@
 	dir = 6;
 	icon_state = "corner_white"
 	},
-/obj/item/stack/material/aluminium/fifty,
-/obj/item/stack/material/plastic/fifty,
 /obj/effect/floor_decal/floordetail/tiled,
+/obj/machinery/organ_printer/robot/mapped,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/mechbay)
 "aHA" = (
@@ -19289,11 +19271,15 @@
 	pixel_y = 26;
 	req_access = list("ACCESS_ROBOTICS")
 	},
+/obj/item/stack/nanopaste,
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/robotics)
 "aHB" = (
 /obj/structure/bed/chair{
 	dir = 1
+	},
+/obj/effect/landmark/start{
+	name = "Roboticist"
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/robotics)
@@ -20203,7 +20189,7 @@
 	icon_state = "bordercolor"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="EVA");
+	codes = list("patrol" = 1, "next_patrol" = "EVA");
 	location = "Personnel"
 	},
 /turf/simulated/floor/tiled,
@@ -21209,7 +21195,7 @@
 "aLe" = (
 /obj/structure/bed/chair/office/light,
 /obj/effect/landmark/start{
-	name = "Supply Technician"
+	name = "Roboticist"
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -21718,7 +21704,7 @@
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -21862,6 +21848,14 @@
 	icon_state = "corner_white"
 	},
 /obj/effect/floor_decal/floordetail/tiled,
+/obj/structure/table/rack,
+/obj/item/stack/material/steel/fifty,
+/obj/item/stack/material/steel/fifty,
+/obj/item/stack/material/glass/fifty,
+/obj/item/stack/material/glass/fifty,
+/obj/item/stack/material/plasteel/fifty,
+/obj/item/stack/material/aluminium/fifty,
+/obj/item/stack/material/plastic/fifty,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/mechbay)
 "aMi" = (
@@ -22584,21 +22578,21 @@
 /turf/simulated/floor/tiled/white/server,
 /area/engineering/tcomms)
 "aNp" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck Aft Starboard Maintenance APC";
+/obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 4
 	},
+/obj/structure/catwalk,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/obj/structure/disposalpipe/segment,
+/obj/machinery/camera/network/third_deck{
+	c_tag = "Third Deck Aft Port Maintenance APC";
+	dir = 1
+	},
 /turf/simulated/floor/plating,
-/area/maintenance/third_deck/afs)
+/area/maintenance/third_deck/afp)
 "aNq" = (
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/plating,
@@ -23665,9 +23659,6 @@
 /turf/simulated/floor/carpet,
 /area/rnd/dorms)
 "aOS" = (
-/obj/machinery/camera/network/research{
-	c_tag = "Research Dormitory"
-	},
 /turf/simulated/floor/carpet,
 /area/rnd/dorms)
 "aOT" = (
@@ -24453,17 +24444,13 @@
 /obj/structure/closet/crate,
 /obj/random/maintenance/clean,
 /obj/item/extinguisher,
-/obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck Central Starboard Maintenance APC";
-	dir = 4
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/cents)
 "aQk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/catwalk,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 4;
 	icon_state = "firelight1"
 	},
@@ -24681,18 +24668,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/techmaint,
 /area/command/bodyguard)
-"aQC" = (
-/obj/machinery/camera/network/third_deck{
-	c_tag = "Third Deck Fore Starboard Maintenance APC";
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/fs)
 "aQD" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -25081,7 +25056,7 @@
 	icon_state = "2-8"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Mailing Office");
+	codes = list("patrol" = 1, "next_patrol" = "Mailing Office");
 	location = "Deck 3 Cargo"
 	},
 /turf/simulated/floor/tiled,
@@ -25308,7 +25283,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fs)
 "aRM" = (
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fs)
 "aRN" = (
@@ -26383,7 +26358,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afs)
 "aTJ" = (
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -26707,7 +26682,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/cmo)
 "aUr" = (
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
@@ -27964,9 +27939,6 @@
 	icon_state = "4-8";
 	pixel_x = 0
 	},
-/obj/structure/noticeboard{
-	pixel_y = 32
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -28229,7 +28201,7 @@
 	icon_state = "corner_white"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Bridge Port");
+	codes = list("patrol" = 1, "next_patrol" = "Bridge Port");
 	location = "Security"
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -28280,6 +28252,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/third_deck)
+"euF" = (
+/obj/structure/noticeboard{
+	pixel_y = 32;
+	name = "menu board"
+	},
+/turf/simulated/floor/wood/walnut,
+/area/civilian/bar)
 "eyp" = (
 /obj/machinery/door/airlock/security{
 	autoset_access = 0;
@@ -28316,7 +28295,7 @@
 	icon_state = "intact-scrubbers"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Deck 3 Aft Starboard");
+	codes = list("patrol" = 1, "next_patrol" = "Deck 3 Aft Starboard");
 	location = "Mailing Office"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -28820,7 +28799,7 @@
 	icon_state = "corner_white_three_quarters"
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Bar");
+	codes = list("patrol" = 1, "next_patrol" = "Bar");
 	location = "Bridge Port"
 	},
 /obj/structure/disposalpipe/segment{
@@ -28855,7 +28834,7 @@
 	dir = 5
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Hydroponics");
+	codes = list("patrol" = 1, "next_patrol" = "Hydroponics");
 	location = "Deck 3 Port Central"
 	},
 /turf/simulated/floor/tiled,
@@ -29648,6 +29627,17 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating/airless,
 /area/maintenance/third_deck/fp)
+"lTy" = (
+/obj/effect/floor_decal/corner/fadeblue{
+	dir = 6;
+	icon_state = "corner_white"
+	},
+/obj/structure/noticeboard{
+	dir = 8;
+	pixel_x = 30
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/fore/third_deck)
 "lWD" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
@@ -30516,7 +30506,7 @@
 /turf/simulated/floor/plating,
 /area/security/portexternalgun)
 "qGN" = (
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -30686,6 +30676,17 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/security/brig)
+"skx" = (
+/obj/effect/floor_decal/corner/black/full,
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/structure/noticeboard{
+	dir = 4;
+	pixel_x = -31
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/security/entrance)
 "smN" = (
 /obj/effect/floor_decal/corner/black/bordercorner{
 	dir = 4;
@@ -31165,7 +31166,7 @@
 	dir = 10
 	},
 /obj/machinery/navbeacon{
-	codes = list("patrol"=1,"next_patrol"="Deck 3 Cargo");
+	codes = list("patrol" = 1, "next_patrol" = "Deck 3 Cargo");
 	location = "EVA"
 	},
 /turf/simulated/floor/tiled,
@@ -31176,7 +31177,7 @@
 /area/logistics/mailing)
 "uzq" = (
 /obj/random/trash,
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afp)
 "uBC" = (
@@ -31646,7 +31647,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/security/checkpoint)
 "wSn" = (
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/structure/disposalpipe/segment{
 	dir = 8;
 	icon_state = "pipe-c"
@@ -47093,7 +47094,7 @@ aaj
 ads
 aao
 aaj
-afC
+aNp
 agx
 ahi
 aiE
@@ -49950,7 +49951,7 @@ aGn
 aGn
 aKR
 aLX
-aNp
+aOy
 aOy
 aOy
 aOy
@@ -56189,7 +56190,7 @@ ajt
 vUy
 alU
 and
-and
+skx
 aoz
 apN
 arb
@@ -59427,8 +59428,8 @@ apZ
 tfp
 ast
 atD
-auQ
-awh
+auO
+euF
 axt
 ayC
 hSY
@@ -60845,7 +60846,7 @@ eJz
 vGr
 fGH
 fGH
-fGH
+lTy
 fGH
 fGH
 mcq
@@ -61047,7 +61048,7 @@ auU
 auU
 axx
 axx
-axx
+auU
 axx
 axx
 auU
@@ -61668,7 +61669,7 @@ aLB
 aMJ
 aOa
 aKy
-aQC
+ltj
 aRL
 aSO
 aRL

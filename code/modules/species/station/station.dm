@@ -256,6 +256,8 @@
 		/singleton/trait/general/permeable_skin = TRAIT_LEVEL_MINOR
 	)
 
+	bodyfall_sound = 'sound/effects/bodyfall_skrell.ogg'
+
 /datum/species/skrell/get_sex(mob/living/carbon/human/H)
 	return istype(H) && (H.descriptors["headtail length"] == 1 ? MALE : FEMALE)
 
@@ -354,7 +356,7 @@
 
 	species_flags = SPECIES_FLAG_NO_SCAN | SPECIES_FLAG_IS_PLANT | SPECIES_FLAG_NO_PAIN | SPECIES_FLAG_NO_SLIP
 	appearance_flags = 0
-	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED | SPECIES_NO_FBP_CONSTRUCTION | SPECIES_NO_FBP_CHARGEN
+	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED | SPECIES_NO_FBP_CONSTRUCTION | SPECIES_NO_FBP_CHARGEN | SPECIES_FLAG_NO_LACE
 
 	blood_color = "#004400"
 	flesh_color = "#907e4a"

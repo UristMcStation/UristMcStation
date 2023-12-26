@@ -40,13 +40,9 @@
 	startswith = list(/obj/item/mine/frag = 3)
 
 /obj/effect/mine/proc/explode2(obj)
-	/* oldcode, pre-fragification -scr
-	explosion(loc, 0, 0, 2, 2)
-	spawn(1)
-		qdel(src)*/
 	//vars stolen for fragification
 	var/fragment_type = /obj/item/projectile/bullet/pellet/fragment
-	var/num_fragments = 72  //total number of fragments produced by the grenade
+	var/num_fragments = 62  //total number of fragments produced by the grenade
 	//The radius of the circle used to launch projectiles. Lower values mean less projectiles are used but if set too low gaps may appear in the spread pattern
 	var/spread_range = 7 //leave as is, for some reason setting this higher makes the spread pattern have gaps close to the epicenter
 
@@ -73,9 +69,9 @@
 			//lying on a frag grenade while the grenade is on the ground causes you to absorb most of the shrapnel.
 			//you will most likely be dead, but others nearby will be spared the fragments that hit you instead.
 			if(M.lying && isturf(src.loc))
-				P.attack_mob(M, 0, 0)
+				P.attack_mob(M, 0, 5)
 			else
-				P.attack_mob(M, 0, 100) //otherwise, allow a decent amount of fragments to pass
+				P.attack_mob(M, 0, 60) //otherwise, allow a decent amount of fragments to pass
 
 	qdel(src)
 

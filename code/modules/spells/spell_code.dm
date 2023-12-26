@@ -373,17 +373,17 @@ var/global/list/spells = typesof(/spell) //needed for the badmin verb for now
 	name = initial(name)
 	switch(level_max[Sp_SPEED] - spell_levels[Sp_SPEED])
 		if(3)
-			temp = "You have improved [name] into Efficient [name]."
+			temp = "You have improved [name]'s cooldown to [charge_max / 10] seconds."
 			name = "Efficient [name]"
 		if(2)
-			temp = "You have improved [name] into Quickened [name]."
+			temp = "You have improved [name]'s cooldown to [charge_max / 10] seconds."
 			name = "Quickened [name]"
 		if(1)
-			temp = "You have improved [name] into Free [name]."
-			name = "Free [name]"
+			temp = "You have improved [name]'s cooldown to [charge_max / 10] seconds."
+			name = "Rapid [name]"
 		if(0)
-			temp = "You have improved [name] into Instant [name]."
-			name = "Instant [name]"
+			temp = "You have improved [name]'s cooldown to [charge_max / 10] seconds."
+			name = "Ludicrous [name]"
 
 	return temp
 

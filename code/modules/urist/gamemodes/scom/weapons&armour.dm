@@ -75,7 +75,7 @@
 	projectile_type = /obj/item/projectile/beam //maybe change this
 	one_hand_penalty = 4
 
-/obj/item/gun/projectile/sniper
+/obj/item/gun/projectile/svd
 	item_icons = DEF_URIST_INHANDS
 	name = "semi automatic sniper"
 	desc = "A powerful semi automatic sniper, perfect for long-range warfare."
@@ -100,7 +100,7 @@
 	scoped_accuracy = 4 //increased accuracy over the LWAP because only one shot
 	scope_zoom = 2
 
-/obj/item/gun/projectile/sniper/on_update_icon()
+/obj/item/gun/projectile/svd/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "SVD"
@@ -108,7 +108,7 @@
 		icon_state = "SVD-empty"
 
 /obj/item/ammo_magazine/rifle/military
-	name = "magazine (7.62mm)"
+	name = "rifle magazine"
 	icon_state = "7.62mm"
 	icon = 'icons/urist/items/guns.dmi'
 	origin_tech = "combat=2"
@@ -117,26 +117,16 @@
 	caliber = CALIBER_RIFLE_MILITARY
 
 /obj/item/ammo_magazine/rifle/military/sniper
-	name = "magazine (7.62mm)"
-	icon_state = "7.62mm"
-	icon = 'icons/urist/items/guns.dmi'
-	origin_tech = "combat=2"
-	ammo_type = /obj/item/ammo_casing/rifle/military/sniper
+	name = "ten-round rifle magazine"
+	ammo_type = /obj/item/ammo_casing/rifle/military
 	max_ammo = 10
-	mag_type = MAGAZINE
 	multiple_sprites = 1
-	caliber = CALIBER_RIFLE_MILITARY
 
 /obj/item/ammo_magazine/rifle/military/sniper/empty
-	name = "magazine (7.62mm)"
-	icon_state = "7.62mm"
-	icon = 'icons/urist/items/guns.dmi'
-	ammo_type = /obj/item/ammo_casing/rifle/military/sniper
-	mag_type = MAGAZINE
 	initial_ammo = 0
 
 /obj/item/ammo_casing/rifle/military/sniper
-	desc = "A 7.62mm bullet casing."
+	desc = "A military rifle bullet casing."
 	caliber = CALIBER_RIFLE_MILITARY
 	projectile_type = /obj/item/projectile/bullet/rifle/sniper
 
@@ -232,7 +222,7 @@
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/grenade_launcher,
-		/obj/item/rig_module/mounted/egun,
+		/obj/item/rig_module/mounted/energy/egun,
 		)
 
 /obj/item/rig/ert/scomlead
@@ -240,9 +230,9 @@
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/maneuvering_jets,
-		/obj/item/rig_module/mounted/egun,
+		/obj/item/rig_module/mounted/energy/egun,
 		/obj/item/rig_module/device/healthscanner,
-		/obj/item/rig_module/mounted/energy_blade
+		/obj/item/rig_module/mounted/energy/energy_blade
 		)
 
 /obj/item/clothing/suit/urist/armor
@@ -268,8 +258,8 @@
 	initial_modules = list(
 		/obj/item/rig_module/grenade_launcher,
 		/obj/item/rig_module/stealth_field,
-		/obj/item/rig_module/mounted/energy_blade,
-		/obj/item/rig_module/mounted/egun
+		/obj/item/rig_module/mounted/energy/energy_blade,
+		/obj/item/rig_module/mounted/energy/egun
 		)
 
 	allowed = list(/obj/item/storage/backpack,/obj/item/device/flashlight, /obj/item/tank, /obj/item/device/t_scanner, /obj/item/rcd, /obj/item/crowbar, \
@@ -286,7 +276,7 @@
 
 	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 30, rad = 30)
 	initial_modules = list(
-		/obj/item/rig_module/mounted/energy_blade,
+		/obj/item/rig_module/mounted/energy/energy_blade,
 		/obj/item/rig_module/stealth_field
 		)
 

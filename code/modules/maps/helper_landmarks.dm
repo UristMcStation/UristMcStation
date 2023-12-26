@@ -2,6 +2,7 @@
 /obj/effect/landmark/map_load_mark
 	name = "map loader landmark"
 	var/list/templates	//list of template types to pick from
+	var/load_centered = TRUE
 
 //Throw things in the area around randomly
 /obj/effect/landmark/carnage_mark
@@ -73,4 +74,14 @@
 	GLOB.shuttle_added.unregister_global(src, .proc/check_shuttle)
 	if(shuttle_datum)
 		GLOB.shuttle_moved_event.unregister(shuttle_datum, src, .proc/delete_everything)
+	. = ..()
+
+/obj/effect/landmark/scorcher/certain	//for guaranteed scorchings
+	name = "fire"
+	icon_state = "fire"
+
+/obj/effect/landmark/scorcher/certain/Initialize()
+	var/turf/simulated/floor/T = get_turf(src)
+	if(istype(T))
+		T.burn_tile()
 	. = ..()

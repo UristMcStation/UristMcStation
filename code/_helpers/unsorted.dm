@@ -313,6 +313,9 @@ Turf and target are seperate in case you want to teleport some distance from a t
 			return
 
 		fully_replace_character_name(newname)
+		var/datum/computer_file/report/crew_record/CR = get_crewmember_record(name)
+		if(CR)
+			CR.set_formal_name(newname)
 
 //Picks a string of symbols to display as the law number for hacked or ion laws
 /proc/ionnum()
@@ -758,7 +761,9 @@ GLOBAL_LIST_INIT(duplicate_object_disallowed_vars, list(
 					temp_target_turf.underlays = old_underlays
 					for (var/obj/obj in source_turf)
 						if (!obj.simulated)
-							continue
+							var/obj/effect/landmark/LM = obj	//Check for hologram landmarks
+							if(!istype(LM) || !LM.can_copy)
+								continue
 						copied_movables += clone_atom(obj, TRUE, temp_target_turf)
 					for (var/mob/mob in source_turf)
 						if (!mob.simulated)

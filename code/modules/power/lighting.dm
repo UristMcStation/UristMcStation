@@ -216,6 +216,9 @@
 /obj/machinery/light/small/d_green
 	light_type = /obj/item/light/bulb/d_green
 
+/obj/machinery/light/d_green
+	light_type = /obj/item/light/tube/d_green
+
 /obj/machinery/light/spot
 	name = "spotlight"
 	desc = "A more robust socket for light tubes that demand more power."
@@ -508,13 +511,7 @@
 	to_chat(user, SPAN_NOTICE("You cause \the [src] to flick on and off."))
 	flicker(1)
 
-// attack with hand - remove tube/bulb
-// if hands aren't protected and the light is on, burn the player
-/obj/machinery/light/physical_attack_hand(mob/living/user)
-	if(!lightbulb)
-		to_chat(user, SPAN_WARNING("There is no [get_fitting_name()] in this light."))
-		return TRUE
-
+/obj/machinery/light/attack_hand(mob/user)
 	if(istype(user,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
 		if(H.species.can_shred(H))
@@ -524,6 +521,14 @@
 				SPAN_WARNING("You hear glass shattering!"))
 			broken()
 			return TRUE
+	..()
+
+// attack with hand - remove tube/bulb
+// if hands aren't protected and the light is on, burn the player
+/obj/machinery/light/physical_attack_hand(mob/living/user)
+	if(!lightbulb)
+		to_chat(user, SPAN_WARNING("There is no [get_fitting_name()] in this light."))
+		return TRUE
 
 	// make it burn hands if not wearing fire-insulated gloves
 	if(on)
@@ -623,8 +628,15 @@
 		set_mode(null)
 
 /obj/item/light/bulb/d_green
-	color = "#4b734b"
-	b_colour = "#4b734b"
+	color = "#3b703b"
+	b_colour = "#3b703b"
+
+/obj/item/light/tube/d_green
+	color = "#3b703b"
+	b_colour = "#3b703b"
+	b_max_bright = 0.75
+	b_inner_range = 0.5
+	b_outer_range = 6
 
 /obj/machinery/light/navigation
 	name = "navigation light"

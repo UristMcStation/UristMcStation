@@ -386,6 +386,7 @@
 "bm" = (
 /obj/structure/table/woodentable/ebony,
 /obj/effect/decal/cleanable/filth,
+/obj/structure/salvageable/personal,
 /turf/simulated/floor,
 /area/planet/forest/cave/hall)
 "bn" = (
@@ -557,10 +558,6 @@
 /area/planet/forest/cave/engie)
 "bK" = (
 /obj/machinery/power/port_gen/pacman/super/potato,
-/obj/structure/cable{
-	dir = 4;
-	icon_state = "0-8"
-	},
 /turf/simulated/floor,
 /area/planet/forest/cave/engie)
 "bL" = (
@@ -662,6 +659,7 @@
 "bZ" = (
 /obj/structure/table/standard,
 /obj/item/storage/toolbox/mechanical,
+/obj/machinery/fabricator/micro,
 /turf/simulated/floor/tiled/dark,
 /area/planet/forest/cave/engie)
 "ca" = (
@@ -772,41 +770,7 @@
 	dir = 1;
 	icon_state = "pipe-j2"
 	},
-/turf/simulated/floor,
-/area/planet/forest/cave/engie)
-"co" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor,
-/area/planet/forest/cave/engie)
-"cp" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor,
-/area/planet/forest/cave/engie)
-"cq" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
+/obj/structure/salvageable/autolathe,
 /turf/simulated/floor,
 /area/planet/forest/cave/engie)
 "cr" = (
@@ -830,6 +794,7 @@
 	},
 /obj/effect/floor_decal/rust/mono/medium,
 /obj/effect/decal/cleanable/filth,
+/obj/structure/closet/secure_closet/security,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "cv" = (
@@ -952,6 +917,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/item/stack/cable_coil/blue,
 /turf/simulated/floor,
 /area/planet/forest/cave/engie)
 "cN" = (
@@ -986,8 +952,9 @@
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "cS" = (
-/obj/structure/closet/secure_closet/security,
 /obj/effect/decal/cleanable/filth,
+/obj/structure/table/woodentable_reinforced,
+/obj/structure/salvageable/radio,
 /turf/simulated/floor,
 /area/planet/forest/cave/hall)
 "cT" = (
@@ -1171,6 +1138,7 @@
 /area/planet/forest/cave/hall)
 "dm" = (
 /obj/structure/table/woodentable/ebony,
+/obj/structure/salvageable/personal,
 /turf/simulated/floor/wood/mahogany,
 /area/planet/forest/cave/hall)
 "dn" = (
@@ -1305,6 +1273,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/structure/salvageable/machine_os,
 /turf/simulated/floor,
 /area/planet/forest/cave/engie)
 "dC" = (
@@ -1601,6 +1570,7 @@
 /obj/structure/cable/blue{
 	icon_state = "4-10"
 	},
+/obj/item/stock_parts/capacitor/adv,
 /turf/simulated/floor,
 /area/planet/forest/cave/engie)
 "ef" = (
@@ -1961,6 +1931,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/item/stock_parts/capacitor/adv,
 /turf/simulated/floor,
 /area/planet/forest/cave/engie)
 "eL" = (
@@ -2285,6 +2256,7 @@
 	icon_state = "alarm0";
 	pixel_y = -22
 	},
+/obj/structure/salvageable/machine,
 /turf/simulated/floor,
 /area/planet/forest/cave/engie)
 "fD" = (
@@ -2507,6 +2479,7 @@
 	pixel_x = 5;
 	pixel_y = -27
 	},
+/obj/item/treasure/tape,
 /turf/simulated/floor,
 /area/planet/forest/cave/dorms)
 "gm" = (
@@ -2654,6 +2627,7 @@
 /obj/effect/floor_decal/corner/purple/half{
 	dir = 1
 	},
+/obj/structure/salvageable/machine_os,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "gD" = (
@@ -2661,6 +2635,7 @@
 	dir = 1;
 	icon_state = "corner_white_three_quarters"
 	},
+/obj/structure/salvageable/machine_os,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "gE" = (
@@ -2959,6 +2934,7 @@
 /obj/item/toy/plushie/loot,
 /obj/item/pen/department/sci,
 /obj/item/pen/multi,
+/obj/structure/salvageable/personal,
 /turf/simulated/floor/carpet/purple,
 /area/planet/forest/cave/lab)
 "he" = (
@@ -3452,6 +3428,7 @@
 	dir = 4;
 	icon_state = "corner_white_three_quarters"
 	},
+/obj/structure/salvageable/console_broken_os,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "hN" = (
@@ -3975,6 +3952,7 @@
 /obj/effect/floor_decal/corner/purple/half{
 	dir = 8
 	},
+/obj/structure/salvageable/machine,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "jc" = (
@@ -4040,7 +4018,7 @@
 /area/planet/forest/cave/lobby)
 "jo" = (
 /obj/structure/table/woodentable_reinforced,
-/obj/item/paper,
+/obj/structure/salvageable/personal,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/lobby)
 "jp" = (
@@ -4132,7 +4110,7 @@
 /obj/effect/floor_decal/corner/purple/half{
 	dir = 8
 	},
-/obj/item/treasure/tape/tape3,
+/obj/item/treasure/tape,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "jD" = (
@@ -4153,6 +4131,7 @@
 /obj/effect/floor_decal/corner/purple/half{
 	dir = 4
 	},
+/obj/item/treasure/tape,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "jG" = (
@@ -4297,6 +4276,7 @@
 /obj/effect/floor_decal/corner/purple/half{
 	dir = 8
 	},
+/obj/structure/salvageable/personal,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "kb" = (
@@ -4324,8 +4304,8 @@
 /area/planet/forest/cave/lab)
 "ke" = (
 /obj/structure/table/standard,
-/obj/item/treasure/tape/tape2,
 /obj/item/material/knife/hook,
+/obj/item/treasure/tape,
 /turf/simulated/floor,
 /area/planet/forest/cave/lab)
 "kf" = (
@@ -4875,6 +4855,11 @@
 /obj/item/material/shard,
 /turf/simulated/floor/tiled/dark,
 /area/planet/forest/cave/engie)
+"qP" = (
+/obj/structure/table/standard,
+/obj/structure/salvageable/television,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
 "sT" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/floor/tiled,
@@ -4883,6 +4868,11 @@
 /obj/item/storage/ore,
 /turf/simulated/floor/asteroid/planet,
 /area/planet/forest/cave)
+"xI" = (
+/obj/effect/decal/cleanable/blood,
+/obj/structure/salvageable/computer,
+/turf/simulated/floor,
+/area/planet/forest/cave/lab)
 "yv" = (
 /obj/structure/closet/crate/secure,
 /obj/item/stock_parts/matter_bin/adv,
@@ -4917,10 +4907,23 @@
 /obj/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/floor,
 /area/planet/forest/cave/hall)
+"Ao" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/structure/salvageable/console_broken_os,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
 "DH" = (
 /obj/item/clothing/glasses/eyepatch/hud/meson,
 /turf/simulated/floor/asteroid/planet,
 /area/planet/forest/cave)
+"FE" = (
+/obj/effect/decal/cleanable/blood,
+/obj/structure/salvageable/server,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
 "Hn" = (
 /obj/structure/grille/broken,
 /obj/item/material/shard,
@@ -4928,12 +4931,17 @@
 /obj/item/material/shard,
 /turf/simulated/floor/tiled/dark,
 /area/planet/forest/cave/engie)
+"Ir" = (
+/obj/structure/salvageable/computer_os,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
 "Mm" = (
 /obj/effect/floor_decal/corner/purple/three_quarters{
 	dir = 4;
 	icon_state = "corner_white_three_quarters"
 	},
 /obj/random/junk,
+/obj/structure/salvageable/data,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "MK" = (
@@ -4986,6 +4994,33 @@
 /obj/structure/largecrate/animal/chick,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
+"Ul" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/salvageable/machine_os,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"Vj" = (
+/obj/effect/floor_decal/corner/purple/half{
+	dir = 1
+	},
+/obj/structure/salvageable/bliss,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"VG" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/salvageable/machine,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"VZ" = (
+/obj/effect/floor_decal/rust/mono/high,
+/obj/structure/salvageable/autolathe,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"Ws" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/salvageable/autolathe,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
 "WS" = (
 /obj/item/device/multitool,
 /turf/simulated/floor/asteroid/planet,
@@ -8214,7 +8249,7 @@ hQ
 ii
 iE
 jl
-jM
+jo
 kk
 kH
 la
@@ -10348,7 +10383,7 @@ dV
 ex
 fb
 fy
-fT
+qP
 gt
 gQ
 hA
@@ -10548,7 +10583,7 @@ ce
 bA
 de
 aJ
-dW
+Ao
 ez
 cs
 fy
@@ -10650,7 +10685,7 @@ cf
 cH
 df
 aJ
-dW
+Ao
 eA
 fd
 fz
@@ -11061,7 +11096,7 @@ dy
 dY
 eE
 fg
-cK
+VZ
 gb
 gy
 gW
@@ -11461,10 +11496,10 @@ aD
 aG
 aL
 ad
-ad
+Ws
 cn
 ad
-ad
+VG
 dB
 ea
 eI
@@ -11768,7 +11803,7 @@ aE
 aJ
 bk
 bK
-co
+cI
 cL
 bk
 bk
@@ -11781,7 +11816,7 @@ gb
 hb
 gb
 gb
-gC
+Vj
 je
 jJ
 kg
@@ -11870,14 +11905,14 @@ aE
 aJ
 bk
 bK
-cp
+cI
 cL
 bk
 dC
 ee
 eM
 ad
-ad
+Ul
 gc
 gE
 hc
@@ -11886,7 +11921,7 @@ gb
 iA
 jf
 jJ
-je
+xI
 gb
 gb
 al
@@ -11972,8 +12007,8 @@ aE
 aJ
 bk
 bK
-cq
-cM
+cI
+cI
 cM
 dD
 ef
@@ -11988,7 +12023,7 @@ gb
 Tu
 jg
 jK
-jf
+FE
 gb
 gb
 al
@@ -12079,7 +12114,7 @@ bk
 bk
 dC
 eg
-cI
+Ir
 fj
 fH
 gb

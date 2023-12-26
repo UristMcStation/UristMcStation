@@ -47,5 +47,6 @@
 		/area/map_template/syndicate_mothership,
 		/area/map_template/merc_spawn,
 		/area/map_template/ninja_dojo,
-		/area/icarus
+		/area/icarus,
+		/area/map_template/deepmaint_wfc
 	)

@@ -652,7 +652,7 @@
 	dir = 4;
 	icon_state = "intact"
 	},
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -688,7 +688,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -704,9 +704,6 @@
 /obj/structure/cable{
 	d2 = 8;
 	icon_state = "0-8"
-	},
-/obj/machinery/camera/network/first_deck{
-	c_tag = "First Deck Aft Port Maintenance APC"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afp)
@@ -1810,7 +1807,7 @@
 /area/maintenance/first_deck/fp)
 "dR" = (
 /obj/structure/ladder,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 4;
 	icon_state = "firelight1"
 	},
@@ -1872,9 +1869,6 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 27;
 	pixel_y = 1
-	},
-/obj/machinery/camera/network/first_deck{
-	c_tag = "First Deck Emergency Storage"
 	},
 /turf/simulated/floor/plating,
 /area/civilian/first_emergency_storage)
@@ -2034,7 +2028,7 @@
 /area/maintenance/first_deck/fp)
 "en" = (
 /obj/structure/catwalk,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -2542,7 +2536,7 @@
 	dir = 10;
 	icon_state = "intact-supply"
 	},
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -2566,7 +2560,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "fp" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -2932,7 +2926,7 @@
 /area/maintenance/first_deck/central)
 "fY" = (
 /obj/structure/catwalk,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -3090,7 +3084,6 @@
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	frequency = 1379;
 	id_tag = "solar_bridge_airlock";
-	pixel_x = 2;
 	pixel_y = 24;
 	req_access = list("ACCESS_EXTERNAL");
 	tag_airpump = "solar_bridge_pump";
@@ -3101,8 +3094,7 @@
 /obj/machinery/airlock_sensor{
 	frequency = 1379;
 	id_tag = "solar_bridge_sensor";
-	pixel_x = -12;
-	pixel_y = 24
+	pixel_y = -24
 	},
 /obj/effect/floor_decal/techfloor,
 /obj/effect/floor_decal/techfloor{
@@ -3799,7 +3791,7 @@
 	icon_state = "map"
 	},
 /obj/structure/catwalk,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -4016,7 +4008,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 4;
 	icon_state = "firelight1"
 	},
@@ -5023,9 +5015,6 @@
 	dir = 4;
 	icon_state = "intact-supply"
 	},
-/obj/machinery/camera/network/first_deck{
-	c_tag = "First Deck Central Maintenance APC"
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "jP" = (
@@ -5042,7 +5031,7 @@
 /area/maintenance/first_deck/central)
 "jQ" = (
 /obj/structure/reagent_dispensers/watertank,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -5093,7 +5082,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/catwalk,
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -5982,10 +5971,6 @@
 /turf/simulated/floor/reinforced,
 /area/security/topgun)
 "ls" = (
-/obj/machinery/camera/network/first_deck{
-	c_tag = "First Deck Aft Starboard Maintenance APC";
-	dir = 4
-	},
 /obj/random/firstaid,
 /obj/structure/table/rack,
 /turf/simulated/floor/plating,
@@ -6002,7 +5987,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 4;
 	icon_state = "firelight1"
 	},
@@ -6240,7 +6225,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5;
 	icon_state = "intact-scrubbers"
@@ -6496,7 +6481,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "lZ" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -6529,7 +6514,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 4;
 	icon_state = "firelight1"
 	},
@@ -6750,7 +6735,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "mJ" = (
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
 	},
@@ -6846,7 +6831,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fs)
 "mT" = (
@@ -7263,7 +7248,7 @@
 /obj/machinery/power/terminal{
 	dir = 4
 	},
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -7395,7 +7380,7 @@
 	pixel_y = 4
 	},
 /obj/item/device/radio,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
 	},
@@ -7678,7 +7663,7 @@
 	},
 /obj/random/toolbox,
 /obj/random/tool,
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fs)
 "ot" = (
@@ -8152,7 +8137,7 @@
 	frequency = 1379;
 	id_tag = "aft_solar_airlock";
 	pixel_x = 0;
-	pixel_y = 18;
+	pixel_y = 25;
 	req_access = list("ACCESS_EXTERNAL");
 	tag_airpump = "aft_solar_pump";
 	tag_chamber_sensor = "aft_solar_sensor";
@@ -8162,8 +8147,7 @@
 /obj/machinery/airlock_sensor{
 	frequency = 1379;
 	id_tag = "aft_solar_sensor";
-	pixel_x = 12;
-	pixel_y = -25
+	pixel_y = -24
 	},
 /obj/structure/cable/orange{
 	d1 = 4;
@@ -8440,7 +8424,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/aftsolar)
 "pM" = (
-/obj/machinery/light/small/red,
+/obj/machinery/light/small/red/maintenance,
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 4;
@@ -8513,7 +8497,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 4;
 	icon_state = "firelight1"
 	},
@@ -8535,7 +8519,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/catwalk,
-/obj/machinery/light/small/red{
+/obj/machinery/light/small/red/maintenance{
 	dir = 4;
 	icon_state = "firelight1"
 	},
@@ -8798,6 +8782,10 @@
 	},
 /turf/space,
 /area/space)
+"rV" = (
+/turf/simulated/wall/r_wall/prepainted,
+/turf/simulated/floor/plating,
+/area/maintenance/aftsolar)
 "ue" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8;
@@ -25887,11 +25875,11 @@ ar
 ar
 ar
 oG
-oT
+rV
 oT
 pt
 oT
-oT
+rV
 ar
 ar
 ar
@@ -32569,7 +32557,7 @@ aa
 aa
 aa
 aa
-qv
+aa
 aa
 aa
 aa
@@ -35197,7 +35185,7 @@ aa
 aa
 aa
 aa
-aa
+qv
 aa
 aa
 aa

@@ -45,7 +45,6 @@
 
 	available_cultural_info = list(
 		TAG_HOMEWORLD = list(
-			HOME_SYSTEM_EARTH,
 			HOME_SYSTEM_LUNA,
 			HOME_SYSTEM_MARS,
 			HOME_SYSTEM_VENUS,

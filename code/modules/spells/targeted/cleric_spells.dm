@@ -120,13 +120,13 @@
 
 /spell/targeted/heal_target/sacrifice
 	name = "Sacrifice"
-	desc = "This spell heals immensily. For a price. Does not require wizard garb."
+	desc = "This spell heals immensely. For a price. Does not require wizard garb."
 	feedback = "SF"
 	spell_flags = SELECTABLE
 	invocation = "Ei'Nath Borv Di'Nath!"
 	charge_type = Sp_HOLDVAR
 	holder_var_type = "fireloss"
-	holder_var_amount = 100
+	holder_var_amount = 200
 	level_max = list(Sp_TOTAL = 1, Sp_SPEED = 0, Sp_POWER = 1)
 
 	amt_dam_brute = -1000
@@ -175,7 +175,7 @@
 		effect = new /obj/effect/rift(T)
 		effect.color = "f0e68c"
 		L.forceMove(effect)
-		var/time = (L.getBruteLoss() + L.getFireLoss()) * 20
+		var/time = min((L.getBruteLoss() + L.getFireLoss()) * 20, 5 MINUTES)
 		L.status_flags &= GODMODE
 		to_chat(L,SPAN_NOTICE("You will be in stasis for [time/10] second\s."))
 		addtimer(new Callback(src,.proc/cancel_rift),time)
@@ -195,7 +195,7 @@
 
 /obj/effect/rift
 	name = "rift"
-	desc = "a tear in space and time."
+	desc = "A tear in space and time."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "rift"
 	unacidable = TRUE

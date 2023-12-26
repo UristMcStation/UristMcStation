@@ -105,7 +105,7 @@
 			A.forceMove(src)
 			attached_device = I
 			A.holder = src
-			log_and_message_admins("[user] has rigged a torpedo IED.")
+			log_and_message_admins("has rigged a torpedo IED.",  user)
 			playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 			icon_state = "torpedowarhead-open-mod-armed"
 	return

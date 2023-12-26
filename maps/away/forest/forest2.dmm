@@ -136,12 +136,6 @@
 	},
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest/cabin1)
-"aJ" = (
-/obj/structure/grille,
-/obj/structure/window/basic/full,
-/obj/structure/window/basic/full,
-/turf/simulated/floor/wood,
-/area/planet/forest/cabin1)
 "aK" = (
 /obj/structure/grille,
 /obj/structure/window/basic/full,
@@ -726,6 +720,30 @@
 /obj/structure/table/woodentable/mahogany,
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/item/material/knife/kitchen,
+/obj/item/reagent_containers/food/condiment/small/peppermill,
+/obj/item/reagent_containers/food/condiment/small/saltshaker,
+/obj/item/reagent_containers/food/drinks/glass2/coffeecup/rainbow{
+	pixel_x = -13;
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/food/drinks/glass2/coffeecup/pawn{
+	pixel_x = 10;
+	pixel_y = 10
+	},
+/obj/item/reagent_containers/food/drinks/glass2/coffeecup/heart{
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/food/drinks/glass2/coffeecup/green{
+	pixel_x = -6;
+	pixel_y = 10
+	},
+/obj/item/reagent_containers/food/drinks/glass2/coffeecup/black,
+/obj/item/reagent_containers/food/drinks/glass2/coffeecup{
+	pixel_x = 12
+	},
+/obj/item/reagent_containers/food/drinks/glass2/coffeecup/dais{
+	pixel_x = -10
+	},
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cabin1)
 "df" = (
@@ -927,6 +945,11 @@
 /obj/item/stock_parts/capacitor,
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest)
+"jB" = (
+/obj/structure/table/woodentable/walnut,
+/obj/structure/salvageable/radio,
+/turf/simulated/floor/wood/maple,
+/area/planet/forest)
 "kk" = (
 /obj/structure/kitchenspike,
 /turf/simulated/floor/planet/temperate,
@@ -1016,6 +1039,11 @@
 /obj/machinery/radio_beacon,
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest)
+"JV" = (
+/obj/structure/salvageable/stove,
+/obj/item/reagent_containers/food/condiment,
+/turf/simulated/floor/planet/temperate,
+/area/planet/forest)
 "KI" = (
 /obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/planet/temperate,
@@ -1038,6 +1066,10 @@
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /obj/item/reagent_containers/food/drinks/bottle/small/ale,
 /turf/simulated/floor/planet/temperate,
+/area/planet/forest)
+"Tk" = (
+/obj/structure/salvageable/television,
+/turf/simulated/floor/plating,
 /area/planet/forest)
 "Ty" = (
 /obj/machinery/computer/mining,
@@ -1932,9 +1964,9 @@ ab
 ab
 ab
 nE
+jB
 Ws
 nE
-bc
 ab
 ab
 ab
@@ -2034,7 +2066,7 @@ ab
 ab
 ab
 Vm
-Vm
+Tk
 Vm
 lb
 nE
@@ -2241,7 +2273,7 @@ nE
 JL
 Vm
 Vm
-bc
+JV
 bc
 bc
 bc
@@ -8900,7 +8932,7 @@ cM
 cM
 cM
 cM
-aJ
+aK
 aK
 aK
 aL

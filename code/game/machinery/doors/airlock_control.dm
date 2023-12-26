@@ -145,6 +145,7 @@
 	icon = 'icons/obj/airlock_machines.dmi'
 	icon_state = "airlock_sensor_off"
 	name = "airlock sensor"
+	layer = ABOVE_WINDOW_LAYER
 
 	anchored = TRUE
 	power_channel = ENVIRON
@@ -229,6 +230,7 @@
 	icon = 'icons/obj/airlock_machines.dmi'
 	icon_state = "access_button_standby"
 	name = "access button"
+	layer = ABOVE_WINDOW_LAYER
 
 	anchored = TRUE
 	power_channel = ENVIRON

@@ -44,7 +44,7 @@ var/global/list/ghost_traps
 			to_chat(candidate, "This occupation request is no longer valid.")
 		return FALSE
 
-	if(target.key)
+	if(target?.key)
 		if (feedback)
 			to_chat(candidate, "The target is already occupied.")
 		return FALSE
@@ -156,7 +156,7 @@ var/global/list/ghost_traps
 		return
 	P.visible_message(SPAN_ITALIC("The [P] chimes quietly."), range = 3)
 	deltimer(P.searching)
-	P.searching = TIMER_ID_NULL
+	P.searching = null
 	P.update_icon()
 
 /datum/ghosttrap/positronic/set_new_name(mob/target)

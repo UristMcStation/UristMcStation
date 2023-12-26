@@ -316,7 +316,7 @@
 	name = "Jump"
 	desc = "Leap great distances!"
 	panel = "Mutant Powers"
-	range = -1
+	range = 0
 
 	charge_type = "recharge"
 	charge_max = 30

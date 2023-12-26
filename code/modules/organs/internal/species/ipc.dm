@@ -14,14 +14,14 @@
 	throw_range = 5
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 4, TECH_BLUESPACE = 2, TECH_DATA = 4)
 	attack_verb = list("attacked", "slapped", "whacked")
-	max_damage = 90
-	min_bruised_damage = 30
-	min_broken_damage = 60
+	max_damage = 40
+	min_bruised_damage = 10
+	min_broken_damage = 30
 	relative_size = 60
 
 	var/mob/living/silicon/sil_brainmob/brainmob = null
 
-	var/searching = TIMER_ID_NULL
+	var/searching = null
 	var/last_search = 0
 
 	req_access = list(access_robotics)
@@ -64,7 +64,7 @@
 	if (damage)
 		to_chat(user, SPAN_WARNING("\The [src] is damaged and requires repair first."))
 		return
-	if (searching != TIMER_ID_NULL)
+	if (searching)
 		visible_message("\The [user] flicks the activation switch on \the [src]. The lights go dark.", range = 3)
 		cancel_search()
 		return
@@ -97,9 +97,9 @@
 
 /obj/item/organ/internal/posibrain/proc/cancel_search()
 	visible_message(SPAN_ITALIC("\The [src] buzzes quietly and returns to an idle state."), range = 3)
-	if (searching != TIMER_ID_NULL)
+	if (searching)
 		deltimer(searching)
-	searching = TIMER_ID_NULL
+	searching = null
 	if (brainmob && brainmob.key)
 		if (brainmob.mind && brainmob.mind.special_role)
 			var/sneaky = sanitizeSafe(input(brainmob, "You're safe. Pick a new name as cover? Leave blank to skip.", "Get Sneaky?", brainmob.real_name) as text, MAX_NAME_LEN)
@@ -114,7 +114,7 @@
 	update_icon()
 
 /obj/item/organ/internal/posibrain/attack_ghost(mob/observer/ghost/user)
-	if (searching == TIMER_ID_NULL)
+	if (!searching)
 		return
 	if (!brainmob)
 		return
@@ -156,7 +156,7 @@
 		else if (damage)
 			msg += SPAN_ITALIC("The red integrity fault indicator pulses slowly.")
 		else
-			msg += SPAN_ITALIC("The golden ready indicator [searching != TIMER_ID_NULL ? "flickers quickly as it tries to generate a personality" : "pulses lazily"].")
+			msg += SPAN_ITALIC("The golden ready indicator [searching ? "flickers quickly as it tries to generate a personality" : "pulses lazily"].")
 	if (msg)
 		to_chat(user, msg)
 
@@ -281,15 +281,11 @@
 
 /obj/item/organ/internal/posibrain/die()
 	damage = max_damage
-	status |= ORGAN_DEAD
+	status |= ORGAN_BROKEN
 	STOP_PROCESSING(SSobj, src)
 	death_time = world.time
-	var/mob/self = owner || brainmob
-	if (self && self.mind)
-		self.visible_message("\The [self] unceremoniously falls lifeless.")
-		var/mob/observer/ghost/G = self.ghostize(FALSE)
-		if (G) // In case of aghosts or keyless mobs
-			G.timeofdeath = world.time
+	if((status & ORGAN_BROKEN) && dead_icon)
+		icon_state = dead_icon
 
 /*
 	This is for law stuff directly. This is how a human mob will be able to communicate with the posi_brainmob in the

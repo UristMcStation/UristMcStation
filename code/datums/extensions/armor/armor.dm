@@ -37,7 +37,11 @@
 			damage *= FLUIDLOSS_CONC_BURN/FLUIDLOSS_WIDE_BURN
 		damage_flags &= ~(DAMAGE_FLAG_SHARP | DAMAGE_FLAG_EDGE | DAMAGE_FLAG_LASER)
 	if (damage_type == DAMAGE_RADIATION)
+		# ifdef INCLUDE_URIST_CODE
+		damage = max(0, damage * (1 - (get_value(get_armor_key(DAMAGE_RADIATION)) / 100)))
+		# else
 		damage = max(0, damage - 100 * blocked)
+		# endif
 		silent = TRUE
 	damage *= 1 - blocked
 

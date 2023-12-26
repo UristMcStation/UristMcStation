@@ -461,8 +461,8 @@
 
 
 //Ninja Shuttle.
-/datum/shuttle/autodock/multi/antag/ninja
-	name = "Ninja"
+/datum/shuttle/autodock/multi/antag/nervaninja
+	name = "Tremulous Intent"
 	warmup_time = 0
 	destination_tags = list(
 		"nav_ninja_deck1",
@@ -485,12 +485,13 @@
 	current_location = "nav_ninja_start"
 	landmark_transition = "nav_ninja_transition"
 	announcer = "ICS Nerva Sensor Array"
+	home_waypoint = "nav_ninja_start"
 	arrival_message = "Attention, anomalous sensor reading detected entering vessel proximity."
 	departure_message = "Attention, anomalous sensor reading detected leaving vessel proximity."
 
 
 /obj/effect/shuttle_landmark/ninja/start
-	name = "Clan Dojo"
+	name = "Operations Bunker"
 	landmark_tag = "nav_ninja_start"
 
 /obj/effect/shuttle_landmark/ninja/internim
@@ -515,18 +516,19 @@
 
 // Ninja areas
 /area/ninja_dojo
-	name = "\improper Ninja Base"
+	name = "\improper Operative Base"
 	icon_state = "green"
 	requires_power = 0
-	dynamic_lighting = 1
+	dynamic_lighting = TRUE
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
+	req_access = list(access_syndicate)
 
 /area/ninja_dojo/dojo
-	name = "\improper Clan Dojo"
+	name = "\improper Operations Bunker"
 	dynamic_lighting = 0
 
 /area/ninja_dojo/start
-	name = "\improper Clan Dojo"
+	name = "\improper Operations Bunker"
 	icon_state = "shuttlered"
 	base_turf = /turf/simulated/floor/plating
 
@@ -610,7 +612,7 @@
 
 //Skipjack
 
-/datum/shuttle/autodock/multi/antag/skipjack
+/datum/shuttle/autodock/multi/antag/nervaskipjack
 	name = "Skipjack"
 	warmup_time = 0
 	destination_tags = list(
@@ -635,7 +637,7 @@
 	dock_target = "skipjack_shuttle"
 	current_location = "nav_skipjack_start"
 	landmark_transition = "nav_skipjack_transition"
-	announcer = "SEV Torch Sensor Array"
+	announcer = "ICS Nerva Sensor Array"
 	home_waypoint = "nav_skipjack_start"
 	arrival_message = "Attention, vessel detected entering vessel proximity."
 	departure_message = "Attention, vessel detected leaving vessel proximity."
@@ -650,7 +652,7 @@
 	landmark_tag = "nav_skipjack_transition"
 
 /obj/effect/shuttle_landmark/skipjack/deck1
-	name = "Northwest of the Fourth First Deck"
+	name = "Northwest of the First Deck"
 	landmark_tag = "nav_skipjack_deck1"
 
 /obj/effect/shuttle_landmark/skipjack/deck2

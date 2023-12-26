@@ -56,7 +56,6 @@
 		),
 		TAG_HOMEWORLD = list(
 			HOME_SYSTEM_ROOT,
-			HOME_SYSTEM_EARTH,
 			HOME_SYSTEM_LUNA,
 			HOME_SYSTEM_MARS,
 			HOME_SYSTEM_VENUS,
@@ -81,13 +80,16 @@
 		TAG_HOMEWORLD = HOME_SYSTEM_ROOT,
 		TAG_FACTION = FACTION_POSITRONICS
 	)
-
+	/*
 	exertion_effect_chance = 10
 	exertion_charge_scale = 1
 	exertion_emotes_synthetic = list(
 		/singleton/emote/exertion/synthetic,
 		/singleton/emote/exertion/synthetic/creak
 	)
+	*/
+
+	bodyfall_sound = 'sound/effects/bodyfall_machine.ogg'
 
 /datum/species/machine/handle_death(mob/living/carbon/human/H)
 	..()

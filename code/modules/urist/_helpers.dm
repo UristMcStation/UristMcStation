@@ -402,3 +402,7 @@
 
 		else
 			projectile.throw_at(target_turf) //anything else just uses the default throw proc. this potentially allows for ship weapons that do things like throw mobs. clown cannon anyone?
+
+//bay removed this area proc for some reason. it gets the contents in an area
+/area/proc/get_contents()
+	return contents

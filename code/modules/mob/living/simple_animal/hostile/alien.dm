@@ -26,8 +26,12 @@
 	status_flags = CANPUSH
 	minbodytemp = 0
 	heat_damage_per_tick = 20
-	can_escape = 1
-
+	can_escape = TRUE
+	see_in_dark = 10
+	move_to_delay = 1
+	natural_armor = list(
+		melee = ARMOR_MELEE_KNIVES
+		)
 
 /mob/living/simple_animal/hostile/alien/drone
 	name = "alien drone"
@@ -36,7 +40,7 @@
 	icon_dead = "aliend_dead"
 	health = 60
 	natural_weapon = /obj/item/natural_weapon/claws
-	can_escape = 0
+	move_to_delay = 2
 
 /mob/living/simple_animal/hostile/alien/sentinel
 	name = "alien sentinel"
@@ -48,8 +52,7 @@
 	ranged = 1
 	projectiletype = /obj/item/projectile/neurotox
 	projectilesound = 'sound/weapons/pierce.ogg'
-	can_escape = 0
-
+	move_to_delay = 2
 
 /mob/living/simple_animal/hostile/alien/queen
 	name = "alien queen"
@@ -75,6 +78,11 @@
 	move_to_delay = 4
 	maxHealth = 400
 	health = 400
+	natural_armor = list(
+		melee = ARMOR_MELEE_KNIVES,
+		laser	= ARMOR_LASER_HANDGUNS,
+		energy	= ARMOR_ENERGY_SMALL
+		)
 
 /obj/item/projectile/neurotox
 	damage = 30

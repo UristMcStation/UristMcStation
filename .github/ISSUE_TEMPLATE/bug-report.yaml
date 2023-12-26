@@ -1,12 +1,13 @@
 # Docs - https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema
 name: Bug Report
 description: File a bug report
+labels: ["Bug", "Needs Triage"]
 
 body:
   - type: markdown
     attributes:
       value: |
-        Make sure to [search for an existing issue report](https://github.com/Baystation12/Baystation12/issues) before making a new one.
+        Make sure to [search for an existing issue report](https://github.com/UristMcStation/UristMcStation/issues) before making a new one.
 
         Your issue will be tagged by a developer with reproduction status and a priority once it has been reviewed and verified.
   - type: textarea
@@ -25,7 +26,7 @@ body:
     id: repro-steps
     attributes:
       label: Steps to reproduce
-      description: Please provide a complete step-by-step method of reproducing the bug, including steps you may think are obvious. Also please make sure you have followed and verified these steps reproduce the bug yourself. Being verbose is better than being vague. If reproduction is unreliable, i.e., it only happens sometimes or only happened once, mention that in the reproduction steps.
+      description: Please provide a complete step-by-step method of reproducing the bug, including steps you may think are obvious. Also please make sure you have followed and verified these steps to reproduce the bug yourself. Being verbose is better than being vague. If reproduction is unreliable, i.e., it only happens sometimes or only happened once, mention that in the reproduction steps.
       placeholder: |
         1.
         2.
@@ -64,4 +65,4 @@ body:
         - label: Issue could be reproduced by different players
         - label: Issue could be reproduced in multiple rounds
         - label: Issue happened in a recent (less than 7 days ago) round
-        - label: "[Couldn't find an existing issue about this](https://github.com/Baystation12/Baystation12/issues)"
+        - label: "[Couldn't find an existing issue about this](https://github.com/UristMcStation/UristMcStation/issues)"

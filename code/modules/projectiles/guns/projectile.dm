@@ -168,7 +168,7 @@
 					playsound(loc, mag_insert_sound, 75, 1)
 					update_icon()
 					AM.update_icon()
-					if(!istype(AM, magazine_type))
+					if(jam_chance && !istype(AM, magazine_type))
 						jam_chance += 10
 					return
 				ammo_magazine = AM
@@ -177,7 +177,7 @@
 					return
 				user.visible_message("[user] inserts [AM] into [src].", SPAN_NOTICE("You insert [AM] into [src]."))
 				playsound(loc, mag_insert_sound, 50, 1)
-				if(!istype(AM, magazine_type))
+				if(jam_chance && !istype(AM, magazine_type))
 					jam_chance += 10
 			if(SPEEDLOADER)
 				if(length(loaded) >= max_shells)

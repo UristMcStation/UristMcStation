@@ -397,6 +397,8 @@
 		if(mind.assigned_role == "Clown")				//give them a clownname if they are a clown
 			new_character.real_name = pick(GLOB.clown_names)	//I hate this being here of all places but unfortunately dna is based on real_name!
 			new_character.rename_self("clown")
+		if(mind.assigned_role == "Mime")
+			new_character.rename_self("mime")
 		mind.original = new_character
 		if(client.prefs.memory)
 			mind.StoreMemory(client.prefs.memory)
@@ -409,6 +411,10 @@
 		// Set defer to 1 if you add more crap here so it only recalculates struc_enzymes once. - N3X
 		new_character.dna.SetSEState(GLOB.GLASSESBLOCK,1,0)
 		new_character.disabilities |= NEARSIGHTED
+
+	// Give them their cortical stack if we're using them.
+	if(config?.use_cortical_stacks && client?.prefs.has_cortical_stack /*&& new_character.should_have_organ(BP_BRAIN)*/)
+		new_character.create_stack()
 
 	// Do the initial caching of the player's body icons.
 	new_character.force_update_limbs()

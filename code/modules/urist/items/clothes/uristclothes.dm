@@ -1478,13 +1478,13 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	armor = list(melee = 10, bullet = 0, laser = 5, energy = 5, bomb = 0, bio = 0, rad = 0)//halved from sandsuit, removed bullet armor. made of leather
 
 /obj/item/clothing/under/urist/historic/red_tunic2
-	name = "red and yellow"
+	name = "red and yellow tunic"
 	desc = "A simple red and yellow tunic."
 	icon_state = "red_tunic2"
 	item_state = "red_tunic2"
 
 /obj/item/clothing/under/urist/historic/blue_tunic2
-	name = "blue and white"
+	name = "blue and white tunic"
 	desc = "A simple blue and white tunic."
 	icon_state = "blue_tunic2"
 	item_state = "blue_tunic2"
@@ -1589,7 +1589,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	armor = list(melee = 45, bullet = 15, laser = 15, energy = 2, bomb = 5, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/urist/armor/historic/chain
-	name = "Bronze Armor"
+	name = "bronze armor"
 	desc = "Provides protection."
 	icon_state = "suit_bronze"
 	item_state = "suit_bronze"
@@ -1741,3 +1741,16 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "A set of armor made from interlocked chains."
 	icon_state = "chainmail"
 	item_state = "chainmail"
+
+//rescued bandanas
+/obj/item/clothing/head/urist/bandana/green
+	name = "green bandana"
+	desc = "It's a green bandana with some fine nanotech lining."
+	icon_state = "greenbandana"
+	item_state = "greenbandana"
+
+/obj/item/clothing/head/urist/bandana/orange
+	name = "orange bandana"
+	desc = "An orange piece of cloth, worn on the head."
+	icon_state = "orange_bandana"
+	item_state = "orange_bandana"

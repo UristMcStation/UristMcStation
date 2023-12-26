@@ -19,9 +19,12 @@
 /obj/effect/overmap/visitable/ship/bearcat
 	name = "light freighter"
 	color = "#00ffff"
-	vessel_mass = 20000
+	vessel_mass = 10000 //Nerva is 25000 and is more then twice the size of the Bearcat
 	max_speed = 1/(10 SECONDS)
 	burn_delay = 10 SECONDS
+	initial_restricted_waypoints = list(
+		"Damselfly" = list("nav_bearcat_dock")
+	)
 
 /obj/effect/overmap/visitable/ship/bearcat/New()
 	name = "[pick("FTV","ITV","IEV")] [pick("Bearcat", "Firebug", "Defiant", "Unsinkable","Horizon","Vagrant")]"

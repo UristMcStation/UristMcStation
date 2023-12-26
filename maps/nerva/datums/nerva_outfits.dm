@@ -1,7 +1,6 @@
 /singleton/hierarchy/outfit/job/bodyguard
 	name = OUTFIT_JOB_NAME("Bodyguard") //done
 	uniform = /obj/item/clothing/under/bodyguard
-	suit = /obj/item/clothing/suit/armor/pcarrier/deus_blueshield
 	l_ear = /obj/item/device/radio/headset/nerva_guard
 	shoes = /obj/item/clothing/shoes/jackboots
 	id_types = list(/obj/item/card/id/bodyguard)
@@ -20,6 +19,7 @@
 	mask = /obj/item/clothing/mask/gas/mime
 	gloves = /obj/item/clothing/gloves/white
 	shoes = /obj/item/clothing/shoes/black
+	backpack_contents = list(/obj/item/reagent_containers/food/drinks/bottle/bottleofnothing = 1, /obj/item/pen/crayon/mime = 1)
 	pda_type = /obj/item/modular_computer/pda/mime
 	id_types = list(/obj/item/card/id/civilian/mime)
 
@@ -89,7 +89,7 @@
 	l_ear = /obj/item/device/radio/headset/headset_cargo
 	shoes = /obj/item/clothing/shoes/black
 	belt = /obj/item/storage/belt/robotics/full
-	id_types = list(/obj/item/card/id/cargo)
+	id_types = list(/obj/item/card/id/science/roboticist)
 	pda_slot = slot_r_store
 	pda_type = /obj/item/modular_computer/pda/roboticist
 
@@ -187,3 +187,25 @@
 	l_hand = /obj/item/material/clipboard
 	id_types = list(/obj/item/card/id/nerva_senior_scientist)
 	pda_type = /obj/item/modular_computer/pda/science
+
+/singleton/hierarchy/outfit/job/nerva/ert
+	name = OUTFIT_JOB_NAME("ERT - Nerva")
+	uniform = /obj/item/clothing/under/syndicate/combat
+	head = /obj/item/clothing/head/beret/centcom/officer
+	gloves = /obj/item/clothing/gloves/thick
+	id_types = list(/obj/item/card/id/centcom/ERT)
+	pda_type = /obj/item/modular_computer/pda/ert
+	l_ear = /obj/item/device/radio/headset/ert
+	shoes = /obj/item/clothing/shoes/dutyboots
+
+/singleton/hierarchy/outfit/job/nerva/ert/leader
+	name = OUTFIT_JOB_NAME("ERT Leader - Nerva")
+	uniform = /obj/item/clothing/under/rank/centcom
+	head = /obj/item/clothing/head/beret/centcom/captain
+
+/singleton/hierarchy/outfit/job/nerva/ert/suit
+	name = OUTFIT_JOB_NAME("ERT Heavy - Nerva")
+	back = /obj/item/rig/ert/assetprotection
+	flags = OUTFIT_RESET_EQUIPMENT | OUTFIT_ADJUSTMENT_SKIP_BACKPACK
+	head = null
+	gloves = null

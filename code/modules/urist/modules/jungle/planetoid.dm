@@ -1,11 +1,11 @@
 /obj/effect/overmap/visitable/sector/planetoid
 	name = "a generic planetoid"
 	in_space = FALSE //can't spacewalk to a planet
+	is_planet = TRUE
 
 	var/static_name = null // if we don't want to generate a name
 	var/atmo_color = COLOR_WHITE //do we have atmos, and if so, what color are the clouds
 	var/has_rings = FALSE //do we have rings?
-
 
 /obj/effect/overmap/visitable/sector/planetoid/New(nloc, max_x, max_y)
 	if(!static_name)

@@ -47,9 +47,6 @@
 		/area/exoplanet/desert   = EXEMPT_ALL,
 		/area/exoplanet/grass    = EXEMPT_ALL,
 		/area/exoplanet/snow     = EXEMPT_ALL,
-		/area/smugglers/base = NO_SCRUBBER,
-		/area/smugglers/dorms = NO_SCRUBBER|NO_VENT,
-		/area/smugglers/office = NO_SCRUBBER|NO_VENT,
 		/area/bluespaceriver/underground = EXEMPT_ALL,
 		/area/bluespaceriver/ground = EXEMPT_ALL,
 		/area/casino/casino_cutter = NO_SCRUBBER|NO_VENT,
@@ -93,8 +90,9 @@
 		/area/rnd/xenobiology/cell_4,
 		/area/security/abandonedcheckpoint,
 		/area/skipjack_station,
-		/area/medical/cloning,
-		/area/medical/virology
+		/area/medical/virology,
+		/area/solar/derelict_aft,
+		/area/solar/derelict_starboard
 		)
 
 	area_usage_test_exempted_root_areas = list(
@@ -105,7 +103,6 @@
 		/area/magshield,
 		/area/mine,
 		/area/ship,
-		/area/smugglers,
 		/area/slavers_base,
 		/area/yacht,
 		/area/bluespaceriver,
@@ -133,7 +130,8 @@
 		/area/noctis,
 		/area/jungleoutpost,
 		/area/voxship,
-		/area/morninglight
+		/area/morninglight,
+		/area/crystaldrugs
 	)
 
 	area_coherency_test_exempt_areas = list(

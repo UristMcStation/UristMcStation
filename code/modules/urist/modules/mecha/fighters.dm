@@ -222,6 +222,7 @@
 	maxHealth = 250
 	health = 250
 	ai_holder = /datum/ai_holder/simple_animal/ranged/kiting
+	see_in_dark = 10
 
 /mob/living/simple_animal/hostile/scom/fighter/death()
 	..()

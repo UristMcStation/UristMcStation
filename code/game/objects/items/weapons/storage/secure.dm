@@ -186,6 +186,11 @@
 		return
 	..()
 
+/obj/item/storage/secure/safe/Initialize()
+	. = ..()
+	for(var/obj/item/I in get_turf(src))
+		handle_item_insertion(I,1)
+
 // -----------------------------
 //        Alert Safe
 // -----------------------------

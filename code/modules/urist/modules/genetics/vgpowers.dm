@@ -55,7 +55,7 @@ Obviously, requires DNA2.
 /spell/targeted/hulk
 	name = "Hulk Out"
 	panel = "Mutant Powers"
-	range = -1
+	range = 0
 	spell_flags = INCLUDEUSER
 
 	charge_type = "recharge"
@@ -98,5 +98,5 @@ Obviously, requires DNA2.
 	M.update_color()
 
 /datum/dna/gene/basic/noir/deactivate(mob/M,var/connected,var/flags)
-	if(..())
-		M.update_color()
+	..()
+	M.update_color()
