@@ -169,10 +169,12 @@
 	{{if data.state == "crew_accounts"}}
 		<span class='floatRight'>{{:helper.link('New Account', 'plus', {'state' : 'new_account'}, data.auth != 1 ? 'disabled' : null)}}</span>
 	{{/if}}
+	{{if data.state == "payroll"}}
+		<span class='floatRight'>{{:helper.link('Set Passenger Rate', 'gear', {'action' : 'passenger_rate'}, data.auth != 1 ? 'disabled' : null)}}</span>
+	{{/if}}
 	<br>
 	<hr>
 	{{if data.state == "payroll"}}
-		<span class='floatRight'>{{:helper.link('Set Passenger Rate', 'gear', {'action' : 'passenger_rate'}, data.auth != 1 ? 'disabled' : null)}}</span>
 		<b><h2>Payroll Rota<span class='floatRight'>Payroll Payout: {{:data.totalpay}} Th</span></h2></b>
 		<div class='block'>
 			{{for data.departments}}
