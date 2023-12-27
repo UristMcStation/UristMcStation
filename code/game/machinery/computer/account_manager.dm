@@ -138,7 +138,7 @@
 				if(H.mind.assigned_role == "Captain" && GLOB.using_map.name == "Nerva")
 					continue	//We don't pay the captain
 
-				if(H.mind.assigned_role == "Passenger" && GLOB.using_map.name == "Nerva")
+				if(H.mind.assigned_role == "Passenger")
 					continue	//we don't pay passengers
 
 				var/datum/job/job = SSjobs.titles_to_datums[H.mind.assigned_role]
