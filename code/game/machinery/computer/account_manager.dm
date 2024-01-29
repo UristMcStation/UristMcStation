@@ -138,6 +138,9 @@
 				if(H.mind.assigned_role == "Captain" && GLOB.using_map.name == "Nerva")
 					continue	//We don't pay the captain
 
+				if(H.mind.assigned_role == "Passenger")
+					continue	//we don't pay passengers
+
 				var/datum/job/job = SSjobs.titles_to_datums[H.mind.assigned_role]
 				var/dept = H.mind.manual_department || (job ? flag2text(job.department_flag) : "Misc")	//We use flags so command staff show under command payroll, rather than their department
 				if(dept == "Science" && GLOB.using_map.name == "Nerva")
@@ -428,6 +431,9 @@
 				if(!focused_account)
 					return TOPIC_NOACTION
 				display_state = "account_overview"
+				return TOPIC_REFRESH
+			if("passenger_rate")
+				SSpayment_controller.passenger_fee = input(user, "Input desired passenger rate:", "Passenger Rate", SSpayment_controller.passenger_fee) as num
 				return TOPIC_REFRESH
 
 		return TOPIC_NOACTION

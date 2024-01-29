@@ -209,3 +209,12 @@
 	flags = OUTFIT_RESET_EQUIPMENT | OUTFIT_ADJUSTMENT_SKIP_BACKPACK
 	head = null
 	gloves = null
+
+//passenger
+/singleton/hierarchy/outfit/job/nerva/passenger
+	name = OUTFIT_JOB_NAME("Nerva Passenger")
+	l_ear = /obj/item/device/radio/headset
+	uniform = /obj/item/clothing/under/rank/psych/turtleneck/sweater
+	shoes = /obj/item/clothing/shoes/black
+	id_types = list(/obj/item/card/id)
+	pda_type = /obj/item/modular_computer/pda

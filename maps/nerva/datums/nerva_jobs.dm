@@ -6,7 +6,7 @@
 						/datum/job/hos, /datum/job/officer,
 						/datum/job/cmo, /datum/job/doctor, /datum/job/psychiatrist,
 						/datum/job/scientist, /datum/job/chaplain,
-						/datum/job/mime, /datum/job/clown,
+						/datum/job/mime, /datum/job/clown, /datum/job/passenger,
 						/datum/job/merchant, /datum/job/stowaway,
 						/datum/job/ai, /datum/job/cyborg
 						)
@@ -312,7 +312,7 @@
 //misc
 
 /datum/job/assistant
-	supervisors = "the second officer."
+	supervisors = "the second officer"
 	access = list(access_prim_tool)
 	alt_titles = list(
 	"Technical Assistant","Medical Intern","Cargo Assistant",
@@ -328,7 +328,7 @@
 	economic_power = 3
 	access = list(access_hydroponics, access_kitchen, access_prim_tool)
 	alt_titles = list("Bartender" = /singleton/hierarchy/outfit/job/service/nervabartender)
-	supervisors = "the second officer."
+	supervisors = "the second officer"
 	minimal_player_age = 0
 
 /datum/job/chef/get_description_blurb()
@@ -338,7 +338,7 @@
 /datum/job/janitor
 	economic_power = 2
 	title = "Janitor"
-	supervisors = "the second officer."
+	supervisors = "the second officer"
 	total_positions = 1
 	spawn_positions = 1
 	minimal_player_age = 0
@@ -446,3 +446,15 @@
 
 /datum/job/submap
 	required_language = null
+
+//passenger. this has to be its own role for its own spawns.
+
+/datum/job/passenger
+	title = "Passenger"
+	department = "Civilian"
+	supervisors = "the Captain's tolerance"
+	department_flag = CIV
+	total_positions = -1
+	spawn_positions = -1
+	economic_power = 2
+	outfit_type = /singleton/hierarchy/outfit/job/nerva/passenger

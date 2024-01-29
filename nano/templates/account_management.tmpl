@@ -91,7 +91,7 @@
 								<td><span class='good'><center>C</center></span></td>
 								<td>&nbsp;{{:transactionValue.amount}} Th</td>
 							{{/if}}
-							
+
 							<td>{{:transactionValue.purpose}}</td>
 						</tr>
 					{{/for}}
@@ -168,6 +168,9 @@
 	{{:helper.link('System Logs', 'clipboard', {'state' : 'logs'}, data.auth != 1 ? 'disabled' : data.state == "logs" ? 'selected' : null)}}
 	{{if data.state == "crew_accounts"}}
 		<span class='floatRight'>{{:helper.link('New Account', 'plus', {'state' : 'new_account'}, data.auth != 1 ? 'disabled' : null)}}</span>
+	{{/if}}
+	{{if data.state == "payroll"}}
+		<span class='floatRight'>{{:helper.link('Set Passenger Rate', 'gear', {'action' : 'passenger_rate'}, data.auth != 1 ? 'disabled' : null)}}</span>
 	{{/if}}
 	<br>
 	<hr>
