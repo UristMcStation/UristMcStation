@@ -92,13 +92,6 @@
 	whitelisted = list(SPECIES_SKRELL)
 
 // IPC clothing
-/datum/gear/ipc_monitor
-	display_name = "display monitor (IPC)"
-	path = /obj/item/clothing/mask/monitor
-	sort_category = "Xenowear"
-	whitelisted = list(SPECIES_IPC)
-	cost = 0
-
 /datum/gear/suit/lab_xyn_machine
 	display_name = "Xynergy labcoat"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/xyn_machine
