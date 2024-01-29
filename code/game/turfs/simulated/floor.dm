@@ -25,6 +25,8 @@
 	heat_capacity = 10000
 	var/lava = 0
 
+	var/has_snow = FALSE
+
 	height = -FLUID_SHALLOW / 2
 
 /turf/simulated/floor/is_plating()
