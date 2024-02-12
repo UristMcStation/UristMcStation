@@ -198,12 +198,18 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	faction = "factory"
 	attacktext = "bites"
 	say_list_type = /datum/say_list/mutated_rat
+	ai_holder = /datum/ai_holder/simple_animal/mutated_rat
+
+/datum/ai_holder/simple_animal/mutated_rat
+	speak_chance = 5
+	aggro_sound = 'sound/urist/rat_aggro.ogg'
+
 
 /datum/say_list/mutated_rat
 	speak = list("squeaks")
 	emote_see = list("skitters")
 
-/mob/living/simple_animal/hostile/mutated_corpse_rat
+/mob/living/simple_animal/hostile/mutated_rat/corpserat
 	name = "large corpse rat"
 	desc = "a large, rotund rat that is clearly well fed, its teeth look unusually dangerous."
 	icon = 'icons/uristmob/simpleanimals.dmi'
@@ -217,15 +223,6 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	health = 35
 	maxHealth = 45
 	natural_weapon = /obj/item/natural_weapon/bite/strong
-	pass_flags = PASS_FLAG_TABLE
-	faction = "factory"
-	attacktext = "gnaws"
-	ai_holder = /datum/ai_holder/simple_animal/melee
-	say_list_type = /datum/say_list/mutated_corpse_rat
-
-/datum/say_list/mutated_corpse_rat
-	speak = list("squeaks")
-
 
 /* By the laws of universal balance, the concept of catgirls must imply their categorical dual - a cat with human ears.
 ** Hostile to crew, since they are a mirror image of a normally protagonist-friendly stereotype.

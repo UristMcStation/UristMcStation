@@ -66,7 +66,7 @@
 			max_number = 5
 			vermstring = "mutated rats"
 		if(VERM_CORPSERAT)
-			spawn_types = list(/mob/living/simple_animal/hostile/mutated_corpse_rat)
+			spawn_types = list(/mob/living/simple_animal/hostile/mutated_rat/corpserat)
 			max_number = 3
 			vermstring = "biohazardous rats"
 

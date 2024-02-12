@@ -62,9 +62,11 @@
 	skin_material = MATERIAL_SKIN_CHITIN
 	skin_amount =   5
 
+
 /datum/ai_holder/simple_animal/melee/spider
 	// intelligence_level = AI_SMART
 	// use_astar = FALSE
+	aggro_sound = list('sound/urist/spider_aggro_1.ogg', 'sound/urist/spider_aggro_2.ogg')
 
 /obj/item/natural_weapon/bite/spider
 	force = 20
