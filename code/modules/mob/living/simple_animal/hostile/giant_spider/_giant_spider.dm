@@ -44,7 +44,7 @@
 	speak_emote = list("chitters")
 
 	say_list_type = /datum/say_list/spider
-	ai_holder = /datum/ai_holder/simple_animal/melee
+	ai_holder = /datum/ai_holder/simple_animal/melee/spider
 
 	var/poison_type = /datum/reagent/toxin/venom	// The reagent that gets injected when it attacks.
 	var/poison_chance = 20			// Chance for injection to occur.
@@ -66,7 +66,7 @@
 /datum/ai_holder/simple_animal/melee/spider
 	// intelligence_level = AI_SMART
 	// use_astar = FALSE
-	aggro_sound = list('sound/urist/spider_aggro_1.ogg', 'sound/urist/spider_aggro_2.ogg')
+	aggro_sound = 'sound/urist/spider_aggro_1.ogg'
 
 /obj/item/natural_weapon/bite/spider
 	force = 20
