@@ -9,6 +9,7 @@
 
 /datum/artifact_effect/magnetic/New()
 	..()
+
 	if(!istype(trigger, /datum/artifact_trigger/touch))
 		effect = pick(EFFECT_PULSE, EFFECT_AURA)
 
@@ -17,7 +18,7 @@
 
 
 /datum/artifact_effect/magnetic/DoEffectGeneric(atom/location, var/mob/ignore_mob = null)
-	var/true_holder = isnull(location) ? src.holder : location
+	var/true_holder = location || src.holder
 
 	if(isnull(true_holder))
 		return
@@ -72,9 +73,7 @@
 
 
 /datum/artifact_effect/magnetic/proc/YeetCallback(mob/target)
-	var/mob/M = target
-
-	if(!istype(M))
+	if(!istype(target))
 		return
 
 	var/true_holder = src.holder
@@ -82,25 +81,27 @@
 	if(isnull(true_holder))
 		return
 
-	if(!M.isSynthetic())
+	if(!target.isSynthetic())
 		return
 
 	var/turf/T = get_turf(true_holder)
-	M.visible_message(SPAN_WARNING("\The [true_holder] magnetically yanks \the [M] towards itself!"))
-	M.throw_at(T, rand(1, effectrange), src.magnetism_speed)
+
+	if(istype(T))
+		target.visible_message(SPAN_WARNING("\The [true_holder] magnetically yanks \the [target] towards itself!"))
+		target.throw_at(T, rand(1, effectrange), src.magnetism_speed)
+
 	return
 
 
 /datum/artifact_effect/magnetic/DoEffectTouch(mob/toucher)
-	var/mob/M = toucher
-	src.DoEffectGeneric(M, M)
+	src.DoEffectGeneric(toucher, toucher)
 
-	if(!istype(M))
+	if(!istype(toucher))
 		return
 
-	if(!M.isSynthetic())
+	if(!toucher.isSynthetic())
 		return
 
-	addtimer(new Callback(src, /datum/artifact_effect/magnetic/proc/YeetCallback, M), rand(2 SECONDS, 6 SECONDS), TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_NO_HASH_WAIT)
+	addtimer(new Callback(src, /datum/artifact_effect/magnetic/proc/YeetCallback, toucher), rand(2 SECONDS, 6 SECONDS), TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_NO_HASH_WAIT)
 
 	return

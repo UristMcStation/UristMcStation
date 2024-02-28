@@ -99,7 +99,7 @@
 	if(isnull(src.messaged_clients))
 		src.messaged_clients = list()
 
-	var/atom/true_holder = isnull(holder) ? src.holder : holder
+	var/atom/true_holder = holder || src.holder
 
 	var/turf/T = get_turf(true_holder)
 
