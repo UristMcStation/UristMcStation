@@ -39,7 +39,7 @@
 
 			addtimer(new Callback(src, /datum/artifact_effect/magnetic/proc/YeetCallback, M), rand(0.5 SECONDS, 2 SECONDS), TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_NO_HASH_WAIT)
 
-		if(isitem(AM))
+		else if(isitem(AM))
 			var/obj/item/I = AM
 
 			for(var/key in I.matter)
@@ -86,7 +86,7 @@
 
 	var/turf/T = get_turf(true_holder)
 
-	if(istype(T))
+	if(!isnull(T))
 		target.visible_message(SPAN_WARNING("\The [true_holder] magnetically yanks \the [target] towards itself!"))
 		target.throw_at(T, rand(1, effectrange), src.magnetism_speed)
 
