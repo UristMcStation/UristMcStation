@@ -56,9 +56,7 @@ GLOBAL_VAR_INIT(globally_spooky, 0)
 	if(!ghost_ability_check())
 		return
 
-	var/mob/living/carbon/human/choice = target
-
-	if(!istype(choice) && target_optional)
+	if(!istype(target) && target_optional)
 		// if target_optional is FALSE, we MUST use the target
 		// otherwise, allow picks from adjacent sleepers
 		var/list/mob/living/carbon/human/choices = list()
@@ -70,9 +68,9 @@ GLOBAL_VAR_INIT(globally_spooky, 0)
 		if(!choices)
 			return
 
-		choice = input(src, "Who do you want to speak to?") as null|anything in choices
+		target = input(src, "Who do you want to speak to?") as null|anything in choices
 
-	if(!istype(choice))
+	if(!istype(target))
 		return
 
 	if(!ghost_ability_check())
@@ -84,8 +82,8 @@ GLOBAL_VAR_INIT(globally_spooky, 0)
 	if(prob(10))
 		var/dream = sanitize(input(src, "Enter dream message directly", "Dream") as text|null)
 		if(dream)
-			to_chat(choice, SPAN_NOTICE("... [dream] ..."))
-			log_admin("[key_name(src)] has dream-whispered: [dream] to [key_name(choice)].")
+			to_chat(target, SPAN_NOTICE("... [dream] ..."))
+			log_admin("[key_name(src)] has dream-whispered: [dream] to [key_name(target)].")
 			spoke = TRUE
 
 	else
@@ -99,14 +97,14 @@ GLOBAL_VAR_INIT(globally_spooky, 0)
 
 		if(is_subtle)
 			// mimic normal dreams...
-			to_chat(choice, SPAN_NOTICE("... [token_choice_one] [token_choice_two] ..."))
+			to_chat(target, SPAN_NOTICE("... [token_choice_one] [token_choice_two] ..."))
 		else
 			// ...with a chance of different styling to draw attention to the dream
-			to_chat(choice, SPAN_OCCULT("... [token_choice_one] [token_choice_two] ..."))
+			to_chat(target, SPAN_OCCULT("... [token_choice_one] [token_choice_two] ..."))
 
 		// In both cases, we concatenate tokens to make it slightly more obvious this is not just RNG
 		spoke = TRUE
-		log_admin("[key_name(src)] has dream-whispered: [token_choice_one] / [token_choice_two] to [key_name(choice)].")
+		log_admin("[key_name(src)] has dream-whispered: [token_choice_one] / [token_choice_two] to [key_name(target)].")
 
 	if(spoke)
 		ghost_magic_cd = world.time + 10 SECONDS
