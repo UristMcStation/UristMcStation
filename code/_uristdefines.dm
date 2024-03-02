@@ -47,8 +47,12 @@ slot_l_ear_str = 'icons/uristmob/l_ear.dmi', slot_r_ear_str = 'icons/uristmob/l_
 
 // used to mark/gate Urist changes from upstream code where we couldn't have a clean module
 // (e.g. Uristcode hooks into preexisting items, mob code, etc.)
-# define INCLUDE_URIST_CODE 1
+#define INCLUDE_URIST_CODE 1
 
 // Works like FAKEDEATH, but does NOT paralyze the user
-# define STATUS_UNDEAD 0x1000
+#define STATUS_UNDEAD 0x1000
 
+// Whether to even include the FoV cone code.
+// This does not mean it will be ACTIVE - that's config's job
+// but even if it IS in the config and not defined here, it won't run.
+#define ENABLE_FOV_CODE 1
