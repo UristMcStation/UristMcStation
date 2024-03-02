@@ -1,0 +1,58 @@
+# REGEX patterns to strip different layers:
+# 1) Component Of: (.+?\[label="C", color=plum2])
+# 2) Read By: (.+?\[label="R", color=lightcyan3])
+# 3) Writes To: (.+?\[label="W", color=burlywood])
+
+digraph {
+    Agent [shape=doublecircle]
+    Brain [shape=hexagon, color=pink1];
+
+    # Data containers
+    Memories [shape=folder color=dimgray];
+    ActionsList [shape=box3d color=firebrick4];
+    Planner [shape=circle];
+    Plan [shape=signature color=firebrick2];
+    Motives [shape=box color=wheat4];
+    States [shape=box color=wheat4];
+    Senses [shape=egg color=cadetblue];
+    Personality [shape=box3d color=orangered];
+    Perceptions [shape=box3d color=cadetblue];
+    Relationships [shape=box3d color=greenyellow];
+
+    subgraph hivemind_stuff {
+        cluster=True;
+
+        HiveBrain [shape=hexagon, color=pink1];
+        HiveMemories [shape=folder color=dimgray];
+
+        HiveMemories -> HiveBrain [label="C", color=plum2]
+        HiveMemories -> HiveBrain [label="R", color=lightcyan3]
+        HiveMemories -> Memories [label="R", color=lightcyan3]
+        HiveBrain -> HiveMemories [label="W", color=burlywood]
+        HiveBrain -> Brain [label="C", color=plum2]
+    }
+
+    # Systems
+    Memories -> Brain [label="R", color=lightcyan3]
+    Brain -> Memories [label="W", color=burlywood]
+    Senses -> Perceptions [label="W", color=burlywood]
+    HiveBrain -> Brain [label="R", color=lightcyan3]
+
+    # Brain components
+    {Memories Senses ActionsList Motives States Relationships Perceptions Personality Planner Plan} -> Brain [label="C", color=plum2]
+
+    # Agent components
+    Brain -> Agent  [label="C", color=plum2]
+
+    # Planner inputs
+    {Motives States Perceptions Personality ActionsList Relationships} -> Planner [label="R", color=lightcyan3]
+
+    # Planner outputs
+    Planner -> {Plan States} [label="W", color=burlywood]
+
+    # Agent inputs
+    {Brain Plan} -> Agent [label="R", color=lightcyan3]
+
+    # Agent outputs
+    Agent -> {Motives States} [label="W", color=burlywood]
+}
