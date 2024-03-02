@@ -1,3 +1,6 @@
+# ifdef GOAI_LIBRARY_FEATURES
+
+// only needed in the library as SS13 has the exact same implementation already
 /*
   Ripped off from SS13.
 
@@ -74,3 +77,5 @@
 	while(i > 1 && call(cmp)(L[i],L[i-1]) <= 0) //last inserted element being first in case of ties (optimization)
 		L.Swap(i,i-1)
 		i--
+
+# endif

@@ -74,7 +74,10 @@
 	var/_min_target_dist = DEFAULT_IF_NULL(min_dist, 1)
 	var/_path_ttl = DEFAULT_IF_NULL(path_ttl, 100)
 
-	var/dist_to_target = MANHATTAN_DISTANCE(pawn, location)
+	var/turf/pawnloc = get_turf(mypawn)
+	var/turf/targloc = get_turf(location)
+
+	var/dist_to_target = MANHATTAN_DISTANCE(pawnloc, targloc)
 
 	if(dist_to_target > _min_target_dist)
 		// Too far; check if we need a path.
@@ -85,9 +88,17 @@
 			// Mostly here to unnest the code.
 			return
 
+		if(isnull(pawnloc))
+			tracker.SetFailed()
+			return
+
+		if(isnull(targloc))
+			tracker.SetFailed()
+			return
+
 		path = src.AiAStar(
-			start = get_turf(pawn.loc),
-			end = get_turf(location),
+			start = pawnloc,
+			end = targloc,
 			adjacent = /proc/fCardinalTurfsNoblocks,
 			dist = DEFAULT_GOAI_DISTANCE_PROC,
 			max_nodes = 0,
@@ -98,7 +109,7 @@
 			exclude = null
 		)
 
-		if(isnull(path) && MANHATTAN_DISTANCE(pawn, location) > _min_target_dist)
+		if(isnull(path) && MANHATTAN_DISTANCE(mypawn, location) > _min_target_dist)
 			tracker.SetFailed()
 			return
 

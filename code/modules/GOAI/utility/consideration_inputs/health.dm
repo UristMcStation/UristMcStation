@@ -24,7 +24,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_mobhealth_abs)
 	if(isnull(pawn))
 		return null
 
-	return pawn.health
+	return pawn.health_current
 
 
 CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_mobhealth_rel)
@@ -42,9 +42,10 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_mobhealth_rel)
 	if(isnull(pawn))
 		return null
 
-	if(!(pawn?.maxHealth))
+	if(!(pawn?.health_max))
 		return PLUS_INF
 
-	return (pawn.health / pawn.maxHealth)
+	// TODO: this is a kind of lazy port to new SS13 health; need to macro this to switch lib/ss13 impls
+	return (pawn.health_current / pawn.health_max)
 
 #endif
