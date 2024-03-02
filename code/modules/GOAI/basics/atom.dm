@@ -11,6 +11,10 @@
 	var/dict/attachments
 
 
+/atom/movable
+	var/managed_movement = FALSE
+
+
 /atom/proc/Hit(var/hit_angle, var/atom/shotby = null)
 	/* hit angle - clockwise from positive Y axis if positive,
 	counterclockwise if negative.
@@ -20,7 +24,6 @@
 	shotby - a reference to who shot us (atom - to incl. turret objects etc.)
 	*/
 
-	// TODO: PORT TO UTILITY
 	FetchAiControllerForObjIntoVar(src, var/datum/utility_ai/mob_commander/commander)
 	if(commander)
 		commander.Hit(hit_angle, shotby)
