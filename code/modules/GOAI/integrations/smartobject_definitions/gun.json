@@ -1,0 +1,91 @@
+{
+	"name": "GunActs", 
+	"active": 1, 
+	"actions": [
+		{
+			"name": "Shoot", 
+			"description": "Shoots an enemy.", 
+			"handler": "/datum/utility_ai/mob_commander/proc/ShootAt", 
+			"context_procs": ["/proc/ctxfetcher_get_memory_value_array"], 
+			"context_args": [
+				{
+					"key": "Enemies",
+					"output_context_key": "threat"
+				}
+			],
+			"priority": 5, 
+			"considerations": [
+				{
+					"name": "ThreatInRange",
+					"lo_mark": 0, 
+					"hi_mark": 5, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_chebyshev_distance_to_requester", 
+					"input_args": {
+						"input_key": "threat",
+						"from_context": 1
+					},
+					"curve_proc": "/proc/curve_antibinary"
+				},
+				{
+					"name": "IsFoe",
+					"lo_mark": -50, 
+					"hi_mark": 0, 
+					"noise_scale": 10,
+					"input_proc": "/proc/consideration_input_relationship_score", 
+					"input_args": {
+						"input_key": "threat",
+						"from_context": 1
+					},
+					"curve_proc": "/proc/curve_antilinear"
+				},
+				{
+					"name": "ThreatRNG",
+					"lo_mark": -20, 
+					"hi_mark": 100, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_urand", 
+					"curve_proc": "/proc/curve_linear"
+				},
+				{
+					"name": "DistanceToThreat",
+					"lo_mark": 0, 
+					"hi_mark": 12, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_manhattan_distance_to_requester", 
+					"input_args": {
+						"input_key": "threat",
+						"from_context": 1
+					},
+					"curve_proc": "/proc/curve_fakegauss_a"
+				},
+				{
+					"name": "ThreatInView",
+					"lo_mark": 0, 
+					"hi_mark": 1, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_candidate_in_brain_list", 
+					"input_args": {
+						"input_key": "threat",
+						"memory_key": "SightCurr",
+						"memory_source": "perceptions",
+						"from_context": 1
+					},
+					"curve_proc": "/proc/curve_linear"
+				},
+				{
+					"name": "ThreatInLOS",
+					"lo_mark": 0, 
+					"hi_mark": 1, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_in_line_of_sight", 
+					"input_args": {
+						"input_key": "threat",
+						"from_context": 1
+					},
+					"curve_proc": "/proc/curve_linear"
+				}
+			]
+		}
+	]
+}
