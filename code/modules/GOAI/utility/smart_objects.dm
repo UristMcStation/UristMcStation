@@ -63,7 +63,7 @@
 
 	var/list/so_actions = null
 
-	so_actions = smartobj.no_smartobject_caching ? null : smartobject_cache[cache_key]
+	so_actions = smartobj.no_smartobject_caching ? null : GOAI_LIBBED_GLOB_ATTR(smartobject_cache)[cache_key]
 
 	if(!isnull(so_actions))
 		//for(var/so_actionset in so_actions)
@@ -85,7 +85,7 @@
 	//so_actions = list(); so_actions[subactions.name] = subactions
 
 	if(!smartobj.no_smartobject_caching)
-		smartobject_cache[cache_key] = so_actions
+		GOAI_LIBBED_GLOB_ATTR(smartobject_cache)[cache_key] = so_actions
 		src.smart_objects[cache_key] = so_actions
 
 	return so_actions

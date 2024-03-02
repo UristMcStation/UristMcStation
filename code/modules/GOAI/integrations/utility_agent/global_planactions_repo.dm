@@ -5,10 +5,10 @@ var/global/list/global_plan_actions_repo = null
 /proc/InitializeGlobalPlanActionsRepo()
 	var/list/actions_repo = list()
 
-	GOAI_LIBBED_GLOB_ATTR(global_plan_actions_repo) = actions_repo
+	GOAI_GLOBAL_LIST_PREFIX(global_plan_actions_repo) = actions_repo
 	RegisterGlobalPlanActionsFromJson(GOAPPLAN_METADATA_PATH)
 
-	return GOAI_LIBBED_GLOB_ATTR(global_plan_actions_repo)
+	return GOAI_GLOBAL_LIST_PREFIX(global_plan_actions_repo)
 
 
 /proc/RegisterGlobalPlanAction(var/key, var/raw_handler_proc, var/handler_proc, var/list/preconditions, var/list/effects, var/target_key, var/loc_key, var/handler_is_func = FALSE, var/feature_move_to = FALSE, var/description = null, var/list/context_args = null, var/context_fetcher_override = null)
@@ -26,7 +26,7 @@ var/global/list/global_plan_actions_repo = null
 	action_data[JSON_KEY_PLANACTION_CTXARGS] = context_args
 	action_data[JSON_KEY_PLANACTION_CTXFETCHER_OVERRIDE] = context_fetcher_override
 
-	GOAI_LIBBED_GLOB_ATTR(global_plan_actions_repo)[key] = action_data
+	GOAI_GLOBAL_LIST_PREFIX(global_plan_actions_repo)[key] = action_data
 	return TRUE
 
 
