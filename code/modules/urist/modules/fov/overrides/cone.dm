@@ -113,20 +113,26 @@
 			I.override = 1
 			if(LAZYISIN(M.grabbed_by, src))//If we're pulling them we don't want them to be invisible.
 				I.override = 0
-			
+
 			if(src.client)
 				src.client.images += I
 				src.client.hidden_atoms += I
 				src.client.hidden_mobs += M
 
+				if(isnull(M.in_vision_cones))
+					M.in_vision_cones = list()
+
 				M.in_vision_cones[src.client] = 1
 
 		for(var/obj/item/O in items_in_cone(src, global.flip_dir[dir], 10))
 			sleep(0)
+
 			I = image("split", O)
 			I.mouse_opacity = 0
 			I.override = 1
-			src.client.images += I
-			src.client.hidden_atoms += I
+
+			if(src.client)
+				src.client.images += I
+				src.client.hidden_atoms += I
 
 #endif
