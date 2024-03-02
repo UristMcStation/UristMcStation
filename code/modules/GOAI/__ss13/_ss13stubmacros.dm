@@ -1,5 +1,7 @@
 // Fake implementations of SS13 features to keep the compiler and maintainers happy
 
+# define GOAI_GLOBAL_LIST_PREFIX(GLOBJECT) global.##GLOBJECT
+
 # ifdef GOAI_LIBRARY_FEATURES
 // without SS13 support
 

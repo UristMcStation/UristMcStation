@@ -65,7 +65,7 @@
 	if(isnull(H))
 		H = src
 
-	var/obj/item/weapon/gun/my_gun = null
+	var/obj/item/gun/my_gun = null
 
 	// either hand works
 	if(isnull(my_gun))
@@ -78,7 +78,7 @@
 
 # endif
 
-/datum/utility_ai/mob_commander/proc/Shoot(var/obj/item/weapon/gun/cached_gun = null, var/atom/cached_target = null, var/datum/aim/cached_aim = null)
+/datum/utility_ai/mob_commander/proc/Shoot(var/obj/item/gun/cached_gun = null, var/atom/cached_target = null, var/datum/aim/cached_aim = null)
 	. = FALSE
 
 	var/atom/pawn = src.GetPawn()
@@ -86,9 +86,9 @@
 		to_world_log("No mob not found for the [src.name] AI to shoot D;")
 		return FALSE
 
-	var/obj/item/weapon/gun/my_gun = cached_gun
+	var/obj/item/gun/my_gun = cached_gun
 
-	var/obj/item/weapon/gun/gun_pawn = pawn
+	var/obj/item/gun/gun_pawn = pawn
 
 	var/atom/target = (isnull(cached_target) ? GetTarget() : cached_target)
 
@@ -97,7 +97,7 @@
 	# ifdef GOAI_SS13_SUPPORT
 
 	var/mob/living/carbon/human/H = pawn
-	var/mob/living/simple_animal/hostile/SAH = pawn
+	var/mob/living/simple_animal/SAH = pawn
 
 	if(SAH && istype(SAH) && target && SAH.stat == CONSCIOUS && (targetLM?.stat != DEAD))
 		// SimpleAnimals are simple (duh), *they* handle if they can shoot so we don't have to.
@@ -120,7 +120,7 @@
 	# ifdef GOAI_LIBRARY_FEATURES
 
 	if(isnull(my_gun))
-		my_gun = (locate(/obj/item/weapon/gun) in pawn.contents)
+		my_gun = (locate(/obj/item/gun) in pawn.contents)
 
 	# endif
 
@@ -159,9 +159,9 @@
 
 	if(!isnull(target) && distance <= 1 && (targetLM?.stat != DEAD))
 		var/mob/living/carbon/human/H = pawn
-		var/mob/living/simple_animal/hostile/SAH = pawn
+		var/mob/living/simple_animal/SAH = pawn
 
-		if(H && istype(H) && H?.stat == CONSCIOUS)
+		if(istype(H) && H?.stat == CONSCIOUS)
 			if(!(H.zone_sel))
 				// weird, but seemingly needed or stuff runtimes
 				H.zone_sel = new /obj/screen/zone_sel()
@@ -171,9 +171,8 @@
 			target.attack_hand(H)
 			H.a_intent = old_intent
 
-		else if(SAH && istype(SAH) && SAH.stat == CONSCIOUS)
-			SAH.target = target
-			SAH.AttackTarget()
+		else if(istype(SAH) && SAH.stat == CONSCIOUS)
+			SAH.attack_target(target)
 
 		. = TRUE
 

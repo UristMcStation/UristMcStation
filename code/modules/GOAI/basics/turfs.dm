@@ -334,7 +334,7 @@
 
 			# ifdef GOAI_SS13_SUPPORT
 
-			var/obj/machinery/door/D = object
+			var/obj/machinery/door/D = O
 			if(D && istype(D))
 				continue
 
