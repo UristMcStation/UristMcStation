@@ -9,28 +9,26 @@
 	if(isnull(position))
 		RUN_ACTION_DEBUG_LOG("Target position is null | <@[src]> | [__FILE__] -> L[__LINE__]")
 
-
-	# ifdef GOAI_SS13_SUPPORT
-	var/obj/machinery/door/D = location
-	var/obj/machinery/door/AD = location // just to have it defined consistently
-	# endif
-
-	# ifdef GOAI_LIBRARY_FEATURES
-	var/obj/cover/door/D = location
-	var/obj/cover/autodoor/AD = location
-	# endif
-
 	var/list/available_doors = tracker.BBGet("available_doors")
 
 	if(isnull(available_doors))
 		var/list/doors_to_store = list()
 
-		if(!isnull(D))
+		# ifdef GOAI_SS13_SUPPORT
+		var/obj/machinery/door/D = location
+		# endif
+
+		# ifdef GOAI_LIBRARY_FEATURES
+		var/obj/cover/door/D = location
+		var/obj/cover/autodoor/AD = location
+		# endif
+
+		if(istype(D))
 			doors_to_store.Add(D)
 
 		# ifdef GOAI_LIBRARY_FEATURES
 		// in SS13, we don't make a distinction here so it'd duplicate
-		if(!isnull(AD))
+		else if(istype(AD))
 			doors_to_store.Add(AD)
 		# endif
 
@@ -77,28 +75,26 @@
 	if(isnull(position))
 		RUN_ACTION_DEBUG_LOG("Target position is null | <@[src]> | [__FILE__] -> L[__LINE__]")
 
-
-	# ifdef GOAI_SS13_SUPPORT
-	var/obj/machinery/door/D = location
-	var/obj/machinery/door/AD = location // just to have it defined consistently
-	# endif
-
-	# ifdef GOAI_LIBRARY_FEATURES
-	var/obj/cover/door/D = location
-	var/obj/cover/autodoor/AD = location
-	# endif
-
 	var/list/available_doors = tracker.BBGet("available_doors")
 
 	if(isnull(available_doors))
 		var/list/doors_to_store = list()
+
+		# ifdef GOAI_SS13_SUPPORT
+		var/obj/machinery/door/D = location
+		# endif
+
+		# ifdef GOAI_LIBRARY_FEATURES
+		var/obj/cover/door/D = location
+		var/obj/cover/autodoor/AD = location
+		# endif
 
 		if(istype(D))
 			doors_to_store.Add(D)
 
 		# ifdef GOAI_LIBRARY_FEATURES
 		// in SS13, we don't make a distinction here so it'd duplicate
-		if(istype(AD))
+		else if(istype(AD))
 			doors_to_store.Add(AD)
 		# endif
 

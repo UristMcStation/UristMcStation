@@ -83,7 +83,7 @@
 	# ifdef GOAI_SS13_SUPPORT
 
 	var/mob/living/carbon/human/H = trg
-	var/mob/living/simple_animal/hostile/SAH = trg
+	var/mob/living/simple_animal/SAH = trg
 
 	if(istype(H))
 		// Name, for 1-to-1 relations tracking
@@ -91,7 +91,7 @@
 		// We could add a special tag if name != real_name
 		trg_tags.Add(H.name)
 
-	if(istype(SAH))
+	else if(istype(SAH))
 		// Name, for 1-to-1 relations tracking
 		trg_tags.Add(SAH.name)
 

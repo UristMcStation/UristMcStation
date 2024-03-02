@@ -87,17 +87,17 @@
 	else
 		M.real_name = random_name(mob_gender, SPECIES_HUMAN)
 
-	M.h_style = random_hair_style(mob_gender, SPECIES_HUMAN)
-	M.f_style = random_facial_hair_style(mob_gender, SPECIES_HUMAN)
+	M.head_hair_style = random_hair_style(mob_gender, SPECIES_HUMAN)
+	M.facial_hair_style = random_facial_hair_style(mob_gender, SPECIES_HUMAN)
 
 	// hopefully disabling SSD through a self-reference
 	// might have to add a flag in the SSD checks instead
 	M.teleop = M
 
-	var/decl/hierarchy/outfit/antag = outfit_by_type(/decl/hierarchy/outfit/ANTAGlite)
+	var/singleton/hierarchy/outfit/antag = outfit_by_type(/singleton/hierarchy/outfit/ANTAG)
 	antag.equip(M, equip_adjustments = OUTFIT_ADJUSTMENT_SKIP_SURVIVAL_GEAR)
 
-	var/obj/item/weapon/gun/projectile/pistol/military/gun = null
+	var/obj/item/gun/projectile/colt/gun = null
 
 	if(!gun)
 		gun = new(M)
@@ -108,7 +108,7 @@
 		M.equip_to_slot_or_del(gun, slot_l_hand)
 
 	if(spawn_commander)
-		AttachCombatCommanderTo(M)
+		AttachUtilityCommanderTo(M)
 
 	return
 
@@ -151,7 +151,7 @@
 	M.loc = loc
 
 	if(spawn_commander)
-		AttachCombatCommanderTo(M)
+		AttachUtilityCommanderTo(M)
 
 	return
 
@@ -188,7 +188,7 @@
 	var/true_name = name
 
 	# ifdef GOAI_SS13_SUPPORT
-	var/obj/item/weapon/gun/projectile/pistol/military/M = new(loc)
+	var/obj/item/gun/projectile/colt/M = new(loc)
 	# endif
 
 	# ifdef GOAI_LIBRARY_FEATURES
