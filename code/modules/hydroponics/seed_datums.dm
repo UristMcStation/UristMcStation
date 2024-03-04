@@ -1837,3 +1837,19 @@
 	set_trait(TRAIT_IDEAL_LIGHT,5)
 	set_trait(TRAIT_PRODUCT_COLOUR,"#ef5f32")
 	set_trait(TRAIT_PLANT_COLOUR,"#ef5f32")
+
+/datum/seed/maneater
+	name = "man eater"
+	seed_name = "man eater seeds"
+	display_name = "bulbous pod"
+	can_self_harvest = TRUE
+	product_type = /mob/living/simple_animal/hostile/man_eater
+
+/datum/seed/maneater/New()
+	..()
+	set_trait(TRAIT_IMMUTABLE,1)
+	set_trait(TRAIT_ENDURANCE,10)
+	set_trait(TRAIT_MATURATION,5)
+	set_trait(TRAIT_YIELD,1)
+	set_trait(TRAIT_PRODUCT_COLOUR,"#40641a")
+	set_trait(TRAIT_PLANT_COLOUR,"#579712")

@@ -49,3 +49,19 @@
 	It is unconcealable from body-scanners, and easily detectable due to it's weight. It requires NON-ORGANIC arms."
 	item_cost = 60
 	path = /obj/item/device/augment_implanter/powerfist
+
+/*
+/datum/uplink_item/item/augment/smoke_screen
+	name = "Concealed Smoke Countermeasures CBM (torso)"
+	desc = "A concealed port located near the shoulders, that can remotely launch smoke counter-measures. Commonly used by law-enforcement and militaries for protection. \
+	It is concealable from body-scanners, and cannot be reloaded."
+	item_cost = 16
+	path = //fill this in buddy
+
+/datum/uplink_item/augment/miu
+	name = "Concealed MIU CBM (eyes)"
+	desc = "A concealed augment that is installed directly into the eyes, allowing remote access to camera networks. This augment is incredibly popular with nethackers \
+	and enforcement officers. Accessing the camera network will requiring you to roll up your eyes, which will look very disturbing to your fellow crew."
+	item_cost = 20
+	path = // fill this in dude
+*/

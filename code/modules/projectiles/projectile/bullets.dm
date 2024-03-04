@@ -313,3 +313,17 @@
 	pixel_x = rand(-10,10)
 	pixel_y = rand(-10,10)
 	..()
+
+/obj/item/projectile/bullet/r22lr //22 Long Rifle (For Rifles and Pistols)
+	damage = 15
+	distance_falloff = 5
+
+/obj/item/projectile/bullet/r22lr/r22hp // 22 Hollow Point.
+	damage = 28
+	armor_penetration = 10
+	distance_falloff = 5
+
+/obj/item/projectile/flareshell
+	name = "flare shell"
+	fire_sound = 'sound/urist/weapons/grenade_bloop.ogg'
+	damage = 10
