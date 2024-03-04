@@ -25,17 +25,25 @@
 		user.visible_message(SPAN_WARNING("[user] clicks their pen twice, concealing the dagger."),\
 		SPAN_WARNING("You conceal the hidden dagger."),\
 		"You hear a pen click twice.")
-		force = 0 // Not as strong as a knife, but it fits in your PDA!
+		force = 0 //
 		sharp = FALSE
 		edge = FALSE
 	add_fingerprint(user)
-// Urist's Homebrew.
+// why the fuck does this stab instead of attack, time to codedive...
 
 /obj/item/reagent_containers/food/drinks/bottle/uristmoonshine
 	name = "Urist's Moonshine"
 	desc = "A dusty looking bottle of plump helmet moonshine. It has a label stating 'URIST MCDWARFS, DO NOT TOUCH!'"
-//	icon_state = "moonshine"
-//	center_of_mass = "x=16;y=6"
+	icon = 'icons/urist/items/uristfood.dmi'
+	icon_state = "uristmoonshine" // Placeholder Icon for now.
+	center_of_mass = "x=16;y=8"
+
+/obj/item/reagent_containers/food/drinks/bottle/uristmoonshine/Initialize()
+	. = ..()
+	reagents.add_reagent(/datum/reagent/ethanol/uristhomebrew, 100)
+	var/namepick = pick("Urist's", "Koganusan", "Armok's", "Urist McDwarf's")
+	var/typepick = pick("Moonshine", "Craftdwarf Homebrew", "Vile Force of Distillery", "Forgotten Brew")
+	name = "[namepick] [typepick]"
 
 // Bluespace Shotglass.
 
@@ -52,7 +60,7 @@
 	rim_pos = "y=17;x_left=13;x_right=21"
 //	var/drinkall
 
-// Greytide Toolbox
+// Ancient Toolbox
 
 /obj/item/storage/toolbox/ancienttoolbox // A slightly more damaging toolbox, for advanced shitter tech.
 	name = "toolbox"
@@ -61,7 +69,7 @@
 	item_state = "toolbox_red"
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	force = 30
-	attack_cooldown = 15
+	attack_cooldown = 14
 	melee_accuracy_bonus = 0
 	base_parry_chance = 25 // Robust...
 	w_class = ITEM_SIZE_LARGE

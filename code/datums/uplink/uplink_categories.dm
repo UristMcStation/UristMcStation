@@ -18,8 +18,8 @@
 /datum/uplink_category/grenades
 	name = "Grenades"
 
-/datum/uplink_category/reagents
-	name = "Reagents"
+/datum/uplink_category/reagents_and_plants
+	name = "Reagents & Plants"
 
 /datum/uplink_category/visible_weapons
 	name = "Loud & Dangerous Weaponry"
