@@ -3345,6 +3345,7 @@
 #include "code\modules\urist\items\terran_confederacy_items.dm"
 #include "code\modules\urist\items\tgbedsheets.dm"
 #include "code\modules\urist\items\tgitems.dm"
+#include "code\modules\urist\items\uristaugments.dm"
 #include "code\modules\urist\items\uristmed.dm"
 #include "code\modules\urist\items\uristpapers.dm"
 #include "code\modules\urist\items\uristpens.dm"

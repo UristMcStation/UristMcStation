@@ -82,12 +82,6 @@
 	desc = "A pack of maneater seeds. You probably don't want to be around these when they are ready."
 	icon_state = "fillthis in"
 
-// New MIU
-/obj/item/device/augment_implanter/miu // Changes MIU to a non-obvious mask version.
-	name = "Concealed MIU CBM (Eyes)"
-	desc = "A CBM that allows you to remotely connect to nearby camera networks for easy access. This implant is undetectable \
-	to bodyscanning. Accessing the camera network will require you to roll your eyes up, which will look off-putting to your \
-	fellow crew."
 
 // FIREARMS AND WEAPONRY
 /*
