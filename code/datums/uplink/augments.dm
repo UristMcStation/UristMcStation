@@ -50,6 +50,7 @@
 	item_cost = 60
 	path = /obj/item/device/augment_implanter/powerfist
 
+/*
 /datum/uplink_item/item/augment/smoke_screen
 	name = "Concealed Smoke Countermeasures CBM (torso)"
 	desc = "A concealed port located near the shoulders, that can remotely launch smoke counter-measures. Commonly used by law-enforcement and militaries for protection. \
@@ -63,3 +64,4 @@
 	and enforcement officers. Accessing the camera network will requiring you to roll up your eyes, which will look very disturbing to your fellow crew."
 	item_cost = 20
 	path = // fill this in dude
+*/

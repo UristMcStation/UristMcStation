@@ -159,8 +159,3 @@
 		/obj/item/clothing/suit/armor/pcarrier/merc,
 		/obj/item/clothing/head/helmet/merc
 	)
-
-/obj/item/storage/box/syndie_kit/adrenaline_implant  // ok lets unfuck this in a bit
-	startswith = list(
-		/obj/item/implanter/adrenaline
-		)

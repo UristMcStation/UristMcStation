@@ -68,9 +68,8 @@
 	item_cost = 25
 	path = /obj/item/gun/projectile/shotgun/cane
 
-/*/datum/uplink_item/item/stealth_items/pen_dagger
+/datum/uplink_item/item/stealth_items/pen_dagger
 	name = "Holdout Dagger"
 	desc = "A discreet pen-dagger that can switch between writing and stabbing, thus mightier than the sword. It won't do a huge of damage, but it's better than nothing."
-	item_cost = 10
+	item_cost = 12
 	path = /obj/item/pen/dagger
-*/

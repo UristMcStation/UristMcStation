@@ -227,9 +227,11 @@
 	desc = "Ion rifle in compact form."
 	item_cost = 36	// TC in line with Magnums/Heavy .44's, to reflect it's nuking capability on Synths.
 	path = /obj/item/gun/energy/ionrifle/small
-
+/*
 /datum/uplink_item/item/visible_weapons/hush22
 	name = "Hush .22 Assassin Pistol"
 	desc = "An integrally surpressed .22 assassin pistol with hollow point rounds."
 	item_cost = 30
 	path = /obj/item/weapon/gun/projectile/hush22
+
+*/

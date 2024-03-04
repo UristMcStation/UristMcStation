@@ -1,15 +1,34 @@
 // Uplink Items specifically made for Urist
 
 // Holdout Dagger/Pen Dagger
-/*
+
 /obj/item/pen/dagger
-	desc = "It's a normal black ink pen, the nib feels sharp to touch and is harder to click."
-	origin_tech = TECH_COMBAT = 1
-	var/dagger = FALSE
+	name = "pen"
+	desc = "It's a normal black ink pen. The pen nib feels sharp to touch and is harder to click."
+	icon = 'icons/obj/bureaucracy.dmi' // adjust this for urist antag gear
+	icon_state = "pen" // adjust this....
+	item_state = "pen"
+	var/dagger = 0
 	w_class = ITEM_SIZE_TINY
 
-
-*/
+/obj/item/pen/dagger/attack_self(mob/user as mob)
+	dagger = !dagger
+	if(dagger)
+		user.visible_message(SPAN_WARNING("[user] clicks their pen, revealing a sharp dagger."),\
+		SPAN_WARNING("You activate the hidden dagger."),\
+		"You hear a pen click.")
+		force = 13 // Not as strong as a knife, but it fits in your PDA!
+		sharp = TRUE
+		edge = TRUE
+		attack_verb = list("slashed", "stabs", "jabs", "sticks", "clips")
+	else
+		user.visible_message(SPAN_WARNING("[user] clicks their pen twice, concealing the dagger."),\
+		SPAN_WARNING("You conceal the hidden dagger."),\
+		"You hear a pen click twice.")
+		force = 0 // Not as strong as a knife, but it fits in your PDA!
+		sharp = FALSE
+		edge = FALSE
+	add_fingerprint(user)
 // Urist's Homebrew.
 
 /obj/item/reagent_containers/food/drinks/bottle/uristmoonshine
@@ -35,20 +54,20 @@
 
 // Greytide Toolbox
 
-/obj/item/storage/toolbox/greytide				// It would be funny if going bald would increase the damage even more... perhaps i should add that, truely we are not bay
-	name = "Ancient Toolbox"
-	desc = "An ancient dusty red toolbox. It looks very robust. Only a true greytider could use this."
-//	icon_state = "fillthisin"
-//	icon_state = "red"
-//	item_state = "toolbox_red"
+/obj/item/storage/toolbox/ancienttoolbox // A slightly more damaging toolbox, for advanced shitter tech.
+	name = "toolbox"
+	desc = "Bright red toolboxes like these are one of the most common sights in maintenance corridors on virtually every ship in the galaxy. This one has had it's edges sharpened, you feel more robust looking at it."
+	icon_state = "red"
+	item_state = "toolbox_red"
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	force = 30
-	attack_cooldown = 10
+	attack_cooldown = 15
 	melee_accuracy_bonus = 0
-	base_parry_chance = 35
+	base_parry_chance = 25 // Robust...
 	w_class = ITEM_SIZE_LARGE
 	attack_verb = list("robusts", "robusted", "greytides", "bludgeoned") // shitter tech
 	use_sound = 'sound/effects/storage/toolbox.ogg'
-	matter = list(MATTER_STEEL = 10000)
+
 
 /obj/item/seeds/maneater
 	name = "Maneater Seeds"
@@ -63,7 +82,7 @@
 	fellow crew."
 
 // FIREARMS AND WEAPONRY
-
+/*
 // Hush-22 Special
 /obj/item/weapon/gun/projectile/hush22
 	item_icons = DEF_URIST_INHANDS
@@ -110,7 +129,7 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg' // fix
 	one_hand_penalty = 3 // fix
 
-
+*/
 // MAGAZINES & AMMO
 
 /obj/item/ammo_magazine/r22lr/pistol/hollowpoint

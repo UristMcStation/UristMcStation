@@ -134,7 +134,7 @@
 	desc = "A stripper clip used to load bolt action rifles. Contains just 5 rounds."
 	item_cost = 2
 	path = /obj/item/ammo_magazine/speedloader/clip
-
+/*
 /datum/uplink_item/item/ammo/22hp
 	name = ".22 Pistol Magazine (Hollow Point)"
 	item_cost = 6
@@ -149,3 +149,4 @@
 	name = "Flare Shell"
 	item_cost = 3
 	path = /obj/item/ammo_magazine/r22lr/pistol/hollowpoint
+*/
