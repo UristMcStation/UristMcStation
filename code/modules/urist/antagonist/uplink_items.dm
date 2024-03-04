@@ -116,21 +116,6 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg' //fix
 	one_hand_penalty = 3
 
-// Tranq Pistol (Like the energy crossbow, but not)
-/obj/item/gun/projectile/tranq
-	name = "Tranq Pistol"
-	desc = "A tranq pistol, commonly used to sedate animals."
-	icon = 'icons/urist/items/guns.dmi'
-	icon_state = "crewpistol" // Replace
-	item_state = "crewpistol" // Replace
-	w_class = 1
-	caliber = "tranq"
-	load_method = MAGAZINE
-	origin_tech = list(TECH_COMBAT = 1)
-	allowed_magazines = /obj/item/ammo_magazine/r22lr/pistol // fix
-	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg' // fix
-	one_hand_penalty = 3 // fix
-
 */
 // MAGAZINES & AMMO
 
@@ -145,51 +130,44 @@
 	caliber = "22HP"
 	max_ammo = 10
 
-/obj/item/ammo_magazine/r22lr/pistol/hollowpoint
-	name = "tranq magazine"
-	desc = "A tranq magazine for a tranquilizer pistol."
-	icon = 'icons/urist/items/ammo.dmi'
-	icon_state = "9mmds" // Replace
-	mag_type = MAGAZINE
-	ammo_type = /obj/item/projectile/bullet/r22lr
-	matter = list(MATERIAL_STEEL = 1200)
-	caliber = "tranq"
-	max_ammo = 5
 
+/obj/item/storage/box/syndie_kit/urist_adrenaline
+	startswith = list(
+		/obj/item/implanter/uristadrenaline,
+		/obj/item/implantpad
+		)
 
-
-/*
-// Urist Specific Version of Adrenaline, remove the bay shit below soon
-/obj/item/implant/adrenalin
-	name = "adrenalin implant"
-	desc = "Removes all stuns and knockdowns."
-	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 2, TECH_ESOTERIC = 2)
+obj/item/implant/urist_adrenaline // Adjusted adrenaline implant for Urist.    unfuck weird pathed types, fix reagent adding, etc. Need to test a decent balanced combo of chems, why didn't I play more Med?
+	name = "adrenaline implant"
+	desc = "A cocktail of combat stimulants for remote dispensing into the body, high risk of OD."
 	hidden = 1
-	var/uses
+	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 2, TECH_ESOTERIC = 2)
+	var/uses = 1
+	var/activation_emote
+	var/list/starts_with = list()
 
-/obj/item/implant/adrenalin/trigger(emote, mob/source)
-	if (emote == "pale")
+obj/item/implant/urist_adrenaline/New()
+		for(var/T in starts_with)
+		reagents.add_reagent(T, starts_with[T])
+		create_reagents(15)
+		starts_with = list(/datum/reagent/adrenaline = 5, /datum/reagent/hyperzine = 2, /datum/reagent/coagulant = 3, /datum/reagent/tramadol = 5)
+				..()
+		return
+
+/obj/item/implant/urist_adrenaline/trigger(emote, mob/living/carbon/source as mob)
+	if (emote == activation_emote)
 		activate()
 
-/obj/item/implant/adrenalin/activate()
+/obj/item/implant/urist_adrenaline/activate()
 	if (uses < 1 || malfunction || !imp_in)	return 0
 	uses--
-	to_chat(imp_in, SPAN_NOTICE("You feel a sudden surge of energy!"))
-	imp_in.SetStunned(0)
-	imp_in.SetWeakened(0)
-	imp_in.SetParalysis(0)
+	to_chat(imp_in, SPAN_NOTICE("You feel an intense surge of energy!"))
+	reagents.trans_to_mob(R, amount, CHEM_BLOOD)
 
-/obj/item/implant/adrenalin/implanted(mob/source)
-	source.StoreMemory("A implant can be activated by using the pale emote, <B>say *pale</B> to attempt to activate.", /singleton/memory_options/system)
-	to_chat(source, "The implanted freedom implant can be activated by using the pale emote, <B>say *pale</B> to attempt to activate.")
-	return TRUE
+/obj/item/implanter/uristadrenaline
+	name = "implanter (A)"
+	imp = /obj/item/implant/urist_adrenaline
 
-/obj/item/implanter/adrenalin
-	name = "implanter-adrenalin"
-	imp = /obj/item/implant/adrenalin
-
-/obj/item/implantcase/adrenalin
-	name = "glass case - 'adrenalin'"
-	imp = /obj/item/implant/adrenalin
-
-*/
+/obj/item/implantcase/uristadrenaline
+	name = "glass case - 'adrenaline'"
+	imp = /obj/item/implant/urist_adrenaline
