@@ -16,7 +16,9 @@
 		/obj/item/haircomb/random = 40,
 		/obj/item/haircomb/brush = 80,
 		/obj/item/towel/random = 50,
-		/obj/item/reagent_containers/spray/cleaner/deodorant = 30
+		/obj/item/reagent_containers/spray/cleaner/deodorant = 30,
+		/obj/item/taperoll/bog = 10,
+		/obj/item/weapon/storage/box/bogrolls = 80
 	)
 	products = list(
 		/obj/item/soap = 12,
@@ -24,7 +26,9 @@
 		/obj/item/haircomb/random = 8,
 		/obj/item/haircomb/brush = 4,
 		/obj/item/towel/random = 6,
-		/obj/item/reagent_containers/spray/cleaner/deodorant = 5
+		/obj/item/reagent_containers/spray/cleaner/deodorant = 5,
+		/obj/item/taperoll/bog = 6,
+		/obj/item/weapon/storage/box/bogrolls = 2
 	)
 	contraband = list(
 		/obj/item/inflatable_duck = 1
