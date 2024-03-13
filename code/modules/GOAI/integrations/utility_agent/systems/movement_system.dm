@@ -1,50 +1,5 @@
 // This is a System, i.e. a proc called by an endless loop spawned by the Commander class on init.
 
-/datum/utility_ai/mob_commander/proc/LegacyMovementSystem()
-	var/atom/movable/pawn = src.GetPawn()
-
-	if(!(src?.active_path) || src.active_path.IsDone() || src.is_moving || isnull(pawn))
-		return
-
-	if(!(pawn.MayMove()))
-		return
-
-	var/success = FALSE
-	var/atom/next_step = ((src.active_path.path && src.active_path.path.len) ? src.active_path.path[1] : null)
-
-	if(next_step)
-		var/curr_pos = get_turf(pawn)
-
-		if(get_dist(pawn, next_step) > 1)
-			// If we somehow wind up away from the core path, move back towards it first
-			WalkPawnTowards(next_step, FALSE, TRUE)
-			src.brain?.SetMemory("LastTile", curr_pos)
-			return
-
-		var/step_result = MovePawn(next_step)
-
-		success = (
-			step_result || (
-				(pawn.x == next_step.x) && (pawn.y == next_step.y)
-			)
-		)
-
-		if(success)
-			src.brain?.SetMemory("LastTile", curr_pos)
-		else
-			MOVEMENT_DEBUG_LOG("MOVEMENT SYSTEM: Failed a step from ([pawn.x], [pawn.y]) to ([next_step.x], [next_step.y])")
-
-	else
-		src.active_path.SetDone()
-
-	if(success)
-		lpop(src.active_path.path)
-
-	return
-
-
-// Less of a port of GOAP movement; more steering-behavior-ish
-
 /datum/utility_ai/mob_commander/proc/MovementSystem()
 	var/atom/movable/pawn = src.GetPawn()
 
@@ -73,8 +28,6 @@
 
 	var/safe_trg = trg || src.brain.GetMemoryValue("last_pathing_target") || src.brain.GetMemoryValue("PendingMovementTarget")
 	var/turf/safe_trgturf = !isnull(safe_trg) ? get_turf(safe_trg) : null
-	//MOVEMENT_DEBUG_LOG("LPT is [src.brain.GetMemoryValue("last_pathing_target", by_age=TRUE) || "null"] | [__FILE__] -> L[__LINE__]")
-	//MOVEMENT_DEBUG_LOG("PMT is [src.brain.GetMemoryValue("PendingMovementTarget", by_age=TRUE) || "null"] | [__FILE__] -> L[__LINE__]")
 
 	if(isnull(safe_trgturf))
 		MOVEMENT_DEBUG_LOG("MovementSystem idle; safe_trgturf is null! | [__FILE__] -> L[__LINE__]")
@@ -171,7 +124,9 @@
 
 		bestcand = curr_path[path_idx]
 
-	if(isnull(bestcand) && prob(20))
+	var/do_nudging = src.allow_wandering ? FALSE : (isnull(bestcand) && prob(20))
+
+	if(do_nudging)
 		// Goal-guided steering, lowest quality fallback
 		MOVEMENT_DEBUG_LOG("-> MOVEMENT SYSTEM: IN NUDGING MODE <-")
 		var/list/cardinals = curr_loc.CardinalTurfs()
@@ -218,8 +173,6 @@
 
 	success = (
 		step_result || (
-			(pawn.x == bestcand.x) && (pawn.y == bestcand.y)
-		) || (
 			(pawn.x == bestcand.x) && (pawn.y == bestcand.y)
 		)
 	)

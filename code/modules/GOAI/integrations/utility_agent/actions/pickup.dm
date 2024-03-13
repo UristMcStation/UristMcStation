@@ -40,6 +40,7 @@
 			return
 
 	var/min_dist = 1
+	src.allow_wandering = FALSE
 
 	if((!src.active_path || src.active_path.target != targloc))
 		var/datum/ActivePathTracker/stored_path = StartNavigateTo(target, min_dist, null, max_mindist = 3)

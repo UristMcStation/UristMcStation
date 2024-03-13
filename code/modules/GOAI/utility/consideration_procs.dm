@@ -25,7 +25,7 @@
 
 
 /proc/_cihelper_get_requester_brain(var/requester, var/caller = null)
-	var/datum/utility_ai/mob_commander/controller = requester
+	var/datum/utility_ai/controller = requester
 
 	if(isnull(controller))
 		DEBUGLOG_UTILITY_INPUT_FETCHERS("[caller] Controller is null ([controller || "null"]) @ L[__LINE__] in [__FILE__]")

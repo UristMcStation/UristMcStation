@@ -42,6 +42,9 @@
 	// Special marker used for GOAP/Utility integration only.
 	// If a positive int, nulls out a SmartPlan with that index upon success.
 	var/_terminates_plan = null
+	// Store a unique identifier to make sure we don't drop ANOTHER plan by accident
+	// if the other plan replaced the one we originally planned this drop for.
+	var/_terminates_plan_hash = null
 
 
 /datum/utility_action_template/New(var/list/bound_considerations, var/handler = null, var/handlertype = null, var/context_fetchers = null, var/list/context_args = null, var/priority = null, var/charges = null, var/instant = null, var/list/hard_args = null, var/name_override = null, var/description_override = null, var/active = null, var/list/preconditions = null, var/list/effects = null)
@@ -63,12 +66,12 @@
 
 	# ifdef UTILITYBRAIN_DEBUG_LOGGING
 	if(!src.considerations)
-		UTILITYBRAIN_DEBUG_LOG("WARNING: no Considerations bound to Action [src.name] @ L[__LINE__]!")
+		UTILITYBRAIN_DEBUG_LOG("WARNING: no Considerations bound to Action [src.name] @ L[__LINE__] in [__FILE__]!")
 	# endif
 
 	# ifdef UTILITYBRAIN_DEBUG_LOGGING
 	if(!src.handler)
-		UTILITYBRAIN_DEBUG_LOG("WARNING: no Handler bound to Action [src.name] @ L[__LINE__]!")
+		UTILITYBRAIN_DEBUG_LOG("WARNING: no Handler bound to Action [src.name] @ L[__LINE__] in [__FILE__]!")
 	# endif
 
 /datum/utility_action_template/proc/GetCandidateContexts(var/requester) // Optional<Any> -> Optional<array<assoc>>
@@ -80,7 +83,7 @@
 	// if a context is not particularly likely to succeed, don't fetch it at all!
 	*/
 	if(!(src.context_fetchers))
-		UTILITYBRAIN_DEBUG_LOG("WARNING: no ContextFetchers bound to Action [src.name] @ L[__LINE__]!")
+		UTILITYBRAIN_DEBUG_LOG("WARNING: no ContextFetchers bound to Action [src.name] @ L[__LINE__] in [__FILE__]!")
 		return
 
 	var/list/contexts = list()
@@ -100,7 +103,6 @@
 		var/list/sub_context = call(context_fetcher)(src, requester, ctx_args)
 		contexts.Add(sub_context)
 
-	UTILITYBRAIN_DEBUG_LOG("INFO: found [contexts?.len] contexts for Action [src.name] @ L[__LINE__]")
 	return contexts
 
 
@@ -141,5 +143,6 @@
 
 	var/datum/utility_action/new_action = new(action_name, handler, handlertype, charges, instant, action_args)
 	new_action._terminates_plan = src._terminates_plan  // sneaky sneaky
+	new_action._terminates_plan_hash = src._terminates_plan_hash  // sneaky sneaky
 	return new_action
 
