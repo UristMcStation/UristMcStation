@@ -28,8 +28,15 @@
 		return
 
 	var/_max_node_depth = DEFAULT_IF_NULL(max_node_depth, 60)
-	var/_min_target_dist = DEFAULT_IF_NULL(min_target_dist, 1)
 	var/_path_ttl = DEFAULT_IF_NULL(path_ttl, 200)
+
+	var/_min_target_dist = min_target_dist
+
+	if(isnull(_min_target_dist))
+		_min_target_dist = owner_brain.GetMemoryValue("ai_target_mindist", null, FALSE, TRUE, TRUE)
+
+	if(isnull(_min_target_dist))
+		_min_target_dist = DEFAULT_MIN_ASTAR_DIST
 
 	var/list/path = owner.AiAStar(
 		start = get_turf(pawn),
@@ -87,7 +94,7 @@
 */
 
 
-# define MOVEPATH_ACTIONSET_PATH "integrations/smartobject_definitions/movepath.json"
+# define MOVEPATH_ACTIONSET_PATH "goai_data/smartobject_definitions/movepath.json"
 
 /datum/path_smartobject
 	// optional-ish, identifier for debugging:
@@ -101,6 +108,11 @@
 
 	// number of failed steps; if this is too high, invalidate the path
 	var/frustration = 0
+
+	// similar to frustration, but measures *freshness* rather than *severity* of pathing issues
+	// can be used as a consideration input
+	// null means never failed
+	var/last_failed_step_time = null
 
 
 /datum/path_smartobject/New(var/list/new_path, var/new_name = null)

@@ -14,6 +14,42 @@
 /atom/movable
 	var/managed_movement = FALSE
 
+	// A lot of things will either block everything or nothing at all.
+	// We don't want to waste proc-calls, so here's a wacky trinary var.
+	// 0/null means do a proc call, 1 means block everything, -1 means block nothing.
+	var/block_all = RAYCAST_BLOCK_ALL
+
+	// If block_all is zero, run this dynamic proc instead.
+	var/raycast_cover_proc = null
+
+
+/atom/movable/proc/GetRaycastCoverage(var/hit_angle = null, var/raytype = null) // -> bool (blocks TRUE/FALSE)
+	// For dense atoms, whether they block a raycast, for shooty purposes.
+	// Should be roughly equal to how big the object is in the hit direction, e.g:
+	//
+	// - a solid whole-tile door will block all hits going through its tile
+	// - a directional, windoor-style door will block all hits in its facing direction and its opposite,
+	//     but block nothing for rays perpendicular to its facing
+	// - an upright table will block, say, 33% of hits in any direction (bottom third of range)
+	// - a flipped table will block, say, 67% of hits but only in the facing directions
+	//
+	// ARGUMENTS/INTERFACE:
+	// - hit_angle: incoming ray angle; can be converted to direction
+	// - raytype: laser/projectile/abstract/whatever; if you want to make the distinction
+	//            (e.g. windows let lasers pass through; abstract rays pass through anything non-dense)
+
+	// This proc is mostly just an interface to the underlying dynamic proc call.
+	var/safe_block_all = isnull(src.block_all) ? 0 : src.block_all
+
+	if(safe_block_all >= RAYCAST_BLOCK_ALL)
+		return TRUE
+
+	else if(safe_block_all <= RAYCAST_BLOCK_NONE)
+		return FALSE
+
+	return isnull(src.raycast_cover_proc) ? TRUE : call(src, src.raycast_cover_proc)(hit_angle, raytype)
+
+
 
 /atom/proc/Hit(var/hit_angle, var/atom/shotby = null)
 	/* hit angle - clockwise from positive Y axis if positive,
@@ -23,11 +59,10 @@
 
 	shotby - a reference to who shot us (atom - to incl. turret objects etc.)
 	*/
-
-	FetchAiControllerForObjIntoVar(src, var/datum/utility_ai/mob_commander/commander)
-	if(commander)
-		commander.Hit(hit_angle, shotby)
-
+	to_world("[src] hit by [shotby]")
+	FetchAiControllerForObjIntoVar(src, var/datum/utility_ai/commander)
+	if(istype(commander))
+		commander.HitRanged(src, hit_angle, shotby)
 
 	return
 

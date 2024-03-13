@@ -75,7 +75,11 @@
 					if(action._terminates_plan && tracker.is_done)
 						var/list/smart_plans = src.brain?.GetMemoryValue("SmartPlans", null) || list()
 						var/plan_len = smart_plans?.len || 0
-						if(plan_len >= action._terminates_plan)
+
+						var/target_plan = smart_plans[action._terminates_plan]
+						var/target_plan_hash = isnull(target_plan) ? null : ref(target_plan)
+
+						if(plan_len >= action._terminates_plan && target_plan_hash == action._terminates_plan_hash)
 							smart_plans[action._terminates_plan] = null
 							src.brain?.SetMemory("SmartPlans", smart_plans)
 					return

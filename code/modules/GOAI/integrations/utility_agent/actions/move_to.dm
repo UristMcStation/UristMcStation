@@ -72,6 +72,7 @@
 		tracker.SetDone()
 		return
 
+	src.allow_wandering = TRUE
 	var/min_dist = 0
 
 	if((!src.active_path || src.active_path.target != position))
@@ -114,6 +115,8 @@
 	if(isnull(pawn))
 		RUN_ACTION_DEBUG_LOG("Pawn is null | <@[src]> | [__FILE__] -> L[__LINE__]")
 		return
+
+	src.allow_wandering = TRUE
 
 	var/_min_dist = isnull(min_dist) ? 0 : min_dist
 

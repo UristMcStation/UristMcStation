@@ -79,7 +79,7 @@
 
 	if(isnull(path))
 		var/_max_node_depth = DEFAULT_IF_NULL(max_node_depth, 60)
-		var/_min_target_dist = DEFAULT_IF_NULL(min_target_dist, 1)
+		var/_min_target_dist = DEFAULT_IF_NULL(min_target_dist, DEFAULT_MIN_ASTAR_DIST)
 		var/_path_ttl = DEFAULT_IF_NULL(path_ttl, 100)
 
 		path = src.AiAStar(
@@ -94,7 +94,6 @@
 			adj_args = null,
 			exclude = null
 		)
-		world.log << "Path to [position] is [path] | [__FILE__] -> L[__LINE__]"
 		tracker.BBSet("path", path)
 		src.brain.SetMemory(MEM_PATH_TO_POS("aitarget"), path, _path_ttl)
 		src.brain.SetMemory(MEM_PATH_ACTIVE, path, _path_ttl)

@@ -192,7 +192,7 @@
 	# endif
 
 	# ifdef GOAI_LIBRARY_FEATURES
-	var/obj/item/weapon/M = new(loc)
+	var/obj/item/gun/M = new(loc)
 	# endif
 
 	if(true_name)

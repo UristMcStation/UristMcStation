@@ -6,8 +6,10 @@
 	if(tracker.IsStopped())
 		return
 
+	# ifdef RUN_ACTION_DEBUG_LOGGING
 	if(isnull(position))
 		RUN_ACTION_DEBUG_LOG("Target position is null | <@[src]> | [__FILE__] -> L[__LINE__]")
+	# endif
 
 	var/list/available_doors = tracker.BBGet("available_doors")
 
@@ -39,6 +41,7 @@
 		tracker.SetFailed()
 
 	var/success = FALSE
+	src.allow_wandering = FALSE
 
 	# ifdef GOAI_SS13_SUPPORT
 	for(var/obj/machinery/door/DtoOpen in available_doors)
@@ -72,8 +75,10 @@
 	if(tracker.IsStopped())
 		return
 
+	# ifdef RUN_ACTION_DEBUG_LOGGING
 	if(isnull(position))
 		RUN_ACTION_DEBUG_LOG("Target position is null | <@[src]> | [__FILE__] -> L[__LINE__]")
+	# endif
 
 	var/list/available_doors = tracker.BBGet("available_doors")
 
