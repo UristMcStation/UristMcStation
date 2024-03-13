@@ -28,7 +28,7 @@
 // TL;DR - all the strategic power of GOAP with the speed and flexibility of Utility AI.
 */
 
-# define GOAPPLAN_ACTIONSET_PATH "integrations/smartobject_definitions/goapplan.json"
+# define GOAPPLAN_ACTIONSET_PATH "goai_data/smartobject_definitions/goapplan.json"
 
 // DYNAMIC QUERY SYNTAX: <Querytype>:<Typeval>@<Target>=><Outkey> WHERE
 // - Querytype: what kind of query this is, e.g. 'type' for type matching
@@ -438,10 +438,11 @@
 	//var/list/preconds_blackboard = list()
 
 	var/plan_len = length(plan)
-	var/action_idx = 0
+	var/action_idx = plan_len
 
-	for(var/action_key in plan)
-		action_idx++
+	while(action_idx)
+		var/action_key = plan[action_idx--]
+
 		var/list/action_data = GOAI_GLOBAL_LIST_PREFIX(global_plan_actions_repo)[action_key]
 		ASSERT(!isnull(action_data))
 
@@ -453,31 +454,19 @@
 			"from_context" = TRUE
 		)
 
-		var/datum/consideration/not_previous_consideration = new(
-			input_val_proc = /proc/consideration_input_action_in_brain,
-			curve_proc = /proc/curve_antilinear_leaky,
+		// Could override hiMark to slightly above 1 if cycling should be possible but heavily discouraged;
+		// the higher hiMark is, the more permissive this will be.
+		// Should probably be done using some optional JSON var; not gonna bother for now.
+		var/datum/consideration/not_cyclic_consideration = new(
+			input_val_proc = /proc/consideration_actiontemplate_effects_cycling,
+			curve_proc = /proc/curve_antilinear,
 			loMark = 0,
 			hiMark = 1,
 			noiseScale = 0,
-			name = "NotAction-1",
+			name = "NotCyclic",
 			active = TRUE,
 			consideration_args = list(
-				"action_name" = action_key,
-				"memory_key" = MEM_ACTION_MINUS_ONE
-			)
-		)
-
-		var/datum/consideration/not_preprevious_consideration = new(
-			input_val_proc = /proc/consideration_input_action_in_brain,
-			curve_proc = /proc/curve_antilinear_leaky,
-			loMark = 0,
-			hiMark = 1,
-			noiseScale = 0,
-			name = "NotAction-2",
-			active = TRUE,
-			consideration_args = list(
-				"action_name" = action_key,
-				"memory_key" = MEM_ACTION_MINUS_TWO
+				"memory_key" = "SelectedActionTemplate"
 			)
 		)
 
@@ -504,8 +493,7 @@
 		)
 
 		var/list/considerations = list(
-			not_previous_consideration,
-			not_preprevious_consideration,
+			not_cyclic_consideration,
 			effects_consideration,
 			preconds_consideration
 		)
@@ -580,12 +568,22 @@
 		var/instant = FALSE
 		var/act_description = action_data[JSON_KEY_PLANACTION_DESCRIPTION]
 
-		var/list/preconds = action_data[JSON_KEY_PLANACTION_PRECONDITIONS]
+		var/list/raw_preconds = action_data[JSON_KEY_PLANACTION_PRECONDITIONS]
+		if(isnull(raw_preconds))
+			raw_preconds = list()
 
 		var/list/effects = action_data[JSON_KEY_PLANACTION_EFFECTS]
 
 		if(isnull(effects))
 			effects = list()
+
+
+		// This is meant to sequence actions better
+		// Commented out to try reversing the insertion order
+		//UPSERT_ASSOC_LTR(effects, preconds_blackboard)
+		//var/list/preconds = preconds_blackboard.Copy()
+		//UPSERT_ASSOC_LTR(raw_preconds, preconds)
+		var/list/preconds = raw_preconds
 
 		var/datum/utility_action_template/new_action_template = new(
 			considerations,
@@ -606,7 +604,8 @@
 		)
 
 		if(action_idx == plan_len)
-			new_action_template._terminates_plan = TRUE
+			new_action_template._terminates_plan = 1 + length(planned_actions) // because we append after this
+			new_action_template._terminates_plan_hash = ref(plan)
 
 		// Package it up!
 		planned_actions.Add(new_action_template)

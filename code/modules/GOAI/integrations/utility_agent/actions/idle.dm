@@ -6,5 +6,11 @@
 	if(tracker.IsStopped())
 		return
 
+	src.allow_wandering = TRUE
+
+	var/datum/brain/utility/needybrain = src.brain
+	if(istype(needybrain))
+		needybrain.AddMotive(NEED_COMPOSURE, MAGICNUM_COMPOSURE_GAIN_IDLE)
+
 	tracker.SetDone()
 	return

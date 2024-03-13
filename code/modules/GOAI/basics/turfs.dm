@@ -1,3 +1,10 @@
+/turf
+	// Used by AI.
+	// Any AI that fails to path to this turf will bump the penalty a bit,
+	// discouraging future AIs from trying to path here.
+	// This is fuzzy and incremental, so a one-off failure should disqualify a turf forever.
+	var/unreachable_penalty = 0
+
 # ifdef GOAI_LIBRARY_FEATURES
 
 /turf/ground
@@ -151,10 +158,14 @@
 			continue
 
 		if(check_objects_permissive)
+			var/mob/M = object
+			if(istype(M))
+				continue
+
 			# ifdef GOAI_SS13_SUPPORT
 
 			var/obj/machinery/door/D = object
-			if(D && istype(D))
+			if(istype(D))
 				continue
 
 			# endif
@@ -162,15 +173,15 @@
 			# ifdef GOAI_LIBRARY_FEATURES
 
 			var/obj/cover/door/D = object
-			if(D && istype(D))
+			if(istype(D))
 				continue
 
 			var/obj/cover/autodoor/AD = object
-			if(AD && istype(AD))
+			if(istype(AD))
 				continue
 
 			var/obj/cover/table/T = object
-			if(T && istype(T))
+			if(istype(T))
 				continue
 
 			# endif
@@ -317,13 +328,13 @@
 
 
 /proc/fTestObstacleDist(var/atom/start, var/atom/T)
-	if(!start)
+	if(!istype(start))
 		return PLUS_INF
 
-	if(!T)
+	if(!istype(T))
 		return PLUS_INF
 
-	var/cost = get_dist(start, T)
+	var/cost = MANHATTAN_DISTANCE(start, T)
 
 	var/turf/t = T
 
@@ -335,7 +346,7 @@
 			# ifdef GOAI_SS13_SUPPORT
 
 			var/obj/machinery/door/D = O
-			if(D && istype(D))
+			if(istype(D))
 				continue
 
 			# endif
@@ -347,7 +358,7 @@
 
 
 /proc/fTestObstacleDistFuzzed(var/atom/start, var/atom/T)
-	var/eps = (rand() / 2)
+	var/eps = ((rand() - 0.5) / 4)
 	var/cost = fTestObstacleDist(start, T) + eps
 	return cost
 

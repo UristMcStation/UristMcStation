@@ -9,7 +9,7 @@
 
 	var/enterable = src.MayEnterTurf(new_loc)
 
-	if(!enterable)
+	if(!enterable && new_loc.IsBlocked(TRUE, TRUE))
 		return FALSE
 
 	. = step(src, dir)
@@ -24,9 +24,6 @@
 /atom/movable/proc/MayEnterTurf(var/turf/T, var/atom/From = null)
 	var/turf/startpos = (From ? get_turf(From) : get_turf(src))
 	if(!startpos)
-		return FALSE
-
-	if(T.density)
 		return FALSE
 
 	. = T?.Enter(src, startpos)

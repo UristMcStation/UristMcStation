@@ -208,7 +208,7 @@
 // Only compile if the senses are included too...
 
 /*
-// UtilitySenseFetcher SerDe
+// UtilitySmartobjectFetcher SerDe
 */
 
 # define JSON_KEY_SO_FETCHER_IDX_KEY "sense_index_key"
@@ -217,17 +217,18 @@
 # define JSON_KEY_SO_FETCHER_OUT_MEM_KEY "out_memory_key"
 # define JSON_KEY_SO_FETCHER_RETENTION_TIME "retention_time_dseconds"
 
-/proc/UtilitySenseFetcherFromJsonFile(var/json_filepath) // str -> ActionTemplate
+/proc/UtilitySmartobjectFetcherFromJsonFile(var/json_filepath) // str -> ActionTemplate
+	to_world_log("Creating a utility_sense_fetcher from [json_filepath]")
 	ASSERT(json_filepath)
 
 	var/list/json_data = null; READ_JSON_FILE_CACHED(json_filepath, json_data)
 	ASSERT(json_data)
 
-	var/datum/action_set/new_actionset = UtilitySenseFetcherFromData(json_data)
-	return new_actionset
+	var/sense/utility_smartobject_fetcher/new_sense = UtilitySmartobjectFetcherFromData(json_data)
+	return new_sense
 
 
-/proc/UtilitySenseFetcherFromData(var/list/json_data) // list -> ActionTemplate
+/proc/UtilitySmartobjectFetcherFromData(var/list/json_data) // list -> ActionTemplate
 	ASSERT(json_data)
 
 	var/key = json_data[JSON_KEY_SO_FETCHER_IDX_KEY]
@@ -236,7 +237,7 @@
 	var/out_memory_key = json_data[JSON_KEY_SO_FETCHER_OUT_MEM_KEY]
 	var/retention_time_dseconds = json_data[JSON_KEY_SO_FETCHER_RETENTION_TIME]
 
-	var/sense/utility_sense_fetcher/new_sense = new(key, enabled, in_memory_key, out_memory_key, retention_time_dseconds)
+	var/sense/utility_smartobject_fetcher/new_sense = new(key, enabled, in_memory_key, out_memory_key, retention_time_dseconds)
 	return new_sense
 
 # endif

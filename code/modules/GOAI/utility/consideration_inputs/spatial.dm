@@ -165,10 +165,10 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_is_passable)
 	return result
 
 
-
 CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_in_line_of_sight)
 	// Checks whether we have a clear LoS to the target.
 	// WARNING: this check is pretty expensive, you should put it near the tail of the Consideration array.
+	// Target can be fetched from args, context, or memories
 	var/datum/utility_ai/mob_commander/requester_ai = requester
 
 	if(isnull(requester_ai))
@@ -181,17 +181,49 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_in_line_of_sight)
 		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_input_in_line_of_sight Pawn is null @ L[__LINE__] in [__FILE__]")
 		return null
 
-	var/from_ctx = consideration_args["from_context"]
-	if(isnull(from_ctx))
-		from_ctx = TRUE
-
 	var/pos_key = consideration_args["input_key"] || "position"
-	var/candidate = (from_ctx ? context[pos_key] : consideration_args[pos_key])
+	var/candidate = null
+
+	var/from_ctx = FALSE
+	var/from_memory_key = FALSE
+
+	if(isnull(candidate))
+		// Try context:
+		from_ctx = consideration_args["from_context"]
+		if(isnull(from_ctx))
+			from_ctx = TRUE
+
+		if(from_ctx)
+			candidate = context[pos_key]
+
+	if(isnull(candidate))
+		// Try memories:
+		from_memory_key = consideration_args["from_memory_key"]
+		if(isnull(from_memory_key))
+			from_memory_key = FALSE
+
+		if(from_memory_key)
+			var/datum/brain/requesting_brain = _cihelper_get_requester_brain(requester, "_cihelper_get_brain_data")
+
+			if(!istype(requesting_brain))
+				DEBUGLOG_MEMORY_FETCH("consideration_input_in_line_of_sight Brain is null ([requesting_brain || "null"]) @ L[__LINE__] in [__FILE__]")
+				return FALSE
+
+			candidate = requesting_brain.GetMemoryValue(from_memory_key)
+
+	if(isnull(candidate))
+		// Try args:
+		candidate = consideration_args?["candidate"]
 
 	if(isnull(candidate))
 		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_input_in_line_of_sight Candidate is null @ L[__LINE__] in [__FILE__]")
 		return FALSE
 
-	var/forecasted_impactee = AtomDensityRaytrace(pawn, candidate, list(pawn))
+	var/raytype = consideration_args?["raytype"]
+	if(isnull(raytype))
+		raytype = RAYTYPE_LOS
 
-	return ( (forecasted_impactee == candidate) )//|| (get_dist(forecasted_impactee, candidate) == 0) )
+	var/forecasted_impactee = AtomDensityRaytrace(pawn, candidate, list(pawn), raytype)
+	var/result = ( (forecasted_impactee == candidate) )
+
+	return result

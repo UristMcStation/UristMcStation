@@ -22,21 +22,21 @@
 
 
 /mob/living
-	pathing_obstacle_penalty = 2
+	pathing_obstacle_penalty = 15
 
 
 /obj/cover
 	pathing_obstacle_penalty = 800
 
-/*
+
 /obj/cover/door
-	pathing_obstacle_penalty = 10
+	pathing_obstacle_penalty = 20
 
 
 /obj/cover/autodoor
-	pathing_obstacle_penalty = 10
-*/
+	pathing_obstacle_penalty = 20
+
 
 
 /obj/cover/table
-	pathing_obstacle_penalty = 3
+	pathing_obstacle_penalty = 15

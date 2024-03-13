@@ -12,10 +12,8 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_relationship_score)
 	var/inp_key = consideration_args?["input_key"] || "target"
 	var/candidate = null
 
-	try
-		candidate = (from_ctx ? context[inp_key] : consideration_args[inp_key])
-	DEBUGLOG_MEMORY_ERRCATCH(var/exception/e)
-		DEBUGLOG_UTILITY_INPUT_FETCHERS("ERROR: [e] on [e.file]:[e.line]. <inp_key='[inp_key]'>")
+	DEBUGLOG_MEMORY_ERRTRY(candidate = (from_ctx ? context[inp_key] : consideration_args[inp_key]))
+	DEBUGLOG_MEMORY_ERRCATCH(var/exception/e, DEBUGLOG_UTILITY_INPUT_FETCHERS("ERROR: [e] on [e.file]:[e.line]. <inp_key='[inp_key]'>"))
 
 	if(isnull(candidate))
 		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_input_relationship_score Candidate is null ([candidate || "null"]) <from_ctx=[from_ctx] | inp_key=[inp_key]> @ L[__LINE__] in [__FILE__]")

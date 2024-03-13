@@ -17,6 +17,9 @@
 	// Special marker used for GOAP/Utility integration only.
 	// If a positive int, nulls out a SmartPlan with that index upon success.
 	var/_terminates_plan = null
+	// Store a unique identifier to make sure we don't drop ANOTHER plan by accident
+	// if the other plan replaced the one we originally planned this drop for.
+	var/_terminates_plan_hash = null
 
 
 /datum/utility_action/New(var/name, var/handler, var/handlertype, var/charges, var/instant = FALSE, var/list/action_args = null)

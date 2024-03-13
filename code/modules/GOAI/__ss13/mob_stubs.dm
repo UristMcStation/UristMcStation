@@ -10,6 +10,20 @@
 /mob
 	var/real_name
 
+/mob/Bump(atom/Obstacle)
+	var/turf/obsloc = get_turf(Obstacle)
+	if(obsloc.IsBlocked(TRUE, TRUE))
+		return
+
+	var/mob/obsmob = Obstacle
+
+	if(istype(obsmob))
+		if(!(src in obsmob.group))
+			obsmob.group.Add(src)
+
+	. = ..(Obstacle)
+	return
+
 /mob/living
 	var/stat = CONSCIOUS
 	var/faction

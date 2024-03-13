@@ -1,13 +1,4 @@
 
-//# define DEBUG_UTILITY_MEMORY_QUERIES 1
-
-# ifdef DEBUG_UTILITY_MEMORY_QUERIES
-# define DEBUGLOG_UTILITY_MEMORY_FETCH(X) to_world_log(X)
-# else
-# define DEBUGLOG_UTILITY_MEMORY_FETCH(X)
-# endif
-
-
 CTXFETCHER_CALL_SIGNATURE(/proc/__ctxfetcher_get_memory_value_helper)
 	// Returns a stored Memory
 
@@ -23,7 +14,7 @@ CTXFETCHER_CALL_SIGNATURE(/proc/__ctxfetcher_get_memory_value_helper)
 
 	var/datum/utility_ai/mob_commander/controller = requester
 
-	var/input_key = context_args["key"]
+	var/input_key = context_args["input_key"]
 
 	if(isnull(input_key))
 		UTILITYBRAIN_DEBUG_LOG("WARNING: key for __ctxfetcher_get_memory_value_helper is null @ L[__LINE__] in [__FILE__]!")

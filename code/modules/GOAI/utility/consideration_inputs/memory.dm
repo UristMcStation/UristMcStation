@@ -2,15 +2,6 @@
 // Consideration procs that deal with AI Brain data: Memories, Perceptions, Needs, etc.
 */
 
-# define DEBUG_MEMORY_QUERIES 1
-
-# ifdef DEBUG_MEMORY_QUERIES
-# define DEBUGLOG_MEMORY_FETCH(X) to_world_log(X)
-# define DEBUGLOG_MEMORY_ERRCATCH(X) catch(X)
-# else
-# define DEBUGLOG_MEMORY_FETCH(X)
-# define DEBUGLOG_MEMORY_ERRCATCH(X) catch(X)
-# endif
 
 CONSIDERATION_CALL_SIGNATURE(/proc/_cihelper_get_brain_data)
 	// This is not a 'proper' Consideration, but it has the same interface as one; it's a way of DRYing
@@ -19,7 +10,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/_cihelper_get_brain_data)
 
 	var/datum/brain/requesting_brain = _cihelper_get_requester_brain(requester, "_cihelper_get_brain_data")
 
-	if(isnull(requesting_brain))
+	if(!istype(requesting_brain))
 		DEBUGLOG_MEMORY_FETCH("_cihelper_get_brain_data Brain is null ([requesting_brain || "null"]) @ L[__LINE__] in [__FILE__]")
 		return FALSE
 
@@ -101,7 +92,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_get_memory_ghost_turf)
 CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_requester_distance_to_memory_value)
 	var/atom/memory = _cihelper_get_brain_data(action_template, context, requester, consideration_args)
 
-	if(isnull(memory))
+	if(!istype(memory))
 		return PLUS_INF
 
 	return ManhattanDistance(memory, requester)
@@ -131,10 +122,8 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_candidate_in_brain_list)
 	var/pos_key = consideration_args["input_key"] || "position"
 	var/candidate = null
 
-	try
-		candidate = (from_ctx ? context[pos_key] : consideration_args[pos_key])
-	DEBUGLOG_MEMORY_ERRCATCH(var/exception/e)
-		DEBUGLOG_MEMORY_FETCH("ERROR: [e] on [e.file]:[e.line]. <pos_key='[pos_key]'>")
+	DEBUGLOG_MEMORY_ERRTRY(candidate = (from_ctx ? context[pos_key] : consideration_args[pos_key]))
+	DEBUGLOG_MEMORY_ERRCATCH(var/exception/e, DEBUGLOG_MEMORY_FETCH("ERROR: [e] on [e.file]:[e.line]. <pos_key='[pos_key]'>"))
 
 	if(isnull(candidate))
 		DEBUGLOG_MEMORY_FETCH("consideration_input_candidate_in_brain_list Candidate is null ([candidate || "null"]) <from_ctx=[from_ctx] | pos_key=[pos_key]> @ L[__LINE__] in [__FILE__]")

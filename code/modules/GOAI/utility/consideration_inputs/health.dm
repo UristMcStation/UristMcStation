@@ -21,7 +21,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_mobhealth_abs)
 
 	var/mob/pawn = requester_ai?.GetPawn()
 
-	if(isnull(pawn))
+	if(!istype(pawn))
 		return null
 
 	return pawn.health_current
@@ -39,7 +39,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_mobhealth_rel)
 
 	var/mob/pawn = requester_ai?.GetPawn()
 
-	if(isnull(pawn))
+	if(!istype(pawn))
 		return null
 
 	if(!(pawn?.health_max))

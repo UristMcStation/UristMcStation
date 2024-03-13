@@ -1,7 +1,7 @@
 
 # ifdef GOAI_LIBRARY_FEATURES
 
-# define TABLE_ACTIONSET_PATH "integrations/smartobject_definitions/table.json"
+# define TABLE_ACTIONSET_PATH "goai_data/smartobject_definitions/table.json"
 
 /obj/cover/table/GetUtilityActions(var/requester, var/list/args = null) // (Any, assoc) -> [ActionSet]
 

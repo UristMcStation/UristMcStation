@@ -60,7 +60,7 @@
 		del(src)
 
 
-/obj/item/weapon/gun
+/obj/item/gun
 	name = "Gun"
 	icon = 'icons/obj/gun.dmi'
 	icon_state = "laser"
@@ -72,8 +72,10 @@
 	var/dispersion = GUN_DISPERSION
 	var/ammo_sprite = null
 
+	var/projectile_raycast_flags = RAYTYPE_BEAM
 
-/obj/item/weapon/gun/New(var/atom/location)
+
+/obj/item/gun/New(var/atom/location)
 	..()
 
 	loc = location
@@ -84,7 +86,7 @@
 	)
 
 
-/obj/item/weapon/gun/proc/cool()
+/obj/item/gun/proc/cool()
 	cooling = TRUE
 
 	spawn(cooldown_time_deterministic + rand(-cooldown_time_random, cooldown_time_random))
@@ -93,49 +95,49 @@
 	return
 
 
-/obj/item/weapon/gun/proc/shoot(var/atom/At, var/atom/From)
+/obj/item/gun/proc/shoot(var/atom/At, var/atom/From)
 	if(cooling)
 		return
 
 	cool()
 
 	var/atom/source = (isnull(From) ? src : From)
-	var/dist = EuclidDistance(source, At)
-	var/shot_dispersion = rand(-dispersion, dispersion) % 180
 
-	var/dx = (At.x - source.x)
-	var/dy = (At.y - source.y)
-	var/angle = arctan(dx, dy) + shot_dispersion
+	var/atom/Hit = AtomDensityRaytrace(source, At, list(source), src.projectile_raycast_flags, dispersion)
 
-	var/vec_length = dist
+	if(!istype(Hit))
+		// this generally shouldn't happen
+		return
+
+	var/dx = null
+	var/dy = null
+
+	dx = (Hit.x - source.x)
+	dy = (Hit.y - source.y)
+
+	var/vec_length = sqrt(SQR(dx) + SQR(dy))
+	var/angle = arctan(dx, dy)
 
 	var/obj/projectile/newbeam = new(source.loc, vec_length, vec_length, angle, ammo_sprite)
 
-	var/true_dy = vec_length * sin(angle)
-	var/true_dx = vec_length * cos(angle)
+	Hit.Hit(angle, From)
 
-	var/hit_x = (source.x + true_dx)
-	var/hit_y = (source.y + true_dy)
+	if(Hit?.attachments)
+		var/datum/event_queue/hit/hitqueue = Hit.attachments.Get(ATTACHMENT_EVTQUEUE_HIT)
 
-	if ((FLOOR(hit_x) == At.x) && (FLOOR(hit_y) == At.y))
-		At.Hit(angle, From)
-
-		if(At.attachments)
-			var/datum/event_queue/hit/hitqueue = At.attachments.Get(ATTACHMENT_EVTQUEUE_HIT)
-
-			if(hitqueue)
-				var/datum/event/hit/hit_evt = new("Hit @ [world.time]", angle, From)
-				hitqueue.Add(hit_evt)
+		if(istype(hitqueue))
+			var/datum/event/hit/hit_evt = new("Hit @ [world.time]", angle, From)
+			hitqueue.Add(hit_evt)
 
 	return newbeam
 
 
-/obj/item/weapon/gun/proc/Fire(var/atom/At, var/atom/From)
+/obj/item/gun/proc/Fire(var/atom/At, var/atom/From)
 	src.Shoot(At, From)
 	return
 
 
-/obj/item/weapon/gun/verb/Shoot(var/atom/At as mob in view())
+/obj/item/gun/verb/Shoot(var/atom/At as mob in view())
 	set src in view(0)
 
 	if(cooling)
@@ -146,7 +148,7 @@
 
 
 /mob/verb/GimmeGun()
-	var/obj/item/weapon/gun/newgun = new(usr)
+	var/obj/item/gun/newgun = new(usr)
 
 	to_chat(usr, "There ya go, one [newgun]!")
 

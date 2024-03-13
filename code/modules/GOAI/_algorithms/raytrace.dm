@@ -1,10 +1,5 @@
-# ifdef RAYTRACE_DEBUG_LOGGING
-# define RAYTRACE_DEBUG_LOG(X) to_world_log(X)
-# else
-# define RAYTRACE_DEBUG_LOG(X)
-# endif
 
-/proc/Raytrace(var/atom/From, var/atom/To, var/CheckBlock = null, var/list/ignore = null)
+/proc/Raytrace(var/atom/From, var/atom/To, var/CheckBlock = null, var/list/ignore = null, var/raytype = null, var/dispersion = null)
 	// Heavily based on: https://web.archive.org/web/20230119153820/https://playtechs.blogspot.com/2007/03/raytracing-on-grid.html
 	//
 	// Follows a straight line between two atoms, then walks every tile intersected by the line.
@@ -27,13 +22,25 @@
 	var/dX = (endX - startX)
 	var/dY = (endY - startY)
 
+	var/curr_angle = arctan(dX, dY)
+
+	if(!isnull(dispersion))
+		var/angle_err = (rand() - 0.5) * dispersion
+		curr_angle += angle_err
+		curr_angle = CLOCKWISE_ANGLE(curr_angle)
+
+		var/og_magnitude = sqrt(SQR(dX) + SQR(dY))
+
+		dX = cos(curr_angle) * og_magnitude
+		dY = sin(curr_angle) * og_magnitude
+
 	var/dXabs = abs(dX)
 	var/dYabs = abs(dY)
 
 	var/currX = startX
 	var/currY = startY
 
-	var/n = (dXabs + dYabs)
+	//var/n = (dXabs + dYabs)
 
 	var/stepX = ((endX > startX) ? 1 : -1)
 	var/stepY = ((endY > startY) ? 1 : -1)
@@ -50,15 +57,17 @@
 	dXabs *= 2
 	dYabs *= 2
 
-	while(n --> 0)
-		RAYTRACE_DEBUG_LOG("([currX], [currY]) @ [n], [error]")
+	var/maxX = world.maxx
+	var/maxY = world.maxy
+
+	while(currX > 1 && currX < maxX && currY > 1 && currY < maxY)
 		sleep(-1)
 
 		if(!isnull(CheckBlock))
-			blocker = call(CheckBlock)(currX, currY, From.z, ignore)
+			blocker = call(CheckBlock)(currX, currY, From.z, curr_angle, ignore, raytype, To)
 
-		if(blocker)
-			RAYTRACE_DEBUG_LOG("Blocker [blocker] @ ([currX], [currY]) / [absSlope] == [arctan(absSlope)]")
+		if(!isnull(blocker))
+			RAYTRACE_DEBUG_LOG("Blocker [blocker] @ ([currX], [currY]) / [absSlope] == [curr_angle]")
 			/* We don't want hits that are visually 'off', where we rasterize a tile but the ray
 			// does not actually intersect the target object - hence some extra checks.
 			//
@@ -82,28 +91,37 @@
 
 			if(isnull(absSlope))
 				// head-on hit, either from X- or Y-axis.
-				break
+				return blocker
 
 			if(istype(blocker, /turf))
 				// turfs cover the whole tile, no glancing off
-				break
+				return blocker
 
+			if( abs((curr_angle % 90) - 45) < 5 && (abs(currX - startX) == abs(currY - startY)) )
+				// at 45 degrees, ignore evil rasterizations that pass through one corner of a tile twice
+				// otherwise, if offsets on X & Y are equal, valid 45-degree diagonal hit.
+				return blocker
+
+			if( abs((curr_angle % 90) - 15) < 5 )
+				// good hits, approx. <20 degrees
+				return blocker
+
+			/* // old, slope-based calculation
 			if(absSlope == 1 && (abs(currX - startX) == abs(currY - startY)))
 				// at 45 degrees, ignore evil rasterizations that pass through one corner of a tile twice
 				// otherwise, if offsets on X & Y are equal, valid 45-degree diagonal hit.
-				break
+				return blocker
 
 			if(absSlope <= 0.4)
 				// good hits on the horizontal, approx. <20 degrees
-				break
+				return blocker
 
 			if(absSlope >= 5)
 				// good hits on the vertical, approx. >80 degrees
-				break
+				return blocker
 
 			// (0.4; 5) range visually
-
-		RAYTRACE_DEBUG_LOG("VisitX [currX], VisitY [currY]")
+			*/
 
 		if(error > 0)
 			currX += stepX
@@ -116,48 +134,95 @@
 	var/reachedX = (currX == endX)
 	var/reachedY = (currY == endY)
 
+	if(isnull(blocker))
+		var/turf/endturf = locate(FLOOR(currX), FLOOR(currY), From.z)
+		RAYTRACE_DEBUG_LOG("Returning final turf [endturf]")
+		blocker = endturf
+
 	return ((reachedX && reachedY) ? To : blocker)
 
 
-/proc/basicBlockCheck(var/x, var/y, var/z, var/list/ignored = null)
-	var/turf/blockturf = locate(x, y, z)
+/proc/basicBlockCheck(var/x, var/y, var/z, var/angle, var/list/ignored = null, var/raytype = null, var/atom/target = null)
+	var/_raytype = isnull(raytype) ? DEFAULT_RAYTYPE : raytype
+
+	if(!(_raytype & RAYFLAG_TURFBLOCK))
+		// no point checking the rest
+		return null
+
 	var/has_ignored = !(isnull(ignored) && istype(ignored) && ignored.len)
+
+	var/baseX = round(x, 1)
+	var/baseY = round(y, 1)
+
+	var/turf/blockturf = locate(baseX, baseY, z)
 
 	if(blockturf && istype(blockturf))
 		if(has_ignored && !(blockturf in ignored) && blockturf.density > 0)
 			return blockturf
 
-	return FALSE
+	return null
 
 
-/proc/denseCheck(var/x, var/y, var/z, var/list/ignored = null)
-	var/turf/blockturf = locate(x, y, z)
-	var/has_ignored = !(isnull(ignored) && istype(ignored) && ignored.len)
+/proc/denseCheck(var/x, var/y, var/z, var/angle, var/list/ignored = null, var/raytype = null, var/atom/target = null)
+	var/_raytype = isnull(raytype) ? DEFAULT_RAYTYPE : raytype
 
-	if(blockturf && istype(blockturf))
-		if(blockturf.density > 0)
+	if((_raytype == RAYTYPE_UNSTOPPABLE))
+		// no point checking the rest
+		return FALSE
+
+	var/baseX = round(x, 1)
+	var/baseY = round(y, 1)
+
+	var/turf/blockturf = locate(baseX, baseY, z)
+
+	var/has_ignored = !(istype(ignored) && ignored.len)
+
+	var/check_opaque = _raytype & RAYFLAG_OPAQUEBLOCK
+	var/check_transparent = _raytype & RAYFLAG_TRANSPARENTBLOCK
+	var/check_dense_objects = (check_opaque || check_transparent)
+
+	if(istype(blockturf))
+		if((_raytype & RAYFLAG_TURFBLOCK) && blockturf.density)
 			// Optimization: only check membership if we NEED to potentially ignore it
 			// Non-dense items are ignored regardless!
 			if(has_ignored && !(blockturf in ignored))
 				return blockturf
 
 		for(var/atom/movable/A in blockturf)
-			if(A?.density > 0)
+			if(!isnull(target) && A == target)
+				return A
+
+			if(A.density && check_dense_objects)
+				if(A.opacity)
+					if(!check_opaque)
+						continue
+
+				else if(!check_transparent)
+					continue
+
 				// Optimization: only check membership if we NEED to potentially ignore it
 				// Non-dense items are ignored regardless!
 				if(has_ignored && (A in ignored))
 					continue
 
+				if(!(_raytype & RAYFLAG_RANDCOVERBLOCK) && (A.block_all != RAYCAST_BLOCK_ALL))
+					// Skip partial covers if we don't care about that
+					continue
+
+				if(!(A.GetRaycastCoverage(angle)))
+					// Atoms can have a random %chance to act as a blocker.
+					continue
+
 				return A
 
-	return FALSE
+	return null
 
 
-/proc/TurfDensityRaytrace(var/atom/From, var/atom/To, var/list/ignored = null)
+/proc/TurfDensityRaytrace(var/atom/From, var/atom/To, var/list/ignored = null, var/raytype = null, var/dispersion = null)
 	// Effectively a partial function on Raytrace, for convenience usage
 	return Raytrace(From, To, /proc/basicBlockCheck, ignored)
 
 
-/proc/AtomDensityRaytrace(var/atom/From, var/atom/To, var/list/ignored = null)
+/proc/AtomDensityRaytrace(var/atom/From, var/atom/To, var/list/ignored = null, var/raytype = null, var/dispersion = null)
 	// Effectively a partial function on Raytrace, for convenience usage
-	return Raytrace(From, To, /proc/denseCheck, ignored)
+	return Raytrace(From, To, /proc/denseCheck, ignored, raytype)

@@ -37,26 +37,4 @@
 	src.senses_index[SENSE_SIGHT] = eyes
 	src.senses_index["sense_wayfinder"] = wayfinder
 
-	// The logic below is similar, but we need to loop over filepaths.
-
-	if(src.sense_filepaths)
-		// Initialize SmartObject senses from files
-
-		var/list/filepaths = splittext(src.sense_filepaths, ";")
-		ASSERT(!isnull(filepaths))
-
-		for(var/fp in filepaths)
-			if(!fexists(fp))
-				continue
-
-			var/sense/utility_sense_fetcher/new_fetcher = UtilitySenseFetcherFromJsonFile(fp)
-
-			if(isnull(new_fetcher))
-				continue
-
-			ASSERT(!isnull(new_fetcher.sense_idx_key))
-
-			src.senses.Add(new_fetcher)
-			src.senses_index[new_fetcher.sense_idx_key] = new_fetcher
-
 	return src.senses
