@@ -94,7 +94,7 @@
 		"context_args": [
 			{
 				"memory_source": "perception",
-				"key": "SightCurr",
+				"input_key": "SightCurr",
 				"filter_proc": "/proc/typecheck_filter",
 				"filter_args": {
 					"target_type": "/obj/item/up_test_welder"
@@ -163,7 +163,7 @@
 		"context_args": [
 			{
 				"memory_source": "perception",
-				"key": "SightCurr",
+				"input_key": "SightCurr",
 				"filter_proc": "/proc/typecheck_filter",
 				"filter_args": {
 					"target_type": "/obj/item/up_test_multitool"
@@ -230,7 +230,7 @@
 		"context_args": [
 			{
 				"memory_source": "perception",
-				"key": "SightCurr",
+				"input_key": "SightCurr",
 				"filter_proc": "/proc/typecheck_filter",
 				"filter_args": {
 					"target_type": "/obj/item/up_test_screwdriver"

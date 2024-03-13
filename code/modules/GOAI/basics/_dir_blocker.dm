@@ -46,7 +46,7 @@
 
 	var/datum/utility_ai/mob_commander/commander_user = query_user
 
-	if(commander_user && istype(commander_user))
+	if(istype(commander_user))
 		var/atom/commander_pawn = commander_user.GetPawn()
 
 		if(commander_pawn && src == commander_pawn.directional_blocker)

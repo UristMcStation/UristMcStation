@@ -4,14 +4,6 @@
 // Is the DM compiler dumber than a bag of extra-chonky bricks and so we cannot do that? Also yes.
 */
 
-/* ============================================= */
-
-// Meta-definition for compile-time-conditional logging
-# ifdef UTILITYBRAIN_DEBUG_LOGGING
-# define UTILITYBRAIN_DEBUG_LOG(X) to_world_log(X)
-# else
-# define UTILITYBRAIN_DEBUG_LOG(X)
-# endif
 
 
 /* ============================================= */
@@ -69,19 +61,24 @@
 # define UTILITY_PRIORITY_NORMAL 2
 
 // Important 'relaxed' actions like dealing with critical needs, or unimportant alert actions like patrolling:
-# define UTILITY_PRIORITY_ELEVATED 3
+# define UTILITY_PRIORITY_ELEVATED 4
+
+// Executing the current GOAP plan:
+# define UTILITY_PRIORITY_PLANACTION 6
 
 // Very short-term life-or-death risk reactions, e.g. self-defense, running away:
-# define UTILITY_PRIORITY_URGENT 4
+# define UTILITY_PRIORITY_URGENT 8
 
 // IMMEDIATE emergencies, e.g. using a Heal ability when on the last few points of HP
 // There's no point in running away if you'll just bleed out in the process, after all:
-# define UTILITY_PRIORITY_EMERGENCY 5
+# define UTILITY_PRIORITY_EMERGENCY 16
 
 // Soft override, should be only used rarely, if ever.
 // Could come up if you use a hierarchical AI, e.g. master/minion, where the master can force available actions:
-# define UTILITY_PRIORITY_FORCED 100
+# define UTILITY_PRIORITY_FORCED 128
 
+
+# define DEFAULT_PLANACTION_PRIORITY UTILITY_PRIORITY_PLANACTION
 
 /* ============================================= */
 
@@ -150,13 +147,11 @@
 # define JSON_KEY_PLANACTION_CTXARGS "context_args"
 # define JSON_KEY_PLANACTION_CTXFETCHER_OVERRIDE "context_fetcher"
 
-# define DEFAULT_PLANACTION_PRIORITY 5
-
-# define GOAPPLAN_METADATA_PATH "integrations/goai_actions.json"
+# define GOAPPLAN_METADATA_PATH "goai_data/goai_actions.json"
 /* ============================================= */
 
 # define RETAIN_LAST_ACTIONS_TTL 300
 
-# define DYNAMIC_QUERY_CACHE_TTL 30
+# define DYNAMIC_QUERY_CACHE_TTL 20
 # define DYNAMIC_QUERY_CACHE_GLOBAL_TTL 3000
 # define DYNAMIC_QUERY_CACHE_GLOBAL_TTL_FUZZ 20

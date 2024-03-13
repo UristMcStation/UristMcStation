@@ -1,8 +1,8 @@
 
 # ifdef GOAI_LIBRARY_FEATURES
 
-# define DOOR_ACTIONSET_PATH "integrations/smartobject_definitions/door.json"
-# define AUTODOOR_ACTIONSET_PATH "integrations/smartobject_definitions/autodoor.json"
+# define DOOR_ACTIONSET_PATH "goai_data/smartobject_definitions/door.json"
+# define AUTODOOR_ACTIONSET_PATH "goai_data/smartobject_definitions/autodoor.json"
 
 /obj/cover/door/GetUtilityActions(var/requester, var/list/args = null) // (Any, assoc) -> [ActionSet]
 

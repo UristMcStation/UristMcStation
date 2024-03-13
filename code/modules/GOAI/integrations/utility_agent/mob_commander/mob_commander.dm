@@ -166,3 +166,47 @@
 
 	src.brain.relations = relations
 	return relations
+
+
+/datum/utility_ai/mob_commander/combat_commander/InitSenses()
+	/* Parent stuff */
+	. = ..()
+
+	if(isnull(src.senses))
+		src.senses = list()
+
+	if(isnull(src.senses_index))
+		src.senses_index = list()
+
+	// Basic init done; actual senses go below:
+	// NOTE: ORDER MATTERS!!!
+	//       Senses are processed in the order of insertion!
+	//
+	//       If two Senses have a dependency relationship and you put the dependent
+	//       before the dependee, there will be a 1-tick lag in the dependent Sense!
+	//       Now, this *might* be desirable for some things, but keep it in mind.
+
+	// The logic below is similar, but we need to loop over filepaths.
+
+	if(src.sense_filepaths)
+		// Initialize SmartObject senses from files
+
+		var/list/filepaths = splittext(src.sense_filepaths, ";")
+		ASSERT(!isnull(filepaths))
+
+		for(var/fp in filepaths)
+			if(!fexists(fp))
+				to_world_log("Sense filepath [fp] does not exist - skipping!")
+				continue
+
+			var/sense/utility_smartobject_fetcher/new_fetcher = UtilitySmartobjectFetcherFromJsonFile(fp)
+
+			if(isnull(new_fetcher))
+				continue
+
+			ASSERT(!isnull(new_fetcher.sense_idx_key))
+
+			src.senses.Add(new_fetcher)
+			src.senses_index[new_fetcher.sense_idx_key] = new_fetcher
+
+	return src.senses

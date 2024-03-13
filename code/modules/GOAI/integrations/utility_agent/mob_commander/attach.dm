@@ -1,6 +1,9 @@
 
 /proc/AttachUtilityCommanderTo(var/mob/M, var/datum/utility_ai/mob_commander/commander = null)
-	var/datum/utility_ai/mob_commander/new_commander = commander
+	//var/datum/utility_ai/mob_commander/new_commander = commander
+	// Use combat_commander to get extra senses predefined
+	var/datum/utility_ai/mob_commander/combat_commander/new_commander = commander
+
 	if(isnull(commander))
 		new_commander = new()
 

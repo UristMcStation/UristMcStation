@@ -5,13 +5,6 @@
 */
 
 
-# ifdef MOTIVES_DEBUG_LOGGING
-# define MOTIVES_DEBUG_LOG(X) to_world_log(X)
-# else
-# define MOTIVES_DEBUG_LOG(X)
-# endif
-
-
 /datum/brain/concrete
 
 
@@ -355,5 +348,5 @@
 	if(isnull(motive_key))
 		return
 
-	var/curr_val = needs[motive_key]
+	var/curr_val = needs[motive_key] || ((NEED_MAXIMUM - NEED_MINIMUM) / 2)
 	ChangeMotive(motive_key, curr_val + amt)

@@ -237,6 +237,26 @@
 						"from_context": 1
 					},
 					"curve_proc": "/proc/curve_linear"
+				},
+				{
+					"name": "Random",
+					"lo_mark": 0, 
+					"hi_mark": 100, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_urand", 
+					"curve_proc": "/proc/curve_linear"
+				},
+				{
+					"name": "DontRunIntoBullets",
+					"lo_mark": 0, 
+					"hi_mark": 1, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_in_line_of_sight", 
+					"input_args": {
+						"input_key": "Threat",
+						"from_memory": 1
+					},
+					"curve_proc": "/proc/curve_antilinear"
 				}
 			]
 		}

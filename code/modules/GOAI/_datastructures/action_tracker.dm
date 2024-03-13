@@ -33,7 +33,6 @@
 		return
 
 	src.is_rebuilding = TRUE
-	world << "Reinitializing ActionTracker"
 
 	src.is_done = FALSE
 	src.is_failed = FALSE

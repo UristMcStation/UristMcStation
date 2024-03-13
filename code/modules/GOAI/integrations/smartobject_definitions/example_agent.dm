@@ -1,5 +1,5 @@
 
-# define EXAMPLEAGENT_ACTIONSET_PATH "integrations/smartobject_definitions/example_agent.json"
+# define EXAMPLEAGENT_ACTIONSET_PATH "goai_data/smartobject_definitions/example_agent.json"
 
 
 /mob/living/simple_animal/aitester

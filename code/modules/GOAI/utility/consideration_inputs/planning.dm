@@ -7,7 +7,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_actiontemplate_preconditions_me
 	// If any is not satisfied, return False.
 	var/datum/utility_action_template/candidate = action_template
 
-	if(isnull(candidate))
+	if(!istype(candidate))
 		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_actiontemplate_preconditions_met Candidate is not an ActionTemplate! @ L[__LINE__] in [__FILE__]")
 		return null
 
@@ -17,7 +17,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_actiontemplate_preconditions_me
 
 	var/datum/utility_ai/ai = requester
 
-	if(isnull(ai))
+	if(!istype(ai))
 		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_actiontemplate_preconditions_met - Requester must be a Utility controller for this Consideration! @ L[__LINE__] in [__FILE__]")
 		return null
 
@@ -47,7 +47,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_actiontemplate_preconditions_me
 
 			var/atom/pawn = commander.GetPawn()
 
-			if(isnull(pawn))
+			if(!istype(pawn))
 				// Needs to be an AI with a mob, but isn't
 				return FALSE
 
@@ -82,7 +82,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_actiontemplate_preconditions_me
 
 			var/atom/pawn = commander.GetPawn()
 
-			if(isnull(pawn))
+			if(!istype(pawn))
 				// Needs to be an AI with a mob, but isn't
 				return FALSE
 
@@ -155,7 +155,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_actiontemplate_effects_not_all_
 	// If any is not satisfied, return True.
 	var/datum/utility_action_template/candidate = action_template
 
-	if(isnull(candidate))
+	if(!istype(candidate))
 		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_actiontemplate_effects_not_all_met Candidate is not an ActionTemplate! @ L[__LINE__] in [__FILE__]")
 		return null
 
@@ -165,7 +165,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_actiontemplate_effects_not_all_
 
 	var/datum/utility_ai/ai = requester
 
-	if(isnull(ai))
+	if(!istype(ai))
 		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_actiontemplate_effects_not_all_met - Requester must be a Utility controller for this Consideration! @ L[__LINE__] in [__FILE__]")
 		return null
 
@@ -230,7 +230,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_actiontemplate_effects_not_all_
 
 			var/atom/pawn = commander.GetPawn()
 
-			if(isnull(pawn))
+			if(!istype(pawn))
 				// Needs to be an AI with a mob, but isn't
 				continue
 
@@ -305,3 +305,80 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_actiontemplate_effects_not_all_
 	PLANNING_CONSIDERATIONS_LOG("AT [action_template.name] missed all effect checks...")
 	return FALSE
 
+
+CONSIDERATION_CALL_SIGNATURE(/proc/consideration_actiontemplate_effects_cycling)
+	// Retrieves Effects from the candidate ActionTemplate object
+	// AND from the last selected ActionTemplate.
+	// Compares the abs() of their values.
+	// If the absolute values are equal AND all keys are present in both lists, returns TRUE.
+	// Otherwise, returns FALSE.
+	//
+	// In this case, TRUE indicates that the current action is either redundant (duplicates effects already set)
+	// or there's a cycle in which two actions keep running and cancelling each other's effects out, which looks dumb.
+	//
+	// An example case of this behavior can be seen with screwdriving doors for hacking.
+	// We want screw/unscrew actions to flank the Hack action, but we do NOT want the AI to just cycle
+	// screw->unscrew->screw forever in a loop.
+	//
+	var/datum/utility_action_template/candidate = action_template
+
+	if(!istype(candidate))
+		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_actiontemplate_effects_cycling Candidate is not an ActionTemplate! @ L[__LINE__] in [__FILE__]")
+		return null
+
+	if(isnull(requester))
+		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_actiontemplate_effects_cycling - Requester must be provided for this Consideration! @ L[__LINE__] in [__FILE__]")
+		return null
+
+	var/datum/brain/requesting_brain = _cihelper_get_requester_brain(requester, "consideration_actiontemplate_effects_cycling")
+
+	if(!istype(requesting_brain))
+		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_actiontemplate_effects_cycling Brain is null ([requesting_brain || "null"]) @ L[__LINE__] in [__FILE__]")
+		// TRUE is 'invalid'-ish here, we should stop this from executing if the input is messed up so we use TRUE
+		return TRUE
+
+	var/list/cand_effects = candidate.effects
+
+	if(isnull(cand_effects) || !cand_effects.len)
+		// No effects - can't be cyclic
+		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_actiontemplate_effects_cycling - No candidate effects... @ L[__LINE__] in [__FILE__]")
+		return FALSE
+
+	var/memkey = consideration_args?["memory_key"] || "SelectedActionTemplate"
+	var/datum/utility_action_template/stored_template = requesting_brain.GetMemoryValue(memkey)
+
+	if(!istype(stored_template))
+		// No effects - can't be cyclic
+		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_actiontemplate_effects_cycling - No stored effects... @ L[__LINE__] in [__FILE__]")
+		return FALSE
+
+	var/list/lastchoice_effects = stored_template.effects
+
+	if(isnull(lastchoice_effects) || !lastchoice_effects.len)
+		// No effects - can't be cyclic
+		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_actiontemplate_effects_cycling - No stored effects... @ L[__LINE__] in [__FILE__]")
+		return FALSE
+
+	for(var/cand_eff_key in cand_effects)
+		var/cand_val_raw = cand_effects[cand_eff_key]
+		var/lastchoice_val_raw = lastchoice_effects[cand_eff_key]
+
+		if(isnull(lastchoice_val_raw))
+			if(isnull(cand_val_raw))
+				// unlikely, but possible; cannot do abs, so just skip
+				continue
+
+			// cannot possibly match, early return
+			return FALSE
+
+		var/cand_val_abs =  abs(cand_val_raw)
+		var/lastchoice_val_abs = abs(lastchoice_val_raw)
+
+		if(cand_val_abs != lastchoice_val_abs)
+			// just one delta is sufficient to prove a mismatch
+			return FALSE
+
+	// We PROBABLY should iterate over lastchoice and check all the same stuff
+	// but for now we'll assume we don't care if the previous effects are a superset.
+	// If we got to here, no mismatches were found, hence TRUE.
+	return TRUE
