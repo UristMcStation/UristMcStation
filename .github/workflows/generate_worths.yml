@@ -24,7 +24,7 @@ jobs:
   export-worths:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+      - uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633
       - name: Setup Cache
         uses: actions/cache@ab5e6d0c87105b4c9c2047343972218f562e4319
         with:
