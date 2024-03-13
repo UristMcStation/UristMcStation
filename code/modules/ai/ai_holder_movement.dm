@@ -121,11 +121,17 @@
 	if (!length(path))
 		return
 
+	var/turf/T = src.path[1]
+
 	if (path_display)
-		var/turf/T = src.path[1]
 		T.overlays -= path_overlay
 
-	if (holder.IMove(get_step_towards(holder, src.path[1])) != MOVEMENT_ON_COOLDOWN)
+	// Urist edit: ensures we trust pathfinding until proven otherwise to account for 3d
+	// (get_step_towards() does not handle 3d movement properly so AI would never use it)
+	var/max_move_delta = max(abs(T.x - holder.x), abs(T.y - holder.y)) // z-agnostic get_dist()
+	var/next_move_loc = (max_move_delta > 1 ? get_step_towards(holder, T) : T)
+
+	if (holder.IMove(next_move_loc) != MOVEMENT_ON_COOLDOWN)
 		if (holder.loc != src.path[1])
 			ai_log("move_once() : Failed step. Exiting.", AI_LOG_TRACE)
 			return MOVEMENT_FAILED
