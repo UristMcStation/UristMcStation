@@ -14,3 +14,5 @@ GLOBAL_LIST_EMPTY(filedata_cache)
 
 #define READ_JSON_FILE_CACHED(FP, TO_VAR) FILE_CACHE_LAZY_INIT(1); ##TO_VAR = GOAI_LIBBED_GLOB_ATTR(filedata_cache)[FP]; if(isnull(##TO_VAR)) { ##TO_VAR = READ_JSON_FILE(FP); GOAI_LIBBED_GLOB_ATTR(filedata_cache)[FP] = ##TO_VAR }
 #define UNCACHE_JSON_FILE(FP) FILE_CACHE_LAZY_INIT(1); GOAI_LIBBED_GLOB_ATTR(filedata_cache)[FP] = null
+
+#define FILEDATA_CACHE_INVALIDATE(_Unused) GOAI_LIBBED_GLOB_ATTR(filedata_cache) = list()

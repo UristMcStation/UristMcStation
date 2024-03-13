@@ -11,16 +11,6 @@
 //  e.g. Plan<Near<Z>> = (Goto<X>(), Open<Y>(Near<Y>), Goto<Z>(OpenAt<Y>))
 # define NEED_NEAR_ATOM(a) "at [a] @ ([a.x], [a.y], [a.z])"
 
-// Keys for the states
-# define STATE_INCOVER "in_cover"
-# define STATE_DOWNTIME "no_orders"
-# define STATE_HASGUN "has_gun"
-# define STATE_HASWAYPOINT "has_waypoint"
-# define STATE_CANFIRE "can_shoot"
-# define STATE_PANIC "panik"
-
-# define STATE_DISORIENTED "disoriented"
-
 // Subsystem loop schedules
 # define COMBATAI_SENSE_TICK_DELAY 4
 # define COMBATAI_AI_TICK_DELAY 6
@@ -36,8 +26,16 @@
 // Memory system constants
 # define MEM_TIME_LONGTERM 1000000
 
+# define MEM_AITICK_MULT_SHORTTERM 8
+# define MEM_AITICK_MULT_MIDTERM 16
+
 // Keys for the memory dict
 # define MEM_SHOTAT "ShotAt"
+# define MEM_FRIENDS "Friendlies"
+# define MEM_ENEMIES "Enemies"
+# define MEM_ENEMIES_POSITIONS "EnemyPositions"
+# define MEM_ENEMIES_POSITIONS_LATEST "EnemyPositionsLatest"
+# define MEM_ENEMIES_POSITIONS_RETAINED "EnemyPositionsRetained"
 # define MEM_THREAT "Threat"
 # define MEM_THREAT_SECONDARY "ThreatSecondary"
 # define MEM_WAYPOINT_IDENTITY "WaypointRef"
@@ -58,10 +56,16 @@
 # define MAGICNUM_DISCOURAGE_SOFT 10000
 
 // How much getting shot decays the AI's COMPOSURE need.
-# define MAGICNUM_COMPOSURE_LOSS_ONHIT 10
+# define MAGICNUM_COMPOSURE_LOSS_ONHIT 20
 
 // How much failing a movement decays the AI's COMPOSURE need.
 # define MAGICNUM_COMPOSURE_LOSS_FAILMOVE 1
+
+// How much relaxing increases the AI's COMPOSURE need
+# define MAGICNUM_COMPOSURE_GAIN_IDLE 5
+
+// How much fleeing increases the AI's COMPOSURE need
+# define MAGICNUM_COMPOSURE_GAIN_FLEED 30
 
 
 # define PANIC_SENSE_THROTTLE (1 * COMBATAI_AI_TICK_DELAY)

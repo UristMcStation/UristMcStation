@@ -38,6 +38,7 @@
 #define COORDS_TUPLE COORDS_TUPLE_2D
 #define LOCATION_WITH_COORDS(At) "[get_turf(At)] @ [COORDS_TUPLE(At)]"
 
+#define DEFAULT_MIN_ASTAR_DIST 1
 
 # ifdef GOAI_LIBRARY_FEATURES
 
@@ -47,7 +48,7 @@
 
 # endif
 
-#define GUN_DISPERSION 5
+#define GUN_DISPERSION 10
 #define DEFAULT_ORPHAN_CLEANUP_THRESHOLD 3
 
 #define SENSE_SIGHT "SenseSight"
@@ -79,11 +80,13 @@
 // Kinda black magic; looks up an AI reference and puts it into the variable PATH specified in the second argument.
 #define FetchAiControllerForObjIntoVar(gameobj, VarPath) var/__commander_backref = gameobj?.attachments?.Get(ATTACHMENT_CONTROLLER_BACKREF); VarPath = IS_REGISTERED_AI(__commander_backref) && GOAI_LIBBED_GLOB_ATTR(global_goai_registry[__commander_backref])
 
-#define DEFAULT_UTILITY_AI_SENSES "dev_sense.json"
-#define DEFAULT_FACTION_AI_SENSES "faction_senses.json"
+#define DEFAULT_UTILITY_AI_SENSES "goai_data/dev_sense.json"
+#define DEFAULT_FACTION_AI_SENSES "goai_data/faction_senses.json"
 
 // Size of the GOAI plan buffer; if we would exceed it, eject a plan.
 #define MAX_STORED_PLANS 1
+
+#define DEFAULT_MAX_ENEMIES 8
 
 #define MEM_ACTION_MINUS_ONE "action-1"
 #define MEM_ACTION_MINUS_TWO "action-2"
@@ -121,3 +124,55 @@
 // These should effectively force other tags to be ignored entirely.
 # define GOAI_REL_LUDICROUS_WEIGHT 10000
 # define GOAI_REL_LUDICROUS_VALUE 10000
+
+
+/* Raycast blocking */
+# define RAYCAST_BLOCK_ALL 1
+# define RAYCAST_BLOCK_NONE -1
+# define RAYCAST_BLOCK_CALLPROC 0
+
+// bitflag-encoding:
+
+// stopped by dense turfs, e.g. walls
+// 00000001
+# define RAYFLAG_TURFBLOCK 1
+
+// stopped by non-transparent dense objects, e.g. doors but not windoors (unless the RAYFLAGE_TRANSPARENTBLOCK flag is set)
+// 00000010
+# define RAYFLAG_OPAQUEBLOCK 2
+
+// stopped by transparent dense objects, e.g. windoors but not doors (unless the RAYFLAG_OPAQUEBLOCK flag is set)
+// 00000100
+# define RAYFLAG_TRANSPARENTBLOCK 4
+
+// stopped by stochastic coverage checks on partial cover, e.g. tables
+// this is additive with RAYFLAG_OPAQUEBLOCK / RAYFLAGE_TRANSPARENTBLOCK,
+// so if both of those are unset, this won't do much
+// 00001000
+# define RAYFLAG_RANDCOVERBLOCK 8
+
+// WILL hit the target if it's on the line
+// 00000000
+# define RAYTYPE_UNSTOPPABLE 0
+
+// Line-of-Sight, for checking if it's even worth aiming
+// (RAYFLAG_TURFBLOCK | RAYFLAG_OPAQUEBLOCK)
+// 00000011
+# define RAYTYPE_LOS 3
+
+// Similar to LoS, but for actual shooting - check if we hit covers too. Good for lasers etc.
+// (RAYFLAGE_RANDCOVERBLOCK | RAYFLAG_OPAQUEBLOCK | RAYFLAG_TURFBLOCK)
+// 00001011
+# define RAYTYPE_BEAM 11
+
+// Blocked by anything dense. As the name indicates, meant for boolets etc.
+// (RAYFLAGE_RANDCOVERBLOCK | RAYFLAG_TRANSPARENTBLOCK | RAYFLAG_OPAQUEBLOCK | RAYFLAG_TURFBLOCK)
+// 00001111
+# define RAYTYPE_PROJECTILE 15
+
+// Like RAYTYPE_PROJECTILE, but ignores cover checks - use for checking if it's worth aiming at the target or armor-piercing projectiles
+// (RAYFLAG_TRANSPARENTBLOCK | RAYFLAG_OPAQUEBLOCK | RAYFLAG_TURFBLOCK)
+// 00000111
+# define RAYTYPE_PROJECTILE_NOCOVER 7
+
+# define DEFAULT_RAYTYPE RAYTYPE_UNSTOPPABLE

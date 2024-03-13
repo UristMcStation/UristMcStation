@@ -181,48 +181,19 @@
 	return .
 
 
-/datum/utility_ai/mob_commander/proc/GetActiveThreatDict() // -> /dict
-	var/dict/threat_ghost = brain?.GetMemoryValue(MEM_THREAT, null, FALSE)
-	return threat_ghost
-
-
-/datum/utility_ai/mob_commander/proc/GetActiveSecondaryThreatDict() // -> /dict
-	var/dict/threat_ghost = brain?.GetMemoryValue(MEM_THREAT, null, FALSE)
-	return threat_ghost
-
-
-/datum/utility_ai/mob_commander/proc/GetThreatPosTuple(var/dict/curr_threat = null) // -> num
-	var/dict/threat_ghost = isnull(curr_threat) ? GetActiveThreatDict() : curr_threat
-
-	var/threat_pos_x = 0
-	var/threat_pos_y = 0
-
-	if(!isnull(threat_ghost))
-		threat_pos_x = threat_ghost.Get(KEY_GHOST_X, null)
-		threat_pos_y = threat_ghost.Get(KEY_GHOST_Y, null)
-
-		var/datum/Tuple/ghost_pos_tuple = new(threat_pos_x, threat_pos_y)
-
-		return ghost_pos_tuple
-
-	return
-
-
-/datum/utility_ai/mob_commander/proc/GetThreatDistance(var/atom/relative_to = null, var/dict/curr_threat = null, var/default = 0) // -> num
-	var/datum/Tuple/ghost_pos_tuple = GetThreatPosTuple(curr_threat)
-
+/datum/utility_ai/mob_commander/proc/GetThreatDistance(var/atom/relative_to = null, var/atom/curr_threat = null, var/default = 0) // -> num
 	var/atom/pawn = src.GetPawn()
 	if(!pawn)
 		return default
 
-	if(isnull(ghost_pos_tuple))
+	if(isnull(curr_threat))
 		return default
 
 	var/atom/rel_source = isnull(relative_to) ? pawn : relative_to
 	var/threat_dist = default
 
-	var/threat_pos_x = ghost_pos_tuple?.left
-	var/threat_pos_y = ghost_pos_tuple?.right
+	var/threat_pos_x = curr_threat.x
+	var/threat_pos_y = curr_threat.y
 
 	if(! (isnull(threat_pos_x) || isnull(threat_pos_y)) )
 		threat_dist = ManhattanDistanceNumeric(rel_source.x, rel_source.y, threat_pos_x, threat_pos_y)
@@ -230,18 +201,17 @@
 	return threat_dist
 
 
-/datum/utility_ai/mob_commander/proc/GetThreatChunk(var/dict/curr_threat) // -> turfchunk
-	var/datum/Tuple/ghost_pos_tuple = GetThreatPosTuple(curr_threat)
-
-	if(isnull(ghost_pos_tuple))
+/datum/utility_ai/mob_commander/proc/GetThreatChunk(var/atom/curr_threat) // -> turfchunk
+	if(!istype(curr_threat))
 		return
 
 	var/atom/pawn = src.GetPawn()
-	if(!pawn)
+
+	if(!istype(pawn))
 		return
 
-	var/threat_pos_x = ghost_pos_tuple?.left
-	var/threat_pos_y = ghost_pos_tuple?.right
+	var/threat_pos_x = curr_threat.x
+	var/threat_pos_y = curr_threat.y
 
 	var/datum/chunk/threat_chunk = null
 
@@ -252,21 +222,20 @@
 	return threat_chunk
 
 
-/datum/utility_ai/mob_commander/proc/GetThreatAngle(var/atom/relative_to = null, var/dict/curr_threat = null, var/default = null)
-	var/datum/Tuple/ghost_pos_tuple = GetThreatPosTuple(curr_threat)
-
-	if(isnull(ghost_pos_tuple))
-		return default
+/datum/utility_ai/mob_commander/proc/GetThreatAngle(var/atom/relative_to = null, var/atom/curr_threat = null, var/default = null)
+	if(!istype(curr_threat))
+		return
 
 	var/atom/pawn = src.GetPawn()
-	if(!pawn)
-		return default
+
+	if(!istype(pawn))
+		return
 
 	var/atom/rel_source = isnull(relative_to) ? pawn : relative_to
 	var/threat_angle = default
 
-	var/threat_pos_x = ghost_pos_tuple?.left
-	var/threat_pos_y = ghost_pos_tuple?.right
+	var/threat_pos_x = curr_threat.x
+	var/threat_pos_y = curr_threat.y
 
 	if(! (isnull(threat_pos_x) || isnull(threat_pos_y)) )
 		var/dx = (threat_pos_x - rel_source.x)
@@ -275,106 +244,39 @@
 
 	return threat_angle
 
+/datum/utility_ai/proc/HarmedBy(var/atom/whomst, var/by_whom)
+	// pure interface
+	// what to do about being harmed by another entity
+	// mob commanders will handle it as their pawn being hit,
+	// squad/faction commanders - as one of their own being hurt
+	// broadly - decrement morale and/or relations as needed
 
-/*
-// This is commented out to prevent confusion between the plural, array methods
-// and the singular, 'scalar' Threat methods.
-// These will probably get removed, unless I figure out why it's such a pain right now.
+	if(isnull(by_whom))
+		return
 
-/datum/utility_ai/mob_commander/proc/GetActiveThreatDicts() // -> list(/dict)
-	var/datum/memory/threat_mem_block = brain?.GetMemory(MEM_THREAT, null, FALSE)
-	//to_world_log("[src.pawn] threat memory: [threat_mem]")
-	var/list/threat_block = threat_mem_block?.val // list(memory)
-	var/list/threats = list() // list(/dict)
+	var/datum/brain/utility/needybrain = src.brain
+	if(istype(needybrain))
+		needybrain.AddMotive(NEED_COMPOSURE, -MAGICNUM_COMPOSURE_LOSS_ONHIT)
 
-	for(var/datum/memory/threat_mem in threat_block)
-		if(isnull(threat_mem))
-			continue
-
-		var/dict/threat_ghost = threat_mem?.val
-		to_world_log("THREAT GHOST: [threat_ghost]")
-		if(istype(threat_ghost))
-			threats.Add(threat_ghost)
-
-	return threats
+	src.brain.SetMemory("mainthreat", by_whom, 100)
+	return
 
 
-/datum/utility_ai/mob_commander/proc/GetThreatDistances(var/atom/relative_to = null, var/list/curr_threats = null, var/default = 0, var/check_max = null) // -> num
-	var/atom/rel_source = isnull(relative_to) ? src.pawn : relative_to
-	var/list/threat_distances = list()
-	var/list/threat_ghosts = isnull(curr_threats) ? GetActiveThreatDicts() : curr_threats
+/datum/utility_ai/proc/HitRanged(var/atom/whomst, var/angle, var/shotby = null)
+	// pure interface
+	// mob commanders will handle it as their pawn being hit,
+	// squad/faction commanders - as one of their own being hurt
 
-	var/checked_count = 0
-
-	for(var/dict/threat_ghost in threat_ghosts)
-		if(isnull(threat_ghost))
-			continue
-
-		if(!(isnull(check_max)) && (checked_count++ >= check_max))
-			break
-
-		var/threat_dist = default
-
-		var/threat_pos_x = 0
-		var/threat_pos_y = 0
-
-		//to_world_log("[src.pawn] threat ghost: [threat_ghost]")
-
-		threat_pos_x = threat_ghost.Get(KEY_GHOST_X, null)
-		threat_pos_y = threat_ghost.Get(KEY_GHOST_Y, null)
-		//to_world_log("[src.pawn] believes there's a threat at ([threat_pos_x], [threat_pos_y])")
-
-		if(! (isnull(threat_pos_x) || isnull(threat_pos_y)) )
-			threat_dist = ManhattanDistanceNumeric(rel_source.x, rel_source.y, threat_pos_x, threat_pos_y)
-
-			// long-term, it might be nicer to index by obj/str here
-			threat_distances.Add(threat_dist)
-
-	//to_world_log("[src.pawn]: GetThreatDistances => [threat_distances] LEN [threat_distances.len]")
-	return threat_distances
+	if(!isnull(shotby))
+		// if there's a culprit, handle that
+		src.HarmedBy(whomst, shotby)
+	return
 
 
-/datum/utility_ai/mob_commander/proc/GetThreatAngles(var/atom/relative_to = null, var/list/curr_threats = null, var/check_max = null)
-	var/atom/rel_source = isnull(relative_to) ? src.pawn : relative_to
-	var/list/threat_angles = list()
-	var/list/threat_ghosts = isnull(curr_threats) ? GetActiveThreatDicts() : curr_threats
+/datum/utility_ai/mob_commander/HitRanged(var/atom/whomst, var/angle, var/shotby = null)
+	. = ..(whomst, angle, shotby)
 
-	var/checked_count = 0
-
-	for(var/dict/threat_ghost in threat_ghosts)
-		if(isnull(threat_ghost))
-			continue
-
-		if(!(isnull(check_max)) && (checked_count++ >= check_max))
-			break
-
-		var/threat_angle = null
-
-		var/threat_pos_x = 0
-		var/threat_pos_y = 0
-
-		//to_world_log("[src.pawn] threat ghost: [threat_ghost]")
-
-		threat_pos_x = threat_ghost.Get(KEY_GHOST_X, null)
-		threat_pos_y = threat_ghost.Get(KEY_GHOST_Y, null)
-		//to_world_log("[src.pawn] believes there's a threat at ([threat_pos_x], [threat_pos_y])")
-
-		if(! (isnull(threat_pos_x) || isnull(threat_pos_y)) )
-			var/dx = (threat_pos_x - rel_source.x)
-			var/dy = (threat_pos_y - rel_source.y)
-			threat_angle = arctan(dx, dy)
-
-			// long-term, it might be nicer to index by obj/str here
-			threat_angles.Add(threat_angle)
-
-	return threat_angles
-*/
-
-
-/datum/utility_ai/mob_commander/proc/Hit(var/angle, var/atom/shotby = null)
-	. = ..(angle)
-
-	var/impact_angle = IMPACT_ANGLE(angle)
+	//var/impact_angle = IMPACT_ANGLE(angle)
 	/* NOTE: impact_angle is in degrees from *positive X axis* towards Y, i.e.:
 	//
 	// impact_angle = +0   => hit from straight East
@@ -388,11 +290,14 @@
 	// Everything else - extrapolate from the above.
 	*/
 
-	var/atom/pawn = src.GetPawn()
+	// Generally the hit thing is our Pawn here, or we wouldn't have gotten a ping
+	var/atom/pawn = isnull(whomst) ? src.GetPawn() : whomst
 	if(!pawn)
 		return
 
-	if(brain)
+	/*
+	if(src.brain)
+		// Store where we got shot from to investigate/avoid exposed cover
 		var/list/shot_memory_data = list(
 			KEY_GHOST_X = pawn.x,
 			KEY_GHOST_Y = pawn.y,
@@ -402,9 +307,5 @@
 		)
 		var/dict/shot_memory_ghost = new(shot_memory_data)
 
-		brain.SetMemory(MEM_SHOTAT, shot_memory_ghost, src.ai_tick_delay*10)
-
-		var/datum/brain/concrete/needybrain = brain
-		if(needybrain)
-			needybrain.AddMotive(NEED_COMPOSURE, -MAGICNUM_COMPOSURE_LOSS_ONHIT)
-
+		src.brain.SetMemory(MEM_SHOTAT, shot_memory_ghost, src.ai_tick_delay*10)
+	*/

@@ -8,6 +8,6 @@
 
 /obj/vehicle
 
-/obj/item/weapon/gun
+/obj/item/gun
 
 # endif

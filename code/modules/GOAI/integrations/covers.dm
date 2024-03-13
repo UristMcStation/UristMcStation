@@ -56,6 +56,29 @@
 	var/icon_flipped = "woodflip0"
 	var/flipped = FALSE
 
+	block_all = RAYCAST_BLOCK_CALLPROC
+	raycast_cover_proc = /obj/cover/table/proc/GetTableRaytraceBlocking
+
+
+/obj/cover/table/proc/GetTableRaytraceBlocking(var/hit_angle = null, var/raytype = null)
+	if(!flipped)
+		// Unflipped gets 30% coverage (covers legs a bit)
+		return prob(30)
+
+	var/hit_dir = angle2dir(hit_angle)
+	var/hit_antidir = dir2opposite(hit_dir)
+
+	// Flipped protects against head-on hits...
+	if(src.dir == hit_dir)
+		return prob(70)
+
+	// ...but allows to fire from behind it safely
+	else if (src.dir == hit_antidir)
+		return FALSE
+
+	// Perpendicular dir gets no coverage
+	return FALSE
+
 
 /obj/cover/table/Setup()
 	directional_blocker = new()

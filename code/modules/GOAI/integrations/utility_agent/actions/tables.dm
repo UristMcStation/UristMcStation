@@ -22,6 +22,7 @@
 		RUN_ACTION_DEBUG_LOG("Pawn is null | <@[src]> | [__FILE__] -> L[__LINE__]")
 		return
 
+	src.allow_wandering = FALSE
 	var/dist = MANHATTAN_DISTANCE(pawn, target)
 	var/succeeded = (dist == 1 && target.pFlip(get_dir(pawn, target)))
 
@@ -59,6 +60,7 @@
 		RUN_ACTION_DEBUG_LOG("Pawn is null | <@[src]> | [__FILE__] -> L[__LINE__]")
 		return
 
+	src.allow_wandering = FALSE
 	var/dist = MANHATTAN_DISTANCE(pawn, target)
 	src.brain?.SetMemory("DontWanderToTurf", location, 200)
 	var/succeeded = (dist == 1 && target.pUnflip())
@@ -105,6 +107,8 @@
 		return
 
 	src.brain?.SetMemory("DontWanderToTurf", location, 200)
+	src.allow_wandering = FALSE
+
 	var/succeeded = TRUE
 
 	if(MANHATTAN_DISTANCE(pawnturf, location) == 1)
@@ -158,6 +162,7 @@
 		return
 
 	src.brain?.SetMemory("DontWanderToTurf", location, 200)
+	src.allow_wandering = FALSE
 	var/succeeded = TRUE
 
 	var/dir_to_obstacle = target.dir

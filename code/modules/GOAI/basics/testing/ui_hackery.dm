@@ -31,7 +31,11 @@
 	if(src.mode & MODE_JUMPMOB)
 		// Make double-clicking an atom jump the mob there
 		var/atom/trg = object
-		if(trg && src.mob)
+		if(istype(trg) && src.mob)
+			if(istype(trg, /obj/vectorbeam))
+				// those are ephemeral, if you jump to them you'll crash
+				return
+
 			Move(trg, get_dir(src.mob, trg))
 
 
@@ -158,7 +162,7 @@
 
 	// goal_state, target, considerations
 	var/datum/order_smartobject/new_order = new(jsondata, object, null)
-	
+
 	var/list/smart_orders = commander_brain.GetMemoryValue("SmartOrders", null) || list()
 
 	if(smart_orders.len)
@@ -203,4 +207,61 @@
 		mobclient.blackboard["TargetState"] = jsondata
 
 	to_world("Client [mobclient] [select_enabled ? "now" : "no longer"] does CommanderGiveGOAPSolverOrder...")
+	return
+
+
+// Give a move order by clicking on an atom
+/proc/CreateMoveOrderCB(var/client/src_client, var/object, var/location, var/control, var/params)
+	if(isnull(src_client))
+		to_chat(usr, "src_client is null! @ L[__LINE__] in [__FILE__]!")
+		return
+
+	var/datum/utility_ai/mob_commander/commander = src_client.blackboard["TargetCommander"]
+
+	if(isnull(commander))
+		to_chat(usr, "Commander for [src_client] is null! @ L[__LINE__] in [__FILE__]!")
+		return
+
+	var/datum/brain/commander_brain = commander.brain
+
+	if(isnull(commander_brain))
+		to_chat(usr, "Brain for [commander] is null! @ L[__LINE__] in [__FILE__]!")
+		return
+
+	var/turf/position = get_turf(object)
+	if(!position)
+		to_chat(usr, "Target position ([object]) does not exist!")
+		return
+
+	var/datum/memory/created_mem = commander_brain.SetMemory("ai_target", position, PLUS_INF)
+	commander_brain.SetMemory("ai_target_mindist", 1, PLUS_INF)
+
+	var/atom/waypoint = created_mem?.val
+
+	to_chat(usr, (waypoint ? "[commander] now tracking [waypoint]" : "[commander] not tracking waypoints"))
+	return
+
+
+/mob/verb/CommanderGiveMoveOrderClick(datum/utility_ai/mob_commander/M in GOAI_LIBBED_GLOB_ATTR(global_goai_registry))
+	set category = "Commander Orders"
+
+	var/client/mobclient = src.client
+	if(isnull(mobclient))
+		to_chat(usr, "Client for [src] is null!")
+		return
+
+	if(isnull(M))
+		return
+
+	mobclient.mode ^= MODE_SELECT
+	var/select_enabled = (mobclient.mode & MODE_SELECT)
+	mobclient.current_click_callback = select_enabled ? /proc/CreateMoveOrderCB : null
+
+	// for simplicity, wipe the blackboard anytime the callback changes
+	mobclient.blackboard = list()
+
+	if(select_enabled)
+		mobclient.blackboard["TargetCommander"] = M
+
+	to_world("Client [mobclient] [select_enabled ? "now" : "no longer"] does CommanderGiveMoveOrderClick...")
 	return

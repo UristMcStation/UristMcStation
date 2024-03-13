@@ -14,7 +14,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/_cihelper_get_planned_path)
 
 	var/datum/brain/requesting_brain = _cihelper_get_requester_brain(requester, "_cihelper_get_planned_path")
 
-	if(isnull(requesting_brain))
+	if(!istype(requesting_brain))
 		DEBUGLOG_UTILITY_INPUT_FETCHERS("_cihelper_get_planned_path Brain is null ([requesting_brain || "null"]) @ L[__LINE__] in [__FILE__]")
 		return FALSE
 
@@ -47,7 +47,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_has_planned_path)
 	// If there is no plan, the Utility of planned moves will be zero and the Utility of *planning* will be high-ish.
 	// If there *is* a plan, the Utility of planning will be low, and the Utility of the move will depend on the tactical situation.
 
-	var/path = _cihelper_get_planned_path(context, requester, consideration_args)
+	var/path = _cihelper_get_planned_path(action_template, context, requester, consideration_args)
 
 	if(isnull(path))
 		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_input_has_planned_path Path is null @ L[__LINE__] in [__FILE__]")
@@ -76,7 +76,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_is_on_chunkpath)
 		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_input_is_on_chunkpath Candidate is null @ L[__LINE__] in [__FILE__]")
 		return FALSE
 
-	var/list/path = _cihelper_get_planned_path(context, requester, consideration_args)
+	var/list/path = _cihelper_get_planned_path(action_template, context, requester, consideration_args)
 
 	if(isnull(path))
 		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_input_is_on_chunkpath Path is null @ L[__LINE__] in [__FILE__]")
@@ -120,7 +120,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_is_on_chunkpath_gradient)
 		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_input_is_on_chunkpath Candidate is null @ L[__LINE__] in [__FILE__]")
 		return FALSE
 
-	var/list/path = _cihelper_get_planned_path(context, requester, consideration_args)
+	var/list/path = _cihelper_get_planned_path(action_template, context, requester, consideration_args)
 
 	if(isnull(path))
 		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_input_is_on_chunkpath Path is null @ L[__LINE__] in [__FILE__]")
@@ -157,7 +157,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_is_on_path)
 		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_input_is_on_path Candidate is null @ L[__LINE__] in [__FILE__]")
 		return FALSE
 
-	var/list/path = _cihelper_get_planned_path(context, requester, consideration_args)
+	var/list/path = _cihelper_get_planned_path(action_template, context, requester, consideration_args)
 
 	if(isnull(path) || !istype(path))
 		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_input_is_on_path Path is null @ L[__LINE__] in [__FILE__]")
@@ -197,7 +197,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_is_on_path_gradient)
 		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_input_is_on_path_gradient Candidate is null @ L[__LINE__] in [__FILE__]")
 		return FALSE
 
-	var/list/path = _cihelper_get_planned_path(context, requester, consideration_args)
+	var/list/path = _cihelper_get_planned_path(action_template, context, requester, consideration_args)
 
 	if(isnull(path) || !istype(path))
 		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_input_is_on_path_gradient Path is null @ L[__LINE__] in [__FILE__]")

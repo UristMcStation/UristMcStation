@@ -262,17 +262,16 @@ var/global/last_plan_time = null
 	var/requester = src.GetRequester()
 	ASSERT(!isnull(requester))
 
-	/*
 	// currently implicit since we always can see ourselves
 	// should prolly do a 'if X not in list already', but BYOOOOND
 
-	//var/datum/utility_ai/mob_commander/mob_controller = requester
+	var/datum/utility_ai/mob_commander/mob_controller = requester
 
-	if(!isnull(mob_controller))
+	if(istype(mob_controller))
 		// For Mob Controllers, the Pawn is a SmartObject too!
 		var/datum/pawn = mob_controller.GetPawn()
 		smartobjects.Add(pawn)
-	*/
+
 
 	if(!isnull(smartobjects))
 
@@ -311,16 +310,24 @@ var/global/last_plan_time = null
 		var/list/actionsets = GetAvailableActions()
 
 		var/PriorityQueue/utility_ranking = src.ScoreActions(actionsets)
-		var/best_act_res = utility_ranking.Dequeue()
-		var/datum/Triple/best_act_tup = best_act_res
+		var/datum/Triple/best_act_tup = null
+
+		while(utility_ranking.L)
+			var/best_act_res = utility_ranking.Dequeue()
+
+			best_act_tup = best_act_res
+			if(!isnull(best_act_tup))
+				break
 
 		if(!best_act_tup)
-			RUN_ACTION_DEBUG_LOG("ERROR: Best action tuple is null! [best_act_res] | <@[src]> | [__FILE__] -> L[__LINE__]")
+			RUN_ACTION_DEBUG_LOG("ERROR: Best action tuple is null! [best_act_tup] | <@[src]> | [__FILE__] -> L[__LINE__]")
 			return
 
 		var/datum/utility_action_template/best_action_template = best_act_tup.middle
 		var/list/best_action_ctx = best_act_tup.right
 		var/datum/utility_action/best_action = best_action_template.ToAction(best_action_ctx)
+
+		src.SetMemory("SelectedActionTemplate", best_action_template)
 
 		if(best_action)
 			PUT_EMPTY_LIST_IN(src.active_plan)
@@ -465,6 +472,7 @@ var/global/last_plan_time = null
 	// Update the tracked Action stack for Considerations
 	src.SetMemory(MEM_ACTION_MINUS_TWO, src.GetMemoryValue(MEM_ACTION_MINUS_ONE), RETAIN_LAST_ACTIONS_TTL)
 	src.SetMemory(MEM_ACTION_MINUS_ONE, utility_act.name, RETAIN_LAST_ACTIONS_TTL)
+	src.SetMemory("LastActionEffects", utility_act.name, RETAIN_LAST_ACTIONS_TTL)
 
 	return new_actiontracker
 

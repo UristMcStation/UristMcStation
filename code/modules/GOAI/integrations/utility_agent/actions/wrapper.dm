@@ -66,12 +66,14 @@
 		tracker.SetFailed()
 		return
 
+	src.allow_wandering = FALSE
+
 	// placeholders!
 	var/max_node_depth = null
 	var/path_ttl = null
 
 	var/_max_node_depth = DEFAULT_IF_NULL(max_node_depth, 60)
-	var/_min_target_dist = DEFAULT_IF_NULL(min_dist, 1)
+	var/_min_target_dist = DEFAULT_IF_NULL(min_dist, DEFAULT_MIN_ASTAR_DIST)
 	var/_path_ttl = DEFAULT_IF_NULL(path_ttl, 100)
 
 	var/turf/pawnloc = get_turf(mypawn)
@@ -122,6 +124,7 @@
 		return
 
 	// Movement all done, time to unwrap.
+
 	var/list/_func_args = isnull(func_args) ? list() : func_args
 
 	if(!isnull(location_key))
