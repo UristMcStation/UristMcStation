@@ -27,7 +27,7 @@
 
 	var/atom/my_loc = pawn?.loc
 	if(!my_loc)
-		to_world_log("[src] attempted to get loc, but couldn't find one!")
+		COMBAT_AI_DEBUG_LOG("[src] attempted to get loc, but couldn't find one!")
 		return
 
 	var/PriorityQueue/target_queue = new /PriorityQueue(/datum/Tuple/proc/FirstCompare)
@@ -149,7 +149,7 @@
 
 	var/atom/pawn = src.GetPawn()
 	if(!pawn)
-		to_world_log("No mob not found for the [src.name] AI to attack with D;")
+		COMBAT_AI_DEBUG_LOG("No mob not found for the [src.name] AI to attack with D;")
 		return FALSE
 
 	# ifdef GOAI_SS13_SUPPORT
@@ -173,7 +173,7 @@
 			H.a_intent = old_intent
 
 		else if(istype(SAH) && SAH.stat == CONSCIOUS)
-			SAH.attack_target(target)
+			SAH.IAttack(target)
 
 		. = TRUE
 

@@ -83,18 +83,6 @@ X================================================================X
   You can see a sample setup in the goap_testing.dm file.
 */
 
-# ifdef GOAP_INSPECTION_LOGGING
-# define GOAP_INSPECTION_LOG(TXT) to_world_log(TXT)
-# else
-# define GOAP_INSPECTION_LOG(TXT)
-# endif
-
-# ifdef DEBUG_LOGGING
-# define GOAP_DEBUG_LOG(TXT) MAYBE_LOG(TXT)
-# else
-# define GOAP_DEBUG_LOG(TXT)
-# endif
-
 /datum/GOAP
 	/* Abstract class */
 	var/list/graph
@@ -462,7 +450,7 @@ X================================================================X
 				_pqueue.L.Cut(1, max_queue_size)
 
 	if (_pqueue.L.len <= 0)
-		to_world_log("Exhausted all candidates before a path was found!")
+		PLANNING_DEBUG_LOG("Exhausted all candidates before a path was found!")
 		return
 
 	var/datum/Quadruple/next_cand_tuple = _pqueue.Dequeue()

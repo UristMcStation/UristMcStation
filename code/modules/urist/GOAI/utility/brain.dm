@@ -148,10 +148,10 @@
 					for(var/subctx in ctx)
 						subctx_idx++
 						try
-							to_world_log("ScoreAction subcontext: [subctx] [ctx[subctx]] @ [subctx_idx]")
+							UTILITYBRAIN_DEBUG_LOG("ScoreAction subcontext: [subctx] [ctx[subctx]] @ [subctx_idx]")
 						catch(var/exception/e)
-							to_world_log("[e]")
-							to_world_log("ScoreAction subcontext: [subctx] @ [subctx_idx]")
+							UTILITYBRAIN_DEBUG_LOG("[e]")
+							UTILITYBRAIN_DEBUG_LOG("ScoreAction subcontext: [subctx] @ [subctx_idx]")
 						DEBUG_LOG_LIST_ASSOC(subctx, to_world_log)
 					# endif
 
