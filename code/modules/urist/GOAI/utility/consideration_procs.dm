@@ -9,16 +9,6 @@
 // This file is currently just provides top-level shared bits, it MAY get deleted later on.
 */
 
-# ifdef DEBUG_UTILITY_INPUT_FETCHERS
-# define DEBUGLOG_UTILITY_INPUT_FETCHERS(X) to_world_log(X)
-# define DEBUGLOG_UTILITY_INPUT_CATCH(X) catch(X)
-# else
-# define DEBUGLOG_UTILITY_INPUT_FETCHERS(X)
-# define DEBUGLOG_UTILITY_INPUT_CATCH(X) catch()
-# endif
-
-
-
 // Macro-ized callsig to make it easy/mandatory to use the proper API conventions
 // For those less familiar with macros, pretend this is a normal proc definition with context/requester/consideration_args as params.
 # define CONSIDERATION_CALL_SIGNATURE(procpath) ##procpath(var/datum/utility_action_template/action_template, var/list/context = null, var/requester = null, var/list/consideration_args = null)

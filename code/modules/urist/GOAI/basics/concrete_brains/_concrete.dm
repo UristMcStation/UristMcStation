@@ -149,7 +149,6 @@
 			var/list/raw_active_plan = CreatePlan(curr_state, goal_state, curr_available_actions)
 
 			if(raw_active_plan)
-				//to_world_log("Created plan [raw_active_plan]")
 				var/first_clean_pos = 0
 
 				for (var/planstep in raw_active_plan)
@@ -270,9 +269,7 @@
 		RUN_ACTION_DEBUG_LOG("[src]: Failed to create a tracker for [goai_act]!")
 		return null
 
-	//to_world_log("New Tracker: [new_actiontracker] [new_actiontracker.tracked_action] @ [new_actiontracker.creation_time]")
 	running_action_tracker = new_actiontracker
-
 	return new_actiontracker
 
 

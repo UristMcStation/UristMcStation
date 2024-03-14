@@ -54,8 +54,10 @@
 					mycover = src.GenerateCover()
 					src.cover_data = mycover
 
+			# ifdef COVERDATA_DEBUG_LOGGING
 			if(log_on_missing)
-				to_world_log("Failed to get cover for [src] - no cover data!")
+				COVERDATA_DEBUG_LOG("Failed to get cover for [src] - no cover data!")
+			# endif
 
 	return src.cover_data
 

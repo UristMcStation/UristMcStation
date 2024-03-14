@@ -39,9 +39,9 @@
 		var/_planning_budget = isnull(planning_budget) ? 500 : planning_budget
 		planner.graph = actions
 
-		to_world_log("PLANNING! START: [json_encode(start_state)] GOAL: [json_encode(goal_state)], ACTIONS: [json_encode(actions)]")
+		PLANNING_DEBUG_LOG("PLANNING! START: [json_encode(start_state)] GOAL: [json_encode(goal_state)], ACTIONS: [json_encode(actions)]")
 		plan_items = planner.Plan(init_state, goal_state, cutoff_iter=_planning_budget)
-		to_world_log("PLANNING END - PLAN: [json_encode(plan_items)]")
+		PLANNING_DEBUG_LOG("PLANNING END - PLAN: [json_encode(plan_items)]")
 
 		FreeGoapResource(planner, myref)
 

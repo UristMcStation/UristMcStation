@@ -17,7 +17,7 @@
 /datum/utility_ai/mob_commander/proc/CurrentPositionAsTuple()
 	var/atom/pawn = src.GetPawn()
 	if(!pawn)
-		to_world_log("No owned mob found for [src.name] AI")
+		MOVEMENT_DEBUG_LOG("No owned mob found for [src.name] AI")
 		return
 
 	return pawn.CurrentPositionAsTuple()
@@ -26,7 +26,7 @@
 /datum/utility_ai/mob_commander/proc/FindPathTo(var/trg, var/min_dist = 0, var/avoid = null, var/proc/adjproc = null, var/proc/distanceproc = null, var/list/adjargs = null)
 	var/atom/pawn = src.GetPawn()
 	if(!pawn)
-		to_world_log("No owned mob found for [src.name] AI")
+		MOVEMENT_DEBUG_LOG("No owned mob found for [src.name] AI")
 		return
 
 	var/atom/start_loc = null
@@ -35,7 +35,7 @@
 		start_loc = pawn.loc
 
 	if(!start_loc)
-		to_world_log("No start loc found for [src.name] AI")
+		MOVEMENT_DEBUG_LOG("No start loc found for [src.name] AI")
 		return
 
 	var/true_avoid = (avoid)
@@ -217,8 +217,7 @@
 		src.brain.SetMemory(MEM_PATH_ACTIVE, pathtracker.path)
 
 	else
-		var/turf/curr_loc = get_turf(pawn)
-		to_world_log("[src]: Could not build a pathtracker to [trg] @ [COORDS_TUPLE(curr_loc)]")
+		MOVEMENT_DEBUG_LOG("[src]: Could not build a pathtracker to [trg] @ [COORDS_TUPLE(get_turf(pawn))]")
 		src.brain.SetMemory("PendingMovementTarget", trg, 100)
 		return
 
@@ -323,7 +322,7 @@
 			var/step_result = src.MovePawn(trg, flee, true_pawn)
 
 			if(!step_result)
-				to_world_log("ABORTING WALK CYCLE DUE TO FAILED STEP")
+				MOVEMENT_DEBUG_LOG("ABORTING WALK CYCLE DUE TO FAILED STEP")
 				break
 
 			sleep(COMBATAI_MOVE_TICK_DELAY)

@@ -29,3 +29,11 @@
 	new_commander.brain.name = "Brain of [new_commander.name]"
 
 	new_commander.AttachToBrain()
+
+	# ifdef GOAI_SS13_SUPPORT
+	# ifdef GOAI_DELETE_SS13_AI
+	var/mob/living/L = M
+	if(istype(L))
+		QDEL_NULL(L.ai_holder)
+	# endif
+	# endif
