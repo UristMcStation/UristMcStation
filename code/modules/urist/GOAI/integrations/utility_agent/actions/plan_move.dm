@@ -36,7 +36,6 @@
 		src.brain.SetMemory(MEM_PATH_ACTIVE, chunkypath, 100)
 
 	var/memory = src.brain.GetMemoryValue(MEM_PATH_TO_POS("aitarget"))
-	world.log << "Memory is [memory] | [__FILE__] -> L[__LINE__]"
 	var/succeeded = !isnull(memory)
 
 	if(succeeded)
@@ -100,7 +99,6 @@
 		src.brain.SetMemory("last_pathing_target", position)
 
 	var/memory = src.brain.GetMemoryValue(MEM_PATH_TO_POS("aitarget"))
-	world.log << "Memory is [memory] | [__FILE__] -> L[__LINE__]"
 	var/succeeded = !isnull(memory)
 
 	if(succeeded)

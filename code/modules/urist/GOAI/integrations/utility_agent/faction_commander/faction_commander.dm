@@ -52,9 +52,13 @@
 			// Fix the tickrate to prevent runaway loops in case something messes with it.
 			// Doing it here is nice, because it saves us from sanitizing it all over the place.
 			src.ai_tick_delay = max((src?.ai_tick_delay || 0), 1)
+			var/sleeptime = min(MAX_AI_SLEEPTIME, src.ai_tick_delay)
+
+			src.waketime = (world.time + src.ai_tick_delay)
 
 			// Wait until the next update tick.
-			sleep(src.ai_tick_delay)
+			while(world.time < src.waketime)
+				sleep(sleeptime)
 
 
 

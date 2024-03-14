@@ -96,6 +96,11 @@
 // Usually this can be overridden at runtime in the thing requesting a plan.
 #define DEFAULT_GOAP_PLANNING_BUDGET 50
 
+// worst-case granularity of sleep ticks
+// this is so if someone sets the GOAI interval to 1e9 ds and then back to 1 ds
+// it won't be stuck trying to run the eternal sleep
+#define MAX_AI_SLEEPTIME 100
+
 
 /* ===   CHEAT_SEE_WAYPOINT_TURF:   ===
 //
