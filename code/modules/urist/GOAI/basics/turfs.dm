@@ -76,10 +76,8 @@
 			continue
 
 		if(object.density)
-			//to_world_log("[src] hit dense object [object] @ [object.loc]")
 			return TRUE
 
-	//to_world_log("[src] is not blocked")
 	return FALSE
 
 /turf/proc/AdjacentTurfs(var/check_blockage = TRUE, var/check_links = TRUE, var/check_objects = TRUE)
@@ -139,11 +137,9 @@
 		return TRUE
 
 	if(GoaiDirBlocked(A,adir))
-		//to_world_log("A -> B blocked; A=[A], B=[B]")
 		return TRUE
 
 	if(GoaiDirBlocked(B,rdir))
-		//to_world_log("B -> A blocked; A=[A], B=[B]")
 		return TRUE
 
 	return FALSE
@@ -258,7 +254,6 @@
 
 /turf/proc/CardinalTurfsNoblocks()
 	var/result = CardinalTurfs(FALSE, FALSE, FALSE)
-	//to_world_log("CardinalTurfsNoblocks([src]) => [result] ([result?.len])")
 	return result
 
 
@@ -267,7 +262,6 @@
 		return
 
 	var/result = fCardinalTurfs(start, FALSE, FALSE, FALSE, TRUE)
-	//to_world_log("CardinalTurfsNoblocks([src]) => [result] ([result?.len])")
 
 	return result
 

@@ -54,3 +54,59 @@
 
 
 # endif
+
+# ifdef GOAI_SS13_SUPPORT
+
+# define DOOR_ACTIONSET_PATH "goai_data/smartobject_definitions/ss13_door.json"
+# define AUTODOOR_ACTIONSET_PATH "goai_data/smartobject_definitions/ss13_autodoor.json"
+
+/* Plain Old Doors */
+/obj/machinery/door/unpowered/GetUtilityActions(var/requester, var/list/args = null) // (Any, assoc) -> [ActionSet]
+	var/list/my_action_sets = list()
+
+	ASSERT(fexists(AUTODOOR_ACTIONSET_PATH))
+	var/datum/action_set/myset = ActionSetFromJsonFile(DOOR_ACTIONSET_PATH)
+
+	myset.origin = src
+
+	my_action_sets.Add(myset)
+	return my_action_sets
+
+
+/obj/machinery/door/unpowered/HasUtilityActions(var/requester, var/list/args = null) // (Any, assoc) -> bool
+	var/atom/requester_atom = requester
+
+	if(isnull(requester_atom))
+		return FALSE
+
+	if(get_dist(requester_atom, src) > 1)
+		return FALSE
+
+	return TRUE
+
+
+/* Autodoors */
+/obj/machinery/door/airlock/GetUtilityActions(var/requester, var/list/args = null) // (Any, assoc) -> [ActionSet]
+	var/list/my_action_sets = list()
+
+	ASSERT(fexists(AUTODOOR_ACTIONSET_PATH))
+	var/datum/action_set/myset = ActionSetFromJsonFile(AUTODOOR_ACTIONSET_PATH)
+
+	myset.origin = src
+
+	my_action_sets.Add(myset)
+	return my_action_sets
+
+
+/obj/machinery/door/airlock/HasUtilityActions(var/requester, var/list/args = null) // (Any, assoc) -> bool
+	var/atom/requester_atom = requester
+
+	if(isnull(requester_atom))
+		return FALSE
+
+	if(get_dist(requester_atom, src) > 1)
+		return FALSE
+
+	return TRUE
+
+# endif

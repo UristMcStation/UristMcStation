@@ -85,21 +85,13 @@
 			// Fix the tickrate to prevent runaway loops in case something messes with it.
 			// Doing it here is nice, because it saves us from sanitizing it all over the place.
 			src.ai_tick_delay = max((src?.ai_tick_delay || 0), 1)
+			var/sleeptime = min(MAX_AI_SLEEPTIME, src.ai_tick_delay)
+
+			src.waketime = (world.time + src.ai_tick_delay)
 
 			// Wait until the next update tick.
-			sleep(src.ai_tick_delay)
-
-	/*
-	// Combat system; decoupled from generic planning/actions to make it run
-	// *in parallel* to other behaviours - e.g. run-and-gun or fire from cover
-	spawn(0)
-		while(src.life)
-			var/atom/movable/mypawn = src.GetPawn()
-			if(mypawn)
-				src.FightTick()
-
-			sleep(COMBATAI_FIGHT_TICK_DELAY)
-	*/
+			while(world.time < src.waketime)
+				sleep(sleeptime)
 
 
 /datum/utility_ai/mob_commander/LifeTick()
