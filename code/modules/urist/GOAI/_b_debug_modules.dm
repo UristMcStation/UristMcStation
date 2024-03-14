@@ -17,6 +17,7 @@
 	# define ACTIONTRACKER_DEBUG_LOGGING 0
 	//# define PLANNING_DEBUG_LOGGING 0
 	# define MOTIVES_DEBUG_LOGGING 0
+	//# define COVERDATA_DEBUG_LOGGING 0
 	//# define DIRBLOCKER_DEBUG_LOGGING 0
 	//# define GOAP_INSPECTION_LOGGING 0
 	# define UTILITYBRAIN_DEBUG_LOGGING 0
@@ -87,4 +88,66 @@
 	# define RAYTRACE_DEBUG_LOG(X) to_world_log(X)
 # else
 	# define RAYTRACE_DEBUG_LOG(X)
+# endif
+
+# ifdef ADD_ACTION_DEBUG_LOGGING
+# define ADD_ACTION_DEBUG_LOG(X) to_world_log(X)
+# else
+# define ADD_ACTION_DEBUG_LOG(X)
+# endif
+
+# ifdef RUN_ACTION_DEBUG_LOGGING
+# define RUN_ACTION_DEBUG_LOG(X) to_world(X); to_world_log(X)
+# else
+# define RUN_ACTION_DEBUG_LOG(X)
+# endif
+
+# ifdef MOVEMENT_DEBUG_LOGGING
+# define MOVEMENT_DEBUG_LOG(X) to_world(X); to_world_log(X)
+# else
+# define MOVEMENT_DEBUG_LOG(X)
+# endif
+
+# ifdef VALIDATE_ACTION_DEBUG_LOGGING
+# define VALIDATE_ACTION_DEBUG_LOG(X) to_world(X)
+# else
+# define VALIDATE_ACTION_DEBUG_LOG(X)
+# endif
+
+# ifdef PLANNING_DEBUG_LOGGING
+# define PLANNING_DEBUG_LOG(X) to_world_log(X)
+# else
+# define PLANNING_DEBUG_LOG(X)
+# endif
+
+# ifdef DEBUG_UTILITY_INPUT_FETCHERS
+# define DEBUGLOG_UTILITY_INPUT_FETCHERS(X) to_world_log(X)
+# define DEBUGLOG_UTILITY_INPUT_CATCH(X) catch(X)
+# else
+# define DEBUGLOG_UTILITY_INPUT_FETCHERS(X)
+# define DEBUGLOG_UTILITY_INPUT_CATCH(X) catch()
+# endif
+
+# ifdef COVERDATA_DEBUG_LOGGING
+# define COVERDATA_DEBUG_LOG(X) to_world_log(X)
+# else
+# define COVERDATA_DEBUG_LOG(X)
+# endif
+
+# ifdef DIRBLOCKER_DEBUG_LOGGING
+# define DIRBLOCKER_DEBUG_LOG(X) to_world_log(X)
+# else
+# define DIRBLOCKER_DEBUG_LOG(X)
+# endif
+
+# ifdef GOAP_INSPECTION_LOGGING
+# define GOAP_INSPECTION_LOG(TXT) to_world_log(TXT)
+# else
+# define GOAP_INSPECTION_LOG(TXT)
+# endif
+
+# ifdef DEBUG_LOGGING
+# define GOAP_DEBUG_LOG(TXT) MAYBE_LOG(TXT)
+# else
+# define GOAP_DEBUG_LOG(TXT)
 # endif

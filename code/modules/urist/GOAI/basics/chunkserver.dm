@@ -65,9 +65,6 @@ var/global/datum/chunkserver/chunkserver_singleton = null
 	//var/chunkX_offset = posX % chunksize
 
 	var/chunkY = FLOOR((posY - 1) / (chunksize - overlap))
-	//var/chunkY_offset = posY % chunksize
-	//to_world_log("ChunkIdx: [chunkX], [chunkY]")
-	// Chunks are (currently) flat, so we don't do this for Zs.
 
 	// if modulo(s) are <= overlap, we're on the overlapping turfs
 	var/chunk_key = "([chunkX],[chunkY])"

@@ -16,6 +16,9 @@
 	var/ai_tick_delay = UTILITYAI_AI_TICK_DELAY
 	var/senses_tick_delay = COMBATAI_SENSE_TICK_DELAY
 
+	// what time to wake the AI up for the next tick
+	var/waketime = 0
+
 	var/registry_index
 
 	// Optional - for map editor. Set this to force initial action. Must be valid (in available actions).

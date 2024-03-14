@@ -29,14 +29,14 @@
 
 		// Add a dynamic query cache to the planner here!
 
-		to_world_log("PLANNING! START: [json_encode(start_state)] GOAL: [json_encode(goal_state)], ACTIONS: [json_encode(actions)]")
+		PLANNING_DEBUG_LOG("PLANNING! START: [json_encode(start_state)] GOAL: [json_encode(goal_state)], ACTIONS: [json_encode(actions)]")
 		plan_items = planner.Plan(init_state, goal_state, cutoff_iter=_planning_budget)
-		to_world_log("PLANNING END - PLAN: [json_encode(plan_items)]")
+		PLANNING_DEBUG_LOG("PLANNING END - PLAN: [json_encode(plan_items)]")
 
 		FreeGoapResource(planner, myref)
 
 	if(isnull(plan_items))
-		RUN_ACTION_DEBUG_LOG("Raw plan is null | <@[src]> | [__FILE__] -> L[__LINE__]")
+		PLANNING_DEBUG_LOG("Raw plan is null | <@[src]> | [__FILE__] -> L[__LINE__]")
 		return
 
 	var/list/bound_context = list()
@@ -53,7 +53,6 @@
 	if(isnull(stored_plans))
 		stored_plans = list()
 
-	to_world_log("->-StoredPlans: [json_encode(stored_plans)]")
 	if(stored_plans.len < MAX_STORED_PLANS)
 		// Pad out the length lazily if not full
 		// Might be better to preallocate MAX_STORED_PLANS' worth of space later.
@@ -111,7 +110,7 @@
 
 	UPSERT_ASSOC_LTR(target.worldstate, start_state)
 
-	to_world_log("Running _PlanForGenericGoal for target [target]...")
+	PLANNING_DEBUG_LOG("Running _PlanForGenericGoal for target [target]...")
 	var/datum/plan_smartobject/returned_plan = src._PlanForGenericGoal(target, position, start_state, goal_state, planning_budget)
 
 	if(isnull(returned_plan))

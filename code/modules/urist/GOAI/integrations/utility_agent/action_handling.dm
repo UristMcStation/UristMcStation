@@ -1,31 +1,3 @@
-/*
-/datum/utility_ai/proc/AddAction(var/name, var/handler, var/charges = PLUS_INF, var/instant = FALSE, var/list/action_args = null)
-	if(charges < 1)
-		return
-
-	var/datum/utility_action/Action = null
-	if(name in src.actionslist)
-		Action = src.actionslist[name]
-
-	if(isnull(Action) || (!istype(Action)))
-		Action = new(name, handler, charges, instant, action_args)
-
-	else
-		// If an Action with the same key exists, we can update the existing object rather than reallocating!
-		SET_IF_NOT_NULL(charges, Action.charges)
-		SET_IF_NOT_NULL(instant, Action.instant)
-		SET_IF_NOT_NULL(action_args, Action.arguments)
-
-	src.actionslist = (isnull(src.actionslist) ? list() : src.actionslist)
-	src.actionslist[name] = Action
-
-	if(handler)
-		actionlookup = (isnull(actionlookup) ? list() : actionlookup)
-		actionlookup[name] = handler
-
-	return Action
-*/
-
 
 /datum/utility_ai/proc/HandleAction(var/datum/utility_action/action, var/datum/ActionTracker/tracker)
 	MAYBE_LOG("Tracker: [tracker]")
@@ -98,7 +70,12 @@
 					return
 
 		var/safe_ai_delay = max(1, src.ai_tick_delay)
-		sleep(safe_ai_delay)
+		var/sleeptime = min(MAX_AI_SLEEPTIME, safe_ai_delay)
+
+		src.waketime = (world.time + safe_ai_delay)
+
+		while(world.time < src.waketime)
+			sleep(sleeptime)
 
 
 /datum/utility_ai/proc/HandleInstantAction(var/datum/goai_action/action, var/datum/ActionTracker/tracker)

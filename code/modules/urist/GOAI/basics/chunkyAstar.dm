@@ -12,7 +12,7 @@
 	var/datum/chunkserver/chunkServer = GetOrSetChunkserver(width)
 
 	if(!chunkServer)
-		to_world_log("Failed to retrieve a ChunkServer for ChunkAdjacent()")
+		MOVEMENT_DEBUG_LOG("Failed to retrieve a ChunkServer for ChunkAdjacent()")
 		return
 
 	var/list/adjacents = list()
@@ -47,7 +47,7 @@
 	var/datum/chunkserver/chunkServer = GetOrSetChunkserver(source.width)
 
 	if(!chunkServer)
-		to_world_log("Failed to retrieve a ChunkServer for ChunkAdjacent()")
+		MOVEMENT_DEBUG_LOG("Failed to retrieve a ChunkServer for ChunkAdjacent()")
 		return
 
 	var/list/adjacents = list()
@@ -122,7 +122,7 @@
 	var/datum/chunkserver/chunkServer = GetOrSetChunkserver()
 
 	if(!chunkServer)
-		to_world_log("Failed to retrieve a ChunkServer for ChunkyAStar()")
+		MOVEMENT_DEBUG_LOG("Failed to retrieve a ChunkServer for ChunkyAStar()")
 		return
 
 	var/proc/true_adjproc = (isnull(adjacent) ? /proc/fChunkAdjacent : adjacent)

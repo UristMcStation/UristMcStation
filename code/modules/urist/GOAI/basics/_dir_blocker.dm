@@ -1,10 +1,4 @@
 
-# ifdef DIRBLOCKER_DEBUG_LOGGING
-# define DIRBLOCKER_DEBUG_LOG(X) to_world_log(X)
-# else
-# define DIRBLOCKER_DEBUG_LOG(X)
-# endif
-
 /datum/directional_blocker
 	/* A component that indicates that whatever object its attached to
 	behaves like a directional blocker (e.g. SS13 'small' windows or flipped tables).
@@ -119,14 +113,29 @@
 /atom/proc/GetBlockerData(var/generate_if_missing = FALSE, var/log_on_missing = FALSE)
 	var/datum/directional_blocker/myblocker = src.directional_blocker
 
-	if(!myblocker)
-		if(src.blocker_gen_enabled)
-			if(generate_if_missing)
-				spawn(0)
-					myblocker = src.GenerateCover()
-					src.directional_blocker = myblocker
+	if(src.ShouldHaveBlocker())
+		if(istype(myblocker))
+			DIRBLOCKER_DEBUG_LOG("[src] has a blocker... but it shouldn't!")
 
-			if(log_on_missing)
-				to_world_log("Failed to get blocker for [src] - no blocker data!")
+		else
+			if(src.blocker_gen_enabled)
+				// so we don't log every first encounter
+				# ifdef DIRBLOCKER_DEBUG_LOGGING
+				var/generated = FALSE
+				# endif
+
+				if(generate_if_missing)
+					# ifdef DIRBLOCKER_DEBUG_LOGGING
+					generated = TRUE
+					# endif
+
+					spawn(0)
+						myblocker = src.GenerateCover()
+						src.directional_blocker = myblocker
+
+				# ifdef DIRBLOCKER_DEBUG_LOGGING
+				if(!generated && log_on_missing)
+					DIRBLOCKER_DEBUG_LOG("Failed to get blocker for [src] - no blocker data!")
+				# endif
 
 	return src.directional_blocker
