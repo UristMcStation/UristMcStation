@@ -83,7 +83,7 @@
 
 	var/atom/pawn = src.GetPawn()
 	if(!pawn)
-		to_world_log("No mob not found for the [src.name] AI to shoot D;")
+		COMBAT_AI_DEBUG_LOG("No mob not found for the [src.name] AI to shoot D;")
 		return FALSE
 
 	var/obj/item/gun/my_gun = cached_gun
@@ -99,12 +99,13 @@
 	var/mob/living/carbon/human/H = pawn
 	var/mob/living/simple_animal/SAH = pawn
 
-	if(SAH && istype(SAH) && target && SAH.stat == CONSCIOUS && (targetLM?.stat != DEAD))
+	if(istype(SAH) && target && SAH.stat == CONSCIOUS && (targetLM?.stat != DEAD))
 		// SimpleAnimals are simple (duh), *they* handle if they can shoot so we don't have to.
-		SAH.RangedAttack(target)
+		//SAH.RangedAttack(target)
+		SAH.ICheckRangedAttack(target) && SAH.IRangedAttack(target)
 		return TRUE
 
-	if(H && istype(H))
+	if(istype(H))
 		if(!(H.zone_sel))
 			// weird, but seemingly needed or stuff runtimes
 			H.zone_sel = new /obj/screen/zone_sel()
@@ -125,7 +126,7 @@
 	# endif
 
 	if(isnull(my_gun))
-		to_world_log("[src] - Gun not found for [pawn] to shoot D;")
+		COMBAT_AI_DEBUG_LOG("[src] - Gun not found for [pawn] to shoot D;")
 		return FALSE
 
 	if(!isnull(target) && (targetLM?.stat != DEAD))
@@ -138,7 +139,7 @@
 			return TRUE
 
 		else
-			to_world_log("[src] - target [target] is null or no gun found!")
+			COMBAT_AI_DEBUG_LOG("[src] - target [target] is null or no gun found!")
 
 	return .
 
