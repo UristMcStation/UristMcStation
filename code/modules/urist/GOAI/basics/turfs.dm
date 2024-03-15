@@ -219,9 +219,51 @@
 	return FALSE
 
 
+# ifdef GOAI_SS13_SUPPORT
+# ifdef GOAI_MULTIZ_ASTAR
+//Checks for directional blockages at the base of the stairs leading up, open space above, and that nothing is blocking the exit point. Returns 1 on fail
+/proc/LinkBlockedAboveGoai(turf/lower, var/turf/simulated/open/upper, var/dir)
+	if(!istype(upper))
+		return 1
+
+	for(var/obj/A in lower)
+		if(!A.density)
+			continue
+		if(istype(A,/obj/structure/window) || istype(A,/obj/structure/railing))
+			if(A.dir == dir)
+				return 1
+		else
+			return 1
+
+	var/turf/exit = get_step(upper, dir)
+
+	if(exit.density)
+		return 1
+
+	if(GoaiLinkBlocked(upper, exit))
+		return 1
+
+	/*
+	// old ss13 code, GoaiLinkBlocked() SHOULD be handling these
+
+	for(var/obj/B in exit)
+		if(!B.density)
+			continue
+		if(istype(B,/obj/structure/window) || istype(B,/obj/structure/railing))
+			if(B.dir == GLOB.reverse_dir[dir])
+				return 1
+		else
+			return 1
+	*/
+
+	return 0
+# endif
+# endif
+
+
 // NOTE: the f-prefix stands for 'functional' (i.e. not bound method)
-/proc/fAdjacentTurfs(var/turf/start, var/check_blockage = TRUE, var/check_links = TRUE, var/check_objects = TRUE, var/check_objects_permissive = FALSE)
-	if(!start)
+/proc/fAdjacentTurfs(var/turf/start, var/check_blockage = TRUE, var/check_links = TRUE, var/check_objects = TRUE, var/check_objects_permissive = FALSE, var/threeD = TRUE)
+	if(!istype(start))
 		return
 
 	var/list/adjacents = list()
@@ -234,6 +276,30 @@
 					adjacents += t
 		else
 			adjacents += t
+
+		# ifdef GOAI_SS13_SUPPORT
+		# ifdef GOAI_MULTIZ_ASTAR
+		// this should be considered in IsBlocked, but isn't yet
+		var/deltaDir = get_dir(start, t)
+
+		if(threeD)
+			var/turf/simulated/open/OP = get_step(src, deltaDir)
+			if(istype(OP) && !OP.density)
+				if((!locate(/obj/structure/lattice) in OP) && !GoaiLinkBlocked(src, OP))
+					if(!OP.below.density)
+						adjacents.Add(OP.below)
+
+			/* Handle stairs */
+			var/obj/structure/stairs/S = locate(/obj/structure/stairs) in start_turf
+
+			if(istype(S))
+				var/turf/Upstairs = GetAbove(S)
+
+				if(S?.dir == deltaDir && !LinkBlockedAboveGoai(src, Upstairs, deltaDir))
+					// slightly funky - we need clearance one tile FURTHER than where the stair is
+					adjacents.Add(get_step(Upstairs, deltaDir))
+		# endif
+		# endif
 
 	return adjacents
 
@@ -288,37 +354,40 @@
 	if(!start)
 		return
 
+	var/chebyDist = get_dist(start, T)
 	var/turf/t = T
-	if(t && get_dist(start, t) == 1)
-		var/cost = SQR(start.x - t.x) + SQR(start.y - t.y)
-		cost *= (start.pathweight + t.pathweight)/2
+
+	if(istype(t))
+		var/deltaX = abs(start.x - t.x)
+		var/deltaY = abs(start.y - t.y)
+
+		var/cost = deltaX + deltaY
+
+		if(chebyDist == 1)
+			if((deltaX > 0 && deltaY > 0))
+				// Cheaper approximation of sqrt(2)
+				// The move can either be cardinal (basecost 1) or diagonal (basecost sqrt(2))
+				// Square roots are expensive, might as well precalculate.
+				//
+				// NOTE: This will ONLY be called in a diagonal context if the adjacency proc admits diagonals
+				//       (which implicitly says the caller CAN move diagonally at all)
+				//       Otherwise, for cardinal motion this will be broken into two moves with the expected cost of 2.
+				cost = 1.414
+
+			#ifdef GOAI_MULTIZ_ASTAR
+			var/zdelta = start.z - t.z
+
+			// For now, assume moving up and down is penalized equally
+			// In the future, down might be slightly preferred.
+			cost += (abs(zdelta) * ASTAR_ZMOVE_BASE_PENALTY)
+			#endif
+
+			cost *= (start.pathweight + t.pathweight)/2
+
 		return cost
 
 	else
-		return get_dist(start, T)
-
-
-/proc/fDistanceUnified(var/atom/start, var/atom/T)
-	// TODO!!!
-	if(!start)
-		return PLUS_INF
-
-	var/cost = SQR(start.x - T.x) + SQR(start.y - T.y)
-
-	var/turf/s = start
-	var/turf/t = T
-
-	if(t && istype(t) && s && istype(s))
-		cost *= (s.pathweight + t.pathweight)/2
-
-	return cost
-
-
-/proc/fDistanceUnifiedFuzzed(var/atom/start, var/atom/T)
-	var/eps = (rand() / 2)
-	var/cost = fDistanceUnified(start, T) + eps
-	return cost
-
+		return chebyDist
 
 
 /proc/fTestObstacleDist(var/atom/start, var/atom/T)
@@ -328,7 +397,7 @@
 	if(!istype(T))
 		return PLUS_INF
 
-	var/cost = MANHATTAN_DISTANCE(start, T)
+	var/cost = fDistance(start, T)
 
 	var/turf/t = T
 

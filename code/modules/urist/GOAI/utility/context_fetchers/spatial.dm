@@ -59,7 +59,11 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_turfs_in_view)
 		UTILITYBRAIN_DEBUG_LOG("WARNING: requester for ctxfetcher_turfs_in_view is not an AI @ L[__LINE__] in [__FILE__]!")
 		return null
 
-	var/atom/pawn = requester_ai.GetPawn()
+	var/datum/brain/requesting_brain = requester_ai.brain
+
+	if(!istype(requesting_brain))
+		UTILITYBRAIN_DEBUG_LOG("WARNING: requesting_brain for ctxfetcher_turfs_in_view is null @ L[__LINE__] in [__FILE__]!")
+		return null
 
 	var/list/contexts = list()
 	var/context_key = context_args["output_context_key"] || "position"
@@ -72,7 +76,13 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_turfs_in_view)
 		filter_type = text2path(raw_type)
 		filter_output_key = context_args?["filter_output_key"]
 
-	for(var/turf/pos in view(pawn))
+	var/list/curr_view = requesting_brain.perceptions[SENSE_SIGHT_CURR]
+
+	if(!istype(curr_view))
+		UTILITYBRAIN_DEBUG_LOG("WARNING: curr_view for ctxfetcher_turfs_in_view is not a list @ L[__LINE__] in [__FILE__]!")
+		return contexts
+
+	for(var/turf/pos in curr_view)
 		if(isnull(pos))
 			continue
 
@@ -89,7 +99,6 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_turfs_in_view)
 
 		ctx[context_key] = pos
 		contexts[++(contexts.len)] = ctx
-		//UTILITYBRAIN_DEBUG_LOG("INFO: added position #[posidx] [pos] context [ctx] (len: [ctx?.len]) to contexts (len: [contexts.len]) @ L[__LINE__] in [__FILE__]!")
 
 	return contexts
 

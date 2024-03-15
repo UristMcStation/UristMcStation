@@ -47,6 +47,11 @@
 	icon_state = "woodenbarricade"
 
 
+/obj/cover/barricade/Setup()
+	. = ..()
+	directional_blocker = new(null, null, TRUE, TRUE)
+
+
 /* Table. Flippable. If flipped, acts as a unidirectional barricade. */
 /obj/cover/table
 	name = "Table"
@@ -56,7 +61,7 @@
 	var/icon_flipped = "woodflip0"
 	var/flipped = FALSE
 
-	block_all = RAYCAST_BLOCK_CALLPROC
+	raycast_block_all = RAYCAST_BLOCK_CALLPROC
 	raycast_cover_proc = /obj/cover/table/proc/GetTableRaytraceBlocking
 
 

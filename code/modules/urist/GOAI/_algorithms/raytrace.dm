@@ -175,7 +175,7 @@
 
 	var/turf/blockturf = locate(baseX, baseY, z)
 
-	var/has_ignored = !(istype(ignored) && ignored.len)
+	var/has_ignored = (istype(ignored) && ignored.len)
 
 	var/check_opaque = _raytype & RAYFLAG_OPAQUEBLOCK
 	var/check_transparent = _raytype & RAYFLAG_TRANSPARENTBLOCK
@@ -192,6 +192,9 @@
 			if(!isnull(target) && A == target)
 				return A
 
+			if(has_ignored && (A in ignored))
+				continue
+
 			if(A.density && check_dense_objects)
 				if(A.opacity)
 					if(!check_opaque)
@@ -205,7 +208,7 @@
 				if(has_ignored && (A in ignored))
 					continue
 
-				if(!(_raytype & RAYFLAG_RANDCOVERBLOCK) && (A.block_all != RAYCAST_BLOCK_ALL))
+				if(!(_raytype & RAYFLAG_RANDCOVERBLOCK) && (A.raycast_block_all != RAYCAST_BLOCK_ALL))
 					// Skip partial covers if we don't care about that
 					continue
 
@@ -220,9 +223,9 @@
 
 /proc/TurfDensityRaytrace(var/atom/From, var/atom/To, var/list/ignored = null, var/raytype = null, var/dispersion = null)
 	// Effectively a partial function on Raytrace, for convenience usage
-	return Raytrace(From, To, /proc/basicBlockCheck, ignored)
+	return Raytrace(From, To, /proc/basicBlockCheck, ignored, dispersion)
 
 
 /proc/AtomDensityRaytrace(var/atom/From, var/atom/To, var/list/ignored = null, var/raytype = null, var/dispersion = null)
 	// Effectively a partial function on Raytrace, for convenience usage
-	return Raytrace(From, To, /proc/denseCheck, ignored, raytype)
+	return Raytrace(From, To, /proc/denseCheck, ignored, raytype, dispersion)
