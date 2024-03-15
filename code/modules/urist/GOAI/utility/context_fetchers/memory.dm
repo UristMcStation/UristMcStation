@@ -22,7 +22,7 @@ CTXFETCHER_CALL_SIGNATURE(/proc/__ctxfetcher_get_memory_value_helper)
 
 	var/datum/brain/requesting_brain = controller.brain
 
-	if(isnull(requesting_brain))
+	if(!istype(requesting_brain))
 		UTILITYBRAIN_DEBUG_LOG("WARNING: requesting_brain for __ctxfetcher_get_memory_value_helper is null @ L[__LINE__] in [__FILE__]!")
 		return null
 

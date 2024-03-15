@@ -113,7 +113,8 @@
 /atom/proc/GetBlockerData(var/generate_if_missing = FALSE, var/log_on_missing = FALSE)
 	var/datum/directional_blocker/myblocker = src.directional_blocker
 
-	if(src.ShouldHaveBlocker())
+	//if(src.ShouldHaveBlocker()) // not sure what happened here
+	if(TRUE)
 		if(istype(myblocker))
 			DIRBLOCKER_DEBUG_LOG("[src] has a blocker... but it shouldn't!")
 
@@ -130,7 +131,7 @@
 					# endif
 
 					spawn(0)
-						myblocker = src.GenerateCover()
+						myblocker = src.GenerateBlocker()
 						src.directional_blocker = myblocker
 
 				# ifdef DIRBLOCKER_DEBUG_LOGGING

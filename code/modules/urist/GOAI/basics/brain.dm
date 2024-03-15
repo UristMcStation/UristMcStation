@@ -70,7 +70,7 @@
 	var/datum/relationships/relations
 
 	// For relations: minimum relation score for which we are NOT hostile
-	var/neutrality_threshold = 1
+	var/neutrality_threshold = 0
 
 	/* Bookkeeping for action execution */
 	var/is_planning = 0
