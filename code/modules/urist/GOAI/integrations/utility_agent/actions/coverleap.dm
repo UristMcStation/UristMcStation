@@ -7,7 +7,7 @@
 	// Pathfinding/search
 	var/atom/_startpos = (startpos || get_turf(pawn))
 	var/list/_threats = (threats || src.brain?.GetMemoryValue(MEM_ENEMIES) || list())
-	var/_min_safe_dist = (isnull(min_safe_dist) ? 2 : min_safe_dist)
+	var/_min_safe_dist = (isnull(min_safe_dist) ? 3 : min_safe_dist)
 
 	var/turf/best_local_pos = null
 	//var/list/processed = list(_startpos)
@@ -33,7 +33,6 @@
 	var/atom/waypoint_ident = brain?.GetMemoryValue(MEM_WAYPOINT_IDENTITY, null, FALSE, TRUE)
 	var/datum/chunk/waypointchunk = null
 
-	var/half_worldview = (0.5 * world.view)
 
 	if(waypoint_ident)
 		// This only applies to the case where the brain has a Waypoint stored, i.e. when we're
@@ -85,30 +84,40 @@
 
 	for(var/atom/candidate_cover in curr_view)
 		// Need to aggressively trim down processed types here or this will take forever in object-dense areas
-		if(!(istype(candidate_cover, /mob) || istype(candidate_cover, /obj/machinery) || istype(candidate_cover, /obj/mecha) || istype(candidate_cover, /obj/structure) || istype(candidate_cover, /obj/vehicle) || istype(candidate_cover, /turf)))
+		var/mob/M = candidate_cover
+
+		if(istype(M))
+			// avoid pathing through mobs
+			processed.Add(get_turf(candidate_cover))
 			continue
+
+		//if(!(istype(candidate_cover, /mob) || istype(candidate_cover, /obj/machinery) || istype(candidate_cover, /obj/mecha) || istype(candidate_cover, /obj/structure) || istype(candidate_cover, /obj/vehicle) || istype(candidate_cover, /turf)))
+		// removed mob
+		if(!(istype(candidate_cover, /obj/machinery) || istype(candidate_cover, /obj/mecha) || istype(candidate_cover, /obj/structure) || istype(candidate_cover, /obj/vehicle) || istype(candidate_cover, /turf)))
+			continue
+
+		if(candidate_cover.directional_blocker?.block_all)
+			processed.Add(get_turf(candidate_cover))
+			continue
+
+		var/cand_is_turf = istype(candidate_cover, /turf)
+		var/turf/cand = (cand_is_turf ? candidate_cover : get_turf(candidate_cover))
+
+		if(cand in processed)
+			continue
+		else
+			processed.Add(cand)
 
 		if(!isnull(unreachable) && candidate_cover == unreachable)
+			ACTION_RUNTIME_DEBUG_LOG("Cover [candidate_cover] is unreachable!")
 			continue
 
-		var/has_cover = candidate_cover?.HasCover(get_dir(candidate_cover, primary_threat), FALSE)
-		// IsCover here is Transitive=FALSE b/c has_cover will have checked transitives already)
-		var/is_cover = candidate_cover?.IsCover(FALSE, get_dir(candidate_cover, primary_threat), FALSE)
-
-		if(!(has_cover || is_cover))
+		if(!(cand in curr_view) && (cand != prev_loc_memdata))
 			continue
 
-		var/turf/cover_loc = (istype(candidate_cover, /turf) ? candidate_cover : get_turf(candidate_cover))
-		var/list/adjacents = (has_cover ? list(candidate_cover) : (cover_loc?.CardinalTurfs(TRUE, TRUE, TRUE) || list()))
-		/*var/list/adjacents = cover_loc?.CardinalTurfs(TRUE) || list()
-
-		if(has_cover)
-			adjacents.Add(candidate_cover)*/
-
-		if(!adjacents)
-			continue
-
-		var/same_chunk_penalty = 0
+		if(!(pawn_mob && istype(pawn_mob)))
+			if(!(pawn_mob.MayEnterTurf(cand)))
+				continue
 
 		if(!isnull(waypointchunk))
 			var/datum/chunk/candchunk = chunkserver.ChunkForAtom(candidate_cover)
@@ -118,121 +127,118 @@
 				// ... unless we're close to the target - then we can make small adjustments.
 				if(candchunk != waypointchunk)
 					continue
-					//same_chunk_penalty = MAGICNUM_DISCOURAGE_SOFT
 
-		for(var/turf/cand in adjacents)
-			if(unreachable && cand == unreachable)
-				ACTION_RUNTIME_DEBUG_LOG("Cover [cand] is unreachable!")
-				continue
+		var/penalty = 0
+		penalty += cand.unreachable_penalty
 
-			if(!(pawn_mob && istype(pawn_mob)))
-				if(!(pawn_mob.MayEnterTurf(cand)))
-					continue
+		/*
+		if(prev_loc_memdata && prev_loc_memdata == cand)
+			penalty += MAGICNUM_DISCOURAGE_SOFT
+		*/
 
-			if(cand in processed)
-				continue
+		var/invalid_tile = FALSE
+		var/obstacle_penalty = 0
+		var/enemy_heat = 0
 
-			if(!(cand in curr_view) && (cand != prev_loc_memdata))
-				continue
+		for(var/atom/enemy in _threats)
+			var/threat_dist = get_dist(cand, enemy)
 
-			var/penalty = 0
-			penalty += same_chunk_penalty
+			if(threat_dist < _min_safe_dist)
+				invalid_tile = TRUE
+				break
 
-			penalty += cand.unreachable_penalty
+			if(threat_dist <= 1)
+				enemy_heat++
 
-			if(cand == candidate_cover || cand == get_turf(candidate_cover))
-				penalty -= 100
+			if(enemy_heat > 3)
+				invalid_tile = TRUE
+				break
 
+			var/threat_dir = get_dir(cand, enemy)
+			var/threat_antidir = get_dir(enemy, cand)
+
+			var/tile_is_cover = (cand.IsCover(TRUE, threat_dir, FALSE))
+			if(tile_is_cover)
+				obstacle_penalty -= 150
+			else
+				obstacle_penalty += 400
+
+			var/tile_is_pillbox = (cand.IsCover(TRUE, threat_antidir, FALSE))
+			if(tile_is_pillbox)
+				// We are protected... but the enemy is not!
+				obstacle_penalty -= 50
+
+			penalty -= threat_dist * 50  // the further from a threat, the better
+
+		if(obstacle_penalty > 1000)
+			continue
+
+		penalty += obstacle_penalty
+
+		if(invalid_tile)
+			continue
+
+		if(cand.density)
+			continue
+
+		var/cand_dist = ManhattanDistance(cand, pawn)
+
+		if(waypoint_ident && cand_dist < 3)
+			// we want substantial moves only
+			penalty += MAGICNUM_DISCOURAGE_SOFT
+			//continue
+
+		/*if (cand.CurrentPositionAsTuple() ~= shot_at_where)
+			penalty += MAGICNUM_DISCOURAGE_SOFT*/
+			//continue
+
+		//var/open_lines = cand.GetOpenness()
+
+		var/targ_dist = 0
+
+		if(!isnull(effective_waypoint_x) && !isnull(effective_waypoint_y))
+			targ_dist = ManhattanDistanceNumeric(cand.x, cand.y, effective_waypoint_x, effective_waypoint_y)
+
+		/*penalty += abs(open_lines-pick(
 			/*
-			if(prev_loc_memdata && prev_loc_memdata == cand)
-				penalty += MAGICNUM_DISCOURAGE_SOFT
-			*/
+			This is a bit un-obvious:
 
-			var/threat_dist = PLUS_INF
-			var/invalid_tile = FALSE
+			What we're doing here is biasing the pathing towards
+			cover positions *around* the picked value.
 
-			for(var/atom/enemy in _threats)
-				threat_dist = GetThreatDistance(cand, enemy)
-				var/threat_angle = GetThreatAngle(cand, enemy)
-				var/threat_dir = angle2dir(threat_angle)
+			For example, if we roll a 3, the ideal cover position
+			would be one with Openness score of 3.
 
-				var/tile_is_cover = (cand.IsCover(TRUE, threat_dir, FALSE))
+			However, this is not a hard requirement; if we don't
+			have a 3, we'll accept a 2 or a 4 (equally, preferentially)
+			and if we don't have *those* - a 1 or a 5, etc.
 
-				var/atom/maybe_cover = get_step(cand, threat_dir)
+			This makes it harder for the AI to wind up giving up due to
+			no valid positions; sub-optimal is still good enough in that case.
 
-				if(maybe_cover && !(tile_is_cover ^ maybe_cover.IsCover(TRUE, threat_dir, FALSE)))
-					invalid_tile = TRUE
-					break
+			The randomness is here to make the leapfrogging more dynamic;
+			if we just rank by best cover, we'll just wind bouncing between
+			the same positions, and this action is supposed to be more like
 
-				if(threat_dist < _min_safe_dist)
-					invalid_tile = TRUE
-					break
+			a 'smart' tacticool wandering behaviour.
+			 */
+			120; 3,
+			50; 4,
+			5; 7
+		))*/
 
-				penalty += max(0, (half_worldview - threat_dist)) * 15  // the further from a threat, the better
+		/* Inject some noise to stop AIs getting stuck in corners.
+		// max +/- 10% discount factor.
+		*/
+		var/noisy_targ_dist = targ_dist * RAND_PERCENT_MULT(30)
 
-			if(invalid_tile)
-				continue
+		penalty += noisy_targ_dist * 8  // the closer to target, the better
+		penalty += (cand_dist ** 2)
 
-			var/cand_dist = ManhattanDistance(cand, pawn)
-
-
-			if(waypoint_ident && cand_dist < 3)
-				// we want substantial moves only
-				penalty += MAGICNUM_DISCOURAGE_SOFT
-				//continue
-
-			/*if (cand.CurrentPositionAsTuple() ~= shot_at_where)
-				penalty += MAGICNUM_DISCOURAGE_SOFT*/
-				//continue
-
-			//var/open_lines = cand.GetOpenness()
-
-			var/targ_dist = 0
-
-			if(!isnull(effective_waypoint_x) && !isnull(effective_waypoint_y))
-				targ_dist = ManhattanDistanceNumeric(cand.x, cand.y, effective_waypoint_x, effective_waypoint_y)
-
-			/*penalty += abs(open_lines-pick(
-				/*
-				This is a bit un-obvious:
-
-				What we're doing here is biasing the pathing towards
-				cover positions *around* the picked value.
-
-				For example, if we roll a 3, the ideal cover position
-				would be one with Openness score of 3.
-
-				However, this is not a hard requirement; if we don't
-				have a 3, we'll accept a 2 or a 4 (equally, preferentially)
-				and if we don't have *those* - a 1 or a 5, etc.
-
-				This makes it harder for the AI to wind up giving up due to
-				no valid positions; sub-optimal is still good enough in that case.
-
-				The randomness is here to make the leapfrogging more dynamic;
-				if we just rank by best cover, we'll just wind bouncing between
-				the same positions, and this action is supposed to be more like
-
-				a 'smart' tacticool wandering behaviour.
-				 */
-				120; 3,
-				50; 4,
-				5; 7
-			))*/
-
-			/* Inject some noise to stop AIs getting stuck in corners.
-			// max +/- 10% discount factor.
-			*/
-			var/noisy_dist = targ_dist * RAND_PERCENT_MULT(30)
-
-			//penalty += -targ_dist  // the closer to target, the better
-			penalty += -noisy_dist // same but noisy
-
-			// Reminder to self: higher values are higher priority
-			// Smaller penalty => also higher priority
-			var/datum/Quadruple/cover_quad = new(penalty, noisy_dist, cand_dist, cand)
-			cover_queue.Enqueue(cover_quad)
-			processed.Add(cand)
+		// Reminder to self: higher values are higher priority
+		// Smaller penalty => also higher priority
+		var/datum/Quadruple/cover_quad = new(-penalty, -noisy_targ_dist, -cand_dist, cand)
+		cover_queue.Enqueue(cover_quad)
 
 	if(cover_queue.L?.len)
 		best_local_pos = ValidateWaypoint(cover_queue, trust_first, /proc/fCardinalTurfsNoblocksObjpermissive)

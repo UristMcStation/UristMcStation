@@ -110,7 +110,7 @@
 # define JSON_KEY_ACT_CTXPROC "context_procs"
 # define JSON_KEY_ACT_CTXARGS "context_args"
 # define JSON_KEY_ACT_HANDLER "handler"
-# define JSON_KEY_ACT_HANDLERTYPE "handlertype"
+# define JSON_KEY_ACT_HANDLERTYPE "is_function"
 # define JSON_KEY_ACT_HARDARGS "args"  // hardcoded args, to avoid code duplication for nearly identical Actions
 # define JSON_KEY_ACT_PRIORITY "priority"
 # define JSON_KEY_ACT_CHARGES "charges"

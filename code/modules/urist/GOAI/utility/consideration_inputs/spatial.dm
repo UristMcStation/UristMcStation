@@ -181,7 +181,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_in_line_of_sight)
 		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_input_in_line_of_sight Pawn is null @ L[__LINE__] in [__FILE__]")
 		return null
 
-	var/pos_key = consideration_args["input_key"] || "position"
+	var/pos_key = consideration_args["input_key"] || "input"
 	var/candidate = null
 
 	var/from_ctx = FALSE
@@ -213,7 +213,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_in_line_of_sight)
 
 	if(isnull(candidate))
 		// Try args:
-		candidate = consideration_args?["candidate"]
+		candidate = consideration_args?[pos_key]
 
 	if(isnull(candidate))
 		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_input_in_line_of_sight Candidate is null @ L[__LINE__] in [__FILE__]")
@@ -225,5 +225,77 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_in_line_of_sight)
 
 	var/forecasted_impactee = AtomDensityRaytrace(pawn, candidate, list(pawn), raytype)
 	var/result = ( (forecasted_impactee == candidate) )
+
+	return result
+
+
+CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_distance_to_arg)
+	//
+	var/default = consideration_args?["default"]
+	var/frompos_key = consideration_args?["from_key"]
+	var/topos_key = consideration_args?["to_key"]
+	var/disttype = consideration_args?["disttype"] || 0
+
+	var/atom/frompos = null
+	var/atom/topos = null
+
+	if(isnull(frompos_key))
+		DEBUGLOG_UTILITY_INPUT_FETCHERS("WARNING: consideration_input_manhattan_distance_to_arg 'from_key' is null @ L[__LINE__] in [__FILE__]")
+		return default
+
+	if(isnull(topos_key))
+		DEBUGLOG_UTILITY_INPUT_FETCHERS("WARNING: consideration_input_manhattan_distance_to_arg 'to_key' is null @ L[__LINE__] in [__FILE__]")
+		return default
+
+	var/from_from_memory = consideration_args?["from_from_memory"] || FALSE
+	var/to_from_memory = consideration_args?["from_from_memory"] || FALSE
+
+	var/from_from_context = consideration_args?["from_from_context"] || FALSE
+	var/to_from_context = consideration_args?["to_from_context"] || FALSE
+
+	if(from_from_memory || to_from_memory)
+		var/datum/utility_ai/mob_commander/requester_ai = requester
+
+		if(!istype(requester_ai))
+			UTILITYBRAIN_DEBUG_LOG("WARNING: requester for consideration_input_manhattan_distance_to_arg is not an AI @ L[__LINE__] in [__FILE__]!")
+			return null
+
+		var/datum/brain/requesting_brain = requester_ai.brain
+
+		if(!istype(requesting_brain))
+			UTILITYBRAIN_DEBUG_LOG("WARNING: requesting_brain for consideration_input_manhattan_distance_to_arg is null @ L[__LINE__] in [__FILE__]!")
+			return null
+
+		if(from_from_memory)
+			frompos = requesting_brain.GetMemoryValue(frompos_key)
+
+		if(to_from_memory)
+			topos = requesting_brain.GetMemoryValue(topos_key)
+
+	if(from_from_context)
+		frompos = context?[frompos_key]
+
+	if(to_from_context)
+		topos = context?[topos_key]
+
+	if(isnull(frompos))
+		frompos = consideration_args[frompos_key]
+
+	if(isnull(frompos))
+		UTILITYBRAIN_DEBUG_LOG("WARNING: frompos for consideration_input_manhattan_distance_to_arg is null @ L[__LINE__] in [__FILE__]!")
+		return default
+
+	if(isnull(topos))
+		topos = consideration_args[topos_key]
+
+	if(isnull(topos))
+		UTILITYBRAIN_DEBUG_LOG("WARNING: topos for consideration_input_manhattan_distance_to_arg is null @ L[__LINE__] in [__FILE__]!")
+		return default
+
+	var/result
+
+	switch(disttype)
+		if(0) result = get_dist(frompos, topos)
+		if(1) result = ManhattanDistance(frompos, topos)
 
 	return result

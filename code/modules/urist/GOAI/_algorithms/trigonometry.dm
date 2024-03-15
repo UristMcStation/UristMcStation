@@ -34,4 +34,15 @@
 
 	return direction
 
+/proc/dir2angle(D)
+	switch (D)
+		if (NORTH)     return 0
+		if (SOUTH)     return 180
+		if (EAST)      return 90
+		if (WEST)      return 270
+		if (NORTHEAST) return 45
+		if (SOUTHEAST) return 135
+		if (NORTHWEST) return 315
+		if (SOUTHWEST) return 225
+
 # endif
