@@ -34,6 +34,11 @@
 	return TRUE
 
 
+/atom
+	// this is a marker that we don't need to use fancy cover-checking if TRUE
+	var/is_cover_cheap = FALSE
+
+
 /atom/proc/GenerateCover()
 	// by default
 	return null
@@ -63,6 +68,9 @@
 
 
 /atom/proc/IsCover(var/transitive = FALSE, var/for_dir = null, var/default_for_null_dir = FALSE)
+	if(src.is_cover_cheap)
+		return TRUE
+
 	if(src.density)
 		return TRUE
 
@@ -79,7 +87,7 @@
 
 /atom/proc/HasCover(var/for_dir = null, var/default_for_null_dir = FALSE)
 	for(var/atom/local_obj in src.contents)
-		if(local_obj.IsCover(FALSE, for_dir))
+		if(local_obj.is_cover_cheap || local_obj.IsCover(FALSE, for_dir))
 			return local_obj
 
 	return null

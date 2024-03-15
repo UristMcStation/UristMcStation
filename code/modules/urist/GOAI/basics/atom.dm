@@ -6,6 +6,14 @@
 	var/cover_gen_enabled = FALSE
 	var/blocker_gen_enabled = FALSE
 
+	// A lot of things will either block everything or nothing at all.
+	// We don't want to waste proc-calls, so here's a wacky trinary var.
+	// 0/null means do a proc call, 1 means block everything, -1 means block nothing.
+	var/raycast_block_all = RAYCAST_BLOCK_ALL
+
+	// If block_all is zero, run this dynamic proc instead.
+	var/raycast_cover_proc = null
+
 	// a free-form key-value map; intended for associated interfaces/scripts/whatevs
 	// eventually might be redone as a big array/SparseSet with implicit IDs, ECS-style
 	var/dict/attachments
@@ -14,16 +22,8 @@
 /atom/movable
 	var/managed_movement = FALSE
 
-	// A lot of things will either block everything or nothing at all.
-	// We don't want to waste proc-calls, so here's a wacky trinary var.
-	// 0/null means do a proc call, 1 means block everything, -1 means block nothing.
-	var/block_all = RAYCAST_BLOCK_ALL
 
-	// If block_all is zero, run this dynamic proc instead.
-	var/raycast_cover_proc = null
-
-
-/atom/movable/proc/GetRaycastCoverage(var/hit_angle = null, var/raytype = null) // -> bool (blocks TRUE/FALSE)
+/atom/proc/GetRaycastCoverage(var/hit_angle = null, var/raytype = null) // -> bool (blocks TRUE/FALSE)
 	// For dense atoms, whether they block a raycast, for shooty purposes.
 	// Should be roughly equal to how big the object is in the hit direction, e.g:
 	//
@@ -39,7 +39,7 @@
 	//            (e.g. windows let lasers pass through; abstract rays pass through anything non-dense)
 
 	// This proc is mostly just an interface to the underlying dynamic proc call.
-	var/safe_block_all = isnull(src.block_all) ? 0 : src.block_all
+	var/safe_block_all = isnull(src.raycast_block_all) ? 0 : src.raycast_block_all
 
 	if(safe_block_all >= RAYCAST_BLOCK_ALL)
 		return TRUE
