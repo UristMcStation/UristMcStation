@@ -98,6 +98,6 @@
 		<p>Carlos, this in case the computer fails</p>
 		<p>Some overgrown space parrots from a movie followed us down, they shot at us. We're taking apart the fence around this warehouse for barricades to hold them off.</p>
 		<p>You better hope we make it out of here, or you're not seeing a single goddamn thaler</p>
-		<p>Now it looks like they're dropping something from the air? Looks like eggs from here.
+		<p>Now it looks like they're dropping something from the air? Looks like eggs from here.</p>
 		<p>None of us knows, so we're gonna head out and see what they are. Will write our findings</p>
 		"}
