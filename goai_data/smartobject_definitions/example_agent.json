@@ -136,24 +136,6 @@
 			],
 			"considerations": [
 				{
-					"name": "AnyIsFoe",
-					"lo_mark": -50, 
-					"hi_mark": 0, 
-					"noise_scale": 0,
-					"input_proc": "/proc/consideration_decorator_min", 
-					"input_args": {
-						"input_key": "threat",
-						"from_context": 1,
-						"cutoff": -10,
-						"aggregated_proc": "/proc/consideration_input_relationship_score",
-						"aggregated_proc_args": {
-							"input_key": "threat",
-							"from_context": 1
-						}
-					},
-					"curve_proc": "/proc/curve_antibinary"
-				},
-				{
 					"name": "MeanDistanceToThreat",
 					"lo_mark": 2, 
 					"hi_mark": 20, 
@@ -235,6 +217,96 @@
 						"from_context": 1
 					},
 					"curve_proc": "/proc/curve_antisquare"
+				}
+			]
+		},
+		{
+			"name": "Grenade", 
+			"description": "Throws an (entirely fake) grenade", 
+			"handler": "/datum/utility_ai/mob_commander/proc/FakeGrenadeThrow", 
+			"priority": 19,
+			"context_procs": ["/proc/ctxdeco_bounding_box_turfs"], 
+			"context_args": [
+				{
+					"wrapped_proc": "/proc/ctxfetcher_get_memory_value_array",
+					"max_area": 40,
+					"wrapped_proc_args": {
+						"input_key": "Enemies",
+						"output_context_key": "output"
+					},
+					"unwrap_target_key": "output",
+					"output_context_key": "target"
+				}
+			],
+			"considerations": [
+				{
+					"name": "Don't drop it on ourselves",
+					"lo_mark": 3, 
+					"hi_mark": 8, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_manhattan_distance_to_requester", 
+					"input_args": {
+						"input_key": "target",
+						"from_context": 1
+					},
+					"curve_proc": "/proc/curve_antibinary"
+				},
+				{
+					"name": "MeanDistanceToFriends",
+					"lo_mark": 2, 
+					"hi_mark": 6, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_decorator_mean", 
+					"input_args": {
+						"from_memory": "Friendlies",
+						"input_key": "friend",
+						"secondary_input_key": "target",
+						"secondary_input_from_context": 1,
+						"default": 999,
+						"aggregated_proc": "/proc/consideration_input_distance_to_arg",
+						"aggregated_proc_args": {
+							"from_key": "friend",
+							"to_key": "target",
+							"from_from_context": 1,
+							"to_from_context": 1
+						}
+					},
+					"curve_proc": "/proc/curve_linear"
+				},
+				{
+					"name": "MeanDistanceToThreat",
+					"lo_mark": 1, 
+					"hi_mark": 3, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_decorator_mean", 
+					"input_args": {
+						"from_memory": "Enemies",
+						"input_key": "threat",
+						"secondary_input_key": "target",
+						"secondary_input_from_context": 1,
+						"default": 999,
+						"aggregated_proc": "/proc/consideration_input_distance_to_arg",
+						"aggregated_proc_args": {
+							"from_key": "threat",
+							"to_key": "target",
+							"from_from_context": 1,
+							"to_from_context": 1
+						}
+					},
+					"curve_proc": "/proc/curve_antilinear"
+				},
+				{
+					"name": "ClearThrow",
+					"lo_mark": 0, 
+					"hi_mark": 1, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_in_line_of_sight", 
+					"input_args": {
+						"input_key": "target",
+						"from_context": 1,
+						"raytype": 15
+					},
+					"curve_proc": "/proc/curve_linear"
 				}
 			]
 		}

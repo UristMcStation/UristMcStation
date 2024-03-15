@@ -1,6 +1,6 @@
-/datum/utility_ai/mob_commander/proc/ShootAt(var/datum/ActionTracker/tracker, var/atom/threat)
+/datum/utility_ai/mob_commander/proc/FakeGrenadeThrow(var/datum/ActionTracker/tracker, var/atom/target)
 	/*
-	// Attacks an enemy
+	// Spans and throws a new fake grenade
 	*/
 	if(isnull(tracker))
 		RUN_ACTION_DEBUG_LOG("Tracker is null | <@[src]> | [__FILE__] -> L[__LINE__]")
@@ -9,8 +9,8 @@
 	if(tracker.IsStopped())
 		return
 
-	if(isnull(threat))
-		RUN_ACTION_DEBUG_LOG("Threat is null | <@[src]> | [__FILE__] -> L[__LINE__]")
+	if(isnull(target))
+		RUN_ACTION_DEBUG_LOG("Target is null | <@[src]> | [__FILE__] -> L[__LINE__]")
 		tracker.SetFailed()
 		return
 
@@ -20,7 +20,7 @@
 		RUN_ACTION_DEBUG_LOG("Pawn is null | <@[src]> | [__FILE__] -> L[__LINE__]")
 		return
 
-	src.Shoot(cached_target=threat)
+	grenade_spawnyeet(target, pawn)
 
 	var/succeeded = TRUE
 

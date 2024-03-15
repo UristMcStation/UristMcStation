@@ -38,8 +38,6 @@
 #define COORDS_TUPLE COORDS_TUPLE_2D
 #define LOCATION_WITH_COORDS(At) "[get_turf(At)] @ [COORDS_TUPLE(At)]"
 
-#define DEFAULT_MIN_ASTAR_DIST 1
-
 # ifdef GOAI_LIBRARY_FEATURES
 
 #define get_turf(A) get_step(A,0)
@@ -181,3 +179,18 @@
 # define RAYTYPE_PROJECTILE_NOCOVER 7
 
 # define DEFAULT_RAYTYPE RAYTYPE_UNSTOPPABLE
+
+/* AStar defines */
+
+// Default min-distance to search for if not otherwise specified
+// (e.g. 0 to path DIRECTLY to a target turf, 1 to path to be adjacent, etc.)
+#define DEFAULT_MIN_ASTAR_DIST 1
+
+// Enables 3d pathfinding for default adjacency/distance procs
+#define GOAI_MULTIZ_ASTAR 1
+
+// Base cost of moving across Z-levels
+// Paths look ridiculous if you keep the cost the same as for vertical motion
+// (you get the nuCOM absurd athleticism of jumping up and down freely).
+// Custom costprocs can just Not Use This to support free-flying agents.
+#define ASTAR_ZMOVE_BASE_PENALTY 5

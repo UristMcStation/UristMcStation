@@ -13,13 +13,40 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_mean)
 	var/default = consideration_args?["default"] || 0
 	var/input_key = consideration_args?["input_key"] || "input"
 	var/from_ctx = consideration_args?["from_context"]
+	var/from_memory = consideration_args?["from_memory"]
+	var/min_count_raw = consideration_args?["min_count"] || 1
+
+	// no division by zero!
+	var/min_count = max(1, min_count_raw)
+
+	// Secondary input; functions as a SHARED arg for all aggregations, a bit like a SQL GROUPBY key
+	// Mainly intended to handle two-arg Considerations nicely for aggregation
+	var/secondary_input = null
+	var/secondary_input_key = consideration_args?["secondary_input_key"]
+	var/has_secondary_input = !isnull(secondary_input_key)
+	var/secondary_input_from_context = consideration_args?["secondary_input_from_context"]
 
 	if(isnull(from_ctx))
 		from_ctx = TRUE
 
 	var/list/aggregation_window
 
-	if(from_ctx)
+	if(from_memory)
+		var/datum/utility_ai/mob_commander/requester_ai = requester
+
+		if(!istype(requester_ai))
+			UTILITYBRAIN_DEBUG_LOG("WARNING: requester for consideration_decorator_mean is not an AI @ L[__LINE__] in [__FILE__]!")
+			return default
+
+		var/datum/brain/requesting_brain = requester_ai.brain
+
+		if(!istype(requesting_brain))
+			UTILITYBRAIN_DEBUG_LOG("WARNING: requesting_brain for consideration_decorator_mean is null @ L[__LINE__] in [__FILE__]!")
+			return default
+
+		aggregation_window = requesting_brain.GetMemoryValue(from_memory)
+
+	else if(from_ctx)
 		if(isnull(context))
 			return default
 
@@ -45,6 +72,16 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_mean)
 	if(isnull(aggregated_proc))
 		return
 
+	if(has_secondary_input)
+		if(secondary_input_from_context)
+			if(isnull(context))
+				return default
+
+			secondary_input = context[secondary_input_key]
+
+		else
+			secondary_input = consideration_args[secondary_input_key]
+
 	var/list/subargs = consideration_args?["aggregated_proc_args"]
 
 	var/value = 0
@@ -52,20 +89,25 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_mean)
 
 	// We pretty much only need a list for context as a formality, and inits are expensive
 	// So, we'll instead recycle this one list over and over
-	var/recycleable_subctx_list[1]
+	var/list/recycleable_subctx_list = list()
 
 	for(var/ctxitem in aggregation_window)
 		recycleable_subctx_list[input_key] = ctxitem
+		if(has_secondary_input)
+			recycleable_subctx_list[secondary_input_key] = secondary_input
 
 		var/subresult = call(aggregated_proc)(action_template, recycleable_subctx_list, requester, subargs)
+
 		if(isnull(subresult))
+			world.log << "ERROR: subresult for consideration_decorator_mean is null for [aggregated_proc]([action_template], [json_encode(recycleable_subctx_list)], [requester], [json_encode(subargs)])! @ [__LINE__] in [__FILE__]"
 			continue
 
 		value += subresult
 		count++
 
-	if(count < 1)
+	if(count < min_count)
 		// no naughty division by zero
+		//world.log << "ERROR: count [count] for consideration_decorator_mean is < 1 for window [json_encode(aggregation_window)]! @ [__LINE__] in [__FILE__]"
 		return default
 
 	var/result = (value / count)

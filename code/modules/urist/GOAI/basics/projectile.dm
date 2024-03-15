@@ -152,4 +152,65 @@
 
 	to_chat(usr, "There ya go, one [newgun]!")
 
+
+/obj/item/test_grenade
+	name = "Grenade???"
+	icon = 'icons/obj/grenade.dmi'
+	icon_state = "grenade_active"
+
+
+/obj/item/test_grenade/proc/Boom()
+	spawn(10)
+		flick("explosion", src)
+		sleep(9)
+		qdel(src)
+
+
+/proc/grenade_yeet(var/obj/item/test_grenade/grenade, var/atom/To, var/atom/From)
+	if(isnull(grenade))
+		return
+
+	if(isnull(To))
+		return
+
+	if(isnull(From))
+		return
+
+	var/atom/impactee = AtomDensityRaytrace(From, To, list(From), RAYTYPE_PROJECTILE_NOCOVER)
+
+	var/expected_dist = get_dist(From, To)
+	var/impact_dist = isnull(impactee) ? null : get_dist(From, impactee)
+
+	var/true_impactee = impactee
+
+	if(isnull(impact_dist) || impact_dist > expected_dist)
+		true_impactee = To
+
+	grenade.Boom()
+
+	walk_to(grenade, true_impactee, 1)
+	return
+
+
+
+/proc/grenade_spawnyeet(var/atom/To, var/atom/From)
+	if(isnull(To))
+		return
+
+	if(isnull(From))
+		return
+
+	var/obj/item/test_grenade/grenade = new(From.loc)
+
+	grenade_yeet(grenade, To, From)
+	return
+
+
+/turf/verb/GrenadeTest()
+	set src in view()
+
+	world << "[src], [usr]"
+	grenade_spawnyeet(src, usr)
+
+
 # endif
