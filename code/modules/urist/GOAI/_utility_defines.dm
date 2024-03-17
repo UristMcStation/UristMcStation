@@ -147,7 +147,11 @@
 # define JSON_KEY_PLANACTION_CTXARGS "context_args"
 # define JSON_KEY_PLANACTION_CTXFETCHER_OVERRIDE "context_fetcher"
 
-# define GOAPPLAN_METADATA_PATH "goai_data/goai_actions.json"
+// PersonalityTemplate schema
+# define PERSONALITY_KEY_TRAIT_NAME "name"
+# define PERSONALITY_KEY_MIN_VALUE "min_value"
+# define PERSONALITY_KEY_MAX_VALUE "max_value"
+
 /* ============================================= */
 
 # define RETAIN_LAST_ACTIONS_TTL 300
