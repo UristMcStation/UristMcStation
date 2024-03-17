@@ -316,3 +316,14 @@ Please keep it tidy, by which I mean put comments describing the item before the
 //nerva knife needed to not be called master at arms
 /obj/item/material/knife/folding/swiss/sec/nerva
 	name = "security officer's combi-knife"
+
+/obj/item/ammo_magazine/r22lr/pistol
+	name = "pistol magazine (.22LR)"
+	desc = "A .22LR magazine for a pistol."
+	icon = 'icons/urist/items/ammo.dmi'
+	icon_state = "9mmds" // Replace
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/projectile/bullet/r22lr
+	matter = list(MATERIAL_STEEL = 900)
+	caliber = "22LR"
+	max_ammo = 10

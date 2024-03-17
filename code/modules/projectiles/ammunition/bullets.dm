@@ -241,7 +241,7 @@
 	caliber = "22LR"
 	projectile_type = /obj/item/projectile/bullet/r22lr
 
-/obj/item/ammo_casing/r22lr
+/obj/item/ammo_casing/r22lr/hp
 	name = ".22HP round"
 	desc = "A .22 hollow point round"
 	caliber = "22HP"

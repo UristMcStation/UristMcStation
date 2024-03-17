@@ -22,7 +22,7 @@
 	. = ..()
 	eye = new(src)
 	eye.name_sufix = "camera MIU"
-
+/*
 /obj/item/organ/internal/augment/active/miu/Destroy()
 	if(eye)
 		if(active)
@@ -54,7 +54,7 @@
 		eye.release(eye.owner)
 		eye.forceMove(src)
 
-
+*/
 
 /obj/item/organ/internal/augment/active/countermeasures
 	name = "Concealed Countermeasure System (Torso)"

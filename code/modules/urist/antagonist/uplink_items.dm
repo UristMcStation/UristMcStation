@@ -84,39 +84,23 @@
 
 
 // FIREARMS AND WEAPONRY
-/*
+
 // Hush-22 Special
-/obj/item/weapon/gun/projectile/hush22
+/obj/item/gun/projectile/pistol/hush22
 	item_icons = DEF_URIST_INHANDS
-	name = "Hush .22 Special"
+	name = "hush .22 special"
 	desc = "An integrally surpressed covert pistol, chambered in .22 hollow point. The logo and identifying markers have been manually filed away."
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "crewpistol" // Replace
 	item_state = "crewpistol" // Replace
 	w_class = 1
-	caliber = "22HR"
+	caliber = "22LR"
 	load_method = MAGAZINE
 	origin_tech = list(TECH_COMBAT = 3, TECH_ILLEGAL = 2)
 	magazine_type = /obj/item/ammo_magazine/r22lr/pistol/hollowpoint
 	allowed_magazines = /obj/item/ammo_magazine/r22lr/pistol
-	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	silenced = TRUE
 
-// Flare Gun
-/obj/item/gun/projectile/flaregun // now all we need is a admin only hand-mortar
-	name = "Flare Gun"
-	desc = "A flare gun, often used to signal for rescue, or to fire directly at someone."
-	icon = 'icons/urist/items/guns.dmi'
-	icon_state = "crewpistol" // Replace
-	item_state = "crewpistol" // Replace
-	w_class = 1
-	caliber = "flare"
-	load_method = MAGAZINE //fix
-	origin_tech = list(TECH_COMBAT = 1)
-	allowed_magazines = /obj/item/ammo_magazine/r22lr/pistol //fix
-	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg' //fix
-	one_hand_penalty = 3
-
-*/
 // MAGAZINES & AMMO
 
 /obj/item/ammo_magazine/r22lr/pistol/hollowpoint
@@ -130,7 +114,7 @@
 	caliber = "22HP"
 	max_ammo = 10
 
-
+/*
 /obj/item/storage/box/syndie_kit/urist_adrenaline
 	startswith = list(
 		/obj/item/implanter/uristadrenaline,
@@ -171,3 +155,4 @@ obj/item/implant/urist_adrenaline/New()
 /obj/item/implantcase/uristadrenaline
 	name = "glass case - 'adrenaline'"
 	imp = /obj/item/implant/urist_adrenaline
+*/
