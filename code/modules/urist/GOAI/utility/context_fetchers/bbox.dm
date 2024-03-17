@@ -50,6 +50,10 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxdeco_bounding_box_turfs)
 	// where (key-wise) the wrapper will output the bbox turfs
 	var/output_key = context_args["output_context_key"] || "output"
 
+	// additional space to add around each side
+	// helps get more sensible results with heavily clustered targets
+	var/padding = context_args["padding"] || 0
+
 	// limiters - if any is specified and exceeded, returns nothing
 	// this is a safeguard against accidental ginormous queries if
 	// the underlying proc's outputs are heavily spatially dispersed
@@ -93,6 +97,12 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxdeco_bounding_box_turfs)
 
 		if(isnull(maxz) || unwrapped_input.z > maxz)
 			maxz = unwrapped_input.z
+
+	// Padding
+	minx = max(1, (minx - padding))
+	miny = max(1, (miny - padding))
+	maxx = min(world.maxx, (maxx + padding))
+	maxy = min(world.maxy, (maxy + padding))
 
 	var/list/contexts = list()
 

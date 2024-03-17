@@ -90,7 +90,11 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_get_memory_value_array)
 
 	var/list/raw_memory_val = __ctxfetcher_get_memory_value_helper(CTXFETCHER_FORWARD_ARGS)
 
+	if(isnull(raw_memory_val))
+		return list()
+
 	if(!istype(raw_memory_val))
+		to_world_log("raw_memory_val is invalid: [raw_memory_val]")
 		ASSERT(istype(raw_memory_val))
 
 	var/list/memory_val = null

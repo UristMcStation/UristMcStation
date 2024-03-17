@@ -187,6 +187,8 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_in_line_of_sight)
 	var/from_ctx = FALSE
 	var/from_memory_key = FALSE
 
+	var/datum/brain/requesting_brain = _cihelper_get_requester_brain(requester, "consideration_input_in_line_of_sight")
+
 	if(isnull(candidate))
 		// Try context:
 		from_ctx = consideration_args["from_context"]
@@ -203,8 +205,6 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_in_line_of_sight)
 			from_memory_key = FALSE
 
 		if(from_memory_key)
-			var/datum/brain/requesting_brain = _cihelper_get_requester_brain(requester, "_cihelper_get_brain_data")
-
 			if(!istype(requesting_brain))
 				DEBUGLOG_MEMORY_FETCH("consideration_input_in_line_of_sight Brain is null ([requesting_brain || "null"]) @ L[__LINE__] in [__FILE__]")
 				return FALSE
@@ -223,7 +223,16 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_in_line_of_sight)
 	if(isnull(raytype))
 		raytype = RAYTYPE_LOS
 
-	var/forecasted_impactee = AtomDensityRaytrace(pawn, candidate, list(pawn), raytype)
+	var/ignore_enemies = consideration_args?["ignore_enemies"]
+
+	var/list/enemies = null
+	if(ignore_enemies && istype(requesting_brain))
+		enemies = requesting_brain?.GetMemoryValue(MEM_ENEMIES)
+
+	var/list/ignorelist = (isnull(enemies) ? list() : enemies.Copy())
+	ignorelist.Add(pawn)
+
+	var/forecasted_impactee = AtomDensityRaytrace(pawn, candidate, ignorelist, raytype)
 	var/result = ( (forecasted_impactee == candidate) )
 
 	return result
