@@ -3,7 +3,7 @@
 // It's effectively a preset for regular mob_commander to be used for combatant-type mobs
 */
 
-/datum/utility_ai/mob_commander/combat_commander
+/datum/utility_ai/mob_commander
 
 
 /datum/utility_ai/mob_commander/combat_commander/InitSenses()

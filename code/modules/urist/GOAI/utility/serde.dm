@@ -371,3 +371,35 @@
 
 	return actionset
 
+
+/* PERSONALITY TEMPLATES */
+/proc/PersonalityTemplateFromData(var/list/data) // array<assoc<str, str|float>> -> dict<str: float>
+	var/list/personality = list()
+
+	var/list/_data = istype(data) ? data : list()
+
+	for(var/list/personality_item in _data)
+		var/trait_name = personality_item[PERSONALITY_KEY_TRAIT_NAME]
+		if(isnull(trait_name))
+			continue
+
+		var/minval = personality_item[PERSONALITY_KEY_MIN_VALUE]
+		var/maxval = personality_item[PERSONALITY_KEY_MAX_VALUE]
+
+		ASSERT(maxval >= minval)
+
+		var/trait_val = rand(minval * 100, maxval * 100) / 100 // preserve float-iness
+		personality[trait_name] = trait_val
+
+	return personality
+
+
+/proc/PersonalityTemplateFromJson(var/json_filepath) // str -> dict<str: float>
+	ASSERT(json_filepath)
+
+	var/list/json_data = null
+	READ_JSON_FILE_CACHED(json_filepath, json_data)
+	ASSERT(json_data)
+
+	var/list/new_personality = PersonalityTemplateFromData(json_data)
+	return new_personality

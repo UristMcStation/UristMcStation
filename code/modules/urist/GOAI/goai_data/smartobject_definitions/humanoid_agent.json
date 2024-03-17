@@ -1,0 +1,242 @@
+{
+	"name": "MobActs", 
+	"active": 1, 
+	"actions": [
+		{
+			"name": "Idle", 
+			"description": "Does literally nothing. Fallback behavior.", 
+			"handler": "/datum/utility_ai/mob_commander/proc/Idle", 
+			"priority": 0.01,
+			"context_procs": ["/proc/ctxfetcher_null"], 
+			"considerations": [
+				{
+					"name": "Got nothing better to do",
+					"input_proc": "/proc/consideration_input_always",
+					"lo_mark": 0, 
+					"hi_mark": 1, 
+					"curve_proc": "/proc/curve_linear"
+				}
+			]
+		},
+		{
+			"name": "Flee", 
+			"description": "Bravely turn tail and run because you're scared.", 
+			"handler": "/datum/utility_ai/mob_commander/proc/FleeFrom", 
+			"priority": 16,
+			"context_procs": ["/proc/ctxfetcher_get_memory_value"], 
+			"context_args": [
+				{
+					"input_key": "Enemies",
+					"output_context_key": "threat"
+				}
+			],
+			"considerations": [
+				{
+					"name": "Panic",
+					"input_proc": "/proc/consideration_input_get_need_perc",
+					"input_args": {
+						"input_key": "composure",
+						"default": 1
+					},
+					"lo_mark": 0.0, 
+					"hi_mark": 0.5, 
+					"curve_proc": "/proc/curve_antibinary"
+				},
+				{
+					"name": "PanicLevel",
+					"input_proc": "/proc/consideration_input_get_need_perc",
+					"input_args": {
+						"input_key": "composure",
+						"default": 1
+					},
+					"lo_mark": 0.0, 
+					"hi_mark": 1.0, 
+					"curve_proc": "/proc/curve_antisquare"
+				},
+				{
+					"name": "BraveryTrait",
+					"input_proc": "/proc/consideration_input_get_personality_trait",
+					"input_args": {
+						"input_key": "bravery",
+						"default": 0
+					},
+					"lo_mark": 0, 
+					"hi_mark": 1.2, 
+					"curve_proc": "/proc/curve_antilinear"
+				},
+				{
+					"name": "Random",
+					"lo_mark": -10, 
+					"hi_mark": 100, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_urand", 
+					"curve_proc": "/proc/curve_linear"
+				},
+				{
+					"name": "AnyIsFoe",
+					"lo_mark": -50, 
+					"hi_mark": 0, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_decorator_min", 
+					"input_args": {
+						"input_key": "threat",
+						"from_context": 1,
+						"cutoff": -50,
+						"aggregated_proc": "/proc/consideration_input_relationship_score",
+						"aggregated_proc_args": {
+							"input_key": "threat",
+							"from_context": 1
+						}
+					},
+					"curve_proc": "/proc/curve_antibinary"
+				},
+				{
+					"name": "MeanDistanceToThreat",
+					"lo_mark": 2, 
+					"hi_mark": 20, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_decorator_mean", 
+					"input_args": {
+						"input_key": "threat",
+						"from_context": 1,
+						"aggregated_proc": "/proc/consideration_input_manhattan_distance_to_requester",
+						"aggregated_proc_args": {
+							"input_key": "threat",
+							"from_context": 1
+						}
+					},
+					"curve_proc": "/proc/curve_antisquare"
+				},
+				{
+					"name": "NumericalAdvantage",
+					"lo_mark": 0, 
+					"hi_mark": 1, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_relative_list_lengths", 
+					"input_args": {
+						"input_a": "Friendlies",
+						"input_b": "Enemies",
+						"from_memory": 1
+					},
+					"curve_proc": "/proc/curve_antisquare"
+				}
+			]
+		},
+		{
+			"name": "GetToCover", 
+			"description": "Duck and cover.", 
+			"handler": "/datum/utility_ai/mob_commander/proc/HandleDirectionalCoverLeapfrog", 
+			"priority": 8,
+			"context_procs": ["/proc/ctxfetcher_get_memory_value"], 
+			"context_args": [
+				{
+					"input_key": "Enemies",
+					"output_context_key": "threat"
+				}
+			],
+			"considerations": [
+				{
+					"name": "AnyIsFoe",
+					"lo_mark": -50, 
+					"hi_mark": 0, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_decorator_min", 
+					"input_args": {
+						"input_key": "threat",
+						"from_context": 1,
+						"cutoff": -10,
+						"aggregated_proc": "/proc/consideration_input_relationship_score",
+						"aggregated_proc_args": {
+							"input_key": "threat",
+							"from_context": 1
+						}
+					},
+					"curve_proc": "/proc/curve_antibinary"
+				},
+				{
+					"name": "MeanDistanceToThreat",
+					"lo_mark": 2, 
+					"hi_mark": 20, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_decorator_mean", 
+					"input_args": {
+						"input_key": "threat",
+						"from_context": 1,
+						"aggregated_proc": "/proc/consideration_input_manhattan_distance_to_requester",
+						"aggregated_proc_args": {
+							"input_key": "threat",
+							"from_context": 1
+						}
+					},
+					"curve_proc": "/proc/curve_antisquare"
+				},
+				{
+					"name": "Random",
+					"lo_mark": -100, 
+					"hi_mark": 50, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_urand", 
+					"curve_proc": "/proc/curve_linear"
+				},
+				{
+					"name": "OutInTheOpen",
+					"lo_mark": 0, 
+					"hi_mark": 1, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_decorator_max", 
+					"input_args": {
+						"input_key": "threat",
+						"from_context": 1,
+						"cutoff": 1,
+						"aggregated_proc": "/proc/consideration_input_in_line_of_sight",
+						"aggregated_proc_args": {
+							"input_key": "threat",
+							"from_context": 1
+						}
+					},
+					"curve_proc": "/proc/curve_linear"
+				},
+				{
+					"name": "NumericalAdvantage",
+					"lo_mark": 0, 
+					"hi_mark": 3, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_relative_list_lengths", 
+					"input_args": {
+						"input_a": "Friendlies",
+						"input_b": "Enemies",
+						"from_memory": 1
+					},
+					"curve_proc": "/proc/curve_antisquare"
+				}
+			]
+		},
+		{
+			"name": "FleeOrdered", 
+			"description": "Bravely turn tail and run as ordered.", 
+			"handler": "/datum/utility_ai/mob_commander/proc/FleeFrom", 
+			"priority": 8,
+			"context_procs": ["/proc/ctxfetcher_get_memory_value"], 
+			"context_args": [
+				{
+					"key": "forced_fleethreat",
+					"output_context_key": "threat"
+				}
+			],
+			"considerations": [
+				{
+					"name": "ClDistanceToThreat",
+					"lo_mark": 1, 
+					"hi_mark": 8, 
+					"noise_scale": 10,
+					"input_proc": "/proc/consideration_input_manhattan_distance_to_requester", 
+					"input_args": {
+						"input_key": "position",
+						"from_context": 1
+					},
+					"curve_proc": "/proc/curve_antisquare"
+				}
+			]
+		}
+	]
+}
