@@ -28,7 +28,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_get_personality_trait)
 	if(isnull(default))
 		default = 0
 
-	var/value = requesting_brain.personality.Get(input_key)
+	var/value = requesting_brain.personality?[input_key]
 	if(isnull(value))
 		return default
 

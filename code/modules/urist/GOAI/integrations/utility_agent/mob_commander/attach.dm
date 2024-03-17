@@ -28,7 +28,7 @@
 	new_commander.name = "AI of [M?.real_name || M?.name] (#[rand(0, 100000)])"
 	new_commander.brain.name = "Brain of [new_commander.name]"
 
-	new_commander.AttachToBrain()
+	new_commander.UpdateBrain()
 
 	# ifdef GOAI_SS13_SUPPORT
 	# ifdef GOAI_DELETE_SS13_AI

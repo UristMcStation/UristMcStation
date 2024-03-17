@@ -1,0 +1,26 @@
+[
+	{
+		"/": "Overall panic/fleeing resistance. 0 will panic at the slightest threat.",
+		"name": "Bravery",
+		"min_value": 0.2,
+		"max_value": 1.2
+	},
+	{
+		"/": "How happy the AI is to use ranged weapons. 0 is never.",
+		"name": "RangedAffinity",
+		"min_value": 0.5,
+		"max_value": 1.5
+	},
+	{
+		"/": "How happy the AI is to use melee weapons/unarmed combat. 0 is never.",
+		"name": "MeleeAffinity",
+		"min_value": 0.2,
+		"max_value": 1.2
+	},
+	{
+		"/": "How happy the AI is to use grenades. 0 is never. Negatives are clamped to 0, they're just for making positive values less likely.",
+		"name": "GrenadeAffinity",
+		"min_value": -0.5,
+		"max_value": 0.5
+	}
+]

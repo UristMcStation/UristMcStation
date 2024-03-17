@@ -3,7 +3,7 @@
 	var/decay_per_dsecond = 0.1
 
 
-/datum/brain/concrete/sim/New(var/list/actions, var/list/init_memories = null, var/init_action = null, var/datum/brain/with_hivemind = null, var/dict/init_personality = null, var/newname = null)
+/datum/brain/concrete/sim/New(var/list/actions, var/list/init_memories = null, var/init_action = null, var/datum/brain/with_hivemind = null, var/list/init_personality = null, var/newname = null)
 	..(actions, init_memories, init_action, with_hivemind, init_personality, newname)
 
 	needs = list()
