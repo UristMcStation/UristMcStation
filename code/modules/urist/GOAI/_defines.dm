@@ -46,7 +46,7 @@
 
 # endif
 
-#define GUN_DISPERSION 10
+#define GUN_DISPERSION 5
 #define DEFAULT_ORPHAN_CLEANUP_THRESHOLD 3
 
 #define SENSE_SIGHT "SenseSight"
@@ -61,7 +61,11 @@
 #define ATTACHMENT_CONTROLLER_BACKREF "AiControllerId"
 #define ATTACHMENT_EVTQUEUE_HIT "HitEventQueue"
 
-
+// Paths:
+#define DEFAULT_UTILITY_AI_SENSES "goai_data/dev_sense.json"
+#define DEFAULT_FACTION_AI_SENSES "goai_data/faction_senses.json"
+#define GOAPPLAN_METADATA_PATH "goai_data/goai_actions.json"
+#define DEFAULT_MOBCOMMANDER_PERSONALITY_TEMPLATE "goai_data/personality_templates/combat.json"
 
 // Helpers
 #define IS_VALID_NON_NULL(X) (!(isnull(X)) && istype(X))
@@ -78,8 +82,6 @@
 // Kinda black magic; looks up an AI reference and puts it into the variable PATH specified in the second argument.
 #define FetchAiControllerForObjIntoVar(gameobj, VarPath) var/__commander_backref = gameobj?.attachments?.Get(ATTACHMENT_CONTROLLER_BACKREF); VarPath = IS_REGISTERED_AI(__commander_backref) && GOAI_LIBBED_GLOB_ATTR(global_goai_registry[__commander_backref])
 
-#define DEFAULT_UTILITY_AI_SENSES "goai_data/dev_sense.json"
-#define DEFAULT_FACTION_AI_SENSES "goai_data/faction_senses.json"
 
 // Size of the GOAI plan buffer; if we would exceed it, eject a plan.
 #define MAX_STORED_PLANS 1
