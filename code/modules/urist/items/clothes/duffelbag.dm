@@ -6,24 +6,6 @@
 	item_icons = null
 	item_state_slots = null
 
-/obj/item/storage/backpack/duffel/duffel_norm
-	name = "duffel bag"
-	desc = "A trendy looking duffel bag."
-	icon_state = "duffel-norm"
-	item_state = "duffel-norm"
-
-/obj/item/storage/backpack/duffel/duffel_eng
-	name = "industrial duffel bag"
-	desc = "A tough duffel bag with extra pockets."
-	icon_state = "duffel-eng"
-	item_state = "duffel-eng"
-
-/obj/item/storage/backpack/duffel/duffel_med
-	name = "medical duffel bag"
-	desc = "A sterile duffel bag used in medical departments."
-	icon_state = "duffel-med"
-	item_state = "duffel-med"
-
 /obj/item/storage/backpack/duffel/duffel_vir
 	name = "virologist duffel bag"
 	desc = "A sterile duffel bag with virologist colours."
@@ -48,23 +30,11 @@
 	icon_state = "duffel-tox"
 	item_state = "duffel-tox"
 
-/obj/item/storage/backpack/duffel/duffel_sec
-	name = "security duffel bag"
-	desc = "A robust duffel bag for security related needs."
-	icon_state = "duffel-sec"
-	item_state = "duffel-sec"
-
 /obj/item/storage/backpack/duffel/duffel_hyd
 	name = "hydroponics duffel bag"
 	desc = "A green duffel bag for plant related work."
 	icon_state = "duffel-hyd"
 	item_state = "duffel-hyd"
-
-/obj/item/storage/backpack/duffel/duffel_cap
-	name = "captain's duffel bag"
-	desc = "An exclusive duffel bag for Nanotrasen officers."
-	icon_state = "duffel-cap"
-	item_state = "duffel-cap"
 
 /obj/item/storage/backpack/duffel/duffel_clown
 	name = "clown's duffel bag"
