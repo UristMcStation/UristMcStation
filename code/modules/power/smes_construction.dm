@@ -315,7 +315,7 @@
 		if(output_attempt || input_attempt)
 			to_chat(user, SPAN_WARNING("Turn \the [src] off first!"))
 			return FALSE
-		if(check_total_system_failure(user))
+		if(!do_after(user, 0.1 SECONDS, src, DO_REPAIR_CONSTRUCT) || check_total_system_failure(user))
 			return FALSE
 
 /obj/machinery/power/smes/buildable/remove_part_and_give_to_user(path, mob/user)
@@ -326,7 +326,7 @@
 		if(output_attempt || input_attempt)
 			to_chat(user, SPAN_WARNING("Turn \the [src] off first!"))
 			return
-		if(check_total_system_failure(user))
+		if(!do_after(user, 0.1 SECONDS, src, DO_REPAIR_CONSTRUCT) || check_total_system_failure(user))
 			return
 	..()
 
