@@ -67,7 +67,7 @@
 	uniform = /obj/item/clothing/under/urist/nerva/cargo
 	suit = /obj/item/clothing/suit/storage/toggle/urist/cargojacket
 	l_ear = /obj/item/device/radio/headset/headset_cargo
-	shoes = /obj/item/clothing/shoes/urist/leather
+	shoes = /obj/item/clothing/shoes/workboots
 	id_types = list(/obj/item/card/id/cargo)
 	pda_type = /obj/item/modular_computer/pda/cargo
 	gloves = /obj/item/clothing/gloves/urist/leather
@@ -77,6 +77,7 @@
 	uniform = /obj/item/clothing/under/urist/nerva/qm
 	suit = /obj/item/clothing/suit/storage/toggle/urist/qmjacket
 	l_ear = /obj/item/device/radio/headset/heads/nerva_qm
+	glasses = /obj/item/clothing/glasses/sunglasses
 	shoes = /obj/item/clothing/shoes/black
 	id_types = list(/obj/item/card/id/cargo/head)
 	pda_type = /obj/item/modular_computer/pda/heads/hop
