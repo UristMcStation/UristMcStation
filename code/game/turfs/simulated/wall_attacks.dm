@@ -302,7 +302,6 @@
 					to_chat(user, SPAN_NOTICE("You begin removing the support lines."))
 					playsound(src, 'sound/items/Screwdriver.ogg', 100, 1)
 					if(!do_after(user, 0.1 SECONDS, src, DO_REPAIR_CONSTRUCT) || construction_stage != 5)
-					if(construction_stage != 5)
 						return
 					construction_stage = 4
 					update_icon()
@@ -355,7 +354,6 @@
 					to_chat(user, SPAN_NOTICE("You start loosening the anchoring bolts which secure the support rods to their frame."))
 					playsound(src, 'sound/items/Ratchet.ogg', 100, 1)
 					if(!do_after(user, 0.1 SECONDS, src, DO_REPAIR_CONSTRUCT) || construction_stage != 2)
-					if(construction_stage != 2)
 						return
 					construction_stage = 1
 					update_icon()
