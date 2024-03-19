@@ -88,10 +88,8 @@
 	if(isScrewdriver(W))
 		if(state == 2)
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
-			to_chat(user, SPAN_NOTICE("Now unsecuring support struts..."))
-			if(do_after(user, 4 SECONDS, src, DO_REPAIR_CONSTRUCT))
-				to_chat(user, SPAN_NOTICE("You unsecured the support struts!"))
-				state = 1
+			to_chat(user, SPAN_NOTICE("You unsecured the support struts!"))
+			state = 1
 		else if(anchored && !reinf_material)
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 			reinforcing = !reinforcing
@@ -100,21 +98,19 @@
 
 	if(isWirecutter(W) && state == 1)
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
-		to_chat(user, SPAN_NOTICE("Now removing support struts..."))
-		if(do_after(user, 4 SECONDS, src, DO_REPAIR_CONSTRUCT))
-			to_chat(user, SPAN_NOTICE("You removed the support struts!"))
+		to_chat(user, SPAN_NOTICE("You removed the support struts!"))
 
-			if(reinf_material)
-				reinf_material.place_dismantled_product(get_turf(src))
-				reinf_material = null
+		if(reinf_material)
+			reinf_material.place_dismantled_product(get_turf(src))
+			reinf_material = null
 
-			reset_girder()
+		reset_girder()
 		return
 
 	if(isCrowbar(W) && state == 0 && anchored)
 		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
 		to_chat(user, SPAN_NOTICE("Now dislodging the girder..."))
-		if(do_after(user, 4 SECONDS, src, DO_REPAIR_CONSTRUCT))
+		if(do_after(user, 1 SECOND, src, DO_REPAIR_CONSTRUCT))
 			to_chat(user, SPAN_NOTICE("You dislodged the girder!"))
 			icon_state = "displaced"
 			anchored = FALSE
