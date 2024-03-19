@@ -5,6 +5,8 @@
 	icon = 'icons/urist/items/clothes/back.dmi'
 	item_icons = null
 	item_state_slots = null
+	slowdown_general = 0.3
+	max_storage_space = DEFAULT_BACKPACK_STORAGE + 10
 
 /obj/item/storage/backpack/duffel/duffel_vir
 	name = "virologist duffel bag"

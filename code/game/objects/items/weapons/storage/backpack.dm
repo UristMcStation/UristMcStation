@@ -245,6 +245,8 @@
 	desc = "A large dufflebag for holding extra things."
 	icon_state = "duffle"
 	item_state_slots = null
+	slowdown_general = 0.3
+	max_storage_space = DEFAULT_BACKPACK_STORAGE + 10
 
 /obj/item/storage/backpack/dufflebag/syndie
 	name = "black dufflebag"
