@@ -9,7 +9,7 @@
 			"context_procs": ["/proc/ctxfetcher_adjacent_turfs"], 
 			"context_args": [
 				{
-					"if_contains_type": "/obj/cover/autodoor",
+					"if_contains_type": "/obj/machinery/door",
 					"context_output_key": "position",
 					"filter_output_key": "target"
 				}
@@ -28,7 +28,7 @@
 					"hi_mark": 1, 
 					"input_proc": "/proc/consideration_input_is_passable", 
 					"input_args": {
-						"locate_type_as_target": "/obj/cover/autodoor"
+						"locate_type_as_target": "/obj/machinery/door",
 					},
 					"curve_proc": "/proc/curve_antibinary"
 				},

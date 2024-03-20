@@ -86,7 +86,7 @@
 // Size of the GOAI plan buffer; if we would exceed it, eject a plan.
 #define MAX_STORED_PLANS 1
 
-#define DEFAULT_MAX_ENEMIES 8
+#define DEFAULT_MAX_ENEMIES 6
 
 #define MEM_ACTION_MINUS_ONE "action-1"
 #define MEM_ACTION_MINUS_TWO "action-2"
@@ -100,6 +100,8 @@
 // this is so if someone sets the GOAI interval to 1e9 ds and then back to 1 ds
 // it won't be stuck trying to run the eternal sleep
 #define MAX_AI_SLEEPTIME 100
+
+#define WITH_UTILITY_SLEEPTIME_STAGGER(X) ((##X) + rand(-1, 1))
 
 
 /* ===   CHEAT_SEE_WAYPOINT_TURF:   ===

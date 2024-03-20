@@ -594,4 +594,8 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_relative_list_lengths)
 	var/len_a = length(input_a)
 	var/len_b = length(input_b)
 
+	var/total_len = (len_a + len_b)
+	if(!total_len)
+		return default
+
 	return (len_a / (len_a + len_b))

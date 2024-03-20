@@ -17,7 +17,7 @@
 # define COMBATAI_MOVE_TICK_DELAY 5
 # define COMBATAI_FIGHT_TICK_DELAY 25
 
-# define UTILITYAI_AI_TICK_DELAY 2  // utility goes brr
+# define UTILITYAI_AI_TICK_DELAY 1  // utility goes brr
 # define FACTION_AI_TICK_DELAY 10
 
 // Lower bound on the tick rate to prevent sanic loops eating your CPU.
@@ -56,7 +56,8 @@
 # define MAGICNUM_DISCOURAGE_SOFT 10000
 
 // How much getting shot decays the AI's COMPOSURE need.
-# define MAGICNUM_COMPOSURE_LOSS_ONHIT 20
+// this is the base rate; a personality trait can reduce this
+# define MAGICNUM_COMPOSURE_LOSS_ONHIT_BASE 30
 
 // How much failing a movement decays the AI's COMPOSURE need.
 # define MAGICNUM_COMPOSURE_LOSS_FAILMOVE 1

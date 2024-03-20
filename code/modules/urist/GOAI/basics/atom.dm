@@ -51,7 +51,7 @@
 
 
 
-/atom/proc/Hit(var/hit_angle, var/atom/shotby = null)
+/atom/proc/MeleeHitBy(var/atom/hitby = null)
 	/* hit angle - clockwise from positive Y axis if positive,
 	counterclockwise if negative.
 
@@ -59,7 +59,24 @@
 
 	shotby - a reference to who shot us (atom - to incl. turret objects etc.)
 	*/
-	to_world("[src] hit by [shotby]")
+	to_world("[src] hit by [hitby]")
+	FetchAiControllerForObjIntoVar(src, var/datum/utility_ai/commander)
+	if(istype(commander))
+		commander.HitMelee(src, hitby)
+
+	return
+
+
+
+/atom/proc/RangedHitBy(var/hit_angle, var/atom/shotby = null)
+	/* hit angle - clockwise from positive Y axis if positive,
+	counterclockwise if negative.
+
+	Can use the IMPACT_ANGLE(x) macro to calculate.
+
+	shotby - a reference to who shot us (atom - to incl. turret objects etc.)
+	*/
+	to_world("[src] shot by [shotby]")
 	FetchAiControllerForObjIntoVar(src, var/datum/utility_ai/commander)
 	if(istype(commander))
 		commander.HitRanged(src, hit_angle, shotby)
