@@ -1,14 +1,15 @@
 /datum/artifact_effect/hurt
 	name = "hurt"
 	effect_type = EFFECT_ORGANIC
+	effect_state = "sparkles_3"
 
-/datum/artifact_effect/hurt/DoEffectTouch(mob/toucher)
-	if(toucher)
+/datum/artifact_effect/hurt/DoEffectTouch(mob/living/toucher)
+	if(iscarbon(toucher) && !toucher.isSynthetic())
 		var/weakness = GetAnomalySusceptibility(toucher)
-		if(iscarbon(toucher) && prob(weakness * 100))
+		if(prob(weakness * 100))
 			var/mob/living/carbon/C = toucher
 			to_chat(C, SPAN_DANGER("A painful discharge of energy strikes you!"))
-			do_damage(C, rand(5,25), rand(5,25), rand(5,25), rand(5,25), rand(1, 5))
+			do_damage(C, rand(15,50), rand(15,50), rand(15,50), rand(15,25), rand(1, 5))
 			C.apply_damage(25 * weakness, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 			C.set_nutrition(min(50 * weakness, C.nutrition))
 			C.make_dizzy(6 * weakness)
@@ -20,16 +21,16 @@
 		for (var/mob/living/carbon/C in range(src.effectrange,T))
 			var/weakness = GetAnomalySusceptibility(C)
 			if(prob(weakness * 100))
-				if(prob(10))
+				if(prob(10) && !C.isSynthetic())
 					to_chat(C, SPAN_DANGER("You feel a painful force radiating from something nearby."))
 				do_damage(C)
 
 /datum/artifact_effect/hurt/DoEffectPulse()
 	if(holder)
 		var/turf/T = get_turf(holder)
-		for (var/mob/living/carbon/C in range(effectrange, T))
+		for (var/mob/living/carbon/C in range(src.effectrange, T))
 			var/weakness = GetAnomalySusceptibility(C)
-			if(prob(weakness * 100))
+			if(prob(weakness * 100) && !C.isSynthetic())
 				to_chat(C, SPAN_DANGER("A wave of painful energy strikes you!"))
 				do_damage(C, 3, 3, 3, 3)
 
@@ -49,6 +50,6 @@
 		var/turf/T = get_turf(holder)
 		for (var/mob/living/carbon/C in range(effectrange, T))
 			var/weakness = GetAnomalySusceptibility(C)
-			if(prob(weakness * 100))
+			if(prob(weakness * 100) && !C.isSynthetic())
 				to_chat(C, SPAN_DANGER("A wave of extremely painful energy strikes you!"))
-				do_damage(C, 6, 6, 6, 6)
+				do_damage(C, 50, 50, 50, 50)

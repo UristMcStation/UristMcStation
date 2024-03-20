@@ -1,5 +1,7 @@
 /datum/artifact_effect/emp
 	name = "emp"
+	effect_icon = 'icons/effects/effects.dmi'
+	effect_state = "empdisable"
 	effect_type = EFFECT_ELECTRO
 
 /datum/artifact_effect/emp/New()
