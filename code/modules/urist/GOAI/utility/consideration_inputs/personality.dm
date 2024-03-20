@@ -33,3 +33,33 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_get_personality_trait)
 		return default
 
 	return value
+
+
+CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_get_personality_trait_as_probability_mass)
+	/* Slight variant on consideration_input_get_personality_trait().
+	// Instead of returning the raw value, uses the value (with possible rescaling)
+	// as an input to prob() and returns the resulting boolean.
+	*/
+
+	var/probmass = consideration_input_get_personality_trait(action_template, context, requester, consideration_args)
+
+	var/default = consideration_args?["default"]
+
+	if(isnull(default))
+		default = 0
+
+	if(isnull(probmass))
+		return default
+
+	var/rescale_factor = consideration_args?["rescale_factor"]
+
+	if(isnull(rescale_factor))
+		// Assume personality is normalized to <0, 1> by default
+		rescale_factor = 100
+
+	var/scaled_probmass = probmass * rescale_factor
+
+	var/safe_probmass = clamp(scaled_probmass, 0, 100)
+	var/value = prob(safe_probmass)
+
+	return value
