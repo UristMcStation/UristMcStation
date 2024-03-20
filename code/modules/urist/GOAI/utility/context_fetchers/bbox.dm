@@ -8,7 +8,7 @@
 // This means you MUST pass a wrapped proc - otherwise there's nothing to provide the base data.
 */
 
-CTXFETCHER_CALL_SIGNATURE(/proc/ctxdeco_bounding_box_turfs)
+CTXFETCHER_CALL_SIGNATURE(/proc/ctxdeco_bounding_box_turfs_around_objects)
 	/*
 	// Returns a context for each turf within an axis-aligned bounding box (bbox)
 	// defined by items from the underlying proc's contexts.
@@ -53,6 +53,10 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxdeco_bounding_box_turfs)
 	// additional space to add around each side
 	// helps get more sensible results with heavily clustered targets
 	var/padding = context_args["padding"] || 0
+
+	// for convenience/optimization's sake, we don't include dense turfs in the output by default
+	// if for whatever reason you do want walls, set allow_dense = 1 in the JSON.
+	var/allow_dense = context_args["allow_dense"] || 0
 
 	// limiters - if any is specified and exceeded, returns nothing
 	// this is a safeguard against accidental ginormous queries if
@@ -151,9 +155,13 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxdeco_bounding_box_turfs)
 			// Why not every single one? Because sleep()s ain't free.
 			sleep(-1)
 
+		if(blockTurf.density && !allow_dense)
+			continue
+
 		var/list/ctx = list()
 
 		ctx[output_key] = blockTurf
 		contexts[++(contexts.len)] = ctx
 
 	return contexts
+

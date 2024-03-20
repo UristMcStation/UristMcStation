@@ -66,9 +66,36 @@
 	if(!(M?.brain))
 		return
 
-	var/trueX = posX % world.maxx
-	var/trueY = posY % world.maxy
+	var/trueX = max(1, posX % world.maxx)
+	var/trueY = max(1, posY % world.maxy)
 	var/trueZ = max(1, src.z)
+
+	var/turf/position = locate(trueX, trueY, trueZ)
+	if(!position)
+		to_chat(usr, "Target position ([trueX], [trueY], [trueZ]) does not exist!")
+		return
+
+	var/datum/memory/created_mem = M.brain.SetMemory("ai_target", position, PLUS_INF)
+	M.brain.SetMemory("ai_target_mindist", 1, PLUS_INF)
+	M.brain.SetMemory(MEM_WAYPOINT_IDENTITY, position, PLUS_INF)
+
+	M.brain.SetMemory("ReplanRouteToTargetRequested", 1, M.ai_tick_delay * 4)
+	var/atom/waypoint = created_mem?.val
+
+	to_chat(usr, (waypoint ? "[M] now tracking [waypoint] @ ([trueX], [trueY], [trueZ])" : "[M] not tracking waypoints"))
+
+	return waypoint
+
+
+/mob/verb/CommanderGiveMoveOrderThreeD(datum/utility_ai/mob_commander/M in GOAI_LIBBED_GLOB_ATTR(global_goai_registry), posX as num, posY as num, posZ as num)
+	set category = "Commander Orders"
+
+	if(!(M?.brain))
+		return
+
+	var/trueX = max(1, posX % world.maxx)
+	var/trueY = max(1, posY % world.maxy)
+	var/trueZ = max(1, posZ % world.maxz)
 
 	var/turf/position = locate(trueX, trueY, trueZ)
 	if(!position)

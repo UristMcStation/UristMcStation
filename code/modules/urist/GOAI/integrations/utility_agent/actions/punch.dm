@@ -3,7 +3,6 @@
 	// Attacks an enemy
 	*/
 
-	world << "[src] is punching [threat]"
 	if(isnull(tracker))
 		RUN_ACTION_DEBUG_LOG("Tracker is null | <@[src]> | [__FILE__] -> L[__LINE__]")
 		return
@@ -31,6 +30,7 @@
 		return
 
 	pawn.do_attack_animation(threat)
+	threat.MeleeHitBy(pawn)
 
 	tracker.SetDone()
 	return

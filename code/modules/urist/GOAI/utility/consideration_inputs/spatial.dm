@@ -165,8 +165,9 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_is_passable)
 	return result
 
 
-CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_in_line_of_sight)
+CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_raytrace_impactee_distance_to_target)
 	// Checks whether we have a clear LoS to the target.
+	// If we do, this
 	// WARNING: this check is pretty expensive, you should put it near the tail of the Consideration array.
 	// Target can be fetched from args, context, or memories
 	var/datum/utility_ai/mob_commander/requester_ai = requester
@@ -181,6 +182,9 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_in_line_of_sight)
 		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_input_in_line_of_sight Pawn is null @ L[__LINE__] in [__FILE__]")
 		return null
 
+	var/default = consideration_args["default"] || PLUS_INF
+	var/strict = consideration_args["strict"] || FALSE  // only accept strict identity (in case cover is in the same tile)
+	var/reverse = consideration_args["reverse"] || FALSE  // raytrace from target to source instead of the opposite (for self-cover checks)
 	var/pos_key = consideration_args["input_key"] || "input"
 	var/candidate = null
 
@@ -207,7 +211,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_in_line_of_sight)
 		if(from_memory_key)
 			if(!istype(requesting_brain))
 				DEBUGLOG_MEMORY_FETCH("consideration_input_in_line_of_sight Brain is null ([requesting_brain || "null"]) @ L[__LINE__] in [__FILE__]")
-				return FALSE
+				return default
 
 			candidate = requesting_brain.GetMemoryValue(from_memory_key)
 
@@ -230,12 +234,24 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_in_line_of_sight)
 		enemies = requesting_brain?.GetMemoryValue(MEM_ENEMIES)
 
 	var/list/ignorelist = (isnull(enemies) ? list() : enemies.Copy())
-	ignorelist.Add(pawn)
 
-	var/forecasted_impactee = AtomDensityRaytrace(pawn, candidate, ignorelist, raytype)
-	var/result = ( (forecasted_impactee == candidate) )
+	if(reverse)
+		ignorelist.Add(candidate)
+	else
+		ignorelist.Add(pawn)
 
-	return result
+	var/forecasted_impactee = (reverse ? AtomDensityRaytrace(candidate, pawn, ignorelist, raytype) : AtomDensityRaytrace(pawn, candidate, ignorelist, raytype))
+
+	if(isnull(forecasted_impactee))
+		return default
+
+	if(strict)
+		return ((forecasted_impactee == candidate) ? 0 : default)
+
+	else
+		return get_dist(forecasted_impactee, candidate)
+
+	return default
 
 
 CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_distance_to_arg)

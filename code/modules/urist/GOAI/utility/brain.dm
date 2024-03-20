@@ -72,13 +72,14 @@
 	return
 
 
+/*
 /datum/brain/utility/Life()
 	while(life)
 		CheckForCleanup()
 		LifeTick()
 		sleep(AI_TICK_DELAY)
 	return
-
+*/
 
 /datum/brain/utility/proc/OnBeginLifeTick()
 	return

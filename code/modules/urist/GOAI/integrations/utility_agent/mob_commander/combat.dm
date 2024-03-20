@@ -257,9 +257,31 @@
 
 	var/datum/brain/utility/needybrain = src.brain
 	if(istype(needybrain))
-		needybrain.AddMotive(NEED_COMPOSURE, -MAGICNUM_COMPOSURE_LOSS_ONHIT)
+		var/steadfastness = needybrain.personality?[PERSONALITY_TRAIT_STEADFAST]
+		if(isnull(steadfastness))
+			steadfastness = 0
+
+		// At DR=1 (== STEADFAST=0), we get full base composure loss
+		// At DR=0 (== STEADFAST=1), we get no loss
+		// At negative values (== STEADFAST>1), being hit actually makes the AI more comfy.
+		// Theoretically, we could have psycho AIs that ENJOY being hit, so not limiting this.
+		// Similarly, this is base rate, so negative STEADFAST means taking MORE morale hit per, uh, hit.
+		var/composure_dr = 1 - steadfastness
+		var/composure_loss = composure_dr * MAGICNUM_COMPOSURE_LOSS_ONHIT_BASE
+		needybrain.AddMotive(NEED_COMPOSURE, -composure_loss)
 
 	src.brain.SetMemory("mainthreat", by_whom, 100)
+	return
+
+
+/datum/utility_ai/proc/HitMelee(var/atom/whomst, var/hitby = null)
+	// pure interface
+	// mob commanders will handle it as their pawn being hit,
+	// squad/faction commanders - as one of their own being hurt
+
+	if(!isnull(hitby))
+		// if there's a culprit, handle that
+		src.HarmedBy(whomst, hitby)
 	return
 
 
