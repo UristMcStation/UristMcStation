@@ -152,6 +152,17 @@
 # define PERSONALITY_KEY_MIN_VALUE "min_value"
 # define PERSONALITY_KEY_MAX_VALUE "max_value"
 
+
+/*
+// Personality trait keys
+//
+// (NOTE: not necessarily exhaustive! These can be defined arbitrarily in PersonalityTemplates
+//  what you see here is keys we might NEED to reference in code)
+*/
+
+// Effectively 'damage'-reduction on morale loss from hits.
+# define PERSONALITY_TRAIT_STEADFAST "Steadfast"
+
 /* ============================================= */
 
 # define RETAIN_LAST_ACTIONS_TTL 300
