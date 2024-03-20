@@ -120,7 +120,7 @@
 
 	var/obj/projectile/newbeam = new(source.loc, vec_length, vec_length, angle, ammo_sprite)
 
-	Hit.Hit(angle, From)
+	Hit.RangedHitBy(angle, From)
 
 	if(Hit?.attachments)
 		var/datum/event_queue/hit/hitqueue = Hit.attachments.Get(ATTACHMENT_EVTQUEUE_HIT)
@@ -186,9 +186,11 @@
 	if(isnull(impact_dist) || impact_dist > expected_dist)
 		true_impactee = To
 
+	var/turf/endturf = get_turf(true_impactee)
+
 	grenade.Boom()
 
-	walk_to(grenade, true_impactee, 1)
+	walk_to(grenade, endturf, ((isturf(true_impactee) && endturf.density) ? 1 : 0))
 	return
 
 
@@ -200,8 +202,12 @@
 	if(isnull(From))
 		return
 
-	var/obj/item/test_grenade/grenade = new(From.loc)
+	var/turf/startturf = get_turf(From)
 
+	if(isnull(startturf))
+		return
+
+	var/obj/item/test_grenade/grenade = new(startturf)
 	grenade_yeet(grenade, To, From)
 	return
 
