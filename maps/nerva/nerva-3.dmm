@@ -3496,6 +3496,7 @@
 /obj/structure/hygiene/toilet{
 	pixel_y = 12
 	},
+/obj/item/storage/box/bogrolls,
 /turf/simulated/floor/tiled/white,
 /area/command/captain)
 "gs" = (
@@ -9345,6 +9346,7 @@
 /obj/structure/hygiene/toilet{
 	dir = 4
 	},
+/obj/item/taperoll/bog,
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/bath)
 "rW" = (
@@ -11816,7 +11818,6 @@
 	pixel_x = 22;
 	pixel_y = 0
 	},
-/obj/item/clothing/mask/plunger,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 8;
@@ -11827,6 +11828,8 @@
 	icon_state = "alarm0";
 	pixel_y = -22
 	},
+/obj/item/storage/box/bogrolls,
+/obj/item/clothing/mask/plunger,
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/bath)
 "wC" = (
