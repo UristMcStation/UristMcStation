@@ -348,9 +348,9 @@
 //	name = "\improper Xenobiology Wing"
 //	icon_state = "xeno_lab"
 
-///area/rnd/xenoarch
-//	name = "\improper Xenoarcheology Lab"
-//	icon_state = "anomaly"
+/area/rnd/xenoarch
+	name = "\improper Xenoarcheology Lab"
+	icon_state = "anomaly"
 
 /area/rnd/dorms
 	name = "\improper Research Dormitory"
