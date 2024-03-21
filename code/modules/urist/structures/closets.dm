@@ -8,7 +8,7 @@
 /obj/structure/closet/secure_closet/captainsclothes/New()
 	..()
 	sleep(2)
-	new /obj/item/storage/backpack/duffel/duffel_cap(src)
+	new /obj/item/storage/backpack/dufflebag/com(src)
 	new /obj/item/storage/backpack/command(src)
 	new /obj/item/storage/backpack/satchel/com(src)
 	new /obj/item/clothing/suit/captunic(src)

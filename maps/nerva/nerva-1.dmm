@@ -8245,7 +8245,7 @@
 /obj/item/device/eftpos{
 	eftpos_name = "Kitchen EFTPOS scanner"
 	},
-/obj/item/storage/backpack/duffel/duffel_norm,
+/obj/item/storage/backpack/dufflebag,
 /obj/item/clothing/head/urist/billydonka,
 /obj/item/clothing/suit/urist/billydonka,
 /obj/item/clothing/under/urist/billydonka,
@@ -17488,7 +17488,7 @@
 /area/logistics/lockers)
 "Ex" = (
 /obj/structure/closet/secure_closet/miner,
-/obj/item/storage/backpack/duffel/duffel_eng,
+/obj/item/storage/backpack/dufflebag/eng,
 /obj/item/clothing/suit/storage/hooded/wintercoat/miner,
 /obj/item/device/scanner/mining,
 /obj/item/clothing/accessory/armband/cargo,
@@ -18051,7 +18051,7 @@
 "Fr" = (
 /obj/structure/closet/secure_closet/cargotech,
 /obj/item/clothing/suit/storage/hazardvest,
-/obj/item/storage/backpack/duffel/duffel_norm,
+/obj/item/storage/backpack/dufflebag,
 /obj/item/clothing/suit/storage/hooded/wintercoat/cargo,
 /obj/item/clothing/accessory/armband/cargo,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -18064,7 +18064,7 @@
 "Fs" = (
 /obj/structure/closet/secure_closet/cargotech,
 /obj/item/clothing/suit/storage/hazardvest,
-/obj/item/storage/backpack/duffel/duffel_norm,
+/obj/item/storage/backpack/dufflebag,
 /obj/item/clothing/suit/storage/hooded/wintercoat/cargo,
 /obj/item/clothing/accessory/armband/cargo,
 /obj/machinery/alarm{
@@ -18081,7 +18081,7 @@
 "Ft" = (
 /obj/structure/closet/secure_closet/cargotech,
 /obj/item/clothing/suit/storage/hazardvest,
-/obj/item/storage/backpack/duffel/duffel_norm,
+/obj/item/storage/backpack/dufflebag,
 /obj/item/clothing/suit/storage/hooded/wintercoat/cargo,
 /obj/item/clothing/accessory/armband/cargo,
 /obj/structure/cable,
@@ -18100,7 +18100,7 @@
 "Fu" = (
 /obj/structure/closet/secure_closet/cargotech,
 /obj/item/clothing/suit/storage/hazardvest,
-/obj/item/storage/backpack/duffel/duffel_norm,
+/obj/item/storage/backpack/dufflebag,
 /obj/item/clothing/suit/storage/hooded/wintercoat/cargo,
 /obj/item/clothing/accessory/armband/cargo,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -22310,7 +22310,7 @@
 /area/security/nuke_storage)
 "RR" = (
 /obj/structure/closet/secure_closet/miner,
-/obj/item/storage/backpack/duffel/duffel_eng,
+/obj/item/storage/backpack/dufflebag/eng,
 /obj/item/clothing/suit/storage/hooded/wintercoat/miner,
 /obj/item/device/scanner/mining,
 /obj/item/clothing/accessory/armband/cargo,
