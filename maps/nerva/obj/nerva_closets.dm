@@ -15,7 +15,7 @@
 	)
 
 /obj/structure/closet/secure_closet/nervacap
-	name = "captains's locker"
+	name = "captain's locker"
 	req_access = list(access_captain)
 	closet_appearance = /singleton/closet_appearance/secure_closet/command/nervacap
 
