@@ -126,7 +126,7 @@
 			"name": "GetToCover", 
 			"description": "Duck and cover.", 
 			"handler": "/datum/utility_ai/mob_commander/proc/SteerTo", 
-			"priority": 16,
+			"priority": 8,
 			"context_procs": ["/proc/ctxfetcher_cover_candidates"], 
 			"context_args": [
 				{
@@ -186,6 +186,17 @@
 					"curve_proc": "/proc/curve_binary"
 				},
 				{
+					"name": "BraveryTrait",
+					"input_proc": "/proc/consideration_input_get_personality_trait",
+					"input_args": {
+						"input_key": "bravery",
+						"default": 0
+					},
+					"lo_mark": 0, 
+					"hi_mark": 1.2, 
+					"curve_proc": "/proc/curve_antilinear"
+				},
+				{
 					"name": "NumericalAdvantage",
 					"lo_mark": 0, 
 					"hi_mark": 3, 
@@ -197,6 +208,14 @@
 						"from_memory": 1
 					},
 					"curve_proc": "/proc/curve_antisquare"
+				},
+				{
+					"name": "ThreatRNG",
+					"lo_mark": 0, 
+					"hi_mark": 100, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_urand", 
+					"curve_proc": "/proc/curve_linear"
 				},
 				{
 					"name": "OutInTheOpen",
@@ -243,7 +262,7 @@
 			"name": "Punch", 
 			"description": "Throw a punch", 
 			"handler": "/datum/utility_ai/mob_commander/proc/PunchSimple", 
-			"priority": 8,
+			"priority": 10,
 			"context_procs": ["/proc/ctxfetcher_get_memory_value_array"], 
 			"context_args": [
 				{
@@ -326,7 +345,7 @@
 				{
 					"name": "ThreatInRange",
 					"lo_mark": 0, 
-					"hi_mark": 11, 
+					"hi_mark": 20, 
 					"noise_scale": 0,
 					"input_proc": "/proc/consideration_input_chebyshev_distance_to_requester", 
 					"input_args": {
@@ -379,21 +398,6 @@
 					},
 					"curve_proc": "/proc/curve_antilinear"
 				},
-				{
-					"name": "ThreatInView",
-					"lo_mark": 0, 
-					"hi_mark": 1, 
-					"noise_scale": 0,
-					"input_proc": "/proc/consideration_input_candidate_in_brain_list", 
-					"input_args": {
-						"input_key": "threat",
-						"memory_key": "SightCurr",
-						"memory_source": "perceptions",
-						"from_context": 1
-					},
-					"curve_proc": "/proc/curve_linear"
-				},
-				{
 					"name": "ThreatInLOS",
 					"lo_mark": 0, 
 					"hi_mark": 1, 

@@ -72,20 +72,6 @@
 					"curve_proc": "/proc/curve_antisquare"
 				},
 				{
-					"name": "ThreatInView",
-					"lo_mark": 0, 
-					"hi_mark": 1, 
-					"noise_scale": 0,
-					"input_proc": "/proc/consideration_input_candidate_in_brain_list", 
-					"input_args": {
-						"input_key": "threat",
-						"memory_key": "SightCurr",
-						"memory_source": "perceptions",
-						"from_context": 1
-					},
-					"curve_proc": "/proc/curve_linear"
-				},
-				{
 					"name": "ThreatInLOS",
 					"lo_mark": 0, 
 					"hi_mark": 1, 
