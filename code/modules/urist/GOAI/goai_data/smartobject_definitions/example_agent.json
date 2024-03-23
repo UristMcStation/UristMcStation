@@ -126,7 +126,7 @@
 			"name": "GetToCover", 
 			"description": "Duck and cover.", 
 			"handler": "/datum/utility_ai/mob_commander/proc/SteerTo", 
-			"priority": 16,
+			"priority": 8,
 			"context_procs": ["/proc/ctxfetcher_cover_candidates"], 
 			"context_args": [
 				{
@@ -184,6 +184,17 @@
 						}
 					},
 					"curve_proc": "/proc/curve_binary"
+				},
+				{
+					"name": "BraveryTrait",
+					"input_proc": "/proc/consideration_input_get_personality_trait",
+					"input_args": {
+						"input_key": "bravery",
+						"default": 0
+					},
+					"lo_mark": 0, 
+					"hi_mark": 1.2, 
+					"curve_proc": "/proc/curve_antilinear"
 				},
 				{
 					"name": "NumericalAdvantage",
