@@ -30,7 +30,7 @@
 				{
 					"name": "ThreatInRange",
 					"lo_mark": 0, 
-					"hi_mark": 11, 
+					"hi_mark": 20, 
 					"noise_scale": 0,
 					"input_proc": "/proc/consideration_input_chebyshev_distance_to_requester", 
 					"input_args": {
@@ -53,10 +53,10 @@
 				},
 				{
 					"name": "ThreatRNG",
-					"lo_mark": -250, 
-					"hi_mark": 50, 
+					"lo_mark": 0, 
+					"hi_mark": 1, 
 					"noise_scale": 0,
-					"input_proc": "/proc/consideration_input_urand", 
+					"input_proc": "/proc/consideration_input_fuzz_uniform", 
 					"curve_proc": "/proc/curve_linear"
 				},
 				{

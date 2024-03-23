@@ -103,7 +103,7 @@
 
 	var/atom/source = (isnull(From) ? src : From)
 
-	var/atom/Hit = AtomDensityRaytrace(source, At, list(source), src.projectile_raycast_flags, dispersion)
+	var/atom/Hit = AtomDensityRaytrace(source, At, list(source), src.projectile_raycast_flags, dispersion, TRUE)
 
 	if(!istype(Hit))
 		// this generally shouldn't happen
@@ -176,7 +176,7 @@
 	if(isnull(From))
 		return
 
-	var/atom/impactee = AtomDensityRaytrace(From, To, list(From), RAYTYPE_PROJECTILE_NOCOVER)
+	var/atom/impactee = AtomDensityRaytrace(From, To, list(From), RAYTYPE_PROJECTILE_NOCOVER, FALSE)
 
 	var/expected_dist = get_dist(From, To)
 	var/impact_dist = isnull(impactee) ? null : get_dist(From, impactee)

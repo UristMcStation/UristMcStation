@@ -44,7 +44,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_mean)
 			UTILITYBRAIN_DEBUG_LOG("WARNING: requesting_brain for consideration_decorator_mean is null @ L[__LINE__] in [__FILE__]!")
 			return default
 
-		aggregation_window = requesting_brain.GetMemoryValue(from_memory)
+		aggregation_window = _cihelper_get_brain_data(action_template, context, requester, consideration_args)
 
 	else if(from_ctx)
 		if(isnull(context))
@@ -107,7 +107,6 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_mean)
 
 	if(count < min_count)
 		// no naughty division by zero
-		//world.log << "ERROR: count [count] for consideration_decorator_mean is < 1 for window [json_encode(aggregation_window)]! @ [__LINE__] in [__FILE__]"
 		return default
 
 	var/result = (value / count)
@@ -123,13 +122,30 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_mean_kalman)
 	var/default = consideration_args?["default"] || 0
 	var/input_key = consideration_args?["input_key"] || "input"
 	var/from_ctx = consideration_args?["from_context"]
+	var/from_memory = consideration_args?["from_memory"]
 
 	if(isnull(from_ctx))
 		from_ctx = TRUE
 
+
 	var/list/aggregation_window
 
-	if(from_ctx)
+	if(from_memory)
+		var/datum/utility_ai/mob_commander/requester_ai = requester
+
+		if(!istype(requester_ai))
+			UTILITYBRAIN_DEBUG_LOG("WARNING: requester for consideration_decorator_mean_kalman is not an AI @ L[__LINE__] in [__FILE__]!")
+			return default
+
+		var/datum/brain/requesting_brain = requester_ai.brain
+
+		if(!istype(requesting_brain))
+			UTILITYBRAIN_DEBUG_LOG("WARNING: requesting_brain for consideration_decorator_mean_kalman is null @ L[__LINE__] in [__FILE__]!")
+			return default
+
+		aggregation_window = _cihelper_get_brain_data(action_template, context, requester, consideration_args)
+
+	else if(from_ctx)
 		if(isnull(context))
 			return default
 
@@ -202,13 +218,30 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_min)
 	var/default = consideration_args?["default"] || 0
 	var/input_key = consideration_args?["input_key"] || "input"
 	var/from_ctx = consideration_args?["from_context"]
+	var/from_memory = consideration_args?["from_memory"]
 
 	if(isnull(from_ctx))
 		from_ctx = TRUE
 
+
 	var/list/aggregation_window
 
-	if(from_ctx)
+	if(from_memory)
+		var/datum/utility_ai/mob_commander/requester_ai = requester
+
+		if(!istype(requester_ai))
+			UTILITYBRAIN_DEBUG_LOG("WARNING: requester for consideration_decorator_min is not an AI @ L[__LINE__] in [__FILE__]!")
+			return default
+
+		var/datum/brain/requesting_brain = requester_ai.brain
+
+		if(!istype(requesting_brain))
+			UTILITYBRAIN_DEBUG_LOG("WARNING: requesting_brain for consideration_decorator_min is null @ L[__LINE__] in [__FILE__]!")
+			return default
+
+		aggregation_window = _cihelper_get_brain_data(action_template, context, requester, consideration_args)
+
+	else if(from_ctx)
 		if(isnull(context))
 			return default
 
@@ -272,13 +305,29 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_max)
 	var/default = consideration_args?["default"] || 0
 	var/input_key = consideration_args?["input_key"] || "input"
 	var/from_ctx = consideration_args?["from_context"]
+	var/from_memory = consideration_args?["from_memory"]
 
 	if(isnull(from_ctx))
 		from_ctx = TRUE
 
 	var/list/aggregation_window
 
-	if(from_ctx)
+	if(from_memory)
+		var/datum/utility_ai/mob_commander/requester_ai = requester
+
+		if(!istype(requester_ai))
+			UTILITYBRAIN_DEBUG_LOG("WARNING: requester for consideration_decorator_max is not an AI @ L[__LINE__] in [__FILE__]!")
+			return default
+
+		var/datum/brain/requesting_brain = requester_ai.brain
+
+		if(!istype(requesting_brain))
+			UTILITYBRAIN_DEBUG_LOG("WARNING: requesting_brain for consideration_decorator_max is null @ L[__LINE__] in [__FILE__]!")
+			return default
+
+		aggregation_window = _cihelper_get_brain_data(action_template, context, requester, consideration_args)
+
+	else if(from_ctx)
 		if(isnull(context))
 			return default
 
@@ -344,13 +393,29 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_mode)
 	var/default = consideration_args?["default"] || 0
 	var/input_key = consideration_args?["input_key"] || "input"
 	var/from_ctx = consideration_args?["from_context"]
+	var/from_memory = consideration_args?["from_memory"]
 
 	if(isnull(from_ctx))
 		from_ctx = TRUE
 
 	var/list/aggregation_window
 
-	if(from_ctx)
+	if(from_memory)
+		var/datum/utility_ai/mob_commander/requester_ai = requester
+
+		if(!istype(requester_ai))
+			UTILITYBRAIN_DEBUG_LOG("WARNING: requester for consideration_decorator_mode is not an AI @ L[__LINE__] in [__FILE__]!")
+			return default
+
+		var/datum/brain/requesting_brain = requester_ai.brain
+
+		if(!istype(requesting_brain))
+			UTILITYBRAIN_DEBUG_LOG("WARNING: requesting_brain for consideration_decorator_mode is null @ L[__LINE__] in [__FILE__]!")
+			return default
+
+		aggregation_window = _cihelper_get_brain_data(action_template, context, requester, consideration_args)
+
+	else if(from_ctx)
 		if(isnull(context))
 			return default
 
@@ -365,7 +430,6 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_mode)
 	if(!istype(aggregation_window) || !length(aggregation_window))
 		// aggregates only work if we have something to operate on
 		return default
-
 	var/aggregated_proc_raw = consideration_args?["aggregated_proc"]
 	var/aggregated_proc = STR_TO_PROC(aggregated_proc_raw)
 
@@ -437,13 +501,30 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_median)
 	var/default = consideration_args?["default"] || 0
 	var/input_key = consideration_args?["input_key"] || "input"
 	var/from_ctx = consideration_args?["from_context"]
+	var/from_memory = consideration_args?["from_memory"]
 
 	if(isnull(from_ctx))
 		from_ctx = TRUE
 
+
 	var/list/aggregation_window
 
-	if(from_ctx)
+	if(from_memory)
+		var/datum/utility_ai/mob_commander/requester_ai = requester
+
+		if(!istype(requester_ai))
+			UTILITYBRAIN_DEBUG_LOG("WARNING: requester for consideration_decorator_median is not an AI @ L[__LINE__] in [__FILE__]!")
+			return default
+
+		var/datum/brain/requesting_brain = requester_ai.brain
+
+		if(!istype(requesting_brain))
+			UTILITYBRAIN_DEBUG_LOG("WARNING: requesting_brain for consideration_decorator_median is null @ L[__LINE__] in [__FILE__]!")
+			return default
+
+		aggregation_window = _cihelper_get_brain_data(action_template, context, requester, consideration_args)
+
+	else if(from_ctx)
 		if(isnull(context))
 			return default
 
@@ -521,28 +602,48 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_list_length)
 	var/default = consideration_args?["default"] || 0
 	var/from_ctx = consideration_args?["from_context"]
 	var/input_key = consideration_args?["input_key"] || "input"
+	var/from_memory = consideration_args?["from_memory"]
 
 	if(isnull(from_ctx))
 		from_ctx = TRUE
 
-	var/list/input
+	var/list/aggregation_window
 
-	if(from_ctx)
+	if(from_memory)
+		var/datum/utility_ai/mob_commander/requester_ai = requester
+
+		if(!istype(requester_ai))
+			UTILITYBRAIN_DEBUG_LOG("WARNING: requester for consideration_input_list_length is not an AI @ L[__LINE__] in [__FILE__]!")
+			return default
+
+		var/datum/brain/requesting_brain = requester_ai.brain
+
+		if(!istype(requesting_brain))
+			UTILITYBRAIN_DEBUG_LOG("WARNING: requesting_brain for consideration_input_list_length is null @ L[__LINE__] in [__FILE__]!")
+			return default
+
+		aggregation_window = _cihelper_get_brain_data(action_template, context, requester, consideration_args)
+
+	else if(from_ctx)
 		if(isnull(context))
 			return default
 
-		input = context[input_key]
+		aggregation_window = context[input_key]
 
 	else
 		if(isnull(consideration_args))
 			return default
 
-		input = consideration_args[input_key]
+		aggregation_window = consideration_args[input_key]
 
-	if(isnull(input))
+	if(!istype(aggregation_window) || !length(aggregation_window))
+		// aggregates only work if we have something to operate on
 		return default
 
-	return length(input)
+	if(isnull(aggregation_window))
+		return default
+
+	return length(aggregation_window)
 
 
 CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_relative_list_lengths)
