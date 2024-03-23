@@ -1,6 +1,6 @@
 
 CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_get_need_perc)
-	var/datum/brain/requesting_brain = _cihelper_get_requester_brain(requester, "_cihelper_get_brain_data")
+	var/datum/brain/requesting_brain = _cihelper_get_requester_brain(requester, "consideration_input_get_need_perc")
 
 	if(!istype(requesting_brain))
 		DEBUGLOG_MEMORY_FETCH("consideration_input_get_need_perc Brain is null ([requesting_brain || "null"]) @ L[__LINE__] in [__FILE__]")

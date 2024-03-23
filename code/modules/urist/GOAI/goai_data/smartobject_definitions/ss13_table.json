@@ -251,12 +251,13 @@
 					"lo_mark": 0, 
 					"hi_mark": 1, 
 					"noise_scale": 0,
-					"input_proc": "/proc/consideration_input_in_line_of_sight", 
+					"input_proc": "/proc/consideration_input_raytrace_impactee_distance_to_target", 
 					"input_args": {
 						"input_key": "Threat",
+						"reverse": 1,
 						"from_memory": 1
 					},
-					"curve_proc": "/proc/curve_antilinear"
+					"curve_proc": "/proc/curve_linear"
 				}
 			]
 		}
