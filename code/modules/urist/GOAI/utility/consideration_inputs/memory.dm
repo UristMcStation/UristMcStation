@@ -8,20 +8,18 @@ CONSIDERATION_CALL_SIGNATURE(/proc/_cihelper_get_brain_data)
 	// the code to fetch a Memory-ized path for various ACTUAL Considerations (e.g. 'Path Exists' or 'Path Length Is...')
 	// These proper Considerations should just forward their callsig to this Helper.
 
+	var/default = consideration_args?["memory_default"]
+	var/input_key = consideration_args?["memory_key"] || "input"
+
 	var/datum/brain/requesting_brain = _cihelper_get_requester_brain(requester, "_cihelper_get_brain_data")
 
 	if(!istype(requesting_brain))
 		DEBUGLOG_MEMORY_FETCH("_cihelper_get_brain_data Brain is null ([requesting_brain || "null"]) @ L[__LINE__] in [__FILE__]")
-		return FALSE
-
-	var/input_key = "input"
-
-	if(!isnull(consideration_args))
-		input_key = consideration_args["memory_key"] || input_key
+		return default
 
 	if(isnull(input_key))
 		DEBUGLOG_MEMORY_FETCH("_cihelper_get_brain_data Input Key is null ([input_key || "null"]) @ L[__LINE__] in [__FILE__]")
-		return null
+		return default
 
 	var/source_key = "memory"
 
@@ -45,6 +43,9 @@ CONSIDERATION_CALL_SIGNATURE(/proc/_cihelper_get_brain_data)
 		else
 			DEBUGLOG_MEMORY_FETCH("Fetching [input_key] from Memories")
 			memory = requesting_brain.GetMemoryValue(input_key)
+
+	if(isnull(memory))
+		return default
 
 	return memory
 

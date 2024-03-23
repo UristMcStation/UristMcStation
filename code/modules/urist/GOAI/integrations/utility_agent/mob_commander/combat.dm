@@ -152,31 +152,33 @@
 		COMBAT_AI_DEBUG_LOG("No mob not found for the [src.name] AI to attack with D;")
 		return FALSE
 
-	# ifdef GOAI_SS13_SUPPORT
+	# ifndef GOAI_SS13_SUPPORT
+	// Dev only faked implementation
+	var/atom/target = (isnull(cached_target) ? GetTarget() : cached_target)
+	if(isnull(target))
+		return FALSE
 
+	target.MeleeHitBy(pawn)
+	var/atom/movable/movPawn = pawn
+	if(istype(movPawn))
+		movPawn.do_attack_animation(target)
+	# endif
+
+	# ifdef GOAI_SS13_SUPPORT
+	// proper SS13 implementation
 	var/atom/target = (isnull(cached_target) ? GetTarget() : cached_target)
 	var/distance = ChebyshevDistance(pawn, target)
 	var/mob/living/targetLM = target
 
 	if(!isnull(target) && distance <= 1 && (targetLM?.stat != DEAD))
-		var/mob/living/carbon/human/H = pawn
-		var/mob/living/simple_animal/SAH = pawn
+		var/mob/living/L = pawn
 
-		if(istype(H) && H?.stat == CONSCIOUS)
-			if(!(H.zone_sel))
-				// weird, but seemingly needed or stuff runtimes
-				H.zone_sel = new /obj/screen/zone_sel()
-
-			var/old_intent = H.a_intent
-			H.a_intent = I_HURT
-			target.attack_hand(H)
-			H.a_intent = old_intent
-
-		else if(istype(SAH) && SAH.stat == CONSCIOUS)
-			SAH.IAttack(target)
-
-		. = TRUE
-
+		if(istype(L) && L.stat == CONSCIOUS)
+			var/attacked = L.IAttack(target)
+			if(attacked == ATTACK_SUCCESSFUL)
+				// Might have to be removed later - should likely be handled by the harm logic itself
+				target.MeleeHitBy(L)
+				. = TRUE
 	# endif
 
 	return .

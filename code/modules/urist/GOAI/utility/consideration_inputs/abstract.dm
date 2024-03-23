@@ -22,11 +22,6 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_constant)
 	return value
 
 
-CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_urand)
-	// A Consideration input that returns an activation that is uniform random between 0% and 100%
-	return rand() * 100
-
-
 CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_arg_not_null)
 	// Simple binary Consideration - is the input arg value for a given key null or not?
 

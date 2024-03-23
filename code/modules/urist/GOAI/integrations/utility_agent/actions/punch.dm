@@ -29,8 +29,7 @@
 		tracker.SetFailed()
 		return
 
-	pawn.do_attack_animation(threat)
-	threat.MeleeHitBy(pawn)
+	src.Melee(threat)
 
 	tracker.SetDone()
 	return
