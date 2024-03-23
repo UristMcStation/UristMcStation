@@ -1,5 +1,5 @@
 
-/proc/Raytrace(var/atom/From, var/atom/To, var/CheckBlock = null, var/list/ignore = null, var/raytype = null, var/dispersion = null)
+/proc/Raytrace(var/atom/From, var/atom/To, var/CheckBlock = null, var/list/ignore = null, var/raytype = null, var/dispersion = null, var/check_glancing_angles = TRUE)
 	// Heavily based on: https://web.archive.org/web/20230119153820/https://playtechs.blogspot.com/2007/03/raytracing-on-grid.html
 	//
 	// Follows a straight line between two atoms, then walks every tile intersected by the line.
@@ -68,60 +68,66 @@
 
 		if(!isnull(blocker))
 			RAYTRACE_DEBUG_LOG("Blocker [blocker] @ ([currX], [currY]) / [absSlope] == [curr_angle]")
-			/* We don't want hits that are visually 'off', where we rasterize a tile but the ray
-			// does not actually intersect the target object - hence some extra checks.
-			//
-			// As a rough guideline, we want to hit a equilateral diamond shape
-			// whose edges connect points +/- 0.5 tile on both axes, like so:
-			//
-			//     |----- TILE ----->
-			//
-			//  -  #########@########
-			//  |  #      @/ \@     #
-			//  T  #   /@/     \@\  #
-			//  I  # @/          \@ #
-			//  L  @<              >@
-			//  E  # @\           @/#
-			//  |  #   \@\     /@/  #
-			//  |  #      @\ /@     #
-			//  v  #########@########
-			//
-			// ...unless we know the collider takes up the whole tile (turfs do, usually, so might machinery)
-			*/
-
-			if(isnull(absSlope))
-				// head-on hit, either from X- or Y-axis.
-				return blocker
 
 			if(istype(blocker, /turf))
 				// turfs cover the whole tile, no glancing off
 				return blocker
 
-			if( abs((curr_angle % 90) - 45) < 5 && (abs(currX - startX) == abs(currY - startY)) )
-				// at 45 degrees, ignore evil rasterizations that pass through one corner of a tile twice
-				// otherwise, if offsets on X & Y are equal, valid 45-degree diagonal hit.
+			if(blocker == To)
 				return blocker
 
-			if( abs((curr_angle % 90) - 15) < 5 )
-				// good hits, approx. <20 degrees
-				return blocker
+			if(check_glancing_angles)
+				/* We don't want hits that are visually 'off', where we rasterize a tile but the ray
+				// does not actually intersect the target object - hence some extra checks.
+				//
+				// As a rough guideline, we want to hit a equilateral diamond shape
+				// whose edges connect points +/- 0.5 tile on both axes, like so:
+				//
+				//     |----- TILE ----->
+				//
+				//  -  #########@########
+				//  |  #      @/ \@     #
+				//  T  #   /@/     \@\  #
+				//  I  # @/          \@ #
+				//  L  @<              >@
+				//  E  # @\           @/#
+				//  |  #   \@\     /@/  #
+				//  |  #      @\ /@     #
+				//  v  #########@########
+				//
+				// ...unless we know the collider takes up the whole tile (turfs do, usually, so might machinery)
+				*/
+				if(isnull(absSlope))
+					// head-on hit, either from X- or Y-axis.
+					return blocker
 
-			/* // old, slope-based calculation
-			if(absSlope == 1 && (abs(currX - startX) == abs(currY - startY)))
-				// at 45 degrees, ignore evil rasterizations that pass through one corner of a tile twice
-				// otherwise, if offsets on X & Y are equal, valid 45-degree diagonal hit.
-				return blocker
+				if( abs((curr_angle % 90) - 45) < 5 && (abs(currX - startX) == abs(currY - startY)) )
+					// at 45 degrees, ignore evil rasterizations that pass through one corner of a tile twice
+					// otherwise, if offsets on X & Y are equal, valid 45-degree diagonal hit.
+					return blocker
 
-			if(absSlope <= 0.4)
-				// good hits on the horizontal, approx. <20 degrees
-				return blocker
+				if( abs((curr_angle % 90) - 15) < 5 )
+					// good hits, approx. <20 degrees
+					return blocker
 
-			if(absSlope >= 5)
-				// good hits on the vertical, approx. >80 degrees
-				return blocker
+				/* // old, slope-based calculation
+				if(absSlope == 1 && (abs(currX - startX) == abs(currY - startY)))
+					// at 45 degrees, ignore evil rasterizations that pass through one corner of a tile twice
+					// otherwise, if offsets on X & Y are equal, valid 45-degree diagonal hit.
+					return blocker
 
-			// (0.4; 5) range visually
-			*/
+				if(absSlope <= 0.4)
+					// good hits on the horizontal, approx. <20 degrees
+					return blocker
+
+				if(absSlope >= 5)
+					// good hits on the vertical, approx. >80 degrees
+					return blocker
+
+				// (0.4; 5) range visually
+				*/
+			else
+				return blocker
 
 		if(error > 0)
 			currX += stepX
@@ -192,6 +198,8 @@
 			if(!isnull(target) && A == target)
 				return A
 
+			// Optimization: only check membership if we NEED to potentially ignore it
+			// Non-dense items are ignored regardless!
 			if(has_ignored && (A in ignored))
 				continue
 
@@ -201,11 +209,6 @@
 						continue
 
 				else if(!check_transparent)
-					continue
-
-				// Optimization: only check membership if we NEED to potentially ignore it
-				// Non-dense items are ignored regardless!
-				if(has_ignored && (A in ignored))
 					continue
 
 				if(!(_raytype & RAYFLAG_RANDCOVERBLOCK) && (A.raycast_block_all != RAYCAST_BLOCK_ALL))
@@ -221,11 +224,82 @@
 	return null
 
 
-/proc/TurfDensityRaytrace(var/atom/From, var/atom/To, var/list/ignored = null, var/raytype = null, var/dispersion = null)
-	// Effectively a partial function on Raytrace, for convenience usage
-	return Raytrace(From, To, /proc/basicBlockCheck, ignored, dispersion)
+/proc/denseCheckLogged(var/x, var/y, var/z, var/angle, var/list/ignored = null, var/raytype = null, var/atom/target = null)
+	var/_raytype = isnull(raytype) ? DEFAULT_RAYTYPE : raytype
+
+	if((_raytype == RAYTYPE_UNSTOPPABLE))
+		// no point checking the rest
+		to_world_log("RAYTRACE: Ray is unstoppable, returning FALSE")
+		return FALSE
+
+	var/baseX = round(x, 1)
+	var/baseY = round(y, 1)
+
+	var/turf/blockturf = locate(baseX, baseY, z)
+
+	var/has_ignored = (istype(ignored) && ignored.len)
+
+	var/check_opaque = _raytype & RAYFLAG_OPAQUEBLOCK
+	var/check_transparent = _raytype & RAYFLAG_TRANSPARENTBLOCK
+	var/check_dense_objects = (check_opaque || check_transparent)
+
+	if(istype(blockturf))
+		if((_raytype & RAYFLAG_TURFBLOCK) && blockturf.density)
+			// Optimization: only check membership if we NEED to potentially ignore it
+			// Non-dense items are ignored regardless!
+			if(has_ignored && !(blockturf in ignored))
+				to_world_log("RAYTRACE: Returning dense turf blocker [blockturf]")
+				return blockturf
+
+		for(var/atom/movable/A in blockturf)
+			if(!isnull(target) && A == target)
+				to_world_log("RAYTRACE: Returning target blocker [A]")
+				return A
+
+			// Optimization: only check membership if we NEED to potentially ignore it
+			// Non-dense items are ignored regardless!
+			if(has_ignored && (A in ignored))
+				to_world_log("RAYTRACE: Ignoring ignorelist item [A]")
+				continue
+
+			if(A.density && check_dense_objects)
+				if(A.opacity)
+					if(!check_opaque)
+						to_world_log("RAYTRACE: Skipping opaque object [A] since check_opaque is [check_opaque]")
+						continue
+
+				else if(!check_transparent)
+					to_world_log("RAYTRACE: Skipping opaque object [A] since check_transparent is [check_transparent]")
+					continue
+
+				if(!(_raytype & RAYFLAG_RANDCOVERBLOCK) && (A.raycast_block_all != RAYCAST_BLOCK_ALL))
+					// Skip partial covers if we don't care about that
+					to_world_log("RAYTRACE: Skipping partial cover object [A] since A.raycast_block_all is [A.raycast_block_all]")
+					continue
+
+				if(!(A.GetRaycastCoverage(angle)))
+					// Atoms can have a random %chance to act as a blocker.
+					to_world_log("RAYTRACE: Skipping partial cover object [A] since RNGesus decided it's not a cover today for angle [angle]")
+					continue
+
+				return A
+
+			else
+				to_world_log("RAYTRACE: Skipping non-dense object [A] since check_opaque is [check_opaque] and check_transparent is [check_transparent]")
+
+	return null
 
 
-/proc/AtomDensityRaytrace(var/atom/From, var/atom/To, var/list/ignored = null, var/raytype = null, var/dispersion = null)
+/proc/TurfDensityRaytrace(var/atom/From, var/atom/To, var/list/ignored = null, var/raytype = null, var/dispersion = null, var/check_glancing_angles = TRUE)
 	// Effectively a partial function on Raytrace, for convenience usage
-	return Raytrace(From, To, /proc/denseCheck, ignored, raytype, dispersion)
+	return Raytrace(From, To, /proc/basicBlockCheck, ignored, dispersion, check_glancing_angles)
+
+
+/proc/AtomDensityRaytrace(var/atom/From, var/atom/To, var/list/ignored = null, var/raytype = null, var/dispersion = null, var/check_glancing_angles = TRUE)
+	// Effectively a partial function on Raytrace, for convenience usage
+	return Raytrace(From, To, /proc/denseCheck, ignored, raytype, dispersion, check_glancing_angles)
+
+
+/proc/AtomDensityRaytraceLogged(var/atom/From, var/atom/To, var/list/ignored = null, var/raytype = null, var/dispersion = null, var/check_glancing_angles = TRUE)
+	// Effectively a partial function on Raytrace, for convenience usage
+	return Raytrace(From, To, /proc/denseCheckLogged, ignored, raytype, dispersion, check_glancing_angles)
