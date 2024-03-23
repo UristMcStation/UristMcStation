@@ -36,6 +36,7 @@
 # define MEM_ENEMIES_POSITIONS "EnemyPositions"
 # define MEM_ENEMIES_POSITIONS_LATEST "EnemyPositionsLatest"
 # define MEM_ENEMIES_POSITIONS_RETAINED "EnemyPositionsRetained"
+# define MEM_POS_THREATENED "OutInTheOpen"
 # define MEM_THREAT "Threat"
 # define MEM_THREAT_SECONDARY "ThreatSecondary"
 # define MEM_WAYPOINT_IDENTITY "WaypointRef"
@@ -48,6 +49,7 @@
 # define MEM_TRUST_BESTPOS "TrustFirstBestpos"
 # define MEM_PATH_TO_POS(Pos) "path_to_[Pos]"
 # define MEM_PATH_ACTIVE "ai_active_path" // we can have multiple paths stored, but only one active
+# define MEM_OCCUPIED_TURFS "OccupiedTurfs"
 
 # define MEM_DIRLEAP_BESTPOS "DirectionalCoverleapBestpos"
 # define MEM_CHARGE_BESTPOS "ChargeBestpos"

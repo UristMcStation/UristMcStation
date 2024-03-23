@@ -8,9 +8,9 @@
 
 
 /datum/cover/New(var/active, var/all_dirs = null, var/only_dirs = null)
-	is_active = (isnull(active) ? is_active : active)
-	cover_dir = (isnull(all_dirs) ? cover_dir : all_dirs)
-	cover_all = (isnull(only_dirs) ? cover_all : only_dirs)
+	src.is_active = (isnull(active) ? src.is_active : active)
+	src.cover_dir = (isnull(only_dirs) ? src.cover_dir : only_dirs)
+	src.cover_all = (isnull(all_dirs) ? src.cover_all : all_dirs)
 
 
 /datum/cover/proc/CoversInDir(var/dir, var/default = FALSE)
@@ -71,9 +71,6 @@
 	if(src.is_cover_cheap)
 		return TRUE
 
-	if(src.density)
-		return TRUE
-
 	var/datum/cover/mycover = GetCoverData(TRUE)
 
 	if(mycover?.CoversInDir(for_dir, default_for_null_dir))
@@ -83,6 +80,19 @@
 		return TRUE
 
 	return FALSE
+
+
+/area/IsCover(var/transitive = FALSE, var/for_dir = null, var/default_for_null_dir = FALSE)
+	// should never be checked, but just in case...
+	return FALSE
+
+
+/turf/IsCover(var/transitive = FALSE, var/for_dir = null, var/default_for_null_dir = FALSE)
+	if(src.density)
+		return TRUE
+
+	. = ..()
+	return .
 
 
 /atom/proc/HasCover(var/for_dir = null, var/default_for_null_dir = FALSE)

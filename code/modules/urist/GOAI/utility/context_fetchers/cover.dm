@@ -64,7 +64,15 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_cover_candidates)
 		else
 			processed.Add(cover_loc)
 
+		if(cover_loc.density)
+			// no walls -_-
+			continue
+
 		if(!isnull(unreachable) && candidate_cover == unreachable)
+			continue
+
+		if(candidate_cover.density && !(candidate_cover.blocker_gen_enabled))
+			// simple dense object, assume it blocks the whole tile (unlike e.g. windoors)
 			continue
 
 		if(istype(pawn_mob))

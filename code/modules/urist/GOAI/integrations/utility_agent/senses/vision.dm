@@ -3,8 +3,16 @@
 	// max length of stored enemies
 	var/max_enemies = DEFAULT_MAX_ENEMIES
 
+	// max distance to count friendlies
+	var/enemy_dist_cutoff = 12
+
+	// do raycasts from the enemies to us and sets a flag if enabled (nonzero)
+	// negative values are treated as infinity, positive as limit of enemies checked
+	var/check_threatened_max = DEFAULT_MAX_ENEMIES
+
 	// max length of stored friends
 	var/max_friends = DEFAULT_MAX_ENEMIES
+
 	// max distance to count friendlies
 	var/friend_dist_cutoff = 4
 
@@ -59,6 +67,7 @@
 
 	var/PriorityQueue/target_queue = new /PriorityQueue(/datum/Tuple/proc/FirstCompare)
 
+	var/list/occupied_turfs = list()
 	var/list/friends = list()
 	var/list/enemies = list()
 	var/list/enemy_positions = list()
@@ -68,9 +77,13 @@
 		if(!(istype(enemy, /mob/living/carbon) || istype(enemy, /mob/living/simple_animal) || istype(enemy, /mob/living/bot)))
 			continue
 
+		var/turf/enemyTurf = get_turf(enemy)
+		if(!isnull(enemyTurf) && !(enemyTurf in occupied_turfs))
+			occupied_turfs.Add(enemyTurf)
+
 		var/enemy_dist = ManhattanDistance(my_loc, enemy)
 
-		if (enemy_dist <= 0)
+		if (enemy_dist <= 0 || enemy_dist > src.enemy_dist_cutoff)
 			continue
 
 		if(!(owner.IsEnemy(enemy)))
@@ -81,6 +94,8 @@
 
 		var/datum/Tuple/enemy_tup = new(enemy_dist, enemy)
 		target_queue.Enqueue(enemy_tup)
+
+	owner_brain.SetMemory(MEM_OCCUPIED_TURFS, occupied_turfs, owner.ai_tick_delay * MEM_AITICK_MULT_SHORTTERM)
 
 	var/tries = 0
 	var/maxtries = 3
@@ -160,6 +175,24 @@
 
 		// Store the two lists merged
 		owner_brain.SetMemory(MEM_ENEMIES_POSITIONS, enemy_positions, owner.ai_tick_delay * MEM_AITICK_MULT_MIDTERM)
+
+	var/threats_checked = 0
+
+	if(src.check_threatened_max)
+		var/list/ignorelist = enemies.Copy()
+
+		for(var/atom/raytrace_enemy in enemies)
+			if(src.check_threatened_max > 0 && threats_checked++ >= src.check_threatened_max)
+				break
+
+			var/atom/whosehit = AtomDensityRaytrace(raytrace_enemy, pawn, ignorelist, RAYTYPE_PROJECTILE, FALSE)
+			if(isnull(whosehit))
+				continue
+
+			if(whosehit == pawn)
+				owner_brain.SetMemory(MEM_POS_THREATENED, TRUE, owner.ai_tick_delay * MEM_AITICK_MULT_SHORTTERM)
+				break
+
 
 	return TRUE
 
