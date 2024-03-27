@@ -24,6 +24,9 @@
 #define PLUS_INF 1.#INF
 #define GOAP_KEY_SRC "source"
 
+// Ensures all flags F are set in a variable V
+#define CHECK_ALL_FLAGS(FlagVar, Flags) ((FlagVar & Flags) == Flags)
+
 #define LOAD_TEXT(fp) file2text(fp)
 #define SAVE_TEXT(txt, fp) text2file(txt, fp)
 
@@ -35,7 +38,7 @@
 #define COORDS_TUPLE_2D(A) "([A?.x], [A?.y])"
 #define COORDS_TUPLE_3D(A) "([A?.x], [A?.y], [A?.z])"
 // defaulting:
-#define COORDS_TUPLE COORDS_TUPLE_2D
+#define COORDS_TUPLE COORDS_TUPLE_3D
 #define LOCATION_WITH_COORDS(At) "[get_turf(At)] @ [COORDS_TUPLE(At)]"
 
 # ifdef GOAI_LIBRARY_FEATURES
@@ -96,12 +99,16 @@
 // Usually this can be overridden at runtime in the thing requesting a plan.
 #define DEFAULT_GOAP_PLANNING_BUDGET 50
 
+// best-case granularity of sleep ticks
+// this is to prevent someone setting delay to 0 and crashing the server
+#define MIN_AI_SLEEPTIME 0.05
+
 // worst-case granularity of sleep ticks
 // this is so if someone sets the GOAI interval to 1e9 ds and then back to 1 ds
 // it won't be stuck trying to run the eternal sleep
 #define MAX_AI_SLEEPTIME 100
 
-#define WITH_UTILITY_SLEEPTIME_STAGGER(X) ((##X) + rand(-1, 1))
+#define WITH_UTILITY_SLEEPTIME_STAGGER(X) ((##X) + (rand() - 0.4))
 
 
 /* ===   CHEAT_SEE_WAYPOINT_TURF:   ===
@@ -198,3 +205,87 @@
 // (you get the nuCOM absurd athleticism of jumping up and down freely).
 // Custom costprocs can just Not Use This to support free-flying agents.
 #define ASTAR_ZMOVE_BASE_PENALTY 5
+
+/*
+// GOAI 'visibility' flags.
+//
+// SS13 has a jillion objects around, including many things that are not terribly interesting for AI purposes
+// (for example - most areas, cables and pipes most of the time, ghosts).
+// Ideally we want to avoid storing and processing what we will never, ever use (at least, for a specific system).
+// That's the idea here - if something doesn't have these flags on, GOAI will skip it for a corresponding purpose.
+//
+// NOTE: Do NOT try to over-optimize and set something as e.g. not VIEWABLE because it's not LONGLIVED - the whole
+//       reason those flags are separate is because there might be cases where you do want to allow one without the
+         other. It's on the API user to check both are set if they need both.
+*/
+
+// Exists in the 'normal plane', as opposed to ghosts, AI-eyes, spawners, etc.
+#define GOAI_VISFLAG_MATERIAL 1
+
+// Non-abstract, an actual material-ish Thing in the world (as opposed to e.g. AI-eyes which abstract cameras/focus)
+#define GOAI_VISFLAG_TANGIBLE 2
+
+// Can POTENTIALLY be seen if set (may have to check invisibility, alpha, etc. to establish)
+#define GOAI_VISFLAG_VIEWABLE 4
+
+// Has a non-negligible lifespan (unlike e.g. a laser beam flash or a sparks effect)
+#define GOAI_VISFLAG_LONGLIVED 8
+
+// Can POTENTIALLY be hit by a raytrace ray (even the most permissive)
+#define GOAI_VISFLAG_RAYTRACE_HITTABLE 16
+
+// If unset, this object, even if material, is just not that useful for AI purposes most of the time. E.g. pipes under floors, decorative items.
+#define GOAI_VISFLAG_SIGNIFICANT 32
+
+// Significant on steroids. This flag indicates the object is almost certainly worth considering. E.g. cover objects, tool items.
+#define GOAI_VISFLAG_INTERESTING 64
+
+// The semi-flipside of REAL. Indicates this object exists on the supernatural plane in some sense. E.g. ghosts, cult monsters and structures. Intended for any AI dealing with spoopy.
+// Note that something can be both REAL and ETHEREAL - for example, a manifested ghost and most Cult stuff could count.
+#define GOAI_VISFLAG_ETHEREAL 128
+
+// Archetypes - bundles of flags
+
+// Abstract map objects, spawners, etc.olp
+// Use this if you categorically *never* want to look at this object in the AI, ever
+#define GOAI_VISTYPE_ABSTRACT 0
+
+// GOAI_VISFLAG_INTERESTING | GOAI_VISFLAG_SIGNIFICANT | GOAI_VISFLAG_RAYTRACE_HITTABLE | GOAI_VISFLAG_LONGLIVED | GOAI_VISFLAG_VIEWABLE | GOAI_VISFLAG_TANGIBLE | GOAI_VISFLAG_MATERIAL
+// 64+32+16+8+4+2+1 == 12
+// Material object, highly relevant (e.g. tools, important SmartObjects)
+#define GOAI_VISTYPE_ELEVATED 127
+
+// GOAI_VISFLAG_SIGNIFICANT | GOAI_VISFLAG_RAYTRACE_HITTABLE | GOAI_VISFLAG_LONGLIVED | GOAI_VISFLAG_VIEWABLE | GOAI_VISFLAG_TANGIBLE | GOAI_VISFLAG_MATERIAL
+// 32+16+8+4+2+1 == 63
+// Default flagset for atoms unless specified otherwise
+#define GOAI_VISTYPE_STANDARD 63
+
+// GOAI_VISFLAG_SIGNIFICANT | GOAI_VISFLAG_VIEWABLE | GOAI_VISFLAG_TANGIBLE | GOAI_VISFLAG_MATERIAL
+// 32+4+2+1 == 103
+// Default flagset for e.g. projectiles or effects like sparks - real, but too evanescent to bother with much
+#define GOAI_VISTYPE_TEMPORARY 39
+
+// GOAI_VISFLAG_RAYTRACE_HITTABLE | GOAI_VISFLAG_LONGLIVED | GOAI_VISFLAG_VIEWABLE | GOAI_VISFLAG_TANGIBLE | GOAI_VISFLAG_MATERIAL
+// 16+8+4+2+1 == 31
+// Material, but uninteresting junk; blocks at least some raycasts
+#define GOAI_VISTYPE_WORLDJUNK_BLOCKING 31
+
+// GOAI_VISFLAG_LONGLIVED | GOAI_VISFLAG_VIEWABLE | GOAI_VISFLAG_TANGIBLE | GOAI_VISFLAG_MATERIAL
+// 8+4+2+1 == 15
+// Material, but uninteresting junk, cannot ever be hit
+#define GOAI_VISTYPE_WORLDJUNK_NONBLOCKING 15
+
+// GOAI_VISFLAG_ETHEREAL | GOAI_VISFLAG_SIGNIFICANT | GOAI_VISFLAG_LONGLIVED | GOAI_VISFLAG_VIEWABLE | GOAI_VISFLAG_TANGIBLE
+// 128+32+8+4+2 == 174
+// Ghost-type things (un-manifested)
+#define GOAI_VISTYPE_ETHEREAL 174
+
+// GOAI_VISFLAG_ETHEREAL | GOAI_VISFLAG_SIGNIFICANT | GOAI_VISFLAG_LONGLIVED | GOAI_VISFLAG_VIEWABLE | GOAI_VISFLAG_TANGIBLE | GOAI_VISFLAG_MATERIAL
+// 128+32+8+4+2+1 == 175
+// Manifested ghosts, haunter effects and such; materialized, but still not hittable
+#define GOAI_VISTYPE_HAUNTING 175
+
+// GOAI_VISFLAG_ETHEREAL | GOAI_VISFLAG_SIGNIFICANT | GOAI_VISFLAG_RAYTRACE_HITTABLE | GOAI_VISFLAG_LONGLIVED | GOAI_VISFLAG_VIEWABLE | GOAI_VISFLAG_TANGIBLE | GOAI_VISFLAG_MATERIAL
+// 128+32+16+8+4+2+1 == 191
+// Cult mobs, and other things that are basically normal objects but also visible on the supernatural layer
+#define GOAI_VISTYPE_SUPERNATURAL 191

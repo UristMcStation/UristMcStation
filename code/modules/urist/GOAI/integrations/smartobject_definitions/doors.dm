@@ -1,112 +1,24 @@
 
 # ifdef GOAI_LIBRARY_FEATURES
 
-# define DOOR_ACTIONSET_PATH "goai_data/smartobject_definitions/door.json"
-# define AUTODOOR_ACTIONSET_PATH "goai_data/smartobject_definitions/autodoor.json"
+/* Plain Old Doors */
+GOAI_ACTIONSET_FROM_FILE_BOILERPLATE(/obj/cover/door, "goai_data/smartobject_definitions/door.json")
+GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_PROXIMITY_CHEBYSHEV(/obj/cover/door, 1)
 
-/obj/cover/door/GetUtilityActions(var/requester, var/list/args = null) // (Any, assoc) -> [ActionSet]
-
-	var/list/my_action_sets = list()
-
-	ASSERT(fexists(DOOR_ACTIONSET_PATH))
-	var/datum/action_set/myset = ActionSetFromJsonFile(DOOR_ACTIONSET_PATH)
-
-	myset.origin = src
-
-	my_action_sets.Add(myset)
-	return my_action_sets
-
-
-/obj/cover/door/HasUtilityActions(var/requester, var/list/args = null) // (Any, assoc) -> bool
-	var/atom/requester_atom = requester
-
-	if(isnull(requester_atom))
-		return FALSE
-
-	if(get_dist(requester_atom, src) > 1)
-		return FALSE
-
-	return TRUE
-
-
-/obj/cover/autodoor/GetUtilityActions(var/requester, var/list/args = null) // (Any, assoc) -> [ActionSet]
-	var/list/my_action_sets = list()
-
-	ASSERT(fexists(AUTODOOR_ACTIONSET_PATH))
-	var/datum/action_set/myset = ActionSetFromJsonFile(AUTODOOR_ACTIONSET_PATH)
-
-	myset.origin = src
-
-	my_action_sets.Add(myset)
-	return my_action_sets
-
-
-/obj/cover/autodoor/HasUtilityActions(var/requester, var/list/args = null) // (Any, assoc) -> bool
-	var/atom/requester_atom = requester
-
-	if(isnull(requester_atom))
-		return FALSE
-
-	if(get_dist(requester_atom, src) > 1)
-		return FALSE
-
-	return TRUE
-
+/* Autodoors */
+GOAI_ACTIONSET_FROM_FILE_BOILERPLATE(/obj/cover/autodoor, "goai_data/smartobject_definitions/autodoor.json")
+GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_PROXIMITY_CHEBYSHEV(/obj/cover/autodoor, 1)
 
 # endif
 
 # ifdef GOAI_SS13_SUPPORT
 
-# define DOOR_ACTIONSET_PATH "goai_data/smartobject_definitions/ss13_door.json"
-# define AUTODOOR_ACTIONSET_PATH "goai_data/smartobject_definitions/ss13_autodoor.json"
-
 /* Plain Old Doors */
-/obj/machinery/door/unpowered/GetUtilityActions(var/requester, var/list/args = null) // (Any, assoc) -> [ActionSet]
-	var/list/my_action_sets = list()
-
-	ASSERT(fexists(AUTODOOR_ACTIONSET_PATH))
-	var/datum/action_set/myset = ActionSetFromJsonFile(DOOR_ACTIONSET_PATH)
-
-	myset.origin = src
-
-	my_action_sets.Add(myset)
-	return my_action_sets
-
-
-/obj/machinery/door/unpowered/HasUtilityActions(var/requester, var/list/args = null) // (Any, assoc) -> bool
-	var/atom/requester_atom = requester
-
-	if(isnull(requester_atom))
-		return FALSE
-
-	if(get_dist(requester_atom, src) > 1)
-		return FALSE
-
-	return TRUE
-
+GOAI_ACTIONSET_FROM_FILE_BOILERPLATE(/obj/machinery/door/unpowered, "goai_data/smartobject_definitions/ss13_door.json")
+GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_PROXIMITY_CHEBYSHEV(/obj/cover/door, 1)
 
 /* Autodoors */
-/obj/machinery/door/airlock/GetUtilityActions(var/requester, var/list/args = null) // (Any, assoc) -> [ActionSet]
-	var/list/my_action_sets = list()
-
-	ASSERT(fexists(AUTODOOR_ACTIONSET_PATH))
-	var/datum/action_set/myset = ActionSetFromJsonFile(AUTODOOR_ACTIONSET_PATH)
-
-	myset.origin = src
-
-	my_action_sets.Add(myset)
-	return my_action_sets
-
-
-/obj/machinery/door/airlock/HasUtilityActions(var/requester, var/list/args = null) // (Any, assoc) -> bool
-	var/atom/requester_atom = requester
-
-	if(isnull(requester_atom))
-		return FALSE
-
-	if(get_dist(requester_atom, src) > 1)
-		return FALSE
-
-	return TRUE
+GOAI_ACTIONSET_FROM_FILE_BOILERPLATE(/obj/machinery/door/airlock, "goai_data/smartobject_definitions/ss13_autodoor.json")
+GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_PROXIMITY_CHEBYSHEV(/obj/machinery/door/airlock, 1)
 
 # endif

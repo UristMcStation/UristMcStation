@@ -32,7 +32,7 @@
 		var/current_to_end_dist = call(dist)(current.position, end)
 		current_to_end_dist += INTRISIC_COST_QUERY(current.position, end)
 
-		if(current.position == end || current_to_end_dist <= min_target_dist)
+		if(current.position == end || (current_to_end_dist <= min_target_dist))
 			path = new /list(current.nodes_traversed + 1)
 			path[path.len] = current.position
 			var/index = path.len - 1

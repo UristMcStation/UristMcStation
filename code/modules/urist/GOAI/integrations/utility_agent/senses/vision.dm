@@ -14,7 +14,10 @@
 	var/max_friends = DEFAULT_MAX_ENEMIES
 
 	// max distance to count friendlies
-	var/friend_dist_cutoff = 4
+	var/friend_dist_cutoff = 6
+
+	// filter out dead mobs
+	var/ignore_dead = TRUE
 
 
 /sense/combatant_commander_eyes/proc/UpdatePerceptions(var/datum/utility_ai/mob_commander/owner)
@@ -30,7 +33,14 @@
 		// We grab the view range from the owned mob, so we need it here
 		return
 
-	var/list/visual_range = view(pawn)
+	var/list/_raw_visual_range = view(pawn)
+	var/list/visual_range = list()
+
+	for(var/atom/viewthing in _raw_visual_range)
+		if(!(CHECK_ALL_FLAGS(viewthing.goai_processing_visibility, GOAI_VISTYPE_STANDARD)))
+			continue
+
+		visual_range.Add(viewthing)
 
 	if(visual_range)
 		owner_brain?.perceptions[SENSE_SIGHT_CURR] = visual_range
@@ -68,13 +78,20 @@
 	var/PriorityQueue/target_queue = new /PriorityQueue(/datum/Tuple/proc/FirstCompare)
 
 	var/list/occupied_turfs = list()
+
 	var/list/friends = list()
+	var/list/friend_positions = list()
+
 	var/list/enemies = list()
 	var/list/enemy_positions = list()
 
 	// TODO: Refactor to accept objects/structures as threats (turrets, grenades...).
 	for(var/mob/enemy in true_searchspace)
 		if(!(istype(enemy, /mob/living/carbon) || istype(enemy, /mob/living/simple_animal) || istype(enemy, /mob/living/bot)))
+			continue
+
+		var/mob/living/L = enemy
+		if(ignore_dead && istype(L) && L.stat == DEAD)
 			continue
 
 		var/turf/enemyTurf = get_turf(enemy)
@@ -89,6 +106,9 @@
 		if(!(owner.IsEnemy(enemy)))
 			if(length(friends) < src.max_friends && enemy_dist < friend_dist_cutoff && owner.IsFriend(enemy))
 				friends.Add(enemy)
+				var/turf/friend_pos = get_turf(enemy)
+				if(!isnull(friend_pos))
+					friend_positions.Add(friend_pos)
 
 			continue
 
@@ -158,6 +178,9 @@
 	// Short-term - otherwise AI will be clairvoyant
 	owner_brain.SetMemory(MEM_FRIENDS, friends, owner.ai_tick_delay * MEM_AITICK_MULT_SHORTTERM)
 	owner_brain.SetMemory(MEM_ENEMIES, enemies, owner.ai_tick_delay * MEM_AITICK_MULT_SHORTTERM)
+
+	if(length(friend_positions))
+		owner_brain.SetMemory(MEM_FRIENDS_POSITIONS, friend_positions, owner.ai_tick_delay * MEM_AITICK_MULT_SHORTTERM)
 
 	if(length(enemy_positions))
 		// Copy the previous latest
