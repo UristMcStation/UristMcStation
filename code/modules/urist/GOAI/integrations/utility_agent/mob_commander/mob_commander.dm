@@ -84,7 +84,7 @@
 
 			// Fix the tickrate to prevent runaway loops in case something messes with it.
 			// Doing it here is nice, because it saves us from sanitizing it all over the place.
-			src.ai_tick_delay = max(WITH_UTILITY_SLEEPTIME_STAGGER(src?.ai_tick_delay || 0), 1)
+			src.ai_tick_delay = max(WITH_UTILITY_SLEEPTIME_STAGGER(src?.ai_tick_delay || 0), MIN_AI_SLEEPTIME)
 			var/sleeptime = min(MAX_AI_SLEEPTIME, src.ai_tick_delay)
 
 			src.waketime = (world.time + src.ai_tick_delay)

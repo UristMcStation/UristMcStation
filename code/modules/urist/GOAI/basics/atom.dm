@@ -18,6 +18,14 @@
 	// eventually might be redone as a big array/SparseSet with implicit IDs, ECS-style
 	var/dict/attachments
 
+	// a set of metadata flags that helps GOAI filter out irrelevant stuff
+	var/goai_processing_visibility = GOAI_VISTYPE_STANDARD
+
+
+// todo move this to some area thing
+/area
+	goai_processing_visibility = GOAI_VISTYPE_ABSTRACT
+
 
 /atom/movable
 	var/managed_movement = FALSE

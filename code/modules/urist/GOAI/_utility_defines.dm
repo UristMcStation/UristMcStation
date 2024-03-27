@@ -170,3 +170,22 @@
 # define DYNAMIC_QUERY_CACHE_TTL 20
 # define DYNAMIC_QUERY_CACHE_GLOBAL_TTL 3000
 # define DYNAMIC_QUERY_CACHE_GLOBAL_TTL_FUZZ 20
+
+/*
+// The code to implement SmartObjects is extremely boilerplate 99% of the time. These macros write it for you.
+*/
+# define GOAI_ACTIONSET_FROM_FILE_BOILERPLATE(OBJTYPE, AS_FNAME) ##OBJTYPE/GetUtilityActions(var/requester, var/list/args = null) { var/list/my_action_sets = list(); ASSERT(fexists(AS_FNAME)); var/datum/action_set/myset = ActionSetFromJsonFile(AS_FNAME); myset.origin = src; my_action_sets.Add(myset); return my_action_sets } ;
+
+/* HasUtilityActions() impls */
+
+// Always available:
+# define GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_ALWAYS(OBJTYPE) ##OBJTYPE/HasUtilityActions(var/requester, var/list/args = null) { return TRUE }
+
+// Is 'us', broadly speaking:
+# define GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_ISPAWN(OBJTYPE) ##OBJTYPE/HasUtilityActions(var/requester, var/list/args = null) { if(requester == src) { return TRUE }; var/datum/utility_ai/mob_commander/commander = requester; if(!istype(commander)) { return FALSE }; var/pawn = commander.GetPawn(); return (pawn == src) }
+
+// Available if nearby (by Chebyshev dist; requires source to be an atom!):
+# define GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_PROXIMITY_CHEBYSHEV(OBJTYPE, MAXDIST) ##OBJTYPE/HasUtilityActions(var/requester, var/list/args = null) { var/atom/requester_atom = requester; if(istype(requester_atom)) { return (ChebyshevDistance(requester_atom, src) <= MAXDIST) }; var/datum/utility_ai/mob_commander/commander = requester; if(!istype(commander)) { return FALSE }; var/atom/pawn = commander.GetPawn(); return (ChebyshevDistance(pawn, src) <= MAXDIST) }
+
+// Available if nearby (by Manhattan dist; requires source to be an atom!):
+# define GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_PROXIMITY_MANHATTAN(OBJTYPE, MAXDIST) ##OBJTYPE/HasUtilityActions(var/requester, var/list/args = null) { var/atom/requester_atom = requester; if(istype(requester_atom)) { return MANHATTAN_DISTANCE(requester_atom, src) <= MAXDIST }; var/datum/utility_ai/mob_commander/commander = requester; if(!istype(commander)) { return FALSE }; var/atom/pawn = commander.GetPawn(); return (MANHATTAN_DISTANCE(pawn, src) <= MAXDIST) }

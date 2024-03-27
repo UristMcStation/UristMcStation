@@ -141,11 +141,11 @@
 
 	var/threshold = 0
 	if(src.brain)
-		threshold = src.brain.neutrality_threshold
+		threshold = src.brain.hostility_threshold
 
 	var/friendliness_score = src.CheckRelationsTo(trg, relationships_override)
 	// negative - hostile, potentially one-sided
-	var/is_neutral = (isnull(friendliness_score) || (friendliness_score >= threshold))
+	var/is_neutral = (isnull(friendliness_score) || (friendliness_score > threshold))
 	return is_neutral
 
 
@@ -161,7 +161,11 @@
 	if(isnull(trg))
 		return FALSE
 
-	// TODO: add a threshold for being actively allied. For now, Neutral == Friend
-	var/above_friend_threshold = TRUE
-	var/is_friend_shaped = (src.IsNeutral(trg, relationships_override) && above_friend_threshold)
+	var/threshold = 50
+	if(src.brain)
+		threshold = src.brain.ally_threshold
+
+	var/friendliness_score = src.CheckRelationsTo(trg, relationships_override)
+	var/is_friend_shaped = (isnull(friendliness_score) || (friendliness_score > threshold))
+
 	return is_friend_shaped
