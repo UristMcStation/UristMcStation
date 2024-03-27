@@ -69,7 +69,7 @@
 							src.brain?.SetMemory("SmartPlans", smart_plans)
 					return
 
-		var/safe_ai_delay = max((src?.ai_tick_delay || 0), 1)
+		var/safe_ai_delay = max((src?.ai_tick_delay || 0), MIN_AI_SLEEPTIME)
 		var/sleeptime = min(MAX_AI_SLEEPTIME, safe_ai_delay)
 
 		src.waketime = (world.time + safe_ai_delay)

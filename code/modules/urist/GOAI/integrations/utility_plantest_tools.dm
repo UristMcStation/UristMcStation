@@ -1,4 +1,8 @@
 
+// dev standins for ss13 tools for testing planning
+
+# ifdef GOAI_LIBRARY_FEATURES
+
 /obj/item/up_test_welder
 	name = "welding tool"
 	icon = 'icons/obj/items.dmi'
@@ -16,3 +20,4 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "multitool"
 
+# endif

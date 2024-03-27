@@ -1,12 +1,12 @@
 // Uncomment to allow *ANY* debug logging below. Otherwise, they are all disabled.
-# define ENABLE_DEBUG_LOG_MACROS 1
+//# define ENABLE_DEBUG_LOG_MACROS 1
 
 // Uncomment defines as needed to enable various loggers.
 
 # ifdef ENABLE_DEBUG_LOG_MACROS
 
 	//# define DEBUG_LOGGING 0
-	//# define RAYTRACE_DEBUG_LOGGING 0
+	// # define RAYTRACE_DEBUG_LOGGING 0
 	// # define ADD_ACTION_DEBUG_LOGGING 0
 	# define COMBAT_AI_DEBUG_LOGGING 0
 	# define RUN_ACTION_DEBUG_LOGGING 0
