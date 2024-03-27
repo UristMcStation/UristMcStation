@@ -47,7 +47,7 @@
 
 
 /datum/utility_ai/mob_commander/proc/_StorePlan(var/datum/plan_smartobject/returned_plan, var/plan_ttl = null)
-	var/_plan_ttl = isnull(plan_ttl) ? 300 : plan_ttl
+	var/_plan_ttl = isnull(plan_ttl) ? 600 : plan_ttl
 
 	var/list/stored_plans = src.brain.GetMemoryValue("SmartPlans")
 	if(isnull(stored_plans))

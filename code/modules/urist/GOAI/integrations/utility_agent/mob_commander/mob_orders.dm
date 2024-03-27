@@ -93,9 +93,9 @@
 	if(!(M?.brain))
 		return
 
-	var/trueX = max(1, posX % world.maxx)
-	var/trueY = max(1, posY % world.maxy)
-	var/trueZ = max(1, posZ % world.maxz)
+	var/trueX = max(1, posX % (world.maxx + 1))
+	var/trueY = max(1, posY % (world.maxy + 1))
+	var/trueZ = max(1, posZ % (world.maxz + 1))
 
 	var/turf/position = locate(trueX, trueY, trueZ)
 	if(!position)

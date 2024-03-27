@@ -28,6 +28,9 @@
 	var/stat = CONSCIOUS
 	var/faction
 
+	var/health_current = 100
+	var/health_max = 100
+
 /mob/living/carbon
 
 /mob/living/carbon/human

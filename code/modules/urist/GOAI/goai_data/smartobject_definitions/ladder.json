@@ -1,0 +1,48 @@
+{
+	"name": "LadderActs", 
+	"active": 1, 
+	"actions": [
+		{
+			"name": "ClimbLadder", 
+			"description": "Climbs a nearby ladder.", 
+			"handler": "/datum/utility_ai/mob_commander/proc/ClimbLadder", 
+			"context_procs": ["/proc/ctxfetcher_adjacent_turfs"], 
+			"context_args": [
+				{
+					"if_contains_type": "/obj/structure/ladder",
+					"output_context_key": "location",
+					"filter_output_key": "target"
+				}
+			],
+			"priority": 6, 
+			"considerations": [
+				{
+					"name": "LadderNearby",
+					"lo_mark": 1, 
+					"hi_mark": 2, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_chebyshev_distance_to_requester", 
+					"input_args": {
+						"input_key": "location",
+						"from_context": 1
+					},
+					"curve_proc": "/proc/curve_antibinary"
+				},
+				{
+					"name": "IsOnPath",
+					"lo_mark": 0, 
+					"hi_mark": 2, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_is_on_path", 
+					"input_args": {
+						"input_key": "location",
+						"from_context": 1,
+						"default_on_null": 0,
+						"minimum_distance_to_path_tile": 0
+					},
+					"curve_proc": "/proc/curve_linear"
+				}
+			]
+		}
+	]
+}

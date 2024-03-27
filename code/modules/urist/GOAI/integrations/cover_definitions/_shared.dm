@@ -1,3 +1,4 @@
+
 /proc/GenerateGenericFullCover(var/owner = null)
 	// owner is optional; can be used to look up vars on the creator
 
