@@ -1,6 +1,6 @@
 // Those Actions are only used for development, either as placeholders or for emitting debugging data.
 
-/datum/utility_ai/mob_commander/proc/PrintArg(var/datum/ActionTracker/tracker, var/printarg)
+/datum/utility_ai/proc/PrintArg(var/datum/ActionTracker/tracker, var/printarg)
 	if(isnull(tracker))
 		RUN_ACTION_DEBUG_LOG("ActionTracker is null | <@[src]> | [__FILE__] -> L[__LINE__]")
 		return
@@ -14,7 +14,7 @@
 	return
 
 
-/datum/utility_ai/mob_commander/proc/GlobalWorldstateFlipBoolean(var/datum/ActionTracker/tracker, var/list/worldstate_keys)
+/datum/utility_ai/proc/GlobalWorldstateFlipBoolean(var/datum/ActionTracker/tracker, var/list/worldstate_keys)
 	// Toggles the values of boolean World State globals to their negation (so FALSE -> TRUE and TRUE -> FALSE)
 
 	if(isnull(tracker))
@@ -40,7 +40,7 @@
 
 
 
-/datum/utility_ai/mob_commander/proc/GlobalWorldstateSetStateMap(var/datum/ActionTracker/tracker, var/list/new_worldstate_map)
+/datum/utility_ai/proc/GlobalWorldstateSetStateMap(var/datum/ActionTracker/tracker, var/list/new_worldstate_map)
 	// Sets the values of World State globals to the values provided in the input hashmap.
 	// Stateless and idempotent, some risk of race conditions.
 

@@ -211,10 +211,15 @@
 	return TRUE
 
 /obj/structure/ladder/proc/climbLadder(mob/user, target_ladder, obj/item/I = null)
+	to_world_log("[user] is climbing [target_ladder]")
 	var/turf/T = get_turf(target_ladder)
 	for(var/atom/A in T)
+		if(A == user)
+			continue
+
 		if(!A.CanPass(user, user.loc, 1.5, 0))
 			to_chat(user, SPAN_NOTICE("\The [A] is blocking \the [src]."))
+			to_world_log(SPAN_NOTICE("\The [A] is blocking \the [src]."))
 
 			//We cannot use the ladder, but we probably can remove the obstruction
 			var/atom/movable/M = A
@@ -228,7 +233,9 @@
 
 	playsound(src, pick(climbsounds), 50)
 	playsound(target_ladder, pick(climbsounds), 50)
-	return user.Move(T)
+	var/result = user.Move(T)
+	to_world_log("[user] has climbed [target_ladder] to [T] (Result: [result])")
+	return result
 
 /obj/structure/ladder/CanPass(obj/mover, turf/source, height, airflow)
 	return airflow || !density

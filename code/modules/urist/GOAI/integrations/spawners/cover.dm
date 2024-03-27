@@ -1,3 +1,6 @@
+
+# ifdef GOAI_LIBRARY_FEATURES
+
 /proc/SpawnTableFlipped(var/spawnloc, var/flip_dir)
 	var/obj/cover/table/newtable = new(spawnloc)
 
@@ -46,3 +49,5 @@
 	name = "Flipped Table (West)"
 	dir = WEST
 	flip_direction = WEST
+
+# endif

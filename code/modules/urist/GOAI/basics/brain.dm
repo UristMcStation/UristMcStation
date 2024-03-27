@@ -72,8 +72,11 @@
 	/* Faction-esque data; relation modifiers by tag. */
 	var/datum/relationships/relations
 
-	// For relations: minimum relation score for which we are NOT hostile
-	var/neutrality_threshold = 0
+	// For relations: if less than this, we are hostile to the target, if more - neutral (or allied)
+	var/hostility_threshold = -5
+
+	// For relations: if higher than this, we treat the target as an ally
+	var/ally_threshold = 50
 
 	/* Bookkeeping for action execution */
 	var/is_planning = 0

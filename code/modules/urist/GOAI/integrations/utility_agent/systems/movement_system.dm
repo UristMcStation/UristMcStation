@@ -126,7 +126,7 @@
 
 	var/do_nudging = src.allow_wandering ? FALSE : (isnull(bestcand) && prob(20))
 
-	if(do_nudging)
+	if(do_nudging && trgturf.z == curr_loc.z)
 		// Goal-guided steering, lowest quality fallback
 		MOVEMENT_DEBUG_LOG("-> MOVEMENT SYSTEM: IN NUDGING MODE <-")
 		var/list/cardinals = curr_loc.CardinalTurfs()
