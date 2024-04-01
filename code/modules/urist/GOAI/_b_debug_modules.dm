@@ -3,6 +3,8 @@
 
 // Uncomment defines as needed to enable various loggers.
 
+# define MOVEMENT_DEBUG_LOGGING 0
+
 # ifdef ENABLE_DEBUG_LOG_MACROS
 
 	//# define DEBUG_LOGGING 0

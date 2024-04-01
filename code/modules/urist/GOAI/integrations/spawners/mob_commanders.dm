@@ -144,11 +144,25 @@
 
 	var/true_name = name
 
-	var/mob/living/simple_animal/hostile/urist/commando/M = new()
+	var/mobtype = rand(1, 3)
+	var/mob/living/simple_animal/hostile/M = null
+
+	switch(mobtype)
+		if(1)
+			var/mob/living/simple_animal/hostile/urist/commando/komandoh = new()
+			M = komandoh
+		if(2)
+			var/mob/living/simple_animal/hostile/urist/skrellterrorist/skrellie = new()
+			M = skrellie
+		if(3)
+			var/mob/living/simple_animal/hostile/urist/ANTAG/eggsalt = new()
+			M = eggsalt
+
 	if(true_name)
 		M.name = true_name
 
 	M.loc = loc
+	M.movement_cooldown = 1
 
 	if(spawn_commander)
 		AttachUtilityCommanderTo(M)
