@@ -40,7 +40,7 @@
 
 	var/true_avoid = (avoid)
 
-	var/proc/true_adjproc = (isnull(adjproc) ? /proc/fCardinalTurfs : adjproc)
+	var/proc/true_adjproc = (isnull(adjproc) ? /proc/fCardinalTurfsNoblocksObjpermissive : adjproc)
 	var/proc/true_distproc = (isnull(distanceproc) ? DEFAULT_GOAI_DISTANCE_PROC : distanceproc)
 
 	var/list/path = src.AiAStar(
@@ -111,8 +111,9 @@
 	// DUPLICATED CODE FROM WAYPOINT.DM!!!
 	*/
 	var/path_pos = 0
-	var/obstruction_pos = 0
 	var/obstruction = null
+
+	var/turf/previous = null
 
 	for(var/turf/pathitem in dirty_path)
 		path_pos++
@@ -120,13 +121,18 @@
 		if(isnull(pathitem))
 			continue
 
-		if(path_pos <= 1)
+		if(isnull(previous) || path_pos <= 1)
+			previous = pathitem
 			continue
 
-		var/turf/previous = dirty_path[path_pos-1]
-
-		if(isnull(previous))
-			continue
+		if((pathitem.z != previous.z))
+			// on delta-Z, check adjacency - stairs and holes are pass-though, things like ladders are obstacles
+			// (in that we need to path *to* them and not *through* them)
+			var/list/prev_adjacents = fAdjacentTurfs(previous, FALSE, FALSE, FALSE, TRUE, TRUE)
+			if(!(pathitem in prev_adjacents))
+				// not covered by adjacency, so the movement is not 'smooth' (like stairs/open space/portal)
+				// but 'action-like' (like a ladder)
+				return path_pos
 
 		var/last_link_blocked = GoaiLinkBlocked(previous, pathitem)
 
@@ -147,7 +153,7 @@
 
 					if(blocks)
 						obstruction = potential_obstruction_curr
-						break
+						return path_pos
 
 			if(!obstruction && path_pos > 2) // check earlier steps
 				for(var/atom/movable/potential_obstruction_prev in previous.contents)
@@ -163,13 +169,14 @@
 
 					if(blocksPrev)
 						obstruction = potential_obstruction_prev
-						break
+						return path_pos - 1
 
 			break
 
-	obstruction_pos = path_pos
+		else
+			previous = pathitem
 
-	return obstruction_pos
+	return null
 
 
 /datum/utility_ai/mob_commander/proc/GetCurrentChunk()
@@ -187,8 +194,6 @@
 		trg,
 		min_dist,
 		avoid,
-		//adjproc = /proc/mCombatantAdjacents,
-		//adjargs = adjacency_args,
 		distanceproc = cost_function
 	)
 
@@ -217,7 +222,8 @@
 		src.brain.SetMemory(MEM_PATH_ACTIVE, pathtracker.path)
 
 	else
-		MOVEMENT_DEBUG_LOG("[src]: Could not build a pathtracker to [trg] @ [COORDS_TUPLE(get_turf(pawn))]")
+		var/turf/pawnloc = get_turf(pawn)
+		MOVEMENT_DEBUG_LOG("[src]: Could not build a pathtracker to [trg] @ [pawnloc] [COORDS_TUPLE(pawnloc)]")
 		src.brain.SetMemory("PendingMovementTarget", trg, 100)
 		return
 
@@ -283,8 +289,18 @@
 
 	step_result = true_pawn.DoMove(movedir, true_pawn, FALSE)
 
+	# ifdef GOAI_LIBRARY_FEATURES
 	if(step_result)
 		src.brain?.SetMemory("MyPrevLocation", curr_pos)
+		step_result = TRUE
+	# endif
+
+	# ifdef GOAI_SS13_SUPPORT
+	// DoMove returns zero on success in ss13
+	if(step_result == MOVEMENT_HANDLED)
+		src.brain?.SetMemory("MyPrevLocation", curr_pos)
+		step_result = TRUE
+	# endif
 
 	return step_result
 
