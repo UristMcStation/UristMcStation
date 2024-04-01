@@ -74,7 +74,7 @@
 #define IS_VALID_NON_NULL(X) (!(isnull(X)) && istype(X))
 #define PUT_EMPTY_LIST_IN(X) if(IS_VALID_NON_NULL(X)) { X.Cut() } else { X = list() }
 
-#define DEFAULT_GOAI_DISTANCE_PROC /proc/fTestObstacleDistFuzzed
+#define DEFAULT_GOAI_DISTANCE_PROC /proc/fTestObstacleDist
 
 #define DEBUG_LOG_LIST_ARRAY(L, LOGGER) for(var/_li_ in L) { LOGGER("[_li_]") }
 #define DEBUG_LOG_LIST_ASSOC(L, LOGGER) for(var/_li_ in L) { LOGGER("[_li_]: [L[_li_]]") }
@@ -204,7 +204,7 @@
 // Paths look ridiculous if you keep the cost the same as for vertical motion
 // (you get the nuCOM absurd athleticism of jumping up and down freely).
 // Custom costprocs can just Not Use This to support free-flying agents.
-#define ASTAR_ZMOVE_BASE_PENALTY 5
+#define ASTAR_ZMOVE_BASE_PENALTY 3
 
 /*
 // GOAI 'visibility' flags.
