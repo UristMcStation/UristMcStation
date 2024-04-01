@@ -40,4 +40,5 @@
 
 /obj/spawner/oneshot/New()
 	..()
-	qdel(src)
+	spawn(10)
+		qdel(src)

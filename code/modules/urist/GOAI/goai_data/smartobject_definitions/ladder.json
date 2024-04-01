@@ -14,7 +14,7 @@
 					"filter_output_key": "target"
 				}
 			],
-			"priority": 6, 
+			"priority": 10, 
 			"considerations": [
 				{
 					"name": "LadderNearby",
