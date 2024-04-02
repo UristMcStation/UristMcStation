@@ -11,6 +11,7 @@
 		/singleton/audio/track/chasing_time,
 		/singleton/audio/track/human,
 		/singleton/audio/track/lysendraa,
+		/singleton/audio/track/level3_mod,
 		/singleton/audio/track/rimward_cruise,
 		/singleton/audio/track/ambispace
 	)
