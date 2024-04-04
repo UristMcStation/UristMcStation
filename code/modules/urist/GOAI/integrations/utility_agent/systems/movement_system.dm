@@ -118,7 +118,9 @@
 
 				if(half_len > 6 && cand_dist > half_len)
 					// for long paths, try to cut down the linear search to a pseudo-binary one
+					#ifdef MOVEMENT_DEBUG_LOGGING
 					var/og_path_idx = path_idx
+					#endif
 					path_idx = min(path_idx, half_len)
 					half_len = max(6, CEIL((path_idx / 2)))
 					MOVEMENT_DEBUG_LOG("-> [pawn] MOVEMENT SYSTEM: far point [pathstep] @ [COORDS_TUPLE(pathstep)] - cutting down path_idx from [og_path_idx] => [path_idx] <-")
