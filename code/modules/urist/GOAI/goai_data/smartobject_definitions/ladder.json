@@ -31,13 +31,13 @@
 				{
 					"name": "IsOnPath",
 					"lo_mark": 0, 
-					"hi_mark": 2, 
+					"hi_mark": 1, 
 					"noise_scale": 0,
 					"input_proc": "/proc/consideration_input_is_on_path", 
 					"input_args": {
 						"input_key": "location",
 						"from_context": 1,
-						"default_on_null": 0,
+						"default_on_null": 0.25,
 						"minimum_distance_to_path_tile": 0
 					},
 					"curve_proc": "/proc/curve_linear"
