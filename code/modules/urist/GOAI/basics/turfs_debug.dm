@@ -12,7 +12,7 @@
 
 	return
 
-
+/*
 /turf/verb/CheckTurfBlockage()
 	set src in view(1)
 
@@ -46,3 +46,4 @@
 	to_chat(usr, "==================")
 
 	return
+*/

@@ -151,7 +151,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_is_on_path)
 		min_dist_to_path = 0
 
 	var/pos_key = consideration_args?["input_key"] || "position"
-	var/candidate = (from_ctx ? context[pos_key] : consideration_args[pos_key])
+	var/atom/candidate = (from_ctx ? context[pos_key] : consideration_args[pos_key])
 
 	if(isnull(candidate))
 		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_input_is_on_path Candidate is null @ L[__LINE__] in [__FILE__]")
@@ -162,12 +162,15 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_is_on_path)
 	if(isnull(path) || !istype(path))
 		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_input_is_on_path Path is null @ L[__LINE__] in [__FILE__]")
 		var/default_on_null = DEFAULT_IF_NULL(consideration_args?["default_on_null"], FALSE)
+		to_world_log("consideration_input_is_on_path Path is null @ L[__LINE__] in [__FILE__]")
 		return default_on_null
 
 	for(var/path_idx = (path?.len || 0) + 0, path_idx > 0, path_idx--)
 		var/turf/T = path[path_idx]
+		var/dist_to_path = MANHATTAN_DISTANCE_TWOD(T, candidate, PLUS_INF)
+		to_world_log("dist_to_path for path turf [T] ([COORDS_TUPLE(T)]) to [candidate] ([COORDS_TUPLE(candidate)]) is [dist_to_path] vs [min_dist_to_path]")
 
-		if(get_dist(T, candidate) <= min_dist_to_path)
+		if(dist_to_path <= min_dist_to_path)
 			return TRUE
 
 	return FALSE
