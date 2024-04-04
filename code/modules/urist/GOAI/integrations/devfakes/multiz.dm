@@ -120,8 +120,7 @@
 		return ..()
 
 	if(A && A.z == src.z)
-		var/cand_dir = get_dir(A, src)
-		if(src.above && cand_dir == src.dir)
+		if(src.above)
 			. = 1
 			spawn(0.5)
 				if(A in src.loc)

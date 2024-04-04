@@ -222,8 +222,10 @@
 		src.brain.SetMemory(MEM_PATH_ACTIVE, pathtracker.path)
 
 	else
+		#ifdef MOVEMENT_DEBUG_LOGGING
 		var/turf/pawnloc = get_turf(pawn)
 		MOVEMENT_DEBUG_LOG("[src]: Could not build a pathtracker to [trg] @ [pawnloc] [COORDS_TUPLE(pawnloc)]")
+		#endif
 		src.brain.SetMemory("PendingMovementTarget", trg, 100)
 		return
 
