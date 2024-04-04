@@ -279,8 +279,10 @@
 		var/turf/below = pitTurf.GetBelow()
 
 		if(below)
-			// fetch adjacents from where we'll land instead of the open space
-			return list(below)
+			// we'll fall through so the adjacent turf (the potential start for the next iteration) is where we *land*
+			adjacents.Add(below)
+			// early out, there cannot be any more adjacents because our only option is to fall through or not look at this turf at all
+			return adjacents
 		# endif
 
 		# ifdef GOAI_SS13_SUPPORT
@@ -304,6 +306,7 @@
 			adjacents.Add(Upstairs)
 			// ONLY add the upstairs in this direction
 			skipDirs |= Stair.dir
+			//return adjacents
 		# endif
 
 		# ifdef GOAI_SS13_SUPPORT

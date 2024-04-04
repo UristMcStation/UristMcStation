@@ -137,6 +137,7 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_adjacent_turfs)
 		filter_type = text2path(raw_type)
 		filter_output_key = context_args?["filter_output_key"]
 
+	// only output the filter value - mostly for adapting to procs that only take one arg
 	var/filter_only = context_args?["filter_only"] || FALSE
 
 	for(var/turf/pos in trangeGeneric(1, atom_requester.x, atom_requester.y, atom_requester.z))
@@ -187,6 +188,13 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_cardinal_turfs)
 	var/list/contexts = list()
 	var/context_key = context_args?["output_context_key"] || "position"
 	var/raw_type = context_args?[CTX_KEY_FILTERTYPE]
+
+	// only output the filter value - mostly for adapting to procs that only take one arg
+	var/filter_only = context_args?["filter_only"] || FALSE
+
+	// include starting tile in the list
+	var/add_current = context_args?["add_current"] || FALSE
+
 	var/filter_output_key = null
 
 	var/filter_type = null
@@ -195,7 +203,11 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_cardinal_turfs)
 		filter_type = text2path(raw_type)
 		filter_output_key = context_args?["filter_output_key"]
 
-	for(var/turf/pos in requester_tile.CardinalTurfs())
+	var/list/nearby_turfs = requester_tile.CardinalTurfs()
+	if(add_current)
+		nearby_turfs.Add(requester_tile)
+
+	for(var/turf/pos in nearby_turfs)
 		if(isnull(pos))
 			continue
 
@@ -209,7 +221,9 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_cardinal_turfs)
 			if(!isnull(filter_output_key))
 				ctx[filter_output_key] = found_type
 
-		ctx[context_key] = pos
+		if(!filter_only)
+			ctx[context_key] = pos
+
 		contexts[++(contexts.len)] = ctx
 		//UTILITYBRAIN_DEBUG_LOG("INFO: added position #[posidx] [pos] context [ctx] (len: [ctx?.len]) to contexts (len: [contexts.len]) @ L[__LINE__] in [__FILE__]!")
 
