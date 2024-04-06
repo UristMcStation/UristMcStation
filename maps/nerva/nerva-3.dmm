@@ -13713,7 +13713,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/ship_map,
+/obj/machinery/ship_map{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/hallway/fore/second_deck)
 "Bm" = (
@@ -13725,7 +13727,9 @@
 	dir = 10;
 	icon_state = "corner_white"
 	},
-/obj/machinery/ship_map,
+/obj/machinery/ship_map{
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/second_deck)
 "Bt" = (
@@ -17117,7 +17121,9 @@
 	dir = 9;
 	icon_state = "corner_white"
 	},
-/obj/machinery/ship_map,
+/obj/machinery/ship_map{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/aft/second_deck)
 "RF" = (

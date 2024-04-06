@@ -3706,7 +3706,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/ship_map,
 /turf/simulated/floor/tiled/monotile,
 /area/hallway/centralfirst)
 "hC" = (

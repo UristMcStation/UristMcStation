@@ -28260,9 +28260,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/aft/third_deck)
 "euF" = (
-/obj/machinery/ship_map{
-	dir = 1
-	},
+/obj/machinery/ship_map,
 /turf/simulated/floor/wood/walnut,
 /area/civilian/bar)
 "eyp" = (
@@ -30351,9 +30349,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/ship_map{
-	dir = 1
-	},
+/obj/machinery/ship_map,
 /turf/simulated/floor/tiled,
 /area/hallway/fore/third_deck)
 "puU" = (
@@ -31358,6 +31354,14 @@
 /obj/machinery/reagentgrinder,
 /turf/simulated/floor/tiled/white,
 /area/civilian/kitchen)
+"vim" = (
+/obj/effect/floor_decal/corner/lightgrey{
+	dir = 5;
+	icon_state = "corner_white"
+	},
+/obj/machinery/ship_map,
+/turf/simulated/floor/tiled,
+/area/hallway/fore/third_deck)
 "vkW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
@@ -56439,7 +56443,7 @@ ayp
 cXI
 ayp
 brf
-wpN
+vim
 ujt
 aGE
 hNR
