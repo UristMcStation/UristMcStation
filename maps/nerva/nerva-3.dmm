@@ -5283,6 +5283,7 @@
 	dir = 2;
 	icon_state = "camera"
 	},
+/obj/machinery/ship_map,
 /turf/simulated/floor/wood/walnut,
 /area/civilian/dorms)
 "ke" = (
@@ -10962,6 +10963,7 @@
 	dir = 1;
 	icon_state = "bulb1"
 	},
+/obj/machinery/ship_map,
 /turf/simulated/floor/tiled/dark,
 /area/civilian/observatory)
 "uK" = (
@@ -13711,12 +13713,21 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/ship_map,
 /turf/simulated/floor/plating,
 /area/hallway/fore/second_deck)
 "Bm" = (
 /obj/item/material/shard,
 /turf/simulated/floor/plating,
 /area/civilian/observatory)
+"Bn" = (
+/obj/effect/floor_decal/corner/lightgrey{
+	dir = 10;
+	icon_state = "corner_white"
+	},
+/obj/machinery/ship_map,
+/turf/simulated/floor/tiled,
+/area/hallway/aft/second_deck)
 "Bt" = (
 /turf/simulated/wall/false{
 	density = 1;
@@ -17097,6 +17108,18 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/security/boardarmoury)
+"RE" = (
+/obj/effect/floor_decal/urist/nervalogo{
+	dir = 1;
+	icon_state = "nerva2"
+	},
+/obj/effect/floor_decal/corner/lightgrey{
+	dir = 9;
+	icon_state = "corner_white"
+	},
+/obj/machinery/ship_map,
+/turf/simulated/floor/tiled,
+/area/hallway/aft/second_deck)
 "RF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/plating,
@@ -38143,7 +38166,7 @@ GK
 Ps
 hF
 ik
-jh
+RE
 Ah
 Ah
 Ah
@@ -41383,7 +41406,7 @@ ma
 nS
 hH
 pB
-Az
+Bn
 rr
 CU
 th

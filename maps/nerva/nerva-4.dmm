@@ -3706,6 +3706,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/ship_map,
 /turf/simulated/floor/tiled/monotile,
 /area/hallway/centralfirst)
 "hC" = (
@@ -8807,6 +8808,14 @@
 	dir = 4;
 	icon_state = "corner_white"
 	},
+/turf/simulated/floor/tiled,
+/area/hallway/centralfirst)
+"zw" = (
+/obj/effect/floor_decal/corner/lightgrey{
+	dir = 5;
+	icon_state = "corner_white"
+	},
+/obj/machinery/ship_map,
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
 "AB" = (
@@ -28869,7 +28878,7 @@ qk
 qk
 qk
 qk
-Ym
+zw
 aQ
 bi
 bt
