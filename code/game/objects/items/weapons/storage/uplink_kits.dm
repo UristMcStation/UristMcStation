@@ -55,6 +55,7 @@
 		/obj/item/clothing/head/helmet/space/void/merc,
 		/obj/item/clothing/mask/gas/syndicate,
 		/obj/item/tank/oxygen_emergency_double,
+		/obj/item/device/suit_cooling_unit
 		)
 
 // Chameleon uplink kit
