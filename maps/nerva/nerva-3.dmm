@@ -13722,16 +13722,6 @@
 /obj/item/material/shard,
 /turf/simulated/floor/plating,
 /area/civilian/observatory)
-"Bn" = (
-/obj/effect/floor_decal/corner/lightgrey{
-	dir = 10;
-	icon_state = "corner_white"
-	},
-/obj/machinery/ship_map{
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/aft/second_deck)
 "Bt" = (
 /turf/simulated/wall/false{
 	density = 1;
@@ -41412,7 +41402,7 @@ ma
 nS
 hH
 pB
-Bn
+Az
 rr
 CU
 th
