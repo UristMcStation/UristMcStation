@@ -121,3 +121,106 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	containertype = /obj/structure/closet/crate/secure
 	containername = "cloning verification disk crate"
 	access = access_medical_equip
+
+/singleton/hierarchy/supply_pack/livecargo/opossom
+	name = "Opossum Crate"
+	contains = list(/mob/living/simple_animal/passive/opossum)
+	cost = 30
+	newcargocost = 55 // 2500th on Nerva
+	containertype = /obj/structure/largecrate/animal/opossum
+	containername = "Opossum Crate"
+
+/singleton/hierarchy/supply_pack/custodial/replacement_janicart
+	name = "Replacement Janitorial Cart"
+	contains = list(/obj/structure/janitorialcart)
+	cost = 10
+	newcargocost = 20 //900th on Nerva
+	containertype = /obj/structure/largecrate
+	containername = "replacement janitorial cart"
+
+/singleton/hierarchy/supply_pack/flooring/magenta
+	name = "Magenta carpet"
+	contains = list(/obj/item/stack/tile/carpetmagenta)
+	cost = 10
+	newcargocost = 15 //675th on Nerva
+	containertype = /obj/structure/closet/crate
+	containername = "magenta carpet crate"
+
+/singleton/hierarchy/supply_pack/flooring/poolturf
+	name = "Pool flooring"
+	contains = list(/obj/item/stack/tile/pool)
+	cost = 10
+	newcargocost = 30 // 1350th on Nerva
+	containertype = /obj/structure/closet/crate/secure
+	containername = "pool flooring crate"
+
+/singleton/hierarchy/supply_pack/flooring/walnut
+	name = "Walnut wooden flooring"
+	contains = list(/obj/item/stack/tile/walnut)
+	cost = 10
+	newcargocost = 15 //675th on Nerva
+	containertype = /obj/structure/closet/crate/secure
+	containername = "walnut wooden flooring crate"
+
+/singleton/hierarchy/supply_pack/flooring/mahogany
+	name = "Mahogany wooden flooring"
+	contains = list(/obj/item/stack/tile/mahogany)
+	cost = 10
+	newcargocost = 15 //675th on Nerva
+	containertype = /obj/structure/closet/crate/secure
+	containername = "mahogany wooden flooring crate"
+
+/singleton/hierarchy/supply_pack/flooring/maple
+	name = "Maple wooden flooring"
+	contains = list(/obj/item/stack/tile/maple)
+	cost = 10
+	newcargocost = 15 //675th on Nerva
+	containertype = /obj/structure/closet/crate/secure
+	containername = "maple wooden flooring crate"
+
+/singleton/hierarchy/supply_pack/flooring/ebony
+	name = "Ebony wooden flooring"
+	contains = list(/obj/item/stack/tile/ebony)
+	cost = 10
+	newcargocost = 15 //675th on Nerva
+	containertype = /obj/structure/closet/crate/secure
+	containername = "ebony wooden flooring crate"
+
+/singleton/hierarchy/supply_pack/flooring/bamboo
+	name = "Bamboo wooden flooring"
+	contains = list(/obj/item/stack/tile/bamboo)
+	cost = 10
+	newcargocost = 15 //675th on Nerva
+	containertype = /obj/structure/closet/crate/secure
+	containername = "bamboo wooden flooring crate"
+
+/singleton/hierarchy/supply_pack/flooring/yew
+	name = "Yew wooden flooring"
+	contains = list(/obj/item/stack/tile/yew)
+	cost = 10
+	newcargocost = 15 //675th on Nerva
+	containertype = /obj/structure/closet/crate/secure
+	containername = "yew wooden flooring crate"
+
+/singleton/hierarchy/supply_pack/security/uniform_crate
+	name = "Security uniform crate"
+	contains = list(/obj/item/clothing/accessory/armband,
+					/obj/item/storage/backpack/messenger/sec,
+					/obj/item/storage/backpack/security,
+					/obj/item/clothing/glasses/hud/security/prot/sunglasses,
+					/obj/item/clothing/gloves/thick,
+					/obj/item/clothing/glasses/hud/security/prot,
+					/obj/item/clothing/accessory/storage/black_vest,
+					/obj/item/storage/belt/security,
+					/obj/item/storage/belt/holster/security,
+					/obj/item/clothing/under/urist/nerva/secfield,
+					/obj/item/clothing/under/urist/nerva/secregular,
+					/obj/item/device/radio/headset/nerva_sec/alt,
+					/obj/item/device/radio/headset/nerva_sec,
+					/obj/item/clothing/suit/urist/armor/nerva/sec // Only the older vest, no plate carriers.
+					)
+	cost = 20
+	newcargocost = 32 //1440th on Nerva
+	containertype = /obj/structure/closet/crate/secure
+	access = access_security
+	containername = "securuty uniform crate"
