@@ -127,7 +127,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	contains = list(/mob/living/simple_animal/passive/opossum)
 	cost = 30
 	newcargocost = 55 // 2500th on Nerva
-	containertype = /obj/structure/largecrate/animal/opossum
+	containertype = /obj/structure/largecrate
 	containername = "Opossum Crate"
 
 /singleton/hierarchy/supply_pack/custodial/replacement_janicart
@@ -143,7 +143,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	contains = list(/obj/item/stack/tile/carpetmagenta)
 	cost = 10
 	newcargocost = 15 //675th on Nerva
-	containertype = /obj/structure/closet/crate
+	containertype = /obj/structure/closet/crate/secure
 	containername = "magenta carpet crate"
 
 /singleton/hierarchy/supply_pack/flooring/poolturf
@@ -223,4 +223,4 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	newcargocost = 32 //1440th on Nerva
 	containertype = /obj/structure/closet/crate/secure
 	access = access_security
-	containername = "securuty uniform crate"
+	containername = "security uniform crate"
