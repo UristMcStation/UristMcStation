@@ -213,17 +213,17 @@
 	if(isnull(file_actionset))
 		local_cache_miss = TRUE
 
-		if(isnull(actionset_file_cache))
-			actionset_file_cache = list()
+		if(isnull(GOAI_LIBBED_GLOB_ATTR(actionset_file_cache)))
+			GOAI_LIBBED_GLOB_ATTR(actionset_file_cache) = list()
 
-		file_actionset = actionset_file_cache[filename]
+		file_actionset = GOAI_LIBBED_GLOB_ATTR(actionset_file_cache)[filename]
 
 		if(isnull(file_actionset))
 			global_cache_miss = TRUE
 
 	if(global_cache_miss)
 		file_actionset = ActionSetFromJsonFile(filename)
-		actionset_file_cache[filename] = file_actionset
+		GOAI_LIBBED_GLOB_ATTR(actionset_file_cache)[filename] = file_actionset
 
 		if(local_cache_miss)
 			src.file_actionsets[filename] = file_actionset

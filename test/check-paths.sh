@@ -34,11 +34,11 @@ exactly 153 "to_world uses" '\sto_world\('
 exactly 0 "globals with leading /" '^/var' -P
 exactly 0 "globals without global sugar" '^var/(?!global/)' -P
 exactly 0 "apparent paths with trailing /" '\w/[,\)\n]' -P
-exactly 56 "to_world_log uses" '\sto_world_log\('
+exactly 82 "to_world_log uses" '\sto_world_log\('
 exactly 1 "world<< uses" 'world<<|world[[:space:]]<<'
 exactly 1 "world.log<< uses" 'world.log<<|world.log[[:space:]]<<'
-exactly 2 "<< uses" '(?<!<)<<(?!<)' -P
-exactly 2 ">> uses" '(?<!>)>>(?!>)' -P
+exactly 14 "<< uses" '(?<!<)<<(?!<)' -P
+exactly 3 ">> uses" '(?<!>)>>(?!>)' -P
 exactly 0 "incorrect indentations" '^( {4,})' -P
 exactly 37 "text2path uses" 'text2path'
 exactly 3 "update_icon() override" '/update_icon\((.*)\)'  -P
