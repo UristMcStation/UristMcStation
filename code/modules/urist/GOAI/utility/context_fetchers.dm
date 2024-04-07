@@ -52,16 +52,14 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_get_tagged_target)
 
 	if(isnull(tag_to_find))
 		UTILITYBRAIN_DEBUG_LOG("WARNING: tag for ctxfetcher_get_tagged_target is null @ L[__LINE__] in [__FILE__]!")
-		to_world("WARNING: tag for ctxfetcher_get_tagged_target is null @ L[__LINE__] in [__FILE__]!")
+		GOAI_LOG_ERROR("WARNING: tag for ctxfetcher_get_tagged_target is null @ L[__LINE__] in [__FILE__]!")
 		return null
 
 	var/context_key = context_args["output_context_key"] || "position"
 	var/target = locate(tag_to_find)
-	to_world("Locating [tag_to_find], found [target] @ L[__LINE__] in [__FILE__]!")
 
 	if(isnull(tag_to_find))
 		UTILITYBRAIN_DEBUG_LOG("WARNING: could not locate tagged entity for ctxfetcher_get_tagged_target @ L[__LINE__] in [__FILE__]!")
-		to_world("WARNING: could not locate tagged entity for ctxfetcher_get_tagged_target @ L[__LINE__] in [__FILE__]!")
 		return null
 
 	var/list/ctx = list()

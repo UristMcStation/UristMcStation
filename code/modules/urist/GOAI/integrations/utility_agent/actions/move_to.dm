@@ -116,7 +116,7 @@
 		RUN_ACTION_DEBUG_LOG("Pawn is null | <@[src]> | [__FILE__] -> L[__LINE__]")
 		return
 
-	to_world("[pawn] is running to [position] [COORDS_TUPLE(position)]")
+	GOAI_LOG_DEVEL_WORLD("[pawn] is running to [position] [COORDS_TUPLE(position)]")
 
 	src.allow_wandering = TRUE
 

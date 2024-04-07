@@ -144,7 +144,7 @@
 					//
 					// That said, the amount of evaluated Contexts should be kept tightly constrained.
 					// Only fetch contexts that are likely to be a) relevant & b) executed.
-					to_world_log("ScoreAction context: [ctx]")
+					UTILITYBRAIN_DEBUG_LOG("ScoreAction context: [ctx]")
 					var/subctx_idx = 0
 					for(var/subctx in ctx)
 						subctx_idx++

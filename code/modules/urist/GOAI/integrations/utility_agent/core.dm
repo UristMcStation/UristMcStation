@@ -13,7 +13,8 @@
 	var/list/senses_index // assoc, used for quick lookups/access only
 
 	// Private-ish, generally only debug procs should touch these
-	var/ai_tick_delay = UTILITYAI_AI_TICK_DELAY
+	var/base_ai_tick_delay = UTILITYAI_AI_TICK_DELAY // this is the base value, should
+	var/ai_tick_delay = UTILITYAI_AI_TICK_DELAY // this is the actually used sleep; == base_ai_tick_delay + rand()
 	var/senses_tick_delay = COMBATAI_SENSE_TICK_DELAY
 
 	// what time to wake the AI up for the next tick
