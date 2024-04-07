@@ -4,7 +4,13 @@
 // Reading and parsing files is expensive, cache it.
 // This will be a lazily instantiated assoc list.
 // Remember to clear the cache item if you want to do a refresh!
-var/list/global/actionset_file_cache = null
+# ifdef GOAI_LIBRARY_FEATURES
+var/global/list/actionset_file_cache
+# endif
+
+# ifdef GOAI_SS13_SUPPORT
+GLOBAL_LIST_EMPTY(actionset_file_cache)
+# endif
 
 
 /datum/action_set
