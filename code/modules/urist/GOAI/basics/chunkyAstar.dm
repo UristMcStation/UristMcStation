@@ -96,7 +96,7 @@
 	return dist
 
 
-/proc/ChunkyAStar(var/start, var/end, var/proc/adjacent, var/proc/dist, var/max_nodes = 0, var/max_node_depth = 30, var/min_target_dist = 0, var/proc/min_node_dist, var/list/adj_args = null, var/exclude)
+/proc/ChunkyAStar(var/start, var/end, var/adjacent, var/dist, var/max_nodes = 0, var/max_node_depth = 30, var/min_target_dist = 0, var/min_node_dist, var/list/adj_args = null, var/exclude)
 	/* Finds a 'high-level' path between turfchunks.
 	//
 	// This path can then be 'refined' to produce a turf-by-turf path for actual atoms
@@ -105,6 +105,16 @@
 	// This is the general pattern of all Hierarchical AStar variant algorithms (HPAStar.
 	// HAAStar, PRAStar) and, as a rule, both accelerates the algorithm massively and conserves
 	// memory for Very Very Long paths (can deal with 10k+ long paths!).
+	//
+	// - start: Atom; starting point of the search (auto-resolved to a turf)
+	// - end: Atom; target of the search (auto-resolved to a turf)
+	// - adjacent: PROC! Function-style proc generating turfs adjacent to currently inspected turf.
+	// - dist: PROC! Function-style proc returning a distance metric between turfs.
+	// - max_nodes: Optional<Int>; If >0, bounds the number of stored search nodes to the given value (Beam Search/SMA* flavor of AStar)
+	// - max_node_depth: Optional<Int>; If >0, limits the search depth
+	// - min_target_dist: Optional<Int>; Minimum distance value (as returned by the dist proc earlier) that counts as 'goal reached'. Default: 0.
+	// - adj_args: Optional<assoc>; Args to pass to the adjacent arg's proc, if any.
+	// - exclude: Optional<datum>; Ignored adjacents. Pretty useless tbh. Blame legacy code.
 	*/
 
 	// IMPORTANT: max depth etc. have slightly different semantics here!

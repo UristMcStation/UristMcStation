@@ -33,7 +33,7 @@
 	//var/cut_link = owner?.brain?.GetMemoryValue("BadStartTile", null)
 
 	for(var/adj in base_adjs)
-		if(cut_link && src == cut_link)
+		if(cut_link && S == cut_link)
 			continue
 
 		out_adjs.Add(adj)
