@@ -160,7 +160,7 @@ X================================================================X
 
 /proc/hash_goap_state(var/list/state) // assoc -> str
 	// Used for transposition tables.
-	// We want to skip equivalent plans, e.g. "Get<B> -> Get<A> -> Foo" == "Get<A> -> Get<B> -> Foo"
+	// We want to skip equivalent plans, e.g. "Get[B] -> Get[A] -> Foo" == "Get[A] -> Get[B] -> Foo"
 	// We don't care about the ordering if it's equivalent, and retaining such duplicates slows planning down significantly.
 	// To do that, we need to have a way to check output states for any ordering.
 	// We'll do that by just sorting keys alphabetically then stringifying them + value.
