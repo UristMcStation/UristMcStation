@@ -14,9 +14,9 @@
 
 	for(var/turf/T in result_turfs)
 		result_no++
-		usr << "TestTperimeter result [result_no]: [T]"
+		to_chat(usr, "TestTperimeter result [result_no]: [T]")
 
-	usr << " "
+	to_chat(usr, " ")
 	return
 
 
@@ -38,7 +38,7 @@
 
 	for(var/turf/T in result_turfs)
 		result_no++
-		usr << "TestTperimeter result [result_no]: [T]"
+		to_chat(usr, "TestTperimeter result [result_no]: [T]")
 
-	usr << " "
+	to_chat(usr, " ")
 	return
