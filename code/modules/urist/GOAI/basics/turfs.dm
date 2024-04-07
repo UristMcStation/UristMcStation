@@ -18,8 +18,8 @@
 
 
 /turf/wall
-	density = 1
-	opacity = 1
+	density = TRUE
+	opacity = TRUE
 	icon = 'icons/urist/turf/walls.dmi'
 	icon_state = "stone0"
 

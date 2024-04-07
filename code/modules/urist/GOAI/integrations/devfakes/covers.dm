@@ -7,7 +7,7 @@
 	// Abstract Base Class, do not use directly!
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "woodenbarricade"
-	density = 1
+	density = TRUE
 
 
 /obj/cover/proc/Setup()
