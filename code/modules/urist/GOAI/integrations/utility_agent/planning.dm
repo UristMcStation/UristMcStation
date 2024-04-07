@@ -28,8 +28,6 @@
 // TL;DR - all the strategic power of GOAP with the speed and flexibility of Utility AI.
 */
 
-# define GOAPPLAN_ACTIONSET_PATH "goai_data/smartobject_definitions/goapplan.json"
-
 // DYNAMIC QUERY SYNTAX: <Querytype>:<Typeval>@<Target>=><Outkey> WHERE
 // - Querytype: what kind of query this is, e.g. 'type' for type matching
 // - Typeval: what exactly are we searching for in this querytype, e.g. '/foo/bar' to find typesof /foo/bar'

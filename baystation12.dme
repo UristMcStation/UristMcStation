@@ -3445,6 +3445,7 @@
 #include "code\modules\urist\GOAI\__goai_ss13_support.dm"
 #include "code\modules\urist\GOAI\_b_debug_modules.dm"
 #include "code\modules\urist\GOAI\_defines.dm"
+#include "code\modules\urist\GOAI\_paths.dm"
 #include "code\modules\urist\GOAI\_utility_defines.dm"
 #include "code\modules\urist\GOAI\demoGoap.dm"
 #include "code\modules\urist\GOAI\helpers.dm"

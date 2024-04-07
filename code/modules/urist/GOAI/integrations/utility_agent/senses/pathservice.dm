@@ -94,8 +94,6 @@
 */
 
 
-# define MOVEPATH_ACTIONSET_PATH "goai_data/smartobject_definitions/movepath.json"
-
 /datum/path_smartobject
 	// optional-ish, identifier for debugging:
 	var/name
