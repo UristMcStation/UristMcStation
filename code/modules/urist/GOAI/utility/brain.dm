@@ -34,8 +34,8 @@
 
 
 
-/datum/brain/utility/proc/ShouldCleanup()
-	. = FALSE
+/datum/brain/utility/ShouldCleanup()
+	. = ..()
 
 	if(src.cleanup_detached_threshold < 0)
 		return FALSE
@@ -46,7 +46,7 @@
 	return
 
 
-/datum/brain/utility/proc/CheckForCleanup()
+/datum/brain/utility/CheckForCleanup()
 	. = ..()
 
 	if(.)

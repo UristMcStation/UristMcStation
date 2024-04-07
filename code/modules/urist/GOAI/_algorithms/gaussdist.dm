@@ -105,9 +105,9 @@
 
 var/global/distribution/gauss/GaussSampler
 
-# define LAZY_REBUILD_SAMPLER (GaussSampler || new /distribution/gauss())
-# define rand_gauss(mean, stddev) (LAZY_REBUILD_SAMPLER)?.sample(mean, stddev)
-# define rand_gauss_standard(mean) (LAZY_REBUILD_SAMPLER)?.sample(mean, 1)
+# define LAZY_REBUILD_SAMPLER (global.GaussSampler = (global.GaussSampler || new /distribution/gauss()))
+# define rand_gauss(mean, stddev) (LAZY_REBUILD_SAMPLER && global.GaussSampler?.sample(mean, stddev))
+# define rand_gauss_standard(mean) rand_gauss(mean, 1)
 
 // infinite gamma sampling-loop breaker tripwire value
 # define GAMMADIST_MAX_TRIES 1000
@@ -165,8 +165,8 @@ var/global/distribution/gauss/GaussSampler
 
 var/global/distribution/gamma/GammaSampler
 
-# define LAZY_REBUILD_SAMPLER_GAMMA (GammaSampler || new /distribution/gamma())
-# define rand_gamma(alpha) (LAZY_REBUILD_SAMPLER_GAMMA)?.sample(alpha)
+# define LAZY_REBUILD_SAMPLER_GAMMA (global.GammaSampler = (global.GammaSampler || new /distribution/gamma()))
+# define rand_gamma(alpha) (LAZY_REBUILD_SAMPLER_GAMMA && global.GammaSampler?.sample(alpha))
 
 
 /distribution/beta
@@ -195,5 +195,5 @@ var/global/distribution/gamma/GammaSampler
 
 var/global/distribution/beta/BetaSampler
 
-# define LAZY_REBUILD_SAMPLER_BETA (BetaSampler || new /distribution/beta())
-# define rand_beta(a, b) (LAZY_REBUILD_SAMPLER_BETA)?.sample(a, b)
+# define LAZY_REBUILD_SAMPLER_BETA (global.BetaSampler = (global.BetaSampler || new /distribution/beta()))
+# define rand_beta(a, b) (LAZY_REBUILD_SAMPLER_BETA && global.BetaSampler?.sample(a, b))

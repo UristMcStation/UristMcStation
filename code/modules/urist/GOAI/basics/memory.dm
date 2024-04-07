@@ -57,6 +57,8 @@
 
 /datum/memory/proc/ConvertToArraymem()
 	// Converts a simple memory Mem<val=Val> to a Mem<val=list[Mem<val=Val>]> memory
+	RETURN_TYPE(/datum/memory)
+
 	var/datum/memory/submemory = new(src.val, src.ttl)
 	submemory.created_time = src.created_time
 
