@@ -4,57 +4,57 @@ Temporary disable - gets in the way in the dropdown
 /turf/verb/TestLinRegTo()
 	set src in view()
 
-	usr << " "
-	usr << "SRC: [src], USR: [usr]"
+	to_chat(usr, " ")
+	to_chat(usr, "SRC: [src], USR: [usr]")
 	var/result = LinRegress(AtomToVector2d(usr), AtomToVector2d(src))
-	usr << "LinReg result to [src]: [result]"
-	usr << " "
+	to_chat(usr, "LinReg result to [src]: [result]")
+	to_chat(usr, " ")
 	return result
 */
 
 /turf/verb/TestAngleTo()
 	set src in view()
 
-	usr << " "
-	usr << "SRC: [src], USR: [usr]"
+	to_chat(usr, " ")
+	to_chat(usr, "SRC: [src], USR: [usr]")
 	var/coeff = LinRegress(AtomToVector2d(usr), AtomToVector2d(src))
 	var/angle = arctan(coeff)
-	usr << "AngleTo result to [src]: [angle]"
-	usr << " "
+	to_chat(usr, "AngleTo result to [src]: [angle]")
+	to_chat(usr, " ")
 	return angle
 
 
 /turf/verb/TestEuclidOffsetTo(dist as num)
 	set src in view()
 
-	usr << " "
-	usr << "SRC: [src], USR: [usr]"
+	to_chat(usr, " ")
+	to_chat(usr, "SRC: [src], USR: [usr]")
 	var/Vector2d/result = GetEuclidStepOffset(AtomToVector2d(usr), AtomToVector2d(src), dist)
-	usr << "GetEuclidStepOffset result to [src]: [result] ([result.x], [result.y])"
+	to_chat(usr, "GetEuclidStepOffset result to [src]: [result] ([result.x], [result.y])")
 	return result
 
 
 /turf/verb/TestEuclidStepToRaw(dist as num)
 	set src in view()
 
-	usr << " "
-	usr << "SRC: [src], USR: [usr]"
+	to_chat(usr, " ")
+	to_chat(usr, "SRC: [src], USR: [usr]")
 	var/Vector2d/result = GetEuclidStepPos(AtomToVector2d(usr), AtomToVector2d(src), dist)
-	usr << "GetEuclidStepPos result to [src]: [result] ([result.x], [result.y])"
-	usr << " "
+	to_chat(usr, "GetEuclidStepPos result to [src]: [result] ([result.x], [result.y])")
+	to_chat(usr, " ")
 	return result
 
 
 /turf/verb/TestEuclidStepToTurf(dist as num)
 	set src in view()
 
-	usr << " "
-	usr << "SRC: [src], USR: [usr]"
+	to_chat(usr, " ")
+	to_chat(usr, "SRC: [src], USR: [usr]")
 	var/Vector2d/result = GetEuclidStepPos(AtomToVector2d(usr), AtomToVector2d(src), dist)
 	var/atom/out_pos = CoordsToTurf(result, src.z)
 
-	usr << "CoordsToTurf result: [out_pos]"
-	usr << " "
+	to_chat(usr, "CoordsToTurf result: [out_pos]")
+	to_chat(usr, " ")
 	return out_pos
 
 
@@ -62,13 +62,13 @@ Temporary disable - gets in the way in the dropdown
 	set src in view()
 
 	var/total_dist = EuclidDistance(usr, src)
-	usr << " "
-	usr << "SRC: [src], USR: [usr], DIST: [total_dist]"
+	to_chat(usr, " ")
+	to_chat(usr, "SRC: [src], USR: [usr], DIST: [total_dist]")
 
 	var/true_steps = max(1, abs(steps))
 	var/stepsize = total_dist / true_steps
-	usr << "STEPSIZE: [stepsize]"
-	usr << ""
+	to_chat(usr, "STEPSIZE: [stepsize]")
+	to_chat(usr, "")
 
 	var/starting_z = usr.z  // in case usr changes z-levels during calculation, we copy by value here
 
@@ -87,17 +87,17 @@ Temporary disable - gets in the way in the dropdown
 			terminated = TRUE
 
 		var/Vector2d/step_result = GetEuclidStepPos(curr_pos, targ_pos, curr_step_size)
-		usr << "GetEuclidStepPos result TO [targ_pos] ([targ_pos.x], [targ_pos.y]) @ STEP [curr_step_size]: [step_result] ([step_result.x], [step_result.y])"
+		to_chat(usr, "GetEuclidStepPos result TO [targ_pos] ([targ_pos.x], [targ_pos.y]) @ STEP [curr_step_size]: [step_result] ([step_result.x], [step_result.y])")
 
 		curr_turf = CoordsToTurf(step_result, starting_z)
 
-		usr << "CoordsToTurf result FROM [step_result] ([step_result.x], [step_result.y]) TO [targ_pos] ([targ_pos.x], [targ_pos.y]): [curr_turf]"
-		usr << " "
+		to_chat(usr, "CoordsToTurf result FROM [step_result] ([step_result.x], [step_result.y]) TO [targ_pos] ([targ_pos.x], [targ_pos.y]): [curr_turf]")
+		to_chat(usr, " ")
 
 		if(terminated)
 			break
 
-	usr << " "
+	to_chat(usr, " ")
 	return
 
 
@@ -110,11 +110,11 @@ Temporary disable - gets in the way in the dropdown
 		result.pDrawVectorbeam(usr, result)
 		result.pDrawVectorbeam(usr, src, "n_beam")
 
-	usr << "Hit [result]"
+	to_chat(usr, "Hit [result]")
 
-	usr << " "
+	to_chat(usr, " ")
 	return
 
 
 /mob/verb/CheckAtan(var/x as num)
-	usr << "Atan [x] == [arctan(x)]"
+	to_chat(usr, "Atan [x] == [arctan(x)]")

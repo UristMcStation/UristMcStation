@@ -210,7 +210,7 @@
 //
 // NOTE: Do NOT try to over-optimize and set something as e.g. not VIEWABLE because it's not LONGLIVED - the whole
 //       reason those flags are separate is because there might be cases where you do want to allow one without the
-         other. It's on the API user to check both are set if they need both.
+//       other. It's on the API user to check both are set if they need both.
 */
 
 // Exists in the 'normal plane', as opposed to ghosts, AI-eyes, spawners, etc.
