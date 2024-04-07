@@ -36,6 +36,7 @@
 
 
 /obj/cover/New()
+	. = ..()
 	Setup()
 	GenerateCoverData()
 	UpdateIcon()
