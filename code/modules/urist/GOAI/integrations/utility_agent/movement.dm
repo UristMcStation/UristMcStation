@@ -40,8 +40,8 @@
 
 	var/true_avoid = (avoid)
 
-	var/proc/true_adjproc = (isnull(adjproc) ? /proc/fCardinalTurfsNoblocksObjpermissive : adjproc)
-	var/proc/true_distproc = (isnull(distanceproc) ? DEFAULT_GOAI_DISTANCE_PROC : distanceproc)
+	var/true_adjproc = (isnull(adjproc) ? /proc/fCardinalTurfsNoblocksObjpermissive : adjproc)
+	var/true_distproc = (isnull(distanceproc) ? DEFAULT_GOAI_DISTANCE_PROC : distanceproc)
 
 	var/list/path = src.AiAStar(
 		start = get_turf(pawn.loc),

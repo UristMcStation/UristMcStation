@@ -135,8 +135,8 @@
 		MOVEMENT_DEBUG_LOG("Failed to retrieve a ChunkServer for ChunkyAStar()")
 		return
 
-	var/proc/true_adjproc = (isnull(adjacent) ? /proc/fChunkAdjacent : adjacent)
-	var/proc/true_distproc = (isnull(dist) ? /proc/fChunkDistance : dist)
+	var/true_adjproc = (isnull(adjacent) ? /proc/fChunkAdjacent : adjacent)
+	var/true_distproc = (isnull(dist) ? /proc/fChunkDistance : dist)
 
 	var/datum/chunk/startchunk = chunkServer.ChunkForAtom(startturf)
 	var/datum/chunk/endchunk = chunkServer.ChunkForAtom(endturf)

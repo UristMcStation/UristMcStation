@@ -155,6 +155,15 @@
 	return states
 
 
+/* Stubs. Should implement properly in the subclasses! */
+/datum/brain/proc/ShouldCleanup()
+	return FALSE
+
+
+/datum/brain/proc/CheckForCleanup()
+	return FALSE
+
+
 /datum/brain/proc/Life()
 	/* Something like the commented-out block below *SHOULD* be here as it's a base class
 	// but since this runs an infinite ticker loop, I didn't want to waste CPU cycles running
