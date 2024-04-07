@@ -79,12 +79,12 @@ PathNode
 		nodes_traversed = _nodes_traversed
 
 
-proc/PathWeightCompare(PathNode/a, PathNode/b)
+/proc/PathWeightCompare(PathNode/a, PathNode/b)
 	return a.estimated_cost - b.estimated_cost
 
 # endif
 
-proc/GoaiAStar(var/start, var/end, var/adjacent, var/dist, var/max_nodes, var/max_node_depth = 30, var/min_target_dist = 0, var/min_node_dist, var/list/adj_args = null, var/exclude)
+/proc/GoaiAStar(var/start, var/end, var/adjacent, var/dist, var/max_nodes, var/max_node_depth = 30, var/min_target_dist = 0, var/min_node_dist, var/list/adj_args = null, var/exclude)
 	/* AStar pathfinding algorithm. For SS13 purposes, this is essentially my (scrdest's) fork of the OG SS13 AStar for merge-compatibility.
 	// Compability with the legacy SS13 AStar is NOT guaranteed nor is it a goal.
 	//
