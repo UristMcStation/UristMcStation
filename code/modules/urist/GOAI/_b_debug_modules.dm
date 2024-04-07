@@ -4,7 +4,7 @@
 // Uncomment defines as needed to enable various loggers.
 
 # ifdef ENABLE_DEBUG_LOG_MACROS
-
+	# define DEMOGOAP_DEBUG_LOGGING 0
 	//# define DEBUG_LOGGING 0
 	// # define RAYTRACE_DEBUG_LOGGING 0
 	// # define ADD_ACTION_DEBUG_LOGGING 0
@@ -181,4 +181,10 @@
 # define ACTIONTRACKER_DEBUG_LOG(X) to_world_log(X)
 # else
 # define ACTIONTRACKER_DEBUG_LOG(X)
+# endif
+
+# ifdef DEMOGOAP_DEBUG_LOGGING
+# define DEMOGOAP_DEBUG_LOG(X) to_world_log(X)
+# else
+# define DEMOGOAP_DEBUG_LOG(X)
 # endif

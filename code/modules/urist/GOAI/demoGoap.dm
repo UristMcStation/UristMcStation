@@ -1,10 +1,3 @@
-# define DEMOGOAP_DEBUG_LOGGING 0
-
-# ifdef DEMOGOAP_DEBUG_LOGGING
-# define DEMOGOAP_DEBUG_LOG(X) world.log << X
-# else
-# define DEMOGOAP_DEBUG_LOG(X)
-# endif
 
 // Demo implementation
 /datum/GOAP/demoGoap

@@ -20,11 +20,11 @@
 	// - end: Atom; target of the search (auto-resolved to a turf)
 	// - adjacent: PROC! Function-style proc generating turfs adjacent to currently inspected turf.
 	// - dist: PROC! Function-style proc returning a distance metric between turfs.
-	// - max_nodes: Optional<Int>; If >0, bounds the number of stored search nodes to the given value (Beam Search/SMA* flavor of AStar)
-	// - max_node_depth: Optional<Int>; If >0, limits the search depth
-	// - min_target_dist: Optional<Int>; Minimum distance value (as returned by the dist proc earlier) that counts as 'goal reached'. Default: 0.
-	// - adj_args: Optional<assoc>; Args to pass to the adjacent arg's proc, if any.
-	// - exclude: Optional<datum>; Ignored adjacents. Pretty useless tbh. Blame legacy code.
+	// - max_nodes: Optional[Int]; If >0, bounds the number of stored search nodes to the given value (Beam Search/SMA* flavor of AStar)
+	// - max_node_depth: Optional[Int]; If >0, limits the search depth
+	// - min_target_dist: Optional[Int]; Minimum distance value (as returned by the dist proc earlier) that counts as 'goal reached'. Default: 0.
+	// - adj_args: Optional[assoc]; Args to pass to the adjacent arg's proc, if any.
+	// - exclude: Optional[datum]; Ignored adjacents. Pretty useless tbh. Blame legacy code.
 	*/
 	var/PriorityQueue/open = new /PriorityQueue(/proc/PathWeightCompare)
 	var/list/closed = list()
