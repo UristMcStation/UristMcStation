@@ -138,7 +138,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_candidate_in_brain_list)
 
 	if(!istype(memory))
 		// Throw an error if the memory is not a list
-		to_world_log("ERROR: Wrong memory type: [json_encode(memory)] ([memory])!")
+		GOAI_LOG_ERROR("ERROR: Wrong memory type: [json_encode(memory)] ([memory])!")
 		ASSERT(istype(memory))
 
 	for(var/item in memory)

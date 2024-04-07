@@ -55,6 +55,85 @@
 	var/allow_nudging = TRUE
 
 	while(pending_checks --> 0)
+		var/do_path_following = (allow_path_following && !isnull(src.active_path) && !src.active_path.IsDone())
+
+		if(do_path_following)
+			// Path-following mode:
+			MOVEMENT_DEBUG_LOG("-> [pawn] MOVEMENT SYSTEM: IN PATH-FOLLOWING MODE <-")
+
+			var/atom/next_step = src.active_path.path[src.active_path.curr_offset]
+			var/atom/destination = src.active_path.path[src.active_path.path.len]
+
+			var/turf/prev_draw_pos = null
+
+			for(var/turf/drawpos in src.active_path.path)
+				// debug path drawing
+				if(!isnull(prev_draw_pos))
+					drawpos.pDrawVectorbeam(prev_draw_pos, drawpos, "g_beam")
+
+				prev_draw_pos = drawpos
+
+			if(isnull(curr_loc))
+				allow_path_following = FALSE
+				pending_checks++
+				continue
+
+			if(next_step.z != curr_loc.z)
+				allow_path_following = FALSE
+				pending_checks++
+				continue
+
+			// Score potential steps for steering purposes
+			var/list/cardinals = fCardinalTurfs(curr_loc)
+
+			cardinals.Add(curr_loc)
+
+			if(isnull(cardinals))
+				allow_path_following = FALSE
+				pending_checks++
+				continue
+
+			var/bestscore = null
+
+			for(var/turf/raw_cardturf in cardinals)
+				// score should be a float between 0 and 1, ultimately
+				// it's effectively a less-flexible, mini-Utility-AI
+				var/turf/cardturf = raw_cardturf
+
+				if(cardturf.density)
+					continue
+
+				if(cardturf == banturf)
+					continue
+
+				var/dirscore = PLUS_INF
+
+				var/next_score = MANHATTAN_DISTANCE(cardturf, next_step)
+				var/dest_score = MANHATTAN_DISTANCE(cardturf, destination)
+				var/stillness_penalty = 0
+
+				if(get_dist(cardturf, curr_loc) < 1)
+					stillness_penalty = prob(20)
+
+				dirscore = min(next_score, dest_score)
+				//dirscore = next_score
+				dirscore += stillness_penalty
+				dirscore += rand() * 0.01
+				//dirscore += src.active_path.frustration * (0.5 + rand())
+
+				//MOVEMENT_DEBUG_LOG("Score for [cardturf] is [dirscore], best: [bestscore] for [bestcand] | <@[src]> | [__FILE__] -> L[__LINE__]")
+
+				if(isnull(bestscore) || dirscore < bestscore)
+					bestscore = dirscore
+					bestcand = cardturf
+
+				if(next_score == 0)
+					new_path_offset = (src.active_path.curr_offset + 1)
+
+		else
+			// the conditions here are immutable between loops, so we'll set allow to false to save on checks
+			// because of short-circuiting, this will only need to check a single boolean on a re-do
+			allow_path_following = FALSE
 
 		var/do_steering = (allow_steering && isnull(bestcand) && curr_path)
 
@@ -149,86 +228,6 @@
 			// the conditions here are immutable between loops, so we'll set allow to false to save on checks
 			// because of short-circuiting, this will only need to check a single boolean on a re-do
 			allow_steering = FALSE
-
-		var/do_path_following = (allow_path_following && !isnull(src.active_path) && !src.active_path.IsDone())
-
-		if(do_path_following)
-			// Path-following mode:
-			MOVEMENT_DEBUG_LOG("-> [pawn] MOVEMENT SYSTEM: IN PATH-FOLLOWING MODE <-")
-
-			var/atom/next_step = src.active_path.path[src.active_path.curr_offset]
-			var/atom/destination = src.active_path.path[src.active_path.path.len]
-
-			var/turf/prev_draw_pos = null
-
-			for(var/turf/drawpos in src.active_path.path)
-				// debug path drawing
-				if(!isnull(prev_draw_pos))
-					drawpos.pDrawVectorbeam(prev_draw_pos, drawpos, "g_beam")
-
-				prev_draw_pos = drawpos
-
-			if(isnull(curr_loc))
-				allow_path_following = FALSE
-				pending_checks++
-				continue
-
-			if(next_step.z != curr_loc.z)
-				allow_path_following = FALSE
-				pending_checks++
-				continue
-
-			// Score potential steps for steering purposes
-			var/list/cardinals = fCardinalTurfs(curr_loc)
-
-			cardinals.Add(curr_loc)
-
-			if(isnull(cardinals))
-				allow_path_following = FALSE
-				pending_checks++
-				continue
-
-			var/bestscore = null
-
-			for(var/turf/raw_cardturf in cardinals)
-				// score should be a float between 0 and 1, ultimately
-				// it's effectively a less-flexible, mini-Utility-AI
-				var/turf/cardturf = raw_cardturf
-
-				if(cardturf.density)
-					continue
-
-				if(cardturf == banturf)
-					continue
-
-				var/dirscore = PLUS_INF
-
-				var/next_score = MANHATTAN_DISTANCE(cardturf, next_step)
-				var/dest_score = MANHATTAN_DISTANCE(cardturf, destination)
-				var/stillness_penalty = 0
-
-				if(get_dist(cardturf, curr_loc) < 1)
-					stillness_penalty = prob(20)
-
-				dirscore = min(next_score, dest_score)
-				//dirscore = next_score
-				dirscore += stillness_penalty
-				dirscore += rand() * 0.01
-				//dirscore += src.active_path.frustration * (0.5 + rand())
-
-				//MOVEMENT_DEBUG_LOG("Score for [cardturf] is [dirscore], best: [bestscore] for [bestcand] | <@[src]> | [__FILE__] -> L[__LINE__]")
-
-				if(isnull(bestscore) || dirscore < bestscore)
-					bestscore = dirscore
-					bestcand = cardturf
-
-				if(next_score == 0)
-					new_path_offset = (src.active_path.curr_offset + 1)
-
-		else
-			// the conditions here are immutable between loops, so we'll set allow to false to save on checks
-			// because of short-circuiting, this will only need to check a single boolean on a re-do
-			allow_path_following = FALSE
 
 		var/do_nudging = (src.allow_wandering ? (allow_nudging && isnull(bestcand) && prob(20)) : FALSE)
 

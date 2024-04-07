@@ -94,7 +94,7 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_get_memory_value_array)
 		return list()
 
 	if(!istype(raw_memory_val))
-		to_world_log("raw_memory_val is invalid: [raw_memory_val]")
+		GOAI_LOG_ERROR("ERROR: raw_memory_val is invalid: [raw_memory_val]")
 		ASSERT(istype(raw_memory_val))
 
 	var/list/memory_val = null
@@ -135,11 +135,11 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_get_memory_value_array)
 	// Basic filter for typechecking items are subtypes of the specified type
 
 	if(isnull(item))
-		to_world_log("WARNING: typecheck_filter input item is null, returning FALSE! @ L[__LINE__] in [__FILE__]")
+		GOAI_LOG_ERROR("WARNING: typecheck_filter input item is null, returning FALSE! @ L[__LINE__] in [__FILE__]")
 		return FALSE
 
 	if(isnull(filterargs))
-		to_world_log("WARNING: typecheck_filter filterargs are null, returning FALSE! @ L[__LINE__] in [__FILE__]")
+		GOAI_LOG_ERROR("WARNING: typecheck_filter filterargs are null, returning FALSE! @ L[__LINE__] in [__FILE__]")
 		return FALSE
 
 	var/target_type = filterargs["target_type"]
@@ -147,11 +147,11 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_get_memory_value_array)
 		target_type = text2path(target_type)
 
 	if(isnull(target_type))
-		to_world_log("WARNING: typecheck_filter target_type is null, returning FALSE! @ L[__LINE__] in [__FILE__]")
+		GOAI_LOG_ERROR("WARNING: typecheck_filter target_type is null, returning FALSE! @ L[__LINE__] in [__FILE__]")
 		return FALSE
 
 	if(!istype(item))
-		to_world_log("WARNING: typecheck_filter input item is not a datum subclass and therefore not a valid target, returning FALSE! @ L[__LINE__] in [__FILE__]")
+		GOAI_LOG_ERROR("WARNING: typecheck_filter input item is not a datum subclass and therefore not a valid target, returning FALSE! @ L[__LINE__] in [__FILE__]")
 		return FALSE
 
 	var/strict = filterargs["strict"] || FALSE

@@ -108,7 +108,7 @@
 // it won't be stuck trying to run the eternal sleep
 #define MAX_AI_SLEEPTIME 100
 
-#define WITH_UTILITY_SLEEPTIME_STAGGER(X) ((##X) + (rand() - 0.4))
+#define WITH_UTILITY_SLEEPTIME_STAGGER(X) ((##X) + (2 * (rand() - 0.4)))
 
 
 /* ===   CHEAT_SEE_WAYPOINT_TURF:   ===

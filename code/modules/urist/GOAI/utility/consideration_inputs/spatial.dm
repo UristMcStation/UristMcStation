@@ -195,14 +195,12 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_raytrace_impactee_distanc
 
 	if(isnull(requester_ai))
 		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_input_raytrace_impactee_distance_to_target requester_ai is null ([requester_ai || "null"]) @ L[__LINE__] in [__FILE__]")
-		to_world_log("consideration_input_in_line_of_sight requester_ai is null ([requester_ai || "null"]) @ L[__LINE__] in [__FILE__]")
 		return null
 
 	var/mob/pawn = requester_ai?.GetPawn()
 
 	if(isnull(pawn))
 		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_input_raytrace_impactee_distance_to_target Pawn is null @ L[__LINE__] in [__FILE__]")
-		to_world_log("consideration_input_raytrace_impactee_distance_to_target Pawn is null @ L[__LINE__] in [__FILE__]")
 		return null
 
 	var/default = consideration_args["default"] || PLUS_INF

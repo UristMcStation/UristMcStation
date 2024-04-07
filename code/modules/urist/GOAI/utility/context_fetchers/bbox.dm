@@ -28,20 +28,20 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxdeco_bounding_box_turfs_around_objects)
 	var/wrapped_proc_raw = context_args["wrapped_proc"]
 	if(isnull(wrapped_proc_raw))
 		// no wrapped proc - cannot work
-		to_world("/proc/ctxdeco_bounding_box_turfs - NO PROC")
+		GOAI_LOG_ERROR("/proc/ctxdeco_bounding_box_turfs - NO PROC")
 		return
 
 	var/wrapped_proc = STR_TO_PROC(wrapped_proc_raw)
 	if(isnull(wrapped_proc))
 		// no wrapped proc - cannot work
-		to_world("/proc/ctxdeco_bounding_box_turfs - NO PROC")
+		GOAI_LOG_ERROR("/proc/ctxdeco_bounding_box_turfs - NO PROC")
 		return
 
 	var/list/wrapped_proc_args = context_args["wrapped_proc_args"] || list()
 
 	var/list/wrapper_contexts = call(wrapped_proc)(parent, requester, wrapped_proc_args)
 	if(!istype(wrapper_contexts))
-		to_world("/proc/ctxdeco_bounding_box_turfs - NO CONTEXTS")
+		GOAI_LOG_ERROR("/proc/ctxdeco_bounding_box_turfs - NO CONTEXTS")
 		return
 
 	// where the wrapped proc dumps the thing we want to bbox around
@@ -81,7 +81,7 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxdeco_bounding_box_turfs_around_objects)
 		var/atom/unwrapped_input = input_context[unwrap_target_key]
 
 		if(!istype(unwrapped_input))
-			to_world("/proc/ctxdeco_bounding_box_turfs - bad input [unwrapped_input] for [unwrap_target_key]")
+			GOAI_LOG_ERROR("/proc/ctxdeco_bounding_box_turfs - bad input [unwrapped_input] for [unwrap_target_key]")
 			continue
 
 		if(isnull(minx) || unwrapped_input.x < minx)
