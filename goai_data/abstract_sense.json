@@ -1,6 +1,0 @@
-{
-	"sense_index_key": "sofetcher_abstract_path",
-	"enabled": 1,
-	"in_memory_key": "AbstractSmartPath",
-	"out_memory_key": "SmartPaths"
-}
