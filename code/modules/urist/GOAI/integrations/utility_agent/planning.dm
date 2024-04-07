@@ -355,48 +355,21 @@
 	var/desc = "plan for order: [json_encode(src.goal_state)]"
 
 	var/datum/utility_action_template/new_action_template = new(
-		// considerations
-		considerations,
-
-		// handler
-		/datum/utility_ai/mob_commander/proc/PlanForGoal,
-
-		// handler_type
-		HANDLERTYPE_SRCMETHOD,
-
-		// ctxprocs
-		ctxprocs,
-
-		// context_args
-		context_args,
-
-		// priority
-		3,
-
-		// charges
-		2,
-
-		// instant
-		FALSE,
-
-		// hard_args
-		hard_args,
-
-		// action_key
-		action_key,
-
-		// act_description
-		desc,
-
-		// instant
-		TRUE,
-
-		// GOAP stuff:
-		// preconds
-		null,
-
-		// effects
-		null
+		considerations, //considerations,
+		/datum/utility_ai/mob_commander/proc/PlanForGoal, //handler,
+		HANDLERTYPE_SRCMETHOD, //handler_type,
+		ctxprocs, //ctxprocs,
+		context_args, //context_args,
+		3, //priority,
+		2, //charges,
+		FALSE, //instant,
+		hard_args, //hard_args,
+		action_key, //action_key,
+		desc, //act_description,
+		TRUE, // instant,
+		// GOAP stuff
+		null, //preconds,
+		null //effects
 	)
 
 	var/used_name = (src.name || desc)
