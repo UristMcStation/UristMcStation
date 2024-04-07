@@ -3,8 +3,6 @@
 
 // Uncomment defines as needed to enable various loggers.
 
-# define MOVEMENT_DEBUG_LOGGING 0
-
 # ifdef ENABLE_DEBUG_LOG_MACROS
 
 	//# define DEBUG_LOGGING 0
@@ -30,13 +28,32 @@
 	# define UTILITYBRAIN_LOG_CONSIDERATION_INPUTS 0
 	# define UTILITYBRAIN_LOG_AXIS_SCORES 0
 	//# define UTILITYBRAIN_LOG_CURVE_INPUTS 0
-	//# define DEBUG_UTILITY_MEMORY_QUERIES 1
-	//# define DEBUG_UTILITY_INPUT_FETCHERS 1
+	//# define DEBUG_UTILITY_MEMORY_QUERIES 0
+	//# define DEBUG_UTILITY_INPUT_FETCHERS 0
+	//# define PLANNING_CONSIDERATIONS_DEBUG_LOGGING 0
 
-# endif
+#endif
+
+#define ENABLE_GOAI_DEVEL_LOGGING 1
+#define ENABLE_GOAI_ERROR_LOGGING 1
 /* ============================================= */
 
-// Meta-definition for compile-time-conditional logging
+// Meta-definitions for compile-time-conditional logging
+
+#ifdef ENABLE_GOAI_DEVEL_LOGGING
+	#define GOAI_LOG_DEVEL(Msg) to_world_log(Msg)
+	#define GOAI_LOG_DEVEL_WORLD(Msg) to_world(Msg)
+#else
+	#define GOAI_LOG_DEVEL(Msg)
+	#define GOAI_LOG_DEVEL_WORLD(Msg)
+#endif
+
+#ifdef ENABLE_GOAI_ERROR_LOGGING
+	#define GOAI_LOG_ERROR(Msg) to_world_log(Msg)
+#else
+	#define GOAI_LOG_ERROR(Msg)
+#endif
+
 # ifdef UTILITYBRAIN_DEBUG_LOGGING
 	# define UTILITYBRAIN_DEBUG_LOG(X) to_world_log(X)
 # else
@@ -122,7 +139,6 @@
 # define PLANNING_DEBUG_LOG(X)
 # endif
 
-
 # ifdef DEBUG_UTILITY_INPUT_FETCHERS
 # define DEBUGLOG_UTILITY_INPUT_FETCHERS(X) to_world_log(X)
 # define DEBUGLOG_UTILITY_INPUT_CATCH(X) catch(X)
@@ -153,4 +169,16 @@
 # define GOAP_DEBUG_LOG(TXT) MAYBE_LOG(TXT)
 # else
 # define GOAP_DEBUG_LOG(TXT)
+# endif
+
+# ifdef PLANNING_CONSIDERATIONS_DEBUG_LOGGING
+# define PLANNING_CONSIDERATIONS_LOG(TXT)  to_world(TXT); to_world_log(TXT)
+# else
+# define PLANNING_CONSIDERATIONS_LOG(TXT)
+# endif
+
+# ifdef ACTIONTRACKER_DEBUG_LOGGING
+# define ACTIONTRACKER_DEBUG_LOG(X) to_world_log(X)
+# else
+# define ACTIONTRACKER_DEBUG_LOG(X)
 # endif

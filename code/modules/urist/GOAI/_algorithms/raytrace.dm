@@ -229,7 +229,7 @@
 
 	if((_raytype == RAYTYPE_UNSTOPPABLE))
 		// no point checking the rest
-		to_world_log("RAYTRACE: Ray is unstoppable, returning FALSE")
+		RAYTRACE_DEBUG_LOG("RAYTRACE: Ray is unstoppable, returning FALSE")
 		return FALSE
 
 	var/baseX = round(x, 1)
@@ -248,44 +248,44 @@
 			// Optimization: only check membership if we NEED to potentially ignore it
 			// Non-dense items are ignored regardless!
 			if(has_ignored && !(blockturf in ignored))
-				to_world_log("RAYTRACE: Returning dense turf blocker [blockturf]")
+				RAYTRACE_DEBUG_LOG("RAYTRACE: Returning dense turf blocker [blockturf]")
 				return blockturf
 
 		for(var/atom/movable/A in blockturf)
 			if(!isnull(target) && A == target)
-				to_world_log("RAYTRACE: Returning target blocker [A]")
+				RAYTRACE_DEBUG_LOG("RAYTRACE: Returning target blocker [A]")
 				return A
 
 			// Optimization: only check membership if we NEED to potentially ignore it
 			// Non-dense items are ignored regardless!
 			if(has_ignored && (A in ignored))
-				to_world_log("RAYTRACE: Ignoring ignorelist item [A]")
+				RAYTRACE_DEBUG_LOG("RAYTRACE: Ignoring ignorelist item [A]")
 				continue
 
 			if(A.density && check_dense_objects)
 				if(A.opacity)
 					if(!check_opaque)
-						to_world_log("RAYTRACE: Skipping opaque object [A] since check_opaque is [check_opaque]")
+						RAYTRACE_DEBUG_LOG("RAYTRACE: Skipping opaque object [A] since check_opaque is [check_opaque]")
 						continue
 
 				else if(!check_transparent)
-					to_world_log("RAYTRACE: Skipping opaque object [A] since check_transparent is [check_transparent]")
+					RAYTRACE_DEBUG_LOG("RAYTRACE: Skipping opaque object [A] since check_transparent is [check_transparent]")
 					continue
 
 				if(!(_raytype & RAYFLAG_RANDCOVERBLOCK) && (A.raycast_block_all != RAYCAST_BLOCK_ALL))
 					// Skip partial covers if we don't care about that
-					to_world_log("RAYTRACE: Skipping partial cover object [A] since A.raycast_block_all is [A.raycast_block_all]")
+					RAYTRACE_DEBUG_LOG("RAYTRACE: Skipping partial cover object [A] since A.raycast_block_all is [A.raycast_block_all]")
 					continue
 
 				if(!(A.GetRaycastCoverage(angle)))
 					// Atoms can have a random %chance to act as a blocker.
-					to_world_log("RAYTRACE: Skipping partial cover object [A] since RNGesus decided it's not a cover today for angle [angle]")
+					RAYTRACE_DEBUG_LOG("RAYTRACE: Skipping partial cover object [A] since RNGesus decided it's not a cover today for angle [angle]")
 					continue
 
 				return A
 
 			else
-				to_world_log("RAYTRACE: Skipping non-dense object [A] since check_opaque is [check_opaque] and check_transparent is [check_transparent]")
+				RAYTRACE_DEBUG_LOG("RAYTRACE: Skipping non-dense object [A] since check_opaque is [check_opaque] and check_transparent is [check_transparent]")
 
 	return null
 
