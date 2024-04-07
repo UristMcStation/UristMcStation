@@ -74,7 +74,7 @@
 		UTILITYBRAIN_DEBUG_LOG("WARNING: no Handler bound to Action [src.name] @ L[__LINE__] in [__FILE__]!")
 	# endif
 
-/datum/utility_action_template/proc/GetCandidateContexts(var/requester) // Optional<Any> -> Optional<array<assoc>>
+/datum/utility_action_template/proc/GetCandidateContexts(var/requester) // Optional[Any] -> Optional[array[assoc] ]
 	/*
 	// A mostly-convenience-API for fetching all *RELEVANT* contexts.
 	// Little more than a wrapper over a dispatch to the bound proc.
@@ -106,7 +106,7 @@
 	return contexts
 
 
-/datum/utility_action_template/proc/ScoreAction(var/datum/utility_action_template/action_template, var/list/context, var/requester) // (</datum/utility_action_template>, Optional<assoc>, Optional<Any>) -> float
+/datum/utility_action_template/proc/ScoreAction(var/datum/utility_action_template/action_template, var/list/context, var/requester) // ([/datum/utility_action_template], Optional[assoc], Optional[Any]) -> float
 	// Evaluates the Utility of a potential Action in the given context.
 	// One Action might have different Utility for different Contexts.
 	// As such, we can check multiple combinations of Template + Context and only turn the best into true Actions.
@@ -121,7 +121,7 @@
 	return utility
 
 
-/datum/utility_action_template/proc/ToAction(var/list/bound_context, var/handler_override = null, var/handlertype_override = null, var/charges_override = null, var/instant_override = null, var/list/hard_args_override) // (Optional<assoc>, Optional<proc_ref>, Optional<num>, Optional<bool>, Optional<assoc>) -> UtilityAction
+/datum/utility_action_template/proc/ToAction(var/list/bound_context, var/handler_override = null, var/handlertype_override = null, var/charges_override = null, var/instant_override = null, var/list/hard_args_override) // (Optional[assoc], Optional[proc_ref], Optional[num], Optional[bool], Optional[assoc]) -> UtilityAction
 	// Turns a template into a concrete Action for the Agent to run; effectively an Action factory.
 	var/action_name = src.name // todo bind args here too
 	var/handler = DEFAULT_IF_NULL(handler_override, src.handler)

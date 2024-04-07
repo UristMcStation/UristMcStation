@@ -99,7 +99,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_mean)
 		var/subresult = call(aggregated_proc)(action_template, recycleable_subctx_list, requester, subargs)
 
 		if(isnull(subresult))
-			world.log << "ERROR: subresult for consideration_decorator_mean is null for [aggregated_proc]([action_template], [json_encode(recycleable_subctx_list)], [requester], [json_encode(subargs)])! @ [__LINE__] in [__FILE__]"
+			GOAI_LOG_ERROR("ERROR: subresult for consideration_decorator_mean is null for [aggregated_proc]([action_template], [json_encode(recycleable_subctx_list)], [requester], [json_encode(subargs)])! @ [__LINE__] in [__FILE__]")
 			continue
 
 		value += subresult
