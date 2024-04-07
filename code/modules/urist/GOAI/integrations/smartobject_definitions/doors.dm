@@ -14,11 +14,11 @@ GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_PROXIMITY_CHEBYSHEV(/obj/cover/autodoor, 1)
 # ifdef GOAI_SS13_SUPPORT
 
 /* Plain Old Doors */
-GOAI_ACTIONSET_FROM_FILE_BOILERPLATE(/obj/machinery/door/unpowered, "goai_data/smartobject_definitions/ss13_door.json")
+GOAI_ACTIONSET_FROM_FILE_BOILERPLATE(/obj/machinery/door/unpowered, "code/modules/urist/GOAI/goai_data/smartobject_definitions/ss13_door.json")
 GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_PROXIMITY_CHEBYSHEV(/obj/cover/door, 1)
 
 /* Autodoors */
-GOAI_ACTIONSET_FROM_FILE_BOILERPLATE(/obj/machinery/door/airlock, "goai_data/smartobject_definitions/ss13_autodoor.json")
+GOAI_ACTIONSET_FROM_FILE_BOILERPLATE(/obj/machinery/door/airlock, "code/modules/urist/GOAI/goai_data/smartobject_definitions/ss13_autodoor.json")
 GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_PROXIMITY_CHEBYSHEV(/obj/machinery/door/airlock, 1)
 
 # endif
