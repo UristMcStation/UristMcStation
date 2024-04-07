@@ -373,7 +373,7 @@
 
 
 /* PERSONALITY TEMPLATES */
-/proc/PersonalityTemplateFromData(var/list/data) // array<assoc<str, str|float>> -> dict<str: float>
+/proc/PersonalityTemplateFromData(var/list/data) // array<assoc<str, str|float> > -> dict<str: float>
 	var/list/personality = list()
 
 	var/list/_data = istype(data) ? data : list()
