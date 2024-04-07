@@ -32,7 +32,8 @@
 		return
 
 	for(var/datum/utility_ai/ai in GOAI_LIBBED_GLOB_ATTR(global_goai_registry))
-		ai.ai_tick_delay = max(1, rate)
+		ai.base_ai_tick_delay = max(1, rate)
+		ai.ai_tick_delay = ai.base_ai_tick_delay
 		ai.waketime = (world.time + ai.ai_tick_delay)
 
 	to_chat(usr, "Set global Utility AI tickrate to [rate]")

@@ -18,8 +18,6 @@
 	if(get_dist(O, src) > 1)
 		return ..()
 
-	to_world("[O] Hit Enter on [src] @ ([src.x], [src.y], [src.z])")
-
 	var/turf/below = src.GetBelow()
 
 	if(!below)

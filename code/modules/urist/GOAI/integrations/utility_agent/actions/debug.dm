@@ -8,7 +8,7 @@
 	if(tracker.IsStopped())
 		return
 
-	to_world("PrintArg action from [src] - printarg is: [printarg || "null"]")
+	GOAI_LOG_DEVEL_WORLD("PrintArg action from [src] - printarg is: [printarg || "null"]")
 
 	tracker.SetDone()
 	return

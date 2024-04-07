@@ -44,7 +44,6 @@
 
 	if((!src.active_path || src.active_path.target != targloc))
 		var/datum/ActivePathTracker/stored_path = StartNavigateTo(target, min_dist, null, max_mindist = 3)
-		to_world("Tool stored_path = [stored_path]")
 
 		if(isnull(stored_path))
 			tracker.SetFailed()

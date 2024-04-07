@@ -1,9 +1,3 @@
-# ifdef ACTIONTRACKER_DEBUG_LOGGING
-# define ACTIONTRACKER_DEBUG_LOG(X) to_world_log(X)
-# else
-# define ACTIONTRACKER_DEBUG_LOG(X)
-# endif
-
 
 /datum/ActionTracker
 	var/datum/goai_action/tracked_action
