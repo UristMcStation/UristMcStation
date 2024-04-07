@@ -78,7 +78,7 @@
 
 # endif
 
-/datum/utility_ai/mob_commander/proc/Shoot(var/obj/item/gun/cached_gun = null, var/atom/cached_target = null, var/datum/aim/cached_aim = null)
+/datum/utility_ai/mob_commander/proc/Shoot(var/obj/item/gun/cached_gun = null, var/atom/cached_target = null)
 	. = FALSE
 
 	var/atom/pawn = src.GetPawn()
@@ -144,7 +144,7 @@
 	return .
 
 
-/datum/utility_ai/mob_commander/proc/Melee(var/atom/cached_target = null, var/datum/aim/cached_aim = null)
+/datum/utility_ai/mob_commander/proc/Melee(var/atom/cached_target = null)
 	. = FALSE
 
 	var/atom/pawn = src.GetPawn()

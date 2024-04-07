@@ -89,9 +89,6 @@
 // e.g. for X=10 Expected Value of this rand() is 0.1, so it's a +/- 10% discount (0.9-1.1)
 # define RAND_PERCENT_MULT(X) ((1 - (X/100)) + ((rand(0, 20*X)/1000)))
 
-# define SET_IF_NOT_NULL(Nullable, Var) if(!(isnull(Nullable))) { ##Var = Nullable }
-# define DEFAULT_IF_NULL(Nullable, Default) (isnull(Nullable) ? Default : Nullable)
-
 # define SENSE_COVERLEAP_WAYFINDER "SenseCoverleapWayfinder"
 
 # define HANDLERTYPE_SRCMETHOD 0
