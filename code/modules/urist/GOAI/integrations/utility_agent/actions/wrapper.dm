@@ -164,14 +164,13 @@
 		_func_args[location_key] = location
 
 	if(is_func)
-		to_world("====>Calling wrapped [ai_proc]([json_encode(_func_args)])!")
 		call(true_ai_proc)(arglist(_func_args))
 		tracker.SetDone()
 		return
 
 	_func_args["tracker"] = tracker
 
-	to_world("====>Calling wrapped .[ai_proc]([json_encode(_func_args)])!")
+	GOAI_LOG_DEVEL_WORLD("====>Calling wrapped .[ai_proc]([json_encode(_func_args)])!")
 	call(src, true_ai_proc)(arglist(_func_args))
 
 	return

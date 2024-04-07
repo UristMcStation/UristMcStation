@@ -131,7 +131,7 @@
 
 /proc/CoordsToTurf(var/Vector2d/coords, var/z_level = 1)
 	if(isnull(coords))
-		to_world_log("CoordsToTurf: null coords!")
+		GOAI_LOG_ERROR("ERROR: CoordsToTurf: null coords!")
 		return
 
 	var/x_pos = coords.x
@@ -139,7 +139,7 @@
 	var/z_pos = z_level
 
 	if(isnull(x_pos) || isnull(y_pos) || isnull(z_pos))
-		to_world_log("CoordsToTurf: null position!")
+		GOAI_LOG_ERROR("ERROR: CoordsToTurf: null position!")
 		return
 
 	var/adj_x_pos = FLOOR(x_pos)

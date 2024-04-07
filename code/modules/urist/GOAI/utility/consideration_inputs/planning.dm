@@ -1,6 +1,4 @@
 
-# define PLANNING_CONSIDERATIONS_LOG(x)
-//# define PLANNING_CONSIDERATIONS_LOG(x) to_world(x); to_world_log(x)
 
 CONSIDERATION_CALL_SIGNATURE(/proc/consideration_actiontemplate_preconditions_met)
 	// Retrieves Preconditions from the candidate ActionTemplate object.

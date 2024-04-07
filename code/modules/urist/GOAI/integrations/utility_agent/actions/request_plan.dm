@@ -84,7 +84,7 @@
 	// Fails if no Plan was found
 	// Otherwise, creates a Utility-friendly SmartObject to deal with execution
 
-	to_world("<><>Running PlanForGoal<><>")
+	PLANNING_DEBUG_LOG("<><>Running PlanForGoal<><>")
 
 	if(isnull(tracker))
 		RUN_ACTION_DEBUG_LOG("Tracker position is null | <@[src]> | [__FILE__] -> L[__LINE__]")
@@ -129,7 +129,7 @@
 	tracker.SetDone()
 
 	// temp devshit, will probably regret it again
-	to_world_log("Nulling out SmartOrders! | <@[src]> | [__FILE__] -> L[__LINE__]")
+	GOAI_LOG_DEVEL("Nulling out SmartOrders! | <@[src]> | [__FILE__] -> L[__LINE__]")
 	src.brain.SetMemory("SmartOrders", null)
 	return
 

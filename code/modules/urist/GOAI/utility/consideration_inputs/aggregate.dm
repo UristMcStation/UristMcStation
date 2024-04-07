@@ -66,7 +66,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_mean)
 	var/aggregated_proc = STR_TO_PROC(aggregated_proc_raw)
 
 	if(isnull(aggregated_proc))
-		to_world_log("ERROR: Invalid proc: [aggregated_proc_raw]! @ [__LINE__] in [__FILE__]")
+		GOAI_LOG_ERROR("ERROR: Invalid proc: [aggregated_proc_raw]! @ [__LINE__] in [__FILE__]")
 		return
 
 	if(isnull(aggregated_proc))
@@ -168,7 +168,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_mean_kalman)
 	var/cutoff_mincount = consideration_args?["cutoff_mincount"] || 0
 
 	if(isnull(aggregated_proc))
-		to_world_log("ERROR: Invalid proc: [aggregated_proc_raw]! @ [__LINE__] in [__FILE__]")
+		GOAI_LOG_ERROR("ERROR: Invalid proc: [aggregated_proc_raw]! @ [__LINE__] in [__FILE__]")
 		return
 
 	if(isnull(aggregated_proc))
@@ -261,7 +261,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_min)
 	var/aggregated_proc = STR_TO_PROC(aggregated_proc_raw)
 
 	if(isnull(aggregated_proc))
-		to_world_log("ERROR: Invalid proc: [aggregated_proc_raw]! @ [__LINE__] in [__FILE__]")
+		GOAI_LOG_ERROR("ERROR: Invalid proc: [aggregated_proc_raw]! @ [__LINE__] in [__FILE__]")
 		return
 
 	if(isnull(aggregated_proc))
@@ -347,7 +347,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_max)
 	var/aggregated_proc = STR_TO_PROC(aggregated_proc_raw)
 
 	if(isnull(aggregated_proc))
-		to_world_log("ERROR: Invalid proc: [aggregated_proc_raw]! @ [__LINE__] in [__FILE__]")
+		GOAI_LOG_ERROR("ERROR: Invalid proc: [aggregated_proc_raw]! @ [__LINE__] in [__FILE__]")
 		return
 
 	if(isnull(aggregated_proc))
@@ -434,7 +434,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_mode)
 	var/aggregated_proc = STR_TO_PROC(aggregated_proc_raw)
 
 	if(isnull(aggregated_proc))
-		to_world_log("ERROR: Invalid proc: [aggregated_proc_raw]! @ [__LINE__] in [__FILE__]")
+		GOAI_LOG_ERROR("ERROR: Invalid proc: [aggregated_proc_raw]! @ [__LINE__] in [__FILE__]")
 		return
 
 	if(isnull(aggregated_proc))
@@ -544,7 +544,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_median)
 	var/aggregated_proc = STR_TO_PROC(aggregated_proc_raw)
 
 	if(isnull(aggregated_proc))
-		to_world_log("ERROR: Invalid proc: [aggregated_proc_raw]! @ [__LINE__] in [__FILE__]")
+		GOAI_LOG_ERROR("ERROR: Invalid proc: [aggregated_proc_raw]! @ [__LINE__] in [__FILE__]")
 		return
 
 	var/list/subargs = consideration_args?["aggregated_proc_args"]

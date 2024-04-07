@@ -11,7 +11,7 @@
 # define COMBATAI_MOVE_TICK_DELAY 5
 # define COMBATAI_FIGHT_TICK_DELAY 25
 
-# define UTILITYAI_AI_TICK_DELAY 1  // utility goes brr
+# define UTILITYAI_AI_TICK_DELAY 2  // utility goes brr
 # define FACTION_AI_TICK_DELAY 10
 
 // Lower bound on the tick rate to prevent sanic loops eating your CPU.
