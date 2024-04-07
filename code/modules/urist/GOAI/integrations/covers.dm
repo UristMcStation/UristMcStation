@@ -17,7 +17,7 @@
 	icon_state = "metal"
 	# endif
 
-	density = 1
+	density = TRUE
 
 
 /obj/cover/proc/Setup()
