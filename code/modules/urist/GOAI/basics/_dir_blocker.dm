@@ -114,29 +114,28 @@
 	var/datum/directional_blocker/myblocker = src.directional_blocker
 
 	//if(src.ShouldHaveBlocker()) // not sure what happened here
-	if(TRUE)
-		if(istype(myblocker))
-			DIRBLOCKER_DEBUG_LOG("[src] has a blocker... but it shouldn't!")
+	if(istype(myblocker))
+		DIRBLOCKER_DEBUG_LOG("[src] has a blocker... but it shouldn't!")
 
-		else
-			if(src.blocker_gen_enabled)
-				// so we don't log every first encounter
+	else
+		if(src.blocker_gen_enabled)
+			// so we don't log every first encounter
+			# ifdef DIRBLOCKER_DEBUG_LOGGING
+			var/generated = FALSE
+			# endif
+
+			if(generate_if_missing)
 				# ifdef DIRBLOCKER_DEBUG_LOGGING
-				var/generated = FALSE
+				generated = TRUE
 				# endif
 
-				if(generate_if_missing)
-					# ifdef DIRBLOCKER_DEBUG_LOGGING
-					generated = TRUE
-					# endif
+				spawn(0)
+					myblocker = src.GenerateBlocker()
+					src.directional_blocker = myblocker
 
-					spawn(0)
-						myblocker = src.GenerateBlocker()
-						src.directional_blocker = myblocker
-
-				# ifdef DIRBLOCKER_DEBUG_LOGGING
-				if(!generated && log_on_missing)
-					DIRBLOCKER_DEBUG_LOG("Failed to get blocker for [src] - no blocker data!")
-				# endif
+			# ifdef DIRBLOCKER_DEBUG_LOGGING
+			if(!generated && log_on_missing)
+				DIRBLOCKER_DEBUG_LOG("Failed to get blocker for [src] - no blocker data!")
+			# endif
 
 	return src.directional_blocker

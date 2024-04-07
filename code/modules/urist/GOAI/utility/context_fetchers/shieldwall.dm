@@ -82,9 +82,7 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_shieldwall_candidates)
 				var/turf/nextstep = get_step(card_pos, offset_dir)
 				var/turf/reversestep = get_step(friend_loc, reverse_offset_dir)
 
-				//if(!(reversestep.density || reversestep in friend_positions))
-				if(!((nextstep.density || nextstep in friend_positions) || (reversestep.density || reversestep in friend_positions)))
-				//if(!(nextstep.density || nextstep in friend_positions))
+				if(!((nextstep.density || (nextstep in friend_positions)) || (reversestep.density || (reversestep in friend_positions))))
 					continue
 
 			// If we got here, we implicitly know this is not occupied by a friend or enemy
