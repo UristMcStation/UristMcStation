@@ -215,7 +215,6 @@
 /turf/verb/GrenadeTest()
 	set src in view()
 
-	world << "[src], [usr]"
 	grenade_spawnyeet(src, usr)
 
 
