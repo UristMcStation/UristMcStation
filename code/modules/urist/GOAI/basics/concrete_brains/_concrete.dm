@@ -50,7 +50,7 @@
 
 
 
-/datum/brain/concrete/proc/ShouldCleanup()
+/datum/brain/concrete/ShouldCleanup()
 	. = FALSE
 
 	if(src.cleanup_detached_threshold < 0)
@@ -62,7 +62,7 @@
 	return
 
 
-/datum/brain/concrete/proc/CheckForCleanup()
+/datum/brain/concrete/CheckForCleanup()
 	. = ..()
 
 	if(.)
