@@ -30,6 +30,7 @@
 
 
 /obj/spawner/New()
+	. = ..()
 	Setup()
 	CallScript()
 
