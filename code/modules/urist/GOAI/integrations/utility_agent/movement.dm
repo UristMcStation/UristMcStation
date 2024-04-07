@@ -23,7 +23,7 @@
 	return pawn.CurrentPositionAsTuple()
 
 
-/datum/utility_ai/mob_commander/proc/FindPathTo(var/trg, var/min_dist = 0, var/avoid = null, var/proc/adjproc = null, var/proc/distanceproc = null, var/list/adjargs = null)
+/datum/utility_ai/mob_commander/proc/FindPathTo(var/trg, var/min_dist = 0, var/avoid = null, var/adjproc = null, var/distanceproc = null, var/list/adjargs = null)
 	var/atom/pawn = src.GetPawn()
 	if(!pawn)
 		MOVEMENT_DEBUG_LOG("No owned mob found for [src.name] AI")
@@ -185,7 +185,7 @@
 	return startchunk
 
 
-/datum/utility_ai/mob_commander/proc/BuildPathTrackerTo(var/trg, var/min_dist = 0, var/avoid = null, var/inh_frustration = 0, var/proc/costproc = null)
+/datum/utility_ai/mob_commander/proc/BuildPathTrackerTo(var/trg, var/min_dist = 0, var/avoid = null, var/inh_frustration = 0, var/costproc = null)
 	var/datum/ActivePathTracker/pathtracker = null
 	var/cost_function = (isnull(costproc) ? DEFAULT_GOAI_DISTANCE_PROC : costproc)
 	//var/list/adjacency_args = list(owner = src))
@@ -203,7 +203,7 @@
 	return pathtracker
 
 
-/datum/utility_ai/mob_commander/proc/StartNavigateTo(var/trg, var/min_dist = 0, var/avoid = null, var/inh_frustration = 0, var/proc/costproc = null, var/max_mindist = 2)
+/datum/utility_ai/mob_commander/proc/StartNavigateTo(var/trg, var/min_dist = 0, var/avoid = null, var/inh_frustration = 0, var/costproc = null, var/max_mindist = 2)
 	src.is_repathing = 1
 
 	var/atom/pawn = src.GetPawn()

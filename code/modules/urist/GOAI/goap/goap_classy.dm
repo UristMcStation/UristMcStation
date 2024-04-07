@@ -233,7 +233,12 @@ X================================================================X
 	var/is_valid = check_preconds(neigh, actual_blackboard)
 
 	var/effects = actual_blackboard.Copy()
-	var/list/curr_source = (GOAP_KEY_SRC in effects) ? effects[GOAP_KEY_SRC].Copy() : list()
+	var/list/curr_source = list()
+
+	if(GOAP_KEY_SRC in effects)
+		var/list/sourcelist = effects[GOAP_KEY_SRC]
+		if(istype(sourcelist))
+			curr_source += sourcelist
 
 	var/list/curr_pos_src = (GOAP_KEY_SRC in current_pos) ? current_pos[GOAP_KEY_SRC] : list()
 	if(curr_pos_src)

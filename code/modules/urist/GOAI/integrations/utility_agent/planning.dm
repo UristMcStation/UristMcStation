@@ -168,7 +168,7 @@
 
 		else
 			// parsing error!
-			ASSERT(FALSE)
+			CRASH("Unrecognized Querytype: [raw_querytype] @ [__LINE__] in [__FILE__]")
 
 	return FALSE
 
