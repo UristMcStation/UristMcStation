@@ -114,7 +114,7 @@
 	if(isCrowbar(W) && state == 0 && anchored)
 		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
 		to_chat(user, SPAN_NOTICE("Now dislodging the girder..."))
-		if(do_after(user, 4 SECOND, src, DO_REPAIR_CONSTRUCT))
+		if(do_after(user, 4 SECONDS, src, DO_REPAIR_CONSTRUCT))
 			to_chat(user, SPAN_NOTICE("You dislodged the girder!"))
 			icon_state = "displaced"
 			anchored = FALSE
