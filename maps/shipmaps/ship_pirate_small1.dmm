@@ -1349,8 +1349,7 @@
 	},
 /obj/machinery/door/airlock/multi_tile{
 	dir = 8;
-	icon_state = "closed";
-	req_access = s
+	icon_state = "closed"
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/boarding_ship)
