@@ -56,3 +56,4 @@ package-lock.json
 
 # ignore local selected map
 /maps/using.dm
+icons/mob/human_races/species/human/bodymods.dmi
