@@ -600,7 +600,8 @@
 /area/boarding_ship)
 "bD" = (
 /obj/machinery/suit_storage_unit/security/alt{
-	req_access = list()
+	req_access = list();
+	emagged = 1
 	},
 /turf/simulated/floor/tiled/steel_ridged,
 /area/boarding_ship)
@@ -838,7 +839,8 @@
 /area/boarding_ship)
 "cj" = (
 /obj/machinery/suit_storage_unit/engineering{
-	req_access = list()
+	req_access = list();
+	emagged = 1
 	},
 /turf/simulated/floor/tiled/steel_ridged,
 /area/boarding_ship)
@@ -1003,7 +1005,8 @@
 /area/boarding_ship)
 "cz" = (
 /obj/machinery/suit_storage_unit/engineering/alt{
-	req_access = list()
+	req_access = list();
+	emagged = 1s
 	},
 /obj/structure/extinguisher_cabinet{
 	dir = 8;
@@ -1105,8 +1108,8 @@
 /area/boarding_ship)
 "cN" = (
 /obj/machinery/suit_storage_unit/security{
-	emagged = null;
-	req_access = list()s)
+	emagged = 1;
+	req_access = list()
 	},
 /turf/simulated/floor/tiled/steel_ridged,
 /area/boarding_ship)
@@ -2443,7 +2446,8 @@
 /area/boarding_ship)
 "Yk" = (
 /obj/machinery/suit_storage_unit/engineering{
-	req_access = list()
+	req_access = list();
+	emagged = 1
 	},
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/tiled/steel_ridged,
