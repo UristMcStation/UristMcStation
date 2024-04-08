@@ -185,6 +185,7 @@
 		/obj/item/melee/telebaton,
 		/obj/item/reagent_containers/spray/pepper,
 		/obj/item/clothing/accessory/storage/black_vest,
+		/obj/item/clothing/accessory/armband,
 		/obj/item/device/hailer,
 		/obj/item/material/clipboard,
 		/obj/item/folder/red,
