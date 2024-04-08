@@ -8809,6 +8809,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
+"zw" = (
+/obj/effect/floor_decal/corner/lightgrey{
+	dir = 5;
+	icon_state = "corner_white"
+	},
+/obj/machinery/ship_map,
+/turf/simulated/floor/tiled,
+/area/hallway/centralfirst)
 "AB" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -28869,7 +28877,7 @@ qk
 qk
 qk
 qk
-Ym
+zw
 aQ
 bi
 bt

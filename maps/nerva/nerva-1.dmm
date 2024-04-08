@@ -9919,6 +9919,9 @@
 	icon_state = "intact-supply"
 	},
 /obj/effect/catwalk_plated/dark,
+/obj/machinery/ship_map{
+	dir = 6
+	},
 /turf/simulated/floor/plating,
 /area/logistics/hangar)
 "rr" = (
@@ -17164,6 +17167,9 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
+/obj/machinery/ship_map{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/lowercargo)
 "DY" = (
@@ -23953,6 +23959,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/hadrian/main)
+"YW" = (
+/obj/structure/bed/chair/wheelchair,
+/turf/simulated/floor/tiled/white/monotile,
+/area/medical/extstorage)
 "YY" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -43552,7 +43562,7 @@ aM
 bd
 af
 bW
-LR
+YW
 cC
 af
 cw

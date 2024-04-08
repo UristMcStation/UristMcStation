@@ -2195,6 +2195,10 @@
 /obj/machinery/light/spot/warmtint{
 	dir = 1
 	},
+/obj/structure/noticeboard{
+	pixel_y = 32;
+	name = "menu board"
+	},
 /turf/simulated/floor/wood/walnut,
 /area/civilian/bar)
 "aeM" = (
@@ -12698,7 +12702,12 @@
 	},
 /obj/machinery/requests_console{
 	department = "Crew Quarters";
-	pixel_y = 30
+	pixel_y = 30;
+	pixel_x = 32
+	},
+/obj/machinery/firealarm{
+	dir = 2;
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/cryo1)
@@ -15901,14 +15910,12 @@
 /obj/effect/landmark{
 	name = "JoinLateCryo"
 	},
-/obj/machinery/firealarm{
-	dir = 1;
-	pixel_x = 0;
-	pixel_y = -24
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "warning"
+	},
+/obj/machinery/ship_map{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/cryo1)
@@ -28249,10 +28256,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/aft/third_deck)
 "euF" = (
-/obj/structure/noticeboard{
-	pixel_y = 32;
-	name = "menu board"
-	},
+/obj/machinery/ship_map,
 /turf/simulated/floor/wood/walnut,
 /area/civilian/bar)
 "eyp" = (
@@ -30320,6 +30324,30 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fs)
+"ptV" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/ship_map,
+/turf/simulated/floor/tiled,
+/area/hallway/fore/third_deck)
 "puU" = (
 /obj/effect/floor_decal/corner/black/border{
 	dir = 1;
@@ -31323,6 +31351,14 @@
 /obj/machinery/reagentgrinder,
 /turf/simulated/floor/tiled/white,
 /area/civilian/kitchen)
+"vim" = (
+/obj/effect/floor_decal/corner/lightgrey{
+	dir = 5;
+	icon_state = "corner_white"
+	},
+/obj/machinery/ship_map,
+/turf/simulated/floor/tiled,
+/area/hallway/fore/third_deck)
 "vkW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
@@ -56404,7 +56440,7 @@ ayp
 cXI
 ayp
 brf
-wpN
+vim
 ujt
 aGE
 hNR
@@ -58009,7 +58045,7 @@ bFA
 bFA
 bFA
 bFA
-asl
+ptV
 atK
 auM
 fRl
