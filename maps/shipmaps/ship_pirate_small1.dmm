@@ -1180,8 +1180,7 @@
 /area/boarding_ship)
 "cZ" = (
 /obj/machinery/vending/snix{
-	emagged = 1;
-	req_access = list()s)
+	emagged = 1
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/boarding_ship)
