@@ -113,11 +113,15 @@
 /turf/simulated/wall/r_wall/hull,
 /area/boarding_ship)
 "as" = (
-/obj/structure/closet/secure_closet/engineering_welding,
+/obj/structure/closet/secure_closet/engineering_welding{
+	req_access = list()
+	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/boarding_ship)
 "at" = (
-/obj/structure/closet/secure_closet/engineering_electrical,
+/obj/structure/closet/secure_closet/engineering_electrical{
+	req_access = list()
+	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/boarding_ship)
 "au" = (
@@ -595,7 +599,9 @@
 /turf/simulated/floor/tiled/steel_ridged,
 /area/boarding_ship)
 "bD" = (
-/obj/machinery/suit_storage_unit/security/alt,
+/obj/machinery/suit_storage_unit/security/alt{
+	req_access = list()
+	},
 /turf/simulated/floor/tiled/steel_ridged,
 /area/boarding_ship)
 "bE" = (
@@ -802,11 +808,17 @@
 /area/boarding_ship)
 "cf" = (
 /obj/machinery/vending/tool,
-/obj/machinery/vending/engineering,
+/obj/machinery/vending/engineering{
+	emagged = 1;
+	req_access = list()
+	},
 /turf/simulated/floor/tiled/steel_ridged,
 /area/boarding_ship)
 "cg" = (
-/obj/machinery/vending/engivend,
+/obj/machinery/vending/engivend{
+	emagged = 1;
+	req_access = list()
+	},
 /turf/simulated/floor/tiled/steel_ridged,
 /area/boarding_ship)
 "ch" = (
@@ -825,7 +837,9 @@
 /turf/simulated/floor/tiled/steel_ridged,
 /area/boarding_ship)
 "cj" = (
-/obj/machinery/suit_storage_unit/engineering,
+/obj/machinery/suit_storage_unit/engineering{
+	req_access = list()
+	},
 /turf/simulated/floor/tiled/steel_ridged,
 /area/boarding_ship)
 "ck" = (
@@ -988,7 +1002,9 @@
 /turf/simulated/floor/tiled/steel_ridged,
 /area/boarding_ship)
 "cz" = (
-/obj/machinery/suit_storage_unit/engineering/alt,
+/obj/machinery/suit_storage_unit/engineering/alt{
+	req_access = list()
+	},
 /obj/structure/extinguisher_cabinet{
 	dir = 8;
 	icon_state = "extinguisher_closed";
@@ -1088,7 +1104,10 @@
 /turf/simulated/floor/plating,
 /area/boarding_ship)
 "cN" = (
-/obj/machinery/suit_storage_unit/security,
+/obj/machinery/suit_storage_unit/security{
+	emagged = null;
+	req_access = list()s)
+	},
 /turf/simulated/floor/tiled/steel_ridged,
 /area/boarding_ship)
 "cO" = (
@@ -1136,11 +1155,16 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/boarding_ship)
 "cV" = (
-/obj/machinery/vending/medical,
+/obj/machinery/vending/medical{
+	emagged = 1;
+	req_access = list()
+	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/boarding_ship)
 "cW" = (
-/obj/machinery/vending/hotfood,
+/obj/machinery/vending/hotfood{
+	emagged = 1
+	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/boarding_ship)
 "cX" = (
@@ -1152,7 +1176,10 @@
 /turf/simulated/wall/iron,
 /area/boarding_ship)
 "cZ" = (
-/obj/machinery/vending/snix,
+/obj/machinery/vending/snix{
+	emagged = 1;
+	req_access = list()s)
+	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/boarding_ship)
 "da" = (
@@ -1160,7 +1187,9 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/boarding_ship)
 "db" = (
-/obj/machinery/vending/urist/sustenance,
+/obj/machinery/vending/urist/sustenance{
+	emagged = 1
+	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/boarding_ship)
 "dc" = (
@@ -1318,7 +1347,8 @@
 	},
 /obj/machinery/door/airlock/multi_tile{
 	dir = 8;
-	icon_state = "closed"
+	icon_state = "closed";
+	req_access = s
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/boarding_ship)
@@ -1475,7 +1505,9 @@
 /turf/simulated/floor/plating,
 /area/boarding_ship)
 "dP" = (
-/obj/machinery/fabricator,
+/obj/machinery/fabricator{
+	emagged = 1
+	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/boarding_ship)
 "dQ" = (
@@ -2327,7 +2359,9 @@
 	dir = 1;
 	icon_state = "firelight1"
 	},
-/obj/machinery/vending/cigarette,
+/obj/machinery/vending/cigarette{
+	emagged = 1
+	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/boarding_ship)
 "Sk" = (
@@ -2408,7 +2442,9 @@
 /turf/simulated/floor/plating,
 /area/boarding_ship)
 "Yk" = (
-/obj/machinery/suit_storage_unit/engineering,
+/obj/machinery/suit_storage_unit/engineering{
+	req_access = list()
+	},
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/tiled/steel_ridged,
 /area/boarding_ship)
