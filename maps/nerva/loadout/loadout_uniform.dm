@@ -45,3 +45,36 @@
 	display_name = "uniform, field (Security)"
 	path = /obj/item/clothing/under/urist/nerva/secfield
 	allowed_roles = SECURITY_ROLES
+
+/datum/gear/uniform/terran_uniform
+	display_name = "terran trader uniform"
+	path = /obj/item/clothing/under/urist/terran/trader
+
+/datum/gear/uniform/terran_uniform
+	display_name = "green RD outfit"
+	path = /obj/item/clothing/under/urist/rank/rdgreen
+	//allowed_roles = list(/datum/job/seniorscientist)
+
+/datum/gear/uniform/trickster_suit
+	display_name = "trickster suit"
+	path = /obj/item/clothing/under/urist/trickster
+
+/datum/gear/uniform/jester_outfit
+	display_name = "jester outfit"
+	path = /obj/item/clothing/under/urist/jester
+	//allowed_roles = list(/datum/job/clown, /datum/job/mime)
+
+
+/datum/gear/uniform/nanotransen_outfits
+	display_name = "nanotrasen outfits"
+	path = /obj/item/clothing/under/urist/nanotrasen
+	cost = 1
+	flags = GEAR_HAS_TYPE_SELECTION
+
+/datum/gear/uniform/urist_dresses
+	display_name = "dress selection"
+	path = /obj/item/clothing/under/urist/dress
+	cost = 1
+	flags = GEAR_HAS_TYPE_SELECTION
+
+
