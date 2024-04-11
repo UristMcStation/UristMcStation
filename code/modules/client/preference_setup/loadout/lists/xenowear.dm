@@ -101,7 +101,7 @@
 
 // Misc clothing
 /datum/gear/uniform/harness
-	display_name = "gear harness (Full Body Prosthetic, Diona)"
+	display_name = "gear harness (IPC, Diona)"
 	path = /obj/item/clothing/under/harness
 	slot = slot_w_uniform
 	sort_category = "Xenowear"
