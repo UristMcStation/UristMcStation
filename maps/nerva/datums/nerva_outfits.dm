@@ -162,9 +162,9 @@
 	id_types = null
 	pda_type = null
 	l_ear = null
+	r_hand = /obj/item/crowbar
 	l_pocket = /obj/item/wrench
-	r_pocket = /obj/item/crowbar
-	backpack_contents = list(/obj/item/device/flashlight = 1)
+	r_pocket = /obj/item/device/flashlight
 
 //psychiatrist
 
