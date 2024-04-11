@@ -3696,7 +3696,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 4
 	},
-/obj/structure/catwalk,
 /obj/structure/disposalpipe/sortjunction{
 	dir = 1;
 	icon_state = "pipe-j2s";
@@ -4627,7 +4626,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afp)
 "aiM" = (
-/obj/structure/catwalk,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -4660,7 +4658,6 @@
 	dir = 8;
 	icon_state = "map-scrubbers"
 	},
-/obj/structure/catwalk,
 /obj/structure/disposalpipe/segment{
 	dir = 8;
 	icon_state = "pipe-c"
@@ -4668,21 +4665,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afp)
 "aiO" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4;
-	icon_state = "intact-scrubbers"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/catwalk,
-/obj/machinery/door/airlock/hatch/maintenance,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afp)
 "aiP" = (
@@ -49117,7 +49100,7 @@ adw
 adZ
 aeR
 aaj
-agz
+abD
 ahq
 aiM
 nzd
@@ -49521,9 +49504,9 @@ ady
 aea
 aaj
 aaj
-aaj
-aaj
+agz
 aiO
+aiP
 nzd
 alx
 amF
@@ -49721,10 +49704,10 @@ aao
 acP
 aao
 aao
-adx
 aao
 aao
-adx
+aao
+aao
 aiP
 nzd
 nzd
@@ -50127,7 +50110,7 @@ aao
 abb
 aao
 aao
-aao
+abb
 ahs
 aiQ
 ako
