@@ -29365,6 +29365,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
+"kqw" = (
+/obj/structure/ladder/up,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/cents)
 "krd" = (
 /obj/machinery/access_button{
 	command = "cycle_interior";
@@ -55815,7 +55820,7 @@ aNz
 aNz
 aNz
 aUN
-aVv
+xah
 aTq
 aTq
 aTq
@@ -56418,8 +56423,8 @@ hNR
 hNR
 hNR
 aHP
-xah
 vDr
+kqw
 aTq
 aTq
 aTq
