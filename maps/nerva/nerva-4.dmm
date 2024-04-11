@@ -437,8 +437,9 @@
 /turf/simulated/floor/tiled/monotile,
 /area/hallway/centralfirst)
 "aZ" = (
-/obj/item/device/flashlight/lamp/green,
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/rack,
+/obj/effect/landmark/costume,
+/obj/random/maintenance/clean,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "ba" = (
@@ -496,12 +497,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
-"bk" = (
-/obj/structure/filingcabinet/wallcabinet{
-	pixel_x = 30
-	},
-/turf/simulated/floor/carpet/blue2,
-/area/maintenance/first_deck/central)
 "bl" = (
 /obj/structure/bed/chair/urist/shuttle,
 /obj/machinery/light{
@@ -514,10 +509,6 @@
 /obj/effect/paint/silver,
 /turf/simulated/wall/titanium,
 /area/shuttle/escape_pod1/station)
-"bn" = (
-/obj/item/stack/tile/walnut,
-/turf/simulated/floor/plating,
-/area/maintenance/first_deck/central)
 "bo" = (
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating,
@@ -7410,10 +7401,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
-"oa" = (
-/obj/item/device/camera,
-/turf/simulated/floor/plating,
-/area/maintenance/first_deck/central)
 "ob" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -7635,17 +7622,6 @@
 /area/maintenance/first_deck/central)
 "oA" = (
 /obj/random/masks,
-/turf/simulated/floor/plating,
-/area/maintenance/first_deck/central)
-"oB" = (
-/obj/structure/bed/chair/comfy/brown{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/first_deck/central)
-"oC" = (
-/obj/item/paper_bin,
-/obj/item/table_parts/wood,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "oD" = (
@@ -8758,30 +8734,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
-"yY" = (
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/structure/closet,
-/obj/item/device/camera/tvcamera,
-/obj/item/device/camera_film,
-/obj/item/device/camera_film,
-/obj/item/storage/briefcase,
-/obj/item/folder,
-/obj/item/device/taperecorder,
-/obj/item/device/tape,
-/obj/item/clothing/suit/storage/urist/coat/journocoat,
-/obj/item/clothing/accessory/badge/press,
-/turf/simulated/floor/plating,
-/area/maintenance/first_deck/central)
-"zC" = (
-/turf/simulated/floor/wood/walnut,
-/area/maintenance/first_deck/central)
-"Ax" = (
-/obj/item/pen,
-/turf/simulated/floor/wood/walnut,
-/area/maintenance/first_deck/central)
 "AB" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -8805,11 +8757,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fore)
 "Bu" = (
-/obj/machinery/light/small/red/maintenance{
-	dir = 4;
-	icon_state = "firelight1"
-	},
-/turf/simulated/floor/carpet/blue2,
+/obj/item/device/flashlight,
+/turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "BM" = (
 /obj/structure/catwalk,
@@ -8852,11 +8801,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
-"FC" = (
-/obj/structure/table/woodentable/walnut,
-/obj/item/material/clipboard,
-/turf/simulated/floor/plating,
-/area/maintenance/first_deck/central)
 "GS" = (
 /obj/effect/shuttle_landmark/escape_pod/start/pod1,
 /turf/simulated/floor/tiled/dark,
@@ -8884,10 +8828,8 @@
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
 "HG" = (
-/obj/structure/bed/chair/comfy/brown{
-	dir = 8;
-	icon_state = "comfychair_preview"
-	},
+/obj/structure/table/standard,
+/obj/random/maintenance/clean,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "II" = (
@@ -8905,11 +8847,6 @@
 /obj/effect/wallframe_spawn/reinforced/titanium,
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod1/station)
-"KT" = (
-/obj/item/material/ashtray/wood,
-/obj/item/table_parts/wood,
-/turf/simulated/floor/plating,
-/area/maintenance/first_deck/central)
 "KW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -8994,10 +8931,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/solar/auxaft)
-"UE" = (
-/obj/machinery/photocopier,
-/turf/simulated/floor/plating,
-/area/maintenance/first_deck/central)
 "WF" = (
 /obj/structure/lattice,
 /turf/simulated/open,
@@ -32413,10 +32346,10 @@ bE
 nn
 by
 aZ
-bn
-zC
-UE
-aL
+dI
+dI
+by
+ar
 ar
 ar
 ar
@@ -32614,11 +32547,11 @@ mx
 jA
 no
 by
-FC
-zC
-oB
-Ax
-aL
+np
+dI
+dI
+by
+ar
 ar
 ar
 ar
@@ -32786,7 +32719,7 @@ aa
 aa
 aa
 aa
-ac
+aa
 aa
 ar
 ar
@@ -32816,11 +32749,11 @@ dI
 dI
 bE
 by
-oa
+np
 dI
-oC
-KT
-aL
+dI
+by
+ar
 ar
 ar
 ar
@@ -33017,12 +32950,12 @@ me
 my
 dI
 dI
-by
-yY
+ei
+dI
 Bu
 HG
-bk
-aL
+by
+ar
 ar
 ar
 ar
@@ -33223,8 +33156,8 @@ by
 by
 by
 by
-aL
-aL
+by
+ar
 ar
 ar
 ar
@@ -35610,7 +35543,7 @@ aa
 aa
 aa
 aa
-aa
+ac
 aa
 aa
 aa
