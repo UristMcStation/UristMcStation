@@ -433,12 +433,8 @@
 	dir = 4;
 	icon_state = "warning"
 	},
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/monotile,
-/area/hallway/centralfirst)
-"aY" = (
-/obj/machinery/door/firedoor,
-/obj/effect/wallframe_spawn/reinforced,
-/turf/simulated/floor/plating,
 /area/hallway/centralfirst)
 "aZ" = (
 /obj/item/device/flashlight/lamp/green,
@@ -30567,7 +30563,7 @@ aa
 aa
 qk
 aI
-aY
+qk
 qk
 ar
 by
@@ -33828,12 +33824,12 @@ lH
 mg
 ln
 ar
-aa
-aa
-aa
-aa
-aa
-aa
+ar
+ar
+ar
+ar
+ar
+ar
 aa
 aa
 aa
@@ -34030,12 +34026,12 @@ lH
 mh
 ln
 ar
-aa
-aa
-aa
-aa
-aa
-aa
+ar
+ar
+ar
+ar
+ar
+ar
 aa
 aa
 aa
@@ -34232,12 +34228,12 @@ lH
 mi
 ln
 ar
-aa
-aa
-aa
-aa
-aa
-aa
+ar
+ar
+ar
+ar
+ar
+ar
 aa
 aa
 aa
@@ -34434,12 +34430,12 @@ lH
 mj
 ln
 ar
-aa
-aa
-aa
-aa
-aa
-aa
+ar
+ar
+ar
+ar
+ar
+ar
 aa
 aa
 aa
@@ -34636,12 +34632,12 @@ lH
 mj
 ln
 ar
-aa
-aa
-aa
-aa
-aa
-aa
+ar
+ar
+ar
+ar
+ar
+ar
 aa
 aa
 aa
