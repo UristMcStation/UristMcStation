@@ -63,7 +63,16 @@
 	display_name = "jester outfit"
 	path = /obj/item/clothing/under/urist/jester
 	//allowed_roles = list(/datum/job/clown, /datum/job/mime)
+	
+/datum/gear/uniform/affairs_dress
+	display_name = "internal affairs dress"
+	path = /obj/item/clothing/under/urist/rank/iaadress
 
+/datum/gear/uniform/history_uniforms
+	display_name = "historical reenactor clothes"
+	path = /obj/item/clothing/under/urist/historic
+	cost = 2
+	flags = GEAR_HAS_TYPE_SELECTION
 
 /datum/gear/uniform/nanotransen_outfits
 	display_name = "nanotrasen outfits"
