@@ -78,6 +78,10 @@
 	path = /obj/item/clothing/under/rank/bartender/fluff/classy
 	//allowed_roles = list(/datum/job/chef)
 	
+/datum/gear/uniform/jungle_uniform
+	display_name = "jungle camo BDU"
+	path = /obj/item/clothing/under/urist/nam
+	
 /datum/gear/uniform/nanotrasen_intel_jumpsuit
 	display_name = "nanotrasen intel jumpsuit"
 	path = /obj/item/clothing/under/fluff/jane_sidsuit
