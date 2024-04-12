@@ -45,3 +45,56 @@
 
 /datum/gear/head/welding
 	allowed_roles = TECHNICAL_ROLES
+	
+/*
+ * Loadout definitions unique to NERVA
+ */
+ 
+/datum/gear/head/terrain_hat
+	display_name = "terran confederacy hat"
+	path = /obj/item/clothing/head/urist/terran/trader
+	
+/datum/gear/head/formal_cmo
+	display_name = "formal CMO cap"
+	path = /obj/item/clothing/head/urist/altcmo
+	allowed_roles = MEDICAL_ROLES
+
+/datum/gear/head/motor_helmet
+	display_name = "motorcycle helmet"
+	path = /obj/item/clothing/head/urist/motorhelm
+	cost = 3
+	
+/datum/gear/head/janitor_hat
+	display_name = "grubby hat"
+	path = /obj/item/clothing/head/urist/janihat
+	//allowed_roles = list(/datum/job/janitor)
+	
+/datum/gear/head/cowboy
+	display_name = "cowboy hat"
+	path = /obj/item/clothing/head/urist/cowboy
+	
+/datum/gear/head/cowboy/brown
+	display_name = "brown cowboy hat"
+	path = /obj/item/clothing/head/urist/cowboy2
+	
+/datum/gear/head/cowboy/brown
+	display_name = "grey cape, colourable"
+	path = /obj/item/clothing/head/urist/historic/light/cape
+	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/head/fedora
+	display_name = "fedora"
+	path = /obj/item/clothing/head/urist/fedora
+	
+/datum/gear/head/boater_hat
+	display_name = "boater's hat"
+	path = /obj/item/clothing/head/urist/boaterhat
+	
+/datum/gear/head/trickster_hat
+	display_name = "trickster's hat"
+	path = /obj/item/clothing/head/urist/trickster
+	cost = 2
+
+	
+	
+	
