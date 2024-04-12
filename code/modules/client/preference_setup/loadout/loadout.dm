@@ -288,7 +288,7 @@ var/global/list/gear_datums = list()
 	var/display_name       //Name/index. Must be unique.
 	var/description        //Description of this gear. If left blank will default to the description of the pathed item.
 	var/path               //Path to item.
-	var/cost = 0           //Number of points used. Items in general cost 1 point, storage/armor/gloves/special use costs 2 points.
+	var/cost = 0           //Number of points used. Items in general cost 1 point, storage/armor/gloves/special use costs 2 points. Apr. 2024 change to 0 points for general items
 	var/slot               //Slot to equip to.
 	var/list/allowed_roles //Roles that can spawn with this item.
 	var/list/allowed_branches //Service branches that can spawn with it.
