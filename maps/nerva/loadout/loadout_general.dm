@@ -29,6 +29,15 @@
 	dolls_unathi += /obj/item/vanity/doll/unathi/orange
 	dolls_unathi += /obj/item/vanity/doll/unathi/brown
 	gear_tweaks += new/datum/gear_tweak/path/specified_types_list(dolls_unathi)
+	
+/datum/gear/toygun
+	display_name = "toy gun"
+	path = /obj/item/gag/BANG
+	//allowed_roles = list(/datum/job/clown)
+	
+/datum/gear/scissors
+	display_name = "scissors"
+	path = /obj/item/scissors
 
 /datum/gear/foundation_civilian //no registered psychics here
 	allowed_roles = list()
