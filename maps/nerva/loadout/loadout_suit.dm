@@ -120,6 +120,10 @@
 	display_name = "jester suit"
 	path = /obj/item/clothing/suit/urist/jester
 	//allowed_roles = list(/datum/job/clown, /datum/job/mime)
+	
+/datum/gear/suit/red_labcoat
+	display_name = "informal red labcoat"
+	path = /obj/item/clothing/suit/storage/labcoat/fluff/red
 
 /datum/gear/suit/urist_leather_coats
 	display_name = "leather jacket"

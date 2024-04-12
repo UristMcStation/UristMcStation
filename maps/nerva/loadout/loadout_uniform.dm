@@ -45,12 +45,17 @@
 	display_name = "uniform, field (Security)"
 	path = /obj/item/clothing/under/urist/nerva/secfield
 	allowed_roles = SECURITY_ROLES
+	
+/datum/gear/uniform/informalsec_uniform
+	display_name = "informal security uniorm"
+	path = /obj/item/clothing/under/fluff/lilith_vinous_1
+	allowed_roles = SECURITY_ROLES	
 
 /datum/gear/uniform/terran_uniform
 	display_name = "terran trader uniform"
 	path = /obj/item/clothing/under/urist/terran/trader
 
-/datum/gear/uniform/terran_uniform
+/datum/gear/uniform/green_rd_suit
 	display_name = "green RD outfit"
 	path = /obj/item/clothing/under/urist/rank/rdgreen
 	//allowed_roles = list(/datum/job/seniorscientist)
@@ -67,7 +72,21 @@
 /datum/gear/uniform/affairs_dress
 	display_name = "internal affairs dress"
 	path = /obj/item/clothing/under/urist/rank/iaadress
-
+	
+/datum/gear/uniform/bartender_classy
+	display_name = "classy bartender uniform"
+	path = /obj/item/clothing/under/rank/bartender/fluff/classy
+	//allowed_roles = list(/datum/job/chef)
+	
+/datum/gear/uniform/nanotrasen_intel_jumpsuit
+	display_name = "nanotrasen intel jumpsuit"
+	path = /obj/item/clothing/under/fluff/jane_sidsuit
+	
+/datum/gear/uniform/medical_shortsuit
+	display_name = "short sleeve medical jumpsuit"
+	path = /obj/item/clothing/under/rank/medical/fluff/short
+	allowed_roles = MEDICAL_ROLES
+	
 /datum/gear/uniform/history_uniforms
 	display_name = "historical reenactor clothes"
 	path = /obj/item/clothing/under/urist/historic
