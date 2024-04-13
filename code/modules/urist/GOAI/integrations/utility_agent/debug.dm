@@ -1,4 +1,4 @@
-/mob/verb/PosessWithGoaiUtilityCommander()
+/mob/proc/PosessWithGoaiUtilityCommander()
 	set category = "Debug Utility AI"
 
 	set src in view()
@@ -6,7 +6,7 @@
 	AttachUtilityCommanderTo(src, null)
 
 
-/mob/verb/DeleteGoaiUtilityAi(var/datum/utility_ai/ai_target as anything in GOAI_LIBBED_GLOB_ATTR(global_goai_registry))
+/mob/proc/DeleteGoaiUtilityAi(var/datum/utility_ai/ai_target as anything in GOAI_LIBBED_GLOB_ATTR(global_goai_registry))
 	set category = "Debug Utility AI"
 
 	if(isnull(ai_target))
@@ -25,7 +25,7 @@
 	return
 
 
-/mob/verb/SetGlobalGoaiUtilityAiRate(var/rate as num)
+/mob/proc/SetGlobalGoaiUtilityAiRate(var/rate as num)
 	set category = "Debug Utility AI"
 
 	if(rate <= 0)
@@ -40,7 +40,7 @@
 	return
 
 
-/mob/verb/TogglePauseSpecificGoai(var/datum/utility_ai/ai_target as anything in GOAI_LIBBED_GLOB_ATTR(global_goai_registry))
+/mob/proc/TogglePauseSpecificGoai(var/datum/utility_ai/ai_target as anything in GOAI_LIBBED_GLOB_ATTR(global_goai_registry))
 	set category = "Debug Utility AI"
 
 	if(isnull(ai_target))
@@ -52,7 +52,7 @@
 	return
 
 
-/mob/verb/TogglePauseAllGoais()
+/mob/proc/TogglePauseAllGoais()
 	set category = "Debug Utility AI"
 
 	for(var/datum/utility_ai/ai_target in GOAI_LIBBED_GLOB_ATTR(global_goai_registry))
@@ -62,5 +62,62 @@
 		ai_target.paused = !(ai_target.paused)
 
 		to_chat(usr, "Set [ai_target] PAUSED to [ai_target.paused ? "TRUE" : "FALSE"]")
+
+	return
+
+
+/proc/ReloadAi(var/datum/utility_ai/commander in GOAI_LIBBED_GLOB_ATTR(global_goai_registry))
+	set category = "Debug Utility AI"
+
+	if(!istype(commander))
+		return
+
+	var/datum/brain/utility/ubrain = commander?.brain
+	if(!istype(ubrain))
+		to_chat(usr, "AI <[commander]> has no brain!")
+		return
+
+	for(var/cache_key in ubrain.file_actionsets)
+		GOAI_LIBBED_GLOB_ATTR(actionset_file_cache)[cache_key] = null  // clear the global cache
+
+	PUT_EMPTY_LIST_IN(ubrain.file_actionsets)  // clear the local cache
+	to_chat(usr, "AI <[commander]> reloaded!")
+
+	return src
+
+
+/mob/proc/RemoveGoaiDebugVerbs()
+	set name = "Remove GOAI Debug Verbs"
+	set category = "Debug"
+
+	usr.verbs -= /mob/proc/PosessWithGoaiUtilityCommander
+	usr.verbs -= /mob/proc/DeleteGoaiUtilityAi
+	usr.verbs -= /mob/proc/SetGlobalGoaiUtilityAiRate
+	usr.verbs -= /mob/proc/TogglePauseSpecificGoai
+	usr.verbs -= /mob/proc/TogglePauseAllGoais
+	usr.verbs -= /proc/ReloadAi
+	usr.verbs -= /proc/invalidate_file_cache
+	usr.verbs -= /mob/proc/RemoveGoaiDebugVerbs
+
+	return
+
+
+#ifdef GOAI_LIBRARY_FEATURES
+/mob/verb/GrantGoaiDebugVerbs()
+#endif
+#ifdef GOAI_SS13_SUPPORT
+/mob/proc/GrantGoaiDebugVerbs()
+#endif
+	set name = "Grant GOAI Debug Verbs"
+	set category = "Debug"
+
+	usr.verbs |= /mob/proc/PosessWithGoaiUtilityCommander
+	usr.verbs |= /mob/proc/DeleteGoaiUtilityAi
+	usr.verbs |= /mob/proc/SetGlobalGoaiUtilityAiRate
+	usr.verbs |= /mob/proc/TogglePauseSpecificGoai
+	usr.verbs |= /mob/proc/TogglePauseAllGoais
+	usr.verbs |= /proc/ReloadAi
+	usr.verbs |= /proc/invalidate_file_cache
+	usr.verbs |= /mob/proc/RemoveGoaiDebugVerbs
 
 	return

@@ -3,7 +3,8 @@
 // In various ways, these impose goals on GOAI Agents for the AI system to solve for.
 */
 
-/mob/verb/CommanderGiveFollowOrder(datum/utility_ai/mob_commander/M in GOAI_LIBBED_GLOB_ATTR(global_goai_registry), mob/Trg in world)
+
+/mob/proc/CommanderGiveFollowOrder(datum/utility_ai/mob_commander/M in GOAI_LIBBED_GLOB_ATTR(global_goai_registry), mob/Trg in world)
 	set category = "Commander Orders"
 
 	if(!M)
@@ -23,7 +24,7 @@
 	return waypoint
 
 
-/mob/verb/AllCommandersGiveFollowOrder(mob/Trg in world)
+/mob/proc/AllCommandersGiveFollowOrder(mob/Trg in world)
 	set category = "Commander Orders"
 
 	var/turf/trgturf = get_turf(Trg)
@@ -42,7 +43,7 @@
 	return
 
 
-/mob/verb/CommanderGiveFleeOrder(datum/utility_ai/mob_commander/M in GOAI_LIBBED_GLOB_ATTR(global_goai_registry), mob/Trg in world)
+/mob/proc/CommanderGiveFleeOrder(datum/utility_ai/mob_commander/M in GOAI_LIBBED_GLOB_ATTR(global_goai_registry), mob/Trg in world)
 	set category = "Commander Orders"
 
 	if(!M)
@@ -60,7 +61,7 @@
 	return waypoint
 
 
-/mob/verb/CommanderGiveMoveOrder(datum/utility_ai/mob_commander/M in GOAI_LIBBED_GLOB_ATTR(global_goai_registry), posX as num, posY as num)
+/mob/proc/CommanderGiveMoveOrder(datum/utility_ai/mob_commander/M in GOAI_LIBBED_GLOB_ATTR(global_goai_registry), posX as num, posY as num)
 	set category = "Commander Orders"
 
 	if(!(M?.brain))
@@ -87,7 +88,7 @@
 	return waypoint
 
 
-/mob/verb/CommanderGiveMoveOrderThreeD(datum/utility_ai/mob_commander/M in GOAI_LIBBED_GLOB_ATTR(global_goai_registry), posX as num, posY as num, posZ as num)
+/mob/proc/CommanderGiveMoveOrderThreeD(datum/utility_ai/mob_commander/M in GOAI_LIBBED_GLOB_ATTR(global_goai_registry), posX as num, posY as num, posZ as num)
 	set category = "Commander Orders"
 
 	if(!(M?.brain))
@@ -115,7 +116,7 @@
 
 
 
-/mob/verb/CommanderCancelOrders(datum/utility_ai/mob_commander/M in GOAI_LIBBED_GLOB_ATTR(global_goai_registry))
+/mob/proc/CommanderCancelOrders(datum/utility_ai/mob_commander/M in GOAI_LIBBED_GLOB_ATTR(global_goai_registry))
 	set category = "Commander Orders"
 
 	if(!(M?.brain))
@@ -130,7 +131,7 @@
 	return TRUE
 
 
-/mob/verb/CommanderSetForcedFriendTag(datum/utility_ai/mob_commander/M in GOAI_LIBBED_GLOB_ATTR(global_goai_registry), tag as text)
+/mob/proc/CommanderSetForcedFriendTag(datum/utility_ai/mob_commander/M in GOAI_LIBBED_GLOB_ATTR(global_goai_registry), tag as text)
 	set category = "Commander Orders"
 
 	if(!M)
@@ -143,7 +144,7 @@
 	return
 
 
-/mob/verb/CommanderSetForcedFoeTag(datum/utility_ai/mob_commander/M in GOAI_LIBBED_GLOB_ATTR(global_goai_registry), tag as text)
+/mob/proc/CommanderSetForcedFoeTag(datum/utility_ai/mob_commander/M in GOAI_LIBBED_GLOB_ATTR(global_goai_registry), tag as text)
 	set category = "Commander Orders"
 
 	if(!M)
@@ -156,7 +157,7 @@
 	return
 
 
-/mob/verb/CommandersFactionFight()
+/mob/proc/CommandersFactionFight()
 	set category = "Commander Orders"
 
 	var/list/active_factions = list()
@@ -182,7 +183,7 @@
 	return
 
 
-/mob/verb/CommanderDropRelationshipTag(datum/utility_ai/mob_commander/M in GOAI_LIBBED_GLOB_ATTR(global_goai_registry), tag as text)
+/mob/proc/CommanderDropRelationshipTag(datum/utility_ai/mob_commander/M in GOAI_LIBBED_GLOB_ATTR(global_goai_registry), tag as text)
 	set category = "Commander Orders"
 
 	if(!M)
@@ -194,3 +195,95 @@
 	var/result = M.DropRelationshipTag(tag)
 	to_chat(usr, "[M] - Tag [tag] [result ? "dropped successfully" : "failed to drop"]!")
 	return
+
+
+/proc/CommanderGiveGOAPSolverOrderSimple(datum/utility_ai/mob_commander/commander in GOAI_LIBBED_GLOB_ATTR(global_goai_registry), var/raw_jsondata as message, var/object as anything in view())
+	set category = "Commander Orders"
+
+	var/jsondata = json_decode(raw_jsondata)
+
+	if(isnull(jsondata))
+		to_chat(usr, "JSON Failed to parse: [raw_jsondata] for CommanderGiveGOAPSolverOrderSimple")
+		return
+
+	if(isnull(commander))
+		to_chat(usr, "Commander [commander] is null for CommanderGiveGOAPSolverOrderSimple!")
+		return
+
+	var/datum/brain/commander_brain = commander.brain
+
+	if(isnull(commander_brain))
+		to_chat(usr, "Brain for [commander] is null!")
+		return
+
+	if(isnull(object))
+		to_chat(usr, "Target [isnull(object) ? "null" : object] is null for CommanderGiveGOAPSolverOrderSimple")
+		return
+
+	// goal_state, target, considerations
+	var/datum/order_smartobject/new_order = new(jsondata, object, null)
+
+	var/list/smart_orders = commander_brain.GetMemoryValue("SmartOrders", null) || list()
+
+	if(smart_orders.len)
+		// Try to keep this in slot 1 to avoid runaway array size
+		smart_orders[1] = new_order
+	else
+		smart_orders.Add(new_order)
+
+	commander_brain.SetMemory("SmartOrders", smart_orders)
+	to_chat(usr, "Created a new SmartOrder for [commander]")
+	return
+
+/mob/proc/RemoveGoaiOrderVerbs()
+	set name = "Remove GOAI Order Verbs"
+	set category = "Debug"
+
+	usr.verbs -= /mob/proc/CommanderGiveFollowOrder
+	usr.verbs -= /mob/proc/AllCommandersGiveFollowOrder
+	usr.verbs -= /mob/proc/CommanderGiveFleeOrder
+	usr.verbs -= /mob/proc/CommanderGiveMoveOrder
+	usr.verbs -= /mob/proc/CommanderGiveMoveOrderThreeD
+	usr.verbs -= /mob/proc/CommanderCancelOrders
+	usr.verbs -= /mob/proc/CommanderSetForcedFriendTag
+	usr.verbs -= /mob/proc/CommanderSetForcedFoeTag
+	usr.verbs -= /mob/proc/CommandersFactionFight
+	usr.verbs -= /mob/proc/CommanderDropRelationshipTag
+	usr.verbs -= /proc/CommanderGiveGOAPSolverOrderSimple
+	#ifdef GOAI_DEBUG_UI_HACKERY
+	usr.verbs -= /mob/proc/CommanderGiveGOAPSolverOrder
+	usr.verbs -= /mob/proc/CommanderGiveMoveOrderClick
+	#endif
+	usr.verbs -= /mob/proc/RemoveGoaiOrderVerbs
+
+	return
+
+
+#ifdef GOAI_LIBRARY_FEATURES
+/mob/verb/GrantGoaiOrderVerbs()
+#endif
+#ifdef GOAI_SS13_SUPPORT
+/mob/proc/GrantGoaiOrderVerbs()
+#endif
+	set name = "Grant GOAI Order Verbs"
+	set category = "Debug"
+
+	usr.verbs |= /mob/proc/CommanderGiveFollowOrder
+	usr.verbs |= /mob/proc/AllCommandersGiveFollowOrder
+	usr.verbs |= /mob/proc/CommanderGiveFleeOrder
+	usr.verbs |= /mob/proc/CommanderGiveMoveOrder
+	usr.verbs |= /mob/proc/CommanderGiveMoveOrderThreeD
+	usr.verbs |= /mob/proc/CommanderCancelOrders
+	usr.verbs |= /mob/proc/CommanderSetForcedFriendTag
+	usr.verbs |= /mob/proc/CommanderSetForcedFoeTag
+	usr.verbs |= /mob/proc/CommandersFactionFight
+	usr.verbs |= /mob/proc/CommanderDropRelationshipTag
+	usr.verbs |= /proc/CommanderGiveGOAPSolverOrderSimple
+	#ifdef GOAI_DEBUG_UI_HACKERY
+	usr.verbs |= /mob/proc/CommanderGiveGOAPSolverOrder
+	usr.verbs |= /mob/proc/CommanderGiveMoveOrderClick
+	#endif
+	usr.verbs |= /mob/proc/RemoveGoaiOrderVerbs
+
+	return
+
