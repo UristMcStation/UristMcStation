@@ -50,12 +50,12 @@
 	// (sometimes the output of one mode signifies we should retry an earlier one)
 	var/pending_checks = 1
 
-	var/allow_path_following = FALSE
+	var/allow_path_following = TRUE
 	var/allow_steering = TRUE
 	var/allow_nudging = TRUE
 
 	while(pending_checks --> 0)
-		var/do_path_following = (allow_path_following && !isnull(src.active_path) && !src.active_path.IsDone())
+		var/do_path_following = (allow_path_following && src.active_path && !src.active_path.IsDone() && (localdist < 12))
 
 		if(do_path_following)
 			// Path-following mode:
@@ -66,12 +66,14 @@
 
 			var/turf/prev_draw_pos = null
 
+			#ifdef ENABLE_GOAI_DEBUG_BEAM_GIZMOS
 			for(var/turf/drawpos in src.active_path.path)
 				// debug path drawing
 				if(!isnull(prev_draw_pos))
 					drawpos.pDrawVectorbeam(prev_draw_pos, drawpos, "g_beam")
 
 				prev_draw_pos = drawpos
+			#endif
 
 			if(isnull(curr_loc))
 				allow_path_following = FALSE

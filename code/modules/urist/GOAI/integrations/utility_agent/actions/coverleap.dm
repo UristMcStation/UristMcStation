@@ -340,7 +340,9 @@
 	if(isnull(best_local_pos))
 		var/main_threat = length(threats) ? threats[1] : null
 		best_local_pos = ChooseCoverleapLandmark(startpos, main_threat, prev_loc_memdata, threats, min_safe_dist)
+		#ifdef ENABLE_GOAI_DEBUG_BEAM_GIZMOS
 		best_local_pos?.pDrawVectorbeam(pawn, best_local_pos, "n_beam")
+		#endif
 
 		tracker?.BBSet("bestpos", best_local_pos)
 		tracker?.BBSet("StartDist", (ManhattanDistance(get_turf(pawn), best_local_pos) || 0))

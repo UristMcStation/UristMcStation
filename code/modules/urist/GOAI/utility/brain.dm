@@ -13,11 +13,11 @@
 
 
 /datum/brain/utility/GetAiController()
-	var/datum/commander = null
+	var/datum/utility_ai/commander = null
 	var/__commander_backref = src.attachments.Get(ATTACHMENT_CONTROLLER_BACKREF)
 
 	# ifdef UTILITYBRAIN_LOG_CONTROLLER_LOOKUP
-	UTILITYBRAIN_DEBUG_LOG("Backref is [__commander_backref] @ L[__LINE__] in [__FILE__]")
+	UTILITYBRAIN_DEBUG_LOG("Backref is [__commander_backref] @ L[__LINE__] in [__FILE__] | <@[src]>")
 	# endif
 
 	if(IS_REGISTERED_AI(__commander_backref))
@@ -92,7 +92,7 @@
 	*/
 
 	// By default, abandon ship.
-	RUN_ACTION_DEBUG_LOG("INVALID ACTION: [action_key] | <@[src]> | [__FILE__] -> L[__LINE__]")
+	RUN_ACTION_DEBUG_LOG("INVALID ACTION: [action_key]  | <@[src]> | [__FILE__] -> L[__LINE__]")
 	src.AbortPlan()
 	return TRUE
 
@@ -129,7 +129,7 @@
 
 			if(contexts)
 				# ifdef UTILITYBRAIN_LOG_CONTEXTS
-				UTILITYBRAIN_DEBUG_LOG("Found contexts ([contexts.len])")
+				UTILITYBRAIN_DEBUG_LOG("Found contexts ([contexts.len]) | <@[src]>")
 				# endif
 
 				# ifdef UTILITYBRAIN_LOG_CONTEXTS
@@ -162,7 +162,7 @@
 						utility -= (0.01 * rand())
 
 					# ifdef UTILITYBRAIN_LOG_UTILITIES
-					UTILITYBRAIN_DEBUG_LOG("Utility for [action_template?.name]: [utility] (priority: [action_template?.priority_class])")
+					UTILITYBRAIN_DEBUG_LOG("Utility for [action_template?.name]: [utility] (priority: [action_template?.priority_class]) | <@[src]>")
 					UTILITYBRAIN_DEBUG_LOG("=========================")
 					UTILITYBRAIN_DEBUG_LOG(" ")
 					# endif
@@ -391,7 +391,7 @@ var/global/last_plan_time = null
 				selected_action = pop(active_plan)
 
 				var/datum/utility_action/action = selected_action
-				UTILITYBRAIN_DEBUG_LOG("Selected action: [action?.name || "NONE"]")
+				UTILITYBRAIN_DEBUG_LOG("Selected action: [action?.name || "NONE"] | <@[src]>")
 
 				// do instants in one tick
 				if(action?.instant)
@@ -497,7 +497,7 @@ var/global/last_plan_time = null
 	var/fixed_value = min(NEED_MAXIMUM, max(NEED_MINIMUM, (value)))
 	needs[motive_key] = fixed_value
 	last_need_update_times[motive_key] = world.time
-	MOTIVES_DEBUG_LOG("Curr [motive_key] = [needs[motive_key]] <@[src]>")
+	MOTIVES_DEBUG_LOG("Curr [motive_key] = [needs[motive_key]] | <@[src]>")
 
 
 /datum/brain/utility/proc/AddMotive(var/motive_key, var/amt)

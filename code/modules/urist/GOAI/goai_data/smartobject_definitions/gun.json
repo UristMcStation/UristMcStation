@@ -13,7 +13,7 @@
 					"output_context_key": "threat"
 				}
 			],
-			"priority": 8, 
+			"priority": 16, 
 			"considerations": [
 				{
 					"name": "RangedUsageAffinity",
