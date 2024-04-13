@@ -40,7 +40,7 @@
 
 	var/true_avoid = (avoid)
 
-	var/true_adjproc = (isnull(adjproc) ? /proc/fCardinalTurfsNoblocksObjpermissive : adjproc)
+	var/true_adjproc = (isnull(adjproc) ? /proc/fCardinalTurfs : adjproc)
 	var/true_distproc = (isnull(distanceproc) ? DEFAULT_GOAI_DISTANCE_PROC : distanceproc)
 
 	var/list/path = src.AiAStar(
@@ -229,10 +229,12 @@
 		src.brain.SetMemory("PendingMovementTarget", trg, 100)
 		return
 
+	#ifdef ENABLE_GOAI_DEBUG_BEAM_GIZMOS
 	var/turf/trg_turf = trg
 
-	if(trg_turf && pawn)
+	if(istype(trg_turf) && pawn)
 		trg_turf.pDrawVectorbeam(pawn, trg_turf)
+	#endif
 
 	src.is_repathing = 0
 

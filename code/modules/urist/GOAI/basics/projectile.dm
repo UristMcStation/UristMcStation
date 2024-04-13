@@ -147,12 +147,6 @@
 		shoot(At, usr)
 
 
-/mob/verb/GimmeGun()
-	var/obj/item/gun/newgun = new(usr)
-
-	to_chat(usr, "There ya go, one [newgun]!")
-
-
 /obj/item/test_grenade
 	name = "Grenade???"
 	icon = 'icons/obj/grenade.dmi'
@@ -210,12 +204,6 @@
 	var/obj/item/test_grenade/grenade = new(startturf)
 	grenade_yeet(grenade, To, From)
 	return
-
-
-/turf/verb/GrenadeTest()
-	set src in view()
-
-	grenade_spawnyeet(src, usr)
 
 
 # endif
