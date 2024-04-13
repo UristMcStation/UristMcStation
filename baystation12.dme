@@ -3492,7 +3492,6 @@
 #include "code\modules\urist\GOAI\basics\relationships.dm"
 #include "code\modules\urist\GOAI\basics\senses.dm"
 #include "code\modules\urist\GOAI\basics\turfs.dm"
-#include "code\modules\urist\GOAI\basics\turfs_debug.dm"
 #include "code\modules\urist\GOAI\basics\concrete_brains\_concrete.dm"
 #include "code\modules\urist\GOAI\basics\concrete_brains\sim.dm"
 #include "code\modules\urist\GOAI\goap\goap_classy.dm"

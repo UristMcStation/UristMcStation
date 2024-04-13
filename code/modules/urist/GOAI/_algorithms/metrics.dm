@@ -5,6 +5,9 @@
 # define MANHATTAN_DISTANCE_TWOD(from_atom, to_atom, DEFAULT) ( (isnull(from_atom) || isnull(to_atom) || (from_atom.z != to_atom.z) ) ? DEFAULT : MANHATTAN_DISTANCE_NUMERIC_TWOD(from_atom.x, from_atom.y, to_atom.x, to_atom.y) )
 # define MANHATTAN_DISTANCE_THREED(from_atom, to_atom, DEFAULT, ZMULT) ( (isnull(from_atom) || isnull(to_atom)) ? DEFAULT : MANHATTAN_DISTANCE_NUMERIC_THREED(from_atom.x, from_atom.y, from_atom.z, to_atom.x, to_atom.y, to_atom.z, ZMULT) )
 
+# define CHEBYSHEV_DISTANCE_NUMERIC_TWOD(Ax, Ay, Bx, By) (max( abs(Ax - Bx), abs(Ay - By) ))
+# define CHEBYSHEV_DISTANCE_TWOD(from_atom, to_atom, DEFAULT) ( (isnull(from_atom) || isnull(to_atom) || (from_atom.z != to_atom.z) ) ? DEFAULT : CHEBYSHEV_DISTANCE_NUMERIC_TWOD(from_atom.x, from_atom.y, to_atom.x, to_atom.y) )
+
 // aliasing - so there's a nice generic, swappable macro to use for common cases
 // explicit 2d/3d macros only needed when you specifically need 2d/3d (or want to override e.g. penalty)
 

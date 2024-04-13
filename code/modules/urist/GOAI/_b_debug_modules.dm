@@ -1,6 +1,3 @@
-// Uncomment to allow *ANY* debug logging below. Otherwise, they are all disabled.
-//# define ENABLE_DEBUG_LOG_MACROS 1
-
 // Uncomment defines as needed to enable various loggers.
 
 # ifdef ENABLE_DEBUG_LOG_MACROS
@@ -36,9 +33,26 @@
 
 #define ENABLE_GOAI_DEVEL_LOGGING 1
 #define ENABLE_GOAI_ERROR_LOGGING 1
+#define ENABLE_GOAI_DEBUG_BEAM_GIZMOS 1
+
+#ifndef to_world
+	#define to_world(message) world << (message)
+#endif
+
+#ifndef to_world_log
+	#define to_world_log(message) world.log << (message)
+#endif
 /* ============================================= */
 
 // Meta-definitions for compile-time-conditional logging
+
+# ifdef DEBUG_LOGGING
+	#define MAYBE_LOG(X) to_world_log(X)
+	#define MAYBE_LOG_TOSTR(X) to_world_log(#X + ": [X]")
+# else
+	#define MAYBE_LOG(X)
+	#define MAYBE_LOG_TOSTR(X)
+# endif
 
 #ifdef ENABLE_GOAI_DEVEL_LOGGING
 	#define GOAI_LOG_DEVEL(Msg) to_world_log(Msg)
@@ -70,14 +84,6 @@
 	# define ACTION_RUNTIME_DEBUG_LOG(X) to_world_log(X)
 # else
 	# define ACTION_RUNTIME_DEBUG_LOG(X)
-# endif
-
-# ifdef DEBUG_LOGGING
-	#define MAYBE_LOG(X) to_world_log(X)
-	#define MAYBE_LOG_TOSTR(X) to_world_log(#X + ": [X]")
-# else
-	#define MAYBE_LOG(X)
-	#define MAYBE_LOG_TOSTR(X)
 # endif
 
 # ifdef DEBUG_UTILITY_MEMORY_QUERIES

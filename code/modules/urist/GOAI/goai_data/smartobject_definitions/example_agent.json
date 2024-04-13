@@ -22,7 +22,7 @@
 			"name": "Flee", 
 			"description": "Bravely turn tail and run because you're scared.", 
 			"handler": "/datum/utility_ai/mob_commander/proc/FleeFrom", 
-			"priority": 16,
+			"priority": 8,
 			"context_procs": ["/proc/ctxfetcher_get_memory_value"], 
 			"context_args": [
 				{
@@ -61,8 +61,8 @@
 						"default": 0
 					},
 					"lo_mark": 0, 
-					"hi_mark": 1.2, 
-					"curve_proc": "/proc/curve_antilinear"
+					"hi_mark": 1, 
+					"curve_proc": "/proc/curve_antisquare"
 				},
 				{
 					"name": "Random",
@@ -193,8 +193,8 @@
 						"default": 0
 					},
 					"lo_mark": 0, 
-					"hi_mark": 1.2, 
-					"curve_proc": "/proc/curve_antilinear"
+					"hi_mark": 1, 
+					"curve_proc": "/proc/curve_antisquare"
 				},
 				{
 					"name": "NumericalAdvantage",

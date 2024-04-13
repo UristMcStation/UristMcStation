@@ -62,11 +62,6 @@
 	qdel(src)
 
 
-/mob/verb/DeleteBeams()
-	for(var/obj/vectorbeam/VB in view())
-		del(VB)
-
-
 /obj/vectorbeam/vanishing
 
 
@@ -93,7 +88,14 @@
 	return new_beam
 
 
-/atom/verb/DrawVectorbeam()
-	set src in view()
-	var/obj/vectorbeam/vanishing/new_beam = src.pDrawVectorbeam(usr)
+// Debug verbs (defined as procs, so you need to grant them via another verb/proc to the desired user)
+
+/atom/proc/DrawVectorbeam(var/atom/A in view())
+	var/obj/vectorbeam/vanishing/new_beam = A.pDrawVectorbeam(usr)
 	to_chat(usr, "Spawned new beam [new_beam]")
+
+
+/atom/proc/DeleteBeams()
+	for(var/obj/vectorbeam/VB in view())
+		qdel(VB)
+
