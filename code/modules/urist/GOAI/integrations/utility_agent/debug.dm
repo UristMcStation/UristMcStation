@@ -83,7 +83,7 @@
 	PUT_EMPTY_LIST_IN(ubrain.file_actionsets)  // clear the local cache
 	to_chat(usr, "AI <[commander]> reloaded!")
 
-	return src
+	return
 
 
 /mob/proc/RemoveGoaiDebugVerbs()
