@@ -1,6 +1,6 @@
 
 # ifdef GOAI_LIBRARY_FEATURES
-GOAI_ACTIONSET_FROM_FILE_BOILERPLATE(/obj/cover/table, "code/modules/urist/GOAI/goai_data/smartobject_definitions/table.json")
+GOAI_ACTIONSET_FROM_FILE_BOILERPLATE(/obj/cover/table, "goai_data/smartobject_definitions/table.json")
 GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_PROXIMITY_CHEBYSHEV(/obj/structure/table, 1)
 # endif
 

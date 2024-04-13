@@ -117,7 +117,7 @@
 	return
 
 
-/mob/verb/TogglePrintPair()
+/mob/proc/TogglePrintPair()
 	var/client/mobclient = src.client
 	if(isnull(mobclient))
 		GOAI_LOG_DEVEL_WORLD("Client for [src] is null!")
@@ -177,7 +177,38 @@
 	return
 
 
-/mob/verb/CommanderGiveGOAPSolverOrder(datum/utility_ai/mob_commander/M in GOAI_LIBBED_GLOB_ATTR(global_goai_registry))
+// Give a move order by clicking on an atom
+/proc/CreateMoveOrderCB(var/client/src_client, var/object, var/location, var/control, var/params)
+	if(isnull(src_client))
+		to_chat(usr, "src_client is null! @ L[__LINE__] in [__FILE__]!")
+		return
+
+	var/datum/utility_ai/mob_commander/commander = src_client.blackboard["TargetCommander"]
+
+	if(isnull(commander))
+		to_chat(usr, "Commander for [src_client] is null! @ L[__LINE__] in [__FILE__]!")
+		return
+
+	var/datum/brain/commander_brain = commander.brain
+
+	if(isnull(commander_brain))
+		to_chat(usr, "Brain for [commander] is null! @ L[__LINE__] in [__FILE__]!")
+		return
+
+	var/turf/position = get_turf(object)
+	if(!position)
+		to_chat(usr, "Target position ([object]) does not exist!")
+		return
+
+	var/datum/memory/created_mem = commander_brain.SetMemory("ai_target", position, PLUS_INF)
+	commander_brain.SetMemory("ai_target_mindist", 1, PLUS_INF)
+
+	var/atom/waypoint = created_mem?.val
+
+	to_chat(usr, (waypoint ? "[commander] now tracking [waypoint]" : "[commander] not tracking waypoints"))
+	return
+
+/mob/proc/CommanderGiveGOAPSolverOrder(datum/utility_ai/mob_commander/M in GOAI_LIBBED_GLOB_ATTR(global_goai_registry))
 	set category = "Commander Orders"
 
 	var/client/mobclient = src.client
@@ -210,39 +241,7 @@
 	return
 
 
-// Give a move order by clicking on an atom
-/proc/CreateMoveOrderCB(var/client/src_client, var/object, var/location, var/control, var/params)
-	if(isnull(src_client))
-		to_chat(usr, "src_client is null! @ L[__LINE__] in [__FILE__]!")
-		return
-
-	var/datum/utility_ai/mob_commander/commander = src_client.blackboard["TargetCommander"]
-
-	if(isnull(commander))
-		to_chat(usr, "Commander for [src_client] is null! @ L[__LINE__] in [__FILE__]!")
-		return
-
-	var/datum/brain/commander_brain = commander.brain
-
-	if(isnull(commander_brain))
-		to_chat(usr, "Brain for [commander] is null! @ L[__LINE__] in [__FILE__]!")
-		return
-
-	var/turf/position = get_turf(object)
-	if(!position)
-		to_chat(usr, "Target position ([object]) does not exist!")
-		return
-
-	var/datum/memory/created_mem = commander_brain.SetMemory("ai_target", position, PLUS_INF)
-	commander_brain.SetMemory("ai_target_mindist", 1, PLUS_INF)
-
-	var/atom/waypoint = created_mem?.val
-
-	to_chat(usr, (waypoint ? "[commander] now tracking [waypoint]" : "[commander] not tracking waypoints"))
-	return
-
-
-/mob/verb/CommanderGiveMoveOrderClick(datum/utility_ai/mob_commander/M in GOAI_LIBBED_GLOB_ATTR(global_goai_registry))
+/mob/proc/CommanderGiveMoveOrderClick(datum/utility_ai/mob_commander/M in GOAI_LIBBED_GLOB_ATTR(global_goai_registry))
 	set category = "Commander Orders"
 
 	var/client/mobclient = src.client

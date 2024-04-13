@@ -246,6 +246,7 @@
 	owner_brain.SetMemory("AbstractSmartPaths", paths, _path_ttl)
 	owner_brain.SetMemory(MEM_PATH_ACTIVE, path, _path_ttl)
 
+	#ifdef ENABLE_GOAI_DEBUG_BEAM_GIZMOS
 	if(path)
 		var/turf/prev_draw_pos = null
 
@@ -255,6 +256,7 @@
 				drawpos.pDrawVectorbeam(prev_draw_pos, drawpos, "b_beam")
 
 			prev_draw_pos = drawpos
+	#endif
 
 	return path
 
