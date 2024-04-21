@@ -16,9 +16,9 @@
 
 	var/atom/pawn = src.GetPawn()
 
-	if(isnull(pawn))
-		RUN_ACTION_DEBUG_LOG("Pawn is null | <@[src]> | [__FILE__] -> L[__LINE__]")
-		return
+	if(!istype(pawn))
+		RUN_ACTION_DEBUG_LOG("No owned mob found for [src.name] AI @ [__LINE__] in [__FILE__]")
+		return FALSE
 
 	grenade_spawnyeet(target, pawn)
 

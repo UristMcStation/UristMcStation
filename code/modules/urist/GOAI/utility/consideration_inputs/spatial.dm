@@ -10,8 +10,8 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_manhattan_distance_to_req
 
 	var/atom/requester_entity = requester_ai?.GetPawn()
 
-	if(isnull(requester_entity))
-		DEBUGLOG_UTILITY_INPUT_FETCHERS("Requesting identity is null (from [requester || "null"] raw val) @ L[__LINE__] in [__FILE__]")
+	if(!istype(requester_entity))
+		DEBUGLOG_UTILITY_INPUT_FETCHERS("Requesting identity is invalid (from [requester || "null"] raw val) @ L[__LINE__] in [__FILE__]")
 		return null
 
 	var/from_memory = consideration_args?["from_memory"]
@@ -57,8 +57,8 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_chebyshev_distance_to_req
 
 	var/atom/requester_entity = requester_ai?.GetPawn()
 
-	if(isnull(requester_entity))
-		DEBUGLOG_UTILITY_INPUT_FETCHERS("Requesting identity is null (from [requester || "null"] raw val) @ L[__LINE__] in [__FILE__]")
+	if(!istype(requester_entity))
+		DEBUGLOG_UTILITY_INPUT_FETCHERS("Requesting identity is invalid (from [requester || "null"] raw val) @ L[__LINE__] in [__FILE__]")
 		return null
 
 	var/from_memory = consideration_args?["from_memory"]
@@ -170,7 +170,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_is_passable)
 	var/atom/requester_atom = requester_ai?.GetPawn()
 	DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_input_is_passable blocked is [blocked] @ L[__LINE__] in [__FILE__]")
 
-	if(!isnull(requester_atom))
+	if(istype(requester_atom))
 		if(get_dist(requester_atom, queried_turf) <= 1)
 			var/turf/requester_turf = get_turf(requester_atom)
 			var/entry_dir = get_dir(requester_turf, queried_turf)
@@ -197,9 +197,9 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_raytrace_impactee_distanc
 		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_input_raytrace_impactee_distance_to_target requester_ai is null ([requester_ai || "null"]) @ L[__LINE__] in [__FILE__]")
 		return null
 
-	var/mob/pawn = requester_ai?.GetPawn()
+	var/atom/pawn = requester_ai?.GetPawn()
 
-	if(isnull(pawn))
+	if(!istype(pawn))
 		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_input_raytrace_impactee_distance_to_target Pawn is null @ L[__LINE__] in [__FILE__]")
 		return null
 

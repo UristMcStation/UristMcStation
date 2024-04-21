@@ -15,87 +15,61 @@
 */
 
 /datum/utility_ai/faction_commander
-	name = "utility AI commander"
+	name = "unknown faction"
 
 	base_ai_tick_delay = FACTION_AI_TICK_DELAY
 	ai_tick_delay = FACTION_AI_TICK_DELAY
 	senses_tick_delay = FACTION_AI_TICK_DELAY
 
-	#ifdef UTILITY_SMARTOBJECT_SENSES
-	// Semicolon-separated string (to imitate the PATH envvar);
-	// Will be split and parsed to a list at runtime.#
-	// We're doing it this weird way to avoid dealing with list defaults
-	var/sense_filepaths = DEFAULT_FACTION_AI_SENSES
-	#endif
+	var/factionspec_source = null // path to JSON
 
 
-/datum/utility_ai/faction_commander/Life()
+/datum/utility_ai/faction_commander/InitPawn()
 	. = ..()
-
-	#ifdef UTILITY_SMARTOBJECT_SENSES
-	// Perception updates
-	spawn(0)
-		while(src.life)
-			src.SensesSystem()
-			sleep(src.senses_tick_delay)
-	#endif
-
-	// AI
-	spawn(0)
-		while(src.life)
-			var/cleaned_up = src.CheckForCleanup()
-			if(cleaned_up)
-				return
-
-			// Run the Life update function.
-			src.LifeTick()
-
-			// Fix the tickrate to prevent runaway loops in case something messes with it.
-			// Doing it here is nice, because it saves us from sanitizing it all over the place.
-			src.ai_tick_delay = max(WITH_UTILITY_SLEEPTIME_STAGGER(src?.base_ai_tick_delay || 0), MIN_AI_SLEEPTIME)
-			var/sleeptime = min(MAX_AI_SLEEPTIME, src.ai_tick_delay)
-
-			src.waketime = (world.time + src.ai_tick_delay)
-
-			// Wait until the next update tick.
-			while(world.time < src.waketime)
-				sleep(sleeptime)
-
-
-
-/datum/utility_ai/faction_commander/LifeTick()
-	if(paused)
-		return
-
-	if(brain)
-		brain.LifeTick()
-
-		for(var/datum/ActionTracker/instant_action_tracker in brain.pending_instant_actions)
-			var/tracked_instant_action = instant_action_tracker?.tracked_action
-			if(tracked_instant_action)
-				src.HandleInstantAction(tracked_instant_action, instant_action_tracker)
-
-		PUT_EMPTY_LIST_IN(brain.pending_instant_actions)
-
-		if(brain.running_action_tracker)
-			var/tracked_action = brain.running_action_tracker.tracked_action
-
-			if(tracked_action)
-				src.HandleAction(tracked_action, brain.running_action_tracker)
-
+	src.InitializeFactionData()
 	return
 
 
-/datum/utility_ai/faction_commander/InitRelations()
-	// NOTE: this is a near-override, practically speaking!
+/datum/utility_ai/faction_commander/PostSetupHook()
+	. = ..()
+	// Register ourselves as a faction AI.
+	src.RegisterFaction()
+	return
 
-	if(!(src.brain))
+
+/datum/utility_ai/faction_commander/proc/InitializeFactionData(var/filespec = null)
+	/*
+	// Might be needed; currently disabled to allow for clean reinits.
+	if(!isnull(src.faction))
 		return
+	*/
 
-	var/datum/relationships/relations = ..()
+	var/spec_file = (filespec || src.factionspec_source)
 
-	if(isnull(relations) || !istype(relations))
-		relations = new()
+	var/list/factionspec = null // assoc list
+	if(src.factionspec_source)
+		factionspec = READ_JSON_FILE(spec_file)
 
-	src.brain.relations = relations
-	return relations
+	var/faction_name = null
+	if(factionspec)
+		faction_name = factionspec["name"]
+
+	if(isnull(faction_name))
+		faction_name = src.name
+
+	var/list/faction_tags = null
+	if(factionspec)
+		faction_tags = factionspec["tags"]
+
+	var/list/faction_rels = null
+	if(factionspec)
+		faction_rels = factionspec["relationships"]
+
+	var/datum/faction_data/new_faction = new(faction_name, faction_rels, faction_tags)
+
+	// Note: the pawn may be a weakref, so
+	// if for whatever reason the faction gets de-registered from a global list,
+	// this would result in the pawn getting nulled out.
+	src.pawn = REFERENCE_PAWN(new_faction)
+
+	return src

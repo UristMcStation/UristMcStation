@@ -7,7 +7,9 @@
 		return
 
 	var/atom/pawn = src.GetPawn()
-	if(!pawn)
+
+	if(!istype(pawn))
+		RUN_ACTION_DEBUG_LOG("Pawn is invalid or null | <@[src]> | [__FILE__] -> L[__LINE__]")
 		return
 
 	var/targ_distance = EuclidDistance(pawn, target)
@@ -22,7 +24,9 @@
 		return
 
 	var/atom/pawn = src.GetPawn()
-	if(!pawn)
+
+	if(!istype(pawn))
+		RUN_ACTION_DEBUG_LOG("Pawn is invalid or null | <@[src]> | [__FILE__] -> L[__LINE__]")
 		return
 
 	var/atom/my_loc = pawn?.loc
@@ -148,8 +152,9 @@
 	. = FALSE
 
 	var/atom/pawn = src.GetPawn()
-	if(!pawn)
-		COMBAT_AI_DEBUG_LOG("No mob not found for the [src.name] AI to attack with D;")
+
+	if(!istype(pawn))
+		COMBAT_AI_DEBUG_LOG("Pawn is invalid or null | <@[src]> | [__FILE__] -> L[__LINE__]")
 		return FALSE
 
 	# ifndef GOAI_SS13_SUPPORT
@@ -186,7 +191,8 @@
 
 /datum/utility_ai/mob_commander/proc/GetThreatDistance(var/atom/relative_to = null, var/atom/curr_threat = null, var/default = 0) // -> num
 	var/atom/pawn = src.GetPawn()
-	if(!pawn)
+
+	if(!istype(pawn))
 		return default
 
 	if(isnull(curr_threat))
@@ -317,7 +323,8 @@
 
 	// Generally the hit thing is our Pawn here, or we wouldn't have gotten a ping
 	var/atom/pawn = isnull(whomst) ? src.GetPawn() : whomst
-	if(!pawn)
+
+	if(!istype(pawn))
 		return
 
 	/*
