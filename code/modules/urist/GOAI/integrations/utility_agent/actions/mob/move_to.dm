@@ -16,8 +16,8 @@
 
 	var/atom/pawn = src.GetPawn()
 
-	if(isnull(pawn))
-		RUN_ACTION_DEBUG_LOG("Pawn is null | <@[src]> | [__FILE__] -> L[__LINE__]")
+	if(!istype(pawn))
+		RUN_ACTION_DEBUG_LOG("No owned mob found for [src.name] AI @ [__LINE__] in [__FILE__]")
 		return
 
 	var/succeeded = MovePawn(position)
@@ -64,8 +64,8 @@
 
 	var/atom/pawn = src.GetPawn()
 
-	if(isnull(pawn))
-		RUN_ACTION_DEBUG_LOG("Pawn is null | <@[src]> | [__FILE__] -> L[__LINE__]")
+	if(!istype(pawn))
+		RUN_ACTION_DEBUG_LOG("No owned mob found for [src.name] AI @ [__LINE__] in [__FILE__]")
 		return
 
 	if(pawn.x == position.x && pawn.y == position.y && pawn.z == position.z)
@@ -112,8 +112,8 @@
 
 	var/atom/pawn = src.GetPawn()
 
-	if(isnull(pawn))
-		RUN_ACTION_DEBUG_LOG("Pawn is null | <@[src]> | [__FILE__] -> L[__LINE__]")
+	if(!istype(pawn))
+		RUN_ACTION_DEBUG_LOG("No owned mob found for [src.name] AI @ [__LINE__] in [__FILE__]")
 		return
 
 	GOAI_LOG_DEVEL_WORLD("[pawn] is running to [position] [COORDS_TUPLE(position)]")

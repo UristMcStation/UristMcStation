@@ -1,6 +1,6 @@
-/datum/utility_ai/mob_commander/proc/ShootAt(var/datum/ActionTracker/tracker, var/atom/threat)
+/datum/utility_ai/proc/SpawnMob(var/datum/ActionTracker/tracker, var/atom/spawnpoint, var/mobtype)
 	/*
-	// Attacks an enemy
+	// Spawns a mob.
 	*/
 	if(isnull(tracker))
 		RUN_ACTION_DEBUG_LOG("Tracker is null | <@[src]> | [__FILE__] -> L[__LINE__]")
@@ -9,18 +9,18 @@
 	if(tracker.IsStopped())
 		return
 
-	if(isnull(threat))
-		RUN_ACTION_DEBUG_LOG("Threat is null | <@[src]> | [__FILE__] -> L[__LINE__]")
+	if(isnull(spawnpoint))
+		RUN_ACTION_DEBUG_LOG("spawnpoint is null | <@[src]> | [__FILE__] -> L[__LINE__]")
 		tracker.SetFailed()
 		return
 
-	var/atom/pawn = src.GetPawn()
+	// spawn an agent
+	var/mob/M = new mobtype(spawnpoint)
 
-	if(isnull(pawn))
-		RUN_ACTION_DEBUG_LOG("Pawn is null | <@[src]> | [__FILE__] -> L[__LINE__]")
-		return
+	// give it a commander probably
+	M.PosessWithGoaiUtilityCommander()
 
-	src.Shoot(cached_target=threat)
+	// set it to our faction
 
 	var/succeeded = TRUE
 

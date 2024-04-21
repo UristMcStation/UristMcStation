@@ -17,7 +17,7 @@
 	M.loc = loc
 
 	if(spawn_commander)
-		var/datum/goai/mob_commander/combat_commander/new_commander = new()
+		var/datum/goai/mob_commander/new_commander = new()
 
 		new_commander.pawn = M
 		var/dict/pawn_attachments = M.attachments
@@ -212,15 +212,9 @@
 	if(true_name)
 		M.name = true_name
 
-	var/datum/utility_ai/mob_commander/combat_commander/new_commander = new()
+	var/datum/utility_ai/mob_commander/new_commander = new()
 
-	# ifdef GOAI_SS13_SUPPORT
-	new_commander.pawn_ref = weakref(M)
-	# endif
-
-	# ifdef GOAI_LIBRARY_FEATURES
-	new_commander.pawn = M
-	# endif
+	new_commander.pawn = REFERENCE_PAWN(M)
 
 	new_commander.name = "AI of [M.name] (#[rand(0, 100000)])"
 

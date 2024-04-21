@@ -81,7 +81,7 @@
 /datum/utility_ai/proc/HandleInstantAction(var/datum/goai_action/action, var/datum/ActionTracker/tracker)
 	MAYBE_LOG("Tracker: [tracker]")
 
-	var/list/action_lookup = actionlookup // abstract maybe
+	var/list/action_lookup = src.actionlookup // abstract maybe
 	if(isnull(action_lookup))
 		return
 

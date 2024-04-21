@@ -1,7 +1,7 @@
 // TODO: port to Utility!
 
 /proc/spawn_faction_commander(var/faction_name)
-	var/datum/goai/goai_commander/faction_ai/new_commander = new()
+	var/datum/utility_ai/faction_commander/debug/new_commander = new()
 	var/true_faction_name = (faction_name || BuildFactionName())
 
 	if(true_faction_name)

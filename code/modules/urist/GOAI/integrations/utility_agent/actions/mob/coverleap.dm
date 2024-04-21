@@ -1,8 +1,9 @@
 /datum/utility_ai/mob_commander/proc/ChooseCoverleapLandmark(var/atom/startpos, var/atom/primary_threat = null, var/turf/prev_loc_memdata = null, var/list/threats = null, var/min_safe_dist = null, var/trust_first = null)
 	var/atom/pawn = src.GetPawn()
-	if(!pawn)
-		ACTION_RUNTIME_DEBUG_LOG("[src] does not have an owned mob!")
-		return
+
+	if(!istype(pawn))
+		ACTION_RUNTIME_DEBUG_LOG("No owned mob found for [src.name] AI @ [__LINE__] in [__FILE__]")
+		return FALSE
 
 	// Pathfinding/search
 	var/atom/_startpos = (startpos || get_turf(pawn))
@@ -247,9 +248,10 @@
 
 /datum/utility_ai/mob_commander/proc/HandleDirectionalChooseCoverleapLandmark(var/datum/ActionTracker/tracker)
 	var/atom/pawn = src.GetPawn()
-	if(!pawn)
-		ACTION_RUNTIME_DEBUG_LOG("[src] does not have an owned mob!")
-		return
+
+	if(!istype(pawn))
+		ACTION_RUNTIME_DEBUG_LOG("No owned mob found for [src.name] AI @ [__LINE__] in [__FILE__]")
+		return FALSE
 
 	var/turf/best_local_pos = tracker?.BBGet("bestpos", null)
 	if(best_local_pos)
@@ -279,9 +281,10 @@
 
 /datum/utility_ai/mob_commander/proc/HandleDirectionalCoverLeapfrog(var/datum/ActionTracker/tracker, var/atom/threat = null)
 	var/atom/pawn = src.GetPawn()
-	if(!pawn)
-		ACTION_RUNTIME_DEBUG_LOG("[src] does not have an owned mob!")
-		return
+
+	if(!istype(pawn))
+		ACTION_RUNTIME_DEBUG_LOG("No owned mob found for [src.name] AI @ [__LINE__] in [__FILE__]")
+		return FALSE
 
 	var/tracker_frustration = tracker.BBSetDefault("frustration", 0)
 	var/turf/startpos = tracker.BBSetDefault("startpos", get_turf(pawn))
