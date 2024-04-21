@@ -1,0 +1,41 @@
+{
+	"name": "BasicFactionActions", 
+	"active": 1, 
+	"actions": [
+		{
+			"name": "Print Faction", 
+			"description": "Does literally nothing. Fallback behavior.", 
+			"handler": "/datum/utility_ai/proc/PrintArg", 
+			"priority": 1,
+			"context_procs": ["/proc/ctxfetcher_all_faction_ais"], 
+			"context_args": [{
+				"output_context_key": "printarg"
+			}],
+			"considerations": [
+				{
+					"name": "Random choice",
+					"input_proc": "/proc/consideration_input_fuzz_uniform",
+					"lo_mark": 0, 
+					"hi_mark": 1, 
+					"curve_proc": "/proc/curve_linear"
+				}
+			]
+		},
+		{
+			"name": "Idle", 
+			"description": "Does literally nothing. Fallback behavior.", 
+			"handler": "/datum/utility_ai/proc/Idle", 
+			"priority": 0.01,
+			"context_procs": ["/proc/ctxfetcher_null"], 
+			"considerations": [
+				{
+					"name": "Got nothing better to do",
+					"input_proc": "/proc/consideration_input_always",
+					"lo_mark": 0, 
+					"hi_mark": 1, 
+					"curve_proc": "/proc/curve_linear"
+				}
+			]
+		}
+	]
+}

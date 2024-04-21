@@ -3,6 +3,10 @@
 /datum/utility_ai/mob_commander/proc/MovementSystem()
 	var/atom/movable/pawn = src.GetPawn()
 
+	if(!istype(pawn))
+		MOVEMENT_DEBUG_LOG("Pawn is not a movable atom | <@[src]> | [__FILE__] -> L[__LINE__]")
+		return
+
 	if(src.is_moving)
 		MOVEMENT_DEBUG_LOG("MovementSystem cannot run; already moving | [__FILE__] -> L[__LINE__]")
 		return

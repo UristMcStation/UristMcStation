@@ -23,7 +23,7 @@
 
 	var/atom/pawn = owner.GetPawn()
 
-	if(isnull(pawn))
+	if(!istype(pawn))
 		RUN_ACTION_DEBUG_LOG("Pawn is null | <@[src]> | [__FILE__] -> L[__LINE__]")
 		return
 
@@ -170,7 +170,7 @@
 
 	var/atom/pawn = owner.GetPawn()
 
-	if(isnull(pawn))
+	if(!istype(pawn))
 		RUN_ACTION_DEBUG_LOG("Pawn is null | <@[src]> | [__FILE__] -> L[__LINE__]")
 		return
 

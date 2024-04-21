@@ -29,7 +29,7 @@
 
 	var/atom/pawn = owner.GetPawn()
 
-	if(isnull(pawn))
+	if(!istype(pawn))
 		// We grab the view range from the owned mob, so we need it here
 		return
 
@@ -72,7 +72,12 @@
 		return
 
 	var/atom/pawn = owner?.GetPawn()
-	var/my_loc = pawn?.loc
+
+	if(!istype(pawn))
+		return
+
+	var/my_loc = pawn.loc
+
 	if(isnull(my_loc))
 		return
 

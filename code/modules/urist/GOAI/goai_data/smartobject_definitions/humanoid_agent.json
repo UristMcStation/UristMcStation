@@ -5,7 +5,7 @@
 		{
 			"name": "Idle", 
 			"description": "Does literally nothing. Fallback behavior.", 
-			"handler": "/datum/utility_ai/mob_commander/proc/Idle", 
+			"handler": "/datum/utility_ai/proc/Idle", 
 			"priority": 0.01,
 			"context_procs": ["/proc/ctxfetcher_null"], 
 			"considerations": [
