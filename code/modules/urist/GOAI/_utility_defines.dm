@@ -171,6 +171,17 @@
 # define DYNAMIC_QUERY_CACHE_GLOBAL_TTL 3000
 # define DYNAMIC_QUERY_CACHE_GLOBAL_TTL_FUZZ 20
 
+// Pawn-handling
+# ifdef GOAI_LIBRARY_FEATURES
+	#define RESOLVE_PAWN(PawnVar) (PawnVar)
+	#define REFERENCE_PAWN(PawnVar) (PawnVar)
+# endif
+
+# ifdef GOAI_SS13_SUPPORT
+	#define RESOLVE_PAWN(PawnVar) (PawnVar?.resolve())
+	#define REFERENCE_PAWN(PawnVar) (weakref(PawnVar))
+# endif
+
 /*
 // The code to implement SmartObjects is extremely boilerplate 99% of the time. These macros write it for you.
 */
@@ -180,6 +191,9 @@
 
 // Always available:
 # define GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_ALWAYS(OBJTYPE) ##OBJTYPE/HasUtilityActions(var/requester, var/list/args = null) { return TRUE }
+
+// Available if a list in our variable is non-empty:
+# define GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_VARLIST(OBJTYPE, LISTVAR) ##OBJTYPE/HasUtilityActions(var/requester, var/list/args = null) { return (##LISTVAR) }
 
 // Is 'us', broadly speaking:
 # define GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_ISPAWN(OBJTYPE) ##OBJTYPE/HasUtilityActions(var/requester, var/list/args = null) { if(requester == src) { return TRUE }; var/datum/utility_ai/mob_commander/commander = requester; if(!istype(commander)) { return FALSE }; var/pawn = commander.GetPawn(); return (pawn == src) }

@@ -52,4 +52,5 @@
 	if(isnull(src.brain.personality))
 		src.brain.personality = src.GeneratePersonality()
 
+	src.brain.name = "brain of [src.name]"
 	return brain

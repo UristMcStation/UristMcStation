@@ -16,8 +16,9 @@
 
 /datum/utility_ai/mob_commander/proc/CurrentPositionAsTuple()
 	var/atom/pawn = src.GetPawn()
-	if(!pawn)
-		MOVEMENT_DEBUG_LOG("No owned mob found for [src.name] AI")
+
+	if(!istype(pawn))
+		MOVEMENT_DEBUG_LOG("No owned mob found for [src.name] AI @ [__LINE__] in [__FILE__]")
 		return
 
 	return pawn.CurrentPositionAsTuple()
@@ -25,8 +26,9 @@
 
 /datum/utility_ai/mob_commander/proc/FindPathTo(var/trg, var/min_dist = 0, var/avoid = null, var/adjproc = null, var/distanceproc = null, var/list/adjargs = null)
 	var/atom/pawn = src.GetPawn()
-	if(!pawn)
-		MOVEMENT_DEBUG_LOG("No owned mob found for [src.name] AI")
+
+	if(!istype(pawn))
+		MOVEMENT_DEBUG_LOG("No owned mob found for [src.name] AI @ [__LINE__] in [__FILE__]")
 		return
 
 	var/atom/start_loc = null
@@ -106,6 +108,9 @@
 
 /datum/utility_ai/mob_commander/proc/CheckForObstacles(var/list/dirty_path)
 	var/atom/pawn = src.GetPawn()
+	if(!istype(pawn))
+		MOVEMENT_DEBUG_LOG("No owned mob found for [src.name] AI @ [__LINE__] in [__FILE__]")
+		return
 
 	/*
 	// DUPLICATED CODE FROM WAYPOINT.DM!!!
@@ -266,7 +271,8 @@
 	if(isnull(true_pawn))
 		true_pawn = src.GetPawn()
 
-	if(isnull(true_pawn))
+	if(!istype(true_pawn))
+		MOVEMENT_DEBUG_LOG("No owned mob found for [src.name] AI @ [__LINE__] in [__FILE__]")
 		return FALSE
 
 	var/mob/pawn_mob = true_pawn
@@ -325,7 +331,8 @@
 	if(isnull(true_pawn))
 		true_pawn = src.GetPawn()
 
-	if(isnull(true_pawn))
+	if(!istype(true_pawn))
+		MOVEMENT_DEBUG_LOG("No owned mob found for [src.name] AI @ [__LINE__] in [__FILE__]")
 		return FALSE
 
 	var/turf/targ_turf = get_turf(trg)

@@ -3,21 +3,25 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_in_pawn_turf)
 	// Stuff wot is where we stand
 
 	if(isnull(requester))
-		UTILITYBRAIN_DEBUG_LOG("WARNING: requester for ctxfetcher_cardinal_turfs is null @ L[__LINE__] in [__FILE__]!")
+		UTILITYBRAIN_DEBUG_LOG("WARNING: requester for ctxfetcher_in_pawn_turf is null @ L[__LINE__] in [__FILE__]!")
 		return null
 
 	var/datum/utility_ai/mob_commander/requester_ai = requester
 
 	if(isnull(requester_ai))
-		UTILITYBRAIN_DEBUG_LOG("WARNING: requester for ctxfetcher_cardinal_turfs is not an AI @ L[__LINE__] in [__FILE__]!")
+		UTILITYBRAIN_DEBUG_LOG("WARNING: requester for ctxfetcher_in_pawn_turf is not an AI @ L[__LINE__] in [__FILE__]!")
 		return null
 
 	var/atom/atom_requester = requester_ai.GetPawn()
 
+	if(!istype(atom_requester))
+		UTILITYBRAIN_DEBUG_LOG("WARNING: pawn for ctxfetcher_in_pawn_turf is not an atom! @ L[__LINE__] in [__FILE__]!")
+		return null
+
 	var/turf/requester_tile = get_turf(atom_requester)
 
 	if(isnull(requester_tile))
-		UTILITYBRAIN_DEBUG_LOG("WARNING: requester for ctxfetcher_cardinal_turfs does not have a turf position! @ L[__LINE__] in [__FILE__]!")
+		UTILITYBRAIN_DEBUG_LOG("WARNING: requester for ctxfetcher_in_pawn_turf does not have a turf position! @ L[__LINE__] in [__FILE__]!")
 		return null
 
 	var/list/contexts = list()
@@ -114,16 +118,16 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_adjacent_turfs)
 		UTILITYBRAIN_DEBUG_LOG("WARNING: requester for ctxfetcher_turfs_in_view is null @ L[__LINE__] in [__FILE__]!")
 		return null
 
-	var/datum/utility_ai/mob_commander/requester_ai = requester
+	var/datum/utility_ai/requester_ai = requester
 
-	if(isnull(requester))
+	if(!istype(requester_ai))
 		UTILITYBRAIN_DEBUG_LOG("WARNING: requester for ctxfetcher_turfs_in_view is not an AI @ L[__LINE__] in [__FILE__]!")
 		return null
 
 	var/atom/atom_requester = requester_ai.GetPawn()
 
-	if(isnull(atom_requester))
-		UTILITYBRAIN_DEBUG_LOG("WARNING: requester for ctxfetcher_adjacent_turfs is not an atom! @ L[__LINE__] in [__FILE__]!")
+	if(!istype(atom_requester))
+		UTILITYBRAIN_DEBUG_LOG("WARNING: pawn for ctxfetcher_adjacent_turfs is not an atom! @ L[__LINE__] in [__FILE__]!")
 		return null
 
 	var/list/contexts = list()
@@ -171,13 +175,17 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_cardinal_turfs)
 		UTILITYBRAIN_DEBUG_LOG("WARNING: requester for ctxfetcher_cardinal_turfs is null @ L[__LINE__] in [__FILE__]!")
 		return null
 
-	var/datum/utility_ai/mob_commander/requester_ai = requester
+	var/datum/utility_ai/requester_ai = requester
 
-	if(isnull(requester_ai))
+	if(!istype(requester_ai))
 		UTILITYBRAIN_DEBUG_LOG("WARNING: requester for ctxfetcher_cardinal_turfs is not an AI @ L[__LINE__] in [__FILE__]!")
 		return null
 
 	var/atom/atom_requester = requester_ai.GetPawn()
+
+	if(!istype(atom_requester))
+		UTILITYBRAIN_DEBUG_LOG("WARNING: pawn for ctxfetcher_cardinal_turfs is not an atom! @ L[__LINE__] in [__FILE__]!")
+		return null
 
 	var/turf/requester_tile = get_turf(atom_requester)
 
