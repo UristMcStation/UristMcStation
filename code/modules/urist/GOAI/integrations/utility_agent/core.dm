@@ -3,11 +3,31 @@
 	var/life = TRUE
 	var/paused = FALSE
 
-	var/list/needs
+	var/list/needs = null
 
-	var/datum/brain/utility/brain
-	var/list/actionslist
-	var/list/actionlookup
+	// Pawn - an AI-controlled entity.
+	// This can be a mob/atom, a faction datum, a squad wrapper datum for multiple mobs/atoms, etc.
+	// Note this can also be left blank if you want a purely abstract AI.
+	# ifdef GOAI_LIBRARY_FEATURES
+	var/datum/pawn
+	# endif
+
+	# ifdef GOAI_SS13_SUPPORT
+	var/weakref/pawn
+	# endif
+
+	// If True, calls src.InitializePawn()
+	// Set to False as an optimization to skip an unnecessary call.
+	var/initialize_pawn = TRUE
+
+	// Associated Brain
+	// Brains are a datastructure for AI-adjacent information like memories, perceptions, needs, etc.
+	var/datum/brain/utility/brain = null
+
+	// Unlike mob commanders, factions don't have a natural 'self' SmartObject source.
+	// Instead, we give them a bunch of actionsets here, as appropriate for their type.
+	// Note this isn't used directly; we'll use this attribute to define this datum as a SmartObject.
+	var/list/innate_actions_filepaths = null
 
 	var/list/senses // array, primary DS for senses
 	var/list/senses_index // assoc, used for quick lookups/access only
@@ -28,6 +48,10 @@
 	// Dynamically attached junk
 	var/dict/attachments
 
+	// These two are, by and large, relics of earlier code and are, practically speaking, DEPRECATED!
+	var/list/actionslist
+	var/list/actionlookup
+
 
 /datum/utility_ai/proc/InitActionLookup()
 	/* Largely redundant; initializes handlers, but
@@ -40,16 +64,30 @@
 
 
 /datum/utility_ai/proc/InitActionsList()
+	// DEPRECATED
 	var/list/new_actionslist = list()
 	return new_actionslist
 
 
 /datum/utility_ai/proc/InitNeeds()
+	// Allows overwriting the Brain's needs with AI's own.
 	src.needs = list()
+
+	if(!(src.brain))
+		return src.needs
+
+	var/list/needs = src.brain.needs
+
+	if(isnull(needs) || !istype(needs))
+		needs = list()
+
+	src.brain.needs = needs
+
 	return src.needs
 
 
 /datum/utility_ai/proc/InitRelations()
+	// Allows overwriting the Brain's relations with AI's own.
 	if(!(src.brain))
 		return
 
@@ -61,7 +99,20 @@
 	return relations
 
 
+/datum/utility_ai/proc/InitPawn()
+	// Allows subclasses to specify how/whether to create a Pawn
+	return
+
+
 /datum/utility_ai/proc/PreSetupHook()
+	// Hook. Allows subclasses to add any arbitrary pre-init logic.
+	// As a matter of API contract, hooks should never override (always do '..()'!)
+	return
+
+
+/datum/utility_ai/proc/PostSetupHook()
+	// Hook. Allows subclasses to add any arbitrary post-init logic, just before Life()
+	// As a matter of API contract, hooks should never override (always do '..()'!)
 	return
 
 
@@ -83,16 +134,19 @@
 	src.actionlookup = src.InitActionLookup()  // order matters!
 	src.actionslist = src.InitActionsList()
 
-	//src.PreSetupHook()
+	src.PreSetupHook()
+	src.RegisterAI()
 
 	src.brain = src.CreateBrain()
 	src.InitNeeds()
-	//src.InitStates()
-	src.UpdateBrain()
 	src.InitRelations()
 	src.InitSenses()
+	src.UpdateBrain()
 
-	//src.PostSetupHook()
+	if(src.initialize_pawn)
+		src.InitPawn()
+
+	src.PostSetupHook()
 
 	if(true_active)
 		src.Life()
@@ -128,47 +182,74 @@
 	return FALSE
 
 
+/datum/utility_ai/proc/GetPawn()
+	var/datum/mypawn = null
+	mypawn = (mypawn || RESOLVE_PAWN(src.pawn))
+	return mypawn
+
+
 /datum/utility_ai/proc/LifeTick()
+	if(paused)
+		return
+
+	if(brain)
+		brain.LifeTick()
+
+		for(var/datum/ActionTracker/instant_action_tracker in brain.pending_instant_actions)
+			var/tracked_instant_action = instant_action_tracker?.tracked_action
+			if(tracked_instant_action)
+				src.HandleInstantAction(tracked_instant_action, instant_action_tracker)
+
+		PUT_EMPTY_LIST_IN(brain.pending_instant_actions)
+
+		if(brain.running_action_tracker)
+			var/tracked_action = brain.running_action_tracker.tracked_action
+
+			if(tracked_action)
+				src.HandleAction(tracked_action, brain.running_action_tracker)
+
 	return TRUE
+
+
+/datum/utility_ai/proc/RegisterLifeSystems()
+	// Adds any number of subsystems.
+	// Subclasses should ..() this.
+	// Each subsystem should be spawn(0)'d off to fork/background them.
+
+	#ifdef UTILITY_SMARTOBJECT_SENSES
+	// Perception updates
+	spawn(0)
+		while(src.life)
+			src.SensesSystem()
+			sleep(src.senses_tick_delay)
+	#endif
+
+	return
 
 
 /datum/utility_ai/proc/Life()
-	src.RegisterAI()
-	// LifeTick WOULD be called here (in a loop) like so...:
-	/*
-		spawn(0)
-			while(src.life)
-				src.CheckForCleanup()
-				src.LifeTick()
-	*/
-	// ...except this would just spin its wheels here, and children
-	//    will need to override this anyway to add additional systems
-	return TRUE
+	src.RegisterLifeSystems()
+
+	// AI
+	spawn(0)
+		while(src.life)
+			var/cleaned_up = src.CheckForCleanup()
+			if(cleaned_up)
+				return
+
+			// Run the Life update function.
+			src.LifeTick()
+
+			// Fix the tickrate to prevent runaway loops in case something messes with it.
+			// Doing it here is nice, because it saves us from sanitizing it all over the place.
+			src.ai_tick_delay = max(WITH_UTILITY_SLEEPTIME_STAGGER(src?.base_ai_tick_delay || 0), MIN_AI_SLEEPTIME)
+			var/sleeptime = min(MAX_AI_SLEEPTIME, src.ai_tick_delay)
+
+			src.waketime = (world.time + src.ai_tick_delay)
+
+			// Wait until the next update tick.
+			while(world.time < src.waketime)
+				sleep(sleeptime)
 
 
-/*
-/datum/utility_ai/proc/SetState(var/key, var/val)
-	if(!key)
-		return
-
-	states[key] = val
-
-	if(brain)
-		brain.SetState(key, val)
-
-	return TRUE
-
-
-/datum/utility_ai/proc/GetState(var/key, var/default = null)
-	if(!key)
-		return
-
-	if(brain && (key in brain.states))
-		return brain.GetState(key, default)
-
-	if(key in states)
-		return states[key]
-
-	return default
-*/
 

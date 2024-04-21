@@ -28,13 +28,17 @@
 	if(!(GOAI_LIBBED_GLOB_ATTR(global_faction_registry)))
 		GOAI_LIBBED_GLOB_ATTR(global_faction_registry) = list()
 
+	if(src.registry_index)
+		GOAI_LIBBED_GLOB_ATTR(global_faction_registry)[src.registry_index] = src
+		return GOAI_LIBBED_GLOB_ATTR(global_faction_registry)
+
 	GOAI_LIBBED_GLOB_ATTR(global_faction_registry) += src
 	src.registry_index = GOAI_LIBBED_GLOB_ATTR(global_faction_registry.len)
 
 	if(!(src.name))
 		src.name = src.registry_index
 
-	return GOAI_LIBBED_GLOB_ATTR(global_goai_registry)
+	return GOAI_LIBBED_GLOB_ATTR(global_faction_registry)
 
 
 /datum/faction_data/proc/BuildRelations()

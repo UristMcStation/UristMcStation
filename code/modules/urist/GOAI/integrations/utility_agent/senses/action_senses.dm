@@ -36,7 +36,7 @@
 	ASSERT(!isnull(src.sense_idx_key))
 
 
-/sense/utility_smartobject_fetcher/proc/FetchSmartObjects(var/datum/utility_ai/mob_commander/combat_commander/owner, var/input_memory_key = null, var/output_memory_key = null)
+/sense/utility_smartobject_fetcher/proc/FetchSmartObjects(var/datum/utility_ai/mob_commander/owner, var/input_memory_key = null, var/output_memory_key = null)
 	ASSERT(!isnull(owner))
 
 	var/in_mem_key = DEFAULT_IF_NULL(input_memory_key, src.in_memory_key)
