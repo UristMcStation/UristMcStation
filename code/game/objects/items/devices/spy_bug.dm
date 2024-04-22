@@ -5,7 +5,7 @@
 	icon_state = "eshield0"
 	item_state = "nothing"
 	layer = BELOW_TABLE_LAYER
-
+	item_flags = ITEM_FLAG_CAN_HIDE_IN_SHOES
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	force = 5.0
 	w_class = ITEM_SIZE_TINY
@@ -18,6 +18,7 @@
 
 	var/obj/item/device/radio/spy/radio
 	var/obj/machinery/camera/spy/camera
+
 
 /obj/item/device/spy_bug/New()
 	..()

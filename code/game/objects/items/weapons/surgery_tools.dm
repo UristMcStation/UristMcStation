@@ -85,6 +85,7 @@
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	matter = list(MATERIAL_STEEL = 10000, MATERIAL_GLASS = 5000)
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+	item_flags = ITEM_FLAG_CAN_HIDE_IN_SHOES
 
 /*
  * Researchable Scalpels
