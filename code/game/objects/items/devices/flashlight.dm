@@ -150,6 +150,7 @@
 	flashlight_outer_range = 4
 	flashlight_inner_range = 1
 	flashlight_flags = FLASHLIGHT_CANNOT_BLIND
+	action_button_name = "Toggle Flashdark"
 
 /obj/item/device/flashlight/pen
 	name = "penlight"
@@ -162,6 +163,7 @@
 	flashlight_max_bright = 0.25
 	flashlight_inner_range = 0.1
 	flashlight_outer_range = 2
+	action_button_name = "Toggle Penlight"
 
 /obj/item/device/flashlight/maglight
 	name = "maglight"
@@ -190,6 +192,7 @@
 	slot_flags = SLOT_BELT
 	matter = list(MATERIAL_STEEL = 200,MATERIAL_GLASS = 100)
 	flashlight_outer_range = 5
+	action_button_name = "Toggle Lantern"
 
 /obj/item/device/flashlight/lantern/on_update_icon()
 	..()
@@ -224,6 +227,7 @@
 	flashlight_max_bright = 0.3
 	flashlight_inner_range = 2
 	flashlight_outer_range = 5
+	action_button_name = "Toggle Lamp"
 
 	on = 1
 
