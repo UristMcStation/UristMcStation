@@ -50,3 +50,6 @@
 
 /datum/uplink_category/telecrystals
 	name = "Telecrystal Materialization"
+
+/datum/uplink_category/reagents_and_plants
+	name = "Reagents & Plants"
