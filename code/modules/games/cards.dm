@@ -21,6 +21,7 @@
 	w_class = ITEM_SIZE_SMALL
 	icon = 'icons/obj/playing_cards.dmi'
 	var/list/cards = list()
+	action_button_name = "Shuffle Deck"
 
 /obj/item/deck/inherit_custom_item_data(datum/custom_item/citem)
 	. = ..()

@@ -10,6 +10,7 @@
 	siemens_coefficient = 0.9
 	body_parts_covered = 0
 	species_restricted = list("exclude")
+	action_button_name = "Flip Cap"
 
 
 /obj/item/clothing/head/soft/New()

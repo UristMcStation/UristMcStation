@@ -21,6 +21,7 @@
 	throwforce = 2
 	throw_speed = 4
 	throw_range = 20
+	action_button_name = "Toggle Universal Recorder"
 
 /obj/item/device/taperecorder/New()
 	..()

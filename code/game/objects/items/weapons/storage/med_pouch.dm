@@ -14,7 +14,7 @@ Single Use Emergency Pouches
 	open_sound = 'sound/effects/rip1.ogg'
 	var/injury_type = "generic"
 	var/static/image/cross_overlay
-
+	action_button_name = "Access Pouch"
 	var/instructions = {"
 	1) Tear open the emergency medical pack using the easy open tab at the top.\n\
 	\t2) Carefully remove all items from the pouch and discard the pouch.\n\

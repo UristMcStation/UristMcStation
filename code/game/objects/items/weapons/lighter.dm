@@ -13,6 +13,7 @@
 	var/random_colour = FALSE
 	var/available_colors = list(COLOR_WHITE, COLOR_BLUE_GRAY, COLOR_GREEN_GRAY, COLOR_BOTTLE_GREEN, COLOR_DARK_GRAY, COLOR_RED_GRAY, COLOR_GUNMETAL, COLOR_RED, COLOR_YELLOW, COLOR_CYAN, COLOR_GREEN, COLOR_VIOLET, COLOR_NAVY_BLUE, COLOR_PINK)
 	light_color = "#e09d37"
+	action_button_name = "Toggle Lighter"
 
 /obj/item/flame/lighter/Initialize()
 	. = ..()
@@ -144,6 +145,7 @@
 	item_state = "zippo"
 	max_fuel = 10
 	available_colors = list(COLOR_WHITE, COLOR_WHITE, COLOR_WHITE, COLOR_DARK_GRAY, COLOR_GUNMETAL, COLOR_BRONZE, COLOR_BRASS)
+	action_button_name = "Toggle Zippo (so cool)"
 
 /obj/item/flame/lighter/zippo/on_update_icon()
 	var/datum/extension/base_icon_state/bis = get_extension(src, /datum/extension/base_icon_state)

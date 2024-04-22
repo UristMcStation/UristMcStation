@@ -17,6 +17,7 @@
 	var/use_delay
 	var/scan_sound
 	var/printout_color
+	action_button_name = "Access Scanner"
 
 /obj/item/device/scanner/attack_self(mob/user)
 	show_menu(user)

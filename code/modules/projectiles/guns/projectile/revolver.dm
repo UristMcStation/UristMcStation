@@ -19,6 +19,7 @@
 	accuracy_power = 8
 	one_hand_penalty = 2
 	bulk = 3
+	action_button_name = "Empty Cylinder"
 
 /obj/item/gun/projectile/revolver/on_update_icon()
 	..()

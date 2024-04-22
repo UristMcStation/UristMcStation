@@ -18,6 +18,7 @@
 	var/list/spray_sizes = list(1,3)
 	var/step_delay = 10 // lower is faster
 	volume = 250
+	action_button_name = "Adjust Pressure Nozzle"
 
 /obj/item/reagent_containers/spray/New()
 	..()

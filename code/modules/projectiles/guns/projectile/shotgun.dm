@@ -56,6 +56,7 @@
 	bulk = 6
 	var/recentpump = 0 // to prevent spammage
 	load_sound = 'sound/weapons/guns/interaction/shotgun_instert.ogg'
+	action_button_name = "Rack Shotgun"
 
 /obj/item/gun/projectile/shotgun/on_update_icon()
 	..()

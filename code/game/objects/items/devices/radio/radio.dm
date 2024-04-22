@@ -4,6 +4,7 @@
 	suffix = "\[3\]"
 	icon_state = "walkietalkie"
 	item_state = "walkietalkie"
+	action_button_name = "Configure Radio"
 
 	var/on = 1 // 0 for off
 	var/last_transmission

@@ -8,6 +8,7 @@
 	var/channel = "General News Feed"
 	var/obj/machinery/camera/network/thunder/camera
 	var/obj/item/device/radio/radio
+	action_button_name = "Access EyeBuddy Interface"
 
 /obj/item/device/camera/tvcamera/New()
 	..()

@@ -963,11 +963,13 @@
 	name = "\improper Newton's cradle"
 	desc = "An ancient 21th century super-weapon model demonstrating that Sir Isaac Newton is the deadliest sonuvabitch in space."
 	icon_state = "newtoncradle"
+	action_button_name = "Toggle Cradle"
 
 /obj/item/toy/desk/fan
 	name = "office fan"
 	desc = "Your greatest fan."
 	icon_state= "fan"
+	action_button_name = "Toggle Fan"
 
 /obj/item/toy/desk/officetoy
 	name = "office toy"
@@ -978,6 +980,7 @@
 	name = "dipping bird toy"
 	desc = "An ancient human bird idol, worshipped by clerks and desk jockeys."
 	icon_state= "dippybird"
+	action_button_name = "Toggle Bird"
 
 // tg station ports
 

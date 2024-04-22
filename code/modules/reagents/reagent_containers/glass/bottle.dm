@@ -12,6 +12,7 @@
 	item_flags = 0
 	obj_flags = 0
 	volume = 60
+	action_button_name = "Toggle Lid"
 
 
 /obj/item/reagent_containers/glass/bottle/on_reagent_change()

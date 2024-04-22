@@ -40,6 +40,7 @@ var/global/list/tank_gauge_cache = list()
 	var/tank_flags = EMPTY_BITFIELD
 
 	var/list/starting_pressure //list in format 'xgm gas id' = 'desired pressure at start'
+	action_button_name = "Access Tank"
 
 /obj/item/tank/Initialize()
 	. = ..()

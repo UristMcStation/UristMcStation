@@ -7,6 +7,7 @@
 	matter = list(MATERIAL_STEEL = 1260)
 	max_ammo = 6
 	multiple_sprites = 1
+	action_button_name = "Empty Speedloader"
 
 /obj/item/ammo_magazine/speedloader/rubber
 	labels = list("rubber")

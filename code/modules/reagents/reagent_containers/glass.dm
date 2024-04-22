@@ -136,6 +136,7 @@
 	item_state = "beaker"
 	center_of_mass = "x=15;y=10"
 	matter = list(MATERIAL_GLASS = 500)
+	action_button_name = "Toggle Lid"
 
 
 /obj/item/reagent_containers/glass/beaker/New()
