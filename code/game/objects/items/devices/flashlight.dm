@@ -251,7 +251,7 @@
 	light_color = "#e58775"
 	icon_state = "flare"
 	item_state = "flare"
-	action_button_name = null //just pull it manually, neckbeard.
+	action_button_name = "Ignite Flare"
 	var/fuel = 0
 	var/on_damage = 7
 	var/produce_heat = 1500
@@ -332,6 +332,7 @@
 	randpixel = 12
 	produce_heat = 0
 	activation_sound = 'sound/effects/glowstick.ogg'
+	action_button_name = "Snap Glowstick"
 
 	flashlight_max_bright = 0.6
 	flashlight_inner_range = 0.1
