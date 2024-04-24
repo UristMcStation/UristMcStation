@@ -1,0 +1,257 @@
+"aG" = (/obj/structure/table/steel_reinforced,/obj/machinery/door/window/northleft,/turf/simulated/floor/tiled/dark,/area/space)
+"aW" = (/mob/living/simple_animal/hostile/lar_maria/test_subject,/turf/simulated/floor/plating,/area/space)
+"be" = (/obj/structure/morgue,/obj/machinery/light/small{dir = 8},/turf/simulated/floor/plating,/area/space)
+"bl" = (/obj/structure/window/reinforced{dir = 4},/obj/machinery/door/window/northleft,/turf/simulated/floor/tiled/white,/area/space)
+"cl" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating,/area/space)
+"cG" = (/obj/machinery/computer/ship/sensors{dir = 1; icon_state = "computer"},/turf/simulated/floor/tiled/monotile,/area/space)
+"cI" = (/obj/machinery/power/apc{dir = 8; name = "west bump"; pixel_x = -24},/obj/structure/cable{d2 = 2; icon_state = "0-2"},/turf/simulated/floor/tiled/white,/area/space)
+"di" = (/obj/effect/wallframe_spawn/reinforced/hull,/turf/space,/area/space)
+"dl" = (/obj/structure/table/steel_reinforced,/turf/simulated/floor/tiled/steel_grid,/area/space)
+"eb" = (/obj/structure/bed/chair/office/dark{dir = 8},/turf/simulated/floor/tiled/white,/area/space)
+"eg" = (/obj/machinery/atmospherics/unary/tank/hydrogen{dir = 1; icon_state = "h2_map"},/turf/simulated/floor/tiled/steel_ridged,/area/space)
+"ew" = (/obj/structure/bed,/turf/simulated/floor/tiled/white,/area/space)
+"eE" = (/obj/structure/table/glass,/obj/item/folder/white,/turf/simulated/floor/tiled/white,/area/space)
+"eN" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 6},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/window/reinforced{dir = 4},/turf/simulated/floor/tiled/white,/area/space)
+"ft" = (/turf/simulated/floor/tiled/techfloor,/area/space)
+"fx" = (/turf/simulated/floor/plating,/area/space)
+"fJ" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/fuel{dir = 6; icon_state = "intact"},/turf/simulated/floor/plating,/area/space)
+"fM" = (/obj/machinery/door/airlock/virology,/obj/machinery/door/firedoor,/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/turf/simulated/floor/plating,/area/space)
+"gg" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/turf/simulated/floor/tiled/white,/area/space)
+"go" = (/turf/simulated/floor/tiled/techmaint,/area/space)
+"gV" = (/obj/structure/catwalk,/obj/machinery/power/port_gen/pacman/super,/obj/structure/cable{d2 = 4; icon_state = "0-4"},/turf/simulated/floor/plating,/area/space)
+"gZ" = (/obj/structure/catwalk,/obj/structure/cable,/obj/machinery/power/smes/buildable/preset/on_full{uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/super_io = 1, /obj/item/stock_parts/smes_coil/super_capacity = 1)},/turf/simulated/floor/plating,/area/space)
+"hA" = (/obj/effect/wallframe_spawn/reinforced/hull,/turf/simulated/wall/r_wall/rglass_wall,/area/space)
+"hE" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 1},/turf/simulated/floor/tiled/white,/area/space)
+"hG" = (/turf/space,/area/boarding_ship)
+"hN" = (/obj/structure/closet/secure_closet/personal/patient,/turf/simulated/floor/tiled/white,/area/space)
+"hX" = (/obj/structure/closet/secure_closet/freezer/fridge,/turf/simulated/floor/tiled/white,/area/space)
+"iE" = (/obj/structure/bed,/turf/simulated/floor/tiled/techmaint,/area/space)
+"iN" = (/obj/structure/bed/chair/shuttle/white{dir = 4},/turf/simulated/floor/tiled/monotile,/area/space)
+"iS" = (/obj/structure/closet/crate/freezer,/turf/simulated/floor/tiled/white,/area/space)
+"iT" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/light{dir = 8; icon_state = "tube1"},/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/alarm{dir = 8; pixel_x = 24},/turf/simulated/floor/tiled,/area/space)
+"je" = (/obj/effect/decal/cleanable/blood,/turf/simulated/floor/tiled/white,/area/space)
+"jf" = (/turf/simulated/wall/r_wall/rglass_wall,/area/space)
+"js" = (/obj/machinery/door/airlock/virology,/obj/machinery/door/firedoor,/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled/white,/area/space)
+"jR" = (/obj/machinery/computer/modular/preset/civilian{dir = 8},/turf/simulated/floor/tiled/monotile,/area/space)
+"km" = (/turf/simulated/wall/r_wall,/area/space)
+"lm" = (/obj/structure/morgue{dir = 8},/obj/machinery/atmospherics/unary/vent_pump/on,/obj/machinery/alarm{dir = 8; pixel_x = 24},/turf/simulated/floor/plating,/area/space)
+"lq" = (/obj/structure/bed/chair/office/dark{dir = 1},/turf/simulated/floor/tiled/white,/area/space)
+"lJ" = (/obj/structure/crematorium{dir = 4},/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 4},/turf/simulated/floor/plating,/area/space)
+"mr" = (/obj/structure/morgue{dir = 8},/turf/simulated/floor/plating,/area/space)
+"ms" = (/obj/structure/table/glass,/obj/item/scalpel,/turf/simulated/floor/tiled/white,/area/space)
+"mL" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/structure/cable{d1 = 1; d2 = 8; icon_state = "1-8"},/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/manifold/hidden/supply{dir = 4},/turf/simulated/floor/tiled,/area/space)
+"nv" = (/obj/structure/bed,/obj/effect/landmark/corpse/lar_maria/test_subject,/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled/white,/area/space)
+"od" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/mob/living/simple_animal/hostile/lar_maria/virologist,/turf/simulated/floor/tiled/white,/area/space)
+"ol" = (/obj/structure/disposalpipe/trunk{dir = 1},/obj/machinery/disposal,/turf/simulated/floor/plating,/area/space)
+"oE" = (/obj/machinery/button/crematorium{pixel_y = -20},/obj/effect/decal/cleanable/blood,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/turf/simulated/floor/plating,/area/space)
+"pD" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 9; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 9},/turf/simulated/floor/tiled/monotile,/area/space)
+"pT" = (/obj/machinery/door/window/westleft,/turf/simulated/floor/tiled/white,/area/space)
+"qn" = (/mob/living/simple_animal/hostile/urist/hololab/holonautregular,/turf/simulated/floor/tiled/steel_grid,/area/space)
+"rK" = (/obj/structure/bed/chair/shuttle/white,/turf/simulated/floor/tiled/monotile,/area/space)
+"rP" = (/turf/simulated/wall/r_wall/hull,/area/space)
+"se" = (/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers{dir = 1; icon_state = "map-scrubbers"},/obj/machinery/atmospherics/pipe/manifold/visible/supply{dir = 1; icon_state = "map-supply"},/turf/simulated/floor/plating,/area/space)
+"sg" = (/obj/structure/disposalpipe/trunk{dir = 1},/obj/machinery/disposal,/turf/simulated/floor/tiled/white,/area/space)
+"sl" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating,/area/space)
+"sx" = (/obj/structure/catwalk,/obj/machinery/power/terminal{dir = 8; icon_state = "term"},/obj/structure/cable,/turf/simulated/floor/plating,/area/space)
+"sN" = (/mob/living/simple_animal/hostile/lar_maria/virologist/female,/turf/simulated/floor/tiled/white,/area/space)
+"th" = (/obj/machinery/recharger/wallcharger,/obj/machinery/computer/modular/preset/civilian,/turf/simulated/floor/tiled/monotile,/area/space)
+"to" = (/obj/effect/template_loader/ships,/turf/space,/area/space)
+"up" = (/obj/machinery/computer/ship/engines{dir = 1; icon_state = "computer"},/turf/simulated/floor/tiled/monotile,/area/space)
+"vm" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/door/blast/regular{id_tag = "Tech_access_BD"},/obj/machinery/door/firedoor,/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating,/area/space)
+"wg" = (/obj/machinery/computer/ship/navigation,/turf/simulated/floor/tiled/monotile,/area/space)
+"wx" = (/obj/structure/table/glass,/obj/item/paper,/turf/simulated/floor/tiled/white,/area/space)
+"wI" = (/obj/structure/table/glass,/obj/item/paper,/obj/item/folder/white,/turf/simulated/floor/tiled/white,/area/space)
+"wW" = (/obj/machinery/door/airlock/hatch{dir = 1; icon_state = "closed"},/turf/simulated/floor/tiled/steel_grid,/area/space)
+"xh" = (/obj/machinery/door/airlock/hatch{dir = 1; icon_state = "closed"},/turf/simulated/floor/tiled/monotile,/area/space)
+"xj" = (/obj/structure/window/reinforced{dir = 4},/obj/machinery/optable,/turf/simulated/floor/tiled/white,/area/space)
+"ye" = (/obj/structure/disposalpipe/segment,/turf/simulated/wall/r_wall,/area/space)
+"yT" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8},/obj/structure/table/glass,/obj/item/storage/box/masks,/obj/item/storage/box/gloves,/obj/item/reagent_containers/spray/sterilizine,/turf/simulated/floor/tiled/white,/area/space)
+"zp" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/light{dir = 8; icon_state = "tube1"},/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled,/area/space)
+"zr" = (/obj/machinery/door/airlock/virology,/obj/machinery/door/firedoor,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating,/area/space)
+"Aw" = (/obj/machinery/computer/ship/helm{dir = 1; icon_state = "computer"},/turf/simulated/floor/tiled/monotile,/area/space)
+"AI" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled/monotile,/area/space)
+"Bk" = (/obj/structure/window/reinforced{dir = 4},/obj/machinery/optable,/obj/effect/landmark/corpse/lar_maria/test_subject,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/tiled/white,/area/space)
+"BG" = (/obj/structure/table/glass,/obj/item/paper/lar_maria/note_4,/turf/simulated/floor/tiled/white,/area/space)
+"BR" = (/obj/structure/morgue,/turf/simulated/floor/plating,/area/space)
+"Ca" = (/mob/living/simple_animal/hostile/lar_maria/test_subject,/turf/simulated/floor/tiled/white,/area/space)
+"Cr" = (/turf/simulated/floor/tiled/white,/area/space)
+"CD" = (/obj/structure/window/reinforced{dir = 1},/obj/effect/decal/cleanable/blood,/turf/simulated/floor/tiled/white,/area/space)
+"CF" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/manifold/visible/fuel{dir = 4; icon_state = "map"},/turf/simulated/floor/plating,/area/space)
+"DU" = (/obj/structure/closet/crate/trashcart,/obj/machinery/light/small{dir = 1},/turf/simulated/floor/plating,/area/space)
+"DV" = (/obj/effect/decal/cleanable/blood,/turf/simulated/floor/plating,/area/space)
+"DY" = (/obj/machinery/atmospherics/valve/digital,/obj/structure/extinguisher_cabinet{dir = 8; icon_state = "extinguisher_closed"; pixel_x = 30},/turf/simulated/floor/tiled/steel_ridged,/area/space)
+"DZ" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 1},/obj/effect/decal/cleanable/blood,/turf/simulated/floor/tiled/white,/area/space)
+"EN" = (/obj/structure/catwalk,/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"},/turf/simulated/floor/plating,/area/space)
+"Fw" = (/obj/structure/closet/secure_closet/personal/patient,/turf/simulated/floor/tiled/techmaint,/area/space)
+"FS" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 6},/obj/structure/window/reinforced{dir = 4},/turf/simulated/floor/tiled/white,/area/space)
+"Gd" = (/turf/simulated/floor/tiled/monotile,/area/space)
+"Gi" = (/obj/structure/bed,/obj/machinery/light,/turf/simulated/floor/tiled/white,/area/space)
+"Gz" = (/turf/space,/area/space)
+"Hq" = (/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers,/obj/machinery/atmospherics/pipe/manifold/visible/supply,/turf/simulated/floor/plating,/area/space)
+"HG" = (/obj/machinery/power/apc{name = "south bump"; pixel_y = -24},/obj/structure/cable{d2 = 4; icon_state = "0-4"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 5},/mob/living/simple_animal/hostile/lar_maria/virologist/female,/turf/simulated/floor/plating,/area/space)
+"Id" = (/obj/machinery/door/window/westleft,/turf/simulated/floor/tiled/techmaint,/area/space)
+"Ii" = (/obj/machinery/door/window/northright,/obj/item/storage/firstaid/surgery,/turf/simulated/floor/tiled/white,/area/space)
+"Ix" = (/obj/structure/catwalk,/obj/machinery/door/firedoor{dir = 4; icon_state = "open"},/obj/machinery/door/airlock/engineering{dir = 1; icon_state = "closed"},/turf/simulated/floor/plating,/area/space)
+"Ja" = (/obj/effect/landmark/corpse/lar_maria/virologist,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/plating,/area/space)
+"Jc" = (/turf/simulated/wall/r_wall/hull,/area/boarding_ship)
+"Jx" = (/obj/machinery/door/window/eastright,/turf/simulated/floor/tiled/techmaint,/area/space)
+"Jy" = (/turf/simulated/floor/tiled/dark,/area/space)
+"Kh" = (/obj/structure/boarding/self_destruct/pirateship,/turf/simulated/floor/tiled/monotile,/area/space)
+"KK" = (/obj/machinery/hologram/holopad/longrange,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 5; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/turf/simulated/floor/tiled/monotile,/area/space)
+"KT" = (/turf/unsimulated/floor/bluespace,/area/space)
+"Lp" = (/obj/random/trash,/turf/simulated/floor/tiled/white,/area/space)
+"LS" = (/obj/structure/table/glass,/obj/item/paper,/obj/item/pen/blue,/turf/simulated/floor/tiled/white,/area/space)
+"LX" = (/obj/structure/catwalk,/turf/simulated/floor/plating,/area/space)
+"Me" = (/obj/structure/table/glass,/obj/item/storage/firstaid/surgery,/obj/machinery/light,/turf/simulated/floor/tiled/white,/area/space)
+"Mm" = (/obj/structure/table/steel_reinforced,/turf/simulated/floor/tiled/monotile,/area/space)
+"MP" = (/obj/structure/closet/walllocker/emerglocker/north,/turf/simulated/floor/tiled/monotile,/area/space)
+"MR" = (/obj/structure/catwalk,/obj/machinery/power/apc{dir = 8; icon_state = "apc0"; pixel_x = -9},/obj/structure/cable{d2 = 2; icon_state = "0-2"},/turf/simulated/floor/plating,/area/space)
+"MX" = (/obj/structure/catwalk,/obj/machinery/light/small/red{dir = 4; icon_state = "firelight1"},/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"; pixel_y = 0},/turf/simulated/floor/plating,/area/space)
+"Nv" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 10},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 10},/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"},/turf/simulated/floor/tiled,/area/space)
+"Oh" = (/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled/white,/area/space)
+"Or" = (/obj/structure/table/glass,/obj/item/paper_bin,/turf/simulated/floor/tiled/white,/area/space)
+"Oy" = (/obj/machinery/hologram/holopad/longrange,/turf/simulated/floor/tiled/monotile,/area/space)
+"OJ" = (/obj/machinery/light{dir = 8; icon_state = "tube1"},/turf/simulated/floor/tiled/white,/area/space)
+"OO" = (/obj/structure/table/rack,/turf/simulated/floor/tiled/steel_grid,/area/space)
+"OP" = (/obj/structure/hygiene/sink{pixel_y = 20},/turf/simulated/floor/tiled/white,/area/space)
+"OY" = (/obj/structure/table/glass,/obj/item/device/flashlight/pen,/turf/simulated/floor/tiled/white,/area/space)
+"Pc" = (/obj/structure/window/reinforced{dir = 1},/obj/item/clothing/head/surgery,/turf/simulated/floor/tiled/white,/area/space)
+"Pp" = (/obj/structure/bed/chair/shuttle/black{dir = 4; icon_state = "shuttle_chair_preview"},/obj/random/handgun,/turf/simulated/floor/tiled/monotile,/area/space)
+"Px" = (/obj/machinery/computer/modular,/turf/simulated/floor/tiled/white,/area/space)
+"Qb" = (/obj/machinery/door/airlock/virology,/obj/machinery/door/firedoor,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/turf/simulated/floor/tiled/white,/area/space)
+"QV" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled,/area/space)
+"Rq" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/effect/urist/triggers/ai_defender_landmark/pirate/ballistic,/turf/simulated/floor/tiled/monotile,/area/space)
+"RH" = (/obj/machinery/smartfridge/chemistry/virology,/turf/simulated/floor/tiled/white,/area/space)
+"RJ" = (/obj/machinery/computer/modular/preset/cardslot/command{dir = 4; icon_state = "console"},/obj/effect/urist/triggers/station_disk/pirate,/turf/simulated/floor/tiled/monotile,/area/space)
+"RP" = (/obj/effect/landmark/scom/bomb/boarding/pirateship,/turf/simulated/wall/r_wall,/area/space)
+"RU" = (/obj/structure/table/glass,/turf/simulated/floor/tiled/white,/area/space)
+"Si" = (/obj/structure/catwalk,/obj/effect/urist/triggers/boarding_landmark,/obj/structure/boarding/shipportal,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/space)
+"Sn" = (/obj/machinery/door/airlock/hatch{dir = 1; icon_state = "closed"},/turf/simulated/floor/tiled/dark,/area/space)
+"To" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 8},/obj/structure/table/glass,/obj/item/storage/box/bodybags,/turf/simulated/floor/tiled/white,/area/space)
+"Tv" = (/obj/effect/urist/triggers/shipweapons,/obj/structure/shipweapons/hardpoint/attached,/turf/simulated/floor/tiled/techfloor,/area/space)
+"TM" = (/obj/effect/landmark/corpse/lar_maria/virologist_female,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/tiled/white,/area/space)
+"Ub" = (/turf/simulated/wall,/area/space)
+"Uv" = (/obj/structure/closet/secure_closet/freezer/fridge,/obj/machinery/light,/turf/simulated/floor/tiled/white,/area/space)
+"Ux" = (/obj/structure/shipweapons/hardpoint/attached,/obj/effect/urist/triggers/shipweapons,/turf/simulated/floor/tiled/steel_grid,/area/space)
+"UL" = (/obj/machinery/door/firedoor{dir = 4; icon_state = "open"},/obj/machinery/door/airlock/hatch{dir = 1; icon_state = "closed"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled/monotile,/area/space)
+"Vi" = (/obj/structure/table/rack,/turf/simulated/floor/tiled/dark,/area/space)
+"VJ" = (/obj/machinery/atmospherics/unary/vent_scrubber/on,/obj/structure/closet/walllocker/emerglocker/north,/turf/simulated/floor/tiled/monotile,/area/space)
+"VZ" = (/turf/simulated/floor/tiled/steel_grid,/area/space)
+"Wj" = (/obj/structure/bed/chair/shuttle/white{dir = 8},/turf/simulated/floor/tiled/monotile,/area/space)
+"Wz" = (/obj/structure/bed/chair/shuttle/blue,/turf/simulated/floor/tiled/monotile,/area/space)
+"WA" = (/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1},/obj/structure/hygiene/shower{dir = 4},/obj/effect/landmark/corpse/lar_maria/virologist,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/tiled/white,/area/space)
+"Xn" = (/mob/living/simple_animal/hostile/urist/hololab/holonautsuit,/turf/simulated/floor/tiled/steel_grid,/area/space)
+"Xx" = (/obj/machinery/computer/ship/navigation{dir = 1},/turf/simulated/floor/tiled/monotile,/area/space)
+"Xy" = (/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1},/obj/structure/hygiene/shower{dir = 4},/turf/simulated/floor/tiled/white,/area/space)
+"XW" = (/obj/machinery/door/window/northright,/turf/simulated/floor/tiled/white,/area/space)
+"Yc" = (/obj/structure/table/glass,/obj/machinery/light{dir = 1},/obj/item/storage/box/beakers,/obj/item/reagent_containers/spray/cleaner,/obj/machinery/alarm{pixel_y = 24},/turf/simulated/floor/tiled/white,/area/space)
+"Yg" = (/obj/machinery/door/airlock/virology,/obj/machinery/door/firedoor,/turf/simulated/floor/plating,/area/space)
+"Yh" = (/obj/machinery/atmospherics/valve/digital,/turf/simulated/floor/tiled/steel_ridged,/area/space)
+"Yt" = (/obj/effect/wallframe_spawn/reinforced,/turf/simulated/floor/tiled/white,/area/space)
+"YB" = (/obj/structure/bed/chair/shuttle/black{dir = 8; icon_state = "shuttle_chair_preview"},/obj/machinery/atmospherics/unary/vent_pump/on{dir = 4},/turf/simulated/floor/tiled/monotile,/area/space)
+"Zg" = (/mob/living/simple_animal/hostile/urist/hololab/holonautgrunt,/turf/simulated/floor/tiled/steel_grid,/area/space)
+"Zk" = (/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4; icon_state = "intact-supply"},/obj/effect/urist/triggers/ai_defender_landmark/pirate,/turf/simulated/floor/plating,/area/space)
+
+(1,1,1) = {"
+GzGzGzGzJcGzfJCFkmkmIxGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGztohGhGTvYhDYkmgVENGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzseHqZkGzegegkmMRMXGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzkmkmkmgZsxGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzkmyekmkmkmkmkmkmkmkmkmkmkmkmkmkmkmyekmkmkmkmkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzkmolDUkmkmkmkmkmkmkmkmkmkmkmkmkmkmyekmkmkmkmkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzvmslclzrNvkmRHRHCrwIYcCrCrCrCrOhOPsgYtnvhNkmkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzkmYgUbUbzpkmOJjeLpCrCrCrCrCrCrCrLpCrpTCrCrkmkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzBRfxmrUbQVkmWAblOrTMPxLSPxBGPxOYCriSYtewhNkmkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzBRaWmrUbQVkmXyFSyTCreEebwxlqRUebCriSYtYtYtkmkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzbeDVmrUbQVkmcIeNToCrCrLpCrCrCrCrCriSYtewhNkmkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzBRJalmUbiTkmjsQbkmXWPchEIiCDDZhXCrCrpTCrCakmkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzlJoEHGfMmLkmodggkmCrMexjsNmsBkUvCrCrYtGihNkmkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzkmkmkmUbQVkmjsQbkmkmkmkmkmkmkmkmkmkmkmkmkmkmkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzfxfxfxGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPrPrPrPrPfxrPfxGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmkmkmkmJykmfxfxfxGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmJyJyJyJykmkmkmfxkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmJyJyJyJykmJyJyJykmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmJyJyJyJykmJyJyJykmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmJyJyJyJykmJyJyVikmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmkmkmkmSnkmSnaGkmkmkmkmGzGzGzGzGzGzGzGzkmkmYgkmkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmFwgogoftftftftIdgoFwkmVZVZVZkmkmkmkmkmkmBRfxmrkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmiEgodiftftftftdigoiEkmVZVZVZkmVZVZVZVZkmBRfxmrkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmkmkmkmftftftftkmkmkmkmVZVZVZVZVZVZVZVZkmBRfxmrkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmFwgoJxftftftftIdgoFwkmVZVZVZVZVZVZVZVZkmkmYgkmkmkmkmkmkmkmkmkmkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmiEgodiftftftftdigoiEkmVZVZVZVZVZVZVZVZkmCrCrCrCrCrCrCrfxKTKTKTkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmkmkmkmftftftftkmkmkmkmVZVZVZVZVZVZVZVZkmCrCrCrCrCrCrCrfxKTKTKTkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmFwgoJxftftftftIdgoFwkmVZVZVZVZVZVZVZVZkmCrCrCrCrCrCrCrfxfxKTKTkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmiEgodiftftftftdigoiEkmVZVZVZkmkmkmkmkmkmCrCrCrCrCrCrfxfxfxKTKTkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmkmkmkmftftftftkmkmkmkmkmkmVZkmkmCrCrCrCrCrCrCrCrCrCrCrCrfxfxfxkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmFwgoJxftftftftkmftftkmVZVZVZVZkmCrCrCrCrCrCrCrCrCrCrCrCrCrfxfxkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmiEgodiftftftftftftftftVZVZVZVZVZCrCrCrCrCrCrCrCrCrCrCrCrCrCrCrkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmkmkmkmVZkmkmkmkmkmkmkmVZVZVZVZkmCrXWPchEXWPchEGzGzGzGzGzGzCrCrkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPrPrPrPkmfxfxfxfxfxfxfxkmkmVZVZkmkmCrCrMexjCrMexjGzGzGzGzGzGzCrCrkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmfxfxfxfxfxfxfxkmVZVZVZVZkmkmkmkmkmkmkmfxkmkmkmkmkmkmkmkmkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmkmkmfxkmkmkmkmkmVZVZVZVZkmOOOOOOOOOOkmfxkmrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPrPrPkmfxkmVZVZOOdiVZVZVZVZkmVZVZVZVZOOkmfxkmrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmfxkmVZVZdldiVZVZVZVZkmVZVZVZVZOOkmfxkmrPrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmfxkmVZVZVZVZVZVZVZVZVZVZOOOOOOOOkmfxkmkmrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmfxkmkmkmkmkmVZVZVZVZkmkmkmkmkmkmkmfxfxkmrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmfxfxfxfxfxfxVZVZVZVZfxfxfxfxfxfxfxfxfxkmrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmkmkmkmkmfxkmVZVZVZVZkmfxkmkmkmkmkmkmkmkmrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmdldldlkmkmkmkmwWwWkmkmkmkmdldldlkmrPrPrPrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzdiVZVZVZVZVZwWVZVZVZVZwWVZVZVZVZVZkmrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzdiVZUxVZVZVZwWVZVZVZVZwWVZVZVZUxVZkmrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmkmdidikmkmkmVZVZVZVZkmkmkmkmdidikmrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPrPrPGzGzrPrPkmVZVZVZVZkmrPrPrPGzGzrPrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPrPkmdlVZVZdlkmrPrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmkmkmwWwWkmkmkmrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmGdMPGdGdMPGdkmrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmGdGdWzGdGdGdkmrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzhAGdGdGdAwcGGdGdGddiGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzhAMmGdGdOyGdGdGdMmdiGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPRJWjGdrKrKGdiNjRrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPrPkmkmkmxhULkmkmrPGzGzGzGzrPkmMmXxupAwcGMmkmrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmkmwgVJGdAIthhAhAGzGzGzGzrPkmdidididididikmrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzhAjfRJYBKKRqpDPphAhAGzGzGzGzGzrPGzGzGzGzGzGzrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmkmKhcGGdupAwhAhAGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPrPkmRPkmkmkmkmkmrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPrPrPrPrPrPrPrPrPrPrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPGzGzGzGzGzGzGzGzGzrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPGzGzGzGzGzGzGzGzGzrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPrPrPrPrPrPGzGzGzGzrPGzGzGzGzGzGzGzGzGzrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPVZVZVZVZrPGzGzGzGzrPGzGzGzGzGzGzGzGzGzrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPVZSifxVZrPGzGzGzGzrPGzGzGzGzGzGzGzGzGzrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPVZLXLXVZrPGzGzGzGzrPGzGzGzGzGzGzGzGzGzrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPVZZgqnXnrPGzGzGzGzrPGzGzGzGzGzGzGzGzGzrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPrPrPrPrPrPGzGzGzGzrPGzGzGzGzGzGzGzGzGzrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPrPrPrPrPrPrPrPrPrPrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+"}
