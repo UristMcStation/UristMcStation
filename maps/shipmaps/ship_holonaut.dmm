@@ -1,162 +1,377 @@
-"aG" = (/obj/structure/table/steel_reinforced,/obj/machinery/door/window/northleft,/turf/simulated/floor/tiled/dark,/area/space)
-"aW" = (/mob/living/simple_animal/hostile/lar_maria/test_subject,/turf/simulated/floor/plating,/area/space)
-"be" = (/obj/structure/morgue,/obj/machinery/light/small{dir = 8},/turf/simulated/floor/plating,/area/space)
-"bl" = (/obj/structure/window/reinforced{dir = 4},/obj/machinery/door/window/northleft,/turf/simulated/floor/tiled/white,/area/space)
-"cl" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating,/area/space)
-"cG" = (/obj/machinery/computer/ship/sensors{dir = 1; icon_state = "computer"},/turf/simulated/floor/tiled/monotile,/area/space)
-"cI" = (/obj/machinery/power/apc{dir = 8; name = "west bump"; pixel_x = -24},/obj/structure/cable{d2 = 2; icon_state = "0-2"},/turf/simulated/floor/tiled/white,/area/space)
-"di" = (/obj/effect/wallframe_spawn/reinforced/hull,/turf/space,/area/space)
-"dl" = (/obj/structure/table/steel_reinforced,/turf/simulated/floor/tiled/steel_grid,/area/space)
-"eb" = (/obj/structure/bed/chair/office/dark{dir = 8},/turf/simulated/floor/tiled/white,/area/space)
-"eg" = (/obj/machinery/atmospherics/unary/tank/hydrogen{dir = 1; icon_state = "h2_map"},/turf/simulated/floor/tiled/steel_ridged,/area/space)
-"ew" = (/obj/structure/bed,/turf/simulated/floor/tiled/white,/area/space)
-"eE" = (/obj/structure/table/glass,/obj/item/folder/white,/turf/simulated/floor/tiled/white,/area/space)
-"eN" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 6},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/window/reinforced{dir = 4},/turf/simulated/floor/tiled/white,/area/space)
-"ft" = (/turf/simulated/floor/tiled/techfloor,/area/space)
-"fx" = (/turf/simulated/floor/plating,/area/space)
-"fJ" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/fuel{dir = 6; icon_state = "intact"},/turf/simulated/floor/plating,/area/space)
-"fM" = (/obj/machinery/door/airlock/virology,/obj/machinery/door/firedoor,/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/turf/simulated/floor/plating,/area/space)
-"gg" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/turf/simulated/floor/tiled/white,/area/space)
-"go" = (/turf/simulated/floor/tiled/techmaint,/area/space)
-"gV" = (/obj/structure/catwalk,/obj/machinery/power/port_gen/pacman/super,/obj/structure/cable{d2 = 4; icon_state = "0-4"},/turf/simulated/floor/plating,/area/space)
-"gZ" = (/obj/structure/catwalk,/obj/structure/cable,/obj/machinery/power/smes/buildable/preset/on_full{uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/super_io = 1, /obj/item/stock_parts/smes_coil/super_capacity = 1)},/turf/simulated/floor/plating,/area/space)
-"hA" = (/obj/effect/wallframe_spawn/reinforced/hull,/turf/simulated/wall/r_wall/rglass_wall,/area/space)
-"hE" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 1},/turf/simulated/floor/tiled/white,/area/space)
-"hG" = (/turf/space,/area/boarding_ship)
-"hN" = (/obj/structure/closet/secure_closet/personal/patient,/turf/simulated/floor/tiled/white,/area/space)
-"hX" = (/obj/structure/closet/secure_closet/freezer/fridge,/turf/simulated/floor/tiled/white,/area/space)
-"iE" = (/obj/structure/bed,/turf/simulated/floor/tiled/techmaint,/area/space)
-"iN" = (/obj/structure/bed/chair/shuttle/white{dir = 4},/turf/simulated/floor/tiled/monotile,/area/space)
-"iS" = (/obj/structure/closet/crate/freezer,/turf/simulated/floor/tiled/white,/area/space)
-"iT" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/light{dir = 8; icon_state = "tube1"},/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/machinery/alarm{dir = 8; pixel_x = 24},/turf/simulated/floor/tiled,/area/space)
-"je" = (/obj/effect/decal/cleanable/blood,/turf/simulated/floor/tiled/white,/area/space)
-"jf" = (/turf/simulated/wall/r_wall/rglass_wall,/area/space)
-"js" = (/obj/machinery/door/airlock/virology,/obj/machinery/door/firedoor,/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled/white,/area/space)
-"jR" = (/obj/machinery/computer/modular/preset/civilian{dir = 8},/turf/simulated/floor/tiled/monotile,/area/space)
-"km" = (/turf/simulated/wall/r_wall,/area/space)
-"lm" = (/obj/structure/morgue{dir = 8},/obj/machinery/atmospherics/unary/vent_pump/on,/obj/machinery/alarm{dir = 8; pixel_x = 24},/turf/simulated/floor/plating,/area/space)
-"lq" = (/obj/structure/bed/chair/office/dark{dir = 1},/turf/simulated/floor/tiled/white,/area/space)
-"lJ" = (/obj/structure/crematorium{dir = 4},/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 4},/turf/simulated/floor/plating,/area/space)
-"mr" = (/obj/structure/morgue{dir = 8},/turf/simulated/floor/plating,/area/space)
-"ms" = (/obj/structure/table/glass,/obj/item/scalpel,/turf/simulated/floor/tiled/white,/area/space)
-"mL" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/structure/cable{d1 = 1; d2 = 8; icon_state = "1-8"},/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/manifold/hidden/supply{dir = 4},/turf/simulated/floor/tiled,/area/space)
-"nv" = (/obj/structure/bed,/obj/effect/landmark/corpse/lar_maria/test_subject,/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled/white,/area/space)
-"od" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/mob/living/simple_animal/hostile/lar_maria/virologist,/turf/simulated/floor/tiled/white,/area/space)
-"ol" = (/obj/structure/disposalpipe/trunk{dir = 1},/obj/machinery/disposal,/turf/simulated/floor/plating,/area/space)
-"oE" = (/obj/machinery/button/crematorium{pixel_y = -20},/obj/effect/decal/cleanable/blood,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/turf/simulated/floor/plating,/area/space)
-"pD" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 9; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 9},/turf/simulated/floor/tiled/monotile,/area/space)
-"pT" = (/obj/machinery/door/window/westleft,/turf/simulated/floor/tiled/white,/area/space)
-"qn" = (/mob/living/simple_animal/hostile/urist/hololab/holonautregular,/turf/simulated/floor/tiled/steel_grid,/area/space)
-"rK" = (/obj/structure/bed/chair/shuttle/white,/turf/simulated/floor/tiled/monotile,/area/space)
-"rP" = (/turf/simulated/wall/r_wall/hull,/area/space)
-"se" = (/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers{dir = 1; icon_state = "map-scrubbers"},/obj/machinery/atmospherics/pipe/manifold/visible/supply{dir = 1; icon_state = "map-supply"},/turf/simulated/floor/plating,/area/space)
-"sg" = (/obj/structure/disposalpipe/trunk{dir = 1},/obj/machinery/disposal,/turf/simulated/floor/tiled/white,/area/space)
-"sl" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating,/area/space)
-"sx" = (/obj/structure/catwalk,/obj/machinery/power/terminal{dir = 8; icon_state = "term"},/obj/structure/cable,/turf/simulated/floor/plating,/area/space)
-"sN" = (/mob/living/simple_animal/hostile/lar_maria/virologist/female,/turf/simulated/floor/tiled/white,/area/space)
-"th" = (/obj/machinery/recharger/wallcharger,/obj/machinery/computer/modular/preset/civilian,/turf/simulated/floor/tiled/monotile,/area/space)
+"aw" = (/obj/item/reagent_containers/ivbag/blood/teshari/oneg,/obj/structure/table/rack,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"aB" = (/obj/effect/decal/cleanable/liquid_fuel,/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 10},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"aG" = (/obj/structure/table/steel_reinforced,/obj/machinery/door/window/northleft,/turf/simulated/floor/tiled/dark,/area/boarding_ship)
+"aK" = (/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4; icon_state = "intact-supply"},/obj/structure/catwalk,/mob/living/simple_animal/hostile/urist/hololab/holonautsuit,/turf/simulated/floor/plating,/area/boarding_ship)
+"aT" = (/obj/effect/decal/cleanable/blood,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"aW" = (/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"be" = (/obj/effect/decal/cleanable/blood,/obj/machinery/atmospherics/pipe/simple/visible/supply,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"bj" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 1; icon_state = "map_vent_out"},/turf/simulated/floor/tiled/dark,/area/boarding_ship)
+"bl" = (/obj/structure/catwalk,/mob/living/simple_animal/hostile/urist/hololab/holonautsuit,/turf/simulated/floor/plating,/area/boarding_ship)
+"bm" = (/obj/machinery/light/small{dir = 4; luminosity = 2},/mob/living/simple_animal/hostile/urist/hololab/holonautgrunt,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"bz" = (/obj/structure/table/rack,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"bE" = (/obj/machinery/atmospherics/pipe/simple/visible/fuel{dir = 10; icon_state = "intact"},/obj/structure/catwalk,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"bG" = (/obj/effect/decal/cleanable/blood,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"bV" = (/obj/machinery/door/airlock/hatch{dir = 1; icon_state = "closed"},/obj/structure/barricade/wooden/crude,/turf/simulated/floor/tiled/dark,/area/boarding_ship)
+"cl" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 5; icon_state = "intact"},/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"cu" = (/obj/machinery/atmospherics/pipe/simple/visible/fuel{dir = 6; icon_state = "intact"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"cG" = (/obj/machinery/computer/ship/sensors{dir = 1; icon_state = "computer"},/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
+"cI" = (/obj/structure/table/rack,/obj/random/toolbox,/obj/random/material,/obj/random/tool,/obj/random/material,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
+"di" = (/obj/effect/wallframe_spawn/reinforced/hull,/turf/simulated/floor/tiled/dark,/area/boarding_ship)
+"dl" = (/obj/structure/table/steel_reinforced,/turf/simulated/floor/tiled/dark,/area/boarding_ship)
+"dB" = (/obj/structure/table/standard,/obj/item/reagent_containers/glass/beaker/cryoxadone{pixel_x = 7; pixel_y = 1},/obj/item/reagent_containers/glass/beaker/cryoxadone{pixel_x = 7; pixel_y = 1},/obj/machinery/cell_charger,/obj/effect/floor_decal/corner/paleblue/diagonal,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"eb" = (/obj/machinery/portable_atmospherics/canister/oxygen/prechilled,/obj/machinery/atmospherics/portables_connector,/obj/effect/floor_decal/corner/paleblue/diagonal,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"eg" = (/obj/machinery/atmospherics/unary/heater{dir = 8; icon_state = "heater_0"},/turf/simulated/floor/plating,/area/boarding_ship)
+"ew" = (/obj/structure/table/steel_reinforced,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"eE" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 1; icon_state = "map_vent_out"},/obj/effect/floor_decal/corner/grey/diagonal,/obj/structure/bed/chair/wood{dir = 8},/turf/simulated/floor/tiled/white/monotile,/area/boarding_ship)
+"eN" = (/obj/effect/decal/cleanable/blood,/obj/machinery/computer/operating,/turf/simulated/floor/tiled/white/monotile,/area/boarding_ship)
+"eR" = (/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 9; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 5; icon_state = "intact-supply"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"eX" = (/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4; icon_state = "intact-supply"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"eY" = (/obj/machinery/atmospherics/unary/vent_pump/on,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"fl" = (/obj/structure/bed/padded,/obj/item/bedsheet/brown,/obj/structure/closet/walllocker/emerglocker/east,/obj/machinery/atmospherics/unary/vent_pump/on{dir = 1; icon_state = "map_vent_out"},/turf/simulated/floor/carpet/blue,/area/boarding_ship)
+"ft" = (/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,/obj/machinery/atmospherics/pipe/simple/visible/supply,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"fx" = (/turf/simulated/floor/plating,/area/boarding_ship)
+"fG" = (/obj/effect/landmark/scom/bomb/boarding/pirateship,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"fJ" = (/obj/machinery/door/airlock/hatch{dir = 1; icon_state = "closed"},/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
+"fM" = (/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"fN" = (/mob/living/simple_animal/hostile/urist/hololab/holonautregular,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"gg" = (/obj/item/storage/box/lights/mixed,/obj/item/clothing/mask/plunger,/obj/item/mop,/obj/item/reagent_containers/glass/bucket,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"go" = (/obj/item/shiv,/obj/effect/decal/cleanable/blood,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 6},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"gq" = (/obj/structure/closet/secure_closet/guncabinet,/turf/simulated/floor/tiled/dark,/area/boarding_ship)
+"gH" = (/obj/structure/bed/chair/office/dark,/turf/simulated/floor/tiled/dark,/area/boarding_ship)
+"gV" = (/obj/effect/decal/cleanable/blood/drip,/obj/machinery/atmospherics/pipe/manifold4w/visible/supply,/obj/machinery/atmospherics/pipe/manifold4w/visible/scrubbers,/obj/structure/catwalk,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"gZ" = (/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"},/obj/structure/catwalk,/obj/random/drinkbottle,/turf/simulated/floor/plating,/area/boarding_ship)
+"hj" = (/obj/machinery/atmospherics/pipe/simple/visible/universal,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"hl" = (/obj/structure/closet/crate/radiation,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
+"hp" = (/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 5; icon_state = "intact-scrubbers"},/obj/machinery/light/small,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"hz" = (/obj/machinery/atmospherics/binary/passive_gate/on{dir = 4; icon_state = "map_on"},/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"hA" = (/obj/effect/wallframe_spawn/reinforced/hull,/turf/simulated/wall/r_wall/rglass_wall,/area/boarding_ship)
+"hE" = (/mob/living/simple_animal/hostile/urist/hololab/holonautgrunt,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"hG" = (/obj/machinery/light/small,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
+"hI" = (/obj/machinery/atmospherics/pipe/simple/visible/fuel{dir = 4; icon_state = "intact"},/obj/structure/catwalk,/mob/living/simple_animal/hostile/urist/hololab/holonautregular,/turf/simulated/floor/plating,/area/boarding_ship)
+"hN" = (/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"hP" = (/obj/structure/catwalk,/obj/machinery/power/port_gen/pacman/super,/obj/structure/cable{d2 = 4; icon_state = "0-4"},/obj/machinery/light/small{dir = 1},/turf/simulated/floor/plating,/area/boarding_ship)
+"hU" = (/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 9},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 9; icon_state = "intact-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"hV" = (/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4},/obj/structure/catwalk,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"hX" = (/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4; icon_state = "intact-supply"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"ia" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8},/obj/machinery/light/small{dir = 1},/turf/simulated/floor/tiled/dark,/area/boarding_ship)
+"ii" = (/obj/item/organ/internal/augment/pain_assistant,/turf/simulated/floor/tiled/white/monotile,/area/boarding_ship)
+"it" = (/obj/structure/table/steel_reinforced,/obj/effect/floor_decal/corner/green/diagonal,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"iy" = (/obj/structure/table/standard,/obj/effect/floor_decal/corner/paleblue{dir = 5},/obj/random/firstaid,/obj/random/medical,/obj/random/medical,/obj/random/medical,/obj/random/medical/lite,/obj/random/medical/lite,/obj/item/storage/firstaid/fire,/obj/item/storage/firstaid/o2{pixel_x = 5; pixel_y = 5},/obj/random/medical/lite,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"iE" = (/obj/structure/bed,/obj/effect/landmark/corpse/patient,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/tiled/techmaint,/area/boarding_ship)
+"iN" = (/obj/structure/bed/chair/shuttle/white{dir = 4},/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
+"iS" = (/obj/machinery/door/airlock/hatch{dir = 1; icon_state = "closed"},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/visible/supply,/obj/structure/catwalk,/obj/structure/barricade/wooden/crude,/turf/simulated/floor/plating,/area/boarding_ship)
+"iT" = (/obj/machinery/atmospherics/pipe/simple/visible/supply,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"iW" = (/obj/effect/decal/cleanable/blood,/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 6; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"iY" = (/obj/structure/table/rack,/obj/machinery/light/small{dir = 4; icon_state = "bulb1"},/obj/random/projectile,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"je" = (/mob/living/simple_animal/hostile/urist/hololab/holonautregular,/turf/simulated/floor/tiled/dark,/area/boarding_ship)
+"jf" = (/mob/living/simple_animal/hostile/urist/hololab/holonautgrunt,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"jg" = (/obj/effect/decal/cleanable/blood/drip,/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"jk" = (/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/structure/catwalk,/obj/machinery/light/small{dir = 1; icon_state = "bulb1"},/turf/simulated/floor/plating,/area/boarding_ship)
+"jm" = (/obj/structure/catwalk,/obj/effect/urist/triggers/boarding_landmark,/obj/structure/boarding/shipportal,/turf/simulated/floor/plating,/area/boarding_ship)
+"js" = (/obj/machinery/atmospherics/pipe/simple/visible/fuel{dir = 4; icon_state = "intact"},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 5},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"jw" = (/obj/effect/decal/cleanable/blood/drip,/obj/item/remains/robot,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"jx" = (/obj/effect/floor_decal/corner/grey/diagonal,/obj/structure/bed/chair/wood{dir = 8},/turf/simulated/floor/tiled/white/monotile,/area/boarding_ship)
+"jE" = (/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 10; icon_state = "intact-supply"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"jF" = (/obj/machinery/light/small{dir = 1; icon_state = "bulb1"},/turf/simulated/floor/tiled/dark,/area/boarding_ship)
+"jR" = (/obj/machinery/computer/modular/preset/civilian{dir = 8},/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
+"kf" = (/obj/structure/table/standard,/obj/item/storage/firstaid/adv,/obj/item/device/scanner/health,/obj/structure/window/reinforced,/obj/effect/floor_decal/floordetail/edgedrain,/obj/effect/floor_decal/corner/paleblue/diagonal,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"km" = (/obj/effect/wallframe_spawn/reinforced/hull,/turf/space,/area/boarding_ship)
+"kA" = (/obj/machinery/door/window/eastright,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4; icon_state = "intact-supply"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"kD" = (/obj/machinery/light/small,/turf/simulated/floor/tiled/dark,/area/boarding_ship)
+"kZ" = (/obj/structure/bed,/obj/effect/decal/cleanable/blood,/obj/effect/decal/cleanable/remains,/turf/simulated/floor/tiled/techmaint,/area/boarding_ship)
+"lm" = (/obj/item/stool/padded,/obj/machinery/atmospherics/unary/vent_scrubber/on,/obj/effect/floor_decal/corner/green/mono,/obj/effect/landmark/scom/bomb/boarding/pirateship,/turf/simulated/floor/tiled/white/monotile,/area/boarding_ship)
+"lq" = (/obj/effect/decal/cleanable/blood/drip,/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers,/obj/machinery/atmospherics/pipe/manifold/visible/supply,/obj/structure/catwalk,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"lJ" = (/obj/structure/morgue{dir = 8},/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"lX" = (/obj/effect/landmark/scom/bomb/boarding/pirateship,/turf/simulated/floor/plating,/area/boarding_ship)
+"mm" = (/obj/effect/decal/cleanable/blood/drip,/obj/machinery/atmospherics/unary/vent_pump/on{dir = 1; icon_state = "map_vent_out"},/turf/simulated/floor/tiled/techmaint,/area/boarding_ship)
+"mr" = (/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"ms" = (/obj/effect/landmark/corpse/scientist,/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
+"mL" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 8},/obj/machinery/light/small{dir = 4; icon_state = "bulb1"},/turf/simulated/floor/tiled/dark,/area/boarding_ship)
+"nb" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"nc" = (/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/machinery/door/airlock/vault,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"nv" = (/obj/structure/morgue,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"nP" = (/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"nU" = (/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4},/obj/machinery/door/airlock/security,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"od" = (/obj/machinery/atmospherics/pipe/simple/visible/universal{dir = 4},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"of" = (/obj/machinery/atmospherics/pipe/simple/visible/fuel{dir = 4; icon_state = "intact"},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 5; icon_state = "intact-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"ol" = (/obj/machinery/optable,/obj/item/storage/firstaid/surgery,/turf/simulated/floor/tiled/white/monotile,/area/boarding_ship)
+"oB" = (/obj/structure/table/rack,/obj/random/lilgun,/obj/random/lilgun,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"oE" = (/obj/machinery/light/small{dir = 8},/turf/simulated/floor/tiled/dark,/area/boarding_ship)
+"oK" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 4},/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"oO" = (/obj/effect/decal/cleanable/blood,/obj/structure/closet/secure_closet/medical_wall{name = "Blood Locker"; pixel_x = 28; pixel_y = 4},/obj/structure/hygiene/sink{dir = 4; icon_state = "sink"; pixel_x = 11; pixel_y = 0},/turf/simulated/floor/tiled/white/monotile,/area/boarding_ship)
+"pi" = (/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 10; icon_state = "intact-scrubbers"},/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"po" = (/obj/structure/table/rack,/obj/item/stack/material/uranium/fifty,/obj/item/stack/material/uranium/fifty,/obj/item/stack/material/gold,/obj/item/stack/material/gold,/obj/item/stack/material/phoron/fifty,/obj/item/stack/material/diamond/ten,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"pA" = (/obj/structure/table/rack,/turf/simulated/floor/plating,/area/boarding_ship)
+"pD" = (/obj/machinery/door/airlock/hatch/maintenance,/turf/simulated/floor/tiled/dark,/area/boarding_ship)
+"pF" = (/obj/structure/shipweapons/hardpoint/attached,/obj/effect/urist/triggers/shipweapons,/turf/simulated/floor/tiled/dark,/area/boarding_ship)
+"pI" = (/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/visible/supply,/obj/effect/floor_decal/corner/green/mono,/turf/simulated/floor/tiled/white/monotile,/area/boarding_ship)
+"pJ" = (/obj/machinery/atmospherics/pipe/simple/visible/green{dir = 6},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"pK" = (/obj/effect/decal/cleanable/blood,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,/obj/machinery/atmospherics/pipe/manifold/visible/supply{dir = 8; icon_state = "map-supply"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"pO" = (/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers,/obj/machinery/atmospherics/pipe/manifold/visible/supply{dir = 1; icon_state = "map-supply"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"pT" = (/obj/structure/lattice,/turf/space,/area/boarding_ship)
+"pV" = (/obj/structure/table/rack,/obj/item/reagent_containers/glass/beaker/vial/random,/obj/item/reagent_containers/glass/beaker/vial/random,/obj/item/reagent_containers/glass/beaker/vial/random,/obj/item/reagent_containers/glass/beaker/vial/random,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"pY" = (/obj/structure/closet/l3closet/janitor,/obj/item/storage/box/cleangrenades,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"qn" = (/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"qM" = (/obj/structure/catwalk,/obj/structure/cable,/obj/machinery/power/smes/buildable/preset/on_full{uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/super_io = 1, /obj/item/stock_parts/smes_coil/super_capacity = 1)},/turf/simulated/floor/plating,/area/boarding_ship)
+"qO" = (/obj/machinery/vending/coffee{icon_state = "coffee"; dir = 1},/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
+"qU" = (/obj/structure/table/standard,/obj/machinery/microwave,/obj/machinery/alarm{dir = 8; icon_state = "alarm0"; pixel_x = 22},/obj/effect/floor_decal/corner/green/diagonal,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"qW" = (/obj/machinery/atmospherics/pipe/simple/visible/supply,/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers{dir = 1; icon_state = "map-scrubbers"},/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"rm" = (/obj/machinery/door/airlock/security,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"ro" = (/obj/effect/decal/cleanable/blood/drip,/obj/machinery/door/airlock/security,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"rw" = (/obj/effect/decal/cleanable/blood/drip,/obj/machinery/atmospherics/pipe/simple/visible/supply,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"rF" = (/obj/structure/table/rack,/obj/random/voidsuit,/obj/random/voidhelmet,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"rK" = (/obj/structure/bed/chair/shuttle/white,/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
+"rP" = (/obj/effect/landmark/scom/bomb/boarding/pirateship,/turf/simulated/wall/r_wall/hull,/area/boarding_ship)
+"rT" = (/obj/machinery/atmospherics/unary/outlet_injector,/turf/simulated/floor/airless,/area/boarding_ship)
+"rU" = (/obj/effect/landmark/corpse/chef,/obj/machinery/atmospherics/pipe/simple/visible/supply,/obj/effect/floor_decal/corner/green/diagonal,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"sa" = (/obj/machinery/atmospherics/unary/tank/oxygen,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
+"se" = (/obj/machinery/door/airlock/hatch{dir = 1; icon_state = "closed"},/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"sg" = (/obj/structure/table/rack,/obj/item/gun/projectile/shotgun/pump/combat,/obj/item/gun/projectile/shotgun/pump/combat,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"sl" = (/obj/machinery/door/airlock/virology,/obj/machinery/door/firedoor,/turf/simulated/floor/plating,/area/boarding_ship)
+"ss" = (/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 6; icon_state = "intact-scrubbers"},/obj/machinery/light/small{dir = 8},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"st" = (/obj/effect/decal/cleanable/blood,/obj/item/organ/internal/lungs,/turf/simulated/floor/tiled/white/monotile,/area/boarding_ship)
+"sx" = (/obj/structure/catwalk,/mob/living/simple_animal/hostile/urist/hololab/holonautgrunt,/turf/simulated/floor/plating,/area/boarding_ship)
+"sD" = (/obj/structure/table/standard,/obj/machinery/reagent_temperature/cooler,/obj/effect/floor_decal/corner/green/diagonal,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"sI" = (/obj/structure/janitorialcart,/obj/item/toy/figure/janitor,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"sN" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 1; icon_state = "map_vent_out"},/mob/living/simple_animal/hostile/urist/hololab/holonautgrunt,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"ta" = (/obj/effect/decal/cleanable/blood,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 5; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 5; icon_state = "intact-supply"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"tc" = (/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 6; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/structure/catwalk,/mob/living/simple_animal/hostile/urist/hololab/holonautgrunt,/turf/simulated/floor/plating,/area/boarding_ship)
+"th" = (/obj/machinery/light/small{dir = 1},/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"tl" = (/obj/effect/floor_decal/corner/grey/diagonal,/obj/structure/bed/chair/wood{dir = 4},/turf/simulated/floor/tiled/white/monotile,/area/boarding_ship)
 "to" = (/obj/effect/template_loader/ships,/turf/space,/area/space)
-"up" = (/obj/machinery/computer/ship/engines{dir = 1; icon_state = "computer"},/turf/simulated/floor/tiled/monotile,/area/space)
-"vm" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/door/blast/regular{id_tag = "Tech_access_BD"},/obj/machinery/door/firedoor,/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating,/area/space)
-"wg" = (/obj/machinery/computer/ship/navigation,/turf/simulated/floor/tiled/monotile,/area/space)
-"wx" = (/obj/structure/table/glass,/obj/item/paper,/turf/simulated/floor/tiled/white,/area/space)
-"wI" = (/obj/structure/table/glass,/obj/item/paper,/obj/item/folder/white,/turf/simulated/floor/tiled/white,/area/space)
-"wW" = (/obj/machinery/door/airlock/hatch{dir = 1; icon_state = "closed"},/turf/simulated/floor/tiled/steel_grid,/area/space)
-"xh" = (/obj/machinery/door/airlock/hatch{dir = 1; icon_state = "closed"},/turf/simulated/floor/tiled/monotile,/area/space)
-"xj" = (/obj/structure/window/reinforced{dir = 4},/obj/machinery/optable,/turf/simulated/floor/tiled/white,/area/space)
-"ye" = (/obj/structure/disposalpipe/segment,/turf/simulated/wall/r_wall,/area/space)
-"yT" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8},/obj/structure/table/glass,/obj/item/storage/box/masks,/obj/item/storage/box/gloves,/obj/item/reagent_containers/spray/sterilizine,/turf/simulated/floor/tiled/white,/area/space)
-"zp" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/machinery/light{dir = 8; icon_state = "tube1"},/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled,/area/space)
-"zr" = (/obj/machinery/door/airlock/virology,/obj/machinery/door/firedoor,/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/plating,/area/space)
-"Aw" = (/obj/machinery/computer/ship/helm{dir = 1; icon_state = "computer"},/turf/simulated/floor/tiled/monotile,/area/space)
-"AI" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled/monotile,/area/space)
-"Bk" = (/obj/structure/window/reinforced{dir = 4},/obj/machinery/optable,/obj/effect/landmark/corpse/lar_maria/test_subject,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/tiled/white,/area/space)
-"BG" = (/obj/structure/table/glass,/obj/item/paper/lar_maria/note_4,/turf/simulated/floor/tiled/white,/area/space)
-"BR" = (/obj/structure/morgue,/turf/simulated/floor/plating,/area/space)
-"Ca" = (/mob/living/simple_animal/hostile/lar_maria/test_subject,/turf/simulated/floor/tiled/white,/area/space)
-"Cr" = (/turf/simulated/floor/tiled/white,/area/space)
-"CD" = (/obj/structure/window/reinforced{dir = 1},/obj/effect/decal/cleanable/blood,/turf/simulated/floor/tiled/white,/area/space)
-"CF" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/manifold/visible/fuel{dir = 4; icon_state = "map"},/turf/simulated/floor/plating,/area/space)
-"DU" = (/obj/structure/closet/crate/trashcart,/obj/machinery/light/small{dir = 1},/turf/simulated/floor/plating,/area/space)
-"DV" = (/obj/effect/decal/cleanable/blood,/turf/simulated/floor/plating,/area/space)
-"DY" = (/obj/machinery/atmospherics/valve/digital,/obj/structure/extinguisher_cabinet{dir = 8; icon_state = "extinguisher_closed"; pixel_x = 30},/turf/simulated/floor/tiled/steel_ridged,/area/space)
-"DZ" = (/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 1},/obj/effect/decal/cleanable/blood,/turf/simulated/floor/tiled/white,/area/space)
-"EN" = (/obj/structure/catwalk,/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"},/turf/simulated/floor/plating,/area/space)
-"Fw" = (/obj/structure/closet/secure_closet/personal/patient,/turf/simulated/floor/tiled/techmaint,/area/space)
-"FS" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 6},/obj/structure/window/reinforced{dir = 4},/turf/simulated/floor/tiled/white,/area/space)
-"Gd" = (/turf/simulated/floor/tiled/monotile,/area/space)
-"Gi" = (/obj/structure/bed,/obj/machinery/light,/turf/simulated/floor/tiled/white,/area/space)
+"tU" = (/mob/living/simple_animal/hostile/urist/hololab/holonautregular,/turf/simulated/floor/plating,/area/boarding_ship)
+"ua" = (/obj/item/storage/firstaid/surgery,/obj/structure/window/reinforced{dir = 1},/turf/simulated/floor/tiled/white/monotile,/area/boarding_ship)
+"up" = (/obj/machinery/computer/ship/engines{dir = 1; icon_state = "computer"},/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
+"uB" = (/obj/item/organ/internal/posibrain,/turf/simulated/floor/tiled/white/monotile,/area/boarding_ship)
+"uD" = (/obj/machinery/door/airlock/hatch/maintenance,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,/obj/machinery/atmospherics/pipe/simple/visible/supply,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"uF" = (/obj/effect/landmark/scom/bomb/boarding/pirateship,/turf/simulated/wall/r_wall,/area/boarding_ship)
+"uG" = (/obj/machinery/floodlight,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
+"uN" = (/obj/machinery/atmospherics/pipe/simple/visible/fuel{dir = 5},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"uO" = (/obj/structure/catwalk,/obj/machinery/light/small/red{dir = 4; icon_state = "firelight1"},/turf/simulated/floor/plating,/area/boarding_ship)
+"vm" = (/obj/structure/bed,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/tiled/techmaint,/area/boarding_ship)
+"vw" = (/obj/structure/table/steel_reinforced,/obj/random/handgun,/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
+"vA" = (/obj/machinery/door/window/westleft,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"wd" = (/obj/structure/closet/walllocker/emerglocker/north,/obj/machinery/light/small{dir = 1; icon_state = "bulb1"},/turf/simulated/floor/tiled/dark,/area/boarding_ship)
+"wg" = (/mob/living/simple_animal/hostile/urist/hololab/holonautgrunt,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"wm" = (/obj/machinery/atmospherics/pipe/manifold/hidden,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"wo" = (/obj/machinery/atmospherics/pipe/simple/visible/fuel{icon_state = "intact"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"wx" = (/obj/machinery/atmospherics/pipe/simple/visible/supply,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 5; icon_state = "intact-scrubbers"},/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"wD" = (/obj/machinery/light/small{dir = 1},/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"wI" = (/obj/machinery/atmospherics/valve,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
+"wL" = (/obj/machinery/atmospherics/pipe/simple/visible/fuel{dir = 5},/turf/simulated/wall/r_wall,/area/boarding_ship)
+"wU" = (/obj/machinery/vending/engivend{dir = 8},/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
+"wW" = (/obj/machinery/door/airlock/hatch{dir = 1; icon_state = "closed"},/turf/simulated/floor/tiled/dark,/area/boarding_ship)
+"xh" = (/obj/effect/decal/cleanable/blood/drip,/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers{dir = 4; icon_state = "map-scrubbers"},/obj/machinery/atmospherics/pipe/manifold/visible/supply{dir = 4; icon_state = "map-supply"},/obj/structure/catwalk,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"xj" = (/obj/machinery/door/airlock/hatch/maintenance,/turf/simulated/floor/plating,/area/boarding_ship)
+"xw" = (/obj/structure/catwalk,/obj/machinery/door/airlock/hatch/maintenance,/turf/simulated/floor/plating,/area/boarding_ship)
+"yc" = (/obj/structure/bed/padded,/obj/item/bedsheet/brown,/obj/structure/closet/walllocker/emerglocker/east,/obj/machinery/atmospherics/unary/vent_pump/on{dir = 1; icon_state = "map_vent_out"},/turf/simulated/floor/carpet/green,/area/boarding_ship)
+"ye" = (/mob/living/simple_animal/hostile/urist/hololab/holonautregular,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"yu" = (/obj/item/device/radio/intercom/department/medbay{dir = 8; pixel_x = 22},/obj/structure/iv_stand,/obj/structure/window/reinforced,/obj/effect/floor_decal/floordetail/edgedrain,/obj/effect/floor_decal/corner/paleblue/diagonal,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"yT" = (/obj/structure/girder,/turf/simulated/floor/plating,/area/boarding_ship)
+"yZ" = (/obj/structure/table/steel,/obj/effect/floor_decal/corner/grey/diagonal,/obj/machinery/light/small,/turf/simulated/floor/tiled/white/monotile,/area/boarding_ship)
+"ze" = (/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 5; icon_state = "intact-scrubbers"},/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"zf" = (/obj/effect/floor_decal/trimline/green/filled/line{dir = 4},/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"zl" = (/obj/machinery/atmospherics/pipe/simple/visible/fuel{dir = 9; icon_state = "intact"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"zp" = (/obj/machinery/door/airlock/hatch{dir = 1; icon_state = "closed"},/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"zr" = (/obj/machinery/door/airlock/hatch{dir = 1; icon_state = "closed"},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4},/turf/simulated/floor/carpet/blue,/area/boarding_ship)
+"zy" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 9},/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"zE" = (/obj/effect/decal/cleanable/blood,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,/obj/machinery/atmospherics/pipe/simple/visible/supply,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"zJ" = (/obj/structure/closet/secure_closet/guncabinet,/obj/item/storage/box/ammo/shotgunshells,/obj/random/handgun,/obj/random/projectile,/obj/random/hardsuit,/obj/random/ammo,/obj/item/storage/belt/holster/general,/turf/simulated/floor/carpet/blue,/area/boarding_ship)
+"zK" = (/obj/effect/decal/cleanable/blood/splatter/human,/obj/structure/bed/chair/office/dark{dir = 1},/obj/effect/decal/cleanable/remains,/mob/living/simple_animal/hostile/urist/hololab/holonautregular,/turf/simulated/floor/tiled/dark,/area/boarding_ship)
+"zN" = (/obj/machinery/atmospherics/unary/tank/hydrogen{dir = 1; icon_state = "h2_map"},/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"zS" = (/obj/structure/table/standard,/obj/machinery/reagent_temperature,/obj/effect/floor_decal/corner/green/diagonal,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"zY" = (/obj/machinery/atmospherics/pipe/manifold4w/visible/supply,/obj/machinery/atmospherics/pipe/manifold4w/visible/scrubbers,/obj/structure/catwalk,/obj/structure/catwalk,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"Af" = (/obj/machinery/atmospherics/pipe/simple/visible/green,/turf/simulated/wall/r_wall,/area/boarding_ship)
+"Ap" = (/obj/effect/landmark/scom/bomb/boarding/pirateship,/turf/simulated/floor/tiled/dark,/area/boarding_ship)
+"Aw" = (/obj/machinery/computer/ship/helm{dir = 1; icon_state = "computer"},/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
+"Ax" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 4},/mob/living/simple_animal/hostile/urist/hololab/holonautsuit,/turf/simulated/floor/carpet/green,/area/boarding_ship)
+"AE" = (/obj/machinery/atmospherics/unary/cryo_cell,/obj/effect/floor_decal/corner/paleblue/diagonal,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"AI" = (/obj/effect/decal/cleanable/generic,/obj/machinery/atmospherics/unary/vent_pump/on{dir = 4},/turf/simulated/floor/tiled/dark,/area/boarding_ship)
+"AS" = (/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4},/obj/effect/floor_decal/corner/green/diagonal,/mob/living/simple_animal/hostile/urist/hololab/holonautgrunt,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"Bk" = (/obj/machinery/door/airlock/hatch{dir = 1; icon_state = "closed"},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/visible/supply,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"BG" = (/obj/effect/floor_decal/trimline/grey/filled/line{dir = 4},/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"BR" = (/obj/random/junk,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"BS" = (/obj/machinery/atmospherics/pipe/simple/visible/supply,/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers{dir = 4; icon_state = "map-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"BY" = (/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 6; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"Ca" = (/obj/machinery/light/small{dir = 1; icon_state = "bulb1"},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 6; icon_state = "intact-supply"},/turf/simulated/floor/carpet/blue,/area/boarding_ship)
+"Cq" = (/obj/structure/closet/secure_closet/personal/patient,/obj/effect/decal/cleanable/blood,/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 4},/obj/machinery/light/small{dir = 8},/turf/simulated/floor/tiled/techmaint,/area/boarding_ship)
+"Cr" = (/obj/effect/floor_decal/corner/paleblue/diagonal,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"CD" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 4},/turf/simulated/floor/carpet/blue,/area/boarding_ship)
+"CF" = (/obj/structure/bed,/turf/simulated/floor/tiled/techmaint,/area/boarding_ship)
+"Df" = (/obj/effect/decal/cleanable/cobweb,/turf/simulated/floor/tiled/dark,/area/boarding_ship)
+"Dq" = (/obj/machinery/atmospherics/pipe/simple/visible/fuel{dir = 4; icon_state = "intact"},/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers{dir = 1; icon_state = "map-scrubbers"},/obj/machinery/atmospherics/pipe/manifold/visible/supply{dir = 1; icon_state = "map-supply"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"Ds" = (/obj/machinery/door/airlock/hatch{dir = 1; icon_state = "closed"},/obj/machinery/atmospherics/pipe/simple/visible/supply,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"Dz" = (/obj/machinery/atmospherics/pipe/simple/visible/supply,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"},/obj/structure/catwalk,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"DG" = (/obj/machinery/atmospherics/unary/vent_scrubber/on,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"DJ" = (/obj/machinery/light/small,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"DU" = (/mob/living/simple_animal/hostile/urist/hololab/holonautsuit,/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
+"DV" = (/mob/living/simple_animal/hostile/urist/hololab/holonautgrunt,/turf/simulated/floor/tiled/dark,/area/boarding_ship)
+"DY" = (/obj/machinery/atmospherics/pipe/manifold4w/visible/fuel,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"DZ" = (/obj/machinery/atmospherics/pipe/simple/visible/fuel{dir = 4; icon_state = "intact"},/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 10; icon_state = "intact-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"Ec" = (/obj/machinery/reagentgrinder,/obj/effect/floor_decal/corner/green/diagonal,/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"Eh" = (/obj/machinery/atmospherics/pipe/manifold4w/visible/scrubbers,/obj/machinery/atmospherics/pipe/manifold4w/visible/supply,/obj/structure/catwalk,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"ED" = (/obj/effect/landmark/corpse/patient,/obj/effect/decal/cleanable/blood,/obj/machinery/atmospherics/unary/vent_pump/on{dir = 1; icon_state = "map_vent_out"},/turf/simulated/floor/tiled/techmaint,/area/boarding_ship)
+"EF" = (/obj/structure/closet/secure_closet/injection,/obj/effect/floor_decal/corner/paleblue/diagonal,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"EN" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 1; icon_state = "map_scrubber_on"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"ES" = (/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/machinery/door/window/eastright,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"Fa" = (/obj/machinery/door/airlock/hatch/maintenance,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"Fh" = (/obj/structure/window/reinforced{dir = 1},/obj/effect/decal/cleanable/blood,/turf/simulated/floor/tiled/white/monotile,/area/boarding_ship)
+"Fs" = (/obj/machinery/atmospherics/unary/freezer{dir = 2; icon_state = "freezer"},/obj/effect/floor_decal/corner/paleblue/diagonal,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"Fw" = (/obj/structure/closet/secure_closet/personal/patient,/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 4},/obj/machinery/light/small{dir = 8},/turf/simulated/floor/tiled/techmaint,/area/boarding_ship)
+"FH" = (/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
+"FS" = (/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/visible/supply,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"FY" = (/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 10; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"Ga" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 1},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"Gb" = (/obj/machinery/atmospherics/pipe/simple/visible/green,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"Gd" = (/obj/machinery/light{dir = 4; icon_state = "tube1"},/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
+"Ge" = (/obj/machinery/door/window/southleft,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/visible/supply,/obj/effect/floor_decal/corner/green/diagonal,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"Gi" = (/obj/structure/lattice,/turf/space,/area/space)
+"Gs" = (/obj/machinery/vending/tool{dir = 8},/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
 "Gz" = (/turf/space,/area/space)
-"Hq" = (/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers,/obj/machinery/atmospherics/pipe/manifold/visible/supply,/turf/simulated/floor/plating,/area/space)
-"HG" = (/obj/machinery/power/apc{name = "south bump"; pixel_y = -24},/obj/structure/cable{d2 = 4; icon_state = "0-4"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 5},/mob/living/simple_animal/hostile/lar_maria/virologist/female,/turf/simulated/floor/plating,/area/space)
-"Id" = (/obj/machinery/door/window/westleft,/turf/simulated/floor/tiled/techmaint,/area/space)
-"Ii" = (/obj/machinery/door/window/northright,/obj/item/storage/firstaid/surgery,/turf/simulated/floor/tiled/white,/area/space)
-"Ix" = (/obj/structure/catwalk,/obj/machinery/door/firedoor{dir = 4; icon_state = "open"},/obj/machinery/door/airlock/engineering{dir = 1; icon_state = "closed"},/turf/simulated/floor/plating,/area/space)
-"Ja" = (/obj/effect/landmark/corpse/lar_maria/virologist,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/plating,/area/space)
+"GC" = (/obj/machinery/atmospherics/pipe/manifold4w/visible/scrubbers,/obj/machinery/atmospherics/pipe/manifold4w/visible/supply,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"GD" = (/obj/effect/decal/cleanable/blood/drip,/turf/simulated/floor/tiled/dark,/area/boarding_ship)
+"GU" = (/obj/structure/table/rack,/obj/random/energy,/obj/random/energy,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"Ha" = (/obj/machinery/door/airlock/hatch{dir = 1; icon_state = "closed"},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/visible/supply,/obj/structure/catwalk,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"Hq" = (/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4},/obj/effect/floor_decal/corner/green/diagonal,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"HG" = (/obj/structure/table/steel_reinforced,/obj/machinery/light/small{dir = 1; icon_state = "bulb1"},/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"HK" = (/obj/machinery/atmospherics/pipe/simple/visible/fuel{dir = 4; icon_state = "intact"},/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 10; icon_state = "intact-supply"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"Id" = (/obj/machinery/door/window/westleft,/obj/effect/decal/cleanable/blood,/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"Ii" = (/obj/structure/closet/secure_closet/personal/patient,/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8; id_tag = null},/obj/machinery/light/small{dir = 4; icon_state = "bulb1"},/turf/simulated/floor/tiled/techmaint,/area/boarding_ship)
+"Il" = (/obj/machinery/atmospherics/pipe/simple/visible/fuel{icon_state = "intact"},/obj/structure/catwalk,/obj/effect/landmark/scom/bomb/boarding/pirateship,/turf/simulated/floor/plating,/area/boarding_ship)
+"Ip" = (/obj/structure/closet/secure_closet/personal/patient,/obj/effect/decal/cleanable/blood,/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8; id_tag = null},/obj/machinery/light/small{dir = 4; icon_state = "bulb1"},/turf/simulated/floor/tiled/techmaint,/area/boarding_ship)
+"Is" = (/obj/structure/catwalk,/obj/machinery/power/apc{dir = 8; icon_state = "apc0"; pixel_x = -9},/obj/structure/cable{d2 = 2; icon_state = "0-2"},/turf/simulated/floor/plating,/area/boarding_ship)
+"It" = (/obj/machinery/vending/sovietsoda{dir = 8},/obj/machinery/light/small{dir = 4; luminosity = 2},/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
+"Iv" = (/obj/structure/table/rack,/obj/item/disk/cloning_charge,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"Ix" = (/turf/simulated/floor/tiled/dark,/area/boarding_ship)
+"IV" = (/obj/machinery/door/airlock/hatch{dir = 1; icon_state = "closed"},/obj/machinery/atmospherics/pipe/simple/visible/supply,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"},/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
+"Ja" = (/obj/item/stool/padded,/obj/effect/floor_decal/corner/green/mono,/turf/simulated/floor/tiled/white/monotile,/area/boarding_ship)
 "Jc" = (/turf/simulated/wall/r_wall/hull,/area/boarding_ship)
-"Jx" = (/obj/machinery/door/window/eastright,/turf/simulated/floor/tiled/techmaint,/area/space)
-"Jy" = (/turf/simulated/floor/tiled/dark,/area/space)
-"Kh" = (/obj/structure/boarding/self_destruct/pirateship,/turf/simulated/floor/tiled/monotile,/area/space)
-"KK" = (/obj/machinery/hologram/holopad/longrange,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 5; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/turf/simulated/floor/tiled/monotile,/area/space)
-"KT" = (/turf/unsimulated/floor/bluespace,/area/space)
-"Lp" = (/obj/random/trash,/turf/simulated/floor/tiled/white,/area/space)
-"LS" = (/obj/structure/table/glass,/obj/item/paper,/obj/item/pen/blue,/turf/simulated/floor/tiled/white,/area/space)
-"LX" = (/obj/structure/catwalk,/turf/simulated/floor/plating,/area/space)
-"Me" = (/obj/structure/table/glass,/obj/item/storage/firstaid/surgery,/obj/machinery/light,/turf/simulated/floor/tiled/white,/area/space)
-"Mm" = (/obj/structure/table/steel_reinforced,/turf/simulated/floor/tiled/monotile,/area/space)
-"MP" = (/obj/structure/closet/walllocker/emerglocker/north,/turf/simulated/floor/tiled/monotile,/area/space)
-"MR" = (/obj/structure/catwalk,/obj/machinery/power/apc{dir = 8; icon_state = "apc0"; pixel_x = -9},/obj/structure/cable{d2 = 2; icon_state = "0-2"},/turf/simulated/floor/plating,/area/space)
-"MX" = (/obj/structure/catwalk,/obj/machinery/light/small/red{dir = 4; icon_state = "firelight1"},/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"; pixel_y = 0},/turf/simulated/floor/plating,/area/space)
-"Nv" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 10},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 10},/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"},/turf/simulated/floor/tiled,/area/space)
-"Oh" = (/obj/machinery/light{dir = 1},/turf/simulated/floor/tiled/white,/area/space)
-"Or" = (/obj/structure/table/glass,/obj/item/paper_bin,/turf/simulated/floor/tiled/white,/area/space)
-"Oy" = (/obj/machinery/hologram/holopad/longrange,/turf/simulated/floor/tiled/monotile,/area/space)
-"OJ" = (/obj/machinery/light{dir = 8; icon_state = "tube1"},/turf/simulated/floor/tiled/white,/area/space)
-"OO" = (/obj/structure/table/rack,/turf/simulated/floor/tiled/steel_grid,/area/space)
-"OP" = (/obj/structure/hygiene/sink{pixel_y = 20},/turf/simulated/floor/tiled/white,/area/space)
-"OY" = (/obj/structure/table/glass,/obj/item/device/flashlight/pen,/turf/simulated/floor/tiled/white,/area/space)
-"Pc" = (/obj/structure/window/reinforced{dir = 1},/obj/item/clothing/head/surgery,/turf/simulated/floor/tiled/white,/area/space)
-"Pp" = (/obj/structure/bed/chair/shuttle/black{dir = 4; icon_state = "shuttle_chair_preview"},/obj/random/handgun,/turf/simulated/floor/tiled/monotile,/area/space)
-"Px" = (/obj/machinery/computer/modular,/turf/simulated/floor/tiled/white,/area/space)
-"Qb" = (/obj/machinery/door/airlock/virology,/obj/machinery/door/firedoor,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/turf/simulated/floor/tiled/white,/area/space)
-"QV" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/tiled,/area/space)
-"Rq" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4; icon_state = "intact-supply"},/obj/effect/urist/triggers/ai_defender_landmark/pirate/ballistic,/turf/simulated/floor/tiled/monotile,/area/space)
-"RH" = (/obj/machinery/smartfridge/chemistry/virology,/turf/simulated/floor/tiled/white,/area/space)
-"RJ" = (/obj/machinery/computer/modular/preset/cardslot/command{dir = 4; icon_state = "console"},/obj/effect/urist/triggers/station_disk/pirate,/turf/simulated/floor/tiled/monotile,/area/space)
-"RP" = (/obj/effect/landmark/scom/bomb/boarding/pirateship,/turf/simulated/wall/r_wall,/area/space)
-"RU" = (/obj/structure/table/glass,/turf/simulated/floor/tiled/white,/area/space)
-"Si" = (/obj/structure/catwalk,/obj/effect/urist/triggers/boarding_landmark,/obj/structure/boarding/shipportal,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/space)
-"Sn" = (/obj/machinery/door/airlock/hatch{dir = 1; icon_state = "closed"},/turf/simulated/floor/tiled/dark,/area/space)
-"To" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 8},/obj/structure/table/glass,/obj/item/storage/box/bodybags,/turf/simulated/floor/tiled/white,/area/space)
-"Tv" = (/obj/effect/urist/triggers/shipweapons,/obj/structure/shipweapons/hardpoint/attached,/turf/simulated/floor/tiled/techfloor,/area/space)
-"TM" = (/obj/effect/landmark/corpse/lar_maria/virologist_female,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/tiled/white,/area/space)
-"Ub" = (/turf/simulated/wall,/area/space)
-"Uv" = (/obj/structure/closet/secure_closet/freezer/fridge,/obj/machinery/light,/turf/simulated/floor/tiled/white,/area/space)
-"Ux" = (/obj/structure/shipweapons/hardpoint/attached,/obj/effect/urist/triggers/shipweapons,/turf/simulated/floor/tiled/steel_grid,/area/space)
-"UL" = (/obj/machinery/door/firedoor{dir = 4; icon_state = "open"},/obj/machinery/door/airlock/hatch{dir = 1; icon_state = "closed"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled/monotile,/area/space)
-"Vi" = (/obj/structure/table/rack,/turf/simulated/floor/tiled/dark,/area/space)
-"VJ" = (/obj/machinery/atmospherics/unary/vent_scrubber/on,/obj/structure/closet/walllocker/emerglocker/north,/turf/simulated/floor/tiled/monotile,/area/space)
-"VZ" = (/turf/simulated/floor/tiled/steel_grid,/area/space)
-"Wj" = (/obj/structure/bed/chair/shuttle/white{dir = 8},/turf/simulated/floor/tiled/monotile,/area/space)
-"Wz" = (/obj/structure/bed/chair/shuttle/blue,/turf/simulated/floor/tiled/monotile,/area/space)
-"WA" = (/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1},/obj/structure/hygiene/shower{dir = 4},/obj/effect/landmark/corpse/lar_maria/virologist,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/tiled/white,/area/space)
-"Xn" = (/mob/living/simple_animal/hostile/urist/hololab/holonautsuit,/turf/simulated/floor/tiled/steel_grid,/area/space)
-"Xx" = (/obj/machinery/computer/ship/navigation{dir = 1},/turf/simulated/floor/tiled/monotile,/area/space)
-"Xy" = (/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1},/obj/structure/hygiene/shower{dir = 4},/turf/simulated/floor/tiled/white,/area/space)
-"XW" = (/obj/machinery/door/window/northright,/turf/simulated/floor/tiled/white,/area/space)
-"Yc" = (/obj/structure/table/glass,/obj/machinery/light{dir = 1},/obj/item/storage/box/beakers,/obj/item/reagent_containers/spray/cleaner,/obj/machinery/alarm{pixel_y = 24},/turf/simulated/floor/tiled/white,/area/space)
-"Yg" = (/obj/machinery/door/airlock/virology,/obj/machinery/door/firedoor,/turf/simulated/floor/plating,/area/space)
-"Yh" = (/obj/machinery/atmospherics/valve/digital,/turf/simulated/floor/tiled/steel_ridged,/area/space)
-"Yt" = (/obj/effect/wallframe_spawn/reinforced,/turf/simulated/floor/tiled/white,/area/space)
-"YB" = (/obj/structure/bed/chair/shuttle/black{dir = 8; icon_state = "shuttle_chair_preview"},/obj/machinery/atmospherics/unary/vent_pump/on{dir = 4},/turf/simulated/floor/tiled/monotile,/area/space)
-"Zg" = (/mob/living/simple_animal/hostile/urist/hololab/holonautgrunt,/turf/simulated/floor/tiled/steel_grid,/area/space)
-"Zk" = (/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4; icon_state = "intact-supply"},/obj/effect/urist/triggers/ai_defender_landmark/pirate,/turf/simulated/floor/plating,/area/space)
+"Ju" = (/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4},/obj/structure/catwalk,/mob/living/simple_animal/hostile/urist/hololab/holonautregular,/turf/simulated/floor/plating,/area/boarding_ship)
+"Jx" = (/obj/machinery/door/window/eastright,/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"Jy" = (/obj/effect/decal/cleanable/liquid_fuel,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 10; icon_state = "intact-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"Ka" = (/obj/machinery/optable,/turf/simulated/floor/tiled/white/monotile,/area/boarding_ship)
+"Kh" = (/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/machinery/door/airlock/hatch/maintenance,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"Kx" = (/obj/random/junk,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
+"KK" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 1},/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
+"KT" = (/turf/simulated/wall/r_wall,/area/boarding_ship)
+"Li" = (/obj/structure/table/rack,/obj/item/reagent_containers/glass/beaker/vial/random/toxin,/obj/item/reagent_containers/glass/beaker/vial/random/toxin,/obj/item/reagent_containers/glass/beaker/vial/random/toxin,/obj/item/reagent_containers/glass/beaker/vial/random/toxin,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"Lp" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 4},/obj/effect/floor_decal/corner/green/diagonal,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"LE" = (/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/effect/decal/cleanable/liquid_fuel,/obj/effect/landmark/scom/bomb/boarding/pirateship,/turf/simulated/floor/tiled/dark,/area/boarding_ship)
+"LI" = (/obj/machinery/atmospherics/pipe/simple/visible/fuel{dir = 4; icon_state = "intact"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"LS" = (/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/structure/catwalk,/obj/machinery/door/airlock/security,/turf/simulated/floor/plating,/area/boarding_ship)
+"LX" = (/obj/machinery/cooker/fryer,/obj/effect/floor_decal/corner/green/diagonal,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"Me" = (/obj/effect/floor_decal/floordetail/edgedrain{dir = 4; icon_state = "edge"},/obj/effect/floor_decal/corner/paleblue/half{dir = 8},/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"Mk" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8},/turf/simulated/floor/tiled/dark,/area/boarding_ship)
+"Mm" = (/obj/structure/table/steel_reinforced,/obj/machinery/light/small{dir = 8},/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
+"Mp" = (/obj/machinery/atmospherics/pipe/manifold/visible/fuel{dir = 8; icon_state = "map"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"Mx" = (/obj/item/reagent_containers/ivbag/blood/teshari/oneg,/turf/simulated/floor/tiled/white/monotile,/area/boarding_ship)
+"MP" = (/obj/structure/closet/walllocker/emerglocker/north,/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 10; icon_state = "intact-supply"},/obj/structure/catwalk,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"MR" = (/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"MS" = (/obj/structure/lattice,/obj/machinery/shipsensors,/turf/space,/area/boarding_ship)
+"MX" = (/obj/structure/closet/secure_closet/guncabinet,/obj/item/storage/box/ammo/shotgunshells,/obj/random/handgun,/obj/random/projectile,/obj/random/hardsuit,/obj/random/ammo,/obj/item/storage/belt/holster/general,/turf/simulated/floor/carpet/green,/area/boarding_ship)
+"Na" = (/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 6; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/visible/supply,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"Nm" = (/obj/structure/cable,/obj/structure/closet/crate/freezer,/obj/item/reagent_containers/ivbag/nanoblood,/obj/item/reagent_containers/ivbag/nanoblood,/obj/item/reagent_containers/ivbag/nanoblood,/obj/item/reagent_containers/ivbag/nanoblood,/obj/effect/floor_decal/corner/paleblue/diagonal,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"Nv" = (/obj/machinery/light/small{dir = 1; icon_state = "bulb1"},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 6; icon_state = "intact-supply"},/turf/simulated/floor/carpet/green,/area/boarding_ship)
+"Ny" = (/obj/machinery/atmospherics/pipe/manifold/visible/supply{dir = 8; icon_state = "map-supply"},/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers{dir = 8; icon_state = "map-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"NM" = (/obj/effect/floor_decal/corner/grey/diagonal,/obj/structure/bed/chair/wood,/turf/simulated/floor/tiled/white/monotile,/area/boarding_ship)
+"Oa" = (/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 9; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 9; icon_state = "intact-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"Og" = (/obj/machinery/atmospherics/pipe/simple/visible/supply,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 10; icon_state = "intact-scrubbers"},/obj/effect/floor_decal/corner/green/diagonal,/obj/machinery/light{dir = 4; icon_state = "tube1"},/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"Oh" = (/obj/machinery/atmospherics/valve/digital,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"Or" = (/obj/effect/decal/cleanable/blood/drip,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"Oy" = (/obj/machinery/hologram/holopad/longrange,/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
+"OD" = (/obj/machinery/atmospherics/pipe/manifold/visible/supply{dir = 4; icon_state = "map-supply"},/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers{dir = 4; icon_state = "map-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"OJ" = (/obj/structure/reagent_dispensers/watertank,/turf/simulated/floor/plating,/area/boarding_ship)
+"OO" = (/obj/structure/table/rack,/obj/random/cash,/obj/random/cash,/obj/random/cash,/obj/random/cash,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"OP" = (/obj/structure/closet/secure_closet/engineering_electrical,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
+"OS" = (/obj/machinery/atmospherics/pipe/manifold4w/visible/scrubbers,/obj/machinery/atmospherics/pipe/manifold4w/visible/supply,/obj/structure/catwalk,/obj/structure/catwalk,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"OV" = (/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 6; icon_state = "intact-supply"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"OY" = (/obj/effect/floor_decal/corner/green/diagonal,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"Pc" = (/obj/machinery/atmospherics/unary/engine,/turf/simulated/wall/r_wall/hull,/area/boarding_ship)
+"Pl" = (/obj/machinery/atmospherics/pipe/simple/visible/fuel{dir = 9},/turf/simulated/wall/r_wall,/area/boarding_ship)
+"Pp" = (/obj/structure/table/steel,/obj/effect/floor_decal/corner/grey/diagonal,/turf/simulated/floor/tiled/white/monotile,/area/boarding_ship)
+"Px" = (/obj/structure/table/rack,/obj/random/projectile,/obj/random/projectile,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"PA" = (/obj/item/remains/robot,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"PB" = (/obj/machinery/light/small{dir = 8},/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"PE" = (/obj/machinery/atmospherics/pipe/manifold/visible/fuel{dir = 4; icon_state = "map"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"PL" = (/obj/structure/table/standard,/obj/item/reagent_containers/spray/sterilizine,/obj/item/reagent_containers/spray/cleaner{pixel_x = -5},/obj/structure/window/reinforced,/obj/effect/floor_decal/floordetail/edgedrain,/obj/effect/floor_decal/corner/paleblue/diagonal,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"PM" = (/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"PS" = (/obj/effect/decal/cleanable/blood,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"PX" = (/obj/machinery/door/airlock/hatch{dir = 1; icon_state = "closed"},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4},/turf/simulated/floor/carpet/green,/area/boarding_ship)
+"Qb" = (/obj/machinery/cooker/oven,/obj/effect/floor_decal/corner/green/diagonal,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"Qk" = (/obj/structure/table/standard,/obj/item/book/manual/chef_recipes,/obj/item/reagent_containers/glass/beaker{pixel_x = 5},/obj/item/material/kitchen/rollingpin,/obj/item/reagent_containers/glass/beaker/large,/obj/effect/floor_decal/corner/green/diagonal,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"Qr" = (/obj/structure/table/rack,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
+"Qv" = (/obj/machinery/power/shield_generator,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
+"QN" = (/obj/structure/closet/jcloset,/obj/item/holosign_creator,/obj/item/storage/backpack/duffel/duffel_norm,/obj/item/clothing/under/urist/rank/janialt,/obj/item/clothing/head/urist/janihat,/obj/item/clothing/suit/urist/janicoat,/obj/item/reagent_containers/spray/cleaner,/obj/item/storage/box/cleangrenades,/turf/simulated/floor/plating,/area/boarding_ship)
+"QO" = (/obj/structure/table/rack,/obj/random/ammo,/obj/random/ammo,/obj/random/ammo,/obj/random/ammo,/turf/simulated/floor/tiled/dark,/area/boarding_ship)
+"QV" = (/obj/machinery/suit_storage_unit/engineering,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
+"QW" = (/obj/structure/window/reinforced{dir = 1},/obj/effect/decal/cleanable/blood,/obj/structure/hygiene/sink{dir = 4; icon_state = "sink"; pixel_x = 11; pixel_y = 0},/obj/item/reagent_containers/ivbag/blood/teshari/oneg,/turf/simulated/floor/tiled/white/monotile,/area/boarding_ship)
+"Rq" = (/obj/effect/decal/cleanable/blood,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"Ru" = (/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"RH" = (/obj/machinery/fabricator/hacked,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
+"RJ" = (/obj/machinery/computer/modular/preset/cardslot/command{dir = 4; icon_state = "console"},/obj/effect/urist/triggers/station_disk/pirate,/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
+"RP" = (/obj/structure/closet/walllocker/emerglocker/north,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"RU" = (/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"Si" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 1; icon_state = "map_vent_out"},/turf/simulated/floor/tiled/techmaint,/area/boarding_ship)
+"Sl" = (/obj/structure/catwalk,/obj/structure/closet/secure_closet/engineering_welding,/obj/random/tool,/turf/simulated/floor/plating,/area/boarding_ship)
+"Sn" = (/obj/machinery/door/airlock/hatch/maintenance,/obj/machinery/atmospherics/pipe/simple/visible/supply,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"Sq" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 4},/obj/effect/floor_decal/corner/green/diagonal,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"Sx" = (/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 6},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"SG" = (/obj/machinery/light/small{dir = 4; luminosity = 2},/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"To" = (/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/effect/floor_decal/corner/green/diagonal,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"Tr" = (/obj/machinery/atmospherics/pipe/simple/visible/fuel,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"Tv" = (/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
+"TG" = (/obj/machinery/light{dir = 8; icon_state = "tube1"},/mob/living/simple_animal/hostile/urist/hololab/holonautsuit,/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
+"TM" = (/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"Ub" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8},/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"Uv" = (/obj/effect/decal/cleanable/blood,/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 10; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"Ux" = (/obj/structure/shipweapons/hardpoint/attached,/obj/effect/urist/triggers/shipweapons,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"UL" = (/obj/machinery/door/window/eastright,/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"Vd" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"; pixel_y = 0},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"Vi" = (/obj/structure/engineeringcart,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
+"Vl" = (/obj/machinery/vending/cigarette{dir = 1},/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
+"VG" = (/obj/structure/closet/walllocker/emerglocker/north,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 6; icon_state = "intact-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"VJ" = (/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"VM" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 1; icon_state = "map_vent_out"},/mob/living/simple_animal/hostile/urist/hololab/holonautgrunt,/turf/simulated/floor/tiled/techmaint,/area/boarding_ship)
+"VO" = (/obj/machinery/atmospherics/pipe/simple/visible/fuel{dir = 4; icon_state = "intact"},/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4; icon_state = "intact-supply"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"VR" = (/obj/machinery/atmospherics/pipe/simple/visible/green{dir = 10; icon_state = "intact"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"VZ" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 4; icon_state = "map_vent_out"},/obj/structure/catwalk,/mob/living/simple_animal/hostile/urist/hololab/holonautgrunt,/turf/simulated/floor/plating,/area/boarding_ship)
+"Wa" = (/obj/structure/table/rack,/obj/random/toolbox,/obj/random/material,/obj/random/tool,/obj/random/powercell,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
+"Wc" = (/obj/structure/table/steel_reinforced,/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
+"Wi" = (/obj/machinery/atmospherics/pipe/simple/visible/green,/turf/simulated/wall/r_wall/hull,/area/boarding_ship)
+"Wj" = (/obj/structure/bed/chair/shuttle/white{dir = 8},/obj/effect/landmark/corpse/scientist,/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
+"Wz" = (/obj/structure/bed/chair/shuttle/blue,/obj/effect/landmark/deadcap,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"WA" = (/obj/machinery/atmospherics/pipe/manifold4w/visible/fuel,/turf/simulated/wall/r_wall,/area/boarding_ship)
+"WC" = (/obj/machinery/atmospherics/pipe/manifold/visible/fuel,/turf/simulated/wall/r_wall,/area/boarding_ship)
+"WF" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 8; icon_state = "map_vent_out"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"WI" = (/obj/structure/closet/walllocker/emerglocker/north,/turf/simulated/floor/tiled/dark,/area/boarding_ship)
+"WP" = (/obj/machinery/atmospherics/pipe/simple/visible/supply,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"WW" = (/obj/structure/table/rack,/obj/item/storage/box/ammo/flechetteshells,/obj/item/storage/box/ammo/shotgunshells,/obj/item/storage/box/ammo/shotgunammo,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"Xk" = (/obj/structure/table/rack,/obj/random/ammo,/obj/random/ammo,/obj/random/ammo,/obj/random/ammo,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"Xn" = (/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"Xx" = (/obj/machinery/computer/ship/navigation{dir = 1},/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
+"Xy" = (/obj/machinery/light/small{dir = 1; icon_state = "bulb1"},/obj/structure/closet/walllocker/emerglocker,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
+"XB" = (/obj/machinery/vending/engineering{dir = 4},/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
+"XL" = (/obj/machinery/atmospherics/pipe/manifold/visible/supply{dir = 4; icon_state = "map-supply"},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"XW" = (/obj/structure/closet/crate/freezer,/obj/effect/floor_decal/corner/paleblue/diagonal,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"Yc" = (/obj/structure/closet/walllocker/emerglocker,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
+"Yd" = (/obj/random/powercell,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
+"Yg" = (/obj/structure/table/steel_reinforced,/obj/machinery/light/small{dir = 4; icon_state = "bulb1"},/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
+"Yh" = (/obj/machinery/atmospherics/omni/mixer,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"Yr" = (/obj/machinery/atmospherics/pipe/simple/visible/supply,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"},/obj/machinery/door/airlock/hatch{dir = 1; icon_state = "closed"},/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
+"Yt" = (/obj/effect/decal/cleanable/generic,/obj/effect/decal/cleanable/liquid_fuel,/obj/effect/decal/cleanable/liquid_fuel,/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 4},/turf/simulated/floor/tiled/dark,/area/boarding_ship)
+"Yu" = (/obj/structure/closet/walllocker/emerglocker,/turf/simulated/floor/plating,/area/boarding_ship)
+"Yw" = (/obj/structure/catwalk,/obj/machinery/power/terminal{dir = 8; icon_state = "term"},/obj/structure/cable,/turf/simulated/floor/plating,/area/boarding_ship)
+"YB" = (/obj/structure/table/rack,/obj/random/medical,/obj/random/medical,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"YS" = (/obj/machinery/light,/obj/structure/table/standard,/obj/item/reagent_containers/food/condiment/flour,/obj/machinery/cooker/candy{pixel_y = 13},/obj/effect/floor_decal/corner/green/diagonal,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"Zc" = (/obj/structure/extinguisher_cabinet{dir = 8; icon_state = "extinguisher_closed"; pixel_x = 30},/obj/structure/table/rack,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
+"Zg" = (/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 10; icon_state = "intact-supply"},/obj/effect/floor_decal/corner/green/diagonal,/turf/simulated/floor/tiled/white,/area/boarding_ship)
+"Zk" = (/obj/machinery/door/window/westleft,/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4; icon_state = "intact-supply"},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"Zm" = (/obj/effect/decal/cleanable/blood,/obj/machinery/atmospherics/unary/vent_pump/on{dir = 8},/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"Zz" = (/obj/effect/decal/cleanable/blood/drip,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{dir = 4; icon_state = "intact-scrubbers"},/obj/machinery/atmospherics/pipe/simple/visible/supply{dir = 4},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
+"ZE" = (/obj/machinery/atmospherics/portables_connector{dir = 1},/obj/machinery/light/small,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
+"ZK" = (/obj/structure/table/standard,/obj/effect/floor_decal/corner/paleblue{dir = 5},/obj/item/defibrillator/loaded,/obj/item/defibrillator/compact/loaded,/turf/simulated/floor/tiled/white,/area/boarding_ship)
 
 (1,1,1) = {"
-GzGzGzGzJcGzfJCFkmkmIxGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGztohGhGTvYhDYkmgVENGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzseHqZkGzegegkmMRMXGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzkmkmkmgZsxGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
 GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
 GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
 GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
@@ -169,78 +384,82 @@ GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
 GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
 GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
 GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzkmyekmkmkmkmkmkmkmkmkmkmkmkmkmkmkmyekmkmkmkmkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzkmolDUkmkmkmkmkmkmkmkmkmkmkmkmkmkmyekmkmkmkmkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzvmslclzrNvkmRHRHCrwIYcCrCrCrCrOhOPsgYtnvhNkmkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzkmYgUbUbzpkmOJjeLpCrCrCrCrCrCrCrLpCrpTCrCrkmkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzBRfxmrUbQVkmWAblOrTMPxLSPxBGPxOYCriSYtewhNkmkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzBRaWmrUbQVkmXyFSyTCreEebwxlqRUebCriSYtYtYtkmkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzbeDVmrUbQVkmcIeNToCrCrLpCrCrCrCrCriSYtewhNkmkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzBRJalmUbiTkmjsQbkmXWPchEIiCDDZhXCrCrpTCrCakmkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzlJoEHGfMmLkmodggkmCrMexjsNmsBkUvCrCrYtGihNkmkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzkmkmkmUbQVkmjsQbkmkmkmkmkmkmkmkmkmkmkmkmkmkmkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
 GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
 GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
 GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
 GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
 GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzfxfxfxGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPrPrPrPrPfxrPfxGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmkmkmkmJykmfxfxfxGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmJyJyJyJykmkmkmfxkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmJyJyJyJykmJyJyJykmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmJyJyJyJykmJyJyJykmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmJyJyJyJykmJyJyVikmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmkmkmkmSnkmSnaGkmkmkmkmGzGzGzGzGzGzGzGzkmkmYgkmkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmFwgogoftftftftIdgoFwkmVZVZVZkmkmkmkmkmkmBRfxmrkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmiEgodiftftftftdigoiEkmVZVZVZkmVZVZVZVZkmBRfxmrkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmkmkmkmftftftftkmkmkmkmVZVZVZVZVZVZVZVZkmBRfxmrkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmFwgoJxftftftftIdgoFwkmVZVZVZVZVZVZVZVZkmkmYgkmkmkmkmkmkmkmkmkmkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmiEgodiftftftftdigoiEkmVZVZVZVZVZVZVZVZkmCrCrCrCrCrCrCrfxKTKTKTkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmkmkmkmftftftftkmkmkmkmVZVZVZVZVZVZVZVZkmCrCrCrCrCrCrCrfxKTKTKTkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmFwgoJxftftftftIdgoFwkmVZVZVZVZVZVZVZVZkmCrCrCrCrCrCrCrfxfxKTKTkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmiEgodiftftftftdigoiEkmVZVZVZkmkmkmkmkmkmCrCrCrCrCrCrfxfxfxKTKTkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmkmkmkmftftftftkmkmkmkmkmkmVZkmkmCrCrCrCrCrCrCrCrCrCrCrCrfxfxfxkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmFwgoJxftftftftkmftftkmVZVZVZVZkmCrCrCrCrCrCrCrCrCrCrCrCrCrfxfxkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmiEgodiftftftftftftftftVZVZVZVZVZCrCrCrCrCrCrCrCrCrCrCrCrCrCrCrkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmkmkmkmVZkmkmkmkmkmkmkmVZVZVZVZkmCrXWPchEXWPchEGzGzGzGzGzGzCrCrkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPrPrPrPkmfxfxfxfxfxfxfxkmkmVZVZkmkmCrCrMexjCrMexjGzGzGzGzGzGzCrCrkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmfxfxfxfxfxfxfxkmVZVZVZVZkmkmkmkmkmkmkmfxkmkmkmkmkmkmkmkmkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmkmkmfxkmkmkmkmkmVZVZVZVZkmOOOOOOOOOOkmfxkmrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPrPrPkmfxkmVZVZOOdiVZVZVZVZkmVZVZVZVZOOkmfxkmrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmfxkmVZVZdldiVZVZVZVZkmVZVZVZVZOOkmfxkmrPrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmfxkmVZVZVZVZVZVZVZVZVZVZOOOOOOOOkmfxkmkmrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmfxkmkmkmkmkmVZVZVZVZkmkmkmkmkmkmkmfxfxkmrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmfxfxfxfxfxfxVZVZVZVZfxfxfxfxfxfxfxfxfxkmrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmkmkmkmkmfxkmVZVZVZVZkmfxkmkmkmkmkmkmkmkmrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmdldldlkmkmkmkmwWwWkmkmkmkmdldldlkmrPrPrPrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzdiVZVZVZVZVZwWVZVZVZVZwWVZVZVZVZVZkmrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzdiVZUxVZVZVZwWVZVZVZVZwWVZVZVZUxVZkmrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmkmdidikmkmkmVZVZVZVZkmkmkmkmdidikmrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPrPrPGzGzrPrPkmVZVZVZVZkmrPrPrPGzGzrPrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPrPkmdlVZVZdlkmrPrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmkmkmwWwWkmkmkmrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmGdMPGdGdMPGdkmrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmGdGdWzGdGdGdkmrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzhAGdGdGdAwcGGdGdGddiGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzhAMmGdGdOyGdGdGdMmdiGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPRJWjGdrKrKGdiNjRrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPrPkmkmkmxhULkmkmrPGzGzGzGzrPkmMmXxupAwcGMmkmrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmkmwgVJGdAIthhAhAGzGzGzGzrPkmdidididididikmrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzhAjfRJYBKKRqpDPphAhAGzGzGzGzGzrPGzGzGzGzGzGzrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPkmkmKhcGGdupAwhAhAGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPrPkmRPkmkmkmkmkmrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
 GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPrPrPrPrPrPrPrPrPrPrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPGzGzGzGzGzGzGzGzGzrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPGzGzGzGzGzGzGzGzGzrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPrPrPrPrPrPGzGzGzGzrPGzGzGzGzGzGzGzGzGzrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPVZVZVZVZrPGzGzGzGzrPGzGzGzGzGzGzGzGzGzrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPVZSifxVZrPGzGzGzGzrPGzGzGzGzGzGzGzGzGzrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPVZLXLXVZrPGzGzGzGzrPGzGzGzGzGzGzGzGzGzrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPVZZgqnXnrPGzGzGzGzrPGzGzGzGzGzGzGzGzGzrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPrPrPrPrPrPGzGzGzGzrPGzGzGzGzGzGzGzGzGzrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
-GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzrPrPrPrPrPrPrPrPrPrPrPGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcJcPcPcPcPcJcJcrTGzGzGzGzJcJcPcPcPcPcJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTwLWAWCPlKTJcWiJcJcJcJcJcKTwLWAWCPlKTJcJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcJcKTaWMpLIbEKTKTAfuGQvRHKTKTKThlTrOPYcKTKTJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTRPegDYegwothRPhjeYfMfMjfRPthfMTrBRfMViKTJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTfMaWIlaWuNhILIofjsDqDZVOHKLILIzlfMfMQrKTJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTfMegDYegaWpJodXnXnXLzenPqWUbfMfMfMfMZcKTJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTPBcuPEfMfMGbsxfMBRiTKTkmYrkmKTKTKTxwKTKTJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTjfOhOhBRYdYhVRfMfMiTkmwUwxpiXBKThPgZSlKTJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTfMzNzNcIWawIwIFHFHiTkmGssNRUQVKTIsVduOKTJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTxjKTKTKTKTZEsaKxFHiTKTQVhGKKQVKTqMYwjmKTJcJcJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcJcJcJcKTfxfxfxfxKTKTKTKTKTIVKTKTfxfxKTKTKTKTKTKTKTKTJcGiGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTKTKTKTpDKTfxfxyTAxNvPXTMGCjkqnqnqnqnzpqnFYiaIxIxkmGiGzGiGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTDfYtLEJyKTKTxjKTMXycKTfMiTfMfMfMfMItKTApWPIxpFIxkmGzGiGzGitoGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTIxgHAIaBKTgqjeKTKTKTKTfMiTfMfMfMfMfMfJIxbjIxIxDVKTJcJcJcJcJcJcJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKToEdlGDrwfxOVmLKTCDCazrTMODjfKTKTKTKTKTKTKTxjKTKTKTKTKTKTKTKTKTJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTIxzKIxrwKTNaMkKTzJflKTfMiTfMkmLXEcYSQkOYxjfxfxfxfxfxfxKTsIggKTJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTKTKTKTSnKTuDaGKTKTKTKTfMiTfMKTSqHqHqASZgKTKTslKTKTfxfxFamrbmKTJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTFwtcESlqqnOSqnIdUvIpKTfMiTfMkmqUzSsDQbrUKTnvmrwDlJKTfxKTpYQNKTJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTCFSikmOrmrzEmrkmSiiEKTfMiTfMkmLpToToToOgKTnvmrwglJKTfxKTKTKTKTJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTKTKTKTOrmrpKZmKTKTKTKTfMbeSGKTititititGeKTnvmrmrlJKTlXfxfxOJKTJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTCqiWULhNhNgVjgZkRqIiKTfMbebGzfJaJalmJapIKTKTslKTKTKTKTKTxjKTKTJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTiEmmkmmrfGftjwkmSikZKTjfNyTMTMTMTMpOJuhUKTEFCriyebdBAEFsCrKTJcJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTKTKTKTmroKBSmrKTKTKTKTfMiTfMBGtlPpeENMNMKTNmyeVJclhzwmzyVJKTJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTFwSxJxqnqnEhTMvAjEIiKTfMiTfMBGtlPpjxyZPpKTZKVJVJVJVJyeVJVJkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTCFVMkmmrmrftmrkmVMCFKTqOiTfMVlKTKTKTKTKTKTCrVJVJVJCrPLkfyukmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTKTKTKTmrPAftmrKTKTKTKTKTDsfJKTKTYcYcKTCrCrCrLiIvYBMeMxstoOKTJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTFwgokAhXhXxhaTKTXyYcKTIxiTIxjFKTIxDVKTCrVJVJpVawYBMeiioleNKTJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTvmEDkmmrDJtaPSroZzTMrmhVzYTMTMnUTMTMLSCrhEVJVJVJVJMeuaFhQWkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTKTKTKTxjKTyTKTKTKTKTKTIxDzIxIxKTKTKTKTXWXWXWCrCrCrMeuBKaeNkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcJcJcJcuFfxfxfxfxfxtUYuKTKTDswWKTKTKTKTKTKTKTKTxjKTKTKTKTkmKTKTJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTpApAfxfxfxfxYuKTIxiTIxIxKTKTKTKTKTKTKTfxKTJcJcJcGzJcJcJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTKTKTfxyTKTxjKTKToEiTDVIxKTQOXksgWWGUKTfxKTJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcJcJcKTfxKTmrDGbzdiIxiTIxIxKTssRunbblPxyTfxKTJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTfxKTmrPMewdiIxiTIxIxKTBYeXaKWFiYKTfxKTJcJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTfxKTVZhpqnKhqnzYqnqnncOarFOOpooBKTfxKTuFJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTfxKTKTKTKTKTKTiSbVKTKTKTKTKTKTKTKTfxpAKTJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTfxfxfxfxfxpDIxFSIxIxpDfxfxfxfxfxfxfxpAKTJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTKTKTKTKTfxKTIxFSIxkDKTfxKTKTKTKTKTKTKTKTJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGiJcKTewHGewKTyTKTKTHawWKTKTKTKTewHGewKTJcJcJcJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGiGzGzkmmrmrmrmrmrseWIFSIxwdsemrfNmrmrmrKTJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGiGzGzkmmrUxmrfNmrseIxFSIxIxsemrmrmrUxfNKTJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGiJcKTKTkmkmKTKTKTIxFSIxIxKTKTKTKTkmkmKTJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcJcJcGiGiJcrPKTdlFSIxdlKTJcJcJcGiGiJcJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGiGzJcJcKTdlFSIxdlKTJcJcGiGzGzGiGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGiJcKTKTKTBkwWKTKTKTJcGzGiGiGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTWcVGeReXMPWcKTJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcKTTGMRWzmrWPGdKTJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzhAWcTvENAwcGGamsWckmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzhAvwTvTvOyTvTvDUvwkmGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzJcRJWjDUrKrKTviNjRJcGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGiJcKTMmXxupAwcGYgKTJcpTGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGiJcKTkmkmkmkmkmkmKTJcpTGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGiGzJcGiGzGzGzGzGiJcGzpTGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGiGiGzGiGiGiGiGzGiGipTGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzpTGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzpTGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzpTGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzpTGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzpTGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzpTGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzMSGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
+GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
 GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
 GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
 GzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGzGz
