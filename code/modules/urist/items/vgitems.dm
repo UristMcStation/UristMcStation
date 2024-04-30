@@ -80,3 +80,73 @@
 	w_class = ITEM_SIZE_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	insultmsg = list("HONK!", "HELP, SHITCURITY!", "HELP MAINT", "SHITSEC", "I AM IN A CONSTANT STATE OF SUFFERING, EACH EON SPENT ON THIS PLANE OF EXISTENCE ECHOES ONLY PURE PAIN TO MY MORTAL COIL. GOD HAS DIED, AND HE HAS ONLY LEFT ME SUFFERING. ", "MY FUNNY BONE!")
+
+//lottery scratchers - west3436 of /vg/station13
+/obj/item/toy/lotto_ticket
+	name = "scratch-off lotto ticket"
+	desc = "A scratch-off lotto ticket."
+	icon = 'icons/urist/items/tgitems.dmi' //i see no reason to change this
+	w_class = ITEM_SIZE_TINY
+	var/revealed = FALSE
+	var/prize_multiplier
+	var/winnings = 0
+	var/list/prizelist = list(100000,50000,10000,5000,1000,500,250,100,50,20,10,5,4,3,2,1)
+	var/list/problist = list(0.0001, 0.0002, 0.001, 0.002, 0.01, 0.02, 0.04, 0.2, 1, 2.5, 5, 10, 12.5, 17, 20, 25)
+
+/obj/item/toy/lotto_ticket/Initialize()
+	..()
+	pixel_y = rand(-8, 8) * PIXEL_MULTIPLIER
+	pixel_x = rand(-9, 9) * PIXEL_MULTIPLIER
+
+/obj/item/toy/lotto_ticket/proc/scratch(var/input_prize_multiplier)
+	var/tuning_value = 1/5 //Used to adjust expected values.
+	var/profit = 0
+	for(var/prize = 1 to problist.len)
+		if(prob(problist[prize]))
+			profit = prizelist[prize]*input_prize_multiplier*tuning_value
+			return profit
+
+/obj/item/toy/lotto_ticket/attackby(obj/item/S, mob/user)
+	if(revealed)
+		to_chat(user, SPAN_NOTICE("The film covering the prizes has already been scratched off."))
+		return
+
+	if(!is_sharp(S) && !istype(S, /obj/item/material/coin))
+		to_chat(user, SPAN_NOTICE("You need to use something sharp to scratch the ticket."))
+		return
+
+	if(do_after(user, src, 1 SECONDS))
+		src.revealed = TRUE
+		src.update_icon()
+		to_chat(user, SPAN_NOTICE("You scratch off the film covering the prizes."))
+		winnings = scratch(prize_multiplier)
+
+
+/obj/item/toy/lotto_ticket/examine(mob/user)
+	. = ..()
+	if(revealed && winnings)
+		to_chat(user, SPAN_NOTICE("This one is a winner! You've won [winnings] thalers."))
+
+/obj/item/toy/lotto_ticket/on_update_icon()
+	icon_state = initial(icon_state) + (revealed ? "_scratched" : "")
+
+//Tier 1 card
+/obj/item/toy/lotto_ticket/gold_rush
+	name = "Gold Rush lottery ticket"
+	desc = "A cheap scratch-off lottery ticket. Win up to 100,000 credits!"
+	icon_state = "lotto_1"
+	prize_multiplier = 5 //EV 4.55, ER -0.45
+
+//Tier 2 card
+/obj/item/toy/lotto_ticket/diamond_hands
+	name = "Diamond Hands lottery ticket"
+	desc = "A mid-price scratch-off lottery ticket. Win up to 400,000 credits!"
+	icon_state = "lotto_2"
+	prize_multiplier = 20 //EV 18.20, ER -1.80
+
+//Tier 3 card
+/obj/item/toy/lotto_ticket/phoron_fortune
+	name = "Phoron Fortune lottery ticket"
+	desc = "An expensive scratch-off lottery ticket. Win up to 1,000,000 credits!"
+	icon_state = "lotto_3"
+	prize_multiplier = 50 //EV 45.50, ER -4.50

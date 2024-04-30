@@ -216,3 +216,55 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	products = list(	/obj/item/device/assembly/prox_sensor = 5, /obj/item/device/assembly/signaler = 4,
 						/obj/item/device/assembly/infra = 4, /obj/item/device/assembly/prox_sensor = 4,
 						/obj/item/handcuffs = 8, /obj/item/device/flash = 4, /obj/item/clothing/glasses/sunglasses = 4)
+
+//lottery scratchers - west3436 of /vg/station13
+/obj/machinery/vending/urist/lotto
+	name = "\improper Lordania Lottery"
+	desc = "A table-mounted machine which prints proprietary scratch-off lottery tickets. Winners can be cashed here by reinserting the winning ticket."
+	product_slogans = list(
+		"Feeling lucky?",
+		"Money won is twice as sweet as money earned.",
+		"The greatest risk is not taking one."
+	)
+	product_ads = list(
+		"Quit while you're ahead. All the best gamblers do.",
+		"If there weren't luck involved, you would win every time.",
+		"Better an ounce of luck than a pound of gold.",
+		"Behind bad luck comes good luck."
+	)
+	vend_reply = "Good luck!"
+	icon_state = "Lotto"
+	products = list(
+		/obj/item/toy/lotto_ticket/gold_rush = 50,
+		/obj/item/toy/lotto_ticket/diamond_hands = 20,
+		/obj/item/toy/lotto_ticket/phoron_fortune = 10
+		)
+	prices = list(
+		/obj/item/toy/lotto_ticket/gold_rush = 10,
+		/obj/item/toy/lotto_ticket/diamond_hands = 25,
+		/obj/item/toy/lotto_ticket/phoron_fortune = 50,
+		)
+
+/obj/machinery/vending/lotto/attackby(obj/item/I, user)
+	add_fingerprint(user)
+	if(istype(I, /obj/item/toy/lotto_ticket))
+		var/obj/item/toy/lotto_ticket/T = I
+		if(!T.winnings)
+			playsound(src, "buzz-sigh", 50, 1)
+			visible_message("<b>[src]</b>'s monitor flashes, \"This ticket is not a winning ticket.\"")
+		else
+			visible_message("<b>[src]</b>'s monitor flashes, \"Withdrawing [T.winnings] thalers from the Lordania Planetary Lottery Fund!\"")
+			spawn_money(T.winnings, get_turf(src))
+			playsound(loc, 'sound/items/polaroid1.ogg', 50, 1)
+			qdel(T)
+	else
+		..()
+
+/obj/machinery/vending/lotto/throw_item()
+	var/mob/living/target = locate() in view(7, src)
+
+	if (!target)
+		return 0
+	for(var/i = 0 to rand(3,12))
+		var/obj/I = new /obj/item/paper(get_turf(src))
+		I.throw_at(target, 16, 3)

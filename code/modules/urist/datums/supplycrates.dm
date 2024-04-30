@@ -201,3 +201,10 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	newcargocost = 15 //675th on Nerva
 	containertype = /obj/structure/closet/crate/secure
 	containername = "yew wooden flooring crate"
+
+/singleton/hierarchy/supply_pack/supply/lottovendor
+	name = "Vendor - Games - Lordania Lottery"
+	contains = list(/obj/machinery/vending/urist/lotto{anchored = FALSE})
+	cost = 100
+	containertype = /obj/structure/largecrate
+	containername = "\improper Vending Machine"
