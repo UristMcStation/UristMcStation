@@ -140,6 +140,11 @@
 	firedelay = 44 SECONDS
 	salvo = 2
 
+/datum/shipcomponents/weapons/smallmissilepod // For small/tiny ships, 1 missle a shot.
+	name = "small missile pod"
+	projectile_type = /obj/effect/meteor/shipmissile/smallmissile
+	firedelay = 16 SECONDS
+
 //torpedo
 
 /datum/shipcomponents/weapons/smalltorpedo
