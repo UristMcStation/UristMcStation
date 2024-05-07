@@ -342,7 +342,7 @@
 				var/dy = self_y - jammer_turf.y
 				if (dx*dx + dy*dy <= jammer.radius && (jammer_turf.z in headset_z_group))
 					to_chat(M,SPAN_WARNING("Instead of the familiar radio crackle, \the [src] emits a faint buzzing sound."))
-					//playsound(loc, 'sound/effects/zzzt.ogg', 20, 0, -1)
+					playsound(loc, 'sound/effects/zzzt.ogg', 20, 0, -1)
 					return FALSE
 		// Sedation chemical effect should prevent radio use (Chloral and Soporific)
 		var/mob/living/carbon/C = M
