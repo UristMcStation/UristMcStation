@@ -81,7 +81,7 @@ var/global/list/active_radio_jammers = list()
 		active = JAMMER_ALL
 	update_icon()
 
-/obj/item/device/radio_jammer/update_icon()
+/obj/item/device/radio_jammer/on_update_icon()
 	if(active > 0)
 		active_radio_jammers += src
 		icon_state = icon_state_active
@@ -157,7 +157,7 @@ var/global/list/active_radio_jammers = list()
 			return
 	return ..()
 
-/obj/item/device/radio_jammer/improvised/update_icon()
+/obj/item/device/radio_jammer/improvised/on_update_icon()
 	if(active > 0)
 		active_radio_jammers += src
 		icon_state = icon_state_active
