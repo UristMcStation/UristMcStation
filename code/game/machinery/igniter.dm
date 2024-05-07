@@ -116,7 +116,9 @@
 	else
 		..()
 
-/obj/machinery/sparker/attack_ai()
+/obj/machinery/sparker/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	if (anchored)
 		return ignite()
 	else

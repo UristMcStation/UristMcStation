@@ -183,6 +183,8 @@
 /obj/machinery/camera/attack_ai(mob/living/silicon/ai/user as mob)
 	if (!istype(user))
 		return
+	if(!ai_can_interact(user))
+		return
 	if (!src.can_use())
 		return
 	user.eyeobj.setLoc(get_turf(src))

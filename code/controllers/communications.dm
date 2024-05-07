@@ -289,6 +289,13 @@ var/global/const/RADIO_MAGNETS = "radio_magnet"
 var/global/const/RADIO_CHROMATIC = "radio_chromatic"
 var/global/const/RADIO_CHEM_VENT = "radio_chemvent"
 
+//urist radio_jammer item defines
+#define JAMMER_OFF 0
+///// affects ALL wireless streams
+#define JAMMER_ALL 1
+/// affects only synthetic wireless connections (attack_ai)
+#define JAMMER_SYNTHETIC 2
+
 // These are exposed to players, by name.
 GLOBAL_LIST_INIT(all_selectable_radio_filters, list(
 	RADIO_DEFAULT,

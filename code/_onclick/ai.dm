@@ -136,6 +136,8 @@
 /obj/machinery/door/airlock/AICtrlAltClick() // Electrifies doors.
 	if(usr.incapacitated())
 		return
+	if(!ai_can_interact(usr))
+		return
 	if(!electrified_until)
 		// permanent shock
 		Topic(src, list("command"="electrify_permanently", "activate" = "1"))
@@ -153,6 +155,8 @@
 /obj/machinery/door/airlock/AIShiftClick()  // Opens and closes doors!
 	if(usr.incapacitated())
 		return
+	if(!ai_can_interact(usr))
+		return
 	if(density)
 		Topic(src, list("command"="open", "activate" = "1"))
 	else
@@ -165,6 +169,8 @@
 /obj/machinery/door/airlock/AICtrlClick() // Bolts doors
 	if(usr.incapacitated())
 		return FALSE
+	if(!ai_can_interact(usr))
+		return FALSE
 	if(locked)
 		Topic(src, list("command"="bolts", "activate" = "0"))
 	else
@@ -174,11 +180,15 @@
 /obj/machinery/power/apc/AICtrlClick() // turns off/on APCs.
 	if(usr.incapacitated())
 		return FALSE
+	if(!ai_can_interact(usr))
+		return FALSE
 	Topic(src, list("breaker"="1"))
 	return TRUE
 
 /obj/machinery/turretid/AICtrlClick() //turns off/on Turrets
 	if(usr.incapacitated())
+		return FALSE
+	if(!ai_can_interact(usr))
 		return FALSE
 	Topic(src, list("command"="enable", "value"="[!enabled]"))
 	return TRUE
@@ -189,10 +199,14 @@
 /obj/machinery/turretid/AIAltClick() //toggles lethal on turrets
 	if(usr.incapacitated())
 		return
+	if(!ai_can_interact(usr))
+		return
 	Topic(src, list("command"="lethal", "value"="[!lethal]"))
 	return 1
 
 /obj/machinery/atmospherics/binary/pump/AIAltClick()
+	if(!ai_can_interact(usr))
+		return FALSE
 	return AltClick()
 
 /atom/proc/AIMiddleClick(mob/living/silicon/user)
@@ -200,6 +214,8 @@
 
 /obj/machinery/door/airlock/AIMiddleClick() // Toggles door bolt lights.
 	if(usr.incapacitated())
+		return
+	if(!ai_can_interact(usr))
 		return
 	if(..())
 		return
