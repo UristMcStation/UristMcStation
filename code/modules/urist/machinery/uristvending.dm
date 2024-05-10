@@ -264,7 +264,11 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	var/mob/living/target = locate() in view(7, src)
 
 	if (!target)
-		return 0
+		return FALSE
+		
+	visible_message(SPAN_WARNING("\The [src] ejects the contents of its paper storage bin at \the [target]!"))
 	for(var/i = 0 to rand(3,12))
-		var/obj/I = new /obj/item/paper(get_turf(src))
-		I.throw_at(target, 16, 3)
+		spawn(rand(1,5))
+			var/obj/I = new /obj/item/paper(src.loc)
+			I.throw_at(target, 16, 3)
+	return TRUE
