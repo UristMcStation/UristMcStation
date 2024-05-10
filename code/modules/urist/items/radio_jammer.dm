@@ -95,8 +95,8 @@ var/global/list/active_radio_jammers = list()
 	desc = "An awkward bundle of wires, batteries, and radio transmitters, with an 'ON/OFF' toggle. Right-click to toggle whether it blocks all wireless signals, or just stationbound wireless interfacing."
 	var/obj/item/cell/cell
 	var/obj/item/device/assembly_holder/assembly_holder
-	// 20 seconds of operation on a standard cell. 80 on a super cap.
-	var/power_drain_per_second = 25
+	// 25 seconds of operation on a standard cell. 100 on a super cap.
+	var/power_drain_per_second = 20
 	var/last_updated = null
 	radius = 5
 	icon = 'icons/urist/obj/device.dmi'
