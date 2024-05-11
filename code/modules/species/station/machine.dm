@@ -48,7 +48,7 @@
 	heat_discomfort_strings = list(
 		"Your CPU temperature probes warn you that you are approaching critical heat levels!"
 		)
-	genders = list(NEUTER)
+	genders = list(MALE, FEMALE, NEUTER)
 
 	available_cultural_info = list(
 		TAG_CULTURE = list(
