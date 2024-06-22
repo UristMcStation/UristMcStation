@@ -11,7 +11,7 @@
 	thrown_force_multiplier = 0.1
 	w_class = ITEM_SIZE_TINY
 	slot_flags = SLOT_EARS
-	item_flags = ITEM_FLAG_TRY_ATTACK
+	item_flags = ITEM_FLAG_TRY_ATTACK | ITEM_FLAG_CAN_HIDE_IN_SHOES
 
 	/// The smallest interval allowed between coin flips.
 	var/const/FLIP_COOLDOWN = 5 SECONDS

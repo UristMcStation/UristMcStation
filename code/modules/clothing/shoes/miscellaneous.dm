@@ -151,7 +151,7 @@
 	force = 0
 	var/footstep = 1	//used for squeeks whilst walking
 	species_restricted = null
-	can_add_hidden_item = FALSE
+	can_add_hidden_item = TRUE // The Clown's got big shoes, damnit.
 
 /obj/item/clothing/shoes/clown_shoes/Initialize()
 	. = ..()
