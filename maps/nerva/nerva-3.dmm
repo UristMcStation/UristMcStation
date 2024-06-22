@@ -2597,7 +2597,7 @@
 /area/command/ce)
 "fw" = (
 /obj/structure/closet/secure_closet/engineering_chief,
-/obj/item/storage/backpack/duffel/duffel_eng,
+/obj/item/storage/backpack/dufflebag/eng,
 /obj/item/clothing/glasses/welding/superior,
 /obj/effect/floor_decal/corner/fadeblue{
 	dir = 5;
@@ -11504,8 +11504,8 @@
 	pixel_x = -32;
 	pixel_y = 0
 	},
-/obj/item/storage/backpack/duffel/duffel_norm,
-/obj/item/storage/backpack/duffel/duffel_norm,
+/obj/item/storage/backpack/dufflebag,
+/obj/item/storage/backpack/dufflebag,
 /obj/item/clothing/suit/coat,
 /obj/item/clothing/suit/coat,
 /obj/machinery/light{

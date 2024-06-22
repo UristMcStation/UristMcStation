@@ -6242,7 +6242,7 @@
 /obj/structure/closet/secure_closet/engineering_personal,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/clothing/suit/storage/hooded/wintercoat/engineering,
-/obj/item/storage/backpack/duffel/duffel_eng,
+/obj/item/storage/backpack/dufflebag/eng,
 /obj/item/tank/oxygen_emergency_extended,
 /obj/item/clothing/under/rank/engineer,
 /obj/item/clothing/accessory/armband/engine,
@@ -6252,7 +6252,7 @@
 /obj/structure/closet/secure_closet/engineering_personal,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/clothing/suit/storage/hooded/wintercoat/engineering,
-/obj/item/storage/backpack/duffel/duffel_eng,
+/obj/item/storage/backpack/dufflebag/eng,
 /obj/item/tank/oxygen_emergency_extended,
 /obj/item/device/radio/intercom{
 	name = "Station Intercom (General)";
@@ -6266,7 +6266,7 @@
 /obj/structure/closet/secure_closet/atmos_personal,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/clothing/suit/storage/hooded/wintercoat/engineering/atmos,
-/obj/item/storage/backpack/duffel/duffel_eng,
+/obj/item/storage/backpack/dufflebag/eng,
 /obj/item/tank/oxygen_emergency_extended,
 /obj/machinery/light{
 	dir = 1
@@ -19874,7 +19874,7 @@
 "aIE" = (
 /obj/structure/closet/jcloset,
 /obj/item/holosign_creator,
-/obj/item/storage/backpack/duffel/duffel_norm,
+/obj/item/storage/backpack/dufflebag,
 /obj/item/clothing/under/urist/rank/janialt,
 /obj/item/clothing/head/urist/janihat,
 /obj/item/clothing/suit/urist/janicoat,
@@ -29405,7 +29405,7 @@
 /area/maintenance/third_deck/centp)
 "kBi" = (
 /obj/structure/closet/secure_closet/nervaquartermaster,
-/obj/item/storage/backpack/duffel/duffel_norm,
+/obj/item/storage/backpack/dufflebag,
 /obj/item/clothing/suit/storage/hooded/wintercoat/cargo,
 /obj/effect/floor_decal/corner/yellow/three_quarters{
 	dir = 8;
