@@ -361,6 +361,7 @@
 	name = "\improper CondiMaster 3000"
 	desc = "A machine pre-supplied with plastic condiment containers to bottle up reagents for use with foods."
 	production_options = CHEMMASTER_OPTIONS_CONDIMENTS
+	condi = TRUE
 
 /obj/machinery/chem_master/condimaster/get_chem_info(datum/reagent/reagent)
 	return ..(reagent, "Condiment Info", 0)
