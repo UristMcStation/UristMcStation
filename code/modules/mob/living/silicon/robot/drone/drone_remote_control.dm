@@ -27,11 +27,6 @@
 	local_transmit = FALSE
 	languages = controlling_ai.languages.Copy()
 
-	//give controlled drone access to AI radio
-	drone_silicon_radio = silicon_radio
-	silicon_radio = new /obj/item/device/radio/headset/heads/ai_integrated(src)
-	//silicon_radio.recalculateChannels()
-
 	add_language(LANGUAGE_DRONE_GLOBAL, 1)
 	add_language(LANGUAGE_ROBOT_GLOBAL, 1)
 	default_language = controlling_ai.default_language
