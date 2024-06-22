@@ -64,7 +64,7 @@
 	..() //initial flash
 
 	//residual illumination
-	new /obj/effect/effect/smoke/illumination/flare(src.loc, rand(30 SECONDS,60 SECONDS), range=8, power=1, color=light_colour) //same lighting power as flare
+	new /obj/effect/effect/smoke/illumination/flare(src.loc, rand(60 SECONDS,120 SECONDS), range=8, power=1, color=light_colour) //same lighting power as flare
 
 	var/turf/TO = get_turf(src)
 	var/area/AO = TO.loc
