@@ -812,7 +812,7 @@
 
 		//Unbanning job list
 		//all jobs in job list are banned already OR we didn't give a reason (implying they shouldn't be banned)
-		if(length(bannedlist))
+		if(LAZYLEN(bannedlist))
 			if(!config.ban_legacy_system)
 				to_chat(usr, "Unfortunately, database based unbanning cannot be done through this panel")
 				DB_ban_panel(M.ckey)
