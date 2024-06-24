@@ -205,9 +205,12 @@
 		update_icon()
 		return
 
-	to_chat(src.loc, SPAN_WARNING("You drop \the [wrapped]."))
 	if(wrapped.canremove)
 		wrapped.dropInto(loc)
+		to_chat(src.loc, SPAN_WARNING("You drop \the [wrapped]."))
+	else
+		to_chat(src.loc, SPAN_NOTICE("You return \the [wrapped] to your internal storage."))
+
 	wrapped = null
 	update_icon()
 
