@@ -27622,6 +27622,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/third_deck)
+"bCx" = (
+/obj/effect/floor_decal/corner/fadeblue{
+	dir = 10;
+	icon_state = "corner_white"
+	},
+/obj/machinery/ship_map{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/fore/third_deck)
 "bEf" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
@@ -58211,7 +58221,7 @@ auM
 auM
 auM
 aEg
-aFy
+bCx
 aGK
 aHW
 aJh
