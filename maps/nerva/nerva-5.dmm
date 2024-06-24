@@ -17409,6 +17409,17 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_emptycourt)
+"SJ" = (
+/obj/effect/step_trigger/thrower{
+	affect_ghosts = 1;
+	direction = 2;
+	name = "thrower_throwdownside";
+	nostop = 1;
+	stopper = 0;
+	tiles = 0
+	},
+/turf/space,
+/area/space)
 "SQ" = (
 /obj/effect/floor_decal/beach{
 	dir = 8;
@@ -21534,16 +21545,16 @@ ac
 ac
 ac
 ac
-ag
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ag
+SJ
+SJ
+SJ
+SJ
+SJ
+SJ
+SJ
+SJ
+SJ
+SJ
 ac
 ac
 ao
@@ -21740,7 +21751,7 @@ ag
 ac
 ac
 ac
-ap
+ac
 ac
 ac
 ac
@@ -21942,7 +21953,7 @@ ag
 ac
 ac
 ac
-ab
+ap
 ac
 ac
 ac
@@ -22144,7 +22155,7 @@ ag
 ac
 ac
 ac
-ac
+ab
 ac
 ac
 ac
@@ -22343,14 +22354,14 @@ ab
 ab
 ab
 ag
-ag
-ag
-ag
-ag
-ag
-ag
-ag
-ag
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 ag
 ab
 ab
@@ -22544,16 +22555,16 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
+ag
 ab
 ab
 ao
