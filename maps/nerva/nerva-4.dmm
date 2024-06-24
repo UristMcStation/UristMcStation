@@ -172,25 +172,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/reinforced/airless,
 /area/solar/main)
-"ay" = (
-/obj/structure/table/rack,
-/obj/item/tank/oxygen_emergency_double,
-/obj/item/tank/oxygen_emergency_double,
-/obj/item/tank/oxygen_emergency_double,
-/obj/item/tank/oxygen_emergency_double,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/mask/gas/half,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/escape_pod1/station)
-"az" = (
-/obj/structure/bed/chair/urist/shuttle,
-/obj/machinery/ai_status_display{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/escape_pod1/station)
 "aA" = (
 /obj/machinery/camera/network/security{
 	c_tag = "Port Docking Port - Exterior";
@@ -269,28 +250,11 @@
 	id_tag = "escape_pod_1_berth_hatch";
 	name = "Escape Pod One"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
-"aJ" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1379;
-	id_tag = "escape_pod_1_hatch"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/escape_pod1/station)
-"aK" = (
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/escape_pod1/station)
 "aL" = (
 /turf/simulated/wall/r_wall/prepainted,
 /area/space)
-"aM" = (
-/obj/machinery/sleeper{
-	dir = 4;
-	icon_state = "sleeper_0"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/escape_pod1/station)
 "aN" = (
 /turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/first_deck/afp)
@@ -442,16 +406,6 @@
 /obj/random/maintenance/clean,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
-"ba" = (
-/obj/structure/closet/crate/freezer/rations,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/escape_pod1/station)
-"bb" = (
-/obj/structure/bed/chair/urist/shuttle{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/escape_pod1/station)
 "bc" = (
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/afp)
@@ -497,18 +451,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
-"bl" = (
-/obj/structure/bed/chair/urist/shuttle,
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/escape_pod1/station)
-"bm" = (
-/obj/effect/paint/silver,
-/turf/simulated/wall/titanium,
-/area/shuttle/escape_pod1/station)
 "bo" = (
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating,
@@ -8719,9 +8661,6 @@
 /obj/effect/landmark/costume,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fs)
-"wv" = (
-/turf/simulated/floor/reinforced/airless,
-/area/shuttle/escape_pod1/station)
 "wD" = (
 /obj/effect/shuttle_landmark/nerva/docking/north,
 /turf/space,
@@ -8788,23 +8727,12 @@
 	},
 /turf/simulated/floor/bluegrid,
 /area/engineering/bluespace)
-"Em" = (
-/obj/structure/bed/chair/urist/shuttle{
-	dir = 4;
-	icon_state = "shuttlechair"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/escape_pod1/station)
 "Fd" = (
 /obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
-"GS" = (
-/obj/effect/shuttle_landmark/escape_pod/start/pod1,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/escape_pod1/station)
 "GW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -8843,20 +8771,12 @@
 /obj/item/clothing/glasses/meson,
 /turf/simulated/open,
 /area/maintenance/first_deck/fs)
-"Kl" = (
-/obj/effect/wallframe_spawn/reinforced/titanium,
-/turf/simulated/floor/plating,
-/area/shuttle/escape_pod1/station)
 "KW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/monotile,
 /area/hallway/centralfirst)
-"Lw" = (
-/obj/structure/bed/chair/urist/shuttle,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/escape_pod1/station)
 "Og" = (
 /obj/effect/floor_decal/corner/lightgrey{
 	dir = 9;
@@ -8889,14 +8809,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/solar/auxaft)
-"RC" = (
-/obj/structure/table/steel,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/escape_pod1/station)
 "Ss" = (
 /obj/effect/shuttle_landmark/nerva/docking/south,
 /turf/space,
@@ -8944,15 +8856,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/reinforced/airless,
 /area/maintenance/first_deck/central)
-"WV" = (
-/obj/structure/table/steel,
-/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod{
-	dir = 1;
-	id_tag = "escape_pod_1";
-	tag_door = "escape_pod_1_hatch"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/escape_pod1/station)
 "Xf" = (
 /obj/structure/shipweapons/hardpoint/nerva,
 /turf/simulated/floor/reinforced,
@@ -30695,11 +30598,11 @@ aa
 aa
 aa
 aa
-bm
-bm
-aJ
-bm
-bm
+aa
+aa
+aa
+aa
+aa
 ar
 by
 by
@@ -30897,11 +30800,11 @@ aa
 aa
 aa
 aa
-bm
-ay
-aK
-ba
-bm
+aa
+aa
+aa
+aa
+aa
 ar
 ar
 by
@@ -31099,11 +31002,11 @@ aa
 aa
 aa
 aa
-bm
-bl
-aK
-bb
-bm
+aa
+aa
+aa
+aa
+aa
 ar
 ar
 ar
@@ -31301,11 +31204,11 @@ aa
 aa
 aa
 aa
-bm
-az
-aK
-bb
-bm
+aa
+aa
+aa
+aa
+aa
 ar
 ar
 ar
@@ -31503,11 +31406,11 @@ aa
 aa
 aa
 aa
-bm
-Lw
-GS
-bb
-bm
+aa
+aa
+aa
+aa
+aa
 ar
 ar
 ar
@@ -31705,11 +31608,11 @@ aa
 aa
 aa
 aa
-bm
-Lw
-aK
-bb
-bm
+aa
+aa
+aa
+aa
+aa
 aa
 ar
 ar
@@ -31907,11 +31810,11 @@ aa
 aa
 aa
 aa
-bm
-aM
-Em
-RC
-bm
+aa
+aa
+aa
+aa
+aa
 aa
 ar
 ar
@@ -32109,11 +32012,11 @@ aa
 aa
 aa
 aa
-bm
-bm
-WV
-bm
-bm
+aa
+aa
+aa
+aa
+aa
 aa
 ar
 ar
@@ -32311,11 +32214,11 @@ aa
 aa
 aa
 aa
-wv
-bm
-Kl
-bm
-wv
+aa
+aa
+aa
+aa
+aa
 aa
 ar
 ar
