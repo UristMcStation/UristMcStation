@@ -8625,6 +8625,13 @@
 /turf/simulated/wall/r_wall/prepainted,
 /turf/simulated/floor/plating,
 /area/maintenance/aftsolar)
+"rW" = (
+/obj/machinery/door/airlock/external/escapepod{
+	id_tag = "escape_pod_1_berth_hatch";
+	name = "Escape Pod One"
+	},
+/turf/space,
+/area/space)
 "tL" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/cable/yellow{
@@ -8789,6 +8796,13 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fs)
+"Ql" = (
+/obj/machinery/door/airlock/external/escapepod{
+	id_tag = "escape_pod_1_berth_hatch";
+	name = "Escape Pod One"
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "Rh" = (
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Bluespace Drive";
@@ -30803,7 +30817,7 @@ aa
 aa
 aa
 aa
-aa
+rW
 aa
 ar
 ar
@@ -31206,7 +31220,7 @@ aa
 aa
 aa
 aa
-aa
+Ql
 aa
 aa
 ar
