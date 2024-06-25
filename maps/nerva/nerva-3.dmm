@@ -280,12 +280,6 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
 /obj/machinery/light/small/red/maintenance{
 	dir = 8;
 	icon_state = "firelight1"
@@ -417,13 +411,9 @@
 "bh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /obj/structure/catwalk,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
 "bj" = (
@@ -515,17 +505,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /obj/structure/catwalk,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afp)
 "bu" = (
@@ -4723,7 +4709,7 @@
 "js" = (
 /obj/structure/bookcase,
 /turf/simulated/floor/carpet,
-/area/space)
+/area/chapel/office)
 "jt" = (
 /obj/effect/floor_decal/corner/black/border{
 	dir = 4;
@@ -8979,11 +8965,11 @@
 /obj/structure/disposalpipe/segment,
 /obj/effect/catwalk_plated/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/multi_tile/glass/civilian{
 	icon_state = "closed";
 	name = "\improper Escape Pod One Access"
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/fore/second_deck)
 "ry" = (
@@ -12409,6 +12395,12 @@
 	name = "Locker Room";
 	sort_type = "Locker Room"
 	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
 "yf" = (
@@ -13338,6 +13330,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/second_deck)
+"Ap" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Observatory"
+	},
+/turf/simulated/floor/plating,
+/area/civilian/observatory)
 "Aq" = (
 /obj/structure/bed/chair/couch/right/black,
 /obj/item/papercrafts/oragami/swan,
@@ -13705,7 +13703,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/chapel)
+/area/chapel/office)
 "BW" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/cable/yellow{
@@ -13736,23 +13734,7 @@
 /area/chapel)
 "Ch" = (
 /obj/machinery/door/airlock/maintenance,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4;
-	icon_state = "intact-scrubbers"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4;
-	icon_state = "intact-supply"
-	},
 /obj/structure/catwalk,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/chapel)
@@ -13926,6 +13908,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4;
 	icon_state = "intact-scrubbers"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/chapel)
@@ -14249,6 +14234,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/chapel)
 "EM" = (
@@ -14370,16 +14358,8 @@
 /turf/simulated/wall/prepainted,
 /area/civilian/lounge)
 "Fk" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
-/obj/effect/catwalk_plated/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
+/obj/effect/catwalk_plated/dark,
 /turf/simulated/floor/plating,
 /area/hallway/fore/second_deck)
 "Fl" = (
@@ -15081,16 +15061,11 @@
 	dir = 4;
 	icon_state = "intact-supply"
 	},
-/obj/structure/catwalk,
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
 /obj/structure/disposalpipe/junction{
 	dir = 8;
 	icon_state = "pipe-j2"
 	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
 "Jh" = (
@@ -15373,17 +15348,9 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "KF" = (
+/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch{
 	name = "Observatory"
-	},
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/dark,
 /area/civilian/observatory)
@@ -15980,6 +15947,28 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/reinforced,
 /area/maintenance/second_deck/fp)
+"Nn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/afs)
 "Np" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4;
@@ -16408,14 +16397,38 @@
 /turf/simulated/floor/carpet,
 /area/chapel/office)
 "Pa" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/generic,
+/obj/structure/disposalpipe/segment,
 /obj/structure/catwalk,
-/obj/structure/table/rack,
 /turf/simulated/floor/plating,
-/area/chapel)
+/area/maintenance/second_deck/afs)
 "Pb" = (
-/obj/machinery/door/airlock/maintenance,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
-/area/maintenance/second_deck/lounge)
+/area/maintenance/second_deck/afs)
 "Pc" = (
 /obj/effect/floor_decal/corner/lightgrey{
 	dir = 6;
@@ -16638,6 +16651,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
 "Qa" = (
@@ -17497,10 +17511,6 @@
 /turf/simulated/floor/plating,
 /area/civilian/entertainer)
 "UR" = (
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2"
-	},
 /obj/structure/closet,
 /obj/item/device/camera/tvcamera,
 /obj/item/device/camera_film,
@@ -18025,6 +18035,10 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/afs)
@@ -18358,12 +18372,6 @@
 	d2 = 2;
 	icon_state = "0-2";
 	pixel_y = 0
-	},
-/obj/machinery/power/apc{
-	cell_type = /obj/item/cell/high;
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/dark,
 /area/chapel/office)
@@ -38085,7 +38093,7 @@ Pr
 lp
 vC
 JZ
-LG
+Ap
 Or
 TS
 al
@@ -39339,7 +39347,7 @@ PZ
 uJ
 AU
 Co
-Co
+Pa
 Xn
 qh
 ck
@@ -39542,7 +39550,7 @@ qh
 rr
 rr
 rr
-vD
+Nn
 PE
 ck
 ck
@@ -39739,7 +39747,7 @@ vZ
 wJ
 xn
 rn
-CU
+Pb
 qh
 rr
 Qw
@@ -40346,12 +40354,12 @@ rr
 St
 rU
 Ql
-Pa
-Uc
-Uc
-Uc
+NE
+ZZ
+ZZ
+ZZ
 BU
-ck
+Xf
 ck
 ah
 ah
@@ -40548,12 +40556,12 @@ rr
 tf
 ZA
 uk
-Uc
+ZZ
 ZZ
 Se
 YJ
 QT
-ck
+Xf
 ck
 ah
 ah
@@ -40741,7 +40749,7 @@ EZ
 qG
 rr
 Jg
-NE
+ZS
 rr
 Uj
 QG
@@ -40750,12 +40758,12 @@ Uc
 Uc
 Uc
 Uc
-Uc
+ZZ
 YE
 Xm
 Gr
 Ia
-ck
+Xf
 ck
 ah
 ah
@@ -40952,12 +40960,12 @@ RT
 JL
 IS
 JL
-Uc
+ZZ
 Nx
 Jc
 EW
 jt
-ck
+Xf
 ck
 ah
 ah
@@ -41159,7 +41167,7 @@ ZZ
 ZZ
 ZZ
 Lh
-ck
+Xf
 ck
 ah
 ah
@@ -41361,7 +41369,7 @@ Dj
 vB
 tV
 OY
-ck
+Xf
 ck
 ah
 ah
@@ -41563,7 +41571,7 @@ wa
 vw
 XO
 Id
-ck
+Xf
 ck
 ck
 ah
@@ -41967,7 +41975,7 @@ VT
 wK
 uK
 Bz
-ck
+Xf
 ck
 ck
 ah
@@ -42169,7 +42177,7 @@ vx
 Xf
 Xf
 Xf
-ck
+Xf
 ck
 ah
 ah
@@ -42550,7 +42558,7 @@ Iy
 do
 eN
 Uh
-Pb
+aO
 Uh
 Uh
 ke

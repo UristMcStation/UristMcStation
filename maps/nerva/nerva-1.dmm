@@ -3056,6 +3056,12 @@
 	icon_state = "4-8"
 	},
 /obj/random/tool,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/afp)
@@ -3078,9 +3084,6 @@
 	icon_state = "4-8"
 	},
 /obj/structure/catwalk,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/afp)
 "fQ" = (
@@ -23861,11 +23864,6 @@
 	pixel_x = -12;
 	pixel_y = 2
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -25
-	},
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
@@ -42590,7 +42588,7 @@ dk
 au
 dk
 dk
-dk
+eM
 eM
 fR
 iM

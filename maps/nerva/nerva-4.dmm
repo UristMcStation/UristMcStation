@@ -8601,6 +8601,18 @@
 	},
 /turf/space,
 /area/space)
+"qR" = (
+/obj/effect/floor_decal/solarpanel,
+/obj/structure/cable/orange{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/power/solar{
+	id = "auxsolarsbridge";
+	name = "Main Solar Array"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/solar/main)
 "ri" = (
 /obj/machinery/light/small/red/maintenance{
 	dir = 1;
@@ -8894,6 +8906,25 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/solar/auxaft)
+"TU" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/cable/orange{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/cable/orange{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/orange{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/solar/main)
 "UY" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
@@ -37744,7 +37775,7 @@ aa
 aa
 ar
 cR
-dp
+TU
 dO
 ar
 cR
@@ -38147,8 +38178,8 @@ aa
 aa
 aa
 ar
-dO
-dp
+cR
+do
 dO
 ar
 cR
@@ -38349,9 +38380,9 @@ aa
 aa
 aa
 ar
-ar
-ar
-ar
+qR
+dp
+dO
 ar
 ar
 cS
@@ -38550,8 +38581,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+ar
+ar
 ar
 ar
 ar
