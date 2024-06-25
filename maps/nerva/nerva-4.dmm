@@ -235,23 +235,8 @@
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
 "aH" = (
-/obj/effect/floor_decal/corner/lightgrey{
-	dir = 5;
-	icon_state = "corner_white"
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/centralfirst)
-"aI" = (
-/obj/machinery/door/airlock/external/escapepod{
-	id_tag = "escape_pod_1_berth_hatch";
-	name = "Escape Pod One"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/centralfirst)
+/turf/simulated/floor/plating,
+/area/space)
 "aL" = (
 /turf/simulated/wall/r_wall/prepainted,
 /area/space)
@@ -390,13 +375,10 @@
 	dir = 10;
 	icon_state = "intact"
 	},
+/obj/effect/catwalk_plated,
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
 "aX" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
-	},
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/monotile,
 /area/hallway/centralfirst)
@@ -8625,13 +8607,6 @@
 /turf/simulated/wall/r_wall/prepainted,
 /turf/simulated/floor/plating,
 /area/maintenance/aftsolar)
-"rW" = (
-/obj/machinery/door/airlock/external/escapepod{
-	id_tag = "escape_pod_1_berth_hatch";
-	name = "Escape Pod One"
-	},
-/turf/space,
-/area/space)
 "tL" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/cable/yellow{
@@ -8755,6 +8730,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
+"GX" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/space)
 "Hj" = (
 /obj/effect/floor_decal/borderfloor{
 	dir = 4;
@@ -8796,13 +8776,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fs)
-"Ql" = (
-/obj/machinery/door/airlock/external/escapepod{
-	id_tag = "escape_pod_1_berth_hatch";
-	name = "Escape Pod One"
-	},
-/turf/simulated/floor/tiled,
-/area/space)
 "Rh" = (
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Bluespace Drive";
@@ -30210,7 +30183,7 @@ aa
 aa
 aa
 qk
-aH
+Ym
 aX
 qk
 by
@@ -30412,7 +30385,7 @@ aa
 aa
 aa
 qk
-aI
+he
 qk
 qk
 ar
@@ -30613,10 +30586,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+GX
+aH
+aH
+GX
 ar
 by
 by
@@ -30815,10 +30788,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-rW
-aa
+GX
+aH
+aH
+GX
 ar
 ar
 by
@@ -31017,10 +30990,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+aL
+aL
+aL
+aL
 ar
 ar
 ar
@@ -31220,7 +31193,7 @@ aa
 aa
 aa
 aa
-Ql
+aa
 aa
 aa
 ar

@@ -8908,12 +8908,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
 "rw" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth{
-	dir = 1;
-	id_tag = "escape_pod_1_berth";
-	pixel_y = -24;
-	tag_door = "escape_pod_1_berth_hatch"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4;
 	icon_state = "intact-supply"
@@ -8929,10 +8923,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/fore/second_deck)
 "rx" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass{
-	name = "Central Access"
-	},
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -8942,13 +8932,17 @@
 /obj/structure/disposalpipe/segment,
 /obj/effect/catwalk_plated/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/multi_tile/glass/civilian{
+	icon_state = "closed";
+	name = "\improper Chapel"
+	},
 /turf/simulated/floor/plating,
-/area/maintenance/second_deck/fs)
+/area/hallway/fore/second_deck)
 "ry" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/maintenance/second_deck/fs)
+/area/hallway/fore/second_deck)
 "rz" = (
 /turf/simulated/wall/prepainted,
 /area/logistics/primtool)
@@ -9475,7 +9469,7 @@
 	},
 /obj/effect/catwalk_plated/dark,
 /turf/simulated/floor/plating,
-/area/maintenance/second_deck/fs)
+/area/hallway/fore/second_deck)
 "ss" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -9496,7 +9490,7 @@
 	},
 /obj/effect/catwalk_plated/dark,
 /turf/simulated/floor/plating,
-/area/maintenance/second_deck/fs)
+/area/hallway/fore/second_deck)
 "sv" = (
 /obj/structure/table/standard,
 /obj/random/tech_supply,
@@ -11098,13 +11092,9 @@
 /turf/simulated/floor/wood/walnut,
 /area/chapel/office)
 "vz" = (
-/obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/warning,
-/obj/effect/floor_decal/techfloor/orange{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/techfloor/grid,
-/area/maintenance/second_deck/fs)
+/area/hallway/fore/second_deck)
 "vA" = (
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -11690,15 +11680,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/chapel)
 "wN" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/warning,
-/obj/effect/floor_decal/techfloor/orange{
-	dir = 1
+/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth{
+	dir = 4;
+	id_tag = "escape_pod_1_berth";
+	tag_door = "escape_pod_1_berth_hatch";
+	pixel_x = -24
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
-/area/maintenance/second_deck/fs)
+/area/hallway/fore/second_deck)
 "wO" = (
 /obj/machinery/sleeper{
 	dir = 8
@@ -14318,12 +14308,17 @@
 /turf/simulated/wall/prepainted,
 /area/civilian/lounge)
 "Fk" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/floor_decal/techfloor/orange{
-	dir = 1
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/maintenance/second_deck/fs)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
+/obj/effect/catwalk_plated/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/hallway/fore/second_deck)
 "Fl" = (
 /obj/structure/table/standard,
 /obj/machinery/microwave,
@@ -14413,6 +14408,15 @@
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/plating,
 /area/civilian/counselor)
+"FO" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "closed";
+	id_tag = "escape_pod_1_hatch";
+	locked = 1;
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/shuttle/escape_pod1/station)
 "FP" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -16339,6 +16343,21 @@
 "Ph" = (
 /turf/simulated/wall/r_wall/prepainted,
 /area/engineering/substation/atmos)
+"Pi" = (
+/obj/structure/bed/chair/urist/shuttle{
+	dir = 8;
+	icon_state = "shuttlechair"
+	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod{
+	dir = 8;
+	frequency = 1380;
+	id_tag = "escape_pod_1";
+	pixel_x = 22;
+	pixel_y = 0;
+	tag_door = "escape_pod_3_hatch"
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/shuttle/escape_pod1/station)
 "Pj" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
@@ -17464,8 +17483,12 @@
 /turf/simulated/floor/plating,
 /area/hallway/aft/second_deck)
 "VA" = (
-/turf/simulated/floor/tiled/monotile,
-/area/shuttle/escape_pod1/station)
+/obj/machinery/door/airlock/external/escapepod{
+	id_tag = "escape_pod_1_berth_hatch";
+	name = "Escape Pod One"
+	},
+/turf/simulated/floor/plating,
+/area/hallway/fore/second_deck)
 "VB" = (
 /obj/effect/floor_decal/chapel{
 	dir = 8;
@@ -18390,12 +18413,9 @@
 /turf/simulated/floor/tiled/white,
 /area/security/prison)
 "ZO" = (
-/obj/structure/bed/chair/urist/shuttle{
-	dir = 8;
-	icon_state = "shuttlechair"
-	},
-/turf/simulated/floor/tiled/monotile,
-/area/shuttle/escape_pod1/station)
+/obj/random/junk,
+/turf/simulated/floor/plating,
+/area/space)
 "ZP" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -42195,7 +42215,7 @@ Nh
 uO
 ah
 ah
-ah
+cl
 ah
 ah
 aa
@@ -43206,7 +43226,7 @@ sI
 ck
 ah
 ah
-aa
+ah
 aa
 aa
 aa
@@ -43402,13 +43422,13 @@ ru
 ru
 ru
 ru
+ru
 XQ
 ru
-sI
+ck
 ck
 ck
 ah
-aa
 aa
 aa
 aa
@@ -43595,6 +43615,7 @@ tg
 ry
 sr
 wN
+ry
 ha
 fn
 fn
@@ -43606,11 +43627,10 @@ fn
 ru
 sG
 UY
-vE
+ZO
 ck
 ck
 ah
-aa
 aa
 aa
 aa
@@ -43796,8 +43816,9 @@ PQ
 qN
 rx
 ss
-Fk
+vz
 VA
+FO
 La
 La
 Mi
@@ -43808,11 +43829,10 @@ Pj
 ru
 sG
 bp
-sI
+ck
 ck
 ck
 ah
-aa
 aa
 aa
 aa
@@ -43996,25 +44016,25 @@ fh
 SH
 PQ
 MV
-rx
-sr
 Fk
+sr
+vz
+ry
 fn
 wO
 uR
 TP
-ZO
+Pi
 Xi
 VP
 Pj
 ru
 sG
 Mv
-sI
+ck
 ck
 ah
 ah
-aa
 aa
 aa
 aa
@@ -44201,6 +44221,7 @@ SW
 ry
 sr
 vz
+ry
 ha
 fn
 fn
@@ -44211,11 +44232,10 @@ fn
 fn
 ru
 yE
-sI
+ck
 ck
 ck
 ah
-aa
 aa
 aa
 aa
@@ -44412,12 +44432,12 @@ ru
 ru
 ru
 ru
+ru
 sG
-sI
+ck
 ck
 ah
 ah
-aa
 aa
 aa
 aa
@@ -44615,7 +44635,7 @@ sG
 sG
 sG
 sG
-sI
+sG
 ck
 ah
 ah
