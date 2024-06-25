@@ -235,8 +235,16 @@
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
 "aH" = (
-/turf/simulated/floor/plating,
-/area/space)
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	pixel_y = 22;
+	id_tag = "security_airlock3"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4;
+	icon_state = "intact"
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/hallway/centralfirst)
 "aL" = (
 /turf/simulated/wall/r_wall/prepainted,
 /area/space)
@@ -371,15 +379,17 @@
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
 "aW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10;
-	icon_state = "intact"
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1;
+	icon_state = "map"
 	},
-/obj/effect/catwalk_plated,
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
 "aX" = (
-/obj/structure/closet/emcloset,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4;
+	icon_state = "intact"
+	},
 /turf/simulated/floor/tiled/monotile,
 /area/hallway/centralfirst)
 "aZ" = (
@@ -8708,12 +8718,32 @@
 	},
 /turf/simulated/floor/bluegrid,
 /area/engineering/bluespace)
+"DJ" = (
+/obj/machinery/airlock_sensor{
+	pixel_y = -22;
+	id_tag = "security_sensor3";
+	pixel_x = -8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4;
+	icon_state = "intact"
+	},
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/hallway/centralfirst)
 "Fd" = (
 /obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
+"Gb" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+	dir = 8;
+	id_tag = "solar_bridge_pump"
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/hallway/centralfirst)
 "GW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -8730,10 +8760,9 @@
 /turf/simulated/floor/plating,
 /area/hallway/centralfirst)
 "GX" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/firedoor,
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
-/area/space)
+/area/hallway/centralfirst)
 "Hj" = (
 /obj/effect/floor_decal/borderfloor{
 	dir = 4;
@@ -8763,6 +8792,25 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/monotile,
 /area/hallway/centralfirst)
+"Lm" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1379;
+	icon_state = "closed";
+	id_tag = "security_airlock3";
+	locked = 1;
+	name = "External Access"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/floor/tiled,
+/area/hallway/centralfirst)
+"NH" = (
+/obj/structure/catwalk,
+/obj/structure/handrail{
+	dir = 4;
+	icon_state = "handrail"
+	},
+/turf/simulated/floor/plating,
+/area/hallway/centralfirst)
 "Og" = (
 /obj/effect/floor_decal/corner/lightgrey{
 	dir = 9;
@@ -8775,6 +8823,19 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/fs)
+"Qj" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1379;
+	icon_state = "closed";
+	id_tag = "security_airlock3";
+	locked = 1;
+	name = "External Access"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/centralfirst)
 "Rh" = (
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Bluespace Drive";
@@ -8829,6 +8890,16 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/solar/auxaft)
+"UY" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1379;
+	icon_state = "closed";
+	id_tag = "security_airlock3";
+	locked = 1;
+	name = "External Access"
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/hallway/centralfirst)
 "WK" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -8856,6 +8927,19 @@
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
+/area/hallway/centralfirst)
+"Ys" = (
+/obj/machinery/light/small{
+	dir = 8;
+	luminosity = 2
+	},
+/obj/structure/catwalk,
+/obj/machinery/access_button/airlock_exterior{
+	master_tag = "primarydeck_airlock";
+	req_access = list("ACCESS_EXTERNAL");
+	pixel_x = -26
+	},
+/turf/simulated/floor/plating,
 /area/hallway/centralfirst)
 "YL" = (
 /obj/effect/floor_decal/urist/nervalogo{
@@ -30380,8 +30464,8 @@ aa
 aa
 aa
 qk
-he
-qk
+Qj
+Lm
 qk
 ar
 by
@@ -30581,10 +30665,10 @@ aa
 aa
 aa
 aa
-GX
+qk
 aH
-aH
-GX
+DJ
+qk
 ar
 by
 by
@@ -30783,10 +30867,10 @@ aa
 aa
 aa
 aa
-GX
-aH
-aH
-GX
+as
+Gb
+Gb
+as
 ar
 ar
 by
@@ -30985,10 +31069,10 @@ aa
 aa
 aa
 aa
-aL
-aL
-aL
-aL
+qk
+UY
+UY
+qk
 ar
 ar
 ar
@@ -31187,10 +31271,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+NH
+GX
+GX
+Ys
 ar
 ar
 ar
@@ -31593,9 +31677,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+ar
+ar
+ar
 ar
 ar
 ar
