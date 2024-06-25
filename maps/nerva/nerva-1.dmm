@@ -3043,10 +3043,6 @@
 	dir = 4;
 	icon_state = "intact-scrubbers"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4;
-	icon_state = "intact-supply"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -3055,7 +3051,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/random/tool,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 4;

@@ -13330,12 +13330,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/second_deck)
-"Ap" = (
-/obj/machinery/door/airlock/hatch{
-	name = "Observatory"
-	},
-/turf/simulated/floor/plating,
-/area/civilian/observatory)
 "Aq" = (
 /obj/structure/bed/chair/couch/right/black,
 /obj/item/papercrafts/oragami/swan,
@@ -38093,7 +38087,7 @@ Pr
 lp
 vC
 JZ
-Ap
+LG
 Or
 TS
 al
