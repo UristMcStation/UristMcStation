@@ -8634,6 +8634,10 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/solar/main)
+"tR" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/wall/r_wall/prepainted,
+/area/maintenance/first_deck/afp)
 "ue" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8;
@@ -25419,7 +25423,7 @@ aa
 aN
 aN
 aN
-bL
+tR
 ar
 ar
 ar
@@ -25620,7 +25624,7 @@ aa
 aN
 aN
 bo
-aN
+bz
 aN
 ar
 ar
@@ -25822,7 +25826,7 @@ aa
 aN
 bc
 bc
-bz
+bc
 aN
 ar
 ar
