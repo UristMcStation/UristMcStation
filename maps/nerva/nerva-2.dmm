@@ -4664,10 +4664,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afp)
-"aiO" = (
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/afp)
 "aiP" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -49515,7 +49511,7 @@ aea
 aaj
 aaj
 agz
-aiO
+aao
 aiP
 nzd
 alx
