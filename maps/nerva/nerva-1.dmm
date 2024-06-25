@@ -42,9 +42,6 @@
 /area/civilian/counselor)
 "aj" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
 /turf/simulated/floor/wood/walnut,
 /area/civilian/counselor)
 "ak" = (
@@ -390,9 +387,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/sign/osha/biohazardous{
-	pixel_x = -32
-	},
 /obj/machinery/light/small{
 	dir = 8;
 	luminosity = 3
@@ -19999,11 +19993,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
 "IT" = (
-/obj/structure/sign/monkey_painting{
-	desc = "Under the painting a plaque reads: 'Get well soon, little monkeys!'";
-	name = "Test Monkey Portrait";
-	pixel_y = 32
-	},
 /obj/machinery/light{
 	dir = 1
 	},
@@ -20475,9 +20464,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/afs)
 "Kp" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
 /obj/structure/bed/chair/comfy/brown{
 	dir = 4
 	},
@@ -20739,9 +20725,6 @@
 	dir = 6;
 	icon_state = "intact-scrubbers"
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
 /turf/simulated/floor/wood/walnut,
 /area/civilian/counselor)
 "Lh" = (
@@ -20870,6 +20853,11 @@
 	},
 /obj/effect/floor_decal/carpet/blue{
 	dir = 1
+	},
+/obj/structure/sign/monkey_painting{
+	desc = "Under the painting a plaque reads: 'Get well soon, little monkeys!'";
+	name = "Test Monkey Portrait";
+	pixel_y = 32
 	},
 /turf/simulated/floor/carpet/blue2,
 /area/civilian/counselor)
@@ -23027,9 +23015,6 @@
 	dir = 9;
 	icon_state = "intact-scrubbers"
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
 /turf/simulated/floor/wood/walnut,
 /area/civilian/counselor)
 "UJ" = (
@@ -23890,9 +23875,6 @@
 	department = "Chaplain's Office";
 	pixel_y = 25
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
 /obj/machinery/disposal,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/wood/walnut,
@@ -23917,9 +23899,6 @@
 	c_tag = "Counselor's Office";
 	dir = 1;
 	icon_state = "camera"
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
 	},
 /obj/structure/table/woodentable/walnut,
 /obj/machinery/light{
