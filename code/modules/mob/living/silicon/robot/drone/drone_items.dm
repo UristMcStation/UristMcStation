@@ -196,7 +196,8 @@
 	if(!wrapped)
 		// Ensure fumbled items are accessible.
 		for(var/obj/item/thing in src.contents)
-			thing.dropInto(loc)
+			if(thing.canremove)
+				thing.dropInto(loc)
 		return
 
 	if(wrapped.loc != src)
@@ -204,8 +205,12 @@
 		update_icon()
 		return
 
-	to_chat(src.loc, SPAN_WARNING("You drop \the [wrapped]."))
-	wrapped.dropInto(loc)
+	if(wrapped.canremove)
+		wrapped.dropInto(loc)
+		to_chat(src.loc, SPAN_WARNING("You drop \the [wrapped]."))
+	else
+		to_chat(src.loc, SPAN_NOTICE("You return \the [wrapped] to your internal storage."))
+
 	wrapped = null
 	update_icon()
 
