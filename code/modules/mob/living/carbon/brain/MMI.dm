@@ -111,6 +111,7 @@
 	brainmob.SetName(H.real_name)
 	brainmob.real_name = H.real_name
 	brainmob.dna = H.dna
+	brainmob.languages |= H.languages
 	brainmob.container = src
 
 	SetName("[initial(name)]: [brainmob.real_name]")
