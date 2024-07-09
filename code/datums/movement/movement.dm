@@ -17,8 +17,7 @@ if(LAZYLEN(movement_handlers) && ispath(movement_handlers[1])) { \
 
 #define REMOVE_AND_QDEL(X) LAZYREMOVE(movement_handlers, X); qdel(X);
 
-/atom/movable
-	var/list/movement_handlers
+/atom/movable/var/list/movement_handlers
 
 // We don't want to check for subtypes, hence why we don't call is_path_in_list(), etc.
 /atom/movable/proc/HasMovementHandler(handler_path)

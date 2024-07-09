@@ -69,5 +69,4 @@
 	. = 0
 	ATMOS_CANPASS_TURF(., src, other)
 
-/atom/movable
-	var/atmos_canpass = CANPASS_ALWAYS
+/atom/movable/var/atmos_canpass = CANPASS_ALWAYS
