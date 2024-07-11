@@ -208,6 +208,9 @@
 /obj/structure/ladder/proc/climbLadder(mob/user, target_ladder, obj/item/I = null)
 	var/turf/T = get_turf(target_ladder)
 	for(var/atom/A in T)
+		if(A == user)
+			continue
+
 		if(!A.CanPass(user, user.loc, 1.5, 0))
 			to_chat(user, SPAN_NOTICE("\The [A] is blocking \the [src]."))
 
@@ -223,7 +226,8 @@
 
 	playsound(src, pick(climbsounds), 50)
 	playsound(target_ladder, pick(climbsounds), 50)
-	return user.Move(T)
+	var/result = user.Move(T)
+	return result
 
 /obj/structure/ladder/CanPass(obj/mover, turf/source, height, airflow)
 	return airflow || !density
