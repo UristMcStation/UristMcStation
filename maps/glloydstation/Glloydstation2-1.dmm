@@ -3542,13 +3542,13 @@
 /area/maintenance/fpmaint)
 "ahH" = (
 /obj/structure/table/rack,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
 /turf/simulated/floor/plating,
 /area/maintenance/fpmaint)
 "ahI" = (
 /obj/structure/table/rack,
-/obj/effect/landmark/costume,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
+/obj/effect/landmark/costume/random,
 /turf/simulated/floor/plating,
 /area/maintenance/fpmaint)
 "ahJ" = (
@@ -6811,8 +6811,8 @@
 /area/bridge/blueshield)
 "aoT" = (
 /obj/structure/closet,
-/obj/effect/landmark/costume,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
+/obj/effect/landmark/costume/random,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
 "aoU" = (
@@ -19629,7 +19629,7 @@
 "aPG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/table/rack,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
 /turf/simulated/floor/plating,
 /area/crew_quarters/sleeping)
 "aPH" = (
@@ -28910,7 +28910,7 @@
 /area/crew_quarters/sleeping)
 "bhY" = (
 /obj/structure/table/rack,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
 /turf/simulated/floor/plating,
 /area/crew_quarters/sleeping)
 "bhZ" = (
@@ -46869,7 +46869,7 @@
 /area/crew_quarters/theatre)
 "bRi" = (
 /obj/structure/table/rack,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
 /obj/structure/disposalpipe/segment{
 	dir = 4;
 	icon_state = "pipe-c"
@@ -57992,7 +57992,7 @@
 /area/rnd/xenobiology)
 "cnv" = (
 /obj/structure/table/rack,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
 /turf/simulated/floor/plating,
 /area/maintenance/kitchen)
 "cnw" = (
@@ -65283,7 +65283,7 @@
 /area/maintenance/atmos_control)
 "cCE" = (
 /obj/structure/table/rack,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
 /turf/simulated/floor/plating,
 /area/maintenance/atmos_control)
 "cCF" = (
@@ -67617,7 +67617,7 @@
 /area/maintenance/asmaint2)
 "cHN" = (
 /obj/structure/table/rack,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint2)
 "cHO" = (
@@ -68330,7 +68330,7 @@
 /area/maintenance/cargo)
 "cJt" = (
 /obj/structure/table/rack,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
 "cJu" = (
@@ -72019,10 +72019,10 @@
 /area/maintenance/aft)
 "cQw" = (
 /obj/structure/closet,
-/obj/effect/landmark/costume,
-/obj/effect/landmark/costume,
-/obj/effect/landmark/costume,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
+/obj/effect/landmark/costume/random,
+/obj/effect/landmark/costume/random,
+/obj/effect/landmark/costume/random,
 /obj/item/toy/katana,
 /obj/item/gun/projectile/revolver/capgun,
 /obj/item/toy/sword,
@@ -76337,7 +76337,7 @@
 /area/maintenance/aft)
 "cZg" = (
 /obj/item/table_parts/rack,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
 "cZh" = (
@@ -78971,7 +78971,7 @@
 /area/maintenance/disposal)
 "dei" = (
 /obj/structure/table/rack,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
 "dej" = (

@@ -14879,7 +14879,7 @@
 /obj/structure/table/rack{
 	dir = 8
 	},
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
 /obj/machinery/alarm{
 	pixel_y = 25
 	},

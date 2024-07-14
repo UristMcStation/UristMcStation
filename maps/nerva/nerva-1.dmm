@@ -360,13 +360,13 @@
 /area/maintenance/fourth_deck/afp)
 "aU" = (
 /obj/structure/table/rack,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/afp)
 "aV" = (
 /obj/structure/table/rack,
-/obj/effect/landmark/costume,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
+/obj/effect/landmark/costume/random,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/afp)
 "aW" = (
@@ -19153,7 +19153,7 @@
 /area/medical/extstorage)
 "HB" = (
 /obj/structure/table/rack,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
 /obj/machinery/light/small/red/maintenance{
 	dir = 1;
 	icon_state = "firelight1"
@@ -22466,7 +22466,7 @@
 /area/command/bottom_hallway)
 "Sy" = (
 /obj/structure/table/rack,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
 /obj/random/hat,
 /obj/random/masks,
 /turf/simulated/floor/plating,
