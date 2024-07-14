@@ -404,16 +404,6 @@ Helpers
 	if(randomtips.len)
 		to_world(SPAN_GOOD("<b>Tip of the Round:</b>" + strip_html_properly(pick(randomtips))))
 
-	//				to_world(SPAN_NOTICE("<b>Rebooting due to destruction of [station_name()] in [restart_timeout/10] seconds</b>"))
-/*
-/datum/subsystem/ticker/proc/send_random_tip()
-	var/list/randomtips = file2list("config/tips.txt")
-	if(randomtips.len)
-		world << "<font color='purple'><b>Tip of the round: </b>[strip_html_properly(pick(randomtips))]</font>"
-
-*/
-
-
 /datum/controller/subsystem/ticker/proc/collect_minds()
 	for(var/mob/living/player in GLOB.player_list)
 		if(player.mind)
