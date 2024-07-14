@@ -108,7 +108,7 @@
 	wielded_item_state = "scopedhuntrifle2"
 	icon_state = "scopedhuntrifle"
 	item_state = "scopedhuntrifle"
-	scoped_accuracy = 18
+	scoped_accuracy = 15
 	scope_zoom = 2
 
 /obj/item/gunattachment/scope/huntrifle
