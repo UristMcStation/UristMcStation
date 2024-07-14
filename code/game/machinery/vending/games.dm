@@ -47,16 +47,16 @@
 		/obj/item/storage/box/checkers/chess/red = 2,
 		/obj/item/storage/box/checkers/chess = 2,
 		/obj/item/board = 2,
-		/obj/item/storage/fancy/crayons = 3
+		/obj/item/storage/fancy/crayons = 3,
+		/obj/item/ammo_magazine/caps = 5
 	)
 	contraband = list(
 		/obj/item/reagent_containers/spray/waterflower = 2,
-		/obj/item/storage/box/snappops = 3,
 		/obj/item/toy/sword = 3,
-		/obj/item/toy/katana = 3,
-		/obj/item/gun/projectile/revolver/capgun = 1,
-		/obj/item/ammo_magazine/caps = 4
+		/obj/item/toy/katana = 3
 	)
 	premium = list(
-		/obj/item/spirit_board = 1
+		/obj/item/spirit_board = 1,
+		/obj/item/gun/projectile/revolver/capgun = 1,
+		/obj/item/storage/box/snappops = 3
 	)
