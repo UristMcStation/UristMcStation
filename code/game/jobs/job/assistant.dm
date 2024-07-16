@@ -7,7 +7,7 @@
 	spawn_positions = -1
 	supervisors = "absolutely everyone"
 	economic_power = 1
-	access = list(access_prim_tool) // Fixing Urist Access issues, and removing the below access shit.
+	access = list() // Fixing Urist Access issues, and removing the below access shit.
 	alt_titles = list("Technical Assistant","Medical Intern","Research Assistant","Visitor")
 	outfit_type = /singleton/hierarchy/outfit/job/assistant
 
