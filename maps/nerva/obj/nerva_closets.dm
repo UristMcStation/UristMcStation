@@ -177,7 +177,6 @@
 		/obj/item/storage/belt/holster/security,
 		/obj/item/storage/belt/security,
 		/obj/item/device/flash,
-		/obj/item/device/megaphone,
 		/obj/item/melee/baton/loaded,
 		/obj/item/gunbox,
 		/obj/item/clothing/accessory/storage/holster/thigh,
@@ -185,13 +184,11 @@
 		/obj/item/reagent_containers/spray/pepper,
 		/obj/item/clothing/accessory/storage/black_vest,
 		/obj/item/device/hailer,
-		/obj/item/folder/red,
 		/obj/item/device/holowarrant,
 		/obj/item/clothing/gloves/thick,
 		/obj/item/device/flashlight/maglight,
 		/obj/item/device/taperecorder,
 		/obj/item/clothing/shoes/jackboots,
-		/obj/item/hand_labeler,
 		new /datum/atom_creator/weighted(list(/obj/item/storage/backpack/security, /obj/item/storage/backpack/satchel/sec)),
 		new /datum/atom_creator/weighted(list(/obj/item/storage/backpack/dufflebag/sec, /obj/item/storage/backpack/messenger/sec))
 	)
