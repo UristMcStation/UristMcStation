@@ -236,6 +236,7 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#00e5ff")
 	set_trait(TRAIT_BIOLUM,1)
 	set_trait(TRAIT_BIOLUM_COLOUR,"#4da4a8")
+	set_trait(TRAIT_POTENCY, 15)
 
 //Eggplants/varieties.
 /datum/seed/eggplant
