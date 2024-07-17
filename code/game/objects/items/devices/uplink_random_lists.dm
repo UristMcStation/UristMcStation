@@ -61,7 +61,7 @@ var/global/list/uplink_random_selections_
 	items += new/datum/uplink_random_item(/datum/uplink_item/item/stealth_items/spy)
 	items += new/datum/uplink_random_item(/datum/uplink_item/item/stealth_items/chameleon_kit)
 	items += new/datum/uplink_random_item(/datum/uplink_item/item/stealth_items/chameleon_projector)
-	items += new/datum/uplink_random_item(/datum/uplink_item/item/stealth_items/voice)
+//	items += new/datum/uplink_random_item(/datum/uplink_item/item/stealth_items/voice)
 
 	items += new/datum/uplink_random_item(/datum/uplink_item/item/tools/toolbox, reselect_propbability = 10)
 	items += new/datum/uplink_random_item(/datum/uplink_item/item/tools/plastique)
