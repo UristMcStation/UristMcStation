@@ -908,7 +908,7 @@ the sprite and make my own projectile -Glloyd*/
 	w_class = 2
 	caliber = CALIBER_PISTOL_SMALL
 	origin_tech = "combat=2;materials=2;syndicate=1"
-	slot_flags = SLOT_BELT
+	slot_flags = SLOT_BELT | SLOT_HOLSTER
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/hi2521pistol9mm
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
