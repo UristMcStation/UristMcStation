@@ -19,6 +19,7 @@
 	icon = 'icons/turf/flooring/carpet.dmi'
 	icon_state = "brown"
 	initial_flooring = /singleton/flooring/carpet
+	footstep_type = /singleton/footsteps/carpet
 
 /turf/simulated/floor/holofloor/concrete
 	name = "brown carpet"
@@ -37,6 +38,7 @@
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "steel"
 	initial_flooring = /singleton/flooring/tiling
+	footstep_type = /singleton/footsteps/tiles
 
 /turf/simulated/floor/holofloor/tiled/dark
 	name = "dark floor"
@@ -70,12 +72,14 @@
 	icon_state = "wood"
 	color = WOOD_COLOR_CHOCOLATE
 	initial_flooring = /singleton/flooring/wood
+	footstep_type = /singleton/footsteps/wood
 
 /turf/simulated/floor/holofloor/grass
 	name = "lush grass"
 	icon = 'icons/turf/flooring/grass.dmi'
 	icon_state = "grass0"
 	initial_flooring = /singleton/flooring/grass
+	footstep_type = /singleton/footsteps/grass
 
 /turf/simulated/floor/holofloor/snow
 	name = "snow"
@@ -84,11 +88,13 @@
 	base_icon = 'icons/turf/floors.dmi'
 	icon_state = "snow"
 	base_icon_state = "snow"
+	footstep_type = /singleton/footsteps/snow
 
 /turf/simulated/floor/holofloor/space
 	icon = 'icons/turf/space.dmi'
 	name = "\proper space"
 	icon_state = "0"
+	footstep_type = /singleton/footsteps/blank
 
 /turf/simulated/floor/holofloor/reinforced
 	icon = 'icons/turf/flooring/tiles.dmi'
@@ -111,17 +117,20 @@
 	name = "sand"
 	icon_state = "desert0"
 	base_icon_state = "desert0"
+	footstep_type = /singleton/footsteps/sand
 
 /turf/simulated/floor/holofloor/beach/coastline
 	name = "coastline"
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "sandwater"
 	base_icon_state = "sandwater"
+	footstep_type = /singleton/footsteps/sand
 
 /turf/simulated/floor/holofloor/beach/water
 	name = "water"
 	icon_state = "seashallow"
 	base_icon_state = "seashallow"
+	footstep_type = /singleton/footsteps/water
 
 /turf/simulated/floor/holofloor/desert
 	name = "desert sand"
@@ -133,6 +142,7 @@
 	initial_flooring = null
 	icon = 'icons/turf/desert.dmi'
 	base_icon = 'icons/turf/desert.dmi'
+	footstep_type = /singleton/footsteps/sand
 
 /turf/simulated/floor/holofloor/path
 	name = "sand path"
@@ -144,6 +154,7 @@
 	icon = 'icons/turf/flooring/asteroid.dmi'
 	base_icon = 'icons/turf/flooring/asteroid.dmi'
 	initial_flooring = null
+	footstep_type = /singleton/footsteps/sand
 
 /turf/simulated/floor/holofloor/desert/New()
 	..()
@@ -162,6 +173,7 @@
 	desc = "Because you really needed another excuse to punch your crewmates."
 	icon_state = "boxing"
 	item_state = "boxing"
+	species_restricted = list("exclude") // Everyone can wear fake holographic gloves.
 
 /obj/structure/window/holowindow/full
 	dir = 5
