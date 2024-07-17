@@ -122,9 +122,20 @@
 
 /datum/storeitem/wristwatch
 	name="Black Wrist Watch"
-	desc="A black plastic wrist watch, for keeping track of time in the cold dark void!"
-	typepath=/obj/item/clothing/accessory/watch/wrist
+	desc="A simple time keeping device. Its nylon strap fits snugly on the wrist."
+	typepath=/obj/item/clothing/accessory/wristwatches
 	cost = 300
+
+/datum/storeitem/wristwatchleather
+	name="Leather Wrist Watch"
+	desc = "A simple time keeping device. Its leather strap is quite fashionable"
+	typepath=/obj/item/clothing/accessory/wristwatches/leather
+	cost = 300
+
+/datum/storeitem/wristwatchfancy
+	name="Fancy Wrist Watch"
+	desc = "A simple time keeping device. It probably cost more than your education."
+	cost = 800 //we got rolex in spess?
 
 /////////////////////////////////////////////////////////
 //                     Razor                           //
@@ -210,3 +221,35 @@
 	desc="A box containing 7 different colour glowsticks."
 	typepath=/obj/item/storage/box/glowsticks
 	cost = 500
+
+/////////////////////////////////////////////////////////
+//                       Wallets                       //
+/////////////////////////////////////////////////////////
+
+/datum/storeitem/wallet
+	name="Wallet"
+	desc="It can hold a few small and personal things."
+	typepath=/obj/item/storage/wallet
+	cost = 250
+
+/datum/storeitem/polywallet
+	name="Polychromatic Wallet"
+	desc="You can recolor it! Fancy! The future is NOW!"
+	typepath=/obj/item/storage/wallet/poly
+	cost = 400 // More to change colours.
+
+/////////////////////////////////////////////////////////
+//                       Smoking Pipes                 //
+/////////////////////////////////////////////////////////
+
+/datum/storeitem/smokingpipe
+	name="Smoking Pipe"
+	desc="A pipe, for smoking. Probably made of meershaum or something."
+	typepath=/obj/item/clothing/mask/smokable/pipe
+	cost= 300
+
+/datum/storeitem/cobsmokingpipe
+	name="Cob Smoking Pipe"
+	desc="A nicotine delivery system popularized by folksy backwoodsmen, kept popular in the modern age and beyond by space hipsters."
+	typepath=/obj/item/clothing/mask/smokable/pipe/cobpipe
+	cost = 400 // It's more hip
