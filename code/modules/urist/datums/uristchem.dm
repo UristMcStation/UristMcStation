@@ -44,3 +44,25 @@
 	..()
 	M.adjustToxLoss(0.5)
 	M.adjustBrainLoss(0.2)
+
+/datum/chemical_reaction/spacelube // Restores Space Lube from Bay Merge.
+	name = "Space Lube"
+	result = /datum/reagent/lube
+	required_reagents = list(/datum/reagent/water = 1, /datum/reagent/silicon = 1, /datum/reagent/acetone = 1)
+	result_amount = 4
+	mix_message = "The solution becomes thick and slimy."
+
+/datum/reagent/lube
+	name = "Space Lube"
+	description = "Lubricant is a substance introduced between two moving surfaces to reduce the friction and wear between them."
+	taste_description = "slime"
+	reagent_state = LIQUID
+	color = "#009ca8"
+	value = 0.6
+	should_admin_log = TRUE // So we can see who's spraying the hallways.
+
+/datum/reagent/lube/touch_turf(var/turf/simulated/T)
+	if(!istype(T))
+		return
+	if(volume >= 1)
+		T.wet_floor(80) // Restored original wet floor value.
