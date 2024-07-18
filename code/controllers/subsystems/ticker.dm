@@ -113,9 +113,9 @@ SUBSYSTEM_DEF(ticker)
 		return
 	if(round_progressing && last_fire)
 		pregame_timeleft -= world.time - last_fire
-	if(pregame_timeleft <= 300 && !tipped)
+	if(pregame_timeleft <= 30 SECONDS && !tipped)
 		send_random_tip()
-		tipped = 1
+		tipped = TRUE
 	if(pregame_timeleft <= 0)
 		Master.SetRunLevel(RUNLEVEL_SETUP)
 		return
