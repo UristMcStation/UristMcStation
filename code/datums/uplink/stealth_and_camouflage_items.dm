@@ -48,7 +48,7 @@
 
 /datum/uplink_item/item/stealth_items/chameleon_kit
 	name = "Chameleon Kit"
-	desc = "A discreet disguise kit, with a full set of apperance changing clothes, and a voice modulator mask, allowing you \
+	desc = "A discreet disguise kit, with a full set of appearance changing clothes, and a voice modulator mask, allowing you \
 	to impersonate most people"
 	item_cost = 24 // Increase for Mask included.
 	path = /obj/item/storage/backpack/chameleon/sydie_kit
