@@ -188,7 +188,7 @@
 "dF" = (/obj/effect/shadow_wight,/turf/unsimulated/floor{name = "engraved floor"; icon = 'icons/turf/flooring/cult.dmi'; icon_state = "cult"},/area/space)
 "dG" = (/mob/living/simple_animal/hostile/scarybat/cult,/turf/unsimulated/floor{name = "engraved floor"; icon = 'icons/turf/flooring/cult.dmi'; icon_state = "cult"},/area/space)
 "dH" = (/obj/item/storage/mirror{pixel_y = 28},/obj/structure/hygiene/sink{pixel_y = 17},/turf/unsimulated/floor{name = "engraved floor"; icon = 'icons/turf/flooring/cult.dmi'; icon_state = "cult"},/area/space)
-"dI" = (/obj/structure/closet,/obj/effect/landmark/costume,/obj/effect/landmark/costume,/turf/unsimulated/floor{name = "engraved floor"; icon = 'icons/turf/flooring/cult.dmi'; icon_state = "cult"},/area/space)
+"dI" = (/obj/structure/closet,/obj/effect/landmark/costume/random,/obj/effect/landmark/costume/random,/turf/unsimulated/floor{name = "engraved floor"; icon = 'icons/turf/flooring/cult.dmi'; icon_state = "cult"},/area/space)
 "dJ" = (/obj/machinery/door/firedoor,/turf/unsimulated/floor{name = "engraved floor"; icon = 'icons/turf/flooring/cult.dmi'; icon_state = "cult"},/area/space)
 "dK" = (/obj/machinery/status_display{use_power = 0; mode = 2; message1 = "HELL"; density = 0; pixel_y = -30},/turf/unsimulated/floor{icon = 'icons/turf/flooring/cult.dmi'; icon_state = "cult-narsie"; light_color = "ff0000"; light_power = 2; light_range = 3; name = "engraved floor"},/area/space)
 "dL" = (/mob/living/simple_animal/hostile/faithless/cult,/turf/unsimulated/floor{icon = 'icons/turf/flooring/cult.dmi'; icon_state = "cult-narsie"; light_color = "ff0000"; light_power = 2; light_range = 3; name = "engraved floor"},/area/space)
