@@ -102,6 +102,17 @@
 		charge = 0
 	..()
 
+/obj/item/cell/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/device/assembly_holder))
+		var/obj/item/device/assembly_holder/assembly = attacking_item
+		if (istype(assembly.a_left, /obj/item/device/assembly/signaler) && istype(assembly.a_right, /obj/item/device/assembly/signaler))
+			user.drop_item()
+			user.drop_from_inventory(src)
+
+			new /obj/item/device/radio_jammer/improvised(assembly, src, user)
+		else
+			to_chat(user, "<span class='notice'>You'd need both devices to be signallers for this to work.</span>")
+		return
 
 /obj/item/cell/proc/get_electrocute_damage()
 	switch (charge)

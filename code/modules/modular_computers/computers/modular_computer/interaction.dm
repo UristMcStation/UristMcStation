@@ -96,6 +96,8 @@
 			turn_on(user)
 
 /obj/item/modular_computer/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	return attack_self(user)
 
 /obj/item/modular_computer/attack_hand(mob/user)
