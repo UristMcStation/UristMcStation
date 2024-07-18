@@ -180,6 +180,11 @@
 	health = 250
 	turns_per_move = 8
 
+/datum/shipcomponents/engines/pod // nimble but weak
+	name = "escape pod engines"
+	evasion_chance = 20
+	health = 60
+
 //point defence
 
 /datum/shipcomponents/point_defence
