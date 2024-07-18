@@ -114,9 +114,9 @@
 	var/breathing = "none"
 	if(H.should_have_organ(BP_LUNGS))
 		var/obj/item/organ/internal/lungs/lungs = H.internal_organs_by_name[BP_LUNGS]
-		if(H.status_flags & FAKEDEATH)
+		if(!lungs || H.status_flags & FAKEDEATH)
 			breathing = SPAN_CLASS("scan_danger", "none")
-		if(lungs.breath_fail_ratio < 0.3)
+		else if(lungs.breath_fail_ratio < 0.3)
 			breathing = "normal"
 		else if(lungs.breath_fail_ratio < 1)
 			breathing = SPAN_CLASS("scan_warning", "shallow")
