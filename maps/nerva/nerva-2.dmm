@@ -474,7 +474,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "abn" = (
-/obj/machinery/vitals_monitor,
+/obj/machinery/computer/operating,
 /obj/effect/floor_decal/floordetail/edgedrain{
 	dir = 5;
 	icon_state = "edge"
@@ -1766,10 +1766,6 @@
 /obj/item/trash/cigbutt/rand,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afp)
-"adZ" = (
-/obj/structure/bed/chair,
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/afp)
 "aea" = (
 /obj/structure/table/rack,
 /obj/random/medical,
@@ -2222,10 +2218,6 @@
 "aeQ" = (
 /obj/structure/table/gamblingtable,
 /obj/random/contraband,
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/afp)
-"aeR" = (
-/obj/structure/table/gamblingtable,
 /obj/item/storage/pill_bottle/dice,
 /obj/effect/decal/cleanable/cobweb{
 	dir = 1;
@@ -2670,7 +2662,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 10
 	},
-/obj/structure/catwalk,
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 8;
@@ -3623,7 +3614,6 @@
 	dir = 5;
 	icon_state = "intact"
 	},
-/obj/structure/catwalk,
 /obj/structure/disposalpipe/segment{
 	dir = 4;
 	icon_state = "pipe-c"
@@ -3693,26 +3683,16 @@
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afp)
 "ahq" = (
-/obj/machinery/atmospherics/pipe/simple/visible/fuel{
-	dir = 4
-	},
-/obj/structure/catwalk,
 /obj/structure/disposalpipe/sortjunction{
 	dir = 1;
 	icon_state = "pipe-j2s";
 	name = "Engineering";
 	sort_type = "Engineering"
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/afp)
-"ahr" = (
-/obj/machinery/atmospherics/pipe/zpipe/up/fuel{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+	dir = 10
 	},
-/obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/atmospherics/pipe/zpipe/up/supply,
-/obj/machinery/atmospherics/pipe/zpipe/up/scrubbers,
-/obj/structure/disposalpipe/up,
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afp)
 "ahs" = (
@@ -4627,7 +4607,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afp)
 "aiM" = (
-/obj/structure/catwalk,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -4638,6 +4617,10 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
+/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+	dir = 5
+	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afp)
 "aiN" = (
@@ -4652,37 +4635,20 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8;
-	icon_state = "map-supply"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
-	},
-/obj/structure/catwalk,
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/afp)
-"aiO" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4;
+	dir = 6;
 	icon_state = "intact-scrubbers"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 4
 	},
 /obj/structure/catwalk,
-/obj/machinery/door/airlock/hatch/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afp)
 "aiP" = (
@@ -19302,7 +19268,11 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/robotics)
 "aHE" = (
-/obj/machinery/vitals_monitor,
+/obj/structure/table/standard,
+/obj/item/storage/belt/utility,
+/obj/item/device/multitool,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/clothing/head/welding,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -27579,6 +27549,14 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/civilian/kitchen)
+"bje" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/visible/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/afp)
 "bpF" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/security/brig)
@@ -27636,6 +27614,16 @@
 /obj/effect/floor_decal/corner/lightgrey{
 	dir = 9;
 	icon_state = "corner_white"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/fore/third_deck)
+"bCx" = (
+/obj/effect/floor_decal/corner/fadeblue{
+	dir = 10;
+	icon_state = "corner_white"
+	},
+/obj/machinery/ship_map{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/fore/third_deck)
@@ -28086,6 +28074,15 @@
 /obj/item/clothing/accessory/armband,
 /turf/simulated/floor/tiled/techmaint,
 /area/security/lockers)
+"eeI" = (
+/obj/machinery/atmospherics/pipe/simple/visible/fuel,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/afp)
 "eik" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4;
@@ -29365,6 +29362,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/bridge)
+"kqw" = (
+/obj/structure/ladder/up,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/cents)
 "krd" = (
 /obj/machinery/access_button{
 	command = "cycle_interior";
@@ -29506,6 +29508,25 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fs)
+"kZX" = (
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/structure/disposalpipe/up{
+	dir = 4;
+	icon_state = "pipe-u"
+	},
+/obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
+	dir = 4;
+	icon_state = "up-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/zpipe/up/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/zpipe/up/fuel{
+	dir = 4;
+	icon_state = "up"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/afp)
 "lai" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/table/standard,
@@ -30371,6 +30392,26 @@
 	},
 /turf/simulated/floor/plating,
 /area/security/checkpoint)
+"pQp" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+	dir = 9;
+	icon_state = "intact"
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/afp)
 "pSC" = (
 /obj/machinery/light,
 /obj/structure/cable{
@@ -30574,6 +30615,17 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/space)
+"rpv" = (
+/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/afp)
 "rxg" = (
 /obj/structure/catwalk,
 /turf/simulated/floor/plating/airless,
@@ -30600,11 +30652,10 @@
 	dir = 6;
 	icon_state = "edge"
 	},
-/obj/structure/table/standard,
-/obj/item/storage/belt/utility,
-/obj/item/clothing/head/welding,
-/obj/item/storage/toolbox/mechanical,
-/obj/item/device/multitool,
+/obj/machinery/computer/operating{
+	dir = 8;
+	icon_state = "computer"
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/robotics)
 "rUD" = (
@@ -30850,6 +30901,25 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/eva)
+"sRe" = (
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	icon_state = "intact-supply"
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/afp)
 "sRB" = (
 /obj/effect/paint_stripe/beige,
 /turf/simulated/wall/prepainted,
@@ -31053,6 +31123,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/central/third_deck)
+"ubS" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/afp)
 "ucX" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
@@ -47899,7 +47974,7 @@ aaj
 aaj
 aao
 aaj
-afC
+rpv
 agx
 agx
 agx
@@ -48102,7 +48177,7 @@ aaj
 adx
 aaj
 afD
-agy
+eeI
 ahm
 aiI
 aiI
@@ -48505,7 +48580,7 @@ acL
 adv
 adw
 aeO
-afE
+afF
 aaj
 aho
 aiK
@@ -48706,8 +48781,8 @@ aao
 acM
 adu
 adY
-aeP
-afF
+aao
+afE
 aaj
 ahn
 btX
@@ -48907,8 +48982,8 @@ aaj
 emS
 aao
 acf
-adZ
-aeQ
+aeP
+aaj
 aaj
 aaj
 ahp
@@ -49109,10 +49184,10 @@ aaj
 acg
 acN
 adw
-adZ
-aeR
+aeQ
 aaj
 agz
+ubS
 ahq
 aiM
 nzd
@@ -49313,9 +49388,9 @@ aaj
 adx
 aaj
 aaj
-aaj
+kZX
 afF
-ahr
+aao
 aiN
 akm
 alw
@@ -49515,10 +49590,10 @@ acO
 ady
 aea
 aaj
-aaj
-aaj
-aaj
-aiO
+sRe
+bje
+bje
+pQp
 nzd
 alx
 amF
@@ -49718,8 +49793,8 @@ aao
 aao
 adx
 aao
+aaj
 aao
-adx
 aiP
 nzd
 nzd
@@ -50122,7 +50197,7 @@ aao
 abb
 aao
 aao
-aao
+abb
 ahs
 aiQ
 ako
@@ -55815,7 +55890,7 @@ aNz
 aNz
 aNz
 aUN
-aVv
+xah
 aTq
 aTq
 aTq
@@ -56418,8 +56493,8 @@ hNR
 hNR
 hNR
 aHP
-xah
 vDr
+kqw
 aTq
 aTq
 aTq
@@ -57233,9 +57308,9 @@ hNR
 hNR
 aVM
 acc
-acc
-acc
-acc
+aaa
+aaa
+aaa
 aaa
 aaa
 aaa
@@ -57435,7 +57510,7 @@ aPs
 aPs
 aPs
 acc
-acc
+aaa
 aaa
 aaa
 aaa
@@ -58223,7 +58298,7 @@ auM
 auM
 auM
 aEg
-aFy
+bCx
 aGK
 aHW
 aJh
