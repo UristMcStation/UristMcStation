@@ -11728,8 +11728,7 @@
 /obj/machinery/button/mass_driver{
 	pixel_x = -32;
 	name = "chapel mass-driver button";
-	id_tag = "chapel_mass_driver";
-	req_access = list(access_chapel_office)
+	id_tag = "chapel_mass_driver"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/chapel)
