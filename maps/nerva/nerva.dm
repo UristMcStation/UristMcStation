@@ -80,6 +80,7 @@
 	#include "../away/abandoned_colony/abandoned_colony.dm"
 	#include "../away/meatstation/meatstation.dm"
 	#include "../away/scavver_gantry/scavver_gantry.dm"
+	#include "../away/chemical_lab/chemical_lab.dm"
 
 	/*#include "../../code/datums/music_tracks/chasing_time.dm"
 	#include "../../code/datums/music_tracks/absconditus.dm"

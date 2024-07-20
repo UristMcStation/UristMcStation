@@ -1,0 +1,18283 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ad" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8;
+	icon_state = "map-supply"
+	},
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"an" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply";
+	tag = "icon-intact-supply (EAST)"
+	},
+/obj/machinery/door/airlock/glass{
+	name = "Rec Room"
+	},
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"aP" = (
+/obj/structure/ladder,
+/obj/structure/ladder,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/chemical_lab/maintenance)
+"bu" = (
+/obj/item/storage/box/ammo/shotgunshells,
+/obj/structure/table/reinforced,
+/obj/machinery/door/window/brigdoor/northleft,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_techfloor_grid/diagonal{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_techfloor_grid/diagonal,
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/vault)
+"bx" = (
+/obj/structure/table/standard,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
+/obj/effect/floor_decal/corner/orange/border{
+	dir = 8
+	},
+/obj/item/storage/ore,
+/obj/item/storage/ore,
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/lockerroom)
+"bE" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/recroom)
+"bM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/hangar)
+"bZ" = (
+/obj/effect/floor_decal/rust,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5;
+	icon_state = "intact-supply"
+	},
+/obj/effect/catwalk_plated/dark,
+/turf/simulated/floor/plating,
+/area/chemical_lab/lockerroom)
+"ce" = (
+/obj/effect/overmap/visitable/sector/chemical_lab,
+/turf/space,
+/area/space)
+"co" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/chemical_lab/maintenance)
+"cp" = (
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/space)
+"cy" = (
+/obj/machinery/nuclearbomb/station,
+/turf/simulated/floor/blackgrid,
+/area/chemical_lab/vault)
+"cz" = (
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 6;
+	icon_state = "edge"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/chem_storage)
+"cD" = (
+/turf/simulated/wall/r_wall,
+/area/chemical_lab/vault_corridor)
+"cG" = (
+/obj/effect/floor_decal/corner/yellow/border{
+	dir = 1
+	},
+/obj/machinery/requests_console{
+	pixel_y = 28
+	},
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"cJ" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 5;
+	icon_state = "corner_white"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4;
+	icon_state = "map-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/supervisor_office)
+"cK" = (
+/obj/machinery/airlock_sensor{
+	pixel_x = 28
+	},
+/obj/structure/sign/warning/vacuum{
+	pixel_y = 32
+	},
+/obj/machinery/camera/network/security{
+	c_tag = "Fourth Deck Staircase";
+	dir = 8
+	},
+/obj/effect/decal/cleanable/cobweb{
+	tag = "icon-cobweb1 (WEST)";
+	icon_state = "cobweb1";
+	dir = 8
+	},
+/obj/effect/floor_decal/rust,
+/obj/machinery/light/small/red{
+	dir = 1;
+	icon_state = "firelight1"
+	},
+/turf/simulated/floor/plating,
+/area/chemical_lab/airlock)
+"cL" = (
+/obj/effect/catwalk_plated/dark,
+/obj/effect/floor_decal/rust,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/turf/simulated/floor/plating,
+/area/chemical_lab/lockerroom)
+"cM" = (
+/obj/effect/shuttle_landmark/automatic,
+/turf/space,
+/area/space)
+"cQ" = (
+/obj/effect/catwalk_plated/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5;
+	icon_state = "intact-scrubbers";
+	tag = "icon-intact-scrubbers (NORTHEAST)"
+	},
+/turf/simulated/floor/plating,
+/area/chemical_lab/lockerroom)
+"cY" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"dd" = (
+/obj/structure/closet/secure_closet/brig{
+	id = "Cell 1";
+	name = "Cell 1 Locker"
+	},
+/obj/machinery/flasher{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/chemical_lab/brig)
+"dp" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 5;
+	icon_state = "corner_white"
+	},
+/obj/structure/table/reinforced,
+/obj/item/handcuffs,
+/obj/item/handcuffs,
+/obj/machinery/alarm{
+	pixel_y = 16
+	},
+/obj/item/device/flashlight/lamp/green,
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/supervisor_office)
+"dN" = (
+/obj/structure/table/standard,
+/obj/item/storage/box/syringes,
+/obj/item/reagent_containers/spray/cleaner{
+	desc = "Someone has crossed out the 'Space' from Space Cleaner and written in Chemistry. Scrawled on the back is, 'Okay, whoever filled this with polytrinic acid, it was only funny the first time. It was hard enough replacing the CMO's first cat!'";
+	name = "Chemistry Cleaner"
+	},
+/obj/effect/floor_decal/corner/yellow/mono,
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"dO" = (
+/turf/simulated/wall/r_wall,
+/area/chemical_lab/brig)
+"dT" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/orange/border,
+/obj/machinery/power/apc{
+	req_access = list("ACCESS_NOCTIS");
+	pixel_y = -26
+	},
+/obj/structure/cable,
+/obj/item/pickaxe/old,
+/obj/item/pickaxe/old,
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/lockerroom)
+"dZ" = (
+/obj/effect/decal/remains,
+/turf/simulated/floor/plating,
+/area/space)
+"ek" = (
+/obj/effect/catwalk_plated/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply";
+	tag = "icon-intact-supply (EAST)"
+	},
+/turf/simulated/floor/plating,
+/area/chemical_lab/lockerroom)
+"eo" = (
+/obj/effect/wallframe_spawn/reinforced_phoron,
+/turf/simulated/floor/plating,
+/area/chemical_lab/airlock)
+"eq" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/engineering{
+	icon_state = "closed";
+	locked = 0;
+	name = "Aft Solar Access";
+	req_access = list("ACCESS_CHEMICAL_LAB_WORKER")
+	},
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/simulated/floor/plating,
+/area/space)
+"eu" = (
+/obj/structure/closet,
+/obj/machinery/alarm{
+	pixel_y = 24
+	},
+/obj/effect/floor_decal/corner/orange/border{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/lockerroom)
+"eM" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers";
+	tag = "icon-intact-scrubbers (EAST)"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply";
+	tag = "icon-intact-supply (EAST)"
+	},
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"eV" = (
+/obj/item/stool,
+/obj/effect/submap_landmark/spawnpoint/lab_worker,
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"fe" = (
+/obj/machinery/hologram/holopad,
+/obj/effect/floor_decal/corner_techfloor_grid/diagonal,
+/obj/effect/floor_decal/corner_techfloor_grid/diagonal{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers";
+	tag = "icon-intact-scrubbers (EAST)"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply";
+	tag = "icon-intact-supply (EAST)"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/supervisor_office)
+"fo" = (
+/obj/effect/catwalk_plated/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/plating,
+/area/chemical_lab/lockerroom)
+"fH" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8";
+	pixel_x = 0
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/chemical_lab/maintenance)
+"fP" = (
+/obj/structure/table/standard,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/machinery/reagent_temperature{
+	pixel_x = 4
+	},
+/obj/machinery/reagent_temperature/cooler{
+	pixel_x = -14
+	},
+/obj/effect/floor_decal/corner/yellow/mono,
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"fV" = (
+/obj/machinery/light,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply";
+	tag = "icon-intact-supply (EAST)"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/hangar)
+"fX" = (
+/obj/item/stool,
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"gb" = (
+/obj/structure/bed/chair,
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8";
+	pixel_x = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/recroom)
+"gd" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/hangar)
+"gx" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 5;
+	icon_state = "corner_white"
+	},
+/obj/machinery/requests_console{
+	pixel_y = 28
+	},
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4;
+	level = 2
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/supervisor_office)
+"gC" = (
+/obj/effect/floor_decal/corner/yellow/border{
+	dir = 4
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 2;
+	icon_state = "pipe-j2"
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"gL" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal,
+/turf/simulated/floor/plating,
+/area/chemical_lab/maintenance)
+"gO" = (
+/turf/simulated/wall/r_wall,
+/area/chemical_lab/chem_storage)
+"hp" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 6;
+	icon_state = "corner_white"
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 1;
+	icon_state = "corner_white"
+	},
+/obj/structure/table/reinforced,
+/obj/item/storage/firstaid/regular,
+/obj/machinery/power/apc{
+	dir = 1;
+	pixel_y = 18
+	},
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/item/folder/envelope/urist/supervisor_instructions,
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/supervisor_office)
+"hD" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/machinery/atmospherics/binary/pump/on,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"hF" = (
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 23
+	},
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/plating,
+/area/chemical_lab/maintenance)
+"id" = (
+/obj/structure/ladder,
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/chemical_lab/maintenance)
+"ir" = (
+/obj/machinery/door/airlock/hatch/maintenance,
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/turf/simulated/floor/plating,
+/area/chemical_lab/maintenance)
+"iz" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 6;
+	icon_state = "corner_white";
+	tag = "icon-corner_white (SOUTHEAST)"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4;
+	icon_state = "map-supply"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/supervisor_office)
+"iI" = (
+/obj/structure/cable/orange{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/orange{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/orange{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating/airless/catwalk,
+/area/space)
+"iM" = (
+/obj/machinery/camera/network/security,
+/obj/structure/ladder,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/chemical_lab/maintenance)
+"iW" = (
+/obj/effect/floor_decal/corner/black,
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/supervisor_office)
+"jw" = (
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/turf/simulated/floor/blackgrid,
+/area/chemical_lab/vault)
+"jS" = (
+/obj/effect/floor_decal/solarpanel,
+/obj/machinery/power/solar,
+/obj/structure/cable/orange,
+/turf/simulated/floor/plating/airless/catwalk,
+/area/space)
+"jU" = (
+/obj/effect/decal/cleanable/blood/oil,
+/obj/machinery/alarm{
+	pixel_y = 24
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/chemical_lab/airlock)
+"jX" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4";
+	tag = ""
+	},
+/turf/simulated/floor/plating,
+/area/chemical_lab/maintenance)
+"ka" = (
+/obj/structure/table/standard,
+/obj/machinery/reagentgrinder,
+/obj/effect/floor_decal/corner/yellow/mono,
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"kx" = (
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/portables_connector,
+/turf/simulated/floor/plating,
+/area/chemical_lab/maintenance)
+"kz" = (
+/obj/effect/wallframe_spawn/reinforced,
+/turf/simulated/floor/plating,
+/area/chemical_lab/labwing)
+"kC" = (
+/obj/structure/catwalk,
+/obj/machinery/camera/network/security,
+/turf/simulated/floor/asteroid,
+/area/space)
+"kJ" = (
+/obj/item/stack/tile/techmaint,
+/obj/effect/decal/cleanable/cobweb{
+	tag = "icon-cobweb1 (WEST)";
+	icon_state = "cobweb1";
+	dir = 8
+	},
+/obj/item/storage/fancy/crayons,
+/turf/simulated/floor/plating,
+/area/space)
+"kL" = (
+/turf/simulated/wall,
+/area/space)
+"kQ" = (
+/obj/effect/floor_decal/corner/orange/border,
+/obj/machinery/light_switch{
+	pixel_y = -24
+	},
+/obj/structure/ore_box,
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/lockerroom)
+"kS" = (
+/obj/effect/floor_decal/corner/yellow/border{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"lb" = (
+/obj/item/stool,
+/obj/structure/disposalpipe/junction{
+	dir = 8;
+	icon_state = "pipe-j1";
+	tag = "icon-pipe-j1 (WEST)"
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4";
+	tag = "90Curve"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"lu" = (
+/turf/simulated/wall/r_wall,
+/area/chemical_lab/maintenance)
+"lv" = (
+/obj/machinery/smartfridge/secure/medbay,
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"lB" = (
+/obj/machinery/atmospherics/binary/pump/on,
+/turf/simulated/floor/plating,
+/area/chemical_lab/maintenance)
+"lL" = (
+/obj/structure/cable,
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2";
+	pixel_y = 1
+	},
+/obj/effect/wallframe_spawn/reinforced,
+/turf/simulated/floor/plating,
+/area/chemical_lab/brig)
+"lU" = (
+/obj/structure/table/standard,
+/obj/item/storage/box/beakers,
+/obj/item/storage/box/beakers,
+/obj/item/reagent_containers/dropper,
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 8;
+	icon_state = "railing0-1"
+	},
+/obj/effect/floor_decal/corner/yellow/border{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"lX" = (
+/obj/structure/catwalk,
+/obj/machinery/access_button{
+	pixel_y = 24;
+	pixel_x = 6
+	},
+/turf/simulated/floor/asteroid,
+/area/space)
+"lY" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/plating,
+/area/space)
+"ma" = (
+/obj/machinery/chemical_dispenser/full,
+/obj/effect/floor_decal/corner/yellow/mono,
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"mf" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/food/drinks/bottle/small/beer{
+	pixel_y = 12;
+	pixel_x = 25
+	},
+/obj/item/reagent_containers/food/drinks/bottle/small/beer{
+	pixel_y = 13
+	},
+/obj/item/reagent_containers/food/drinks/bottle/small/beer{
+	pixel_x = 6;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/food/drinks/bottle/small/beer{
+	pixel_x = -6;
+	pixel_y = 2
+	},
+/obj/effect/floor_decal/corner/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/recroom)
+"my" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1;
+	icon_state = "map-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"mK" = (
+/obj/machinery/alarm{
+	dir = 1;
+	icon_state = "alarm0";
+	pixel_y = -24
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
+/turf/simulated/floor/plating,
+/area/chemical_lab/hangar)
+"mU" = (
+/obj/item/remains/robot,
+/turf/simulated/floor/plating,
+/area/space)
+"no" = (
+/obj/effect/floor_decal/corner/yellow/border{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8";
+	pixel_x = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"nz" = (
+/obj/structure/bed/chair/office/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 10
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/effect/submap_landmark/spawnpoint/lab_supervisor,
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/supervisor_office)
+"nE" = (
+/obj/machinery/door/airlock/vault{
+	name = "Aft Storage";
+	req_access = list("ACCESS_CHEMICAL_LAB_SUPERVISOR")
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply";
+	tag = "icon-intact-supply (EAST)"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/vault_corridor)
+"nF" = (
+/obj/effect/catwalk_plated/dark,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/turf/simulated/floor/plating,
+/area/chemical_lab/lockerroom)
+"nK" = (
+/obj/structure/catwalk,
+/obj/structure/cable/yellow{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -24
+	},
+/mob/living/simple_animal/hostile/viscerator,
+/turf/simulated/floor/plating,
+/area/space)
+"og" = (
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/techmaint,
+/area/space)
+"oi" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/obj/item/device/radio/intercom{
+	dir = 8;
+	name = "Station Intercom (General)";
+	pixel_x = 22
+	},
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	icon_state = "map_scrubber_on";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/recroom)
+"op" = (
+/obj/structure/table/standard,
+/obj/machinery/microwave,
+/obj/effect/floor_decal/corner/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/recroom)
+"ox" = (
+/obj/structure/table/standard,
+/obj/item/device/scanner/spectrometer,
+/obj/item/clothing/glasses/science,
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 8;
+	icon_state = "railing0-1"
+	},
+/obj/effect/floor_decal/corner/yellow/border{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"oA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 9
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/chemical_lab/maintenance)
+"oM" = (
+/obj/machinery/door/airlock{
+	name = "Toilet"
+	},
+/obj/effect/floor_decal/corner/white/diagonal,
+/turf/simulated/floor/tiled,
+/area/chemical_lab/bathroom)
+"oP" = (
+/obj/effect/floor_decal/rust,
+/obj/structure/catwalk,
+/obj/structure/cable{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -25
+	},
+/obj/machinery/light/small/red{
+	dir = 1;
+	icon_state = "firelight1"
+	},
+/turf/simulated/floor/plating,
+/area/chemical_lab/maintenance)
+"oX" = (
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -24;
+	tag = "icon-alarm0 (EAST)"
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/obj/effect/floor_decal/corner/yellow/border{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/yellow/border{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"pb" = (
+/obj/structure/cable/orange{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/orange{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating/airless/catwalk,
+/area/space)
+"po" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock/glass{
+	name = "Chemistry Lab";
+	req_access = list("ACCESS_CHEMICAL_LAB_WORKER")
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/labwing)
+"pr" = (
+/obj/structure/hygiene/sink{
+	dir = 8;
+	icon_state = "sink";
+	pixel_x = -11;
+	tag = "icon-sink (WEST)"
+	},
+/obj/effect/floor_decal/corner/white/diagonal,
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -25
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/turf/simulated/floor/tiled,
+/area/chemical_lab/bathroom)
+"pw" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 5;
+	icon_state = "corner_white"
+	},
+/obj/machinery/computer/modular/preset/security,
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/supervisor_office)
+"pC" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 6;
+	icon_state = "corner_white"
+	},
+/obj/structure/table/reinforced,
+/obj/machinery/recharger{
+	pixel_y = 0
+	},
+/obj/item/device/radio/intercom{
+	dir = 8;
+	icon_state = "intercom";
+	pixel_x = 28;
+	tag = "icon-intercom (WEST)"
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 8;
+	icon_state = "corner_white";
+	tag = "icon-corner_white (WEST)"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8";
+	pixel_x = 0
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/supervisor_office)
+"pH" = (
+/obj/structure/shuttle/engine/propulsion{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/chemical_lab/escapeshuttle)
+"pK" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	id_tag = "noctis_outer";
+	req_access = list("ACCESS_CHEMICAL_LAB_WORKER")
+	},
+/obj/machinery/atmospherics/valve/digital,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0;
+	tag = ""
+	},
+/turf/simulated/floor/reinforced,
+/area/chemical_lab/escapeshuttle)
+"qb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6;
+	icon_state = "intact-scrubbers"
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/chemical_lab/maintenance)
+"qc" = (
+/turf/simulated/wall/r_wall,
+/area/chemical_lab/medical_storage)
+"qn" = (
+/obj/machinery/door/airlock/external{
+	name = "Aft Storage Exterior Airlock";
+	req_access = list("ACCESS_CHEMICAL_LAB_WORKER")
+	},
+/turf/simulated/floor/tiled,
+/area/space)
+"qq" = (
+/obj/structure/cable,
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2";
+	pixel_y = 1
+	},
+/obj/effect/wallframe_spawn/reinforced,
+/turf/simulated/floor/tiled,
+/area/chemical_lab/brig)
+"qs" = (
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/chemical_lab/maintenance)
+"qu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/chemical_lab/maintenance)
+"qG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply";
+	tag = "icon-intact-supply (EAST)"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8";
+	pixel_x = 0;
+	tag = ""
+	},
+/turf/simulated/floor/plating,
+/area/chemical_lab/maintenance)
+"qK" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	icon_state = "map_off";
+	dir = 1
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0;
+	tag = ""
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4";
+	tag = ""
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/hangar)
+"qN" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/space)
+"qP" = (
+/obj/structure/catwalk,
+/turf/simulated/floor/asteroid,
+/area/space)
+"qV" = (
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/turf/simulated/floor/tiled,
+/area/chemical_lab/escapeshuttle)
+"qX" = (
+/obj/structure/cable/orange{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/orange{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/plating/airless/catwalk,
+/area/space)
+"rh" = (
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
+/area/chemical_lab/maintenance)
+"rk" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/machinery/door/window/brigdoor/eastright{
+	name = "Supervisor's Brig Cell 1";
+	req_access = list("ACCESS_CHEMICAL_LAB_SUPERVISOR")
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers";
+	tag = "icon-intact-scrubbers (EAST)"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/chemical_lab/brig)
+"rs" = (
+/obj/structure/table/standard,
+/obj/item/material/kitchen/utensil/fork,
+/obj/item/material/kitchen/utensil/spoon,
+/obj/item/material/knife{
+	pixel_x = -5
+	},
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/light_switch,
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/recroom)
+"rw" = (
+/obj/structure/cable/orange{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/orange{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/orange{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating/airless/catwalk,
+/area/space)
+"ry" = (
+/turf/simulated/wall,
+/area/chemical_lab/escapeshuttle)
+"rz" = (
+/obj/machinery/door/airlock/external{
+	name = "Labratory Interior Airlock";
+	req_access = list("ACCESS_CHEMICAL_LAB_WORKER")
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply";
+	tag = "icon-intact-supply (EAST)"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/airlock)
+"rG" = (
+/obj/machinery/door/airlock/vault/bolted{
+	name = "Armory";
+	req_access = list("ACCESS_CHEMICAL_LAB_SUPERVISOR")
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/vault_corridor)
+"rJ" = (
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	pixel_x = 23
+	},
+/turf/simulated/floor/plating,
+/area/chemical_lab/airlock)
+"rN" = (
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/plating,
+/area/space)
+"rQ" = (
+/obj/effect/floor_decal/corner/yellow/border,
+/obj/machinery/light_switch{
+	pixel_y = -25
+	},
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"sb" = (
+/obj/structure/table/standard,
+/obj/item/stack/package_wrap/twenty_five,
+/obj/item/hand_labeler,
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 8;
+	icon_state = "railing0-1"
+	},
+/obj/effect/floor_decal/corner/yellow/border{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"sf" = (
+/turf/simulated/wall/r_wall,
+/area/chemical_lab/lockerroom)
+"sv" = (
+/turf/simulated/wall/r_wall,
+/area/chemical_lab/vault)
+"sL" = (
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/chem_storage)
+"sN" = (
+/obj/machinery/door/airlock/external{
+	name = "Labratory Exterior Airlock";
+	req_access = list("ACCESS_CHEMICAL_LAB_WORKER")
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/chemical_lab/airlock)
+"ta" = (
+/obj/item/stack/tile/techmaint,
+/turf/simulated/floor/plating,
+/area/space)
+"tg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply";
+	tag = "icon-intact-supply (EAST)"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/plating,
+/area/chemical_lab/maintenance)
+"tk" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 5;
+	icon_state = "corner_white"
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 8;
+	icon_state = "corner_white";
+	tag = "icon-corner_white (WEST)"
+	},
+/obj/structure/closet,
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/supervisor_office)
+"tq" = (
+/obj/structure/cable/yellow{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc{
+	cell_type = /obj/item/cell/high;
+	dir = 2;
+	name = "south bump";
+	pixel_y = -24
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"tB" = (
+/obj/structure/largecrate,
+/obj/random/soap,
+/obj/random/junk,
+/obj/random/maintenance,
+/obj/random/smokes,
+/obj/random/smokes,
+/obj/random/medical/lite,
+/obj/random/medical/lite,
+/obj/random/toolbox,
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/chemical_lab/maintenance)
+"tN" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"tT" = (
+/obj/effect/floor_decal/rust,
+/turf/simulated/floor/plating,
+/area/chemical_lab/airlock)
+"tZ" = (
+/obj/effect/floor_decal/corner/yellow/border,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"ua" = (
+/obj/machinery/alarm{
+	pixel_y = 24
+	},
+/obj/structure/table/reinforced,
+/obj/machinery/door/window/brigdoor/southleft,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_techfloor_grid/diagonal{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_techfloor_grid/diagonal,
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/vault)
+"uc" = (
+/obj/structure/hygiene/sink{
+	dir = 8;
+	icon_state = "sink";
+	pixel_x = -11;
+	tag = "icon-sink (WEST)"
+	},
+/obj/effect/floor_decal/corner/white/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/turf/simulated/floor/tiled,
+/area/chemical_lab/bathroom)
+"um" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0;
+	tag = ""
+	},
+/turf/simulated/floor/plating,
+/area/chemical_lab/maintenance)
+"uq" = (
+/obj/machinery/chem_master,
+/obj/effect/floor_decal/corner/yellow/mono,
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"ur" = (
+/obj/structure/shuttle/engine/heater{
+	dir = 4
+	},
+/obj/effect/paint/green_grey,
+/turf/simulated/wall,
+/area/chemical_lab/escapeshuttle)
+"uG" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/space)
+"uH" = (
+/obj/structure/table/reinforced,
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 8;
+	icon_state = "edge"
+	},
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -25
+	},
+/obj/structure/cable{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/chem_storage)
+"uO" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/door/airlock/glass{
+	name = "Rec Room"
+	},
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"uR" = (
+/obj/structure/cable/orange,
+/obj/machinery/power/solar_control{
+	id = "auxsolarbridge";
+	name = "Main Solar Control";
+	track = 1
+	},
+/obj/structure/sign/warning/secure_area{
+	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
+	icon_state = "space";
+	layer = 9;
+	name = "EXTERNAL AIRLOCK";
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"uU" = (
+/obj/item/device/camera,
+/obj/item/device/camera_film,
+/obj/item/device/flashlight{
+	pixel_x = 1;
+	pixel_y = 5
+	},
+/obj/machinery/light,
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled,
+/area/space)
+"uY" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"vg" = (
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/hangar)
+"vh" = (
+/obj/machinery/door/airlock/glass/security{
+	name = "Supervisor's Office";
+	req_access = list("ACCESS_CHEMICAL_LAB_SUPERVISOR")
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/black/full,
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/supervisor_office)
+"vk" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/effect/catwalk_plated/dark,
+/turf/simulated/floor/plating,
+/area/chemical_lab/lockerroom)
+"vB" = (
+/obj/structure/table/reinforced,
+/obj/machinery/cell_charger,
+/obj/item/cell/super,
+/turf/simulated/floor/plating,
+/area/space)
+"vM" = (
+/turf/simulated/wall/r_wall,
+/area/chemical_lab/supervisor_office)
+"vQ" = (
+/obj/machinery/light/small,
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	frequency = 1379;
+	id_tag = "solar_bridge_airlock";
+	pixel_x = 2;
+	pixel_y = 24;
+	req_access = list("ACCESS_EXTERNAL");
+	tag_airpump = "solar_bridge_pump";
+	tag_chamber_sensor = "solar_bridge_sensor";
+	tag_exterior_door = "solar_bridge_outer";
+	tag_interior_door = "solar_bridge_inner"
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1379;
+	id_tag = "solar_bridge_sensor";
+	pixel_x = -12;
+	pixel_y = 24
+	},
+/obj/effect/floor_decal/techfloor,
+/obj/effect/floor_decal/techfloor{
+	dir = 1;
+	icon_state = "techfloor_edges"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"wi" = (
+/obj/effect/submap_landmark/joinable_submap/chemical_lab,
+/turf/space,
+/area/space)
+"wn" = (
+/obj/machinery/door/airlock/glass{
+	name = "Chemistry Lab";
+	req_access = list("ACCESS_CHEMICAL_LAB_WORKER")
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/labwing)
+"wx" = (
+/turf/simulated/wall,
+/area/chemical_lab/bathroom)
+"wA" = (
+/obj/effect/floor_decal/corner/yellow/border,
+/obj/machinery/light,
+/obj/machinery/power/apc{
+	req_access = list("ACCESS_NOCTIS");
+	pixel_y = -26
+	},
+/obj/structure/cable,
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"wC" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1379;
+	icon_state = "closed";
+	id_tag = "solar_bridge_inner";
+	locked = 1;
+	name = "External Access";
+	req_access = list("ACCESS_CHEMICAL_LAB_WORKER")
+	},
+/obj/effect/floor_decal/techfloor,
+/obj/effect/floor_decal/techfloor{
+	dir = 1;
+	icon_state = "techfloor_edges"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"wL" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4;
+	icon_state = "intact"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/space)
+"wO" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8";
+	pixel_x = 0
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/obj/structure/catwalk,
+/obj/machinery/light/small/red{
+	dir = 4;
+	icon_state = "firelight1";
+	tag = "icon-firelight1 (EAST)"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/chemical_lab/maintenance)
+"xe" = (
+/obj/item/device/flashlight/upgraded,
+/obj/random/smokes,
+/obj/structure/table/standard,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_y = -25;
+	pixel_x = 5
+	},
+/turf/simulated/floor/tiled,
+/area/chemical_lab/escapeshuttle)
+"xn" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 10
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/supervisor_office)
+"xq" = (
+/obj/machinery/door/airlock{
+	name = "Bathroom"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/turf/simulated/floor/tiled,
+/area/chemical_lab/recroom)
+"xu" = (
+/obj/machinery/suit_storage_unit,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/corner/orange/border{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/lockerroom)
+"xy" = (
+/turf/simulated/wall/r_wall,
+/area/chemical_lab/labwing)
+"xX" = (
+/obj/machinery/door/window/southright{
+	req_access = list("ACCESS_NOCTIS");
+	dir = 8
+	},
+/obj/structure/handrail,
+/obj/effect/catwalk_plated/dark,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/turf/simulated/floor/plating,
+/area/chemical_lab/escapeshuttle)
+"ym" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 9;
+	icon_state = "corner_white"
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/machinery/disposal,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/light_switch{
+	pixel_x = -22;
+	pixel_y = 6
+	},
+/obj/structure/disposalpipe/trunk{
+	dir = 4;
+	icon_state = "pipe-t"
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/supervisor_office)
+"yo" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8";
+	pixel_x = 0
+	},
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/recroom)
+"yy" = (
+/obj/structure/catwalk,
+/obj/machinery/light_switch{
+	pixel_x = -22
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/turf/simulated/floor/plating,
+/area/chemical_lab/medical_storage)
+"yA" = (
+/obj/effect/floor_decal/corner/yellow/border{
+	dir = 4
+	},
+/obj/item/device/radio/intercom{
+	dir = 8;
+	name = "Station Intercom (General)";
+	pixel_x = 22
+	},
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"yD" = (
+/obj/item/gun/projectile/shotgun/pump,
+/obj/structure/table/reinforced,
+/obj/machinery/door/window/brigdoor/northleft,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_techfloor_grid/diagonal{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_techfloor_grid/diagonal,
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/vault)
+"yT" = (
+/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/effect/paint/green_grey,
+/turf/simulated/floor/plating,
+/area/chemical_lab/escapeshuttle)
+"yX" = (
+/turf/simulated/wall/r_wall,
+/area/chemical_lab/hangar)
+"zx" = (
+/obj/effect/decal/cleanable/cobweb{
+	dir = 4;
+	icon_state = "cobweb1";
+	tag = "icon-cobweb1 (EAST)"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"Ay" = (
+/turf/simulated/mineral,
+/area/space)
+"Az" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6;
+	icon_state = "intact-scrubbers"
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/light/small/red{
+	dir = 1;
+	icon_state = "firelight1"
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/chemical_lab/maintenance)
+"AB" = (
+/turf/simulated/wall/r_wall,
+/area/chemical_lab/bathroom)
+"AP" = (
+/obj/structure/closet/crate/freezer/rations,
+/obj/effect/floor_decal/corner/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/recroom)
+"Bf" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "4-8"
+	},
+/obj/machinery/access_button{
+	pixel_y = -24;
+	pixel_x = 6
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/space)
+"Bj" = (
+/obj/machinery/disposal,
+/obj/effect/floor_decal/corner/green/mono,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/disposalpipe/trunk{
+	dir = 1;
+	icon_state = "pipe-t"
+	},
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/recroom)
+"Bk" = (
+/obj/structure/handrail{
+	icon_state = "handrail";
+	dir = 4
+	},
+/turf/space,
+/area/space)
+"Bx" = (
+/obj/machinery/door/airlock/hatch/maintenance{
+	req_access = list("ACCESS_CHEMICAL_LAB_WORKER")
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers";
+	tag = "icon-intact-scrubbers (EAST)"
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	tag = ""
+	},
+/turf/simulated/floor/plating,
+/area/chemical_lab/maintenance)
+"BC" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	icon_state = "map-supply";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"BH" = (
+/obj/structure/catwalk,
+/obj/machinery/light/small/red{
+	dir = 4;
+	icon_state = "firelight1";
+	tag = "icon-firelight1 (EAST)"
+	},
+/turf/simulated/floor/asteroid,
+/area/space)
+"BJ" = (
+/obj/machinery/recharge_station,
+/obj/effect/floor_decal/corner/white/diagonal,
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled,
+/area/chemical_lab/bathroom)
+"BS" = (
+/obj/effect/landmark/map_data{
+	height = 2
+	},
+/turf/space,
+/area/space)
+"Cf" = (
+/obj/structure/ore_box,
+/turf/simulated/floor/asteroid,
+/area/space)
+"Cq" = (
+/obj/machinery/atmospherics/binary/pump/on,
+/turf/simulated/floor/plating,
+/area/space)
+"Cv" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8";
+	pixel_x = 0
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/recroom)
+"CB" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/food/condiment/enzyme,
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/power/apc{
+	dir = 1;
+	pixel_y = 18
+	},
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/recroom)
+"CN" = (
+/obj/effect/wallframe_spawn/reinforced,
+/turf/simulated/floor/plating,
+/area/chemical_lab/supervisor_office)
+"CW" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 6
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/space)
+"CX" = (
+/turf/space,
+/area/space)
+"Dc" = (
+/turf/simulated/floor/tiled,
+/area/chemical_lab/escapeshuttle)
+"Dk" = (
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 4;
+	icon_state = "edge"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers";
+	tag = "icon-intact-scrubbers (EAST)"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply";
+	tag = "icon-intact-supply (EAST)"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/chem_storage)
+"Dl" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/hangar)
+"Dt" = (
+/obj/effect/floor_decal/corner/yellow/border,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"Dv" = (
+/obj/machinery/portable_atmospherics/powered/scrubber,
+/obj/machinery/atmospherics/portables_connector,
+/turf/simulated/floor/tiled/dark,
+/area/chemical_lab/maintenance)
+"Dx" = (
+/obj/effect/floor_decal/solarpanel,
+/obj/machinery/power/solar,
+/obj/structure/cable/orange{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/plating/airless/catwalk,
+/area/space)
+"Dy" = (
+/obj/structure/table/reinforced,
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 8;
+	icon_state = "edge"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/chem_storage)
+"Dz" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply";
+	tag = "icon-intact-supply (EAST)"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/airlock/hatch/maintenance{
+	name = "Vulture Bay";
+	req_access = list("ACCESS_CHEMICAL_LAB_SUPERVISOR")
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/vault_corridor)
+"DY" = (
+/obj/machinery/door/airlock/hatch/maintenance{
+	name = "Medical Storage";
+	req_access = list("ACCESS_CHEMICAL_LAB_WORKER")
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/turf/simulated/floor/plating,
+/area/chemical_lab/medical_storage)
+"DZ" = (
+/obj/machinery/door/airlock/external{
+	name = "Aft Storage Interior Airlock";
+	req_access = list("ACCESS_CHEMICAL_LAB_WORKER")
+	},
+/obj/machinery/atmospherics/pipe/simple/visible,
+/turf/simulated/floor/tiled,
+/area/space)
+"Eh" = (
+/turf/simulated/floor/plating,
+/area/space)
+"Eu" = (
+/obj/structure/table/reinforced,
+/obj/effect/floor_decal/floordetail/edgedrain,
+/obj/machinery/alarm{
+	dir = 1;
+	icon_state = "alarm0";
+	pixel_y = -24
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/chem_storage)
+"Ew" = (
+/obj/machinery/door/airlock{
+	name = "Recharging Dock"
+	},
+/obj/effect/floor_decal/corner/white/diagonal,
+/turf/simulated/floor/tiled,
+/area/chemical_lab/bathroom)
+"ES" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4;
+	icon_state = "map_scrubber_on"
+	},
+/obj/effect/floor_decal/corner_techfloor_grid/diagonal{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_techfloor_grid/diagonal,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/supervisor_office)
+"Fb" = (
+/obj/effect/wallframe_spawn/reinforced,
+/turf/simulated/floor/plating,
+/area/space)
+"Fy" = (
+/obj/item/stack/tile/techmaint,
+/turf/simulated/floor/tiled/techmaint,
+/area/space)
+"FI" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 4;
+	icon_state = "corner_white";
+	tag = "icon-corner_white (EAST)"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/supervisor_office)
+"FL" = (
+/obj/structure/table/standard,
+/obj/item/storage/firstaid/surgery,
+/obj/structure/catwalk,
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "east bump";
+	pixel_x = 24
+	},
+/obj/structure/cable{
+	d1 = 0;
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/chemical_lab/medical_storage)
+"FP" = (
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"Ga" = (
+/obj/machinery/door/airlock/engineering{
+	icon_state = "closed";
+	locked = 0;
+	name = "Aft Solar Access";
+	req_access = list("ACCESS_CHEMICAL_LAB_WORKER")
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "4-8"
+	},
+/turf/simulated/wall,
+/area/space)
+"Gp" = (
+/obj/structure/table/reinforced,
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 5;
+	icon_state = "edge"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/chem_storage)
+"Gq" = (
+/obj/machinery/light/small,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply";
+	tag = "icon-intact-supply (EAST)"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/vault_corridor)
+"Gs" = (
+/obj/machinery/airlock_sensor{
+	pixel_x = 26
+	},
+/obj/structure/sign/warning/vacuum{
+	pixel_y = 32
+	},
+/obj/machinery/light/small{
+	dir = 1;
+	luminosity = 2
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"GB" = (
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"GI" = (
+/obj/structure/table/reinforced,
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 8;
+	icon_state = "edge"
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/chem_storage)
+"GY" = (
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2";
+	pixel_y = 0
+	},
+/obj/machinery/power/smes/buildable{
+	RCon_tag = "Solar - Main";
+	capacity = 1e+007;
+	charge = 0
+	},
+/obj/structure/cable/yellow{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"GZ" = (
+/obj/machinery/door/airlock/vault/bolted{
+	req_access = list("ACCESS_CHEMICAL_LAB_SUPERVISOR")
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/supervisor_office)
+"Hg" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/power/terminal{
+	icon_state = "term";
+	dir = 4
+	},
+/obj/effect/catwalk_plated/dark,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	tag = ""
+	},
+/turf/simulated/floor/plating,
+/area/chemical_lab/escapeshuttle)
+"Hh" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/orange/three_quarters,
+/obj/item/clothing/glasses/meson,
+/obj/item/clothing/glasses/meson,
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/lockerroom)
+"Hn" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/item/reagent_containers/dropper,
+/obj/item/stack/material/phoron{
+	amount = 5
+	},
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 8;
+	icon_state = "railing0-1"
+	},
+/obj/effect/floor_decal/corner/yellow/border{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"Hr" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 10;
+	icon_state = "intact"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/simulated/floor/tiled/techmaint,
+/area/space)
+"HE" = (
+/obj/machinery/light/small{
+	dir = 4;
+	luminosity = 2
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4;
+	icon_state = "map-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/vault_corridor)
+"HZ" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/vault_corridor)
+"Ia" = (
+/obj/machinery/power/apc{
+	req_access = list("ACCESS_NOCTIS");
+	pixel_y = -26
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/structure/cable,
+/turf/simulated/floor/plating,
+/area/chemical_lab/hangar)
+"Ir" = (
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = -2;
+	pixel_y = -1
+	},
+/obj/item/clothing/gloves/insulated/cheap,
+/obj/item/crowbar,
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled,
+/area/space)
+"It" = (
+/obj/structure/table/standard,
+/obj/item/storage/box/donkpocket_mixed{
+	pixel_y = 4;
+	pixel_x = 4
+	},
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/recroom)
+"Iz" = (
+/obj/machinery/door/airlock/hatch/maintenance{
+	req_access = list("ACCESS_CHEMICAL_LAB_WORKER")
+	},
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/turf/simulated/floor/plating,
+/area/chemical_lab/maintenance)
+"IH" = (
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 4;
+	icon_state = "edge"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/chem_storage)
+"IU" = (
+/obj/effect/floor_decal/corner/yellow/border{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"IY" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/recroom)
+"Jg" = (
+/obj/structure/fuel_port{
+	pixel_y = 30
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	icon_state = "intact-supply";
+	tag = "icon-intact-supply (SOUTHEAST)"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/hangar)
+"JC" = (
+/obj/structure/lattice,
+/obj/structure/disposalpipe/down{
+	dir = 1;
+	icon_state = "pipe-d";
+	tag = "icon-pipe-d (NORTH)"
+	},
+/obj/machinery/space_heater,
+/turf/simulated/open,
+/area/chemical_lab/maintenance)
+"JF" = (
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22;
+	pixel_y = 0
+	},
+/obj/structure/lattice,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "32-8";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/zpipe/down/supply{
+	dir = 4;
+	icon_state = "down-supply";
+	tag = "icon-down-supply (EAST)"
+	},
+/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
+	dir = 4;
+	icon_state = "down-scrubbers";
+	tag = "icon-down-scrubbers (EAST)"
+	},
+/turf/simulated/open,
+/area/chemical_lab/maintenance)
+"JP" = (
+/obj/machinery/vending/tool,
+/turf/simulated/floor/tiled/techmaint,
+/area/space)
+"Kd" = (
+/obj/effect/wallframe_spawn/reinforced,
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/labwing)
+"Ki" = (
+/turf/simulated/wall/r_wall,
+/area/chemical_lab/recroom)
+"KE" = (
+/obj/structure/table/reinforced,
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 9;
+	icon_state = "edge"
+	},
+/obj/machinery/light_switch{
+	pixel_x = -22;
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/chem_storage)
+"KF" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/engineering{
+	name = "Aft Secure Storage";
+	req_access = list("ACCESS_CHEMICAL_LAB_WORKER");
+	secured_wires = 1
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"KG" = (
+/turf/simulated/floor/plating,
+/area/chemical_lab/maintenance)
+"KM" = (
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/space)
+"KS" = (
+/obj/machinery/light/small/red{
+	dir = 4;
+	icon_state = "firelight1";
+	tag = "icon-firelight1 (EAST)"
+	},
+/obj/machinery/atmospherics/binary/pump/on,
+/turf/simulated/floor/plating,
+/area/chemical_lab/maintenance)
+"Lc" = (
+/obj/structure/catwalk,
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "east bump";
+	pixel_x = 24
+	},
+/obj/structure/cable,
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/plating,
+/area/chemical_lab/maintenance)
+"Lf" = (
+/obj/structure/cable/yellow,
+/obj/machinery/power/apc{
+	cell_type = /obj/item/cell/high;
+	dir = 2;
+	name = "south bump";
+	pixel_y = -24
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/space)
+"Lg" = (
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	pixel_x = 26
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"Li" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8;
+	level = 2
+	},
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"Lw" = (
+/obj/item/stool,
+/obj/effect/floor_decal/corner/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/recroom)
+"LH" = (
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 8;
+	icon_state = "railing0-1"
+	},
+/turf/simulated/open,
+/area/chemical_lab/supervisor_office)
+"LM" = (
+/obj/machinery/status_display,
+/turf/simulated/wall/r_wall,
+/area/chemical_lab/vault_corridor)
+"Mc" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply";
+	tag = "icon-intact-supply (EAST)"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/hangar)
+"Mm" = (
+/obj/machinery/computer/arcade,
+/obj/effect/floor_decal/corner/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/recroom)
+"MG" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers";
+	tag = "icon-intact-scrubbers (EAST)"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply";
+	tag = "icon-intact-supply (EAST)"
+	},
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"MK" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/recroom)
+"MN" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4";
+	tag = "90Curve"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/chem_storage)
+"MU" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/machinery/atmospherics/pipe/simple/visible/universal,
+/turf/simulated/floor/plating,
+/area/chemical_lab/maintenance)
+"MZ" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/space)
+"Ni" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/window/brigdoor/southleft,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_techfloor_grid/diagonal{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_techfloor_grid/diagonal,
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/vault)
+"Nm" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"Nr" = (
+/obj/effect/floor_decal/corner/fadeblue/full,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"ND" = (
+/obj/structure/table/reinforced,
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 10;
+	icon_state = "edge"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/chem_storage)
+"NF" = (
+/obj/effect/floor_decal/floordetail/pryhole,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/chem_storage)
+"NU" = (
+/obj/structure/table/standard,
+/obj/item/storage/firstaid/trauma,
+/obj/item/storage/firstaid/o2,
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/chemical_lab/medical_storage)
+"NW" = (
+/obj/structure/cable/orange{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/orange{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/orange{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating/airless/catwalk,
+/area/space)
+"Oo" = (
+/obj/machinery/camera/network/security{
+	c_tag = "Fourth Deck Staircase";
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/obj/effect/floor_decal/corner/white/diagonal,
+/obj/item/device/radio/intercom{
+	dir = 8;
+	name = "Station Intercom (General)";
+	pixel_x = 22
+	},
+/obj/machinery/light_switch{
+	pixel_x = -23;
+	pixel_y = -10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/turf/simulated/floor/tiled,
+/area/chemical_lab/bathroom)
+"Oq" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1379;
+	icon_state = "closed";
+	id_tag = "solar_bridge_outer";
+	locked = 1;
+	name = "Internal Access";
+	req_access = list("ACCESS_CHEMICAL_LAB_WORKER")
+	},
+/obj/effect/floor_decal/techfloor,
+/obj/effect/floor_decal/techfloor{
+	dir = 1;
+	icon_state = "techfloor_edges"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"OB" = (
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 4;
+	icon_state = "edge"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/chem_storage)
+"OW" = (
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4";
+	tag = "90Curve"
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"OZ" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/item/reagent_containers/dropper,
+/obj/item/stack/material/phoron{
+	amount = 5
+	},
+/obj/effect/floor_decal/corner/yellow/mono,
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"Pc" = (
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/atmospherics/portables_connector{
+	icon_state = "map_connector";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/chemical_lab/hangar)
+"Pk" = (
+/turf/simulated/floor/plating/airless/catwalk,
+/area/space)
+"Pp" = (
+/obj/machinery/power/tracker,
+/turf/simulated/floor/plating/airless/catwalk,
+/area/space)
+"Ps" = (
+/obj/structure/cable{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -25
+	},
+/turf/simulated/floor/blackgrid,
+/area/chemical_lab/vault)
+"PA" = (
+/obj/machinery/camera/network/security{
+	c_tag = "Armory Entrance";
+	dir = 8
+	},
+/obj/item/device/radio/intercom{
+	dir = 8;
+	name = "Station Intercom (General)";
+	pixel_x = 22
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/effect/catwalk_plated/dark,
+/turf/simulated/floor/plating,
+/area/chemical_lab/lockerroom)
+"PC" = (
+/obj/structure/catwalk,
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/plating,
+/area/space)
+"PG" = (
+/obj/effect/floor_decal/corner/yellow/mono,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"PM" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 9;
+	icon_state = "corner_white"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5;
+	icon_state = "intact-scrubbers";
+	tag = "icon-intact-scrubbers (NORTHEAST)"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/supervisor_office)
+"PR" = (
+/obj/item/device/flashlight/lantern,
+/turf/simulated/floor/asteroid,
+/area/space)
+"PU" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4;
+	icon_state = "map_scrubber_on"
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -24;
+	tag = "icon-alarm0 (EAST)"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4";
+	tag = "90Curve"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/chemical_lab/brig)
+"Qb" = (
+/obj/structure/reagent_dispensers/water_cooler,
+/obj/machinery/camera/network/security,
+/obj/machinery/alarm{
+	pixel_y = 16
+	},
+/obj/effect/floor_decal/corner/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/recroom)
+"Qg" = (
+/obj/machinery/door/blast/regular,
+/turf/simulated/wall/r_wall,
+/area/chemical_lab/hangar)
+"Qs" = (
+/turf/simulated/wall/r_wall,
+/area/chemical_lab/airlock)
+"Qv" = (
+/obj/machinery/hologram/holopad,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers";
+	tag = "icon-intact-scrubbers (EAST)"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/chemical_lab/brig)
+"Qx" = (
+/obj/structure/closet,
+/obj/effect/floor_decal/corner/orange/border{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/lockerroom)
+"QM" = (
+/obj/structure/catwalk,
+/obj/structure/handrail{
+	icon_state = "handrail";
+	dir = 4
+	},
+/turf/simulated/floor/asteroid,
+/area/space)
+"QQ" = (
+/obj/item/device/radio/intercom{
+	dir = 8;
+	name = "Station Intercom (General)";
+	pixel_x = 22
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/plating,
+/area/chemical_lab/maintenance)
+"Ro" = (
+/obj/effect/paint/green_grey,
+/turf/simulated/wall,
+/area/chemical_lab/escapeshuttle)
+"Rs" = (
+/turf/simulated/wall/r_wall,
+/area/space)
+"Rx" = (
+/obj/structure/catwalk,
+/obj/machinery/light/small{
+	dir = 1;
+	luminosity = 2
+	},
+/turf/simulated/floor/asteroid,
+/area/space)
+"RC" = (
+/obj/structure/bed/chair/shuttle/blue{
+	dir = 8;
+	icon_state = "shuttle_chair_preview"
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	icon_state = "apc0";
+	req_access = list("ACCESS_NOCTIS");
+	pixel_y = 17
+	},
+/obj/structure/cable{
+	icon_state = "0-4";
+	d2 = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	icon_state = "intact-supply";
+	tag = "icon-intact-supply (SOUTHEAST)"
+	},
+/turf/simulated/floor/tiled,
+/area/chemical_lab/escapeshuttle)
+"RG" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/blackgrid,
+/area/chemical_lab/vault)
+"RY" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/recroom)
+"Sb" = (
+/obj/structure/cable/orange{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/structure/cable/orange{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/orange{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating/airless/catwalk,
+/area/space)
+"Sq" = (
+/obj/effect/decal/cleanable/cobweb{
+	dir = 4;
+	icon_state = "cobweb1";
+	tag = "icon-cobweb1 (EAST)"
+	},
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/techmaint,
+/area/space)
+"Sy" = (
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 8;
+	icon_state = "railing0-1"
+	},
+/obj/structure/railing/mapped{
+	color = "#b95a00";
+	dir = 1;
+	icon_state = "railing0-1"
+	},
+/turf/simulated/open,
+/area/chemical_lab/supervisor_office)
+"SV" = (
+/obj/machinery/door/window{
+	dir = 8;
+	req_access = list("ACCESS_CHEMICAL_LAB_WORKER");
+	name = "Chemical Storage"
+	},
+/obj/effect/floor_decal/corner/yellow/border{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers";
+	tag = "icon-intact-scrubbers (EAST)"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply";
+	tag = "icon-intact-supply (EAST)"
+	},
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"SW" = (
+/obj/item/stool,
+/obj/item/stack/cable_coil/yellow,
+/turf/simulated/floor/plating,
+/area/space)
+"Tv" = (
+/obj/effect/floor_decal/corner/yellow/mono,
+/obj/structure/sign/warning/nosmoking_1{
+	dir = 8;
+	icon_state = "nosmoking";
+	pixel_x = 32
+	},
+/obj/machinery/disposal,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/disposalpipe/trunk,
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"Tw" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"Ty" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers";
+	tag = "icon-intact-scrubbers (EAST)"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply";
+	tag = "icon-intact-supply (EAST)"
+	},
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"TE" = (
+/obj/effect/catwalk_plated/dark,
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8";
+	tag = ""
+	},
+/turf/simulated/floor/plating,
+/area/chemical_lab/escapeshuttle)
+"Uv" = (
+/obj/structure/closet,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
+/obj/effect/floor_decal/corner/orange/border{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/lockerroom)
+"UG" = (
+/obj/machinery/vending/assist,
+/obj/machinery/light_switch{
+	pixel_y = -25
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/space)
+"UL" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 10
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/supervisor_office)
+"UN" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/structure/table/rack,
+/obj/item/stack/material/plasteel/fifty,
+/obj/item/storage/toolbox/mechanical,
+/turf/simulated/floor/tiled/techmaint,
+/area/space)
+"UO" = (
+/obj/effect/catwalk_plated,
+/obj/machinery/power/smes/buildable/outpost_substation,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	icon_state = "intact";
+	dir = 9
+	},
+/obj/structure/cable,
+/obj/effect/catwalk_plated/dark,
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/escapeshuttle)
+"UX" = (
+/obj/structure/table/standard,
+/obj/item/storage/firstaid/regular{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/storage/firstaid/toxin,
+/obj/random/medical/lite,
+/obj/item/storage/firstaid/fire,
+/obj/structure/catwalk,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4";
+	tag = "90Curve"
+	},
+/obj/machinery/light/small/red,
+/turf/simulated/floor/plating,
+/area/chemical_lab/medical_storage)
+"UY" = (
+/obj/machinery/door/window/brigdoor/northleft{
+	name = "Security Office";
+	req_access = list("ACCESS_SECURITY")
+	},
+/obj/machinery/door/window/brigdoor/southright{
+	name = "Security Office";
+	req_access = list("ACCESS_SECURITY")
+	},
+/obj/structure/table/reinforced,
+/obj/item/paper_bin,
+/obj/item/pen,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/chemical_lab/supervisor_office)
+"UZ" = (
+/turf/simulated/floor/asteroid,
+/area/space)
+"Vz" = (
+/turf/simulated/floor/tiled/techmaint,
+/area/space)
+"VK" = (
+/obj/structure/dispenser/oxygen,
+/obj/effect/floor_decal/industrial/outline/blue,
+/turf/simulated/floor/tiled/techmaint,
+/area/space)
+"VU" = (
+/obj/structure/hygiene/toilet{
+	dir = 8;
+	icon_state = "toilet00"
+	},
+/obj/effect/floor_decal/corner/white/diagonal,
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled,
+/area/chemical_lab/bathroom)
+"We" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/vault_corridor)
+"Xi" = (
+/obj/structure/cable/orange{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/plating/airless/catwalk,
+/area/space)
+"Xo" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/tiled/techmaint,
+/area/space)
+"Xz" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/blackgrid,
+/area/chemical_lab/vault)
+"XV" = (
+/turf/simulated/wall,
+/area/chemical_lab/vault)
+"XZ" = (
+/obj/structure/cable/orange{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/orange{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating/airless/catwalk,
+/area/space)
+"Yk" = (
+/obj/machinery/door/airlock/hatch/maintenance,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/plating,
+/area/chemical_lab/maintenance)
+"Yr" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4;
+	icon_state = "map_scrubber_on"
+	},
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"Yz" = (
+/obj/machinery/power/apc{
+	dir = 1;
+	pixel_y = 18
+	},
+/obj/machinery/power/terminal{
+	dir = 1;
+	icon_state = "term"
+	},
+/obj/structure/cable/yellow{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/structure/cable/yellow{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"YN" = (
+/obj/structure/table/reinforced,
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 1;
+	icon_state = "edge"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/chem_storage)
+"YQ" = (
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"YX" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/recroom)
+"Zm" = (
+/obj/effect/floor_decal/corner/yellow/border{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/white,
+/area/chemical_lab/labwing)
+"Zp" = (
+/obj/item/bedsheet/red,
+/obj/structure/bed/nice,
+/obj/machinery/camera/network/security,
+/obj/machinery/power/apc{
+	dir = 1;
+	pixel_y = 18
+	},
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/chemical_lab/brig)
+"ZF" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 9;
+	icon_state = "corner_white"
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/supervisor_office)
+"ZR" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply";
+	tag = "icon-intact-supply (EAST)"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/hangar)
+
+(1,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(2,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(3,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(4,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(5,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(6,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(7,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(8,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+cM
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(9,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(10,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(11,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+cM
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(12,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(13,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(14,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(15,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(16,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(17,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(18,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(19,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(20,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(21,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(22,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+CX
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(23,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(24,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(25,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+UZ
+UZ
+UZ
+UZ
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(26,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+UZ
+UZ
+UZ
+UZ
+UZ
+UZ
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(27,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+UZ
+UZ
+UZ
+UZ
+UZ
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(28,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+UZ
+UZ
+UZ
+UZ
+UZ
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(29,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+UZ
+UZ
+UZ
+UZ
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(30,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+UZ
+UZ
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+CX
+CX
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(31,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+UZ
+UZ
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+UZ
+UZ
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+Ay
+Ay
+Ay
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(32,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+UZ
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+UZ
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(33,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+UZ
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+Ay
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+UZ
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+UZ
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(34,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+Ay
+Ay
+UZ
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+UZ
+UZ
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+UZ
+UZ
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(35,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+UZ
+UZ
+CX
+CX
+Ay
+Ay
+Ay
+UZ
+UZ
+CX
+CX
+Ay
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+UZ
+UZ
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(36,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+UZ
+UZ
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(37,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+UZ
+UZ
+UZ
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+UZ
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(38,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+UZ
+UZ
+PR
+UZ
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(39,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+UZ
+UZ
+UZ
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(40,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+UZ
+Ay
+UZ
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(41,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+CX
+CX
+Ay
+CX
+CX
+CX
+CX
+CX
+Ay
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(42,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(43,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+CX
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(44,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+CX
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(45,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+CX
+CX
+CX
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(46,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(47,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(48,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+Ay
+CX
+CX
+CX
+CX
+CX
+Ay
+CX
+CX
+Ay
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(49,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+Ay
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(50,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+Ay
+Ay
+Ay
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+Ay
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(51,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(52,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+CX
+CX
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(53,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(54,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+Ay
+CX
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(55,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(56,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(57,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+Ay
+Ay
+CX
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(58,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+Ay
+CX
+Ay
+Ay
+Ay
+UZ
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(59,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+UZ
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(60,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(61,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+CX
+CX
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(62,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Rs
+Rs
+Rs
+Rs
+Rs
+Rs
+Rs
+Rs
+Rs
+Rs
+Rs
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+UZ
+UZ
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(63,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Rs
+yX
+yX
+yX
+yX
+yX
+yX
+yX
+yX
+yX
+Rs
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+CX
+CX
+Ay
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(64,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+CX
+CX
+CX
+Ay
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Rs
+yX
+Qg
+Qg
+Qg
+Qg
+Qg
+Qg
+yX
+yX
+Rs
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+UZ
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(65,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Rs
+yX
+vg
+vg
+vg
+vg
+vg
+vg
+yX
+yX
+Rs
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+UZ
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(66,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Rs
+yX
+vg
+Ro
+yT
+yT
+Ro
+vg
+yX
+yX
+Rs
+Ay
+Ay
+Ay
+Rs
+Rs
+Rs
+Rs
+Rs
+Rs
+Rs
+Rs
+Rs
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+UZ
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+UZ
+UZ
+UZ
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(67,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Rs
+yX
+vg
+yT
+Dc
+xe
+Ro
+vg
+Pc
+yX
+Rs
+Ay
+Ay
+Ay
+Rs
+gO
+gO
+gO
+gO
+gO
+gO
+Rs
+Rs
+Rs
+Rs
+Rs
+Rs
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+UZ
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+UZ
+UZ
+UZ
+UZ
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(68,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Rs
+yX
+vg
+Ro
+RC
+qV
+pK
+qK
+Ia
+yX
+Rs
+Ay
+Ay
+Ay
+Rs
+gO
+KE
+uH
+GI
+Dy
+ND
+lu
+lu
+lu
+lu
+Rs
+Rs
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+UZ
+UZ
+UZ
+UZ
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(69,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Rs
+yX
+vg
+yT
+xX
+Hg
+Ro
+Jg
+mK
+yX
+Rs
+Rs
+Rs
+Rs
+Rs
+gO
+YN
+sL
+MN
+NF
+Eu
+lu
+oP
+qs
+aP
+Rs
+Rs
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+UZ
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(70,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Rs
+yX
+vg
+ur
+TE
+UO
+ur
+fV
+yX
+dO
+dO
+dO
+dO
+Rs
+Rs
+gO
+Gp
+IH
+Dk
+OB
+cz
+ir
+fH
+co
+JC
+Rs
+Rs
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(71,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Rs
+yX
+vg
+pH
+ry
+ry
+pH
+ZR
+yX
+dO
+Zp
+PU
+lL
+UZ
+kz
+oX
+lU
+ox
+SV
+Hn
+sb
+lu
+lu
+lu
+lu
+Rs
+Rs
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(72,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Rs
+yX
+vg
+vg
+gd
+Dl
+bM
+Mc
+yX
+dO
+dd
+Qv
+lL
+UZ
+kz
+IU
+YQ
+YQ
+GB
+OW
+Dt
+DY
+yy
+UX
+Rs
+Rs
+Rs
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(73,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Rs
+yX
+yX
+yX
+yX
+yX
+cD
+Dz
+Rs
+dO
+dO
+rk
+qq
+Rs
+lv
+IU
+YQ
+fX
+YQ
+eM
+wA
+qc
+NU
+FL
+Rs
+Rs
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+CX
+CX
+CX
+Ay
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+Ay
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+CX
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(74,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Rs
+sv
+sv
+sv
+XV
+Rs
+cD
+Gq
+Rs
+vM
+tk
+ZF
+PM
+ym
+Kd
+IU
+ma
+uq
+OZ
+MG
+rQ
+qc
+qc
+qc
+Rs
+Rs
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(75,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Rs
+sv
+ua
+Ps
+yD
+cD
+cD
+nE
+LM
+vM
+gx
+ES
+fe
+xn
+UY
+IU
+Yr
+eV
+YQ
+MG
+ka
+xy
+Ay
+Ay
+Ay
+Rs
+Rs
+Rs
+Rs
+Rs
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+Ay
+Ay
+Ay
+CX
+CX
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(76,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+BS
+ce
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Rs
+sv
+cy
+jw
+RG
+rG
+We
+HE
+HZ
+GZ
+cJ
+iW
+iz
+FI
+vh
+Zm
+ad
+Tw
+Tw
+lb
+fP
+sf
+sf
+sf
+sf
+sf
+sf
+sf
+sf
+Rs
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+UZ
+UZ
+UZ
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(77,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+CX
+wi
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Rs
+sv
+Ni
+Xz
+bu
+cD
+cD
+cD
+cD
+vM
+dp
+UL
+Sy
+LH
+vM
+cG
+Li
+eV
+YQ
+MG
+dN
+sf
+eu
+Uv
+Qx
+Qx
+bx
+Hh
+sf
+Rs
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+UZ
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(78,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Rs
+sv
+sv
+sv
+sv
+Rs
+Rs
+Rs
+Rs
+vM
+pw
+nz
+CN
+CN
+CN
+IU
+ma
+uq
+OZ
+Ty
+Dt
+wn
+nF
+cL
+nF
+nF
+nF
+dT
+sf
+Rs
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+UZ
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(79,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Rs
+Rs
+Rs
+Rs
+Rs
+Rs
+Rs
+Rs
+Rs
+vM
+hp
+pC
+CN
+YQ
+YQ
+IU
+YQ
+fX
+YQ
+BC
+tZ
+po
+fo
+fo
+PA
+bZ
+cQ
+kQ
+sf
+Rs
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+UZ
+UZ
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(80,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Rs
+Rs
+vM
+vM
+vM
+vM
+xy
+xy
+Tv
+yA
+kS
+gC
+no
+PG
+sf
+xu
+xu
+sf
+ek
+vk
+sf
+sf
+Rs
+Ay
+Cf
+UZ
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+UZ
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(81,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Rs
+lu
+lu
+lu
+AB
+AB
+AB
+AB
+Ki
+Ki
+uO
+an
+Ki
+lu
+lu
+lu
+lu
+Qs
+rz
+eo
+Qs
+kC
+QM
+UZ
+UZ
+UZ
+UZ
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+UZ
+UZ
+UZ
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(82,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Rs
+Rs
+lu
+id
+qb
+Iz
+uc
+Oo
+pr
+xq
+bE
+YX
+Cv
+Bj
+lu
+iM
+JF
+tB
+Qs
+jU
+tT
+sN
+qP
+UZ
+UZ
+UZ
+UZ
+UZ
+UZ
+UZ
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+UZ
+UZ
+UZ
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(83,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Rs
+Rs
+Rs
+lu
+Az
+oA
+wx
+Ew
+wx
+oM
+Ki
+Mm
+Lw
+my
+RY
+Yk
+QQ
+wO
+Lc
+Qs
+cK
+rJ
+eo
+BH
+qP
+Ay
+UZ
+UZ
+UZ
+Ay
+UZ
+UZ
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+kL
+kL
+kL
+kL
+kL
+kL
+Ay
+Ay
+Ay
+Ay
+UZ
+UZ
+UZ
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(84,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Rs
+hF
+jX
+lu
+Bx
+lu
+wx
+BJ
+wx
+VU
+Ki
+Qb
+IY
+gb
+mf
+Ki
+Rs
+Rs
+Rs
+Rs
+Rs
+Rs
+Rs
+Rs
+Rs
+Ay
+Ay
+UZ
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+kL
+kL
+JP
+UG
+Xo
+UN
+kL
+Ay
+Ay
+Ay
+Ay
+UZ
+UZ
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(85,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Rs
+KG
+rh
+um
+qG
+lu
+kL
+kL
+kL
+kL
+Ki
+CB
+yo
+MK
+It
+Ki
+Rs
+Rs
+Rs
+Rs
+Rs
+Rs
+Rs
+Rs
+Rs
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+kL
+vB
+Vz
+Eh
+Eh
+tq
+kL
+Ay
+Ay
+Ay
+qP
+UZ
+UZ
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(86,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Rs
+Dv
+lB
+gL
+tg
+lu
+Rs
+Rs
+Rs
+Rs
+Ki
+op
+rs
+oi
+AP
+Ki
+Rs
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+kL
+og
+mU
+Eh
+ta
+Bf
+kL
+kL
+kL
+kL
+Rx
+qP
+UZ
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(87,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Rs
+kx
+KS
+MU
+qu
+lu
+Ay
+Ay
+Ay
+Rs
+Ki
+Ki
+Ki
+Ki
+Ki
+Ki
+Rs
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+kL
+Vz
+Eh
+Eh
+Eh
+CW
+DZ
+lY
+zx
+kL
+lX
+qP
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(88,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Rs
+lu
+lu
+lu
+lu
+lu
+Ay
+Ay
+Ay
+Rs
+Rs
+Rs
+Rs
+Rs
+Rs
+Rs
+Rs
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+kL
+Vz
+Vz
+Vz
+Fy
+wL
+kL
+Gs
+Lg
+qn
+qP
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(89,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+kL
+Vz
+Vz
+Vz
+Vz
+wL
+kL
+kL
+kL
+kL
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(90,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+kL
+Nr
+Vz
+rN
+VK
+wL
+kL
+nK
+PC
+kL
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(91,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+CX
+Ay
+Ay
+Ay
+Ay
+kL
+kJ
+MZ
+cY
+cY
+Hr
+eq
+hD
+cp
+kL
+Ay
+Ay
+Ay
+Ay
+CX
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(92,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+kL
+kL
+uG
+Vz
+dZ
+ta
+kL
+Ga
+kL
+kL
+kL
+Ay
+Ay
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(93,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+kL
+KF
+kL
+kL
+kL
+kL
+tN
+Cq
+FP
+kL
+Ay
+Ay
+CX
+CX
+CX
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(94,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+kL
+uG
+og
+og
+Sq
+kL
+Yz
+uY
+SW
+kL
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(95,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+kL
+KM
+qN
+qN
+Lf
+kL
+GY
+Nm
+uR
+kL
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(96,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+kL
+uU
+Ir
+og
+og
+kL
+Fb
+Oq
+Fb
+kL
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(97,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+kL
+kL
+kL
+kL
+kL
+kL
+Fb
+vQ
+Fb
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(98,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+Fb
+wC
+Fb
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(99,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+Bk
+Pk
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(100,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+Ay
+CX
+Pk
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(101,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+Ay
+Ay
+CX
+Pk
+Pk
+Pk
+Pk
+Xi
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(102,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+Dx
+Xi
+jS
+CX
+Dx
+iI
+jS
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(103,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Ay
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Dx
+NW
+jS
+CX
+Dx
+iI
+jS
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(104,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Dx
+NW
+jS
+CX
+Dx
+pb
+jS
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(105,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Dx
+qX
+jS
+CX
+Dx
+iI
+jS
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(106,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Dx
+NW
+jS
+CX
+Dx
+iI
+jS
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(107,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Dx
+NW
+jS
+CX
+Dx
+Sb
+jS
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(108,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Dx
+NW
+jS
+CX
+Dx
+iI
+jS
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(109,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Dx
+XZ
+jS
+CX
+Dx
+rw
+jS
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(110,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+Pp
+CX
+CX
+CX
+Pp
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(111,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(112,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(113,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(114,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(115,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(116,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(117,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(118,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(119,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
+(120,1,1) = {"
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+CX
+"}
