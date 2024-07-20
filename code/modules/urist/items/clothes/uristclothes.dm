@@ -1778,3 +1778,9 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 		/obj/item/flame/lighter,
 		/obj/item/device/taperecorder
 	)
+	armor = list(
+		melee = ARMOR_MELEE_KNIVES,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR
+		)
