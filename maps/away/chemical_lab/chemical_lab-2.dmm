@@ -122,12 +122,14 @@
 /turf/simulated/floor/plating,
 /area/chemical_lab/maintenance)
 "cp" = (
-/obj/machinery/portable_atmospherics/canister/air,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
+/obj/structure/lattice,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "32-8";
+	dir = 8
 	},
-/obj/structure/catwalk,
-/turf/simulated/floor/plating,
+/turf/simulated/open,
 /area/chemical_lab/farmanhack)
 "cy" = (
 /obj/structure/boarding/self_destruct,
@@ -318,7 +320,6 @@
 /turf/simulated/floor/plating,
 /area/chemical_lab/airlock)
 "eq" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 2;
@@ -550,8 +551,6 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/supervisor_office)
 "hD" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
-/obj/machinery/atmospherics/binary/pump/on,
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 4;
@@ -561,6 +560,11 @@
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/chemical_lab/farmanhack)
@@ -984,7 +988,7 @@
 /area/chemical_lab/farmanhack)
 "og" = (
 /obj/structure/table/reinforced,
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/tiled/steel_ridged,
 /area/chemical_lab/farstorage)
 "oi" = (
 /obj/item/device/radio/intercom{
@@ -1516,6 +1520,9 @@
 /turf/simulated/floor/plating,
 /area/chemical_lab/maintenance)
 "tN" = (
+/obj/item/device/radio/intercom{
+	pixel_y = 24
+	},
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 4;
@@ -1604,7 +1611,7 @@
 	d2 = 4;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/tiled/steel_ridged,
 /area/chemical_lab/farstorage)
 "uH" = (
 /obj/structure/table/reinforced,
@@ -1631,20 +1638,17 @@
 /turf/simulated/floor/tiled/white,
 /area/chemical_lab/labwing)
 "uR" = (
-/obj/structure/cable/orange,
-/obj/machinery/power/solar_control{
-	id = "auxsolarbridge";
-	name = "Main Solar Control";
-	track = 1
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
 	},
-/obj/structure/sign/warning/secure_area{
-	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
-	icon_state = "space";
-	layer = 9;
-	name = "EXTERNAL AIRLOCK";
-	pixel_x = 32;
-	pixel_y = 0
+/obj/machinery/alarm{
+	dir = 1;
+	icon_state = "alarm0";
+	pixel_y = -22
 	},
+/obj/structure/cable/yellow,
+/obj/machinery/power/solar_control,
 /turf/simulated/floor/plating,
 /area/chemical_lab/farsolar)
 "uU" = (
@@ -1656,13 +1660,22 @@
 	},
 /obj/machinery/light,
 /obj/structure/table/reinforced,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/steel_ridged,
 /area/chemical_lab/farstorage)
 "uY" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/binary/pump/on{
+	dir = 4;
+	target_pressure = 200
 	},
 /turf/simulated/floor/plating,
 /area/chemical_lab/farsolar)
@@ -1737,6 +1750,14 @@
 	dir = 1;
 	icon_state = "techfloor_edges"
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+	dir = 8;
+	id_tag = "eva_pump"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning,
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 4;
@@ -1771,18 +1792,13 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "wC" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1379;
-	icon_state = "closed";
-	id_tag = "solar_bridge_inner";
-	locked = 1;
-	name = "External Access";
-	req_access = list("ACCESS_CHEMICAL_LAB_WORKER")
-	},
 /obj/effect/floor_decal/techfloor,
 /obj/effect/floor_decal/techfloor{
 	dir = 1;
 	icon_state = "techfloor_edges"
+	},
+/obj/machinery/door/airlock/external/bolted/cycling{
+	id_tag = "chem_in"
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -1895,6 +1911,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/chemical_lab/escapeshuttle)
+"yc" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/mob/living/simple_animal/hostile/viscerator,
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/farstorage)
 "ym" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 9;
@@ -1977,6 +2002,12 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	dir = 1
 	},
+/obj/machinery/power/apc{
+	cell_type = /obj/item/cell/high;
+	dir = 2;
+	name = "south bump";
+	pixel_y = -24
+	},
 /turf/simulated/floor/plating,
 /area/chemical_lab/farair)
 "zF" = (
@@ -2012,6 +2043,10 @@
 "AB" = (
 /turf/simulated/wall/r_wall,
 /area/chemical_lab/bathroom)
+"AE" = (
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/farengi)
 "AP" = (
 /obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor/lino,
@@ -2025,6 +2060,9 @@
 /obj/machinery/access_button{
 	pixel_y = -24;
 	pixel_x = 6
+	},
+/obj/machinery/light_switch{
+	pixel_y = -25
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/chemical_lab/farengi)
@@ -2114,7 +2152,9 @@
 /turf/simulated/floor/asteroid,
 /area/space)
 "Cq" = (
-/obj/machinery/atmospherics/binary/pump/on,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
 /turf/simulated/floor/plating,
 /area/chemical_lab/farsolar)
 "Cv" = (
@@ -2320,8 +2360,11 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/supervisor_office)
 "Fb" = (
-/obj/effect/wallframe_spawn/reinforced,
-/turf/simulated/floor/plating,
+/obj/structure/sign/warning/airlock{
+	dir = 8;
+	icon_state = "doors"
+	},
+/turf/simulated/wall,
 /area/chemical_lab/farsolar)
 "Fy" = (
 /obj/item/stack/tile/techmaint,
@@ -2372,21 +2415,18 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
+/obj/machinery/light/small,
 /turf/simulated/floor/plating,
 /area/chemical_lab/farsolar)
 "Ga" = (
-/obj/machinery/door/airlock/engineering{
-	icon_state = "closed";
-	locked = 0;
-	name = "Aft Solar Access";
-	req_access = list("ACCESS_CHEMICAL_LAB_WORKER")
-	},
+/obj/effect/floor_decal/rust,
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 4;
 	icon_state = "4-8"
 	},
-/turf/simulated/wall,
+/obj/machinery/door/airlock/hatch/maintenance,
+/turf/simulated/floor/plating,
 /area/chemical_lab/farsolar)
 "Gp" = (
 /obj/structure/table/reinforced,
@@ -2450,15 +2490,20 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "GY" = (
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
+/obj/machinery/power/smes/buildable,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
 	},
-/obj/machinery/power/smes/buildable{
-	RCon_tag = "Solar - Main";
-	capacity = 1e+007;
-	charge = 0
+/obj/machinery/access_button/airlock_interior{
+	master_tag = "chem";
+	pixel_x = 24;
+	pixel_y = -6
+	},
+/obj/structure/cable{
+	d1 = 0;
+	d2 = 8;
+	icon_state = "0-8"
 	},
 /obj/structure/cable/yellow{
 	d2 = 2;
@@ -2525,10 +2570,6 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "Hr" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 10;
-	icon_state = "intact"
-	},
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 2;
@@ -2540,6 +2581,10 @@
 	icon_state = "1-8"
 	},
 /obj/effect/decal/cleanable/blood/splatter,
+/obj/machinery/atmospherics/binary/pump/on{
+	dir = 8;
+	target_pressure = 200
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/chemical_lab/farengi)
 "HE" = (
@@ -2597,7 +2642,7 @@
 /obj/item/clothing/gloves/insulated/cheap,
 /obj/item/crowbar,
 /obj/structure/table/reinforced,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/steel_ridged,
 /area/chemical_lab/farstorage)
 "It" = (
 /obj/structure/table/standard,
@@ -2716,6 +2761,9 @@
 /area/chemical_lab/recroom)
 "Kk" = (
 /obj/structure/table/reinforced,
+/obj/item/device/radio/intercom{
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/chemical_lab/farengi)
 "KE" = (
@@ -2745,7 +2793,7 @@
 	req_access = list("ACCESS_CHEMICAL_LAB_WORKER");
 	secured_wires = 1
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/steel_ridged,
 /area/chemical_lab/farengi)
 "KG" = (
 /turf/simulated/floor/plating,
@@ -2914,15 +2962,27 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/chemical_lab/vault)
 "Nm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
 /obj/structure/cable/yellow{
-	d1 = 1;
+	d1 = 2;
 	d2 = 4;
-	icon_state = "1-8"
+	icon_state = "2-4"
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 4;
 	icon_state = "4-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
 /area/chemical_lab/farsolar)
@@ -2950,6 +3010,13 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/chemical_lab/chem_storage)
+"NP" = (
+/obj/machinery/firealarm{
+	dir = 2;
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/farengi)
 "NU" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/trauma,
@@ -3002,18 +3069,16 @@
 /turf/simulated/floor/tiled,
 /area/chemical_lab/bathroom)
 "Oq" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1379;
-	icon_state = "closed";
-	id_tag = "solar_bridge_outer";
-	locked = 1;
-	name = "Internal Access";
-	req_access = list("ACCESS_CHEMICAL_LAB_WORKER")
-	},
 /obj/effect/floor_decal/techfloor,
 /obj/effect/floor_decal/techfloor{
 	dir = 1;
 	icon_state = "techfloor_edges"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/door/airlock/external/bolted/cycling{
+	id_tag = "chem_in"
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -3036,6 +3101,12 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/chemical_lab/chem_storage)
+"OV" = (
+/obj/structure/cable/orange{
+	dir = 4
+	},
+/turf/simulated/floor/plating/airless/catwalk,
+/area/chemical_lab/farsolarpanel)
 "OW" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
@@ -3117,8 +3188,9 @@
 /turf/simulated/floor/plating,
 /area/chemical_lab/lockerroom)
 "PC" = (
-/obj/structure/catwalk,
-/obj/structure/closet/emcloset,
+/obj/structure/ladder,
+/obj/structure/ladder,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/chemical_lab/farmanhack)
 "PG" = (
@@ -3336,7 +3408,7 @@
 	tag = "icon-cobweb1 (EAST)"
 	},
 /obj/structure/table/reinforced,
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/tiled/steel_ridged,
 /area/chemical_lab/farstorage)
 "Sy" = (
 /obj/structure/railing/mapped{
@@ -3351,6 +3423,13 @@
 	},
 /turf/simulated/open,
 /area/chemical_lab/supervisor_office)
+"SC" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor/plating,
+/area/chemical_lab/farengi)
 "SV" = (
 /obj/machinery/door/window{
 	dir = 8;
@@ -3383,8 +3462,14 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "SW" = (
-/obj/item/stool,
-/obj/item/stack/cable_coil/yellow,
+/obj/machinery/light/small,
+/obj/machinery/power/apc{
+	cell_type = /obj/item/cell/high;
+	dir = 2;
+	name = "south bump";
+	pixel_y = -24
+	},
+/obj/structure/cable/yellow,
 /turf/simulated/floor/plating,
 /area/chemical_lab/farsolar)
 "Tv" = (
@@ -3477,9 +3562,6 @@
 /area/chemical_lab/labwing)
 "UG" = (
 /obj/machinery/vending/assist,
-/obj/machinery/light_switch{
-	pixel_y = -25
-	},
 /turf/simulated/floor/tiled/techmaint,
 /area/chemical_lab/farengi)
 "UL" = (
@@ -3654,21 +3736,25 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "Yz" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	pixel_y = 18
-	},
 /obj/machinery/power/terminal{
+	dir = 4
+	},
+/obj/machinery/light/small{
 	dir = 1;
-	icon_state = "term"
+	icon_state = "bulb1"
+	},
+/obj/machinery/firealarm{
+	dir = 2;
+	pixel_y = 24
 	},
 /obj/structure/cable/yellow{
 	d2 = 8;
 	icon_state = "0-8"
 	},
 /obj/structure/cable/yellow{
-	d2 = 2;
-	icon_state = "0-2"
+	d1 = 1;
+	d2 = 4;
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/plating,
 /area/chemical_lab/farsolar)
@@ -14340,7 +14426,7 @@ Ay
 Ay
 Ay
 vj
-Vz
+NP
 Eh
 Eh
 Eh
@@ -14462,7 +14548,7 @@ Ay
 Ay
 Ay
 vj
-Vz
+AE
 Vz
 Vz
 Fy
@@ -14952,9 +15038,9 @@ Ay
 vj
 vj
 nr
-Vz
+Fy
 dZ
-ta
+SC
 Qd
 Ga
 Qd
@@ -15318,7 +15404,7 @@ Ay
 Ay
 Nt
 KM
-qN
+yc
 qN
 Lf
 Qd
@@ -15444,7 +15530,7 @@ Ir
 og
 og
 Qd
-Fb
+Qd
 Oq
 Fb
 Qd
@@ -15566,9 +15652,9 @@ Nt
 Nt
 Nt
 Qd
-Fb
+Qd
 vQ
-Fb
+Qd
 CX
 CX
 CX
@@ -15688,9 +15774,9 @@ Ay
 Ay
 Ay
 CX
-Fb
+Qd
 wC
-Fb
+Qd
 CX
 CX
 CX
@@ -15811,7 +15897,7 @@ Ay
 Ay
 CX
 Bk
-Pk
+OV
 CX
 CX
 CX
