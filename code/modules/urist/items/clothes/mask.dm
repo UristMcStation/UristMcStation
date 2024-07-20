@@ -140,9 +140,11 @@
 	desc = "A cheap green cigar often smoked by disheveled detectives, often picked up from the nearest supermarket."
 	type_butt = /obj/item/trash/cigbutt/cigarbutt
 	throw_speed = 0.5
-//	icon = ''
-//	icon_state = ''
-	item_state = "cigaroff"
+	icon = 'icons/urist/items/clothes/masks.dmi'
+	icon_state = "cigargreenoff"
+	item_state = "cigargreenoff"
+	icon_override = 'icons/uristmob/mask.dmi'
+	icon_on = "cigargreenon"
 	smoketime = 1200
 	chem_volume = 15
 	matchmes = "<span class='notice'>USER effortlessly lights their NAME with their FLAME.</span>"
