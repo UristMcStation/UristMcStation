@@ -1757,7 +1757,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 
 /obj/item/clothing/suit/urist/raincoat
 	name = "tan raincoat"
-	desc = "A tan raincoat, often worn by disheveled detectives trying to solve another homicide case. It looks well worn."
+	desc = "A tan scuffy raincoat, often worn by disheveled detectives trying to solve another homicide case."
 	icon_state = "raincoat"
 	item_state = "raincoat"
 	valid_accessory_slots = list(ACCESSORY_SLOT_INSIGNIA)

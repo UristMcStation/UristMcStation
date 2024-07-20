@@ -140,6 +140,8 @@
 	desc = "A cheap green cigar often smoked by disheveled detectives, often picked up from the nearest supermarket."
 	type_butt = /obj/item/trash/cigbutt/cigarbutt
 	throw_speed = 0.5
+//	icon = ''
+//	icon_state = ''
 	item_state = "cigaroff"
 	smoketime = 1200
 	chem_volume = 15
@@ -147,6 +149,6 @@
 	lightermes = "<span class='notice'>USER disrespects their NAME by lighting it with FLAME.</span>"
 	zippomes = "<span class='rose'>With a flick of their wrist, USER lights their NAME with their FLAME like a true detective.</span>"
 	weldermes = "<span class='notice'>USER insults NAME by lighting it with FLAME.</span>"
-	ignitermes = "<span class='notice'>USER fiddles with FLAME, and manages to light their NAME with the power of scien.</span>"
+	ignitermes = "<span class='notice'>USER fiddles with FLAME, and manages to light their NAME with the power of science.</span>"
 	brand = null
 	filling = list(/datum/reagent/tobacco/fine = 5)
