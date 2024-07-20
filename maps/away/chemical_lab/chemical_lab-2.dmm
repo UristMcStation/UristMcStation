@@ -15,7 +15,7 @@
 	dir = 8;
 	icon_state = "map-supply"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "an" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -47,6 +47,15 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/chemical_lab/maintenance)
+"bn" = (
+/obj/item/stool,
+/obj/effect/submap_landmark/spawnpoint/lab_worker,
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 4;
+	icon_state = "edge"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/chemical_lab/labwing)
 "bu" = (
 /obj/item/storage/box/ammo/shotgunshells,
 /obj/structure/table/reinforced,
@@ -58,6 +67,8 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_techfloor_grid/diagonal,
+/obj/item/storage/box/ammo/shotgunammo,
+/obj/item/gun/projectile/shotgun/pump,
 /turf/simulated/floor/tiled/techmaint,
 /area/chemical_lab/vault)
 "bx" = (
@@ -74,7 +85,6 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/chemical_lab/lockerroom)
 "bE" = (
-/obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -86,7 +96,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/lino,
 /area/chemical_lab/recroom)
 "bM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -118,10 +128,10 @@
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
-/area/space)
+/area/chemical_lab/farmanhack)
 "cy" = (
-/obj/machinery/nuclearbomb/station,
-/turf/simulated/floor/blackgrid,
+/obj/structure/boarding/self_destruct,
+/turf/simulated/floor/bluegrid,
 /area/chemical_lab/vault)
 "cz" = (
 /obj/effect/floor_decal/floordetail/edgedrain{
@@ -141,9 +151,6 @@
 /turf/simulated/wall/r_wall,
 /area/chemical_lab/vault_corridor)
 "cG" = (
-/obj/effect/floor_decal/corner/yellow/border{
-	dir = 1
-	},
 /obj/machinery/requests_console{
 	pixel_y = 28
 	},
@@ -151,7 +158,11 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 1;
+	icon_state = "edge"
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "cJ" = (
 /obj/effect/floor_decal/corner/black{
@@ -169,7 +180,7 @@
 	icon_state = "map-supply"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/supervisor_office)
 "cK" = (
 /obj/machinery/airlock_sensor{
@@ -188,9 +199,9 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/rust,
-/obj/machinery/light/small/red{
-	dir = 1;
-	icon_state = "firelight1"
+/obj/machinery/light/small{
+	dir = 4;
+	luminosity = 2
 	},
 /turf/simulated/floor/plating,
 /area/chemical_lab/airlock)
@@ -225,7 +236,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/chemical_lab/farengi)
 "dd" = (
 /obj/structure/closet/secure_closet/brig{
 	id = "Cell 1";
@@ -234,6 +245,7 @@
 /obj/machinery/flasher{
 	pixel_y = 32
 	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
 /area/chemical_lab/brig)
 "dp" = (
@@ -248,8 +260,21 @@
 	pixel_y = 16
 	},
 /obj/item/device/flashlight/lamp/green,
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/supervisor_office)
+"dF" = (
+/obj/effect/catwalk_plated/dark,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	tag = ""
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/chemical_lab/lockerroom)
 "dN" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/syringes,
@@ -257,8 +282,8 @@
 	desc = "Someone has crossed out the 'Space' from Space Cleaner and written in Chemistry. Scrawled on the back is, 'Okay, whoever filled this with polytrinic acid, it was only funny the first time. It was hard enough replacing the CMO's first cat!'";
 	name = "Chemistry Cleaner"
 	},
-/obj/effect/floor_decal/corner/yellow/mono,
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/floordetail/edgedrain,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "dO" = (
 /turf/simulated/wall/r_wall,
@@ -278,7 +303,7 @@
 "dZ" = (
 /obj/effect/decal/remains,
 /turf/simulated/floor/plating,
-/area/space)
+/area/chemical_lab/farengi)
 "ek" = (
 /obj/effect/catwalk_plated/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -307,7 +332,7 @@
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/simulated/floor/plating,
-/area/space)
+/area/chemical_lab/farmanhack)
 "eu" = (
 /obj/structure/closet,
 /obj/machinery/alarm{
@@ -344,12 +369,16 @@
 	icon_state = "intact-supply";
 	tag = "icon-intact-supply (EAST)"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "eV" = (
 /obj/item/stool,
 /obj/effect/submap_landmark/spawnpoint/lab_worker,
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 8;
+	icon_state = "edge"
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "fe" = (
 /obj/machinery/hologram/holopad,
@@ -367,7 +396,7 @@
 	icon_state = "intact-supply";
 	tag = "icon-intact-supply (EAST)"
 	},
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/supervisor_office)
 "fo" = (
 /obj/effect/catwalk_plated/dark,
@@ -375,6 +404,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/chemical_lab/lockerroom)
+"fx" = (
+/turf/simulated/wall,
+/area/chemical_lab/farmanhack)
 "fH" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable{
@@ -397,8 +429,12 @@
 /obj/machinery/reagent_temperature/cooler{
 	pixel_x = -14
 	},
-/obj/effect/floor_decal/corner/yellow/mono,
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/floordetail/edgedrain,
+/obj/machinery/power/apc{
+	req_access = list("ACCESS_NOCTIS");
+	pixel_y = -26
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "fV" = (
 /obj/machinery/light,
@@ -417,11 +453,14 @@
 /area/chemical_lab/hangar)
 "fX" = (
 /obj/item/stool,
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 8;
+	icon_state = "edge"
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "gb" = (
 /obj/structure/bed/chair,
-/obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 8;
@@ -435,7 +474,7 @@
 	icon_state = "intact-supply";
 	dir = 9
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/lino,
 /area/chemical_lab/recroom)
 "gd" = (
 /obj/machinery/light{
@@ -448,9 +487,6 @@
 	dir = 5;
 	icon_state = "corner_white"
 	},
-/obj/machinery/requests_console{
-	pixel_y = 28
-	},
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1"
@@ -459,12 +495,9 @@
 	dir = 4;
 	level = 2
 	},
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/supervisor_office)
 "gC" = (
-/obj/effect/floor_decal/corner/yellow/border{
-	dir = 4
-	},
 /obj/structure/disposalpipe/junction{
 	dir = 2;
 	icon_state = "pipe-j2"
@@ -481,7 +514,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 4;
+	icon_state = "edge"
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "gL" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
@@ -510,7 +547,7 @@
 	icon_state = "0-2"
 	},
 /obj/item/folder/envelope/urist/supervisor_instructions,
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/supervisor_office)
 "hD" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
@@ -526,7 +563,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/chemical_lab/farmanhack)
 "hF" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -575,7 +612,7 @@
 	dir = 4;
 	icon_state = "map-supply"
 	},
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/supervisor_office)
 "iI" = (
 /obj/structure/cable/orange{
@@ -594,7 +631,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating/airless/catwalk,
-/area/space)
+/area/chemical_lab/farsolarpanel)
 "iM" = (
 /obj/machinery/camera/network/security,
 /obj/structure/ladder,
@@ -625,7 +662,7 @@
 	icon_state = "map-scrubbers";
 	dir = 4
 	},
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/supervisor_office)
 "jw" = (
 /obj/structure/cable{
@@ -636,14 +673,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/turf/simulated/floor/blackgrid,
+/turf/simulated/floor/bluegrid,
 /area/chemical_lab/vault)
 "jS" = (
 /obj/effect/floor_decal/solarpanel,
 /obj/machinery/power/solar,
 /obj/structure/cable/orange,
 /turf/simulated/floor/plating/airless/catwalk,
-/area/space)
+/area/chemical_lab/farsolarpanel)
 "jU" = (
 /obj/effect/decal/cleanable/blood/oil,
 /obj/machinery/alarm{
@@ -665,10 +702,9 @@
 /turf/simulated/floor/plating,
 /area/chemical_lab/maintenance)
 "ka" = (
-/obj/structure/table/standard,
 /obj/machinery/reagentgrinder,
-/obj/effect/floor_decal/corner/yellow/mono,
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/floordetail/edgedrain,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "kx" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -684,7 +720,7 @@
 /obj/structure/catwalk,
 /obj/machinery/camera/network/security,
 /turf/simulated/floor/asteroid,
-/area/space)
+/area/chemical_lab/airlock)
 "kJ" = (
 /obj/item/stack/tile/techmaint,
 /obj/effect/decal/cleanable/cobweb{
@@ -694,7 +730,7 @@
 	},
 /obj/item/storage/fancy/crayons,
 /turf/simulated/floor/plating,
-/area/space)
+/area/chemical_lab/farengi)
 "kL" = (
 /turf/simulated/wall,
 /area/space)
@@ -704,14 +740,16 @@
 	pixel_y = -24
 	},
 /obj/structure/ore_box,
+/obj/machinery/light,
 /turf/simulated/floor/tiled/techmaint,
 /area/chemical_lab/lockerroom)
 "kS" = (
-/obj/effect/floor_decal/corner/yellow/border{
-	dir = 4
-	},
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 4;
+	icon_state = "edge"
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "lb" = (
 /obj/item/stool,
@@ -734,7 +772,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "lu" = (
 /turf/simulated/wall/r_wall,
@@ -767,10 +805,11 @@
 	dir = 8;
 	icon_state = "railing0-1"
 	},
-/obj/effect/floor_decal/corner/yellow/border{
-	dir = 8
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 8;
+	icon_state = "edge"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "lX" = (
 /obj/structure/catwalk,
@@ -784,11 +823,11 @@
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/plating,
-/area/space)
+/area/chemical_lab/farair)
 "ma" = (
 /obj/machinery/chemical_dispenser/full,
-/obj/effect/floor_decal/corner/yellow/mono,
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/corner/research/mono,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "mf" = (
 /obj/structure/table/standard,
@@ -807,11 +846,9 @@
 	pixel_x = -6;
 	pixel_y = 2
 	},
-/obj/effect/floor_decal/corner/green/diagonal,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/lino,
 /area/chemical_lab/recroom)
 "my" = (
-/obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -833,8 +870,8 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/white,
-/area/space)
+/turf/simulated/floor/lino,
+/area/chemical_lab/recroom)
 "mK" = (
 /obj/machinery/alarm{
 	dir = 1;
@@ -850,11 +887,8 @@
 "mU" = (
 /obj/item/remains/robot,
 /turf/simulated/floor/plating,
-/area/space)
+/area/chemical_lab/farengi)
 "no" = (
-/obj/effect/floor_decal/corner/yellow/border{
-	dir = 4
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 8;
 	icon_state = "pipe-c"
@@ -873,8 +907,20 @@
 	icon_state = "intact-supply";
 	dir = 9
 	},
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 4;
+	icon_state = "edge"
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
+"nr" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/farengi)
 "nz" = (
 /obj/structure/bed/chair/office/light{
 	dir = 1
@@ -889,7 +935,7 @@
 	pixel_y = 0
 	},
 /obj/effect/submap_landmark/spawnpoint/lab_supervisor,
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/supervisor_office)
 "nE" = (
 /obj/machinery/door/airlock/vault{
@@ -935,33 +981,31 @@
 	},
 /mob/living/simple_animal/hostile/viscerator,
 /turf/simulated/floor/plating,
-/area/space)
+/area/chemical_lab/farmanhack)
 "og" = (
 /obj/structure/table/reinforced,
 /turf/simulated/floor/tiled/techmaint,
-/area/space)
+/area/chemical_lab/farstorage)
 "oi" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
 /obj/item/device/radio/intercom{
 	dir = 8;
 	name = "Station Intercom (General)";
 	pixel_x = 22
 	},
-/obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	icon_state = "map_scrubber_on";
 	dir = 8
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/lino,
 /area/chemical_lab/recroom)
 "op" = (
 /obj/structure/table/standard,
 /obj/machinery/microwave,
-/obj/effect/floor_decal/corner/green/diagonal,
-/turf/simulated/floor/tiled/white,
+/obj/machinery/light/small{
+	dir = 4;
+	luminosity = 2
+	},
+/turf/simulated/floor/lino,
 /area/chemical_lab/recroom)
 "ox" = (
 /obj/structure/table/standard,
@@ -972,10 +1016,11 @@
 	dir = 8;
 	icon_state = "railing0-1"
 	},
-/obj/effect/floor_decal/corner/yellow/border{
-	dir = 8
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 8;
+	icon_state = "edge"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "oA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1031,13 +1076,11 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/obj/effect/floor_decal/corner/yellow/border{
-	dir = 8
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 9;
+	icon_state = "edge"
 	},
-/obj/effect/floor_decal/corner/yellow/border{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "pb" = (
 /obj/structure/cable/orange{
@@ -1051,7 +1094,10 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating/airless/catwalk,
-/area/space)
+/area/chemical_lab/farsolarpanel)
+"pf" = (
+/turf/simulated/open,
+/area/chemical_lab/labwing)
 "po" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1090,7 +1136,7 @@
 	icon_state = "corner_white"
 	},
 /obj/machinery/computer/modular/preset/security,
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/supervisor_office)
 "pC" = (
 /obj/effect/floor_decal/corner/black{
@@ -1122,7 +1168,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/supervisor_office)
 "pH" = (
 /obj/structure/shuttle/engine/propulsion{
@@ -1171,7 +1217,7 @@
 	req_access = list("ACCESS_CHEMICAL_LAB_WORKER")
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/chemical_lab/farair)
 "qq" = (
 /obj/structure/cable,
 /obj/structure/cable{
@@ -1239,7 +1285,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/techmaint,
-/area/space)
+/area/chemical_lab/farstorage)
 "qP" = (
 /obj/structure/catwalk,
 /turf/simulated/floor/asteroid,
@@ -1264,7 +1310,7 @@
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/plating/airless/catwalk,
-/area/space)
+/area/chemical_lab/farsolarpanel)
 "rh" = (
 /obj/structure/cable{
 	d1 = 2;
@@ -1302,9 +1348,10 @@
 /obj/item/material/knife{
 	pixel_x = -5
 	},
-/obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/light_switch,
-/turf/simulated/floor/tiled/white,
+/obj/machinery/light_switch{
+	pixel_x = 26
+	},
+/turf/simulated/floor/lino,
 /area/chemical_lab/recroom)
 "rw" = (
 /obj/structure/cable/orange{
@@ -1323,7 +1370,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating/airless/catwalk,
-/area/space)
+/area/chemical_lab/farsolarpanel)
 "ry" = (
 /turf/simulated/wall,
 /area/chemical_lab/escapeshuttle)
@@ -1362,13 +1409,13 @@
 "rN" = (
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/plating,
-/area/space)
+/area/chemical_lab/farengi)
 "rQ" = (
-/obj/effect/floor_decal/corner/yellow/border,
 /obj/machinery/light_switch{
 	pixel_y = -25
 	},
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/floordetail/edgedrain,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "sb" = (
 /obj/structure/table/standard,
@@ -1379,10 +1426,11 @@
 	dir = 8;
 	icon_state = "railing0-1"
 	},
-/obj/effect/floor_decal/corner/yellow/border{
-	dir = 10
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 10;
+	icon_state = "edge"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "sf" = (
 /turf/simulated/wall/r_wall,
@@ -1406,10 +1454,13 @@
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/chemical_lab/airlock)
+"sY" = (
+/turf/simulated/wall,
+/area/chemical_lab/farair)
 "ta" = (
 /obj/item/stack/tile/techmaint,
 /turf/simulated/floor/plating,
-/area/space)
+/area/chemical_lab/farengi)
 "tg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4;
@@ -1433,7 +1484,10 @@
 	tag = "icon-corner_white (WEST)"
 	},
 /obj/structure/closet,
-/turf/simulated/floor/tiled/techmaint,
+/obj/machinery/requests_console{
+	pixel_y = 28
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/supervisor_office)
 "tq" = (
 /obj/structure/cable/yellow{
@@ -1447,7 +1501,7 @@
 	pixel_y = -24
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/chemical_lab/farengi)
 "tB" = (
 /obj/structure/largecrate,
 /obj/random/soap,
@@ -1468,16 +1522,19 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/chemical_lab/farsolar)
 "tT" = (
 /obj/effect/floor_decal/rust,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/chemical_lab/airlock)
 "tZ" = (
-/obj/effect/floor_decal/corner/yellow/border,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/floordetail/edgedrain,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "ua" = (
 /obj/machinery/alarm{
@@ -1510,6 +1567,10 @@
 	icon_state = "1-2";
 	tag = ""
 	},
+/obj/machinery/light_switch{
+	pixel_x = -23;
+	pixel_y = -10
+	},
 /turf/simulated/floor/tiled,
 /area/chemical_lab/bathroom)
 "um" = (
@@ -1520,12 +1581,15 @@
 	pixel_y = 0;
 	tag = ""
 	},
+/obj/machinery/light/small{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/chemical_lab/maintenance)
 "uq" = (
 /obj/machinery/chem_master,
-/obj/effect/floor_decal/corner/yellow/mono,
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/corner/research/mono,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "ur" = (
 /obj/structure/shuttle/engine/heater{
@@ -1541,7 +1605,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/techmaint,
-/area/space)
+/area/chemical_lab/farstorage)
 "uH" = (
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/floordetail/edgedrain{
@@ -1582,7 +1646,7 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/chemical_lab/farsolar)
 "uU" = (
 /obj/item/device/camera,
 /obj/item/device/camera_film,
@@ -1593,7 +1657,7 @@
 /obj/machinery/light,
 /obj/structure/table/reinforced,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/chemical_lab/farstorage)
 "uY" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -1601,7 +1665,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/chemical_lab/farsolar)
 "vg" = (
 /turf/simulated/floor/tiled/techmaint,
 /area/chemical_lab/hangar)
@@ -1630,6 +1694,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/techmaint,
 /area/chemical_lab/supervisor_office)
+"vj" = (
+/turf/simulated/wall,
+/area/chemical_lab/farengi)
 "vk" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -1642,7 +1709,7 @@
 /obj/machinery/cell_charger,
 /obj/item/cell/super,
 /turf/simulated/floor/plating,
-/area/space)
+/area/chemical_lab/farengi)
 "vM" = (
 /turf/simulated/wall/r_wall,
 /area/chemical_lab/supervisor_office)
@@ -1676,7 +1743,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/chemical_lab/farsolar)
 "wi" = (
 /obj/effect/submap_landmark/joinable_submap/chemical_lab,
 /turf/space,
@@ -1698,14 +1765,10 @@
 /turf/simulated/wall,
 /area/chemical_lab/bathroom)
 "wA" = (
-/obj/effect/floor_decal/corner/yellow/border,
 /obj/machinery/light,
-/obj/machinery/power/apc{
-	req_access = list("ACCESS_NOCTIS");
-	pixel_y = -26
-	},
 /obj/structure/cable,
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/floordetail/edgedrain,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "wC" = (
 /obj/machinery/door/airlock/external{
@@ -1727,7 +1790,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/chemical_lab/farsolar)
 "wL" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4;
@@ -1739,7 +1802,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/techmaint,
-/area/space)
+/area/chemical_lab/farengi)
 "wO" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -1786,7 +1849,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/supervisor_office)
 "xq" = (
 /obj/machinery/door/airlock{
@@ -1826,6 +1889,10 @@
 	icon_state = "4-8";
 	pixel_y = 0
 	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8;
+	icon_state = "map_vent_out"
+	},
 /turf/simulated/floor/plating,
 /area/chemical_lab/escapeshuttle)
 "ym" = (
@@ -1844,21 +1911,16 @@
 	dir = 4;
 	icon_state = "pipe-t"
 	},
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/supervisor_office)
 "yo" = (
-/obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8";
 	pixel_x = 0
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/lino,
 /area/chemical_lab/recroom)
 "yy" = (
 /obj/structure/catwalk,
@@ -1874,19 +1936,19 @@
 /turf/simulated/floor/plating,
 /area/chemical_lab/medical_storage)
 "yA" = (
-/obj/effect/floor_decal/corner/yellow/border{
-	dir = 4
-	},
 /obj/item/device/radio/intercom{
 	dir = 8;
 	name = "Station Intercom (General)";
 	pixel_x = 22
 	},
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 4;
+	icon_state = "edge"
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "yD" = (
-/obj/item/gun/projectile/shotgun/pump,
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/brigdoor/northleft,
 /obj/structure/window/reinforced{
@@ -1912,8 +1974,18 @@
 	icon_state = "cobweb1";
 	tag = "icon-cobweb1 (EAST)"
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/chemical_lab/farair)
+"zF" = (
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/hangar)
 "Ay" = (
 /turf/simulated/mineral,
 /area/space)
@@ -1942,8 +2014,7 @@
 /area/chemical_lab/bathroom)
 "AP" = (
 /obj/structure/closet/crate/freezer/rations,
-/obj/effect/floor_decal/corner/green/diagonal,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/lino,
 /area/chemical_lab/recroom)
 "Bf" = (
 /obj/structure/cable/yellow{
@@ -1956,16 +2027,15 @@
 	pixel_x = 6
 	},
 /turf/simulated/floor/tiled/techmaint,
-/area/space)
+/area/chemical_lab/farengi)
 "Bj" = (
 /obj/machinery/disposal,
-/obj/effect/floor_decal/corner/green/mono,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/disposalpipe/trunk{
 	dir = 1;
 	icon_state = "pipe-t"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/lino,
 /area/chemical_lab/recroom)
 "Bk" = (
 /obj/structure/handrail{
@@ -2013,7 +2083,7 @@
 	icon_state = "map-supply";
 	dir = 1
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "BH" = (
 /obj/structure/catwalk,
@@ -2023,11 +2093,14 @@
 	tag = "icon-firelight1 (EAST)"
 	},
 /turf/simulated/floor/asteroid,
-/area/space)
+/area/chemical_lab/airlock)
 "BJ" = (
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/machinery/light/small,
+/obj/machinery/light/small{
+	dir = 4;
+	luminosity = 2
+	},
 /turf/simulated/floor/tiled,
 /area/chemical_lab/bathroom)
 "BS" = (
@@ -2043,9 +2116,8 @@
 "Cq" = (
 /obj/machinery/atmospherics/binary/pump/on,
 /turf/simulated/floor/plating,
-/area/space)
+/area/chemical_lab/farsolar)
 "Cv" = (
-/obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/disposalpipe/segment{
 	dir = 2;
 	icon_state = "pipe-c"
@@ -2064,12 +2136,11 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/lino,
 /area/chemical_lab/recroom)
 "CB" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/condiment/enzyme,
-/obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/power/apc{
 	dir = 1;
 	pixel_y = 18
@@ -2078,7 +2149,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/lino,
 /area/chemical_lab/recroom)
 "CN" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -2094,7 +2165,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/techmaint,
-/area/space)
+/area/chemical_lab/farengi)
 "CX" = (
 /turf/space,
 /area/space)
@@ -2138,14 +2209,14 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/chemical_lab/hangar)
 "Dt" = (
-/obj/effect/floor_decal/corner/yellow/border,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
 	tag = ""
 	},
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/floordetail/edgedrain,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "Dv" = (
 /obj/machinery/portable_atmospherics/powered/scrubber,
@@ -2160,7 +2231,7 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/plating/airless/catwalk,
-/area/space)
+/area/chemical_lab/farsolarpanel)
 "Dy" = (
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/floordetail/edgedrain{
@@ -2210,10 +2281,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/chemical_lab/farair)
 "Eh" = (
 /turf/simulated/floor/plating,
-/area/space)
+/area/chemical_lab/farengi)
 "Eu" = (
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/floordetail/edgedrain,
@@ -2236,26 +2307,26 @@
 	dir = 4;
 	icon_state = "map_scrubber_on"
 	},
-/obj/effect/floor_decal/corner_techfloor_grid/diagonal{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner_techfloor_grid/diagonal,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
 	pixel_y = 0
 	},
-/turf/simulated/floor/tiled/techmaint,
+/obj/effect/floor_decal/corner_techfloor_grid/diagonal{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_techfloor_grid/diagonal,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/supervisor_office)
 "Fb" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
-/area/space)
+/area/chemical_lab/farsolar)
 "Fy" = (
 /obj/item/stack/tile/techmaint,
 /turf/simulated/floor/tiled/techmaint,
-/area/space)
+/area/chemical_lab/farengi)
 "FI" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 10
@@ -2277,7 +2348,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/supervisor_office)
 "FL" = (
 /obj/structure/table/standard,
@@ -2302,7 +2373,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/chemical_lab/farsolar)
 "Ga" = (
 /obj/machinery/door/airlock/engineering{
 	icon_state = "closed";
@@ -2316,7 +2387,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/wall,
-/area/space)
+/area/chemical_lab/farsolar)
 "Gp" = (
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/floordetail/edgedrain{
@@ -2355,7 +2426,7 @@
 	luminosity = 2
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/chemical_lab/farair)
 "GB" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2;
@@ -2373,21 +2444,11 @@
 	icon_state = "intact-supply";
 	dir = 10
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "GI" = (
-/obj/structure/table/reinforced,
-/obj/effect/floor_decal/floordetail/edgedrain{
-	dir = 8;
-	icon_state = "edge"
-	},
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
-	},
-/turf/simulated/floor/tiled/techmaint,
-/area/chemical_lab/chem_storage)
+/turf/simulated/floor/tiled/techfloor,
+/area/chemical_lab/labwing)
 "GY" = (
 /obj/structure/cable{
 	d2 = 2;
@@ -2404,11 +2465,8 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/chemical_lab/farsolar)
 "GZ" = (
-/obj/machinery/door/airlock/vault/bolted{
-	req_access = list("ACCESS_CHEMICAL_LAB_SUPERVISOR")
-	},
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -2417,6 +2475,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/glass/security{
+	name = "Supervisor's Office";
+	req_access = list("ACCESS_CHEMICAL_LAB_SUPERVISOR")
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/chemical_lab/supervisor_office)
 "Hg" = (
@@ -2456,10 +2518,11 @@
 	dir = 8;
 	icon_state = "railing0-1"
 	},
-/obj/effect/floor_decal/corner/yellow/border{
-	dir = 8
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 8;
+	icon_state = "edge"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "Hr" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -2478,7 +2541,7 @@
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/simulated/floor/tiled/techmaint,
-/area/space)
+/area/chemical_lab/farengi)
 "HE" = (
 /obj/machinery/light/small{
 	dir = 4;
@@ -2535,16 +2598,15 @@
 /obj/item/crowbar,
 /obj/structure/table/reinforced,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/chemical_lab/farstorage)
 "It" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/donkpocket_mixed{
 	pixel_y = 4;
 	pixel_x = 4
 	},
-/obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/light,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/lino,
 /area/chemical_lab/recroom)
 "Iz" = (
 /obj/machinery/door/airlock/hatch/maintenance{
@@ -2568,20 +2630,25 @@
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/chemical_lab/chem_storage)
+"IO" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/hangar)
 "IU" = (
-/obj/effect/floor_decal/corner/yellow/border{
-	dir = 1
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 1;
+	icon_state = "edge"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "IY" = (
-/obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/turf/simulated/floor/tiled/white,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/lino,
 /area/chemical_lab/recroom)
 "Jg" = (
 /obj/structure/fuel_port{
@@ -2639,7 +2706,7 @@
 "JP" = (
 /obj/machinery/vending/tool,
 /turf/simulated/floor/tiled/techmaint,
-/area/space)
+/area/chemical_lab/farengi)
 "Kd" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/simulated/floor/tiled/techmaint,
@@ -2647,6 +2714,10 @@
 "Ki" = (
 /turf/simulated/wall/r_wall,
 /area/chemical_lab/recroom)
+"Kk" = (
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/techmaint,
+/area/chemical_lab/farengi)
 "KE" = (
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/floordetail/edgedrain{
@@ -2656,6 +2727,10 @@
 /obj/machinery/light_switch{
 	pixel_x = -22;
 	pixel_y = 6
+	},
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/chemical_lab/chem_storage)
@@ -2671,7 +2746,7 @@
 	secured_wires = 1
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/chemical_lab/farengi)
 "KG" = (
 /turf/simulated/floor/plating,
 /area/chemical_lab/maintenance)
@@ -2682,7 +2757,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/techmaint,
-/area/space)
+/area/chemical_lab/farstorage)
 "KS" = (
 /obj/machinery/light/small/red{
 	dir = 4;
@@ -2712,24 +2787,27 @@
 	pixel_y = -24
 	},
 /turf/simulated/floor/tiled/techmaint,
-/area/space)
+/area/chemical_lab/farstorage)
 "Lg" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_x = 26
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/chemical_lab/farair)
 "Li" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
 	level = 2
 	},
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 4;
+	icon_state = "edge"
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "Lw" = (
 /obj/item/stool,
-/obj/effect/floor_decal/corner/green/diagonal,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/lino,
 /area/chemical_lab/recroom)
 "LH" = (
 /obj/structure/railing/mapped{
@@ -2737,6 +2815,7 @@
 	dir = 8;
 	icon_state = "railing0-1"
 	},
+/obj/machinery/light,
 /turf/simulated/open,
 /area/chemical_lab/supervisor_office)
 "LM" = (
@@ -2763,8 +2842,7 @@
 /area/chemical_lab/hangar)
 "Mm" = (
 /obj/machinery/computer/arcade,
-/obj/effect/floor_decal/corner/green/diagonal,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/lino,
 /area/chemical_lab/recroom)
 "MG" = (
 /obj/structure/disposalpipe/segment{
@@ -2786,14 +2864,13 @@
 	icon_state = "intact-supply";
 	tag = "icon-intact-supply (EAST)"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "MK" = (
-/obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/lino,
 /area/chemical_lab/recroom)
 "MN" = (
 /obj/structure/cable{
@@ -2813,10 +2890,9 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/chemical_lab/chem_storage)
 "MU" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
-/obj/machinery/atmospherics/pipe/simple/visible/universal,
-/turf/simulated/floor/plating,
-/area/chemical_lab/maintenance)
+/obj/structure/catwalk,
+/turf/simulated/floor/asteroid,
+/area/chemical_lab/airlock)
 "MZ" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -2824,7 +2900,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/techmaint,
-/area/space)
+/area/chemical_lab/farengi)
 "Ni" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/brigdoor/southleft,
@@ -2849,18 +2925,22 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/chemical_lab/farsolar)
 "Nr" = (
 /obj/effect/floor_decal/corner/fadeblue/full,
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/chemical_lab/farengi)
+"Nt" = (
+/turf/simulated/wall,
+/area/chemical_lab/farstorage)
 "ND" = (
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/floordetail/edgedrain{
 	dir = 10;
 	icon_state = "edge"
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/techmaint,
 /area/chemical_lab/chem_storage)
 "NF" = (
@@ -2894,7 +2974,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating/airless/catwalk,
-/area/space)
+/area/chemical_lab/farsolarpanel)
 "Oo" = (
 /obj/machinery/camera/network/security{
 	c_tag = "Fourth Deck Staircase";
@@ -2910,10 +2990,6 @@
 	dir = 8;
 	name = "Station Intercom (General)";
 	pixel_x = 22
-	},
-/obj/machinery/light_switch{
-	pixel_x = -23;
-	pixel_y = -10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2945,7 +3021,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/chemical_lab/farsolar)
 "OB" = (
 /obj/effect/floor_decal/floordetail/edgedrain{
 	dir = 4;
@@ -2983,7 +3059,7 @@
 	icon_state = "intact-supply";
 	dir = 5
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "OZ" = (
 /obj/structure/table/standard,
@@ -2993,8 +3069,8 @@
 /obj/item/stack/material/phoron{
 	amount = 5
 	},
-/obj/effect/floor_decal/corner/yellow/mono,
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/corner/research/mono,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "Pc" = (
 /obj/machinery/portable_atmospherics/canister/air,
@@ -3006,11 +3082,11 @@
 /area/chemical_lab/hangar)
 "Pk" = (
 /turf/simulated/floor/plating/airless/catwalk,
-/area/space)
+/area/chemical_lab/farsolarpanel)
 "Pp" = (
 /obj/machinery/power/tracker,
 /turf/simulated/floor/plating/airless/catwalk,
-/area/space)
+/area/chemical_lab/farsolarpanel)
 "Ps" = (
 /obj/structure/cable{
 	d2 = 4;
@@ -3021,7 +3097,7 @@
 	name = "west bump";
 	pixel_x = -25
 	},
-/turf/simulated/floor/blackgrid,
+/turf/simulated/floor/bluegrid,
 /area/chemical_lab/vault)
 "PA" = (
 /obj/machinery/camera/network/security{
@@ -3044,11 +3120,14 @@
 /obj/structure/catwalk,
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/plating,
-/area/space)
+/area/chemical_lab/farmanhack)
 "PG" = (
-/obj/effect/floor_decal/corner/yellow/mono,
 /obj/machinery/light,
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 6;
+	icon_state = "edge"
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "PM" = (
 /obj/effect/floor_decal/corner/black{
@@ -3064,7 +3143,7 @@
 	icon_state = "intact-supply";
 	dir = 5
 	},
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/supervisor_office)
 "PR" = (
 /obj/item/device/flashlight/lantern,
@@ -3100,9 +3179,11 @@
 /obj/machinery/alarm{
 	pixel_y = 16
 	},
-/obj/effect/floor_decal/corner/green/diagonal,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/lino,
 /area/chemical_lab/recroom)
+"Qd" = (
+/turf/simulated/wall,
+/area/chemical_lab/farsolar)
 "Qg" = (
 /obj/machinery/door/blast/regular,
 /turf/simulated/wall/r_wall,
@@ -3137,6 +3218,13 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techmaint,
 /area/chemical_lab/lockerroom)
+"QE" = (
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 8;
+	icon_state = "edge"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/chemical_lab/labwing)
 "QM" = (
 /obj/structure/catwalk,
 /obj/structure/handrail{
@@ -3207,10 +3295,9 @@
 	tag = ""
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/blackgrid,
+/turf/simulated/floor/bluegrid,
 /area/chemical_lab/vault)
 "RY" = (
-/obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -3219,7 +3306,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/lino,
 /area/chemical_lab/recroom)
 "Sb" = (
 /obj/structure/cable/orange{
@@ -3237,7 +3324,11 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/plating/airless/catwalk,
-/area/space)
+/area/chemical_lab/farsolarpanel)
+"Sl" = (
+/obj/effect/floor_decal/floordetail/pryhole,
+/turf/simulated/floor/tiled/techfloor,
+/area/chemical_lab/labwing)
 "Sq" = (
 /obj/effect/decal/cleanable/cobweb{
 	dir = 4;
@@ -3246,7 +3337,7 @@
 	},
 /obj/structure/table/reinforced,
 /turf/simulated/floor/tiled/techmaint,
-/area/space)
+/area/chemical_lab/farstorage)
 "Sy" = (
 /obj/structure/railing/mapped{
 	color = "#b95a00";
@@ -3265,9 +3356,6 @@
 	dir = 8;
 	req_access = list("ACCESS_CHEMICAL_LAB_WORKER");
 	name = "Chemical Storage"
-	},
-/obj/effect/floor_decal/corner/yellow/border{
-	dir = 8
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -3288,15 +3376,18 @@
 	icon_state = "intact-supply";
 	tag = "icon-intact-supply (EAST)"
 	},
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 8;
+	icon_state = "edge"
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "SW" = (
 /obj/item/stool,
 /obj/item/stack/cable_coil/yellow,
 /turf/simulated/floor/plating,
-/area/space)
+/area/chemical_lab/farsolar)
 "Tv" = (
-/obj/effect/floor_decal/corner/yellow/mono,
 /obj/structure/sign/warning/nosmoking_1{
 	dir = 8;
 	icon_state = "nosmoking";
@@ -3305,7 +3396,11 @@
 /obj/machinery/disposal,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/disposalpipe/trunk,
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 5;
+	icon_state = "edge"
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "Tw" = (
 /obj/structure/disposalpipe/segment,
@@ -3317,7 +3412,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "Ty" = (
 /obj/structure/disposalpipe/segment{
@@ -3344,7 +3439,11 @@
 	icon_state = "intact-supply";
 	tag = "icon-intact-supply (EAST)"
 	},
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 1;
+	icon_state = "edge"
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "TE" = (
 /obj/effect/catwalk_plated/dark,
@@ -3368,13 +3467,21 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techmaint,
 /area/chemical_lab/lockerroom)
+"UE" = (
+/obj/item/stool,
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 4;
+	icon_state = "edge"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/chemical_lab/labwing)
 "UG" = (
 /obj/machinery/vending/assist,
 /obj/machinery/light_switch{
 	pixel_y = -25
 	},
 /turf/simulated/floor/tiled/techmaint,
-/area/space)
+/area/chemical_lab/farengi)
 "UL" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 10
@@ -3385,7 +3492,7 @@
 	icon_state = "4-8";
 	pixel_y = 0
 	},
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/supervisor_office)
 "UN" = (
 /obj/machinery/light{
@@ -3397,7 +3504,7 @@
 /obj/item/stack/material/plasteel/fifty,
 /obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled/techmaint,
-/area/space)
+/area/chemical_lab/farengi)
 "UO" = (
 /obj/effect/catwalk_plated,
 /obj/machinery/power/smes/buildable/outpost_substation,
@@ -3453,19 +3560,22 @@
 /area/space)
 "Vz" = (
 /turf/simulated/floor/tiled/techmaint,
-/area/space)
+/area/chemical_lab/farengi)
 "VK" = (
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/tiled/techmaint,
-/area/space)
+/area/chemical_lab/farengi)
 "VU" = (
 /obj/structure/hygiene/toilet{
 	dir = 8;
 	icon_state = "toilet00"
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/machinery/light/small,
+/obj/machinery/light/small{
+	dir = 1;
+	luminosity = 2
+	},
 /turf/simulated/floor/tiled,
 /area/chemical_lab/bathroom)
 "We" = (
@@ -3484,7 +3594,7 @@
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/plating/airless/catwalk,
-/area/space)
+/area/chemical_lab/farsolarpanel)
 "Xo" = (
 /obj/machinery/light{
 	dir = 8
@@ -3492,13 +3602,17 @@
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled/techmaint,
-/area/space)
+/area/chemical_lab/farengi)
 "Xz" = (
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/blackgrid,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8;
+	icon_state = "map_vent_out"
+	},
+/turf/simulated/floor/bluegrid,
 /area/chemical_lab/vault)
 "XV" = (
 /turf/simulated/wall,
@@ -3515,7 +3629,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating/airless/catwalk,
-/area/space)
+/area/chemical_lab/farsolarpanel)
 "Yk" = (
 /obj/machinery/door/airlock/hatch/maintenance,
 /obj/structure/cable{
@@ -3533,7 +3647,11 @@
 	dir = 4;
 	icon_state = "map_scrubber_on"
 	},
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 8;
+	icon_state = "edge"
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "Yz" = (
 /obj/machinery/power/apc{
@@ -3553,7 +3671,7 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/chemical_lab/farsolar)
 "YN" = (
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/floordetail/edgedrain{
@@ -3563,10 +3681,13 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/chemical_lab/chem_storage)
 "YQ" = (
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 4;
+	icon_state = "edge"
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "YX" = (
-/obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -3575,12 +3696,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/lino,
 /area/chemical_lab/recroom)
 "Zm" = (
-/obj/effect/floor_decal/corner/yellow/border{
-	dir = 1
-	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable{
 	d1 = 1;
@@ -3590,7 +3708,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/floordetail/edgedrain{
+	dir = 1;
+	icon_state = "edge"
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/labwing)
 "Zp" = (
 /obj/item/bedsheet/red,
@@ -3624,7 +3746,7 @@
 	icon_state = "intact-supply";
 	dir = 10
 	},
-/turf/simulated/floor/tiled/techmaint,
+/turf/simulated/floor/tiled/techfloor,
 /area/chemical_lab/supervisor_office)
 "ZR" = (
 /obj/structure/cable{
@@ -11602,12 +11724,12 @@ Ay
 Ay
 Rs
 yX
-vg
+zF
 Ro
 yT
 yT
 Ro
-vg
+IO
 yX
 yX
 Rs
@@ -11862,7 +11984,7 @@ Rs
 gO
 KE
 uH
-GI
+Dy
 Dy
 ND
 lu
@@ -12212,7 +12334,7 @@ Ay
 Ay
 Rs
 yX
-vg
+zF
 pH
 ry
 ry
@@ -12348,8 +12470,8 @@ lL
 UZ
 kz
 IU
-YQ
-YQ
+GI
+Sl
 GB
 OW
 Dt
@@ -12471,7 +12593,7 @@ Rs
 lv
 IU
 YQ
-fX
+UE
 YQ
 eM
 wA
@@ -12716,7 +12838,7 @@ UY
 IU
 Yr
 eV
-YQ
+QE
 MG
 ka
 xy
@@ -12959,7 +13081,7 @@ LH
 vM
 cG
 Li
-eV
+bn
 YQ
 MG
 dN
@@ -13088,7 +13210,7 @@ Dt
 wn
 nF
 cL
-nF
+dF
 nF
 nF
 dT
@@ -13199,12 +13321,12 @@ vM
 hp
 pC
 CN
-YQ
-YQ
+pf
+pf
 IU
-YQ
+QE
 fX
-YQ
+QE
 BC
 tZ
 po
@@ -13580,7 +13702,7 @@ Qs
 jU
 tT
 sN
-qP
+MU
 UZ
 UZ
 UZ
@@ -13730,12 +13852,12 @@ Ay
 Ay
 Ay
 Ay
-kL
-kL
-kL
-kL
-kL
-kL
+vj
+vj
+vj
+vj
+vj
+vj
 Ay
 Ay
 Ay
@@ -13851,13 +13973,13 @@ Ay
 Ay
 Ay
 Ay
-kL
-kL
+vj
+vj
 JP
 UG
 Xo
 UN
-kL
+vj
 Ay
 Ay
 Ay
@@ -13973,13 +14095,13 @@ Ay
 Ay
 Ay
 Ay
-kL
+vj
 vB
 Vz
 Eh
 Eh
 tq
-kL
+vj
 Ay
 Ay
 Ay
@@ -14095,16 +14217,16 @@ Ay
 Ay
 Ay
 Ay
-kL
-og
+vj
+Kk
 mU
 Eh
 ta
 Bf
-kL
-kL
-kL
-kL
+sY
+sY
+sY
+sY
 Rx
 qP
 UZ
@@ -14170,7 +14292,7 @@ Ay
 Rs
 kx
 KS
-MU
+gL
 qu
 lu
 Ay
@@ -14217,7 +14339,7 @@ Ay
 Ay
 Ay
 Ay
-kL
+vj
 Vz
 Eh
 Eh
@@ -14226,7 +14348,7 @@ CW
 DZ
 lY
 zx
-kL
+sY
 lX
 qP
 Ay
@@ -14339,13 +14461,13 @@ Ay
 Ay
 Ay
 Ay
-kL
+vj
 Vz
 Vz
 Vz
 Fy
 wL
-kL
+sY
 Gs
 Lg
 qn
@@ -14461,16 +14583,16 @@ Ay
 Ay
 Ay
 Ay
-kL
+vj
 Vz
 Vz
 Vz
 Vz
 wL
-kL
-kL
-kL
-kL
+fx
+fx
+fx
+fx
 Ay
 Ay
 Ay
@@ -14583,16 +14705,16 @@ Ay
 Ay
 Ay
 Ay
-kL
+vj
 Nr
 Vz
 rN
 VK
 wL
-kL
+fx
 nK
 PC
-kL
+fx
 Ay
 Ay
 Ay
@@ -14705,7 +14827,7 @@ Ay
 Ay
 Ay
 Ay
-kL
+vj
 kJ
 MZ
 cY
@@ -14714,7 +14836,7 @@ Hr
 eq
 hD
 cp
-kL
+fx
 Ay
 Ay
 Ay
@@ -14827,17 +14949,17 @@ Ay
 Ay
 Ay
 Ay
-kL
-kL
-uG
+vj
+vj
+nr
 Vz
 dZ
 ta
-kL
+Qd
 Ga
-kL
-kL
-kL
+Qd
+Qd
+Qd
 Ay
 Ay
 CX
@@ -14950,16 +15072,16 @@ Ay
 Ay
 Ay
 Ay
-kL
+vj
 KF
-kL
-kL
-kL
-kL
+vj
+vj
+vj
+Qd
 tN
 Cq
 FP
-kL
+Qd
 Ay
 Ay
 CX
@@ -15072,16 +15194,16 @@ Ay
 Ay
 Ay
 Ay
-kL
+Nt
 uG
 og
 og
 Sq
-kL
+Qd
 Yz
 uY
 SW
-kL
+Qd
 Ay
 Ay
 Ay
@@ -15194,16 +15316,16 @@ Ay
 Ay
 Ay
 Ay
-kL
+Nt
 KM
 qN
 qN
 Lf
-kL
+Qd
 GY
 Nm
 uR
-kL
+Qd
 Ay
 CX
 CX
@@ -15316,16 +15438,16 @@ Ay
 Ay
 Ay
 Ay
-kL
+Nt
 uU
 Ir
 og
 og
-kL
+Qd
 Fb
 Oq
 Fb
-kL
+Qd
 CX
 CX
 CX
@@ -15438,12 +15560,12 @@ Ay
 Ay
 Ay
 Ay
-kL
-kL
-kL
-kL
-kL
-kL
+Nt
+Nt
+Nt
+Nt
+Nt
+Qd
 Fb
 vQ
 Fb

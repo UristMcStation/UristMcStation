@@ -65,30 +65,54 @@
 	name = "/improper Botanical Wing"
 	icon_state = "botany"
 
-/area/chemical_lab/virology
-	name = "/improper Virology Airlock"
-	icon_state = "viro_air"
-
-/area/chemical_lab/virology_main
-	name = "/improper Virology Wing"
-	icon_state = "viro"
-
-/area/chemical_lab/test_chamber_1
-	name = "/improper Virology Test Chamber One"
-	icon_state = "test1"
-
-/area/chemical_lab/test_chamber_2
-	name = "/improper Virology Test Chamber Two"
-	icon_state = "test2"
-
-/area/chemical_lab/junk
-	name = "/improper Waste Disposal"
-	icon_state = "junk"
-
-/area/chemical_lab/Aft_Solars
-	name = "/improper Solar Aft"
-	icon_state = "solar_aft"
+/area/chemical_lab/solarspanel
+	name = "/improper Solar Panels"
+	icon_state = "solar_panel"
 
 /area/chemical_lab/solars
 	name = "/improper Solars"
 	icon_state = "solar"
+
+/area/chemical_lab/stairwell
+	name = "/improper Stairwell"
+	icon_state = "stairwell"
+
+/area/chemical_lab/accesscorridor
+	name = "/improper Access Corridor"
+	icon_state = "lowcorridor"
+
+/area/chemical_lab/aftstorage
+	name = "/improper AftStorage"
+	icon_state = "aftstorage"
+
+/area/chemical_lab/testingairlock
+	name = "/improper Testing Range Airlock"
+	icon_state = "testair"
+
+/area/chemical_lab/testingrange
+	name = "/improper Testing Range"
+	icon_state = "testrange"
+
+/area/chemical_lab/farair
+	name = "/improper Far Airlock"
+	icon_state = "farair"
+
+/area/chemical_lab/farengi
+	name = "/improper Far Engineering"
+	icon_state = "farengi"
+
+/area/chemical_lab/farstorage
+	name = "/improper Far Tech Storage"
+	icon_state = "farstorage"
+
+/area/chemical_lab/farsolar
+	name = "/improper Far Solar"
+	icon_state = "farsolar"
+
+/area/chemical_lab/farsolarpanel
+	name = "/improper Far Solar Panels"
+	icon_state = "farsolarpanel"
+
+/area/chemical_lab/farmanhack
+	name = "/improper Far Manhack Room"
+	icon_state = "farmanhack"
