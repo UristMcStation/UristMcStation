@@ -123,6 +123,9 @@
 /obj/machinery/light_switch{
 	pixel_x = -25
 	},
+/obj/machinery/suit_cycler{
+	req_access = list("")
+	},
 /turf/simulated/floor/tiled,
 /area/constructionsite)
 "v" = (
@@ -253,6 +256,10 @@
 /obj/machinery/tele_projector,
 /turf/simulated/floor/tiled,
 /area/constructionsite)
+"T" = (
+/obj/structure/dispenser/oxygen,
+/turf/simulated/floor/tiled,
+/area/constructionsite)
 "U" = (
 /obj/machinery/telecomms/broadcaster/map_preset/example,
 /turf/simulated/floor/tiled,
@@ -267,6 +274,12 @@
 /area/constructionsite)
 "X" = (
 /obj/machinery/floodlight,
+/turf/simulated/floor/tiled,
+/area/constructionsite)
+"Y" = (
+/obj/machinery/suit_cycler{
+	req_access = list("")
+	},
 /turf/simulated/floor/tiled,
 /area/constructionsite)
 
@@ -898,9 +911,9 @@ c
 c
 e
 c
-c
+T
 u
-c
+Y
 c
 e
 h
