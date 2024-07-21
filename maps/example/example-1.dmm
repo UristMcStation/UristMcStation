@@ -105,7 +105,7 @@
 	pixel_x = -25
 	},
 /obj/machinery/suit_storage_unit/standard_unit{
-	req_access = list("")
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled,
 /area/constructionsite)
@@ -188,7 +188,7 @@
 /area/constructionsite)
 "Iw" = (
 /obj/machinery/suit_cycler{
-	req_access = list("")
+	req_access = newlist()
 	},
 /turf/simulated/floor/tiled,
 /area/constructionsite)
