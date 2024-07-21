@@ -401,7 +401,7 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 
 	for (var/datum/map_template/template in selected)
 		if (template.load_new_z())
-			report_progress("Loaded away site [template]!")
+			report_progress(SPAN_GOOD("Loaded away site [template]!"))
 		else
 			report_progress("Failed loading away site [template]!")
 #endif
