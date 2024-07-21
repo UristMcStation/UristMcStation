@@ -125,11 +125,6 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled,
 /area/maintenance/fsmaint2)
-"kh" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
 "kB" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/vending/urist/nanotrasen,
@@ -1103,7 +1098,7 @@ ws
 pO
 Zy
 bg
-kh
+pv
 If
 Rr
 Rr
@@ -1437,7 +1432,7 @@ wr
 wr
 wr
 wr
-dL
+wr
 rQ
 Tc
 xC
@@ -1505,7 +1500,7 @@ ma
 wr
 aL
 HL
-pv
+dL
 kB
 BC
 UK

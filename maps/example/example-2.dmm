@@ -23,7 +23,31 @@
 /area/medical/surgery)
 "eP" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/fabricator/micro,
+/obj/structure/table/standard,
+/obj/item/stack/material/aluminium/fifty,
+/obj/item/stack/material/aluminium/fifty,
+/obj/item/stack/material/deuterium/fifty,
+/obj/item/stack/material/diamond/ten,
+/obj/item/stack/material/glass/fifty,
+/obj/item/stack/material/glass/fifty,
+/obj/item/stack/material/glass/phoronglass,
+/obj/item/stack/material/glass/reinforced/fifty,
+/obj/item/stack/material/gold/ten,
+/obj/item/stack/material/iron,
+/obj/item/stack/material/mhydrogen/ten,
+/obj/item/stack/material/nullglass/fifty,
+/obj/item/stack/material/ocp/fifty,
+/obj/item/stack/material/osmium/ten,
+/obj/item/stack/material/phoron/fifty,
+/obj/item/stack/material/plasteel/fifty,
+/obj/item/stack/material/plastic/fifty,
+/obj/item/stack/material/platinum/ten,
+/obj/item/stack/material/rods/fifty,
+/obj/item/stack/material/steel/fifty,
+/obj/item/stack/material/steel/fifty,
+/obj/item/stack/material/titanium/fifty,
+/obj/item/stack/material/tritium/fifty,
+/obj/item/stack/material/uranium/fifty,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "gk" = (
@@ -224,6 +248,17 @@
 	},
 /turf/space,
 /area/space)
+"qx" = (
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/item/stack/material/cardboard/fifty,
+/obj/item/stack/material/cloth,
+/obj/item/stack/material/generic/bone,
+/obj/item/stack/material/generic/brick,
+/obj/item/stack/material/generic/skin,
+/obj/item/stack/material/leather,
+/obj/item/stack/material/wood,
+/turf/simulated/floor/tiled/white,
+/area/medical/surgery)
 "qA" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/cooker/grill,
@@ -240,6 +275,18 @@
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/chem_master,
+/turf/simulated/floor/tiled/white,
+/area/medical/surgery)
+"tn" = (
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/structure/table/rack,
+/obj/item/stack/animalhide/cat,
+/obj/item/stack/animalhide/corgi,
+/obj/item/stack/animalhide/human,
+/obj/item/stack/animalhide/lizard,
+/obj/item/stack/animalhide/xeno,
+/obj/item/stack/animalhide/monkey,
+/obj/item/stack/hairlesshide,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "uA" = (
@@ -492,6 +539,10 @@
 	pixel_y = 5
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "RG" = (
@@ -1333,8 +1384,8 @@ HE
 HE
 HE
 HE
-HE
-HE
+tn
+qx
 HE
 HE
 HE
