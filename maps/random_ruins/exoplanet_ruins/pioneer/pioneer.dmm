@@ -1,0 +1,751 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"bt" = (
+/obj/effect/submap_landmark/joinable_submap/lonepioneer,
+/turf/template_noop,
+/area/template_noop)
+"bv" = (
+/turf/simulated/floor/wood/walnut,
+/area/map_template/lonepioneer/cabin)
+"cg" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/item/seeds/wheatseed,
+/turf/template_noop,
+/area/template_noop)
+"cG" = (
+/obj/machinery/seed_extractor,
+/turf/simulated/floor/wood/walnut,
+/area/map_template/lonepioneer/cabin)
+"du" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/item/seeds/cotton,
+/turf/template_noop,
+/area/template_noop)
+"dG" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/structure/closet/secure_closet/freezer/meat,
+/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
+/obj/item/reagent_containers/food/snacks/spagetti,
+/obj/item/reagent_containers/food/snacks/dough,
+/obj/item/reagent_containers/food/snacks/dough,
+/obj/item/reagent_containers/food/snacks/dough,
+/obj/item/reagent_containers/food/snacks/dough,
+/obj/item/reagent_containers/food/condiment/enzyme,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled/white,
+/area/map_template/lonepioneer/cabin)
+"dR" = (
+/obj/structure/bed/chair/wood/walnut,
+/turf/simulated/floor/tiled/monotile,
+/area/map_template/lonepioneer/cabin)
+"et" = (
+/obj/item/shovel/spade,
+/obj/item/device/scanner/plant,
+/turf/template_noop,
+/area/template_noop)
+"eV" = (
+/obj/structure/table/woodentable_reinforced/walnut,
+/obj/item/material/knife/table,
+/obj/item/material/kitchen/utensil/fork/plastic,
+/turf/simulated/floor/tiled/monotile,
+/area/map_template/lonepioneer/cabin)
+"ge" = (
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/wood/walnut,
+/area/map_template/lonepioneer/cabin)
+"gP" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/item/seeds/puretobaccoseed,
+/turf/template_noop,
+/area/template_noop)
+"hL" = (
+/obj/structure/bed/chair/wood/walnut,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/map_template/lonepioneer/cabin)
+"hO" = (
+/obj/machinery/biogenerator,
+/turf/simulated/floor/wood/walnut,
+/area/map_template/lonepioneer/cabin)
+"je" = (
+/obj/structure/bed,
+/obj/item/bedsheet/brown,
+/turf/simulated/floor/carpet/red,
+/area/map_template/lonepioneer/cabin)
+"jA" = (
+/obj/machinery/smartfridge/drying_rack,
+/obj/effect/decal/cleanable/cobweb2{
+	icon_state = "cobweb1"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/walnut,
+/area/map_template/lonepioneer/cabin)
+"jB" = (
+/obj/item/book/manual/chef_recipes,
+/obj/item/reagent_containers/glass/beaker{
+	pixel_x = 5
+	},
+/obj/item/material/kitchen/rollingpin,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/item/reagent_containers/spray/cleaner,
+/obj/structure/table/woodentable_reinforced/walnut,
+/turf/simulated/floor/tiled/white,
+/area/map_template/lonepioneer/cabin)
+"jC" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/structure/hygiene/sink{
+	dir = 4;
+	icon_state = "sink";
+	pixel_x = 11;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/white,
+/area/map_template/lonepioneer/cabin)
+"kz" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/item/seeds/towermycelium,
+/turf/template_noop,
+/area/template_noop)
+"lr" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/item/material/knife/kitchen/cleaver,
+/obj/item/material/kitchen/rollingpin,
+/obj/item/material/knife/kitchen,
+/obj/structure/table/woodentable_reinforced/walnut,
+/turf/simulated/floor/tiled/white,
+/area/map_template/lonepioneer/cabin)
+"mJ" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/item/stool,
+/turf/simulated/floor/tiled/white,
+/area/map_template/lonepioneer/cabin)
+"og" = (
+/obj/machinery/light_switch{
+	dir = 1;
+	pixel_y = -24
+	},
+/turf/simulated/floor/wood/walnut,
+/area/map_template/lonepioneer/cabin)
+"oA" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
+/turf/simulated/floor/wood/walnut,
+/area/map_template/lonepioneer/cabin)
+"pN" = (
+/obj/machinery/portable_atmospherics/powered/scrubber,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/walnut,
+/area/map_template/lonepioneer/cabin)
+"qo" = (
+/obj/structure/hygiene/sink/well,
+/turf/template_noop,
+/area/template_noop)
+"qr" = (
+/obj/item/stack/cable_coil,
+/turf/simulated/floor/wood/walnut,
+/area/map_template/lonepioneer/shed)
+"qw" = (
+/obj/structure/table/woodentable_reinforced/walnut,
+/obj/item/storage/firstaid/surgery,
+/obj/item/storage/firstaid/toxin,
+/obj/item/storage/firstaid,
+/obj/item/storage/firstaid/adv,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/turf/simulated/floor/wood/walnut,
+/area/map_template/lonepioneer/cabin)
+"rd" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/item/reagent_containers/food/condiment/small/peppermill,
+/obj/item/reagent_containers/food/condiment/small/peppermill,
+/obj/item/reagent_containers/glass/rag,
+/obj/item/reagent_containers/food/condiment/small/saltshaker,
+/obj/structure/table/woodentable_reinforced/walnut,
+/turf/simulated/floor/tiled/white,
+/area/map_template/lonepioneer/cabin)
+"sg" = (
+/obj/machinery/power/apc{
+	dir = 2;
+	name = "south bump";
+	operating = 1;
+	pixel_y = -24
+	},
+/obj/structure/cable,
+/turf/simulated/floor/wood/walnut,
+/area/map_template/lonepioneer/cabin)
+"sl" = (
+/turf/simulated/floor/carpet/red,
+/area/map_template/lonepioneer/cabin)
+"tg" = (
+/obj/item/shovel,
+/obj/machinery/light,
+/obj/item/seeds/random,
+/obj/item/seeds/random,
+/obj/item/seeds/random,
+/obj/item/seeds/random,
+/obj/item/seeds/random,
+/turf/simulated/floor/wood/walnut,
+/area/map_template/lonepioneer/cabin)
+"tk" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/item/reagent_containers/food/drinks/glass2/coffeecup/heart{
+	pixel_y = 11
+	},
+/obj/item/material/kitchen/rollingpin,
+/obj/structure/table/woodentable_reinforced/walnut,
+/turf/simulated/floor/tiled/white,
+/area/map_template/lonepioneer/cabin)
+"tq" = (
+/obj/item/storage/candle_box,
+/obj/item/storage/candle_box,
+/obj/item/inflatable_dispenser,
+/obj/item/boombox,
+/obj/structure/table/woodentable_reinforced/walnut,
+/obj/item/flame/lighter/zippo/vanity/engraved,
+/obj/machinery/light/small{
+	dir = 8;
+	luminosity = 3
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/map_template/lonepioneer/cabin)
+"ts" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/salt,
+/obj/item/storage/box/condimentbottles,
+/obj/item/reagent_containers/food/drinks/bottle/whiskey,
+/obj/structure/table/woodentable_reinforced/walnut,
+/turf/simulated/floor/tiled/white,
+/area/map_template/lonepioneer/cabin)
+"tD" = (
+/obj/machinery/door/unpowered/simple/wood,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/walnut,
+/area/map_template/lonepioneer/cabin)
+"xh" = (
+/turf/simulated/wall/wood,
+/area/map_template/lonepioneer/cabin)
+"xp" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/item/seeds/coffeeseed,
+/turf/template_noop,
+/area/template_noop)
+"zO" = (
+/obj/structure/table/woodentable_reinforced/walnut,
+/obj/item/stack/material/phoron/fifty,
+/obj/item/stack/material/wood/walnut/twentyfive,
+/obj/item/stack/material/wood/walnut/twentyfive,
+/obj/item/stack/material/wood/walnut/twentyfive,
+/obj/item/stack/material/glass/fifty,
+/obj/item/stack/material/steel/fifty,
+/turf/simulated/floor/wood/walnut,
+/area/map_template/lonepioneer/shed)
+"Az" = (
+/obj/effect/submap_landmark/spawnpoint/lonepioneer,
+/obj/machinery/light/small,
+/turf/simulated/floor/carpet/red,
+/area/map_template/lonepioneer/cabin)
+"AL" = (
+/obj/structure/table/woodentable_reinforced/walnut,
+/obj/machinery/computer/atmoscontrol/laptop{
+	desc = "A cheap, beat-up old laptop.";
+	name = "old laptop"
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/map_template/lonepioneer/cabin)
+"Cs" = (
+/turf/simulated/wall/wood,
+/area/map_template/lonepioneer/shed)
+"Er" = (
+/obj/structure/table/woodentable_reinforced/walnut,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/device/multitool,
+/obj/item/stock_parts/circuitboard/autolathe,
+/turf/simulated/floor/wood/walnut,
+/area/map_template/lonepioneer/shed)
+"ED" = (
+/obj/item/material/minihoe,
+/turf/template_noop,
+/area/template_noop)
+"Ff" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/microwave,
+/obj/structure/table/woodentable_reinforced/walnut,
+/turf/simulated/floor/tiled/white,
+/area/map_template/lonepioneer/cabin)
+"Fq" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/gibber{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/cobweb2,
+/turf/simulated/floor/tiled/white,
+/area/map_template/lonepioneer/cabin)
+"He" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/item/seeds/plumpmycelium,
+/turf/template_noop,
+/area/template_noop)
+"Hi" = (
+/obj/structure/closet/crate/solar_assembly,
+/obj/machinery/light/small,
+/turf/simulated/floor/wood/walnut,
+/area/map_template/lonepioneer/shed)
+"HD" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/cooker/oven,
+/obj/structure/noticeboard{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/white,
+/area/map_template/lonepioneer/cabin)
+"LR" = (
+/obj/structure/sign/monkey_painting{
+	pixel_y = -32
+	},
+/obj/item/device/flashlight/lamp/lantern,
+/obj/item/pickaxe/old,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/walnut,
+/area/map_template/lonepioneer/cabin)
+"Ms" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/template_noop,
+/area/template_noop)
+"NX" = (
+/obj/structure/table/woodentable_reinforced/walnut,
+/obj/item/paper_bin{
+	pixel_x = -3;
+	pixel_y = 7
+	},
+/obj/item/pen/fancy/quill,
+/turf/simulated/floor/tiled/monotile,
+/area/map_template/lonepioneer/cabin)
+"Pm" = (
+/obj/machinery/power/port_gen/pacman,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light_switch{
+	dir = 1;
+	pixel_y = -24
+	},
+/turf/simulated/floor/wood/walnut,
+/area/map_template/lonepioneer/shed)
+"PO" = (
+/turf/template_noop,
+/area/template_noop)
+"PS" = (
+/obj/item/reagent_containers/glass/bucket,
+/turf/template_noop,
+/area/template_noop)
+"QD" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_x = 0;
+	pixel_y = 24
+	},
+/obj/structure/cable{
+	d1 = 0;
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/wood/walnut,
+/area/map_template/lonepioneer/shed)
+"Te" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/reagentgrinder{
+	pixel_y = 4
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 0;
+	pixel_y = 28
+	},
+/obj/structure/table/woodentable_reinforced/walnut,
+/turf/simulated/floor/tiled/white,
+/area/map_template/lonepioneer/cabin)
+"Tl" = (
+/obj/structure/table/woodentable_reinforced/walnut,
+/obj/machinery/recharger,
+/turf/simulated/floor/wood/walnut,
+/area/map_template/lonepioneer/cabin)
+"Tn" = (
+/obj/structure/window/reinforced/full,
+/turf/simulated/floor/wood,
+/area/map_template/lonepioneer/cabin)
+"TG" = (
+/obj/item/material/hatchet,
+/turf/template_noop,
+/area/template_noop)
+"TK" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/map_template/lonepioneer/cabin)
+"UL" = (
+/turf/simulated/floor/tiled/monotile,
+/area/map_template/lonepioneer/cabin)
+"VG" = (
+/obj/machinery/door/unpowered/simple/wood,
+/turf/simulated/floor/tiled/monotile,
+/area/map_template/lonepioneer/cabin)
+"VK" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/template_noop,
+/area/template_noop)
+"Wb" = (
+/obj/structure/table/woodentable_reinforced/walnut,
+/obj/item/storage/box/survivalkit,
+/obj/item/gun/projectile/manualcycle/hunterrifle/scoped,
+/obj/item/ammo_magazine/rifle/military/stripper,
+/obj/item/ammo_magazine/rifle/military/stripper,
+/turf/simulated/floor/carpet/red,
+/area/map_template/lonepioneer/cabin)
+"Wf" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/shoes/jungleboots,
+/obj/item/clothing/suit/radiation,
+/obj/item/clothing/head/radiation,
+/obj/item/ammo_magazine/rifle/military/stripper,
+/obj/item/ammo_magazine/rifle/military/stripper,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen_emergency,
+/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/head/helmet/space/emergency,
+/obj/item/storage/backpack/rucksack/tan,
+/obj/item/device/taperecorder,
+/turf/simulated/floor/carpet/red,
+/area/map_template/lonepioneer/cabin)
+"Ws" = (
+/obj/item/material/ashtray/bronze,
+/obj/structure/table/woodentable_reinforced/walnut,
+/obj/item/storage/chewables/rollable/generic,
+/obj/item/clothing/mask/smokable/pipe/cobpipe,
+/turf/simulated/floor/tiled/monotile,
+/area/map_template/lonepioneer/cabin)
+"WE" = (
+/obj/machinery/door/unpowered/simple/wood,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
+/turf/simulated/floor/wood/walnut,
+/area/map_template/lonepioneer/shed)
+"Zo" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/item/seeds/glowshroom,
+/turf/template_noop,
+/area/template_noop)
+"ZY" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/wood/walnut,
+/area/map_template/lonepioneer/cabin)
+
+(1,1,1) = {"
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+"}
+(2,1,1) = {"
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+VK
+Ms
+PO
+"}
+(3,1,1) = {"
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+Cs
+WE
+Cs
+Cs
+PO
+"}
+(4,1,1) = {"
+PO
+PO
+xp
+du
+gP
+kz
+xh
+xh
+tD
+xh
+xh
+PO
+Cs
+QD
+Pm
+Cs
+PO
+"}
+(5,1,1) = {"
+PO
+qo
+PS
+et
+ED
+PO
+Tn
+jA
+ZY
+pN
+Tn
+PO
+Cs
+qr
+Hi
+Cs
+PO
+"}
+(6,1,1) = {"
+PO
+PO
+cg
+Zo
+He
+kz
+xh
+hO
+oA
+LR
+xh
+PO
+Cs
+zO
+Er
+Cs
+PO
+"}
+(7,1,1) = {"
+PO
+PO
+PO
+PO
+TG
+bt
+xh
+qw
+oA
+tg
+xh
+PO
+Cs
+Cs
+Cs
+Cs
+PO
+"}
+(8,1,1) = {"
+PO
+PO
+xh
+Tn
+Tn
+Tn
+xh
+Tl
+ge
+sg
+xh
+PO
+PO
+PO
+PO
+PO
+PO
+"}
+(9,1,1) = {"
+PO
+PO
+xh
+Ff
+tk
+rd
+tq
+cG
+bv
+og
+xh
+xh
+xh
+xh
+PO
+PO
+PO
+"}
+(10,1,1) = {"
+PO
+PO
+xh
+Te
+mJ
+TK
+UL
+UL
+UL
+UL
+VG
+sl
+Wb
+xh
+PO
+PO
+PO
+"}
+(11,1,1) = {"
+PO
+PO
+xh
+HD
+TK
+lr
+UL
+dR
+Ws
+NX
+xh
+sl
+Az
+xh
+PO
+PO
+PO
+"}
+(12,1,1) = {"
+PO
+PO
+xh
+dG
+TK
+ts
+UL
+hL
+eV
+AL
+xh
+Wf
+je
+xh
+PO
+PO
+PO
+"}
+(13,1,1) = {"
+PO
+PO
+xh
+Fq
+jC
+jB
+xh
+xh
+Tn
+xh
+xh
+xh
+xh
+xh
+PO
+PO
+PO
+"}
+(14,1,1) = {"
+PO
+PO
+xh
+xh
+xh
+xh
+xh
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+"}
+(15,1,1) = {"
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+"}
