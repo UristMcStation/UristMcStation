@@ -65,7 +65,7 @@
 	name = "ANFOR NCO helmet"
 	desc = "An olive drab M10 protective helmet, standard issue for all ANFOR marines. This one has the markings of a Non-Commissioned Officer."
 	icon_state = "ANFOR-cmdhelm"
-//	var/obj/item/storage/fancy/cigarettes/cigs
+//	var/obj/item/storage/fancy/smokable/cigs
 
 /*
 /obj/item/clothing/head/helmet/urist/anfor/attack_hand(mob/living/M)
@@ -81,7 +81,7 @@
 	..()
 
 /obj/item/clothing/head/helmet/urist/anfor/attackby(obj/item/I, var/mob/living/M)
-	if(istype(I, /obj/item/storage/fancy/cigarettes))
+	if(istype(I, /obj/item/storage/fancy/smokable))
 		if(cigs)	return
 		M.drop_item()
 		cigs = I

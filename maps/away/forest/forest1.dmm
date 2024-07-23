@@ -4734,7 +4734,7 @@
 /area/planet/forest/cave)
 "ls" = (
 /obj/item/reagent_containers/food/drinks/bottle/whiskey,
-/obj/item/storage/fancy/cigarettes/urist/uplift,
+/obj/item/storage/fancy/smokable/urist/uplift,
 /turf/simulated/floor,
 /area/planet/forest/cave)
 "lt" = (
@@ -4766,7 +4766,7 @@
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/drinks/bottle/vodka,
 /obj/item/reagent_containers/food/drinks/bottle/vodka,
-/obj/item/storage/fancy/cigarettes/urist/carp,
+/obj/item/storage/fancy/smokable/urist/carp,
 /obj/item/flame/lighter/zippo/vanity/red,
 /turf/simulated/floor/asteroid/planet,
 /area/planet/forest/cave)

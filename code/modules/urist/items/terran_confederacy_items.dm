@@ -262,7 +262,7 @@
 	desc = "A grey protective helmet, standard issue for all Terran Confederacy Marines serving aboard Naval vessels."
 	icon_state = "terran_helm"
 	armor = list(melee = 50, bullet = 55, laser = 30, energy = 25, bomb = 30, bio = 0, rad = 0)
-	var/obj/item/storage/fancy/cigarettes/cigs
+	var/obj/item/storage/fancy/smokable/cigs
 
 /obj/item/card/id/terran/marine
 	name = "\improper Terran Marine ID"
