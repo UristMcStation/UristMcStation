@@ -1,48 +1,59 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "bt" = (
-/obj/effect/submap_landmark/joinable_submap/lonepioneer,
-/turf/template_noop,
-/area/template_noop)
+/obj/machinery/power/port_gen/pacman,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/obj/machinery/power/apc{
+	dir = 2;
+	name = "south bump";
+	operating = 1;
+	pixel_y = -24
+	},
+/turf/simulated/floor/wood/walnut,
+/area/map_template/lonepioneer/shed)
 "bv" = (
 /turf/simulated/floor/wood/walnut,
 /area/map_template/lonepioneer/cabin)
 "cg" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
-/obj/item/seeds/wheatseed,
+/obj/effect/submap_landmark/joinable_submap/lonepioneer,
+/obj/effect/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
+"cB" = (
+/obj/machinery/space_heater,
+/turf/simulated/floor/tiled/monotile,
+/area/map_template/lonepioneer/cabin)
 "cG" = (
 /obj/machinery/seed_extractor,
 /turf/simulated/floor/wood/walnut,
 /area/map_template/lonepioneer/cabin)
+"dp" = (
+/obj/machinery/gibber{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/cobweb2,
+/turf/simulated/floor/tiled/monotile,
+/area/map_template/lonepioneer/cabin)
 "du" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
-/obj/item/seeds/cotton,
+/obj/structure/sign/monkey_painting{
+	pixel_y = -32
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/inflatable_dispenser,
+/turf/simulated/floor/wood/walnut,
+/area/map_template/lonepioneer/cabin)
+"dG" = (
+/obj/item/material/minihoe,
+/obj/effect/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
-"dG" = (
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/structure/closet/secure_closet/freezer/meat,
-/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
-/obj/item/reagent_containers/food/snacks/spagetti,
-/obj/item/reagent_containers/food/snacks/dough,
-/obj/item/reagent_containers/food/snacks/dough,
-/obj/item/reagent_containers/food/snacks/dough,
-/obj/item/reagent_containers/food/snacks/dough,
-/obj/item/reagent_containers/food/condiment/enzyme,
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor/tiled/white,
-/area/map_template/lonepioneer/cabin)
 "dR" = (
 /obj/structure/bed/chair/wood/walnut,
 /turf/simulated/floor/tiled/monotile,
 /area/map_template/lonepioneer/cabin)
 "et" = (
-/obj/item/shovel/spade,
-/obj/item/device/scanner/plant,
+/obj/effect/landmark/clear,
+/obj/item/stack/material/rods,
 /turf/template_noop,
 /area/template_noop)
 "eV" = (
@@ -59,9 +70,16 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/map_template/lonepioneer/cabin)
+"gM" = (
+/obj/structure/gravemarker{
+	desc = "A small grave cross, it reads: 'IMOGEN'"
+	},
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
 "gP" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
-/obj/item/seeds/puretobaccoseed,
+/obj/item/reagent_containers/glass/bucket,
+/obj/effect/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
 "hL" = (
@@ -90,51 +108,58 @@
 /turf/simulated/floor/wood/walnut,
 /area/map_template/lonepioneer/cabin)
 "jB" = (
-/obj/item/book/manual/chef_recipes,
-/obj/item/reagent_containers/glass/beaker{
-	pixel_x = 5
-	},
-/obj/item/material/kitchen/rollingpin,
-/obj/item/reagent_containers/glass/beaker/large,
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/item/reagent_containers/spray/cleaner,
-/obj/structure/table/woodentable_reinforced/walnut,
-/turf/simulated/floor/tiled/white,
+/obj/item/stool,
+/turf/simulated/floor/tiled/monotile,
 /area/map_template/lonepioneer/cabin)
 "jC" = (
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/structure/hygiene/sink{
-	dir = 4;
-	icon_state = "sink";
-	pixel_x = 11;
-	pixel_y = 0
+/obj/item/storage/firstaid/surgery,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"kd" = (
+/obj/effect/landmark/clear,
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8";
+	dir = 1
 	},
-/turf/simulated/floor/tiled/white,
-/area/map_template/lonepioneer/cabin)
+/turf/template_noop,
+/area/template_noop)
 "kz" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
-/obj/item/seeds/towermycelium,
+/obj/item/seeds/puretobaccoseed,
+/obj/effect/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
 "lr" = (
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/item/material/knife/kitchen/cleaver,
-/obj/item/material/kitchen/rollingpin,
-/obj/item/material/knife/kitchen,
-/obj/structure/table/woodentable_reinforced/walnut,
-/turf/simulated/floor/tiled/white,
-/area/map_template/lonepioneer/cabin)
-"mJ" = (
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/item/stool,
-/turf/simulated/floor/tiled/white,
-/area/map_template/lonepioneer/cabin)
-"og" = (
-/obj/machinery/light_switch{
-	dir = 1;
-	pixel_y = -24
+/obj/effect/landmark/clear,
+/obj/effect/landmark/clear,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"mu" = (
+/obj/effect/landmark/clear,
+/obj/structure/cable{
+	dir = 1
 	},
-/turf/simulated/floor/wood/walnut,
+/turf/template_noop,
+/area/template_noop)
+"mJ" = (
+/obj/effect/landmark/clear,
+/obj/structure/lattice,
+/turf/template_noop,
+/area/template_noop)
+"og" = (
+/obj/item/reagent_containers/food/condiment/small/peppermill,
+/obj/item/reagent_containers/food/condiment/small/peppermill,
+/obj/item/reagent_containers/glass/rag,
+/obj/item/reagent_containers/food/condiment/small/saltshaker,
+/obj/structure/table/woodentable_reinforced/walnut,
+/obj/item/reagent_containers/food/drinks/glass2/coffeecup/heart{
+	pixel_y = 11
+	},
+/turf/simulated/floor/tiled/monotile,
 /area/map_template/lonepioneer/cabin)
 "oA" = (
 /obj/structure/cable{
@@ -151,32 +176,26 @@
 /turf/simulated/floor/wood/walnut,
 /area/map_template/lonepioneer/cabin)
 "qo" = (
-/obj/structure/hygiene/sink/well,
-/turf/template_noop,
-/area/template_noop)
+/obj/machinery/microwave,
+/obj/structure/table/woodentable_reinforced/walnut,
+/turf/simulated/floor/tiled/monotile,
+/area/map_template/lonepioneer/cabin)
 "qr" = (
 /obj/item/stack/cable_coil,
 /turf/simulated/floor/wood/walnut,
 /area/map_template/lonepioneer/shed)
 "qw" = (
-/obj/structure/table/woodentable_reinforced/walnut,
-/obj/item/storage/firstaid/surgery,
-/obj/item/storage/firstaid/toxin,
-/obj/item/storage/firstaid,
-/obj/item/storage/firstaid/adv,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/turf/simulated/floor/wood/walnut,
-/area/map_template/lonepioneer/cabin)
+/obj/item/boombox,
+/obj/effect/landmark/clear,
+/obj/structure/lattice,
+/turf/template_noop,
+/area/template_noop)
 "rd" = (
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/item/reagent_containers/food/condiment/small/peppermill,
-/obj/item/reagent_containers/food/condiment/small/peppermill,
-/obj/item/reagent_containers/glass/rag,
-/obj/item/reagent_containers/food/condiment/small/saltshaker,
-/obj/structure/table/woodentable_reinforced/walnut,
-/turf/simulated/floor/tiled/white,
-/area/map_template/lonepioneer/cabin)
+/obj/structure/hygiene/sink/well,
+/obj/effect/landmark/clear,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
 "sg" = (
 /obj/machinery/power/apc{
 	dir = 2;
@@ -201,51 +220,61 @@
 /turf/simulated/floor/wood/walnut,
 /area/map_template/lonepioneer/cabin)
 "tk" = (
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/item/reagent_containers/food/drinks/glass2/coffeecup/heart{
-	pixel_y = 11
-	},
-/obj/item/material/kitchen/rollingpin,
-/obj/structure/table/woodentable_reinforced/walnut,
-/turf/simulated/floor/tiled/white,
-/area/map_template/lonepioneer/cabin)
+/obj/structure/reagent_dispensers/fueltank,
+/obj/effect/landmark/clear,
+/obj/structure/lattice,
+/turf/template_noop,
+/area/template_noop)
 "tq" = (
-/obj/item/storage/candle_box,
-/obj/item/storage/candle_box,
-/obj/item/inflatable_dispenser,
-/obj/item/boombox,
-/obj/structure/table/woodentable_reinforced/walnut,
-/obj/item/flame/lighter/zippo/vanity/engraved,
-/obj/machinery/light/small{
-	dir = 8;
-	luminosity = 3
-	},
-/turf/simulated/floor/tiled/monotile,
-/area/map_template/lonepioneer/cabin)
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
 "ts" = (
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/item/reagent_containers/food/condiment/salt,
-/obj/item/storage/box/condimentbottles,
-/obj/item/reagent_containers/food/drinks/bottle/whiskey,
-/obj/structure/table/woodentable_reinforced/walnut,
-/turf/simulated/floor/tiled/white,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/structure/inflatable/door,
+/turf/simulated/floor/wood/walnut,
 /area/map_template/lonepioneer/cabin)
 "tD" = (
 /obj/machinery/door/unpowered/simple/wood,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood/walnut,
 /area/map_template/lonepioneer/cabin)
+"uI" = (
+/obj/item/device/flashlight/lamp/lantern{
+	on = 1
+	},
+/turf/simulated/floor/carpet/red,
+/area/map_template/lonepioneer/cabin)
+"vg" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/item/seeds/cotton,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"vr" = (
+/obj/structure/inflatable/door,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"xe" = (
+/obj/effect/landmark/clear,
+/obj/item/material/shard,
+/turf/template_noop,
+/area/template_noop)
 "xh" = (
 /turf/simulated/wall/wood,
 /area/map_template/lonepioneer/cabin)
 "xp" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
-/obj/item/seeds/coffeeseed,
-/turf/template_noop,
-/area/template_noop)
+/obj/item/material/kitchen/rollingpin,
+/obj/structure/table/woodentable_reinforced/walnut,
+/obj/item/storage/candle_box,
+/obj/item/storage/candle_box,
+/turf/simulated/floor/tiled/monotile,
+/area/map_template/lonepioneer/cabin)
 "zO" = (
 /obj/structure/table/woodentable_reinforced/walnut,
 /obj/item/stack/material/phoron/fifty,
@@ -280,54 +309,78 @@
 /turf/simulated/floor/wood/walnut,
 /area/map_template/lonepioneer/shed)
 "ED" = (
-/obj/item/material/minihoe,
-/turf/template_noop,
-/area/template_noop)
-"Ff" = (
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/machinery/microwave,
+/obj/item/material/knife/kitchen/cleaver,
+/obj/item/material/kitchen/rollingpin,
 /obj/structure/table/woodentable_reinforced/walnut,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/monotile,
+/area/map_template/lonepioneer/cabin)
+"Ff" = (
+/obj/machinery/reagentgrinder{
+	pixel_y = 4
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 0;
+	pixel_y = 28
+	},
+/obj/structure/table/woodentable_reinforced/walnut,
+/turf/simulated/floor/tiled/monotile,
 /area/map_template/lonepioneer/cabin)
 "Fq" = (
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/machinery/gibber{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/cobweb2,
-/turf/simulated/floor/tiled/white,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/wood/walnut,
 /area/map_template/lonepioneer/cabin)
 "He" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
-/obj/item/seeds/plumpmycelium,
-/turf/template_noop,
-/area/template_noop)
+/obj/item/pickaxe/old,
+/turf/simulated/floor/wood/walnut,
+/area/map_template/lonepioneer/cabin)
 "Hi" = (
 /obj/structure/closet/crate/solar_assembly,
 /obj/machinery/light/small,
 /turf/simulated/floor/wood/walnut,
 /area/map_template/lonepioneer/shed)
 "HD" = (
-/obj/effect/floor_decal/corner/black/diagonal,
+/obj/item/book/manual/chef_recipes,
+/obj/item/reagent_containers/glass/beaker{
+	pixel_x = 5
+	},
+/obj/item/material/kitchen/rollingpin,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/item/reagent_containers/spray/cleaner,
+/obj/structure/table/woodentable_reinforced/walnut,
+/turf/simulated/floor/tiled/monotile,
+/area/map_template/lonepioneer/cabin)
+"IP" = (
+/obj/structure/gravemarker/cross{
+	desc = "A small grave with a string of dogtags on it."
+	},
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"KB" = (
+/obj/structure/hygiene/sink{
+	dir = 4;
+	icon_state = "sink";
+	pixel_x = 11;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/map_template/lonepioneer/cabin)
+"KL" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/template_noop)
+"LR" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"Ms" = (
 /obj/machinery/cooker/oven,
 /obj/structure/noticeboard{
 	pixel_y = 32
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/monotile,
 /area/map_template/lonepioneer/cabin)
-"LR" = (
-/obj/structure/sign/monkey_painting{
-	pixel_y = -32
-	},
-/obj/item/device/flashlight/lamp/lantern,
-/obj/item/pickaxe/old,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood/walnut,
-/area/map_template/lonepioneer/cabin)
-"Ms" = (
-/obj/structure/reagent_dispensers/fueltank,
-/turf/template_noop,
-/area/template_noop)
 "NX" = (
 /obj/structure/table/woodentable_reinforced/walnut,
 /obj/item/paper_bin{
@@ -337,49 +390,48 @@
 /obj/item/pen/fancy/quill,
 /turf/simulated/floor/tiled/monotile,
 /area/map_template/lonepioneer/cabin)
+"Oe" = (
+/obj/item/material/knife/kitchen,
+/obj/effect/landmark/clear,
+/obj/item/material/shard,
+/turf/template_noop,
+/area/template_noop)
+"OQ" = (
+/obj/item/material/hatchet,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
 "Pm" = (
-/obj/machinery/power/port_gen/pacman,
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/light_switch{
-	dir = 1;
-	pixel_y = -24
-	},
-/turf/simulated/floor/wood/walnut,
-/area/map_template/lonepioneer/shed)
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/structure/table/woodentable_reinforced/walnut,
+/obj/item/material/knife/kitchen,
+/turf/simulated/floor/tiled/monotile,
+/area/map_template/lonepioneer/cabin)
 "PO" = (
 /turf/template_noop,
 /area/template_noop)
 "PS" = (
-/obj/item/reagent_containers/glass/bucket,
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/item/seeds/coffeeseed,
+/obj/effect/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
 "QD" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_x = 0;
-	pixel_y = 24
-	},
 /obj/structure/cable{
-	d1 = 0;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "0-8"
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/wood/walnut,
 /area/map_template/lonepioneer/shed)
 "Te" = (
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/machinery/reagentgrinder{
-	pixel_y = 4
-	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 0;
-	pixel_y = 28
-	},
-/obj/structure/table/woodentable_reinforced/walnut,
-/turf/simulated/floor/tiled/white,
-/area/map_template/lonepioneer/cabin)
+/obj/effect/landmark/clear,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
 "Tl" = (
 /obj/structure/table/woodentable_reinforced/walnut,
 /obj/machinery/recharger,
@@ -390,13 +442,33 @@
 /turf/simulated/floor/wood,
 /area/map_template/lonepioneer/cabin)
 "TG" = (
-/obj/item/material/hatchet,
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/item/seeds/glowshroom,
+/obj/effect/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
 "TK" = (
-/obj/effect/floor_decal/corner/black/diagonal,
-/turf/simulated/floor/tiled/white,
+/obj/structure/table/woodentable_reinforced/walnut,
+/obj/machinery/light/small{
+	dir = 8;
+	luminosity = 3
+	},
+/obj/item/storage/firstaid/adv,
+/obj/item/storage/firstaid,
+/obj/item/storage/firstaid/toxin,
+/obj/item/storage/firstaid/surgery,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/turf/simulated/floor/tiled/monotile,
 /area/map_template/lonepioneer/cabin)
+"Uz" = (
+/obj/structure/gravemarker/cross{
+	desc = "The grave reads: 'RED'"
+	},
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
 "UL" = (
 /turf/simulated/floor/tiled/monotile,
 /area/map_template/lonepioneer/cabin)
@@ -405,7 +477,9 @@
 /turf/simulated/floor/tiled/monotile,
 /area/map_template/lonepioneer/cabin)
 "VK" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/item/seeds/wheatseed,
+/obj/effect/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
 "Wb" = (
@@ -418,18 +492,15 @@
 /area/map_template/lonepioneer/cabin)
 "Wf" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/shoes/jungleboots,
 /obj/item/clothing/suit/radiation,
 /obj/item/clothing/head/radiation,
 /obj/item/ammo_magazine/rifle/military/stripper,
 /obj/item/ammo_magazine/rifle/military/stripper,
 /obj/item/tank/oxygen,
-/obj/item/tank/oxygen_emergency,
 /obj/item/clothing/suit/space/emergency,
 /obj/item/clothing/head/helmet/space/emergency,
-/obj/item/storage/backpack/rucksack/tan,
 /obj/item/device/taperecorder,
+/obj/item/flame/lighter/zippo/vanity/engraved,
 /turf/simulated/floor/carpet/red,
 /area/map_template/lonepioneer/cabin)
 "Ws" = (
@@ -450,21 +521,47 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/map_template/lonepioneer/shed)
+"Xd" = (
+/obj/item/shovel/spade,
+/obj/item/device/scanner/plant,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
 "Zo" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
-/obj/item/seeds/glowshroom,
+/obj/item/seeds/towermycelium,
+/obj/effect/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
 "ZY" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
+/obj/structure/closet/secure_closet/freezer/meat,
+/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
+/obj/item/reagent_containers/food/snacks/spagetti,
+/obj/item/reagent_containers/food/snacks/dough,
+/obj/item/reagent_containers/food/snacks/dough,
+/obj/item/reagent_containers/food/snacks/dough,
+/obj/item/reagent_containers/food/snacks/dough,
+/obj/item/reagent_containers/food/condiment/enzyme,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
 	},
-/turf/simulated/floor/wood/walnut,
+/obj/item/reagent_containers/food/drinks/bottle/whiskey,
+/obj/item/storage/box/condimentbottles,
+/obj/item/reagent_containers/food/condiment/salt,
+/turf/simulated/floor/tiled/monotile,
 /area/map_template/lonepioneer/cabin)
 
 (1,1,1) = {"
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
 PO
 PO
 PO
@@ -498,8 +595,17 @@ PO
 PO
 PO
 PO
-VK
-Ms
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
 PO
 "}
 (3,1,1) = {"
@@ -508,85 +614,236 @@ PO
 PO
 PO
 PO
+tq
+tq
+tq
+tq
+PO
+PO
+PO
+PO
+PO
+tq
+tq
+tq
+tq
+tq
 PO
 PO
 PO
 PO
 PO
 PO
-PO
-Cs
-WE
-Cs
-Cs
 PO
 "}
 (4,1,1) = {"
 PO
 PO
-xp
-du
-gP
-kz
-xh
-xh
-tD
-xh
-xh
 PO
-Cs
-QD
-Pm
-Cs
+PO
+tq
+Uz
+IP
+gM
+tq
+tq
+PO
+PO
+tq
+tq
+Te
+tq
+tq
+tq
+Te
+tq
+PO
+PO
+PO
+PO
+PO
 PO
 "}
 (5,1,1) = {"
 PO
-qo
-PS
-et
-ED
 PO
-Tn
-jA
-ZY
-pN
-Tn
 PO
-Cs
-qr
-Hi
-Cs
+PO
+tq
+tq
+tq
+tq
+Te
+tq
+tq
+tq
+tq
+tq
+Te
+tq
+tq
+tq
+Te
+Te
+tq
+PO
+PO
+PO
+PO
 PO
 "}
 (6,1,1) = {"
 PO
 PO
-cg
-Zo
-He
-kz
-xh
-hO
-oA
-LR
-xh
 PO
-Cs
-zO
-Er
-Cs
+PO
+PO
+tq
+tq
+tq
+Te
+tq
+tq
+tq
+tq
+tq
+Te
+mu
+kd
+tq
+Te
+Te
+tq
+PO
+PO
+PO
+PO
 PO
 "}
 (7,1,1) = {"
 PO
 PO
 PO
+tq
+tq
+tq
+tq
+tq
+Te
+tq
+tq
+vr
+tq
+tq
+tq
+Cs
+WE
+Cs
+Cs
+tq
+tq
 PO
-TG
-bt
+PO
+PO
+PO
+PO
+"}
+(8,1,1) = {"
+PO
+PO
+PO
+tq
+Te
+PS
+vg
+kz
+Zo
 xh
-qw
+xh
+tD
+xh
+xh
+tq
+Cs
+QD
+bt
+Cs
+tq
+tq
+PO
+PO
+PO
+PO
+PO
+"}
+(9,1,1) = {"
+PO
+PO
+PO
+tq
+rd
+gP
+Xd
+dG
+tq
+Tn
+jA
+ts
+pN
+Tn
+tq
+Cs
+qr
+Hi
+Cs
+tq
+tq
+PO
+PO
+PO
+PO
+PO
+"}
+(10,1,1) = {"
+PO
+PO
+PO
+tq
+Te
+VK
+TG
+LR
+Zo
+xh
+hO
+oA
+du
+xh
+Te
+Cs
+zO
+Er
+Cs
+tq
+tq
+PO
+PO
+PO
+PO
+PO
+"}
+(11,1,1) = {"
+PO
+PO
+PO
+PO
+lr
+tq
+tq
+OQ
+cg
+xh
+cG
 oA
 tg
 xh
@@ -595,11 +852,20 @@ Cs
 Cs
 Cs
 Cs
+tq
+tq
+PO
+PO
+PO
+PO
 PO
 "}
-(8,1,1) = {"
+(12,1,1) = {"
 PO
 PO
+PO
+tq
+tq
 xh
 Tn
 Tn
@@ -613,54 +879,81 @@ PO
 PO
 PO
 PO
+tq
+tq
+tq
+PO
+PO
+PO
 PO
 PO
 "}
-(9,1,1) = {"
+(13,1,1) = {"
 PO
 PO
+PO
+tq
+tq
+xh
+qo
+xp
+og
+TK
+Fq
+bv
+He
+xh
+xh
+xh
+xh
+tq
+tq
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+"}
+(14,1,1) = {"
+PO
+PO
+PO
+tq
+tq
 xh
 Ff
-tk
-rd
-tq
-cG
-bv
-og
-xh
-xh
-xh
-xh
-PO
-PO
-PO
-"}
-(10,1,1) = {"
-PO
-PO
-xh
-Te
-mJ
-TK
+jB
+UL
 UL
 UL
 UL
 UL
 VG
-sl
+uI
 Wb
 xh
+tq
+tq
 PO
+tq
+tq
+tq
+tq
 PO
 PO
 "}
-(11,1,1) = {"
+(15,1,1) = {"
 PO
 PO
+PO
+tq
+tq
 xh
-HD
-TK
-lr
+Ms
+UL
+ED
 UL
 dR
 Ws
@@ -669,18 +962,27 @@ xh
 sl
 Az
 xh
-PO
+tq
+tq
+tq
+jC
+tq
+et
+Oe
 PO
 PO
 "}
-(12,1,1) = {"
+(16,1,1) = {"
 PO
 PO
+tq
+tq
+tq
 xh
-dG
-TK
-ts
+ZY
 UL
+Pm
+cB
 hL
 eV
 AL
@@ -688,17 +990,26 @@ xh
 Wf
 je
 xh
-PO
-PO
+tq
+Te
+tq
+mJ
+qw
+mJ
+tq
+KL
 PO
 "}
-(13,1,1) = {"
+(17,1,1) = {"
 PO
 PO
+tq
+tq
+tq
 xh
-Fq
-jC
-jB
+dp
+KB
+HD
 xh
 xh
 Tn
@@ -707,18 +1018,89 @@ xh
 xh
 xh
 xh
+tq
+tq
+tq
+tq
+tq
+tk
+mJ
+PO
+PO
+"}
+(18,1,1) = {"
+PO
+PO
+tq
+tq
+tq
+xh
+xh
+xh
+xh
+xh
+tq
+tq
+tq
+tq
+tq
+tq
+tq
+tq
+tq
+PO
+et
+xe
+mJ
+tq
+PO
+PO
+"}
+(19,1,1) = {"
+PO
+PO
+tq
+tq
+tq
+tq
+tq
+tq
+tq
+tq
+tq
+tq
+tq
+tq
+tq
+tq
+Te
+tq
+PO
+PO
+PO
+PO
+PO
 PO
 PO
 PO
 "}
-(14,1,1) = {"
+(20,1,1) = {"
 PO
 PO
-xh
-xh
-xh
-xh
-xh
+PO
+tq
+tq
+tq
+tq
+tq
+tq
+tq
+PO
+tq
+tq
+tq
+tq
+PO
 PO
 PO
 PO
@@ -730,7 +1112,44 @@ PO
 PO
 PO
 "}
-(15,1,1) = {"
+(21,1,1) = {"
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+"}
+(22,1,1) = {"
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
+PO
 PO
 PO
 PO
