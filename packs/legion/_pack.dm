@@ -1,10 +1,12 @@
 #include "_globals.dm"
 
 #include "ai/legion_ai_base.dm"
+#include "ai/legion_ai_harvester.dm"
 
 #include "helpers/legion_narrate.dm"
 #include "helpers/legion_warp_effect.dm"
 
+#include "mob/legion_harvester.dm"
 #include "mob/legion_hivebot.dm"
 #include "mob/legion_mob.dm"
 
