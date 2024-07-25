@@ -22,6 +22,7 @@
 	add_language(LANGUAGE_XENOPHAGE) //Bonus language.
 	internal_organs |= new /obj/item/organ/internal/xeno/hivenode(src)
 	create_reagents(100)
+	verbs += /mob/living/proc/ventcrawl // Fuck it, we are forcing it.
 
 /mob/living/carbon/alien/larva/update_icons()
 
