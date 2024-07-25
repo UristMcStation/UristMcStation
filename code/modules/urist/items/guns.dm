@@ -948,3 +948,14 @@ the sprite and make my own projectile -Glloyd*/
 	desc = "a pre-Crisis model laser carbine formerly deployed broadly by human forces."
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "oldlaser"
+
+/obj/item/ammo_magazine/speedloader/broomstick
+	name = "broomstick stripper clip"
+	desc = "A stripper clip for antique broomstick pistols."
+	icon = 'icons/urist/items/guns.dmi'
+	icon_state = "broomclip"
+	caliber = CALIBER_PISTOL_SMALL
+	ammo_type = /obj/item/ammo_casing/pistol/small
+	matter = list(MATERIAL_STEEL = 1300)
+	max_ammo = 10
+	multiple_sprites = 1
