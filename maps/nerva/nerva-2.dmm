@@ -11349,6 +11349,15 @@
 	dir = 10;
 	icon_state = "corner_white"
 	},
+/obj/machinery/computer/air_control{
+	dir = 1;
+	input_tag = "xeno_isolation_in";
+	name = "Isolation Atmospherics Control";
+	out_pressure_mode = 1;
+	output_tag = "xeno_isolation_out";
+	sensor_name = "Isolation Chamber";
+	sensor_tag = "xeno_isolation_sensor"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/tool)
 "atb" = (
@@ -15283,6 +15292,17 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction,
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 4;
+	frequency = 1438;
+	icon_state = "map_injector";
+	id = "cooling_in";
+	name = "Coolant Injector";
+	pixel_y = 1;
+	power_rating = 30000;
+	use_power = 1;
+	volume_rate = 700
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/engine)
 "aAI" = (
@@ -16423,6 +16443,12 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos/tank{
+	dir = 1;
+	id_tag = "xeno_isolation_out";
+	external_pressure_bound = 100;
+	initialize_directions = 1
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine)
@@ -20049,6 +20075,7 @@
 /area/rnd/office)
 "aIZ" = (
 /obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/carpet,
 /area/rnd/office)
 "aJa" = (
@@ -20059,6 +20086,10 @@
 	},
 /obj/structure/railing/mapped{
 	dir = 8;
+	icon_state = "railing0-1"
+	},
+/obj/structure/railing/mapped{
+	dir = 1;
 	icon_state = "railing0-1"
 	},
 /turf/simulated/open,
@@ -21231,7 +21262,6 @@
 /turf/simulated/floor/wood/walnut,
 /area/rnd/office)
 "aLj" = (
-/obj/machinery/hologram/holopad,
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
@@ -21553,7 +21583,6 @@
 	input_tag = "cooling_in";
 	name = "Engine Cooling Control";
 	output_tag = "cooling_out";
-	pressure_setting = 100;
 	sensor_name = "Engine Core";
 	sensor_tag = "engine_sensor"
 	},
@@ -28571,7 +28600,8 @@
 /area/hallway/central/third_deck)
 "grv" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/hologram/holopad,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/carpet,
 /area/rnd/office)
 "grS" = (
@@ -29986,8 +30016,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/fp)
 "nNc" = (
-/obj/machinery/hologram/holopad,
-/turf/simulated/floor/carpet,
+/obj/structure/table/woodentable/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/rnd/office)
 "nUv" = (
 /obj/structure/bed/chair/comfy/black{
@@ -31562,6 +31592,7 @@
 /obj/item/folder/yellow,
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/beige/full,
+/obj/machinery/door/window/northright,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/mailing)
 "wRe" = (
@@ -55345,7 +55376,7 @@ aFp
 aGB
 aHL
 aIY
-nNc
+aIY
 aLk
 aMt
 mOC
@@ -55747,7 +55778,7 @@ kjM
 wpN
 aFp
 aGB
-aKe
+nNc
 aJa
 aKe
 aLk
