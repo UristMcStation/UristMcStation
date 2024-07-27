@@ -1,4 +1,4 @@
-// A list of types that will not attempt to perform surgery if the user is on help intent.
+/// A list of types that will not attempt to perform surgery if the user is on help intent.
 GLOBAL_LIST_INIT(surgery_tool_exceptions, list(
 	/obj/item/auto_cpr,
 	/obj/item/device/scanner/health,
@@ -8,22 +8,44 @@ GLOBAL_LIST_INIT(surgery_tool_exceptions, list(
 	/obj/item/reagent_containers/syringe,
 	/obj/item/reagent_containers/borghypo
 ))
+
+
+/// A cache of types that have already been checked against `GLOB.surgery_tool_exceptions`.
 GLOBAL_LIST_INIT(surgery_tool_exception_cache, new)
 
-/* SURGERY STEPS */
+
 /singleton/surgery_step
+	/// String. Name of the surgery step, i.e. `"Make incision"`. Used in feedback messages and surgery selection dialogues.
 	var/name
-	var/list/allowed_tools               // type path referencing tools that can be used for this step, and how well are they suited for it
-	var/list/allowed_species             // type paths referencing races that this step applies to.
-	var/list/disallowed_species          // type paths referencing races that this step applies to.
-	var/min_duration = 0                 // duration of the step
-	var/max_duration = 0                 // duration of the step
-	var/can_infect = 0                   // evil infection stuff that will make everyone hate me
-	var/blood_level = 0                  // How much blood this step can get on surgeon. 1 - hands, 2 - full body.
-	var/shock_level = 0	                 // what shock level will this step put patient on
-	var/delicate = 0                     // if this step NEEDS stable optable or can be done on any valid surface with no penalty
-	var/surgery_candidate_flags = 0      // Various bitflags for requirements of the surgery.
-	var/strict_access_requirement = TRUE // Whether or not this surgery will be fuzzy on size requirements.
+	/// List (Subpaths of `/obj/item`). Map of type paths to percentages (`0` - `100`) indicating what tools can perform this surgery and their efficiency at it.
+	var/list/allowed_tools = list()
+	/// LAZYLIST (String - Any of `SPECIES_*`). Type paths referencing races that this step applies to. Overrides `disallowed_species`.
+	var/list/allowed_species
+	/// LAZYLIST (String - Any of `SPECIES_*`). Type paths referencing races that this step does not apply to. Overridden by `allowed_species`.
+	var/list/disallowed_species
+	/// Integer. Minimum duration of the step in ticks. Used for randomizing `do_after()` times.
+	var/min_duration = 0
+	/// Integer. Maximum duration of the step in ticks. Used for randomizing `do_after()` times.
+	var/max_duration = 0
+	/// Boolean. Whether or not this step can cause infection.
+	var/can_infect = FALSE
+	/// Integer (One of `src.BLOOD_LEVEL_*`). How much blood this step can get on the surgeon.
+	var/blood_level = BLOOD_LEVEL_NONE
+	/// Integer. The shock level this surgery will put the patient into.
+	var/shock_level = 0
+	/// Boolean. If this step NEEDS a stable operation table or can be done on any valid surface with no penalty.
+	var/delicate = FALSE
+	/// Bitflags (Any of `SURGERY_*`). Various surgery requirements. See `code\modules\surgery\__surgery_setup.dm` for valid options.
+	var/surgery_candidate_flags = EMPTY_BITFIELD
+	/// Boolean. Whether or not this surgery is strict or fuzzy on size requirements.
+	var/strict_access_requirement = TRUE
+
+	/// The surgery step does not cover the surgeon in blood.
+	var/const/BLOOD_LEVEL_NONE = 0
+	/// The surgery step only covers the surgeon's hands in blood.
+	var/const/BLOOD_LEVEL_HANDS = 1
+	/// The surgery step covers the surgeon's entire body in blood.
+	var/const/BLOOD_LEVEL_FULLBODY = 2
 
 //returns how well tool is suited for this step
 /singleton/surgery_step/proc/tool_quality(obj/item/tool)
