@@ -11349,15 +11349,6 @@
 	dir = 10;
 	icon_state = "corner_white"
 	},
-/obj/machinery/computer/air_control{
-	dir = 1;
-	input_tag = "xeno_isolation_in";
-	name = "Isolation Atmospherics Control";
-	out_pressure_mode = 1;
-	output_tag = "xeno_isolation_out";
-	sensor_name = "Isolation Chamber";
-	sensor_tag = "xeno_isolation_sensor"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/tool)
 "atb" = (
@@ -16443,12 +16434,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
-	},
-/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos/tank{
-	dir = 1;
-	id_tag = "xeno_isolation_out";
-	external_pressure_bound = 100;
-	initialize_directions = 1
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine)
