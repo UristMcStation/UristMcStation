@@ -17734,16 +17734,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/lowercargo)
-"Fe" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline/blue,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/rnd/xenobiology/xenoflora{
-	dir = 6
-	})
 "Ff" = (
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/simple/visible,
@@ -49158,7 +49148,7 @@ IS
 IA
 QH
 Lx
-Fe
+QT
 VT
 QT
 Hx
