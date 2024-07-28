@@ -8,7 +8,7 @@
 //	generic surgery step datum
 //////////////////////////////////////////////////////////////////
 /singleton/surgery_step/generic
-	can_infect = 1
+	can_infect = TRUE
 	shock_level = 10
 	surgery_candidate_flags = SURGERY_NO_ROBOTIC | SURGERY_NO_CRYSTAL | SURGERY_NO_STUMP
 
@@ -26,8 +26,8 @@
 		/obj/item/scalpel/laser = 100,
 		/obj/item/melee/energy/sword = 5
 	)
-	min_duration = 90
-	max_duration = 110
+	min_duration = 9 SECONDS
+	max_duration = 11 SECONDS
 
 /singleton/surgery_step/generic/cut_with_laser/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	. = ..()
@@ -69,8 +69,8 @@
 	allowed_tools = list(
 		/obj/item/scalpel/ims = 100
 	)
-	min_duration = 80
-	max_duration = 120
+	min_duration = 8 SECONDS
+	max_duration = 12 SECONDS
 
 /singleton/surgery_step/generic/managed/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	. = ..()
@@ -114,8 +114,8 @@
 		/obj/item/broken_bottle = 50,
 		/obj/item/material/shard = 50
 	)
-	min_duration = 90
-	max_duration = 110
+	min_duration = 9 SECONDS
+	max_duration = 11 SECONDS
 	var/fail_string = "slicing open"
 	var/access_string = "an incision"
 
@@ -166,8 +166,8 @@
 		/obj/item/stack/cable_coil = 75,
 		/obj/item/device/assembly/mousetrap = 20
 	)
-	min_duration = 40
-	max_duration = 60
+	min_duration = 4 SECONDS
+	max_duration = 6 SECONDS
 	surgery_candidate_flags = SURGERY_NO_ROBOTIC | SURGERY_NO_CRYSTAL | SURGERY_NO_STUMP | SURGERY_NEEDS_INCISION
 	strict_access_requirement = FALSE
 
@@ -210,10 +210,9 @@
 		/obj/item/material/knife = 50,
 		/obj/item/material/utensil/fork = 50
 	)
-	min_duration = 30
-	max_duration = 40
+	min_duration = 3 SECONDS
+	max_duration = 4 SECONDS
 	surgery_candidate_flags = SURGERY_NO_ROBOTIC | SURGERY_NO_CRYSTAL | SURGERY_NO_STUMP | SURGERY_NEEDS_INCISION
-	strict_access_requirement = TRUE
 
 /singleton/surgery_step/generic/retract_skin/pre_surgery_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	. = FALSE
@@ -256,8 +255,8 @@
 		/obj/item/flame/lighter = 50,
 		/obj/item/weldingtool = 25
 	)
-	min_duration = 70
-	max_duration = 100
+	min_duration = 7 SECONDS
+	max_duration = 10 SECONDS
 	surgery_candidate_flags = SURGERY_NO_ROBOTIC | SURGERY_NO_CRYSTAL
 	var/cauterize_term = "cauterize"
 	var/post_cauterize_term = "cauterized"
@@ -322,9 +321,9 @@
 		/obj/item/circular_saw = 100,
 		/obj/item/material/hatchet = 75
 	)
-	min_duration = 110
-	max_duration = 160
-	surgery_candidate_flags = 0
+	min_duration = 11 SECONDS
+	max_duration = 16 SECONDS
+	surgery_candidate_flags = EMPTY_BITFIELD
 
 /singleton/surgery_step/generic/amputate/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()

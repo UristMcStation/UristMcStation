@@ -30,7 +30,7 @@
 		/obj/item/material/knife = 75,
 		/obj/item/material/shard = 50
 	)
-	min_duration = 5
+	min_duration = 0.5 SECONDS
 	max_duration = 2 SECONDS
 
 /singleton/surgery_step/slime/cut_flesh/can_use(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
@@ -60,7 +60,7 @@
 		/obj/item/material/knife = 75,
 		/obj/item/material/shard = 50
 	)
-	min_duration = 5
+	min_duration = 0.5 SECONDS
 	max_duration = 2 SECONDS
 
 /singleton/surgery_step/slime/cut_innards/can_use(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)

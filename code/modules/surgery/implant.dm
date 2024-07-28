@@ -9,7 +9,7 @@
 //////////////////////////////////////////////////////////////////
 /singleton/surgery_step/cavity
 	shock_level = 40
-	delicate = 1
+	delicate = TRUE
 	surgery_candidate_flags = SURGERY_NO_CRYSTAL | SURGERY_NO_STUMP | SURGERY_NEEDS_ENCASEMENT | SURGERY_NO_ROBOTIC
 
 /singleton/surgery_step/cavity/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -29,8 +29,8 @@
 		/obj/item/pen = 75,
 		/obj/item/stack/material/rods = 50
 	)
-	min_duration = 60
-	max_duration = 80
+	min_duration = 6 SECONDS
+	max_duration = 8 SECONDS
 
 /singleton/surgery_step/cavity/make_space/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
@@ -62,8 +62,8 @@
 		/obj/item/flame/lighter = 50,
 		/obj/item/weldingtool = 25
 	)
-	min_duration = 60
-	max_duration = 80
+	min_duration = 6 SECONDS
+	max_duration = 8 SECONDS
 
 /singleton/surgery_step/cavity/close_space/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
@@ -90,8 +90,8 @@
 /singleton/surgery_step/cavity/place_item
 	name = "Place item in cavity"
 	allowed_tools = list(/obj/item = 100)
-	min_duration = 80
-	max_duration = 100
+	min_duration = 8 SECONDS
+	max_duration = 10 SECONDS
 
 /singleton/surgery_step/cavity/place_item/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(istype(user,/mob/living/silicon/robot))
@@ -150,8 +150,8 @@
 		/obj/item/wirecutters = 75,
 		/obj/item/material/utensil/fork = 20
 	)
-	min_duration = 120
-	max_duration = 150
+	min_duration = 12 SECONDS
+	max_duration = 15 SECONDS
 
 /singleton/surgery_step/cavity/implant_removal/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()

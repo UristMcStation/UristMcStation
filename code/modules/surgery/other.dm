@@ -13,12 +13,12 @@
 		/obj/item/stack/cable_coil = 75,
 		/obj/item/tape_roll = 50
 	)
-	can_infect = 1
-	blood_level = 1
-	min_duration = 70
-	max_duration = 90
+	can_infect = TRUE
+	blood_level = BLOOD_LEVEL_HANDS
+	min_duration = 7 SECONDS
+	max_duration = 9 SECONDS
 	shock_level = 40
-	delicate = 1
+	delicate = TRUE
 	surgery_candidate_flags = SURGERY_NO_CRYSTAL | SURGERY_NO_ROBOTIC | SURGERY_NO_STUMP | SURGERY_NEEDS_RETRACTED
 
 /singleton/surgery_step/fix_tendon/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -57,12 +57,12 @@
 		/obj/item/stack/cable_coil = 75,
 		/obj/item/tape_roll = 50
 	)
-	can_infect = 1
-	blood_level = 1
-	min_duration = 70
-	max_duration = 90
+	can_infect = TRUE
+	blood_level = BLOOD_LEVEL_HANDS
+	min_duration = 7 SECONDS
+	max_duration = 9 SECONDS
 	shock_level = 40
-	delicate = 1
+	delicate = TRUE
 	strict_access_requirement = FALSE
 	surgery_candidate_flags = SURGERY_NO_CRYSTAL | SURGERY_NO_ROBOTIC | SURGERY_NO_STUMP | SURGERY_NEEDS_RETRACTED
 
@@ -105,11 +105,8 @@
 		/obj/item/psychic_power/psiblade = 75,
 		/obj/item/gun/energy/plasmacutter = 30
 	)
-	can_infect = 0
-	blood_level = 0
-	min_duration = 120
-	max_duration = 180
-	surgery_candidate_flags = 0
+	min_duration = 12 SECONDS
+	max_duration = 18 SECONDS
 
 /singleton/surgery_step/hardsuit/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return TRUE
@@ -161,10 +158,8 @@
 		/obj/item/reagent_containers/food/drinks/glass2 = 75,
 		/obj/item/reagent_containers/glass/bucket = 50
 	)
-	can_infect = 0
-	blood_level = 0
-	min_duration = 50
-	max_duration = 60
+	min_duration = 5 SECONDS
+	max_duration = 6 SECONDS
 
 /singleton/surgery_step/sterilize/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()

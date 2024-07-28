@@ -7,7 +7,6 @@
 //	generic robotic surgery step datum
 //////////////////////////////////////////////////////////////////
 /singleton/surgery_step/robotics
-	can_infect = 0
 	surgery_candidate_flags = SURGERY_NO_CRYSTAL | SURGERY_NO_FLESH | SURGERY_NO_STUMP
 
 /singleton/surgery_step/robotics/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/tool)
@@ -40,8 +39,8 @@
 		/obj/item/material/coin = 30,
 		/obj/item/material/knife = 40
 	)
-	min_duration = 50
-	max_duration = 90
+	min_duration = 5 SECONDS
+	max_duration = 9 SECONDS
 
 /singleton/surgery_step/robotics/unscrew_hatch/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
@@ -77,8 +76,8 @@
 		/obj/item/material/coin = 30,
 		/obj/item/material/knife = 40
 	)
-	min_duration = 50
-	max_duration = 90
+	min_duration = 5 SECONDS
+	max_duration = 9 SECONDS
 
 /singleton/surgery_step/robotics/screw_hatch/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
@@ -115,8 +114,8 @@
 		/obj/item/material/utensil = 30
 	)
 
-	min_duration = 30
-	max_duration = 40
+	min_duration = 3 SECONDS
+	max_duration = 4 SECONDS
 
 /singleton/surgery_step/robotics/open_hatch/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
@@ -153,8 +152,8 @@
 		/obj/item/material/utensil = 30
 	)
 
-	min_duration = 70
-	max_duration = 100
+	min_duration = 7 SECONDS
+	max_duration = 10 SECONDS
 
 /singleton/surgery_step/robotics/close_hatch/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
@@ -192,8 +191,8 @@
 		/obj/item/psychic_power/psiblade/master = 100
 	)
 
-	min_duration = 70
-	max_duration = 90
+	min_duration = 7 SECONDS
+	max_duration = 9 SECONDS
 
 /singleton/surgery_step/robotics/repair_brute/success_chance(mob/living/user, mob/living/carbon/human/target, obj/item/tool)
 	. = ..()
@@ -255,8 +254,8 @@
 /singleton/surgery_step/robotics/repair_brittle
 	name = "Reinforce prosthetic"
 	allowed_tools = list(/obj/item/stack/nanopaste = 50)
-	min_duration = 50
-	max_duration = 60
+	min_duration = 5 SECONDS
+	max_duration = 6 SECONDS
 
 /singleton/surgery_step/robotics/repair_brittle/success_chance(mob/living/user, mob/living/carbon/human/target, obj/item/tool)
 	. = ..()
@@ -299,8 +298,8 @@
 	allowed_tools = list(
 		/obj/item/stack/cable_coil = 50
 	)
-	min_duration = 70
-	max_duration = 90
+	min_duration = 7 SECONDS
+	max_duration = 9 SECONDS
 
 /singleton/surgery_step/robotics/repair_burn/success_chance(mob/living/user, mob/living/carbon/human/target, obj/item/tool)
 	. = ..()
@@ -365,8 +364,8 @@
 		/obj/item/screwdriver = 30,
 		/obj/item/swapper/power_drill = 50,
 	)
-	min_duration = 80
-	max_duration = 110
+	min_duration = 8 SECONDS
+	max_duration = 11 SECONDS
 	surgery_candidate_flags = SURGERY_NO_STUMP
 
 /singleton/surgery_step/robotics/fix_organ_robotic/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/tool)
@@ -431,8 +430,8 @@
 	allowed_tools = list(
 		/obj/item/device/multitool = 70
 	)
-	min_duration = 90
-	max_duration = 110
+	min_duration = 9 SECONDS
+	max_duration = 11 SECONDS
 	surgery_candidate_flags = SURGERY_NO_CRYSTAL | SURGERY_NO_FLESH | SURGERY_NO_STUMP | SURGERY_NEEDS_ENCASEMENT
 
 /singleton/surgery_step/robotics/detatch_organ_robotic/pre_surgery_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -484,8 +483,8 @@
 		/obj/item/screwdriver = 50,
 		/obj/item/swapper/power_drill = 70,
 	)
-	min_duration = 100
-	max_duration = 120
+	min_duration = 10 SECONDS
+	max_duration = 12 SECONDS
 	surgery_candidate_flags = SURGERY_NO_CRYSTAL | SURGERY_NO_FLESH | SURGERY_NO_STUMP | SURGERY_NEEDS_ENCASEMENT
 
 
@@ -551,8 +550,8 @@
 	allowed_tools = list(
 		/obj/item/device/mmi = 100
 	)
-	min_duration = 60
-	max_duration = 80
+	min_duration = 6 SECONDS
+	max_duration = 8 SECONDS
 	surgery_candidate_flags = SURGERY_NO_CRYSTAL | SURGERY_NO_FLESH | SURGERY_NO_STUMP | SURGERY_NEEDS_ENCASEMENT
 
 /singleton/surgery_step/robotics/install_mmi/pre_surgery_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -608,25 +607,24 @@
 
 /singleton/surgery_step/internal/remove_organ/robotic
 	name = "Remove robotic component"
-	can_infect = 0
+	can_infect = FALSE
 	surgery_candidate_flags = SURGERY_NO_CRYSTAL | SURGERY_NO_FLESH | SURGERY_NO_STUMP | SURGERY_NEEDS_ENCASEMENT
 
 /singleton/surgery_step/internal/replace_organ/robotic
 	name = "Replace robotic component"
-	can_infect = 0
+	can_infect = FALSE
 	robotic_surgery = TRUE
 	surgery_candidate_flags = SURGERY_NO_CRYSTAL | SURGERY_NO_FLESH | SURGERY_NO_STUMP | SURGERY_NEEDS_ENCASEMENT
 
 /singleton/surgery_step/remove_mmi
 	name = "Remove MMI"
-	min_duration = 60
-	max_duration = 80
+	min_duration = 6 SECONDS
+	max_duration = 8 SECONDS
 	allowed_tools = list(
 		/obj/item/hemostat = 100,
 		/obj/item/wirecutters = 75,
 		/obj/item/material/utensil/fork = 20
 	)
-	can_infect = 0
 	surgery_candidate_flags = SURGERY_NO_CRYSTAL | SURGERY_NO_FLESH | SURGERY_NO_STUMP | SURGERY_NEEDS_ENCASEMENT
 
 /singleton/surgery_step/remove_mmi/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/tool)
@@ -696,8 +694,8 @@
 		/obj/item/tape_roll = 30,
 		/obj/item/bonegel = 30
 	)
-	min_duration = 50
-	max_duration = 60
+	min_duration = 5 SECONDS
+	max_duration = 6 SECONDS
 
 /singleton/surgery_step/robotics/robone/weld/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -739,10 +737,10 @@
 		/obj/item/wrench = 70,
 		/obj/item/bonesetter = 50
 	)
-	min_duration = 60
-	max_duration = 70
+	min_duration = 6 SECONDS
+	max_duration = 7 SECONDS
 	shock_level = 40
-	delicate = 1
+	delicate = TRUE
 	surgery_candidate_flags = SURGERY_NO_FLESH | SURGERY_NEEDS_ENCASEMENT
 	required_stage = 1
 
@@ -803,8 +801,8 @@
 		/obj/item/tape_roll = 30,
 		/obj/item/bonegel = 30
 	)
-	min_duration = 50
-	max_duration = 60
+	min_duration = 5 SECONDS
+	max_duration = 6 SECONDS
 	required_stage = 2
 
 /singleton/surgery_step/robotics/robone/finish/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

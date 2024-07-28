@@ -13,14 +13,13 @@
 		/obj/item/material/knife = 50,
 		/obj/item/material/hatchet = 75
 	)
-	can_infect = 1
-	blood_level = 1
-	min_duration = 50
-	max_duration = 70
+	can_infect = TRUE
+	blood_level = BLOOD_LEVEL_HANDS
+	min_duration = 5 SECONDS
+	max_duration = 7 SECONDS
 	shock_level = 60
-	delicate = 1
+	delicate = TRUE
 	surgery_candidate_flags = SURGERY_NO_ROBOTIC | SURGERY_NO_CRYSTAL | SURGERY_NO_STUMP | SURGERY_NEEDS_RETRACTED
-	strict_access_requirement = TRUE
 
 /singleton/surgery_step/open_encased/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()

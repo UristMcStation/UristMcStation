@@ -3,10 +3,10 @@
 //						INTERNAL ORGANS							//
 //////////////////////////////////////////////////////////////////
 /singleton/surgery_step/internal
-	can_infect = 1
-	blood_level = 1
+	can_infect = TRUE
+	blood_level = BLOOD_LEVEL_HANDS
 	shock_level = 40
-	delicate = 1
+	delicate = TRUE
 	surgery_candidate_flags = SURGERY_NO_ROBOTIC | SURGERY_NO_STUMP | SURGERY_NEEDS_ENCASEMENT
 
 //////////////////////////////////////////////////////////////////
@@ -19,8 +19,8 @@
 		/obj/item/stack/medical/bruise_pack = 40,
 		/obj/item/tape_roll = 20
 	)
-	min_duration = 70
-	max_duration = 90
+	min_duration = 7 SECONDS
+	max_duration = 9 SECONDS
 	surgery_candidate_flags = SURGERY_NO_CRYSTAL | SURGERY_NO_ROBOTIC | SURGERY_NO_STUMP
 
 /singleton/surgery_step/internal/fix_organ/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -96,8 +96,8 @@
 		/obj/item/scalpel = 100,
 		/obj/item/material/shard = 50
 	)
-	min_duration = 90
-	max_duration = 110
+	min_duration = 9 SECONDS
+	max_duration = 11 SECONDS
 	surgery_candidate_flags = SURGERY_NO_CRYSTAL | SURGERY_NO_ROBOTIC | SURGERY_NO_STUMP | SURGERY_NEEDS_ENCASEMENT
 
 /singleton/surgery_step/internal/detatch_organ/pre_surgery_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -151,8 +151,8 @@
 		/obj/item/swapper/jaws_of_life = 50,
 		/obj/item/material/utensil/fork = 20
 	)
-	min_duration = 60
-	max_duration = 80
+	min_duration = 6 SECONDS
+	max_duration = 8 SECONDS
 
 /singleton/surgery_step/internal/remove_organ/pre_surgery_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -233,8 +233,8 @@
 	allowed_tools = list(
 		/obj/item/organ/internal = 100
 	)
-	min_duration = 60
-	max_duration = 80
+	min_duration = 6 SECONDS
+	max_duration = 8 SECONDS
 	var/robotic_surgery = FALSE
 
 /singleton/surgery_step/internal/replace_organ/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/tool)
@@ -319,8 +319,8 @@
 		/obj/item/stack/cable_coil = 75,
 		/obj/item/tape_roll = 50
 	)
-	min_duration = 100
-	max_duration = 120
+	min_duration = 10 SECONDS
+	max_duration = 12 SECONDS
 	surgery_candidate_flags = SURGERY_NO_CRYSTAL | SURGERY_NO_ROBOTIC | SURGERY_NO_STUMP | SURGERY_NEEDS_ENCASEMENT
 
 /singleton/surgery_step/internal/attach_organ/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/tool)
@@ -425,11 +425,11 @@
 		/obj/item/reagent_containers/glass/bucket = 50,
 	)
 
-	can_infect = 0
-	blood_level = 0
+	can_infect = FALSE
+	blood_level = BLOOD_LEVEL_NONE
 
-	min_duration = 50
-	max_duration = 60
+	min_duration = 5 SECONDS
+	max_duration = 6 SECONDS
 
 /singleton/surgery_step/internal/treat_necrosis/pre_surgery_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/reagent_containers/container = tool

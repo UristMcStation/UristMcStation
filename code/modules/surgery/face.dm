@@ -9,10 +9,9 @@
 		/obj/item/device/assembly/mousetrap = 10,
 		/obj/item/material/utensil/fork = 75
 	)
-	min_duration = 100
-	max_duration = 120
+	min_duration = 10 SECONDS
+	max_duration = 12 SECONDS
 	surgery_candidate_flags = SURGERY_NO_ROBOTIC | SURGERY_NO_CRYSTAL | SURGERY_NEEDS_RETRACTED
-	strict_access_requirement = TRUE
 
 /singleton/surgery_step/fix_face/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(target_zone == BP_HEAD)
@@ -45,7 +44,6 @@
 
 /singleton/surgery_step/plastic_surgery
 	surgery_candidate_flags = SURGERY_NO_ROBOTIC | SURGERY_NO_CRYSTAL | SURGERY_NEEDS_RETRACTED
-	strict_access_requirement = TRUE
 	var/required_stage = 0
 
 /singleton/surgery_step/plastic_surgery/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -60,9 +58,9 @@
 		/obj/item/scalpel = 100,
 		/obj/item/material/shard = 50
 	)
-	min_duration = 100
-	max_duration = 120
-	can_infect = 1
+	min_duration = 10 SECONDS
+	max_duration = 12 SECONDS
+	can_infect = TRUE
 	shock_level = 20
 
 /singleton/surgery_step/plastic_surgery/prepare_face/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -98,9 +96,9 @@
 		/obj/item/device/assembly/mousetrap = 10,
 		/obj/item/material/utensil/fork = 75
 	)
-	min_duration = 100
-	max_duration = 120
-	can_infect = 1
+	min_duration = 10 SECONDS
+	max_duration = 12 SECONDS
+	can_infect = TRUE
 	shock_level = 20
 	required_stage = 1
 

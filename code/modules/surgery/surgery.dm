@@ -17,11 +17,11 @@ GLOBAL_LIST_INIT(surgery_tool_exception_cache, new)
 /singleton/surgery_step
 	/// String. Name of the surgery step, i.e. `"Make incision"`. Used in feedback messages and surgery selection dialogues.
 	var/name
-	/// List (Subpaths of `/obj/item`). Map of type paths to percentages (`0` - `100`) indicating what tools can perform this surgery and their efficiency at it.
+	/// List (Subpaths of `/obj/item` => integer). Map of type paths to percentages (`0` - `100`) indicating what tools can perform this surgery and their efficiency at it.
 	var/list/allowed_tools = list()
-	/// LAZYLIST (String - Any of `SPECIES_*`). Type paths referencing races that this step applies to. Overrides `disallowed_species`.
+	/// LAZYLIST (String - Any of `SPECIES_*`). List of type paths referencing races that this step applies to. Overrides `disallowed_species`.
 	var/list/allowed_species
-	/// LAZYLIST (String - Any of `SPECIES_*`). Type paths referencing races that this step does not apply to. Overridden by `allowed_species`.
+	/// LAZYLIST (String - Any of `SPECIES_*`). List of type paths referencing races that this step does not apply to. Overridden by `allowed_species`.
 	var/list/disallowed_species
 	/// Integer. Minimum duration of the step in ticks. Used for randomizing `do_after()` times.
 	var/min_duration = 0
@@ -130,9 +130,9 @@ GLOBAL_LIST_INIT(surgery_tool_exception_cache, new)
 		spread_germs_to_organ(affected, user)
 	if(ishuman(user) && prob(60))
 		var/mob/living/carbon/human/H = user
-		if (blood_level)
+		if (blood_level >= BLOOD_LEVEL_HANDS)
 			H.bloody_hands(target,0)
-		if (blood_level > 1)
+		if (blood_level >= BLOOD_LEVEL_FULLBODY)
 			H.bloody_body(target,0)
 	if(shock_level)
 		target.shock_stage = max(target.shock_stage, shock_level)

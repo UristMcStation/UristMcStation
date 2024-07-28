@@ -21,10 +21,10 @@
 		/obj/item/bonegel = 100,
 		/obj/item/tape_roll = 75
 	)
-	can_infect = 1
-	blood_level = 1
-	min_duration = 50
-	max_duration = 60
+	can_infect = TRUE
+	blood_level = BLOOD_LEVEL_HANDS
+	min_duration = 5 SECONDS
+	max_duration = 6 SECONDS
 	shock_level = 20
 
 /singleton/surgery_step/bone/glue/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -62,10 +62,10 @@
 		/obj/item/swapper/power_drill = 100,
 		/obj/item/wrench = 75
 	)
-	min_duration = 60
-	max_duration = 70
+	min_duration = 6 SECONDS
+	max_duration = 7 SECONDS
 	shock_level = 40
-	delicate = 1
+	delicate = TRUE
 	surgery_candidate_flags = SURGERY_NO_ROBOTIC | SURGERY_NEEDS_ENCASEMENT
 	required_stage = 1
 
@@ -114,10 +114,10 @@
 		/obj/item/bonegel = 100,
 		/obj/item/tape_roll = 75
 	)
-	can_infect = 1
-	blood_level = 1
-	min_duration = 50
-	max_duration = 60
+	can_infect = TRUE
+	blood_level = BLOOD_LEVEL_HANDS
+	min_duration = 5 SECONDS
+	max_duration = 6 SECONDS
 	shock_level = 20
 	required_stage = 2
 
