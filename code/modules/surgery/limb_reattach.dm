@@ -28,29 +28,41 @@
 	min_duration = 5 SECONDS
 	max_duration = 7 SECONDS
 
+
 /singleton/surgery_step/limb/attach/pre_surgery_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	. = FALSE
-	var/obj/item/organ/external/E = tool
-	var/obj/item/organ/external/P = target.organs_by_name[E.parent_organ]
-	var/obj/item/organ/external/T = target.organs_by_name[E.organ_tag]
+	var/obj/item/organ/external/organ_to_attach = tool
+	var/obj/item/organ/external/parent_organ = target.organs_by_name[organ_to_attach.parent_organ]
+	var/obj/item/organ/external/current_organ = target.organs_by_name[organ_to_attach.organ_tag]
 
-	if ((E.status & ORGAN_CONFIGURE) && E.surgery_configure(user, target, P, tool, src))
-		return
+	if (HAS_FLAGS(organ_to_attach.status, ORGAN_CONFIGURE) && organ_to_attach.surgery_configure(user, target, parent_organ, tool, src))
+		return FALSE
 
-	if(!P || P.is_stump())
-		to_chat(user, SPAN_WARNING("The [E.amputation_point] is missing!"))
-	else if(T && T.is_stump())
-		to_chat(user, SPAN_WARNING("You cannot attach \a [E] when there is a stump!"))
-	else if(T)
-		to_chat(user, SPAN_WARNING("There is already \a [E]!"))
-	else if(BP_IS_ROBOTIC(P) && !BP_IS_ROBOTIC(E))
-		to_chat(user, SPAN_WARNING("You cannot attach a flesh part to a robotic body."))
-	else if(BP_IS_CRYSTAL(P) && !BP_IS_CRYSTAL(E))
-		to_chat(user, SPAN_WARNING("You cannot attach a flesh part to a crystalline body."))
-	else if(!BP_IS_CRYSTAL(P) && BP_IS_CRYSTAL(E))
-		to_chat(user, SPAN_WARNING("You cannot attach a crystalline part to a flesh body."))
-	else
-		. = TRUE
+	if (!parent_organ)
+		USE_FEEDBACK_FAILURE("\The [target]'s [organ_to_attach.amputation_point] is missing. You can't attach \the [tool] there.")
+		return FALSE
+
+	if (parent_organ.is_stump())
+		USE_FEEDBACK_FAILURE("\The [target]'s [parent_organ.name] is a stump. You can't attach \the [tool] there.")
+		return FALSE
+
+	if (current_organ)
+		USE_FEEDBACK_FAILURE("\The [target] already has \a [current_organ][current_organ.is_stump() ? " stump" : ""] attached there. It must be removed before you can attach \the [tool].")
+		return FALSE
+
+	if (BP_IS_ROBOTIC(parent_organ) && !BP_IS_ROBOTIC(organ_to_attach))
+		USE_FEEDBACK_FAILURE("\The [target]'s [parent_organ.name] is robotic but \the [tool] is not. You cannot attach it.")
+		return FALSE
+
+	if (BP_IS_CRYSTAL(parent_organ) && !BP_IS_CRYSTAL(organ_to_attach))
+		USE_FEEDBACK_FAILURE("\The [target]'s [parent_organ.name] is crystalline but \the [tool] is not. You cannot attach it.")
+		return FALSE
+
+	if (!BP_IS_CRYSTAL(parent_organ) && BP_IS_CRYSTAL(organ_to_attach))
+		USE_FEEDBACK_FAILURE("\The [tool] is crystalline but \the [target]'s [parent_organ.name] is not. You cannot attach it.")
+		return FALSE
+
+	return TRUE
+
 
 /singleton/surgery_step/limb/attach/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/organ/external/tool)
 	if(istype(tool) && BP_IS_ROBOTIC(tool))

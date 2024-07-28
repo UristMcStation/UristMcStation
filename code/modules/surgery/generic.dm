@@ -214,15 +214,19 @@
 	max_duration = 4 SECONDS
 	surgery_candidate_flags = SURGERY_NO_ROBOTIC | SURGERY_NO_CRYSTAL | SURGERY_NO_STUMP | SURGERY_NEEDS_INCISION
 
+
 /singleton/surgery_step/generic/retract_skin/pre_surgery_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	. = FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	if(affected)
-		if(affected.how_open() >= SURGERY_RETRACTED)
-			var/datum/wound/cut/incision = affected.get_incision()
-			to_chat(user, SPAN_NOTICE("The [incision.desc] provides enough access, a larger incision isn't needed."))
-		else
-			. = TRUE
+	if (!affected)
+		return FALSE
+
+	if (affected.how_open() >= SURGERY_RETRACTED)
+		var/datum/wound/cut/incision = affected.get_incision()
+		USE_FEEDBACK_FAILURE("The [incision.desc] provides enough access, a larger incision isn't needed.")
+		return FALSE
+
+	return TRUE
+
 
 /singleton/surgery_step/generic/retract_skin/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -261,19 +265,24 @@
 	var/cauterize_term = "cauterize"
 	var/post_cauterize_term = "cauterized"
 
+
 /singleton/surgery_step/generic/cauterize/pre_surgery_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	. = FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	if(affected)
-		if(affected.is_stump())
-			if(affected.status & ORGAN_ARTERY_CUT)
-				. = TRUE
-			else
-				to_chat(user, SPAN_WARNING("There is no bleeding to repair within this stump."))
-		else if(!affected.get_incision(1))
-			to_chat(user, SPAN_WARNING("There are no incisions on [target]'s [affected.name] that can be closed cleanly with \the [tool]!"))
-		else
-			. = TRUE
+	if (!affected)
+		return FALSE
+
+	if (affected.is_stump())
+		if (!HAS_FLAGS(affected.status, ORGAN_ARTERY_CUT))
+			USE_FEEDBACK_FAILURE("There is no bleeding to repair within this stump.")
+			return FALSE
+		return TRUE
+
+	if (!affected.get_incision(1))
+		USE_FEEDBACK_FAILURE("There are no incisions on \the [target]'s [affected.name] that can be closed cleanly with \the [tool].")
+		return FALSE
+
+	return TRUE
+
 
 /singleton/surgery_step/generic/cauterize/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()

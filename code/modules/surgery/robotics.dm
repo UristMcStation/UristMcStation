@@ -203,25 +203,32 @@
 	if(!user.skill_check(SKILL_DEVICES, SKILL_EXPERIENCED))
 		. -= 10
 
+
 /singleton/surgery_step/robotics/repair_brute/pre_surgery_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	if(affected)
-		if(!affected.brute_dam)
-			to_chat(user, SPAN_WARNING("There is no damage to repair."))
+	if (!affected)
+		return FALSE
+
+	if (!affected.brute_dam)
+		USE_FEEDBACK_FAILURE("\The [target]'s [affected.name] has no physical damage to repair.")
+		return FALSE
+
+	if (BP_IS_BRITTLE(affected))
+		USE_FEEDBACK_FAILURE("\The [target]'s [affected.name] is too brittal to be repaired normally.")
+		return FALSE
+
+	if (isWelder(tool))
+		var/obj/item/weldingtool/welder = tool
+		if (!welder.remove_fuel(1, user))
 			return FALSE
-		if(BP_IS_BRITTLE(affected))
-			to_chat(user, SPAN_WARNING("\The [target]'s [affected.name] is too brittle to be repaired normally."))
+
+	if (istype(tool, /obj/item/gun/energy/plasmacutter))
+		var/obj/item/gun/energy/plasmacutter/cutter = tool
+		if (!cutter.slice(user))
 			return FALSE
-		if(isWelder(tool))
-			var/obj/item/weldingtool/welder = tool
-			if(!welder.remove_fuel(1,user))
-				return FALSE
-		if(istype(tool, /obj/item/gun/energy/plasmacutter))
-			var/obj/item/gun/energy/plasmacutter/cutter = tool
-			if(!cutter.slice(user))
-				return FALSE
-		return TRUE
-	return FALSE
+
+	return TRUE
+
 
 /singleton/surgery_step/robotics/repair_brute/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
@@ -311,22 +318,27 @@
 	if(!user.skill_check(SKILL_DEVICES, SKILL_EXPERIENCED))
 		. -= 10
 
+
 /singleton/surgery_step/robotics/repair_burn/pre_surgery_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	if(affected)
-		if(!affected.burn_dam)
-			to_chat(user, SPAN_WARNING("There is no damage to repair."))
-			return FALSE
-		if(BP_IS_BRITTLE(affected))
-			to_chat(user, SPAN_WARNING("\The [target]'s [affected.name] is too brittle for this kind of repair."))
-		else
-			var/obj/item/stack/cable_coil/C = tool
-			if(istype(C))
-				if(!C.use(3))
-					to_chat(user, SPAN_WARNING("You need three or more cable pieces to repair this damage."))
-				else
-					return TRUE
-	return FALSE
+	if (!affected)
+		return FALSE
+
+	if (!affected.burn_dam)
+		USE_FEEDBACK_FAILURE("\The [target]'s [affected.name] has no burns to repair.")
+		return FALSE
+
+	if (BP_IS_BRITTLE(affected))
+		USE_FEEDBACK_FAILURE("\The [target]'s [affected.name] is too brittle for this kind of repair.")
+		return FALSE
+
+	var/obj/item/stack/cable_coil/cable = tool
+	if (!cable.use(3))
+		USE_FEEDBACK_STACK_NOT_ENOUGH(cable, 3, "to repair the burns in \the [target]'s [affected.name].")
+		return FALSE
+
+	return TRUE
+
 
 /singleton/surgery_step/robotics/repair_burn/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
@@ -434,23 +446,41 @@
 	max_duration = 11 SECONDS
 	surgery_candidate_flags = SURGERY_NO_CRYSTAL | SURGERY_NO_FLESH | SURGERY_NO_STUMP | SURGERY_NEEDS_ENCASEMENT
 
+
 /singleton/surgery_step/robotics/detatch_organ_robotic/pre_surgery_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	var/list/attached_organs
-	for(var/organ in target.internal_organs_by_name)
-		var/obj/item/organ/I = target.internal_organs_by_name[organ]
-		if(I && !(I.status & ORGAN_CUT_AWAY) && !BP_IS_CRYSTAL(I) && I.parent_organ == target_zone)
-			var/image/radial_button = image(icon = I.icon, icon_state = I.icon_state)
-			radial_button.name = "Detach \the [I.name]"
-			LAZYSET(attached_organs, I.organ_tag, radial_button)
-	if(!LAZYLEN(attached_organs))
-		to_chat(user, SPAN_WARNING("There are no appropriate internal components to decouple."))
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if (!affected)
 		return FALSE
+
+	var/list/attached_organs = list()
+	for (var/organ_key in target.internal_organs_by_name)
+		var/obj/item/organ/organ = target.internal_organs_by_name[organ_key]
+		if (!organ)
+			continue
+		if (HAS_FLAGS(organ.status, ORGAN_CUT_AWAY))
+			continue
+		if (BP_IS_CRYSTAL(organ))
+			continue
+		if (organ.parent_organ != target_zone)
+			continue
+		var/image/radial_button = image(icon = organ.icon, icon_state = organ.icon_state)
+		radial_button.name = "Detach \the [organ.name]"
+		attached_organs[organ.organ_tag] = radial_button
+
+	if (!LAZYLEN(attached_organs))
+		USE_FEEDBACK_FAILURE("\The [target]'s [affected.name] has nothing to detatch.")
+		return FALSE
+
+	var/organ_to_remove
 	if (length(attached_organs) == 1 && user.get_preference_value(/datum/client_preference/surgery_skip_radial))
-		return attached_organs[1]
-	var/organ_to_remove = show_radial_menu(user, tool, attached_organs, radius = 42, require_near = TRUE, use_labels = TRUE, check_locs = list(tool))
-	if (organ_to_remove && user.use_sanity_check(target, tool))
-		return organ_to_remove
-	return FALSE
+		organ_to_remove = attached_organs[1]
+	else
+		organ_to_remove = show_radial_menu(user, tool, attached_organs, radius = 42, require_near = TRUE, use_labels = TRUE, check_locs = list(tool))
+		if (!organ_to_remove || !user.use_sanity_check(target, tool))
+			return FALSE
+
+	return TRUE
+
 
 /singleton/surgery_step/robotics/detatch_organ_robotic/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/affected = target.get_organ(target_zone)
@@ -490,31 +520,39 @@
 
 /singleton/surgery_step/robotics/attach_organ_robotic/pre_surgery_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if (!affected)
+		return FALSE
+
 	var/list/obj/item/organ/candidates = list()
 	for (var/obj/item/organ/organ in affected.implants)
-		if (~organ.status & ORGAN_CUT_AWAY)
+		if (!HAS_FLAGS(organ.status, ORGAN_CUT_AWAY))
 			continue
-		if (~organ.status & ORGAN_ROBOTIC)
+		if (!HAS_FLAGS(organ.status, ORGAN_ROBOTIC))
 			continue
-		if (organ.status & ORGAN_CRYSTAL)
+		if (HAS_FLAGS(organ.status, ORGAN_CRYSTAL))
 			continue
 		if (organ.parent_organ != target_zone)
 			continue
 		if (organ.organ_tag in target.internal_organs_by_name)
 			continue
 		var/image/radial_button = image(icon = organ.icon, icon_state = organ.icon_state)
-		radial_button.name = "Attach \the [organ.name]"
-		LAZYSET(candidates, organ, radial_button)
+		radial_button.name = "Attach \the [organ]"
+		candidates[organ] = radial_button
+
+	var/obj/item/organ/selected
 	if (length(candidates) == 1 && user.get_preference_value(/datum/client_preference/surgery_skip_radial))
-		return candidates[1]
-	var/obj/item/organ/selected = show_radial_menu(user, tool, candidates, radius = 42, require_near = TRUE, use_labels = TRUE, check_locs = list(tool))
-	if (!selected || !user.use_sanity_check(target, tool))
-		return FALSE
+		selected = candidates[1]
+	else
+		selected = show_radial_menu(user, tool, candidates, radius = 42, require_near = TRUE, use_labels = TRUE, check_locs = list(tool))
+		if (!selected || !user.use_sanity_check(target, tool))
+			return FALSE
+
 	if (istype(selected, /obj/item/organ/internal/augment))
 		var/obj/item/organ/internal/augment/augment = selected
-		if (~augment.augment_flags & AUGMENT_MECHANICAL)
-			to_chat(user, SPAN_WARNING("\The [augment] cannot function within a robotic limb."))
+		if (!HAS_FLAGS(augment.augment_flags, AUGMENT_MECHANICAL))
+			USE_FEEDBACK_FAILURE("\The [target]'s [affected.name] is robotic but \the [augment] cannot be installed into a robotic part.")
 			return FALSE
+
 	return selected
 
 
@@ -554,23 +592,39 @@
 	max_duration = 8 SECONDS
 	surgery_candidate_flags = SURGERY_NO_CRYSTAL | SURGERY_NO_FLESH | SURGERY_NO_STUMP | SURGERY_NEEDS_ENCASEMENT
 
+
 /singleton/surgery_step/robotics/install_mmi/pre_surgery_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	var/obj/item/device/mmi/M = tool
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	if(affected && istype(M))
-		if(!M.brainmob || !M.brainmob.client || !M.brainmob.ckey || M.brainmob.stat >= DEAD)
-			to_chat(user, SPAN_WARNING("That brain is not usable."))
-		else if(BP_IS_CRYSTAL(affected))
-			to_chat(user, SPAN_WARNING("The crystalline interior of \the [affected] is incompatible with \the [M]."))
-		else if(!target.isSynthetic())
-			to_chat(user, SPAN_WARNING("You cannot install a computer brain into a meat body."))
-		else if(!target.should_have_organ(BP_BRAIN))
-			to_chat(user, SPAN_WARNING("You're pretty sure [target.species.name_plural] don't normally have a brain."))
-		else if(target.internal_organs[BP_BRAIN])
-			to_chat(user, SPAN_WARNING("Your subject already has a brain."))
-		else
-			return TRUE
-	return FALSE
+	if (!affected)
+		return FALSE
+
+	var/obj/item/device/mmi/mmi = tool
+	if (!istype(mmi))
+		return FALSE
+
+	if (!mmi.brainmob || !mmi.brainmob.client || !mmi.brainmob.ckey || mmi.brainmob.stat >= DEAD)
+		USE_FEEDBACK_FAILURE("\The [mmi] has no brain or the brain is dead or unusable.")
+		return FALSE
+
+	if (!target.isSynthetic())
+		USE_FEEDBACK_FAILURE("\The [mmi] can only be installed in robotic bodies.")
+		return FALSE
+
+	if (BP_IS_CRYSTAL(affected))
+		USE_FEEDBACK_FAILURE("The crystalline interior of \the [target]'s [affected.name] is incompatible with \the [mmi].")
+		return FALSE
+
+	if (!target.should_have_organ(BP_BRAIN))
+		USE_FEEDBACK_FAILURE("\The [target] doesn't have a space for a brain.")
+		return FALSE
+
+	var/obj/item/brain = target.internal_organs[BP_BRAIN]
+	if (brain)
+		USE_FEEDBACK_FAILURE("\The [target]'s [affected.name] already has \a [brain].")
+		return FALSE
+
+	return TRUE
+
 
 /singleton/surgery_step/robotics/install_mmi/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()

@@ -103,22 +103,28 @@
 	if(affected && affected.cavity)
 		return affected
 
+
 /singleton/surgery_step/cavity/place_item/pre_surgery_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	if(affected && affected.cavity)
-		var/max_volume = BASE_STORAGE_CAPACITY(affected.cavity_max_w_class)
-		if(tool.w_class > affected.cavity_max_w_class)
-			to_chat(user, SPAN_WARNING("\The [tool] is too big for [affected.cavity_name] cavity."))
-			return FALSE
-		var/total_volume = tool.get_storage_cost()
-		for(var/obj/item/I in affected.implants)
-			if(istype(I,/obj/item/implant))
-				continue
-			total_volume += I.get_storage_cost()
-		if(total_volume > max_volume)
-			to_chat(user, SPAN_WARNING("There isn't enough space left in [affected.cavity_name] cavity for [tool]."))
-			return FALSE
-		return TRUE
+	if (!affected?.cavity)
+		return FALSE
+
+	var/max_volume = BASE_STORAGE_CAPACITY(affected.cavity_max_w_class)
+	if (tool.w_class > affected.cavity_max_w_class)
+		USE_FEEDBACK_FAILURE("\The [tool] is too big for \the [target]'s [affected.cavity_name] cavity.")
+		return FALSE
+
+	var/total_volume = tool.get_storage_cost()
+	for (var/obj/item/item as anything in affected.implants)
+		if (istype(item, /obj/item/implant))
+			continue
+		total_volume += item.get_storage_cost()
+	if (total_volume > max_volume)
+		USE_FEEDBACK_FAILURE("There isn't enough space left in \the [target]'s [affected.cavity_name] cavity for \the [tool].")
+		return FALSE
+
+	return TRUE
+
 
 /singleton/surgery_step/cavity/place_item/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)

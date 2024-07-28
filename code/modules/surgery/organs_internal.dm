@@ -100,23 +100,39 @@
 	max_duration = 11 SECONDS
 	surgery_candidate_flags = SURGERY_NO_CRYSTAL | SURGERY_NO_ROBOTIC | SURGERY_NO_STUMP | SURGERY_NEEDS_ENCASEMENT
 
+
 /singleton/surgery_step/internal/detatch_organ/pre_surgery_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	var/list/attached_organs = list()
-	for (var/organ in target.internal_organs_by_name)
-		var/obj/item/organ/I = target.internal_organs_by_name[organ]
-		if (I && !(I.status & ORGAN_CUT_AWAY) && I.parent_organ == target_zone)
-			var/image/radial_button = image(icon = I.icon, icon_state = I.icon_state)
-			radial_button.name = "Detach \the [I.name]"
-			attached_organs[I] = radial_button
-	if (!length(attached_organs))
-		to_chat(user, SPAN_WARNING("You can't find any organs to separate."))
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if (!affected)
 		return FALSE
+
+	var/list/attached_organs = list()
+	for (var/organ_key in target.internal_organs_by_name)
+		var/obj/item/organ/organ = target.internal_organs_by_name[organ_key]
+		if (!organ)
+			continue
+		if (HAS_FLAGS(organ.status, ORGAN_CUT_AWAY))
+			continue
+		if (organ.parent_organ != target_zone)
+			continue
+		var/image/radial_button = image(icon = organ.icon, icon_state = organ.icon_state)
+		radial_button.name = "Detach \the [organ]"
+		attached_organs[organ] = radial_button
+
+	if (!length(attached_organs))
+		USE_FEEDBACK_FAILURE("\The [target]'s [affected.name] has nothing to detatch.")
+		return FALSE
+
+	var/choice
 	if (length(attached_organs) == 1 && user.get_preference_value(/datum/client_preference/surgery_skip_radial))
-		return attached_organs[1]
-	var/choice = show_radial_menu(user, tool, attached_organs, radius = 42, require_near = TRUE, use_labels = TRUE, check_locs = list(tool))
-	if (choice && user.use_sanity_check(target, tool))
-		return choice
-	return FALSE
+		choice = attached_organs[1]
+	else
+		choice = show_radial_menu(user, tool, attached_organs, radius = 42, require_near = TRUE, use_labels = TRUE, check_locs = list(tool))
+		if (!choice || !user.use_sanity_check(target, tool))
+			return FALSE
+
+	return choice
+
 
 /singleton/surgery_step/internal/detatch_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/detaching = LAZYACCESS(target.surgeries_in_progress, target_zone)
@@ -154,26 +170,42 @@
 	min_duration = 6 SECONDS
 	max_duration = 8 SECONDS
 
+
 /singleton/surgery_step/internal/remove_organ/pre_surgery_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if (!affected)
 		return FALSE
+
 	var/list/removable_organs = list()
-	for (var/obj/item/organ/internal/I in affected.implants)
-		if (~I.status & ORGAN_CUT_AWAY)
+	for (var/obj/item/organ/internal/internal_organ in affected.implants)
+		if (!HAS_FLAGS(internal_organ.status, ORGAN_CUT_AWAY))
 			continue
-		var/image/radial_button = image(icon = I.icon, icon_state = I.icon_state)
-		radial_button.name = "Remove \the [I.name]"
-		removable_organs[I] = radial_button
+		var/image/radial_button = image(icon = internal_organ.icon, icon_state = internal_organ.icon_state)
+		radial_button.name = "Remove \the [internal_organ.name]"
+		removable_organs[internal_organ] = radial_button
+
 	if (!length(removable_organs))
-		to_chat(user, SPAN_WARNING("You can't find any removable organs."))
+		to_chat(user, SPAN_WARNING("\The [target]'s [affected.name] has nothing to remove."))
 		return FALSE
+
+	var/choice
 	if (length(removable_organs) == 1 && user.get_preference_value(/datum/client_preference/surgery_skip_radial))
-		return removable_organs[1]
-	var/choice = show_radial_menu(user, tool, removable_organs, radius = 42, require_near = TRUE, use_labels = TRUE, check_locs = list(tool))
-	if (choice && user.use_sanity_check(target, tool))
-		return choice
-	return FALSE
+		choice = removable_organs[1]
+	else
+		choice = show_radial_menu(
+			user,
+			tool,
+			removable_organs,
+			radius = 42,
+			require_near = TRUE,
+			use_labels = TRUE,
+			check_locs = list(tool)
+		)
+		if (!choice || !user.use_sanity_check(target, tool))
+			return FALSE
+
+	return choice
+
 
 /singleton/surgery_step/internal/remove_organ/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/tool)
 	var/target_zone = user.zone_sel.selecting
@@ -248,38 +280,46 @@
 	else
 		return ..()
 
+
 /singleton/surgery_step/internal/replace_organ/pre_surgery_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	. = FALSE
-	var/obj/item/organ/internal/O = tool
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if (!affected)
+		return FALSE
 
-	if ((O.status & ORGAN_CONFIGURE) && O.surgery_configure(user, target, affected, tool, src))
-		return
+	var/obj/item/organ/internal/organ_to_install = tool
+	if (!istype(organ_to_install) || (HAS_FLAGS(organ_to_install.status, ORGAN_CONFIGURE) && organ_to_install.surgery_configure(user, target, affected, tool, src)))
+		return FALSE
 
-	if(istype(O) && istype(affected))
-		if(BP_IS_CRYSTAL(O) && !BP_IS_CRYSTAL(affected))
-			to_chat(user, SPAN_WARNING("You cannot install a crystalline organ into a non-crystalline bodypart."))
-		else if(!BP_IS_CRYSTAL(O) && BP_IS_CRYSTAL(affected))
-			to_chat(user, SPAN_WARNING("You cannot install a non-crystalline organ into a crystalline bodypart."))
-		else if(BP_IS_ROBOTIC(affected) && !BP_IS_ROBOTIC(O))
-			to_chat(user, SPAN_WARNING("You cannot install a naked organ into a robotic body."))
-		else if(!target.species)
-			CRASH("Target ([target]) of surgery [type] has no species!")
-		else
-			var/o_is = (O.gender == PLURAL) ? "are" : "is"
-			var/o_a =  (O.gender == PLURAL) ? "" : "a "
-			if(O.organ_tag == BP_POSIBRAIN && !target.species.has_organ[BP_POSIBRAIN])
-				to_chat(user, SPAN_WARNING("There's no place in [target] to fit \the [O.organ_tag]."))
-			else if(O.damage > (O.max_damage * 0.75))
-				to_chat(user, SPAN_WARNING("\The [O.name] [o_is] in no state to be transplanted."))
-			else if(O.w_class > affected.cavity_max_w_class)
-				to_chat(user, SPAN_WARNING("\The [O.name] [o_is] too big for [affected.cavity_name] cavity!"))
-			else
-				var/obj/item/organ/internal/I = target.internal_organs_by_name[O.organ_tag]
-				if(I && (I.parent_organ == affected.organ_tag))
-					to_chat(user, SPAN_WARNING("\The [target] already has [o_a][O.name]."))
-				else
-					. = TRUE
+	if (BP_IS_CRYSTAL(organ_to_install) && !BP_IS_CRYSTAL(affected))
+		USE_FEEDBACK_FAILURE("\The [organ_to_install] is crystalline but \the [target]'s [affected.name] is not. You cannot install it.")
+		return FALSE
+
+	if (BP_IS_ROBOTIC(affected) && !BP_IS_ROBOTIC(organ_to_install))
+		USE_FEEDBACK_FAILURE("\The [target]'s [affected.name] is robotic but \the [organ_to_install] is not. You cannot install it.")
+		return FALSE
+
+	if (organ_to_install.organ_tag == BP_POSIBRAIN && !target.species.has_organ[BP_POSIBRAIN])
+		USE_FEEDBACK_FAILURE("\The [target]'s body cannot hold \the [organ_to_install].")
+		return FALSE
+
+	var/o_is = (organ_to_install.gender == PLURAL) ? "are" : "is"
+	var/o_a = (organ_to_install.gender == PLURAL) ? "" : "a "
+
+	if (organ_to_install.damage > (organ_to_install.max_damage * 0.75))
+		USE_FEEDBACK_FAILURE("\The [organ_to_install] [o_is] too damaged to install.")
+		return FALSE
+
+	if (organ_to_install.w_class > affected.cavity_max_w_class)
+		USE_FEEDBACK_FAILURE("\The [organ_to_install] [o_is] too large for \the [target]'s [affected.cavity_name] cavity.")
+		return FALSE
+
+	var/obj/item/organ/internal/existing_organ = target.internal_organs_by_name[organ_to_install.organ_tag]
+	if (existing_organ && (existing_organ.parent_organ == affected.organ_tag))
+		USE_FEEDBACK_FAILURE("\The [target] already has [o_a][existing_organ.name]. You can't install \the [organ_to_install].")
+		return FALSE
+
+	return TRUE
+
 
 /singleton/surgery_step/internal/replace_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -335,48 +375,64 @@
 	else
 		return ..()
 
+
 /singleton/surgery_step/internal/attach_organ/pre_surgery_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-
-	var/list/attachable_organs
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if (!affected)
+		return FALSE
 
-	for(var/obj/item/organ/I in affected.implants)
-		if(I && (I.status & ORGAN_CUT_AWAY))
-			var/image/radial_button = image(icon = I.icon, icon_state = I.icon_state)
-			radial_button.name = "Attach \the [I.name]"
-			LAZYSET(attachable_organs, I, radial_button)
+	var/list/attachable_organs = list()
 
-	if(!LAZYLEN(attachable_organs))
+	for (var/obj/item/organ/organ in affected.implants)
+		if (!organ)
+			continue
+		if (!HAS_FLAGS(organ.status, ORGAN_CUT_AWAY))
+			continue
+		var/image/radial_button = image(icon = organ.icon, icon_state = organ.icon_state)
+		radial_button.name = "Attach \the [organ.name]"
+		attachable_organs[organ] = radial_button
+
+	if (!length(attachable_organs))
 		return FALSE
 
 	var/obj/item/organ/organ_to_replace
 	if (length(attachable_organs) == 1 && user.get_preference_value(/datum/client_preference/surgery_skip_radial))
 		organ_to_replace = attachable_organs[1]
 	else
-		organ_to_replace = show_radial_menu(user, tool, attachable_organs, radius = 42, require_near = TRUE, use_labels = TRUE, check_locs = list(tool))
+		organ_to_replace = show_radial_menu(
+			user,
+			tool,
+			attachable_organs,
+			radius = 42,
+			require_near = TRUE,
+			use_labels = TRUE,
+			check_locs = list(tool)
+		)
 
-	if(!organ_to_replace || !user.use_sanity_check(target, tool))
+	if (!organ_to_replace || !user.use_sanity_check(target, tool))
 		return FALSE
 
-	if(organ_to_replace.parent_organ != affected.organ_tag)
-		to_chat(user, SPAN_WARNING("You can't find anywhere to attach \the [organ_to_replace] to!"))
+	if (organ_to_replace.parent_organ != affected.organ_tag)
+		USE_FEEDBACK_FAILURE("\The [organ_to_replace] can't be attached to \the [target]'s [affected.name].")
 		return FALSE
 
-	if(istype(organ_to_replace, /obj/item/organ/internal/augment))
-		var/obj/item/organ/internal/augment/A = organ_to_replace
-		if(!(A.augment_flags & AUGMENT_BIOLOGICAL))
-			to_chat(user, SPAN_WARNING("\The [A] cannot function within a non-robotic limb."))
+	if (istype(organ_to_replace, /obj/item/organ/internal/augment))
+		var/obj/item/organ/internal/augment/augment = organ_to_replace
+		if (!HAS_FLAGS(augment.augment_flags, AUGMENT_BIOLOGICAL))
+			USE_FEEDBACK_FAILURE("\The [augment] can only function in a robotic limb and cannot be installed in \the [target]'s [affected.name].")
 			return FALSE
 
-	if(BP_IS_ROBOTIC(organ_to_replace) && target.species.spawn_flags & SPECIES_NO_ROBOTIC_INTERNAL_ORGANS)
-		user.visible_message(SPAN_NOTICE("[target]'s biology has rejected the attempts to attach \the [organ_to_replace]."))
+	if (BP_IS_ROBOTIC(organ_to_replace) && HAS_FLAGS(target.species.spawn_flags, SPECIES_NO_ROBOTIC_INTERNAL_ORGANS))
+		USE_FEEDBACK_FAILURE("\The [target]'s body cannot accept robotic organs.")
 		return FALSE
 
-	var/obj/item/organ/internal/I = target.internal_organs_by_name[organ_to_replace.organ_tag]
-	if(I && (I.parent_organ == affected.organ_tag))
-		to_chat(user, SPAN_WARNING("\The [target] already has \a [organ_to_replace]."))
+	var/obj/item/organ/internal/internal_organ = target.internal_organs_by_name[organ_to_replace.organ_tag]
+	if (internal_organ && internal_organ.parent_organ == affected.organ_tag)
+		USE_FEEDBACK_FAILURE("\The [target] already has \a [internal_organ] where you would attach \the [organ_to_replace].")
 		return FALSE
+
 	return organ_to_replace
+
 
 /singleton/surgery_step/internal/attach_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/attaching = LAZYACCESS(target.surgeries_in_progress, target_zone)
@@ -431,31 +487,63 @@
 	min_duration = 5 SECONDS
 	max_duration = 6 SECONDS
 
+
 /singleton/surgery_step/internal/treat_necrosis/pre_surgery_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/reagent_containers/container = tool
-	if(!istype(container) || !container.reagents.has_reagent(/datum/reagent/peridaxon) || !..())
+	if (!istype(container) || !container.reagents.has_reagent(/datum/reagent/peridaxon) || !..())
 		return FALSE
+
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if (!affected)
+		return FALSE
+
 	var/list/obj/item/organ/internal/dead_organs = list()
-	for(var/obj/item/organ/internal/I in target.internal_organs)
-		if(I && !(I.status & ORGAN_CUT_AWAY) && (I.status & ORGAN_DEAD) && I.parent_organ == affected.organ_tag && !BP_IS_ROBOTIC(I))
-			var/image/radial_button = image(icon = I.icon, icon_state = I.icon_state)
-			radial_button.name = "Regenerate \the [I.name]"
-			LAZYSET(dead_organs, I, radial_button)
-	if(!length(dead_organs))
+	for (var/obj/item/organ/internal/internal_organ in target.internal_organs)
+		if (!internal_organ)
+			continue
+		if (HAS_FLAGS(internal_organ.status, ORGAN_CUT_AWAY))
+			continue
+		if (!HAS_FLAGS(internal_organ.status, ORGAN_DEAD))
+			continue
+		if (internal_organ.parent_organ != affected.organ_tag)
+			continue
+		if (BP_IS_ROBOTIC(internal_organ))
+			continue
+		var/image/radial_button = image(icon = internal_organ.icon, icon_state = internal_organ.icon_state)
+		radial_button.name = "Regenerate \the [internal_organ.name]"
+		dead_organs[internal_organ] = radial_button
+
+	if (!length(dead_organs))
+		USE_FEEDBACK_FAILURE("There are no decaying organs in \the [target]'s [affected.name].")
 		return FALSE
+
+	var/obj/item/organ/internal/organ_to_fix
+
 	if (length(dead_organs) == 1 && user.get_preference_value(/datum/client_preference/surgery_skip_radial))
-		return dead_organs[1]
-	var/obj/item/organ/internal/organ_to_fix = show_radial_menu(user, tool, dead_organs, radius = 42, require_near = TRUE, use_labels = TRUE, check_locs = list(tool))
-	if(!organ_to_fix || !user.use_sanity_check(target, tool))
+		organ_to_fix = dead_organs[1]
+	else
+		organ_to_fix = show_radial_menu(
+			user,
+			tool,
+			dead_organs,
+			radius = 42,
+			require_near = TRUE,
+			use_labels = TRUE,
+			check_locs = list(tool)
+		)
+		if (!organ_to_fix || !user.use_sanity_check(target, tool))
+			return FALSE
+
+	if (!organ_to_fix.can_recover())
+		USE_FEEDBACK_FAILURE("\The [target]'s [organ_to_fix.name] is necrotic and can't be saved. It will need to be replaced.")
 		return FALSE
-	if(!organ_to_fix.can_recover())
-		to_chat(user, SPAN_WARNING("The [organ_to_fix.name] is necrotic and can't be saved, it will need to be replaced."))
+
+	if (organ_to_fix.damage >= organ_to_fix.max_damage)
+		to_chat(user, SPAN_WARNING("\The [target]'s [organ_to_fix.name] damage needs to be repaired before it is regenerated."))
 		return FALSE
-	if(organ_to_fix.damage >= organ_to_fix.max_damage)
-		to_chat(user, SPAN_WARNING("The [organ_to_fix.name] needs to be repaired before it is regenerated."))
-		return FALSE
+
 	return organ_to_fix
+
 
 /singleton/surgery_step/internal/treat_necrosis/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("[user] starts applying medication to the affected tissue in [target]'s [LAZYACCESS(target.surgeries_in_progress, target_zone)] with \the [tool]." , \

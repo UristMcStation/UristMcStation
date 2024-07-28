@@ -63,8 +63,23 @@ GLOBAL_LIST_INIT(surgery_tool_exception_cache, new)
 	return 0
 
 
+/**
+ * Actions and checks to be performed before starting the actual surgery.
+ *
+ * **Parameters**:
+ * - `user` - The mob performing the operation.
+ * - `target` - The mob the operation is being performed on.
+ * - `target_zone` (string) - The targeted body doll zone the operation is being performed on. Valid for
+ *       `mob/get_organ(target_zone)`.
+ * - `tool` - The item being used to perform the operation.
+ *
+ * Returns boolean or an instance of a selected organ for certain subtypes. If `FALSE`, the surgery cannot be performed
+ *     and the process is halted. A user feedback message may be sent when returning `FALSE`, though bear in mind this
+ *     proc may run for multiple surgery steps if those steps consider the used tool valid.
+ */
 /singleton/surgery_step/proc/pre_surgery_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return TRUE
+
 
 // Checks if this step applies to the user mob at all
 /singleton/surgery_step/proc/is_valid_target(mob/living/carbon/human/target)
