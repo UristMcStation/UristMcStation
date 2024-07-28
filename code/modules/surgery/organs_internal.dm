@@ -207,17 +207,15 @@
 	return choice
 
 
-/singleton/surgery_step/internal/remove_organ/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/tool)
-	var/target_zone = user.zone_sel.selecting
-	var/obj/item/organ/internal/O = LAZYACCESS(target.surgeries_in_progress, target_zone)
+/singleton/surgery_step/internal/remove_organ/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/tool, target_zone)
+	var/obj/item/organ/internal/organ_to_remove = LAZYACCESS(target.surgeries_in_progress, target_zone)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	if(BP_IS_ROBOTIC(O))
-		if(BP_IS_ROBOTIC(affected))
-			return SURGERY_SKILLS_ROBOTIC
-		else
-			return SURGERY_SKILLS_ROBOTIC_ON_MEAT
-	else
+	if (!BP_IS_ROBOTIC(organ_to_remove))
 		return ..()
+	if (BP_IS_ROBOTIC(affected))
+		return SURGERY_SKILLS_ROBOTIC
+	return SURGERY_SKILLS_ROBOTIC_ON_MEAT
+
 
 /singleton/surgery_step/internal/remove_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/removing = LAZYACCESS(target.surgeries_in_progress, target_zone)
@@ -269,16 +267,15 @@
 	max_duration = 8 SECONDS
 	var/robotic_surgery = FALSE
 
-/singleton/surgery_step/internal/replace_organ/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/tool)
-	var/obj/item/organ/internal/O = tool
+
+/singleton/surgery_step/internal/replace_organ/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/tool, target_zone)
+	var/obj/item/organ/internal/organ_to_attach = tool
 	var/obj/item/organ/external/affected = target.get_organ(user.zone_sel.selecting)
-	if(BP_IS_ROBOTIC(O) || istype(O, /obj/item/organ/internal/augment))
-		if(BP_IS_ROBOTIC(affected))
-			return SURGERY_SKILLS_ROBOTIC
-		else
-			return SURGERY_SKILLS_ROBOTIC_ON_MEAT
-	else
+	if (!BP_IS_ROBOTIC(organ_to_attach) && !istype(organ_to_attach, /obj/item/organ/internal/augment))
 		return ..()
+	if (BP_IS_ROBOTIC(affected))
+		return SURGERY_SKILLS_ROBOTIC
+	return SURGERY_SKILLS_ROBOTIC_ON_MEAT
 
 
 /singleton/surgery_step/internal/replace_organ/pre_surgery_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -363,17 +360,15 @@
 	max_duration = 12 SECONDS
 	surgery_candidate_flags = SURGERY_NO_CRYSTAL | SURGERY_NO_ROBOTIC | SURGERY_NO_STUMP | SURGERY_NEEDS_ENCASEMENT
 
-/singleton/surgery_step/internal/attach_organ/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/tool)
-	var/target_zone = user.zone_sel.selecting
-	var/obj/item/organ/internal/O = LAZYACCESS(target.surgeries_in_progress, target_zone)
+
+/singleton/surgery_step/internal/attach_organ/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/tool, target_zone)
+	var/obj/item/organ/internal/organ_to_attach = LAZYACCESS(target.surgeries_in_progress, target_zone)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	if(BP_IS_ROBOTIC(O))
-		if(BP_IS_ROBOTIC(affected))
-			return SURGERY_SKILLS_ROBOTIC
-		else
-			return SURGERY_SKILLS_ROBOTIC_ON_MEAT
-	else
+	if (!BP_IS_ROBOTIC(organ_to_attach))
 		return ..()
+	if (BP_IS_ROBOTIC(affected))
+		return SURGERY_SKILLS_ROBOTIC
+	return SURGERY_SKILLS_ROBOTIC_ON_MEAT
 
 
 /singleton/surgery_step/internal/attach_organ/pre_surgery_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

@@ -9,8 +9,10 @@
 /singleton/surgery_step/robotics
 	surgery_candidate_flags = SURGERY_NO_CRYSTAL | SURGERY_NO_FLESH | SURGERY_NO_STUMP
 
+
 /singleton/surgery_step/robotics/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/tool)
 	return SURGERY_SKILLS_ROBOTIC
+
 
 /singleton/surgery_step/robotics/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
@@ -380,11 +382,12 @@
 	max_duration = 11 SECONDS
 	surgery_candidate_flags = SURGERY_NO_STUMP
 
+
 /singleton/surgery_step/robotics/fix_organ_robotic/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/tool)
-	if(target.isSynthetic())
+	if (target.isSynthetic())
 		return SURGERY_SKILLS_ROBOTIC
-	else
-		return SURGERY_SKILLS_ROBOTIC_ON_MEAT
+	return SURGERY_SKILLS_ROBOTIC_ON_MEAT
+
 
 /singleton/surgery_step/robotics/fix_organ_robotic/success_chance(mob/living/user, mob/living/carbon/human/target, obj/item/tool)
 	. = ..()
@@ -681,8 +684,10 @@
 	)
 	surgery_candidate_flags = SURGERY_NO_CRYSTAL | SURGERY_NO_FLESH | SURGERY_NO_STUMP | SURGERY_NEEDS_ENCASEMENT
 
+
 /singleton/surgery_step/remove_mmi/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/tool)
 	return SURGERY_SKILLS_ROBOTIC
+
 
 /singleton/surgery_step/remove_mmi/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
@@ -732,11 +737,12 @@
 	if(affected && (affected.status & ORGAN_BROKEN) && affected.stage == required_stage)
 		return affected
 
+
 /singleton/surgery_step/robotics/robone/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/tool)
-	if(target.isSynthetic())
+	if (target.isSynthetic())
 		return SURGERY_SKILLS_ROBOTIC
-	else
-		return SURGERY_SKILLS_ROBOTIC_ON_MEAT
+	return SURGERY_SKILLS_ROBOTIC_ON_MEAT
+
 
 //////////////////////////////////////////////////////////////////
 //	welding surgery step

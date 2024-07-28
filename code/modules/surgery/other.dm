@@ -111,8 +111,10 @@
 /singleton/surgery_step/hardsuit/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return TRUE
 
+
 /singleton/surgery_step/hardsuit/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/tool)
 	return list(SKILL_EVA = SKILL_BASIC)
+
 
 /singleton/surgery_step/hardsuit/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!istype(target))
@@ -166,8 +168,10 @@
 	if(affected && !affected.is_disinfected() && check_chemicals(tool))
 		return affected
 
+
 /singleton/surgery_step/sterilize/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/tool)
 	return list(SKILL_MEDICAL = SKILL_BASIC)
+
 
 /singleton/surgery_step/sterilize/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)

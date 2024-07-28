@@ -64,13 +64,14 @@
 	return TRUE
 
 
-/singleton/surgery_step/limb/attach/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/organ/external/tool)
-	if(istype(tool) && BP_IS_ROBOTIC(tool))
-		if(target.isSynthetic())
-			return SURGERY_SKILLS_ROBOTIC
-		else
-			return SURGERY_SKILLS_ROBOTIC_ON_MEAT
-	return ..()
+/singleton/surgery_step/limb/attach/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/tool, target_zone)
+	var/obj/item/organ/external/external_organ = tool
+	if (!istype(external_organ) || !BP_IS_ROBOTIC(external_organ))
+		return ..()
+	if (target.isSynthetic())
+		return SURGERY_SKILLS_ROBOTIC
+	return SURGERY_SKILLS_ROBOTIC_ON_MEAT
+
 
 /singleton/surgery_step/limb/attach/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(..())
@@ -115,14 +116,15 @@
 	min_duration = 10 SECONDS
 	max_duration = 12 SECONDS
 
+
 /singleton/surgery_step/limb/connect/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/tool, target_zone)
-	var/obj/item/organ/external/E = target && target.get_organ(target_zone)
-	if(istype(E) && BP_IS_ROBOTIC(E))
-		if(target.isSynthetic())
-			return SURGERY_SKILLS_ROBOTIC
-		else
-			return SURGERY_SKILLS_ROBOTIC_ON_MEAT
-	return ..()
+	var/obj/item/organ/external/external_organ = target && target.get_organ(target_zone)
+	if (!istype(external_organ) || !BP_IS_ROBOTIC(external_organ))
+		return ..()
+	if (target.isSynthetic())
+		return SURGERY_SKILLS_ROBOTIC
+	return SURGERY_SKILLS_ROBOTIC_ON_MEAT
+
 
 /singleton/surgery_step/limb/connect/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(..())
@@ -163,11 +165,12 @@
 	min_duration = 8 SECONDS
 	max_duration = 10 SECONDS
 
+
 /singleton/surgery_step/limb/mechanize/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/tool)
-	if(target.isSynthetic())
+	if (target.isSynthetic())
 		return SURGERY_SKILLS_ROBOTIC
-	else
-		return SURGERY_SKILLS_ROBOTIC_ON_MEAT
+	return SURGERY_SKILLS_ROBOTIC_ON_MEAT
+
 
 /singleton/surgery_step/limb/mechanize/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(..())

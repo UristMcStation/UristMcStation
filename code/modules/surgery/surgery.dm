@@ -106,11 +106,24 @@ GLOBAL_LIST_INIT(surgery_tool_exception_cache, new)
 	return TRUE
 
 
+/**
+ * Determines the skill requirements to perform the surgery without potential failures.
+ *
+ * **Parameters**:
+ * - `user` - The mob performing the operation.
+ * - `target` - The mob the operation is being performed on.
+ * - `tool` - The item being used to perform the operation.
+ * - `target_zone` (string) - The targeted body doll zone the operation is being performed on. Valid for
+ *       `mob/get_organ(target_zone)`.
+ *
+ * Returns a list (Map of `SKILL_{CATEGORY} = SKILL_{LEVEL}`). Can also be one of the `SURGERY_SKILLS_*` presets defined
+ *     in `code\modules\surgery\__surgery_setup.dm`.
+ */
 /singleton/surgery_step/proc/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/tool, target_zone)
-	if(delicate)
+	if (delicate)
 		return SURGERY_SKILLS_DELICATE
-	else
-		return SURGERY_SKILLS_GENERIC
+	return SURGERY_SKILLS_GENERIC
+
 
 // checks whether this step can be applied with the given user and target
 /singleton/surgery_step/proc/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -185,7 +198,7 @@ GLOBAL_LIST_INIT(surgery_tool_exception_cache, new)
 	if(user == target)
 		. -= 10
 
-	var/skill_reqs = get_skill_reqs(user, target, tool, target_zone)
+	var/list/skill_reqs = get_skill_reqs(user, target, tool, target_zone)
 	for(var/skill in skill_reqs)
 		var/penalty = delicate ? 40 : 20
 		. -= max(0, penalty * (skill_reqs[skill] - user.get_skill_value(skill)))
@@ -286,7 +299,7 @@ GLOBAL_LIST_INIT(surgery_tool_exception_cache, new)
 			if(operation_data)
 				LAZYSET(M.surgeries_in_progress, zone, operation_data)
 				S.begin_step(user, M, zone, src)
-				var/skill_reqs = S.get_skill_reqs(user, M, src, zone)
+				var/list/skill_reqs = S.get_skill_reqs(user, M, src, zone)
 				var/duration = user.skill_delay_mult(skill_reqs[1]) * rand(S.min_duration, S.max_duration)
 				if(prob(S.success_chance(user, M, src, zone)) && do_after(user, duration, M, DO_SURGERY))
 					if (S.can_use(user, M, zone, src))
