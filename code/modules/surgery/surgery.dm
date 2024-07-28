@@ -81,22 +81,30 @@ GLOBAL_LIST_INIT(surgery_tool_exception_cache, new)
 	return TRUE
 
 
-// Checks if this step applies to the user mob at all
+/**
+ * Determines whether the target mob is a valid target for this surgery step.
+ *
+ * **Parameters**:
+ * - `target` - The mob being targeted for the operation.
+ *
+ * Returns boolean.
+ */
 /singleton/surgery_step/proc/is_valid_target(mob/living/carbon/human/target)
-	if(!ishuman(target))
-		return 0
+	if (!ishuman(target))
+		return FALSE
 
-	if(allowed_species)
-		for(var/species in allowed_species)
-			if(target.species.get_bodytype(target) == species)
-				return 1
+	if (allowed_species)
+		for (var/species in allowed_species)
+			if (target.species.get_bodytype(target) == species)
+				return TRUE
 
-	if(disallowed_species)
-		for(var/species in disallowed_species)
-			if(target.species.get_bodytype(target) == species)
-				return 0
+	if (disallowed_species)
+		for (var/species in disallowed_species)
+			if (target.species.get_bodytype(target) == species)
+				return FALSE
 
-	return 1
+	return TRUE
+
 
 /singleton/surgery_step/proc/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/tool, target_zone)
 	if(delicate)
