@@ -14995,7 +14995,7 @@
 	pixel_x = -22
 	},
 /obj/effect/floor_decal/corner/beige/three_quarters,
-/obj/machinery/alarm/nervasci{
+/obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -28
 	},
