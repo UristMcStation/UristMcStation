@@ -1,6 +1,7 @@
 /mob/living/simple_animal/hostile/legion
 	name = "legion"
-	desc = "A primitive in appearance hovering robot, with some menacing looking blades jutting out from it. It bears no manufacturer markings of any kind. You feel some form of malicious intelligence behind its shell..."
+	desc = "Some kind of robotic construct without any designation or markings. <span class='warning'>You feel some form of malicious intelligence behind its shell...</span>"
+	abstract_type = /mob/living/simple_animal/hostile/legion
 	icon = 'packs/legion/legion.dmi'
 	icon_state = "hivebot"
 	maxHealth = 15
