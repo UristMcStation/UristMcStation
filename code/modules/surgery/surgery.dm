@@ -47,12 +47,21 @@ GLOBAL_LIST_INIT(surgery_tool_exception_cache, new)
 	/// The surgery step covers the surgeon's entire body in blood.
 	var/const/BLOOD_LEVEL_FULLBODY = 2
 
-//returns how well tool is suited for this step
+
+/**
+ * Determines whether a tool is suited for this surgery and how efficient it is. References the `allowed_tools` map.
+ *
+ * **Parameters**
+ * - `tool` - The tool to check.
+ *
+ * Returns a percentage as an integer from `0` to `100`. A value of `0` indicates the tool cannot be used for this surgery.
+ */
 /singleton/surgery_step/proc/tool_quality(obj/item/tool)
-	for (var/T in allowed_tools)
-		if (istype(tool,T))
-			return allowed_tools[T]
+	for (var/allowed_type in allowed_tools)
+		if (istype(tool, allowed_type))
+			return allowed_tools[allowed_type]
 	return 0
+
 
 /singleton/surgery_step/proc/pre_surgery_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return TRUE
