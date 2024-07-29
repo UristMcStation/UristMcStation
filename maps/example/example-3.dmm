@@ -1,35 +1,10 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"ap" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/containers,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"au" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/urist/hatdispenser,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
 "aL" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"aY" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/engivend,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"bg" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/antag,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"bX" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/fashionvend,
 /turf/simulated/floor/tiled,
 /area/maintenance/fsmaint2)
 "dc" = (
@@ -39,29 +14,9 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled,
 /area/maintenance/fsmaint2)
-"dL" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/fabricator/replicator,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"ft" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/robotics,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"gl" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/magivend,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
 "hi" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/blue/diagonal,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"hq" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/cola,
 /turf/simulated/floor/tiled,
 /area/maintenance/fsmaint2)
 "ir" = (
@@ -74,37 +29,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/fsmaint2)
-"iu" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/dinnerware,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
 "iF" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/floor_light/mapped_off{
 	default_light_outer_range = 6;
 	default_light_inner_range = 2
 	},
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"iM" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/soda,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"ja" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/cigarette,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"jq" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/fitness,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"jw" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/urist/dress,
 /turf/simulated/floor/tiled,
 /area/maintenance/fsmaint2)
 "jU" = (
@@ -125,31 +55,11 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled,
 /area/maintenance/fsmaint2)
-"kB" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/urist/nanotrasen,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
 "ma" = (
 /obj/machinery/light_switch{
 	pixel_x = 25
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"mN" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/hydronutrients/generic,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"nu" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/sol,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"nO" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/weeb,
 /turf/simulated/floor/tiled,
 /area/maintenance/fsmaint2)
 "oV" = (
@@ -160,64 +70,14 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled,
 /area/maintenance/fsmaint2)
-"pn" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/mredispenser,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"pv" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/urist/autodrobe,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"pG" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/snack,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"pO" = (
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
-	},
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/assist/antag,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"pQ" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/structure/table/standard,
-/obj/item/device/multitool,
-/obj/item/device/multitool,
-/obj/item/device/multitool,
-/obj/item/storage/belt/utility/full,
-/obj/item/storage/belt/utility/full,
-/obj/item/storage/belt/utility/full,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"rQ" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/tool/adherent,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
 "sA" = (
 /obj/machinery/door/airlock/external/bolted{
 	frequency = 1379
 	},
 /turf/simulated/floor,
 /area/maintenance/fsmaint2)
-"sO" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/wallmed2,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
 "tQ" = (
 /turf/simulated/open,
-/area/maintenance/fsmaint2)
-"vu" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/hydronutrients,
-/turf/simulated/floor/tiled,
 /area/maintenance/fsmaint2)
 "vP" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -230,54 +90,12 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled,
 /area/maintenance/fsmaint2)
-"ws" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/boozeomat,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"wV" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/hydroseeds/generic,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"wW" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/structure/table/standard,
-/obj/item/card/emag,
-/obj/item/card/emag,
-/obj/item/card/emag,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"xv" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/structure/table/standard,
-/obj/item/storage/toolbox/syndicate,
-/obj/item/storage/toolbox/syndicate,
-/obj/item/storage/toolbox/syndicate,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"xC" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/sovietsoda,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"yz" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/urist/assaultammodispenser,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"zc" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/generic,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
 "zg" = (
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1"
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/urist/coatdispenser,
 /turf/simulated/floor/tiled,
 /area/maintenance/fsmaint2)
 "zh" = (
@@ -304,24 +122,9 @@
 	},
 /turf/space,
 /area/space)
-"BC" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/urist/sustenance,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"Cc" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/phoronresearch,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
 "Ck" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"CK" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/security,
 /turf/simulated/floor/tiled,
 /area/maintenance/fsmaint2)
 "DQ" = (
@@ -329,7 +132,6 @@
 /obj/machinery/light_switch{
 	pixel_x = -25
 	},
-/obj/machinery/vending/urist/beltdispenser,
 /turf/simulated/floor/tiled,
 /area/maintenance/fsmaint2)
 "HL" = (
@@ -340,38 +142,8 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled,
 /area/maintenance/fsmaint2)
-"Ie" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/whitedragon,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
 "If" = (
 /turf/simulated/wall,
-/area/maintenance/fsmaint2)
-"JU" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/games,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"Ke" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/snix,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"Ky" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/hotfood,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"Lo" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/urist/pantsdispenser,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"Lp" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/urist/shoedispenser,
-/turf/simulated/floor/tiled,
 /area/maintenance/fsmaint2)
 "Mu" = (
 /obj/machinery/light{
@@ -390,47 +162,16 @@
 /obj/structure/lattice,
 /turf/simulated/open,
 /area/maintenance/fsmaint2)
-"Tc" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/tool,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"Ug" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/urist/suitdispenser,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
 "Ul" = (
 /obj/effect/shuttle_landmark/upper_level,
 /turf/space,
 /area/space)
-"UI" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/engineering,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
 "UK" = (
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/wallmed1,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"Vo" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/props,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"Ww" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/medical,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"WK" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/hydroseeds,
 /turf/simulated/floor/tiled,
 /area/maintenance/fsmaint2)
 "Xd" = (
@@ -440,26 +181,6 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"Ya" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/urist/assaultclothingdispenser,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"YB" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/coffee,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"Zy" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/assist,
-/turf/simulated/floor/tiled,
-/area/maintenance/fsmaint2)
-"ZN" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/vending/lavatory,
 /turf/simulated/floor/tiled,
 /area/maintenance/fsmaint2)
 
@@ -1092,13 +813,13 @@ Ay
 zg
 DQ
 wr
-jw
-ja
-ws
-pO
-Zy
-bg
-pv
+wr
+wr
+wr
+zg
+wr
+wr
+wr
 If
 Rr
 Rr
@@ -1120,11 +841,11 @@ Rr
 Rr
 Rr
 If
-yz
 wr
 wr
-Ug
-au
+wr
+wr
+wr
 wr
 wr
 wr
@@ -1154,19 +875,19 @@ Rr
 Rr
 Rr
 If
-Ya
 wr
 wr
-Lo
-Lp
 wr
 wr
-aY
-UI
-iu
-ap
-hq
-YB
+wr
+wr
+wr
+wr
+wr
+wr
+wr
+wr
+wr
 If
 Rr
 Rr
@@ -1229,12 +950,12 @@ jU
 wr
 wr
 wr
-ZN
-Ky
-zc
-JU
-jq
-bX
+wr
+wr
+wr
+wr
+wr
+wr
 If
 Rr
 Rr
@@ -1260,7 +981,7 @@ wr
 SA
 tQ
 tQ
-wW
+wr
 wr
 wr
 wr
@@ -1294,15 +1015,15 @@ SA
 SA
 tQ
 tQ
-xv
+wr
 wr
 iF
-ft
-Ww
-wV
-WK
-mN
-vu
+wr
+wr
+wr
+wr
+wr
+wr
 If
 Rr
 Rr
@@ -1328,7 +1049,7 @@ wr
 SA
 tQ
 tQ
-pQ
+wr
 wr
 wr
 wr
@@ -1365,12 +1086,12 @@ wr
 wr
 wr
 wr
-pG
-CK
-Vo
-Cc
-pn
-gl
+wr
+wr
+wr
+wr
+wr
+wr
 If
 Rr
 Rr
@@ -1433,12 +1154,12 @@ wr
 wr
 wr
 wr
-rQ
-Tc
-xC
-nu
-iM
-Ke
+wr
+wr
+wr
+wr
+wr
+wr
 If
 Rr
 Rr
@@ -1500,13 +1221,13 @@ ma
 wr
 aL
 HL
-dL
-kB
-BC
+wr
+wr
+wr
 UK
-sO
-Ie
-nO
+wr
+wr
+wr
 If
 Rr
 Rr
