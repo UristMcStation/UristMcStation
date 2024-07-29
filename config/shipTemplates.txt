@@ -10,3 +10,4 @@ maps/shipmaps/ship_pirate_small1.dmm
 maps/shipmaps/ship_rebel_small1.dmm
 maps/shipmaps/ship_lactera_small.dmm
 maps/shipmaps/ship_lactera_large.dmm
+maps/shipmaps/ship_pirate_scrapper.dmm

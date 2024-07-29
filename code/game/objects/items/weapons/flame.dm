@@ -38,8 +38,10 @@
 	origin_tech = list(TECH_MATERIAL = 1)
 	slot_flags = SLOT_EARS
 	attack_verb = list("burnt", "singed")
+	item_flags = ITEM_FLAG_CAN_HIDE_IN_SHOES
 
 /obj/item/flame/match/Process()
+	set_light(0.4, 0.3, 2, l_color = COLOR_WARM_YELLOW )
 	if(isliving(loc))
 		var/mob/living/M = loc
 		M.IgniteMob()
@@ -66,6 +68,7 @@
 	name = "burnt match"
 	desc = "A match. This one has seen better days."
 	burnt = 1
+	set_light(0)
 	update_icon()
 
 /obj/item/flame/match/on_update_icon()

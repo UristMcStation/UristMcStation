@@ -32,6 +32,8 @@
 /obj/machinery/ai_slipper/use_tool(obj/item/W, mob/user)
 	if(stat & (MACHINE_STAT_NOPOWER|MACHINE_STAT_EMPED))
 		return
+	if(!ai_can_interact(user))
+		return
 	if (istype(user, /mob/living/silicon))
 		return attack_ai(user)
 	else // trying to unlock the interface

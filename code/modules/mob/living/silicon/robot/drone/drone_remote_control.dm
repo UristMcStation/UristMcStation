@@ -6,6 +6,9 @@
 	var/obj/item/device/radio/drone_silicon_radio
 
 /mob/living/silicon/robot/drone/attack_ai(mob/living/silicon/ai/user)
+	if(within_jamming_range(src, FALSE))
+		to_chat(user, SPAN_WARNING("Something in the area of \the [src] is blocking the remote signal!"))
+		return FALSE
 
 	if(!istype(user) || controlling_ai || !config.allow_drone_spawn)
 		return
@@ -27,11 +30,6 @@
 	local_transmit = FALSE
 	languages = controlling_ai.languages.Copy()
 
-	//give controlled drone access to AI radio
-	drone_silicon_radio = silicon_radio
-	silicon_radio = new /obj/item/device/radio/headset/heads/ai_integrated(src)
-	//silicon_radio.recalculateChannels()
-
 	add_language(LANGUAGE_DRONE_GLOBAL, 1)
 	add_language(LANGUAGE_ROBOT_GLOBAL, 1)
 	default_language = controlling_ai.default_language
@@ -45,6 +43,9 @@
 	to_chat(src, "<span class='notice'><b>You have shunted your primary control loop into \a [initial(name)].</b> Use the <b>Release Control</b> verb to return to your core.</span>")
 
 /obj/machinery/drone_fabricator/attack_ai(mob/living/silicon/ai/user)
+
+	if(!ai_can_interact(user))
+		return
 
 	if(!istype(user) || user.controlling_drone || !config.allow_drone_spawn)
 		return

@@ -175,6 +175,14 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled,
 /area/maintenance/fsmaint2)
+"N" = (
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/floor_light/mapped_off{
+	default_light_outer_range = 6;
+	default_light_inner_range = 2
+	},
+/turf/simulated/floor/tiled,
+/area/maintenance/fsmaint2)
 
 (1,1,1) = {"
 a
@@ -1009,7 +1017,7 @@ g
 g
 d
 d
-d
+N
 d
 d
 d

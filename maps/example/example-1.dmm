@@ -30,6 +30,10 @@
 /area/constructionsite)
 "g" = (
 /obj/effect/landmark/start,
+/obj/machinery/floor_light/mapped_off{
+	default_light_outer_range = 6;
+	default_light_inner_range = 2
+	},
 /turf/simulated/floor/tiled,
 /area/constructionsite)
 "h" = (
@@ -259,6 +263,10 @@
 /area/constructionsite)
 "W" = (
 /obj/machinery/telecomms/receiver/map_preset/example,
+/turf/simulated/floor/tiled,
+/area/constructionsite)
+"X" = (
+/obj/machinery/floodlight,
 /turf/simulated/floor/tiled,
 /area/constructionsite)
 
@@ -885,7 +893,7 @@ a
 a
 a
 b
-c
+X
 c
 c
 e

@@ -235,40 +235,54 @@ Please only put items here that don't have a huge definition - Glloyd											
 */
 
 //TG cigarettes
-/obj/item/storage/fancy/cigarettes/urist
+/obj/item/storage/fancy/smokable/urist
 	name = "urist packet"
 	desc = "The most dwarven of all cigarettes"
 	icon = 'icons/urist/items/tgitems.dmi'
-	w_class = 1
-	throwforce = 2
 	slot_flags = SLOT_BELT
-	storage_slots = 6
-	key_type = /obj/item/clothing/mask/smokable/cigarette
+	startswith = list(
+		/obj/item/clothing/mask/smokable/cigarette = 6
+	)
 
-
-/obj/item/storage/fancy/cigarettes/urist/uplift
-	name = "uplift smooth packet"
+/obj/item/storage/fancy/smokable/urist/uplift
+	name = "pack of Uplift Smooth menthol cigarettes"
 	desc = "Your favorite brand, now menthol flavored."
 	icon_state = "upliftpacket"
-	item_state = "upliftpacket"
+	startswith = list(
+		/obj/item/clothing/mask/smokable/cigarette/menthol/uplift = 6
+	)
 
-/obj/item/storage/fancy/cigarettes/urist/devil
-	name = "devil's premium packet"
+/obj/item/clothing/mask/smokable/cigarette/menthol/uplift
+	brand = "\improper Uplift Smooth"
+
+/obj/item/storage/fancy/smokable/urist/devil
+	name = "pack of Devil's Premium cigarettes"
 	desc = "Smoked only by the baddest of the bad."
 	icon_state = "devilpacket"
-	item_state = "devilpacket"
+	startswith = list(
+		/obj/item/clothing/mask/smokable/cigarette/devilspremium = 6
+	)
 
-/obj/item/storage/fancy/cigarettes/urist/carp
-	name = "carp classic packet"
+/obj/item/clothing/mask/smokable/cigarette/devilspremium
+	brand = "\improper Devil's Premium"
+	filling = list(/datum/reagent/tobacco = 1, /datum/reagent/capsaicin = 1)
+
+/obj/item/storage/fancy/smokable/urist/carp
+	name = "pack of Carp Classic cigarettes"
 	desc = "Seems a little fishy."
 	icon_state = "carppacket"
-	item_state = "carppacket"
+	startswith = list(
+		/obj/item/clothing/mask/smokable/cigarette/carpclassic = 6
+	)
+
+/obj/item/clothing/mask/smokable/cigarette/carpclassic
+	brand = "\improper Carp Classic cigarette"
+	filling = list(/datum/reagent/tobacco = 1, /datum/reagent/toxin/carpotoxin = 0.5)
 
 /obj/item/storage/fancy/smokable/urist/syndicate
 	name = "cigarette packet"
 	desc = "An obscure brand of cigarettes."
 	icon_state = "syndiepacket"
-	item_state = "syndiepacket"
 	startswith = list(
 		/obj/item/clothing/mask/smokable/cigarette/urist/syndicate = 6
 	)
@@ -276,22 +290,28 @@ Please only put items here that don't have a huge definition - Glloyd											
 /obj/item/clothing/mask/smokable/cigarette/urist/syndicate
 	filling = list(/datum/reagent/drink/doctor_delight = 15)
 
-/obj/item/storage/fancy/cigarettes/urist/midori
-	name = "midori tabako packet"
+/obj/item/storage/fancy/smokable/urist/midori
+	name = "pack of Midori Tabako cigarettes"
 	desc = "Does this packet smell funny to you?"
 	icon_state = "midoripacket"
-	item_state = "midoripacket"
+	startswith = list(
+		/obj/item/clothing/mask/smokable/cigarette/urist/midori = 6
+	)
 
-/obj/item/storage/fancy/cigarettes/urist/shadyjim
-	name = "shady jim packet"
-	desc = "Shady Jim's super slim packets! Watch the fat burn away, guaranteed!"
+/obj/item/clothing/mask/smokable/cigarette/urist/midori
+	brand = "\improper Midori Tabako cigarette"
+	filling = list(/datum/reagent/tobacco = 1, /datum/reagent/nutriment/soysauce = 1)
+
+/obj/item/storage/fancy/smokable/urist/shadyjim
+	name = "pack of Shady Jim's cigarettes"
+	desc = "Shady Jim's super slim cigs! Watch the fat burn away, guaranteed!"
 	icon_state = "shadyjimpacket"
-	item_state = "shadyjimpacket"
 	startswith = list(
 		/obj/item/clothing/mask/smokable/cigarette/urist/shady = 6
 	)
 
 /obj/item/clothing/mask/smokable/cigarette/urist/shady
+	brand = "\improper Shady Jim's cigarette"
 	filling = list(/datum/reagent/lipozine = 4, /datum/reagent/ammonia = 2, /datum/reagent/toxin/plantbgone = 1, /datum/reagent/toxin = 1.5)
 
 // Smuggler's satchel from /tg/.
@@ -320,7 +340,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 
 /obj/item/storage/backpack/satchel/flat/New()
 	..()
-	new /obj/item/crowbar(src)
+
 
 // Rolling papers from /tg/
 

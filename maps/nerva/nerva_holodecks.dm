@@ -100,6 +100,7 @@
 	base_desc = "Perfectly simulated hot and humid climate included!."
 	icon = 'icons/jungle.dmi'
 	icon_state = "grass4"
+	footstep_type = /singleton/footsteps/grass
 
 /turf/simulated/floor/holofloor/urist/junglegrass_green
 	name =  "wet grass"
@@ -107,6 +108,7 @@
 	base_desc = "Perfectly simulated hot and humid climate included!."
 	icon = 'icons/jungle.dmi'
 	icon_state = "grass3"
+	footstep_type = /singleton/footsteps/grass
 
 /turf/simulated/floor/holofloor/urist/junglegrass_darkgreen
 	name =  "wet grass"
@@ -114,6 +116,7 @@
 	base_desc = "Perfectly simulated hot and humid climate included!."
 	icon = 'icons/jungle.dmi'
 	icon_state = "grass2"
+	footstep_type = /singleton/footsteps/grass
 
 /turf/simulated/floor/holofloor/urist/junglegrass_browngreen
 	name =  "wet grass"
@@ -121,6 +124,7 @@
 	base_desc = "Perfectly simulated hot and humid climate included!."
 	icon = 'icons/jungle.dmi'
 	icon_state = "grass1"
+	footstep_type = /singleton/footsteps/grass
 
 /turf/simulated/floor/holofloor/urist/jungle_water
 	name =  "murky water"
@@ -128,6 +132,7 @@
 	base_desc = "Holographic deep, dank water. You swear you can see something moving below occasionally."
 	icon = 'icons/urist/jungle/turfs.dmi'
 	icon_state = "rivernew"
+	footstep_type = /singleton/footsteps/water
 
 /turf/simulated/floor/holofloor/urist/pavement
 	name = "Pavement"
@@ -135,6 +140,7 @@
 	base_desc = "It's pavement, they've even simulated all the dry gum!"
 	icon = 'icons/urist/citymap_icons/pavement.dmi'
 	icon_state = "pavement"
+	footstep_type = /singleton/footsteps/tiles
 
 /turf/simulated/floor/holofloor/urist/pavement_empty
 	name = "Pavement"
@@ -142,3 +148,4 @@
 	base_desc = "It's pavement, they've even simulated all the dry gum!"
 	icon = 'icons/urist/citymap_icons/pavement.dmi'
 	icon_state = "pave_empty"
+	footstep_type = /singleton/footsteps/tiles

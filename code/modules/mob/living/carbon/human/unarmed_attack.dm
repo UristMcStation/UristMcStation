@@ -270,11 +270,11 @@ var/global/list/sparring_attack_cache = list()
 	switch(attack_damage)
 		if(1 to 4)
 			user.visible_message(pick(
-				SPAN_CLASS("danger", "[user] stomped on [target]'s [organ][pick("", "with their [shoe_text]")]!"),
+				SPAN_CLASS("danger", "[user] stomped on [target]'s [organ][pick("", " with their [shoe_text]")]!"),
 				SPAN_DANGER("[user] stomped \his [shoe_text] down onto [target]'s [organ]!")))
 		if(5)
 			user.visible_message(pick(
-				SPAN_CLASS("danger", "[user] stomped down hard onto [target]'s [organ][pick("", "with their [shoe_text]")]!"),
+				SPAN_CLASS("danger", "[user] stomped down hard onto [target]'s [organ][pick("", " with their [shoe_text]")]!"),
 				SPAN_DANGER("[user] slammed \his [shoe_text] down onto [target]'s [organ]!")))
 
 /datum/unarmed_attack/light_strike

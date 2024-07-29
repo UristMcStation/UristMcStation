@@ -908,7 +908,7 @@ the sprite and make my own projectile -Glloyd*/
 	w_class = 2
 	caliber = CALIBER_PISTOL_SMALL
 	origin_tech = "combat=2;materials=2;syndicate=1"
-	slot_flags = SLOT_BELT
+	slot_flags = SLOT_BELT | SLOT_HOLSTER
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/hi2521pistol9mm
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
@@ -948,3 +948,14 @@ the sprite and make my own projectile -Glloyd*/
 	desc = "a pre-Crisis model laser carbine formerly deployed broadly by human forces."
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "oldlaser"
+
+/obj/item/ammo_magazine/speedloader/broomstick
+	name = "broomstick stripper clip"
+	desc = "A stripper clip for antique broomstick pistols."
+	icon = 'icons/urist/items/guns.dmi'
+	icon_state = "broomclip"
+	caliber = CALIBER_PISTOL_SMALL
+	ammo_type = /obj/item/ammo_casing/pistol/small
+	matter = list(MATERIAL_STEEL = 1300)
+	max_ammo = 10
+	multiple_sprites = 1

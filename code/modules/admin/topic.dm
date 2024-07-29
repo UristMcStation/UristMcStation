@@ -347,7 +347,8 @@
 		for(var/jobPos in SSjobs.titles_by_department(COM))
 			if(!jobPos)	continue
 			var/datum/job/job = SSjobs.get_by_title(jobPos)
-			if(!job) continue
+			if(!job || (jobPos in job.alt_titles))
+				continue
 
 			if(jobban_isbanned(M, job.title))
 				jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=[job.title];jobban4=\ref[M]'>[SPAN_COLOR("red", replacetext(job.title, " ", "&nbsp"))]</a></td>"
@@ -367,7 +368,8 @@
 		for(var/jobPos in SSjobs.titles_by_department(SPT))
 			if(!jobPos)	continue
 			var/datum/job/job = SSjobs.get_by_title(jobPos)
-			if(!job) continue
+			if(!job || (jobPos in job.alt_titles))
+				continue
 
 			if(jobban_isbanned(M, job.title))
 				jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=[job.title];jobban4=\ref[M]'>[SPAN_COLOR("red", replacetext(job.title, " ", "&nbsp"))]</a></td>"
@@ -388,7 +390,8 @@
 		for(var/jobPos in SSjobs.titles_by_department(SEC))
 			if(!jobPos)	continue
 			var/datum/job/job = SSjobs.get_by_title(jobPos)
-			if(!job) continue
+			if(!job || (jobPos in job.alt_titles))
+				continue
 
 			if(jobban_isbanned(M, job.title))
 				jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=[job.title];jobban4=\ref[M]'>[SPAN_COLOR("red", replacetext(job.title, " ", "&nbsp"))]</a></td>"
@@ -409,7 +412,8 @@
 		for(var/jobPos in SSjobs.titles_by_department(ENG))
 			if(!jobPos)	continue
 			var/datum/job/job = SSjobs.get_by_title(jobPos)
-			if(!job) continue
+			if(!job || (jobPos in job.alt_titles))
+				continue
 
 			if(jobban_isbanned(M, job.title))
 				jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=[job.title];jobban4=\ref[M]'>[SPAN_COLOR("red", replacetext(job.title, " ", "&nbsp"))]</a></td>"
@@ -430,7 +434,8 @@
 		for(var/jobPos in SSjobs.titles_by_department(MED))
 			if(!jobPos)	continue
 			var/datum/job/job = SSjobs.get_by_title(jobPos)
-			if(!job) continue
+			if(!job || (jobPos in job.alt_titles))
+				continue
 
 			if(jobban_isbanned(M, job.title))
 				jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=[job.title];jobban4=\ref[M]'>[SPAN_COLOR("red", replacetext(job.title, " ", "&nbsp"))]</a></td>"
@@ -451,7 +456,8 @@
 		for(var/jobPos in SSjobs.titles_by_department(SCI))
 			if(!jobPos)	continue
 			var/datum/job/job = SSjobs.get_by_title(jobPos)
-			if(!job) continue
+			if(!job || (jobPos in job.alt_titles))
+				continue
 
 			if(jobban_isbanned(M, job.title))
 				jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=[job.title];jobban4=\ref[M]'>[SPAN_COLOR("red", replacetext(job.title, " ", "&nbsp"))]</a></td>"
@@ -471,7 +477,8 @@
 		for(var/jobPos in SSjobs.titles_by_department(EXP))
 			if(!jobPos)	continue
 			var/datum/job/job = SSjobs.get_by_title(jobPos)
-			if(!job) continue
+			if(!job || (jobPos in job.alt_titles))
+				continue
 
 			if(jobban_isbanned(M, job.title))
 				jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=[job.title];jobban4=\ref[M]'>[SPAN_COLOR("red", replacetext(job.title, " ", "&nbsp"))]</a></td>"
@@ -491,7 +498,8 @@
 		for(var/jobPos in SSjobs.titles_by_department(SRV))
 			if(!jobPos)	continue
 			var/datum/job/job = SSjobs.get_by_title(jobPos)
-			if(!job) continue
+			if(!job || (jobPos in job.alt_titles))
+				continue
 
 			if(jobban_isbanned(M, job.title))
 				jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=[job.title];jobban4=\ref[M]'>[SPAN_COLOR("red", replacetext(job.title, " ", "&nbsp"))]</a></td>"
@@ -512,7 +520,8 @@
 		for(var/jobPos in SSjobs.titles_by_department(SUP))
 			if(!jobPos)	continue
 			var/datum/job/job = SSjobs.get_by_title(jobPos)
-			if(!job) continue
+			if(!job || (jobPos in job.alt_titles))
+				continue
 
 			if(jobban_isbanned(M, job.title))
 				jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=[job.title];jobban4=\ref[M]'>[SPAN_COLOR("red", replacetext(job.title, " ", "&nbsp"))]</a></td>"
@@ -533,7 +542,8 @@
 		for(var/jobPos in SSjobs.titles_by_department(CIV))
 			if(!jobPos)	continue
 			var/datum/job/job = SSjobs.get_by_title(jobPos)
-			if(!job) continue
+			if(!job || (jobPos in job.alt_titles))
+				continue
 
 			if(jobban_isbanned(M, job.title))
 				jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=[job.title];jobban4=\ref[M]'>[SPAN_COLOR("red", replacetext(job.title, " ", "&nbsp"))]</a></td>"
@@ -560,7 +570,8 @@
 		for(var/jobPos in SSjobs.titles_by_department(MSC))
 			if(!jobPos)	continue
 			var/datum/job/job = SSjobs.get_by_title(jobPos)
-			if(!job) continue
+			if(!job || (jobPos in job.alt_titles))
+				continue
 
 			if(jobban_isbanned(M, job.title))
 				jobs += "<td width='20%'><a href='?src=\ref[src];jobban3=[job.title];jobban4=\ref[M]'>[SPAN_COLOR("red", replacetext(job.title, " ", "&nbsp"))]</a></td>"
@@ -734,9 +745,12 @@
 
 		//Create a list of unbanned jobs within job_list
 		var/list/notbannedlist = list()
+		var/list/bannedlist = list()
 		for(var/job in job_list)
 			if(!jobban_isbanned(M, job))
 				notbannedlist += job
+			else
+				bannedlist |= job
 
 		//Banning comes first
 		if(length(notbannedlist)) //at least 1 unbanned job exists in job_list so we have stuff to ban.
@@ -794,16 +808,17 @@
 						return 1
 				if("Cancel")
 					return
+			return
 
 		//Unbanning job list
 		//all jobs in job list are banned already OR we didn't give a reason (implying they shouldn't be banned)
-		if(LAZYLEN(SSjobs.titles_to_datums)) //at least 1 banned job exists in job list so we have stuff to unban.
+		if(LAZYLEN(bannedlist))
 			if(!config.ban_legacy_system)
 				to_chat(usr, "Unfortunately, database based unbanning cannot be done through this panel")
 				DB_ban_panel(M.ckey)
 				return
 			var/msg
-			for(var/job in SSjobs.titles_to_datums)
+			for(var/job in bannedlist)
 				var/reason = jobban_isbanned(M, job)
 				if(!reason) continue //skip if it isn't jobbanned anyway
 				switch(alert("Job: '[job]' Reason: '[reason]' Un-jobban?","Please Confirm","Yes","No"))

@@ -162,6 +162,7 @@
 	flashlight_max_bright = 0.25
 	flashlight_inner_range = 0.1
 	flashlight_outer_range = 2
+	item_flags = ITEM_FLAG_CAN_HIDE_IN_SHOES
 
 /obj/item/device/flashlight/maglight
 	name = "maglight"

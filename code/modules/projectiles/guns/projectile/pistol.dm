@@ -246,6 +246,8 @@
 						TECH_MATERIAL = 2
 						)
 	load_method = SINGLE_CASING|SPEEDLOADER
+	magazine_type = /obj/item/ammo_magazine/speedloader/broomstick
+	allowed_magazines = /obj/item/ammo_magazine/speedloader/broomstick
 	max_shells = 10
 
 	firemodes = list(

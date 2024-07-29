@@ -134,3 +134,23 @@
 	flags_inv = HIDEEARS
 	body_parts_covered = FACE|EYES
 	armor = list(melee = 5, bullet = 5, laser = 0, energy = 0, bomb = 0, bio = 75, rad = 0)
+
+/obj/item/clothing/mask/smokable/cigarette/cigar/green
+	name = "cheap cigar"
+	desc = "A cheap green cigar often smoked by disheveled detectives, often picked up from the nearest supermarket."
+	type_butt = /obj/item/trash/cigbutt/cigarbutt
+	throw_speed = 0.5
+	icon = 'icons/urist/items/clothes/masks.dmi'
+	icon_state = "cigargreenoff"
+	item_state = "cigargreenoff"
+	icon_override = 'icons/uristmob/mask.dmi'
+	icon_on = "cigargreenon"
+	smoketime = 1200
+	chem_volume = 15
+	matchmes = "<span class='notice'>USER effortlessly lights their NAME with their FLAME.</span>"
+	lightermes = "<span class='notice'>USER disrespects their NAME by lighting it with FLAME.</span>"
+	zippomes = "<span class='rose'>With a flick of their wrist, USER lights their NAME with their FLAME like a true detective.</span>"
+	weldermes = "<span class='notice'>USER insults NAME by lighting it with FLAME.</span>"
+	ignitermes = "<span class='notice'>USER fiddles with FLAME, and manages to light their NAME with the power of science.</span>"
+	brand = null
+	filling = list(/datum/reagent/tobacco/fine = 5)

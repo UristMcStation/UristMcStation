@@ -14,6 +14,7 @@
 	var/malfunction = 0
 	var/known //if advanced scanners would name these in results
 	var/hidden //if scanners will locate this implant at all
+	item_flags = ITEM_FLAG_CAN_HIDE_IN_SHOES
 
 /obj/item/implant/proc/trigger(emote, source)
 	return

@@ -13,6 +13,7 @@
 	var/random_colour = FALSE
 	var/available_colors = list(COLOR_WHITE, COLOR_BLUE_GRAY, COLOR_GREEN_GRAY, COLOR_BOTTLE_GREEN, COLOR_DARK_GRAY, COLOR_RED_GRAY, COLOR_GUNMETAL, COLOR_RED, COLOR_YELLOW, COLOR_CYAN, COLOR_GREEN, COLOR_VIOLET, COLOR_NAVY_BLUE, COLOR_PINK)
 	light_color = "#e09d37"
+	item_flags = ITEM_FLAG_CAN_HIDE_IN_SHOES
 
 /obj/item/flame/lighter/Initialize()
 	. = ..()
