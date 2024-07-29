@@ -4045,7 +4045,7 @@
 "BP" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/glass/beaker/bowl,
-/obj/item/storage/fancy/cigarettes/urist/devil,
+/obj/item/storage/fancy/smokable/urist/devil,
 /obj/item/reagent_containers/food/condiment/enzyme,
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)

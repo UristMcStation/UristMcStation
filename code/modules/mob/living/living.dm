@@ -618,7 +618,7 @@ default behaviour is:
 	if(src.pull_damage())
 		if(prob(25))
 			src.adjustBruteLoss(2)
-			visible_message(SPAN_CLASS("danger", "\The [src]'s [src.isSynthetic() ? "state" : "wounds"] worsen terribly from being dragged!"))
+			visible_message(SPAN_CLASS("danger", "\The [src]'s [src.isSynthetic() ? "state worsens" : "wounds worsen"] terribly from being dragged!"))
 			location.add_blood(src)
 			. = TRUE
 

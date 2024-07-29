@@ -41,6 +41,9 @@
 		to_chat(user, SPAN_WARNING("It seems to be offline."))
 
 /obj/machinery/power/breakerbox/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
+
 	if(update_locked)
 		to_chat(user, SPAN_WARNING("System locked. Please try again later."))
 		return

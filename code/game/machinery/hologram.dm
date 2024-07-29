@@ -236,6 +236,8 @@ var/global/const/HOLOPAD_MODE = RANGE_BASED
 /obj/machinery/hologram/holopad/attack_ai(mob/living/silicon/ai/user)
 	if (!istype(user))
 		return
+	if(!ai_can_interact(user))
+		return
 	/*There are pretty much only three ways to interact here.
 	I don't need to check for client since they're clicking on an object.
 	This may change in the future but for now will suffice.*/

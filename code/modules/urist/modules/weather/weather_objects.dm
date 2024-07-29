@@ -104,7 +104,7 @@ so that static new weathers can be mapped in easily by VVing it directly*/
 
 /obj/effect/weather/invariant/mildsnow
 	name = "snow"
-	icon_state = "bsnow"
+	icon_state = "msnow"
 	active_weathers = list(/obj/weathertype/snow)
 
 /obj/effect/weather/invariant/blowingsnow
@@ -166,6 +166,6 @@ so that static new weathers can be mapped in easily by VVing it directly*/
 
 /obj/effect/weather/invariant/holo_snow
 	name = "snow"
-	icon_state = "bsnow"
+	icon_state = "msnow"
 	weather_safe = 1
 	active_weathers = list(/obj/weathertype/holosnow)

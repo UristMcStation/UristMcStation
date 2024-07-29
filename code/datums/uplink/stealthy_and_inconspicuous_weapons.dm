@@ -33,6 +33,12 @@
 	item_cost = 20
 	path = /obj/item/pen/reagent/sleepy
 
+/datum/uplink_item/item/stealthy_weapons/sleepyring
+	name = "Sleepy Ring"
+	desc = "A silver ring that will quickly put its wearer to sleep with discreetly injected chemicals. WARNING: Not effective on robots. Do not wear this yourself."
+	item_cost = 13
+	path = /obj/item/clothing/ring/reagent/sleepy
+
 /datum/uplink_item/item/stealthy_weapons/syringegun
 	name = "Disguised Syringe Gun"
 	desc = "A syringe gun disguised as an electronic cigarette with 4 darts included in the box. Chemicals not included!"

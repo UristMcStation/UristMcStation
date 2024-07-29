@@ -87,7 +87,7 @@ all-purpose cold/hot weather helper for exposure effects, wear a hat */
 
 //mild snow, mostly makes you feel cold
 /obj/weathertype/snow
-	icon_state = "bsnow"
+	icon_state = "msnow"
 	weathertemp = 265.0 //mild winter day
 
 /obj/weathertype/snow/GetWeatherEffect(turf/T)
@@ -168,7 +168,7 @@ all-purpose cold/hot weather helper for exposure effects, wear a hat */
 	color = "#ff0000"
 
 /obj/weathertype/holosnow
-	icon_state = "bsnow"
+	icon_state = "msnow"
 
 /obj/weathertype/holorain
 	icon_state = "rain"

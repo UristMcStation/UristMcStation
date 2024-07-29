@@ -41,16 +41,16 @@
 /datum/gear/survivalkit
 	display_name = "survival kit"
 	path = /obj/item/storage/box/survivalkit
-	allowed_roles = list(/datum/job/qm, /datum/job/cargo_tech)
+	allowed_roles = SUPPLY_ROLES
 
 /datum/gear/storage/pouches
-	allowed_roles = COMMAND_ROLES
+	allowed_roles = null
 	cost = 3
 
 /datum/gear/accessory/badge
 	display_name = "badge selection"
 	path = /obj/item/clothing/accessory/badge
-	allowed_roles = list(/datum/job/officer, /datum/job/hos)
+	allowed_roles = SECURITY_ROLES
 
 /datum/gear/accessory/badge/New()
 	..()

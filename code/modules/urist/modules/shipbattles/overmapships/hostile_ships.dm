@@ -142,3 +142,28 @@
 	)
 
 	..()
+
+/mob/living/simple_animal/hostile/overmapship/pirate/gantry // Makeshift Pirate Vessel, OSHA not included.
+//	shipdatum = /datum/ships/pirategantry
+	shields = 600
+	health = 800
+	maxHealth = 800
+	name = "tiny pirate gantry"  // Keep in size conventions, tiny sounds weaker than small.
+	ship_category = "tiny gantry vessel"
+	boardingmap = "maps/shipmaps/ship_pirate_scrapper.dmm"
+	can_board = TRUE
+	potential_weapons = list(/datum/shipcomponents/weapons/lightlaser/dual, /datum/shipcomponents/weapons/smallmissilepod)
+
+/mob/living/simple_animal/hostile/overmapship/pirate/gantry/Initialize()
+	components = list(
+		new /datum/shipcomponents/shield/light,
+		new /datum/shipcomponents/engines/pod,
+		new /datum/shipcomponents/weapons/smallmissilepod,
+		new /datum/shipcomponents/weapons/lightlaser/dual,
+		new /datum/shipcomponents/teleporter/pirate/small
+	)
+
+	add_weapons()
+	add_weapons()
+
+	.=..()

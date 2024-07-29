@@ -172,6 +172,8 @@
 	return ..()
 
 /obj/item/device/radio/intercom/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	add_fingerprint(user)
 	if (buildstage == 2)
 		attack_self(user)

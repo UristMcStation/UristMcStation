@@ -253,6 +253,8 @@
 	return TOPIC_REFRESH
 
 /obj/machinery/chem_master/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return src.interface_interact(user)
 
 /obj/machinery/chem_master/proc/get_chem_info(datum/reagent/reagent, heading = "Chemical Analysis", detailed_blood = 1)
@@ -361,6 +363,7 @@
 	name = "\improper CondiMaster 3000"
 	desc = "A machine pre-supplied with plastic condiment containers to bottle up reagents for use with foods."
 	production_options = CHEMMASTER_OPTIONS_CONDIMENTS
+	condi = TRUE
 
 /obj/machinery/chem_master/condimaster/get_chem_info(datum/reagent/reagent)
 	return ..(reagent, "Condiment Info", 0)

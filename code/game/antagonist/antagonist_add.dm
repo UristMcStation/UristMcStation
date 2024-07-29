@@ -1,4 +1,4 @@
-/datum/antagonist/proc/add_antagonist(datum/mind/player, ignore_role, do_not_equip, move_to_spawn, do_not_announce, preserve_appearance)
+/datum/antagonist/proc/add_antagonist(datum/mind/player, ignore_role, do_not_equip, move_to_spawn, do_not_announce, preserve_appearance, do_not_greet)
 
 	if(!add_antagonist_mind(player, ignore_role))
 		return
@@ -20,7 +20,7 @@
 	if(isghostmind(player))
 		create_default(player.current)
 	else
-		create_antagonist(player, move_to_spawn, do_not_announce, preserve_appearance)
+		create_antagonist(player, move_to_spawn, do_not_announce, preserve_appearance, do_not_greet)
 		if(!do_not_equip)
 			equip(player.current)
 

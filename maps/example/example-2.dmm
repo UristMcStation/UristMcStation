@@ -279,6 +279,14 @@
 /obj/machinery/cooker/oven,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
+"xr" = (
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/floor_light/mapped_off{
+	default_light_outer_range = 6;
+	default_light_inner_range = 2
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/surgery)
 "xu" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/portable_atmospherics/hydroponics,
@@ -1374,7 +1382,7 @@ XT
 ms
 CJ
 HE
-HE
+xr
 HE
 HE
 HE
@@ -1403,7 +1411,7 @@ oP
 oP
 DL
 HE
-XT
+RG
 XT
 Wk
 Yt

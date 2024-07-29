@@ -248,3 +248,11 @@
 	containername = "engineering voidsuit crate"
 	containertype = /obj/structure/closet/crate/secure/large
 	access = access_engine
+
+/singleton/hierarchy/supply_pack/engineering/leathershoes
+	name = "Gear - Major Bill's OSHA-Approved Footware"
+	contains = list(
+		/obj/item/clothing/shoes/urist/leather = 3
+	)
+	cost = 15
+	containername = "heavy-duty boot crate"

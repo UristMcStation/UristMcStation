@@ -93,7 +93,13 @@
 
 	// An adjacency check to avoid mobs phasing diagonally past windows.
 	// This might be better in general movement code but I'm too scared to add it, and most things don't move diagonally anyways.
-	if (!old_T.Adjacent(newloc))
+	//if (!old_T.Adjacent(newloc))
+	//	return MOVEMENT_FAILED
+
+	// URIST EDIT: accounting for z-levels; Adjacent() does not!
+	// An adjacency check to avoid mobs phasing diagonally past windows.
+	// This might be better in general movement code but I'm too scared to add it, and most things don't move diagonally anyways.
+	if (old_T.z == newloc.z && !old_T.Adjacent(newloc))
 		return MOVEMENT_FAILED
 
 	. = SelfMove(dir) ? MOVEMENT_SUCCESSFUL : MOVEMENT_FAILED

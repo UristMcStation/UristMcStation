@@ -7,6 +7,7 @@
 	icon_state = "brain2"
 	force = 1.0
 	w_class = ITEM_SIZE_SMALL
+	item_flags = ITEM_FLAG_WASHER_ALLOWED
 	throwforce = 1.0
 	throw_speed = 3
 	throw_range = 5
@@ -70,6 +71,7 @@
 		brainmob.real_name = H.real_name
 		brainmob.dna = H.dna.Clone()
 		brainmob.timeofhostdeath = H.timeofdeath
+		brainmob.languages |= H.languages
 
 	if(H.mind)
 		H.mind.transfer_to(brainmob)

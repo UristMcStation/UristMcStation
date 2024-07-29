@@ -47,30 +47,7 @@
 		if(!is_powered())
 			to_chat(user, SPAN_NOTICE("It's unpowered."))
 			return
-		to_chat(user, SPAN_NOTICE("Vitals of [victim]:"))
-		to_chat(user, SPAN_NOTICE("Pulse: [victim.get_pulse(GETPULSE_TOOL)]"))
-
-		var/brain_activity = "none"
-		var/obj/item/organ/internal/brain/brain = victim.internal_organs_by_name[BP_BRAIN]
-		if(istype(brain) && victim.stat != DEAD && !(victim.status_flags & FAKEDEATH))
-			switch(brain.get_current_damage_threshold())
-				if(0 to 2)
-					brain_activity = "normal"
-				if(3 to 5)
-					brain_activity = "weak"
-				if(6 to INFINITY)
-					brain_activity = "extremely weak"
-		to_chat(user, SPAN_NOTICE("Brain activity: [brain_activity]"))
-
-		var/breathing = "none"
-		var/obj/item/organ/internal/lungs/lungs = victim.internal_organs_by_name[BP_LUNGS]
-		if(istype(lungs) && !(victim.status_flags & FAKEDEATH))
-			if(lungs.breath_fail_ratio < 0.3)
-				breathing = "normal"
-			else if(lungs.breath_fail_ratio < 1)
-				breathing = "shallow"
-
-		to_chat(user, SPAN_NOTICE("Breathing: [breathing]"))
+		to_chat(user, SPAN_NOTICE(medical_scan_results(victim, 1)))
 	if(connected_optable)
 		to_chat(user, SPAN_NOTICE("Connected to adjacent [connected_optable]."))
 
@@ -84,6 +61,8 @@
 		update_optable()
 	if(victim)
 		update_icon()
+	if(operable())
+		updateDialog()
 
 /obj/machinery/vitals_monitor/proc/update_victim(new_victim = null)
 	var/old_victim = victim
@@ -218,6 +197,33 @@
 		last_alert = alerts.Copy()
 		last_alert_time = world.time
 
+/obj/machinery/vitals_monitor/interface_interact(user)
+	interact(user)
+	return TRUE
+
+/obj/machinery/vitals_monitor/interact(mob/user)
+	if ( (get_dist(src, user) > 1 ) || (inoperable()) )
+		if (!istype(user, /mob/living/silicon))
+			user.unset_machine()
+			close_browser(user, "window=op")
+			return
+	user.set_machine(src)
+	var/dat = "<HEAD><TITLE>Operating Computer</TITLE><META HTTP-EQUIV='Refresh' CONTENT='10'></HEAD><BODY>\n"
+	dat += "<A HREF='?src=\ref[user];mach_close=op'>Close</A><br><br>" //| <A HREF='?src=\ref[user];update=1'>Update</A>"
+	if(victim)
+		dat += {"
+<B>Patient Information:</B><BR>
+<BR>
+[medical_scan_results(victim, 1)]
+"}
+	else
+		dat += {"
+<B>Patient Information:</B><BR>
+<BR>
+<B>No Patient Detected</B>
+"}
+	show_browser(user, dat, "window=op")
+	onclose(user, "op")
 
 
 /obj/machinery/vitals_monitor/verb/toggle_beep()

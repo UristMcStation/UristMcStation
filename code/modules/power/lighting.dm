@@ -508,6 +508,8 @@
 // ai attack - make lights flicker, because why not
 
 /obj/machinery/light/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	to_chat(user, SPAN_NOTICE("You cause \the [src] to flick on and off."))
 	flicker(1)
 
