@@ -1754,3 +1754,33 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "An orange piece of cloth, worn on the head."
 	icon_state = "orange_bandana"
 	item_state = "orange_bandana"
+
+/obj/item/clothing/suit/urist/raincoat
+	name = "tan raincoat"
+	desc = "A tan scuffy raincoat, often worn by disheveled detectives trying to solve another homicide case."
+	icon_state = "raincoat"
+	item_state = "raincoat"
+	valid_accessory_slots = list(ACCESSORY_SLOT_INSIGNIA)
+	blood_overlay_type = "coat"
+	body_parts_covered = UPPER_TORSO|ARMS
+	allowed = list(
+		/obj/item/tank/oxygen_emergency,
+		/obj/item/tank/oxygen_emergency_extended,
+		/obj/item/tank/nitrogen_emergency,
+		/obj/item/device/flashlight,
+		/obj/item/gun/energy,
+		/obj/item/gun/projectile,
+		/obj/item/ammo_magazine,
+		/obj/item/ammo_casing,
+		/obj/item/melee/baton,
+		/obj/item/handcuffs,
+		/obj/item/storage/fancy/smokable,
+		/obj/item/flame/lighter,
+		/obj/item/device/taperecorder
+	)
+	armor = list(
+		melee = ARMOR_MELEE_KNIVES,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR
+		)
