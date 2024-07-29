@@ -222,4 +222,4 @@
 // assistant - mainly for tool storage.
 /singleton/hierarchy/outfit/job/nerva/assistant
 	name = OUTFIT_JOB_NAME("Nerva Assistant")
-	id_types = list(/obj/item/card/id/civillian/nerva_assistant)
+	id_types = list(/obj/item/card/id/civilian/nerva_assistant)
