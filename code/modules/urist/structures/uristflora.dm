@@ -15,10 +15,8 @@
 
 // Shimmering Spawner -
 
-/obj/effect/spawner/structure/shimmeringorb				// Once we get more asteroid-specific flora, I'll adjust this to spawn a mixture, instead of just these.
-	var/obj/structure/flora/shimmering_orb/H
-
 /obj/effect/spawner/structure/shimmeringorb/Initialize()
 	. = ..()
-	if (rand(0, 3) == 0)
-		H = new/obj/structure/flora/shimmering_orb/(loc)
+	if(prob(25))
+		new /obj/structure/flora/shimmering_orb(loc)
+	return INITIALIZE_HINT_QDEL
