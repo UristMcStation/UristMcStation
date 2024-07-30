@@ -872,3 +872,17 @@
 		user.drop_from_inventory(src)
 		to_chat(user, SPAN_NOTICE("You take \the [new_armor] out of \the [src]. Remember to put an armor plate in!"))
 		qdel(src)
+
+/obj/item/device/flashlight/maglight/advanced// Essentially an upgraded maglight, good for seccies if techies/sci does their job
+	name = "advanced flashlight"
+	desc = "an advanced heavy duty flashlight, combining energy efficency and a strong light emitter."
+	icon = 'icons/urist/items/tools.dmi'
+	icon_state = "advlight"
+	item_state = "advlight"
+	force = 12
+	base_parry_chance = 15
+	attack_verb = list ("smacked", "thwacked", "thunked")
+	matter = list(MATERIAL_STEEL = 100, MATERIAL_GLASS = 100, MATERIAL_PLASTIC = 150)
+	hitsound = "swing_hit"
+	flashlight_max_bright = 0.75
+	flashlight_outer_range = 6

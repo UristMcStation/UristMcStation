@@ -156,7 +156,7 @@
 /obj/machinery/seed_storage/interact(mob/user as mob)
 	user.set_machine(src)
 
-	var/dat = "<center><h1>Seed storage contents</h1></center>"
+	var/dat = ""
 	if (length(piles) == 0)
 		dat += SPAN_COLOR("red", "No seeds")
 	else
@@ -261,8 +261,9 @@
 			dat += "</tr>"
 		dat += "</table>"
 
-	show_browser(user, dat, "window=seedstorage;size=800x500")
-	onclose(user, "seedstorage")
+	var/datum/browser/popup = new(user, "seedstorage", "Seed Storage", 500, 800)
+	popup.set_content(dat)
+	popup.open()
 
 /obj/machinery/seed_storage/Topic(href, list/href_list)
 	if (..())

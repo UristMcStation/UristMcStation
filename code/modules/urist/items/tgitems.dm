@@ -340,7 +340,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 
 /obj/item/storage/backpack/satchel/flat/New()
 	..()
-	new /obj/item/crowbar(src)
+
 
 // Rolling papers from /tg/
 

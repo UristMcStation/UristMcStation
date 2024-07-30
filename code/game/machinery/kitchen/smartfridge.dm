@@ -142,7 +142,7 @@
 		return 1
 
 /obj/machinery/smartfridge/drying_rack
-	name = "drying rack"
+	name = "Drying Rack"
 	desc = "A machine for drying plants."
 	icon_state = "drying_rack"
 	construct_state = /singleton/machine_construction/default/panel_closed
