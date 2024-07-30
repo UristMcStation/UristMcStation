@@ -1754,3 +1754,32 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	desc = "An orange piece of cloth, worn on the head."
 	icon_state = "orange_bandana"
 	item_state = "orange_bandana"
+
+//pirate spacesuit variant
+//Black syndicate space suit
+/obj/item/clothing/head/helmet/space/syndicate/black/pirate
+	name = "salvaged black space helmet"
+	desc = "A black helmet sporting clean lines and durable plating. It's seen better days."
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_MINOR,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SMALL,
+		rad = ARMOR_RAD_MINOR
+		)
+
+/obj/item/clothing/suit/space/syndicate/black/pirate
+	name = "salvaged black space suit"
+	desc = "A black spacesuit sporting clean lines and durable plating. It's seen better days."
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_MINOR,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SMALL,
+		rad = ARMOR_RAD_MINOR
+		)
