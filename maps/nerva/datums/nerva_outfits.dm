@@ -219,3 +219,8 @@
 	shoes = /obj/item/clothing/shoes/black
 	id_types = list(/obj/item/card/id)
 	pda_type = /obj/item/modular_computer/pda
+
+// assistant - mainly for tool storage.
+/singleton/hierarchy/outfit/job/nerva/assistant
+	name = OUTFIT_JOB_NAME("Nerva Assistant")
+	id_types = list(/obj/item/card/id/civilian/nerva_assistant)
