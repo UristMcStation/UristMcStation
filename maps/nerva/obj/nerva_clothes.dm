@@ -296,7 +296,7 @@
 	boot_type = /obj/item/clothing/shoes/magboots/rig/command/exploration
 	glove_type = /obj/item/clothing/gloves/rig/command/exploration
 
-	allowed = list(/obj/item/storage/backpack,/obj/item/gun, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank, /obj/item/device/suit_cooling_unit, /obj/item/storage/backpack)
+	allowed = list(/obj/item/storage/backpack, /obj/item/gun, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank, /obj/item/device/suit_cooling_unit)
 	req_access = list(access_qm)
 
 /obj/item/clothing/head/helmet/space/rig/command/exploration
@@ -326,7 +326,9 @@
 	initial_modules = list(
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/device/flash,
-		/obj/item/rig_module/cooling_unit
+		/obj/item/rig_module/cooling_unit,
+		/obj/item/rig_module/vision/meson,
+		/obj/item/rig_module/grenade_launcher/light
 		)
 
 
