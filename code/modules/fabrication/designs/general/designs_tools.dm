@@ -45,8 +45,5 @@
 	path = /obj/item/weldingtool/largetank
 	hidden = TRUE
 
-/datum/fabricator_recipe/tool/geiger
-	path = /obj/item/device/geiger
-
 /datum/fabricator_recipe/tool/orescanner
 	path = /obj/item/device/scanner/mining
