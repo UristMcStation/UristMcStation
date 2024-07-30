@@ -221,14 +221,9 @@
 	dat += "<BR><A href='?src=\ref[user];mach_close=mob[name]'>Close</A>"
 
 
-	var/datum/browser/popup = new(user, name, 860, 300)
+	var/datum/browser/popup = new(user, name, 540, 400)
 	popup.set_content(dat)
 	popup.open()
-
-/*	show_browser(user, dat, text("window=mob[name];size=340x540"))
-	onclose(user, "mob[name]")
-	return
-*/
 
 // called when something steps onto a human
 // this handles mulebots and vehicles
