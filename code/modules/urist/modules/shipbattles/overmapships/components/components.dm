@@ -95,6 +95,14 @@
 	recharge_delay = 5 SECONDS
 	recovery_threashold = 60
 
+/datum/shipcomponents/shield/fighter/pirate
+	name = "salvaged ultralight shield"
+	strength = 520
+	health = 100
+	recharge_rate = 50
+	recharge_delay = 6 SECONDS
+	recovery_threashold = 60
+
 /datum/shipcomponents/shield/combat
 	name = "high performance combat shield"
 	strength = 1000

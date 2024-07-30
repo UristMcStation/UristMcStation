@@ -58,6 +58,29 @@
 
 	.=..()
 
+/mob/living/simple_animal/hostile/overmapship/pirate/fast
+	shields = 450
+	health = 900
+	maxHealth = 900
+	name = "pirate vessel"
+	ship_category = "pirate fast attack craft"
+	boardingmap = "maps/shipmaps/ship_pirate_fast1.dmm"
+	can_board = TRUE
+
+/mob/living/simple_animal/hostile/overmapship/pirate/fast/Initialize()
+	components = list(
+		new /datum/shipcomponents/shield/fighter/pirate,
+		new /datum/shipcomponents/engines/fighter,
+		new /datum/shipcomponents/weapons/smallmissile/battery,
+		new /datum/shipcomponents/weapons/lightlaser/auto,
+		new /datum/shipcomponents/weapons/lightlaser/auto,
+		new /datum/shipcomponents/weapons/autocannon,
+		new /datum/shipcomponents/point_defence/basic,
+		new /datum/shipcomponents/teleporter/pirate/small
+	)
+
+	.=..()
+
 /mob/living/simple_animal/hostile/overmapship/alien
 	color = "#660000"
 	hiddenfaction = /datum/factions/alien
