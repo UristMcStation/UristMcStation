@@ -10,20 +10,20 @@
 			L.drop_item()
 
 /datum/artifact_effect/disarmament/DoEffectTouch(mob/living/user)
-	var/weakness = GetAnomalySusceptibility(user)
+	var/weakness = clamp(GetAnomalySusceptibility(user), 0, 1)
 	if(prob(weakness * 100))
 		disarm(user)
 
 /datum/artifact_effect/disarmament/DoEffectPulse()
 	var/turf/T = get_turf(holder)
 	for(var/mob/living/L in oview(src.effectrange, T))
-		var/weakness = GetAnomalySusceptibility(L)
+		var/weakness = clamp(GetAnomalySusceptibility(L), 0, 1)
 		if(prob(weakness * 100))
 			disarm(L)
 
 /datum/artifact_effect/disarmament/DoEffectAura()
 	var/turf/T = get_turf(holder)
 	for(var/mob/living/L in oview(src.effectrange, T))
-		var/weakness = GetAnomalySusceptibility(L)
+		var/weakness = clamp(GetAnomalySusceptibility(L), 0, 1)
 		if(prob(10) && prob(weakness * 100))
 			disarm(L)
