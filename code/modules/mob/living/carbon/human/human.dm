@@ -221,7 +221,7 @@
 	dat += "<BR><A href='?src=\ref[user];mach_close=mob[name]'>Close</A>"
 
 
-	var/datum/browser/popup = new(user, name, 540, 400)
+	var/datum/browser/popup = new(user, name, 540, 340)
 	popup.set_content(dat)
 	popup.open()
 
