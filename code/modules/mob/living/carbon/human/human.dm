@@ -179,7 +179,7 @@
 		return
 
 	user.set_machine(src)
-	var/dat = "<B>[FONT_LARGE(name)]</B>"
+	var/dat = "<B><HR>[FONT_LARGE(name)]</B><BR><HR>"
 
 	for(var/entry in species.hud.gear)
 		var/list/slot_ref = species.hud.gear[entry]
@@ -220,15 +220,9 @@
 	dat += "<BR><A href='?src=\ref[src];refresh=1'>Refresh</A>"
 	dat += "<BR><A href='?src=\ref[user];mach_close=mob[name]'>Close</A>"
 
-
-	var/datum/browser/popup = new(user, name, 860, 300)
-	popup.set_content(dat)
-	popup.open()
-
-/*	show_browser(user, dat, text("window=mob[name];size=340x540"))
+	show_browser(user, dat, text("window=mob[name];size=340x540"))
 	onclose(user, "mob[name]")
 	return
-*/
 
 // called when something steps onto a human
 // this handles mulebots and vehicles
