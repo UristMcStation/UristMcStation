@@ -29,7 +29,7 @@
 			AM.water_act(2)
 
 		var/datum/gas_mixture/environment = T.return_air()
-		var/min_temperature = T20C + rand(0, 20) // Room temperature + some variance. An actual diminishing return would be better, but this is *like* that. In a way. . This has the potential for weird behavior, but I says fuck it. Water grenades for everyone.
+		var/min_temperature = T20C + rand(0, 20)
 
 		var/hotspot = (locate(/obj/hotspot) in T)
 		if(hotspot && !istype(T, /turf/space))
@@ -40,7 +40,7 @@
 				T.assume_air(lowertemp)
 			qdel(hotspot)
 
-		if (environment && environment.temperature > min_temperature) // Abstracted as steam or something
+		if (environment && environment.temperature > min_temperature)
 			var/removed_heat = clamp(120 * WATER_LATENT_HEAT, 0, -environment.get_thermal_energy_change(min_temperature))
 			environment.add_thermal_energy(-removed_heat)
 			if (prob(5) && environment && environment.temperature > T100C)

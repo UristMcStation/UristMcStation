@@ -79,7 +79,7 @@
 
 		var/target = pick(M.organs_by_name)
 		M.apply_damage(rand(5, 10), INJURY_TYPE_CUT, target)
-		to_chat(M, "<span class='danger'>The skin on your [parse_zone(target)] feels like it's ripping apart, and a stream of blood flies out.</span>")
+		to_chat(M, SPAN_DANGER("The skin on your [parse_zone(target)] feels like it's ripping apart, and a stream of blood flies out."))
 		var/obj/effect/decal/cleanable/blood/splatter/animated/B = new(M.loc)
 		B.basecolor = M.species.get_blood_colour(M)
 		B.color = M.species.get_blood_colour(M)

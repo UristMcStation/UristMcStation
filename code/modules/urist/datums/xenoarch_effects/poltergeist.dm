@@ -31,7 +31,7 @@
 		throw_at_mob(target, chargelevelmax)
 
 
-/datum/artifact_effect/poltergeist/proc/throw_at_mob(mob/living/target, damage = 20)
+/datum/artifact_effect/poltergeist/proc/throw_at_mob(mob/living/target, damage = 10)
 	var/list/valid_targets = list()
 	for (var/obj/O in oview(world.view, target))
 		if (!O.anchored && isturf(O.loc))
@@ -39,4 +39,4 @@
 	if (length(valid_targets))
 		var/obj/obj_to_throw = pick(valid_targets)
 		obj_to_throw.visible_message("<span class='alien'>\The [obj_to_throw] levitates, before hurtling toward [target]!</span>")
-		obj_to_throw.throw_at(target, world.view, min(40, damage * GetAnomalySusceptibility(target)))
+		obj_to_throw.throw_at(target, world.view, min(40, damage * obj_to_throw.w_class))

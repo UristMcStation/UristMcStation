@@ -11,7 +11,7 @@
 
 /datum/artifact_effect/tesla/proc/arc(list/exempt = list())
 	var/atom/A = holder
-	A.visible_message("<span class='danger'>\The [holder] discharges energy wildly in all directions!</span>")
+	A.visible_message(SPAN_DANGER("The [holder] discharges energy wildly in all directions!"))
 	for(var/mob/living/L in oview(world.view, get_turf(holder)))
 		if(chargelevel < 3)
 			break
