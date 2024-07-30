@@ -178,14 +178,14 @@
 	path = /obj/item/storage/box/handcuffs
 	desc = "A box of 7 handcuffs."
 
-/datum/uplink_item/item/tools/declumsifier
-	name = "De-Clumsy Device"
-	desc = "A single-use device that removes the Clumsy mutation when activated."
-	item_cost = 16
-	path = /obj/item/device/uplink_service/declumsifier
-
 /datum/uplink_item/item/tools/radio_jammer
 	name = "Radio Jammer"
 	item_cost = 32
 	path = /obj/item/device/radio_jammer
 	desc = "A small jammer that can fit inside a pocket. Capable of disrupting nearby radios and NTnet transmitters."
+
+/datum/uplink_item/item/tools/declumsifier
+	name = "De-Clumsy Device"
+	desc = "A single-use device that removes the Clumsy mutation when activated."
+	item_cost = 16
+	path = /obj/item/device/uplink_service/declumsifier

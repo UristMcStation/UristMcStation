@@ -53,3 +53,9 @@
 	item_cost = 36 // Lowered, for traitors.
 	antag_costs = list(MODE_MERCENARY = 48)
 	path = /obj/item/storage/firstaid/combat
+
+/datum/uplink_item/item/medical/declumsifier
+	name = "De-Clumsy Device"
+	desc = "A single-use device that removes the Clumsy mutation when activated, it won't do anything if you aren't a Clown."
+	item_cost = 16
+	path = /obj/item/device/uplink_service/declumsifier

@@ -41,6 +41,12 @@
 	item_cost = DEFAULT_TELECRYSTAL_AMOUNT
 	path = /obj/item/reagent_containers/food/snacks/fortunecookie
 
+/datum/uplink_item/item/badassery/ancienttoolbox
+	name = "Ancient Toolbox"
+	desc = "An ancient dusty red toolbox. It looks very robust. Only a true greytider could use this."
+	item_cost = 32
+	path = /obj/item/storage/toolbox/ancienttoolbox
+
 /**************
 * Random Item *
 **************/
