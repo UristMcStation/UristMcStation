@@ -125,9 +125,9 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/boarding_ship)
 "au" = (
-/obj/machinery/cryopod{
-	dir = 2;
-	icon_state = "body_scanner_0"
+/obj/structure/cryofeed{
+	icon_state = "cryo_rear";
+	dir = 2
 	},
 /turf/simulated/floor/tiled/white,
 /area/boarding_ship)
@@ -159,6 +159,18 @@
 	icon_state = "intact-supply"
 	},
 /turf/simulated/floor/plating,
+/area/boarding_ship)
+"ay" = (
+/obj/structure/extinguisher_cabinet{
+	dir = 8;
+	icon_state = "extinguisher_closed";
+	pixel_x = 30
+	},
+/obj/machinery/suit_storage_unit/engineering{
+	req_access = list();
+	emagged = 1
+	},
+/turf/simulated/floor/tiled/steel_ridged,
 /area/boarding_ship)
 "az" = (
 /obj/structure/catwalk,
@@ -276,6 +288,11 @@
 	dir = 8;
 	icon_state = "tube_map"
 	},
+/obj/structure/cryofeed{
+	dir = 2;
+	icon_state = "body_scanner_1";
+	name = "inert cryogenic freezer"
+	},
 /turf/simulated/floor/tiled/white,
 /area/boarding_ship)
 "aM" = (
@@ -283,13 +300,6 @@
 /area/boarding_ship)
 "aN" = (
 /obj/effect/urist/triggers/defender_landmark/pirate,
-/turf/simulated/floor/tiled/white,
-/area/boarding_ship)
-"aO" = (
-/obj/machinery/light/coldtint{
-	dir = 4;
-	icon_state = "tube_map"
-	},
 /turf/simulated/floor/tiled/white,
 /area/boarding_ship)
 "aP" = (
@@ -1003,18 +1013,6 @@
 	},
 /turf/simulated/floor/tiled/steel_ridged,
 /area/boarding_ship)
-"cz" = (
-/obj/machinery/suit_storage_unit/engineering/alt{
-	req_access = list();
-	emagged = 1s
-	},
-/obj/structure/extinguisher_cabinet{
-	dir = 8;
-	icon_state = "extinguisher_closed";
-	pixel_x = 30
-	},
-/turf/simulated/floor/tiled/steel_ridged,
-/area/boarding_ship)
 "cA" = (
 /obj/structure/iv_stand,
 /obj/item/reagent_containers/ivbag/nanoblood,
@@ -1312,10 +1310,6 @@
 	},
 /obj/effect/urist/triggers/ai_defender_landmark/pirate,
 /turf/simulated/floor/plating,
-/area/boarding_ship)
-"ds" = (
-/obj/machinery/computer/cryopod,
-/turf/simulated/wall/r_wall,
 /area/boarding_ship)
 "dt" = (
 /obj/structure/catwalk,
@@ -2155,6 +2149,14 @@
 	},
 /obj/item/beartrap,
 /turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"gh" = (
+/obj/structure/cryofeed{
+	dir = 2;
+	icon_state = "body_scanner_1";
+	name = "inert cryogenic freezer"
+	},
+/turf/simulated/floor/tiled/white,
 /area/boarding_ship)
 "gl" = (
 /obj/item/storage/firstaid/adv,
@@ -3273,7 +3275,7 @@ bf
 bs
 ak
 Yk
-cz
+ay
 cj
 af
 az
@@ -3321,7 +3323,7 @@ ak
 ak
 ak
 ak
-ds
+ak
 ak
 ak
 ak
@@ -3421,7 +3423,7 @@ aa
 ab
 ak
 au
-aM
+gh
 aM
 bt
 VT
@@ -3472,8 +3474,8 @@ ab
 ab
 ak
 au
+gh
 aN
-aM
 bu
 bM
 ck
@@ -3523,7 +3525,7 @@ Xz
 eJ
 ak
 au
-aO
+gh
 aM
 bv
 bN
