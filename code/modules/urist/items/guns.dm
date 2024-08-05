@@ -192,7 +192,7 @@ the sprite and make my own projectile -Glloyd*/
 	icon_state = "M60[cover_open ? "open" : "closed"][ammo_magazine ? round(length(ammo_magazine.stored_ammo), 15) : "-empty"]"
 
 /obj/item/ammo_magazine/box/rifle/military/m60
-	name = "M60 magazine box (7.62mm)"
+	name = "M60 magazine box"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "M60MAG"
 	max_ammo = 75
@@ -234,7 +234,7 @@ the sprite and make my own projectile -Glloyd*/
 	return
 
 /obj/item/ammo_magazine/rifle/military/m14
-	name = "M14 magazine box (7.62mm)"
+	name = "M14 magazine box"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "M14MAG"
 	max_ammo = 15
@@ -323,7 +323,7 @@ the sprite and make my own projectile -Glloyd*/
 		to_chat(user, "\The [launcher] is empty.")
 
 /obj/item/ammo_magazine/rifle/m16
-	name = "M16 magazine (5.56mm)"
+	name = "M16 magazine"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "M16MAG"
 	max_ammo = 25

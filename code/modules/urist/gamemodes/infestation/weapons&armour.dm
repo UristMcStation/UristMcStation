@@ -363,7 +363,7 @@
 */
 
 /obj/item/ammo_magazine/rifle/military/a18
-	name = "A18 magazine (7.62mm)"
+	name = "A18 magazine"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "ANFOR-battleriflemag"
 	mag_type = MAGAZINE
