@@ -56,7 +56,7 @@
 /obj/machinery/keycard_auth/interact(mob/user)
 	user.set_machine(src)
 
-	var/dat = ""
+	var/dat = "<h1>Keycard Authentication Device</h1>"
 
 	dat += "This device is used to trigger some high security events. It requires the simultaneous swipe of two high-level ID cards."
 	dat += "<br><hr><br>"
@@ -80,16 +80,11 @@
 		dat += "<li><A href='?src=\ref[src];triggerevent=Revoke Emergency Maintenance Access'>Revoke Emergency Maintenance Access</A></li>"
 		dat += "<li><A href='?src=\ref[src];triggerevent=Grant Nuclear Authorization Code'>Grant Nuclear Authorization Code</A></li>"
 		dat += "</ul>"
-		var/datum/browser/popup = new(user, "keycard_auth", "Keycard Authentication Device", 500, 250)
-		popup.set_content(dat)
-		popup.open()
-
+		show_browser(user, dat, "window=keycard_auth;size=500x250")
 	if(screen == 2)
 		dat += "Please swipe your card to authorize the following event: <b>[event]</b>"
 		dat += "<p><A href='?src=\ref[src];reset=1'>Back</A>"
-		var/datum/browser/popup = new(user, "keycard_auth", "Keycard Authentication Device", 500, 250)
-		popup.set_content(dat)
-		popup.open()
+		show_browser(user, dat, "window=keycard_auth;size=500x250")
 	return
 
 /obj/machinery/keycard_auth/CanUseTopic(mob/user, href_list)
