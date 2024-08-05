@@ -29,6 +29,8 @@
 	can_escape = TRUE
 	see_in_dark = 10
 	move_to_delay = 1
+	pry_time = 6 SECONDS
+	ai_holder = /datum/ai_holder/simple_animal/melee/alien
 	natural_armor = list(
 		melee = ARMOR_MELEE_KNIVES
 		)
@@ -53,6 +55,8 @@
 	projectiletype = /obj/item/projectile/neurotox
 	projectilesound = 'sound/weapons/pierce.ogg'
 	move_to_delay = 2
+	ai_holder = /datum/ai_holder/simple_animal/ranged/kiting/aliensentinel
+	base_attack_cooldown = 20
 
 /mob/living/simple_animal/hostile/alien/queen
 	name = "alien queen"
@@ -67,6 +71,8 @@
 	projectiletype = /obj/item/projectile/neurotox
 	projectilesound = 'sound/weapons/pierce.ogg'
 	rapid = 1
+	base_attack_cooldown = 16
+	ai_holder = /datum/ai_holder/simple_animal/ranged/alien
 	status_flags = 0
 
 /mob/living/simple_animal/hostile/alien/queen/large
@@ -78,6 +84,8 @@
 	move_to_delay = 4
 	maxHealth = 400
 	health = 400
+	base_attack_cooldown = 12
+	ai_holder = /datum/ai_holder/simple_animal/ranged/alien/queen
 	natural_armor = list(
 		melee = ARMOR_MELEE_KNIVES,
 		laser	= ARMOR_LASER_HANDGUNS,
@@ -85,9 +93,28 @@
 		)
 
 /obj/item/projectile/neurotox
-	damage = 30
+	damage = 25
 	icon_state = "toxin"
 
 /mob/living/simple_animal/hostile/alien/death(gibbed, deathmessage, show_dead_message)
 	..(gibbed, "lets out a waning guttural screech, green blood bubbling from its maw...", show_dead_message)
 	playsound(src, 'sound/voice/hiss6.ogg', 100, 1)
+
+// AI Holders
+
+/datum/ai_holder/simple_animal/melee/alien
+	speak_chance = 0
+	aggro_sound = 'sound/voice/hiss2.ogg'
+
+/datum/ai_holder/simple_animal/ranged/kiting/aliensentinel
+	speak_chance = 0
+	aggro_sound = 'sound/voice/hiss2.ogg'
+	run_if_this_close = 3
+
+/datum/ai_holder/simple_animal/ranged/alien/queen
+	speak_chance = 0
+	aggro_sound = 'sound/voice/hiss4.ogg'
+
+/datum/ai_holder/simple_animal/ranged/alien/queen
+	speak_chance = 0
+	aggro_sound = 'sound/voice/hiss5.ogg'
