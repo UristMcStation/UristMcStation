@@ -12,6 +12,7 @@
 /area/planet/jungle
 	name = "jungle"
 	base_turf = /turf/simulated/floor/planet/jungle/clear/grass1
+	forced_ambience = list('sound/ambience/jungle.ogg')
 
 /area/planet/jungle/away
 
@@ -32,3 +33,4 @@
 	name = "\improper Jungle Outpost"
 	icon_state = "away"
 	base_turf = /turf/simulated/floor/planet/jungle/clear/grass1
+	forced_ambience = list('sound/ambience/jungle.ogg')
