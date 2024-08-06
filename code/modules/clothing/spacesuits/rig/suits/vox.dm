@@ -46,7 +46,8 @@
 		/obj/item/device/radio,
 		/obj/item/melee/baton,
 		/obj/item/gun,
-		/obj/item/pickaxe
+		/obj/item/pickaxe,
+		/obj/item/storage/backpack
 	)
 
 /obj/item/clothing/shoes/magboots/rig/vox_rig

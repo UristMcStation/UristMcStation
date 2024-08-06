@@ -91,7 +91,8 @@
 		/obj/item/ammo_casing,
 		/obj/item/melee/baton,
 		/obj/item/melee/energy/sword,
-		/obj/item/handcuffs
+		/obj/item/handcuffs,
+		/obj/item/storage/backpack
 	)
 
 /obj/item/clothing/shoes/magboots/rig/merc
