@@ -46,7 +46,7 @@
 /obj/item/projectile/energy/flash/flare
 	damage = 10
 	agony = 25
-	fire_sound = 'sound/weapons/gunshot/shotgun.ogg'
+	fire_sound = 'sound/urist/guns/shotgun_fire_flare.ogg'
 	flash_range = 2
 	brightness = 15
 
