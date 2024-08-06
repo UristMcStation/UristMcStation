@@ -379,49 +379,52 @@ Please keep it tidy, by which I mean put comments describing the item before the
 			if(buildstate == 0)
 				var/obj/item/stack/material/wood/R = W
 				if(R.use(3))
-					to_chat(user, "<span class='notice'>You fill out the frame with more wooden planks.</span>")
+					to_chat(user, SPAN_NOTICE("You fill out the frame with more wooden planks."))
 					buildstate++
 					update_icon()
+					desc = "It's a shitty little improvised raft frame. It has some wooden planks attached that need to be lashed with cable coils."
 				else
-					to_chat(user, "<span class='notice'>You need at least three planks to complete this task.</span>")
+					to_chat(user, SPAN_NOTICE("You need at least three planks to complete this task."))
 				return
 
 			if(buildstate == 2)
 				var/obj/item/stack/material/wood/R = W
 				if(R.use(2))
-					to_chat(user, "<span class='notice'>You fill out the rest of the frame with more wooden planks.</span>")
+					to_chat(user, SPAN_NOTICE("You fill out the rest of the frame with more wooden planks."))
 					buildstate++
 					update_icon()
+					desc = "It's a shitty little improvised raft frame. It has all of the planks it needs attached, but needs to be lashed with cable coils to finish."
 				else
-					to_chat(user, "<span class='notice'>You need at least three planks to complete this task.</span>")
+					to_chat(user, SPAN_NOTICE("You need at least three planks to complete this task."))
 				return
 
 		else if(istype(W,/obj/item/stack/cable_coil))
 			if(buildstate == 1)
 				var/obj/item/stack/cable_coil/R = W
 				if(R.use(2))
-					to_chat(user, "<span class='notice'>You lash together the incomplete raft with some cable.</span>")
+					to_chat(user, SPAN_NOTICE("You lash together the incomplete raft with some cable."))
 					buildstate++
 					update_icon()
+					desc = "It's a shitty little improvised raft frame. It has some lashed wooden planks attached, but needs more planks to finish the hull."
 				else
-					to_chat(user, "<span class='notice'>You need more cable to complete this task.</span>")
+					to_chat(user, SPAN_NOTICE("You need more cable to complete this task."))
 
 			else if(buildstate == 3)
 				var/obj/item/stack/cable_coil/R = W
 				if(R.use(3))
-					to_chat(user, "<span class='notice'>You lash together the incomplete raft with some cable, finishing it off.</span>")
+					to_chat(user, SPAN_NOTICE("You lash together the incomplete raft with some cable, finishing it off."))
 					buildstate++
 					update_icon()
 					built = 1
 					name = "raft"
 					desc = "It's a shitty little improvised raft. Good luck."
 				else
-					to_chat(user, "<span class='notice'>You need more cable to complete this task.</span>")
+					to_chat(user, SPAN_NOTICE("You need more cable to complete this task."))
 			return
 
 	else if(built)
 		if(istype(W,/obj/item/wirecutters))
-			to_chat(user, "<span class='notice'>You begin cutting apart the cables holding the raft together.</span>")
+			to_chat(user, SPAN_NOTICE("You begin cutting apart the cables holding the raft together."))
 			if (do_after(user, 20, src))
 				var/obj/item/stack/material/wood/R = new /obj/item/stack/material/wood(src.loc)
 				R.amount = 6
