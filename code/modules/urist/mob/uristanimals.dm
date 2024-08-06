@@ -69,7 +69,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //ARANEUS. Squee?
 
-/mob/living/simple_animal/hostile/retaliate/spider/araneus
+/mob/living/simple_animal/hostile/retaliate/bat/araneus
 	desc = "A fierce companion for any person of power, this spider has been carefully trained by NanoTrasen specialists. Its beady, staring eyes send shivers down your spine."
 	faction = "spiders"
 	harm_intent_damage = 3
