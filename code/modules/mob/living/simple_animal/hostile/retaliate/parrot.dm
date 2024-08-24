@@ -115,6 +115,10 @@
 			  /mob/living/simple_animal/hostile/retaliate/parrot/verb/drop_held_item_player, \
 			  /mob/living/simple_animal/hostile/retaliate/parrot/proc/perch_player)
 
+	icon_state = "[icon_set]_fly"
+	icon_living = "[icon_set]_fly"
+	icon_dead = "[icon_set]_dead"
+
 	update_icon()
 
 /mob/living/simple_animal/hostile/retaliate/parrot/death(gibbed, deathmessage, show_dead_message)
