@@ -261,3 +261,31 @@ var/global/datum/robolimb/basic_robolimb
 /datum/robolimb/vox/crap
 	company = "Improvised"
 	icon = 'icons/mob/human_races/cyberlimbs/vox/improvised.dmi'
+
+/datum/robolimb/unbranded_unathi
+	company = "Unbranded - Unathi"
+	desc = "A simple robotic limb with the familiar reptile-man design. Seems rather stiff."
+	icon = 'icons/uristmob/species/unathi/unbranded/unbranded.dmi'
+	allowed_bodytypes = list(SPECIES_UNATHI)
+
+/datum/robolimb/nanotrasen_unathi
+	company = "NanoTrasen - Unathi"
+	desc = "A robotic limb with the familiar reptile-man design. Made from a cheap polymer."
+	icon = 'icons/uristmob/species/unathi/nanotrasen/nanotrasen.dmi'
+	allowed_bodytypes = list(SPECIES_UNATHI)
+
+/datum/robolimb/uesseka
+	company = "Uesseka Prototyping"
+	desc = "This limb seems well crafted, and distinctly Unathi in design."
+	icon = 'icons/uristmob/species/unathi/uessekaprototyping/uessekaprototyping.dmi'
+	can_eat = 1
+	unavailable_at_fab = 1
+	allowed_bodytypes = list(SPECIES_UNATHI)
+
+/datum/robolimb/uessekared
+	company = "Uesseka Prototyping - Red"
+	desc = "This limb seems well crafted, and distinctly Unathi in design. This one's red!"
+	icon = 'icons/uristmob/species/unathi/uessekaprototyping/uessekaprototyping_red.dmi'
+	can_eat = 1
+	unavailable_at_fab = 1
+	allowed_bodytypes = list(SPECIES_UNATHI)
