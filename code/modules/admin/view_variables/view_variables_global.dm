@@ -11,7 +11,7 @@ GLOBAL_TYPED_NEW(debug_real_globals, /datum/debug_real_globals)
 	for (var/name in global.vars)
 		if (name in hidden)
 			continue
-		ADD_SORTED(global_names, name, /proc/cmp_text_asc)
+		ADD_SORTED(global_names, name, GLOBAL_PROC_REF(cmp_text_asc))
 
 
 /datum/debug_real_globals/get_variables()

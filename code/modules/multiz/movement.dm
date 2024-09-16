@@ -157,7 +157,7 @@
 /atom/movable/proc/begin_falling(lastloc, below)
 	if (QDELETED(src))
 		return
-	addtimer(new Callback(src, /atom/movable/proc/fall_callback, below), 0)
+	addtimer(new Callback(src, PROC_REF(fall_callback), below), 0)
 
 /atom/movable/proc/fall_callback(turf/below)
 	var/mob/M = src
@@ -366,7 +366,7 @@
 	. = ..()
 	owner = user
 	follow()
-	GLOB.moved_event.register(owner, src, /atom/movable/z_observer/proc/follow)
+	GLOB.moved_event.register(owner, src, PROC_REF(follow))
 
 /atom/movable/z_observer/proc/follow()
 
@@ -390,9 +390,9 @@
 	qdel(src)
 
 /atom/movable/z_observer/Destroy()
-	GLOB.moved_event.unregister(owner, src, /atom/movable/z_observer/proc/follow)
+	GLOB.moved_event.unregister(owner, src, PROC_REF(follow))
 	owner = null
-	. = ..()
+	return ..()
 
 /atom/movable/z_observer/can_fall()
 	return FALSE

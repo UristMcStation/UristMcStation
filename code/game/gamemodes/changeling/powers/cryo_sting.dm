@@ -33,6 +33,6 @@
 	if(T.reagents)
 		T.reagents.add_reagent(/datum/reagent/toxin/cryotoxin, inject_amount)
 	src.verbs -= /mob/proc/changeling_cryo_sting
-	addtimer(new Callback(src,/mob/.proc/cryo_cooldown), 3 MINUTES)
+	addtimer(new Callback(src, TYPE_PROC_REF(/mob, cryo_cooldown)), 3 MINUTES)
 
 	return TRUE

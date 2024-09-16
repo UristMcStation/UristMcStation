@@ -10,8 +10,8 @@ on:
     branches: [ "dev" ]
   workflow_dispatch: # allows this workflow to be manually triggered
 env:
-  BYOND_MAJOR: "514"
-  BYOND_MINOR: "1589"
+  BYOND_MAJOR: "515"
+  BYOND_MINOR: "1647"
   SPACEMAN_DMM_VERSION: suite-1.9
 
 jobs:

@@ -205,9 +205,9 @@
 	locked = 0
 	update_icon()
 	lock_time = world.time + 35
-	GLOB.moved_event.register(owner, src, /obj/aiming_overlay/proc/update_aiming)
-	GLOB.moved_event.register(aiming_at, src, /obj/aiming_overlay/proc/target_moved)
-	GLOB.destroyed_event.register(aiming_at, src, /obj/aiming_overlay/proc/cancel_aiming)
+	GLOB.moved_event.register(owner, src, PROC_REF(update_aiming))
+	GLOB.moved_event.register(aiming_at, src, PROC_REF(target_moved))
+	GLOB.destroyed_event.register(aiming_at, src, PROC_REF(cancel_aiming))
 
 /obj/aiming_overlay/on_update_icon()
 	if(locked)

@@ -40,7 +40,7 @@
 
 /turf/simulated/wall/Initialize()
 	color = null //color is just for mapping
-	set_extension(src, /datum/extension/penetration/proc_call, .proc/CheckPenetration)
+	set_extension(src, /datum/extension/penetration/proc_call, PROC_REF(CheckPenetration))
 	START_PROCESSING(SSturf, src) //Used for radiation.
 	. = ..()
 
@@ -259,7 +259,7 @@
 
 /turf/simulated/wall/proc/burn(temperature)
 	if(material.combustion_effect(src, temperature, 0.7))
-		addtimer(new Callback(src, .proc/burn_adjacent, temperature), 2, TIMER_UNIQUE)
+		addtimer(new Callback(src, PROC_REF(burn_adjacent), temperature), 2, TIMER_UNIQUE)
 
 /turf/simulated/wall/proc/burn_adjacent(temperature)
 	var/list/nearby_atoms = range(3,src)

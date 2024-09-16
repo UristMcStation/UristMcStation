@@ -118,9 +118,9 @@
 	if(source in sources)
 		return FALSE
 	sources += source
-	GLOB.moved_event.register(source, src, /datum/visualnet/proc/source_moved)
-	GLOB.destroyed_event.register(source, src, /datum/visualnet/proc/remove_source)
-	for_all_chunks_in_range(source, /datum/chunk/proc/add_source, list(source))
+	GLOB.moved_event.register(source, src, PROC_REF(source_moved))
+	GLOB.destroyed_event.register(source, src, PROC_REF(remove_source))
+	for_all_chunks_in_range(source, TYPE_PROC_REF(/datum/chunk, add_source), list(source))
 	if(update_visibility)
 		update_visibility(source, opacity_check)
 	return TRUE
@@ -129,9 +129,9 @@
 	if(!sources.Remove(source))
 		return FALSE
 
-	GLOB.moved_event.unregister(source, src, /datum/visualnet/proc/source_moved)
-	GLOB.destroyed_event.unregister(source, src, /datum/visualnet/proc/remove_source)
-	for_all_chunks_in_range(source, /datum/chunk/proc/remove_source, list(source))
+	GLOB.moved_event.unregister(source, src, PROC_REF(source_moved))
+	GLOB.destroyed_event.unregister(source, src, PROC_REF(remove_source))
+	for_all_chunks_in_range(source, TYPE_PROC_REF(/datum/chunk, remove_source), list(source))
 	if(update_visibility)
 		update_visibility(source, opacity_check)
 	return TRUE
@@ -146,9 +146,9 @@
 	// A more proper way would be to figure out which chunks have gone out of range, and which have come into range
 	//  and only remove/add to those.
 	if(old_turf)
-		for_all_chunks_in_range(source, /datum/chunk/proc/remove_source, list(source), old_turf)
+		for_all_chunks_in_range(source, TYPE_PROC_REF(/datum/chunk, remove_source), list(source), old_turf)
 	if(new_turf)
-		for_all_chunks_in_range(source, /datum/chunk/proc/add_source, list(source), new_turf)
+		for_all_chunks_in_range(source, TYPE_PROC_REF(/datum/chunk, add_source), list(source), new_turf)
 
 /datum/visualnet/proc/for_all_chunks_in_range(atom/source, proc_call, list/proc_args, turf/T)
 	T = T ? T : get_turf(source)

@@ -33,7 +33,7 @@
 		item_holder.verbs += /obj/item/proc/ChameleonFlexibleAppearance
 	else
 		item_holder.verbs += chameleon_verbs
-	GLOB.empd_event.register(item_holder, src, /datum/extension/chameleon/proc/OnEMP)
+	GLOB.empd_event.register(item_holder, src, PROC_REF(OnEMP))
 
 /datum/extension/chameleon/Destroy()
 	if (emp_amount)

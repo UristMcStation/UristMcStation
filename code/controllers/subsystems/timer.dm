@@ -23,15 +23,20 @@ var/global/const/TIMER_NO_HASH_WAIT = FLAG(4)
 	var/fire_time
 
 
+/datum/timer/Destroy()
+	callback = null
+	return ..()
+
+
 SUBSYSTEM_DEF(timer)
 	name = "Timer"
 	flags = SS_NO_INIT | SS_TICKER
 	priority = SS_PRIORITY_TIMER
 	wait = 1
 
-	var/list/datum/timer/queue = list()
+	var/static/list/datum/timer/queue = list()
 
-	var/list/datum/timer/timers_by_hash = list()
+	var/static/list/datum/timer/timers_by_hash = list()
 
 
 /datum/controller/subsystem/timer/UpdateStat(time)
@@ -41,12 +46,12 @@ SUBSYSTEM_DEF(timer)
 
 
 /datum/controller/subsystem/timer/fire(resume, no_mc_tick)
-	if (!length(queue))
+	var/queue_length = length(queue)
+	if (!queue_length)
 		return
 	var/datum/timer/timer
 	var/datum/target
-	var/size = length(queue)
-	for (var/i = 1 to size)
+	for (var/i = 1 to queue_length)
 		timer = queue[i]
 		if (world.time < timer.fire_time)
 			if (i > 1)
@@ -64,7 +69,7 @@ SUBSYSTEM_DEF(timer)
 		else if (MC_TICK_CHECK)
 			queue.Cut(1, i + 1)
 			return
-	queue.Cut(1, size + 1)
+	LIST_RESIZE(queue, 0)
 
 
 /proc/deltimer(datum/timer/timer, datum/controller/subsystem/timer/subsystem = SStimer)

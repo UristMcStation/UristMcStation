@@ -328,7 +328,7 @@
 	wearer.pass_flags |= PASS_FLAG_TABLE
 	wearer.status_flags |= GODMODE
 	wearer.jump_layer_shift()
-	var/on_complete = new Callback(src, /obj/item/rig_module/actuators/proc/end_dash, target, old_pass_flags)
+	var/on_complete = new Callback(src, TYPE_PROC_REF(/obj/item/rig_module/actuators, end_dash), target, old_pass_flags)
 	wearer.throw_at(turf, leapDistance, 1, wearer, FALSE, on_complete)
 
 
