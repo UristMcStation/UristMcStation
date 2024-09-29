@@ -252,7 +252,7 @@
 	flash_protection = FLASH_PROTECTION_MINOR
 	item_flags = ITEM_FLAG_AIRTIGHT
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
-	flash_protection = FLASH_PROTECTION_MAJOR // The same as a normal space helmet.
+	flash_protection = FLASH_PROTECTION_MODERATE // The same as a normal space helmet.
 	min_pressure_protection = 0
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
@@ -266,4 +266,4 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SMALL
 		)
-	species_restricted = list(SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_UNATHI, SPECIES_IPC)
+	species_restricted = list(SPECIES_HUMAN)
