@@ -103,7 +103,7 @@
 	armor = list(melee = 65, bullet = 50, laser = 40,energy = 15, bomb = 35, bio = 100, rad = 30)
 
 /obj/item/ammo_magazine/c10mm
-	name = "TD-10 SMG magazine (10mm)"
+	name = "TD-10 SMG magazine"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "smg10mm"
 	origin_tech = list(TECH_COMBAT = 2)
@@ -115,7 +115,7 @@
 	multiple_sprites = 1
 
 /obj/item/ammo_magazine/c10mm/TD10
-	name = "TD-10 Pistol magazine (10mm)"
+	name = "TD-10 Pistol magazine"
 	icon_state = "10mmadv"
 	max_ammo = 12
 	multiple_sprites = 1
