@@ -9,6 +9,7 @@
 	max_hardware_size = 1
 	w_class = ITEM_SIZE_SMALL
 	light_strength = 5 // same as PDAs
+	slot_flags = SLOT_BELT
 
 	interact_sounds = list('sound/machines/pda_click.ogg')
 	interact_sound_volume = 20
