@@ -104,7 +104,7 @@
 
 /datum/uplink_item/item/tools/divinghelmet
 	name = "Diving Helmet"
-	desc = "An antique diver's helmet that was designed to withstand immense pressures. Works as a space helmet. Only fits humans."
+	desc = "An antique diver's helmet that was designed to withstand immense pressures. Works as a space helmet, hides your identity and provides good flash protection while worn."
 	item_cost = 12
 	path = /obj/item/clothing/head/helmet/divinghelmet
 
