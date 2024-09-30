@@ -7,13 +7,12 @@
 	w_class = ITEM_SIZE_HUGE
 	force = 10
 
-	fire_sound = 'sound/weapons/empty.ogg'
-	fire_sound_text = "a metallic thunk"
+	fire_sound = 'sound/urist/guns/grenade_launcher_fire.ogg'
+	fire_sound_text = "a satisfying 'bloop'"
 	screen_shake = 0
 	throw_distance = 7
 	release_force = 5
 	combustion = 1
-
 	var/obj/item/grenade/chambered
 	var/list/grenades = new/list()
 	var/max_grenades = 5 //holds this + one in the chamber
