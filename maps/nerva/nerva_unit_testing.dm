@@ -26,6 +26,7 @@
 		/area/maintenance/second_deck/central = NO_SCRUBBER|NO_VENT|NO_AIR_ALARM|NO_FIRE_ALARM,
 		/area/maintenance/second_deck/fp = NO_SCRUBBER|NO_VENT|NO_AIR_ALARM|NO_FIRE_ALARM,
 		/area/maintenance/second_deck/afp = NO_SCRUBBER|NO_VENT|NO_AIR_ALARM|NO_FIRE_ALARM,
+		/area/maintenance/second_deck/lounge = NO_SCRUBBER|NO_VENT|NO_AIR_ALARM|NO_FIRE_ALARM,
 		/area/maintenance/first_deck/fs = NO_SCRUBBER|NO_VENT|NO_AIR_ALARM|NO_FIRE_ALARM,
 		/area/maintenance/first_deck/afs = NO_SCRUBBER|NO_VENT|NO_AIR_ALARM|NO_FIRE_ALARM,
 		/area/maintenance/first_deck/central = NO_SCRUBBER|NO_AIR_ALARM|NO_FIRE_ALARM,
