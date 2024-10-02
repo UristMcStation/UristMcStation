@@ -4,6 +4,7 @@
 	icon_state = "weednode"
 	health = 100
 	layer = ABOVE_OBJ_LAYER
+	opacity = 0
 
 /obj/structure/alien/node/Initialize()
 	. = ..()
