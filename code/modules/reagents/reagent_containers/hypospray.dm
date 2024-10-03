@@ -84,8 +84,9 @@
 	possible_transfer_amounts = "1;2;5;10;15;20;30"
 	amount_per_transfer_from_this = 5
 	volume = 0
-	time = 7
+	time = 0
 	single_use = FALSE
+	slot_flags = SLOT_BELT|SLOT_HOLSTER
 
 /obj/item/reagent_containers/hypospray/vial/New()
 	..()
