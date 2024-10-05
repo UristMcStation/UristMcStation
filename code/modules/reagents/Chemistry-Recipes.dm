@@ -3255,3 +3255,17 @@
 	catalysts = list(
 		/datum/reagent/enzyme = 1
 	)
+
+/datum/chemical_reaction/welderbomb
+	name = "Welder Bomb"
+	result = /datum/reagent/ethanol/welderbomb
+	required_reagents = list(/datum/reagent/ethanol/whiskey = 2, /datum/reagent/water = 1, /datum/reagent/fuel = 2)
+	result_amount = 5
+	mix_message = "The solution combines into a nasty diluted alcohol."
+
+/datum/chemical_reaction/rattle
+	name = "Rattle"
+	result = /datum/reagent/ethanol/rattle
+	required_reagents = list(/datum/reagent/oil = 1, /datum/reagent/drink/space_cola = 1, /datum/reagent/fuel = 1)
+	result_amount = 5
+	mix_message = "The solution combines into a acrid sweet smelling substance."
