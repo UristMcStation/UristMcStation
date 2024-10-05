@@ -886,3 +886,14 @@
 	hitsound = "swing_hit"
 	flashlight_max_bright = 0.75
 	flashlight_outer_range = 6
+
+/obj/item/clothing/mask/smokable/cigarette/rolled/tobacco
+	filling = list(/datum/reagent/tobacco = 3)
+
+/obj/item/clothing/mask/smokable/cigarette/rolled/psilocybin
+	desc = "A hand rolled cigarette using dried mushroom matter."
+	filling = list(/datum/reagent/drugs/psilocybin = 5)
+
+/obj/item/clothing/mask/smokable/cigarette/rolled/hextro
+	desc = "A hand rolled cigarette using dried ambrosia leaf." // Hextro seems to be a mix of irl drugs , for now we'll say it has ambrosia leaf in it, just to make it clear to players.
+	filling = list(/datum/reagent/drugs/hextro = 10)
