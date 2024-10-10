@@ -37,7 +37,8 @@
 		/obj/item/handcuffs,
 		/obj/item/tank,
 		/obj/item/device/suit_cooling_unit,
-		/obj/item/cell
+		/obj/item/cell,
+		/obj/item/storage/backpack
 	)
 
 /obj/item/clothing/gloves/rig/light

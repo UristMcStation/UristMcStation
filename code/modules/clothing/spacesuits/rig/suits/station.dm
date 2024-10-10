@@ -79,7 +79,8 @@
 		/obj/item/device/t_scanner,
 		/obj/item/pickaxe,
 		/obj/item/rcd,
-		/obj/item/rpd
+		/obj/item/rpd,
+		/obj/item/storage/backpack
 	)
 
 /obj/item/clothing/shoes/magboots/rig/industrial
@@ -152,7 +153,8 @@
 		/obj/item/inflatable_dispenser,
 		/obj/item/device/t_scanner,
 		/obj/item/rcd,
-		/obj/item/rpd
+		/obj/item/rpd,
+		/obj/item/storage/backpack
 	)
 
 /obj/item/clothing/shoes/magboots/rig/eva
@@ -247,7 +249,8 @@
 		/obj/item/device/t_scanner,
 		/obj/item/pickaxe,
 		/obj/item/rcd,
-		/obj/item/rpd
+		/obj/item/rpd,
+		/obj/item/storage/backpack
 	)
 /obj/item/clothing/shoes/magboots/rig/ce
 	species_restricted = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI,SPECIES_IPC)
@@ -308,7 +311,8 @@
 		/obj/item/device/gps,
 		/obj/item/pinpointer/radio,
 		/obj/item/pickaxe/xeno,
-		/obj/item/storage/bag/fossils
+		/obj/item/storage/bag/fossils,
+		/obj/item/storage/backpack
 	)
 	species_restricted = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI,SPECIES_RESOMI,SPECIES_IPC)
 	sprite_sheets = list(
@@ -382,7 +386,8 @@
 		/obj/item/stack/medical,
 		/obj/item/roller_bed,
 		/obj/item/auto_cpr,
-		/obj/item/inflatable_dispenser
+		/obj/item/inflatable_dispenser,
+		/obj/item/storage/backpack
 	)
 	species_restricted = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI,SPECIES_RESOMI,SPECIES_IPC)
 	sprite_sheets = list(
@@ -449,7 +454,8 @@
 		/obj/item/device/flashlight,
 		/obj/item/tank,
 		/obj/item/device/suit_cooling_unit,
-		/obj/item/melee/baton
+		/obj/item/melee/baton,
+		/obj/item/storage/backpack
 	)
 
 /obj/item/clothing/shoes/magboots/rig/hazard

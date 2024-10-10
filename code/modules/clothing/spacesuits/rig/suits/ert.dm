@@ -57,7 +57,8 @@
 		/obj/item/gun,
 		/obj/item/storage/firstaid,
 		/obj/item/reagent_containers/hypospray,
-		/obj/item/roller_bed
+		/obj/item/roller_bed,
+		/obj/item/storage/backpack
 	)
 
 /obj/item/clothing/shoes/magboots/rig/ert
