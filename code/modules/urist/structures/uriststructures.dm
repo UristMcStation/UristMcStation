@@ -111,7 +111,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "bed"
 	base_icon = "bed"
 
-/obj/structure/bed/nice/update_icon() //GLLOYDTODO: comeback to this
+/obj/structure/bed/nice/on_update_icon() //GLLOYDTODO: comeback to this
 	return
 
 ///obj/structure/bed/nice/New(var/newloc)
@@ -124,27 +124,27 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	desc = "A seedy table for seedy dealings in seedy places."
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "pokertable_table"
-	parts = /obj/item/weapon/table_parts/poker
-	health = 50
+	parts = /obj/item/table_parts/poker
+	health_max = 50
 
-/obj/item/weapon/table_parts/poker
+/obj/item/table_parts/poker
 	name = "poker table parts"
 	desc = "Keep away from fire, and keep near seedy dealers."
 	icon = 'icons/urist/items/tgitems.dmi'
 	icon_state = "poker_tableparts"
 	obj_flags = null
 
-/*/obj/item/weapon/table_parts/wood/attackby(var/obj/item/I, mob/user as mob)
+/*/obj/item/table_parts/wood/attackby(obj/item/I, mob/user as mob)
 	..()
 	if(istype(I, /obj/item/stack/tile/grass))
 		var/obj/item/stack/tile/grass/R = I
-		var/obj/item/weapon/table_parts/poker/H = new /obj/item/weapon/table_parts/poker
+		var/obj/item/table_parts/poker/H = new /obj/item/table_parts/poker
 		R.use(1)
 
 		user.remove_from_mob(src)
 
 		user.put_in_hands(H)
-		user << "<span class='notice'>You strap a sheet of metal to the hazard vest. Now to tighten it in.</span>" //wut
+		to_chat(user, "<span class='notice'>You strap a sheet of metal to the hazard vest. Now to tighten it in.</span>") //wut
 
 		qdel(src)
 		qdel(I)*/
@@ -154,7 +154,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/structure/bed/chair/urist
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 
-/obj/structure/bed/chair/urist/update_icon()
+/obj/structure/bed/chair/urist/on_update_icon()
 	return
 
 /obj/structure/bed/chair/urist/shuttle
@@ -165,7 +165,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 /obj/structure/bed/chair/urist/shuttle/New()
 	armrest = image('icons/urist/structures&machinery/structures.dmi', "shuttlechair_armrest")
-	armrest.plane = ABOVE_HUMAN_PLANE
+	armrest.plane = ABOVE_HUMAN_LAYER
 	armrest.layer = ABOVE_HUMAN_LAYER
 
 	return ..()
@@ -205,18 +205,18 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //stools
 
-/obj/item/weapon/stool/urist
+/obj/item/stool/urist
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 
-/obj/item/weapon/stool/urist/update_icon()
+/obj/item/stool/urist/on_update_icon()
 	return
 
-/obj/item/weapon/stool/urist/bar
+/obj/item/stool/urist/bar
 	name = "bar stool"
 	icon_state = "barstool"
 	item_state = "stool"
 
-/*/obj/item/weapon/stool/urist/wood
+/*/obj/item/stool/urist/wood
 	item_icons = DEF_URIST_INHANDS
 	name = "wood stool"
 	icon_state = "woodstool"
@@ -243,10 +243,10 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "tallcabinet"
 
-/obj/structure/filingcabinet/wood/attackby(var/obj/item/P, mob/user as mob)
-	if(istype(P, /obj/item/weapon/screwdriver))
+/obj/structure/filingcabinet/wood/attackby(obj/item/P, mob/user as mob)
+	if(istype(P, /obj/item/screwdriver))
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-		user << "<span class='notice'>You disassemble \the [src].</span>"
+		to_chat(user, "<span class='notice'>You disassemble \the [src].</span>")
 		var/obj/item/stack/material/wood/S =  new /obj/item/stack/material/wood(src.loc)
 		S.amount = 2
 		for(var/obj/item/b in contents)
@@ -256,20 +256,20 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //legacy reasons, all this does is create a new table frame somewhere. //i'm okay with this for now
 
-/obj/item/weapon/table_parts
+/obj/item/table_parts
 	name = "table parts"
 	desc = "Parts of a table. Poor table."
 	gender = PLURAL
 	icon = 'icons/obj/items.dmi'
 	icon_state = "table_parts"
-	matter = list("metal" = 3750)
+	matter = list("steel" = 3750)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	attack_verb = list("slammed", "bashed", "battered", "bludgeoned", "thrashed", "whacked")
 	var/tabletype = /obj/structure/table/standard
 
-/obj/item/weapon/table_parts/attack_self(mob/user as mob)
+/obj/item/table_parts/attack_self(mob/user as mob)
 	if(locate(/obj/structure/table) in user.loc)
-		user << "<span class='warning'>There is already a table here.</span>"
+		to_chat(user, "<span class='warning'>There is already a table here.</span>")
 		return
 
 	else
@@ -279,17 +279,17 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		qdel(src)
 		return
 
-/obj/item/weapon/table_parts/reinforced
+/obj/item/table_parts/reinforced
 	tabletype = /obj/structure/table/reinforced
 	icon_state = "reinf_tableparts"
 	name = "reinforced table parts"
 
-/obj/item/weapon/table_parts/wood
+/obj/item/table_parts/wood
 	tabletype = /obj/structure/table/woodentable
 	icon_state = "wood_tableparts"
 	name = "wood table parts"
 
-/obj/item/weapon/table_parts/rack
+/obj/item/table_parts/rack
 	name = "rack parts"
 	desc = "Parts of a rack. Poor rack."
 	tabletype = /obj/structure/table/rack
@@ -302,10 +302,10 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "rack"
 
-/obj/structure/table/rack/wood/attackby(var/obj/item/P, mob/user as mob)
-	if(istype(P, /obj/item/weapon/wrench))
+/obj/structure/table/rack/wood/attackby(obj/item/P, mob/user as mob)
+	if(istype(P, /obj/item/wrench))
 		playsound(src, 'sound/items/Deconstruct.ogg', 50, 1)
-		user << "<span class='notice'>You disassemble \the [src].</span>"
+		to_chat(user, "<span class='notice'>You disassemble \the [src].</span>")
 		var/obj/item/stack/material/wood/S =  new /obj/item/stack/material/wood(src.loc)
 		S.amount = 1
 		qdel(src)
@@ -350,9 +350,9 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	init_material = MATERIAL_WOOD
 //	icon = 'icons/urist/structures&machinery/structures.dmi'
 //	icon_state = "woodgrille"
-	rodpath = /obj/item/stack/woodrods
+//	rodpath = /obj/item/stack/woodrods
 
-/*/obj/structure/grille/wood/update_icon()
+/*/obj/structure/grille/wood/on_update_icon()
 	update_onframe()
 
 	overlays.Cut()
@@ -367,8 +367,8 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	desc = "It's a shitty little improvised raft frame."
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "raft_frame0"
-	density = 0
-	anchored = 0
+	density = FALSE
+	anchored = FALSE
 	var/built = 0
 	var/buildstate = 0
 	layer = BELOW_OBJ_LAYER
@@ -379,49 +379,52 @@ Please keep it tidy, by which I mean put comments describing the item before the
 			if(buildstate == 0)
 				var/obj/item/stack/material/wood/R = W
 				if(R.use(3))
-					to_chat(user, "<span class='notice'>You fill out the frame with more wooden planks.</span>")
+					to_chat(user, SPAN_NOTICE("You fill out the frame with more wooden planks."))
 					buildstate++
 					update_icon()
+					desc = "It's a shitty little improvised raft frame. It has some wooden planks attached that need to be lashed with cable coils."
 				else
-					to_chat(user, "<span class='notice'>You need at least three planks to complete this task.</span>")
+					to_chat(user, SPAN_NOTICE("You need at least three planks to complete this task."))
 				return
 
 			if(buildstate == 2)
 				var/obj/item/stack/material/wood/R = W
 				if(R.use(2))
-					to_chat(user, "<span class='notice'>You fill out the rest of the frame with more wooden planks.</span>")
+					to_chat(user, SPAN_NOTICE("You fill out the rest of the frame with more wooden planks."))
 					buildstate++
 					update_icon()
+					desc = "It's a shitty little improvised raft frame. It has all of the planks it needs attached, but needs to be lashed with cable coils to finish."
 				else
-					to_chat(user, "<span class='notice'>You need at least three planks to complete this task.</span>")
+					to_chat(user, SPAN_NOTICE("You need at least three planks to complete this task."))
 				return
 
 		else if(istype(W,/obj/item/stack/cable_coil))
 			if(buildstate == 1)
 				var/obj/item/stack/cable_coil/R = W
 				if(R.use(2))
-					to_chat(user, "<span class='notice'>You lash together the incomplete raft with some cable.</span>")
+					to_chat(user, SPAN_NOTICE("You lash together the incomplete raft with some cable."))
 					buildstate++
 					update_icon()
+					desc = "It's a shitty little improvised raft frame. It has some lashed wooden planks attached, but needs more planks to finish the hull."
 				else
-					to_chat(user, "<span class='notice'>You need more cable to complete this task.</span>")
+					to_chat(user, SPAN_NOTICE("You need more cable to complete this task."))
 
 			else if(buildstate == 3)
 				var/obj/item/stack/cable_coil/R = W
 				if(R.use(3))
-					to_chat(user, "<span class='notice'>You lash together the incomplete raft with some cable, finishing it off.</span>")
+					to_chat(user, SPAN_NOTICE("You lash together the incomplete raft with some cable, finishing it off."))
 					buildstate++
 					update_icon()
 					built = 1
 					name = "raft"
 					desc = "It's a shitty little improvised raft. Good luck."
 				else
-					to_chat(user, "<span class='notice'>You need more cable to complete this task.</span>")
+					to_chat(user, SPAN_NOTICE("You need more cable to complete this task."))
 			return
 
 	else if(built)
-		if(istype(W,/obj/item/weapon/wirecutters))
-			to_chat(user, "<span class='notice'>You begin cutting apart the cables holding the raft together.</span>")
+		if(istype(W,/obj/item/wirecutters))
+			to_chat(user, SPAN_NOTICE("You begin cutting apart the cables holding the raft together."))
 			if (do_after(user, 20, src))
 				var/obj/item/stack/material/wood/R = new /obj/item/stack/material/wood(src.loc)
 				R.amount = 6
@@ -431,10 +434,10 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		..()
 
 
-/obj/structure/raft/update_icon()
+/obj/structure/raft/on_update_icon()
 	icon_state = "raft_frame[buildstate]"
 
-/obj/structure/raft/proc/do_pulling_stuff(var/turf/T)
+/obj/structure/raft/proc/do_pulling_stuff(turf/T)
 	for(var/obj/item/O in src.loc)
 		O.loc = get_turf(T)
 
@@ -479,17 +482,26 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	desc = "This space is blocked off by a crude assortment of planks."
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "woodenbarricade-old"
-	health = 50
-	maxhealth = 50
+	health_max = 50
 
 /obj/structure/barricade/wooden/crude/snow
 	desc = "This space is blocked off by a crude assortment of planks. It seems to be covered in a layer of snow."
 	icon_state = "woodenbarricade-snow-old"
-	health = 75
-	maxhealth = 75
+	health_max = 75
+
+//here's another random barricade
+/obj/structure/barricade/spike/metal/Initialize(mapload, material_name)
+	.=..(mapload, MATERIAL_STEEL)
 
 /obj/structure/silicon_decoy
 	icon = 'icons/mob/AI.dmi'
 	icon_state = "ai"
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE
+
+/obj/structure/hygiene/sink/well
+	name = "well"
+	desc = "a stone well built atop an aquifer."
+	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon_state = "well1"
+	clogged = -1

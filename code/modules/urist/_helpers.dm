@@ -4,12 +4,12 @@
 
 //vg/ proc, used by vampire mode. Should be self-explanatory.//
 
-/mob/living/carbon/human/proc/is_on_ears(var/typepath)
+/mob/living/carbon/human/proc/is_on_ears(typepath)
 	return max(istype(l_ear,typepath),istype(r_ear,typepath))
 
 //checks if a given text's characters are allowed hexadecimal values, null on failure
 
-/proc/ishex(var/String, var/Start = 1, var/End = 0)
+/proc/ishex(String, var/Start = 1, var/End = 0)
 	if(!(istext(String)))
 		return
 
@@ -42,7 +42,7 @@
 //complementary to BYOND's rgb() proc - instead of turning a rgba value to a #RRGGBB(AA) hex, turns a hex into a rgb value.
 //kinda reduntant with GetHexColors, but more idiot-proof.
 
-/proc/hex2rgblist(var/Color)
+/proc/hex2rgblist(Color)
 	if (!(istext(Color)))
 		return
 
@@ -54,11 +54,11 @@
 	Color = uppertext(Color) //just in case
 
 	if(!(findtext(Color, "#", 1, 2)))
-		world.log << "Please use a # before hex color values for hex2rgb."
+		to_world_log("Please use a # before hex color values for hex2rgb.")
 		return
 
 	if(!(ishex(Color, 2, 9)))
-		world.log << "Value for hex2rgb contains non-hexadecimal characters."
+		to_world_log("Value for hex2rgb contains non-hexadecimal characters.")
 		return
 
 	switch(length(Color))
@@ -73,20 +73,20 @@
 			ColorB = (hex2num(copytext(Color, 6, 8)))
 			ColorA = 255
 		else //I cannot be bothered to code handling trunctation just yet.
-			world.log << "Please use a full #RRGGBB(AA) format for hex2rgb"
+			to_world_log("Please use a full #RRGGBB(AA) format for hex2rgb")
 
 	var/list/rgbcolors = list(ColorR, ColorG, ColorB, ColorA)
 	return rgbcolors
 
 //takes a list of rgb colors and picks out a color; 1 for Red, 2 for Green, etc.
-/proc/GetColorFromRGB(var/list/L, var/Color = 1)
+/proc/GetColorFromRGB(list/L, var/Color = 1)
 	if (!L)
 		return
 	var/colorvalue = L[Color]
 	return colorvalue
 
 //weightless, 2 color Average blend with adjustable min/max values (low/high respectively).
-/proc/SimpleOneColorMix(var/color1 = 0, var/color2 = 0, var/low = 0, var/high = 255, var/ignorezeros)
+/proc/SimpleOneColorMix(color1 = 0, var/color2 = 0, var/low = 0, var/high = 255, var/ignorezeros)
 
 	if((!(isnum(color1))) || (!(isnum(color2))))
 		return
@@ -102,19 +102,19 @@
 	if(ignorezeros) //prevents very pure colors from averaging asymptotically to black
 		//note that the parameter being set to 1 makes the coloring non-symmetrical!
 		if(color1 == 0)
-			resultcolor = Clamp(color2, low, high)
+			resultcolor = clamp(color2, low, high)
 		else if(color2 == 0)
-			resultcolor = Clamp(color1, low, high)
+			resultcolor = clamp(color1, low, high)
 		else
-			resultcolor = Clamp(((color1 + color2)/2), low, high)
+			resultcolor = clamp(((color1 + color2)/2), low, high)
 	else
-		resultcolor = Clamp(((color1 + color2)/2), low, high)
+		resultcolor = clamp(((color1 + color2)/2), low, high)
 	return resultcolor
 
 //as above, but handles 2 RGB color lists and the min/max are for lightness; defaults to unbound, so can be black to white)
 //assumes it's just RGB, not RGBA, for RGBA use MixColors with alpha as weights or whatever
 
-/proc/SimpleRGBMix(var/list/ColorsA, var/list/ColorsB, var/low = 0, var/high = 765) //3*255
+/proc/SimpleRGBMix(list/ColorsA, var/list/ColorsB, var/low = 0, var/high = 765) //3*255
 	if((!ColorsA) || (!ColorsB) || (!(length(ColorsA) == length(ColorsB))))
 		return
 	var/results[3]
@@ -246,7 +246,7 @@
 /proc/living_player_count()
 	var/living_player_count = 0
 	for(var/mob in GLOB.player_list)
-		if(mob in GLOB.living_mob_list_)
+		if(mob in GLOB.living_players)
 			living_player_count += 1
 	return living_player_count
 
@@ -325,7 +325,7 @@
 
 //Interface for using DrawBox() to draw 1 pixel on a coordinate.
 //Returns the same icon specifed in the argument, but with the pixel drawn
-/proc/DrawPixel(var/icon/I,var/colour,var/drawX,var/drawY)
+/proc/DrawPixel(icon/I,var/colour,var/drawX,var/drawY)
 	if(!I)
 		return 0
 	var/Iwidth = I.Width()
@@ -338,7 +338,7 @@
 	return I
 
 //Interface for easy drawing of one pixel on an atom.
-/atom/proc/DrawPixelOn(var/colour, var/drawX, var/drawY)
+/atom/proc/DrawPixelOn(colour, var/drawX, var/drawY)
 	var/icon/I = new(icon)
 	var/icon/J = DrawPixel(I, colour, drawX, drawY)
 	if(J) //Only set the icon if it succeeded, the icon without the pixel is 1000x better than a black square.
@@ -353,13 +353,13 @@
 	return 0
 
 //Creates a lying down icon by matrix transform. Made it a helper for less boilerplate --scr.
-/mob/proc/matrix_groundicon(var/turndegrees = 90)
+/mob/proc/matrix_groundicon(turndegrees = 90)
 	var/matrix/M = matrix() //shamelessly stolen from human update_icons
 	M.Turn(turndegrees)
 	M.Translate(1,-6)
 	src.transform = M
 
-/proc/get_light_amt(var/turf/T, var/ignore_red = 0)
+/proc/get_light_amt(turf/T, var/ignore_red = 0)
 	// Stolen from diona/life.dm since it was needed in various places. Ignore_red parameter for extra spoopy.
 	var/light_amount = 0
 	var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in T
@@ -374,7 +374,7 @@
 
 	return light_amount
 
-/proc/shadow_check(var/turf/T, var/max_light = 2, var/or_equal = 0)
+/proc/shadow_check(turf/T, var/max_light = 2, var/or_equal = 0)
 	//True if light below max_light threshold, false otherwise
 	var/light_amt = get_light_amt(T)
 	if(or_equal)
@@ -384,3 +384,25 @@
 		if(light_amt < max_light)
 			return 1
 	return 0
+
+//for throwing things from one turf to another
+
+/proc/launch_atom(var/projectile_type, var/turf/start_turf, var/turf/target_turf)
+	if(ispath(projectile_type))
+		var/atom/movable/projectile = new projectile_type(start_turf)
+		if(istype(projectile, /obj/item/projectile))
+			var/obj/item/projectile/P = projectile
+			P.launch(target_turf) //projectiles have their own special proc
+
+		else if(istype(projectile, /obj/effect/meteor))
+			var/obj/effect/meteor/M = projectile
+			M.dest = target_turf
+			spawn(0)
+				walk_towards(M, M.dest, 3) //meteors do their own thing too
+
+		else
+			projectile.throw_at(target_turf) //anything else just uses the default throw proc. this potentially allows for ship weapons that do things like throw mobs. clown cannon anyone?
+
+//bay removed this area proc for some reason. it gets the contents in an area
+/area/proc/get_contents()
+	return contents

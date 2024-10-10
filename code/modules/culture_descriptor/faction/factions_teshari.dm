@@ -1,4 +1,4 @@
-/decl/cultural_info/faction/teshari
+/singleton/cultural_info/faction/teshari
 	name = FACTION_TESHARI_SPACEBORN
 	description = "Due to their relatively short life span most Teshari in space are only distantly \
 	related to the Teshari Packs living on the planet Qerrbalak, these Teshari are collectively referred \
@@ -7,9 +7,9 @@
 	from Qerrbalak's polar regions. While they tend to still congregate in packs, these packs usually \
 	consist of more than just other Teshari and are less tight-knit than their Qerrbalak equivalent."
 	economic_power = 1
-	secondary_langs = list(LANGUAGE_SPACER, LANGUAGE_INDEPENDENT, LANGUAGE_GUTTER)
+	secondary_langs = list(LANGUAGE_SPACER, LANGUAGE_GUTTER)
 
-/decl/cultural_info/faction/teshari/qerrbalak
+/singleton/cultural_info/faction/teshari/qerrbalak
 	name = FACTION_TESHARI_QERRBALAK
 	description = "Qerrbalak Teshari make up the minority of the Teshari roaming space, they are almost \
 	universally raised on Qerrbalak itself, or by a pack of Teshari who are only a couple generations \

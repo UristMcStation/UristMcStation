@@ -52,8 +52,10 @@ GLOBAL_LIST_INIT(keystroke_sound,list('sound/machines/keyboard/keystroke1.ogg','
 GLOBAL_LIST_INIT(switch_sound,list('sound/machines/switch1.ogg','sound/machines/switch2.ogg','sound/machines/switch3.ogg','sound/machines/switch4.ogg'))
 GLOBAL_LIST_INIT(button_sound,list('sound/machines/button1.ogg','sound/machines/button2.ogg','sound/machines/button3.ogg','sound/machines/button4.ogg'))
 GLOBAL_LIST_INIT(chop_sound,list('sound/weapons/chop1.ogg','sound/weapons/chop2.ogg','sound/weapons/chop3.ogg'))
+GLOBAL_LIST_INIT(glasscrack_sound,list('sound/effects/glass_crack1.ogg','sound/effects/glass_crack2.ogg','sound/effects/glass_crack3.ogg','sound/effects/glass_crack4.ogg'))
+GLOBAL_LIST_INIT(tray_hit_sound,list('sound/items/trayhit1.ogg', 'sound/items/trayhit2.ogg'))
 
-/proc/playsound(var/atom/source, soundin, vol as num, vary, extrarange as num, falloff, var/is_global, var/frequency, var/is_ambiance = 0)
+/proc/playsound(atom/source, soundin, vol as num, vary, extrarange as num, falloff, is_global, frequency, is_ambiance = 0)
 
 	soundin = get_sfx(soundin) // same sound for everyone
 
@@ -64,8 +66,7 @@ GLOBAL_LIST_INIT(chop_sound,list('sound/weapons/chop1.ogg','sound/weapons/chop2.
 	var/turf/turf_source = get_turf(source)
 
  	// Looping through the player list has the added bonus of working for mobs inside containers
-	for (var/P in GLOB.player_list)
-		var/mob/M = P
+	for (var/mob/M in GLOB.player_list)
 		if(!M || !M.client)
 			continue
 		if(get_dist(M, turf_source) <= (world.view + extrarange) * 2)
@@ -73,9 +74,9 @@ GLOBAL_LIST_INIT(chop_sound,list('sound/weapons/chop1.ogg','sound/weapons/chop2.
 			if(T && T.z == turf_source.z && (!is_ambiance || M.get_preference_value(/datum/client_preference/play_ambiance) == GLOB.PREF_YES))
 				M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, is_global, extrarange)
 
-var/const/FALLOFF_SOUNDS = 0.5
+var/global/const/FALLOFF_SOUNDS = 0.5
 
-/mob/proc/playsound_local(var/turf/turf_source, soundin, vol as num, vary, frequency, falloff, is_global, extrarange)
+/mob/proc/playsound_local(turf/turf_source, soundin, vol as num, vary, frequency, falloff, is_global, extrarange)
 	if(!src.client || ear_deaf > 0)	return
 	var/sound/S = soundin
 	if(!istype(S))
@@ -93,10 +94,11 @@ var/const/FALLOFF_SOUNDS = 0.5
 	//sound volume falloff with pressure
 	var/pressure_factor = 1.0
 
-	if(isturf(turf_source))
-		// 3D sounds, the technology is here!
-		var/turf/T = get_turf(src)
+	S.volume *= get_sound_volume_multiplier()
 
+	var/turf/T = get_turf(src)
+	// 3D sounds, the technology is here!
+	if(isturf(turf_source))
 		//sound volume falloff with distance
 		var/distance = get_dist(T, turf_source)
 
@@ -131,7 +133,7 @@ var/const/FALLOFF_SOUNDS = 0.5
 
 	if(!is_global)
 
-		if(istype(src,/mob/living/))
+		if(istype(src,/mob/living))
 			var/mob/living/carbon/M = src
 			if (istype(M) && M.hallucination_power > 50 && M.chem_effects[CE_MIND] < 1)
 				S.environment = PSYCHOTIC
@@ -142,6 +144,8 @@ var/const/FALLOFF_SOUNDS = 0.5
 			else if (M.confused)
 				S.environment = DIZZY
 			else if (M.stat == UNCONSCIOUS)
+				S.environment = UNDERWATER
+			else if (T?.is_flooded(M.lying))
 				S.environment = UNDERWATER
 			else if (pressure_factor < 0.5)
 				S.environment = SPACE
@@ -155,11 +159,12 @@ var/const/FALLOFF_SOUNDS = 0.5
 			var/area/A = get_area(src)
 			S.environment = A.sound_env
 
-	src << S
+	sound_to(src, S)
 
 /client/proc/playtitlemusic()
-	if(get_preference_value(/datum/client_preference/play_lobby_music) == GLOB.PREF_YES)
-		GLOB.using_map.lobby_track.play_to(src)
+	if (get_preference_value(/datum/client_preference/play_lobby_music) == GLOB.PREF_YES)
+		sound_to(src, GLOB.using_map.lobby_track.get_sound())
+		to_chat(src, GLOB.using_map.lobby_track.get_info())
 
 /proc/get_rand_frequency()
 	return rand(32000, 55000) //Frequency stuff only works with 45kbps oggs.
@@ -183,4 +188,13 @@ var/const/FALLOFF_SOUNDS = 0.5
 			if ("switch") soundin = pick(GLOB.switch_sound)
 			if ("button") soundin = pick(GLOB.button_sound)
 			if ("chop") soundin = pick(GLOB.chop_sound)
+			if ("glasscrack") soundin = pick(GLOB.glasscrack_sound)
+			if ("tray_hit") soundin = pick(GLOB.tray_hit_sound)
 	return soundin
+
+/client/verb/stop_sounds()
+	set name = "Stop All Sounds"
+	set desc = "Stop all sounds that are currently playing on your client."
+	set category = "OOC"
+
+	sound_to(usr, sound(null))

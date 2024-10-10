@@ -25,10 +25,10 @@ var/global/datum/store/centcomm_store=new
 	var/obj/machinery/computer/account_database/linked_db
 
 /datum/store/New()
-	for(var/itempath in typesof(/datum/storeitem) - /datum/storeitem/)
+	for(var/itempath in typesof(/datum/storeitem) - /datum/storeitem)
 		items += new itempath()
 
-/datum/store/proc/charge(var/datum/mind/mind,var/amount,var/datum/storeitem/item)
+/datum/store/proc/charge(datum/mind/mind,var/amount,var/datum/storeitem/item)
 	if(!mind.initial_account)
 		//testing("No initial_account")
 		return 0
@@ -37,12 +37,12 @@ var/global/datum/store/centcomm_store=new
 		return 0
 	mind.initial_account.money -= amount
 	var/datum/transaction/T = new()
-	T.target_name = "[command_name()] Merchandising"
+	T.target = "Nanotrasen Merchandising"
 	T.purpose = "Purchase of [item.name]"
 	T.amount = -amount
 	T.date = stationdate2text()
 	T.time = stationtime2text()
-	T.source_terminal = "\[CLASSIFIED\] Terminal #[rand(111,333)]"
+	T.source = "\[CLASSIFIED\] Terminal #[rand(111,333)]"
 	mind.initial_account.transaction_log.Add(T)
 	return 1
 
@@ -52,7 +52,7 @@ var/global/datum/store/centcomm_store=new
 			linked_db = DB
 			break
 
-/datum/store/proc/PlaceOrder(var/mob/living/usr, var/itemID)
+/datum/store/proc/PlaceOrder(mob/living/usr, var/itemID)
 	// Get our item, first.
 	var/datum/storeitem/item = items[itemID]
 	if(!item)
@@ -70,9 +70,9 @@ var/global/datum/store/centcomm_store=new
 	name = "Merchandise Computer"
 	icon_screen = "comm_logs"
 	light_color = "#00b000"
-	circuit = "/obj/item/weapon/circuitboard/merch"
+	// circuit = /obj/item/stock_parts/circuitboard/merch
 
-/obj/item/weapon/circuitboard/merch
+/obj/item/stock_parts/circuitboard/merch
 	name = "\improper Merchandise Computer Circuitboard"
 	build_path = /obj/machinery/computer/merch
 
@@ -80,6 +80,8 @@ var/global/datum/store/centcomm_store=new
 	..()
 
 /obj/machinery/computer/merch/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	src.add_hiddenprint(user)
 	return attack_hand(user)
 
@@ -87,7 +89,7 @@ var/global/datum/store/centcomm_store=new
 	user.set_machine(src)
 	add_fingerprint(user)
 
-	if(stat & (BROKEN|NOPOWER))
+	if(stat & (inoperable()))
 		return
 
 	var/balance=0
@@ -98,7 +100,7 @@ var/global/datum/store/centcomm_store=new
 	var/dat = {"
 <html>
 	<head>
-		<title>[command_name()] Merchandise</title>
+		<title>Nanotrasen Merchandise</title>
 		<style type="text/css">
 * {
 	font-family:sans-serif;
@@ -146,7 +148,7 @@ td.cost.toomuch {
 	</head>
 	<body>
 	<p style="float:right"><a href='byond://?src=\ref[src];refresh=1'>Refresh</a> | <b>Balance:</b> $[balance]</p>
-	<h1>[command_name()] Merchandise</h1>
+	<h1>Nanotrasen Merchandise</h1>
 	<p>
 		<b>Doing your job and not getting any recognition at work?</b>  Well, welcome to the
 		merch shop!  Here, you can buy cool things in exchange for money.
@@ -185,7 +187,7 @@ td.cost.toomuch {
 	</table>
 	</body>
 </html>"}
-	user << browse(dat, "window=merch")
+	show_browser(user, dat, "window=merch")
 	onclose(user, "merch")
 	return
 
@@ -205,21 +207,20 @@ td.cost.toomuch {
 			updateUsrDialog()
 			return
 		if(!centcomm_store.PlaceOrder(usr,itemID))
-			usr << "<span class='warning'> Unable to charge your account.</span>"
+			to_chat(usr, "<span class='warning'> Unable to charge your account.</span>")
 		else
-			usr << "<span class='notice'> You've successfully purchased the item.  It should be in your hands or on the floor.</span>"
+			to_chat(usr, "<span class='notice'> You've successfully purchased the item.  It should be in your hands or on the floor.</span>")
 	src.updateUsrDialog()
 	return
 
-/*/obj/machinery/computer/merch/update_icon()
+/*/obj/machinery/computer/merch/on_update_icon()
 
 	if(stat & BROKEN)
 		icon_state = "comm_logs0"
 	else
-		if(stat & NOPOWER)
+		if(stat & MACHINE_STAT_NOPOWER)
 			src.icon_state = "comm_logs"
-			stat |= NOPOWER
+			stat |= MACHINE_STAT_NOPOWER
 		else
 			icon_state = initial(icon_state)
-			stat &= ~NOPOWER*/
-
+			stat &= ~MACHINE_STAT_NOPOWER*/

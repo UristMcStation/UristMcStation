@@ -1,5 +1,3 @@
-/area/planet/jungle/away
-
 /area/jungleoutpost/comms
 	name = "\improper Jungle Outpost Comms"
 
@@ -12,21 +10,17 @@
 /area/jungleoutpost/engi
 	name = "\improper Jungle Outpost Engineering"
 
-/obj/effect/overmap/sector/glloyd_jungle
+/obj/effect/overmap/visitable/sector/planetoid/glloyd_jungle
 	name = "Jungle planetoid"
 	desc = "Geneseeded world detected, possible intelligent life detected."
 	icon_state = "globe"
-	known = 0
-	in_space = 0
+	known = FALSE
 	color = "#538224"
+	water_color = "#1e160a"
 	initial_generic_waypoints = list(
 		"nav_glloyd_jungle_1",
 		"nav_glloyd_jungle_2"
 		)
-
-/obj/effect/overmap/sector/glloyd_jungle/New(nloc, max_x, max_y)
-	name = "[generate_planet_name()], \a [name]"
-	..()
 
 /obj/effect/shuttle_landmark/nav_glloyd_jungle/nav1
 	name = "Planetary Navpoint #1"

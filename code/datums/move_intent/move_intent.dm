@@ -1,29 +1,42 @@
 // Quick and deliberate movements are not necessarily mutually exclusive
-#define MOVE_INTENT_DELIBERATE 0x0001
-#define MOVE_INTENT_EXERTIVE   0x0002
-#define MOVE_INTENT_QUICK      0x0004
+#define MOVE_INTENT_DELIBERATE FLAG(0)
+#define MOVE_INTENT_EXERTIVE   FLAG(1)
+#define MOVE_INTENT_QUICK      FLAG(2)
 
-/decl/move_intent
+/singleton/move_intent
 	var/name
 	var/flags = 0
 	var/move_delay = 1
 	var/hud_icon_state
 
-/decl/move_intent/walk
-	name = "Walk"
+/singleton/move_intent/proc/can_be_used_by(mob/user)
+	if(flags & MOVE_INTENT_QUICK)
+		return user.can_sprint()
+	return TRUE
+
+/singleton/move_intent/creep
+	name = "Creep"
 	flags = MOVE_INTENT_DELIBERATE
-	hud_icon_state = "walking"
+	hud_icon_state = "creeping"
 
-/decl/move_intent/walk/Initialize()
+/singleton/move_intent/creep/Initialize()
 	. = ..()
-	move_delay = config.walk_speed + 7
+	move_delay = config.creep_delay
 
+/singleton/move_intent/walk
+	name = "Walk"
+	hud_icon_state = "walking"
+	flags = MOVE_INTENT_DELIBERATE
 
-/decl/move_intent/run
+/singleton/move_intent/walk/Initialize()
+	. = ..()
+	move_delay = config.walk_delay
+
+/singleton/move_intent/run
 	name = "Run"
-	flags = MOVE_INTENT_EXERTIVE | MOVE_INTENT_QUICK
+	flags = MOVE_INTENT_QUICK
 	hud_icon_state = "running"
 
-/decl/move_intent/run/Initialize()
+/singleton/move_intent/run/Initialize()
 	. = ..()
-	move_delay = config.run_speed + 1
+	move_delay = config.run_delay

@@ -1,8 +1,9 @@
 #include "station_areas.dm"
+#include "../mining/mining_areas.dm"
 
-/obj/effect/overmap/sector/station/nanotrasentrading
+/obj/effect/overmap/visitable/sector/station/nanotrasentrading
 	name = "NanoTrasen trading station"
-	desc = "A NanoTrasen trading station, dock here to trade with its many merchants."
+	desc = "A NanoTrasen trading station, dock here to trade with its many merchants and mine for resources via an on-station shuttle."
 	faction = /datum/factions/nanotrasen
 	spawn_ships = FALSE
 	start_x = 6
@@ -36,15 +37,17 @@
 /datum/map_template/ruin/away_site/nanotrasentrading
 	name = "NanoTrasen trading station"
 	id = "awaysite_nanotrasentrading"
-	description = "A NanoTrasen trading station, dock here to trade with its many merchants."
-	suffixes = list("stations/nanotrasentrading.dmm")
-	cost = 0
+	description = "A NanoTrasen trading station, dock here to trade with its many merchants and mine for resources via an on-station shuttle."
+	suffixes = list("stations/nanotrasentrading-1.dmm", "stations/nanotrasentrading-2.dmm")
+	spawn_cost = 0
 	accessibility_weight = 10
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+	generate_mining_by_z = 2
+	shuttles_to_initialise = list(/datum/shuttle/autodock/ferry/ntminingshuttle)
 
 //nt mining outpost
 /*
-/obj/effect/overmap/sector/station/nanotrasenmining
+/obj/effect/overmap/visitable/sector/station/nanotrasenmining
 	name = "NanoTrasen mining outpost"
 	desc = "A NanoTrasen mining outpost on a largely uninhabited planet, dock here to engage in trading."
 	faction = "nanotrasen"
@@ -77,7 +80,7 @@
 
 //tc
 
-/obj/effect/overmap/sector/station/tccolony
+/obj/effect/overmap/visitable/sector/station/tccolony
 	name = "Terran Confederacy colony"
 	desc = "A small Terran Confederacy colony on a largely uninhabited planet, dock here to engage in trading."
 	faction = "nanotrasen"

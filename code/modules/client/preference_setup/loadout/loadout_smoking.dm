@@ -8,31 +8,31 @@
 
 /datum/gear/matchbook
 	display_name = "matchbook"
-	path = /obj/item/weapon/storage/box/matches
+	path = /obj/item/storage/box/matches
 
 /datum/gear/zippo
 	display_name = "plain zippo"
-	path = /obj/item/weapon/flame/lighter/zippo
+	path = /obj/item/flame/lighter/zippo
 
 /datum/gear/zippo/vanity
 	display_name = "fancy zippo"
-	path = /obj/item/weapon/flame/lighter/zippo/vanity
+	path = /obj/item/flame/lighter/zippo/vanity
 
 /datum/gear/zippo/vanity/New()
 	..()
 	var/list/zippos = list()
-	for(var/zippo in typesof(/obj/item/weapon/flame/lighter/zippo/vanity))
-		var/obj/item/weapon/flame/lighter/zippo/vanity/zippo_type = zippo
+	for(var/zippo in typesof(/obj/item/flame/lighter/zippo/vanity))
+		var/obj/item/flame/lighter/zippo/vanity/zippo_type = zippo
 		zippos[initial(zippo_type.name)] = zippo_type
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(zippos))
 
 /datum/gear/ashtray
 	display_name = "ashtray, plastic"
-	path = /obj/item/weapon/material/ashtray/plastic
+	path = /obj/item/material/ashtray/plastic
 
 /datum/gear/cigars
 	display_name = "fancy cigar case"
-	path = /obj/item/weapon/storage/fancy/cigar
+	path = /obj/item/storage/fancy/smokable/cigar
 	cost = 2
 
 /datum/gear/ecigs

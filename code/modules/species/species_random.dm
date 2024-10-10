@@ -1,10 +1,11 @@
 #define SETUP_RANDOM_COLOR_GETTER(X, Y, Z, W)  \
 /datum/species/var/list/random_##Y = W;\
 /datum/species/proc/get_random_##X(){\
-	if(!(appearance_flags & Z) || !random_##Y.len){\
+	if(!(appearance_flags & Z) || !length(random_##Y)){\
 		return;\
 	}\
-	var/decl/color_generator/CG = decls_repository.get_decl(pickweight(random_##Y));\
+	var/selection = pickweight(random_##Y);\
+	var/singleton/color_generator/CG = GET_SINGLETON(selection);\
 	return CG && CG.GenerateRGB();\
 }
 
@@ -19,37 +20,37 @@
 	}\
 }
 
-SETUP_RANDOM_COLOR_GETTER(skin_color, skin_colors, HAS_SKIN_COLOR, list(
-	/decl/color_generator/black,
-	/decl/color_generator/grey,
-	/decl/color_generator/brown,
-	/decl/color_generator/chestnut,
-	/decl/color_generator/blue,
-	/decl/color_generator/blue_light,
-	/decl/color_generator/green,
-	/decl/color_generator/white))
+SETUP_RANDOM_COLOR_GETTER(skin_color, skin_colors, SPECIES_APPEARANCE_HAS_SKIN_COLOR, list(
+	/singleton/color_generator/black,
+	/singleton/color_generator/grey,
+	/singleton/color_generator/brown,
+	/singleton/color_generator/chestnut,
+	/singleton/color_generator/blue,
+	/singleton/color_generator/blue_light,
+	/singleton/color_generator/green,
+	/singleton/color_generator/white))
 SETUP_RANDOM_COLOR_SETTER(skin_color, change_skin_color)
 
-SETUP_RANDOM_COLOR_GETTER(hair_color, hair_colors, HAS_HAIR_COLOR, list(
-	/decl/color_generator/black,
-	/decl/color_generator/blonde,
-	/decl/color_generator/chestnut,
-	/decl/color_generator/copper,
-	/decl/color_generator/brown,
-	/decl/color_generator/wheat,
-	/decl/color_generator/old,
-	/decl/color_generator/punk))
+SETUP_RANDOM_COLOR_GETTER(hair_color, hair_colors, SPECIES_APPEARANCE_HAS_HAIR_COLOR, list(
+	/singleton/color_generator/black,
+	/singleton/color_generator/blonde,
+	/singleton/color_generator/chestnut,
+	/singleton/color_generator/copper,
+	/singleton/color_generator/brown,
+	/singleton/color_generator/wheat,
+	/singleton/color_generator/old,
+	/singleton/color_generator/punk))
 SETUP_RANDOM_COLOR_SETTER(hair_color, change_hair_color)
 
-SETUP_RANDOM_COLOR_GETTER(eye_color, eye_colors, HAS_EYE_COLOR, list(
-	/decl/color_generator/black,
-	/decl/color_generator/grey,
-	/decl/color_generator/brown,
-	/decl/color_generator/chestnut,
-	/decl/color_generator/blue,
-	/decl/color_generator/blue_light,
-	/decl/color_generator/green,
-	/decl/color_generator/albino_eye))
+SETUP_RANDOM_COLOR_GETTER(eye_color, eye_colors, SPECIES_APPEARANCE_HAS_EYE_COLOR, list(
+	/singleton/color_generator/black,
+	/singleton/color_generator/grey,
+	/singleton/color_generator/brown,
+	/singleton/color_generator/chestnut,
+	/singleton/color_generator/blue,
+	/singleton/color_generator/blue_light,
+	/singleton/color_generator/green,
+	/singleton/color_generator/albino_eye))
 SETUP_RANDOM_COLOR_SETTER(eye_color, change_eye_color)
 
 /datum/species/proc/get_random_facial_hair_color()
@@ -68,9 +69,9 @@ SETUP_RANDOM_COLOR_SETTER(facial_hair_color, change_facial_hair_color)
 		change_skin_tone(new_tone)
 
 /mob/living/carbon/human/proc/randomize_hair_style()
-	change_hair(safepick(generate_valid_hairstyles()))
+	change_hair(DEFAULTPICK(generate_valid_hairstyles(), null))
 
 /mob/living/carbon/human/proc/randomize_facial_hair_style()
-	change_facial_hair(safepick(generate_valid_facial_hairstyles()))
+	change_facial_hair(DEFAULTPICK(generate_valid_facial_hairstyles(), null))
 
 #undef SETUP_RANDOM_COLOR_GETTER

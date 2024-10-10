@@ -2,6 +2,7 @@
 	name = "plating"
 	icon = 'icons/turf/flooring/plating.dmi'
 	icon_state = "plating"
+	permit_ao = TRUE
 
 	// Damage to flooring.
 	var/broken
@@ -17,30 +18,34 @@
 	// Flooring data.
 	var/flooring_override
 	var/initial_flooring
-	var/decl/flooring/flooring
+	var/singleton/flooring/flooring
 	var/mineral = DEFAULT_WALL_MATERIAL
 
 	thermal_conductivity = 0.040
 	heat_capacity = 10000
 	var/lava = 0
 
+	var/has_snow = FALSE
+
+	height = -FLUID_SHALLOW / 2
+
 /turf/simulated/floor/is_plating()
 	return !flooring
-	
-/turf/simulated/floor/protects_atom(var/atom/A)
+
+/turf/simulated/floor/protects_atom(atom/A)
 	return (A.level <= 1 && !is_plating()) || ..()
 
-/turf/simulated/floor/protects_atom(var/atom/A)
-	return (A.level <= 1 && !is_plating()) || ..()
+/turf/simulated/floor/protects_atom(atom/A)
+	return (A.level == ATOM_LEVEL_UNDER_TILE && !is_plating()) || ..()
 
-/turf/simulated/floor/New(var/newloc, var/floortype)
+/turf/simulated/floor/New(newloc, floortype)
 	..(newloc)
 	if(!floortype && initial_flooring)
 		floortype = initial_flooring
 	if(floortype)
-		set_flooring(get_flooring_data(floortype))
+		set_flooring(GET_SINGLETON(floortype))
 
-/turf/simulated/floor/proc/set_flooring(var/decl/flooring/newflooring)
+/turf/simulated/floor/proc/set_flooring(singleton/flooring/newflooring)
 	make_plating(defer_icon_update = 1)
 	flooring = newflooring
 	update_icon(1)
@@ -48,7 +53,7 @@
 
 //This proc will set floor_type to null and the update_icon() proc will then change the icon_state of the turf
 //This proc auto corrects the grass tiles' siding.
-/turf/simulated/floor/proc/make_plating(var/place_product, var/defer_icon_update)
+/turf/simulated/floor/proc/make_plating(place_product, defer_icon_update)
 
 	overlays.Cut()
 
@@ -60,7 +65,7 @@
 	icon = base_icon
 	icon_state = base_icon_state
 	color = base_color
-	plane = PLATING_PLANE
+	layer = PLATING_LAYER
 
 	if(flooring)
 		flooring.on_remove()
@@ -82,9 +87,11 @@
 		O.hide(O.hides_under_flooring() && src.flooring)
 
 	if(flooring)
-		plane = TURF_PLANE
+		layer = TURF_LAYER
+		height = flooring.height
 	else
-		plane = PLATING_PLANE
+		layer = PLATING_LAYER
+		height = -FLUID_SHALLOW / 2
 
 /turf/simulated/floor/can_engrave()
 	return (!flooring || flooring.can_engrave)
@@ -96,4 +103,13 @@
 	initial_gas = null
 
 /turf/simulated/floor/shuttle_ceiling/air
-	initial_gas = list("oxygen" = MOLES_O2STANDARD, "nitrogen" = MOLES_N2STANDARD)
+	initial_gas = list(GAS_OXYGEN = MOLES_O2STANDARD, GAS_NITROGEN = MOLES_N2STANDARD)
+
+/turf/simulated/floor/is_floor()
+	return TRUE
+
+/turf/simulated/IgniteTurf(power, fire_colour)
+	if(turf_fire)
+		turf_fire.AddPower(power)
+		return
+	new /obj/effect/turf_fire(src, power, fire_colour)

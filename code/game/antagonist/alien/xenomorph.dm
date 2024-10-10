@@ -13,7 +13,7 @@ GLOBAL_DATUM_INIT(xenomorphs, /datum/antagonist/xenos, new)
 	faction_descriptor = "Hive"
 	faction_welcome = "Your will is ripped away as your humanity merges with the xenomorph overmind. You are now \
 		a thrall to the queen and her brood. Obey their instructions without question. Serve the hive."
-	faction = "xenophage"
+	faction = "alien"
 	faction_indicator = "hudalien"
 
 	hard_cap = 5
@@ -36,15 +36,15 @@ GLOBAL_DATUM_INIT(xenomorphs, /datum/antagonist/xenos, new)
 	var/list/vents = list()
 	for(var/obj/machinery/atmospherics/unary/vent_pump/temp_vent in SSmachines.machinery)
 		if(!temp_vent.welded && temp_vent.network && (temp_vent.loc.z in GLOB.using_map.station_levels))
-			if(temp_vent.network.normal_members.len > 50)
+			if(length(temp_vent.network.normal_members) > 50)
 				vents += temp_vent
 	return vents
 
-/datum/antagonist/xenos/create_objectives(var/datum/mind/player)
+/datum/antagonist/xenos/create_objectives(datum/mind/player)
 	if(!..())
 		return
 	player.objectives += new /datum/objective/survive()
 	player.objectives += new /datum/objective/escape()
 
-/datum/antagonist/xenos/place_mob(var/mob/living/player)
+/datum/antagonist/xenos/place_mob(mob/living/player)
 	player.forceMove(get_turf(pick(get_vents())))

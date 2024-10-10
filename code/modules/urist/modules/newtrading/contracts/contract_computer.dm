@@ -18,12 +18,12 @@
 //	var/list/category_names
 //	var/list/category_contents
 
-/datum/nano_module/contract_database/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, var/datum/topic_state/state = GLOB.default_state)
+/datum/nano_module/contract_database/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, datum/topic_state/state = GLOB.default_state)
 	var/list/data = host.initial_data()
 
 //	category_contents = list()
 	data["display_state"] = display_state
-	
+
 	switch(display_state)
 		if(1)	//Contracts
 			var/list/category[0]
@@ -55,7 +55,7 @@
 				var/col = 2 //1 = red, 2 = yellow, 3 = green
 				if(f.hostile)
 					col = 1
-				else 
+				else
 					if(f.reputation < -30)	//-100 to -30 but not hostile
 						col = 1
 					else if(f.reputation < -10)	//-30 to -10 but not hostile
@@ -77,7 +77,7 @@
 			if(focused.hostile)
 				standing = "<span class='bad'>Hostile</span>"
 				col = 1
-			else 
+			else
 				if(focused.reputation < -30)	//-100 to -30 but not hostile
 					standing = "<span class='bad'>Threatening</span>"
 					col = 1
@@ -143,7 +143,7 @@
 		return 0
 	return 1
 
-/datum/nano_module/contract_database/proc/print_summary(var/mob/user)
+/datum/nano_module/contract_database/proc/print_summary(mob/user)
 	var/t = ""
 	t += "<center><BR><b><large>[GLOB.using_map.station_name]</large></b><BR><i>[station_date]</i><BR><i>Contract overview<field></i></center><hr>"
 	print_text(t, user)

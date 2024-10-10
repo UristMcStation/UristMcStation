@@ -5,13 +5,13 @@
 
 GLOBAL_DATUM_INIT(scommies, /datum/antagonist/scom, new)
 
-/proc/isscom(var/mob/player)
+/proc/isscom(mob/player)
 	if(!GLOB.scommies || !player.mind)
 		return 0
 	if(player.mind in GLOB.scommies.current_antagonists)
 		return 1
 
-/proc/find_scom_ghost(var/mob/player)
+/proc/find_scom_ghost(mob/player)
 	if(GLOB.scommies)
 		for(var/mob/observer/ghost/G in GLOB.player_list)
 			if(G.mind)
@@ -34,7 +34,7 @@ GLOBAL_DATUM_INIT(scommies, /datum/antagonist/scom, new)
 
 	valid_species = list("Unathi","Skrell","Human","Resomi")
 	min_player_age = 0
-	id_type = /obj/item/weapon/card/id/centcom/ERT
+	id_type = /obj/item/card/id/centcom/ERT
 	default_access = list() //TODO
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_RANDOM_EXCEPTED | ANTAG_CLEAR_EQUIPMENT
 	landmark_id = "scomspawn3"
@@ -44,7 +44,7 @@ GLOBAL_DATUM_INIT(scommies, /datum/antagonist/scom, new)
 
 	welcome_text = "<span class='danger'>Welcome to the S-COM project... Congratulations! If you are reading this, then the time has come for you to drop your death commando armor, Syndicate assault squad hardsuit, Terran Republic marine gear or other and work with your most hated foes to fight a threat that will likely destroy us all! Ahead of you is a life of training, fighting supernatural and alien threats, and protecting the galaxy and all within it! Because we worry about our soldiers, we feel it needed to warn you of threats you will likely face. You will be fighting unknown threats that we have no information on, known alien lifeforms, and in the event of a Council corporation splitting off, subduing any possible leaks in the  project. It will not be an easy task, and many of you will likely die.</span>"
 
-/datum/antagonist/scom/update_antag_mob(var/datum/mind/player, var/preserve_appearance = 1, var/rank)
+/datum/antagonist/scom/update_antag_mob(datum/mind/player, var/preserve_appearance = 1, var/rank)
 	..()
 	if(rank)
 		var/scom_rank = ""
@@ -65,7 +65,7 @@ GLOBAL_DATUM_INIT(scommies, /datum/antagonist/scom, new)
 
 	return
 
-/datum/antagonist/scom/equip(var/mob/living/carbon/human/M, var/rank = RANK_SOLDIER, var/team = 0)
+/datum/antagonist/scom/equip(mob/living/carbon/human/M, var/rank = RANK_SOLDIER, var/team = 0)
 
 	. = ..()
 
@@ -78,7 +78,7 @@ GLOBAL_DATUM_INIT(scommies, /datum/antagonist/scom, new)
 			M.equip_to_slot_or_del(new /obj/item/clothing/under/rank/scientist(M), slot_w_uniform)
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/white(M), slot_shoes)
 			M.equip_to_slot_or_del(new /obj/item/modular_computer/pda/science(M), slot_belt)
-			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/toxins(M), slot_back)
+			M.equip_to_slot_or_del(new /obj/item/storage/backpack/toxins(M), slot_back)
 			M.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat/science(M), slot_wear_suit)
 			create_id("S-COM Researcher", M)
 
@@ -98,9 +98,9 @@ GLOBAL_DATUM_INIT(scommies, /datum/antagonist/scom, new)
 			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/ert(M), slot_l_ear)
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(M), slot_shoes)
 			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/thick/swat(M), slot_gloves)
-			M.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/urist/military/scom(M), slot_belt)
+			M.equip_to_slot_or_del(new /obj/item/storage/belt/urist/military/scom(M), slot_belt)
 			M.equip_to_slot_or_del(new /obj/item/clothing/head/beret/sec/navy/officer(M), slot_head)
-			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/silenced/knight(M), slot_r_store)
+			M.equip_to_slot_or_del(new /obj/item/gun/projectile/silenced/knight(M), slot_r_store)
 			create_id("S-COM Operative", M)
 
 		if(RANK_OFFICER)
@@ -119,9 +119,9 @@ GLOBAL_DATUM_INIT(scommies, /datum/antagonist/scom, new)
 			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/ert(M), slot_l_ear)
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(M), slot_shoes)
 			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/thick/swat(M), slot_gloves)
-			M.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/urist/military/scom(M), slot_belt)
+			M.equip_to_slot_or_del(new /obj/item/storage/belt/urist/military/scom(M), slot_belt)
 			M.equip_to_slot_or_del(new /obj/item/clothing/head/beret/centcom/captain(M), slot_head)
-			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/silenced/knight(M), slot_r_store)
+			M.equip_to_slot_or_del(new /obj/item/gun/projectile/silenced/knight(M), slot_r_store)
 			M.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/pcarrier/medium(M), slot_wear_suit)
 			create_id("S-COM Officer", M)
 

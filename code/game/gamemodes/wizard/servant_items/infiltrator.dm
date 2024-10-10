@@ -1,21 +1,29 @@
 /obj/item/clothing/head/infilhat
 	name = "immaculate fedora"
-	desc = "Whoever owns this hat means business. Hopefully, it’s just good business."
+	desc = "Whoever owns this hat means business. Hopefully, it's just good business."
 	icon_state = "infhat"
-	armor = list(melee = 5, bullet = 15, laser = 10,energy = 10, bomb = 0, bio = 0, rad = 0)
-	species_restricted = list(SPECIES_HUMAN)
+	armor = list(
+		melee = ARMOR_MELEE_MINOR,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR,
+		energy = ARMOR_ENERGY_MINOR
+		)
 
 /obj/item/clothing/suit/infilsuit
 	name = "immaculate suit"
-	desc = "The clothes of an impeccable diplomat. Or perhaps a businessman. Let’s not consider the horrors that might arise if it belongs to a lawyer."
+	desc = "The clothes of an impeccable diplomat. Or perhaps a businessman. Let's not consider the horrors that might arise if it belongs to a lawyer."
 	icon_state = "infsuit"
-	armor = list(melee = 10, bullet = 35, laser = 10,energy = 15, bomb = 0, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_MINOR,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_MINOR,
+		energy = ARMOR_ENERGY_MINOR
+		)
 
 /obj/item/clothing/under/lawyer/infil
 	name = "formal outfit"
 	desc = "A white dress shirt and navy pants. Snazzy."
 	icon_state = "inf_mob"
-	species_restricted = list(SPECIES_HUMAN)
 
 /obj/item/clothing/shoes/dress/infilshoes
 	name = "black leather shoes"
@@ -30,11 +38,11 @@
 
 /obj/item/clothing/suit/infilsuit/fem
 	name = "maid's uniform"
-	desc = "The uniform of someone you’d expect to see dusting off the Antique Gun’s display case."
+	desc = "The uniform of someone you'd expect to see dusting off the Antique Gun's display case."
 	icon_state = "infdress"
 
 /obj/item/clothing/under/lawyer/infil/fem
 	name = "white dress"
-	desc = "It’s a simple, sleeveless white dress with black trim."
+	desc = "It's a simple, sleeveless white dress with black trim."
 	icon_state = "inffem"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET

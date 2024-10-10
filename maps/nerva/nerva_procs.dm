@@ -1,0 +1,11 @@
+/datum/map/nerva/ship_jump()
+	for(var/obj/effect/overmap/visitable/ship/combat/nerva/nerva)
+		new /obj/effect/ftl (get_turf(nerva))
+		qdel(nerva)
+		animate(nerva, time = 0.5 SECONDS)
+		animate(alpha = 0, time = 0.5 SECONDS)
+
+/datum/map/nerva/setup_economy()
+	..()
+	if (!nanotrasen_account)
+		nanotrasen_account = create_account("Nanotrasen Company Expense Card", "Nanotrasen Representative", rand(11000,44000), ACCOUNT_TYPE_DEPARTMENT)

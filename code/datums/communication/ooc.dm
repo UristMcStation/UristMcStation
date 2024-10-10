@@ -1,4 +1,4 @@
-/decl/communication_channel/ooc
+/singleton/communication_channel/ooc
 	name = "OOC"
 	config_setting = "ooc_allowed"
 	expected_communicator_type = /client
@@ -7,21 +7,17 @@
 	mute_setting = MUTE_OOC
 	show_preference_setting = /datum/client_preference/show_ooc
 
-/decl/communication_channel/ooc/can_communicate(var/client/C, var/message)
+/singleton/communication_channel/ooc/can_communicate(client/C, message)
 	. = ..()
 	if(!.)
 		return
 
 	if(!C.holder)
 		if(!config.dooc_allowed && (C.mob.stat == DEAD))
-			to_chat(C, "<span class='danger'>[name] for dead mobs has been turned off.</span>")
-			return FALSE
-		if(findtext(message, "byond://"))
-			to_chat(C, "<B>Advertising other servers is not allowed.</B>")
-			log_and_message_admins("has attempted to advertise in [name]: [message]")
+			to_chat(C, SPAN_DANGER("[name] for dead mobs has been turned off."))
 			return FALSE
 
-/decl/communication_channel/ooc/do_communicate(var/client/C, var/message)
+/singleton/communication_channel/ooc/do_communicate(client/C, message)
 	var/datum/admins/holder = C.holder
 	var/is_stealthed = C.is_stealthed()
 
@@ -41,8 +37,8 @@
 	for(var/client/target in GLOB.clients)
 		if(target.is_key_ignored(C.key)) // If we're ignored by this person, then do nothing.
 			continue
-		var/sent_message = "[create_text_tag("ooc", "OOC:", target)] <EM>[C.key]:</EM> <span class='message'>[message]</span>"
+		var/sent_message = "[create_text_tag("ooc", "OOC:", target)] <EM>[C.key]:</EM> [SPAN_CLASS("message linkify", "[message]")]"
 		if(can_badmin)
-			receive_communication(C, target, "<font color='[ooc_color]'><span class='ooc'>[sent_message]</font></span>")
+			receive_communication(C, target, SPAN_COLOR(ooc_color, SPAN_CLASS("ooc", sent_message)))
 		else
-			receive_communication(C, target, "<span class='ooc'><span class='[ooc_style]'>[sent_message]</span></span>")
+			receive_communication(C, target, SPAN_CLASS("ooc", SPAN_CLASS(ooc_style, sent_message)))

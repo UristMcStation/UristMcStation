@@ -20,28 +20,37 @@
 /datum/medical_effect/proc/on_life(mob/living/carbon/human/H, strength)
 	return
 
-/datum/medical_effect/proc/can_cure(mob/living/carbon/human/H)
+/datum/medical_effect/proc/cure(mob/living/carbon/human/H)
 	for(var/R in cures)
 		if(H.reagents.has_reagent(R))
-			if(cure_message)
-				to_chat(H, "<span class='notice'>[cure_message]</span>")
+			if (cure_message)
+				to_chat(H, SPAN_NOTICE("[cure_message]"))
 			return 1
 	return 0
 
 
 // MOB HELPERS
 // ===========
-/mob/living/carbon/human/var/list/datum/medical_effect/side_effects = list()
 /mob/proc/add_side_effect(name, strength = 0)
-/mob/living/carbon/human/add_side_effect(var/datum/medical_effect/ME, strength = 0)
+	return
+
+
+/mob/living/carbon/human/var/list/datum/medical_effect/side_effects = list()
+
+/mob/living/carbon/human/add_side_effect(name, strength = 0)
 	for(var/datum/medical_effect/M in side_effects)
-		if(M.name == ME.name)
+		if(M.name == name)
 			M.strength = max(M.strength, 10)
 			return
+	var/T = GLOB.side_effects[name]
+	if (!T)
+		return
+	var/datum/medical_effect/M = new T
+	if(M.name == name)
+		M.strength = strength
+		M.start = life_tick
+		GLOB.side_effects += M
 
-	ME.strength = strength
-	ME.start = life_tick
-	side_effects += ME
 
 /mob/living/carbon/human/proc/handle_medical_side_effects()
 	//Going to handle those things only every few ticks.
@@ -54,14 +63,22 @@
 		if(M.manifest(src))
 			add_side_effect(M)
 
-	for(var/datum/medical_effect/M in side_effects)
-		if(M.can_cure(src))
-			side_effects -= M
-			QDEL_NULL(M)
-		else
-			M.on_life(src, M.strength)
-			// Effect slowly growing stronger
-			M.strength += 0.5
+	// One full cycle(in terms of strength) every 10 minutes
+	for (var/datum/medical_effect/M in GLOB.side_effects)
+		if (!M) continue
+		var/strength_percent = sin((life_tick - M.start) / 2)
+
+		// Only do anything if the effect is currently strong enough
+		if(strength_percent >= 0.4)
+			if (M.cure(src) || M.strength > 50)
+				GLOB.side_effects -= M
+				M = null
+			else
+				if(life_tick % 45 == 0)
+					M.on_life(src, strength_percent*M.strength)
+				// Effect slowly growing stronger
+				M.strength+=0.08
+
 
 // HEADACHE
 // ========
@@ -121,7 +138,7 @@
 // ====
 /datum/medical_effect/itch
 	name = "Itch"
-	triggers = list(/datum/reagent/space_drugs = 10)
+	triggers = list(/datum/reagent/drugs/hextro = 10)
 	cures = list(/datum/reagent/inaprovaline)
 	cure_message = "The itching stops..."
 

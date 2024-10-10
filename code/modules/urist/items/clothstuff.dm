@@ -34,6 +34,7 @@
 	icon = 'icons/urist/items/improvised.dmi'
 	icon_state = "makemask"
 	item_state = "makemask"
+	item_icons = URIST_ALL_ONMOBS
 	w_class = ITEM_SIZE_SMALL
 	body_parts_covered = FACE
 	item_flags = ITEM_FLAG_FLEXIBLEMATERIAL
@@ -42,7 +43,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 30, rad = 0)
 	down_gas_transfer_coefficient = 1
 	down_body_parts_covered = null
-	down_icon_state = "steriledown"
+	down_icon_state = "makemaskdown"
 	pull_mask = 1
 
 /obj/item/stack/medical/bruise_pack/makeshift_bandage
@@ -72,14 +73,14 @@
 					continue
 				if(used == amount)
 					break
-				if(!do_mob(user, M, W.damage/3))
+				if(!do_after(user, M, W.damage/3))
 					to_chat(user, "<span class='notice'>You must stand still to bandage wounds.</span>")
 					break
 				if (W.current_stage <= W.max_bleeding_stage)
 					user.visible_message("<span class='notice'>\The [user] bandages \a [W.desc] on [M]'s [affecting.name].</span>", \
 										"<span class='notice'>You bandage \a [W.desc] on [M]'s [affecting.name].</span>" )
 					//H.add_side_effect("Itch")
-				else if (W.damage_type == BRUISE)
+				else if (W.damage_type == DAMAGE_BRUTE)
 					user.visible_message("<span class='notice'>\The [user] places a rugged bandage over \a [W.desc] on [M]'s [affecting.name].</span>", \
 											"<span class='notice'>You place a rugged bandage over \a [W.desc] on [M]'s [affecting.name].</span>" )
 				else
@@ -94,3 +95,48 @@
 				else
 					to_chat(user, "<span class='warning'>\The [src] is used up, but there are more wounds to treat on \the [affecting.name].</span>")
 			use(used)
+
+/obj/item/loom
+	name = "table loom"
+	desc = "A loom small enough to only take up a table instead of the whole floor."
+	icon = 'icons/urist/items/wood.dmi'
+	icon_state = "loom"
+	w_class = 4 //a table loom is small only by comparison to a floor loom.
+
+/datum/reagent/cottonfiber
+	name = "cotton fiber"
+	description = "A mass of cotton fibers."
+	taste_description = "cotton"
+	reagent_state = SOLID
+	color = "#f0f0f0"
+
+/datum/seed/cotton
+	name = "cotton"
+	seed_name = "cotton"
+	display_name = "cotton plant"
+	chems = list(/datum/reagent/cottonfiber = list(6,1))
+
+/datum/seed/cotton/New()
+	..()
+	set_trait(TRAIT_MATURATION,10)
+	set_trait(TRAIT_PRODUCTION,1)
+	set_trait(TRAIT_YIELD,8)
+	set_trait(TRAIT_POTENCY,10)
+	set_trait(TRAIT_PRODUCT_ICON,"cotton")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#f0f0f0")
+	set_trait(TRAIT_PLANT_ICON,"bush2")
+	set_trait(TRAIT_WATER_CONSUMPTION, 6)
+
+/obj/item/seeds/cotton
+	seed_type = "cotton"
+
+/obj/item/loom/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/reagent_containers/food/snacks/grown))
+		var/obj/item/reagent_containers/food/snacks/grown/plant = W
+		if(plant.seed?.chems)
+			if(!isnull(plant.seed.chems[/datum/reagent/cottonfiber]))
+				user.visible_message(SPAN_NOTICE("\The [user] weaves \the [plant] into cotton cloth"), SPAN_NOTICE("You weave \the [plant] into cotton cloth"))
+				new /obj/item/stack/material/cloth(user.loc)
+				qdel(plant)
+				return
+	..()

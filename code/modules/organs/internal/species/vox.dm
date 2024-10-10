@@ -19,40 +19,41 @@
 	parent_organ = BP_CHEST
 	color = "#0033cc"
 
+/obj/item/organ/internal/eyes/vox
+	eye_icon = 'icons/mob/human_races/species/vox/eyes.dmi'
+	color = "#0033cc"
+
 /obj/item/organ/internal/stomach/vox
 	name = "gizzard"
 	color = "#0033cc"
-	var/global/list/gains_nutriment_from_inedible_reagents = list(
+	var/static/list/gains_nutriment_from_inedible_reagents = list(
 		/datum/reagent/woodpulp =      3,
-		/datum/reagent/anfo/plus =     2,
 		/datum/reagent/ultraglue =     1,
-		/datum/reagent/anfo =          1,
 		/datum/reagent/coolant =       1,
-		/datum/reagent/lube =          1,
-		/datum/reagent/lube/oil =      1,
+		/datum/reagent/oil =      1,
 		/datum/reagent/space_cleaner = 1,
 		/datum/reagent/napalm =        1,
 		/datum/reagent/napalm/b =      1,
 		/datum/reagent/thermite =      1,
 		/datum/reagent/foaming_agent = 1,
 		/datum/reagent/surfactant =    1,
-		/datum/reagent/paint =         1
+		/datum/reagent/paint =         1,
+		/datum/reagent/lube =		   1
 	)
-	var/global/list/can_digest_matter = list(
+	var/static/list/can_digest_matter = list(
 		MATERIAL_WOOD =        TRUE,
 		MATERIAL_MAHOGANY =    TRUE,
 		MATERIAL_MAPLE =       TRUE,
 		MATERIAL_EBONY =       TRUE,
 		MATERIAL_WALNUT =      TRUE,
-		MATERIAL_COTTON =      TRUE,
-		MATERIAL_LEATHER =     TRUE,
+		MATERIAL_LEATHER_GENERIC =     TRUE,
 		MATERIAL_PLASTIC =     TRUE,
 		MATERIAL_CARDBOARD =   TRUE,
 		MATERIAL_CLOTH =       TRUE,
 		MATERIAL_WASTE =       TRUE,
 		MATERIAL_ROCK_SALT =   TRUE
 	)
-	var/global/list/can_process_matter = list(
+	var/static/list/can_process_matter = list(
 		MATERIAL_STEEL =       TRUE,
 		MATERIAL_GLASS =       TRUE,
 		MATERIAL_GOLD =        TRUE,
@@ -67,7 +68,7 @@
 		MATERIAL_TITANIUM =    TRUE,
 		MATERIAL_OSMIUM =      TRUE,
 		MATERIAL_SAND =        TRUE,
-		MATERIAL_GRAPHENE =    TRUE,
+		MATERIAL_GRAPHITE =    TRUE,
 		MATERIAL_PITCHBLENDE = TRUE,
 		MATERIAL_HEMATITE =    TRUE,
 		MATERIAL_QUARTZ =      TRUE,
@@ -78,7 +79,8 @@
 		MATERIAL_POTASH =      TRUE,
 		MATERIAL_BAUXITE =     TRUE,
 		MATERIAL_COPPER =      TRUE,
-		MATERIAL_ALUMINIUM =   TRUE
+		MATERIAL_ALUMINIUM =   TRUE,
+		MATERIAL_RUTILE = 	   TRUE
 	)
 	var/list/stored_matter = list()
 
@@ -91,7 +93,7 @@
 			for(var/datum/reagent/R in ingested.reagent_list)
 				var/inedible_nutriment_amount = gains_nutriment_from_inedible_reagents[R.type]
 				if(inedible_nutriment_amount > 0)
-					owner.nutrition += inedible_nutriment_amount
+					owner.adjust_nutrition(inedible_nutriment_amount)
 
 		// Do we have any objects to digest?
 		var/list/check_materials
@@ -107,12 +109,12 @@
 				digested *= 0.75
 				if(food.matter[mat] <= 0)
 					food.matter -= mat
-				if(!food.matter.len)
+				if(!length(food.matter))
 					qdel(food)
 
 				// Process it.
 				if(can_digest_matter[mat])
-					owner.nutrition += max(1, Floor(digested/100))
+					owner.adjust_nutrition(max(1, Floor(digested/100)))
 					updated_stacks = TRUE
 				else if(can_process_matter[mat])
 					LAZYDISTINCTADD(check_materials, mat)
@@ -136,7 +138,7 @@
 						mat_stack.set_amount(mat_stack.amount + taking_sheets)
 						sheets -= taking_sheets
 						updated_stacks = TRUE
-						
+
 				// Create new stacks if needed.
 				while(sheets > 0)
 					var/obj/item/stack/material/mat_stack = new M.stack_type(src)
@@ -148,16 +150,15 @@
 		if(updated_stacks && prob(5))
 			to_chat(owner, SPAN_NOTICE("Your [name] churns as it digests some material into a usable form."))
 
-/obj/item/organ/internal/stack/vox
-	name = "cortical stack"
-	invasive = 1
-
 /obj/item/organ/internal/hindtongue
 	name = "hindtongue"
 	desc = "Some kind of severed bird tongue."
 	parent_organ = BP_HEAD
 	icon_state = "hindtongue"
 	organ_tag = BP_HINDTONGUE
+
+/obj/item/organ/internal/stack/vox
+	invasive = TRUE
 
 /obj/item/organ/internal/stack/vox/removed()
 	var/obj/item/organ/external/head = owner.get_organ(parent_organ)

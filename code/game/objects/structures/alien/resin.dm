@@ -3,9 +3,9 @@
 	desc = "Looks like some kind of slimy growth."
 	icon_state = "resin"
 
-	density = 1
+	density = TRUE
 	opacity = 1
-	anchored = 1
+	anchored = TRUE
 	health = 200
 
 /obj/structure/alien/resin/wall
@@ -30,7 +30,7 @@
 	T.thermal_conductivity = initial(T.thermal_conductivity)
 	..()
 
-/obj/structure/alien/resin/attack_hand(var/mob/user)
+/obj/structure/alien/resin/attack_hand(mob/user)
 	if (MUTATION_HULK in user.mutations)
 		visible_message("<span class='danger'>\The [user] destroys \the [name]!</span>")
 		health = 0

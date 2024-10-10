@@ -73,7 +73,7 @@ nanoui is used to open and update nano browser uis
   *
   * @return /nanoui new nanoui object
   */
-/datum/nanoui/New(nuser, nsrc_object, nui_key, ntemplate_filename, ntitle = 0, nwidth = 0, nheight = 0, var/atom/nref = null, var/datum/nanoui/master_ui = null, var/datum/topic_state/state = GLOB.default_state)
+/datum/nanoui/New(nuser, nsrc_object, nui_key, ntemplate_filename, ntitle = 0, nwidth = 0, nheight = 0, atom/nref = null, datum/nanoui/master_ui = null, datum/topic_state/state = GLOB.default_state)
 	user = nuser
 	src_object = nsrc_object
 	ui_key = nui_key
@@ -150,7 +150,7 @@ nanoui is used to open and update nano browser uis
   *
   * @return 1 if closed, null otherwise.
   */
-/datum/nanoui/proc/update_status(var/push_update = 0)
+/datum/nanoui/proc/update_status(push_update = 0)
 	var/atom/host = src_object && src_object.nano_host()
 	if(!host)
 		close()
@@ -203,7 +203,8 @@ nanoui is used to open and update nano browser uis
 			"mapName" = GLOB.using_map.path,
 			"mapZLevel" = map_z_level,
 			"mapZLevels" = GLOB.using_map.map_levels,
-			"user" = list("name" = user.name)
+			"user" = list("name" = user.name),
+			"currency" = GLOB.using_map.local_currency_name,
 		)
 	return config_data
 
@@ -214,7 +215,7 @@ nanoui is used to open and update nano browser uis
   *
   * @return /list data to send to the ui
   */
-/datum/nanoui/proc/get_send_data(var/list/data)
+/datum/nanoui/proc/get_send_data(list/data)
 	var/list/config_data = get_config_data()
 
 	var/list/send_data = list("config" = config_data)
@@ -365,7 +366,7 @@ nanoui is used to open and update nano browser uis
 		head_content += "<link rel='stylesheet' type='text/css' href='[filename]'> "
 
 	var/template_data_json = "{}" // An empty JSON object
-	if (templates.len > 0)
+	if (length(templates) > 0)
 		template_data_json = strip_improper(json_encode(templates))
 
 	var/list/send_data = get_send_data(initial_data)
@@ -417,7 +418,7 @@ nanoui is used to open and update nano browser uis
   * @return nothing
   */
 /datum/nanoui/proc/open()
-	if(!user.client)
+	if(!user?.client)
 		return
 
 	if(!src_object)
@@ -429,7 +430,7 @@ nanoui is used to open and update nano browser uis
 	if(update_status(0))
 		return // Will be closed by update_status().
 
-	user << browse(get_html(), "window=[window_id];[window_size][window_options]")
+	show_browser(user, get_html(), "window=[window_id];[window_size][window_options]")
 	winset(user, "mapwindow.map", "focus=true") // return keyboard focus to map
 	on_close_winset()
 	//onclose(user, window_id)
@@ -494,7 +495,7 @@ nanoui is used to open and update nano browser uis
 
 //	to_chat(user, list2json_usecache(send_data))// used for debugging //NANO DEBUG HOOK
 
-	user << output(list2params(list(strip_improper(json_encode(send_data)))),"[window_id].browser:receiveUpdateData")
+	to_target(user, output(list2params(list(strip_improper(json_encode(send_data)))),"[window_id].browser:receiveUpdateData"))
 
  /**
   * This Topic() proc is called whenever a user clicks on a link within a Nano UI
@@ -552,5 +553,5 @@ nanoui is used to open and update nano browser uis
   *
   * @return nothing
   */
-/datum/nanoui/proc/update(var/force_open = 0)
+/datum/nanoui/proc/update(force_open = 0)
 	src_object.ui_interact(user, ui_key, src, force_open, master_ui, state)

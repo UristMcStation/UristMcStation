@@ -3,8 +3,8 @@
 	desc = "A mysterious gateway built by unknown hands, it allows for faster than light travel to far-flung locations."
 	icon = 'icons/obj/machines/gateway.dmi'
 	icon_state = "off"
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 	var/active = 0
 
 
@@ -24,7 +24,7 @@
 
 //this is da important part wot makes things go
 /obj/machinery/gateway/centerstation
-	density = 1
+	density = TRUE
 	icon_state = "offcenter"
 
 	//warping vars
@@ -47,8 +47,8 @@
 
 
 
-obj/machinery/gateway/centerstation/Process()
-	if(stat & (NOPOWER))
+/obj/machinery/gateway/centerstation/Process()
+	if(stat & (MACHINE_STAT_NOPOWER))
 		if(active) toggleoff()
 		return
 
@@ -72,13 +72,13 @@ obj/machinery/gateway/centerstation/Process()
 		toggleoff()
 		break
 
-	if(linked.len == 8)
+	if(length(linked) == 8)
 		ready = 1
 
 
 /obj/machinery/gateway/centerstation/proc/toggleon(mob/user as mob)
 	if(!ready)			return
-	if(linked.len != 8)	return
+	if(length(linked) != 8)	return
 	if(!powered())		return
 	if(!awaygate)
 		to_chat(user, "<span class='notice'>Error: No destination found.</span>")
@@ -128,16 +128,17 @@ obj/machinery/gateway/centerstation/Process()
 			M.set_dir(SOUTH)
 			use_power_oneoff(5000)
 
-/obj/machinery/gateway/centerstation/attackby(obj/item/device/W as obj, mob/user as mob)
+/obj/machinery/gateway/centerstation/use_tool(obj/item/device/W as obj, mob/user as mob)
 	if(isMultitool(W))
 		to_chat(user, "The gate is already calibrated, there is no work for you to do here.")
-		return
+		return TRUE
+	. = ..()
 
 /////////////////////////////////////Away////////////////////////
 
 
 /obj/machinery/gateway/centeraway
-	density = 1
+	density = TRUE
 	icon_state = "offcenter"
 	use_power = POWER_USE_OFF
 	var/calibrated = 1
@@ -174,13 +175,13 @@ obj/machinery/gateway/centerstation/Process()
 		toggleoff()
 		break
 
-	if(linked.len == 8)
+	if(length(linked) == 8)
 		ready = 1
 
 
 /obj/machinery/gateway/centeraway/proc/toggleon(mob/user as mob)
 	if(!ready)			return
-	if(linked.len != 8)	return
+	if(length(linked) != 8)	return
 	if(!stationgate)
 		to_chat(user, "<span class='notice'>Error: No destination found.</span>")
 		return
@@ -213,19 +214,20 @@ obj/machinery/gateway/centerstation/Process()
 	if(!ready)	return
 	if(!active)	return
 	if(istype(M, /mob/living/carbon))
-		for(var/obj/item/weapon/implant/exile/E in M)//Checking that there is an exile implant in the contents
+		for(var/obj/item/implant/exile/E in M)//Checking that there is an exile implant in the contents
 			if(E.imp_in == M)//Checking that it's actually implanted vs just in their pocket
 				to_chat(M, "The remote gate has detected your exile implant and is blocking your entry.")
 				return
 	M.forceMove(get_step(stationgate.loc, SOUTH))
 	M.set_dir(SOUTH)
 
-/obj/machinery/gateway/centeraway/attackby(obj/item/device/W as obj, mob/user as mob)
+/obj/machinery/gateway/centeraway/use_tool(obj/item/device/W as obj, mob/user as mob)
 	if(isMultitool(W))
 		if(calibrated)
 			to_chat(user, "The gate is already calibrated, there is no work for you to do here.")
-			return
+			return TRUE
 		else
 			to_chat(user, "<span class='notice'><b>Recalibration successful!</b></span>: This gate's systems have been fine tuned.  Travel to this gate will now be on target.")
 			calibrated = 1
-			return
+			return TRUE
+	. = ..()

@@ -257,9 +257,7 @@
 
 /datum/shuttle/autodock/ferry/centcom_arrivals/proc/AnnounceArrival()
 	if (GAME_STATE >= RUNLEVEL_GAME)
-		var/obj/item/device/radio/intercom/a = new /obj/item/device/radio/intercom(null)
-		a.autosay("The Arrivals Shuttle has docked with the Station.", "Arrivals Announcement Computer")
-		qdel(a)
+		GLOB.global_announcer.autosay("The Arrivals Shuttle has docked with the Station.", "Arrivals Announcement Computer", "Common")
 
 
 /datum/shuttle/autodock/ferry/centcom_arrivals/arrived()
@@ -416,7 +414,7 @@
 	name = "Mercenary Base"
 	landmark_tag = "merc_ship_start"
 	base_turf = /turf/unsimulated/floor/snow
-	base_area = /area/syndicate_mothership
+	base_area = /area/map_template/syndicate_mothership
 
 /obj/effect/shuttle_landmark/mercenary/transit
 	name = "In Transit"
@@ -463,7 +461,7 @@
 		"raider_SW_urist",
 		"raider_planetside"
 		)
-	shuttle_area = /area/skipjack_station/start
+	shuttle_area = /area/map_template/skipjack_station/start
 	home_waypoint = "raider_start_point"
 	current_location = "raider_start_point"
 	landmark_transition = "raider_in_transit"

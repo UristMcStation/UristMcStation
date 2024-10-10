@@ -2,20 +2,22 @@
 	name = "curtain"
 	icon = 'icons/obj/curtain.dmi'
 	icon_state = "closed"
-	plane = ABOVE_HUMAN_PLANE
 	layer = ABOVE_WINDOW_LAYER
 	opacity = 1
-	density = 0
+	density = FALSE
+
+/obj/structure/curtain/Initialize()
+	.=..()
+	set_extension(src, /datum/extension/turf_hand)
 
 /obj/structure/curtain/open
 	icon_state = "open"
-	plane = ABOVE_HUMAN_PLANE
 	layer = ABOVE_HUMAN_LAYER
 	opacity = 0
 
 /obj/structure/curtain/bullet_act(obj/item/projectile/P, def_zone)
 	if(!P.nodamage)
-		visible_message("<span class='warning'>[P] tears [src] down!</span>")
+		visible_message(SPAN_WARNING("[P] tears [src] down!"))
 		qdel(src)
 	else
 		..(P, def_zone)
@@ -29,11 +31,9 @@
 	set_opacity(!opacity)
 	if(opacity)
 		icon_state = "closed"
-		plane = ABOVE_HUMAN_PLANE
-		layer = ABOVE_WINDOW_LAYER
+		layer = ABOVE_HUMAN_LAYER
 	else
 		icon_state = "open"
-		plane = OBJ_PLANE
 		layer = ABOVE_WINDOW_LAYER
 
 /obj/structure/curtain/black

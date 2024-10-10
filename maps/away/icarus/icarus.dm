@@ -1,27 +1,26 @@
 #include "icarus_areas.dm"
 
-/obj/effect/overmap/sector/icarus
+/obj/effect/overmap/visitable/sector/planetoid/icarus
 	name = "forest planetoid"
 	desc = "Sensors detect anomalous radiation area with the presence of artificial structures."
 	icon_state = "globe"
 	known = 0
-	in_space = 0
 	initial_generic_waypoints = list(
 		"nav_icarus_1",
 		"nav_icarus_2",
 		"nav_icarus_antag"
 	)
 
-/obj/effect/overmap/sector/icarus/New(nloc, max_x, max_y)
+/obj/effect/overmap/visitable/sector/planetoid/icarus/New(nloc, max_x, max_y)
 	name = "[generate_planet_name()], \a [name]"
 	..()
 
-obj/effect/icarus/irradiate
+/obj/effect/icarus/irradiate
 	var/radiation_power = 20//20 Bq. Dangerous but survivable for 10-15 minutes if crew is too lazy to read away map description
 	var/datum/radiation_source/S
 	var/req_range = 100//to cover whole level
 
-obj/effect/icarus/irradiate/Initialize()
+/obj/effect/icarus/irradiate/Initialize()
 	. = ..()
 	S = new()
 	S.flat = TRUE
@@ -32,7 +31,7 @@ obj/effect/icarus/irradiate/Initialize()
 	S.update_rad_power(radiation_power)
 	SSradiation.add_source(S)
 
-obj/effect/icarus/irradiate/Destroy()
+/obj/effect/icarus/irradiate/Destroy()
 	. = ..()
 	QDEL_NULL(S)
 
@@ -41,7 +40,9 @@ obj/effect/icarus/irradiate/Destroy()
 	id = "awaysite_icarus"
 	description = "The crashlanding site of the SEV Icarus."
 	suffixes = list("icarus/icarus-1.dmm", "icarus/icarus-2.dmm")
-	cost = 2
+	spawn_cost = 2
+	generate_mining_by_z = list(1,2)
+	area_coherency_test_exempt_areas = list(/area/icarus/open)
 
 /obj/effect/shuttle_landmark/nav_icarus/nav1
 	name = "Planetary Navpoint #1"
@@ -58,17 +59,17 @@ obj/effect/icarus/irradiate/Destroy()
 	landmark_tag = "nav_icarus_antag"
 	flags = SLANDMARK_FLAG_AUTOSET
 
-obj/structure/icarus/broken_cryo
+/obj/structure/icarus/broken_cryo
 	name = "destroyed cryo sleeper"
 	desc = "A mangled cryo sleeper with evidence that someone was inside when it was crushed. It looks like you could pry it open with a crowbar."
 	icon = 'maps/away/icarus/icarus_sprites.dmi'
 	icon_state = "broken_cryo"
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE
 	var/closed = 1
 	var/busy = 0
 
-obj/structure/icarus/broken_cryo/attack_hand(mob/user)
+/obj/structure/icarus/broken_cryo/attack_hand(mob/user)
 	..()
 	if (closed)
 		to_chat(user, "<span class='notice'>You tug at the glass but can't open it with your hands alone.</span>")
@@ -103,7 +104,7 @@ obj/structure/icarus/broken_cryo/attack_hand(mob/user)
 	icon_state = "dead_personnel"
 	w_class = ITEM_SIZE_LARGE//pile of bones
 
-/obj/item/weapon/disk/icarus
+/obj/item/disk/icarus
 	name = "black box backup disk"
 	desc = "Digital storage. Inscription says: \"Deliver to Sol Goverment Expeditionary Corps Command!\". Content is encrypted with quantum crypthography methods."
 	icon = 'icons/obj/items.dmi'
@@ -111,7 +112,7 @@ obj/structure/icarus/broken_cryo/attack_hand(mob/user)
 	item_state = "card-id"
 	w_class = ITEM_SIZE_TINY
 
-/obj/item/weapon/paper/icarus/log
+/obj/item/paper/icarus/log
 	name = "Printed piece of paper"
 	info = "\[LOG\]: Orbit stabilized. Next correction burst, est.: 2 hrs 12 m<br>\
 			\[LOG\]: Orbit stabiliztion. Announcing...<br>\
@@ -143,7 +144,7 @@ obj/structure/icarus/broken_cryo/attack_hand(mob/user)
 			\[LOG\]: Now you can you safely turn off your computer.<br>"
 
 
-/obj/item/weapon/paper/icarus/crew_roster
+/obj/item/paper/icarus/crew_roster
 	name = "Printed piece of paper"
 	info = "<center>\[solcrest]<BR>\
 			<b>SEV Icarus</b><br>\
@@ -222,7 +223,7 @@ obj/structure/icarus/broken_cryo/attack_hand(mob/user)
 	light_color = "#ffffff"
 
 /turf/simulated/floor/exoplanet/desert/skylight/Initialize()
-	light_color = SSskybox.BGcolor
+	light_color = SSskybox.background_color
 	. = ..()
 
 /turf/simulated/floor/exoplanet/grass/skylight
@@ -232,7 +233,7 @@ obj/structure/icarus/broken_cryo/attack_hand(mob/user)
 	light_color = "#ffffff"
 
 /turf/simulated/floor/exoplanet/grass/skylight/Initialize()
-	light_color = SSskybox.BGcolor
+	light_color = SSskybox.background_color
 	. = ..()
 
 /turf/simulated/open/skylight
@@ -242,5 +243,5 @@ obj/structure/icarus/broken_cryo/attack_hand(mob/user)
 	light_color = "#ffffff"
 
 /turf/simulated/open/skylight/Initialize()
-	light_color = SSskybox.BGcolor
+	light_color = SSskybox.background_color
 	. = ..()

@@ -2,17 +2,16 @@
 //Turret Control Panel//
 ////////////////////////
 
-/area
-	// Turrets use this list to see if individual power/lethal settings are allowed
-	var/list/turret_controls = list()
+/// List (`/obj/machinery/turretid`). A list of all turret control panels in the area. Turrets use this list to see if individual power/lethal settings are allowed. Updated during `Initialize()` and `Destroy()` calls on the controllers.
+/area/var/list/turret_controls = list()
 
 /obj/machinery/turretid
 	name = "turret control panel"
 	desc = "Used to control a room's automated defenses."
 	icon = 'icons/obj/machines/turret_control.dmi'
 	icon_state = "control_standby"
-	anchored = 1
-	density = 0
+	anchored = TRUE
+	density = FALSE
 	var/enabled = 0
 	var/lethal = 0
 	var/locked = 1
@@ -63,12 +62,12 @@
 		else
 			control_area = null
 
-	power_change() //Checks power and initial settings
+	updateTurrets()	//Initial settings
 	. = ..()
 
 /obj/machinery/turretid/proc/isLocked(mob/user)
 	if(ailock && issilicon(user))
-		to_chat(user, "<span class='notice'>There seems to be a firewall preventing you from accessing this device.</span>")
+		to_chat(user, SPAN_NOTICE("There seems to be a firewall preventing you from accessing this device."))
 		return 1
 
 	if(malf_upgraded && master_ai)
@@ -77,7 +76,7 @@
 		return 1
 
 	if(locked && !issilicon(user))
-		to_chat(user, "<span class='notice'>Access denied.</span>")
+		to_chat(user, SPAN_NOTICE("Access denied."))
 		return 1
 
 	return 0
@@ -88,41 +87,34 @@
 
 	return ..()
 
-/obj/machinery/turretid/attackby(obj/item/weapon/W, mob/user)
-	if(stat & BROKEN)
+/obj/machinery/turretid/attackby(obj/item/W, mob/user)
+	if(MACHINE_IS_BROKEN(src))
 		return
 
-	if(istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/modular_computer))
+	if(istype(W, /obj/item/card/id)||istype(W, /obj/item/modular_computer))
 		if(src.allowed(usr))
 			if(emagged)
-				to_chat(user, "<span class='notice'>The turret control is unresponsive.</span>")
+				to_chat(user, SPAN_NOTICE("The turret control is unresponsive."))
 			else
 				locked = !locked
-				to_chat(user, "<span class='notice'>You [ locked ? "lock" : "unlock"] the panel.</span>")
+				to_chat(user, SPAN_NOTICE("You [ locked ? "lock" : "unlock"] the panel."))
 		return
 	return ..()
 
-/obj/machinery/turretid/emag_act(var/remaining_charges, var/mob/user)
+/obj/machinery/turretid/emag_act(remaining_charges, mob/user)
 	if(!emagged)
-		to_chat(user, "<span class='danger'>You short out the turret controls' access analysis module.</span>")
-		emagged = 1
+		to_chat(user, SPAN_DANGER("You short out the turret controls' access analysis module."))
+		emagged = TRUE
+		req_access.Cut()
 		locked = 0
 		ailock = 0
 		return 1
 
-/obj/machinery/turretid/attack_ai(mob/user as mob)
-	if(isLocked(user))
-		return
-
+/obj/machinery/turretid/interface_interact(mob/user)
 	ui_interact(user)
+	return TRUE
 
-/obj/machinery/turretid/attack_hand(mob/user as mob)
-	if(isLocked(user))
-		return
-
-	ui_interact(user)
-
-/obj/machinery/turretid/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/turretid/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1)
 	var/data[0]
 	data["access"] = !isLocked(user)
 	data["locked"] = locked
@@ -132,12 +124,12 @@
 
 	if(data["access"])
 		var/settings[0]
-		settings[++settings.len] = list("category" = "Neutralize All Non-Synthetics", "setting" = "check_synth", "value" = check_synth)
-		settings[++settings.len] = list("category" = "Check Weapon Authorization", "setting" = "check_weapons", "value" = check_weapons)
-		settings[++settings.len] = list("category" = "Check Security Records", "setting" = "check_records", "value" = check_records)
-		settings[++settings.len] = list("category" = "Check Arrest Status", "setting" = "check_arrest", "value" = check_arrest)
-		settings[++settings.len] = list("category" = "Check Access Authorization", "setting" = "check_access", "value" = check_access)
-		settings[++settings.len] = list("category" = "Check misc. Lifeforms", "setting" = "check_anomalies", "value" = check_anomalies)
+		settings[LIST_PRE_INC(settings)] = list("category" = "Neutralize All Non-Synthetics", "setting" = "check_synth", "value" = check_synth)
+		settings[LIST_PRE_INC(settings)] = list("category" = "Check Weapon Authorization", "setting" = "check_weapons", "value" = check_weapons)
+		settings[LIST_PRE_INC(settings)] = list("category" = "Check Security Records", "setting" = "check_records", "value" = check_records)
+		settings[LIST_PRE_INC(settings)] = list("category" = "Check Arrest Status", "setting" = "check_arrest", "value" = check_arrest)
+		settings[LIST_PRE_INC(settings)] = list("category" = "Check Access Authorization", "setting" = "check_access", "value" = check_access)
+		settings[LIST_PRE_INC(settings)] = list("category" = "Check misc. Lifeforms", "setting" = "check_anomalies", "value" = check_anomalies)
 		data["settings"] = settings
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
@@ -178,8 +170,7 @@
 			check_anomalies = value
 
 		if(!isnull(log_action))
-			log_admin("[key_name(usr)] has [log_action]")
-			message_admins("[key_name_admin(usr)] has [log_action]", 1)
+			log_and_message_admins("has [log_action]", usr, loc)
 
 		updateTurrets()
 		return 1
@@ -202,14 +193,9 @@
 
 	queue_icon_update()
 
-/obj/machinery/turretid/power_change()
-	. = ..()
-	if(.)
-		updateTurrets()
-
 /obj/machinery/turretid/on_update_icon()
 	..()
-	if(stat & NOPOWER)
+	if(!is_powered())
 		icon_state = "control_off"
 		set_light(0)
 	else if (enabled)
@@ -233,6 +219,8 @@
 		check_weapons = pick(0, 1)
 		check_access = pick(0, 0, 0, 0, 1)	// check_access is a pretty big deal, so it's least likely to get turned on
 		check_anomalies = pick(0, 1)
+		locked = pick(0, 1)
+		ailock = pick(0, 1)
 
 		enabled=0
 		updateTurrets()
@@ -245,7 +233,7 @@
 	..()
 
 
-/obj/machinery/turretid/malf_upgrade(var/mob/living/silicon/ai/user)
+/obj/machinery/turretid/malf_upgrade(mob/living/silicon/ai/user)
 	..()
 	malf_upgraded = 1
 	locked = 1

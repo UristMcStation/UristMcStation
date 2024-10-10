@@ -43,7 +43,7 @@
 	icon_state = "tiny"
 	icon_keyboard = "tiny_keyboard"
 	icon_screen = "lift"
-	density = 0
+	density = FALSE
 
 /obj/effect/shuttle_landmark/liftnerva/top
 	name = "Top Deck"
@@ -77,7 +77,7 @@
 /area/turbolift/main_first_deck
 	name = "First Deck"
 	base_turf = /turf/simulated/open
-	lift_announce_str = "Arriving at First Deck: AI Core. Docking Port. Security Checkpoint."
+	lift_announce_str = "Arriving at First Deck: AI Core. Docking Port. Security Checkpoint. Bluspace Drive."
 
 /obj/nerva_lift_map_holder
 	name = "turbolift map placeholder"
@@ -264,7 +264,7 @@
 		light2.set_dir(NORTH)
 
 		// Update area.
-		if(az > areas_to_use.len)
+		if(az > length(areas_to_use))
 			log_debug("Insufficient defined areas in turbolift datum, aborting.")
 			qdel(src)
 			return

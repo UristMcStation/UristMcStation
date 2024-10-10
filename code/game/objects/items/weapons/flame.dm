@@ -1,44 +1,33 @@
 //For anything that can light stuff on fire
-/obj/item/weapon/flame
+/obj/item/flame
 	waterproof = FALSE
 	var/lit = 0
 
-/obj/item/weapon/flame/afterattack(var/obj/O, var/mob/user, proximity)
+/obj/item/flame/afterattack(obj/O, mob/user, proximity)
 	..()
 	if(proximity && lit && istype(O))
 		O.HandleObjectHeating(src, user, 700)
 
-/obj/item/weapon/flame/proc/extinguish(var/mob/user, var/no_message)
+/obj/item/flame/proc/extinguish(mob/user, no_message)
 	lit = 0
-	damtype = "brute"
+	damtype = DAMAGE_BRUTE
 	STOP_PROCESSING(SSobj, src)
 
-/obj/item/weapon/flame/water_act(var/depth)
+/obj/item/flame/water_act(depth)
 	..()
 	if(!waterproof && lit)
 		if(submerged(depth))
 			extinguish(no_message = TRUE)
 
-/proc/isflamesource(var/atom/A)
-	if(!istype(A))
-		return FALSE
-	if(isWelder(A))
-		var/obj/item/weapon/weldingtool/WT = A
-		return (WT.isOn())
-	else if(istype(A, /obj/item/weapon/flame))
-		var/obj/item/weapon/flame/F = A
-		return (F.lit)
-	else if(istype(A, /obj/item/clothing/mask/smokable) && !istype(A, /obj/item/clothing/mask/smokable/pipe))
-		var/obj/item/clothing/mask/smokable/S = A
-		return (S.lit)
-	else if(istype(A, /obj/item/device/assembly/igniter))
-		return TRUE
-	return FALSE
+
+/obj/item/flame/IsFlameSource()
+	return lit
+
 
 ///////////
 //MATCHES//
 ///////////
-/obj/item/weapon/flame/match
+/obj/item/flame/match
 	name = "match"
 	desc = "A simple match stick, used for lighting fine smokables."
 	icon = 'icons/obj/cigarettes.dmi'
@@ -49,8 +38,10 @@
 	origin_tech = list(TECH_MATERIAL = 1)
 	slot_flags = SLOT_EARS
 	attack_verb = list("burnt", "singed")
+	item_flags = ITEM_FLAG_CAN_HIDE_IN_SHOES
 
-/obj/item/weapon/flame/match/Process()
+/obj/item/flame/match/Process()
+	set_light(0.4, 0.3, 2, l_color = COLOR_WARM_YELLOW )
 	if(isliving(loc))
 		var/mob/living/M = loc
 		M.IgniteMob()
@@ -62,7 +53,7 @@
 	if(location)
 		location.hotspot_expose(700, 5)
 
-/obj/item/weapon/flame/match/dropped(var/mob/user)
+/obj/item/flame/match/dropped(mob/user)
 	//If dropped, put ourselves out
 	//not before lighting up the turf we land on, though.
 	if(lit)
@@ -72,15 +63,20 @@
 		extinguish()
 	return ..()
 
-/obj/item/weapon/flame/match/extinguish(var/mob/user, var/no_message)
+/obj/item/flame/match/extinguish(mob/user, no_message)
 	. = ..()
 	name = "burnt match"
 	desc = "A match. This one has seen better days."
 	burnt = 1
+	set_light(0)
 	update_icon()
 
-/obj/item/weapon/flame/match/on_update_icon()
+/obj/item/flame/match/on_update_icon()
 	..()
 	if(burnt)
 		icon_state = "match_burnt"
 		item_state = "cigoff"
+
+
+/obj/item/flame/match/IsHeatSource()
+	return lit ? 1000 : 0

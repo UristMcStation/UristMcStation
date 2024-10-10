@@ -1,6 +1,7 @@
 /datum/event/meteor_wave
 	startWhen		= 30	// About one minute early warning
 	endWhen 		= 60	// Adjusted automatically in tick()
+	has_skybox_image = TRUE
 	var/alarmWhen   = 30
 	var/next_meteor = 40
 	var/waves = 1
@@ -8,6 +9,10 @@
 	var/next_meteor_lower = 10
 	var/next_meteor_upper = 20
 
+/datum/event/meteor_wave/get_skybox_image()
+	var/image/res = overlay_image('icons/skybox/rockbox.dmi', "rockbox", COLOR_ASTEROID_ROCK, RESET_COLOR)
+	res.blend_mode = BLEND_OVERLAY
+	return res
 
 /datum/event/meteor_wave/setup()
 	waves = 0
@@ -63,7 +68,7 @@
 		else
 			return meteors_minor
 
-/var/list/meteors_minor = list(
+var/global/list/meteors_minor = list(
 	/obj/effect/meteor/medium     = 80,
 	/obj/effect/meteor/dust       = 30,
 	/obj/effect/meteor/irradiated = 30,
@@ -73,7 +78,7 @@
 	/obj/effect/meteor/silver     = 10,
 )
 
-/var/list/meteors_moderate = list(
+var/global/list/meteors_moderate = list(
 	/obj/effect/meteor/medium     = 80,
 	/obj/effect/meteor/big        = 30,
 	/obj/effect/meteor/dust       = 30,
@@ -84,7 +89,7 @@
 	/obj/effect/meteor/emp        = 10,
 )
 
-/var/list/meteors_major = list(
+var/global/list/meteors_major = list(
 	/obj/effect/meteor/medium     = 80,
 	/obj/effect/meteor/big        = 30,
 	/obj/effect/meteor/dust       = 30,
@@ -100,7 +105,7 @@
 	next_meteor_lower = 5
 	next_meteor_upper = 10
 	next_meteor = 0
-	var/obj/effect/overmap/ship/victim
+	var/obj/effect/overmap/visitable/ship/victim
 
 /datum/event/meteor_wave/overmap/Destroy()
 	victim = null
@@ -111,11 +116,10 @@
 		start_side = prob(90) ? victim.fore_dir : pick(GLOB.cardinal)
 	else //Unless you're standing
 		start_side = pick(GLOB.cardinal)
-	..()
 
 /datum/event/meteor_wave/overmap/get_wave_size()
 	. = ..()
-	if(!victim)
+	if (!victim)
 		return
 	if(victim.is_still()) //Standing still means less shit flies your way
 		. = round(. * 0.25)

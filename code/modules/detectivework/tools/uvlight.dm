@@ -1,6 +1,7 @@
 /obj/item/device/uv_light
 	name = "\improper UV light"
 	desc = "A small handheld black light."
+	icon = 'icons/obj/uv_light.dmi'
 	icon_state = "uv_off"
 	slot_flags = SLOT_BELT
 	w_class = ITEM_SIZE_SMALL
@@ -17,7 +18,7 @@
 	var/on = 0
 	var/step_alpha = 50
 
-/obj/item/device/uv_light/attack_self(var/mob/user)
+/obj/item/device/uv_light/attack_self(mob/user)
 	on = !on
 	if(on)
 		set_light(0.5, 0.1, range, 2, "#007fff")
@@ -30,20 +31,23 @@
 		icon_state = "uv_off"
 
 /obj/item/device/uv_light/proc/clear_last_scan()
-	if(scanned.len)
+	if(length(scanned))
 		for(var/atom/O in scanned)
 			O.set_invisibility(scanned[O])
-			if(O.fluorescent == 2) O.fluorescent = 1
+			if(O.fluorescent == ATOM_FLOURESCENCE_ACTVE)
+				O.fluorescent = ATOM_FLOURESCENCE_INACTIVE
 		scanned.Cut()
-	if(stored_alpha.len)
+	if(length(stored_alpha))
 		for(var/atom/O in stored_alpha)
 			O.alpha = stored_alpha[O]
-			if(O.fluorescent == 2) O.fluorescent = 1
+			if(O.fluorescent == ATOM_FLOURESCENCE_ACTVE)
+				O.fluorescent = ATOM_FLOURESCENCE_INACTIVE
 		stored_alpha.Cut()
-	if(reset_objects.len)
+	if(length(reset_objects))
 		for(var/obj/item/I in reset_objects)
 			I.overlays -= I.blood_overlay
-			if(I.fluorescent == 2) I.fluorescent = 1
+			if(I.fluorescent == ATOM_FLOURESCENCE_ACTVE)
+				I.fluorescent = ATOM_FLOURESCENCE_INACTIVE
 		reset_objects.Cut()
 
 /obj/item/device/uv_light/Process()
@@ -56,8 +60,8 @@
 		for(var/turf/T in range(range, origin))
 			var/use_alpha = 255 - (step_alpha * get_dist(origin, T))
 			for(var/atom/A in T.contents)
-				if(A.fluorescent == 1)
-					A.fluorescent = 2 //To prevent light crosstalk.
+				if(A.fluorescent == ATOM_FLOURESCENCE_INACTIVE)
+					A.fluorescent = ATOM_FLOURESCENCE_ACTVE
 					if(A.invisibility)
 						scanned[A] = A.invisibility
 						A.set_invisibility(0)

@@ -33,7 +33,7 @@
 		for(var/datum/gear_tweak/path/p in G.gear_tweaks)
 			path_tweaks += p
 
-		if(path_tweaks.len)
+		if(length(path_tweaks))
 			for(var/datum/gear_tweak/path/p in path_tweaks)
 				for(var/path_name in p.valid_paths)
 					var/path_type = p.valid_paths[path_name]
@@ -99,6 +99,26 @@
 		pass("All /datum/gear_tweak/path definitions had unique names.")
 	return  1
 
-/proc/type_has_valid_icon_state(var/atom/type)
+/proc/type_has_valid_icon_state(atom/type)
 	var/atom/A = type
 	return (initial(A.icon_state) in icon_states(initial(A.icon)))
+
+
+/datum/unit_test/loadout_custom_setup_tweaks_shall_have_valid_procs
+	name = "LOADOUT: Custom setup tweaks shall have valid procs"
+
+/datum/unit_test/loadout_custom_setup_tweaks_shall_have_valid_procs/start_test()
+	for(var/gear_name in gear_datums)
+		var/datum/gear/G = gear_datums[gear_name]
+		var/datum/instance
+		var/mob/user
+		for(var/datum/gear_tweak/custom_setup/cs in G.gear_tweaks)
+			instance = instance || new G.path()
+			user = user || new()
+			cs.tweak_item(user, instance)
+
+		QDEL_NULL(instance)
+		QDEL_NULL(user)
+
+	pass("Succesfully called all custom setup procs without runtimes")
+	return  1

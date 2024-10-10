@@ -10,103 +10,201 @@
 /obj/effect/paint/green_grey
 	color = "#8daf6a"
 
-/obj/structure/sign/directions/urist
-	name = "\improper Directions"
-	icon = 'icons/urist/decals/urist.dmi'
+/obj/effect/paint/red_deep
+	color = COLOR_DEEP_RED
 
-/obj/structure/sign/directions/urist/chapel
-	name = "\improper Chapel Directions"
-	icon_state = "direction_chapel"
+/obj/effect/paint_stripe/red_deep
+	color = COLOR_DEEP_RED
 
-/obj/structure/sign/directions/urist/janitor
-	name = "\improper Janitor Directions"
-	icon_state = "direction_janitor"
+//less washed out red
 
-/obj/structure/sign/directions/urist/eva
-	name = "\improper EVA Storage Directions"
-	icon_state = "direction_eva"
+/obj/effect/floor_decal/corner/red_deep
+	name = "red corner"
+	color = COLOR_DEEP_RED
 
-/obj/structure/sign/directions/urist/botany
-	name = "\improper Botanical Wing Directions"
-	icon_state = "direction_botany"
+/obj/effect/floor_decal/corner/red_deep/diagonal
+	icon_state = "corner_white_diagonal"
 
-/obj/structure/sign/directions/urist/atmos
-	name = "\improper Atmospheric Wing"
-	icon_state = "direction_atmos"
+/obj/effect/floor_decal/corner/red_deep/three_quarters
+	icon_state = "corner_white_three_quarters"
 
-/obj/structure/sign/directions/urist/antonine
-	name = "\improper Antonine Directions"
-	icon_state = "direction_antonine"
+/obj/effect/floor_decal/corner/red_deep/full
+	icon_state = "corner_white_full"
 
-/obj/structure/sign/directions/urist/trajan
-	name = "\improper Trajan Directions"
-	icon_state = "direction_trajan"
+/obj/effect/floor_decal/corner/red_deep/border
+	icon_state = "bordercolor"
 
-/obj/structure/sign/directions/urist/toolstorage
-	name = "\improper Tool Storage Directions"
-	icon_state = "direction_toolstorage"
+/obj/effect/floor_decal/corner/red_deep/half
+	icon_state = "bordercolorhalf"
 
-// Paintings:
+/obj/effect/floor_decal/corner/red_deep/mono
+	icon_state = "bordercolormonofull"
 
-/obj/structure/sign/painting
-	icon = 'icons/urist/decals/urist.dmi'
+/obj/effect/floor_decal/corner/red_deep/bordercorner
+	icon_state = "bordercolorcorner"
 
-/obj/structure/sign/painting/dogpoker
- 	name = "\improper dog painting"
- 	desc = "A painting of some dogs playing poker, wonder if Ian is in it."
- 	icon_state = "dogpoker"
+/obj/effect/floor_decal/corner/red_deep/bordercorner2
+	icon_state = "bordercolorcorner2"
 
-/obj/structure/sign/painting/starry
- 	name = "\improper beautiful landscape painting"
- 	desc = "A beautiful painting with swirling stars and a twisting skyline."
- 	icon_state = "starry"
+/obj/effect/floor_decal/corner/red_deep/borderfull
+	icon_state = "bordercolorfull"
 
-/obj/structure/sign/painting/snow
- 	name = "\improper snowy painting."
- 	desc = "A calming picture of a cabin surronded by velvety snow."
- 	icon_state = "snowy"
+/obj/effect/floor_decal/corner/red_deep/bordercee
+	icon_state = "bordercolorcee"
 
-/obj/structure/sign/painting/gogh
- 	name = "\improper portrait"
- 	desc = "An impressive self-portrait of an artist, dated many centuries ago."
- 	icon_state = "gogh"
 
-/obj/structure/sign/painting/bigwave
- 	name = "\improper tidal wave painting"
- 	desc = "A painting of a huge wave, written in an old ancient language you cannot seem to understand."
- 	icon_state = "wave"
 
-/obj/structure/sign/painting/desert
- 	name = "\improper desert painting"
- 	desc = "A picture of what appears to be bones cast out in the desert, it looks quite melancholy and haunting.."
- 	icon_state = "desert"
+//trimline hell
 
-/obj/structure/sign/painting/stillife
-	name = "\improper still-life painting"
-	desc = "A painting that shows what appears to be fruit on a table in great detail."
-	icon_state = "still"
+/obj/effect/floor_decal/trimline
+	alpha = 229
+	icon_state = "trimline_box"
+	icon = 'icons/urist/decals/floor_decals.dmi'
 
-/obj/structure/sign/painting/persistence
-	name = "\improper surreal painting"
-	desc = "A surreal painting focusing on clocks melting into the landscape, almost trippy to look at."
-	icon_state = "persistence"
+#define TRIMLINE_SUBTYPE_HELPER(path)\
+##path/line {\
+	icon_state = "trimline";\
+}\
+##path/corner {\
+	icon_state = "trimline_corner";\
+}\
+##path/end {\
+	icon_state = "trimline_end";\
+}\
+##path/arrow_cw {\
+	icon_state = "trimline_arrow_cw";\
+}\
+##path/arrow_ccw {\
+	icon_state = "trimline_arrow_ccw";\
+}\
+##path/warning {\
+	icon_state = "trimline_warn";\
+}\
+##path/mid_joiner {\
+	icon_state = "trimline_mid";\
+}\
+##path/filled {\
+	icon_state = "trimline_box_fill";\
+}\
+##path/filled/line {\
+	icon_state = "trimline_fill";\
+}\
+##path/filled/halfline {\
+	icon_state = "trimline_half_fill";\
+}\
+##path/filled/corner {\
+	icon_state = "trimline_corner_fill";\
+}\
+##path/filled/end {\
+	icon_state = "trimline_end_fill";\
+}\
+##path/filled/arrow_cw {\
+	icon_state = "trimline_arrow_cw_fill";\
+}\
+##path/filled/arrow_ccw {\
+	icon_state = "trimline_arrow_ccw_fill";\
+}\
+##path/filled/warning {\
+	icon_state = "trimline_warn_fill";\
+}\
+##path/filled/mid_joiner {\
+	icon_state = "trimline_mid_fill";\
+}\
+##path/filled/shrink_cw {\
+	icon_state = "trimline_shrink_cw";\
+}\
+##path/filled/shrink_ccw {\
+	icon_state = "trimline_shrink_ccw";\
+}
 
-/obj/structure/sign/painting/sonofman
-	name = "\improper surreal portrait"
-	desc = "A strange surreal painting of a man with an apple for a face. Sounds like something Botany would do."
-	icon_state = "sonman"
+/// black trimlines
+/obj/effect/floor_decal/trimline/black
+	color = "#333333"
 
-/obj/structure/sign/painting/scream
- 	name = "\improper eerie painting"
- 	desc = "An odd picture showing a figure with his hands clasped over his face, screaming in a cacophony of agony, disturbing."
- 	icon_state = "thescream"
+TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/black)
 
-/obj/structure/sign/painting/skeleton
- 	name = "\improper skeleton portrait"
- 	desc = "A painting of a skeleton smoking a ciggarette."
- 	icon_state = "skeletoncig"
+/// White trimlines
+/obj/effect/floor_decal/trimline/white
+	color = COLOR_WHITE
 
-/obj/structure/sign/painting/isleofthedead
- 	name = "\improper dreamy isle painting"
- 	desc = "An painting depicting a surreal dreamscape island, with a small boat arriving. It feels melancholy."
- 	icon_state = "isleofthedead"
+TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/white)
+
+/// Red trimlines
+/obj/effect/floor_decal/trimline/red
+	color = COLOR_RED_GRAY
+
+TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/red)
+
+/// deep red trimlines
+/obj/effect/floor_decal/trimline/red_deep
+	color = COLOR_DEEP_RED
+
+TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/red_deep)S
+
+/// pink trimlines
+/obj/effect/floor_decal/trimline/pink
+	color = COLOR_PALE_RED_GRAY
+
+TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/pink)
+
+/// Green trimlines
+/obj/effect/floor_decal/trimline/green
+	color = COLOR_GREEN_GRAY
+
+TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/green)
+
+/// Blue trimlines
+/obj/effect/floor_decal/trimline/blue
+	color = COLOR_BLUE_GRAY
+
+TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/blue)
+
+/// Pale Blue trimlines
+/obj/effect/floor_decal/trimline/paleblue
+	color = COLOR_PALE_BLUE_GRAY
+
+TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/paleblue)
+
+/// Dark blue trimlines
+/obj/effect/floor_decal/trimline/dark_blue
+	color = "#3f48cc"
+
+TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/dark_blue)
+
+/// Faded blue trimlines
+/obj/effect/floor_decal/trimline/fadeblue
+	color = "#4f637d"
+
+TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/fadeblue)
+
+/// Yellow trimlines
+/obj/effect/floor_decal/trimline/yellow
+	color = COLOR_BROWN
+
+TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/yellow)
+
+/// Purple trimlines
+/obj/effect/floor_decal/trimline/purple
+	color = COLOR_PURPLE_GRAY
+
+TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/purple)
+
+/// Beige trimlines
+/obj/effect/floor_decal/trimline/brown
+	color = COLOR_BEIGE
+
+TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/brown)
+
+/// grey trimlines
+/obj/effect/floor_decal/trimline/grey
+	color = "#8d8c8c"
+
+TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/grey)
+
+/// light grey trimlines
+/obj/effect/floor_decal/trimline/lightgrey
+	color = "#a8b2b6"
+
+TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/lightgrey)
+
+#undef TRIMLINE_SUBTYPE_HELPER

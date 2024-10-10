@@ -22,8 +22,9 @@
 			if(up && down)	//if both our connections are filled
 				break
 		update_icon()
+	..()
 
-/obj/structure/fakeladder/update_icon()
+/obj/structure/fakeladder/on_update_icon()
 	if(up && down)
 		icon_state = "ladder11"
 
@@ -66,5 +67,5 @@
 
 	add_fingerprint(user)
 
-/obj/structure/fakeladder/attackby(obj/item/weapon/W, mob/user as mob)
+/obj/structure/fakeladder/attackby(obj/item/W, mob/user as mob)
 	return attack_hand(user)

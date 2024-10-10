@@ -126,7 +126,8 @@ transit/east is the same thing now AFAIK
 	name = "catwalk"
 	update_icon(1)
 
-/turf/simulated/floor/plating/airless/catwalk/update_icon(var/propogate=1)
+/turf/simulated/floor/plating/airless/catwalk/on_update_icon()
+	var/propogate = 0
 	underlays.Cut()
 	underlays += new /icon('icons/turf/space.dmi',"[((x + y) ^ ~(x * y) + z) % 25]")
 
@@ -144,14 +145,14 @@ transit/east is the same thing now AFAIK
 /turf/simulated/floor/plating/airless/catwalk/attackby(obj/item/C as obj, mob/user as mob)
 	if(!C || !user)
 		return 0
-	if(istype(C, /obj/item/weapon/screwdriver))
+	if(isScrewdriver(C))
 		ReplaceWithLattice()
 		playsound(src, 'sound/items/Screwdriver.ogg', 80, 1)
 		return
 
-	if(istype(C, /obj/item/stack/cable_coil))
+	if(isCoil(C))
 		var/obj/item/stack/cable_coil/coil = C
-		coil.turf_place(src, user)
+		coil.PlaceCableOnTurf(src, user)
 
 /turf/simulated/floor/plating/airless/catwalk/is_catwalk()
 	return 1
@@ -201,11 +202,11 @@ transit/east is the same thing now AFAIK
 
 /turf/simulated/wall/false
 	can_open = 1
-	paint_color = COLOR_GUNMETAL
+	paint_color = COLOR_WALL_GUNMETAL
 
 /turf/simulated/wall/r_wall/false
 	can_open = 1
-	paint_color = COLOR_GUNMETAL
+	paint_color = COLOR_WALL_GUNMETAL
 
 /turf/simulated/wall/r_wall/hull/false
 	can_open = 1
@@ -214,7 +215,7 @@ transit/east is the same thing now AFAIK
 	icon = 'icons/urist/turf/walls.dmi'
 	icon_state = "wood0"
 
-/turf/simulated/wall/wood/New(var/newloc)
+/turf/simulated/wall/wood/New(newloc)
 	..(newloc,"wood")
 
 //unsimulated floor w/ plating icon, for base-turf in hangars and such
@@ -238,6 +239,7 @@ transit/east is the same thing now AFAIK
 	name = "snow"
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snow"
+	has_snow = TRUE
 
 /turf/simulated/floor/plating/flaps //this is hacky, but it'll prevent the airtight flaps from resetting every time the ship takes off
 	blocks_air = 1
@@ -281,7 +283,7 @@ transit/east is the same thing now AFAIK
 	icon = 'icons/urist/turf/floorsplus.dmi'
 	icon_state = "innermiddle"
 
-/turf/simulated/floor/fixed/destroyedroad/attackby(var/obj/item/C, var/mob/user)
+/turf/simulated/floor/fixed/destroyedroad/attackby(obj/item/C, var/mob/user)
 	if(isCrowbar(C))
 		to_chat(user, "<span class='notice'>There aren't any openings big enough to pry it away...</span>")
 		return
@@ -299,6 +301,15 @@ transit/east is the same thing now AFAIK
 	light_falloff_curve = 0.5
 
 /turf/simulated/floor/fixed/destroyedroad/planet/Initialize()
-	light_color = SSskybox.BGcolor
+	light_color = SSskybox.background_color
 
 	. = ..()
+
+//lighter ship walls
+
+/turf/simulated/wall/r_wall/hull/white
+	name = "hull"
+	color = "#e3e3e3"
+
+/turf/simulated/wall/r_wall/hull/dark
+	color = "#3b494d"

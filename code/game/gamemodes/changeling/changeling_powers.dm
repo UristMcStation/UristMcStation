@@ -15,10 +15,15 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/purchasedpowers = list()
 	var/mimicing = ""
 
+/datum/changeling/Destroy()
+	purchasedpowers = null
+	absorbed_languages.Cut()
+	absorbed_dna.Cut()
+	. = ..()
 
 /datum/changeling/New()
 	..()
-	if(possible_changeling_IDs.len)
+	if(length(possible_changeling_IDs))
 		changelingID = pick(possible_changeling_IDs)
 		possible_changeling_IDs -= changelingID
 		changelingID = "[changelingID]"
@@ -29,12 +34,12 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	chem_charges = min(max(0, chem_charges+chem_recharge_rate), chem_storage)
 	geneticdamage = max(0, geneticdamage-1)
 
-/datum/changeling/proc/GetDNA(var/dna_owner)
+/datum/changeling/proc/GetDNA(dna_owner)
 	for(var/datum/absorbed_dna/DNA in absorbed_dna)
 		if(dna_owner == DNA.name)
 			return DNA
 
-/mob/proc/absorbDNA(var/datum/absorbed_dna/newDNA)
+/mob/proc/absorbDNA(datum/absorbed_dna/newDNA)
 	var/datum/changeling/changeling = null
 	if(src.mind && src.mind.changeling)
 		changeling = src.mind.changeling
@@ -56,11 +61,11 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	if(!mind.changeling)	mind.changeling = new /datum/changeling(gender)
 
 	verbs += /datum/changeling/proc/EvolutionMenu
-	add_language("Changeling")
+	add_language(LANGUAGE_CHANGELING_GLOBAL)
 
 	var/lesser_form = !ishuman(src)
 
-	if(!powerinstances.len)
+	if(!length(powerinstances))
 		for(var/P in powers)
 			powerinstances += new P()
 
@@ -95,44 +100,44 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 
 //Helper proc. Does all the checks and stuff for us to avoid copypasta
-/mob/proc/changeling_power(var/required_chems=0, var/required_dna=0, var/max_genetic_damage=100, var/max_stat=0)
+/mob/proc/changeling_power(required_chems=0, required_dna=0, max_genetic_damage=100, max_stat=0)
 
 	if(!src.mind)		return
 	if(!iscarbon(src))	return
 
 	var/datum/changeling/changeling = src.mind.changeling
 	if(!changeling)
-		world.log << "[src] has the changeling_transform() verb but is not a changeling."
+		to_world_log("[src] has the changeling_transform() verb but is not a changeling.")
 		return
 
 	if(src.stat > max_stat)
-		to_chat(src, "<span class='warning'>We are incapacitated.</span>")
+		to_chat(src, SPAN_WARNING("We are incapacitated."))
 		return
 
-	if(changeling.absorbed_dna.len < required_dna)
-		to_chat(src, "<span class='warning'>We require at least [required_dna] samples of compatible DNA.</span>")
+	if(length(changeling.absorbed_dna) < required_dna)
+		to_chat(src, SPAN_WARNING("We require at least [required_dna] samples of compatible DNA."))
 		return
 
 	if(changeling.chem_charges < required_chems)
-		to_chat(src, "<span class='warning'>We require at least [required_chems] units of chemicals to do that!</span>")
+		to_chat(src, SPAN_WARNING("We require at least [required_chems] units of chemicals to do that!"))
 		return
 
 	if(changeling.geneticdamage > max_genetic_damage)
-		to_chat(src, "<span class='warning'>Our genomes are still reassembling. We need time to recover first.</span>")
+		to_chat(src, SPAN_WARNING("Our genomes are still reassembling. We need time to recover first."))
 		return
 
 	return changeling
 
 
 //Used to dump the languages from the changeling datum into the actual mob.
-/mob/proc/changeling_update_languages(var/updated_languages)
+/mob/proc/changeling_update_languages(updated_languages)
 
 	languages = list()
 	for(var/language in updated_languages)
 		languages += language
 
 	//This isn't strictly necessary but just to be safe...
-	add_language("Changeling")
+	add_language(LANGUAGE_CHANGELING_GLOBAL)
 
 	return
 
@@ -147,57 +152,55 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 	var/obj/item/grab/G = src.get_active_hand()
 	if(!istype(G))
-		to_chat(src, "<span class='warning'>We must be grabbing a creature in our active hand to absorb them.</span>")
+		to_chat(src, SPAN_WARNING("We must be grabbing a creature in our active hand to absorb them."))
 		return
 
 	var/mob/living/carbon/human/T = G.affecting
 	if(!istype(T))
-		to_chat(src, "<span class='warning'>[T] is not compatible with our biology.</span>")
+		to_chat(src, SPAN_WARNING("[T] is not compatible with our biology."))
 		return
 
-	if(T.species.species_flags & SPECIES_FLAG_NO_SCAN)
-		to_chat(src, "<span class='warning'>We cannot extract DNA from this creature!</span>")
+	if((T.species.species_flags & SPECIES_FLAG_NO_SCAN) || T.isSynthetic())
+		to_chat(src, SPAN_WARNING("We cannot extract DNA from this creature!"))
 		return
 
 	if(MUTATION_HUSK in T.mutations)
-		to_chat(src, "<span class='warning'>This creature's DNA is ruined beyond useability!</span>")
+		to_chat(src, SPAN_WARNING("This creature's DNA is ruined beyond useability!"))
 		return
 
 	if(!G.can_absorb())
-		to_chat(src, "<span class='warning'>We must have a tighter grip to absorb this creature.</span>")
+		to_chat(src, SPAN_WARNING("We must have a tighter grip to absorb this creature."))
 		return
 
 	if(changeling.isabsorbing)
-		to_chat(src, "<span class='warning'>We are already absorbing!</span>")
+		to_chat(src, SPAN_WARNING("We are already absorbing!"))
 		return
 
 	var/obj/item/organ/external/affecting = T.get_organ(src.zone_sel.selecting)
 	if(!affecting)
-		to_chat(src, "<span class='warning'>They are missing that body part!</span>")
+		to_chat(src, SPAN_WARNING("They are missing that body part!"))
 
 	changeling.isabsorbing = 1
 	for(var/stage = 1, stage<=3, stage++)
 		switch(stage)
 			if(1)
-				to_chat(src, "<span class='notice'>This creature is compatible. We must hold still...</span>")
+				to_chat(src, SPAN_NOTICE("This creature is compatible. We must hold still..."))
 			if(2)
-				to_chat(src, "<span class='notice'>We extend a proboscis.</span>")
-				src.visible_message("<span class='warning'>[src] extends a proboscis!</span>")
+				to_chat(src, SPAN_NOTICE("We extend a proboscis."))
+				src.visible_message(SPAN_WARNING("[src] extends a proboscis!"))
 			if(3)
-				to_chat(src, "<span class='notice'>We stab [T] with the proboscis.</span>")
-				src.visible_message("<span class='danger'>[src] stabs [T] with the proboscis!</span>")
-				to_chat(T, "<span class='danger'>You feel a sharp stabbing pain!</span>")
-				affecting.take_external_damage(39, 0, DAM_SHARP, "large organic needle")
-
-		SSstatistics.add_field_details("changeling_powers","A[stage]")
-		if(!do_mob(src, T, 150))
-			to_chat(src, "<span class='warning'>Our absorption of [T] has been interrupted!</span>")
+				to_chat(src, SPAN_NOTICE("We stab [T] with the proboscis."))
+				src.visible_message(SPAN_DANGER("[src] stabs [T] with the proboscis!"))
+				to_chat(T, SPAN_DANGER("You feel a sharp stabbing pain!"))
+				affecting.take_external_damage(39, 0, DAMAGE_FLAG_SHARP, "large organic needle")
+		if(!do_after(src, 15 SECONDS, T, DO_PUBLIC_UNIQUE))
+			to_chat(src, SPAN_WARNING("Our absorption of [T] has been interrupted!"))
 			changeling.isabsorbing = 0
 			return
 
-	to_chat(src, "<span class='notice'>We have absorbed [T]!</span>")
-	src.visible_message("<span class='danger'>[src] sucks the fluids from [T]!</span>")
-	to_chat(T, "<span class='danger'>You have been absorbed by the changeling!</span>")
+	to_chat(src, SPAN_NOTICE("We have absorbed [T]!"))
+	src.visible_message(SPAN_DANGER("[src] sucks the fluids from [T]!"))
+	to_chat(T, SPAN_DANGER("You have been absorbed by the changeling!"))
 	changeling.chem_charges += 10
 	changeling.geneticpoints += 2
 
@@ -208,12 +211,11 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 	changeling_update_languages(changeling.absorbed_languages)
 
-	var/datum/absorbed_dna/newDNA = new(T.real_name, T.dna, T.species.name, T.languages)
+	var/datum/absorbed_dna/newDNA = new(T.real_name, T.dna, T.species.name, T.languages, T.pronouns)
 	absorbDNA(newDNA)
+
 	if(mind && T.mind)
-		mind.store_memory("[T.real_name]'s memories:")
-		mind.store_memory(T.mind.memory)
-		mind.store_memory("<hr>")
+		T.mind.CopyMemories(mind)
 
 	if(T.mind && T.mind.changeling)
 		if(T.mind.changeling.absorbed_dna)
@@ -222,7 +224,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 					continue
 				absorbDNA(dna_data)
 				changeling.absorbedcount++
-			T.mind.changeling.absorbed_dna.len = 1
+			T.mind.changeling.absorbed_dna.Cut(2)
 
 		if(T.mind.changeling.purchasedpowers)
 			for(var/datum/power/changeling/Tp in T.mind.changeling.purchasedpowers)
@@ -276,13 +278,13 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/datum/species/S_dat = all_species[S_name]
 	var/changeTime = 2 SECONDS
 	if(mob_size != S_dat.mob_size)
-		src.visible_message("<span class='warning'>[src]'s body begins to twist, their mass changing rapidly!</span>")
+		src.visible_message(SPAN_WARNING("[src]'s body begins to twist, their mass changing rapidly!"))
 		changeTime = 8 SECONDS
 	else
-		src.visible_message("<span class='warning'>[src]'s body begins to twist, changing rapidly!</span>")
+		src.visible_message(SPAN_WARNING("[src]'s body begins to twist, changing rapidly!"))
 
-	if(!do_after(src, changeTime))
-		to_chat(src, "<span class='notice'>You fail to change shape.</span>")
+	if(!do_after(src, changeTime, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT))
+		to_chat(src, SPAN_NOTICE("You fail to change shape."))
 		return
 	handle_changeling_transform(chosen_dna)
 
@@ -291,16 +293,15 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		src.verbs += /mob/proc/changeling_transform
 
 	changeling_update_languages(changeling.absorbed_languages)
-
-	SSstatistics.add_field_details("changeling_powers","TR")
 	return 1
 
-/mob/proc/handle_changeling_transform(var/datum/absorbed_dna/chosen_dna)
-	src.visible_message("<span class='warning'>[src] transforms!</span>")
+/mob/proc/handle_changeling_transform(datum/absorbed_dna/chosen_dna)
+	src.visible_message(SPAN_WARNING("[src] transforms!"))
 
 	src.dna = chosen_dna.dna
 	src.real_name = chosen_dna.name
 	src.flavor_text = ""
+	src.pronouns = chosen_dna.pronouns
 
 	if(ishuman(src))
 		var/mob/living/carbon/human/H = src
@@ -322,21 +323,20 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	if(!changeling)	return
 
 	if(src.has_brain_worms())
-		to_chat(src, "<span class='warning'>We cannot perform this ability at the present time!</span>")
+		to_chat(src, SPAN_WARNING("We cannot perform this ability at the present time!"))
 		return
 
 	var/mob/living/carbon/human/H = src
 
 	if(!istype(H) || !H.species.primitive_form)
-		to_chat(src, "<span class='warning'>We cannot perform this ability in this form!</span>")
+		to_chat(src, SPAN_WARNING("We cannot perform this ability in this form!"))
 		return
 
 	changeling.chem_charges--
-	H.visible_message("<span class='warning'>[H] transforms!</span>")
+	H.visible_message(SPAN_WARNING("[H] transforms!"))
 	changeling.geneticdamage = 30
-	to_chat(H, "<span class='warning'>Our genes cry out!</span>")
+	to_chat(H, SPAN_WARNING("Our genes cry out!"))
 	H = H.monkeyize()
-	SSstatistics.add_field_details("changeling_powers","LF")
 	return 1
 
 //Transform into a human
@@ -365,11 +365,11 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 	changeling.chem_charges--
 	C.remove_changeling_powers()
-	C.visible_message("<span class='warning'>[C] transforms!</span>")
+	C.visible_message(SPAN_WARNING("[C] transforms!"))
 	C.dna = chosen_dna.Clone()
 
 	var/list/implants = list()
-	for (var/obj/item/weapon/implant/I in C) //Still preserving implants
+	for (var/obj/item/implant/I in C) //Still preserving implants
 		implants += I
 
 	ADD_TRANSFORMATION_MOVEMENT_HANDLER(C)
@@ -407,15 +407,13 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	O.setOxyLoss(C.getOxyLoss())
 	O.adjustFireLoss(C.getFireLoss())
 	O.set_stat(C.stat)
-	for (var/obj/item/weapon/implant/I in implants)
+	for (var/obj/item/implant/I in implants)
 		I.forceMove(O)
 		I.implanted = O
 
 	C.mind.transfer_to(O)
 	O.make_changeling()
 	O.changeling_update_languages(changeling.absorbed_languages)
-
-	SSstatistics.add_field_details("changeling_powers","LFT")
 	qdel(C)
 	return 1
 
@@ -431,7 +429,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/mob/living/carbon/C = src
 	if(!C.stat && alert("Are we sure we wish to fake our death?",,"Yes","No") == "No")//Confirmation for living changelings if they want to fake their death
 		return
-	to_chat(C, "<span class='notice'>We will attempt to regenerate our form.</span>")
+	to_chat(C, SPAN_NOTICE("We will attempt to regenerate our form."))
 	C.status_flags |= FAKEDEATH		//play dead
 	C.UpdateLyingBuckledAndVerbStatus()
 	C.remove_changeling_powers()
@@ -443,10 +441,8 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 			// charge the changeling chemical cost for stasis
 			changeling.chem_charges -= 20
 
-			to_chat(C, "<span class='notice'><font size='5'>We are ready to rise.  Use the <b>Revive</b> verb when you are ready.</font></span>")
+			to_chat(C, SPAN_NOTICE(FONT_GIANT("We are ready to rise.  Use the <b>Revive</b> verb when you are ready.")))
 			C.verbs += /mob/proc/changeling_revive
-
-	SSstatistics.add_field_details("changeling_powers","FD")
 	return 1
 
 /mob/proc/changeling_revive()
@@ -463,7 +459,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	// re-add out changeling powers
 	C.make_changeling()
 	// sending display messages
-	to_chat(C, "<span class='notice'>We have regenerated.</span>")
+	to_chat(C, SPAN_NOTICE("We have regenerated."))
 	C.verbs -= /mob/proc/changeling_revive
 
 
@@ -476,11 +472,10 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/datum/changeling/changeling = changeling_power(10,0,100)
 	if(!changeling)	return 0
 	changeling.chem_charges -= 10
-	to_chat(src, "<span class='notice'>Your throat adjusts to launch the sting.</span>")
+	to_chat(src, SPAN_NOTICE("Your throat adjusts to launch the sting."))
 	changeling.sting_range = 2
 	src.verbs -= /mob/proc/changeling_boost_range
 	spawn(5)	src.verbs += /mob/proc/changeling_boost_range
-	SSstatistics.add_field_details("changeling_powers","RS")
 	return 1
 
 
@@ -504,7 +499,6 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 	src.verbs -= /mob/proc/changeling_unstun
 	spawn(5)	src.verbs += /mob/proc/changeling_unstun
-	SSstatistics.add_field_details("changeling_powers","UNS")
 	return 1
 
 
@@ -529,8 +523,8 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	if(!changeling)	return 0
 
 	var/mob/living/carbon/human/C = src
-	if(C.digitalcamo)	to_chat(C, "<span class='notice'>We return to normal.</span>")
-	else				to_chat(C, "<span class='notice'>We distort our form to prevent AI-tracking.</span>")
+	if(C.digitalcamo)	to_chat(C, SPAN_NOTICE("We return to normal."))
+	else				to_chat(C, SPAN_NOTICE("We distort our form to prevent AI-tracking."))
 	C.digitalcamo = !C.digitalcamo
 
 	spawn(0)
@@ -540,7 +534,6 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 	src.verbs -= /mob/proc/changeling_digitalcamo
 	spawn(5)	src.verbs += /mob/proc/changeling_digitalcamo
-	SSstatistics.add_field_details("changeling_powers","CAM")
 	return 1
 
 
@@ -566,12 +559,11 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 	src.verbs -= /mob/proc/changeling_rapidregen
 	spawn(5)	src.verbs += /mob/proc/changeling_rapidregen
-	SSstatistics.add_field_details("changeling_powers","RR")
 	return 1
 
 // HIVE MIND UPLOAD/DOWNLOAD DNA
 
-var/list/datum/absorbed_dna/hivemind_bank = list()
+var/global/list/datum/absorbed_dna/hivemind_bank = list()
 
 /mob/proc/changeling_hiveupload()
 	set category = "Changeling"
@@ -591,8 +583,8 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 		if(valid)
 			names += DNA.name
 
-	if(names.len <= 0)
-		to_chat(src, "<span class='notice'>The airwaves already have all of our DNA.</span>")
+	if(length(names) <= 0)
+		to_chat(src, SPAN_NOTICE("The airwaves already have all of our DNA."))
 		return
 
 	var/S = input("Select a DNA to channel: ", "Channel DNA", null) as null|anything in names
@@ -605,13 +597,12 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	var/datum/species/spec = all_species[chosen_dna.speciesName]
 
 	if(spec && spec.species_flags & SPECIES_FLAG_NEED_DIRECT_ABSORB)
-		to_chat(src, "<span class='notice'>That species must be absorbed directly.</span>")
+		to_chat(src, SPAN_NOTICE("That species must be absorbed directly."))
 		return
 
 	changeling.chem_charges -= 10
 	hivemind_bank += chosen_dna
-	to_chat(src, "<span class='notice'>We channel the DNA of [S] to the air.</span>")
-	SSstatistics.add_field_details("changeling_powers","HU")
+	to_chat(src, SPAN_NOTICE("We channel the DNA of [S] to the air."))
 	return 1
 
 /mob/proc/changeling_hivedownload()
@@ -627,8 +618,8 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 		if(!(changeling.GetDNA(DNA.name)))
 			names[DNA.name] = DNA
 
-	if(names.len <= 0)
-		to_chat(src, "<span class='notice'>There's no new DNA to absorb from the air.</span>")
+	if(length(names) <= 0)
+		to_chat(src, SPAN_NOTICE("There's no new DNA to absorb from the air."))
 		return
 
 	var/S = input("Select a DNA absorb from the air: ", "Absorb DNA", null) as null|anything in names
@@ -639,8 +630,7 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 
 	changeling.chem_charges -= 20
 	absorbDNA(chosen_dna)
-	to_chat(src, "<span class='notice'>We absorb the DNA of [S] from the air.</span>")
-	SSstatistics.add_field_details("changeling_powers","HD")
+	to_chat(src, SPAN_NOTICE("We absorb the DNA of [S] from the air."))
 	return 1
 
 // Fake Voice
@@ -656,7 +646,7 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 
 	if(changeling.mimicing)
 		changeling.mimicing = ""
-		to_chat(src, "<span class='notice'>We return our vocal glands to their original location.</span>")
+		to_chat(src, SPAN_NOTICE("We return our vocal glands to their original location."))
 		return
 
 	var/mimic_voice = sanitize(input(usr, "Enter a name to mimic.", "Mimic Voice", null), MAX_NAME_LEN)
@@ -665,9 +655,8 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 
 	changeling.mimicing = mimic_voice
 
-	to_chat(src, "<span class='notice'>We shape our glands to take the voice of <b>[mimic_voice]</b>, this will stop us from regenerating chemicals while active.</span>")
-	to_chat(src, "<span class='notice'>Use this power again to return to our original voice and reproduce chemicals again.</span>")
-	SSstatistics.add_field_details("changeling_powers","MV")
+	to_chat(src, SPAN_NOTICE("We shape our glands to take the voice of <b>[mimic_voice]</b>, this will stop us from regenerating chemicals while active."))
+	to_chat(src, SPAN_NOTICE("Use this power again to return to our original voice and reproduce chemicals again."))
 
 	spawn(0)
 		while(src && src.mind && src.mind.changeling && src.mind.changeling.mimicing)
@@ -683,16 +672,16 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	if(M.loc == src.loc)
 		return 1 //target and source are in the same thing
 	if(!isturf(src.loc) || !isturf(M.loc))
-		to_chat(src, "<span class='warning'>We cannot reach \the [M] with a sting!</span>")
+		to_chat(src, SPAN_WARNING("We cannot reach \the [M] with a sting!"))
 		return 0 //One is inside, the other is outside something.
 	// Maximum queued turfs set to 25; I don't *think* anything raises sting_range above 2, but if it does the 25 may need raising
 	if(!AStar(src.loc, M.loc, /turf/proc/AdjacentTurfs, /turf/proc/Distance, max_nodes=25, max_node_depth=sting_range)) //If we can't find a path, fail
-		to_chat(src, "<span class='warning'>We cannot find a path to sting \the [M] by!</span>")
+		to_chat(src, SPAN_WARNING("We cannot find a path to sting \the [M] by!"))
 		return 0
 	return 1
 
 //Handles the general sting code to reduce on copypasta (seeming as somebody decided to make SO MANY dumb abilities)
-/mob/proc/changeling_sting(var/required_chems=0, var/verb_path, var/loud)
+/mob/proc/changeling_sting(required_chems=0, verb_path, loud, sting_name = "unnamed sting")
 	var/datum/changeling/changeling = changeling_power(required_chems)
 	if(!changeling)								return
 
@@ -707,25 +696,26 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	if(!changeling_power(required_chems)) return
 	var/obj/item/organ/external/target_limb = T.get_organ(src.zone_sel.selecting)
 	if (!target_limb)
-		to_chat(src, "<span class='warning'>[T] is missing that limb.</span>")
+		to_chat(src, SPAN_WARNING("[T] is missing that limb."))
 		return
 	changeling.chem_charges -= required_chems
 	changeling.sting_range = 1
 	src.verbs -= verb_path
 	spawn(10)	src.verbs += verb_path
 	if(!loud)
-		to_chat(src, "<span class='notice'>We stealthily sting [T].</span>")
+		to_chat(src, SPAN_NOTICE("We stealthily sting [T]."))
 	else
-		visible_message("<span class='danger'>[src] fires an organic shard into [T]!</span>")
+		visible_message(SPAN_DANGER("[src] fires an organic shard into [T]!"))
+	admin_attack_log(src, T, "Stung their victim using [sting_name]", "Was stung using [sting_name]", "stung using [sting_name]")
 
 	for(var/obj/item/clothing/clothes in list(T.head, T.wear_mask, T.wear_suit, T.w_uniform, T.gloves, T.shoes))
 		if(istype(clothes) && (clothes.body_parts_covered & target_limb.body_part) && (clothes.item_flags & ITEM_FLAG_THICKMATERIAL))
-			to_chat(src, "<span class='warning'>[T]'s armor has protected them.</span>")
+			to_chat(src, SPAN_WARNING("[T]'s armor has protected them."))
 			return //thick clothes will protect from the sting
 
 	if(T.isSynthetic() || BP_IS_ROBOTIC(target_limb)) return
 	if(!T.mind || !T.mind.changeling) return T	//T will be affected by the sting
-	to_chat(T, "<span class='warning'>You feel a tiny prick.</span>")
+	to_chat(T, SPAN_WARNING("You feel a tiny prick."))
 	return
 
 
@@ -734,11 +724,10 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	set name = "Hallucination Sting (15)"
 	set desc = "Causes terror in the target."
 
-	var/mob/living/carbon/human/T = changeling_sting(15,/mob/proc/changeling_lsdsting)
+	var/mob/living/carbon/human/T = changeling_sting(15, /mob/proc/changeling_lsdsting, sting_name = "Hallucination Sting")
 	if(!T)	return 0
 	spawn(rand(300,600))
 		if(T)	T.hallucination(400, 80)
-	SSstatistics.add_field_details("changeling_powers","HS")
 	return 1
 
 /mob/proc/changeling_silence_sting()
@@ -746,10 +735,9 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	set name = "Silence sting (10)"
 	set desc="Sting target"
 
-	var/mob/living/carbon/human/T = changeling_sting(10,/mob/proc/changeling_silence_sting)
+	var/mob/living/carbon/human/T = changeling_sting(10,/mob/proc/changeling_silence_sting, sting_name = "Silence Sting")
 	if(!T)	return 0
 	T.silent += 30
-	SSstatistics.add_field_details("changeling_powers","SS")
 	return 1
 
 /mob/proc/changeling_blind_sting()
@@ -757,14 +745,13 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	set name = "Blind sting (20)"
 	set desc="Sting target"
 
-	var/mob/living/carbon/human/T = changeling_sting(20,/mob/proc/changeling_blind_sting)
+	var/mob/living/carbon/human/T = changeling_sting(20,/mob/proc/changeling_blind_sting, sting_name = "Blind Sting")
 	if(!T)	return 0
-	to_chat(T, "<span class='danger'>Your eyes burn horrificly!</span>")
+	to_chat(T, SPAN_DANGER("Your eyes burn horrificly!"))
 	T.disabilities |= NEARSIGHTED
 	spawn(300)	T.disabilities &= ~NEARSIGHTED
 	T.eye_blind = 10
 	T.eye_blurry = 20
-	SSstatistics.add_field_details("changeling_powers","BS")
 	return 1
 
 /mob/proc/changeling_deaf_sting()
@@ -772,11 +759,10 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	set name = "Deaf sting (5)"
 	set desc="Sting target:"
 
-	var/mob/living/carbon/human/T = changeling_sting(5,/mob/proc/changeling_deaf_sting)
+	var/mob/living/carbon/human/T = changeling_sting(5,/mob/proc/changeling_deaf_sting, sting_name = "Deaf Sting")
 	if(!T)	return 0
-	to_chat(T, "<span class='danger'>Your ears pop and begin ringing loudly!</span>")
+	to_chat(T, SPAN_DANGER("Your ears pop and begin ringing loudly!"))
 	T.ear_deaf += 15
-	SSstatistics.add_field_details("changeling_powers","DS")
 	return 1
 
 /mob/proc/changeling_DEATHsting()
@@ -785,12 +771,11 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	set desc = "Causes spasms onto death."
 	var/loud = 1
 
-	var/mob/living/carbon/human/T = changeling_sting(40,/mob/proc/changeling_DEATHsting,loud)
+	var/mob/living/carbon/human/T = changeling_sting(40,/mob/proc/changeling_DEATHsting,loud, sting_name = "Death Sting")
 	if(!T)	return 0
-	to_chat(T, "<span class='danger'>You feel a small prick and your chest becomes tight.</span>")
+	to_chat(T, SPAN_DANGER("You feel a small prick and your chest becomes tight."))
 	T.make_jittery(400)
-	if(T.reagents)	T.reagents.add_reagent(/datum/reagent/lexorin, 40)
-	SSstatistics.add_field_details("changeling_powers","DTHS")
+	if(T.reagents)	T.reagents.add_reagent(/datum/reagent/lexorin, 10)
 	return 1
 
 /mob/proc/changeling_extract_dna_sting()
@@ -804,24 +789,22 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	if(!changeling)
 		return 0
 
-	var/mob/living/carbon/human/T = changeling_sting(40, /mob/proc/changeling_extract_dna_sting)
+	var/mob/living/carbon/human/T = changeling_sting(40, /mob/proc/changeling_extract_dna_sting, sting_name = "Extract DNA Sting")
 	if(!T)	return 0
 	if((MUTATION_HUSK in T.mutations) || (T.species.species_flags & SPECIES_FLAG_NO_SCAN))
-		to_chat(src, "<span class='warning'>We cannot extract DNA from this creature!</span>")
+		to_chat(src, SPAN_WARNING("We cannot extract DNA from this creature!"))
 		return 0
 
 	if(T.species.species_flags & SPECIES_FLAG_NEED_DIRECT_ABSORB)
-		to_chat(src, "<span class='notice'>That species must be absorbed directly.</span>")
+		to_chat(src, SPAN_NOTICE("That species must be absorbed directly."))
 		return
 
 	var/datum/absorbed_dna/newDNA = new(T.real_name, T.dna, T.species.name, T.languages)
 	absorbDNA(newDNA)
-
-	SSstatistics.add_field_details("changeling_powers","ED")
 	return 1
 
 //This is a generic proc that should be called by other ling weapon procs to equip them.
-/mob/proc/changeling_generic_weapon(var/weapon_type, var/make_sound = 1, var/cost = 20)
+/mob/proc/changeling_generic_weapon(weapon_type, var/make_sound = 1, var/cost = 20)
 	var/datum/changeling/changeling = changeling_power(cost,1,100)
 	if(!changeling)
 		return
@@ -832,10 +815,10 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	var/mob/living/carbon/human/M = src
 
 	if(M.l_hand && M.r_hand) //Make sure our hands aren't full.
-		src << "<span class='warning'>Our hands are full.  Drop something first.</span>"
+		to_chat(src, "<span class='warning'>Our hands are full.  Drop something first.</span>")
 		return 0
 
-	var/obj/item/weapon/W = new weapon_type(src)
+	var/obj/item/W = new weapon_type(src)
 	src.put_in_hands(W)
 
 	src.mind.changeling.chem_charges -= cost
@@ -848,11 +831,11 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	set category = "Changeling"
 	set name = "Arm Blade (20)"
 
-	if(changeling_generic_weapon(/obj/item/weapon/melee/arm_blade))
+	if(changeling_generic_weapon(/obj/item/melee/arm_blade))
 		return 1
 	return 0
 
-/obj/item/weapon/melee/arm_blade
+/obj/item/melee/arm_blade
 	name = "arm blade"
 	desc = "A grotesque blade made out of bone and flesh that cleaves through people as a hot knife through butter."
 	icon = 'icons/urist/items/uristweapons.dmi'
@@ -862,19 +845,19 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	force = 35
 	sharp = 1
 	edge = 1
-	anchored = 1
+	anchored = TRUE
 	throwforce = 0 //Just to be on the safe side
 	throw_range = 0
 	throw_speed = 0
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	var/mob/living/creator //This is just like ninja swords, needed to make sure dumb shit that removes the sword doesn't make it stay around.
 
-/obj/item/weapon/melee/arm_blade/greater
+/obj/item/melee/arm_blade/greater
 	name = "arm greatblade"
 	desc = "A grotesque blade made out of bone and flesh that cleaves through people and armor as a hot knife through butter."
 	armor_penetration = 30
 
-/obj/item/weapon/melee/arm_blade/Initialize(location)
+/obj/item/melee/arm_blade/Initialize(location)
 	. = ..()
 	START_PROCESSING(SSobj,src)
 	if(ismob(loc))
@@ -885,7 +868,7 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 			"<span class='italics'>You hear organic matter ripping and tearing!</span>"
 			)
 
-/obj/item/weapon/melee/arm_blade/dropped(mob/user)
+/obj/item/melee/arm_blade/dropped(mob/user)
 	user.visible_message(
 		"<span class='warning'>With a sickening crunch, [creator] reforms their arm blade into an arm!</span>",
 		"<span class='notice'>We assimilate the weapon back into our body.</span>",
@@ -896,13 +879,13 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 		if(src)
 			qdel(src)
 
-/obj/item/weapon/melee/arm_blade/Destroy()
+/obj/item/melee/arm_blade/Destroy()
 	STOP_PROCESSING(SSobj,src)
 	creator = null
 	. = ..()
 
 //TODO ensure embedded objects call dropped, ensure items unembed themselves when deleted
-/obj/item/weapon/melee/arm_blade/Process()  //Stolen from ninja swords.
+/obj/item/melee/arm_blade/Process()  //Stolen from ninja swords.
 	if(!creator || loc != creator || (creator.l_hand != src && creator.r_hand != src))
 		// Tidy up a bit.
 		if(istype(loc,/mob/living))

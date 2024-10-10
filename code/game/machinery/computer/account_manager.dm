@@ -1,12 +1,12 @@
 /obj/machinery/computer/accounts
 	name = "account management console"
 	desc = "Used to administrate all aspects of financial accounts."
-	density = 1
-	anchored = 1.0
+	density = TRUE
+	anchored = TRUE
 	icon_keyboard = "id_key"
 	icon_screen = "comm_logs"
 	req_access = list(list(access_hop, access_captain))
-	circuit = /obj/item/weapon/circuitboard/account_manager
+	// circuit =/obj/item/stock_parts/circuitboard/account_manager
 
 	var/fineNum
 	var/display_state = "payroll"
@@ -53,19 +53,20 @@
 	ui_interact(user)
 
 /obj/machinery/computer/accounts/attackby(obj/O, mob/user)
-	if(!istype(O, /obj/item/weapon/card/id))
+	if(!istype(O, /obj/item/card/id))
 		return ..()
 
 	//Although not necessary; it's nice to be able to set the email and account info to the ID, so that they can ID login to email and swipe to pay at vendors
 	//We don't want to expose these details to anyone but the crewmember, so we'll copy them over here once account creation is complete
 	if(copy_mode && temp_account_items["new_email"])
-		var/obj/item/weapon/card/id/target_id = O
+		var/obj/item/card/id/target_id = O
+		var/list/email_login = temp_account_items["new_email"]
 		if(target_id.associated_account_number || target_id.associated_email_login["login"])	//So we cannot copy bank details to our own ID card.
 			to_chat(user, "<span class='warning'>\The [src] flashes a warning: Unassociated ID card required</span>")
 			playsound(loc, 'sound/machines/buzz-two.ogg', 30)
 		else
 			target_id.associated_account_number = temp_account_items["account"]
-			target_id.associated_email_login = temp_account_items["new_email"].Copy()
+			target_id.associated_email_login = email_login.Copy()
 			target_id.registered_name = temp_account_items["name"]
 			temp_account_items = list("name" = null, "pay" = null, "jobtitle" = null, "dept" = null, "email" = null)
 			copy_mode = FALSE
@@ -73,8 +74,8 @@
 			to_chat(user, "<span class='notice'>Account details successfully transferred!</span>")
 			playsound(loc, 'sound/machines/chime.ogg', 30)
 
-/obj/machinery/computer/accounts/proc/get_auth(var/mob/user)
-	var/obj/item/weapon/card/id/auth_card = user.GetIdCard()
+/obj/machinery/computer/accounts/proc/get_auth(mob/user)
+	var/obj/item/card/id/auth_card = user.GetIdCard()
 	if(!auth_card)
 		return 0	//No ID
 	if(check_access_list(auth_card.access))
@@ -82,7 +83,7 @@
 	else
 		return 2	//ID but no access
 
-obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, var/force_open = 1)
 
 	var/data[0]
 	data["state"] = display_state
@@ -130,42 +131,48 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 		if("payroll")
 			var/list/departments = list()
 			var/totalpayroll = 0
-			for(var/mob/living/carbon/human/H in GLOB.living_mob_list_)
-				if(H.mind)
-					if(H.mind.initial_account && H.mind.assigned_role)
-						if(H.mind.assigned_role == "Captain" && GLOB.using_map.name == "Nerva")
-							continue	//We don't pay the captain
-						var/datum/job/job = SSjobs.titles_to_datums[H.mind.assigned_role]
-						var/dept = H.mind.manual_department || (job ? flag2text(job.department_flag) : "Misc")	//We use flags so command staff show under command payroll, rather than their department
-						if(dept == "Science" && GLOB.using_map.name == "Nerva")
-							continue	//We don't pay NT scientists
-						var/pay = H.mind.get_pay()
-						var/list/member = list()
-						member.Add(list(list(
-							"name" = H.real_name,
-							"job" = H.mind.assigned_role,
-							"pay" = pay,
-							"suspended" = H.mind.pay_suspended,
-							"ref" = "\ref[H.mind]"
-						)))
-						if(H.mind.pay_suspended)
-							pay = 0
-						var/found = FALSE
-						for(var/i in departments)	//NanoUI hates working with keyed tables, so we have to do it this way...
-							if(i["name"] == dept)
-								i["members"].Add(member)
-								i["totalpay"] += pay
-								found = TRUE
-								break
-						if(!found)
-							var/list/depart = list()
-							depart.Add(list(list(
-								"name" = dept,
-								"members" = member,
-								"totalpay" = pay
-							)))
-							departments.Add(depart)
-						totalpayroll += pay
+			for(var/mob/living/carbon/human/H in GLOB.living_players)
+				if(!H.mind?.initial_account || !H.mind.assigned_role)
+					continue
+
+				if(H.mind.assigned_role == "Captain" && GLOB.using_map.name == "Nerva")
+					continue	//We don't pay the captain
+
+				if(H.mind.assigned_role == "Passenger")
+					continue	//we don't pay passengers
+
+				var/datum/job/job = SSjobs.titles_to_datums[H.mind.assigned_role]
+				var/dept = H.mind.manual_department || (job ? flag2text(job.department_flag) : "Misc")	//We use flags so command staff show under command payroll, rather than their department
+				if(dept == "Science" && GLOB.using_map.name == "Nerva")
+					continue	//We don't pay NT scientists
+				var/pay = H.mind.get_pay()
+				var/list/member = list()
+				member.Add(list(list(
+					"name" = H.real_name,
+					"job" = H.mind.assigned_role,
+					"pay" = pay,
+					"suspended" = H.mind.pay_suspended,
+					"ref" = "\ref[H.mind]"
+				)))
+				if(H.mind.pay_suspended)
+					pay = 0
+				var/found = FALSE
+				for(var/i in departments)	//NanoUI hates working with keyed tables, so we have to do it this way...
+					if(i["name"] == dept)
+						var/list/e = i["members"]
+						e.Add(member)
+						i["totalpay"] += pay
+						found = TRUE
+						break
+				if(!found)
+					var/list/depart = list()
+					depart.Add(list(list(
+						"name" = dept,
+						"members" = member,
+						"totalpay" = pay
+					)))
+					departments.Add(depart)
+				totalpayroll += pay
 
 			data["departments"] = departments
 			data["totalpay"] = totalpayroll
@@ -182,9 +189,9 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 			for(var/datum/transaction/T in focused_account.transaction_log)
 				var/list/transaction = list()
 				transaction.Add(list(list(
-					"target_name" = T.target_name,
+					"target_name" = focused_account.get_transaction_ledger(T),
 					"purpose" = T.purpose,
-					"amount" = T.amount,
+					"amount" = focused_account.get_transaction_amount(T),
 					"date" = T.date,
 					"time" = T.time
 				)))
@@ -211,14 +218,14 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 		ui.open()
 		ui.set_auto_update(0)
 
-/obj/machinery/computer/accounts/OnTopic(var/mob/user, var/list/href_list, state)
+/obj/machinery/computer/accounts/OnTopic(mob/user, var/list/href_list, state)
 	if(..())
 		return ..()
 
 	if(get_auth(user) != 1)
 		return TOPIC_REFRESH
 
-	var/obj/item/weapon/card/id/auth_card = user.GetIdCard()
+	var/obj/item/card/id/auth_card = user.GetIdCard()
 
 	if(href_list["state"])
 		display_state = href_list["state"]
@@ -267,26 +274,10 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 				var/author = sanitizeName(input("Who issued the fine?", "Fine Author", auth_card.registered_name) as text)	//The person processing the fine may not be the same one issuing it
 				if(!author)
 					return TOPIC_NOACTION
-				if(focused_account.money - amount < 0)	//We can't fine someone into a negative balance!
-					alert("Insufficient account funds (Amount short: [amount - focused_account.money] Th)", "Unable to Fine")
-					return TOPIC_NOACTION
 
-				var/datum/transaction/fine = new()
-				var/datum/transaction/deposit = new()
-				fine.target_name = "[station_account.owner_name] (via [auth_card.registered_name])"
-				fine.purpose = "Fine Issued (Ref. #[fineNum])"
-				fine.amount = -amount
-				fine.date = stationdate2text()
-				fine.time = stationtime2text()
-				fine.source_terminal = machine_id
-				deposit.target_name = "[focused_account.owner_name] (via [auth_card.registered_name])"
-				deposit.purpose = "Fine Revenue (Ref. #[fineNum])"
-				deposit.amount = amount
-				deposit.date = stationdate2text()
-				deposit.time = stationtime2text()
-				deposit.source_terminal = machine_id
-				focused_account.do_transaction(fine)
-				station_account.do_transaction(deposit)
+				if(!focused_account.transfer(station_account, amount, "Fine Issued (Ref. #[fineNum])"))
+					alert("Cannot process money transfer. Ensure both accounts are not suspended and have the required funds", "Unable to Fine")
+					return TOPIC_NOACTION
 
 				//For those pencil-pushers. Forms to sign and file!
 				var/text = "<center><font size = \"2\">[GLOB.using_map.station_name] Disciplinary Committee</font></center><br><hr><br>"
@@ -300,7 +291,7 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 				text += "<b>Date:</b> [stationdate2text()]<br><br><br>"
 				text += "<font size= \"1\">Terminal: [machine_id]</font>"
 
-				var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(src.loc)
+				var/obj/item/paper/P = new /obj/item/paper(src.loc)
 				P.SetName("Notice of Fine Penalty: [focused_account.owner_name]")
 				P.info = "<center><img src = [GLOB.using_map.logo]><br>"
 				P.info += "<b>Notice of Fine Penalty</b><br></center>"
@@ -311,7 +302,7 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 				P.info += "[GLOB.using_map.station_name] commanding body retains the right to pay any reimbursements in the form of working credits. By accepting this paper issue, you agree to these terms."
 				P.info += "</font>"
 
-				var/obj/item/weapon/paper/P2 = new /obj/item/weapon/paper(src.loc)
+				var/obj/item/paper/P2 = new /obj/item/paper(src.loc)
 				P2.SetName("Record of Fine Penalty: [focused_account.owner_name]")
 				P2.info = "<center><img src = [GLOB.using_map.logo]><br>"
 				P2.info += "<b>Record of Fine Penalty</b><br></center>"
@@ -323,7 +314,7 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 				stampoverlay.icon_state = "paper_stamp-hop"
 				if(!P.stamped)
 					P.stamped = new
-				P.stamped += /obj/item/weapon/stamp
+				P.stamped += /obj/item/stamp
 				P.overlays += stampoverlay
 				P.stamps += "<HR><i>This paper has been stamped by the Second Officer's Desk.</i>"
 				P.fields++
@@ -332,7 +323,7 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 
 				if(!P2.stamped)
 					P2.stamped = new
-				P2.stamped += /obj/item/weapon/stamp
+				P2.stamped += /obj/item/stamp
 				P2.overlays += stampoverlay
 				P2.stamps += "<HR><i>This paper has been stamped by the Second Officer's Desk.</i>"
 				P2.fields++
@@ -375,26 +366,10 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 					dept_account = station_account
 				else
 					dept_account = department_accounts[dept]
-				if(amount > dept_account.money)	//The funds have to actually exist!
-					alert("[dept_account.owner_name] does not have enough funds!", "Payout Error")
-					return TOPIC_NOACTION
-				var/datum/transaction/T_employee = new()
-				var/datum/transaction/T_department = new()
 
-				T_employee.target_name = "[dept_account.owner_name] (via [auth_card.registered_name])"
-				T_employee.purpose = "Bonus Pay from [author]"
-				T_employee.amount = amount
-				T_employee.date = stationdate2text()
-				T_employee.time = stationtime2text()
-				T_employee.source_terminal = machine_id
-				T_department.target_name = "[focused_account.owner_name] (via [auth_card.registered_name])"
-				T_department.purpose = "Bonus Pay from [author]"
-				T_department.amount = -amount
-				T_department.date = stationdate2text()
-				T_department.time = stationtime2text()
-				T_department.source_terminal = machine_id
-				focused_account.do_transaction(T_employee)
-				dept_account.do_transaction(T_department)
+				if(!dept_account.transfer(focused_account, amount, "Bonus Pay from [author]"))
+					alert("Cannot process money transfer. Ensure both accounts are not suspended and have the required funds", "Unable to Pay Bonus")
+					return TOPIC_NOACTION
 
 				if(target_mind.initial_email_login["login"])
 					var/message = "[target_mind.name],\n\n<b>Congratulations!</b> You have been awarded a bonus of <b>[amount] Th</b> from the [dept_account.owner_name] on behalf of [author]. Keep up the continued hard work!"
@@ -457,6 +432,9 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 					return TOPIC_NOACTION
 				display_state = "account_overview"
 				return TOPIC_REFRESH
+			if("passenger_rate")
+				SSpayment_controller.passenger_fee = input(user, "Input desired passenger rate:", "Passenger Rate", SSpayment_controller.passenger_fee) as num
+				return TOPIC_REFRESH
 
 		return TOPIC_NOACTION
 
@@ -514,7 +492,7 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 						alert("Missing field: [i]","Account Creation Error")
 						return TOPIC_NOACTION
 				var/datum/mind/M = locate(temp_account_items["owner_ref"])
-				if(!M || !istype(M))
+				if(!istype(M))
 					return TOPIC_NOACTION
 
 				var/datum/job/job = SSjobs.titles_to_datums[temp_account_items["jobtitle"]]
@@ -526,20 +504,16 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 				M.assigned_role = temp_account_items["jobtitle"]
 				M.manual_pay_rate = temp_account_items["pay"]
 				ntnet_global.create_email(M.current, temp_account_items["email"], "freemail.net")
-				var/datum/money_account/acc = create_account(M.current.real_name, 0)
-				var/datum/transaction/T = new()
-				T.target_name = M.current.real_name
-				T.purpose = "Account creation"
-				T.amount = 0
-				T.date = stationdate2text()
-				T.time = stationtime2text()
-				T.source_terminal = machine_id
+				var/datum/money_account/acc = create_account("[M.current.real_name]'s account", M.current.real_name, 0)
+				var/datum/transaction/singular/T = new(acc, machine_id, 0, "Account creation")
 				acc.transaction_log[1] = T
 				M.initial_account = acc
 
 				//More paperwork! This time for pins and account info. Only the crewmember should know this, so we'll put it in an envelope with a seal
-				var/obj/item/weapon/folder/envelope/P = new /obj/item/weapon/folder/envelope(src.loc)
-				var/obj/item/weapon/paper/R = new /obj/item/weapon/paper(P)
+				var/obj/item/folder/envelope/P = new /obj/item/folder/envelope(src.loc)
+				P.name = "envelope - Account Details: [acc.owner_name] (CONFIDENTIAL)"
+				P.desc += "\nA large red label on the front reads \"CONFIDENTIAL - For account holder eyes only\""
+				var/obj/item/paper/R = new /obj/item/paper(P)
 
 				R.SetName("Account information: [acc.owner_name]")
 				R.info = "<center><img src = [GLOB.using_map.logo]><br>"
@@ -564,7 +538,7 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 				stampoverlay.icon_state = "paper_stamp-hop"
 				if(!R.stamped)
 					R.stamped = new
-				R.stamped += /obj/item/weapon/stamp
+				R.stamped += /obj/item/stamp
 				R.overlays += stampoverlay
 				R.stamps += "<HR><i>This paper has been stamped by the Second Officer's Desk.</i>"
 				R.update_icon()
@@ -580,7 +554,7 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 
 	return TOPIC_NOACTION
 
-/obj/machinery/computer/accounts/proc/email_client(var/address, var/txt, var/sending = EMAIL_FINANCE)
+/obj/machinery/computer/accounts/proc/email_client(address, var/txt, var/sending = EMAIL_FINANCE)
 	if(!address || !txt)
 		return
 	var/datum/computer_file/data/email_account/server = ntnet_global.find_email_by_name(sending)
@@ -595,13 +569,13 @@ obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", var/datum
 	message.source = server.login
 	server.send_mail(address, message)
 
-/obj/machinery/computer/accounts/proc/addLog(var/action, var/details, var/obj/item/weapon/card/id/auth_card)
+/obj/machinery/computer/accounts/proc/addLog(action, var/details, var/obj/item/card/id/auth_card)
 	if(!details || !action || !auth_card)
 		return
 	var/log = "\[[stationdate2text()] [stationtime2text()]] - [auth_card.registered_name] ([auth_card.assignment]) - \[[action]]: [details]"
 	action_logs.Add(log)
 
-/obj/machinery/computer/accounts/proc/flag2text(var/bitflag)
+/obj/machinery/computer/accounts/proc/flag2text(bitflag)
 	if(!bitflag)
 		return null
 	if(bitflag & COM)

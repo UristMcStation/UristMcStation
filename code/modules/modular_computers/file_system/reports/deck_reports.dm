@@ -18,10 +18,10 @@
 	return ..()
 
 /datum/computer_file/report/flight_plan/generate_fields()
-	add_field(/datum/report_field/instruction, "These fields are required:")
+	add_field(/datum/report_field/text_label/instruction, "These fields are required:")
 	leader = add_field(/datum/report_field/people/from_manifest, "Leader", required = 1)
 	planned_depart = add_field(/datum/report_field/time, "Planned Departure", required = 1)
-	add_field(/datum/report_field/instruction, "These fields are optional:")
+	add_field(/datum/report_field/text_label/instruction, "These fields are optional:")
 	manifest = add_field(/datum/report_field/people/list_from_manifest, "Manifest")
 	add_field(/datum/report_field/pencode_text, "Objective")
 	add_field(/datum/report_field/time, "Expected Return/Contact Time")
@@ -55,11 +55,11 @@
 
 /datum/computer_file/report/recipient/shuttle/damage/New()
 	..()
-	set_access(null, access_cargo, override = 0)
+	set_access(null, list(access_cargo, access_pilot), override = 0)
 
 /datum/computer_file/report/recipient/shuttle/damage/generate_fields()
 	..()
-	add_field(/datum/report_field/instruction, "Assess the damage sustained by the shuttle and its flight readiness.")
+	add_field(/datum/report_field/text_label/instruction, "Assess the damage sustained by the shuttle and its flight readiness.")
 	add_field(/datum/report_field/pencode_text, "Shuttle state on arrival")
 	add_field(/datum/report_field/simple_text, "Flight readiness")
 	add_field(/datum/report_field/pencode_text, "Repairs required")
@@ -71,7 +71,7 @@
 
 /datum/computer_file/report/recipient/shuttle/fuel/New()
 	..()
-	set_access(null, access_cargo, override = 0)
+	set_access(null, list(access_cargo, access_pilot), override = 0)
 
 /datum/computer_file/report/recipient/shuttle/fuel/generate_fields()
 	..()
@@ -86,11 +86,11 @@
 
 /datum/computer_file/report/recipient/shuttle/atmos/New()
 	..()
-	set_access(null, access_cargo, override = 0)
+	set_access(null, list(access_cargo, access_pilot), override = 0)
 
 /datum/computer_file/report/recipient/shuttle/atmos/generate_fields()
 	..()
-	add_field(/datum/report_field/instruction, "Assess the state of the shuttle's atmospherics system.")
+	add_field(/datum/report_field/text_label/instruction, "Assess the state of the shuttle's atmospherics system.")
 	add_field(/datum/report_field/pencode_text, "State of atmospherics supplies")
 	add_field(/datum/report_field/time, "Estimated time of exhaustion")
 	add_field(/datum/report_field/simple_text, "Supplies required")
@@ -101,11 +101,11 @@
 
 /datum/computer_file/report/recipient/shuttle/gear/New()
 	..()
-	set_access(null, access_cargo, override = 0)
+	set_access(null, list(access_cargo, access_pilot), override = 0)
 
 /datum/computer_file/report/recipient/shuttle/gear/generate_fields()
 	..()
-	add_field(/datum/report_field/instruction, "Summarize the state of the shuttle's critical emergency supplies.")
+	add_field(/datum/report_field/text_label/instruction, "Summarize the state of the shuttle's critical emergency supplies.")
 	add_field(/datum/report_field/pencode_text, "State of supplies on arrival")
 	add_field(/datum/report_field/pencode_text, "Supplies restocked")
 	add_field(/datum/report_field/time, "Time of restocking")
@@ -119,7 +119,7 @@
 
 /datum/computer_file/report/recipient/shuttle/post_flight/generate_fields()
 	..()
-	add_field(/datum/report_field/instruction, "Report on the expedition's findings, results, or outcomes.")
+	add_field(/datum/report_field/text_label/instruction, "Report on the expedition's findings, results, or outcomes.")
 	add_field(/datum/report_field/simple_text, "Locations visited")
 	add_field(/datum/report_field/simple_text, "General purpose of mission")
 	add_field(/datum/report_field/pencode_text, "Brief summary of activities")

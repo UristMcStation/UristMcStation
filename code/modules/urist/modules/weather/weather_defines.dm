@@ -8,25 +8,25 @@
 	color = null
 	alpha = 255
 	mouse_opacity = 2
-	anchored = 1
+	anchored = TRUE
 	layer = EFFECTS_LAYER
-	plane = WEATHER_PLANE
+//	plane = WEATHER_PLANE
 	var/weathertemp = 310.15 //Kelvin temperature, default is neutral to mobs
 	var/list/init_reagents = list() //carried reagents as ids
 
 /obj/weathertype/New()
 	. = ..()
-	if(init_reagents.len)
+	if(length(init_reagents))
 		create_reagents(999)
 		for(var/R in init_reagents) //TODO: secure this from non-reagent ID strings
 			reagents.add_reagent(R, 50, null, 1)
 
-/obj/weathertype/proc/GetWeatherEffect(var/turf/T) //handles specific effects of weather on... stuff
+/obj/weathertype/proc/GetWeatherEffect(turf/T) //handles specific effects of weather on... stuff
 	return 1
 
 /*hijacked from human/life.dm's handle_environment and simplified;
 all-purpose cold/hot weather helper for exposure effects, wear a hat */
-/obj/weathertype/proc/TemperatureEffect(var/mob/living/M)
+/obj/weathertype/proc/TemperatureEffect(mob/living/M)
 	//Body temperature adjusts depending on surrounding atmosphere based on your thermal protection (convection)
 	var/temp_adj = 0
 	if(weathertemp < M.bodytemperature)			//Place is colder than we are
@@ -39,7 +39,7 @@ all-purpose cold/hot weather helper for exposure effects, wear a hat */
 			temp_adj = (1-thermal_protection) * ((weathertemp - M.bodytemperature) / BODYTEMP_HEAT_DIVISOR)
 
 	//Assume standard conditions, thermodynamics go home, atmos can handle that
-	M.bodytemperature += between(BODYTEMP_COOLING_MAX, temp_adj, BODYTEMP_HEATING_MAX)
+	M.bodytemperature += clamp(BODYTEMP_COOLING_MAX, temp_adj, BODYTEMP_HEATING_MAX)
 
 	//Manually triggering discomforts since they work on breath for some reason
 	if(istype(M, /mob/living/carbon/human))
@@ -50,7 +50,7 @@ all-purpose cold/hot weather helper for exposure effects, wear a hat */
 		if(H.bodytemperature <= H.species.cold_discomfort_level)
 			H.species.get_environment_discomfort(H, "cold")
 
-/obj/weathertype/proc/ReagentEffect(var/turf/T)
+/obj/weathertype/proc/ReagentEffect(turf/T)
 	if(reagents)
 		for(var/mob/M in T)
 			reagents.trans_to(M, WEATHER_ACTION_VOLUME, 1, 1)
@@ -66,7 +66,7 @@ all-purpose cold/hot weather helper for exposure effects, wear a hat */
 	color = null //fully supports colors, the null works but is very subtle
 	init_reagents = list("water")
 
-/obj/weathertype/rain/GetWeatherEffect(var/turf/T)
+/obj/weathertype/rain/GetWeatherEffect(turf/T)
 	..(T)
 	ReagentEffect(T)
 
@@ -87,10 +87,10 @@ all-purpose cold/hot weather helper for exposure effects, wear a hat */
 
 //mild snow, mostly makes you feel cold
 /obj/weathertype/snow
-	icon_state = "bsnow"
+	icon_state = "msnow"
 	weathertemp = 265.0 //mild winter day
 
-/obj/weathertype/snow/GetWeatherEffect(var/turf/T)
+/obj/weathertype/snow/GetWeatherEffect(turf/T)
 	..(T)
 	for(var/mob/living/M in T)
 		TemperatureEffect(M)
@@ -109,7 +109,7 @@ all-purpose cold/hot weather helper for exposure effects, wear a hat */
 	icon_state = "" //deliberately no icon
 	weathertemp = 265.0
 
-/obj/weathertype/wind/GetWeatherEffect(var/turf/T)
+/obj/weathertype/wind/GetWeatherEffect(turf/T)
 	..(T)
 	for(var/mob/living/M in T)
 		if(prob(5))
@@ -134,7 +134,7 @@ all-purpose cold/hot weather helper for exposure effects, wear a hat */
 	color = "#fff0c9"
 	alpha = 175
 
-/obj/weathertype/sandstorm/GetWeatherEffect(var/turf/T)
+/obj/weathertype/sandstorm/GetWeatherEffect(turf/T)
 	..(T)
 	for(var/mob/living/O in T)
 		var/damage = 5
@@ -143,7 +143,7 @@ all-purpose cold/hot weather helper for exposure effects, wear a hat */
 			damage *= H.reagent_permeability() //wear covering clothes
 			H.take_organ_damage(damage, 0, 1, 0) //check sharp vs edge
 		else
-			O.apply_damage(5, BRUTE)
+			O.apply_damage(5, DAMAGE_BRUTE)
 		if(prob(25) && damage)
 			to_chat(O, "<span class='warning'>The sand tears at your body!</span>")
 
@@ -168,7 +168,7 @@ all-purpose cold/hot weather helper for exposure effects, wear a hat */
 	color = "#ff0000"
 
 /obj/weathertype/holosnow
-	icon_state = "bsnow"
+	icon_state = "msnow"
 
 /obj/weathertype/holorain
 	icon_state = "rain"

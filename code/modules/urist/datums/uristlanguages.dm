@@ -13,7 +13,7 @@
 
 	//syllables are at the bottom of the file
 
-/datum/language/mekanik/get_spoken_verb(var/msg_end)
+/datum/language/mekanik/get_spoken_verb(msg_end)
 	switch(msg_end)
 		if("!")
 			return pick("exclaims","shouts","yells")
@@ -21,7 +21,7 @@
 			return ask_verb
 	return speech_verb
 
-/datum/language/mekanik/get_random_name(var/gender) //TODO: custom Germanesque name list
+/datum/language/mekanik/get_random_name(gender) //TODO: custom Germanesque name list
 	if (prob(80))
 		if(gender==FEMALE)
 			return capitalize(pick(GLOB.first_names_female)) + " " + capitalize(pick(GLOB.last_names))
@@ -33,7 +33,7 @@
 //Syllable Lists
 
 /datum/language/mekanik/syllables = list(
-"hur","dëh", "ant", "wurdah ", "zik", "köhn", "ork", "bahnn", "strain", "wort", "siš", "felt", "wirt",
-"da", "fünk", "zort", "wuhr", "di", "heul", "urwah ", "glaö", "šteuhr", "wurd", "dowëri", "rin", "sün",
-"hirr", "ünt", "tlait", "wowosëhn", "ri", "wölt"
+"hur","dï¿½h", "ant", "wurdah ", "zik", "kï¿½hn", "ork", "bahnn", "strain", "wort", "siï¿½", "felt", "wirt",
+"da", "fï¿½nk", "zort", "wuhr", "di", "heul", "urwah ", "glaï¿½", "ï¿½teuhr", "wurd", "dowï¿½ri", "rin", "sï¿½n",
+"hirr", "ï¿½nt", "tlait", "wowosï¿½hn", "ri", "wï¿½lt"
 )

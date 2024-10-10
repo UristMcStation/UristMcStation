@@ -1,4 +1,4 @@
-var/datum/species/shapeshifter/promethean/prometheans
+var/global/datum/species/shapeshifter/promethean/prometheans
 
 // Species definition follows.
 /datum/species/shapeshifter/promethean
@@ -11,23 +11,25 @@ var/datum/species/shapeshifter/promethean/prometheans
 	knockout_message = "collapses inwards, forming a disordered puddle of goo."
 	remains_type = /obj/effect/decal/cleanable/ash
 
+	meat_type = null
+	bone_material = null
+	skin_material = null
+
 	blood_color = "#05ff9b"
 	flesh_color = "#05fffb"
 
 	hunger_factor =    DEFAULT_HUNGER_FACTOR //todo
-	reagent_tag =      IS_SLIME
 	bump_flag =        SLIME
 	swap_flags =       MONKEY|SLIME|SIMPLE_ANIMAL
 	push_flags =       MONKEY|SLIME|SIMPLE_ANIMAL
 	species_flags =    SPECIES_FLAG_NO_SCAN | SPECIES_FLAG_NO_SLIP | SPECIES_FLAG_NO_MINOR_CUT
-	appearance_flags = HAS_SKIN_COLOR | HAS_EYE_COLOR | HAS_HAIR_COLOR | RADIATION_GLOWS
+	appearance_flags = SPECIES_APPEARANCE_HAS_SKIN_COLOR | SPECIES_APPEARANCE_HAS_EYE_COLOR | SPECIES_APPEARANCE_HAS_HAIR_COLOR | SPECIES_APPEARANCE_RADIATION_GLOWS
 	spawn_flags =      SPECIES_IS_RESTRICTED
 
 	breath_type = null
 	poison_types = null
 
 	gluttonous =          GLUT_TINY | GLUT_SMALLER | GLUT_ITEM_ANYTHING | GLUT_PROJECTILE_VOMIT
-	virus_immune =        1
 	blood_volume =        600
 	min_age =             1
 	max_age =             5
@@ -64,32 +66,34 @@ var/datum/species/shapeshifter/promethean/prometheans
 		/mob/living/carbon/human/proc/shapeshifter_select_gender
 		)
 
-	valid_transform_species = list(SPECIES_HUMAN, SPECIES_UNATHI, SPECIES_SKRELL, SPECIES_DIONA, SPECIES_RESOMI, "Monkey")
+	valid_transform_species = list(SPECIES_HUMAN, SPECIES_UNATHI, SPECIES_SKRELL, SPECIES_DIONA, SPECIES_RESOMI, SPECIES_MONKEY)
 	monochromatic = 1
 
 	var/heal_rate = 5 // Temp. Regen per tick.
+
+	traits = list(/singleton/trait/malus/water = TRAIT_LEVEL_MODERATE)
 
 /datum/species/shapeshifter/promethean/New()
 	..()
 	prometheans = src
 
-/datum/species/shapeshifter/promethean/hug(var/mob/living/carbon/human/H,var/mob/living/target)
-	var/datum/gender/G = gender_datums[target.gender]
-	H.visible_message("<span class='notice'>\The [H] glomps [target] to make [G.him] feel better!</span>", \
-					"<span class='notice'>You glomps [target] to make [G.him] feel better!</span>")
+/datum/species/shapeshifter/promethean/hug(mob/living/carbon/human/H,mob/living/target)
+	var/datum/gender/G = GLOB.gender_datums[target.gender]
+	H.visible_message(SPAN_NOTICE("\The [H] glomps [target] to make [G.him] feel better!"), \
+					SPAN_NOTICE("You glomps [target] to make [G.him] feel better!"))
 	H.apply_stored_shock_to(target)
 
-/datum/species/shapeshifter/promethean/handle_death(var/mob/living/carbon/human/H)
-	addtimer(CALLBACK(H, /mob/proc/gib),0)
+/datum/species/shapeshifter/promethean/handle_death(mob/living/carbon/human/H)
+	addtimer(new Callback(H, /mob/proc/gib),0)
 
-/datum/species/shapeshifter/promethean/handle_environment_special(var/mob/living/carbon/human/H)
+/datum/species/shapeshifter/promethean/handle_environment_special(mob/living/carbon/human/H)
 
 	var/turf/T = H.loc
 	if(istype(T))
 		var/obj/effect/decal/cleanable/C = locate() in T
 		if(C)
 			if(H.nutrition < 300)
-				H.nutrition += rand(10,20)
+				H.adjust_nutrition(rand(10,20))
 			qdel(C)
 
 	// We need a handle_life() proc for this stuff.
@@ -101,22 +105,22 @@ var/datum/species/shapeshifter/promethean/prometheans
 		if(I.damage > 0)
 			I.damage = max(I.damage - heal_rate, 0)
 			if (prob(5))
-				H << "<span class='notice'>You feel a soothing sensation within your [I.name]...</span>"
+				to_chat(H, SPAN_NOTICE("You feel a soothing sensation within your [I.name]..."))
 			return 1
 
 	// Replace completely missing limbs.
 	for(var/limb_type in has_limbs)
 		var/obj/item/organ/external/E = H.organs_by_name[limb_type]
-		if(E && !E.is_usable())
+		if(E && !E.is_usable() && !(E.limb_flags & ORGAN_FLAG_HEALS_OVERKILL))
 			E.removed()
-			qdel(E)
-			E = null
+			if(!QDELETED(E))
+				QDEL_NULL(E)
 		if(!E)
 			var/list/organ_data = has_limbs[limb_type]
 			var/limb_path = organ_data["path"]
 			var/obj/item/organ/O = new limb_path(H)
 			organ_data["descriptor"] = O.name
-			H << "<span class='notice'>You feel a slithering sensation as your [O.name] reforms.</span>"
+			to_chat(H, SPAN_NOTICE("You feel a slithering sensation as your [O.name] reforms."))
 			H.update_body()
 			return 1
 
@@ -128,17 +132,21 @@ var/datum/species/shapeshifter/promethean/prometheans
 		H.adjustToxLoss(-heal_rate)
 		return 1
 
-/datum/species/shapeshifter/promethean/get_blood_colour(var/mob/living/carbon/human/H)
-	return (H ? rgb(H.r_skin, H.g_skin, H.b_skin) : ..())
+/datum/species/shapeshifter/promethean/get_blood_colour(mob/living/carbon/human/H)
+	if (H)
+		return H.skin_color
+	return ..()
 
-/datum/species/shapeshifter/promethean/get_flesh_colour(var/mob/living/carbon/human/H)
-	return (H ? rgb(H.r_skin, H.g_skin, H.b_skin) : ..())
+/datum/species/shapeshifter/promethean/get_flesh_colour(mob/living/carbon/human/H)
+	if (H)
+		return H.skin_color
+	return ..()
 
-/datum/species/shapeshifter/promethean/get_additional_examine_text(var/mob/living/carbon/human/H)
+/datum/species/shapeshifter/promethean/get_additional_examine_text(mob/living/carbon/human/H)
 
 	if(!stored_shock_by_ref["\ref[H]"])
 		return
-	var/datum/gender/G = gender_datums[H.gender]
+	var/datum/gender/G = GLOB.gender_datums[H.gender]
 
 	switch(stored_shock_by_ref["\ref[H]"])
 		if(1 to 10)
@@ -146,6 +154,6 @@ var/datum/species/shapeshifter/promethean/prometheans
 		if(11 to 20)
 			return "[G.He] [G.is] glowing gently with moderate levels of electrical activity.\n"
 		if(21 to 35)
-			return "<span class='warning'>[G.He] [G.is] glowing brightly with high levels of electrical activity.</span>"
+			return SPAN_WARNING("[G.He] [G.is] glowing brightly with high levels of electrical activity.")
 		if(35 to INFINITY)
-			return "<span class='danger'>[G.He] [G.is] radiating massive levels of electrical activity!</span>"
+			return SPAN_DANGER("[G.He] [G.is] radiating massive levels of electrical activity!")

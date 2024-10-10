@@ -1,24 +1,24 @@
 #define HOME_SYSTEM_RYCLIES   "Ryclies I"
 #define HOME_SYSTEM_READE   "Reade III"
 #define HOME_SYSTEM_PROCYON   "Procyon"
-
-#define FACTION_SOL_CENTRAL    "Terran Confederacy"
-#define FACTION_TERRAN_CONFED  "United Human Alliance"
 #define FACTION_ORMA     "Outer Rim Miners Alliance"
-
-#define CULTURE_HUMAN_CONFED   "UHA Terran"
 #define CULTURE_HUMAN_UHA_OFFTERRA   "UHA Spacer"
-#define CULTURE_HUMAN_VENUSIAN "Venusian, Upper Class"
-#define CULTURE_HUMAN_VENUSLOW "Venusian, Lower Class"
 #define CULTURE_HUMAN_ORMA	"ORMA Spacer"
 #define CULTURE_HUMAN_NT	"NanoTrasen Spacer"
 #define CULTURE_HUMAN_GRAVEWORLDER "Graveworlder"
 
+#define HOME_SYSTEM_TERSTEN    "Tersten"
+#define HOME_SYSTEM_LORRIMAN   "Lorriman"
+#define HOME_SYSTEM_CINU       "Cinu"
+#define HOME_SYSTEM_YUKLID     "Yuklid V"
+#define HOME_SYSTEM_LORDANIA   "Lordania"
+#define HOME_SYSTEM_KINGSTON   "Kingston"
+
 /datum/map/nerva
 	available_cultural_info = list(
 		TAG_HOMEWORLD = list(
-			HOME_SYSTEM_LUNA,
 			HOME_SYSTEM_MARS,
+			HOME_SYSTEM_LUNA,
 			HOME_SYSTEM_VENUS,
 			HOME_SYSTEM_CERES,
 			HOME_SYSTEM_PLUTO,
@@ -38,14 +38,14 @@
 			HOME_SYSTEM_OTHER
 		),
 		TAG_FACTION = list(
+			FACTION_OTHER,
 			FACTION_NANOTRASEN,
 			FACTION_XYNERGY,
 			FACTION_HEPHAESTUS,
-			FACTION_SOL_CENTRAL ,
-			FACTION_TERRAN_CONFED,
+			FACTION_SOL_CENTRAL,
+			FACTION_INDIE_CONFED,
 			FACTION_PCRC,
-			FACTION_ORMA,
-			FACTION_OTHER
+			FACTION_ORMA
 		),
 		TAG_CULTURE = list(
 			CULTURE_HUMAN,
@@ -90,3 +90,5 @@
 		TAG_RELIGION =  RELIGION_AGNOSTICISM
 	)
 
+/datum/language/human/euro
+	warning = "Automatically given if spawning on the Nerva."

@@ -40,25 +40,25 @@
 	return ..()
 
 /obj/screen/movable/ability_master/Click()
-	if(!ability_objects.len) // If we're empty for some reason.
+	if(!length(ability_objects)) // If we're empty for some reason.
 		return
 
 	toggle_open()
 
-/obj/screen/movable/ability_master/proc/toggle_open(var/forced_state = 0)
+/obj/screen/movable/ability_master/proc/toggle_open(forced_state = 0)
 	if(showing && (forced_state != 2)) // We are closing the ability master, hide the abilities.
 		for(var/obj/screen/ability/O in ability_objects)
 			if(my_mob && my_mob.client)
 				my_mob.client.screen -= O
 //			O.handle_icon_updates = 0
 		showing = 0
-		overlays.len = 0
+		overlays.Cut()
 		overlays.Add(closed_state)
 	else if(forced_state != 1) // We're opening it, show the icons.
 		open_ability_master()
 		update_abilities(1)
 		showing = 1
-		overlays.len = 0
+		overlays.Cut()
 		overlays.Add(open_state)
 	update_icon()
 
@@ -75,7 +75,7 @@
 	var/y_position = decode_screen_Y(screen_loc_Y[1], my_mob)
 	var/y_pix = screen_loc_Y[2]
 
-	for(var/i = 1; i <= ability_objects.len; i++)
+	for(var/i = 1; i <= length(ability_objects); i++)
 		var/obj/screen/ability/A = ability_objects[i]
 		var/xpos = x_position + (x_position < 8 ? 1 : -1)*(i%7)
 		var/ypos = y_position + (y_position < 8 ? round(i/7) : -round(i/7))
@@ -96,12 +96,12 @@
 		i++
 
 /obj/screen/movable/ability_master/on_update_icon()
-	if(ability_objects.len)
+	if(length(ability_objects))
 		set_invisibility(0)
 	else
 		set_invisibility(101)
 
-/obj/screen/movable/ability_master/proc/add_ability(var/name_given)
+/obj/screen/movable/ability_master/proc/add_ability(name_given)
 	if(!name) return
 	var/obj/screen/ability/new_button = new /obj/screen/ability
 	new_button.ability_master = src
@@ -112,7 +112,7 @@
 	if(my_mob.client)
 		toggle_open(2) //forces the icons to refresh on screen
 
-/obj/screen/movable/ability_master/proc/remove_ability(var/obj/screen/ability/ability)
+/obj/screen/movable/ability_master/proc/remove_ability(obj/screen/ability/ability)
 	if(!ability)
 		return
 	ability_objects.Remove(ability)
@@ -121,7 +121,7 @@
 	qdel(ability)
 
 
-	if(ability_objects.len)
+	if(length(ability_objects))
 		toggle_open(showing + 1)
 	update_icon()
 //	else
@@ -143,13 +143,13 @@
 			return V
 	return null
 
-/obj/screen/movable/ability_master/proc/get_ability_by_instance(var/obj/instance/)
+/obj/screen/movable/ability_master/proc/get_ability_by_instance(obj/instance)
 	for(var/obj/screen/ability/obj_based/O in ability_objects)
 		if(O.object == instance)
 			return O
 	return null
 
-/obj/screen/movable/ability_master/proc/get_ability_by_spell(var/spell/s)
+/obj/screen/movable/ability_master/proc/get_ability_by_spell(spell/s)
 	for(var/screen in spell_objects)
 		var/obj/screen/ability/spell/S = screen
 		if(S.spell == s)
@@ -182,7 +182,7 @@
 		ability_master.ability_objects -= src
 		if(ability_master.my_mob && ability_master.my_mob.client)
 			ability_master.my_mob.client.screen -= src
-	if(ability_master && !ability_master.ability_objects.len)
+	if(ability_master && !length(ability_master.ability_objects))
 		ability_master.update_icon()
 //		qdel(ability_master)
 	ability_master = null
@@ -209,17 +209,17 @@
 /obj/screen/ability/proc/can_activate()
 	return 1
 
-/client/verb/activate_ability(var/slot as num)
+/client/verb/activate_ability(slot as num)
 	set name = ".activate_ability"
 //	set hidden = 1
 	if(!mob)
 		return // Paranoid.
 	if(isnull(slot) || !isnum(slot))
-		to_chat(src,"<span class='warning'>.activate_ability requires a number as input, corrisponding to the slot you wish to use.</span>")
+		to_chat(src,SPAN_WARNING(".activate_ability requires a number as input, corrisponding to the slot you wish to use."))
 		return // Bad input.
 	if(!mob.ability_master)
 		return // No abilities.
-	if(slot > mob.ability_master.ability_objects.len || slot <= 0)
+	if(slot > length(mob.ability_master.ability_objects) || slot <= 0)
 		return // Out of bounds.
 	var/obj/screen/ability/A = mob.ability_master.ability_objects[slot]
 	A.activate()
@@ -237,7 +237,7 @@
 	if(object_used && verb_to_call)
 		call(object_used,verb_to_call)(arguments_to_use)
 
-/obj/screen/movable/ability_master/proc/add_verb_ability(var/object_given, var/verb_given, var/name_given, var/ability_icon_given, var/arguments)
+/obj/screen/movable/ability_master/proc/add_verb_ability(object_given, verb_given, name_given, ability_icon_given, arguments)
 	if(!object_given)
 		message_admins("ERROR: add_verb_ability() was not given an object in its arguments.")
 	if(!verb_given)
@@ -261,7 +261,7 @@
 	icon_state = "ling_spell_base"
 	background_base_state = "ling"
 
-/obj/screen/movable/ability_master/proc/add_ling_ability(var/object_given, var/verb_given, var/name_given, var/ability_icon_given, var/arguments)
+/obj/screen/movable/ability_master/proc/add_ling_ability(object_given, verb_given, name_given, ability_icon_given, arguments)
 	if(!object_given)
 		message_admins("ERROR: add_ling_ability() was not given an object in its arguments.")
 	if(!verb_given)
@@ -297,7 +297,7 @@
 	icon_state = "wiz_spell_base"
 	background_base_state = "wiz"
 
-/obj/screen/movable/ability_master/proc/add_technomancer_ability(var/obj/object_given, var/ability_icon_given)
+/obj/screen/movable/ability_master/proc/add_technomancer_ability(obj/object_given, ability_icon_given)
 	if(!object_given)
 		message_admins("ERROR: add_technomancer_ability() was not given an object in its arguments.")
 	if(get_ability_by_instance(object_given))
@@ -324,7 +324,7 @@
 		spell = null
 	return ..()
 
-/obj/screen/movable/ability_master/proc/add_spell(var/spell/spell)
+/obj/screen/movable/ability_master/proc/add_spell(spell/spell)
 	if(!spell) return
 
 	if(spell.spell_flags & NO_BUTTON) //no button to add if we don't get one
@@ -351,16 +351,12 @@
 	if(my_mob.client)
 		toggle_open(2) //forces the icons to refresh on screen
 
-/mob/Life()
-	..()
-	if(ability_master)
-		ability_master.update_spells(0)
 
-/obj/screen/movable/ability_master/proc/update_spells(var/forced = 0)
+/obj/screen/movable/ability_master/proc/update_spells(forced = 0)
 	for(var/obj/screen/ability/spell/spell in spell_objects)
 		spell.update_charge(forced)
 
-/obj/screen/ability/spell/proc/update_charge(var/forced_update = 0)
+/obj/screen/ability/spell/proc/update_charge(forced_update = 0)
 	if(!spell)
 		qdel(src)
 		return
@@ -398,14 +394,14 @@
 	if(spell.silenced)
 		overlays += "silence"
 
-/obj/screen/ability/spell/on_update_icon(var/forced = 0)
+/obj/screen/ability/spell/on_update_icon(forced = 0)
 	update_charge(forced)
 	return
 
 /obj/screen/ability/spell/activate()
 	spell.perform(usr)
 
-/obj/screen/movable/ability_master/proc/silence_spells(var/amount)
+/obj/screen/movable/ability_master/proc/silence_spells(amount)
 	for(var/obj/screen/ability/spell/spell in spell_objects)
 		spell.spell.silenced = amount
 		spell.spell.process()

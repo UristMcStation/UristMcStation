@@ -2,8 +2,8 @@
 	name = SPECIES_UNATHI
 	name_plural = SPECIES_UNATHI
 	icon_template = 'icons/mob/human_races/species/template_tall.dmi'
-	icobase = 'icons/mob/human_races/species/unathi/body.dmi'
-	deform = 'icons/mob/human_races/species/unathi/deformed_body.dmi'
+	icobase = 'icons/mob/human_races/species/unathi/skin.dmi'
+	deform = 'icons/mob/human_races/species/unathi/deformed.dmi'
 	husk_icon = 'icons/mob/human_races/species/unathi/husk.dmi'
 	preview_icon = 'icons/mob/human_races/species/unathi/preview.dmi'
 	bandages_icon = 'icons/mob/bandage.dmi'
@@ -12,6 +12,7 @@
 	limb_blend = ICON_MULTIPLY
 	tail_blend = ICON_MULTIPLY
 	hidden_from_codex = FALSE
+	skin_material =   MATERIAL_SKIN_LIZARD
 
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/tail, /datum/unarmed_attack/claws, /datum/unarmed_attack/punch, /datum/unarmed_attack/bite/sharp)
 	primitive_form = "Stok"
@@ -19,6 +20,7 @@
 	darksight_tint = DARKTINT_MODERATE
 	gluttonous = GLUT_TINY
 	strength = STR_HIGH
+	breath_pressure = 18
 	slowdown = 0.5
 	brute_mod = 0.8
 	flash_mod = 1.2
@@ -47,18 +49,17 @@
 	heat_level_3 = 1100 //Default 1000
 
 	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED
-	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
+	appearance_flags = SPECIES_APPEARANCE_HAS_HAIR_COLOR | SPECIES_APPEARANCE_HAS_LIPS | SPECIES_APPEARANCE_HAS_UNDERWEAR | SPECIES_APPEARANCE_HAS_SKIN_COLOR | SPECIES_APPEARANCE_HAS_EYE_COLOR
 
 	flesh_color = "#34af10"
 
-	reagent_tag = IS_UNATHI
 	base_color = "#066000"
 	blood_color = "#f24b2e"
 	organs_icon = 'icons/mob/human_races/species/unathi/organs.dmi'
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
-	heat_discomfort_level = 295
+	heat_discomfort_level = 320
 	heat_discomfort_strings = list(
 		"You feel soothingly warm.",
 		"You feel the heat sink into your bones.",
@@ -81,9 +82,15 @@
 		/mob/living/carbon/human/proc/diona_heal_toggle
 		)*/
 
-	prone_overlay_offset = list(-4, -4)
-
-	override_limb_types = list(BP_HEAD = /obj/item/organ/external/head/unathi)
+	has_organ = list(
+		BP_HEART =    /obj/item/organ/internal/heart,
+		BP_STOMACH =  /obj/item/organ/internal/stomach,
+		BP_LUNGS =    /obj/item/organ/internal/lungs,
+		BP_LIVER =    /obj/item/organ/internal/liver,
+		BP_KIDNEYS =  /obj/item/organ/internal/kidneys,
+		BP_EYES =   /obj/item/organ/internal/eyes/unathi,
+		BP_BRAIN =  /obj/item/organ/internal/brain/unathi
+		)
 
 	descriptors = list(
 		/datum/mob_descriptor/height = 2,
@@ -92,41 +99,73 @@
 
 	available_cultural_info = list(
 		TAG_CULTURE = list(
-			CULTURE_UNATHI
+			CULTURE_UNATHI_POLAR,
+			CULTURE_UNATHI_DIAMOND_PEAKS,
+			CULTURE_UNATHI_DESERT,
+			CULTURE_UNATHI_SAVANNAH,
+			CULTURE_UNATHI_SALT_SWAMP,
+			CULTURE_UNATHI_SPACE,
 		),
 		TAG_HOMEWORLD = list(
-			HOME_SYSTEM_MOGHES
+			HOME_SYSTEM_MOGHES,
+			HOME_SYSTEM_OUERE,
+			HOME_SYSTEM_OFFWORLD
 		),
 		TAG_FACTION = list(
-			FACTION_UNATHI_POLAR,
-			FACTION_UNATHI_DESERT,
-			FACTION_UNATHI_SAVANNAH,
-			FACTION_UNATHI_DIAMOND_PEAK,
-			FACTION_UNATHI_SALT_SWAMP
+			FACTION_UNATHI_HEGEMONY,
+			FACTION_UNATHI_SSEN_UUMA,
+			FACTION_UNATHI_BAASK,
+			FACTION_UNATHI_GRESIS,
+			FACTION_UNATHI_INDEPENDENT
 		),
 		TAG_RELIGION =  list(
 			RELIGION_UNATHI_STRATAGEM,
 			RELIGION_UNATHI_PRECURSOR,
 			RELIGION_UNATHI_VINE,
 			RELIGION_UNATHI_LIGHTS,
-			RELIGION_OTHER
+			RELIGION_UNATHI_MARKESHELI,
+			RELIGION_UNATHI_ANCESTOR,
+			RELIGION_OTHER,
+			RELIGION_UNSTATED
 		)
 	)
+	default_cultural_info = list(
+		TAG_CULTURE   = CULTURE_UNATHI_POLAR,
+		TAG_HOMEWORLD = HOME_SYSTEM_MOGHES,
+		TAG_FACTION   = FACTION_UNATHI_INDEPENDENT,
+		TAG_RELIGION  = RELIGION_OTHER
+	)
+	pain_emotes_with_pain_level = list(
+			list(/singleton/emote/audible/wheeze, /singleton/emote/audible/roar, /singleton/emote/audible/bellow, /singleton/emote/audible/howl) = 80,
+			list(/singleton/emote/audible/grunt, /singleton/emote/audible/groan, /singleton/emote/audible/wheeze, /singleton/emote/audible/hiss) = 50,
+			list(/singleton/emote/audible/grunt, /singleton/emote/audible/groan, /singleton/emote/audible/hiss) = 20,
+		)
 
-/datum/species/unathi/equip_survival_gear(var/mob/living/carbon/human/H)
+	/*exertion_effect_chance = 10
+	exertion_hydration_scale = 1
+	exertion_reagent_scale = 5
+	exertion_reagent_path = /datum/reagent/lactate
+	exertion_emotes_biological = list(
+		/singleton/emote/exertion/biological,
+		/singleton/emote/exertion/biological/breath,
+		/singleton/emote/exertion/biological/pant
+	)*/
+
+	ingest_amount = 20
+
+	traits = list(
+		/singleton/trait/boon/filtered_blood = TRAIT_LEVEL_EXISTS,
+		/singleton/trait/boon/cast_iron_stomach = TRAIT_LEVEL_EXISTS,
+		/singleton/trait/malus/sugar = TRAIT_LEVEL_MAJOR
+	)
+
+	footwear_trail_overrides = list(
+		/obj/item/clothing = /obj/effect/decal/cleanable/blood/tracks/claw // Needs to apply to both shoes and space suits.
+	)
+
+/datum/species/unathi/equip_survival_gear(mob/living/carbon/human/H)
 	..()
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(H),slot_shoes)
 
-/datum/species/unathi/proc/handle_sugar(var/mob/living/carbon/human/M, var/datum/reagent/sugar, var/efficiency = 1)
-	var/effective_dose = efficiency * M.chem_doses[sugar.type]
-	if(effective_dose < 5)
-		return
-	M.druggy = max(M.druggy, 10)
-	M.add_chemical_effect(CE_PULSE, -1)
-	if(effective_dose > 15 && prob(7))
-		M.emote(pick("twitch", "drool"))
-	if(effective_dose > 20 && prob(10))
-		M.SelfMove(pick(GLOB.cardinal))
-
-/datum/species/unathi/get_bodytype(var/mob/living/carbon/human/H)
+/datum/species/unathi/get_bodytype(mob/living/carbon/human/H)
 	return SPECIES_UNATHI

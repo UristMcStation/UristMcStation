@@ -1,15 +1,20 @@
+/obj/item/natural_weapon/smshard
+	name = "shard attack"
+	attack_verb = list("burned", "scorched")
+	force = 35
+	damtype = DAMAGE_BURN
+	obj_flags = null
+
 /mob/living/simple_animal/hostile/smshard
 	name = "shard of supermatter"
 	desc = "A floating, iridescent shard of a supermatter."
-	icon = 'icons/mob/critter.dmi'
+	icon = 'icons/uristmob/simpleanimals.dmi'
 	icon_state = "smshard"
 	icon_living = "smshard"
 	pass_flags = PASS_FLAG_TABLE
 	health = 300
 	maxHealth = 300
-	melee_damage_lower = 30
-	melee_damage_upper = 35
-	damage_type = BURN
+	natural_weapon = /obj/item/natural_weapon/smshard
 	attacktext = "carbonized"
 	min_gas = null
 	max_gas = null

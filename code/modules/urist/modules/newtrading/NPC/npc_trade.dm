@@ -1,13 +1,13 @@
 
-/mob/living/simple_animal/hostile/npc/proc/check_tradeable(var/obj/O)
+/mob/living/simple_animal/passive/npc/proc/check_tradeable(obj/O)
 	. = 0
 
 	if(!O)
 		return 0
 
 	//check if it's a container
-	if (istype(O, /obj/item/weapon/storage))
-		var/obj/item/weapon/storage/S = O
+	if (istype(O, /obj/item/storage))
+		var/obj/item/storage/S = O
 		for(var/obj/I in S.contents)
 			if(!check_tradeable(I))
 				return 0
@@ -19,13 +19,13 @@
 		if(!T.sellable)
 			return 0
 
-	if(O.trader_category && O.trader_category in trade_categories_by_name)
+	if(O.trader_category && (O.trader_category in trade_categories_by_name))
 		return 1
 
 	if(O.type in trade_items_by_type)
 		return 1
 
-/mob/living/simple_animal/hostile/npc/proc/get_trade_value(var/obj/O, var/count = 1)
+/mob/living/simple_animal/passive/npc/proc/get_trade_value(obj/O, var/count = 1)
 	if(!O)
 		return 0
 
@@ -34,7 +34,7 @@
 
 	return isnull(worth) ? get_value(O)*count : worth
 
-/mob/living/simple_animal/hostile/npc/proc/get_trade_info(var/obj/tradingobject, var/count)
+/mob/living/simple_animal/passive/npc/proc/get_trade_info(obj/tradingobject, var/count)
 	//see if we are already selling the item
 	var/datum/trade_item/T = trade_items_inventory_by_type[tradingobject.type]
 	if(T)
@@ -61,8 +61,8 @@
 
 		return round(T.value * sell_modifier)
 
-	if(istype(tradingobject, /obj/item/weapon/storage))
-		var/obj/item/weapon/storage/S = tradingobject
+	if(istype(tradingobject, /obj/item/storage))
+		var/obj/item/storage/S = tradingobject
 		var/total_value = 0
 		var/list/tempItems = list()
 		for(var/obj/I in S.contents)
@@ -87,7 +87,7 @@
 
 		return round(T.value * sell_modifier)
 
-/mob/living/simple_animal/hostile/npc/proc/calculate_multiple_sales(var/datum/trade_item/T , var/count)
+/mob/living/simple_animal/passive/npc/proc/calculate_multiple_sales(datum/trade_item/T , var/count)
 	if(!T || !count)
 		return
 	var/newPrice = T.value

@@ -1,7 +1,7 @@
 #define WEATHER_PLANE ABOVE_HUMAN_PLANE+3
 
 /* fuck it, let's store that in a global until the controller wakes the fuck up for now */
-/var/global/list/pending_weathers = list()
+var/global/list/pending_weathers = list()
 
 SUBSYSTEM_DEF(weather)
 	name = "Weather"
@@ -31,7 +31,7 @@ SUBSYSTEM_DEF(weather)
 		current_wcticks = 0
 
 /datum/controller/subsystem/weather/proc/update_cache()
-	if(pending_weathers.len) //uh-oh, we have a backlog
+	if(length(pending_weathers)) //uh-oh, we have a backlog
 		for(var/WO in pending_weathers)
 			weather_cache += WO
 			pending_weathers -= WO //transfer from backlog
@@ -65,7 +65,7 @@ SUBSYSTEM_DEF(weather)
 	return act_weathers
 
 //handles changes; call with initial=1 to ensure every area is changed
-/datum/controller/subsystem/weather/proc/change_weather(var/initial = 0)
+/datum/controller/subsystem/weather/proc/change_weather(initial = 0)
 	var/list/processed = list()
 	for(var/weather_handler in weather_cache)
 		if(istype(weather_handler, /obj/effect/weather))
@@ -93,7 +93,8 @@ SUBSYSTEM_DEF(weather)
 					var/obj/weathertype/WT = j
 					WO.active_weathers.Add(WT)
 				else if(ispath(j))
-					world.log << "Weathertype ([j]) received from [WA.name] by [WO.name] in [WO.loc] is path instead of instance!"
+					log_game("Weathertype ([j]) received from [WA.name] by [WO.name] in [WO.loc] is path instead of instance!")
+					message_admins("Weathertype ([j]) received from [WA.name] by [WO.name] in [WO.loc] is path instead of instance!")
 			WO.update_weather_icon()
 		else if(istype(weather_handler, /turf))
 			var/turf/WTu = weather_handler
@@ -122,7 +123,8 @@ SUBSYSTEM_DEF(weather)
 					var/obj/weathertype/WT = j
 					WTu.active_weathers.Add(WT)
 				else if(ispath(j))
-					world.log << "Weathertype ([j]) received from [WA.name] by [WTu.name] in [WTu.loc] is path instead of instance!"
+					log_game("Weathertype ([j]) received from [WA.name] by [WTu.name] in [WTu.loc] is path instead of instance!")
+					message_admins("Weathertype ([j]) received from [WA.name] by [WTu.name] in [WTu.loc] is path instead of instance!")
 			WTu.update_weather_icon()
 		CHECK_TICK
 

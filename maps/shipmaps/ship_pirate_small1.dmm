@@ -1,332 +1,4984 @@
-"aa" = (/turf/space,/area/space)
-"ab" = (/turf/simulated/wall/r_wall/hull,/area/boarding_ship)
-"ac" = (/obj/effect/wallframe_spawn/reinforced/hull,/turf/simulated/wall/r_wall/rglass_wall,/area/boarding_ship)
-"ad" = (/obj/machinery/airlock_sensor/airlock_exterior{pixel_y = -19},/turf/space,/area/space)
-"ae" = (/obj/machinery/shipweapons/ammo/torpedo{icon_state = "torpedo"; dir = 1},/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"af" = (/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"ag" = (/turf/simulated/wall/r_wall/rglass_wall,/area/boarding_ship)
-"ah" = (/obj/machinery/door/airlock/external/glass/bolted,/obj/machinery/shield_diffuser,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"ai" = (/obj/machinery/atmospherics/unary/outlet_injector,/turf/simulated/floor/airless,/area/space)
-"aj" = (/turf/simulated/floor/airless,/area/space)
-"ak" = (/turf/simulated/wall/r_wall,/area/boarding_ship)
-"al" = (/obj/machinery/light/small/red{icon_state = "firelight1"; dir = 8},/obj/structure/railing/mapped{icon_state = "railing0"; dir = 4},/obj/machinery/atmospherics/unary/vent_pump/on,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"am" = (/obj/machinery/conveyor{icon_state = "conveyor0"; dir = 6},/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"an" = (/obj/machinery/light/small/red{icon_state = "firelight1"; dir = 4},/obj/machinery/conveyor{icon_state = "conveyor0"; dir = 9},/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"ao" = (/obj/machinery/airlock_sensor/airlock_interior{pixel_y = 19},/obj/structure/handrai{icon_state = "handrail"; dir = 4},/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 6},/turf/simulated/floor/plating,/area/boarding_ship)
-"ap" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers{icon_state = "map-scrubbers"; dir = 1},/turf/simulated/floor/plating,/area/boarding_ship)
-"aq" = (/obj/structure/handrai{icon_state = "handrail"; dir = 8},/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 10},/turf/simulated/floor/plating,/area/boarding_ship)
-"ar" = (/obj/machinery/atmospherics/pipe/simple/visible/green,/turf/simulated/wall/r_wall/hull,/area/boarding_ship)
-"as" = (/obj/structure/closet/secure_closet/engineering_welding,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"at" = (/obj/structure/closet/secure_closet/engineering_electrical,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"au" = (/obj/machinery/cryopod{icon_state = "body_scanner_0"; dir = 2},/turf/simulated/floor/tiled/white,/area/boarding_ship)
-"av" = (/obj/machinery/recharge_station,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"aw" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 6},/obj/machinery/atmospherics/pipe/simple/visible/supply{icon_state = "intact-supply"; dir = 6},/turf/simulated/floor/plating,/area/boarding_ship)
-"ax" = (/obj/structure/catwalk,/obj/structure/fitness/weightlifter,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 8},/obj/machinery/atmospherics/pipe/simple/visible/supply{icon_state = "intact-supply"; dir = 4},/turf/simulated/floor/plating,/area/boarding_ship)
-"ay" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 8},/obj/machinery/atmospherics/pipe/simple/visible/supply{icon_state = "intact-supply"; dir = 4},/turf/simulated/floor/plating,/area/boarding_ship)
-"az" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers{icon_state = "map-scrubbers"; dir = 1},/obj/machinery/atmospherics/pipe/manifold/visible/supply{icon_state = "map-supply"; dir = 1},/turf/simulated/floor/plating,/area/boarding_ship)
-"aA" = (/obj/structure/catwalk,/obj/machinery/door/firedoor/border_only{icon_state = "open"; dir = 1},/obj/machinery/door/airlock{icon_state = "closed"; dir = 8},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 4},/obj/machinery/atmospherics/pipe/simple/visible/supply{icon_state = "intact-supply"; dir = 4},/turf/simulated/floor/plating,/area/boarding_ship)
-"aB" = (/obj/structure/catwalk,/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 4},/obj/machinery/atmospherics/pipe/simple/visible/supply{icon_state = "intact-supply"; dir = 9},/turf/simulated/floor/plating,/area/boarding_ship)
-"aC" = (/obj/structure/railing/mapped{icon_state = "railing0"; dir = 1},/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8},/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"aD" = (/obj/machinery/conveyor,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"aE" = (/obj/structure/handrai{icon_state = "handrail"; dir = 4},/obj/machinery/atmospherics/binary/dp_vent_pump/high_volume{icon_state = "map_dp_vent"; dir = 1},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
-"aF" = (/obj/machinery/atmospherics/binary/dp_vent_pump/high_volume{icon_state = "map_dp_vent"; dir = 1},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
-"aG" = (/obj/structure/handrai{icon_state = "handrail"; dir = 8},/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 1},/turf/simulated/floor/plating,/area/boarding_ship)
-"aH" = (/obj/machinery/atmospherics/pipe/simple/visible/green,/turf/simulated/wall/r_wall,/area/boarding_ship)
-"aI" = (/obj/structure/table/rack,/obj/random/toolbox,/obj/random/material,/obj/random/tool,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"aJ" = (/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"aK" = (/obj/structure/engineeringcart,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"aL" = (/obj/machinery/light/coldtint{icon_state = "tube_map"; dir = 8},/turf/simulated/floor/tiled/white,/area/boarding_ship)
-"aM" = (/turf/simulated/floor/tiled/white,/area/boarding_ship)
-"aN" = (/obj/effect/urist/triggers/defender_landmark/pirate,/turf/simulated/floor/tiled/white,/area/boarding_ship)
-"aO" = (/obj/machinery/light/coldtint{icon_state = "tube_map"; dir = 4},/turf/simulated/floor/tiled/white,/area/boarding_ship)
-"aP" = (/obj/structure/catwalk,/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,/obj/machinery/atmospherics/pipe/simple/visible/supply,/turf/simulated/floor/plating,/area/boarding_ship)
-"aQ" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 1},/obj/machinery/atmospherics/pipe/simple/visible/supply,/obj/structure/extinguisher_cabinet{icon_state = "extinguisher_closed"; dir = 8; pixel_x = 31; pixel_x = 30},/turf/simulated/floor/plating,/area/boarding_ship)
-"aR" = (/obj/structure/catwalk,/obj/structure/closet/walllocker/emerglocker/south,/turf/simulated/floor/plating,/area/boarding_ship)
-"aS" = (/obj/machinery/conveyor,/obj/machinery/conveyor,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"aT" = (/obj/structure/handrai{icon_state = "handrail"; dir = 4},/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/supply{icon_state = "intact-supply"; dir = 5},/turf/simulated/floor/plating,/area/boarding_ship)
-"aU" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/manifold/visible/supply,/obj/structure/closet/walllocker/emerglocker/south,/turf/simulated/floor/plating,/area/boarding_ship)
-"aV" = (/obj/structure/catwalk,/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 6},/obj/machinery/atmospherics/pipe/manifold/visible/supply{icon_state = "map-supply"; dir = 4},/turf/simulated/floor/plating,/area/boarding_ship)
-"aW" = (/obj/structure/handrai{icon_state = "handrail"; dir = 8},/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 9},/turf/simulated/floor/plating,/area/boarding_ship)
-"aX" = (/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
-"aY" = (/obj/machinery/light/small/red{icon_state = "firelight1"; dir = 1},/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
-"aZ" = (/obj/machinery/atmospherics/portables_connector,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"ba" = (/obj/machinery/atmospherics/pipe/tank/oxygen,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"bb" = (/obj/structure/table/rack,/obj/random/tool,/obj/random/tool,/obj/random/tool,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"bc" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 4},/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"bd" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 10},/obj/machinery/atmospherics/pipe/simple/visible/supply{icon_state = "intact-supply"; dir = 6},/turf/simulated/floor/plating,/area/boarding_ship)
-"be" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 8},/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"bf" = (/obj/structure/extinguisher_cabinet{icon_state = "extinguisher_closed"; dir = 8; pixel_x = 31; pixel_x = 30},/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"bg" = (/obj/machinery/door/firedoor/border_only{icon_state = "open"; dir = 1},/obj/machinery/door/airlock{icon_state = "closed"; dir = 8},/turf/simulated/floor/tiled/white,/area/boarding_ship)
-"bh" = (/obj/structure/catwalk,/obj/machinery/light/warmtint{icon_state = "tube_map"; dir = 4},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,/obj/machinery/atmospherics/pipe/simple/visible/supply,/obj/structure/window/reinforced/tinted/frosted,/turf/simulated/floor/plating,/area/boarding_ship)
-"bi" = (/obj/structure/catwalk,/obj/machinery/door/airlock/highsecurity{icon_state = "closed"; dir = 1},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 1},/obj/machinery/atmospherics/pipe/simple/visible/supply,/turf/simulated/floor/plating,/area/boarding_ship)
-"bj" = (/obj/structure/plasticflaps/mining,/obj/machinery/conveyor,/turf/simulated/floor/plating/flaps,/area/boarding_ship)
-"bk" = (/obj/structure/catwalk,/obj/machinery/door/airlock/external,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,/obj/machinery/atmospherics/pipe/simple/visible/supply{icon_state = "intact-supply"; dir = 1},/turf/simulated/floor/plating,/area/boarding_ship)
-"bl" = (/obj/machinery/embedded_controller/radio/airlock/airlock_controller{pixel_y = 31; pixel_y = -22},/turf/simulated/wall/r_wall,/area/boarding_ship)
-"bm" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 6},/turf/simulated/floor/plating,/area/boarding_ship)
-"bn" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8},/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
-"bo" = (/obj/machinery/atmospherics/pipe/simple/visible/green,/turf/simulated/floor/plating,/area/boarding_ship)
-"bp" = (/obj/machinery/atmospherics/valve,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"bq" = (/obj/structure/table/rack,/obj/random/material,/obj/random/powercell,/obj/random/powercell,/obj/random/material,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"br" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 1},/obj/machinery/atmospherics/pipe/simple/visible/supply,/turf/simulated/floor/plating,/area/boarding_ship)
-"bs" = (/obj/structure/bed/nice,/obj/item/weapon/bedsheet/yellow,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"bt" = (/obj/machinery/bodyscanner{icon_state = "body_scanner_0"; dir = 8},/turf/simulated/floor/tiled/white,/area/boarding_ship)
-"bu" = (/obj/machinery/body_scanconsole{icon_state = "body_scannerconsole"; dir = 8},/turf/simulated/floor/tiled/white,/area/boarding_ship)
-"bv" = (/obj/structure/closet/walllocker/emerglocker/east,/turf/simulated/floor/tiled/white,/area/boarding_ship)
-"bw" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,/obj/machinery/atmospherics/pipe/simple/visible/supply,/obj/structure/bed/nice,/obj/structure/curtain/open/bed,/obj/item/weapon/bedsheet/purple,/turf/simulated/floor/plating,/area/boarding_ship)
-"bx" = (/obj/structure/table/rack,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"by" = (/obj/machinery/light/small/red{icon_state = "firelight1"; dir = 1},/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 4},/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"bz" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 9},/obj/machinery/atmospherics/pipe/simple/visible/supply{icon_state = "intact-supply"; dir = 5},/turf/simulated/floor/plating,/area/boarding_ship)
-"bA" = (/obj/structure/catwalk,/obj/structure/railing/mapped,/obj/machinery/atmospherics/unary/vent_pump/on{dir = 8},/obj/structure/closet/walllocker/emerglocker/north,/turf/simulated/floor/plating,/area/boarding_ship)
-"bB" = (/obj/structure/railing/mapped,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"bC" = (/obj/machinery/light/small/red{icon_state = "firelight1"; dir = 1},/obj/structure/railing/mapped,/obj/structure/railing/mapped{icon_state = "railing0"; dir = 4},/obj/random/closet,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"bD" = (/obj/machinery/suit_storage_unit/security/alt,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"bE" = (/obj/structure/closet/walllocker/emerglocker/north,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"bF" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,/obj/machinery/atmospherics/pipe/simple/visible/supply{icon_state = "intact-supply"; dir = 1},/turf/simulated/floor/plating,/area/boarding_ship)
-"bG" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 1},/obj/machinery/atmospherics/pipe/simple/visible/supply{icon_state = "intact-supply"; dir = 6},/obj/structure/closet/walllocker/emerglocker/west,/turf/simulated/floor/plating,/area/boarding_ship)
-"bH" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 8},/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
-"bI" = (/obj/effect/urist/triggers/shipweapons,/obj/structure/shipweapons/hardpoint/attached,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
-"bJ" = (/obj/machinery/atmospherics/trinary/mixer/m_mixer,/turf/simulated/floor/plating,/area/boarding_ship)
-"bK" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/green{icon_state = "intact"; dir = 9},/turf/simulated/floor/plating,/area/boarding_ship)
-"bL" = (/obj/structure/catwalk,/obj/machinery/door/firedoor/border_only{icon_state = "open"; dir = 4},/obj/machinery/door/airlock/engineering,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 1},/obj/machinery/atmospherics/pipe/simple/visible/supply,/turf/simulated/floor/plating,/area/boarding_ship)
-"bM" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 6},/turf/simulated/floor/tiled/white,/area/boarding_ship)
-"bN" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 4},/obj/machinery/atmospherics/pipe/simple/visible/supply{icon_state = "intact-supply"; dir = 6},/turf/simulated/floor/plating,/area/boarding_ship)
-"bO" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 4},/obj/machinery/atmospherics/pipe/simple/visible/supply{icon_state = "intact-supply"; dir = 4},/turf/simulated/floor/plating,/area/boarding_ship)
-"bP" = (/obj/structure/catwalk,/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers{icon_state = "map-scrubbers"; dir = 4},/obj/machinery/atmospherics/pipe/manifold/visible/supply{icon_state = "map-supply"; dir = 4},/obj/structure/bed/nice,/obj/structure/window/reinforced/tinted/frosted,/obj/structure/curtain/open/bed,/obj/item/weapon/bedsheet/blue,/turf/simulated/floor/plating,/area/boarding_ship)
-"bQ" = (/obj/effect/template_loader/ships,/turf/simulated/wall/r_wall,/area/boarding_ship)
-"bR" = (/obj/random/closet,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"bS" = (/obj/machinery/conveyor_switch/oneway,/obj/structure/railing/mapped{icon_state = "railing0"; dir = 4},/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"bT" = (/obj/machinery/conveyor{icon_state = "conveyor0"; dir = 4},/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"bU" = (/obj/machinery/conveyor{icon_state = "conveyor0"; dir = 5},/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"bV" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 1},/obj/machinery/atmospherics/pipe/simple/visible/supply{icon_state = "intact-supply"; dir = 1},/turf/simulated/floor/plating,/area/boarding_ship)
-"bW" = (/obj/machinery/light/small/red,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
-"bX" = (/obj/effect/urist/triggers/ai_defender_landmark/pirate,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
-"bY" = (/obj/machinery/atmospherics/unary/engine{icon_state = "nozzle"; dir = 4},/turf/simulated/wall/r_wall/hull,/area/boarding_ship)
-"bZ" = (/obj/machinery/atmospherics/pipe/simple/hidden/fuel{icon_state = "intact"; dir = 10},/turf/simulated/wall/r_wall,/area/boarding_ship)
-"ca" = (/obj/machinery/atmospherics/pipe/simple/visible/universal,/turf/simulated/floor/plating,/area/boarding_ship)
-"cb" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/green{icon_state = "intact"; dir = 5},/turf/simulated/floor/plating,/area/boarding_ship)
-"cc" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/green{icon_state = "intact"; dir = 10},/turf/simulated/floor/plating,/area/boarding_ship)
-"cd" = (/obj/machinery/vending/engineering,/obj/machinery/vending/tool,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"ce" = (/obj/structure/closet/secure_closet/engineering_welding,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"cf" = (/obj/machinery/vending/tool,/obj/machinery/vending/engineering,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"cg" = (/obj/machinery/vending/engivend,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"ch" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers{icon_state = "map-scrubbers"; dir = 8},/obj/machinery/atmospherics/pipe/simple/visible/supply,/turf/simulated/floor/plating,/area/boarding_ship)
-"ci" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8},/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"cj" = (/obj/machinery/suit_storage_unit/engineering,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"ck" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 1},/turf/simulated/floor/tiled/white,/area/boarding_ship)
-"cl" = (/obj/machinery/light/coldtint{icon_state = "tube_map"; dir = 4},/obj/machinery/atmospherics/unary/vent_pump/on{dir = 1; layer = 2.4; level = 2},/turf/simulated/floor/tiled/white,/area/boarding_ship)
-"cm" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,/obj/machinery/atmospherics/pipe/simple/visible/supply,/obj/structure/bed/nice,/obj/structure/window/reinforced/tinted/frosted{icon_state = "window"; dir = 1},/obj/structure/curtain/open/bed,/obj/item/weapon/bedsheet/red,/turf/simulated/floor/plating,/area/boarding_ship)
-"cn" = (/obj/effect/urist/triggers/ai_defender_landmark/pirate,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"co" = (/obj/structure/extinguisher_cabinet{icon_state = "extinguisher_closed"; dir = 8; pixel_x = 31; pixel_x = 30},/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"cp" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 1},/obj/machinery/atmospherics/pipe/simple/visible/supply{icon_state = "intact-supply"; dir = 1},/obj/structure/extinguisher_cabinet{icon_state = "extinguisher_closed"; dir = 8; pixel_x = 31; pixel_x = 30},/turf/simulated/floor/plating,/area/boarding_ship)
-"cq" = (/obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,/turf/simulated/wall/r_wall,/area/boarding_ship)
-"cr" = (/obj/structure/catwalk,/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/manifold/visible/fuel{icon_state = "map"; dir = 1},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 5},/turf/simulated/floor/plating,/area/boarding_ship)
-"cs" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/fuel{icon_state = "intact"; dir = 8},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 8},/turf/simulated/floor/plating,/area/boarding_ship)
-"ct" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/fuel{icon_state = "intact"; dir = 10},/obj/machinery/atmospherics/pipe/simple/visible/green{icon_state = "intact"; dir = 5},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 8},/turf/simulated/floor/plating,/area/boarding_ship)
-"cu" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/green{icon_state = "intact"; dir = 4},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 8},/turf/simulated/floor/plating,/area/boarding_ship)
-"cv" = (/obj/machinery/atmospherics/pipe/simple/visible/green{icon_state = "intact"; dir = 10},/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 8},/turf/simulated/floor/plating,/area/boarding_ship)
-"cw" = (/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 8},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
-"cx" = (/obj/structure/catwalk,/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/manifold/visible/supply{icon_state = "map-supply"; dir = 8},/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers{icon_state = "map-scrubbers"; dir = 4},/turf/simulated/floor/plating,/area/boarding_ship)
-"cy" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 8},/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"cz" = (/obj/machinery/suit_storage_unit/engineering/alt,/obj/structure/extinguisher_cabinet{icon_state = "extinguisher_closed"; dir = 8; pixel_x = 31; pixel_x = 30},/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"cA" = (/obj/machinery/cryopod{icon_state = "body_scanner_0"; dir = 1},/turf/simulated/floor/tiled/white,/area/boarding_ship)
-"cB" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,/obj/machinery/atmospherics/pipe/simple/visible/supply,/obj/structure/bed/nice,/obj/structure/curtain/open/bed,/obj/item/weapon/bedsheet/orange,/turf/simulated/floor/plating,/area/boarding_ship)
-"cC" = (/obj/machinery/light/small/red,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"cD" = (/obj/structure/catwalk,/obj/machinery/door/airlock/highsecurity{icon_state = "closed"; dir = 1},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 1},/obj/machinery/atmospherics/pipe/simple/visible/supply{icon_state = "intact-supply"; dir = 1},/turf/simulated/floor/plating,/area/boarding_ship)
-"cE" = (/obj/machinery/atmospherics/pipe/simple/hidden/fuel{icon_state = "intact"; dir = 9},/turf/simulated/wall/r_wall,/area/boarding_ship)
-"cF" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/fuel,/turf/simulated/floor/plating,/area/boarding_ship)
-"cG" = (/obj/machinery/atmospherics/unary/heater{icon_state = "heater_0"; dir = 4},/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"cH" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/manifold4w/visible/fuel,/turf/simulated/floor/plating,/area/boarding_ship)
-"cI" = (/obj/machinery/atmospherics/unary/heater{icon_state = "heater_0"; dir = 8},/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"cJ" = (/obj/machinery/atmospherics/pipe/simple/visible/green,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
-"cK" = (/obj/machinery/suit_storage_unit/pilot,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"cL" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 4},/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"cM" = (/obj/structure/catwalk,/obj/machinery/light/warmtint{icon_state = "tube_map"; dir = 4},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,/obj/machinery/atmospherics/pipe/manifold/visible/supply{icon_state = "map-supply"; dir = 4},/obj/structure/window/reinforced/tinted/frosted{icon_state = "window"; dir = 1},/turf/simulated/floor/plating,/area/boarding_ship)
-"cN" = (/obj/machinery/suit_storage_unit/security,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"cO" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 4},/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"cP" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,/obj/machinery/atmospherics/pipe/manifold/visible/supply{icon_state = "map-supply"; dir = 4},/turf/simulated/floor/plating,/area/boarding_ship)
-"cQ" = (/obj/item/modular_computer/telescreen/preset/engineering{pixel_y = 23},/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"cR" = (/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
-"cS" = (/obj/structure/catwalk,/obj/structure/closet/walllocker/emerglocker/north,/turf/simulated/floor/plating,/area/boarding_ship)
-"cT" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers{icon_state = "map-scrubbers"; dir = 4},/obj/machinery/atmospherics/pipe/simple/visible/supply,/turf/simulated/floor/plating,/area/boarding_ship)
-"cU" = (/obj/structure/bookcase,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"cV" = (/obj/machinery/vending/medical,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"cW" = (/obj/machinery/vending/hotfood,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"cX" = (/obj/machinery/microwave,/obj/structure/table/standard,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"cY" = (/turf/simulated/wall/iron,/area/boarding_ship)
-"cZ" = (/obj/machinery/vending/snix,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"da" = (/obj/machinery/media/jukebox,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"db" = (/obj/machinery/vending/urist/sustenance,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"dc" = (/obj/structure/dispenser/oxygen,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"dd" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 4},/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"de" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/manifold4w/visible/scrubbers,/obj/machinery/atmospherics/pipe/manifold/visible/supply{icon_state = "map-supply"; dir = 8},/turf/simulated/floor/plating,/area/boarding_ship)
-"df" = (/obj/structure/catwalk,/obj/machinery/door/airlock/multi_tile/civilian{icon_state = "closed"; dir = 8},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 8},/obj/machinery/atmospherics/pipe/simple/visible/supply{icon_state = "intact-supply"; dir = 4},/turf/simulated/floor/plating,/area/boarding_ship)
-"dg" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers{icon_state = "map-scrubbers"; dir = 4},/obj/machinery/atmospherics/pipe/manifold/visible/supply{icon_state = "map-supply"; dir = 4},/turf/simulated/floor/plating,/area/boarding_ship)
-"dh" = (/obj/structure/catwalk,/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/fuel{icon_state = "intact"; dir = 9},/turf/simulated/floor/plating,/area/boarding_ship)
-"di" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/fuel{icon_state = "intact"; dir = 1},/turf/simulated/floor/plating,/area/boarding_ship)
-"dj" = (/obj/machinery/atmospherics/pipe/simple/visible/green{tag = "icon-intact (NORTHEAST)"; icon_state = "intact"; dir = 5},/obj/structure/catwalk,/obj/effect/urist/triggers/ai_defender_landmark/pirate,/turf/simulated/floor/plating,/area/boarding_ship)
-"dk" = (/obj/machinery/atmospherics/pipe/simple/visible/green{icon_state = "intact"; dir = 4},/obj/machinery/atmospherics/binary/pump/high_power/on/distribution{icon_state = "map_on"; dir = 4},/turf/simulated/floor/plating,/area/boarding_ship)
-"dl" = (/obj/machinery/atmospherics/pipe/simple/visible/universal{dir = 4},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
-"dm" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/manifold/visible/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 5},/turf/simulated/floor/plating,/area/boarding_ship)
-"dn" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 8},/obj/machinery/atmospherics/pipe/simple/visible/supply{icon_state = "intact-supply"; dir = 8},/turf/simulated/floor/plating,/area/boarding_ship)
-"do" = (/obj/structure/catwalk,/obj/machinery/door/firedoor/border_only{icon_state = "open"; dir = 1},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 8},/obj/machinery/atmospherics/pipe/simple/visible/supply{icon_state = "intact-supply"; dir = 8},/turf/simulated/floor/plating,/area/boarding_ship)
-"dp" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers,/obj/machinery/atmospherics/pipe/manifold/visible/supply,/turf/simulated/floor/plating,/area/boarding_ship)
-"dq" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 8},/obj/machinery/atmospherics/pipe/simple/visible/supply{icon_state = "intact-supply"; dir = 8},/obj/effect/urist/triggers/ai_defender_landmark/pirate,/turf/simulated/floor/plating,/area/boarding_ship)
-"dr" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 4},/obj/machinery/atmospherics/pipe/simple/visible/supply{icon_state = "intact-supply"; dir = 8},/turf/simulated/floor/plating,/area/boarding_ship)
-"ds" = (/obj/structure/catwalk,/obj/machinery/door/firedoor/border_only{icon_state = "open"; dir = 1},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 4},/obj/machinery/atmospherics/pipe/simple/visible/supply{icon_state = "intact-supply"; dir = 8},/turf/simulated/floor/plating,/area/boarding_ship)
-"dt" = (/obj/structure/catwalk,/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers{icon_state = "map-scrubbers"; dir = 4},/obj/machinery/atmospherics/pipe/manifold/visible/supply{icon_state = "map-supply"; dir = 4},/turf/simulated/floor/plating,/area/boarding_ship)
-"du" = (/obj/structure/catwalk,/obj/effect/urist/triggers/boarding_landmark,/obj/structure/boarding/shipportal{layer = 3.1},/turf/simulated/floor/plating,/area/boarding_ship)
-"dv" = (/obj/machinery/atmospherics/pipe/simple/visible/fuel{icon_state = "intact"; dir = 1},/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
-"dw" = (/obj/machinery/door/firedoor/border_only{icon_state = "open"; dir = 1},/obj/machinery/door/airlock/multi_tile{icon_state = "closed"; dir = 8},/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"dx" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 1},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"dy" = (/obj/machinery/door/firedoor/border_only{icon_state = "open"; dir = 1},/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"dz" = (/obj/machinery/door/airlock/multi_tile{icon_state = "closed"; dir = 8},/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"dA" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/fuel{icon_state = "intact"; dir = 6},/turf/simulated/floor/plating,/area/boarding_ship)
-"dB" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/manifold/visible/fuel{icon_state = "map"; dir = 4},/turf/simulated/floor/plating,/area/boarding_ship)
-"dC" = (/obj/structure/catwalk,/obj/machinery/door/firedoor/border_only{icon_state = "open"; dir = 4},/obj/machinery/door/airlock/engineering{icon_state = "closed"; dir = 1},/turf/simulated/floor/plating,/area/boarding_ship)
-"dD" = (/obj/structure/catwalk,/obj/machinery/door/firedoor/border_only{icon_state = "open"; dir = 4},/obj/machinery/door/airlock/engineering{icon_state = "closed"; dir = 1},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 1},/obj/machinery/atmospherics/pipe/simple/visible/supply,/turf/simulated/floor/plating,/area/boarding_ship)
-"dE" = (/obj/structure/table/standard,/obj/random/drinkbottle,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"dF" = (/obj/item/modular_computer/console/preset/library{icon_state = "console"; dir = 1},/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"dG" = (/obj/structure/extinguisher_cabinet{icon_state = "extinguisher_closed"; dir = 8; pixel_x = 0; pixel_x = 0; pixel_y = -23},/obj/effect/urist/triggers/ai_defender_landmark/pirate,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"dH" = (/obj/structure/bed/chair/couch/left/brown{icon_state = "couch_left"; dir = 1},/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"dI" = (/obj/structure/bed/chair/couch/middle/brown{icon_state = "couch_middle"; dir = 1},/obj/random/snack,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"dJ" = (/obj/structure/bed/chair/couch/middle/brown{icon_state = "couch_middle"; dir = 1},/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"dK" = (/obj/structure/bed/chair/couch/right/brown{icon_state = "couch_right"; dir = 1},/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"dL" = (/obj/machinery/atmospherics/valve/digital,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"dM" = (/obj/machinery/atmospherics/valve/digital,/obj/structure/extinguisher_cabinet{icon_state = "extinguisher_closed"; dir = 8; pixel_x = 31; pixel_x = 30},/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"dN" = (/obj/structure/catwalk,/obj/machinery/power/port_gen/pacman/super,/obj/structure/cable{icon_state = "0-4"; d2 = 4},/turf/simulated/floor/plating,/area/boarding_ship)
-"dO" = (/obj/structure/catwalk,/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"; tag = ""},/turf/simulated/floor/plating,/area/boarding_ship)
-"dP" = (/obj/machinery/autolathe,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"dQ" = (/obj/machinery/power/shield_generator,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"dR" = (/obj/item/mecha_parts/mecha_equipment/armor_booster/antiproj_armor_booster,/obj/structure/table/rack/dark,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"dS" = (/obj/machinery/door/airlock,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 1},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled/freezer,/area/boarding_ship)
-"dT" = (/obj/machinery/door/airlock/glass/civilian,/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
-"dU" = (/obj/machinery/door/firedoor/border_only{icon_state = "open"; dir = 4},/obj/machinery/door/airlock/glass/civilian,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 1},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
-"dV" = (/obj/structure/closet/walllocker/emerglocker/south,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"dW" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 1},/obj/machinery/atmospherics/pipe/simple/visible/supply{icon_state = "intact-supply"; dir = 5},/obj/structure/closet/walllocker/emerglocker/west,/turf/simulated/floor/plating,/area/boarding_ship)
-"dX" = (/obj/machinery/atmospherics/pipe/tank/hydrogen{icon_state = "h2_map"; dir = 1},/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"dY" = (/obj/structure/catwalk,/obj/machinery/power/apc{icon_state = "apc0"; dir = 8; pixel_x = -13; pixel_x = -9},/obj/structure/cable{d2 = 2; icon_state = "0-2"},/turf/simulated/floor/plating,/area/boarding_ship)
-"dZ" = (/obj/structure/catwalk,/obj/machinery/light/small/red{icon_state = "firelight1"; dir = 4},/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"; pixel_y = 0},/turf/simulated/floor/plating,/area/boarding_ship)
-"ea" = (/obj/random/closet,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"eb" = (/obj/structure/hygiene/shower{icon_state = "shower"; dir = 8},/obj/random/soap,/turf/simulated/floor/tiled/freezer,/area/boarding_ship)
-"ec" = (/obj/structure/hygiene/shower{icon_state = "shower"; dir = 4},/obj/structure/window/reinforced/tinted/frosted{icon_state = "window"; dir = 4},/turf/simulated/floor/tiled/freezer,/area/boarding_ship)
-"ed" = (/obj/structure/closet/walllocker/emerglocker/north,/turf/simulated/floor/tiled/freezer,/area/boarding_ship)
-"ee" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 1},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled/freezer,/area/boarding_ship)
-"ef" = (/obj/structure/hygiene/sink/kitchen{icon_state = "sink_alt"; dir = 8},/turf/simulated/floor/tiled/freezer,/area/boarding_ship)
-"eg" = (/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
-"eh" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 1},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
-"ei" = (/obj/machinery/recharger/wallcharger,/obj/structure/table/woodentable_reinforced,/turf/simulated/floor/carpet/red,/area/boarding_ship)
-"ej" = (/obj/structure/table/woodentable_reinforced,/obj/item/device/flashlight/lamp/lava/purple,/turf/simulated/floor/carpet/red,/area/boarding_ship)
-"ek" = (/obj/structure/table/woodentable_reinforced,/obj/random/handgun,/turf/simulated/floor/carpet/red,/area/boarding_ship)
-"el" = (/obj/structure/bed/padded,/obj/structure/curtain/open/bed,/obj/random/toy,/obj/item/weapon/bedsheet/urist/centcom,/turf/simulated/floor/carpet/red,/area/boarding_ship)
-"em" = (/obj/structure/catwalk,/obj/machinery/door/airlock/external{icon_state = "closed"; dir = 1},/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,/obj/machinery/atmospherics/pipe/simple/visible/supply{icon_state = "intact-supply"; dir = 1},/turf/simulated/floor/plating,/area/boarding_ship)
-"en" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 5},/turf/simulated/floor/plating,/area/boarding_ship)
-"eo" = (/obj/structure/catwalk,/obj/machinery/power/smes/buildable/preset/nerva/shuttle,/obj/structure/cable,/turf/simulated/floor/plating,/area/boarding_ship)
-"ep" = (/obj/structure/catwalk,/obj/machinery/power/terminal{icon_state = "term"; dir = 8},/obj/structure/cable,/turf/simulated/floor/plating,/area/boarding_ship)
-"eq" = (/turf/simulated/floor/tiled/freezer,/area/boarding_ship)
-"er" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 4},/turf/simulated/floor/tiled/freezer,/area/boarding_ship)
-"es" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 1},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 9},/turf/simulated/floor/tiled/freezer,/area/boarding_ship)
-"et" = (/obj/structure/closet/walllocker/emerglocker/west,/obj/effect/urist/triggers/ai_defender_landmark/pirate,/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
-"eu" = (/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{dir = 8},/obj/machinery/atmospherics/pipe/manifold/hidden/supply{dir = 8},/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
-"ev" = (/obj/machinery/door/firedoor/border_only{icon_state = "open"; dir = 1},/obj/machinery/door/airlock/command{icon_state = "closed"; dir = 8},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{icon_state = "intact-supply"; dir = 8},/obj/machinery/atmospherics/pipe/simple/hidden/supply{icon_state = "intact-supply"; dir = 8},/turf/simulated/floor/carpet/red,/area/boarding_ship)
-"ew" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{icon_state = "intact-supply"; dir = 10},/turf/simulated/floor/carpet/red,/area/boarding_ship)
-"ex" = (/obj/machinery/hologram/holopad/longrange,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 10},/turf/simulated/floor/carpet/red,/area/boarding_ship)
-"ey" = (/obj/structure/bed/chair/office/comfy/beige{icon_state = "comfyofficechair_preview"; dir = 8},/turf/simulated/floor/carpet/red,/area/boarding_ship)
-"ez" = (/turf/simulated/floor/carpet/red,/area/boarding_ship)
-"eA" = (/obj/structure/handrai{icon_state = "handrail"; dir = 4},/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/supply{icon_state = "intact-supply"; dir = 6},/turf/simulated/floor/plating,/area/boarding_ship)
-"eB" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/manifold/visible/supply{icon_state = "map-supply"; dir = 1},/obj/structure/closet/walllocker/emerglocker/north,/turf/simulated/floor/plating,/area/boarding_ship)
-"eC" = (/obj/structure/catwalk,/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 5},/obj/machinery/atmospherics/pipe/manifold/visible/supply{icon_state = "map-supply"; dir = 4},/turf/simulated/floor/plating,/area/boarding_ship)
-"eD" = (/obj/structure/handrai{icon_state = "handrail"; dir = 8},/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 10},/obj/machinery/embedded_controller/radio/airlock/airlock_controller{pixel_y = 1; pixel_y = 25},/turf/simulated/floor/plating,/area/boarding_ship)
-"eE" = (/obj/structure/table/rack/dark,/obj/random/firstaid,/obj/random/firstaid,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"eF" = (/obj/structure/table/rack/dark,/obj/random/projectile,/obj/random/projectile,/obj/random/handgun,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"eG" = (/obj/structure/table/rack/dark,/obj/random/ammo_magazine_smug,/obj/random/ammo,/obj/random/ammo,/obj/random/ammo_magazine_smug,/obj/random/ammo,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"eH" = (/obj/structure/table/rack/dark,/obj/random/ammo,/obj/random/ammo,/obj/random/ammo_magazine_smug,/obj/random/ammo,/obj/random/ammo,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"eI" = (/obj/structure/table/rack/dark,/obj/random/projectile,/obj/random/handgun,/obj/random/projectile,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"eJ" = (/obj/structure/hygiene/toilet{icon_state = "toilet00"; dir = 1},/obj/structure/window/reinforced/tinted/frosted{icon_state = "window"; dir = 4},/turf/simulated/floor/tiled/freezer,/area/boarding_ship)
-"eK" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 1},/turf/simulated/floor/tiled/freezer,/area/boarding_ship)
-"eL" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 1; layer = 2.4; level = 2},/turf/simulated/floor/carpet/red,/area/boarding_ship)
-"eM" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 1},/turf/simulated/floor/carpet/red,/area/boarding_ship)
-"eN" = (/obj/random/closet,/turf/simulated/floor/carpet/red,/area/boarding_ship)
-"eO" = (/obj/structure/handrai{icon_state = "handrail"; dir = 4},/obj/machinery/atmospherics/binary/dp_vent_pump/high_volume,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
-"eP" = (/obj/machinery/atmospherics/binary/dp_vent_pump/high_volume,/obj/structure/catwalk,/turf/simulated/floor/plating,/area/boarding_ship)
-"eQ" = (/obj/machinery/door/airlock/hatch{icon_state = "closed"; dir = 1},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 1},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
-"eR" = (/obj/structure/handrai{icon_state = "handrail"; dir = 4},/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{icon_state = "intact-scrubbers"; dir = 5},/obj/machinery/airlock_sensor/airlock_exterior{pixel_y = -19},/turf/simulated/floor/plating,/area/boarding_ship)
-"eS" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers,/turf/simulated/floor/plating,/area/boarding_ship)
-"eT" = (/obj/machinery/door/airlock/external/glass/bolted{icon_state = "closed"; dir = 1},/obj/machinery/shield_diffuser,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"eU" = (/turf/simulated/floor/airless,/area/boarding_ship)
-"eV" = (/obj/machinery/shipsensors,/turf/simulated/floor/airless,/area/boarding_ship)
-"eW" = (/obj/machinery/light/small/red{icon_state = "firelight1"; dir = 8},/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
-"eX" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 1},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/structure/extinguisher_cabinet{icon_state = "extinguisher_closed"; dir = 8; pixel_x = 31; pixel_x = 30},/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
-"eY" = (/obj/machinery/airlock_sensor/airlock_interior{pixel_y = 19},/turf/space,/area/space)
-"eZ" = (/obj/machinery/door/airlock/hatch{icon_state = "closed"; dir = 1},/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
-"fa" = (/obj/machinery/door/firedoor/border_only{icon_state = "open"; dir = 4},/obj/machinery/door/airlock/hatch{icon_state = "closed"; dir = 1},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 1},/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
-"fb" = (/obj/machinery/computer/ship/navigation,/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
-"fc" = (/obj/machinery/atmospherics/unary/vent_scrubber/on,/obj/structure/closet/walllocker/emerglocker/north,/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
-"fd" = (/obj/machinery/recharger/wallcharger,/obj/item/modular_computer/console/preset/civilian/professional,/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
-"fe" = (/obj/item/modular_computer/console/preset/command{icon_state = "console"; dir = 4},/obj/effect/urist/triggers/station_disk/pirate,/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
-"ff" = (/obj/structure/bed/chair/shuttle/black{icon_state = "shuttle_chair_preview"; dir = 8},/obj/machinery/atmospherics/unary/vent_pump/on{dir = 4},/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
-"fg" = (/obj/machinery/hologram/holopad/longrange,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 5},/obj/machinery/atmospherics/pipe/simple/hidden/supply{icon_state = "intact-supply"; dir = 8},/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
-"fh" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{tag = "icon-intact-supply (EAST)"; icon_state = "intact-supply"; dir = 4},/obj/effect/urist/triggers/ai_defender_landmark/pirate/ballistic,/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
-"fi" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{icon_state = "intact-scrubbers"; dir = 9},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 9},/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
-"fj" = (/obj/structure/bed/chair/shuttle/black{icon_state = "shuttle_chair_preview"; dir = 4},/obj/random/handgun,/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
-"fk" = (/obj/effect/landmark/scom/bomb/boarding/pirateship,/turf/simulated/floor/tiled/white,/area/boarding_ship)
-"fl" = (/obj/machinery/computer/ship/sensors{icon_state = "computer"; dir = 1},/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
-"fm" = (/obj/machinery/computer/ship/engines{icon_state = "computer"; dir = 1},/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
-"fn" = (/obj/machinery/computer/ship/helm{icon_state = "computer"; dir = 1},/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
-"fo" = (/obj/effect/landmark/scom/bomb/boarding/pirateship,/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)
-"fp" = (/obj/effect/landmark/scom/bomb/boarding/pirateship,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"fq" = (/obj/effect/landmark/scom/bomb/boarding/pirateship,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
-"fr" = (/obj/effect/landmark/scom/bomb/boarding/pirateship,/turf/simulated/wall/r_wall/hull,/area/boarding_ship)
-"fs" = (/obj/structure/boarding/self_destruct/pirateship,/turf/simulated/floor/tiled/monotile,/area/boarding_ship)
-"ft" = (/obj/effect/landmark/scom/bomb/boarding/pirateship,/turf/simulated/wall/r_wall,/area/boarding_ship)
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/turf/space,
+/area/space)
+"ab" = (
+/turf/simulated/wall/r_wall/hull,
+/area/boarding_ship)
+"ac" = (
+/obj/effect/wallframe_spawn/reinforced/hull,
+/turf/simulated/wall/r_wall/rglass_wall,
+/area/boarding_ship)
+"ad" = (
+/obj/machinery/airlock_sensor/airlock_exterior{
+	pixel_y = -19
+	},
+/turf/space,
+/area/space)
+"ae" = (
+/obj/machinery/shipweapons/ammo/torpedo{
+	dir = 1;
+	icon_state = "torpedo"
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"af" = (
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"ag" = (
+/turf/simulated/wall/r_wall/rglass_wall,
+/area/boarding_ship)
+"ah" = (
+/obj/machinery/door/airlock/external/glass/bolted,
+/obj/machinery/shield_diffuser,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"ai" = (
+/obj/machinery/atmospherics/unary/outlet_injector,
+/turf/simulated/floor/airless,
+/area/space)
+"aj" = (
+/turf/simulated/floor/airless,
+/area/space)
+"ak" = (
+/turf/simulated/wall/r_wall,
+/area/boarding_ship)
+"al" = (
+/obj/machinery/light/small/red{
+	dir = 8;
+	icon_state = "firelight1"
+	},
+/obj/structure/railing/mapped{
+	dir = 4;
+	icon_state = "railing0"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"am" = (
+/obj/machinery/conveyor{
+	dir = 6;
+	icon_state = "conveyor0"
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"an" = (
+/obj/machinery/light/small/red{
+	dir = 4;
+	icon_state = "firelight1"
+	},
+/obj/machinery/conveyor{
+	dir = 9;
+	icon_state = "conveyor0"
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"ao" = (
+/obj/machinery/airlock_sensor/airlock_interior{
+	pixel_y = 19
+	},
+/obj/structure/handrail{
+	dir = 4;
+	icon_state = "handrail"
+	},
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	dir = 6;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"ap" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers{
+	dir = 1;
+	icon_state = "map-scrubbers"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"aq" = (
+/obj/structure/handrail{
+	dir = 8;
+	icon_state = "handrail"
+	},
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	dir = 10;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"ar" = (
+/obj/machinery/atmospherics/pipe/simple/visible/green,
+/turf/simulated/wall/r_wall/hull,
+/area/boarding_ship)
+"as" = (
+/obj/structure/closet/secure_closet/engineering_welding{
+	req_access = list()
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"at" = (
+/obj/structure/closet/secure_closet/engineering_electrical{
+	req_access = list()
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"au" = (
+/obj/structure/cryofeed{
+	icon_state = "cryo_rear";
+	dir = 2
+	},
+/turf/simulated/floor/tiled/white,
+/area/boarding_ship)
+"av" = (
+/obj/machinery/recharge_station,
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"aw" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/supply{
+	dir = 8;
+	icon_state = "map-supply"
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers{
+	dir = 8;
+	icon_state = "map-scrubbers"
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"ax" = (
+/obj/structure/catwalk,
+/obj/structure/fitness/weightlifter,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"ay" = (
+/obj/structure/extinguisher_cabinet{
+	dir = 8;
+	icon_state = "extinguisher_closed";
+	pixel_x = 30
+	},
+/obj/machinery/suit_storage_unit/engineering{
+	req_access = list();
+	emagged = 1
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"az" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers{
+	dir = 1;
+	icon_state = "map-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible/supply{
+	dir = 1;
+	icon_state = "map-supply"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"aA" = (
+/obj/structure/catwalk,
+/obj/machinery/door/firedoor{
+	dir = 1;
+	icon_state = "open"
+	},
+/obj/machinery/door/airlock{
+	dir = 8;
+	icon_state = "closed"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"aB" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 9;
+	icon_state = "intact-supply"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"aC" = (
+/obj/structure/railing/mapped{
+	dir = 1;
+	icon_state = "railing0"
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"aD" = (
+/obj/machinery/conveyor,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"aE" = (
+/obj/structure/handrail{
+	dir = 4;
+	icon_state = "handrail"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
+	icon_state = "map_dp_vent"
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"aF" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
+	icon_state = "map_dp_vent"
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"aG" = (
+/obj/structure/handrail{
+	dir = 8;
+	icon_state = "handrail"
+	},
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"aH" = (
+/obj/machinery/atmospherics/pipe/simple/visible/green,
+/turf/simulated/wall/r_wall,
+/area/boarding_ship)
+"aI" = (
+/obj/structure/table/rack,
+/obj/random/toolbox,
+/obj/random/material,
+/obj/random/tool,
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"aJ" = (
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"aK" = (
+/obj/structure/engineeringcart,
+/obj/machinery/light/small/red{
+	dir = 1;
+	icon_state = "firelight1"
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"aL" = (
+/obj/machinery/light/coldtint{
+	dir = 8;
+	icon_state = "tube_map"
+	},
+/obj/structure/cryofeed{
+	dir = 2;
+	icon_state = "body_scanner_1";
+	name = "inert cryogenic freezer"
+	},
+/turf/simulated/floor/tiled/white,
+/area/boarding_ship)
+"aM" = (
+/turf/simulated/floor/tiled/white,
+/area/boarding_ship)
+"aN" = (
+/obj/effect/urist/triggers/defender_landmark/pirate,
+/turf/simulated/floor/tiled/white,
+/area/boarding_ship)
+"aP" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"aQ" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/extinguisher_cabinet{
+	dir = 8;
+	icon_state = "extinguisher_closed";
+	pixel_x = 30
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"aR" = (
+/obj/structure/catwalk,
+/obj/structure/closet/walllocker/emerglocker/south,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"aS" = (
+/obj/machinery/conveyor,
+/obj/machinery/conveyor,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"aT" = (
+/obj/structure/handrail{
+	dir = 4;
+	icon_state = "handrail"
+	},
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 5;
+	icon_state = "intact-supply"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"aU" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/manifold/visible/supply,
+/obj/structure/closet/walllocker/emerglocker/south,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"aV" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	dir = 6;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible/supply{
+	dir = 4;
+	icon_state = "map-supply"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"aW" = (
+/obj/structure/handrail{
+	dir = 8;
+	icon_state = "handrail"
+	},
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	dir = 9;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"aX" = (
+/turf/simulated/floor/tiled/techfloor,
+/area/boarding_ship)
+"aY" = (
+/obj/machinery/light/small/red{
+	dir = 1;
+	icon_state = "firelight1"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/boarding_ship)
+"aZ" = (
+/obj/machinery/atmospherics/portables_connector,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"ba" = (
+/obj/machinery/atmospherics/unary/tank/oxygen,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"bb" = (
+/obj/structure/table/rack,
+/obj/random/tool,
+/obj/random/tool,
+/obj/random/tool,
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"bc" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"bd" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	dir = 10;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 6;
+	icon_state = "intact-supply"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"be" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"bf" = (
+/obj/structure/extinguisher_cabinet{
+	dir = 8;
+	icon_state = "extinguisher_closed";
+	pixel_x = 30
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"bg" = (
+/obj/machinery/door/firedoor{
+	dir = 1;
+	icon_state = "open"
+	},
+/obj/machinery/door/airlock{
+	dir = 8;
+	icon_state = "closed"
+	},
+/turf/simulated/floor/tiled/white,
+/area/boarding_ship)
+"bh" = (
+/obj/structure/catwalk,
+/obj/machinery/light/warmtint{
+	dir = 4;
+	icon_state = "tube_map"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/window/reinforced/tinted/frosted,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"bi" = (
+/obj/structure/catwalk,
+/obj/machinery/door/airlock/highsecurity{
+	dir = 1;
+	icon_state = "closed"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"bj" = (
+/obj/structure/plasticflaps/mining,
+/obj/machinery/conveyor,
+/turf/simulated/floor/plating/flaps,
+/area/boarding_ship)
+"bk" = (
+/obj/structure/catwalk,
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	icon_state = "intact-supply"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"bl" = (
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	pixel_y = -22
+	},
+/turf/simulated/wall/r_wall,
+/area/boarding_ship)
+"bm" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	dir = 6;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"bn" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/boarding_ship)
+"bo" = (
+/obj/machinery/atmospherics/pipe/simple/visible/green,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"bp" = (
+/obj/machinery/atmospherics/valve,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"bq" = (
+/obj/structure/table/rack,
+/obj/random/material,
+/obj/random/powercell,
+/obj/random/powercell,
+/obj/random/material,
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"br" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"bs" = (
+/obj/structure/bed/nice,
+/obj/item/bedsheet/yellow,
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"bt" = (
+/obj/machinery/bodyscanner{
+	dir = 8;
+	icon_state = "body_scanner_0"
+	},
+/turf/simulated/floor/tiled/white,
+/area/boarding_ship)
+"bu" = (
+/obj/machinery/body_scanconsole{
+	dir = 8;
+	icon_state = "body_scannerconsole"
+	},
+/turf/simulated/floor/tiled/white,
+/area/boarding_ship)
+"bv" = (
+/obj/structure/closet/walllocker/emerglocker/east,
+/obj/item/crowbar,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/white,
+/area/boarding_ship)
+"bw" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/bed/nice,
+/obj/structure/curtain/open/bed,
+/obj/item/bedsheet/purple,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"bx" = (
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"by" = (
+/obj/machinery/light/small/red{
+	dir = 1;
+	icon_state = "firelight1"
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"bz" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	dir = 9;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 5;
+	icon_state = "intact-supply"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"bA" = (
+/obj/structure/catwalk,
+/obj/structure/railing/mapped,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/structure/closet/walllocker/emerglocker/north,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"bB" = (
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"bC" = (
+/obj/machinery/light/small/red{
+	dir = 1;
+	icon_state = "firelight1"
+	},
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4;
+	icon_state = "railing0"
+	},
+/obj/random/closet,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"bD" = (
+/obj/machinery/suit_storage_unit/security/alt{
+	req_access = list();
+	emagged = 1
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"bE" = (
+/obj/structure/closet/walllocker/emerglocker/north,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"bF" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	icon_state = "intact-supply"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"bG" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 6;
+	icon_state = "intact-supply"
+	},
+/obj/structure/closet/walllocker/emerglocker/west,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"bH" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/boarding_ship)
+"bI" = (
+/obj/effect/urist/triggers/shipweapons,
+/obj/structure/shipweapons/hardpoint/attached,
+/turf/simulated/floor/tiled/techfloor,
+/area/boarding_ship)
+"bJ" = (
+/obj/machinery/atmospherics/omni/mixer,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"bK" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	dir = 9;
+	icon_state = "intact"
+	},
+/obj/machinery/light/small/red{
+	dir = 4;
+	icon_state = "firelight1"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"bL" = (
+/obj/structure/catwalk,
+/obj/machinery/door/firedoor{
+	dir = 4;
+	icon_state = "open"
+	},
+/obj/machinery/door/airlock/engineering,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"bM" = (
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/turf/simulated/floor/tiled/white,
+/area/boarding_ship)
+"bN" = (
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	dir = 5;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/tiled/white,
+/area/boarding_ship)
+"bO" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"bP" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers{
+	dir = 4;
+	icon_state = "map-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible/supply{
+	dir = 4;
+	icon_state = "map-supply"
+	},
+/obj/structure/bed/nice,
+/obj/structure/window/reinforced/tinted/frosted,
+/obj/structure/curtain/open/bed,
+/obj/item/bedsheet/blue,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"bQ" = (
+/obj/effect/template_loader/ships,
+/turf/simulated/wall/r_wall,
+/area/boarding_ship)
+"bR" = (
+/obj/random/closet,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"bS" = (
+/obj/machinery/conveyor_switch/oneway,
+/obj/structure/railing/mapped{
+	dir = 4;
+	icon_state = "railing0"
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"bT" = (
+/obj/machinery/conveyor{
+	dir = 4;
+	icon_state = "conveyor0"
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"bU" = (
+/obj/machinery/conveyor{
+	dir = 5;
+	icon_state = "conveyor0"
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"bV" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	icon_state = "intact-supply"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"bW" = (
+/obj/machinery/light/small/red,
+/turf/simulated/floor/tiled/techfloor,
+/area/boarding_ship)
+"bX" = (
+/obj/effect/urist/triggers/ai_defender_landmark/pirate,
+/turf/simulated/floor/tiled/techfloor,
+/area/boarding_ship)
+"bY" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 4;
+	icon_state = "nozzle"
+	},
+/turf/simulated/wall/r_wall/hull,
+/area/boarding_ship)
+"bZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 10;
+	icon_state = "intact"
+	},
+/turf/simulated/wall/r_wall,
+/area/boarding_ship)
+"ca" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"cb" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	dir = 5;
+	icon_state = "intact"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"cc" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	dir = 10;
+	icon_state = "intact"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"cd" = (
+/obj/machinery/vending/engineering,
+/obj/machinery/vending/tool,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"ce" = (
+/obj/structure/closet/secure_closet/engineering_welding,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"cf" = (
+/obj/machinery/vending/tool,
+/obj/machinery/vending/engineering{
+	emagged = 1;
+	req_access = list()
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"cg" = (
+/obj/machinery/vending/engivend{
+	emagged = 1;
+	req_access = list()
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"ch" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers{
+	dir = 8;
+	icon_state = "map-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"ci" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"cj" = (
+/obj/machinery/suit_storage_unit/engineering{
+	req_access = list();
+	emagged = 1
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"ck" = (
+/obj/structure/window/reinforced/tinted/frosted{
+	dir = 1;
+	icon_state = "window"
+	},
+/obj/item/storage/firstaid/surgery,
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/tiled/white/monotile,
+/area/boarding_ship)
+"cl" = (
+/obj/machinery/light/coldtint{
+	dir = 4;
+	icon_state = "tube_map"
+	},
+/obj/structure/window/reinforced/tinted/frosted{
+	dir = 1;
+	icon_state = "window"
+	},
+/obj/machinery/computer/operating,
+/turf/simulated/floor/tiled/white/monotile,
+/area/boarding_ship)
+"cm" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/bed/nice,
+/obj/structure/window/reinforced/tinted/frosted{
+	dir = 1;
+	icon_state = "window"
+	},
+/obj/structure/curtain/open/bed,
+/obj/item/bedsheet/red,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"cn" = (
+/obj/effect/urist/triggers/ai_defender_landmark/pirate,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"co" = (
+/obj/structure/extinguisher_cabinet{
+	dir = 8;
+	icon_state = "extinguisher_closed";
+	pixel_x = 30
+	},
+/obj/machinery/light/small/red{
+	dir = 4;
+	icon_state = "firelight1"
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"cp" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	icon_state = "intact-supply"
+	},
+/obj/structure/extinguisher_cabinet{
+	dir = 8;
+	icon_state = "extinguisher_closed";
+	pixel_x = 30
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"cq" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
+/turf/simulated/wall/r_wall,
+/area/boarding_ship)
+"cr" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/manifold/visible/fuel{
+	dir = 1;
+	icon_state = "map"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	dir = 5;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"cs" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+	dir = 4;
+	icon_state = "intact"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"ct" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+	dir = 10;
+	icon_state = "intact"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	dir = 5;
+	icon_state = "intact"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"cu" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	dir = 4;
+	icon_state = "intact"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"cv" = (
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	dir = 10;
+	icon_state = "intact"
+	},
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"cw" = (
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"cx" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/manifold/visible/supply{
+	dir = 8;
+	icon_state = "map-supply"
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers{
+	dir = 4;
+	icon_state = "map-scrubbers"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"cy" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"cA" = (
+/obj/structure/iv_stand,
+/obj/item/reagent_containers/ivbag/nanoblood,
+/turf/simulated/floor/tiled/white/monotile,
+/area/boarding_ship)
+"cB" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/obj/structure/bed/nice,
+/obj/structure/curtain/open/bed,
+/obj/item/bedsheet/orange,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"cC" = (
+/obj/machinery/light/small/red,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"cD" = (
+/obj/structure/catwalk,
+/obj/machinery/door/airlock/highsecurity{
+	dir = 1;
+	icon_state = "closed"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	icon_state = "intact-supply"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"cE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9;
+	icon_state = "intact"
+	},
+/turf/simulated/wall/r_wall,
+/area/boarding_ship)
+"cF" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/fuel,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"cG" = (
+/obj/machinery/atmospherics/unary/heater{
+	dir = 4;
+	icon_state = "heater_0"
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"cH" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/manifold4w/visible/fuel,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"cI" = (
+/obj/machinery/atmospherics/unary/heater{
+	dir = 8;
+	icon_state = "heater_0"
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"cJ" = (
+/obj/machinery/atmospherics/pipe/simple/visible/green,
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"cL" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"cM" = (
+/obj/structure/catwalk,
+/obj/machinery/light/warmtint{
+	dir = 4;
+	icon_state = "tube_map"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/visible/supply{
+	dir = 4;
+	icon_state = "map-supply"
+	},
+/obj/structure/window/reinforced/tinted/frosted{
+	dir = 1;
+	icon_state = "window"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"cN" = (
+/obj/machinery/suit_storage_unit/security{
+	emagged = 1;
+	req_access = list()
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"cO" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"cP" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/visible/supply{
+	dir = 4;
+	icon_state = "map-supply"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"cQ" = (
+/obj/item/modular_computer/telescreen/preset/engineering{
+	pixel_y = 23
+	},
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"cR" = (
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"cS" = (
+/obj/structure/catwalk,
+/obj/structure/closet/walllocker/emerglocker/north,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"cT" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers{
+	dir = 4;
+	icon_state = "map-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"cU" = (
+/obj/structure/bookcase,
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"cV" = (
+/obj/machinery/vending/medical{
+	emagged = 1;
+	req_access = list()
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"cW" = (
+/obj/machinery/vending/hotfood{
+	emagged = 1
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"cX" = (
+/obj/machinery/microwave,
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"cY" = (
+/turf/simulated/wall/iron,
+/area/boarding_ship)
+"cZ" = (
+/obj/machinery/vending/snix{
+	emagged = 1
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"da" = (
+/obj/machinery/jukebox,
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"db" = (
+/obj/machinery/vending/urist/sustenance{
+	emagged = 1
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"dc" = (
+/obj/structure/dispenser/oxygen,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"dd" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"de" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/manifold4w/visible/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/visible/supply{
+	dir = 8;
+	icon_state = "map-supply"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"df" = (
+/obj/structure/catwalk,
+/obj/machinery/door/airlock/multi_tile/civilian{
+	dir = 8;
+	icon_state = "closed"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"dh" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+	dir = 9;
+	icon_state = "intact"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"di" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+	icon_state = "intact"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"dj" = (
+/obj/machinery/atmospherics/pipe/simple/visible/green{
+	dir = 5;
+	icon_state = "intact"
+	},
+/obj/structure/catwalk,
+/obj/effect/urist/triggers/ai_defender_landmark/pirate,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"dk" = (
+/obj/machinery/atmospherics/binary/pump/high_power/on{
+	dir = 4;
+	icon_state = "map_on"
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"dl" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal{
+	dir = 4
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"dm" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/manifold/visible/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"do" = (
+/obj/structure/catwalk,
+/obj/machinery/door/firedoor{
+	dir = 1;
+	icon_state = "open"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"dp" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/visible/supply,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"dq" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/effect/urist/triggers/ai_defender_landmark/pirate,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"dt" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers{
+	dir = 4;
+	icon_state = "map-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible/supply{
+	dir = 4;
+	icon_state = "map-supply"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"du" = (
+/obj/structure/catwalk,
+/obj/effect/urist/triggers/boarding_landmark,
+/obj/structure/boarding/shipportal,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"dv" = (
+/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+	icon_state = "intact"
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"dw" = (
+/obj/machinery/door/firedoor{
+	dir = 1;
+	icon_state = "open"
+	},
+/obj/machinery/door/airlock/multi_tile{
+	dir = 8;
+	icon_state = "closed"
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"dx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"dy" = (
+/obj/machinery/door/firedoor{
+	dir = 1;
+	icon_state = "open"
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"dz" = (
+/obj/machinery/door/airlock/multi_tile{
+	dir = 8;
+	icon_state = "closed"
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"dA" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+	dir = 6;
+	icon_state = "intact"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"dB" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/manifold/visible/fuel{
+	dir = 4;
+	icon_state = "map"
+	},
+/obj/machinery/light/small/red{
+	dir = 4;
+	icon_state = "firelight1"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"dC" = (
+/obj/structure/catwalk,
+/obj/machinery/door/firedoor{
+	dir = 4;
+	icon_state = "open"
+	},
+/obj/machinery/door/airlock/engineering{
+	dir = 1;
+	icon_state = "closed"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"dD" = (
+/obj/structure/catwalk,
+/obj/machinery/door/firedoor{
+	dir = 4;
+	icon_state = "open"
+	},
+/obj/machinery/door/airlock/engineering{
+	dir = 1;
+	icon_state = "closed"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"dE" = (
+/obj/structure/table/standard,
+/obj/random/drinkbottle,
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"dF" = (
+/obj/machinery/computer/modular/preset/library{
+	dir = 1;
+	icon_state = "console"
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"dG" = (
+/obj/structure/extinguisher_cabinet{
+	dir = 8;
+	icon_state = "extinguisher_closed";
+	pixel_x = 0;
+	pixel_y = -23
+	},
+/obj/effect/urist/triggers/ai_defender_landmark/pirate,
+/obj/machinery/light/small/red,
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"dH" = (
+/obj/structure/bed/chair/couch/left/brown{
+	dir = 1;
+	icon_state = "couch_left"
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"dI" = (
+/obj/structure/bed/chair/couch/middle/brown{
+	dir = 1;
+	icon_state = "couch_middle"
+	},
+/obj/random/snack,
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"dJ" = (
+/obj/structure/bed/chair/couch/middle/brown{
+	dir = 1;
+	icon_state = "couch_middle"
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"dK" = (
+/obj/structure/bed/chair/couch/right/brown{
+	dir = 1;
+	icon_state = "couch_right"
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"dL" = (
+/obj/machinery/atmospherics/valve/digital,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"dM" = (
+/obj/machinery/atmospherics/valve/digital,
+/obj/structure/extinguisher_cabinet{
+	dir = 8;
+	icon_state = "extinguisher_closed";
+	pixel_x = 30
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"dN" = (
+/obj/structure/catwalk,
+/obj/machinery/power/port_gen/pacman/super,
+/obj/structure/cable{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"dO" = (
+/obj/structure/catwalk,
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"dP" = (
+/obj/machinery/fabricator{
+	emagged = 1
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"dQ" = (
+/obj/machinery/power/shield_generator,
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"dR" = (
+/obj/item/mech_equipment/shields,
+/obj/structure/table/rack/dark,
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"dS" = (
+/obj/machinery/door/airlock,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/freezer,
+/area/boarding_ship)
+"dT" = (
+/obj/machinery/door/airlock/glass/civilian,
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"dU" = (
+/obj/machinery/door/firedoor{
+	dir = 4;
+	icon_state = "open"
+	},
+/obj/machinery/door/airlock/glass/civilian,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"dV" = (
+/obj/structure/closet/walllocker/emerglocker/south,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"dW" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 5;
+	icon_state = "intact-supply"
+	},
+/obj/structure/closet/walllocker/emerglocker/west,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"dX" = (
+/obj/machinery/atmospherics/unary/tank/hydrogen{
+	dir = 1;
+	icon_state = "h2_map"
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"dY" = (
+/obj/structure/catwalk,
+/obj/machinery/power/apc{
+	dir = 8;
+	icon_state = "apc0";
+	pixel_x = -9
+	},
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"dZ" = (
+/obj/structure/catwalk,
+/obj/machinery/light/small/red{
+	dir = 4;
+	icon_state = "firelight1"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"ea" = (
+/obj/random/closet,
+/obj/item/clothing/suit/urist/historic/piratejacket3,
+/obj/item/clothing/suit/urist/historic/piratejacket4,
+/obj/item/clothing/suit/urist/historic/piratejacket5,
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"eb" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers,
+/obj/machinery/light/small/red,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"ec" = (
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/tiled/techfloor,
+/area/boarding_ship)
+"ed" = (
+/obj/structure/window/reinforced/tinted/frosted{
+	dir = 1;
+	icon_state = "window"
+	},
+/obj/machinery/vending/wallmed1{
+	pixel_x = -32
+	},
+/obj/structure/hygiene/sink{
+	dir = 8;
+	icon_state = "sink";
+	pixel_x = -12;
+	pixel_y = 2
+	},
+/obj/effect/decal/cleanable/vomit,
+/turf/simulated/floor/tiled/white/monotile,
+/area/boarding_ship)
+"ee" = (
+/obj/machinery/light/small/red{
+	dir = 4;
+	icon_state = "firelight1"
+	},
+/turf/simulated/floor/carpet/red,
+/area/boarding_ship)
+"ef" = (
+/obj/effect/floor_decal/borderfloor/full,
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"eg" = (
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"eh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"ei" = (
+/obj/machinery/recharger/wallcharger,
+/obj/structure/table/woodentable_reinforced,
+/turf/simulated/floor/carpet/red,
+/area/boarding_ship)
+"ej" = (
+/obj/structure/table/woodentable_reinforced,
+/obj/item/device/flashlight/lamp/lava/purple,
+/turf/simulated/floor/carpet/red,
+/area/boarding_ship)
+"ek" = (
+/obj/structure/table/woodentable_reinforced,
+/obj/random/handgun,
+/turf/simulated/floor/carpet/red,
+/area/boarding_ship)
+"el" = (
+/obj/structure/bed/padded,
+/obj/structure/curtain/open/bed,
+/obj/random/toy,
+/obj/item/bedsheet/urist/centcom,
+/turf/simulated/floor/carpet/red,
+/area/boarding_ship)
+"em" = (
+/obj/structure/catwalk,
+/obj/machinery/door/airlock/external{
+	dir = 1;
+	icon_state = "closed"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	icon_state = "intact-supply"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"en" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	dir = 5;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"eo" = (
+/obj/structure/catwalk,
+/obj/structure/cable,
+/obj/machinery/power/smes/buildable/preset/on_full{
+	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/super_io = 1, /obj/item/stock_parts/smes_coil/super_capacity = 1)
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"ep" = (
+/obj/structure/catwalk,
+/obj/machinery/power/terminal{
+	dir = 8;
+	icon_state = "term"
+	},
+/obj/structure/cable,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"eq" = (
+/obj/structure/safe,
+/obj/item/stack/material/uranium/fifty,
+/obj/item/stack/material/uranium/fifty,
+/obj/item/stack/material/osmium,
+/obj/item/stack/material/mhydrogen/ten,
+/obj/item/spacecash/bundle/c1000,
+/obj/item/spacecash/bundle/c500,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"er" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/boarding_ship)
+"es" = (
+/obj/item/storage/bag/cash,
+/obj/effect/floor_decal/borderfloor/full,
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"et" = (
+/obj/structure/closet/walllocker/emerglocker/west,
+/obj/effect/urist/triggers/ai_defender_landmark/pirate,
+/obj/effect/floor_decal/borderfloor{
+	dir = 8;
+	icon_state = "borderfloor_white"
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"eu" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/filth,
+/obj/effect/floor_decal/borderfloor{
+	dir = 4;
+	icon_state = "borderfloor_white"
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"ev" = (
+/obj/machinery/door/firedoor{
+	dir = 1;
+	icon_state = "open"
+	},
+/obj/machinery/door/airlock/command{
+	dir = 8;
+	icon_state = "closed"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/turf/simulated/floor/carpet/red,
+/area/boarding_ship)
+"ew" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	icon_state = "intact-supply"
+	},
+/turf/simulated/floor/carpet/red,
+/area/boarding_ship)
+"ex" = (
+/obj/machinery/hologram/holopad/longrange,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/carpet/red,
+/area/boarding_ship)
+"ey" = (
+/obj/structure/bed/chair/office/comfy/beige{
+	dir = 8;
+	icon_state = "comfyofficechair_preview"
+	},
+/turf/simulated/floor/carpet/red,
+/area/boarding_ship)
+"ez" = (
+/turf/simulated/floor/carpet/red,
+/area/boarding_ship)
+"eA" = (
+/obj/structure/handrail{
+	dir = 4;
+	icon_state = "handrail"
+	},
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 6;
+	icon_state = "intact-supply"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"eB" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/manifold/visible/supply{
+	dir = 1;
+	icon_state = "map-supply"
+	},
+/obj/structure/closet/walllocker/emerglocker/north,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"eC" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	dir = 5;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible/supply{
+	dir = 4;
+	icon_state = "map-supply"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"eD" = (
+/obj/structure/handrail{
+	dir = 8;
+	icon_state = "handrail"
+	},
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	dir = 10;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	pixel_y = 25
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"eE" = (
+/obj/structure/table/rack/dark,
+/obj/random/firstaid,
+/obj/random/firstaid,
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"eF" = (
+/obj/structure/table/rack/dark,
+/obj/random/projectile,
+/obj/random/projectile,
+/obj/random/handgun,
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"eG" = (
+/obj/structure/table/rack/dark,
+/obj/random/ammo_magazine_smug,
+/obj/random/ammo,
+/obj/random/ammo,
+/obj/random/ammo_magazine_smug,
+/obj/random/ammo,
+/obj/machinery/light/warmtint,
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"eH" = (
+/obj/structure/table/rack/dark,
+/obj/random/ammo,
+/obj/random/ammo,
+/obj/random/ammo_magazine_smug,
+/obj/random/ammo,
+/obj/random/ammo,
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"eI" = (
+/obj/structure/table/rack/dark,
+/obj/random/projectile,
+/obj/random/handgun,
+/obj/random/projectile,
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"eJ" = (
+/obj/structure/hygiene/toilet{
+	dir = 1;
+	icon_state = "toilet00"
+	},
+/obj/structure/window/reinforced/tinted/frosted{
+	dir = 4;
+	icon_state = "window"
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/boarding_ship)
+"eK" = (
+/obj/effect/urist/triggers/ai_defender_landmark/pirate/ballistic,
+/obj/effect/floor_decal/borderfloor/full,
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"eL" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
+/turf/simulated/floor/carpet/red,
+/area/boarding_ship)
+"eM" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/red,
+/area/boarding_ship)
+"eN" = (
+/obj/random/closet,
+/turf/simulated/floor/carpet/red,
+/area/boarding_ship)
+"eO" = (
+/obj/structure/handrail{
+	dir = 4;
+	icon_state = "handrail"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"eP" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"eQ" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 1;
+	icon_state = "closed"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"eR" = (
+/obj/structure/handrail{
+	dir = 4;
+	icon_state = "handrail"
+	},
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	dir = 5;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/airlock_sensor/airlock_exterior{
+	pixel_y = -19
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"eS" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"eT" = (
+/obj/machinery/door/airlock/external/glass/bolted{
+	dir = 1;
+	icon_state = "closed"
+	},
+/obj/machinery/shield_diffuser,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"eU" = (
+/turf/simulated/floor/airless,
+/area/boarding_ship)
+"eV" = (
+/obj/machinery/shipsensors,
+/turf/simulated/floor/airless,
+/area/boarding_ship)
+"eW" = (
+/obj/machinery/light/small/red{
+	dir = 8;
+	icon_state = "firelight1"
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"eX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/extinguisher_cabinet{
+	dir = 8;
+	icon_state = "extinguisher_closed";
+	pixel_x = 30
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"eY" = (
+/obj/machinery/airlock_sensor/airlock_interior{
+	pixel_y = 19
+	},
+/turf/space,
+/area/space)
+"eZ" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 1;
+	icon_state = "closed"
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"fa" = (
+/obj/machinery/door/firedoor{
+	dir = 4;
+	icon_state = "open"
+	},
+/obj/machinery/door/airlock/hatch{
+	dir = 1;
+	icon_state = "closed"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"fb" = (
+/obj/machinery/computer/ship/navigation,
+/obj/effect/decal/cleanable/cobweb,
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"fc" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/closet/walllocker/emerglocker/north,
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"fd" = (
+/obj/machinery/recharger/wallcharger,
+/obj/machinery/computer/modular/preset/civilian,
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"fe" = (
+/obj/machinery/computer/modular/preset/cardslot/command{
+	dir = 4;
+	icon_state = "console"
+	},
+/obj/effect/urist/triggers/station_disk/pirate,
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"ff" = (
+/obj/structure/bed/chair/shuttle/black{
+	dir = 8;
+	icon_state = "shuttle_chair_preview"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"fg" = (
+/obj/machinery/hologram/holopad/longrange,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"fh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/effect/urist/triggers/ai_defender_landmark/pirate/ballistic,
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"fi" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"fj" = (
+/obj/structure/bed/chair/shuttle/black{
+	dir = 4;
+	icon_state = "shuttle_chair_preview"
+	},
+/obj/random/handgun,
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"fk" = (
+/obj/effect/landmark/scom/bomb/boarding/pirateship,
+/turf/simulated/floor/tiled/white,
+/area/boarding_ship)
+"fl" = (
+/obj/machinery/computer/ship/sensors{
+	dir = 1;
+	icon_state = "computer"
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"fm" = (
+/obj/machinery/computer/ship/engines{
+	dir = 1;
+	icon_state = "computer"
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"fn" = (
+/obj/machinery/computer/ship/helm{
+	dir = 1;
+	icon_state = "computer"
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"fo" = (
+/obj/effect/landmark/scom/bomb/boarding/pirateship,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"fp" = (
+/obj/effect/landmark/scom/bomb/boarding/pirateship,
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"fq" = (
+/obj/effect/landmark/scom/bomb/boarding/pirateship,
+/turf/simulated/floor/tiled/techfloor,
+/area/boarding_ship)
+"fr" = (
+/obj/effect/landmark/scom/bomb/boarding/pirateship,
+/turf/simulated/wall/r_wall/hull,
+/area/boarding_ship)
+"fs" = (
+/obj/structure/boarding/self_destruct/pirateship,
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"ft" = (
+/obj/effect/landmark/scom/bomb/boarding/pirateship,
+/turf/simulated/wall/r_wall,
+/area/boarding_ship)
+"fT" = (
+/obj/machinery/door/airlock/highsecurity/bolted{
+	name = "Pirate Vault"
+	},
+/obj/item/beartrap,
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"gh" = (
+/obj/structure/cryofeed{
+	dir = 2;
+	icon_state = "body_scanner_1";
+	name = "inert cryogenic freezer"
+	},
+/turf/simulated/floor/tiled/white,
+/area/boarding_ship)
+"gl" = (
+/obj/item/storage/firstaid/adv,
+/obj/item/device/scanner/health,
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = -5
+	},
+/obj/item/storage/firstaid/adv,
+/obj/machinery/light/coldtint{
+	dir = 8;
+	icon_state = "tube_map"
+	},
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled/white/monotile,
+/area/boarding_ship)
+"hO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/borderfloor{
+	dir = 4;
+	icon_state = "borderfloor_white"
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"it" = (
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/structure/catwalk,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"ke" = (
+/obj/structure/table/rack,
+/obj/item/gun/projectile/shotgun/pump/combat,
+/obj/random/handgun,
+/obj/item/storage/box/ammo/shotgunammo,
+/obj/item/storage/box/ammo/shotgunammo,
+/obj/machinery/light/small/red,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"kL" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/tiled/techfloor,
+/area/boarding_ship)
+"kM" = (
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"po" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	icon_state = "intact-supply"
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/boarding_ship)
+"pv" = (
+/obj/effect/decal/cleanable/ash,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"sx" = (
+/obj/structure/table/rack,
+/obj/item/material/coin/electrum,
+/obj/item/material/coin/iron,
+/obj/item/material/coin/plastic,
+/obj/item/material/coin/gold,
+/obj/item/material/coin/gold,
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"tw" = (
+/obj/structure/hygiene/shower{
+	dir = 8;
+	icon_state = "shower"
+	},
+/obj/random/soap,
+/obj/structure/window/reinforced/tinted/frosted,
+/turf/simulated/floor/tiled/freezer,
+/area/boarding_ship)
+"uo" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/decal/cleanable/filth,
+/obj/effect/floor_decal/borderfloor{
+	dir = 4;
+	icon_state = "borderfloor_white"
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"ux" = (
+/obj/effect/floor_decal/borderfloor{
+	dir = 8;
+	icon_state = "borderfloor_white"
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"uT" = (
+/obj/machinery/light/coldtint,
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"yo" = (
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/decal/cleanable/blood/splatter/human,
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"Ag" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	icon_state = "intact-supply"
+	},
+/obj/machinery/light/small/red{
+	dir = 4;
+	icon_state = "firelight1"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"Aq" = (
+/obj/structure/safe,
+/obj/item/stack/material/gold{
+	pixel_y = 2
+	},
+/obj/item/stack/material/gold{
+	pixel_y = 2
+	},
+/obj/item/stack/material/gold{
+	pixel_y = 2
+	},
+/obj/item/stack/material/phoron/fifty,
+/obj/item/stack/material/phoron/fifty,
+/obj/item/spacecash/bundle/c500,
+/obj/item/spacecash/bundle/c1000,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"AW" = (
+/obj/effect/decal/cleanable/blood/gibs/robot,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"Cx" = (
+/obj/structure/closet/secure_closet/medical_wall{
+	name = "Blood Locker";
+	pixel_x = 28;
+	pixel_y = 4
+	},
+/obj/machinery/optable,
+/obj/effect/decal/cleanable/blood/splatter/human,
+/turf/simulated/floor/tiled/white/monotile,
+/area/boarding_ship)
+"CL" = (
+/obj/structure/hygiene/shower{
+	dir = 8;
+	icon_state = "shower"
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/boarding_ship)
+"CV" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers{
+	dir = 1;
+	icon_state = "map-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible/supply{
+	dir = 1;
+	icon_state = "map-supply"
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"FG" = (
+/obj/structure/catwalk,
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"GT" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/manifold/visible/scrubbers{
+	dir = 1;
+	icon_state = "map-scrubbers"
+	},
+/obj/machinery/light/small/red{
+	dir = 1;
+	icon_state = "firelight1"
+	},
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"Pf" = (
+/obj/structure/table/rack,
+/obj/item/gun/energy/ionrifle/small,
+/obj/item/gun/projectile/flare/loaded,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"QI" = (
+/turf/simulated/floor/tiled/white/monotile,
+/area/boarding_ship)
+"RQ" = (
+/obj/machinery/light/small/red{
+	dir = 1;
+	icon_state = "firelight1"
+	},
+/obj/machinery/vending/cigarette{
+	emagged = 1
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"Sk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/freezer,
+/area/boarding_ship)
+"Sz" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/boarding_ship)
+"VT" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/boarding_ship)
+"VU" = (
+/obj/random/closet,
+/obj/item/clothing/suit/urist/historic/piratejacket1,
+/obj/item/clothing/suit/urist/historic/piratejacket2,
+/obj/item/clothing/under/pirate,
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"VZ" = (
+/obj/machinery/light/small/red{
+	dir = 1;
+	icon_state = "firelight1"
+	},
+/obj/effect/floor_decal/borderfloor/full,
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
+"WG" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"Xx" = (
+/obj/structure/hygiene/sink/kitchen,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/boarding_ship)
+"Xz" = (
+/obj/structure/hygiene/sink/kitchen,
+/turf/simulated/floor/tiled/freezer,
+/area/boarding_ship)
+"XX" = (
+/obj/structure/catwalk,
+/obj/machinery/door/firedoor{
+	dir = 1;
+	icon_state = "open"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/plating,
+/area/boarding_ship)
+"Yk" = (
+/obj/machinery/suit_storage_unit/engineering{
+	req_access = list();
+	emagged = 1
+	},
+/obj/effect/decal/cleanable/cobweb2,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"Yr" = (
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"Yw" = (
+/obj/machinery/body_scan_display{
+	pixel_y = -32
+	},
+/obj/item/clothing/accessory/stethoscope,
+/turf/simulated/floor/tiled/white/monotile,
+/area/boarding_ship)
+"YJ" = (
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/tiled/steel_grid,
+/area/boarding_ship)
+"Zg" = (
+/obj/machinery/light/small/red{
+	dir = 1;
+	icon_state = "firelight1"
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/boarding_ship)
+"ZW" = (
+/obj/effect/decal/cleanable/filth,
+/obj/effect/floor_decal/borderfloor{
+	dir = 8;
+	icon_state = "borderfloor_white"
+	},
+/turf/simulated/floor/tiled/monotile,
+/area/boarding_ship)
 
 (1,1,1) = {"
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacacabaaadaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaabababababababababababababababababaeafafabababagahababababaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaiajabababababakakakakakakakakakakakakakakakakalamanakakaoapapaqakakabababaaaaaaaaaaaa
-aaaaaaaaaaabarababakakakakakasatakauauauauakavawaxaxayazaAaBaCaDakakaEaFaFaGakakakakababaaaaaaaaaa
-aaaaaaaaababaHakakakaIaJaJaKaJaJakaLaMaNaOakaJaPaJaJaJaQagaRafaSakakaTaUaVaWakaXaYaXaXacaaaaaaaaaa
-aaaaaaaaabakaHaZbaakbbaJbcbdbebfakaMaMaMaMbgaJbhakakakbiakakakbjakakakagbkblakbmbnaXaXacaaaaaaaaaa
-aaaaaaaaabakbobpbpakbqaJaJbraRbsakaMbtbubvakaJbwakbxbybzbAbBbCaDakakbDbEbFakakbGbHbIaXacaaaaaaaaaa
-aaaaaaaaabakbobJbKakakakakbLakakakfkaMbMbNaAbObPbQbRfobSbTbTbTbUakakbDafbFakakbVbWbXaXacaaaaaaaaaa
-aaaaaaaabYbZcacbcccdcecfcgchcicjakaLaMckclakaJcmakbRafcnafafafcoakakbDcnbFakakcpakakababaaaaaaaaaa
-aaaaaaaabYcqcrcsctcucvcwcwcxcyczakcAcAcAcAakaJcBakbxcCbxakbxcCbxakakbDafbFakakcDakakabaaaaaaaaaaaa
-aaaaaaaabYcEcFcGcHcIcJfoafbrafcKakakakakakakcLcMakakakakakakakakakakcNcOcPafafbVakakabaaaaaaaaaaaa
-aaaaaaaabYbZcFcGcHcIcJafafbrafafcQafcRakcSaJbccTcUcVcWcXcYcZdaaJdbakdcdddedfaydgakakabaaaaaaaaaaaa
-aaaaaaaabYcqdhcRdicRdjdkdldmdnazdndndndodndnazdpdqdnazdrdsdrdrdrdrdrdrdrdtakakcDakakabaaaaaaaaaaaa
-aaaaaaaabYcEafdudvafafafafafafbrafafafdwaJaJdxaJaJfpdxaJdyaJaJaJaJdzaffobFakakcpakakababaaaaaaaaaa
-aaaaaaaaabakafdAdBakakdCakakakdDakakakcYdEaJdxaJdFaJdxdGcYdHdIdJdKakafcnbFakakbVaYfqaXacaaaaaaaaaa
-aaaaaaaaabakafdLdMakdNdOakdPdQbrcSdRakcYcYcYdScYcYdTdUcYcYcYcYcYakakafdVbFakakdWbHaXaXacaaaaaaaaaa
-aaaaaaaaabakakdXdXakdYdZakaJbcbzbeeaakebecedeeefcYegehcYeiejekelakakakagemakakenbnbIaXacaaaaaaaaaa
-aaaaaaaaababakakakakeoepakaJfpaJaJeaakeqeqeresefcYeteuevewexeyezakakeAeBeCeDakaXbWbXaXacaaaaaaaaaa
-aaaaaaaaaaababababakakakakeEeFeGeHeIakeJeJeJeKefcYegehcYeLeMezeNakakeOePePaGakakakakababaaaaaaaaaa
-aaaaaaaaaaaaaaaaababababakakakakakakakakakakakakakdTeQakakakakakakakeReSeSaWakababababaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaabababababababababababababakegehakabababababababageTababababaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaeUeVakeWeXakfraaaaaaaaaaeYaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababakegehakababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababakakakeZfaakakabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabakakfbfcegehfdacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacagfefffgfhfifjacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabakakfsflegfmfnacacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaababakftakakakakakabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(2,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(3,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(4,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(5,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+bY
+bY
+bY
+bY
+bY
+bY
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(6,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ak
+ak
+ak
+bZ
+cq
+cE
+bZ
+cq
+cE
+ak
+ak
+ak
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(7,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ai
+ar
+aH
+aH
+bo
+bo
+ca
+cr
+cF
+cF
+dh
+af
+af
+af
+ak
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(8,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aj
+ab
+ak
+aZ
+bp
+bJ
+cb
+cs
+cG
+cG
+cR
+du
+dA
+dL
+dX
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(9,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ak
+ba
+bp
+bK
+cc
+ct
+cH
+cH
+di
+dv
+dB
+dM
+dX
+ak
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(10,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ak
+ak
+ak
+ak
+ak
+cd
+cu
+cI
+cI
+cR
+pv
+ak
+ak
+ak
+ak
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(11,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ak
+aI
+bb
+bq
+ak
+ce
+cv
+cJ
+cJ
+dj
+af
+ak
+dN
+dY
+eo
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(12,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ak
+aJ
+YJ
+YJ
+ak
+cf
+cw
+fo
+af
+dk
+af
+dC
+dO
+dZ
+ep
+ak
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(13,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ak
+aJ
+bc
+YJ
+ak
+cg
+it
+af
+af
+dl
+AW
+ak
+ak
+ak
+ak
+ak
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(14,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ak
+ak
+aK
+bd
+br
+bL
+ch
+cx
+br
+br
+dm
+af
+ak
+dP
+aJ
+aJ
+eE
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(15,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ak
+as
+aJ
+be
+aR
+ak
+ci
+cy
+af
+af
+bO
+af
+ak
+dQ
+bc
+fp
+eF
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(16,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ak
+at
+aJ
+bf
+bs
+ak
+Yk
+ay
+cj
+af
+az
+br
+dD
+br
+bz
+aJ
+eG
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(17,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+cQ
+bO
+af
+ak
+cS
+be
+aJ
+eH
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(18,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ak
+au
+aL
+aM
+aM
+fk
+ed
+gl
+ak
+Zg
+bO
+cC
+ak
+dR
+VU
+ea
+eI
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(19,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ak
+au
+gh
+aM
+bt
+VT
+QI
+cA
+ak
+FG
+WG
+af
+ak
+ak
+ak
+ak
+ak
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(20,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ak
+au
+gh
+aN
+bu
+bM
+ck
+Yw
+ak
+ak
+XX
+dw
+cY
+ak
+ak
+ak
+ak
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(21,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+Xz
+eJ
+ak
+au
+gh
+aM
+bv
+bN
+cl
+Cx
+ak
+cS
+bO
+aJ
+dE
+ak
+ak
+eq
+Aq
+ak
+ab
+aa
+aa
+ab
+ab
+ac
+ab
+ab
+aa
+aa
+aa
+aa
+"}
+(22,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+er
+eJ
+ak
+ak
+ak
+bg
+ak
+aA
+ak
+ak
+ak
+aJ
+bO
+aJ
+aJ
+ak
+ak
+VZ
+ef
+ke
+ab
+aa
+ab
+ab
+ak
+ag
+ak
+ab
+ab
+aa
+aa
+aa
+"}
+(23,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+Xx
+Sz
+ak
+av
+aJ
+aJ
+aJ
+bO
+aJ
+aJ
+cL
+bc
+CV
+aJ
+kM
+ak
+ak
+es
+eK
+Pf
+ab
+eU
+ab
+ak
+ak
+fe
+ak
+ak
+ab
+aa
+aa
+aa
+"}
+(24,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+po
+Sk
+dS
+aw
+aP
+bh
+bw
+bP
+cm
+cB
+cM
+cT
+dp
+aJ
+aJ
+ak
+ak
+sx
+ef
+ak
+ab
+eV
+ab
+ak
+fb
+ff
+fs
+ft
+ab
+aa
+aa
+aa
+"}
+(25,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+tw
+CL
+ak
+ax
+aJ
+ak
+ak
+bQ
+ak
+ak
+ak
+cU
+dq
+aJ
+dF
+ak
+ak
+ak
+fT
+ak
+ak
+ak
+ak
+ak
+fc
+fg
+fl
+ak
+ab
+aa
+aa
+aa
+"}
+(26,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ak
+ax
+aJ
+ak
+bx
+bR
+bR
+bx
+ak
+cV
+bO
+fp
+aJ
+dT
+ZW
+et
+ux
+dT
+eg
+eW
+eg
+eZ
+eg
+fh
+uT
+ak
+ab
+aa
+aa
+aa
+"}
+(27,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ak
+bO
+yo
+ak
+by
+fo
+af
+cC
+ak
+cW
+az
+dx
+dx
+dU
+uo
+eu
+hO
+eQ
+eh
+eX
+eh
+fa
+eh
+fi
+fm
+ak
+ab
+aa
+aa
+aa
+"}
+(28,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ak
+az
+aQ
+bi
+bz
+bS
+cn
+bx
+ak
+cX
+bO
+aJ
+dG
+cY
+cY
+ev
+cY
+ak
+ak
+ak
+ak
+ak
+fd
+fj
+fn
+ak
+ab
+aa
+aa
+aa
+"}
+(29,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ak
+aA
+ag
+ak
+bA
+bT
+af
+ak
+ak
+cY
+do
+dy
+cY
+cY
+ei
+ew
+eL
+ak
+ab
+fr
+ab
+ak
+ac
+ac
+ac
+ak
+ab
+aa
+aa
+aa
+"}
+(30,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+ae
+al
+aB
+aR
+ak
+bB
+bT
+af
+bx
+ak
+cZ
+bO
+aJ
+dH
+cY
+ej
+ex
+eM
+ak
+ab
+aa
+ab
+ab
+ac
+ac
+ac
+ab
+ab
+aa
+aa
+aa
+"}
+(31,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+af
+am
+aC
+af
+ak
+bC
+bT
+af
+cC
+ak
+da
+bO
+aJ
+dI
+cY
+ek
+ey
+ez
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(32,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+af
+an
+aD
+aS
+bj
+aD
+bU
+co
+bx
+ak
+RQ
+bO
+aJ
+dJ
+cY
+el
+ee
+eN
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(33,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+db
+bO
+aJ
+dK
+ak
+ak
+ak
+ak
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(34,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+bO
+dz
+ak
+ak
+ak
+ak
+ak
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(35,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ad
+ab
+ao
+aE
+aT
+ak
+bD
+bD
+bD
+bD
+cN
+dc
+bO
+af
+af
+af
+ak
+eA
+eO
+eR
+ab
+eY
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(36,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ag
+GT
+aF
+aU
+ag
+bE
+Yr
+cn
+af
+cO
+dd
+bO
+fo
+cn
+dV
+ag
+eB
+eP
+eb
+ag
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(37,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ah
+ap
+aF
+aV
+bk
+bF
+Ag
+bF
+bF
+cP
+de
+dt
+bF
+Ag
+bF
+em
+eC
+eP
+eS
+eT
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(38,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+aq
+aG
+aW
+bl
+ak
+ak
+ak
+ak
+af
+df
+ak
+ak
+ak
+ak
+ak
+eD
+aG
+aW
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(39,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+af
+bO
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(40,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ak
+ak
+aX
+bm
+bG
+bV
+cp
+cD
+bV
+dt
+cD
+cp
+bV
+dW
+en
+ec
+ak
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(41,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ak
+aY
+bn
+bH
+bW
+ak
+ak
+ak
+ak
+ak
+ak
+aY
+bH
+kL
+bW
+ak
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(42,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ak
+ec
+aX
+bI
+bX
+ak
+ak
+ak
+ak
+ak
+ak
+fq
+aX
+bI
+bX
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(43,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+aX
+aX
+aX
+aX
+ab
+ab
+ab
+ab
+ab
+ab
+aX
+aX
+aX
+aX
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(44,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ac
+ac
+ac
+ac
+ab
+aa
+aa
+aa
+aa
+ab
+ac
+ac
+ac
+ac
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(45,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(46,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(47,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(48,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(49,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}

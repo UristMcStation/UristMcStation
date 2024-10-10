@@ -15,8 +15,8 @@
 	pull_mask = 1
 	sprite_sheets = list(
 		SPECIES_VOX = 'icons/mob/species/vox/onmob_mask_vox.dmi',
-		SPECIES_UNATHI = 'icons/mob/species/unathi/generated/onmob_mask_unathi.dmi',
-		SPECIES_RESOMI = 'icons/mob/species/resomi/masks.dmi'
+		SPECIES_RESOMI = 'icons/mob/species/resomi/masks.dmi',
+		SPECIES_UNATHI = 'icons/mob/species/unathi/onmob_mask_unathi.dmi',
 		)
 
 /obj/item/clothing/mask/breath/medical
@@ -40,3 +40,13 @@
 	item_state = "breath"
 	permeability_coefficient = 0.50
 
+/obj/item/clothing/mask/breath/scba
+	desc = "A close-fitting self contained breathing apparatus mask. Can be connected to an air supply."
+	name = "\improper SCBA mask"
+	icon_state = "scba_mask"
+	item_state = "scba_mask"
+	down_icon_state = "scba_maskdown"
+	item_flags = ITEM_FLAG_AIRTIGHT|ITEM_FLAG_FLEXIBLEMATERIAL
+	flags_inv = HIDEEYES
+	body_parts_covered = FACE|EYES
+	gas_transfer_coefficient = 0.01

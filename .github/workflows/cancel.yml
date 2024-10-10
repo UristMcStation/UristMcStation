@@ -4,13 +4,16 @@ on:
     branches:
       - baymerge-testing
 
+# NB: We can discover workflow IDs for this job at https://api.github.com/repos/ORG/REPO/actions/workflows
 jobs:
   cancel:
     name: 'Cancel Redundant Builds'
+    permissions:
+      actions: write # required to cancel other actions
     runs-on: ubuntu-latest
     timeout-minutes: 3
     steps:
-      - uses: styfle/cancel-workflow-action@0.6.0
+      - uses: styfle/cancel-workflow-action@85880fa0301c86cca9da44039ee3bb12d3bedbfa
         with:
-          workflow_id: 27212, 3545321
+          workflow_id: 3545321
           access_token: ${{ github.token }}

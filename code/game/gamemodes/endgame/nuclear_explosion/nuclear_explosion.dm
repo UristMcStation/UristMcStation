@@ -23,19 +23,19 @@
 
 	var/turf/T = get_turf(explosion_source)
 	if(isStationLevel(T.z))
-		to_world("<span class='danger'>The [station_name()] was destoyed by the nuclear blast!</span>")
+		to_world(SPAN_DANGER("The [station_name()] was destoyed by the nuclear blast!"))
 
-		dust_mobs(GLOB.using_map.station_levels)
+		dust_mobs(GetConnectedZlevels(T.z))
 		play_cinematic_station_destroyed()
 	else
-		to_world("<span class='danger'>A nuclear device was set off, but the explosion was out of reach of the [station_name()]!</span>")
+		to_world(SPAN_DANGER("A nuclear device was set off, but the explosion was out of reach of the [station_name()]!"))
 
-		dust_mobs(list(T.z))
+		dust_mobs(GetConnectedZlevels(T.z))
 		play_cinematic_station_unaffected()
 
 	sleep(100)
 
-	for(var/mob/living/L in GLOB.living_mob_list_)
+	for(var/mob/living/L in GLOB.alive_mobs)
 		if(L.client)
 			L.client.screen -= cinematic
 
@@ -45,13 +45,13 @@
 		SSticker.mode.station_was_nuked = 1
 		SSticker.mode.explosion_in_progress = 0
 		if(!SSticker.mode.check_finished())//If the mode does not deal with the nuke going off so just reboot because everyone is stuck as is
-			universe_has_ended = 1
+			SSticker.game_over = TRUE
 
 /datum/universal_state/nuclear_explosion/OnExit()
 	if(SSticker.mode)
 		SSticker.mode.explosion_in_progress = 0
 
-/datum/universal_state/nuclear_explosion/proc/dust_mobs(var/list/affected_z_levels)
+/datum/universal_state/nuclear_explosion/proc/dust_mobs(list/affected_z_levels)
 	for(var/mob/living/L in SSmobs.mob_list)
 		var/turf/T = get_turf(L)
 		if(T && (T.z in affected_z_levels))
@@ -104,4 +104,3 @@
 	sleep(72)
 	flick("intro_nuke",cinematic)
 	sleep(30)
-

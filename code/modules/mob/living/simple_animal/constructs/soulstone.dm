@@ -14,25 +14,26 @@
 	force = 1
 
 	var/full = SOULSTONE_EMPTY
-	var/is_evil = 1
+	/// String. One of `SOULSTONE_OWNER_*`. Defines who or what 'owns' the soulstone, which affects the soul within and any created constructs.
+	var/owner_flag = SOULSTONE_OWNER_CULT
 	var/mob/living/simple_animal/shade = null
 	var/smashing = 0
 	var/soulstatus = null
 
-/obj/item/device/soulstone/Initialize(var/mapload)
+/obj/item/device/soulstone/Initialize(mapload)
 	shade = new /mob/living/simple_animal/shade(src)
 	. = ..(mapload)
 
 /obj/item/device/soulstone/disrupts_psionics()
-	return (full == SOULSTONE_EMPTY) ? src : FALSE
+	return (full == SOULSTONE_ESSENCE) ? src : FALSE
 
 /obj/item/device/soulstone/proc/shatter()
 	playsound(loc, "shatter", 70, 1)
 	for(var/i=1 to rand(2,5))
-		new /obj/item/weapon/material/shard(get_turf(src), MATERIAL_NULLGLASS)
+		new /obj/item/material/shard(get_turf(src), MATERIAL_NULLGLASS)
 	qdel(src)
 
-/obj/item/device/soulstone/withstand_psi_stress(var/stress, var/atom/source)
+/obj/item/device/soulstone/withstand_psi_stress(stress, atom/source)
 	. = ..(stress, source)
 	if(. > 0)
 		. = max(0, . - rand(2,5))
@@ -64,59 +65,63 @@
 		icon_state = "soulstone"//TODO: cracked sprite
 		SetName("cracked soulstone")
 
-/obj/item/device/soulstone/attackby(var/obj/item/I, var/mob/user)
+/obj/item/device/soulstone/attackby(obj/item/I, mob/user)
 	..()
-	if(is_evil && istype(I, /obj/item/weapon/nullrod))
-		to_chat(user, "<span class='notice'>You cleanse \the [src] of taint, purging its shackles to its creator..</span>")
-		is_evil = 0
+	if (owner_flag != SOULSTONE_OWNER_PURE && istype(I, /obj/item/nullrod))
+		to_chat(user, SPAN_NOTICE("You cleanse \the [src] of taint, purging its shackles to its creator.."))
+		owner_flag = SOULSTONE_OWNER_PURE
 		return
 	if(I.force >= 5)
 		if(full != SOULSTONE_CRACKED)
-			user.visible_message("<span class='warning'>\The [user] hits \the [src] with \the [I], and it breaks.[shade.client ? " You hear a terrible scream!" : ""]</span>", "<span class='warning'>You hit \the [src] with \the [I], and it cracks.[shade.client ? " You hear a terrible scream!" : ""]</span>", shade.client ? "You hear a scream." : null)
+			user.visible_message(
+				SPAN_WARNING("\The [user] hits \the [src] with \the [I], and it breaks.[shade.client ? " You hear a terrible scream!" : ""]"),
+				SPAN_WARNING("You hit \the [src] with \the [I], and it cracks.[shade.client ? " You hear a terrible scream!" : ""]"),
+				shade.client ? "You hear a scream." : null
+			)
 			playsound(loc, 'sound/effects/Glasshit.ogg', 75)
 			set_full(SOULSTONE_CRACKED)
 		else
-			user.visible_message("<span class='danger'>\The [user] shatters \the [src] with \the [I]!</span>")
+			user.visible_message(SPAN_DANGER("\The [user] shatters \the [src] with \the [I]!"))
 			shatter()
 
-/obj/item/device/soulstone/attack(var/mob/living/simple_animal/M, var/mob/user)
+/obj/item/device/soulstone/attack(mob/living/simple_animal/M, mob/user)
 	if(M == shade)
-		to_chat(user, "<span class='notice'>You recapture \the [M].</span>")
+		to_chat(user, SPAN_NOTICE("You recapture \the [M]."))
 		M.forceMove(src)
 		return
 	if(full == SOULSTONE_ESSENCE)
-		to_chat(user, "<span class='notice'>\The [src] is already full.</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] is already full."))
 		return
 	if(M.stat != DEAD && !M.is_asystole())
-		to_chat(user, "<span class='notice'>Kill or maim the victim first.</span>")
+		to_chat(user, SPAN_NOTICE("Kill or maim the victim first."))
 		return
 	for(var/obj/item/W in M)
 		M.drop_from_inventory(W)
 	M.dust()
 	set_full(SOULSTONE_ESSENCE)
 
-/obj/item/device/soulstone/attack_self(var/mob/user)
+/obj/item/device/soulstone/attack_self(mob/user)
 	if(full != SOULSTONE_ESSENCE) // No essence - no shade
-		to_chat(user, "<span class='notice'>This [src] has no life essence.</span>")
+		to_chat(user, SPAN_NOTICE("This [src] has no life essence."))
 		return
 
 	if(!shade.key) // No key = hasn't been used
-		to_chat(user, "<span class='notice'>You cut your finger and let the blood drip on \the [src].</span>")
-		user.pay_for_rune(1)
+		to_chat(user, SPAN_NOTICE("You cut your finger and let the blood drip on \the [src]."))
+		user.remove_blood_simple(1)
 		var/datum/ghosttrap/cult/shade/S = get_ghost_trap("soul stone")
 		S.request_player(shade, "The soul stone shade summon ritual has been performed. ")
 	else if(!shade.client) // Has a key but no client - shade logged out
-		to_chat(user, "<span class='notice'>\The [shade] in \the [src] is dormant.</span>")
+		to_chat(user, SPAN_NOTICE("\The [shade] in \the [src] is dormant."))
 		return
 	else if(shade.loc == src)
 		var/choice = alert("Would you like to invoke the spirit within?",,"Yes","No")
 		if(choice == "Yes")
 			shade.dropInto(loc)
-			to_chat(user, "<span class='notice'>You summon \the [shade].</span>")
+			to_chat(user, SPAN_NOTICE("You summon \the [shade]."))
 		if(choice == "No")
 			return
 
-/obj/item/device/soulstone/proc/set_full(var/f)
+/obj/item/device/soulstone/proc/set_full(f)
 	full = f
 	update_icon()
 
@@ -130,14 +135,14 @@
 	icon_state = "construct-cult"
 	desc = "This eerie contraption looks like it would come alive if supplied with a missing ingredient."
 
-/obj/structure/constructshell/attackby(var/obj/item/I, var/mob/user)
+/obj/structure/constructshell/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/device/soulstone))
 		var/obj/item/device/soulstone/S = I
 		if(!S.shade.client)
-			to_chat(user, "<span class='notice'>\The [I] has essence, but no soul. Activate it in your hand to find a soul for it first.</span>")
+			to_chat(user, SPAN_NOTICE("\The [I] has essence, but no soul. Activate it in your hand to find a soul for it first."))
 			return
 		if(S.shade.loc != S)
-			to_chat(user, "<span class='notice'>Recapture the shade back into \the [I] first.</span>")
+			to_chat(user, SPAN_NOTICE("Recapture the shade back into \the [I] first."))
 			return
 		var/construct = alert(user, "Please choose which type of construct you wish to create.",,"Artificer", "Wraith", "Juggernaut")
 		var/ctype
@@ -151,8 +156,13 @@
 		var/mob/living/simple_animal/construct/C = new ctype(get_turf(src))
 		C.key = S.shade.key
 		//C.cancel_camera()
-		if(S.is_evil)
+		transfer_languages(user, C, RESTRICTED | HIVEMIND)
+		if (S.owner_flag == SOULSTONE_OWNER_CULT)
 			GLOB.cult.add_antagonist(C.mind)
+		else
+			// Only cult constructs get cult languages
+			C.remove_language(LANGUAGE_CULT)
+			C.remove_language(LANGUAGE_CULT_GLOBAL)
 		qdel(S)
 		qdel(src)
 

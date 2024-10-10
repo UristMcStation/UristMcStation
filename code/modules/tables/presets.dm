@@ -5,8 +5,12 @@
 
 /obj/structure/table/steel
 	icon_state = "plain_preview"
-	color = COLOR_GRAY40
+	color = COLOR_STEEL
 	material = MATERIAL_STEEL
+
+/obj/structure/table/steel/dark
+	painted_color = COLOR_GRAY40
+	color = COLOR_GRAY40
 
 /obj/structure/table/marble
 	icon_state = "stone_preview"
@@ -21,9 +25,13 @@
 
 /obj/structure/table/steel_reinforced
 	icon_state = "reinf_preview"
-	color = COLOR_GRAY40
+	color = COLOR_STEEL
 	material = MATERIAL_STEEL
 	reinforced = MATERIAL_STEEL
+
+/obj/structure/table/steel_reinforced/dark
+	painted_color = COLOR_GRAY40
+	color = COLOR_GRAY40
 
 /obj/structure/table/gamblingtable
 	icon_state = "gamble_preview"
@@ -71,6 +79,27 @@
 	icon_state = "reinf_preview"
 	color = WOOD_COLOR_CHOCOLATE
 	material = MATERIAL_WALNUT
+	reinforced = MATERIAL_WALNUT
+
+/obj/structure/table/woodentable_reinforced/walnut/maple
+	reinforced = MATERIAL_MAPLE
+
+/obj/structure/table/woodentable_reinforced/mahogany
+	icon_state = "reinf_preview"
+	color = WOOD_COLOR_RICH
+	material = MATERIAL_MAHOGANY
+	reinforced = MATERIAL_MAHOGANY
+
+/obj/structure/table/woodentable_reinforced/mahogany/walnut
+	reinforced = MATERIAL_WALNUT
+
+/obj/structure/table/woodentable_reinforced/ebony
+	icon_state = "reinf_preview"
+	color = WOOD_COLOR_BLACK
+	material = MATERIAL_EBONY
+	reinforced = MATERIAL_WALNUT
+
+/obj/structure/table/woodentable_reinforced/ebony/walnut
 	reinforced = MATERIAL_WALNUT
 
 /obj/structure/table/woodentable/mahogany

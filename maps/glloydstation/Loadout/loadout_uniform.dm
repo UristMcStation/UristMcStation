@@ -18,7 +18,7 @@
 /datum/gear/uniform/uniform_hop
 	display_name = "uniform, HoP's dress"
 	path = /obj/item/clothing/under/dress/dress_hop
-	allowed_roles = list("Head of Personnel")
+	allowed_roles = list(/datum/job/hop)
 
 /datum/gear/uniform/navysecsuit
 	display_name = "uniform, navyblue (Security)"

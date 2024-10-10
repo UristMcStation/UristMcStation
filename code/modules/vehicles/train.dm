@@ -26,6 +26,13 @@
 	for(var/obj/vehicle/train/T in orange(1, src))
 		latch(T)
 
+/obj/vehicle/train/examine(mob/user)
+	. = ..()
+	if (lead)
+		to_chat(user, SPAN_NOTICE("It is hitched to \the [lead]."))
+	if (tow)
+		to_chat(user, SPAN_NOTICE("It is towing \the [tow]."))
+
 /obj/vehicle/train/Move()
 	var/old_loc = get_turf(src)
 	if(..())
@@ -53,7 +60,7 @@
 			visible_message("<span class='warning'>[src] knocks over [M]!</span>")
 			var/def_zone = ran_zone()
 			M.apply_effects(5, 5)				//knock people down if you hit them
-			M.apply_damage(22 / move_delay, BRUTE, def_zone, M.run_armor_check(def_zone, "melee"))	// and do damage according to how fast the train is going
+			M.apply_damage(22 / move_delay, DAMAGE_BRUTE, def_zone)	// and do damage according to how fast the train is going
 			if(istype(load, /mob/living/carbon/human))
 				var/mob/living/D = load
 				to_chat(D, "<span class='warning'>You hit [M]!</span>")
@@ -94,7 +101,7 @@
 
 	return 1
 
-/obj/vehicle/train/MouseDrop_T(var/atom/movable/C, mob/user as mob)
+/obj/vehicle/train/MouseDrop_T(atom/movable/C, mob/user as mob)
 	if(!CanPhysicallyInteract(user) || !user.Adjacent(C) || !istype(C) || (user == C))
 		return
 	if(istype(C,/obj/vehicle/train))
@@ -186,12 +193,7 @@
 	if(!istype(T) || !Adjacent(T))
 		return 0
 
-	var/T_dir = get_dir(src, T)	//figure out where T is wrt src
-
-	if(dir == T_dir) 	//if car is ahead
-		src.attach_to(T, user)
-	else if(reverse_direction(dir) == T_dir)	//else if car is behind
-		T.attach_to(src, user)
+	T.attach_to(src, user)
 
 //returns 1 if this is the lead car of the train
 /obj/vehicle/train/proc/is_train_head()
@@ -230,5 +232,5 @@
 		T.update_car(train_length, active_engines)
 		T = T.lead
 
-/obj/vehicle/train/proc/update_car(var/train_length, var/active_engines)
+/obj/vehicle/train/proc/update_car(train_length, var/active_engines)
 	return

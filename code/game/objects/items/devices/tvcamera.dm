@@ -29,11 +29,11 @@
 	radio.power_usage = 0
 	. = ..()
 
-/obj/item/device/camera/tvcamera/examine()
+/obj/item/device/camera/tvcamera/examine(mob/user)
 	. = ..()
-	to_chat(usr, "Video feed is currently: [camera.status ? "Online" : "Offline"]")
-	to_chat(usr, "Audio feed is currently: [radio.broadcasting ? "Online" : "Offline"]")
-	to_chat(usr, "Photography setting is currently: [on ? "On" : "Off"]")
+	to_chat(user, "Video feed is currently: [camera.status ? "Online" : "Offline"]")
+	to_chat(user, "Audio feed is currently: [radio.broadcasting ? "Online" : "Offline"]")
+	to_chat(user, "Photography setting is currently: [on ? "On" : "Off"]")
 
 /obj/item/device/camera/tvcamera/attack_self(mob/user)
 	add_fingerprint(user)
@@ -61,20 +61,20 @@
 		if(nc)
 			channel = nc
 			camera.c_tag = channel
-			to_chat(usr, "<span class='notice'>New channel name: '[channel]' has been set.</span>")
+			to_chat(usr, SPAN_NOTICE("New channel name: '[channel]' has been set."))
 	if(href_list["video"])
 		camera.set_status(!camera.status)
 		if(camera.status)
-			to_chat(usr,"<span class='notice'>Video streaming: Activated. Broadcasting on channel: '[channel]'</span>")
+			to_chat(usr,SPAN_NOTICE("Video streaming: Activated. Broadcasting on channel: '[channel]'"))
 		else
-			to_chat(usr,"<span class='notice'>Video streaming: Deactivated.</span>")
+			to_chat(usr,SPAN_NOTICE("Video streaming: Deactivated."))
 		update_icon()
 	if(href_list["sound"])
 		radio.ToggleBroadcast()
 		if(radio.broadcasting)
-			to_chat(usr,"<span class='notice'>Audio streaming: Activated. Broadcasting on frequency: [format_frequency(radio.frequency)].</span>")
+			to_chat(usr,SPAN_NOTICE("Audio streaming: Activated. Broadcasting on frequency: [format_frequency(radio.frequency)]."))
 		else
-			to_chat(usr,"<span class='notice'>Audio streaming: Deactivated.</span>")
+			to_chat(usr,SPAN_NOTICE("Audio streaming: Deactivated."))
 	if(!href_list["close"])
 		attack_self(usr)
 
@@ -92,32 +92,32 @@
 		H.update_inv_l_hand()
 
 /* Assembly by a roboticist */
-/obj/item/robot_parts/head/attackby(var/obj/item/device/assembly/S, mob/user as mob)
+/obj/item/robot_parts/head/attackby(obj/item/device/assembly/S, mob/user as mob)
 	if ((!istype(S, /obj/item/device/assembly/infra)))
 		..()
 		return
-	var/obj/item/weapon/TVAssembly/A = new(user)
+	var/obj/item/TVAssembly/A = new(user)
 	qdel(S)
 	user.put_in_hands(A)
-	to_chat(user, "<span class='notice'>You add the infrared sensor to the robot head.</span>")
+	to_chat(user, SPAN_NOTICE("You add the infrared sensor to the robot head."))
 	qdel(src)
 
 /* Using camcorder icon as I can't sprite.
 Using robohead because of restricting to roboticist */
-/obj/item/weapon/TVAssembly
+/obj/item/TVAssembly
 	name = "TV Camera assembly"
-	desc = "A robotic head with an infrared sensor inside"
+	desc = "A robotic head with an infrared sensor inside."
 	icon = 'icons/obj/robot_parts.dmi'
 	icon_state = "head"
 	item_state = "head"
 	var/buildstep = 0
 	w_class = ITEM_SIZE_LARGE
 
-/obj/item/weapon/TVAssembly/attackby(var/obj/item/W, var/mob/user)
+/obj/item/TVAssembly/attackby(obj/item/W, mob/user)
 	switch(buildstep)
 		if(0)
 			if(istype(W, /obj/item/robot_parts/robot_component/camera))
-				to_chat(user, "<span class='notice'>You add the camera module to [src]</span>")
+				to_chat(user, SPAN_NOTICE("You add the camera module to [src]"))
 				qdel(W)
 				desc = "This TV camera assembly has a camera module."
 				buildstep++
@@ -125,36 +125,34 @@ Using robohead because of restricting to roboticist */
 			if(istype(W, /obj/item/device/taperecorder))
 				qdel(W)
 				buildstep++
-				to_chat(user, "<span class='notice'>You add the tape recorder to [src]</span>")
+				to_chat(user, SPAN_NOTICE("You add the tape recorder to [src]"))
 				desc = "This TV camera assembly has a camera and audio module."
 				return
 		if(2)
 			if(isCoil(W))
 				var/obj/item/stack/cable_coil/C = W
 				if(!C.use(3))
-					to_chat(user, "<span class='notice'>You need three cable coils to wire the devices.</span>")
+					to_chat(user, SPAN_NOTICE("You need three cable coils to wire the devices."))
 					..()
 					return
-				C.use(3)
 				buildstep++
-				to_chat(user, "<span class='notice'>You wire the assembly</span>")
-				desc = "This TV camera assembly has wires sticking out"
+				to_chat(user, SPAN_NOTICE("You wire the assembly"))
+				desc = "This TV camera assembly has wires sticking out."
 				return
 		if(3)
 			if(isWirecutter(W))
-				to_chat(user, "<span class='notice'> You trim the wires.</span>")
+				to_chat(user, SPAN_NOTICE(" You trim the wires."))
 				buildstep++
 				desc = "This TV camera assembly needs casing."
 				return
 		if(4)
 			if(istype(W, /obj/item/stack/material/steel))
 				var/obj/item/stack/material/steel/S = W
-				buildstep++
-				S.use(1)
-				to_chat(user, "<span class='notice'>You encase the assembly.</span>")
-				var/turf/T = get_turf(src)
-				new /obj/item/device/camera/tvcamera(T)
-				qdel(src)
-				return
-
+				if(S.use(1))
+					buildstep++
+					to_chat(user, SPAN_NOTICE("You encase the assembly."))
+					var/turf/T = get_turf(src)
+					new /obj/item/device/camera/tvcamera(T)
+					qdel(src)
+					return
 	..()

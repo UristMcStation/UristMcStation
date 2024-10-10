@@ -6,27 +6,26 @@
 	var/page = 1
 
 
-/datum/nano_module/song_editor/New(var/host, var/topic_manager, datum/synthesized_song/song)
+/datum/nano_module/song_editor/New(host, topic_manager, datum/synthesized_song/song)
 	..()
 	src.host = host
 	src.song = song
 
 
 /datum/nano_module/song_editor/proc/pages()
-	return Ceiling(src.song.lines.len / GLOB.musical_config.song_editor_lines_per_page)
+	return Ceil(length(src.song.lines) / GLOB.musical_config.song_editor_lines_per_page)
 
 
 /datum/nano_module/song_editor/proc/current_page()
-	return src.song.current_line > 0 ? Ceiling(src.song.current_line / GLOB.musical_config.song_editor_lines_per_page) : min(src.page, pages())
+	return src.song.current_line > 0 ? Ceil(src.song.current_line / GLOB.musical_config.song_editor_lines_per_page) : min(src.page, pages())
 
 
 /datum/nano_module/song_editor/proc/page_bounds(page_num)
 	return list(
-		max(min(1 + GLOB.musical_config.song_editor_lines_per_page * (page_num-1), src.song.lines.len), 1),
-		min(GLOB.musical_config.song_editor_lines_per_page * page_num, src.song.lines.len))
+		max(min(1 + GLOB.musical_config.song_editor_lines_per_page * (page_num-1), length(src.song.lines)), 1),
+		min(GLOB.musical_config.song_editor_lines_per_page * page_num, length(src.song.lines)))
 
-
-/datum/nano_module/song_editor/ui_interact(mob/user, ui_key = "song_editor", var/datum/nanoui/ui = null, var/force_open = 0)
+/datum/nano_module/song_editor/ui_interact(mob/user, ui_key = "song_editor", datum/nanoui/ui = null, force_open = 0)
 	var/list/data = list()
 
 	var/current_page = src.current_page()
@@ -63,7 +62,7 @@
 			var/newline = html_encode(input(usr, "Enter your line: ") as text|null)
 			if(!newline)
 				return
-			if(src.song.lines.len > GLOB.musical_config.max_lines)
+			if(length(src.song.lines) > GLOB.musical_config.max_lines)
 				return
 			if(length(newline) > GLOB.musical_config.max_line_length)
 				newline = copytext(newline, 1, GLOB.musical_config.max_line_length)
@@ -73,16 +72,16 @@
 			// This could kill the server if the synthesizer was playing, props to BeTePb
 			// Impossible to do now. Dumbing down this section.
 			var/num = round(value)
-			if(num > src.song.lines.len || num < 1)
+			if(num > length(src.song.lines) || num < 1)
 				return
 			src.song.lines.Cut(num, num+1)
 
 		if("modifyline")
 			var/num = round(value)
-			if(num > src.song.lines.len || num < 1)
+			if(num > length(src.song.lines) || num < 1)
 				return
 			var/content = html_encode(input(usr, "Enter your line: ", "Edit line", src.song.lines[num]) as text|null)
-			if(num > src.song.lines.len || num < 1)
+			if(num > length(src.song.lines) || num < 1)
 				return
 			if(!content)
 				return

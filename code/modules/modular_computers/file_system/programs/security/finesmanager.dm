@@ -14,6 +14,7 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 	required_access = access_security
 	nanomodule_path = /datum/nano_module/program/finesmanager
 	usage_flags = PROGRAM_ALL
+	category = PROG_SEC
 
 /datum/nano_module/program/finesmanager
 	name = "Fines Manager"
@@ -24,7 +25,7 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 	var/datum/money_account/target
 	var/target_email
 
-/datum/nano_module/program/finesmanager/proc/get_auth(var/mob/user)
+/datum/nano_module/program/finesmanager/proc/get_auth(mob/user)
 	get_access(user)
 	if(!using_access)
 		return 0
@@ -35,10 +36,11 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 	else
 		return 1
 
-/datum/nano_module/program/finesmanager/proc/scan_id(var/mob/user)
-	var/obj/item/weapon/card/id/id
-	if(program.computer.card_slot)
-		id = program.computer.card_slot.stored_card
+/datum/nano_module/program/finesmanager/proc/scan_id(mob/user)
+	var/obj/item/card/id/id
+	var/obj/item/stock_parts/computer/card_slot/card_slot = program.computer.get_component(PART_CARD)
+	if(card_slot)
+		id = card_slot.stored_card
 	if(!id)
 		to_chat(user, "<span class='warning'>\The [program.computer] flashes a warning: No ID card inserted. Please insert one and try again.</span>")
 		playsound(program.computer, 'sound/machines/buzz-two.ogg', 30)
@@ -60,17 +62,19 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 			display_state = 1
 			return TRUE
 
-/datum/nano_module/program/finesmanager/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
+/datum/nano_module/program/finesmanager/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
 	var/list/data = program.computer.initial_data()
+	var/obj/item/stock_parts/computer/card_slot/card_slot = program.computer.get_component(PART_CARD)
+
 
 	data["state"] = display_state
 	data["auth"] = get_auth(user)
 	data["has_target"] = !isnull(target)
-	data["has_cardslot"] = !isnull(program.computer.card_slot)
+	data["has_cardslot"] = !!card_slot
 
-	if(program.computer.card_slot)
-		data["id"] = !isnull(program.computer.card_slot.stored_card)
-		data["id_text"] = data["id"] ? program.computer.card_slot.stored_card.registered_name : "--------"
+	if(card_slot)
+		data["id"] = !isnull(card_slot.stored_card)
+		data["id_text"] = data["id"] ? card_slot.stored_card.registered_name : "--------"
 
 	switch(display_state)
 		if(1)
@@ -80,7 +84,8 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 			data["amount"] = fine_data["amount"]
 			data["author"] = fine_data["author"]
 		if(2)
-			var/list/logs = GLOB.all_fines["records"].Copy()
+			var/list/f = GLOB.all_fines["records"]
+			var/list/logs = f.Copy()
 			for(var/i=1, i <= length(logs), i++)
 				logs[i]["more_details"] = log_info["[i]"]
 			data["logs"] = logs
@@ -92,20 +97,19 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 		ui.open()
 		ui.set_auto_update(0)
 
-/datum/nano_module/program/finesmanager/proc/print(var/mob/user, var/title, var/text)
-	if(!program.computer.nano_printer)
-		to_chat(user, "<span class='warning'>Error: No printer detected. Unable to print document.</span>")
+/datum/nano_module/program/finesmanager/proc/print(mob/user, title, text)
+	if(!program.computer.has_component(PART_PRINTER))
+		to_chat(src, SPAN_WARNING("Hardware Error: Printer not found."))
 		return FALSE
-	if(!program.computer.nano_printer.print_text(text, title))
-		to_chat(user, "<span class='warning'>Error: Printer was unable to print the document. It may be out of paper.</span>")
-		return FALSE
+	if(!program.computer.print_paper(text, title))
+		to_chat(src, SPAN_WARNING("Error: Printer was unable to print the document. It may be out of paper."))
 	return TRUE
 
-/datum/nano_module/program/finesmanager/proc/re_print(var/mob/user, var/index)
+/datum/nano_module/program/finesmanager/proc/re_print(mob/user, index)
 	if(!index)
 		return
-	if(!program.computer.nano_printer)
-		to_chat(user, "<span class='warning'>Error: No printer detected. Unable to print document.</span>")
+	if(!program.computer.has_component(PART_PRINTER))
+		to_chat(src, SPAN_WARNING("Error: No printer detected. Unable to print document."))
 		return
 
 	var/list/fine = GLOB.all_fines["records"][index]
@@ -142,6 +146,7 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 		playsound(program.computer, "sound/machines/dotprinter.ogg", 50, 1)
 
 /datum/nano_module/program/finesmanager/Topic(href, href_list)
+	var/obj/item/stock_parts/computer/card_slot/card_slot = program.computer.get_component(PART_CARD)
 	if(..())
 		return ..()
 
@@ -150,7 +155,7 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 	if(get_auth(user) < 2)
 		return TOPIC_REFRESH
 
-	var/obj/item/weapon/card/id/auth_card = user.GetIdCard()
+	var/obj/item/card/id/auth_card = user.GetIdCard()
 
 	if(href_list["state"])
 		display_state = text2num(href_list["state"])
@@ -166,7 +171,7 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 		return TOPIC_REFRESH
 
 	if(href_list["eject"])
-		program.computer.proc_eject_id(user)
+		card_slot.eject_id(user)
 		return TOPIC_REFRESH
 
 	if(href_list["print"])
@@ -191,7 +196,7 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 				if(!input)
 					return TOPIC_NOACTION
 				if(get_auth(user) == 2)
-					input = Clamp(round(input),1,max_fine)
+					input = clamp(round(input),1,max_fine)
 				else
 					input = max(round(input), 1)
 				if(target.money - input < 0)
@@ -225,27 +230,9 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 				var/reason = fine_data["reason"]
 				var/fineNum = GLOB.all_fines["fineNum"]
 
-				if(target.money - amount < 0)
-					alert("Insufficient account funds (Amount short: [amount - target.money] Th)", "Unable to Fine")
+				if(!target.transfer(station_account, amount, "Fine Issued (Ref. #[fineNum])"))
+					alert("Cannot process money transfer. Ensure both accounts are not suspended and have the required funds", "Unable to Fine")
 					return TOPIC_NOACTION
-
-				var/datum/transaction/fine = new()
-				var/datum/transaction/deposit = new()
-
-				fine.target_name = "[station_account.owner_name] (via [auth_card.registered_name])"
-				fine.purpose = "Fine Issued (Ref. #[fineNum])"
-				fine.amount = -amount
-				fine.date = stationdate2text()
-				fine.time = stationtime2text()
-				fine.source_terminal = "Fines Manager"
-				deposit.target_name = "[target.owner_name] (via [auth_card.registered_name])"
-				deposit.purpose = "Fine Revenue (Ref. #[fineNum])"
-				deposit.amount = amount
-				deposit.date = stationdate2text()
-				deposit.time = stationtime2text()
-				deposit.source_terminal = "Fines Manager"
-				target.do_transaction(fine)
-				station_account.do_transaction(deposit)
 
 				var/main = "<center><font size = \"2\">[GLOB.using_map.station_name] Disciplinary Committee</font></center><br><hr><br>"
 				main += "<b>Issued to:</b> [target.owner_name]<br>"
@@ -297,7 +284,8 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 					"amount" = amount,
 					"reason" = reason
 				)))
-				GLOB.all_fines["records"].Add(logs)
+				var/list/g = GLOB.all_fines["records"]
+				g.Add(logs)
 				GLOB.all_fines["fineNum"]++
 				target = null
 				target_email = null

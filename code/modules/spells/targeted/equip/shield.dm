@@ -6,7 +6,7 @@
 	invocation = "Sia helda!"
 	invocation_type = SpI_SHOUT
 	spell_flags = INCLUDEUSER | NEEDSCLOTHES
-	range = -1
+	range = 0
 	max_targets = 1
 
 	compatible_mobs = list(/mob/living/carbon/human)
@@ -14,17 +14,17 @@
 	level_max = list(Sp_TOTAL = 3, Sp_SPEED = 2, Sp_POWER = 1)
 	charge_type = Sp_RECHARGE
 	charge_max = 900
-	cooldown_min = 300
-	equipped_summons = list("off hand" = /obj/item/weapon/shield/)
-	duration = 300
+	cooldown_min = 30 SECONDS
+	equipped_summons = list("off hand" = /obj/item/shield)
+	duration = 30 SECONDS
 	delete_old = 0
 	var/item_color = "#6666ff"
 	var/block_chance = 30
 
 	hud_state = "wiz_shield"
 
-/spell/targeted/equip_item/shield/summon_item(var/new_type)
-	var/obj/item/weapon/shield/I = new new_type()
+/spell/targeted/equip_item/shield/summon_item(new_type)
+	var/obj/item/shield/I = new new_type()
 	I.icon_state = "buckler"
 	I.color = item_color
 	I.SetName("Wizard's Shield")

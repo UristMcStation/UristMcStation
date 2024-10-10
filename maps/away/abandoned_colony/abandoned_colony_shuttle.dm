@@ -23,11 +23,12 @@
 	name = "ICS Morning Light control console"
 	shuttle_tag = "ICS Morning Light"
 
-/obj/effect/overmap/ship/landable/morninglight
+/obj/effect/overmap/visitable/ship/landable/morninglight
 	name = "ICS Morning Light"
 	shuttle = "ICS Morning Light"
 	fore_dir = EAST
-	vessel_mass = 1500
+	vessel_mass = 850
+	vessel_size = SHIP_SIZE_SMALL
 
 /area/morninglight
 	name = "\improper ICS Morning Light"

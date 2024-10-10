@@ -1,7 +1,7 @@
 // tg port
 
 //do we even need this anymore now that Bay made their own? -scrdest
-/obj/item/weapon/paint
+/obj/item/paint
 	gender= PLURAL
 	name = "paint"
 	desc = "Used to recolor floors and walls. Can not be removed by the janitor."
@@ -12,43 +12,43 @@
 	w_class = 3.0
 	var/paintleft = 10
 
-/obj/item/weapon/paint/red
+/obj/item/paint/red
 	name = "red paint"
 	item_color = "C73232" //"FF0000"
 	icon_state = "paint_red"
 
-/obj/item/weapon/paint/green
+/obj/item/paint/green
 	name = "green paint"
 	item_color = "2A9C3B" //"00FF00"
 	icon_state = "paint_green"
 
-/obj/item/weapon/paint/blue
+/obj/item/paint/blue
 	name = "blue paint"
 	item_color = "5998FF" //"0000FF"
 	icon_state = "paint_blue"
 
-/obj/item/weapon/paint/yellow
+/obj/item/paint/yellow
 	name = "yellow paint"
 	item_color = "CFB52B" //"FFFF00"
 	icon_state = "paint_yellow"
 
-/obj/item/weapon/paint/violet
+/obj/item/paint/violet
 	name = "violet paint"
 	item_color = "AE4CCD" //"FF00FF"
 	icon_state = "paint_violet"
 
-/obj/item/weapon/paint/black
+/obj/item/paint/black
 	name = "black paint"
 	item_color = "333333"
 	icon_state = "paint_black"
 
-/obj/item/weapon/paint/white
+/obj/item/paint/white
 	name = "white paint"
 	item_color = "FFFFFF"
 	icon_state = "paint_white"
 
 
-/obj/item/weapon/paint/anycolor
+/obj/item/paint/anycolor
 	gender= PLURAL
 	name = "any color"
 	icon_state = "paint_neutral"
@@ -77,7 +77,7 @@
 		return
 
 
-/obj/item/weapon/paint/afterattack(turf/target, mob/user as mob, proximity)
+/obj/item/paint/afterattack(turf/target, mob/user as mob, proximity)
 	if(!proximity) return
 	if(paintleft <= 0)
 		icon_state = "paint_empty"
@@ -87,7 +87,7 @@
 	target.color = "#" + item_color
 	return
 
-/obj/item/weapon/paint/paint_remover
+/obj/item/paint/paint_remover
 	gender =  PLURAL
 	name = "paint remover"
 	icon_state = "paint_neutral"

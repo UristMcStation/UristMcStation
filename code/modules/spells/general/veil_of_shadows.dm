@@ -17,13 +17,13 @@
 		return list(holder)
 	. = null
 
-/spell/veil_of_shadows/cast(var/list/targets, var/mob/user)
+/spell/veil_of_shadows/cast(list/targets, mob/user)
 	var/mob/living/carbon/human/H = user
 	H.AddMovementHandler(/datum/movement_handler/mob/incorporeal)
 	if(H.add_cloaking_source(src))
-		H.visible_message("<span class='warning'>\The [H] shrinks from view!</span>")
+		H.visible_message(SPAN_WARNING("\The [H] shrinks from view!"))
 	GLOB.moved_event.register(H,src,.proc/check_light)
-	timer_id = addtimer(CALLBACK(src,.proc/cancel_veil),duration, TIMER_STOPPABLE)
+	timer_id = addtimer(new Callback(src,.proc/cancel_veil),duration, TIMER_STOPPABLE)
 
 /spell/veil_of_shadows/proc/cancel_veil()
 	var/mob/living/carbon/human/H = holder
@@ -40,7 +40,7 @@
 /spell/veil_of_shadows/proc/drop_cloak()
 	var/mob/living/carbon/human/H = holder
 	if(H.remove_cloaking_source(src))
-		H.visible_message("<span class='notice'>\The [H] appears from nowhere!</span>")
+		H.visible_message(SPAN_NOTICE("\The [H] appears from nowhere!"))
 	GLOB.moved_event.unregister(H,src)
 
 /spell/veil_of_shadows/proc/check_light()

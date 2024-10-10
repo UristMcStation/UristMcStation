@@ -1,4 +1,4 @@
-/mob/living/carbon/slime/proc/Wrap(var/mob/living/M) // This is a proc for the clicks
+/mob/living/carbon/slime/proc/Wrap(mob/living/M) // This is a proc for the clicks
 	if (Victim == M || src == M)
 		Feedstop()
 		return
@@ -14,30 +14,32 @@
 
 	Feedon(M)
 
-/mob/living/carbon/slime/proc/invalidFeedTarget(var/mob/living/M)
-	if (!istype(M))
-		return "This subject is incompatible..."
-	if (istype(M, /mob/living/carbon/slime)) // No cannibalism... yet
-		return "I cannot feed on other slimes..."
-	if (!Adjacent(M))
-		return "This subject is too far away..."
-	if (issilicon(M))
-		return "This subject does not have an edible life energy..."
-	if (M.getarmor(null, "bio") >= 100)
-		return "This subject is protected..."
-	if (ishuman(M))
-		var/mob/living/carbon/human/H = M
-		if(H.species.species_flags & (SPECIES_FLAG_NO_POISON|SPECIES_FLAG_NO_SCAN))
-			//they can't take clone or tox damage, then for the most part they aren't affected by being fed on - and presumably feeding on them would not affect the slime either
-			return "This subject does not have an edible life energy..."
-	if (istype(M, /mob/living/carbon) && M.getCloneLoss() >= M.maxHealth * 1.5 || istype(M, /mob/living/simple_animal) && M.stat == DEAD)
-		return "This subject does not have an edible life energy..."
-	for(var/mob/living/carbon/slime/met in view())
-		if(met.Victim == M && met != src)
-			return "\The [met] is already feeding on this subject..."
-	return 0
 
-/mob/living/carbon/slime/proc/Feedon(var/mob/living/M)
+/mob/living/carbon/slime/proc/invalidFeedTarget(mob/living/living)
+	if (!istype(living))
+		return "This subject is incompatible..."
+	if (living.stat == DEAD)
+		return "This subject is dead..."
+	if (!Adjacent(living))
+		return "This subject is too far away..."
+	if (living.isSynthetic())
+		return "This subject does not have an edible life energy..."
+	if (iscarbon(living))
+		var/mob/living/carbon/carbon = living
+		if (carbon.species?.species_flags & (SPECIES_FLAG_NO_POISON | SPECIES_FLAG_NO_SCAN))
+			return "This subject does not have an edible life energy..."
+		if (carbon.getCloneLoss() >= carbon.maxHealth * 1.5)
+			return "This subject does not have an edible life energy..."
+		if (istype(carbon, /mob/living/carbon/slime))
+			return "I cannot feed on other slimes..."
+	if (living.get_blocked_ratio(null, DAMAGE_TOXIN, damage_flags = DAMAGE_FLAG_DISPERSED | DAMAGE_FLAG_BIO) >= 1)
+		return "This subject is protected..."
+	for (var/mob/living/carbon/slime/other in oview())
+		if (other.Victim == living)
+			return "\The [other] is already feeding on this subject..."
+
+
+/mob/living/carbon/slime/proc/Feedon(mob/living/M)
 	set waitfor = 0
 	Victim = M
 	forceMove(M.loc)
@@ -52,7 +54,7 @@
 		if(Adjacent(M))
 			UpdateFeed()
 
-			var/hazmat = blocked_mult(M.getarmor(null, "bio")) //scale feeding rate by overall bio protection
+			var/hazmat = 1 - M.get_blocked_ratio(null, DAMAGE_TOXIN, damage_flags = DAMAGE_FLAG_DISPERSED | DAMAGE_FLAG_BIO) //scale feeding rate by overall bio protection
 			if(istype(M, /mob/living/carbon))
 				Victim.adjustCloneLoss(5 * hazmat)
 				Victim.adjustToxLoss(1 * hazmat)
@@ -63,7 +65,7 @@
 				Victim.adjustBruteLoss(10 * hazmat)
 
 			else
-				to_chat(src, "<span class='warning'>[pick("This subject is incompatable", "This subject does not have a life energy", "This subject is empty", "I am not satisified", "I can not feed from this subject", "I do not feel nourished", "This subject is not food")]...</span>")
+				to_chat(src, SPAN_WARNING("[pick("This subject is incompatable", "This subject does not have a life energy", "This subject is empty", "I am not satisified", "I can not feed from this subject", "I do not feel nourished", "This subject is not food")]..."))
 				Feedstop()
 				break
 
@@ -75,7 +77,8 @@
 				else if (istype(M, /mob/living/carbon))
 					var/mob/living/carbon/C = M
 					if (C.can_feel_pain())
-						to_chat(M, "<span class='danger'>[painMes]</span>")
+						to_chat(M, SPAN_DANGER("[painMes]"))
+				M.update_personal_goal(/datum/goal/achievement/notslimefodder, FALSE)
 
 			gain_nutrition(20 * hazmat)
 			totalDrained += 20 * hazmat
@@ -108,7 +111,7 @@
 					++Friends[Victim.LAssailant]
 
 		else
-			to_chat(src, "<span class='notice'>This subject does not have a strong enough life energy anymore...</span>")
+			to_chat(src, SPAN_NOTICE("This subject does not have a strong enough life energy anymore..."))
 
 	Victim = null
 
@@ -125,7 +128,7 @@
 	set desc = "This will let you evolve from baby to adult slime."
 
 	if(stat)
-		to_chat(src, "<span class='notice'>I must be conscious to do this...</span>")
+		to_chat(src, SPAN_NOTICE("I must be conscious to do this..."))
 		return
 
 	if(!is_adult)
@@ -136,36 +139,35 @@
 			regenerate_icons()
 			SetName(text("[colour] [is_adult ? "adult" : "baby"] slime ([number])"))
 		else
-			to_chat(src, "<span class='notice'>I am not ready to evolve yet...</span>")
+			to_chat(src, SPAN_NOTICE("I am not ready to evolve yet..."))
 	else
-		to_chat(src, "<span class='notice'>I have already evolved...</span>")
+		to_chat(src, SPAN_NOTICE("I have already evolved..."))
 
 /mob/living/carbon/slime/verb/Reproduce()
 	set category = "Slime"
 	set desc = "This will make you split into four slimes."
 
 	if(stat)
-		to_chat(src, "<span class='notice'>I must be conscious to do this...</span>")
+		to_chat(src, SPAN_NOTICE("I must be conscious to do this..."))
 		return
 
 	if(is_adult)
 		if(amount_grown >= SLIME_EVOLUTION_THRESHOLD)
 			if(stat)
-				to_chat(src, "<span class='notice'>I must be conscious to do this...</span>")
+				to_chat(src, SPAN_NOTICE("I must be conscious to do this..."))
 				return
 
 			var/list/babies = list()
 			var/list/mutations = GetMutations()
 			for(var/i = 1 to 4)
 				var/t = colour
-				if(prob(mutation_chance))
+				if (length(mutations) && prob(mutation_chance))
 					t = pick(mutations)
 				var/mob/living/carbon/slime/M = new /mob/living/carbon/slime(loc, t)
 				if(i != 1)
 					step_away(M, src)
 				M.Friends = Friends.Copy()
 				babies += M
-				SSstatistics.add_field_details("slime_babies_born","slimebirth_[replacetext(M.colour," ","_")]")
 
 			var/mob/living/carbon/slime/new_slime = babies[1]
 			new_slime.universal_speak = universal_speak
@@ -175,6 +177,6 @@
 				new_slime.key = src.key
 			qdel(src)
 		else
-			to_chat(src, "<span class='notice'>I am not ready to reproduce yet...</span>")
+			to_chat(src, SPAN_NOTICE("I am not ready to reproduce yet..."))
 	else
-		to_chat(src, "<span class='notice'>I am not old enough to reproduce yet...</span>")
+		to_chat(src, SPAN_NOTICE("I am not old enough to reproduce yet..."))

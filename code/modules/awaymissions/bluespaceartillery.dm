@@ -4,8 +4,8 @@
 	name = "bluespace artillery control"
 	icon_state = "control_boxp1"
 	icon = 'icons/obj/machines/particle_accelerator2.dmi'
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 
 /obj/machinery/artillerycontrol/Process()
 	if(src.reload<180)
@@ -13,13 +13,13 @@
 
 /obj/structure/artilleryplaceholder
 	name = "artillery"
-	icon = 'icons/obj/machines/artillery.dmi'
-	anchored = 1
-	density = 1
+	icon = 'icons/urist/structures&machinery/artillery.dmi'
+	anchored = TRUE
+	density = TRUE
 	desc = "The ship's old bluespace artillery cannon. Looks inoperative."
 
 /obj/structure/artilleryplaceholder/decorative
-	density = 0
+	density = FALSE
 
 /obj/machinery/artillerycontrol/attack_hand(mob/user as mob)
 	user.set_machine(src)
@@ -28,7 +28,7 @@
 	dat += "<B>Charge progress: [reload]/180:</B><BR>"
 	dat += "<A href='byond://?src=\ref[src];fire=1'>Open Fire</A><BR>"
 	dat += "Deployment of weapon authorized by <br>[GLOB.using_map.company_name] Naval Command<br><br>Remember, friendly fire is grounds for termination of your contract and life.<HR>"
-	user << browse(dat, "window=scroll")
+	show_browser(user, dat, "window=scroll")
 	onclose(user, "scroll")
 	return
 

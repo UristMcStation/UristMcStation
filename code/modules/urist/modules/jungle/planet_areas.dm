@@ -13,6 +13,10 @@
 	name = "jungle"
 	base_turf = /turf/simulated/floor/planet/jungle/clear/grass1
 
+/area/planet/jungle/away
+
+//Unused code
+/*
 /area/planet/jungle/explored
 	icon_state = "area2"
 
@@ -22,6 +26,7 @@
 	name = "temple"
 	icon = 'icons/jungle.dmi'
 	icon_state = "temple1"
+*/
 
 /area/jungleoutpost
 	name = "\improper Jungle Outpost"

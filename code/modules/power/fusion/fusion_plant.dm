@@ -8,7 +8,7 @@ GLOBAL_LIST_INIT(fusion_plants, new)
 	var/list/gyrotrons =      list()
 	var/const/network_size = 25
 
-/datum/fusion_plant/New(var/_id)
+/datum/fusion_plant/New(_id)
 	id_tag = _id
 	GLOB.fusion_plants[id_tag] = src
 
@@ -20,13 +20,13 @@ GLOBAL_LIST_INIT(fusion_plants, new)
 	GLOB.fusion_plants -= src
 	. = ..()
 
-/datum/fusion_plant/proc/within_radius(var/atom/checking)
+/datum/fusion_plant/proc/within_radius(atom/checking)
 	for(var/thing in all_objects)
 		if(get_dist(thing, checking) > network_size)
 			return FALSE
 	return TRUE
 
-/datum/fusion_plant/proc/add_device(var/obj/machinery/device)
+/datum/fusion_plant/proc/add_device(obj/machinery/device)
 	if(!all_objects[device])
 		all_objects[device] = TRUE
 		if(istype(device, /obj/machinery/power/fusion_core))
@@ -37,12 +37,12 @@ GLOBAL_LIST_INIT(fusion_plants, new)
 			gyrotrons[device] = TRUE
 	return all_objects[device]
 
-/datum/fusion_plant/proc/remove_device(var/obj/machinery/device)
+/datum/fusion_plant/proc/remove_device(obj/machinery/device)
 	if(all_objects[device])
 		all_objects    -= device
 		fusion_cores   -= device
 		fuel_injectors -= device
 		gyrotrons      -= device
-	if(all_objects.len <= 0)
+	if(length(all_objects) <= 0)
 		qdel(src)
 	return isnull(all_objects[device])

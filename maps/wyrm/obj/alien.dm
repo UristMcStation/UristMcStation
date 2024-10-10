@@ -1,24 +1,24 @@
-/obj/item/weapon/circular_saw/alien
+/obj/item/circular_saw/alien
 	name = "strange device"
 	icon = 'maps/wyrm/icons/abductor.dmi'
 	icon_state = "saw"
 
-/obj/item/weapon/scalpel/alien
+/obj/item/scalpel/alien
 	name = "strange device"
 	icon = 'maps/wyrm/icons/abductor.dmi'
 
-/obj/item/weapon/retractor/alien
+/obj/item/retractor/alien
 	name = "strange device"
 	icon = 'maps/wyrm/icons/abductor.dmi'
 
-/obj/item/weapon/hemostat/alien
+/obj/item/hemostat/alien
 	name = "strange device"
 	icon = 'maps/wyrm/icons/abductor.dmi'
 
-/obj/item/weapon/cautery/alien
+/obj/item/cautery/alien
 	name = "strange device"
 	icon = 'maps/wyrm/icons/abductor.dmi'
 
-/obj/item/weapon/surgicaldrill/alien
+/obj/item/surgicaldrill/alien
 	name = "strange device"
 	icon = 'maps/wyrm/icons/abductor.dmi'

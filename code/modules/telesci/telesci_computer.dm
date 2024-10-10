@@ -31,7 +31,7 @@
 
 /obj/machinery/computer/telescience/examine()
 	..()
-	usr << "There are [crystals.len] bluespace crystals in the crystal ports."
+	to_chat(usr, "There are [length(crystals)] bluespace crystals in the crystal ports.")
 
 /obj/machinery/computer/telescience/Initialize()
 	. = ..()
@@ -46,8 +46,8 @@
 
 /obj/machinery/computer/telescience/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/bluespace_crystal))
-		if(crystals.len >= power_options.len)
-			user << "<span class='warning'>There are not enough crystal ports.</span>"
+		if(length(crystals) >= length(power_options))
+			to_chat(user, "<span class='warning'>There are not enough crystal ports.</span>")
 			return
 		user.drop_item()
 		crystals += W
@@ -57,6 +57,8 @@
 		..()
 
 /obj/machinery/computer/telescience/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	src.attack_hand(user)
 
 /obj/machinery/computer/telescience/attack_hand(mob/user)
@@ -76,8 +78,8 @@
 	t += "<span class='linkOn'>Set Power</span>"
 	t += "<div class='statusDisplay'>"
 
-	for(var/i = 1; i <= power_options.len; i++)
-		if(crystals.len < i)
+	for(var/i = 1; i <= length(power_options); i++)
+		if(length(crystals) < i)
 			t += "<span class='linkOff'>[power_options[i]]</span>"
 			continue
 		if(power == power_options[i])
@@ -133,15 +135,15 @@
 
 	if(telepad)
 
-		var/truePower = Clamp(power + power_off, 1, 1000)
+		var/truePower = clamp(power + power_off, 1, 1000)
 		var/trueRotation = rotation + rotation_off
-		var/trueAngle = Clamp(angle, 1, 90)
+		var/trueAngle = clamp(angle, 1, 90)
 
 		var/datum/projectile_data/proj_data = projectile_trajectory(telepad.x, telepad.y, trueRotation, trueAngle, truePower)
 		last_tele_data = proj_data
 
-		var/trueX = Clamp(round(proj_data.dest_x, 1), 1, world.maxx)
-		var/trueY = Clamp(round(proj_data.dest_y, 1), 1, world.maxy)
+		var/trueX = clamp(round(proj_data.dest_x, 1), 1, world.maxx)
+		var/trueY = clamp(round(proj_data.dest_y, 1), 1, world.maxy)
 		var/spawn_time = round(proj_data.time) * 10
 
 		var/turf/target = locate(trueX, trueY, z_co)
@@ -158,7 +160,7 @@
 		spawn(round(proj_data.time) * 10) // in seconds
 			if(!telepad)
 				return
-			if(telepad.stat & NOPOWER)
+			if(telepad.stat & MACHINE_STAT_NOPOWER)
 				return
 			teleporting = 0
 			teleport_cooldown = world.time + (power * 2)
@@ -244,27 +246,27 @@
 		var/new_rot = input("Please input desired bearing in degrees.", name, rotation) as num
 		if(..()) // Check after we input a value, as they could've moved after they entered something
 			return
-		rotation = Clamp(new_rot, -900, 900)
+		rotation = clamp(new_rot, -900, 900)
 		rotation = round(rotation, 0.01)
 
 	if(href_list["setangle"])
 		var/new_angle = input("Please input desired elevation in degrees.", name, angle) as num
 		if(..())
 			return
-		angle = Clamp(round(new_angle, 0.1), 1, 9999)
+		angle = clamp(round(new_angle, 0.1), 1, 9999)
 
 	if(href_list["setpower"])
 		var/index = href_list["setpower"]
 		index = text2num(index)
 		if(index != null && power_options[index])
-			if(crystals.len >= index)
+			if(length(crystals) >= index)
 				power = power_options[index]
 
 	if(href_list["setz"])
 		var/new_z = input("Please input desired sector.", name, z_co) as num
 		if(..())
 			return
-		z_co = Clamp(round(new_z), 1, 10)
+		z_co = clamp(round(new_z), 1, 10)
 
 	if(href_list["send"])
 		sending = 1

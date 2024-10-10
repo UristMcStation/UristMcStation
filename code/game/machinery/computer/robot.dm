@@ -6,15 +6,14 @@
 	icon_screen = "robot"
 	light_color = "#a97faa"
 	req_access = list(access_robotics)
-	circuit = /obj/item/weapon/circuitboard/robotics
+	machine_name = "robotics control console"
+	machine_desc = "A control console that maintains a radio link with ship synthetics. Allows remote monitoring of them, as well as locking down their movement systems."
 
-/obj/machinery/computer/robotics/attack_ai(var/mob/user as mob)
+/obj/machinery/computer/robotics/interface_interact(mob/user)
 	ui_interact(user)
+	return TRUE
 
-/obj/machinery/computer/robotics/attack_hand(var/mob/user as mob)
-	ui_interact(user)
-
-/obj/machinery/computer/robotics/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/computer/robotics/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1)
 	var/data[0]
 	data["robots"] = get_cyborgs(user)
 	data["is_ai"] = issilicon(user)
@@ -28,11 +27,11 @@
 
 /obj/machinery/computer/robotics/CanUseTopic(user)
 	if(!allowed(user))
-		to_chat(user, "<span class='warning'>Access Denied</span>")
+		to_chat(user, SPAN_WARNING("Access Denied"))
 		return STATUS_CLOSE
 	return ..()
 
-/obj/machinery/computer/robotics/OnTopic(var/mob/user, href_list)
+/obj/machinery/computer/robotics/OnTopic(mob/user, href_list)
 	// Locks or unlocks the cyborg
 	if (href_list["lockdown"])
 		var/mob/living/silicon/robot/target = get_cyborg_by_name(href_list["lockdown"])
@@ -40,11 +39,11 @@
 			return TOPIC_HANDLED
 
 		if(isAI(user) && (target.connected_ai != user))
-			to_chat(user, "<span class='warning'>Access Denied. This robot is not linked to you.</span>")
+			to_chat(user, SPAN_WARNING("Access Denied. This robot is not linked to you."))
 			return TOPIC_HANDLED
 
 		if(isrobot(user))
-			to_chat(user, "<span class='warning'>Access Denied.</span>")
+			to_chat(user, SPAN_WARNING("Access Denied."))
 			return TOPIC_HANDLED
 
 		var/choice = input("Really [target.lockcharge ? "unlock" : "lockdown"] [target.name] ?") in list ("Yes", "No")
@@ -55,14 +54,13 @@
 			return TOPIC_HANDLED
 
 		if(target.SetLockdown(!target.lockcharge))
-			message_admins("<span class='notice'>[key_name_admin(usr)] [target.lockcharge ? "locked down" : "released"] [target.name]!</span>")
-			log_game("[key_name(usr)] [target.lockcharge ? "locked down" : "released"] [target.name]!")
+			log_and_message_admins("[target.lockcharge ? "locked down" : "released"] [target.name]!")
 			if(target.lockcharge)
-				to_chat(target, "<span class='danger'>You have been locked down!</span>")
+				to_chat(target, SPAN_DANGER("You have been locked down!"))
 			else
-				to_chat(target, "<span class='notice'>Your lockdown has been lifted!</span>")
+				to_chat(target, SPAN_NOTICE("Your lockdown has been lifted!"))
 		else
-			to_chat(user, "<span class='warning'>ERROR: Lockdown attempt failed.</span>")
+			to_chat(user, SPAN_WARNING("ERROR: Lockdown attempt failed."))
 		. = TOPIC_REFRESH
 
 	// Remotely hacks the cyborg. Only antag AIs can do this and only to linked cyborgs.
@@ -73,7 +71,7 @@
 
 		// Antag AI checks
 		if(!istype(user, /mob/living/silicon/ai) || !(user.mind.special_role && user.mind.original == user))
-			to_chat(user, "<span class='warning'>Access Denied</span>")
+			to_chat(user, SPAN_WARNING("Access Denied"))
 			return TOPIC_HANDLED
 
 		if(target.emagged)
@@ -87,10 +85,9 @@
 		if(!target || !istype(target))
 			return TOPIC_HANDLED
 
-		message_admins("<span class='notice'>[key_name_admin(usr)] emagged [target.name] using robotic console!</span>")
-		log_game("[key_name(usr)] emagged [target.name] using robotic console!")
-		target.emagged = 1
-		to_chat(target, "<span class='notice'>Failsafe protocols overriden. New tools available.</span>")
+		log_and_message_admins("emagged [target.name] using robotic console!")
+		target.emagged = TRUE
+		to_chat(target, SPAN_NOTICE("Failsafe protocols overriden. New tools available."))
 		. = TOPIC_REFRESH
 
 	else if (href_list["message"])
@@ -103,19 +100,19 @@
 			return
 
 		log_and_message_admins("sent message '[message]' to [target.name] using robotics control console!")
-		to_chat(target, "<span class='notice'>New remote message received using R-SSH protocol:</span>")
+		to_chat(target, SPAN_NOTICE("New remote message received using R-SSH protocol:"))
 		to_chat(target, message)
 		. = TOPIC_REFRESH
 
 // Proc: get_cyborgs()
 // Parameters: 1 (operator - mob which is operating the console.)
 // Description: Returns NanoUI-friendly list of accessible cyborgs.
-/obj/machinery/computer/robotics/proc/get_cyborgs(var/mob/operator)
+/obj/machinery/computer/robotics/proc/get_cyborgs(mob/operator)
 	var/list/robots = list()
 
-	for(var/mob/living/silicon/robot/R in GLOB.silicon_mob_list)
+	for(var/mob/living/silicon/robot/R in GLOB.silicon_mobs)
 		// Ignore drones
-		if(istype(R, /mob/living/silicon/robot/drone))
+		if(isdrone(R))
 			continue
 		// Ignore antagonistic cyborgs
 		if(R.scrambledcodes)
@@ -159,9 +156,9 @@
 // Proc: get_cyborg_by_name()
 // Parameters: 1 (name - Cyborg we are trying to find)
 // Description: Helper proc for finding cyborg by name
-/obj/machinery/computer/robotics/proc/get_cyborg_by_name(var/name)
+/obj/machinery/computer/robotics/proc/get_cyborg_by_name(name)
 	if (!name)
 		return
-	for(var/mob/living/silicon/robot/R in GLOB.silicon_mob_list)
+	for(var/mob/living/silicon/robot/R in GLOB.silicon_mobs)
 		if(R.name == name)
 			return R

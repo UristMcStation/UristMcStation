@@ -11,7 +11,7 @@ var/global/list/obj/machinery/message_server/message_servers = list()
 	var/id_auth = "Unauthenticated"
 	var/priority = "Normal"
 
-/datum/data_rc_msg/New(var/param_rec = "",var/param_sender = "",var/param_message = "",var/param_stamp = "",var/param_id_auth = "",var/param_priority)
+/datum/data_rc_msg/New(param_rec = "",param_sender = "",param_message = "",param_stamp = "",param_id_auth = "",param_priority)
 	if(param_rec)
 		rec_dpt = param_rec
 	if(param_sender)
@@ -37,8 +37,8 @@ var/global/list/obj/machinery/message_server/message_servers = list()
 	icon = 'icons/obj/machines/research.dmi'
 	icon_state = "server"
 	name = "Messaging Server"
-	density = 1
-	anchored = 1.0
+	density = TRUE
+	anchored = TRUE
 	idle_power_usage = 10
 	active_power_usage = 100
 
@@ -63,19 +63,20 @@ var/global/list/obj/machinery/message_server/message_servers = list()
 	return ..()
 
 /obj/machinery/message_server/Process()
-	if(active && (stat & (BROKEN|NOPOWER)))
+	..()
+	if(active && (inoperable()))
 		active = 0
 		power_failure = 10
 		update_icon()
 		return
-	else if(stat & (BROKEN|NOPOWER))
+	else if(inoperable())
 		return
 	else if(power_failure > 0)
 		if(!(--power_failure))
 			active = 1
 			update_icon()
 
-/obj/machinery/message_server/proc/send_rc_message(var/recipient = "",var/sender = "",var/message = "",var/stamp = "", var/id_auth = "", var/priority = 1)
+/obj/machinery/message_server/proc/send_rc_message(recipient = "",sender = "",message = "",stamp = "", id_auth = "", priority = 1)
 	rc_msgs += new/datum/data_rc_msg(recipient,sender,message,stamp,id_auth)
 	var/authmsg = "[message]<br>"
 	if (id_auth)
@@ -97,27 +98,28 @@ var/global/list/obj/machinery/message_server/message_servers = list()
 				Console.icon_state = "req_comp[priority]"
 			if(priority > 1)
 				playsound(Console.loc, 'sound/machines/chime.ogg', 80, 1)
-				Console.audible_message("\icon[Console]<span class='warning'>\The [Console] announces: 'High priority message received from [sender]!'</span>", hearing_distance = 8)
-				Console.message_log += "<FONT color='red'>High Priority message from <A href='?src=\ref[Console];write=[sender]'>[sender]</A></FONT><BR>[authmsg]"
+				Console.audible_message("[icon2html(Console, viewers(get_turf(Console)))][SPAN_WARNING("\The [Console] announces: 'High priority message received from [sender]!'")]", hearing_distance = 8)
+				Console.message_log += "[SPAN_COLOR("red", "High Priority message from <A href='?src=\ref[Console];write=[sender]'>[sender]</A>")]<BR>[authmsg]"
 			else
 				if(!Console.silent)
 					playsound(Console.loc, 'sound/machines/twobeep.ogg', 50, 1)
-					Console.audible_message("\icon[Console]<span class='notice'>\The [Console] announces: 'Message received from [sender].'</span>", hearing_distance = 5)
+					Console.audible_message("[icon2html(Console, viewers(get_turf(Console)))][SPAN_NOTICE("\The [Console] announces: 'Message received from [sender].'")]", hearing_distance = 5)
 				Console.message_log += "<B>Message from <A href='?src=\ref[Console];write=[sender]'>[sender]</A></B><BR>[authmsg]"
 			Console.set_light(0.3, 0.1, 2)
 
 
-/obj/machinery/message_server/attack_hand(user as mob)
+/obj/machinery/message_server/interface_interact(mob/user)
+	if(!CanInteract(user, DefaultTopicState()))
+		return FALSE
 	to_chat(user, "You toggle PDA message passing from [active ? "On" : "Off"] to [active ? "Off" : "On"]")
 	active = !active
 	power_failure = 0
 	update_icon()
+	return TRUE
 
-	return
-
-/obj/machinery/message_server/attackby(obj/item/weapon/O as obj, mob/living/user as mob)
-	if (active && !(stat & (BROKEN|NOPOWER)) && (spamfilter_limit < MESSAGE_SERVER_DEFAULT_SPAM_LIMIT*2) && \
-		istype(O,/obj/item/weapon/circuitboard/message_monitor))
+/obj/machinery/message_server/attackby(obj/item/O as obj, mob/living/user as mob)
+	if (active && operable() && (spamfilter_limit < MESSAGE_SERVER_DEFAULT_SPAM_LIMIT*2) && \
+		istype(O,/obj/item/stock_parts/circuitboard/message_monitor))
 		spamfilter_limit += round(MESSAGE_SERVER_DEFAULT_SPAM_LIMIT / 2)
 		qdel(O)
 		to_chat(user, "You install additional memory and processors into message server. Its filtering capabilities been enhanced.")
@@ -125,7 +127,7 @@ var/global/list/obj/machinery/message_server/message_servers = list()
 		..(O, user)
 
 /obj/machinery/message_server/on_update_icon()
-	if((stat & (BROKEN|NOPOWER)))
+	if((inoperable()))
 		icon_state = "server-nopower"
 	else if (!active)
 		icon_state = "server-off"
@@ -134,20 +136,24 @@ var/global/list/obj/machinery/message_server/message_servers = list()
 
 	return
 
-/obj/machinery/message_server/proc/send_to_department(var/department, var/message, var/tone)
+/obj/machinery/message_server/proc/send_to_department(department, message, tone)
 	var/reached = 0
 
-	for(var/mob/living/carbon/human/H in GLOB.human_mob_list)
-		var/obj/item/modular_computer/pda/pda = locate() in H
-		if(!pda)
+	for(var/mob/living/carbon/human/H in GLOB.human_mobs)
+		var/obj/item/modular_computer/device = locate() in H
+		if(!device || !(get_z(device) in GLOB.using_map.station_levels))
 			continue
 
-		var/datum/job/J = SSjobs.get_by_title(H.get_authentification_rank())
-		if(!J)
+		var/rank = H.get_authentification_rank()
+		var/datum/job/J = SSjobs.get_by_title(rank)
+		if (!J)
+			continue
+		if(!istype(J))
+			log_debug(append_admin_tools("MESSAGE SERVER: Mob has an invalid job, skipping. Mob: '[H]'. Rank: '[rank]'. Job: '[J]'."))
 			continue
 
 		if(J.department_flag & department)
-			to_chat(H, "<span class='notice'>Your [pda.name] alerts you to the fact that somebody is requesting your presence at your department.</span>")
+			to_chat(H, SPAN_NOTICE("Your [device.name] alerts you to the fact that somebody is requesting your presence at your department."))
 			reached++
 
 	return reached

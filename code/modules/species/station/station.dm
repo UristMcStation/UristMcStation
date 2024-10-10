@@ -9,13 +9,13 @@
 	interests, rampant cyber and bio-augmentation and secretive factions make life on most human \
 	worlds tumultous at best."
 	assisted_langs = list(LANGUAGE_NABBER)
-	min_age = 17
+	min_age = 18
 	max_age = 100
 	hidden_from_codex = FALSE
 	bandages_icon = 'icons/mob/bandage.dmi'
 
 	spawn_flags = SPECIES_CAN_JOIN
-	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE_NORMAL | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR
+	appearance_flags = SPECIES_APPEARANCE_HAS_HAIR_COLOR | SPECIES_APPEARANCE_HAS_SKIN_TONE_NORMAL | SPECIES_APPEARANCE_HAS_LIPS | SPECIES_APPEARANCE_HAS_UNDERWEAR | SPECIES_APPEARANCE_HAS_EYE_COLOR
 
 	sexybits_location = BP_GROIN
 
@@ -36,14 +36,30 @@
 			CULTURE_HUMAN_SPACER,
 			CULTURE_HUMAN_SPAFRO,
 			CULTURE_HUMAN_CONFED,
+			CULTURE_HUMAN_GAIAN,
 			CULTURE_HUMAN_OTHER
 		)
 	)
 
-/datum/species/human/get_bodytype(var/mob/living/carbon/human/H)
+	/*exertion_effect_chance = 10
+	exertion_hydration_scale = 1
+	exertion_charge_scale = 1
+	exertion_reagent_scale = 5
+	exertion_reagent_path = /datum/reagent/lactate
+	exertion_emotes_biological = list(
+		/singleton/emote/exertion/biological,
+		/singleton/emote/exertion/biological/breath,
+		/singleton/emote/exertion/biological/pant
+	)
+	exertion_emotes_synthetic = list(
+		/singleton/emote/exertion/synthetic,
+		/singleton/emote/exertion/synthetic/creak
+	)*/
+
+/datum/species/human/get_bodytype(mob/living/carbon/human/H)
 	return SPECIES_HUMAN
 
-/datum/species/human/handle_npc(var/mob/living/carbon/human/H)
+/datum/species/human/handle_npc(mob/living/carbon/human/H)
 	if(H.stat != CONSCIOUS)
 		return
 
@@ -70,24 +86,27 @@
 			if(dam > maxdam && (maxdam == 0 || prob(50)) )
 				damaged_organ = E
 				maxdam = dam
-		var/datum/gender/T = gender_datums[H.get_gender()]
+		var/datum/pronouns/P = H.choose_from_pronouns()
 		if(damaged_organ)
 			if(damaged_organ.status & ORGAN_BLEEDING)
-				H.custom_emote("clutches [T.his] [damaged_organ.name], trying to stop the blood.")
+				H.custom_emote("clutches [P.his] [damaged_organ.name], trying to stop the blood.")
 			else if(damaged_organ.status & ORGAN_BROKEN)
-				H.custom_emote("holds [T.his] [damaged_organ.name] carefully.")
+				H.custom_emote("holds [P.his] [damaged_organ.name] carefully.")
 			else if(damaged_organ.burn_dam > damaged_organ.brute_dam && damaged_organ.organ_tag != BP_HEAD)
-				H.custom_emote("blows on [T.his] [damaged_organ.name] carefully.")
+				H.custom_emote("blows on [P.his] [damaged_organ.name] carefully.")
 			else
-				H.custom_emote("rubs [T.his] [damaged_organ.name] carefully.")
+				H.custom_emote("rubs [P.his] [damaged_organ.name] carefully.")
 
 		for(var/obj/item/organ/I in H.internal_organs)
 			if((I.status & ORGAN_DEAD) || BP_IS_ROBOTIC(I)) continue
 			if(I.damage > 2) if(prob(2))
 				var/obj/item/organ/external/parent = H.get_organ(I.parent_organ)
-				H.custom_emote("clutches [T.his] [parent.name]!")
+				H.custom_emote("clutches [P.his] [parent.name]!")
 
-/datum/species/human/get_ssd(var/mob/living/carbon/human/H)
+/datum/species/human/get_ssd(mob/living/carbon/human/H)
+	if (H.ai_holder)
+		return
+
 	if(H.stat == CONSCIOUS)
 		return "staring blankly, not reacting to your presence"
 	return ..()
@@ -108,10 +127,11 @@
 	the secrets of their empire to their allies."
 	assisted_langs = list(LANGUAGE_NABBER)
 	health_hud_intensity = 1.75
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/fish/octopus
+	meat_type = /obj/item/reagent_containers/food/snacks/fish/octopus
+	bone_material = MATERIAL_BONE_CARTILAGE
 	genders = list(PLURAL)
+	pronouns = list(PRONOUNS_THEY_THEM)
 	hidden_from_codex = FALSE
-
 	min_age = 19
 	max_age = 90
 
@@ -132,7 +152,7 @@
 	darksight_tint = DARKTINT_MODERATE
 
 	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED
-	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR
+	appearance_flags = SPECIES_APPEARANCE_HAS_STATIC_HAIR | SPECIES_APPEARANCE_HAS_LIPS | SPECIES_APPEARANCE_HAS_UNDERWEAR | SPECIES_APPEARANCE_HAS_SKIN_COLOR
 
 	flesh_color = "#8cd7a3"
 	blood_color = "#1d2cbf"
@@ -147,15 +167,21 @@
 	heat_level_2 = 480 //Default 400
 	heat_level_3 = 1100 //Default 1000
 
-	reagent_tag = IS_SKRELL
-
-	override_limb_types = list(BP_HEAD = /obj/item/organ/external/head/skrell)
+	cold_discomfort_level = 292 //Higher than perhaps it should be, to avoid big speed reduction at normal room temp
+	heat_discomfort_level = 368
 
 	descriptors = list(
 		/datum/mob_descriptor/height = 1,
 		/datum/mob_descriptor/build = 0,
 		/datum/mob_descriptor/headtail_length = 0
 	)
+
+	speech_sounds = list(
+		'sound/skrell/warble1.ogg',
+		'sound/skrell/warble2.ogg',
+		'sound/skrell/warble3.ogg'
+	)
+	speech_chance = 10
 
 	available_cultural_info = list(
 		TAG_CULTURE = list(
@@ -166,20 +192,33 @@
 			CULTURE_SKRELL_RASKINTA
 		),
 		TAG_HOMEWORLD = list(
-			HOME_SYSTEM_QERRBALAK
+			HOME_SYSTEM_QERRBALAK,
+			HOME_SYSTEM_TALAMIRA,
+			HOME_SYSTEM_ROASORA,
+			HOME_SYSTEM_MITORQI,
+			HOME_SYSTEM_SKRELLSPACE,
+			HOME_SYSTEM_OTHERSKRELL
 		),
 		TAG_FACTION = list(
 			FACTION_NANOTRASEN,
 			FACTION_PCRC,
 			FACTION_HEPHAESTUS,
 			FACTION_DAIS,
+			FACTION_SKRELL_QERRVOAL,
+			FACTION_SKRELL_QALAOA,
+			FACTION_SKRELL_YIITALANA,
+			FACTION_SKRELL_KRRIGLI,
+			FACTION_SKRELL_QONPRRI,
+			FACTION_SKRELL_OTHERSKRELLFAC,
+			FACTION_SKRELL_OTHERSDTF,
 			FACTION_OTHER
 		),
 		TAG_RELIGION = list(
 			RELIGION_OTHER,
 			RELIGION_ATHEISM,
 			RELIGION_DEISM,
-			RELIGION_AGNOSTICISM
+			RELIGION_AGNOSTICISM,
+			RELIGION_SKRELL
 		)
 	)
 
@@ -190,14 +229,51 @@
 		BP_LIVER =    /obj/item/organ/internal/liver,
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys,
 		BP_BRAIN =    /obj/item/organ/internal/brain,
-		BP_EYES =     /obj/item/organ/internal/eyes
+		BP_EYES =     /obj/item/organ/internal/eyes/skrell
 		)
 
-/datum/species/skrell/get_sex(var/mob/living/carbon/H)
-	return descriptors["headtail length"] == 1 ? MALE : FEMALE
+	/*exertion_effect_chance = 10
+	exertion_hydration_scale = 1
+	exertion_charge_scale = 1
+	exertion_reagent_scale = 5
+	exertion_reagent_path = /datum/reagent/lactate
+	exertion_emotes_biological = list(
+		/singleton/emote/exertion/biological,
+		/singleton/emote/exertion/biological/breath,
+		/singleton/emote/exertion/biological/pant
+	)
+	exertion_emotes_synthetic = list(
+		/singleton/emote/exertion/synthetic,
+		/singleton/emote/exertion/synthetic/creak
+	)*/
+
+	ingest_amount = 15
+
+	traits = list(
+		/singleton/trait/boon/clear_mind = TRAIT_LEVEL_MINOR,
+		/singleton/trait/malus/animal_protein = TRAIT_LEVEL_MAJOR,
+		/singleton/trait/malus/ethanol = TRAIT_LEVEL_MODERATE,
+		/singleton/trait/general/permeable_skin = TRAIT_LEVEL_MINOR
+	)
+
+	bodyfall_sound = 'sound/effects/bodyfall_skrell.ogg'
+
+/datum/species/skrell/get_sex(mob/living/carbon/human/H)
+	return istype(H) && (H.descriptors["headtail length"] == 1 ? MALE : FEMALE)
 
 /datum/species/skrell/check_background()
 	return TRUE
+
+/datum/species/skrell/can_float(mob/living/carbon/human/H)
+	if(!H.is_physically_disabled())
+		if(H.encumbrance() < 2)
+			return TRUE
+	return FALSE
+
+/datum/species/skrell/handle_limbs_setup(mob/living/carbon/human/H)
+	. = ..()
+	var/skin_rgb = rgb2num(H.skin_color)
+	H.change_hair_color(skin_rgb[1], skin_rgb[2], skin_rgb[3])
 
 /datum/species/diona
 	name = SPECIES_DIONA
@@ -206,10 +282,10 @@
 	deform = 'icons/mob/human_races/species/diona/deformed_body.dmi'
 	preview_icon = 'icons/mob/human_races/species/diona/preview.dmi'
 	hidden_from_codex = FALSE
-
+	move_intents = list(/singleton/move_intent/walk, /singleton/move_intent/creep)
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/diona)
 	//primitive_form = "Nymph"
-	slowdown = 7
+	slowdown = 5
 	rarity_value = 3
 	hud_type = /datum/hud_data/diona
 	siemens_coefficient = 0.3
@@ -219,6 +295,7 @@
 	spawns_with_stack = 0
 	health_hud_intensity = 2
 	hunger_factor = 3
+	thirst_factor = 0.01
 
 	min_age = 1
 	max_age = 300
@@ -264,26 +341,28 @@
 
 	warning_low_pressure = 50
 	hazard_low_pressure = -1
+	warning_high_pressure = 1500
+	hazard_high_pressure = 2000
 
-	cold_level_1 = 50
+	cold_level_1 = -1
 	cold_level_2 = -1
 	cold_level_3 = -1
 
-	heat_level_1 = 2000
-	heat_level_2 = 3000
-	heat_level_3 = 4000
+	heat_level_1 = 3000
+	heat_level_2 = 4000
+	heat_level_3 = 5000
 
 	body_temperature = T0C + 15		//make the plant people have a bit lower body temperature, why not
 
 	species_flags = SPECIES_FLAG_NO_SCAN | SPECIES_FLAG_IS_PLANT | SPECIES_FLAG_NO_PAIN | SPECIES_FLAG_NO_SLIP
 	appearance_flags = 0
-	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED | SPECIES_NO_FBP_CONSTRUCTION | SPECIES_NO_FBP_CHARGEN | SPECIES_NO_LACE
+	spawn_flags = SPECIES_CAN_JOIN | SPECIES_IS_WHITELISTED | SPECIES_NO_FBP_CONSTRUCTION | SPECIES_NO_FBP_CHARGEN | SPECIES_FLAG_NO_LACE
 
 	blood_color = "#004400"
 	flesh_color = "#907e4a"
 
-	reagent_tag = IS_DIONA
 	genders = list(PLURAL)
+	pronouns = list(PRONOUNS_IT_ITS)
 
 	available_cultural_info = list(
 		TAG_CULTURE =   list(CULTURE_DIONA),
@@ -292,28 +371,29 @@
 		TAG_RELIGION =  list(RELIGION_OTHER)
 	)
 
-/proc/spawn_diona_nymph(var/turf/target)
-	if(!istype(target))
-		return 0
+	traits = list(
+		/singleton/trait/boon/clear_mind = TRAIT_LEVEL_MAJOR,
+		/singleton/trait/general/metabolically_inert = TRAIT_LEVEL_MODERATE,
+		/singleton/trait/general/nonpermeable_skin = TRAIT_LEVEL_EXISTS
+	)
 
-	//This is a terrible hack and I should be ashamed.
-	var/datum/seed/diona = SSplants.seeds["diona"]
-	if(!diona)
-		return 0
+/proc/spawn_diona_nymph(turf/target)
+	if (!istype(target))
+		return
+	var/mob/living/carbon/alien/diona/nymph = new (target)
+	var/datum/ghosttrap/trap = get_ghost_trap("living plant")
+	trap.request_player(nymph, "A diona nymph has split from its gestalt.", 30 SECONDS)
+	addtimer(new Callback(nymph, /mob/living/carbon/alien/diona/proc/check_spawn_death), 30 SECONDS)
 
-	spawn(1) // So it has time to be thrown about by the gib() proc.
-		var/mob/living/carbon/alien/diona/D = new(target)
-		var/datum/ghosttrap/plant/P = get_ghost_trap("living plant")
-		P.request_player(D, "A diona nymph has split off from its gestalt. ")
-		spawn(60)
-			if(D)
-				if(!D.ckey || !D.client)
-					D.death()
-		return 1
+/mob/living/carbon/alien/diona/proc/check_spawn_death()
+	if (QDELETED(src))
+		return
+	if (!ckey || !client)
+		death()
 
 #define DIONA_LIMB_DEATH_COUNT 9
-/datum/species/diona/handle_death_check(var/mob/living/carbon/human/H)
-	var/lost_limb_count = has_limbs.len - H.organs.len
+/datum/species/diona/handle_death_check(mob/living/carbon/human/H)
+	var/lost_limb_count = length(has_limbs) - length(H.organs)
 	if(lost_limb_count >= DIONA_LIMB_DEATH_COUNT)
 		return TRUE
 	for(var/thing in H.bad_external_organs)
@@ -323,26 +403,32 @@
 	return (lost_limb_count >= DIONA_LIMB_DEATH_COUNT)
 #undef DIONA_LIMB_DEATH_COUNT
 
-/datum/species/diona/can_understand(var/mob/other)
+/datum/species/diona/can_understand(mob/other)
 	var/mob/living/carbon/alien/diona/D = other
 	if(istype(D))
 		return 1
 	return 0
 
-/datum/species/diona/equip_survival_gear(var/mob/living/carbon/human/H)
-	if(istype(H.get_equipped_item(slot_back), /obj/item/weapon/storage/backpack))
+/datum/species/diona/equip_survival_gear(mob/living/carbon/human/H)
+	if(istype(H.get_equipped_item(slot_back), /obj/item/storage/backpack))
 		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare(H.back), slot_in_backpack)
 	else
 		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare(H), slot_r_hand)
 
+/datum/species/diona/skills_from_age(age)
+	switch(age)
+		if(101 to 200)	. = 12 // age bracket before this is 46 to 100 . = 8 making this +4
+		if(201 to 300)	. = 16 // + 8
+		else			. = ..()
+
 // Dionaea spawned by hand or by joining will not have any
 // nymphs passed to them. This should take care of that.
-/datum/species/diona/handle_post_spawn(var/mob/living/carbon/human/H)
+/datum/species/diona/handle_post_spawn(mob/living/carbon/human/H)
 	H.gender = NEUTER
 	. = ..()
-	addtimer(CALLBACK(src, .proc/fill_with_nymphs, H), 0)
+	addtimer(new Callback(src, .proc/fill_with_nymphs, H), 0)
 
-/datum/species/diona/proc/fill_with_nymphs(var/mob/living/carbon/human/H)
+/datum/species/diona/proc/fill_with_nymphs(mob/living/carbon/human/H)
 
 	if(!H || H.species.name != name) return
 
@@ -355,21 +441,36 @@
 		new /mob/living/carbon/alien/diona/sterile(H)
 		nymph_count++
 
-/datum/species/diona/handle_death(var/mob/living/carbon/human/H)
+/datum/species/diona/handle_death(mob/living/carbon/human/H)
 
 	if(H.isSynthetic())
 		var/mob/living/carbon/alien/diona/S = new(get_turf(H))
 
 		if(H.mind)
 			H.mind.transfer_to(S)
-		H.visible_message("<span class='danger'>\The [H] collapses into parts, revealing a solitary diona nymph at the core.</span>")
+		H.visible_message(SPAN_DANGER("\The [H] collapses into parts, revealing a solitary diona nymph at the core."))
 		return
 	else
-		split_into_nymphs(H)
+		split_into_nymphs(H, TRUE)
 
 /datum/species/diona/get_blood_name()
 	return "sap"
 
-/datum/species/diona/handle_environment_special(var/mob/living/carbon/human/H)
-	if(!H.InStasis() && H.stat != DEAD && H.nutrition < 10)
+/datum/species/diona/handle_environment_special(mob/living/carbon/human/H)
+	if(H.InStasis() || H.stat == DEAD)
+		return
+
+	if(H.nutrition < 10)
 		H.take_overall_damage(2,0)
+
+	if(H.hydration < 550 && H.loc)
+		var/is_in_water = FALSE
+		if(H.loc.is_flooded(lying_mob = TRUE))
+			is_in_water = TRUE
+		else
+			for(var/obj/structure/hygiene/shower/shower in H.loc)
+				if(shower.on)
+					is_in_water = TRUE
+					break
+		if(is_in_water)
+			H.adjust_hydration(100)

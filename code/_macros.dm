@@ -1,7 +1,11 @@
+#define any2ref(x) "\ref[x]"
+
+//Do (almost) nothing - indev placeholder for switch case implementations etc
+#define NOOP (.=.);
+
 #define PUBLIC_GAME_MODE SSticker.master_mode
 
-#define Clamp(value, low, high) 	(value <= low ? low : (value >= high ? high : value))
-#define CLAMP01(x) 		(Clamp(x, 0, 1))
+#define CLAMP01(x) clamp(x, 0, 1)
 
 #define get_turf(A) get_step(A,0)
 
@@ -19,7 +23,13 @@
 
 #define isairlock(A) istype(A, /obj/machinery/door/airlock)
 
-#define isatom(A) isloc(A)
+#define isatom(A) (isloc(A) && !isarea(A))
+
+#define isprojectile(A) istype(A, /obj/item/projectile)
+
+#define isbeam(A) istype(A, /obj/item/projectile/beam)
+
+#define ismagazine(A) istype(A, /obj/item/ammo_magazine)
 
 #define isbrain(A) istype(A, /mob/living/carbon/brain)
 
@@ -29,23 +39,23 @@
 
 #define isclient(A) istype(A, /client)
 
-#define iscorgi(A) istype(A, /mob/living/simple_animal/corgi)
+#define iscorgi(A) istype(A, /mob/living/simple_animal/passive/corgi)
 
-#define is_drone(A) istype(A, /mob/living/silicon/robot/drone)
+#define isdatum(A) istype(A, /datum)
+
+#define isdrone(A) istype(A, /mob/living/silicon/robot/drone)
 
 #define isEye(A) istype(A, /mob/observer/eye)
 
 #define ishuman(A) istype(A, /mob/living/carbon/human)
 
-#define isitem(A) istype(A, /obj/item)
+#define isid(A) istype(A, /obj/item/card/id)
 
-#define islist(A) istype(A, /list)
+#define isitem(A) istype(A, /obj/item)
 
 #define isliving(A) istype(A, /mob/living)
 
-#define ismouse(A) istype(A, /mob/living/simple_animal/mouse)
-
-#define ismovable(A) istype(A, /atom/movable)
+#define ismouse(A) istype(A, /mob/living/simple_animal/passive/mouse)
 
 #define isnewplayer(A) istype(A, /mob/new_player)
 
@@ -61,13 +71,17 @@
 
 #define isspace(A) istype(A, /area/space)
 
-#define isplanet(A) istype(A, /area/planet)
+#define isspaceturf(A) istype(A, /turf/space)
+
+#define isopenturf(A) istype(A, /turf/simulated/open)
 
 #define ispAI(A) istype(A, /mob/living/silicon/pai)
 
 #define isrobot(A) istype(A, /mob/living/silicon/robot)
 
 #define issilicon(A) istype(A, /mob/living/silicon)
+
+#define ismachinerestricted(A) (issilicon(A) && A.machine_restriction)
 
 #define isslime(A) istype(A, /mob/living/carbon/slime)
 
@@ -81,23 +95,32 @@
 
 #define isopenspace(A) istype(A, /turf/simulated/open)
 
-#define isPlunger(A) istype(A, /obj/item/clothing/mask/plunger) || istype(A, /obj/item/device/plunger/robot)
+#define isplunger(A) istype(A, /obj/item/clothing/mask/plunger) || istype(A, /obj/item/device/plunger/robot)
+
+#define isadmin(X) (check_rights(R_ADMIN, 0, (X)) != 0)
 
 #define sequential_id(key) uniqueness_repository.Generate(/datum/uniqueness_generator/id_sequential, key)
 
 #define random_id(key,min_id,max_id) uniqueness_repository.Generate(/datum/uniqueness_generator/id_random, key, min_id, max_id)
 
-#define to_chat(target, message)                            target << (message)
-#define to_world(message)                                   world << (message)
-#define to_world_log(message)                               world.log << (message)
-#define sound_to(target, sound)                             target << (sound)
-#define to_file(file_entry, source_var)                     file_entry << (source_var)
-#define from_file(file_entry, target_var)                   file_entry >> (target_var)
-#define show_browser(target, browser_content, browser_name) target << browse(browser_content, browser_name)
-#define close_browser(target, browser_name)                 target << browse(null, browser_name)
-#define show_image(target, image)                           target << (image)
-#define send_rsc(target, rsc_content, rsc_name)             target << browse_rsc(rsc_content, rsc_name)
-#define open_link(target, url)             target << link(url)
+/// General I/O helpers
+#define to_target(target, payload)            target << (payload)
+#define from_target(target, receiver)         target >> (receiver)
+
+/// Common use
+#define legacy_chat(target, message)          to_target(target, message)
+#define to_world(message)                     to_chat(world, message)
+#define to_world_log(message)                 to_target(world.log, message)
+#define sound_to(target, sound)               to_target(target, sound)
+#define image_to(target, image)               to_target(target, image)
+#define show_browser(target, content, title)  to_target(target, browse(content, title))
+#define close_browser(target, title)          to_target(target, browse(null, title))
+#define send_rsc(target, content, title)      to_target(target, browse_rsc(content, title))
+#define send_link(target, url)                to_target(target, link(url))
+#define send_output(target, msg, control)     to_target(target, output(msg, control))
+#define to_file(handle, value)                to_target(handle, value)
+#define to_save(handle, value)                to_target(handle, value) //semantics
+#define from_save(handle, target_var)         from_target(handle, target_var)
 
 #define MAP_IMAGE_PATH "nano/images/[GLOB.using_map.path]/"
 
@@ -105,78 +128,159 @@
 
 #define RANDOM_BLOOD_TYPE pick(4;"O-", 36;"O+", 3;"A-", 28;"A+", 1;"B-", 20;"B+", 1;"AB-", 5;"AB+")
 
-#define any2ref(x) "\ref[x]"
-
 #define CanInteract(user, state) (CanUseTopic(user, state) == STATUS_INTERACTIVE)
 
 #define CanDefaultInteract(user) (CanUseTopic(user, DefaultTopicState()) == STATUS_INTERACTIVE)
 
 #define CanInteractWith(user, target, state) (target.CanUseTopic(user, state) == STATUS_INTERACTIVE)
 
-#define CanPhysicallyInteract(user) CanInteract(user, GLOB.physical_state)
+#define CanPhysicallyInteract(user) (CanUseTopicPhysical(user) == STATUS_INTERACTIVE)
 
-#define CanPhysicallyInteractWith(user, target) CanInteractWith(user, target, GLOB.physical_state)
+#define CanPhysicallyInteractWith(user, target) (target.CanUseTopicPhysical(user) == STATUS_INTERACTIVE)
 
-#define QDEL_NULL_LIST(x) if(x) { for(var/y in x) { qdel(y) }}; if(x) {x.Cut(); x = null } // Second x check to handle items that LAZYREMOVE on qdel.
+#define QDEL_NULL_LIST(x) if(x) { for(var/y in x) { qdel(y) }}; if(x) {x.Cut(); x = null; } // Second x check to handle items that LAZYREMOVE on qdel.
+
+#define QDEL_NULL_ASSOC_LIST(x) if(x) { for(var/y in x) { qdel(x[y]) }}; if(x) {x.Cut(); x = null; }
 
 #define QDEL_NULL(x) if(x) { qdel(x) ; x = null }
 
-#define QDEL_IN(item, time) addtimer(CALLBACK(GLOBAL_PROC, .proc/qdel, item), time, TIMER_STOPPABLE)
+#define QDEL_IN(item, time) addtimer(new Callback(item, /datum/proc/qdel_self), time, TIMER_STOPPABLE)
 
 #define DROP_NULL(x) if(x) { x.dropInto(loc); x = null; }
 
+#define DROP_NULL_LIST(x) if(x) { for(var/atom/movable/y in x) { y.dropInto(loc) }}; x.Cut(); x = null;
+
 #define ARGS_DEBUG log_debug("[__FILE__] - [__LINE__]") ; for(var/arg in args) { log_debug("\t[log_info_line(arg)]") }
 
-// Helper macros to aid in optimizing lazy instantiation of lists.
-// All of these are null-safe, you can use them without knowing if the list var is initialized yet
-
-//Picks from the list, with some safeties, and returns the "default" arg if it fails
-#define DEFAULTPICK(L, default) ((istype(L, /list) && L:len) ? pick(L) : default)
-// Ensures L is initailized after this point
-#define LAZYINITLIST(L) if (!L) L = list()
-// Sets a L back to null iff it is empty
-#define UNSETEMPTY(L) if (L && !L.len) L = null
-// Removes I from list L, and sets I to null if it is now empty
-#define LAZYREMOVE(L, I) if(L) { L -= I; if(!length(L)) { L = null; } }
-// Adds I to L, initalizing L if necessary
-#define LAZYADD(L, I) if(!L) { L = list(); } L += I;
-// Insert I into L at position X, initalizing L if necessary
-#define LAZYINSERT(L, I, X) if(!L) { L = list(); } L.Insert(X, I);
-// Adds I to L, initalizing L if necessary, if I is not already in L
-#define LAZYDISTINCTADD(L, I) if(!L) { L = list(); } L |= I;
-// Sets L[A] to I, initalizing L if necessary
-#define LAZYSET(L, A, I) if(!L) { L = list(); } L[A] = I;
-// Reads I from L safely - Works with both associative and traditional lists.
-#define LAZYACCESS(L, I) (L ? (isnum(I) ? (I > 0 && I <= length(L) ? L[I] : null) : L[I]) : null)
-// Reads the length of L, returning 0 if null
-#define LAZYLEN(L) length(L)
-// Safely checks if I is in L
-#define LAZYISIN(L, I) (L ? (I in L) : FALSE)
-// Null-safe L.Cut()
-#define LAZYCLEARLIST(L) if(L) L.Cut()
-// Reads L or an empty list if L is not a list.  Note: Does NOT assign, L may be an expression.
-#define SANITIZE_LIST(L) ( islist(L) ? L : list() )
-
 // Insert an object A into a sorted list using cmp_proc (/code/_helpers/cmp.dm) for comparison.
-#define ADD_SORTED(list, A, cmp_proc) if(!list.len) {list.Add(A)} else {list.Insert(FindElementIndex(A, list, cmp_proc), A)}
-
-//Currently used in SDQL2 stuff
-#define send_output(target, msg, control) target << output(msg, control)
-#define send_link(target, url) target << link(url)
+#define ADD_SORTED(list, A, cmp_proc) if(!length(list)) {list.Add(A)} else {list.Insert(FindElementIndex(A, list, cmp_proc), A)}
 
 // Spawns multiple objects of the same type
 #define cast_new(type, num, args...) if((num) == 1) { new type(args) } else { for(var/i=0;i<(num),i++) { new type(args) } }
-
-#define FLAGS_EQUALS(flag, flags) ((flag & (flags)) == (flags))
 
 #define JOINTEXT(X) jointext(X, null)
 
 #define SPAN_CLASS(class, X) "<span class='[class]'>[X]</span>"
 
+#define SPAN_STYLE(style, X) "<span style=\"[style]\">[X]</span>"
+
+#define SPAN_ITALIC(X) SPAN_CLASS("italic", "[X]")
+
 #define SPAN_BOLD(X) SPAN_CLASS("bold", "[X]")
 
-#define SPAN_NOTICE(X) "<span class='notice'>[X]</span>"
+#define SPAN_NOTICE(X) SPAN_CLASS("notice", "[X]")
 
-#define SPAN_WARNING(X) "<span class='warning'>[X]</span>"
+#define SPAN_WARNING(X) SPAN_CLASS("warning", "[X]")
 
-#define SPAN_DANGER(X) "<span class='danger'>[X]</span>"
+#define SPAN_GOOD(X) SPAN_CLASS("good", "[X]")
+
+#define SPAN_BAD(X) SPAN_CLASS("bad", "[X]")
+
+#define SPAN_DANGER(X) SPAN_CLASS("danger", "[X]")
+
+#define SPAN_OCCULT(X) SPAN_CLASS("cult", "[X]")
+
+#define SPAN_MFAUNA(X) SPAN_CLASS("mfauna", "[X]")
+
+#define SPAN_SUBTLE(X) SPAN_CLASS("subtle", "[X]")
+
+#define SPAN_INFO(X) SPAN_CLASS("info", "[X]")
+
+#define STYLE_SMALLFONTS(X, S, C1) SPAN_STYLE("font-family: 'Small Fonts'; color: [C1]; font-size: [S]px", "[X]")
+
+#define STYLE_SMALLFONTS_OUTLINE(X, S, C1, C2) SPAN_STYLE("font-family: 'Small Fonts'; color: [C1]; -dm-text-outline: 1 [C2]; font-size: [S]px", "[X]")
+
+#define SPAN_DEBUG(X) SPAN_CLASS("debug", "[X]")
+
+#define SPAN_COLOR(color, text) SPAN_STYLE("color: [color]", "[text]")
+
+#define SPAN_SIZE(size, text) SPAN_STYLE("font-size: [size]", "[text]")
+
+#define FONT_SMALL(X) SPAN_SIZE("10px", "[X]")
+
+#define FONT_NORMAL(X) SPAN_SIZE("13px", "[X]")
+
+#define FONT_LARGE(X) SPAN_SIZE("16px", "[X]")
+
+#define FONT_HUGE(X) SPAN_SIZE("18px", "[X]")
+
+#define FONT_GIANT(X) SPAN_SIZE("24px", "[X]")
+
+#define crash_with(X) crash_at(X, __FILE__, __LINE__)
+
+
+/// Semantic define for a 0 int intended for use as a bitfield
+#define EMPTY_BITFIELD 0
+
+
+/// Right-shift of INT by BITS
+#define SHIFTR(INT, BITS) ((INT) >> (BITS))
+
+
+/// Left-shift of INT by BITS
+#define SHIFTL(INT, BITS) ((INT) << (BITS))
+
+
+/// Convenience define for nth-bit flags, 0-indexed
+#define FLAG(BIT) SHIFTL(1, BIT)
+
+
+/// Test bit at index BIT is set in FIELD
+#define GET_BIT(FIELD, BIT) ((FIELD) & FLAG(BIT))
+
+
+/// Test bit at index BIT is set in FIELD; semantic alias of GET_BIT
+#define HAS_BIT(FIELD, BIT) GET_BIT(FIELD, BIT)
+
+
+/// Set bit at index BIT in FIELD
+#define SET_BIT(FIELD, BIT) ((FIELD) |= FLAG(BIT))
+
+
+/// Unset bit at index BIT in FIELD
+#define CLEAR_BIT(FIELD, BIT) ((FIELD) &= ~FLAG(BIT))
+
+
+/// Flip bit at index BIT in FIELD
+#define FLIP_BIT(FIELD, BIT) ((FIELD) ^= FLAG(BIT))
+
+
+/// Test any bits of MASK are set in FIELD
+#define GET_FLAGS(FIELD, MASK) ((FIELD) & (MASK))
+
+
+/// Test all bits of MASK are set in FIELD
+#define HAS_FLAGS(FIELD, MASK) (((FIELD) & (MASK)) == (MASK))
+
+
+/// Set bits of MASK in FIELD
+#define SET_FLAGS(FIELD, MASK) ((FIELD) |= (MASK))
+
+
+/// Unset bits of MASK in FIELD
+#define CLEAR_FLAGS(FIELD, MASK) ((FIELD) &= ~(MASK))
+
+
+/// Flip bits of MASK in FIELD
+#define FLIP_FLAGS(FIELD, MASK) ((FIELD) ^= (MASK))
+
+
+#define hex2num(hex) (text2num(hex, 16) || 0)
+
+
+#define num2hex(num) num2text(num, 1, 16)
+
+/// Increase the size of L by 1 at the end. Is the old last entry index.
+#define LIST_INC(L) ((L).len++)
+
+/// Increase the size of L by 1 at the end. Is the new last entry index.
+#define LIST_PRE_INC(L) (++(L).len)
+
+/// Decrease the size of L by 1 from the end. Is the old last entry index.
+#define LIST_DEC(L) ((L).len--)
+
+/// Decrease the size of L by 1 from the end. Is the new last entry index.
+#define LIST_PRE_DEC(L) (--(L).len)
+
+/// Explicitly set the length of L to NEWLEN, adding nulls or dropping entries. Is the same value as NEWLEN.
+#define LIST_RESIZE(L, NEWLEN) ((L).len = (NEWLEN))

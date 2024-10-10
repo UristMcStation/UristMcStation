@@ -1,8 +1,8 @@
-var/CMinutes = null
-var/savefile/Banlist
+var/global/CMinutes = null
+var/global/savefile/Banlist
 
 
-/proc/CheckBan(var/ckey, var/id, var/address)
+/proc/CheckBan(ckey, id, address)
 	if(!Banlist)		// if Banlist cannot be located for some reason
 		LoadBans()		// try to load the bans
 		if(!Banlist)	// uh oh, can't find bans!
@@ -105,23 +105,23 @@ var/savefile/Banlist
 		bantimestamp = CMinutes + minutes
 
 	Banlist.cd = "/base"
-	if ( Banlist.dir.Find("[ckey][computerid]") )
-		to_chat(usr, "<span class='warning'>Ban already exists.</span>")
+	if (Banlist.dir.Find("[ckey][computerid]"))
+		to_chat(usr, SPAN_WARNING("Ban already exists."))
 		return 0
 	else if (!ckey)
-		to_chat(usr, "<span class='warning'>Ckey does not exist.</span>")
+		to_chat(usr, SPAN_WARNING("Ckey does not exist."))
 		return 0
 	else
 		Banlist.dir.Add("[ckey][computerid]")
 		Banlist.cd = "/base/[ckey][computerid]"
-		Banlist["key"] << ckey
-		Banlist["id"] << computerid
-		Banlist["ip"] << address
-		Banlist["reason"] << reason
-		Banlist["bannedby"] << bannedby
-		Banlist["temp"] << temp
+		to_save(Banlist["key"], ckey)
+		to_save(Banlist["id"], computerid)
+		to_save(Banlist["ip"], address)
+		to_save(Banlist["reason"], reason)
+		to_save(Banlist["bannedby"], bannedby)
+		to_save(Banlist["temp"], temp)
 		if (temp)
-			Banlist["minutes"] << bantimestamp
+			to_save(Banlist["minutes"], bantimestamp)
 	return 1
 
 /proc/RemoveBan(foldername)
@@ -129,8 +129,8 @@ var/savefile/Banlist
 	var/id
 
 	Banlist.cd = "/base/[foldername]"
-	Banlist["key"] >> key
-	Banlist["id"] >> id
+	from_save(Banlist["key"], key)
+	from_save(Banlist["id"], id)
 	Banlist.cd = "/base"
 
 	if (!Banlist.dir.Remove(foldername)) return 0
@@ -142,7 +142,6 @@ var/savefile/Banlist
 		ban_unban_log_save("[key_name_admin(usr)] unbanned [key]")
 		log_admin("[key_name_admin(usr)] unbanned [key]")
 		message_admins("[key_name_admin(usr)] unbanned: [key]")
-		SSstatistics.add_field("ban_unban",1)
 		usr.client.holder.DB_ban_unban( ckey(key), BANTYPE_ANY_FULLBAN)
 	for (var/A in Banlist.dir)
 		Banlist.cd = "/base/[A]"
@@ -171,7 +170,6 @@ var/savefile/Banlist
 /datum/admins/proc/unbanpanel()
 	var/count = 0
 	var/dat
-	//var/dat = "<HR><B>Unban Player:</B> <span class='notice'>(U) = Unban , (E) = Edit Ban</span> <span class='good'>(Total<HR><table border=1 rules=all frame=void cellspacing=0 cellpadding=3 ></span>"
 	Banlist.cd = "/base"
 	for (var/A in Banlist.dir)
 		count++
@@ -191,8 +189,8 @@ var/savefile/Banlist
 		dat += text("<tr><td><A href='?src=[ref];unbanf=[key][id]'>(U)</A><A href='?src=[ref];unbane=[key][id]'>(E)</A> Key: <B>[key]</B></td><td>ComputerID: <B>[id]</B></td><td>IP: <B>[ip]</B></td><td> [expiry]</td><td>(By: [by])</td><td>(Reason: [reason])</td></tr>")
 
 	dat += "</table>"
-	dat = "<HR><B>Bans:</B> <FONT COLOR=blue>(U) = Unban , (E) = Edit Ban</FONT> - <FONT COLOR=green>([count] Bans)</FONT><HR><table border=1 rules=all frame=void cellspacing=0 cellpadding=3 >[dat]"
-	usr << browse(dat, "window=unbanp;size=875x400")
+	dat = "<HR><B>Bans:</B> [SPAN_COLOR("blue", "(U) = Unban , (E) = Edit Ban")] - [SPAN_COLOR("green", "([count] Bans)")]<HR><table border=1 rules=all frame=void cellspacing=0 cellpadding=3 >[dat]"
+	show_browser(usr, dat, "window=unbanp;size=875x400")
 
 //////////////////////////////////// DEBUG ////////////////////////////////////
 
@@ -210,17 +208,17 @@ var/savefile/Banlist
 			Banlist.cd = "/base"
 			Banlist.dir.Add("trash[i]trashid[i]")
 			Banlist.cd = "/base/trash[i]trashid[i]"
-			Banlist["key"] << "trash[i]"
+			to_save(Banlist["key"], "trash[i]")
 		else
 			Banlist.cd = "/base"
 			Banlist.dir.Add("[last]trashid[i]")
 			Banlist.cd = "/base/[last]trashid[i]"
-			Banlist["key"] << last
-		Banlist["id"] << "trashid[i]"
-		Banlist["reason"] << "Trashban[i]."
-		Banlist["temp"] << a
-		Banlist["minutes"] << CMinutes + rand(1,2000)
-		Banlist["bannedby"] << "trashmin"
+			to_save(Banlist["key"], last)
+		to_save(Banlist["id"], "trashid[i]")
+		to_save(Banlist["reason"], "Trashban[i].")
+		to_save(Banlist["temp"], a)
+		to_save(Banlist["minutes"], CMinutes + rand(1,2000))
+		to_save(Banlist["bannedby"], "trashmin")
 		last = "trash[i]"
 
 	Banlist.cd = "/base"
@@ -229,4 +227,3 @@ var/savefile/Banlist
 	Banlist.cd = "/base"
 	for (var/A in Banlist.dir)
 		RemoveBan(A)
-

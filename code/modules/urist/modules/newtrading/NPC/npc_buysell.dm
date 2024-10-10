@@ -1,4 +1,4 @@
-/mob/living/simple_animal/hostile/npc/proc/player_sell(var/obj/O, var/mob/M, var/resell = 1)
+/mob/living/simple_animal/passive/npc/proc/player_sell(obj/O, var/mob/M, var/resell = 1)
 	if(no_resell)
 		resell = 0
 	var/worth = get_trade_value(O)	//Update the price here aswell as nanoUI updates are slow and can allow for multiple sales at the same rate
@@ -6,8 +6,8 @@
 		to_chat(M,"<span class = 'warning'>It's not worth your time to do that.</span>")
 		return
 
-	if(istype(O, /obj/item/weapon/storage))
-		var/obj/item/weapon/storage/S = O
+	if(istype(O, /obj/item/storage))
+		var/obj/item/storage/S = O
 		for(var/obj/I in S.contents)
 			S.remove_from_storage(I, src)
 			if(resell)
@@ -48,7 +48,7 @@
 			T.value = round(T.value * src.sellmodifier)		//price goes down a little
 			update_trade_item_ui(T)*/
 
-/mob/living/simple_animal/hostile/npc/proc/try_list_for_sale(var/obj/O)
+/mob/living/simple_animal/passive/npc/proc/try_list_for_sale(obj/O)
 	var/datum/trade_item/T = trade_items_inventory_by_type[O.type]
 	if(T)
 		T.quantity += 1
@@ -57,10 +57,10 @@
 		return 1
 	return 0
 
-/mob/living/simple_animal/hostile/npc/proc/player_buy(var/item_name, var/mob/M)
+/mob/living/simple_animal/passive/npc/proc/player_buy(item_name, var/mob/M)
 	var/datum/trade_item/D = trade_items_inventory_by_name[item_name]
 	var/value = D.value
-	var/obj/item/weapon/spacecash/B = M.l_hand
+	var/obj/item/spacecash/B = M.l_hand
 
 	if(!value) //for contracts and the like
 		if(D.req_access)
@@ -90,25 +90,25 @@
 					var/user_msg = "<span class='game say'><span class='name'>[src.name]</span> whispers to you, <span class='message emote'><span class='body'>\"Sorry, you're not authorized to buy that.\"</span></span></span>"
 					M.visible_message("<span class='info'>[src] whispers something to [M].</span>", user_msg)
 				else
-					if(istype (B, /obj/item/weapon/spacecash/bundle))
+					if(istype (B, /obj/item/spacecash/bundle))
 						//take the cash
-						var/obj/item/weapon/spacecash/bundle/P = B
-						var/obj/item/weapon/spacecash/bundle/payment = P.split_off(value, M)
+						var/obj/item/spacecash/bundle/P = B
+						var/obj/item/spacecash/bundle/payment = P.split_off(value, M)
 						payment.loc = src
 						qdel(payment)
 
 					GiveItem(D, M)
 			else
-				if(istype (B, /obj/item/weapon/spacecash/bundle))
+				if(istype (B, /obj/item/spacecash/bundle))
 					//take the cash
-					var/obj/item/weapon/spacecash/bundle/P = B
-					var/obj/item/weapon/spacecash/bundle/payment = P.split_off(value, M)
+					var/obj/item/spacecash/bundle/P = B
+					var/obj/item/spacecash/bundle/payment = P.split_off(value, M)
 					payment.loc = src
 					qdel(payment)
 
 				GiveItem(D, M)
 
-/mob/living/simple_animal/hostile/npc/proc/GiveItem(var/datum/trade_item/D, var/mob/M)
+/mob/living/simple_animal/passive/npc/proc/GiveItem(datum/trade_item/D, var/mob/M)
 	//create the object and pass it over
 
 	if(D.is_bulky)
@@ -134,7 +134,7 @@
 	D.value = round(D.value * (1+src.price_modifier))		//price goes up a little
 	update_trade_item_ui(D)
 
-/mob/living/simple_animal/hostile/npc/proc/GiveFreeItem(var/datum/trade_item/D, var/mob/M)
+/mob/living/simple_animal/passive/npc/proc/GiveFreeItem(datum/trade_item/D, var/mob/M)
 	var/obj/O = new D.item_type(M.loc)
 	M.put_in_hands(O)
 	M.visible_message("<span class='info'>[src] hands [M] an item.</span>",\
@@ -143,8 +143,8 @@
 	M.visible_message("<span class='info'>[src] whispers something to [M].</span>", user_msg)
 
 
-/mob/living/simple_animal/hostile/npc/proc/CanPurchase(var/mob/M, var/access)
-	var/obj/item/weapon/card/id/id_card = M.GetIdCard()
+/mob/living/simple_animal/passive/npc/proc/CanPurchase(mob/M, var/access)
+	var/obj/item/card/id/id_card = M.GetIdCard()
 	var/list/L = id_card.GetAccess()
 	if(has_access(access, list(), L))
 		return 1

@@ -13,7 +13,7 @@
 	coat = null
 	update_icon()
 
-/obj/structure/coatrack/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/coatrack/attackby(obj/item/W as obj, mob/user as mob)
 	var/can_hang = 0
 	for (var/T in allowed)
 		if(istype(W,T))
@@ -23,13 +23,13 @@
 		coat = W
 		update_icon()
 
-	else if(istype(W, /obj/item/weapon/wrench) && !coat)
+	else if(istype(W, /obj/item/wrench) && !coat)
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 		var/obj/item/stack/material/wood/S = new /obj/item/stack/material/wood(src.loc)
 		S.amount = 2
 		del(src)
 	else
-		to_chat(user, "<span class='notice'>You cannot hang [W] on [src]</span>")
+		to_chat(user, SPAN_NOTICE("You cannot hang [W] on [src]"))
 		return ..()
 
 /obj/structure/coatrack/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)

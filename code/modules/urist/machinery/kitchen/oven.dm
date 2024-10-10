@@ -6,8 +6,8 @@
 	var/orig = "oven"
 	var/production_meth = "cooking"
 	layer = 2.9
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 	use_power = 1
 	var/grown_only = 0
 	idle_power_usage = 5
@@ -19,22 +19,22 @@
 
 /obj/machinery/cooking/attackby(obj/item/I, mob/user)
 	if(on)
-		user << "The machine is already running."
+		to_chat(user, "The machine is already running.")
 		return
-	if(!istype(I,/obj/item/weapon/reagent_containers/food/snacks/))
-		user << "That isn't food."
+	if(!istype(I,/obj/item/reagent_containers/food/snacks))
+		to_chat(user, "That isn't food.")
 		return
-	if(!istype(I,/obj/item/weapon/reagent_containers/food/snacks/grown/) && grown_only)
-		user << "You can only still grown items."
+	if(!istype(I,/obj/item/reagent_containers/food/snacks/grown) && grown_only)
+		to_chat(user, "You can only still grown items.")
 		return
 	else
-		var/obj/item/weapon/reagent_containers/food/snacks/F = I
-		var/obj/item/weapon/reagent_containers/food/snacks/customizable/C
+		var/obj/item/reagent_containers/food/snacks/F = I
+		var/obj/item/reagent_containers/food/snacks/customizable/C
 		C = input("Select food to make.", "Cooking", C) in food_choices
 		if(!C)
 			return
 		else
-			user << "You put [F] into [src] for [production_meth]."
+			to_chat(user, "You put [F] into [src] for [production_meth].")
 			user.drop_item()
 			F.loc = src
 			on = TRUE
@@ -59,8 +59,8 @@
 /obj/machinery/cooking/oven/updatefood()
 	for(var/U in food_choices)
 		food_choices.Remove(U)
-	for(var/U in typesof(/obj/item/weapon/reagent_containers/food/snacks/customizable/cook)-(/obj/item/weapon/reagent_containers/food/snacks/customizable/cook))
-		var/obj/item/weapon/reagent_containers/food/snacks/customizable/cook/V = new U
+	for(var/U in typesof(/obj/item/reagent_containers/food/snacks/customizable/cook)-(/obj/item/reagent_containers/food/snacks/customizable/cook))
+		var/obj/item/reagent_containers/food/snacks/customizable/cook/V = new U
 		src.food_choices += V
 	return
 
@@ -74,8 +74,8 @@
 /obj/machinery/cooking/candy/updatefood()
 	for(var/U in food_choices)
 		food_choices.Remove(U)
-	for(var/U in typesof(/obj/item/weapon/reagent_containers/food/snacks/customizable/candy)-(/obj/item/weapon/reagent_containers/food/snacks/customizable/candy))
-		var/obj/item/weapon/reagent_containers/food/snacks/customizable/candy/V = new U
+	for(var/U in typesof(/obj/item/reagent_containers/food/snacks/customizable/candy)-(/obj/item/reagent_containers/food/snacks/customizable/candy))
+		var/obj/item/reagent_containers/food/snacks/customizable/candy/V = new U
 		src.food_choices += V
 	return
 
@@ -91,7 +91,7 @@
 /obj/machinery/cooking/still/updatefood()
 	for(var/U in food_choices)
 		food_choices.Remove(U)
-	for(var/U in typesof(/obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/)-(/obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/))
-		var/obj/item/weapon/reagent_containers/food/drinks/bottle/customizable/V = new U
+	for(var/U in typesof(/obj/item/reagent_containers/food/drinks/bottle/customizable)-(/obj/item/reagent_containers/food/drinks/bottle/customizable))
+		var/obj/item/reagent_containers/food/drinks/bottle/customizable/V = new U
 		src.food_choices += V
 	return

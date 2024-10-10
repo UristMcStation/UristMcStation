@@ -17,9 +17,8 @@
 
 /obj/item/organ/internal/stomach/New()
 	..()
-	ingested = new/datum/reagents/metabolism(240, owner, CHEM_INGEST)
-	if(!ingested.my_atom)
-		ingested.my_atom = src
+	var/ingested_atom = owner ? owner : src
+	ingested = new/datum/reagents/metabolism(240, ingested_atom, CHEM_INGEST)
 	if(species.gluttonous)
 		action_button_name = PUKE_ACTION_NAME
 
@@ -33,10 +32,14 @@
 	ingested.my_atom = owner
 	ingested.parent = owner
 
-/obj/item/organ/internal/stomach/proc/can_eat_atom(var/atom/movable/food)
+/obj/item/organ/internal/stomach/robotize()
+	. = ..()
+	icon_state = "stomach-prosthetic"
+
+/obj/item/organ/internal/stomach/proc/can_eat_atom(atom/movable/food)
 	return !isnull(get_devour_time(food))
 
-/obj/item/organ/internal/stomach/proc/is_full(var/atom/movable/food)
+/obj/item/organ/internal/stomach/proc/is_full(atom/movable/food)
 	var/total = Floor(ingested.total_volume / 10)
 	for(var/a in contents + food)
 		if(ismob(a))
@@ -51,7 +54,7 @@
 			return TRUE
 	return FALSE
 
-/obj/item/organ/internal/stomach/proc/get_devour_time(var/atom/movable/food)
+/obj/item/organ/internal/stomach/proc/get_devour_time(atom/movable/food)
 	if(iscarbon(food) || isanimal(food))
 		var/mob/living/L = food
 		if((species.gluttonous & GLUT_TINY) && (L.mob_size <= MOB_TINY) && !ishuman(food)) // Anything MOB_TINY or smaller
@@ -60,7 +63,7 @@
 			return DEVOUR_SLOW
 		else if(species.gluttonous & GLUT_ANYTHING) // Eat anything ever
 			return DEVOUR_FAST
-	else if(istype(food, /obj/item) && !istype(food, /obj/item/weapon/holder)) //Don't eat holders. They are special.
+	else if(istype(food, /obj/item))
 		var/obj/item/I = food
 		var/cost = I.get_storage_cost()
 		if(cost != ITEM_SIZE_NO_CONTAINER)
@@ -80,24 +83,61 @@
 /obj/item/organ/internal/stomach/attack_self(mob/user)
 	. = ..()
 	if(. && action_button_name == PUKE_ACTION_NAME && owner && !owner.incapacitated())
-		owner.vomit(deliberate = TRUE)
+		owner.empty_stomach()
 		refresh_action_button()
+
+/obj/item/organ/internal/stomach/attackby(obj/item/item, mob/living/user)
+	if (!is_sharp(item))
+		return ..()
+	. = TRUE
+	user.visible_message(
+		SPAN_ITALIC("\The [user] begins cutting into \a [src] with \a [item]."),
+		SPAN_ITALIC("You start to cut open \the [src] with \the [item]."),
+		range = 5
+	)
+	take_internal_damage(5)
+	if (!do_after(user, 5 SECONDS, src) || QDELETED(src))
+		return
+	if (!Adjacent(user) || user.incapacitated())
+		return
+	var/removed_message
+	var/length = length(contents)
+	switch (length)
+		if (0)
+			removed_message = "There's nothing inside."
+		if (1)
+			removed_message = "Something falls out."
+		else
+			removed_message = "Several things fall out."
+	user.visible_message(
+		SPAN_ITALIC("\The [user] finishes cutting \a [src] open. [removed_message]"),
+		SPAN_ITALIC("You finish cutting \the [src] open. [removed_message]"),
+		range = 2
+	)
+	take_internal_damage(5)
+	for (var/atom/movable/movable as anything in contents)
+		movable.dropInto(loc)
 
 /obj/item/organ/internal/stomach/return_air()
 	return null
 
-/obj/item/organ/internal/stomach/Process()
+// This call needs to be split out to make sure that all the ingested things are metabolised
+// before the process call is made on any of the other organs
+/obj/item/organ/internal/stomach/proc/metabolize()
+	if(is_usable())
+		ingested.metabolize()
 
+#define STOMACH_VOLUME 65
+
+/obj/item/organ/internal/stomach/Process()
 	..()
 
 	if(owner)
-
 		var/functioning = is_usable()
-		if(functioning && damage >= min_bruised_damage && prob(damage))
+		if(damage >= min_bruised_damage && prob((damage / max_damage) * 100))
 			functioning = FALSE
-		
+
 		if(functioning)
-			ingested.metabolize()
 			for(var/mob/living/M in contents)
 				if(M.stat == DEAD)
 					qdel(M)
@@ -115,11 +155,19 @@
 			next_cramp = world.time + rand(200,800)
 			owner.custom_pain("Your stomach cramps agonizingly!",1)
 
-		var/alcohol_threshold_met = (ingested.get_reagent_amount(/datum/reagent/ethanol) > 60)
+		var/alcohol_volume = ingested.get_reagent_amount(/datum/reagent/ethanol)
+
+		var/alcohol_threshold_met = alcohol_volume > STOMACH_VOLUME / 2
 		if(alcohol_threshold_met && (owner.disabilities & EPILEPSY) && prob(20))
 			owner.seizure()
 
-		if(ingested.total_volume > 60 || ((alcohol_threshold_met || ingested.total_volume > 35) && prob(15)))
+		// Alcohol counts as double volume for the purposes of vomit probability
+		var/effective_volume = ingested.total_volume + alcohol_volume
+
+		// Just over the limit, the probability will be low. It rises a lot such that at double ingested it's 64% chance.
+		var/vomit_probability = (effective_volume / STOMACH_VOLUME) ** 6
+		if(prob(vomit_probability))
 			owner.vomit()
 
+#undef STOMACH_VOLUME
 #undef PUKE_ACTION_NAME

@@ -1,4 +1,4 @@
-/obj/item/weapon/computer_hardware/firewall
+/obj/item/stock_parts/computer/firewall
 	name = "sensory data filter"
 	desc = "A device to filter harmful sensory data that would normally cause dangerous amounts of bio-electric feedback."
 	critical = 0

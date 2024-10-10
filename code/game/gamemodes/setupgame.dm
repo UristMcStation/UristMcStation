@@ -5,8 +5,8 @@
 // Randomize block, assign a reference name, and optionally define difficulty (by making activation zone smaller or bigger)
 // The name is used on /vg/ for species with predefined genetic traits,
 //  and for the DNA panel in the player panel.
-/proc/getAssignedBlock(var/name,var/list/blocksLeft, var/activity_bounds=DNA_DEFAULT_BOUNDS, var/good=0)
-	if(blocksLeft.len==0)
+/proc/getAssignedBlock(name,list/blocksLeft, activity_bounds=DNA_DEFAULT_BOUNDS, good=0)
+	if(length(blocksLeft)==0)
 		warning("[name]: No more blocks left to assign!")
 		return 0
 	var/assigned = pick(blocksLeft)
@@ -35,8 +35,8 @@
 	//testing("Assigning DNA blocks:")
 
 	// Standard muts, imported from older code above.
-	GLOB.BLINDBLOCK         = getAssignedBlock("BLIND",         numsToAssign)
-	GLOB.DEAFBLOCK          = getAssignedBlock("DEAF",          numsToAssign)
+	GLOB.BLINDBLOCK         = getAssignedBlock("BLINDED",         numsToAssign)
+	GLOB.DEAFBLOCK          = getAssignedBlock("DEAFENED",          numsToAssign)
 	GLOB.HULKBLOCK          = getAssignedBlock("HULK",          numsToAssign, DNA_HARD_BOUNDS)
 	GLOB.TELEBLOCK          = getAssignedBlock("TELE",          numsToAssign, DNA_HARD_BOUNDS)
 	GLOB.FIREBLOCK          = getAssignedBlock("FIRE",          numsToAssign, DNA_HARDER_BOUNDS)
@@ -68,25 +68,25 @@
 	//disabilities
 //	LISPBLOCK      = getAssignedBlock("LISP",       numsToAssign)
 //	MUTEBLOCK      = getAssignedBlock("MUTE",       numsToAssign)
-	RADBLOCK       = getAssignedBlock("RAD",        numsToAssign)
-	FATBLOCK       = getAssignedBlock("FAT",        numsToAssign)
+	GLOB.RADBLOCK       = getAssignedBlock("RAD",        numsToAssign)
+	GLOB.FATBLOCK       = getAssignedBlock("FAT",        numsToAssign)
 //	CHAVBLOCK      = getAssignedBlock("CHAV",       numsToAssign)
 //	SWEDEBLOCK     = getAssignedBlock("SWEDE",      numsToAssign)
 //	SCRAMBLEBLOCK  = getAssignedBlock("SCRAMBLE",   numsToAssign)
-	HORNSBLOCK     = getAssignedBlock("HORNS",      numsToAssign)
-	NOIRBLOCK      = getAssignedBlock("NOIR",       numsToAssign)
+	GLOB.HORNSBLOCK     = getAssignedBlock("HORNS",      numsToAssign)
+	GLOB.NOIRBLOCK      = getAssignedBlock("NOIR",       numsToAssign)
 
 	// Powers
-	SOBERBLOCK     = getAssignedBlock("SOBER",      numsToAssign, good=1)
-	PSYRESISTBLOCK = getAssignedBlock("PSYRESIST",  numsToAssign, DNA_HARD_BOUNDS, good=1)
-	SHADOWBLOCK    = getAssignedBlock("SHADOW",     numsToAssign, DNA_HARDER_BOUNDS, good=1)
+	GLOB.SOBERBLOCK     = getAssignedBlock("SOBER",      numsToAssign, good=1)
+	GLOB.PSYRESISTBLOCK = getAssignedBlock("PSYRESIST",  numsToAssign, DNA_HARD_BOUNDS, good=1)
+	GLOB.SHADOWBLOCK    = getAssignedBlock("SHADOW",     numsToAssign, DNA_HARDER_BOUNDS, good=1)
 	//CHAMELEONBLOCK = getAssignedBlock("CHAMELEON",  numsToAssign, DNA_HARDER_BOUNDS, good=1)
-	CRYOBLOCK      = getAssignedBlock("CRYO",       numsToAssign, DNA_HARD_BOUNDS, good=1)
-	EATBLOCK       = getAssignedBlock("EAT",        numsToAssign, DNA_HARD_BOUNDS, good=1)
-	JUMPBLOCK      = getAssignedBlock("JUMP",       numsToAssign, DNA_HARD_BOUNDS, good=1)
+	GLOB.CRYOBLOCK      = getAssignedBlock("CRYO",       numsToAssign, DNA_HARD_BOUNDS, good=1)
+	GLOB.EATBLOCK       = getAssignedBlock("EAT",        numsToAssign, DNA_HARD_BOUNDS, good=1)
+	GLOB.JUMPBLOCK      = getAssignedBlock("JUMP",       numsToAssign, DNA_HARD_BOUNDS, good=1)
 	//MELTBLOCK      = getAssignedBlock("MELT",       numsToAssign, good=1)
 	//IMMOLATEBLOCK  = getAssignedBlock("IMMOLATE",   numsToAssign, good=1)
-	EMPATHBLOCK    = getAssignedBlock("EMPATH",     numsToAssign, DNA_HARD_BOUNDS, good=1)
+	GLOB.EMPATHBLOCK    = getAssignedBlock("EMPATH",     numsToAssign, DNA_HARD_BOUNDS, good=1)
 	//POLYMORPHBLOCK = getAssignedBlock("POLYMORPH",  numsToAssign, DNA_HARDER_BOUNDS, good=1)
 
 	//

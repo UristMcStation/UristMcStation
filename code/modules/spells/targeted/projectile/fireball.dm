@@ -5,7 +5,7 @@
 	proj_type = /obj/item/projectile/spell_projectile/fireball
 
 	school = "conjuration"
-	charge_max = 100
+	charge_max = 10 SECONDS
 	spell_flags = 0
 	invocation = "Oni-Soma!"
 	invocation_type = SpI_SHOUT
@@ -21,28 +21,25 @@
 	amt_dam_brute = 20
 	amt_dam_fire = 25
 
-	var/ex_severe = -1
-	var/ex_heavy = 1
-	var/ex_light = 2
-	var/ex_flash = 5
+	var/explosion_radius = 3
+	var/explosion_max_power = EX_ACT_HEAVY
 
 	hud_state = "wiz_fireball"
 	cast_sound = 'sound/magic/fireball.ogg'
 
-/spell/targeted/projectile/dumbfire/fireball/prox_cast(var/list/targets, spell_holder)
+/spell/targeted/projectile/dumbfire/fireball/prox_cast(list/targets, spell_holder)
 	for(var/mob/living/M in targets)
 		apply_spell_damage(M)
-	explosion(get_turf(spell_holder), ex_severe, ex_heavy, ex_light, ex_flash)
+	explosion(get_turf(spell_holder), explosion_radius, explosion_max_power)
 
 /spell/targeted/projectile/dumbfire/fireball/empower_spell()
 	if(!..())
 		return 0
 
 	if(spell_levels[Sp_POWER]%2 == 1)
-		ex_severe++
-	ex_heavy++
-	ex_light++
-	ex_flash++
+		explosion_radius += 1
+		explosion_max_power = max(explosion_max_power - 1, EX_ACT_DEVASTATING) // Increase max power
+	explosion_radius += 2
 
 	return "The spell [src] now has a larger explosion."
 
@@ -59,13 +56,9 @@
 	name = "Firebolt"
 	desc = "A quick-casted fireball. Burns the user, and their enemies, but is much faster to shoot."
 	feedback = "FO"
-	charge_type = Sp_HOLDVAR
+	charge_type = Sp_RECHARGE
 	invocation = "Ignus!"
-	holder_var_type = "fireloss"
-	holder_var_amount = 10
-	amt_dam_brute = 10
-	amt_dam_fire = 15
-	ex_heavy = -1
-	ex_light = 1
-	ex_flash = 3
+	charge_max = 1.5 SECONDS
+	explosion_radius = 1
+	explosion_max_power = EX_ACT_LIGHT
 	hud_state = "firebolt"

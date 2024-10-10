@@ -123,7 +123,7 @@
 			for(var/datum/reagent/R in reagents.reagent_list)
 				if(R.type == /datum/reagent/blood)
 					var/datum/reagent/blood/B = R
-					if(!B.data.len)
+					if(!length(B.data))
 						break
 					var/weakref/W = B.data["donor"]
 					var/mob/M = W.resolve()

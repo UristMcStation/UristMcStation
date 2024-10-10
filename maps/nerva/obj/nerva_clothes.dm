@@ -92,10 +92,10 @@
 /obj/item/clothing/suit/storage/toggle/urist/hosjacket
 	name = "chief of security's jacket"
 	desc = "A hardy jacket worn by the ICS Nerva's Chief of Security."
-	icon_state = "service_hos_open"
-	icon_open = "service_hos_open"
-	icon_closed = "service_hos_closed"
-	item_state = "service_hos"
+	icon_state = "service_hos"
+//	icon_open = "service_hos_open"
+//	icon_closed = "service_hos_closed"
+//	item_state = "service_hos"
 	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
@@ -105,10 +105,10 @@
 /obj/item/clothing/suit/storage/toggle/urist/qmjacket
 	name = "quartermaster's jacket"
 	desc = "A light jacket worn by the ICS Nerva's Quartermaster."
-	icon_state = "service_qm_open"
-	icon_open = "service_qm_open"
-	icon_closed = "service_qm_closed"
-	item_state = "service_qm"
+	icon_state = "service_qm"
+//	icon_open = "service_qm_open"
+//	icon_closed = "service_qm_closed"
+//	item_state = "service_qm"
 	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
@@ -117,10 +117,10 @@
 /obj/item/clothing/suit/storage/toggle/urist/cargojacket
 	name = "supply technician's jacket"
 	desc = "A light jacket worn by the ICS Nerva's supply technicians."
-	icon_state = "service_cargo_open"
-	icon_open = "service_cargo_open"
-	icon_closed = "service_cargo_closed"
-	item_state = "service_cargo"
+	icon_state = "service_cargo"
+//	icon_open = "service_cargo_open"
+//	icon_closed = "service_cargo_closed"
+//	item_state = "service_cargo"
 	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
@@ -129,10 +129,10 @@
 /obj/item/clothing/suit/storage/toggle/urist/nervacapjacket
 	name = "captain's jacket"
 	desc = "A hardy synthleather flight jacket worn by the captain of the ICS Nerva. Stylsh, practical and lightly armoured, this outfit exudes an aura of command."
-	icon_state = "nervacapcoat_open"
-	icon_open = "nervacapcoat_open"
-	icon_closed = "nervacapcoat_closed"
-	item_state = "nervacapcoat"
+	icon_state = "nervacapcoat"
+//	icon_open = "nervacapcoat_open"
+//	icon_closed = "nervacapcoat_closed"
+	//item_state = "nervacapcoat"
 	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
@@ -143,10 +143,10 @@
 	name = "science labcoat"
 	desc = "A coat that protects against minor chemical spills. It has the insignia of the ICS Nerva on it."
 	icon = 'icons/urist/items/clothes/clothes.dmi'
-	item_state = "n_lab"
+//	item_state = "n_lab"
 	icon_state = "n_lab"
-	icon_open = "n_lab_open"
-	icon_closed = "n_lab"
+//	icon_open = "n_lab_open"
+//	icon_closed = "n_lab"
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 15, rad = 0)
 
 
@@ -161,13 +161,13 @@
 	armor = list(melee = 60, bullet = 50, laser = 45, energy = 30, bomb = 35, bio = 0, rad = 0)
 	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_A, ACCESSORY_SLOT_ARMOR_L, ACCESSORY_SLOT_ARMOR_S)
 	restricted_accessory_slots = list(ACCESSORY_SLOT_ARMOR_A, ACCESSORY_SLOT_ARMOR_L, ACCESSORY_SLOT_ARMOR_S)
-	starting_accessories = list(/obj/item/clothing/accessory/armguards/merc, /obj/item/clothing/accessory/legguards/merc, /obj/item/clothing/accessory/storage/pouches/large, /obj/item/clothing/accessory/armor/tag/nerva)
+	accessories = list(/obj/item/clothing/accessory/arm_guards/merc, /obj/item/clothing/accessory/leg_guards/merc, /obj/item/clothing/accessory/storage/pouches/large, /obj/item/clothing/accessory/armor/tag/nerva)
 
 /obj/item/clothing/suit/armor/pcarrier/medium/nerva
-	starting_accessories = list(/obj/item/clothing/accessory/armorplate/medium, /obj/item/clothing/accessory/storage/pouches, /obj/item/clothing/accessory/armor/tag/nerva)
+	accessories = list(/obj/item/clothing/accessory/armor_plate/medium, /obj/item/clothing/accessory/storage/pouches, /obj/item/clothing/accessory/armor/tag/nerva)
 
 /obj/item/clothing/suit/armor/pcarrier/merc/cos
-	starting_accessories = list(/obj/item/clothing/accessory/armorplate/merc, /obj/item/clothing/accessory/armguards/merc, /obj/item/clothing/accessory/legguards/merc, /obj/item/clothing/accessory/storage/pouches/large, /obj/item/clothing/accessory/armor/tag/nerva)
+	accessories = list(/obj/item/clothing/accessory/armor_plate/merc, /obj/item/clothing/accessory/arm_guards/merc, /obj/item/clothing/accessory/leg_guards/merc, /obj/item/clothing/accessory/storage/pouches/large, /obj/item/clothing/accessory/armor/tag/nerva)
 
 //tag
 
@@ -216,8 +216,9 @@
 		to_chat(usr, "You shift the cloak around.")
 		update_clothing_icon()
 
-/obj/item/clothing/suit/storage/hooded/seccloak/update_icon()
+/obj/item/clothing/suit/storage/hooded/seccloak/on_update_icon()
 	icon_state = "seccloak[state]"
+	item_state = "seccloak[state]"
 
 /obj/item/clothing/head/urist/seccloakhood
 	name = "cloak hood"
@@ -244,7 +245,6 @@
 	force = 3
 	armor = list(melee = 30, bullet = 10, laser = 10, energy = 15, bomb = 20, bio = 0, rad = 0)
 	siemens_coefficient = 0.7
-	can_hold_knife = 1
 	cold_protection = FEET
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
 
@@ -279,7 +279,7 @@
 
 //rigs
 
-/obj/item/weapon/rig/command/exploration
+/obj/item/rig/command/exploration
 	name = "exploration command HCM"
 	suit_type = "exploration command hardsuit"
 	desc = "A specialized hardsuit rig control module issued to the quartermaster of the ICS Nerva."
@@ -296,7 +296,7 @@
 	boot_type = /obj/item/clothing/shoes/magboots/rig/command/exploration
 	glove_type = /obj/item/clothing/gloves/rig/command/exploration
 
-	allowed = list(/obj/item/weapon/storage/backpack,/obj/item/weapon/gun, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/weapon/tank, /obj/item/device/suit_cooling_unit, /obj/item/weapon/storage/backpack)
+	allowed = list(/obj/item/storage/backpack, /obj/item/gun, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank, /obj/item/device/suit_cooling_unit)
 	req_access = list(access_qm)
 
 /obj/item/clothing/head/helmet/space/rig/command/exploration
@@ -321,18 +321,20 @@
 	item_icons = list(slot_gloves_str = 'maps/torch/icons/mob/onmob_hands_solgov.dmi')
 	species_restricted = list(SPECIES_HUMAN)
 
-/obj/item/weapon/rig/command/exploration/equipped
+/obj/item/rig/command/exploration/equipped
 
 	initial_modules = list(
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/device/flash,
-		/obj/item/rig_module/cooling_unit
+		/obj/item/rig_module/cooling_unit,
+		/obj/item/rig_module/vision/meson,
+		/obj/item/rig_module/grenade_launcher/light
 		)
 
 
 //nerva captain
 /*
-/obj/item/weapon/rig/command/nervacap
+/obj/item/rig/command/nervacap
 	name = "Captain's command HCM"
 	suit_type = "captain's command hardsuit"
 	desc = "A high-tech powered suit adorned with ceremonial frills of crimson and gold. Cost more to produce and manufacture than the ship you're on right now."
@@ -349,7 +351,7 @@
 	boot_type = /obj/item/clothing/shoes/magboots/rig/command/nervacap
 	glove_type = /obj/item/clothing/gloves/rig/command/nervacap
 
-	allowed = list(/obj/item/weapon/gun, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/weapon/tank, /obj/item/device/suit_cooling_unit)
+	allowed = list(/obj/item/gun, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank, /obj/item/device/suit_cooling_unit)
 	req_access = list(access_captain)
 
 /obj/item/clothing/head/helmet/space/rig/command/nervacap
@@ -374,10 +376,10 @@
 	item_icons = list(slot_gloves_str = 'icons/uristmob/gloves.dmi')
 	species_restricted = list(SPECIES_HUMAN)
 
-/obj/item/weapon/rig/command/nervacap/equipped
+/obj/item/rig/command/nervacap/equipped
 
 	initial_modules = list(
-		/obj/item/rig_module/mounted/egun,
+		/obj/item/rig_module/mounted/energy/egun,
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/device/flash,
 		/obj/item/rig_module/cooling_unit

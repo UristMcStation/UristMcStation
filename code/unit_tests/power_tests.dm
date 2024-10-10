@@ -1,14 +1,14 @@
-datum/unit_test/roundstart_cable_connectivity
+/datum/unit_test/roundstart_cable_connectivity
 	name = "POWER: Roundstart Cables that are Connected Share Powernets"
 
-datum/unit_test/roundstart_cable_connectivity/proc/find_connected_neighbours(var/obj/structure/cable/C)
+/datum/unit_test/roundstart_cable_connectivity/proc/find_connected_neighbours(obj/structure/cable/C)
 	. = list()
 	if(C.d1 != 0)
 		. += get_connected_neighbours(C, C.d1)
 	if(C.d2 != 0)
 		. += get_connected_neighbours(C, C.d2)
 
-datum/unit_test/roundstart_cable_connectivity/proc/get_connected_neighbours(var/obj/structure/cable/self, var/dir)
+/datum/unit_test/roundstart_cable_connectivity/proc/get_connected_neighbours(obj/structure/cable/self, dir)
 	var/turf/T = get_step(get_turf(self), dir)
 	var/reverse = GLOB.reverse_dir[dir]
 
@@ -17,7 +17,7 @@ datum/unit_test/roundstart_cable_connectivity/proc/get_connected_neighbours(var/
 		if(other.d1 == reverse || other.d2 == reverse)
 			. += other
 
-datum/unit_test/roundstart_cable_connectivity/start_test()
+/datum/unit_test/roundstart_cable_connectivity/start_test()
 	var/failed = 0
 	var/list/found_cables = list()
 
@@ -27,9 +27,9 @@ datum/unit_test/roundstart_cable_connectivity/start_test()
 			continue
 		var/list/to_search = list(C)
 		var/list/searched = list()
-		while(to_search.len)
-			var/obj/structure/cable/next = to_search[to_search.len]
-			to_search.len--
+		while(length(to_search))
+			var/obj/structure/cable/next = to_search[length(to_search)]
+			LIST_DEC(to_search)
 			searched += next
 			for(var/obj/structure/cable/other in get_connected_neighbours(next))
 				if(other in searched)
@@ -69,11 +69,11 @@ datum/unit_test/roundstart_cable_connectivity/start_test()
 	else
 		pass("No areas with duplicated APCs have been found.")
 	return 1
-
-/*/datum/unit_test/area_power_tally_accuracy
+/*
+/datum/unit_test/area_power_tally_accuracy
 	name = "POWER: All areas must have accurate power use values."
 
-/datum/unit_/test/area_power_tally_accuracy/start_test()
+/datum/unit_test/area_power_tally_accuracy/start_test()
 	var/failed = FALSE
 	var/list/channel_names = list("equip", "light", "environ")
 	for(var/area/A in world)
@@ -89,4 +89,5 @@ datum/unit_test/roundstart_cable_connectivity/start_test()
 		fail("At least one area had improper power use values")
 	else
 		pass("All areas had accurate power use values.")
-	return 1*/
+	return 1
+*/

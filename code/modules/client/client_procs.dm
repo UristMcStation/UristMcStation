@@ -23,6 +23,8 @@
 /client/Topic(href, href_list, hsrc)
 	if(!usr || usr != mob)	//stops us calling Topic for somebody else's client. Also helps prevent usr=null
 		return
+	if(!user_acted(src))
+		return
 
 	#if defined(TOPIC_DEBUGGING)
 	log_debug("[src]'s Topic: [href] destined for [hsrc].")
@@ -42,7 +44,7 @@
 
 	//search the href for script injection
 	if( findtext(href,"<script",1,0) )
-		world.log << "Attempted use of scripts within a topic call, by [src]"
+		to_world_log("Attempted use of scripts within a topic call, by [src]")
 		message_admins("Attempted use of scripts within a topic call, by [src]")
 		//qdel(usr)
 		return
@@ -60,10 +62,10 @@
 
 	if(href_list["irc_msg"])
 		if(!holder && received_irc_pm < world.time - 6000) //Worse they can do is spam IRC for 10 minutes
-			to_chat(usr, "<span class='warning'>You are no longer able to use this, it's been more then 10 minutes since an admin on IRC has responded to you</span>")
+			to_chat(usr, SPAN_WARNING("You are no longer able to use this, it's been more then 10 minutes since an admin on IRC has responded to you"))
 			return
 		if(mute_irc)
-			to_chat(usr, "<span class='warning'You cannot use this as your client has been muted from sending messages to the admins on IRC</span>")
+			to_chat(usr, SPAN_WARNING("You cannot use this as your client has been muted from sending messages to the admins on IRC"))
 			return
 		cmd_admin_irc_pm(href_list["irc_msg"])
 		return
@@ -76,32 +78,36 @@
 
 		ticket.close(client_repository.get_lite_client(usr.client))
 
-
-
-	//Logs all hrefs
-	if(config && config.log_hrefs && href_logfile)
-		to_chat(href_logfile, "<small>[time2text(world.timeofday,"hh:mm")] [src] (usr:[usr])</small> || [hsrc ? "[hsrc] " : ""][href]<br>")
+	if (GLOB.href_logfile)
+		to_chat(GLOB.href_logfile, "<small>[time2text(world.timeofday,"hh:mm")] [src] (usr:[usr])</small> || [hsrc ? "[hsrc] " : ""][href]<br>")
 
 	switch(href_list["_src_"])
 		if("holder")	hsrc = holder
 		if("usr")		hsrc = mob
 		if("prefs")		return prefs.process_link(usr,href_list)
 		if("vars")		return view_var_Topic(href,href_list,hsrc)
+		if("chat")		return chatOutput.Topic(href, href_list)
+
+	switch(href_list["action"])
+		if("openLink")
+			send_link(src, href_list["link"])
+
+	if(codex_topic(href, href_list))
+		return
+
+	if(href_list["SDQL_select"])
+		debug_variables(locate(href_list["SDQL_select"]))
+		return
 
 	..()	//redirect to hsrc.Topic()
 
 //This stops files larger than UPLOAD_LIMIT being sent from client to server via input(), client.Import() etc.
 /client/AllowUpload(filename, filelength)
+	if(!user_acted(src))
+		return 0
 	if(filelength > UPLOAD_LIMIT)
-		to_chat(src, "<font color='red'>Error: AllowUpload(): File Upload too large. Upload Limit: [UPLOAD_LIMIT/1024]KiB.</font>")
+		to_chat(src, SPAN_COLOR("red", "Error: AllowUpload(): File Upload too large. Upload Limit: [UPLOAD_LIMIT/1024]KiB."))
 		return 0
-/*	//Don't need this at the moment. But it's here if it's needed later.
-	//Helps prevent multiple files being uploaded at once. Or right after eachother.
-	var/time_to_wait = fileaccess_timer - world.time
-	if(time_to_wait > 0)
-		to_chat(src, "<font color='red'>Error: AllowUpload(): Spam prevention. Please wait [round(time_to_wait/10)] seconds.</font>")
-		return 0
-	fileaccess_timer = world.time + FTPDELAY	*/
 	return 1
 
 
@@ -111,9 +117,9 @@
 /client/New(TopicData)
 	TopicData = null							//Prevent calls to client.Topic from connect
 
-	if(!(connection in list("seeker", "web")))					//Invalid connection type.
-		return null
-	#if DM_VERSION >= 512
+	switch (connection)
+		if ("seeker", "web") // check for invalid connection type. do nothing if valid
+		else return null
 	var/bad_version = config.minimum_byond_version && byond_version < config.minimum_byond_version
 	var/bad_build = config.minimum_byond_build && byond_build < config.minimum_byond_build
 	if (bad_build || bad_version)
@@ -127,29 +133,32 @@
 		qdel(src)
 		return
 
-	#endif
-
 	if(!config.guests_allowed && IsGuestKey(key))
 		alert(src,"This server doesn't allow guest accounts to play. Please go to http://www.byond.com/ and register for a key.","Guest","OK")
 		qdel(src)
 		return
 
 	if(config.player_limit != 0)
-		if((GLOB.clients.len >= config.player_limit) && !(ckey in admin_datums))
+		if((length(GLOB.clients) >= config.player_limit) && !(ckey in admin_datums))
 			alert(src,"This server is currently full and not accepting new connections.","Server Full","OK")
 			log_admin("[ckey] tried to join and was turned away due to the server being full (player_limit=[config.player_limit])")
 			qdel(src)
 			return
 
+	for (var/datum/ticket/T in tickets)
+		if (T.status == TICKET_OPEN && T.owner.ckey == ckey)
+			message_staff("[key_name_admin(src)] has joined the game with an open ticket. Status: [length(T.assigned_admins) ? "Assigned to: [english_list(T.assigned_admin_ckeys())]" : SPAN_DANGER("Unassigned.")]")
+			break
+
 	// Change the way they should download resources.
-	if(config.resource_urls && config.resource_urls.len)
+	if(config.resource_urls && length(config.resource_urls))
 		src.preload_rsc = pick(config.resource_urls)
 	else src.preload_rsc = 1 // If config.resource_urls is not set, preload like normal.
 
 	if(byond_version < DM_VERSION)
-		to_chat(src, "<span class='warning'>You are running an older version of BYOND than the server and may experience issues.</span>")
-		to_chat(src, "<span class='warning'>It is recommended that you update to at least [DM_VERSION] at http://www.byond.com/download/.</span>")
-	to_chat(src, "<span class='warning'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>")
+		to_chat(src, SPAN_WARNING("You are running an older version of BYOND than the server and may experience issues."))
+		to_chat(src, SPAN_WARNING("It is recommended that you update to at least [DM_VERSION] at http://www.byond.com/download/."))
+	to_chat(src, SPAN_WARNING("If the title screen is black, resources are still downloading. Please be patient until the title screen appears."))
 	GLOB.clients += src
 	GLOB.ckey_directory[ckey] = src
 
@@ -171,12 +180,11 @@
 
 	GLOB.using_map.map_info(src)
 
-	if(custom_event_msg && custom_event_msg != "")
-		to_chat(src, "<h1 class='alert'>Custom Event</h1>")
-		to_chat(src, "<h2 class='alert'>A custom event is taking place. OOC Info:</h2>")
-		to_chat(src, "<span class='alert'>[custom_event_msg]</span>")
+	if (config.event)
+		to_chat(src, "<h1 class='alert'>Event</h1>")
+		to_chat(src, "<h2 class='alert'>An event is taking place. OOC Info:</h2>")
+		to_chat(src, SPAN_CLASS("alert", "[config.event]"))
 		to_chat(src, "<br>")
-
 
 	if(holder)
 		add_admin_verbs()
@@ -194,43 +202,47 @@
 
 	send_resources()
 
-	if(prefs.lastchangelog != changelog_hash) //bolds the changelog button on the interface so we know there are updates.
-		to_chat(src, "<span class='info'>You have unread updates in the changelog.</span>")
+	if (GLOB.changelog_hash && prefs.lastchangelog != GLOB.changelog_hash) //bolds the changelog button on the interface so we know there are updates.
+		to_chat(src, SPAN_INFO("You have unread updates in the changelog."))
 		winset(src, "rpane.changelog", "background-color=#eaeaea;font-style=bold")
 		if(config.aggressive_changelog)
 			src.changes()
 
-	if(isnum(player_age) && player_age < 7)
-		src.lore_splash()
-		to_chat(src, "<span class = 'notice'>Greetings, and welcome to the server! A link to the beginner's lore page has been opened, please read through it! This window will stop automatically opening once your account here is greater than 7 days old.</span>")
-
 	if(!winexists(src, "asset_cache_browser")) // The client is using a custom skin, tell them.
-		to_chat(src, "<span class='warning'>Unable to access asset cache browser, if you are using a custom skin file, please allow DS to download the updated version, if you are not, then make a bug report. This is not a critical issue but can cause issues with resource downloading, as it is impossible to know when extra resources arrived to you.</span>")
+		to_chat(src, SPAN_WARNING("Unable to access asset cache browser, if you are using a custom skin file, please allow DS to download the updated version, if you are not, then make a bug report. This is not a critical issue but can cause issues with resource downloading, as it is impossible to know when extra resources arrived to you."))
 
 	if(!tooltips)
 		tooltips = new /datum/tooltip(src)
 
 	if(holder)
 		src.control_freak = 0 //Devs need 0 for profiler access
+
 	//////////////
 	//DISCONNECT//
 	//////////////
 /client/Del()
-	ticket_panels -= src
-	if(src && watched_variables_window)
-		STOP_PROCESSING(SSprocessing, watched_variables_window)
-	if(holder)
-		holder.owner = null
-		GLOB.admins -= src
-	GLOB.ckey_directory -= ckey
-	GLOB.clients -= src
+	if (!QDELETED(src))
+		Destroy()
 	return ..()
 
+
 /client/Destroy()
+	for (var/datum/ticket/T in tickets)
+		if (T.status == TICKET_OPEN && T.owner.ckey == ckey)
+			message_staff("[key_name_admin(src)] has left the game with an open ticket. Status: [length(T.assigned_admins) ? "Assigned to: [english_list(T.assigned_admin_ckeys())]" : SPAN_DANGER("Unassigned.")]")
+			break
+	if (holder)
+		holder.owner = null
+		GLOB.admins -= src
+	if (watched_variables_window)
+		STOP_PROCESSING(SSprocessing, watched_variables_window)
+	QDEL_NULL(chatOutput)
+	GLOB.ckey_directory -= ckey
+	ticket_panels -= src
+	GLOB.clients -= src
 	..()
 	return QDEL_HINT_HARDDEL_NOW
 
-// here because it's similar to below
 
 // Returns null if no DB connection can be established, or -1 if the requested key was not found in the database
 
@@ -335,22 +347,24 @@
 	var/seconds = inactivity/10
 	return "[round(seconds / 60)] minute\s, [seconds % 60] second\s"
 
-// Byond seemingly calls stat, each tick.
-// Calling things each tick can get expensive real quick.
-// So we slow this down a little.
-// See: http://www.byond.com/docs/ref/info.html#/client/proc/Stat
+
 /client/Stat()
-	if(!usr)
+	if (!usr)
 		return
 	// Add always-visible stat panel calls here, to define a consistent display order.
 	statpanel("Status")
+	..()
+	if (config.stat_delay > 0)
+		sleep(config.stat_delay)
 
-	. = ..()
-	sleep(1)
+
+//Sends resource files to client cache
+/client/proc/getFiles()
+	for(var/file in args)
+		send_rsc(src, file, null)
 
 //send resources to the client. It's here in its own proc so we can move it around easiliy if need be
 /client/proc/send_resources()
-
 	getFiles(
 		'html/search.js',
 		'html/panels.css',
@@ -366,30 +380,113 @@
 		'html/images/daislogo.png',
 		'html/images/eclogo.png',
 		'html/images/fleetlogo.png',
+		'html/images/sfplogo.png',
 		'html/images/nervalogo.png'
 		)
+	addtimer(new Callback(src, .proc/after_send_resources), 1 SECOND)
 
-	var/decl/asset_cache/asset_cache = decls_repository.get_decl(/decl/asset_cache)
-	spawn (10) //removing this spawn causes all clients to not get verbs.
-		//Precache the client with all other assets slowly, so as to not block other browse() calls
-		getFilesSlow(src, asset_cache.cache, register_asset = FALSE)
 
-mob/proc/MayRespawn()
+/client/proc/after_send_resources()
+	var/singleton/asset_cache/asset_cache = GET_SINGLETON(/singleton/asset_cache)
+	getFilesSlow(src, asset_cache.cache, register_asset = FALSE)
+
+
+/mob/proc/MayRespawn()
 	return 0
 
-client/proc/MayRespawn()
+/client/proc/MayRespawn()
 	if(mob)
 		return mob.MayRespawn()
 
 	// Something went wrong, client is usually kicked or transfered to a new mob at this point
 	return 0
 
-client/verb/character_setup()
+/client/verb/character_setup()
 	set name = "Character Setup"
 	set category = "OOC"
 	if(prefs)
-		prefs.ShowChoices(usr)
+		prefs.open_setup_window(usr)
 
-/client/proc/apply_fps(var/client_fps)
+/client/proc/apply_fps(client_fps)
 	if(world.byond_version >= 511 && byond_version >= 511 && client_fps >= CLIENT_MIN_FPS && client_fps <= CLIENT_MAX_FPS)
 		vars["fps"] = prefs.clientfps
+
+/client/MouseDrag(src_object, over_object, src_location, over_location, src_control, over_control, params)
+	. = ..()
+	var/mob/living/M = mob
+	if(istype(M))
+		M.OnMouseDrag(src_object, over_object, src_location, over_location, src_control, over_control, params)
+
+	var/datum/click_handler/build_mode/B = M.GetClickHandler()
+	if (istype(B))
+		if(B.current_build_mode && src_control == "mapwindow.map" && src_control == over_control)
+			build_drag(src,B.current_build_mode,src_object,over_object,src_location,over_location,src_control,over_control,params)
+
+/client/verb/toggle_fullscreen()
+	set name = "Toggle Fullscreen"
+	set category = "OOC"
+
+	fullscreen = !fullscreen
+
+	if (fullscreen)
+		winset(usr, "mainwindow", "titlebar=false")
+		winset(usr, "mainwindow", "can-resize=false")
+		winset(usr, "mainwindow", "is-maximized=false")
+		winset(usr, "mainwindow", "is-maximized=true")
+		winset(usr, "mainwindow", "statusbar=false")
+		winset(usr, "mainwindow", "menu=")
+//		winset(usr, "mainwindow.mainvsplit", "size=0x0")
+	else
+		winset(usr, "mainwindow", "is-maximized=false")
+		winset(usr, "mainwindow", "titlebar=true")
+		winset(usr, "mainwindow", "can-resize=true")
+		winset(usr, "mainwindow", "statusbar=true")
+		winset(usr, "mainwindow", "menu=menu")
+
+	fit_viewport()
+
+/client/verb/fit_viewport()
+	set name = "Fit Viewport"
+	set category = "OOC"
+	set desc = "Fit the width of the map window to match the viewport"
+
+	// Fetch aspect ratio
+	var/view_size = getviewsize(view)
+	var/aspect_ratio = view_size[1] / view_size[2]
+
+	// Calculate desired pixel width using window size and aspect ratio
+	var/sizes = params2list(winget(src, "mainwindow.mainvsplit;mapwindow", "size"))
+	var/map_size = splittext(sizes["mapwindow.size"], "x")
+	var/height = text2num(map_size[2])
+	var/desired_width = round(height * aspect_ratio)
+	if (text2num(map_size[1]) == desired_width)
+		// Nothing to do
+		return
+
+	var/split_size = splittext(sizes["mainwindow.mainvsplit.size"], "x")
+	var/split_width = text2num(split_size[1])
+
+	// Calculate and apply a best estimate
+	// +4 pixels are for the width of the splitter's handle
+	var/pct = 100 * (desired_width + 4) / split_width
+	winset(src, "mainwindow.mainvsplit", "splitter=[pct]")
+
+	// Apply an ever-lowering offset until we finish or fail
+	var/delta
+	for(var/safety in 1 to 10)
+		var/after_size = winget(src, "mapwindow", "size")
+		map_size = splittext(after_size, "x")
+		var/got_width = text2num(map_size[1])
+
+		if (got_width == desired_width)
+			// success
+			return
+		else if (isnull(delta))
+			// calculate a probable delta value based on the difference
+			delta = 100 * (desired_width - got_width) / split_width
+		else if ((delta > 0 && got_width > desired_width) || (delta < 0 && got_width < desired_width))
+			// if we overshot, halve the delta and reverse direction
+			delta = -delta/2
+
+		pct += delta
+		winset(src, "mainwindow.mainvsplit", "splitter=[pct]")

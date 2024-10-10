@@ -12,8 +12,10 @@
 	var/tag_airlock_mech_sensor
 	var/tag_shuttle_mech_sensor
 	var/tag_secure = 0
+	var/tag_air_alarm
 	var/list/dummy_terminals = list()
 	var/cycle_to_external_air = 0
+	var/scrubber_assist = 0
 
 /obj/machinery/embedded_controller/radio/airlock/Destroy()
 	for(var/thing in dummy_terminals)
@@ -22,7 +24,7 @@
 	dummy_terminals.Cut()
 	return ..()
 
-/obj/machinery/embedded_controller/radio/airlock/CanUseTopic(var/mob/user)
+/obj/machinery/embedded_controller/radio/airlock/CanUseTopic(mob/user)
 	if(!allowed(user))
 		return min(STATUS_UPDATE, ..())
 	else
@@ -32,7 +34,7 @@
 /obj/machinery/embedded_controller/radio/airlock/advanced_airlock_controller
 	name = "Advanced Airlock Controller"
 
-/obj/machinery/embedded_controller/radio/airlock/advanced_airlock_controller/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/nano_ui/master_ui = null, var/datum/topic_state/state = GLOB.default_state)
+/obj/machinery/embedded_controller/radio/airlock/advanced_airlock_controller/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, datum/nanoui/master_ui = null, datum/topic_state/state = GLOB.default_state)
 	var/data[0]
 
 	data = list(
@@ -55,8 +57,9 @@
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller
 	name = "Airlock Controller"
 	tag_secure = 1
+	layer = ABOVE_WINDOW_LAYER
 
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/nano_ui/master_ui = null, var/datum/topic_state/state = GLOB.default_state)
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, datum/nanoui/master_ui = null, datum/topic_state/state = GLOB.default_state)
 	var/data[0]
 
 	data = list(
@@ -76,22 +79,10 @@
 //Access controller for door control - used in virology and the like
 /obj/machinery/embedded_controller/radio/airlock/access_controller
 	icon = 'icons/obj/airlock_machines.dmi'
-	icon_state = "access_control_standby"
-
 	name = "Access Controller"
 	tag_secure = 1
 
-
-/obj/machinery/embedded_controller/radio/airlock/access_controller/on_update_icon()
-	if(on && program)
-		if(program.memory["processing"])
-			icon_state = "access_control_process"
-		else
-			icon_state = "access_control_standby"
-	else
-		icon_state = "access_control_off"
-
-/obj/machinery/embedded_controller/radio/airlock/access_controller/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/nano_ui/master_ui = null, var/datum/topic_state/state = GLOB.default_state)
+/obj/machinery/embedded_controller/radio/airlock/access_controller/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, datum/nanoui/master_ui = null, datum/topic_state/state = GLOB.default_state)
 	var/data[0]
 
 	data = list(

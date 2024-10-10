@@ -12,10 +12,9 @@
 	desc = "A Multiple Utility Load Effector bot."
 	icon = 'icons/mob/bot/mulebot.dmi'
 	icon_state = "mulebot0"
-	plane = MOB_PLANE
 	layer = MOB_LAYER
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE
 	health = 150
 	maxHealth = 150
 	mob_bump_flag = HEAVY
@@ -37,7 +36,7 @@
 	var/turf/home
 	var/homeName
 
-	var/global/amount = 0
+	var/static/amount = 0
 
 /mob/living/bot/mulebot/New()
 	..()
@@ -53,7 +52,13 @@
 	suffix = num2text(++amount)
 	name = "Mulebot #[suffix]"
 
-/mob/living/bot/mulebot/MouseDrop_T(var/atom/movable/C, var/mob/user)
+
+/mob/living/bot/mulebot/get_antag_interactions_info()
+	. = ..()
+	.[CODEX_INTERACTION_EMAG] = "<p>Toggles the access panel lock.</p>"
+
+
+/mob/living/bot/mulebot/MouseDrop_T(atom/movable/C, mob/user)
 	if(user.stat)
 		return
 
@@ -86,7 +91,7 @@
 /mob/living/bot/mulebot/GetInteractMaintenance()
 	. = "<a href='?src=\ref[src];command=safety'>Toggle safety</a> ([safety ? "On" : "Off - DANGER"])"
 
-/mob/living/bot/mulebot/ProcessCommand(var/mob/user, var/command, var/href_list)
+/mob/living/bot/mulebot/ProcessCommand(mob/user, command, href_list)
 	..()
 	if(CanAccessPanel(user))
 		switch(command)
@@ -101,7 +106,7 @@
 			if("sethome")
 				var/new_dest
 				var/list/beaconlist = GetBeaconList()
-				if(beaconlist.len)
+				if(length(beaconlist))
 					new_dest = input("Select new home tag", "Mulebot [suffix ? "([suffix])" : ""]", null) in null|beaconlist
 				else
 					alert("No destination beacons available.")
@@ -120,11 +125,7 @@
 			if("safety")
 				safety = !safety
 
-/mob/living/bot/mulebot/attackby(var/obj/item/O, var/mob/user)
-	..()
-	update_icons()
-
-/mob/living/bot/mulebot/proc/obeyCommand(var/command)
+/mob/living/bot/mulebot/proc/obeyCommand(command)
 	switch(command)
 		if("Home")
 			resetTarget()
@@ -133,7 +134,7 @@
 		if("SetD")
 			var/new_dest
 			var/list/beaconlist = GetBeaconList()
-			if(beaconlist.len)
+			if(length(beaconlist))
 				new_dest = input("Select new destination tag", "Mulebot [suffix ? "([suffix])" : ""]") in null|beaconlist
 			else
 				alert("No destination beacons available.")
@@ -146,18 +147,18 @@
 		if("Stop")
 			paused = 1
 
-/mob/living/bot/mulebot/emag_act(var/remaining_charges, var/user)
+/mob/living/bot/mulebot/emag_act(remaining_charges, user)
 	locked = !locked
-	to_chat(user, "<span class='notice'>You [locked ? "lock" : "unlock"] the mulebot's controls.</span>")
+	to_chat(user, SPAN_NOTICE("You [locked ? "lock" : "unlock"] the mulebot's controls."))
 	flick("mulebot-emagged", src)
 	playsound(loc, 'sound/effects/sparks1.ogg', 100, 0)
 	return 1
 
-/mob/living/bot/mulebot/update_icons()
+/mob/living/bot/mulebot/on_update_icon()
 	if(open)
 		icon_state = "mulebot-hatch"
 		return
-	if(target_path.len && !paused)
+	if(length(target_path) && !paused)
 		icon_state = "mulebot1"
 		return
 	icon_state = "mulebot0"
@@ -165,7 +166,7 @@
 /mob/living/bot/mulebot/handleRegular()
 	if(!safety && prob(1))
 		flick("mulebot-emagged", src)
-	update_icons()
+	update_icon()
 
 /mob/living/bot/mulebot/handleFrustrated()
 	custom_emote(2, "makes a sighing buzz.")
@@ -187,7 +188,7 @@
 
 /mob/living/bot/mulebot/calcTargetPath()
 	..()
-	if(!target_path.len && target != home) // I presume that target is not null
+	if(!length(target_path) && target != home) // I presume that target is not null
 		resetTarget()
 		target = home
 		targetName = "Home"
@@ -197,41 +198,40 @@
 		return
 	..()
 
-/mob/living/bot/mulebot/UnarmedAttack(var/turf/T)
+/mob/living/bot/mulebot/UnarmedAttack(turf/T)
 	if(T == src.loc)
 		unload(dir)
 
-/mob/living/bot/mulebot/Bump(var/mob/living/carbon/human/M)
+/mob/living/bot/mulebot/Bump(mob/living/carbon/human/M)
 	if(!safety && istype(M))
-		visible_message("<span class='warning'>[src] knocks over [M]!</span>")
+		visible_message(SPAN_WARNING("[src] knocks over [M]!"))
 		M.Stun(8)
 		M.Weaken(5)
 	..()
 
-/mob/living/bot/mulebot/proc/runOver(var/mob/living/carbon/human/H)
+/mob/living/bot/mulebot/proc/runOver(mob/living/carbon/human/H)
 	if(istype(H)) // No safety checks - WILL run over lying humans. Stop ERPing in the maint!
-		visible_message("<span class='warning'>[src] drives over [H]!</span>")
+		visible_message(SPAN_WARNING("[src] drives over [H]!"))
 		playsound(loc, 'sound/effects/splat.ogg', 50, 1)
 
 		var/damage = rand(5, 7)
-		H.apply_damage(2 * damage, BRUTE, BP_HEAD)
-		H.apply_damage(2 * damage, BRUTE, BP_CHEST)
-		H.apply_damage(0.5 * damage, BRUTE, BP_L_LEG)
-		H.apply_damage(0.5 * damage, BRUTE, BP_R_LEG)
-		H.apply_damage(0.5 * damage, BRUTE, BP_L_ARM)
-		H.apply_damage(0.5 * damage, BRUTE, BP_R_ARM)
+		H.apply_damage(2 * damage, DAMAGE_BRUTE, BP_HEAD)
+		H.apply_damage(2 * damage, DAMAGE_BRUTE, BP_CHEST)
+		H.apply_damage(0.5 * damage, DAMAGE_BRUTE, BP_L_LEG)
+		H.apply_damage(0.5 * damage, DAMAGE_BRUTE, BP_R_LEG)
+		H.apply_damage(0.5 * damage, DAMAGE_BRUTE, BP_L_ARM)
+		H.apply_damage(0.5 * damage, DAMAGE_BRUTE, BP_R_ARM)
 
 		blood_splatter(src, H, 1)
-	..()
 
-/mob/living/bot/mulebot/relaymove(var/mob/user, var/direction)
+/mob/living/bot/mulebot/relaymove(mob/user, direction)
 	if(load == user)
 		unload(direction)
 
 /mob/living/bot/mulebot/explode()
 	unload(pick(0, 1, 2, 4, 8))
 
-	visible_message("<span class='danger'>[src] blows apart!</span>")
+	visible_message(SPAN_DANGER("[src] blows apart!"))
 
 	var/turf/Tsec = get_turf(src)
 	new /obj/item/device/assembly/prox_sensor(Tsec)
@@ -255,7 +255,7 @@
 		beaconlist[N.location] = N
 	return beaconlist
 
-/mob/living/bot/mulebot/proc/load(var/atom/movable/C)
+/mob/living/bot/mulebot/proc/load(atom/movable/C)
 	if(busy || load || get_dist(C, src) > 1 || !isturf(C.loc))
 		return
 
@@ -295,7 +295,7 @@
 
 	busy = 0
 
-/mob/living/bot/mulebot/proc/unload(var/dirn = 0)
+/mob/living/bot/mulebot/proc/unload(dirn = 0)
 	if(!load || busy)
 		return
 

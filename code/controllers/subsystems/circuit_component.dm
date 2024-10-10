@@ -9,8 +9,12 @@ SUBSYSTEM_DEF(circuit_components)
 	var/list/queued_components = list()              // Queue of components for activation
 	var/position = 1                                 // Helper index to order newly activated components properly
 
-/datum/controller/subsystem/circuit_components/stat_entry()
-	..("C:[queued_components.len]")
+
+/datum/controller/subsystem/circuit_components/UpdateStat(time)
+	if (PreventUpdateStat(time))
+		return ..()
+	..("Component Queue: [length(queued_components)]")
+
 
 /datum/controller/subsystem/circuit_components/fire(resumed = FALSE)
 	if(paused_ticks >= 10) // The likeliest fail mode, due to the fast tick rate, is that it can never clear the full queue, running resumed every tick and accumulating a backlog.
@@ -19,9 +23,9 @@ SUBSYSTEM_DEF(circuit_components)
 
 	var/list/queued_components = src.queued_components
 	while(length(queued_components))
-		var/list/entry = queued_components[queued_components.len]
-		position = queued_components.len
-		queued_components.len--
+		var/list/entry = queued_components[length(queued_components)]
+		position = length(queued_components)
+		LIST_DEC(queued_components)
 		if(!length(entry))
 			if(MC_TICK_CHECK)
 				break

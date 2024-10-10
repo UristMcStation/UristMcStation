@@ -1,5 +1,6 @@
 /datum/unit_test/movement
 	name = "MOVEMENT template"
+	template = /datum/unit_test/movement
 	async = 0
 
 /datum/unit_test/movement/force_move_shall_trigger_crossed_when_entering_turf
@@ -16,12 +17,12 @@
 
 	if(!crossed.crossers)
 		fail("The target object was never crossed.")
-	else if(crossed.crossers.len != 1)
-		fail("The target object was crossed [crossed.crossers.len] times, expected 1.")
+	else if(length(crossed.crossers) != 1)
+		fail("The target object was crossed [length(crossed.crossers)] times, expected 1.")
 	else
 		pass("The target was crossed 1 time.")
 
-	qdel(target)
+	qdel(mover)
 	qdel(crossed)
 	return TRUE
 
@@ -37,8 +38,8 @@
 
 	if(!target.enterers)
 		fail("The target object was never entered.")
-	else if(target.enterers.len != 1)
-		fail("The target object was entered [target.enterers.len] times, expected 1.")
+	else if(length(target.enterers) != 1)
+		fail("The target object was entered [length(target.enterers)] times, expected 1.")
 	else
 		pass("The target was entered 1 time.")
 
@@ -49,7 +50,7 @@
 /obj/test/crossed_obj
 	var/list/crossers
 
-/obj/test/crossed_obj/Crossed(var/crosser)
+/obj/test/crossed_obj/Crossed(crosser)
 	if(!crossers)
 		crossers = list()
 	crossers += crosser
@@ -57,7 +58,7 @@
 /obj/test/entered_obj
 	var/list/enterers
 
-/obj/test/entered_obj/Entered(var/enterer)
+/obj/test/entered_obj/Entered(enterer)
 	if(!enterers)
 		enterers = list()
 	enterers += enterer

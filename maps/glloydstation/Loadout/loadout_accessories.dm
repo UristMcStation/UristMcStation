@@ -8,13 +8,8 @@
 	..()
 	var/armbands = list()
 	armbands["red armband"] = /obj/item/clothing/accessory/armband
-	armbands["cargo armband"] = /obj/item/clothing/accessory/armband/cargo
-	armbands["EMT armband"] = /obj/item/clothing/accessory/armband/medgreen
-	armbands["medical armband"] = /obj/item/clothing/accessory/armband/med
-	armbands["engineering armband"] = /obj/item/clothing/accessory/armband/engine
-	armbands["hydroponics armband"] = /obj/item/clothing/accessory/armband/hydro
 	armbands["science armband"] = /obj/item/clothing/accessory/armband/science
-	armbands["NanoTrasen armband"] = /obj/item/clothing/accessory/armband/whitered
+	armbands["corporate armband"] = /obj/item/clothing/accessory/armband/whitered
 	gear_tweaks += new/datum/gear_tweak/path(armbands)
 
 /datum/gear/accessory/stethoscope

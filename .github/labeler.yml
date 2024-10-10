@@ -1,0 +1,57 @@
+Repo:
+- changed-files:
+  - any-glob-to-any-file:
+    - .github/**/*
+    - .vscode/**/*
+    - docs/**/*
+    - scripts/**/*
+    - test/**/*
+    - tools/**/*
+    - .codebeatignore
+    - .editorconfig
+    - .git*
+    - LICENSE
+    - README.md
+    - SpacemanDMM.toml
+
+Map:
+- changed-files:
+  - any-glob-to-any-file:
+    - '**/*.dmm'
+
+Icons:
+- changed-files:
+  - any-glob-to-any-file:
+    - '**/*.dmi'
+
+Sound:
+- changed-files:
+  - any-glob-to-any-file:
+    - '**/*.ogg'
+    - '**/*.wav'
+    - '**/*.mp3'
+
+Config Update:
+- changed-files:
+  - any-glob-to-any-file:
+    - config/**/*
+
+Awaymaps:
+- changed-files:
+  - any-glob-to-any-file:
+    - maps/away/**/*
+
+Nerva:
+- changed-files:
+  - any-glob-to-any-file:
+    - maps/nerva/**/*
+
+Glloydstation:
+- changed-files:
+  - any-glob-to-any-file:
+    - maps/glloydstation/**/*
+
+Wyrm:
+- changed-files:
+  - any-glob-to-any-file:
+    - maps/wyrm/**/*

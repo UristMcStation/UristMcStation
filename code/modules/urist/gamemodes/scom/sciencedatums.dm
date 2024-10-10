@@ -1,5 +1,5 @@
-/var/global/list/scomscience_recipes
-/var/global/list/scomscience_categories
+var/global/list/scomscience_recipes
+var/global/list/scomscience_categories
 
 /proc/populate_scomscience_recipes()
 
@@ -30,14 +30,14 @@
 
 /datum/scomscience/recipe/bsniper
 	name = "projectile sniper"
-	path = /obj/item/weapon/gun/projectile/sniper
+	path = /obj/item/gun/projectile/svd
 	category = "Sniper"
 	scomtechlvl = 0
 	resources = 100
 
 /datum/scomscience/recipe/bsniperammo
 	name = "sniper ammo"
-	path = /obj/item/weapon/storage/box/sniperammo
+	path = /obj/item/storage/box/sniperammo
 	category = "Sniper"
 	resources = 100
 
@@ -45,13 +45,13 @@
 
 /datum/scomscience/recipe/shotgunammo
 	name = "shotgun ammo"
-	path = /obj/item/weapon/storage/box/ammo/shotgunammo
+	path = /obj/item/storage/box/ammo/shotgunammo
 	category = "Assault"
 	resources = 100
 
 /datum/scomscience/recipe/shotgun
 	name = "shotgun"
-	path = /obj/item/weapon/gun/projectile/shotgun/pump/combat
+	path = /obj/item/gun/projectile/shotgun/pump/combat
 	category = "Assault"
 	resources = 100
 
@@ -59,13 +59,13 @@
 
 /datum/scomscience/recipe/l6saw
 	name = "light machine gun"
-	path = /obj/item/weapon/gun/projectile/automatic/l6_saw
+	path = /obj/item/gun/projectile/automatic/l6_saw
 	category = "Heavy"
 	resources = 100
 
 /datum/scomscience/recipe/l6sawammo
 	name = "light machine gun ammo"
-	path = /obj/item/weapon/storage/box/large/lmgammo
+	path = /obj/item/storage/box/large/lmgammo
 	category = "Heavy"
 	resources = 100
 
@@ -73,25 +73,25 @@
 
 /datum/scomscience/recipe/c20r
 	name = "C-20r SMG"
-	path = /obj/item/weapon/gun/projectile/automatic/c20r
+	path = /obj/item/gun/projectile/automatic/c20r
 	category = "Medic"
 	resources = 100
 
 /datum/scomscience/recipe/c20ammo
 	name = "C-20r ammo"
-	path = /obj/item/weapon/storage/box/c20ammo
+	path = /obj/item/storage/box/c20ammo
 	category = "Medic"
 	resources = 100
 
 /datum/scomscience/recipe/advmed
 	name = "advanced medkit"
-	path = /obj/item/weapon/storage/firstaid/adv
+	path = /obj/item/storage/firstaid/adv
 	category = "Medic"
 	resources = 100
 
 /datum/scomscience/recipe/combatdefib
 	name = "combat defibrillator"
-	path = /obj/item/weapon/defibrillator/compact/combat/loaded
+	path = /obj/item/defibrillator/compact/combat/loaded
 	category = "Medic"
 	resources = 400
 
@@ -99,13 +99,13 @@
 
 /datum/scomscience/recipe/pistol
 	name = "Knight pistol"
-	path = /obj/item/weapon/gun/projectile/silenced/knight
+	path = /obj/item/gun/projectile/silenced/knight
 	category = "General"
 	resources = 80
 
 /datum/scomscience/recipe/pistolammo
 	name = "Knight ammo"
-	path = /obj/item/weapon/storage/box/knightammo
+	path = /obj/item/storage/box/knightammo
 	category = "General"
 	resources = 50
 
@@ -121,9 +121,9 @@
 
 //tier 2 - lets have everything here by 3 missions in.
 
-datum/scomscience/recipe/lsniper
+/datum/scomscience/recipe/lsniper
 	name = "LWAP sniper"
-	path = /obj/item/weapon/gun/energy/sniperrifle
+	path = /obj/item/gun/energy/sniperrifle
 	category = "Sniper"
 	scomtechlvl = 3
 	hidden = 1
@@ -131,7 +131,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/sniperarmort2
 	name = "sniper rig"
-	path = /obj/item/weapon/rig/light/scomsniper
+	path = /obj/item/rig/light/scomsniper
 	category = "Sniper"
 	scomtechlvl = 3
 	hidden = 1
@@ -157,7 +157,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/lasrifle
 	name = "laser rifle"
-	path = /obj/item/weapon/gun/energy/laser/rifle
+	path = /obj/item/gun/energy/laser/rifle
 	category = "Assault"
 	scomtechlvl = 3
 	hidden = 1
@@ -183,7 +183,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/lascannon
 	name = "laser cannon"
-	path = /obj/item/weapon/gun/energy/lasercannon
+	path = /obj/item/gun/energy/lasercannon
 	category = "Heavy"
 	scomtechlvl = 3
 	hidden = 1
@@ -193,7 +193,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/lascarbine
 	name = "laser carbine"
-	path = /obj/item/weapon/gun/energy/laser
+	path = /obj/item/gun/energy/laser
 	category = "Medic"
 	scomtechlvl = 3
 	hidden = 1
@@ -209,7 +209,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/medicarmort2
 	name = "advanced medic armour"
-	path = /obj/item/weapon/rig/medical/equipped
+	path = /obj/item/rig/medical/equipped
 	category = "Medic"
 	scomtechlvl = 3
 	hidden = 1
@@ -217,7 +217,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/medst2
 	name = "advanced autoinjector box"
-	path = /obj/item/weapon/storage/box/autoinjectorscom
+	path = /obj/item/storage/box/autoinjectorscom
 	category = "Medic"
 	scomtechlvl = 2
 	hidden = 1
@@ -225,7 +225,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/medgt2
 	name = "advanced healing grenade"
-	path = /obj/item/weapon/grenade/chem_grenade/heal
+	path = /obj/item/grenade/chem_grenade/heal
 	category = "Medic"
 	scomtechlvl = 2
 	hidden = 1
@@ -252,7 +252,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/lpistol
 	name = "laser pistol"
-	path = /obj/item/weapon/gun/energy/laser/pistol
+	path = /obj/item/gun/energy/laser/pistol
 	category = "General"
 	scomtechlvl = 3
 	hidden = 1
@@ -260,7 +260,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/esword
 	name = "energy sword"
-	path = /obj/item/weapon/melee/energy/sword/blue
+	path = /obj/item/melee/energy/sword/blue
 	category = "General"
 	scomtechlvl = 4
 	hidden = 1
@@ -268,7 +268,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/eshield
 	name = "energy shield"
-	path = /obj/item/weapon/shield/energy
+	path = /obj/item/shield/energy
 	category = "General"
 	scomtechlvl = 4
 	hidden = 1
@@ -286,7 +286,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/cvrt2
 	name = "CVR"
-	path = /obj/mecha/working/cvrt/basic
+	path = /mob/living/exosuit/premade/cvrt/basic
 	category = "Vehicles"
 	scomtechlvl = 2
 	hidden = 1
@@ -298,7 +298,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/psniper
 	name = "pulse sniper"
-	path = /obj/item/weapon/gun/energy/sniperrifle/pulse
+	path = /obj/item/gun/energy/sniperrifle/pulse
 	category = "Sniper"
 	scomtechlvl = 7
 	hidden = 1
@@ -306,7 +306,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/sniperarmort3
 	name = "futuristic sniper rig"
-	path = /obj/item/weapon/rig/scomsniper
+	path = /obj/item/rig/scomsniper
 	category = "Sniper"
 	scomtechlvl = 7
 	hidden = 1
@@ -316,7 +316,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/assaultarmort3
 	name = "futuristic assault rig"
-	path = /obj/item/weapon/rig/ert/security/scom
+	path = /obj/item/rig/ert/security/scom
 	category = "Assault"
 	scomtechlvl = 7
 	hidden = 1
@@ -324,7 +324,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/prifle
 	name = "pulse rifle"
-	path = /obj/item/weapon/gun/energy/pulse_rifle
+	path = /obj/item/gun/energy/pulse_rifle
 	category = "Assault"
 	scomtechlvl = 7
 	hidden = 1
@@ -334,7 +334,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/heavyarmort3
 	name = "futuristic heavy rig"
-	path = /obj/item/weapon/rig/combat
+	path = /obj/item/rig/combat
 	category = "Heavy"
 	scomtechlvl = 7
 	hidden = 1
@@ -342,7 +342,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/pcannon
 	name = "pulse cannon"
-	path = /obj/item/weapon/gun/energy/pulse_rifle/cannon
+	path = /obj/item/gun/energy/pulse_rifle/cannon
 	category = "Heavy"
 	scomtechlvl = 7
 	hidden = 1
@@ -352,7 +352,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/priflem
 	name = "pulse rifle"
-	path = /obj/item/weapon/gun/energy/pulse_rifle
+	path = /obj/item/gun/energy/pulse_rifle
 	category = "Medic"
 	scomtechlvl = 7
 	hidden = 1
@@ -360,7 +360,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/medicarmort3
 	name = "futuristic medic rig"
-	path = /obj/item/weapon/rig/ert/medical/scom
+	path = /obj/item/rig/ert/medical/scom
 	category = "Medic"
 	scomtechlvl = 7
 	hidden = 1
@@ -368,7 +368,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/medst3
 	name = "futuristic autoinjector"
-	path = /obj/item/weapon/reagent_containers/hypospray/autoinjector/admin
+	path = /obj/item/reagent_containers/hypospray/autoinjector/admin
 	category = "Medic"
 	scomtechlvl = 6
 	hidden = 1
@@ -378,7 +378,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/leaderarmort3
 	name = "futuristic squad leader rig"
-	path = /obj/item/weapon/rig/ert/scomlead
+	path = /obj/item/rig/ert/scomlead
 	category = "Squad Leader"
 	scomtechlvl = 7
 	hidden = 1
@@ -388,7 +388,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/ppistol
 	name = "pulse pistol"
-	path = /obj/item/weapon/gun/energy/pulse_rifle/pistol
+	path = /obj/item/gun/energy/pulse_rifle/pistol
 	category = "General"
 	scomtechlvl = 6
 	hidden = 1
@@ -396,7 +396,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/eaxe
 	name = "energy axe"
-	path = /obj/item/weapon/melee/energy/axe
+	path = /obj/item/melee/energy/axe
 	category = "General"
 	scomtechlvl = 6
 	hidden = 1
@@ -414,7 +414,7 @@ datum/scomscience/recipe/lsniper
 
 /datum/scomscience/recipe/cvrt3
 	name = "advanced CVR"
-	path = /obj/mecha/working/cvrt/upgraded
+	path = /mob/living/exosuit/premade/cvrt/basic
 	category = "Vehicles"
 	scomtechlvl = 6
 	hidden = 1
@@ -424,7 +424,7 @@ datum/scomscience/recipe/lsniper
 
 ///datum/scomscience/recipe/assaultarmort3
 //	name = "ultimate rig"
-//	path = /obj/item/weapon/storage/box/shotgunammo
+//	path = /obj/item/storage/box/ammo/shotgunammo
 //	category = "General"
 //	scomtechlvl = 10
 //	hidden = 1

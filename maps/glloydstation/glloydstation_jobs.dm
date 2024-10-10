@@ -2,7 +2,7 @@
 
 /datum/map/glloydstation //RIP Geneticists, you're illegal now. - Vak
 	allowed_jobs = list(
-						/datum/job/captain, /datum/job/hop, /datum/job/chef, /datum/job/bartender, /datum/job/hydro,
+						/datum/job/captain, /datum/job/hop, /datum/job/chef, /datum/job/hydro,
 						/datum/job/qm, /datum/job/cargo_tech,
 						/datum/job/janitor, /datum/job/lawyer, /datum/job/librarian, /datum/job/psychiatrist,
 						/datum/job/chief_engineer, /datum/job/engineer,
@@ -12,6 +12,9 @@
 						/datum/job/rd, /datum/job/scientist, /datum/job/roboticist, /datum/job/mining,
 						/datum/job/blueshield, /datum/job/mime, /datum/job/clown, /datum/job/merchant
 						)
+
+/datum/job
+	required_language = LANGUAGE_GALCOM
 
 //Resource Technician et al
 
@@ -24,28 +27,27 @@
 	supervisors = "the quartermaster and the head of personnel"
 	selection_color = "#515151"
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
-	minimal_access = list(access_mining, access_mining_station, access_mailsorting)
 	alt_titles = list(
-		"Shaft Miner" = /decl/hierarchy/outfit/job/cargo/mining,
-		"Drill Technician" = /decl/hierarchy/outfit/job/cargo/mining,
-		"Prospector" = /decl/hierarchy/outfit/job/cargo/mining,
-		"Lumberjack" = /decl/hierarchy/outfit/job/cargo/mining/woodsman,
-		"Hunter" = /decl/hierarchy/outfit/job/cargo/mining/hunter,
-		"Carpenter" = /decl/hierarchy/outfit/job/cargo/mining/woodsman)
-	outfit_type = /decl/hierarchy/outfit/job/cargo/mining/tech
+		"Shaft Miner" = /singleton/hierarchy/outfit/job/cargo/mining,
+		"Drill Technician" = /singleton/hierarchy/outfit/job/cargo/mining,
+		"Prospector" = /singleton/hierarchy/outfit/job/cargo/mining,
+		"Lumberjack" = /singleton/hierarchy/outfit/job/cargo/mining/woodsman,
+		"Hunter" = /singleton/hierarchy/outfit/job/cargo/mining/hunter,
+		"Carpenter" = /singleton/hierarchy/outfit/job/cargo/mining/woodsman)
+	outfit_type = /singleton/hierarchy/outfit/job/cargo/mining/tech
 
-/decl/hierarchy/outfit/job/cargo/mining/woodsman
+/singleton/hierarchy/outfit/job/cargo/mining/woodsman
 	name = OUTFIT_JOB_NAME("Carpenter")
 	uniform = /obj/item/clothing/under/urist/rank/carpenter
 	head = /obj/item/clothing/head/urist/toque
 
-/decl/hierarchy/outfit/job/cargo/mining/hunter
+/singleton/hierarchy/outfit/job/cargo/mining/hunter
 	name = OUTFIT_JOB_NAME("Hunter")
 	uniform = /obj/item/clothing/under/urist/casual/suspenders
 	suit = /obj/item/clothing/suit/storage/urist/overalls/leather
 	head = /obj/item/clothing/head/urist/toque
 
-/decl/hierarchy/outfit/job/cargo/mining/tech
+/singleton/hierarchy/outfit/job/cargo/mining/tech
 	name = OUTFIT_JOB_NAME("Resource Technician")
 	uniform = /obj/item/clothing/under/overalls
 
@@ -60,12 +62,11 @@
 	supervisors = "the head of personnel"
 	selection_color = "#515151"
 	access = list(access_maint_tunnels, access_mime, access_theatre)
-	minimal_access = list(access_mime, access_theatre)
 	minimal_player_age = 10
-	outfit_type = /decl/hierarchy/outfit/job/mime
+	outfit_type = /singleton/hierarchy/outfit/job/mime
 
 /* //This hasn't worked for a while,
-/datum/job/mime/equip(var/mob/living/carbon/human/H)
+/datum/job/mime/equip(mob/living/carbon/human/H)
 	. = ..()
 	if(.)
 		H.miming = 1
@@ -75,17 +76,17 @@
 		H.mind.special_verbs += /client/proc/mimewall
 */
 
-/decl/hierarchy/outfit/job/mime
+/singleton/hierarchy/outfit/job/mime
 	name = OUTFIT_JOB_NAME("Mime")
 	uniform = /obj/item/clothing/under/mime
 	head = /obj/item/clothing/head/beret
 	mask = /obj/item/clothing/mask/gas/mime
 	gloves = /obj/item/clothing/gloves/white
 	shoes = /obj/item/clothing/shoes/black
-	backpack_contents = list(/obj/item/weapon/reagent_containers/food/drinks/bottle/bottleofnothing = 1, /obj/item/weapon/pen/crayon/mime = 1)
+	backpack_contents = list(/obj/item/reagent_containers/food/drinks/bottle/bottleofnothing = 1, /obj/item/pen/crayon/mime = 1)
 	suit = /obj/item/clothing/suit/suspenders
 	pda_type = /obj/item/modular_computer/pda/mime
-	id_type = /obj/item/weapon/card/id/civilian/mime
+	id_types = list(/obj/item/card/id/civilian/mime)
 
 //Clown :^)
 
@@ -98,37 +99,61 @@
 	supervisors = "the head of personnel"
 	selection_color = "#515151"
 	access = list(access_maint_tunnels, access_clown, access_theatre)
-	minimal_access = list(access_clown, access_theatre)
 	minimal_player_age = 10
-	outfit_type = /decl/hierarchy/outfit/job/clown
+	outfit_type = /singleton/hierarchy/outfit/job/clown
 
-/datum/job/clown/equip(var/mob/living/carbon/human/H)
+/datum/job/clown/equip(mob/living/carbon/human/H)
 	. = ..()
 	if(.)
 		H.mutations.Add(MUTATION_CLUMSY)
 
-/decl/hierarchy/outfit/job/clown
+/singleton/hierarchy/outfit/job/clown
 	name = OUTFIT_JOB_NAME("Clown")
 	uniform = /obj/item/clothing/under/rank/clown
 	mask = /obj/item/clothing/mask/gas/clown_hat
 	shoes = /obj/item/clothing/shoes/clown_shoes
-	backpack_contents = list(/obj/item/weapon/reagent_containers/food/snacks/grown/banana = 1, /obj/item/weapon/bikehorn = 1,
-		/obj/item/weapon/stamp/clown = 1, /obj/item/weapon/pen/crayon/rainbow = 1, /obj/item/weapon/storage/fancy/crayons = 1,
-		/obj/item/weapon/reagent_containers/spray/waterflower = 1)
-	back = /obj/item/weapon/storage/backpack/clown
+	backpack_contents = list(/obj/item/reagent_containers/food/snacks/grown/banana = 1, /obj/item/bikehorn = 1,
+		/obj/item/stamp/clown = 1, /obj/item/pen/crayon/rainbow = 1, /obj/item/storage/fancy/crayons = 1,
+		/obj/item/reagent_containers/spray/waterflower = 1)
+	back = /obj/item/storage/backpack/clown
 	pda_type = /obj/item/modular_computer/pda/clown
-	id_type = /obj/item/weapon/card/id/civilian/clown
+	id_types = list(/obj/item/card/id/civilian/clown)
 
+//rd
+/datum/job/rd
+	title = "Research Director"
 //ids for the jobs
 
-/obj/item/weapon/card/id/civilian/clown
+/obj/item/card/id/civilian/clown
 	name = "identification card"
 	desc = "A card issued to the station's clown."
 	icon_state = "clown"
 	job_access_type = /datum/job/clown
 
-/obj/item/weapon/card/id/civilian/mime
+/obj/item/card/id/civilian/mime
 	name = "identification card"
 	desc = "A card issued to the station's mime."
 	icon_state = "mime"
 	job_access_type = /datum/job/mime
+
+/singleton/hierarchy/outfit/job/glloydstation/ert
+	name = OUTFIT_JOB_NAME("ERT - Glloydstation")
+	uniform = /obj/item/clothing/under/syndicate/combat
+	head = /obj/item/clothing/head/beret/centcom/officer
+	gloves = /obj/item/clothing/gloves/thick
+	id_types = list(/obj/item/card/id/centcom/ERT)
+	pda_type = /obj/item/modular_computer/pda/ert
+	l_ear = /obj/item/device/radio/headset/ert
+	shoes = /obj/item/clothing/shoes/dutyboots
+
+/singleton/hierarchy/outfit/job/glloydstation/ert/leader
+	name = OUTFIT_JOB_NAME("ERT Leader - Glloydstation")
+	uniform = /obj/item/clothing/under/rank/centcom
+	head = /obj/item/clothing/head/beret/centcom/captain
+
+/singleton/hierarchy/outfit/job/glloydstation/ert/suit
+	name = OUTFIT_JOB_NAME("ERT Heavy - Glloydstation")
+	back = /obj/item/rig/ert/assetprotection
+	flags = OUTFIT_RESET_EQUIPMENT | OUTFIT_ADJUSTMENT_SKIP_BACKPACK
+	head = null
+	gloves = null

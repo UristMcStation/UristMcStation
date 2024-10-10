@@ -24,7 +24,7 @@
 		..()
 
 	else
-		user << "<span class='warning'>The [src.name] isn't loaded!</span>"
+		to_chat(user, "<span class='warning'>The [src.name] isn't loaded!</span>")
 		return
 
 /obj/machinery/shipweapons/ammo/Charging()
@@ -33,7 +33,7 @@
 
 	..()
 
-/obj/machinery/shipweapons/ammo/proc/DoLoading(var/obj/structure/shipammo/ammo)
+/obj/machinery/shipweapons/ammo/proc/DoLoading(obj/structure/shipammo/ammo)
 	if(istype(ammo, ammo_type)) //checking this again, just to be sure
 		if(ammo.load_amount && !src.loaded && !src.loaded_ammo) //are we out of ammo, and does the ammo have ammo?
 			ammo.forceMove(src)
@@ -48,7 +48,7 @@
 				UpdateStats(TRUE) //get the damage stats from our loaded ammo
 				Charging()//now we charge
 
-/obj/machinery/shipweapons/ammo/proc/UpdateStats(var/loading)
+/obj/machinery/shipweapons/ammo/proc/UpdateStats(loading)
 	if(loading && loaded_ammo)
 		name = "[initial(name)] ([loaded_ammo.short_name])"
 		shield_damage = loaded_ammo.shield_damage * src.fire_amount //here we pass the damage values along
@@ -68,7 +68,7 @@
 		component_modifier_low = initial(component_modifier_low)
 		component_modifier_high = initial(component_modifier_high)
 
-/obj/machinery/shipweapons/ammo/update_icon()
+/obj/machinery/shipweapons/ammo/on_update_icon()
 	..()
 
 	if(status & LOADING)
@@ -80,7 +80,7 @@
 		var/obj/structure/shipammo/ammo = AM
 		DoLoading(ammo)
 
-/obj/machinery/shipweapons/ammo/Crossed(var/atom/movable/AM)
+/obj/machinery/shipweapons/ammo/Crossed(atom/movable/AM)
 	..()
 	if(istype(AM, ammo_type))
 		var/obj/structure/shipammo/ammo = AM
@@ -110,7 +110,7 @@
 	component_hit = 25
 	rechargerate = 16 SECONDS
 	ammo_type = /obj/structure/shipammo/torpedo
-	projectile_type = /obj/item/projectile/bullet/ship/missile/bigtorpedo
+	projectile_type = /obj/effect/meteor/shipmissile/bigtorpedo
 	fire_sound = 'sound/weapons/railgun.ogg'
 	fire_amount = 1
 	can_intercept = TRUE

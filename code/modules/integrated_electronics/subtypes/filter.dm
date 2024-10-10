@@ -6,25 +6,24 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	icon = 'icons/obj/electronic_assemblies.dmi'
 
-/obj/item/integrated_circuit/filter/proc/may_pass(var/input)
+/obj/item/integrated_circuit/filter/proc/may_pass(input)
 	return FALSE
 
 /obj/item/integrated_circuit/filter/do_work()
 	push_data()
 
 /obj/item/integrated_circuit/filter/ref
-	extended_desc = "Uses heuristics and complex algoritms to match incoming data against its filtering parameters and occasionally produces both false positives and negatives."
+	extended_desc = "Uses heuristics and complex algorithms to match incoming data against its filtering parameters and occasionally produces both false positives and negatives."
 	var/filter_type
 	complexity = 4
 	inputs = list( "input" = IC_PINTYPE_REF )
 	outputs = list("result" = IC_PINTYPE_BOOLEAN)
 
-/obj/item/integrated_circuit/filter/ref/may_pass(var/weakref/data)
+/obj/item/integrated_circuit/filter/ref/may_pass(weakref/data)
 	if(!(filter_type && isweakref(data)))
 		return FALSE
 	var/weakref/wref = data
 	return istype(wref.resolve(), filter_type)
-
 
 /obj/item/integrated_circuit/filter/ref/do_work()
 	var/datum/integrated_io/A = inputs[1]
@@ -39,13 +38,13 @@
 
 /obj/item/integrated_circuit/filter/ref/mob
 	name = "life filter"
-	desc = "Only allow refs belonging to more complex, currently or formerly, living but not necessarily biological entities through"
+	desc = "Only allow refs belonging to more complex, currently or formerly, living but not necessarily biological entities through."
 	icon_state = "filter_mob"
 	filter_type = /mob/living
 
 /obj/item/integrated_circuit/filter/ref/mob/humanoid
 	name = "humanoid filter"
-	desc = "Only allow refs belonging to humanoids (dead or alive) through"
+	desc = "Only allow refs belonging to humanoids (dead or alive) through."
 	icon_state = "filter_humanoid"
 	filter_type = /mob/living/carbon/human
 
@@ -79,7 +78,7 @@
 	icon_state = "filter_custom"
 	inputs = list( "input" = IC_PINTYPE_REF, "expected type" = IC_PINTYPE_REF )
 
-/obj/item/integrated_circuit/filter/ref/custom/may_pass(var/weakref/data, var/weakref/typedata)
+/obj/item/integrated_circuit/filter/ref/custom/may_pass(weakref/data, weakref/typedata)
 	if(!isweakref(data) || !isweakref(typedata))
 		return FALSE
 	var/weakref/wref = data
@@ -93,6 +92,33 @@
 	var/datum/integrated_io/T = inputs[2]
 	var/datum/integrated_io/O = outputs[1]
 	O.data = may_pass(A.data, T.data) ? TRUE : FALSE
+
+	if(get_pin_data(IC_OUTPUT, 1))
+		activate_pin(2)
+	else
+		activate_pin(3)
+	push_data()
+
+/obj/item/integrated_circuit/filter/string
+	name = "string filter"
+	desc = "Allows string filtering. It will match a string against a stored string."
+	extended_desc = "Matches incoming data against its filtering parameters and occasionally produces both false positives and negatives."
+	icon_state = "filter_string"
+	complexity = 2
+	inputs = list(
+		"input" = IC_PINTYPE_STRING,
+		"expected string" = IC_PINTYPE_STRING
+		)
+	outputs = list("result" = IC_PINTYPE_BOOLEAN)
+
+/obj/item/integrated_circuit/filter/string/may_pass(datum/integrated_io/A, datum/integrated_io/B)
+	return A.data == B.data
+
+/obj/item/integrated_circuit/filter/string/do_work()
+	var/datum/integrated_io/A = inputs[1]
+	var/datum/integrated_io/B = inputs[2]
+	var/datum/integrated_io/O = outputs[1]
+	O.data = may_pass(A, B) ? TRUE : FALSE
 
 	if(get_pin_data(IC_OUTPUT, 1))
 		activate_pin(2)

@@ -12,7 +12,8 @@
 	var/spawnprob = 100 //used for scaling down spawns
 //	invisibility = 101
 
-/obj/effect/landmark/scom/enemyspawn/New()
+/obj/effect/landmark/scom/enemyspawn/Initialize()
+	. = ..()
 	invisibility = 101
 	return
 
@@ -79,8 +80,8 @@
 				new /mob/living/simple_animal/hostile/alien/ravager(src.loc)
 				new /mob/living/simple_animal/hostile/alien/drone(src.loc)
 		if(spawntype == 100) //civs temporarily removed
-			new /mob/living/simple_animal/hostile/scom/civ/civvie(src.loc)
-//		world << "SPAWNED"
+			new /mob/living/simple_animal/passive/scom/civ/civvie(src.loc)
+//		log_debug("SPAWNED")
 		qdel(src)
 
 

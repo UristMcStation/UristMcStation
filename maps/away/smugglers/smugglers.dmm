@@ -13,7 +13,7 @@
 /turf/space,
 /area/space)
 "ae" = (
-/obj/effect/overmap/sector/smugglers,
+/obj/effect/overmap/visitable/sector/smugglers,
 /turf/space,
 /area/space)
 "af" = (
@@ -21,9 +21,8 @@
 /area/smugglers/base)
 "ag" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1503;
-	icon_state = "door_closed";
-	locked = 0
+	frequency = 1439;
+	icon_state = "door_closed"
 	},
 /turf/simulated/floor,
 /area/smugglers/base)
@@ -31,12 +30,12 @@
 /turf/simulated/floor/asteroid,
 /area/space)
 "aj" = (
-/obj/item/ammo_casing/a50{
+/obj/item/ammo_casing/pistol/magnum{
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/obj/item/ammo_casing/a50,
-/obj/item/weapon/shovel{
+/obj/item/ammo_casing/pistol/magnum,
+/obj/item/shovel{
 	pixel_x = 10;
 	pixel_y = -5
 	},
@@ -53,18 +52,15 @@
 /area/smugglers/base)
 "am" = (
 /obj/machinery/airlock_sensor{
-	frequency = 1503;
+	frequency = 1439;
 	master_tag = "asteroid_base_dock_airlock";
 	pixel_x = 25
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2;
-	frequency = 1503;
 	id_tag = "asteroid_base_dock_pump"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/item/weapon/beartrap{
-	anchored = 1;
+/obj/item/beartrap{
 	deployed = 1;
 	icon_state = "beartrap1"
 	},
@@ -85,9 +81,8 @@
 /area/space)
 "aq" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1503;
+	frequency = 1439;
 	icon_state = "door_closed";
-	locked = 0;
 	name = "Internal Airlock"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
@@ -97,8 +92,8 @@
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/regular,
 /obj/structure/cable{
-	icon_state = "0-2";
-	d2 = 2
+	d2 = 2;
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/airless,
 /area/smugglers/base)
@@ -113,7 +108,7 @@
 "av" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	frequency = 1503;
+	frequency = 1439;
 	id_tag = "asteroid_base_dock_airlock";
 	name = "Dock Airlock Controller";
 	pixel_x = -25;
@@ -123,7 +118,7 @@
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
-	frequency = 1503;
+	frequency = 1439;
 	master_tag = "asteroid_base_dock_airlock";
 	name = "interior access button";
 	pixel_x = 28;
@@ -152,13 +147,12 @@
 "ay" = (
 /obj/item/stack/cable_coil{
 	pixel_x = 5;
-	pixel_y = 5;
-	pixel_z = 0
+	pixel_y = 5
 	},
 /obj/item/stack/cable_coil,
 /obj/structure/cable{
-	icon_state = "0-2";
-	d2 = 2
+	d2 = 2;
+	icon_state = "0-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -166,7 +160,6 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "north bump";
-	pixel_x = 0;
 	pixel_y = 24
 	},
 /turf/simulated/floor,
@@ -174,8 +167,8 @@
 "az" = (
 /obj/machinery/power/port_gen/pacman,
 /obj/structure/cable{
-	icon_state = "0-2";
-	d2 = 2
+	d2 = 2;
+	icon_state = "0-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -208,8 +201,7 @@
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
+	icon_state = "1-2"
 	},
 /turf/simulated/floor,
 /area/smugglers/base)
@@ -220,21 +212,18 @@
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
+	icon_state = "1-2"
 	},
 /turf/simulated/floor,
 /area/smugglers/base)
 "aD" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black{
-	icon_state = "map";
 	dir = 1
 	},
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
+	icon_state = "1-2"
 	},
 /turf/simulated/floor,
 /area/smugglers/base)
@@ -260,18 +249,16 @@
 /area/smugglers/base)
 "aH" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	frequency = 1501;
+	frequency = 1439;
 	id_tag = "asteroid_base_east_airlock";
 	pixel_y = 25;
 	tag_airpump = "asteroid_base_east_pump";
 	tag_exterior_door = "asteroid_base_east_outer";
-	tag_exterior_sensor = null;
-	tag_interior_door = "asteroid_base_east_inner";
-	tag_interior_sensor = null
+	tag_interior_door = "asteroid_base_east_inner"
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
-	frequency = 1501;
+	frequency = 1439;
 	master_tag = "asteroid_base_east_airlock";
 	name = "interior access button";
 	pixel_x = -28;
@@ -285,7 +272,7 @@
 /area/smugglers/base)
 "aI" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1501;
+	frequency = 1439;
 	icon_state = "door_locked";
 	id_tag = "asteroid_base_east_inner";
 	locked = 1;
@@ -297,19 +284,17 @@
 /turf/simulated/floor,
 /area/smugglers/base)
 "aJ" = (
-/obj/item/weapon/beartrap{
-	anchored = 1;
+/obj/item/beartrap{
 	deployed = 1;
 	icon_state = "beartrap1"
 	},
 /obj/machinery/airlock_sensor{
-	frequency = 1501;
+	frequency = 1439;
 	master_tag = "asteroid_base_east_airlock";
 	pixel_y = -25
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1501;
 	id_tag = "asteroid_base_east_pump"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -317,7 +302,7 @@
 /area/smugglers/base)
 "aK" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1501;
+	frequency = 1439;
 	icon_state = "door_locked";
 	id_tag = "asteroid_base_east_outer";
 	locked = 1
@@ -326,7 +311,7 @@
 /area/smugglers/base)
 "aL" = (
 /obj/machinery/access_button/airlock_exterior{
-	frequency = 1501;
+	frequency = 1439;
 	master_tag = "asteroid_base_east_airlock";
 	name = "exterior access button";
 	pixel_x = -25;
@@ -364,7 +349,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/item/weapon/wirecutters,
+/obj/item/wirecutters,
 /turf/simulated/floor,
 /area/smugglers/base)
 "aQ" = (
@@ -375,11 +360,10 @@
 	icon_state = "32-4"
 	},
 /obj/structure/cable{
-	icon_state = "0-2";
-	dir = 4;
-	pixel_y = 0;
 	d1 = 16;
-	d2 = 0
+	d2 = 0;
+	dir = 4;
+	icon_state = "0-2"
 	},
 /obj/structure/cable{
 	d2 = 8;
@@ -447,8 +431,7 @@
 /area/smugglers/base)
 "aX" = (
 /obj/structure/table/rack{
-	dir = 8;
-	layer = 2.9
+	dir = 8
 	},
 /obj/item/clothing/mask/breath,
 /turf/simulated/floor,
@@ -476,7 +459,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/item/weapon/paper/smug_1,
+/obj/item/paper/smug_1,
 /turf/simulated/floor,
 /area/smugglers/base)
 "bc" = (
@@ -500,17 +483,16 @@
 /area/smugglers/base)
 "bf" = (
 /obj/structure/table/rack{
-	dir = 8;
-	layer = 2.9
+	dir = 8
 	},
-/obj/item/weapon/tank/air{
+/obj/item/tank/air{
 	pixel_x = 5
 	},
-/obj/item/weapon/tank/air,
+/obj/item/tank/air,
 /turf/simulated/floor,
 /area/smugglers/base)
 "bg" = (
-/obj/item/weapon/pickaxe/xeno/hand{
+/obj/item/pickaxe/xeno/hand{
 	pixel_x = -15
 	},
 /turf/simulated/floor/asteroid,
@@ -533,8 +515,8 @@
 /obj/random/smokes,
 /obj/random/smokes,
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 4
+	dir = 4;
+	icon_state = "warning"
 	},
 /turf/simulated/floor,
 /area/smugglers/base)
@@ -549,8 +531,7 @@
 /area/smugglers/base)
 "bm" = (
 /obj/structure/table/rack{
-	dir = 8;
-	layer = 2.9
+	dir = 8
 	},
 /obj/random/voidsuit,
 /obj/random/voidhelmet,
@@ -561,8 +542,8 @@
 /turf/simulated/floor/asteroid,
 /area/mine/explored)
 "bo" = (
-/obj/item/weapon/ore/silver,
-/obj/item/weapon/ore/silver{
+/obj/item/ore/silver,
+/obj/item/ore/silver{
 	pixel_x = 10;
 	pixel_y = -5
 	},
@@ -580,7 +561,7 @@
 /turf/simulated/floor,
 /area/smugglers/base)
 "bq" = (
-/obj/item/weapon/paper/smug_2,
+/obj/item/paper/smug_2,
 /turf/simulated/floor,
 /area/smugglers/base)
 "br" = (
@@ -622,8 +603,8 @@
 /area/smugglers/base)
 "bt" = (
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 4
+	dir = 4;
+	icon_state = "warning"
 	},
 /turf/simulated/floor,
 /area/smugglers/base)
@@ -647,12 +628,12 @@
 /turf/simulated/wall/r_wall,
 /area/smugglers/office)
 "bx" = (
-/obj/item/weapon/ore/slag,
-/obj/item/weapon/ore/slag{
+/obj/item/ore/slag,
+/obj/item/ore/slag{
 	pixel_x = 5;
 	pixel_y = -2
 	},
-/obj/item/weapon/ore/slag,
+/obj/item/ore/slag,
 /turf/simulated/floor,
 /area/smugglers/base)
 "by" = (
@@ -704,8 +685,8 @@
 /area/smugglers/office)
 "bD" = (
 /obj/structure/table/woodentable,
-/obj/item/weapon/paper,
-/obj/item/weapon/pen,
+/obj/item/paper,
+/obj/item/pen,
 /obj/item/device/flashlight/lamp,
 /obj/structure/cable{
 	d2 = 8;
@@ -714,7 +695,6 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "north bump";
-	pixel_x = 0;
 	pixel_y = 24
 	},
 /turf/simulated/floor/tiled,
@@ -732,8 +712,8 @@
 /area/smugglers/office)
 "bF" = (
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 10
+	dir = 10;
+	icon_state = "warning"
 	},
 /turf/simulated/floor,
 /area/smugglers/base)
@@ -765,14 +745,14 @@
 	pixel_y = -3
 	},
 /obj/random/coin,
-/obj/item/weapon/storage/bible/booze{
+/obj/item/storage/bible/booze{
 	pixel_x = 10
 	},
-/obj/item/weapon/paper/smug_4{
+/obj/item/paper/smug_4{
 	pixel_x = -5;
 	pixel_y = 4
 	},
-/obj/item/weapon/paper/smug_5,
+/obj/item/paper/smug_5,
 /turf/simulated/floor/tiled,
 /area/smugglers/office)
 "bL" = (
@@ -780,8 +760,8 @@
 	dir = 8
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 4
+	dir = 4;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled,
 /area/smugglers/office)
@@ -796,7 +776,7 @@
 /area/smugglers/base)
 "bO" = (
 /obj/machinery/portable_atmospherics/canister/air,
-/obj/item/weapon/wrench,
+/obj/item/wrench,
 /obj/machinery/light/small{
 	dir = 4;
 	pixel_y = 8
@@ -973,15 +953,15 @@
 "cs" = (
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/paper/smug_3,
-/obj/item/weapon/flame/lighter,
+/obj/item/paper/smug_3,
+/obj/item/flame/lighter,
 /obj/random/coin,
 /turf/simulated/floor/tiled,
 /area/smugglers/dorms)
 "ct" = (
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/spacecash/bundle/c10,
+/obj/item/spacecash/bundle/c10,
 /obj/random/smokes,
 /obj/random/snack,
 /turf/simulated/floor/tiled,
@@ -1029,21 +1009,12 @@
 /turf/simulated/floor/tiled,
 /area/smugglers/dorms)
 "cB" = (
-/obj/machinery/light/small{
-	dir = 2
-	},
+/obj/machinery/light/small,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/smugglers/dorms)
 "cC" = (
 /obj/effect/shuttle_landmark/nav_asteroid_base/nav2,
-/turf/space,
-/area/space)
-"cD" = (
-/obj/effect/landmark/random_gen/asteroid{
-	generation_height = 50;
-	generation_width = 50
-	},
 /turf/space,
 /area/space)
 "cE" = (
@@ -1062,7 +1033,7 @@
 /obj/structure/hygiene/sink{
 	pixel_y = 15
 	},
-/obj/item/weapon/storage/mirror{
+/obj/item/storage/mirror{
 	pixel_y = 30
 	},
 /obj/random/soap,
@@ -3283,7 +3254,7 @@ aa
 aa
 aa
 aa
-cD
+aa
 aa
 aa
 aa

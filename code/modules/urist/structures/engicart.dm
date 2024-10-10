@@ -3,8 +3,8 @@
 	desc = "A cart for storing engineering items."
 	icon = 'icons/urist/structures&machinery/engicart.dmi'
 	icon_state = "cart"
-	anchored = 0
-	density = 1
+	anchored = FALSE
+	density = TRUE
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	//copypaste sorry
 	var/amount_per_transfer_from_this = 5 //shit I dunno, adding this so syringes stop runtime erroring. --NeoFite
@@ -12,17 +12,17 @@
 	var/obj/item/stack/material/steel/mymetal = null
 	var/obj/item/stack/material/plasteel/myplasteel = null
 	var/obj/item/device/flashlight/myflashlight = null
-	var/obj/item/weapon/storage/toolbox/mechanical/mybluetoolbox = null
-	var/obj/item/weapon/storage/toolbox/electrical/myyellowtoolbox = null
-	var/obj/item/weapon/storage/toolbox/emergency/myredtoolbox = null
+	var/obj/item/storage/toolbox/mechanical/mybluetoolbox = null
+	var/obj/item/storage/toolbox/electrical/myyellowtoolbox = null
+	var/obj/item/storage/toolbox/emergency/myredtoolbox = null
 	var/obj/item/taperoll/engineering/myengitape = null
-	var/obj/item/weapon/storage/briefcase/inflatable/myinflate = null
+	var/obj/item/storage/briefcase/inflatable/myinflate = null
 
 /obj/structure/engineeringcart/proc/put_in_cart(obj/item/I, mob/user)
 	user.drop_item()
 	I.loc = src
 	updateUsrDialog()
-	user << "<span class='notice'>You put [I] into [src].</span>"
+	to_chat(user, "<span class='notice'>You put [I] into [src].</span>")
 	return
 
 /obj/structure/engineeringcart/attackby(obj/item/I, mob/user)
@@ -33,7 +33,7 @@
 			myglass=I
 			update_icon()
 		else
-			user << fail_msg
+			to_chat(user, fail_msg)
 
 	else if(istype(I, /obj/item/stack/material/steel))
 		if(!mymetal)
@@ -41,7 +41,7 @@
 			mymetal=I
 			update_icon()
 		else
-			user << fail_msg
+			to_chat(user, fail_msg)
 
 	else if(istype(I, /obj/item/stack/material/plasteel))
 		if(!myplasteel)
@@ -49,7 +49,7 @@
 			myplasteel=I
 			update_icon()
 		else
-			user << fail_msg
+			to_chat(user, fail_msg)
 
 	else if(istype(I, /obj/item/device/flashlight))
 		if(!myflashlight)
@@ -57,31 +57,31 @@
 			myflashlight=I
 			update_icon()
 		else
-			user << fail_msg
+			to_chat(user, fail_msg)
 
-	else if(istype(I, /obj/item/weapon/storage/toolbox/mechanical))
+	else if(istype(I, /obj/item/storage/toolbox/mechanical))
 		if(!mybluetoolbox)
 			put_in_cart(I, user)
 			mybluetoolbox=I
 			update_icon()
 		else
-			user << fail_msg
+			to_chat(user, fail_msg)
 
-	else if(istype(I, /obj/item/weapon/storage/toolbox/electrical))
+	else if(istype(I, /obj/item/storage/toolbox/electrical))
 		if(!myyellowtoolbox)
 			put_in_cart(I, user)
 			myyellowtoolbox=I
 			update_icon()
 		else
-			user << fail_msg
+			to_chat(user, fail_msg)
 
-	else if(istype(I, /obj/item/weapon/storage/toolbox/emergency))
+	else if(istype(I, /obj/item/storage/toolbox/emergency))
 		if(!myredtoolbox)
 			put_in_cart(I, user)
 			myredtoolbox=I
 			update_icon()
 		else
-			user << fail_msg
+			to_chat(user, fail_msg)
 
 	else if(istype(I, /obj/item/taperoll/engineering))
 		if(!myengitape)
@@ -89,15 +89,15 @@
 			myengitape=I
 			update_icon()
 		else
-			user << fail_msg
+			to_chat(user, fail_msg)
 
-	else if(istype(I, /obj/item/weapon/storage/briefcase/inflatable))
+	else if(istype(I, /obj/item/storage/briefcase/inflatable))
 		if(!myinflate)
 			put_in_cart(I, user)
 			myinflate=I
 			update_icon()
 		else
-			user << fail_msg
+			to_chat(user, fail_msg)
 
 /obj/structure/engineeringcart/attack_hand(mob/user)
 	user.set_machine(src)
@@ -133,53 +133,53 @@
 	if(href_list["glass"])
 		if(myglass)
 			user.put_in_hands(myglass)
-			user << "<span class='notice'>You take [myglass] from [src].</span>"
+			to_chat(user, "<span class='notice'>You take [myglass] from [src].</span>")
 			myglass = null
 	if(href_list["metal"])
 		if(mymetal)
 			user.put_in_hands(mymetal)
-			user << "<span class='notice'>You take [mymetal] from [src].</span>"
+			to_chat(user, "<span class='notice'>You take [mymetal] from [src].</span>")
 			mymetal = null
 	if(href_list["plasteel"])
 		if(myplasteel)
 			user.put_in_hands(myplasteel)
-			user << "<span class='notice'>You take [myplasteel] from [src].</span>"
+			to_chat(user, "<span class='notice'>You take [myplasteel] from [src].</span>")
 			myplasteel = null
 	if(href_list["flashlight"])
 		if(myflashlight)
 			user.put_in_hands(myflashlight)
-			user << "<span class='notice'>You take [myflashlight] from [src].</span>"
+			to_chat(user, "<span class='notice'>You take [myflashlight] from [src].</span>")
 			myflashlight = null
 	if(href_list["bluetoolbox"])
 		if(mybluetoolbox)
 			user.put_in_hands(mybluetoolbox)
-			user << "<span class='notice'>You take [mybluetoolbox] from [src].</span>"
+			to_chat(user, "<span class='notice'>You take [mybluetoolbox] from [src].</span>")
 			mybluetoolbox = null
 	if(href_list["redtoolbox"])
 		if(myredtoolbox)
 			user.put_in_hands(myredtoolbox)
-			user << "<span class='notice'>You take [myredtoolbox] from [src].</span>"
+			to_chat(user, "<span class='notice'>You take [myredtoolbox] from [src].</span>")
 			myredtoolbox = null
 	if(href_list["yellowtoolbox"])
 		if(myyellowtoolbox)
 			user.put_in_hands(myyellowtoolbox)
-			user << "<span class='notice'>You take [myyellowtoolbox] from [src].</span>"
+			to_chat(user, "<span class='notice'>You take [myyellowtoolbox] from [src].</span>")
 			myyellowtoolbox = null
 	if(href_list["engitape"])
 		if(myengitape)
 			user.put_in_hands(myengitape)
-			user << "<span class='notice'>You take [myengitape] from [src].</span>"
+			to_chat(user, "<span class='notice'>You take [myengitape] from [src].</span>")
 			myengitape = null
 	if(href_list["inflate"])
 		if(myinflate)
 			user.put_in_hands(myinflate)
-			user << "<span class='notice'>You take [myinflate] from [src].</span>"
+			to_chat(user, "<span class='notice'>You take [myinflate] from [src].</span>")
 			myinflate = null
 
 	update_icon()
 	updateUsrDialog()
 
-/obj/structure/engineeringcart/update_icon()
+/obj/structure/engineeringcart/on_update_icon()
 	overlays = null
 	if(myglass)
 		overlays += "cart_glass"

@@ -1,161 +1,170 @@
-/* CONTAINS:
-RPD
-*/
+GLOBAL_LIST_INIT(rpd_pipe_selection, list(
+	new /datum/pipe/pipe_dispenser/simple() = list(
+		new /datum/pipe/pipe_dispenser/simple/straight(),
+		new /datum/pipe/pipe_dispenser/simple/bent(),
+		new /datum/pipe/pipe_dispenser/simple/manifold(),
+		new /datum/pipe/pipe_dispenser/simple/manifold4w(),
+		new /datum/pipe/pipe_dispenser/simple/cap()),
+	new /datum/pipe/pipe_dispenser/supply() = list(
+		new /datum/pipe/pipe_dispenser/supply/straight(),
+		new /datum/pipe/pipe_dispenser/supply/bent(),
+		new /datum/pipe/pipe_dispenser/supply/manifold(),
+		new /datum/pipe/pipe_dispenser/supply/manifold4w(),
+		new /datum/pipe/pipe_dispenser/supply/cap()),
+	new /datum/pipe/pipe_dispenser/scrubber() = list(
+		new /datum/pipe/pipe_dispenser/scrubber/straight(),
+		new /datum/pipe/pipe_dispenser/scrubber/bent(),
+		new /datum/pipe/pipe_dispenser/scrubber/manifold(),
+		new /datum/pipe/pipe_dispenser/scrubber/manifold4w(),
+		new /datum/pipe/pipe_dispenser/scrubber/cap()),
+	))
 
-#define PIPE_CARDINAL 1
-#define PIPE_CORNERDIR 2
-//Typed as visible for convenience, hidden/visible changes later on.
+GLOBAL_LIST_INIT(rpd_pipe_selection_skilled, list(
+	new /datum/pipe/pipe_dispenser/simple() = list(
+		new /datum/pipe/pipe_dispenser/simple/straight(),
+		new /datum/pipe/pipe_dispenser/simple/bent(),
+		new /datum/pipe/pipe_dispenser/simple/manifold(),
+		new /datum/pipe/pipe_dispenser/simple/manifold4w(),
+		new /datum/pipe/pipe_dispenser/simple/cap(),
+		new /datum/pipe/pipe_dispenser/simple/up(),
+		new /datum/pipe/pipe_dispenser/simple/down()
+		),
+	new /datum/pipe/pipe_dispenser/supply() = list(
+		new /datum/pipe/pipe_dispenser/supply/straight(),
+		new /datum/pipe/pipe_dispenser/supply/bent(),
+		new /datum/pipe/pipe_dispenser/supply/manifold(),
+		new /datum/pipe/pipe_dispenser/supply/manifold4w(),
+		new /datum/pipe/pipe_dispenser/supply/cap(),
+		new /datum/pipe/pipe_dispenser/supply/up(),
+		new /datum/pipe/pipe_dispenser/supply/down()
+		),
+	new /datum/pipe/pipe_dispenser/scrubber() = list(
+		new /datum/pipe/pipe_dispenser/scrubber/straight(),
+		new /datum/pipe/pipe_dispenser/scrubber/bent(),
+		new /datum/pipe/pipe_dispenser/scrubber/manifold(),
+		new /datum/pipe/pipe_dispenser/scrubber/manifold4w(),
+		new /datum/pipe/pipe_dispenser/scrubber/cap(),
+		new /datum/pipe/pipe_dispenser/scrubber/up(),
+		new /datum/pipe/pipe_dispenser/scrubber/down()
+		),
+	new /datum/pipe/pipe_dispenser/fuel() = list(
+		new /datum/pipe/pipe_dispenser/fuel/straight(),
+		new /datum/pipe/pipe_dispenser/fuel/bent(),
+		new /datum/pipe/pipe_dispenser/fuel/manifold(),
+		new /datum/pipe/pipe_dispenser/fuel/manifold4w(),
+		new /datum/pipe/pipe_dispenser/fuel/cap(),
+		new /datum/pipe/pipe_dispenser/fuel/up(),
+		new /datum/pipe/pipe_dispenser/fuel/down()
+		),
+	new /datum/pipe/pipe_dispenser/device() = list(
+		new /datum/pipe/pipe_dispenser/device/universaladapter(),
+		new /datum/pipe/pipe_dispenser/device/gaspump(),
+		new /datum/pipe/pipe_dispenser/device/manualvalve()
+		)
+	))
 
-GLOBAL_LIST_INIT(atmos_pipe_recipes, list(
-	"Universal Pipes" = list(
-	new /datum/pipe_info/pipe("Straight Pipe", 0, PIPE_CARDINAL),
-	new /datum/pipe_info/pipe("Corner Pipes", 1, PIPE_CORNERDIR),
-	new /datum/pipe_info/pipe("Manifold",	5, PIPE_CARDINAL),
-	new /datum/pipe_info/pipe("4-Way Manifold", 19, PIPE_CARDINAL),
-	new /datum/pipe_info/pipe("Pipe cap", 20, PIPE_CARDINAL),
-	),
-	"Scrubber Pipes" = list(
-	new /datum/pipe_info/pipe("Straight Pipe", 31, PIPE_CARDINAL),
-	new /datum/pipe_info/pipe("Corner Pipe", 32, PIPE_CORNERDIR),
-	new /datum/pipe_info/pipe("Manifold", 34, PIPE_CARDINAL),
-	new /datum/pipe_info/pipe("4-Way Manifold", 36, PIPE_CARDINAL),
-	new /datum/pipe_info/pipe("Pipe cap", 42, PIPE_CARDINAL),
-	),
-	"Supply Pipes" = list(
-	new /datum/pipe_info/pipe("Straight Pipe", 29, PIPE_CARDINAL),
-	new /datum/pipe_info/pipe("Corner Pipe", 30, PIPE_CORNERDIR),
-	new /datum/pipe_info/pipe("Manifold", 33, PIPE_CARDINAL),
-	new /datum/pipe_info/pipe("4-Way Manifold", 35, PIPE_CARDINAL),
-	new /datum/pipe_info/pipe("Pipe cap", 41, PIPE_CARDINAL),
-	),
-	"Fuel Pipes" = list(
-	new /datum/pipe_info/pipe("Straight Pipe", 45, PIPE_CARDINAL),
-	new /datum/pipe_info/pipe("Corner Pipe", 46, PIPE_CORNERDIR),
-	new /datum/pipe_info/pipe("Manifold", 47, PIPE_CARDINAL),
-	new /datum/pipe_info/pipe("4-Way Manifold", 48, PIPE_CARDINAL),
-	new /datum/pipe_info/pipe("Pipe cap", 51, PIPE_CARDINAL),
-	),
-	"Heat Exchange Pipes" = list(
-	new /datum/pipe_info/pipe("Straight Pipe", 2, PIPE_CARDINAL),
-	new /datum/pipe_info/pipe("Corner Pipe", 3, PIPE_CORNERDIR),
-	new /datum/pipe_info/pipe("Junction", 6, PIPE_CARDINAL),
-	),
-	"Devices" = list(
-	new /datum/pipe_info/pipe("Universal Connector", 28, PIPE_CARDINAL),
-	new /datum/pipe_info/pipe("Omni Filter", 27, PIPE_CARDINAL),
-	new /datum/pipe_info/pipe("Omni Mixer", 26, PIPE_CARDINAL),
-	new /datum/pipe_info/pipe("Portable Connector", 4, PIPE_CARDINAL),
-	new /datum/pipe_info/pipe("Valve", 8, PIPE_CARDINAL),
-	new /datum/pipe_info/pipe("T-Valve", 18, PIPE_CARDINAL),
-	new /datum/pipe_info/pipe("Digital Valve", 9, PIPE_CARDINAL),
-	new /datum/pipe_info/pipe("Shutoff Valve", 44, PIPE_CARDINAL),
-	new /datum/pipe_info/pipe("Pump", 10, PIPE_CARDINAL),
-	new /datum/pipe_info/pipe("High Powered Pump", 16, PIPE_CARDINAL),
-	new /datum/pipe_info/pipe("Pressure Regulator", 15, PIPE_CARDINAL),
-	new /datum/pipe_info/pipe("Vent", 7, PIPE_CARDINAL),
-	new /datum/pipe_info/pipe("Scrubber", 11, PIPE_CARDINAL),
-	)
-))
-
-/datum/pipe_info
-	var/name
-	var/id
-	var/pipedir
-	var/pipedirdefault
-	var/pipecost = 1
-	var/list/pipedirections = list()
-	var/list/cardinal	 = list(NORTH, SOUTH, EAST, WEST)
-	var/list/cornerdirs	 = list(NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST)
-
-/datum/pipe_info/pipe/New(var/labelname, var/obj/machinery/atmospherics/path, var/pdir)
-	name = labelname
-	id = path
-	pipedir = pdir
-	if(pipedir == PIPE_CARDINAL)
-		pipedirections = cardinal
-	if(pipedir == PIPE_CORNERDIR)
-		pipedirections = cornerdirs
-	if(name == "Corner Pipe")
-		pipedirdefault = cornerdirs[1]
-	if(name != "Corner Pipe")
-		pipedirdefault = cardinal[1]
-
-/obj/item/weapon/rpd
+/obj/item/rpd
 	name = "rapid piping device"
-	desc = "A rapid piping device. This is a miniaturized piping dispenser mounted onto a portable frame and power supply, and employs advanced technology - such as a robotic arm holding a wrench, to automatically fasten pipes."
-	icon = 'icons/obj/items.dmi'
-	icon_state = "rcd"
-	opacity = 0
-	density = 0
-	anchored = 0.0
-	obj_flags = OBJ_FLAG_CONDUCTIBLE
-	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	force = 10.0
-	throwforce = 10.0
+	desc = "Portable, complex and deceptively heavy, it's the cousin of the RCD, use to dispense piping on the move."
+	icon = 'icons/obj/tools.dmi'//Needs proper icon
+	icon_state = "rpd"
+	force = 12
+	throwforce = 15
 	throw_speed = 1
-	throw_range = 5
+	throw_range = 3
 	w_class = ITEM_SIZE_NORMAL
-	origin_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 50000)
+	origin_tech = list(TECH_ENGINEERING = 5, TECH_MATERIAL = 4)
+
 	var/datum/effect/effect/system/spark_spread/spark_system
-	var/datum/pipe_info/activedesign
-	var/active_category
-	var/active_direction
+	var/datum/pipe/P
+	var/pipe_color = "white"
+	var/datum/browser/popup
 
-/obj/item/weapon/rpd/New()
-	if(!activedesign)
-		activedesign = GLOB.atmos_pipe_recipes[GLOB.atmos_pipe_recipes[1]][1]
-	active_category = GLOB.atmos_pipe_recipes[1]
-	active_direction = activedesign.pipedirdefault
+/obj/item/rpd/Initialize()
+	. = ..()
+	spark_system = new /datum/effect/effect/system/spark_spread
+	spark_system.set_up(5, 0, src)
+	spark_system.attach(src)
+	var/list/L = GLOB.rpd_pipe_selection[GLOB.rpd_pipe_selection[1]]
+	P = L[1]
+	//if there's no pipe selected randomize it
 
-/obj/item/weapon/rpd/attack_self(mob/user)
-	active_category = next_in_list(active_category, GLOB.atmos_pipe_recipes)
-	to_chat(user, "<span class='notice'>Selected [active_category].</span>")
-	playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
-	activedesign = GLOB.atmos_pipe_recipes[active_category][1]
+/obj/item/rpd/Destroy()
+	QDEL_NULL(spark_system)
+	return ..()
 
-/obj/item/weapon/rpd/AltClick(mob/user)
-	activedesign = next_in_list(activedesign, GLOB.atmos_pipe_recipes[active_category])
-	to_chat(user, "<span class='notice'>Selected [activedesign.name].</span>")
-	playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
-	active_direction = activedesign.pipedirdefault
+/obj/item/rpd/proc/get_console_data(list/pipe_categories, color_options = FALSE)
+	. = list()
+	. += "<table>"
+	if(color_options)
+		. += "<tr><td>Color</td><td><a href='?src=\ref[src];color=\ref[src]'>[SPAN_COLOR(pipe_color, pipe_color)]</a></td></tr>"
+	for(var/category in pipe_categories)
+		var/datum/pipe/cat = category
+		. += "<tr><td>[SPAN_COLOR("#517087", "<strong>[initial(cat.category)]</strong>")]</td></tr>"
+		for(var/datum/pipe/pipe in pipe_categories[category])
+			. += "<tr><td>[pipe.name]</td><td>[P.type == pipe.type ? SPAN_CLASS("linkOn", "Select") : "<a href='?src=\ref[src];select=\ref[pipe]'>Select</a>"]</td></tr>"
+	.+= "</table>"
+	. = JOINTEXT(.)
 
-/obj/item/weapon/rpd/afterattack(var/atom/A, var/mob/user, proximity, params)
-	if(!proximity)
+/obj/item/rpd/interact(mob/user)
+	popup = new (user, "Pipe List", "[src] menu")
+	popup.set_content(get_console_data(GLOB.rpd_pipe_selection_skilled, TRUE))
+	popup.open()
+
+/obj/item/rpd/OnTopic(user, list/href_list)
+	if(href_list["select"])
+		P = locate(href_list["select"])
+		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
+		interact(user)
+		if(prob(10)) src.spark_system.start()
+		return TOPIC_HANDLED
+	if(href_list["color"])
+		var/choice = input(user, "What color do you want pipes to have?") as null|anything in pipe_colors
+		if(!choice || !CanPhysicallyInteract(user))
+			return TOPIC_HANDLED
+		pipe_color = choice
+		interact(user)
+		return TOPIC_HANDLED
+
+/obj/item/rpd/dropped(mob/user)
+	..()
+	if(popup)
+		popup.close()
+
+/obj/item/rpd/afterattack(atom/A, mob/user, proximity)
+	if(!proximity) return
+	if(istype(A, /obj/item/pipe))
+		recycle(A,user)
+	else
+		var/turf/T = get_turf(A)
+		if(!T.Adjacent(src.loc)) return		//checks so it can't pipe through window and such
+
+		playsound(get_turf(user), 'sound/machines/click.ogg', 50, 1)
+		if(T.is_wall())	//pipe through walls!
+			if(!do_after(user, 3 SECONDS, T, DO_PUBLIC_UNIQUE))
+				return
+			playsound(get_turf(user), 'sound/items/Deconstruct.ogg', 50, 1)
+
+		P.Build(P, T, pipe_colors[pipe_color])
+		if(prob(20)) src.spark_system.start()
+
+/obj/item/rpd/examine(mob/user, distance)
+	. = ..()
+	if(distance <= 1)
+		to_chat(user, "[SPAN_NOTICE("Current selection reads:")] [P]")
+
+/obj/item/rpd/attack_self(mob/user)
+	interact(user)
+	add_fingerprint(user)
+
+/obj/item/rpd/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/pipe))
+		if(!user.unEquip(W))
+			return
+		recycle(W,user)
 		return
-	var/list/mouse_control = params2list(params)
-	var/mouse_x = text2num(mouse_control["icon-x"])
-	var/mouse_y = text2num(mouse_control["icon-y"])
-	var/p_dir
-	if(activedesign.pipedirections == activedesign.cardinal)
-		if(isnum(mouse_x) && isnum(mouse_y))
-			if(mouse_x <= 16)
-				if(mouse_y <= 16)
-					p_dir = WEST
-				else
-					p_dir = NORTH
-			else
-				if(mouse_y <= 16)
-					p_dir = SOUTH
-				else
-					p_dir = EAST
-	if(activedesign.pipedirections == activedesign.cornerdirs)
-		if(isnum(mouse_x) && isnum(mouse_y))
-			if(mouse_x <= 16)
-				if(mouse_y <= 16)
-					p_dir = NORTHWEST
-				else
-					p_dir = NORTHEAST
-			else
-				if(mouse_y <= 16)
-					p_dir = SOUTHWEST
-				else
-					p_dir = SOUTHEAST
-	var/obj/item/weapon/wrench/W = new /obj/item/weapon/wrench(src) //This is such a hack, but pipecode is godawful.
-	var/p_type = activedesign.id
-	var/obj/item/pipe/P = new (get_turf(A), pipe_type=p_type, dir=p_dir)
-	P.update()
-	P.attackby(W, user)
+	..()
+
+/obj/item/rpd/proc/recycle(obj/item/W,mob/user)
+	playsound(src.loc, 'sound/effects/pop.ogg', 50, 1)
 	qdel(W)
-	if(P)
-		qdel(P)

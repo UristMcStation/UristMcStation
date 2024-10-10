@@ -1,8 +1,8 @@
-/obj/item/weapon/book/smcult
+/obj/item/book/smcult
 	name = "blood covered tome"
 	author = "Dux Sectatores"
 	title = "Scientific Journal"
-	icon = 'icons/obj/weapons.dmi'
+	icon = 'icons/obj/weapons/melee_physical.dmi'
 	icon_state = "tome"
 	unique = 1
 
@@ -37,14 +37,14 @@
 				</html>"}
 
 /obj/structure/bookcase/smcult/Initialize()
-	new /obj/item/weapon/book/smcult/random(src)
-	new /obj/item/weapon/book/smcult/random(src)
-	if(prob(50))	new /obj/item/weapon/book/smcult/random(src)
-	if(prob(25))	new /obj/item/weapon/book/smcult/random(src)
+	new /obj/item/book/smcult/random(src)
+	new /obj/item/book/smcult/random(src)
+	if(prob(50))	new /obj/item/book/smcult/random(src)
+	if(prob(25))	new /obj/item/book/smcult/random(src)
 	update_icon()
 	. = ..()
 
-/obj/item/weapon/book/smcult/random/New()
+/obj/item/book/smcult/random/New()
 	title = pick("lex tenebris", "ritualis sui sanguinis", "potestate sacra", "re sacra", "de musicis rebus re vera", "contrita est deus", "ad animum secum colligendum", "rite componendis", "confractionis ritual")
 	name = title
 	dat = {"<html>
@@ -52,3 +52,4 @@
 				<i>The pages of this book are either complete gibberish or burnt to ash."</i>
 				</font>
 				</html>"}
+	..()

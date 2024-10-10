@@ -10,9 +10,9 @@
 	var/require_module = 0
 	var/installed = 0
 
-/obj/item/borg/upgrade/proc/action(var/mob/living/silicon/robot/R)
+/obj/item/borg/upgrade/proc/action(mob/living/silicon/robot/R)
 	if(R.stat == DEAD)
-		to_chat(usr, "<span class='warning'>The [src] will not function on a deceased robot.</span>")
+		to_chat(usr, SPAN_WARNING("The [src] will not function on a deceased robot."))
 		return 1
 	return 0
 
@@ -23,7 +23,7 @@
 	icon_state = "cyborg_upgrade1"
 	require_module = 1
 
-/obj/item/borg/upgrade/reset/action(var/mob/living/silicon/robot/R)
+/obj/item/borg/upgrade/reset/action(mob/living/silicon/robot/R)
 	if((. = ..())) return 0
 
 	R.reset_module()
@@ -36,10 +36,10 @@
 	require_module = 0
 	var/new_module = null
 
-/obj/item/borg/upgrade/uncertified/action(var/mob/living/silicon/robot/R)
+/obj/item/borg/upgrade/uncertified/action(mob/living/silicon/robot/R)
 	if((. = ..())) return 0
 	if(!new_module)
-		to_chat(usr, "<span class='warning'>[R]'s error lights strobe repeatedly - something seems to be wrong with the chip.</span>")
+		to_chat(usr, SPAN_WARNING("[R]'s error lights strobe repeatedly - something seems to be wrong with the chip."))
 		return 0
 
 	// Suppress the alert so the AI doesn't see a reset message.
@@ -66,7 +66,7 @@
 /obj/item/borg/upgrade/rename/attack_self(mob/user as mob)
 	heldname = sanitizeSafe(input(user, "Enter new robot name", "Robot Reclassification", heldname), MAX_NAME_LEN)
 
-/obj/item/borg/upgrade/rename/action(var/mob/living/silicon/robot/R)
+/obj/item/borg/upgrade/rename/action(mob/living/silicon/robot/R)
 	if(..()) return 0
 	R.notify_ai(ROBOT_NOTIFICATION_NEW_NAME, R.name, heldname)
 	R.SetName(heldname)
@@ -80,14 +80,14 @@
 	desc = "Used to boost cyborg's light intensity."
 	icon_state = "cyborg_upgrade1"
 
-/obj/item/borg/upgrade/floodlight/action(var/mob/living/silicon/robot/R)
+/obj/item/borg/upgrade/floodlight/action(mob/living/silicon/robot/R)
 	if(..()) return 0
 
 	if(R.intenselight)
 		to_chat(usr, "This cyborg's light was already upgraded")
 		return 0
 	else
-		R.intenselight = 1
+		R.intenselight = TRUE
 		R.update_robot_light()
 		to_chat(R, "Lighting systems upgrade detected.")
 	return 1
@@ -98,7 +98,7 @@
 	icon_state = "cyborg_upgrade1"
 
 
-/obj/item/borg/upgrade/restart/action(var/mob/living/silicon/robot/R)
+/obj/item/borg/upgrade/restart/action(mob/living/silicon/robot/R)
 	if(R.health < 0)
 		to_chat(usr, "You have to repair the robot before using this module!")
 		return 0
@@ -120,14 +120,14 @@
 	icon_state = "cyborg_upgrade2"
 	require_module = 1
 
-/obj/item/borg/upgrade/vtec/action(var/mob/living/silicon/robot/R)
-	if(..()) return 0
+/obj/item/borg/upgrade/vtec/action(mob/living/silicon/robot/R)
+	if(..()) return FALSE
 
-	if(R.speed == -1)
-		return 0
+	if(R.vtec)
+		return FALSE
 
-	R.speed--
-	return 1
+	R.vtec = TRUE
+	return TRUE
 
 
 /obj/item/borg/upgrade/weaponcooler
@@ -137,7 +137,7 @@
 	require_module = 1
 
 
-/obj/item/borg/upgrade/weaponcooler/action(var/mob/living/silicon/robot/R)
+/obj/item/borg/upgrade/weaponcooler/action(mob/living/silicon/robot/R)
 	if(..()) return 0
 
 	if(!R.module || !(type in R.module.supported_upgrades))
@@ -145,9 +145,9 @@
 		to_chat(usr, "There's no mounting point for the module!")
 		return 0
 
-	var/obj/item/weapon/gun/energy/gun/secure/mounted/T = locate() in R.module
+	var/obj/item/gun/energy/gun/secure/mounted/T = locate() in R.module
 	if(!T)
-		T = locate() in R.module.modules
+		T = locate() in R.module.equipment
 	if(!T)
 		to_chat(usr, "This robot has had its energy gun removed!")
 		return 0
@@ -168,7 +168,7 @@
 	icon_state = "cyborg_upgrade3"
 	require_module = 1
 
-/obj/item/borg/upgrade/jetpack/action(var/mob/living/silicon/robot/R)
+/obj/item/borg/upgrade/jetpack/action(mob/living/silicon/robot/R)
 	if(..()) return 0
 
 	if(!R.module || !(type in R.module.supported_upgrades))
@@ -176,8 +176,8 @@
 		to_chat(usr, "There's no mounting point for the module!")
 		return 0
 	else
-		R.module.modules += new/obj/item/weapon/tank/jetpack/carbondioxide
-		for(var/obj/item/weapon/tank/jetpack/carbondioxide in R.module.modules)
+		R.module.equipment += new/obj/item/tank/jetpack/carbondioxide
+		for(var/obj/item/tank/jetpack/carbondioxide in R.module.equipment)
 			R.internals = src
 		//R.icon_state="Miner+j"
 		return 1
@@ -188,7 +188,7 @@
 	icon_state = "cyborg_upgrade3"
 	require_module = 1
 
-/obj/item/borg/upgrade/rcd/action(var/mob/living/silicon/robot/R)
+/obj/item/borg/upgrade/rcd/action(mob/living/silicon/robot/R)
 	if(..()) return 0
 
 	if(!R.module || !(type in R.module.supported_upgrades))
@@ -196,20 +196,36 @@
 		to_chat(usr, "There's no mounting point for the module!")
 		return 0
 	else
-		R.module.modules += new/obj/item/weapon/rcd/borg(R.module)
+		R.module.equipment += new/obj/item/rcd/borg(R.module)
 		return 1
 
-/obj/item/borg/upgrade/syndicate/
+/obj/item/borg/upgrade/syndicate
 	name = "illegal equipment module"
 	desc = "Unlocks the hidden, deadlier functions of a robot."
 	icon_state = "cyborg_upgrade3"
 	require_module = 1
 
-/obj/item/borg/upgrade/syndicate/action(var/mob/living/silicon/robot/R)
+/obj/item/borg/upgrade/syndicate/action(mob/living/silicon/robot/R)
 	if(..()) return 0
 
-	if(R.emagged == 1)
+	if(R.emagged)
 		return 0
 
-	R.emagged = 1
+	R.emagged = TRUE
 	return 1
+
+/obj/item/borg/upgrade/flash_protection
+	name = "optical matrix shielding"
+	desc = "Provides shielding for the optical matrix, rendering the robot immune to flashes."
+
+/obj/item/borg/upgrade/flash_protection/action(mob/living/silicon/robot/R)
+	if (..())
+		return FALSE
+
+	if (R.flash_protected)
+		to_chat(usr, SPAN_WARNING("\The [R]'s optical matrix is already shielded."))
+		return FALSE
+
+	R.status_flags &= ~CANWEAKEN
+	R.flash_protected = TRUE
+	return TRUE

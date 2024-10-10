@@ -36,6 +36,19 @@ for var; do
     elif [[ $var == -M* ]]; then
         sed -i '1s/^/#define MAP_OVERRIDE\n/' $dmepath.mdme
         sed -i 's!#include "maps\\_map_include.dm"!#include "maps\\'$arg'\\'$arg'.dm"!' $dmepath.mdme
+    elif [[ $var == -T ]]; then
+        sed -i '1s/^/#define MAP_TEST_TEMPLATES\n/' $dmepath.mdme
+    elif [[ $var == -W* ]]; then
+        sed -i '1s/^/#define DEBUG_GENERATE_WORTHS\n/' $dmepath.mdme
+        sed -i '1s/^/#define MAP_OVERRIDE\n/' $dmepath.mdme
+        declare -i line=$(grep -n '#include "maps\\_map_include.dm"' $dmepath.mdme | cut -d : -f 1)
+        line+=1
+        sed -i 's!#include "maps\\_map_include.dm"!#include "maps\\template_testing\\template_testing.dm"!' $dmepath.mdme
+        maps=$(echo $arg | tr "|" "\n")
+        for map in $maps
+        do
+            sed -i ''$line's/^/#include \"maps\\'$map'\\'$map'.dm\"\n/' $dmepath.mdme
+        done
     fi
 done
 

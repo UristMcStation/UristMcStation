@@ -6,7 +6,8 @@
 	var/spread = 0 //will the seam spread?
 	var/spreadChance = 0 //the percentual chance of an ore spreading to the neighbouring tiles
 
-/turf/simulated/mineral/ore/New()
+/turf/simulated/mineral/ore/Initialize()
+	. = ..()
 	if (mineralName && mineralAmt && spread && spreadChance)
 		for(var/dir in GLOB.cardinal)
 			if(prob(spreadChance))
@@ -15,7 +16,7 @@
 					Spread(T)
 	return
 
-/turf/simulated/mineral/ore/proc/Spread(var/turf/T)
+/turf/simulated/mineral/ore/proc/Spread(turf/T)
 	new src.type(T)
 
 /turf/simulated/mineral/ore/uranium
@@ -76,12 +77,16 @@
 
 //honk
 
-/obj/item/weapon/ore/clown
+/obj/item/ore/clown
 	name = "Bananium ore"
 	icon_state = "Clown ore"
 	origin_tech = "materials=4"
 
 //planet
+
+/turf/simulated/floor/asteroid/planet
+	initial_gas = list("oxygen" = MOLES_O2STANDARD, "nitrogen" = MOLES_N2STANDARD)
+	temperature = 293.15
 
 /turf/simulated/mineral/planet
 	mined_turf = /turf/simulated/floor/asteroid/planet

@@ -1,5 +1,4 @@
 /mob/living/simple_animal/hostile/overmapship/pirate
-	wander = 1 //temporary
 	color = "#660000"
 	hiddenfaction = /datum/factions/pirate
 	aggressive = 1
@@ -59,8 +58,30 @@
 
 	.=..()
 
+/mob/living/simple_animal/hostile/overmapship/pirate/fast
+	shields = 450
+	health = 900
+	maxHealth = 900
+	name = "pirate vessel"
+	ship_category = "pirate fast attack craft"
+	boardingmap = "maps/shipmaps/ship_pirate_fast1.dmm"
+	can_board = TRUE
+
+/mob/living/simple_animal/hostile/overmapship/pirate/fast/Initialize()
+	components = list(
+		new /datum/shipcomponents/shield/fighter/pirate,
+		new /datum/shipcomponents/engines/fighter,
+		new /datum/shipcomponents/weapons/smallmissile/battery,
+		new /datum/shipcomponents/weapons/lightlaser/auto,
+		new /datum/shipcomponents/weapons/lightlaser/auto,
+		new /datum/shipcomponents/weapons/autocannon,
+		new /datum/shipcomponents/point_defence/basic,
+		new /datum/shipcomponents/teleporter/pirate/small
+	)
+
+	.=..()
+
 /mob/living/simple_animal/hostile/overmapship/alien
-	wander = 1
 	color = "#660000"
 	hiddenfaction = /datum/factions/alien
 	aggressive = 1
@@ -122,7 +143,6 @@
 /mob/living/simple_animal/hostile/overmapship/hivebot
 	ship_category = "unknown freighter"
 	aggressive = 1
-	wander = 1
 	color = "#f65026" //a reddish orange
 	can_board = FALSE //i've got some things in mind for this
 	shields = 1100 //the intention for the map is a freighter or something taken over by drones/hivebots. Are hivebots the end result of a successful drone uprising? idk, but it'll be a neat away.
@@ -145,3 +165,28 @@
 	)
 
 	..()
+
+/mob/living/simple_animal/hostile/overmapship/pirate/gantry // Makeshift Pirate Vessel, OSHA not included.
+//	shipdatum = /datum/ships/pirategantry
+	shields = 600
+	health = 800
+	maxHealth = 800
+	name = "tiny pirate gantry"  // Keep in size conventions, tiny sounds weaker than small.
+	ship_category = "tiny gantry vessel"
+	boardingmap = "maps/shipmaps/ship_pirate_scrapper.dmm"
+	can_board = TRUE
+	potential_weapons = list(/datum/shipcomponents/weapons/lightlaser/dual, /datum/shipcomponents/weapons/smallmissilepod)
+
+/mob/living/simple_animal/hostile/overmapship/pirate/gantry/Initialize()
+	components = list(
+		new /datum/shipcomponents/shield/light,
+		new /datum/shipcomponents/engines/pod,
+		new /datum/shipcomponents/weapons/smallmissilepod,
+		new /datum/shipcomponents/weapons/lightlaser/dual,
+		new /datum/shipcomponents/teleporter/pirate/small
+	)
+
+	add_weapons()
+	add_weapons()
+
+	.=..()

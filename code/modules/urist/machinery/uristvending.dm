@@ -17,7 +17,6 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_deny = "theater-deny"
 	req_access = list(access_theatre) // Theatre access needed, unless hacked.
 	product_slogans = "Dress for success!;Suited and booted!;It's show time!;Why leave style up to fate? Use AutoDrobe!"
-	vend_delay = 15
 	vend_reply = "Thank you for using AutoDrobe!"
 	products = list(/obj/item/clothing/suit/chickensuit = 1,/obj/item/clothing/head/chicken = 1,/obj/item/clothing/under/gladiator = 1,
 					/obj/item/clothing/head/helmet/gladiator = 1,/obj/item/clothing/under/gimmick/rank/captain/suit = 1,/obj/item/clothing/head/flatcap = 1,
@@ -25,18 +24,18 @@ Please keep it tidy, by which I mean put comments describing the item before the
 					/obj/item/clothing/under/schoolgirl = 1,/obj/item/clothing/head/kitty = 1,/obj/item/clothing/under/blackskirt = 1,/obj/item/clothing/head/beret = 1,
 					/obj/item/clothing/accessory/wcoat = 1,/obj/item/clothing/under/suit_jacket = 1,/obj/item/clothing/head/that =1,/obj/item/clothing/head/cueball = 1,
 					/obj/item/clothing/under/scratch = 1,/obj/item/clothing/under/kilt = 1,/obj/item/clothing/head/beret = 1,/obj/item/clothing/accessory/wcoat = 1,
-					/obj/item/clothing/glasses/monocle =1,/obj/item/clothing/head/bowler = 1,/obj/item/weapon/cane = 1,/obj/item/clothing/under/sl_suit = 1,
+					/obj/item/clothing/glasses/monocle =1,/obj/item/clothing/head/bowler = 1,/obj/item/cane = 1,/obj/item/clothing/under/sl_suit = 1,
 					/obj/item/clothing/mask/fakemoustache = 1,/obj/item/clothing/suit/bio_suit/plaguedoctorsuit = 1,/obj/item/clothing/head/plaguedoctorhat = 1,
 					/obj/item/clothing/under/owl = 1,/obj/item/clothing/mask/gas/owl_mask = 1,/obj/item/clothing/suit/apron = 1,/obj/item/clothing/under/waiter = 1,
 					/obj/item/clothing/under/pirate = 1,/obj/item/clothing/suit/pirate = 1,/obj/item/clothing/head/pirate = 1,/obj/item/clothing/head/bandana = 1,
 					/obj/item/clothing/head/bandana = 1,/obj/item/clothing/under/soviet = 1,/obj/item/clothing/head/ushanka = 1,/obj/item/clothing/suit/imperium_monk = 1,
 					/obj/item/clothing/mask/gas/cyborg = 1,/obj/item/clothing/suit/holidaypriest = 1,/obj/item/clothing/head/wizard/marisa/fake = 1,
-					/obj/item/clothing/suit/wizrobe/marisa/fake = 1,/obj/item/clothing/under/sundress = 1,/obj/item/clothing/head/witchwig = 1,/obj/item/weapon/staff/broom = 1,
-					/obj/item/clothing/suit/wizrobe/fake = 1,/obj/item/clothing/head/wizard/fake = 1,/obj/item/weapon/staff = 3,/obj/item/clothing/mask/gas/sexyclown = 1,
+					/obj/item/clothing/suit/wizrobe/marisa/fake = 1,/obj/item/clothing/under/sundress = 1,/obj/item/clothing/head/witchwig = 1,/obj/item/staff/broom = 1,
+					/obj/item/clothing/suit/wizrobe/fake = 1,/obj/item/clothing/head/wizard/fake = 1,/obj/item/staff = 3,/obj/item/clothing/mask/gas/sexyclown = 1,
 					/obj/item/clothing/under/sexyclown = 1,/obj/item/clothing/mask/gas/sexymime = 1,/obj/item/clothing/under/sexymime = 1,/obj/item/clothing/suit/apron/overalls = 1,
 					/obj/item/clothing/head/rabbitears =1) //Pretty much everything that had a chance to spawn.
 	contraband = list(/obj/item/clothing/suit/cardborg = 1,/obj/item/clothing/head/cardborg = 1,/obj/item/clothing/suit/judgerobe = 1,/obj/item/clothing/head/powdered_wig = 1)
-	premium = list(/obj/item/clothing/suit/hgpirate = 1, /obj/item/clothing/head/hgpiratecap = 1, /obj/item/clothing/head/helmet/roman = 1, /obj/item/clothing/head/helmet/roman/legionaire = 1, /obj/item/clothing/under/roman = 1, /obj/item/clothing/shoes/roman = 1, /obj/item/weapon/shield/riot/roman = 1)
+	premium = list(/obj/item/clothing/suit/hgpirate = 1, /obj/item/clothing/head/hgpiratecap = 1, /obj/item/clothing/head/helmet/roman = 1, /obj/item/clothing/head/helmet/roman/legionaire = 1, /obj/item/clothing/under/roman = 1, /obj/item/clothing/shoes/roman = 1, /obj/item/shield/riot/roman = 1)
 
 //sustenance from /tg/
 
@@ -46,10 +45,10 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	product_slogans = "Enjoy your meal.;Enough calories to support strenuous labor."
 	product_ads = "Sufficiently healthy.;Efficiently produced tofu!;Mmm! So good!;Have a meal.;You need food to live!;Have some more candy corn!;Try our new ice cups!"
 	icon_state = "sustenance"
-	products = list(/obj/item/weapon/reagent_containers/food/snacks/tofu = 24,
-					/obj/item/weapon/reagent_containers/food/drinks/ice = 12,
-					/obj/item/weapon/reagent_containers/food/snacks/candy_corn = 6)
-	contraband = list(/obj/item/weapon/material/kitchen/utensil/knife = 6)
+	products = list(/obj/item/reagent_containers/food/snacks/tofu = 24,
+					/obj/item/reagent_containers/food/drinks/ice = 12,
+					/obj/item/reagent_containers/food/snacks/candy_corn = 6)
+	contraband = list(/obj/item/material/knife/kitchen = 6)
 
 //nt vanity machine.
 
@@ -58,12 +57,11 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	desc = "A vending machine that dispenses goods with the Nanotrasen colours and logo."
 	product_slogans = "Nanotrasen, working for you!;Show your loyalty to Nanotrasen!;Glory to Nanotrasen!;Nanotrasen brand goods, buy today!"
 	product_ads = "Nanotrasen, definitely not evil!;Nanotrasen, expanding out of control since the 22nd century!;Nanotrasen cares!;Quality goods, quality prices!;Glory to Nanotrasen!;Nanotrasen, paving a brighter future.;Look stylish and loyal!;Nanotrasen, making your work experience better one toolbox at a time!"
-	vend_delay = 15
 	vend_reply = "Glory to Nanotrasen!"
 	icon_state = "clothing2"
-	products = list(/obj/item/clothing/under/urist/nanotrasen/blue = 10,/obj/item/clothing/head/soft/nanotrasen/blue = 10,/obj/item/clothing/under/urist/nanotrasen/white = 10,/obj/item/clothing/head/soft/nanotrasen/white = 10,/obj/item/clothing/suit/urist/sweater/nanotrasen = 10,/obj/item/weapon/storage/toolbox/nanotrasen = 4)
-	contraband = list(/obj/item/weapon/storage/toolbox/syndicate = 1)
-	prices = list(/obj/item/clothing/under/urist/nanotrasen/blue = 100,/obj/item/clothing/head/soft/nanotrasen/blue = 50,/obj/item/clothing/under/urist/nanotrasen/white = 100,/obj/item/clothing/head/soft/nanotrasen/white = 50,/obj/item/clothing/suit/urist/sweater/nanotrasen = 150,/obj/item/weapon/storage/toolbox/nanotrasen = 200)
+	products = list(/obj/item/clothing/under/urist/nanotrasen/blue = 10,/obj/item/clothing/head/soft/nanotrasen/blue = 10,/obj/item/clothing/under/urist/nanotrasen/white = 10,/obj/item/clothing/head/soft/nanotrasen/white = 10,/obj/item/clothing/suit/urist/sweater/nanotrasen = 10,/obj/item/storage/toolbox/nanotrasen = 4)
+	contraband = list(/obj/item/storage/toolbox/syndicate = 1)
+	prices = list(/obj/item/clothing/under/urist/nanotrasen/blue = 100,/obj/item/clothing/head/soft/nanotrasen/blue = 50,/obj/item/clothing/under/urist/nanotrasen/white = 100,/obj/item/clothing/head/soft/nanotrasen/white = 50,/obj/item/clothing/suit/urist/sweater/nanotrasen = 150,/obj/item/storage/toolbox/nanotrasen = 200)
 
 //dresses!
 
@@ -71,8 +69,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "\improper Automated Dress Vendor"
 	desc = "A vending machine that apparently dispenses dresses... What will Nanotrasen think of next?"
 	product_ads = "Say yes!;Say yes to the dress!;Buy the dress you've always wanted today!;Beautiful dresses... In space.;Want to impress? Buy a dress!"
-	product_slogans = "Say yes!;Say yes to the dress!;You better say yes!;Your id is on file, say yes to the fucking dress.;Beautiful!;Sexy!;Stunning!;Stylish!;Let your inner princess free!;Fabulous!;Buy a new dress today!;The dresses of the future... today!;We know dresses. Buy one today!;Impress people, buy a dress!"
-	vend_delay = 15
+	product_slogans = "Say yes!;Say yes to the dress!;You better say yes!;Your id is on file, say yes to the fucking dress.;Beautiful!;Sexy!;Stunning!;Stylish!;Let your inner princess free!;Fabulous!;Buy a new dress today!;The dresses of the future... today!;We know dresses. Buy one today!;Impress, buy a dress!"
 	vend_reply = "Enjoy your beautiful new dress!"
 	icon_state = "dress"
 	products = list(/obj/item/clothing/under/urist/dress/teal = 5,/obj/item/clothing/under/urist/dress/yellow = 5,/obj/item/clothing/under/urist/dress/white1 = 5,/obj/item/clothing/under/urist/dress/white2 = 5,/obj/item/clothing/under/dress/dress_fire = 5,/obj/item/clothing/under/dress/dress_green = 5,/obj/item/clothing/under/dress/dress_orange = 5,/obj/item/clothing/under/dress/dress_pink = 5,
@@ -173,9 +170,9 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	vend_reply = "Remember to buckle up!"
 	product_ads = "Keeping pants from falling down since 2456!; All the belts you could ask for!"
 	product_slogans = "Belts for everyone!; I knew a guy who didn't wear belts, he died!; All belt buckles are made from 100% pure silver, honest!"
-	products = list(/obj/item/weapon/storage/belt/vanity/leather = 5,/obj/item/weapon/storage/belt/vanity/cowboy = 5,/obj/item/weapon/storage/belt/vanity/black = 10,/obj/item/weapon/storage/belt/vanity/red = 10,/obj/item/weapon/storage/belt/vanity/green = 10,/obj/item/weapon/storage/belt/vanity/purple = 10,/obj/item/weapon/storage/belt/vanity/blue = 10,/obj/item/weapon/storage/belt/vanity/orange = 10)
-	prices = list(/obj/item/weapon/storage/belt/vanity/leather = 250,/obj/item/weapon/storage/belt/vanity/cowboy = 250,/obj/item/weapon/storage/belt/vanity/black = 100,/obj/item/weapon/storage/belt/vanity/red = 100,/obj/item/weapon/storage/belt/vanity/green = 100,/obj/item/weapon/storage/belt/vanity/purple = 100,/obj/item/weapon/storage/belt/vanity/blue = 100,/obj/item/weapon/storage/belt/vanity/orange = 100)
-	contraband = list(/obj/item/weapon/storage/belt/utility = 1)
+	products = list(/obj/item/storage/belt/vanity/leather = 5,/obj/item/storage/belt/vanity/cowboy = 5,/obj/item/storage/belt/vanity/black = 10,/obj/item/storage/belt/vanity/red = 10,/obj/item/storage/belt/vanity/green = 10,/obj/item/storage/belt/vanity/purple = 10,/obj/item/storage/belt/vanity/blue = 10,/obj/item/storage/belt/vanity/orange = 10)
+	prices = list(/obj/item/storage/belt/vanity/leather = 250,/obj/item/storage/belt/vanity/cowboy = 250,/obj/item/storage/belt/vanity/black = 100,/obj/item/storage/belt/vanity/red = 100,/obj/item/storage/belt/vanity/green = 100,/obj/item/storage/belt/vanity/purple = 100,/obj/item/storage/belt/vanity/blue = 100,/obj/item/storage/belt/vanity/orange = 100)
+	contraband = list(/obj/item/storage/belt/utility = 1)
 
 
 /obj/machinery/vending/whitedragon
@@ -188,19 +185,34 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		"Go off-world!", "MSG negotiable!", "500 years of traditional food!")
 	product_ads = list ("Mmm, so tasty!",
 		"Try our new sauces!", "Rich in sesame oil!", "Why not try a surprise pack?", "Yayakuza recommends!")
-	products = list(/obj/item/weapon/reagent_containers/food/snacks/urist/onigiri = 3,
-					/obj/item/weapon/reagent_containers/food/snacks/urist/onigiri2 = 3,
-					/obj/item/weapon/reagent_containers/food/snacks/urist/onigiri4 = 3,
-					/obj/item/weapon/reagent_containers/food/snacks/urist/yakidango = 5,
-					/obj/item/weapon/reagent_containers/food/snacks/urist/ramenmiso = 4,
-					/obj/item/weapon/material/kitchen/utensil/chopsticks = 10,
+	products = list(/obj/item/reagent_containers/food/snacks/urist/onigiri = 3,
+					/obj/item/reagent_containers/food/snacks/urist/onigiri2 = 3,
+					/obj/item/reagent_containers/food/snacks/urist/onigiri4 = 3,
+					/obj/item/reagent_containers/food/snacks/urist/yakidango = 5,
+					/obj/item/reagent_containers/food/snacks/urist/ramenmiso = 4,
+					/obj/item/material/kitchen/utensil/chopsticks = 10,
 					)
 
-	prices = list(/obj/item/weapon/reagent_containers/food/snacks/urist/onigiri = 40,
-					/obj/item/weapon/reagent_containers/food/snacks/urist/onigiri2 = 40,
-					/obj/item/weapon/reagent_containers/food/snacks/urist/onigiri4 = 50,
-					/obj/item/weapon/reagent_containers/food/snacks/urist/yakidango = 60,
-					/obj/item/weapon/reagent_containers/food/snacks/urist/ramenmiso = 45,
-					/obj/item/weapon/material/kitchen/utensil/chopsticks = 10,
+	prices = list(/obj/item/reagent_containers/food/snacks/urist/onigiri = 40,
+					/obj/item/reagent_containers/food/snacks/urist/onigiri2 = 40,
+					/obj/item/reagent_containers/food/snacks/urist/onigiri4 = 50,
+					/obj/item/reagent_containers/food/snacks/urist/yakidango = 60,
+					/obj/item/reagent_containers/food/snacks/urist/ramenmiso = 45,
+					/obj/item/material/kitchen/utensil/chopsticks = 10,
 					)
 	contraband = list(/obj/item/clothing/head/urist/headbanddragon)
+
+//rescued bay vending machines
+/obj/machinery/vending/assist
+	name = "Some Assembly Required"
+	products = list(	/obj/item/device/assembly/prox_sensor = 5,/obj/item/device/assembly/igniter = 3,/obj/item/device/assembly/signaler = 4,
+						/obj/item/wirecutters = 1)
+	contraband = list(/obj/item/device/flashlight = 5,/obj/item/device/assembly/timer = 2)
+	product_ads = "Only the finest!;Have some tools.;The most robust equipment.;The finest gear in space!"
+
+/obj/machinery/vending/assist/antag
+	name = "AntagCorpVend"
+	contraband = list()
+	products = list(	/obj/item/device/assembly/prox_sensor = 5, /obj/item/device/assembly/signaler = 4,
+						/obj/item/device/assembly/infra = 4, /obj/item/device/assembly/prox_sensor = 4,
+						/obj/item/handcuffs = 8, /obj/item/device/flash = 4, /obj/item/clothing/glasses/sunglasses = 4)

@@ -4,82 +4,130 @@
 /datum/uplink_item/item/visible_weapons
 	category = /datum/uplink_category/visible_weapons
 
+/datum/uplink_item/item/visible_weapons/smallenergy_gun
+	name = "Small Energy Gun"
+	desc = "A pocket-sized energy based sidearm with three different lethality settings."
+	item_cost = 16
+	path = /obj/item/gun/energy/gun/small
+
+/datum/uplink_item/item/visible_weapons/shuriken
+	name = "Box of shurikens"
+	desc = "A small box with six shuriken, notably dangerous."
+	item_cost = 16
+	path = /obj/item/storage/box/syndie_kit/shuriken
+
 /datum/uplink_item/item/visible_weapons/dartgun
 	name = "Dart Gun"
+	desc = "A gas-powered dart gun capable of delivering chemical payloads across short distances. \
+			Uses a unique cartridge loaded with hollow darts."
 	item_cost = 12
-	path = /obj/item/weapon/gun/projectile/dartgun
+	path = /obj/item/gun/projectile/dartgun
 
 /datum/uplink_item/item/visible_weapons/crossbow
 	name = "Energy Crossbow"
+	desc = "A self-recharging, almost silent weapon employed by stealth operatives."
 	item_cost = 24
-	path = /obj/item/weapon/gun/energy/crossbow
+	path = /obj/item/gun/energy/crossbow
+
+/datum/uplink_item/item/visible_weapons/pikecube
+	name = "Pike Cube"
+	desc = "While it looks like a normal monkey cube, the animal produced is, instead, a space pike. \ Note: The space pike does not like you."
+	item_cost = 36
+	path = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/pikecube
+
+/datum/uplink_item/item/visible_weapons/katana
+	name = "Katana"
+	desc = "A large sharpened steel blade capable of cutting through anything but the thickest armor."
+	item_cost = 24
+	path = /obj/item/material/sword/katana
 
 /datum/uplink_item/item/visible_weapons/energy_sword
 	name = "Energy Sword"
+	desc = "A hilt, that when activated, creates a solid beam of pure energy in the form of a sword. \
+			Able to slice through people like butter!"
 	item_cost = 32
-	path = /obj/item/weapon/melee/energy/sword
+	path = /obj/item/melee/energy/sword
 	antag_costs = list(MODE_PARANOIA = 96)
 
-/datum/uplink_item/item/visible_weapons/g9mm
+/datum/uplink_item/item/visible_weapons/silenced
 	name = "Silenced Holdout Pistol"
-	desc = "9mm with silencer kit and ammunition."
+	desc = "A kit with a pocket-sized holdout pistol, silencer, and an extra magazine. \
+			Attaching the silencer will make it too big to conceal in your pocket."
 	item_cost = 20
-	path = /obj/item/weapon/storage/box/syndie_kit/g9mm
+	path = /obj/item/storage/box/syndie_kit/silenced
+
+/datum/uplink_item/item/visible_weapons/broomstick
+	name = "Broomstick Pistol"
+	desc = "An antique pistol stolen from a museum. Be warned, it may be faulty and comes unloaded."
+	item_cost = 40
+	path = /obj/item/gun/projectile/pistol/broomstick
 
 /datum/uplink_item/item/badassery/money_cannon
 	name = "Modified Money Cannon"
 	item_cost = 48
-	path = /obj/item/weapon/gun/launcher/money/hacked
+	path = /obj/item/gun/launcher/money/hacked
 	desc = "Too much money? Not enough screaming? Try the Money Cannon."
-
-/datum/uplink_item/item/visible_weapons/riggedlaser
-	name = "Exosuit (APLU) Rigged Laser"
-	item_cost = 32
-	path = /obj/item/mecha_parts/mecha_equipment/weapon/energy/riggedlaser
-	antag_costs = list(MODE_PARANOIA = 96)
 
 /datum/uplink_item/item/visible_weapons/energy_gun
 	name = "Energy Gun"
+	desc = "A energy based sidearm with three different lethality settings."
 	item_cost = 24
-	path = /obj/item/weapon/gun/energy/gun
+	path = /obj/item/gun/energy/gun
 
 /datum/uplink_item/item/visible_weapons/revolver //357 and 44 revolvers are functionally identical
 	name = "Revolver, .357"
 	desc = ".357 Magnum revolver, with ammunition."
 	item_cost = 36
-	path = /obj/item/weapon/storage/backpack/satchel/syndie_kit/revolver
+	path = /obj/item/storage/backpack/satchel/syndie_kit/revolver
 
-/datum/uplink_item/item/visible_weapons/revolver2
-	name = "Revolver, .44"
-	desc = ".44 Magnum revolver, with ammunition."
-	item_cost = 36
-	path = /obj/item/weapon/storage/backpack/satchel/syndie_kit/revolver2
+/datum/uplink_item/item/visible_weapons/ionpistol
+	name = "Ion Pistol"
+	desc = "Ion rifle in compact form."
+	item_cost = 50
+	path = /obj/item/gun/energy/ionrifle/small
 
 /datum/uplink_item/item/visible_weapons/grenade_launcher
 	name = "Grenade Launcher"
+	desc = "A pump action grenade launcher loaded with a random assortment of grenades."
 	item_cost = 60
-	path = /obj/item/weapon/gun/launcher/grenade/loaded
+	antag_roles = list(MODE_MERCENARY)
+	path = /obj/item/gun/launcher/grenade/loaded
 
 //These are for traitors (or other antags, perhaps) to have the option of purchasing some merc gear.
 /datum/uplink_item/item/visible_weapons/submachinegun
-	name = "Submachine Gun"
+	name = "C20r Submachine Gun"
 	item_cost = 64
-	path = /obj/item/weapon/gun/projectile/automatic/c20r
+	path = /obj/item/gun/projectile/automatic/c20r
 
 /datum/uplink_item/item/visible_weapons/assaultrifle
-	name = "Assault Rifle"
+	name = "STS-35 Assault Rifle"
 	item_cost = 68
-	path = /obj/item/weapon/gun/projectile/automatic/sts35
+	path = /obj/item/gun/projectile/automatic/sts35
+
+/datum/uplink_item/item/visible_weapons/battlerifle
+	name = "Battle Rifle"
+	desc = "Predecessor to the Assault Rifle, works just as well as the new guns."
+	item_cost = 65
+	path = /obj/item/gun/projectile/automatic/battlerifle
+	antag_roles = list(MODE_MERCENARY)
+
+/datum/uplink_item/item/visible_weapons/semistrip
+	name = "Carbine Rifle"
+	desc = "For arming your comrades on the (not so) cheap!"
+	item_cost = 55
+	path = /obj/item/gun/projectile/sniper/semistrip
+	antag_roles = list(MODE_REVOLUTIONARY, MODE_MERCENARY)
+
 
 /datum/uplink_item/item/visible_weapons/advanced_energy_gun
 	name = "Advanced Energy Gun"
 	item_cost = 68
-	path = /obj/item/weapon/gun/energy/gun/nuclear
+	path = /obj/item/gun/energy/gun/nuclear
 
 /datum/uplink_item/item/visible_weapons/heavysniper
 	name = "Anti-materiel Rifle with ammunition"
 	item_cost = 96
-	path = /obj/item/weapon/storage/secure/briefcase/heavysniper
+	path = /obj/item/storage/secure/briefcase/heavysniper
 	antag_costs = list(MODE_PARANOIA = 300)
 
 /*
@@ -91,70 +139,91 @@
 */
 
 /datum/uplink_item/item/visible_weapons/machine_pistol
-	name = "Machine Pistol"
+	name = "Standard Machine Pistol"
+	desc = "A high rate of fire weapon in a smaller form factor, able to sling standard ammunition almost as quick as a submachine gun."
 	item_cost = 45
-	path = /obj/item/weapon/gun/projectile/automatic/machine_pistol
+	path = /obj/item/gun/projectile/automatic/machine_pistol
 
 /datum/uplink_item/item/visible_weapons/combat_shotgun
 	name = "Combat Shotgun"
+	desc = "A high compacity, pump-action shotgun regularly used for repelling boarding parties in close range scenarios."
 	item_cost = 52
-	path = /obj/item/weapon/gun/projectile/shotgun/pump/combat
+	path = /obj/item/gun/projectile/shotgun/pump/combat
+	antag_roles = list(MODE_MERCENARY)
 
 /datum/uplink_item/item/visible_weapons/sawnoff
 	name = "Sawnoff Shotgun"
+	desc = "A shortened double-barrel shotgun, able to fire either one, or both, barrels at once."
 	item_cost = 40
-	path = /obj/item/weapon/gun/projectile/shotgun/doublebarrel/sawn
+	path = /obj/item/gun/projectile/shotgun/doublebarrel/sawn
 
 /datum/uplink_item/item/visible_weapons/deagle
 	name = "Magnum Pistol"
+	desc = "A .50 pistol that packs a punch."
 	item_cost = 60
-	path = /obj/item/weapon/gun/projectile/magnum_pistol
-
-/datum/uplink_item/item/visible_weapons/beretta
-	name = "9mm Pistol"
-	item_cost = 32
-	path = /obj/item/weapon/gun/projectile/beretta
+	path = /obj/item/gun/projectile/pistol/magnum_pistol
 
 /datum/uplink_item/item/visible_weapons/sigsauer
 	name = "10mm Pistol"
 	item_cost = 40
-	path = /obj/item/weapon/gun/projectile/sigsauer
+	path = /obj/item/gun/projectile/pistol/optimus
 
 /datum/uplink_item/item/visible_weapons/detective_revolver
-	name = "Holdout Revolver"
-	item_cost = 38
-	path = /obj/item/weapon/gun/projectile/revolver/detective
+	name = "Small Revolver"
+	desc = "A pocket-sized holdout revolver. Easily concealable.."
+	item_cost = 24
+	path = /obj/item/gun/projectile/revolver/holdout
 
 /datum/uplink_item/item/visible_weapons/pulserifle
 	name = "Pulse Rifle"
+	desc = "A triple burst, heavy laser rifle, with a large battery compacity."
 	item_cost = 68
-	path = /obj/item/weapon/gun/energy/pulse_rifle
+	path = /obj/item/gun/energy/pulse_rifle
 	antag_roles = list(MODE_MERCENARY)
 
 /datum/uplink_item/item/visible_weapons/flechetterifle
 	name = "Flechette Rifle"
+	desc = "A railgun with two togglable fire modes, able to launch flechette ammunition at incredible speeds."
 	item_cost = 60
-	path = /obj/item/weapon/gun/magnetic/railgun/flechette
+	path = /obj/item/gun/magnetic/railgun/flechette
 
 /datum/uplink_item/item/visible_weapons/railgun // Like a semi-auto AMR
 	name = "Railgun"
-	item_cost = DEFAULT_TELECRYSTAL_AMOUNT - (DEFAULT_TELECRYSTAL_AMOUNT - (DEFAULT_TELECRYSTAL_AMOUNT % 6)) / 6
-	antag_costs = list(MODE_MERCENARY = DEFAULT_TELECRYSTAL_AMOUNT - (DEFAULT_TELECRYSTAL_AMOUNT - (DEFAULT_TELECRYSTAL_AMOUNT % 6)) / 6)
-	path = /obj/item/weapon/gun/magnetic/railgun
+	desc = "An anti-armour magnetic launching system fed by a high-capacity matter cartridge, \
+			capable of firing slugs at intense speeds."
+	item_cost = 65
+	antag_roles = list(MODE_MERCENARY)
+	path = /obj/item/gun/magnetic/railgun
 
 /datum/uplink_item/item/visible_weapons/railguntcc // Only slightly better than the normal railgun; but cooler looking
 	name = "Advanced Railgun"
-	item_cost = DEFAULT_TELECRYSTAL_AMOUNT + (DEFAULT_TELECRYSTAL_AMOUNT - (DEFAULT_TELECRYSTAL_AMOUNT % 6)) / 6// Only available to traitors if they share TCs.
-	antag_costs = list(MODE_MERCENARY = DEFAULT_TELECRYSTAL_AMOUNT) // This, on the other hand, is to encourage usage specifically by mercs with high budgets.
-	path = /obj/item/weapon/gun/magnetic/railgun/tcc
+	desc = "A modified prototype of the original railgun implement, this time boring slugs out of steel rods loaded into the chamber, \
+			now with even MORE stopping power."
+	antag_roles = list(MODE_MERCENARY)
+	item_cost = 75
+	path = /obj/item/gun/magnetic/railgun/tcc
 
 /datum/uplink_item/item/visible_weapons/harpoonbomb
 	name = "Explosive Harpoon"
 	item_cost = 16
-	path = /obj/item/weapon/material/harpoon/bomb
+	path = /obj/item/material/harpoon/bomb
+
+/datum/uplink_item/item/visible_weapons/incendiary_laser
+	name = "Incendiary Laser Blaster"
+	desc = "A laser weapon developed and subsequently banned in Sol space, it sets its targets on fire with dispersed laser technology. \
+			Most of these blasters were swiftly bought back and destroyed - but not this one."
+	item_cost = 40
+	path = /obj/item/gun/energy/incendiary_laser
+
+/datum/uplink_item/item/visible_weapons/boltaction
+	name = "Bolt Action Rifle"
+	desc = "For arming your comrades on the cheap!"
+	item_cost = 12
+	path = /obj/item/gun/projectile/heavysniper/boltaction
+	antag_roles = list(MODE_REVOLUTIONARY)
 
 /datum/uplink_item/item/visible_weapons/ionpistol
 	name = "Ion Pistol"
 	desc = "Ion rifle in compact form."
 	item_cost = 36	// TC in line with Magnums/Heavy .44's, to reflect it's nuking capability on Synths.
-	path = /obj/item/weapon/gun/energy/ionrifle/small
+	path = /obj/item/gun/energy/ionrifle/small

@@ -3,7 +3,7 @@
 	gender = PLURAL
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "remains"
-	anchored = 0
+	anchored = FALSE
 
 /obj/effect/decal/remains	// Apparently used by cult somewhere?
 	desc = "They look like human remains. They have a strange aura about them."
@@ -24,7 +24,7 @@
 
 /obj/item/remains/robot
 	desc = "They look like the remains of something mechanical. They have a strange aura about them."
-	icon = 'icons/mob/robots.dmi'
+	icon = 'icons/mob/robots_gibs.dmi'
 	icon_state = "remainsrobot"
 
 /obj/item/remains/mouse
@@ -36,7 +36,7 @@
 	icon_state = "lizard"
 
 /obj/item/remains/attack_hand(mob/user as mob)
-	to_chat(user, "<span class='notice'>[src] sinks together into a pile of ash.</span>")
+	to_chat(user, SPAN_NOTICE("[src] sinks together into a pile of ash."))
 	var/turf/simulated/floor/F = get_turf(src)
 	if (istype(F))
 		new /obj/effect/decal/cleanable/ash(F)

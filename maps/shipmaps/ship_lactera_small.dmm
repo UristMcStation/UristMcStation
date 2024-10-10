@@ -1,151 +1,4398 @@
-"aa" = (/turf/space,/area/space)
-"ab" = (/turf/unsimulated/wall/urist/other{tag = "icon-1,0 (NORTH)"; icon_state = "1,0"; dir = 1},/area/boarding_ship)
-"ac" = (/turf/unsimulated/wall/urist/other{tag = "icon-1,0 (SOUTHEAST)"; icon_state = "1,0"; dir = 6},/area/boarding_ship)
-"ad" = (/turf/unsimulated/wall/urist/other{tag = "icon-1,0 (SOUTHEAST)"; icon_state = "1,0"; dir = 6},/turf/unsimulated/wall/urist/other{tag = "icon-9,15 (SOUTHEAST)"; icon_state = "9,15"; dir = 6},/area/boarding_ship)
-"ae" = (/turf/unsimulated/wall/urist/other{tag = "icon-1,0 (EAST)"; icon_state = "1,0"; dir = 4},/area/boarding_ship)
-"af" = (/turf/unsimulated/wall/urist/other{tag = "icon-1,0 (NORTHWEST)"; icon_state = "1,0"; dir = 9},/area/boarding_ship)
-"ag" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-5,1"; icon_state = "5,1"},/turf/unsimulated/wall/urist/other/see{tag = "icon-8,15"; icon_state = "8,15"},/area/boarding_ship)
-"ah" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-5,1"; icon_state = "5,1"},/area/boarding_ship)
-"ai" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-9,7"; icon_state = "9,7"},/area/boarding_ship)
-"aj" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-5,1"; icon_state = "5,1"},/turf/unsimulated/wall/urist/other/see{tag = "icon-8,15 (NORTH)"; icon_state = "8,15"; dir = 1},/area/boarding_ship)
-"ak" = (/turf/unsimulated/wall/urist/other{tag = "icon-1,0 (SOUTHWEST)"; icon_state = "1,0"; dir = 10},/area/boarding_ship)
-"al" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-5,1"; icon_state = "5,1"},/turf/unsimulated/wall/urist/other/see{tag = "icon-8,14"; icon_state = "8,14"},/area/boarding_ship)
-"am" = (/obj/effect/urist/triggers/ai_defender_landmark/lactera/leader,/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-9,7"; icon_state = "9,7"},/area/boarding_ship)
-"an" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-5,1"; icon_state = "5,1"},/turf/unsimulated/wall/urist/other/see{tag = "icon-8,14 (NORTH)"; icon_state = "8,14"; dir = 1},/area/boarding_ship)
-"ao" = (/obj/effect/urist/triggers/defender_landmark/lactera,/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-9,7"; icon_state = "9,7"},/area/boarding_ship)
-"ap" = (/turf/unsimulated/wall/urist/other{tag = "icon-1,0"; icon_state = "1,0"; dir = 2},/area/boarding_ship)
-"aq" = (/turf/unsimulated/wall/urist/other{tag = "icon-1,0.1.1.1.1.1.1.1.1 (NORTH)"; icon_state = "1,0.1.1.1.1.1.1.1.1"; dir = 1},/area/boarding_ship)
-"ar" = (/turf/unsimulated/wall/urist/other{tag = "icon-1,0 (WEST)"; icon_state = "1,0"; dir = 8},/area/boarding_ship)
-"as" = (/turf/unsimulated/wall/urist/other{tag = "icon-3,15 (NORTHWEST)"; icon_state = "3,15"; dir = 9},/area/boarding_ship)
-"at" = (/turf/unsimulated/wall/urist/other{tag = "icon-3,15"; icon_state = "3,15"; dir = 2},/area/boarding_ship)
-"au" = (/turf/unsimulated/wall/urist/other{tag = "icon-3,15"; icon_state = "3,15"; dir = 2},/turf/unsimulated/wall/urist/other{tag = "icon-9,15 (SOUTHEAST)"; icon_state = "9,15"; dir = 6},/area/boarding_ship)
-"av" = (/turf/unsimulated/wall/urist/other{tag = "icon-3,15 (SOUTHEAST)"; icon_state = "3,15"; dir = 6},/area/boarding_ship)
-"aw" = (/turf/unsimulated/wall/urist/other{tag = "icon-3,15 (WEST)"; icon_state = "3,15"; dir = 8},/area/boarding_ship)
-"ax" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-2,1"; icon_state = "2,1"},/turf/unsimulated/wall/urist/other/see{tag = "icon-8,15"; icon_state = "8,15"},/area/boarding_ship)
-"ay" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-1,1"; icon_state = "1,1"},/area/boarding_ship)
-"az" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-2,1"; icon_state = "2,1"},/turf/unsimulated/wall/urist/other/see{tag = "icon-8,15 (NORTH)"; icon_state = "8,15"; dir = 1},/area/boarding_ship)
-"aA" = (/obj/effect/urist/triggers/ai_defender_landmark/lactera/heavy,/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-5,1"; icon_state = "5,1"},/area/boarding_ship)
-"aB" = (/obj/effect/urist/triggers/ai_defender_landmark/lactera,/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-5,1"; icon_state = "5,1"},/area/boarding_ship)
-"aC" = (/turf/unsimulated/wall/urist/other{tag = "icon-3,15 (EAST)"; icon_state = "3,15"; dir = 4},/area/boarding_ship)
-"aD" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-2,1"; icon_state = "2,1"},/turf/unsimulated/wall/urist/other/see{tag = "icon-8,14"; icon_state = "8,14"},/area/boarding_ship)
-"aE" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-2,1"; icon_state = "2,1"},/area/boarding_ship)
-"aF" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-2,1"; icon_state = "2,1"},/turf/unsimulated/wall/urist/other/see{tag = "icon-8,14 (NORTH)"; icon_state = "8,14"; dir = 1},/area/boarding_ship)
-"aG" = (/turf/unsimulated/wall/urist/other{tag = "icon-3,15 (NORTHEAST)"; icon_state = "3,15"; dir = 5},/area/boarding_ship)
-"aH" = (/obj/effect/urist/triggers/ai_defender_landmark/lactera,/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-1,1"; icon_state = "1,1"},/area/boarding_ship)
-"aI" = (/turf/unsimulated/wall/urist/other{tag = "icon-3,15 (SOUTHWEST)"; icon_state = "3,15"; dir = 10},/area/boarding_ship)
-"aJ" = (/turf/unsimulated/wall/urist/other{tag = "icon-1,0 (NORTHEAST)"; icon_state = "1,0"; dir = 5},/area/boarding_ship)
-"aK" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-2,14 (SOUTHEAST)"; icon_state = "2,14"; dir = 6},/area/boarding_ship)
-"aL" = (/turf/unsimulated/wall/urist/other/destructable{tag = "icon-3,15"; icon_state = "3,15"; dir = 2},/area/boarding_ship)
-"aM" = (/turf/unsimulated/floor/uristturf/other/scom/destructable{tag = "icon-3,1"; icon_state = "3,1"},/area/boarding_ship)
-"aN" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-2,14"; icon_state = "2,14"},/area/boarding_ship)
-"aO" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-2,14 (NORTH)"; icon_state = "2,14"; dir = 1},/area/boarding_ship)
-"aP" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-0,14"; icon_state = "0,14"},/area/boarding_ship)
-"aQ" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-0,15"; icon_state = "0,15"},/area/boarding_ship)
-"aR" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-0,15.1"; icon_state = "0,15.1"},/area/boarding_ship)
-"aS" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-1,15"; icon_state = "1,15"},/area/boarding_ship)
-"aT" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-1,14"; icon_state = "1,14"},/area/boarding_ship)
-"aU" = (/turf/unsimulated/wall/urist/other{tag = "icon-5,14"; icon_state = "5,14"},/area/boarding_ship)
-"aV" = (/turf/unsimulated/wall/urist/other{tag = "icon-4,14"; icon_state = "4,14"},/area/boarding_ship)
-"aW" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-2,12"; icon_state = "2,12"},/area/boarding_ship)
-"aX" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-0,11"; icon_state = "0,11"},/area/boarding_ship)
-"aY" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-1,10"; icon_state = "1,10"},/area/boarding_ship)
-"aZ" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-0,10"; icon_state = "0,10"},/area/boarding_ship)
-"ba" = (/obj/effect/urist/triggers/ai_defender_landmark/lactera,/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-0,15.1"; icon_state = "0,15.1"},/area/boarding_ship)
-"bb" = (/obj/effect/urist/triggers/ai_defender_landmark/lactera,/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-9,7"; icon_state = "9,7"},/area/boarding_ship)
-"bc" = (/obj/effect/template_loader/ships,/turf/unsimulated/wall/urist/other/see{tag = "icon-2,12"; icon_state = "2,12"},/area/boarding_ship)
-"bd" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-3,1"; icon_state = "3,1"},/area/boarding_ship)
-"be" = (/obj/structure/boarding/self_destruct/lactera{icon_state = "9,15"},/turf/unsimulated/wall/urist/other{tag = "icon-1,0 (SOUTHEAST)"; icon_state = "1,0"; dir = 6},/area/boarding_ship)
-"bf" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-1,14"; icon_state = "1,14"},/turf/unsimulated/wall/urist/other/see{tag = "icon-6,14 (EAST)"; icon_state = "6,14"; dir = 4},/area/boarding_ship)
-"bg" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-2,12"; icon_state = "2,12"},/turf/unsimulated/wall/urist/other/see{tag = "icon-6,14 (EAST)"; icon_state = "6,14"; dir = 4},/area/boarding_ship)
-"bh" = (/turf/unsimulated/wall/urist/other{tag = "icon-3,0"; icon_state = "3,0"},/turf/unsimulated/wall/urist/other/see{tag = "icon-6,14 (EAST)"; icon_state = "6,14"; dir = 4},/area/boarding_ship)
-"bi" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-0,11"; icon_state = "0,11"},/turf/unsimulated/wall/urist/other/see{tag = "icon-6,14 (EAST)"; icon_state = "6,14"; dir = 4},/area/boarding_ship)
-"bj" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-0,14"; icon_state = "0,14"},/turf/unsimulated/wall/urist/other/see{tag = "icon-6,14 (EAST)"; icon_state = "6,14"; dir = 4},/area/boarding_ship)
-"bk" = (/turf/unsimulated/wall/urist/other{tag = "icon-3,0"; icon_state = "3,0"},/area/boarding_ship)
-"bl" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-3,0"; icon_state = "3,0"},/area/boarding_ship)
-"bm" = (/turf/unsimulated/wall/urist/other{tag = "icon-123456 (WEST)"; icon_state = "123456"; dir = 8},/area/boarding_ship)
-"bn" = (/turf/unsimulated/wall/urist/other{tag = "icon-3,15 (NORTH)"; icon_state = "3,15"; dir = 1},/area/boarding_ship)
-"bo" = (/obj/structure/scom/science{icon_state = "2,11"; scommoney = 300; tag = "icon-2,11"},/turf/unsimulated/wall/urist/other/see{tag = "icon-2,11"; icon_state = "2,11"},/area/boarding_ship)
-"bp" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-0,13"; icon_state = "0,13"},/area/boarding_ship)
-"bq" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-1,13"; icon_state = "1,13"},/area/boarding_ship)
-"br" = (/obj/structure/scom/science{icon_state = "0,12"; scommoney = 300; tag = "icon-0,12"},/turf/unsimulated/wall/urist/other/see{tag = "icon-0,12"; icon_state = "0,12"},/area/boarding_ship)
-"bs" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-2,13"; icon_state = "2,13"},/area/boarding_ship)
-"bt" = (/turf/unsimulated/wall/urist/other/see{tag = "icon-3,13"; icon_state = "3,13"},/area/boarding_ship)
-"bu" = (/obj/effect/urist/triggers/ai_defender_landmark/lactera,/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-1,15"; icon_state = "1,15"},/area/boarding_ship)
-"bv" = (/obj/effect/urist/triggers/ai_defender_landmark/lactera,/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-0,15"; icon_state = "0,15"},/area/boarding_ship)
-"bw" = (/obj/structure/boarding/shipportal,/obj/effect/urist/triggers/boarding_landmark,/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-0,15.1"; icon_state = "0,15.1"},/area/boarding_ship)
-"bx" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-5,1"; icon_state = "5,1"},/obj/effect/landmark/scom/bomb/boarding/biglactship,/turf/unsimulated/wall/urist/other/see{tag = "icon-8,14"; icon_state = "8,14"},/area/boarding_ship)
-"by" = (/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-5,1"; icon_state = "5,1"},/obj/effect/landmark/scom/bomb/boarding/biglactship,/turf/unsimulated/wall/urist/other/see{tag = "icon-8,14 (NORTH)"; icon_state = "8,14"; dir = 1},/area/boarding_ship)
-"bz" = (/obj/effect/landmark/scom/bomb/boarding/biglactship,/turf/unsimulated/wall/urist/other{tag = "icon-1,0 (NORTHEAST)"; icon_state = "1,0"; dir = 5},/area/boarding_ship)
-"bA" = (/obj/effect/landmark/scom/bomb/boarding/biglactship,/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-0,15"; icon_state = "0,15"},/area/boarding_ship)
-"bB" = (/obj/effect/landmark/scom/bomb/boarding/biglactship,/turf/unsimulated/wall/urist/other/see{tag = "icon-0,14"; icon_state = "0,14"},/area/boarding_ship)
-"bC" = (/obj/effect/landmark/scom/bomb/boarding/biglactship,/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-1,15"; icon_state = "1,15"},/area/boarding_ship)
-"bD" = (/obj/effect/landmark/scom/bomb/boarding/biglactship,/turf/unsimulated/wall/urist/other{tag = "icon-3,15 (EAST)"; icon_state = "3,15"; dir = 4},/area/boarding_ship)
-"bE" = (/obj/effect/landmark/scom/bomb/boarding/biglactship,/turf/unsimulated/wall/urist/other/see{tag = "icon-0,11"; icon_state = "0,11"},/area/boarding_ship)
-"bF" = (/obj/effect/landmark/scom/bomb/boarding/biglactship,/turf/unsimulated/floor/uristturf/other/scom{tag = "icon-0,15.1"; icon_state = "0,15.1"},/area/boarding_ship)
-"bG" = (/obj/effect/landmark/scom/bomb/boarding/biglactship,/turf/unsimulated/wall/urist/other{tag = "icon-3,15 (WEST)"; icon_state = "3,15"; dir = 8},/area/boarding_ship)
-"bH" = (/turf/unsimulated/wall/urist/other{tag = "icon-3,15 (WEST)"; icon_state = "3,15"; dir = 8},/area/space)
-"bI" = (/obj/effect/landmark/scom/bomb/boarding/biglactship,/turf/unsimulated/wall/urist/other{tag = "icon-3,15 (NORTH)"; icon_state = "3,15"; dir = 1},/area/boarding_ship)
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/turf/space,
+/area/space)
+"ab" = (
+/turf/unsimulated/wall/urist/other{
+	icon_state = "1,0";
+	dir = 1
+	},
+/area/boarding_ship)
+"ac" = (
+/turf/unsimulated/wall/urist/other{
+	icon_state = "1,0";
+	dir = 6
+	},
+/area/boarding_ship)
+"ad" = (
+/turf/unsimulated/wall/urist/other{
+	icon_state = "1,0";
+	dir = 6
+	},
+/turf/unsimulated/wall/urist/other{
+	icon_state = "9,15";
+	dir = 6
+	},
+/area/boarding_ship)
+"ae" = (
+/turf/unsimulated/wall/urist/other{
+	icon_state = "1,0";
+	dir = 4
+	},
+/area/boarding_ship)
+"af" = (
+/turf/unsimulated/wall/urist/other{
+	icon_state = "1,0";
+	dir = 9
+	},
+/area/boarding_ship)
+"ag" = (
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "5,1"
+	},
+/turf/unsimulated/wall/urist/other/see{
+	icon_state = "8,15"
+	},
+/area/boarding_ship)
+"ah" = (
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "5,1"
+	},
+/area/boarding_ship)
+"ai" = (
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "9,7"
+	},
+/area/boarding_ship)
+"aj" = (
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "5,1"
+	},
+/turf/unsimulated/wall/urist/other/see{
+	icon_state = "8,15";
+	dir = 1
+	},
+/area/boarding_ship)
+"ak" = (
+/turf/unsimulated/wall/urist/other{
+	icon_state = "1,0";
+	dir = 10
+	},
+/area/boarding_ship)
+"al" = (
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "5,1"
+	},
+/turf/unsimulated/wall/urist/other/see{
+	icon_state = "8,14"
+	},
+/area/boarding_ship)
+"am" = (
+/obj/effect/urist/triggers/ai_defender_landmark/lactera/leader,
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "9,7"
+	},
+/area/boarding_ship)
+"an" = (
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "5,1"
+	},
+/turf/unsimulated/wall/urist/other/see{
+	icon_state = "8,14";
+	dir = 1
+	},
+/area/boarding_ship)
+"ao" = (
+/obj/effect/urist/triggers/defender_landmark/lactera,
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "9,7"
+	},
+/area/boarding_ship)
+"ap" = (
+/turf/unsimulated/wall/urist/other{
+	icon_state = "1,0";
+	dir = 2
+	},
+/area/boarding_ship)
+"aq" = (
+/turf/unsimulated/wall/urist/other{
+	icon_state = "1,0.1.1.1.1.1.1.1.1";
+	dir = 1
+	},
+/area/boarding_ship)
+"ar" = (
+/turf/unsimulated/wall/urist/other{
+	icon_state = "1,0";
+	dir = 8
+	},
+/area/boarding_ship)
+"as" = (
+/turf/unsimulated/wall/urist/other{
+	icon_state = "3,15";
+	dir = 9
+	},
+/area/boarding_ship)
+"at" = (
+/turf/unsimulated/wall/urist/other{
+	icon_state = "3,15";
+	dir = 2
+	},
+/area/boarding_ship)
+"au" = (
+/turf/unsimulated/wall/urist/other{
+	icon_state = "3,15";
+	dir = 2
+	},
+/turf/unsimulated/wall/urist/other{
+	icon_state = "9,15";
+	dir = 6
+	},
+/area/boarding_ship)
+"av" = (
+/turf/unsimulated/wall/urist/other{
+	icon_state = "3,15";
+	dir = 6
+	},
+/area/boarding_ship)
+"aw" = (
+/turf/unsimulated/wall/urist/other{
+	icon_state = "3,15";
+	dir = 8
+	},
+/area/boarding_ship)
+"ax" = (
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "2,1"
+	},
+/turf/unsimulated/wall/urist/other/see{
+	icon_state = "8,15"
+	},
+/area/boarding_ship)
+"ay" = (
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "1,1"
+	},
+/area/boarding_ship)
+"az" = (
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "2,1"
+	},
+/turf/unsimulated/wall/urist/other/see{
+	icon_state = "8,15";
+	dir = 1
+	},
+/area/boarding_ship)
+"aA" = (
+/obj/effect/urist/triggers/ai_defender_landmark/lactera/heavy,
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "5,1"
+	},
+/area/boarding_ship)
+"aB" = (
+/obj/effect/urist/triggers/ai_defender_landmark/lactera,
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "5,1"
+	},
+/area/boarding_ship)
+"aC" = (
+/turf/unsimulated/wall/urist/other{
+	icon_state = "3,15";
+	dir = 4
+	},
+/area/boarding_ship)
+"aD" = (
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "2,1"
+	},
+/turf/unsimulated/wall/urist/other/see{
+	icon_state = "8,14"
+	},
+/area/boarding_ship)
+"aE" = (
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "2,1"
+	},
+/area/boarding_ship)
+"aF" = (
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "2,1"
+	},
+/turf/unsimulated/wall/urist/other/see{
+	icon_state = "8,14";
+	dir = 1
+	},
+/area/boarding_ship)
+"aG" = (
+/turf/unsimulated/wall/urist/other{
+	icon_state = "3,15";
+	dir = 5
+	},
+/area/boarding_ship)
+"aH" = (
+/obj/effect/urist/triggers/ai_defender_landmark/lactera,
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "1,1"
+	},
+/area/boarding_ship)
+"aI" = (
+/turf/unsimulated/wall/urist/other{
+	icon_state = "3,15";
+	dir = 10
+	},
+/area/boarding_ship)
+"aJ" = (
+/turf/unsimulated/wall/urist/other{
+	icon_state = "1,0";
+	dir = 5
+	},
+/area/boarding_ship)
+"aK" = (
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "2,14";
+	dir = 6
+	},
+/area/boarding_ship)
+"aL" = (
+/turf/unsimulated/wall/urist/other/destructable{
+	icon_state = "3,15";
+	dir = 2
+	},
+/area/boarding_ship)
+"aM" = (
+/turf/unsimulated/floor/uristturf/other/scom/destructable{
+	icon_state = "3,1"
+	},
+/area/boarding_ship)
+"aN" = (
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "2,14"
+	},
+/area/boarding_ship)
+"aO" = (
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "2,14";
+	dir = 1
+	},
+/area/boarding_ship)
+"aP" = (
+/turf/unsimulated/wall/urist/other/see{
+	icon_state = "0,14"
+	},
+/area/boarding_ship)
+"aQ" = (
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "0,15"
+	},
+/area/boarding_ship)
+"aR" = (
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "0,15.1"
+	},
+/area/boarding_ship)
+"aS" = (
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "1,15"
+	},
+/area/boarding_ship)
+"aT" = (
+/turf/unsimulated/wall/urist/other/see{
+	icon_state = "1,14"
+	},
+/area/boarding_ship)
+"aU" = (
+/turf/unsimulated/wall/urist/other{
+	icon_state = "5,14"
+	},
+/area/boarding_ship)
+"aV" = (
+/turf/unsimulated/wall/urist/other{
+	icon_state = "4,14"
+	},
+/area/boarding_ship)
+"aW" = (
+/turf/unsimulated/wall/urist/other/see{
+	icon_state = "2,12"
+	},
+/area/boarding_ship)
+"aX" = (
+/turf/unsimulated/wall/urist/other/see{
+	icon_state = "0,11"
+	},
+/area/boarding_ship)
+"aY" = (
+/turf/unsimulated/wall/urist/other/see{
+	icon_state = "1,10"
+	},
+/area/boarding_ship)
+"aZ" = (
+/turf/unsimulated/wall/urist/other/see{
+	icon_state = "0,10"
+	},
+/area/boarding_ship)
+"ba" = (
+/obj/effect/urist/triggers/ai_defender_landmark/lactera,
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "0,15.1"
+	},
+/area/boarding_ship)
+"bb" = (
+/obj/effect/urist/triggers/ai_defender_landmark/lactera,
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "9,7"
+	},
+/area/boarding_ship)
+"bd" = (
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "3,1"
+	},
+/area/boarding_ship)
+"be" = (
+/obj/structure/boarding/self_destruct/lactera{
+	icon_state = "9,15"
+	},
+/turf/unsimulated/wall/urist/other{
+	icon_state = "1,0";
+	dir = 6
+	},
+/area/boarding_ship)
+"bf" = (
+/turf/unsimulated/wall/urist/other/see{
+	icon_state = "1,14"
+	},
+/turf/unsimulated/wall/urist/other/see{
+	icon_state = "6,14";
+	dir = 4
+	},
+/area/boarding_ship)
+"bg" = (
+/turf/unsimulated/wall/urist/other/see{
+	icon_state = "2,12"
+	},
+/turf/unsimulated/wall/urist/other/see{
+	icon_state = "6,14";
+	dir = 4
+	},
+/area/boarding_ship)
+"bh" = (
+/turf/unsimulated/wall/urist/other{
+	icon_state = "3,0"
+	},
+/turf/unsimulated/wall/urist/other/see{
+	icon_state = "6,14";
+	dir = 4
+	},
+/area/boarding_ship)
+"bi" = (
+/turf/unsimulated/wall/urist/other/see{
+	icon_state = "0,11"
+	},
+/turf/unsimulated/wall/urist/other/see{
+	icon_state = "6,14";
+	dir = 4
+	},
+/area/boarding_ship)
+"bj" = (
+/turf/unsimulated/wall/urist/other/see{
+	icon_state = "0,14"
+	},
+/turf/unsimulated/wall/urist/other/see{
+	icon_state = "6,14";
+	dir = 4
+	},
+/area/boarding_ship)
+"bk" = (
+/turf/unsimulated/wall/urist/other{
+	icon_state = "3,0"
+	},
+/area/boarding_ship)
+"bl" = (
+/turf/unsimulated/wall/urist/other/see{
+	icon_state = "3,0"
+	},
+/area/boarding_ship)
+"bm" = (
+/turf/unsimulated/wall/urist/other{
+	icon_state = "123456";
+	dir = 8
+	},
+/area/boarding_ship)
+"bn" = (
+/turf/unsimulated/wall/urist/other{
+	icon_state = "3,15";
+	dir = 1
+	},
+/area/boarding_ship)
+"bo" = (
+/obj/structure/scom/science{
+	icon_state = "2,11";
+	scommoney = 300
+	},
+/turf/unsimulated/wall/urist/other/see{
+	icon_state = "2,11"
+	},
+/area/boarding_ship)
+"bp" = (
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "0,13"
+	},
+/area/boarding_ship)
+"bq" = (
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "1,13"
+	},
+/area/boarding_ship)
+"br" = (
+/obj/structure/scom/science{
+	icon_state = "0,12";
+	scommoney = 300
+	},
+/turf/unsimulated/wall/urist/other/see{
+	icon_state = "0,12"
+	},
+/area/boarding_ship)
+"bs" = (
+/turf/unsimulated/wall/urist/other/see{
+	icon_state = "2,13"
+	},
+/area/boarding_ship)
+"bt" = (
+/turf/unsimulated/wall/urist/other/see{
+	icon_state = "3,13"
+	},
+/area/boarding_ship)
+"bu" = (
+/obj/effect/urist/triggers/ai_defender_landmark/lactera,
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "1,15"
+	},
+/area/boarding_ship)
+"bv" = (
+/obj/effect/urist/triggers/ai_defender_landmark/lactera,
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "0,15"
+	},
+/area/boarding_ship)
+"bw" = (
+/obj/structure/boarding/shipportal,
+/obj/effect/urist/triggers/boarding_landmark,
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "0,15.1"
+	},
+/area/boarding_ship)
+"bx" = (
+/obj/effect/landmark/scom/bomb/boarding/biglactship,
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "5,1"
+	},
+/turf/unsimulated/wall/urist/other/see{
+	icon_state = "8,14"
+	},
+/area/boarding_ship)
+"by" = (
+/obj/effect/landmark/scom/bomb/boarding/biglactship,
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "5,1"
+	},
+/turf/unsimulated/wall/urist/other/see{
+	icon_state = "8,14";
+	dir = 1
+	},
+/area/boarding_ship)
+"bz" = (
+/obj/effect/landmark/scom/bomb/boarding/biglactship,
+/turf/unsimulated/wall/urist/other{
+	icon_state = "1,0";
+	dir = 5
+	},
+/area/boarding_ship)
+"bA" = (
+/obj/effect/landmark/scom/bomb/boarding/biglactship,
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "0,15"
+	},
+/area/boarding_ship)
+"bB" = (
+/obj/effect/landmark/scom/bomb/boarding/biglactship,
+/turf/unsimulated/wall/urist/other/see{
+	icon_state = "0,14"
+	},
+/area/boarding_ship)
+"bC" = (
+/obj/effect/landmark/scom/bomb/boarding/biglactship,
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "1,15"
+	},
+/area/boarding_ship)
+"bD" = (
+/obj/effect/landmark/scom/bomb/boarding/biglactship,
+/turf/unsimulated/wall/urist/other{
+	icon_state = "3,15";
+	dir = 4
+	},
+/area/boarding_ship)
+"bE" = (
+/obj/effect/landmark/scom/bomb/boarding/biglactship,
+/turf/unsimulated/wall/urist/other/see{
+	icon_state = "0,11"
+	},
+/area/boarding_ship)
+"bF" = (
+/obj/effect/landmark/scom/bomb/boarding/biglactship,
+/turf/unsimulated/floor/uristturf/other/scom{
+	icon_state = "0,15.1"
+	},
+/area/boarding_ship)
+"bG" = (
+/obj/effect/landmark/scom/bomb/boarding/biglactship,
+/turf/unsimulated/wall/urist/other{
+	icon_state = "3,15";
+	dir = 8
+	},
+/area/boarding_ship)
+"bH" = (
+/turf/unsimulated/wall/urist/other{
+	icon_state = "3,15";
+	dir = 8
+	},
+/area/space)
+"bI" = (
+/obj/effect/landmark/scom/bomb/boarding/biglactship,
+/turf/unsimulated/wall/urist/other{
+	icon_state = "3,15";
+	dir = 1
+	},
+/area/boarding_ship)
 
 (1,1,1) = {"
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacbeadacacaeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaafagahaiaiahajakaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaafbxahaiamahbyakaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaafagahaiaiahajakaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaafalahaoaiahanakaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaapaqahaiaiahaqaraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasatauatavafahaiaiahakasatauatavaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaawaxayazawafaAaiaiaBakawaxayazawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaDaEaFawafahaiaiahakaCaDaEaFawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaGaEaHaEaIafahbzaJahakaGaEaHaEaIaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasataKaKaKaLavaMasavaMasaLaNaKaOatavaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaPaQaRaSaTawahaCawahaCaPaQaRaSaTawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaPbAaRaSaTawahaCawahaCaPaQaRaSaTawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaPaQaRaSaTaUahaVaUahaVaPaQaRaSaTawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaPaQaRaSaTaWaiaXaWaiaXaPaQaRaSaTawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaPaQaRaSaTaWaiaXaWaiaXaPaQaRaSaTawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaPaQaRaSaTaWaiaXaWaiaXbBaQaRaSaTawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaPaQaRaSaTaYaiaXaWaiaZaPaQaRaSaTawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaPaQaRaSaTaWaiaXaWaiaXaPaQaRaSaTawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaPaQaRaSaTaWaiaXaWaiaXaPaQbaaSaTawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaPaQaRaSaTaWaiaXaWaiaXaPaQaRaSaTawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaPaQaRaSaTaYbbaXaWaiaZaPaQaRaSaTawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaPaQaRaSaTaWaiaXaWaiaXaPaQaRaSaTawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaPaQaRaSaTaWaiaXaWaiaXaPaQaRaSaTawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaPaQbaaSaTaWaiaXbcaiaXaPaQaRaSaTawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaPaQaRaSaTaYaiaXaWaiaZaPaQaRaSaTawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaPaQaRaSaTaWaiaXaWaiaXaPaQaRbCaTawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaPaQaRaSaTaWaiaXaWaiaXaPaQaRaSaTawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabDaPaQaRaSaTaWaiaXaWaiaXaPaQaRaSaTawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaPaQaRaSaTaYaiaXaWaiaZaPaQaRaSaTawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaPaQaRaSaTaWbdaXaWbdaXaPaQaRaSaTawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaPaQaRaRaRaRaRaRaRaRaRaRaRaRaSaTawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaPaQaRaRaRaRaRaRaRaRaRaRaRaRbuaTawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaPaQaRaSbfbgbhbibgbhbibjaQaRaSaTawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaPaQaRaSaTaWbkbEaWblaXaPaQaRaSaTawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaPaQaRaSaTaWbkaXaWblaXaPaQbFaSaTawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaGbmaQaRaSbmbnbnbnbnbnbnbmaQaRaSbmaIaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaNaKaOawaaaaaaaaaaaaaCaNaKaOawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaNaKaOawaaaaaaaaaaaaaCaNaKaOawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasatbmaQaRaSbmatavaaaaasatbmaQaRaSbmatavaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaVaPaQaRaSaTaUawaaaaaCaVaPaQaRaSaTaUawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCbobpaQaRaSbqbrawaaaaaCbobpaQaRaSbqbrbGaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaXbsaQaRaSbtaYawaaaaaCaXbsaQaRaSbtaYawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabDbobpaQaRaSbqbrawaaaaaCbobpaQaRaSbqbrawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaXbsaQaRaSbtaYawaaaaaCaXbsaQaRaSbtaYawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCbobpaQaRaSbqbrawaaaaaCbobpaQaRaSbqbrbHaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaXbsaQaRaSbtaYawaaaaaCaXbsaQaRaSbtaYawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCbobpaQaRaSbqbrawaaaaaCbobpaQaRaSbqbrawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaXbsaQaRbubtaYawaaaaaCaXbsaQbaaSbtaYawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCbobpbvaRaSbqbrawaaaaaCbobpaQaRaSbqbrawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaXbsaQbwaSbtaYawaaaaaCaXbsaQaRaSbtaYawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaCaXaPaQaRaSaTaWawaaaaaCaXaPaQaRaSaTaWawaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaGbnbnbnbnbnbnbnaIaaaaaGbnbnbnbIbnbnbnaIaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(2,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(3,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(4,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(5,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(6,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(7,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(8,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(9,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(10,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(11,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(12,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(13,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(14,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(15,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(16,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(17,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(18,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(19,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(20,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(21,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+as
+aC
+aC
+aC
+bD
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aG
+aa
+aa
+"}
+(22,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+as
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+bD
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aG
+aa
+aa
+at
+aV
+bo
+aX
+bo
+aX
+bo
+aX
+bo
+aX
+bo
+aX
+aX
+bn
+aa
+aa
+"}
+(23,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+as
+aw
+aC
+aG
+at
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+bm
+aC
+aC
+bm
+aP
+bp
+bs
+bp
+bs
+bp
+bs
+bp
+bs
+bp
+bs
+aP
+bn
+aa
+aa
+"}
+(24,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+at
+ax
+aD
+aE
+aK
+aQ
+bA
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aN
+aN
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+bv
+aQ
+aQ
+bn
+aa
+aa
+"}
+(25,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+au
+ay
+aE
+aH
+aK
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+ba
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+aK
+aK
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+bw
+aR
+bn
+aa
+aa
+"}
+(26,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+at
+az
+aF
+aE
+aK
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+aR
+aR
+aS
+aS
+aS
+aS
+aO
+aO
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+bu
+aS
+aS
+aS
+bn
+aa
+aa
+"}
+(27,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+af
+af
+af
+af
+ap
+av
+aw
+aw
+aI
+aL
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aR
+aR
+bf
+aT
+aT
+bm
+aw
+aw
+bm
+aT
+bq
+bt
+bq
+bt
+bq
+bt
+bq
+bt
+bq
+bt
+aT
+bn
+aa
+aa
+"}
+(28,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+ag
+bx
+ag
+al
+aq
+af
+af
+af
+af
+av
+aw
+aw
+aU
+aW
+aW
+aW
+aY
+aW
+aW
+aW
+aY
+aW
+aW
+aW
+aY
+aW
+aW
+aW
+aY
+aW
+aR
+aR
+bg
+aW
+aW
+bn
+aa
+aa
+at
+aU
+br
+aY
+br
+aY
+br
+aY
+br
+aY
+br
+aY
+aW
+bn
+aa
+aa
+"}
+(29,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+ah
+ah
+ah
+ah
+ah
+ah
+aA
+ah
+ah
+aM
+ah
+ah
+ah
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+bb
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+bd
+aR
+aR
+bh
+bk
+bk
+bn
+aa
+aa
+av
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aI
+aa
+aa
+"}
+(30,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+be
+ai
+ai
+ai
+ao
+ai
+ai
+ai
+ai
+bz
+as
+aC
+aC
+aV
+aX
+aX
+aX
+aX
+aX
+aX
+aX
+aX
+aX
+aX
+aX
+aX
+aX
+aX
+aX
+aX
+aX
+aR
+aR
+bi
+bE
+aX
+bn
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(31,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+ad
+ai
+am
+ai
+ai
+ai
+ai
+ai
+ai
+aJ
+av
+aw
+aw
+aU
+aW
+aW
+aW
+aW
+aW
+aW
+aW
+aW
+aW
+aW
+aW
+aW
+aW
+aW
+aW
+aW
+aW
+aR
+aR
+bg
+aW
+aW
+bn
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(32,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+ah
+ah
+ah
+ah
+ah
+ah
+aB
+ah
+ah
+aM
+ah
+ah
+ah
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+bd
+aR
+aR
+bh
+bl
+bl
+bn
+aa
+aa
+as
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aC
+aG
+aa
+aa
+"}
+(33,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aj
+by
+aj
+an
+aq
+ak
+ak
+ak
+ak
+as
+aC
+aC
+aV
+aX
+aX
+aX
+aZ
+aX
+aX
+aX
+aZ
+aX
+aX
+aX
+aZ
+aX
+aX
+aX
+aZ
+aX
+aR
+aR
+bi
+aX
+aX
+bn
+aa
+aa
+at
+aV
+bo
+aX
+bo
+aX
+bo
+aX
+bo
+aX
+bo
+aX
+aX
+bn
+aa
+aa
+"}
+(34,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+ae
+ak
+ak
+ak
+ak
+ar
+as
+aw
+aC
+aG
+aL
+aP
+aP
+aP
+aP
+aP
+bB
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aP
+aR
+aR
+bj
+aP
+aP
+bm
+aC
+aC
+bm
+aP
+bp
+bs
+bp
+bs
+bp
+bs
+bp
+bs
+bp
+bs
+aP
+bn
+aa
+aa
+"}
+(35,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+at
+ax
+aD
+aE
+aN
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aR
+aR
+aQ
+aQ
+aQ
+aQ
+aN
+aN
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+bn
+aa
+aa
+"}
+(36,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+au
+ay
+aE
+aH
+aK
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+ba
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+bF
+aR
+aK
+aK
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+aR
+ba
+aR
+aR
+aR
+bI
+aa
+aa
+"}
+(37,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+at
+az
+aF
+aE
+aO
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+bC
+aS
+aS
+aS
+aS
+aS
+bu
+aS
+aS
+aS
+aS
+aO
+aO
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+bn
+aa
+aa
+"}
+(38,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+av
+aw
+aw
+aI
+at
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+aT
+bm
+aw
+aw
+bm
+aT
+bq
+bt
+bq
+bt
+bq
+bt
+bq
+bt
+bq
+bt
+aT
+bn
+aa
+aa
+"}
+(39,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+av
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aI
+aa
+aa
+at
+aU
+br
+aY
+br
+aY
+br
+aY
+br
+aY
+br
+aY
+aW
+bn
+aa
+aa
+"}
+(40,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+av
+aw
+bG
+aw
+aw
+aw
+bH
+aw
+aw
+aw
+aw
+aw
+aw
+aI
+aa
+aa
+"}
+(41,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(42,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(43,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(44,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(45,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(46,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(47,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(48,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(49,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(50,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(51,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(52,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(53,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(54,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(55,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(56,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(57,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(58,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(59,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(60,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(61,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 "}

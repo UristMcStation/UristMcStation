@@ -3,32 +3,31 @@
 	desc = "A drop pod door. Opens rapidly using explosive bolts."
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "droppod_door_closed"
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE
 	opacity = 1
-	plane = OBJ_PLANE
 	layer = ABOVE_DOOR_LAYER
 	var/deploying
 	var/deployed
 
-/obj/structure/droppod_door/New(var/newloc, var/autoopen)
+/obj/structure/droppod_door/New(newloc, autoopen)
 	..(newloc)
 	if(autoopen)
 		spawn(10 SECONDS)
 			deploy()
 
-/obj/structure/droppod_door/attack_ai(var/mob/user)
+/obj/structure/droppod_door/attack_ai(mob/user)
 	if(!user.Adjacent(src))
 		return
 	attack_hand(user)
 
-/obj/structure/droppod_door/attack_generic(var/mob/user)
+/obj/structure/droppod_door/attack_generic(mob/user)
 	if(istype(user))
 		attack_hand(user)
 
-/obj/structure/droppod_door/attack_hand(var/mob/user)
+/obj/structure/droppod_door/attack_hand(mob/user)
 	if(deploying) return
-	to_chat(user, "<span class='danger'>You prime the explosive bolts. Better get clear!</span>")
+	to_chat(user, SPAN_DANGER("You prime the explosive bolts. Better get clear!"))
 	sleep(30)
 	deploy()
 
@@ -37,7 +36,7 @@
 		return
 
 	deployed = 1
-	visible_message("<span class='danger'>The explosive bolts on \the [src] detonate, throwing it open!</span>")
+	visible_message(SPAN_DANGER("The explosive bolts on \the [src] detonate, throwing it open!"))
 	playsound(src.loc, 'sound/effects/bang.ogg', 50, 1, 5)
 
 	// This is shit but it will do for the sake of testing.

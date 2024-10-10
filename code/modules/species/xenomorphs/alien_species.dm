@@ -41,12 +41,15 @@
 	cold_level_2 = -1
 	cold_level_3 = -1
 
-	species_flags = SPECIES_FLAG_NO_SCAN | SPECIES_FLAG_NO_PAIN | SPECIES_FLAG_NO_SLIP | SPECIES_FLAG_NO_POISON | SPECIES_FLAG_NO_EMBED | SPECIES_FLAG_NO_TANGLE
-	appearance_flags = HAS_EYE_COLOR | HAS_SKIN_COLOR
+	species_flags = SPECIES_FLAG_NO_MINOR_CUT | SPECIES_FLAG_NO_SCAN | SPECIES_FLAG_NO_PAIN | SPECIES_FLAG_NO_SLIP | SPECIES_FLAG_NO_POISON | SPECIES_FLAG_NO_EMBED | SPECIES_FLAG_NO_TANGLE
+	appearance_flags = SPECIES_APPEARANCE_HAS_EYE_COLOR | SPECIES_APPEARANCE_HAS_SKIN_COLOR
 
 	spawn_flags = SPECIES_IS_RESTRICTED
 
-	reagent_tag = IS_XENOS
+	darksight_range = 7
+	darksight_tint = "#bbbbbb" // effectively night vision except you can tell which areas are dark
+
+	move_trail = /obj/effect/decal/cleanable/blood/tracks/body
 
 	blood_color = "#05ee05"
 	flesh_color = "#282846"
@@ -107,35 +110,36 @@
 		TAG_RELIGION =  RELIGION_OTHER
 	)
 
-/datum/species/xenos/get_bodytype(var/mob/living/carbon/H)
+/datum/species/xenos/get_bodytype(mob/living/carbon/H)
 	return "Xenophage"
 
-/datum/species/xenos/can_understand(var/mob/other)
+/datum/species/xenos/can_understand(mob/other)
 
 	if(istype(other,/mob/living/carbon/alien/larva))
 		return 1
 
 	return 0
 
-/datum/species/xenos/hug(var/mob/living/carbon/human/H,var/mob/living/target)
+/datum/species/xenos/hug(mob/living/carbon/human/H,var/mob/living/target)
 	H.visible_message("<span class='notice'>[H] caresses [target] with countless prickling, needle-like legs.</span>", \
 					"<span class='notice'>You caress [target] with countless prickling, needle-like legs.</span>")
 
-/datum/species/xenos/handle_post_spawn(var/mob/living/carbon/human/H)
+/datum/species/xenos/handle_post_spawn(mob/living/carbon/human/H)
 
+	H.faction = "alien"
 	if(H.mind)
 		H.mind.reset()
 		H.mind.assigned_role = "Alien"
 		H.mind.special_role = "Alien"
 
-	var/decl/cultural_info/culture/hidden/xenophage/culture = SSculture.get_culture(force_cultural_info[TAG_CULTURE])
+	var/singleton/cultural_info/culture/hidden/xenophage/culture = SSculture.get_culture(force_cultural_info[TAG_CULTURE])
 	if(istype(culture))
 		culture.caste_number++
 		H.real_name = culture.get_random_name(H)
 		H.SetName(H.real_name)
 	..()
 
-/datum/species/xenos/handle_environment_special(var/mob/living/carbon/human/H)
+/datum/species/xenos/handle_environment_special(mob/living/carbon/human/H)
 
 	var/turf/T = H.loc
 	if(!T) return
@@ -152,7 +156,7 @@
 		started_healing["\ref[H]"] = null
 	..()
 
-/datum/species/xenos/proc/regenerate(var/mob/living/carbon/human/H)
+/datum/species/xenos/proc/regenerate(mob/living/carbon/human/H)
 
 	var/heal_rate = weeds_heal_rate
 	var/mend_prob = 10
@@ -160,7 +164,7 @@
 		heal_rate = weeds_heal_rate / 3
 		mend_prob = 1
 
-	if(!H.resting || !started_healing["\ref[H]"])
+	if(!H.lying || !started_healing["\ref[H]"])
 		started_healing["\ref[H]"] = world.time
 	if(world.time - started_healing["\ref[H]"] > accelerated_healing_threshold)
 		heal_rate *= 1.5
@@ -172,27 +176,43 @@
 			I.damage = max(I.damage - heal_rate, 0)
 			if (prob(5))
 				to_chat(H, "<span class='alium'>You feel a soothing sensation within your [I.parent_organ]...</span>")
-			return 1
+			if(!istype(I, /obj/item/organ/internal/brain)) // regeneration will get stuck forever if we only heal the brain
+				return 1
 
-	//heal damages
-	if (H.getBruteLoss() || H.getFireLoss() || H.getOxyLoss() || H.getToxLoss())
-		H.adjustBruteLoss(-heal_rate)
-		H.adjustFireLoss(-heal_rate)
-		H.adjustOxyLoss(-heal_rate)
-		H.adjustToxLoss(-heal_rate)
-		if (prob(5))
-			to_chat(H, "<span class='alium'>You feel a soothing sensation come over you...</span>")
-		return 1
+	// if our heart gave out it's hopefully healed above and otherwise fine
+	if(prob(mend_prob))
+		H.resuscitate()
 
 	//next mend broken bones, approx 10 ticks each
 	for(var/obj/item/organ/external/E in H.bad_external_organs)
-		if (E.status & ORGAN_BROKEN)
-			if (prob(mend_prob))
-				if (E.mend_fracture())
-					to_chat(H, "<span class='alium'>You feel something mend itself inside your [E.name].</span>")
-			return 1
+		if(prob(mend_prob))
+			if(E.status & ORGAN_ARTERY_CUT)
+				E.status &= ~ORGAN_ARTERY_CUT
+				. = 1
+			else if((E.status & ORGAN_BROKEN) && E.mend_fracture())
+				. = 1
+			else if(E.status & ORGAN_TENDON_CUT)
+				E.status &= ~ORGAN_TENDON_CUT
+				. = 1
+		if(.)
+			to_chat(H, "<span class='alium'>You feel something mend itself inside your [E.name].</span>")
+			return TRUE
 
-	return 0
+	//heal damages
+	if (H.getBruteLoss() || H.getFireLoss() || H.getOxyLoss())
+		H.adjustBruteLoss(-heal_rate)
+		H.adjustFireLoss(-heal_rate)
+		H.adjustOxyLoss(-heal_rate)
+		if (prob(5))
+			to_chat(H, "<span class='alium'>You feel a soothing sensation come over you...</span>")
+		return TRUE
+
+	// Recover blood.
+	if(H.vessel.total_volume < H.vessel.maximum_volume)
+		H.regenerate_blood(rand(heal_rate))
+		return TRUE
+
+	return FALSE
 
 /datum/species/xenos/drone
 	name = "Xenophage Drone"
@@ -227,7 +247,7 @@
 		/mob/living/carbon/human/proc/corrosive_acid
 		)
 
-/datum/species/xenos/drone/handle_post_spawn(var/mob/living/carbon/human/H)
+/datum/species/xenos/drone/handle_post_spawn(mob/living/carbon/human/H)
 
 	var/mob/living/carbon/human/A = H
 	if(!istype(A))
@@ -241,6 +261,8 @@
 	slowdown = -3
 	total_health = 300
 	base_color = "#001a33"
+	standing_jump_range = 5
+	maneuvers = list(/singleton/maneuver/leap/grab)
 
 	icobase = 'icons/mob/human_races/species/xenos/body_hunter.dmi'
 	deform =  'icons/mob/human_races/species/xenos/body_hunter.dmi'
@@ -260,8 +282,6 @@
 	inherent_verbs = list(
 		/mob/living/proc/ventcrawl,
 		/mob/living/carbon/human/proc/pry_open,
-		/mob/living/carbon/human/proc/tackle,
-		/mob/living/carbon/human/proc/leap,
 		/mob/living/carbon/human/proc/psychic_whisper
 		)
 
@@ -280,6 +300,8 @@
 	total_health = 250
 	icobase = 'icons/mob/human_races/species/xenos/body_sentinel.dmi'
 	deform =  'icons/mob/human_races/species/xenos/body_sentinel.dmi'
+	standing_jump_range = 5
+	maneuvers = list(/singleton/maneuver/leap/grab)
 
 	has_organ = list(
 		BP_EYES =     /obj/item/organ/internal/eyes/xeno,
@@ -293,7 +315,6 @@
 
 	inherent_verbs = list(
 		/mob/living/proc/ventcrawl,
-		/mob/living/carbon/human/proc/tackle,
 		/mob/living/carbon/human/proc/transfer_plasma,
 		/mob/living/carbon/human/proc/corrosive_acid,
 		/mob/living/carbon/human/proc/neurotoxin
@@ -342,7 +363,8 @@
 		/mob/living/carbon/human/proc/corrosive_acid,
 		/mob/living/carbon/human/proc/neurotoxin,
 		/mob/living/carbon/human/proc/resin,
-		/mob/living/carbon/human/proc/xeno_infest
+		/mob/living/carbon/human/proc/xeno_infest,
+		/mob/living/carbon/human/proc/pry_open
 		)
 
 	genders = list(FEMALE)
@@ -375,3 +397,6 @@
 		"storage1" =     list("loc" = ui_storage1,  "name" = "Left Pocket",  "slot" = slot_l_store,   "state" = "pocket"),
 		"storage2" =     list("loc" = ui_storage2,  "name" = "Right Pocket", "slot" = slot_r_store,   "state" = "pocket"),
 		)
+
+/datum/species/xenos/can_shred(mob/living/carbon/human/H, ignore_intent, ignore_antag)
+	return TRUE

@@ -1,5 +1,5 @@
 
-/proc/TestArrays(var/params, as_json=1)
+/proc/TestArrays(params, as_json=1)
 	var/datum/array/M = new(params, as_json=1)
 
 	log_debug( " ")
@@ -73,11 +73,11 @@
 	log_debug( "==================")
 	log_debug( " ")
 
-/mob/verb/test_arrays(var/params as null|text)
+/mob/verb/test_arrays(params as null|text)
 	return TestArrays(params, as_json=1)
 
 
-/mob/verb/set_color(var/defkey as null|anything in list("grey", "noir", "expressionist", "grimdark", "custom"))
+/mob/verb/set_color(defkey as null|anything in list("grey", "noir", "expressionist", "grimdark", "custom"))
 	var/definition = null
 	if(defkey == "custom")
 		definition=input("Enter a JSON representation ")

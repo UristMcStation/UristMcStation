@@ -10,14 +10,11 @@
 
 	mouse_opacity = 0
 
-/obj/effect/projectile/proc/set_transform(var/matrix/M)
-	if(istype(M))
-		transform = M
 
 //----------------------------
 // Laser beam
 //----------------------------
-/obj/effect/projectile/laser/
+/obj/effect/projectile/laser
 	light_color = COLOR_RED_LIGHT
 
 /obj/effect/projectile/laser/tracer
@@ -123,6 +120,22 @@
 	icon_state = "impact_pu_laser"
 
 //----------------------------
+// Skrell laser beam
+//----------------------------
+/obj/effect/projectile/laser/pulse/skrell
+	light_max_bright = 1
+	light_color = "#4c00ff"
+
+/obj/effect/projectile/laser/pulse/skrell/tracer
+	icon_state = "pu_laser"
+
+/obj/effect/projectile/laser/pulse/skrell/muzzle
+	icon_state = "muzzle_pu_laser"
+
+/obj/effect/projectile/laser/pulse/skrell/impact
+	icon_state = "impact_pu_laser"
+
+//----------------------------
 // Pulse muzzle effect only
 //----------------------------
 /obj/effect/projectile/pulse/muzzle
@@ -133,7 +146,7 @@
 //----------------------------
 // Treye beam
 //----------------------------
-/obj/effect/projectile/trilaser/
+/obj/effect/projectile/trilaser
 	light_color = COLOR_LUMINOL
 
 /obj/effect/projectile/trilaser/tracer
@@ -148,7 +161,7 @@
 //----------------------------
 // Emitter beam
 //----------------------------
-/obj/effect/projectile/laser/emitter/
+/obj/effect/projectile/laser/emitter
 	light_max_bright = 1
 	light_color = "#00cc00"
 
@@ -164,7 +177,7 @@
 //----------------------------
 // Stun beam
 //----------------------------
-/obj/effect/projectile/stun/
+/obj/effect/projectile/stun
 	light_color = COLOR_YELLOW
 
 /obj/effect/projectile/stun/tracer
@@ -184,3 +197,94 @@
 	light_outer_range = 5
 	light_max_bright = 0.8
 	light_color = COLOR_MUZZLE_FLASH
+
+//----------------------------
+// confuse ray
+//----------------------------
+/obj/effect/projectile/confuseray
+	light_color = COLOR_GREEN_GRAY
+
+/obj/effect/projectile/confuseray/tracer
+	icon_state = "beam_grass"
+
+/obj/effect/projectile/confuseray/muzzle
+	icon_state = "muzzle_grass"
+
+/obj/effect/projectile/confuseray/impact
+	icon_state = "impact_grass"
+
+//----------------------------
+// Particle beam
+//----------------------------
+/obj/effect/projectile/laser_particle
+	light_color = COLOR_CYAN
+
+/obj/effect/projectile/laser_particle/tracer
+	icon_state = "beam_particle"
+
+/obj/effect/projectile/laser_particle/muzzle
+	icon_state = "muzzle_particle"
+
+/obj/effect/projectile/laser_particle/impact
+	icon_state = "impact_particle"
+
+//----------------------------
+// Dark matter
+//----------------------------
+/obj/effect/projectile/darkmatter
+	light_color = COLOR_PURPLE
+
+/obj/effect/projectile/darkmatter/tracer
+	icon_state = "beam_darkb"
+
+/obj/effect/projectile/darkmatter/muzzle
+	icon_state = "muzzle_darkb"
+
+/obj/effect/projectile/darkmatter/impact
+	icon_state = "impact_darkb"
+
+	//----------------------------
+// Dark matter stun
+//----------------------------
+/obj/effect/projectile/stun/darkmatter
+	light_color = COLOR_PURPLE
+
+/obj/effect/projectile/stun/darkmatter/tracer
+	icon_state = "beam_darkt"
+
+/obj/effect/projectile/stun/darkmatter/muzzle
+	icon_state = "muzzle_darkt"
+
+/obj/effect/projectile/stun/darkmatter/impact
+	icon_state = "impact_darkt"
+
+//----------------------------
+// Point defense
+//----------------------------
+/obj/effect/projectile/pointdefense
+	light_color = COLOR_GOLD
+	light_max_bright = 1
+
+/obj/effect/projectile/pointdefense/tracer
+	icon_state = "beam_pointdef_d"
+
+/obj/effect/projectile/pointdefense/muzzle
+	icon_state = "muzzle_pointdef_d"
+
+/obj/effect/projectile/pointdefense/impact
+	icon_state = "impact_pointdef_d"
+
+//----------------------------
+// incendiary laser
+//----------------------------
+/obj/effect/projectile/incen
+	light_color = COLOR_PALE_ORANGE
+
+/obj/effect/projectile/incen/tracer
+	icon_state = "beam_incen"
+
+/obj/effect/projectile/incen/muzzle
+	icon_state = "muzzle_incen"
+
+/obj/effect/projectile/incen/impact
+	icon_state = "impact_incen"

@@ -10,9 +10,9 @@
 /obj/machinery/power/sensor
 	name = "Powernet Sensor"
 	desc = "Small machine which transmits data about specific powernet."
-	anchored = 1
-	density = 0
-	level = 1
+	anchored = TRUE
+	density = FALSE
+	level = ATOM_LEVEL_UNDER_TILE
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "floor_beacon" // If anyone wants to make better sprite, feel free to do so without asking me.
 
@@ -42,16 +42,10 @@
 			return 1
 	return 0
 
-// Proc: process()
-// Parameters: None
-// Description: This has to be here because we need sensors to remain in Machines list.
-/obj/machinery/power/sensor/Process()
-	return 1
-
 // Proc: reading_to_text()
 // Parameters: 1 (amount - Power in Watts to be converted to W, kW or MW)
 // Description: Helper proc that converts reading in Watts to kW or MW (returns string version of amount parameter)
-/obj/machinery/power/sensor/proc/reading_to_text(var/amount = 0)
+/obj/machinery/power/sensor/proc/reading_to_text(amount = 0)
 	var/units = ""
 	// 10kW and less - Watts
 	if(amount < 10000)
@@ -78,8 +72,8 @@
 
 	var/list/L = list()
 	for(var/obj/machinery/power/terminal/term in powernet.nodes)
-		if(istype(term.master, /obj/machinery/power/apc))
-			var/obj/machinery/power/apc/A = term.master
+		var/obj/machinery/power/apc/A = term.master_machine()
+		if(istype(A))
 			L += A
 
 	return L
@@ -100,7 +94,7 @@
 
 	var/list/L = find_apcs()
 	var/total_apc_load = 0
-	if(L.len <= 0) 	// No APCs found.
+	if(length(L) <= 0) 	// No APCs found.
 		out = "<b>No APCs located in connected powernet!</b>"
 	else			// APCs found. Create very ugly (but working!) HTML table.
 
@@ -114,8 +108,9 @@
 		for(var/obj/machinery/power/apc/A in L)
 			out += "<tr><td>\The [A.area]" 															// Add area name
 			out += "<td>[S[A.equipment+1]]<td>[S[A.lighting+1]]<td>[S[A.environ+1]]" 				// Show status of channels
-			if(A.cell)
-				out += "<td>[round(A.cell.percent())]% - [chg[A.charging+1]]"
+			var/obj/item/cell/cell = A.get_cell()
+			if(cell)
+				out += "<td>[round(cell.percent())]% - [chg[A.charging+1]]"
 			else
 				out += "<td>NO CELL"
 			var/load = A.lastused_total // Load.
@@ -149,7 +144,7 @@
 	var/list/L = find_apcs()
 	var/total_apc_load = 0
 	var/list/APC_data = list()
-	if(L.len > 0)
+	if(length(L) > 0)
 		// These lists are used as replacement for number based APC settings
 		var/list/S = list("M-OFF", "DC-OFF","A-OFF","M-ON", "A-ON")
 		var/list/chg = list("N","C","F")
@@ -161,15 +156,12 @@
 			APC_entry["s_lighting"] = S[A.lighting+1]
 			APC_entry["s_environment"] = S[A.environ+1]
 			// Cell Status
-			APC_entry["cell_charge"] = A.cell ? round(A.cell.percent()) : "NO CELL"
-			APC_entry["cell_status"] = A.cell ? chg[A.charging+1] : "N"
+			var/obj/item/cell/cell = A.get_cell()
+			APC_entry["cell_charge"] = cell ? round(cell.percent()) : "NO CELL"
+			APC_entry["cell_status"] = cell ? chg[A.charging+1] : "N"
 			// Other info
 			APC_entry["total_load"] = reading_to_text(A.lastused_total)
-			// Hopefully removes those goddamn \improper s which are screwing up the UI
-			var/N = A.area.name
-			if(findtext(N, "ÿ"))
-				N = copytext(N, 3)
-			APC_entry["name"] = N
+			APC_entry["name"] = A.area.name
 			// Add data into main list of APC data.
 			APC_data += list(APC_entry)
 			// Add load of this APC to total APC load calculation
@@ -186,8 +178,3 @@
 		data["load_percentage"] = 100
 	data["alarm"] = powernet.problem ? 1 : 0
 	return data
-
-
-
-
-

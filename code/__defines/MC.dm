@@ -1,25 +1,74 @@
-#define MC_TICK_CHECK ( ( TICK_USAGE > Master.current_ticklimit || src.state != SS_RUNNING ) ? pause() : 0 )
+#define TICK_CHECK ( world.tick_usage > Master.current_ticklimit )
+
+#define CHECK_TICK if TICK_CHECK stoplag()
+
+#define MC_TICK_CHECK ( ( world.tick_usage > Master.current_ticklimit || src.state != SS_RUNNING ) ? pause() : 0 )
+
+
 #define GAME_STATE 2 ** (Master.current_runlevel - 1)
 
+
 #define MC_SPLIT_TICK_INIT(phase_count) var/original_tick_limit = Master.current_ticklimit; var/split_tick_phases = ##phase_count
+
+
 #define MC_SPLIT_TICK \
 	if(split_tick_phases > 1){\
-		Master.current_ticklimit = ((original_tick_limit - TICK_USAGE) / split_tick_phases) + TICK_USAGE;\
+		Master.current_ticklimit = ((original_tick_limit - world.tick_usage) / split_tick_phases) + world.tick_usage;\
 		--split_tick_phases;\
 	} else {\
 		Master.current_ticklimit = original_tick_limit;\
 	}
 
+
 // Used to smooth out costs to try and avoid oscillation.
 #define MC_AVERAGE_FAST(average, current) (0.7 * (average) + 0.3 * (current))
+
 #define MC_AVERAGE(average, current) (0.8 * (average) + 0.2 * (current))
+
 #define MC_AVERAGE_SLOW(average, current) (0.9 * (average) + 0.1 * (current))
 
 #define MC_AVG_FAST_UP_SLOW_DOWN(average, current) (average > current ? MC_AVERAGE_SLOW(average, current) : MC_AVERAGE_FAST(average, current))
+
 #define MC_AVG_SLOW_UP_FAST_DOWN(average, current) (average < current ? MC_AVERAGE_SLOW(average, current) : MC_AVERAGE_FAST(average, current))
 
-#define NEW_SS_GLOBAL(varname) if(varname != src){if(istype(varname)){Recover();qdel(varname);}varname = src;}
 
+/****
+* Subsystem helper macros
+****/
+
+/// Attempt to ensure that the subsystem is a singleton. Do not use directly.
+#define NEW_SS_GLOBAL(varname) if(varname != src){if(istype(varname)){Recover(varname);qdel(varname);}varname = src;}
+
+/// Boilerplate for a new global subsystem object and its associated type.
+#define SUBSYSTEM_DEF(X) var/global/datum/controller/subsystem/##X/SS##X;\
+/datum/controller/subsystem/##X/New(){\
+	NEW_SS_GLOBAL(SS##X);\
+	PreInit();\
+}\
+/datum/controller/subsystem/##X
+
+#define TIMER_SUBSYSTEM_DEF(X) GLOBAL_REAL(SS##X, /datum/controller/subsystem/timer/##X);\
+/datum/controller/subsystem/timer/##X/New(){\
+	NEW_SS_GLOBAL(SS##X);\
+	PreInit();\
+}\
+/datum/controller/subsystem/timer/##X/fire() {..() /*just so it shows up on the profiler*/} \
+/datum/controller/subsystem/timer/##X
+
+/// Boilerplate for a new global processing subsystem object and its associated type.
+#define PROCESSING_SUBSYSTEM_DEF(X) var/global/datum/controller/subsystem/processing/##X/SS##X;\
+/datum/controller/subsystem/processing/##X/New(){\
+	NEW_SS_GLOBAL(SS##X);\
+	PreInit();\
+}\
+/datum/controller/subsystem/processing/##X/Recover() {\
+	if(istype(SS##X.processing)) {\
+		processing = SS##X.processing; \
+	}\
+}\
+/datum/controller/subsystem/processing/##X
+
+/// Register a datum to be processed with a processing subsystem.
 #define START_PROCESSING(Processor, Datum) \
 if (Datum.is_processing) {\
 	if(Datum.is_processing != #Processor)\
@@ -31,6 +80,7 @@ if (Datum.is_processing) {\
 	Processor.processing += Datum;\
 }
 
+/// Unregister a datum with a processing subsystem.
 #define STOP_PROCESSING(Processor, Datum) \
 if(Datum.is_processing) {\
 	if(Processor.processing.Remove(Datum)) {\
@@ -40,86 +90,82 @@ if(Datum.is_processing) {\
 	}\
 }
 
-//SubSystem flags (Please design any new flags so that the default is off, to make adding flags to subsystems easier)
+/// START specific to SSmachines
+#define START_PROCESSING_MACHINE(machine, flag)\
+	if(!istype(machine, /obj/machinery)) CRASH("A non-machine [log_info_line(machine)] was queued to process on the machinery subsystem.");\
+	machine.processing_flags |= flag;\
+	START_PROCESSING(SSmachines, machine)
 
-//subsystem does not initialize.
-#define SS_NO_INIT 1
+/// STOP specific to SSmachines
+#define STOP_PROCESSING_MACHINE(machine, flag)\
+	machine.processing_flags &= ~flag;\
+	if(machine.processing_flags == 0) STOP_PROCESSING(SSmachines, machine)
 
-//subsystem does not fire.
-//	(like can_fire = 0, but keeps it from getting added to the processing subsystems list)
-//	(Requires a MC restart to change)
-#define SS_NO_FIRE 2
 
-//subsystem only runs on spare cpu (after all non-background subsystems have ran that tick)
-//	SS_BACKGROUND has its own priority bracket
-#define SS_BACKGROUND 4
+/****
+* Subsystem Flags
+****/
 
-//subsystem does not tick check, and should not run unless there is enough time (or its running behind (unless background))
-#define SS_NO_TICK_CHECK 8
+/// The subsystem's Initialize() will not be called.
+#define SS_NO_INIT FLAG(0)
 
-//Treat wait as a tick count, not DS, run every wait ticks.
-//	(also forces it to run first in the tick, above even SS_NO_TICK_CHECK subsystems)
-//	(implies all runlevels because of how it works)
-//	(overrides SS_BACKGROUND)
-//	This is designed for basically anything that works as a mini-mc (like SStimer)
-#define SS_TICKER 16
+/// The subsystem's fire() will not be called. This is preferable to can_fire = FALSE because it will not be added to the MC's list of active systems.
+#define SS_NO_FIRE FLAG(1)
 
-//keep the subsystem's timing on point by firing early if it fired late last fire because of lag
-//	ie: if a 20ds subsystem fires say 5 ds late due to lag or what not, its next fire would be in 15ds, not 20ds.
-#define SS_KEEP_TIMING 32
+/// The subsystem runs on spare CPU time, after all non-background subsystems have run that tick. Priority is considered against other SS_BACKGROUND subsystems.
+#define SS_BACKGROUND FLAG(2)
 
-//Calculate its next fire after its fired.
-//	(IE: if a 5ds wait SS takes 2ds to run, its next fire should be 5ds away, not 3ds like it normally would be)
-//	This flag overrides SS_KEEP_TIMING
-#define SS_POST_FIRE_TIMING 64
+/// The subsystem does not tick check and should not run unless enough time can be guaranteed or it must to stay current.
+#define SS_NO_TICK_CHECK FLAG(3)
 
-// -- SStimer stuff --
-//Don't run if there is an identical unique timer active
-#define TIMER_UNIQUE		0x1
+/// Treat the value of the subsystem's wait as ticks, not time. Forces it to run in the first tick. Implicitly has all runlevels. Ignores SS_BACKGROUND if set. Intended for systems that act like a mini-MC, like timers.
+#define SS_TICKER FLAG(4)
 
-//For unique timers: Replace the old timer rather then not start this one
-#define TIMER_OVERRIDE		0x2
+/// Attempt to keep the subsystem's timing real-world regular by adjusting fire timing to be earlier the later it previously ran.
+#define SS_KEEP_TIMING FLAG(5)
 
-//Timing should be based on how timing progresses on clients, not the sever.
-//	tracking this is more expensive,
-//	should only be used in conjuction with things that have to progress client side, such as animate() or sound()
-#define TIMER_CLIENT_TIME	0x4
+/// Calculate the subsystem's next fire time from when it finished, not when it started.
+#define SS_POST_FIRE_TIMING FLAG(6)
 
-//Timer can be stopped using deltimer()
-#define TIMER_STOPPABLE		0x8
+/// Run Shutdown() on server shutdown so the SS can finalize state.
+#define SS_NEEDS_SHUTDOWN FLAG(7)
 
-//To be used with TIMER_UNIQUE
-//prevents distinguishing identical timers with the wait variable
-#define TIMER_NO_HASH_WAIT  0x10
 
-//number of byond ticks that are allowed to pass before the timer subsystem thinks it hung on something
-#define TIMER_NO_INVOKE_WARNING 600
+/****
+* Subsystem states
+****/
 
-#define TIMER_ID_NULL -1
+/// The subsystem is not running.
+#define SS_IDLE 0
 
-//SUBSYSTEM STATES
-#define SS_IDLE 0		//aint doing shit.
-#define SS_QUEUED 1		//queued to run
-#define SS_RUNNING 2	//actively running
-#define SS_PAUSED 3		//paused by mc_tick_check
-#define SS_SLEEPING 4	//fire() slept.
-#define SS_PAUSING 5 	//in the middle of pausing
+/// The subsystem is queued to be run.
+#define SS_QUEUED 1
 
-#define SUBSYSTEM_DEF(X) GLOBAL_REAL(SS##X, /datum/controller/subsystem/##X);\
-/datum/controller/subsystem/##X/New(){\
-	NEW_SS_GLOBAL(SS##X);\
-	PreInit();\
-}\
-/datum/controller/subsystem/##X
+/// The subsystem is currently being run.
+#define SS_RUNNING 2
 
-#define PROCESSING_SUBSYSTEM_DEF(X) GLOBAL_REAL(SS##X, /datum/controller/subsystem/processing/##X);\
-/datum/controller/subsystem/processing/##X/New(){\
-	NEW_SS_GLOBAL(SS##X);\
-	PreInit();\
-}\
-/datum/controller/subsystem/processing/##X/Recover() {\
-	if(istype(SS##X.processing)) {\
-		processing = SS##X.processing; \
-	}\
-}\
-/datum/controller/subsystem/processing/##X
+/// The subsystem's run is paused by MC_TICK_CHECK and will resume later.
+#define SS_PAUSED 3
+
+/// The subsystem is sleeping during its run.
+#define SS_SLEEPING 4
+
+/// The subsystem is in the process of being paused.
+#define SS_PAUSING 5
+
+/****
+* Subsystem initialization states
+****/
+
+#define SS_INITSTATE_NONE 0
+
+#define SS_INITSTATE_STARTED 1
+
+#define SS_INITSTATE_DONE 2
+
+
+/****
+* SStimer
+****/
+
+#define addtimer(args...) _addtimer(args, source ="[__FILE__]#[__LINE__]")

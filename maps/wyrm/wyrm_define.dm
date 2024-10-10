@@ -3,7 +3,7 @@
 	full_name = "ISC Wyrm"
 	path = "wyrm"
 
-	lobby_icon = 'maps/torch/icons/lobby.dmi'
+	current_lobby_screen = 'icons/default_lobby.png'
 
 	station_levels = list(1,2)
 	contact_levels = list(1,2)
@@ -45,7 +45,6 @@
 
 	available_cultural_info = list(
 		TAG_HOMEWORLD = list(
-			HOME_SYSTEM_EARTH,
 			HOME_SYSTEM_LUNA,
 			HOME_SYSTEM_MARS,
 			HOME_SYSTEM_VENUS,
@@ -54,12 +53,6 @@
 			HOME_SYSTEM_TAU_CETI,
 			HOME_SYSTEM_HELIOS,
 			HOME_SYSTEM_TERRA,
-			HOME_SYSTEM_TERSTEN,
-			HOME_SYSTEM_LORRIMAN,
-			HOME_SYSTEM_CINU,
-			HOME_SYSTEM_YUKLID,
-			HOME_SYSTEM_LORDANIA,
-			HOME_SYSTEM_KINGSTON,
 			HOME_SYSTEM_GAIA,
 			HOME_SYSTEM_OTHER
 		),
@@ -117,30 +110,33 @@
 	minor_announcement = new(new_sound = sound('sound/AI/torch/commandreport.ogg', volume = 45))
 
 /datum/map/wyrm/send_welcome()
+	var/obj/effect/overmap/visitable/ship/wyrm = SSshuttle.ship_by_type(/obj/effect/overmap/visitable/ship/wyrm)
+
 	var/welcome_text = "<center><br /><font size = 3><b>ISC Wyrm</b> Sensor Readings:</font><hr />"
 	welcome_text += "Report generated on [stationdate2text()] at [stationtime2text()]</center><br /><br />"
-	welcome_text += "Current system:<br /><b>[system_name()]</b><br />"
-	welcome_text += "Next system targeted for jump:<br /><b>[generate_system_name()]</b><br />"
-	welcome_text += "Travel time to Sol:<br /><b>[rand(5,10)] days</b><br />"
-	welcome_text += "Time since last port visit:<br /><b>[rand(30,50)] days</b><br />"
-	welcome_text += "Scan results:<br />"
-	var/list/space_things = list()
-	var/obj/effect/overmap/torch = map_sectors["1"]
-	for(var/zlevel in map_sectors)
-		var/obj/effect/overmap/O = map_sectors[zlevel]
-		if(O.name == torch.name)
-			continue
-		space_things |= O
+	welcome_text += "Current system:<br /><b>[wyrm ? system_name : "Unknown"]</b><br />"
+	if(wyrm)
+		welcome_text += "Next system targeted for jump:<br /><b>[generate_system_name()]</b><br />"
+		welcome_text += "Travel time to Sol:<br /><b>[rand(5,10)] days</b><br />"
+		welcome_text += "Time since last port visit:<br /><b>[rand(30,50)] days</b><br />"
+		welcome_text += "Scan results:<br />"
+		var/list/space_things = list()
+		var/obj/effect/overmap/torch = map_sectors["1"]
+		for(var/zlevel in map_sectors)
+			var/obj/effect/overmap/O = map_sectors[zlevel]
+			if(O.name == torch.name)
+				continue
+			space_things |= O
 
-	for(var/obj/effect/overmap/O in space_things)
-		var/location_desc = " at present co-ordinates."
-		if (O.loc != torch.loc)
-			var/bearing = round(90 - Atan2(O.x - torch.x, O.y - torch.y),5) //fucking triangles how do they work
-			if(bearing < 0)
-				bearing += 360
-			location_desc = ", bearing [bearing]."
-		welcome_text += "<li>\A <b>[O.name]</b>[location_desc]</li>"
-	welcome_text += "<br>No distress calls logged.<br />"
+		for(var/obj/effect/overmap/O in space_things)
+			var/location_desc = " at present co-ordinates."
+			if (O.loc != torch.loc)
+				var/bearing = round(90 - Atan2(O.x - torch.x, O.y - torch.y),5) //fucking triangles how do they work
+				if(bearing < 0)
+					bearing += 360
+				location_desc = ", bearing [bearing]."
+			welcome_text += "<li>\A <b>[O.name]</b>[location_desc]</li>"
+		welcome_text += "<br>No distress calls logged.<br />"
 
 	post_comm_message("ISC Wyrm Sensor Readings", welcome_text)
 	minor_announcement.Announce(message = "New Astrogation Update available at all communication consoles.")

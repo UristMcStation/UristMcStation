@@ -20,7 +20,10 @@
 	var/ks1type = /obj/item/device/encryptionkey
 	var/ks2type = null
 
-	sprite_sheets = list(SPECIES_UNATHI = 'icons/mob/species/unathi/generated/onmob_ears_unathi.dmi', SPECIES_RESOMI = 'icons/mob/species/resomi/ears.dmi')
+	sprite_sheets = list(
+		SPECIES_UNATHI = 'icons/mob/species/unathi/onmob_ears_unathi.dmi',
+		SPECIES_RESOMI = 'icons/mob/species/resomi/ears.dmi',
+		)
 
 /obj/item/device/radio/headset/Initialize()
 	. = ..()
@@ -38,11 +41,12 @@
 	QDEL_NULL_LIST(encryption_keys)
 	return ..()
 
-/obj/item/device/radio/headset/list_channels(var/mob/user)
+/obj/item/device/radio/headset/list_channels(mob/user)
 	return list_secure_channels()
 
-/obj/item/device/radio/headset/examine(mob/user)
-	if(!(..(user, 1) && radio_desc))
+/obj/item/device/radio/headset/examine(mob/user, distance)
+	. = ..()
+	if(distance > 1 || !radio_desc)
 		return
 
 	to_chat(user, "The following channels are available:")
@@ -51,10 +55,10 @@
 /obj/item/device/radio/headset/handle_message_mode(mob/living/M as mob, message, channel)
 	if (channel == "special")
 		if (translate_binary)
-			var/datum/language/binary = all_languages["Robot Talk"]
+			var/datum/language/binary = all_languages[LANGUAGE_ROBOT_GLOBAL]
 			binary.broadcast(M, message)
 		if (translate_hive)
-			var/datum/language/hivemind = all_languages["Hivemind"]
+			var/datum/language/hivemind = all_languages[LANGUAGE_XENOPHAGE_GLOBAL]
 			hivemind.broadcast(M, message)
 		return null
 
@@ -69,8 +73,25 @@
 			return ..(freq, level)
 	return -1
 
+/obj/item/device/radio/headset/map_preset
+	var/preset_name
+	var/encryption_key = /obj/item/device/encryptionkey
+	var/use_common = FALSE
+
+/obj/item/device/radio/headset/map_preset/Initialize()
+	if (preset_name)
+		var/name_lower = lowertext(preset_name)
+		name = "[name_lower] radio headset"
+		ks1type = encryption_key
+		default_frequency = assign_away_freq(preset_name)
+		if (use_common)
+			frequency = PUB_FREQ
+		else
+			frequency = default_frequency
+	. = ..()
+
 /obj/item/device/radio/headset/syndicate
-	origin_tech = list(TECH_ILLEGAL = 3)
+	origin_tech = list(TECH_ESOTERIC = 3)
 	syndie = 1
 	ks1type = /obj/item/device/encryptionkey/syndicate
 
@@ -83,7 +104,7 @@
 	set_frequency(SYND_FREQ)
 
 /obj/item/device/radio/headset/raider
-	origin_tech = list(TECH_ILLEGAL = 2)
+	origin_tech = list(TECH_ESOTERIC = 2)
 	syndie = 1
 	ks1type = /obj/item/device/encryptionkey/raider
 
@@ -91,8 +112,15 @@
 	. = ..()
 	set_frequency(RAID_FREQ)
 
+/obj/item/device/radio/headset/vox_raider
+	ks1type = /obj/item/device/encryptionkey/vox_raider
+
+/obj/item/device/radio/headset/vox_raider/Initialize()
+	. = ..()
+	set_frequency(V_RAID_FREQ)
+
 /obj/item/device/radio/headset/binary
-	origin_tech = list(TECH_ILLEGAL = 3)
+	origin_tech = list(TECH_ESOTERIC = 3)
 	ks1type = /obj/item/device/encryptionkey/binary
 
 /obj/item/device/radio/headset/headset_sec
@@ -166,6 +194,12 @@
 	item_state = "com_headset_alt"
 	ks1type = /obj/item/device/encryptionkey/headset_com
 	max_keys = 3
+
+/obj/item/device/radio/headset/merchant
+	name = "merchant headset"
+	desc = "A headset utilizing the universal hailing frequency."
+	frequency = HAIL_FREQ
+	ks1type = /obj/item/device/encryptionkey/merchant
 
 /obj/item/device/radio/headset/heads/captain
 	name = "captain's headset"
@@ -251,9 +285,9 @@
 	item_state = "headset"
 	ks1type = /obj/item/device/encryptionkey/headset_service
 
-/obj/item/device/radio/headset/ert
-	name = "emergency response team radio headset"
-	desc = "The headset of the boss's boss."
+/obj/item/device/radio/headset/foundation
+	name = "\improper Foundation radio headset"
+	desc = "The headeset of the occult cavalry."
 	icon_state = "com_headset"
 	item_state = "headset"
 	ks1type = /obj/item/device/encryptionkey/ert
@@ -312,14 +346,14 @@
 	item_state = "headset"
 	ks1type = /obj/item/device/encryptionkey/specops
 
-/obj/item/device/radio/headset/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/device/radio/headset/attackby(obj/item/W as obj, mob/user as mob)
 //	..()
 	user.set_machine(src)
 	if (!( isScrewdriver(W) || (istype(W, /obj/item/device/encryptionkey/ ))))
 		return
 
 	if(isScrewdriver(W))
-		if(encryption_keys.len)
+		if(length(encryption_keys))
 			for(var/ch_name in channels)
 				radio_controller.remove_object(src, radiochannels[ch_name])
 				secure_radio_connections[ch_name] = null
@@ -333,22 +367,22 @@
 		else
 			to_chat(user, "This headset doesn't have any encryption keys!  How useless...")
 
-	if(istype(W, /obj/item/device/encryptionkey/))
-		if(encryption_keys.len >= max_keys)
+	if(istype(W, /obj/item/device/encryptionkey))
+		if(length(encryption_keys) >= max_keys)
 			to_chat(user, "The headset can't hold another key!")
 			return
 		if(user.unEquip(W, target = src))
-			to_chat(user, "<span class='notice'>You put \the [W] into \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You put \the [W] into \the [src]."))
 			encryption_keys += W
 			recalculateChannels(1)
 
-/obj/item/device/radio/headset/MouseDrop(var/obj/over_object)
+/obj/item/device/radio/headset/MouseDrop(obj/over_object)
 	var/mob/M = usr
 	if((!istype(over_object, /obj/screen)) && (src in M) && CanUseTopic(M))
 		return attack_self(M)
 	return
 
-/obj/item/device/radio/headset/recalculateChannels(var/setDescription = 0)
+/obj/item/device/radio/headset/recalculateChannels(setDescription = 0)
 	src.channels = list()
 	src.translate_binary = 0
 	src.translate_hive = 0
@@ -356,8 +390,6 @@
 	for(var/obj/ekey in encryption_keys)
 		import_key_data(ekey)
 	for (var/ch_name in channels)
-		if(!radio_controller)
-			sleep(30) // Waiting for the radio_controller to be created.
 		if(!radio_controller)
 			src.SetName("broken radio headset")
 			return
@@ -382,11 +414,11 @@
 
 /obj/item/device/radio/headset/proc/setupRadioDescription()
 	var/radio_text = ""
-	for(var/i = 1 to channels.len)
+	for(var/i = 1 to length(channels))
 		var/channel = channels[i]
 		var/key = get_radio_key_from_channel(channel)
 		radio_text += "[key] - [channel]"
-		if(i != channels.len)
+		if(i != length(channels))
 			radio_text += ", "
 
 	radio_desc = radio_text

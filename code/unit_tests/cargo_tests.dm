@@ -6,7 +6,7 @@
 /datum/unit_test/cargo_crates_containment_test/start_test()
 	var/bad_tests = 0
 
-	for(var/decl/hierarchy/supply_pack/supply_pack in SSsupply.master_supply_list)
+	for(var/singleton/hierarchy/supply_pack/supply_pack in SSsupply.master_supply_list)
 		if(!ispath(supply_pack.containertype, /obj/structure/closet))
 			continue
 
@@ -19,10 +19,10 @@
 		var/list/no_longer_contained_atoms = contents_pre_open - C.contents
 		var/list/previously_not_contained_atoms = C.contents - contents_pre_open
 
-		if(no_longer_contained_atoms.len)
+		if(length(no_longer_contained_atoms))
 			bad_tests++
 			log_bad("[supply_pack] - [log_info_line(C)] no longer contains the following atoms: [log_info_line(no_longer_contained_atoms)]")
-		if(previously_not_contained_atoms.len)
+		if(length(previously_not_contained_atoms))
 			log_debug("[supply_pack] - [log_info_line(C)] now contains the following atoms: [log_info_line(previously_not_contained_atoms)]")
 		qdel(C)
 		QDEL_NULL_LIST(no_longer_contained_atoms)
@@ -39,7 +39,7 @@
 
 /datum/unit_test/cargo_sufficient_cost_test/start_test()
 	var/fail = FALSE
-	for(var/decl/hierarchy/supply_pack/supply_pack in SSsupply.master_supply_list)
+	for(var/singleton/hierarchy/supply_pack/supply_pack in SSsupply.master_supply_list)
 		var/sell_price = 0
 		if(ispath(supply_pack.containertype, /obj/structure/closet/crate))
 			var/obj/structure/closet/crate/crate = supply_pack.containertype

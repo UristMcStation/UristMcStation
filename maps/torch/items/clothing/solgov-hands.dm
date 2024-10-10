@@ -3,6 +3,9 @@
 	desc = "You should never see this."
 	item_icons = list(slot_gloves_str = 'maps/torch/icons/mob/onmob_hands_solgov.dmi')
 	icon = 'maps/torch/icons/obj/obj_hands_solgov.dmi'
+	sprite_sheets = list(
+		SPECIES_UNATHI = 'maps/torch/icons/mob/unathi/onmob_hands_solgov_unathi.dmi'
+	)
 
 /obj/item/clothing/gloves/thick/duty/solgov/eng
 	name = "engineering duty gloves"
@@ -14,13 +17,19 @@
 	name = "command duty gloves"
 	desc = "These black duty gloves are made from durable synthetic materials, and have a lovely gold accent color."
 	icon_state = "duty_gloves_cmd"
-	item_state = "duty_gloves_cmd"	
+	item_state = "duty_gloves_cmd"
 
 /obj/item/clothing/gloves/thick/duty/solgov/exp
 	name = "exploration duty gloves"
 	desc = "These black duty gloves are made from durable synthetic materials, and have a lovely purple accent color."
 	icon_state = "duty_gloves_exp"
 	item_state = "duty_gloves_exp"
+
+/obj/item/clothing/gloves/thick/duty/solgov/sci
+	name = "science duty gloves"
+	desc = "These black duty gloves are made from durable synthetic materials, and have a lovely heather accent color."
+	icon_state = "duty_gloves_sci"
+	item_state = "duty_gloves_sci"
 
 /obj/item/clothing/gloves/thick/duty/solgov/med
 	name = "medical duty gloves"
@@ -45,3 +54,9 @@
 	desc = "These black duty gloves are made from durable synthetic materials, and have a lovely brown accent color."
 	icon_state = "duty_gloves_sup"
 	item_state = "duty_gloves_sup"
+
+/obj/item/clothing/gloves/thick/duty/solgov/fleet
+	name = "fleet duty gloves"
+	desc = "These black duty gloves are made from durable synthetic materials. Standard issue to all ranks in the SCG Fleet."
+	icon_state = "fleet_gloves"
+	item_state = "fleet_gloves"

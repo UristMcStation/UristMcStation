@@ -1,5 +1,5 @@
 
-/mob/living/simple_animal/hostile/npc/proc/generate_trade_items()
+/mob/living/simple_animal/passive/npc/proc/generate_trade_items()
 
 	//setup the accepted trade categories
 	for(var/category in trade_categories_by_name)
@@ -14,7 +14,7 @@
 	var/trade_items_left = npc_item_amount
 	var/trade_weight_left = total_trade_weight
 	var/list/trade_items_other = trade_items.Copy()
-	while(trade_items_left > 0 && trade_items_other.len)
+	while(trade_items_left > 0 && length(trade_items_other))
 		var/target_weight = rand(1,trade_weight_left)
 
 		var/index_weight = 0
@@ -37,14 +37,14 @@
 		if(!success)
 			break
 
-/mob/living/simple_animal/hostile/npc/proc/spawn_trade_item(var/datum/trade_item/I, var/hidden = 0)
+/mob/living/simple_animal/passive/npc/proc/spawn_trade_item(datum/trade_item/I, var/hidden = 0)
 	if(!I)
 		return
 
 	//check if we're using a global template
 	if(I.is_template)
 		//create our own instance of the trade item
-		var/datum/trade_item/copy = DuplicateObject(I, 1)
+		var/datum/trade_item/copy = clone_atom(I, 1)
 		copy.is_template = 0
 
 		//clear out the old one
@@ -79,14 +79,14 @@
 		//add it to the shop list in the NanoUI window
 		generate_trade_item_ui(I)
 
-/mob/living/simple_animal/hostile/npc/proc/generate_trade_item_ui(var/datum/trade_item/T)
+/mob/living/simple_animal/passive/npc/proc/generate_trade_item_ui(datum/trade_item/T)
 	if(T)
 		interact_inventory.Add(list(list("name" = T.name, "quantity" = T.quantity, "value" = T.value)))
 
-/mob/living/simple_animal/hostile/npc/proc/update_trade_item_ui(var/datum/trade_item/T)
+/mob/living/simple_animal/passive/npc/proc/update_trade_item_ui(datum/trade_item/T)
 	if(T)
 		var/found = 0
-		for(var/i=1, i<=interact_inventory.len, i++)
+		for(var/i=1, i<=length(interact_inventory), i++)
 			if(interact_inventory[i]["name"] == T.name)
 				if(T.quantity > 0)
 					interact_inventory[i]["quantity"] = T.quantity

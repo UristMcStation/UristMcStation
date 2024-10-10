@@ -1,4 +1,4 @@
-/obj/item/weapon/disk/botany
+/obj/item/disk/botany
 	name = "flora data disk"
 	desc = "A small disk used for carrying data on plant genetics."
 	icon = 'icons/obj/hydroponics_machines.dmi'
@@ -8,8 +8,8 @@
 	var/list/genes = list()
 	var/genesource = "unknown"
 
-/obj/item/weapon/disk/botany/attack_self(var/mob/user as mob)
-	if(genes.len)
+/obj/item/disk/botany/attack_self(mob/user as mob)
+	if(length(genes))
 		var/choice = alert(user, "Are you sure you want to wipe the disk?", "Xenobotany Data", "No", "Yes")
 		if(src && user && genes && choice && choice == "Yes" && user.Adjacent(get_turf(src)))
 			to_chat(user, "You wipe the disk data.")
@@ -18,19 +18,19 @@
 			genes = list()
 			genesource = "unknown"
 
-/obj/item/weapon/storage/box/botanydisk
+/obj/item/storage/box/botanydisk
 	name = "flora disk box"
 	desc = "A box of flora data disks, apparently."
-	startswith = list(/obj/item/weapon/disk/botany = 14)
+	startswith = list(/obj/item/disk/botany = 14)
 
 /obj/machinery/botany
 	icon = 'icons/obj/hydroponics_machines.dmi'
 	icon_state = "hydrotray3"
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 
 	var/obj/item/seeds/seed // Currently loaded seed packet.
-	var/obj/item/weapon/disk/botany/loaded_disk //Currently loaded data disk.
+	var/obj/item/disk/botany/loaded_disk //Currently loaded data disk.
 
 	var/open = 0
 	var/active = 0
@@ -41,35 +41,31 @@
 	var/disk_needs_genes = 0
 
 /obj/machinery/botany/Process()
-
-	..()
 	if(!active) return
 
 	if(world.time > last_action + action_time)
 		finished_task()
 
-/obj/machinery/botany/attack_ai(mob/user as mob)
-	return attack_hand(user)
-
-/obj/machinery/botany/attack_hand(mob/user as mob)
+/obj/machinery/botany/interface_interact(mob/user)
 	ui_interact(user)
+	return TRUE
 
 /obj/machinery/botany/proc/finished_task()
 	active = 0
 	if(failed_task)
 		failed_task = 0
-		visible_message("\icon[src] [src] pings unhappily, flashing a red warning light.")
+		visible_message("[icon2html(src, viewers(get_turf(src)))] [src] pings unhappily, flashing a red warning light.")
 	else
-		visible_message("\icon[src] [src] pings happily.")
+		visible_message("[icon2html(src, viewers(get_turf(src)))] [src] pings happily.")
 
 	if(eject_disk)
 		eject_disk = 0
 		if(loaded_disk)
 			loaded_disk.dropInto(loc)
-			visible_message("\icon[src] [src] beeps and spits out [loaded_disk].")
+			visible_message("[icon2html(src, viewers(get_turf(src)))] [src] beeps and spits out [loaded_disk].")
 			loaded_disk = null
 
-/obj/machinery/botany/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/machinery/botany/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/seeds))
 		if(seed)
 			to_chat(user, "There is already a seed loaded.")
@@ -84,7 +80,7 @@
 
 	if(isScrewdriver(W))
 		open = !open
-		to_chat(user, "<span class='notice'>You [open ? "open" : "close"] the maintenance panel.</span>")
+		to_chat(user, SPAN_NOTICE("You [open ? "open" : "close"] the maintenance panel."))
 		return
 
 	if(open)
@@ -92,14 +88,14 @@
 			dismantle()
 			return
 
-	if(istype(W,/obj/item/weapon/disk/botany))
+	if(istype(W,/obj/item/disk/botany))
 		if(loaded_disk)
 			to_chat(user, "There is already a data disk loaded.")
 			return
 		else
-			var/obj/item/weapon/disk/botany/B = W
+			var/obj/item/disk/botany/B = W
 
-			if(B.genes && B.genes.len)
+			if(B.genes && length(B.genes))
 				if(!disk_needs_genes)
 					to_chat(user, "That disk already has gene data loaded.")
 					return
@@ -123,7 +119,7 @@
 	var/datum/seed/genetics // Currently scanned seed genetic structure.
 	var/degradation = 0     // Increments with each scan, stops allowing gene mods after a certain point.
 
-/obj/machinery/botany/extractor/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/botany/extractor/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1)
 
 	if(!user)
 		return
@@ -172,19 +168,19 @@
 		seed.dropInto(loc)
 
 		if(seed.seed.name == "new line" || isnull(SSplants.seeds[seed.seed.name]))
-			seed.seed.uid = SSplants.seeds.len + 1
+			seed.seed.uid = length(SSplants.seeds) + 1
 			seed.seed.name = "[seed.seed.uid]"
 			SSplants.seeds[seed.seed.name] = seed.seed
 
 		seed.update_seed()
-		visible_message("\icon[src] [src] beeps and spits out [seed].")
+		visible_message("[icon2html(src, viewers(get_turf(src)))] [src] beeps and spits out [seed].")
 
 		seed = null
 
 	if(href_list["eject_disk"])
 		if(!loaded_disk) return
 		loaded_disk.dropInto(loc)
-		visible_message("\icon[src] [src] beeps and spits out [loaded_disk].")
+		visible_message("[icon2html(src, viewers(get_turf(src)))] [src] beeps and spits out [loaded_disk].")
 		loaded_disk = null
 
 	usr.set_machine(src)
@@ -232,6 +228,9 @@
 		eject_disk = 1
 
 		degradation += rand(20,60)
+		var/expertise = rand(0,2)
+		degradation = max(0, degradation - 10*expertise)
+
 		if(degradation >= 100)
 			failed_task = 1
 			genetics = null
@@ -252,7 +251,7 @@
 	icon_state = "traitgun"
 	disk_needs_genes = 1
 
-/obj/machinery/botany/editor/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/botany/editor/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1)
 
 	if(!user)
 		return
@@ -266,7 +265,7 @@
 	else
 		data["degradation"] = 0
 
-	if(loaded_disk && loaded_disk.genes.len)
+	if(loaded_disk && length(loaded_disk.genes))
 		data["disk"] = 1
 		data["sourceName"] = loaded_disk.genesource
 		data["locus"] = ""

@@ -8,13 +8,13 @@
 //			/old_dir: The dir before the change.
 //			/new_dir: The dir after the change.
 
-GLOBAL_DATUM_INIT(dir_set_event, /decl/observ/dir_set, new)
+GLOBAL_DATUM_INIT(dir_set_event, /singleton/observ/dir_set, new)
 
-/decl/observ/dir_set
+/singleton/observ/dir_set
 	name = "Direction Set"
 	expected_type = /atom
 
-/decl/observ/dir_set/register(var/atom/dir_changer, var/datum/listener, var/proc_call)
+/singleton/observ/dir_set/register(atom/dir_changer, datum/listener, proc_call)
 	. = ..()
 
 	// Listen to the parent if possible.
@@ -25,17 +25,11 @@ GLOBAL_DATUM_INIT(dir_set_event, /decl/observ/dir_set, new)
 * Direction Handling *
 *********************/
 
-/atom/set_dir()
-	var/old_dir = dir
-	. = ..()
-	if(old_dir != dir)
-		GLOB.dir_set_event.raise_event(src, old_dir, dir)
-
-/atom/movable/Entered(var/atom/movable/am, atom/old_loc)
+/atom/movable/Entered(atom/movable/am, atom/old_loc)
 	. = ..()
 	if(GLOB.dir_set_event.has_listeners(am))
 		GLOB.dir_set_event.register(src, am, /atom/proc/recursive_dir_set)
 
-/atom/movable/Exited(var/atom/movable/am, atom/old_loc)
+/atom/movable/Exited(atom/movable/am, atom/new_loc)
 	. = ..()
 	GLOB.dir_set_event.unregister(src, am, /atom/proc/recursive_dir_set)

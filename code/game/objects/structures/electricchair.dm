@@ -5,13 +5,14 @@
 	var/on = 0
 	var/obj/item/assembly/shock_kit/part = null
 	var/last_time = 1.0
+	buckle_movable = FALSE
 
 /obj/structure/bed/chair/e_chair/New()
 	..()
 	overlays += image('icons/obj/objects.dmi', src, "echair_over", MOB_LAYER + 1, dir)
 	return
 
-/obj/structure/bed/chair/e_chair/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/bed/chair/e_chair/attackby(obj/item/W as obj, mob/user as mob)
 	if(isWrench(W))
 		var/obj/structure/bed/chair/C = new /obj/structure/bed/chair(loc)
 		playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
@@ -32,7 +33,7 @@
 	else
 		on = 1
 		icon_state = "echair1"
-	to_chat(usr, "<span class='notice'>You switch [on ? "on" : "off"] [src].</span>")
+	to_chat(usr, SPAN_NOTICE("You switch [on ? "on" : "off"] [src]."))
 	return
 
 /obj/structure/bed/chair/e_chair/rotate()
@@ -64,11 +65,11 @@
 	s.start()
 	if(buckled_mob)
 		buckled_mob.burn_skin(85)
-		to_chat(buckled_mob, "<span class='danger'>You feel a deep shock course through your body!</span>")
+		to_chat(buckled_mob, SPAN_DANGER("You feel a deep shock course through your body!"))
 		sleep(1)
 		buckled_mob.burn_skin(85)
 		buckled_mob.Stun(600)
-	visible_message("<span class='danger'>The electric chair went off!</span>", "<span class='danger'>You hear a deep sharp shock!</span>")
+	visible_message(SPAN_DANGER("The electric chair went off!"), SPAN_DANGER("You hear a deep sharp shock!"))
 
 	A.power_light = light
 	A.update_icon()

@@ -43,8 +43,8 @@
 	if(is_rigged)
 		to_chat(user, "<span class='warning'>There is \a [attached_device] attached to the warhead.</span>")
 
-/obj/item/shipweapons/torpedo_warhead/attackby(var/obj/item/I, mob/user as mob)
-	if(istype(I, /obj/item/weapon/crowbar))
+/obj/item/shipweapons/torpedo_warhead/attackby(obj/item/I, mob/user as mob)
+	if(istype(I, /obj/item/crowbar))
 		if(riggedstate == CIRCUITRY_EXPOSED && !attached_device) // can't close it if it's got something it's not supposed to have.
 			to_chat(user, "<span class='notice'>You carefully close the warhead's circuitry panel.</span>")
 			riggedstate = 0
@@ -58,7 +58,7 @@
 		else
 			to_chat(user, "<span class='notice'>You can't close the panel. Remove the [attached_device] first.</span>")
 
-	else if(istype(I, /obj/item/weapon/wirecutters))
+	else if(istype(I, /obj/item/wirecutters))
 		if(is_rigged && attached_device)
 			to_chat(user, "<span class='notice'>You carefully begin to remove [attached_device] from the warhead's internals.</span>")
 			if(do_after(user,4 SECONDS))
@@ -105,7 +105,7 @@
 			A.forceMove(src)
 			attached_device = I
 			A.holder = src
-			log_and_message_admins("[user] has rigged a torpedo IED.")
+			log_and_message_admins("has rigged a torpedo IED.",  user)
 			playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 			icon_state = "torpedowarhead-open-mod-armed"
 	return
@@ -118,7 +118,7 @@
 /obj/item/shipweapons/torpedo_warhead/proc/process_activation() // uh oh, time to boom
 	detonate()
 
-/obj/item/shipweapons/torpedo_warhead/proc/detonate(var/forced = 0)
+/obj/item/shipweapons/torpedo_warhead/proc/detonate(forced = 0)
 	playsound(src.loc, 'sound/machines/buttonbeep.ogg', 25, 0, 10)
 	if(safety && !forced)
 		visible_message("<span class='danger'>[src] beeps stubbornly, refusing to detonate!</span>")
@@ -140,23 +140,23 @@
 			qdel(src)
 
 /obj/item/shipweapons/torpedo_warhead/proc/do_explosion()
-	explosion(get_turf(src), 0, 3, 6)
+	explosion(get_turf(src), 7, EX_ACT_HEAVY, 1)
 
 /datum/wires/torpedowarhead
 	holder_type = /obj/item/shipweapons/torpedo_warhead
 	random = 1
 	wire_count = 7
 
-var/const/TWARHEAD_SAFE		= 1
-var/const/TWARHEAD_SAFE_2	= 2
-var/const/TWARHEAD_DETONATE = 4
+var/global/const/TWARHEAD_SAFE		= 1
+var/global/const/TWARHEAD_SAFE_2	= 2
+var/global/const/TWARHEAD_DETONATE = 4
 
 /datum/wires/torpedowarhead/GetInteractWindow()
 	var/obj/item/shipweapons/torpedo_warhead/N = holder
 	. += ..()
 	. += "Amid the various components, you see the safety interlocks are [N.safety ? "engaged" : "disengaged"].<BR>"
 
-/datum/wires/torpedowarhead/UpdatePulsed(var/index)
+/datum/wires/torpedowarhead/UpdatePulsed(index)
 	var/obj/item/shipweapons/torpedo_warhead/N = holder
 	switch(index)
 		if(TWARHEAD_SAFE)
@@ -176,7 +176,7 @@ var/const/TWARHEAD_DETONATE = 4
 		if(TWARHEAD_DETONATE)
 			N.detonate()
 
-/datum/wires/torpedowarhead/UpdateCut(var/index, var/mended)
+/datum/wires/torpedowarhead/UpdateCut(index, var/mended)
 	var/obj/item/shipweapons/torpedo_warhead/N = holder
 	switch(index)
 		if(TWARHEAD_SAFE)
@@ -214,7 +214,7 @@ var/const/TWARHEAD_DETONATE = 4
 	ammo_name = "armour-piercing"
 
 /obj/item/shipweapons/torpedo_warhead/ap/do_explosion()
-	explosion(get_turf(src), 0, 1, 3)
+	explosion(get_turf(src), 4, EX_ACT_HEAVY, 1)
 
 /obj/item/shipweapons/torpedo_warhead/he
 	name = "high-explosive torpedo warhead"
@@ -228,7 +228,7 @@ var/const/TWARHEAD_DETONATE = 4
 	ammo_name = "high-explosive"
 
 /obj/item/shipweapons/torpedo_warhead/he/do_explosion()
-	explosion(get_turf(src), 1, 2, 8)
+	explosion(get_turf(src), 9, EX_ACT_DEVASTATING, 1)
 
 /obj/item/shipweapons/torpedo_warhead/emp
 	name = "EMP torpedo warhead"

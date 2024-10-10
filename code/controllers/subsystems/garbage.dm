@@ -1,32 +1,44 @@
+//Check if an /atom/movable that has been Destroyed has been correctly placed into nullspace and if not, throws a runtime and moves it to nullspace
+#define GC_CHECK_AM_NULLSPACE(D, hint) \
+	if(istype(D,/atom/movable)) {\
+		var/atom/movable/AM = D; \
+		if(AM.loc != null) {\
+			crash_with("QDEL("+hint+"): "+AM.name+" was supposed to be in nullspace but isn't \
+						(LOCATION= "+AM.loc.name+" ("+AM.loc.x+","+AM.loc.y+","+AM.loc.z+") )! Destroy didn't do its job!"); \
+			AM.forceMove(null); \
+		} \
+	}
+
 SUBSYSTEM_DEF(garbage)
 	name = "Garbage"
 	priority = SS_PRIORITY_GARBAGE
 	wait = 2 SECONDS
-	flags = SS_POST_FIRE_TIMING|SS_BACKGROUND|SS_NO_INIT
+	flags = SS_POST_FIRE_TIMING | SS_BACKGROUND | SS_NO_INIT | SS_NEEDS_SHUTDOWN
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
 	init_order = SS_INIT_GARBAGE
 
-	var/list/collection_timeout = list(0, 2 MINUTES, 10 SECONDS)	// deciseconds to wait before moving something up in the queue to the next level
+	var/static/list/collection_timeout = list(0, 30 SECONDS, 10 SECONDS)	// deciseconds to wait before moving something up in the queue to the next level
 
 	//Stat tracking
-	var/delslasttick = 0            // number of del()'s we've done this tick
-	var/gcedlasttick = 0            // number of things that gc'ed last tick
-	var/totaldels = 0
-	var/totalgcs = 0
+	var/static/delslasttick = 0            // number of del()'s we've done this tick
+	var/static/gcedlasttick = 0            // number of things that gc'ed last tick
+	var/static/totaldels = 0
+	var/static/totalgcs = 0
 
-	var/highest_del_time = 0
-	var/highest_del_tickusage = 0
+	var/static/highest_del_time = 0
+	var/static/highest_del_tickusage = 0
 
-	var/list/pass_counts
-	var/list/fail_counts
+	var/static/list/pass_counts
+	var/static/list/fail_counts
 
-	var/list/items = list()         // Holds our qdel_item statistics datums
+	var/static/list/items = list()         // Holds our qdel_item statistics datums
+	var/static/harddel_halt = FALSE        // If true, will avoid harddeleting from the final queue; will still respect HARDDEL_NOW.
 
 	//Queue
-	var/list/queues
+	var/static/list/queues
 
 	#ifdef TESTING
-	var/list/reference_find_on_fail = list()
+	var/static/list/reference_find_on_fail = list()
 	#endif
 
 
@@ -39,25 +51,29 @@ SUBSYSTEM_DEF(garbage)
 		pass_counts[i] = 0
 		fail_counts[i] = 0
 
-/datum/controller/subsystem/garbage/stat_entry(msg)
+
+/datum/controller/subsystem/garbage/UpdateStat(time)
+	if (PreventUpdateStat(time))
+		return ..()
+	var/list/build = list()
 	var/list/counts = list()
 	for (var/list/L in queues)
 		counts += length(L)
-	msg += "Q:[counts.Join(",")]|D:[delslasttick]|G:[gcedlasttick]|"
-	msg += "GR:"
+	build += "Q:[counts.Join(",")]|D:[delslasttick]|G:[gcedlasttick]|"
+	build += "GR:"
 	if (!(delslasttick+gcedlasttick))
-		msg += "n/a|"
+		build += "n/a|"
 	else
-		msg += "[round((gcedlasttick/(delslasttick+gcedlasttick))*100, 0.01)]%|"
+		build += "[round((gcedlasttick/(delslasttick+gcedlasttick))*100, 0.01)]%|"
+	build += "TD:[totaldels]|TG:[totalgcs]|"
+	if (!(totaldels + totalgcs))
+		build += "n/a|"
+	else
+		build += "TGR:[round((totalgcs/(totaldels+totalgcs))*100, 0.01)]%"
+	build += " P:[pass_counts.Join(",")]"
+	build += "|F:[fail_counts.Join(",")]"
+	..(build.Join(null))
 
-	msg += "TD:[totaldels]|TG:[totalgcs]|"
-	if (!(totaldels+totalgcs))
-		msg += "n/a|"
-	else
-		msg += "TGR:[round((totalgcs/(totaldels+totalgcs))*100, 0.01)]%"
-	msg += " P:[pass_counts.Join(",")]"
-	msg += "|F:[fail_counts.Join(",")]"
-	..(msg)
 
 /datum/controller/subsystem/garbage/Shutdown()
 	//Adds the del() log to the qdel log file
@@ -164,7 +180,6 @@ SUBSYSTEM_DEF(garbage)
 			continue
 
 		// Something's still referring to the qdel'd object.
-		fail_counts[level]++
 		switch (level)
 			if (GC_QUEUE_CHECK)
 				#ifdef TESTING
@@ -179,9 +194,13 @@ SUBSYSTEM_DEF(garbage)
 				var/type = D.type
 				var/datum/qdel_item/I = items[type]
 				if(!I.failures)
-					crash_with("GC: -- \ref[D] | [type] was unable to be GC'd --")
+					to_world_log("GC: -- \ref[D] | [type] was unable to be GC'd --")
 				I.failures++
+				fail_counts[level]++
 			if (GC_QUEUE_HARDDELETE)
+				if(harddel_halt)
+					continue
+				fail_counts[level]++
 				HardDelete(D)
 				if (MC_TICK_CHECK)
 					break
@@ -221,7 +240,7 @@ SUBSYSTEM_DEF(garbage)
 //this is mainly to separate things profile wise.
 /datum/controller/subsystem/garbage/proc/HardDelete(datum/D)
 	var/time = world.timeofday
-	var/tick = TICK_USAGE
+	var/tick = world.tick_usage
 	var/ticktime = world.time
 	++delslasttick
 	++totaldels
@@ -230,19 +249,19 @@ SUBSYSTEM_DEF(garbage)
 
 	del(D)
 
-	tick = (TICK_USAGE-tick+((world.time-ticktime)/world.tick_lag*100))
+	tick = world.tick_usage - tick + ((world.time - ticktime) / world.tick_lag * 100)
 
 	var/datum/qdel_item/I = items[type]
 
 	I.hard_deletes++
-	I.hard_delete_time += TICK_DELTA_TO_MS(tick)
+	I.hard_delete_time += tick * world.tick_lag
 
 
 	if (tick > highest_del_tickusage)
 		highest_del_tickusage = tick
 	time = world.timeofday - time
-	if (!time && TICK_DELTA_TO_MS(tick) > 1)
-		time = TICK_DELTA_TO_MS(tick)/100
+	if (!time && tick * world.tick_lag > 1)
+		time = tick * world.tick_lag * 0.01
 	if (time > highest_del_time)
 		highest_del_time = time
 	if (time > 10)
@@ -255,11 +274,11 @@ SUBSYSTEM_DEF(garbage)
 		queues[GC_QUEUE_PREQUEUE] += D
 		D.gc_destroyed = GC_QUEUED_FOR_HARD_DEL
 
-/datum/controller/subsystem/garbage/Recover()
-	if (istype(SSgarbage.queues))
-		for (var/i in 1 to SSgarbage.queues.len)
-			queues[i] |= SSgarbage.queues[i]
 
+/datum/controller/subsystem/garbage/proc/toggle_harddel_halt(new_state = FALSE)
+	if(new_state == harddel_halt)
+		return
+	harddel_halt = new_state
 
 /datum/qdel_item
 	var/name = ""
@@ -304,11 +323,12 @@ SUBSYSTEM_DEF(garbage)
 		if(world.time != start_time)
 			I.slept_destroy++
 		else
-			I.destroy_time += TICK_USAGE_TO_MS(start_tick)
+			I.destroy_time += (world.tick_usage - start_tick) * world.tick_lag
 		if(!D)
 			return
 		switch(hint)
 			if (QDEL_HINT_QUEUE)		//qdel should queue the object for deletion.
+				GC_CHECK_AM_NULLSPACE(D, "QDEL_HINT_QUEUE")
 				SSgarbage.PreQueue(D)
 			if (QDEL_HINT_IWILLGC)
 				D.gc_destroyed = world.time
@@ -331,6 +351,7 @@ SUBSYSTEM_DEF(garbage)
 
 				SSgarbage.PreQueue(D)
 			if (QDEL_HINT_HARDDEL)		//qdel should assume this object won't gc, and queue a hard delete using a hard reference to save time from the locate()
+				GC_CHECK_AM_NULLSPACE(D, "QDEL_HINT_HARDDEL")
 				SSgarbage.HardQueue(D)
 			if (QDEL_HINT_HARDDEL_NOW)	//qdel should assume this object won't gc, and hard del it post haste.
 				SSgarbage.HardDelete(D)

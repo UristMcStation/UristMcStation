@@ -3,8 +3,8 @@
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "processor"
 	layer = 2.9
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 	var/broken = 0
 	var/processing = 0
 	use_power = 1
@@ -25,28 +25,28 @@
 
 	/* objs */
 	meat
-		input = /obj/item/weapon/reagent_containers/food/snacks/meat
-		output = /obj/item/weapon/reagent_containers/food/snacks/meatball
+		input = /obj/item/reagent_containers/food/snacks/meat
+		output = /obj/item/reagent_containers/food/snacks/meatball
 
 	potato
-		input = /obj/item/weapon/reagent_containers/food/snacks/grown/potato
-		output = /obj/item/weapon/reagent_containers/food/snacks/rawsticks
+		input = /obj/item/reagent_containers/food/snacks/grown/potato
+		output = /obj/item/reagent_containers/food/snacks/rawsticks
 
 	carrot
-		input = /obj/item/weapon/reagent_containers/food/snacks/grown/carrot
-		output = /obj/item/weapon/reagent_containers/food/snacks/carrotfries
+		input = /obj/item/reagent_containers/food/snacks/grown/carrot
+		output = /obj/item/reagent_containers/food/snacks/carrotfries
 
 	soybeans
-		input = /obj/item/weapon/reagent_containers/food/snacks/grown/soybeans
-		output = /obj/item/weapon/reagent_containers/food/snacks/soydope
+		input = /obj/item/reagent_containers/food/snacks/grown/soybeans
+		output = /obj/item/reagent_containers/food/snacks/soydope
 
 	wheat
-		input = /obj/item/weapon/reagent_containers/food/snacks/grown/wheat
-		output = /obj/item/weapon/reagent_containers/food/snacks/flour
+		input = /obj/item/reagent_containers/food/snacks/grown/wheat
+		output = /obj/item/reagent_containers/food/snacks/flour
 
 	spaghetti
-		input = /obj/item/weapon/reagent_containers/food/snacks/flour
-		output = /obj/item/weapon/reagent_containers/food/snacks/spagetti
+		input = /obj/item/reagent_containers/food/snacks/flour
+		output = /obj/item/reagent_containers/food/snacks/spagetti
 
 	/* mobs */
 	mob
@@ -80,7 +80,7 @@
 							"You jump out from the processor", \
 							"You hear chimp")
 					return
-				var/obj/item/weapon/reagent_containers/glass/bucket/bucket_of_blood = new(loc)
+				var/obj/item/reagent_containers/glass/bucket/bucket_of_blood = new(loc)
 				var/datum/reagent/blood/B = new()
 				B.holder = bucket_of_blood
 				B.volume = 70
@@ -92,7 +92,7 @@
 						B.data["viruses"] += D.Copy()
 
 				B.data["blood_DNA"] = copytext(O.dna.unique_enzymes,1,0)
-				if(O.resistances&&O.resistances.len)
+				if(O.resistances&&O.length(resistances))
 					B.data["resistances"] = O.resistances.Copy()
 				bucket_of_blood.reagents.reagent_list += B
 				bucket_of_blood.reagents.update_total()
@@ -103,7 +103,7 @@
 			input = /mob/living/carbon/monkey
 			output = null
 
-/obj/machinery/processor/proc/select_recipe(var/X)
+/obj/machinery/processor/proc/select_recipe(X)
 	for (var/Type in typesof(/datum/food_processor_process) - /datum/food_processor_process - /datum/food_processor_process/mob)
 		var/datum/food_processor_process/P = new Type()
 		if (!istype(X, P.input))
@@ -111,21 +111,21 @@
 		return P
 	return 0
 
-/obj/machinery/processor/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/processor/attackby(obj/item/O as obj, var/mob/user as mob)
 	if(src.processing)
-		user << "\red The processor is in the process of processing."
+		to_chat(user, "\red The processor is in the process of processing.")
 		return 1
-	if(src.contents.len > 0) //TODO: several items at once? several different items?
-		user << "\red Something is already in the processing chamber."
+	if(length(src.contents) > 0) //TODO: several items at once? several different items?
+		to_chat(user, "\red Something is already in the processing chamber.")
 		return 1
 	var/what = O
-	if (istype(O, /obj/item/weapon/grab))
-		var/obj/item/weapon/grab/G = O
+	if (istype(O, /obj/item/grab))
+		var/obj/item/grab/G = O
 		what = G.affecting
 
 	var/datum/food_processor_process/P = select_recipe(what)
 	if (!P)
-		user << "\red That probably won't blend."
+		to_chat(user, "\red That probably won't blend.")
 		return 1
 	user.visible_message("[user] put [what] into [src].", \
 		"You put the [what] into [src].")
@@ -133,14 +133,14 @@
 	what:loc = src
 	return
 
-/obj/machinery/processor/attack_hand(var/mob/user as mob)
-	if (src.stat != 0) //NOPOWER etc
+/obj/machinery/processor/attack_hand(mob/user as mob)
+	if (src.stat != 0) //MACHINE_STAT_NOPOWER etc
 		return
 	if(src.processing)
-		user << "\red The processor is in the process of processing."
+		to_chat(user, "\red The processor is in the process of processing.")
 		return 1
-	if(src.contents.len == 0)
-		user << "\red The processor is empty."
+	if(length(src.contents) == 0)
+		to_chat(user, "\red The processor is empty.")
 		return 1
 	for(var/O in src.contents)
 		var/datum/food_processor_process/P = select_recipe(O)
@@ -158,4 +158,3 @@
 		src.processing = 0
 	src.visible_message("\blue \the [src] finished processing.", \
 		"You hear the food processor stopping/")
-

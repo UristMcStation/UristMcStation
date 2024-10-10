@@ -10,13 +10,8 @@
 "c" = (
 /turf/unsimulated/wall/away/blueriver/livingwall,
 /area/bluespaceriver/underground)
-"d" = (
-/turf/unsimulated/wall/supermatter/no_spread{
-	plane = -19
-	},
-/area/bluespaceriver/underground)
 "e" = (
-/obj/machinery/crystal_static{
+/obj/structure/research_crystal{
 	alpha = 120;
 	anchored = 1;
 	color = "BLUE";
@@ -36,11 +31,11 @@
 /turf/simulated/floor/away/blueriver/alienfloor,
 /area/bluespaceriver/underground)
 "h" = (
-/obj/item/weapon/pickaxe/xeno/brush,
+/obj/item/pickaxe/xeno/brush,
 /turf/simulated/floor/away/blueriver/alienfloor,
 /area/bluespaceriver/underground)
 "i" = (
-/obj/item/weapon/pickaxe/xeno/six_pick,
+/obj/item/pickaxe/xeno/six_pick,
 /obj/item/device/measuring_tape,
 /turf/simulated/floor/away/blueriver/alienfloor,
 /area/bluespaceriver/underground)
@@ -52,7 +47,7 @@
 /turf/simulated/floor/asteroid,
 /area/bluespaceriver/underground)
 "l" = (
-/obj/item/weapon/gun/energy/plasmacutter,
+/obj/item/gun/energy/plasmacutter,
 /obj/item/device/depth_scanner,
 /turf/simulated/floor/asteroid,
 /area/bluespaceriver/underground)
@@ -61,7 +56,7 @@
 /turf/simulated/floor/away/blueriver/alienfloor,
 /area/bluespaceriver/underground)
 "n" = (
-/obj/item/roller,
+/obj/item/roller_bed,
 /turf/simulated/floor/asteroid,
 /area/bluespaceriver/underground)
 "o" = (
@@ -73,7 +68,7 @@
 /turf/simulated/floor/plating,
 /area/bluespaceriver/underground)
 "q" = (
-/obj/item/weapon/crowbar,
+/obj/item/crowbar,
 /turf/simulated/floor/asteroid,
 /area/bluespaceriver/underground)
 "r" = (
@@ -81,7 +76,7 @@
 /turf/simulated/floor/asteroid,
 /area/bluespaceriver/underground)
 "s" = (
-/obj/item/weapon/cell/infinite{
+/obj/item/cell/infinite{
 	alpha = 130;
 	color = "BLUE";
 	desc = "This looks like an alien power cell. You can make out both of the connections relatively clearly though.";
@@ -96,7 +91,7 @@
 /turf/simulated/floor/asteroid,
 /area/bluespaceriver/underground)
 "u" = (
-/obj/item/weapon/pickaxe/drill,
+/obj/item/pickaxe/drill,
 /turf/simulated/floor/asteroid,
 /area/bluespaceriver/underground)
 "v" = (
@@ -105,7 +100,7 @@
 	color = "BLUE";
 	desc = "Looks like an eerie transparent table. It emits a soft glow. "
 	},
-/obj/item/weapon/gun/energy/decloner{
+/obj/item/gun/energy/decloner{
 	color = "BLUE";
 	desc = "A strange unerganomic pistol clearly not designed for a human hand. You are surprised that it actually has a trigger.";
 	name = "strange gun"
@@ -117,7 +112,7 @@
 /turf/simulated/floor/asteroid,
 /area/bluespaceriver/underground)
 "x" = (
-/obj/machinery/crystal_static{
+/obj/structure/research_crystal{
 	alpha = 120;
 	anchored = 1;
 	color = "BLUE";
@@ -135,10 +130,13 @@
 "z" = (
 /obj/machinery/artifact{
 	alpha = 123;
-	anchored = 0;
 	color = "BLUE"
 	},
 /turf/simulated/floor/away/blueriver/alienfloor,
+/area/bluespaceriver/underground)
+"H" = (
+/obj/structure/scrap,
+/turf/simulated/floor/asteroid,
 /area/bluespaceriver/underground)
 
 (1,1,1) = {"
@@ -2237,7 +2235,7 @@ a
 a
 a
 a
-a
+k
 a
 a
 a
@@ -2338,7 +2336,7 @@ a
 a
 a
 a
-a
+k
 k
 k
 k
@@ -2547,7 +2545,7 @@ k
 k
 k
 k
-a
+k
 a
 a
 a
@@ -2644,12 +2642,12 @@ a
 a
 a
 a
-a
 k
 k
 k
 k
-a
+k
+k
 a
 a
 a
@@ -4273,14 +4271,14 @@ c
 c
 c
 a
-a
-a
+k
+k
 a
 a
 a
 k
 k
-a
+k
 a
 a
 a
@@ -4365,7 +4363,7 @@ a
 a
 b
 b
-d
+b
 e
 f
 f
@@ -4478,7 +4476,7 @@ f
 c
 l
 k
-k
+a
 k
 k
 n
@@ -4489,7 +4487,7 @@ k
 k
 k
 k
-a
+H
 a
 a
 a
@@ -4583,7 +4581,7 @@ a
 a
 a
 a
-a
+k
 k
 k
 a

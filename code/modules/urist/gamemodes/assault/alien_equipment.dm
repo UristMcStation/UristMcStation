@@ -2,11 +2,11 @@
 
 /obj/machinery/computer/shuttle_control/assault
 	var/readytogo = 0
-	density = 0
+	density = FALSE
 
 /obj/machinery/computer/shuttle_control/assault/attack_hand(mob/user)
 	if(!readytogo)
-		user << "<span class='warning'>The shuttles will be ready to launch shortly.</span>"
+		to_chat(user, "<span class='warning'>The shuttles will be ready to launch shortly.</span>")
 		return
 	else
 		..()
@@ -23,7 +23,7 @@
 	icon = 'icons/obj/Cryogenic2.dmi'
 	icon_state = "cellconsole"
 
-/obj/item/weapon/gun/energy/lactera
+/obj/item/gun/energy/lactera
 	item_icons = DEF_URIST_INHANDS
 	name = "alien gun"
 	desc = "A weapon of unknown origin, carried by the Lactera soldiers."
@@ -42,12 +42,12 @@
 	self_recharge = 1
 	var/inertstate = /obj/item/scom/aliengun
 
-/obj/item/weapon/gun/energy/lactera/update_icon()
+/obj/item/gun/energy/lactera/on_update_icon()
 	..()
 	item_state = initial(item_state)
 	icon_state = initial(icon_state)
 
-/obj/item/weapon/gun/energy/lactera/a1
+/obj/item/gun/energy/lactera/a1
 	name = "alien pistol"
 	icon_state = "xeno-pistol"
 	item_state = "xeno-pistol"
@@ -57,7 +57,7 @@
 	inertstate = /obj/item/scom/aliengun/a1
 	w_class = 2
 
-/obj/item/weapon/gun/energy/lactera/a2
+/obj/item/gun/energy/lactera/a2
 	name = "alien carbine"
 	icon_state = "xeno-carbine"
 	item_state = "xeno-carbine"
@@ -68,7 +68,7 @@
 	max_shots = 16
 	one_hand_penalty = 1
 
-/obj/item/weapon/gun/energy/lactera/a3
+/obj/item/gun/energy/lactera/a3
 	name = "alien rifle"
 	item_state = "xeno-rifle"
 	icon_state = "xeno-rifle"
@@ -86,7 +86,7 @@
 		list(mode_name="short bursts", 	burst=5, move_delay=6, fire_delay=null, one_hand_penalty = 4, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/weapon/gun/energy/lactera/a4
+/obj/item/gun/energy/lactera/a4
 	name = "alien LMG"
 	item_state = "xeno-hmg"
 	icon_state = "xeno-hmg"
@@ -104,29 +104,29 @@
 		list(mode_name="long bursts",	burst=16, fire_delay=null, move_delay=10, one_hand_penalty = 9, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.2, 1.2, 1.2, 1.4, 1.4)),
 		)
 
-/obj/item/weapon/gun/energy/lactera/attack_hand(mob/user)
+/obj/item/gun/energy/lactera/attack_hand(mob/user)
 	var/mob/living/carbon/human/M = user
 	if(!istype(M, /mob/living/carbon/human/lactera))
 //	if(M.species != "Xenomorph")
-		M << "<span class='warning'>The alien gun turns inert when you touch it.</span>"
+		to_chat(M, "<span class='warning'>The alien gun turns inert when you touch it.</span>")
 		new inertstate(src.loc)
 		qdel(src)
 
 	else
 		..()
 
-/obj/item/weapon/gun/energy/lactera/verb_pickup()
+/obj/item/gun/energy/lactera/verb_pickup()
 	var/mob/living/carbon/human/M = usr
 	if(!istype(M, /mob/living/carbon/human/lactera))
 //	if(M.species != /datum/species/xenos/lactera)
-		M << "<span class='warning'>The alien gun turns inert when you touch it.</span>"
+		to_chat(M, "<span class='warning'>The alien gun turns inert when you touch it.</span>")
 		new inertstate(src.loc)
 		qdel(src)
 
 	else
 		..()
 
-/obj/item/weapon/grenade/aliengrenade
+/obj/item/grenade/aliengrenade
 	desc = "An explosive of unknown origin used by Lactera soldiers to sow destruction and chaos."
 	name = "alien grenade"
 	icon = 'icons/urist/items/uristweapons.dmi'
@@ -134,18 +134,18 @@
 	item_state = "flashbang"
 	origin_tech = "materials=5;magnets=5"
 
-/obj/item/weapon/grenade/aliengrenade/detonate()
+/obj/item/grenade/aliengrenade/detonate()
 	explosion(src.loc, 0, 0, 3, 3)
 	qdel(src)
 
-/obj/item/weapon/plastique/alienexplosive
+/obj/item/plastique/alienexplosive
 	name = "alien explosives"
 	desc = "Used by Lactera soldiers to put holes in specific areas without too much extra hole."
 	icon = 'icons/urist/items/uristweapons.dmi'
 	icon_state = "plastic-explosive0"
 	item_state = "device"
 
-/obj/item/weapon/plastique/alienexplosive/explode(var/location)
+/obj/item/plastique/alienexplosive/explode(location)
 	if(!target)
 		target = get_atom_on_turf(src)
 	if(!target)
@@ -167,7 +167,7 @@
 		target.overlays -= image_overlay
 	qdel(src)
 
-/obj/item/weapon/plastique/alienexplosive/attackby(var/obj/item/I, var/mob/user)
+/obj/item/plastique/alienexplosive/attackby(obj/item/I, var/mob/user)
 	return
 
 /obj/item/clothing/under/lactera
@@ -201,7 +201,7 @@
 	icon = 'icons/urist/items/clothes/lactera.dmi'
 	icon_override = 'icons/uristmob/r_lactera.dmi'
 	species_restricted = list("Lactera")
-	allowed = list(/obj/item/weapon/gun/energy,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/grenade,/obj/item/weapon/plastique)
+	allowed = list(/obj/item/gun/energy,/obj/item/reagent_containers/spray/pepper,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/grenade,/obj/item/plastique)
 	item_flags = ITEM_FLAG_THICKMATERIAL
 	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECTION_TEMPERATURE
 	cold_protection = UPPER_TORSO|LOWER_TORSO

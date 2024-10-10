@@ -5,25 +5,19 @@
 
 /obj/machinery/mineral/processing_unit
 	name = "mineral processor"
-	icon_state = "furnace"
+	icon_state = "furnace_0"
 	console = /obj/machinery/computer/mining
 	input_turf =  NORTH
 	output_turf = SOUTH
+
+	machine_name = "ore processor"
+	machine_desc = "Essentially a glorified furnace, ore processors can smelt, compress, or alloy raw minerals into new forms. Improper processing will result in useless slag!"
 
 	var/sheets_per_tick = 10
 	var/list/ores_processing
 	var/list/ores_stored
 	var/report_all_ores
 	var/active = FALSE
-
-/obj/machinery/mineral/processing_unit/New()
-	..()
-	component_parts = list(
-		new /obj/item/weapon/circuitboard/mining_processor(src),
-		new /obj/item/weapon/stock_parts/manipulator(src),
-		new /obj/item/weapon/stock_parts/micro_laser(src),
-		new /obj/item/weapon/stock_parts/micro_laser(src)
-		)
 
 /obj/machinery/mineral/processing_unit/Initialize()
 	ores_processing = list()
@@ -34,10 +28,12 @@
 	. = ..()
 
 /obj/machinery/mineral/processing_unit/Process()
+	if(!active)
+		return
 
 	//Grab some more ore to process this tick.
 	if(input_turf)
-		for(var/obj/item/weapon/ore/I in recursive_content_check(input_turf, sight_check = FALSE, include_mobs = FALSE))
+		for(var/obj/item/ore/I in recursive_content_check(input_turf, sight_check = FALSE, include_mobs = FALSE))
 			if(QDELETED(I) || !I.simulated || I.anchored)
 				continue
 			if(LAZYLEN(I.matter))
@@ -45,9 +41,6 @@
 					if(!isnull(ores_stored[o_material]))
 						ores_stored[o_material] += I.matter[o_material]
 						qdel(I)
-
-	if(!active)
-		return
 
 	//Process our stored ores and spit out sheets.
 	if(output_turf)
@@ -79,7 +72,7 @@
 
 			sheets += abs(result)
 			while(result < 0)
-				new /obj/item/weapon/ore(output_turf, MATERIAL_WASTE)
+				new /obj/item/ore(output_turf, MATERIAL_WASTE)
 				result++
 
 		// Try to make any available alloys.
@@ -110,8 +103,8 @@
 					M.place_sheet(output_turf, making)
 					break
 
-/obj/machinery/mineral/processing_unit/proc/attempt_smelt(var/material/metal, var/max_result)
-	. = Clamp(Floor(ores_stored[metal.name]/metal.units_per_sheet),1,max_result)
+/obj/machinery/mineral/processing_unit/proc/attempt_smelt(material/metal, max_result)
+	. = clamp(Floor(ores_stored[metal.name]/metal.units_per_sheet),1,max_result)
 	ores_stored[metal.name] -= . * metal.units_per_sheet
 	var/material/M = SSmaterials.get_material_by_name(metal.ore_smelts_to)
 	if(istype(M))
@@ -119,8 +112,8 @@
 	else
 		. = -(.)
 
-/obj/machinery/mineral/processing_unit/proc/attempt_compression(var/material/metal, var/max_result)
-	var/making = Clamp(Floor(ores_stored[metal.name]/metal.units_per_sheet),1,max_result)
+/obj/machinery/mineral/processing_unit/proc/attempt_compression(material/metal, max_result)
+	var/making = clamp(Floor(ores_stored[metal.name]/metal.units_per_sheet),1,max_result)
 	if(making >= 2)
 		ores_stored[metal.name] -= making * metal.units_per_sheet
 		. = Floor(making * 0.5)
@@ -143,18 +136,18 @@
 		if(ores_processing[ore])
 			switch(ores_processing[ore])
 				if(ORE_DISABLED)
-					status_string = "<font color='red'>not processing</font>"
+					status_string = SPAN_COLOR("red", "not processing")
 				if(ORE_SMELT)
-					status_string = "<font color='orange'>smelting</font>"
+					status_string = SPAN_COLOR("orange", "smelting")
 				if(ORE_COMPRESS)
-					status_string = "<font color='blue'>compressing</font>"
+					status_string = SPAN_COLOR("blue", "compressing")
 				if(ORE_ALLOY)
-					status_string = "<font color='gray'>alloying</font>"
+					status_string = SPAN_COLOR("gray", "alloying")
 		else
-			status_string = "<font color='red'>not processing</font>"
+			status_string = SPAN_COLOR("red", "not processing")
 		result += "<tr><td>[line]</td><td><a href='?src=\ref[src];toggle_smelting=[ore]'>[status_string]</a></td></tr>"
 	. += "<table>[result]</table>"
-	. += "Currently displaying [report_all_ores ? "all ore types" : "only available ore types"]. <A href='?src=\ref[src];toggle_ores=1'>[report_all_ores ? "Show less." : "Show more."]</a>"
+	. += "Currently displaying [report_all_ores ? "all ore types" : "only available ore types"]. <A href='?src=\ref[src];toggle_ores=1'>[report_all_ores ? "Show less" : "Show more"]</a>"
 	. += "The ore processor is currently <A href='?src=\ref[src];toggle_power=1'>[(active ? "enabled" : "disabled")].</a>"
 
 /obj/machinery/mineral/processing_unit/Topic(href, href_list)
@@ -172,12 +165,20 @@
 		. = TRUE
 	else if(href_list["toggle_power"])
 		active = !active
+		update_icon()
 		. = TRUE
 	else if(href_list["toggle_ores"])
 		report_all_ores = !report_all_ores
 		. = TRUE
 	if(. && console)
 		console.updateUsrDialog()
+
+/obj/machinery/mineral/processing_unit/on_update_icon()
+	overlays.Cut()
+	if(active)
+		icon_state = "furnace_1"
+	else
+		icon_state = "furnace_0"
 
 #undef ORE_DISABLED
 #undef ORE_SMELT

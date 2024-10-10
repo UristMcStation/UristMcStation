@@ -8,9 +8,10 @@
 	var/component_hit = 0
 	var/component_modifier_low = 0.2
 	var/component_modifier_high = 0.5
-	density = 0
-	anchored = 0
+	density = FALSE
+	anchored = FALSE
 	var/short_name //for the display
+	var/list/origin_tech = list()
 
 //torpedo ammo
 
@@ -39,7 +40,7 @@
 		name = "[warhead.ammo_name] torpedo"
 		load_amount = 1
 
-/obj/structure/shipammo/torpedo/attackby(var/obj/item/I, mob/user as mob)
+/obj/structure/shipammo/torpedo/attackby(obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/shipweapons/torpedo_warhead))
 		if(!src.load_amount && user.unEquip(I, src))
 			load_amount = 1
@@ -54,10 +55,10 @@
 			name = "[warhead.ammo_name] torpedo"
 			desc = "A large torpedo used in ship-to-ship weaponry. It is loaded with a [warhead.name]."
 
-			user << "<span class='notice'>You insert the torpedo warhead into the torpedo casing, arming the torpedo.</span>" //torpedo
+			to_chat(user, "<span class='notice'>You insert the torpedo warhead into the torpedo casing, arming the torpedo.</span>") //torpedo
 
 		else
-			user << "<span class='notice'>This torpedo already has a warhead in it!</span>" //torpedo
+			to_chat(user, "<span class='notice'>This torpedo already has a warhead in it!</span>") //torpedo
 
 	else if(isCrowbar(I))
 		if(warhead)

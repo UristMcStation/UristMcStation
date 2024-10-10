@@ -14,45 +14,50 @@
 
 
 //Variant crystals, in case you want to spawn/map those directly.
-/obj/machinery/crystal_static
-	name = "\improper Crystal"
+/obj/structure/research_crystal
+	name = "glowing crystal"
+	desc = "A spiky, glowing, crystal. Some parts of it appear to be flaking and could be cut off."
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "crystal"
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE
 	var/crystal_color = "#5fff47"
-	var/collected
+	var/crystals_left
 
-/obj/machinery/crystal_static/New()
-	..()
-	collected = rand(-3,0)
-	set_light(0.2, 0.5, 2, l_color = crystal_color)
+/obj/structure/research_crystal/Initialize()
+	. = ..()
+	crystals_left = rand(1,5)
+	set_light(0.3, 0.5, 2, l_color = crystal_color)
 
-/obj/machinery/crystal_static/pink
+/obj/structure/research_crystal/pink
 	icon_state = "crystal2"
 	crystal_color = "#ff66cc"
 
-/obj/machinery/crystal_static/orange
+/obj/structure/research_crystal/orange
 	icon_state = "crystal3"
 	crystal_color = "#ffbf66"
 
-/obj/machinery/crystal_static/cyan
+/obj/structure/research_crystal/cyan
 	icon_state = "crystal4"
 	crystal_color = "#66d9ff"
 
-/obj/machinery/crystal_static/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/structure/research_crystal/use_tool(obj/item/O as obj, mob/user as mob)
 	if(is_sharp(O))
-		if(collected <= 0)
-			if(do_after(user, 3 SECONDS))
-				to_chat(user, "You slice off a piece of the crystal with \the [O].")
+		if(crystals_left > 0)
+			to_chat(SPAN_NOTICE("You begin to cut into a weak area of \the [src]"))
+			if(do_after(user, 1.5 SECONDS))
+				to_chat(user, SPAN_NOTICE("You slice off a piece of \the [src] with \the [O]."))
 				new /obj/item/research_crystal(get_turf(user),crystal_color)
-				collected++
+				crystals_left--
+				if(!crystals_left)
+					set_light(0,0,0)
+					to_chat(user, SPAN_WARNING("\The [src] goes dark as a thick liquid oozes out of the last place you cut!"))
 				return
 			else
-				to_chat(user, "You decide to not touch the glowing [src].")
+				to_chat(user, SPAN_NOTICE("You decide to not touch \the [src]."))
 				return
 		else
-			to_chat(user, "There doesn't seem to be any shards large enough to collect.")
+			to_chat(user, SPAN_NOTICE("There doesn't seem to be any shards left large enough to collect."))
 			return
 	..()
 
@@ -63,10 +68,13 @@
 	icon_state = "shardlarge"
 	origin_tech = list(TECH_MATERIAL = 6, TECH_POWER = 3, TECH_ELECTROMAGNETIC = 7)
 
-/obj/item/research_crystal/New(var/turf/T, var/crystal_color)
+/obj/item/research_crystal/New(turf/T, crystal_color)
 	..(T)
 	color = crystal_color
 	icon_state = pick("shardlarge","shardmedium","shardsmall")
+	create_reagents(15)
+	reagents.add_reagent(/datum/reagent/silicon, rand(5,10))
+	reagents.add_reagent(/datum/reagent/lithium, rand(2,5)) //arbitrary chem to assist in making three eye
 
 //large finds
 				/*

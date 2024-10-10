@@ -16,6 +16,7 @@
 	var/datum/wires/connected = null
 	var/datum/radio_frequency/radio_connection
 	var/deadman = 0
+	var/obj/machinery/atmospherics/pipe/cap/sparker/mholder
 
 /obj/item/device/assembly/signaler/New()
 	..()
@@ -40,10 +41,6 @@
 
 /obj/item/device/assembly/signaler/interact(mob/user as mob, flag1)
 	var/t1 = "-------"
-//		if ((src.b_stat && !( flag1 )))
-//			t1 = text("-------<BR>\nGreen Wire: []<BR>\nRed Wire:   []<BR>\nBlue Wire:  []<BR>\n", (src.wires & 4 ? text("<A href='?src=\ref[];wires=4'>Cut Wire</A>", src) : text("<A href='?src=\ref[];wires=4'>Mend Wire</A>", src)), (src.wires & 2 ? text("<A href='?src=\ref[];wires=2'>Cut Wire</A>", src) : text("<A href='?src=\ref[];wires=2'>Mend Wire</A>", src)), (src.wires & 1 ? text("<A href='?src=\ref[];wires=1'>Cut Wire</A>", src) : text("<A href='?src=\ref[];wires=1'>Mend Wire</A>", src)))
-//		else
-//			t1 = "-------"	Speaker: [src.listening ? "<A href='byond://?src=\ref[src];listen=0'>Engaged</A>" : "<A href='byond://?src=\ref[src];listen=1'>Disengaged</A>"]<BR>
 	var/dat = {"
 		<TT>
 
@@ -64,14 +61,14 @@
 		<A href='byond://?src=\ref[src];code=5'>+</A><BR>
 		[t1]
 		</TT>"}
-	user << browse(dat, "window=radio")
+	show_browser(user, dat, "window=radio")
 	onclose(user, "radio")
 	return
 
 
 /obj/item/device/assembly/signaler/Topic(href, href_list, state = GLOB.physical_state)
 	if((. = ..()))
-		usr << browse(null, "window=radio")
+		close_browser(usr, "window=radio")
 		onclose(usr, "radio")
 		return
 
@@ -99,7 +96,8 @@
 
 /obj/item/device/assembly/signaler/proc/signal()
 	if(!radio_connection) return
-
+	if(within_jamming_range(src))
+		return
 	var/datum/signal/signal = new
 	signal.source = src
 	signal.encryption = code
@@ -116,11 +114,13 @@
 	return 0*/
 
 
-/obj/item/device/assembly/signaler/pulse(var/radio = 0)
+/obj/item/device/assembly/signaler/pulse(radio = 0)
 	if(src.connected && src.wires)
 		connected.Pulse(src)
 	else if(holder)
 		holder.process_activation(src, 1, 0)
+	else if(mholder)
+		mholder.process_activation()
 	else
 		..(radio)
 	return 1
@@ -128,13 +128,15 @@
 
 /obj/item/device/assembly/signaler/receive_signal(datum/signal/signal)
 	if(!signal)	return 0
+	if(within_jamming_range(src))
+		return FALSE
 	if(signal.encryption != code)	return 0
 	if(!(src.wires & WIRE_RADIO_RECEIVE))	return 0
 	pulse(1)
 
 	if(!holder)
 		for(var/mob/O in hearers(1, src.loc))
-			O.show_message(text("\icon[] *beep* *beep*", src), 3, "*beep* *beep*", 2)
+			O.show_message(text("[icon2html(src, O)] *beep* *beep*"), 3, "*beep* *beep*", 2)
 	return
 
 
@@ -173,12 +175,12 @@
 		deadman = 1
 		START_PROCESSING(SSobj, src)
 		log_and_message_admins("is threatening to trigger a signaler deadman's switch")
-		usr.visible_message("<span class='danger'>[usr] moves their finger over [src]'s signal button...</span>")
+		usr.visible_message(SPAN_DANGER("[usr] moves their finger over [src]'s signal button..."))
 	else
 		deadman = 0
 		STOP_PROCESSING(SSobj, src)
 		log_and_message_admins("stops threatening to trigger a signaler deadman's switch")
-		usr.visible_message("<span class='notice'>[usr] moves their finger away from [src]'s signal button.</span>")
+		usr.visible_message(SPAN_NOTICE("[usr] moves their finger away from [src]'s signal button."))
 
 
 /obj/item/device/assembly/signaler/Destroy()

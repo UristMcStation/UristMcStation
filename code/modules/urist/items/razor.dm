@@ -62,7 +62,7 @@
 
 	return 1
 
-/obj/item/weapon/razor
+/obj/item/razor
 	item_icons = DEF_URIST_INHANDS
 	name = "electric razor"
 	desc = "The latest and greatest power razor born from the science of shaving."
@@ -71,15 +71,15 @@
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	w_class = 1.0
 
-/obj/item/weapon/razor/attack(mob/living/carbon/M as mob, mob/user as mob)
+/obj/item/razor/attack(mob/living/carbon/M as mob, mob/user as mob)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(user.zone_sel.selecting == "mouth")
 			if(!get_location_accessible(H, "mouth"))
-				user << "<span class='warning'>The mask is in the way.</span>"
+				to_chat(user, "<span class='warning'>The mask is in the way.</span>")
 				return
-			if(H.f_style == "Shaved")
-				user << "<span class='notice'>Already clean-shaven.</span>"
+			if(H.facial_hair_style == "Shaved")
+				to_chat(user, "<span class='notice'>Already clean-shaven.</span>")
 				return
 			if(H == user) //shaving yourself
 				user.visible_message("<span class='notice'>[user] starts to shave their facial hair with \the [src].</span>", \
@@ -87,7 +87,7 @@
 				if(do_after(user, 50))
 					user.visible_message("<span class='notice'>[user] shaves his facial hair clean with the [src].</span>", \
 					"<span class='notice'>You finish shaving with the [src]. Fast and clean!</span>")
-					H.f_style = "Shaved"
+					H.facial_hair_style = "Shaved"
 					H.update_hair()
 					playsound(src.loc, 'sound/items/Welder2.ogg', 20, 1)
 			else
@@ -99,15 +99,15 @@
 					if(user_loc == user.loc && H_loc == H.loc)
 						user.visible_message("<span class='danger'>[user] shaves off [H]'s facial hair with \the [src].</span>", \
 						"<span class='notice'>You shave [H]'s facial hair clean off.</span>")
-						H.f_style = "Shaved"
+						H.facial_hair_style = "Shaved"
 						H.update_hair()
 						playsound(src.loc, 'sound/items/Welder2.ogg', 20, 1)
 		if(user.zone_sel.selecting == "head")
 			if(!get_location_accessible(H, "head"))
-				user << "<span class='warning'>The headgear is in the way.</span>"
+				to_chat(user, "<span class='warning'>The headgear is in the way.</span>")
 				return
-			if(H.h_style == "Bald" || H.h_style == "Balding Hair" || H.h_style == "Skinhead")
-				user << "<span class='notice'>There is not enough hair left to shave...</span>"
+			if(H.head_hair_style == "Bald" || H.head_hair_style == "Balding Hair" || H.head_hair_style == "Skinhead")
+				to_chat(user, "<span class='notice'>There is not enough hair left to shave...</span>")
 				return
 			if(H == user) //shaving yourself
 				user.visible_message("<span class='warning'>[user] starts to shave their head with \the [src].</span>", \
@@ -115,7 +115,7 @@
 				if(do_after(user, 50))
 					user.visible_message("<span class='notice'>[user] shaves his head with the [src].</span>", \
 					"<span class='notice'>You finish shaving with the [src].</span>")
-					H.h_style = "Skinhead"
+					H.head_hair_style = "Skinhead"
 					H.update_hair()
 					playsound(src.loc, 'sound/items/Welder2.ogg', 40, 1)
 			else
@@ -127,7 +127,7 @@
 					if(user_loc == user.loc && H_loc == H.loc)
 						user.visible_message("<span class='danger'>[user] shaves [H]'s head bald with \the [src]!</span>", \
 						"<span class='warning'>You shave [H]'s head bald.</span>")
-						H.h_style = "Skinhead"
+						H.head_hair_style = "Skinhead"
 						H.update_hair()
 						playsound(src.loc, 'sound/items/Welder2.ogg', 40, 1)
 		else

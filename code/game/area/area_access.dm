@@ -1,6 +1,7 @@
-/area
-	var/list/req_access = list()
-	var/secure = TRUE    // unsecure areas will have doors between them use access diff; secure ones use union.
+/// List (`string (access_*)`). Access requirements for the area. Used for autosetting access on doors, etc.
+/area/var/list/req_access = list()
+/// Boolean. Whether or not the area is considered 'secure'. Unsecure areas will have doors between them use access diff; secure ones use union.
+/area/var/secure = TRUE
 
 // Given two areas, find the minimal req_access needed such that (return value) + (area access) >= (other area access) and vice versa
 /proc/req_access_diff(area/first, area/second)
@@ -48,4 +49,4 @@
 /proc/add_access_requirement(list/req_access, requirement)
 	var/minimal = get_minimal_requirement(req_access, requirement)
 	if(minimal)
-		req_access[++req_access.len] = minimal
+		req_access[LIST_PRE_INC(req_access)] = minimal

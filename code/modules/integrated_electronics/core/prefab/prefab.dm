@@ -1,15 +1,14 @@
-/decl/prefab/proc/create(var/atom/location)
+/singleton/prefab/proc/create(atom/location)
 	if(!location)
 		CRASH("Invalid location supplied: [log_info_line(location)]")
-		return FALSE
 	return TRUE
 
-/decl/prefab/ic_assembly
+/singleton/prefab/ic_assembly
 	var/assembly_name
 	var/data
 	var/power_cell_type
 
-/decl/prefab/ic_assembly/create(var/atom/location)
+/singleton/prefab/ic_assembly/create(atom/location)
 	if(..())
 		var/result = SScircuit.validate_electronic_assembly(data)
 		if(istext(result))
@@ -19,7 +18,7 @@
 			assembly.opened = FALSE
 			assembly.update_icon()
 			if(power_cell_type)
-				var/obj/item/weapon/cell/cell = new power_cell_type(assembly)
+				var/obj/item/cell/cell = new power_cell_type(assembly)
 				assembly.battery = cell
 
 			return assembly
@@ -34,6 +33,6 @@
 
 /obj/prefab/Initialize()
 	..()
-	var/decl/prefab/prefab = decls_repository.get_decl(prefab_type)
+	var/singleton/prefab/prefab = GET_SINGLETON(prefab_type)
 	prefab.create(loc)
 	return INITIALIZE_HINT_QDEL

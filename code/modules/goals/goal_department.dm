@@ -10,17 +10,23 @@
 		return
 	var/list/possible_goals = goals.Copy()
 	goals.Cut()
-	for(var/i = 1 to min(LAZYLEN(possible_goals), rand(min_goals, max_goals)))
+	var/goals_to_pick = min(LAZYLEN(possible_goals), rand(min_goals, max_goals))
+	while(goals_to_pick && LAZYLEN(possible_goals))
 		var/goal = pick_n_take(possible_goals)
-		LAZYADD(goals, new goal(src))
+		var/datum/goal/deptgoal = new goal(src)
+		if(deptgoal.is_valid())
+			LAZYADD(goals, deptgoal)
+			goals_to_pick--
+		else
+			qdel(deptgoal)
 
-/datum/department/proc/summarize_goals(var/show_success = FALSE)
+/datum/department/proc/summarize_goals(show_success = FALSE)
 	. = list()
 	for(var/i = 1 to LAZYLEN(goals))
 		var/datum/goal/goal = goals[i]
-		. += "[i]. [goal.summarize(show_success, position = i)]"
+		. += "[i]. [goal.summarize(show_success)]"
 
-/datum/department/proc/update_progress(var/goal_type, var/progress)
+/datum/department/proc/update_progress(goal_type, progress)
 	var/datum/goal/goal = locate(goal_type) in goals
 	if(goal)
 		goal.update_progress(progress)

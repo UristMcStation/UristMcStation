@@ -6,7 +6,7 @@
 	desc = "It turns lights on and off. What are you, simple?"
 	icon = 'icons/obj/power.dmi'
 	icon_state = "light0"
-	anchored = 1.0
+	anchored = TRUE
 	idle_power_usage = 20
 	power_channel = LIGHT
 	var/on = 0
@@ -34,7 +34,7 @@
 		overlay.layer = ABOVE_LIGHTING_LAYER
 
 	overlays.Cut()
-	if(stat & (NOPOWER|BROKEN))
+	if(inoperable())
 		icon_state = "light-p"
 		set_light(0)
 	else
@@ -43,11 +43,12 @@
 		overlays += overlay
 		set_light(0.1, 0.1, 1, 2, on ? "#82ff4c" : "#f86060")
 
-/obj/machinery/light_switch/examine(mob/user)
-	if(..(user, 1))
+/obj/machinery/light_switch/examine(mob/user, distance)
+	. = ..()
+	if(distance)
 		to_chat(user, "A light switch. It is [on? "on" : "off"].")
 
-/obj/machinery/light_switch/proc/set_state(var/newstate)
+/obj/machinery/light_switch/proc/set_state(newstate)
 	if(on != newstate)
 		on = newstate
 		connected_area.set_lightswitch(on)
@@ -59,12 +60,14 @@
 		update_icon()
 		return 1
 
-/obj/machinery/light_switch/attack_hand(mob/user)
-	playsound(src, "switch", 30)
-	set_state(!on)
+/obj/machinery/light_switch/interface_interact(mob/user)
+	if(CanInteract(user, DefaultTopicState()))
+		playsound(src, "switch", 30)
+		set_state(!on)
+		return TRUE
 
 /obj/machinery/light_switch/attackby(obj/item/tool as obj, mob/user as mob)
-	if(istype(tool, /obj/item/weapon/screwdriver))
+	if(istype(tool, /obj/item/screwdriver))
 		new /obj/item/frame/light_switch(user.loc, 1)
 		qdel(src)
 
@@ -79,7 +82,7 @@
 		sync_state()
 
 /obj/machinery/light_switch/emp_act(severity)
-	if(stat & (BROKEN|NOPOWER))
+	if(inoperable())
 		..(severity)
 		return
 	power_change()
