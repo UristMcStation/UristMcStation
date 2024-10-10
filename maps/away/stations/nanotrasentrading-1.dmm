@@ -491,7 +491,7 @@
 	icon_state = "closed";
 	dir = 8
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/spacestations/nanotrasenspace)
 "br" = (
 /obj/structure/flora/pottedplant{
@@ -635,13 +635,13 @@
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "bN" = (
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/spacestations/nanotrasenspace)
 "bO" = (
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/spacestations/nanotrasenspace)
 "bP" = (
 /obj/machinery/vending/cigarette,
@@ -752,8 +752,8 @@
 	},
 /area/spacestations/nanotrasenspace)
 "cd" = (
-/obj/structure/table/woodentable,
-/turf/simulated/floor/wood,
+/obj/structure/table/woodentable/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/spacestations/nanotrasenspace)
 "ce" = (
 /obj/machinery/door/airlock/multi_tile/civilian,
@@ -775,7 +775,7 @@
 /area/spacestations/nanotrasenspace)
 "ch" = (
 /obj/item/stool/bar/padded,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/spacestations/nanotrasenspace)
 "ci" = (
 /obj/structure/sign/urist/nt,
@@ -813,8 +813,8 @@
 	},
 /area/spacestations/nanotrasenspace)
 "cp" = (
-/obj/structure/bed/chair/wood,
-/turf/simulated/floor/wood,
+/obj/structure/bed/chair/wood/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/spacestations/nanotrasenspace)
 "cq" = (
 /obj/structure/bed/chair/urist/bench/bench1/left{
@@ -857,18 +857,16 @@
 /turf/simulated/floor/plating,
 /area/spacestations/nanotrasenspace)
 "cv" = (
-/obj/structure/bed/chair/wood{
-	icon_state = "wooden_chair";
+/obj/structure/bed/chair/wood/walnut{
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/spacestations/nanotrasenspace)
 "cw" = (
-/obj/structure/bed/chair/wood{
-	icon_state = "wooden_chair";
+/obj/structure/bed/chair/wood/walnut{
 	dir = 8
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/spacestations/nanotrasenspace)
 "cx" = (
 /obj/random/trash,
@@ -907,7 +905,7 @@
 /obj/machinery/atm{
 	pixel_x = 32
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/spacestations/nanotrasenspace)
 "cC" = (
 /obj/machinery/space_heater,
@@ -939,20 +937,19 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/spacestations/nanotrasenspace)
 "cH" = (
-/obj/structure/bed/chair/wood{
-	icon_state = "wooden_chair_preview";
+/obj/structure/bed/chair/wood/walnut{
 	dir = 1
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/spacestations/nanotrasenspace)
 "cI" = (
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/spacestations/nanotrasenspace)
 "cJ" = (
 /obj/structure/bed/chair/office/dark{
@@ -1007,14 +1004,14 @@
 	icon_state = "couch_left";
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/spacestations/nanotrasenspace)
 "cR" = (
 /obj/structure/bed/chair/couch/right/black{
 	icon_state = "couch_right";
 	dir = 8
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/spacestations/nanotrasenspace)
 "cS" = (
 /obj/structure/table/rack,
@@ -1040,7 +1037,7 @@
 	icon_state = "couch_middle";
 	dir = 5
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/spacestations/nanotrasenspace)
 "cW" = (
 /obj/machinery/light,
@@ -1048,28 +1045,28 @@
 	icon_state = "couch_middle";
 	dir = 1
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/spacestations/nanotrasenspace)
 "cX" = (
 /obj/structure/bed/chair/couch/right/black{
 	icon_state = "couch_right";
 	dir = 1
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/spacestations/nanotrasenspace)
 "cY" = (
 /obj/structure/bed/chair/couch/left/black{
 	icon_state = "couch_left";
 	dir = 1
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/spacestations/nanotrasenspace)
 "cZ" = (
 /obj/structure/bed/chair/couch/middle/black{
 	icon_state = "couch_middle";
 	dir = 9
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/spacestations/nanotrasenspace)
 "da" = (
 /obj/structure/closet,
@@ -1547,7 +1544,7 @@
 /area/spacestations/ntminingshuttle/start)
 "ky" = (
 /mob/living/simple_animal/passive/npc/colonist/trader/bartender_trader,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/spacestations/nanotrasenspace)
 "kz" = (
 /obj/structure/filingcabinet,
@@ -1690,9 +1687,9 @@
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "oQ" = (
-/obj/structure/table/woodentable,
 /obj/item/reagent_containers/food/condiment/small/peppermill,
-/turf/simulated/floor/wood,
+/obj/structure/table/woodentable/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/spacestations/nanotrasenspace)
 "pc" = (
 /obj/effect/floor_decal/corner/red{
@@ -1936,9 +1933,9 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/table/woodentable,
 /obj/item/reagent_containers/food/condiment/barbecue,
-/turf/simulated/floor/wood,
+/obj/structure/table/woodentable/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/spacestations/nanotrasenspace)
 "wu" = (
 /obj/effect/floor_decal/corner/blue{
@@ -2007,7 +2004,7 @@
 	dir = 4
 	},
 /mob/living/simple_animal/passive/npc/colonist/contract/ntchef,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/wood/walnut,
 /area/spacestations/nanotrasenspace)
 "xl" = (
 /obj/effect/floor_decal/corner/blue{
@@ -2122,11 +2119,9 @@
 	},
 /area/spacestations/nanotrasenspace)
 "zF" = (
-/obj/structure/bed/chair/armchair/black{
-	icon_state = "armchair_preview";
-	dir = 8
-	},
-/turf/simulated/floor/wood,
+/obj/structure/table/woodentable/walnut,
+/obj/item/reagent_containers/food/condiment/small/peppermill,
+/turf/simulated/floor/wood/walnut,
 /area/spacestations/nanotrasenspace)
 "AB" = (
 /obj/machinery/light{
@@ -2182,16 +2177,16 @@
 	},
 /area/spacestations/nanotrasenspace)
 "Cn" = (
-/obj/structure/bed/chair/urist/bench/bench1/left{
-	icon_state = "benchleft";
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 6
 	},
 /mob/living/simple_animal/passive/npc/colonist/nanotrasen{
 	icon_state = "body_m_s";
+	dir = 8
+	},
+/obj/structure/bed/chair/urist/bench/bench1/right{
+	icon_state = "benchright";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2291,9 +2286,9 @@
 	},
 /area/spacestations/nanotrasenspace)
 "EU" = (
-/obj/structure/table/woodentable,
 /obj/item/material/ashtray/plastic,
-/turf/simulated/floor/wood,
+/obj/structure/table/woodentable/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/spacestations/nanotrasenspace)
 "EW" = (
 /obj/machinery/light{
@@ -2382,13 +2377,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "JY" = (
-/obj/structure/bed/chair/urist/bench/bench1/right{
-	icon_state = "benchright";
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 6
+	},
+/obj/structure/bed/chair/urist/bench/bench1/left{
+	icon_state = "benchleft";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
@@ -2402,10 +2397,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "KC" = (
-/turf/simulated/wall/r_wall/hull,
-/turf/simulated/floor/plating{
-	color = "#bbbbbb"
+/obj/structure/bed/chair/armchair/black{
+	icon_state = "armchair_preview";
+	dir = 8
 	},
+/turf/simulated/floor/wood/walnut,
 /area/spacestations/nanotrasenspace)
 "KR" = (
 /obj/machinery/mining/brace,
@@ -2454,6 +2450,11 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled,
+/area/spacestations/nanotrasenspace)
+"Nr" = (
+/obj/structure/table/woodentable/walnut,
+/obj/item/reagent_containers/food/condiment/small/saltshaker,
+/turf/simulated/floor/wood/walnut,
 /area/spacestations/nanotrasenspace)
 "Ny" = (
 /obj/machinery/door/airlock/external,
@@ -2768,9 +2769,9 @@
 	},
 /area/spacestations/nanotrasenspace)
 "TZ" = (
-/obj/structure/table/woodentable,
 /obj/item/reagent_containers/food/condiment/small/saltshaker,
-/turf/simulated/floor/wood,
+/obj/structure/table/woodentable/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/spacestations/nanotrasenspace)
 "Vf" = (
 /obj/machinery/power/smes/buildable/preset/nerva/shuttle,
@@ -3247,7 +3248,7 @@ bN
 ad
 bO
 bN
-zF
+Nr
 zF
 bN
 cG
@@ -3329,8 +3330,8 @@ bN
 vW
 ch
 bN
-bN
-bN
+KC
+KC
 bN
 cp
 oQ
@@ -5631,7 +5632,7 @@ ad
 ad
 ad
 ad
-KC
+ad
 ad
 ad
 ad
@@ -5869,7 +5870,7 @@ bJ
 bS
 bZ
 cf
-bt
+cm
 xl
 lh
 aL
@@ -6033,7 +6034,7 @@ bL
 bS
 AQ
 cf
-cm
+bt
 xl
 lh
 aL
