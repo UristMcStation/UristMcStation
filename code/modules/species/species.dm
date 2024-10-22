@@ -425,7 +425,7 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 
 	H.sync_organ_dna()
 
-/datum/species/proc/hug(mob/living/carbon/human/H,mob/living/target)
+/datum/species/proc/hug(mob/living/carbon/human/H, mob/living/target)
 
 	var/t_him = "them"
 	switch(target.gender)
@@ -434,8 +434,15 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 		if(FEMALE)
 			t_him = "her"
 
-	H.visible_message(SPAN_NOTICE("[H] hugs [target] to make [t_him] feel better!"), \
-					SPAN_NOTICE("You hug [target] to make [t_him] feel better!"))
+	// If aiming for the head, try a headpat
+	if (ishuman(target))
+		var/target_zone = check_zone(H.zone_sel.selecting)
+		var/mob/living/carbon/human/h_target = target
+		if (target_zone == BP_HEAD && h_target.get_organ(target_zone))
+			H.visible_message(SPAN_NOTICE("[H] pats [h_target]'s head to make [t_him] feel better!"), SPAN_NOTICE("You pat [h_target]'s head to make [t_him] feel better!"))
+			return
+
+	H.visible_message(SPAN_NOTICE("[H] hugs [target] to make [t_him] feel better!"), SPAN_NOTICE("You hug [target] to make [t_him] feel better!"))
 
 	if(H != target)
 		H.update_personal_goal(/datum/goal/achievement/givehug, TRUE)
