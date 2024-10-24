@@ -1280,3 +1280,9 @@
 
 /mob/get_mass()
 	return mob_size
+
+/mob/get_overhead_text_x_offset()
+	return offset_overhead_text_x
+
+/mob/get_overhead_text_y_offset()
+	return offset_overhead_text_y

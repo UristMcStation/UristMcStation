@@ -1044,3 +1044,9 @@
 /atom/proc/clear_bulletholes()
 	for(var/obj/overlay/bmark/bullet_mark in src)
 		qdel(bullet_mark)
+
+/atom/proc/get_overhead_text_x_offset()
+	return 0
+
+/atom/proc/get_overhead_text_y_offset()
+	return 0
