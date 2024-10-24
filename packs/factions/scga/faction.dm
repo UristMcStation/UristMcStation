@@ -152,7 +152,7 @@
 		/obj/item/clothing/accessory/scga_rank/e8_alt,
 		/obj/item/clothing/accessory/scga_badge/enlisted
 	)
-	sort_order = 90
+	sort_order = 81
 
 
 /datum/mil_rank/scga/e9
@@ -162,7 +162,7 @@
 		/obj/item/clothing/accessory/scga_rank/e9,
 		/obj/item/clothing/accessory/scga_badge/enlisted
 	)
-	sort_order = 100
+	sort_order = 90
 
 
 /datum/mil_rank/scga/e9_alt1
@@ -172,7 +172,7 @@
 		/obj/item/clothing/accessory/scga_rank/e9_alt1,
 		/obj/item/clothing/accessory/scga_badge/enlisted
 	)
-	sort_order = 110
+	sort_order = 91
 
 
 /datum/mil_rank/scga/e9_alt2
@@ -182,7 +182,7 @@
 		/obj/item/clothing/accessory/scga_rank/e9_alt2,
 		/obj/item/clothing/accessory/scga_badge/enlisted
 	)
-	sort_order = 120
+	sort_order = 92
 
 
 /datum/mil_rank/scga/o1
@@ -192,7 +192,7 @@
 		/obj/item/clothing/accessory/scga_rank/o1,
 		/obj/item/clothing/accessory/scga_badge/officer
 	)
-	sort_order = 130
+	sort_order = 110
 
 
 /datum/mil_rank/scga/o2
@@ -202,7 +202,7 @@
 		/obj/item/clothing/accessory/scga_rank/o2,
 		/obj/item/clothing/accessory/scga_badge/officer
 	)
-	sort_order = 140
+	sort_order = 120
 
 
 /datum/mil_rank/scga/o3
@@ -212,7 +212,7 @@
 		/obj/item/clothing/accessory/scga_rank/o3,
 		/obj/item/clothing/accessory/scga_badge/officer
 	)
-	sort_order = 150
+	sort_order = 130
 
 
 /datum/mil_rank/scga/o4
@@ -222,7 +222,7 @@
 		/obj/item/clothing/accessory/scga_rank/o4,
 		/obj/item/clothing/accessory/scga_badge/officer
 	)
-	sort_order = 160
+	sort_order = 140
 
 
 /datum/mil_rank/scga/o5
@@ -232,7 +232,7 @@
 		/obj/item/clothing/accessory/scga_rank/o5,
 		/obj/item/clothing/accessory/scga_badge/officer
 	)
-	sort_order = 170
+	sort_order = 150
 
 
 /datum/mil_rank/scga/o6
@@ -242,7 +242,7 @@
 		/obj/item/clothing/accessory/scga_rank/o6,
 		/obj/item/clothing/accessory/scga_badge/officer
 	)
-	sort_order = 180
+	sort_order = 160
 
 
 /datum/mil_rank/scga/o7
@@ -252,7 +252,7 @@
 		/obj/item/clothing/accessory/scga_rank/o7,
 		/obj/item/clothing/accessory/scga_badge/officer
 	)
-	sort_order = 190
+	sort_order = 170
 
 
 /datum/mil_rank/scga/o8
@@ -262,7 +262,7 @@
 		/obj/item/clothing/accessory/scga_rank/o8,
 		/obj/item/clothing/accessory/scga_badge/officer
 	)
-	sort_order = 200
+	sort_order = 180
 
 
 /datum/mil_rank/scga/o9
@@ -272,7 +272,7 @@
 		/obj/item/clothing/accessory/scga_rank/o9,
 		/obj/item/clothing/accessory/scga_badge/officer
 	)
-	sort_order = 210
+	sort_order = 190
 
 
 /datum/mil_rank/scga/o10
@@ -282,7 +282,7 @@
 		/obj/item/clothing/accessory/scga_rank/o10,
 		/obj/item/clothing/accessory/scga_badge/officer
 	)
-	sort_order = 220
+	sort_order = 200
 
 
 /datum/mil_rank/scga/o10_alt
@@ -292,4 +292,4 @@
 		/obj/item/clothing/accessory/scga_rank/o10_alt,
 		/obj/item/clothing/accessory/scga_badge/officer
 	)
-	sort_order = 230
+	sort_order = 201
