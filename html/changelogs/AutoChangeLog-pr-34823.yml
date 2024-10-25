@@ -1,0 +1,4 @@
+author: Spookerton
+changes:
+  - {tweak: Floating text is hidden by default.}
+delete-after: true
