@@ -1,0 +1,7 @@
+author: Mucker
+changes:
+  - {bugfix: Fixed whispers always being visible to people at a distance with floating
+      text.}
+  - {bugfix: Fixed speaking in non-default languages not showing up as floating text.}
+  - {rscadd: Added an icon in the floating text when doing an audible emote.}
+delete-after: true
