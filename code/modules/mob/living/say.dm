@@ -312,6 +312,7 @@ var/global/list/channel_to_radio_key = new
 			if(O) //It's possible that it could be deleted in the meantime.
 				O.hear_talk(src, message, verb, speaking)
 
+	var/list/eavesdroppers = list()
 	if(whispering)
 		var/list/eavesdroping = list()
 		var/eavesdroping_range = 5
@@ -323,16 +324,16 @@ var/global/list/channel_to_radio_key = new
 			if(M)
 				M.hear_say(stars(message), verb, speaking, alt_name, italics, src, speech_sound, sound_vol)
 				if(M.client)
-					speech_bubble_recipients |= M.client
+					eavesdroppers |= M.client
 
 		for(var/obj/O in eavesdroping)
 			spawn(0)
 				if(O) //It's possible that it could be deleted in the meantime.
 					O.hear_talk(src, stars(message), verb, speaking)
-		if (length(eavesdroping))
-			invoke_async(src, /atom/movable/proc/animate_chat, stars(message), speaking, italics, eavesdroping)
 
 	invoke_async(src, /atom/movable/proc/animate_chat, message, speaking, italics, speech_bubble_recipients)
+	if (length(eavesdroppers))
+		invoke_async(src, /atom/movable/proc/animate_chat, stars(message), speaking, italics, eavesdroppers)
 
 	if(mind)
 		mind.last_words = message
@@ -342,6 +343,7 @@ var/global/list/channel_to_radio_key = new
 	else
 		log_say("[name]/[key] : [message]")
 
+	speech_bubble_recipients = speech_bubble_recipients | eavesdroppers
 	if (length(speech_bubble_recipients))
 		var/speech_intent = say_test(message)
 		var/image/speech_bubble = image('icons/mob/talk.dmi', src, "h[speech_intent]")
