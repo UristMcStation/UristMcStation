@@ -52,13 +52,12 @@ var/global/list/floating_chat_colors = list()
 
 	// create 2 messages, one that appears if you know the language, and one that appears when you don't know the language
 	var/image/understood = generate_floating_text(src, capitalize(message), style, fontsize, duration, show_to)
-	var/image/gibberish = language ? generate_floating_text(src, language.scramble(message), style, fontsize, duration, show_to, 8) : understood
-
 	for(var/client/C in show_to)
 		if(!C.mob.is_deaf() && C.get_preference_value(/datum/client_preference/floating_messages) == GLOB.PREF_SHOW)
 			if(C.mob.say_understands(src, language))
 				C.images += understood
 			else
+				var/image/gibberish = language ? generate_floating_text(src, language.scramble(message, C.mob.languages), style, fontsize, duration, show_to, 8) : understood
 				C.images += gibberish
 
 /proc/generate_floating_text(atom/movable/holder, message, style, size, duration, show_to, height_adjust)
