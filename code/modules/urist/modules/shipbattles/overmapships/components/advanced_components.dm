@@ -10,6 +10,7 @@
 	var/boarded_max = 3 //how many times do we board?
 	var/boarded_amount = 0 //how many times have we boarded
 	var/boarding_message = "Enemy teleporter locked on! Boarding imminient! Expected breach point:"
+	var/boarding_hint = "Counterboarding possible; residual portal detected at breach point."
 	var/initial_delay = FALSE
 	var/bypass_shields = FALSE
 	var/counterboarding = FALSE
@@ -47,6 +48,7 @@
 		boarding_turf = get_turf(active_beacon)
 		var/area/boarding_area = get_area(active_beacon)
 		mastership.target_ship.autoannounce("<b>[boarding_message] [boarding_area.name].</b>", "public")
+		mastership.target_ship.autoannounce("<b>[boarding_hint]</b>", "public")
 
 	if(prob(boarding_failure_chance))
 		for(var/obj/machinery/power/shield_generator/S in SSmachines.machinery) //Calculate our failure chance.
