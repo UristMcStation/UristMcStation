@@ -58,8 +58,7 @@
 
 /obj/item/pack/saintsandsins
 	name = "\improper Saints and Sins builder pack"
-	desc = "A builder pack for hit collectable card game, Saints and Sins. This one will \
-    help any aspiring deck builder get started."
+	desc = "A builder pack for hit collectable card game, Saints and Sins. This one will help any aspiring deck builder get started."
 	icon = 'icons/urist/items/saintsandsins.dmi'
 	icon_state = "card_pack_saintsandsins"
 	var/pack_type = CARDPACK_BUILDER
