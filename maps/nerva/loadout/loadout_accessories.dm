@@ -38,7 +38,7 @@
 /datum/gear/tactical/tacticool
 	allowed_roles = null
 
-/datum/gear/survivalkit
+/datum/gear/utility/survivalkit
 	display_name = "survival kit"
 	path = /obj/item/storage/box/survivalkit
 	allowed_roles = SUPPLY_ROLES
