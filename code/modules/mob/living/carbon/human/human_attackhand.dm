@@ -114,10 +114,10 @@
 					to_chat(H, SPAN_WARNING("You've done chest compressions, but they don't have a mouth to do mouth-to-mouth resuscitation!"))
 					return
 				if((H.head && (H.head.body_parts_covered & FACE)) || (H.wear_mask && (H.wear_mask.body_parts_covered & FACE)))
-					to_chat(H, SPAN_WARNING("You need to remove your mouth covering for mouth-to-mouth resuscitation!"))
+					to_chat(H, SPAN_DANGER("You need to remove your mouth covering for mouth-to-mouth resuscitation!"))
 					return 0
 				if((head && (head.body_parts_covered & FACE)) || (wear_mask && (wear_mask.body_parts_covered & FACE)))
-					to_chat(H, SPAN_WARNING("You need to remove \the [src]'s mouth covering for mouth-to-mouth resuscitation!"))
+					to_chat(H, SPAN_DANGER("You need to remove \the [src]'s mouth covering for mouth-to-mouth resuscitation!"))
 					return 0
 				if (!H.internal_organs_by_name[H.species.breathing_organ])
 					to_chat(H, SPAN_DANGER("You need lungs for mouth-to-mouth resuscitation!"))
