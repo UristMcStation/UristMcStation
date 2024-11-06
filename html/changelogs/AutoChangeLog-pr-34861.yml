@@ -1,0 +1,5 @@
+author: Mucker
+changes:
+  - {tweak: The Transfer vote will now default to the transfer option if there are
+      no voters.}
+delete-after: true
