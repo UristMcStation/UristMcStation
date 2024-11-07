@@ -1,0 +1,5 @@
+author: Mucker
+changes:
+  - {bugfix: Languages that you can understand but can't speak are no longer gibberish
+      in floating text when spoken by other people.}
+delete-after: true
