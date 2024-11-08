@@ -73,7 +73,7 @@ var/global/list/floating_chat_colors = list()
 
 	style = "font-family: 'Small Fonts'; -dm-text-outline: 1px black; font-size: [size]px; line-height: 1.1; [style]"
 	I.maptext = "<center><span style=\"[style]\">[message]</span></center>"
-	animate(I, CHAT_MESSAGE_SPAWN_TIME, alpha = 255, pixel_z = 20 + height_adjust)
+	animate(I, CHAT_MESSAGE_SPAWN_TIME, alpha = 255, pixel_z = 28)
 
 	var/move_up_z = 10
 	for(var/image/old in holder.stored_chat_text)
