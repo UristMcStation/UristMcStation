@@ -1,0 +1,5 @@
+author: Spookerton
+changes:
+  - {tweak: The Transfer vote will now default to the continue option if there are
+      no voters.}
+delete-after: true
