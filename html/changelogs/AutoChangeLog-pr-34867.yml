@@ -1,0 +1,5 @@
+author: ''
+changes:
+  - {maptweak: Replaces useless tacgoggles with NVGmounts in Emergency Tactical Armoury.}
+  - {maptweak: Shuffles around shelves and items in Security Armoury. Details in PR.}
+delete-after: true
