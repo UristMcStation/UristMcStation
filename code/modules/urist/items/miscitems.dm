@@ -886,3 +886,10 @@
 	hitsound = "swing_hit"
 	flashlight_max_bright = 0.75
 	flashlight_outer_range = 6
+
+//blueshield action figure
+/obj/item/toy/figure/blueshield
+	name = "Blueshield action figure"
+	desc = "A \"Space Life\" brand Blueshield action figure."
+	icon = 'icons/urist/items/misc.dmi'
+	icon_state = "blueshield"
