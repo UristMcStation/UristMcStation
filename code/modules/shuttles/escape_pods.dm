@@ -177,8 +177,9 @@ var/global/list/escape_pods_by_name = list()
 	signal.data = list(
 		"tag" = tag_pump,
 		"sigtype" = "command",
-		"power" = 1,
-		"direction" = 1,
+		//"status" = TRUE,
+		"set_power" = 1,
+		"set_direction" = 1,
 		"set_external_pressure" = ONE_ATMOSPHERE
 	)
 	post_signal(signal)
