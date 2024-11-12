@@ -3612,7 +3612,6 @@
 	pixel_y = 24
 	},
 /obj/item/autopsy_scanner,
-/obj/item/scalpel/basic,
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -6688,11 +6687,6 @@
 	pixel_x = -22;
 	pixel_y = 24
 	},
-/obj/machinery/button/windowtint{
-	id = "exam_windows";
-	pixel_x = -30;
-	pixel_y = 24
-	},
 /obj/floor_decal/corner/paleblue{
 	dir = 5
 	},
@@ -7456,10 +7450,6 @@
 	pixel_y = -6
 	},
 /obj/structure/table/steel,
-/obj/item/stamp/denied{
-	pixel_x = 5
-	},
-/obj/item/stamp,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
@@ -9430,9 +9420,6 @@
 /obj/structure/table/steel,
 /obj/item/device/multitool,
 /obj/item/stamp/brig,
-/obj/item/stamp/denied{
-	pixel_x = 5
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -10402,8 +10389,8 @@
 	dir = 8;
 	pixel_x = 21
 	},
-/obj/structure/table/steel,
 /obj/floor_decal/industrial/outline/grey,
+/obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/security/storage)
 "aKA" = (
@@ -10577,6 +10564,11 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/security/storage)
 "aLz" = (
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/fire{
+	pixel_x = -4;
+	pixel_y = -4
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/security/storage)
 "aLA" = (
@@ -14273,10 +14265,6 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/structure/closet/secure_closet{
-	name = "Secure Evidence Locker";
-	req_access = list("ACCESS_SECURITY")
-	},
 /turf/simulated/floor/plating,
 /area/security/wing)
 "bpA" = (
@@ -15702,6 +15690,7 @@
 /obj/structure/sign/warning/nosmoking_1{
 	pixel_y = 24
 	},
+/obj/item/storage/firstaid/surgery,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/medical/morgue/autopsy)
 "daB" = (
@@ -16537,12 +16526,13 @@
 /area/medical/washroom)
 "elT" = (
 /obj/floor_decal/industrial/outline/grey,
-/obj/structure/closet/crate/medical,
-/obj/item/storage/firstaid/regular,
-/obj/item/storage/firstaid/fire{
-	pixel_x = -4;
-	pixel_y = -4
+/obj/structure/table/rack{
+	dir = 4
 	},
+/obj/item/storage/box/smokes,
+/obj/item/storage/box/smokes,
+/obj/item/storage/box/handcuffs,
+/obj/item/storage/box/handcuffs,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/security/storage)
 "emb" = (
@@ -18384,16 +18374,12 @@
 /turf/simulated/floor/tiled/monotile,
 /area/rnd/entry)
 "huf" = (
-/obj/structure/table/rack{
-	dir = 4
-	},
 /obj/floor_decal/industrial/outline/grey,
-/obj/item/storage/box/handcuffs,
-/obj/item/storage/box/handcuffs,
-/obj/item/storage/box/smokes,
-/obj/item/storage/box/smokes,
 /obj/machinery/rotating_alarm/security_alarm{
 	dir = 1
+	},
+/obj/structure/table/rack{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/security/storage)
@@ -25006,6 +24992,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/structure/closet/crate/secure{
+	name = "Secure Evidence Storage";
+	req_access = list("ACCESS_SEC_DOORS");
+	dir = 8
+	},
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/security/processing)
 "pVv" = (
@@ -25279,7 +25271,6 @@
 /obj/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -25291,6 +25282,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery2)
 "qkb" = (
@@ -25340,7 +25332,6 @@
 /obj/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/machinery/light,
 /obj/structure/closet/crate/freezer,
 /obj/item/device/mmi,
 /obj/item/reagent_containers/ivbag/nanoblood,
@@ -25348,6 +25339,7 @@
 /obj/item/reagent_containers/ivbag/blood/human/oneg,
 /obj/item/reagent_containers/ivbag/blood/skrell/oneg,
 /obj/item/reagent_containers/ivbag/blood/unathi/oneg,
+/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "qqb" = (
@@ -29407,6 +29399,9 @@
 /area/medical/medicalhallway)
 "vIP" = (
 /obj/structure/filingcabinet/chestdrawer,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/security/detectives_office)
 "vJO" = (
@@ -29777,7 +29772,7 @@
 /obj/structure/table/glass,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/item/forensics/sample_kit/powder,
-/obj/item/forensics/swab,
+/obj/item/forensics/sample_kit,
 /turf/simulated/floor/tiled/white,
 /area/security/detectives_office)
 "wEb" = (

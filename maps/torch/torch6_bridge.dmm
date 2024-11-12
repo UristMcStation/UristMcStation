@@ -797,6 +797,10 @@
 /obj/structure/hygiene/toilet{
 	dir = 4
 	},
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -28
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/heads/cobed)
 "bI" = (
@@ -1196,8 +1200,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/alarm{
 	dir = 1;
-	pixel_y = -28;
-	req_access = list(list("ACCESS_ENGINE_EQUIP","ACCESS_ATMOS"))
+	pixel_y = -28
 	},
 /obj/structure/disposalpipe/junction{
 	dir = 4;
@@ -2038,6 +2041,12 @@
 /turf/simulated/floor/tiled/monotile,
 /area/crew_quarters/heads/office/ce)
 "dG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
 /turf/simulated/floor/wood/walnut,
 /area/crew_quarters/heads/cobed)
 "dH" = (
@@ -3213,8 +3222,7 @@
 "fS" = (
 /obj/machinery/alarm{
 	dir = 1;
-	pixel_y = -28;
-	req_access = list(list("ACCESS_ENGINE_EQUIP","ACCESS_ATMOS"))
+	pixel_y = -28
 	},
 /obj/floor_decal/corner/blue{
 	dir = 10
@@ -4298,6 +4306,12 @@
 /area/hallway/primary/bridge/aft)
 "jc" = (
 /obj/structure/hygiene/drain,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/heads/cobed)
 "je" = (
@@ -4909,6 +4923,9 @@
 	},
 /obj/structure/table/woodentable/walnut,
 /obj/item/device/flashlight/lamp/green,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/wood/walnut,
 /area/crew_quarters/heads/cobed)
 "lx" = (
@@ -5133,6 +5150,9 @@
 /area/bridge/disciplinary_board_room)
 "lT" = (
 /obj/item/taperoll/bog,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/heads/cobed)
 "lW" = (
@@ -7960,8 +7980,7 @@
 	},
 /obj/machinery/alarm{
 	dir = 1;
-	pixel_y = -28;
-	req_access = list(list("ACCESS_ENGINE_EQUIP","ACCESS_ATMOS"))
+	pixel_y = -28
 	},
 /turf/simulated/floor/wood/walnut,
 /area/crew_quarters/heads/office/sgr)
@@ -10578,6 +10597,9 @@
 /obj/floor_decal/spline/fancy/wood/corner{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/wood/walnut,
 /area/crew_quarters/heads/cobed)
 "Cs" = (
@@ -10612,6 +10634,15 @@
 "Cx" = (
 /obj/machinery/uniform_vendor{
 	dir = 1
+	},
+/turf/simulated/floor/wood/walnut,
+/area/crew_quarters/heads/cobed)
+"CA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/wood/walnut,
 /area/crew_quarters/heads/cobed)
@@ -10842,14 +10873,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/disciplinary_board_room)
 "DY" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood/walnut,
 /area/crew_quarters/heads/cobed)
 "DZ" = (
@@ -10973,6 +11005,9 @@
 /obj/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
 /turf/simulated/floor/wood/walnut,
 /area/crew_quarters/heads/cobed)
 "EM" = (
@@ -10989,7 +11024,6 @@
 "EP" = (
 /obj/floor_decal/corner/paleblue/diagonal,
 /obj/structure/closet/secure_closet/CMO_torch,
-/obj/item/storage/belt/medical,
 /obj/item/book/manual/sol_sop,
 /obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/firealarm{
@@ -11077,6 +11111,7 @@
 /obj/item/device/radio,
 /obj/item/crowbar/prybar,
 /obj/item/device/binoculars,
+/obj/item/clothing/mask/gas/half,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/crew_quarters/heads/office/cos)
 "Fg" = (
@@ -12095,10 +12130,10 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/wood/walnut,
 /area/crew_quarters/heads/cobed)
 "IJ" = (
@@ -12495,10 +12530,6 @@
 	department = "Torch - Chief Medical Officer"
 	},
 /obj/item/stamp/cmo,
-/obj/item/device/radio{
-	frequency = 1487;
-	name = "medbay emergency radio link"
-	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/office/cmo)
 "KX" = (
@@ -13059,8 +13090,7 @@
 /obj/structure/table/woodentable/walnut,
 /obj/machinery/alarm{
 	dir = 1;
-	pixel_y = -28;
-	req_access = list(list("ACCESS_ENGINE_EQUIP","ACCESS_ATMOS"))
+	pixel_y = -28
 	},
 /obj/item/storage/secure/briefcase/nukedisk,
 /turf/simulated/floor/wood/walnut,
@@ -13080,7 +13110,7 @@
 /area/security/bridgecheck)
 "NH" = (
 /obj/floor_decal/corner/blue/mono,
-/obj/structure/bed/chair/comfy/beige{
+/obj/structure/bed/chair/comfy/blue{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/monotile,
@@ -13389,8 +13419,7 @@
 	icon_state = "2-8"
 	},
 /obj/machinery/alarm{
-	pixel_y = 23;
-	req_access = list(list("ACCESS_ENGINE_EQUIP","ACCESS_ATMOS"))
+	pixel_y = 23
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/aquila/air)
@@ -13981,6 +14010,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/heads/cobed)
 "Rp" = (
@@ -14340,6 +14370,12 @@
 	name = "Head"
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/heads/cobed)
 "SX" = (
@@ -24406,7 +24442,7 @@ uy
 IB
 To
 KC
-dG
+CA
 Cx
 uy
 tg
