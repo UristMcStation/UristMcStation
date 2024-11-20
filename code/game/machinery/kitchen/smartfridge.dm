@@ -127,7 +127,7 @@
 	icon_contents = "food"
 	accepted_types = list(
 		/obj/item/reagent_containers/food/snacks,
-		/obj/item/material/kitchen/utensil
+		/obj/item/material/utensil
 	)
 
 /obj/machinery/smartfridge/drying_rack
