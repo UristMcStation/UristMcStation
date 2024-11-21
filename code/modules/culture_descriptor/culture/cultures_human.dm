@@ -56,7 +56,7 @@
 	name = CULTURE_HUMAN_VENUSIAN
 	description = "You are from one of the many zones of Venus. Floating high above the ground of the planet on massive platforms, you are one of the many who live on one of the most decadent locations in the \
 	SCG. As a Venusian, you know luxury, wealth and entertainment. Primarily a tourist destination, many of the permanent residents work in the tourism industry and are notably middle-income. \
-	Those above are exceptionally wealthy, being hotel, casino, resort owners, politicians, bankers or rich retirees."
+	Those above are exceptionally wealthy: being hotel, casino, resort owners, politicians, bankers or rich retirees."
 	economic_power = 1.4
 
 /singleton/cultural_info/culture/human/venusian_surfacer
@@ -147,16 +147,16 @@
 
 /singleton/cultural_info/culture/human/foster
 	name = CULTURE_HUMAN_FOSTER
-	description = "Foster's World was once considered too cold and desolate for habitation, but decades of inhabitence by the Fostermen has turned it into a productive and popular destination. \
+	description = "Foster's World was once considered too cold and desolate for habitation, but decades of inhabitance by the Fostermen has turned it into a productive and popular destination. \
 	Fostermen are traditionally noted for their resourcefulness and motivation, as well as a preference for being in colder environments. \
-	Snow is second nature to people from Foster's World, and they've made a name for themselves exploring and fishing it's thermal oceans. "
+	Snow is second nature to people from Foster's World, and they've made a name for themselves exploring and fishing its thermal oceans. "
 	economic_power = 1.1
 
 /singleton/cultural_info/culture/human/tadmor
 	name = CULTURE_HUMAN_TADMOR
-	description = "Tadmor is one of the SCG's more successful colonial projects, and it's culture is rich and dignified as a result. \
+	description = "Tadmor is one of the SCG's more successful colonial projects, and its culture is rich and dignified as a result. \
 	Mostly living in the fissures of the desert world, Tadmorians are most famous for their cultural Pacifism, with their aversion to participation in \
-	the Gaia Conflict being seen by all residents as either a proud moment or a stain in the planets rich, Mars-Rooted history. "
+	the Gaia Conflict being seen by all residents as either a proud moment or a stain in the planets rich, Mars-rooted history. "
 	economic_power = 1.2
 
 /singleton/cultural_info/culture/human/iolaus
@@ -210,7 +210,7 @@
 
 /singleton/cultural_info/culture/human/offworld
 	name = CULTURE_HUMAN_OFFWORLD
-	description =  "You are from one of many far flung and outlying settlements that aren't notable enough to be on standard Solar maps. Raised out of touch and out of connection with the galaxyat large, \
+	description =  "You are from one of many far flung and outlying settlements that aren't notable enough to be on standard Solar maps. Raised out of touch and out of connection with the galaxy at large, \
 	those who live so far from anything only look to their close family and friends rather than any larger group. Whether it's a fueling station, an agriculutral dome, or a planet that is far removed from \
 	the luxuries of the gateway network, such people are raised in small, confined environments with few others, and tend to be most familiar with older, reliable but outdated \
 	technology. An independent sort, Offworlders are more likely to be isolationist and self-driven."
@@ -239,7 +239,7 @@
 /singleton/cultural_info/culture/human/confederate_terra
 	name = CULTURE_HUMAN_CONFED_TERRA
 	description = "You are from the core of the Gilgamesh Colonial Confederation. Being from the Confederation's capital, your people embody what it means to be a part of the GCC. \
-	Unfortunately, the years since the war have not been easy on Terra and the long period of economic recovery has not made life easy. The people of Terra are typically employed \
+	Unfortunately, the years since the war have not been easy on Terra, and the long period of economic recovery has not made life easy. The people of Terra are typically employed \
 	in the military, industrial, government or service sectors, with an emphasis being placed on mandatory military service. Terrans today are generally poor, bitter and a somewhat broken people angry and \
 	resentful about their loss in the Gaia Conflict. An upbringing from Terra emphasises an odd mix of service to the state, liberalism and militarism."
 	language = LANGUAGE_HUMAN_RUSSIAN
@@ -249,7 +249,7 @@
 	name = CULTURE_HUMAN_CONFED_ZEMLYA
 	description = "You are from the core of the Gilgamesh Colonial Confederation. Being from Gilgamesh's Industrial Capital, your people embody what it means to be a part of the working class GCC. \
 	Unfortunately, the years since the war have not been easy on Zemlya and the long period of economic recovery has not made life easy. The people of Zemlya are typically employed \
-	in the vast industrial sector, less patriotic then those from Terra itself, Zemlyans are still an extremely proud people who have pride in their industrial and working class origins."
+	in the vast industrial sector. Less patriotic then those from Terra itself, Zemlyans are still an extremely proud people who have pride in their industrial and working class origins."
 	language = LANGUAGE_HUMAN_RUSSIAN
 	economic_power = 1.0
 
@@ -265,8 +265,8 @@
 /singleton/cultural_info/culture/human/confederate_putkari
 	name = CULTURE_HUMAN_CONFED_PUTKARI
 	description = "You are from Putkari in the Baroda system. Settled in the wake of the Terran Commonwealth's exploration Boom, Putkari was abandoned by \
-	the SCG following it's founding and left to die. Embracing the newly founded GCC, Putkari has been a loyal and devoted member of the Confederation \
-	ever since. Extremely hostile to the SCG ever since it's abandonment, Putkarians are some of the most vocal within the Confederation in terms of \
+	the SCG following its founding and left to die. Embracing the newly founded GCC, Putkari has been a loyal and devoted member of the Confederation \
+	ever since. Extremely hostile to the SCG ever since its abandonment, Putkarians are some of the most vocal within the Confederation in terms of \
 	resentment of the loss in the Gaia Conflict, many beat the war drums and fan the fires of jingoism in hopes of one day enacting a form of vengance. "
 	language = LANGUAGE_HUMAN_INDIAN
 	economic_power = 0.7
@@ -281,15 +281,15 @@
 
 /singleton/cultural_info/culture/human/confederate_penglai
 	name = CULTURE_HUMAN_CONFED_PENGLAI
-	description = "You are from Penglai, a traditionalist world within the Gilgamesh Colonial Confederation. A small world with a marginal atmosphere, \
-	breathable by its inhabitants, its main economic contribution to the confederation is in rare earth elements, of which it has a great deal. Another \
+	description = "You are from Penglai, a traditionalist world within the Gilgamesh Colonial Confederation. A small world with a marginal atmosphere  \
+	breathable by its inhabitants, its main economic contribution to the confederation is in its abundant rare earth element deposits. Another \
 	colony that was in need of support following the founding of the SCG, Pengali is a content member of the Confederation while keeping their own traditions alive. "
 	language = LANGUAGE_HUMAN_CHINESE
 	economic_power = 0.8
 
 /singleton/cultural_info/culture/human/confederate_providence
 	name = CULTURE_HUMAN_CONFED_PROVIDENCE
-	description = "You are from Providence, settled originally by private ventures, Providence's planet of Atlanticus developed a booming space station industry, \
+	description = "You are from Providence, settled originally by private ventures. Providence's planet of Atlanticus developed a booming space station industry, \
 	resulting in the construction of three mega-space-complexes within the system. Bolstered by a flood of working class immigrants and research funding following \
 	their entry to the Confederation, those from Providence are typically quite pleased with their position within the Confederation, though many still choose to \
 	emigrate elsewhere in hopes of finding work outside of the industrial or scientific sectors. "
@@ -299,9 +299,9 @@
 /singleton/cultural_info/culture/human/confederate_valy
 	name = CULTURE_HUMAN_CONFED_VALY
 	description = "You are from Valy, the 'black sheep' of the Confederation. Brought into the Confederation when Valy's civil war was ended by the GCN's intervention \
-	Valy has possessed a resistance to the Confederation ever since. The emergance of the Frontier Alliance has emboldened these resistance actions, with \
+	Valy has possessed a resistance to the Confederation ever since. The emergence of the Frontier Alliance has emboldened these resistance actions, with \
 	public desires to join the Alliance only being held back by the Confederation's continued presence. Those from Valy are typically quite bitter about their present \
-	situation, with many who choose to emigrate continuing to support efforts to bring about the Alliance's agenda in 'freeing Valy from it's shackles'. "
+	situation, with many who choose to emigrate continuing to support efforts to bring about the Alliance's agenda in 'freeing Valy from its shackles'. "
 	language = LANGUAGE_HUMAN_RUSSIAN
 	economic_power = 0.6
 
@@ -309,7 +309,7 @@
 	name = CULTURE_HUMAN_CONFEDO
 	description = "You are from the outskirts of the Gilgamesh Colonial Confederation. Confederates have a mixed view of their nation state, raging from strong nationalism to resentment for the state, but \
 	they all have the legacy of resource extraction and mandatory conscription in common. Being from a nation of conscripts means that Confederates are often resourceful and experienced, \
-	having grown to cope with the horrors of dysfunctional economics and mandatory military service. Confederates today are generally poor, bitter and a somewhat broken people angry and \
+	having grown to cope with the horrors of dysfunctional economics and mandatory military service. Confederates today are generally poor, bitter and somewhat broken people, angry and \
 	resentful about their loss in the Gaia Conflict. Colonial Confederation education emphasizes service to the state, liberalism and militarism."
 	language = LANGUAGE_HUMAN_RUSSIAN
 	economic_power = 0.7
