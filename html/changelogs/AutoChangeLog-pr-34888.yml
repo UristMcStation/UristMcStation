@@ -1,0 +1,8 @@
+author: Sbotkin
+changes:
+  - {maptweak: 'The brig equipment room table is is cleared, with its contents moved
+      to the other corner of the room.'}
+  - {maptweak: Security gets a new crate in processing to help with confiscations.}
+  - {maptweak: 'The extra surgery kit is moved to the autopsy area, replacing the
+      scalpel.'}
+delete-after: true
