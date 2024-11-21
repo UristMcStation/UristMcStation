@@ -1,5 +1,0 @@
-author: Spookerton
-changes:
-  - {tweak: Non-metallic utensils are no longer conductive.}
-  - {tweak: Utensils indicate their material in their name.}
-delete-after: true

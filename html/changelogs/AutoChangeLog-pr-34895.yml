@@ -1,5 +1,0 @@
-author: JuneauQT
-changes:
-  - {tweak: Added a slight margin of error to the number of ruins shown by an exoplanet
-      scan}
-delete-after: true
