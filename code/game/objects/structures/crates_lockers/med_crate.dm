@@ -44,7 +44,6 @@
 
 /obj/structure/closet/crate/med_crate/toxin/WillContain()
 	return list(
-		/obj/item/storage/firstaid/surgery,
 		/obj/item/storage/pill_bottle/dylovene = 2,
 		/obj/item/storage/pill_bottle/hyronalin = 1
 			)

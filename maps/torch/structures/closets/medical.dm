@@ -53,6 +53,7 @@
 		/obj/item/storage/box/armband/med,
 		/obj/item/material/knife/folding/swiss/officer,
 		/obj/item/storage/backpack/dufflebag/med,
+		/obj/item/storage/belt/medical,
 		RANDOM_SCRUBS
 	)
 
