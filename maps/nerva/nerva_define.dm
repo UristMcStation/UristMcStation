@@ -77,7 +77,8 @@
 		/datum/species/skrell  = list(/datum/job/captain),
 		/datum/species/machine = list(/datum/job/captain),
 		/datum/species/diona   = list(/datum/job/captain),
-		/datum/species/teshari = list(/datum/job/captain)
+		/datum/species/teshari = list(/datum/job/captain),
+		/datum/species/unathi/yeosa = list(/datum/job/captain)
 	)
 
 /datum/map/nerva/bolt_saferooms()
