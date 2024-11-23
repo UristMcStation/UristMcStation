@@ -16,8 +16,9 @@
 
 /singleton/surgery_step/robotics/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
-	if(affected && !(affected.status & ORGAN_CUT_AWAY))
-		return affected
+	if (!affected || HAS_FLAGS(affected.status, ORGAN_CUT_AWAY))
+		return FALSE
+	return affected
 
 /singleton/surgery_step/robotics/success_chance(mob/living/user, mob/living/carbon/human/target, obj/item/tool)
 	. = ..()
@@ -46,8 +47,9 @@
 
 /singleton/surgery_step/robotics/unscrew_hatch/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
-	if(affected && affected.hatch_state == HATCH_CLOSED)
-		return affected
+	if (!affected || affected.hatch_state != HATCH_CLOSED)
+		return FALSE
+	return affected
 
 /singleton/surgery_step/robotics/unscrew_hatch/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -83,8 +85,9 @@
 
 /singleton/surgery_step/robotics/screw_hatch/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
-	if(affected && affected.hatch_state == HATCH_UNSCREWED)
-		return affected
+	if (!affected || affected.hatch_state != HATCH_UNSCREWED)
+		return FALSE
+	return affected
 
 /singleton/surgery_step/robotics/screw_hatch/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -121,8 +124,9 @@
 
 /singleton/surgery_step/robotics/open_hatch/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
-	if(affected && affected.hatch_state == HATCH_UNSCREWED)
-		return affected
+	if (!affected || affected.hatch_state != HATCH_UNSCREWED)
+		return FALSE
+	return affected
 
 /singleton/surgery_step/robotics/open_hatch/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -159,8 +163,9 @@
 
 /singleton/surgery_step/robotics/close_hatch/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
-	if(affected && affected.hatch_state == HATCH_OPENED)
-		return affected
+	if (!affected || affected.hatch_state != HATCH_OPENED)
+		return FALSE
+	return affected
 
 /singleton/surgery_step/robotics/close_hatch/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -234,8 +239,9 @@
 
 /singleton/surgery_step/robotics/repair_brute/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
-	if(affected && affected.hatch_state == HATCH_OPENED && ((affected.status & ORGAN_DISFIGURED) || affected.brute_dam > 0))
-		return affected
+	if (!affected || affected.hatch_state != HATCH_OPENED || (!HAS_FLAGS(affected.status, ORGAN_DISFIGURED) && affected.brute_dam <= 0))
+		return FALSE
+	return affected
 
 /singleton/surgery_step/robotics/repair_brute/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -277,8 +283,9 @@
 
 /singleton/surgery_step/robotics/repair_brittle/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
-	if(affected && BP_IS_BRITTLE(affected) && affected.hatch_state == HATCH_OPENED)
-		return affected
+	if (!affected || !BP_IS_BRITTLE(affected) || affected.hatch_state != HATCH_OPENED)
+		return FALSE
+	return affected
 
 /singleton/surgery_step/robotics/repair_brittle/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -344,8 +351,9 @@
 
 /singleton/surgery_step/robotics/repair_burn/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
-	if(affected && affected.hatch_state == HATCH_OPENED && ((affected.status & ORGAN_DISFIGURED) || affected.burn_dam > 0))
-		return affected
+	if (!affected || affected.hatch_state != HATCH_OPENED || (!HAS_FLAGS(affected.status, ORGAN_DISFIGURED) && affected.burn_dam <= 0))
+		return FALSE
+	return affected
 
 /singleton/surgery_step/robotics/repair_burn/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -399,13 +407,16 @@
 
 /singleton/surgery_step/robotics/fix_organ_robotic/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
-	if(affected)
-		for(var/obj/item/organ/internal/I in affected.internal_organs)
-			if(BP_IS_ROBOTIC(I) && !BP_IS_CRYSTAL(I) && I.damage > 0)
-				if(I.surface_accessible)
-					return affected
-				if(affected.how_open() >= (affected.encased ? SURGERY_ENCASED : SURGERY_RETRACTED) || affected.hatch_state == HATCH_OPENED)
-					return affected
+	if (!affected)
+		return FALSE
+	for (var/obj/item/organ/internal/organ in affected.internal_organs)
+		if (!BP_IS_ROBOTIC(organ) || BP_IS_CRYSTAL(organ) || organ.damage <= 0)
+			return FALSE
+		if (!organ.surface_accessible)
+			return FALSE
+	if (affected.how_open() < (affected.encased ? SURGERY_ENCASED : SURGERY_RETRACTED) && affected.hatch_state != HATCH_OPENED)
+		return FALSE
+	return affected
 
 /singleton/surgery_step/robotics/fix_organ_robotic/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -630,9 +641,9 @@
 
 
 /singleton/surgery_step/robotics/install_mmi/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	var/obj/item/organ/external/affected = ..()
-	if(affected && target_zone == BP_HEAD)
-		return affected
+	if (target_zone != BP_HEAD)
+		return FALSE
+	return ..()
 
 /singleton/surgery_step/robotics/install_mmi/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -691,8 +702,9 @@
 
 /singleton/surgery_step/remove_mmi/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
-	if(affected && (locate(/obj/item/device/mmi) in affected.implants))
-		return affected
+	if (!affected || !((locate(/obj/item/device/mmi) in affected.implants)))
+		return FALSE
+	return affected
 
 /singleton/surgery_step/remove_mmi/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -734,8 +746,9 @@
 
 /singleton/surgery_step/robotics/robone/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
-	if(affected && (affected.status & ORGAN_BROKEN) && affected.stage == required_stage)
-		return affected
+	if (!affected || !HAS_FLAGS(affected.status, ORGAN_BROKEN) || affected.stage != required_stage)
+		return FALSE
+	return affected
 
 
 /singleton/surgery_step/robotics/robone/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/tool)

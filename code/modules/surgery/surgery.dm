@@ -129,41 +129,57 @@ GLOBAL_LIST_INIT(surgery_tool_exception_cache, new)
 /singleton/surgery_step/proc/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return assess_bodypart(user, target, target_zone, tool) && assess_surgery_candidate(user, target, target_zone, tool)
 
+/**
+ * Checks if a given bodypart in `target_zone` is valid for this surgery.
+ *
+ * **Parameters**:
+ * - `user` - The mob performing the surgery.
+ * - `target` - The mob being operated on.
+ * - `target_zone` - The zone being targeted and checked.
+ * - `tool` - The item being used to perform the surgery.
+ *
+ * Returns the targeted organ if valid, or `FALSE` is invalid.
+ */
 /singleton/surgery_step/proc/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(istype(target) && target_zone)
-		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		if(affected)
-			// Check various conditional flags.
-			if(((surgery_candidate_flags & SURGERY_NO_ROBOTIC) && BP_IS_ROBOTIC(affected)) || \
-			 ((surgery_candidate_flags & SURGERY_NO_CRYSTAL) && BP_IS_CRYSTAL(affected))   || \
-			 ((surgery_candidate_flags & SURGERY_NO_STUMP) && affected.is_stump())         || \
-			 ((surgery_candidate_flags & SURGERY_NO_FLESH) && !(BP_IS_ROBOTIC(affected) || BP_IS_CRYSTAL(affected))))
-				return FALSE
-			// Check if the surgery target is accessible.
-			if(BP_IS_ROBOTIC(affected))
-				if(((surgery_candidate_flags & SURGERY_NEEDS_ENCASEMENT) || \
-				 (surgery_candidate_flags & SURGERY_NEEDS_INCISION)      || \
-				 (surgery_candidate_flags & SURGERY_NEEDS_RETRACTED))    && \
-				 affected.hatch_state != HATCH_OPENED)
-					return FALSE
-			else
-				var/open_threshold = 0
-				if(surgery_candidate_flags & SURGERY_NEEDS_INCISION)
-					open_threshold = SURGERY_OPEN
-				else if(surgery_candidate_flags & SURGERY_NEEDS_RETRACTED)
-					open_threshold = SURGERY_RETRACTED
-				else if(surgery_candidate_flags & SURGERY_NEEDS_ENCASEMENT)
-					open_threshold = (affected.encased ? SURGERY_ENCASED : SURGERY_RETRACTED)
-				if(open_threshold && ((strict_access_requirement && affected.how_open() != open_threshold) || \
-				 affected.how_open() < open_threshold))
-					return FALSE
-			// Check if clothing is blocking access
-			var/obj/item/I = target.get_covering_equipped_item_by_zone(target_zone)
-			if(I && (I.item_flags & ITEM_FLAG_THICKMATERIAL))
-				to_chat(user,SPAN_NOTICE("The material covering this area is too thick for you to do surgery through!"))
-				return FALSE
-			return affected
-	return FALSE
+	if (!istype(target) || !target_zone)
+		return FALSE
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if (!affected)
+		return FALSE
+
+	// Check various conditional flags.
+	if ((HAS_FLAGS(surgery_candidate_flags, SURGERY_NO_ROBOTIC) && BP_IS_ROBOTIC(affected)) || \
+		(HAS_FLAGS(surgery_candidate_flags, SURGERY_NO_CRYSTAL) && BP_IS_CRYSTAL(affected)) || \
+		(HAS_FLAGS(surgery_candidate_flags, SURGERY_NO_STUMP) && affected.is_stump())       || \
+		(HAS_FLAGS(surgery_candidate_flags, SURGERY_NO_FLESH) && !(BP_IS_ROBOTIC(affected) || BP_IS_CRYSTAL(affected))))
+		return FALSE
+
+	// Check if the surgery target is accessible.
+	if (BP_IS_ROBOTIC(affected))
+		if ((HAS_FLAGS(surgery_candidate_flags, SURGERY_NEEDS_ENCASEMENT) || \
+			HAS_FLAGS(surgery_candidate_flags, SURGERY_NEEDS_INCISION)      || \
+			HAS_FLAGS(surgery_candidate_flags, SURGERY_NEEDS_RETRACTED))    && \
+			affected.hatch_state != HATCH_OPENED)
+			return FALSE
+	else
+		var/open_threshold = SURGERY_CLOSED
+		if (HAS_FLAGS(surgery_candidate_flags, SURGERY_NEEDS_INCISION))
+			open_threshold = SURGERY_OPEN
+		else if (HAS_FLAGS(surgery_candidate_flags, SURGERY_NEEDS_RETRACTED))
+			open_threshold = SURGERY_RETRACTED
+		else if (HAS_FLAGS(surgery_candidate_flags, SURGERY_NEEDS_ENCASEMENT))
+			open_threshold = (affected.encased ? SURGERY_ENCASED : SURGERY_RETRACTED)
+		if (open_threshold && ((strict_access_requirement && affected.how_open() != open_threshold) || \
+			affected.how_open() < open_threshold))
+			return FALSE
+
+	// Check if clothing is blocking access
+	var/obj/item/clothing = target.get_covering_equipped_item_by_zone(target_zone)
+	if (clothing && HAS_FLAGS(clothing.item_flags, ITEM_FLAG_THICKMATERIAL))
+		USE_FEEDBACK_FAILURE("The material covering \the [target]'s [affected.name] is too thick for you to do surgery through.")
+		return FALSE
+
+	return affected
 
 /singleton/surgery_step/proc/assess_surgery_candidate(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return ishuman(target)

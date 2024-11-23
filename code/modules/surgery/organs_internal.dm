@@ -25,11 +25,14 @@
 
 /singleton/surgery_step/internal/fix_organ/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
-	if(affected)
-		for(var/obj/item/organ/internal/I in affected.internal_organs)
-			if(I.damage > 0)
-				if(I.surface_accessible || (affected.how_open() >= (affected.encased ? SURGERY_ENCASED : SURGERY_RETRACTED)))
-					return affected
+	if (!affected)
+		return FALSE
+	for (var/obj/item/organ/internal/organ in affected.internal_organs)
+		if (organ.damage <= 0)
+			return FALSE
+		if (!organ.surface_accessible && (affected.how_open() < (affected.encased ? SURGERY_ENCASED : SURGERY_RETRACTED)))
+			return FALSE
+	return affected
 
 /singleton/surgery_step/internal/fix_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/tool_name = "\the [tool]"

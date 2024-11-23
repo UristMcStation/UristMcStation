@@ -34,8 +34,9 @@
 
 /singleton/surgery_step/cavity/make_space/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
-	if(affected && affected.cavity_name && !affected.cavity)
-		return affected
+	if (!affected || !affected.cavity_name || affected.cavity)
+		return FALSE
+	return affected
 
 /singleton/surgery_step/cavity/make_space/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -67,8 +68,9 @@
 
 /singleton/surgery_step/cavity/close_space/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
-	if(affected && affected.cavity)
-		return affected
+	if (!affected?.cavity)
+		return FALSE
+	return affected
 
 /singleton/surgery_step/cavity/close_space/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -100,8 +102,9 @@
 
 /singleton/surgery_step/cavity/place_item/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
-	if(affected && affected.cavity)
-		return affected
+	if (!affected?.cavity)
+		return FALSE
+	return affected
 
 
 /singleton/surgery_step/cavity/place_item/pre_surgery_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -161,10 +164,11 @@
 
 /singleton/surgery_step/cavity/implant_removal/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
-	if(affected)
-		for(var/obj/O in affected.implants)
-			if(!istype(O, /obj/item/organ/internal))
-				return affected
+	if (!affected)
+		return FALSE
+	for (var/obj/O in affected.implants)
+		if (!istype(O, /obj/item/organ/internal))
+			return affected
 	return FALSE
 
 /singleton/surgery_step/cavity/implant_removal/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

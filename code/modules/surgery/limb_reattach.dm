@@ -13,11 +13,10 @@
 
 /singleton/surgery_step/limb/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	if(affected)
+	if (affected)
 		return affected
-	else
-		var/list/organ_data = target.species.has_limbs["[target_zone]"]
-		return !isnull(organ_data)
+	var/list/organ_data = target.species.has_limbs["[target_zone]"]
+	return !isnull(organ_data)
 
 //////////////////////////////////////////////////////////////////
 //	 limb attachment surgery step

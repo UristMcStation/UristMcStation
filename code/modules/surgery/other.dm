@@ -23,8 +23,9 @@
 
 /singleton/surgery_step/fix_tendon/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
-	if(affected && (affected.status & ORGAN_TENDON_CUT))
-		return affected
+	if (!affected || !HAS_FLAGS(affected.status, ORGAN_TENDON_CUT))
+		return FALSE
+	return affected
 
 /singleton/surgery_step/fix_tendon/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -68,8 +69,9 @@
 
 /singleton/surgery_step/fix_vein/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
-	if(affected && (affected.status & ORGAN_ARTERY_CUT))
-		return affected
+	if (!affected || !HAS_FLAGS(affected.status, ORGAN_ARTERY_CUT))
+		return FALSE
+	return affected
 
 /singleton/surgery_step/fix_vein/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -165,8 +167,9 @@
 
 /singleton/surgery_step/sterilize/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
-	if(affected && !affected.is_disinfected() && check_chemicals(tool))
-		return affected
+	if (!affected || affected.is_disinfected() || !check_chemicals(tool))
+		return FALSE
+	return affected
 
 
 /singleton/surgery_step/sterilize/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/tool)

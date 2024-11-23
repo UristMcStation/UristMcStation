@@ -9,8 +9,9 @@
 
 /singleton/surgery_step/bone/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()
-	if(affected && (affected.status & ORGAN_BROKEN) && affected.stage == required_stage)
-		return affected
+	if (!affected || !HAS_FLAGS(affected.status, ORGAN_BROKEN) || affected.stage != required_stage)
+		return FALSE
+	return affected
 
 //////////////////////////////////////////////////////////////////
 //	bone gelling surgery step

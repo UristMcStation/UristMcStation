@@ -14,10 +14,14 @@
 	surgery_candidate_flags = SURGERY_NO_ROBOTIC | SURGERY_NO_CRYSTAL | SURGERY_NEEDS_RETRACTED
 
 /singleton/surgery_step/fix_face/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(target_zone == BP_HEAD)
-		var/obj/item/organ/external/affected = ..()
-		if(affected && (affected.status & ORGAN_DISFIGURED))
-			return affected
+	if (target_zone != BP_HEAD)
+		return FALSE
+	var/obj/item/organ/external/affected = ..()
+	if (!affected)
+		return FALSE
+	if (!HAS_FLAGS(affected.status, ORGAN_DISFIGURED))
+		return FALSE
+	return affected
 
 /singleton/surgery_step/fix_face/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("[user] starts repairing damage to \the [target]'s face with \the [tool].", \
@@ -47,10 +51,14 @@
 	var/required_stage = 0
 
 /singleton/surgery_step/plastic_surgery/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(target_zone == BP_HEAD)
-		var/obj/item/organ/external/affected = ..()
-		if(affected && affected.stage == required_stage)
-			return affected
+	if (target_zone != BP_HEAD)
+		return FALSE
+	var/obj/item/organ/external/affected = ..()
+	if (!affected)
+		return FALSE
+	if (affected.stage != required_stage)
+		return FALSE
+	return affected
 
 /singleton/surgery_step/plastic_surgery/prepare_face
 	name = "Prepare Face"
