@@ -12,8 +12,8 @@ var/global/list/floating_chat_colors = list()
 /// Max width of chat message in pixels
 #define CHAT_MESSAGE_HEIGHT 64
 
-/atom/movable
-	var/list/stored_chat_text
+/// LAZYLIST of `/image`. Floating text message images being processed by this atom.
+/atom/movable/var/list/stored_chat_text
 
 /atom/movable/proc/animate_chat(message, datum/language/language, small, list/show_to, duration = CHAT_MESSAGE_LIFESPAN)
 	set waitfor = FALSE

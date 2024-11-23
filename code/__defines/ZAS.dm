@@ -7,9 +7,14 @@
 
 #define ZONE_MIN_SIZE 14 //zones with less than this many turfs will always merge, even if the connection is not direct
 
+// Options for `/atom/movable/var/atmos_canpass`.
+/// Air can always pass through this atom.
 #define CANPASS_ALWAYS 1
+/// Air can only pass through this atom if `density` is `FALSE`.
 #define CANPASS_DENSITY 2
+/// Air passability is checked through this atom's `c_airblock()` override.
 #define CANPASS_PROC 3
+/// Air can never pass through this atom.
 #define CANPASS_NEVER 4
 
 #define NORTHUP (NORTH|UP)
