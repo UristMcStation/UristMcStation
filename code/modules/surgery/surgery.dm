@@ -181,6 +181,17 @@ GLOBAL_LIST_INIT(surgery_tool_exception_cache, new)
 
 	return affected
 
+/**
+ * Determines whether or not `target` is valid for this surgery.
+ *
+ * **Parameters**:
+ * - `user` - The mob performing the surgery.
+ * - `target` - The mob being operated on.
+ * - `target_zone` - `user`'s target body zone.
+ * - `tool` - The item being used to perform the surgery.
+ *
+ * Returns boolean.
+ */
 /singleton/surgery_step/proc/assess_surgery_candidate(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return ishuman(target)
 
