@@ -230,6 +230,9 @@ GLOBAL_LIST_INIT(machine_path_to_circuit_type, cache_circuits_by_build_path())
 		var/list/missing = missing_parts()
 		for(var/path in missing)
 			if(istype(component, path))
+				if (missing[path] == 0)
+					to_chat(user, SPAN_WARNING("\The [src] cannot hold another [component.name]."))
+					return -1
 				return missing[path]
 		return 0
 	if(!(component.part_flags & PART_FLAG_HAND_REMOVE))
