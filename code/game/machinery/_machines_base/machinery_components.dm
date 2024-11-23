@@ -214,7 +214,17 @@ GLOBAL_LIST_INIT(machine_path_to_circuit_type, cache_circuits_by_build_path())
 /obj/machinery/proc/components_are_accessible(path)
 	return panel_open
 
-/// Installation. Returns number of such components which can be inserted. Returns `-1` if there was a validation or user error, stopping the interaction chain. Returns `0` if the item isn't valid for adding as a component, allowing the interaction chain to continue.
+/**
+ * Determines if a given item can be inserted, and how many.
+ *
+ * **Parameters**:
+ * - `component` (Path or instance) - The item path to test. Does not have to be a subtype of `/obj/item/stock_parts`.
+ * - `user` - The mob performing the interaction. Used for feedback messages
+ *
+ * Returns number of such components which can be inserted,
+ * `-1` if there was a validation or user error, stopping the interaction chain,
+ * or `0` if the item isn't valid for adding as a component, allowing the interaction chain to continue.
+ */
 /obj/machinery/proc/can_add_component(obj/item/stock_parts/component, mob/user)
 	if(!istype(component)) // Random items. Only insert if actually needed.
 		var/list/missing = missing_parts()
