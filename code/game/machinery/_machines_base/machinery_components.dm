@@ -214,7 +214,7 @@ GLOBAL_LIST_INIT(machine_path_to_circuit_type, cache_circuits_by_build_path())
 /obj/machinery/proc/components_are_accessible(path)
 	return panel_open
 
-/// Installation. Returns number of such components which can be inserted.
+/// Installation. Returns number of such components which can be inserted. Returns `-1` if there was a validation or user error, stopping the interaction chain. Returns `0` if the item isn't valid for adding as a component, allowing the interaction chain to continue.
 /obj/machinery/proc/can_add_component(obj/item/stock_parts/component, mob/user)
 	if(!istype(component)) // Random items. Only insert if actually needed.
 		var/list/missing = missing_parts()
@@ -226,11 +226,11 @@ GLOBAL_LIST_INIT(machine_path_to_circuit_type, cache_circuits_by_build_path())
 		return 0
 	if(!components_are_accessible(component.type))
 		to_chat(user, SPAN_WARNING("The insertion point for \the [component] is inaccessible!"))
-		return 0
+		return -1
 	for(var/path in maximum_component_parts)
 		if(istype(component, path) && (number_of_components(path) == maximum_component_parts[path]))
 			to_chat(user, SPAN_WARNING("There are too many parts of this type installed in \the [src] already!"))
-			return 0
+			return -1
 	return 1
 
 /// Called whenever an attached component updates it's status. Override to handle updates to the machine.
@@ -328,8 +328,10 @@ Standard helpers for users interacting with machinery parts.
 	if (!user.canUnEquip(part) && !isstack(part))
 		return FALSE
 	var/number = can_add_component(part, user)
-	if (!number)
+	if (number == -1)
 		return TRUE
+	if (number == 0)
+		return FALSE
 	if (isstack(part))
 		var/obj/item/stack/stack = part
 		if (!stack.can_use(number))
