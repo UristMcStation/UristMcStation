@@ -181,8 +181,8 @@
 	say_list_type = /datum/say_list/fleet/friendly
 	faction = MOB_FACTION_CREW
 
-/mob/living/simple_animal/hostile/human/fleet/space/Process_Spacemove()
-	return 1
+/mob/living/simple_animal/hostile/human/fleet/space/Process_Spacemove(allow_movement)
+	return TRUE
 
 //////////////Rigsuit - Bullpup////////////////
 

@@ -77,31 +77,31 @@
  * **Parameters**:
  * - `allow_movement` (Boolean) - Whether or not this check should allow for manual mob movement.
  *
- * Returns `-1`, `1` to block/halt drifting, or `0` to start/continue drifting. TODO: Make these defines instead.
+ * Returns boolean. Whether or not space drifting should be blocked/stopped.
  */
 /atom/movable/proc/Process_Spacemove(allow_movement = FALSE)
 	if(!simulated)
-		return 1
+		return TRUE
 
 	if(has_gravity())
-		return 1
+		return TRUE
 
 	if(pulledby)
-		return 1
+		return TRUE
 
 	if(throwing)
-		return 1
+		return TRUE
 
 	if(anchored)
-		return 1
+		return TRUE
 
 	if(!isturf(loc))
-		return 1
+		return TRUE
 
 	if(locate(/obj/structure/lattice) in range(1, get_turf(src))) //Not realistic but makes pushing things in space easier
-		return -1
+		return TRUE
 
-	return 0
+	return FALSE
 
 /atom/movable/hitby(atom/movable/AM, datum/thrownthing/TT)
 	. = ..()

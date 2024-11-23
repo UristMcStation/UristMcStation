@@ -37,8 +37,8 @@
 	maxHealth = 100
 	health = 100
 
-/mob/living/simple_animal/hostile/hivebot/ranged_damage/fleet_robot/Process_Spacemove()
-	return 1
+/mob/living/simple_animal/hostile/hivebot/ranged_damage/fleet_robot/Process_Spacemove(allow_movement)
+	return TRUE
 
 /datum/ai_holder/simple_animal/ranged/kiting/threatening/deimos
 	speak_chance = 0
@@ -270,7 +270,7 @@
 		explosion(loc, explosion_radius, explosion_max_power)
 		qdel(src)
 
-/mob/living/simple_animal/hostile/fleet_heavy/Process_Spacemove()
+/mob/living/simple_animal/hostile/fleet_heavy/Process_Spacemove(allow_movement)
 	return TRUE
 
 /obj/aura/mobshield

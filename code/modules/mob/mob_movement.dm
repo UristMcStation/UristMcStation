@@ -175,14 +175,14 @@
 
 /mob/Process_Spacemove(allow_movement)
 	. = ..()
-	if(.)
+	if (.)
 		return
 
 	var/atom/movable/backup = get_spacemove_backup()
-	if(backup)
-		if(istype(backup) && allow_movement)
+	if (backup)
+		if (istype(backup) && allow_movement)
 			return backup
-		return -1
+		return TRUE
 
 /mob/proc/space_do_move(allow_move, direction)
 	if(ismovable(allow_move))//push off things in space
