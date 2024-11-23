@@ -59,7 +59,7 @@
 
 //call this proc to start space drifting
 /atom/movable/proc/space_drift(direction)//move this down
-	if(!loc || direction & (UP|DOWN) || Process_Spacemove(0))
+	if(!loc || direction & (UP|DOWN) || Process_Spacemove())
 		inertia_dir = 0
 		inertia_ignore = null
 		return 0
@@ -71,8 +71,15 @@
 	SSspacedrift.processing[src] = src
 	return 1
 
-//return 0 to space drift, 1 to stop, -1 for mobs to handle space slips
-/atom/movable/proc/Process_Spacemove(allow_movement)
+/**
+ * Whether or not the atom is able to start drifting. Includes various relevant checks such as gravity, anchored, whether the atom's movement is already being controlled by something else, etc.
+ *
+ * **Parameters**:
+ * - `allow_movement` (Boolean) - Whether or not this check should allow for manual mob movement.
+ *
+ * Returns `-1`, `1` to block/halt drifting, or `0` to start/continue drifting. TODO: Make these defines instead.
+ */
+/atom/movable/proc/Process_Spacemove(allow_movement = FALSE)
 	if(!simulated)
 		return 1
 
