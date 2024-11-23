@@ -5,38 +5,56 @@
 
 	animate_movement = SLIDE_STEPS
 
+	/// Boolean. Whether or not the atom is affected by being submerged in water. If set to `FALSE`, `water_act()` is called when in contact with fluids.
 	var/waterproof = TRUE
-	var/movable_flags
+	/// Bitflag (Any of `MOVABLE_FLAG_*`). Bitflags for movable atoms. See `code\__defines\flags.dm`.
+	var/movable_flags = EMPTY_BITFIELD
 
-	var/last_move = null
+	/// Bitflag (Directionals). Direction of the last movement. Generally passed to `step()` as the `dir` parameter. Set during `Move()`.
+	var/last_move = EMPTY_BITFIELD
+	/// Boolean. Whether or not the atom is considered anchored.
 	var/anchored = FALSE
-	// var/elevation = 2    - not used anywhere
+	/// Integer. The atom's current movement speed, calculated as the difference between `world.time` and `l_move_time`. Set during `Move()`.
 	var/move_speed = 10
+	/// Integer. The `world.time` of the last movement. Set during `Move()`.
 	var/l_move_time = 1
+	/// Instance. Current thrown thing datum linked to this atom. Set during `throw_at()`.
 	var/datum/thrownthing/throwing
+	/// Integer. The speed at which the atom moves when thrown. Used when calling `throw_at()`, and in `momentum_power()` and `momentum_do()`.
 	var/throw_speed = 2
+	/// Integer. Maximum range, in tiles, this atom can be thrown.
 	var/throw_range = 7
-	var/moved_recently = 0
+	/// Boolean. Whether or not this atom has recently (Within the past 50 ticks) been force moved by `/obj/item/device/radio/electropack/receive_signal()`.
+	var/moved_recently = FALSE
+	/// Instance. The mob currently pulling the atom.
 	var/mob/pulledby = null
-	var/item_state = null // Used to specify the item state for the on-mob overlays.
-	var/does_spin = TRUE // Does the atom spin when thrown (of course it does :P)
+	/// String (Icon state). Used to specify the item state for the on-mob overlays. Primarily only used in `/obj/item/get_icon_state()`. Generally, you should only be updating this in `on_update_icon()`.
+	var/item_state = null // TODO: Move this to `/obj/item`?
+	/// Boolean. Does the atom spin when thrown (of course it does :P)
+	var/does_spin = TRUE
 
-	/// The icon width this movable expects to have by default.
+	/// Integer. The icon width this movable expects to have by default.
 	var/icon_width = 32
 
-	/// The icon height this movable expects to have by default.
+	/// Integer. The icon height this movable expects to have by default.
 	var/icon_height = 32
 
-	/// Either [EMISSIVE_BLOCK_NONE], [EMISSIVE_BLOCK_GENERIC], or [EMISSIVE_BLOCK_UNIQUE]
+	/// Integer (One of `EMISSIVE_BLOCK_*`). Whether this atom blocks emissive overlays, and what method is used for blocking. See `code\__defines\emissives.dm`.
 	var/blocks_emissive = EMISSIVE_BLOCK_NONE
-	///Internal holder for emissive blocker object, DO NOT USE DIRECTLY. Use blocks_emissive
+	/// Instance. Internal holder for emissive blocker object, DO NOT USE DIRECTLY. Use blocks_emissive
 	var/mutable_appearance/em_block
 
-	var/inertia_dir = 0
+	/// Bitflag (Directional). Direction the atom is currently travelling for space drift. Set by `space_drift()` and `Bump()`. Used by `momentum_do()` and the `spacedrift` subsystem.
+	var/inertia_dir = EMPTY_BITFIELD
+	/// Instance. The atoms `loc` value during the last space movement. Set by `space_drift()` and the `spacedrift` subsystem.
 	var/atom/inertia_last_loc
-	var/inertia_moving = 0
+	/// Boolean. Whether or not the atom is currently being moved by space drift inertia. Set by the `spacedrift` subsystem and checked during `Move()`.
+	var/inertia_moving = FALSE
+	/// Integer. `world.time` that the next space drift movement should occur. Set by `Move()` and the `spacedrift` subsystem. Used by the `spacedrift` subsystem.
 	var/inertia_next_move = 0
+	/// Integer. Number of ticks to add to the current `world.time` when updating `inertia_next_move`. Used by `Move()` and the `spacedrift` subsystem.
 	var/inertia_move_delay = 5
+	/// Instance. Atom that should be ignored by `/mob/get_spacemove_backup()`. Updated and used by various movement related procs.
 	var/atom/movable/inertia_ignore
 
 //call this proc to start space drifting
