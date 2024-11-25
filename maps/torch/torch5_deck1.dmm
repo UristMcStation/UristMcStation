@@ -10564,11 +10564,6 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/security/storage)
 "aLz" = (
-/obj/item/storage/firstaid/regular,
-/obj/item/storage/firstaid/fire{
-	pixel_x = -4;
-	pixel_y = -4
-	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/security/storage)
 "aLA" = (
@@ -27318,6 +27313,8 @@
 /obj/structure/closet/medical_wall/filled{
 	pixel_y = -32
 	},
+/obj/item/storage/firstaid/fire,
+/obj/item/storage/firstaid/regular,
 /turf/simulated/floor/tiled,
 /area/security/locker)
 "svb" = (
