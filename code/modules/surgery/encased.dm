@@ -29,10 +29,12 @@
 
 /singleton/surgery_step/open_encased/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("[user] begins to cut through [target]'s [affected.encased] with \the [tool].", \
-	"You begin to cut through [target]'s [affected.encased] with \the [tool].")
-	target.custom_pain("Something hurts horribly in your [affected.name]!",60, affecting = affected)
-	playsound(target.loc, 'sound/items/circularsaw.ogg', 50, TRUE)
+	user.visible_message(
+		SPAN_NOTICE("\The [user] begins to cut through [target]'s [affected.encased] with \a [tool]."),
+		SPAN_NOTICE("You begin to cut through [target]'s [affected.encased] with \the [tool].")
+	)
+	target.custom_pain("Something hurts horribly in your [affected.name]!", 60, affecting = affected)
+	playsound(target, 'sound/items/circularsaw.ogg', 50, TRUE)
 	..()
 
 /singleton/surgery_step/open_encased/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

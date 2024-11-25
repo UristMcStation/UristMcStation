@@ -195,22 +195,39 @@ GLOBAL_LIST_INIT(surgery_tool_exception_cache, new)
 /singleton/surgery_step/proc/assess_surgery_candidate(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return ishuman(target)
 
-// does stuff to begin the step, usually just printing messages. Moved germs transfering and bloodying here too
+
+/**
+ * Does stuff to begin the step, usually just printing messages. Moved germs transfering and bloodying here too.
+ *
+ * This is generally things that occur before the `do_after()` timer.
+ *
+ * **Parameters**:
+ * - `user` - The mob performing the surgery.
+ * - `target` - The mob being operated on.
+ * - `target_zone` - `user`'s targeted body zone.
+ * - `tool` - The item being used to perform the surgery.
+ *
+ * Has no return value.
+ */
 /singleton/surgery_step/proc/begin_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+
 	if (can_infect && affected)
 		spread_germs_to_organ(affected, user)
-	if(ishuman(user) && prob(60))
+
+	if (ishuman(user) && prob(60))
 		var/mob/living/carbon/human/H = user
 		if (blood_level >= BLOOD_LEVEL_HANDS)
 			H.bloody_hands(target,0)
 		if (blood_level >= BLOOD_LEVEL_FULLBODY)
 			H.bloody_body(target,0)
-	if(shock_level)
+
+	if (shock_level)
 		target.shock_stage = max(target.shock_stage, shock_level)
+
 	if (target.stat == UNCONSCIOUS && prob(20))
 		to_chat(target, SPAN_NOTICE(SPAN_BOLD("... [pick("bright light", "faraway pain", "something moving in you", "soft beeping")] ...")))
-	return
+
 
 // does stuff to end the step, which is normally print a message + do whatever this step changes
 /singleton/surgery_step/proc/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

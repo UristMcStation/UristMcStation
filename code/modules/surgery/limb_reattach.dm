@@ -79,10 +79,12 @@
 		. = (P && !P.is_stump() && !(BP_IS_ROBOTIC(P) && !BP_IS_ROBOTIC(E)))
 
 /singleton/surgery_step/limb/attach/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	var/obj/item/organ/external/E = tool
-	user.visible_message("[user] starts attaching [E.name] to [target]'s [E.amputation_point].", \
-	"You start attaching [E.name] to [target]'s [E.amputation_point].")
-	playsound(target.loc, 'sound/items/bonesetter.ogg', 50, TRUE)
+	var/obj/item/organ/external/affected = tool
+	user.visible_message(
+		SPAN_NOTICE("\The [user] starts attaching \a [affected] to \the [target]'s [affected.amputation_point]."),
+		SPAN_NOTICE("You start attaching \the [affected] to \the [target]'s [affected.amputation_point].")
+	)
+	playsound(target, 'sound/items/bonesetter.ogg', 50, TRUE)
 
 /singleton/surgery_step/limb/attach/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!user.unEquip(tool))
@@ -131,10 +133,12 @@
 		return E && !E.is_stump() && (E.status & ORGAN_CUT_AWAY)
 
 /singleton/surgery_step/limb/connect/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	var/obj/item/organ/external/E = target.get_organ(target_zone)
-	user.visible_message("[user] starts connecting tendons and muscles in [target]'s [E.amputation_point] with [tool].", \
-	"You start connecting tendons and muscle in [target]'s [E.amputation_point].")
-	playsound(target.loc, 'sound/items/fixovein.ogg', 50, TRUE)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	user.visible_message(
+		SPAN_NOTICE("\The [user] starts connecting tendons and muscles in \the [target]'s [affected.amputation_point] with \a [tool]."),
+		SPAN_NOTICE("You start connecting tendons and muscle in \the [target]'s [affected.amputation_point] with \the [tool].")
+	)
+	playsound(target, 'sound/items/fixovein.ogg', 50, TRUE)
 
 /singleton/surgery_step/limb/connect/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/E = target.get_organ(target_zone)
@@ -180,9 +184,11 @@
 		return isnull(target.get_organ(target_zone))
 
 /singleton/surgery_step/limb/mechanize/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("[user] starts attaching \the [tool] to [target].", \
-	"You start attaching \the [tool] to [target].")
-	playsound(target.loc, 'sound/items/bonesetter.ogg', 50, TRUE)
+	user.visible_message(
+		SPAN_NOTICE("\The [user] starts attaching \a [tool] to \the [target]."),
+		SPAN_NOTICE("You start attaching \the [tool] to \the [target].")
+	)
+	playsound(target, 'sound/items/bonesetter.ogg', 50, TRUE)
 
 /singleton/surgery_step/limb/mechanize/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/robot_parts/L = tool

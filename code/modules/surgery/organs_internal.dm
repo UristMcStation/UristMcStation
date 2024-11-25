@@ -35,25 +35,34 @@
 	return affected
 
 /singleton/surgery_step/internal/fix_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	var/tool_name = "\the [tool]"
+	var/tool_name = tool.name
 	if (istype(tool, /obj/item/stack/medical/advanced/bruise_pack))
 		tool_name = "regenerative membrane"
 	else if (istype(tool, /obj/item/stack/medical/bruise_pack))
-		tool_name = "the bandaid"
+		tool_name = "bandaid"
+
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("[user] starts treating damage within \the [target]'s [affected.name] with [tool_name].", \
-	"You start treating damage within \the [target]'s [affected.name] with [tool_name]." )
-	for(var/obj/item/organ/internal/I in affected.internal_organs)
-		if(I && I.damage > 0 && !BP_IS_ROBOTIC(I) && (!(I.status & ORGAN_DEAD) || I.can_recover()) && (I.surface_accessible || affected.how_open() >= (affected.encased ? SURGERY_ENCASED : SURGERY_RETRACTED)))
-			user.visible_message("[user] starts treating damage to [target]'s [I.name] with [tool_name].", \
-			"You start treating damage to [target]'s [I.name] with [tool_name]." )
-		else if(I && !(I.status & ORGAN_CUT_AWAY) && (I.status & ORGAN_DEAD) && I.parent_organ == affected.organ_tag && !BP_IS_ROBOTIC(I))
-			if (!I.can_recover())
-				to_chat(user, SPAN_WARNING("\The [target]'s [I.name] is fully necrotic; [tool_name] won't help here."))
+	user.visible_message(
+		"\The [user] starts treating damage within \the [target]'s [affected.name] with \a [tool_name].",
+		"You start treating damage within \the [target]'s [affected.name] with \the [tool_name]."
+	)
+
+	for (var/obj/item/organ/internal/internal in affected.internal_organs)
+		if (BP_IS_ROBOTIC(internal))
+			continue
+		if (internal.damage > 0 && (!HAS_FLAGS(internal.status, ORGAN_DEAD) || internal.can_recover()) && (internal.surface_accessible || affected.how_open() >= (affected.encased ? SURGERY_ENCASED : SURGERY_RETRACTED)))
+			user.visible_message(
+				SPAN_NOTICE("\The [user] starts treating damage to \the [target]'s [internal.name] with \a [tool_name]."),
+				SPAN_NOTICE("You start treating damage to \the [target]'s [internal.name] with \the [tool_name].")
+			)
+		else if (!(internal.status & ORGAN_CUT_AWAY) && HAS_FLAGS(internal.status, ORGAN_DEAD) && internal.parent_organ == affected.organ_tag)
+			if (!internal.can_recover())
+				to_chat(user, SPAN_WARNING("\The [target]'s [internal.name] is fully necrotic; \the [tool_name] won't help here."))
 			else
-				to_chat(user, SPAN_WARNING("\The [target]'s [I.name] is decaying; you'll need more than just [tool_name] here."))
-	target.custom_pain("The pain in your [affected.name] is living hell!",100,affecting = affected)
-	playsound(target.loc, 'sound/items/bonegel.ogg', 50, TRUE)
+				to_chat(user, SPAN_WARNING("\The [target]'s [internal.name] is decaying; you'll need more than just \the [tool_name] here."))
+
+	target.custom_pain("The pain in your [affected.name] is living hell!", 100, affecting = affected)
+	playsound(target, 'sound/items/bonegel.ogg', 50, TRUE)
 	..()
 
 /singleton/surgery_step/internal/fix_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -139,10 +148,12 @@
 
 /singleton/surgery_step/internal/detatch_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/detaching = LAZYACCESS(target.surgeries_in_progress, target_zone)
-	user.visible_message("[user] starts to separate [target]'s [detaching.name] with \the [tool].", \
-	"You start to separate [target]'s [detaching.name] with \the [tool]." )
+	user.visible_message(
+		SPAN_NOTICE("\The [user] starts to separate \the [target]'s [detaching.name] with \a [tool]."),
+		SPAN_NOTICE("You start to separate \the [target]'s [detaching.name] with \the [tool].")
+	)
 	target.custom_pain("Someone's ripping out your [detaching.name]!",100)
-	playsound(target.loc, 'sound/items/scalpel.ogg', 50, TRUE)
+	playsound(target, 'sound/items/scalpel.ogg', 50, TRUE)
 	..()
 
 /singleton/surgery_step/internal/detatch_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -223,10 +234,12 @@
 /singleton/surgery_step/internal/remove_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/removing = LAZYACCESS(target.surgeries_in_progress, target_zone)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("\The [user] starts removing [target]'s [removing.name] with \the [tool].", \
-	"You start removing \the [target]'s [removing.name] with \the [tool].")
-	target.custom_pain("The pain in your [affected.name] is living hell!",100,affecting = affected)
-	playsound(target.loc, 'sound/items/hemostat.ogg', 50, TRUE)
+	user.visible_message(
+		SPAN_NOTICE("\The [user] starts removing \the [target]'s [removing.name] with \a [tool]."),
+		SPAN_NOTICE("You start removing \the [target]'s [removing.name] with \the [tool].")
+	)
+	target.custom_pain("The pain in your [affected.name] is living hell!", 100, affecting = affected)
+	playsound(target, 'sound/items/hemostat.ogg', 50, TRUE)
 	..()
 
 /singleton/surgery_step/internal/remove_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -323,10 +336,12 @@
 
 /singleton/surgery_step/internal/replace_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("[user] starts [robotic_surgery ? "installing" : "transplanting"] \the [tool] into [target]'s [affected.name].", \
-	"You start [robotic_surgery ? "installing" : "transplanting"] \the [tool] into [target]'s [affected.name].")
-	target.custom_pain("Someone's rooting around in your [affected.name]!",100,affecting = affected)
-	playsound(target.loc, 'sound/items/scalpel.ogg', 50, TRUE)
+	user.visible_message(
+		SPAN_NOTICE("\The [user] starts [robotic_surgery ? "installing" : "transplanting"] \a [tool] into \the [target]'s [affected.name]."),
+		SPAN_NOTICE("You start [robotic_surgery ? "installing" : "transplanting"] \the [tool] into \the [target]'s [affected.name].")
+	)
+	target.custom_pain("Someone's rooting around in your [affected.name]!", 100, affecting = affected)
+	playsound(target, 'sound/items/scalpel.ogg', 50, TRUE)
 	..()
 
 /singleton/surgery_step/internal/replace_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -434,10 +449,12 @@
 
 /singleton/surgery_step/internal/attach_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/attaching = LAZYACCESS(target.surgeries_in_progress, target_zone)
-	user.visible_message("[user] begins attaching [target]'s [attaching.name] with \the [tool].", \
-	"You start attaching [target]'s [attaching.name] with \the [tool].")
-	target.custom_pain("Someone's digging needles into your [attaching.name]!",100)
-	playsound(target.loc, 'sound/items/fixovein.ogg', 50, TRUE)
+	user.visible_message(
+		"\The [user] begins attaching \the [target]'s [attaching.name] with \a [tool].",
+		"You start attaching \the target]'s [attaching.name] with \the [tool]."
+	)
+	target.custom_pain("Someone's digging needles into your [attaching.name]!", 100)
+	playsound(target, 'sound/items/fixovein.ogg', 50, TRUE)
 	..()
 
 /singleton/surgery_step/internal/attach_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -544,10 +561,12 @@
 
 
 /singleton/surgery_step/internal/treat_necrosis/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("[user] starts applying medication to the affected tissue in [target]'s [LAZYACCESS(target.surgeries_in_progress, target_zone)] with \the [tool]." , \
-	"You start applying medication to the affected tissue in [target]'s [LAZYACCESS(target.surgeries_in_progress, target_zone)] with \the [tool].")
-	target.custom_pain("Something in your [LAZYACCESS(target.surgeries_in_progress, target_zone)] is causing you a lot of pain!",50, affecting = LAZYACCESS(target.surgeries_in_progress, target_zone))
-	playsound(target.loc, 'sound/items/fixovein.ogg', 50, TRUE)
+	user.visible_message(
+		"\The [user] starts applying medication to the affected tissue in \the [target]'s [LAZYACCESS(target.surgeries_in_progress, target_zone)] with \a [tool].",
+		"You start applying medication to the affected tissue in \the [target]'s [LAZYACCESS(target.surgeries_in_progress, target_zone)] with \the [tool]."
+	)
+	target.custom_pain("Something in your [LAZYACCESS(target.surgeries_in_progress, target_zone)] is causing you a lot of pain!", 50, affecting = LAZYACCESS(target.surgeries_in_progress, target_zone))
+	playsound(target, 'sound/items/fixovein.ogg', 50, TRUE)
 	..()
 
 /singleton/surgery_step/internal/treat_necrosis/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

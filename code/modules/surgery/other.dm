@@ -29,10 +29,12 @@
 
 /singleton/surgery_step/fix_tendon/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("[user] starts reattaching the damaged [affected.tendon_name] in [target]'s [affected.name] with \the [tool]." , \
-	"You start reattaching the damaged [affected.tendon_name] in [target]'s [affected.name] with \the [tool].")
+	user.visible_message(
+		SPAN_NOTICE("\The [user] starts reattaching the damaged [affected.tendon_name] in [target]'s [affected.name] with \the [tool]."),
+		SPAN_NOTICE("You start reattaching the damaged [affected.tendon_name] in [target]'s [affected.name] with \the [tool].")
+	)
 	target.custom_pain("The pain in your [affected.name] is unbearable!",100,affecting = affected)
-	playsound(target.loc, 'sound/items/fixovein.ogg', 50, TRUE)
+	playsound(target, 'sound/items/fixovein.ogg', 50, TRUE)
 	..()
 
 /singleton/surgery_step/fix_tendon/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -75,10 +77,12 @@
 
 /singleton/surgery_step/fix_vein/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("[user] starts patching the damaged [affected.artery_name] in [target]'s [affected.name] with \the [tool]." , \
-	"You start patching the damaged [affected.artery_name] in [target]'s [affected.name] with \the [tool].")
-	target.custom_pain("The pain in your [affected.name] is unbearable!",100,affecting = affected)
-	playsound(target.loc, 'sound/items/fixovein.ogg', 50, TRUE)
+	user.visible_message(
+		SPAN_NOTICE("\The [user] starts patching the damaged [affected.artery_name] in \the [target]'s [affected.name] with \a [tool]."),
+		SPAN_NOTICE("You start patching the damaged [affected.artery_name] in \the [target]'s [affected.name] with \the [tool].")
+	)
+	target.custom_pain("The pain in your [affected.name] is unbearable!", 100, affecting = affected)
+	playsound(target, 'sound/items/fixovein.ogg', 50, TRUE)
 	..()
 
 /singleton/surgery_step/fix_vein/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -128,9 +132,11 @@
 	return (target_zone == BP_CHEST) && istype(target.back, /obj/item/rig) && !(target.back.canremove)
 
 /singleton/surgery_step/hardsuit/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("[user] starts cutting through the support systems of [target]'s [target.back] with \the [tool]." , \
-	"You start cutting through the support systems of [target]'s [target.back] with \the [tool].")
-	playsound(target.loc, 'sound/items/circularsaw.ogg', 50, TRUE)
+	user.visible_message(
+		SPAN_NOTICE("\The [user] starts cutting through the support systems of \the [target]'s [target.back] with \a [tool]."),
+		SPAN_NOTICE("You start cutting through the support systems of \the [target]'s [target.back] with \the [tool].")
+	)
+	playsound(target, 'sound/items/circularsaw.ogg', 50, TRUE)
 	..()
 
 /singleton/surgery_step/hardsuit/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -178,10 +184,12 @@
 
 /singleton/surgery_step/sterilize/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("[user] starts pouring [tool]'s contents on \the [target]'s [affected.name]." , \
-	"You start pouring [tool]'s contents on \the [target]'s [affected.name].")
-	target.custom_pain("Your [affected.name] is on fire!",50,affecting = affected)
-	playsound(target.loc, 'sound/items/spray_1.ogg', 15, 1)
+	user.visible_message(
+		SPAN_NOTICE("\The [user] starts pouring \a [tool]'s contents on \the [target]'s [affected.name]."),
+		SPAN_NOTICE("You start pouring \the [tool]'s contents on \the [target]'s [affected.name].")
+	)
+	target.custom_pain("Your [affected.name] is on fire!", 50, affecting = affected)
+	playsound(target, 'sound/items/spray_1.ogg', 15, TRUE)
 	..()
 
 /singleton/surgery_step/sterilize/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

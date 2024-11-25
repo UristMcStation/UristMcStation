@@ -40,11 +40,13 @@
 
 /singleton/surgery_step/cavity/make_space/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("[user] starts making some space inside [target]'s [affected.cavity_name] cavity with \the [tool].", \
-	"You start making some space inside [target]'s [affected.cavity_name] cavity with \the [tool]." )
-	target.custom_pain("The pain in your chest is living hell!",1,affecting = affected)
+	user.visible_message(
+		SPAN_NOTICE("\The [user] starts making some space inside \the [target]'s [affected.cavity_name] cavity with \a [tool]."),
+		SPAN_NOTICE("You start making some space inside \the [target]'s [affected.cavity_name] cavity with \the [tool].")
+	)
+	target.custom_pain("The pain in your chest is living hell!", 1, affecting = affected)
 	affected.cavity = TRUE
-	playsound(target.loc, 'sound/items/surgicaldrill.ogg', 50, TRUE)
+	playsound(target, 'sound/items/surgicaldrill.ogg', 50, TRUE)
 	..()
 
 /singleton/surgery_step/cavity/make_space/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -74,10 +76,12 @@
 
 /singleton/surgery_step/cavity/close_space/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("[user] starts mending [target]'s [affected.cavity_name] cavity wall with \the [tool].", \
-	"You start mending [target]'s [affected.cavity_name] cavity wall with \the [tool]." )
-	target.custom_pain("The pain in your chest is living hell!",1,affecting = affected)
-	playsound(target.loc, 'sound/items/cautery.ogg', 50, TRUE)
+	user.visible_message(
+		SPAN_NOTICE("\The [user] starts mending \the [target]'s [affected.cavity_name] cavity wall with \a [tool]."),
+		SPAN_NOTICE("You start mending \the [target]'s [affected.cavity_name] cavity wall with \the [tool].")
+	)
+	target.custom_pain("The pain in your chest is living hell!", 1, affecting = affected)
+	playsound(target, 'sound/items/cautery.ogg', 50, TRUE)
 	..()
 
 /singleton/surgery_step/cavity/close_space/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -131,10 +135,12 @@
 
 /singleton/surgery_step/cavity/place_item/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("[user] starts putting \the [tool] inside [target]'s [affected.cavity_name] cavity.", \
-	"You start putting \the [tool] inside [target]'s [affected.cavity_name] cavity." )
-	target.custom_pain("The pain in your chest is living hell!",1,affecting = affected)
-	playsound(target.loc, 'sound/effects/squelch1.ogg', 25, 1)
+	user.visible_message(
+		SPAN_NOTICE("\The [user] starts putting \a [tool] inside \the [target]'s [affected.cavity_name] cavity."),
+		SPAN_NOTICE("You start putting \the [tool] inside \the [target]'s [affected.cavity_name] cavity.")
+	)
+	target.custom_pain("The pain in your chest is living hell!", 1, affecting = affected)
+	playsound(target, 'sound/effects/squelch1.ogg', 25, TRUE)
 	..()
 
 /singleton/surgery_step/cavity/place_item/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -173,10 +179,12 @@
 
 /singleton/surgery_step/cavity/implant_removal/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("[user] starts poking around inside [target]'s [affected.name] with \the [tool].", \
-	"You start poking around inside [target]'s [affected.name] with \the [tool]." )
-	target.custom_pain("The pain in your [affected.name] is living hell!",1,affecting = affected)
-	playsound(target.loc, 'sound/items/hemostat.ogg', 50, TRUE)
+	user.visible_message(
+		SPAN_NOTICE("\The [user] starts poking around inside \the [target]'s [affected.name] with \a [tool]."),
+		SPAN_NOTICE("You start poking around inside \the [target]'s [affected.name] with \the [tool].")
+	)
+	target.custom_pain("The pain in your [affected.name] is living hell!", 1, affecting = affected)
+	playsound(target, 'sound/items/hemostat.ogg', 50, TRUE)
 	..()
 
 
